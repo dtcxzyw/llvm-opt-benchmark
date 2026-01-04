@@ -3693,7 +3693,7 @@ common.resume.sink.split:                         ; preds = %39, %50, %55, %67, 
   br label %common.resume185
 
 common.resume185:                                 ; preds = %.body130, %.body, %.body15, %.body26, %.body33, %.body134, %.body138, %.body45, %148, %.body52, %163, %.body59, %184, %.body71, %199, %"_ZN4core3ptr85drop_in_place$LT$alloc..boxed..Box$LT$$u5b$ruff_python_ast..nodes..CmpOp$u5d$$GT$$GT$17hf4c97a6b855cfc51E.exit82", %.body90, %.body96, %308, %.body104, %.body143, %.body148, %.body121, %common.resume.sink.split, %.body.i184
-  %common.resume185.op = phi { ptr, i32 } [ %248, %.body.i184 ], [ %22, %.body130 ], [ %33, %.body ], [ %44, %.body15 ], [ %63, %.body26 ], [ %.pn.i, %.body33 ], [ %eh.lpad-body.i, %.body134 ], [ %129, %.body138 ], [ %141, %.body45 ], [ %149, %148 ], [ %156, %.body52 ], [ %164, %163 ], [ %.pn.i1, %.body59 ], [ %185, %184 ], [ %192, %.body71 ], [ %200, %199 ], [ %223, %"_ZN4core3ptr85drop_in_place$LT$alloc..boxed..Box$LT$$u5b$ruff_python_ast..nodes..CmpOp$u5d$$GT$$GT$17hf4c97a6b855cfc51E.exit82" ], [ %261, %.body90 ], [ %304, %.body96 ], [ %304, %308 ], [ %320, %.body104 ], [ %353, %.body143 ], [ %375, %.body148 ], [ %.pn.i4, %.body121 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume185.op = phi { ptr, i32 } [ %248, %.body.i184 ], [ %200, %199 ], [ %22, %.body130 ], [ %223, %"_ZN4core3ptr85drop_in_place$LT$alloc..boxed..Box$LT$$u5b$ruff_python_ast..nodes..CmpOp$u5d$$GT$$GT$17hf4c97a6b855cfc51E.exit82" ], [ %33, %.body ], [ %261, %.body90 ], [ %304, %308 ], [ %44, %.body15 ], [ %304, %.body96 ], [ %63, %.body26 ], [ %.pn.i4, %.body121 ], [ %.pn.i, %.body33 ], [ %eh.lpad-body.i, %.body134 ], [ %129, %.body138 ], [ %141, %.body45 ], [ %149, %148 ], [ %156, %.body52 ], [ %164, %163 ], [ %.pn.i1, %.body59 ], [ %185, %184 ], [ %192, %.body71 ], [ %320, %.body104 ], [ %353, %.body143 ], [ %375, %.body148 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume185.op
 
 28:                                               ; preds = %.body130
@@ -4986,7 +4986,7 @@ common.resume.sink.split:                         ; preds = %86, %301, %104, %11
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %291, %.body.i31, %262, %.body.i25, %224, %.body63, %207, %201, %190, %177, %164, %.body2.i, %.body.i13, %110, %.body3.i, %.body42, %.body
-  %common.resume.op = phi { ptr, i32 } [ %.pn6.i, %.body ], [ %.pn4.i7, %.body42 ], [ %.pn.i9, %.body3.i ], [ %111, %110 ], [ %123, %.body.i13 ], [ %.pn.i17, %.body2.i ], [ %.pn2.i22, %164 ], [ %.pn.i23, %177 ], [ %.pn.i24, %190 ], [ %202, %201 ], [ %208, %207 ], [ %217, %.body63 ], [ %225, %224 ], [ %233, %.body.i25 ], [ %.pn2.i30, %262 ], [ %272, %.body.i31 ], [ %292, %291 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %272, %.body.i31 ], [ %.pn6.i, %.body ], [ %292, %291 ], [ %.pn4.i7, %.body42 ], [ %.pn.i9, %.body3.i ], [ %111, %110 ], [ %123, %.body.i13 ], [ %.pn.i17, %.body2.i ], [ %.pn2.i22, %164 ], [ %.pn.i23, %177 ], [ %.pn.i24, %190 ], [ %202, %201 ], [ %208, %207 ], [ %217, %.body63 ], [ %225, %224 ], [ %233, %.body.i25 ], [ %.pn2.i30, %262 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr64drop_in_place$LT$ruff_python_ast..generated..StmtFunctionDef$GT$17ha086d19dff0643d9E.exit": ; preds = %"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..generated..Expr$GT$$GT$17h137d94fadf50b817E.exit.i", %38
@@ -6129,7 +6129,7 @@ define hidden void @"_ZN4core3ptr54drop_in_place$LT$ruff_python_ast..nodes..Argu
   br label %common.resume
 
 common.resume:                                    ; preds = %.body6, %.body11
-  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body11 ], [ %13, %.body6 ]
+  %common.resume.op = phi { ptr, i32 } [ %13, %.body6 ], [ %eh.lpad-body.i, %.body11 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$$u5b$ruff_python_ast..nodes..Keyword$u5d$$GT$$GT$17h7468e9b5237baf22E.exit": ; preds = %"_ZN4core3ptr52drop_in_place$LT$ruff_python_ast..nodes..Keyword$GT$17hf2f5bd52bf634f7eE.exit.i"
@@ -6641,7 +6641,7 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$ruff_python_ast..nodes..Para
   br label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$ruff_python_ast..nodes..Parameter$GT$$GT$$GT$17h0b511f13eb596f36E.exit10"
 
 "_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$ruff_python_ast..nodes..Parameter$GT$$GT$$GT$17h0b511f13eb596f36E.exit": ; preds = %.body.i, %.body6, %49
-  %.pn2 = phi { ptr, i32 } [ %.pn, %49 ], [ %.pn, %.body6 ], [ %eh.lpad-body.i, %.body.i ]
+  %.pn2 = phi { ptr, i32 } [ %.pn, %.body6 ], [ %.pn, %49 ], [ %eh.lpad-body.i, %.body.i ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 48
   invoke void @"_ZN4core3ptr88drop_in_place$LT$alloc..vec..Vec$LT$ruff_python_ast..nodes..ParameterWithDefault$GT$$GT$17ha22f2e7f99dc4165E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %72) #11
           to label %.body12 unwind label %120
@@ -6928,7 +6928,7 @@ define internal fastcc void @"_ZN4core3ptr56drop_in_place$LT$ruff_python_ast..ge
           to label %common.resume unwind label %26
 
 common.resume:                                    ; preds = %.body11, %115, %.body9, %83, %.body, %.body17, %.body13, %31
-  %common.resume.op = phi { ptr, i32 } [ %32, %31 ], [ %20, %.body13 ], [ %47, %.body17 ], [ %.pn.i, %.body ], [ %.pn.i, %83 ], [ %97, %.body9 ], [ %110, %115 ], [ %110, %.body11 ]
+  %common.resume.op = phi { ptr, i32 } [ %97, %.body9 ], [ %32, %31 ], [ %20, %.body13 ], [ %47, %.body17 ], [ %.pn.i, %83 ], [ %.pn.i, %.body ], [ %110, %115 ], [ %110, %.body11 ]
   resume { ptr, i32 } %common.resume.op
 
 26:                                               ; preds = %.body13
@@ -7810,7 +7810,7 @@ common.resume.sink.split:                         ; preds = %17, %39, %56
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %49, %.body.i, %10
-  %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %.pn.i, %.body.i ], [ %50, %49 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %.body.i ], [ %11, %10 ], [ %50, %49 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 17:                                               ; preds = %16
@@ -7930,7 +7930,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   unreachable
 
 "_ZN4core3ptr63drop_in_place$LT$ruff_python_ast..nodes..TypeParamParamSpec$GT$17h9ece1fcc516424c8E.exit.sink.split": ; preds = %55, %38, %16
-  %.sink13 = phi ptr [ %14, %16 ], [ %36, %38 ], [ %53, %55 ]
+  %.sink13 = phi ptr [ %36, %38 ], [ %14, %16 ], [ %53, %55 ]
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %.sink13, i64 noundef 64, i64 noundef 8) #10, !noalias !3
   br label %"_ZN4core3ptr63drop_in_place$LT$ruff_python_ast..nodes..TypeParamParamSpec$GT$17h9ece1fcc516424c8E.exit"
 
@@ -11532,7 +11532,7 @@ define hidden void @"_ZN4core3ptr69drop_in_place$LT$alloc..sync..ArcInner$LT$sal
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %83, %75, %54
-  %common.resume.op.i = phi { ptr, i32 } [ %76, %83 ], [ %76, %75 ], [ %.pn10.i, %54 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %76, %75 ], [ %76, %83 ], [ %.pn10.i, %54 ]
   resume { ptr, i32 } %common.resume.op.i
 
 84:                                               ; preds = %54, %42, %"_ZN4core3ptr211drop_in_place$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$salsa..zalsa..IngredientIndex$C$core..any..TypeId$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17h56eff045e777046bE.exit.i", %"_ZN4core3ptr207drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$std..collections..hash..map..HashMap$LT$core..any..TypeId$C$salsa..zalsa..IngredientIndex$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17hada27fe250cdc9dbE.exit.i", %.body
@@ -11852,7 +11852,7 @@ define hidden void @"_ZN4core3ptr70drop_in_place$LT$ty_project..metadata..option
   unreachable
 
 common.resume:                                    ; preds = %.body12, %72, %76, %79
-  %common.resume.op = phi { ptr, i32 } [ %73, %79 ], [ %73, %76 ], [ %73, %72 ], [ %.pn4, %.body12 ]
+  %common.resume.op = phi { ptr, i32 } [ %73, %72 ], [ %73, %79 ], [ %73, %76 ], [ %.pn4, %.body12 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$ty_project..metadata..value..RelativePathBuf$GT$$GT$17hb791c49af654992dE.exit18": ; preds = %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$ty_project..metadata..value..RelativePathBuf$GT$$GT$17hb791c49af654992dE.exit", %"_ZN4core3ptr57drop_in_place$LT$ruff_db..system..path..SystemPathBuf$GT$17h4e6c8b33e0e1cd55E.exit.i.i.i16", %82, %85
@@ -12455,7 +12455,7 @@ define hidden void @"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$ruff_pyth
   br i1 %21, label %.body, label %22
 
 .body.i.i:                                        ; preds = %15, %7
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %16, %15 ], [ %8, %7 ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %8, %7 ], [ %16, %15 ]
   br label %20
 
 22:                                               ; preds = %20
@@ -14633,7 +14633,7 @@ define internal fastcc void @"_ZN4core3ptr89drop_in_place$LT$salsa..storage..Sto
   unreachable
 
 common.resume:                                    ; preds = %6, %10, %15
-  %common.resume.op = phi { ptr, i32 } [ %11, %15 ], [ %11, %10 ], [ %7, %6 ]
+  %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %11, %15 ], [ %7, %6 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr51drop_in_place$LT$salsa..storage..CoordinateDrop$GT$17h194ab65d989aa083E.exit": ; preds = %16, %20

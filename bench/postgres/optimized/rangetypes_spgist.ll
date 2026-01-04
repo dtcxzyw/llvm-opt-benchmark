@@ -106,7 +106,7 @@ define dso_local noundef i64 @spg_range_quad_choose(ptr noundef %0) local_unname
   br label %getQuadrant.exit
 
 getQuadrant.exit:                                 ; preds = %33, %45, %46
-  %.0.i = phi i32 [ 5, %33 ], [ %..i, %45 ], [ %.7.i, %46 ]
+  %.0.i = phi i32 [ %.7.i, %46 ], [ %..i, %45 ], [ 5, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -311,7 +311,7 @@ define dso_local noundef i64 @spg_range_quad_picksplit(ptr noundef %0) local_unn
   br label %getQuadrant.exit
 
 getQuadrant.exit:                                 ; preds = %.lr.ph80, %115, %116
-  %.0.i = phi i32 [ 5, %.lr.ph80 ], [ %..i, %115 ], [ %.7.i, %116 ]
+  %.0.i = phi i32 [ %.7.i, %116 ], [ %..i, %115 ], [ 5, %.lr.ph80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -447,30 +447,30 @@ define dso_local noundef i64 @spg_range_quad_inner_consistent(ptr noundef %0) lo
 
 59:                                               ; preds = %52, %52, %52, %52, %52, %52
   %60 = and i32 %.0142304, 4
-  br i1 %58, label %.thread185, label %select.unfold180
+  br i1 %58, label %.thread185, label %select.unfold181
 
 61:                                               ; preds = %52
   %62 = and i32 %.0142304, 4
-  br i1 %58, label %.thread182, label %select.unfold180
+  br i1 %58, label %.thread182, label %select.unfold181
 
 63:                                               ; preds = %52
   %64 = and i32 %.0142304, 2
-  br i1 %58, label %select.unfold180, label %.thread182
+  br i1 %58, label %select.unfold181, label %.thread182
 
 .thread:                                          ; preds = %.lr.ph
   %65 = and i32 %.0142304, 4
-  br label %select.unfold180
+  br label %select.unfold181
 
 66:                                               ; preds = %52
   br i1 %58, label %67, label %69
 
 67:                                               ; preds = %66
   %68 = and i32 %.0142304, 2
-  br label %select.unfold180
+  br label %select.unfold181
 
 69:                                               ; preds = %66
   %70 = and i32 %.0142304, 4
-  br label %select.unfold180
+  br label %select.unfold181
 
 71:                                               ; preds = %52
   %72 = zext i16 %51 to i32
@@ -479,13 +479,13 @@ define dso_local noundef i64 @spg_range_quad_inner_consistent(ptr noundef %0) lo
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 401, ptr noundef nonnull @__func__.spg_range_quad_inner_consistent) #5
   unreachable
 
-select.unfold180:                                 ; preds = %63, %59, %61, %67, %69, %.thread
-  %.1143 = phi i32 [ %65, %.thread ], [ %68, %67 ], [ %70, %69 ], [ %62, %61 ], [ %60, %59 ], [ %64, %63 ]
+select.unfold181:                                 ; preds = %63, %61, %59, %67, %69, %.thread
+  %.1143 = phi i32 [ %70, %69 ], [ %68, %67 ], [ %65, %.thread ], [ %60, %59 ], [ %62, %61 ], [ %64, %63 ]
   %75 = icmp eq i32 %.1143, 0
   br i1 %75, label %.thread185, label %.thread182
 
-.thread182:                                       ; preds = %61, %63, %select.unfold180
-  %.1143184 = phi i32 [ %.1143, %select.unfold180 ], [ %.0142304, %63 ], [ %.0142304, %61 ]
+.thread182:                                       ; preds = %61, %63, %select.unfold181
+  %.1143184 = phi i32 [ %.1143, %select.unfold181 ], [ %.0142304, %63 ], [ %.0142304, %61 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %76 = load i32, ptr %45, align 8
   %77 = sext i32 %76 to i64
@@ -659,7 +659,7 @@ select.unfold180:                                 ; preds = %63, %59, %61, %67, 
   br label %getQuadrant.exit
 
 getQuadrant.exit:                                 ; preds = %138, %146, %147
-  %.0.i = phi i32 [ 5, %138 ], [ %..i, %146 ], [ %.7.i, %147 ]
+  %.0.i = phi i32 [ %.7.i, %147 ], [ %..i, %146 ], [ 5, %138 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -765,7 +765,7 @@ getQuadrant.exit:                                 ; preds = %138, %146, %147
   %spec.select178 = select i1 %or.cond174, i32 %177, i32 %.10
   br label %.thread287
 
-.thread287:                                       ; preds = %136, %getQuadrant.exit, %173, %172
+.thread287:                                       ; preds = %getQuadrant.exit, %136, %173, %172
   %.3152202229259286293 = phi i1 [ %.3152202229259, %172 ], [ %.3152202229259, %173 ], [ %.1150308, %getQuadrant.exit ], [ %.1150308, %136 ]
   %.11 = phi i32 [ %.10, %172 ], [ %spec.select178, %173 ], [ %149, %getQuadrant.exit ], [ %137, %136 ]
   %178 = icmp eq i32 %.11, 0
@@ -804,9 +804,9 @@ getQuadrant.exit:                                 ; preds = %138, %146, %147
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread185
 
-.thread185:                                       ; preds = %.thread182, %select.unfold180, %59, %.preheader, %.loopexit296
-  %.0149 = phi i1 [ %.2151, %.loopexit296 ], [ false, %.preheader ], [ false, %59 ], [ false, %select.unfold180 ], [ false, %.thread182 ]
-  %.2 = phi i32 [ %.4, %.loopexit296 ], [ 6, %.preheader ], [ %.1143184, %.thread182 ], [ 0, %select.unfold180 ], [ 0, %59 ]
+.thread185:                                       ; preds = %.thread182, %select.unfold181, %59, %.preheader, %.loopexit296
+  %.0149 = phi i1 [ %.2151, %.loopexit296 ], [ false, %.preheader ], [ false, %59 ], [ false, %select.unfold181 ], [ false, %.thread182 ]
+  %.2 = phi i32 [ %.4, %.loopexit296 ], [ 6, %.preheader ], [ %.1143184, %.thread182 ], [ 0, %select.unfold181 ], [ 0, %59 ]
   %182 = getelementptr inbounds nuw i8, ptr %19, i64 64
   %183 = load i32, ptr %182, align 8
   %184 = sext i32 %183 to i64
@@ -910,7 +910,7 @@ getQuadrant.exit:                                 ; preds = %138, %146, %147
   br i1 %.not165, label %._crit_edge, label %.lr.ph316.split, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %236, %222, %.thread342, %188
-  %239 = phi ptr [ %200, %.thread342 ], [ %196, %188 ], [ %196, %222 ], [ %200, %236 ]
+  %239 = phi ptr [ %200, %.thread342 ], [ %196, %222 ], [ %196, %188 ], [ %200, %236 ]
   store ptr %239, ptr @CurrentMemoryContext, align 8
   br label %.loopexit
 
@@ -1001,7 +1001,7 @@ adjacent_cmp_bounds.exit:                         ; preds = %12, %20, %21
   br label %adjacent_cmp_bounds.exit22
 
 adjacent_cmp_bounds.exit22:                       ; preds = %adjacent_cmp_bounds.exit, %42, %41, %33
-  %.1 = phi i32 [ 1, %41 ], [ -1, %33 ], [ %..i20, %42 ], [ 0, %adjacent_cmp_bounds.exit ]
+  %.1 = phi i32 [ %..i20, %42 ], [ 0, %adjacent_cmp_bounds.exit ], [ 1, %41 ], [ -1, %33 ]
   ret i32 %.1
 }
 
@@ -1043,15 +1043,15 @@ define dso_local range(i64 0, 2) i64 @spg_range_quad_leaf_consistent(ptr noundef
   %25 = load i16, ptr %24, align 2
   switch i16 %25, label %60 [
     i16 1, label %26
-    i16 2, label %30
-    i16 3, label %34
-    i16 4, label %38
-    i16 5, label %42
-    i16 6, label %46
-    i16 7, label %50
-    i16 8, label %54
-    i16 16, label %58
-    i16 18, label %68
+    i16 2, label %68
+    i16 3, label %30
+    i16 4, label %34
+    i16 5, label %38
+    i16 6, label %42
+    i16 7, label %46
+    i16 8, label %50
+    i16 16, label %54
+    i16 18, label %56
   ]
 
 26:                                               ; preds = %.lr.ph
@@ -1063,47 +1063,47 @@ define dso_local range(i64 0, 2) i64 @spg_range_quad_leaf_consistent(ptr noundef
 30:                                               ; preds = %.lr.ph
   %31 = inttoptr i64 %23 to ptr
   %32 = tail call ptr @pg_detoast_datum(ptr noundef %31) #5
-  %33 = tail call zeroext i1 @range_overleft_internal(ptr noundef %16, ptr noundef %11, ptr noundef %32) #5
+  %33 = tail call zeroext i1 @range_overlaps_internal(ptr noundef %16, ptr noundef %11, ptr noundef %32) #5
   br i1 %33, label %72, label %._crit_edge
 
 34:                                               ; preds = %.lr.ph
   %35 = inttoptr i64 %23 to ptr
   %36 = tail call ptr @pg_detoast_datum(ptr noundef %35) #5
-  %37 = tail call zeroext i1 @range_overlaps_internal(ptr noundef %16, ptr noundef %11, ptr noundef %36) #5
+  %37 = tail call zeroext i1 @range_overright_internal(ptr noundef %16, ptr noundef %11, ptr noundef %36) #5
   br i1 %37, label %72, label %._crit_edge
 
 38:                                               ; preds = %.lr.ph
   %39 = inttoptr i64 %23 to ptr
   %40 = tail call ptr @pg_detoast_datum(ptr noundef %39) #5
-  %41 = tail call zeroext i1 @range_overright_internal(ptr noundef %16, ptr noundef %11, ptr noundef %40) #5
+  %41 = tail call zeroext i1 @range_after_internal(ptr noundef %16, ptr noundef %11, ptr noundef %40) #5
   br i1 %41, label %72, label %._crit_edge
 
 42:                                               ; preds = %.lr.ph
   %43 = inttoptr i64 %23 to ptr
   %44 = tail call ptr @pg_detoast_datum(ptr noundef %43) #5
-  %45 = tail call zeroext i1 @range_after_internal(ptr noundef %16, ptr noundef %11, ptr noundef %44) #5
+  %45 = tail call zeroext i1 @range_adjacent_internal(ptr noundef %16, ptr noundef %11, ptr noundef %44) #5
   br i1 %45, label %72, label %._crit_edge
 
 46:                                               ; preds = %.lr.ph
   %47 = inttoptr i64 %23 to ptr
   %48 = tail call ptr @pg_detoast_datum(ptr noundef %47) #5
-  %49 = tail call zeroext i1 @range_adjacent_internal(ptr noundef %16, ptr noundef %11, ptr noundef %48) #5
+  %49 = tail call zeroext i1 @range_contains_internal(ptr noundef %16, ptr noundef %11, ptr noundef %48) #5
   br i1 %49, label %72, label %._crit_edge
 
 50:                                               ; preds = %.lr.ph
   %51 = inttoptr i64 %23 to ptr
   %52 = tail call ptr @pg_detoast_datum(ptr noundef %51) #5
-  %53 = tail call zeroext i1 @range_contains_internal(ptr noundef %16, ptr noundef %11, ptr noundef %52) #5
+  %53 = tail call zeroext i1 @range_contained_by_internal(ptr noundef %16, ptr noundef %11, ptr noundef %52) #5
   br i1 %53, label %72, label %._crit_edge
 
 54:                                               ; preds = %.lr.ph
-  %55 = inttoptr i64 %23 to ptr
-  %56 = tail call ptr @pg_detoast_datum(ptr noundef %55) #5
-  %57 = tail call zeroext i1 @range_contained_by_internal(ptr noundef %16, ptr noundef %11, ptr noundef %56) #5
-  br i1 %57, label %72, label %._crit_edge
+  %55 = tail call zeroext i1 @range_contains_elem_internal(ptr noundef %16, ptr noundef %11, i64 noundef %23) #5
+  br i1 %55, label %72, label %._crit_edge
 
-58:                                               ; preds = %.lr.ph
-  %59 = tail call zeroext i1 @range_contains_elem_internal(ptr noundef %16, ptr noundef %11, i64 noundef %23) #5
+56:                                               ; preds = %.lr.ph
+  %57 = inttoptr i64 %23 to ptr
+  %58 = tail call ptr @pg_detoast_datum(ptr noundef %57) #5
+  %59 = tail call zeroext i1 @range_eq_internal(ptr noundef %16, ptr noundef %11, ptr noundef %58) #5
   br i1 %59, label %72, label %._crit_edge
 
 60:                                               ; preds = %.lr.ph
@@ -1120,18 +1120,18 @@ define dso_local range(i64 0, 2) i64 @spg_range_quad_leaf_consistent(ptr noundef
 68:                                               ; preds = %.lr.ph
   %69 = inttoptr i64 %23 to ptr
   %70 = tail call ptr @pg_detoast_datum(ptr noundef %69) #5
-  %71 = tail call zeroext i1 @range_eq_internal(ptr noundef %16, ptr noundef %11, ptr noundef %70) #5
+  %71 = tail call zeroext i1 @range_overleft_internal(ptr noundef %16, ptr noundef %11, ptr noundef %70) #5
   br i1 %71, label %72, label %._crit_edge
 
-72:                                               ; preds = %58, %54, %50, %46, %42, %38, %34, %30, %26, %68
+72:                                               ; preds = %30, %34, %38, %42, %46, %50, %54, %56, %26, %68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %73 = load i32, ptr %17, align 8
   %74 = sext i32 %73 to i64
   %.not = icmp slt i64 %indvars.iv.next, %74
   br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %72, %68, %26, %30, %34, %38, %42, %46, %50, %54, %58, %1
-  %.lcssa52 = phi i64 [ 1, %1 ], [ 0, %58 ], [ 0, %54 ], [ 0, %50 ], [ 0, %46 ], [ 0, %42 ], [ 0, %38 ], [ 0, %34 ], [ 0, %30 ], [ 0, %26 ], [ 0, %68 ], [ 1, %72 ]
+._crit_edge:                                      ; preds = %72, %68, %26, %56, %54, %50, %46, %42, %38, %34, %30, %1
+  %.lcssa52 = phi i64 [ 1, %1 ], [ 0, %30 ], [ 0, %34 ], [ 0, %38 ], [ 0, %42 ], [ 0, %46 ], [ 0, %50 ], [ 0, %54 ], [ 0, %56 ], [ 0, %26 ], [ 0, %68 ], [ 1, %72 ]
   ret i64 %.lcssa52
 }
 

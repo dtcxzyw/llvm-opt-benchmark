@@ -1516,7 +1516,7 @@ _ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11Regist
   br i1 %exitcond.not.i47, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit40, label %56, !llvm.loop !93
 
 _ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit40: ; preds = %18, %32, %47, %.critedge.i45, %61, %1
-  %.sroa.013.3 = phi i8 [ -128, %1 ], [ -128, %.critedge.i45 ], [ %.sroa.0.0.copyload, %61 ], [ %.sroa.01.0.copyload, %47 ], [ %.sroa.02.0.copyload.us, %32 ], [ %.sroa.03.0.copyload.us, %18 ]
+  %.sroa.013.3 = phi i8 [ %.sroa.02.0.copyload.us, %32 ], [ -128, %1 ], [ %.sroa.01.0.copyload, %47 ], [ %.sroa.0.0.copyload, %61 ], [ -128, %.critedge.i45 ], [ %.sroa.03.0.copyload.us, %18 ]
   ret i8 %.sroa.013.3
 }
 
@@ -1791,7 +1791,7 @@ _ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread:
   br label %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit8
 
 _ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit8: ; preds = %3, %15, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread
-  %17 = phi i1 [ false, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread ], [ %16, %15 ], [ true, %3 ]
+  %17 = phi i1 [ true, %3 ], [ false, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread ], [ %16, %15 ]
   ret i1 %17
 }
 

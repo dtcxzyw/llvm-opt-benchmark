@@ -79,7 +79,7 @@ switch.lookup:                                    ; preds = %.split
   br label %36
 
 36:                                               ; preds = %.split, %switch.lookup, %25, %28, %13, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %13 ], [ %14, %.split ], [ %14, %28 ], [ %14, %25 ], [ %14, %switch.lookup ]
+  %.0 = phi ptr [ null, %13 ], [ null, %5 ], [ %14, %.split ], [ %14, %28 ], [ %14, %25 ], [ %14, %switch.lookup ]
   ret ptr %.0
 }
 

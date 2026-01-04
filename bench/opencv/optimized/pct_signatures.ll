@@ -816,7 +816,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit172
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit172: ; preds = %265, %.loopexit244, %.loopexit.split-lp245, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i170
-  %.pn83 = phi { ptr, i32 } [ %266, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i170 ], [ %lpad.loopexit246, %.loopexit244 ], [ %lpad.loopexit.split-lp247, %.loopexit.split-lp245 ], [ %266, %265 ]
+  %.pn83 = phi { ptr, i32 } [ %266, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i170 ], [ %lpad.loopexit.split-lp247, %.loopexit.split-lp245 ], [ %lpad.loopexit246, %.loopexit244 ], [ %266, %265 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %278
 
@@ -1187,7 +1187,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit199:                 ; preds = %393, %395
   br label %422
 
 396:                                              ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit197, %173
-  %.2 = phi i32 [ 0, %173 ], [ %spec.select, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit197 ]
+  %.2 = phi i32 [ %spec.select, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit197 ], [ 0, %173 ]
   %397 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %398 = load ptr, ptr %397, align 8, !tbaa !77
   %.not.i.i200 = icmp eq ptr %398, null
@@ -1256,7 +1256,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit:    ; preds = %_ZNSt12__shared_ptr
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit104
 
 422:                                              ; preds = %189, %191, %_ZNSt6vectorIfSaIfEED2Ev.exit199, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit153, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit150, %195, %193, %187
-  %.pn93.pn.pn = phi { ptr, i32 } [ %188, %187 ], [ %192, %191 ], [ %190, %189 ], [ %194, %193 ], [ %.pn89.pn.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit199 ], [ %202, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit153 ], [ %198, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit150 ], [ %196, %195 ]
+  %.pn93.pn.pn = phi { ptr, i32 } [ %188, %187 ], [ %190, %189 ], [ %192, %191 ], [ %194, %193 ], [ %.pn89.pn.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit199 ], [ %202, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit153 ], [ %198, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit150 ], [ %196, %195 ]
   call void @_ZNSt12__shared_ptrIN2cv11xfeatures2d13PCTSignaturesELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #19
   br label %423
 

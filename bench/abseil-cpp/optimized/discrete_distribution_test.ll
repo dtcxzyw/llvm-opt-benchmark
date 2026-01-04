@@ -4950,7 +4950,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43: ; preds = %122
   br label %.body
 
 .body:                                            ; preds = %51, %33, %53, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43 ], [ %54, %53 ], [ %52, %51 ], [ %34, %33 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %54, %53 ], [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43 ], [ %52, %51 ], [ %34, %33 ]
   call void @_ZN7testing25StringMatchResultListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %7) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
@@ -5849,7 +5849,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal16UniversalPrinterIdE5Pr
   br label %34
 
 34:                                               ; preds = %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13
-  %.031.i.i = phi double [ 1.000000e+09, %33 ], [ 1.000000e+10, %31 ], [ 1.000000e+00, %13 ], [ 1.000000e+01, %15 ], [ 1.000000e+02, %17 ], [ 1.000000e+03, %19 ], [ 1.000000e+04, %21 ], [ 1.000000e+05, %23 ], [ 1.000000e+06, %25 ], [ 1.000000e+07, %27 ], [ 1.000000e+08, %29 ]
+  %.031.i.i = phi double [ 1.000000e+10, %31 ], [ 1.000000e+00, %13 ], [ 1.000000e+01, %15 ], [ 1.000000e+02, %17 ], [ 1.000000e+03, %19 ], [ 1.000000e+04, %21 ], [ 1.000000e+05, %23 ], [ 1.000000e+06, %25 ], [ 1.000000e+07, %27 ], [ 1.000000e+09, %33 ], [ 1.000000e+08, %29 ]
   %35 = tail call double @llvm.fmuladd.f64(double %.034.i.i, double %.031.i.i, double 5.000000e-01)
   %36 = fptosi double %35 to i32
   %37 = sitofp i32 %36 to double
@@ -5881,7 +5881,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal16UniversalPrinterIdE5Pr
   br label %51
 
 51:                                               ; preds = %50, %48, %46, %44, %42
-  %.0.i.i = phi double [ 1.000000e+01, %50 ], [ 1.000000e+00, %48 ], [ 1.000000e+04, %42 ], [ 1.000000e+03, %44 ], [ 1.000000e+02, %46 ]
+  %.0.i.i = phi double [ 1.000000e+00, %48 ], [ 1.000000e+04, %42 ], [ 1.000000e+03, %44 ], [ 1.000000e+01, %50 ], [ 1.000000e+02, %46 ]
   %52 = fdiv double %.034.i.i, %.0.i.i
   %53 = fadd double %52, 5.000000e-01
   %54 = fptosi double %53 to i32
@@ -7088,9 +7088,9 @@ _ZNK7testing8internal11MatcherBaseIRKdE15MatchAndExplainES3_PNS_19MatchResultLis
   br i1 %.not139, label %.critedge, label %.lr.ph.split, !llvm.loop !248
 
 .critedge:                                        ; preds = %.lr.ph.split, %160, %161, %.lr.ph.split.us, %_ZN7testing25StringMatchResultListenerD2Ev.exit.us, %128, %.loopexit
-  %.sroa.0115.0.lcssa = phi ptr [ %34, %.loopexit ], [ %129, %128 ], [ %.sroa.0115.0163.us, %_ZN7testing25StringMatchResultListenerD2Ev.exit.us ], [ %.sroa.0115.0163.us, %.lr.ph.split.us ], [ %162, %161 ], [ %.sroa.0115.0163, %160 ], [ %.sroa.0115.0163, %.lr.ph.split ]
-  %storemerge.lcssa = phi i64 [ 0, %.loopexit ], [ %130, %128 ], [ %storemerge164.us, %_ZN7testing25StringMatchResultListenerD2Ev.exit.us ], [ %storemerge164.us, %.lr.ph.split.us ], [ %163, %161 ], [ %storemerge164, %160 ], [ %storemerge164, %.lr.ph.split ]
-  %.133 = phi i1 [ false, %.loopexit ], [ false, %128 ], [ true, %_ZN7testing25StringMatchResultListenerD2Ev.exit.us ], [ false, %.lr.ph.split.us ], [ false, %161 ], [ true, %160 ], [ false, %.lr.ph.split ]
+  %.sroa.0115.0.lcssa = phi ptr [ %34, %.loopexit ], [ %.sroa.0115.0163.us, %_ZN7testing25StringMatchResultListenerD2Ev.exit.us ], [ %129, %128 ], [ %.sroa.0115.0163.us, %.lr.ph.split.us ], [ %162, %161 ], [ %.sroa.0115.0163, %.lr.ph.split ], [ %.sroa.0115.0163, %160 ]
+  %storemerge.lcssa = phi i64 [ 0, %.loopexit ], [ %storemerge164.us, %_ZN7testing25StringMatchResultListenerD2Ev.exit.us ], [ %130, %128 ], [ %storemerge164.us, %.lr.ph.split.us ], [ %163, %161 ], [ %storemerge164, %.lr.ph.split ], [ %storemerge164, %160 ]
+  %.133 = phi i1 [ false, %.loopexit ], [ true, %_ZN7testing25StringMatchResultListenerD2Ev.exit.us ], [ false, %128 ], [ false, %.lr.ph.split.us ], [ false, %161 ], [ false, %.lr.ph.split ], [ true, %160 ]
   %165 = load ptr, ptr %35, align 8, !tbaa !235
   %.not140198 = icmp eq ptr %.sroa.0115.0.lcssa, %165
   br i1 %.not140198, label %._crit_edge, label %.lr.ph201.preheader
@@ -7291,7 +7291,7 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
   br label %.body72
 
 .body72:                                          ; preds = %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i79, %.body76, %232, %_ZN7testing7MessageD2Ev.exit6.i
-  %.pn50 = phi { ptr, i32 } [ %233, %232 ], [ %.pn.i, %_ZN7testing7MessageD2Ev.exit6.i ], [ %eh.lpad-body77, %.body76 ], [ %eh.lpad-body77, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i79 ]
+  %.pn50 = phi { ptr, i32 } [ %.pn.i, %_ZN7testing7MessageD2Ev.exit6.i ], [ %233, %232 ], [ %eh.lpad-body77, %.body76 ], [ %eh.lpad-body77, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.body64
 
@@ -7439,7 +7439,7 @@ _ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br i1 %.not49, label %_ZN7testing8internal15PrintIfNotEmptyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSo.exit, label %.lr.ph206, !llvm.loop !252
 
 _ZN7testing8internal15PrintIfNotEmptyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSo.exit: ; preds = %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit, %_ZN7testing19MatchResultListenerlsIA16_cEERS0_RKT_.exit, %242, %_ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit, %.noexc87, %261, %241, %178, %_ZN7testing7MessageD2Ev.exit
-  %.0 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit ], [ false, %178 ], [ false, %241 ], [ true, %261 ], [ false, %.noexc87 ], [ false, %_ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit ], [ false, %242 ], [ false, %_ZN7testing19MatchResultListenerlsIA16_cEERS0_RKT_.exit ], [ false, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit ], [ true, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ]
+  %.0 = phi i1 [ false, %241 ], [ false, %178 ], [ false, %_ZN7testing7MessageD2Ev.exit ], [ true, %261 ], [ false, %_ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit ], [ false, %.noexc87 ], [ false, %_ZN7testing19MatchResultListenerlsIA16_cEERS0_RKT_.exit ], [ false, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit ], [ false, %242 ], [ true, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ]
   %289 = load ptr, ptr %9, align 8, !tbaa !4
   %290 = load ptr, ptr %33, align 8, !tbaa !10
   %.not4.i.i.i.i = icmp eq ptr %289, %290
@@ -7481,7 +7481,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   ret i1 %.0
 
 .body64:                                          ; preds = %158, %.body.i, %230, %.body72, %270, %152
-  %.pn50.pn.pn = phi { ptr, i32 } [ %.pn.pn, %152 ], [ %.pn50, %.body72 ], [ %231, %230 ], [ %271, %270 ], [ %159, %158 ], [ %154, %.body.i ]
+  %.pn50.pn.pn = phi { ptr, i32 } [ %271, %270 ], [ %.pn.pn, %152 ], [ %.pn50, %.body72 ], [ %231, %230 ], [ %159, %158 ], [ %154, %.body.i ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %.pn50.pn.pn
@@ -8714,7 +8714,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43: ; preds = %122
   br label %.body
 
 .body:                                            ; preds = %51, %33, %53, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43 ], [ %54, %53 ], [ %52, %51 ], [ %34, %33 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %54, %53 ], [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43 ], [ %52, %51 ], [ %34, %33 ]
   call void @_ZN7testing25StringMatchResultListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %7) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
@@ -12100,9 +12100,9 @@ _ZNK7testing8internal11MatcherBaseIRKSt4pairIdmEE15MatchAndExplainES5_PNS_19Matc
   br i1 %.not139, label %.critedge, label %.lr.ph.split, !llvm.loop !473
 
 .critedge:                                        ; preds = %.lr.ph.split, %160, %161, %.lr.ph.split.us, %_ZN7testing25StringMatchResultListenerD2Ev.exit.us, %128, %.loopexit
-  %.sroa.0115.0.lcssa = phi ptr [ %34, %.loopexit ], [ %129, %128 ], [ %.sroa.0115.0163.us, %_ZN7testing25StringMatchResultListenerD2Ev.exit.us ], [ %.sroa.0115.0163.us, %.lr.ph.split.us ], [ %162, %161 ], [ %.sroa.0115.0163, %160 ], [ %.sroa.0115.0163, %.lr.ph.split ]
-  %storemerge.lcssa = phi i64 [ 0, %.loopexit ], [ %130, %128 ], [ %storemerge164.us, %_ZN7testing25StringMatchResultListenerD2Ev.exit.us ], [ %storemerge164.us, %.lr.ph.split.us ], [ %163, %161 ], [ %storemerge164, %160 ], [ %storemerge164, %.lr.ph.split ]
-  %.133 = phi i1 [ false, %.loopexit ], [ false, %128 ], [ true, %_ZN7testing25StringMatchResultListenerD2Ev.exit.us ], [ false, %.lr.ph.split.us ], [ false, %161 ], [ true, %160 ], [ false, %.lr.ph.split ]
+  %.sroa.0115.0.lcssa = phi ptr [ %34, %.loopexit ], [ %.sroa.0115.0163.us, %_ZN7testing25StringMatchResultListenerD2Ev.exit.us ], [ %129, %128 ], [ %.sroa.0115.0163.us, %.lr.ph.split.us ], [ %162, %161 ], [ %.sroa.0115.0163, %.lr.ph.split ], [ %.sroa.0115.0163, %160 ]
+  %storemerge.lcssa = phi i64 [ 0, %.loopexit ], [ %storemerge164.us, %_ZN7testing25StringMatchResultListenerD2Ev.exit.us ], [ %130, %128 ], [ %storemerge164.us, %.lr.ph.split.us ], [ %163, %161 ], [ %storemerge164, %.lr.ph.split ], [ %storemerge164, %160 ]
+  %.133 = phi i1 [ false, %.loopexit ], [ true, %_ZN7testing25StringMatchResultListenerD2Ev.exit.us ], [ false, %128 ], [ false, %.lr.ph.split.us ], [ false, %161 ], [ false, %.lr.ph.split ], [ true, %160 ]
   %165 = load ptr, ptr %35, align 8, !tbaa !461
   %.not140198 = icmp eq ptr %.sroa.0115.0.lcssa, %165
   br i1 %.not140198, label %._crit_edge, label %.lr.ph201.preheader
@@ -12303,7 +12303,7 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
   br label %.body72
 
 .body72:                                          ; preds = %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i79, %.body76, %232, %_ZN7testing7MessageD2Ev.exit6.i
-  %.pn50 = phi { ptr, i32 } [ %233, %232 ], [ %.pn.i, %_ZN7testing7MessageD2Ev.exit6.i ], [ %eh.lpad-body77, %.body76 ], [ %eh.lpad-body77, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i79 ]
+  %.pn50 = phi { ptr, i32 } [ %.pn.i, %_ZN7testing7MessageD2Ev.exit6.i ], [ %233, %232 ], [ %eh.lpad-body77, %.body76 ], [ %eh.lpad-body77, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.body64
 
@@ -12451,7 +12451,7 @@ _ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br i1 %.not49, label %_ZN7testing8internal15PrintIfNotEmptyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSo.exit, label %.lr.ph206, !llvm.loop !477
 
 _ZN7testing8internal15PrintIfNotEmptyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSo.exit: ; preds = %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit, %_ZN7testing19MatchResultListenerlsIA16_cEERS0_RKT_.exit, %242, %_ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit, %.noexc87, %261, %241, %178, %_ZN7testing7MessageD2Ev.exit
-  %.0 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit ], [ false, %178 ], [ false, %241 ], [ true, %261 ], [ false, %.noexc87 ], [ false, %_ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit ], [ false, %242 ], [ false, %_ZN7testing19MatchResultListenerlsIA16_cEERS0_RKT_.exit ], [ false, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit ], [ true, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ]
+  %.0 = phi i1 [ false, %241 ], [ false, %178 ], [ false, %_ZN7testing7MessageD2Ev.exit ], [ true, %261 ], [ false, %_ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit ], [ false, %.noexc87 ], [ false, %_ZN7testing19MatchResultListenerlsIA16_cEERS0_RKT_.exit ], [ false, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit ], [ false, %242 ], [ true, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ]
   %289 = load ptr, ptr %9, align 8, !tbaa !4
   %290 = load ptr, ptr %33, align 8, !tbaa !10
   %.not4.i.i.i.i = icmp eq ptr %289, %290
@@ -12493,7 +12493,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   ret i1 %.0
 
 .body64:                                          ; preds = %158, %.body.i, %230, %.body72, %270, %152
-  %.pn50.pn.pn = phi { ptr, i32 } [ %.pn.pn, %152 ], [ %.pn50, %.body72 ], [ %231, %230 ], [ %271, %270 ], [ %159, %158 ], [ %154, %.body.i ]
+  %.pn50.pn.pn = phi { ptr, i32 } [ %271, %270 ], [ %.pn.pn, %152 ], [ %.pn50, %.body72 ], [ %231, %230 ], [ %159, %158 ], [ %154, %.body.i ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %.pn50.pn.pn
@@ -14625,7 +14625,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit122:                 ; preds = %79, %_ZNSt7__cxx111
   br label %205
 
 205:                                              ; preds = %28, %_ZNSt6vectorIiSaIiEED2Ev.exit122
-  %.pn76.pn.pn = phi { ptr, i32 } [ %.pn76, %_ZNSt6vectorIiSaIiEED2Ev.exit122 ], [ %29, %28 ]
+  %.pn76.pn.pn = phi { ptr, i32 } [ %29, %28 ], [ %.pn76, %_ZNSt6vectorIiSaIiEED2Ev.exit122 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN4absl21discrete_distributionIiED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #26
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit124
@@ -15893,7 +15893,7 @@ _ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i119: ; preds = %290, %_ZN7testing15
   br label %307
 
 307:                                              ; preds = %306, %204, %120
-  %.pn75 = phi { ptr, i32 } [ %.pn48.pn.pn, %306 ], [ %.pn44.pn.pn, %204 ], [ %.pn.pn.pn, %120 ]
+  %.pn75 = phi { ptr, i32 } [ %.pn.pn.pn, %120 ], [ %.pn48.pn.pn, %306 ], [ %.pn44.pn.pn, %204 ]
   call void @_ZN4absl21discrete_distributionIiED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #26
   br label %.body
 
@@ -16474,8 +16474,8 @@ _ZN4absl21discrete_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.
   br label %_ZN4absl24uniform_int_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.exit.i
 
 _ZN4absl24uniform_int_distributionIlEclINS_15random_internal13sequence_urbgEEElRT_.exit.i: ; preds = %..loopexit_crit_edge.i.i.i.i, %506, %.lr.ph290.split
-  %.promoted.i.i.i214 = phi i64 [ %500, %.lr.ph290.split ], [ %510, %..loopexit_crit_edge.i.i.i.i ], [ %500, %506 ]
-  %.0.i.i.i.i = phi i64 [ %.sroa.2.0.extract.trunc.i.i.i.i.i.i, %.lr.ph290.split ], [ %.sroa.2.0.extract.trunc.i.i30.le.i.i.i.i, %..loopexit_crit_edge.i.i.i.i ], [ %.sroa.2.0.extract.trunc.i.i.i.i.i.i, %506 ]
+  %.promoted.i.i.i214 = phi i64 [ %500, %506 ], [ %500, %.lr.ph290.split ], [ %510, %..loopexit_crit_edge.i.i.i.i ]
+  %.0.i.i.i.i = phi i64 [ %.sroa.2.0.extract.trunc.i.i.i.i.i.i, %506 ], [ %.sroa.2.0.extract.trunc.i.i.i.i.i.i, %.lr.ph290.split ], [ %.sroa.2.0.extract.trunc.i.i30.le.i.i.i.i, %..loopexit_crit_edge.i.i.i.i ]
   %516 = getelementptr inbounds nuw %"struct.std::pair", ptr %465, i64 %.0.i.i.i.i
   %517 = load double, ptr %516, align 8, !tbaa !722
   br label %518
@@ -16696,7 +16696,7 @@ _ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i189: ; preds = %579, %_ZN7testing15
   br label %596
 
 596:                                              ; preds = %595, %499, %417
-  %.pn72 = phi { ptr, i32 } [ %.pn64.pn.pn, %595 ], [ %.pn60.pn.pn, %499 ], [ %.pn56.pn.pn, %417 ]
+  %.pn72 = phi { ptr, i32 } [ %.pn56.pn.pn, %417 ], [ %.pn64.pn.pn, %595 ], [ %.pn60.pn.pn, %499 ]
   call void @_ZN4absl21discrete_distributionIlED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %21) #26
   br label %.body138
 
@@ -18203,7 +18203,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43: ; preds = %122
   br label %.body
 
 .body:                                            ; preds = %51, %33, %53, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43 ], [ %54, %53 ], [ %52, %51 ], [ %34, %33 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %54, %53 ], [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43 ], [ %52, %51 ], [ %34, %33 ]
   call void @_ZN7testing25StringMatchResultListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %7) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
@@ -20422,9 +20422,9 @@ _ZNK7testing8internal11MatcherBaseIRKiE15MatchAndExplainES3_PNS_19MatchResultLis
   br i1 %.not139, label %.critedge, label %.lr.ph.split, !llvm.loop !910
 
 .critedge:                                        ; preds = %.lr.ph.split, %160, %161, %.lr.ph.split.us, %_ZN7testing25StringMatchResultListenerD2Ev.exit.us, %128, %.loopexit
-  %.sroa.0115.0.lcssa = phi ptr [ %34, %.loopexit ], [ %129, %128 ], [ %.sroa.0115.0163.us, %_ZN7testing25StringMatchResultListenerD2Ev.exit.us ], [ %.sroa.0115.0163.us, %.lr.ph.split.us ], [ %162, %161 ], [ %.sroa.0115.0163, %160 ], [ %.sroa.0115.0163, %.lr.ph.split ]
-  %storemerge.lcssa = phi i64 [ 0, %.loopexit ], [ %130, %128 ], [ %storemerge164.us, %_ZN7testing25StringMatchResultListenerD2Ev.exit.us ], [ %storemerge164.us, %.lr.ph.split.us ], [ %163, %161 ], [ %storemerge164, %160 ], [ %storemerge164, %.lr.ph.split ]
-  %.133 = phi i1 [ false, %.loopexit ], [ false, %128 ], [ true, %_ZN7testing25StringMatchResultListenerD2Ev.exit.us ], [ false, %.lr.ph.split.us ], [ false, %161 ], [ true, %160 ], [ false, %.lr.ph.split ]
+  %.sroa.0115.0.lcssa = phi ptr [ %34, %.loopexit ], [ %.sroa.0115.0163.us, %_ZN7testing25StringMatchResultListenerD2Ev.exit.us ], [ %129, %128 ], [ %.sroa.0115.0163.us, %.lr.ph.split.us ], [ %162, %161 ], [ %.sroa.0115.0163, %.lr.ph.split ], [ %.sroa.0115.0163, %160 ]
+  %storemerge.lcssa = phi i64 [ 0, %.loopexit ], [ %storemerge164.us, %_ZN7testing25StringMatchResultListenerD2Ev.exit.us ], [ %130, %128 ], [ %storemerge164.us, %.lr.ph.split.us ], [ %163, %161 ], [ %storemerge164, %.lr.ph.split ], [ %storemerge164, %160 ]
+  %.133 = phi i1 [ false, %.loopexit ], [ true, %_ZN7testing25StringMatchResultListenerD2Ev.exit.us ], [ false, %128 ], [ false, %.lr.ph.split.us ], [ false, %161 ], [ false, %.lr.ph.split ], [ true, %160 ]
   %165 = load ptr, ptr %35, align 8, !tbaa !737
   %.not140198 = icmp eq ptr %.sroa.0115.0.lcssa, %165
   br i1 %.not140198, label %._crit_edge, label %.lr.ph201.preheader
@@ -20625,7 +20625,7 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
   br label %.body72
 
 .body72:                                          ; preds = %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i79, %.body76, %232, %_ZN7testing7MessageD2Ev.exit6.i
-  %.pn50 = phi { ptr, i32 } [ %233, %232 ], [ %.pn.i, %_ZN7testing7MessageD2Ev.exit6.i ], [ %eh.lpad-body77, %.body76 ], [ %eh.lpad-body77, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i79 ]
+  %.pn50 = phi { ptr, i32 } [ %.pn.i, %_ZN7testing7MessageD2Ev.exit6.i ], [ %233, %232 ], [ %eh.lpad-body77, %.body76 ], [ %eh.lpad-body77, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.body64
 
@@ -20773,7 +20773,7 @@ _ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br i1 %.not49, label %_ZN7testing8internal15PrintIfNotEmptyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSo.exit, label %.lr.ph206, !llvm.loop !914
 
 _ZN7testing8internal15PrintIfNotEmptyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSo.exit: ; preds = %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit, %_ZN7testing19MatchResultListenerlsIA16_cEERS0_RKT_.exit, %242, %_ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit, %.noexc87, %261, %241, %178, %_ZN7testing7MessageD2Ev.exit
-  %.0 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit ], [ false, %178 ], [ false, %241 ], [ true, %261 ], [ false, %.noexc87 ], [ false, %_ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit ], [ false, %242 ], [ false, %_ZN7testing19MatchResultListenerlsIA16_cEERS0_RKT_.exit ], [ false, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit ], [ true, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ]
+  %.0 = phi i1 [ false, %241 ], [ false, %178 ], [ false, %_ZN7testing7MessageD2Ev.exit ], [ true, %261 ], [ false, %_ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit ], [ false, %.noexc87 ], [ false, %_ZN7testing19MatchResultListenerlsIA16_cEERS0_RKT_.exit ], [ false, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit ], [ false, %242 ], [ true, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ]
   %289 = load ptr, ptr %9, align 8, !tbaa !4
   %290 = load ptr, ptr %33, align 8, !tbaa !10
   %.not4.i.i.i.i = icmp eq ptr %289, %290
@@ -20815,7 +20815,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   ret i1 %.0
 
 .body64:                                          ; preds = %158, %.body.i, %230, %.body72, %270, %152
-  %.pn50.pn.pn = phi { ptr, i32 } [ %.pn.pn, %152 ], [ %.pn50, %.body72 ], [ %231, %230 ], [ %271, %270 ], [ %159, %158 ], [ %154, %.body.i ]
+  %.pn50.pn.pn = phi { ptr, i32 } [ %271, %270 ], [ %.pn.pn, %152 ], [ %.pn50, %.body72 ], [ %231, %230 ], [ %159, %158 ], [ %154, %.body.i ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %.pn50.pn.pn
@@ -23105,7 +23105,7 @@ _ZN4absl21discrete_distributionIaED2Ev.exit190:   ; preds = %_ZNSt6vectorISt4pai
   br label %.body129
 
 .body129:                                         ; preds = %350, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i126, %542
-  %.pn60.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn60.pn.pn.pn, %542 ], [ %340, %350 ], [ %340, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i126 ]
+  %.pn60.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn60.pn.pn.pn, %542 ], [ %340, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i126 ], [ %340, %350 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %543
 
@@ -23120,7 +23120,7 @@ _ZN4absl21discrete_distributionIaED2Ev.exit190:   ; preds = %_ZNSt6vectorISt4pai
   br label %545
 
 545:                                              ; preds = %281, %_ZNSt6vectorIdSaIdEED2Ev.exit140, %544, %280, %160
-  %.pn60.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn60.pn.pn.pn.pn.pn.pn, %544 ], [ %.pn44.pn.pn, %280 ], [ %.pn40.pn.pn, %160 ], [ %.pn50.pn.pn.pn, %_ZNSt6vectorIdSaIdEED2Ev.exit140 ], [ %282, %281 ]
+  %.pn60.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn60.pn.pn.pn.pn.pn.pn, %544 ], [ %282, %281 ], [ %.pn44.pn.pn, %280 ], [ %.pn40.pn.pn, %160 ], [ %.pn50.pn.pn.pn, %_ZNSt6vectorIdSaIdEED2Ev.exit140 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN4absl21discrete_distributionIaED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #26
   br label %.body
@@ -24295,10 +24295,10 @@ _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIP
   %83 = icmp ugt i64 %82, %81
   br i1 %83, label %.lr.ph, label %.critedge.thread, !llvm.loop !983
 
-.critedge.thread:                                 ; preds = %79, %.lr.ph, %22
-  %.sroa.11.0 = phi ptr [ null, %22 ], [ %.sroa.11.3.ph, %79 ], [ %.sroa.11.1102, %.lr.ph ]
-  %.sroa.17.2 = phi ptr [ null, %22 ], [ %.sroa.17.5.ph, %79 ], [ %.sroa.17.3103, %.lr.ph ]
-  %.sroa.0.2 = phi ptr [ null, %22 ], [ %.sroa.0.5.ph, %79 ], [ %.sroa.0.3104, %.lr.ph ]
+.critedge.thread:                                 ; preds = %.lr.ph, %79, %22
+  %.sroa.11.0 = phi ptr [ null, %22 ], [ %.sroa.11.1102, %.lr.ph ], [ %.sroa.11.3.ph, %79 ]
+  %.sroa.17.2 = phi ptr [ null, %22 ], [ %.sroa.17.3103, %.lr.ph ], [ %.sroa.17.5.ph, %79 ]
+  %.sroa.0.2 = phi ptr [ null, %22 ], [ %.sroa.0.3104, %.lr.ph ], [ %.sroa.0.5.ph, %79 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN4absl21discrete_distributionIaE10param_typeC2IN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEET_SB_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr %.sroa.0.2, ptr %.sroa.11.0)
           to label %84 unwind label %103
@@ -26134,7 +26134,7 @@ _ZSt22__uninitialized_copy_aIPSt4pairIdmES2_S1_ET0_T_S4_S3_RSaIT1_E.exit.loopexi
   br label %_ZSt22__uninitialized_copy_aIPSt4pairIdmES2_S1_ET0_T_S4_S3_RSaIT1_E.exit
 
 _ZSt22__uninitialized_copy_aIPSt4pairIdmES2_S1_ET0_T_S4_S3_RSaIT1_E.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZSt22__uninitialized_copy_aIPSt4pairIdmES2_S1_ET0_T_S4_S3_RSaIT1_E.exit.loopexit, %33, %_ZSt4copyIPSt4pairIdmES2_ET0_T_S4_S3_.exit, %_ZNSt12_Vector_baseISt4pairIdmESaIS1_EE13_M_deallocateEPS1_m.exit
-  %57 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIPSt4pairIdmES2_S1_ET0_T_S4_S3_RSaIT1_E.exit.loopexit ], [ %13, %33 ], [ %13, %_ZSt4copyIPSt4pairIdmES2_ET0_T_S4_S3_.exit ], [ %21, %_ZNSt12_Vector_baseISt4pairIdmESaIS1_EE13_M_deallocateEPS1_m.exit ], [ %13, %.lr.ph.i.i.i.i.i ]
+  %57 = phi ptr [ %21, %_ZNSt12_Vector_baseISt4pairIdmESaIS1_EE13_M_deallocateEPS1_m.exit ], [ %.pre, %_ZSt22__uninitialized_copy_aIPSt4pairIdmES2_S1_ET0_T_S4_S3_RSaIT1_E.exit.loopexit ], [ %13, %33 ], [ %13, %_ZSt4copyIPSt4pairIdmES2_ET0_T_S4_S3_.exit ], [ %13, %.lr.ph.i.i.i.i.i ]
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 %9
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %58, ptr %59, align 8, !tbaa !721
@@ -27609,7 +27609,7 @@ _ZN4absl21discrete_distributionIhED2Ev.exit190:   ; preds = %_ZNSt6vectorISt4pai
   br label %.body129
 
 .body129:                                         ; preds = %350, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i126, %542
-  %.pn60.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn60.pn.pn.pn, %542 ], [ %340, %350 ], [ %340, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i126 ]
+  %.pn60.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn60.pn.pn.pn, %542 ], [ %340, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i126 ], [ %340, %350 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %543
 
@@ -27624,7 +27624,7 @@ _ZN4absl21discrete_distributionIhED2Ev.exit190:   ; preds = %_ZNSt6vectorISt4pai
   br label %545
 
 545:                                              ; preds = %281, %_ZNSt6vectorIdSaIdEED2Ev.exit140, %544, %280, %160
-  %.pn60.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn60.pn.pn.pn.pn.pn.pn, %544 ], [ %.pn44.pn.pn, %280 ], [ %.pn40.pn.pn, %160 ], [ %.pn50.pn.pn.pn, %_ZNSt6vectorIdSaIdEED2Ev.exit140 ], [ %282, %281 ]
+  %.pn60.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn60.pn.pn.pn.pn.pn.pn, %544 ], [ %282, %281 ], [ %.pn44.pn.pn, %280 ], [ %.pn40.pn.pn, %160 ], [ %.pn50.pn.pn.pn, %_ZNSt6vectorIdSaIdEED2Ev.exit140 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN4absl21discrete_distributionIhED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #26
   br label %.body
@@ -28223,10 +28223,10 @@ _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIP
   %83 = icmp ugt i64 %82, %81
   br i1 %83, label %.lr.ph, label %.critedge.thread, !llvm.loop !1034
 
-.critedge.thread:                                 ; preds = %79, %.lr.ph, %22
-  %.sroa.11.0 = phi ptr [ null, %22 ], [ %.sroa.11.3.ph, %79 ], [ %.sroa.11.1102, %.lr.ph ]
-  %.sroa.17.2 = phi ptr [ null, %22 ], [ %.sroa.17.5.ph, %79 ], [ %.sroa.17.3103, %.lr.ph ]
-  %.sroa.0.2 = phi ptr [ null, %22 ], [ %.sroa.0.5.ph, %79 ], [ %.sroa.0.3104, %.lr.ph ]
+.critedge.thread:                                 ; preds = %.lr.ph, %79, %22
+  %.sroa.11.0 = phi ptr [ null, %22 ], [ %.sroa.11.1102, %.lr.ph ], [ %.sroa.11.3.ph, %79 ]
+  %.sroa.17.2 = phi ptr [ null, %22 ], [ %.sroa.17.3103, %.lr.ph ], [ %.sroa.17.5.ph, %79 ]
+  %.sroa.0.2 = phi ptr [ null, %22 ], [ %.sroa.0.3104, %.lr.ph ], [ %.sroa.0.5.ph, %79 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN4absl21discrete_distributionIhE10param_typeC2IN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEET_SB_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr %.sroa.0.2, ptr %.sroa.11.0)
           to label %84 unwind label %103
@@ -32904,7 +32904,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131.i.i: ; preds =
   br label %.body98.i
 
 .body98.i.i:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit119.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i132.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131.i.i.i
-  %eh.lpad-body99.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131.i.i.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i132.i.i.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit119.i.i.i.i ]
+  %eh.lpad-body99.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i132.i.i.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131.i.i.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit119.i.i.i.i ]
   %1350 = load ptr, ptr %40, align 8, !tbaa !11
   %1351 = icmp eq ptr %1350, %715
   br i1 %1351, label %.body98.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i132.i.i
@@ -33095,7 +33095,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131.i: ; preds = %
   br label %.body98
 
 .body98.i:                                        ; preds = %.body98.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i132.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131.i.i
-  %eh.lpad-body99.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131.i.i ], [ %eh.lpad-body99.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i132.i.i ], [ %eh.lpad-body99.i.i, %.body98.i.i ]
+  %eh.lpad-body99.i = phi { ptr, i32 } [ %eh.lpad-body99.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i132.i.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131.i.i ], [ %eh.lpad-body99.i.i, %.body98.i.i ]
   %1414 = load ptr, ptr %53, align 8, !tbaa !11
   %1415 = icmp eq ptr %1414, %496
   br i1 %1415, label %.body98, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i132.i
@@ -33289,7 +33289,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131: ; preds = %_Z
   br label %_ZN7testing8internal12CodeLocationD2Ev.exit135
 
 .body98:                                          ; preds = %.body98.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i132.i
-  %eh.lpad-body99 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131.i ], [ %eh.lpad-body99.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i132.i ], [ %eh.lpad-body99.i, %.body98.i ]
+  %eh.lpad-body99 = phi { ptr, i32 } [ %eh.lpad-body99.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i132.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131.i ], [ %eh.lpad-body99.i, %.body98.i ]
   %1478 = load ptr, ptr %66, align 8, !tbaa !11
   %1479 = icmp eq ptr %1478, %276
   br i1 %1479, label %_ZN7testing8internal12CodeLocationD2Ev.exit135, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i132
@@ -34770,7 +34770,7 @@ _ZN4absl21discrete_distributionIsED2Ev.exit190:   ; preds = %_ZNSt6vectorISt4pai
   br label %.body129
 
 .body129:                                         ; preds = %350, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i126, %542
-  %.pn60.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn60.pn.pn.pn, %542 ], [ %340, %350 ], [ %340, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i126 ]
+  %.pn60.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn60.pn.pn.pn, %542 ], [ %340, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i126 ], [ %340, %350 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %543
 
@@ -34785,7 +34785,7 @@ _ZN4absl21discrete_distributionIsED2Ev.exit190:   ; preds = %_ZNSt6vectorISt4pai
   br label %545
 
 545:                                              ; preds = %281, %_ZNSt6vectorIdSaIdEED2Ev.exit140, %544, %280, %160
-  %.pn60.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn60.pn.pn.pn.pn.pn.pn, %544 ], [ %.pn44.pn.pn, %280 ], [ %.pn40.pn.pn, %160 ], [ %.pn50.pn.pn.pn, %_ZNSt6vectorIdSaIdEED2Ev.exit140 ], [ %282, %281 ]
+  %.pn60.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn60.pn.pn.pn.pn.pn.pn, %544 ], [ %282, %281 ], [ %.pn44.pn.pn, %280 ], [ %.pn40.pn.pn, %160 ], [ %.pn50.pn.pn.pn, %_ZNSt6vectorIdSaIdEED2Ev.exit140 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN4absl21discrete_distributionIsED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #26
   br label %.body
@@ -35384,10 +35384,10 @@ _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIP
   %83 = icmp ugt i64 %82, %81
   br i1 %83, label %.lr.ph, label %.critedge.thread, !llvm.loop !1143
 
-.critedge.thread:                                 ; preds = %79, %.lr.ph, %22
-  %.sroa.11.0 = phi ptr [ null, %22 ], [ %.sroa.11.3.ph, %79 ], [ %.sroa.11.1102, %.lr.ph ]
-  %.sroa.17.2 = phi ptr [ null, %22 ], [ %.sroa.17.5.ph, %79 ], [ %.sroa.17.3103, %.lr.ph ]
-  %.sroa.0.2 = phi ptr [ null, %22 ], [ %.sroa.0.5.ph, %79 ], [ %.sroa.0.3104, %.lr.ph ]
+.critedge.thread:                                 ; preds = %.lr.ph, %79, %22
+  %.sroa.11.0 = phi ptr [ null, %22 ], [ %.sroa.11.1102, %.lr.ph ], [ %.sroa.11.3.ph, %79 ]
+  %.sroa.17.2 = phi ptr [ null, %22 ], [ %.sroa.17.3103, %.lr.ph ], [ %.sroa.17.5.ph, %79 ]
+  %.sroa.0.2 = phi ptr [ null, %22 ], [ %.sroa.0.3104, %.lr.ph ], [ %.sroa.0.5.ph, %79 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN4absl21discrete_distributionIsE10param_typeC2IN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEET_SB_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr %.sroa.0.2, ptr %.sroa.11.0)
           to label %84 unwind label %103
@@ -37956,7 +37956,7 @@ _ZN4absl21discrete_distributionItED2Ev.exit190:   ; preds = %_ZNSt6vectorISt4pai
   br label %.body129
 
 .body129:                                         ; preds = %350, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i126, %542
-  %.pn60.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn60.pn.pn.pn, %542 ], [ %340, %350 ], [ %340, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i126 ]
+  %.pn60.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn60.pn.pn.pn, %542 ], [ %340, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i126 ], [ %340, %350 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %543
 
@@ -37971,7 +37971,7 @@ _ZN4absl21discrete_distributionItED2Ev.exit190:   ; preds = %_ZNSt6vectorISt4pai
   br label %545
 
 545:                                              ; preds = %281, %_ZNSt6vectorIdSaIdEED2Ev.exit140, %544, %280, %160
-  %.pn60.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn60.pn.pn.pn.pn.pn.pn, %544 ], [ %.pn44.pn.pn, %280 ], [ %.pn40.pn.pn, %160 ], [ %.pn50.pn.pn.pn, %_ZNSt6vectorIdSaIdEED2Ev.exit140 ], [ %282, %281 ]
+  %.pn60.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn60.pn.pn.pn.pn.pn.pn, %544 ], [ %282, %281 ], [ %.pn44.pn.pn, %280 ], [ %.pn40.pn.pn, %160 ], [ %.pn50.pn.pn.pn, %_ZNSt6vectorIdSaIdEED2Ev.exit140 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN4absl21discrete_distributionItED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #26
   br label %.body
@@ -38570,10 +38570,10 @@ _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIP
   %83 = icmp ugt i64 %82, %81
   br i1 %83, label %.lr.ph, label %.critedge.thread, !llvm.loop !1174
 
-.critedge.thread:                                 ; preds = %79, %.lr.ph, %22
-  %.sroa.11.0 = phi ptr [ null, %22 ], [ %.sroa.11.3.ph, %79 ], [ %.sroa.11.1102, %.lr.ph ]
-  %.sroa.17.2 = phi ptr [ null, %22 ], [ %.sroa.17.5.ph, %79 ], [ %.sroa.17.3103, %.lr.ph ]
-  %.sroa.0.2 = phi ptr [ null, %22 ], [ %.sroa.0.5.ph, %79 ], [ %.sroa.0.3104, %.lr.ph ]
+.critedge.thread:                                 ; preds = %.lr.ph, %79, %22
+  %.sroa.11.0 = phi ptr [ null, %22 ], [ %.sroa.11.1102, %.lr.ph ], [ %.sroa.11.3.ph, %79 ]
+  %.sroa.17.2 = phi ptr [ null, %22 ], [ %.sroa.17.3103, %.lr.ph ], [ %.sroa.17.5.ph, %79 ]
+  %.sroa.0.2 = phi ptr [ null, %22 ], [ %.sroa.0.3104, %.lr.ph ], [ %.sroa.0.5.ph, %79 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN4absl21discrete_distributionItE10param_typeC2IN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEET_SB_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr %.sroa.0.2, ptr %.sroa.11.0)
           to label %84 unwind label %103
@@ -41142,7 +41142,7 @@ _ZN4absl21discrete_distributionIiED2Ev.exit190:   ; preds = %_ZNSt6vectorISt4pai
   br label %.body129
 
 .body129:                                         ; preds = %350, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i126, %542
-  %.pn60.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn60.pn.pn.pn, %542 ], [ %340, %350 ], [ %340, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i126 ]
+  %.pn60.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn60.pn.pn.pn, %542 ], [ %340, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i126 ], [ %340, %350 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %543
 
@@ -41157,7 +41157,7 @@ _ZN4absl21discrete_distributionIiED2Ev.exit190:   ; preds = %_ZNSt6vectorISt4pai
   br label %545
 
 545:                                              ; preds = %281, %_ZNSt6vectorIdSaIdEED2Ev.exit140, %544, %280, %160
-  %.pn60.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn60.pn.pn.pn.pn.pn.pn, %544 ], [ %.pn44.pn.pn, %280 ], [ %.pn40.pn.pn, %160 ], [ %.pn50.pn.pn.pn, %_ZNSt6vectorIdSaIdEED2Ev.exit140 ], [ %282, %281 ]
+  %.pn60.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn60.pn.pn.pn.pn.pn.pn, %544 ], [ %282, %281 ], [ %.pn44.pn.pn, %280 ], [ %.pn40.pn.pn, %160 ], [ %.pn50.pn.pn.pn, %_ZNSt6vectorIdSaIdEED2Ev.exit140 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN4absl21discrete_distributionIiED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #26
   br label %.body
@@ -41593,10 +41593,10 @@ _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIP
   %81 = icmp ugt i64 %80, %indvars.iv.next
   br i1 %81, label %.lr.ph, label %.critedge.thread, !llvm.loop !1205
 
-.critedge.thread:                                 ; preds = %79, %.lr.ph, %22
-  %.sroa.11.0 = phi ptr [ null, %22 ], [ %.sroa.11.3.ph, %79 ], [ %.sroa.11.1102, %.lr.ph ]
-  %.sroa.17.2 = phi ptr [ null, %22 ], [ %.sroa.17.5.ph, %79 ], [ %.sroa.17.3103, %.lr.ph ]
-  %.sroa.0.2 = phi ptr [ null, %22 ], [ %.sroa.0.5.ph, %79 ], [ %.sroa.0.3104, %.lr.ph ]
+.critedge.thread:                                 ; preds = %.lr.ph, %79, %22
+  %.sroa.11.0 = phi ptr [ null, %22 ], [ %.sroa.11.1102, %.lr.ph ], [ %.sroa.11.3.ph, %79 ]
+  %.sroa.17.2 = phi ptr [ null, %22 ], [ %.sroa.17.3103, %.lr.ph ], [ %.sroa.17.5.ph, %79 ]
+  %.sroa.0.2 = phi ptr [ null, %22 ], [ %.sroa.0.3104, %.lr.ph ], [ %.sroa.0.5.ph, %79 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN4absl21discrete_distributionIiE10param_typeC2IN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEET_SB_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr %.sroa.0.2, ptr %.sroa.11.0)
           to label %82 unwind label %101
@@ -44009,7 +44009,7 @@ _ZN4absl21discrete_distributionIjED2Ev.exit190:   ; preds = %_ZNSt6vectorISt4pai
   br label %.body129
 
 .body129:                                         ; preds = %350, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i126, %542
-  %.pn60.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn60.pn.pn.pn, %542 ], [ %340, %350 ], [ %340, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i126 ]
+  %.pn60.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn60.pn.pn.pn, %542 ], [ %340, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i126 ], [ %340, %350 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %543
 
@@ -44024,7 +44024,7 @@ _ZN4absl21discrete_distributionIjED2Ev.exit190:   ; preds = %_ZNSt6vectorISt4pai
   br label %545
 
 545:                                              ; preds = %281, %_ZNSt6vectorIdSaIdEED2Ev.exit140, %544, %280, %160
-  %.pn60.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn60.pn.pn.pn.pn.pn.pn, %544 ], [ %.pn44.pn.pn, %280 ], [ %.pn40.pn.pn, %160 ], [ %.pn50.pn.pn.pn, %_ZNSt6vectorIdSaIdEED2Ev.exit140 ], [ %282, %281 ]
+  %.pn60.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn60.pn.pn.pn.pn.pn.pn, %544 ], [ %282, %281 ], [ %.pn44.pn.pn, %280 ], [ %.pn40.pn.pn, %160 ], [ %.pn50.pn.pn.pn, %_ZNSt6vectorIdSaIdEED2Ev.exit140 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN4absl21discrete_distributionIjED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #26
   br label %.body
@@ -44623,10 +44623,10 @@ _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIP
   %83 = icmp ugt i64 %82, %81
   br i1 %83, label %.lr.ph, label %.critedge.thread, !llvm.loop !1232
 
-.critedge.thread:                                 ; preds = %79, %.lr.ph, %22
-  %.sroa.11.0 = phi ptr [ null, %22 ], [ %.sroa.11.3.ph, %79 ], [ %.sroa.11.1102, %.lr.ph ]
-  %.sroa.17.2 = phi ptr [ null, %22 ], [ %.sroa.17.5.ph, %79 ], [ %.sroa.17.3103, %.lr.ph ]
-  %.sroa.0.2 = phi ptr [ null, %22 ], [ %.sroa.0.5.ph, %79 ], [ %.sroa.0.3104, %.lr.ph ]
+.critedge.thread:                                 ; preds = %.lr.ph, %79, %22
+  %.sroa.11.0 = phi ptr [ null, %22 ], [ %.sroa.11.1102, %.lr.ph ], [ %.sroa.11.3.ph, %79 ]
+  %.sroa.17.2 = phi ptr [ null, %22 ], [ %.sroa.17.3103, %.lr.ph ], [ %.sroa.17.5.ph, %79 ]
+  %.sroa.0.2 = phi ptr [ null, %22 ], [ %.sroa.0.3104, %.lr.ph ], [ %.sroa.0.5.ph, %79 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN4absl21discrete_distributionIjE10param_typeC2IN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEET_SB_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr %.sroa.0.2, ptr %.sroa.11.0)
           to label %84 unwind label %103
@@ -47195,7 +47195,7 @@ _ZN4absl21discrete_distributionIlED2Ev.exit190:   ; preds = %_ZNSt6vectorISt4pai
   br label %.body129
 
 .body129:                                         ; preds = %350, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i126, %542
-  %.pn60.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn60.pn.pn.pn, %542 ], [ %340, %350 ], [ %340, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i126 ]
+  %.pn60.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn60.pn.pn.pn, %542 ], [ %340, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i126 ], [ %340, %350 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %543
 
@@ -47210,7 +47210,7 @@ _ZN4absl21discrete_distributionIlED2Ev.exit190:   ; preds = %_ZNSt6vectorISt4pai
   br label %545
 
 545:                                              ; preds = %281, %_ZNSt6vectorIdSaIdEED2Ev.exit140, %544, %280, %160
-  %.pn60.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn60.pn.pn.pn.pn.pn.pn, %544 ], [ %.pn44.pn.pn, %280 ], [ %.pn40.pn.pn, %160 ], [ %.pn50.pn.pn.pn, %_ZNSt6vectorIdSaIdEED2Ev.exit140 ], [ %282, %281 ]
+  %.pn60.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn60.pn.pn.pn.pn.pn.pn, %544 ], [ %282, %281 ], [ %.pn44.pn.pn, %280 ], [ %.pn40.pn.pn, %160 ], [ %.pn50.pn.pn.pn, %_ZNSt6vectorIdSaIdEED2Ev.exit140 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN4absl21discrete_distributionIlED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #26
   br label %.body
@@ -47740,10 +47740,10 @@ _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIP
   %82 = icmp ult i64 %80, %81
   br i1 %82, label %.lr.ph, label %.critedge.thread, !llvm.loop !1263
 
-.critedge.thread:                                 ; preds = %79, %.lr.ph, %22
-  %.sroa.11.0 = phi ptr [ null, %22 ], [ %.sroa.11.3.ph, %79 ], [ %.sroa.11.1102, %.lr.ph ]
-  %.sroa.17.2 = phi ptr [ null, %22 ], [ %.sroa.17.5.ph, %79 ], [ %.sroa.17.3103, %.lr.ph ]
-  %.sroa.0.2 = phi ptr [ null, %22 ], [ %.sroa.0.5.ph, %79 ], [ %.sroa.0.3104, %.lr.ph ]
+.critedge.thread:                                 ; preds = %.lr.ph, %79, %22
+  %.sroa.11.0 = phi ptr [ null, %22 ], [ %.sroa.11.1102, %.lr.ph ], [ %.sroa.11.3.ph, %79 ]
+  %.sroa.17.2 = phi ptr [ null, %22 ], [ %.sroa.17.3103, %.lr.ph ], [ %.sroa.17.5.ph, %79 ]
+  %.sroa.0.2 = phi ptr [ null, %22 ], [ %.sroa.0.3104, %.lr.ph ], [ %.sroa.0.5.ph, %79 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN4absl21discrete_distributionIlE10param_typeC2IN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEET_SB_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr %.sroa.0.2, ptr %.sroa.11.0)
           to label %83 unwind label %102
@@ -50156,7 +50156,7 @@ _ZN4absl21discrete_distributionImED2Ev.exit190:   ; preds = %_ZNSt6vectorISt4pai
   br label %.body129
 
 .body129:                                         ; preds = %350, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i126, %542
-  %.pn60.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn60.pn.pn.pn, %542 ], [ %340, %350 ], [ %340, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i126 ]
+  %.pn60.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn60.pn.pn.pn, %542 ], [ %340, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i126 ], [ %340, %350 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %543
 
@@ -50171,7 +50171,7 @@ _ZN4absl21discrete_distributionImED2Ev.exit190:   ; preds = %_ZNSt6vectorISt4pai
   br label %545
 
 545:                                              ; preds = %281, %_ZNSt6vectorIdSaIdEED2Ev.exit140, %544, %280, %160
-  %.pn60.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn60.pn.pn.pn.pn.pn.pn, %544 ], [ %.pn44.pn.pn, %280 ], [ %.pn40.pn.pn, %160 ], [ %.pn50.pn.pn.pn, %_ZNSt6vectorIdSaIdEED2Ev.exit140 ], [ %282, %281 ]
+  %.pn60.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn60.pn.pn.pn.pn.pn.pn, %544 ], [ %282, %281 ], [ %.pn44.pn.pn, %280 ], [ %.pn40.pn.pn, %160 ], [ %.pn50.pn.pn.pn, %_ZNSt6vectorIdSaIdEED2Ev.exit140 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN4absl21discrete_distributionImED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #26
   br label %.body
@@ -50769,10 +50769,10 @@ _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIP
   %82 = icmp ult i64 %80, %81
   br i1 %82, label %.lr.ph, label %.critedge.thread, !llvm.loop !1290
 
-.critedge.thread:                                 ; preds = %79, %.lr.ph, %22
-  %.sroa.11.0 = phi ptr [ null, %22 ], [ %.sroa.11.3.ph, %79 ], [ %.sroa.11.1102, %.lr.ph ]
-  %.sroa.17.2 = phi ptr [ null, %22 ], [ %.sroa.17.5.ph, %79 ], [ %.sroa.17.3103, %.lr.ph ]
-  %.sroa.0.2 = phi ptr [ null, %22 ], [ %.sroa.0.5.ph, %79 ], [ %.sroa.0.3104, %.lr.ph ]
+.critedge.thread:                                 ; preds = %.lr.ph, %79, %22
+  %.sroa.11.0 = phi ptr [ null, %22 ], [ %.sroa.11.1102, %.lr.ph ], [ %.sroa.11.3.ph, %79 ]
+  %.sroa.17.2 = phi ptr [ null, %22 ], [ %.sroa.17.3103, %.lr.ph ], [ %.sroa.17.5.ph, %79 ]
+  %.sroa.0.2 = phi ptr [ null, %22 ], [ %.sroa.0.3104, %.lr.ph ], [ %.sroa.0.5.ph, %79 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN4absl21discrete_distributionImE10param_typeC2IN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEET_SB_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr %.sroa.0.2, ptr %.sroa.11.0)
           to label %83 unwind label %102
@@ -53229,7 +53229,7 @@ _ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i:    ; preds = %16, %13
   br label %common.resume
 
 common.resume:                                    ; preds = %183, %134, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i24, %125, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i, %23
-  %common.resume.op = phi { ptr, i32 } [ %14, %23 ], [ %14, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i ], [ %.pn.i.i, %125 ], [ %.pn.i.i, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i24 ], [ %.pn11.pn.pn, %183 ], [ %.pn.pn.pn, %134 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i.i, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i24 ], [ %14, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i ], [ %14, %23 ], [ %.pn.i.i, %125 ], [ %.pn11.pn.pn, %183 ], [ %.pn.pn.pn, %134 ]
   resume { ptr, i32 } %common.resume.op
 
 29:                                               ; preds = %1
@@ -54597,7 +54597,7 @@ _ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i:    ; preds = %16, %13
   br label %common.resume
 
 common.resume:                                    ; preds = %183, %134, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i24, %125, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i, %23
-  %common.resume.op = phi { ptr, i32 } [ %14, %23 ], [ %14, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i ], [ %.pn.i.i, %125 ], [ %.pn.i.i, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i24 ], [ %.pn11.pn.pn, %183 ], [ %.pn.pn.pn, %134 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i.i, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i24 ], [ %14, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i ], [ %14, %23 ], [ %.pn.i.i, %125 ], [ %.pn11.pn.pn, %183 ], [ %.pn.pn.pn, %134 ]
   resume { ptr, i32 } %common.resume.op
 
 29:                                               ; preds = %1
@@ -58623,7 +58623,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131.i.i: ; preds =
   br label %.body98.i
 
 .body98.i.i:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit119.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i132.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131.i.i.i
-  %eh.lpad-body99.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131.i.i.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i132.i.i.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit119.i.i.i.i ]
+  %eh.lpad-body99.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i132.i.i.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131.i.i.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit119.i.i.i.i ]
   %1350 = load ptr, ptr %40, align 8, !tbaa !11
   %1351 = icmp eq ptr %1350, %715
   br i1 %1351, label %.body98.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i132.i.i
@@ -58814,7 +58814,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131.i: ; preds = %
   br label %.body98
 
 .body98.i:                                        ; preds = %.body98.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i132.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131.i.i
-  %eh.lpad-body99.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131.i.i ], [ %eh.lpad-body99.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i132.i.i ], [ %eh.lpad-body99.i.i, %.body98.i.i ]
+  %eh.lpad-body99.i = phi { ptr, i32 } [ %eh.lpad-body99.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i132.i.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131.i.i ], [ %eh.lpad-body99.i.i, %.body98.i.i ]
   %1414 = load ptr, ptr %53, align 8, !tbaa !11
   %1415 = icmp eq ptr %1414, %496
   br i1 %1415, label %.body98, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i132.i
@@ -59008,7 +59008,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131: ; preds = %_Z
   br label %_ZN7testing8internal12CodeLocationD2Ev.exit135
 
 .body98:                                          ; preds = %.body98.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i132.i
-  %eh.lpad-body99 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131.i ], [ %eh.lpad-body99.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i132.i ], [ %eh.lpad-body99.i, %.body98.i ]
+  %eh.lpad-body99 = phi { ptr, i32 } [ %eh.lpad-body99.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i132.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131.i ], [ %eh.lpad-body99.i, %.body98.i ]
   %1478 = load ptr, ptr %66, align 8, !tbaa !11
   %1479 = icmp eq ptr %1478, %276
   br i1 %1479, label %_ZN7testing8internal12CodeLocationD2Ev.exit135, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i132
@@ -59103,7 +59103,7 @@ _ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i:    ; preds = %16, %13
   br label %common.resume
 
 common.resume:                                    ; preds = %183, %134, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i24, %125, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i, %23
-  %common.resume.op = phi { ptr, i32 } [ %14, %23 ], [ %14, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i ], [ %.pn.i.i, %125 ], [ %.pn.i.i, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i24 ], [ %.pn11.pn.pn, %183 ], [ %.pn.pn.pn, %134 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i.i, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i24 ], [ %14, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i ], [ %14, %23 ], [ %.pn.i.i, %125 ], [ %.pn11.pn.pn, %183 ], [ %.pn.pn.pn, %134 ]
   resume { ptr, i32 } %common.resume.op
 
 29:                                               ; preds = %1
@@ -59634,7 +59634,7 @@ _ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i:    ; preds = %16, %13
   br label %common.resume
 
 common.resume:                                    ; preds = %183, %134, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i24, %125, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i, %23
-  %common.resume.op = phi { ptr, i32 } [ %14, %23 ], [ %14, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i ], [ %.pn.i.i, %125 ], [ %.pn.i.i, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i24 ], [ %.pn11.pn.pn, %183 ], [ %.pn.pn.pn, %134 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i.i, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i24 ], [ %14, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i ], [ %14, %23 ], [ %.pn.i.i, %125 ], [ %.pn11.pn.pn, %183 ], [ %.pn.pn.pn, %134 ]
   resume { ptr, i32 } %common.resume.op
 
 29:                                               ; preds = %1
@@ -60165,7 +60165,7 @@ _ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i:    ; preds = %16, %13
   br label %common.resume
 
 common.resume:                                    ; preds = %183, %134, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i24, %125, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i, %23
-  %common.resume.op = phi { ptr, i32 } [ %14, %23 ], [ %14, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i ], [ %.pn.i.i, %125 ], [ %.pn.i.i, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i24 ], [ %.pn11.pn.pn, %183 ], [ %.pn.pn.pn, %134 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i.i, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i24 ], [ %14, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i ], [ %14, %23 ], [ %.pn.i.i, %125 ], [ %.pn11.pn.pn, %183 ], [ %.pn.pn.pn, %134 ]
   resume { ptr, i32 } %common.resume.op
 
 29:                                               ; preds = %1
@@ -60696,7 +60696,7 @@ _ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i:    ; preds = %16, %13
   br label %common.resume
 
 common.resume:                                    ; preds = %183, %134, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i24, %125, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i, %23
-  %common.resume.op = phi { ptr, i32 } [ %14, %23 ], [ %14, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i ], [ %.pn.i.i, %125 ], [ %.pn.i.i, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i24 ], [ %.pn11.pn.pn, %183 ], [ %.pn.pn.pn, %134 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i.i, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i24 ], [ %14, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i ], [ %14, %23 ], [ %.pn.i.i, %125 ], [ %.pn11.pn.pn, %183 ], [ %.pn.pn.pn, %134 ]
   resume { ptr, i32 } %common.resume.op
 
 29:                                               ; preds = %1
@@ -61227,7 +61227,7 @@ _ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i:    ; preds = %16, %13
   br label %common.resume
 
 common.resume:                                    ; preds = %183, %134, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i24, %125, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i, %23
-  %common.resume.op = phi { ptr, i32 } [ %14, %23 ], [ %14, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i ], [ %.pn.i.i, %125 ], [ %.pn.i.i, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i24 ], [ %.pn11.pn.pn, %183 ], [ %.pn.pn.pn, %134 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i.i, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i24 ], [ %14, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i ], [ %14, %23 ], [ %.pn.i.i, %125 ], [ %.pn11.pn.pn, %183 ], [ %.pn.pn.pn, %134 ]
   resume { ptr, i32 } %common.resume.op
 
 29:                                               ; preds = %1
@@ -61766,7 +61766,7 @@ _ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i:    ; preds = %16, %13
   br label %common.resume
 
 common.resume:                                    ; preds = %183, %134, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i24, %125, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i, %23
-  %common.resume.op = phi { ptr, i32 } [ %14, %23 ], [ %14, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i ], [ %.pn.i.i, %125 ], [ %.pn.i.i, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i24 ], [ %.pn11.pn.pn, %183 ], [ %.pn.pn.pn, %134 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i.i, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i24 ], [ %14, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i ], [ %14, %23 ], [ %.pn.i.i, %125 ], [ %.pn11.pn.pn, %183 ], [ %.pn.pn.pn, %134 ]
   resume { ptr, i32 } %common.resume.op
 
 29:                                               ; preds = %1
@@ -64526,7 +64526,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131.i.i.i: ; preds
   br label %.body98.i.i
 
 .body98.i.i.i:                                    ; preds = %838, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i123.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122.i.i.i.i
-  %eh.lpad-body99.i.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122.i.i.i.i ], [ %839, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i123.i.i.i.i ], [ %839, %838 ]
+  %eh.lpad-body99.i.i.i = phi { ptr, i32 } [ %839, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i123.i.i.i.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122.i.i.i.i ], [ %839, %838 ]
   %904 = load ptr, ptr %84, align 8, !tbaa !11
   %905 = icmp eq ptr %904, %546
   br i1 %905, label %.body98.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i132.i.i.i
@@ -64717,7 +64717,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131.i.i: ; preds =
   br label %.body.i
 
 .body98.i.i:                                      ; preds = %.body98.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i132.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131.i.i.i
-  %eh.lpad-body99.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131.i.i.i ], [ %eh.lpad-body99.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i132.i.i.i ], [ %eh.lpad-body99.i.i.i, %.body98.i.i.i ]
+  %eh.lpad-body99.i.i = phi { ptr, i32 } [ %eh.lpad-body99.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i132.i.i.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131.i.i.i ], [ %eh.lpad-body99.i.i.i, %.body98.i.i.i ]
   %968 = load ptr, ptr %97, align 8, !tbaa !11
   %969 = icmp eq ptr %968, %327
   br i1 %969, label %.body.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i132.i.i
@@ -64799,7 +64799,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
   br label %__cxx_global_var_init.1.exit
 
 .body.i:                                          ; preds = %.body98.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i132.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131.i.i, %119
-  %.pn.i = phi { ptr, i32 } [ %120, %119 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131.i.i ], [ %eh.lpad-body99.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i132.i.i ], [ %eh.lpad-body99.i.i, %.body98.i.i ]
+  %.pn.i = phi { ptr, i32 } [ %120, %119 ], [ %eh.lpad-body99.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i132.i.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131.i.i ], [ %eh.lpad-body99.i.i, %.body98.i.i ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %101) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %101)
   %996 = load ptr, ptr %99, align 8, !tbaa !11
@@ -64830,7 +64830,7 @@ common.resume.sink.split:                         ; preds = %_ZNKSt7__cxx1112bas
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i421, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20.i400, %_ZN7testing8internal12CodeLocationD2Ev.exit17.i7, %_ZN7testing8internal12CodeLocationD2Ev.exit17.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %_ZN7testing8internal12CodeLocationD2Ev.exit17.i ], [ %.pn.i5, %_ZN7testing8internal12CodeLocationD2Ev.exit17.i7 ], [ %.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20.i400 ], [ %.pn.i412, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i ], [ %.pn.i422, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i421 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20.i400 ], [ %.pn.i412, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i ], [ %.pn.i, %_ZN7testing8internal12CodeLocationD2Ev.exit17.i ], [ %.pn.i5, %_ZN7testing8internal12CodeLocationD2Ev.exit17.i7 ], [ %.pn.i422, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i421 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 __cxx_global_var_init.1.exit:                     ; preds = %_ZN7testing8internal12CodeLocationD2Ev.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13.i
@@ -67039,7 +67039,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131.i.i.i120: ; pr
   br label %.body98.i.i121
 
 .body98.i.i.i229:                                 ; preds = %1739, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i123.i.i.i.i333, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122.i.i.i.i228
-  %eh.lpad-body99.i.i.i230 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.i.i.i.i226, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122.i.i.i.i228 ], [ %1740, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i123.i.i.i.i333 ], [ %1740, %1739 ]
+  %eh.lpad-body99.i.i.i230 = phi { ptr, i32 } [ %1740, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i123.i.i.i.i333 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.i.i.i.i226, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122.i.i.i.i228 ], [ %1740, %1739 ]
   %1805 = load ptr, ptr %41, align 8, !tbaa !11
   %1806 = icmp eq ptr %1805, %1447
   br i1 %1806, label %.body98.i.i121, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i132.i.i.i231
@@ -67230,7 +67230,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131.i.i16: ; preds
   br label %.body.i4
 
 .body98.i.i121:                                   ; preds = %.body98.i.i.i229, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i132.i.i.i231, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131.i.i.i120
-  %eh.lpad-body99.i.i122 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.i.i.i118, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131.i.i.i120 ], [ %eh.lpad-body99.i.i.i230, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i132.i.i.i231 ], [ %eh.lpad-body99.i.i.i230, %.body98.i.i.i229 ]
+  %eh.lpad-body99.i.i122 = phi { ptr, i32 } [ %eh.lpad-body99.i.i.i230, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i132.i.i.i231 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.i.i.i118, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131.i.i.i120 ], [ %eh.lpad-body99.i.i.i230, %.body98.i.i.i229 ]
   %1869 = load ptr, ptr %54, align 8, !tbaa !11
   %1870 = icmp eq ptr %1869, %1228
   br i1 %1870, label %.body.i4, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i132.i.i123
@@ -67312,7 +67312,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
   br label %__cxx_global_var_init.5.exit
 
 .body.i4:                                         ; preds = %.body98.i.i121, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i132.i.i123, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131.i.i16, %1020
-  %.pn.i5 = phi { ptr, i32 } [ %1021, %1020 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.i.i14, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131.i.i16 ], [ %eh.lpad-body99.i.i122, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i132.i.i123 ], [ %eh.lpad-body99.i.i122, %.body98.i.i121 ]
+  %.pn.i5 = phi { ptr, i32 } [ %1021, %1020 ], [ %eh.lpad-body99.i.i122, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i132.i.i123 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.i.i14, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131.i.i16 ], [ %eh.lpad-body99.i.i122, %.body98.i.i121 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %58) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
   %1897 = load ptr, ptr %56, align 8, !tbaa !11

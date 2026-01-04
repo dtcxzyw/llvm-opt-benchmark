@@ -2495,11 +2495,11 @@ define weak_odr noundef zeroext i1 @_ZN4llvm25OuterAnalysisManagerProxyINS_15Ana
   br i1 %.not.i9.i15.i9.i, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11AnalysisKeyENS_13TinyPtrVectorIS3_EELj2ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit, label %.lr.ph.i6.i12.i5.i, !llvm.loop !141
 
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11AnalysisKeyENS_13TinyPtrVectorIS3_EELj2ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i5.i, %.critedge2.i8.i14.i8.i, %14, %23
-  %.pre-phi = phi i32 [ %12, %14 ], [ %24, %23 ], [ %24, %.critedge2.i8.i14.i8.i ], [ %24, %.lr.ph.i6.i12.i5.i ]
-  %35 = phi i32 [ %19, %14 ], [ %29, %23 ], [ %29, %.critedge2.i8.i14.i8.i ], [ %29, %.lr.ph.i6.i12.i5.i ]
-  %36 = phi ptr [ %16, %14 ], [ %26, %23 ], [ %26, %.critedge2.i8.i14.i8.i ], [ %26, %.lr.ph.i6.i12.i5.i ]
-  %.pn16.i = phi ptr [ %22, %14 ], [ %27, %23 ], [ %.sroa.0.3.i6.i, %.lr.ph.i6.i12.i5.i ], [ %32, %.critedge2.i8.i14.i8.i ]
-  %.pn14.i = phi ptr [ %22, %14 ], [ %32, %23 ], [ %32, %.critedge2.i8.i14.i8.i ], [ %32, %.lr.ph.i6.i12.i5.i ]
+  %.pre-phi = phi i32 [ %24, %23 ], [ %12, %14 ], [ %24, %.critedge2.i8.i14.i8.i ], [ %24, %.lr.ph.i6.i12.i5.i ]
+  %35 = phi i32 [ %29, %23 ], [ %19, %14 ], [ %29, %.critedge2.i8.i14.i8.i ], [ %29, %.lr.ph.i6.i12.i5.i ]
+  %36 = phi ptr [ %26, %23 ], [ %16, %14 ], [ %26, %.critedge2.i8.i14.i8.i ], [ %26, %.lr.ph.i6.i12.i5.i ]
+  %.pn16.i = phi ptr [ %27, %23 ], [ %22, %14 ], [ %.sroa.0.3.i6.i, %.lr.ph.i6.i12.i5.i ], [ %32, %.critedge2.i8.i14.i8.i ]
+  %.pn14.i = phi ptr [ %32, %23 ], [ %22, %14 ], [ %32, %.critedge2.i8.i14.i8.i ], [ %32, %.lr.ph.i6.i12.i5.i ]
   %.not.i.i.i.i.i = icmp eq i32 %.pre-phi, 0
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %38 = select i1 %.not.i.i.i.i.i, ptr %36, ptr %37
@@ -3416,7 +3416,7 @@ _ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.thread.thread.i.i: ; preds = %_ZNK
   br label %.lr.ph.i.i5.i.i
 
 .lr.ph.i.i5.i.i:                                  ; preds = %.lr.ph.i.i5.i.i, %.lr.ph.i.i5.i.i.preheader
-  %.0810.i.i6.i.i = phi ptr [ %119, %.lr.ph.i.i5.i.i.preheader ], [ %122, %.lr.ph.i.i5.i.i ]
+  %.0810.i.i6.i.i = phi ptr [ %122, %.lr.ph.i.i5.i.i ], [ %119, %.lr.ph.i.i5.i.i.preheader ]
   %120 = load ptr, ptr %.0810.i.i6.i.i, align 8, !tbaa !69
   %121 = icmp eq ptr %120, @_ZN4llvm13AllAnalysesOnINS_4LoopEE6SetKeyE
   %122 = getelementptr inbounds nuw i8, ptr %.0810.i.i6.i.i, i64 8
@@ -3430,7 +3430,7 @@ _ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.thread.thread.i.i: ; preds = %_ZNK
   br label %_ZNK4llvm17PreservedAnalyses25allAnalysesInSetPreservedINS_13AllAnalysesOnINS_4LoopEEEEEbv.exit
 
 _ZNK4llvm17PreservedAnalyses25allAnalysesInSetPreservedINS_13AllAnalysesOnINS_4LoopEEEEEbv.exit: ; preds = %.lr.ph.i.i.i.i78, %.lr.ph.i.i5.i.i, %94, %103, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.i.i, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.thread.thread.i.i, %123
-  %126 = phi i1 [ false, %94 ], [ true, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.i.i ], [ %125, %123 ], [ false, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.thread.thread.i.i ], [ false, %103 ], [ %121, %.lr.ph.i.i5.i.i ], [ true, %.lr.ph.i.i.i.i78 ]
+  %126 = phi i1 [ false, %94 ], [ true, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.i.i ], [ %121, %.lr.ph.i.i5.i.i ], [ %125, %123 ], [ false, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.thread.thread.i.i ], [ false, %103 ], [ true, %.lr.ph.i.i.i.i78 ]
   %127 = load ptr, ptr %5, align 8, !tbaa !66, !noalias !168
   %128 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %129 = load i32, ptr %128, align 8, !tbaa !68, !noalias !168
@@ -3589,11 +3589,11 @@ _ZNK4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE15getCa
   br i1 %.not.i9.i15.i9.i, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11AnalysisKeyENS_13TinyPtrVectorIS3_EELj2ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit, label %.lr.ph.i6.i12.i5.i, !llvm.loop !181
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11AnalysisKeyENS_13TinyPtrVectorIS3_EELj2ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i5.i, %.critedge2.i8.i14.i8.i, %208, %217
-  %.pre-phi = phi i32 [ %206, %208 ], [ %218, %217 ], [ %218, %.critedge2.i8.i14.i8.i ], [ %218, %.lr.ph.i6.i12.i5.i ]
-  %229 = phi i32 [ %213, %208 ], [ %223, %217 ], [ %223, %.critedge2.i8.i14.i8.i ], [ %223, %.lr.ph.i6.i12.i5.i ]
-  %230 = phi ptr [ %210, %208 ], [ %220, %217 ], [ %220, %.critedge2.i8.i14.i8.i ], [ %220, %.lr.ph.i6.i12.i5.i ]
-  %.pn16.i = phi ptr [ %216, %208 ], [ %221, %217 ], [ %.sroa.0.3.i6.i, %.lr.ph.i6.i12.i5.i ], [ %226, %.critedge2.i8.i14.i8.i ]
-  %.pn14.i = phi ptr [ %216, %208 ], [ %226, %217 ], [ %226, %.critedge2.i8.i14.i8.i ], [ %226, %.lr.ph.i6.i12.i5.i ]
+  %.pre-phi = phi i32 [ %218, %217 ], [ %206, %208 ], [ %218, %.critedge2.i8.i14.i8.i ], [ %218, %.lr.ph.i6.i12.i5.i ]
+  %229 = phi i32 [ %223, %217 ], [ %213, %208 ], [ %223, %.critedge2.i8.i14.i8.i ], [ %223, %.lr.ph.i6.i12.i5.i ]
+  %230 = phi ptr [ %220, %217 ], [ %210, %208 ], [ %220, %.critedge2.i8.i14.i8.i ], [ %220, %.lr.ph.i6.i12.i5.i ]
+  %.pn16.i = phi ptr [ %221, %217 ], [ %216, %208 ], [ %.sroa.0.3.i6.i, %.lr.ph.i6.i12.i5.i ], [ %226, %.critedge2.i8.i14.i8.i ]
+  %.pn14.i = phi ptr [ %226, %217 ], [ %216, %208 ], [ %226, %.critedge2.i8.i14.i8.i ], [ %226, %.lr.ph.i6.i12.i5.i ]
   %.not.i.i.i.i = icmp eq i32 %.pre-phi, 0
   %231 = getelementptr inbounds nuw i8, ptr %203, i64 24
   %232 = select i1 %.not.i.i.i.i, ptr %230, ptr %231
@@ -4674,7 +4674,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIPNS_11AnalysisKeyEbLj8E
   br label %34
 
 34:                                               ; preds = %27, %27, %29
-  %.1 = phi ptr [ %.02738, %27 ], [ %33, %29 ], [ %.02738, %27 ]
+  %.1 = phi ptr [ %.02738, %27 ], [ %.02738, %27 ], [ %33, %29 ]
   %.028.add = add nuw nsw i64 %.028.idx37, 16
   %.not31 = icmp eq i64 %.028.add, 128
   br i1 %.not31, label %25, label %27, !llvm.loop !195
@@ -5457,7 +5457,7 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPPN4llvm11AnalysisKeyEN9__gnu_cx
   br label %.loopexit
 
 .loopexit:                                        ; preds = %14, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit58, %.loopexit.loopexit.split.loop.exit60, %52, %44, %34, %58
-  %.028 = phi ptr [ %1, %58 ], [ %.029.lcssa, %34 ], [ %.1, %44 ], [ %.2, %52 ], [ %59, %.loopexit.loopexit.split.loop.exit ], [ %60, %.loopexit.loopexit.split.loop.exit58 ], [ %61, %.loopexit.loopexit.split.loop.exit60 ], [ %.02940, %14 ]
+  %.028 = phi ptr [ %.1, %44 ], [ %1, %58 ], [ %.2, %52 ], [ %.029.lcssa, %34 ], [ %61, %.loopexit.loopexit.split.loop.exit60 ], [ %59, %.loopexit.loopexit.split.loop.exit ], [ %60, %.loopexit.loopexit.split.loop.exit58 ], [ %.02940, %14 ]
   ret ptr %.028
 }
 

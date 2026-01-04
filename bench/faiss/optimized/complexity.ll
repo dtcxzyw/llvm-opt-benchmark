@@ -473,12 +473,12 @@ _ZN9benchmark12FittingCurveENS_4BigOE.exit:       ; preds = %47, %switch.lookup
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN9benchmark12FittingCurveENS_4BigOE.exit, %.loopexit.loopexit, %._crit_edge.i30
-  %94 = phi ptr [ %69, %._crit_edge.i30 ], [ %87, %.loopexit.loopexit ], [ %48, %_ZN9benchmark12FittingCurveENS_4BigOE.exit ]
-  %95 = phi ptr [ %68, %._crit_edge.i30 ], [ %86, %.loopexit.loopexit ], [ %48, %_ZN9benchmark12FittingCurveENS_4BigOE.exit ]
-  %.sroa.069.0 = phi double [ %55, %._crit_edge.i30 ], [ %55, %.loopexit.loopexit ], [ 0x7FF8000000000000, %_ZN9benchmark12FittingCurveENS_4BigOE.exit ]
-  %.032.lcssa70.i35 = phi double [ %65, %._crit_edge.i30 ], [ %65, %.loopexit.loopexit ], [ 0.000000e+00, %_ZN9benchmark12FittingCurveENS_4BigOE.exit ]
-  %.034.lcssa.i36 = phi double [ 0.000000e+00, %._crit_edge.i30 ], [ %84, %.loopexit.loopexit ], [ 0.000000e+00, %_ZN9benchmark12FittingCurveENS_4BigOE.exit ]
-  %.lcssa.i37 = phi double [ 0.000000e+00, %._crit_edge.i30 ], [ %93, %.loopexit.loopexit ], [ 0.000000e+00, %_ZN9benchmark12FittingCurveENS_4BigOE.exit ]
+  %94 = phi ptr [ %87, %.loopexit.loopexit ], [ %69, %._crit_edge.i30 ], [ %48, %_ZN9benchmark12FittingCurveENS_4BigOE.exit ]
+  %95 = phi ptr [ %86, %.loopexit.loopexit ], [ %68, %._crit_edge.i30 ], [ %48, %_ZN9benchmark12FittingCurveENS_4BigOE.exit ]
+  %.sroa.069.0 = phi double [ %55, %.loopexit.loopexit ], [ %55, %._crit_edge.i30 ], [ 0x7FF8000000000000, %_ZN9benchmark12FittingCurveENS_4BigOE.exit ]
+  %.032.lcssa70.i35 = phi double [ %65, %.loopexit.loopexit ], [ %65, %._crit_edge.i30 ], [ 0.000000e+00, %_ZN9benchmark12FittingCurveENS_4BigOE.exit ]
+  %.034.lcssa.i36 = phi double [ %84, %.loopexit.loopexit ], [ 0.000000e+00, %._crit_edge.i30 ], [ 0.000000e+00, %_ZN9benchmark12FittingCurveENS_4BigOE.exit ]
+  %.lcssa.i37 = phi double [ %93, %.loopexit.loopexit ], [ 0.000000e+00, %._crit_edge.i30 ], [ 0.000000e+00, %_ZN9benchmark12FittingCurveENS_4BigOE.exit ]
   %96 = fdiv double %.032.lcssa70.i35, %.lcssa.i37
   %97 = fdiv double %.034.lcssa.i36, %.lcssa.i37
   %98 = tail call double @sqrt(double noundef %97) #24, !tbaa !29, !noalias !41
@@ -532,7 +532,7 @@ _ZNSt6vectorIN9benchmark4BigOESaIS1_EED2Ev.exit46: ; preds = %_ZNSt6vectorIN9ben
   br label %_ZN9benchmark12FittingCurveENS_4BigOE.exit48
 
 _ZN9benchmark12FittingCurveENS_4BigOE.exit48:     ; preds = %_ZN9benchmark8internal18GetNullLogInstanceEv.exit22, %106, %107, %108, %109, %110
-  %.0.i47 = phi ptr [ @"_ZZN9benchmark12FittingCurveENS_4BigOEEN3$_58__invokeEl", %110 ], [ @"_ZZN9benchmark12FittingCurveENS_4BigOEEN3$_18__invokeEl", %106 ], [ @"_ZZN9benchmark12FittingCurveENS_4BigOEEN3$_28__invokeEl", %107 ], [ @"_ZZN9benchmark12FittingCurveENS_4BigOEEN3$_38__invokeEl", %108 ], [ @"_ZZN9benchmark12FittingCurveENS_4BigOEEN3$_48__invokeEl", %109 ], [ @"_ZZN9benchmark12FittingCurveENS_4BigOEEN3$_08__invokeEl", %_ZN9benchmark8internal18GetNullLogInstanceEv.exit22 ]
+  %.0.i47 = phi ptr [ @"_ZZN9benchmark12FittingCurveENS_4BigOEEN3$_58__invokeEl", %110 ], [ @"_ZZN9benchmark12FittingCurveENS_4BigOEEN3$_48__invokeEl", %109 ], [ @"_ZZN9benchmark12FittingCurveENS_4BigOEEN3$_18__invokeEl", %106 ], [ @"_ZZN9benchmark12FittingCurveENS_4BigOEEN3$_28__invokeEl", %107 ], [ @"_ZZN9benchmark12FittingCurveENS_4BigOEEN3$_38__invokeEl", %108 ], [ @"_ZZN9benchmark12FittingCurveENS_4BigOEEN3$_08__invokeEl", %_ZN9benchmark8internal18GetNullLogInstanceEv.exit22 ]
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %112 = load ptr, ptr %111, align 8, !tbaa !13, !noalias !44
   %113 = load ptr, ptr %1, align 8, !tbaa !16, !noalias !44
@@ -598,10 +598,10 @@ _ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE.exit68.loope
   br label %_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE.exit68
 
 _ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE.exit68: ; preds = %_ZN9benchmark12FittingCurveENS_4BigOE.exit48, %_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE.exit68.loopexit, %._crit_edge.i55
-  %.sroa.0.0 = phi double [ %114, %._crit_edge.i55 ], [ %114, %_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE.exit68.loopexit ], [ 0x7FF8000000000000, %_ZN9benchmark12FittingCurveENS_4BigOE.exit48 ]
-  %.032.lcssa70.i60 = phi double [ %124, %._crit_edge.i55 ], [ %124, %_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE.exit68.loopexit ], [ 0.000000e+00, %_ZN9benchmark12FittingCurveENS_4BigOE.exit48 ]
-  %.034.lcssa.i61 = phi double [ 0.000000e+00, %._crit_edge.i55 ], [ %143, %_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE.exit68.loopexit ], [ 0.000000e+00, %_ZN9benchmark12FittingCurveENS_4BigOE.exit48 ]
-  %.lcssa.i62 = phi double [ 0.000000e+00, %._crit_edge.i55 ], [ %152, %_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE.exit68.loopexit ], [ 0.000000e+00, %_ZN9benchmark12FittingCurveENS_4BigOE.exit48 ]
+  %.sroa.0.0 = phi double [ %114, %_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE.exit68.loopexit ], [ %114, %._crit_edge.i55 ], [ 0x7FF8000000000000, %_ZN9benchmark12FittingCurveENS_4BigOE.exit48 ]
+  %.032.lcssa70.i60 = phi double [ %124, %_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE.exit68.loopexit ], [ %124, %._crit_edge.i55 ], [ 0.000000e+00, %_ZN9benchmark12FittingCurveENS_4BigOE.exit48 ]
+  %.034.lcssa.i61 = phi double [ %143, %_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE.exit68.loopexit ], [ 0.000000e+00, %._crit_edge.i55 ], [ 0.000000e+00, %_ZN9benchmark12FittingCurveENS_4BigOE.exit48 ]
+  %.lcssa.i62 = phi double [ %152, %_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE.exit68.loopexit ], [ 0.000000e+00, %._crit_edge.i55 ], [ 0.000000e+00, %_ZN9benchmark12FittingCurveENS_4BigOE.exit48 ]
   %153 = fdiv double %.032.lcssa70.i60, %.lcssa.i62
   %154 = fdiv double %.034.lcssa.i61, %.lcssa.i62
   %155 = tail call double @sqrt(double noundef %154) #24, !tbaa !29, !noalias !44
@@ -1642,7 +1642,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %_ZNSt6vectorIdSaIdE
   br label %392
 
 392:                                              ; preds = %391, %214, %212, %205, %.loopexit.split-lp170, %.loopexit169, %.loopexit.split-lp, %.loopexit, %.loopexit185, %.loopexit.split-lp186, %.loopexit180, %.loopexit.split-lp181, %.loopexit175, %.loopexit.split-lp176
-  %.pn52.pn = phi { ptr, i32 } [ %lpad.loopexit177, %.loopexit175 ], [ %lpad.loopexit.split-lp178, %.loopexit.split-lp176 ], [ %lpad.loopexit182, %.loopexit180 ], [ %lpad.loopexit.split-lp183, %.loopexit.split-lp181 ], [ %lpad.loopexit187, %.loopexit185 ], [ %lpad.loopexit.split-lp188, %.loopexit.split-lp186 ], [ %.pn46.pn.pn.pn, %391 ], [ %215, %214 ], [ %213, %212 ], [ %206, %205 ], [ %lpad.loopexit171, %.loopexit169 ], [ %lpad.loopexit.split-lp172, %.loopexit.split-lp170 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn52.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp188, %.loopexit.split-lp186 ], [ %lpad.loopexit.split-lp183, %.loopexit.split-lp181 ], [ %lpad.loopexit.split-lp178, %.loopexit.split-lp176 ], [ %lpad.loopexit177, %.loopexit175 ], [ %lpad.loopexit182, %.loopexit180 ], [ %lpad.loopexit187, %.loopexit185 ], [ %.pn46.pn.pn.pn, %391 ], [ %lpad.loopexit.split-lp172, %.loopexit.split-lp170 ], [ %206, %205 ], [ %215, %214 ], [ %213, %212 ], [ %lpad.loopexit171, %.loopexit169 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %393 = load ptr, ptr %5, align 8, !tbaa !23
   %.not.i.i.i140 = icmp eq ptr %393, null
   br i1 %.not.i.i.i140, label %_ZNSt6vectorIdSaIdEED2Ev.exit141, label %394

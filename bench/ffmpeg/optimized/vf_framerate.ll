@@ -519,7 +519,7 @@ blend_frames.exit.thread69:                       ; preds = %170
   %213 = call i32 @ff_filter_frame(ptr noundef %12, ptr noundef %212) #11
   br label %process_work_frame.exit
 
-214:                                              ; preds = %61, %50, %34, %.critedge
+214:                                              ; preds = %.critedge, %34, %61, %50
   %215 = call i32 @ff_inlink_consume_frame(ptr noundef %9, ptr noundef nonnull %5) #11
   %216 = icmp slt i32 %215, 0
   br i1 %216, label %process_work_frame.exit, label %217
@@ -649,7 +649,7 @@ blend_frames.exit.thread69:                       ; preds = %170
   br label %process_work_frame.exit
 
 process_work_frame.exit:                          ; preds = %214, %203, %blend_frames.exit.thread69, %27, %259, %261, %256, %205
-  %.1 = phi i32 [ %213, %205 ], [ 0, %256 ], [ 0, %261 ], [ 0, %27 ], [ -1497649742, %259 ], [ -12, %203 ], [ -12, %blend_frames.exit.thread69 ], [ %215, %214 ]
+  %.1 = phi i32 [ 0, %27 ], [ %213, %205 ], [ -1497649742, %259 ], [ 0, %256 ], [ 0, %261 ], [ -12, %203 ], [ -12, %blend_frames.exit.thread69 ], [ %215, %214 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

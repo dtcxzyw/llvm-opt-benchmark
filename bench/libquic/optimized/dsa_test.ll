@@ -184,7 +184,7 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readnone cap
   %83 = call i64 @fwrite(ptr nonnull @.str.10, i64 21, i64 1, ptr %82) #8
   br label %test_generate.exit.thread
 
-test_generate.exit.thread:                        ; preds = %2, %37, %42, %51, %60, %69, %81, %74, %72, %13
+test_generate.exit.thread:                        ; preds = %2, %37, %42, %51, %60, %69, %13, %81, %74, %72
   call void @DSA_free(ptr noundef %11) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -304,8 +304,8 @@ get_fips_dsa.exit:                                ; preds = %24
   br label %get_fips_dsa.exit.thread
 
 get_fips_dsa.exit.thread:                         ; preds = %3, %28, %33, %30
-  %.0.i13 = phi ptr [ %4, %30 ], [ %4, %33 ], [ null, %28 ], [ null, %3 ]
-  %.0 = phi i32 [ 0, %30 ], [ 1, %33 ], [ 0, %28 ], [ 0, %3 ]
+  %.0.i13 = phi ptr [ %4, %33 ], [ %4, %30 ], [ null, %28 ], [ null, %3 ]
+  %.0 = phi i32 [ 1, %33 ], [ 0, %30 ], [ 0, %28 ], [ 0, %3 ]
   tail call void @DSA_free(ptr noundef %.0.i13) #7
   ret i32 %.0
 }

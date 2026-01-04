@@ -1032,7 +1032,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend12frompyobject9Container5bu
           to label %188 unwind label %157, !noalias !4
 
 188:                                              ; preds = %315, %281, %245, %227, %187
-  %.sink.i = phi ptr [ %65, %227 ], [ %59, %245 ], [ %71, %281 ], [ %77, %315 ], [ %56, %187 ]
+  %.sink.i = phi ptr [ %71, %281 ], [ %59, %245 ], [ %65, %227 ], [ %77, %315 ], [ %56, %187 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %78, ptr noundef nonnull align 8 dereferenceable(32) %.sink.i, i64 32, i1 false), !noalias !4
   %189 = load i64, ptr %98, align 8, !noalias !4
   %190 = icmp eq i64 %189, -9223372036854775808
@@ -3995,7 +3995,7 @@ define hidden void @_ZN19pyo3_macros_backend12frompyobject16ContainerOptions10fr
           to label %43 unwind label %.loopexit
 
 42:                                               ; preds = %.loopexit, %.loopexit.split-lp, %.thread46, %.thread, %99, %85
-  %.pn41 = phi { ptr, i32 } [ %86, %85 ], [ %100, %99 ], [ %83, %.thread ], [ %97, %.thread46 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn41 = phi { ptr, i32 } [ %97, %.thread46 ], [ %86, %85 ], [ %83, %.thread ], [ %100, %99 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr111drop_in_place$LT$syn..punctuated..IntoIter$LT$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$GT$$GT$17he917aa20562154c3E"(ptr nonnull align 8 %16) #9
           to label %29 unwind label %87
 
@@ -4608,7 +4608,7 @@ define void @"_ZN91_$LT$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$u2
   br label %.thread139.invoke
 
 .thread139.invoke:                                ; preds = %.thread139.invoke.sink.split, %130, %87
-  %152 = phi ptr [ %12, %87 ], [ %20, %130 ], [ %.ph, %.thread139.invoke.sink.split ]
+  %152 = phi ptr [ %20, %130 ], [ %12, %87 ], [ %.ph, %.thread139.invoke.sink.split ]
   invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h6fca0589d55d42dfE"(ptr nonnull align 8 %152)
           to label %93 unwind label %.thread113
 
@@ -4727,7 +4727,7 @@ define hidden void @_ZN19pyo3_macros_backend12frompyobject19FieldPyO3Attributes1
           to label %38 unwind label %.loopexit
 
 37:                                               ; preds = %.loopexit, %.loopexit.split-lp, %.thread33, %.thread, %69, %55
-  %.pn27 = phi { ptr, i32 } [ %56, %55 ], [ %70, %69 ], [ %53, %.thread ], [ %67, %.thread33 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn27 = phi { ptr, i32 } [ %67, %.thread33 ], [ %56, %55 ], [ %53, %.thread ], [ %70, %69 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr107drop_in_place$LT$syn..punctuated..IntoIter$LT$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$GT$$GT$17h12c9d4c5697fbb60E"(ptr nonnull align 8 %13) #9
           to label %23 unwind label %57
 
@@ -5037,7 +5037,7 @@ define void @_ZN19pyo3_macros_backend12frompyobject26build_derive_from_pyobject1
   unreachable
 
 .body:                                            ; preds = %108, %95, %128, %125, %119
-  %.pn81 = phi { ptr, i32 } [ %.pn79, %128 ], [ %126, %125 ], [ %120, %119 ], [ %109, %108 ], [ %96, %95 ]
+  %.pn81 = phi { ptr, i32 } [ %120, %119 ], [ %.pn79, %128 ], [ %126, %125 ], [ %109, %108 ], [ %96, %95 ]
   invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..generics..Generics$GT$17h9db4dafb0cb0a919E"(ptr nonnull align 8 %88) #9
           to label %571 unwind label %217
 
@@ -5293,7 +5293,7 @@ define void @_ZN19pyo3_macros_backend12frompyobject26build_derive_from_pyobject1
           to label %164 unwind label %217
 
 194:                                              ; preds = %245, %.noexc87, %233, %554, %552, %549, %547, %542, %476, %219, %213, %204, %203, %192, %188, %184
-  %.sroa.037.2 = phi i8 [ 1, %192 ], [ %.sroa.037.5, %542 ], [ 0, %213 ], [ 0, %204 ], [ 1, %203 ], [ 1, %188 ], [ 1, %549 ], [ 1, %547 ], [ 1, %219 ], [ 1, %476 ], [ 1, %554 ], [ 1, %552 ], [ 1, %184 ], [ 1, %233 ], [ 1, %.noexc87 ], [ 1, %245 ]
+  %.sroa.037.2 = phi i8 [ 1, %192 ], [ %.sroa.037.5, %542 ], [ 0, %213 ], [ 0, %204 ], [ 1, %203 ], [ 1, %188 ], [ 1, %549 ], [ 1, %547 ], [ 1, %219 ], [ 1, %476 ], [ 1, %245 ], [ 1, %554 ], [ 1, %552 ], [ 1, %184 ], [ 1, %233 ], [ 1, %.noexc87 ]
   %195 = landingpad { ptr, i32 }
           cleanup
   br label %193
@@ -6291,7 +6291,7 @@ define void @_ZN19pyo3_macros_backend12frompyobject26build_derive_from_pyobject1
           to label %267 unwind label %.thread56.loopexit.i, !noalias !16
 
 .thread.i:                                        ; preds = %389, %275, %.thread56.loopexit.split-lp.i, %.thread56.loopexit.i
-  %.pn4554.i = phi { ptr, i32 } [ %.pn34.i, %389 ], [ %.pn42.pn.i, %275 ], [ %lpad.loopexit.i, %.thread56.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.thread56.loopexit.split-lp.i ]
+  %.pn4554.i = phi { ptr, i32 } [ %.pn42.pn.i, %275 ], [ %.pn34.i, %389 ], [ %lpad.loopexit.i, %.thread56.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.thread56.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %37) #9
           to label %256 unwind label %380, !noalias !16
 

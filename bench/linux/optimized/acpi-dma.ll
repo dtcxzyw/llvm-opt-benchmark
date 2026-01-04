@@ -608,7 +608,7 @@ sub_13:                                           ; preds = %sub_0
   br label %.tail1.thread
 
 .tail1.thread:                                    ; preds = %sub_0, %.tail, %sub_1, %sub_13, %16, %.tail1
-  %20 = phi ptr [ %19, %16 ], [ inttoptr (i64 -19 to ptr), %.tail1 ], [ inttoptr (i64 -19 to ptr), %sub_13 ], [ inttoptr (i64 -19 to ptr), %sub_1 ], [ inttoptr (i64 -19 to ptr), %.tail ], [ inttoptr (i64 -19 to ptr), %sub_0 ]
+  %20 = phi ptr [ %19, %16 ], [ inttoptr (i64 -19 to ptr), %.tail1 ], [ inttoptr (i64 -19 to ptr), %sub_0 ], [ inttoptr (i64 -19 to ptr), %sub_13 ], [ inttoptr (i64 -19 to ptr), %sub_1 ], [ inttoptr (i64 -19 to ptr), %.tail ]
   ret ptr %20
 }
 

@@ -188,16 +188,16 @@ define range(i32 0, 2) i32 @init_client(ptr noundef captures(none) %0, ptr nound
   br label %.loopexit105
 
 .loopexit:                                        ; preds = %51, %55, %74
-  %.380 = phi ptr [ %.178, %55 ], [ %.178, %74 ], [ null, %51 ]
-  %.3 = phi i32 [ %.276, %55 ], [ %.276, %74 ], [ %.074125, %51 ]
-  %.1 = phi i32 [ %.0126, %55 ], [ %.2, %74 ], [ %.0126, %51 ]
+  %.380 = phi ptr [ %.178, %74 ], [ %.178, %55 ], [ null, %51 ]
+  %.3 = phi i32 [ %.276, %74 ], [ %.276, %55 ], [ %.074125, %51 ]
+  %.1 = phi i32 [ %.2, %74 ], [ %.0126, %55 ], [ %.0126, %51 ]
   %80 = call ptr @BIO_ADDRINFO_next(ptr noundef nonnull %.081123) #9
   %.not91 = icmp eq ptr %80, null
   br i1 %.not91, label %.loopexit105, label %33, !llvm.loop !16
 
 .loopexit105:                                     ; preds = %.loopexit, %28, %.thread, %77
-  %.081116 = phi ptr [ %.081123, %.thread ], [ %.081123, %77 ], [ null, %28 ], [ null, %.loopexit ]
-  %.175.ph = phi i32 [ %.276, %.thread ], [ %.276, %77 ], [ 0, %28 ], [ %.3, %.loopexit ]
+  %.081116 = phi ptr [ %.081123, %77 ], [ %.081123, %.thread ], [ null, %28 ], [ null, %.loopexit ]
+  %.175.ph = phi i32 [ %.276, %77 ], [ %.276, %.thread ], [ 0, %28 ], [ %.3, %.loopexit ]
   %.pr = load i32, ptr %0, align 4, !tbaa !12
   %81 = icmp eq i32 %.pr, -1
   br i1 %81, label %82, label %108
@@ -276,7 +276,7 @@ define range(i32 0, 2) i32 @init_client(ptr noundef captures(none) %0, ptr nound
   br label %120
 
 120:                                              ; preds = %11, %118, %18
-  %.082 = phi i32 [ 0, %18 ], [ %.072, %118 ], [ 0, %11 ]
+  %.082 = phi i32 [ %.072, %118 ], [ 0, %18 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.082
@@ -589,9 +589,9 @@ define i32 @do_server(ptr noundef writeonly captures(address_is_null) %0, ptr no
   %73 = icmp eq i32 %72, -1
   br i1 %73, label %.thread144, label %.thread
 
-.thread144:                                       ; preds = %70, %63, %67, %40, %55, %58, %66
-  %.0116.ph.sink = phi i32 [ 10, %67 ], [ %42, %40 ], [ %42, %55 ], [ %42, %58 ], [ %42, %66 ], [ 2, %63 ], [ 2, %70 ]
-  %.2106151 = phi i32 [ %spec.select139, %67 ], [ %.1105, %40 ], [ %.1105, %55 ], [ %.1105, %58 ], [ %spec.select, %66 ], [ %.1105, %63 ], [ %.1105, %70 ]
+.thread144:                                       ; preds = %70, %63, %55, %58, %66, %67, %40
+  %.0116.ph.sink = phi i32 [ 2, %63 ], [ %42, %40 ], [ %42, %55 ], [ %42, %58 ], [ %42, %66 ], [ 10, %67 ], [ 2, %70 ]
+  %.2106151 = phi i32 [ %.1105, %63 ], [ %.1105, %40 ], [ %.1105, %55 ], [ %.1105, %58 ], [ %spec.select, %66 ], [ %spec.select139, %67 ], [ %.1105, %70 ]
   %74 = call i32 @BIO_socket(i32 noundef %.0116.ph.sink, i32 noundef %44, i32 noundef %46, i32 noundef 0) #9
   %75 = icmp eq i32 %74, -1
   br i1 %75, label %.critedge158, label %.thread
@@ -751,7 +751,7 @@ define i32 @do_server(ptr noundef writeonly captures(address_is_null) %0, ptr no
   br label %.thread153
 
 .split164.us:                                     ; preds = %.lr.ph, %.critedge5.us, %.split
-  %.us-phi = phi i32 [ %134, %.split ], [ %108, %.critedge5.us ], [ %143, %.lr.ph ]
+  %.us-phi = phi i32 [ %108, %.critedge5.us ], [ %134, %.split ], [ %143, %.lr.ph ]
   %141 = call i32 @BIO_closesocket(i32 noundef %.0114191) #9
   br label %.thread153
 
@@ -787,7 +787,7 @@ define i32 @do_server(ptr noundef writeonly captures(address_is_null) %0, ptr no
   br label %148
 
 148:                                              ; preds = %.critedge158, %.thread153, %77, %87
-  %.0103 = phi i32 [ 0, %77 ], [ 0, %87 ], [ %.2.ph, %.thread153 ], [ 0, %.critedge158 ]
+  %.0103 = phi i32 [ 0, %77 ], [ 0, %.critedge158 ], [ 0, %87 ], [ %.2.ph, %.thread153 ]
   %149 = icmp eq i32 %3, 1
   br i1 %149, label %150, label %152
 
@@ -802,7 +802,7 @@ define i32 @do_server(ptr noundef writeonly captures(address_is_null) %0, ptr no
   br label %154
 
 154:                                              ; preds = %11, %152, %19
-  %.0 = phi i32 [ %.0103, %152 ], [ 0, %19 ], [ 0, %11 ]
+  %.0 = phi i32 [ 0, %19 ], [ %.0103, %152 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.0
 }

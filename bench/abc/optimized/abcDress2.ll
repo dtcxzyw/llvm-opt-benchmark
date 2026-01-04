@@ -1025,8 +1025,8 @@ Vec_IntStart.exit137:                             ; preds = %Vec_IntAlloc.exit.t
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %159, %161, %151, %153
-  %.sink265 = phi ptr [ %152, %151 ], [ %154, %153 ], [ %160, %159 ], [ %162, %161 ]
-  %.sink = phi i32 [ 16, %151 ], [ 16, %153 ], [ %156, %159 ], [ %156, %161 ]
+  %.sink265 = phi ptr [ %154, %153 ], [ %152, %151 ], [ %160, %159 ], [ %162, %161 ]
+  %.sink = phi i32 [ 16, %153 ], [ 16, %151 ], [ %156, %159 ], [ %156, %161 ]
   store ptr %.sink265, ptr %125, align 8, !tbaa !52
   store i32 %.sink, ptr %122, align 8, !tbaa !53
   br label %Vec_IntPush.exit
@@ -1110,8 +1110,8 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br label %Vec_IntPush.exit148.sink.split
 
 Vec_IntPush.exit148.sink.split:                   ; preds = %201, %203, %193, %195
-  %.sink267 = phi ptr [ %194, %193 ], [ %196, %195 ], [ %202, %201 ], [ %204, %203 ]
-  %.sink266 = phi i32 [ 16, %193 ], [ 16, %195 ], [ %198, %201 ], [ %198, %203 ]
+  %.sink267 = phi ptr [ %196, %195 ], [ %194, %193 ], [ %202, %201 ], [ %204, %203 ]
+  %.sink266 = phi i32 [ 16, %195 ], [ 16, %193 ], [ %198, %201 ], [ %198, %203 ]
   store ptr %.sink267, ptr %125, align 8, !tbaa !52
   store i32 %.sink266, ptr %122, align 8, !tbaa !53
   br label %Vec_IntPush.exit148
@@ -1174,8 +1174,8 @@ Vec_IntPush.exit148:                              ; preds = %Vec_IntPush.exit148
   br label %Vec_PtrPush.exit.sink.split
 
 Vec_PtrPush.exit.sink.split:                      ; preds = %225, %227, %217, %219
-  %.sink269 = phi ptr [ %218, %217 ], [ %220, %219 ], [ %226, %225 ], [ %228, %227 ]
-  %.sink268 = phi i32 [ 16, %217 ], [ 16, %219 ], [ %222, %225 ], [ %222, %227 ]
+  %.sink269 = phi ptr [ %220, %219 ], [ %218, %217 ], [ %226, %225 ], [ %228, %227 ]
+  %.sink268 = phi i32 [ 16, %219 ], [ 16, %217 ], [ %222, %225 ], [ %222, %227 ]
   store ptr %.sink269, ptr %7, align 8, !tbaa !26
   store i32 %.sink268, ptr %4, align 8, !tbaa !58
   br label %Vec_PtrPush.exit

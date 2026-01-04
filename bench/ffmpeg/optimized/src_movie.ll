@@ -582,7 +582,7 @@ find_stream.exit:                                 ; preds = %110
   br label %.loopexit
 
 .loopexit:                                        ; preds = %155, %find_stream.exit, %101, %224, %.thread, %find_stream.exit.thread, %173, %._crit_edge193, %93, %._crit_edge, %._crit_edge200, %79, %72, %55, %42, %12
-  %.0 = phi i32 [ -1163346256, %42 ], [ %53, %55 ], [ -22, %72 ], [ %77, %79 ], [ 0, %._crit_edge200 ], [ -22, %12 ], [ -12, %._crit_edge ], [ -12, %93 ], [ -558323010, %._crit_edge193 ], [ -12, %173 ], [ -22, %find_stream.exit.thread ], [ %.2.ph, %.thread ], [ %228, %224 ], [ -12, %155 ], [ -22, %find_stream.exit ], [ -558323010, %101 ]
+  %.0 = phi i32 [ -1163346256, %42 ], [ %53, %55 ], [ -22, %72 ], [ %77, %79 ], [ -12, %173 ], [ -22, %find_stream.exit.thread ], [ -12, %93 ], [ %228, %224 ], [ %.2.ph, %.thread ], [ 0, %._crit_edge200 ], [ -558323010, %._crit_edge193 ], [ -12, %._crit_edge ], [ -22, %12 ], [ -12, %155 ], [ -558323010, %101 ], [ -22, %find_stream.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -746,8 +746,8 @@ define internal range(i32 -2147483648, 1) i32 @movie_query_formats(ptr noundef r
   %63 = icmp samesign ult i64 %indvars.iv.next, %62
   br i1 %63, label %11, label %.thread, !llvm.loop !104
 
-.thread:                                          ; preds = %60, %21, %27, %34, %41, %47, %54, %3
-  %.2 = phi i32 [ 0, %3 ], [ %58, %54 ], [ %52, %47 ], [ %45, %41 ], [ %39, %34 ], [ %32, %27 ], [ %25, %21 ], [ 0, %60 ]
+.thread:                                          ; preds = %60, %47, %21, %27, %34, %41, %54, %3
+  %.2 = phi i32 [ 0, %3 ], [ %52, %47 ], [ %58, %54 ], [ %45, %41 ], [ %39, %34 ], [ %32, %27 ], [ %25, %21 ], [ 0, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.2
@@ -809,7 +809,7 @@ define internal i32 @process_command(ptr noundef readonly captures(none) %0, ptr
   br i1 %35, label %28, label %.loopexit, !llvm.loop !107
 
 .loopexit:                                        ; preds = %28, %.preheader, %17, %15
-  %.0 = phi i32 [ -22, %15 ], [ %23, %17 ], [ %23, %.preheader ], [ %23, %28 ]
+  %.0 = phi i32 [ %23, %17 ], [ -22, %15 ], [ %23, %.preheader ], [ %23, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -849,12 +849,12 @@ define internal i32 @process_command(ptr noundef readonly captures(none) %0, ptr
   br label %52
 
 52:                                               ; preds = %45, %42, %38
-  %.2 = phi i32 [ -22, %38 ], [ -22, %42 ], [ %spec.select, %45 ]
+  %.2 = phi i32 [ %spec.select, %45 ], [ -22, %38 ], [ -22, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %53
 
 53:                                               ; preds = %36, %52, %.loopexit
-  %.1 = phi i32 [ %.2, %52 ], [ %.0, %.loopexit ], [ -38, %36 ]
+  %.1 = phi i32 [ %.0, %.loopexit ], [ %.2, %52 ], [ -38, %36 ]
   ret i32 %.1
 }
 
@@ -1152,7 +1152,7 @@ rewind_file.exit:                                 ; preds = %83
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %115, %1, %rewind_file.exit, %._crit_edge106, %137, %._crit_edge111, %._crit_edge, %.thread, %._crit_edge117
-  %.075 = phi i32 [ 0, %._crit_edge117 ], [ %.079, %.thread ], [ -1497649742, %._crit_edge ], [ 0, %._crit_edge106 ], [ %92, %rewind_file.exit ], [ 0, %137 ], [ 0, %._crit_edge111 ], [ -1497649742, %1 ], [ 0, %115 ]
+  %.075 = phi i32 [ %.079, %.thread ], [ -1497649742, %._crit_edge ], [ 0, %._crit_edge117 ], [ %92, %rewind_file.exit ], [ 0, %._crit_edge106 ], [ 0, %137 ], [ 0, %._crit_edge111 ], [ -1497649742, %1 ], [ 0, %115 ]
   ret i32 %.075
 }
 
@@ -1342,7 +1342,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @open_stream(ptr noundef %0
   br label %35
 
 35:                                               ; preds = %.sink.split, %30, %14, %11
-  %.0 = phi i32 [ -12, %11 ], [ %20, %14 ], [ 0, %30 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ -12, %11 ], [ 0, %30 ], [ %20, %14 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 
@@ -1649,7 +1649,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @decode_packet(ptr noundef 
   br label %70
 
 70:                                               ; preds = %68, %64, %27, %27, %19, %28
-  %.0 = phi i32 [ %25, %28 ], [ %22, %19 ], [ 0, %27 ], [ 0, %27 ], [ %66, %64 ], [ %., %68 ]
+  %.0 = phi i32 [ %22, %19 ], [ %25, %28 ], [ 0, %27 ], [ %., %68 ], [ %66, %64 ], [ 0, %27 ]
   ret i32 %.0
 }
 

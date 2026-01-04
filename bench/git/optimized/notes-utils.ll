@@ -278,7 +278,7 @@ define dso_local range(i32 -1, 1) i32 @parse_notes_merge_strategy(ptr noundef re
   br i1 %.not13, label %.sink.split, label %12
 
 .sink.split:                                      ; preds = %10, %8, %6, %4, %2
-  %.sink = phi i32 [ 0, %2 ], [ 1, %4 ], [ 2, %6 ], [ 3, %8 ], [ 4, %10 ]
+  %.sink = phi i32 [ 0, %2 ], [ 1, %4 ], [ 3, %8 ], [ 2, %6 ], [ 4, %10 ]
   store i32 %.sink, ptr %1, align 4, !tbaa !26
   br label %12
 
@@ -336,8 +336,8 @@ define dso_local ptr @init_copy_notes_for_rewrite(ptr noundef %0) local_unnamed_
   %.not7.i = icmp eq i32 %22, 0
   br i1 %.not7.i, label %parse_combine_notes_fn.exit.thread, label %23
 
-parse_combine_notes_fn.exit.thread:               ; preds = %15, %17, %19, %21
-  %.0.i.ph = phi ptr [ @combine_notes_concatenate, %19 ], [ @combine_notes_ignore, %17 ], [ @combine_notes_overwrite, %15 ], [ @combine_notes_cat_sort_uniq, %21 ]
+parse_combine_notes_fn.exit.thread:               ; preds = %19, %17, %15, %21
+  %.0.i.ph = phi ptr [ @combine_notes_concatenate, %19 ], [ @combine_notes_overwrite, %15 ], [ @combine_notes_ignore, %17 ], [ @combine_notes_cat_sort_uniq, %21 ]
   store ptr %.0.i.ph, ptr %7, align 8, !tbaa !32
   br label %28
 
@@ -473,8 +473,8 @@ define internal range(i32 -1, 2) i32 @notes_rewrite_config(ptr noundef %0, ptr n
   %.not7.i = icmp eq i32 %29, 0
   br i1 %.not7.i, label %parse_combine_notes_fn.exit.thread, label %31
 
-parse_combine_notes_fn.exit.thread:               ; preds = %22, %24, %26, %28
-  %.0.i.ph = phi ptr [ @combine_notes_concatenate, %26 ], [ @combine_notes_ignore, %24 ], [ @combine_notes_overwrite, %22 ], [ @combine_notes_cat_sort_uniq, %28 ]
+parse_combine_notes_fn.exit.thread:               ; preds = %26, %24, %22, %28
+  %.0.i.ph = phi ptr [ @combine_notes_concatenate, %26 ], [ @combine_notes_overwrite, %22 ], [ @combine_notes_ignore, %24 ], [ @combine_notes_cat_sort_uniq, %28 ]
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %.0.i.ph, ptr %30, align 8, !tbaa !32
   br label %54
@@ -540,7 +540,7 @@ _.exit36:                                         ; preds = %50, %52
   br label %54
 
 54:                                               ; preds = %parse_combine_notes_fn.exit.thread, %37, %40, %47, %_.exit36, %43, %_.exit, %20, %11
-  %.0 = phi i32 [ -1, %43 ], [ 1, %_.exit ], [ -1, %20 ], [ 0, %11 ], [ 0, %_.exit36 ], [ 0, %47 ], [ 0, %40 ], [ 0, %37 ], [ 0, %parse_combine_notes_fn.exit.thread ]
+  %.0 = phi i32 [ 0, %47 ], [ 0, %parse_combine_notes_fn.exit.thread ], [ -1, %43 ], [ 0, %11 ], [ 1, %_.exit ], [ -1, %20 ], [ 0, %_.exit36 ], [ 0, %40 ], [ 0, %37 ]
   ret i32 %.0
 }
 

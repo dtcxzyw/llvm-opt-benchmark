@@ -1758,7 +1758,7 @@ define internal i32 @e1000_acquire_nvm_80003es2lan(ptr noundef %0) #0 align 16 {
   br label %.thread2
 
 .thread2:                                         ; preds = %13, %3, %16, %24, %18
-  %29 = phi i32 [ %20, %24 ], [ 0, %18 ], [ -13, %16 ], [ -13, %3 ], [ -13, %13 ]
+  %29 = phi i32 [ 0, %18 ], [ %20, %24 ], [ -13, %16 ], [ -13, %3 ], [ -13, %13 ]
   ret i32 %29
 }
 

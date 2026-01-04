@@ -287,9 +287,9 @@ newsemlockobject.exit.i:                          ; preds = %71
   br label %_multiprocessing_SemLock_impl.exit
 
 newsemlockobject.exit.thread.i:                   ; preds = %71, %.thread33.i, %.thread.i, %63
-  %82 = phi i1 [ true, %.thread.i ], [ false, %.thread33.i ], [ true, %63 ], [ false, %71 ]
-  %83 = phi ptr [ null, %.thread.i ], [ %67, %.thread33.i ], [ null, %63 ], [ %72, %71 ]
-  %.032.i = phi ptr [ null, %.thread.i ], [ null, %.thread33.i ], [ %59, %63 ], [ %.03136.i, %71 ]
+  %82 = phi i1 [ true, %.thread.i ], [ true, %63 ], [ false, %.thread33.i ], [ false, %71 ]
+  %83 = phi ptr [ null, %.thread.i ], [ null, %63 ], [ %67, %.thread33.i ], [ %72, %71 ]
+  %.032.i = phi ptr [ null, %.thread.i ], [ %59, %63 ], [ null, %.thread33.i ], [ %.03136.i, %71 ]
   %84 = call ptr @PyErr_Occurred() #11
   %.not28.i = icmp eq ptr %84, null
   br i1 %.not28.i, label %85, label %87
@@ -310,7 +310,7 @@ newsemlockobject.exit.thread.i:                   ; preds = %71, %.thread33.i, %
   br label %_multiprocessing_SemLock_impl.exit
 
 _multiprocessing_SemLock_impl.exit:               ; preds = %90, %newsemlockobject.exit.i, %61, %53, %47, %39, %30, %23, %16, %10, %45, %38
-  %.0 = phi ptr [ null, %16 ], [ null, %23 ], [ null, %30 ], [ null, %39 ], [ null, %45 ], [ null, %47 ], [ null, %38 ], [ null, %10 ], [ null, %53 ], [ null, %90 ], [ %62, %61 ], [ %75, %newsemlockobject.exit.i ]
+  %.0 = phi ptr [ null, %16 ], [ null, %23 ], [ null, %30 ], [ null, %39 ], [ null, %45 ], [ null, %47 ], [ null, %10 ], [ null, %38 ], [ null, %53 ], [ null, %90 ], [ %62, %61 ], [ %75, %newsemlockobject.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -805,7 +805,7 @@ define internal fastcc ptr @_multiprocessing_SemLock_acquire_impl(ptr noundef ca
   br label %.critedge49
 
 .critedge49:                                      ; preds = %44, %80, %81, %.critedge3.thread57, %.critedge3.thread, %.critedge3.thread, %22, %18
-  %.0 = phi ptr [ @_Py_TrueStruct, %18 ], [ null, %80 ], [ %83, %81 ], [ @_Py_TrueStruct, %.critedge3.thread57 ], [ null, %44 ], [ @_Py_FalseStruct, %.critedge3.thread ], [ @_Py_FalseStruct, %.critedge3.thread ], [ null, %22 ]
+  %.0 = phi ptr [ @_Py_TrueStruct, %18 ], [ @_Py_FalseStruct, %.critedge3.thread ], [ null, %80 ], [ %83, %81 ], [ @_Py_TrueStruct, %.critedge3.thread57 ], [ null, %44 ], [ @_Py_FalseStruct, %.critedge3.thread ], [ null, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }

@@ -262,7 +262,7 @@ define internal range(i32 -25, 1) i32 @u16550_ioctl(ptr noundef readonly capture
   br label %up_irq_restore.exit
 
 up_irq_restore.exit:                              ; preds = %22, %17, %16, %12, %3
-  %.0 = phi i32 [ -25, %3 ], [ 0, %12 ], [ 0, %16 ], [ 0, %17 ], [ 0, %22 ]
+  %.0 = phi i32 [ 0, %16 ], [ -25, %3 ], [ 0, %12 ], [ 0, %17 ], [ 0, %22 ]
   ret i32 %.0
 }
 

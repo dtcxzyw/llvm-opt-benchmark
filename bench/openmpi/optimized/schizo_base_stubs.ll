@@ -341,7 +341,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %69, %7
   br label %101
 
 101:                                              ; preds = %93, %94, %42, %23
-  %.0 = phi i32 [ -43, %23 ], [ -43, %42 ], [ 0, %94 ], [ 0, %93 ]
+  %.0 = phi i32 [ -43, %42 ], [ -43, %23 ], [ 0, %94 ], [ 0, %93 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -754,8 +754,8 @@ sub_2:                                            ; preds = %sub_1
   br i1 %119, label %.sink.split, label %123
 
 .sink.split:                                      ; preds = %117, %114, %111, %106
-  %.sink106 = phi i64 [ 3, %106 ], [ 10, %111 ], [ 3, %114 ], [ 8, %117 ]
-  %.str.30.sink = phi ptr [ @.str.28, %106 ], [ @.str.30, %111 ], [ @.str.32, %114 ], [ @.str.34, %117 ]
+  %.sink106 = phi i64 [ 3, %106 ], [ 3, %114 ], [ 10, %111 ], [ 8, %117 ]
+  %.str.30.sink = phi ptr [ @.str.28, %106 ], [ @.str.32, %114 ], [ @.str.30, %111 ], [ @.str.34, %117 ]
   %120 = getelementptr inbounds nuw i8, ptr %91, i64 %.sink106
   %121 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %5, ptr noundef nonnull %.str.30.sink, ptr noundef nonnull %120) #16
   call void @free(ptr noundef nonnull %91) #16
@@ -817,9 +817,9 @@ sub_2:                                            ; preds = %sub_1
   br label %.sink.split107
 
 .sink.split107:                                   ; preds = %88, %149, %135, %67, %71
-  %.0.sink = phi ptr [ %41, %71 ], [ %41, %67 ], [ %91, %88 ], [ %.1, %149 ], [ %.1, %135 ]
-  %.sink = phi ptr [ %49, %71 ], [ %49, %67 ], [ %99, %88 ], [ %99, %149 ], [ %99, %135 ]
-  %.176.ph = phi i32 [ %33, %71 ], [ %33, %67 ], [ %.07593, %88 ], [ %83, %149 ], [ %83, %135 ]
+  %.0.sink = phi ptr [ %41, %67 ], [ %41, %71 ], [ %91, %88 ], [ %.1, %149 ], [ %.1, %135 ]
+  %.sink = phi ptr [ %49, %67 ], [ %49, %71 ], [ %99, %88 ], [ %99, %149 ], [ %99, %135 ]
+  %.176.ph = phi i32 [ %33, %67 ], [ %33, %71 ], [ %.07593, %88 ], [ %83, %149 ], [ %83, %135 ]
   call void @free(ptr noundef %.0.sink) #16
   call void @free(ptr noundef nonnull %.sink) #16
   br label %153
@@ -831,7 +831,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %155, label %sub_0, label %.loopexit, !llvm.loop !50
 
 .loopexit.sink.split:                             ; preds = %78, %82, %28, %32
-  %.str.26.sink = phi ptr [ @.str.22, %32 ], [ @.str.22, %28 ], [ @.str.26, %82 ], [ @.str.26, %78 ]
+  %.str.26.sink = phi ptr [ @.str.22, %28 ], [ @.str.22, %32 ], [ @.str.26, %82 ], [ @.str.26, %78 ]
   %156 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.23, i32 noundef 1, ptr noundef nonnull %.str.26.sink) #16
   br label %.loopexit
 
@@ -1140,9 +1140,9 @@ sub_2:                                            ; preds = %sub_1
   br label %.sink.split127
 
 .sink.split127:                                   ; preds = %132, %165, %161, %116, %125, %72, %76
-  %.0.sink = phi ptr [ %46, %76 ], [ %46, %72 ], [ %99, %125 ], [ %99, %116 ], [ %.1, %161 ], [ %.1, %165 ], [ %99, %132 ]
-  %.sink = phi ptr [ %54, %76 ], [ %54, %72 ], [ %107, %125 ], [ %107, %116 ], [ %107, %161 ], [ %107, %165 ], [ %107, %132 ]
-  %.193.ph = phi i32 [ %36, %76 ], [ %36, %72 ], [ %91, %125 ], [ %91, %116 ], [ %91, %161 ], [ %91, %165 ], [ %91, %132 ]
+  %.0.sink = phi ptr [ %99, %116 ], [ %46, %72 ], [ %46, %76 ], [ %99, %125 ], [ %.1, %161 ], [ %.1, %165 ], [ %99, %132 ]
+  %.sink = phi ptr [ %107, %116 ], [ %54, %72 ], [ %54, %76 ], [ %107, %125 ], [ %107, %161 ], [ %107, %165 ], [ %107, %132 ]
+  %.193.ph = phi i32 [ %91, %116 ], [ %36, %72 ], [ %36, %76 ], [ %91, %125 ], [ %91, %161 ], [ %91, %165 ], [ %91, %132 ]
   call void @free(ptr noundef %.0.sink) #16
   call void @free(ptr noundef nonnull %.sink) #16
   br label %169
@@ -1154,7 +1154,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %171, label %sub_0, label %.loopexit, !llvm.loop !51
 
 .loopexit:                                        ; preds = %.tail, %90, %86, %169, %4, %41
-  %.091 = phi i32 [ -43, %41 ], [ 0, %4 ], [ 0, %.tail ], [ -6, %90 ], [ -6, %86 ], [ 0, %169 ]
+  %.091 = phi i32 [ -43, %41 ], [ 0, %4 ], [ -6, %86 ], [ 0, %.tail ], [ -6, %90 ], [ 0, %169 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.091
 }

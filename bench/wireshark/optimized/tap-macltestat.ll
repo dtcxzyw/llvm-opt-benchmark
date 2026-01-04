@@ -628,7 +628,7 @@ update_ueid_rnti_counts.exit.thread:              ; preds = %121, %170, %165, %1
   br i1 %exitcond.not, label %update_ueid_rnti_counts.exit.thread153, label %287, !llvm.loop !13
 
 update_ueid_rnti_counts.exit.thread153:           ; preds = %287, %234, %128, %129, %228, %281, %update_ueid_rnti_counts.exit, %6, %5, %251, %240, %198, %187, %39, %35, %26, %11
-  %.0112 = phi i32 [ 1, %11 ], [ 1, %26 ], [ 1, %35 ], [ 1, %39 ], [ 1, %187 ], [ 1, %198 ], [ 1, %240 ], [ 1, %251 ], [ 0, %5 ], [ 0, %6 ], [ 0, %update_ueid_rnti_counts.exit ], [ 1, %281 ], [ 1, %228 ], [ 0, %129 ], [ 0, %128 ], [ 1, %234 ], [ 1, %287 ]
+  %.0112 = phi i32 [ 0, %5 ], [ 1, %11 ], [ 1, %26 ], [ 1, %35 ], [ 1, %39 ], [ 1, %187 ], [ 1, %198 ], [ 0, %update_ueid_rnti_counts.exit ], [ 1, %240 ], [ 1, %251 ], [ 0, %6 ], [ 1, %281 ], [ 1, %234 ], [ 1, %228 ], [ 0, %128 ], [ 0, %129 ], [ 1, %287 ]
   ret i32 %.0112
 }
 

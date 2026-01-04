@@ -237,6 +237,12 @@ define range(i32 0, 309) i32 @yara_yylex(ptr noundef %0, ptr noundef initializes
   %.not420 = icmp eq i16 %110, 357
   br i1 %.not420, label %.preheader504.outer, label %69
 
+.preheader504.outer.backedge:                     ; preds = %._crit_edge.i479, %yy_get_next_buffer.exit.thread497, %yy_try_NUL_trans.exit
+  %.1375.ph.be = phi ptr [ %630, %yy_try_NUL_trans.exit ], [ %972, %yy_get_next_buffer.exit.thread497 ], [ %972, %._crit_edge.i479 ]
+  %.2369.ph.be = phi ptr [ %633, %yy_try_NUL_trans.exit ], [ %974, %yy_get_next_buffer.exit.thread497 ], [ %974, %._crit_edge.i479 ]
+  %.3362.ph.be = phi i32 [ %.021.lcssa.i, %yy_try_NUL_trans.exit ], [ %975, %yy_get_next_buffer.exit.thread497 ], [ %1016, %._crit_edge.i479 ]
+  br label %.preheader504.outer
+
 .preheader504.outer:                              ; preds = %._crit_edge, %.preheader504.outer.backedge
   %.1375.ph = phi ptr [ %.1375.ph.be, %.preheader504.outer.backedge ], [ %.0374, %._crit_edge ]
   %.2369.ph = phi ptr [ %.2369.ph.be, %.preheader504.outer.backedge ], [ %107, %._crit_edge ]
@@ -1483,9 +1489,9 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i444, %681
   br label %.loopexit.backedge
 
 .loopexit.backedge:                               ; preds = %._crit_edge.i464, %702, %921
-  %.0374.be = phi ptr [ %920, %921 ], [ %630, %702 ], [ %920, %._crit_edge.i464 ]
-  %.0367.be = phi ptr [ %928, %921 ], [ %704, %702 ], [ %928, %._crit_edge.i464 ]
-  %.0359.be = phi i32 [ %929, %921 ], [ %703, %702 ], [ %970, %._crit_edge.i464 ]
+  %.0374.be = phi ptr [ %630, %702 ], [ %920, %921 ], [ %920, %._crit_edge.i464 ]
+  %.0367.be = phi ptr [ %704, %702 ], [ %928, %921 ], [ %928, %._crit_edge.i464 ]
+  %.0359.be = phi i32 [ %703, %702 ], [ %929, %921 ], [ %970, %._crit_edge.i464 ]
   br label %.loopexit
 
 705:                                              ; preds = %617
@@ -2014,12 +2020,6 @@ yy_get_next_buffer.exit.thread497:                ; preds = %720, %yy_get_next_b
   %976 = icmp ult ptr %972, %974
   br i1 %976, label %.lr.ph31.i469, label %.preheader504.outer.backedge
 
-.preheader504.outer.backedge:                     ; preds = %._crit_edge.i479, %yy_get_next_buffer.exit.thread497, %yy_try_NUL_trans.exit
-  %.1375.ph.be = phi ptr [ %630, %yy_try_NUL_trans.exit ], [ %972, %yy_get_next_buffer.exit.thread497 ], [ %972, %._crit_edge.i479 ]
-  %.2369.ph.be = phi ptr [ %633, %yy_try_NUL_trans.exit ], [ %974, %yy_get_next_buffer.exit.thread497 ], [ %974, %._crit_edge.i479 ]
-  %.3362.ph.be = phi i32 [ %.021.lcssa.i, %yy_try_NUL_trans.exit ], [ %975, %yy_get_next_buffer.exit.thread497 ], [ %1016, %._crit_edge.i479 ]
-  br label %.preheader504.outer
-
 .lr.ph31.i469:                                    ; preds = %yy_get_next_buffer.exit.thread497, %._crit_edge.i479
   %.02129.i470 = phi i32 [ %1016, %._crit_edge.i479 ], [ %975, %yy_get_next_buffer.exit.thread497 ]
   %.02328.i471 = phi ptr [ %1017, %._crit_edge.i479 ], [ %972, %yy_get_next_buffer.exit.thread497 ]
@@ -2127,7 +2127,7 @@ yypop_buffer_state.exit.thread.loopexit1483:      ; preds = %.loopexit503
   br label %yypop_buffer_state.exit.thread
 
 yypop_buffer_state.exit.thread:                   ; preds = %267, %255, %yy_delete_buffer.exit.i, %253, %.loopexit503, %yypop_buffer_state.exit.thread.loopexit1483, %yypop_buffer_state.exit.thread.loopexit1328, %yypop_buffer_state.exit.thread.loopexit1232, %yypop_buffer_state.exit.thread.loopexit965, %yypop_buffer_state.exit.thread.loopexit, %.thread495, %.thread494, %443, %.thread, %591, %328, %334, %332, %314, %283, %275, %.thread489, %596, %578, %567, %528, %514, %498, %465, %417, %403, %389, %375, %350, %338, %321, %308, %307, %299, %298, %290, %282, %186, %185, %184, %183, %182, %181, %180, %179, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152
-  %.2 = phi i32 [ 306, %152 ], [ 307, %153 ], [ 259, %154 ], [ 260, %155 ], [ 258, %156 ], [ 261, %157 ], [ 262, %158 ], [ 273, %159 ], [ 274, %160 ], [ 276, %161 ], [ 275, %162 ], [ 263, %163 ], [ 295, %164 ], [ 296, %165 ], [ 308, %166 ], [ 298, %167 ], [ 297, %168 ], [ 277, %169 ], [ 282, %170 ], [ 283, %171 ], [ 285, %172 ], [ 284, %173 ], [ 280, %174 ], [ 281, %175 ], [ 279, %176 ], [ 278, %177 ], [ 289, %178 ], [ 290, %179 ], [ 291, %180 ], [ 286, %181 ], [ 287, %182 ], [ 288, %183 ], [ 292, %184 ], [ 293, %185 ], [ 294, %186 ], [ 0, %.thread489 ], [ 0, %282 ], [ 0, %290 ], [ 0, %298 ], [ 266, %299 ], [ 0, %307 ], [ 267, %308 ], [ 0, %321 ], [ 269, %338 ], [ 270, %350 ], [ 0, %375 ], [ 0, %389 ], [ 0, %403 ], [ 0, %417 ], [ 0, %443 ], [ 0, %465 ], [ 272, %498 ], [ 0, %514 ], [ 0, %528 ], [ 0, %567 ], [ 271, %578 ], [ 0, %596 ], [ 268, %275 ], [ 265, %283 ], [ 264, %314 ], [ 269, %332 ], [ 269, %334 ], [ 269, %328 ], [ %594, %591 ], [ 0, %.thread ], [ 0, %.thread494 ], [ 0, %.thread495 ], [ 299, %yypop_buffer_state.exit.thread.loopexit ], [ 301, %yypop_buffer_state.exit.thread.loopexit965 ], [ 300, %yypop_buffer_state.exit.thread.loopexit1232 ], [ 302, %yypop_buffer_state.exit.thread.loopexit1328 ], [ 303, %yypop_buffer_state.exit.thread.loopexit1483 ], [ 304, %.loopexit503 ], [ 0, %253 ], [ 0, %yy_delete_buffer.exit.i ], [ 0, %255 ], [ 0, %267 ]
+  %.2 = phi i32 [ 0, %596 ], [ 301, %yypop_buffer_state.exit.thread.loopexit965 ], [ 300, %yypop_buffer_state.exit.thread.loopexit1232 ], [ 302, %yypop_buffer_state.exit.thread.loopexit1328 ], [ 303, %yypop_buffer_state.exit.thread.loopexit1483 ], [ 304, %.loopexit503 ], [ 306, %152 ], [ 307, %153 ], [ 259, %154 ], [ 260, %155 ], [ 258, %156 ], [ 261, %157 ], [ 262, %158 ], [ 273, %159 ], [ 274, %160 ], [ 276, %161 ], [ 275, %162 ], [ 263, %163 ], [ 295, %164 ], [ 296, %165 ], [ 308, %166 ], [ 298, %167 ], [ 297, %168 ], [ 277, %169 ], [ 282, %170 ], [ 283, %171 ], [ 285, %172 ], [ 284, %173 ], [ 280, %174 ], [ 281, %175 ], [ 279, %176 ], [ 278, %177 ], [ 289, %178 ], [ 290, %179 ], [ 291, %180 ], [ 286, %181 ], [ 287, %182 ], [ 288, %183 ], [ 292, %184 ], [ 293, %185 ], [ 294, %186 ], [ 0, %.thread495 ], [ 0, %.thread489 ], [ 0, %.thread ], [ 0, %282 ], [ 269, %334 ], [ 0, %290 ], [ 268, %275 ], [ 0, %298 ], [ 266, %299 ], [ 0, %307 ], [ 267, %308 ], [ 0, %321 ], [ 265, %283 ], [ 264, %314 ], [ 269, %338 ], [ 270, %350 ], [ 0, %375 ], [ 0, %389 ], [ 0, %403 ], [ 0, %417 ], [ 0, %443 ], [ 0, %.thread494 ], [ 0, %465 ], [ 272, %498 ], [ 0, %514 ], [ 0, %528 ], [ %594, %591 ], [ 0, %567 ], [ 271, %578 ], [ 269, %328 ], [ 299, %yypop_buffer_state.exit.thread.loopexit ], [ 269, %332 ], [ 0, %253 ], [ 0, %yy_delete_buffer.exit.i ], [ 0, %255 ], [ 0, %267 ]
   ret i32 %.2
 }
 
@@ -2738,8 +2738,8 @@ define void @yy_switch_to_buffer(ptr noundef %0, ptr noundef captures(none) %1) 
   br label %27
 
 27:                                               ; preds = %13, %12
-  %28 = phi i64 [ %20, %13 ], [ %8, %12 ]
-  %29 = phi ptr [ %19, %13 ], [ %4, %12 ]
+  %28 = phi i64 [ %8, %12 ], [ %20, %13 ]
+  %29 = phi ptr [ %4, %12 ], [ %19, %13 ]
   %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %28
   store ptr %0, ptr %30, align 8, !tbaa !23
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -2967,8 +2967,8 @@ define noundef ptr @yy_scan_buffer(ptr noundef %0, i64 noundef %1, ptr noundef c
   br label %52
 
 52:                                               ; preds = %38, %37
-  %53 = phi i64 [ %45, %38 ], [ %33, %37 ]
-  %54 = phi ptr [ %44, %38 ], [ %31, %37 ]
+  %53 = phi i64 [ %33, %37 ], [ %45, %38 ]
+  %54 = phi ptr [ %31, %37 ], [ %44, %38 ]
   %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %53
   store ptr %14, ptr %55, align 8, !tbaa !23
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 52
@@ -2987,7 +2987,7 @@ define noundef ptr @yy_scan_buffer(ptr noundef %0, i64 noundef %1, ptr noundef c
   br label %yy_switch_to_buffer.exit
 
 yy_switch_to_buffer.exit:                         ; preds = %52, %.thread.i, %3, %5, %9
-  %.0 = phi ptr [ null, %9 ], [ null, %5 ], [ null, %3 ], [ %14, %.thread.i ], [ %14, %52 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %9 ], [ null, %5 ], [ %14, %52 ], [ %14, %.thread.i ]
   ret ptr %.0
 }
 

@@ -366,8 +366,8 @@ _ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_18I
   br label %.loopexit, !llvm.loop !102
 
 _ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.thread.i.i.i44: ; preds = %104, %85, %95
-  %115 = phi i64 [ %92, %95 ], [ %81, %85 ], [ %92, %104 ]
-  %.sroa.06.1.i.i.i.i.i.i45 = phi ptr [ %96, %95 ], [ %.sroa.06.0.i.i.i.i.i.i47, %85 ], [ %110, %104 ]
+  %115 = phi i64 [ %81, %85 ], [ %92, %95 ], [ %92, %104 ]
+  %.sroa.06.1.i.i.i.i.i.i45 = phi ptr [ %.sroa.06.0.i.i.i.i.i.i47, %85 ], [ %96, %95 ], [ %110, %104 ]
   %116 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i45, i64 16
   %117 = load i64, ptr %116, align 8, !tbaa !103
   %118 = shl nuw i64 1, %115
@@ -375,7 +375,7 @@ _ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.
   %120 = icmp ne i64 %119, 0
   br label %.loopexit
 
-_ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_18IsConstComputedTagEbEEEENT_10value_typeERKS8_.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %36, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i, %41, %_ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_18IsConstComputedTagEbEEEENT_10value_typeERKS8_.exit.thread154, %_ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_18IsConstComputedTagEbEEEENT_10value_typeERKS8_.exit
+_ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_18IsConstComputedTagEbEEEENT_10value_typeERKS8_.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %36, %41, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i, %_ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_18IsConstComputedTagEbEEEENT_10value_typeERKS8_.exit.thread154, %_ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_18IsConstComputedTagEbEEEENT_10value_typeERKS8_.exit
   store ptr %26, ptr %4, align 8, !tbaa !105
   %121 = call noundef zeroext i1 @_ZN4cvc58internal4expr11TypeChecker14computeIsConstEPNS0_11NodeManagerENS0_12NodeTemplateILb0EEE(ptr noundef %28, ptr noundef nonnull %4)
   %122 = load ptr, ptr %0, align 8, !tbaa !3
@@ -430,7 +430,7 @@ _ZN4cvc58internal12NodeTemplateILb1EE12setAttributeINS0_4expr9AttributeINS0_18Is
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i38, %84, %_ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.thread.i.i.i44, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i42, %89, %17, %_ZNK4cvc58internal12NodeTemplateILb1EE6isNullEv.exit, %_ZN4cvc58internal12NodeTemplateILb1EE12setAttributeINS0_4expr9AttributeINS0_18IsConstComputedTagEbEEEEvRKT_RKNS8_10value_typeE.exit, %24
-  %.0 = phi i1 [ %121, %_ZN4cvc58internal12NodeTemplateILb1EE12setAttributeINS0_4expr9AttributeINS0_18IsConstComputedTagEbEEEEvRKT_RKNS8_10value_typeE.exit ], [ false, %24 ], [ false, %_ZNK4cvc58internal12NodeTemplateILb1EE6isNullEv.exit ], [ true, %17 ], [ %120, %_ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.thread.i.i.i44 ], [ false, %89 ], [ false, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i42 ], [ false, %84 ], [ false, %.lr.ph.i.i.i.i.i.i.i.i38 ]
+  %.0 = phi i1 [ false, %24 ], [ true, %17 ], [ %121, %_ZN4cvc58internal12NodeTemplateILb1EE12setAttributeINS0_4expr9AttributeINS0_18IsConstComputedTagEbEEEEvRKT_RKNS8_10value_typeE.exit ], [ false, %_ZNK4cvc58internal12NodeTemplateILb1EE6isNullEv.exit ], [ %120, %_ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.thread.i.i.i44 ], [ false, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i42 ], [ false, %89 ], [ false, %84 ], [ false, %.lr.ph.i.i.i.i.i.i.i.i38 ]
   ret i1 %.0
 }
 
@@ -668,8 +668,8 @@ _ZNK4cvc58internal12NodeTemplateILb0EE12getAttributeINS0_4expr9AttributeINS0_18I
   br label %.loopexit, !llvm.loop !102
 
 _ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.thread.i.i.i44: ; preds = %104, %85, %95
-  %115 = phi i64 [ %92, %95 ], [ %81, %85 ], [ %92, %104 ]
-  %.sroa.06.1.i.i.i.i.i.i45 = phi ptr [ %96, %95 ], [ %.sroa.06.0.i.i.i.i.i.i47, %85 ], [ %110, %104 ]
+  %115 = phi i64 [ %81, %85 ], [ %92, %95 ], [ %92, %104 ]
+  %.sroa.06.1.i.i.i.i.i.i45 = phi ptr [ %.sroa.06.0.i.i.i.i.i.i47, %85 ], [ %96, %95 ], [ %110, %104 ]
   %116 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i45, i64 16
   %117 = load i64, ptr %116, align 8, !tbaa !103
   %118 = shl nuw i64 1, %115
@@ -677,7 +677,7 @@ _ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.
   %120 = icmp ne i64 %119, 0
   br label %.loopexit
 
-_ZNK4cvc58internal12NodeTemplateILb0EE12getAttributeINS0_4expr9AttributeINS0_18IsConstComputedTagEbEEEENT_10value_typeERKS8_.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %36, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i, %41, %_ZNK4cvc58internal12NodeTemplateILb0EE12getAttributeINS0_4expr9AttributeINS0_18IsConstComputedTagEbEEEENT_10value_typeERKS8_.exit.thread154, %_ZNK4cvc58internal12NodeTemplateILb0EE12getAttributeINS0_4expr9AttributeINS0_18IsConstComputedTagEbEEEENT_10value_typeERKS8_.exit
+_ZNK4cvc58internal12NodeTemplateILb0EE12getAttributeINS0_4expr9AttributeINS0_18IsConstComputedTagEbEEEENT_10value_typeERKS8_.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %36, %41, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i, %_ZNK4cvc58internal12NodeTemplateILb0EE12getAttributeINS0_4expr9AttributeINS0_18IsConstComputedTagEbEEEENT_10value_typeERKS8_.exit.thread154, %_ZNK4cvc58internal12NodeTemplateILb0EE12getAttributeINS0_4expr9AttributeINS0_18IsConstComputedTagEbEEEENT_10value_typeERKS8_.exit
   store ptr %26, ptr %4, align 8, !tbaa !105
   %121 = call noundef zeroext i1 @_ZN4cvc58internal4expr11TypeChecker14computeIsConstEPNS0_11NodeManagerENS0_12NodeTemplateILb0EEE(ptr noundef %28, ptr noundef nonnull %4)
   %122 = load ptr, ptr %0, align 8, !tbaa !105
@@ -732,7 +732,7 @@ _ZN4cvc58internal12NodeTemplateILb0EE12setAttributeINS0_4expr9AttributeINS0_18Is
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i38, %84, %_ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.thread.i.i.i44, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i42, %89, %17, %_ZNK4cvc58internal12NodeTemplateILb0EE6isNullEv.exit, %_ZN4cvc58internal12NodeTemplateILb0EE12setAttributeINS0_4expr9AttributeINS0_18IsConstComputedTagEbEEEEvRKT_RKNS8_10value_typeE.exit, %24
-  %.0 = phi i1 [ %121, %_ZN4cvc58internal12NodeTemplateILb0EE12setAttributeINS0_4expr9AttributeINS0_18IsConstComputedTagEbEEEEvRKT_RKNS8_10value_typeE.exit ], [ false, %24 ], [ false, %_ZNK4cvc58internal12NodeTemplateILb0EE6isNullEv.exit ], [ true, %17 ], [ %120, %_ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.thread.i.i.i44 ], [ false, %89 ], [ false, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i42 ], [ false, %84 ], [ false, %.lr.ph.i.i.i.i.i.i.i.i38 ]
+  %.0 = phi i1 [ false, %24 ], [ true, %17 ], [ %121, %_ZN4cvc58internal12NodeTemplateILb0EE12setAttributeINS0_4expr9AttributeINS0_18IsConstComputedTagEbEEEEvRKT_RKNS8_10value_typeE.exit ], [ false, %_ZNK4cvc58internal12NodeTemplateILb0EE6isNullEv.exit ], [ %120, %_ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.thread.i.i.i44 ], [ false, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i42 ], [ false, %89 ], [ false, %84 ], [ false, %.lr.ph.i.i.i.i.i.i.i.i38 ]
   ret i1 %.0
 }
 
@@ -1583,7 +1583,7 @@ _ZNSt10_HashtableIPN4cvc58internal4expr9NodeValueESt4pairIKS4_mESaIS7_ENSt8__det
   resume { ptr, i32 } %36
 
 _ZNSt10_HashtableIPN4cvc58internal4expr9NodeValueESt4pairIKS4_mESaIS7_ENSt8__detail10_Select1stESt8equal_toIS4_ENS2_4attr20AttrBoolHashFunctionENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %21, %.loopexit, %12
-  %.pn = phi ptr [ %13, %12 ], [ %35, %.loopexit ], [ %27, %21 ]
+  %.pn = phi ptr [ %35, %.loopexit ], [ %13, %12 ], [ %27, %21 ]
   %.1 = getelementptr inbounds nuw i8, ptr %.pn, i64 16
   ret ptr %.1
 }
@@ -1869,14 +1869,14 @@ define linkonce_odr hidden void @_ZNK4cvc58internal4expr4attr8AttrHashINSt7__cxx
 ..loopexit_crit_edge21.i.i.i.i:                   ; preds = %39
   br label %.loopexit, !llvm.loop !173
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %9, %14, %..loopexit_crit_edge21.i.i.i.i
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %9, %..loopexit_crit_edge21.i.i.i.i, %14
   store i8 1, ptr %0, align 8, !tbaa !109
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false)
   br label %94
 
 _ZNKSt13unordered_mapIPN4cvc58internal4expr9NodeValueENS2_4attr8AttrHashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5IdMapENS5_20AttrBoolHashFunctionESt8equal_toIS4_ESaISt4pairIKS4_SE_EEE4findERSJ_.exit: ; preds = %32, %10, %23
-  %.sroa.06.1.i.i = phi ptr [ %24, %23 ], [ %.sroa.06.0.i.i, %10 ], [ %38, %32 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %10 ], [ %24, %23 ], [ %38, %32 ]
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %45 = load ptr, ptr %44, align 8, !tbaa !174
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 24

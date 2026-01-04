@@ -773,7 +773,7 @@ isTemporalOperator.exit.thread:                   ; preds = %isUnexpectedEOS.exi
   br i1 %185, label %isUnexpectedEOS.exit.preheader, label %.loopexit, !llvm.loop !49
 
 .loopexit:                                        ; preds = %isTemporalOperator.exit.thread, %isTemporalOperator.exit, %159, %150, %146, %137, %133, %114, %110, %86, %62, %38, %generateTypedNode.exit169, %getVarName.exit.thread, %generateTypedNode.exit166, %generateTypedNode.exit164, %generateTypedNode.exit162, %generateTypedNode.exit160, %125, %generateTypedNode.exit158, %generateTypedNode.exit156, %97, %generateTypedNode.exit154, %generateTypedNode.exit152, %73, %generateTypedNode.exit150, %generateTypedNode.exit148, %49, %generateTypedNode.exit, %7
-  %.0123 = phi ptr [ null, %7 ], [ %181, %generateTypedNode.exit169 ], [ null, %getVarName.exit.thread ], [ %43, %generateTypedNode.exit ], [ %52, %generateTypedNode.exit148 ], [ null, %49 ], [ %67, %generateTypedNode.exit150 ], [ %76, %generateTypedNode.exit152 ], [ null, %73 ], [ %91, %generateTypedNode.exit154 ], [ %100, %generateTypedNode.exit156 ], [ null, %97 ], [ %118, %generateTypedNode.exit158 ], [ %128, %generateTypedNode.exit160 ], [ null, %125 ], [ %141, %generateTypedNode.exit162 ], [ %154, %generateTypedNode.exit164 ], [ %164, %generateTypedNode.exit166 ], [ null, %isTemporalOperator.exit ], [ null, %38 ], [ null, %62 ], [ null, %86 ], [ null, %110 ], [ null, %114 ], [ null, %133 ], [ null, %137 ], [ null, %146 ], [ null, %150 ], [ null, %159 ], [ null, %isTemporalOperator.exit.thread ]
+  %.0123 = phi ptr [ null, %7 ], [ %181, %generateTypedNode.exit169 ], [ null, %getVarName.exit.thread ], [ null, %159 ], [ null, %isTemporalOperator.exit ], [ %43, %generateTypedNode.exit ], [ %52, %generateTypedNode.exit148 ], [ null, %49 ], [ null, %38 ], [ %67, %generateTypedNode.exit150 ], [ %76, %generateTypedNode.exit152 ], [ null, %73 ], [ null, %62 ], [ %91, %generateTypedNode.exit154 ], [ %100, %generateTypedNode.exit156 ], [ null, %97 ], [ null, %86 ], [ null, %110 ], [ %118, %generateTypedNode.exit158 ], [ %128, %generateTypedNode.exit160 ], [ null, %125 ], [ null, %114 ], [ null, %133 ], [ %141, %generateTypedNode.exit162 ], [ null, %137 ], [ null, %146 ], [ %154, %generateTypedNode.exit164 ], [ null, %150 ], [ %164, %generateTypedNode.exit166 ], [ null, %isTemporalOperator.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0123
 }
@@ -916,7 +916,7 @@ common.ret36:                                     ; preds = %23, %11, %3, %commo
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %tailrecurse, %19, %21, %22
-  %.str.7.sink = phi ptr [ @.str.7, %19 ], [ @.str.9, %21 ], [ @.str.10, %22 ], [ @.str.8, %tailrecurse ]
+  %.str.7.sink = phi ptr [ @.str.7, %19 ], [ @.str.10, %22 ], [ @.str.9, %21 ], [ @.str.8, %tailrecurse ]
   %20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.7.sink)
   %.tr.be.in = getelementptr inbounds nuw i8, ptr %.tr, i64 24
   %.tr.be = load ptr, ptr %.tr.be.in, align 8, !tbaa !46
@@ -1238,7 +1238,7 @@ Vec_PtrPush.exit61:                               ; preds = %.Vec_PtrGrow.exit11
   unreachable
 
 .loopexit.sink.split:                             ; preds = %122, %68, %Vec_PtrPush.exit61, %._crit_edge.loopexit.split.loop.exit12.i68, %Vec_PtrFind.exit54, %Vec_PtrPush.exit, %._crit_edge.loopexit.split.loop.exit12.i45, %Vec_PtrFind.exit
-  %.0.sink = phi i32 [ %30, %Vec_PtrFind.exit ], [ -1, %Vec_PtrPush.exit ], [ %69, %._crit_edge.loopexit.split.loop.exit12.i45 ], [ %84, %Vec_PtrFind.exit54 ], [ -1, %Vec_PtrPush.exit61 ], [ %123, %._crit_edge.loopexit.split.loop.exit12.i68 ], [ -1, %68 ], [ -1, %122 ]
+  %.0.sink = phi i32 [ -1, %68 ], [ %30, %Vec_PtrFind.exit ], [ -1, %Vec_PtrPush.exit ], [ %69, %._crit_edge.loopexit.split.loop.exit12.i45 ], [ %84, %Vec_PtrFind.exit54 ], [ -1, %Vec_PtrPush.exit61 ], [ %123, %._crit_edge.loopexit.split.loop.exit12.i68 ], [ -1, %122 ]
   tail call fastcc void @Vec_VecPush(ptr noundef %3, i32 noundef %.0.sink, ptr noundef nonnull %.tr72)
   br label %.loopexit
 
@@ -1605,7 +1605,7 @@ tailrecurse.backedge:                             ; preds = %3, %tailrecurse
   br label %.loopexit
 
 .loopexit:                                        ; preds = %3, %tailrecurse, %.loopexit.loopexit, %8, %12
-  %.0 = phi i32 [ %15, %12 ], [ 0, %8 ], [ 1, %.loopexit.loopexit ], [ 0, %tailrecurse ], [ 0, %3 ]
+  %.0 = phi i32 [ 1, %.loopexit.loopexit ], [ %15, %12 ], [ 0, %8 ], [ 0, %tailrecurse ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -1712,7 +1712,7 @@ tailrecurse.backedge:                             ; preds = %24, %tailrecurse, %
   unreachable
 
 checkBooleanConstant.exit.thread:                 ; preds = %24, %.lr.ph, %4, %checkBooleanConstant.exit, %.critedge
-  %.017 = phi i32 [ 0, %.critedge ], [ 1, %checkBooleanConstant.exit ], [ 1, %4 ], [ 1, %.lr.ph ], [ 0, %24 ]
+  %.017 = phi i32 [ 1, %4 ], [ 1, %checkBooleanConstant.exit ], [ 0, %.critedge ], [ 1, %.lr.ph ], [ 0, %24 ]
   ret i32 %.017
 }
 
@@ -1888,7 +1888,7 @@ tailrecurse.backedge:                             ; preds = %10, %tailrecurse, %
   unreachable
 
 .loopexit:                                        ; preds = %10, %3, %6
-  %.0 = phi i32 [ 0, %6 ], [ 1, %3 ], [ 0, %10 ]
+  %.0 = phi i32 [ 1, %3 ], [ 0, %6 ], [ 0, %10 ]
   ret i32 %.0
 }
 

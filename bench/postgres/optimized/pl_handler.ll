@@ -621,8 +621,8 @@ define noundef i64 @plpgsql_validator(ptr noundef readonly captures(none) %0) lo
   br label %41
 
 41:                                               ; preds = %32, %.fold.split, %34, %22
-  %.0122 = phi i1 [ true, %34 ], [ false, %22 ], [ false, %32 ], [ false, %.fold.split ]
-  %.0121 = phi i1 [ false, %34 ], [ false, %22 ], [ true, %32 ], [ false, %.fold.split ]
+  %.0122 = phi i1 [ false, %22 ], [ true, %34 ], [ false, %.fold.split ], [ false, %32 ]
+  %.0121 = phi i1 [ false, %22 ], [ false, %34 ], [ false, %.fold.split ], [ true, %32 ]
   %42 = call i32 @get_func_arg_info(ptr noundef nonnull %18, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
   %43 = icmp sgt i32 %42, 0
   br i1 %43, label %.lr.ph.preheader, label %._crit_edge

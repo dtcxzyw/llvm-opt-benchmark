@@ -387,7 +387,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not, label %114, label %.critedge
 
 .critedge:                                        ; preds = %66, %.preheader, %38
-  %67 = phi ptr [ %2, %38 ], [ %47, %.preheader ], [ %47, %66 ]
+  %67 = phi ptr [ %47, %.preheader ], [ %2, %38 ], [ %47, %66 ]
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 26
   %69 = load i8, ptr %68, align 2
   %70 = sext i8 %69 to i16

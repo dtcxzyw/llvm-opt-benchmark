@@ -316,7 +316,7 @@ define hidden i64 @_ZN18ModRefBarrierSetC115resolve_addressER9LIRAccessb(ptr nou
   br label %13
 
 13:                                               ; preds = %7, %3
-  %14 = phi i32 [ 0, %3 ], [ %spec.select, %7 ]
+  %14 = phi i32 [ %spec.select, %7 ], [ 0, %3 ]
   %15 = zext i1 %2 to i32
   %16 = or i32 %14, %15
   %17 = icmp ne i32 %16, 0

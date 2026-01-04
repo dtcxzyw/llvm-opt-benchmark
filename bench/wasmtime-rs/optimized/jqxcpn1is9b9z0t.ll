@@ -1816,7 +1816,7 @@ define void @_ZN11wasi_common4sync3dir3Dir10open_file_17hf51975c7c7a2905eE(ptr n
           to label %_ZN11wasi_common9snapshots9preview_15types5Error7context17hd3507375539a111bE.exit unwind label %54, !noalias !353
 
 common.resume:                                    ; preds = %122, %73, %54
-  %common.resume.op = phi { ptr, i32 } [ %55, %54 ], [ %74, %73 ], [ %123, %122 ]
+  %common.resume.op = phi { ptr, i32 } [ %74, %73 ], [ %55, %54 ], [ %123, %122 ]
   resume { ptr, i32 } %common.resume.op
 
 54:                                               ; preds = %51
@@ -4157,7 +4157,7 @@ default.unreachable9:                             ; preds = %2
   br label %22
 
 22:                                               ; preds = %20, %7
-  %.pn.pn = phi { ptr, i32 } [ %21, %20 ], [ %8, %7 ]
+  %.pn.pn = phi { ptr, i32 } [ %8, %7 ], [ %21, %20 ]
   store i8 2, ptr %4, align 8
   resume { ptr, i32 } %.pn.pn
 
@@ -4437,7 +4437,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.9870732553834023604.ex
           to label %85 unwind label %83
 
 .body56:                                          ; preds = %83, %78, %30, %87, %86
-  %.pn27 = phi { ptr, i32 } [ %.pn24.pn.ph, %86 ], [ %.pn15.pn, %87 ], [ %31, %30 ], [ %84, %83 ], [ %79, %78 ]
+  %.pn27 = phi { ptr, i32 } [ %.pn15.pn, %87 ], [ %.pn24.pn.ph, %86 ], [ %31, %30 ], [ %84, %83 ], [ %79, %78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %90
 
@@ -4468,7 +4468,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.9870732553834023604.ex
   br label %90
 
 90:                                               ; preds = %17, %88, %.body56, %69
-  %.pn32.pn = phi { ptr, i32 } [ %.pn27, %.body56 ], [ %70, %69 ], [ %89, %88 ], [ %18, %17 ]
+  %.pn32.pn = phi { ptr, i32 } [ %70, %69 ], [ %.pn27, %.body56 ], [ %89, %88 ], [ %18, %17 ]
   store i8 2, ptr %10, align 8
   resume { ptr, i32 } %.pn32.pn
 
@@ -4587,7 +4587,7 @@ _ZN7cap_std2fs3dir3Dir7symlink17h559483f6456f80fdE.exit.thread: ; preds = %24, %
   br label %32
 
 32:                                               ; preds = %30, %26
-  %.pn.pn = phi { ptr, i32 } [ %31, %30 ], [ %27, %26 ]
+  %.pn.pn = phi { ptr, i32 } [ %27, %26 ], [ %31, %30 ]
   store i8 2, ptr %4, align 8
   resume { ptr, i32 } %.pn.pn
 
@@ -4671,7 +4671,7 @@ _ZN7cap_std2fs3dir3Dir10remove_dir17h186011117729d82cE.exit: ; preds = %8
   br label %20
 
 20:                                               ; preds = %18, %6
-  %.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %7, %6 ]
+  %.pn.pn = phi { ptr, i32 } [ %7, %6 ], [ %19, %18 ]
   store i8 2, ptr %3, align 8
   resume { ptr, i32 } %.pn.pn
 
@@ -4755,7 +4755,7 @@ default.unreachable9:                             ; preds = %2
   br label %20
 
 20:                                               ; preds = %18, %6
-  %.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %7, %6 ]
+  %.pn.pn = phi { ptr, i32 } [ %7, %6 ], [ %19, %18 ]
   store i8 2, ptr %3, align 8
   resume { ptr, i32 } %.pn.pn
 
@@ -4946,7 +4946,7 @@ default.unreachable36:                            ; preds = %3
   br label %.body
 
 .body:                                            ; preds = %52, %22, %10
-  %.pn3 = phi { ptr, i32 } [ %53, %52 ], [ %11, %10 ], [ %23, %22 ]
+  %.pn3 = phi { ptr, i32 } [ %53, %52 ], [ %23, %22 ], [ %11, %10 ]
   store i8 2, ptr %8, align 8
   resume { ptr, i32 } %.pn3
 
@@ -5237,7 +5237,7 @@ _ZN11wasi_common4sync4file13filetype_from17hd53e7a46c3969dfaE.exit: ; preds = %s
   br label %10
 
 77:                                               ; preds = %13, %73, %33, %43, %49, %55, %61, %71
-  %.pn21.pn.pn = phi { ptr, i32 } [ %44, %43 ], [ %34, %33 ], [ %56, %55 ], [ %50, %49 ], [ %72, %71 ], [ %62, %61 ], [ %74, %73 ], [ %14, %13 ]
+  %.pn21.pn.pn = phi { ptr, i32 } [ %44, %43 ], [ %50, %49 ], [ %34, %33 ], [ %62, %61 ], [ %56, %55 ], [ %72, %71 ], [ %74, %73 ], [ %14, %13 ]
   store i8 2, ptr %8, align 8
   resume { ptr, i32 } %.pn21.pn.pn
 
@@ -5615,7 +5615,7 @@ _ZN11wasi_common4sync4file13filetype_from17hd53e7a46c3969dfaE.exit: ; preds = %s
   br label %100
 
 100:                                              ; preds = %34, %98, %57, %67, %73, %80, %86, %96, %31, %19
-  %.pn25.pn.pn = phi { ptr, i32 } [ %32, %31 ], [ %20, %19 ], [ %68, %67 ], [ %58, %57 ], [ %81, %80 ], [ %74, %73 ], [ %97, %96 ], [ %87, %86 ], [ %99, %98 ], [ %35, %34 ]
+  %.pn25.pn.pn = phi { ptr, i32 } [ %20, %19 ], [ %68, %67 ], [ %32, %31 ], [ %74, %73 ], [ %58, %57 ], [ %87, %86 ], [ %81, %80 ], [ %97, %96 ], [ %99, %98 ], [ %35, %34 ]
   store i8 2, ptr %9, align 8
   resume { ptr, i32 } %.pn25.pn.pn
 
@@ -5797,7 +5797,7 @@ _ZN11wasi_common4sync3dir3Dir7rename_17ha0860defb65fe498E.exit: ; preds = %.noex
   br label %_ZN11wasi_common4sync3dir3Dir7rename_17ha0860defb65fe498E.exit
 
 .body:                                            ; preds = %37, %28, %43, %19, %59
-  %.pn5 = phi { ptr, i32 } [ %60, %59 ], [ %44, %43 ], [ %20, %19 ], [ %29, %28 ], [ %38, %37 ]
+  %.pn5 = phi { ptr, i32 } [ %60, %59 ], [ %20, %19 ], [ %29, %28 ], [ %38, %37 ], [ %44, %43 ]
   store i8 2, ptr %7, align 8
   resume { ptr, i32 } %.pn5
 
@@ -5984,7 +5984,7 @@ _ZN11wasi_common4sync3dir3Dir10hard_link_17h988e6eb1d47944cbE.exit: ; preds = %.
   br label %_ZN11wasi_common4sync3dir3Dir10hard_link_17h988e6eb1d47944cbE.exit
 
 .body:                                            ; preds = %37, %28, %43, %19, %59
-  %.pn5 = phi { ptr, i32 } [ %60, %59 ], [ %44, %43 ], [ %20, %19 ], [ %29, %28 ], [ %38, %37 ]
+  %.pn5 = phi { ptr, i32 } [ %60, %59 ], [ %20, %19 ], [ %29, %28 ], [ %38, %37 ], [ %44, %43 ]
   store i8 2, ptr %7, align 8
   resume { ptr, i32 } %.pn5
 
@@ -6056,7 +6056,7 @@ default.unreachable23:                            ; preds = %2
   unreachable
 
 "_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h73b20e6d34a729fdE.exit": ; preds = %61, %50, %59, %48
-  %.0 = phi ptr [ null, %48 ], [ null, %59 ], [ %51, %50 ], [ %62, %61 ]
+  %.0 = phi ptr [ %51, %50 ], [ null, %59 ], [ null, %48 ], [ %62, %61 ]
   store i8 1, ptr %8, align 1
   %10 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.0, 1
   ret { i64, ptr } %10
@@ -6203,7 +6203,7 @@ default.unreachable23:                            ; preds = %2
   br label %.body
 
 .body:                                            ; preds = %39, %41, %28, %63, %54, %52
-  %.pn7.pn = phi { ptr, i32 } [ %53, %52 ], [ %64, %63 ], [ %55, %54 ], [ %29, %28 ], [ %40, %41 ], [ %40, %39 ]
+  %.pn7.pn = phi { ptr, i32 } [ %40, %39 ], [ %55, %54 ], [ %53, %52 ], [ %29, %28 ], [ %64, %63 ], [ %40, %41 ]
   store i8 2, ptr %8, align 1
   resume { ptr, i32 } %.pn7.pn
 
@@ -6329,8 +6329,8 @@ default.unreachable30:                            ; preds = %3
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$std..io..stdio..StdinLock$GT$17hf4488d49cb85fb26E.exit25": ; preds = %63, %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1938814379164664089.exit.i.i.i20, %41, %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1938814379164664089.exit.i.i.i
-  %.sroa.029.0 = phi i64 [ 0, %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1938814379164664089.exit.i.i.i ], [ 0, %41 ], [ 1, %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1938814379164664089.exit.i.i.i20 ], [ 1, %63 ]
-  %.sroa.4.0.in = phi ptr [ %27, %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1938814379164664089.exit.i.i.i ], [ %27, %41 ], [ %43, %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1938814379164664089.exit.i.i.i20 ], [ %43, %63 ]
+  %.sroa.029.0 = phi i64 [ 0, %41 ], [ 0, %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1938814379164664089.exit.i.i.i ], [ 1, %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1938814379164664089.exit.i.i.i20 ], [ 1, %63 ]
+  %.sroa.4.0.in = phi ptr [ %27, %41 ], [ %27, %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1938814379164664089.exit.i.i.i ], [ %43, %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1938814379164664089.exit.i.i.i20 ], [ %43, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.sroa.4.0 = ptrtoint ptr %.sroa.4.0.in to i64
   store i64 %.sroa.029.0, ptr %0, align 8
@@ -6760,7 +6760,7 @@ default.unreachable9:                             ; preds = %2
   br label %24
 
 24:                                               ; preds = %22, %7
-  %.pn.pn = phi { ptr, i32 } [ %23, %22 ], [ %8, %7 ]
+  %.pn.pn = phi { ptr, i32 } [ %8, %7 ], [ %23, %22 ]
   store i8 2, ptr %4, align 8
   resume { ptr, i32 } %.pn.pn
 
@@ -6981,8 +6981,8 @@ default.unreachable35:                            ; preds = %3
   unreachable
 
 "_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h69206ffe8ac7d2d2E.exit": ; preds = %60, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h14c429946666367dE.exit20", %.noexc27, %44, %34, %.noexc22
-  %.sroa.033.0 = phi i64 [ 0, %.noexc22 ], [ 0, %34 ], [ 0, %44 ], [ 1, %.noexc27 ], [ 1, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h14c429946666367dE.exit20" ], [ 1, %60 ]
-  %.sroa.534.0.in = phi ptr [ %23, %.noexc22 ], [ %23, %34 ], [ %23, %44 ], [ %.sroa.534.1.in, %.noexc27 ], [ %.sroa.534.1.in, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h14c429946666367dE.exit20" ], [ %.sroa.534.1.in, %60 ]
+  %.sroa.033.0 = phi i64 [ 0, %44 ], [ 0, %.noexc22 ], [ 0, %34 ], [ 1, %.noexc27 ], [ 1, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h14c429946666367dE.exit20" ], [ 1, %60 ]
+  %.sroa.534.0.in = phi ptr [ %23, %44 ], [ %23, %.noexc22 ], [ %23, %34 ], [ %.sroa.534.1.in, %.noexc27 ], [ %.sroa.534.1.in, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h14c429946666367dE.exit20" ], [ %.sroa.534.1.in, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.534.0 = ptrtoint ptr %.sroa.534.0.in to i64
   store i64 %.sroa.033.0, ptr %0, align 8
@@ -7117,7 +7117,7 @@ default.unreachable35:                            ; preds = %3
           to label %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h69206ffe8ac7d2d2E.exit" unwind label %64
 
 61:                                               ; preds = %18, %62, %49, %28
-  %.pn5.pn = phi { ptr, i32 } [ %50, %49 ], [ %29, %28 ], [ %63, %62 ], [ %19, %18 ]
+  %.pn5.pn = phi { ptr, i32 } [ %29, %28 ], [ %50, %49 ], [ %19, %18 ], [ %63, %62 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h69206ffe8ac7d2d2E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #23
           to label %66 unwind label %47
 
@@ -7349,7 +7349,7 @@ default.unreachable9:                             ; preds = %2
   br label %24
 
 24:                                               ; preds = %22, %7
-  %.pn.pn = phi { ptr, i32 } [ %23, %22 ], [ %8, %7 ]
+  %.pn.pn = phi { ptr, i32 } [ %8, %7 ], [ %23, %22 ]
   store i8 2, ptr %4, align 8
   resume { ptr, i32 } %.pn.pn
 
@@ -7536,8 +7536,8 @@ default.unreachable35:                            ; preds = %3
   unreachable
 
 "_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StderrLock$GT$17habd9d9ecff3009eeE.exit": ; preds = %60, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h14c429946666367dE.exit20", %.noexc27, %44, %34, %.noexc22
-  %.sroa.033.0 = phi i64 [ 0, %.noexc22 ], [ 0, %34 ], [ 0, %44 ], [ 1, %.noexc27 ], [ 1, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h14c429946666367dE.exit20" ], [ 1, %60 ]
-  %.sroa.534.0.in = phi ptr [ %23, %.noexc22 ], [ %23, %34 ], [ %23, %44 ], [ %.sroa.534.1.in, %.noexc27 ], [ %.sroa.534.1.in, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h14c429946666367dE.exit20" ], [ %.sroa.534.1.in, %60 ]
+  %.sroa.033.0 = phi i64 [ 0, %44 ], [ 0, %.noexc22 ], [ 0, %34 ], [ 1, %.noexc27 ], [ 1, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h14c429946666367dE.exit20" ], [ 1, %60 ]
+  %.sroa.534.0.in = phi ptr [ %23, %44 ], [ %23, %.noexc22 ], [ %23, %34 ], [ %.sroa.534.1.in, %.noexc27 ], [ %.sroa.534.1.in, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h14c429946666367dE.exit20" ], [ %.sroa.534.1.in, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.534.0 = ptrtoint ptr %.sroa.534.0.in to i64
   store i64 %.sroa.033.0, ptr %0, align 8
@@ -7672,7 +7672,7 @@ default.unreachable35:                            ; preds = %3
           to label %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StderrLock$GT$17habd9d9ecff3009eeE.exit" unwind label %64
 
 61:                                               ; preds = %18, %62, %49, %28
-  %.pn5.pn = phi { ptr, i32 } [ %50, %49 ], [ %29, %28 ], [ %63, %62 ], [ %19, %18 ]
+  %.pn5.pn = phi { ptr, i32 } [ %29, %28 ], [ %50, %49 ], [ %19, %18 ], [ %63, %62 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StderrLock$GT$17habd9d9ecff3009eeE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #23
           to label %66 unwind label %47
 
@@ -7904,7 +7904,7 @@ default.unreachable9:                             ; preds = %2
   br label %24
 
 24:                                               ; preds = %22, %7
-  %.pn.pn = phi { ptr, i32 } [ %23, %22 ], [ %8, %7 ]
+  %.pn.pn = phi { ptr, i32 } [ %8, %7 ], [ %23, %22 ]
   store i8 2, ptr %4, align 8
   resume { ptr, i32 } %.pn.pn
 

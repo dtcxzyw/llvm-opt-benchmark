@@ -149,11 +149,11 @@ define internal range(i32 -2147483648, 1) i32 @h266_metadata_update_fragment(ptr
   br i1 %.not90, label %.thread114, label %54
 
 54:                                               ; preds = %32, %53, %28, %39, %51, %41
-  %.279.ph = phi i8 [ %42, %51 ], [ %42, %41 ], [ %.077129, %39 ], [ %.077129, %28 ], [ %42, %53 ], [ %.077129, %32 ]
-  %.272.ph = phi i32 [ %spec.select, %51 ], [ %spec.select, %41 ], [ %spec.select, %39 ], [ %.070130, %28 ], [ %spec.select, %53 ], [ %spec.select, %32 ]
-  %.268.ph = phi i32 [ %spec.store.select5, %51 ], [ %spec.store.select5, %41 ], [ %.066131, %39 ], [ %.066131, %28 ], [ %spec.store.select5, %53 ], [ %.066131, %32 ]
-  %.263.ph = phi ptr [ %52, %51 ], [ %.061132, %41 ], [ %40, %39 ], [ %.061132, %28 ], [ %.061132, %53 ], [ %.061132, %32 ]
-  %.160.ph = phi ptr [ %31, %51 ], [ %.059133, %41 ], [ %.059133, %39 ], [ %.059133, %28 ], [ %31, %53 ], [ %.059133, %32 ]
+  %.279.ph = phi i8 [ %42, %51 ], [ %42, %41 ], [ %.077129, %28 ], [ %.077129, %39 ], [ %.077129, %32 ], [ %42, %53 ]
+  %.272.ph = phi i32 [ %spec.select, %51 ], [ %spec.select, %41 ], [ %.070130, %28 ], [ %spec.select, %39 ], [ %spec.select, %32 ], [ %spec.select, %53 ]
+  %.268.ph = phi i32 [ %spec.store.select5, %51 ], [ %spec.store.select5, %41 ], [ %.066131, %28 ], [ %.066131, %39 ], [ %.066131, %32 ], [ %spec.store.select5, %53 ]
+  %.263.ph = phi ptr [ %52, %51 ], [ %.061132, %41 ], [ %.061132, %28 ], [ %40, %39 ], [ %.061132, %32 ], [ %.061132, %53 ]
+  %.160.ph = phi ptr [ %31, %51 ], [ %.059133, %41 ], [ %.059133, %28 ], [ %.059133, %39 ], [ %.059133, %32 ], [ %31, %53 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !42
@@ -191,7 +191,7 @@ define internal range(i32 -2147483648, 1) i32 @h266_metadata_update_fragment(ptr
   br label %.thread121
 
 .thread121:                                       ; preds = %.thread114, %64, %17, %13, %19, %18, %55
-  %.1 = phi i32 [ 0, %55 ], [ 0, %18 ], [ 0, %19 ], [ 0, %13 ], [ 0, %17 ], [ -1094995529, %.thread114 ], [ %62, %64 ]
+  %.1 = phi i32 [ 0, %17 ], [ 0, %55 ], [ 0, %18 ], [ 0, %19 ], [ 0, %13 ], [ -1094995529, %.thread114 ], [ %62, %64 ]
   ret i32 %.1
 }
 

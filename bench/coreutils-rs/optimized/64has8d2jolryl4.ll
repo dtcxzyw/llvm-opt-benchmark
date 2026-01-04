@@ -464,8 +464,8 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   br label %86
 
 86:                                               ; preds = %79, %75
-  %87 = phi i8 [ %.pre, %79 ], [ %77, %75 ]
-  %.sroa.4.0.ph = phi i64 [ %85, %79 ], [ %.sroa.6.1.i.i, %75 ]
+  %87 = phi i8 [ %77, %75 ], [ %.pre, %79 ]
+  %.sroa.4.0.ph = phi i64 [ %.sroa.6.1.i.i, %75 ], [ %85, %79 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !185)
   %88 = getelementptr inbounds i8, ptr %44, i64 %.sroa.4.0.ph
   %89 = and i8 %87, 1
@@ -580,8 +580,8 @@ define hidden { i64, i64 } @_ZN9hashbrown3raw13RawTableInner30find_or_find_inser
   br label %_ZN9hashbrown3raw13RawTableInner15fix_insert_slot17h4c5fe7659d6b77ebE.exit
 
 _ZN9hashbrown3raw13RawTableInner15fix_insert_slot17h4c5fe7659d6b77ebE.exit: ; preds = %17, %43, %39
-  %.sroa.3.0 = phi i64 [ %49, %43 ], [ %.sroa.6.1, %39 ], [ %23, %17 ]
-  %.sroa.0.0 = phi i64 [ 1, %43 ], [ 1, %39 ], [ 0, %17 ]
+  %.sroa.3.0 = phi i64 [ %.sroa.6.1, %39 ], [ %49, %43 ], [ %23, %17 ]
+  %.sroa.0.0 = phi i64 [ 1, %39 ], [ 1, %43 ], [ 0, %17 ]
   %50 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %51 = insertvalue { i64, i64 } %50, i64 %.sroa.3.0, 1
   ret { i64, i64 } %51
@@ -731,8 +731,8 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_inse
   store ptr %31, ptr %59, align 8
   br label %62
 
-60:                                               ; preds = %51, %47
-  %.sroa.3.0.i.ph = phi i64 [ %.sroa.6.1.i, %47 ], [ %57, %51 ]
+60:                                               ; preds = %47, %51
+  %.sroa.3.0.i.ph = phi i64 [ %57, %51 ], [ %.sroa.6.1.i, %47 ]
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.3.0.i.ph, ptr %61, align 8
   br label %62

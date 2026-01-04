@@ -42,7 +42,7 @@ define hidden range(i32 -153, 1) i32 @psa_destroy_persistent_key(i32 noundef %0)
   br label %10
 
 10:                                               ; preds = %8, %6, %1
-  %.0 = phi i32 [ 0, %1 ], [ -153, %6 ], [ %., %8 ]
+  %.0 = phi i32 [ -153, %6 ], [ 0, %1 ], [ %., %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -161,7 +161,7 @@ define hidden range(i32 -153, 1) i32 @psa_parse_key_data_from_storage(ptr nounde
   br label %36
 
 36:                                               ; preds = %19, %10, %8, %7, %5, %24
-  %.0 = phi i32 [ 0, %24 ], [ -153, %5 ], [ -153, %7 ], [ -153, %8 ], [ -153, %10 ], [ -141, %19 ]
+  %.0 = phi i32 [ -153, %10 ], [ -153, %5 ], [ -153, %7 ], [ -153, %8 ], [ 0, %24 ], [ -141, %19 ]
   ret i32 %.0
 }
 
@@ -249,7 +249,7 @@ define hidden i32 @psa_save_persistent_key(ptr noundef readonly captures(none) %
   br label %psa_crypto_storage_store.exit
 
 psa_crypto_storage_store.exit:                    ; preds = %14, %39, %42, %46
-  %.0.i = phi i32 [ -139, %14 ], [ -153, %39 ], [ %.012.i, %46 ], [ 0, %42 ]
+  %.0.i = phi i32 [ -153, %39 ], [ -139, %14 ], [ %.012.i, %46 ], [ 0, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @mbedtls_zeroize_and_free(ptr noundef nonnull %12, i64 noundef %11) #8
   br label %48
@@ -390,8 +390,8 @@ psa_crypto_storage_load.exit:                     ; preds = %18
   store i32 %.0.copyload.i41.i, ptr %51, align 4, !tbaa !14
   br label %psa_parse_key_data_from_storage.exit.thread
 
-psa_parse_key_data_from_storage.exit.thread:      ; preds = %40, %35, %26, %24, %23, %21, %psa_crypto_storage_load.exit.thread, %psa_crypto_storage_load.exit
-  %.017 = phi i32 [ %19, %psa_crypto_storage_load.exit ], [ %.0.i.ph, %psa_crypto_storage_load.exit.thread ], [ -141, %35 ], [ -153, %26 ], [ -153, %24 ], [ -153, %23 ], [ -153, %21 ], [ %spec.select, %40 ]
+psa_parse_key_data_from_storage.exit.thread:      ; preds = %40, %35, %24, %23, %21, %26, %psa_crypto_storage_load.exit.thread, %psa_crypto_storage_load.exit
+  %.017 = phi i32 [ %19, %psa_crypto_storage_load.exit ], [ %spec.select, %40 ], [ -153, %26 ], [ %.0.i.ph, %psa_crypto_storage_load.exit.thread ], [ -141, %35 ], [ -153, %24 ], [ -153, %23 ], [ -153, %21 ]
   call void @mbedtls_zeroize_and_free(ptr noundef nonnull %14, i64 noundef %13) #8
   br label %52
 

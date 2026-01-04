@@ -363,7 +363,7 @@ define void @_ZN6LibRaw29ahd_interpolate_green_h_and_vEiiPA512_A512_A3_t(ptr nou
   br label %131
 
 131:                                              ; preds = %122, %114, %124, %116
-  %132 = phi i32 [ %121, %116 ], [ %130, %124 ], [ %.114, %114 ], [ %95, %122 ]
+  %132 = phi i32 [ %130, %124 ], [ %121, %116 ], [ %.114, %114 ], [ %95, %122 ]
   %133 = trunc i32 %132 to i16
   %134 = getelementptr i8, ptr %78, i64 1572866
   store i16 %133, ptr %134, align 2, !tbaa !79
@@ -1209,7 +1209,7 @@ select.unfold:                                    ; preds = %68, %65
   br label %96
 
 .critedge:                                        ; preds = %_ZN6LibRaw42ahd_interpolate_combine_homogeneous_pixelsEiiPA512_A512_A3_tPA512_A2_c.exit, %.lr.ph, %68, %select.unfold
-  %.1110 = phi i32 [ %.03186, %select.unfold ], [ 1, %68 ], [ %.03186, %.lr.ph ], [ %.03186, %_ZN6LibRaw42ahd_interpolate_combine_homogeneous_pixelsEiiPA512_A512_A3_tPA512_A2_c.exit ]
+  %.1110 = phi i32 [ 1, %68 ], [ %.03186, %select.unfold ], [ %.03186, %.lr.ph ], [ %.03186, %_ZN6LibRaw42ahd_interpolate_combine_homogeneous_pixelsEiiPA512_A512_A3_tPA512_A2_c.exit ]
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 506
   %91 = load i16, ptr %49, align 4, !tbaa !81
   %92 = zext i16 %91 to i32
@@ -1368,7 +1368,7 @@ select.unfold:                                    ; preds = %68, %65
   br label %213
 
 213:                                              ; preds = %206, %204, %198, %196
-  %214 = phi i32 [ %203, %198 ], [ %212, %206 ], [ %.114.i, %196 ], [ %177, %204 ]
+  %214 = phi i32 [ %212, %206 ], [ %203, %198 ], [ %.114.i, %196 ], [ %177, %204 ]
   %215 = trunc i32 %214 to i16
   %216 = getelementptr i8, ptr %160, i64 1572866
   store i16 %215, ptr %216, align 2, !tbaa !79

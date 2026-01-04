@@ -137,7 +137,7 @@ _ZNK6vectorIP4exprLb0EjE3endEv.exit.i:            ; preds = %26
   br label %common.resume
 
 common.resume:                                    ; preds = %227, %238, %255, %40, %47, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25.i ], [ %48, %47 ], [ %41, %40 ], [ %.pn.i33, %255 ], [ %228, %227 ], [ %239, %238 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25.i ], [ %48, %47 ], [ %.pn.i33, %255 ], [ %228, %227 ], [ %239, %238 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZL22display_uninterp_sortsRSoRK10model_core.exit: ; preds = %._crit_edge.i, %2
@@ -256,7 +256,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit21.i: ; preds = %_ZS
   br i1 %.not27.old.i.i.i.i.i, label %_ZNK10model_core16get_const_interpEP9func_decl.exit.i, label %.lr.ph38.i.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.i.backedge:                      ; preds = %104, %101
-  %.137.i.i.i.i.i.be = phi ptr [ %.old.i.i.i.i.i, %104 ], [ %103, %101 ]
+  %.137.i.i.i.i.i.be = phi ptr [ %103, %101 ], [ %.old.i.i.i.i.i, %104 ]
   br label %.lr.ph38.i.i.i.i.i, !llvm.loop !48
 
 .loopexit.i.i:                                    ; preds = %85, %96
@@ -266,7 +266,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit21.i: ; preds = %_ZS
   br label %_ZNK10model_core16get_const_interpEP9func_decl.exit.i
 
 _ZNK10model_core16get_const_interpEP9func_decl.exit.i: ; preds = %90, %104, %101, %.loopexit.i.i, %.preheader.i.i.i.i.i
-  %107 = phi ptr [ %106, %.loopexit.i.i ], [ null, %.preheader.i.i.i.i.i ], [ null, %101 ], [ null, %104 ], [ null, %90 ]
+  %107 = phi ptr [ %106, %.loopexit.i.i ], [ null, %.preheader.i.i.i.i.i ], [ null, %104 ], [ null, %101 ], [ null, %90 ]
   invoke void @_ZN11mk_ismt2_ppC1EP3astR11ast_managerjjPKc(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef %107, ptr noundef nonnull align 8 dereferenceable(976) %49, i32 noundef %67, i32 noundef 0, ptr noundef null)
           to label %108 unwind label %118
 
@@ -464,7 +464,7 @@ _ZlsRSo6symbol.exit.i:                            ; preds = %153, %151, %_ZStlsI
   br i1 %.not27.old.i.i.i.i.i23, label %_ZNK10model_core15get_func_interpEP9func_decl.exit.i, label %.lr.ph38.i.i.i.i.i19.backedge
 
 .lr.ph38.i.i.i.i.i19.backedge:                    ; preds = %191, %188
-  %.137.i.i.i.i.i20.be = phi ptr [ %.old.i.i.i.i.i22, %191 ], [ %190, %188 ]
+  %.137.i.i.i.i.i20.be = phi ptr [ %190, %188 ], [ %.old.i.i.i.i.i22, %191 ]
   br label %.lr.ph38.i.i.i.i.i19, !llvm.loop !66
 
 .loopexit.i.i34:                                  ; preds = %172, %183
@@ -474,7 +474,7 @@ _ZlsRSo6symbol.exit.i:                            ; preds = %153, %151, %_ZStlsI
   br label %_ZNK10model_core15get_func_interpEP9func_decl.exit.i
 
 _ZNK10model_core15get_func_interpEP9func_decl.exit.i: ; preds = %177, %191, %188, %.loopexit.i.i34, %.preheader.i.i.i.i.i17
-  %194 = phi ptr [ %193, %.loopexit.i.i34 ], [ null, %.preheader.i.i.i.i.i17 ], [ null, %188 ], [ null, %191 ], [ null, %177 ]
+  %194 = phi ptr [ %193, %.loopexit.i.i34 ], [ null, %.preheader.i.i.i.i.i17 ], [ null, %191 ], [ null, %188 ], [ null, %177 ]
   %.not94.i = icmp eq i32 %159, 0
   br i1 %.not94.i, label %._crit_edge.i31, label %.lr.ph.preheader.i
 
@@ -606,8 +606,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit72.i: ; preds = %236
   br label %common.resume
 
 ._crit_edge85.thread.i:                           ; preds = %._crit_edge85.i, %_ZNK11func_interp11num_entriesEv.exit.i, %._crit_edge.i31
-  %.0.i.i71131136.i = phi i32 [ %200, %._crit_edge85.i ], [ 0, %_ZNK11func_interp11num_entriesEv.exit.i ], [ 0, %._crit_edge.i31 ]
-  %.not95132135.i = phi i1 [ false, %._crit_edge85.i ], [ true, %_ZNK11func_interp11num_entriesEv.exit.i ], [ true, %._crit_edge.i31 ]
+  %.0.i.i71131136.i = phi i32 [ 0, %._crit_edge.i31 ], [ %200, %._crit_edge85.i ], [ 0, %_ZNK11func_interp11num_entriesEv.exit.i ]
+  %.not95132135.i = phi i1 [ true, %._crit_edge.i31 ], [ false, %._crit_edge85.i ], [ true, %_ZNK11func_interp11num_entriesEv.exit.i ]
   %240 = getelementptr inbounds nuw i8, ptr %194, i64 24
   %241 = load ptr, ptr %240, align 8, !tbaa !76
   %242 = icmp eq ptr %241, null

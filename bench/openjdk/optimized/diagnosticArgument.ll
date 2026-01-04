@@ -314,7 +314,7 @@ define hidden void @_ZN12DCmdArgumentIlE11parse_valueEPKcmP10JavaThread(ptr noun
   br i1 %or.cond, label %21, label %12
 
 12:                                               ; preds = %7, %4
-  %13 = phi ptr [ %1, %7 ], [ @.str.13, %4 ]
+  %13 = phi ptr [ @.str.13, %4 ], [ %1, %7 ]
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8

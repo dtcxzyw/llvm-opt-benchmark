@@ -421,7 +421,7 @@ writeVariableValue.exit:                          ; preds = %70, %83, %99, %115,
   br i1 %.not39, label %31, label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %writeVariableValue.exit, %writeVariableValue.exit.thread, %validateThreadFrame.exit, %validateThreadFrame.exit.thread
-  %.050.i46.sink = phi i16 [ 13, %validateThreadFrame.exit.thread ], [ %.0.i, %validateThreadFrame.exit ], [ 500, %writeVariableValue.exit.thread ], [ %201, %writeVariableValue.exit ]
+  %.050.i46.sink = phi i16 [ %.0.i, %validateThreadFrame.exit ], [ 13, %validateThreadFrame.exit.thread ], [ 500, %writeVariableValue.exit.thread ], [ %201, %writeVariableValue.exit ]
   call void @outStream_setError(ptr noundef %1, i16 noundef zeroext %.050.i46.sink) #3
   br label %.critedge
 
@@ -751,7 +751,7 @@ readVariableValue.exit:                           ; preds = %43, %58, %73, %88, 
   br i1 %.not39, label %24, label %.critedge.thread.sink.split
 
 .critedge.thread.sink.split:                      ; preds = %readVariableValue.exit, %50, %validateThreadFrame.exit, %validateThreadFrame.exit.thread
-  %.1.sink = phi i16 [ 13, %validateThreadFrame.exit.thread ], [ %.0.i, %validateThreadFrame.exit ], [ %167, %readVariableValue.exit ], [ 500, %50 ]
+  %.1.sink = phi i16 [ %.0.i, %validateThreadFrame.exit ], [ 13, %validateThreadFrame.exit.thread ], [ %167, %readVariableValue.exit ], [ 500, %50 ]
   call void @outStream_setError(ptr noundef %1, i16 noundef zeroext %.1.sink) #3
   br label %.critedge.thread
 
@@ -888,7 +888,7 @@ validateThreadFrame.exit:                         ; preds = %20, %22
   br label %69
 
 69:                                               ; preds = %.sink.split, %39, %55, %31
-  %.033 = phi i32 [ %61, %55 ], [ %41, %39 ], [ %37, %31 ], [ 0, %.sink.split ]
+  %.033 = phi i32 [ %41, %39 ], [ %37, %31 ], [ %61, %55 ], [ 0, %.sink.split ]
   %70 = call zeroext i16 @map2jdwpError(i32 noundef %.033) #3
   %71 = load ptr, ptr @gdata, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 528
@@ -911,7 +911,7 @@ validateThreadFrame.exit:                         ; preds = %20, %22
   br i1 %.not43, label %81, label %.sink.split52
 
 .sink.split52:                                    ; preds = %76, %validateThreadFrame.exit, %validateThreadFrame.exit.thread
-  %.sink53 = phi i16 [ 13, %validateThreadFrame.exit.thread ], [ %.0.i, %validateThreadFrame.exit ], [ %70, %76 ]
+  %.sink53 = phi i16 [ %.0.i, %validateThreadFrame.exit ], [ 13, %validateThreadFrame.exit.thread ], [ %70, %76 ]
   call void @outStream_setError(ptr noundef %1, i16 noundef zeroext %.sink53) #3
   br label %81
 
@@ -979,7 +979,7 @@ validateThreadFrame.exit:                         ; preds = %16, %18
   br label %.sink.split
 
 .sink.split:                                      ; preds = %20, %validateThreadFrame.exit, %validateThreadFrame.exit.thread, %25
-  %.sink = phi i16 [ %26, %25 ], [ 13, %validateThreadFrame.exit.thread ], [ %.0.i, %validateThreadFrame.exit ], [ 10, %20 ]
+  %.sink = phi i16 [ %26, %25 ], [ %.0.i, %validateThreadFrame.exit ], [ 13, %validateThreadFrame.exit.thread ], [ 10, %20 ]
   call void @outStream_setError(ptr noundef %1, i16 noundef zeroext %.sink) #3
   br label %27
 

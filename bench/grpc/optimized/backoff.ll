@@ -126,7 +126,7 @@ _ZN9grpc_core31IsBackoffCapInitialAtMaxEnabledEv.exit.thread: ; preds = %1, %_ZN
   br label %_ZN9grpc_core8DurationmLEd.exit
 
 _ZN9grpc_core8DurationmLEd.exit:                  ; preds = %30, %28, %22, %21, %19, %18, %16, %11
-  %.sroa.0.0.copyload.i5 = phi i64 [ %.sroa.0.0.copyload.i5.pre, %11 ], [ 9223372036854775807, %18 ], [ -9223372036854775808, %21 ], [ -9223372036854775808, %16 ], [ 9223372036854775807, %19 ], [ %31, %30 ], [ 9223372036854775807, %22 ], [ -9223372036854775808, %28 ]
+  %.sroa.0.0.copyload.i5 = phi i64 [ %.sroa.0.0.copyload.i5.pre, %11 ], [ 9223372036854775807, %19 ], [ 9223372036854775807, %18 ], [ -9223372036854775808, %16 ], [ -9223372036854775808, %21 ], [ %31, %30 ], [ 9223372036854775807, %22 ], [ -9223372036854775808, %28 ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.0.0.copyload.i4 = load i64, ptr %33, align 8, !tbaa !4
@@ -185,7 +185,7 @@ _ZN9grpc_core31IsBackoffCapInitialAtMaxEnabledEv.exit.thread18: ; preds = %6, %_
   br label %_ZN9grpc_coremlENS_8DurationEd.exit
 
 _ZN9grpc_coremlENS_8DurationEd.exit:              ; preds = %42, %44, %45, %47, %48, %54, %56
-  %.sroa.04.0.i = phi i64 [ 9223372036854775807, %44 ], [ -9223372036854775808, %47 ], [ -9223372036854775808, %42 ], [ 9223372036854775807, %45 ], [ %57, %56 ], [ 9223372036854775807, %48 ], [ -9223372036854775808, %54 ]
+  %.sroa.04.0.i = phi i64 [ 9223372036854775807, %45 ], [ 9223372036854775807, %44 ], [ -9223372036854775808, %42 ], [ -9223372036854775808, %47 ], [ %57, %56 ], [ 9223372036854775807, %48 ], [ -9223372036854775808, %54 ]
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.0.0.copyload.i6 = load i64, ptr %58, align 8, !tbaa !4
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %.sroa.0.0.copyload.i6, i64 %.sroa.04.0.i)
@@ -255,7 +255,7 @@ _ZN4absl12lts_202407227UniformIdRNS0_15random_internal17NonsecureURBGBaseINS2_13
   br label %_ZN9grpc_coremlENS_8DurationEd.exit10
 
 _ZN9grpc_coremlENS_8DurationEd.exit10:            ; preds = %73, %75, %76, %78, %79, %85, %87
-  %.sroa.04.0.i9 = phi i64 [ 9223372036854775807, %75 ], [ -9223372036854775808, %78 ], [ -9223372036854775808, %73 ], [ 9223372036854775807, %76 ], [ %88, %87 ], [ 9223372036854775807, %79 ], [ -9223372036854775808, %85 ]
+  %.sroa.04.0.i9 = phi i64 [ 9223372036854775807, %76 ], [ 9223372036854775807, %75 ], [ -9223372036854775808, %73 ], [ -9223372036854775808, %78 ], [ %88, %87 ], [ 9223372036854775807, %79 ], [ -9223372036854775808, %85 ]
   ret i64 %.sroa.04.0.i9
 }
 

@@ -4391,7 +4391,7 @@ define internal ptr @__itt_domain_create_init_3_0(ptr noundef %0) #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %56, %74, %75, %._crit_edge, %52
-  %.074 = phi ptr [ null, %._crit_edge ], [ null, %52 ], [ %60, %75 ], [ %60, %74 ], [ %.1106, %56 ]
+  %.074 = phi ptr [ null, %52 ], [ null, %._crit_edge ], [ %60, %74 ], [ %60, %75 ], [ %.1106, %56 ]
   br i1 %or.cond6, label %77, label %79
 
 77:                                               ; preds = %.loopexit
@@ -4399,7 +4399,7 @@ define internal ptr @__itt_domain_create_init_3_0(ptr noundef %0) #0 {
   br label %79
 
 79:                                               ; preds = %.loopexit, %77, %49, %50, %1, %46
-  %.0 = phi ptr [ %48, %46 ], [ null, %1 ], [ @dummy_domain, %50 ], [ @dummy_domain, %49 ], [ %.074, %77 ], [ %.074, %.loopexit ]
+  %.0 = phi ptr [ @dummy_domain, %49 ], [ %48, %46 ], [ null, %1 ], [ @dummy_domain, %50 ], [ %.074, %77 ], [ %.074, %.loopexit ]
   ret ptr %.0
 }
 
@@ -4664,7 +4664,7 @@ define internal ptr @__itt_string_handle_create_init_3_0(ptr noundef %0) #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %55, %72, %73, %._crit_edge, %52
-  %.073 = phi ptr [ null, %._crit_edge ], [ null, %52 ], [ %59, %73 ], [ %59, %72 ], [ %.1105, %55 ]
+  %.073 = phi ptr [ null, %52 ], [ null, %._crit_edge ], [ %59, %72 ], [ %59, %73 ], [ %.1105, %55 ]
   br i1 %or.cond6, label %75, label %77
 
 75:                                               ; preds = %.loopexit
@@ -4672,7 +4672,7 @@ define internal ptr @__itt_string_handle_create_init_3_0(ptr noundef %0) #0 {
   br label %77
 
 77:                                               ; preds = %.loopexit, %75, %49, %50, %1, %46
-  %.0 = phi ptr [ %48, %46 ], [ null, %1 ], [ null, %50 ], [ null, %49 ], [ %.073, %75 ], [ %.073, %.loopexit ]
+  %.0 = phi ptr [ null, %49 ], [ %48, %46 ], [ null, %1 ], [ null, %50 ], [ %.073, %75 ], [ %.073, %.loopexit ]
   ret ptr %.0
 }
 
@@ -4957,7 +4957,7 @@ define internal ptr @__itt_counter_create_init_3_0(ptr noundef %0, ptr noundef %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %79, %63, %107, %108, %._crit_edge, %54
-  %.0106 = phi ptr [ null, %._crit_edge ], [ null, %54 ], [ %83, %108 ], [ %83, %107 ], [ %.1146.us, %63 ], [ %.1146.us149, %79 ]
+  %.0106 = phi ptr [ null, %54 ], [ null, %._crit_edge ], [ %83, %107 ], [ %83, %108 ], [ %.1146.us, %63 ], [ %.1146.us149, %79 ]
   br i1 %or.cond6, label %110, label %112
 
 110:                                              ; preds = %.loopexit
@@ -4965,7 +4965,7 @@ define internal ptr @__itt_counter_create_init_3_0(ptr noundef %0, ptr noundef %
   br label %112
 
 112:                                              ; preds = %.loopexit, %110, %51, %52, %2, %48
-  %.0 = phi ptr [ %50, %48 ], [ null, %2 ], [ null, %52 ], [ null, %51 ], [ %.0106, %110 ], [ %.0106, %.loopexit ]
+  %.0 = phi ptr [ null, %51 ], [ %50, %48 ], [ null, %2 ], [ null, %52 ], [ %.0106, %110 ], [ %.0106, %.loopexit ]
   ret ptr %.0
 }
 
@@ -5250,7 +5250,7 @@ define internal ptr @__itt_counter_create_typed_init_3_0(ptr noundef %0, ptr nou
   br label %.loopexit
 
 .loopexit:                                        ; preds = %80, %64, %108, %109, %._crit_edge, %55
-  %.0107 = phi ptr [ null, %._crit_edge ], [ null, %55 ], [ %84, %109 ], [ %84, %108 ], [ %.1147.us, %64 ], [ %.1147.us150, %80 ]
+  %.0107 = phi ptr [ null, %55 ], [ null, %._crit_edge ], [ %84, %108 ], [ %84, %109 ], [ %.1147.us, %64 ], [ %.1147.us150, %80 ]
   br i1 %or.cond6, label %111, label %113
 
 111:                                              ; preds = %.loopexit
@@ -5258,7 +5258,7 @@ define internal ptr @__itt_counter_create_typed_init_3_0(ptr noundef %0, ptr nou
   br label %113
 
 113:                                              ; preds = %.loopexit, %111, %52, %53, %3, %49
-  %.0 = phi ptr [ %51, %49 ], [ null, %3 ], [ null, %53 ], [ null, %52 ], [ %.0107, %111 ], [ %.0107, %.loopexit ]
+  %.0 = phi ptr [ null, %52 ], [ %51, %49 ], [ null, %3 ], [ null, %53 ], [ %.0107, %111 ], [ %.0107, %.loopexit ]
   ret ptr %.0
 }
 
@@ -5699,7 +5699,7 @@ define internal ptr @__itt_histogram_create_init_3_0(ptr noundef %0, ptr noundef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %63, %83, %84, %._crit_edge, %56
-  %.088 = phi ptr [ null, %._crit_edge ], [ null, %56 ], [ %67, %84 ], [ %67, %83 ], [ %.1123, %63 ]
+  %.088 = phi ptr [ null, %56 ], [ null, %._crit_edge ], [ %67, %83 ], [ %67, %84 ], [ %.1123, %63 ]
   br i1 %or.cond8, label %86, label %88
 
 86:                                               ; preds = %.loopexit
@@ -5707,7 +5707,7 @@ define internal ptr @__itt_histogram_create_init_3_0(ptr noundef %0, ptr noundef
   br label %88
 
 88:                                               ; preds = %.loopexit, %86, %53, %54, %4, %50
-  %.0 = phi ptr [ %52, %50 ], [ null, %4 ], [ null, %54 ], [ null, %53 ], [ %.088, %86 ], [ %.088, %.loopexit ]
+  %.0 = phi ptr [ null, %53 ], [ %52, %50 ], [ null, %4 ], [ null, %54 ], [ %.088, %86 ], [ %.088, %.loopexit ]
   ret ptr %.0
 }
 
@@ -5975,7 +5975,7 @@ define internal ptr @__itt_counter_create_v3_init_3_0(ptr noundef %0, ptr nounde
   br label %.loopexit
 
 .loopexit:                                        ; preds = %75, %73, %104, %105, %._crit_edge, %56
-  %.0106 = phi ptr [ null, %._crit_edge ], [ null, %56 ], [ %78, %105 ], [ %78, %104 ], [ %.1149, %73 ], [ %.1149, %75 ]
+  %.0106 = phi ptr [ null, %56 ], [ null, %._crit_edge ], [ %78, %104 ], [ %78, %105 ], [ %.1149, %73 ], [ %.1149, %75 ]
   br i1 %or.cond8, label %107, label %109
 
 107:                                              ; preds = %.loopexit
@@ -5983,7 +5983,7 @@ define internal ptr @__itt_counter_create_v3_init_3_0(ptr noundef %0, ptr nounde
   br label %109
 
 109:                                              ; preds = %.loopexit, %107, %53, %54, %3, %50
-  %.0 = phi ptr [ %52, %50 ], [ null, %3 ], [ null, %54 ], [ null, %53 ], [ %.0106, %107 ], [ %.0106, %.loopexit ]
+  %.0 = phi ptr [ null, %53 ], [ %52, %50 ], [ null, %3 ], [ null, %54 ], [ %.0106, %107 ], [ %.0106, %.loopexit ]
   ret ptr %.0
 }
 
@@ -6739,7 +6739,7 @@ __itt_get_env_var.exit.i.preheader:               ; preds = %60, %53
   br i1 %.not77.i.i, label %__itt_fsplit.exit.i, label %.preheader.i.i, !llvm.loop !111
 
 __itt_fsplit.exit.i:                              ; preds = %103, %98, %.loopexit.i.i
-  %indvars.iv46.i.lcssa.sink.i = phi i64 [ %94, %.loopexit.i.i ], [ %indvars.iv46.i.i, %98 ], [ %indvars.iv.next47.i.i, %103 ]
+  %indvars.iv46.i.lcssa.sink.i = phi i64 [ %indvars.iv46.i.i, %98 ], [ %94, %.loopexit.i.i ], [ %indvars.iv.next47.i.i, %103 ]
   %106 = getelementptr inbounds nuw i8, ptr %.026.i116, i64 %indvars.iv46.i.lcssa.sink.i
   %107 = call i32 @llvm.smin.i32(i32 %.255.i, i32 254)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -6807,7 +6807,7 @@ __itt_fsplit.exit.i:                              ; preds = %103, %98, %.loopexi
   br label %131
 
 131:                                              ; preds = %124, %.preheader.i
-  %.3.i = phi i32 [ %.230.i, %.preheader.i ], [ %spec.select.i, %124 ]
+  %.3.i = phi i32 [ %spec.select.i, %124 ], [ %.230.i, %.preheader.i ]
   %indvars.iv.next93.i = add nuw nsw i64 %indvars.iv92.i, 1
   br label %.preheader.i, !llvm.loop !117
 
@@ -7127,7 +7127,7 @@ define internal fastcc ptr @__itt_get_lib_name() unnamed_addr #0 {
   br label %__itt_get_env_var.exit
 
 __itt_get_env_var.exit:                           ; preds = %0, %8, %10
-  %.3.i = phi ptr [ %5, %10 ], [ null, %0 ], [ null, %8 ]
+  %.3.i = phi ptr [ %5, %10 ], [ null, %8 ], [ null, %0 ]
   ret ptr %.3.i
 }
 
@@ -7154,7 +7154,7 @@ define internal fastcc range(i32 0, 3) i32 @__itt_lib_version(ptr noundef %0) un
   br label %7
 
 7:                                                ; preds = %5, %3, %1
-  %.0 = phi i32 [ 0, %1 ], [ 2, %3 ], [ %., %5 ]
+  %.0 = phi i32 [ 2, %3 ], [ 0, %1 ], [ %., %5 ]
   ret i32 %.0
 }
 
@@ -7530,7 +7530,7 @@ define internal fastcc range(i32 0, 2) i32 @__itt_is_collector_available() unnam
   br label %__itt_get_lib_name.exit
 
 __itt_get_lib_name.exit:                          ; preds = %37, %44, %46
-  %.3.i.i = phi i32 [ %55, %46 ], [ 2, %37 ], [ 2, %44 ]
+  %.3.i.i = phi i32 [ %55, %46 ], [ 2, %44 ], [ 2, %37 ]
   store i32 %.3.i.i, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 160), align 8, !tbaa !122
   br label %56
 

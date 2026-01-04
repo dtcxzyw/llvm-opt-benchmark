@@ -115,7 +115,7 @@ tailrecurse:                                      ; preds = %9, %1
   br label %54
 
 54:                                               ; preds = %44, %tailrecurse, %7, %49, %46
-  %.1 = phi ptr [ %8, %7 ], [ %53, %49 ], [ %.tr, %46 ], [ %.tr, %tailrecurse ], [ %23, %44 ]
+  %.1 = phi ptr [ %.tr, %tailrecurse ], [ %8, %7 ], [ %53, %49 ], [ %.tr, %46 ], [ %23, %44 ]
   ret ptr %.1
 }
 
@@ -376,7 +376,7 @@ toast_decompress_datum.exit:                      ; preds = %16, %18
   br label %toast_decompress_datum.exit58
 
 toast_decompress_datum.exit58:                    ; preds = %88, %86, %23, %71, %.thread61, %93, %76, %7, %toast_decompress_datum.exit
-  %.0 = phi ptr [ %.0.i, %toast_decompress_datum.exit ], [ %8, %7 ], [ %77, %76 ], [ %100, %.thread61 ], [ %0, %93 ], [ %50, %71 ], [ %25, %23 ], [ %87, %86 ], [ %89, %88 ]
+  %.0 = phi ptr [ %.0.i, %toast_decompress_datum.exit ], [ %8, %7 ], [ %0, %93 ], [ %77, %76 ], [ %25, %23 ], [ %100, %.thread61 ], [ %50, %71 ], [ %87, %86 ], [ %89, %88 ]
   ret ptr %.0
 }
 
@@ -408,8 +408,8 @@ define dso_local noundef ptr @detoast_attr_slice(ptr noundef %0, i32 noundef %1,
   br label %13
 
 13:                                               ; preds = %9, %.lr.ph.split
-  %.082 = phi i32 [ -1, %.lr.ph.split ], [ %spec.select87, %9 ]
-  %.060 = phi i32 [ %.tr90102, %.lr.ph.split ], [ %spec.select88, %9 ]
+  %.082 = phi i32 [ %spec.select87, %9 ], [ -1, %.lr.ph.split ]
+  %.060 = phi i32 [ %spec.select88, %9 ], [ %.tr90102, %.lr.ph.split ]
   %14 = load i8, ptr %.tr101, align 1
   %15 = icmp eq i8 %14, 1
   br i1 %15, label %16, label %.thread
@@ -472,7 +472,7 @@ tailrecurse:                                      ; preds = %16
   br label %.thread
 
 .thread:                                          ; preds = %13, %31, %29, %.split109, %38
-  %.2 = phi ptr [ %39, %38 ], [ %.tr101, %.split109 ], [ %32, %31 ], [ %30, %29 ], [ %.tr101, %13 ]
+  %.2 = phi ptr [ %30, %29 ], [ %39, %38 ], [ %.tr101, %.split109 ], [ %32, %31 ], [ %.tr101, %13 ]
   %40 = load i8, ptr %.2, align 1
   %41 = and i8 %40, 3
   %42 = icmp eq i8 %41, 2
@@ -552,7 +552,7 @@ tailrecurse:                                      ; preds = %16
   unreachable
 
 toast_decompress_datum_slice.exit:                ; preds = %70, %68, %61, %59, %53, %51
-  %.4 = phi ptr [ %60, %59 ], [ %62, %61 ], [ %52, %51 ], [ %54, %53 ], [ %69, %68 ], [ %71, %70 ]
+  %.4 = phi ptr [ %54, %53 ], [ %62, %61 ], [ %60, %59 ], [ %52, %51 ], [ %69, %68 ], [ %71, %70 ]
   %.not = icmp eq ptr %.2, %.tr101
   br i1 %.not, label %76, label %75
 
@@ -595,8 +595,8 @@ toast_decompress_datum_slice.exit:                ; preds = %70, %68, %61, %59, 
   br label %94
 
 94:                                               ; preds = %89, %87
-  %.161 = phi i32 [ 0, %87 ], [ %spec.select, %89 ]
-  %.059 = phi i64 [ 0, %87 ], [ %93, %89 ]
+  %.161 = phi i32 [ %spec.select, %89 ], [ 0, %87 ]
+  %.059 = phi i64 [ %93, %89 ], [ 0, %87 ]
   %95 = getelementptr inbounds nuw i8, ptr %.3, i64 %88
   %96 = add i32 %.161, 4
   %97 = sext i32 %96 to i64
@@ -615,7 +615,7 @@ toast_decompress_datum_slice.exit:                ; preds = %70, %68, %61, %59, 
   br label %104
 
 104:                                              ; preds = %33, %94, %103
-  %.1 = phi ptr [ %34, %33 ], [ %98, %103 ], [ %98, %94 ]
+  %.1 = phi ptr [ %98, %94 ], [ %34, %33 ], [ %98, %103 ]
   ret ptr %.1
 }
 
@@ -771,7 +771,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %1
   br label %39
 
 39:                                               ; preds = %8, %18, %.thread22, %35, %24
-  %.0 = phi i64 [ %10, %8 ], [ %20, %18 ], [ %29, %24 ], [ %34, %.thread22 ], [ %38, %35 ]
+  %.0 = phi i64 [ %38, %35 ], [ %10, %8 ], [ %20, %18 ], [ %29, %24 ], [ %34, %.thread22 ]
   ret i64 %.0
 }
 
@@ -838,7 +838,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %1
   br label %30
 
 30:                                               ; preds = %8, %18, %26, %.thread19
-  %.0 = phi i64 [ %10, %8 ], [ %20, %18 ], [ %25, %.thread19 ], [ %29, %26 ]
+  %.0 = phi i64 [ %29, %26 ], [ %10, %8 ], [ %20, %18 ], [ %25, %.thread19 ]
   ret i64 %.0
 }
 

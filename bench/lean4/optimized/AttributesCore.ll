@@ -591,7 +591,7 @@ lean_alloc_ctor.exit61:                           ; preds = %lean_dec.exit
   br label %100
 
 100:                                              ; preds = %lean_alloc_ctor.exit61, %lean_dec.exit39, %20, %lean_alloc_ctor.exit
-  %.1 = phi ptr [ %6, %20 ], [ %49, %lean_alloc_ctor.exit ], [ %94, %lean_alloc_ctor.exit61 ], [ %6, %lean_dec.exit39 ]
+  %.1 = phi ptr [ %49, %lean_alloc_ctor.exit ], [ %6, %20 ], [ %94, %lean_alloc_ctor.exit61 ], [ %6, %lean_dec.exit39 ]
   ret ptr %.1
 }
 
@@ -1362,7 +1362,7 @@ lean_alloc_ctor.exit115:                          ; preds = %lean_dec.exit
   br label %lean_dec.exit63
 
 lean_dec.exit63:                                  ; preds = %lean_dec.exit64, %90, %92, %93, %lean_alloc_ctor.exit115, %lean_dec.exit57, %lean_alloc_ctor.exit, %lean_dec.exit60
-  %.2 = phi ptr [ %30, %lean_dec.exit60 ], [ %139, %lean_alloc_ctor.exit ], [ %189, %lean_alloc_ctor.exit115 ], [ %30, %lean_dec.exit57 ], [ %79, %93 ], [ %79, %92 ], [ %79, %90 ], [ %79, %lean_dec.exit64 ]
+  %.2 = phi ptr [ %139, %lean_alloc_ctor.exit ], [ %30, %lean_dec.exit57 ], [ %30, %lean_dec.exit60 ], [ %189, %lean_alloc_ctor.exit115 ], [ %79, %93 ], [ %79, %92 ], [ %79, %90 ], [ %79, %lean_dec.exit64 ]
   ret ptr %.2
 }
 
@@ -2053,7 +2053,7 @@ lean_alloc_ctor.exit115:                          ; preds = %lean_dec.exit
   br label %lean_dec.exit63
 
 lean_dec.exit63:                                  ; preds = %lean_dec.exit64, %90, %92, %93, %lean_alloc_ctor.exit115, %lean_dec.exit57, %lean_alloc_ctor.exit, %lean_dec.exit60
-  %.2 = phi ptr [ %30, %lean_dec.exit60 ], [ %139, %lean_alloc_ctor.exit ], [ %189, %lean_alloc_ctor.exit115 ], [ %30, %lean_dec.exit57 ], [ %79, %93 ], [ %79, %92 ], [ %79, %90 ], [ %79, %lean_dec.exit64 ]
+  %.2 = phi ptr [ %139, %lean_alloc_ctor.exit ], [ %30, %lean_dec.exit57 ], [ %30, %lean_dec.exit60 ], [ %189, %lean_alloc_ctor.exit115 ], [ %79, %93 ], [ %79, %92 ], [ %79, %90 ], [ %79, %lean_dec.exit64 ]
   ret ptr %.2
 }
 
@@ -2210,7 +2210,7 @@ lean_inc.exit.thread:                             ; preds = %lean_inc.exit19.thr
   br label %lean_dec.exit18
 
 lean_dec.exit18:                                  ; preds = %lean_inc.exit.thread, %lean_inc.exit19.thread, %41, %43, %44, %34, %36, %37, %28
-  %.1 = phi i8 [ %30, %28 ], [ 1, %37 ], [ 1, %36 ], [ 1, %34 ], [ 1, %44 ], [ 1, %43 ], [ 1, %41 ], [ 1, %lean_inc.exit19.thread ], [ 1, %lean_inc.exit.thread ]
+  %.1 = phi i8 [ 1, %lean_inc.exit.thread ], [ %30, %28 ], [ 1, %37 ], [ 1, %36 ], [ 1, %34 ], [ 1, %44 ], [ 1, %43 ], [ 1, %41 ], [ 1, %lean_inc.exit19.thread ]
   ret i8 %.1
 }
 
@@ -2733,7 +2733,7 @@ lean_alloc_ctor.exit115:                          ; preds = %lean_dec.exit
   br label %lean_dec.exit63
 
 lean_dec.exit63:                                  ; preds = %lean_dec.exit64, %90, %92, %93, %lean_alloc_ctor.exit115, %lean_dec.exit57, %lean_alloc_ctor.exit, %lean_dec.exit60
-  %.2 = phi ptr [ %30, %lean_dec.exit60 ], [ %139, %lean_alloc_ctor.exit ], [ %189, %lean_alloc_ctor.exit115 ], [ %30, %lean_dec.exit57 ], [ %79, %93 ], [ %79, %92 ], [ %79, %90 ], [ %79, %lean_dec.exit64 ]
+  %.2 = phi ptr [ %139, %lean_alloc_ctor.exit ], [ %30, %lean_dec.exit57 ], [ %30, %lean_dec.exit60 ], [ %189, %lean_alloc_ctor.exit115 ], [ %79, %93 ], [ %79, %92 ], [ %79, %90 ], [ %79, %lean_dec.exit64 ]
   ret ptr %.2
 }
 
@@ -3364,7 +3364,7 @@ lean_alloc_ctor.exit115:                          ; preds = %lean_dec.exit
   br label %lean_dec.exit63
 
 lean_dec.exit63:                                  ; preds = %lean_dec.exit64, %90, %92, %93, %lean_alloc_ctor.exit115, %lean_dec.exit57, %lean_alloc_ctor.exit, %lean_dec.exit60
-  %.2 = phi ptr [ %30, %lean_dec.exit60 ], [ %139, %lean_alloc_ctor.exit ], [ %189, %lean_alloc_ctor.exit115 ], [ %30, %lean_dec.exit57 ], [ %79, %93 ], [ %79, %92 ], [ %79, %90 ], [ %79, %lean_dec.exit64 ]
+  %.2 = phi ptr [ %139, %lean_alloc_ctor.exit ], [ %30, %lean_dec.exit57 ], [ %30, %lean_dec.exit60 ], [ %189, %lean_alloc_ctor.exit115 ], [ %79, %93 ], [ %79, %92 ], [ %79, %90 ], [ %79, %lean_dec.exit64 ]
   ret ptr %.2
 }
 

@@ -1277,13 +1277,13 @@ define dso_local i32 @i2c_generic_scl_recovery(ptr noundef %0) #1 align 16 {
   br i1 %brmerge, label %.thread15, label %.thread13
 
 .thread15:                                        ; preds = %45, %41, %35
-  %49 = phi i32 [ %19, %35 ], [ -95, %41 ], [ %.mux, %45 ]
+  %49 = phi i32 [ %.mux, %45 ], [ %19, %35 ], [ -95, %41 ]
   %50 = add nuw nsw i32 %18, 1
   %51 = icmp eq i32 %50, 19
   br i1 %51, label %.thread13, label %17, !llvm.loop !20
 
 .thread13:                                        ; preds = %45, %.thread15, %26
-  %52 = phi i32 [ -16, %26 ], [ 0, %45 ], [ %49, %.thread15 ]
+  %52 = phi i32 [ -16, %26 ], [ %49, %.thread15 ], [ 0, %45 ]
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
@@ -1460,7 +1460,7 @@ define internal i32 @i2c_device_probe(ptr noundef %0) #1 align 16 {
   br i1 %60, label %.thread7, label %.thread
 
 .thread:                                          ; preds = %31, %37, %27, %18, %41, %58
-  %61 = phi i32 [ %59, %58 ], [ 0, %37 ], [ -22, %27 ], [ -6, %18 ], [ -2, %41 ], [ -6, %31 ]
+  %61 = phi i32 [ %59, %58 ], [ -2, %41 ], [ 0, %37 ], [ -22, %27 ], [ -6, %18 ], [ -6, %31 ]
   %62 = call i32 @llvm.smax.i32(i32 %61, i32 0)
   store i32 %62, ptr %12, align 4
   br label %63
@@ -2287,7 +2287,7 @@ define dso_local i32 @i2c_adapter_depth(ptr noundef readonly captures(none) %0) 
   br label %.thread
 
 .thread:                                          ; preds = %1, %19, %15
-  %20 = phi i32 [ %11, %19 ], [ %11, %15 ], [ 0, %1 ]
+  %20 = phi i32 [ %11, %15 ], [ %11, %19 ], [ 0, %1 ]
   ret i32 %20
 }
 
@@ -2663,7 +2663,7 @@ define internal fastcc i32 @i2c_register_adapter(ptr noundef %0) unnamed_addr #1
   br i1 %151, label %152, label %154
 
 152:                                              ; preds = %136, %140, %148
-  %153 = phi ptr [ @.str.76, %140 ], [ @.str.76, %136 ], [ @.str.77, %148 ]
+  %153 = phi ptr [ @.str.77, %148 ], [ @.str.76, %140 ], [ @.str.76, %136 ]
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %50, ptr noundef nonnull @.str.78, ptr noundef nonnull %153) #24
   br label %.critedge
 
@@ -2811,7 +2811,7 @@ define dso_local i32 @i2c_add_numbered_adapter(ptr noundef %0) #1 align 16 {
   br label %i2c_add_adapter.exit
 
 i2c_add_adapter.exit:                             ; preds = %10, %9, %20, %17
-  %22 = phi i32 [ %19, %17 ], [ %21, %20 ], [ %11, %10 ], [ %7, %9 ]
+  %22 = phi i32 [ %21, %20 ], [ %19, %17 ], [ %11, %10 ], [ %7, %9 ]
   ret i32 %22
 }
 
@@ -3247,7 +3247,7 @@ define dso_local ptr @i2c_get_adapter_by_fwnode(ptr noundef %0) #1 align 16 {
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %3, %1, %13
-  %16 = phi ptr [ %10, %13 ], [ null, %1 ], [ null, %3 ], [ null, %.thread.sink.split ]
+  %16 = phi ptr [ null, %3 ], [ %10, %13 ], [ null, %1 ], [ null, %.thread.sink.split ]
   ret ptr %16
 }
 
@@ -4032,7 +4032,7 @@ define dso_local i32 @__i2c_transfer(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %.thread
 
 .split46.us:                                      ; preds = %.split.split.split.split.us, %242, %180
-  %.us-phi47 = phi ptr [ %168, %180 ], [ %234, %242 ], [ %207, %.split.split.split.split.us ]
+  %.us-phi47 = phi ptr [ %234, %242 ], [ %168, %180 ], [ %207, %.split.split.split.split.us ]
   %257 = tail call i32 @___ratelimit(ptr noundef nonnull @i2c_quirk_error._rs, ptr noundef nonnull @__func__.i2c_quirk_error) #22
   %258 = icmp eq i32 %257, 0
   br i1 %258, label %.thread, label %259
@@ -4076,7 +4076,7 @@ define dso_local i32 @__i2c_transfer(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %.thread
 
 .split56.us:                                      ; preds = %.split.split.split.us.split, %271, %188
-  %.us-phi57 = phi ptr [ %168, %188 ], [ %234, %271 ], [ %195, %.split.split.split.us.split ]
+  %.us-phi57 = phi ptr [ %234, %271 ], [ %168, %188 ], [ %195, %.split.split.split.us.split ]
   %286 = tail call i32 @___ratelimit(ptr noundef nonnull @i2c_quirk_error._rs, ptr noundef nonnull @__func__.i2c_quirk_error) #22
   %287 = icmp eq i32 %286, 0
   br i1 %287, label %.thread, label %288
@@ -4384,7 +4384,7 @@ define dso_local i32 @__i2c_transfer(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %.thread
 
 .thread:                                          ; preds = %14, %26, %457, %453, %440, %.loopexit, %.loopexit17, %288, %.split56.us, %274, %.split51.us, %259, %.split46.us, %245, %.split42.us, %221, %218, %141, %138, %119, %116, %96, %93, %73, %70, %51, %48, %8
-  %460 = phi i32 [ -22, %8 ], [ %403, %.loopexit17 ], [ %403, %.loopexit ], [ %403, %440 ], [ %403, %453 ], [ %403, %457 ], [ -95, %288 ], [ -95, %.split56.us ], [ -95, %274 ], [ -95, %.split51.us ], [ -95, %259 ], [ -95, %.split46.us ], [ -95, %245 ], [ -95, %.split42.us ], [ -95, %221 ], [ -95, %218 ], [ -95, %141 ], [ -95, %138 ], [ -95, %119 ], [ -95, %116 ], [ -95, %96 ], [ -95, %93 ], [ -95, %73 ], [ -95, %70 ], [ -95, %51 ], [ -95, %48 ], [ -108, %26 ], [ -108, %14 ]
+  %460 = phi i32 [ -22, %8 ], [ -95, %48 ], [ %403, %.loopexit17 ], [ %403, %.loopexit ], [ %403, %440 ], [ %403, %453 ], [ %403, %457 ], [ -95, %288 ], [ -95, %.split56.us ], [ -95, %274 ], [ -95, %.split51.us ], [ -95, %259 ], [ -95, %.split46.us ], [ -95, %245 ], [ -95, %.split42.us ], [ -95, %221 ], [ -95, %218 ], [ -95, %141 ], [ -95, %138 ], [ -95, %119 ], [ -95, %116 ], [ -95, %96 ], [ -95, %93 ], [ -95, %73 ], [ -95, %70 ], [ -95, %51 ], [ -108, %26 ], [ -108, %14 ]
   ret i32 %460
 }
 

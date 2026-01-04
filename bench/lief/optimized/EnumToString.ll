@@ -172,8 +172,8 @@ _ZNKSt3mapIN4LIEF3ART13STORAGE_MODESEPKcSt4lessIS2_ESaISt4pairIKS2_S4_EEE4findER
   %17 = load ptr, ptr %16, align 8, !tbaa !19
   br label %_ZNKSt3mapIN4LIEF3ART13STORAGE_MODESEPKcSt4lessIS2_ESaISt4pairIKS2_S4_EEE4findERS8_.exit.thread
 
-_ZNKSt3mapIN4LIEF3ART13STORAGE_MODESEPKcSt4lessIS2_ESaISt4pairIKS2_S4_EEE4findERS8_.exit.thread: ; preds = %1, %_ZNKSt8_Rb_treeIN4LIEF3ART13STORAGE_MODESESt4pairIKS2_PKcESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i, %_ZNKSt3mapIN4LIEF3ART13STORAGE_MODESEPKcSt4lessIS2_ESaISt4pairIKS2_S4_EEE4findERS8_.exit, %15
-  %18 = phi ptr [ %17, %15 ], [ @.str.3, %_ZNKSt3mapIN4LIEF3ART13STORAGE_MODESEPKcSt4lessIS2_ESaISt4pairIKS2_S4_EEE4findERS8_.exit ], [ @.str.3, %_ZNKSt8_Rb_treeIN4LIEF3ART13STORAGE_MODESESt4pairIKS2_PKcESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i ], [ @.str.3, %1 ]
+_ZNKSt3mapIN4LIEF3ART13STORAGE_MODESEPKcSt4lessIS2_ESaISt4pairIKS2_S4_EEE4findERS8_.exit.thread: ; preds = %_ZNKSt8_Rb_treeIN4LIEF3ART13STORAGE_MODESESt4pairIKS2_PKcESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i, %1, %_ZNKSt3mapIN4LIEF3ART13STORAGE_MODESEPKcSt4lessIS2_ESaISt4pairIKS2_S4_EEE4findERS8_.exit, %15
+  %18 = phi ptr [ %17, %15 ], [ @.str.3, %_ZNKSt3mapIN4LIEF3ART13STORAGE_MODESEPKcSt4lessIS2_ESaISt4pairIKS2_S4_EEE4findERS8_.exit ], [ @.str.3, %1 ], [ @.str.3, %_ZNKSt8_Rb_treeIN4LIEF3ART13STORAGE_MODESESt4pairIKS2_PKcESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i ]
   call void @_ZNSt8_Rb_treeIN4LIEF3ART13STORAGE_MODESESt4pairIKS2_PKcESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %18
@@ -256,7 +256,7 @@ define linkonce_odr hidden void @_ZNSt3mapIN4LIEF3ART13STORAGE_MODESEPKcSt4lessI
   %31 = icmp slt i32 %30, %29
   br i1 %31, label %select.unfold, label %_ZNSt8_Rb_treeIN4LIEF3ART13STORAGE_MODESESt4pairIKS2_PKcESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE17_M_insert_unique_IRKS7_NSD_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EOT_RT0_.exit.i
 
-select.unfold:                                    ; preds = %28, %12, %._crit_edge.thread.i.i
+select.unfold:                                    ; preds = %28, %._crit_edge.thread.i.i, %12
   %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa29.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa28.i.i, %28 ]
   %32 = icmp eq ptr %.sroa.12.0.i.ph, %6
   br i1 %32, label %_ZNSt8_Rb_treeIN4LIEF3ART13STORAGE_MODESESt4pairIKS2_PKcESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE10_M_insert_IRKS7_NSD_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS7_EPSt18_Rb_tree_node_baseSL_OT_RT0_.exit.i.i, label %33
@@ -269,7 +269,7 @@ select.unfold:                                    ; preds = %28, %12, %._crit_ed
   br label %_ZNSt8_Rb_treeIN4LIEF3ART13STORAGE_MODESESt4pairIKS2_PKcESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE10_M_insert_IRKS7_NSD_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS7_EPSt18_Rb_tree_node_baseSL_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIN4LIEF3ART13STORAGE_MODESESt4pairIKS2_PKcESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE10_M_insert_IRKS7_NSD_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS7_EPSt18_Rb_tree_node_baseSL_OT_RT0_.exit.i.i: ; preds = %33, %select.unfold
-  %38 = phi i1 [ true, %select.unfold ], [ %37, %33 ]
+  %38 = phi i1 [ %37, %33 ], [ true, %select.unfold ]
   %39 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %.08.i, i64 16, i1 false)
@@ -339,8 +339,8 @@ _ZNKSt3mapIN4LIEF3ART6ART_1714IMAGE_SECTIONSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EE
   %17 = load ptr, ptr %16, align 8, !tbaa !32
   br label %_ZNKSt3mapIN4LIEF3ART6ART_1714IMAGE_SECTIONSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit.thread
 
-_ZNKSt3mapIN4LIEF3ART6ART_1714IMAGE_SECTIONSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit.thread: ; preds = %1, %_ZNKSt8_Rb_treeIN4LIEF3ART6ART_1714IMAGE_SECTIONSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i, %_ZNKSt3mapIN4LIEF3ART6ART_1714IMAGE_SECTIONSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit, %15
-  %18 = phi ptr [ %17, %15 ], [ @.str.3, %_ZNKSt3mapIN4LIEF3ART6ART_1714IMAGE_SECTIONSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit ], [ @.str.3, %_ZNKSt8_Rb_treeIN4LIEF3ART6ART_1714IMAGE_SECTIONSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i ], [ @.str.3, %1 ]
+_ZNKSt3mapIN4LIEF3ART6ART_1714IMAGE_SECTIONSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit.thread: ; preds = %_ZNKSt8_Rb_treeIN4LIEF3ART6ART_1714IMAGE_SECTIONSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i, %1, %_ZNKSt3mapIN4LIEF3ART6ART_1714IMAGE_SECTIONSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit, %15
+  %18 = phi ptr [ %17, %15 ], [ @.str.3, %_ZNKSt3mapIN4LIEF3ART6ART_1714IMAGE_SECTIONSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit ], [ @.str.3, %1 ], [ @.str.3, %_ZNKSt8_Rb_treeIN4LIEF3ART6ART_1714IMAGE_SECTIONSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i ]
   call void @_ZNSt8_Rb_treeIN4LIEF3ART6ART_1714IMAGE_SECTIONSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %18
@@ -420,7 +420,7 @@ define linkonce_odr hidden void @_ZNSt3mapIN4LIEF3ART6ART_1714IMAGE_SECTIONSEPKc
   %31 = icmp slt i32 %30, %29
   br i1 %31, label %select.unfold, label %_ZNSt8_Rb_treeIN4LIEF3ART6ART_1714IMAGE_SECTIONSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE17_M_insert_unique_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EOT_RT0_.exit.i
 
-select.unfold:                                    ; preds = %28, %12, %._crit_edge.thread.i.i
+select.unfold:                                    ; preds = %28, %._crit_edge.thread.i.i, %12
   %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa29.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa28.i.i, %28 ]
   %32 = icmp eq ptr %.sroa.12.0.i.ph, %6
   br i1 %32, label %_ZNSt8_Rb_treeIN4LIEF3ART6ART_1714IMAGE_SECTIONSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit.i.i, label %33
@@ -433,7 +433,7 @@ select.unfold:                                    ; preds = %28, %12, %._crit_ed
   br label %_ZNSt8_Rb_treeIN4LIEF3ART6ART_1714IMAGE_SECTIONSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIN4LIEF3ART6ART_1714IMAGE_SECTIONSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit.i.i: ; preds = %33, %select.unfold
-  %38 = phi i1 [ true, %select.unfold ], [ %37, %33 ]
+  %38 = phi i1 [ %37, %33 ], [ true, %select.unfold ]
   %39 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %.08.i, i64 16, i1 false)
@@ -503,8 +503,8 @@ _ZNKSt3mapIN4LIEF3ART6ART_2914IMAGE_SECTIONSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EE
   %17 = load ptr, ptr %16, align 8, !tbaa !40
   br label %_ZNKSt3mapIN4LIEF3ART6ART_2914IMAGE_SECTIONSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit.thread
 
-_ZNKSt3mapIN4LIEF3ART6ART_2914IMAGE_SECTIONSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit.thread: ; preds = %1, %_ZNKSt8_Rb_treeIN4LIEF3ART6ART_2914IMAGE_SECTIONSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i, %_ZNKSt3mapIN4LIEF3ART6ART_2914IMAGE_SECTIONSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit, %15
-  %18 = phi ptr [ %17, %15 ], [ @.str.3, %_ZNKSt3mapIN4LIEF3ART6ART_2914IMAGE_SECTIONSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit ], [ @.str.3, %_ZNKSt8_Rb_treeIN4LIEF3ART6ART_2914IMAGE_SECTIONSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i ], [ @.str.3, %1 ]
+_ZNKSt3mapIN4LIEF3ART6ART_2914IMAGE_SECTIONSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit.thread: ; preds = %_ZNKSt8_Rb_treeIN4LIEF3ART6ART_2914IMAGE_SECTIONSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i, %1, %_ZNKSt3mapIN4LIEF3ART6ART_2914IMAGE_SECTIONSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit, %15
+  %18 = phi ptr [ %17, %15 ], [ @.str.3, %_ZNKSt3mapIN4LIEF3ART6ART_2914IMAGE_SECTIONSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit ], [ @.str.3, %1 ], [ @.str.3, %_ZNKSt8_Rb_treeIN4LIEF3ART6ART_2914IMAGE_SECTIONSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i ]
   call void @_ZNSt8_Rb_treeIN4LIEF3ART6ART_2914IMAGE_SECTIONSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %18
@@ -584,7 +584,7 @@ define linkonce_odr hidden void @_ZNSt3mapIN4LIEF3ART6ART_2914IMAGE_SECTIONSEPKc
   %31 = icmp slt i32 %30, %29
   br i1 %31, label %select.unfold, label %_ZNSt8_Rb_treeIN4LIEF3ART6ART_2914IMAGE_SECTIONSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE17_M_insert_unique_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EOT_RT0_.exit.i
 
-select.unfold:                                    ; preds = %28, %12, %._crit_edge.thread.i.i
+select.unfold:                                    ; preds = %28, %._crit_edge.thread.i.i, %12
   %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa29.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa28.i.i, %28 ]
   %32 = icmp eq ptr %.sroa.12.0.i.ph, %6
   br i1 %32, label %_ZNSt8_Rb_treeIN4LIEF3ART6ART_2914IMAGE_SECTIONSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit.i.i, label %33
@@ -597,7 +597,7 @@ select.unfold:                                    ; preds = %28, %12, %._crit_ed
   br label %_ZNSt8_Rb_treeIN4LIEF3ART6ART_2914IMAGE_SECTIONSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIN4LIEF3ART6ART_2914IMAGE_SECTIONSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit.i.i: ; preds = %33, %select.unfold
-  %38 = phi i1 [ true, %select.unfold ], [ %37, %33 ]
+  %38 = phi i1 [ %37, %33 ], [ true, %select.unfold ]
   %39 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %.08.i, i64 16, i1 false)
@@ -667,8 +667,8 @@ _ZNKSt3mapIN4LIEF3ART6ART_3014IMAGE_SECTIONSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EE
   %17 = load ptr, ptr %16, align 8, !tbaa !48
   br label %_ZNKSt3mapIN4LIEF3ART6ART_3014IMAGE_SECTIONSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit.thread
 
-_ZNKSt3mapIN4LIEF3ART6ART_3014IMAGE_SECTIONSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit.thread: ; preds = %1, %_ZNKSt8_Rb_treeIN4LIEF3ART6ART_3014IMAGE_SECTIONSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i, %_ZNKSt3mapIN4LIEF3ART6ART_3014IMAGE_SECTIONSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit, %15
-  %18 = phi ptr [ %17, %15 ], [ @.str.3, %_ZNKSt3mapIN4LIEF3ART6ART_3014IMAGE_SECTIONSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit ], [ @.str.3, %_ZNKSt8_Rb_treeIN4LIEF3ART6ART_3014IMAGE_SECTIONSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i ], [ @.str.3, %1 ]
+_ZNKSt3mapIN4LIEF3ART6ART_3014IMAGE_SECTIONSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit.thread: ; preds = %_ZNKSt8_Rb_treeIN4LIEF3ART6ART_3014IMAGE_SECTIONSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i, %1, %_ZNKSt3mapIN4LIEF3ART6ART_3014IMAGE_SECTIONSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit, %15
+  %18 = phi ptr [ %17, %15 ], [ @.str.3, %_ZNKSt3mapIN4LIEF3ART6ART_3014IMAGE_SECTIONSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit ], [ @.str.3, %1 ], [ @.str.3, %_ZNKSt8_Rb_treeIN4LIEF3ART6ART_3014IMAGE_SECTIONSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i ]
   call void @_ZNSt8_Rb_treeIN4LIEF3ART6ART_3014IMAGE_SECTIONSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %18
@@ -748,7 +748,7 @@ define linkonce_odr hidden void @_ZNSt3mapIN4LIEF3ART6ART_3014IMAGE_SECTIONSEPKc
   %31 = icmp slt i32 %30, %29
   br i1 %31, label %select.unfold, label %_ZNSt8_Rb_treeIN4LIEF3ART6ART_3014IMAGE_SECTIONSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE17_M_insert_unique_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EOT_RT0_.exit.i
 
-select.unfold:                                    ; preds = %28, %12, %._crit_edge.thread.i.i
+select.unfold:                                    ; preds = %28, %._crit_edge.thread.i.i, %12
   %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa29.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa28.i.i, %28 ]
   %32 = icmp eq ptr %.sroa.12.0.i.ph, %6
   br i1 %32, label %_ZNSt8_Rb_treeIN4LIEF3ART6ART_3014IMAGE_SECTIONSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit.i.i, label %33
@@ -761,7 +761,7 @@ select.unfold:                                    ; preds = %28, %12, %._crit_ed
   br label %_ZNSt8_Rb_treeIN4LIEF3ART6ART_3014IMAGE_SECTIONSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIN4LIEF3ART6ART_3014IMAGE_SECTIONSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit.i.i: ; preds = %33, %select.unfold
-  %38 = phi i1 [ true, %select.unfold ], [ %37, %33 ]
+  %38 = phi i1 [ %37, %33 ], [ true, %select.unfold ]
   %39 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %.08.i, i64 16, i1 false)
@@ -831,8 +831,8 @@ _ZNKSt3mapIN4LIEF3ART6ART_1713IMAGE_METHODSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE
   %17 = load ptr, ptr %16, align 8, !tbaa !56
   br label %_ZNKSt3mapIN4LIEF3ART6ART_1713IMAGE_METHODSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit.thread
 
-_ZNKSt3mapIN4LIEF3ART6ART_1713IMAGE_METHODSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit.thread: ; preds = %1, %_ZNKSt8_Rb_treeIN4LIEF3ART6ART_1713IMAGE_METHODSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i, %_ZNKSt3mapIN4LIEF3ART6ART_1713IMAGE_METHODSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit, %15
-  %18 = phi ptr [ %17, %15 ], [ @.str.3, %_ZNKSt3mapIN4LIEF3ART6ART_1713IMAGE_METHODSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit ], [ @.str.3, %_ZNKSt8_Rb_treeIN4LIEF3ART6ART_1713IMAGE_METHODSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i ], [ @.str.3, %1 ]
+_ZNKSt3mapIN4LIEF3ART6ART_1713IMAGE_METHODSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit.thread: ; preds = %_ZNKSt8_Rb_treeIN4LIEF3ART6ART_1713IMAGE_METHODSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i, %1, %_ZNKSt3mapIN4LIEF3ART6ART_1713IMAGE_METHODSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit, %15
+  %18 = phi ptr [ %17, %15 ], [ @.str.3, %_ZNKSt3mapIN4LIEF3ART6ART_1713IMAGE_METHODSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit ], [ @.str.3, %1 ], [ @.str.3, %_ZNKSt8_Rb_treeIN4LIEF3ART6ART_1713IMAGE_METHODSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i ]
   call void @_ZNSt8_Rb_treeIN4LIEF3ART6ART_1713IMAGE_METHODSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %18
@@ -912,7 +912,7 @@ define linkonce_odr hidden void @_ZNSt3mapIN4LIEF3ART6ART_1713IMAGE_METHODSEPKcS
   %31 = icmp slt i32 %30, %29
   br i1 %31, label %select.unfold, label %_ZNSt8_Rb_treeIN4LIEF3ART6ART_1713IMAGE_METHODSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE17_M_insert_unique_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EOT_RT0_.exit.i
 
-select.unfold:                                    ; preds = %28, %12, %._crit_edge.thread.i.i
+select.unfold:                                    ; preds = %28, %._crit_edge.thread.i.i, %12
   %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa29.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa28.i.i, %28 ]
   %32 = icmp eq ptr %.sroa.12.0.i.ph, %6
   br i1 %32, label %_ZNSt8_Rb_treeIN4LIEF3ART6ART_1713IMAGE_METHODSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit.i.i, label %33
@@ -925,7 +925,7 @@ select.unfold:                                    ; preds = %28, %12, %._crit_ed
   br label %_ZNSt8_Rb_treeIN4LIEF3ART6ART_1713IMAGE_METHODSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIN4LIEF3ART6ART_1713IMAGE_METHODSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit.i.i: ; preds = %33, %select.unfold
-  %38 = phi i1 [ true, %select.unfold ], [ %37, %33 ]
+  %38 = phi i1 [ %37, %33 ], [ true, %select.unfold ]
   %39 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %.08.i, i64 16, i1 false)
@@ -995,8 +995,8 @@ _ZNKSt3mapIN4LIEF3ART6ART_4413IMAGE_METHODSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE
   %17 = load ptr, ptr %16, align 8, !tbaa !64
   br label %_ZNKSt3mapIN4LIEF3ART6ART_4413IMAGE_METHODSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit.thread
 
-_ZNKSt3mapIN4LIEF3ART6ART_4413IMAGE_METHODSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit.thread: ; preds = %1, %_ZNKSt8_Rb_treeIN4LIEF3ART6ART_4413IMAGE_METHODSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i, %_ZNKSt3mapIN4LIEF3ART6ART_4413IMAGE_METHODSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit, %15
-  %18 = phi ptr [ %17, %15 ], [ @.str.3, %_ZNKSt3mapIN4LIEF3ART6ART_4413IMAGE_METHODSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit ], [ @.str.3, %_ZNKSt8_Rb_treeIN4LIEF3ART6ART_4413IMAGE_METHODSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i ], [ @.str.3, %1 ]
+_ZNKSt3mapIN4LIEF3ART6ART_4413IMAGE_METHODSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit.thread: ; preds = %_ZNKSt8_Rb_treeIN4LIEF3ART6ART_4413IMAGE_METHODSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i, %1, %_ZNKSt3mapIN4LIEF3ART6ART_4413IMAGE_METHODSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit, %15
+  %18 = phi ptr [ %17, %15 ], [ @.str.3, %_ZNKSt3mapIN4LIEF3ART6ART_4413IMAGE_METHODSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit ], [ @.str.3, %1 ], [ @.str.3, %_ZNKSt8_Rb_treeIN4LIEF3ART6ART_4413IMAGE_METHODSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i ]
   call void @_ZNSt8_Rb_treeIN4LIEF3ART6ART_4413IMAGE_METHODSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %18
@@ -1076,7 +1076,7 @@ define linkonce_odr hidden void @_ZNSt3mapIN4LIEF3ART6ART_4413IMAGE_METHODSEPKcS
   %31 = icmp slt i32 %30, %29
   br i1 %31, label %select.unfold, label %_ZNSt8_Rb_treeIN4LIEF3ART6ART_4413IMAGE_METHODSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE17_M_insert_unique_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EOT_RT0_.exit.i
 
-select.unfold:                                    ; preds = %28, %12, %._crit_edge.thread.i.i
+select.unfold:                                    ; preds = %28, %._crit_edge.thread.i.i, %12
   %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa29.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa28.i.i, %28 ]
   %32 = icmp eq ptr %.sroa.12.0.i.ph, %6
   br i1 %32, label %_ZNSt8_Rb_treeIN4LIEF3ART6ART_4413IMAGE_METHODSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit.i.i, label %33
@@ -1089,7 +1089,7 @@ select.unfold:                                    ; preds = %28, %12, %._crit_ed
   br label %_ZNSt8_Rb_treeIN4LIEF3ART6ART_4413IMAGE_METHODSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIN4LIEF3ART6ART_4413IMAGE_METHODSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit.i.i: ; preds = %33, %select.unfold
-  %38 = phi i1 [ true, %select.unfold ], [ %37, %33 ]
+  %38 = phi i1 [ %37, %33 ], [ true, %select.unfold ]
   %39 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %.08.i, i64 16, i1 false)
@@ -1159,8 +1159,8 @@ _ZNKSt3mapIN4LIEF3ART6ART_1711IMAGE_ROOTSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4f
   %17 = load ptr, ptr %16, align 8, !tbaa !72
   br label %_ZNKSt3mapIN4LIEF3ART6ART_1711IMAGE_ROOTSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit.thread
 
-_ZNKSt3mapIN4LIEF3ART6ART_1711IMAGE_ROOTSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit.thread: ; preds = %1, %_ZNKSt8_Rb_treeIN4LIEF3ART6ART_1711IMAGE_ROOTSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i, %_ZNKSt3mapIN4LIEF3ART6ART_1711IMAGE_ROOTSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit, %15
-  %18 = phi ptr [ %17, %15 ], [ @.str.3, %_ZNKSt3mapIN4LIEF3ART6ART_1711IMAGE_ROOTSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit ], [ @.str.3, %_ZNKSt8_Rb_treeIN4LIEF3ART6ART_1711IMAGE_ROOTSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i ], [ @.str.3, %1 ]
+_ZNKSt3mapIN4LIEF3ART6ART_1711IMAGE_ROOTSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit.thread: ; preds = %_ZNKSt8_Rb_treeIN4LIEF3ART6ART_1711IMAGE_ROOTSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i, %1, %_ZNKSt3mapIN4LIEF3ART6ART_1711IMAGE_ROOTSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit, %15
+  %18 = phi ptr [ %17, %15 ], [ @.str.3, %_ZNKSt3mapIN4LIEF3ART6ART_1711IMAGE_ROOTSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit ], [ @.str.3, %1 ], [ @.str.3, %_ZNKSt8_Rb_treeIN4LIEF3ART6ART_1711IMAGE_ROOTSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i ]
   call void @_ZNSt8_Rb_treeIN4LIEF3ART6ART_1711IMAGE_ROOTSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %18
@@ -1240,7 +1240,7 @@ define linkonce_odr hidden void @_ZNSt3mapIN4LIEF3ART6ART_1711IMAGE_ROOTSEPKcSt4
   %31 = icmp slt i32 %30, %29
   br i1 %31, label %select.unfold, label %_ZNSt8_Rb_treeIN4LIEF3ART6ART_1711IMAGE_ROOTSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE17_M_insert_unique_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EOT_RT0_.exit.i
 
-select.unfold:                                    ; preds = %28, %12, %._crit_edge.thread.i.i
+select.unfold:                                    ; preds = %28, %._crit_edge.thread.i.i, %12
   %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa29.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa28.i.i, %28 ]
   %32 = icmp eq ptr %.sroa.12.0.i.ph, %6
   br i1 %32, label %_ZNSt8_Rb_treeIN4LIEF3ART6ART_1711IMAGE_ROOTSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit.i.i, label %33
@@ -1253,7 +1253,7 @@ select.unfold:                                    ; preds = %28, %12, %._crit_ed
   br label %_ZNSt8_Rb_treeIN4LIEF3ART6ART_1711IMAGE_ROOTSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIN4LIEF3ART6ART_1711IMAGE_ROOTSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit.i.i: ; preds = %33, %select.unfold
-  %38 = phi i1 [ true, %select.unfold ], [ %37, %33 ]
+  %38 = phi i1 [ %37, %33 ], [ true, %select.unfold ]
   %39 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %.08.i, i64 16, i1 false)
@@ -1323,8 +1323,8 @@ _ZNKSt3mapIN4LIEF3ART6ART_4411IMAGE_ROOTSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4f
   %17 = load ptr, ptr %16, align 8, !tbaa !79
   br label %_ZNKSt3mapIN4LIEF3ART6ART_4411IMAGE_ROOTSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit.thread
 
-_ZNKSt3mapIN4LIEF3ART6ART_4411IMAGE_ROOTSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit.thread: ; preds = %1, %_ZNKSt8_Rb_treeIN4LIEF3ART6ART_4411IMAGE_ROOTSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i, %_ZNKSt3mapIN4LIEF3ART6ART_4411IMAGE_ROOTSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit, %15
-  %18 = phi ptr [ %17, %15 ], [ @.str.3, %_ZNKSt3mapIN4LIEF3ART6ART_4411IMAGE_ROOTSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit ], [ @.str.3, %_ZNKSt8_Rb_treeIN4LIEF3ART6ART_4411IMAGE_ROOTSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i ], [ @.str.3, %1 ]
+_ZNKSt3mapIN4LIEF3ART6ART_4411IMAGE_ROOTSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit.thread: ; preds = %_ZNKSt8_Rb_treeIN4LIEF3ART6ART_4411IMAGE_ROOTSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i, %1, %_ZNKSt3mapIN4LIEF3ART6ART_4411IMAGE_ROOTSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit, %15
+  %18 = phi ptr [ %17, %15 ], [ @.str.3, %_ZNKSt3mapIN4LIEF3ART6ART_4411IMAGE_ROOTSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit ], [ @.str.3, %1 ], [ @.str.3, %_ZNKSt8_Rb_treeIN4LIEF3ART6ART_4411IMAGE_ROOTSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i ]
   call void @_ZNSt8_Rb_treeIN4LIEF3ART6ART_4411IMAGE_ROOTSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %18
@@ -1404,7 +1404,7 @@ define linkonce_odr hidden void @_ZNSt3mapIN4LIEF3ART6ART_4411IMAGE_ROOTSEPKcSt4
   %31 = icmp slt i32 %30, %29
   br i1 %31, label %select.unfold, label %_ZNSt8_Rb_treeIN4LIEF3ART6ART_4411IMAGE_ROOTSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE17_M_insert_unique_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EOT_RT0_.exit.i
 
-select.unfold:                                    ; preds = %28, %12, %._crit_edge.thread.i.i
+select.unfold:                                    ; preds = %28, %._crit_edge.thread.i.i, %12
   %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa29.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa28.i.i, %28 ]
   %32 = icmp eq ptr %.sroa.12.0.i.ph, %6
   br i1 %32, label %_ZNSt8_Rb_treeIN4LIEF3ART6ART_4411IMAGE_ROOTSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit.i.i, label %33
@@ -1417,7 +1417,7 @@ select.unfold:                                    ; preds = %28, %12, %._crit_ed
   br label %_ZNSt8_Rb_treeIN4LIEF3ART6ART_4411IMAGE_ROOTSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIN4LIEF3ART6ART_4411IMAGE_ROOTSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit.i.i: ; preds = %33, %select.unfold
-  %38 = phi i1 [ true, %select.unfold ], [ %37, %33 ]
+  %38 = phi i1 [ %37, %33 ], [ true, %select.unfold ]
   %39 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %.08.i, i64 16, i1 false)

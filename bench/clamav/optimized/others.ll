@@ -258,7 +258,7 @@ define i32 @cl_init(i32 noundef %0) local_unnamed_addr #2 {
   br label %45
 
 31:                                               ; preds = %.thread.i.i, %14, %12
-  %.039.i.i = phi ptr [ null, %14 ], [ null, %12 ], [ %16, %.thread.i.i ]
+  %.039.i.i = phi ptr [ %16, %.thread.i.i ], [ null, %14 ], [ null, %12 ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.115, ptr noundef nonnull @.str.97, ptr noundef nonnull @.str.116) #24
   br label %32
 
@@ -386,7 +386,7 @@ load_module.exit.thread.i:                        ; preds = %44, %43
   br i1 %79, label %80, label %81
 
 .sink.split.i:                                    ; preds = %76, %75, %68, %67, %60, %59, %52, %51
-  %cli_unrar_skip_file.sink.i = phi ptr [ @cli_unrar_open, %51 ], [ @cli_unrar_open, %52 ], [ @cli_unrar_peek_file_header, %59 ], [ @cli_unrar_peek_file_header, %60 ], [ @cli_unrar_extract_file, %67 ], [ @cli_unrar_extract_file, %68 ], [ @cli_unrar_skip_file, %75 ], [ @cli_unrar_skip_file, %76 ]
+  %cli_unrar_skip_file.sink.i = phi ptr [ @cli_unrar_extract_file, %68 ], [ @cli_unrar_peek_file_header, %60 ], [ @cli_unrar_open, %52 ], [ @cli_unrar_open, %51 ], [ @cli_unrar_peek_file_header, %59 ], [ @cli_unrar_extract_file, %67 ], [ @cli_unrar_skip_file, %75 ], [ @cli_unrar_skip_file, %76 ]
   store ptr null, ptr %cli_unrar_skip_file.sink.i, align 8, !tbaa !11
   br label %80
 
@@ -1139,7 +1139,7 @@ define range(i32 0, 4) i32 @cl_engine_set_num(ptr noundef %0, i32 noundef %1, i6
   br label %166
 
 166:                                              ; preds = %5, %22, %55, %58, %62, %65, %68, %71, %86, %89, %133, %136, %139, %142, %145, %147, %149, %15, %13, %20, %19, %29, %27, %35, %33, %41, %39, %47, %45, %53, %51, %79, %77, %104, %100, %110, %114, %108, %117, %116, %125, %123, %130, %127, %156, %154, %163, %161, %3, %165, %99, %96, %85, %61
-  %.0 = phi i32 [ 3, %165 ], [ 3, %61 ], [ 3, %85 ], [ 3, %96 ], [ 3, %99 ], [ 2, %3 ], [ 0, %161 ], [ 0, %163 ], [ 0, %154 ], [ 0, %156 ], [ 0, %127 ], [ 0, %130 ], [ 0, %123 ], [ 0, %125 ], [ 0, %116 ], [ 0, %117 ], [ 0, %108 ], [ 0, %114 ], [ 0, %110 ], [ 0, %100 ], [ 0, %104 ], [ 0, %77 ], [ 0, %79 ], [ 0, %51 ], [ 0, %53 ], [ 0, %45 ], [ 0, %47 ], [ 0, %39 ], [ 0, %41 ], [ 0, %33 ], [ 0, %35 ], [ 0, %27 ], [ 0, %29 ], [ 0, %19 ], [ 0, %20 ], [ 0, %13 ], [ 0, %15 ], [ 0, %149 ], [ 0, %147 ], [ 0, %145 ], [ 0, %142 ], [ 0, %139 ], [ 0, %136 ], [ 0, %133 ], [ 0, %89 ], [ 0, %86 ], [ 0, %71 ], [ 0, %68 ], [ 0, %65 ], [ 0, %62 ], [ 0, %58 ], [ 0, %55 ], [ 0, %22 ], [ 0, %5 ]
+  %.0 = phi i32 [ 3, %165 ], [ 2, %3 ], [ 3, %61 ], [ 3, %85 ], [ 3, %96 ], [ 3, %99 ], [ 0, %161 ], [ 0, %163 ], [ 0, %154 ], [ 0, %156 ], [ 0, %127 ], [ 0, %130 ], [ 0, %123 ], [ 0, %125 ], [ 0, %116 ], [ 0, %117 ], [ 0, %108 ], [ 0, %114 ], [ 0, %110 ], [ 0, %100 ], [ 0, %104 ], [ 0, %77 ], [ 0, %79 ], [ 0, %51 ], [ 0, %53 ], [ 0, %45 ], [ 0, %47 ], [ 0, %39 ], [ 0, %41 ], [ 0, %33 ], [ 0, %35 ], [ 0, %27 ], [ 0, %29 ], [ 0, %19 ], [ 0, %20 ], [ 0, %13 ], [ 0, %15 ], [ 0, %149 ], [ 0, %147 ], [ 0, %145 ], [ 0, %142 ], [ 0, %139 ], [ 0, %136 ], [ 0, %133 ], [ 0, %89 ], [ 0, %86 ], [ 0, %71 ], [ 0, %68 ], [ 0, %65 ], [ 0, %62 ], [ 0, %58 ], [ 0, %55 ], [ 0, %22 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -1400,7 +1400,7 @@ define i64 @cl_engine_get_num(ptr noundef readonly captures(address_is_null) %0,
   br label %131
 
 131:                                              ; preds = %129, %130, %4, %5, %126, %123, %120, %116, %112, %108, %104, %98, %94, %90, %86, %82, %78, %74, %70, %66, %62, %58, %54, %50, %46, %42, %39, %36, %33, %30, %27, %23, %19, %16, %13, %9
-  %.0 = phi i64 [ %12, %9 ], [ %15, %13 ], [ %18, %16 ], [ %22, %19 ], [ %26, %23 ], [ %29, %27 ], [ %32, %30 ], [ %35, %33 ], [ %38, %36 ], [ %41, %39 ], [ %45, %42 ], [ %49, %46 ], [ %53, %50 ], [ %57, %54 ], [ %61, %58 ], [ %65, %62 ], [ %69, %66 ], [ %73, %70 ], [ %77, %74 ], [ %81, %78 ], [ %85, %82 ], [ %89, %86 ], [ %93, %90 ], [ %97, %94 ], [ %103, %98 ], [ %107, %104 ], [ %111, %108 ], [ %115, %112 ], [ %119, %116 ], [ %122, %120 ], [ %125, %123 ], [ %128, %126 ], [ -1, %5 ], [ -1, %4 ], [ -1, %130 ], [ -1, %129 ]
+  %.0 = phi i64 [ -1, %4 ], [ %12, %9 ], [ %15, %13 ], [ %18, %16 ], [ %22, %19 ], [ %26, %23 ], [ %29, %27 ], [ %32, %30 ], [ %35, %33 ], [ %38, %36 ], [ %41, %39 ], [ %45, %42 ], [ %49, %46 ], [ %53, %50 ], [ %57, %54 ], [ %61, %58 ], [ %65, %62 ], [ %69, %66 ], [ %73, %70 ], [ %77, %74 ], [ %81, %78 ], [ %85, %82 ], [ %89, %86 ], [ %93, %90 ], [ %97, %94 ], [ %103, %98 ], [ %107, %104 ], [ %111, %108 ], [ %115, %112 ], [ %119, %116 ], [ %122, %120 ], [ %125, %123 ], [ %128, %126 ], [ -1, %5 ], [ -1, %130 ], [ -1, %129 ]
   ret i64 %.0
 }
 
@@ -1465,7 +1465,7 @@ define range(i32 0, 21) i32 @cl_engine_set_str(ptr noundef captures(address_is_n
   br label %29
 
 29:                                               ; preds = %22, %11, %3, %28, %27
-  %.0 = phi i32 [ 3, %27 ], [ 0, %28 ], [ 2, %3 ], [ 20, %11 ], [ 20, %22 ]
+  %.0 = phi i32 [ 3, %27 ], [ 2, %3 ], [ 0, %28 ], [ 20, %11 ], [ 20, %22 ]
   ret i32 %.0
 }
 
@@ -1518,7 +1518,7 @@ define ptr @cl_engine_get_str(ptr noundef readonly captures(address_is_null) %0,
   br label %17
 
 17:                                               ; preds = %15, %16, %4, %5, %12, %9
-  %.0 = phi ptr [ %11, %9 ], [ %14, %12 ], [ null, %5 ], [ null, %4 ], [ null, %16 ], [ null, %15 ]
+  %.0 = phi ptr [ null, %4 ], [ %11, %9 ], [ %14, %12 ], [ null, %5 ], [ null, %16 ], [ null, %15 ]
   ret ptr %.0
 }
 
@@ -2304,7 +2304,7 @@ define range(i32 0, 26) i32 @cli_checklimits(ptr noundef %0, ptr noundef %1, i64
   br label %cli_append_potentially_unwanted_if_heur_exceedsmax.exit
 
 cli_append_potentially_unwanted_if_heur_exceedsmax.exit: ; preds = %95, %92, %88, %74, %67, %64, %60, %46, %40, %37, %33, %19, %.critedge, %71, %6, %5
-  %.0 = phi i32 [ %9, %6 ], [ 0, %71 ], [ 0, %.critedge ], [ 0, %5 ], [ 24, %19 ], [ 24, %33 ], [ 24, %37 ], [ 24, %40 ], [ 24, %46 ], [ 24, %60 ], [ 24, %64 ], [ 24, %67 ], [ 25, %74 ], [ 25, %88 ], [ 25, %92 ], [ 25, %95 ]
+  %.0 = phi i32 [ %9, %6 ], [ 0, %5 ], [ 24, %40 ], [ 24, %67 ], [ 0, %71 ], [ 0, %.critedge ], [ 24, %19 ], [ 24, %33 ], [ 24, %37 ], [ 24, %46 ], [ 24, %60 ], [ 24, %64 ], [ 25, %74 ], [ 25, %88 ], [ 25, %92 ], [ 25, %95 ]
   ret i32 %.0
 }
 
@@ -2503,7 +2503,7 @@ define noalias noundef ptr @cli_hashstream(ptr noundef captures(none) %0, ptr no
   br label %29
 
 29:                                               ; preds = %27, %28, %._crit_edge, %8
-  %.0 = phi ptr [ null, %8 ], [ null, %._crit_edge ], [ %21, %28 ], [ %21, %27 ]
+  %.0 = phi ptr [ null, %._crit_edge ], [ null, %8 ], [ %21, %28 ], [ %21, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
@@ -2729,7 +2729,7 @@ cli_virus_found_cb.exit:                          ; preds = %30, %25, %23
   br label %61
 
 61:                                               ; preds = %.thread, %56, %15, %3, %59, %20
-  %.027 = phi i32 [ 1, %59 ], [ 34, %20 ], [ 0, %3 ], [ 0, %15 ], [ 0, %56 ], [ 20, %.thread ]
+  %.027 = phi i32 [ 20, %.thread ], [ 0, %3 ], [ 0, %15 ], [ 34, %20 ], [ 1, %59 ], [ 0, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.027
 }
@@ -3032,7 +3032,7 @@ define i32 @cli_recursion_stack_get_type(ptr noundef readonly captures(none) %0,
   br i1 %21, label %12, label %recursion_stack_get.exit
 
 recursion_stack_get.exit:                         ; preds = %12, %2, %.preheader.i
-  %.1.i = phi i32 [ %.015.i, %.preheader.i ], [ %6, %2 ], [ %spec.select.i, %12 ]
+  %.1.i = phi i32 [ %6, %2 ], [ %.015.i, %.preheader.i ], [ %spec.select.i, %12 ]
   %22 = icmp slt i32 %.1.i, 0
   br i1 %22, label %31, label %23
 
@@ -3089,7 +3089,7 @@ define i64 @cli_recursion_stack_get_size(ptr noundef readonly captures(none) %0,
   br i1 %21, label %12, label %recursion_stack_get.exit
 
 recursion_stack_get.exit:                         ; preds = %12, %2, %.preheader.i
-  %.1.i = phi i32 [ %.015.i, %.preheader.i ], [ %6, %2 ], [ %spec.select.i, %12 ]
+  %.1.i = phi i32 [ %6, %2 ], [ %.015.i, %.preheader.i ], [ %spec.select.i, %12 ]
   %22 = icmp slt i32 %.1.i, 0
   br i1 %22, label %23, label %26
 
@@ -3343,7 +3343,7 @@ define noalias noundef ptr @cli_bitset_init() local_unnamed_addr #2 {
   br label %7
 
 7:                                                ; preds = %3, %6, %2
-  %.0 = phi ptr [ null, %6 ], [ null, %2 ], [ %1, %3 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %6 ], [ %1, %3 ]
   ret ptr %.0
 }
 

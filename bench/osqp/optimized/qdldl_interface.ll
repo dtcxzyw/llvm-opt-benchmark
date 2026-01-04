@@ -503,7 +503,7 @@ define range(i64 0, 5) i64 @init_linsys_solver_qdldl(ptr noundef writeonly captu
   br i1 %158, label %.sink.split.i, label %LDL_factor.exit
 
 .sink.split.i:                                    ; preds = %157, %133, %132, %129
-  %.str.5.sink.i = phi ptr [ @.str.6, %132 ], [ @.str.5, %129 ], [ @.str.7, %133 ], [ @.str.8, %157 ]
+  %.str.5.sink.i = phi ptr [ @.str.5, %129 ], [ @.str.6, %132 ], [ @.str.7, %133 ], [ @.str.8, %157 ]
   %159 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @__func__.LDL_factor)
   %160 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.5.sink.i)
   %putchar39.i = tail call i32 @putchar(i32 10)
@@ -801,7 +801,7 @@ define i64 @adjoint_derivative_qdldl(ptr readnone captures(none) %0, ptr noundef
   br i1 %exitcond.not.i, label %_colcount_diag.exit.i, label %.lr.ph.i.i, !llvm.loop !72
 
 _colcount_diag.exit.i:                            ; preds = %.lr.ph.i.i, %._crit_edge.i, %24
-  %39 = phi i1 [ false, %._crit_edge.i ], [ false, %24 ], [ true, %.lr.ph.i.i ]
+  %39 = phi i1 [ false, %24 ], [ false, %._crit_edge.i ], [ true, %.lr.ph.i.i ]
   %40 = load ptr, ptr %1, align 8, !tbaa !38
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load i64, ptr %41, align 8, !tbaa !40
@@ -1736,7 +1736,7 @@ _adj_perturb.exit:                                ; preds = %405, %.preheader.i
   br label %513
 
 513:                                              ; preds = %435, %_adj_perturb.exit, %512
-  %.1 = phi i64 [ %.2, %512 ], [ 5, %_adj_perturb.exit ], [ %439, %435 ]
+  %.1 = phi i64 [ 5, %_adj_perturb.exit ], [ %.2, %512 ], [ %439, %435 ]
   tail call void @free(ptr noundef %416) #12
   tail call void @free(ptr noundef %417) #12
   tail call void @free(ptr noundef %418) #12

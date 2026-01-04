@@ -256,7 +256,7 @@ define internal i32 @hmac_drbg_kdf_derive(ptr noundef %0, ptr noundef %1, i64 no
   br label %32
 
 32:                                               ; preds = %11, %15, %19, %23, %27, %4, %6, %30
-  %.0 = phi i32 [ %31, %30 ], [ 0, %6 ], [ 0, %4 ], [ 0, %27 ], [ 0, %23 ], [ 0, %19 ], [ 0, %15 ], [ 0, %11 ]
+  %.0 = phi i32 [ %31, %30 ], [ 0, %4 ], [ 0, %6 ], [ 0, %27 ], [ 0, %23 ], [ 0, %19 ], [ 0, %15 ], [ 0, %11 ]
   ret i32 %.0
 }
 
@@ -374,7 +374,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %2, %32, %42, %34, %23, %12, %ossl_param_is_empty.exit, %48, %41
-  %.0 = phi i32 [ 0, %41 ], [ %49, %48 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %12 ], [ 0, %23 ], [ 0, %34 ], [ 0, %42 ], [ 1, %32 ], [ 1, %2 ]
+  %.0 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ 0, %41 ], [ 0, %34 ], [ %49, %48 ], [ 0, %23 ], [ 0, %42 ], [ 0, %12 ], [ 1, %32 ], [ 1, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -424,7 +424,7 @@ define internal range(i32 0, 2) i32 @hmac_drbg_kdf_get_ctx_params(ptr noundef %0
   br label %21
 
 21:                                               ; preds = %13, %17, %7, %4, %20
-  %.0 = phi i32 [ 1, %20 ], [ 0, %4 ], [ 0, %7 ], [ 0, %17 ], [ 0, %13 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %7 ], [ 1, %20 ], [ 0, %17 ], [ 0, %13 ]
   ret i32 %.0
 }
 

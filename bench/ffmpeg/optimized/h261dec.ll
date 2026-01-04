@@ -478,9 +478,9 @@ skip_1stop_8data_bits.exit.i62:                   ; preds = %.preheader.i.i58
   br label %get_vlc2.exit.i.i
 
 get_vlc2.exit.i.i:                                ; preds = %241, %223
-  %.064.i.i.i = phi i32 [ %243, %241 ], [ %224, %223 ]
-  %.062.i.i.i = phi i32 [ %257, %241 ], [ %236, %223 ]
-  %.0.i.i.i = phi i32 [ %260, %241 ], [ %239, %223 ]
+  %.064.i.i.i = phi i32 [ %224, %223 ], [ %243, %241 ]
+  %.062.i.i.i = phi i32 [ %236, %223 ], [ %257, %241 ]
+  %.0.i.i.i = phi i32 [ %239, %223 ], [ %260, %241 ]
   %261 = add i32 %.0.i.i.i, %.064.i.i.i
   %262 = tail call i32 @llvm.umin.i32(i32 %221, i32 %261)
   store i32 %262, ptr %22, align 8, !tbaa !65
@@ -597,9 +597,9 @@ get_vlc2.exit.i.i:                                ; preds = %241, %223
   br label %get_vlc2.exit114.i.i
 
 get_vlc2.exit114.i.i:                             ; preds = %324, %277
-  %.064.i111.i.i = phi i32 [ %326, %324 ], [ %305, %277 ]
-  %.062.i112.i.i = phi i32 [ %340, %324 ], [ %319, %277 ]
-  %.0.i113.i.i = phi i32 [ %343, %324 ], [ %322, %277 ]
+  %.064.i111.i.i = phi i32 [ %305, %277 ], [ %326, %324 ]
+  %.062.i112.i.i = phi i32 [ %319, %277 ], [ %340, %324 ]
+  %.0.i113.i.i = phi i32 [ %322, %277 ], [ %343, %324 ]
   %344 = add i32 %.0.i113.i.i, %.064.i111.i.i
   %345 = tail call i32 @llvm.umin.i32(i32 %306, i32 %344)
   store i32 %345, ptr %22, align 8, !tbaa !65
@@ -706,9 +706,9 @@ get_vlc2.exit114.i.i:                             ; preds = %324, %277
   br label %get_vlc2.exit.i.i.i
 
 get_vlc2.exit.i.i.i:                              ; preds = %389, %371
-  %.064.i.i.i.i = phi i32 [ %391, %389 ], [ %363, %371 ]
-  %.062.i.i.i.i = phi i32 [ %405, %389 ], [ %384, %371 ]
-  %.0.i.i.i.i = phi i32 [ %408, %389 ], [ %387, %371 ]
+  %.064.i.i.i.i = phi i32 [ %363, %371 ], [ %391, %389 ]
+  %.062.i.i.i.i = phi i32 [ %384, %371 ], [ %405, %389 ]
+  %.0.i.i.i.i = phi i32 [ %387, %371 ], [ %408, %389 ]
   %409 = add i32 %.0.i.i.i.i, %.064.i.i.i.i
   %410 = tail call i32 @llvm.umin.i32(i32 %306, i32 %409)
   store i32 %410, ptr %22, align 8, !tbaa !65
@@ -800,9 +800,9 @@ decode_mv_component.exit.i.i:                     ; preds = %431, %429, %get_vlc
   br label %get_vlc2.exit.i120.i.i
 
 get_vlc2.exit.i120.i.i:                           ; preds = %452, %decode_mv_component.exit.i.i
-  %.064.i.i121.i.i = phi i32 [ %454, %452 ], [ %434, %decode_mv_component.exit.i.i ]
-  %.062.i.i122.i.i = phi i32 [ %468, %452 ], [ %447, %decode_mv_component.exit.i.i ]
-  %.0.i.i123.i.i = phi i32 [ %471, %452 ], [ %450, %decode_mv_component.exit.i.i ]
+  %.064.i.i121.i.i = phi i32 [ %434, %decode_mv_component.exit.i.i ], [ %454, %452 ]
+  %.062.i.i122.i.i = phi i32 [ %447, %decode_mv_component.exit.i.i ], [ %468, %452 ]
+  %.0.i.i123.i.i = phi i32 [ %450, %decode_mv_component.exit.i.i ], [ %471, %452 ]
   %472 = add i32 %.0.i.i123.i.i, %.064.i.i121.i.i
   %473 = tail call i32 @llvm.umin.i32(i32 %306, i32 %472)
   store i32 %473, ptr %22, align 8, !tbaa !65
@@ -1212,7 +1212,7 @@ h261_decode_gob.exit:                             ; preds = %.loopexit.i, %690, 
   %708 = icmp slt i32 %704, %707
   br i1 %708, label %153, label %h261_decode_gob_header.exit.thread, !llvm.loop !103
 
-h261_decode_gob_header.exit.thread:               ; preds = %h261_decode_gob.exit, %156, %192, %195, %212, %196, %208, %121
+h261_decode_gob_header.exit.thread:               ; preds = %h261_decode_gob.exit, %156, %195, %212, %192, %196, %208, %121
   tail call void @ff_mpv_frame_end(ptr noundef nonnull %6) #5
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 1208
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !104
@@ -1241,7 +1241,7 @@ h261_decode_gob_header.exit.thread._crit_edge:    ; preds = %h261_decode_gob_hea
   br label %719
 
 719:                                              ; preds = %h261_decode_gob_header.exit.thread._crit_edge, %118, %110, %105, %102, %716, %.loopexit
-  %.0 = phi i32 [ -1, %.loopexit ], [ %10, %716 ], [ %103, %102 ], [ %108, %105 ], [ %10, %110 ], [ -1, %118 ], [ %714, %h261_decode_gob_header.exit.thread._crit_edge ]
+  %.0 = phi i32 [ -1, %.loopexit ], [ %108, %105 ], [ %10, %110 ], [ -1, %118 ], [ %10, %716 ], [ %103, %102 ], [ %714, %h261_decode_gob_header.exit.thread._crit_edge ]
   ret i32 %.0
 }
 

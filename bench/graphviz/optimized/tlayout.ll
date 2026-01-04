@@ -331,8 +331,8 @@ init_params.exit:                                 ; preds = %37, %.sink.split.i
   br label %129
 
 129:                                              ; preds = %121, %83, %._crit_edge.i37
-  %.sroa.0147.0.i = phi double [ %87, %121 ], [ %.sroa.063.0.lcssa.i, %._crit_edge.i37 ], [ 0.000000e+00, %83 ]
-  %.sroa.8151.0.i = phi double [ %89, %121 ], [ %.sroa.10.0.lcssa.i, %._crit_edge.i37 ], [ 0.000000e+00, %83 ]
+  %.sroa.0147.0.i = phi double [ %.sroa.063.0.lcssa.i, %._crit_edge.i37 ], [ %87, %121 ], [ 0.000000e+00, %83 ]
+  %.sroa.8151.0.i = phi double [ %.sroa.10.0.lcssa.i, %._crit_edge.i37 ], [ %89, %121 ], [ 0.000000e+00, %83 ]
   %130 = load i32, ptr getelementptr inbounds nuw (i8, ptr @parms, i64 64), align 8, !tbaa !32
   %131 = icmp eq i32 %130, 2
   br i1 %131, label %132, label %134
@@ -494,10 +494,10 @@ init_params.exit:                                 ; preds = %37, %.sink.split.i
   br i1 %.not182.i, label %._crit_edge212.i, label %.lr.ph211.i.backedge
 
 .lr.ph211.i.backedge:                             ; preds = %217, %.thread
-  %.0209.i.be = phi ptr [ %218, %217 ], [ %224, %.thread ]
-  %.0156208.i.be = phi i32 [ %.1.i, %217 ], [ 1, %.thread ]
-  %.sroa.8.2207.i.be = phi double [ %.sroa.8.3.i, %217 ], [ %223, %.thread ]
-  %.sroa.0.2206.i.be = phi double [ %.sroa.0.3.i, %217 ], [ %221, %.thread ]
+  %.0209.i.be = phi ptr [ %224, %.thread ], [ %218, %217 ]
+  %.0156208.i.be = phi i32 [ 1, %.thread ], [ %.1.i, %217 ]
+  %.sroa.8.2207.i.be = phi double [ %223, %.thread ], [ %.sroa.8.3.i, %217 ]
+  %.sroa.0.2206.i.be = phi double [ %221, %.thread ], [ %.sroa.0.3.i, %217 ]
   br label %.lr.ph211.i, !llvm.loop !95
 
 .thread:                                          ; preds = %203

@@ -439,7 +439,7 @@ define void @_Z21gmx_omp_nthreads_initRKN3gmx8MDLoggerEP9t_commreciiiib(ptr noun
   br label %42
 
 42:                                               ; preds = %40, %39, %37, %35
-  %.0.i = phi i32 [ %36, %35 ], [ %41, %40 ], [ %4, %37 ], [ 1, %39 ]
+  %.0.i = phi i32 [ %36, %35 ], [ %4, %37 ], [ %41, %40 ], [ 1, %39 ]
   %43 = icmp sgt i32 %.0.i, 128
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %.0.i, i32 128)
   store i32 %spec.select.i, ptr @_ZL5modth, align 4, !tbaa !50
@@ -710,10 +710,10 @@ _ZN3gmx14LogEntryWriterD2Ev.exit48.i:             ; preds = %144, %_ZNKSt7__cxx1
   br label %common.resume
 
 150:                                              ; preds = %_ZN3gmx14LogEntryWriterD2Ev.exit45.i, %129, %_ZN3gmx14LogEntryWriterD2Ev.exit.i17, %103
-  %.03389.i = phi i32 [ %.03390.i, %103 ], [ %.03390.i, %_ZN3gmx14LogEntryWriterD2Ev.exit.i17 ], [ %101, %129 ], [ %101, %_ZN3gmx14LogEntryWriterD2Ev.exit45.i ]
-  %.03487.i = phi i32 [ %.03488.i, %103 ], [ %.03488.i, %_ZN3gmx14LogEntryWriterD2Ev.exit.i17 ], [ %99, %129 ], [ %99, %_ZN3gmx14LogEntryWriterD2Ev.exit45.i ]
-  %.03585.i = phi i32 [ %.03586.i, %103 ], [ %.03586.i, %_ZN3gmx14LogEntryWriterD2Ev.exit.i17 ], [ %96, %129 ], [ %96, %_ZN3gmx14LogEntryWriterD2Ev.exit45.i ]
-  %.03683.i = phi i32 [ %.03586.i, %103 ], [ %.03586.i, %_ZN3gmx14LogEntryWriterD2Ev.exit.i17 ], [ %94, %129 ], [ %94, %_ZN3gmx14LogEntryWriterD2Ev.exit45.i ]
+  %.03389.i = phi i32 [ %.03390.i, %_ZN3gmx14LogEntryWriterD2Ev.exit.i17 ], [ %.03390.i, %103 ], [ %101, %129 ], [ %101, %_ZN3gmx14LogEntryWriterD2Ev.exit45.i ]
+  %.03487.i = phi i32 [ %.03488.i, %_ZN3gmx14LogEntryWriterD2Ev.exit.i17 ], [ %.03488.i, %103 ], [ %99, %129 ], [ %99, %_ZN3gmx14LogEntryWriterD2Ev.exit45.i ]
+  %.03585.i = phi i32 [ %.03586.i, %_ZN3gmx14LogEntryWriterD2Ev.exit.i17 ], [ %.03586.i, %103 ], [ %96, %129 ], [ %96, %_ZN3gmx14LogEntryWriterD2Ev.exit45.i ]
+  %.03683.i = phi i32 [ %.03586.i, %_ZN3gmx14LogEntryWriterD2Ev.exit.i17 ], [ %.03586.i, %103 ], [ %94, %129 ], [ %94, %_ZN3gmx14LogEntryWriterD2Ev.exit45.i ]
   br i1 %22, label %151, label %199
 
 151:                                              ; preds = %150
@@ -1003,7 +1003,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit21:               ; preds = %39, %_ZNKSt7__cxx11
   br label %50
 
 50:                                               ; preds = %16, %_ZN3gmx14LogEntryWriterD2Ev.exit, %20, %45
-  %51 = phi i32 [ %.pre23, %_ZN3gmx14LogEntryWriterD2Ev.exit ], [ %.pre, %20 ], [ %49, %45 ], [ %.pre, %16 ]
+  %51 = phi i32 [ %.pre23, %_ZN3gmx14LogEntryWriterD2Ev.exit ], [ %.pre, %20 ], [ %.pre, %16 ], [ %49, %45 ]
   %52 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL5modth, i64 8), i64 %6
   store i32 %51, ptr %52, align 4, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

@@ -593,7 +593,7 @@ record_fields_have_equality.exit:                 ; preds = %266, %269
   br label %.thread422
 
 .thread422:                                       ; preds = %array_element_has_equality.exit, %.thread, %record_fields_have_equality.exit, %235
-  %.2276 = phi i32 [ %.1275, %235 ], [ %spec.select352, %record_fields_have_equality.exit ], [ 0, %.thread ], [ %spec.select447, %array_element_has_equality.exit ]
+  %.2276 = phi i32 [ %spec.select352, %record_fields_have_equality.exit ], [ %.1275, %235 ], [ 0, %.thread ], [ %spec.select447, %array_element_has_equality.exit ]
   %272 = getelementptr inbounds nuw i8, ptr %.0277, i64 48
   %273 = load i32, ptr %272, align 8
   %.not316 = icmp eq i32 %273, %.2276
@@ -731,8 +731,8 @@ record_fields_have_compare.exit:                  ; preds = %322, %324
   br label %.thread424
 
 .thread424:                                       ; preds = %289, %array_element_has_compare.exit, %286, %record_fields_have_compare.exit
-  %327 = phi i32 [ %325, %record_fields_have_compare.exit ], [ %284, %286 ], [ %320, %array_element_has_compare.exit ], [ %.pre482, %289 ]
-  %.1273 = phi i32 [ %spec.select353, %record_fields_have_compare.exit ], [ 0, %286 ], [ %spec.select448, %array_element_has_compare.exit ], [ %292, %289 ]
+  %327 = phi i32 [ %325, %record_fields_have_compare.exit ], [ %320, %array_element_has_compare.exit ], [ %284, %286 ], [ %.pre482, %289 ]
+  %.1273 = phi i32 [ %spec.select353, %record_fields_have_compare.exit ], [ %spec.select448, %array_element_has_compare.exit ], [ 0, %286 ], [ %292, %289 ]
   %328 = getelementptr inbounds nuw i8, ptr %.0277, i64 52
   store i32 %.1273, ptr %328, align 4
   %329 = or i32 %327, 16
@@ -858,8 +858,8 @@ record_fields_have_compare.exit367:               ; preds = %372, %374
   br label %.thread426
 
 .thread426:                                       ; preds = %339, %array_element_has_compare.exit365, %336, %record_fields_have_compare.exit367
-  %377 = phi i32 [ %375, %record_fields_have_compare.exit367 ], [ %334, %336 ], [ %370, %array_element_has_compare.exit365 ], [ %.pre486, %339 ]
-  %.1271 = phi i32 [ %spec.select354, %record_fields_have_compare.exit367 ], [ 0, %336 ], [ %spec.select449, %array_element_has_compare.exit365 ], [ %342, %339 ]
+  %377 = phi i32 [ %375, %record_fields_have_compare.exit367 ], [ %370, %array_element_has_compare.exit365 ], [ %334, %336 ], [ %.pre486, %339 ]
+  %.1271 = phi i32 [ %spec.select354, %record_fields_have_compare.exit367 ], [ %spec.select449, %array_element_has_compare.exit365 ], [ 0, %336 ], [ %342, %339 ]
   %378 = getelementptr inbounds nuw i8, ptr %.0277, i64 56
   store i32 %.1271, ptr %378, align 8
   %379 = or i32 %377, 32
@@ -987,7 +987,7 @@ record_fields_have_compare.exit371:               ; preds = %423, %426
   br label %.thread428
 
 .thread428:                                       ; preds = %array_element_has_compare.exit369, %386, %record_fields_have_compare.exit371, %389
-  %.1269 = phi i32 [ %392, %389 ], [ %spec.select355, %record_fields_have_compare.exit371 ], [ 0, %386 ], [ %spec.select450, %array_element_has_compare.exit369 ]
+  %.1269 = phi i32 [ %spec.select355, %record_fields_have_compare.exit371 ], [ %392, %389 ], [ 0, %386 ], [ %spec.select450, %array_element_has_compare.exit369 ]
   %429 = getelementptr inbounds nuw i8, ptr %.0277, i64 60
   %430 = load i32, ptr %429, align 4
   %.not326 = icmp eq i32 %430, %.1269
@@ -1229,7 +1229,7 @@ multirange_element_has_hashing.exit:              ; preds = %521, %524
   br label %.thread435
 
 .thread435:                                       ; preds = %record_fields_have_hashing.exit, %array_element_has_hashing.exit, %453, %442, %448, %range_element_has_hashing.exit, %multirange_element_has_hashing.exit
-  %.2267 = phi i32 [ %spec.select357, %multirange_element_has_hashing.exit ], [ %spec.select356, %range_element_has_hashing.exit ], [ 0, %448 ], [ 0, %442 ], [ %spec.select451, %array_element_has_hashing.exit ], [ %spec.select452, %record_fields_have_hashing.exit ], [ %457, %453 ]
+  %.2267 = phi i32 [ %spec.select357, %multirange_element_has_hashing.exit ], [ %457, %453 ], [ %spec.select356, %range_element_has_hashing.exit ], [ 0, %442 ], [ 0, %448 ], [ %spec.select452, %record_fields_have_hashing.exit ], [ %spec.select451, %array_element_has_hashing.exit ]
   %527 = getelementptr inbounds nuw i8, ptr %.0277, i64 64
   %528 = load i32, ptr %527, align 8
   %.not331 = icmp eq i32 %528, %.2267
@@ -1471,7 +1471,7 @@ multirange_element_has_extended_hashing.exit:     ; preds = %619, %622
   br label %.thread445
 
 .thread445:                                       ; preds = %record_fields_have_extended_hashing.exit, %array_element_has_extended_hashing.exit, %551, %540, %546, %range_element_has_extended_hashing.exit, %multirange_element_has_extended_hashing.exit
-  %.2 = phi i32 [ %spec.select359, %multirange_element_has_extended_hashing.exit ], [ %spec.select358, %range_element_has_extended_hashing.exit ], [ 0, %546 ], [ 0, %540 ], [ %spec.select453, %array_element_has_extended_hashing.exit ], [ %spec.select454, %record_fields_have_extended_hashing.exit ], [ %555, %551 ]
+  %.2 = phi i32 [ %spec.select359, %multirange_element_has_extended_hashing.exit ], [ %555, %551 ], [ %spec.select358, %range_element_has_extended_hashing.exit ], [ 0, %540 ], [ 0, %546 ], [ %spec.select454, %record_fields_have_extended_hashing.exit ], [ %spec.select453, %array_element_has_extended_hashing.exit ]
   %625 = getelementptr inbounds nuw i8, ptr %.0277, i64 68
   %626 = load i32, ptr %625, align 4
   %.not336 = icmp eq i32 %626, %.2
@@ -2416,7 +2416,7 @@ fastgetattr.exit:                                 ; preds = %83
   unreachable
 
 92:                                               ; preds = %65, %68, %71, %74, %79, %81, %86
-  %.1.i.ph = phi i64 [ %80, %79 ], [ %75, %74 ], [ %73, %71 ], [ %70, %68 ], [ %67, %65 ], [ %82, %81 ], [ %87, %86 ]
+  %.1.i.ph = phi i64 [ %75, %74 ], [ %73, %71 ], [ %70, %68 ], [ %67, %65 ], [ %82, %81 ], [ %80, %79 ], [ %87, %86 ]
   %93 = inttoptr i64 %.1.i.ph to ptr
   %94 = call ptr @text_to_cstring(ptr noundef %93) #16
   %95 = icmp eq ptr %.2161, null
@@ -3126,7 +3126,7 @@ lookup_rowtype_tupdesc_noerror.exit.thread.sink.split: ; preds = %29, %14
   br label %lookup_rowtype_tupdesc_noerror.exit.thread
 
 lookup_rowtype_tupdesc_noerror.exit.thread:       ; preds = %lookup_rowtype_tupdesc_noerror.exit.thread.sink.split, %8, %14, %lookup_rowtype_tupdesc_noerror.exit, %29
-  %.1 = phi ptr [ %.121, %29 ], [ null, %lookup_rowtype_tupdesc_noerror.exit ], [ %13, %14 ], [ null, %8 ], [ %.sink, %lookup_rowtype_tupdesc_noerror.exit.thread.sink.split ]
+  %.1 = phi ptr [ null, %lookup_rowtype_tupdesc_noerror.exit ], [ %.121, %29 ], [ %13, %14 ], [ null, %8 ], [ %.sink, %lookup_rowtype_tupdesc_noerror.exit.thread.sink.split ]
   ret ptr %.1
 }
 
@@ -3485,7 +3485,7 @@ define internal fastcc ptr @find_or_make_matching_shared_tupledesc(ptr noundef %
   br label %94
 
 94:                                               ; preds = %1, %85, %68, %16
-  %.0 = phi ptr [ %23, %16 ], [ %84, %68 ], [ %93, %85 ], [ null, %1 ]
+  %.0 = phi ptr [ %93, %85 ], [ %23, %16 ], [ %84, %68 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -3983,7 +3983,7 @@ find_enumitem.exit74.thread:                      ; preds = %find_enumitem.exit7
   br label %111
 
 111:                                              ; preds = %109, %103, %28, %3
-  %.035 = phi i32 [ 0, %3 ], [ %., %28 ], [ -1, %103 ], [ %.44, %109 ]
+  %.035 = phi i32 [ -1, %103 ], [ %., %28 ], [ 0, %3 ], [ %.44, %109 ]
   ret i32 %.035
 }
 
@@ -4466,8 +4466,8 @@ load_typcache_tupdesc.exit:                       ; preds = %15
   br label %61
 
 61:                                               ; preds = %._crit_edge54, %.lr.ph
-  %62 = phi i32 [ %.pre55, %._crit_edge54 ], [ %35, %.lr.ph ]
-  %.2.ph = phi i32 [ %.6, %._crit_edge54 ], [ %.050, %.lr.ph ]
+  %62 = phi i32 [ %35, %.lr.ph ], [ %.pre55, %._crit_edge54 ]
+  %.2.ph = phi i32 [ %.050, %.lr.ph ], [ %.6, %._crit_edge54 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %63 = sext i32 %62 to i64
   %64 = icmp slt i64 %indvars.iv.next, %63

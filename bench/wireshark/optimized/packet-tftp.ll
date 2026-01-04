@@ -513,7 +513,7 @@ tftp_info_for_conversation.exit:                  ; preds = %13, %17
   br label %34
 
 34:                                               ; preds = %7, %11, %9, %4, %tftp_info_for_conversation.exit
-  %.0 = phi i1 [ true, %tftp_info_for_conversation.exit ], [ false, %4 ], [ false, %9 ], [ false, %11 ], [ false, %7 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %11 ], [ true, %tftp_info_for_conversation.exit ], [ false, %4 ], [ false, %7 ]
   ret i1 %.0
 }
 
@@ -663,7 +663,7 @@ define internal fastcc void @dissect_tftp_message(ptr noundef %0, ptr noundef %1
   br label %31
 
 31:                                               ; preds = %28, %25
-  %.1 = phi ptr [ %27, %25 ], [ %30, %28 ]
+  %.1 = phi ptr [ %30, %28 ], [ %27, %25 ]
   %32 = load i32, ptr @hf_tftp_destination_file, align 4
   %33 = tail call ptr @proto_tree_add_string(ptr noundef %13, i32 noundef %32, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef %.1)
   %.not.i = icmp eq ptr %33, null
@@ -1365,7 +1365,7 @@ define internal fastcc noundef zeroext i1 @is_valid_request_body(ptr noundef %0,
   br i1 %or.cond59, label %.critedge, label %27, !llvm.loop !10
 
 .critedge:                                        ; preds = %9, %27, %2, %._crit_edge
-  %.3 = phi i1 [ false, %._crit_edge ], [ false, %2 ], [ %31, %27 ], [ false, %9 ]
+  %.3 = phi i1 [ %31, %27 ], [ false, %._crit_edge ], [ false, %2 ], [ false, %9 ]
   ret i1 %.3
 }
 

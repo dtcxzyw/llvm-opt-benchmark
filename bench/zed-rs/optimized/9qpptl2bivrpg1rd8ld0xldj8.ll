@@ -213,7 +213,7 @@ define void @_ZN14assistant_tool13tool_registry12ToolRegistry23unregister_tool_b
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17h0999f08c13c13c39E(ptr noundef nonnull align 8 %0, i1 noundef zeroext false)
           to label %"_ZN4core3ptr148drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$assistant_tool..tool_registry..ToolRegistryState$GT$$GT$17h042b6e1e23dcc3f0E.exit" unwind label %42
 
-.thread:                                          ; preds = %.noexc4, %.noexc3
+.thread:                                          ; preds = %.noexc3, %.noexc4
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !17
   br label %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$assistant_tool..Tool$GT$$GT$$GT$17hd9f785a3a3ecdef3E.exit"
 

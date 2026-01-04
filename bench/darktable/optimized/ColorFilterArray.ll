@@ -267,7 +267,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN8rawspeed8CFAColorESaIS1_EE6resiz
   br label %_ZSt27__uninitialized_default_n_aIPN8rawspeed8CFAColorEmS1_ET_S3_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPN8rawspeed8CFAColorEmS1_ET_S3_T0_RSaIT1_E.exit.i: ; preds = %.lr.ph.preheader.i.i.i.i.i.i.i.i, %19
-  %.0.i.i.i.i = phi ptr [ %20, %19 ], [ %23, %.lr.ph.preheader.i.i.i.i.i.i.i.i ]
+  %.0.i.i.i.i = phi ptr [ %23, %.lr.ph.preheader.i.i.i.i.i.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i.i, ptr %3, align 8, !tbaa !18
   br label %_ZNSt6vectorIN8rawspeed8CFAColorESaIS1_EE17_M_default_appendEm.exit
 
@@ -546,7 +546,7 @@ define hidden void @_ZN8rawspeed16ColorFilterArray10shiftRightEi(ptr noundef non
   br label %28
 
 28:                                               ; preds = %.lr.ph.preheader.i.i.i.i.i.i.i.i.i, %.noexc
-  %.0.i.i.i.i.i = phi ptr [ %25, %.noexc ], [ %23, %.lr.ph.preheader.i.i.i.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ %23, %.lr.ph.preheader.i.i.i.i.i.i.i.i.i ], [ %25, %.noexc ]
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %.0.i.i.i.i.i, ptr %29, align 8, !tbaa !18
   %30 = icmp sgt i32 %16, 0
@@ -824,7 +824,7 @@ define hidden void @_ZN8rawspeed16ColorFilterArray9shiftDownEi(ptr noundef nonnu
   br label %28
 
 28:                                               ; preds = %.lr.ph.preheader.i.i.i.i.i.i.i.i.i, %.noexc
-  %.0.i.i.i.i.i = phi ptr [ %25, %.noexc ], [ %23, %.lr.ph.preheader.i.i.i.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ %23, %.lr.ph.preheader.i.i.i.i.i.i.i.i.i ], [ %25, %.noexc ]
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %.0.i.i.i.i.i, ptr %29, align 8, !tbaa !18
   %30 = icmp sgt i32 %11, 0
@@ -1075,8 +1075,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.t
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.thread, %59
-  %61 = phi i64 [ %60, %59 ], [ %56, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.thread ]
-  %62 = phi i64 [ 15, %59 ], [ %56, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.thread ]
+  %61 = phi i64 [ %56, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.thread ], [ %60, %59 ]
+  %62 = phi i64 [ %56, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.thread ], [ 15, %59 ]
   %63 = icmp slt i64 %52, 0
   br i1 %63, label %.invoke, label %65
 
@@ -1551,36 +1551,36 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds
   %47 = load ptr, ptr %2, align 8, !tbaa !46
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %49 = icmp eq ptr %47, %48
-  br i1 %49, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
+  br i1 %49, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %45
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %.0.i, label %52, label %common.resume
-
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %45
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %45
   %50 = load i64, ptr %48, align 8, !tbaa !40
   %51 = add i64 %50, 1
   call void @_ZdlPvm(ptr noundef %47, i64 noundef %51) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.0.i, label %52, label %common.resume
 
-52:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i
-  %.pn12.i = phi { ptr, i32 } [ %44, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %46, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %46, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %45
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %.0.i, label %52, label %common.resume
+
+52:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i
+  %.pn12.i = phi { ptr, i32 } [ %44, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %46, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %46, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ]
   call void @__cxa_free_exception(ptr %41) #20
   br label %common.resume
 
 53:                                               ; preds = %_ZNK8rawspeed16ColorFilterArray10getColorAtEii.exit
   unreachable
 
-common.resume:                                    ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27
-  %common.resume.op = phi { ptr, i32 } [ %67, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27 ], [ %46, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %.pn12.i, %52 ], [ %46, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i ]
+common.resume:                                    ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27
+  %common.resume.op = phi { ptr, i32 } [ %67, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27 ], [ %46, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %.pn12.i, %52 ], [ %46, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ]
   resume { ptr, i32 } %common.resume.op
 
 54:                                               ; preds = %43
   unreachable
 
 _ZN8rawspeed12_GLOBAL__N_112toDcrawColorENS_8CFAColorE.exit: ; preds = %_ZNK8rawspeed16ColorFilterArray10getColorAtEii.exit, %_ZNK8rawspeed16ColorFilterArray10getColorAtEii.exit, %37, %38, %39
-  %.07.i = phi i32 [ 1, %37 ], [ 2, %38 ], [ 3, %39 ], [ 0, %_ZNK8rawspeed16ColorFilterArray10getColorAtEii.exit ], [ 0, %_ZNK8rawspeed16ColorFilterArray10getColorAtEii.exit ]
+  %.07.i = phi i32 [ 3, %39 ], [ 1, %37 ], [ 2, %38 ], [ 0, %_ZNK8rawspeed16ColorFilterArray10getColorAtEii.exit ], [ 0, %_ZNK8rawspeed16ColorFilterArray10getColorAtEii.exit ]
   %55 = shl nuw nsw i32 %.01941, 2
   %56 = or disjoint i32 %55, %27
   %57 = shl nuw i32 %.07.i, %56

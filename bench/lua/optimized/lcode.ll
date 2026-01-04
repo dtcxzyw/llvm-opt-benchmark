@@ -107,7 +107,7 @@ tonumeral.exit.sink.split:                        ; preds = %8, %10, %11, %12, %
   br label %tonumeral.exit
 
 tonumeral.exit:                                   ; preds = %tonumeral.exit.sink.split, %8, %28, %27, %3
-  %.0 = phi i32 [ 0, %3 ], [ 1, %27 ], [ 1, %28 ], [ 0, %8 ], [ 1, %tonumeral.exit.sink.split ]
+  %.0 = phi i32 [ 1, %28 ], [ 0, %3 ], [ 0, %8 ], [ 1, %27 ], [ 1, %tonumeral.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -2145,8 +2145,8 @@ define internal fastcc range(i32 0, 2) i32 @luaK_exp2K(ptr noundef %0, ptr nound
   store i32 %.018, ptr %50, align 8, !tbaa !22
   br label %.thread
 
-.thread:                                          ; preds = %13, %49, %2, %47
-  %.1 = phi i32 [ 0, %47 ], [ 0, %2 ], [ 0, %13 ], [ 1, %49 ]
+.thread:                                          ; preds = %49, %13, %2, %47
+  %.1 = phi i32 [ 0, %2 ], [ 0, %47 ], [ 1, %49 ], [ 0, %13 ]
   ret i32 %.1
 }
 
@@ -2215,7 +2215,7 @@ isKstr.exit.thread:                               ; preds = %19, %.thread45, %25
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %isKstr.exit.thread, %.thread, %7
-  %37 = phi i32 [ %8, %7 ], [ %17, %.thread ], [ %.pr.pre, %isKstr.exit.thread ]
+  %37 = phi i32 [ %17, %.thread ], [ %8, %7 ], [ %.pr.pre, %isKstr.exit.thread ]
   switch i32 %37, label %48 [
     i32 10, label %thread-pre-split.thread
     i32 9, label %45
@@ -2672,33 +2672,33 @@ define internal fastcc range(i32 0, 2) i32 @constfolding(ptr noundef readonly ca
     i32 10, label %29
     i32 11, label %29
     i32 13, label %29
-    i32 5, label %validop.exit
-    i32 6, label %validop.exit
-    i32 3, label %validop.exit
+    i32 5, label %31
+    i32 6, label %31
+    i32 3, label %31
   ]
 
 29:                                               ; preds = %25, %25, %25, %25, %25, %25
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %30 = call i32 @luaV_tointegerns(ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef 0) #13
   %.not.i26 = icmp eq i32 %30, 0
-  br i1 %.not.i26, label %.thread, label %31
+  br i1 %.not.i26, label %validop.exit.thread34, label %validop.exit
 
-.thread:                                          ; preds = %29
+validop.exit.thread34:                            ; preds = %29
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
 
-31:                                               ; preds = %29
-  %32 = call i32 @luaV_tointegerns(ptr noundef nonnull %7, ptr noundef nonnull %5, i32 noundef 0) #13
-  %.not = icmp eq i32 %32, 0
+31:                                               ; preds = %25, %25, %25
+  %32 = bitcast double %storemerge.i22 to i64
+  %33 = sitofp i64 %32 to double
+  %34 = select i1 %26, double %33, double %storemerge.i22
+  %35 = fcmp oeq double %34, 0.000000e+00
+  br i1 %35, label %.critedge, label %validop.exit.thread
+
+validop.exit:                                     ; preds = %29
+  %36 = call i32 @luaV_tointegerns(ptr noundef nonnull %7, ptr noundef nonnull %5, i32 noundef 0) #13
+  %.not = icmp eq i32 %36, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not, label %.critedge, label %validop.exit.thread
-
-validop.exit:                                     ; preds = %25, %25, %25
-  %33 = bitcast double %storemerge.i22 to i64
-  %34 = sitofp i64 %33 to double
-  %35 = select i1 %26, double %34, double %storemerge.i22
-  %36 = fcmp oeq double %35, 0.000000e+00
-  br i1 %36, label %.critedge, label %validop.exit.thread
 
 validop.exit.thread:                              ; preds = %31, %25, %validop.exit
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2727,8 +2727,8 @@ validop.exit.thread:                              ; preds = %31, %25, %validop.e
   store double %48, ptr %storemerge.i.in, align 8, !tbaa !22
   br label %.critedge
 
-.critedge:                                        ; preds = %.thread, %31, %22, %16, %13, %4, %45, %49, %47, %validop.exit
-  %.0 = phi i32 [ 0, %validop.exit ], [ 0, %47 ], [ 1, %49 ], [ 1, %45 ], [ 0, %4 ], [ 0, %13 ], [ 0, %16 ], [ 0, %22 ], [ 0, %31 ], [ 0, %.thread ]
+.critedge:                                        ; preds = %validop.exit.thread34, %31, %16, %22, %4, %13, %45, %49, %47, %validop.exit
+  %.0 = phi i32 [ 1, %45 ], [ 0, %47 ], [ 0, %validop.exit ], [ 0, %4 ], [ 1, %49 ], [ 0, %13 ], [ 0, %22 ], [ 0, %16 ], [ 0, %31 ], [ 0, %validop.exit.thread34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2901,7 +2901,7 @@ isSCnumber.exit:                                  ; preds = %68
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %tonumeral.exit
 
-72:                                               ; preds = %54, %59, %68, %63
+72:                                               ; preds = %59, %54, %68, %63
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %73 = call i32 @luaK_exp2anyreg(ptr noundef %0, ptr noundef nonnull %2)
   br label %tonumeral.exit
@@ -3315,7 +3315,7 @@ finishbinexpneg.exit:                             ; preds = %187
   store i32 %208, ptr %202, align 4, !tbaa !53
   br label %codeconcat.exit
 
-finishbinexpneg.exit.thread:                      ; preds = %180, %187, %isKint.exit.i, %18, %18, %18, %18
+finishbinexpneg.exit.thread:                      ; preds = %187, %180, %isKint.exit.i, %18, %18, %18, %18
   tail call fastcc void @codearith(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 0, i32 noundef %4)
   br label %codeconcat.exit
 
@@ -3846,7 +3846,7 @@ isKint.exit:                                      ; preds = %6
   br label %isKint.exit.thread
 
 isKint.exit.thread:                               ; preds = %6, %19, %13, %isKint.exit
-  %.0 = phi i32 [ 0, %isKint.exit ], [ 1, %19 ], [ 0, %13 ], [ 0, %6 ]
+  %.0 = phi i32 [ 0, %isKint.exit ], [ 1, %19 ], [ 0, %6 ], [ 0, %13 ]
   ret i32 %.0
 }
 

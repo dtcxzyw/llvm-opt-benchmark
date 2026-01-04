@@ -1861,7 +1861,7 @@ nodelist_append.exit71.i.i:                       ; preds = %799, %793, %.lr.ph1
   br i1 %exitcond165.not.i.i, label %.thread117.i.i, label %860, !llvm.loop !96
 
 .thread117.i.i:                                   ; preds = %874, %.preheader.i.i71, %.thread112.i.i, %.preheader119.i.i
-  %875 = phi i64 [ 0, %.preheader.i.i71 ], [ %.val59.i.pre.pre.i, %.thread112.i.i ], [ 0, %.preheader119.i.i ], [ %.val59.i.pre.pre.i, %874 ]
+  %875 = phi i64 [ 0, %.preheader119.i.i ], [ 0, %.preheader.i.i71 ], [ %.val59.i.pre.pre.i, %.thread112.i.i ], [ %.val59.i.pre.pre.i, %874 ]
   %876 = icmp eq i64 %875, %.pre24.pre.pre.i
   br i1 %876, label %877, label %._crit_edge.i.i72.i.i
 
@@ -2169,7 +2169,7 @@ nodelist_copy.exit.i.i:                           ; preds = %nodelist_append.exi
   br label %1016
 
 1016:                                             ; preds = %1014, %1012
-  %.3.i.i = phi i32 [ %1010, %1012 ], [ %.262.i.i, %1014 ]
+  %.3.i.i = phi i32 [ %.262.i.i, %1014 ], [ %1010, %1012 ]
   br i1 %950, label %949, label %1017, !llvm.loop !111
 
 1017:                                             ; preds = %1016
@@ -2184,7 +2184,7 @@ nodelist_copy.exit.i.i:                           ; preds = %nodelist_append.exi
   br i1 %.not.i.i87, label %reduce.exit.i, label %.lr.ph71.i.i77, !llvm.loop !113
 
 reduce.exit.i:                                    ; preds = %._crit_edge.i.i86, %1012, %933
-  %.sink.i.i = phi i32 [ %.0714.i, %933 ], [ 0, %1012 ], [ %.1.lcssa.i.i, %._crit_edge.i.i86 ]
+  %.sink.i.i = phi i32 [ 0, %1012 ], [ %.0714.i, %933 ], [ %.1.lcssa.i.i, %._crit_edge.i.i86 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !noalias !99
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !99
   %1020 = icmp eq i32 %.0714.i, %.sink.i.i
@@ -2853,7 +2853,7 @@ define internal fastcc i32 @count_all_crossings(ptr noundef readonly captures(no
   br label %58
 
 58:                                               ; preds = %52, %.lr.ph80, %45
-  %.3 = phi i32 [ %.277, %45 ], [ %.277, %.lr.ph80 ], [ %spec.select, %52 ]
+  %.3 = phi i32 [ %.277, %.lr.ph80 ], [ %spec.select, %52 ], [ %.277, %45 ]
   %59 = load ptr, ptr %3, align 8, !tbaa !132
   %60 = tail call ptr %59(ptr noundef nonnull %3, ptr noundef nonnull %.05578, i32 noundef 8) #22
   %.not65 = icmp eq ptr %60, null

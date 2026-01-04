@@ -687,7 +687,7 @@ define internal range(i32 -1, 1) i32 @convert_dsets_cb(ptr noundef %0, ptr nound
   br label %17
 
 17:                                               ; preds = %15, %4, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %4 ], [ %16, %15 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %7 ], [ %16, %15 ]
   ret i32 %.0
 }
 

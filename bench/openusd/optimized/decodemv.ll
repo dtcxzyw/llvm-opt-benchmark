@@ -103,7 +103,7 @@ define hidden i32 @av1_neg_deinterleave(i32 noundef %0, i32 noundef %1, i32 noun
   br label %37
 
 37:                                               ; preds = %12, %3, %35, %32, %28, %19, %15, %6
-  %.0 = phi i32 [ %8, %6 ], [ %18, %15 ], [ %21, %19 ], [ %31, %28 ], [ %34, %32 ], [ %36, %35 ], [ %0, %3 ], [ %0, %12 ]
+  %.0 = phi i32 [ %8, %6 ], [ %18, %15 ], [ %21, %19 ], [ %0, %3 ], [ %31, %28 ], [ %34, %32 ], [ %36, %35 ], [ %0, %12 ]
   ret i32 %.0
 }
 
@@ -226,8 +226,8 @@ get_ext_tx_types.exit.thread89:                   ; preds = %49
   br label %get_ext_tx_set.exit
 
 get_ext_tx_set.exit:                              ; preds = %.thread92, %.thread63, %.thread70
-  %.0.i56 = phi i8 [ %58, %.thread92 ], [ %59, %.thread63 ], [ %66, %.thread70 ]
-  %.0.i.i48 = phi i8 [ %58, %.thread92 ], [ %60, %.thread63 ], [ %69, %.thread70 ]
+  %.0.i56 = phi i8 [ %66, %.thread70 ], [ %58, %.thread92 ], [ %59, %.thread63 ]
+  %.0.i.i48 = phi i8 [ %69, %.thread70 ], [ %58, %.thread92 ], [ %60, %.thread63 ]
   %70 = zext nneg i32 %42 to i64
   %71 = getelementptr inbounds nuw [6 x i32], ptr @ext_tx_set_index, i64 %70
   %72 = zext i8 %.0.i.i48 to i64
@@ -1458,8 +1458,8 @@ read_angle_delta.exit156.i:                       ; preds = %._crit_edge.loopexi
   br label %632
 
 632:                                              ; preds = %read_angle_delta.exit156.i, %587, %586, %497, %492
-  %.sink204.i = phi i64 [ 97, %586 ], [ 97, %587 ], [ 97, %read_angle_delta.exit156.i ], [ 3, %497 ], [ 3, %492 ]
-  %.sink.i = phi i8 [ 0, %586 ], [ 0, %587 ], [ %631, %read_angle_delta.exit156.i ], [ 0, %497 ], [ 0, %492 ]
+  %.sink204.i = phi i64 [ 97, %read_angle_delta.exit156.i ], [ 97, %586 ], [ 97, %587 ], [ 3, %497 ], [ 3, %492 ]
+  %.sink.i = phi i8 [ %631, %read_angle_delta.exit156.i ], [ 0, %586 ], [ 0, %587 ], [ 0, %497 ], [ 0, %492 ]
   %633 = getelementptr inbounds nuw i8, ptr %21, i64 %.sink204.i
   store i8 %.sink.i, ptr %633, align 1
   %.val101.i = load i8, ptr %495, align 1
@@ -1757,7 +1757,7 @@ av1_get_skip_mode_context.exit.i:                 ; preds = %60, %58
   br label %read_skip_mode.exit
 
 read_skip_mode.exit:                              ; preds = %3, %segfeature_active.exit.i, %segfeature_active.exit.thread.i, %segfeature_active.exit20.i, %av1_get_skip_mode_context.exit.i, %._crit_edge.loopexit.i.i.i
-  %.0.i = phi i32 [ 0, %3 ], [ 0, %segfeature_active.exit.i ], [ 0, %segfeature_active.exit.thread.i ], [ 0, %segfeature_active.exit20.i ], [ %73, %av1_get_skip_mode_context.exit.i ], [ %73, %._crit_edge.loopexit.i.i.i ]
+  %.0.i = phi i32 [ 0, %3 ], [ 0, %segfeature_active.exit.thread.i ], [ 0, %segfeature_active.exit20.i ], [ 0, %segfeature_active.exit.i ], [ %73, %._crit_edge.loopexit.i.i.i ], [ %73, %av1_get_skip_mode_context.exit.i ]
   %103 = trunc i32 %.0.i to i16
   %104 = load i16, ptr %19, align 1
   %105 = shl i16 %103, 6
@@ -3220,8 +3220,8 @@ aom_read_symbol_.exit34.i.i:                      ; preds = %._crit_edge.loopexi
   %987 = icmp eq i32 %958, 0
   br i1 %987, label %read_drl_idx.exit.i.sink.split, label %read_inter_mode.exit.i.thread101
 
-read_inter_mode.exit.i.thread101:                 ; preds = %aom_read_symbol_.exit.i.i, %aom_read_symbol_.exit34.i.i
-  %.0.i292.sink.i.ph100 = phi i8 [ 14, %aom_read_symbol_.exit34.i.i ], [ 16, %aom_read_symbol_.exit.i.i ]
+read_inter_mode.exit.i.thread101:                 ; preds = %aom_read_symbol_.exit34.i.i, %aom_read_symbol_.exit.i.i
+  %.0.i292.sink.i.ph100 = phi i8 [ 16, %aom_read_symbol_.exit.i.i ], [ 14, %aom_read_symbol_.exit34.i.i ]
   %988 = getelementptr inbounds nuw i8, ptr %14, i64 2
   store i8 %.0.i292.sink.i.ph100, ptr %988, align 2
   br label %have_nearmv_in_inter_mode.exit.thread.i
@@ -3316,8 +3316,8 @@ av1_ref_frame_type.exit.i293.i:                   ; preds = %get_uni_comp_ref_id
   %1028 = getelementptr inbounds nuw i8, ptr %1025, i64 2
   %1029 = load i16, ptr %1028, align 2
   %1030 = icmp ult i16 %1029, 640
-  %spec.select.i.i.i = zext i1 %1030 to i64
   %spec.select13.i.i.i = select i1 %1030, i64 2, i64 0
+  %spec.select.i.i.i = zext i1 %1030 to i64
   %.0.i39.i.i = select i1 %1027, i64 %spec.select.i.i.i, i64 %spec.select13.i.i.i
   %1031 = getelementptr inbounds nuw [3 x i16], ptr %1018, i64 %.0.i39.i.i
   %1032 = call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %842, ptr noundef nonnull %1031, i32 noundef 2) #10
@@ -3415,9 +3415,9 @@ thread-pre-split.i.i:                             ; preds = %1069
   %1083 = getelementptr inbounds nuw i8, ptr %1080, i64 2
   %1084 = load i16, ptr %1083, align 2
   %1085 = icmp ult i16 %1084, 640
-  %spec.select.i43.i.i = zext i1 %1085 to i64
-  %spec.select13.i44.i.i = select i1 %1085, i64 2, i64 0
-  %.0.i45.i.i = select i1 %1082, i64 %spec.select.i43.i.i, i64 %spec.select13.i44.i.i
+  %spec.select13.i43.i.i = select i1 %1085, i64 2, i64 0
+  %spec.select.i44.i.i = zext i1 %1085 to i64
+  %.0.i45.i.i = select i1 %1082, i64 %spec.select.i44.i.i, i64 %spec.select13.i43.i.i
   %1086 = getelementptr inbounds nuw [3 x i16], ptr %1075, i64 %.0.i45.i.i
   %1087 = call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %842, ptr noundef nonnull %1086, i32 noundef 2) #10
   %1088 = load i8, ptr %843, align 8
@@ -3487,7 +3487,7 @@ aom_read_symbol_.exit55.i.i:                      ; preds = %._crit_edge.loopexi
   br label %.backedge.i.i, !llvm.loop !12
 
 read_drl_idx.exit.i.sink.split:                   ; preds = %av1_ref_frame_type.exit.i, %segfeature_active.exit.i80, %aom_read_symbol_.exit34.i.i, %aom_read_symbol_.exit24.i.i
-  %.0.i292.sink.i.ph.sink = phi i8 [ 15, %aom_read_symbol_.exit24.i.i ], [ 13, %aom_read_symbol_.exit34.i.i ], [ 17, %av1_ref_frame_type.exit.i ], [ 15, %segfeature_active.exit.i80 ]
+  %.0.i292.sink.i.ph.sink = phi i8 [ 13, %aom_read_symbol_.exit34.i.i ], [ 15, %aom_read_symbol_.exit24.i.i ], [ 17, %av1_ref_frame_type.exit.i ], [ 15, %segfeature_active.exit.i80 ]
   %1127 = getelementptr inbounds nuw i8, ptr %14, i64 2
   store i8 %.0.i292.sink.i.ph.sink, ptr %1127, align 2
   br label %read_drl_idx.exit.i
@@ -3958,10 +3958,10 @@ thread-pre-split.thread.i:                        ; preds = %1352, %1347
   br label %1374
 
 thread-pre-split.i:                               ; preds = %1342, %1335, %1333
-  %1360 = phi i8 [ %.pre.pre.pre.i, %1342 ], [ %1141, %1335 ], [ %1141, %1333 ]
-  %1361 = phi i32 [ %1345, %1342 ], [ %1323, %1335 ], [ %1323, %1333 ]
-  %1362 = phi ptr [ %1344, %1342 ], [ %1322, %1335 ], [ %1322, %1333 ]
-  %1363 = phi i32 [ %1343, %1342 ], [ %1321, %1335 ], [ %1321, %1333 ]
+  %1360 = phi i8 [ %1141, %1333 ], [ %.pre.pre.pre.i, %1342 ], [ %1141, %1335 ]
+  %1361 = phi i32 [ %1323, %1333 ], [ %1345, %1342 ], [ %1323, %1335 ]
+  %1362 = phi ptr [ %1322, %1333 ], [ %1344, %1342 ], [ %1322, %1335 ]
+  %1363 = phi i32 [ %1321, %1333 ], [ %1343, %1342 ], [ %1321, %1335 ]
   %1364 = load ptr, ptr %264, align 8
   %1365 = load ptr, ptr %12, align 8
   %1366 = load ptr, ptr %1365, align 8
@@ -4124,7 +4124,7 @@ thread-pre-split.i._crit_edge:                    ; preds = %thread-pre-split.i
   br label %is_mv_valid.exit.i.i
 
 is_mv_valid.exit.i.i:                             ; preds = %1448, %1444, %.loopexit.i.i
-  %1451 = phi i32 [ 0, %1444 ], [ 0, %.loopexit.i.i ], [ %1450, %1448 ]
+  %1451 = phi i32 [ 0, %1444 ], [ %1450, %1448 ], [ 0, %.loopexit.i.i ]
   br i1 %795, label %1452, label %assign_mv.exit.i
 
 1452:                                             ; preds = %is_mv_valid.exit.i.i
@@ -4149,7 +4149,7 @@ is_mv_valid.exit.i.i:                             ; preds = %1448, %1444, %.loop
   br label %assign_mv.exit.i
 
 assign_mv.exit.i:                                 ; preds = %1460, %1456, %1453, %1452, %is_mv_valid.exit.i.i, %thread-pre-split.i
-  %.097.i.i = phi i32 [ 0, %thread-pre-split.i ], [ %1451, %is_mv_valid.exit.i.i ], [ 0, %1452 ], [ 0, %1456 ], [ 0, %1453 ], [ %1462, %1460 ]
+  %.097.i.i = phi i32 [ 0, %thread-pre-split.i ], [ %1451, %is_mv_valid.exit.i.i ], [ 0, %1452 ], [ 0, %1456 ], [ %1462, %1460 ], [ 0, %1453 ]
   %1463 = xor i32 %.097.i.i, 1
   %1464 = getelementptr inbounds nuw i8, ptr %1, i64 47824
   call void @aom_merge_corrupted_flag(ptr noundef nonnull %1464, i32 noundef %1463) #10
@@ -4743,7 +4743,7 @@ aom_read_symbol_.exit27.i.i:                      ; preds = %._crit_edge.loopexi
   br label %read_motion_mode.exit.i
 
 read_motion_mode.exit.i:                          ; preds = %aom_read_symbol_.exit27.i.i, %aom_read_symbol_.exit.i397.i, %1713, %1711, %1696, %1685, %1682, %1677
-  %.0.i389.i = phi i8 [ %1763, %aom_read_symbol_.exit.i397.i ], [ %1804, %aom_read_symbol_.exit27.i.i ], [ 0, %1677 ], [ 0, %1682 ], [ 0, %1685 ], [ 0, %1696 ], [ 0, %1713 ], [ 0, %1711 ]
+  %.0.i389.i = phi i8 [ %1804, %aom_read_symbol_.exit27.i.i ], [ 0, %1677 ], [ 0, %1682 ], [ %1763, %aom_read_symbol_.exit.i397.i ], [ 0, %1685 ], [ 0, %1696 ], [ 0, %1711 ], [ 0, %1713 ]
   store i8 %.0.i389.i, ptr %1661, align 8
   %.val271.pre.i = load i8, ptr %796, align 1
   %1805 = icmp sgt i8 %.val271.pre.i, 0
@@ -6007,8 +6007,8 @@ read_angle_delta.exit76.i:                        ; preds = %._crit_edge.loopexi
   br label %2532
 
 2532:                                             ; preds = %read_angle_delta.exit76.i, %2487, %2486, %2396, %2391
-  %.sink101.i = phi i64 [ 97, %2486 ], [ 97, %2487 ], [ 97, %read_angle_delta.exit76.i ], [ 3, %2396 ], [ 3, %2391 ]
-  %.sink.i92 = phi i8 [ 0, %2486 ], [ 0, %2487 ], [ %2531, %read_angle_delta.exit76.i ], [ 0, %2396 ], [ 0, %2391 ]
+  %.sink101.i = phi i64 [ 97, %read_angle_delta.exit76.i ], [ 97, %2486 ], [ 97, %2487 ], [ 3, %2396 ], [ 3, %2391 ]
+  %.sink.i92 = phi i8 [ %2531, %read_angle_delta.exit76.i ], [ 0, %2486 ], [ 0, %2487 ], [ 0, %2396 ], [ 0, %2391 ]
   %2533 = getelementptr inbounds nuw i8, ptr %14, i64 %.sink101.i
   store i8 %.sink.i92, ptr %2533, align 1
   %.val.i93 = load i8, ptr %2394, align 1
@@ -6343,7 +6343,7 @@ aom_read_literal_.exit36.i:                       ; preds = %.lr.ph.i.i, %aom_re
   br label %read_delta_qindex.exit
 
 read_delta_qindex.exit:                           ; preds = %24, %28, %80, %81
-  %.029.i = phi i32 [ 0, %28 ], [ 0, %24 ], [ 0, %80 ], [ %spec.select.i, %81 ]
+  %.029.i = phi i32 [ 0, %24 ], [ 0, %28 ], [ 0, %80 ], [ %spec.select.i, %81 ]
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 24816
   %86 = load i32, ptr %85, align 4
   %87 = mul nsw i32 %86, %.029.i
@@ -6990,7 +6990,7 @@ av1_ceil_log2.exit.thread.i:                      ; preds = %aom_read_literal_.e
   br i1 %184, label %.lr.ph.i70.i, label %av1_ceil_log2.exit74.i, !llvm.loop !18
 
 av1_ceil_log2.exit74.i:                           ; preds = %.lr.ph.i70.i, %av1_ceil_log2.exit.thread.i, %av1_ceil_log2.exit.thread105.i, %av1_ceil_log2.exit.i
-  %185 = phi i32 [ %spec.select.i, %av1_ceil_log2.exit.thread.i ], [ %.05086.i, %av1_ceil_log2.exit.thread105.i ], [ %spec.select113.i, %av1_ceil_log2.exit.i ], [ %182, %.lr.ph.i70.i ]
+  %185 = phi i32 [ %.05086.i, %av1_ceil_log2.exit.thread105.i ], [ %spec.select113.i, %av1_ceil_log2.exit.i ], [ %spec.select.i, %av1_ceil_log2.exit.thread.i ], [ %182, %.lr.ph.i70.i ]
   %indvars.iv.next97.i = add nsw i64 %indvars.iv96.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next97.i to i32
   %exitcond.not.i = icmp eq i32 %lftr.wideiv.i, %119
@@ -7366,7 +7366,7 @@ av1_ceil_log2.exit.thread.i109:                   ; preds = %aom_read_literal_.e
   br i1 %363, label %.lr.ph.i123.i, label %av1_ceil_log2.exit127.i, !llvm.loop !18
 
 av1_ceil_log2.exit127.i:                          ; preds = %.lr.ph.i123.i, %av1_ceil_log2.exit.thread.i109, %av1_ceil_log2.exit.thread222.i, %av1_ceil_log2.exit.i108
-  %364 = phi i32 [ %spec.select161.i, %av1_ceil_log2.exit.thread.i109 ], [ %.092177.i, %av1_ceil_log2.exit.thread222.i ], [ %spec.select235.i, %av1_ceil_log2.exit.i108 ], [ %361, %.lr.ph.i123.i ]
+  %364 = phi i32 [ %.092177.i, %av1_ceil_log2.exit.thread222.i ], [ %spec.select235.i, %av1_ceil_log2.exit.i108 ], [ %spec.select161.i, %av1_ceil_log2.exit.thread.i109 ], [ %361, %.lr.ph.i123.i ]
   %indvars.iv.next198.i = add nsw i64 %indvars.iv197.i, 1
   %lftr.wideiv.i106 = trunc i64 %indvars.iv.next198.i to i32
   %exitcond.not.i107 = icmp eq i32 %326, %lftr.wideiv.i106
@@ -7880,8 +7880,8 @@ get_segment_id.exit63.i:                          ; preds = %.preheader.lr.ph.sp
   br label %av1_get_spatial_seg_pred.exit
 
 av1_get_spatial_seg_pred.exit:                    ; preds = %62, %.get_segment_id.exit.i_crit_edge, %63, %.thread67.i
-  %.1 = phi i32 [ %.sink.i, %63 ], [ %.021, %.thread67.i ], [ 0, %.get_segment_id.exit.i_crit_edge ], [ %.sink.i, %62 ]
-  %.0.i = phi i32 [ %.046.i40, %63 ], [ %65, %.thread67.i ], [ 0, %.get_segment_id.exit.i_crit_edge ], [ %spec.select, %62 ]
+  %.1 = phi i32 [ %.021, %.thread67.i ], [ %.sink.i, %63 ], [ %.sink.i, %62 ], [ 0, %.get_segment_id.exit.i_crit_edge ]
+  %.0.i = phi i32 [ %65, %.thread67.i ], [ %.046.i40, %63 ], [ %spec.select, %62 ], [ 0, %.get_segment_id.exit.i_crit_edge ]
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %66, label %143
 
@@ -8017,7 +8017,7 @@ aom_read_symbol_.exit:                            ; preds = %66, %._crit_edge.lo
   br label %av1_neg_deinterleave.exit
 
 av1_neg_deinterleave.exit:                        ; preds = %aom_read_symbol_.exit, %110, %114, %117, %121, %129, %133, %136
-  %.0.i20 = phi i32 [ %111, %110 ], [ %120, %117 ], [ %123, %121 ], [ %132, %129 ], [ %135, %133 ], [ %137, %136 ], [ %73, %aom_read_symbol_.exit ], [ %73, %114 ]
+  %.0.i20 = phi i32 [ %111, %110 ], [ %120, %117 ], [ %123, %121 ], [ %73, %aom_read_symbol_.exit ], [ %132, %129 ], [ %135, %133 ], [ %137, %136 ], [ %73, %114 ]
   %138 = icmp slt i32 %.0.i20, 0
   %139 = icmp sgt i32 %.0.i20, %108
   %or.cond = select i1 %138, i1 true, i1 %139
@@ -8169,7 +8169,7 @@ aom_read_literal_.exit34:                         ; preds = %.lr.ph.i, %aom_read
   br label %.thread
 
 .thread:                                          ; preds = %67, %66, %15, %11
-  %.0 = phi i32 [ 0, %15 ], [ 0, %11 ], [ 0, %66 ], [ %spec.select, %67 ]
+  %.0 = phi i32 [ 0, %11 ], [ 0, %15 ], [ 0, %66 ], [ %spec.select, %67 ]
   ret i32 %.0
 }
 
@@ -9019,7 +9019,7 @@ get_predicted_segment_id.exit112.sink.split:      ; preds = %106, %aom_read_symb
   br label %get_predicted_segment_id.exit112
 
 get_predicted_segment_id.exit112:                 ; preds = %._crit_edge.us.i.i110, %get_predicted_segment_id.exit112.sink.split, %174, %171
-  %.074 = phi i32 [ 0, %171 ], [ 2147483647, %174 ], [ %186, %get_predicted_segment_id.exit112.sink.split ], [ %.1..us.i.i107, %._crit_edge.us.i.i110 ]
+  %.074 = phi i32 [ 2147483647, %174 ], [ %186, %get_predicted_segment_id.exit112.sink.split ], [ 0, %171 ], [ %.1..us.i.i107, %._crit_edge.us.i.i110 ]
   %187 = icmp sgt i32 %28, 0
   br i1 %187, label %.preheader.lr.ph.i113, label %get_predicted_segment_id.exit
 
@@ -9055,7 +9055,7 @@ get_predicted_segment_id.exit112:                 ; preds = %._crit_edge.us.i.i1
   br i1 %exitcond16.not.i119, label %get_predicted_segment_id.exit, label %.preheader.us.i114, !llvm.loop !7
 
 get_predicted_segment_id.exit:                    ; preds = %._crit_edge.us.i, %._crit_edge.us.i118, %._crit_edge.us.i.i, %.preheader.lr.ph.i113, %get_predicted_segment_id.exit112, %.preheader.lr.ph.i88, %88, %63, %copy_segment_id.exit, %75, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %75 ], [ 0, %copy_segment_id.exit ], [ 2147483647, %63 ], [ %89, %88 ], [ %89, %.preheader.lr.ph.i88 ], [ %.074, %get_predicted_segment_id.exit112 ], [ %.074, %.preheader.lr.ph.i113 ], [ %.1..us.i.i, %._crit_edge.us.i.i ], [ %.074, %._crit_edge.us.i118 ], [ %89, %._crit_edge.us.i ]
+  %.0 = phi i32 [ %.1..us.i.i, %._crit_edge.us.i.i ], [ 0, %4 ], [ %.074, %._crit_edge.us.i118 ], [ 0, %75 ], [ 0, %copy_segment_id.exit ], [ 2147483647, %63 ], [ %89, %88 ], [ %89, %.preheader.lr.ph.i88 ], [ %.074, %get_predicted_segment_id.exit112 ], [ %.074, %.preheader.lr.ph.i113 ], [ %89, %._crit_edge.us.i ]
   ret i32 %.0
 }
 
@@ -9312,8 +9312,8 @@ convert_to_trans_prec.exit31:                     ; preds = %89, %93, %107
   br label %integer_mv_precision.exit
 
 integer_mv_precision.exit:                        ; preds = %.sink.split21.i34, %122, %120, %.sink.split21.i, %27, %25, %6, %convert_to_trans_prec.exit31, %9
-  %.sroa.10.0 = phi i16 [ %111, %convert_to_trans_prec.exit31 ], [ %16, %9 ], [ 0, %6 ], [ %16, %25 ], [ %32, %.sink.split21.i ], [ %28, %27 ], [ %111, %120 ], [ %127, %.sink.split21.i34 ], [ %123, %122 ]
-  %.sroa.0.0 = phi i16 [ %110, %convert_to_trans_prec.exit31 ], [ %12, %9 ], [ 0, %6 ], [ %.sroa.0.1, %25 ], [ %.sroa.0.1, %.sink.split21.i ], [ %.sroa.0.1, %27 ], [ %.sroa.0.2, %120 ], [ %.sroa.0.2, %.sink.split21.i34 ], [ %.sroa.0.2, %122 ]
+  %.sroa.10.0 = phi i16 [ %111, %convert_to_trans_prec.exit31 ], [ %28, %27 ], [ 0, %6 ], [ %16, %9 ], [ %16, %25 ], [ %32, %.sink.split21.i ], [ %111, %120 ], [ %127, %.sink.split21.i34 ], [ %123, %122 ]
+  %.sroa.0.0 = phi i16 [ %110, %convert_to_trans_prec.exit31 ], [ %.sroa.0.1, %27 ], [ 0, %6 ], [ %12, %9 ], [ %.sroa.0.1, %25 ], [ %.sroa.0.1, %.sink.split21.i ], [ %.sroa.0.2, %120 ], [ %.sroa.0.2, %.sink.split21.i34 ], [ %.sroa.0.2, %122 ]
   %.sroa.10.0.insert.ext = zext i16 %.sroa.10.0 to i32
   %.sroa.10.0.insert.shift = shl nuw i32 %.sroa.10.0.insert.ext, 16
   %.sroa.0.0.insert.ext = zext i16 %.sroa.0.0 to i32

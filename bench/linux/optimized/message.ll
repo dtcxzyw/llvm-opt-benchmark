@@ -633,8 +633,8 @@ define dso_local noundef range(i32 -22, 1) i32 @usb_sg_init(ptr noundef %0, ptr 
   br label %82
 
 82:                                               ; preds = %79, %73, %47
-  %83 = phi i32 [ %76, %79 ], [ %76, %73 ], [ %71, %47 ]
-  %84 = phi i64 [ 0, %79 ], [ %77, %73 ], [ 0, %47 ]
+  %83 = phi i32 [ %71, %47 ], [ %76, %79 ], [ %76, %73 ]
+  %84 = phi i64 [ 0, %47 ], [ 0, %79 ], [ %77, %73 ]
   %85 = getelementptr inbounds nuw i8, ptr %45, i64 128
   store i32 %83, ptr %85, align 8
   %86 = add nuw nsw i64 %42, 1
@@ -1350,7 +1350,7 @@ define dso_local i32 @usb_string(ptr noundef %0, i32 noundef %1, ptr noundef %2,
   br label %58
 
 58:                                               ; preds = %24, %36, %49, %44
-  %59 = phi i32 [ %47, %44 ], [ %55, %49 ], [ -32, %36 ], [ -32, %24 ]
+  %59 = phi i32 [ %55, %49 ], [ %47, %44 ], [ -32, %24 ], [ -32, %36 ]
   tail call void @kfree(ptr noundef nonnull %17) #12
   br label %60
 
@@ -1486,14 +1486,14 @@ define internal fastcc range(i32 -2147483648, 255) i32 @usb_string_sub(ptr nound
   %spec.select29 = select i1 %72, i32 -22, i32 %71
   br label %.thread25
 
-.thread19:                                        ; preds = %41, %36, %63, %58
-  %73 = phi i32 [ %57, %58 ], [ %64, %63 ], [ %35, %36 ], [ %42, %41 ]
+.thread19:                                        ; preds = %41, %36, %58, %63
+  %73 = phi i32 [ %64, %63 ], [ %57, %58 ], [ %35, %36 ], [ %42, %41 ]
   %74 = icmp slt i32 %73, 0
   %spec.select = select i1 %74, i32 %73, i32 -22
   br label %.thread25
 
 .thread25:                                        ; preds = %.loopexit, %.thread19, %47
-  %75 = phi i32 [ -22, %47 ], [ %spec.select, %.thread19 ], [ %spec.select29, %.loopexit ]
+  %75 = phi i32 [ %spec.select29, %.loopexit ], [ -22, %47 ], [ %spec.select, %.thread19 ]
   ret i32 %75
 }
 
@@ -2518,7 +2518,7 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_set_interface(ptr noundef %0
   br label %261
 
 99:                                               ; preds = %.thread, %83
-  %100 = phi i1 [ false, %.thread ], [ true, %83 ]
+  %100 = phi i1 [ true, %83 ], [ false, %.thread ]
   %101 = load ptr, ptr %49, align 8
   tail call void @mutex_unlock(ptr noundef %101) #12
   %102 = load ptr, ptr %23, align 8
@@ -3277,7 +3277,7 @@ define dso_local i32 @usb_set_configuration(ptr noundef %0, i32 noundef %1) #0 a
   br i1 %28, label %.loopexit44, label %19
 
 .loopexit44:                                      ; preds = %22, %19, %11
-  %29 = phi ptr [ null, %11 ], [ null, %19 ], [ %24, %22 ]
+  %29 = phi ptr [ null, %11 ], [ %24, %22 ], [ null, %19 ]
   %30 = icmp eq ptr %29, null
   %31 = icmp ne i32 %1, 0
   %32 = and i1 %31, %30

@@ -1162,7 +1162,7 @@ _ZN20btAlignedObjectArrayIN6btDbvt6sStkNNEED2Ev.exit.i: ; preds = %451, %449
   br label %456
 
 455:                                              ; preds = %391, %389
-  %.pn.pn.i = phi { ptr, i32 } [ %390, %389 ], [ %392, %391 ]
+  %.pn.pn.i = phi { ptr, i32 } [ %392, %391 ], [ %390, %389 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN20btAlignedObjectArrayIN6btDbvt6sStkNNEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1645,7 +1645,7 @@ _ZN20btAlignedObjectArrayI12btSimplePairE10deallocateEv.exit.i.i: ; preds = %761
   br label %780
 
 769:                                              ; preds = %.loopexit247, %.loopexit.split-lp, %111, %113, %134
-  %.pn116.pn = phi { ptr, i32 } [ %114, %113 ], [ %135, %134 ], [ %112, %111 ], [ %lpad.loopexit, %.loopexit247 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn116.pn = phi { ptr, i32 } [ %112, %111 ], [ %114, %113 ], [ %135, %134 ], [ %lpad.loopexit, %.loopexit247 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN20btAlignedObjectArrayIP20btPersistentManifoldED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %8) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1762,7 +1762,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldED2Ev.exit175: ; preds = %807, 
   ret void
 
 817:                                              ; preds = %774, %776, %778, %772, %790, %770
-  %.pn108.pn.pn = phi { ptr, i32 } [ %791, %790 ], [ %771, %770 ], [ %773, %772 ], [ %779, %778 ], [ %775, %774 ], [ %777, %776 ]
+  %.pn108.pn.pn = phi { ptr, i32 } [ %771, %770 ], [ %791, %790 ], [ %773, %772 ], [ %779, %778 ], [ %775, %774 ], [ %777, %776 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -2334,7 +2334,7 @@ define linkonce_odr dso_local void @_ZN30btCompoundCompoundLeafCallback7ProcessE
   br label %308
 
 308:                                              ; preds = %276, %288, %306
-  %.0 = phi ptr [ %290, %288 ], [ %299, %306 ], [ %282, %276 ]
+  %.0 = phi ptr [ %299, %306 ], [ %290, %288 ], [ %282, %276 ]
   %309 = load ptr, ptr %190, align 8, !tbaa !86
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 16
   %311 = load ptr, ptr %310, align 8, !tbaa !71

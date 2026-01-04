@@ -224,7 +224,7 @@ define void @ff_cavs_filter(ptr noundef initializes((1368, 1371)) %0, i32 nounde
   br label %get_bs.exit
 
 get_bs.exit:                                      ; preds = %97, %104, %108, %116, %127, %137, %147, %152
-  %.0.i234 = phi i8 [ 0, %152 ], [ 2, %104 ], [ 2, %97 ], [ 1, %116 ], [ 1, %108 ], [ 1, %147 ], [ 1, %137 ], [ 1, %127 ]
+  %.0.i234 = phi i8 [ 0, %152 ], [ 2, %97 ], [ 1, %108 ], [ 2, %104 ], [ 1, %116 ], [ 1, %147 ], [ 1, %137 ], [ 1, %127 ]
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 968
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 976
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 974
@@ -385,7 +385,7 @@ get_bs.exit240:                                   ; preds = %206, %201, %191, %1
   br label %get_bs.exit246
 
 get_bs.exit246:                                   ; preds = %208, %215, %219, %227, %238, %248, %258, %263
-  %.0.i243 = phi i8 [ 0, %263 ], [ 2, %215 ], [ 2, %208 ], [ 1, %227 ], [ 1, %219 ], [ 1, %258 ], [ 1, %248 ], [ 1, %238 ]
+  %.0.i243 = phi i8 [ 0, %263 ], [ 2, %208 ], [ 1, %219 ], [ 2, %215 ], [ 1, %227 ], [ 1, %258 ], [ 1, %248 ], [ 1, %238 ]
   %264 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %265 = getelementptr inbounds nuw i8, ptr %0, i64 976
   %266 = getelementptr inbounds nuw i8, ptr %0, i64 950
@@ -541,7 +541,7 @@ get_bs.exit252:                                   ; preds = %317, %312, %302, %2
   br label %get_bs.exit258
 
 get_bs.exit258:                                   ; preds = %get_bs.exit252, %324, %328, %336, %347, %357, %367, %372
-  %.0.i255 = phi i8 [ 0, %372 ], [ 2, %324 ], [ 2, %get_bs.exit252 ], [ 1, %336 ], [ 1, %328 ], [ 1, %367 ], [ 1, %357 ], [ 1, %347 ]
+  %.0.i255 = phi i8 [ 0, %372 ], [ 2, %get_bs.exit252 ], [ 1, %328 ], [ 2, %324 ], [ 1, %336 ], [ 1, %367 ], [ 1, %357 ], [ 1, %347 ]
   %373 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %374 = getelementptr inbounds nuw i8, ptr %0, i64 968
   %375 = getelementptr inbounds nuw i8, ptr %0, i64 966
@@ -618,7 +618,7 @@ get_bs.exit258:                                   ; preds = %get_bs.exit252, %32
   br label %get_bs.exit264
 
 get_bs.exit264:                                   ; preds = %get_bs.exit258, %378, %382, %390, %401, %411, %421, %426
-  %.0.i261 = phi i8 [ 0, %426 ], [ 2, %378 ], [ 2, %get_bs.exit258 ], [ 1, %390 ], [ 1, %382 ], [ 1, %421 ], [ 1, %411 ], [ 1, %401 ]
+  %.0.i261 = phi i8 [ 0, %426 ], [ 2, %get_bs.exit258 ], [ 1, %382 ], [ 2, %378 ], [ 1, %390 ], [ 1, %421 ], [ 1, %411 ], [ 1, %401 ]
   %427 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %428 = getelementptr inbounds nuw i8, ptr %0, i64 910
   %429 = load i16, ptr %428, align 2, !tbaa !38
@@ -694,7 +694,7 @@ get_bs.exit264:                                   ; preds = %get_bs.exit258, %37
   br label %get_bs.exit270
 
 get_bs.exit270:                                   ; preds = %get_bs.exit264, %431, %435, %443, %454, %464, %474, %479
-  %.0.i267 = phi i8 [ 0, %479 ], [ 2, %431 ], [ 2, %get_bs.exit264 ], [ 1, %443 ], [ 1, %435 ], [ 1, %474 ], [ 1, %464 ], [ 1, %454 ]
+  %.0.i267 = phi i8 [ 0, %479 ], [ 2, %get_bs.exit264 ], [ 1, %435 ], [ 2, %431 ], [ 1, %443 ], [ 1, %474 ], [ 1, %464 ], [ 1, %454 ]
   %480 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %481 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %482 = getelementptr inbounds nuw i8, ptr %0, i64 918
@@ -1880,8 +1880,8 @@ switch.early.test:                                ; preds = %6
   %85 = icmp eq i32 %5, %84
   br i1 %85, label %select.unfold, label %90
 
-select.unfold:                                    ; preds = %81, %50, %43, %39, %37, %62, %70, %72, %75, %78
-  %.081.ph = phi ptr [ %15, %78 ], [ %12, %75 ], [ %.0, %72 ], [ %15, %70 ], [ %12, %62 ], [ @un_mv, %37 ], [ @un_mv, %39 ], [ @un_mv, %43 ], [ @un_mv, %50 ], [ %.0, %81 ]
+select.unfold:                                    ; preds = %81, %37, %62, %70, %72, %75, %50, %43, %39, %78
+  %.081.ph = phi ptr [ @un_mv, %37 ], [ %15, %78 ], [ @un_mv, %39 ], [ @un_mv, %43 ], [ @un_mv, %50 ], [ %12, %75 ], [ %.0, %72 ], [ %15, %70 ], [ %12, %62 ], [ %.0, %81 ]
   %86 = load i16, ptr %.081.ph, align 2, !tbaa !41
   store i16 %86, ptr %9, align 2, !tbaa !41
   %87 = getelementptr inbounds nuw i8, ptr %.081.ph, i64 2
@@ -2015,7 +2015,7 @@ select.unfold:                                    ; preds = %81, %50, %43, %39, 
   br label %mid_pred.exit.i
 
 mid_pred.exit.i:                                  ; preds = %188, %186, %185, %183
-  %.0.i.i = phi i32 [ %176, %183 ], [ %176, %186 ], [ %..i.i, %185 ], [ %.20.i.i, %188 ]
+  %.0.i.i = phi i32 [ %..i.i, %185 ], [ %176, %186 ], [ %176, %183 ], [ %.20.i.i, %188 ]
   %189 = icmp eq i32 %.0.i.i, %171
   br i1 %189, label %190, label %194
 

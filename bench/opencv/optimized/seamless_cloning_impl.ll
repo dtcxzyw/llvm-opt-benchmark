@@ -1209,7 +1209,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit123:              ; preds = %189
   br i1 %242, label %.loopexit130, label %239
 
 .loopexit130:                                     ; preds = %239, %.loopexit130.loopexit144, %.thread127
-  %.pn104.pn.pn.pn = phi { ptr, i32 } [ %218, %.thread127 ], [ %.pn94, %.loopexit130.loopexit144 ], [ %.pn104.pn.pn, %239 ]
+  %.pn104.pn.pn.pn = phi { ptr, i32 } [ %.pn94, %.loopexit130.loopexit144 ], [ %218, %.thread127 ], [ %.pn104.pn.pn, %239 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %243
 
@@ -1228,7 +1228,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit123:              ; preds = %189
   br i1 %248, label %.loopexit, label %245
 
 .loopexit:                                        ; preds = %245, %.loopexit.loopexit146, %.thread
-  %.pn104.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %149, %.thread ], [ %.pn84, %.loopexit.loopexit146 ], [ %.pn104.pn.pn.pn.pn, %245 ]
+  %.pn104.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn84, %.loopexit.loopexit146 ], [ %149, %.thread ], [ %.pn104.pn.pn.pn.pn, %245 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %249
 
@@ -1438,7 +1438,7 @@ define hidden void @_ZN2cv7Cloning5solveERKNS_3MatERS1_S4_(ptr noundef nonnull r
   br label %94
 
 94:                                               ; preds = %90, %.lr.ph83, %92
-  %.sink = phi i8 [ %93, %92 ], [ 0, %.lr.ph83 ], [ -1, %90 ]
+  %.sink = phi i8 [ 0, %.lr.ph83 ], [ %93, %92 ], [ -1, %90 ]
   %95 = getelementptr inbounds nuw i8, ptr %70, i64 %indvars.iv103
   store i8 %.sink, ptr %95, align 1, !tbaa !28
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
@@ -4288,7 +4288,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !82
   br label %40
 

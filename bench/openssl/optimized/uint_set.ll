@@ -266,7 +266,7 @@ ossl_list_uint_set_remove.exit:                   ; preds = %64
   br label %.critedge, !llvm.loop !25
 
 .critedge:                                        ; preds = %84, %..critedge_crit_edge261, %.lr.ph172
-  %.1.lcssa.ph = phi ptr [ %.095170259, %..critedge_crit_edge261 ], [ %.094166, %.lr.ph172 ], [ %.095170259, %84 ]
+  %.1.lcssa.ph = phi ptr [ %.094166, %.lr.ph172 ], [ %.095170259, %..critedge_crit_edge261 ], [ %.095170259, %84 ]
   %.phi.trans.insert192 = getelementptr inbounds nuw i8, ptr %.1.lcssa.ph, i64 16
   %.pre = load i64, ptr %.phi.trans.insert192, align 8, !tbaa !20
   %90 = tail call noundef i64 @llvm.umin.i64(i64 %3, i64 %.pre)
@@ -413,7 +413,7 @@ create_set_item.exit.thread.loopexit179:          ; preds = %64
   br label %create_set_item.exit.thread
 
 create_set_item.exit.thread:                      ; preds = %142, %.lr.ph167, %ossl_list_uint_set_remove.exit135, %.critedge.thread, %create_set_item.exit.thread.loopexit179, %52, %.critedge, %126, %34, %8, %125, %ossl_list_uint_set_insert_before.exit, %120, %2, %ossl_list_uint_set_insert_tail.exit, %33, %ossl_list_uint_set_insert_head.exit
-  %.0 = phi i32 [ 1, %ossl_list_uint_set_insert_head.exit ], [ 1, %33 ], [ 1, %ossl_list_uint_set_insert_tail.exit ], [ 0, %2 ], [ 1, %120 ], [ 1, %ossl_list_uint_set_insert_before.exit ], [ 1, %125 ], [ 0, %8 ], [ 0, %34 ], [ 0, %126 ], [ 1, %.critedge ], [ 1, %52 ], [ 1, %create_set_item.exit.thread.loopexit179 ], [ 1, %.critedge.thread ], [ 1, %ossl_list_uint_set_remove.exit135 ], [ 1, %.lr.ph167 ], [ 1, %142 ]
+  %.0 = phi i32 [ 0, %2 ], [ 1, %ossl_list_uint_set_insert_head.exit ], [ 1, %33 ], [ 1, %125 ], [ 1, %ossl_list_uint_set_insert_tail.exit ], [ 0, %8 ], [ 1, %.critedge ], [ 0, %34 ], [ 1, %ossl_list_uint_set_remove.exit135 ], [ 0, %126 ], [ 1, %120 ], [ 1, %ossl_list_uint_set_insert_before.exit ], [ 1, %52 ], [ 1, %create_set_item.exit.thread.loopexit179 ], [ 1, %.critedge.thread ], [ 1, %.lr.ph167 ], [ 1, %142 ]
   ret i32 %.0
 }
 
@@ -640,7 +640,7 @@ ossl_list_uint_set_insert_after.exit:             ; preds = %51, %54
   br i1 %.not44, label %.loopexit, label %10, !llvm.loop !28
 
 .loopexit:                                        ; preds = %10, %58, %6, %36, %ossl_list_uint_set_insert_after.exit, %2
-  %.0 = phi i32 [ 0, %2 ], [ 1, %ossl_list_uint_set_insert_after.exit ], [ 1, %36 ], [ 1, %6 ], [ 1, %58 ], [ 1, %10 ]
+  %.0 = phi i32 [ 0, %2 ], [ 1, %36 ], [ 1, %ossl_list_uint_set_insert_after.exit ], [ 1, %6 ], [ 1, %58 ], [ 1, %10 ]
   ret i32 %.0
 }
 

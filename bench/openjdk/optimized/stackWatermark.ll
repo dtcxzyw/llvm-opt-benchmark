@@ -873,7 +873,7 @@ define hidden noundef zeroext i1 @_ZN14StackWatermark13is_frame_safeERK5frame(pt
   br label %20
 
 20:                                               ; preds = %10, %2, %12
-  %.0 = phi i1 [ %19, %12 ], [ false, %2 ], [ true, %10 ]
+  %.0 = phi i1 [ false, %2 ], [ %19, %12 ], [ true, %10 ]
   ret i1 %.0
 }
 
@@ -1244,7 +1244,7 @@ define hidden noundef i64 @_ZN14StackWatermark14last_processedEv(ptr noundef non
   br label %_ZN11MutexLockerD2Ev.exit
 
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %10, %1, %13
-  %.0 = phi i64 [ %17, %13 ], [ 0, %1 ], [ 0, %10 ]
+  %.0 = phi i64 [ 0, %1 ], [ %17, %13 ], [ 0, %10 ]
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #17
   ret i64 %.0
 }

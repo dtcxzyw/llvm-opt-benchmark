@@ -122,7 +122,7 @@ define dso_local range(i32 -1, 1) i32 @mpir_set_multi_name(i32 noundef %0, ptr n
   br label %39
 
 39:                                               ; preds = %32, %25, %.thread
-  %.040 = phi i1 [ false, %.thread ], [ true, %25 ], [ true, %32 ]
+  %.040 = phi i1 [ false, %.thread ], [ true, %32 ], [ true, %25 ]
   br i1 %.041.shrunk65, label %.backedge, label %.preheader
 
 .preheader:                                       ; preds = %39
@@ -320,7 +320,7 @@ define dso_local range(i32 -1, 1) i32 @mpir_set_multi_name(i32 noundef %0, ptr n
   br i1 %exitcond.not.i42.i, label %_set_range.exit35.i, label %.lr.ph.split.i38.i, !llvm.loop !12
 
 _set_range.exit35.i:                              ; preds = %128, %106, %113, %91
-  %129 = phi ptr [ %111, %113 ], [ %89, %91 ], [ %89, %106 ], [ %111, %128 ]
+  %129 = phi ptr [ %89, %106 ], [ %89, %91 ], [ %111, %113 ], [ %111, %128 ]
   %130 = load i8, ptr %129, align 1
   %131 = icmp eq i8 %130, 0
   br i1 %131, label %_set_exec_names.exit, label %132
@@ -594,7 +594,7 @@ define dso_local range(i32 -1, 1) i32 @verify_multi_name(ptr noundef %0, ptr nou
   br label %52
 
 52:                                               ; preds = %45, %38, %.thread
-  %.049 = phi i1 [ false, %.thread ], [ true, %38 ], [ true, %45 ]
+  %.049 = phi i1 [ false, %.thread ], [ true, %45 ], [ true, %38 ]
   br i1 %.050.shrunk105, label %.backedge, label %.preheader76
 
 .preheader76:                                     ; preds = %52
@@ -756,7 +756,7 @@ define dso_local range(i32 -1, 1) i32 @verify_multi_name(ptr noundef %0, ptr nou
   %.not.i = icmp eq ptr %125, null
   br i1 %.not.i, label %_validate_ranks.exit.thread71, label %.lr.ph54.i, !llvm.loop !21
 
-_validate_ranks.exit.thread:                      ; preds = %122, %96, %113, %120
+_validate_ranks.exit.thread:                      ; preds = %122, %96, %120, %113
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit78
 

@@ -416,7 +416,7 @@ dlist_push_head.exit:                             ; preds = %114, %118
   store ptr %115, ptr getelementptr inbounds nuw (i8, ptr @BackgroundWorkerList, i64 8), align 8
   br label %121
 
-121:                                              ; preds = %dlist_push_head.exit, %.lr.ph, %36, %29, %25, %62, %60, %38, %45
+121:                                              ; preds = %.lr.ph, %25, %60, %dlist_push_head.exit, %36, %29, %62, %38, %45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %122 = load i32, ptr @max_worker_processes, align 4
   %123 = sext i32 %122 to i64
@@ -1257,7 +1257,7 @@ define internal fastcc noundef zeroext i1 @SanityCheckBackgroundWorker(ptr nound
   br label %43
 
 43:                                               ; preds = %33, %35, %26, %28, %17, %19, %6, %8, %38, %41
-  %.0 = phi i1 [ true, %41 ], [ true, %38 ], [ false, %8 ], [ false, %6 ], [ false, %19 ], [ false, %17 ], [ false, %28 ], [ false, %26 ], [ false, %35 ], [ false, %33 ]
+  %.0 = phi i1 [ false, %6 ], [ false, %17 ], [ false, %26 ], [ true, %38 ], [ true, %41 ], [ false, %8 ], [ false, %19 ], [ false, %28 ], [ false, %35 ], [ false, %33 ]
   ret i1 %.0
 }
 
@@ -1371,7 +1371,7 @@ define dso_local noundef zeroext i1 @RegisterDynamicBackgroundWorker(ptr noundef
   br label %.thread44
 
 .thread44:                                        ; preds = %._crit_edge, %.thread39, %49, %5, %2, %21
-  %.0 = phi i1 [ false, %21 ], [ false, %2 ], [ false, %5 ], [ true, %49 ], [ true, %.thread39 ], [ false, %._crit_edge ]
+  %.0 = phi i1 [ false, %21 ], [ false, %5 ], [ false, %2 ], [ true, %49 ], [ true, %.thread39 ], [ false, %._crit_edge ]
   ret i1 %.0
 }
 
@@ -1430,7 +1430,7 @@ define dso_local range(i32 0, 3) i32 @GetBackgroundWorkerPid(ptr noundef readonl
   br label %27
 
 27:                                               ; preds = %.thread, %20, %26, %25
-  %.09 = phi i32 [ 1, %25 ], [ 0, %26 ], [ 2, %20 ], [ 2, %.thread ]
+  %.09 = phi i32 [ 0, %26 ], [ 1, %25 ], [ 2, %20 ], [ 2, %.thread ]
   ret i32 %.09
 }
 
@@ -1502,7 +1502,7 @@ GetBackgroundWorkerPid.exit:                      ; preds = %24
   br label %4
 
 GetBackgroundWorkerPid.exit.thread:               ; preds = %24, %GetBackgroundWorkerPid.exit, %.thread.i, %29
-  %.06.ph = phi i32 [ 0, %29 ], [ 2, %.thread.i ], [ 2, %24 ], [ 3, %GetBackgroundWorkerPid.exit ]
+  %.06.ph = phi i32 [ 2, %.thread.i ], [ 0, %29 ], [ 2, %24 ], [ 3, %GetBackgroundWorkerPid.exit ]
   ret i32 %.06.ph
 }
 

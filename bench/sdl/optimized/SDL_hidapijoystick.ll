@@ -183,7 +183,7 @@ define hidden noundef zeroext i1 @HIDAPI_SupportsPlaystationDetection(i16 nounde
   br label %8
 
 8:                                                ; preds = %5, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %2, %7
-  %.0 = phi i1 [ false, %7 ], [ false, %2 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ %6, %5 ]
+  %.0 = phi i1 [ true, %4 ], [ false, %7 ], [ false, %2 ], [ true, %4 ], [ true, %4 ], [ %6, %5 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ]
   ret i1 %.0
 }
 
@@ -999,7 +999,7 @@ define internal zeroext i1 @HIDAPI_JoystickInit() #0 {
   br label %14
 
 14:                                               ; preds = %0, %10, %4
-  %.0 = phi i1 [ %5, %4 ], [ true, %10 ], [ true, %0 ]
+  %.0 = phi i1 [ true, %10 ], [ %5, %4 ], [ true, %0 ]
   ret i1 %.0
 }
 
@@ -1053,7 +1053,7 @@ define internal fastcc void @HIDAPI_UpdateDeviceList() unnamed_addr #0 {
   br label %.split.i.backedge
 
 .split.i.backedge:                                ; preds = %.splitthread-pre-split.i.loopexit, %._crit_edge.i
-  %.01013.pr.i114.be = phi ptr [ %.01013.pr.i.pre, %.splitthread-pre-split.i.loopexit ], [ null, %._crit_edge.i ]
+  %.01013.pr.i114.be = phi ptr [ null, %._crit_edge.i ], [ %.01013.pr.i.pre, %.splitthread-pre-split.i.loopexit ]
   br label %.split.i, !llvm.loop !22
 
 .split.i:                                         ; preds = %18, %.split.i.backedge
@@ -1524,8 +1524,8 @@ HIDAPI_SetDeviceSerialW.exit:                     ; preds = %.preheader.i, %100,
   br label %HIDAPI_CreateCombinedJoyCons.exit.thread77
 
 .thread.i:                                        ; preds = %200, %197, %193, %167, %164, %.lr.ph.i67
-  %.sroa.0.1.ph.i = phi ptr [ null, %200 ], [ %.sroa.0.055.i, %167 ], [ %.sroa.0.055.i, %164 ], [ %.sroa.0.055.i, %.lr.ph.i67 ], [ %.sroa.0.2.i, %197 ], [ %.sroa.0.2.i, %193 ]
-  %.sroa.7.1.ph.i = phi ptr [ %.sroa.7.2.i, %200 ], [ %.sroa.7.056.i, %167 ], [ %.sroa.7.056.i, %164 ], [ %.sroa.7.056.i, %.lr.ph.i67 ], [ null, %197 ], [ null, %193 ]
+  %.sroa.0.1.ph.i = phi ptr [ %.sroa.0.055.i, %.lr.ph.i67 ], [ null, %200 ], [ %.sroa.0.055.i, %167 ], [ %.sroa.0.055.i, %164 ], [ %.sroa.0.2.i, %197 ], [ %.sroa.0.2.i, %193 ]
+  %.sroa.7.1.ph.i = phi ptr [ %.sroa.7.056.i, %.lr.ph.i67 ], [ %.sroa.7.2.i, %200 ], [ %.sroa.7.056.i, %167 ], [ %.sroa.7.056.i, %164 ], [ null, %197 ], [ null, %193 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %210 = getelementptr inbounds nuw i8, ptr %.02857.i, i64 184
@@ -1736,7 +1736,7 @@ HIDAPI_IsEquivalentToDevice.exit:                 ; preds = %69, %73, %.lr.ph.sp
   br i1 %.not21.not, label %HIDAPI_IsEquivalentToDevice.exit.thread, label %.lr.ph.split.split, !llvm.loop !31
 
 HIDAPI_IsEquivalentToDevice.exit.thread:          ; preds = %HIDAPI_IsEquivalentToDevice.exit, %73, %HIDAPI_IsEquivalentToDevice.exit.us48, %60, %64, %HIDAPI_IsEquivalentToDevice.exit.us, %34, %43, %39, %47, %26
-  %.not21.lcssa = phi i1 [ false, %26 ], [ true, %47 ], [ true, %39 ], [ true, %43 ], [ true, %34 ], [ false, %HIDAPI_IsEquivalentToDevice.exit.us ], [ true, %64 ], [ true, %60 ], [ false, %HIDAPI_IsEquivalentToDevice.exit.us48 ], [ true, %73 ], [ false, %HIDAPI_IsEquivalentToDevice.exit ]
+  %.not21.lcssa = phi i1 [ false, %26 ], [ false, %HIDAPI_IsEquivalentToDevice.exit.us48 ], [ true, %47 ], [ true, %39 ], [ true, %43 ], [ true, %34 ], [ false, %HIDAPI_IsEquivalentToDevice.exit.us ], [ true, %64 ], [ true, %60 ], [ true, %73 ], [ false, %HIDAPI_IsEquivalentToDevice.exit ]
   tail call void @SDL_UnlockJoysticks_REAL() #9
   br label %78
 
@@ -3224,7 +3224,7 @@ SDL_GetJoystickGameControllerProtocol.exit:       ; preds = %142, %.loopexit.i, 
   br label %195
 
 195:                                              ; preds = %99, %160, %7, %.thread
-  %.0105 = phi ptr [ %8, %.thread ], [ null, %99 ], [ null, %7 ], [ null, %160 ]
+  %.0105 = phi ptr [ null, %7 ], [ %8, %.thread ], [ null, %99 ], [ null, %160 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0105
 }
@@ -3624,7 +3624,7 @@ switch.lookup:                                    ; preds = %switch.lookup.prehe
   br label %131
 
 .thread64:                                        ; preds = %112, %31, %89
-  %.0.i51 = phi ptr [ @SDL_HIDAPI_DriverCombined, %89 ], [ @SDL_HIDAPI_DriverCombined, %31 ], [ %108, %112 ]
+  %.0.i51 = phi ptr [ @SDL_HIDAPI_DriverCombined, %31 ], [ @SDL_HIDAPI_DriverCombined, %89 ], [ %108, %112 ]
   store ptr %.0.i51, ptr %3, align 8
   %126 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 48
   %127 = load ptr, ptr %126, align 8
@@ -3651,7 +3651,7 @@ switch.lookup:                                    ; preds = %switch.lookup.prehe
   store ptr null, ptr %132, align 8
   br label %HIDAPI_GetDeviceDriver.exit.thread
 
-HIDAPI_GetDeviceDriver.exit.thread:               ; preds = %77, %49, %46, %35, %86, %.thread, %.thread.thread, %130, %131, %134
+HIDAPI_GetDeviceDriver.exit.thread:               ; preds = %77, %46, %35, %49, %86, %.thread, %.thread.thread, %130, %131, %134
   ret void
 }
 

@@ -1636,8 +1636,8 @@ _ZN6vectorIN3nla5lemmaELb1EjE5resetEv.exit:       ; preds = %_ZN6vectorIN3nla5le
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br label %549
 
-.thread244:                                       ; preds = %451, %487, %523, %431
-  %.3134.ph = phi i32 [ 1, %431 ], [ -1, %523 ], [ -1, %487 ], [ -1, %451 ]
+.thread244:                                       ; preds = %431, %451, %487, %523
+  %.3134.ph = phi i32 [ -1, %523 ], [ -1, %487 ], [ -1, %451 ], [ 1, %431 ]
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %605
@@ -1882,7 +1882,7 @@ _ZN8rationalD2Ev.exit241:                         ; preds = %.noexc.i240
   resume { ptr, i32 } %.pn219.pn.pn.pn.pn.pn
 
 621:                                              ; preds = %76, %57, %66, %71, %5, %_ZN8rationalD2Ev.exit241
-  %.0131 = phi i32 [ %.1132, %_ZN8rationalD2Ev.exit241 ], [ 0, %5 ], [ 0, %71 ], [ 0, %66 ], [ 0, %57 ], [ 0, %76 ]
+  %.0131 = phi i32 [ %.1132, %_ZN8rationalD2Ev.exit241 ], [ 0, %5 ], [ 0, %57 ], [ 0, %71 ], [ 0, %66 ], [ 0, %76 ]
   ret i32 %.0131
 }
 
@@ -2364,7 +2364,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZgtRK8rationali(ptr noundef nonn
           to label %_ZgtRK8rationalS1_.exit unwind label %43
 
 _ZgtRK8rationalS1_.exit:                          ; preds = %.noexc, %30, %37
-  %.0.i.i.i = phi i1 [ %33, %30 ], [ %36, %.noexc ], [ %38, %37 ]
+  %.0.i.i.i = phi i1 [ %36, %.noexc ], [ %33, %30 ], [ %38, %37 ]
   %39 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !194
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %39, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %.noexc.i unwind label %40
@@ -2456,7 +2456,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZleRK8rationali(ptr noundef nonn
           to label %39 unwind label %45
 
 39:                                               ; preds = %.noexc, %30, %37
-  %.0.i.i.i.i = phi i1 [ %33, %30 ], [ %36, %.noexc ], [ %38, %37 ]
+  %.0.i.i.i.i = phi i1 [ %36, %.noexc ], [ %33, %30 ], [ %38, %37 ]
   %40 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !194
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %40, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %.noexc.i unwind label %41
@@ -2549,7 +2549,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZltRK8rationali(ptr noundef nonn
           to label %_ZltRK8rationalS1_.exit unwind label %43
 
 _ZltRK8rationalS1_.exit:                          ; preds = %.noexc, %30, %37
-  %.0.i.i = phi i1 [ %33, %30 ], [ %36, %.noexc ], [ %38, %37 ]
+  %.0.i.i = phi i1 [ %36, %.noexc ], [ %33, %30 ], [ %38, %37 ]
   %39 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !194
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %39, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %.noexc.i unwind label %40
@@ -2641,7 +2641,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZgeRK8rationali(ptr noundef nonn
           to label %39 unwind label %45
 
 39:                                               ; preds = %.noexc, %30, %37
-  %.0.i.i.i = phi i1 [ %33, %30 ], [ %36, %.noexc ], [ %38, %37 ]
+  %.0.i.i.i = phi i1 [ %36, %.noexc ], [ %33, %30 ], [ %38, %37 ]
   %40 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !194
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %40, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %.noexc.i unwind label %41

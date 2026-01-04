@@ -213,7 +213,7 @@ ossl_ffc_params_FIPS186_2_validate.exit.thread:   ; preds = %32, %33, %24, %ossl
   br label %49
 
 49:                                               ; preds = %8, %4, %48
-  %.013 = phi i32 [ %.019, %48 ], [ 0, %4 ], [ 0, %8 ]
+  %.013 = phi i32 [ 0, %4 ], [ %.019, %48 ], [ 0, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.013
@@ -334,7 +334,7 @@ define i32 @ossl_ffc_params_full_validate(ptr noundef %0, ptr noundef %1, i32 no
   br label %.critedge
 
 .critedge:                                        ; preds = %35, %31, %30, %23, %22, %53, %42, %44, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %42 ], [ 0, %44 ], [ %.3, %53 ], [ 0, %22 ], [ %29, %23 ], [ %41, %35 ], [ 0, %31 ], [ 0, %30 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %42 ], [ %29, %23 ], [ 0, %44 ], [ %.3, %53 ], [ 0, %22 ], [ %41, %35 ], [ 0, %31 ], [ 0, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

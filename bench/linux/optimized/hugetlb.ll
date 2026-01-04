@@ -573,7 +573,7 @@ alloc_surplus_hugetlb_folio.exit.thread:          ; preds = %44, %37, %53, %40, 
   br i1 %192, label %.split, label %.thread23, !llvm.loop !16
 
 .thread23:                                        ; preds = %189, %179, %182, %.split.us, %159, %165
-  %.us-phi = phi i32 [ %157, %165 ], [ %157, %159 ], [ %157, %.split.us ], [ %180, %182 ], [ %180, %179 ], [ %180, %189 ]
+  %.us-phi = phi i32 [ %157, %.split.us ], [ %157, %165 ], [ %157, %159 ], [ %180, %182 ], [ %180, %179 ], [ %180, %189 ]
   %193 = zext i32 %.us-phi to i64
   %194 = icmp sgt i64 %1, %193
   br i1 %194, label %.critedge, label %234
@@ -982,7 +982,7 @@ define dso_local i32 @hugetlb_vma_trylock_write(ptr noundef readonly captures(no
   br label %25
 
 25:                                               ; preds = %8, %22, %12
-  %26 = phi i32 [ 1, %12 ], [ %24, %22 ], [ 1, %8 ]
+  %26 = phi i32 [ %24, %22 ], [ 1, %12 ], [ 1, %8 ]
   ret i32 %26
 }
 
@@ -1352,8 +1352,8 @@ define internal fastcc i64 @region_del(ptr noundef %0, i64 noundef %1, i64 nound
   br i1 %80, label %.loopexit, label %.preheader, !llvm.loop !21
 
 .loopexit:                                        ; preds = %9, %78, %.preheader._crit_edge, %.thread10
-  %81 = phi i64 [ %51, %.thread10 ], [ %79, %78 ], [ %15, %.preheader._crit_edge ], [ %10, %9 ]
-  %82 = phi ptr [ null, %.thread10 ], [ %11, %.preheader._crit_edge ], [ %11, %78 ], [ %11, %9 ]
+  %81 = phi i64 [ %51, %.thread10 ], [ %15, %.preheader._crit_edge ], [ %79, %78 ], [ %10, %9 ]
+  %82 = phi ptr [ null, %.thread10 ], [ %11, %78 ], [ %11, %.preheader._crit_edge ], [ %11, %9 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull %5) #22
   tail call void @kfree(ptr noundef %82) #22
   br label %.loopexit13
@@ -2439,7 +2439,7 @@ define dso_local i32 @dissolve_free_huge_page(ptr noundef %0) local_unnamed_addr
   br i1 %158, label %.loopexit3, label %.lr.ph
 
 .thread:                                          ; preds = %.loopexit, %48, %44, %40, %150
-  %159 = phi i32 [ %121, %150 ], [ -16, %.loopexit ], [ 0, %40 ], [ 0, %44 ], [ -16, %48 ]
+  %159 = phi i32 [ %121, %150 ], [ -16, %.loopexit ], [ 0, %44 ], [ 0, %40 ], [ -16, %48 ]
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull @hugetlb_lock) #22
   br label %.loopexit3
 
@@ -2704,7 +2704,7 @@ define internal fastcc ptr @dequeue_hugetlb_folio_nodemask(ptr noundef %0, i32 n
   br i1 %.not, label %.thread5, label %.loopexit
 
 .thread5:                                         ; preds = %.split, %.split.us, %.split18.us, %54, %50
-  %98 = phi i32 [ %56, %.split18.us ], [ %48, %50 ], [ %48, %54 ], [ %56, %.split.us ], [ %56, %.split ]
+  %98 = phi i32 [ %48, %50 ], [ %48, %54 ], [ %56, %.split18.us ], [ %56, %.split.us ], [ %56, %.split ]
   %99 = getelementptr i8, ptr %49, i64 16
   br i1 %17, label %100, label %104, !prof !24
 
@@ -2806,7 +2806,7 @@ define dso_local void @restore_reserve_on_error(ptr noundef readonly captures(no
   br label %49
 
 49:                                               ; preds = %47, %27
-  %50 = phi i64 [ %41, %27 ], [ %48, %47 ]
+  %50 = phi i64 [ %48, %47 ], [ %41, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %52 = load volatile i64, ptr %51, align 8
@@ -3136,7 +3136,7 @@ define dso_local noundef range(i32 -16, 1) i32 @isolate_or_dissolve_huge_page(pt
   %90 = icmp eq i32 %89, 0
   br i1 %90, label %isolate_hugetlb.exit.thread, label %.lr.ph.i, !prof !45, !llvm.loop !46
 
-isolate_hugetlb.exit.thread:                      ; preds = %88, %74, %70, %66, %79
+isolate_hugetlb.exit.thread:                      ; preds = %88, %66, %74, %70, %79
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull @hugetlb_lock) #22
   br label %98
 
@@ -3403,7 +3403,7 @@ define dso_local noundef zeroext i1 @isolate_hugetlb(ptr noundef %0, ptr noundef
   br label %.thread1
 
 .thread1:                                         ; preds = %26, %16, %29, %11, %6, %2
-  %37 = phi i1 [ true, %29 ], [ false, %11 ], [ false, %6 ], [ false, %2 ], [ false, %16 ], [ false, %26 ]
+  %37 = phi i1 [ true, %29 ], [ false, %2 ], [ false, %11 ], [ false, %6 ], [ false, %16 ], [ false, %26 ]
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull @hugetlb_lock) #22
   ret i1 %37
 }
@@ -3497,7 +3497,7 @@ define dso_local noundef ptr @alloc_hugetlb_folio(ptr noundef %0, i64 noundef %1
   br label %70
 
 67:                                               ; preds = %65, %47
-  %68 = phi i64 [ %59, %47 ], [ %66, %65 ]
+  %68 = phi i64 [ %66, %65 ], [ %59, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %69 = icmp slt i64 %68, 0
   br i1 %69, label %380, label %70
@@ -3555,7 +3555,7 @@ define dso_local noundef ptr @alloc_hugetlb_folio(ptr noundef %0, i64 noundef %1
   br i1 %.inv, label %.thread21, label %98
 
 .thread21:                                        ; preds = %91, %87, %95
-  %.ph20 = phi i64 [ 1, %87 ], [ 1, %91 ], [ 0, %95 ]
+  %.ph20 = phi i64 [ 1, %91 ], [ 1, %87 ], [ 0, %95 ]
   call void @_raw_spin_unlock_irq(ptr noundef nonnull %19) #22
   br label %.thread18
 
@@ -3566,7 +3566,7 @@ define dso_local noundef ptr @alloc_hugetlb_folio(ptr noundef %0, i64 noundef %1
   br i1 %100, label %355, label %.thread18
 
 .thread18:                                        ; preds = %75, %98, %.thread21
-  %101 = phi i64 [ %99, %98 ], [ %.ph20, %.thread21 ], [ 1, %75 ]
+  %101 = phi i64 [ %.ph20, %.thread21 ], [ %99, %98 ], [ 1, %75 ]
   %102 = select i1 %73, i64 1, i64 %101
   %103 = load i32, ptr %22, align 8
   %104 = shl nuw i32 1, %103
@@ -3604,23 +3604,23 @@ define dso_local noundef ptr @alloc_hugetlb_folio(ptr noundef %0, i64 noundef %1
 
 124:                                              ; preds = %115
   %125 = icmp eq i64 %119, 0
-  br i1 %125, label %128, label %126
+  br i1 %125, label %126, label %134
 
 126:                                              ; preds = %124
-  %127 = icmp eq i64 %109, 0
-  br i1 %127, label %142, label %136
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %128 = load ptr, ptr %127, align 8
+  %129 = ptrtoint ptr %128 to i64
+  %130 = and i64 %129, 1
+  %131 = icmp ne i64 %130, 0
+  %132 = icmp eq i64 %109, 0
+  %133 = and i1 %132, %131
+  br i1 %133, label %142, label %136
 
-128:                                              ; preds = %124
-  %129 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %130 = load ptr, ptr %129, align 8
-  %131 = ptrtoint ptr %130 to i64
-  %132 = and i64 %131, 1
-  %133 = icmp ne i64 %132, 0
-  %134 = icmp eq i64 %109, 0
-  %135 = and i1 %134, %133
+134:                                              ; preds = %124
+  %135 = icmp eq i64 %109, 0
   br i1 %135, label %142, label %136
 
-136:                                              ; preds = %126, %120, %128
+136:                                              ; preds = %126, %120, %134
   %137 = getelementptr inbounds nuw i8, ptr %21, i64 72
   %138 = load i64, ptr %137, align 8
   %139 = getelementptr inbounds nuw i8, ptr %21, i64 80
@@ -3628,7 +3628,7 @@ define dso_local noundef ptr @alloc_hugetlb_folio(ptr noundef %0, i64 noundef %1
   %141 = icmp eq i64 %138, %140
   br i1 %141, label %.thread26, label %142
 
-142:                                              ; preds = %126, %120, %136, %128
+142:                                              ; preds = %126, %120, %136, %134
   br i1 %73, label %143, label %149
 
 143:                                              ; preds = %142
@@ -3699,23 +3699,23 @@ define dso_local noundef ptr @alloc_hugetlb_folio(ptr noundef %0, i64 noundef %1
 
 183:                                              ; preds = %174
   %184 = icmp eq i64 %178, 0
-  br i1 %184, label %187, label %185
+  br i1 %184, label %185, label %193
 
 185:                                              ; preds = %183
-  %186 = icmp eq i64 %109, 0
-  br i1 %186, label %195, label %200
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %187 = load ptr, ptr %186, align 8
+  %188 = ptrtoint ptr %187 to i64
+  %189 = and i64 %188, 1
+  %190 = icmp ne i64 %189, 0
+  %191 = icmp eq i64 %109, 0
+  %192 = and i1 %191, %190
+  br i1 %192, label %195, label %200
 
-187:                                              ; preds = %183
-  %188 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %189 = load ptr, ptr %188, align 8
-  %190 = ptrtoint ptr %189 to i64
-  %191 = and i64 %190, 1
-  %192 = icmp ne i64 %191, 0
-  %193 = icmp eq i64 %109, 0
-  %194 = and i1 %193, %192
+193:                                              ; preds = %183
+  %194 = icmp eq i64 %109, 0
   br i1 %194, label %195, label %200
 
-195:                                              ; preds = %185, %179, %187
+195:                                              ; preds = %185, %179, %193
   %196 = getelementptr inbounds nuw i8, ptr %171, i64 40
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %196, i32 1, ptr nonnull elementtype(i8) %196) #22, !srcloc !7
   %197 = getelementptr inbounds nuw i8, ptr %21, i64 80
@@ -3724,7 +3724,7 @@ define dso_local noundef ptr @alloc_hugetlb_folio(ptr noundef %0, i64 noundef %1
   store i64 %199, ptr %197, align 8
   br label %200
 
-200:                                              ; preds = %185, %179, %195, %187, %170
+200:                                              ; preds = %185, %179, %195, %193, %170
   %201 = load ptr, ptr %6, align 8
   %202 = icmp eq ptr %201, null
   br i1 %202, label %209, label %203
@@ -3838,20 +3838,20 @@ define dso_local noundef ptr @alloc_hugetlb_folio(ptr noundef %0, i64 noundef %1
 
 255:                                              ; preds = %246
   %256 = icmp eq i64 %250, 0
-  br i1 %256, label %vma_has_reserves.exit, label %257
+  br i1 %256, label %257, label %vma_has_reserves.exit
 
 257:                                              ; preds = %255
-  %258 = icmp eq i64 %109, 0
-  br i1 %258, label %266, label %271
+  %258 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %259 = load ptr, ptr %258, align 8
+  %260 = ptrtoint ptr %259 to i64
+  %261 = and i64 %260, 1
+  %262 = icmp ne i64 %261, 0
+  %263 = icmp eq i64 %109, 0
+  %264 = and i1 %263, %262
+  br i1 %264, label %266, label %271
 
 vma_has_reserves.exit:                            ; preds = %255
-  %259 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %260 = load ptr, ptr %259, align 8
-  %261 = ptrtoint ptr %260 to i64
-  %262 = and i64 %261, 1
-  %263 = icmp ne i64 %262, 0
-  %264 = icmp eq i64 %109, 0
-  %265 = and i1 %264, %263
+  %265 = icmp eq i64 %109, 0
   br i1 %265, label %266, label %271
 
 266:                                              ; preds = %257, %251, %vma_has_reserves.exit
@@ -6372,8 +6372,8 @@ define dso_local i32 @copy_hugetlb_page_range(ptr noundef %0, ptr noundef %1, pt
   br label %.loopexit34
 
 .loopexit34:                                      ; preds = %401, %233, %429, %262, %259, %254
-  %431 = phi ptr [ %243, %429 ], [ %243, %262 ], [ %243, %259 ], [ %243, %254 ], [ %216, %233 ], [ %373, %401 ]
-  %432 = phi ptr [ %242, %429 ], [ %242, %262 ], [ %242, %259 ], [ %242, %254 ], [ %234, %233 ], [ %387, %401 ]
+  %431 = phi ptr [ %243, %254 ], [ %243, %429 ], [ %243, %262 ], [ %243, %259 ], [ %216, %233 ], [ %373, %401 ]
+  %432 = phi ptr [ %242, %254 ], [ %242, %429 ], [ %242, %262 ], [ %242, %259 ], [ %234, %233 ], [ %387, %401 ]
   call void @_raw_spin_unlock(ptr noundef %432) #22
   call void @_raw_spin_unlock(ptr noundef %431) #22
   br label %.thread27
@@ -6435,7 +6435,7 @@ define dso_local i32 @copy_hugetlb_page_range(ptr noundef %0, ptr noundef %1, pt
   br label %.thread27
 
 .thread28:                                        ; preds = %153, %.thread27, %342, %353, %358, %72
-  %475 = phi i32 [ 0, %72 ], [ %344, %342 ], [ %346, %353 ], [ %346, %358 ], [ -12, %153 ], [ 0, %.thread27 ]
+  %475 = phi i32 [ 0, %72 ], [ %346, %353 ], [ %346, %358 ], [ %344, %342 ], [ 0, %.thread27 ], [ -12, %153 ]
   br i1 %18, label %492, label %476
 
 476:                                              ; preds = %.thread28
@@ -6555,7 +6555,7 @@ define dso_local noundef ptr @huge_pte_alloc(ptr noundef %0, ptr noundef readonl
   br label %32
 
 32:                                               ; preds = %20, %19
-  %33 = phi ptr [ %31, %20 ], [ %12, %19 ]
+  %33 = phi ptr [ %12, %19 ], [ %31, %20 ]
   %34 = icmp eq ptr %33, null
   br i1 %34, label %.thread, label %35
 
@@ -7801,7 +7801,7 @@ define dso_local void @__unmap_hugepage_range(ptr noundef %0, ptr noundef captur
   br label %224
 
 224:                                              ; preds = %217, %210, %201
-  %225 = phi i16 [ 128, %201 ], [ 64, %210 ], [ %., %217 ]
+  %225 = phi i16 [ 128, %201 ], [ %., %217 ], [ 64, %210 ]
   %226 = load i16, ptr %42, align 8
   %227 = or i16 %226, %225
   store i16 %227, ptr %42, align 8
@@ -8895,10 +8895,10 @@ define dso_local range(i32 0, 1025) i32 @hugetlb_fault(ptr noundef %0, ptr nound
   br i1 %275, label %.critedge, label %424, !prof !24
 
 .critedge:                                        ; preds = %254, %269, %273, %200
-  %276 = phi ptr [ %217, %273 ], [ %205, %200 ], [ %217, %269 ], [ %217, %254 ]
-  %277 = phi i8 [ 1, %273 ], [ 0, %200 ], [ 1, %269 ], [ 1, %254 ]
-  %278 = phi i8 [ 0, %273 ], [ 0, %200 ], [ 0, %269 ], [ 1, %254 ]
-  %279 = phi i1 [ false, %273 ], [ true, %200 ], [ false, %269 ], [ true, %254 ]
+  %276 = phi ptr [ %217, %269 ], [ %217, %273 ], [ %205, %200 ], [ %217, %254 ]
+  %277 = phi i8 [ 1, %269 ], [ 1, %273 ], [ 0, %200 ], [ 1, %254 ]
+  %278 = phi i8 [ 0, %269 ], [ 0, %273 ], [ 0, %200 ], [ 1, %254 ]
+  %279 = phi i1 [ false, %269 ], [ false, %273 ], [ true, %200 ], [ true, %254 ]
   %280 = and i32 %3, 1
   %281 = icmp eq i32 %280, 0
   br i1 %281, label %352, label %282
@@ -8969,7 +8969,7 @@ define dso_local range(i32 0, 1025) i32 @hugetlb_fault(ptr noundef %0, ptr nound
   br label %328
 
 325:                                              ; preds = %322, %304
-  %326 = phi i64 [ %316, %304 ], [ %323, %322 ]
+  %326 = phi i64 [ %323, %322 ], [ %316, %304 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %327 = icmp slt i64 %326, 0
   br i1 %327, label %424, label %328
@@ -9107,7 +9107,7 @@ define dso_local range(i32 0, 1025) i32 @hugetlb_fault(ptr noundef %0, ptr nound
   br label %.thread
 
 .thread:                                          ; preds = %257, %262, %438, %433, %403, %242, %238, %207, %194, %191
-  %404 = phi i32 [ 2, %194 ], [ 2, %191 ], [ 2, %207 ], [ %248, %242 ], [ %400, %403 ], [ 0, %238 ], [ %428, %433 ], [ %428, %438 ], [ 2, %262 ], [ 2, %257 ]
+  %404 = phi i32 [ 2, %194 ], [ 2, %191 ], [ 2, %207 ], [ %248, %242 ], [ %428, %438 ], [ %400, %403 ], [ 0, %238 ], [ %428, %433 ], [ 2, %262 ], [ 2, %257 ]
   %405 = load i64, ptr %106, align 8
   %406 = and i64 %405, 128
   %407 = icmp eq i64 %406, 0
@@ -9281,7 +9281,7 @@ vma_needs_reservation.exit.thread:                ; preds = %484, %503
   br label %509
 
 vma_needs_reservation.exit:                       ; preds = %487, %505
-  %507 = phi i64 [ %499, %487 ], [ %506, %505 ]
+  %507 = phi i64 [ %506, %505 ], [ %499, %487 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %508 = icmp slt i64 %507, 0
   br i1 %508, label %624, label %509
@@ -9434,8 +9434,8 @@ vma_needs_reservation.exit:                       ; preds = %487, %505
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %578, %592, %589
-  %.pre-phi = phi i32 [ 1, %592 ], [ 0, %589 ], [ 0, %578 ]
-  %602 = phi i64 [ %601, %592 ], [ %159, %589 ], [ %159, %578 ]
+  %.pre-phi = phi i32 [ 0, %589 ], [ 1, %592 ], [ 0, %578 ]
+  %602 = phi i64 [ %159, %589 ], [ %601, %592 ], [ %159, %578 ]
   %603 = or i64 %602, 32
   %604 = tail call i32 @ptep_set_access_flags(ptr noundef %1, i64 noundef %24, ptr noundef nonnull %132, i64 %603, i32 noundef %.pre-phi) #22
   br label %605
@@ -9481,9 +9481,9 @@ vma_needs_reservation.exit:                       ; preds = %487, %505
   br label %624
 
 624:                                              ; preds = %623, %618, %613, %vma_needs_reservation.exit, %450, %167
-  %625 = phi i32 [ 0, %167 ], [ %614, %613 ], [ 0, %vma_needs_reservation.exit ], [ 0, %450 ], [ %614, %618 ], [ %614, %623 ]
-  %626 = phi ptr [ null, %167 ], [ %615, %613 ], [ null, %vma_needs_reservation.exit ], [ null, %450 ], [ %615, %618 ], [ %615, %623 ]
-  %627 = phi i32 [ %172, %167 ], [ %616, %613 ], [ 1, %vma_needs_reservation.exit ], [ 0, %450 ], [ %616, %618 ], [ %616, %623 ]
+  %625 = phi i32 [ 0, %167 ], [ %614, %613 ], [ 0, %vma_needs_reservation.exit ], [ 0, %450 ], [ %614, %623 ], [ %614, %618 ]
+  %626 = phi ptr [ null, %167 ], [ %615, %613 ], [ null, %vma_needs_reservation.exit ], [ null, %450 ], [ %615, %623 ], [ %615, %618 ]
+  %627 = phi i32 [ %172, %167 ], [ %616, %613 ], [ 1, %vma_needs_reservation.exit ], [ 0, %450 ], [ %616, %623 ], [ %616, %618 ]
   %628 = load i64, ptr %106, align 8
   %629 = and i64 %628, 128
   %630 = icmp eq i64 %629, 0
@@ -10714,7 +10714,7 @@ define dso_local ptr @hugetlb_follow_page_mask(ptr noundef readonly captures(add
   br label %.thread10
 
 .thread10:                                        ; preds = %186, %190, %194, %185, %244, %239, %234, %206
-  %247 = phi ptr [ %246, %244 ], [ %132, %239 ], [ %132, %234 ], [ %132, %206 ], [ %132, %185 ], [ %132, %194 ], [ %132, %190 ], [ %132, %186 ]
+  %247 = phi ptr [ %246, %244 ], [ %132, %239 ], [ %132, %186 ], [ %132, %234 ], [ %132, %206 ], [ %132, %185 ], [ %132, %194 ], [ %132, %190 ]
   %248 = load volatile i64, ptr %247, align 8
   %249 = and i64 %248, 131072
   %250 = icmp eq i64 %249, 0
@@ -11698,7 +11698,7 @@ define dso_local noundef zeroext i1 @hugetlb_reserve_pages(ptr noundef readonly 
   br i1 %129, label %164, label %.thread17
 
 .thread17:                                        ; preds = %103, %.thread18, %127
-  %130 = phi i64 [ %128, %127 ], [ %.ph, %.thread18 ], [ %68, %103 ]
+  %130 = phi i64 [ %.ph, %.thread18 ], [ %128, %127 ], [ %68, %103 ]
   %131 = call fastcc i32 @hugetlb_acct_memory(ptr noundef %13, i64 noundef %130), !range !6
   %132 = icmp slt i32 %131, 0
   br i1 %132, label %162, label %133
@@ -12745,7 +12745,7 @@ define dso_local range(i32 -16, 2) i32 @get_hwpoison_hugetlb_folio(ptr noundef %
   br i1 %34, label %.thread, label %.lr.ph, !prof !45, !llvm.loop !46
 
 .thread:                                          ; preds = %.lr.ph, %32, %22, %17, %12, %7, %3
-  %35 = phi i32 [ 0, %7 ], [ 0, %12 ], [ -16, %17 ], [ 0, %3 ], [ 0, %22 ], [ 1, %.lr.ph ], [ 0, %32 ]
+  %35 = phi i32 [ 0, %3 ], [ 0, %7 ], [ 0, %12 ], [ -16, %17 ], [ 0, %22 ], [ 1, %.lr.ph ], [ 0, %32 ]
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull @hugetlb_lock) #22
   ret i32 %35
 }
@@ -13661,7 +13661,7 @@ define internal fastcc ptr @alloc_buddy_hugetlb_folio(i32 %.40.val, i32 noundef 
   tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @vm_event_states, i64 496), ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @vm_event_states, i64 496)) #22, !srcloc !140
   br label %64
 
-39:                                               ; preds = %30, %32
+39:                                               ; preds = %32, %30
   tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @vm_event_states, i64 488), ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @vm_event_states, i64 488)) #22, !srcloc !140
   %40 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %41 = load volatile i64, ptr %40, align 8
@@ -14064,7 +14064,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @demote_size_show(ptr nou
   unreachable
 
 .loopexit:                                        ; preds = %5, %.preheader, %21
-  %.pn = phi i64 [ 0, %.preheader ], [ 1, %21 ], [ %7, %5 ]
+  %.pn = phi i64 [ 1, %21 ], [ 0, %.preheader ], [ %7, %5 ]
   %25 = getelementptr %struct.hstate, ptr @hstates, i64 %.pn
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 44
   %27 = load i32, ptr %26, align 4
@@ -14147,7 +14147,7 @@ define internal noundef i64 @demote_size_store(ptr noundef readnone captures(add
   unreachable
 
 .loopexit:                                        ; preds = %.preheader10, %.preheader, %38
-  %.pn = phi i64 [ 0, %.preheader ], [ 1, %38 ], [ %24, %.preheader10 ]
+  %.pn = phi i64 [ 1, %38 ], [ 0, %.preheader ], [ %24, %.preheader10 ]
   %42 = getelementptr %struct.hstate, ptr @hstates, i64 %.pn
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %44 = load i32, ptr %43, align 8
@@ -14162,7 +14162,7 @@ define internal noundef i64 @demote_size_store(ptr noundef readnone captures(add
   br label %.thread
 
 .thread:                                          ; preds = %16, %4, %46, %.loopexit, %19
-  %48 = phi i64 [ %3, %46 ], [ -22, %19 ], [ -22, %.loopexit ], [ -22, %4 ], [ -22, %16 ]
+  %48 = phi i64 [ %3, %46 ], [ -22, %19 ], [ -22, %4 ], [ -22, %.loopexit ], [ -22, %16 ]
   ret i64 %48
 }
 
@@ -14887,8 +14887,8 @@ define internal i64 @nr_hugepages_store(ptr noundef readnone captures(address) %
   unreachable
 
 .loopexit.i:                                      ; preds = %.preheader7.i, %.preheader.i, %26
-  %30 = phi i32 [ %21, %26 ], [ %21, %.preheader.i ], [ -1, %.preheader7.i ]
-  %.pn.i = phi i64 [ 0, %.preheader.i ], [ 1, %26 ], [ %12, %.preheader7.i ]
+  %30 = phi i32 [ %21, %.preheader.i ], [ %21, %26 ], [ -1, %.preheader7.i ]
+  %.pn.i = phi i64 [ 1, %26 ], [ 0, %.preheader.i ], [ %12, %.preheader7.i ]
   %31 = getelementptr %struct.hstate, ptr @hstates, i64 %.pn.i
   %32 = load i64, ptr %5, align 8
   %33 = call fastcc i64 @__nr_hugepages_store_common(i1 noundef zeroext false, ptr noundef %31, i32 noundef %30, i64 noundef %32, i64 noundef %3)
@@ -16572,7 +16572,7 @@ define internal fastcc void @hugetlb_hstate_alloc_pages(ptr noundef %0) unnamed_
   br label %.thread9
 
 .thread9:                                         ; preds = %.thread, %43, %39
-  %44 = phi ptr [ %41, %43 ], [ null, %39 ], [ null, %.thread ]
+  %44 = phi ptr [ null, %39 ], [ %41, %43 ], [ null, %.thread ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %46 = load i64, ptr %45, align 8
   %47 = icmp eq i64 %46, 0
@@ -16999,7 +16999,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @nr_overcommit_hugepages_
   unreachable
 
 .loopexit:                                        ; preds = %5, %.preheader, %21
-  %.pn = phi i64 [ 0, %.preheader ], [ 1, %21 ], [ %7, %5 ]
+  %.pn = phi i64 [ 1, %21 ], [ 0, %.preheader ], [ %7, %5 ]
   %25 = getelementptr %struct.hstate, ptr @hstates, i64 %.pn
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
   %27 = load i64, ptr %26, align 8
@@ -17056,7 +17056,7 @@ define internal i64 @nr_overcommit_hugepages_store(ptr noundef readnone captures
   unreachable
 
 .loopexit:                                        ; preds = %7, %.preheader, %23
-  %.pn = phi i64 [ 0, %.preheader ], [ 1, %23 ], [ %9, %7 ]
+  %.pn = phi i64 [ 1, %23 ], [ 0, %.preheader ], [ %9, %7 ]
   %27 = getelementptr %struct.hstate, ptr @hstates, i64 %.pn
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 40
   %29 = load i32, ptr %28, align 8
@@ -17133,7 +17133,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @resv_hugepages_show(ptr 
   unreachable
 
 .loopexit:                                        ; preds = %5, %.preheader, %21
-  %.pn = phi i64 [ 0, %.preheader ], [ 1, %21 ], [ %7, %5 ]
+  %.pn = phi i64 [ 1, %21 ], [ 0, %.preheader ], [ %7, %5 ]
   %25 = getelementptr %struct.hstate, ptr @hstates, i64 %.pn
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 80
   %27 = load i64, ptr %26, align 8
@@ -17269,8 +17269,8 @@ define internal i64 @nr_hugepages_mempolicy_store(ptr noundef readnone captures(
   unreachable
 
 .loopexit.i:                                      ; preds = %.preheader7.i, %.preheader.i, %26
-  %30 = phi i32 [ %21, %26 ], [ %21, %.preheader.i ], [ -1, %.preheader7.i ]
-  %.pn.i = phi i64 [ 0, %.preheader.i ], [ 1, %26 ], [ %12, %.preheader7.i ]
+  %30 = phi i32 [ %21, %.preheader.i ], [ %21, %26 ], [ -1, %.preheader7.i ]
+  %.pn.i = phi i64 [ 1, %26 ], [ 0, %.preheader.i ], [ %12, %.preheader7.i ]
   %31 = getelementptr %struct.hstate, ptr @hstates, i64 %.pn.i
   %32 = load i64, ptr %5, align 8
   %33 = call fastcc i64 @__nr_hugepages_store_common(i1 noundef zeroext true, ptr noundef %31, i32 noundef %30, i64 noundef %32, i64 noundef %3)

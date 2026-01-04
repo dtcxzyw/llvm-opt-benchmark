@@ -126,8 +126,8 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br i1 %.not428, label %83, label %.thread
 
 .thread.sink.split:                               ; preds = %78, %75, %73, %71, %68, %56
-  %.sink632 = phi i32 [ -4, %56 ], [ -7, %68 ], [ -10, %71 ], [ -12, %73 ], [ -14, %75 ], [ -16, %78 ]
-  %.neg596.ph = phi i32 [ 4, %56 ], [ 7, %68 ], [ 10, %71 ], [ 12, %73 ], [ 14, %75 ], [ 16, %78 ]
+  %.sink632 = phi i32 [ -4, %56 ], [ -7, %68 ], [ -12, %73 ], [ -14, %75 ], [ -10, %71 ], [ -16, %78 ]
+  %.neg596.ph = phi i32 [ 4, %56 ], [ 7, %68 ], [ 12, %73 ], [ 14, %75 ], [ 10, %71 ], [ 16, %78 ]
   store i32 %.sink632, ptr %19, align 4, !tbaa !3
   br label %.thread
 

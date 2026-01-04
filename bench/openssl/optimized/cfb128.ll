@@ -211,7 +211,7 @@ define void @CRYPTO_cfb128_encrypt(ptr noundef readonly captures(none) %0, ptr n
   br i1 %.not107, label %.loopexit111, label %83, !llvm.loop !18
 
 .loopexit111:                                     ; preds = %44, %83, %._crit_edge153, %._crit_edge128, %8
-  %.8.sink = phi i32 [ -1, %8 ], [ %.1100.lcssa, %._crit_edge128 ], [ %.6.lcssa, %._crit_edge153 ], [ %92, %83 ], [ %53, %44 ]
+  %.8.sink = phi i32 [ %92, %83 ], [ -1, %8 ], [ %.1100.lcssa, %._crit_edge128 ], [ %.6.lcssa, %._crit_edge153 ], [ %53, %44 ]
   store i32 %.8.sink, ptr %5, align 4, !tbaa !3
   ret void
 }

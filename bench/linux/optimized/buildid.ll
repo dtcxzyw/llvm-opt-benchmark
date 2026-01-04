@@ -292,7 +292,7 @@ define dso_local noundef range(i32 -22, 1) i32 @build_id_parse(ptr noundef reado
   br label %.thread
 
 .thread:                                          ; preds = %.thread15, %.thread11, %.thread.sink.split, %155, %84, %111, %107, %39, %35, %32, %27, %12
-  %178 = phi i32 [ -22, %12 ], [ -22, %27 ], [ -22, %32 ], [ -22, %35 ], [ -22, %39 ], [ -22, %107 ], [ -22, %111 ], [ 0, %84 ], [ 0, %155 ], [ 0, %.thread.sink.split ], [ -22, %.thread11 ], [ -22, %.thread15 ]
+  %178 = phi i32 [ -22, %12 ], [ -22, %27 ], [ -22, %32 ], [ -22, %35 ], [ -22, %39 ], [ -22, %107 ], [ -22, %111 ], [ 0, %.thread.sink.split ], [ 0, %155 ], [ 0, %84 ], [ -22, %.thread11 ], [ -22, %.thread15 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !14
   %179 = load i32, ptr %15, align 4
   %180 = add i32 %179, -1

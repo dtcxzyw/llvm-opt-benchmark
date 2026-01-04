@@ -721,7 +721,7 @@ _ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EED2Ev.exit134: ; preds = %242, %244
   br label %245
 
 245:                                              ; preds = %156, %_ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EED2Ev.exit134, %119
-  %.pn86.pn.pn = phi { ptr, i32 } [ %.pn82.pn.pn, %_ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EED2Ev.exit134 ], [ %120, %119 ], [ %157, %156 ]
+  %.pn86.pn.pn = phi { ptr, i32 } [ %120, %119 ], [ %.pn82.pn.pn, %_ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EED2Ev.exit134 ], [ %157, %156 ]
   %246 = load ptr, ptr %17, align 8, !tbaa !27
   %.not.i.i.i135 = icmp eq ptr %246, null
   br i1 %.not.i.i.i135, label %_ZNSt6vectorIN2cv3VecIfLi2EEESaIS2_EED2Ev.exit136, label %247

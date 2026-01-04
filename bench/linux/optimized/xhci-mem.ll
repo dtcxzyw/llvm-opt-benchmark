@@ -234,7 +234,7 @@ define dso_local void @xhci_ring_free(ptr noundef readonly captures(none) %0, pt
   br i1 %50, label %.loopexit9, label %.preheader, !llvm.loop !19
 
 .loopexit9:                                       ; preds = %46, %36, %28
-  %51 = phi ptr [ %.pre, %36 ], [ %26, %28 ], [ %49, %46 ]
+  %51 = phi ptr [ %26, %28 ], [ %.pre, %36 ], [ %49, %46 ]
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, %51
@@ -639,7 +639,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @xhci_alloc_segments_for_ri
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit, %64, %.loopexit.us, %40, %113, %20
-  %114 = phi i32 [ 0, %113 ], [ -12, %20 ], [ -12, %40 ], [ -12, %.loopexit.us ], [ -12, %64 ], [ -12, %.loopexit ]
+  %114 = phi i32 [ 0, %113 ], [ -12, %20 ], [ -12, %.loopexit.us ], [ -12, %40 ], [ -12, %64 ], [ -12, %.loopexit ]
   ret i32 %114
 }
 
@@ -993,7 +993,7 @@ define internal fastcc i32 @xhci_update_stream_segment_mapping(ptr noundef %0, p
   br i1 %48, label %.loopexit, label %34, !llvm.loop !43
 
 .loopexit:                                        ; preds = %30, %.thread, %45, %43, %7
-  %49 = phi i32 [ 0, %7 ], [ %28, %43 ], [ %28, %45 ], [ 0, %.thread ], [ 0, %30 ]
+  %49 = phi i32 [ 0, %7 ], [ %28, %45 ], [ %28, %43 ], [ 0, %.thread ], [ 0, %30 ]
   ret i32 %49
 }
 
@@ -1974,7 +1974,7 @@ define dso_local noundef range(i32 -12, 1) i32 @xhci_alloc_tt_info(ptr noundef r
   br i1 %130, label %.loopexit, label %.preheader, !llvm.loop !58
 
 .loopexit:                                        ; preds = %94, %55, %128, %126, %109, %102, %.split10.us, %12
-  %131 = phi i32 [ -12, %.split10.us ], [ -12, %102 ], [ -12, %109 ], [ 0, %12 ], [ -12, %126 ], [ -12, %128 ], [ 0, %55 ], [ 0, %94 ]
+  %131 = phi i32 [ -12, %.split10.us ], [ -12, %102 ], [ -12, %109 ], [ 0, %12 ], [ -12, %128 ], [ 0, %55 ], [ -12, %126 ], [ 0, %94 ]
   ret i32 %131
 }
 
@@ -3091,8 +3091,8 @@ default.unreachable20:                            ; preds = %68, %5
   unreachable
 
 131:                                              ; preds = %115, %.thread, %122, %121, %100, %95, %77, %73, %69
-  %.pr = phi i32 [ %67, %122 ], [ %96, %95 ], [ 3, %73 ], [ 3, %69 ], [ %67, %77 ], [ 1, %121 ], [ 2, %100 ], [ 2, %.thread ], [ %.pre.fr, %115 ]
-  %132 = phi i32 [ %129, %122 ], [ %99, %95 ], [ %76, %73 ], [ 0, %69 ], [ 0, %77 ], [ 0, %121 ], [ 0, %100 ], [ %114, %.thread ], [ %spec.select, %115 ]
+  %.pr = phi i32 [ %67, %122 ], [ 2, %100 ], [ %96, %95 ], [ 3, %73 ], [ 3, %69 ], [ %67, %77 ], [ 1, %121 ], [ %.pre.fr, %115 ], [ 2, %.thread ]
+  %132 = phi i32 [ %129, %122 ], [ 0, %100 ], [ %99, %95 ], [ %76, %73 ], [ 0, %69 ], [ 0, %77 ], [ 0, %121 ], [ %spec.select, %115 ], [ %114, %.thread ]
   %133 = load i8, ptr %25, align 1
   %134 = and i8 %133, 3
   switch i8 %134, label %thread-pre-split [
@@ -3195,8 +3195,8 @@ thread-pre-split:                                 ; preds = %135, %131, %140
   br label %.thread12
 
 .thread12:                                        ; preds = %173, %178, %182, %190
-  %195 = phi i32 [ %174, %190 ], [ %180, %178 ], [ %189, %182 ], [ %174, %173 ]
-  %196 = phi i32 [ %194, %190 ], [ %64, %178 ], [ %64, %182 ], [ %64, %173 ]
+  %195 = phi i32 [ %174, %173 ], [ %174, %190 ], [ %180, %178 ], [ %189, %182 ]
+  %196 = phi i32 [ %64, %173 ], [ %194, %190 ], [ %64, %178 ], [ %64, %182 ]
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 74
   %198 = load i16, ptr %197, align 2
   %199 = icmp ugt i16 %198, 256

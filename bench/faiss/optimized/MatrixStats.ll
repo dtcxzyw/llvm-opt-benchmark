@@ -493,9 +493,9 @@ _ZN5faiss11MatrixStats11PerDimStats3addEf.exit:   ; preds = %98, %78, %71
   br label %.loopexit160
 
 .loopexit160:                                     ; preds = %.lr.ph.i.i.i.i, %.loopexit160.loopexit, %..loopexit_crit_edge21.i.i.i.i
-  %151 = phi ptr [ %.pre227, %.loopexit160.loopexit ], [ %138, %..loopexit_crit_edge21.i.i.i.i ], [ %138, %.lr.ph.i.i.i.i ]
-  %.pre-phi = phi i64 [ %.pre226, %.loopexit160.loopexit ], [ %135, %..loopexit_crit_edge21.i.i.i.i ], [ %135, %.lr.ph.i.i.i.i ]
-  %152 = phi i64 [ %.pre222, %.loopexit160.loopexit ], [ %134, %..loopexit_crit_edge21.i.i.i.i ], [ %134, %.lr.ph.i.i.i.i ]
+  %151 = phi ptr [ %138, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre227, %.loopexit160.loopexit ], [ %138, %.lr.ph.i.i.i.i ]
+  %.pre-phi = phi i64 [ %135, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre226, %.loopexit160.loopexit ], [ %135, %.lr.ph.i.i.i.i ]
+  %152 = phi i64 [ %134, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre222, %.loopexit160.loopexit ], [ %134, %.lr.ph.i.i.i.i ]
   %.not.i.i.i.i128 = icmp eq ptr %151, null
   br i1 %.not.i.i.i.i128, label %.loopexit.i.i, label %153
 
@@ -527,7 +527,7 @@ _ZN5faiss11MatrixStats11PerDimStats3addEf.exit:   ; preds = %98, %78, %71
   br label %.loopexit.i.i, !llvm.loop !62
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i129, %133, %..loopexit_crit_edge21.i.i.i.i133, %.loopexit160
-  %.pre-phi258 = phi i64 [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i133 ], [ %.pre-phi, %.loopexit160 ], [ %135, %133 ], [ %.pre-phi, %.lr.ph.i.i.i.i129 ]
+  %.pre-phi258 = phi i64 [ %135, %133 ], [ %.pre-phi, %.loopexit160 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i133 ], [ %.pre-phi, %.lr.ph.i.i.i.i129 ]
   %165 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #22
           to label %.noexc134 unwind label %172
 
@@ -547,7 +547,7 @@ _ZNSt10_HashtableImSt4pairIKmN5faiss11MatrixStats10OccurrenceEESaIS5_ENSt8__deta
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit137
 
 .loopexit:                                        ; preds = %158, %.noexc134, %153
-  %.pn.i.i = phi ptr [ %154, %153 ], [ %168, %.noexc134 ], [ %160, %158 ]
+  %.pn.i.i = phi ptr [ %168, %.noexc134 ], [ %154, %153 ], [ %160, %158 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i64 %.0106170, ptr %.1.i.i, align 8, !tbaa !59
   %.sroa.535.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 24
@@ -565,7 +565,7 @@ _ZNSt10_HashtableImSt4pairIKmN5faiss11MatrixStats10OccurrenceEESaIS5_ENSt8__deta
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit137
 
 _ZNSt13unordered_mapImN5faiss11MatrixStats10OccurrenceESt4hashImESt8equal_toImESaISt4pairIKmS2_EEE4findERS8_.exit: ; preds = %144, %129, %139
-  %.sroa.06.1.i.i = phi ptr [ %140, %139 ], [ %.sroa.06.0.i.i, %129 ], [ %146, %144 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %129 ], [ %140, %139 ], [ %146, %144 ]
   %174 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %175 = load i64, ptr %174, align 8, !tbaa !66
   %176 = mul i64 %175, %2
@@ -856,7 +856,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %._crit_edge202.thre
   ret void
 
 _ZNSt6vectorIcSaIcEED2Ev.exit137:                 ; preds = %170, %172, %_ZNSt10_HashtableImSt4pairIKmN5faiss11MatrixStats10OccurrenceEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i, %56, %54
-  %.pn122.pn.pn = phi { ptr, i32 } [ %55, %54 ], [ %57, %56 ], [ %171, %170 ], [ %173, %172 ], [ %169, %_ZNSt10_HashtableImSt4pairIKmN5faiss11MatrixStats10OccurrenceEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i ]
+  %.pn122.pn.pn = phi { ptr, i32 } [ %55, %54 ], [ %57, %56 ], [ %169, %_ZNSt10_HashtableImSt4pairIKmN5faiss11MatrixStats10OccurrenceEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i ], [ %171, %170 ], [ %173, %172 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef 10000) #23
   br label %299
 

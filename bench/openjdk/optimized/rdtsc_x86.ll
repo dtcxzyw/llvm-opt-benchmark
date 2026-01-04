@@ -320,7 +320,7 @@ _ZL26initialize_elapsed_counterv.exit:            ; preds = %85, %.thread29.i.i,
   br label %_ZL10ergonomicsv.exit
 
 _ZL10ergonomicsv.exit:                            ; preds = %.sink.split.i, %98, %_ZL26initialize_elapsed_counterv.exit.thread, %_ZL26initialize_elapsed_counterv.exit
-  %.0.in = phi i1 [ false, %_ZL26initialize_elapsed_counterv.exit ], [ false, %_ZL26initialize_elapsed_counterv.exit.thread ], [ %.not.i, %.sink.split.i ], [ %101, %98 ]
+  %.0.in = phi i1 [ false, %_ZL26initialize_elapsed_counterv.exit.thread ], [ false, %_ZL26initialize_elapsed_counterv.exit ], [ %.not.i, %.sink.split.i ], [ %101, %98 ]
   %104 = zext i1 %.0.in to i8
   store i8 %104, ptr @_ZL29rdtsc_elapsed_counter_enabled, align 1
   store i1 true, ptr @_ZZN5Rdtsc10initializeEvE11initialized, align 1

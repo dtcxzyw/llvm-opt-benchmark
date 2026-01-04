@@ -1967,8 +1967,8 @@ _piwigo_api_set_info.exit:                        ; preds = %200, %203, %209, %2
   br label %312
 
 .critedge150:                                     ; preds = %158, %.critedge, %155
-  %219 = phi i1 [ false, %155 ], [ false, %.critedge ], [ true, %158 ]
-  %.0167 = phi i32 [ %156, %155 ], [ -1, %.critedge ], [ %156, %158 ]
+  %219 = phi i1 [ true, %158 ], [ false, %155 ], [ false, %.critedge ]
+  %.0167 = phi i32 [ %156, %158 ], [ %156, %155 ], [ -1, %.critedge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -2146,8 +2146,8 @@ _piwigo_api_upload_photo.exit:                    ; preds = %287, %290, %296, %2
   br label %312
 
 312:                                              ; preds = %158, %217, %_piwigo_api_set_info.exit, %304, %308, %306, %151
-  %.1115 = phi i1 [ true, %151 ], [ true, %_piwigo_api_set_info.exit ], [ true, %217 ], [ true, %308 ], [ true, %306 ], [ true, %304 ], [ false, %158 ]
-  %.1 = phi i32 [ 0, %151 ], [ 0, %_piwigo_api_set_info.exit ], [ 1, %217 ], [ 0, %308 ], [ 0, %306 ], [ 1, %304 ], [ 0, %158 ]
+  %.1115 = phi i1 [ true, %151 ], [ true, %_piwigo_api_set_info.exit ], [ true, %217 ], [ true, %304 ], [ true, %308 ], [ true, %306 ], [ false, %158 ]
+  %.1 = phi i32 [ 0, %151 ], [ 0, %_piwigo_api_set_info.exit ], [ 1, %217 ], [ 1, %304 ], [ 0, %308 ], [ 0, %306 ], [ 0, %158 ]
   %313 = getelementptr inbounds nuw i8, ptr %1, i64 4144
   %314 = load ptr, ptr %313, align 8, !tbaa !138
   %.not146 = icmp eq ptr %314, null
@@ -2371,43 +2371,43 @@ _piwigo_api_post.exit:                            ; preds = %5, %36, %42, %45
   %.not7284.not = icmp eq i32 %79, 0
   br i1 %.not7284.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %77, %88
-  %.06285 = phi i32 [ %89, %88 ], [ 0, %77 ]
+.lr.ph:                                           ; preds = %77, %86
+  %.06285 = phi i32 [ %87, %86 ], [ 0, %77 ]
   %80 = call ptr @json_array_get_object_element(ptr noundef %78, i32 noundef %.06285) #16
   %81 = call i32 @json_object_has_member(ptr noundef %80, ptr noundef nonnull @.str.114) #16
   %.not71 = icmp eq i32 %81, 0
-  br i1 %.not71, label %88, label %82
+  br i1 %.not71, label %86, label %82
 
 82:                                               ; preds = %.lr.ph
   %83 = call ptr @json_object_get_string_member(ptr noundef %80, ptr noundef nonnull @.str.114) #16
   %84 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %47, ptr noundef nonnull dereferenceable(1) %83) #18
   %85 = icmp eq i32 %84, 0
-  br i1 %85, label %.thread78, label %88
+  br i1 %85, label %91, label %86
 
-.thread78:                                        ; preds = %82
-  call void @g_free(ptr noundef nonnull %47) #16
-  %86 = call i64 @json_object_get_int_member(ptr noundef %80, ptr noundef nonnull @.str.70) #16
-  %87 = trunc i64 %86 to i32
-  br label %93
-
-88:                                               ; preds = %82, %.lr.ph
-  %89 = add nuw nsw i32 %.06285, 1
-  %90 = call i32 @json_array_get_length(ptr noundef %78) #16
-  %.not72 = icmp ult i32 %89, %90
+86:                                               ; preds = %82, %.lr.ph
+  %87 = add nuw nsw i32 %.06285, 1
+  %88 = call i32 @json_array_get_length(ptr noundef %78) #16
+  %.not72 = icmp ult i32 %87, %88
   br i1 %.not72, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %88, %77
+._crit_edge:                                      ; preds = %86, %77
   call void @g_free(ptr noundef %47) #16
-  %91 = add nsw i32 %4, 1
-  %92 = call fastcc i32 @_piwigo_api_get_image_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %91)
-  br label %93
+  %89 = add nsw i32 %4, 1
+  %90 = call fastcc i32 @_piwigo_api_get_image_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %89)
+  br label %94
 
-.thread81:                                        ; preds = %72, %67, %69, %64, %56, %61, %54, %51, %_piwigo_api_post.exit
+91:                                               ; preds = %82
+  call void @g_free(ptr noundef nonnull %47) #16
+  %92 = call i64 @json_object_get_int_member(ptr noundef %80, ptr noundef nonnull @.str.70) #16
+  %93 = trunc i64 %92 to i32
+  br label %94
+
+.thread81:                                        ; preds = %72, %69, %67, %64, %61, %56, %54, %51, %_piwigo_api_post.exit
   call void @g_free(ptr noundef %47) #16
-  br label %93
+  br label %94
 
-93:                                               ; preds = %.thread78, %._crit_edge, %.thread81
-  %.11 = phi i32 [ -1, %.thread81 ], [ %92, %._crit_edge ], [ %87, %.thread78 ]
+94:                                               ; preds = %91, %._crit_edge, %.thread81
+  %.11 = phi i32 [ -1, %.thread81 ], [ %93, %91 ], [ %90, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.11

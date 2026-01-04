@@ -263,8 +263,8 @@ _set_exit_code.exit:                              ; preds = %32, %38, %40
   br label %84
 
 84:                                               ; preds = %81, %68, %66
-  %.044.i = phi i32 [ %69, %81 ], [ 0, %66 ], [ %69, %68 ]
-  %.043.i = phi i32 [ %83, %81 ], [ 8192, %66 ], [ 8192, %68 ]
+  %.044.i = phi i32 [ %69, %68 ], [ %69, %81 ], [ 0, %66 ]
+  %.043.i = phi i32 [ 8192, %68 ], [ %83, %81 ], [ 8192, %66 ]
   %85 = sext i32 %.043.i to i64
   %86 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %85, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.7, i32 noundef 640, ptr noundef nonnull @__func__._get_script_buffer) #14
   store ptr %86, ptr %9, align 8
@@ -487,9 +487,9 @@ _get_script_buffer.exit:                          ; preds = %._crit_edge.i.i, %1
   br label %178
 
 178:                                              ; preds = %174, %169
-  %.1106 = phi ptr [ %173, %169 ], [ %.0105197, %174 ]
-  %.1104 = phi i32 [ %171, %169 ], [ %.0103198, %174 ]
-  %.196 = phi i1 [ false, %169 ], [ %177, %174 ]
+  %.1106 = phi ptr [ %.0105197, %174 ], [ %173, %169 ]
+  %.1104 = phi i32 [ %.0103198, %174 ], [ %171, %169 ]
+  %.196 = phi i1 [ %177, %174 ], [ false, %169 ]
   %179 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 88), align 8
   %.not142 = icmp eq ptr %179, null
   br i1 %.not142, label %188, label %180

@@ -1120,7 +1120,7 @@ _ZNK8rawspeed9TiffEntry12getSRationalEj.exit:     ; preds = %2
   br label %82
 
 82:                                               ; preds = %78, %_ZNK8rawspeed9TiffEntry12getSRationalEj.exit, %70, %_ZNK8rawspeed9TiffEntry11getRationalEj.exit, %63, %60, %_ZNK8rawspeed10ByteStream4peekIfEET_j.exit, %_ZNK8rawspeed10ByteStream4peekIdEET_j.exit
-  %.0 = phi float [ %34, %_ZNK8rawspeed10ByteStream4peekIdEET_j.exit ], [ %59, %_ZNK8rawspeed10ByteStream4peekIfEET_j.exit ], [ %62, %60 ], [ %65, %63 ], [ %73, %70 ], [ 0.000000e+00, %_ZNK8rawspeed9TiffEntry11getRationalEj.exit ], [ %81, %78 ], [ 0.000000e+00, %_ZNK8rawspeed9TiffEntry12getSRationalEj.exit ]
+  %.0 = phi float [ 0.000000e+00, %_ZNK8rawspeed9TiffEntry11getRationalEj.exit ], [ %34, %_ZNK8rawspeed10ByteStream4peekIdEET_j.exit ], [ %59, %_ZNK8rawspeed10ByteStream4peekIfEET_j.exit ], [ %62, %60 ], [ %65, %63 ], [ 0.000000e+00, %_ZNK8rawspeed9TiffEntry12getSRationalEj.exit ], [ %73, %70 ], [ %81, %78 ]
   ret float %.0
 }
 
@@ -1264,7 +1264,7 @@ _ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit30: ; preds = %41
   br label %_ZSt4findIPKhcET_S2_S2_RKT0_.exit
 
 _ZSt4findIPKhcET_S2_S2_RKT0_.exit:                ; preds = %30, %_ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit28, %_ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit30, %50, %._crit_edge._crit_edge.i.i.i, %._crit_edge._crit_edge52.i.i.i, %61
-  %.028.i.i.i = phi ptr [ %25, %61 ], [ %.029.lcssa.i.i.i, %50 ], [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %62, %_ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit ], [ %63, %_ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit28 ], [ %64, %_ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit30 ], [ %.02946.i.i.i, %30 ]
+  %.028.i.i.i = phi ptr [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %25, %61 ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %.029.lcssa.i.i.i, %50 ], [ %64, %_ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit30 ], [ %63, %_ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit28 ], [ %62, %_ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i, %30 ]
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %65, ptr %0, align 8, !tbaa !44
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8

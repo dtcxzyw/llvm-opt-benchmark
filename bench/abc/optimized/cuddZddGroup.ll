@@ -168,7 +168,7 @@ define internal fastcc range(i32 0, 2) i32 @zddTreeSiftingAux(ptr noundef %0, pt
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %6, %8, %15, %17, %3
-  %.0 = phi i32 [ 1, %3 ], [ 1, %17 ], [ 0, %15 ], [ 0, %8 ], [ 0, %6 ]
+  %.0 = phi i32 [ 1, %3 ], [ 0, %8 ], [ 1, %17 ], [ 0, %15 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -677,7 +677,7 @@ zddFindNodeHiLo.exit:                             ; preds = %.preheader.i, %9, %
   br i1 %or.cond3, label %230, label %zddGroupSifting.exit, !llvm.loop !64
 
 zddGroupSifting.exit:                             ; preds = %230, %50, %227, %226, %224, %._crit_edge121.i, %.thread152.i, %.thread, %40, %46, %48, %56, %58, %228
-  %.0 = phi i32 [ %47, %46 ], [ %49, %48 ], [ %57, %56 ], [ %59, %58 ], [ %229, %228 ], [ 1, %40 ], [ 1, %._crit_edge121.i ], [ 1, %224 ], [ 0, %227 ], [ 0, %226 ], [ 0, %.thread152.i ], [ 0, %.thread ], [ %52, %50 ], [ %232, %230 ]
+  %.0 = phi i32 [ %52, %50 ], [ %47, %46 ], [ %49, %48 ], [ 0, %.thread ], [ %57, %56 ], [ %59, %58 ], [ 1, %40 ], [ %229, %228 ], [ 1, %224 ], [ 1, %._crit_edge121.i ], [ 0, %227 ], [ 0, %226 ], [ 0, %.thread152.i ], [ %232, %230 ]
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %237 = load ptr, ptr %236, align 8, !tbaa !26
   %.not.i32 = icmp eq ptr %1, %237
@@ -740,7 +740,7 @@ zddGroupSifting.exit:                             ; preds = %230, %50, %227, %22
   br i1 %.not24.i, label %255, label %zddMergeGroups.exit
 
 zddMergeGroups.exit:                              ; preds = %260, %255, %3, %43, %zddFindNodeHiLo.exit
-  %.027 = phi i32 [ 1, %zddFindNodeHiLo.exit ], [ 0, %43 ], [ 1, %3 ], [ %.0, %255 ], [ %.0, %260 ]
+  %.027 = phi i32 [ 1, %zddFindNodeHiLo.exit ], [ 1, %3 ], [ 0, %43 ], [ %.0, %255 ], [ %.0, %260 ]
   ret i32 %.027
 }
 
@@ -906,7 +906,7 @@ define internal fastcc range(i32 0, 2) i32 @zddGroupSiftingDown(ptr noundef %0, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %34, %50, %57, %4, %59, %..loopexit_crit_edge
-  %.069 = phi i32 [ 0, %..loopexit_crit_edge ], [ 0, %59 ], [ 1, %4 ], [ 1, %57 ], [ 1, %50 ], [ 1, %34 ]
+  %.069 = phi i32 [ 0, %59 ], [ 0, %..loopexit_crit_edge ], [ 1, %4 ], [ 1, %57 ], [ 1, %50 ], [ 1, %34 ]
   ret i32 %.069
 }
 
@@ -1092,7 +1092,7 @@ zddGroupMoveBackward.exit:                        ; preds = %.lr.ph85.i, %._crit
   br i1 %.not31, label %zddGroupMoveBackward.exit.thread, label %9, !llvm.loop !79
 
 zddGroupMoveBackward.exit.thread:                 ; preds = %9, %29, %84, %51, %3
-  %.027 = phi i32 [ 1, %3 ], [ 0, %51 ], [ 1, %9 ], [ 0, %29 ], [ 1, %84 ]
+  %.027 = phi i32 [ 0, %51 ], [ 1, %3 ], [ 1, %9 ], [ 0, %29 ], [ 1, %84 ]
   ret i32 %.027
 }
 
@@ -1208,7 +1208,7 @@ define internal fastcc range(i32 0, 2) i32 @zddGroupSiftingUp(ptr noundef %0, i3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %29, %43, %49, %4, %51, %..loopexit_crit_edge
-  %.059 = phi i32 [ 0, %..loopexit_crit_edge ], [ 0, %51 ], [ 1, %4 ], [ 1, %49 ], [ 1, %43 ], [ 1, %29 ]
+  %.059 = phi i32 [ 0, %51 ], [ 0, %..loopexit_crit_edge ], [ 1, %4 ], [ 1, %49 ], [ 1, %43 ], [ 1, %29 ]
   ret i32 %.059
 }
 

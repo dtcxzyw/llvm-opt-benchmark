@@ -438,7 +438,7 @@ stream_frame_free.exit:                           ; preds = %114, %117, %120
   br label %.critedge97
 
 .critedge97:                                      ; preds = %.lr.ph154, %.preheader, %59, %37, %stream_frame_new.exit.thread, %144
-  %.0 = phi i32 [ 1, %144 ], [ 0, %stream_frame_new.exit.thread ], [ 0, %37 ], [ 0, %59 ], [ 0, %.preheader ], [ 0, %.lr.ph154 ]
+  %.0 = phi i32 [ 1, %144 ], [ 0, %37 ], [ 0, %stream_frame_new.exit.thread ], [ 0, %59 ], [ 0, %.preheader ], [ 0, %.lr.ph154 ]
   ret i32 %.0
 }
 

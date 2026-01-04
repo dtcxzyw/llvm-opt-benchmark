@@ -110,7 +110,7 @@ define internal range(i32 -1094995529, 1) i32 @mp_decode_init(ptr noundef %0) #0
   br label %53
 
 53:                                               ; preds = %47, %8, %45, %51, %7
-  %.0 = phi i32 [ -1094995529, %7 ], [ 0, %51 ], [ -12, %45 ], [ -12, %8 ], [ -12, %47 ]
+  %.0 = phi i32 [ -1094995529, %7 ], [ 0, %51 ], [ -12, %8 ], [ -12, %45 ], [ -12, %47 ]
   ret i32 %.0
 }
 
@@ -1127,7 +1127,7 @@ mp_decode_frame_helper.exit:                      ; preds = %._crit_edge.i71
   tail call void @ff_vlc_free(ptr noundef nonnull %708) #11
   br label %mp_read_codes_table.exit.thread
 
-mp_read_codes_table.exit.thread:                  ; preds = %160, %._crit_edge.i, %194, %190, %84, %mp_decode_frame_helper.exit
+mp_read_codes_table.exit.thread:                  ; preds = %._crit_edge.i, %160, %194, %190, %84, %mp_decode_frame_helper.exit
   %709 = load ptr, ptr %12, align 8, !tbaa !44
   %710 = tail call i32 @av_frame_ref(ptr noundef %1, ptr noundef %709) #11
   %711 = icmp slt i32 %710, 0
@@ -1138,7 +1138,7 @@ mp_read_codes_table.exit.thread:                  ; preds = %160, %._crit_edge.i
   br label %713
 
 713:                                              ; preds = %mp_read_codes_table.exit.thread, %16, %4, %712
-  %.060 = phi i32 [ %9, %712 ], [ %14, %4 ], [ -12, %16 ], [ %710, %mp_read_codes_table.exit.thread ]
+  %.060 = phi i32 [ %14, %4 ], [ -12, %16 ], [ %9, %712 ], [ %710, %mp_read_codes_table.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.060
 }
@@ -1640,7 +1640,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @mp_get_code(ptr noundef ca
   br label %.loopexit
 
 .loopexit:                                        ; preds = %26, %36, %34, %24
-  %.016 = phi i32 [ -1094995529, %24 ], [ -1094995529, %34 ], [ 0, %36 ], [ -1094995529, %26 ]
+  %.016 = phi i32 [ -1094995529, %24 ], [ 0, %36 ], [ -1094995529, %34 ], [ -1094995529, %26 ]
   ret i32 %.016
 }
 

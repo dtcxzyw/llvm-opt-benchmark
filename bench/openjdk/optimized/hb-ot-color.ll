@@ -2738,7 +2738,7 @@ _ZNK2OT23IndexSubtableFormat1Or3INS_7IntTypeIjLj4EEEE14get_image_dataEjPjS4_.exi
   br label %_ZNK2OT23IndexSubtableFormat1Or3INS_7IntTypeIjLj4EEEE14get_image_dataEjPjS4_.exit
 
 _ZNK2OT23IndexSubtableFormat1Or3INS_7IntTypeIjLj4EEEE14get_image_dataEjPjS4_.exit: ; preds = %_ZNK2OT23IndexSubtableFormat1Or3INS_7IntTypeIjLj4EEEE14get_image_dataEjPjS4_.exit.sink.split, %106, %20, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %20 ], [ false, %106 ], [ true, %_ZNK2OT23IndexSubtableFormat1Or3INS_7IntTypeIjLj4EEEE14get_image_dataEjPjS4_.exit.sink.split ]
+  %.0 = phi i1 [ false, %106 ], [ false, %5 ], [ false, %20 ], [ true, %_ZNK2OT23IndexSubtableFormat1Or3INS_7IntTypeIjLj4EEEE14get_image_dataEjPjS4_.exit.sink.split ]
   ret i1 %.0
 }
 
@@ -2938,7 +2938,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   br i1 %26, label %28, label %33
 
 28:                                               ; preds = %25
-  br i1 %.not19, label %.critedge23, label %29
+  br i1 %.not19, label %.critedge25, label %29
 
 29:                                               ; preds = %28
   store i32 0, ptr %10, align 4
@@ -2956,7 +2956,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   %34 = load i8, ptr %5, align 8
   %35 = trunc i8 %34 to i1
   %or.cond = select i1 %.not19, i1 true, i1 %35
-  br i1 %or.cond, label %.critedge25, label %36
+  br i1 %or.cond, label %.critedge23, label %36
 
 36:                                               ; preds = %33
   %37 = tail call ptr @hb_blob_get_data_writable(ptr noundef %1, ptr noundef null)
@@ -2966,27 +2966,27 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 %39
   store ptr %40, ptr %7, align 8
   %.not18 = icmp eq ptr %37, null
-  br i1 %.not18, label %.critedge25, label %13
+  br i1 %.not18, label %.critedge23, label %13
 
-.critedge23:                                      ; preds = %28
+.critedge25:                                      ; preds = %28
   %41 = load ptr, ptr %4, align 8
   tail call void @hb_blob_destroy(ptr noundef %41)
   store ptr null, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   br label %42
 
-42:                                               ; preds = %29, %.critedge23
+42:                                               ; preds = %29, %.critedge25
   tail call void @hb_blob_make_immutable(ptr noundef %1)
   br label %45
 
-.critedge25:                                      ; preds = %33, %36
+.critedge23:                                      ; preds = %36, %33
   %43 = load ptr, ptr %4, align 8
   tail call void @hb_blob_destroy(ptr noundef %43)
   store ptr null, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   br label %.critedge
 
-.critedge:                                        ; preds = %29, %.critedge25
+.critedge:                                        ; preds = %29, %.critedge23
   tail call void @hb_blob_destroy(ptr noundef %1)
   %44 = tail call ptr @hb_blob_get_empty()
   br label %45
@@ -3118,7 +3118,7 @@ _ZNK2OT14UnsizedArrayOfINS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_co
   br label %.thread
 
 .thread:                                          ; preds = %53, %_ZNK2OT14UnsizedArrayOfINS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_tj.exit, %13, %44, %_ZNK2OT14UnsizedArrayOfINS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_tj.exit, %67, %73, %2
-  %96 = phi i1 [ false, %2 ], [ true, %67 ], [ %95, %73 ], [ false, %_ZNK2OT14UnsizedArrayOfINS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_tj.exit ], [ false, %44 ], [ false, %13 ], [ false, %_ZNK2OT14UnsizedArrayOfINS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_tj.exit ], [ false, %53 ]
+  %96 = phi i1 [ false, %13 ], [ %95, %73 ], [ false, %2 ], [ true, %67 ], [ false, %_ZNK2OT14UnsizedArrayOfINS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_tj.exit ], [ false, %53 ], [ false, %44 ], [ false, %_ZNK2OT14UnsizedArrayOfINS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_tj.exit ]
   ret i1 %96
 }
 
@@ -3307,7 +3307,7 @@ _ZNK2OT14UnsizedArrayOfINS_5IndexEE16sanitize_shallowEP21hb_sanitize_context_tj.
   br label %.thread
 
 .thread:                                          ; preds = %106, %123, %109, %_ZNK2OT14UnsizedArrayOfINS_5IndexEE16sanitize_shallowEP21hb_sanitize_context_tj.exit37, %70, %84, %67, %_ZNK2OT14UnsizedArrayOfINS_5IndexEE16sanitize_shallowEP21hb_sanitize_context_tj.exit, %31, %45, %28, %_ZNK2OT14UnsizedArrayOfINS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_tj.exit, %93, %5
-  %132 = phi i1 [ false, %5 ], [ true, %93 ], [ false, %_ZNK2OT14UnsizedArrayOfINS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_tj.exit ], [ false, %28 ], [ false, %45 ], [ false, %31 ], [ false, %_ZNK2OT14UnsizedArrayOfINS_5IndexEE16sanitize_shallowEP21hb_sanitize_context_tj.exit ], [ false, %67 ], [ false, %84 ], [ false, %70 ], [ false, %106 ], [ false, %123 ], [ false, %109 ], [ %131, %_ZNK2OT14UnsizedArrayOfINS_5IndexEE16sanitize_shallowEP21hb_sanitize_context_tj.exit37 ]
+  %132 = phi i1 [ false, %31 ], [ false, %70 ], [ false, %5 ], [ true, %93 ], [ false, %_ZNK2OT14UnsizedArrayOfINS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_tj.exit ], [ false, %28 ], [ false, %45 ], [ false, %_ZNK2OT14UnsizedArrayOfINS_5IndexEE16sanitize_shallowEP21hb_sanitize_context_tj.exit ], [ false, %67 ], [ false, %84 ], [ false, %109 ], [ %131, %_ZNK2OT14UnsizedArrayOfINS_5IndexEE16sanitize_shallowEP21hb_sanitize_context_tj.exit37 ], [ false, %106 ], [ false, %123 ]
   ret i1 %132
 }
 
@@ -3487,7 +3487,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   br i1 %26, label %28, label %33
 
 28:                                               ; preds = %25
-  br i1 %.not19, label %.critedge23, label %29
+  br i1 %.not19, label %.critedge25, label %29
 
 29:                                               ; preds = %28
   store i32 0, ptr %10, align 4
@@ -3505,7 +3505,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   %34 = load i8, ptr %5, align 8
   %35 = trunc i8 %34 to i1
   %or.cond = select i1 %.not19, i1 true, i1 %35
-  br i1 %or.cond, label %.critedge25, label %36
+  br i1 %or.cond, label %.critedge23, label %36
 
 36:                                               ; preds = %33
   %37 = tail call ptr @hb_blob_get_data_writable(ptr noundef %1, ptr noundef null)
@@ -3515,27 +3515,27 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 %39
   store ptr %40, ptr %7, align 8
   %.not18 = icmp eq ptr %37, null
-  br i1 %.not18, label %.critedge25, label %13
+  br i1 %.not18, label %.critedge23, label %13
 
-.critedge23:                                      ; preds = %28
+.critedge25:                                      ; preds = %28
   %41 = load ptr, ptr %4, align 8
   tail call void @hb_blob_destroy(ptr noundef %41)
   store ptr null, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   br label %42
 
-42:                                               ; preds = %29, %.critedge23
+42:                                               ; preds = %29, %.critedge25
   tail call void @hb_blob_make_immutable(ptr noundef %1)
   br label %45
 
-.critedge25:                                      ; preds = %33, %36
+.critedge23:                                      ; preds = %36, %33
   %43 = load ptr, ptr %4, align 8
   tail call void @hb_blob_destroy(ptr noundef %43)
   store ptr null, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   br label %.critedge
 
-.critedge:                                        ; preds = %29, %.critedge25
+.critedge:                                        ; preds = %29, %.critedge23
   tail call void @hb_blob_destroy(ptr noundef %1)
   %44 = tail call ptr @hb_blob_get_empty()
   br label %45
@@ -3957,7 +3957,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i68: ; preds = %288
   br label %.thread
 
 .thread:                                          ; preds = %.thread103, %275, %263, %288, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i68, %296, %88, %.thread.fold.split, %247, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i65, %.thread97, %206, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i62, %.thread91, %165, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i59, %.thread85, %124, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %95, %53, %_ZNK2OT14UnsizedArrayOfINS_11LayerRecordEE16sanitize_shallowEP21hb_sanitize_context_tj.exit, %13, %44, %_ZNK2OT14UnsizedArrayOfINS_15BaseGlyphRecordEE16sanitize_shallowEP21hb_sanitize_context_tj.exit, %2
-  %297 = phi i1 [ false, %2 ], [ true, %88 ], [ false, %_ZNK2OT14UnsizedArrayOfINS_15BaseGlyphRecordEE16sanitize_shallowEP21hb_sanitize_context_tj.exit ], [ false, %44 ], [ false, %13 ], [ false, %_ZNK2OT14UnsizedArrayOfINS_11LayerRecordEE16sanitize_shallowEP21hb_sanitize_context_tj.exit ], [ false, %53 ], [ false, %95 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ false, %124 ], [ false, %.thread85 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i59 ], [ false, %165 ], [ false, %.thread91 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i62 ], [ false, %206 ], [ false, %.thread97 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i65 ], [ false, %247 ], [ false, %.thread.fold.split ], [ false, %.thread103 ], [ true, %275 ], [ true, %263 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i68 ], [ true, %296 ], [ false, %288 ]
+  %297 = phi i1 [ false, %13 ], [ false, %206 ], [ false, %2 ], [ true, %88 ], [ false, %.thread97 ], [ false, %.thread91 ], [ false, %.thread85 ], [ false, %95 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i65 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i62 ], [ false, %53 ], [ false, %124 ], [ false, %165 ], [ false, %_ZNK2OT14UnsizedArrayOfINS_15BaseGlyphRecordEE16sanitize_shallowEP21hb_sanitize_context_tj.exit ], [ false, %.thread.fold.split ], [ false, %44 ], [ false, %_ZNK2OT14UnsizedArrayOfINS_11LayerRecordEE16sanitize_shallowEP21hb_sanitize_context_tj.exit ], [ false, %247 ], [ false, %288 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i59 ], [ false, %.thread103 ], [ true, %275 ], [ true, %263 ], [ true, %296 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i68 ]
   ret i1 %297
 }
 
@@ -4119,7 +4119,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i: ; preds = %_ZN21hb_sani
   br i1 %exitcond.not, label %_ZN21hb_sanitize_context_t8dispatchIN2OT20BaseGlyphPaintRecordEJPKNS1_13BaseGlyphListEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS8_.exit, label %61, !llvm.loop !16
 
 _ZN21hb_sanitize_context_t8dispatchIN2OT20BaseGlyphPaintRecordEJPKNS1_13BaseGlyphListEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS8_.exit: ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i, %_ZN21hb_sanitize_context_t8dispatchIN2OT5PaintEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread.i.i.i, %61, %106, %43, %33, %12, %2, %_ZNK2OT7ArrayOfINS_20BaseGlyphPaintRecordENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit
-  %.0 = phi i1 [ false, %_ZNK2OT7ArrayOfINS_20BaseGlyphPaintRecordENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit ], [ false, %2 ], [ false, %12 ], [ false, %33 ], [ true, %43 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT5PaintEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread.i.i.i ], [ false, %61 ], [ true, %106 ]
+  %.0 = phi i1 [ false, %_ZNK2OT7ArrayOfINS_20BaseGlyphPaintRecordENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit ], [ false, %33 ], [ false, %2 ], [ false, %12 ], [ true, %43 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i ], [ false, %61 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT5PaintEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread.i.i.i ], [ true, %106 ]
   ret i1 %.0
 }
 
@@ -4320,7 +4320,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT5Paint8dispatchI21hb_sanit
   br label %92
 
 92:                                               ; preds = %12, %2, %90, %88, %86, %84, %82, %80, %78, %76, %74, %72, %70, %68, %66, %64, %62, %60, %58, %56, %54, %52, %50, %45, %43, %41, %39, %37, %35, %33, %31, %23, %19, %14
-  %.0 = phi i1 [ %18, %14 ], [ %.not.i.i.i, %19 ], [ %narrow.i.i.i, %23 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %49, %45 ], [ %51, %50 ], [ %53, %52 ], [ %55, %54 ], [ %57, %56 ], [ %59, %58 ], [ %61, %60 ], [ %63, %62 ], [ %65, %64 ], [ %67, %66 ], [ %69, %68 ], [ %71, %70 ], [ %73, %72 ], [ %75, %74 ], [ %77, %76 ], [ %79, %78 ], [ %81, %80 ], [ %83, %82 ], [ %85, %84 ], [ %87, %86 ], [ %89, %88 ], [ %91, %90 ], [ false, %2 ], [ true, %12 ]
+  %.0 = phi i1 [ false, %2 ], [ %18, %14 ], [ %.not.i.i.i, %19 ], [ %narrow.i.i.i, %23 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %49, %45 ], [ %51, %50 ], [ %53, %52 ], [ %55, %54 ], [ %57, %56 ], [ %59, %58 ], [ %61, %60 ], [ %63, %62 ], [ %65, %64 ], [ %67, %66 ], [ %69, %68 ], [ %71, %70 ], [ %73, %72 ], [ %75, %74 ], [ %77, %76 ], [ %79, %78 ], [ %81, %80 ], [ %83, %82 ], [ %85, %84 ], [ %87, %86 ], [ %89, %88 ], [ %91, %90 ], [ true, %12 ]
   ret i1 %.0
 }
 
@@ -4419,7 +4419,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i: ; preds = %_ZN21hb_sani
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_19PaintLinearGradientIS2_EEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS6_.exit
 
 _ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_19PaintLinearGradientIS2_EEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS6_.exit: ; preds = %2, %13, %18, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i, %64
-  %65 = phi i1 [ false, %2 ], [ false, %13 ], [ true, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i ], [ true, %18 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i ], [ true, %64 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i ]
+  %65 = phi i1 [ false, %2 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i ], [ false, %13 ], [ true, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i ], [ true, %18 ], [ true, %64 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i ]
   ret i1 %65
 }
 
@@ -4523,7 +4523,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i: ; preds = %_ZN21hb_sani
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT8VariableINS1_19PaintLinearGradientIS2_EEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS6_.exit
 
 _ZN21hb_sanitize_context_t9_dispatchIN2OT8VariableINS1_19PaintLinearGradientIS2_EEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS6_.exit: ; preds = %2, %16, %21, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i, %67
-  %68 = phi i1 [ false, %2 ], [ false, %16 ], [ true, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i ], [ true, %21 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i ], [ true, %67 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i ]
+  %68 = phi i1 [ false, %2 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i ], [ false, %16 ], [ true, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i ], [ true, %21 ], [ true, %67 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i ]
   ret i1 %68
 }
 
@@ -4622,7 +4622,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i: ; preds = %_ZN21hb_sani
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_19PaintRadialGradientIS2_EEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS6_.exit
 
 _ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_19PaintRadialGradientIS2_EEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS6_.exit: ; preds = %2, %13, %18, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i, %64
-  %65 = phi i1 [ false, %2 ], [ false, %13 ], [ true, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i ], [ true, %18 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i ], [ true, %64 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i ]
+  %65 = phi i1 [ false, %2 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i ], [ false, %13 ], [ true, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i ], [ true, %18 ], [ true, %64 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i ]
   ret i1 %65
 }
 
@@ -4726,7 +4726,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i: ; preds = %_ZN21hb_sani
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT8VariableINS1_19PaintRadialGradientIS2_EEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS6_.exit
 
 _ZN21hb_sanitize_context_t9_dispatchIN2OT8VariableINS1_19PaintRadialGradientIS2_EEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS6_.exit: ; preds = %2, %16, %21, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i, %67
-  %68 = phi i1 [ false, %2 ], [ false, %16 ], [ true, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i ], [ true, %21 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i ], [ true, %67 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i ]
+  %68 = phi i1 [ false, %2 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i ], [ false, %16 ], [ true, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i ], [ true, %21 ], [ true, %67 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i ]
   ret i1 %68
 }
 
@@ -4825,7 +4825,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i: ; preds = %_ZN21hb_sani
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_18PaintSweepGradientIS2_EEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS6_.exit
 
 _ZN21hb_sanitize_context_t9_dispatchIN2OT10NoVariableINS1_18PaintSweepGradientIS2_EEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS6_.exit: ; preds = %2, %13, %18, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i, %64
-  %65 = phi i1 [ false, %2 ], [ false, %13 ], [ true, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i ], [ true, %18 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i ], [ true, %64 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i ]
+  %65 = phi i1 [ false, %2 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i ], [ false, %13 ], [ true, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_10NoVariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i ], [ true, %18 ], [ true, %64 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i ]
   ret i1 %65
 }
 
@@ -4929,7 +4929,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i: ; preds = %_ZN21hb_sani
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT8VariableINS1_18PaintSweepGradientIS2_EEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS6_.exit
 
 _ZN21hb_sanitize_context_t9_dispatchIN2OT8VariableINS1_18PaintSweepGradientIS2_EEEEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS6_.exit: ; preds = %2, %16, %21, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i, %67
-  %68 = phi i1 [ false, %2 ], [ false, %16 ], [ true, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i ], [ true, %21 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i ], [ true, %67 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i ]
+  %68 = phi i1 [ false, %2 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread.i.i.i ], [ false, %16 ], [ true, %_ZN21hb_sanitize_context_t8dispatchIN2OT9ColorLineINS1_8VariableEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.i.i.i ], [ true, %21 ], [ true, %67 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i ]
   ret i1 %68
 }
 
@@ -5014,7 +5014,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %_ZNK2OT5Paint8sani
   br label %_ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEELb1EE6neuterEP21hb_sanitize_context_t.exit
 
 _ZNK2OT8OffsetToINS_5PaintENS_7IntTypeIjLj3EEELb1EE6neuterEP21hb_sanitize_context_t.exit: ; preds = %12, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, %17, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %48, %2
-  %49 = phi i1 [ false, %2 ], [ false, %12 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %17 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ true, %48 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
+  %49 = phi i1 [ false, %2 ], [ false, %12 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %17 ], [ true, %48 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
   ret i1 %49
 }
 
@@ -5154,7 +5154,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i25: ; preds = %75
   br label %.thread35
 
 .thread35:                                        ; preds = %.thread, %63, %54, %75, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i25, %83, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %12, %2
-  %84 = phi i1 [ false, %2 ], [ false, %12 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ], [ false, %.thread ], [ true, %63 ], [ true, %54 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i25 ], [ true, %83 ], [ false, %75 ]
+  %84 = phi i1 [ false, %12 ], [ false, %2 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ false, %.thread ], [ true, %63 ], [ true, %54 ], [ true, %83 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i25 ], [ false, %75 ]
   ret i1 %84
 }
 
@@ -5299,7 +5299,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i25: ; preds = %79
   br label %.thread35
 
 .thread35:                                        ; preds = %.thread, %63, %54, %79, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i25, %87, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %12, %2
-  %88 = phi i1 [ false, %2 ], [ false, %12 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ], [ false, %.thread ], [ true, %63 ], [ true, %54 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i25 ], [ true, %87 ], [ false, %79 ]
+  %88 = phi i1 [ false, %12 ], [ false, %2 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ false, %.thread ], [ true, %63 ], [ true, %54 ], [ true, %87 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i25 ], [ false, %79 ]
   ret i1 %88
 }
 
@@ -5384,7 +5384,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i: ; preds = %_ZNK2OT5Paint8sa
   br label %_ZNK2OT10NoVariableINS_14PaintTranslateEE8sanitizeEP21hb_sanitize_context_t.exit
 
 _ZNK2OT10NoVariableINS_14PaintTranslateEE8sanitizeEP21hb_sanitize_context_t.exit: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, %17, %12, %48, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %2
-  %49 = phi i1 [ false, %2 ], [ false, %12 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %17 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ], [ true, %48 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
+  %49 = phi i1 [ false, %2 ], [ false, %12 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %17 ], [ true, %48 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
   ret i1 %49
 }
 
@@ -5474,7 +5474,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i: ; preds = %_ZNK2OT5Paint8sa
   br label %_ZNK2OT8VariableINS_14PaintTranslateEE8sanitizeEP21hb_sanitize_context_t.exit
 
 _ZNK2OT8VariableINS_14PaintTranslateEE8sanitizeEP21hb_sanitize_context_t.exit: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i, %51, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, %20, %15, %2
-  %52 = phi i1 [ false, %2 ], [ false, %15 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %20 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ], [ true, %51 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
+  %52 = phi i1 [ false, %2 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ], [ false, %15 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %20 ], [ true, %51 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ]
   ret i1 %52
 }
 
@@ -5559,7 +5559,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i: ; preds = %_ZNK2OT5Paint8sa
   br label %_ZNK2OT10NoVariableINS_10PaintScaleEE8sanitizeEP21hb_sanitize_context_t.exit
 
 _ZNK2OT10NoVariableINS_10PaintScaleEE8sanitizeEP21hb_sanitize_context_t.exit: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, %17, %12, %48, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %2
-  %49 = phi i1 [ false, %2 ], [ false, %12 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %17 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ], [ true, %48 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
+  %49 = phi i1 [ false, %2 ], [ false, %12 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %17 ], [ true, %48 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
   ret i1 %49
 }
 
@@ -5649,7 +5649,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i: ; preds = %_ZNK2OT5Paint8sa
   br label %_ZNK2OT8VariableINS_10PaintScaleEE8sanitizeEP21hb_sanitize_context_t.exit
 
 _ZNK2OT8VariableINS_10PaintScaleEE8sanitizeEP21hb_sanitize_context_t.exit: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i, %51, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, %20, %15, %2
-  %52 = phi i1 [ false, %2 ], [ false, %15 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %20 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ], [ true, %51 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
+  %52 = phi i1 [ false, %2 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ], [ false, %15 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %20 ], [ true, %51 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ]
   ret i1 %52
 }
 
@@ -5734,7 +5734,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i: ; preds = %_ZNK2OT5Paint8sa
   br label %_ZNK2OT10NoVariableINS_22PaintScaleAroundCenterEE8sanitizeEP21hb_sanitize_context_t.exit
 
 _ZNK2OT10NoVariableINS_22PaintScaleAroundCenterEE8sanitizeEP21hb_sanitize_context_t.exit: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, %17, %12, %48, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %2
-  %49 = phi i1 [ false, %2 ], [ false, %12 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %17 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ], [ true, %48 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
+  %49 = phi i1 [ false, %2 ], [ false, %12 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %17 ], [ true, %48 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
   ret i1 %49
 }
 
@@ -5824,7 +5824,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i: ; preds = %_ZNK2OT5Paint8sa
   br label %_ZNK2OT8VariableINS_22PaintScaleAroundCenterEE8sanitizeEP21hb_sanitize_context_t.exit
 
 _ZNK2OT8VariableINS_22PaintScaleAroundCenterEE8sanitizeEP21hb_sanitize_context_t.exit: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i, %51, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, %20, %15, %2
-  %52 = phi i1 [ false, %2 ], [ false, %15 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %20 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ], [ true, %51 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
+  %52 = phi i1 [ false, %2 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ], [ false, %15 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %20 ], [ true, %51 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ]
   ret i1 %52
 }
 
@@ -5909,7 +5909,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i: ; preds = %_ZNK2OT5Paint8sa
   br label %_ZNK2OT10NoVariableINS_17PaintScaleUniformEE8sanitizeEP21hb_sanitize_context_t.exit
 
 _ZNK2OT10NoVariableINS_17PaintScaleUniformEE8sanitizeEP21hb_sanitize_context_t.exit: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, %17, %12, %48, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %2
-  %49 = phi i1 [ false, %2 ], [ false, %12 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %17 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ], [ true, %48 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
+  %49 = phi i1 [ false, %2 ], [ false, %12 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %17 ], [ true, %48 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
   ret i1 %49
 }
 
@@ -5999,7 +5999,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i: ; preds = %_ZNK2OT5Paint8sa
   br label %_ZNK2OT8VariableINS_17PaintScaleUniformEE8sanitizeEP21hb_sanitize_context_t.exit
 
 _ZNK2OT8VariableINS_17PaintScaleUniformEE8sanitizeEP21hb_sanitize_context_t.exit: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i, %51, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, %20, %15, %2
-  %52 = phi i1 [ false, %2 ], [ false, %15 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %20 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ], [ true, %51 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
+  %52 = phi i1 [ false, %2 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ], [ false, %15 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %20 ], [ true, %51 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ]
   ret i1 %52
 }
 
@@ -6084,7 +6084,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i: ; preds = %_ZNK2OT5Paint8sa
   br label %_ZNK2OT10NoVariableINS_29PaintScaleUniformAroundCenterEE8sanitizeEP21hb_sanitize_context_t.exit
 
 _ZNK2OT10NoVariableINS_29PaintScaleUniformAroundCenterEE8sanitizeEP21hb_sanitize_context_t.exit: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, %17, %12, %48, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %2
-  %49 = phi i1 [ false, %2 ], [ false, %12 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %17 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ], [ true, %48 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
+  %49 = phi i1 [ false, %2 ], [ false, %12 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %17 ], [ true, %48 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
   ret i1 %49
 }
 
@@ -6174,7 +6174,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i: ; preds = %_ZNK2OT5Paint8sa
   br label %_ZNK2OT8VariableINS_29PaintScaleUniformAroundCenterEE8sanitizeEP21hb_sanitize_context_t.exit
 
 _ZNK2OT8VariableINS_29PaintScaleUniformAroundCenterEE8sanitizeEP21hb_sanitize_context_t.exit: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i, %51, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, %20, %15, %2
-  %52 = phi i1 [ false, %2 ], [ false, %15 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %20 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ], [ true, %51 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
+  %52 = phi i1 [ false, %2 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ], [ false, %15 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %20 ], [ true, %51 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ]
   ret i1 %52
 }
 
@@ -6259,7 +6259,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i: ; preds = %_ZNK2OT5Paint8sa
   br label %_ZNK2OT10NoVariableINS_11PaintRotateEE8sanitizeEP21hb_sanitize_context_t.exit
 
 _ZNK2OT10NoVariableINS_11PaintRotateEE8sanitizeEP21hb_sanitize_context_t.exit: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, %17, %12, %48, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %2
-  %49 = phi i1 [ false, %2 ], [ false, %12 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %17 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ], [ true, %48 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
+  %49 = phi i1 [ false, %2 ], [ false, %12 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %17 ], [ true, %48 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
   ret i1 %49
 }
 
@@ -6349,7 +6349,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i: ; preds = %_ZNK2OT5Paint8sa
   br label %_ZNK2OT8VariableINS_11PaintRotateEE8sanitizeEP21hb_sanitize_context_t.exit
 
 _ZNK2OT8VariableINS_11PaintRotateEE8sanitizeEP21hb_sanitize_context_t.exit: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i, %51, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, %20, %15, %2
-  %52 = phi i1 [ false, %2 ], [ false, %15 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %20 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ], [ true, %51 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
+  %52 = phi i1 [ false, %2 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ], [ false, %15 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %20 ], [ true, %51 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ]
   ret i1 %52
 }
 
@@ -6434,7 +6434,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i: ; preds = %_ZNK2OT5Paint8sa
   br label %_ZNK2OT10NoVariableINS_23PaintRotateAroundCenterEE8sanitizeEP21hb_sanitize_context_t.exit
 
 _ZNK2OT10NoVariableINS_23PaintRotateAroundCenterEE8sanitizeEP21hb_sanitize_context_t.exit: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, %17, %12, %48, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %2
-  %49 = phi i1 [ false, %2 ], [ false, %12 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %17 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ], [ true, %48 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
+  %49 = phi i1 [ false, %2 ], [ false, %12 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %17 ], [ true, %48 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
   ret i1 %49
 }
 
@@ -6524,7 +6524,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i: ; preds = %_ZNK2OT5Paint8sa
   br label %_ZNK2OT8VariableINS_23PaintRotateAroundCenterEE8sanitizeEP21hb_sanitize_context_t.exit
 
 _ZNK2OT8VariableINS_23PaintRotateAroundCenterEE8sanitizeEP21hb_sanitize_context_t.exit: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i, %51, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, %20, %15, %2
-  %52 = phi i1 [ false, %2 ], [ false, %15 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %20 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ], [ true, %51 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
+  %52 = phi i1 [ false, %2 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ], [ false, %15 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %20 ], [ true, %51 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ]
   ret i1 %52
 }
 
@@ -6609,7 +6609,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i: ; preds = %_ZNK2OT5Paint8sa
   br label %_ZNK2OT10NoVariableINS_9PaintSkewEE8sanitizeEP21hb_sanitize_context_t.exit
 
 _ZNK2OT10NoVariableINS_9PaintSkewEE8sanitizeEP21hb_sanitize_context_t.exit: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, %17, %12, %48, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %2
-  %49 = phi i1 [ false, %2 ], [ false, %12 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %17 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ], [ true, %48 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
+  %49 = phi i1 [ false, %2 ], [ false, %12 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %17 ], [ true, %48 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
   ret i1 %49
 }
 
@@ -6699,7 +6699,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i: ; preds = %_ZNK2OT5Paint8sa
   br label %_ZNK2OT8VariableINS_9PaintSkewEE8sanitizeEP21hb_sanitize_context_t.exit
 
 _ZNK2OT8VariableINS_9PaintSkewEE8sanitizeEP21hb_sanitize_context_t.exit: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i, %51, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, %20, %15, %2
-  %52 = phi i1 [ false, %2 ], [ false, %15 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %20 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ], [ true, %51 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
+  %52 = phi i1 [ false, %2 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ], [ false, %15 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %20 ], [ true, %51 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ]
   ret i1 %52
 }
 
@@ -6784,7 +6784,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i: ; preds = %_ZNK2OT5Paint8sa
   br label %_ZNK2OT10NoVariableINS_21PaintSkewAroundCenterEE8sanitizeEP21hb_sanitize_context_t.exit
 
 _ZNK2OT10NoVariableINS_21PaintSkewAroundCenterEE8sanitizeEP21hb_sanitize_context_t.exit: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, %17, %12, %48, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %2
-  %49 = phi i1 [ false, %2 ], [ false, %12 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %17 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ], [ true, %48 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
+  %49 = phi i1 [ false, %2 ], [ false, %12 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %17 ], [ true, %48 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
   ret i1 %49
 }
 
@@ -6874,7 +6874,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i: ; preds = %_ZNK2OT5Paint8sa
   br label %_ZNK2OT8VariableINS_21PaintSkewAroundCenterEE8sanitizeEP21hb_sanitize_context_t.exit
 
 _ZNK2OT8VariableINS_21PaintSkewAroundCenterEE8sanitizeEP21hb_sanitize_context_t.exit: ; preds = %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i, %51, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit, %20, %15, %2
-  %52 = phi i1 [ false, %2 ], [ false, %15 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %20 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ], [ true, %51 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ]
+  %52 = phi i1 [ false, %2 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ], [ false, %15 ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit ], [ true, %20 ], [ true, %51 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ]
   ret i1 %52
 }
 
@@ -7036,7 +7036,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i27: ; preds = %_ZNK2OT5Paint8sa
   br label %.thread45
 
 .thread45:                                        ; preds = %.thread, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit36, %59, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit36.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i27, %90, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %16, %12, %2
-  %91 = phi i1 [ false, %12 ], [ false, %2 ], [ false, %16 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ], [ false, %.thread ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit36 ], [ true, %59 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i27 ], [ true, %90 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit36.thread ]
+  %91 = phi i1 [ false, %16 ], [ false, %12 ], [ false, %2 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit.thread ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ false, %.thread ], [ true, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit36 ], [ true, %59 ], [ true, %90 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i27 ], [ false, %_ZNK2OT5Paint8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit36.thread ]
   ret i1 %91
 }
 
@@ -7196,7 +7196,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i: ; preds = %_ZN21hb_saniti
   br i1 %exitcond.not, label %_ZN21hb_sanitize_context_t8dispatchIN2OT8OffsetToINS1_5PaintENS1_7IntTypeIjLj4EEELb1EEEJPKNS1_9LayerListEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOSC_.exit, label %60, !llvm.loop !17
 
 _ZN21hb_sanitize_context_t8dispatchIN2OT8OffsetToINS1_5PaintENS1_7IntTypeIjLj4EEELb1EEEJPKNS1_9LayerListEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOSC_.exit: ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i, %_ZN21hb_sanitize_context_t8dispatchIN2OT5PaintEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread.i.i, %60, %104, %42, %32, %12, %2, %_ZNK2OT7ArrayOfINS_8OffsetToINS_5PaintENS_7IntTypeIjLj4EEELb1EEES4_E16sanitize_shallowEP21hb_sanitize_context_t.exit
-  %.0 = phi i1 [ false, %_ZNK2OT7ArrayOfINS_8OffsetToINS_5PaintENS_7IntTypeIjLj4EEELb1EEES4_E16sanitize_shallowEP21hb_sanitize_context_t.exit ], [ false, %2 ], [ false, %12 ], [ false, %32 ], [ true, %42 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT5PaintEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread.i.i ], [ false, %60 ], [ true, %104 ]
+  %.0 = phi i1 [ false, %_ZNK2OT7ArrayOfINS_8OffsetToINS_5PaintENS_7IntTypeIjLj4EEELb1EEES4_E16sanitize_shallowEP21hb_sanitize_context_t.exit ], [ false, %32 ], [ false, %2 ], [ false, %12 ], [ true, %42 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i ], [ false, %60 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT5PaintEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread.i.i ], [ true, %104 ]
   ret i1 %.0
 }
 
@@ -7322,28 +7322,28 @@ _ZNK2OT7ArrayOfINS_10ClipRecordENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_san
 92:                                               ; preds = %80
   %93 = load i8, ptr %88, align 1
   switch i8 %93, label %111 [
-    i8 1, label %94
-    i8 2, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7ClipBoxEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.i.i.i
+    i8 1, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7ClipBoxEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.i.i.i
+    i8 2, label %94
   ]
 
 94:                                               ; preds = %92
-  %95 = getelementptr inbounds nuw i8, ptr %88, i64 9
+  %95 = getelementptr inbounds nuw i8, ptr %88, i64 13
   %96 = ptrtoint ptr %95 to i64
   %97 = sub i64 %96, %66
-  %.not22.i.i.i = icmp ugt i64 %97, %69
-  br i1 %.not22.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7ClipBoxEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread20.i.i.i, label %111
-
-_ZN21hb_sanitize_context_t8dispatchIN2OT7ClipBoxEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.i.i.i: ; preds = %92
-  %98 = getelementptr inbounds nuw i8, ptr %88, i64 13
+  %.not.i.i.i.i.i.i.i.i.i = icmp ule i64 %97, %69
+  %98 = getelementptr inbounds nuw i8, ptr %88, i64 9
   %99 = ptrtoint ptr %98 to i64
   %100 = sub i64 %99, %66
-  %.not.i.i.i.i.i.i.i.i.i = icmp ule i64 %100, %69
-  %101 = getelementptr inbounds nuw i8, ptr %88, i64 9
-  %102 = ptrtoint ptr %101 to i64
-  %103 = sub i64 %102, %66
-  %104 = icmp ule i64 %103, %69
-  %narrow.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i1 %104, i1 false
+  %101 = icmp ule i64 %100, %69
+  %narrow.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i1 %101, i1 false
   br i1 %narrow.i.i.i.i.i.i.i.i.i, label %111, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7ClipBoxEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread20.i.i.i
+
+_ZN21hb_sanitize_context_t8dispatchIN2OT7ClipBoxEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.i.i.i: ; preds = %92
+  %102 = getelementptr inbounds nuw i8, ptr %88, i64 9
+  %103 = ptrtoint ptr %102 to i64
+  %104 = sub i64 %103, %66
+  %.not22.i.i.i = icmp ugt i64 %104, %69
+  br i1 %.not22.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7ClipBoxEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread20.i.i.i, label %111
 
 _ZN21hb_sanitize_context_t8dispatchIN2OT7ClipBoxEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread20.i.i.i: ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT7ClipBoxEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.i.i.i, %94, %80
   %105 = load i32, ptr %59, align 4
@@ -7363,13 +7363,13 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i: ; preds = %_ZN21hb_sani
   store i8 0, ptr %75, align 1
   br label %111
 
-111:                                              ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT7ClipBoxEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.i.i.i, %70, %94, %92, %110
+111:                                              ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT7ClipBoxEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.i.i.i, %70, %92, %94, %110
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %_ZN21hb_sanitize_context_t8dispatchIN2OT10ClipRecordEJPKNS1_8ClipListEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS8_.exit, label %61, !llvm.loop !18
 
 _ZN21hb_sanitize_context_t8dispatchIN2OT10ClipRecordEJPKNS1_8ClipListEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS8_.exit: ; preds = %111, %61, %_ZN21hb_sanitize_context_t8dispatchIN2OT7ClipBoxEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread20.i.i.i, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i, %44, %_ZNK2OT7ArrayOfINS_10ClipRecordENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit, %13, %35, %2
-  %112 = phi i1 [ false, %2 ], [ false, %_ZNK2OT7ArrayOfINS_10ClipRecordENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit ], [ false, %13 ], [ false, %35 ], [ true, %44 ], [ true, %111 ], [ false, %61 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT7ClipBoxEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread20.i.i.i ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i ]
+  %112 = phi i1 [ false, %2 ], [ false, %_ZNK2OT7ArrayOfINS_10ClipRecordENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit ], [ false, %35 ], [ true, %44 ], [ false, %13 ], [ false, %61 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT7ClipBoxEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread20.i.i.i ], [ true, %111 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i.i ]
   ret i1 %112
 }
 
@@ -7479,7 +7479,7 @@ _ZNK2OT24DeltaSetIndexMapFormat01INS_7IntTypeItLj2EEEE8sanitizeEP21hb_sanitize_c
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT16DeltaSetIndexMapEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS3_.exit
 
 _ZN21hb_sanitize_context_t9_dispatchIN2OT16DeltaSetIndexMapEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS3_.exit: ; preds = %2, %12, %14, %18, %37, %42, %67, %_ZNK2OT24DeltaSetIndexMapFormat01INS_7IntTypeItLj2EEEE8sanitizeEP21hb_sanitize_context_t.exit.sink.split.i.i
-  %.0.i.i = phi i1 [ false, %2 ], [ true, %12 ], [ false, %14 ], [ false, %18 ], [ false, %37 ], [ false, %42 ], [ false, %67 ], [ %76, %_ZNK2OT24DeltaSetIndexMapFormat01INS_7IntTypeItLj2EEEE8sanitizeEP21hb_sanitize_context_t.exit.sink.split.i.i ]
+  %.0.i.i = phi i1 [ false, %2 ], [ true, %12 ], [ false, %18 ], [ false, %14 ], [ false, %67 ], [ false, %37 ], [ false, %42 ], [ %76, %_ZNK2OT24DeltaSetIndexMapFormat01INS_7IntTypeItLj2EEEE8sanitizeEP21hb_sanitize_context_t.exit.sink.split.i.i ]
   ret i1 %.0.i.i
 }
 
@@ -7588,7 +7588,7 @@ _ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv1
   %83 = icmp sgt i32 %82, 0
   br i1 %83, label %.thread, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread
 
-_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread: ; preds = %75, %55, %40, %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit
+_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread: ; preds = %55, %75, %40, %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %85 = load i32, ptr %84, align 4
   %86 = icmp ugt i32 %85, 31
@@ -7666,7 +7666,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEE1
   br i1 %or.cond.not, label %.lr.ph, label %.thread33, !llvm.loop !19
 
 .thread33:                                        ; preds = %.lr.ph, %109, %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit, %.thread, %92, %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %23, %14, %2
-  %118 = phi i1 [ false, %14 ], [ false, %2 ], [ false, %23 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread ], [ false, %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit ], [ false, %.thread ], [ false, %92 ], [ true, %109 ], [ %117, %.lr.ph ]
+  %118 = phi i1 [ false, %23 ], [ false, %14 ], [ false, %2 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ false, %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit ], [ false, %.thread ], [ false, %92 ], [ true, %109 ], [ %117, %.lr.ph ]
   ret i1 %118
 }
 
@@ -7802,7 +7802,7 @@ _ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_pri
   %102 = icmp sgt i32 %101, 0
   br i1 %102, label %_ZNK2OT8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EE6neuterEP21hb_sanitize_context_t.exit, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread
 
-_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread: ; preds = %89, %75, %41, %_ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_E16sanitize_shallowEP21hb_sanitize_context_t.exit.i.i.i, %26, %60, %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit
+_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread: ; preds = %89, %75, %_ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_E16sanitize_shallowEP21hb_sanitize_context_t.exit.i.i.i, %26, %41, %60, %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %104 = load i32, ptr %103, align 4
   %105 = icmp ugt i32 %104, 31
@@ -7821,7 +7821,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %_ZN21hb_sanitize_c
   br label %_ZNK2OT8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EE6neuterEP21hb_sanitize_context_t.exit
 
 _ZNK2OT8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EE6neuterEP21hb_sanitize_context_t.exit: ; preds = %110, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, %14, %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit, %3
-  %111 = phi i1 [ false, %3 ], [ true, %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit ], [ true, %14 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ true, %110 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread ]
+  %111 = phi i1 [ false, %3 ], [ true, %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit ], [ true, %14 ], [ true, %110 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread ]
   ret i1 %111
 }
 
@@ -7995,7 +7995,7 @@ _ZNK2OT3SVG8sanitizeEP21hb_sanitize_context_t.exit: ; preds = %51
   tail call void @hb_blob_make_immutable(ptr noundef %1)
   br label %68
 
-.critedge:                                        ; preds = %51, %23, %22
+.critedge:                                        ; preds = %23, %22, %51
   tail call void @hb_blob_destroy(ptr noundef nonnull %3)
   store ptr null, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
@@ -8275,7 +8275,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   br i1 %26, label %28, label %33
 
 28:                                               ; preds = %25
-  br i1 %.not19, label %.critedge23, label %29
+  br i1 %.not19, label %.critedge25, label %29
 
 29:                                               ; preds = %28
   store i32 0, ptr %10, align 4
@@ -8293,7 +8293,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   %34 = load i8, ptr %5, align 8
   %35 = trunc i8 %34 to i1
   %or.cond = select i1 %.not19, i1 true, i1 %35
-  br i1 %or.cond, label %.critedge25, label %36
+  br i1 %or.cond, label %.critedge23, label %36
 
 36:                                               ; preds = %33
   %37 = tail call ptr @hb_blob_get_data_writable(ptr noundef %1, ptr noundef null)
@@ -8303,27 +8303,27 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 %39
   store ptr %40, ptr %7, align 8
   %.not18 = icmp eq ptr %37, null
-  br i1 %.not18, label %.critedge25, label %13
+  br i1 %.not18, label %.critedge23, label %13
 
-.critedge23:                                      ; preds = %28
+.critedge25:                                      ; preds = %28
   %41 = load ptr, ptr %4, align 8
   tail call void @hb_blob_destroy(ptr noundef %41)
   store ptr null, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   br label %42
 
-42:                                               ; preds = %29, %.critedge23
+42:                                               ; preds = %29, %.critedge25
   tail call void @hb_blob_make_immutable(ptr noundef %1)
   br label %45
 
-.critedge25:                                      ; preds = %33, %36
+.critedge23:                                      ; preds = %36, %33
   %43 = load ptr, ptr %4, align 8
   tail call void @hb_blob_destroy(ptr noundef %43)
   store ptr null, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   br label %.critedge
 
-.critedge:                                        ; preds = %29, %.critedge25
+.critedge:                                        ; preds = %29, %.critedge23
   tail call void @hb_blob_destroy(ptr noundef %1)
   %44 = tail call ptr @hb_blob_get_empty()
   br label %45
@@ -8432,7 +8432,7 @@ _ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21h
   br i1 %or.cond.not, label %.lr.ph, label %_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.thread, !llvm.loop !20
 
 _ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.thread: ; preds = %.lr.ph, %52, %_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit, %21, %43, %13, %2
-  %69 = phi i1 [ false, %2 ], [ false, %13 ], [ false, %_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit ], [ false, %21 ], [ false, %43 ], [ true, %52 ], [ %68, %.lr.ph ]
+  %69 = phi i1 [ false, %13 ], [ false, %2 ], [ false, %_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit ], [ false, %21 ], [ false, %43 ], [ true, %52 ], [ %68, %.lr.ph ]
   ret i1 %69
 }
 
@@ -8561,8 +8561,8 @@ _ZN21hb_sanitize_context_t8dispatchIN2OT18IndexSubtableArrayEJRKNS1_7IntTypeIjLj
   %78 = icmp ule i64 %77, %.pre-phi31
   br label %_ZN21hb_sanitize_context_t8dispatchIN2OT18IndexSubtableArrayEJRKNS1_7IntTypeIjLj4EEEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS9_.exit.thread24
 
-_ZN21hb_sanitize_context_t8dispatchIN2OT18IndexSubtableArrayEJRKNS1_7IntTypeIjLj4EEEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS9_.exit.thread24: ; preds = %.lr.ph.i.i.i, %56, %59, %17, %_ZNK2OT14UnsizedArrayOfINS_19IndexSubtableRecordEE16sanitize_shallowEP21hb_sanitize_context_tj.exit.i.i.i, %74, %_ZN21hb_sanitize_context_t8dispatchIN2OT18IndexSubtableArrayEJRKNS1_7IntTypeIjLj4EEEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS9_.exit, %3
-  %79 = phi i1 [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT18IndexSubtableArrayEJRKNS1_7IntTypeIjLj4EEEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS9_.exit ], [ false, %3 ], [ %78, %74 ], [ false, %_ZNK2OT14UnsizedArrayOfINS_19IndexSubtableRecordEE16sanitize_shallowEP21hb_sanitize_context_tj.exit.i.i.i ], [ false, %17 ], [ false, %59 ], [ false, %56 ], [ false, %.lr.ph.i.i.i ]
+_ZN21hb_sanitize_context_t8dispatchIN2OT18IndexSubtableArrayEJRKNS1_7IntTypeIjLj4EEEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS9_.exit.thread24: ; preds = %.lr.ph.i.i.i, %17, %56, %59, %_ZNK2OT14UnsizedArrayOfINS_19IndexSubtableRecordEE16sanitize_shallowEP21hb_sanitize_context_tj.exit.i.i.i, %74, %_ZN21hb_sanitize_context_t8dispatchIN2OT18IndexSubtableArrayEJRKNS1_7IntTypeIjLj4EEEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS9_.exit, %3
+  %79 = phi i1 [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT18IndexSubtableArrayEJRKNS1_7IntTypeIjLj4EEEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS9_.exit ], [ %78, %74 ], [ false, %3 ], [ false, %17 ], [ false, %_ZNK2OT14UnsizedArrayOfINS_19IndexSubtableRecordEE16sanitize_shallowEP21hb_sanitize_context_tj.exit.i.i.i ], [ false, %59 ], [ false, %56 ], [ false, %.lr.ph.i.i.i ]
   ret i1 %79
 }
 
@@ -8695,7 +8695,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %_ZN21hb_sanitize_c
   br label %_ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread23
 
 _ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread23: ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit, %30, %59, %_ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %91, %14, %3
-  %92 = phi i1 [ false, %14 ], [ false, %3 ], [ true, %_ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit ], [ true, %30 ], [ true, %59 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ true, %91 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread ]
+  %92 = phi i1 [ false, %14 ], [ false, %3 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread ], [ true, %_ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit ], [ true, %30 ], [ true, %59 ], [ true, %91 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ]
   ret i1 %92
 }
 
@@ -8918,7 +8918,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   br i1 %26, label %28, label %33
 
 28:                                               ; preds = %25
-  br i1 %.not19, label %.critedge23, label %29
+  br i1 %.not19, label %.critedge25, label %29
 
 29:                                               ; preds = %28
   store i32 0, ptr %10, align 4
@@ -8936,7 +8936,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   %34 = load i8, ptr %5, align 8
   %35 = trunc i8 %34 to i1
   %or.cond = select i1 %.not19, i1 true, i1 %35
-  br i1 %or.cond, label %.critedge25, label %36
+  br i1 %or.cond, label %.critedge23, label %36
 
 36:                                               ; preds = %33
   %37 = tail call ptr @hb_blob_get_data_writable(ptr noundef %1, ptr noundef null)
@@ -8946,27 +8946,27 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 %39
   store ptr %40, ptr %7, align 8
   %.not18 = icmp eq ptr %37, null
-  br i1 %.not18, label %.critedge25, label %13
+  br i1 %.not18, label %.critedge23, label %13
 
-.critedge23:                                      ; preds = %28
+.critedge25:                                      ; preds = %28
   %41 = load ptr, ptr %4, align 8
   tail call void @hb_blob_destroy(ptr noundef %41)
   store ptr null, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   br label %42
 
-42:                                               ; preds = %29, %.critedge23
+42:                                               ; preds = %29, %.critedge25
   tail call void @hb_blob_make_immutable(ptr noundef %1)
   br label %45
 
-.critedge25:                                      ; preds = %33, %36
+.critedge23:                                      ; preds = %36, %33
   %43 = load ptr, ptr %4, align 8
   tail call void @hb_blob_destroy(ptr noundef %43)
   store ptr null, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   br label %.critedge
 
-.critedge:                                        ; preds = %29, %.critedge25
+.critedge:                                        ; preds = %29, %.critedge23
   tail call void @hb_blob_destroy(ptr noundef %1)
   %44 = tail call ptr @hb_blob_get_empty()
   br label %45
@@ -9152,7 +9152,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i: ; preds = %_ZN21hb_saniti
   br i1 %exitcond.not, label %_ZN21hb_sanitize_context_t8dispatchIN2OT8OffsetToINS1_10SBIXStrikeENS1_7IntTypeIjLj4EEELb1EEEJPKNS1_4sbixEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOSC_.exit, label %67, !llvm.loop !22
 
 _ZN21hb_sanitize_context_t8dispatchIN2OT8OffsetToINS1_10SBIXStrikeENS1_7IntTypeIjLj4EEELb1EEEJPKNS1_4sbixEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOSC_.exit: ; preds = %122, %67, %_ZN21hb_sanitize_context_t8dispatchIN2OT10SBIXStrikeEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread.i.i, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i, %49, %_ZNK2OT7ArrayOfINS_8OffsetToINS_10SBIXStrikeENS_7IntTypeIjLj4EEELb1EEES4_E16sanitize_shallowEP21hb_sanitize_context_t.exit, %19, %40, %13, %2
-  %123 = phi i1 [ false, %13 ], [ false, %2 ], [ false, %_ZNK2OT7ArrayOfINS_8OffsetToINS_10SBIXStrikeENS_7IntTypeIjLj4EEELb1EEES4_E16sanitize_shallowEP21hb_sanitize_context_t.exit ], [ false, %19 ], [ false, %40 ], [ true, %49 ], [ true, %122 ], [ false, %67 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT10SBIXStrikeEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread.i.i ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i ]
+  %123 = phi i1 [ false, %13 ], [ false, %2 ], [ false, %_ZNK2OT7ArrayOfINS_8OffsetToINS_10SBIXStrikeENS_7IntTypeIjLj4EEELb1EEES4_E16sanitize_shallowEP21hb_sanitize_context_t.exit ], [ false, %40 ], [ true, %49 ], [ false, %19 ], [ false, %67 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT10SBIXStrikeEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread.i.i ], [ true, %122 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i.i ]
   ret i1 %123
 }
 

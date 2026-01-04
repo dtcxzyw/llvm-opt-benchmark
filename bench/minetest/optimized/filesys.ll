@@ -5687,7 +5687,7 @@ for.cond.backedge:                                ; preds = %cleanup58.thread, %
   br label %for.cond, !llvm.loop !142
 
 cleanup66:                                        ; preds = %if.end29, %while.end26, %lor.end8, %lor.end.lor.end8_crit_edge, %lor.end.thread.lor.end8_crit_edge, %do.body, %while.body24
-  %retval.4.ph = phi i1 [ true, %while.body24 ], [ false, %do.body ], [ false, %lor.end.lor.end8_crit_edge ], [ false, %if.end29 ], [ true, %while.end26 ], [ false, %lor.end8 ], [ false, %lor.end.thread.lor.end8_crit_edge ]
+  %retval.4.ph = phi i1 [ true, %while.body24 ], [ false, %do.body ], [ false, %if.end29 ], [ true, %while.end26 ], [ false, %lor.end8 ], [ false, %lor.end.thread.lor.end8_crit_edge ], [ false, %lor.end.lor.end8_crit_edge ]
   ret i1 %retval.4.ph
 }
 
@@ -6483,7 +6483,7 @@ if.then.i.i282:                                   ; preds = %lpad55
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad55, %if.then.i.i282, %lpad53.loopexit.split-lp, %lpad53.loopexit
-  %.pn = phi { ptr, i32 } [ %lpad.phi346, %if.then.i.i282 ], [ %lpad.loopexit341, %lpad53.loopexit ], [ %lpad.loopexit.split-lp342, %lpad53.loopexit.split-lp ], [ %lpad.phi346, %lpad55 ]
+  %.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp342, %lpad53.loopexit.split-lp ], [ %lpad.phi346, %if.then.i.i282 ], [ %lpad.loopexit341, %lpad53.loopexit ], [ %lpad.phi346, %lpad55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp52)
   %98 = load ptr, ptr %ref.tmp46, align 8, !tbaa !4
   %cmp.i.i.i287 = icmp eq ptr %98, %3
@@ -6494,7 +6494,7 @@ if.then.i.i288:                                   ; preds = %ehcleanup
   br label %ehcleanup59
 
 ehcleanup59:                                      ; preds = %ehcleanup, %if.then.i.i288, %lpad50.loopexit.split-lp, %lpad50.loopexit
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %if.then.i.i288 ], [ %lpad.loopexit, %lpad50.loopexit ], [ %lpad.loopexit.split-lp, %lpad50.loopexit.split-lp ], [ %.pn, %ehcleanup ]
+  %.pn.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %lpad50.loopexit.split-lp ], [ %.pn, %if.then.i.i288 ], [ %lpad.loopexit, %lpad50.loopexit ], [ %.pn, %ehcleanup ]
   %99 = load ptr, ptr %ref.tmp47, align 8, !tbaa !4
   %cmp.i.i.i293 = icmp eq ptr %99, %2
   br i1 %cmp.i.i.i293, label %ehcleanup60, label %if.then.i.i294

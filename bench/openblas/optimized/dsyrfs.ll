@@ -82,7 +82,7 @@ define void @dsyrfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br i1 %.not394, label %58, label %.thread
 
 .thread.sink.split:                               ; preds = %51, %48, %45, %42, %39, %36, %34
-  %.sink = phi i32 [ -1, %34 ], [ -2, %36 ], [ -3, %39 ], [ -5, %42 ], [ -7, %45 ], [ -10, %48 ], [ -12, %51 ]
+  %.sink = phi i32 [ -1, %34 ], [ -2, %36 ], [ -5, %42 ], [ -10, %48 ], [ -7, %45 ], [ -3, %39 ], [ -12, %51 ]
   store i32 %.sink, ptr %16, align 4, !tbaa !3
   br label %.thread
 

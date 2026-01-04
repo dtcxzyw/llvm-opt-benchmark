@@ -188,7 +188,7 @@ define dso_local zeroext i1 @e820__mapped_raw_any(i64 noundef %0, i64 noundef %1
   br i1 %42, label %.loopexit, label %.split, !llvm.loop !5
 
 .loopexit:                                        ; preds = %34, %39, %20, %15, %3
-  %43 = phi i1 [ false, %3 ], [ %9, %15 ], [ %22, %20 ], [ %24, %34 ], [ %41, %39 ]
+  %43 = phi i1 [ false, %3 ], [ %22, %20 ], [ %9, %15 ], [ %24, %34 ], [ %41, %39 ]
   ret i1 %43
 }
 
@@ -255,7 +255,7 @@ define dso_local zeroext i1 @e820__mapped_any(i64 noundef %0, i64 noundef %1, i3
   br i1 %42, label %.loopexit, label %.split, !llvm.loop !5
 
 .loopexit:                                        ; preds = %34, %39, %20, %15, %3
-  %43 = phi i1 [ false, %3 ], [ %9, %15 ], [ %22, %20 ], [ %24, %34 ], [ %41, %39 ]
+  %43 = phi i1 [ false, %3 ], [ %22, %20 ], [ %9, %15 ], [ %24, %34 ], [ %41, %39 ]
   ret i1 %43
 }
 
@@ -294,7 +294,7 @@ define dso_local zeroext i1 @e820__mapped_all(i64 noundef %0, i64 noundef %1, i3
   br i1 %.not.us.i, label %.thread.us.i, label %__e820__mapped_all.exit
 
 .thread.us.i:                                     ; preds = %21, %16, %.split.us.i
-  %24 = phi i64 [ %23, %21 ], [ %11, %16 ], [ %11, %.split.us.i ]
+  %24 = phi i64 [ %11, %.split.us.i ], [ %23, %21 ], [ %11, %16 ]
   %25 = add nuw i32 %10, 1
   %26 = icmp eq i32 %25, %5
   br i1 %26, label %__e820__mapped_all.exit, label %.split.us.i, !llvm.loop !8
@@ -328,7 +328,7 @@ define dso_local zeroext i1 @e820__mapped_all(i64 noundef %0, i64 noundef %1, i3
   br i1 %.not.i, label %.thread.i, label %__e820__mapped_all.exit
 
 .thread.i:                                        ; preds = %42, %37, %34, %.split.i
-  %45 = phi i64 [ %44, %42 ], [ %28, %.split.i ], [ %28, %37 ], [ %28, %34 ]
+  %45 = phi i64 [ %28, %34 ], [ %44, %42 ], [ %28, %.split.i ], [ %28, %37 ]
   %46 = add nuw i32 %27, 1
   %47 = icmp eq i32 %46, %5
   br i1 %47, label %__e820__mapped_all.exit, label %.split.i, !llvm.loop !8
@@ -373,7 +373,7 @@ define dso_local i32 @e820__get_entry_type(i64 noundef %0, i64 noundef %1) local
   br i1 %.not, label %.thread, label %26
 
 .thread:                                          ; preds = %20, %8, %15
-  %23 = phi i64 [ %22, %20 ], [ %10, %15 ], [ %10, %8 ]
+  %23 = phi i64 [ %10, %8 ], [ %22, %20 ], [ %10, %15 ]
   %24 = add nuw i32 %9, 1
   %25 = icmp eq i32 %24, %4
   br i1 %25, label %.thread8, label %8, !llvm.loop !8

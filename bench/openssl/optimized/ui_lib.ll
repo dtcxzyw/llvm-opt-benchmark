@@ -294,12 +294,12 @@ allocate_string_stack.exit:                       ; preds = %15
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %39, %allocate_string_stack.exit, %30, %25
-  %.0.ph = phi i32 [ %26, %25 ], [ %26, %30 ], [ -1, %allocate_string_stack.exit ], [ -1, %39 ], [ %.0.ph.ph, %.sink.split.sink.split ]
+  %.0.ph = phi i32 [ -1, %39 ], [ %26, %25 ], [ %26, %30 ], [ -1, %allocate_string_stack.exit ], [ %.0.ph.ph, %.sink.split.sink.split ]
   tail call void @CRYPTO_free(ptr noundef nonnull %10, ptr noundef nonnull @.str, i32 noundef 68) #8
   br label %49
 
 49:                                               ; preds = %.sink.split, %18, %9
-  %.0 = phi i32 [ %23, %18 ], [ -1, %9 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ -1, %9 ], [ %23, %18 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 
@@ -1025,10 +1025,10 @@ define range(i32 -2, 1) i32 @UI_process(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %21, %43, %47, %.loopexit.sink.split, %36, %34, %5
-  %54 = phi i1 [ true, %5 ], [ true, %34 ], [ false, %36 ], [ false, %.loopexit.sink.split ], [ true, %43 ], [ false, %47 ], [ true, %21 ]
-  %.033 = phi i32 [ -1, %5 ], [ -1, %34 ], [ 0, %36 ], [ -2, %.loopexit.sink.split ], [ -1, %43 ], [ 0, %47 ], [ -1, %21 ]
-  %spec.store.select = phi ptr [ @.str.2, %5 ], [ @.str.4, %34 ], [ @.str.6, %36 ], [ @.str.1, %.loopexit.sink.split ], [ @.str.5, %43 ], [ @.str.6, %47 ], [ @.str.3, %21 ]
-  %.0 = phi ptr [ @.str.2, %5 ], [ @.str.4, %34 ], [ null, %36 ], [ @.str.1, %.loopexit.sink.split ], [ @.str.5, %43 ], [ null, %47 ], [ @.str.3, %21 ]
+  %54 = phi i1 [ false, %36 ], [ true, %5 ], [ false, %47 ], [ true, %34 ], [ false, %.loopexit.sink.split ], [ true, %43 ], [ true, %21 ]
+  %.033 = phi i32 [ 0, %36 ], [ -1, %5 ], [ 0, %47 ], [ -1, %34 ], [ -2, %.loopexit.sink.split ], [ -1, %43 ], [ -1, %21 ]
+  %spec.store.select = phi ptr [ @.str.6, %36 ], [ @.str.2, %5 ], [ @.str.6, %47 ], [ @.str.4, %34 ], [ @.str.1, %.loopexit.sink.split ], [ @.str.5, %43 ], [ @.str.3, %21 ]
+  %.0 = phi ptr [ null, %36 ], [ @.str.2, %5 ], [ null, %47 ], [ @.str.4, %34 ], [ @.str.1, %.loopexit.sink.split ], [ @.str.5, %43 ], [ @.str.3, %21 ]
   %55 = load ptr, ptr %0, align 8, !tbaa !14
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 40
   %57 = load ptr, ptr %56, align 8, !tbaa !39
@@ -1693,7 +1693,7 @@ define range(i32 -1, 1) i32 @UI_set_result_ex(ptr noundef captures(none) %0, ptr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %48, %43, %4, %37, %55, %61, %.thread, %30, %22, %13
-  %.037 = phi i32 [ -1, %13 ], [ -1, %22 ], [ -1, %30 ], [ -1, %.thread ], [ 0, %61 ], [ 0, %55 ], [ 0, %37 ], [ 0, %4 ], [ 0, %43 ], [ 0, %48 ]
+  %.037 = phi i32 [ -1, %.thread ], [ -1, %13 ], [ -1, %22 ], [ -1, %30 ], [ 0, %61 ], [ 0, %55 ], [ 0, %4 ], [ 0, %37 ], [ 0, %43 ], [ 0, %48 ]
   ret i32 %.037
 }
 

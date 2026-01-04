@@ -71,7 +71,7 @@ _ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.10033526470412775129.e
   br label %17
 
 17:                                               ; preds = %_ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.10033526470412775129.exit, %"_ZN4core3ptr82drop_in_place$LT$alloc..sync..Arc$LT$event_listener..Inner$LT$$LP$$RP$$GT$$GT$$GT$17hc76320e436b93aa7E.exit", %1
-  %.sroa.025.0 = phi ptr [ %11, %"_ZN4core3ptr82drop_in_place$LT$alloc..sync..Arc$LT$event_listener..Inner$LT$$LP$$RP$$GT$$GT$$GT$17hc76320e436b93aa7E.exit" ], [ %3, %1 ], [ %.sroa.5.0..sroa_idx, %_ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.10033526470412775129.exit ]
+  %.sroa.025.0 = phi ptr [ %3, %1 ], [ %11, %"_ZN4core3ptr82drop_in_place$LT$alloc..sync..Arc$LT$event_listener..Inner$LT$$LP$$RP$$GT$$GT$$GT$17hc76320e436b93aa7E.exit" ], [ %.sroa.5.0..sroa_idx, %_ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.10033526470412775129.exit ]
   ret ptr %.sroa.025.0
 }
 

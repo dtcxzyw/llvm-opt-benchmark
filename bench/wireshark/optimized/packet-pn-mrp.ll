@@ -331,7 +331,7 @@ define internal i32 @dissect_PNMRP(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %mrp_Prio2msg.exit.i.i
 
 mrp_Prio2msg.exit.i.i:                            ; preds = %94, %92, %90, %88, %86, %84, %82, %78
-  %.0.i.i.i = phi ptr [ @.str.80, %78 ], [ @.str.81, %82 ], [ @.str.82, %84 ], [ @.str.83, %86 ], [ @.str.84, %88 ], [ @.str.85, %90 ], [ @.str.86, %92 ], [ %.str.87..str.88.i.i.i, %94 ]
+  %.0.i.i.i = phi ptr [ @.str.86, %92 ], [ @.str.80, %78 ], [ @.str.81, %82 ], [ @.str.82, %84 ], [ @.str.83, %86 ], [ @.str.84, %88 ], [ @.str.85, %90 ], [ %.str.87..str.88.i.i.i, %94 ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %79, ptr noundef nonnull @.str.79, ptr noundef nonnull %.0.i.i.i)
   br label %dissect_PNMRP_Test.exit.i
 
@@ -407,7 +407,7 @@ dissect_PNMRP_Test.exit.i:                        ; preds = %mrp_Prio2msg.exit.i
   br label %mrp_Prio2msg.exit.i66.i
 
 mrp_Prio2msg.exit.i66.i:                          ; preds = %127, %125, %123, %121, %119, %117, %115, %111
-  %.0.i.i67.i = phi ptr [ @.str.80, %111 ], [ @.str.81, %115 ], [ @.str.82, %117 ], [ @.str.83, %119 ], [ @.str.84, %121 ], [ @.str.85, %123 ], [ @.str.86, %125 ], [ %.str.87..str.88.i.i65.i, %127 ]
+  %.0.i.i67.i = phi ptr [ @.str.86, %125 ], [ @.str.80, %111 ], [ @.str.81, %115 ], [ @.str.82, %117 ], [ @.str.83, %119 ], [ @.str.84, %121 ], [ @.str.85, %123 ], [ %.str.87..str.88.i.i65.i, %127 ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %112, ptr noundef nonnull @.str.79, ptr noundef nonnull %.0.i.i67.i)
   br label %129
 
@@ -604,7 +604,7 @@ dissect_PNMRP_Link.exit.i:                        ; preds = %159, %158, %157, %1
   br label %mrp_Prio2msg.exit.i.i.i
 
 mrp_Prio2msg.exit.i.i.i:                          ; preds = %211, %209, %207, %205, %203, %201, %199, %193
-  %.0.i.i.i.i = phi ptr [ @.str.80, %193 ], [ @.str.81, %199 ], [ @.str.82, %201 ], [ @.str.83, %203 ], [ @.str.84, %205 ], [ @.str.85, %207 ], [ @.str.86, %209 ], [ %.str.87..str.88.i.i.i.i, %211 ]
+  %.0.i.i.i.i = phi ptr [ @.str.86, %209 ], [ @.str.80, %193 ], [ @.str.81, %199 ], [ @.str.82, %201 ], [ @.str.83, %203 ], [ @.str.84, %205 ], [ @.str.85, %207 ], [ %.str.87..str.88.i.i.i.i, %211 ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %196, ptr noundef nonnull @.str.79, ptr noundef nonnull %.0.i.i.i.i)
   %213 = load i32, ptr @hf_pn_mrp_sa, align 4
   %214 = call i32 @dissect_pn_mac(ptr noundef %48, i32 noundef %195, ptr noundef %1, ptr noundef %185, i32 noundef %213, ptr noundef nonnull %10)
@@ -649,7 +649,7 @@ mrp_Prio2msg.exit.i.i.i:                          ; preds = %211, %209, %207, %2
   br label %mrp_Prio2msg.exit47.i.i.i
 
 mrp_Prio2msg.exit47.i.i.i:                        ; preds = %232, %230, %228, %226, %224, %222, %220, %mrp_Prio2msg.exit.i.i.i
-  %.0.i46.i.i.i = phi ptr [ @.str.80, %mrp_Prio2msg.exit.i.i.i ], [ @.str.81, %220 ], [ @.str.82, %222 ], [ @.str.83, %224 ], [ @.str.84, %226 ], [ @.str.85, %228 ], [ @.str.86, %230 ], [ %.str.87..str.88.i45.i.i.i, %232 ]
+  %.0.i46.i.i.i = phi ptr [ @.str.86, %230 ], [ @.str.80, %mrp_Prio2msg.exit.i.i.i ], [ @.str.81, %220 ], [ @.str.82, %222 ], [ @.str.83, %224 ], [ @.str.84, %226 ], [ @.str.85, %228 ], [ %.str.87..str.88.i45.i.i.i, %232 ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %217, ptr noundef nonnull @.str.79, ptr noundef nonnull %.0.i46.i.i.i)
   %234 = load i32, ptr @hf_pn_mrp_other_mrm_sa, align 4
   %235 = call i32 @dissect_pn_mac(ptr noundef %48, i32 noundef %216, ptr noundef %1, ptr noundef %185, i32 noundef %234, ptr noundef nonnull %11)

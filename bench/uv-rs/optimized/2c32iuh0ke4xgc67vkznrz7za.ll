@@ -1326,7 +1326,7 @@ define internal void @"_ZN4core3ptr101drop_in_place$LT$uv_pep508..Pep508ErrorSou
   unreachable
 
 common.resume.i:                                  ; preds = %174, %142, %84
-  %common.resume.op.i = phi { ptr, i32 } [ %85, %84 ], [ %143, %142 ], [ %175, %174 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %143, %142 ], [ %85, %84 ], [ %175, %174 ]
   resume { ptr, i32 } %common.resume.op.i
 
 "_ZN4core3ptr51drop_in_place$LT$uv_git_types..GitUrlParseError$GT$17h0400ef5575f5443eE.exit.i": ; preds = %92, %87
@@ -1968,8 +1968,8 @@ define hidden { ptr, ptr } @"_ZN65_$LT$alloc..boxed..Box$LT$E$GT$$u20$as$u20$cor
   br label %_ZN4core5error5Error5cause17hc1bacaa751c75becE.exit
 
 _ZN4core5error5Error5cause17hc1bacaa751c75becE.exit: ; preds = %1, %8, %13, %15, %16
-  %.sroa.8.0.i.i = phi ptr [ %12, %8 ], [ @anon.417ee57c2b5c22351b856cf25504d5b4.194.llvm.5955437837880099222, %13 ], [ undef, %15 ], [ @anon.417ee57c2b5c22351b856cf25504d5b4.47.llvm.5955437837880099222, %16 ], [ @anon.417ee57c2b5c22351b856cf25504d5b4.196.llvm.5955437837880099222, %1 ]
-  %.sroa.0.0.i.i = phi ptr [ %11, %8 ], [ %14, %13 ], [ null, %15 ], [ %17, %16 ], [ %2, %1 ]
+  %.sroa.8.0.i.i = phi ptr [ %12, %8 ], [ @anon.417ee57c2b5c22351b856cf25504d5b4.194.llvm.5955437837880099222, %13 ], [ @anon.417ee57c2b5c22351b856cf25504d5b4.47.llvm.5955437837880099222, %16 ], [ undef, %15 ], [ @anon.417ee57c2b5c22351b856cf25504d5b4.196.llvm.5955437837880099222, %1 ]
+  %.sroa.0.0.i.i = phi ptr [ %11, %8 ], [ %14, %13 ], [ %17, %16 ], [ null, %15 ], [ %2, %1 ]
   %18 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i.i, 0
   %19 = insertvalue { ptr, ptr } %18, ptr %.sroa.8.0.i.i, 1
   ret { ptr, ptr } %19
@@ -2014,8 +2014,8 @@ define hidden { ptr, ptr } @"_ZN65_$LT$alloc..boxed..Box$LT$E$GT$$u20$as$u20$cor
   br label %"_ZN70_$LT$uv_publish..PublishPrepareError$u20$as$u20$core..error..Error$GT$6source17h5715f76d9358d1baE.exit"
 
 "_ZN70_$LT$uv_publish..PublishPrepareError$u20$as$u20$core..error..Error$GT$6source17h5715f76d9358d1baE.exit": ; preds = %1, %8, %13, %15, %16
-  %.sroa.8.0.i = phi ptr [ %12, %8 ], [ @anon.417ee57c2b5c22351b856cf25504d5b4.194.llvm.5955437837880099222, %13 ], [ undef, %15 ], [ @anon.417ee57c2b5c22351b856cf25504d5b4.47.llvm.5955437837880099222, %16 ], [ @anon.417ee57c2b5c22351b856cf25504d5b4.196.llvm.5955437837880099222, %1 ]
-  %.sroa.0.0.i = phi ptr [ %11, %8 ], [ %14, %13 ], [ null, %15 ], [ %17, %16 ], [ %2, %1 ]
+  %.sroa.8.0.i = phi ptr [ %12, %8 ], [ @anon.417ee57c2b5c22351b856cf25504d5b4.194.llvm.5955437837880099222, %13 ], [ @anon.417ee57c2b5c22351b856cf25504d5b4.47.llvm.5955437837880099222, %16 ], [ undef, %15 ], [ @anon.417ee57c2b5c22351b856cf25504d5b4.196.llvm.5955437837880099222, %1 ]
+  %.sroa.0.0.i = phi ptr [ %11, %8 ], [ %14, %13 ], [ %17, %16 ], [ null, %15 ], [ %2, %1 ]
   %18 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
   %19 = insertvalue { ptr, ptr } %18, ptr %.sroa.8.0.i, 1
   ret { ptr, ptr } %19

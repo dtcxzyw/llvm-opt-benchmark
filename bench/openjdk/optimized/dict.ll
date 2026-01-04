@@ -546,7 +546,7 @@ _ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %7
   br label %._crit_edge62
 
 ._crit_edge62:                                    ; preds = %54, %_ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit, %75
-  %83 = phi ptr [ %.0.i.i, %_ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit ], [ %80, %75 ], [ %60, %54 ]
+  %83 = phi ptr [ %80, %75 ], [ %.0.i.i, %_ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit ], [ %60, %54 ]
   %84 = getelementptr inbounds nuw i8, ptr %.050, i64 8
   %85 = load i32, ptr %.050, align 8
   %86 = shl i32 %85, 1

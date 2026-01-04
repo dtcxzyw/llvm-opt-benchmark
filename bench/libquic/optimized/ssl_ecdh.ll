@@ -390,7 +390,7 @@ define internal range(i32 0, 2) i32 @ssl_x25519_compute_secret(ptr noundef reado
   br label %16
 
 16:                                               ; preds = %6, %15, %14
-  %.0 = phi i32 [ 0, %14 ], [ 1, %15 ], [ 0, %6 ]
+  %.0 = phi i32 [ 1, %15 ], [ 0, %14 ], [ 0, %6 ]
   ret i32 %.0
 }
 

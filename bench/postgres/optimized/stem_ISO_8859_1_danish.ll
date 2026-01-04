@@ -356,7 +356,7 @@ r_consonant_pair.exit.thread:                     ; preds = %r_consonant_pair.ex
   br i1 %151, label %r_consonant_pair.exit.thread.i, label %r_consonant_pair.exit
 
 r_consonant_pair.exit.thread.i.sink.split:        ; preds = %131, %134, %139, %116, %103, %106, %112
-  %.sink = phi i32 [ %104, %112 ], [ %104, %106 ], [ %104, %103 ], [ %104, %116 ], [ %132, %139 ], [ %132, %134 ], [ %132, %131 ]
+  %.sink = phi i32 [ %104, %116 ], [ %104, %103 ], [ %104, %112 ], [ %104, %106 ], [ %132, %139 ], [ %132, %134 ], [ %132, %131 ]
   store i32 %.sink, ptr %30, align 8
   br label %r_consonant_pair.exit.thread.i
 
@@ -414,7 +414,7 @@ select.unfold102:                                 ; preds = %175, %160, %r_conso
   br label %r_consonant_pair.exit
 
 r_consonant_pair.exit:                            ; preds = %175, %161, %83, %54, %59, %145, %94, %149, %121, %select.unfold102
-  %.1 = phi i32 [ 1, %select.unfold102 ], [ %147, %145 ], [ %95, %94 ], [ %150, %149 ], [ %122, %121 ], [ %55, %54 ], [ %60, %59 ], [ %85, %83 ], [ %176, %175 ], [ -1, %161 ]
+  %.1 = phi i32 [ 1, %select.unfold102 ], [ %85, %83 ], [ %55, %54 ], [ %122, %121 ], [ %147, %145 ], [ %95, %94 ], [ %150, %149 ], [ %60, %59 ], [ -1, %161 ], [ %176, %175 ]
   ret i32 %.1
 }
 

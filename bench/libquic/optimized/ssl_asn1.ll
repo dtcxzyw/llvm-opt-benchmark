@@ -468,7 +468,7 @@ define internal fastcc range(i32 0, 2) i32 @SSL_SESSION_to_bytes_full(ptr nounde
   br i1 %.not126, label %.loopexit.sink.split, label %227
 
 .loopexit.sink.split:                             ; preds = %.thread, %214, %202, %204, %193, %195, %197, %181, %183, %185, %169, %171, %173, %157, %159, %161, %147, %149, %151, %134, %136, %138, %124, %126, %113, %115, %117, %102, %104, %106, %94, %96, %81, %83, %85, %76, %64, %66, %56, %58, %14, %16, %18, %20, %25, %27, %33, %42, %45, %47
-  %.sink = phi i32 [ 205, %47 ], [ 205, %45 ], [ 205, %42 ], [ 205, %33 ], [ 205, %27 ], [ 205, %25 ], [ 205, %20 ], [ 205, %18 ], [ 205, %16 ], [ 205, %14 ], [ 212, %58 ], [ 212, %56 ], [ 220, %66 ], [ 220, %64 ], [ 229, %76 ], [ 242, %85 ], [ 242, %83 ], [ 242, %81 ], [ 249, %96 ], [ 249, %94 ], [ 259, %106 ], [ 259, %104 ], [ 259, %102 ], [ 269, %117 ], [ 269, %115 ], [ 269, %113 ], [ 277, %126 ], [ 277, %124 ], [ 286, %138 ], [ 286, %136 ], [ 286, %134 ], [ 295, %151 ], [ 295, %149 ], [ 295, %147 ], [ 305, %161 ], [ 305, %159 ], [ 305, %157 ], [ 315, %173 ], [ 315, %171 ], [ 315, %169 ], [ 324, %185 ], [ 324, %183 ], [ 324, %181 ], [ 333, %197 ], [ 333, %195 ], [ 333, %193 ], [ 341, %204 ], [ 341, %202 ], [ 349, %214 ], [ 361, %.thread ]
+  %.sink = phi i32 [ 349, %214 ], [ 341, %202 ], [ 333, %193 ], [ 324, %181 ], [ 315, %169 ], [ 305, %157 ], [ 295, %147 ], [ 286, %134 ], [ 277, %124 ], [ 269, %113 ], [ 259, %102 ], [ 249, %94 ], [ 242, %81 ], [ 229, %76 ], [ 220, %64 ], [ 212, %56 ], [ 205, %14 ], [ 205, %47 ], [ 205, %45 ], [ 205, %42 ], [ 205, %33 ], [ 205, %27 ], [ 205, %25 ], [ 205, %20 ], [ 205, %18 ], [ 205, %16 ], [ 212, %58 ], [ 220, %66 ], [ 242, %85 ], [ 242, %83 ], [ 249, %96 ], [ 259, %106 ], [ 259, %104 ], [ 269, %117 ], [ 269, %115 ], [ 277, %126 ], [ 286, %138 ], [ 286, %136 ], [ 295, %151 ], [ 295, %149 ], [ 305, %161 ], [ 305, %159 ], [ 315, %173 ], [ 315, %171 ], [ 324, %185 ], [ 324, %183 ], [ 333, %197 ], [ 333, %195 ], [ 341, %204 ], [ 361, %.thread ]
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef %.sink) #7
   br label %.loopexit
 
@@ -477,7 +477,7 @@ define internal fastcc range(i32 0, 2) i32 @SSL_SESSION_to_bytes_full(ptr nounde
   br label %227
 
 227:                                              ; preds = %.thread, %4, %10, %.loopexit
-  %.058 = phi i32 [ 0, %.loopexit ], [ 0, %10 ], [ 0, %4 ], [ 1, %.thread ]
+  %.058 = phi i32 [ 0, %4 ], [ 0, %10 ], [ 0, %.loopexit ], [ 1, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -568,7 +568,7 @@ define hidden ptr @SSL_SESSION_from_bytes(ptr noundef %0, i64 noundef %1) local_
   br label %9
 
 9:                                                ; preds = %6, %2, %8
-  %.0 = phi ptr [ null, %8 ], [ null, %2 ], [ %4, %6 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %8 ], [ %4, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -1050,7 +1050,7 @@ define internal fastcc range(i32 0, 2) i32 @add_X509(ptr noundef nonnull %0, ptr
   br label %16
 
 16:                                               ; preds = %12, %15, %9
-  %.1 = phi i32 [ 1, %15 ], [ 0, %9 ], [ 0, %12 ]
+  %.1 = phi i32 [ 0, %9 ], [ 1, %15 ], [ 0, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %17
 
@@ -1233,7 +1233,7 @@ define internal fastcc range(i32 0, 2) i32 @SSL_SESSION_parse_string(ptr noundef
   br label %18
 
 18:                                               ; preds = %16, %13, %15, %12, %7
-  %.0 = phi i32 [ 0, %12 ], [ 0, %15 ], [ 0, %7 ], [ 1, %13 ], [ 1, %16 ]
+  %.0 = phi i32 [ 0, %12 ], [ 0, %7 ], [ 0, %15 ], [ 1, %13 ], [ 1, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -1287,7 +1287,7 @@ define internal fastcc range(i32 0, 2) i32 @SSL_SESSION_parse_octet_string(ptr n
   br label %11
 
 11:                                               ; preds = %8, %10, %7
-  %.0 = phi i32 [ 0, %10 ], [ 0, %7 ], [ 1, %8 ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %10 ], [ 1, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

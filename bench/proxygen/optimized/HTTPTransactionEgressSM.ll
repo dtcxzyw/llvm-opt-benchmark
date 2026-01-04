@@ -275,7 +275,7 @@ call5.i.i.i.i.noexc:                              ; preds = %for.body.i.i.i.i.pr
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %call5.i.i.i.i.noexc, %_ZNSt12_Vector_baseISt4pairIS0_IN8proxygen27HTTPTransactionEgressSMData5StateENS2_5EventEES3_ESaIS6_EE11_M_allocateEm.exit.thread.i
-  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i, %call5.i.i.i.i.noexc ], [ null, %_ZNSt12_Vector_baseISt4pairIS0_IN8proxygen27HTTPTransactionEgressSMData5StateENS2_5EventEES3_ESaIS6_EE11_M_allocateEm.exit.thread.i ]
+  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseISt4pairIS0_IN8proxygen27HTTPTransactionEgressSMData5StateENS2_5EventEES3_ESaIS6_EE11_M_allocateEm.exit.thread.i ], [ %scevgep.i, %call5.i.i.i.i.noexc ]
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %__cur.0.lcssa.i.i.i.i.i, ptr %_M_finish.i, align 8
   ret void

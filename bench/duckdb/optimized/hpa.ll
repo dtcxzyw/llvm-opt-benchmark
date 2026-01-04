@@ -337,7 +337,7 @@ malloc_mutex_lock.exit.i.i:                       ; preds = %57, %51
   br label %hpa_alloc_batch_psset.exit
 
 duckdb_je_hpa_central_extract.exit.i:             ; preds = %95, %74
-  %.0.i.i = phi ptr [ %68, %74 ], [ %.154.i.i, %95 ]
+  %.0.i.i = phi ptr [ %.154.i.i, %95 ], [ %68, %74 ]
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %113 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %112) #8
   %.not.i57.i = icmp eq i32 %113, 0
@@ -383,7 +383,7 @@ malloc_mutex_lock.exit59.i:                       ; preds = %123, %117
   br label %hpa_alloc_batch_psset.exit
 
 hpa_alloc_batch_psset.exit:                       ; preds = %14, %41, %109, %malloc_mutex_lock.exit59.i
-  %.0.i = phi i64 [ %37, %41 ], [ %15, %14 ], [ %37, %109 ], [ %132, %malloc_mutex_lock.exit59.i ]
+  %.0.i = phi i64 [ %15, %14 ], [ %37, %41 ], [ %37, %109 ], [ %132, %malloc_mutex_lock.exit59.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %tsdn_witness_tsdp_get.exit16
 
@@ -644,7 +644,7 @@ hpa_dalloc_locked.exit:                           ; preds = %86, %.sink.split.i.
   br label %hpa_ndirty_max.exit.i.i
 
 hpa_ndirty_max.exit.i.i:                          ; preds = %105, %101
-  %.0.i.i.i = phi i64 [ %104, %101 ], [ %108, %105 ]
+  %.0.i.i.i = phi i64 [ %108, %105 ], [ %104, %101 ]
   %109 = icmp ugt i64 %94, %.0.i.i.i
   br i1 %109, label %hpa_shard_has_deferred_work.exit, label %hpa_ndirty_max.exit.thread.i.i
 
@@ -766,7 +766,7 @@ malloc_mutex_lock.exit:                           ; preds = %9, %15
   br label %96
 
 36:                                               ; preds = %.thread, %malloc_mutex_lock.exit
-  %.034 = phi i64 [ -1, %malloc_mutex_lock.exit ], [ %32, %.thread ]
+  %.034 = phi i64 [ %32, %.thread ], [ -1, %malloc_mutex_lock.exit ]
   %37 = getelementptr i8, ptr %1, i64 1368
   %.val.i = load i64, ptr %37, align 8, !tbaa !80
   %38 = getelementptr i8, ptr %1, i64 5672
@@ -796,7 +796,7 @@ malloc_mutex_lock.exit:                           ; preds = %9, %15
   br label %hpa_ndirty_max.exit.i
 
 hpa_ndirty_max.exit.i:                            ; preds = %50, %46
-  %.0.i.i = phi i64 [ %49, %46 ], [ %53, %50 ]
+  %.0.i.i = phi i64 [ %53, %50 ], [ %49, %46 ]
   %54 = icmp ugt i64 %39, %.0.i.i
   br i1 %54, label %hpa_should_purge.exit.thread, label %hpa_ndirty_max.exit.thread.i
 
@@ -836,7 +836,7 @@ hpa_ndirty_max.exit.thread.i:                     ; preds = %hpa_ndirty_max.exit
   br label %hpa_should_purge.exit
 
 hpa_should_purge.exit:                            ; preds = %66, %70
-  %.0.i.i.i = phi i64 [ %69, %66 ], [ %73, %70 ]
+  %.0.i.i.i = phi i64 [ %73, %70 ], [ %69, %66 ]
   %74 = icmp ugt i64 %60, %.0.i.i.i
   br i1 %74, label %hpa_should_purge.exit.thread, label %hpa_should_purge.exit.thread43
 
@@ -1209,7 +1209,7 @@ define internal fastcc void @hpa_shard_maybe_do_deferred_work(ptr noundef %0, pt
   br label %hpa_ndirty_max.exit.i
 
 hpa_ndirty_max.exit.i:                            ; preds = %47, %43
-  %.0.i.i = phi i64 [ %46, %43 ], [ %50, %47 ]
+  %.0.i.i = phi i64 [ %50, %47 ], [ %46, %43 ]
   %51 = icmp ugt i64 %38, %.0.i.i
   br i1 %51, label %hpa_should_purge.exit, label %hpa_ndirty_max.exit.thread.i
 
@@ -1448,7 +1448,7 @@ hpdata_changing_state_get.exit.thread.i.i:        ; preds = %hpdata_changing_sta
   br label %37
 
 hpa_should_purge.exit.thread:                     ; preds = %82, %76, %hpa_ndirty_max.exit.thread.i, %hpa_should_purge.exit
-  %.126 = phi i1 [ %.025, %hpa_should_purge.exit ], [ %.025, %hpa_ndirty_max.exit.thread.i ], [ false, %76 ], [ false, %82 ]
+  %.126 = phi i1 [ %.025, %hpa_ndirty_max.exit.thread.i ], [ %.025, %hpa_should_purge.exit ], [ false, %76 ], [ false, %82 ]
   %150 = call ptr @duckdb_je_psset_pick_hugify(ptr noundef nonnull %21) #8
   %151 = icmp eq ptr %150, null
   br i1 %151, label %hpa_hugify_blocked_by_ndirty.exit.thread.i, label %152
@@ -1483,7 +1483,7 @@ hpa_should_purge.exit.thread:                     ; preds = %82, %76, %hpa_ndirt
   br label %hpa_hugify_blocked_by_ndirty.exit.i
 
 hpa_hugify_blocked_by_ndirty.exit.i:              ; preds = %164, %160
-  %.0.i.i.i35 = phi i64 [ %163, %160 ], [ %167, %164 ]
+  %.0.i.i.i35 = phi i64 [ %167, %164 ], [ %163, %160 ]
   %168 = icmp ugt i64 %155, %.0.i.i.i35
   br i1 %168, label %hpa_try_hugify.exit.thread, label %hpa_hugify_blocked_by_ndirty.exit.thread.i
 
@@ -1932,7 +1932,7 @@ hpdata_changing_state_get.exit.thread.i.i:        ; preds = %hpdata_changing_sta
   br i1 %exitcond.not, label %.loopexit, label %31
 
 .loopexit:                                        ; preds = %115, %malloc_mutex_lock.exit, %65, %38, %34
-  %.02030 = phi i64 [ %.02043, %65 ], [ %.02043, %38 ], [ %.02043, %34 ], [ 0, %malloc_mutex_lock.exit ], [ %4, %115 ]
+  %.02030 = phi i64 [ %.02043, %34 ], [ %.02043, %65 ], [ %.02043, %38 ], [ 0, %malloc_mutex_lock.exit ], [ %4, %115 ]
   call fastcc void @hpa_shard_maybe_do_deferred_work(ptr noundef %0, ptr noundef nonnull %1, i1 noundef zeroext false)
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %119 = call ptr @duckdb_je_psset_pick_hugify(ptr noundef nonnull %118) #8
@@ -1969,7 +1969,7 @@ hpdata_changing_state_get.exit.thread.i.i:        ; preds = %hpdata_changing_sta
   br label %hpa_ndirty_max.exit.i.i
 
 hpa_ndirty_max.exit.i.i:                          ; preds = %134, %130
-  %.0.i.i.i = phi i64 [ %133, %130 ], [ %137, %134 ]
+  %.0.i.i.i = phi i64 [ %137, %134 ], [ %133, %130 ]
   %138 = icmp ugt i64 %123, %.0.i.i.i
   br i1 %138, label %hpa_shard_has_deferred_work.exit, label %hpa_ndirty_max.exit.thread.i.i
 

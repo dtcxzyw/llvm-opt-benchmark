@@ -35,8 +35,8 @@ define range(i32 -1, 1) i32 @H5TS_mutex_init(ptr noundef %0, i32 noundef %1) loc
 13:                                               ; preds = %11
   br label %14
 
-14:                                               ; preds = %13, %11, %7, %9
-  %.0.ph = phi i32 [ -1, %9 ], [ -1, %7 ], [ 0, %11 ], [ -1, %13 ]
+14:                                               ; preds = %7, %13, %11, %9
+  %.0.ph = phi i32 [ -1, %9 ], [ 0, %11 ], [ -1, %13 ], [ -1, %7 ]
   %15 = call i32 @pthread_mutexattr_destroy(ptr noundef nonnull %3) #3
   %.not12 = icmp eq i32 %15, 0
   br i1 %.not12, label %17, label %16, !prof !3

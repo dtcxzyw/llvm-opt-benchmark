@@ -67,7 +67,7 @@ define internal range(i32 -2147483648, 1) i32 @decode_init(ptr noundef %0) #0 {
   br label %24
 
 24:                                               ; preds = %14, %1, %20
-  %.0 = phi i32 [ 0, %20 ], [ %12, %1 ], [ -12, %14 ]
+  %.0 = phi i32 [ %12, %1 ], [ 0, %20 ], [ -12, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

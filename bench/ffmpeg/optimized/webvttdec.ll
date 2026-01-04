@@ -137,11 +137,11 @@ thread-pre-split.i:                               ; preds = %10, %32
   br label %32
 
 32:                                               ; preds = %.thread48.i, %31, %.thread46.i, %30, %29, %25, %.loopexit.thread.i
-  %.127.i = phi i32 [ 0, %25 ], [ %.026.i, %29 ], [ 1, %30 ], [ 0, %.thread48.i ], [ 0, %31 ], [ 1, %.thread46.i ], [ 1, %.loopexit.thread.i ]
+  %.127.i = phi i32 [ 0, %31 ], [ 0, %25 ], [ %.026.i, %29 ], [ 1, %30 ], [ 0, %.thread48.i ], [ 1, %.loopexit.thread.i ], [ 1, %.thread46.i ]
   %33 = getelementptr inbounds nuw i8, ptr %.024.i, i64 1
   br label %thread-pre-split.i, !llvm.loop !36
 
-.thread:                                          ; preds = %10, %4
+.thread:                                          ; preds = %4, %10
   %34 = call i32 @av_bprint_finalize(ptr noundef nonnull %5, ptr noundef null) #4
   br label %41
 

@@ -213,7 +213,7 @@ define internal range(i32 0, 2) i32 @mlx_kem_get_params(ptr noundef readonly cap
   br label %64
 
 64:                                               ; preds = %51, %62, %46
-  %.062 = phi ptr [ %47, %62 ], [ null, %46 ], [ null, %51 ]
+  %.062 = phi ptr [ null, %46 ], [ %47, %62 ], [ null, %51 ]
   %65 = load i32, ptr %44, align 8, !tbaa !28
   %66 = icmp ugt i32 %65, 1
   br i1 %66, label %67, label %86
@@ -356,7 +356,7 @@ export_sub.exit:                                  ; preds = %102
   br label %export_sub.exit.thread
 
 export_sub.exit.thread:                           ; preds = %132, %137, %export_sub.exit, %86, %69, %48, %43, %33, %26, %19, %81, %60
-  %.0 = phi i32 [ 0, %81 ], [ 0, %60 ], [ 0, %19 ], [ 0, %26 ], [ 0, %33 ], [ 1, %43 ], [ 0, %48 ], [ 0, %69 ], [ 1, %86 ], [ 0, %export_sub.exit ], [ %spec.select85, %137 ], [ 0, %132 ]
+  %.0 = phi i32 [ 1, %43 ], [ 0, %48 ], [ 0, %69 ], [ %spec.select85, %137 ], [ 0, %export_sub.exit ], [ 1, %86 ], [ 0, %81 ], [ 0, %60 ], [ 0, %33 ], [ 0, %26 ], [ 0, %19 ], [ 0, %132 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -479,7 +479,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br label %load_keys.exit
 
 load_keys.exit:                                   ; preds = %2, %.split32.us.i, %.split34.us.i, %18, %14, %7, %ossl_param_is_empty.exit, %33, %13
-  %.0 = phi i32 [ 0, %13 ], [ 0, %33 ], [ 1, %ossl_param_is_empty.exit ], [ 1, %7 ], [ 0, %14 ], [ 0, %18 ], [ 0, %.split32.us.i ], [ 1, %.split34.us.i ], [ 1, %2 ]
+  %.0 = phi i32 [ 1, %7 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %13 ], [ 0, %33 ], [ 1, %.split34.us.i ], [ 0, %14 ], [ 0, %18 ], [ 0, %.split32.us.i ], [ 1, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -518,7 +518,7 @@ define internal range(i32 0, 2) i32 @mlx_kem_has(ptr noundef readonly captures(a
   br label %16
 
 16:                                               ; preds = %6, %2, %12, %8
-  %.0.shrunk = phi i1 [ %15, %12 ], [ %11, %8 ], [ false, %2 ], [ true, %6 ]
+  %.0.shrunk = phi i1 [ %11, %8 ], [ %15, %12 ], [ false, %2 ], [ true, %6 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -573,7 +573,7 @@ define internal range(i32 0, 2) i32 @mlx_kem_match(ptr noundef readonly captures
   br label %34
 
 34:                                               ; preds = %18, %21, %27, %16, %11, %3
-  %.0.shrunk = phi i1 [ false, %3 ], [ false, %11 ], [ true, %16 ], [ %not., %18 ], [ false, %21 ], [ %33, %27 ]
+  %.0.shrunk = phi i1 [ false, %3 ], [ true, %16 ], [ %33, %27 ], [ %not., %18 ], [ false, %11 ], [ false, %21 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -724,7 +724,7 @@ mlx_kem_key_free.exit:                            ; preds = %35
   br label %45
 
 45:                                               ; preds = %mlx_kem_key_new.exit.thread, %23, %3, %5, %mlx_kem_key_free.exit, %43
-  %.0 = phi ptr [ %21, %43 ], [ null, %mlx_kem_key_free.exit ], [ null, %5 ], [ null, %3 ], [ %21, %23 ], [ null, %mlx_kem_key_new.exit.thread ]
+  %.0 = phi ptr [ null, %mlx_kem_key_free.exit ], [ null, %3 ], [ null, %mlx_kem_key_new.exit.thread ], [ %21, %43 ], [ null, %5 ], [ %21, %23 ]
   ret ptr %.0
 }
 
@@ -803,7 +803,7 @@ mlx_kem_key_free.exit:                            ; preds = %11, %20
   br label %27
 
 27:                                               ; preds = %11, %2, %4, %mlx_kem_key_free.exit, %9
-  %.0 = phi ptr [ null, %mlx_kem_key_free.exit ], [ %5, %9 ], [ null, %4 ], [ null, %2 ], [ %5, %11 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %mlx_kem_key_free.exit ], [ %5, %9 ], [ null, %4 ], [ %5, %11 ]
   ret ptr %.0
 }
 
@@ -922,7 +922,7 @@ define internal range(i32 0, 2) i32 @mlx_kem_import(ptr noundef %0, i32 noundef 
   br label %mlx_kem_key_fromdata.exit
 
 mlx_kem_key_fromdata.exit:                        ; preds = %13, %33, %38, %44, %46, %48, %49
-  %.0.i = phi i32 [ 0, %44 ], [ 0, %46 ], [ 0, %48 ], [ %52, %49 ], [ 0, %13 ], [ 0, %33 ], [ 0, %38 ]
+  %.0.i = phi i32 [ %52, %49 ], [ 0, %13 ], [ 0, %33 ], [ 0, %44 ], [ 0, %46 ], [ 0, %48 ], [ 0, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1141,7 +1141,7 @@ export_sub.exit.thread:                           ; preds = %85, %102, %100, %92
   br label %111
 
 111:                                              ; preds = %4, %export_sub.exit.thread, %14
-  %.036 = phi i32 [ %.0, %export_sub.exit.thread ], [ 0, %14 ], [ 0, %4 ]
+  %.036 = phi i32 [ 0, %14 ], [ 0, %4 ], [ %.0, %export_sub.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.036
 }
@@ -1380,13 +1380,13 @@ ossl_param_is_empty.exit:                         ; preds = %2
   %19 = load i64, ptr %18, align 8, !tbaa !49
   %20 = call i32 @OSSL_PARAM_get_octet_string(ptr noundef nonnull %12, ptr noundef nonnull %4, i64 noundef %19, ptr noundef nonnull %3) #6
   %.not31 = icmp eq i32 %20, 1
-  br i1 %.not31, label %21, label %.critedge
+  br i1 %.not31, label %21, label %31
 
 21:                                               ; preds = %13
   %22 = load i64, ptr %3, align 8, !tbaa !44
   %23 = load i64, ptr %18, align 8, !tbaa !49
   %.not32 = icmp eq i64 %22, %23
-  br i1 %.not32, label %28, label %24
+  br i1 %.not32, label %.critedge, label %24
 
 24:                                               ; preds = %21
   call void @ERR_new() #6
@@ -1395,17 +1395,21 @@ ossl_param_is_empty.exit:                         ; preds = %2
   %26 = load i64, ptr %3, align 8, !tbaa !44
   %27 = load i64, ptr %18, align 8, !tbaa !49
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 786691, ptr noundef nonnull @.str.14, ptr noundef %25, i64 noundef %26, i64 noundef %27) #6
-  br label %.critedge
+  br label %31
 
-28:                                               ; preds = %21
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %30 = load i32, ptr %29, align 8, !tbaa !38
-  %31 = add nsw i32 %30, 1
-  store i32 %31, ptr %29, align 8, !tbaa !38
+.critedge:                                        ; preds = %21
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %29 = load i32, ptr %28, align 8, !tbaa !38
+  %30 = add nsw i32 %29, 1
+  store i32 %30, ptr %28, align 8, !tbaa !38
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %32
 
-32:                                               ; preds = %28, %11, %8
+31:                                               ; preds = %13, %24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  br label %ossl_param_is_empty.exit.thread
+
+32:                                               ; preds = %.critedge, %11, %8
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %34 = load ptr, ptr %33, align 8, !tbaa !36
   %.not33 = icmp eq ptr %34, null
@@ -1427,13 +1431,13 @@ ossl_param_is_empty.exit:                         ; preds = %2
   %43 = load i64, ptr %42, align 8, !tbaa !50
   %44 = call i32 @OSSL_PARAM_get_octet_string(ptr noundef nonnull %36, ptr noundef nonnull %5, i64 noundef %43, ptr noundef nonnull %3) #6
   %.not35 = icmp eq i32 %44, 1
-  br i1 %.not35, label %45, label %.critedge38
+  br i1 %.not35, label %45, label %56
 
 45:                                               ; preds = %37
   %46 = load i64, ptr %3, align 8, !tbaa !44
   %47 = load i64, ptr %42, align 8, !tbaa !50
   %.not36 = icmp eq i64 %46, %47
-  br i1 %.not36, label %53, label %48
+  br i1 %.not36, label %.critedge38, label %48
 
 48:                                               ; preds = %45
   call void @ERR_new() #6
@@ -1443,26 +1447,22 @@ ossl_param_is_empty.exit:                         ; preds = %2
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %52 = load i64, ptr %51, align 8, !tbaa !49
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 786691, ptr noundef nonnull @.str.15, ptr noundef %49, i64 noundef %50, i64 noundef %52) #6
-  br label %.critedge38
+  br label %56
 
-53:                                               ; preds = %45
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %55 = load i32, ptr %54, align 4, !tbaa !39
-  %56 = add nsw i32 %55, 1
-  store i32 %56, ptr %54, align 4, !tbaa !39
+.critedge38:                                      ; preds = %45
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %54 = load i32, ptr %53, align 4, !tbaa !39
+  %55 = add nsw i32 %54, 1
+  store i32 %55, ptr %53, align 4, !tbaa !39
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %ossl_param_is_empty.exit.thread
 
-.critedge:                                        ; preds = %13, %24
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %ossl_param_is_empty.exit.thread
-
-.critedge38:                                      ; preds = %37, %48
+56:                                               ; preds = %37, %48
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %ossl_param_is_empty.exit.thread
 
-ossl_param_is_empty.exit.thread:                  ; preds = %2, %32, %35, %53, %.critedge38, %.critedge, %ossl_param_is_empty.exit
-  %.025 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ 0, %.critedge ], [ 0, %.critedge38 ], [ 1, %53 ], [ 1, %35 ], [ 1, %32 ], [ 1, %2 ]
+ossl_param_is_empty.exit.thread:                  ; preds = %2, %32, %35, %.critedge38, %56, %31, %ossl_param_is_empty.exit
+  %.025 = phi i32 [ 0, %31 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %56 ], [ 1, %.critedge38 ], [ 1, %35 ], [ 1, %32 ], [ 1, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.025
 }
@@ -1528,7 +1528,7 @@ define internal fastcc range(i32 0, 2) i32 @load_keys(ptr noundef %0, ptr nounde
   br i1 %22, label %.split, label %.split34.us, !llvm.loop !53
 
 .split34.us:                                      ; preds = %34, %21, %.split.us
-  %35 = phi i32 [ 1, %.split.us ], [ 1, %21 ], [ 2, %34 ]
+  %35 = phi i32 [ 1, %21 ], [ 1, %.split.us ], [ 2, %34 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %35, ptr %36, align 8, !tbaa !28
   br label %41
@@ -1694,8 +1694,8 @@ mlx_kem_gen_cleanup.exit:                         ; preds = %18, %23
   tail call void @CRYPTO_free(ptr noundef nonnull %9, ptr noundef nonnull @.str, i32 noundef 728) #6
   br label %mlx_kem_gen_set_params.exit.thread
 
-mlx_kem_gen_set_params.exit.thread:               ; preds = %16, %23, %11, %ossl_param_is_empty.exit.i, %4, %8, %mlx_kem_gen_cleanup.exit
-  %.0 = phi ptr [ null, %mlx_kem_gen_cleanup.exit ], [ null, %8 ], [ null, %4 ], [ %9, %ossl_param_is_empty.exit.i ], [ %9, %11 ], [ %9, %23 ], [ %9, %16 ]
+mlx_kem_gen_set_params.exit.thread:               ; preds = %16, %23, %ossl_param_is_empty.exit.i, %11, %4, %8, %mlx_kem_gen_cleanup.exit
+  %.0 = phi ptr [ null, %mlx_kem_gen_cleanup.exit ], [ null, %4 ], [ null, %8 ], [ %9, %11 ], [ %9, %ossl_param_is_empty.exit.i ], [ %9, %23 ], [ %9, %16 ]
   ret ptr %.0
 }
 

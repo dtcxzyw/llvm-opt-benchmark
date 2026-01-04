@@ -233,7 +233,7 @@ setup_read_buffer.exit:                           ; preds = %setup_read_buffer.e
   br label %dtls_read_buffer_next_packet.exit
 
 dtls_read_buffer_next_packet.exit:                ; preds = %93, %29, %25, %24, %20, %104, %99, %66, %.preheader.i, %41
-  %.010 = phi i32 [ -1, %41 ], [ 1, %66 ], [ 1, %.preheader.i ], [ %.0.ph, %99 ], [ %.0.ph, %104 ], [ -1, %20 ], [ -1, %24 ], [ -1, %25 ], [ -1, %29 ], [ 1, %93 ]
+  %.010 = phi i32 [ -1, %41 ], [ %.0.ph, %104 ], [ -1, %29 ], [ 1, %66 ], [ 1, %.preheader.i ], [ %.0.ph, %99 ], [ -1, %20 ], [ -1, %24 ], [ -1, %25 ], [ 1, %93 ]
   ret i32 %.010
 }
 
@@ -342,7 +342,7 @@ define hidden range(i32 0, 2) i32 @ssl_write_buffer_init(ptr noundef %0, ptr nou
   br label %18
 
 18:                                               ; preds = %14, %9
-  %.0 = phi i64 [ 16477, %9 ], [ %spec.select, %14 ]
+  %.0 = phi i64 [ %spec.select, %14 ], [ 16477, %9 ]
   %19 = icmp ugt i64 %2, %.0
   br i1 %19, label %20, label %21
 
@@ -539,7 +539,7 @@ define hidden range(i32 -2147483648, 2) i32 @ssl_write_buffer_flush(ptr noundef 
   br label %dtls_write_buffer_flush.exit
 
 dtls_write_buffer_flush.exit:                     ; preds = %._crit_edge.i, %.thread.i, %.sink.split.i, %12, %5
-  %.0 = phi i32 [ -1, %5 ], [ 1, %12 ], [ %.0.ph.i, %.sink.split.i ], [ 1, %._crit_edge.i ], [ %46, %.thread.i ]
+  %.0 = phi i32 [ -1, %5 ], [ %.0.ph.i, %.sink.split.i ], [ 1, %12 ], [ %46, %.thread.i ], [ 1, %._crit_edge.i ]
   ret i32 %.0
 }
 

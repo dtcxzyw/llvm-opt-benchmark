@@ -1564,7 +1564,7 @@ define internal i32 @dissect_cablelabs_specific_opts(ptr noundef %0, ptr noundef
   br i1 %.not264, label %70, label %.loopexit
 
 70:                                               ; preds = %68, %65, %66
-  %hf_eue_capabilities_encoding_type.sink = phi ptr [ @hf_modem_capabilities_encoding_type, %66 ], [ @hf_modem_capabilities_encoding_type, %65 ], [ @hf_eue_capabilities_encoding_type, %68 ]
+  %hf_eue_capabilities_encoding_type.sink = phi ptr [ @hf_modem_capabilities_encoding_type, %65 ], [ @hf_modem_capabilities_encoding_type, %66 ], [ @hf_eue_capabilities_encoding_type, %68 ]
   %71 = load i32, ptr %hf_eue_capabilities_encoding_type.sink, align 4
   %72 = tail call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %71, ptr noundef %0, i32 noundef %.0249285, i32 noundef 1, i32 noundef 0)
   %73 = add i32 %.0249285, 1
@@ -1752,7 +1752,7 @@ define internal i32 @dissect_cablelabs_specific_opts(ptr noundef %0, ptr noundef
   br label %166
 
 166:                                              ; preds = %164, %161, %158, %153, %150
-  %.pn.i = phi i32 [ %165, %164 ], [ %154, %153 ], [ 4, %150 ], [ %162, %161 ], [ 4, %158 ]
+  %.pn.i = phi i32 [ %165, %164 ], [ 4, %150 ], [ %154, %153 ], [ %162, %161 ], [ 4, %158 ]
   %167 = add nuw nsw i32 %.pn.i, 4
   %.pre = add i32 %167, %.4280
   br label %dissect_packetcable_ccc_option.exit
@@ -1891,8 +1891,8 @@ dissect_packetcable_ccc_option.exit:              ; preds = %140, %166
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %225, %.preheader.i, %215, %211
-  %.pre-phi.i = phi i32 [ 0, %.preheader.i ], [ %227, %225 ], [ %216, %215 ], [ %.pre.i, %211 ], [ %216, %.lr.ph.i ]
-  %.1.i = phi i32 [ %177, %.preheader.i ], [ %177, %225 ], [ %177, %215 ], [ %177, %211 ], [ %223, %.lr.ph.i ]
+  %.pre-phi.i = phi i32 [ %.pre.i, %211 ], [ 0, %.preheader.i ], [ %227, %225 ], [ %216, %215 ], [ %216, %.lr.ph.i ]
+  %.1.i = phi i32 [ %177, %211 ], [ %177, %.preheader.i ], [ %177, %225 ], [ %177, %215 ], [ %223, %.lr.ph.i ]
   %231 = add i32 %.1.i, %.pre-phi.i
   br label %311
 
@@ -2055,7 +2055,7 @@ dissect_packetcable_cccV6_option.exit:            ; preds = %179, %311
   br label %.loopexit
 
 .loopexit:                                        ; preds = %dissect_packetcable_cccV6_option.exit, %dissect_packetcable_ccc_option.exit, %119, %68, %70, %.lr.ph291, %.preheader, %170, %133, %61, %11, %316, %317, %125, %127, %123, %92, %94, %95, %93, %56, %58, %45, %39, %31, %37, %34, %25, %26, %130, %88, %27
-  %.1 = phi ptr [ %21, %25 ], [ %21, %26 ], [ %.0295, %27 ], [ %.0295, %31 ], [ %.0295, %34 ], [ %.0295, %37 ], [ %.0295, %39 ], [ %.0295, %45 ], [ %.0295, %56 ], [ %.0295, %58 ], [ %.0295, %88 ], [ %.0295, %92 ], [ %.0295, %93 ], [ %.0295, %94 ], [ %.0295, %95 ], [ %.0295, %123 ], [ %.0295, %125 ], [ %.0295, %127 ], [ %.0295, %130 ], [ %.0295, %316 ], [ %.0295, %317 ], [ %.0295, %11 ], [ %.0295, %61 ], [ %.0295, %133 ], [ %.0295, %170 ], [ %.0295, %.preheader ], [ %.0295, %.lr.ph291 ], [ %.0295, %70 ], [ %.0295, %68 ], [ %.0295, %119 ], [ %.0295, %dissect_packetcable_ccc_option.exit ], [ %.0295, %dissect_packetcable_cccV6_option.exit ]
+  %.1 = phi ptr [ %.0295, %317 ], [ %21, %25 ], [ %21, %26 ], [ %.0295, %27 ], [ %.0295, %31 ], [ %.0295, %34 ], [ %.0295, %37 ], [ %.0295, %11 ], [ %.0295, %39 ], [ %.0295, %133 ], [ %.0295, %45 ], [ %.0295, %56 ], [ %.0295, %58 ], [ %.0295, %316 ], [ %.0295, %170 ], [ %.0295, %88 ], [ %.0295, %92 ], [ %.0295, %93 ], [ %.0295, %94 ], [ %.0295, %95 ], [ %.0295, %.preheader ], [ %.0295, %123 ], [ %.0295, %125 ], [ %.0295, %127 ], [ %.0295, %130 ], [ %.0295, %61 ], [ %.0295, %.lr.ph291 ], [ %.0295, %119 ], [ %.0295, %68 ], [ %.0295, %dissect_packetcable_ccc_option.exit ], [ %.0295, %70 ], [ %.0295, %dissect_packetcable_cccV6_option.exit ]
   %319 = add i32 %18, %17
   %320 = icmp slt i32 %319, %8
   br i1 %320, label %11, label %.loopexit275, !llvm.loop !16

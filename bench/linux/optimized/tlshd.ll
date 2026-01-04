@@ -399,7 +399,7 @@ define internal range(i32 -2147483648, 1) i32 @tls_handshake_accept(ptr noundef 
   br label %35
 
 35:                                               ; preds = %33, %15
-  %36 = phi i32 [ %17, %15 ], [ %34, %33 ]
+  %36 = phi i32 [ %34, %33 ], [ %17, %15 ]
   %37 = icmp slt i32 %36, 0
   br i1 %37, label %115, label %.thread
 
@@ -538,7 +538,7 @@ define internal range(i32 -2147483648, 1) i32 @tls_handshake_accept(ptr noundef 
   br label %115
 
 115:                                              ; preds = %40, %109, %101, %81, %.thread, %35
-  %116 = phi i32 [ %100, %81 ], [ %36, %35 ], [ -12, %.thread ], [ %.ph, %101 ], [ %.ph, %109 ], [ -12, %40 ]
+  %116 = phi i32 [ %100, %81 ], [ %36, %35 ], [ -12, %.thread ], [ %.ph, %109 ], [ %.ph, %101 ], [ -12, %40 ]
   ret i32 %116
 }
 
@@ -586,7 +586,7 @@ define internal void @tls_handshake_done(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %32, label %.lr.ph, label %.critedge, !llvm.loop !14
 
 .critedge:                                        ; preds = %20, %.lr.ph
-  %.lcssa = phi i32 [ %26, %20 ], [ %15, %.lr.ph ]
+  %.lcssa = phi i32 [ %15, %.lr.ph ], [ %26, %20 ]
   %33 = icmp eq i32 %.lcssa, 0
   br i1 %33, label %.critedge9, label %34
 

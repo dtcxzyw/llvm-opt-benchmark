@@ -2074,8 +2074,8 @@ _ZN4pbrt6detail8DispatchIRZNKS_8Material12GetNormalMapEvEUlT_E_PKNS_5ImageENS_18
   br label %_ZNK4pbrt8Material12GetNormalMapEv.exit
 
 _ZNK4pbrt8Material12GetNormalMapEv.exit:          ; preds = %_ZNK4pbrt8Material15GetDisplacementEv.exit.thread147, %_ZNK4pbrt8Material15GetDisplacementEv.exit.thread144, %129, %_ZNK4pbrt8Material15GetDisplacementEv.exit, %146, %149, %152, %155, %157, %160, %_ZN4pbrt6detail8DispatchIRZNKS_8Material12GetNormalMapEvEUlT_E_PKNS_5ImageENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS3_PKvi.exit.i.i.i
-  %storemerge.i.sink.i.i.i136 = phi i64 [ %storemerge.i.i.i.i, %_ZN4pbrt6detail8DispatchIRZNKS_8Material12GetNormalMapEvEUlT_E_PKNS_5ImageENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS3_PKvi.exit.i.i.i ], [ %storemerge.i.sink.i.i.i137, %146 ], [ %storemerge.i.sink.i.i.i140, %149 ], [ %storemerge.i.sink.i.i.i143, %152 ], [ %storemerge.i.sink.i.i.i152, %157 ], [ %storemerge.i.sink.i.i.i157, %160 ], [ %storemerge.i.i.i.i, %_ZNK4pbrt8Material15GetDisplacementEv.exit ], [ 0, %129 ], [ %137, %_ZNK4pbrt8Material15GetDisplacementEv.exit.thread144 ], [ %storemerge.i.i.i.i, %155 ], [ %139, %_ZNK4pbrt8Material15GetDisplacementEv.exit.thread147 ]
-  %.0.i.i.i62 = phi ptr [ %.0.i.i.i.i, %_ZN4pbrt6detail8DispatchIRZNKS_8Material12GetNormalMapEvEUlT_E_PKNS_5ImageENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS3_PKvi.exit.i.i.i ], [ %148, %146 ], [ %151, %149 ], [ %154, %152 ], [ %159, %157 ], [ %162, %160 ], [ null, %_ZNK4pbrt8Material15GetDisplacementEv.exit ], [ null, %129 ], [ %.pre163, %_ZNK4pbrt8Material15GetDisplacementEv.exit.thread144 ], [ %156, %155 ], [ %.pre, %_ZNK4pbrt8Material15GetDisplacementEv.exit.thread147 ]
+  %storemerge.i.sink.i.i.i136 = phi i64 [ %storemerge.i.i.i.i, %_ZN4pbrt6detail8DispatchIRZNKS_8Material12GetNormalMapEvEUlT_E_PKNS_5ImageENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS3_PKvi.exit.i.i.i ], [ %storemerge.i.sink.i.i.i137, %146 ], [ %storemerge.i.sink.i.i.i140, %149 ], [ %storemerge.i.sink.i.i.i143, %152 ], [ 0, %129 ], [ %storemerge.i.i.i.i, %155 ], [ %storemerge.i.sink.i.i.i152, %157 ], [ %storemerge.i.sink.i.i.i157, %160 ], [ %storemerge.i.i.i.i, %_ZNK4pbrt8Material15GetDisplacementEv.exit ], [ %137, %_ZNK4pbrt8Material15GetDisplacementEv.exit.thread144 ], [ %139, %_ZNK4pbrt8Material15GetDisplacementEv.exit.thread147 ]
+  %.0.i.i.i62 = phi ptr [ %.0.i.i.i.i, %_ZN4pbrt6detail8DispatchIRZNKS_8Material12GetNormalMapEvEUlT_E_PKNS_5ImageENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS3_PKvi.exit.i.i.i ], [ %148, %146 ], [ %151, %149 ], [ %154, %152 ], [ null, %129 ], [ %156, %155 ], [ %159, %157 ], [ %162, %160 ], [ null, %_ZNK4pbrt8Material15GetDisplacementEv.exit ], [ %.pre163, %_ZNK4pbrt8Material15GetDisplacementEv.exit.thread144 ], [ %.pre, %_ZNK4pbrt8Material15GetDisplacementEv.exit.thread147 ]
   %163 = and i64 %storemerge.i.sink.i.i.i136, 144115188075855871
   %164 = icmp ne i64 %163, 0
   %165 = icmp ne ptr %.0.i.i.i62, null
@@ -3511,7 +3511,7 @@ _ZNK4pbrt11MixMaterial14ChooseMaterialINS_25UniversalTextureEvaluatorEEENS_8Mate
   br label %_ZNK4pbrt8Material9GetBSSRDFINS_25UniversalTextureEvaluatorEEENS_6BSSRDFET_NS_19MaterialEvalContextERNS_18SampledWavelengthsERNS_13ScratchBufferE.exit
 
 _ZNK4pbrt8Material9GetBSSRDFINS_25UniversalTextureEvaluatorEEENS_6BSSRDFET_NS_19MaterialEvalContextERNS_18SampledWavelengthsERNS_13ScratchBufferE.exit: ; preds = %._crit_edge, %104
-  %.sink.i.sink.i.i.i = phi i64 [ %109, %104 ], [ 0, %._crit_edge ]
+  %.sink.i.sink.i.i.i = phi i64 [ 0, %._crit_edge ], [ %109, %104 ]
   store i64 %.sink.i.sink.i.i.i, ptr %0, align 8, !tbaa !268, !alias.scope !270
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
@@ -4335,9 +4335,9 @@ define linkonce_odr dso_local void @_ZN4pbrt12RotateFromToENS_7Vector3IfEES1_(pt
   br label %17
 
 17:                                               ; preds = %12, %5
-  %.sroa.0158.0 = phi float [ 1.000000e+00, %5 ], [ 0.000000e+00, %12 ]
-  %.sroa.8.0 = phi float [ 0.000000e+00, %5 ], [ %spec.select, %12 ]
-  %.sroa.14.0 = phi float [ 0.000000e+00, %5 ], [ %spec.select165, %12 ]
+  %.sroa.0158.0 = phi float [ 0.000000e+00, %12 ], [ 1.000000e+00, %5 ]
+  %.sroa.8.0 = phi float [ %spec.select, %12 ], [ 0.000000e+00, %5 ]
+  %.sroa.14.0 = phi float [ %spec.select165, %12 ], [ 0.000000e+00, %5 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %.preheader.i
 
@@ -4473,7 +4473,7 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit:            ; preds = %_ZN4pbrt6Tuple3INS_
   br label %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit
 
 _ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit:          ; preds = %64, %67, %68
-  %.0.i.sroa.speculated = phi float [ %21, %67 ], [ %22, %68 ], [ %20, %64 ]
+  %.0.i.sroa.speculated = phi float [ %22, %68 ], [ %21, %67 ], [ %20, %64 ]
   %69 = fmul float %31, %.0.i.sroa.speculated
   %70 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %70, label %72 [
@@ -4488,7 +4488,7 @@ _ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit:          ; preds = %64, %67, %68
   br label %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit87
 
 _ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit87:        ; preds = %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit, %71, %72
-  %.0.i86.sroa.speculated = phi float [ %21, %71 ], [ %22, %72 ], [ %20, %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit ]
+  %.0.i86.sroa.speculated = phi float [ %22, %72 ], [ %21, %71 ], [ %20, %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit ]
   %73 = fmul float %69, %.0.i86.sroa.speculated
   %74 = fsub float %66, %73
   switch i32 %51, label %76 [
@@ -4503,7 +4503,7 @@ _ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit87:        ; preds = %_ZN4pbrt6Tuple3INS_
   br label %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit93
 
 _ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit93:        ; preds = %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit87, %75, %76
-  %.0.i92.sroa.speculated = phi float [ %24, %75 ], [ %25, %76 ], [ %23, %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit87 ]
+  %.0.i92.sroa.speculated = phi float [ %25, %76 ], [ %24, %75 ], [ %23, %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit87 ]
   %77 = fmul float %37, %.0.i92.sroa.speculated
   switch i32 %70, label %79 [
     i32 0, label %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit95
@@ -4517,7 +4517,7 @@ _ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit93:        ; preds = %_ZN4pbrt6Tuple3INS_
   br label %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit95
 
 _ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit95:        ; preds = %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit93, %78, %79
-  %.0.i94.sroa.speculated = phi float [ %24, %78 ], [ %25, %79 ], [ %23, %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit93 ]
+  %.0.i94.sroa.speculated = phi float [ %25, %79 ], [ %24, %78 ], [ %23, %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit93 ]
   %80 = fmul float %77, %.0.i94.sroa.speculated
   %81 = fsub float %74, %80
   switch i32 %51, label %83 [
@@ -4532,7 +4532,7 @@ _ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit95:        ; preds = %_ZN4pbrt6Tuple3INS_
   br label %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit109
 
 _ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit109:       ; preds = %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit95, %82, %83
-  %.0.i108.sroa.speculated = phi float [ %24, %82 ], [ %25, %83 ], [ %23, %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit95 ]
+  %.0.i108.sroa.speculated = phi float [ %25, %83 ], [ %24, %82 ], [ %23, %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit95 ]
   %84 = fmul float %45, %.0.i108.sroa.speculated
   switch i32 %70, label %86 [
     i32 0, label %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit111
@@ -4546,7 +4546,7 @@ _ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit109:       ; preds = %_ZN4pbrt6Tuple3INS_
   br label %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit111
 
 _ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit111:       ; preds = %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit109, %85, %86
-  %.0.i110.sroa.speculated = phi float [ %21, %85 ], [ %22, %86 ], [ %20, %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit109 ]
+  %.0.i110.sroa.speculated = phi float [ %22, %86 ], [ %21, %85 ], [ %20, %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit109 ]
   %87 = fmul float %84, %.0.i110.sroa.speculated
   %88 = fadd float %81, %87
   %89 = getelementptr inbounds nuw float, ptr %50, i64 %indvars.iv
@@ -7620,7 +7620,7 @@ define linkonce_odr dso_local { <2 x float>, float } @_ZNK4pbrt11Interaction15Of
   br label %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit.i
 
 _ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit.i:        ; preds = %44, %43, %42
-  %.0.i.sroa.speculated.i = phi float [ %.sroa.03.4.vec.extract.i84.i, %43 ], [ %.sroa.11.0.i, %44 ], [ %.sroa.03.0.vec.extract.i83.i, %42 ]
+  %.0.i.sroa.speculated.i = phi float [ %.sroa.11.0.i, %44 ], [ %.sroa.03.4.vec.extract.i84.i, %43 ], [ %.sroa.03.0.vec.extract.i83.i, %42 ]
   %45 = fcmp ogt float %.0.i.sroa.speculated.i, 0.000000e+00
   br i1 %45, label %46, label %57
 
@@ -7637,7 +7637,7 @@ _ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit.i:        ; preds = %44, %43, %42
   br label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i
 
 _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i:         ; preds = %48, %47, %46
-  %.0.i89.i = phi ptr [ %.sroa.0122.i.4.i.4.i.4..sroa_idx, %47 ], [ %.sroa.10.i, %48 ], [ %.sroa.0122.i, %46 ]
+  %.0.i89.i = phi ptr [ %.sroa.10.i, %48 ], [ %.sroa.0122.i.4.i.4.i.4..sroa_idx, %47 ], [ %.sroa.0122.i, %46 ]
   %49 = load float, ptr %.0.i89.i, align 4, !tbaa !74
   %or.cond.i.i = fcmp oeq float %49, 0x7FF0000000000000
   br i1 %or.cond.i.i, label %_ZN4pbrt11NextFloatUpEf.exit.i, label %50
@@ -7666,7 +7666,7 @@ _ZN4pbrt11NextFloatUpEf.exit.i:                   ; preds = %50, %_ZN4pbrt6Tuple
   br label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit92.i
 
 _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit92.i:       ; preds = %56, %55, %_ZN4pbrt11NextFloatUpEf.exit.i
-  %.0.i91.i = phi ptr [ %.sroa.0122.i.4.i.4.i.4..sroa_idx26, %55 ], [ %.sroa.10.i, %56 ], [ %.sroa.0122.i, %_ZN4pbrt11NextFloatUpEf.exit.i ]
+  %.0.i91.i = phi ptr [ %.sroa.10.i, %56 ], [ %.sroa.0122.i.4.i.4.i.4..sroa_idx26, %55 ], [ %.sroa.0122.i, %_ZN4pbrt11NextFloatUpEf.exit.i ]
   store float %.011.i.i, ptr %.0.i91.i, align 4, !tbaa !74
   br label %72
 
@@ -7683,7 +7683,7 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit92.i:       ; preds = %56, %55, %_ZN4pbrt1
   br label %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit94.i
 
 _ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit94.i:      ; preds = %59, %58, %57
-  %.0.i93.sroa.speculated.i = phi float [ %.sroa.03.4.vec.extract.i84.i, %58 ], [ %.sroa.11.0.i, %59 ], [ %.sroa.03.0.vec.extract.i83.i, %57 ]
+  %.0.i93.sroa.speculated.i = phi float [ %.sroa.11.0.i, %59 ], [ %.sroa.03.4.vec.extract.i84.i, %58 ], [ %.sroa.03.0.vec.extract.i83.i, %57 ]
   %60 = fcmp olt float %.0.i93.sroa.speculated.i, 0.000000e+00
   br i1 %60, label %61, label %72
 
@@ -7700,7 +7700,7 @@ _ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit94.i:      ; preds = %59, %58, %57
   br label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit96.i
 
 _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit96.i:       ; preds = %63, %62, %61
-  %.0.i95.i = phi ptr [ %.sroa.0122.i.4.i.4.i.4..sroa_idx27, %62 ], [ %.sroa.10.i, %63 ], [ %.sroa.0122.i, %61 ]
+  %.0.i95.i = phi ptr [ %.sroa.10.i, %63 ], [ %.sroa.0122.i.4.i.4.i.4..sroa_idx27, %62 ], [ %.sroa.0122.i, %61 ]
   %64 = load float, ptr %.0.i95.i, align 4, !tbaa !74
   %or.cond.i97.i = fcmp oeq float %64, 0xFFF0000000000000
   br i1 %or.cond.i97.i, label %_ZN4pbrt13NextFloatDownEf.exit.i, label %65
@@ -7729,7 +7729,7 @@ _ZN4pbrt13NextFloatDownEf.exit.i:                 ; preds = %65, %_ZN4pbrt6Tuple
   br label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit102.i
 
 _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit102.i:      ; preds = %71, %70, %_ZN4pbrt13NextFloatDownEf.exit.i
-  %.0.i101.i = phi ptr [ %.sroa.0122.i.4.i.4.i.4..sroa_idx28, %70 ], [ %.sroa.10.i, %71 ], [ %.sroa.0122.i, %_ZN4pbrt13NextFloatDownEf.exit.i ]
+  %.0.i101.i = phi ptr [ %.sroa.10.i, %71 ], [ %.sroa.0122.i.4.i.4.i.4..sroa_idx28, %70 ], [ %.sroa.0122.i, %_ZN4pbrt13NextFloatDownEf.exit.i ]
   store float %.010.i100.i, ptr %.0.i101.i, align 4, !tbaa !74
   br label %72
 
@@ -11261,8 +11261,8 @@ _ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit.thread: ; preds =
   br i1 %.not.i57, label %._crit_edge.loopexit.i58, label %.lr.ph.i50, !llvm.loop !484
 
 _ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit62: ; preds = %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit.thread, %._crit_edge.loopexit.i58
-  %.sroa.speculated.i47149 = phi float [ %.sroa.speculated.i47, %._crit_edge.loopexit.i58 ], [ %.sroa.speculated.i47148, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit.thread ]
-  %.09.lcssa.i60 = phi i32 [ %115, %._crit_edge.loopexit.i58 ], [ %78, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit.thread ]
+  %.sroa.speculated.i47149 = phi float [ %.sroa.speculated.i47148, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit.thread ], [ %.sroa.speculated.i47, %._crit_edge.loopexit.i58 ]
+  %.09.lcssa.i60 = phi i32 [ %78, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit.thread ], [ %115, %._crit_edge.loopexit.i58 ]
   %123 = uitofp i32 %.09.lcssa.i60 to float
   %124 = fmul float %123, 0x3DF0000000000000
   br label %_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit33
@@ -11480,8 +11480,8 @@ _ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit124: ; preds = %202
   br label %_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit33
 
 _ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit33: ; preds = %._crit_edge.loopexit.i29, %80, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit124, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit91, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit62
-  %.sink160 = phi float [ %230, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit124 ], [ %168, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit91 ], [ %124, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit62 ], [ %92, %._crit_edge.loopexit.i29 ], [ 0.000000e+00, %80 ]
-  %.sroa.speculated.i104.sink = phi float [ %.sroa.speculated.i104, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit124 ], [ %.sroa.speculated.i76, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit91 ], [ %.sroa.speculated.i47149, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit62 ], [ %.sroa.speculated.i, %._crit_edge.loopexit.i29 ], [ 0.000000e+00, %80 ]
+  %.sink160 = phi float [ %230, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit124 ], [ %168, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit91 ], [ %124, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit62 ], [ 0.000000e+00, %80 ], [ %92, %._crit_edge.loopexit.i29 ]
+  %.sroa.speculated.i104.sink = phi float [ %.sroa.speculated.i104, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit124 ], [ %.sroa.speculated.i76, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit91 ], [ %.sroa.speculated.i47149, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit62 ], [ 0.000000e+00, %80 ], [ %.sroa.speculated.i, %._crit_edge.loopexit.i29 ]
   %231 = fcmp ogt float %.sink160, 0x3FEFFFFFE0000000
   %.sroa.speculated.i123 = select i1 %231, float 0x3FEFFFFFE0000000, float %.sink160
   %.sroa.0130.0.vec.insert137 = insertelement <2 x float> poison, float %.sroa.speculated.i104.sink, i64 0
@@ -12188,7 +12188,7 @@ _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit:         ; preds = %88
   br label %_ZN4pbrt3RGBixEi.exit
 
 _ZN4pbrt3RGBixEi.exit:                            ; preds = %92, %128, %129
-  %.0.i47 = phi ptr [ %.sroa.063.4..sroa_idx, %128 ], [ %.sroa.7, %129 ], [ %.sroa.063, %92 ]
+  %.0.i47 = phi ptr [ %.sroa.7, %129 ], [ %.sroa.063.4..sroa_idx, %128 ], [ %.sroa.063, %92 ]
   store float %127, ptr %.0.i47, align 4, !tbaa !74
   %130 = add nuw nsw i32 %.088, 1
   %exitcond.not = icmp eq i32 %130, 3
@@ -19898,7 +19898,7 @@ define linkonce_odr dso_local void @_ZNK4pbrt17ConductorMaterial7GetBxDFINS_25Un
   br label %_ZN4pbrt5ClampIfidEET_S1_T0_T1_.exit.i
 
 _ZN4pbrt5ClampIfidEET_S1_T0_T1_.exit.i:           ; preds = %66, %63, %59
-  %.0.i.i = phi float [ 0x3FEFFF2E40000000, %66 ], [ 0.000000e+00, %59 ], [ %61, %63 ]
+  %.0.i.i = phi float [ 0.000000e+00, %59 ], [ 0x3FEFFF2E40000000, %66 ], [ %61, %63 ]
   %67 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.i
   store float %.0.i.i, ptr %67, align 4, !tbaa !74
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -20524,7 +20524,7 @@ _ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_17BlackbodySpectrumEEEDaS1_.exit: ; pred
   br label %_ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_22DenselySampledSpectrumEEEDaS1_.exit
 
 _ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_22DenselySampledSpectrumEEEDaS1_.exit: ; preds = %_ZNK4pbrt22DenselySampledSpectrumclEf.exit.i.i, %72, %42, %39, %18, %14, %6, %_ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_17BlackbodySpectrumEEEDaS1_.exit, %_ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_20RGBUnboundedSpectrumEEEDaS1_.exit, %23, %4
-  %.0 = phi float [ %154, %_ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_17BlackbodySpectrumEEEDaS1_.exit ], [ %5, %4 ], [ %26, %23 ], [ %71, %_ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_20RGBUnboundedSpectrumEEEDaS1_.exit ], [ %22, %18 ], [ 0.000000e+00, %14 ], [ 0.000000e+00, %6 ], [ %41, %39 ], [ %47, %42 ], [ %113, %_ZNK4pbrt22DenselySampledSpectrumclEf.exit.i.i ], [ 0.000000e+00, %72 ]
+  %.0 = phi float [ %154, %_ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_17BlackbodySpectrumEEEDaS1_.exit ], [ %5, %4 ], [ %47, %42 ], [ %26, %23 ], [ 0.000000e+00, %6 ], [ %71, %_ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_20RGBUnboundedSpectrumEEEDaS1_.exit ], [ %22, %18 ], [ 0.000000e+00, %14 ], [ %41, %39 ], [ %113, %_ZNK4pbrt22DenselySampledSpectrumclEf.exit.i.i ], [ 0.000000e+00, %72 ]
   ret float %.0
 }
 

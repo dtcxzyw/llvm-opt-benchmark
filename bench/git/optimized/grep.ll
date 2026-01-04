@@ -174,7 +174,7 @@ define dso_local i32 @grep_config(ptr noundef %0, ptr noundef %1, ptr noundef %2
   unreachable
 
 parse_pattern_type_arg.exit:                      ; preds = %14, %16, %18, %20, %22
-  %.0.i = phi i32 [ 0, %14 ], [ 1, %16 ], [ 2, %18 ], [ 3, %20 ], [ 4, %22 ]
+  %.0.i = phi i32 [ 3, %20 ], [ 2, %18 ], [ 1, %16 ], [ 0, %14 ], [ 4, %22 ]
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 144
   store i32 %.0.i, ptr %25, align 8, !tbaa !18
   br label %73
@@ -283,7 +283,7 @@ skip_prefix.exit:                                 ; preds = %57, %52
   br label %73
 
 73:                                               ; preds = %66, %68, %62, %52, %49, %4, %skip_prefix.exit, %38, %33, %28, %parse_pattern_type_arg.exit, %9
-  %.0 = phi i32 [ 0, %skip_prefix.exit ], [ 0, %38 ], [ 0, %33 ], [ 0, %28 ], [ 0, %parse_pattern_type_arg.exit ], [ 0, %9 ], [ -1, %4 ], [ -1, %49 ], [ -1, %52 ], [ %72, %68 ], [ -1, %66 ], [ -1, %62 ]
+  %.0 = phi i32 [ 0, %9 ], [ -1, %52 ], [ 0, %skip_prefix.exit ], [ -1, %4 ], [ -1, %49 ], [ 0, %38 ], [ 0, %33 ], [ 0, %28 ], [ 0, %parse_pattern_type_arg.exit ], [ -1, %66 ], [ %72, %68 ], [ -1, %62 ]
   ret i32 %.0
 }
 
@@ -860,7 +860,7 @@ prep_header_patterns.exit:                        ; preds = %58, %1
   br label %grep_splice_or.exit
 
 grep_splice_or.exit:                              ; preds = %.preheader, %98, %88, %100
-  %.0.i.sink = phi ptr [ %101, %100 ], [ %.0.i, %88 ], [ %.0.i, %98 ], [ %.0.i, %.preheader ]
+  %.0.i.sink = phi ptr [ %.0.i, %88 ], [ %101, %100 ], [ %.0.i, %98 ], [ %.0.i, %.preheader ]
   store ptr %.0.i.sink, ptr %89, align 8, !tbaa !62
   store i32 1, ptr %64, align 4, !tbaa !60
   br label %104
@@ -1196,7 +1196,7 @@ define dso_local range(i32 0, 2) i32 @grep_next_match(ptr noundef readonly captu
   br label %match_next_pattern.exit.us
 
 match_next_pattern.exit.us:                       ; preds = %34, %31, %29, %18, %16
-  %.0.i.us = phi i32 [ 1, %34 ], [ 0, %16 ], [ 0, %18 ], [ 1, %29 ], [ 1, %31 ]
+  %.0.i.us = phi i32 [ 0, %16 ], [ 0, %18 ], [ 1, %29 ], [ 1, %34 ], [ 1, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %35 = or i32 %.0.i.us, %.128.us
   br label %36
@@ -1264,7 +1264,7 @@ match_next_pattern.exit.us:                       ; preds = %34, %31, %29, %18, 
   br label %match_next_pattern.exit
 
 match_next_pattern.exit:                          ; preds = %42, %44, %55, %57, %60
-  %.0.i = phi i32 [ 1, %60 ], [ 0, %42 ], [ 0, %44 ], [ 1, %55 ], [ 1, %57 ]
+  %.0.i = phi i32 [ 0, %42 ], [ 0, %44 ], [ 1, %55 ], [ 1, %60 ], [ 1, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %61 = or i32 %.0.i, %.128
   br label %62
@@ -1588,9 +1588,9 @@ grep_attr_unlock.exit.thread:                     ; preds = %42, %grep_attr_unlo
   unreachable
 
 98:                                               ; preds = %85, %grep_attr_unlock.exit.thread, %91, %grep_attr_unlock.exit
-  %.not166298 = phi i1 [ false, %grep_attr_unlock.exit ], [ true, %91 ], [ true, %grep_attr_unlock.exit.thread ], [ true, %85 ]
-  %.0137296 = phi ptr [ %76, %grep_attr_unlock.exit ], [ null, %91 ], [ null, %grep_attr_unlock.exit.thread ], [ null, %85 ]
-  %.not191 = phi i1 [ true, %grep_attr_unlock.exit ], [ true, %91 ], [ true, %grep_attr_unlock.exit.thread ], [ %.not168, %85 ]
+  %.not166298 = phi i1 [ false, %grep_attr_unlock.exit ], [ true, %grep_attr_unlock.exit.thread ], [ true, %85 ], [ true, %91 ]
+  %.0137296 = phi ptr [ %76, %grep_attr_unlock.exit ], [ null, %grep_attr_unlock.exit.thread ], [ null, %85 ], [ null, %91 ]
+  %.not191 = phi i1 [ true, %grep_attr_unlock.exit ], [ true, %grep_attr_unlock.exit.thread ], [ %.not168, %85 ], [ true, %91 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 856
   store ptr %7, ptr %99, align 8, !tbaa !109
@@ -1618,7 +1618,7 @@ grep_attr_unlock.exit.thread:                     ; preds = %42, %grep_attr_unlo
   br i1 %.not9.i, label %.preheader.i, label %should_lookahead.exit, !llvm.loop !111
 
 should_lookahead.exit:                            ; preds = %.preheader.i, %105, %98, %102
-  %.06.i = phi i32 [ 0, %98 ], [ 0, %102 ], [ 0, %105 ], [ 1, %.preheader.i ]
+  %.06.i = phi i32 [ 0, %102 ], [ 0, %98 ], [ 0, %105 ], [ 1, %.preheader.i ]
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %109 = load ptr, ptr %108, align 8, !tbaa !25
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1792,7 +1792,7 @@ patmatch.exit.thread.fold.split.i:                ; preds = %168
   br label %patmatch.exit.thread.i
 
 patmatch.exit.thread.i:                           ; preds = %patmatch.exit.thread.fold.split.i, %168, %165
-  %171 = phi i1 [ true, %165 ], [ false, %168 ], [ true, %patmatch.exit.thread.fold.split.i ]
+  %171 = phi i1 [ false, %168 ], [ true, %165 ], [ true, %patmatch.exit.thread.fold.split.i ]
   %172 = load i32, ptr %5, align 4
   %173 = icmp slt i32 %172, 0
   %or.cond.i = select i1 %171, i1 true, i1 %173
@@ -1852,10 +1852,10 @@ look_ahead.exit:                                  ; preds = %168
   br label %194
 
 194:                                              ; preds = %.thread, %look_ahead.exit
-  %.1290 = phi ptr [ %.0289376, %look_ahead.exit ], [ %.050.i, %.thread ]
-  %.1286 = phi i64 [ %.0285377, %look_ahead.exit ], [ %193, %.thread ]
-  %.1282 = phi i32 [ %.0281378, %look_ahead.exit ], [ %.048.lcssa.i, %.thread ]
-  %.1144 = phi i32 [ 0, %look_ahead.exit ], [ 1, %.thread ]
+  %.1290 = phi ptr [ %.050.i, %.thread ], [ %.0289376, %look_ahead.exit ]
+  %.1286 = phi i64 [ %193, %.thread ], [ %.0285377, %look_ahead.exit ]
+  %.1282 = phi i32 [ %.048.lcssa.i, %.thread ], [ %.0281378, %look_ahead.exit ]
+  %.1144 = phi i32 [ 1, %.thread ], [ 0, %look_ahead.exit ]
   %.not9.i220 = icmp eq i64 %.1286, 0
   br i1 %.not9.i220, label %end_of_line.exit, label %.lr.ph.preheader.i
 
@@ -1940,8 +1940,8 @@ end_of_line.exit:                                 ; preds = %.lr.ph.i221, %196, 
   br i1 %.not.i.i.i, label %match_one_pattern.exit.i, label %.preheader.i.i, !llvm.loop !129
 
 match_one_pattern.exit.i:                         ; preds = %219, %.preheader.i.i, %215, %.lr.ph.i226
-  %.017.i.i = phi ptr [ %.07.lcssa.i, %215 ], [ %.07.lcssa.i, %.lr.ph.i226 ], [ %.0.i.i.i, %219 ], [ %.07.lcssa.i, %.preheader.i.i ]
-  %.015.i.i = phi ptr [ %216, %215 ], [ %.1290321, %.lr.ph.i226 ], [ %216, %.preheader.i.i ], [ %216, %219 ]
+  %.017.i.i = phi ptr [ %.07.lcssa.i, %.lr.ph.i226 ], [ %.07.lcssa.i, %215 ], [ %.0.i.i.i, %219 ], [ %.07.lcssa.i, %.preheader.i.i ]
+  %.015.i.i = phi ptr [ %.1290321, %.lr.ph.i226 ], [ %216, %215 ], [ %216, %.preheader.i.i ], [ %216, %219 ]
   %221 = call fastcc i32 @headerless_match_one_pattern(ptr noundef nonnull %.02339.i, ptr noundef %.015.i.i, ptr noundef %.017.i.i, i32 noundef range(i32 0, 2) %.2136, ptr noundef nonnull %4, i32 noundef 0)
   %.not27.i = icmp eq i32 %221, 0
   br i1 %.not27.i, label %match_one_pattern.exit.thread.i, label %222
@@ -2202,8 +2202,8 @@ end_of_line.exit250:                              ; preds = %.lr.ph.i243, %307, 
   br i1 %.not187, label %324, label %320
 
 320:                                              ; preds = %291, %314, %317
-  %.3334 = phi ptr [ %.3.ph, %317 ], [ %.0130388, %291 ], [ %.4, %314 ]
-  %.3141332 = phi i32 [ 0, %317 ], [ 1, %291 ], [ 1, %314 ]
+  %.3334 = phi ptr [ %.3.ph, %317 ], [ %.4, %314 ], [ %.0130388, %291 ]
+  %.3141332 = phi i32 [ 0, %317 ], [ 1, %314 ], [ 1, %291 ]
   %321 = load ptr, ptr %1, align 8, !tbaa !77
   %322 = load i64, ptr %8, align 8, !tbaa !121
   %323 = add nsw i64 %322, 1
@@ -2211,15 +2211,15 @@ end_of_line.exit250:                              ; preds = %.lr.ph.i243, %307, 
   br label %324
 
 324:                                              ; preds = %282, %316, %317, %320, %265, %234, %match_line.exit
-  %.3154 = phi i32 [ %.0151379, %match_line.exit ], [ %.0151379, %234 ], [ %.0151379, %265 ], [ %.0151379, %320 ], [ %.0151379, %317 ], [ 0, %316 ], [ %.1282324, %282 ]
-  %.3149 = phi i32 [ %.0146382, %match_line.exit ], [ %.0146382, %234 ], [ %241, %265 ], [ %.0146382, %320 ], [ %.0146382, %317 ], [ %.0146382, %316 ], [ %241, %282 ]
-  %.2140 = phi i32 [ %.0138386, %match_line.exit ], [ %.0138386, %234 ], [ %.0138386, %265 ], [ %.3141332, %320 ], [ 0, %317 ], [ 0, %316 ], [ %spec.select205, %282 ]
-  %.2132 = phi ptr [ %.0130388, %match_line.exit ], [ %.0130388, %234 ], [ %.0130388, %265 ], [ %.3334, %320 ], [ %.3.ph, %317 ], [ %.3.ph, %316 ], [ %.0130388, %282 ]
+  %.3154 = phi i32 [ %.0151379, %match_line.exit ], [ %.0151379, %234 ], [ %.0151379, %265 ], [ 0, %316 ], [ %.1282324, %282 ], [ %.0151379, %320 ], [ %.0151379, %317 ]
+  %.3149 = phi i32 [ %.0146382, %match_line.exit ], [ %.0146382, %234 ], [ %241, %265 ], [ %.0146382, %316 ], [ %241, %282 ], [ %.0146382, %320 ], [ %.0146382, %317 ]
+  %.2140 = phi i32 [ %.0138386, %match_line.exit ], [ %.0138386, %234 ], [ %.0138386, %265 ], [ 0, %316 ], [ %spec.select205, %282 ], [ %.3141332, %320 ], [ 0, %317 ]
+  %.2132 = phi ptr [ %.0130388, %match_line.exit ], [ %.0130388, %234 ], [ %.0130388, %265 ], [ %.3.ph, %316 ], [ %.0130388, %282 ], [ %.3334, %320 ], [ %.3.ph, %317 ]
   %.not198 = icmp eq i64 %.0.lcssa.i, 0
   br i1 %.not198, label %.thread350, label %325
 
-.thread337:                                       ; preds = %234, %240, %show_name.exit, %268
-  %.2.ph = phi i32 [ 1, %268 ], [ 1, %show_name.exit ], [ 0, %234 ], [ 1, %240 ]
+.thread337:                                       ; preds = %240, %234, %show_name.exit, %268
+  %.2.ph = phi i32 [ 1, %268 ], [ 1, %show_name.exit ], [ 1, %240 ], [ 0, %234 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %373
@@ -2335,7 +2335,7 @@ show_name.exit254:                                ; preds = %343, %348
   br label %373
 
 373:                                              ; preds = %329, %.thread337, %.loopexit, %fill_textconv_grep.exit, %91, %370, %366, %show_name.exit254
-  %.0128 = phi i32 [ 1, %show_name.exit254 ], [ 1, %366 ], [ %372, %370 ], [ 0, %91 ], [ 0, %fill_textconv_grep.exit ], [ 0, %.loopexit ], [ %.2.ph, %.thread337 ], [ %332, %329 ]
+  %.0128 = phi i32 [ 0, %91 ], [ %.2.ph, %.thread337 ], [ 0, %fill_textconv_grep.exit ], [ 0, %.loopexit ], [ 1, %show_name.exit254 ], [ 1, %366 ], [ %372, %370 ], [ %332, %329 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0128
 }
@@ -2752,7 +2752,7 @@ define internal fastcc ptr @compile_pattern_not(ptr noundef nonnull captures(non
   br label %compile_pattern_atom.exit
 
 compile_pattern_atom.exit:                        ; preds = %3, %27, %15, %1, %12
-  %.0 = phi ptr [ %13, %12 ], [ null, %1 ], [ %16, %15 ], [ %21, %27 ], [ null, %3 ]
+  %.0 = phi ptr [ %13, %12 ], [ null, %1 ], [ null, %3 ], [ %16, %15 ], [ %21, %27 ]
   ret ptr %.0
 }
 
@@ -3226,10 +3226,10 @@ is_empty_line.exit.thread:                        ; preds = %41, %42, %is_empty_
   br label %50
 
 50:                                               ; preds = %45, %46, %48
-  %.294 = phi i32 [ %.092127, %46 ], [ %.092127, %45 ], [ %34, %48 ]
-  %.490 = phi i32 [ 1, %46 ], [ 0, %45 ], [ 0, %48 ]
-  %.484 = phi i32 [ %.383, %46 ], [ %.383, %45 ], [ %.383., %48 ]
-  %.5 = phi i32 [ %.479, %46 ], [ %.479, %45 ], [ %.176..479, %48 ]
+  %.294 = phi i32 [ %.092127, %46 ], [ %34, %48 ], [ %.092127, %45 ]
+  %.490 = phi i32 [ 1, %46 ], [ 0, %48 ], [ 0, %45 ]
+  %.484 = phi i32 [ %.383, %46 ], [ %.383., %48 ], [ %.383, %45 ]
+  %.5 = phi i32 [ %.479, %46 ], [ %.176..479, %48 ], [ %.479, %45 ]
   %51 = load ptr, ptr %24, align 8, !tbaa !119
   %52 = icmp ugt ptr %.2.ptr.ptr, %51
   %53 = icmp ugt i32 %34, %.5
@@ -3541,8 +3541,8 @@ define internal fastcc void @show_line(ptr noundef %0, ptr noundef %1, ptr nound
   br label %.split78
 
 .split78:                                         ; preds = %85, %83, %90, %92, %87
-  %.072 = phi ptr [ %88, %87 ], [ %86, %90 ], [ %86, %92 ], [ null, %83 ], [ %86, %85 ]
-  %.171 = phi ptr [ %89, %87 ], [ %91, %90 ], [ %93, %92 ], [ null, %83 ], [ null, %85 ]
+  %.072 = phi ptr [ %88, %87 ], [ %86, %90 ], [ %86, %92 ], [ %86, %85 ], [ null, %83 ]
+  %.171 = phi ptr [ %89, %87 ], [ %91, %90 ], [ %93, %92 ], [ null, %85 ], [ null, %83 ]
   %94 = icmp ult ptr %1, %2
   br i1 %94, label %95, label %._crit_edge
 
@@ -3965,7 +3965,7 @@ switch.early.test:                                ; preds = %53
   br label %59
 
 59:                                               ; preds = %switch.early.test, %53, %51, %42
-  %.0.shrunk = phi i1 [ %50, %42 ], [ false, %51 ], [ true, %53 ], [ %switch.selectcmp, %switch.early.test ]
+  %.0.shrunk = phi i1 [ %50, %42 ], [ %switch.selectcmp, %switch.early.test ], [ false, %51 ], [ true, %53 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -4125,7 +4125,7 @@ _.exit21.i:                                       ; preds = %39, %37
   br label %grep_source_load_file.exit
 
 grep_source_load_file.exit:                       ; preds = %14, %_.exit.i, %22, %_.exit21.i, %43
-  %.0.i = phi i32 [ -1, %_.exit21.i ], [ 0, %43 ], [ -1, %_.exit.i ], [ -1, %14 ], [ -1, %22 ]
+  %.0.i = phi i32 [ -1, %14 ], [ -1, %_.exit21.i ], [ 0, %43 ], [ -1, %_.exit.i ], [ -1, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %62
 
@@ -4168,7 +4168,7 @@ grep_source_load_oid.exit:                        ; preds = %46, %_.exit.i8
   unreachable
 
 62:                                               ; preds = %6, %1, %grep_source_load_oid.exit, %grep_source_load_file.exit
-  %.0 = phi i32 [ %.0.i, %grep_source_load_file.exit ], [ %.0.i6, %grep_source_load_oid.exit ], [ 0, %1 ], [ -1, %6 ]
+  %.0 = phi i32 [ 0, %1 ], [ %.0.i, %grep_source_load_file.exit ], [ %.0.i6, %grep_source_load_oid.exit ], [ -1, %6 ]
   ret i32 %.0
 }
 
@@ -4262,8 +4262,8 @@ tailrecurse:                                      ; preds = %73, %8
   br i1 %.not.i.i, label %match_one_pattern.exit, label %.preheader.i, !llvm.loop !129
 
 match_one_pattern.exit:                           ; preds = %.preheader.i, %30, %11, %26
-  %.017.i = phi ptr [ %3, %26 ], [ %3, %11 ], [ %3, %.preheader.i ], [ %.0.i.i, %30 ]
-  %.015.i = phi ptr [ %27, %26 ], [ %2, %11 ], [ %27, %30 ], [ %27, %.preheader.i ]
+  %.017.i = phi ptr [ %3, %11 ], [ %3, %26 ], [ %3, %.preheader.i ], [ %.0.i.i, %30 ]
+  %.015.i = phi ptr [ %2, %11 ], [ %27, %26 ], [ %27, %30 ], [ %27, %.preheader.i ]
   %32 = call fastcc i32 @headerless_match_one_pattern(ptr noundef %13, ptr noundef %.015.i, ptr noundef %.017.i, i32 noundef range(i32 0, 2) %4, ptr noundef nonnull %9, i32 noundef 0)
   %.not87 = icmp eq i32 %32, 0
   br i1 %.not87, label %match_one_pattern.exit.thread, label %33
@@ -4282,7 +4282,7 @@ match_one_pattern.exit:                           ; preds = %.preheader.i, %30, 
   br label %match_one_pattern.exit.thread
 
 match_one_pattern.exit.thread:                    ; preds = %17, %33, %39, %match_one_pattern.exit
-  %.0.i93 = phi i32 [ 1, %33 ], [ 1, %39 ], [ 0, %match_one_pattern.exit ], [ 0, %17 ]
+  %.0.i93 = phi i32 [ 0, %match_one_pattern.exit ], [ 1, %33 ], [ 1, %39 ], [ 0, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %40 = load ptr, ptr %12, align 8, !tbaa !23
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 20
@@ -4342,7 +4342,7 @@ match_one_pattern.exit.thread:                    ; preds = %17, %33, %39, %matc
   br i1 %.not83, label %73, label %common.ret
 
 common.ret:                                       ; preds = %72, %90, %89
-  %common.ret.op = phi i32 [ 1, %72 ], [ %.0, %90 ], [ %.0, %89 ]
+  %common.ret.op = phi i32 [ %.0, %90 ], [ %.0, %89 ], [ 1, %72 ]
   ret i32 %common.ret.op
 
 73:                                               ; preds = %72
@@ -4375,7 +4375,7 @@ common.ret:                                       ; preds = %72, %90, %89
   unreachable
 
 89:                                               ; preds = %tailrecurse, %57, %60, %match_one_pattern.exit.thread, %44, %.split, %48
-  %.0 = phi i32 [ %.0.i93, %44 ], [ %.0.i93, %match_one_pattern.exit.thread ], [ %52, %48 ], [ %64, %60 ], [ 0, %57 ], [ %87, %.split ], [ 1, %tailrecurse ]
+  %.0 = phi i32 [ %87, %.split ], [ %.0.i93, %44 ], [ %.0.i93, %match_one_pattern.exit.thread ], [ %52, %48 ], [ %64, %60 ], [ 0, %57 ], [ 1, %tailrecurse ]
   %.not88 = icmp eq i32 %.tr103, 0
   br i1 %.not88, label %common.ret, label %90
 

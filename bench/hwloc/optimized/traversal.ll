@@ -158,7 +158,7 @@ switch.lookup:                                    ; preds = %5
   br label %16
 
 16:                                               ; preds = %5, %switch.lookup, %7
-  %.0 = phi i32 [ %14, %7 ], [ %switch.load, %switch.lookup ], [ -1, %5 ]
+  %.0 = phi i32 [ %switch.load, %switch.lookup ], [ %14, %7 ], [ -1, %5 ]
   ret i32 %.0
 }
 
@@ -231,8 +231,8 @@ hwloc_get_obj_by_depth.exit:                      ; preds = %7, %14
   %.not = icmp eq ptr %29, null
   br i1 %.not, label %.critedge, label %.preheader, !llvm.loop !49
 
-.critedge:                                        ; preds = %27, %26, %9, %4, %hwloc_get_obj_by_depth.exit
-  %.218 = phi i32 [ -1, %hwloc_get_obj_by_depth.exit ], [ -1, %4 ], [ -1, %9 ], [ -2, %26 ], [ %.115, %27 ]
+.critedge:                                        ; preds = %27, %26, %4, %9, %hwloc_get_obj_by_depth.exit
+  %.218 = phi i32 [ -1, %hwloc_get_obj_by_depth.exit ], [ -1, %9 ], [ -1, %4 ], [ %.115, %27 ], [ -2, %26 ]
   ret i32 %.218
 }
 
@@ -284,7 +284,7 @@ define ptr @hwloc_get_obj_by_depth(ptr noundef readonly captures(none) %0, i32 n
   br label %30
 
 30:                                               ; preds = %.sink.split, %17, %9, %6
-  %.1 = phi ptr [ null, %9 ], [ null, %6 ], [ null, %17 ], [ %29, %.sink.split ]
+  %.1 = phi ptr [ null, %17 ], [ null, %6 ], [ null, %9 ], [ %29, %.sink.split ]
   ret ptr %.1
 }
 
@@ -494,7 +494,7 @@ hwloc_get_obj_by_depth.exit.i28:                  ; preds = %51, %43
   br i1 %.not.i34, label %hwloc_get_obj_by_depth_and_gp_index.exit36, label %.lr.ph.i32, !llvm.loop !51
 
 hwloc_get_obj_by_depth_and_gp_index.exit36:       ; preds = %hwloc_get_obj_by_depth_and_gp_index.exit.thread, %.lr.ph.i, %59, %.lr.ph.i32, %.preheader, %3, %hwloc_get_obj_by_depth.exit.i28, %45, %37, %35, %hwloc_get_type_depth.exit
-  %.0 = phi ptr [ null, %hwloc_get_type_depth.exit ], [ null, %hwloc_get_obj_by_depth.exit.i28 ], [ null, %37 ], [ null, %35 ], [ null, %45 ], [ null, %3 ], [ null, %.preheader ], [ %.010.i33, %.lr.ph.i32 ], [ null, %59 ], [ %.010.i, %.lr.ph.i ], [ null, %hwloc_get_obj_by_depth_and_gp_index.exit.thread ]
+  %.0 = phi ptr [ %.010.i, %.lr.ph.i ], [ null, %3 ], [ null, %hwloc_get_type_depth.exit ], [ null, %59 ], [ null, %hwloc_get_obj_by_depth.exit.i28 ], [ null, %35 ], [ null, %37 ], [ null, %45 ], [ null, %.preheader ], [ %.010.i33, %.lr.ph.i32 ], [ null, %hwloc_get_obj_by_depth_and_gp_index.exit.thread ]
   ret ptr %.0
 }
 
@@ -592,7 +592,7 @@ define i32 @hwloc_get_closest_objs(ptr noundef readonly captures(none) %0, ptr n
   br i1 %.not37, label %.loopexit41, label %.preheader42
 
 .loopexit41:                                      ; preds = %..loopexit_crit_edge.us, %19, %35, %.preheader42, %7, %4
-  %.030 = phi i32 [ 0, %4 ], [ 0, %7 ], [ 0, %.preheader42 ], [ %3, %35 ], [ %.054.us, %19 ], [ %.3.us, %..loopexit_crit_edge.us ]
+  %.030 = phi i32 [ 0, %4 ], [ %.054.us, %19 ], [ %3, %35 ], [ 0, %.preheader42 ], [ 0, %7 ], [ %.3.us, %..loopexit_crit_edge.us ]
   ret i32 %.030
 }
 
@@ -627,7 +627,7 @@ define i32 @hwloc_get_largest_objs_inside_cpuset(ptr noundef readonly captures(n
   br label %18
 
 18:                                               ; preds = %14, %4, %16
-  %.0 = phi i32 [ %17, %16 ], [ -1, %4 ], [ 0, %14 ]
+  %.0 = phi i32 [ -1, %4 ], [ %17, %16 ], [ 0, %14 ]
   ret i32 %.0
 }
 
@@ -707,7 +707,7 @@ define internal fastcc i32 @hwloc__get_largest_objs_inside_cpuset(ptr noundef %0
   br i1 %43, label %18, label %.loopexit, !llvm.loop !58
 
 .loopexit:                                        ; preds = %40, %26, %.preheader, %4, %14
-  %.0 = phi i32 [ 1, %14 ], [ 0, %4 ], [ 0, %.preheader ], [ %.2.ph, %40 ], [ %38, %26 ]
+  %.0 = phi i32 [ 0, %4 ], [ 1, %14 ], [ 0, %.preheader ], [ %.2.ph, %40 ], [ %38, %26 ]
   ret i32 %.0
 }
 
@@ -1074,10 +1074,10 @@ hwloc__type_match.exit.loopexit192:               ; preds = %24
   br label %hwloc__type_match.exit
 
 hwloc__type_match.exit:                           ; preds = %hwloc__type_match.exit.loopexit192, %hwloc__type_match.exit.loopexit, %78, %61, %42, %._crit_edge.i149, %._crit_edge.i129, %._crit_edge.i.thread.thread, %._crit_edge.i, %110, %108, %106, %104, %102, %100, %98, %96, %92, %94, %88, %90, %hwloc__type_match.exit153.thread, %._crit_edge.i.thread, %141, %138, %134
-  %.071 = phi i32 [ %.273, %134 ], [ 13, %141 ], [ 13, %138 ], [ 18, %._crit_edge.i.thread ], [ 14, %hwloc__type_match.exit153.thread ], [ 15, %90 ], [ 15, %88 ], [ 1, %94 ], [ 1, %92 ], [ 2, %96 ], [ 3, %98 ], [ 4, %100 ], [ 19, %102 ], [ 16, %104 ], [ 16, %106 ], [ 16, %108 ], [ 17, %110 ], [ 18, %._crit_edge.i ], [ 18, %._crit_edge.i.thread.thread ], [ 0, %._crit_edge.i129 ], [ 14, %._crit_edge.i149 ], [ 18, %42 ], [ 0, %61 ], [ 14, %78 ], [ 18, %hwloc__type_match.exit.loopexit ], [ 18, %hwloc__type_match.exit.loopexit192 ]
-  %.070 = phi i32 [ %119, %134 ], [ %143, %141 ], [ -1, %138 ], [ -1, %._crit_edge.i.thread ], [ -1, %hwloc__type_match.exit153.thread ], [ -1, %90 ], [ -1, %88 ], [ -1, %94 ], [ -1, %92 ], [ -1, %96 ], [ -1, %98 ], [ -1, %100 ], [ -1, %102 ], [ -1, %104 ], [ -1, %106 ], [ -1, %108 ], [ -1, %110 ], [ -1, %._crit_edge.i ], [ -1, %._crit_edge.i.thread.thread ], [ -1, %._crit_edge.i129 ], [ -1, %._crit_edge.i149 ], [ -1, %42 ], [ -1, %61 ], [ -1, %78 ], [ -1, %hwloc__type_match.exit.loopexit ], [ -1, %hwloc__type_match.exit.loopexit192 ]
-  %.069 = phi i32 [ %.2, %134 ], [ -1, %141 ], [ -1, %138 ], [ -1, %._crit_edge.i.thread ], [ -1, %hwloc__type_match.exit153.thread ], [ -1, %90 ], [ -1, %88 ], [ -1, %94 ], [ -1, %92 ], [ -1, %96 ], [ -1, %98 ], [ -1, %100 ], [ -1, %102 ], [ -1, %104 ], [ -1, %106 ], [ -1, %108 ], [ -1, %110 ], [ -1, %._crit_edge.i ], [ -1, %._crit_edge.i.thread.thread ], [ -1, %._crit_edge.i129 ], [ -1, %._crit_edge.i149 ], [ -1, %42 ], [ -1, %61 ], [ -1, %78 ], [ -1, %hwloc__type_match.exit.loopexit ], [ -1, %hwloc__type_match.exit.loopexit192 ]
-  %.068 = phi i32 [ -1, %134 ], [ -1, %141 ], [ -1, %138 ], [ -1, %._crit_edge.i.thread ], [ -1, %hwloc__type_match.exit153.thread ], [ -1, %90 ], [ -1, %88 ], [ -1, %94 ], [ -1, %92 ], [ -1, %96 ], [ -1, %98 ], [ -1, %100 ], [ -1, %102 ], [ -1, %104 ], [ 0, %106 ], [ 1, %108 ], [ -1, %110 ], [ -1, %._crit_edge.i ], [ -1, %._crit_edge.i.thread.thread ], [ -1, %._crit_edge.i129 ], [ -1, %._crit_edge.i149 ], [ -1, %42 ], [ -1, %61 ], [ -1, %78 ], [ -1, %hwloc__type_match.exit.loopexit ], [ -1, %hwloc__type_match.exit.loopexit192 ]
+  %.071 = phi i32 [ 14, %._crit_edge.i149 ], [ 1, %94 ], [ 18, %._crit_edge.i.thread ], [ 0, %61 ], [ 14, %78 ], [ 15, %88 ], [ 1, %92 ], [ 2, %96 ], [ 3, %98 ], [ 4, %100 ], [ 19, %102 ], [ 16, %104 ], [ 16, %106 ], [ 16, %108 ], [ %.273, %134 ], [ 13, %141 ], [ 17, %110 ], [ 13, %138 ], [ 18, %hwloc__type_match.exit.loopexit ], [ 14, %hwloc__type_match.exit153.thread ], [ 15, %90 ], [ 18, %42 ], [ 18, %._crit_edge.i ], [ 18, %._crit_edge.i.thread.thread ], [ 0, %._crit_edge.i129 ], [ 18, %hwloc__type_match.exit.loopexit192 ]
+  %.070 = phi i32 [ -1, %._crit_edge.i149 ], [ -1, %94 ], [ -1, %._crit_edge.i.thread ], [ -1, %61 ], [ -1, %78 ], [ -1, %88 ], [ -1, %92 ], [ -1, %96 ], [ -1, %98 ], [ -1, %100 ], [ -1, %102 ], [ -1, %104 ], [ -1, %106 ], [ -1, %108 ], [ %119, %134 ], [ %143, %141 ], [ -1, %110 ], [ -1, %138 ], [ -1, %hwloc__type_match.exit.loopexit ], [ -1, %hwloc__type_match.exit153.thread ], [ -1, %90 ], [ -1, %42 ], [ -1, %._crit_edge.i ], [ -1, %._crit_edge.i.thread.thread ], [ -1, %._crit_edge.i129 ], [ -1, %hwloc__type_match.exit.loopexit192 ]
+  %.069 = phi i32 [ -1, %._crit_edge.i149 ], [ -1, %94 ], [ -1, %._crit_edge.i.thread ], [ -1, %61 ], [ -1, %78 ], [ -1, %88 ], [ -1, %92 ], [ -1, %96 ], [ -1, %98 ], [ -1, %100 ], [ -1, %102 ], [ -1, %104 ], [ -1, %106 ], [ -1, %108 ], [ %.2, %134 ], [ -1, %141 ], [ -1, %110 ], [ -1, %138 ], [ -1, %hwloc__type_match.exit.loopexit ], [ -1, %hwloc__type_match.exit153.thread ], [ -1, %90 ], [ -1, %42 ], [ -1, %._crit_edge.i ], [ -1, %._crit_edge.i.thread.thread ], [ -1, %._crit_edge.i129 ], [ -1, %hwloc__type_match.exit.loopexit192 ]
+  %.068 = phi i32 [ -1, %._crit_edge.i149 ], [ -1, %94 ], [ -1, %._crit_edge.i.thread ], [ -1, %61 ], [ -1, %78 ], [ -1, %88 ], [ -1, %92 ], [ -1, %96 ], [ -1, %98 ], [ -1, %100 ], [ -1, %102 ], [ -1, %104 ], [ 0, %106 ], [ 1, %108 ], [ -1, %134 ], [ -1, %141 ], [ -1, %110 ], [ -1, %138 ], [ -1, %hwloc__type_match.exit.loopexit ], [ -1, %hwloc__type_match.exit153.thread ], [ -1, %90 ], [ -1, %42 ], [ -1, %._crit_edge.i ], [ -1, %._crit_edge.i.thread.thread ], [ -1, %._crit_edge.i129 ], [ -1, %hwloc__type_match.exit.loopexit192 ]
   store i32 %.071, ptr %1, align 4, !tbaa !3
   %.not104 = icmp eq ptr %2, null
   br i1 %.not104, label %.thread, label %144
@@ -1130,8 +1130,8 @@ hwloc__type_match.exit:                           ; preds = %hwloc__type_match.e
   store i64 %165, ptr %2, align 8, !tbaa !60
   br label %.thread
 
-.thread:                                          ; preds = %127, %123, %hwloc__type_match.exit, %154, %161, %164, %158, %148, %136, %134
-  %.175 = phi i32 [ -1, %134 ], [ -1, %136 ], [ 0, %148 ], [ 0, %158 ], [ 0, %164 ], [ 0, %161 ], [ 0, %154 ], [ 0, %hwloc__type_match.exit ], [ -1, %123 ], [ -1, %127 ]
+.thread:                                          ; preds = %123, %127, %hwloc__type_match.exit, %154, %161, %164, %158, %148, %136, %134
+  %.175 = phi i32 [ -1, %136 ], [ -1, %134 ], [ 0, %148 ], [ 0, %158 ], [ 0, %164 ], [ 0, %161 ], [ 0, %154 ], [ 0, %hwloc__type_match.exit ], [ -1, %127 ], [ -1, %123 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.175
@@ -1195,7 +1195,7 @@ define internal fastcc ptr @hwloc__type_match(ptr noundef readonly captures(ret:
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 
 25:                                               ; preds = %17, %12, %14, %._crit_edge
-  %.023 = phi ptr [ %..022, %._crit_edge ], [ null, %14 ], [ null, %12 ], [ %..02234, %17 ]
+  %.023 = phi ptr [ %..022, %._crit_edge ], [ %..02234, %17 ], [ null, %12 ], [ null, %14 ]
   ret ptr %.023
 }
 
@@ -1405,7 +1405,7 @@ hwloc__type_match.exit85.thread:                  ; preds = %2, %._crit_edge.i81
   br i1 %.not25, label %83, label %.sink.split
 
 .sink.split:                                      ; preds = %79, %81, %77, %75, %hwloc__type_match.exit85.thread, %73, %._crit_edge.i81, %63, %._crit_edge.i61, %46, %._crit_edge.i, %._crit_edge.i41, %12, %29
-  %.sink = phi i64 [ 1, %29 ], [ 1, %12 ], [ 1, %._crit_edge.i41 ], [ 1, %._crit_edge.i ], [ 2, %46 ], [ 2, %._crit_edge.i61 ], [ 16, %63 ], [ 16, %._crit_edge.i81 ], [ 32, %73 ], [ 32, %hwloc__type_match.exit85.thread ], [ 64, %75 ], [ 4, %77 ], [ 8, %81 ], [ 8, %79 ]
+  %.sink = phi i64 [ 4, %77 ], [ 64, %75 ], [ 32, %hwloc__type_match.exit85.thread ], [ 16, %._crit_edge.i81 ], [ 2, %._crit_edge.i61 ], [ 1, %._crit_edge.i ], [ 1, %29 ], [ 1, %12 ], [ 1, %._crit_edge.i41 ], [ 2, %46 ], [ 16, %63 ], [ 32, %73 ], [ 8, %81 ], [ 8, %79 ]
   store i64 %.sink, ptr %1, align 8, !tbaa !59
   br label %83
 
@@ -1479,7 +1479,7 @@ hwloc_get_type_depth.exit.thread.loopexit.split.loop.exit33: ; preds = %27
   br label %hwloc_get_type_depth.exit.thread
 
 hwloc_get_type_depth.exit.thread:                 ; preds = %32, %hwloc_get_type_depth.exit.thread.loopexit.split.loop.exit33, %.preheader, %4, %15, %hwloc_get_type_depth.exit
-  %.019 = phi i32 [ -2, %15 ], [ %10, %hwloc_get_type_depth.exit ], [ -1, %4 ], [ -1, %.preheader ], [ %33, %hwloc_get_type_depth.exit.thread.loopexit.split.loop.exit33 ], [ -1, %32 ]
+  %.019 = phi i32 [ %10, %hwloc_get_type_depth.exit ], [ -2, %15 ], [ -1, %4 ], [ -1, %.preheader ], [ %33, %hwloc_get_type_depth.exit.thread.loopexit.split.loop.exit33 ], [ -1, %32 ]
   ret i32 %.019
 }
 
@@ -1559,7 +1559,7 @@ hwloc_get_type_depth.exit.thread.loopexit.split.loop.exit33.i: ; preds = %30
   br label %hwloc_get_type_depth_with_attr.exit
 
 hwloc_get_type_depth_with_attr.exit:              ; preds = %35, %thread-pre-split, %hwloc_get_type_depth.exit.i, %18, %.preheader.i, %hwloc_get_type_depth.exit.thread.loopexit.split.loop.exit33.i
-  %.019.i = phi i32 [ -2, %18 ], [ %15, %hwloc_get_type_depth.exit.i ], [ -1, %thread-pre-split ], [ -1, %.preheader.i ], [ %36, %hwloc_get_type_depth.exit.thread.loopexit.split.loop.exit33.i ], [ -1, %35 ]
+  %.019.i = phi i32 [ %15, %hwloc_get_type_depth.exit.i ], [ -2, %18 ], [ -1, %thread-pre-split ], [ -1, %.preheader.i ], [ %36, %hwloc_get_type_depth.exit.thread.loopexit.split.loop.exit33.i ], [ -1, %35 ]
   store i32 %.019.i, ptr %3, align 4, !tbaa !3
   br label %37
 
@@ -1793,7 +1793,7 @@ hwloc_obj_cache_type_letter.exit:                 ; preds = %10, %switch.lookup5
   br label %hwloc__osdev_type_snprintf_short.exit
 
 hwloc__osdev_type_snprintf_short.exit:            ; preds = %70, %90, %.critedge._crit_edge.i, %58, %54, %51, %48, %93, %94, %37, %29, %27, %25, %hwloc_obj_cache_type_letter.exit, %switch.lookup
-  %.0 = phi i32 [ %9, %switch.lookup ], [ %20, %hwloc_obj_cache_type_letter.exit ], [ %26, %25 ], [ %28, %27 ], [ %36, %29 ], [ %38, %37 ], [ 0, %94 ], [ 0, %93 ], [ %50, %48 ], [ %53, %51 ], [ -1, %54 ], [ %.260.i, %.critedge._crit_edge.i ], [ %spec.select.i, %90 ], [ %56, %58 ], [ -1, %70 ]
+  %.0 = phi i32 [ %53, %51 ], [ %9, %switch.lookup ], [ %20, %hwloc_obj_cache_type_letter.exit ], [ %26, %25 ], [ %28, %27 ], [ %36, %29 ], [ %38, %37 ], [ 0, %93 ], [ 0, %94 ], [ %50, %48 ], [ %spec.select.i, %90 ], [ %.260.i, %.critedge._crit_edge.i ], [ -1, %54 ], [ %56, %58 ], [ -1, %70 ]
   ret i32 %.0
 }
 
@@ -1901,9 +1901,9 @@ define range(i32 -1, -2147483648) i32 @hwloc_obj_attr_snprintf(ptr noalias nound
   br label %.thread186
 
 .thread186:                                       ; preds = %52, %38, %43
-  %53 = phi i32 [ %29, %43 ], [ %29, %38 ], [ %.pre, %52 ]
-  %.0146185189 = phi i32 [ 0, %43 ], [ 0, %38 ], [ %.0146, %52 ]
-  %54 = phi ptr [ @.str.55, %43 ], [ @.str.55, %38 ], [ %spec.select204, %52 ]
+  %53 = phi i32 [ %.pre, %52 ], [ %29, %38 ], [ %29, %43 ]
+  %.0146185189 = phi i32 [ %.0146, %52 ], [ 0, %38 ], [ 0, %43 ]
+  %54 = phi ptr [ %spec.select204, %52 ], [ @.str.55, %38 ], [ @.str.55, %43 ]
   %55 = zext nneg i32 %.0146185189 to i64
   %.not176 = icmp sgt i64 %1, %55
   %56 = icmp sgt i64 %1, 0
@@ -2117,7 +2117,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_obj_attr_snprintf(ptr noalias nound
   br label %177
 
 177:                                              ; preds = %154, %143, %83
-  %.3149 = phi i32 [ %.2148, %83 ], [ %.4, %143 ], [ %176, %154 ]
+  %.3149 = phi i32 [ %176, %154 ], [ %.2148, %83 ], [ %.4, %143 ]
   %178 = icmp slt i32 %.3149, 0
   br i1 %178, label %.loopexit, label %.thread192
 
@@ -2187,7 +2187,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_obj_attr_snprintf(ptr noalias nound
   br i1 %.not181, label %.lr.ph, label %.loopexit, !llvm.loop !81
 
 .loopexit:                                        ; preds = %.lr.ph, %200, %44, %84, %144, %180, %.thread192, %177, %50
-  %.0142 = phi i32 [ -1, %50 ], [ -1, %177 ], [ %179, %.thread192 ], [ %179, %180 ], [ %.0146185189, %144 ], [ %.0146185189, %84 ], [ 0, %44 ], [ -1, %.lr.ph ], [ %201, %200 ]
+  %.0142 = phi i32 [ %179, %.thread192 ], [ -1, %50 ], [ -1, %177 ], [ %179, %180 ], [ %.0146185189, %144 ], [ 0, %44 ], [ %.0146185189, %84 ], [ %201, %200 ], [ -1, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0142
@@ -2384,7 +2384,7 @@ define noundef i32 @hwloc_bitmap_singlify_per_core(ptr noundef readonly captures
   br label %hwloc_get_next_obj_by_depth.exit.i.i
 
 hwloc_get_next_obj_by_depth.exit.i.i:             ; preds = %34, %.sink.split.i.i.i.i
-  %.0.i.in.i.i = phi ptr [ %35, %34 ], [ %.sink26.i.i.i.i, %.sink.split.i.i.i.i ]
+  %.0.i.in.i.i = phi ptr [ %.sink26.i.i.i.i, %.sink.split.i.i.i.i ], [ %35, %34 ]
   %.0.i.i.i = load ptr, ptr %.0.i.in.i.i, align 8, !tbaa !35
   %.not.i.i = icmp eq ptr %.0.i.i.i, null
   br i1 %.not.i.i, label %.loopexit, label %.preheader.i.i
@@ -2443,7 +2443,7 @@ hwloc_get_next_obj_covering_cpuset_by_type.exit:  ; preds = %.lr.ph, %52
   %or.cond.i = icmp ugt i32 %57, -3
   br i1 %or.cond.i, label %.loopexit, label %10, !llvm.loop !83
 
-.loopexit:                                        ; preds = %23, %14, %16, %31, %hwloc_get_next_obj_by_depth.exit.i.i, %56, %41, %3
+.loopexit:                                        ; preds = %23, %31, %16, %14, %hwloc_get_next_obj_by_depth.exit.i.i, %56, %41, %3
   ret i32 0
 }
 
@@ -2539,7 +2539,7 @@ hwloc_get_type_depth.exit.i:                      ; preds = %hwloc_get_type_dept
   br label %hwloc_get_next_obj_by_type.exit
 
 hwloc_get_next_obj_by_type.exit:                  ; preds = %.sink.split.i.i.i, %41
-  %.0.i.in = phi ptr [ %42, %41 ], [ %.sink26.i.i.i, %.sink.split.i.i.i ]
+  %.0.i.in = phi ptr [ %.sink26.i.i.i, %.sink.split.i.i.i ], [ %42, %41 ]
   %.0.i = load ptr, ptr %.0.i.in, align 8, !tbaa !35
   %.not99 = icmp eq ptr %.0.i, null
   br i1 %.not99, label %.loopexit.sink.split, label %43
@@ -2767,14 +2767,14 @@ hwloc_get_type_depth.exit.i.backedge:             ; preds = %60, %63, %54, %57, 
   %.not82 = icmp eq ptr %.0, null
   br i1 %.not82, label %.loopexit.sink.split, label %.lr.ph123.split.split, !llvm.loop !88
 
-.loopexit.sink.split:                             ; preds = %126, %112, %103, %95, %31, %28, %29, %38, %hwloc_get_next_obj_by_type.exit, %66, %92, %86, %89, %80, %83, %78, %68, %hwloc_get_type_depth.exit.i.lr.ph, %9, %6
-  %.sink = phi i32 [ 22, %6 ], [ 22, %9 ], [ 2, %hwloc_get_type_depth.exit.i.lr.ph ], [ 22, %68 ], [ 2, %78 ], [ 2, %83 ], [ 2, %80 ], [ 2, %89 ], [ 2, %86 ], [ 2, %92 ], [ 22, %66 ], [ 2, %hwloc_get_next_obj_by_type.exit ], [ 2, %38 ], [ 2, %29 ], [ 2, %28 ], [ 2, %31 ], [ 2, %95 ], [ 2, %103 ], [ 2, %112 ], [ 2, %126 ]
+.loopexit.sink.split:                             ; preds = %126, %112, %103, %95, %29, %28, %31, %38, %hwloc_get_next_obj_by_type.exit, %66, %92, %86, %89, %80, %83, %78, %68, %hwloc_get_type_depth.exit.i.lr.ph, %9, %6
+  %.sink = phi i32 [ 2, %hwloc_get_type_depth.exit.i.lr.ph ], [ 22, %68 ], [ 2, %78 ], [ 2, %80 ], [ 2, %86 ], [ 22, %6 ], [ 22, %9 ], [ 2, %92 ], [ 2, %29 ], [ 2, %112 ], [ 2, %103 ], [ 2, %95 ], [ 22, %66 ], [ 2, %83 ], [ 2, %89 ], [ 2, %hwloc_get_next_obj_by_type.exit ], [ 2, %38 ], [ 2, %31 ], [ 2, %28 ], [ 2, %126 ]
   %128 = tail call ptr @__errno_location() #23
   store i32 %.sink, ptr %128, align 4, !tbaa !3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %123, %109, %101, %.lr.ph123.split.us.split.us, %63, %59, %.loopexit.sink.split, %89, %85
-  %.061 = phi ptr [ %.058.lcssa, %89 ], [ %.058.lcssa, %85 ], [ null, %.loopexit.sink.split ], [ %.0.i, %59 ], [ %.0.i, %63 ], [ %.0121.us.us, %.lr.ph123.split.us.split.us ], [ %.0121.us, %101 ], [ %.0121.us125, %109 ], [ %.0121, %123 ]
+  %.061 = phi ptr [ %.0121.us.us, %.lr.ph123.split.us.split.us ], [ %.0121.us, %101 ], [ %.058.lcssa, %89 ], [ %.058.lcssa, %85 ], [ %.0.i, %63 ], [ %.0121.us125, %109 ], [ null, %.loopexit.sink.split ], [ %.0.i, %59 ], [ %.0121, %123 ]
   ret ptr %.061
 }
 

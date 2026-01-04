@@ -241,7 +241,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq12v1_decoder_t19one_byte_size_readyE
   br label %49
 
 49:                                               ; preds = %5, %.thread, %48, %18, %9
-  %.0 = phi i32 [ -1, %18 ], [ -1, %48 ], [ -1, %9 ], [ 0, %.thread ], [ 0, %5 ]
+  %.0 = phi i32 [ -1, %9 ], [ -1, %18 ], [ -1, %48 ], [ 0, %.thread ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -420,7 +420,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq12v1_decoder_t21eight_byte_size_read
   br label %79
 
 79:                                               ; preds = %74, %75, %50, %42
-  %.0 = phi i32 [ -1, %42 ], [ -1, %50 ], [ -1, %74 ], [ 0, %75 ]
+  %.0 = phi i32 [ -1, %42 ], [ -1, %50 ], [ 0, %75 ], [ -1, %74 ]
   ret i32 %.0
 }
 
@@ -636,7 +636,7 @@ define linkonce_odr noundef i32 @_ZN3zmq14decoder_base_tINS_12v1_decoder_tENS_18
   br i1 %.not44, label %57, label %.thread, !llvm.loop !32
 
 .thread:                                          ; preds = %.loopexit, %70, %36, %24, %.preheader
-  %.2 = phi i32 [ 0, %.preheader ], [ 0, %24 ], [ %40, %36 ], [ %74, %70 ], [ 0, %.loopexit ]
+  %.2 = phi i32 [ %40, %36 ], [ %74, %70 ], [ 0, %.preheader ], [ 0, %24 ], [ 0, %.loopexit ]
   ret i32 %.2
 }
 

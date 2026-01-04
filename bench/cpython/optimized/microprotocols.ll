@@ -278,7 +278,7 @@ Py_DECREF.exit:                                   ; preds = %80, %77, %75, %85, 
   br label %Py_DECREF.exit54
 
 Py_DECREF.exit54:                                 ; preds = %89, %86, %32, %29, %25, %18, %15, %14, %81, %82, %Py_DECREF.exit46, %55, %56, %33, %4, %91
-  %.0 = phi ptr [ null, %91 ], [ null, %4 ], [ null, %33 ], [ null, %56 ], [ %41, %55 ], [ null, %Py_DECREF.exit46 ], [ null, %82 ], [ %67, %81 ], [ null, %14 ], [ null, %15 ], [ null, %18 ], [ %26, %25 ], [ %26, %29 ], [ %26, %32 ], [ %3, %86 ], [ %3, %89 ]
+  %.0 = phi ptr [ %67, %81 ], [ null, %18 ], [ null, %4 ], [ %41, %55 ], [ %26, %32 ], [ null, %91 ], [ null, %Py_DECREF.exit46 ], [ null, %33 ], [ null, %56 ], [ null, %82 ], [ null, %14 ], [ null, %15 ], [ %26, %25 ], [ %26, %29 ], [ %3, %86 ], [ %3, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }

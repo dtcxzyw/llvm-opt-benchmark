@@ -120,7 +120,7 @@ define ptr @ossl_cmp_log_parse_metadata(ptr noundef %0, ptr noundef writeonly ca
   br label %44
 
 44:                                               ; preds = %39, %25, %28, %21, %16
-  %.2 = phi ptr [ null, %28 ], [ %0, %25 ], [ %0, %21 ], [ %0, %16 ], [ %spec.select, %39 ]
+  %.2 = phi ptr [ %0, %16 ], [ %spec.select, %39 ], [ null, %28 ], [ %0, %25 ], [ %0, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %45
 
@@ -198,7 +198,7 @@ define internal fastcc range(i32 -1, 8) i32 @parse_level(ptr noundef %0) unnamed
   br label %33
 
 33:                                               ; preds = %13, %20, %24, %30, %28, %26, %22, %18, %5, %1
-  %.0 = phi i32 [ -1, %1 ], [ -1, %5 ], [ 0, %13 ], [ 1, %18 ], [ 2, %20 ], [ 3, %22 ], [ 4, %24 ], [ 5, %26 ], [ %32, %30 ], [ 6, %28 ]
+  %.0 = phi i32 [ -1, %5 ], [ -1, %1 ], [ 0, %13 ], [ 1, %18 ], [ 2, %20 ], [ 3, %22 ], [ 4, %24 ], [ 5, %26 ], [ %32, %30 ], [ 6, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -227,7 +227,7 @@ switch.lookup:                                    ; preds = %6
   br label %14
 
 14:                                               ; preds = %switch.lookup, %8
-  %15 = phi ptr [ %12, %8 ], [ %switch.load, %switch.lookup ]
+  %15 = phi ptr [ %switch.load, %switch.lookup ], [ %12, %8 ]
   %16 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef %15, ptr noundef %5) #7
   %17 = icmp sgt i32 %16, -1
   %18 = zext i1 %17 to i32
@@ -289,7 +289,7 @@ define void @OSSL_CMP_print_errors_cb(ptr noundef readonly captures(address_is_n
   br label %improve_location_name.exit
 
 improve_location_name.exit:                       ; preds = %17, %19, %20, %23
-  %.0.i = phi ptr [ %18, %17 ], [ %14, %20 ], [ %14, %19 ], [ %spec.select.i, %23 ]
+  %.0.i = phi ptr [ %18, %17 ], [ %14, %19 ], [ %spec.select.i, %23 ], [ %14, %20 ]
   %26 = and i64 %12, 2147483648
   %.not.i = icmp eq i64 %26, 0
   %27 = trunc i64 %12 to i32
@@ -444,7 +444,7 @@ define range(i32 0, 2) i32 @ossl_cmp_X509_STORE_add1_certs(ptr noundef %0, ptr n
   br i1 %22, label %.lr.ph.split, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %18, %.critedge, %.lr.ph.split.us, %.critedge.us, %.preheader, %6, %5
-  %.0 = phi i32 [ 0, %5 ], [ 1, %6 ], [ 1, %.preheader ], [ 0, %.lr.ph.split.us ], [ 1, %.critedge.us ], [ 0, %18 ], [ 1, %.critedge ]
+  %.0 = phi i32 [ 0, %5 ], [ 1, %6 ], [ 0, %.lr.ph.split.us ], [ 1, %.preheader ], [ 1, %.critedge.us ], [ 0, %18 ], [ 1, %.critedge ]
   ret i32 %.0
 }
 
@@ -489,7 +489,7 @@ define range(i32 0, 2) i32 @ossl_cmp_sk_ASN1_UTF8STRING_push_str(ptr noundef %0,
   br label %15
 
 15:                                               ; preds = %12, %7, %3, %14
-  %.0 = phi i32 [ 0, %14 ], [ 0, %3 ], [ 0, %7 ], [ 1, %12 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %7 ], [ 0, %14 ], [ 1, %12 ]
   ret i32 %.0
 }
 

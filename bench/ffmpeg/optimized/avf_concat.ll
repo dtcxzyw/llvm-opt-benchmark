@@ -158,7 +158,7 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %44, %48, %54
-  %.4 = phi i32 [ 0, %54 ], [ -12, %48 ], [ %46, %44 ], [ %27, %25 ]
+  %.4 = phi i32 [ %46, %44 ], [ -12, %48 ], [ 0, %54 ], [ %27, %25 ]
   ret i32 %.4
 }
 
@@ -308,7 +308,7 @@ define internal range(i32 -2147483648, 1) i32 @query_formats(ptr noundef readonl
   br i1 %.not90, label %9, label %.loopexit, !llvm.loop !44
 
 .loopexit:                                        ; preds = %._crit_edge77, %26, %20, %.lr.ph76.split.us, %.lr.ph76.split, %.lr.ph.us, %40, %45, %.lr.ph
-  %.045 = phi i32 [ %67, %.lr.ph ], [ %48, %45 ], [ %43, %40 ], [ %38, %.lr.ph.us ], [ %60, %.lr.ph76.split ], [ %30, %26 ], [ %24, %20 ], [ %18, %.lr.ph76.split.us ], [ 0, %._crit_edge77 ]
+  %.045 = phi i32 [ %67, %.lr.ph ], [ %60, %.lr.ph76.split ], [ %48, %45 ], [ %18, %.lr.ph76.split.us ], [ %43, %40 ], [ %38, %.lr.ph.us ], [ %30, %26 ], [ %24, %20 ], [ 0, %._crit_edge77 ]
   ret i32 %.045
 }
 
@@ -621,7 +621,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
   br i1 %165, label %127, label %.thread, !llvm.loop !62
 
 .thread:                                          ; preds = %46, %162, %154, %1, %.preheader104, %.preheader103, %.loopexit, %.preheader, %118, %115, %56, %27
-  %.0 = phi i32 [ 0, %27 ], [ %60, %56 ], [ %116, %115 ], [ 0, %118 ], [ 0, %.preheader ], [ -1497649742, %.loopexit ], [ -1497649742, %.preheader103 ], [ -1497649742, %.preheader104 ], [ -1497649742, %1 ], [ 0, %154 ], [ %.188, %162 ], [ %53, %46 ]
+  %.0 = phi i32 [ 0, %27 ], [ 0, %118 ], [ %60, %56 ], [ 0, %154 ], [ 0, %.preheader ], [ %116, %115 ], [ -1497649742, %.preheader104 ], [ -1497649742, %.loopexit ], [ -1497649742, %1 ], [ -1497649742, %.preheader103 ], [ %.188, %162 ], [ %53, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -866,7 +866,7 @@ define internal range(i32 -22, 1) i32 @config_output(ptr noundef captures(none) 
   br i1 %108, label %64, label %._crit_edge, !llvm.loop !86
 
 ._crit_edge:                                      ; preds = %93, %105, %1, %.loopexit
-  %.0 = phi i32 [ 0, %.loopexit ], [ 0, %1 ], [ 0, %105 ], [ -22, %93 ]
+  %.0 = phi i32 [ 0, %.loopexit ], [ 0, %1 ], [ -22, %93 ], [ 0, %105 ]
   ret i32 %.0
 }
 
@@ -1054,7 +1054,7 @@ send_silence.exit:                                ; preds = %90, %61
   br i1 %exitcond.not, label %send_silence.exit.thread, label %36, !llvm.loop !98
 
 send_silence.exit.thread:                         ; preds = %send_silence.exit, %36, %58, %78, %73, %25, %find_next_delta_ts.exit
-  %.0 = phi i32 [ 0, %find_next_delta_ts.exit ], [ 0, %25 ], [ -12, %73 ], [ %88, %78 ], [ 0, %send_silence.exit ], [ -558323010, %36 ], [ -1094995529, %58 ]
+  %.0 = phi i32 [ 0, %find_next_delta_ts.exit ], [ 0, %25 ], [ %88, %78 ], [ -12, %73 ], [ -558323010, %36 ], [ -1094995529, %58 ], [ 0, %send_silence.exit ]
   ret i32 %.0
 }
 

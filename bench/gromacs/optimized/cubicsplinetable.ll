@@ -807,9 +807,9 @@ _ZNSt6vectorIfSaIfEED2Ev.exit116.thread:          ; preds = %_ZNKSt8functionIFdd
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit116
 
 _ZNSt6vectorIfSaIfEED2Ev.exit116:                 ; preds = %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %259, %257
-  %.sroa.0137.2 = phi ptr [ %.sroa.0137.3304313, %257 ], [ %.sroa.0137.3304313, %259 ], [ %.sroa.0137.1.ph.ph, %.loopexit.split-lp.loopexit ], [ %.sroa.0137.1.ph.ph196, %.loopexit.split-lp.loopexit.split-lp ]
-  %.sroa.20.2 = phi ptr [ %.sroa.13.1306311, %257 ], [ %.sroa.13.1306311, %259 ], [ %.sroa.20.1.ph.ph, %.loopexit.split-lp.loopexit ], [ %.sroa.20.1.ph.ph197, %.loopexit.split-lp.loopexit.split-lp ]
-  %.pn = phi { ptr, i32 } [ %258, %257 ], [ %258, %259 ], [ %lpad.loopexit198, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp199, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.0137.2 = phi ptr [ %.sroa.0137.3304313, %259 ], [ %.sroa.0137.3304313, %257 ], [ %.sroa.0137.1.ph.ph196, %.loopexit.split-lp.loopexit.split-lp ], [ %.sroa.0137.1.ph.ph, %.loopexit.split-lp.loopexit ]
+  %.sroa.20.2 = phi ptr [ %.sroa.13.1306311, %259 ], [ %.sroa.13.1306311, %257 ], [ %.sroa.20.1.ph.ph197, %.loopexit.split-lp.loopexit.split-lp ], [ %.sroa.20.1.ph.ph, %.loopexit.split-lp.loopexit ]
+  %.pn = phi { ptr, i32 } [ %258, %259 ], [ %258, %257 ], [ %lpad.loopexit.split-lp199, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit198, %.loopexit.split-lp.loopexit ]
   %.13 = extractvalue { ptr, i32 } %.pn, 0
   %.1350 = extractvalue { ptr, i32 } %.pn, 1
   %.not.i.i.i117 = icmp eq ptr %.sroa.0137.2, null
@@ -935,7 +935,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit130: ; preds = %_Z
           to label %301 unwind label %302
 
 301:                                              ; preds = %124, %77, %_ZNSt6vectorIfSaIfEED2Ev.exit118, %134, %136, %117, %300, %58, %60, %45, %47
-  %.merged = phi { ptr, i32 } [ %.pn87.pn168, %47 ], [ %46, %45 ], [ %.pn84.pn175, %60 ], [ %59, %58 ], [ %125, %124 ], [ %78, %77 ], [ %.merged195, %136 ], [ %135, %134 ], [ %.pn324, %_ZNSt6vectorIfSaIfEED2Ev.exit118 ], [ %.pn82, %117 ], [ %.pn74, %300 ]
+  %.merged = phi { ptr, i32 } [ %.pn87.pn168, %47 ], [ %46, %45 ], [ %.pn84.pn175, %60 ], [ %59, %58 ], [ %78, %77 ], [ %125, %124 ], [ %.pn324, %_ZNSt6vectorIfSaIfEED2Ev.exit118 ], [ %.merged195, %136 ], [ %135, %134 ], [ %.pn82, %117 ], [ %.pn74, %300 ]
   call void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #23
   resume { ptr, i32 } %.merged
 
@@ -2546,7 +2546,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit145:                 ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit149
 
 _ZNSt6vectorIfSaIfEED2Ev.exit149:                 ; preds = %308, %346, %.body, %188, %190
-  %.pn89.pn.pn = phi { ptr, i32 } [ %.pn89.pn275, %190 ], [ %189, %188 ], [ %.pn, %.body ], [ %.pn, %346 ], [ %.pn.pn56.i, %308 ]
+  %.pn89.pn.pn = phi { ptr, i32 } [ %.pn89.pn275, %190 ], [ %189, %188 ], [ %.pn, %346 ], [ %.pn, %.body ], [ %.pn.pn56.i, %308 ]
   %.2061 = extractvalue { ptr, i32 } %.pn89.pn.pn, 1
   %350 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3gmx16GromacsExceptionE) #23
   %351 = icmp eq i32 %.2061, %350
@@ -2652,7 +2652,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit161: ; preds = %_Z
           to label %386 unwind label %387
 
 386:                                              ; preds = %175, %177, %165, %119, %_ZNSt6vectorIfSaIfEED2Ev.exit149, %158, %385, %63, %65, %50, %52
-  %.merged = phi { ptr, i32 } [ %.pn117.pn235, %52 ], [ %51, %50 ], [ %.pn114.pn242, %65 ], [ %64, %63 ], [ %.merged288, %177 ], [ %176, %175 ], [ %.pn105.pn.pn, %119 ], [ %166, %165 ], [ %.pn89.pn.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit149 ], [ %.pn112, %158 ], [ %.pn96, %385 ]
+  %.merged = phi { ptr, i32 } [ %.pn117.pn235, %52 ], [ %51, %50 ], [ %.pn114.pn242, %65 ], [ %64, %63 ], [ %166, %165 ], [ %.merged288, %177 ], [ %176, %175 ], [ %.pn89.pn.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit149 ], [ %.pn105.pn.pn, %119 ], [ %.pn112, %158 ], [ %.pn96, %385 ]
   call void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #23
   resume { ptr, i32 } %.merged
 

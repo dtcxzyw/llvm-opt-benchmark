@@ -934,7 +934,7 @@ _ZNK4ncnn3Mat5emptyEv.exit103:                    ; preds = %236
   br label %_ZN4ncnn3MataSERKS0_.exit
 
 _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %236, %_ZN4ncnn3Mat7releaseEv.exit, %171, %_ZNK4ncnn3Mat5emptyEv.exit103, %246
-  %.0 = phi i32 [ 0, %246 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit103 ], [ 0, %171 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit ], [ -100, %236 ]
+  %.0 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit103 ], [ 0, %246 ], [ 0, %171 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit ], [ -100, %236 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -1078,9 +1078,9 @@ define internal void @_ZNK4ncnn4Tile7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_out
   br label %._crit_edge327
 
 ._crit_edge327:                                   ; preds = %._crit_edge327.loopexit, %.preheader
-  %45 = phi i32 [ %.pre354, %._crit_edge327.loopexit ], [ %39, %.preheader ]
-  %46 = phi i32 [ %85, %._crit_edge327.loopexit ], [ %40, %.preheader ]
-  %47 = phi i32 [ %85, %._crit_edge327.loopexit ], [ %41, %.preheader ]
+  %45 = phi i32 [ %39, %.preheader ], [ %.pre354, %._crit_edge327.loopexit ]
+  %46 = phi i32 [ %40, %.preheader ], [ %85, %._crit_edge327.loopexit ]
+  %47 = phi i32 [ %41, %.preheader ], [ %85, %._crit_edge327.loopexit ]
   %indvars.iv.next345 = add nuw nsw i64 %indvars.iv344, 1
   %48 = sext i32 %45 to i64
   %49 = icmp slt i64 %indvars.iv.next345, %48
@@ -1157,7 +1157,7 @@ define internal void @_ZNK4ncnn4Tile7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_out
   br i1 %97, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !59
 
 .noexc147:                                        ; preds = %._crit_edge332, %.preheader323, %.preheader322
-  %98 = phi i32 [ %45, %.preheader322 ], [ %33, %.preheader323 ], [ %157, %._crit_edge332 ]
+  %98 = phi i32 [ %33, %.preheader323 ], [ %45, %.preheader322 ], [ %157, %._crit_edge332 ]
   %99 = load ptr, ptr %6, align 8, !tbaa !16, !noalias !60
   %100 = load i64, ptr %30, align 8, !tbaa !17, !noalias !60
   %101 = mul i64 %100, %indvars.iv350

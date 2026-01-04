@@ -49,7 +49,7 @@ define internal range(i32 -400, 3) i32 @big5_code_to_mbclen(i32 noundef %0) #3 {
   br label %11
 
 11:                                               ; preds = %7, %3, %1, %10
-  %.0 = phi i32 [ -400, %10 ], [ -400, %1 ], [ 2, %3 ], [ 1, %7 ]
+  %.0 = phi i32 [ 2, %3 ], [ -400, %1 ], [ -400, %10 ], [ 1, %7 ]
   ret i32 %.0
 }
 
@@ -177,7 +177,7 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly ca
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %6, %8, %10, %13, %16, %2
-  %.0 = phi i32 [ 1, %2 ], [ 1, %16 ], [ 0, %13 ], [ 0, %10 ], [ 0, %8 ], [ 0, %6 ]
+  %.0 = phi i32 [ 1, %2 ], [ 0, %8 ], [ 0, %10 ], [ 0, %13 ], [ 1, %16 ], [ 0, %6 ]
   ret i32 %.0
 }
 

@@ -1207,7 +1207,7 @@ Vec_IntPush.exit42:                               ; preds = %.Vec_IntGrow.exit10
   br label %93
 
 93:                                               ; preds = %11, %4, %Vec_IntPush.exit42, %Vec_IntPush.exit
-  %.0 = phi i32 [ 0, %Vec_IntPush.exit ], [ %92, %Vec_IntPush.exit42 ], [ 1, %4 ], [ 0, %11 ]
+  %.0 = phi i32 [ %92, %Vec_IntPush.exit42 ], [ 1, %4 ], [ 0, %Vec_IntPush.exit ], [ 0, %11 ]
   ret i32 %.0
 }
 
@@ -2295,7 +2295,7 @@ define void @Gia_Min2CollectSuper_rec(ptr noundef %0, ptr noundef %1, i32 nounde
   br i1 %.not, label %.lr.ph.split, label %tailrecurse.outer._crit_edge
 
 tailrecurse.outer._crit_edge:                     ; preds = %.lr.ph.split.us, %10, %.split.split.us, %.split13, %.lr.ph.split, %34, %38, %4
-  %.tr.lcssa = phi ptr [ %0, %4 ], [ %.tr24, %38 ], [ %.tr24, %34 ], [ %.tr24, %.lr.ph.split ], [ %56, %.split13 ], [ %30, %.split.split.us ], [ %.tr.ph45, %10 ], [ %.tr.ph45, %.lr.ph.split.us ]
+  %.tr.lcssa = phi ptr [ %.tr24, %38 ], [ %0, %4 ], [ %.tr24, %34 ], [ %.tr24, %.lr.ph.split ], [ %56, %.split13 ], [ %.tr.ph45, %10 ], [ %.tr.ph45, %.lr.ph.split.us ], [ %30, %.split.split.us ]
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %59 = load i32, ptr %58, align 4, !tbaa !21
   %60 = icmp sgt i32 %59, 0
@@ -3173,7 +3173,7 @@ Vec_PtrPushUnique.exit134:                        ; preds = %.Vec_PtrGrow.exit11
   br label %305
 
 305:                                              ; preds = %2, %.critedge, %Vec_IntPush.exit
-  %.0 = phi i32 [ %52, %Vec_IntPush.exit ], [ %304, %.critedge ], [ %11, %2 ]
+  %.0 = phi i32 [ %304, %.critedge ], [ %52, %Vec_IntPush.exit ], [ %11, %2 ]
   ret i32 %.0
 }
 
@@ -3890,7 +3890,7 @@ Vec_IntPush.exit42:                               ; preds = %.Vec_IntGrow.exit10
   br label %93
 
 93:                                               ; preds = %11, %4, %Vec_IntPush.exit42, %Vec_IntPush.exit
-  %.0 = phi i32 [ 0, %Vec_IntPush.exit ], [ %92, %Vec_IntPush.exit42 ], [ 1, %4 ], [ 0, %11 ]
+  %.0 = phi i32 [ %92, %Vec_IntPush.exit42 ], [ 1, %4 ], [ 0, %Vec_IntPush.exit ], [ 0, %11 ]
   ret i32 %.0
 }
 

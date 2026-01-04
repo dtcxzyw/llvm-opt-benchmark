@@ -205,7 +205,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_bool(ptr noundef %0, ptr nounde
   br label %27
 
 27:                                               ; preds = %.sink.split, %25, %19, %17, %13, %7
-  %.0 = phi i32 [ -32, %7 ], [ -32, %13 ], [ 0, %17 ], [ -32, %19 ], [ 0, %25 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ -32, %19 ], [ -32, %7 ], [ -32, %13 ], [ 0, %17 ], [ 0, %25 ], [ 0, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -265,7 +265,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_byte(ptr noundef %0, ptr nounde
   br label %26
 
 26:                                               ; preds = %.sink.split, %24, %19, %17, %13, %7
-  %.0 = phi i32 [ -32, %7 ], [ -32, %13 ], [ 0, %17 ], [ -32, %19 ], [ 0, %24 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ -32, %19 ], [ -32, %7 ], [ -32, %13 ], [ 0, %17 ], [ 0, %24 ], [ 0, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -317,7 +317,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_string(ptr noundef %0, ptr noun
   br label %24
 
 24:                                               ; preds = %.sink.split, %22, %19, %17, %14, %7
-  %.0 = phi i32 [ -32, %7 ], [ -32, %14 ], [ 0, %17 ], [ -32, %19 ], [ 0, %22 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ -32, %19 ], [ -32, %7 ], [ -32, %14 ], [ 0, %17 ], [ 0, %22 ], [ 0, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -370,7 +370,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_size(ptr noundef %0, ptr nounde
   br label %25
 
 25:                                               ; preds = %.sink.split, %23, %19, %17, %14, %7
-  %.0 = phi i32 [ -32, %7 ], [ -32, %14 ], [ 0, %17 ], [ -32, %19 ], [ 0, %23 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ -32, %19 ], [ -32, %7 ], [ -32, %14 ], [ 0, %17 ], [ 0, %23 ], [ 0, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -424,7 +424,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_pid(ptr noundef %0, ptr noundef
   br label %26
 
 26:                                               ; preds = %.sink.split, %24, %19, %17, %14, %7
-  %.0 = phi i32 [ -32, %7 ], [ -32, %14 ], [ 0, %17 ], [ -32, %19 ], [ 0, %24 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ -32, %19 ], [ -32, %7 ], [ -32, %14 ], [ 0, %17 ], [ 0, %24 ], [ 0, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -478,7 +478,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_int(ptr noundef %0, ptr noundef
   br label %26
 
 26:                                               ; preds = %.sink.split, %24, %19, %17, %14, %7
-  %.0 = phi i32 [ -32, %7 ], [ -32, %14 ], [ 0, %17 ], [ -32, %19 ], [ 0, %24 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ -32, %19 ], [ -32, %7 ], [ -32, %14 ], [ 0, %17 ], [ 0, %24 ], [ 0, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -532,7 +532,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_uint(ptr noundef %0, ptr nounde
   br label %26
 
 26:                                               ; preds = %.sink.split, %24, %19, %17, %14, %7
-  %.0 = phi i32 [ -32, %7 ], [ -32, %14 ], [ 0, %17 ], [ -32, %19 ], [ 0, %24 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ -32, %19 ], [ -32, %7 ], [ -32, %14 ], [ 0, %17 ], [ 0, %24 ], [ 0, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -577,13 +577,13 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_uint8(ptr noundef %0, ptr nound
   br i1 %.not16, label %24, label %.sink.split
 
 .sink.split:                                      ; preds = %18, %14
-  %.sink = phi ptr [ %17, %14 ], [ %23, %18 ]
-  %.0.ph = phi i32 [ %., %14 ], [ %.25, %18 ]
+  %.sink = phi ptr [ %23, %18 ], [ %17, %14 ]
+  %.0.ph = phi i32 [ %.25, %18 ], [ %., %14 ]
   call void @free(ptr noundef %.sink) #7
   br label %24
 
 24:                                               ; preds = %18, %14, %.sink.split, %7
-  %.0 = phi i32 [ -32, %7 ], [ %.0.ph, %.sink.split ], [ %., %14 ], [ %.25, %18 ]
+  %.0 = phi i32 [ %.25, %18 ], [ -32, %7 ], [ %., %14 ], [ %.0.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -628,13 +628,13 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_uint16(ptr noundef %0, ptr noun
   br i1 %.not16, label %24, label %.sink.split
 
 .sink.split:                                      ; preds = %18, %14
-  %.sink = phi ptr [ %17, %14 ], [ %23, %18 ]
-  %.0.ph = phi i32 [ %., %14 ], [ %.25, %18 ]
+  %.sink = phi ptr [ %23, %18 ], [ %17, %14 ]
+  %.0.ph = phi i32 [ %.25, %18 ], [ %., %14 ]
   call void @free(ptr noundef %.sink) #7
   br label %24
 
 24:                                               ; preds = %18, %14, %.sink.split, %7
-  %.0 = phi i32 [ -32, %7 ], [ %.0.ph, %.sink.split ], [ %., %14 ], [ %.25, %18 ]
+  %.0 = phi i32 [ %.25, %18 ], [ -32, %7 ], [ %., %14 ], [ %.0.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -678,13 +678,13 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_uint32(ptr noundef %0, ptr noun
   br i1 %.not16, label %23, label %.sink.split
 
 .sink.split:                                      ; preds = %18, %14
-  %.sink = phi ptr [ %17, %14 ], [ %22, %18 ]
-  %.0.ph = phi i32 [ %., %14 ], [ %.25, %18 ]
+  %.sink = phi ptr [ %22, %18 ], [ %17, %14 ]
+  %.0.ph = phi i32 [ %.25, %18 ], [ %., %14 ]
   call void @free(ptr noundef %.sink) #7
   br label %23
 
 23:                                               ; preds = %18, %14, %.sink.split, %7
-  %.0 = phi i32 [ -32, %7 ], [ %.0.ph, %.sink.split ], [ %., %14 ], [ %.25, %18 ]
+  %.0 = phi i32 [ %.25, %18 ], [ -32, %7 ], [ %., %14 ], [ %.0.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -729,13 +729,13 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_int8(ptr noundef %0, ptr nounde
   br i1 %.not16, label %24, label %.sink.split
 
 .sink.split:                                      ; preds = %18, %14
-  %.sink = phi ptr [ %17, %14 ], [ %23, %18 ]
-  %.0.ph = phi i32 [ %., %14 ], [ %.25, %18 ]
+  %.sink = phi ptr [ %23, %18 ], [ %17, %14 ]
+  %.0.ph = phi i32 [ %.25, %18 ], [ %., %14 ]
   call void @free(ptr noundef %.sink) #7
   br label %24
 
 24:                                               ; preds = %18, %14, %.sink.split, %7
-  %.0 = phi i32 [ -32, %7 ], [ %.0.ph, %.sink.split ], [ %., %14 ], [ %.25, %18 ]
+  %.0 = phi i32 [ %.25, %18 ], [ -32, %7 ], [ %., %14 ], [ %.0.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -780,13 +780,13 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_int16(ptr noundef %0, ptr nound
   br i1 %.not16, label %24, label %.sink.split
 
 .sink.split:                                      ; preds = %18, %14
-  %.sink = phi ptr [ %17, %14 ], [ %23, %18 ]
-  %.0.ph = phi i32 [ %., %14 ], [ %.25, %18 ]
+  %.sink = phi ptr [ %23, %18 ], [ %17, %14 ]
+  %.0.ph = phi i32 [ %.25, %18 ], [ %., %14 ]
   call void @free(ptr noundef %.sink) #7
   br label %24
 
 24:                                               ; preds = %18, %14, %.sink.split, %7
-  %.0 = phi i32 [ -32, %7 ], [ %.0.ph, %.sink.split ], [ %., %14 ], [ %.25, %18 ]
+  %.0 = phi i32 [ %.25, %18 ], [ -32, %7 ], [ %., %14 ], [ %.0.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -830,13 +830,13 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_int32(ptr noundef %0, ptr nound
   br i1 %.not16, label %23, label %.sink.split
 
 .sink.split:                                      ; preds = %18, %14
-  %.sink = phi ptr [ %17, %14 ], [ %22, %18 ]
-  %.0.ph = phi i32 [ %., %14 ], [ %.25, %18 ]
+  %.sink = phi ptr [ %22, %18 ], [ %17, %14 ]
+  %.0.ph = phi i32 [ %.25, %18 ], [ %., %14 ]
   call void @free(ptr noundef %.sink) #7
   br label %23
 
 23:                                               ; preds = %18, %14, %.sink.split, %7
-  %.0 = phi i32 [ -32, %7 ], [ %.0.ph, %.sink.split ], [ %., %14 ], [ %.25, %18 ]
+  %.0 = phi i32 [ %.25, %18 ], [ -32, %7 ], [ %., %14 ], [ %.0.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -880,13 +880,13 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_uint64(ptr noundef %0, ptr noun
   br i1 %.not16, label %23, label %.sink.split
 
 .sink.split:                                      ; preds = %18, %14
-  %.sink = phi ptr [ %17, %14 ], [ %22, %18 ]
-  %.0.ph = phi i32 [ %., %14 ], [ %.25, %18 ]
+  %.sink = phi ptr [ %22, %18 ], [ %17, %14 ]
+  %.0.ph = phi i32 [ %.25, %18 ], [ %., %14 ]
   call void @free(ptr noundef %.sink) #7
   br label %23
 
 23:                                               ; preds = %18, %14, %.sink.split, %7
-  %.0 = phi i32 [ -32, %7 ], [ %.0.ph, %.sink.split ], [ %., %14 ], [ %.25, %18 ]
+  %.0 = phi i32 [ %.25, %18 ], [ -32, %7 ], [ %., %14 ], [ %.0.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -930,13 +930,13 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_int64(ptr noundef %0, ptr nound
   br i1 %.not16, label %23, label %.sink.split
 
 .sink.split:                                      ; preds = %18, %14
-  %.sink = phi ptr [ %17, %14 ], [ %22, %18 ]
-  %.0.ph = phi i32 [ %., %14 ], [ %.25, %18 ]
+  %.sink = phi ptr [ %22, %18 ], [ %17, %14 ]
+  %.0.ph = phi i32 [ %.25, %18 ], [ %., %14 ]
   call void @free(ptr noundef %.sink) #7
   br label %23
 
 23:                                               ; preds = %18, %14, %.sink.split, %7
-  %.0 = phi i32 [ -32, %7 ], [ %.0.ph, %.sink.split ], [ %., %14 ], [ %.25, %18 ]
+  %.0 = phi i32 [ %.25, %18 ], [ -32, %7 ], [ %., %14 ], [ %.0.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -981,13 +981,13 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_float(ptr noundef %0, ptr nound
   br i1 %.not16, label %24, label %.sink.split
 
 .sink.split:                                      ; preds = %18, %14
-  %.sink = phi ptr [ %17, %14 ], [ %23, %18 ]
-  %.0.ph = phi i32 [ %., %14 ], [ %.25, %18 ]
+  %.sink = phi ptr [ %23, %18 ], [ %17, %14 ]
+  %.0.ph = phi i32 [ %.25, %18 ], [ %., %14 ]
   call void @free(ptr noundef %.sink) #7
   br label %24
 
 24:                                               ; preds = %18, %14, %.sink.split, %7
-  %.0 = phi i32 [ -32, %7 ], [ %.0.ph, %.sink.split ], [ %., %14 ], [ %.25, %18 ]
+  %.0 = phi i32 [ %.25, %18 ], [ -32, %7 ], [ %., %14 ], [ %.0.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1031,13 +1031,13 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_double(ptr noundef %0, ptr noun
   br i1 %.not16, label %23, label %.sink.split
 
 .sink.split:                                      ; preds = %18, %14
-  %.sink = phi ptr [ %17, %14 ], [ %22, %18 ]
-  %.0.ph = phi i32 [ %., %14 ], [ %.25, %18 ]
+  %.sink = phi ptr [ %22, %18 ], [ %17, %14 ]
+  %.0.ph = phi i32 [ %.25, %18 ], [ %., %14 ]
   call void @free(ptr noundef %.sink) #7
   br label %23
 
 23:                                               ; preds = %18, %14, %.sink.split, %7
-  %.0 = phi i32 [ -32, %7 ], [ %.0.ph, %.sink.split ], [ %., %14 ], [ %.25, %18 ]
+  %.0 = phi i32 [ %.25, %18 ], [ -32, %7 ], [ %., %14 ], [ %.0.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1086,13 +1086,13 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_time(ptr noundef %0, ptr nounde
   br i1 %.not19, label %27, label %.sink.split
 
 .sink.split:                                      ; preds = %18, %13
-  %.sink = phi ptr [ %17, %13 ], [ %26, %18 ]
-  %.0.ph = phi i32 [ %., %13 ], [ %.28, %18 ]
+  %.sink = phi ptr [ %26, %18 ], [ %17, %13 ]
+  %.0.ph = phi i32 [ %.28, %18 ], [ %., %13 ]
   call void @free(ptr noundef %.sink) #7
   br label %27
 
 27:                                               ; preds = %18, %13, %.sink.split, %7
-  %.0 = phi i32 [ -32, %7 ], [ %.0.ph, %.sink.split ], [ %., %13 ], [ %.28, %18 ]
+  %.0 = phi i32 [ %.28, %18 ], [ -32, %7 ], [ %., %13 ], [ %.0.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1144,13 +1144,13 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_timeval(ptr noundef %0, ptr nou
   br i1 %.not17, label %25, label %.sink.split
 
 .sink.split:                                      ; preds = %18, %14
-  %.sink = phi ptr [ %17, %14 ], [ %24, %18 ]
-  %.0.ph = phi i32 [ %., %14 ], [ %.26, %18 ]
+  %.sink = phi ptr [ %24, %18 ], [ %17, %14 ]
+  %.0.ph = phi i32 [ %.26, %18 ], [ %., %14 ]
   call void @free(ptr noundef %.sink) #7
   br label %25
 
 25:                                               ; preds = %18, %14, %.sink.split, %7
-  %.0 = phi i32 [ -32, %7 ], [ %.0.ph, %.sink.split ], [ %., %14 ], [ %.26, %18 ]
+  %.0 = phi i32 [ %.26, %18 ], [ -32, %7 ], [ %., %14 ], [ %.0.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1195,13 +1195,13 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_status(ptr noundef %0, ptr noun
   br i1 %.not16, label %24, label %.sink.split
 
 .sink.split:                                      ; preds = %18, %14
-  %.sink = phi ptr [ %17, %14 ], [ %23, %18 ]
-  %.0.ph = phi i32 [ %., %14 ], [ %.25, %18 ]
+  %.sink = phi ptr [ %23, %18 ], [ %17, %14 ]
+  %.0.ph = phi i32 [ %.25, %18 ], [ %., %14 ]
   call void @free(ptr noundef %.sink) #7
   br label %24
 
 24:                                               ; preds = %18, %14, %.sink.split, %7
-  %.0 = phi i32 [ -32, %7 ], [ %.0.ph, %.sink.split ], [ %., %14 ], [ %.25, %18 ]
+  %.0 = phi i32 [ %.25, %18 ], [ -32, %7 ], [ %., %14 ], [ %.0.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1528,7 +1528,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_value(ptr noundef %0, ptr nound
   br label %201
 
 201:                                              ; preds = %199, %17, %19, %13, %7
-  %.072 = phi i32 [ -32, %7 ], [ -32, %13 ], [ 0, %19 ], [ 0, %17 ], [ %., %199 ]
+  %.072 = phi i32 [ 0, %17 ], [ -32, %7 ], [ -32, %13 ], [ %., %199 ], [ 0, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.072
 }
@@ -1732,13 +1732,13 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_persist(ptr noundef %0, ptr nou
   br i1 %.not16, label %24, label %.sink.split
 
 .sink.split:                                      ; preds = %18, %14
-  %.sink = phi ptr [ %17, %14 ], [ %23, %18 ]
-  %.0.ph = phi i32 [ %., %14 ], [ %.25, %18 ]
+  %.sink = phi ptr [ %23, %18 ], [ %17, %14 ]
+  %.0.ph = phi i32 [ %.25, %18 ], [ %., %14 ]
   call void @free(ptr noundef %.sink) #7
   br label %24
 
 24:                                               ; preds = %18, %14, %.sink.split, %7
-  %.0 = phi i32 [ -32, %7 ], [ %.0.ph, %.sink.split ], [ %., %14 ], [ %.25, %18 ]
+  %.0 = phi i32 [ %.25, %18 ], [ -32, %7 ], [ %., %14 ], [ %.0.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1779,7 +1779,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_scope(ptr noundef %0, ptr nound
   br label %18
 
 18:                                               ; preds = %11, %.sink.split, %7
-  %.0 = phi i32 [ -32, %7 ], [ %., %.sink.split ], [ %., %11 ]
+  %.0 = phi i32 [ %., %11 ], [ -32, %7 ], [ %., %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1820,7 +1820,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_range(ptr noundef %0, ptr nound
   br label %18
 
 18:                                               ; preds = %11, %.sink.split, %7
-  %.0 = phi i32 [ -32, %7 ], [ %., %.sink.split ], [ %., %11 ]
+  %.0 = phi i32 [ %., %11 ], [ -32, %7 ], [ %., %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1861,7 +1861,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_cmd(ptr noundef %0, ptr noundef
   br label %18
 
 18:                                               ; preds = %11, %.sink.split, %7
-  %.0 = phi i32 [ -32, %7 ], [ %., %.sink.split ], [ %., %11 ]
+  %.0 = phi i32 [ %., %11 ], [ -32, %7 ], [ %., %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1901,7 +1901,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_infodirs(ptr noundef %0, ptr no
   br label %18
 
 18:                                               ; preds = %11, %.sink.split, %7
-  %.0 = phi i32 [ -32, %7 ], [ %., %.sink.split ], [ %., %11 ]
+  %.0 = phi i32 [ %., %11 ], [ -32, %7 ], [ %., %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1948,13 +1948,13 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_bo(ptr noundef %0, ptr noundef 
   br i1 %.not16, label %24, label %.sink.split
 
 .sink.split:                                      ; preds = %18, %14
-  %.sink = phi ptr [ %17, %14 ], [ %23, %18 ]
-  %.0.ph = phi i32 [ %., %14 ], [ %.25, %18 ]
+  %.sink = phi ptr [ %23, %18 ], [ %17, %14 ]
+  %.0.ph = phi i32 [ %.25, %18 ], [ %., %14 ]
   call void @free(ptr noundef %.sink) #7
   br label %24
 
 24:                                               ; preds = %18, %14, %.sink.split, %7
-  %.0 = phi i32 [ -32, %7 ], [ %.0.ph, %.sink.split ], [ %., %14 ], [ %.25, %18 ]
+  %.0 = phi i32 [ %.25, %18 ], [ -32, %7 ], [ %., %14 ], [ %.0.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1993,7 +1993,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_ptr(ptr noundef %0, ptr noundef
   br label %16
 
 16:                                               ; preds = %11, %.sink.split, %7
-  %.0 = phi i32 [ -32, %7 ], [ %., %.sink.split ], [ %., %11 ]
+  %.0 = phi i32 [ %., %11 ], [ -32, %7 ], [ %., %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -2034,7 +2034,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_pstate(ptr noundef %0, ptr noun
   br label %18
 
 18:                                               ; preds = %11, %.sink.split, %7
-  %.0 = phi i32 [ -32, %7 ], [ %., %.sink.split ], [ %., %11 ]
+  %.0 = phi i32 [ %., %11 ], [ -32, %7 ], [ %., %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -2155,7 +2155,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_darray(ptr noundef %0, ptr noun
   br label %18
 
 18:                                               ; preds = %11, %.sink.split, %7
-  %.0 = phi i32 [ -32, %7 ], [ %., %.sink.split ], [ %., %11 ]
+  %.0 = phi i32 [ %., %11 ], [ -32, %7 ], [ %., %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -2324,7 +2324,7 @@ pmix20_bfrop_print_info.exit:                     ; preds = %47, %60
   br label %81
 
 81:                                               ; preds = %16, %.loopexit, %69, %62, %34, %24
-  %.017 = phi i32 [ -32, %24 ], [ -32, %34 ], [ -32, %62 ], [ -32, %69 ], [ 0, %.loopexit ], [ -32, %16 ]
+  %.017 = phi i32 [ 0, %.loopexit ], [ -32, %24 ], [ -32, %34 ], [ -32, %62 ], [ -32, %69 ], [ -32, %16 ]
   %82 = load ptr, ptr %6, align 8, !tbaa !20
   %.not28 = icmp eq ptr %82, %1
   br i1 %.not28, label %84, label %83
@@ -2442,7 +2442,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_alloc_directive(ptr noundef %0,
   br label %18
 
 18:                                               ; preds = %11, %.sink.split, %7
-  %.0 = phi i32 [ -32, %7 ], [ %., %.sink.split ], [ %., %11 ]
+  %.0 = phi i32 [ %., %11 ], [ -32, %7 ], [ %., %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -2535,7 +2535,7 @@ pmix20_bfrop_print_info.exit:                     ; preds = %.lr.ph, %35
   br label %.loopexit
 
 .loopexit:                                        ; preds = %pmix20_bfrop_print_info.exit, %4, %._crit_edge, %18
-  %.0 = phi i32 [ -32, %18 ], [ 0, %._crit_edge ], [ -32, %4 ], [ -32, %pmix20_bfrop_print_info.exit ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ -32, %18 ], [ -32, %4 ], [ -32, %pmix20_bfrop_print_info.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

@@ -274,9 +274,9 @@ define noundef i32 @_ZN6icu_7719CollationDataWriter5writeEaPKhRKNS_13CollationDa
   br label %64
 
 64:                                               ; preds = %41, %61, %57, %34
-  %.0235 = phi i32 [ %36, %34 ], [ %63, %61 ], [ 0, %57 ], [ 0, %41 ]
-  %.not250 = phi i1 [ false, %34 ], [ false, %61 ], [ false, %57 ], [ true, %41 ]
-  %.0210 = phi i32 [ 20, %34 ], [ 17, %61 ], [ %spec.select, %57 ], [ %.272, %41 ]
+  %.0235 = phi i32 [ %36, %34 ], [ 0, %41 ], [ 0, %57 ], [ %63, %61 ]
+  %.not250 = phi i1 [ false, %34 ], [ true, %41 ], [ false, %57 ], [ false, %61 ]
+  %.0210 = phi i32 [ 20, %34 ], [ %.272, %41 ], [ %spec.select, %57 ], [ 17, %61 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   invoke void @_ZN6icu_779UVector32C1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 4 dereferenceable(4) %9)
           to label %65 unwind label %79
@@ -598,7 +598,7 @@ define noundef i32 @_ZN6icu_7719CollationDataWriter5writeEaPKhRKNS_13CollationDa
   br label %355
 
 214:                                              ; preds = %169, %188, %.thread296
-  %.6205 = phi i32 [ %184, %188 ], [ %179, %169 ], [ %211, %.thread296 ]
+  %.6205 = phi i32 [ %184, %188 ], [ %211, %.thread296 ], [ %179, %169 ]
   %215 = getelementptr inbounds nuw i8, ptr %6, i64 60
   store i32 %.6205, ptr %215, align 4, !tbaa !35
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -818,7 +818,7 @@ _ZN6icu_7719CollationDataWriter8copyDataEPKiiPKvPh.exit284: ; preds = %_ZN6icu_7
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %_ZN6icu_7719CollationDataWriter8copyDataEPKiiPKvPh.exit284, %330, %332
-  %.0.i = phi ptr [ %331, %330 ], [ %334, %332 ], [ null, %_ZN6icu_7719CollationDataWriter8copyDataEPKiiPKvPh.exit284 ]
+  %.0.i = phi ptr [ %334, %332 ], [ %331, %330 ], [ null, %_ZN6icu_7719CollationDataWriter8copyDataEPKiiPKvPh.exit284 ]
   %335 = load i32, ptr %219, align 4, !tbaa !35
   %336 = load i32, ptr %255, align 4, !tbaa !35
   %337 = icmp slt i32 %335, %336
@@ -886,7 +886,7 @@ _ZN6icu_7719CollationDataWriter8copyDataEPKiiPKvPh.exit286: ; preds = %346, %_ZN
   resume { ptr, i32 } %.pn268.pn.pn
 
 358:                                              ; preds = %10, %354, %24
-  %.0 = phi i32 [ 0, %24 ], [ %.1, %354 ], [ 0, %10 ]
+  %.0 = phi i32 [ %.1, %354 ], [ 0, %24 ], [ 0, %10 ]
   ret i32 %.0
 }
 

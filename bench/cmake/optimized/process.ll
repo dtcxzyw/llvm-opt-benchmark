@@ -454,7 +454,7 @@ uv__spawn_and_init_child.exit.thread130:          ; preds = %.preheader27.i
   call void @abort() #14
   unreachable
 
-uv__spawn_and_init_child.exit.thread128:          ; preds = %.preheader.i, %119
+uv__spawn_and_init_child.exit.thread128:          ; preds = %119, %.preheader.i
   %122 = load i32, ptr %6, align 8, !tbaa !25
   %123 = call i32 @uv__close_nocheckstdio(i32 noundef %122) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -463,7 +463,7 @@ uv__spawn_and_init_child.exit.thread128:          ; preds = %.preheader.i, %119
   br label %144
 
 uv__spawn_and_init_child.exit:                    ; preds = %uv__spawn_and_init_child_fork.exit.i, %.critedge2.i
-  %.022.i = phi i32 [ %116, %.critedge2.i ], [ %.0.i.i, %uv__spawn_and_init_child_fork.exit.i ]
+  %.022.i = phi i32 [ %.0.i.i, %uv__spawn_and_init_child_fork.exit.i ], [ %116, %.critedge2.i ]
   %124 = load i32, ptr %6, align 8, !tbaa !25
   %125 = call i32 @uv__close_nocheckstdio(i32 noundef %124) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -599,7 +599,7 @@ uv__process_open_stream.exit.thread:              ; preds = %uv__process_open_st
   br i1 %.not102, label %.thread, label %.thread.sink.split
 
 uv__process_init_stdio.exit.thread:               ; preds = %44, %61, %50, %uv__process_init_stdio.exit, %uv__process_close_stream.exit, %.preheader
-  %.095 = phi i32 [ %172, %.preheader ], [ %172, %uv__process_close_stream.exit ], [ -22, %44 ], [ -22, %61 ], [ -22, %50 ], [ %65, %uv__process_init_stdio.exit ]
+  %.095 = phi i32 [ %172, %.preheader ], [ %172, %uv__process_close_stream.exit ], [ -22, %61 ], [ -22, %50 ], [ %65, %uv__process_init_stdio.exit ], [ -22, %44 ]
   %185 = getelementptr inbounds nuw i8, ptr %2, i64 48
   br label %186
 
@@ -653,7 +653,7 @@ uv__process_init_stdio.exit.thread:               ; preds = %44, %61, %50, %uv__
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %34, %206, %._crit_edge147, %12
-  %.094 = phi i32 [ -22, %12 ], [ %.0.i111127, %._crit_edge147 ], [ %.095, %206 ], [ -12, %34 ], [ %.094.ph, %.thread.sink.split ]
+  %.094 = phi i32 [ -22, %12 ], [ %.0.i111127, %._crit_edge147 ], [ -12, %34 ], [ %.095, %206 ], [ %.094.ph, %.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.094
 }
@@ -1026,8 +1026,8 @@ define internal fastcc void @uv__process_child_init(ptr noundef readonly capture
   br label %.thread140.thread
 
 .thread140.thread:                                ; preds = %80, %108, %.thread140
-  %.0132149 = phi i32 [ -1, %108 ], [ %.0132, %.thread140 ], [ %.1161, %80 ]
-  %.3143148 = phi i32 [ %.3143, %108 ], [ %.3143, %.thread140 ], [ %.1161, %80 ]
+  %.0132149 = phi i32 [ %.0132, %.thread140 ], [ -1, %108 ], [ %.1161, %80 ]
+  %.3143148 = phi i32 [ %.3143, %.thread140 ], [ %.3143, %108 ], [ %.1161, %80 ]
   %.not109 = icmp slt i32 %.0132149, %1
   br i1 %.not109, label %111, label %.thread150
 

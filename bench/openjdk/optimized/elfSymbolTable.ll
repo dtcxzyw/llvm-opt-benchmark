@@ -357,8 +357,8 @@ _ZN14ElfSymbolTable7compareEPK9Elf64_SymPhPiS4_S4_P16ElfFuncDescTable.exit30: ; 
   %exitcond61.not = icmp eq i32 %128, %16
   br i1 %exitcond61.not, label %._crit_edge, label %.lr.ph41.split, !llvm.loop !8
 
-.thread:                                          ; preds = %.split.us, %100, %_ZN14ElfSymbolTable7compareEPK9Elf64_SymPhPiS4_S4_P16ElfFuncDescTable.exit30
-  %.1.ph = phi i1 [ true, %_ZN14ElfSymbolTable7compareEPK9Elf64_SymPhPiS4_S4_P16ElfFuncDescTable.exit30 ], [ false, %100 ], [ false, %.split.us ]
+.thread:                                          ; preds = %100, %.split.us, %_ZN14ElfSymbolTable7compareEPK9Elf64_SymPhPiS4_S4_P16ElfFuncDescTable.exit30
+  %.1.ph = phi i1 [ true, %_ZN14ElfSymbolTable7compareEPK9Elf64_SymPhPiS4_S4_P16ElfFuncDescTable.exit30 ], [ false, %.split.us ], [ false, %100 ]
   call void @_ZN16MarkedFileReaderD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
   br label %.loopexit
 
@@ -367,7 +367,7 @@ _ZN14ElfSymbolTable7compareEPK9Elf64_SymPhPiS4_S4_P16ElfFuncDescTable.exit30: ; 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %67, %37, %.preheader35, %._crit_edge, %.thread, %_ZN14ElfSymbolTable7compareEPK9Elf64_SymPhPiS4_S4_P16ElfFuncDescTable.exit, %6
-  %.024 = phi i1 [ false, %6 ], [ true, %_ZN14ElfSymbolTable7compareEPK9Elf64_SymPhPiS4_S4_P16ElfFuncDescTable.exit ], [ %.1.ph, %.thread ], [ false, %._crit_edge ], [ false, %.preheader35 ], [ false, %37 ], [ false, %67 ]
+  %.024 = phi i1 [ %.1.ph, %.thread ], [ false, %6 ], [ true, %_ZN14ElfSymbolTable7compareEPK9Elf64_SymPhPiS4_S4_P16ElfFuncDescTable.exit ], [ false, %._crit_edge ], [ false, %.preheader35 ], [ false, %37 ], [ false, %67 ]
   ret i1 %.024
 }
 

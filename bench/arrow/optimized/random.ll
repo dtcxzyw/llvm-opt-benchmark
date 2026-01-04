@@ -119,146 +119,146 @@ define hidden void @_mi_random_init(ptr noundef %0) local_unnamed_addr #1 {
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load atomic i64, ptr @os_random_buf.no_getrandom acquire, align 8
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %6, label %13
+  br i1 %5, label %6, label %15
 
 6:                                                ; preds = %1
   %7 = call i64 (i64, ...) @syscall(i64 noundef 318, ptr noundef nonnull %3, i64 noundef 32, i32 noundef 1) #10
   %8 = icmp sgt i64 %7, -1
-  br i1 %8, label %os_random_buf.exit, label %9
+  br i1 %8, label %9, label %11
 
 9:                                                ; preds = %6
-  %10 = tail call ptr @__errno_location() #11
-  %11 = load i32, ptr %10, align 4, !tbaa !3
-  %.not.i = icmp eq i32 %11, 38
-  br i1 %.not.i, label %12, label %os_random_buf.exit.thread
+  %10 = icmp eq i64 %7, 32
+  br i1 %10, label %.loopexit, label %os_random_buf.exit.thread
 
-12:                                               ; preds = %9
+11:                                               ; preds = %6
+  %12 = tail call ptr @__errno_location() #11
+  %13 = load i32, ptr %12, align 4, !tbaa !3
+  %.not.i = icmp eq i32 %13, 38
+  br i1 %.not.i, label %14, label %os_random_buf.exit.thread
+
+14:                                               ; preds = %11
   store atomic i64 1, ptr @os_random_buf.no_getrandom release, align 8
-  br label %13
+  br label %15
 
-13:                                               ; preds = %12, %1
-  %14 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str.1, i32 noundef 524288, i32 noundef 0) #10
-  %15 = icmp slt i32 %14, 0
-  br i1 %15, label %os_random_buf.exit.thread, label %.preheader.i
+15:                                               ; preds = %14, %1
+  %16 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str.1, i32 noundef 524288, i32 noundef 0) #10
+  %17 = icmp slt i32 %16, 0
+  br i1 %17, label %os_random_buf.exit.thread, label %.preheader.i
 
-.preheader.i:                                     ; preds = %13, %26
-  %.02543.i = phi i64 [ %.227.i, %26 ], [ 0, %13 ]
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 %.02543.i
-  %17 = sub nuw nsw i64 32, %.02543.i
-  %18 = call i64 @read(i32 noundef %14, ptr noundef nonnull %16, i64 noundef %17) #10
-  %19 = icmp slt i64 %18, 1
-  br i1 %19, label %20, label %24
+.preheader.i:                                     ; preds = %15, %28
+  %.02543.i = phi i64 [ %.227.i, %28 ], [ 0, %15 ]
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 %.02543.i
+  %19 = sub nuw nsw i64 32, %.02543.i
+  %20 = call i64 @read(i32 noundef %16, ptr noundef nonnull %18, i64 noundef %19) #10
+  %21 = icmp slt i64 %20, 1
+  br i1 %21, label %22, label %26
 
-20:                                               ; preds = %.preheader.i
-  %21 = tail call ptr @__errno_location() #11
-  %22 = load i32, ptr %21, align 4, !tbaa !3
-  switch i32 %22, label %.thread40.i.thread [
-    i32 11, label %26
-    i32 4, label %26
+22:                                               ; preds = %.preheader.i
+  %23 = tail call ptr @__errno_location() #11
+  %24 = load i32, ptr %23, align 4, !tbaa !3
+  switch i32 %24, label %os_random_buf.exit.thread10 [
+    i32 11, label %28
+    i32 4, label %28
   ]
 
-.thread40.i.thread:                               ; preds = %20
-  %23 = call i32 @close(i32 noundef %14) #10
+os_random_buf.exit.thread10:                      ; preds = %22
+  %25 = call i32 @close(i32 noundef %16) #10
   br label %os_random_buf.exit.thread
 
-24:                                               ; preds = %.preheader.i
-  %25 = add nuw i64 %18, %.02543.i
-  br label %26
+26:                                               ; preds = %.preheader.i
+  %27 = add nuw i64 %20, %.02543.i
+  br label %28
 
-26:                                               ; preds = %24, %20, %20
-  %.227.i = phi i64 [ %25, %24 ], [ %.02543.i, %20 ], [ %.02543.i, %20 ]
-  %27 = icmp ult i64 %.227.i, 32
-  br i1 %27, label %.preheader.i, label %.thread40.i
+28:                                               ; preds = %26, %22, %22
+  %.227.i = phi i64 [ %27, %26 ], [ %.02543.i, %22 ], [ %.02543.i, %22 ]
+  %29 = icmp ult i64 %.227.i, 32
+  br i1 %29, label %.preheader.i, label %os_random_buf.exit
 
-.thread40.i:                                      ; preds = %26
-  %28 = call i32 @close(i32 noundef %14) #10
-  %29 = icmp eq i64 %.227.i, 32
-  br i1 %29, label %.loopexit, label %os_random_buf.exit.thread
+os_random_buf.exit:                               ; preds = %28
+  %30 = call i32 @close(i32 noundef %16) #10
+  %31 = icmp eq i64 %.227.i, 32
+  br i1 %31, label %.loopexit, label %os_random_buf.exit.thread
 
-os_random_buf.exit:                               ; preds = %6
-  %30 = icmp eq i64 %7, 32
-  br i1 %30, label %.loopexit, label %os_random_buf.exit.thread
-
-os_random_buf.exit.thread:                        ; preds = %9, %13, %.thread40.i.thread, %.thread40.i, %os_random_buf.exit
+os_random_buf.exit.thread:                        ; preds = %11, %15, %os_random_buf.exit.thread10, %9, %os_random_buf.exit
   call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str) #10
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %31 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #10
-  %32 = load i64, ptr %2, align 8, !tbaa !9
-  %33 = xor i64 %32, ptrtoint (ptr @_mi_os_random_weak to i64)
-  %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %35 = load i64, ptr %34, align 8, !tbaa !12
-  %36 = xor i64 %33, %35
-  %37 = lshr i64 %36, 17
-  %38 = xor i64 %37, %36
-  %39 = and i64 %38, 15
-  br label %40
+  %32 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #10
+  %33 = load i64, ptr %2, align 8, !tbaa !9
+  %34 = xor i64 %33, ptrtoint (ptr @_mi_os_random_weak to i64)
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %36 = load i64, ptr %35, align 8, !tbaa !12
+  %37 = xor i64 %34, %36
+  %38 = lshr i64 %37, 17
+  %39 = xor i64 %38, %37
+  %40 = and i64 %39, 15
+  br label %41
 
-40:                                               ; preds = %40, %os_random_buf.exit.thread
-  %.012.i = phi i64 [ 0, %os_random_buf.exit.thread ], [ %50, %40 ]
-  %.01011.i = phi i64 [ %36, %os_random_buf.exit.thread ], [ %49, %40 ]
-  %41 = icmp eq i64 %.01011.i, 0
-  %spec.store.select.i.i = select i1 %41, i64 17, i64 %.01011.i
-  %42 = lshr i64 %spec.store.select.i.i, 30
-  %43 = xor i64 %42, %spec.store.select.i.i
-  %44 = mul i64 %43, -4658895280553007687
-  %45 = lshr i64 %44, 27
-  %46 = xor i64 %45, %44
-  %47 = mul i64 %46, -7723592293110705685
-  %48 = lshr i64 %47, 31
-  %49 = xor i64 %48, %47
-  %50 = add nuw nsw i64 %.012.i, 1
-  %exitcond.not.i = icmp eq i64 %.012.i, %39
-  br i1 %exitcond.not.i, label %_mi_os_random_weak.exit, label %40, !llvm.loop !13
+41:                                               ; preds = %41, %os_random_buf.exit.thread
+  %.012.i = phi i64 [ 0, %os_random_buf.exit.thread ], [ %51, %41 ]
+  %.01011.i = phi i64 [ %37, %os_random_buf.exit.thread ], [ %50, %41 ]
+  %42 = icmp eq i64 %.01011.i, 0
+  %spec.store.select.i.i = select i1 %42, i64 17, i64 %.01011.i
+  %43 = lshr i64 %spec.store.select.i.i, 30
+  %44 = xor i64 %43, %spec.store.select.i.i
+  %45 = mul i64 %44, -4658895280553007687
+  %46 = lshr i64 %45, 27
+  %47 = xor i64 %46, %45
+  %48 = mul i64 %47, -7723592293110705685
+  %49 = lshr i64 %48, 31
+  %50 = xor i64 %49, %48
+  %51 = add nuw nsw i64 %.012.i, 1
+  %exitcond.not.i = icmp eq i64 %.012.i, %40
+  br i1 %exitcond.not.i, label %_mi_os_random_weak.exit, label %41, !llvm.loop !13
 
-_mi_os_random_weak.exit:                          ; preds = %40
+_mi_os_random_weak.exit:                          ; preds = %41
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %51
+  br label %52
 
-51:                                               ; preds = %_mi_os_random_weak.exit, %51
-  %.012 = phi i64 [ 0, %_mi_os_random_weak.exit ], [ %63, %51 ]
-  %.0611 = phi i64 [ %49, %_mi_os_random_weak.exit ], [ %60, %51 ]
-  %52 = icmp eq i64 %.0611, 0
-  %spec.store.select.i = select i1 %52, i64 17, i64 %.0611
-  %53 = lshr i64 %spec.store.select.i, 30
-  %54 = xor i64 %53, %spec.store.select.i
-  %55 = mul i64 %54, -4658895280553007687
-  %56 = lshr i64 %55, 27
-  %57 = xor i64 %56, %55
-  %58 = mul i64 %57, -7723592293110705685
-  %59 = lshr i64 %58, 31
-  %60 = xor i64 %59, %58
-  %61 = trunc i64 %60 to i32
-  %62 = getelementptr inbounds nuw i32, ptr %3, i64 %.012
-  store i32 %61, ptr %62, align 4, !tbaa !3
-  %63 = add nuw nsw i64 %.012, 1
-  %exitcond.not = icmp eq i64 %63, 8
-  br i1 %exitcond.not, label %.loopexit, label %51, !llvm.loop !15
+52:                                               ; preds = %_mi_os_random_weak.exit, %52
+  %.013 = phi i64 [ 0, %_mi_os_random_weak.exit ], [ %64, %52 ]
+  %.0612 = phi i64 [ %50, %_mi_os_random_weak.exit ], [ %61, %52 ]
+  %53 = icmp eq i64 %.0612, 0
+  %spec.store.select.i = select i1 %53, i64 17, i64 %.0612
+  %54 = lshr i64 %spec.store.select.i, 30
+  %55 = xor i64 %54, %spec.store.select.i
+  %56 = mul i64 %55, -4658895280553007687
+  %57 = lshr i64 %56, 27
+  %58 = xor i64 %57, %56
+  %59 = mul i64 %58, -7723592293110705685
+  %60 = lshr i64 %59, 31
+  %61 = xor i64 %60, %59
+  %62 = trunc i64 %61 to i32
+  %63 = getelementptr inbounds nuw i32, ptr %3, i64 %.013
+  store i32 %62, ptr %63, align 4, !tbaa !3
+  %64 = add nuw nsw i64 %.013, 1
+  %exitcond.not = icmp eq i64 %64, 8
+  br i1 %exitcond.not, label %.loopexit, label %52, !llvm.loop !15
 
-.loopexit:                                        ; preds = %51, %.thread40.i, %os_random_buf.exit
+.loopexit:                                        ; preds = %52, %9, %os_random_buf.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %0, i8 0, i64 132, i1 false)
-  br label %64
+  br label %65
 
-64:                                               ; preds = %64, %.loopexit
-  %.01819.i = phi i64 [ 0, %.loopexit ], [ %69, %64 ]
-  %65 = shl nuw nsw i64 %.01819.i, 2
-  %66 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %65
-  %67 = load i32, ptr %66, align 1
-  %68 = getelementptr inbounds nuw i32, ptr %0, i64 %.01819.i
-  store i32 %67, ptr %68, align 4, !tbaa !3
-  %69 = add nuw nsw i64 %.01819.i, 1
-  %exitcond.not.i7 = icmp eq i64 %69, 4
-  br i1 %exitcond.not.i7, label %.preheader.i8.preheader, label %64, !llvm.loop !16
+65:                                               ; preds = %65, %.loopexit
+  %.01819.i = phi i64 [ 0, %.loopexit ], [ %70, %65 ]
+  %66 = shl nuw nsw i64 %.01819.i, 2
+  %67 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %66
+  %68 = load i32, ptr %67, align 1
+  %69 = getelementptr inbounds nuw i32, ptr %0, i64 %.01819.i
+  store i32 %68, ptr %69, align 4, !tbaa !3
+  %70 = add nuw nsw i64 %.01819.i, 1
+  %exitcond.not.i7 = icmp eq i64 %70, 4
+  br i1 %exitcond.not.i7, label %.preheader.i8.preheader, label %65, !llvm.loop !16
 
-.preheader.i8.preheader:                          ; preds = %64
+.preheader.i8.preheader:                          ; preds = %65
   %scevgep = getelementptr i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %scevgep, ptr noundef nonnull align 16 dereferenceable(32) %3, i64 32, i1 false)
-  %70 = ptrtoint ptr %0 to i64
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 0, ptr %71, align 4, !tbaa !3
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %71 = ptrtoint ptr %0 to i64
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 0, ptr %72, align 4, !tbaa !3
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %70, ptr %73, align 4
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  store i32 0, ptr %73, align 4, !tbaa !3
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 %71, ptr %74, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

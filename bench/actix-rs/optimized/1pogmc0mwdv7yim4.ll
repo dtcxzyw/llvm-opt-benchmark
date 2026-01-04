@@ -852,8 +852,8 @@ define hidden void @_ZN12actix_router8resource11ResourceDef9construct17h2fb71c2b
   br label %60
 
 .critedge54:                                      ; preds = %.loopexit, %.loopexit.split-lp, %.critedge, %94, %.critedge53.thread, %.critedge53
-  %.1 = phi i1 [ true, %.critedge53.thread ], [ true, %.critedge53 ], [ false, %94 ], [ true, %.critedge ], [ true, %.loopexit ], [ false, %.loopexit.split-lp ]
-  %.pn47 = phi { ptr, i32 } [ %.pn105111, %.critedge53.thread ], [ %.pn106, %.critedge53 ], [ %95, %94 ], [ %.pn, %.critedge ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.1 = phi i1 [ true, %.critedge ], [ true, %.critedge53.thread ], [ true, %.critedge53 ], [ false, %94 ], [ true, %.loopexit ], [ false, %.loopexit.split-lp ]
+  %.pn47 = phi { ptr, i32 } [ %.pn, %.critedge ], [ %.pn105111, %.critedge53.thread ], [ %.pn106, %.critedge53 ], [ %95, %94 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$actix_router..resource..PatternSegment$GT$$GT$$GT$17ha598a0864cb72303E"(ptr noalias noundef align 8 dereferenceable(24) %18) #15
           to label %180 unwind label %169
 

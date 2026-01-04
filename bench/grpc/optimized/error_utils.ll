@@ -963,8 +963,8 @@ define void @_Z25absl_status_to_grpc_errorN4absl12lts_202407226StatusE(ptr dead_
   br label %_ZNK4absl12lts_202407226Status7messageEv.exit
 
 _ZNK4absl12lts_202407226Status7messageEv.exit:    ; preds = %11, %17
-  %.sroa.0.0.i = phi i64 [ %16, %11 ], [ %spec.select.i, %17 ]
-  %.sroa.4.0.i = phi ptr [ %14, %11 ], [ %spec.select2.i, %17 ]
+  %.sroa.0.0.i = phi i64 [ %spec.select.i, %17 ], [ %16, %11 ]
+  %.sroa.4.0.i = phi ptr [ %spec.select2.i, %17 ], [ %14, %11 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   invoke void @_ZN9grpc_core12StatusCreateEN4absl12lts_2024072210StatusCodeESt17basic_string_viewIcSt11char_traitsIcEERKNS_13DebugLocationESt6vectorINS1_6StatusESaISB_EE(ptr dead_on_unwind nonnull writable sret(%"class.absl::lts_20240722::Status") align 8 %3, i32 noundef 2, i64 %.sroa.0.0.i, ptr %.sroa.4.0.i, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull %5)

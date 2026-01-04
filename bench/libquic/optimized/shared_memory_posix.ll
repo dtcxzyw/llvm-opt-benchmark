@@ -390,7 +390,7 @@ define noundef zeroext i1 @_ZN4base12SharedMemory21CreateAndMapAnonymousEm(ptr n
   br label %_ZN4base12SharedMemory3MapEm.exit
 
 _ZN4base12SharedMemory3MapEm.exit:                ; preds = %21, %19, %10, %6, %2
-  %22 = phi i1 [ false, %2 ], [ false, %6 ], [ false, %10 ], [ false, %21 ], [ true, %19 ]
+  %22 = phi i1 [ false, %2 ], [ false, %10 ], [ false, %6 ], [ true, %19 ], [ false, %21 ]
   ret i1 %22
 }
 
@@ -533,8 +533,8 @@ _ZNK4base8internal16ScopedFILECloserclEP8_IO_FILE.exit.i.i24.i: ; preds = %46
   br label %56
 
 _ZNSt10unique_ptrI8_IO_FILEN4base8internal16ScopedFILECloserEE5resetEPS0_.exit25.i: ; preds = %.critedge.i, %32, %_ZNSt10unique_ptrI8_IO_FILEN4base8internal16ScopedFILECloserEE5resetEPS0_.exit.i, %_ZNK4base8internal16ScopedFILECloserclEP8_IO_FILE.exit.i.i24.i, %38
-  %.sroa.0194.8 = phi ptr [ null, %_ZNK4base8internal16ScopedFILECloserclEP8_IO_FILE.exit.i.i24.i ], [ %34, %.critedge.i ], [ %34, %38 ], [ null, %32 ], [ null, %_ZNSt10unique_ptrI8_IO_FILEN4base8internal16ScopedFILECloserEE5resetEPS0_.exit.i ]
-  %.0.i = phi i1 [ false, %_ZNK4base8internal16ScopedFILECloserclEP8_IO_FILE.exit.i.i24.i ], [ true, %.critedge.i ], [ true, %38 ], [ true, %32 ], [ true, %_ZNSt10unique_ptrI8_IO_FILEN4base8internal16ScopedFILECloserEE5resetEPS0_.exit.i ]
+  %.sroa.0194.8 = phi ptr [ %34, %38 ], [ null, %_ZNK4base8internal16ScopedFILECloserclEP8_IO_FILE.exit.i.i24.i ], [ %34, %.critedge.i ], [ null, %32 ], [ null, %_ZNSt10unique_ptrI8_IO_FILEN4base8internal16ScopedFILECloserEE5resetEPS0_.exit.i ]
+  %.0.i = phi i1 [ true, %38 ], [ false, %_ZNK4base8internal16ScopedFILECloserclEP8_IO_FILE.exit.i.i24.i ], [ true, %.critedge.i ], [ true, %32 ], [ true, %_ZNSt10unique_ptrI8_IO_FILEN4base8internal16ScopedFILECloserEE5resetEPS0_.exit.i ]
   invoke fastcc void @_ZN4base13ScopedGenericIPNS_8FilePathENS_12_GLOBAL__N_124ScopedPathUnlinkerTraitsEE15FreeIfNecessaryEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %63 unwind label %53
 
@@ -546,8 +546,8 @@ _ZNSt10unique_ptrI8_IO_FILEN4base8internal16ScopedFILECloserEE5resetEPS0_.exit25
   unreachable
 
 56:                                               ; preds = %51, %36
-  %.sroa.0194.6 = phi ptr [ %34, %51 ], [ %.sroa.0194.5, %36 ]
-  %.pn.pn.i = phi { ptr, i32 } [ %52, %51 ], [ %37, %36 ]
+  %.sroa.0194.6 = phi ptr [ %.sroa.0194.5, %36 ], [ %34, %51 ]
+  %.pn.pn.i = phi { ptr, i32 } [ %37, %36 ], [ %52, %51 ]
   invoke fastcc void @_ZN4base13ScopedGenericIPNS_8FilePathENS_12_GLOBAL__N_124ScopedPathUnlinkerTraitsEE15FreeIfNecessaryEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %_ZN4base13ScopedGenericIPNS_8FilePathENS_12_GLOBAL__N_124ScopedPathUnlinkerTraitsEED2Ev.exit26.i unwind label %57
 
@@ -1082,8 +1082,8 @@ _ZNK4base8internal16ScopedFILECloserclEP8_IO_FILE.exit.i185: ; preds = %_ZN4base
   br label %_ZNSt10unique_ptrI8_IO_FILEN4base8internal16ScopedFILECloserEED2Ev.exit186
 
 235:                                              ; preds = %67, %199, %215, %_ZNSt10unique_ptrI8_IO_FILEN4base8internal16ScopedFILECloserEED2Ev.exit180, %131, %115, %105, %103, %_ZN4base13ScopedGenericIPNS_8FilePathENS_12_GLOBAL__N_124ScopedPathUnlinkerTraitsEED2Ev.exit26.i, %61, %129
-  %.sroa.0194.1 = phi ptr [ null, %215 ], [ null, %199 ], [ null, %67 ], [ null, %_ZNSt10unique_ptrI8_IO_FILEN4base8internal16ScopedFILECloserEED2Ev.exit180 ], [ null, %131 ], [ null, %115 ], [ null, %105 ], [ null, %103 ], [ %.sroa.0194.6, %_ZN4base13ScopedGenericIPNS_8FilePathENS_12_GLOBAL__N_124ScopedPathUnlinkerTraitsEED2Ev.exit26.i ], [ null, %61 ], [ null, %129 ]
-  %.pn131.pn.pn.pn = phi { ptr, i32 } [ %.pn131.pn.pn, %215 ], [ %.pn127, %199 ], [ %68, %67 ], [ %227, %_ZNSt10unique_ptrI8_IO_FILEN4base8internal16ScopedFILECloserEED2Ev.exit180 ], [ %132, %131 ], [ %.pn116, %115 ], [ %106, %105 ], [ %104, %103 ], [ %.pn.pn.i, %_ZN4base13ScopedGenericIPNS_8FilePathENS_12_GLOBAL__N_124ScopedPathUnlinkerTraitsEED2Ev.exit26.i ], [ %62, %61 ], [ %130, %129 ]
+  %.sroa.0194.1 = phi ptr [ null, %215 ], [ null, %199 ], [ null, %67 ], [ null, %_ZNSt10unique_ptrI8_IO_FILEN4base8internal16ScopedFILECloserEED2Ev.exit180 ], [ null, %103 ], [ null, %131 ], [ null, %61 ], [ null, %115 ], [ null, %105 ], [ %.sroa.0194.6, %_ZN4base13ScopedGenericIPNS_8FilePathENS_12_GLOBAL__N_124ScopedPathUnlinkerTraitsEED2Ev.exit26.i ], [ null, %129 ]
+  %.pn131.pn.pn.pn = phi { ptr, i32 } [ %.pn131.pn.pn, %215 ], [ %.pn127, %199 ], [ %68, %67 ], [ %227, %_ZNSt10unique_ptrI8_IO_FILEN4base8internal16ScopedFILECloserEED2Ev.exit180 ], [ %104, %103 ], [ %132, %131 ], [ %62, %61 ], [ %.pn116, %115 ], [ %106, %105 ], [ %.pn.pn.i, %_ZN4base13ScopedGenericIPNS_8FilePathENS_12_GLOBAL__N_124ScopedPathUnlinkerTraitsEED2Ev.exit26.i ], [ %130, %129 ]
   call void @_ZN4base8FilePathD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN4base13ScopedGenericIiNS_8internal19ScopedFDCloseTraitsEED2Ev(ptr noundef nonnull align 4 dereferenceable(4) %5) #22
@@ -1100,7 +1100,7 @@ _ZNSt10unique_ptrI8_IO_FILEN4base8internal16ScopedFILECloserEED2Ev.exit189: ; pr
   resume { ptr, i32 } %.pn131.pn.pn.pn.pn256
 
 _ZNSt10unique_ptrI8_IO_FILEN4base8internal16ScopedFILECloserEED2Ev.exit186: ; preds = %_ZNK4base8internal16ScopedFILECloserclEP8_IO_FILE.exit.i185, %_ZN4base13ScopedGenericIiNS_8internal19ScopedFDCloseTraitsEED2Ev.exit183, %2
-  %.073 = phi i1 [ false, %2 ], [ %.2, %_ZN4base13ScopedGenericIiNS_8internal19ScopedFDCloseTraitsEED2Ev.exit183 ], [ %.2, %_ZNK4base8internal16ScopedFILECloserclEP8_IO_FILE.exit.i185 ]
+  %.073 = phi i1 [ %.2, %_ZNK4base8internal16ScopedFILECloserclEP8_IO_FILE.exit.i185 ], [ false, %2 ], [ %.2, %_ZN4base13ScopedGenericIiNS_8internal19ScopedFDCloseTraitsEED2Ev.exit183 ]
   ret i1 %.073
 }
 
@@ -1366,7 +1366,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i30
   br label %.body
 
 .body:                                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29, %40, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i30, %78, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  %.pn.pn.pn = phi { ptr, i32 } [ %79, %78 ], [ %41, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %.pn.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i30 ], [ %41, %40 ], [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i30 ], [ %79, %78 ], [ %41, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %41, %40 ], [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1593,7 +1593,7 @@ define noundef zeroext i1 @_ZN4base12SharedMemory14PrepareMapFileESt10unique_ptr
   br label %.critedge41
 
 .critedge41:                                      ; preds = %.critedge40, %50, %.critedge35, %61
-  %.2 = phi i1 [ true, %61 ], [ false, %.critedge35 ], [ false, %50 ], [ false, %.critedge40 ]
+  %.2 = phi i1 [ false, %.critedge35 ], [ true, %61 ], [ false, %50 ], [ false, %.critedge40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %65
 
@@ -1846,7 +1846,7 @@ define noundef zeroext i1 @_ZN4base12SharedMemory5MapAtElm(ptr noundef nonnull a
   br label %19
 
 19:                                               ; preds = %16, %18, %7, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %7 ], [ false, %18 ], [ true, %16 ]
+  %.0 = phi i1 [ false, %7 ], [ false, %3 ], [ true, %16 ], [ false, %18 ]
   ret i1 %.0
 }
 
@@ -1969,7 +1969,7 @@ _ZN7logging11CheckGEImplB5cxx11EiiPKc.exit:       ; preds = %11
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %32, %27
-  %.ph = phi i1 [ false, %27 ], [ true, %32 ], [ %.ph.ph, %.sink.split.sink.split ]
+  %.ph = phi i1 [ true, %32 ], [ false, %27 ], [ %.ph.ph, %.sink.split.sink.split ]
   call void @_ZN4base12SharedMemory5CloseEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
   br label %38
 

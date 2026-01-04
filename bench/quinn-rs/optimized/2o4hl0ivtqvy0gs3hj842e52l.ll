@@ -938,13 +938,13 @@ define internal noundef float @_ZN5bytes3buf8buf_impl3Buf10get_f32_le17h0e3331e9
   br i1 %24, label %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i.i, label %13
 
 _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i.i: ; preds = %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i.i"
-  %.sroa.02.0.copyload.i.i1 = load float, ptr %3, align 4, !noalias !97
+  %.sroa.02.0.copyload.i.i2 = load float, ptr %3, align 4, !noalias !97
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !97
   br label %_ZN5bytes3buf8buf_impl3Buf10get_u32_le17hc3e18aece009fcf0E.exit
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i": ; preds = %10
   %25 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 %.sroa.0.0.sroa.speculated.i.i.i.i
-  %.sroa.03.0.copyload.i.i2 = load float, ptr %25, align 1, !noalias !97
+  %.sroa.03.0.copyload.i.i1 = load float, ptr %25, align 1, !noalias !97
   %26 = add i64 %7, 4
   store i64 %26, ptr %6, align 8, !alias.scope !119, !noalias !91
   br label %_ZN5bytes3buf8buf_impl3Buf10get_u32_le17hc3e18aece009fcf0E.exit
@@ -958,7 +958,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i.i: ; preds 
   unreachable
 
 _ZN5bytes3buf8buf_impl3Buf10get_u32_le17hc3e18aece009fcf0E.exit: ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i"
-  %28 = phi float [ %.sroa.02.0.copyload.i.i1, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i.i ], [ %.sroa.03.0.copyload.i.i2, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i" ]
+  %28 = phi float [ %.sroa.03.0.copyload.i.i1, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i" ], [ %.sroa.02.0.copyload.i.i2, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i.i ]
   ret float %28
 }
 
@@ -1021,13 +1021,13 @@ define internal noundef float @_ZN5bytes3buf8buf_impl3Buf10get_f32_ne17h22a11c31
   br i1 %24, label %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i.i, label %13
 
 _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i.i: ; preds = %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i.i"
-  %.sroa.02.0.copyload.i.i1 = load float, ptr %3, align 4, !noalias !134
+  %.sroa.02.0.copyload.i.i2 = load float, ptr %3, align 4, !noalias !134
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !134
   br label %_ZN5bytes3buf8buf_impl3Buf10get_u32_ne17h6f0c68d99d20b26cE.exit
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i": ; preds = %10
   %25 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 %.sroa.0.0.sroa.speculated.i.i.i.i
-  %.sroa.03.0.copyload.i.i2 = load float, ptr %25, align 1, !noalias !134
+  %.sroa.03.0.copyload.i.i1 = load float, ptr %25, align 1, !noalias !134
   %26 = add i64 %7, 4
   store i64 %26, ptr %6, align 8, !alias.scope !155, !noalias !128
   br label %_ZN5bytes3buf8buf_impl3Buf10get_u32_ne17h6f0c68d99d20b26cE.exit
@@ -1041,7 +1041,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i.i: ; preds 
   unreachable
 
 _ZN5bytes3buf8buf_impl3Buf10get_u32_ne17h6f0c68d99d20b26cE.exit: ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i"
-  %28 = phi float [ %.sroa.02.0.copyload.i.i1, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i.i ], [ %.sroa.03.0.copyload.i.i2, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i" ]
+  %28 = phi float [ %.sroa.03.0.copyload.i.i1, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i" ], [ %.sroa.02.0.copyload.i.i2, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i.i ]
   ret float %28
 }
 
@@ -1104,13 +1104,13 @@ define internal noundef double @_ZN5bytes3buf8buf_impl3Buf10get_f64_le17ha02f6b0
   br i1 %24, label %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i.i, label %13
 
 _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i.i: ; preds = %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i.i"
-  %.sroa.02.0.copyload.i.i1 = load double, ptr %3, align 8, !noalias !170
+  %.sroa.02.0.copyload.i.i2 = load double, ptr %3, align 8, !noalias !170
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !170
   br label %_ZN5bytes3buf8buf_impl3Buf10get_u64_le17h736e8a0326ec488bE.exit
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i": ; preds = %10
   %25 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 %.sroa.0.0.sroa.speculated.i.i.i.i
-  %.sroa.03.0.copyload.i.i2 = load double, ptr %25, align 1, !noalias !170
+  %.sroa.03.0.copyload.i.i1 = load double, ptr %25, align 1, !noalias !170
   %26 = add i64 %7, 8
   store i64 %26, ptr %6, align 8, !alias.scope !191, !noalias !164
   br label %_ZN5bytes3buf8buf_impl3Buf10get_u64_le17h736e8a0326ec488bE.exit
@@ -1124,7 +1124,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i.i: ; preds 
   unreachable
 
 _ZN5bytes3buf8buf_impl3Buf10get_u64_le17h736e8a0326ec488bE.exit: ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i"
-  %28 = phi double [ %.sroa.02.0.copyload.i.i1, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i.i ], [ %.sroa.03.0.copyload.i.i2, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i" ]
+  %28 = phi double [ %.sroa.03.0.copyload.i.i1, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i" ], [ %.sroa.02.0.copyload.i.i2, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i.i ]
   ret double %28
 }
 
@@ -1187,13 +1187,13 @@ define internal noundef double @_ZN5bytes3buf8buf_impl3Buf10get_f64_ne17h6f5ec46
   br i1 %24, label %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i.i, label %13
 
 _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i.i: ; preds = %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i.i"
-  %.sroa.02.0.copyload.i.i1 = load double, ptr %3, align 8, !noalias !206
+  %.sroa.02.0.copyload.i.i2 = load double, ptr %3, align 8, !noalias !206
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !206
   br label %_ZN5bytes3buf8buf_impl3Buf10get_u64_ne17h23fe793f3cd5b9e2E.exit
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i": ; preds = %10
   %25 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 %.sroa.0.0.sroa.speculated.i.i.i.i
-  %.sroa.03.0.copyload.i.i2 = load double, ptr %25, align 1, !noalias !206
+  %.sroa.03.0.copyload.i.i1 = load double, ptr %25, align 1, !noalias !206
   %26 = add i64 %7, 8
   store i64 %26, ptr %6, align 8, !alias.scope !227, !noalias !200
   br label %_ZN5bytes3buf8buf_impl3Buf10get_u64_ne17h23fe793f3cd5b9e2E.exit
@@ -1207,7 +1207,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i.i: ; preds 
   unreachable
 
 _ZN5bytes3buf8buf_impl3Buf10get_u64_ne17h23fe793f3cd5b9e2E.exit: ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i"
-  %28 = phi double [ %.sroa.02.0.copyload.i.i1, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i.i ], [ %.sroa.03.0.copyload.i.i2, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i" ]
+  %28 = phi double [ %.sroa.03.0.copyload.i.i1, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i" ], [ %.sroa.02.0.copyload.i.i2, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i.i ]
   ret double %28
 }
 
@@ -1288,8 +1288,8 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i: ; preds = 
   call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21
   unreachable
 
-28:                                               ; preds = %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i", %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i
-  %.sroa.6.0.ph = phi i16 [ %.sroa.02.0.copyload.i, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ], [ %.sroa.03.0.copyload.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ]
+28:                                               ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i"
+  %.sroa.6.0.ph = phi i16 [ %.sroa.03.0.copyload.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ], [ %.sroa.02.0.copyload.i, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ]
   ret i16 %.sroa.6.0.ph
 }
 
@@ -1370,8 +1370,8 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i: ; preds = 
   call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21
   unreachable
 
-28:                                               ; preds = %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i", %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i
-  %.sroa.6.0.ph = phi i16 [ %.sroa.02.0.copyload.i, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ], [ %.sroa.03.0.copyload.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ]
+28:                                               ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i"
+  %.sroa.6.0.ph = phi i16 [ %.sroa.03.0.copyload.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ], [ %.sroa.02.0.copyload.i, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ]
   ret i16 %.sroa.6.0.ph
 }
 
@@ -1452,8 +1452,8 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i: ; preds = 
   call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21
   unreachable
 
-28:                                               ; preds = %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i", %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i
-  %.sroa.6.0.ph = phi i32 [ %.sroa.02.0.copyload.i, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ], [ %.sroa.03.0.copyload.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ]
+28:                                               ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i"
+  %.sroa.6.0.ph = phi i32 [ %.sroa.03.0.copyload.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ], [ %.sroa.02.0.copyload.i, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ]
   ret i32 %.sroa.6.0.ph
 }
 
@@ -1534,8 +1534,8 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i: ; preds = 
   call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21
   unreachable
 
-28:                                               ; preds = %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i", %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i
-  %.sroa.6.0.ph = phi i32 [ %.sroa.02.0.copyload.i, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ], [ %.sroa.03.0.copyload.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ]
+28:                                               ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i"
+  %.sroa.6.0.ph = phi i32 [ %.sroa.03.0.copyload.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ], [ %.sroa.02.0.copyload.i, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ]
   ret i32 %.sroa.6.0.ph
 }
 
@@ -1616,8 +1616,8 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i: ; preds = 
   call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21
   unreachable
 
-28:                                               ; preds = %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i", %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i
-  %.sroa.6.0.ph = phi i64 [ %.sroa.02.0.copyload.i, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ], [ %.sroa.03.0.copyload.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ]
+28:                                               ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i"
+  %.sroa.6.0.ph = phi i64 [ %.sroa.03.0.copyload.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ], [ %.sroa.02.0.copyload.i, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ]
   ret i64 %.sroa.6.0.ph
 }
 
@@ -1698,8 +1698,8 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i: ; preds = 
   call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21
   unreachable
 
-28:                                               ; preds = %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i", %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i
-  %.sroa.6.0.ph = phi i64 [ %.sroa.02.0.copyload.i, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ], [ %.sroa.03.0.copyload.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ]
+28:                                               ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i"
+  %.sroa.6.0.ph = phi i64 [ %.sroa.03.0.copyload.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ], [ %.sroa.02.0.copyload.i, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ]
   ret i64 %.sroa.6.0.ph
 }
 
@@ -1953,8 +1953,8 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i: ; preds = 
   call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21
   unreachable
 
-28:                                               ; preds = %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i", %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i
-  %.sroa.6.0.ph = phi i16 [ %.sroa.02.0.copyload.i, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ], [ %.sroa.03.0.copyload.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ]
+28:                                               ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i"
+  %.sroa.6.0.ph = phi i16 [ %.sroa.03.0.copyload.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ], [ %.sroa.02.0.copyload.i, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ]
   ret i16 %.sroa.6.0.ph
 }
 
@@ -2035,8 +2035,8 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i: ; preds = 
   call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21
   unreachable
 
-28:                                               ; preds = %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i", %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i
-  %.sroa.6.0.ph = phi i16 [ %.sroa.02.0.copyload.i, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ], [ %.sroa.03.0.copyload.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ]
+28:                                               ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i"
+  %.sroa.6.0.ph = phi i16 [ %.sroa.03.0.copyload.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ], [ %.sroa.02.0.copyload.i, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ]
   ret i16 %.sroa.6.0.ph
 }
 
@@ -2117,8 +2117,8 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i: ; preds = 
   call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21
   unreachable
 
-28:                                               ; preds = %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i", %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i
-  %.sroa.6.0.ph = phi i32 [ %.sroa.02.0.copyload.i, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ], [ %.sroa.03.0.copyload.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ]
+28:                                               ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i"
+  %.sroa.6.0.ph = phi i32 [ %.sroa.03.0.copyload.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ], [ %.sroa.02.0.copyload.i, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ]
   ret i32 %.sroa.6.0.ph
 }
 
@@ -2199,8 +2199,8 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i: ; preds = 
   call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21
   unreachable
 
-28:                                               ; preds = %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i", %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i
-  %.sroa.6.0.ph = phi i32 [ %.sroa.02.0.copyload.i, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ], [ %.sroa.03.0.copyload.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ]
+28:                                               ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i"
+  %.sroa.6.0.ph = phi i32 [ %.sroa.03.0.copyload.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ], [ %.sroa.02.0.copyload.i, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ]
   ret i32 %.sroa.6.0.ph
 }
 
@@ -2281,8 +2281,8 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i: ; preds = 
   call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21
   unreachable
 
-28:                                               ; preds = %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i", %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i
-  %.sroa.6.0.ph = phi i64 [ %.sroa.02.0.copyload.i, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ], [ %.sroa.03.0.copyload.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ]
+28:                                               ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i"
+  %.sroa.6.0.ph = phi i64 [ %.sroa.03.0.copyload.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ], [ %.sroa.02.0.copyload.i, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ]
   ret i64 %.sroa.6.0.ph
 }
 
@@ -2363,8 +2363,8 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i: ; preds = 
   call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21
   unreachable
 
-28:                                               ; preds = %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i", %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i
-  %.sroa.6.0.ph = phi i64 [ %.sroa.02.0.copyload.i, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ], [ %.sroa.03.0.copyload.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ]
+28:                                               ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i"
+  %.sroa.6.0.ph = phi i64 [ %.sroa.03.0.copyload.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ], [ %.sroa.02.0.copyload.i, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ]
   ret i64 %.sroa.6.0.ph
 }
 
@@ -3003,8 +3003,8 @@ _ZN5bytes3buf8buf_impl3Buf11try_get_u3217hb39e9f293a172b04E.exit: ; preds = %2
   store i64 %8, ptr %30, align 8
   br label %33
 
-31:                                               ; preds = %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i", %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i
-  %.sroa.7.0.ph = phi i32 [ %25, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ], [ %27, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ]
+31:                                               ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i"
+  %.sroa.7.0.ph = phi i32 [ %27, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ], [ %25, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.7.0.ph, ptr %32, align 4
   br label %33
@@ -3091,10 +3091,10 @@ _ZN5bytes3buf8buf_impl3Buf11try_get_u6417h086bbcb8057929beE.exit: ; preds = %2
   store i64 8, ptr %29, align 8
   br label %30
 
-30:                                               ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i", %_ZN5bytes3buf8buf_impl3Buf11try_get_u6417h086bbcb8057929beE.exit
-  %.sink15 = phi i64 [ 16, %_ZN5bytes3buf8buf_impl3Buf11try_get_u6417h086bbcb8057929beE.exit ], [ 8, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ], [ 8, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ]
-  %.sroa.7.0.ph.sink = phi i64 [ %8, %_ZN5bytes3buf8buf_impl3Buf11try_get_u6417h086bbcb8057929beE.exit ], [ %27, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ], [ %25, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ]
-  %storemerge = phi i64 [ 1, %_ZN5bytes3buf8buf_impl3Buf11try_get_u6417h086bbcb8057929beE.exit ], [ 0, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ], [ 0, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ]
+30:                                               ; preds = %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i", %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i, %_ZN5bytes3buf8buf_impl3Buf11try_get_u6417h086bbcb8057929beE.exit
+  %.sink15 = phi i64 [ 16, %_ZN5bytes3buf8buf_impl3Buf11try_get_u6417h086bbcb8057929beE.exit ], [ 8, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ], [ 8, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ]
+  %.sroa.7.0.ph.sink = phi i64 [ %8, %_ZN5bytes3buf8buf_impl3Buf11try_get_u6417h086bbcb8057929beE.exit ], [ %25, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ], [ %27, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ]
+  %storemerge = phi i64 [ 1, %_ZN5bytes3buf8buf_impl3Buf11try_get_u6417h086bbcb8057929beE.exit ], [ 0, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ], [ 0, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink15
   store i64 %.sroa.7.0.ph.sink, ptr %31, align 8
   store i64 %storemerge, ptr %0, align 8
@@ -3992,8 +3992,8 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf13copy_to_bytes17h707a8ccdc27de7
   %17 = load i64, ptr %16, align 8, !alias.scope !1220, !noundef !3
   %18 = tail call i64 @llvm.usub.sat.i64(i64 %.val1.i, i64 %17)
   %19 = icmp ult i64 %18, %2
-  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.sink.sroa.gep91 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.sink.sroa.gep91 = getelementptr inbounds nuw i8, ptr %11, i64 8
   br i1 %19, label %65, label %20, !prof !113
 
 20:                                               ; preds = %3
@@ -4078,28 +4078,28 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf13copy_to_bytes17h707a8ccdc27de7
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !1246
   br label %.invoke
 
-58:                                               ; preds = %49
-  %59 = add i64 %54, %.sroa.0.0.sroa.speculated.i.i.i
-  store i64 %59, ptr %36, align 8, !alias.scope !1243, !noalias !1244
-  call void @llvm.experimental.noalias.scope.decl(metadata !1247)
-  %60 = icmp ugt i64 %.sroa.0.0.sroa.speculated.i.i.i, %42
-  br i1 %60, label %61, label %"_ZN77_$LT$bytes..buf..take..Take$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h8d64727f97b451beE.exit.i", !prof !113
-
-61:                                               ; preds = %58
-  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !1250
-  br label %.invoke
-
-.invoke:                                          ; preds = %57, %61
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %57 ], [ %.sink.sroa.gep91, %61 ]
-  %.sink = phi ptr [ %11, %57 ], [ %10, %61 ]
-  %.lcssa53.sink = phi i64 [ %55, %57 ], [ %42, %61 ]
-  store i64 %.sroa.0.0.sroa.speculated.i.i.i, ptr %.sink, align 8, !noalias !1253
-  store i64 %.lcssa53.sink, ptr %.sink.sroa.phi, align 8, !noalias !1253
+.invoke:                                          ; preds = %61, %57
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %61 ], [ %.sink.sroa.gep91, %57 ]
+  %.sink = phi ptr [ %10, %61 ], [ %11, %57 ]
+  %.lcssa51.sink = phi i64 [ %42, %61 ], [ %55, %57 ]
+  store i64 %.sroa.0.0.sroa.speculated.i.i.i, ptr %.sink, align 8, !noalias !1247
+  store i64 %.lcssa51.sink, ptr %.sink.sroa.phi, align 8, !noalias !1247
   invoke void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sink) #21
           to label %.cont unwind label %.loopexit.split-lp
 
 .cont:                                            ; preds = %.invoke
   unreachable
+
+58:                                               ; preds = %49
+  %59 = add i64 %54, %.sroa.0.0.sroa.speculated.i.i.i
+  store i64 %59, ptr %36, align 8, !alias.scope !1243, !noalias !1244
+  call void @llvm.experimental.noalias.scope.decl(metadata !1248)
+  %60 = icmp ugt i64 %.sroa.0.0.sroa.speculated.i.i.i, %42
+  br i1 %60, label %61, label %"_ZN77_$LT$bytes..buf..take..Take$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h8d64727f97b451beE.exit.i", !prof !113
+
+61:                                               ; preds = %58
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !1251
+  br label %.invoke
 
 "_ZN77_$LT$bytes..buf..take..Take$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h8d64727f97b451beE.exit.i": ; preds = %58
   %62 = add i64 %.sroa.0.0.sroa.speculated.i.i.i, %43
@@ -4235,7 +4235,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf13copy_to_bytes17h707a8ccdc27de7
   ret void
 
 .body.thread:                                     ; preds = %90, %106
-  %eh.lpad-body13 = phi { ptr, i32 } [ %lpad.phi, %106 ], [ %91, %90 ]
+  %eh.lpad-body13 = phi { ptr, i32 } [ %91, %90 ], [ %lpad.phi, %106 ]
   resume { ptr, i32 } %eh.lpad-body13
 
 .loopexit:                                        ; preds = %47
@@ -4555,8 +4555,8 @@ _ZN5bytes3buf8buf_impl3Buf14try_get_u32_le17h7eb2293cf91998e8E.exit: ; preds = %
   store i64 %8, ptr %28, align 8
   br label %31
 
-29:                                               ; preds = %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i", %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i
-  %.sroa.7.0.ph = phi i32 [ %.sroa.02.0.copyload.i, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ], [ %.sroa.03.0.copyload.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ]
+29:                                               ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i"
+  %.sroa.7.0.ph = phi i32 [ %.sroa.03.0.copyload.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ], [ %.sroa.02.0.copyload.i, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.7.0.ph, ptr %30, align 4
   br label %31
@@ -4643,8 +4643,8 @@ _ZN5bytes3buf8buf_impl3Buf14try_get_u32_ne17h3f0450b16b04a672E.exit: ; preds = %
   store i64 %8, ptr %28, align 8
   br label %31
 
-29:                                               ; preds = %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i", %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i
-  %.sroa.7.0.ph = phi i32 [ %.sroa.02.0.copyload.i, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ], [ %.sroa.03.0.copyload.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ]
+29:                                               ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i"
+  %.sroa.7.0.ph = phi i32 [ %.sroa.03.0.copyload.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ], [ %.sroa.02.0.copyload.i, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.7.0.ph, ptr %30, align 4
   br label %31
@@ -4729,10 +4729,10 @@ _ZN5bytes3buf8buf_impl3Buf14try_get_u64_le17heba63a529c8fb602E.exit: ; preds = %
   store i64 8, ptr %27, align 8
   br label %28
 
-28:                                               ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i", %_ZN5bytes3buf8buf_impl3Buf14try_get_u64_le17heba63a529c8fb602E.exit
-  %.sink15 = phi i64 [ 16, %_ZN5bytes3buf8buf_impl3Buf14try_get_u64_le17heba63a529c8fb602E.exit ], [ 8, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ], [ 8, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ]
-  %.sroa.7.0.ph.sink = phi i64 [ %8, %_ZN5bytes3buf8buf_impl3Buf14try_get_u64_le17heba63a529c8fb602E.exit ], [ %.sroa.03.0.copyload.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ], [ %.sroa.02.0.copyload.i, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ]
-  %storemerge = phi i64 [ 1, %_ZN5bytes3buf8buf_impl3Buf14try_get_u64_le17heba63a529c8fb602E.exit ], [ 0, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ], [ 0, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ]
+28:                                               ; preds = %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i", %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i, %_ZN5bytes3buf8buf_impl3Buf14try_get_u64_le17heba63a529c8fb602E.exit
+  %.sink15 = phi i64 [ 16, %_ZN5bytes3buf8buf_impl3Buf14try_get_u64_le17heba63a529c8fb602E.exit ], [ 8, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ], [ 8, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ]
+  %.sroa.7.0.ph.sink = phi i64 [ %8, %_ZN5bytes3buf8buf_impl3Buf14try_get_u64_le17heba63a529c8fb602E.exit ], [ %.sroa.02.0.copyload.i, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ], [ %.sroa.03.0.copyload.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ]
+  %storemerge = phi i64 [ 1, %_ZN5bytes3buf8buf_impl3Buf14try_get_u64_le17heba63a529c8fb602E.exit ], [ 0, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ], [ 0, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink15
   store i64 %.sroa.7.0.ph.sink, ptr %29, align 8
   store i64 %storemerge, ptr %0, align 8
@@ -4813,10 +4813,10 @@ _ZN5bytes3buf8buf_impl3Buf14try_get_u64_ne17h21746a48d02e207cE.exit: ; preds = %
   store i64 8, ptr %27, align 8
   br label %28
 
-28:                                               ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i", %_ZN5bytes3buf8buf_impl3Buf14try_get_u64_ne17h21746a48d02e207cE.exit
-  %.sink15 = phi i64 [ 16, %_ZN5bytes3buf8buf_impl3Buf14try_get_u64_ne17h21746a48d02e207cE.exit ], [ 8, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ], [ 8, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ]
-  %.sroa.7.0.ph.sink = phi i64 [ %8, %_ZN5bytes3buf8buf_impl3Buf14try_get_u64_ne17h21746a48d02e207cE.exit ], [ %.sroa.03.0.copyload.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ], [ %.sroa.02.0.copyload.i, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ]
-  %storemerge = phi i64 [ 1, %_ZN5bytes3buf8buf_impl3Buf14try_get_u64_ne17h21746a48d02e207cE.exit ], [ 0, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ], [ 0, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ]
+28:                                               ; preds = %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i", %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i, %_ZN5bytes3buf8buf_impl3Buf14try_get_u64_ne17h21746a48d02e207cE.exit
+  %.sink15 = phi i64 [ 16, %_ZN5bytes3buf8buf_impl3Buf14try_get_u64_ne17h21746a48d02e207cE.exit ], [ 8, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ], [ 8, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ]
+  %.sroa.7.0.ph.sink = phi i64 [ %8, %_ZN5bytes3buf8buf_impl3Buf14try_get_u64_ne17h21746a48d02e207cE.exit ], [ %.sroa.02.0.copyload.i, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ], [ %.sroa.03.0.copyload.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ]
+  %storemerge = phi i64 [ 1, %_ZN5bytes3buf8buf_impl3Buf14try_get_u64_ne17h21746a48d02e207cE.exit ], [ 0, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ], [ 0, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink15
   store i64 %.sroa.7.0.ph.sink, ptr %29, align 8
   store i64 %storemerge, ptr %0, align 8
@@ -6033,7 +6033,7 @@ define internal noundef range(i64 0, 2) i64 @_ZN5bytes3buf8buf_impl3Buf15chunks_
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %5, %3, %11
-  %.sroa.0.0 = phi i64 [ 1, %11 ], [ 0, %3 ], [ 0, %5 ]
+  %.sroa.0.0 = phi i64 [ 0, %3 ], [ 1, %11 ], [ 0, %5 ]
   ret i64 %.sroa.0.0
 
 11:                                               ; preds = %5
@@ -6819,7 +6819,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i.i: ; preds 
   unreachable
 
 _ZN5bytes3buf8buf_impl3Buf7get_u3217h8490814e395c693cE.exit: ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i"
-  %.sroa.6.0.ph.i = phi i32 [ %25, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i.i ], [ %27, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i" ]
+  %.sroa.6.0.ph.i = phi i32 [ %27, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i" ], [ %25, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i.i ]
   %30 = bitcast i32 %.sroa.6.0.ph.i to float
   ret float %30
 }
@@ -6905,7 +6905,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i.i: ; preds 
   unreachable
 
 _ZN5bytes3buf8buf_impl3Buf7get_u6417hd6089863133fca76E.exit: ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i"
-  %.sroa.6.0.ph.i = phi i64 [ %25, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i.i ], [ %27, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i" ]
+  %.sroa.6.0.ph.i = phi i64 [ %27, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i" ], [ %25, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i.i ]
   %30 = bitcast i64 %.sroa.6.0.ph.i to double
   ret double %30
 }
@@ -6989,8 +6989,8 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i: ; preds = 
   call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21
   unreachable
 
-30:                                               ; preds = %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i", %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i
-  %.sroa.6.0.ph = phi i16 [ %25, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ], [ %27, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ]
+30:                                               ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i"
+  %.sroa.6.0.ph = phi i16 [ %27, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ], [ %25, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ]
   ret i16 %.sroa.6.0.ph
 }
 
@@ -7073,8 +7073,8 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i: ; preds = 
   call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21
   unreachable
 
-30:                                               ; preds = %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i", %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i
-  %.sroa.6.0.ph = phi i32 [ %25, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ], [ %27, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ]
+30:                                               ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i"
+  %.sroa.6.0.ph = phi i32 [ %27, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ], [ %25, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ]
   ret i32 %.sroa.6.0.ph
 }
 
@@ -7157,8 +7157,8 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i: ; preds = 
   call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21
   unreachable
 
-30:                                               ; preds = %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i", %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i
-  %.sroa.6.0.ph = phi i64 [ %25, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ], [ %27, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ]
+30:                                               ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i"
+  %.sroa.6.0.ph = phi i64 [ %27, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ], [ %25, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ]
   ret i64 %.sroa.6.0.ph
 }
 
@@ -7344,8 +7344,8 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h9b378eb2a88a9f50E.exit.i: ; preds = 
   call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21
   unreachable
 
-35:                                               ; preds = %"_ZN77_$LT$bytes..buf..take..Take$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h182b1d00277d5358E.exit.i", %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h9b378eb2a88a9f50E.exit.i
-  %.sroa.6.0.ph = phi i16 [ %29, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h9b378eb2a88a9f50E.exit.i ], [ %31, %"_ZN77_$LT$bytes..buf..take..Take$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h182b1d00277d5358E.exit.i" ]
+35:                                               ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h9b378eb2a88a9f50E.exit.i, %"_ZN77_$LT$bytes..buf..take..Take$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h182b1d00277d5358E.exit.i"
+  %.sroa.6.0.ph = phi i16 [ %31, %"_ZN77_$LT$bytes..buf..take..Take$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h182b1d00277d5358E.exit.i" ], [ %29, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h9b378eb2a88a9f50E.exit.i ]
   ret i16 %.sroa.6.0.ph
 }
 
@@ -7428,8 +7428,8 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i: ; preds = 
   call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21
   unreachable
 
-30:                                               ; preds = %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i", %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i
-  %.sroa.6.0.ph = phi i16 [ %25, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ], [ %27, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ]
+30:                                               ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i"
+  %.sroa.6.0.ph = phi i16 [ %27, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ], [ %25, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ]
   ret i16 %.sroa.6.0.ph
 }
 
@@ -7512,8 +7512,8 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i: ; preds = 
   call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21
   unreachable
 
-30:                                               ; preds = %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i", %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i
-  %.sroa.6.0.ph = phi i32 [ %25, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ], [ %27, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ]
+30:                                               ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i"
+  %.sroa.6.0.ph = phi i32 [ %27, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ], [ %25, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ]
   ret i32 %.sroa.6.0.ph
 }
 
@@ -7596,8 +7596,8 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i: ; preds = 
   call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21
   unreachable
 
-30:                                               ; preds = %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i", %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i
-  %.sroa.6.0.ph = phi i64 [ %25, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ], [ %27, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ]
+30:                                               ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i"
+  %.sroa.6.0.ph = phi i64 [ %27, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i" ], [ %25, %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i ]
   ret i64 %.sroa.6.0.ph
 }
 
@@ -8332,7 +8332,7 @@ define hidden noundef zeroext i1 @_ZN11quinn_proto10connection9assembler9Assembl
   unreachable
 
 43:                                               ; preds = %4, %"_ZN4core3ptr62drop_in_place$LT$quinn_proto..connection..assembler..State$GT$17h763b408d09cf89afE.exit", %6
-  %.sroa.0.0 = phi i1 [ false, %6 ], [ false, %"_ZN4core3ptr62drop_in_place$LT$quinn_proto..connection..assembler..State$GT$17h763b408d09cf89afE.exit" ], [ %5, %4 ]
+  %.sroa.0.0 = phi i1 [ false, %"_ZN4core3ptr62drop_in_place$LT$quinn_proto..connection..assembler..State$GT$17h763b408d09cf89afE.exit" ], [ %5, %4 ], [ false, %6 ]
   ret i1 %.sroa.0.0
 }
 
@@ -8619,7 +8619,7 @@ define hidden void @_ZN11quinn_proto10connection9assembler9Assembler4read17h3a86
 133:                                              ; preds = %134
   resume { ptr, i32 } %lpad.phi
 
-.loopexit.split-lp:                               ; preds = %70, %.split21.us, %65, %76, %58, %92, %98, %104, %94, %119, %123, %130
+.loopexit.split-lp:                               ; preds = %.split21.us, %65, %70, %76, %58, %92, %98, %104, %94, %119, %123, %130
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %134
@@ -8710,7 +8710,7 @@ define internal fastcc void @_ZN11quinn_proto10connection9assembler9Assembler10d
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx
   br label %.lr.ph
 
-.thread85:                                        ; preds = %._crit_edge, %84
+.thread85:                                        ; preds = %84, %._crit_edge
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %267
@@ -8896,7 +8896,7 @@ define internal fastcc void @_ZN11quinn_proto10connection9assembler9Assembler10d
   br label %"_ZN118_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17haa4cff4546282e82E.exit"
 
 118:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.body37, %.body37.thread
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body3894, %.body37.thread ], [ %lpad.thr_comm.split-lp96, %.body37 ], [ %lpad.loopexit99, %.loopexit ], [ %lpad.loopexit.split-lp100, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp96, %.body37 ], [ %eh.lpad-body3894, %.body37.thread ], [ %lpad.loopexit99, %.loopexit ], [ %lpad.loopexit.split-lp100, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr140drop_in_place$LT$core..iter..adapters..rev..Rev$LT$alloc..vec..into_iter..IntoIter$LT$quinn_proto..connection..assembler..Buffer$GT$$GT$$GT$17hece0c4933a508c70E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %23) #23
           to label %.body25 unwind label %255
 
@@ -8932,7 +8932,7 @@ define internal fastcc void @_ZN11quinn_proto10connection9assembler9Assembler10d
   br i1 %122, label %182, label %178
 
 "_ZN118_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17haa4cff4546282e82E.exit.thread": ; preds = %.outer, %"_ZN118_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17haa4cff4546282e82E.exit", %250, %88
-  %.sroa.05.0.ph.lcssa = phi i64 [ 0, %88 ], [ %.sroa.05.0.ph122, %250 ], [ %.sroa.05.0.ph122, %"_ZN118_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17haa4cff4546282e82E.exit" ], [ %.sroa.05.1, %.outer ]
+  %.sroa.05.0.ph.lcssa = phi i64 [ %.sroa.05.0.ph122, %"_ZN118_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17haa4cff4546282e82E.exit" ], [ 0, %88 ], [ %.sroa.05.0.ph122, %250 ], [ %.sroa.05.1, %.outer ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.048)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
   invoke void @"_ZN4core3ptr140drop_in_place$LT$core..iter..adapters..rev..Rev$LT$alloc..vec..into_iter..IntoIter$LT$quinn_proto..connection..assembler..Buffer$GT$$GT$$GT$17hece0c4933a508c70E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %23)
@@ -9352,7 +9352,7 @@ _ZN11quinn_proto10connection9assembler6Buffer19try_mark_defragment17h9db255098a6
   br i1 %266, label %._crit_edge, label %.lr.ph
 
 .thread:                                          ; preds = %.body25, %267
-  %.pn1780 = phi { ptr, i32 } [ %eh.lpad-body84, %267 ], [ %.pn.pn, %.body25 ]
+  %.pn1780 = phi { ptr, i32 } [ %.pn.pn, %.body25 ], [ %eh.lpad-body84, %267 ]
   resume { ptr, i32 } %.pn1780
 
 267:                                              ; preds = %.thread85, %.thread81
@@ -9712,7 +9712,7 @@ define noundef range(i8 -1, 2) i8 @"_ZN77_$LT$quinn_proto..connection..assembler
   br label %16
 
 16:                                               ; preds = %2, %15, %9
-  %.sroa.0.0 = phi i8 [ %14, %9 ], [ -1, %15 ], [ 1, %2 ]
+  %.sroa.0.0 = phi i8 [ -1, %15 ], [ %14, %9 ], [ 1, %2 ]
   ret i8 %.sroa.0.0
 }
 
@@ -9744,7 +9744,7 @@ define noundef range(i8 -1, 2) i8 @"_ZN84_$LT$quinn_proto..connection..assembler
   br label %"_ZN77_$LT$quinn_proto..connection..assembler..Buffer$u20$as$u20$core..cmp..Ord$GT$3cmp17h65bbef30e5df2f2fE.exit"
 
 "_ZN77_$LT$quinn_proto..connection..assembler..Buffer$u20$as$u20$core..cmp..Ord$GT$3cmp17h65bbef30e5df2f2fE.exit": ; preds = %2, %9, %15
-  %.sroa.0.0.i = phi i8 [ %14, %9 ], [ -1, %15 ], [ 1, %2 ]
+  %.sroa.0.0.i = phi i8 [ -1, %15 ], [ %14, %9 ], [ 1, %2 ]
   ret i8 %.sroa.0.0.i
 }
 
@@ -10754,7 +10754,7 @@ define hidden void @_ZN11quinn_proto6packet13PartialDecode3new17hac03d8144a4c7b7
   invoke void @"_ZN4core3ptr78drop_in_place$LT$std..io..cursor..Cursor$LT$bytes..bytes_mut..BytesMut$GT$$GT$17h65353e21a505fcc6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %19) #23
           to label %139 unwind label %137
 
-117:                                              ; preds = %.noexc47, %39, %.noexc50, %"_ZN55_$LT$u32$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h2b164750a5293d29E.exit.i", %51, %46, %30, %.noexc60, %.noexc59, %103, %.noexc56, %80
+117:                                              ; preds = %.noexc47, %39, %.noexc50, %"_ZN55_$LT$u32$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h2b164750a5293d29E.exit.i", %30, %51, %46, %.noexc60, %.noexc59, %103, %.noexc56, %80
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0150.i.sroa.8.sroa.8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.27, i64 16, i1 false)
   %.sroa.61.8..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -10769,14 +10769,14 @@ define hidden void @_ZN11quinn_proto6packet13PartialDecode3new17hac03d8144a4c7b7
   br label %136
 
 119:                                              ; preds = %87, %105, %113, %40, %55
-  %.sroa.26.sroa.0.1 = phi i8 [ %.sroa.612.i.sroa.7.sroa.0.0.copyload230, %40 ], [ %.sroa.0150.i.sroa.0.0.copyload, %55 ], [ %.sroa.0150.i.sroa.8.sroa.0.0.copyload, %113 ], [ undef, %105 ], [ %.sroa.0150.i.sroa.8.sroa.0.0.copyload, %87 ]
-  %.sroa.26.sroa.8.sroa.0.1 = phi i8 [ %.sroa.612.i.sroa.7.sroa.7.0.copyload232, %40 ], [ %.sroa.0150.i.sroa.8.sroa.0.0.copyload, %55 ], [ %.sroa.0150.i.sroa.8.sroa.8.0..sroa.0150.i.sroa.8.sroa.8.0..sroa.0150.i.sroa.8.sroa.8.0..sroa.26.sroa.8.sroa.0.0.copyload225, %113 ], [ undef, %105 ], [ %.sroa.0150.i.sroa.8.sroa.8.0..sroa.0150.i.sroa.8.sroa.8.0..sroa.0150.i.sroa.8.sroa.8.0..sroa.26.sroa.8.sroa.0.0.copyload224, %87 ]
-  %.sroa.89.sroa.0.1 = phi i64 [ 0, %40 ], [ 0, %55 ], [ 0, %113 ], [ %111, %105 ], [ 0, %87 ]
-  %.sroa.26.sroa.8.sroa.8.1 = phi i32 [ %.sroa.612.i.sroa.7.sroa.8.0.copyload234, %40 ], [ %.sroa.0150.i.sroa.8.sroa.8.0..sroa.0150.i.sroa.8.sroa.8.0..sroa.0150.i.sroa.8.sroa.8.0..sroa.26.sroa.8.sroa.8.1.copyload, %55 ], [ %.sroa.0150.i.sroa.8.sroa.8.1..sroa.0150.i.sroa.8.sroa.8.1..sroa.0150.i.sroa.8.sroa.8.1..sroa.26.sroa.8.sroa.8.0.copyload229, %113 ], [ undef, %105 ], [ %.sroa.0150.i.sroa.8.sroa.8.1..sroa.0150.i.sroa.8.sroa.8.1..sroa.0150.i.sroa.8.sroa.8.1..sroa.26.sroa.8.sroa.8.0.copyload227, %87 ]
-  %.sroa.91.1 = phi i48 [ undef, %40 ], [ undef, %55 ], [ undef, %113 ], [ %.sroa.5180.0.copyload.i, %105 ], [ undef, %87 ]
-  %.sroa.90.1 = phi ptr [ undef, %40 ], [ undef, %55 ], [ undef, %113 ], [ %.sroa.4179.0.copyload.i, %105 ], [ undef, %87 ]
-  %.sroa.21.1 = phi i8 [ %.sroa.612.i.sroa.0.0.copyload159, %40 ], [ %56, %55 ], [ %.sroa.0150.i.sroa.0.0.copyload, %113 ], [ undef, %105 ], [ %.sroa.0150.i.sroa.0.0.copyload, %87 ]
-  %.sroa.0.2 = phi i8 [ 3, %40 ], [ 4, %55 ], [ 1, %113 ], [ 0, %105 ], [ 2, %87 ]
+  %.sroa.26.sroa.0.1 = phi i8 [ %.sroa.0150.i.sroa.8.sroa.0.0.copyload, %113 ], [ %.sroa.612.i.sroa.7.sroa.0.0.copyload230, %40 ], [ %.sroa.0150.i.sroa.8.sroa.0.0.copyload, %87 ], [ undef, %105 ], [ %.sroa.0150.i.sroa.0.0.copyload, %55 ]
+  %.sroa.26.sroa.8.sroa.0.1 = phi i8 [ %.sroa.0150.i.sroa.8.sroa.8.0..sroa.0150.i.sroa.8.sroa.8.0..sroa.0150.i.sroa.8.sroa.8.0..sroa.26.sroa.8.sroa.0.0.copyload225, %113 ], [ %.sroa.612.i.sroa.7.sroa.7.0.copyload232, %40 ], [ %.sroa.0150.i.sroa.8.sroa.8.0..sroa.0150.i.sroa.8.sroa.8.0..sroa.0150.i.sroa.8.sroa.8.0..sroa.26.sroa.8.sroa.0.0.copyload224, %87 ], [ undef, %105 ], [ %.sroa.0150.i.sroa.8.sroa.0.0.copyload, %55 ]
+  %.sroa.89.sroa.0.1 = phi i64 [ 0, %113 ], [ 0, %40 ], [ 0, %87 ], [ %111, %105 ], [ 0, %55 ]
+  %.sroa.26.sroa.8.sroa.8.1 = phi i32 [ %.sroa.0150.i.sroa.8.sroa.8.1..sroa.0150.i.sroa.8.sroa.8.1..sroa.0150.i.sroa.8.sroa.8.1..sroa.26.sroa.8.sroa.8.0.copyload229, %113 ], [ %.sroa.612.i.sroa.7.sroa.8.0.copyload234, %40 ], [ %.sroa.0150.i.sroa.8.sroa.8.1..sroa.0150.i.sroa.8.sroa.8.1..sroa.0150.i.sroa.8.sroa.8.1..sroa.26.sroa.8.sroa.8.0.copyload227, %87 ], [ undef, %105 ], [ %.sroa.0150.i.sroa.8.sroa.8.0..sroa.0150.i.sroa.8.sroa.8.0..sroa.0150.i.sroa.8.sroa.8.0..sroa.26.sroa.8.sroa.8.1.copyload, %55 ]
+  %.sroa.91.1 = phi i48 [ undef, %113 ], [ undef, %40 ], [ undef, %87 ], [ %.sroa.5180.0.copyload.i, %105 ], [ undef, %55 ]
+  %.sroa.90.1 = phi ptr [ undef, %113 ], [ undef, %40 ], [ undef, %87 ], [ %.sroa.4179.0.copyload.i, %105 ], [ undef, %55 ]
+  %.sroa.21.1 = phi i8 [ %.sroa.0150.i.sroa.0.0.copyload, %113 ], [ %.sroa.612.i.sroa.0.0.copyload159, %40 ], [ %.sroa.0150.i.sroa.0.0.copyload, %87 ], [ undef, %105 ], [ %56, %55 ]
+  %.sroa.0.2 = phi i8 [ 1, %113 ], [ 3, %40 ], [ 2, %87 ], [ 0, %105 ], [ 4, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0150.i.sroa.8.sroa.8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.27, i64 16, i1 false)
   %.sroa.6.sroa.6.23.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -12782,15 +12782,15 @@ attributes #23 = { cold }
 !1244 = !{!1245, !1236}
 !1245 = distinct !{!1245, !1242, !"_ZN5bytes9bytes_mut8BytesMut17extend_from_slice17h2ce3ac3ccd307301E: argument 1"}
 !1246 = !{!1241, !1245, !1233, !1236}
-!1247 = !{!1248}
-!1248 = distinct !{!1248, !1249, !"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E: argument 0"}
-!1249 = distinct !{!1249, !"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E"}
-!1250 = !{!1248, !1251, !1233, !1236}
-!1251 = distinct !{!1251, !1252, !"_ZN77_$LT$bytes..buf..take..Take$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h8d64727f97b451beE: argument 0"}
-!1252 = distinct !{!1252, !"_ZN77_$LT$bytes..buf..take..Take$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h8d64727f97b451beE"}
-!1253 = !{!1233, !1236}
-!1254 = !{!1248, !1236}
-!1255 = !{!1251, !1233}
+!1247 = !{!1233, !1236}
+!1248 = !{!1249}
+!1249 = distinct !{!1249, !1250, !"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E: argument 0"}
+!1250 = distinct !{!1250, !"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E"}
+!1251 = !{!1249, !1252, !1233, !1236}
+!1252 = distinct !{!1252, !1253, !"_ZN77_$LT$bytes..buf..take..Take$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h8d64727f97b451beE: argument 0"}
+!1253 = distinct !{!1253, !"_ZN77_$LT$bytes..buf..take..Take$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h8d64727f97b451beE"}
+!1254 = !{!1249, !1236}
+!1255 = !{!1252, !1233}
 !1256 = !{!1257}
 !1257 = distinct !{!1257, !1258, !"_ZN5bytes9bytes_mut8BytesMut6freeze17h0ce04e17995e269cE: argument 0"}
 !1258 = distinct !{!1258, !"_ZN5bytes9bytes_mut8BytesMut6freeze17h0ce04e17995e269cE"}

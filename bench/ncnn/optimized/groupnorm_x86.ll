@@ -488,8 +488,8 @@ define internal void @_ZNK4ncnn13GroupNorm_x8615forward_inplaceERNS_3MatERKNS_6O
   br i1 %exitcond250.not, label %_ZN4ncnn3MatD2Ev.exit106, label %.lr.ph225, !llvm.loop !66
 
 _ZN4ncnn3MatD2Ev.exit106:                         ; preds = %.lr.ph215, %.lr.ph225, %.preheader169, %.preheader
-  %136 = phi i32 [ %95, %.preheader169 ], [ %121, %.preheader ], [ %121, %.lr.ph225 ], [ %95, %.lr.ph215 ]
-  %137 = phi i32 [ %96, %.preheader169 ], [ %121, %.preheader ], [ %121, %.lr.ph225 ], [ %96, %.lr.ph215 ]
+  %136 = phi i32 [ %121, %.lr.ph225 ], [ %121, %.preheader ], [ %95, %.preheader169 ], [ %95, %.lr.ph215 ]
+  %137 = phi i32 [ %121, %.lr.ph225 ], [ %121, %.preheader ], [ %96, %.preheader169 ], [ %96, %.lr.ph215 ]
   %138 = add i32 %.087227, 1
   %exitcond251.not = icmp eq i32 %.087227, %17
   br i1 %exitcond251.not, label %._crit_edge230, label %26

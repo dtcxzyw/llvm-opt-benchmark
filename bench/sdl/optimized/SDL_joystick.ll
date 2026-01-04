@@ -2259,7 +2259,7 @@ ShouldAttemptSensorFusion.exit:                   ; preds = %236
   br i1 %337, label %ShouldAttemptSensorFusion.exit.thread146, label %ShouldAttemptSensorFusion.exit.thread
 
 ShouldAttemptSensorFusion.exit.thread146:         ; preds = %._crit_edge.loopexit.i.i, %288, %290, %SDL_FreeVIDPIDList.exit.i, %ShouldAttemptSensorFusion.exit
-  %.0134149 = phi i1 [ false, %ShouldAttemptSensorFusion.exit ], [ false, %SDL_FreeVIDPIDList.exit.i ], [ false, %288 ], [ false, %290 ], [ true, %._crit_edge.loopexit.i.i ]
+  %.0134149 = phi i1 [ false, %ShouldAttemptSensorFusion.exit ], [ false, %288 ], [ false, %290 ], [ false, %SDL_FreeVIDPIDList.exit.i ], [ true, %._crit_edge.loopexit.i.i ]
   call fastcc void @AttemptSensorFusion(ptr noundef %47, i1 noundef zeroext %.0134149)
   br label %ShouldAttemptSensorFusion.exit.thread
 
@@ -2304,7 +2304,7 @@ ShouldAttemptSensorFusion.exit.thread:            ; preds = %.critedge.sink.spli
   br label %SDL_UnlockJoysticks_REAL.exit
 
 SDL_UnlockJoysticks_REAL.exit:                    ; preds = %.critedge.i123, %351, %.critedge.i100, %165, %.critedge.i96, %78, %.critedge.i92, %55, %.critedge.i88, %42, %.critedge.i85, %26
-  %.067 = phi ptr [ null, %26 ], [ null, %.critedge.i85 ], [ %.068162, %42 ], [ %.068162, %.critedge.i88 ], [ null, %55 ], [ null, %.critedge.i92 ], [ null, %78 ], [ null, %.critedge.i96 ], [ null, %165 ], [ null, %.critedge.i100 ], [ %47, %351 ], [ %47, %.critedge.i123 ]
+  %.067 = phi ptr [ null, %.critedge.i85 ], [ null, %.critedge.i100 ], [ null, %.critedge.i96 ], [ null, %.critedge.i92 ], [ %.068162, %.critedge.i88 ], [ null, %26 ], [ %.068162, %42 ], [ null, %55 ], [ null, %78 ], [ null, %165 ], [ %47, %351 ], [ %47, %.critedge.i123 ]
   ret ptr %.067
 }
 
@@ -3039,7 +3039,7 @@ define hidden zeroext i1 @SDL_SetJoystickVirtualAxis_REAL(ptr noundef %0, i32 no
   br label %SDL_UnlockJoysticks_REAL.exit
 
 SDL_UnlockJoysticks_REAL.exit:                    ; preds = %.critedge.i12, %46, %.critedge.i8, %34, %.critedge.i, %18
-  %.0 = phi i1 [ false, %18 ], [ false, %.critedge.i ], [ false, %34 ], [ false, %.critedge.i8 ], [ %39, %46 ], [ %39, %.critedge.i12 ]
+  %.0 = phi i1 [ false, %.critedge.i8 ], [ false, %.critedge.i ], [ false, %18 ], [ false, %34 ], [ %39, %46 ], [ %39, %.critedge.i12 ]
   ret i1 %.0
 }
 
@@ -3156,7 +3156,7 @@ define hidden zeroext i1 @SDL_SetJoystickVirtualBall_REAL(ptr noundef %0, i32 no
   br label %SDL_UnlockJoysticks_REAL.exit
 
 SDL_UnlockJoysticks_REAL.exit:                    ; preds = %.critedge.i13, %47, %.critedge.i9, %35, %.critedge.i, %19
-  %.0 = phi i1 [ false, %19 ], [ false, %.critedge.i ], [ false, %35 ], [ false, %.critedge.i9 ], [ %40, %47 ], [ %40, %.critedge.i13 ]
+  %.0 = phi i1 [ false, %.critedge.i9 ], [ false, %.critedge.i ], [ false, %19 ], [ false, %35 ], [ %40, %47 ], [ %40, %.critedge.i13 ]
   ret i1 %.0
 }
 
@@ -3271,7 +3271,7 @@ define hidden zeroext i1 @SDL_SetJoystickVirtualButton_REAL(ptr noundef %0, i32 
   br label %SDL_UnlockJoysticks_REAL.exit
 
 SDL_UnlockJoysticks_REAL.exit:                    ; preds = %.critedge.i12, %46, %.critedge.i8, %34, %.critedge.i, %18
-  %.0 = phi i1 [ false, %18 ], [ false, %.critedge.i ], [ false, %34 ], [ false, %.critedge.i8 ], [ %39, %46 ], [ %39, %.critedge.i12 ]
+  %.0 = phi i1 [ false, %.critedge.i8 ], [ false, %.critedge.i ], [ false, %18 ], [ false, %34 ], [ %39, %46 ], [ %39, %.critedge.i12 ]
   ret i1 %.0
 }
 
@@ -3386,7 +3386,7 @@ define hidden zeroext i1 @SDL_SetJoystickVirtualHat_REAL(ptr noundef %0, i32 nou
   br label %SDL_UnlockJoysticks_REAL.exit
 
 SDL_UnlockJoysticks_REAL.exit:                    ; preds = %.critedge.i12, %46, %.critedge.i8, %34, %.critedge.i, %18
-  %.0 = phi i1 [ false, %18 ], [ false, %.critedge.i ], [ false, %34 ], [ false, %.critedge.i8 ], [ %39, %46 ], [ %39, %.critedge.i12 ]
+  %.0 = phi i1 [ false, %.critedge.i8 ], [ false, %.critedge.i ], [ false, %18 ], [ false, %34 ], [ %39, %46 ], [ %39, %.critedge.i12 ]
   ret i1 %.0
 }
 
@@ -3501,7 +3501,7 @@ define hidden zeroext i1 @SDL_SetJoystickVirtualTouchpad_REAL(ptr noundef %0, i3
   br label %SDL_UnlockJoysticks_REAL.exit
 
 SDL_UnlockJoysticks_REAL.exit:                    ; preds = %.critedge.i16, %50, %.critedge.i12, %38, %.critedge.i, %22
-  %.0 = phi i1 [ false, %22 ], [ false, %.critedge.i ], [ false, %38 ], [ false, %.critedge.i12 ], [ %43, %50 ], [ %43, %.critedge.i16 ]
+  %.0 = phi i1 [ false, %.critedge.i12 ], [ false, %.critedge.i ], [ false, %22 ], [ false, %38 ], [ %43, %50 ], [ %43, %.critedge.i16 ]
   ret i1 %.0
 }
 
@@ -3616,7 +3616,7 @@ define hidden zeroext i1 @SDL_SendJoystickVirtualSensorData_REAL(ptr noundef %0,
   br label %SDL_UnlockJoysticks_REAL.exit
 
 SDL_UnlockJoysticks_REAL.exit:                    ; preds = %.critedge.i14, %48, %.critedge.i10, %36, %.critedge.i, %20
-  %.0 = phi i1 [ false, %20 ], [ false, %.critedge.i ], [ false, %36 ], [ false, %.critedge.i10 ], [ %41, %48 ], [ %41, %.critedge.i14 ]
+  %.0 = phi i1 [ false, %.critedge.i10 ], [ false, %.critedge.i ], [ false, %20 ], [ false, %36 ], [ %41, %48 ], [ %41, %.critedge.i14 ]
   ret i1 %.0
 }
 
@@ -3789,7 +3789,7 @@ define hidden i32 @SDL_GetNumJoystickAxes_REAL(ptr noundef %0) local_unnamed_add
   br label %SDL_UnlockJoysticks_REAL.exit
 
 SDL_UnlockJoysticks_REAL.exit:                    ; preds = %.critedge.i5, %29, %.critedge.i, %16
-  %.0 = phi i32 [ -1, %16 ], [ -1, %.critedge.i ], [ %22, %29 ], [ %22, %.critedge.i5 ]
+  %.0 = phi i32 [ -1, %.critedge.i ], [ -1, %16 ], [ %22, %29 ], [ %22, %.critedge.i5 ]
   ret i32 %.0
 }
 
@@ -3867,7 +3867,7 @@ define hidden i32 @SDL_GetNumJoystickHats_REAL(ptr noundef %0) local_unnamed_add
   br label %SDL_UnlockJoysticks_REAL.exit
 
 SDL_UnlockJoysticks_REAL.exit:                    ; preds = %.critedge.i5, %29, %.critedge.i, %16
-  %.0 = phi i32 [ -1, %16 ], [ -1, %.critedge.i ], [ %22, %29 ], [ %22, %.critedge.i5 ]
+  %.0 = phi i32 [ -1, %.critedge.i ], [ -1, %16 ], [ %22, %29 ], [ %22, %.critedge.i5 ]
   ret i32 %.0
 }
 
@@ -3990,7 +3990,7 @@ define hidden i32 @SDL_GetNumJoystickButtons_REAL(ptr noundef %0) local_unnamed_
   br label %SDL_UnlockJoysticks_REAL.exit
 
 SDL_UnlockJoysticks_REAL.exit:                    ; preds = %.critedge.i5, %29, %.critedge.i, %16
-  %.0 = phi i32 [ -1, %16 ], [ -1, %.critedge.i ], [ %22, %29 ], [ %22, %.critedge.i5 ]
+  %.0 = phi i32 [ -1, %.critedge.i ], [ -1, %16 ], [ %22, %29 ], [ %22, %.critedge.i5 ]
   ret i32 %.0
 }
 
@@ -4086,7 +4086,7 @@ define hidden signext i16 @SDL_GetJoystickAxis_REAL(ptr noundef %0, i32 noundef 
   br label %SDL_UnlockJoysticks_REAL.exit
 
 SDL_UnlockJoysticks_REAL.exit:                    ; preds = %.critedge.i12, %41, %.critedge.i, %17
-  %.07 = phi i16 [ 0, %17 ], [ 0, %.critedge.i ], [ %.0, %41 ], [ %.0, %.critedge.i12 ]
+  %.07 = phi i16 [ 0, %.critedge.i ], [ 0, %17 ], [ %.0, %41 ], [ %.0, %.critedge.i12 ]
   ret i16 %.07
 }
 
@@ -4200,7 +4200,7 @@ define hidden zeroext i1 @SDL_GetJoystickAxisInitialState_REAL(ptr noundef %0, i
   br label %SDL_UnlockJoysticks_REAL.exit
 
 SDL_UnlockJoysticks_REAL.exit:                    ; preds = %.critedge.i18, %48, %.critedge.i, %18
-  %.011 = phi i1 [ false, %18 ], [ false, %.critedge.i ], [ %.0, %48 ], [ %.0, %.critedge.i18 ]
+  %.011 = phi i1 [ false, %.critedge.i ], [ false, %18 ], [ %.0, %48 ], [ %.0, %.critedge.i18 ]
   ret i1 %.011
 }
 
@@ -4295,7 +4295,7 @@ define hidden zeroext i8 @SDL_GetJoystickHat_REAL(ptr noundef %0, i32 noundef %1
   br label %SDL_UnlockJoysticks_REAL.exit
 
 SDL_UnlockJoysticks_REAL.exit:                    ; preds = %.critedge.i12, %40, %.critedge.i, %17
-  %.07 = phi i8 [ 0, %17 ], [ 0, %.critedge.i ], [ %.0, %40 ], [ %.0, %.critedge.i12 ]
+  %.07 = phi i8 [ 0, %.critedge.i ], [ 0, %17 ], [ %.0, %40 ], [ %.0, %.critedge.i12 ]
   ret i8 %.07
 }
 
@@ -4425,7 +4425,7 @@ define hidden zeroext i1 @SDL_GetJoystickBall_REAL(ptr noundef %0, i32 noundef %
   br label %SDL_UnlockJoysticks_REAL.exit
 
 SDL_UnlockJoysticks_REAL.exit:                    ; preds = %.critedge.i25, %58, %.critedge.i, %19
-  %.017 = phi i1 [ false, %19 ], [ false, %.critedge.i ], [ %.0, %58 ], [ %.0, %.critedge.i25 ]
+  %.017 = phi i1 [ false, %.critedge.i ], [ false, %19 ], [ %.0, %58 ], [ %.0, %.critedge.i25 ]
   ret i1 %.017
 }
 
@@ -4521,7 +4521,7 @@ define hidden zeroext i1 @SDL_GetJoystickButton_REAL(ptr noundef %0, i32 noundef
   br label %SDL_UnlockJoysticks_REAL.exit
 
 SDL_UnlockJoysticks_REAL.exit:                    ; preds = %.critedge.i12, %41, %.critedge.i, %17
-  %.07 = phi i1 [ false, %17 ], [ false, %.critedge.i ], [ %.0, %41 ], [ %.0, %.critedge.i12 ]
+  %.07 = phi i1 [ false, %.critedge.i ], [ false, %17 ], [ %.0, %41 ], [ %.0, %.critedge.i12 ]
   ret i1 %.07
 }
 
@@ -4600,7 +4600,7 @@ define hidden zeroext i1 @SDL_JoystickConnected_REAL(ptr noundef %0) local_unnam
   br label %SDL_UnlockJoysticks_REAL.exit
 
 SDL_UnlockJoysticks_REAL.exit:                    ; preds = %.critedge.i5, %30, %.critedge.i, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %.critedge.i ], [ %23, %30 ], [ %23, %.critedge.i5 ]
+  %.0 = phi i1 [ false, %.critedge.i ], [ false, %16 ], [ %23, %30 ], [ %23, %.critedge.i5 ]
   ret i1 %.0
 }
 
@@ -4677,7 +4677,7 @@ define hidden i32 @SDL_GetJoystickID_REAL(ptr noundef %0) local_unnamed_addr #1 
   br label %SDL_UnlockJoysticks_REAL.exit
 
 SDL_UnlockJoysticks_REAL.exit:                    ; preds = %.critedge.i5, %28, %.critedge.i, %16
-  %.0 = phi i32 [ 0, %16 ], [ 0, %.critedge.i ], [ %21, %28 ], [ %21, %.critedge.i5 ]
+  %.0 = phi i32 [ 0, %.critedge.i ], [ 0, %16 ], [ %21, %28 ], [ %21, %.critedge.i5 ]
   ret i32 %.0
 }
 
@@ -4894,7 +4894,7 @@ define hidden i32 @SDL_GetJoystickProperties_REAL(ptr noundef %0) local_unnamed_
   br label %SDL_UnlockJoysticks_REAL.exit
 
 SDL_UnlockJoysticks_REAL.exit:                    ; preds = %.critedge.i7, %34, %.critedge.i, %16
-  %.0 = phi i32 [ 0, %16 ], [ 0, %.critedge.i ], [ %27, %34 ], [ %27, %.critedge.i7 ]
+  %.0 = phi i32 [ 0, %.critedge.i ], [ 0, %16 ], [ %27, %34 ], [ %27, %.critedge.i7 ]
   ret i32 %.0
 }
 
@@ -5031,7 +5031,7 @@ SDL_GetJoystickVirtualGamepadInfoForID.exit.thread: ; preds = %20, %SDL_GetDrive
   br label %SDL_UnlockJoysticks_REAL.exit
 
 SDL_UnlockJoysticks_REAL.exit:                    ; preds = %.critedge.i11, %50, %.critedge.i, %16
-  %.0 = phi ptr [ null, %16 ], [ null, %.critedge.i ], [ %43, %50 ], [ %43, %.critedge.i11 ]
+  %.0 = phi ptr [ null, %.critedge.i ], [ null, %16 ], [ %43, %50 ], [ %43, %.critedge.i11 ]
   ret ptr %.0
 }
 
@@ -5122,7 +5122,7 @@ define hidden ptr @SDL_GetJoystickPath_REAL(ptr noundef %0) local_unnamed_addr #
   br label %SDL_UnlockJoysticks_REAL.exit
 
 SDL_UnlockJoysticks_REAL.exit:                    ; preds = %.critedge.i9, %34, %.critedge.i, %16
-  %.05 = phi ptr [ null, %16 ], [ null, %.critedge.i ], [ %.0, %34 ], [ %.0, %.critedge.i9 ]
+  %.05 = phi ptr [ null, %.critedge.i ], [ null, %16 ], [ %.0, %34 ], [ %.0, %.critedge.i9 ]
   ret ptr %.05
 }
 
@@ -5228,7 +5228,7 @@ SDL_GetPlayerIndexForJoystickID.exit:             ; preds = %29, %20, %._crit_ed
   br label %SDL_UnlockJoysticks_REAL.exit
 
 SDL_UnlockJoysticks_REAL.exit:                    ; preds = %.critedge.i5, %38, %.critedge.i, %16
-  %.0 = phi i32 [ -1, %16 ], [ -1, %.critedge.i ], [ %spec.store.select.i, %38 ], [ %spec.store.select.i, %.critedge.i5 ]
+  %.0 = phi i32 [ -1, %.critedge.i ], [ -1, %16 ], [ %spec.store.select.i, %38 ], [ %spec.store.select.i, %.critedge.i5 ]
   ret i32 %.0
 }
 
@@ -5306,7 +5306,7 @@ define hidden noundef zeroext i1 @SDL_SetJoystickPlayerIndex_REAL(ptr noundef %0
   br label %SDL_UnlockJoysticks_REAL.exit
 
 SDL_UnlockJoysticks_REAL.exit:                    ; preds = %.critedge.i6, %30, %.critedge.i, %17
-  %.0 = phi i1 [ false, %17 ], [ false, %.critedge.i ], [ %23, %30 ], [ %23, %.critedge.i6 ]
+  %.0 = phi i1 [ false, %.critedge.i ], [ false, %17 ], [ %23, %30 ], [ %23, %.critedge.i6 ]
   ret i1 %.0
 }
 
@@ -5473,7 +5473,7 @@ SDL_GetDriverAndJoystickIndex.exit:               ; preds = %._crit_edge.i, %48
   br i1 %67, label %.lr.ph.i36, label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %73, %65, %._crit_edge.loopexit.split.loop.exit.i41
-  %.tr.be = phi i32 [ 0, %65 ], [ %74, %._crit_edge.loopexit.split.loop.exit.i41 ], [ %66, %73 ]
+  %.tr.be = phi i32 [ %74, %._crit_edge.loopexit.split.loop.exit.i41 ], [ 0, %65 ], [ %66, %73 ]
   br label %tailrecurse
 
 .lr.ph.i36:                                       ; preds = %65
@@ -5498,7 +5498,7 @@ tailrecurse.backedge:                             ; preds = %73, %65, %._crit_ed
   br label %tailrecurse.backedge
 
 .critedge:                                        ; preds = %9, %64, %23
-  %.1 = phi i1 [ true, %23 ], [ true, %64 ], [ false, %9 ]
+  %.1 = phi i1 [ true, %23 ], [ false, %9 ], [ true, %64 ]
   %current.ret.tr51 = or i1 %ret.known.tr, %.1
   ret i1 %current.ret.tr51
 }
@@ -5634,7 +5634,7 @@ define hidden noundef zeroext i1 @SDL_RumbleJoystick_REAL(ptr noundef %0, i16 no
   br label %SDL_UnlockJoysticks_REAL.exit
 
 SDL_UnlockJoysticks_REAL.exit:                    ; preds = %.critedge.i39, %62, %.critedge.i, %19
-  %.034 = phi i1 [ false, %19 ], [ false, %.critedge.i ], [ %.0.shrunk42, %62 ], [ %.0.shrunk42, %.critedge.i39 ]
+  %.034 = phi i1 [ false, %.critedge.i ], [ false, %19 ], [ %.0.shrunk42, %62 ], [ %.0.shrunk42, %.critedge.i39 ]
   ret i1 %.034
 }
 
@@ -5768,7 +5768,7 @@ define hidden noundef zeroext i1 @SDL_RumbleJoystickTriggers_REAL(ptr noundef %0
   br label %SDL_UnlockJoysticks_REAL.exit
 
 SDL_UnlockJoysticks_REAL.exit:                    ; preds = %.critedge.i36, %62, %.critedge.i, %19
-  %.032 = phi i1 [ false, %19 ], [ false, %.critedge.i ], [ %.0.shrunk39, %62 ], [ %.0.shrunk39, %.critedge.i36 ]
+  %.032 = phi i1 [ false, %.critedge.i ], [ false, %19 ], [ %.0.shrunk39, %62 ], [ %.0.shrunk39, %.critedge.i36 ]
   ret i1 %.032
 }
 
@@ -5887,7 +5887,7 @@ define hidden zeroext i1 @SDL_SetJoystickLED_REAL(ptr noundef %0, i8 noundef zer
   br label %SDL_UnlockJoysticks_REAL.exit
 
 SDL_UnlockJoysticks_REAL.exit:                    ; preds = %.critedge.i27, %53, %.critedge.i, %19
-  %.0 = phi i1 [ false, %19 ], [ false, %.critedge.i ], [ %.022, %53 ], [ %.022, %.critedge.i27 ]
+  %.0 = phi i1 [ false, %.critedge.i ], [ false, %19 ], [ %.022, %53 ], [ %.022, %.critedge.i27 ]
   ret i1 %.0
 }
 
@@ -5968,7 +5968,7 @@ define hidden zeroext i1 @SDL_SendJoystickEffect_REAL(ptr noundef %0, ptr nounde
   br label %SDL_UnlockJoysticks_REAL.exit
 
 SDL_UnlockJoysticks_REAL.exit:                    ; preds = %.critedge.i8, %34, %.critedge.i, %18
-  %.0 = phi i1 [ false, %18 ], [ false, %.critedge.i ], [ %27, %34 ], [ %27, %.critedge.i8 ]
+  %.0 = phi i1 [ false, %.critedge.i ], [ false, %18 ], [ %27, %34 ], [ %27, %.critedge.i8 ]
   ret i1 %.0
 }
 
@@ -6551,7 +6551,7 @@ SDL_SendJoystickHat.exit:                         ; preds = %53, %SDL_PrivateJoy
   br label %102
 
 102:                                              ; preds = %101, %99, %89
-  %.2.i = phi float [ 1.000000e+00, %101 ], [ %95, %99 ], [ 0.000000e+00, %89 ]
+  %.2.i = phi float [ %95, %99 ], [ 1.000000e+00, %101 ], [ 0.000000e+00, %89 ]
   %103 = fcmp olt float %97, 0.000000e+00
   br i1 %103, label %107, label %104
 
@@ -6563,7 +6563,7 @@ SDL_SendJoystickHat.exit:                         ; preds = %53, %SDL_PrivateJoy
   br label %107
 
 107:                                              ; preds = %106, %104, %102
-  %.258.i = phi float [ 1.000000e+00, %106 ], [ %97, %104 ], [ 0.000000e+00, %102 ]
+  %.258.i = phi float [ %97, %104 ], [ 1.000000e+00, %106 ], [ 0.000000e+00, %102 ]
   %108 = load i8, ptr %93, align 4, !range !26, !noundef !27
   %109 = icmp eq i8 %108, 0
   br i1 %109, label %SDL_SendJoystickTouchpad.exit, label %110
@@ -6617,7 +6617,7 @@ SDL_SendJoystickTouchpad.exit:                    ; preds = %107, %.lr.ph47.spli
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %74
-  %124 = phi i32 [ %.pre52, %._crit_edge.loopexit ], [ %75, %74 ]
+  %124 = phi i32 [ %75, %74 ], [ %.pre52, %._crit_edge.loopexit ]
   %125 = add i8 %.348, 1
   %126 = zext i8 %125 to i32
   %127 = icmp sgt i32 %124, %126
@@ -6987,7 +6987,7 @@ define hidden void @SDL_SendJoystickTouchpad(i64 noundef %0, ptr noundef capture
   br label %41
 
 41:                                               ; preds = %36, %38, %40
-  %.2 = phi float [ 1.000000e+00, %40 ], [ %.055, %38 ], [ 0.000000e+00, %36 ]
+  %.2 = phi float [ %.055, %38 ], [ 1.000000e+00, %40 ], [ 0.000000e+00, %36 ]
   %42 = fcmp olt float %.056, 0.000000e+00
   br i1 %42, label %46, label %43
 
@@ -6999,7 +6999,7 @@ define hidden void @SDL_SendJoystickTouchpad(i64 noundef %0, ptr noundef capture
   br label %46
 
 46:                                               ; preds = %41, %43, %45
-  %.258 = phi float [ 1.000000e+00, %45 ], [ %.056, %43 ], [ 0.000000e+00, %41 ]
+  %.258 = phi float [ %.056, %43 ], [ 1.000000e+00, %45 ], [ 0.000000e+00, %41 ]
   %47 = fcmp olt float %.059, 0.000000e+00
   br i1 %47, label %51, label %48
 
@@ -7011,7 +7011,7 @@ define hidden void @SDL_SendJoystickTouchpad(i64 noundef %0, ptr noundef capture
   br label %51
 
 51:                                               ; preds = %46, %48, %50
-  %.160 = phi float [ 1.000000e+00, %50 ], [ %.059, %48 ], [ 0.000000e+00, %46 ]
+  %.160 = phi float [ %.059, %48 ], [ 1.000000e+00, %50 ], [ 0.000000e+00, %46 ]
   %52 = load i8, ptr %27, align 4, !range !26, !noundef !27
   %53 = icmp eq i8 %52, %10
   br i1 %53, label %54, label %67
@@ -7965,7 +7965,7 @@ define hidden range(i32 1, 12) i32 @SDL_GetGamepadTypeFromVIDPID(i16 noundef zer
   br label %52
 
 52:                                               ; preds = %51, %49, %40, %37, %34, %28, %22, %19, %30, %44, %45, %46, %47, %48, %50, %42, %36, %8, %15, %18
-  %.0 = phi i32 [ 7, %18 ], [ 1, %15 ], [ 1, %8 ], [ 9, %30 ], [ 9, %36 ], [ 1, %42 ], [ 2, %44 ], [ 3, %45 ], [ 4, %46 ], [ 5, %47 ], [ 6, %48 ], [ 7, %50 ], [ 1, %19 ], [ 8, %22 ], [ 1, %28 ], [ 8, %34 ], [ 10, %37 ], [ 11, %40 ], [ %., %49 ], [ %.49, %51 ]
+  %.0 = phi i32 [ 7, %18 ], [ 1, %15 ], [ 1, %8 ], [ %.49, %51 ], [ 1, %19 ], [ 8, %22 ], [ 9, %30 ], [ 1, %28 ], [ 9, %36 ], [ 8, %34 ], [ 10, %37 ], [ 1, %42 ], [ 2, %44 ], [ 3, %45 ], [ 4, %46 ], [ 5, %47 ], [ 6, %48 ], [ %., %49 ], [ 11, %40 ], [ 7, %50 ]
   ret i32 %.0
 }
 
@@ -8064,7 +8064,7 @@ SDL_GetJoystickGUIDInfo_REAL.exit:
   br label %15
 
 15:                                               ; preds = %11, %.fold.split, %SDL_GetJoystickGUIDInfo_REAL.exit, %13
-  %.0 = phi i32 [ %14, %13 ], [ 3, %11 ], [ %9, %SDL_GetJoystickGUIDInfo_REAL.exit ], [ 1, %.fold.split ]
+  %.0 = phi i32 [ 3, %11 ], [ %14, %13 ], [ %9, %SDL_GetJoystickGUIDInfo_REAL.exit ], [ 1, %.fold.split ]
   ret i32 %.0
 }
 
@@ -8387,7 +8387,7 @@ define hidden noundef zeroext i1 @SDL_IsJoystickAmazonLunaController(i16 noundef
   br label %8
 
 8:                                                ; preds = %2, %5
-  %9 = phi i1 [ %7, %5 ], [ true, %2 ]
+  %9 = phi i1 [ true, %2 ], [ %7, %5 ]
   ret i1 %9
 }
 
@@ -8619,7 +8619,7 @@ SDL_VIDPIDInList.exit20.thread:                   ; preds = %34, %38, %.preheade
   br label %SDL_VIDPIDInList.exit
 
 SDL_VIDPIDInList.exit:                            ; preds = %21, %39, %SDL_VIDPIDInList.exit20.thread
-  %.0 = phi i1 [ %43, %SDL_VIDPIDInList.exit20.thread ], [ true, %39 ], [ true, %21 ]
+  %.0 = phi i1 [ true, %39 ], [ %43, %SDL_VIDPIDInList.exit20.thread ], [ true, %21 ]
   ret i1 %.0
 }
 
@@ -9231,7 +9231,7 @@ switch.lookup:                                    ; preds = %79
   br label %SDL_IsJoystickWheel.exit
 
 SDL_IsJoystickWheel.exit:                         ; preds = %26, %42, %58, %74, %79, %switch.lookup, %87, %85, %83, %81
-  %.0 = phi i32 [ %82, %81 ], [ %84, %83 ], [ %86, %85 ], [ %., %87 ], [ %switch.load, %switch.lookup ], [ 0, %79 ], [ 9, %74 ], [ 4, %58 ], [ 3, %42 ], [ 2, %26 ]
+  %.0 = phi i32 [ %switch.load, %switch.lookup ], [ %., %87 ], [ 3, %42 ], [ 4, %58 ], [ %82, %81 ], [ 0, %79 ], [ 9, %74 ], [ %86, %85 ], [ %84, %83 ], [ 2, %26 ]
   ret i32 %.0
 }
 
@@ -9311,8 +9311,8 @@ define hidden { i64, i64 } @SDL_GetJoystickGUID_REAL(ptr noundef %0) local_unnam
   br label %SDL_UnlockJoysticks_REAL.exit
 
 SDL_UnlockJoysticks_REAL.exit:                    ; preds = %.critedge.i7, %28, %.critedge.i, %16
-  %.sroa.02.0 = phi i64 [ 0, %16 ], [ 0, %.critedge.i ], [ %.sroa.0.sroa.0.0.copyload, %28 ], [ %.sroa.0.sroa.0.0.copyload, %.critedge.i7 ]
-  %.sroa.3.0 = phi i64 [ 0, %16 ], [ 0, %.critedge.i ], [ %.sroa.0.sroa.4.0.copyload, %28 ], [ %.sroa.0.sroa.4.0.copyload, %.critedge.i7 ]
+  %.sroa.02.0 = phi i64 [ 0, %.critedge.i ], [ 0, %16 ], [ %.sroa.0.sroa.0.0.copyload, %28 ], [ %.sroa.0.sroa.0.0.copyload, %.critedge.i7 ]
+  %.sroa.3.0 = phi i64 [ 0, %.critedge.i ], [ 0, %16 ], [ %.sroa.0.sroa.4.0.copyload, %28 ], [ %.sroa.0.sroa.4.0.copyload, %.critedge.i7 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.02.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.3.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -9467,7 +9467,7 @@ SDL_GetJoystickGUIDInfo_REAL.exit:                ; preds = %SDL_GetJoystickVirt
   br label %SDL_UnlockJoysticks_REAL.exit
 
 SDL_UnlockJoysticks_REAL.exit:                    ; preds = %.critedge.i9, %58, %.critedge.i, %16
-  %.0 = phi i16 [ 0, %16 ], [ 0, %.critedge.i ], [ %.011, %58 ], [ %.011, %.critedge.i9 ]
+  %.0 = phi i16 [ 0, %.critedge.i ], [ 0, %16 ], [ %.011, %58 ], [ %.011, %.critedge.i9 ]
   ret i16 %.0
 }
 
@@ -9619,7 +9619,7 @@ SDL_GetJoystickGUIDInfo_REAL.exit:                ; preds = %SDL_GetJoystickVirt
   br label %SDL_UnlockJoysticks_REAL.exit
 
 SDL_UnlockJoysticks_REAL.exit:                    ; preds = %.critedge.i9, %58, %.critedge.i, %16
-  %.0 = phi i16 [ 0, %16 ], [ 0, %.critedge.i ], [ %.011, %58 ], [ %.011, %.critedge.i9 ]
+  %.0 = phi i16 [ 0, %.critedge.i ], [ 0, %16 ], [ %.011, %58 ], [ %.011, %.critedge.i9 ]
   ret i16 %.0
 }
 
@@ -9719,7 +9719,7 @@ define hidden zeroext i16 @SDL_GetJoystickFirmwareVersion_REAL(ptr noundef %0) l
   br label %SDL_UnlockJoysticks_REAL.exit
 
 SDL_UnlockJoysticks_REAL.exit:                    ; preds = %.critedge.i5, %29, %.critedge.i, %16
-  %.0 = phi i16 [ 0, %16 ], [ 0, %.critedge.i ], [ %22, %29 ], [ %22, %.critedge.i5 ]
+  %.0 = phi i16 [ 0, %.critedge.i ], [ 0, %16 ], [ %22, %29 ], [ %22, %.critedge.i5 ]
   ret i16 %.0
 }
 
@@ -9798,7 +9798,7 @@ define hidden ptr @SDL_GetJoystickSerial_REAL(ptr noundef %0) local_unnamed_addr
   br label %SDL_UnlockJoysticks_REAL.exit
 
 SDL_UnlockJoysticks_REAL.exit:                    ; preds = %.critedge.i6, %30, %.critedge.i, %16
-  %.0 = phi ptr [ null, %16 ], [ null, %.critedge.i ], [ %23, %30 ], [ %23, %.critedge.i6 ]
+  %.0 = phi ptr [ null, %.critedge.i ], [ null, %16 ], [ %23, %30 ], [ %23, %.critedge.i6 ]
   ret ptr %.0
 }
 
@@ -9885,7 +9885,7 @@ define hidden i32 @SDL_GetJoystickType_REAL(ptr noundef %0) local_unnamed_addr #
   br label %SDL_UnlockJoysticks_REAL.exit
 
 SDL_UnlockJoysticks_REAL.exit:                    ; preds = %.critedge.i10, %35, %.critedge.i, %22, %1
-  %.0 = phi i32 [ %5, %1 ], [ 0, %22 ], [ 0, %.critedge.i ], [ %spec.select, %35 ], [ %spec.select, %.critedge.i10 ]
+  %.0 = phi i32 [ %5, %1 ], [ 0, %.critedge.i ], [ 0, %22 ], [ %spec.select, %35 ], [ %spec.select, %.critedge.i10 ]
   ret i32 %.0
 }
 
@@ -10004,7 +10004,7 @@ define hidden i32 @SDL_GetJoystickConnectionState_REAL(ptr noundef %0) local_unn
   br label %SDL_UnlockJoysticks_REAL.exit
 
 SDL_UnlockJoysticks_REAL.exit:                    ; preds = %.critedge.i5, %29, %.critedge.i, %16
-  %.0 = phi i32 [ -1, %16 ], [ -1, %.critedge.i ], [ %22, %29 ], [ %22, %.critedge.i5 ]
+  %.0 = phi i32 [ -1, %.critedge.i ], [ -1, %16 ], [ %22, %29 ], [ %22, %.critedge.i5 ]
   ret i32 %.0
 }
 
@@ -10099,7 +10099,7 @@ define hidden i32 @SDL_GetJoystickPowerInfo_REAL(ptr noundef %0, ptr noundef wri
   br label %SDL_UnlockJoysticks_REAL.exit
 
 SDL_UnlockJoysticks_REAL.exit:                    ; preds = %.critedge.i11, %36, %.critedge.i, %19
-  %.0 = phi i32 [ -1, %19 ], [ -1, %.critedge.i ], [ %25, %36 ], [ %25, %.critedge.i11 ]
+  %.0 = phi i32 [ -1, %.critedge.i ], [ -1, %19 ], [ %25, %36 ], [ %25, %.critedge.i11 ]
   ret i32 %.0
 }
 

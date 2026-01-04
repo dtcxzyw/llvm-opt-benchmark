@@ -192,8 +192,8 @@ define internal range(i32 2, 1) i32 @pfr_cmap_char_next(ptr noundef readonly cap
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %2, %15, %28, %._crit_edge
-  %.150.ph = phi i32 [ 0, %._crit_edge ], [ %33, %28 ], [ %16, %15 ], [ 0, %2 ]
-  %.148.ph = phi i32 [ 0, %._crit_edge ], [ %34, %28 ], [ %.047, %15 ], [ 0, %2 ]
+  %.150.ph = phi i32 [ 0, %._crit_edge ], [ %16, %15 ], [ %33, %28 ], [ 0, %2 ]
+  %.148.ph = phi i32 [ 0, %._crit_edge ], [ %.047, %15 ], [ %34, %28 ], [ 0, %2 ]
   store i32 %.148.ph, ptr %1, align 4, !tbaa !49
   ret i32 %.150.ph
 }
@@ -291,8 +291,8 @@ pfr_header_check.exit:                            ; preds = %32
   %.not14.i = icmp ugt i64 %50, %55
   br i1 %.not14.i, label %56, label %.thread
 
-.thread:                                          ; preds = %52, %45, %43, %39, %pfr_header_check.exit
-  %.ph = phi i32 [ 8, %52 ], [ 8, %45 ], [ 8, %43 ], [ %42, %39 ], [ %38, %pfr_header_check.exit ]
+.thread:                                          ; preds = %45, %43, %52, %39, %pfr_header_check.exit
+  %.ph = phi i32 [ 8, %45 ], [ 8, %43 ], [ 8, %52 ], [ %42, %39 ], [ %38, %pfr_header_check.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.critedge155
 
@@ -1295,8 +1295,8 @@ pfr_log_font_load.exit:                           ; preds = %pfr_extra_items_ski
   store i32 8, ptr %6, align 4, !tbaa !49
   br label %pfr_phy_font_load.exit
 
-pfr_phy_font_load.exit.thread:                    ; preds = %446, %479, %297, %284
-  %.ph180 = phi i32 [ %296, %284 ], [ %299, %297 ], [ %448, %446 ], [ %481, %479 ]
+pfr_phy_font_load.exit.thread:                    ; preds = %446, %479, %284, %297
+  %.ph180 = phi i32 [ %299, %297 ], [ %296, %284 ], [ %448, %446 ], [ %481, %479 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge155
@@ -1576,7 +1576,7 @@ pfr_phy_font_load.exit:                           ; preds = %672, %616, %394, %4
   br label %.critedge155
 
 .critedge155:                                     ; preds = %._crit_edge.thread, %59, %32, %28, %24, %16, %14, %5, %pfr_phy_font_load.exit.thread, %pfr_log_font_load.exit.thread, %.thread, %770, %827, %._crit_edge199, %56, %pfr_phy_font_load.exit, %pfr_log_font_load.exit
-  %830 = phi i32 [ %.ph180, %pfr_phy_font_load.exit.thread ], [ %.054.i.ph, %pfr_log_font_load.exit.thread ], [ %.ph, %.thread ], [ %775, %770 ], [ %825, %827 ], [ %825, %._crit_edge199 ], [ 0, %56 ], [ %.pre225.i, %pfr_phy_font_load.exit ], [ %.pre.i, %pfr_log_font_load.exit ], [ 2, %5 ], [ 2, %14 ], [ 2, %16 ], [ 2, %24 ], [ 2, %28 ], [ 2, %32 ], [ 6, %59 ], [ 3, %._crit_edge.thread ]
+  %830 = phi i32 [ %.ph180, %pfr_phy_font_load.exit.thread ], [ %.054.i.ph, %pfr_log_font_load.exit.thread ], [ %.ph, %.thread ], [ %775, %770 ], [ 6, %59 ], [ %825, %827 ], [ %825, %._crit_edge199 ], [ 0, %56 ], [ %.pre225.i, %pfr_phy_font_load.exit ], [ %.pre.i, %pfr_log_font_load.exit ], [ 2, %32 ], [ 2, %14 ], [ 2, %5 ], [ 2, %16 ], [ 2, %24 ], [ 2, %28 ], [ 3, %._crit_edge.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %830
 }
@@ -1868,7 +1868,7 @@ define internal i32 @pfr_slot_load(ptr noundef %0, ptr noundef readonly captures
   br i1 %107, label %.lr.ph.split.i.i, label %.loopexit114.i.i, !llvm.loop !193
 
 .loopexit114.i.i:                                 ; preds = %105, %92, %.split.us.i.i, %95, %.preheader.i.i
-  %108 = phi i32 [ %84, %.preheader.i.i ], [ %104, %.split.us.i.i ], [ %96, %95 ], [ %84, %92 ], [ %84, %105 ]
+  %108 = phi i32 [ %84, %92 ], [ %96, %95 ], [ %84, %.preheader.i.i ], [ %104, %.split.us.i.i ], [ %84, %105 ]
   %109 = or i32 %108, 64
   store i32 %109, ptr %49, align 4, !tbaa !49
   br label %110
@@ -2023,7 +2023,7 @@ pfr_lookup_bitmap_data.exit.thread.i:             ; preds = %149, %124, %110
   br label %pfr_slot_load_bitmap.exit.thread
 
 pfr_lookup_bitmap_data.exit.i:                    ; preds = %186, %178
-  %storemerge113.i.i = phi i64 [ %188, %186 ], [ %185, %178 ]
+  %storemerge113.i.i = phi i64 [ %185, %178 ], [ %188, %186 ]
   tail call void @FT_Stream_ExitFrame(ptr noundef %23) #12
   %189 = icmp eq i64 %storemerge.i.fr.i, 0
   br i1 %189, label %pfr_slot_load_bitmap.exit.thread, label %190
@@ -2136,8 +2136,8 @@ pfr_lookup_bitmap_data.exit.i:                    ; preds = %186, %178
   br i1 %.not.i, label %pfr_slot_load_bitmap.exit.thread107, label %249
 
 249:                                              ; preds = %240, %233, %225
-  %250 = phi i32 [ %234, %233 ], [ %226, %225 ], [ %241, %240 ]
-  %251 = phi i32 [ %236, %233 ], [ %228, %225 ], [ %243, %240 ]
+  %250 = phi i32 [ %226, %225 ], [ %234, %233 ], [ %241, %240 ]
+  %251 = phi i32 [ %228, %225 ], [ %236, %233 ], [ %243, %240 ]
   %252 = load i64, ptr %5, align 8, !tbaa !122
   %253 = add i64 %252, -2147483648
   %or.cond.i = icmp ult i64 %253, -4294967296
@@ -2236,7 +2236,7 @@ pfr_slot_load_bitmap.exit.thread103:              ; preds = %202, %216
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %pfr_slot_load_bitmap.exit.thread
 
-pfr_slot_load_bitmap.exit.thread107:              ; preds = %218, %240, %297, %225, %233, %255, %249, %223
+pfr_slot_load_bitmap.exit.thread107:              ; preds = %218, %240, %225, %297, %249, %233, %255, %223
   tail call void @FT_Stream_ExitFrame(ptr noundef nonnull %23) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -2258,7 +2258,7 @@ pfr_slot_load_bitmap.exit:                        ; preds = %262, %301
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %431
 
-pfr_slot_load_bitmap.exit.thread:                 ; preds = %45, %21, %pfr_lookup_bitmap_data.exit.i, %48, %58, %pfr_lookup_bitmap_data.exit.thread.i, %pfr_slot_load_bitmap.exit.thread107, %pfr_slot_load_bitmap.exit.thread103, %19
+pfr_slot_load_bitmap.exit.thread:                 ; preds = %45, %21, %48, %pfr_lookup_bitmap_data.exit.thread.i, %58, %pfr_lookup_bitmap_data.exit.i, %pfr_slot_load_bitmap.exit.thread107, %pfr_slot_load_bitmap.exit.thread103, %19
   %309 = and i32 %3, 16384
   %.not95 = icmp eq i32 %309, 0
   br i1 %.not95, label %310, label %431
@@ -2465,7 +2465,7 @@ pfr_slot_load_bitmap.exit.thread:                 ; preds = %45, %21, %pfr_looku
   br label %431
 
 431:                                              ; preds = %pfr_slot_load_bitmap.exit, %pfr_slot_load_bitmap.exit.thread, %4, %16, %310, %418
-  %.081 = phi i32 [ %330, %310 ], [ 0, %418 ], [ 0, %pfr_slot_load_bitmap.exit ], [ 6, %16 ], [ 6, %4 ], [ 6, %pfr_slot_load_bitmap.exit.thread ]
+  %.081 = phi i32 [ 0, %pfr_slot_load_bitmap.exit ], [ 6, %4 ], [ %330, %310 ], [ 0, %418 ], [ 6, %16 ], [ 6, %pfr_slot_load_bitmap.exit.thread ]
   ret i32 %.081
 }
 
@@ -2859,7 +2859,7 @@ define internal i32 @pfr_face_get_kerning(ptr noundef readonly captures(none) %0
   br label %.loopexit136
 
 .loopexit136:                                     ; preds = %29, %9, %4, %30, %34, %172
-  %.0112 = phi i32 [ 0, %4 ], [ 0, %172 ], [ %33, %30 ], [ %42, %34 ], [ 0, %9 ], [ 0, %29 ]
+  %.0112 = phi i32 [ 0, %4 ], [ %42, %34 ], [ 0, %172 ], [ %33, %30 ], [ 0, %9 ], [ 0, %29 ]
   ret i32 %.0112
 }
 
@@ -2892,7 +2892,7 @@ define internal range(i32 0, 7) i32 @pfr_get_advance(ptr noundef readonly captur
   br label %18
 
 18:                                               ; preds = %6, %10, %4, %3
-  %.0 = phi i32 [ 6, %4 ], [ 6, %3 ], [ 0, %10 ], [ 6, %6 ]
+  %.0 = phi i32 [ 6, %3 ], [ 6, %4 ], [ 0, %10 ], [ 6, %6 ]
   ret i32 %.0
 }
 
@@ -3015,8 +3015,8 @@ define internal fastcc i32 @pfr_extra_items_parse(ptr noundef nonnull captures(n
   br i1 %.not, label %.loopexit, label %.lr.ph59.split, !llvm.loop !69
 
 .loopexit:                                        ; preds = %.thread, %.lr.ph59.split, %22, %.lr.ph._crit_edge, %.thread.us, %.lr.ph59.split.us, %14, %8, %4
-  %.137 = phi ptr [ %5, %4 ], [ %6, %8 ], [ %17, %.thread.us ], [ %.03657.us, %.lr.ph59.split.us ], [ %12, %14 ], [ %28, %.thread ], [ %.03657, %.lr.ph59.split ], [ %20, %22 ], [ %20, %.lr.ph._crit_edge ]
-  %.4 = phi i32 [ 8, %4 ], [ 0, %8 ], [ 0, %.thread.us ], [ 8, %.lr.ph59.split.us ], [ 8, %14 ], [ 0, %.thread ], [ 8, %.lr.ph59.split ], [ 8, %22 ], [ %38, %.lr.ph._crit_edge ]
+  %.137 = phi ptr [ %5, %4 ], [ %17, %.thread.us ], [ %6, %8 ], [ %.03657.us, %.lr.ph59.split.us ], [ %12, %14 ], [ %20, %.lr.ph._crit_edge ], [ %20, %22 ], [ %28, %.thread ], [ %.03657, %.lr.ph59.split ]
+  %.4 = phi i32 [ 8, %4 ], [ 0, %.thread.us ], [ 0, %8 ], [ 8, %.lr.ph59.split.us ], [ 8, %14 ], [ %38, %.lr.ph._crit_edge ], [ 8, %22 ], [ 0, %.thread ], [ 8, %.lr.ph59.split ]
   store ptr %.137, ptr %0, align 8, !tbaa !87
   ret i32 %.4
 }
@@ -4062,9 +4062,9 @@ default.unreachable109:                           ; preds = %130, %91, %13
   br label %130
 
 130:                                              ; preds = %91, %114, %105, %97
-  %.1 = phi ptr [ %95, %97 ], [ %103, %105 ], [ %112, %114 ], [ %.088, %91 ]
-  %.084 = phi i32 [ %100, %97 ], [ %108, %105 ], [ %121, %114 ], [ 0, %91 ]
-  %.0 = phi i32 [ %101, %97 ], [ %110, %105 ], [ %129, %114 ], [ 0, %91 ]
+  %.1 = phi ptr [ %112, %114 ], [ %95, %97 ], [ %103, %105 ], [ %.088, %91 ]
+  %.084 = phi i32 [ %121, %114 ], [ %100, %97 ], [ %108, %105 ], [ 0, %91 ]
+  %.0 = phi i32 [ %129, %114 ], [ %101, %97 ], [ %110, %105 ], [ 0, %91 ]
   %131 = lshr i8 %14, 4
   %132 = zext nneg i8 %131 to i32
   %133 = and i32 %132, 3
@@ -4127,8 +4127,8 @@ default.unreachable109:                           ; preds = %130, %91, %13
   br label %173
 
 173:                                              ; preds = %130, %157, %145, %137
-  %.2 = phi ptr [ %135, %137 ], [ %143, %145 ], [ %155, %157 ], [ %.1, %130 ]
-  %.085 = phi i64 [ %141, %137 ], [ %153, %145 ], [ %172, %157 ], [ %2, %130 ]
+  %.2 = phi ptr [ %155, %157 ], [ %135, %137 ], [ %143, %145 ], [ %.1, %130 ]
+  %.085 = phi i64 [ %172, %157 ], [ %141, %137 ], [ %153, %145 ], [ %2, %130 ]
   store i64 %.087, ptr %3, align 8, !tbaa !122
   store i64 %.086, ptr %4, align 8, !tbaa !122
   store i32 %.084, ptr %5, align 4, !tbaa !49
@@ -4298,10 +4298,10 @@ pfr_bitwriter_init.exit:                          ; preds = %7
   br label %59
 
 59:                                               ; preds = %.thread.i, %.preheader.i
-  %.453.i = phi i32 [ 1, %.preheader.i ], [ 0, %.thread.i ]
-  %.448.i = phi i32 [ %.sroa.5.2.i, %.preheader.i ], [ %57, %.thread.i ]
-  %.sroa.5.4.i = phi i32 [ %.sroa.5.2.i, %.preheader.i ], [ %58, %.thread.i ]
-  %.4.i = phi ptr [ %.2.i14, %.preheader.i ], [ %54, %.thread.i ]
+  %.453.i = phi i32 [ 0, %.thread.i ], [ 1, %.preheader.i ]
+  %.448.i = phi i32 [ %57, %.thread.i ], [ %.sroa.5.2.i, %.preheader.i ]
+  %.sroa.5.4.i = phi i32 [ %58, %.thread.i ], [ %.sroa.5.2.i, %.preheader.i ]
+  %.4.i = phi ptr [ %54, %.thread.i ], [ %.2.i14, %.preheader.i ]
   %60 = icmp eq i32 %.448.i, 0
   br i1 %60, label %.preheader.i, label %.loopexit.i, !llvm.loop !272
 
@@ -4451,8 +4451,8 @@ pfr_bitwriter_init.exit:                          ; preds = %7
   br i1 %105, label %pfr_bitwriter_decode_bytes.exit, label %pfr_bitwriter_decode_bytes.exit.sink.split
 
 pfr_bitwriter_decode_bytes.exit.sink.split:       ; preds = %._crit_edge.i26, %._crit_edge.i16, %._crit_edge.i
-  %.2.i24.lcssa.sink = phi i32 [ %.2.i, %._crit_edge.i ], [ %.235.i, %._crit_edge.i16 ], [ %.2.i24, %._crit_edge.i26 ]
-  %.132.i23.lcssa.sink = phi ptr [ %.136.i, %._crit_edge.i ], [ %.139.i, %._crit_edge.i16 ], [ %.132.i23, %._crit_edge.i26 ]
+  %.2.i24.lcssa.sink = phi i32 [ %.235.i, %._crit_edge.i16 ], [ %.2.i, %._crit_edge.i ], [ %.2.i24, %._crit_edge.i26 ]
+  %.132.i23.lcssa.sink = phi ptr [ %.139.i, %._crit_edge.i16 ], [ %.136.i, %._crit_edge.i ], [ %.132.i23, %._crit_edge.i26 ]
   %106 = trunc i32 %.2.i24.lcssa.sink to i8
   store i8 %106, ptr %.132.i23.lcssa.sink, align 1, !tbaa !65
   br label %pfr_bitwriter_decode_bytes.exit
@@ -4810,8 +4810,8 @@ pfr_extra_items_skip.exit.i:                      ; preds = %.thread.us.i.i.i, %
   %exitcond.not.i = icmp eq i32 %193, %29
   br i1 %exitcond.not.i, label %.loopexit123, label %.lr.ph.i, !llvm.loop !284
 
-pfr_glyph_load_compound.exit.thread:              ; preds = %39, %.lr.ph59.split.us.i.i.i, %178, %166, %158, %147, %137, %125, %116, %104, %88, %71, %.lr.ph.i, %53, %31, %49, %19
-  %.ph = phi i32 [ 8, %19 ], [ 8, %49 ], [ 8, %31 ], [ %59, %53 ], [ 8, %.lr.ph.i ], [ 8, %71 ], [ 8, %88 ], [ 8, %104 ], [ 8, %116 ], [ 8, %125 ], [ 8, %137 ], [ 8, %147 ], [ 8, %158 ], [ 8, %166 ], [ 8, %178 ], [ 8, %.lr.ph59.split.us.i.i.i ], [ 8, %39 ]
+pfr_glyph_load_compound.exit.thread:              ; preds = %39, %.lr.ph59.split.us.i.i.i, %178, %88, %125, %116, %147, %166, %158, %137, %71, %.lr.ph.i, %104, %53, %31, %49, %19
+  %.ph = phi i32 [ %59, %53 ], [ 8, %19 ], [ 8, %178 ], [ 8, %49 ], [ 8, %31 ], [ 8, %104 ], [ 8, %.lr.ph.i ], [ 8, %71 ], [ 8, %137 ], [ 8, %158 ], [ 8, %166 ], [ 8, %147 ], [ 8, %116 ], [ 8, %125 ], [ 8, %88 ], [ 8, %.lr.ph59.split.us.i.i.i ], [ 8, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit122.sink.split
 
@@ -5638,8 +5638,8 @@ pfr_glyph_close_contour.exit.i.i:                 ; preds = %569, %568, %528
   %612 = call fastcc i32 @pfr_glyph_curve_to(ptr %.val158.i, i8 %.val159.i, ptr noundef %7, ptr noundef %393, ptr noundef %394)
   br label %pfr_glyph_line_to.exit.i
 
-pfr_glyph_line_to.exit.i.thread:                  ; preds = %516, %._crit_edge216.thread.i, %594, %598, %.thread.i162.i
-  %.sink291.i.ph = phi i32 [ 8, %.thread.i162.i ], [ %599, %598 ], [ %595, %594 ], [ 8, %._crit_edge216.thread.i ], [ %517, %516 ]
+pfr_glyph_line_to.exit.i.thread:                  ; preds = %._crit_edge216.thread.i, %516, %594, %598, %.thread.i162.i
+  %.sink291.i.ph = phi i32 [ 8, %.thread.i162.i ], [ %599, %598 ], [ %595, %594 ], [ %517, %516 ], [ 8, %._crit_edge216.thread.i ]
   store i32 %.sink291.i.ph, ptr %6, align 4, !tbaa !49
   br label %pfr_extra_items_skip.exit.thread.sink.split.i
 
@@ -5651,12 +5651,12 @@ pfr_glyph_line_to.exit.i:                         ; preds = %611, %.thread.i.i.i
   br i1 %.not152.i, label %397, label %pfr_extra_items_skip.exit.thread.sink.split.i
 
 pfr_extra_items_skip.exit.thread.sink.split.i:    ; preds = %pfr_glyph_line_to.exit.i, %412, %405, %397, %494, %480, %468, %461, %458, %445, %433, %426, %423, %pfr_glyph_line_to.exit.i.thread, %._crit_edge216.thread282.i
-  %.ph.i = phi i32 [ %.pre227.pre.i, %._crit_edge216.thread282.i ], [ %.sink291.i.ph, %pfr_glyph_line_to.exit.i.thread ], [ 8, %423 ], [ 8, %426 ], [ 8, %433 ], [ 8, %445 ], [ 8, %458 ], [ 8, %461 ], [ 8, %468 ], [ 8, %480 ], [ 8, %494 ], [ 8, %412 ], [ 8, %405 ], [ 8, %397 ], [ %.sink291.i, %pfr_glyph_line_to.exit.i ]
+  %.ph.i = phi i32 [ 8, %494 ], [ %.pre227.pre.i, %._crit_edge216.thread282.i ], [ %.sink291.i.ph, %pfr_glyph_line_to.exit.i.thread ], [ 8, %423 ], [ 8, %426 ], [ 8, %433 ], [ 8, %445 ], [ 8, %458 ], [ 8, %461 ], [ 8, %468 ], [ 8, %480 ], [ 8, %397 ], [ 8, %412 ], [ 8, %405 ], [ %.sink291.i, %pfr_glyph_line_to.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %pfr_glyph_load_simple.exit
 
 pfr_glyph_load_simple.exit:                       ; preds = %340, %348, %360, %.lr.ph59.split.us.i.i.i101, %382, %.thread, %281, %290, %300, %308, %319, %374, %pfr_extra_items_skip.exit.thread.sink.split.i
-  %613 = phi i32 [ %327, %319 ], [ 8, %374 ], [ 8, %281 ], [ 8, %308 ], [ 8, %300 ], [ 8, %290 ], [ %.ph.i, %pfr_extra_items_skip.exit.thread.sink.split.i ], [ 8, %.thread ], [ 8, %382 ], [ 8, %.lr.ph59.split.us.i.i.i101 ], [ 8, %360 ], [ 8, %348 ], [ 8, %340 ]
+  %613 = phi i32 [ 8, %374 ], [ %327, %319 ], [ 8, %290 ], [ 8, %300 ], [ %.ph.i, %pfr_extra_items_skip.exit.thread.sink.split.i ], [ 8, %.thread ], [ 8, %281 ], [ 8, %308 ], [ 8, %.lr.ph59.split.us.i.i.i101 ], [ 8, %382 ], [ 8, %360 ], [ 8, %348 ], [ 8, %340 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit122.sink.split
 

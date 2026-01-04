@@ -500,7 +500,7 @@ treatstackoption.exit58:                          ; preds = %103, %104
   br label %105
 
 105:                                              ; preds = %100, %treatstackoption.exit58, %29, %26
-  %.047 = phi i32 [ %30, %29 ], [ 1, %26 ], [ 1, %treatstackoption.exit58 ], [ 1, %100 ]
+  %.047 = phi i32 [ 1, %26 ], [ %30, %29 ], [ 1, %treatstackoption.exit58 ], [ 1, %100 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.047
 }

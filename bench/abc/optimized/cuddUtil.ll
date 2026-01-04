@@ -360,8 +360,8 @@ switch.lookup:                                    ; preds = %.lr.ph
   br label %96
 
 .critedge.sink.split:                             ; preds = %Cudd_BddToCubeArray.exit, %35, %26, %Cudd_BddToCubeArray.exit.thread
-  %.sink163 = phi ptr [ %44, %Cudd_BddToCubeArray.exit.thread ], [ %.074109, %26 ], [ %.074109, %35 ], [ %44, %Cudd_BddToCubeArray.exit ]
-  %.sink162.ph = phi ptr [ %33, %Cudd_BddToCubeArray.exit.thread ], [ %24, %26 ], [ %33, %35 ], [ %33, %Cudd_BddToCubeArray.exit ]
+  %.sink163 = phi ptr [ %44, %Cudd_BddToCubeArray.exit.thread ], [ %.074109, %35 ], [ %.074109, %26 ], [ %44, %Cudd_BddToCubeArray.exit ]
+  %.sink162.ph = phi ptr [ %33, %Cudd_BddToCubeArray.exit.thread ], [ %33, %35 ], [ %24, %26 ], [ %33, %Cudd_BddToCubeArray.exit ]
   call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.sink163) #26
   br label %.critedge
 
@@ -611,14 +611,14 @@ Cudd_PrintMinterm.exit:                           ; preds = %.lr.ph.i, %.prehead
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %69, %49, %6, %23
-  %.sink.in = phi ptr [ %24, %23 ], [ %7, %6 ], [ %39, %49 ], [ %39, %69 ]
-  %.040.ph = phi i32 [ 1, %23 ], [ 0, %6 ], [ %.4, %49 ], [ %70, %69 ]
+  %.sink.in = phi ptr [ %7, %6 ], [ %24, %23 ], [ %39, %49 ], [ %39, %69 ]
+  %.040.ph = phi i32 [ 0, %6 ], [ 1, %23 ], [ %.4, %49 ], [ %70, %69 ]
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !32
   %72 = tail call i32 @fflush(ptr noundef %.sink)
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %22, %27
-  %.040 = phi i32 [ 1, %27 ], [ 1, %22 ], [ %.040.ph, %.thread.sink.split ]
+  %.040 = phi i32 [ 1, %22 ], [ 1, %27 ], [ %.040.ph, %.thread.sink.split ]
   ret i32 %.040
 }
 
@@ -1092,7 +1092,7 @@ cuddUniqueLookup.exit.thread:                     ; preds = %163, %.preheader.i,
   br label %190
 
 190:                                              ; preds = %184, %102, %73, %45, %24, %13, %18, %15, %189, %76, %49
-  %.080 = phi i32 [ %41, %49 ], [ %78, %76 ], [ %.1, %189 ], [ -1, %15 ], [ 0, %18 ], [ 0, %13 ], [ %., %24 ], [ -1, %45 ], [ -1, %73 ], [ -1, %102 ], [ -1, %184 ]
+  %.080 = phi i32 [ -1, %15 ], [ -1, %102 ], [ %., %24 ], [ 0, %13 ], [ 0, %18 ], [ %41, %49 ], [ -1, %45 ], [ %78, %76 ], [ -1, %73 ], [ %.1, %189 ], [ -1, %184 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.080
@@ -1322,7 +1322,7 @@ define internal fastcc double @ddCountMintermAux(ptr noundef %0, double noundef 
   br label %.critedge
 
 .critedge:                                        ; preds = %52, %57, %64, %46, %35, %20, %26, %9, %14
-  %.0 = phi double [ %1, %14 ], [ -1.000000e+00, %64 ], [ 0.000000e+00, %9 ], [ %22, %26 ], [ %22, %20 ], [ -1.000000e+00, %35 ], [ -1.000000e+00, %46 ], [ %55, %57 ], [ %55, %52 ]
+  %.0 = phi double [ -1.000000e+00, %64 ], [ %1, %14 ], [ 0.000000e+00, %9 ], [ %22, %20 ], [ -1.000000e+00, %35 ], [ -1.000000e+00, %46 ], [ %22, %26 ], [ %55, %57 ], [ %55, %52 ]
   ret double %.0
 }
 
@@ -1400,7 +1400,7 @@ define internal fastcc double @ddCountPathAux(ptr noundef %0, ptr noundef nonnul
   br label %32
 
 32:                                               ; preds = %27, %24, %18, %11, %2, %31, %8
-  %.0 = phi double [ %10, %8 ], [ -1.000000e+00, %31 ], [ 1.000000e+00, %2 ], [ -1.000000e+00, %11 ], [ -1.000000e+00, %18 ], [ -1.000000e+00, %24 ], [ %28, %27 ]
+  %.0 = phi double [ -1.000000e+00, %24 ], [ %10, %8 ], [ 1.000000e+00, %2 ], [ -1.000000e+00, %11 ], [ -1.000000e+00, %18 ], [ -1.000000e+00, %31 ], [ %28, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret double %.0
 }
@@ -1576,7 +1576,7 @@ define internal fastcc range(i32 -1, 1) i32 @ddEpdCountMintermAux(ptr noundef %0
   br label %49
 
 49:                                               ; preds = %40, %45, %43, %31, %24, %15, %16, %48, %22
-  %.0 = phi i32 [ 0, %22 ], [ -1, %48 ], [ 0, %16 ], [ 0, %15 ], [ -1, %24 ], [ -1, %31 ], [ -1, %43 ], [ 0, %45 ], [ 0, %40 ]
+  %.0 = phi i32 [ -1, %31 ], [ 0, %22 ], [ 0, %15 ], [ -1, %24 ], [ -1, %48 ], [ -1, %43 ], [ 0, %16 ], [ 0, %45 ], [ 0, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1683,7 +1683,7 @@ define internal fastcc double @ddCountPathsToNonZero(ptr noundef %0, ptr noundef
   br label %45
 
 45:                                               ; preds = %40, %37, %31, %21, %9, %11, %44, %18
-  %.0 = phi double [ %20, %18 ], [ -1.000000e+00, %44 ], [ 0.000000e+00, %9 ], [ %15, %11 ], [ -1.000000e+00, %21 ], [ -1.000000e+00, %31 ], [ -1.000000e+00, %37 ], [ %41, %40 ]
+  %.0 = phi double [ -1.000000e+00, %37 ], [ %20, %18 ], [ %15, %11 ], [ -1.000000e+00, %21 ], [ -1.000000e+00, %31 ], [ -1.000000e+00, %44 ], [ 0.000000e+00, %9 ], [ %41, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret double %.0
 }
@@ -2809,7 +2809,7 @@ Cudd_Random.exit:                                 ; preds = %.preheader, %48
   br i1 %94, label %.loopexit, label %.lr.ph48
 
 .loopexit:                                        ; preds = %91, %.preheader44, %6, %3
-  %.036 = phi i32 [ 0, %3 ], [ 0, %6 ], [ 1, %.preheader44 ], [ 1, %91 ]
+  %.036 = phi i32 [ 0, %6 ], [ 0, %3 ], [ 1, %.preheader44 ], [ 1, %91 ]
   ret i32 %.036
 }
 
@@ -3409,9 +3409,9 @@ define noalias noundef ptr @Cudd_bddPickArbitraryMinterms(ptr noundef %0, ptr no
   br label %.loopexit356
 
 .loopexit356:                                     ; preds = %.preheader357, %.preheader355, %.loopexit356.sink.split, %83
-  %.1279 = phi i32 [ 1, %83 ], [ 1, %.loopexit356.sink.split ], [ 0, %.preheader355 ], [ 0, %.preheader357 ]
-  %.1277 = phi i32 [ %.0276409, %83 ], [ %75, %.loopexit356.sink.split ], [ %.0276409, %.preheader355 ], [ %.0276409, %.preheader357 ]
-  %.not313398 = phi i1 [ false, %83 ], [ true, %.loopexit356.sink.split ], [ true, %.preheader355 ], [ true, %.preheader357 ]
+  %.1279 = phi i32 [ 1, %83 ], [ 0, %.preheader355 ], [ 1, %.loopexit356.sink.split ], [ 0, %.preheader357 ]
+  %.1277 = phi i32 [ %.0276409, %83 ], [ %.0276409, %.preheader355 ], [ %75, %.loopexit356.sink.split ], [ %.0276409, %.preheader357 ]
+  %.not313398 = phi i1 [ false, %83 ], [ true, %.preheader355 ], [ true, %.loopexit356.sink.split ], [ true, %.preheader357 ]
   %cuddRand.promoted386.pre = load i64, ptr @cuddRand, align 8
   %cuddRand2.promoted392.pre = load i64, ptr @cuddRand2, align 8
   br i1 %36, label %.lr.ph377, label %.preheader354
@@ -3820,7 +3820,7 @@ Cudd_Random.exit:                                 ; preds = %.preheader353, %163
   br label %268
 
 268:                                              ; preds = %5, %._crit_edge415, %254, %236, %._crit_edge429, %._crit_edge433, %._crit_edge436, %._crit_edge440, %29, %22
-  %.0280 = phi ptr [ null, %22 ], [ null, %29 ], [ null, %._crit_edge440 ], [ null, %._crit_edge436 ], [ null, %._crit_edge433 ], [ null, %._crit_edge429 ], [ null, %236 ], [ null, %254 ], [ %54, %._crit_edge415 ], [ null, %5 ]
+  %.0280 = phi ptr [ %54, %._crit_edge415 ], [ null, %22 ], [ null, %29 ], [ null, %._crit_edge440 ], [ null, %._crit_edge436 ], [ null, %._crit_edge433 ], [ null, %._crit_edge429 ], [ null, %236 ], [ null, %254 ], [ null, %5 ]
   ret ptr %.0280
 }
 
@@ -3937,7 +3937,7 @@ tailrecurse:                                      ; preds = %._crit_edge
   br i1 %63, label %._crit_edge80, label %8
 
 ._crit_edge80:                                    ; preds = %tailrecurse, %8, %16, %34, %._crit_edge, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %._crit_edge ], [ 0, %34 ], [ 0, %16 ], [ 1, %8 ], [ 0, %tailrecurse ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %._crit_edge ], [ 1, %8 ], [ 0, %16 ], [ 0, %34 ], [ 0, %tailrecurse ]
   ret i32 %.0
 }
 
@@ -4158,8 +4158,8 @@ define ptr @Cudd_SubsetWithMaskVars(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %113
 
 113:                                              ; preds = %111, %109
-  %.sink.i = phi i8 [ %..i, %109 ], [ %.50.i, %111 ]
-  %.1.i = phi ptr [ %.036..037.i, %109 ], [ %.037..036.i, %111 ]
+  %.sink.i = phi i8 [ %.50.i, %111 ], [ %..i, %109 ]
+  %.1.i = phi ptr [ %.037..036.i, %111 ], [ %.036..037.i, %109 ]
   store i8 %.sink.i, ptr %108, align 1, !tbaa !34
   %114 = ptrtoint ptr %.1.i to i64
   %115 = and i64 %114, -2
@@ -4627,7 +4627,7 @@ define noalias noundef ptr @Cudd_FirstCube(ptr noundef %0, ptr noundef %1, ptr n
   br label %97
 
 97:                                               ; preds = %4, %95, %36, %26, %10
-  %.0 = phi ptr [ null, %10 ], [ null, %26 ], [ null, %36 ], [ %8, %95 ], [ null, %4 ]
+  %.0 = phi ptr [ %8, %95 ], [ null, %10 ], [ null, %26 ], [ null, %36 ], [ null, %4 ]
   ret ptr %.0
 }
 
@@ -5049,7 +5049,7 @@ Cudd_BddToCubeArray.exit:                         ; preds = %97, %.preheader.i
   br label %110
 
 110:                                              ; preds = %4, %108, %106, %66, %54, %44, %36, %14
-  %.0 = phi ptr [ null, %14 ], [ null, %36 ], [ %12, %108 ], [ null, %44 ], [ null, %54 ], [ null, %66 ], [ null, %106 ], [ null, %4 ]
+  %.0 = phi ptr [ null, %106 ], [ null, %14 ], [ null, %36 ], [ %12, %108 ], [ null, %44 ], [ null, %54 ], [ null, %66 ], [ null, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
 }
@@ -5234,7 +5234,7 @@ Cudd_BddToCubeArray.exit.thread56:                ; preds = %.preheader.i
   br label %88
 
 88:                                               ; preds = %.thread, %.thread59, %83, %44, %30, %16
-  %.0 = phi i32 [ 1, %.thread59 ], [ 0, %16 ], [ 0, %30 ], [ 0, %44 ], [ 0, %83 ], [ 0, %.thread ]
+  %.0 = phi i32 [ 0, %83 ], [ 1, %.thread59 ], [ 0, %16 ], [ 0, %30 ], [ 0, %44 ], [ 0, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -5316,8 +5316,8 @@ define ptr @Cudd_bddComputeCube(ptr noundef %0, ptr noundef readonly captures(no
   br i1 %44, label %.lr.ph.split, label %._crit_edge, !llvm.loop !122
 
 ._crit_edge:                                      ; preds = %37, %20, %4
-  %.pre-phi45 = phi ptr [ %9, %4 ], [ %23, %20 ], [ %40, %37 ]
-  %.026.lcssa = phi ptr [ %6, %4 ], [ %18, %20 ], [ %35, %37 ]
+  %.pre-phi45 = phi ptr [ %23, %20 ], [ %9, %4 ], [ %40, %37 ]
+  %.026.lcssa = phi ptr [ %18, %20 ], [ %6, %4 ], [ %35, %37 ]
   %45 = getelementptr inbounds nuw i8, ptr %.pre-phi45, i64 4
   %46 = load i32, ptr %45, align 4, !tbaa !35
   %47 = add i32 %46, -1
@@ -5415,8 +5415,8 @@ define ptr @Cudd_addComputeCube(ptr noundef %0, ptr noundef readonly captures(no
   br i1 %47, label %.lr.ph.split, label %._crit_edge, !llvm.loop !123
 
 ._crit_edge:                                      ; preds = %40, %22, %4
-  %.pre-phi48 = phi ptr [ %9, %4 ], [ %25, %22 ], [ %43, %40 ]
-  %.030.lcssa = phi ptr [ %6, %4 ], [ %20, %22 ], [ %.028, %40 ]
+  %.pre-phi48 = phi ptr [ %25, %22 ], [ %9, %4 ], [ %43, %40 ]
+  %.030.lcssa = phi ptr [ %20, %22 ], [ %6, %4 ], [ %.028, %40 ]
   %48 = getelementptr inbounds nuw i8, ptr %.pre-phi48, i64 4
   %49 = load i32, ptr %48, align 4, !tbaa !35
   %50 = add i32 %49, -1
@@ -5576,7 +5576,7 @@ define noalias noundef ptr @Cudd_FirstNode(ptr noundef %0, ptr noundef %1, ptr n
   br label %33
 
 33:                                               ; preds = %26, %31, %3, %24, %9
-  %.0 = phi ptr [ null, %9 ], [ null, %24 ], [ null, %3 ], [ %7, %31 ], [ %7, %26 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %9 ], [ null, %24 ], [ %7, %31 ], [ %7, %26 ]
   ret ptr %.0
 }
 
@@ -5965,8 +5965,8 @@ define double @Cudd_AverageDistance(ptr noundef readonly captures(address) %0) l
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @Cudd_Srandom(i64 noundef %0) local_unnamed_addr #17 {
   %2 = icmp slt i64 %0, 0
-  %3 = sub nsw i64 0, %0
   %. = tail call i64 @llvm.umax.i64(i64 %0, i64 1)
+  %3 = sub nsw i64 0, %0
   %4 = select i1 %2, i64 %3, i64 %.
   store i64 %4, ptr @cuddRand2, align 8, !tbaa !79
   br label %5
@@ -6141,7 +6141,7 @@ define internal fastcc range(i32 0, 2) i32 @dp2(ptr noundef %0, ptr noundef %1, 
   br label %70
 
 70:                                               ; preds = %65, %59, %23, %20, %3, %69, %11
-  %.039 = phi i32 [ 1, %11 ], [ 1, %69 ], [ 0, %3 ], [ 1, %20 ], [ 0, %23 ], [ 0, %59 ], [ 0, %65 ]
+  %.039 = phi i32 [ 1, %69 ], [ 1, %11 ], [ 0, %3 ], [ 1, %20 ], [ 0, %23 ], [ 0, %59 ], [ 0, %65 ]
   ret i32 %.039
 }
 
@@ -6187,7 +6187,7 @@ tailrecurse:                                      ; preds = %12
   br i1 %22, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %tailrecurse, %.lr.ph, %6, %9, %12, %2
-  %.0 = phi i32 [ 1, %2 ], [ %15, %12 ], [ 1, %9 ], [ 0, %6 ], [ 0, %.lr.ph ], [ 1, %tailrecurse ]
+  %.0 = phi i32 [ 1, %2 ], [ 0, %.lr.ph ], [ 0, %6 ], [ 1, %9 ], [ %15, %12 ], [ 1, %tailrecurse ]
   ret i32 %.0
 }
 

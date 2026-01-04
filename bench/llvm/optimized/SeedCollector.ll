@@ -249,7 +249,7 @@ define weak_odr void @_ZNK4llvm9sandboxir13SeedContainer6getKeyINS0_8LoadInstEEE
   br label %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit
 
 _ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit: ; preds = %3, %17, %22, %24, %26
-  %.1.i.sink.i = phi ptr [ %2, %17 ], [ %23, %22 ], [ %27, %26 ], [ %2, %24 ], [ %2, %3 ]
+  %.1.i.sink.i = phi ptr [ %2, %17 ], [ %2, %24 ], [ %23, %22 ], [ %27, %26 ], [ %2, %3 ]
   %28 = tail call noundef ptr @_ZNK4llvm9sandboxir5Value7getTypeEv(ptr noundef nonnull align 8 dereferenceable(32) %.1.i.sink.i) #21
   %29 = load ptr, ptr %28, align 8, !tbaa !17
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -318,7 +318,7 @@ define weak_odr void @_ZNK4llvm9sandboxir13SeedContainer6getKeyINS0_9StoreInstEE
   br label %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit
 
 _ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit: ; preds = %3, %17, %22, %24, %26
-  %.1.i.sink.i = phi ptr [ %2, %17 ], [ %23, %22 ], [ %27, %26 ], [ %2, %24 ], [ %2, %3 ]
+  %.1.i.sink.i = phi ptr [ %2, %17 ], [ %2, %24 ], [ %23, %22 ], [ %27, %26 ], [ %2, %3 ]
   %28 = tail call noundef ptr @_ZNK4llvm9sandboxir5Value7getTypeEv(ptr noundef nonnull align 8 dereferenceable(32) %.1.i.sink.i) #21
   %29 = load ptr, ptr %28, align 8, !tbaa !17
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -1459,7 +1459,7 @@ define linkonce_odr hidden noundef i32 @_ZN4llvm9sandboxir5Utils10getNumBitsEPNS
   br label %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit
 
 _ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit: ; preds = %1, %10, %15, %17, %19
-  %.1.i.sink.i = phi ptr [ %0, %10 ], [ %16, %15 ], [ %20, %19 ], [ %0, %17 ], [ %0, %1 ]
+  %.1.i.sink.i = phi ptr [ %0, %10 ], [ %0, %17 ], [ %16, %15 ], [ %20, %19 ], [ %0, %1 ]
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 288
   %22 = tail call noundef ptr @_ZNK4llvm9sandboxir5Value7getTypeEv(ptr noundef nonnull align 8 dereferenceable(32) %.1.i.sink.i) #21
   %23 = load ptr, ptr %22, align 8, !tbaa !156
@@ -1634,7 +1634,7 @@ _ZN4llvm9sandboxir10SeedBundle7setUsedEPNS0_11InstructionE.exit.loopexit.split.l
   br label %_ZN4llvm9sandboxir10SeedBundle7setUsedEPNS0_11InstructionE.exit
 
 _ZN4llvm9sandboxir10SeedBundle7setUsedEPNS0_11InstructionE.exit: ; preds = %44, %_ZN4llvm9sandboxir10SeedBundle7setUsedEPNS0_11InstructionE.exit.loopexit.split.loop.exit, %_ZN4llvm9sandboxir10SeedBundle7setUsedEPNS0_11InstructionE.exit.loopexit.split.loop.exit23, %_ZN4llvm9sandboxir10SeedBundle7setUsedEPNS0_11InstructionE.exit.loopexit.split.loop.exit25, %64, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i, %75
-  %.028.i.i.i.i = phi ptr [ %41, %75 ], [ %.029.lcssa.i.i.i.i, %64 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %76, %_ZN4llvm9sandboxir10SeedBundle7setUsedEPNS0_11InstructionE.exit.loopexit.split.loop.exit ], [ %77, %_ZN4llvm9sandboxir10SeedBundle7setUsedEPNS0_11InstructionE.exit.loopexit.split.loop.exit23 ], [ %78, %_ZN4llvm9sandboxir10SeedBundle7setUsedEPNS0_11InstructionE.exit.loopexit.split.loop.exit25 ], [ %.02946.i.i.i.i, %44 ]
+  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %41, %75 ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %.029.lcssa.i.i.i.i, %64 ], [ %78, %_ZN4llvm9sandboxir10SeedBundle7setUsedEPNS0_11InstructionE.exit.loopexit.split.loop.exit25 ], [ %76, %_ZN4llvm9sandboxir10SeedBundle7setUsedEPNS0_11InstructionE.exit.loopexit.split.loop.exit ], [ %77, %_ZN4llvm9sandboxir10SeedBundle7setUsedEPNS0_11InstructionE.exit.loopexit.split.loop.exit23 ], [ %.02946.i.i.i.i, %44 ]
   %79 = ptrtoint ptr %37 to i64
   %80 = ptrtoint ptr %.028.i.i.i.i to i64
   %81 = sub i64 %80, %79
@@ -1770,7 +1770,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %24, %32
   br label %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i
 
 _ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i: ; preds = %64, %62, %60, %55, %50
-  %.1.i.sink.i.i = phi ptr [ %41, %55 ], [ %61, %60 ], [ %65, %64 ], [ %41, %62 ], [ %41, %50 ]
+  %.1.i.sink.i.i = phi ptr [ %41, %55 ], [ %41, %62 ], [ %61, %60 ], [ %65, %64 ], [ %41, %50 ]
   %66 = call noundef ptr @_ZNK4llvm9sandboxir5Value7getTypeEv(ptr noundef nonnull align 8 dereferenceable(32) %.1.i.sink.i.i) #21
   %67 = load ptr, ptr %66, align 8, !tbaa !156
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
@@ -1850,7 +1850,7 @@ _ZN4llvm9sandboxirL14isValidMemSeedINS0_9StoreInstEEEbPT_.exit.thread: ; preds =
   br label %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i30
 
 _ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i30: ; preds = %98, %96, %94, %89, %84
-  %.1.i.sink.i.i31 = phi ptr [ %41, %89 ], [ %95, %94 ], [ %99, %98 ], [ %41, %96 ], [ %41, %84 ]
+  %.1.i.sink.i.i31 = phi ptr [ %41, %89 ], [ %41, %96 ], [ %95, %94 ], [ %99, %98 ], [ %41, %84 ]
   %100 = call noundef ptr @_ZNK4llvm9sandboxir5Value7getTypeEv(ptr noundef nonnull align 8 dereferenceable(32) %.1.i.sink.i.i31) #21
   %101 = load ptr, ptr %100, align 8, !tbaa !156
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
@@ -2284,8 +2284,8 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %2
   unreachable
 
 58:                                               ; preds = %2, %2, %54, %43, %42, %41, %40, %39, %38, %35, %32, %15, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit, %5
-  %.sroa.079.0 = phi i64 [ %9, %5 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %31, %15 ], [ %34, %32 ], [ %37, %35 ], [ 32, %38 ], [ 64, %39 ], [ 128, %40 ], [ 8192, %41 ], [ 80, %42 ], [ %52, %43 ], [ %.fca.0.extract, %54 ], [ 16, %2 ], [ 16, %2 ]
-  %.sroa.14.0 = phi i8 [ 0, %5 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %22, %15 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ 0, %35 ], [ 0, %38 ], [ 0, %39 ], [ 0, %40 ], [ 0, %41 ], [ 0, %42 ], [ %53, %43 ], [ %.fca.1.extract, %54 ], [ 0, %2 ], [ 0, %2 ]
+  %.sroa.079.0 = phi i64 [ %9, %5 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %31, %15 ], [ %34, %32 ], [ %37, %35 ], [ %.fca.0.extract, %54 ], [ 32, %38 ], [ 64, %39 ], [ 128, %40 ], [ 8192, %41 ], [ 80, %42 ], [ %52, %43 ], [ 16, %2 ], [ 16, %2 ]
+  %.sroa.14.0 = phi i8 [ 0, %5 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %22, %15 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ 0, %35 ], [ %.fca.1.extract, %54 ], [ 0, %38 ], [ 0, %39 ], [ 0, %40 ], [ 0, %41 ], [ 0, %42 ], [ %53, %43 ], [ 0, %2 ], [ 0, %2 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.079.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.14.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -2836,7 +2836,7 @@ _ZN4llvm12DenseMapInfoISt5tupleIJPNS_9sandboxir5ValueEPNS2_4TypeENS2_11Instructi
   br label %.thread
 
 .thread:                                          ; preds = %_ZN4llvm12DenseMapInfoISt5tupleIJPNS_9sandboxir5ValueEPNS2_4TypeENS2_11Instruction6OpcodeEEEvE7isEqualERKS9_SC_.exit.thread, %_ZN4llvm12DenseMapInfoISt5tupleIJPNS_9sandboxir5ValueEPNS2_4TypeENS2_11Instruction6OpcodeEEEvE7isEqualERKS9_SC_.exit35, %62
-  %69 = phi i1 [ %68, %62 ], [ false, %_ZN4llvm12DenseMapInfoISt5tupleIJPNS_9sandboxir5ValueEPNS2_4TypeENS2_11Instruction6OpcodeEEEvE7isEqualERKS9_SC_.exit35 ], [ false, %_ZN4llvm12DenseMapInfoISt5tupleIJPNS_9sandboxir5ValueEPNS2_4TypeENS2_11Instruction6OpcodeEEEvE7isEqualERKS9_SC_.exit.thread ]
+  %69 = phi i1 [ false, %_ZN4llvm12DenseMapInfoISt5tupleIJPNS_9sandboxir5ValueEPNS2_4TypeENS2_11Instruction6OpcodeEEEvE7isEqualERKS9_SC_.exit.thread ], [ %68, %62 ], [ false, %_ZN4llvm12DenseMapInfoISt5tupleIJPNS_9sandboxir5ValueEPNS2_4TypeENS2_11Instruction6OpcodeEEEvE7isEqualERKS9_SC_.exit35 ]
   %70 = icmp eq ptr %.029, null
   %or.cond.not = select i1 %69, i1 %70, i1 false
   %spec.select = select i1 %or.cond.not, ptr %44, ptr %.029

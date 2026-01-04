@@ -319,7 +319,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK13btConvexShape44localGetSupp
   br label %234
 
 67:                                               ; preds = %2
-  %.0.sroa.gep210 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %.0.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %68, i64 16, i1 false), !tbaa.struct !18
@@ -348,13 +348,13 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK13btConvexShape44localGetSupp
   br label %78
 
 78:                                               ; preds = %67, %77, %76
-  %79 = phi float [ %73, %76 ], [ %72, %77 ], [ %73, %67 ]
-  %.081.sroa.phi = phi ptr [ %.sroa.18, %76 ], [ %.sroa.10175, %77 ], [ %.sroa.18, %67 ]
-  %.080.sroa.phi = phi ptr [ %.sroa.10175, %76 ], [ %.sroa.18, %77 ], [ %.sroa.0173, %67 ]
-  %.080.sroa.phi196 = phi ptr [ %.sroa.11, %76 ], [ %.sroa.20, %77 ], [ %.sroa.0207, %67 ]
-  %.0.sroa.phi = phi ptr [ %.sroa.0173, %76 ], [ %.sroa.0173, %77 ], [ %.sroa.10175, %67 ]
-  %.0.sroa.phi178 = phi ptr [ %.sroa.0207, %76 ], [ %.sroa.0207, %77 ], [ %.sroa.11, %67 ]
-  %.0.sroa.phi208 = phi ptr [ %3, %76 ], [ %3, %77 ], [ %.0.sroa.gep210, %67 ]
+  %79 = phi float [ %73, %67 ], [ %72, %77 ], [ %73, %76 ]
+  %.081.sroa.phi = phi ptr [ %.sroa.18, %67 ], [ %.sroa.10175, %77 ], [ %.sroa.18, %76 ]
+  %.080.sroa.phi = phi ptr [ %.sroa.0173, %67 ], [ %.sroa.18, %77 ], [ %.sroa.10175, %76 ]
+  %.080.sroa.phi196 = phi ptr [ %.sroa.0207, %67 ], [ %.sroa.20, %77 ], [ %.sroa.11, %76 ]
+  %.0.sroa.phi = phi ptr [ %.sroa.10175, %67 ], [ %.sroa.0173, %77 ], [ %.sroa.0173, %76 ]
+  %.0.sroa.phi178 = phi ptr [ %.sroa.11, %67 ], [ %.sroa.0207, %77 ], [ %.sroa.0207, %76 ]
+  %.0.sroa.phi208 = phi ptr [ %.0.sroa.gep, %67 ], [ %3, %77 ], [ %3, %76 ]
   %80 = load float, ptr %.0.sroa.phi208, align 4, !tbaa !15
   %81 = sext i32 %75 to i64
   %82 = getelementptr inbounds float, ptr %3, i64 %81
@@ -625,8 +625,8 @@ _ZL17convexHullSupportRK9btVector3PS0_iS1_.exit101: ; preds = %184, %._crit_edge
   br label %234
 
 234:                                              ; preds = %2, %227, %_ZL17convexHullSupportRK9btVector3PS0_iS1_.exit101, %_ZL17convexHullSupportRK9btVector3PS0_iS1_.exit, %132, %101, %29, %8
-  %.sroa.0226.0 = phi <2 x float> [ %232, %227 ], [ %.sroa.0226.4.vec.insert239, %8 ], [ %.sroa.0226.4.vec.insert241, %29 ], [ %.sroa.0226.4.vec.insert245, %101 ], [ %.sroa.0226.4.vec.insert247, %132 ], [ %.sroa.0.4.vec.insert.i8.i, %_ZL17convexHullSupportRK9btVector3PS0_iS1_.exit ], [ %.sroa.0.4.vec.insert.i8.i88, %_ZL17convexHullSupportRK9btVector3PS0_iS1_.exit101 ], [ zeroinitializer, %2 ]
-  %.sroa.16.0 = phi <2 x float> [ %233, %227 ], [ %.sroa.16.12.vec.insert260, %8 ], [ %.sroa.16.12.vec.insert262, %29 ], [ %.sroa.16.12.vec.insert266, %101 ], [ %.sroa.16.12.vec.insert268, %132 ], [ %.sroa.3.12.vec.insert.i9.i, %_ZL17convexHullSupportRK9btVector3PS0_iS1_.exit ], [ %.sroa.3.12.vec.insert.i9.i89, %_ZL17convexHullSupportRK9btVector3PS0_iS1_.exit101 ], [ zeroinitializer, %2 ]
+  %.sroa.0226.0 = phi <2 x float> [ %232, %227 ], [ %.sroa.0.4.vec.insert.i8.i88, %_ZL17convexHullSupportRK9btVector3PS0_iS1_.exit101 ], [ %.sroa.0226.4.vec.insert239, %8 ], [ %.sroa.0226.4.vec.insert241, %29 ], [ %.sroa.0226.4.vec.insert245, %101 ], [ %.sroa.0226.4.vec.insert247, %132 ], [ %.sroa.0.4.vec.insert.i8.i, %_ZL17convexHullSupportRK9btVector3PS0_iS1_.exit ], [ zeroinitializer, %2 ]
+  %.sroa.16.0 = phi <2 x float> [ %233, %227 ], [ %.sroa.3.12.vec.insert.i9.i89, %_ZL17convexHullSupportRK9btVector3PS0_iS1_.exit101 ], [ %.sroa.16.12.vec.insert260, %8 ], [ %.sroa.16.12.vec.insert262, %29 ], [ %.sroa.16.12.vec.insert266, %101 ], [ %.sroa.16.12.vec.insert268, %132 ], [ %.sroa.3.12.vec.insert.i9.i, %_ZL17convexHullSupportRK9btVector3PS0_iS1_.exit ], [ zeroinitializer, %2 ]
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.sroa.0226.0, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %.sroa.16.0, 1
   ret { <2 x float>, <2 x float> } %.fca.1.insert

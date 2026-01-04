@@ -549,7 +549,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i21.i.i.i:    ; preds = %179
   br label %_ZN12_GLOBAL__N_114Implementation13parseLanguageEPKN4llvm4json6ObjectE.exit.i.i
 
 _ZN12_GLOBAL__N_114Implementation13parseLanguageEPKN4llvm4json6ObjectE.exit.i.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i21.i.i.i, %.thread47.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i13.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i5.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i.i, %179, %175
-  %.sroa.226.0.i.i.i = phi i16 [ 0, %175 ], [ 256, %.thread47.i.i.i ], [ 262, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i13.i.i.i ], [ 256, %179 ], [ %186, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i21.i.i.i ], [ 261, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i5.i.i.i ], [ 260, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i.i ]
+  %.sroa.226.0.i.i.i = phi i16 [ 0, %175 ], [ 256, %.thread47.i.i.i ], [ 262, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i13.i.i.i ], [ %186, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i21.i.i.i ], [ 256, %179 ], [ 261, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i5.i.i.i ], [ 260, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !72
   store i16 %.sroa.226.0.i.i.i, ptr %21, align 2, !noalias !72
   call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !72
@@ -2878,7 +2878,7 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i.i.i.i: ; pred
   br label %_ZN4llvm5ErrorD2Ev.exit7
 
 _ZN4llvm5ErrorD2Ev.exit7:                         ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i.i.i.i, %25, %.lr.ph
-  %storemerge.i = phi ptr [ null, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i.i.i.i ], [ null, %25 ], [ %20, %.lr.ph ]
+  %storemerge.i = phi ptr [ null, %25 ], [ null, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i.i.i.i ], [ %20, %.lr.ph ]
   store ptr %storemerge.i, ptr %6, align 8, !tbaa !36, !alias.scope !275
   call void @_ZN4llvm9ErrorList4joinENS_5ErrorES1_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %4, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %31 = load ptr, ptr %4, align 8, !tbaa !36
@@ -2935,7 +2935,7 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i.i.i.i12: ; pr
   br label %.thread
 
 .thread:                                          ; preds = %45, %50, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i.i.i.i12
-  %storemerge.i10 = phi ptr [ null, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i.i.i.i12 ], [ null, %50 ], [ %7, %45 ]
+  %storemerge.i10 = phi ptr [ null, %50 ], [ null, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i.i.i.i12 ], [ %7, %45 ]
   store ptr %storemerge.i10, ptr %0, align 8, !tbaa !36, !alias.scope !285
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit19
 

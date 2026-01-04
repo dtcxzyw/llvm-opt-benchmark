@@ -9781,7 +9781,7 @@ look_up_tlv.exit.thread83:                        ; preds = %54, %55
   br label %59
 
 look_up_tlv.exit:                                 ; preds = %50, %44, %38, %33
-  %phi.call = phi ptr [ %35, %33 ], [ %41, %38 ], [ %47, %44 ], [ %53, %50 ]
+  %phi.call = phi ptr [ %53, %50 ], [ %35, %33 ], [ %41, %38 ], [ %47, %44 ]
   %.not74 = icmp eq ptr %phi.call, null
   br i1 %.not74, label %look_up_tlv.exit.thread, label %59
 
@@ -9800,8 +9800,8 @@ look_up_tlv.exit:                                 ; preds = %50, %44, %38, %33
   br label %look_up_tlv.exit.thread
 
 look_up_tlv.exit.thread:                          ; preds = %48, %62, %59, %look_up_tlv.exit
-  %.182 = phi i32 [ %.188, %59 ], [ %.090, %look_up_tlv.exit ], [ %.188, %62 ], [ %.090, %48 ]
-  %.065 = phi ptr [ @.str.1636, %59 ], [ @.str.1636, %look_up_tlv.exit ], [ %spec.select, %62 ], [ @.str.1636, %48 ]
+  %.182 = phi i32 [ %.090, %look_up_tlv.exit ], [ %.188, %62 ], [ %.188, %59 ], [ %.090, %48 ]
+  %.065 = phi ptr [ @.str.1636, %look_up_tlv.exit ], [ %spec.select, %62 ], [ @.str.1636, %59 ], [ @.str.1636, %48 ]
   %65 = load i32, ptr @ett_nfapi_rx_indication_pdu_list, align 4
   %66 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %65, ptr noundef nonnull @.str.1815, ptr noundef nonnull %.065)
   %67 = load i32, ptr @ett_nfapi_tl, align 4
@@ -12539,7 +12539,7 @@ define internal void @dissect_harq_indication_rel13_later_tdd_value(ptr noundef 
   br i1 %or.cond11, label %.sink.split, label %37
 
 .sink.split:                                      ; preds = %32, %29, %26, %22
-  %.str.2132.sink = phi ptr [ @.str.2126, %22 ], [ @.str.2132, %26 ], [ @.str.2133, %29 ], [ @.str.2234, %32 ]
+  %.str.2132.sink = phi ptr [ @.str.2126, %22 ], [ @.str.2133, %29 ], [ @.str.2132, %26 ], [ @.str.2234, %32 ]
   %36 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %13, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull %.str.2132.sink)
   br label %37
 

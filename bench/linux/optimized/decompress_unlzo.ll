@@ -297,7 +297,7 @@ define dso_local noundef range(i32 -1, 1) i32 @unlzo(ptr noundef %0, i64 noundef
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %107, %110
-  %116 = phi i64 [ %115, %110 ], [ %102, %107 ]
+  %116 = phi i64 [ %102, %107 ], [ %115, %110 ]
   %117 = icmp slt i64 %116, %108
   br i1 %117, label %118, label %119
 

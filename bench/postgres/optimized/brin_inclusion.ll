@@ -312,7 +312,7 @@ inclusion_get_procinfo.exit75:                    ; preds = %inclusion_get_proci
   br label %160
 
 160:                                              ; preds = %inclusion_get_procinfo.exit69, %inclusion_get_procinfo.exit.thread, %65, %35, %158, %117, %69
-  %.0 = phi i64 [ 1, %69 ], [ 1, %158 ], [ 1, %117 ], [ 0, %35 ], [ 0, %65 ], [ 1, %inclusion_get_procinfo.exit.thread ], [ 0, %inclusion_get_procinfo.exit69 ]
+  %.0 = phi i64 [ 1, %117 ], [ 0, %35 ], [ 1, %69 ], [ 0, %65 ], [ 1, %inclusion_get_procinfo.exit.thread ], [ 1, %158 ], [ 0, %inclusion_get_procinfo.exit69 ]
   ret i64 %.0
 }
 
@@ -516,7 +516,7 @@ define dso_local i64 @brin_inclusion_consistent(ptr noundef readonly captures(no
   unreachable
 
 105:                                              ; preds = %89, %82, %75, %69, %62, %1, %96, %92, %85, %78, %72, %65, %59, %55, %51, %47, %43, %39, %35, %31, %27
-  %.0 = phi i64 [ %30, %27 ], [ %34, %31 ], [ %38, %35 ], [ %42, %39 ], [ %46, %43 ], [ %50, %47 ], [ %54, %51 ], [ %58, %55 ], [ %61, %59 ], [ %68, %65 ], [ %74, %72 ], [ %81, %78 ], [ %88, %85 ], [ %95, %92 ], [ %99, %96 ], [ 1, %1 ], [ 1, %62 ], [ 1, %69 ], [ 1, %75 ], [ 1, %82 ], [ 1, %89 ]
+  %.0 = phi i64 [ %99, %96 ], [ %30, %27 ], [ %34, %31 ], [ %38, %35 ], [ %42, %39 ], [ %46, %43 ], [ %50, %47 ], [ %54, %51 ], [ %58, %55 ], [ %61, %59 ], [ 1, %1 ], [ %68, %65 ], [ 1, %62 ], [ %74, %72 ], [ %81, %78 ], [ 1, %69 ], [ 1, %75 ], [ %88, %85 ], [ %95, %92 ], [ 1, %82 ], [ 1, %89 ]
   ret i64 %.0
 }
 

@@ -280,7 +280,7 @@ sub_120:                                          ; preds = %sub_019
   br i1 %37, label %38, label %.tail18.thread
 
 38:                                               ; preds = %.thread, %23, %.tail14, %.tail14.thread, %.tail18, %11, %.tail, %.tail.thread, %20, %3
-  %.0 = phi i32 [ %8, %3 ], [ 1, %20 ], [ 1, %.tail.thread ], [ 1, %.tail ], [ 1, %11 ], [ 0, %.tail18 ], [ 0, %.tail14.thread ], [ 0, %.tail14 ], [ 0, %23 ], [ 0, %.thread ]
+  %.0 = phi i32 [ %8, %3 ], [ 1, %11 ], [ 1, %20 ], [ 1, %.tail.thread ], [ 1, %.tail ], [ 0, %.tail18 ], [ 0, %.tail14.thread ], [ 0, %.tail14 ], [ 0, %23 ], [ 0, %.thread ]
   %39 = icmp ne i32 %.0, 0
   %40 = zext i1 %39 to i32
   store i32 %40, ptr %2, align 4, !tbaa !40
@@ -369,7 +369,7 @@ define internal i32 @enum_get_value(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %27
 
 27:                                               ; preds = %18, %19, %9, %4
-  %.0 = phi i32 [ %8, %4 ], [ -65, %9 ], [ 0, %19 ], [ 0, %18 ]
+  %.0 = phi i32 [ -65, %9 ], [ %8, %4 ], [ 0, %19 ], [ 0, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -477,7 +477,7 @@ define internal range(i32 -65, 1) i32 @pmix_mca_base_var_enum_verbose_sfv(ptr re
   br label %18
 
 18:                                               ; preds = %.lr.ph._crit_edge, %14, %3, %17
-  %.015 = phi i32 [ 0, %17 ], [ 0, %.lr.ph._crit_edge ], [ -65, %3 ], [ -29, %14 ]
+  %.015 = phi i32 [ 0, %.lr.ph._crit_edge ], [ -65, %3 ], [ 0, %17 ], [ -29, %14 ]
   ret i32 %.015
 }
 
@@ -698,7 +698,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %44
   br label %pmix_obj_new_tma.exit
 
 pmix_obj_new_tma.exit:                            ; preds = %9, %pmix_obj_update.exit, %54, %53, %.loopexit, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ -29, %.loopexit ], [ -29, %53 ], [ -29, %54 ], [ -29, %pmix_obj_update.exit ], [ -29, %9 ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ -29, %pmix_obj_update.exit ], [ -29, %.loopexit ], [ -29, %53 ], [ -29, %54 ], [ -29, %9 ]
   ret i32 %.0
 }
 
@@ -865,7 +865,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %44
   br label %pmix_obj_new_tma.exit
 
 pmix_obj_new_tma.exit:                            ; preds = %9, %pmix_obj_update.exit, %54, %53, %.loopexit, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ -29, %.loopexit ], [ -29, %53 ], [ -29, %54 ], [ -29, %pmix_obj_update.exit ], [ -29, %9 ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ -29, %pmix_obj_update.exit ], [ -29, %.loopexit ], [ -29, %53 ], [ -29, %54 ], [ -29, %9 ]
   ret i32 %.0
 }
 
@@ -929,7 +929,7 @@ define internal range(i32 -29, 1) i32 @enum_dump(ptr noundef readonly captures(a
   br i1 %24, label %.lr.ph, label %.critedge, !llvm.loop !46
 
 .critedge:                                        ; preds = %18, %20, %.lr.ph, %.preheader, %2
-  %.0 = phi i32 [ -1, %2 ], [ 0, %.preheader ], [ -29, %18 ], [ 0, %20 ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ -1, %2 ], [ 0, %.preheader ], [ 0, %20 ], [ -29, %18 ], [ 0, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -1106,7 +1106,7 @@ define internal i32 @enum_string_from_value(ptr noundef %0, i32 noundef %1, ptr 
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %16, %19, %20, %._crit_edge, %3
-  %.014 = phi i32 [ %7, %3 ], [ -65, %._crit_edge ], [ 0, %20 ], [ 0, %19 ], [ -65, %16 ]
+  %.014 = phi i32 [ -65, %._crit_edge ], [ %7, %3 ], [ 0, %20 ], [ 0, %19 ], [ -65, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.014
 }
@@ -1158,7 +1158,7 @@ define internal i32 @enum_get_value_flag(ptr noundef %0, i32 noundef %1, ptr nou
   br label %27
 
 27:                                               ; preds = %18, %19, %9, %4
-  %.0 = phi i32 [ %8, %4 ], [ -65, %9 ], [ 0, %19 ], [ 0, %18 ]
+  %.0 = phi i32 [ -65, %9 ], [ %8, %4 ], [ 0, %19 ], [ 0, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1241,7 +1241,7 @@ define internal i32 @enum_value_from_string_flag(ptr noundef %0, ptr noundef %1,
   br i1 %.not55.not, label %45, label %.loopexit
 
 .loopexit:                                        ; preds = %.split.us.split, %14, %.lr.ph.split, %.lr.ph.split.us.split
-  %44 = phi i32 [ -65, %.lr.ph.split.us.split ], [ -65, %.lr.ph.split ], [ -27, %.split.us.split ], [ -65, %14 ]
+  %44 = phi i32 [ -65, %.lr.ph.split ], [ -65, %.lr.ph.split.us.split ], [ -27, %.split.us.split ], [ -65, %14 ]
   call void @PMIx_Argv_free(ptr noundef nonnull %10) #22
   br label %50
 
@@ -1261,7 +1261,7 @@ define internal i32 @enum_value_from_string_flag(ptr noundef %0, ptr noundef %1,
   br label %50
 
 50:                                               ; preds = %.loopexit, %9, %3, %.thread72
-  %.044 = phi i32 [ 0, %.thread72 ], [ %44, %.loopexit ], [ %8, %3 ], [ -27, %9 ]
+  %.044 = phi i32 [ %44, %.loopexit ], [ %8, %3 ], [ 0, %.thread72 ], [ -27, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.044
@@ -1376,7 +1376,7 @@ define internal i32 @enum_string_from_value_flag(ptr noundef %0, i32 noundef %1,
   br label %.thread
 
 .thread:                                          ; preds = %17, %31, %48, %50, %3, %41
-  %.029 = phi i32 [ -65, %41 ], [ %8, %3 ], [ 0, %50 ], [ 0, %48 ], [ -27, %31 ], [ -29, %17 ]
+  %.029 = phi i32 [ 0, %48 ], [ -65, %41 ], [ %8, %3 ], [ 0, %50 ], [ -27, %31 ], [ -29, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.029
@@ -1427,7 +1427,7 @@ define internal range(i32 -29, 1) i32 @enum_dump_flag(ptr noundef readonly captu
   br i1 %22, label %.loopexit, label %10
 
 .loopexit:                                        ; preds = %13, %10, %.preheader, %4, %2
-  %.020 = phi i32 [ -1, %2 ], [ -29, %4 ], [ 0, %.preheader ], [ -29, %13 ], [ 0, %10 ]
+  %.020 = phi i32 [ -29, %4 ], [ -1, %2 ], [ 0, %.preheader ], [ -29, %13 ], [ 0, %10 ]
   ret i32 %.020
 }
 

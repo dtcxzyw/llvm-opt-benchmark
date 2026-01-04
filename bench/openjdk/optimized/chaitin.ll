@@ -122,7 +122,7 @@ define hidden noundef double @_ZNK3LRG5scoreEv(ptr noundef nonnull readonly alig
   br label %24
 
 24:                                               ; preds = %19, %1, %22, %17, %12
-  %.0 = phi double [ %13, %12 ], [ %18, %17 ], [ %23, %22 ], [ 0x4733426172C74D82, %1 ], [ %6, %19 ]
+  %.0 = phi double [ 0x4733426172C74D82, %1 ], [ %13, %12 ], [ %18, %17 ], [ %23, %22 ], [ %6, %19 ]
   ret double %.0
 }
 
@@ -3239,7 +3239,7 @@ _ZN4Node7del_outEPS_.exit.i:                      ; preds = %199, %187, %181
   br label %_ZN4Node7set_reqEjPS_.exit
 
 _ZN4Node7set_reqEjPS_.exit:                       ; preds = %215, %204, %_ZN4Node7del_outEPS_.exit.i, %101, %110, %118, %95, %_ZNK5Block8get_nodeEj.exit
-  %.2 = phi i32 [ %.1100, %118 ], [ %.1100, %110 ], [ %.1100, %101 ], [ %.1100, %95 ], [ %.1100, %_ZNK5Block8get_nodeEj.exit ], [ 1, %_ZN4Node7del_outEPS_.exit.i ], [ 1, %204 ], [ 1, %215 ]
+  %.2 = phi i32 [ %.1100, %_ZNK5Block8get_nodeEj.exit ], [ %.1100, %118 ], [ %.1100, %110 ], [ %.1100, %101 ], [ %.1100, %95 ], [ 1, %_ZN4Node7del_outEPS_.exit.i ], [ 1, %204 ], [ 1, %215 ]
   %221 = getelementptr inbounds nuw i8, ptr %90, i64 40
   %222 = load i32, ptr %221, align 8
   %223 = load ptr, ptr %36, align 8
@@ -3468,7 +3468,7 @@ _ZN16IndexSetIterator4nextEv.exit:                ; preds = %292, %306
   br label %365
 
 365:                                              ; preds = %358, %341, %357, %326, %323, %308
-  %.5 = phi i32 [ %.4, %357 ], [ %.4, %341 ], [ %.4, %326 ], [ %.4, %323 ], [ %.4, %308 ], [ %spec.select, %358 ]
+  %.5 = phi i32 [ %.4, %308 ], [ %spec.select, %358 ], [ %.4, %357 ], [ %.4, %341 ], [ %.4, %326 ], [ %.4, %323 ]
   %.pre = load i64, ptr %5, align 8
   br label %290, !llvm.loop !31
 
@@ -3910,7 +3910,7 @@ _ZN16IndexSetIterator4nextEv.exit:                ; preds = %71, %85
   br label %69, !llvm.loop !38
 
 _ZN16IndexSetIterator4nextEv.exit.thread:         ; preds = %_ZN16IndexSetIterator4nextEv.exit, %._ZN16IndexSetIterator4nextEv.exit.thread.loopexit_crit_edge, %54, %42
-  %93 = phi ptr [ %48, %54 ], [ %48, %42 ], [ %.pre135.pre, %._ZN16IndexSetIterator4nextEv.exit.thread.loopexit_crit_edge ], [ %.pre135.pre142, %_ZN16IndexSetIterator4nextEv.exit ]
+  %93 = phi ptr [ %48, %42 ], [ %48, %54 ], [ %.pre135.pre, %._ZN16IndexSetIterator4nextEv.exit.thread.loopexit_crit_edge ], [ %.pre135.pre142, %_ZN16IndexSetIterator4nextEv.exit ]
   %94 = call noundef ptr @_ZN8PhaseIFG11remove_nodeEj(ptr noundef nonnull align 8 dereferenceable(64) %93, i32 noundef %.0) #15
   %95 = load i32, ptr %94, align 8
   %96 = icmp eq i32 %95, 0
@@ -4094,7 +4094,7 @@ _ZN16IndexSetIterator4nextEv.exit110:             ; preds = %110, %124
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %165, %189, %186, %184, %179
-  %.0.i112 = phi double [ %180, %179 ], [ %185, %184 ], [ %190, %189 ], [ %175, %186 ], [ 0x4733426172C74D82, %165 ]
+  %.0.i112 = phi double [ %175, %186 ], [ %180, %179 ], [ %185, %184 ], [ %190, %189 ], [ 0x4733426172C74D82, %165 ]
   %191 = and i16 %.pre138, 128
   %192 = icmp ne i16 %191, 0
   %193 = zext i1 %192 to i8
@@ -4159,7 +4159,7 @@ _ZN16IndexSetIterator4nextEv.exit110:             ; preds = %110, %124
   br label %_ZNK3LRG5scoreEv.exit115
 
 _ZNK3LRG5scoreEv.exit115:                         ; preds = %204, %213, %218, %220, %223
-  %.0.i114 = phi double [ %214, %213 ], [ %219, %218 ], [ %224, %223 ], [ %209, %220 ], [ 0x4733426172C74D82, %204 ]
+  %.0.i114 = phi double [ %209, %220 ], [ %214, %213 ], [ %219, %218 ], [ %224, %223 ], [ 0x4733426172C74D82, %204 ]
   %225 = and i16 %.pre140, 128
   %226 = icmp ne i16 %225, 0
   %227 = zext i1 %226 to i8
@@ -4204,11 +4204,11 @@ _ZNK3LRG5scoreEv.exit115:                         ; preds = %204, %213, %218, %2
   br label %247
 
 247:                                              ; preds = %238, %242, %246
-  %.180 = phi i8 [ %227, %246 ], [ %.079125, %242 ], [ %.079125, %238 ]
-  %.178 = phi double [ %205, %246 ], [ %.077126, %242 ], [ %.077126, %238 ]
-  %.176 = phi double [ %207, %246 ], [ %.075127, %242 ], [ %.075127, %238 ]
-  %.174 = phi double [ %.0.i114, %246 ], [ %.073128, %242 ], [ %.073128, %238 ]
-  %.2 = phi i32 [ %.081130, %246 ], [ %.072129, %242 ], [ %.072129, %238 ]
+  %.180 = phi i8 [ %227, %246 ], [ %.079125, %238 ], [ %.079125, %242 ]
+  %.178 = phi double [ %205, %246 ], [ %.077126, %238 ], [ %.077126, %242 ]
+  %.176 = phi double [ %207, %246 ], [ %.075127, %238 ], [ %.075127, %242 ]
+  %.174 = phi double [ %.0.i114, %246 ], [ %.073128, %238 ], [ %.073128, %242 ]
+  %.2 = phi i32 [ %.081130, %246 ], [ %.072129, %238 ], [ %.072129, %242 ]
   %248 = getelementptr inbounds nuw i8, ptr %195, i64 40
   %.081 = load i32, ptr %248, align 8
   %.not92 = icmp eq i32 %.081, 0
@@ -5634,12 +5634,12 @@ _ZN3LRG6InsertEi.exit:                            ; preds = %241, %243
   br label %249
 
 249:                                              ; preds = %_ZN3LRG6InsertEi.exit, %216, %_ZNK7RegMask15find_first_elemEv.exit
-  %.044 = phi i32 [ -1, %216 ], [ %.0.i75, %_ZNK7RegMask15find_first_elemEv.exit ], [ %spec.select, %_ZN3LRG6InsertEi.exit ]
+  %.044 = phi i32 [ %.0.i75, %_ZNK7RegMask15find_first_elemEv.exit ], [ %spec.select, %_ZN3LRG6InsertEi.exit ], [ -1, %216 ]
   %250 = add nsw i32 %.044, %2
   br label %_ZL12is_legal_regR3LRGii.exit.thread
 
 _ZL12is_legal_regR3LRGii.exit.thread:             ; preds = %89, %86, %144, %140, %_ZN7RegMask3ANDERKS_.exit, %249, %193
-  %.0 = phi i32 [ %196, %193 ], [ %250, %249 ], [ %185, %_ZN7RegMask3ANDERKS_.exit ], [ %126, %140 ], [ %126, %144 ], [ %74, %86 ], [ %74, %89 ]
+  %.0 = phi i32 [ %126, %140 ], [ %196, %193 ], [ %250, %249 ], [ %185, %_ZN7RegMask3ANDERKS_.exit ], [ %126, %144 ], [ %74, %86 ], [ %74, %89 ]
   ret i32 %.0
 }
 
@@ -6251,7 +6251,7 @@ _ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit133: ; preds = %244, %253
   br label %.sink.split
 
 .sink.split:                                      ; preds = %._crit_edge156, %274, %271, %.sink.split.sink.split, %._crit_edge152, %._crit_edge, %124, %.loopexit137, %10, %20
-  %.0118.sink = phi ptr [ %2, %20 ], [ %2, %10 ], [ %32, %.loopexit137 ], [ %132, %124 ], [ %134, %._crit_edge ], [ %152, %._crit_edge152 ], [ %.sink, %.sink.split.sink.split ], [ %234, %271 ], [ %152, %274 ], [ %234, %._crit_edge156 ]
+  %.0118.sink = phi ptr [ %134, %._crit_edge ], [ %132, %124 ], [ %32, %.loopexit137 ], [ %2, %10 ], [ %2, %20 ], [ %.sink, %.sink.split.sink.split ], [ %234, %271 ], [ %152, %._crit_edge152 ], [ %234, %._crit_edge156 ], [ %152, %274 ]
   %293 = load i32, ptr %5, align 8
   %294 = zext i32 %293 to i64
   %295 = getelementptr inbounds nuw ptr, ptr %1, i64 %294

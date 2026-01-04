@@ -1162,7 +1162,7 @@ _init_l___aux__Lean__Util__SearchPath______elabRules__termCompile__time__search_
   br label %123
 
 123:                                              ; preds = %.sink.split, %lean_dec_ref.exit13, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit13 ], [ %.sink36, %.sink.split ]
+  %.0 = phi ptr [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit13 ], [ %8, %7 ], [ %.sink36, %.sink.split ]
   ret ptr %.0
 }
 

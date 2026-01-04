@@ -542,7 +542,7 @@ define noundef zeroext i1 @_ZN3zmq13zmtp_engine_t9handshakeEv(ptr noundef nonnul
   br label %.thread
 
 .thread:                                          ; preds = %34, %28, %.loopexit, %45, %46, %50
-  %.sroa.0.0.i = phi ptr [ @_ZN3zmq13zmtp_engine_t14handshake_v3_1Ev, %50 ], [ @_ZN3zmq13zmtp_engine_t14handshake_v2_0Ev, %45 ], [ @_ZN3zmq13zmtp_engine_t14handshake_v1_0Ev, %.loopexit ], [ %49, %46 ], [ @_ZN3zmq13zmtp_engine_t26handshake_v1_0_unversionedEv, %28 ], [ @_ZN3zmq13zmtp_engine_t26handshake_v1_0_unversionedEv, %34 ]
+  %.sroa.0.0.i = phi ptr [ @_ZN3zmq13zmtp_engine_t14handshake_v1_0Ev, %.loopexit ], [ @_ZN3zmq13zmtp_engine_t14handshake_v3_1Ev, %50 ], [ %49, %46 ], [ @_ZN3zmq13zmtp_engine_t14handshake_v2_0Ev, %45 ], [ @_ZN3zmq13zmtp_engine_t26handshake_v1_0_unversionedEv, %28 ], [ @_ZN3zmq13zmtp_engine_t26handshake_v1_0_unversionedEv, %34 ]
   %51 = tail call noundef zeroext i1 %.sroa.0.0.i(ptr noundef nonnull align 8 dereferenceable(1976) %0)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 1392
   %53 = load i64, ptr %52, align 8
@@ -625,7 +625,7 @@ define noundef range(i32 -1, 2) i32 @_ZN3zmq13zmtp_engine_t16receive_greetingEv(
   %35 = icmp ugt i64 %34, %33
   br i1 %35, label %10, label %.thread17
 
-.thread17:                                        ; preds = %27, %21, %31, %1, %17, %20
+.thread17:                                        ; preds = %27, %21, %31, %1, %20, %17
   %.2 = phi i32 [ -1, %20 ], [ -1, %17 ], [ 0, %1 ], [ 1, %27 ], [ 1, %21 ], [ 0, %31 ]
   ret i32 %.2
 }
@@ -653,7 +653,7 @@ define { i64, i64 } @_ZN3zmq13zmtp_engine_t20select_handshake_funEbhh(i1 noundef
   br label %8
 
 8:                                                ; preds = %6, %4, %3, %7, %5
-  %.sroa.0.0 = phi i64 [ ptrtoint (ptr @_ZN3zmq13zmtp_engine_t14handshake_v3_1Ev to i64), %7 ], [ ptrtoint (ptr @_ZN3zmq13zmtp_engine_t14handshake_v2_0Ev to i64), %5 ], [ ptrtoint (ptr @_ZN3zmq13zmtp_engine_t26handshake_v1_0_unversionedEv to i64), %3 ], [ ptrtoint (ptr @_ZN3zmq13zmtp_engine_t14handshake_v1_0Ev to i64), %4 ], [ %., %6 ]
+  %.sroa.0.0 = phi i64 [ ptrtoint (ptr @_ZN3zmq13zmtp_engine_t14handshake_v1_0Ev to i64), %4 ], [ ptrtoint (ptr @_ZN3zmq13zmtp_engine_t14handshake_v3_1Ev to i64), %7 ], [ ptrtoint (ptr @_ZN3zmq13zmtp_engine_t26handshake_v1_0_unversionedEv to i64), %3 ], [ ptrtoint (ptr @_ZN3zmq13zmtp_engine_t14handshake_v2_0Ev to i64), %5 ], [ %., %6 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -1783,7 +1783,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq13zmtp_engine_t23process_command_mes
   br i1 %18, label %.critedge.thread.sink.split, label %.critedge.thread
 
 .critedge.thread.sink.split:                      ; preds = %17, %15, %13
-  %.sink = phi i8 [ 8, %13 ], [ 12, %15 ], [ 16, %17 ]
+  %.sink = phi i8 [ 12, %15 ], [ 8, %13 ], [ 16, %17 ]
   tail call void @_ZN3zmq5msg_t9set_flagsEh(ptr noundef nonnull align 8 dereferenceable(64) %1, i8 noundef zeroext %.sink)
   br label %.critedge.thread
 

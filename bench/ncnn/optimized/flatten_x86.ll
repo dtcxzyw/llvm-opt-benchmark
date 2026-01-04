@@ -348,7 +348,7 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %144
   br label %_ZNK4ncnn3Mat5emptyEv.exit.thread
 
 _ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %144, %.thread82, %.thread, %161, %167, %166, %_ZNK4ncnn3Mat5emptyEv.exit, %_ZN4ncnn3MataSERKS0_.exit73, %97
-  %.2 = phi i32 [ %98, %97 ], [ 0, %_ZN4ncnn3MataSERKS0_.exit73 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ 0, %166 ], [ 0, %167 ], [ 0, %161 ], [ 0, %.thread ], [ 0, %.thread82 ], [ -100, %144 ]
+  %.2 = phi i32 [ %98, %97 ], [ 0, %_ZN4ncnn3MataSERKS0_.exit73 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ 0, %166 ], [ 0, %167 ], [ 0, %161 ], [ 0, %.thread82 ], [ 0, %.thread ], [ -100, %144 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -669,7 +669,7 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %138
   br label %_ZNK4ncnn3Mat5emptyEv.exit.thread
 
 _ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %138, %.thread76, %.thread, %155, %161, %160, %_ZNK4ncnn3Mat5emptyEv.exit, %_ZN4ncnn3MataSERKS0_.exit67, %91
-  %.1 = phi i32 [ %92, %91 ], [ 0, %_ZN4ncnn3MataSERKS0_.exit67 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ 0, %160 ], [ 0, %161 ], [ 0, %155 ], [ 0, %.thread ], [ 0, %.thread76 ], [ -100, %138 ]
+  %.1 = phi i32 [ %92, %91 ], [ 0, %_ZN4ncnn3MataSERKS0_.exit67 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ 0, %160 ], [ 0, %161 ], [ 0, %155 ], [ 0, %.thread76 ], [ 0, %.thread ], [ -100, %138 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

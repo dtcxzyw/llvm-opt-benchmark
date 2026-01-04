@@ -2308,7 +2308,7 @@ if.then.i576:                                     ; preds = %_ZNK6google8protobu
   br label %_ZNK4absl12lts_202308024Cord20EstimatedMemoryUsageENS0_20CordMemoryAccountingE.exit
 
 _ZNK4absl12lts_202308024Cord20EstimatedMemoryUsageENS0_20CordMemoryAccountingE.exit: ; preds = %_ZNK6google8protobuf10Reflection8GetFieldIPN4absl12lts_202308024CordEEERKT_RKNS0_7MessageEPKNS0_15FieldDescriptorE.exit, %if.then.i576
-  %result.0.i = phi i64 [ %add8.i, %if.then.i576 ], [ 16, %_ZNK6google8protobuf10Reflection8GetFieldIPN4absl12lts_202308024CordEEERKT_RKNS0_7MessageEPKNS0_15FieldDescriptorE.exit ]
+  %result.0.i = phi i64 [ 16, %_ZNK6google8protobuf10Reflection8GetFieldIPN4absl12lts_202308024CordEEERKT_RKNS0_7MessageEPKNS0_15FieldDescriptorE.exit ], [ %add8.i, %if.then.i576 ]
   %add78 = add i64 %result.0.i, %total_size.1767
   br label %for.inc
 
@@ -2384,7 +2384,7 @@ if.then.i618:                                     ; preds = %_ZNK6google8protobu
   br label %_ZNK4absl12lts_202308024Cord20EstimatedMemoryUsageENS0_20CordMemoryAccountingE.exit623
 
 _ZNK4absl12lts_202308024Cord20EstimatedMemoryUsageENS0_20CordMemoryAccountingE.exit623: ; preds = %_ZNK6google8protobuf10Reflection8GetFieldIN4absl12lts_202308024CordEEERKT_RKNS0_7MessageEPKNS0_15FieldDescriptorE.exit, %if.then.i618
-  %result.0.i622 = phi i64 [ %call7.i619, %if.then.i618 ], [ 0, %_ZNK6google8protobuf10Reflection8GetFieldIN4absl12lts_202308024CordEEERKT_RKNS0_7MessageEPKNS0_15FieldDescriptorE.exit ]
+  %result.0.i622 = phi i64 [ 0, %_ZNK6google8protobuf10Reflection8GetFieldIN4absl12lts_202308024CordEEERKT_RKNS0_7MessageEPKNS0_15FieldDescriptorE.exit ], [ %call7.i619, %if.then.i618 ]
   %add82 = add i64 %result.0.i622, %total_size.1767
   br label %for.inc
 
@@ -3488,12 +3488,12 @@ if.else.i23.i:                                    ; preds = %if.else.i
   br label %if.end10.sink.split.i
 
 if.end10.sink.split.i:                            ; preds = %if.else.i23.i, %if.then.i24.i, %if.else.i.i19, %if.then.i.i20
-  %retval.i.0.sink.i = phi ptr [ %call2.i39.i, %if.else.i.i19 ], [ %call.i.i, %if.then.i.i20 ], [ %call.i28.i, %if.then.i24.i ], [ %call2.i.i17, %if.else.i23.i ]
+  %retval.i.0.sink.i = phi ptr [ %call.i.i, %if.then.i.i20 ], [ %call2.i39.i, %if.else.i.i19 ], [ %call.i28.i, %if.then.i24.i ], [ %call2.i.i17, %if.else.i23.i ]
   store ptr %retval.i.0.sink.i, ptr %add.ptr.i11, align 8
   br label %return
 
 return:                                           ; preds = %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit, %if.end10.sink.split.i, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit, %if.then
-  %retval.0 = phi ptr [ %add.ptr.i, %if.then ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit ], [ %retval.i.0.sink.i, %if.end10.sink.split.i ], [ %add.ptr.i11, %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit ]
+  %retval.0 = phi ptr [ %add.ptr.i, %if.then ], [ %retval.i.0.sink.i, %if.end10.sink.split.i ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit ], [ %add.ptr.i11, %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit ]
   ret ptr %retval.0
 }
 
@@ -4587,7 +4587,7 @@ lpad:                                             ; preds = %sw.epilog
   unreachable
 
 return:                                           ; preds = %if.then8, %_ZNK6google8protobuf10Reflection6GetRawIPKNS0_7MessageEEERKT_RS4_PKNS0_15FieldDescriptorE.exit, %_ZNK6google8protobuf10Reflection6GetRawIiEERKT_RKNS0_7MessageEPKNS0_15FieldDescriptorE.exit393, %_ZNK6google8protobuf10Reflection6GetRawImEERKT_RKNS0_7MessageEPKNS0_15FieldDescriptorE.exit356, %_ZNK6google8protobuf10Reflection6GetRawIjEERKT_RKNS0_7MessageEPKNS0_15FieldDescriptorE.exit319, %_ZNK6google8protobuf10Reflection6GetRawImEERKT_RKNS0_7MessageEPKNS0_15FieldDescriptorE.exit, %_ZNK6google8protobuf10Reflection6GetRawIjEERKT_RKNS0_7MessageEPKNS0_15FieldDescriptorE.exit, %_ZNK6google8protobuf10Reflection6GetRawIlEERKT_RKNS0_7MessageEPKNS0_15FieldDescriptorE.exit, %_ZNK6google8protobuf10Reflection6GetRawIiEERKT_RKNS0_7MessageEPKNS0_15FieldDescriptorE.exit, %_ZNK6google8protobuf10Reflection6GetRawIbEERKT_RKNS0_7MessageEPKNS0_15FieldDescriptorE.exit, %if.end25, %if.then20, %_ZNK4absl12lts_202308024Cord5emptyEv.exit, %_ZNK6google8protobuf8internal16ReflectionSchema11HasBitIndexEPKNS0_15FieldDescriptorE.exit59
-  %retval.0 = phi i1 [ %cmp.i61, %_ZNK6google8protobuf8internal16ReflectionSchema11HasBitIndexEPKNS0_15FieldDescriptorE.exit59 ], [ %cmp.i100, %_ZNK4absl12lts_202308024Cord5emptyEv.exit ], [ %lnot24, %if.then20 ], [ %cmp29, %if.end25 ], [ %tobool, %_ZNK6google8protobuf10Reflection6GetRawIbEERKT_RKNS0_7MessageEPKNS0_15FieldDescriptorE.exit ], [ %cmp35, %_ZNK6google8protobuf10Reflection6GetRawIiEERKT_RKNS0_7MessageEPKNS0_15FieldDescriptorE.exit ], [ %cmp38, %_ZNK6google8protobuf10Reflection6GetRawIlEERKT_RKNS0_7MessageEPKNS0_15FieldDescriptorE.exit ], [ %cmp41, %_ZNK6google8protobuf10Reflection6GetRawIjEERKT_RKNS0_7MessageEPKNS0_15FieldDescriptorE.exit ], [ %cmp44, %_ZNK6google8protobuf10Reflection6GetRawImEERKT_RKNS0_7MessageEPKNS0_15FieldDescriptorE.exit ], [ %cmp47, %_ZNK6google8protobuf10Reflection6GetRawIjEERKT_RKNS0_7MessageEPKNS0_15FieldDescriptorE.exit319 ], [ %cmp50, %_ZNK6google8protobuf10Reflection6GetRawImEERKT_RKNS0_7MessageEPKNS0_15FieldDescriptorE.exit356 ], [ %cmp53, %_ZNK6google8protobuf10Reflection6GetRawIiEERKT_RKNS0_7MessageEPKNS0_15FieldDescriptorE.exit393 ], [ false, %if.then8 ], [ %cmp12, %_ZNK6google8protobuf10Reflection6GetRawIPKNS0_7MessageEEERKT_RS4_PKNS0_15FieldDescriptorE.exit ]
+  %retval.0 = phi i1 [ %cmp.i61, %_ZNK6google8protobuf8internal16ReflectionSchema11HasBitIndexEPKNS0_15FieldDescriptorE.exit59 ], [ %cmp53, %_ZNK6google8protobuf10Reflection6GetRawIiEERKT_RKNS0_7MessageEPKNS0_15FieldDescriptorE.exit393 ], [ %cmp.i100, %_ZNK4absl12lts_202308024Cord5emptyEv.exit ], [ %lnot24, %if.then20 ], [ %cmp29, %if.end25 ], [ %tobool, %_ZNK6google8protobuf10Reflection6GetRawIbEERKT_RKNS0_7MessageEPKNS0_15FieldDescriptorE.exit ], [ %cmp35, %_ZNK6google8protobuf10Reflection6GetRawIiEERKT_RKNS0_7MessageEPKNS0_15FieldDescriptorE.exit ], [ %cmp38, %_ZNK6google8protobuf10Reflection6GetRawIlEERKT_RKNS0_7MessageEPKNS0_15FieldDescriptorE.exit ], [ %cmp41, %_ZNK6google8protobuf10Reflection6GetRawIjEERKT_RKNS0_7MessageEPKNS0_15FieldDescriptorE.exit ], [ %cmp44, %_ZNK6google8protobuf10Reflection6GetRawImEERKT_RKNS0_7MessageEPKNS0_15FieldDescriptorE.exit ], [ %cmp47, %_ZNK6google8protobuf10Reflection6GetRawIjEERKT_RKNS0_7MessageEPKNS0_15FieldDescriptorE.exit319 ], [ %cmp50, %_ZNK6google8protobuf10Reflection6GetRawImEERKT_RKNS0_7MessageEPKNS0_15FieldDescriptorE.exit356 ], [ false, %if.then8 ], [ %cmp12, %_ZNK6google8protobuf10Reflection6GetRawIPKNS0_7MessageEEERKT_RS4_PKNS0_15FieldDescriptorE.exit ]
   ret i1 %retval.0
 }
 
@@ -5590,12 +5590,12 @@ if.else.i23.i:                                    ; preds = %if.else.i
   br label %if.end10.sink.split.i
 
 if.end10.sink.split.i:                            ; preds = %if.else.i23.i, %if.then.i24.i, %if.else.i.i19, %if.then.i.i20
-  %retval.i.0.sink.i = phi ptr [ %call2.i39.i, %if.else.i.i19 ], [ %call.i.i, %if.then.i.i20 ], [ %call.i28.i, %if.then.i24.i ], [ %call2.i.i17, %if.else.i23.i ]
+  %retval.i.0.sink.i = phi ptr [ %call.i.i, %if.then.i.i20 ], [ %call2.i39.i, %if.else.i.i19 ], [ %call.i28.i, %if.then.i24.i ], [ %call2.i.i17, %if.else.i23.i ]
   store ptr %retval.i.0.sink.i, ptr %add.ptr.i11, align 8
   br label %return
 
 return:                                           ; preds = %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit, %if.end10.sink.split.i, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit, %if.then
-  %retval.0 = phi ptr [ %add.ptr.i, %if.then ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit ], [ %retval.i.0.sink.i, %if.end10.sink.split.i ], [ %add.ptr.i11, %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit ]
+  %retval.0 = phi ptr [ %add.ptr.i, %if.then ], [ %retval.i.0.sink.i, %if.end10.sink.split.i ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit ], [ %add.ptr.i11, %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit ]
   ret ptr %retval.0
 }
 
@@ -5912,12 +5912,12 @@ if.else.i23.i:                                    ; preds = %if.else.i
   br label %if.end10.sink.split.i
 
 if.end10.sink.split.i:                            ; preds = %if.else.i23.i, %if.then.i24.i, %if.else.i.i19, %if.then.i.i20
-  %retval.i.0.sink.i = phi ptr [ %call2.i39.i, %if.else.i.i19 ], [ %call.i.i, %if.then.i.i20 ], [ %call.i28.i, %if.then.i24.i ], [ %call2.i.i17, %if.else.i23.i ]
+  %retval.i.0.sink.i = phi ptr [ %call.i.i, %if.then.i.i20 ], [ %call2.i39.i, %if.else.i.i19 ], [ %call.i28.i, %if.then.i24.i ], [ %call2.i.i17, %if.else.i23.i ]
   store ptr %retval.i.0.sink.i, ptr %add.ptr.i11, align 8
   br label %return
 
 return:                                           ; preds = %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit, %if.end10.sink.split.i, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit, %if.then
-  %retval.0 = phi ptr [ %add.ptr.i, %if.then ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit ], [ %retval.i.0.sink.i, %if.end10.sink.split.i ], [ %add.ptr.i11, %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit ]
+  %retval.0 = phi ptr [ %add.ptr.i, %if.then ], [ %retval.i.0.sink.i, %if.end10.sink.split.i ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit ], [ %add.ptr.i11, %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit ]
   ret ptr %retval.0
 }
 
@@ -6234,12 +6234,12 @@ if.else.i23.i:                                    ; preds = %if.else.i
   br label %if.end10.sink.split.i
 
 if.end10.sink.split.i:                            ; preds = %if.else.i23.i, %if.then.i24.i, %if.else.i.i19, %if.then.i.i20
-  %retval.i.0.sink.i = phi ptr [ %call2.i39.i, %if.else.i.i19 ], [ %call.i.i, %if.then.i.i20 ], [ %call.i28.i, %if.then.i24.i ], [ %call2.i.i17, %if.else.i23.i ]
+  %retval.i.0.sink.i = phi ptr [ %call.i.i, %if.then.i.i20 ], [ %call2.i39.i, %if.else.i.i19 ], [ %call.i28.i, %if.then.i24.i ], [ %call2.i.i17, %if.else.i23.i ]
   store ptr %retval.i.0.sink.i, ptr %add.ptr.i11, align 8
   br label %return
 
 return:                                           ; preds = %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit, %if.end10.sink.split.i, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit, %if.then
-  %retval.0 = phi ptr [ %add.ptr.i, %if.then ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit ], [ %retval.i.0.sink.i, %if.end10.sink.split.i ], [ %add.ptr.i11, %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit ]
+  %retval.0 = phi ptr [ %add.ptr.i, %if.then ], [ %retval.i.0.sink.i, %if.end10.sink.split.i ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit ], [ %add.ptr.i11, %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit ]
   ret ptr %retval.0
 }
 
@@ -6556,12 +6556,12 @@ if.else.i23.i:                                    ; preds = %if.else.i
   br label %if.end10.sink.split.i
 
 if.end10.sink.split.i:                            ; preds = %if.else.i23.i, %if.then.i24.i, %if.else.i.i19, %if.then.i.i20
-  %retval.i.0.sink.i = phi ptr [ %call2.i39.i, %if.else.i.i19 ], [ %call.i.i, %if.then.i.i20 ], [ %call.i28.i, %if.then.i24.i ], [ %call2.i.i17, %if.else.i23.i ]
+  %retval.i.0.sink.i = phi ptr [ %call.i.i, %if.then.i.i20 ], [ %call2.i39.i, %if.else.i.i19 ], [ %call.i28.i, %if.then.i24.i ], [ %call2.i.i17, %if.else.i23.i ]
   store ptr %retval.i.0.sink.i, ptr %add.ptr.i11, align 8
   br label %return
 
 return:                                           ; preds = %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit, %if.end10.sink.split.i, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit, %if.then
-  %retval.0 = phi ptr [ %add.ptr.i, %if.then ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit ], [ %retval.i.0.sink.i, %if.end10.sink.split.i ], [ %add.ptr.i11, %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit ]
+  %retval.0 = phi ptr [ %add.ptr.i, %if.then ], [ %retval.i.0.sink.i, %if.end10.sink.split.i ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit ], [ %add.ptr.i11, %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit ]
   ret ptr %retval.0
 }
 
@@ -6878,12 +6878,12 @@ if.else.i23.i:                                    ; preds = %if.else.i
   br label %if.end10.sink.split.i
 
 if.end10.sink.split.i:                            ; preds = %if.else.i23.i, %if.then.i24.i, %if.else.i.i19, %if.then.i.i20
-  %retval.i.0.sink.i = phi ptr [ %call2.i39.i, %if.else.i.i19 ], [ %call.i.i, %if.then.i.i20 ], [ %call.i28.i, %if.then.i24.i ], [ %call2.i.i17, %if.else.i23.i ]
+  %retval.i.0.sink.i = phi ptr [ %call.i.i, %if.then.i.i20 ], [ %call2.i39.i, %if.else.i.i19 ], [ %call.i28.i, %if.then.i24.i ], [ %call2.i.i17, %if.else.i23.i ]
   store ptr %retval.i.0.sink.i, ptr %add.ptr.i11, align 8
   br label %return
 
 return:                                           ; preds = %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit, %if.end10.sink.split.i, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit, %if.then
-  %retval.0 = phi ptr [ %add.ptr.i, %if.then ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit ], [ %retval.i.0.sink.i, %if.end10.sink.split.i ], [ %add.ptr.i11, %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit ]
+  %retval.0 = phi ptr [ %add.ptr.i, %if.then ], [ %retval.i.0.sink.i, %if.end10.sink.split.i ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit ], [ %add.ptr.i11, %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit ]
   ret ptr %retval.0
 }
 
@@ -7200,12 +7200,12 @@ if.else.i23.i:                                    ; preds = %if.else.i
   br label %if.end10.sink.split.i
 
 if.end10.sink.split.i:                            ; preds = %if.else.i23.i, %if.then.i24.i, %if.else.i.i19, %if.then.i.i20
-  %retval.i.0.sink.i = phi ptr [ %call2.i39.i, %if.else.i.i19 ], [ %call.i.i, %if.then.i.i20 ], [ %call.i28.i, %if.then.i24.i ], [ %call2.i.i17, %if.else.i23.i ]
+  %retval.i.0.sink.i = phi ptr [ %call.i.i, %if.then.i.i20 ], [ %call2.i39.i, %if.else.i.i19 ], [ %call.i28.i, %if.then.i24.i ], [ %call2.i.i17, %if.else.i23.i ]
   store ptr %retval.i.0.sink.i, ptr %add.ptr.i11, align 8
   br label %return
 
 return:                                           ; preds = %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit, %if.end10.sink.split.i, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit, %if.then
-  %retval.0 = phi ptr [ %add.ptr.i, %if.then ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit ], [ %retval.i.0.sink.i, %if.end10.sink.split.i ], [ %add.ptr.i11, %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit ]
+  %retval.0 = phi ptr [ %add.ptr.i, %if.then ], [ %retval.i.0.sink.i, %if.end10.sink.split.i ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit ], [ %add.ptr.i11, %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit ]
   ret ptr %retval.0
 }
 
@@ -7522,12 +7522,12 @@ if.else.i23.i:                                    ; preds = %if.else.i
   br label %if.end10.sink.split.i
 
 if.end10.sink.split.i:                            ; preds = %if.else.i23.i, %if.then.i24.i, %if.else.i.i19, %if.then.i.i20
-  %retval.i.0.sink.i = phi ptr [ %call2.i39.i, %if.else.i.i19 ], [ %call.i.i, %if.then.i.i20 ], [ %call.i28.i, %if.then.i24.i ], [ %call2.i.i17, %if.else.i23.i ]
+  %retval.i.0.sink.i = phi ptr [ %call.i.i, %if.then.i.i20 ], [ %call2.i39.i, %if.else.i.i19 ], [ %call.i28.i, %if.then.i24.i ], [ %call2.i.i17, %if.else.i23.i ]
   store ptr %retval.i.0.sink.i, ptr %add.ptr.i11, align 8
   br label %return
 
 return:                                           ; preds = %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit, %if.end10.sink.split.i, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit, %if.then
-  %retval.0 = phi ptr [ %add.ptr.i, %if.then ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit ], [ %retval.i.0.sink.i, %if.end10.sink.split.i ], [ %add.ptr.i11, %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit ]
+  %retval.0 = phi ptr [ %add.ptr.i, %if.then ], [ %retval.i.0.sink.i, %if.end10.sink.split.i ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit ], [ %add.ptr.i11, %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit ]
   ret ptr %retval.0
 }
 
@@ -8122,12 +8122,12 @@ if.else.i23.i:                                    ; preds = %if.else.i
   br label %if.end10.sink.split.i
 
 if.end10.sink.split.i:                            ; preds = %if.else.i23.i, %if.then.i24.i, %if.else.i.i19, %if.then.i.i20
-  %retval.i.0.sink.i = phi ptr [ %call2.i39.i, %if.else.i.i19 ], [ %call.i.i, %if.then.i.i20 ], [ %call.i28.i, %if.then.i24.i ], [ %call2.i.i17, %if.else.i23.i ]
+  %retval.i.0.sink.i = phi ptr [ %call.i.i, %if.then.i.i20 ], [ %call2.i39.i, %if.else.i.i19 ], [ %call.i28.i, %if.then.i24.i ], [ %call2.i.i17, %if.else.i23.i ]
   store ptr %retval.i.0.sink.i, ptr %add.ptr.i11, align 8
   br label %return
 
 return:                                           ; preds = %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit, %if.end10.sink.split.i, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit, %if.then
-  %retval.0 = phi ptr [ %add.ptr.i, %if.then ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit ], [ %retval.i.0.sink.i, %if.end10.sink.split.i ], [ %add.ptr.i11, %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit ]
+  %retval.0 = phi ptr [ %add.ptr.i, %if.then ], [ %retval.i.0.sink.i, %if.end10.sink.split.i ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit ], [ %add.ptr.i11, %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit ]
   ret ptr %retval.0
 }
 
@@ -8595,12 +8595,12 @@ if.else.i23.i:                                    ; preds = %if.else.i
   br label %if.end10.sink.split.i
 
 if.end10.sink.split.i:                            ; preds = %if.else.i23.i, %if.then.i24.i, %if.else.i.i19, %if.then.i.i20
-  %retval.i.0.sink.i = phi ptr [ %call2.i39.i, %if.else.i.i19 ], [ %call.i.i, %if.then.i.i20 ], [ %call.i28.i, %if.then.i24.i ], [ %call2.i.i17, %if.else.i23.i ]
+  %retval.i.0.sink.i = phi ptr [ %call.i.i, %if.then.i.i20 ], [ %call2.i39.i, %if.else.i.i19 ], [ %call.i28.i, %if.then.i24.i ], [ %call2.i.i17, %if.else.i23.i ]
   store ptr %retval.i.0.sink.i, ptr %add.ptr.i11, align 8
   br label %return
 
 return:                                           ; preds = %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit, %if.end10.sink.split.i, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit, %if.then
-  %retval.0 = phi ptr [ %add.ptr.i, %if.then ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit ], [ %retval.i.0.sink.i, %if.end10.sink.split.i ], [ %add.ptr.i11, %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit ]
+  %retval.0 = phi ptr [ %add.ptr.i, %if.then ], [ %retval.i.0.sink.i, %if.end10.sink.split.i ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit ], [ %add.ptr.i11, %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit ]
   ret ptr %retval.0
 }
 
@@ -9068,12 +9068,12 @@ if.else.i23.i:                                    ; preds = %if.else.i
   br label %if.end10.sink.split.i
 
 if.end10.sink.split.i:                            ; preds = %if.else.i23.i, %if.then.i24.i, %if.else.i.i19, %if.then.i.i20
-  %retval.i.0.sink.i = phi ptr [ %call2.i39.i, %if.else.i.i19 ], [ %call.i.i, %if.then.i.i20 ], [ %call.i28.i, %if.then.i24.i ], [ %call2.i.i17, %if.else.i23.i ]
+  %retval.i.0.sink.i = phi ptr [ %call.i.i, %if.then.i.i20 ], [ %call2.i39.i, %if.else.i.i19 ], [ %call.i28.i, %if.then.i24.i ], [ %call2.i.i17, %if.else.i23.i ]
   store ptr %retval.i.0.sink.i, ptr %add.ptr.i11, align 8
   br label %return
 
 return:                                           ; preds = %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit, %if.end10.sink.split.i, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit, %if.then
-  %retval.0 = phi ptr [ %add.ptr.i, %if.then ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit ], [ %retval.i.0.sink.i, %if.end10.sink.split.i ], [ %add.ptr.i11, %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit ]
+  %retval.0 = phi ptr [ %add.ptr.i, %if.then ], [ %retval.i.0.sink.i, %if.end10.sink.split.i ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit ], [ %add.ptr.i11, %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit ]
   ret ptr %retval.0
 }
 
@@ -9541,12 +9541,12 @@ if.else.i23.i:                                    ; preds = %if.else.i
   br label %if.end10.sink.split.i
 
 if.end10.sink.split.i:                            ; preds = %if.else.i23.i, %if.then.i24.i, %if.else.i.i19, %if.then.i.i20
-  %retval.i.0.sink.i = phi ptr [ %call2.i39.i, %if.else.i.i19 ], [ %call.i.i, %if.then.i.i20 ], [ %call.i28.i, %if.then.i24.i ], [ %call2.i.i17, %if.else.i23.i ]
+  %retval.i.0.sink.i = phi ptr [ %call.i.i, %if.then.i.i20 ], [ %call2.i39.i, %if.else.i.i19 ], [ %call.i28.i, %if.then.i24.i ], [ %call2.i.i17, %if.else.i23.i ]
   store ptr %retval.i.0.sink.i, ptr %add.ptr.i11, align 8
   br label %return
 
 return:                                           ; preds = %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit, %if.end10.sink.split.i, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit, %if.then
-  %retval.0 = phi ptr [ %add.ptr.i, %if.then ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit ], [ %retval.i.0.sink.i, %if.end10.sink.split.i ], [ %add.ptr.i11, %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit ]
+  %retval.0 = phi ptr [ %add.ptr.i, %if.then ], [ %retval.i.0.sink.i, %if.end10.sink.split.i ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit ], [ %add.ptr.i11, %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit ]
   ret ptr %retval.0
 }
 
@@ -10014,12 +10014,12 @@ if.else.i23.i:                                    ; preds = %if.else.i
   br label %if.end10.sink.split.i
 
 if.end10.sink.split.i:                            ; preds = %if.else.i23.i, %if.then.i24.i, %if.else.i.i19, %if.then.i.i20
-  %retval.i.0.sink.i = phi ptr [ %call2.i39.i, %if.else.i.i19 ], [ %call.i.i, %if.then.i.i20 ], [ %call.i28.i, %if.then.i24.i ], [ %call2.i.i17, %if.else.i23.i ]
+  %retval.i.0.sink.i = phi ptr [ %call.i.i, %if.then.i.i20 ], [ %call2.i39.i, %if.else.i.i19 ], [ %call.i28.i, %if.then.i24.i ], [ %call2.i.i17, %if.else.i23.i ]
   store ptr %retval.i.0.sink.i, ptr %add.ptr.i11, align 8
   br label %return
 
 return:                                           ; preds = %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit, %if.end10.sink.split.i, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit, %if.then
-  %retval.0 = phi ptr [ %add.ptr.i, %if.then ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit ], [ %retval.i.0.sink.i, %if.end10.sink.split.i ], [ %add.ptr.i11, %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit ]
+  %retval.0 = phi ptr [ %add.ptr.i, %if.then ], [ %retval.i.0.sink.i, %if.end10.sink.split.i ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit ], [ %add.ptr.i11, %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit ]
   ret ptr %retval.0
 }
 
@@ -10487,12 +10487,12 @@ if.else.i23.i:                                    ; preds = %if.else.i
   br label %if.end10.sink.split.i
 
 if.end10.sink.split.i:                            ; preds = %if.else.i23.i, %if.then.i24.i, %if.else.i.i19, %if.then.i.i20
-  %retval.i.0.sink.i = phi ptr [ %call2.i39.i, %if.else.i.i19 ], [ %call.i.i, %if.then.i.i20 ], [ %call.i28.i, %if.then.i24.i ], [ %call2.i.i17, %if.else.i23.i ]
+  %retval.i.0.sink.i = phi ptr [ %call.i.i, %if.then.i.i20 ], [ %call2.i39.i, %if.else.i.i19 ], [ %call.i28.i, %if.then.i24.i ], [ %call2.i.i17, %if.else.i23.i ]
   store ptr %retval.i.0.sink.i, ptr %add.ptr.i11, align 8
   br label %return
 
 return:                                           ; preds = %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit, %if.end10.sink.split.i, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit, %if.then
-  %retval.0 = phi ptr [ %add.ptr.i, %if.then ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit ], [ %retval.i.0.sink.i, %if.end10.sink.split.i ], [ %add.ptr.i11, %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit ]
+  %retval.0 = phi ptr [ %add.ptr.i, %if.then ], [ %retval.i.0.sink.i, %if.end10.sink.split.i ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit ], [ %add.ptr.i11, %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit ]
   ret ptr %retval.0
 }
 
@@ -10960,12 +10960,12 @@ if.else.i23.i:                                    ; preds = %if.else.i
   br label %if.end10.sink.split.i
 
 if.end10.sink.split.i:                            ; preds = %if.else.i23.i, %if.then.i24.i, %if.else.i.i19, %if.then.i.i20
-  %retval.i.0.sink.i = phi ptr [ %call2.i39.i, %if.else.i.i19 ], [ %call.i.i, %if.then.i.i20 ], [ %call.i28.i, %if.then.i24.i ], [ %call2.i.i17, %if.else.i23.i ]
+  %retval.i.0.sink.i = phi ptr [ %call.i.i, %if.then.i.i20 ], [ %call2.i39.i, %if.else.i.i19 ], [ %call.i28.i, %if.then.i24.i ], [ %call2.i.i17, %if.else.i23.i ]
   store ptr %retval.i.0.sink.i, ptr %add.ptr.i11, align 8
   br label %return
 
 return:                                           ; preds = %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit, %if.end10.sink.split.i, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit, %if.then
-  %retval.0 = phi ptr [ %add.ptr.i, %if.then ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit ], [ %retval.i.0.sink.i, %if.end10.sink.split.i ], [ %add.ptr.i11, %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit ]
+  %retval.0 = phi ptr [ %add.ptr.i, %if.then ], [ %retval.i.0.sink.i, %if.end10.sink.split.i ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit ], [ %add.ptr.i11, %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit ]
   ret ptr %retval.0
 }
 
@@ -13010,8 +13010,8 @@ lor.lhs.false86:                                  ; preds = %lor.lhs.false82
   br label %for.inc91
 
 for.inc91:                                        ; preds = %land.lhs.true.i.i102, %lor.lhs.false86, %for.body72, %_ZNK6google8protobuf8internal16ReflectionSchema11InRealOneofEPKNS0_15FieldDescriptorE.exit112, %lor.lhs.false82
-  %54 = phi ptr [ %43, %for.body72 ], [ %43, %_ZNK6google8protobuf8internal16ReflectionSchema11InRealOneofEPKNS0_15FieldDescriptorE.exit112 ], [ %43, %lor.lhs.false82 ], [ %.pre173, %lor.lhs.false86 ], [ %43, %land.lhs.true.i.i102 ]
-  %inlined_string_count.1 = phi i32 [ %inlined_string_count.0146, %for.body72 ], [ %inlined_string_count.0146, %_ZNK6google8protobuf8internal16ReflectionSchema11InRealOneofEPKNS0_15FieldDescriptorE.exit112 ], [ %inlined_string_count.0146, %lor.lhs.false82 ], [ %spec.select42, %lor.lhs.false86 ], [ %inlined_string_count.0146, %land.lhs.true.i.i102 ]
+  %54 = phi ptr [ %43, %for.body72 ], [ %43, %land.lhs.true.i.i102 ], [ %43, %_ZNK6google8protobuf8internal16ReflectionSchema11InRealOneofEPKNS0_15FieldDescriptorE.exit112 ], [ %43, %lor.lhs.false82 ], [ %.pre173, %lor.lhs.false86 ]
+  %inlined_string_count.1 = phi i32 [ %inlined_string_count.0146, %for.body72 ], [ %inlined_string_count.0146, %land.lhs.true.i.i102 ], [ %inlined_string_count.0146, %_ZNK6google8protobuf8internal16ReflectionSchema11InRealOneofEPKNS0_15FieldDescriptorE.exit112 ], [ %inlined_string_count.0146, %lor.lhs.false82 ], [ %spec.select42, %lor.lhs.false86 ]
   %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
   %field_count_.i89 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %55 = load i32, ptr %field_count_.i89, align 4
@@ -16477,12 +16477,12 @@ if.else.i23.i:                                    ; preds = %if.else.i
   br label %if.end10.sink.split.i
 
 if.end10.sink.split.i:                            ; preds = %if.else.i23.i, %if.then.i24.i, %if.else.i.i19, %if.then.i.i20
-  %retval.i.0.sink.i = phi ptr [ %call2.i39.i, %if.else.i.i19 ], [ %call.i.i, %if.then.i.i20 ], [ %call.i28.i, %if.then.i24.i ], [ %call2.i.i17, %if.else.i23.i ]
+  %retval.i.0.sink.i = phi ptr [ %call.i.i, %if.then.i.i20 ], [ %call2.i39.i, %if.else.i.i19 ], [ %call.i28.i, %if.then.i24.i ], [ %call2.i.i17, %if.else.i23.i ]
   store ptr %retval.i.0.sink.i, ptr %add.ptr.i11, align 8
   br label %return
 
 return:                                           ; preds = %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit, %if.end10.sink.split.i, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit, %if.then
-  %retval.0 = phi ptr [ %add.ptr.i, %if.then ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit ], [ %retval.i.0.sink.i, %if.end10.sink.split.i ], [ %add.ptr.i11, %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit ]
+  %retval.0 = phi ptr [ %add.ptr.i, %if.then ], [ %retval.i.0.sink.i, %if.end10.sink.split.i ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit ], [ %add.ptr.i11, %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit ]
   ret ptr %retval.0
 }
 
@@ -16803,12 +16803,12 @@ if.else.i23.i:                                    ; preds = %if.else.i
   br label %if.end10.sink.split.i
 
 if.end10.sink.split.i:                            ; preds = %if.else.i23.i, %if.then.i24.i, %if.else.i.i19, %if.then.i.i20
-  %retval.i.0.sink.i = phi ptr [ %call2.i39.i, %if.else.i.i19 ], [ %call.i.i, %if.then.i.i20 ], [ %call.i28.i, %if.then.i24.i ], [ %call2.i.i17, %if.else.i23.i ]
+  %retval.i.0.sink.i = phi ptr [ %call.i.i, %if.then.i.i20 ], [ %call2.i39.i, %if.else.i.i19 ], [ %call.i28.i, %if.then.i24.i ], [ %call2.i.i17, %if.else.i23.i ]
   store ptr %retval.i.0.sink.i, ptr %add.ptr.i11, align 8
   br label %return
 
 return:                                           ; preds = %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit, %if.end10.sink.split.i, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit, %if.then
-  %retval.0 = phi ptr [ %add.ptr.i, %if.then ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit ], [ %retval.i.0.sink.i, %if.end10.sink.split.i ], [ %add.ptr.i11, %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit ]
+  %retval.0 = phi ptr [ %add.ptr.i, %if.then ], [ %retval.i.0.sink.i, %if.end10.sink.split.i ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit ], [ %add.ptr.i11, %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit ]
   ret ptr %retval.0
 }
 
@@ -17125,12 +17125,12 @@ if.else.i23.i:                                    ; preds = %if.else.i
   br label %if.end10.sink.split.i
 
 if.end10.sink.split.i:                            ; preds = %if.else.i23.i, %if.then.i24.i, %if.else.i.i19, %if.then.i.i20
-  %retval.i.0.sink.i = phi ptr [ %call2.i39.i, %if.else.i.i19 ], [ %call.i.i, %if.then.i.i20 ], [ %call.i28.i, %if.then.i24.i ], [ %call2.i.i17, %if.else.i23.i ]
+  %retval.i.0.sink.i = phi ptr [ %call.i.i, %if.then.i.i20 ], [ %call2.i39.i, %if.else.i.i19 ], [ %call.i28.i, %if.then.i24.i ], [ %call2.i.i17, %if.else.i23.i ]
   store ptr %retval.i.0.sink.i, ptr %add.ptr.i11, align 8
   br label %return
 
 return:                                           ; preds = %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit, %if.end10.sink.split.i, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit, %if.then
-  %retval.0 = phi ptr [ %add.ptr.i, %if.then ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit ], [ %retval.i.0.sink.i, %if.end10.sink.split.i ], [ %add.ptr.i11, %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit ]
+  %retval.0 = phi ptr [ %add.ptr.i, %if.then ], [ %retval.i.0.sink.i, %if.end10.sink.split.i ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit ], [ %add.ptr.i11, %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit ]
   ret ptr %retval.0
 }
 
@@ -17504,12 +17504,12 @@ if.else.i23.i:                                    ; preds = %if.else.i
   br label %if.end10.sink.split.i
 
 if.end10.sink.split.i:                            ; preds = %if.else.i23.i, %if.then.i24.i, %if.else.i.i19, %if.then.i.i20
-  %retval.i.0.sink.i = phi ptr [ %call2.i39.i, %if.else.i.i19 ], [ %call.i.i, %if.then.i.i20 ], [ %call.i28.i, %if.then.i24.i ], [ %call2.i.i17, %if.else.i23.i ]
+  %retval.i.0.sink.i = phi ptr [ %call.i.i, %if.then.i.i20 ], [ %call2.i39.i, %if.else.i.i19 ], [ %call.i28.i, %if.then.i24.i ], [ %call2.i.i17, %if.else.i23.i ]
   store ptr %retval.i.0.sink.i, ptr %add.ptr.i11, align 8
   br label %return
 
 return:                                           ; preds = %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit, %if.end10.sink.split.i, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit, %if.then
-  %retval.0 = phi ptr [ %add.ptr.i, %if.then ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit ], [ %retval.i.0.sink.i, %if.end10.sink.split.i ], [ %add.ptr.i11, %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit ]
+  %retval.0 = phi ptr [ %add.ptr.i, %if.then ], [ %retval.i.0.sink.i, %if.end10.sink.split.i ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit ], [ %add.ptr.i11, %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit ]
   ret ptr %retval.0
 }
 
@@ -17980,12 +17980,12 @@ if.else.i23.i:                                    ; preds = %if.else.i
   br label %if.end10.sink.split.i
 
 if.end10.sink.split.i:                            ; preds = %if.else.i23.i, %if.then.i24.i, %if.else.i.i19, %if.then.i.i20
-  %retval.i.0.sink.i = phi ptr [ %call2.i39.i, %if.else.i.i19 ], [ %call.i.i, %if.then.i.i20 ], [ %call.i28.i, %if.then.i24.i ], [ %call2.i.i17, %if.else.i23.i ]
+  %retval.i.0.sink.i = phi ptr [ %call.i.i, %if.then.i.i20 ], [ %call2.i39.i, %if.else.i.i19 ], [ %call.i28.i, %if.then.i24.i ], [ %call2.i.i17, %if.else.i23.i ]
   store ptr %retval.i.0.sink.i, ptr %add.ptr.i11, align 8
   br label %return
 
 return:                                           ; preds = %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit, %if.end10.sink.split.i, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit, %if.then
-  %retval.0 = phi ptr [ %add.ptr.i, %if.then ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit ], [ %retval.i.0.sink.i, %if.end10.sink.split.i ], [ %add.ptr.i11, %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit ]
+  %retval.0 = phi ptr [ %add.ptr.i, %if.then ], [ %retval.i.0.sink.i, %if.end10.sink.split.i ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit ], [ %add.ptr.i11, %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit ]
   ret ptr %retval.0
 }
 
@@ -18568,7 +18568,7 @@ cond.false.i39:                                   ; preds = %_ZN6google8protobuf
   br label %if.end27
 
 if.end27:                                         ; preds = %cond.false.i39, %_ZN6google8protobuf8internal20RepeatedPtrFieldBase22UnsafeArenaReleaseLastINS1_18GenericTypeHandlerINS0_7MessageEEEEEPNT_4TypeEv.exit.i36, %cond.false.i, %_ZN6google8protobuf8internal20RepeatedPtrFieldBase22UnsafeArenaReleaseLastINS1_18GenericTypeHandlerINS0_7MessageEEEEEPNT_4TypeEv.exit.i, %if.then14
-  %released.0 = phi ptr [ %call17, %if.then14 ], [ %call.i.i.i, %cond.false.i ], [ %24, %_ZN6google8protobuf8internal20RepeatedPtrFieldBase22UnsafeArenaReleaseLastINS1_18GenericTypeHandlerINS0_7MessageEEEEEPNT_4TypeEv.exit.i ], [ %call.i.i.i40, %cond.false.i39 ], [ %37, %_ZN6google8protobuf8internal20RepeatedPtrFieldBase22UnsafeArenaReleaseLastINS1_18GenericTypeHandlerINS0_7MessageEEEEEPNT_4TypeEv.exit.i36 ]
+  %released.0 = phi ptr [ %call17, %if.then14 ], [ %24, %_ZN6google8protobuf8internal20RepeatedPtrFieldBase22UnsafeArenaReleaseLastINS1_18GenericTypeHandlerINS0_7MessageEEEEEPNT_4TypeEv.exit.i ], [ %call.i.i.i, %cond.false.i ], [ %call.i.i.i40, %cond.false.i39 ], [ %37, %_ZN6google8protobuf8internal20RepeatedPtrFieldBase22UnsafeArenaReleaseLastINS1_18GenericTypeHandlerINS0_7MessageEEEEEPNT_4TypeEv.exit.i36 ]
   ret ptr %released.0
 }
 
@@ -18926,7 +18926,7 @@ _ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit11.i32
   br label %return
 
 return:                                           ; preds = %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit11.i32, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.thread.i29, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.i42, %if.then.i49, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit11.i, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.thread.i, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.i, %if.then.i, %if.then14
-  %retval.0 = phi ptr [ %call17, %if.then14 ], [ %24, %if.then.i ], [ %24, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.i ], [ %24, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.thread.i ], [ %24, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit11.i ], [ %36, %if.then.i49 ], [ %36, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.i42 ], [ %36, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.thread.i29 ], [ %36, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit11.i32 ]
+  %retval.0 = phi ptr [ %call17, %if.then14 ], [ %24, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit11.i ], [ %24, %if.then.i ], [ %24, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.i ], [ %24, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.thread.i ], [ %36, %if.then.i49 ], [ %36, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.i42 ], [ %36, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.thread.i29 ], [ %36, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit11.i32 ]
   ret ptr %retval.0
 }
 
@@ -19662,7 +19662,7 @@ _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJR
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i137, %if.then.i.i115, %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i104, %if.then.i.i82, %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i70, %if.then.i.i48, %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, %if.then.i.i37, %if.then10, %if.then32, %if.else38, %if.then18
-  %last.1 = phi i32 [ %last.0188, %if.then10 ], [ %last.0188, %if.then18 ], [ %last.0188, %if.else38 ], [ %last.0188, %if.then32 ], [ %spec.select.i.i, %if.then.i.i37 ], [ %spec.select.i.i, %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %spec.select.i.i44, %if.then.i.i48 ], [ %spec.select.i.i44, %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i70 ], [ %spec.select.i.i78, %if.then.i.i82 ], [ %spec.select.i.i78, %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i104 ], [ %spec.select.i.i111, %if.then.i.i115 ], [ %spec.select.i.i111, %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i137 ]
+  %last.1 = phi i32 [ %last.0188, %if.then32 ], [ %last.0188, %if.then10 ], [ %spec.select.i.i, %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %last.0188, %if.then18 ], [ %spec.select.i.i78, %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i104 ], [ %last.0188, %if.else38 ], [ %spec.select.i.i44, %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i70 ], [ %spec.select.i.i, %if.then.i.i37 ], [ %spec.select.i.i44, %if.then.i.i48 ], [ %spec.select.i.i78, %if.then.i.i82 ], [ %spec.select.i.i111, %if.then.i.i115 ], [ %spec.select.i.i111, %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i137 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !107
@@ -27270,7 +27270,7 @@ cond.false:                                       ; preds = %_ZNK6google8protobu
   br label %return
 
 return:                                           ; preds = %cond.true, %cond.false, %_ZNK6google8protobuf10Reflection8GetFieldIPN4absl12lts_202308024CordEEERKT_RKNS0_7MessageEPKNS0_15FieldDescriptorE.exit, %_ZNK6google8protobuf10Reflection8GetFieldIN4absl12lts_202308024CordEEERKT_RKNS0_7MessageEPKNS0_15FieldDescriptorE.exit, %_ZNK6google8protobuf10Reflection8GetFieldINS0_8internal18InlinedStringFieldEEERKT_RKNS0_7MessageEPKNS0_15FieldDescriptorE.exit, %if.then21, %if.then14
-  %retval.0 = phi ptr [ %call18, %if.then14 ], [ %add.ptr.i10.i.i126, %_ZNK6google8protobuf10Reflection8GetFieldINS0_8internal18InlinedStringFieldEEERKT_RKNS0_7MessageEPKNS0_15FieldDescriptorE.exit ], [ %28, %if.then21 ], [ %scratch, %_ZNK6google8protobuf10Reflection8GetFieldIN4absl12lts_202308024CordEEERKT_RKNS0_7MessageEPKNS0_15FieldDescriptorE.exit ], [ %scratch, %_ZNK6google8protobuf10Reflection8GetFieldIPN4absl12lts_202308024CordEEERKT_RKNS0_7MessageEPKNS0_15FieldDescriptorE.exit ], [ %83, %cond.true ], [ %84, %cond.false ]
+  %retval.0 = phi ptr [ %call18, %if.then14 ], [ %28, %if.then21 ], [ %add.ptr.i10.i.i126, %_ZNK6google8protobuf10Reflection8GetFieldINS0_8internal18InlinedStringFieldEEERKT_RKNS0_7MessageEPKNS0_15FieldDescriptorE.exit ], [ %scratch, %_ZNK6google8protobuf10Reflection8GetFieldIPN4absl12lts_202308024CordEEERKT_RKNS0_7MessageEPKNS0_15FieldDescriptorE.exit ], [ %scratch, %_ZNK6google8protobuf10Reflection8GetFieldIN4absl12lts_202308024CordEEERKT_RKNS0_7MessageEPKNS0_15FieldDescriptorE.exit ], [ %83, %cond.true ], [ %84, %cond.false ]
   ret ptr %retval.0
 }
 
@@ -32060,7 +32060,7 @@ if.end22:                                         ; preds = %land.lhs.true.i.i, 
   br label %return
 
 return:                                           ; preds = %if.then16, %if.then, %if.then4, %if.end22
-  %retval.0 = phi ptr [ %call27, %if.end22 ], [ %call7, %if.then4 ], [ %atomic-temp.i.0.i, %if.then ], [ %14, %if.then16 ]
+  %retval.0 = phi ptr [ %atomic-temp.i.0.i, %if.then ], [ %call27, %if.end22 ], [ %call7, %if.then4 ], [ %14, %if.then16 ]
   ret ptr %retval.0
 }
 
@@ -32140,7 +32140,7 @@ lor.end.sink.split:                               ; preds = %if.then.i.i.i.i3, %
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.end.sink.split, %if.then.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i, %if.then.i.i.i, %land.rhs.i, %entry, %if.then.i.i.i.i3, %lor.lhs.false.i.i.i.i, %if.then.i.i, %lor.rhs
-  %12 = phi i1 [ false, %lor.rhs ], [ false, %if.then.i.i ], [ false, %lor.lhs.false.i.i.i.i ], [ false, %if.then.i.i.i.i3 ], [ true, %entry ], [ true, %land.rhs.i ], [ true, %if.then.i.i.i ], [ true, %lor.lhs.false.i.i.i.i.i ], [ true, %if.then.i.i.i.i.i ], [ %tobool.i.i4.i, %lor.end.sink.split ]
+  %12 = phi i1 [ true, %if.then.i.i.i.i.i ], [ false, %lor.rhs ], [ false, %if.then.i.i ], [ false, %lor.lhs.false.i.i.i.i ], [ false, %if.then.i.i.i.i3 ], [ true, %entry ], [ true, %land.rhs.i ], [ true, %if.then.i.i.i ], [ true, %lor.lhs.false.i.i.i.i.i ], [ %tobool.i.i4.i, %lor.end.sink.split ]
   ret i1 %12
 }
 
@@ -34337,7 +34337,7 @@ if.end.i.i:                                       ; preds = %if.then4.i
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase24AddAllocatedSlowWithCopyINS1_18GenericTypeHandlerINS0_7MessageEEEEEvPNT_4TypeEPNS0_5ArenaESB_.exit
 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase24AddAllocatedSlowWithCopyINS1_18GenericTypeHandlerINS0_7MessageEEEEEvPNT_4TypeEPNS0_5ArenaESB_.exit: ; preds = %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase23AllocatedSizeAtCapacityEv.exit, %cond.true.i, %if.then.i, %if.then.i.i, %if.then4.i, %if.end.i.i
-  %value.addr.0.i = phi ptr [ %value, %if.then.i.i ], [ null, %if.then.i ], [ %call.i, %if.then4.i ], [ %call.i, %if.end.i.i ], [ %value, %cond.true.i ], [ %value, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase23AllocatedSizeAtCapacityEv.exit ]
+  %value.addr.0.i = phi ptr [ %value, %if.then.i.i ], [ null, %if.then.i ], [ %call.i, %if.end.i.i ], [ %call.i, %if.then4.i ], [ %value, %cond.true.i ], [ %value, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase23AllocatedSizeAtCapacityEv.exit ]
   tail call void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase23UnsafeArenaAddAllocatedINS1_18GenericTypeHandlerINS0_7MessageEEEEEvPNT_4TypeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %value.addr.0.i)
   br label %if.end21
 
@@ -35251,12 +35251,12 @@ if.else.i23.i:                                    ; preds = %if.else.i
   br label %if.end10.sink.split.i
 
 if.end10.sink.split.i:                            ; preds = %if.else.i23.i, %if.then.i24.i, %if.else.i.i19, %if.then.i.i20
-  %retval.i.0.sink.i = phi ptr [ %call2.i39.i, %if.else.i.i19 ], [ %call.i.i, %if.then.i.i20 ], [ %call.i28.i, %if.then.i24.i ], [ %call2.i.i17, %if.else.i23.i ]
+  %retval.i.0.sink.i = phi ptr [ %call.i.i, %if.then.i.i20 ], [ %call2.i39.i, %if.else.i.i19 ], [ %call.i28.i, %if.then.i24.i ], [ %call2.i.i17, %if.else.i23.i ]
   store ptr %retval.i.0.sink.i, ptr %add.ptr.i11, align 8
   br label %return
 
 return:                                           ; preds = %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit, %if.end10.sink.split.i, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit, %if.then
-  %retval.0 = phi ptr [ %add.ptr.i, %if.then ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit ], [ %retval.i.0.sink.i, %if.end10.sink.split.i ], [ %add.ptr.i11, %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit ]
+  %retval.0 = phi ptr [ %add.ptr.i, %if.then ], [ %retval.i.0.sink.i, %if.end10.sink.split.i ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit ], [ %add.ptr.i11, %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit ]
   ret ptr %retval.0
 }
 
@@ -37172,12 +37172,12 @@ if.else.i23.i:                                    ; preds = %if.else.i
   br label %if.end10.sink.split.i
 
 if.end10.sink.split.i:                            ; preds = %if.else.i23.i, %if.then.i24.i, %if.else.i.i19, %if.then.i.i20
-  %retval.i.0.sink.i = phi ptr [ %call2.i39.i, %if.else.i.i19 ], [ %call.i.i, %if.then.i.i20 ], [ %call.i28.i, %if.then.i24.i ], [ %call2.i.i17, %if.else.i23.i ]
+  %retval.i.0.sink.i = phi ptr [ %call.i.i, %if.then.i.i20 ], [ %call2.i39.i, %if.else.i.i19 ], [ %call.i28.i, %if.then.i24.i ], [ %call2.i.i17, %if.else.i23.i ]
   store ptr %retval.i.0.sink.i, ptr %add.ptr.i11, align 8
   br label %return
 
 return:                                           ; preds = %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit, %if.end10.sink.split.i, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit, %if.then
-  %retval.0 = phi ptr [ %add.ptr.i, %if.then ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit ], [ %retval.i.0.sink.i, %if.end10.sink.split.i ], [ %add.ptr.i11, %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit ]
+  %retval.0 = phi ptr [ %add.ptr.i, %if.then ], [ %retval.i.0.sink.i, %if.end10.sink.split.i ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit ], [ %add.ptr.i11, %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit ]
   ret ptr %retval.0
 }
 
@@ -38062,12 +38062,12 @@ if.else.i23.i:                                    ; preds = %if.else.i
   br label %if.end10.sink.split.i
 
 if.end10.sink.split.i:                            ; preds = %if.else.i23.i, %if.then.i24.i, %if.else.i.i19, %if.then.i.i20
-  %retval.i.0.sink.i = phi ptr [ %call2.i39.i, %if.else.i.i19 ], [ %call.i.i, %if.then.i.i20 ], [ %call.i28.i, %if.then.i24.i ], [ %call2.i.i17, %if.else.i23.i ]
+  %retval.i.0.sink.i = phi ptr [ %call.i.i, %if.then.i.i20 ], [ %call2.i39.i, %if.else.i.i19 ], [ %call.i28.i, %if.then.i24.i ], [ %call2.i.i17, %if.else.i23.i ]
   store ptr %retval.i.0.sink.i, ptr %add.ptr.i11, align 8
   br label %return
 
 return:                                           ; preds = %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit, %if.end10.sink.split.i, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit, %if.then
-  %retval.0 = phi ptr [ %add.ptr.i, %if.then ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit ], [ %retval.i.0.sink.i, %if.end10.sink.split.i ], [ %add.ptr.i11, %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit ]
+  %retval.0 = phi ptr [ %add.ptr.i, %if.then ], [ %retval.i.0.sink.i, %if.end10.sink.split.i ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit ], [ %add.ptr.i11, %_ZNK6google8protobuf10Reflection27PrepareSplitMessageForWriteEPNS0_7MessageE.exit ]
   ret ptr %retval.0
 }
 
@@ -39377,7 +39377,7 @@ for.inc.i29.i.i.i:                                ; preds = %while.body.i.i33.i.
   br i1 %cmp.i1.not.i32.i.i.i, label %invoke.cont58, label %for.body.i20.i.i.i, !llvm.loop !114
 
 invoke.cont58:                                    ; preds = %for.inc.i29.i.i.i, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZNKS3_10Reflection18CreateTcParseTableEvE3$_0EEEvT_T0_.exit.i.i.i.i", %for.end50.thread, %if.else.i.i.i, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10Reflection18CreateTcParseTableEvE3$_0EEEvT_SH_T0_.exit.i.i.i", %for.end50
-  %_M_finish.i105322 = phi ptr [ %_M_finish.i105320, %for.end50.thread ], [ %_M_finish.i105, %if.else.i.i.i ], [ %_M_finish.i105, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10Reflection18CreateTcParseTableEvE3$_0EEEvT_SH_T0_.exit.i.i.i" ], [ %_M_finish.i105, %for.end50 ], [ %_M_finish.i105, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZNKS3_10Reflection18CreateTcParseTableEvE3$_0EEEvT_T0_.exit.i.i.i.i" ], [ %_M_finish.i105, %for.inc.i29.i.i.i ]
+  %_M_finish.i105322 = phi ptr [ %_M_finish.i105320, %for.end50.thread ], [ %_M_finish.i105, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZNKS3_10Reflection18CreateTcParseTableEvE3$_0EEEvT_T0_.exit.i.i.i.i" ], [ %_M_finish.i105, %for.end50 ], [ %_M_finish.i105, %if.else.i.i.i ], [ %_M_finish.i105, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10Reflection18CreateTcParseTableEvE3$_0EEEvT_SH_T0_.exit.i.i.i" ], [ %_M_finish.i105, %for.inc.i29.i.i.i ]
   %73 = load ptr, ptr %this, align 8
   store i8 0, ptr %ref.tmp60, align 1
   %uses_codegen = getelementptr inbounds nuw i8, ptr %ref.tmp60, i64 1
@@ -40842,7 +40842,7 @@ if.then.i.i93:                                    ; preds = %ehcleanup
   br label %ehcleanup75
 
 cleanup74thread-pre-split:                        ; preds = %for.inc71, %invoke.cont11, %invoke.cont14, %invoke.cont32, %invoke.cont28, %_ZN6google8protobuf11MapIteratorD2Ev.exit75, %if.then.i.i78
-  %cmp.i115.ph = phi i1 [ true, %_ZN6google8protobuf11MapIteratorD2Ev.exit75 ], [ true, %if.then.i.i78 ], [ true, %invoke.cont28 ], [ true, %invoke.cont32 ], [ false, %for.inc71 ], [ true, %invoke.cont11 ], [ true, %invoke.cont14 ]
+  %cmp.i115.ph = phi i1 [ true, %if.then.i.i78 ], [ true, %_ZN6google8protobuf11MapIteratorD2Ev.exit75 ], [ true, %invoke.cont32 ], [ true, %invoke.cont28 ], [ true, %invoke.cont14 ], [ false, %for.inc71 ], [ true, %invoke.cont11 ]
   %.pr = load ptr, ptr %fields, align 8
   br label %cleanup74
 
@@ -40860,7 +40860,7 @@ _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EED2Ev.exit: ; preds = %
   ret i1 %cmp.i115
 
 ehcleanup75:                                      ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %if.then.i.i93, %ehcleanup
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %.pn, %if.then.i.i93 ], [ %lpad.loopexit103, %lpad.loopexit ], [ %lpad.loopexit106, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp107, %lpad.loopexit.split-lp.loopexit.split-lp ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %if.then.i.i93 ], [ %.pn, %ehcleanup ], [ %lpad.loopexit103, %lpad.loopexit ], [ %lpad.loopexit106, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp107, %lpad.loopexit.split-lp.loopexit.split-lp ]
   %39 = load ptr, ptr %fields, align 8
   %tobool.not.i.i.i98 = icmp eq ptr %39, null
   br i1 %tobool.not.i.i.i98, label %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EED2Ev.exit100, label %if.then.i.i.i99
@@ -45747,8 +45747,8 @@ _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicy
   br label %if.end16
 
 if.end16:                                         ; preds = %land.lhs.true, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIiEENS0_13hash_internal4HashIiEESt8equal_toIiESaIiEE28rehash_and_grow_if_necessaryEv.exit, %land.rhs
-  %7 = phi ptr [ %.pre, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIiEENS0_13hash_internal4HashIiEESt8equal_toIiESaIiEE28rehash_and_grow_if_necessaryEv.exit ], [ %1, %land.rhs ], [ %1, %land.lhs.true ]
-  %target.sroa.0.0 = phi i64 [ %6, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIiEENS0_13hash_internal4HashIiEESt8equal_toIiESaIiEE28rehash_and_grow_if_necessaryEv.exit ], [ %0, %land.rhs ], [ %0, %land.lhs.true ]
+  %7 = phi ptr [ %1, %land.lhs.true ], [ %.pre, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIiEENS0_13hash_internal4HashIiEESt8equal_toIiESaIiEE28rehash_and_grow_if_necessaryEv.exit ], [ %1, %land.rhs ]
+  %target.sroa.0.0 = phi i64 [ %0, %land.lhs.true ], [ %6, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIiEENS0_13hash_internal4HashIiEESt8equal_toIiESaIiEE28rehash_and_grow_if_necessaryEv.exit ], [ %0, %land.rhs ]
   %compressed_tuple_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %8 = load i64, ptr %compressed_tuple_.i, align 8
   %add = add i64 %8, 1
@@ -46414,7 +46414,7 @@ if.else.i23:                                      ; preds = %if.else
   br label %if.end10.sink.split
 
 if.end10.sink.split:                              ; preds = %if.then.i24, %if.else.i23, %if.else.i, %if.then.i
-  %retval.i.0.sink = phi ptr [ %call2.i39, %if.else.i ], [ %call.i, %if.then.i ], [ %call.i28, %if.then.i24 ], [ %call2.i, %if.else.i23 ]
+  %retval.i.0.sink = phi ptr [ %call.i, %if.then.i ], [ %call2.i39, %if.else.i ], [ %call.i28, %if.then.i24 ], [ %call2.i, %if.else.i23 ]
   store ptr %retval.i.0.sink, ptr %ptr, align 8
   br label %if.end10
 
@@ -46524,7 +46524,7 @@ while.body.i.i.us.i.i.i:                          ; preds = %land.rhs.i.i.us.i.i
   br i1 %cmp.i.i.us.i.i.i, label %land.rhs.i.i.us.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_117FieldNumberSorterEEEEvT_T0_SI_T1_T2_.exit.us.i.i.i, !llvm.loop !140
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_117FieldNumberSorterEEEEvT_T0_SI_T1_T2_.exit.us.i.i.i: ; preds = %while.body.i.i.us.i.i.i, %land.rhs.i.i.us.i.i.i, %while.body.us.i.i.i
-  %__holeIndex.addr.0.lcssa.i.i.us.i.i.i = phi i64 [ %__parent.0.us.i.i.i, %while.body.us.i.i.i ], [ %__holeIndex.addr.07.i.i.us.i.i.i, %land.rhs.i.i.us.i.i.i ], [ %__parent.08.i.i.us.i.i.i, %while.body.i.i.us.i.i.i ]
+  %__holeIndex.addr.0.lcssa.i.i.us.i.i.i = phi i64 [ %__parent.0.us.i.i.i, %while.body.us.i.i.i ], [ %__parent.08.i.i.us.i.i.i, %while.body.i.i.us.i.i.i ], [ %__holeIndex.addr.07.i.i.us.i.i.i, %land.rhs.i.i.us.i.i.i ]
   %add.ptr.i9.i.i.us.i.i.i = getelementptr inbounds nuw ptr, ptr %__first.coerce.fr.i.i.i, i64 %__holeIndex.addr.0.lcssa.i.i.us.i.i.i
   store ptr %1, ptr %add.ptr.i9.i.i.us.i.i.i, align 8
   %cmp8.us.i.i.i = icmp eq i64 %__parent.0.us.i.i.i, 0
@@ -47064,7 +47064,7 @@ while.body.i.i.us.i.i.i:                          ; preds = %land.rhs.i.i.us.i.i
   br i1 %cmp.i.i.us.i.i.i, label %land.rhs.i.i.us.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNKS3_10Reflection18CreateTcParseTableEvE3$_0EEEvT_T0_SI_T1_T2_.exit.us.i.i.i", !llvm.loop !148
 
 "_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNKS3_10Reflection18CreateTcParseTableEvE3$_0EEEvT_T0_SI_T1_T2_.exit.us.i.i.i": ; preds = %while.body.i.i.us.i.i.i, %land.rhs.i.i.us.i.i.i, %while.body.us.i.i.i
-  %__holeIndex.addr.0.lcssa.i.i.us.i.i.i = phi i64 [ %__parent.0.us.i.i.i, %while.body.us.i.i.i ], [ %__holeIndex.addr.07.i.i.us.i.i.i, %land.rhs.i.i.us.i.i.i ], [ %__parent.08.i.i.us.i.i.i, %while.body.i.i.us.i.i.i ]
+  %__holeIndex.addr.0.lcssa.i.i.us.i.i.i = phi i64 [ %__parent.0.us.i.i.i, %while.body.us.i.i.i ], [ %__parent.08.i.i.us.i.i.i, %while.body.i.i.us.i.i.i ], [ %__holeIndex.addr.07.i.i.us.i.i.i, %land.rhs.i.i.us.i.i.i ]
   %add.ptr.i9.i.i.us.i.i.i = getelementptr inbounds nuw ptr, ptr %__first.coerce.fr.i.i.i, i64 %__holeIndex.addr.0.lcssa.i.i.us.i.i.i
   store ptr %1, ptr %add.ptr.i9.i.i.us.i.i.i, align 8
   %cmp8.us.i.i.i = icmp eq i64 %__parent.0.us.i.i.i, 0

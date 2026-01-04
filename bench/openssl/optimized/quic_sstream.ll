@@ -37,7 +37,7 @@ define ptr @ossl_quic_sstream_new(i64 noundef %0) local_unnamed_addr #0 {
   br label %11
 
 11:                                               ; preds = %1, %8, %6
-  %.0 = phi ptr [ %2, %8 ], [ null, %6 ], [ null, %1 ]
+  %.0 = phi ptr [ null, %6 ], [ %2, %8 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -162,7 +162,7 @@ ring_buf_destroy.exit:                            ; preds = %47, %48
   br label %49
 
 49:                                               ; preds = %12, %7, %3, %ring_buf_destroy.exit, %ring_buf_push.exit.thread, %._crit_edge
-  %.016 = phi i32 [ 1, %ring_buf_destroy.exit ], [ 0, %ring_buf_push.exit.thread ], [ 0, %._crit_edge ], [ 1, %3 ], [ 0, %7 ], [ 0, %12 ]
+  %.016 = phi i32 [ 0, %._crit_edge ], [ 1, %3 ], [ 0, %7 ], [ 1, %ring_buf_destroy.exit ], [ 0, %ring_buf_push.exit.thread ], [ 0, %12 ]
   ret i32 %.016
 }
 
@@ -349,7 +349,7 @@ ring_buf_get_buf_at.exit.thread.sink.split:       ; preds = %20, %73
   br label %ring_buf_get_buf_at.exit.thread
 
 ring_buf_get_buf_at.exit.thread:                  ; preds = %40, %43, %ring_buf_get_buf_at.exit.thread.sink.split, %16, %15, %5
-  %.046 = phi i32 [ 0, %5 ], [ 0, %15 ], [ 0, %16 ], [ 1, %ring_buf_get_buf_at.exit.thread.sink.split ], [ 0, %43 ], [ 0, %40 ]
+  %.046 = phi i32 [ 0, %16 ], [ 0, %5 ], [ 0, %15 ], [ 1, %ring_buf_get_buf_at.exit.thread.sink.split ], [ 0, %43 ], [ 0, %40 ]
   ret i32 %.046
 }
 
@@ -686,7 +686,7 @@ ring_buf_push.exit:                               ; preds = %.lr.ph.i
   br i1 %.not29, label %ring_buf_push.exit.thread, label %10, !llvm.loop !38
 
 ring_buf_push.exit.thread:                        ; preds = %30, %ring_buf_push.exit, %10
-  %.026.lcssa = phi i64 [ %33, %30 ], [ %.02635, %ring_buf_push.exit ], [ %.02635, %10 ]
+  %.026.lcssa = phi i64 [ %.02635, %10 ], [ %33, %30 ], [ %.02635, %ring_buf_push.exit ]
   %.not30 = icmp eq i64 %.026.lcssa, 0
   br i1 %.not30, label %ring_buf_push.exit.thread.thread, label %34
 
@@ -708,8 +708,8 @@ ring_buf_push.exit.thread:                        ; preds = %30, %ring_buf_push.
   br label %ring_buf_push.exit.thread.thread
 
 ring_buf_push.exit.thread.thread:                 ; preds = %ring_buf_push.exit.thread, %34, %.preheader, %4, %40
-  %.026.lcssa47.sink = phi i64 [ 0, %40 ], [ 0, %4 ], [ %.026.lcssa, %34 ], [ 0, %ring_buf_push.exit.thread ], [ 0, %.preheader ]
-  %.0 = phi i32 [ 0, %40 ], [ 0, %4 ], [ 1, %34 ], [ 1, %ring_buf_push.exit.thread ], [ 1, %.preheader ]
+  %.026.lcssa47.sink = phi i64 [ 0, %4 ], [ 0, %40 ], [ 0, %ring_buf_push.exit.thread ], [ %.026.lcssa, %34 ], [ 0, %.preheader ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %40 ], [ 1, %ring_buf_push.exit.thread ], [ 1, %34 ], [ 1, %.preheader ]
   store i64 %.026.lcssa47.sink, ptr %3, align 8, !tbaa !12
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -795,7 +795,7 @@ define range(i32 0, 2) i32 @ossl_quic_sstream_is_totally_acked(ptr noundef reado
   br label %19
 
 19:                                               ; preds = %9, %5, %1, %11
-  %.0 = phi i32 [ %18, %11 ], [ 0, %1 ], [ 1, %5 ], [ 0, %9 ]
+  %.0 = phi i32 [ 0, %1 ], [ 1, %5 ], [ %18, %11 ], [ 0, %9 ]
   ret i32 %.0
 }
 

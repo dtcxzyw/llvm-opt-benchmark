@@ -965,9 +965,9 @@ define dso_local void @PreCommit_Notify() local_unnamed_addr #0 {
   br label %76
 
 76:                                               ; preds = %.sink.split.i, %72, %71, %59
-  %.sroa.11.1.i = phi i32 [ %.sroa.11.040.i, %59 ], [ %.sroa.11.040.i, %71 ], [ %.sroa.11.040.i, %72 ], [ %.sroa.11.0.copyload26.i, %.sink.split.i ]
-  %.sroa.9.1.i = phi i32 [ %.sroa.9.041.i, %59 ], [ %.sroa.9.041.i, %71 ], [ %.sroa.9.041.i, %72 ], [ %.sroa.9.1.ph.i, %.sink.split.i ]
-  %.sroa.0.1.i = phi i64 [ %.sroa.0.042.i, %59 ], [ %.sroa.0.042.i, %71 ], [ %.sroa.0.042.i, %72 ], [ %.sroa.0.1.ph.i, %.sink.split.i ]
+  %.sroa.11.1.i = phi i32 [ %.sroa.11.040.i, %72 ], [ %.sroa.11.040.i, %59 ], [ %.sroa.11.040.i, %71 ], [ %.sroa.11.0.copyload26.i, %.sink.split.i ]
+  %.sroa.9.1.i = phi i32 [ %.sroa.9.041.i, %72 ], [ %.sroa.9.041.i, %59 ], [ %.sroa.9.041.i, %71 ], [ %.sroa.9.1.ph.i, %.sink.split.i ]
+  %.sroa.0.1.i = phi i64 [ %.sroa.0.042.i, %72 ], [ %.sroa.0.042.i, %59 ], [ %.sroa.0.042.i, %71 ], [ %.sroa.0.1.ph.i, %.sink.split.i ]
   %77 = icmp slt i32 %.044.i, %.pre.i
   %spec.select.i = select i1 %77, i32 %.044.i, i32 %.03243.i
   %78 = getelementptr %struct.QueueBackendStatus, ptr %41, i64 %60
@@ -1607,7 +1607,7 @@ Exec_ListenCommit.exit:                           ; preds = %64, %34, %.thread.i
   br label %.loopexit.i18
 
 .loopexit.i18:                                    ; preds = %.preheader.i, %107, %96
-  %113 = phi i32 [ %.pre.i, %107 ], [ %93, %96 ], [ %94, %.preheader.i ]
+  %113 = phi i32 [ %93, %96 ], [ %.pre.i, %107 ], [ %94, %.preheader.i ]
   %114 = sext i32 %113 to i64
   %115 = getelementptr %struct.QueueBackendStatus, ptr %83, i64 %114
   %116 = getelementptr i8, ptr %115, i64 64
@@ -1706,8 +1706,8 @@ asyncQueueUnregister.exit:                        ; preds = %.critedge, %.loopex
   br label %164
 
 164:                                              ; preds = %159, %156, %153
-  %165 = phi i32 [ %.pre.i20, %159 ], [ %142, %153 ], [ %142, %156 ]
-  %.1.i = phi i32 [ %163, %159 ], [ %.029.i, %153 ], [ %.029.i, %156 ]
+  %165 = phi i32 [ %142, %153 ], [ %.pre.i20, %159 ], [ %142, %156 ]
+  %.1.i = phi i32 [ %.029.i, %153 ], [ %163, %159 ], [ %.029.i, %156 ]
   %166 = getelementptr %struct.QueueBackendStatus, ptr %132, i64 %143
   %167 = getelementptr i8, ptr %166, i64 64
   %.025.i = load i32, ptr %167, align 8
@@ -1957,7 +1957,7 @@ define dso_local void @AtAbort_Notify() local_unnamed_addr #0 {
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.preheader.i, %31, %20
-  %37 = phi i32 [ %.pre.i, %31 ], [ %17, %20 ], [ %18, %.preheader.i ]
+  %37 = phi i32 [ %17, %20 ], [ %.pre.i, %31 ], [ %18, %.preheader.i ]
   %38 = sext i32 %37 to i64
   %39 = getelementptr %struct.QueueBackendStatus, ptr %7, i64 %38
   %40 = getelementptr i8, ptr %39, i64 64
@@ -2432,7 +2432,7 @@ Exec_UnlistenAllCommit.exit:                      ; preds = %2, %5, %7
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.preheader.i, %39, %28
-  %45 = phi i32 [ %.pre.i, %39 ], [ %25, %28 ], [ %26, %.preheader.i ]
+  %45 = phi i32 [ %25, %28 ], [ %.pre.i, %39 ], [ %26, %.preheader.i ]
   %46 = sext i32 %45 to i64
   %47 = getelementptr %struct.QueueBackendStatus, ptr %15, i64 %46
   %48 = getelementptr i8, ptr %47, i64 64

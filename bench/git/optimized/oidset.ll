@@ -307,7 +307,7 @@ define dso_local range(i32 0, 2) i32 @oidset_contains(ptr noundef readonly captu
   br label %kh_get_oid_set.exit
 
 kh_get_oid_set.exit:                              ; preds = %.critedge2.i, %2, %.critedge.i
-  %.1.i = phi i32 [ 0, %2 ], [ %35, %.critedge.i ], [ 0, %.critedge2.i ]
+  %.1.i = phi i32 [ %35, %.critedge.i ], [ 0, %2 ], [ 0, %.critedge2.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1.i
 }
@@ -608,7 +608,7 @@ kh_get_oid_set.exit.thread:                       ; preds = %.critedge2.i
   br label %kh_get_oid_set.exit
 
 kh_get_oid_set.exit:                              ; preds = %2, %.critedge.i
-  %.1.i = phi i32 [ 0, %2 ], [ %spec.select.i, %.critedge.i ]
+  %.1.i = phi i32 [ %spec.select.i, %.critedge.i ], [ 0, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %33 = icmp eq i32 %.1.i, %5
   br i1 %33, label %kh_del_oid_set.exit, label %34
@@ -638,7 +638,7 @@ kh_get_oid_set.exit:                              ; preds = %2, %.critedge.i
   br label %kh_del_oid_set.exit
 
 kh_del_oid_set.exit:                              ; preds = %45, %34, %kh_get_oid_set.exit.thread, %kh_get_oid_set.exit
-  %.0 = phi i32 [ 0, %kh_get_oid_set.exit ], [ 0, %kh_get_oid_set.exit.thread ], [ 1, %34 ], [ 1, %45 ]
+  %.0 = phi i32 [ 0, %kh_get_oid_set.exit.thread ], [ 0, %kh_get_oid_set.exit ], [ 1, %34 ], [ 1, %45 ]
   ret i32 %.0
 }
 

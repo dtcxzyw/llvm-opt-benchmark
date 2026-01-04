@@ -531,8 +531,8 @@ define void @_ZN3gmx20nbnxn_kernel_gpu_refEPKNS_16NbnxnPairlistGpuEPKNS_16nbnxn_
   br label %309
 
 309:                                              ; preds = %277, %299, %265, %272
-  %.9 = phi float [ %276, %272 ], [ %.5417, %265 ], [ %308, %299 ], [ %.5417, %277 ]
-  %.0 = phi float [ %271, %272 ], [ %271, %265 ], [ %298, %299 ], [ %298, %277 ]
+  %.9 = phi float [ %.5417, %265 ], [ %276, %272 ], [ %308, %299 ], [ %.5417, %277 ]
+  %.0 = phi float [ %271, %265 ], [ %271, %272 ], [ %298, %299 ], [ %298, %277 ]
   %310 = fcmp olt float %.sroa.speculated, %40
   br i1 %310, label %311, label %339
 

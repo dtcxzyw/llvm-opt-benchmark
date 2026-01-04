@@ -267,7 +267,7 @@ define dso_local noundef range(i32 -12, 1) i32 @iommu_dma_init_fq(ptr noundef %0
   br label %103
 
 .thread:                                          ; preds = %73, %.loopexit, %.split, %56, %52, %.split.us, %31, %23
-  %99 = phi ptr [ %21, %23 ], [ %21, %31 ], [ %40, %.split.us ], [ %40, %52 ], [ %40, %56 ], [ %40, %.split ], [ %40, %.loopexit ], [ %40, %73 ]
+  %99 = phi ptr [ %21, %23 ], [ %21, %31 ], [ %40, %56 ], [ %40, %.split.us ], [ %40, %52 ], [ %40, %.split ], [ %40, %.loopexit ], [ %40, %73 ]
   %100 = getelementptr inbounds nuw i8, ptr %3, i64 136
   store ptr %99, ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %3, i64 160
@@ -848,7 +848,7 @@ define dso_local void @iommu_setup_dma_ops(ptr noundef %0, i64 noundef %1, i64 n
   %159 = getelementptr inbounds nuw i8, ptr %79, i64 208
   %160 = load ptr, ptr %6, align 8
   %161 = icmp eq ptr %160, %6
-  br i1 %161, label %.critedge, label %.lr.ph
+  br i1 %161, label %.thread18, label %.lr.ph
 
 .lr.ph:                                           ; preds = %157, %.backedge
   %162 = phi ptr [ %166, %.backedge ], [ %160, %157 ]
@@ -860,7 +860,7 @@ define dso_local void @iommu_setup_dma_ops(ptr noundef %0, i64 noundef %1, i64 n
 .backedge:                                        ; preds = %202, %168, %182, %.lr.ph
   %166 = load ptr, ptr %162, align 8
   %167 = icmp eq ptr %166, %6
-  br i1 %167, label %.critedge, label %.lr.ph, !llvm.loop !25
+  br i1 %167, label %.thread18, label %.lr.ph, !llvm.loop !25
 
 168:                                              ; preds = %.lr.ph
   %169 = getelementptr inbounds nuw i8, ptr %162, i64 16
@@ -901,7 +901,7 @@ define dso_local void @iommu_setup_dma_ops(ptr noundef %0, i64 noundef %1, i64 n
   %199 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %200 = call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %199, i32 noundef 3264, i64 noundef 32) #19
   %201 = icmp eq ptr %200, null
-  br i1 %201, label %.thread18, label %202
+  br i1 %201, label %.critedge, label %202
 
 202:                                              ; preds = %.preheader
   %203 = getelementptr inbounds nuw i8, ptr %200, i64 24
@@ -923,23 +923,17 @@ define dso_local void @iommu_setup_dma_ops(ptr noundef %0, i64 noundef %1, i64 n
   %211 = icmp eq i32 %210, %195
   br i1 %211, label %.backedge, label %.preheader, !llvm.loop !26
 
-.thread18:                                        ; preds = %.preheader
+.thread18:                                        ; preds = %.backedge, %157
   call void @iommu_put_resv_regions(ptr noundef %0, ptr noundef nonnull %6) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @mutex_unlock(ptr noundef nonnull %45) #15
-  br label %216
+  br label %213
 
 212:                                              ; preds = %50
   tail call void @mutex_unlock(ptr noundef nonnull %45) #15
   br label %213
 
-.critedge:                                        ; preds = %.backedge, %157
-  call void @iommu_put_resv_regions(ptr noundef %0, ptr noundef nonnull %6) #15
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @mutex_unlock(ptr noundef nonnull %45) #15
-  br label %213
-
-213:                                              ; preds = %.critedge, %212
+213:                                              ; preds = %.thread18, %212
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 552
   store ptr @iommu_dma_ops, ptr %214, align 8
   br label %225
@@ -948,7 +942,13 @@ define dso_local void @iommu_setup_dma_ops(ptr noundef %0, i64 noundef %1, i64 n
   tail call void @mutex_unlock(ptr noundef nonnull %45) #15
   br label %216
 
-216:                                              ; preds = %.thread18, %.thread17, %215, %38, %17, %13, %3
+.critedge:                                        ; preds = %.preheader
+  call void @iommu_put_resv_regions(ptr noundef %0, ptr noundef nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @mutex_unlock(ptr noundef nonnull %45) #15
+  br label %216
+
+216:                                              ; preds = %.critedge, %.thread17, %215, %38, %17, %13, %3
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %218 = load ptr, ptr %217, align 8
   %219 = icmp eq ptr %218, null
@@ -1603,7 +1603,7 @@ define internal i32 @iommu_dma_mmap(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %41
 
 41:                                               ; preds = %.thread, %31
-  %42 = phi i64 [ %40, %31 ], [ %28, %.thread ]
+  %42 = phi i64 [ %28, %.thread ], [ %40, %31 ]
   %43 = load i64, ptr %1, align 8
   %44 = add i64 %42, %10
   %45 = load i64, ptr %16, align 8
@@ -1654,7 +1654,7 @@ define internal i32 @iommu_dma_get_sgtable(ptr readnone captures(none) %0, ptr n
   br label %30
 
 30:                                               ; preds = %.thread, %17
-  %31 = phi ptr [ %29, %17 ], [ %11, %.thread ]
+  %31 = phi ptr [ %11, %.thread ], [ %29, %17 ]
   %32 = tail call i32 @sg_alloc_table(ptr noundef %1, i32 noundef 1, i32 noundef 3264) #15
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %49
@@ -1866,7 +1866,7 @@ define internal i64 @iommu_dma_map_page(ptr noundef %0, ptr noundef %1, i64 noun
   br label %.critedge
 
 .critedge:                                        ; preds = %54, %52, %76, %112, %108, %105, %101, %97
-  %113 = phi i64 [ -1, %112 ], [ -1, %108 ], [ %99, %97 ], [ -1, %105 ], [ -1, %101 ], [ -1, %76 ], [ -1, %52 ], [ -1, %54 ]
+  %113 = phi i64 [ -1, %101 ], [ -1, %112 ], [ -1, %108 ], [ %99, %97 ], [ -1, %105 ], [ -1, %76 ], [ -1, %52 ], [ -1, %54 ]
   ret i64 %113
 }
 
@@ -2358,7 +2358,7 @@ iommu_dma_sync_sg_for_cpu.exit:                   ; preds = %5
   br i1 %57, label %58, label %.preheader, !llvm.loop !57
 
 58:                                               ; preds = %53, %44
-  %59 = phi i64 [ %54, %53 ], [ %37, %44 ]
+  %59 = phi i64 [ %37, %44 ], [ %54, %53 ]
   %60 = icmp eq i64 %59, 0
   br i1 %60, label %.thread, label %61
 
@@ -3048,7 +3048,7 @@ define internal fastcc ptr @__iommu_dma_alloc_noncontiguous(ptr noundef %0, i64 
   br label %.thread20
 
 .thread20:                                        ; preds = %.thread18, %49, %33, %.loopexit, %139, %18
-  %164 = phi ptr [ null, %.loopexit ], [ %52, %139 ], [ null, %18 ], [ null, %33 ], [ null, %49 ], [ null, %.thread18 ]
+  %164 = phi ptr [ null, %.loopexit ], [ %52, %139 ], [ null, %18 ], [ null, %.thread18 ], [ null, %33 ], [ null, %49 ]
   ret ptr %164
 }
 
@@ -3223,8 +3223,8 @@ define internal fastcc void @__iommu_dma_unmap(ptr noundef %0, i64 noundef %1, i
   br label %.loopexit6.i, !llvm.loop !34
 
 .loopexit6.i:                                     ; preds = %85, %78, %..loopexit6.i.loopexit_crit_edge4, %71
-  %105 = phi i32 [ %73, %71 ], [ %100, %..loopexit6.i.loopexit_crit_edge4 ], [ %73, %78 ], [ %100, %85 ]
-  %106 = phi i32 [ %73, %71 ], [ %102, %..loopexit6.i.loopexit_crit_edge4 ], [ %76, %78 ], [ %103, %85 ]
+  %105 = phi i32 [ %73, %71 ], [ %73, %78 ], [ %100, %..loopexit6.i.loopexit_crit_edge4 ], [ %100, %85 ]
+  %106 = phi i32 [ %73, %71 ], [ %76, %78 ], [ %102, %..loopexit6.i.loopexit_crit_edge4 ], [ %103, %85 ]
   %107 = load volatile i32, ptr %64, align 4
   %108 = icmp eq i32 %107, 0
   br i1 %108, label %109, label %110, !prof !28
@@ -3308,7 +3308,7 @@ define internal fastcc void @__iommu_dma_unmap(ptr noundef %0, i64 noundef %1, i
   br label %.loopexit.i, !llvm.loop !34
 
 .loopexit.i:                                      ; preds = %.preheader.i, %.preheader.i.preheader, %..loopexit.i.loopexit_crit_edge, %127, %110
-  %155 = phi i32 [ %128, %127 ], [ %106, %110 ], [ %152, %..loopexit.i.loopexit_crit_edge ], [ %129, %.preheader.i.preheader ], [ %153, %.preheader.i ]
+  %155 = phi i32 [ %106, %110 ], [ %128, %127 ], [ %129, %.preheader.i.preheader ], [ %152, %..loopexit.i.loopexit_crit_edge ], [ %153, %.preheader.i ]
   %156 = load volatile i32, ptr %64, align 4
   %157 = icmp eq i32 %156, 0
   br i1 %157, label %158, label %159, !prof !28
@@ -3597,8 +3597,8 @@ define internal fastcc i32 @__finalise_sg(ptr readonly captures(address_is_null)
   br label %.thread1
 
 .thread1:                                         ; preds = %.thread, %3
-  %10 = phi i64 [ -1, %3 ], [ %spec.select, %.thread ]
-  %11 = phi i32 [ 65536, %3 ], [ %spec.select2, %.thread ]
+  %10 = phi i64 [ %spec.select, %.thread ], [ -1, %3 ]
+  %11 = phi i32 [ %spec.select2, %.thread ], [ 65536, %3 ]
   %12 = icmp sgt i32 %1, 0
   br i1 %12, label %.preheader, label %.loopexit
 

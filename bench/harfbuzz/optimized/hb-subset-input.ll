@@ -256,7 +256,7 @@ _ZNK17hb_subset_input_t8in_errorEv.exit.thread:   ; preds = %8, %_ZNK17hb_subset
   br label %hb_subset_input_destroy.exit
 
 hb_subset_input_destroy.exit:                     ; preds = %0, %27, %19, %_ZNK17hb_subset_input_t8in_errorEv.exit.thread, %_ZNK17hb_subset_input_t8in_errorEv.exit
-  %.0 = phi ptr [ %1, %_ZNK17hb_subset_input_t8in_errorEv.exit ], [ null, %_ZNK17hb_subset_input_t8in_errorEv.exit.thread ], [ null, %19 ], [ null, %27 ], [ null, %0 ]
+  %.0 = phi ptr [ null, %27 ], [ %1, %_ZNK17hb_subset_input_t8in_errorEv.exit ], [ null, %_ZNK17hb_subset_input_t8in_errorEv.exit.thread ], [ null, %19 ], [ null, %0 ]
   ret ptr %.0
 }
 
@@ -424,7 +424,7 @@ define dso_local range(i32 0, 2) i32 @hb_subset_input_set_user_data(ptr noundef 
   br i1 %.not19.i, label %.lr.ph.i, label %.split.loop.exit23.i, !prof !47
 
 _ZL23hb_object_set_user_dataI17hb_subset_input_tEbPT_P18hb_user_data_key_tPvPFvS5_Ei.exit: ; preds = %.lr.ph.i, %5, %6, %.split.loop.exit.i
-  %.017.i = phi i32 [ 0, %6 ], [ 0, %5 ], [ %19, %.split.loop.exit.i ], [ 0, %.lr.ph.i ]
+  %.017.i = phi i32 [ 0, %5 ], [ 0, %6 ], [ %19, %.split.loop.exit.i ], [ 0, %.lr.ph.i ]
   ret i32 %.017.i
 }
 
@@ -480,7 +480,7 @@ _ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i: ; preds = %17, %18, 
   br label %_ZL23hb_object_get_user_dataIK17hb_subset_input_tEPvPT_P18hb_user_data_key_t.exit
 
 _ZL23hb_object_get_user_dataIK17hb_subset_input_tEPvPT_P18hb_user_data_key_t.exit: ; preds = %2, %3, %5, %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i
-  %.0.i = phi ptr [ null, %3 ], [ %21, %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i ], [ null, %5 ], [ null, %2 ]
+  %.0.i = phi ptr [ null, %3 ], [ null, %5 ], [ %21, %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i ], [ null, %2 ]
   ret ptr %.0.i
 }
 
@@ -595,7 +595,7 @@ define dso_local range(i32 0, 2) i32 @hb_subset_input_pin_all_axes_to_default(pt
   br label %28
 
 28:                                               ; preds = %25, %.critedge26, %7, %2
-  %.0 = phi i32 [ 0, %2 ], [ 1, %.critedge26 ], [ 0, %25 ], [ 0, %7 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %25 ], [ 1, %.critedge26 ], [ 0, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -1269,8 +1269,8 @@ define linkonce_odr dso_local void @_ZN12hb_bit_set_t9set_arrayIjEEvbPKT_jj(ptr 
   br label %42
 
 42:                                               ; preds = %40, %37
-  %.226.i.i.i.i.i = phi i32 [ %38, %37 ], [ %.0242.i.i.i.i.i, %40 ]
-  %.223.i.i.i.i.i = phi i32 [ %.0213.i.i.i.i.i, %37 ], [ %41, %40 ]
+  %.226.i.i.i.i.i = phi i32 [ %.0242.i.i.i.i.i, %40 ], [ %38, %37 ]
+  %.223.i.i.i.i.i = phi i32 [ %41, %40 ], [ %.0213.i.i.i.i.i, %37 ]
   %.not.not.i.i.i.i.i = icmp sgt i32 %.223.i.i.i.i.i, %.226.i.i.i.i.i
   br i1 %.not.not.i.i.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !92
 
@@ -1329,7 +1329,7 @@ _ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable
   br label %_ZN12hb_bit_set_t8page_forEjb.exit
 
 _ZN12hb_bit_set_t8page_forEjb.exit:               ; preds = %43, %.sink.split.i
-  %.1.i = phi ptr [ null, %43 ], [ %67, %.sink.split.i ]
+  %.1.i = phi ptr [ %67, %.sink.split.i ], [ null, %43 ]
   %68 = icmp ne ptr %.1.i, null
   %69 = xor i1 %68, true
   %70 = and i1 %1, %69
@@ -1445,9 +1445,9 @@ _ZN13hb_bit_page_t3setEjb.exit:                   ; preds = %_ZN12hb_bit_set_t8p
   br i1 %121, label %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split.split, label %.critedge, !llvm.loop !102
 
 .critedge:                                        ; preds = %116, %98, %..critedge.split.us_crit_edge
-  %.us-phi = phi ptr [ %82, %..critedge.split.us_crit_edge ], [ %99, %98 ], [ %117, %116 ]
-  %.us-phi50 = phi i32 [ %81, %..critedge.split.us_crit_edge ], [ %97, %98 ], [ %115, %116 ]
-  %.us-phi51 = phi i32 [ %83, %..critedge.split.us_crit_edge ], [ %100, %98 ], [ %118, %116 ]
+  %.us-phi = phi ptr [ %99, %98 ], [ %82, %..critedge.split.us_crit_edge ], [ %117, %116 ]
+  %.us-phi50 = phi i32 [ %97, %98 ], [ %81, %..critedge.split.us_crit_edge ], [ %115, %116 ]
+  %.us-phi51 = phi i32 [ %100, %98 ], [ %83, %..critedge.split.us_crit_edge ], [ %118, %116 ]
   br label %18, !llvm.loop !103
 
 .critedge42:                                      ; preds = %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split.us, %_ZN12hb_bit_set_t8page_forEjb.exit, %79, %114, %96, %5
@@ -1553,7 +1553,7 @@ _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE6resizeEibb.exit: ; preds = %_
   br label %48
 
 48:                                               ; preds = %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE6resizeEibb.exit, %4, %.critedge
-  %.011 = phi i1 [ false, %.critedge ], [ false, %4 ], [ true, %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE6resizeEibb.exit ]
+  %.011 = phi i1 [ false, %4 ], [ false, %.critedge ], [ true, %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE6resizeEibb.exit ]
   ret i1 %.011
 }
 
@@ -1660,7 +1660,7 @@ _ZN11hb_vector_tI13hb_bit_page_tLb0EE11grow_vectorIS0_TnPN12hb_enable_ifIXntsr3s
   br label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit.thread18
 
 _ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit.thread18: ; preds = %4, %_ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit.thread21, %_ZN11hb_vector_tI13hb_bit_page_tLb0EE11grow_vectorIS0_TnPN12hb_enable_ifIXntsr3std26is_trivially_constructibleIT_EE5valueEvE4typeELPv0EEEvj11hb_priorityILj0EE.exit
-  %.0.i16 = phi i1 [ true, %_ZN11hb_vector_tI13hb_bit_page_tLb0EE11grow_vectorIS0_TnPN12hb_enable_ifIXntsr3std26is_trivially_constructibleIT_EE5valueEvE4typeELPv0EEEvj11hb_priorityILj0EE.exit ], [ false, %_ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit.thread21 ], [ false, %4 ]
+  %.0.i16 = phi i1 [ false, %_ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit.thread21 ], [ true, %_ZN11hb_vector_tI13hb_bit_page_tLb0EE11grow_vectorIS0_TnPN12hb_enable_ifIXntsr3std26is_trivially_constructibleIT_EE5valueEvE4typeELPv0EEEvj11hb_priorityILj0EE.exit ], [ false, %4 ]
   ret i1 %.0.i16
 }
 
@@ -2072,7 +2072,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EE
   br label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit
 
 _ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit: ; preds = %19, %17, %20, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit
-  %.0 = phi ptr [ null, %20 ], [ %.0.i, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit ], [ %16, %17 ], [ %16, %19 ]
+  %.0 = phi ptr [ %.0.i, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit ], [ null, %20 ], [ %16, %17 ], [ %16, %19 ]
   %43 = load i32, ptr %0, align 8, !tbaa !119
   %44 = icmp slt i32 %43, 0
   %45 = select i1 %44, ptr null, ptr %.0
@@ -2160,8 +2160,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIj6TripleLb0E
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.loopexit, %.critedge
-  %.0293962 = phi i32 [ 0, %.critedge ], [ %.02939, %.loopexit ]
-  %50 = phi i32 [ %21, %.critedge ], [ %spec.select68, %.loopexit ]
+  %.0293962 = phi i32 [ %.02939, %.loopexit ], [ 0, %.critedge ]
+  %50 = phi i32 [ %spec.select68, %.loopexit ], [ %21, %.critedge ]
   %51 = zext i32 %50 to i64
   %52 = getelementptr inbounds nuw %"struct.hb_hashmap_t<unsigned int, Triple>::item_t", ptr %23, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
@@ -2215,7 +2215,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIj6TripleLb0E
   br label %85
 
 85:                                               ; preds = %36, %82, %78, %64, %16, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %16 ], [ false, %36 ], [ true, %82 ], [ true, %78 ], [ true, %64 ]
+  %.0 = phi i1 [ false, %16 ], [ false, %5 ], [ false, %36 ], [ true, %82 ], [ true, %78 ], [ true, %64 ]
   ret i1 %.0
 }
 
@@ -2322,7 +2322,7 @@ _ZN12hb_hashmap_tIj6TripleLb0EE9prime_forEj.exit: ; preds = %._crit_edge, %31
   br i1 %exitcond.not, label %.preheader, label %.lr.ph50, !llvm.loop !137
 
 47:                                               ; preds = %22, %.preheader, %7, %2
-  %.033 = phi i1 [ false, %2 ], [ true, %7 ], [ true, %.preheader ], [ false, %22 ]
+  %.033 = phi i1 [ true, %7 ], [ false, %2 ], [ true, %.preheader ], [ false, %22 ]
   ret i1 %.033
 }
 
@@ -2407,8 +2407,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIj6TripleLb0E
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.loopexit, %.critedge
-  %.0293962 = phi i32 [ 0, %.critedge ], [ %.02939, %.loopexit ]
-  %50 = phi i32 [ %21, %.critedge ], [ %spec.select68, %.loopexit ]
+  %.0293962 = phi i32 [ %.02939, %.loopexit ], [ 0, %.critedge ]
+  %50 = phi i32 [ %spec.select68, %.loopexit ], [ %21, %.critedge ]
   %51 = zext i32 %50 to i64
   %52 = getelementptr inbounds nuw %"struct.hb_hashmap_t<unsigned int, Triple>::item_t", ptr %23, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
@@ -2462,7 +2462,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIj6TripleLb0E
   br label %85
 
 85:                                               ; preds = %36, %82, %78, %64, %16, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %16 ], [ false, %36 ], [ true, %82 ], [ true, %78 ], [ true, %64 ]
+  %.0 = phi i1 [ false, %16 ], [ false, %5 ], [ false, %36 ], [ true, %82 ], [ true, %78 ], [ true, %64 ]
   ret i1 %.0
 }
 

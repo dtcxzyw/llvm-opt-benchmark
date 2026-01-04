@@ -85,7 +85,7 @@ define internal noundef range(i64 1, 0) i64 @"_ZN104_$LT$tracing_subscriber..reg
   ]
 
 6:                                                ; preds = %2, %16, %17
-  %.sroa.04.0 = phi i64 [ %.sroa.04.1, %16 ], [ %19, %17 ], [ %5, %2 ]
+  %.sroa.04.0 = phi i64 [ %19, %17 ], [ %.sroa.04.1, %16 ], [ %5, %2 ]
   %7 = call { i64, i64 } @"_ZN12sharded_slab4pool17Pool$LT$T$C$C$GT$11create_with17h47c3d3282c3f40caE"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, i64 noundef %.sroa.04.0)
   %8 = extractvalue { i64, i64 } %7, 0
   %9 = trunc nuw i64 %8 to i1
@@ -1541,7 +1541,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$GT$4recv1
   unreachable
 
 common.resume:                                    ; preds = %192, %.body, %.body.i20, %33
-  %common.resume.op = phi { ptr, i32 } [ %34, %33 ], [ %lpad.thr_comm, %192 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body.i, %.body.i20 ]
+  %common.resume.op = phi { ptr, i32 } [ %34, %33 ], [ %eh.lpad-body, %.body ], [ %lpad.thr_comm, %192 ], [ %eh.lpad-body.i, %.body.i20 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h94b0e9743e15e13dE.exit": ; preds = %4
@@ -2092,7 +2092,7 @@ _ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i26: ; preds = %187, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   ret void
 
-192:                                              ; preds = %_ZN4core3ops8function6FnOnce9call_once17h95fd4efa400d4993E.exit.i.i, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h5f0fb5b32a1ced7cE.exit.i", %.noexc9, %81, %.noexc11
+192:                                              ; preds = %.noexc11, %_ZN4core3ops8function6FnOnce9call_once17h95fd4efa400d4993E.exit.i.i, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h5f0fb5b32a1ced7cE.exit.i", %.noexc9, %81
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr104drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$crossbeam_channel..flavors..zero..Inner$GT$$GT$17hdbe30fd04d3ee913E"(ptr nonnull %39, i8 %41) #23
@@ -2165,7 +2165,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$GT$4recv1
   unreachable
 
 common.resume:                                    ; preds = %192, %.body, %.body.i20, %33
-  %common.resume.op = phi { ptr, i32 } [ %34, %33 ], [ %lpad.thr_comm, %192 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body.i, %.body.i20 ]
+  %common.resume.op = phi { ptr, i32 } [ %34, %33 ], [ %eh.lpad-body, %.body ], [ %lpad.thr_comm, %192 ], [ %eh.lpad-body.i, %.body.i20 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h94b0e9743e15e13dE.exit": ; preds = %4
@@ -2716,7 +2716,7 @@ _ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i26: ; preds = %187, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   ret void
 
-192:                                              ; preds = %_ZN4core3ops8function6FnOnce9call_once17h95fd4efa400d4993E.exit.i.i, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h5f0fb5b32a1ced7cE.exit.i", %.noexc9, %81, %.noexc11
+192:                                              ; preds = %.noexc11, %_ZN4core3ops8function6FnOnce9call_once17h95fd4efa400d4993E.exit.i.i, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h5f0fb5b32a1ced7cE.exit.i", %.noexc9, %81
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr104drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$crossbeam_channel..flavors..zero..Inner$GT$$GT$17hdbe30fd04d3ee913E"(ptr nonnull %39, i8 %41) #23
@@ -2792,8 +2792,8 @@ define internal fastcc void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$
   unreachable
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %161, %106, %34, %188, %133
-  %.sroa.04.3 = phi i1 [ false, %133 ], [ false, %188 ], [ true, %34 ], [ false, %106 ], [ false, %161 ], [ false, %.loopexit ], [ false, %.loopexit.split-lp.loopexit ], [ false, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.sroa.04.2.ph.ph.ph, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %.pn = phi { ptr, i32 } [ %134, %133 ], [ %189, %188 ], [ %35, %34 ], [ %107, %106 ], [ %162, %161 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit79, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit85, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.04.3 = phi i1 [ false, %188 ], [ false, %133 ], [ true, %34 ], [ false, %106 ], [ false, %161 ], [ false, %.loopexit ], [ false, %.loopexit.split-lp.loopexit ], [ false, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.sroa.04.2.ph.ph.ph, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %189, %188 ], [ %134, %133 ], [ %35, %34 ], [ %107, %106 ], [ %162, %161 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit79, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit85, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr88drop_in_place$LT$crossbeam_channel..flavors..zero..Packet$LT$ty..MainLoopMessage$GT$$GT$17h2cefe5435f6d829dE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %13) #23
           to label %23 unwind label %150
 
@@ -2813,7 +2813,7 @@ define internal fastcc void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %39, %83, %.thread65, %.thread69, %205, %54, %59, %142, %147, %197, %202
-  %.sroa.04.2.ph.ph.ph = phi i1 [ false, %202 ], [ false, %197 ], [ false, %147 ], [ false, %142 ], [ false, %59 ], [ false, %54 ], [ true, %39 ], [ false, %205 ], [ false, %.thread69 ], [ false, %.thread65 ], [ false, %83 ]
+  %.sroa.04.2.ph.ph.ph = phi i1 [ false, %83 ], [ false, %54 ], [ false, %142 ], [ false, %197 ], [ false, %205 ], [ false, %.thread69 ], [ true, %39 ], [ false, %202 ], [ false, %.thread65 ], [ false, %59 ], [ false, %147 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -3342,8 +3342,8 @@ define internal fastcc void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$
   unreachable
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %161, %106, %34, %188, %133
-  %.sroa.04.3 = phi i1 [ false, %133 ], [ false, %188 ], [ true, %34 ], [ false, %106 ], [ false, %161 ], [ false, %.loopexit ], [ false, %.loopexit.split-lp.loopexit ], [ false, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.sroa.04.2.ph.ph.ph, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %.pn = phi { ptr, i32 } [ %134, %133 ], [ %189, %188 ], [ %35, %34 ], [ %107, %106 ], [ %162, %161 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit79, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit85, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.04.3 = phi i1 [ false, %188 ], [ false, %133 ], [ true, %34 ], [ false, %106 ], [ false, %161 ], [ false, %.loopexit ], [ false, %.loopexit.split-lp.loopexit ], [ false, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.sroa.04.2.ph.ph.ph, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %189, %188 ], [ %134, %133 ], [ %35, %34 ], [ %107, %106 ], [ %162, %161 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit79, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit85, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr113drop_in_place$LT$crossbeam_channel..flavors..zero..Packet$LT$ty_project..watch..watcher..DebouncerMessage$GT$$GT$17hfec624d925c49ea6E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %13) #23
           to label %23 unwind label %150
 
@@ -3363,7 +3363,7 @@ define internal fastcc void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %39, %83, %.thread65, %.thread69, %205, %54, %59, %142, %147, %197, %202
-  %.sroa.04.2.ph.ph.ph = phi i1 [ false, %202 ], [ false, %197 ], [ false, %147 ], [ false, %142 ], [ false, %59 ], [ false, %54 ], [ true, %39 ], [ false, %205 ], [ false, %.thread69 ], [ false, %.thread65 ], [ false, %83 ]
+  %.sroa.04.2.ph.ph.ph = phi i1 [ false, %83 ], [ false, %54 ], [ false, %142 ], [ false, %197 ], [ false, %205 ], [ false, %.thread69 ], [ true, %39 ], [ false, %202 ], [ false, %.thread65 ], [ false, %59 ], [ false, %147 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -4050,7 +4050,7 @@ _ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i: ; preds = %100, %.no
           to label %"_ZN4core3ptr104drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$crossbeam_channel..flavors..zero..Inner$GT$$GT$17hdbe30fd04d3ee913E.exit" unwind label %104
 
 104:                                              ; preds = %103, %98, %110, %109
-  %.sroa.04.4 = phi i1 [ false, %110 ], [ false, %109 ], [ true, %98 ], [ true, %103 ]
+  %.sroa.04.4 = phi i1 [ false, %110 ], [ false, %109 ], [ true, %103 ], [ true, %98 ]
   %105 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr52drop_in_place$LT$crossbeam_channel..waker..Entry$GT$17hb1a9f354a4a1bea1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17) #23
@@ -4329,7 +4329,7 @@ _ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i28: ; preds = %159, %.
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   ret void
 
-163:                                              ; preds = %_ZN4core3ops8function6FnOnce9call_once17h95fd4efa400d4993E.exit.i.i, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h5f0fb5b32a1ced7cE.exit.i", %.noexc17, %85, %.noexc19
+163:                                              ; preds = %.noexc19, %_ZN4core3ops8function6FnOnce9call_once17h95fd4efa400d4993E.exit.i.i, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h5f0fb5b32a1ced7cE.exit.i", %.noexc17, %85
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr104drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$crossbeam_channel..flavors..zero..Inner$GT$$GT$17hdbe30fd04d3ee913E"(ptr nonnull %43, i8 %45) #23
@@ -4572,7 +4572,7 @@ _ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i: ; preds = %100, %.no
           to label %"_ZN4core3ptr104drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$crossbeam_channel..flavors..zero..Inner$GT$$GT$17hdbe30fd04d3ee913E.exit" unwind label %104
 
 104:                                              ; preds = %103, %98, %110, %109
-  %.sroa.04.4 = phi i1 [ false, %110 ], [ false, %109 ], [ true, %98 ], [ true, %103 ]
+  %.sroa.04.4 = phi i1 [ false, %110 ], [ false, %109 ], [ true, %103 ], [ true, %98 ]
   %105 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr52drop_in_place$LT$crossbeam_channel..waker..Entry$GT$17hb1a9f354a4a1bea1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17) #23
@@ -4851,7 +4851,7 @@ _ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i28: ; preds = %159, %.
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   ret void
 
-163:                                              ; preds = %_ZN4core3ops8function6FnOnce9call_once17h95fd4efa400d4993E.exit.i.i, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h5f0fb5b32a1ced7cE.exit.i", %.noexc17, %85, %.noexc19
+163:                                              ; preds = %.noexc19, %_ZN4core3ops8function6FnOnce9call_once17h95fd4efa400d4993E.exit.i.i, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h5f0fb5b32a1ced7cE.exit.i", %.noexc17, %85
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr104drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$crossbeam_channel..flavors..zero..Inner$GT$$GT$17hdbe30fd04d3ee913E"(ptr nonnull %43, i8 %45) #23
@@ -4933,8 +4933,8 @@ define internal fastcc void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$
   unreachable
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %162, %106, %34, %189, %133
-  %.sroa.019.3 = phi i1 [ false, %133 ], [ false, %189 ], [ true, %34 ], [ false, %106 ], [ false, %162 ], [ false, %.loopexit ], [ false, %.loopexit.split-lp.loopexit ], [ false, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.sroa.019.2.ph.ph.ph, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %.pn = phi { ptr, i32 } [ %134, %133 ], [ %190, %189 ], [ %35, %34 ], [ %107, %106 ], [ %163, %162 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit90, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit96, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.019.3 = phi i1 [ false, %189 ], [ false, %133 ], [ true, %34 ], [ false, %106 ], [ false, %162 ], [ false, %.loopexit ], [ false, %.loopexit.split-lp.loopexit ], [ false, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.sroa.019.2.ph.ph.ph, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %190, %189 ], [ %134, %133 ], [ %35, %34 ], [ %107, %106 ], [ %163, %162 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit90, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit96, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr88drop_in_place$LT$crossbeam_channel..flavors..zero..Packet$LT$ty..MainLoopMessage$GT$$GT$17h2cefe5435f6d829dE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %13) #23
           to label %205 unwind label %151
 
@@ -4954,7 +4954,7 @@ define internal fastcc void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke, %39, %83, %.thread, %.thread76, %54, %59, %142, %147, %198, %203
-  %.sroa.019.2.ph.ph.ph = phi i1 [ false, %203 ], [ false, %198 ], [ false, %147 ], [ false, %142 ], [ false, %59 ], [ false, %54 ], [ true, %39 ], [ false, %.thread76 ], [ false, %.thread ], [ false, %83 ], [ false, %.invoke ]
+  %.sroa.019.2.ph.ph.ph = phi i1 [ false, %83 ], [ false, %54 ], [ false, %142 ], [ false, %198 ], [ false, %.thread76 ], [ true, %39 ], [ false, %203 ], [ false, %.invoke ], [ false, %.thread ], [ false, %59 ], [ false, %147 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -5498,8 +5498,8 @@ define internal fastcc void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$
   unreachable
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %162, %106, %34, %189, %133
-  %.sroa.019.3 = phi i1 [ false, %133 ], [ false, %189 ], [ true, %34 ], [ false, %106 ], [ false, %162 ], [ false, %.loopexit ], [ false, %.loopexit.split-lp.loopexit ], [ false, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.sroa.019.2.ph.ph.ph, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %.pn = phi { ptr, i32 } [ %134, %133 ], [ %190, %189 ], [ %35, %34 ], [ %107, %106 ], [ %163, %162 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit90, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit96, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.019.3 = phi i1 [ false, %189 ], [ false, %133 ], [ true, %34 ], [ false, %106 ], [ false, %162 ], [ false, %.loopexit ], [ false, %.loopexit.split-lp.loopexit ], [ false, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.sroa.019.2.ph.ph.ph, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %190, %189 ], [ %134, %133 ], [ %35, %34 ], [ %107, %106 ], [ %163, %162 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit90, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit96, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr113drop_in_place$LT$crossbeam_channel..flavors..zero..Packet$LT$ty_project..watch..watcher..DebouncerMessage$GT$$GT$17hfec624d925c49ea6E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %13) #23
           to label %205 unwind label %151
 
@@ -5519,7 +5519,7 @@ define internal fastcc void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke, %39, %83, %.thread, %.thread76, %54, %59, %142, %147, %198, %203
-  %.sroa.019.2.ph.ph.ph = phi i1 [ false, %203 ], [ false, %198 ], [ false, %147 ], [ false, %142 ], [ false, %59 ], [ false, %54 ], [ true, %39 ], [ false, %.thread76 ], [ false, %.thread ], [ false, %83 ], [ false, %.invoke ]
+  %.sroa.019.2.ph.ph.ph = phi i1 [ false, %83 ], [ false, %54 ], [ false, %142 ], [ false, %198 ], [ false, %.thread76 ], [ true, %39 ], [ false, %203 ], [ false, %.invoke ], [ false, %.thread ], [ false, %59 ], [ false, %147 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -6164,13 +6164,13 @@ _ZN3std4sync6poison4Flag5guard17h7f1fdba42f6181b6E.exit.i: ; preds = %.noexc13, 
           to label %"_ZN3std4sync6poison6rwlock15RwLock$LT$T$GT$5write17h90c12342057d9b36E.exit" unwind label %60
 
 58:                                               ; preds = %108, %60
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %108 ], [ %61, %60 ]
-  %.sroa.02.1 = phi i8 [ %.sroa.01.1, %108 ], [ %.sroa.02.0, %60 ]
+  %.pn.pn = phi { ptr, i32 } [ %61, %60 ], [ %.pn, %108 ]
+  %.sroa.02.1 = phi i8 [ %.sroa.02.0, %60 ], [ %.sroa.01.1, %108 ]
   %59 = trunc nuw i8 %.sroa.02.1 to i1
   br i1 %59, label %.thread, label %.thread25
 
 60:                                               ; preds = %103, %102, %86, %_ZN3std4sync6poison4Flag5guard17h7f1fdba42f6181b6E.exit.i, %51, %47
-  %.sroa.02.0 = phi i8 [ 1, %47 ], [ 1, %51 ], [ 1, %_ZN3std4sync6poison4Flag5guard17h7f1fdba42f6181b6E.exit.i ], [ 0, %86 ], [ 1, %102 ], [ 1, %103 ]
+  %.sroa.02.0 = phi i8 [ 1, %103 ], [ 0, %86 ], [ 1, %_ZN3std4sync6poison4Flag5guard17h7f1fdba42f6181b6E.exit.i ], [ 1, %47 ], [ 1, %51 ], [ 1, %102 ]
   %61 = landingpad { ptr, i32 }
           cleanup
   br label %58
@@ -6525,7 +6525,7 @@ _ZN3std3sys4sync6rwlock5futex6RwLock4read17h71ab566576a387feE.exit: ; preds = %3
   br label %.critedge30
 
 .critedge30:                                      ; preds = %58, %.critedge, %76, %74
-  %.sroa.0.0 = phi i1 [ true, %76 ], [ %75, %74 ], [ true, %58 ], [ false, %.critedge ]
+  %.sroa.0.0 = phi i1 [ true, %58 ], [ true, %76 ], [ %75, %74 ], [ false, %.critedge ]
   ret i1 %.sroa.0.0
 
 76:                                               ; preds = %70

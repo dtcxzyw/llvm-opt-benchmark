@@ -148,7 +148,7 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:
   br label %.thread
 
 .thread:                                          ; preds = %14, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge, %22, %11, %9
-  %.0 = phi i32 [ 0, %11 ], [ 0, %22 ], [ 0, %9 ], [ 0, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge ], [ %21, %14 ]
+  %.0 = phi i32 [ 0, %11 ], [ 0, %22 ], [ 0, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge ], [ 0, %9 ], [ %21, %14 ]
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 72
@@ -2355,13 +2355,13 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEfET0_T_S9_
   ret void
 
 .sink.split:                                      ; preds = %133, %.thread166, %.thread170, %95, %.thread, %.thread163
-  %.sink = phi ptr [ %88, %.thread163 ], [ %88, %.thread ], [ %88, %95 ], [ %126, %.thread170 ], [ %126, %.thread166 ], [ %126, %133 ]
-  %.pn135.pn.pn.ph = phi { ptr, i32 } [ %94, %.thread163 ], [ %93, %.thread ], [ %96, %95 ], [ %132, %.thread170 ], [ %131, %.thread166 ], [ %134, %133 ]
+  %.sink = phi ptr [ %88, %95 ], [ %88, %.thread163 ], [ %88, %.thread ], [ %126, %.thread170 ], [ %126, %.thread166 ], [ %126, %133 ]
+  %.pn135.pn.pn.ph = phi { ptr, i32 } [ %96, %95 ], [ %94, %.thread163 ], [ %93, %.thread ], [ %132, %.thread170 ], [ %131, %.thread166 ], [ %134, %133 ]
   call void @__cxa_free_exception(ptr %.sink) #19
   br label %197
 
 197:                                              ; preds = %.sink.split, %133, %95
-  %.pn135.pn.pn = phi { ptr, i32 } [ %96, %95 ], [ %134, %133 ], [ %.pn135.pn.pn.ph, %.sink.split ]
+  %.pn135.pn.pn = phi { ptr, i32 } [ %134, %133 ], [ %96, %95 ], [ %.pn135.pn.pn.ph, %.sink.split ]
   resume { ptr, i32 } %.pn135.pn.pn
 
 198:                                              ; preds = %130, %92
@@ -2675,7 +2675,7 @@ _ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EEOi.exit: ; pr
   br label %.body
 
 .loopexit:                                        ; preds = %130, %114, %125
-  %.sroa.06.1.i.i.i = phi ptr [ %126, %125 ], [ %.sroa.06.0.i.i.i, %114 ], [ %132, %130 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %114 ], [ %126, %125 ], [ %132, %130 ]
   %142 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   %.sroa.0.0.copyload.i = load i48, ptr %142, align 8
   store i48 %.sroa.0.0.copyload.i, ptr %5, align 8

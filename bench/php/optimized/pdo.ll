@@ -443,8 +443,8 @@ define dso_local i32 @php_pdo_parse_data_source(ptr noundef %0, i64 noundef %1, 
   br label %.thread
 
 .thread:                                          ; preds = %.outer, %.thread.loopexit, %12
-  %.0152.ph.lcssa185 = phi i32 [ 0, %12 ], [ %.0152.ph194, %.thread.loopexit ], [ %26, %.outer ]
-  %.1156.lcssa = phi i64 [ %13, %12 ], [ %umax.le, %.thread.loopexit ], [ %27, %.outer ]
+  %.0152.ph.lcssa185 = phi i32 [ %.0152.ph194, %.thread.loopexit ], [ 0, %12 ], [ %26, %.outer ]
+  %.1156.lcssa = phi i64 [ %umax.le, %.thread.loopexit ], [ %13, %12 ], [ %27, %.outer ]
   %17 = trunc i64 %.1156.lcssa to i32
   br label %32
 
@@ -485,9 +485,9 @@ define dso_local i32 @php_pdo_parse_data_source(ptr noundef %0, i64 noundef %1, 
   br label %32
 
 32:                                               ; preds = %.loopexit180, %.thread
-  %.0152.ph186 = phi i32 [ %.0152.ph.lcssa185, %.thread ], [ %.0152.ph194, %.loopexit180 ]
-  %.2178 = phi i64 [ %.1156.lcssa, %.thread ], [ %21, %.loopexit180 ]
-  %33 = phi i32 [ %17, %.thread ], [ %spec.select, %.loopexit180 ]
+  %.0152.ph186 = phi i32 [ %.0152.ph194, %.loopexit180 ], [ %.0152.ph.lcssa185, %.thread ]
+  %.2178 = phi i64 [ %21, %.loopexit180 ], [ %.1156.lcssa, %.thread ]
+  %33 = phi i32 [ %spec.select, %.loopexit180 ], [ %17, %.thread ]
   br i1 %5, label %.lr.ph198, label %.loopexit
 
 .lr.ph198:                                        ; preds = %32

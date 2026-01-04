@@ -116,7 +116,7 @@ define ptr @evconnlistener_new(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   br label %evconnlistener_enable.exit
 
 evconnlistener_enable.exit:                       ; preds = %58, %56, %37, %16, %13, %8
-  %.0 = phi ptr [ null, %8 ], [ null, %13 ], [ null, %16 ], [ %17, %37 ], [ %17, %56 ], [ %17, %58 ]
+  %.0 = phi ptr [ null, %8 ], [ null, %16 ], [ null, %13 ], [ %17, %37 ], [ %17, %56 ], [ %17, %58 ]
   ret ptr %.0
 }
 
@@ -240,7 +240,7 @@ listener_decref_and_unlock.exit:                  ; preds = %41, %46, %52
   %61 = call i32 %60(i32 noundef 0, ptr noundef nonnull %58) #6
   br label %.thread
 
-.thread:                                          ; preds = %listener_decref_and_unlock.exit, %32, %29, %59, %57
+.thread:                                          ; preds = %29, %listener_decref_and_unlock.exit, %57, %32, %59
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %listener_decref_and_unlock.exit61
@@ -517,7 +517,7 @@ define ptr @evconnlistener_new_bind(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %63
 
 63:                                               ; preds = %58, %62, %56, %14, %11, %.thread63, %25
-  %.0 = phi ptr [ null, %25 ], [ null, %.thread63 ], [ null, %11 ], [ null, %14 ], [ %57, %56 ], [ null, %62 ], [ null, %58 ]
+  %.0 = phi ptr [ null, %14 ], [ null, %11 ], [ %57, %56 ], [ null, %25 ], [ null, %.thread63 ], [ null, %62 ], [ null, %58 ]
   ret ptr %.0
 }
 

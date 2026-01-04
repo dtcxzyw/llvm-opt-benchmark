@@ -386,7 +386,7 @@ define internal void @_iop_color_picker_pickerdata_ready_callback(ptr readnone c
   br i1 %exitcond.not.i, label %_record_point_area.exit, label %32
 
 _record_point_area.exit:                          ; preds = %39, %31, %8, %17
-  %.028.i = phi i32 [ %16, %8 ], [ %16, %17 ], [ %.2.i, %31 ], [ %.4.i, %39 ]
+  %.028.i = phi i32 [ %16, %8 ], [ %.2.i, %31 ], [ %16, %17 ], [ %.4.i, %39 ]
   store i32 0, ptr %15, align 8, !tbaa !114
   %.not25 = icmp eq i32 %.028.i, 0
   br i1 %.not25, label %86, label %40

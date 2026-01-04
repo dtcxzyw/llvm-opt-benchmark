@@ -5786,7 +5786,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit: ; preds =
   ret void
 
 .loopexit.split-lp:                               ; preds = %.loopexit309, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %.loopexit315, %.loopexit.split-lp316
-  %.pn = phi { ptr, i32 } [ %lpad.loopexit317, %.loopexit315 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp316 ], [ %lpad.loopexit, %.loopexit309 ], [ %lpad.loopexit311, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp312, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp316 ], [ %lpad.loopexit317, %.loopexit315 ], [ %lpad.loopexit, %.loopexit309 ], [ %lpad.loopexit311, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp312, %.loopexit.split-lp.loopexit.split-lp ]
   %321 = load ptr, ptr %79, align 8
   call void @_ZdlPv(ptr noundef %321) #17
   store ptr %76, ptr %8, align 8
@@ -6979,7 +6979,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit: ; preds =
   ret void
 
 .loopexit.split-lp:                               ; preds = %.loopexit309, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %.loopexit315, %.loopexit.split-lp316
-  %.pn = phi { ptr, i32 } [ %lpad.loopexit317, %.loopexit315 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp316 ], [ %lpad.loopexit, %.loopexit309 ], [ %lpad.loopexit311, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp312, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp316 ], [ %lpad.loopexit317, %.loopexit315 ], [ %lpad.loopexit, %.loopexit309 ], [ %lpad.loopexit311, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp312, %.loopexit.split-lp.loopexit.split-lp ]
   %321 = load ptr, ptr %79, align 8
   call void @_ZdlPv(ptr noundef %321) #17
   store ptr %76, ptr %8, align 8
@@ -8060,7 +8060,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %93, %91, %89, %87
   br i1 %108, label %.lr.ph.i, label %_ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIfE15generateOffsetsEv.exit, !llvm.loop !86
 
 _ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIfE15generateOffsetsEv.exit: ; preds = %11, %.lr.ph.i, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i, %34, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %34 ], [ %36, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i ], [ %36, %.lr.ph.i ], [ null, %11 ]
+  %.0 = phi ptr [ null, %2 ], [ %36, %.lr.ph.i ], [ null, %34 ], [ %36, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i ], [ null, %11 ]
   ret ptr %.0
 }
 
@@ -8201,7 +8201,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8
   br label %41
 
@@ -8309,7 +8309,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8
   br label %41
 
@@ -8641,7 +8641,7 @@ define weak_odr noundef ptr @_ZN10OpenSubdiv6v3_6_03Far23StencilTableFactoryReal
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split, %.loopexit.split-lp.loopexit.split-lp.loopexit.split, %.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.split.us, %.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit133, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit136, %.loopexit.split-lp.loopexit.split-lp.loopexit.split ], [ %lpad.loopexit136.us.us, %.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.split.us ], [ %lpad.loopexit.split-lp139, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit138, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split ], [ %lpad.loopexit138.us, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit133, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit136.us.us, %.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.split.us ], [ %lpad.loopexit136, %.loopexit.split-lp.loopexit.split-lp.loopexit.split ], [ %lpad.loopexit.split-lp139, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit138, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split ], [ %lpad.loopexit138.us, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us ]
   call void @_ZN10OpenSubdiv6v3_6_03Far8internal14StencilBuilderIfED1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #17
   br label %240
 
@@ -8857,7 +8857,7 @@ _ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIfE15generateOffsetsEv.exit: ; preds
   br label %239
 
 239:                                              ; preds = %69, %5, %11, %_ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIfE15generateOffsetsEv.exit, %47
-  %.0101 = phi ptr [ %46, %47 ], [ %155, %_ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIfE15generateOffsetsEv.exit ], [ null, %11 ], [ null, %5 ], [ null, %69 ]
+  %.0101 = phi ptr [ null, %5 ], [ %46, %47 ], [ %155, %_ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIfE15generateOffsetsEv.exit ], [ null, %11 ], [ null, %69 ]
   ret ptr %.0101
 
 240:                                              ; preds = %.loopexit.split-lp, %49
@@ -14573,7 +14573,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit: ; preds =
   ret void
 
 .loopexit.split-lp:                               ; preds = %.loopexit309, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %.loopexit315, %.loopexit.split-lp316
-  %.pn = phi { ptr, i32 } [ %lpad.loopexit317, %.loopexit315 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp316 ], [ %lpad.loopexit, %.loopexit309 ], [ %lpad.loopexit311, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp312, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp316 ], [ %lpad.loopexit317, %.loopexit315 ], [ %lpad.loopexit, %.loopexit309 ], [ %lpad.loopexit311, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp312, %.loopexit.split-lp.loopexit.split-lp ]
   %322 = load ptr, ptr %79, align 8
   call void @_ZdlPv(ptr noundef %322) #17
   store ptr %76, ptr %8, align 8
@@ -15767,7 +15767,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit: ; preds =
   ret void
 
 .loopexit.split-lp:                               ; preds = %.loopexit309, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %.loopexit315, %.loopexit.split-lp316
-  %.pn = phi { ptr, i32 } [ %lpad.loopexit317, %.loopexit315 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp316 ], [ %lpad.loopexit, %.loopexit309 ], [ %lpad.loopexit311, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp312, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp316 ], [ %lpad.loopexit317, %.loopexit315 ], [ %lpad.loopexit, %.loopexit309 ], [ %lpad.loopexit311, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp312, %.loopexit.split-lp.loopexit.split-lp ]
   %322 = load ptr, ptr %79, align 8
   call void @_ZdlPv(ptr noundef %322) #17
   store ptr %76, ptr %8, align 8
@@ -16842,7 +16842,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %94, %92, %90, %88
   br i1 %109, label %.lr.ph.i, label %_ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIdE15generateOffsetsEv.exit, !llvm.loop !174
 
 _ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIdE15generateOffsetsEv.exit: ; preds = %11, %.lr.ph.i, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i, %34, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %34 ], [ %36, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i ], [ %36, %.lr.ph.i ], [ null, %11 ]
+  %.0 = phi ptr [ null, %2 ], [ %36, %.lr.ph.i ], [ null, %34 ], [ %36, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i ], [ null, %11 ]
   ret ptr %.0
 }
 
@@ -16983,7 +16983,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8
   br label %41
 
@@ -17315,7 +17315,7 @@ define weak_odr noundef ptr @_ZN10OpenSubdiv6v3_6_03Far23StencilTableFactoryReal
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split, %.loopexit.split-lp.loopexit.split-lp.loopexit.split, %.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.split.us, %.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit133, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit136, %.loopexit.split-lp.loopexit.split-lp.loopexit.split ], [ %lpad.loopexit136.us.us, %.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.split.us ], [ %lpad.loopexit.split-lp139, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit138, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split ], [ %lpad.loopexit138.us, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit133, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit136.us.us, %.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.split.us ], [ %lpad.loopexit136, %.loopexit.split-lp.loopexit.split-lp.loopexit.split ], [ %lpad.loopexit.split-lp139, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit138, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split ], [ %lpad.loopexit138.us, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us ]
   call void @_ZN10OpenSubdiv6v3_6_03Far8internal14StencilBuilderIdED1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #17
   br label %241
 
@@ -17532,7 +17532,7 @@ _ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIdE15generateOffsetsEv.exit: ; preds
   br label %240
 
 240:                                              ; preds = %69, %5, %11, %_ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIdE15generateOffsetsEv.exit, %47
-  %.0101 = phi ptr [ %46, %47 ], [ %155, %_ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIdE15generateOffsetsEv.exit ], [ null, %11 ], [ null, %5 ], [ null, %69 ]
+  %.0101 = phi ptr [ null, %5 ], [ %46, %47 ], [ %155, %_ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIdE15generateOffsetsEv.exit ], [ null, %11 ], [ null, %69 ]
   ret ptr %.0101
 
 241:                                              ; preds = %.loopexit.split-lp, %49
@@ -17969,7 +17969,7 @@ define weak_odr noundef ptr @_ZN10OpenSubdiv6v3_6_03Far28LimitStencilTableFactor
   br label %62
 
 62:                                               ; preds = %57, %59, %51, %53
-  %.0203 = phi i32 [ %52, %51 ], [ %55, %53 ], [ %58, %57 ], [ %61, %59 ]
+  %.0203 = phi i32 [ %55, %53 ], [ %52, %51 ], [ %58, %57 ], [ %61, %59 ]
   %.not = icmp ne ptr %2, null
   br i1 %.not, label %63, label %74
 
@@ -18133,7 +18133,7 @@ _ZNK10OpenSubdiv6v3_6_03Far10PatchTable36GetLocalPointFaceVaryingStencilTableIfE
   br label %153
 
 153:                                              ; preds = %146, %149, %135, %_ZNK10OpenSubdiv6v3_6_03Far10PatchTable36GetLocalPointFaceVaryingStencilTableIfEEPKNS1_16StencilTableRealIT_EEi.exit
-  %.1205 = phi ptr [ %148, %146 ], [ %148, %149 ], [ %.0204, %135 ], [ %.0204, %_ZNK10OpenSubdiv6v3_6_03Far10PatchTable36GetLocalPointFaceVaryingStencilTableIfEEPKNS1_16StencilTableRealIT_EEi.exit ]
+  %.1205 = phi ptr [ %148, %146 ], [ %.0204, %_ZNK10OpenSubdiv6v3_6_03Far10PatchTable36GetLocalPointFaceVaryingStencilTableIfEEPKNS1_16StencilTableRealIT_EEi.exit ], [ %148, %149 ], [ %.0204, %135 ]
   call void @_ZN10OpenSubdiv6v3_6_03Far8PatchMapC1ERKNS1_10PatchTableE(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(273) %.0207)
   br i1 %42, label %154, label %160
 
@@ -18305,10 +18305,10 @@ _ZNK10OpenSubdiv6v3_6_03Far13TopologyLevel16GetNumFVarValuesEi.exit: ; preds = %
   br label %_ZN10OpenSubdiv6v3_6_03Far8PatchMap24transformUVToTriQuadrantIdEEiRKT_RS4_S7_Rb.exit.us.i
 
 _ZN10OpenSubdiv6v3_6_03Far8PatchMap24transformUVToTriQuadrantIdEEiRKT_RS4_S7_Rb.exit.us.i: ; preds = %245, %244, %240, %237, %234, %231, %229, %225
-  %.138.us.i = phi double [ %.03742.us.i, %245 ], [ %239, %237 ], [ %239, %244 ], [ %239, %240 ], [ %.03742.us.i, %231 ], [ %.03742.us.i, %234 ], [ %.03742.us.i, %229 ], [ %226, %225 ]
-  %.135.us.i = phi double [ %246, %245 ], [ %.03443.us.i, %237 ], [ %241, %244 ], [ %241, %240 ], [ %.03443.us.i, %231 ], [ %.03443.us.i, %234 ], [ %230, %229 ], [ %.03443.us.i, %225 ]
-  %.1.us.i = phi i1 [ true, %245 ], [ true, %237 ], [ false, %244 ], [ true, %240 ], [ false, %231 ], [ true, %234 ], [ false, %229 ], [ false, %225 ]
-  %247 = phi i64 [ 1, %245 ], [ 2, %237 ], [ 3, %244 ], [ 0, %240 ], [ 0, %231 ], [ 3, %234 ], [ 2, %229 ], [ 1, %225 ]
+  %.138.us.i = phi double [ %226, %225 ], [ %.03742.us.i, %245 ], [ %239, %237 ], [ %239, %244 ], [ %239, %240 ], [ %.03742.us.i, %231 ], [ %.03742.us.i, %234 ], [ %.03742.us.i, %229 ]
+  %.135.us.i = phi double [ %.03443.us.i, %225 ], [ %246, %245 ], [ %.03443.us.i, %237 ], [ %241, %244 ], [ %241, %240 ], [ %.03443.us.i, %231 ], [ %.03443.us.i, %234 ], [ %230, %229 ]
+  %.1.us.i = phi i1 [ false, %225 ], [ true, %245 ], [ true, %237 ], [ false, %244 ], [ true, %240 ], [ false, %231 ], [ true, %234 ], [ false, %229 ]
+  %247 = phi i64 [ 1, %225 ], [ 1, %245 ], [ 2, %237 ], [ 3, %244 ], [ 0, %240 ], [ 0, %231 ], [ 3, %234 ], [ 2, %229 ]
   %248 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode", ptr %215, i64 %222
   %249 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode::Child", ptr %248, i64 %247
   %250 = load i32, ptr %249, align 4
@@ -18755,7 +18755,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EED2Ev.exit.i: ; p
   resume { ptr, i32 } %.pn.pn
 
 _ZN10OpenSubdiv6v3_6_03Far8PatchMapD2Ev.exit:     ; preds = %5, %414, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EED2Ev.exit.i, %75, %63, %._crit_edge
-  %.0 = phi ptr [ null, %._crit_edge ], [ null, %63 ], [ null, %75 ], [ %383, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EED2Ev.exit.i ], [ %383, %414 ], [ null, %5 ]
+  %.0 = phi ptr [ null, %75 ], [ null, %._crit_edge ], [ null, %63 ], [ %383, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EED2Ev.exit.i ], [ %383, %414 ], [ null, %5 ]
   ret ptr %.0
 }
 
@@ -18943,7 +18943,7 @@ define weak_odr noundef ptr @_ZN10OpenSubdiv6v3_6_03Far28LimitStencilTableFactor
   br label %62
 
 62:                                               ; preds = %57, %59, %51, %53
-  %.0203 = phi i32 [ %52, %51 ], [ %55, %53 ], [ %58, %57 ], [ %61, %59 ]
+  %.0203 = phi i32 [ %55, %53 ], [ %52, %51 ], [ %58, %57 ], [ %61, %59 ]
   %.not = icmp ne ptr %2, null
   br i1 %.not, label %63, label %74
 
@@ -19107,7 +19107,7 @@ _ZNK10OpenSubdiv6v3_6_03Far10PatchTable36GetLocalPointFaceVaryingStencilTableIdE
   br label %153
 
 153:                                              ; preds = %146, %149, %135, %_ZNK10OpenSubdiv6v3_6_03Far10PatchTable36GetLocalPointFaceVaryingStencilTableIdEEPKNS1_16StencilTableRealIT_EEi.exit
-  %.1205 = phi ptr [ %148, %146 ], [ %148, %149 ], [ %.0204, %135 ], [ %.0204, %_ZNK10OpenSubdiv6v3_6_03Far10PatchTable36GetLocalPointFaceVaryingStencilTableIdEEPKNS1_16StencilTableRealIT_EEi.exit ]
+  %.1205 = phi ptr [ %148, %146 ], [ %.0204, %_ZNK10OpenSubdiv6v3_6_03Far10PatchTable36GetLocalPointFaceVaryingStencilTableIdEEPKNS1_16StencilTableRealIT_EEi.exit ], [ %148, %149 ], [ %.0204, %135 ]
   call void @_ZN10OpenSubdiv6v3_6_03Far8PatchMapC1ERKNS1_10PatchTableE(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(273) %.0207)
   br i1 %42, label %154, label %160
 
@@ -19277,10 +19277,10 @@ _ZNK10OpenSubdiv6v3_6_03Far13TopologyLevel16GetNumFVarValuesEi.exit: ; preds = %
   br label %_ZN10OpenSubdiv6v3_6_03Far8PatchMap24transformUVToTriQuadrantIdEEiRKT_RS4_S7_Rb.exit.us.i
 
 _ZN10OpenSubdiv6v3_6_03Far8PatchMap24transformUVToTriQuadrantIdEEiRKT_RS4_S7_Rb.exit.us.i: ; preds = %243, %242, %238, %235, %232, %229, %227, %223
-  %.138.us.i = phi double [ %.03742.us.i, %243 ], [ %237, %235 ], [ %237, %242 ], [ %237, %238 ], [ %.03742.us.i, %229 ], [ %.03742.us.i, %232 ], [ %.03742.us.i, %227 ], [ %224, %223 ]
-  %.135.us.i = phi double [ %244, %243 ], [ %.03443.us.i, %235 ], [ %239, %242 ], [ %239, %238 ], [ %.03443.us.i, %229 ], [ %.03443.us.i, %232 ], [ %228, %227 ], [ %.03443.us.i, %223 ]
-  %.1.us.i = phi i1 [ true, %243 ], [ true, %235 ], [ false, %242 ], [ true, %238 ], [ false, %229 ], [ true, %232 ], [ false, %227 ], [ false, %223 ]
-  %245 = phi i64 [ 1, %243 ], [ 2, %235 ], [ 3, %242 ], [ 0, %238 ], [ 0, %229 ], [ 3, %232 ], [ 2, %227 ], [ 1, %223 ]
+  %.138.us.i = phi double [ %224, %223 ], [ %.03742.us.i, %243 ], [ %237, %235 ], [ %237, %242 ], [ %237, %238 ], [ %.03742.us.i, %229 ], [ %.03742.us.i, %232 ], [ %.03742.us.i, %227 ]
+  %.135.us.i = phi double [ %.03443.us.i, %223 ], [ %244, %243 ], [ %.03443.us.i, %235 ], [ %239, %242 ], [ %239, %238 ], [ %.03443.us.i, %229 ], [ %.03443.us.i, %232 ], [ %228, %227 ]
+  %.1.us.i = phi i1 [ false, %223 ], [ true, %243 ], [ true, %235 ], [ false, %242 ], [ true, %238 ], [ false, %229 ], [ true, %232 ], [ false, %227 ]
+  %245 = phi i64 [ 1, %223 ], [ 1, %243 ], [ 2, %235 ], [ 3, %242 ], [ 0, %238 ], [ 0, %229 ], [ 3, %232 ], [ 2, %227 ]
   %246 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode", ptr %213, i64 %220
   %247 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode::Child", ptr %246, i64 %245
   %248 = load i32, ptr %247, align 4
@@ -19727,7 +19727,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EED2Ev.exit.i: ; p
   resume { ptr, i32 } %.pn.pn
 
 _ZN10OpenSubdiv6v3_6_03Far8PatchMapD2Ev.exit:     ; preds = %5, %412, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EED2Ev.exit.i, %75, %63, %._crit_edge
-  %.0 = phi ptr [ null, %._crit_edge ], [ null, %63 ], [ null, %75 ], [ %381, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EED2Ev.exit.i ], [ %381, %412 ], [ null, %5 ]
+  %.0 = phi ptr [ null, %75 ], [ null, %._crit_edge ], [ null, %63 ], [ %381, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EED2Ev.exit.i ], [ %381, %412 ], [ null, %5 ]
   ret ptr %.0
 }
 

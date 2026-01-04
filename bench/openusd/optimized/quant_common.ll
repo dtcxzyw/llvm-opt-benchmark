@@ -176,7 +176,7 @@ define hidden ptr @av1_get_iqmatrix(ptr noundef readonly captures(none) %0, ptr 
   br label %av1_get_adjusted_tx_size.exit
 
 av1_get_adjusted_tx_size.exit:                    ; preds = %5, %5, %5, %11, %12, %13
-  %.0.i = phi i64 [ %14, %13 ], [ 10, %11 ], [ 9, %12 ], [ 3, %5 ], [ 3, %5 ], [ 3, %5 ]
+  %.0.i = phi i64 [ %14, %13 ], [ 9, %12 ], [ 10, %11 ], [ 3, %5 ], [ 3, %5 ], [ 3, %5 ]
   %15 = icmp ult i8 %4, 9
   br i1 %15, label %16, label %23
 
@@ -226,7 +226,7 @@ define hidden ptr @av1_get_qmatrix(ptr noundef readonly captures(none) %0, ptr n
   br label %av1_get_adjusted_tx_size.exit
 
 av1_get_adjusted_tx_size.exit:                    ; preds = %5, %5, %5, %11, %12, %13
-  %.0.i = phi i64 [ %14, %13 ], [ 10, %11 ], [ 9, %12 ], [ 3, %5 ], [ 3, %5 ], [ 3, %5 ]
+  %.0.i = phi i64 [ %14, %13 ], [ 9, %12 ], [ 10, %11 ], [ 3, %5 ], [ 3, %5 ], [ 3, %5 ]
   %15 = icmp ult i8 %4, 9
   br i1 %15, label %16, label %23
 
@@ -302,7 +302,7 @@ define hidden void @av1_qm_init(ptr noundef captures(none) %0, i32 noundef %1) l
   br label %av1_get_adjusted_tx_size.exit.us
 
 av1_get_adjusted_tx_size.exit.us:                 ; preds = %19, %18, %17, %13, %13, %13
-  %.0.i.us = phi i8 [ %16, %19 ], [ 10, %18 ], [ 9, %17 ], [ 3, %13 ], [ 3, %13 ], [ 3, %13 ]
+  %.0.i.us = phi i8 [ %16, %19 ], [ 9, %17 ], [ 10, %18 ], [ 3, %13 ], [ 3, %13 ], [ 3, %13 ]
   %20 = zext i8 %.0.i.us to i64
   %.not.us = icmp eq i64 %indvars.iv, %20
   br i1 %.not.us, label %29, label %21
@@ -331,7 +331,7 @@ av1_get_adjusted_tx_size.exit.us:                 ; preds = %19, %18, %17, %13, 
   br label %36
 
 36:                                               ; preds = %29, %21
-  %.1.us = phi i32 [ %.05356.us, %21 ], [ %35, %29 ]
+  %.1.us = phi i32 [ %35, %29 ], [ %.05356.us, %21 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
   br i1 %exitcond.not, label %.split.us, label %13, !llvm.loop !6

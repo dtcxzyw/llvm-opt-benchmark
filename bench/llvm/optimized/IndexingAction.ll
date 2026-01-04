@@ -2563,7 +2563,7 @@ _ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i5: ; preds = %39, %33
   tail call void @_ZN5clang5index15IndexingContext20handleMacroUndefinedERKNS_14IdentifierInfoENS_14SourceLocationERKNS_9MacroInfoE(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(24) %.0.i, i32 %30, ptr noundef nonnull align 8 dereferenceable(38) %44) #16
   br label %_ZNK5clang15MacroDefinition12getMacroInfoEv.exit.thread
 
-_ZNK5clang15MacroDefinition12getMacroInfoEv.exit.thread: ; preds = %16, %14, %_ZNK5clang15MacroDefinition12getMacroInfoEv.exit, %_ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i5
+_ZNK5clang15MacroDefinition12getMacroInfoEv.exit.thread: ; preds = %14, %16, %_ZNK5clang15MacroDefinition12getMacroInfoEv.exit, %_ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i5
   ret void
 }
 
@@ -2654,7 +2654,7 @@ _ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i6: ; preds = %39, %33
   tail call void @_ZN5clang5index15IndexingContext20handleMacroReferenceERKNS_14IdentifierInfoENS_14SourceLocationERKNS_9MacroInfoE(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(24) %.0.i, i32 %30, ptr noundef nonnull align 8 dereferenceable(38) %44) #16
   br label %_ZNK5clang15MacroDefinition12getMacroInfoEv.exit.thread
 
-_ZNK5clang15MacroDefinition12getMacroInfoEv.exit.thread: ; preds = %16, %14, %_ZNK5clang15MacroDefinition12getMacroInfoEv.exit, %_ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i6
+_ZNK5clang15MacroDefinition12getMacroInfoEv.exit.thread: ; preds = %14, %16, %_ZNK5clang15MacroDefinition12getMacroInfoEv.exit, %_ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i6
   ret void
 }
 
@@ -2767,7 +2767,7 @@ _ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i6: ; preds = %39, %33
   tail call void @_ZN5clang5index15IndexingContext20handleMacroReferenceERKNS_14IdentifierInfoENS_14SourceLocationERKNS_9MacroInfoE(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(24) %.0.i, i32 %30, ptr noundef nonnull align 8 dereferenceable(38) %44) #16
   br label %_ZNK5clang15MacroDefinition12getMacroInfoEv.exit.thread
 
-_ZNK5clang15MacroDefinition12getMacroInfoEv.exit.thread: ; preds = %16, %14, %_ZNK5clang15MacroDefinition12getMacroInfoEv.exit, %_ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i6
+_ZNK5clang15MacroDefinition12getMacroInfoEv.exit.thread: ; preds = %14, %16, %_ZNK5clang15MacroDefinition12getMacroInfoEv.exit, %_ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i6
   ret void
 }
 
@@ -2858,7 +2858,7 @@ _ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i6: ; preds = %39, %33
   tail call void @_ZN5clang5index15IndexingContext20handleMacroReferenceERKNS_14IdentifierInfoENS_14SourceLocationERKNS_9MacroInfoE(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(24) %.0.i, i32 %30, ptr noundef nonnull align 8 dereferenceable(38) %44) #16
   br label %_ZNK5clang15MacroDefinition12getMacroInfoEv.exit.thread
 
-_ZNK5clang15MacroDefinition12getMacroInfoEv.exit.thread: ; preds = %16, %14, %_ZNK5clang15MacroDefinition12getMacroInfoEv.exit, %_ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i6
+_ZNK5clang15MacroDefinition12getMacroInfoEv.exit.thread: ; preds = %14, %16, %_ZNK5clang15MacroDefinition12getMacroInfoEv.exit, %_ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i6
   ret void
 }
 
@@ -2954,7 +2954,7 @@ _ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i6: ; preds = %39, %33
   tail call void @_ZN5clang5index15IndexingContext20handleMacroReferenceERKNS_14IdentifierInfoENS_14SourceLocationERKNS_9MacroInfoE(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(24) %.0.i, i32 %30, ptr noundef nonnull align 8 dereferenceable(38) %44) #16
   br label %_ZNK5clang15MacroDefinition12getMacroInfoEv.exit.thread
 
-_ZNK5clang15MacroDefinition12getMacroInfoEv.exit.thread: ; preds = %16, %14, %_ZNK5clang15MacroDefinition12getMacroInfoEv.exit, %_ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i6
+_ZNK5clang15MacroDefinition12getMacroInfoEv.exit.thread: ; preds = %14, %16, %_ZNK5clang15MacroDefinition12getMacroInfoEv.exit, %_ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i6
   ret void
 }
 
@@ -3045,7 +3045,7 @@ _ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i6: ; preds = %39, %33
   tail call void @_ZN5clang5index15IndexingContext20handleMacroReferenceERKNS_14IdentifierInfoENS_14SourceLocationERKNS_9MacroInfoE(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(24) %.0.i, i32 %30, ptr noundef nonnull align 8 dereferenceable(38) %44) #16
   br label %_ZNK5clang15MacroDefinition12getMacroInfoEv.exit.thread
 
-_ZNK5clang15MacroDefinition12getMacroInfoEv.exit.thread: ; preds = %16, %14, %_ZNK5clang15MacroDefinition12getMacroInfoEv.exit, %_ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i6
+_ZNK5clang15MacroDefinition12getMacroInfoEv.exit.thread: ; preds = %14, %16, %_ZNK5clang15MacroDefinition12getMacroInfoEv.exit, %_ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i6
   ret void
 }
 

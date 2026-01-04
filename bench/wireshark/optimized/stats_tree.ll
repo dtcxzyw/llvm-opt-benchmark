@@ -2077,7 +2077,7 @@ define nonnull ptr @stats_tree_get_column_name(ptr noundef readonly captures(non
   br label %17
 
 17:                                               ; preds = %2, %3, %16, %15, %11, %10, %9, %8, %7, %6
-  %.0 = phi ptr [ @.str.17, %16 ], [ @.str.9, %6 ], [ @.str.10, %7 ], [ @.str.11, %8 ], [ @.str.12, %9 ], [ @.str.13, %10 ], [ %14, %11 ], [ @.str.16, %15 ], [ %.str.7., %3 ], [ @.str.8, %2 ]
+  %.0 = phi ptr [ @.str.17, %16 ], [ %.str.7., %3 ], [ @.str.16, %15 ], [ %14, %11 ], [ @.str.9, %6 ], [ @.str.10, %7 ], [ @.str.11, %8 ], [ @.str.12, %9 ], [ @.str.13, %10 ], [ @.str.8, %2 ]
   ret ptr %.0
 }
 
@@ -2575,8 +2575,8 @@ define i32 @stats_tree_sort_compare(ptr noundef readonly captures(none) %0, ptr 
   br label %87
 
 87:                                               ; preds = %81, %77, %62, %58
-  %.074 = phi float [ %59, %58 ], [ %59, %62 ], [ %78, %77 ], [ %78, %81 ]
-  %.0 = phi float [ 0.000000e+00, %58 ], [ %67, %62 ], [ 0.000000e+00, %77 ], [ %86, %81 ]
+  %.074 = phi float [ %78, %81 ], [ %59, %62 ], [ %59, %58 ], [ %78, %77 ]
+  %.0 = phi float [ %86, %81 ], [ %67, %62 ], [ 0.000000e+00, %58 ], [ 0.000000e+00, %77 ]
   %88 = fcmp ogt float %.074, %.0
   %89 = fcmp olt float %.074, %.0
   %90 = sext i1 %89 to i32
@@ -2658,7 +2658,7 @@ define i32 @stats_tree_sort_compare(ptr noundef readonly captures(none) %0, ptr 
   unreachable
 
 141:                                              ; preds = %132, %118, %100, %87, %112, %94, %27, %38, %36, %126, %40
-  %.1 = phi i32 [ %30, %27 ], [ %37, %36 ], [ %39, %38 ], [ %45, %40 ], [ %90, %87 ], [ %99, %94 ], [ %108, %100 ], [ %117, %112 ], [ %125, %118 ], [ %131, %126 ], [ %139, %132 ]
+  %.1 = phi i32 [ %30, %27 ], [ %37, %36 ], [ %39, %38 ], [ %45, %40 ], [ %90, %87 ], [ %131, %126 ], [ %99, %94 ], [ %108, %100 ], [ %139, %132 ], [ %117, %112 ], [ %125, %118 ]
   %.not102 = icmp eq i32 %.1, 0
   br i1 %.not102, label %142, label %.thread
 
@@ -2811,7 +2811,7 @@ define ptr @stats_tree_format_as_str(ptr noundef readonly captures(none) %0, i32
   br label %stats_tree_get_column_name.exit
 
 stats_tree_get_column_name.exit:                  ; preds = %.lr.ph75, %17, %21, %22, %23, %24, %25, %26, %30, %31
-  %.0.i = phi ptr [ @.str.17, %31 ], [ @.str.9, %21 ], [ @.str.10, %22 ], [ @.str.11, %23 ], [ @.str.12, %24 ], [ @.str.13, %25 ], [ %29, %26 ], [ @.str.16, %30 ], [ %.str.7..i, %17 ], [ @.str.8, %.lr.ph75 ]
+  %.0.i = phi ptr [ @.str.17, %31 ], [ %.str.7..i, %17 ], [ @.str.16, %30 ], [ %29, %26 ], [ @.str.9, %21 ], [ @.str.10, %22 ], [ @.str.11, %23 ], [ @.str.12, %24 ], [ @.str.13, %25 ], [ @.str.8, %.lr.ph75 ]
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %13, ptr noundef nonnull @.str.30, ptr noundef nonnull %.0.i)
   %32 = add nuw nsw i32 %.05373, 1
   %33 = load i32, ptr %14, align 4
@@ -2911,7 +2911,7 @@ stats_tree_get_column_name.exit:                  ; preds = %.lr.ph75, %17, %21,
   br label %stats_tree_get_column_name.exit66
 
 stats_tree_get_column_name.exit66:                ; preds = %.lr.ph71, %65, %66, %67, %68, %69, %70, %74, %75
-  %.0.i63 = phi ptr [ @.str.17, %75 ], [ @.str.9, %65 ], [ @.str.10, %66 ], [ @.str.11, %67 ], [ @.str.12, %68 ], [ @.str.13, %69 ], [ %73, %70 ], [ @.str.16, %74 ], [ @.str.8, %.lr.ph71 ]
+  %.0.i63 = phi ptr [ @.str.17, %75 ], [ @.str.8, %.lr.ph71 ], [ @.str.16, %74 ], [ %73, %70 ], [ @.str.9, %65 ], [ @.str.10, %66 ], [ @.str.11, %67 ], [ @.str.12, %68 ], [ @.str.13, %69 ]
   call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %51, ptr noundef nonnull %5, ptr noundef nonnull %.0.i63)
   %76 = add nuw nsw i32 %.269, 1
   %77 = load i32, ptr %37, align 4
@@ -3062,7 +3062,7 @@ define void @stats_tree_format_node_as_str(ptr noundef readonly captures(none) %
   br label %stats_tree_get_column_name.exit
 
 stats_tree_get_column_name.exit:                  ; preds = %32, %34, %35, %36, %37, %38, %39, %43, %44
-  %.0.i = phi ptr [ @.str.17, %44 ], [ @.str.9, %34 ], [ @.str.10, %35 ], [ @.str.11, %36 ], [ @.str.12, %37 ], [ @.str.13, %38 ], [ %42, %39 ], [ @.str.16, %43 ], [ @.str.8, %32 ]
+  %.0.i = phi ptr [ @.str.17, %44 ], [ @.str.8, %32 ], [ @.str.16, %43 ], [ %42, %39 ], [ @.str.9, %34 ], [ @.str.10, %35 ], [ @.str.11, %36 ], [ @.str.12, %37 ], [ @.str.13, %38 ]
   call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %1, ptr noundef nonnull %11, ptr noundef nonnull @.str.1, ptr noundef nonnull %27, ptr noundef nonnull %.0.i)
   call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %1, ptr noundef nonnull @.str.42, ptr noundef %30)
   br label %45
@@ -3151,7 +3151,7 @@ stats_tree_get_column_name.exit:                  ; preds = %32, %34, %35, %36, 
   br label %stats_tree_get_column_name.exit106
 
 stats_tree_get_column_name.exit106:               ; preds = %.lr.ph116, %58, %63, %64, %65, %66, %67, %68, %72, %73
-  %.0.i103 = phi ptr [ @.str.17, %73 ], [ @.str.9, %63 ], [ @.str.10, %64 ], [ @.str.11, %65 ], [ @.str.12, %66 ], [ @.str.13, %67 ], [ %71, %68 ], [ @.str.16, %72 ], [ %.str.7..i105, %58 ], [ @.str.8, %.lr.ph116 ]
+  %.0.i103 = phi ptr [ @.str.17, %73 ], [ %.str.7..i105, %58 ], [ @.str.16, %72 ], [ %71, %68 ], [ @.str.9, %63 ], [ @.str.10, %64 ], [ @.str.11, %65 ], [ @.str.12, %66 ], [ @.str.13, %67 ], [ @.str.8, %.lr.ph116 ]
   %74 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.0.i103)
   %75 = tail call ptr @strpbrk(ptr noundef %74, ptr noundef nonnull @.str.54) #21
   %.not5.i = icmp eq ptr %75, null
@@ -3227,7 +3227,7 @@ clean_for_xml_tag.exit:                           ; preds = %.lr.ph.i, %stats_tr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %clean_for_xml_tag.exit, %..loopexit_crit_edge, %50, %._crit_edge120, %48, %._crit_edge, %._crit_edge113
-  %98 = phi ptr [ %.pre, %..loopexit_crit_edge ], [ %51, %50 ], [ %25, %._crit_edge120 ], [ %25, %48 ], [ %90, %._crit_edge ], [ %82, %._crit_edge113 ], [ %51, %clean_for_xml_tag.exit ]
+  %98 = phi ptr [ %.pre, %..loopexit_crit_edge ], [ %82, %._crit_edge113 ], [ %51, %50 ], [ %25, %._crit_edge120 ], [ %25, %48 ], [ %90, %._crit_edge ], [ %51, %clean_for_xml_tag.exit ]
   %99 = add i32 %3, 1
   %100 = call i32 @llvm.umin.i32(i32 %99, i32 32)
   %101 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.52, ptr noundef %4, ptr noundef %98)

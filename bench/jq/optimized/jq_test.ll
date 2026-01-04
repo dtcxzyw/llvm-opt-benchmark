@@ -765,19 +765,19 @@ skipline.exit190.thread.i:                        ; preds = %skipline.exit190.i,
   br label %.outer.outer.i
 
 .outer.outer.i:                                   ; preds = %313, %309, %307, %397, %329, %301, %298, %292
-  %.1148.i = phi i32 [ 0, %292 ], [ 0, %301 ], [ 0, %298 ], [ %.0147.ph266.i, %397 ], [ %.0147.ph266.i, %329 ], [ %.0147.ph266.i, %307 ], [ %.0147.ph266.i, %309 ], [ %.0147.ph266.i, %313 ]
-  %.3140.i = phi i32 [ %284, %292 ], [ %284, %301 ], [ %284, %298 ], [ %.8203.i, %397 ], [ %324, %329 ], [ %310, %313 ], [ %310, %309 ], [ %.4141.i, %307 ]
-  %.2134.i = phi i32 [ %294, %292 ], [ %.0132.ph.ph300.i, %301 ], [ %300, %298 ], [ %.5229.i, %397 ], [ %331, %329 ], [ %306, %307 ], [ %306, %309 ], [ %306, %313 ]
-  %.2131.i = phi i32 [ %.0129.ph.ph301.i, %292 ], [ %302, %301 ], [ %.0129.ph.ph301.i, %298 ], [ %398, %397 ], [ %.0129.ph.ph301.i, %329 ], [ %.0129.ph.ph301.i, %307 ], [ %.0129.ph.ph301.i, %309 ], [ %.0129.ph.ph301.i, %313 ]
+  %.1148.i = phi i32 [ 0, %292 ], [ 0, %298 ], [ %.0147.ph266.i, %397 ], [ 0, %301 ], [ %.0147.ph266.i, %329 ], [ %.0147.ph266.i, %307 ], [ %.0147.ph266.i, %309 ], [ %.0147.ph266.i, %313 ]
+  %.3140.i = phi i32 [ %284, %292 ], [ %284, %298 ], [ %.8203.i, %397 ], [ %284, %301 ], [ %324, %329 ], [ %310, %313 ], [ %310, %309 ], [ %.4141.i, %307 ]
+  %.2134.i = phi i32 [ %294, %292 ], [ %300, %298 ], [ %.5229.i, %397 ], [ %.0132.ph.ph300.i, %301 ], [ %331, %329 ], [ %306, %307 ], [ %306, %309 ], [ %306, %313 ]
+  %.2131.i = phi i32 [ %.0129.ph.ph301.i, %292 ], [ %.0129.ph.ph301.i, %298 ], [ %398, %397 ], [ %302, %301 ], [ %.0129.ph.ph301.i, %329 ], [ %.0129.ph.ph301.i, %307 ], [ %.0129.ph.ph301.i, %309 ], [ %.0129.ph.ph301.i, %313 ]
   %399 = call ptr @fgets(ptr noundef nonnull %8, i32 noundef 4096, ptr noundef %.025)
   %.not256265277.i = icmp eq ptr %399, null
   br i1 %.not256265277.i, label %.thread204.i, label %.lr.ph.lr.ph.lr.ph.i
 
 .thread204.i:                                     ; preds = %.outer.outer.i, %.outer.outer219.i, %checkfail.exit.thread.i, %skipline.exit.i, %321, %281, %272, %224
-  %.0129.ph.ph252.i = phi i32 [ %.0129.ph.ph301.i, %272 ], [ %.0129.ph.ph301.i, %321 ], [ %.0129.ph.ph301.i, %281 ], [ 0, %224 ], [ %.0129.ph.ph301.i, %skipline.exit.i ], [ %.0129.ph.ph301.i, %checkfail.exit.thread.i ], [ %.0129.ph.ph301.i, %.outer.outer219.i ], [ %.2131.i, %.outer.outer.i ]
-  %.1133.i = phi i32 [ %.0132.ph.ph300.i, %272 ], [ %322, %321 ], [ %282, %281 ], [ 0, %224 ], [ %.0132.ph.ph300.i, %skipline.exit.i ], [ %.0132.ph.ph300.i, %checkfail.exit.thread.i ], [ %.0132.ph.ph300.i, %.outer.outer219.i ], [ %.2134.i, %.outer.outer.i ]
-  %.1128.i = phi i32 [ %.0127.ph.ph302.i, %272 ], [ %275, %321 ], [ %275, %281 ], [ 0, %224 ], [ %.0127.ph.ph302.i, %skipline.exit.i ], [ %.0127.ph.ph302.i, %checkfail.exit.thread.i ], [ %.0127.ph.ph302.i, %.outer.outer219.i ], [ %275, %.outer.outer.i ]
-  %.1.i = phi i32 [ %.2.i, %272 ], [ %.2.i, %321 ], [ %.2.i, %281 ], [ %.022, %224 ], [ %.0124.ph.ph222280.i, %skipline.exit.i ], [ %.0124.ph.ph222280.i, %checkfail.exit.thread.i ], [ %250, %.outer.outer219.i ], [ %.2.i, %.outer.outer.i ]
+  %.0129.ph.ph252.i = phi i32 [ %.0129.ph.ph301.i, %281 ], [ %.0129.ph.ph301.i, %272 ], [ %.0129.ph.ph301.i, %321 ], [ %.0129.ph.ph301.i, %.outer.outer219.i ], [ %.0129.ph.ph301.i, %skipline.exit.i ], [ %.0129.ph.ph301.i, %checkfail.exit.thread.i ], [ 0, %224 ], [ %.2131.i, %.outer.outer.i ]
+  %.1133.i = phi i32 [ %282, %281 ], [ %.0132.ph.ph300.i, %272 ], [ %322, %321 ], [ %.0132.ph.ph300.i, %.outer.outer219.i ], [ %.0132.ph.ph300.i, %skipline.exit.i ], [ %.0132.ph.ph300.i, %checkfail.exit.thread.i ], [ 0, %224 ], [ %.2134.i, %.outer.outer.i ]
+  %.1128.i = phi i32 [ %275, %281 ], [ %.0127.ph.ph302.i, %272 ], [ %275, %321 ], [ %.0127.ph.ph302.i, %.outer.outer219.i ], [ %.0127.ph.ph302.i, %skipline.exit.i ], [ %.0127.ph.ph302.i, %checkfail.exit.thread.i ], [ 0, %224 ], [ %275, %.outer.outer.i ]
+  %.1.i = phi i32 [ %.2.i, %281 ], [ %.2.i, %272 ], [ %.2.i, %321 ], [ %250, %.outer.outer219.i ], [ %.0124.ph.ph222280.i, %skipline.exit.i ], [ %.0124.ph.ph222280.i, %checkfail.exit.thread.i ], [ %.022, %224 ], [ %.2.i, %.outer.outer.i ]
   call void @jq_teardown(ptr noundef nonnull %11) #13
   %400 = icmp sgt i32 %.1.i, 0
   %401 = call i32 @llvm.smax.i32(i32 %.1.i, i32 0)

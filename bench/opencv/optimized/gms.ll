@@ -288,10 +288,10 @@ define hidden noundef i32 @_ZN2cv11xfeatures2d10GMSMatcher16getGridIndexLeftERKN
   br label %.thread31
 
 .thread31:                                        ; preds = %..thread31_crit_edge, %19, %.thread, %37, %55
-  %75 = phi i32 [ %68, %55 ], [ %48, %37 ], [ %14, %.thread ], [ %32, %19 ], [ %.pre35, %..thread31_crit_edge ]
-  %76 = phi i32 [ %58, %55 ], [ %40, %37 ], [ %6, %.thread ], [ %22, %19 ], [ %.pre, %..thread31_crit_edge ]
-  %.320 = phi i32 [ %64, %55 ], [ %44, %37 ], [ %10, %.thread ], [ %28, %19 ], [ 0, %..thread31_crit_edge ]
-  %.3 = phi i32 [ %74, %55 ], [ %54, %37 ], [ %18, %.thread ], [ %36, %19 ], [ 0, %..thread31_crit_edge ]
+  %75 = phi i32 [ %68, %55 ], [ %.pre35, %..thread31_crit_edge ], [ %48, %37 ], [ %14, %.thread ], [ %32, %19 ]
+  %76 = phi i32 [ %58, %55 ], [ %.pre, %..thread31_crit_edge ], [ %40, %37 ], [ %6, %.thread ], [ %22, %19 ]
+  %.320 = phi i32 [ %64, %55 ], [ 0, %..thread31_crit_edge ], [ %44, %37 ], [ %10, %.thread ], [ %28, %19 ]
+  %.3 = phi i32 [ %74, %55 ], [ 0, %..thread31_crit_edge ], [ %54, %37 ], [ %18, %.thread ], [ %36, %19 ]
   %.not = icmp slt i32 %.320, %76
   %.not23 = icmp slt i32 %.3, %75
   %or.cond = select i1 %.not, i1 %.not23, i1 false
@@ -725,7 +725,7 @@ _ZNSt6vectorIbSaIbEEaSERKS1_.exit:                ; preds = %_ZNSt6vectorIbSaIbE
   br i1 %exitcond72.not, label %.loopexit, label %94, !llvm.loop !76
 
 .loopexit:                                        ; preds = %90, %99, %.split65, %.split65.us.us, %92, %5
-  %.0 = phi i32 [ %6, %5 ], [ 0, %92 ], [ %spec.select, %.split65.us.us ], [ %.2, %.split65 ], [ %.6, %99 ], [ %.4, %90 ]
+  %.0 = phi i32 [ %6, %5 ], [ %.6, %99 ], [ %spec.select, %.split65.us.us ], [ 0, %92 ], [ %.2, %.split65 ], [ %.4, %90 ]
   ret i32 %.0
 }
 

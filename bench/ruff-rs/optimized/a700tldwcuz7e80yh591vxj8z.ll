@@ -263,8 +263,8 @@ define hidden { i64, ptr } @"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$
   br label %.thread53
 
 .thread53:                                        ; preds = %.thread53.sink.split, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hf6d1c39b707e223aE.exit", %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hf6d1c39b707e223aE.exit.thread", %27, %.thread
-  %.sroa.5.0 = phi ptr [ %35, %.thread ], [ %.sroa.52.0, %27 ], [ %22, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hf6d1c39b707e223aE.exit.thread" ], [ %.sroa.625.0, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hf6d1c39b707e223aE.exit" ], [ %35, %.thread53.sink.split ]
-  %.sroa.0.0 = phi i64 [ %33, %.thread ], [ %.sroa.01.0, %27 ], [ 1, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hf6d1c39b707e223aE.exit.thread" ], [ %16, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hf6d1c39b707e223aE.exit" ], [ %33, %.thread53.sink.split ]
+  %.sroa.5.0 = phi ptr [ %.sroa.52.0, %27 ], [ %22, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hf6d1c39b707e223aE.exit.thread" ], [ %.sroa.625.0, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hf6d1c39b707e223aE.exit" ], [ %35, %.thread ], [ %35, %.thread53.sink.split ]
+  %.sroa.0.0 = phi i64 [ %.sroa.01.0, %27 ], [ 1, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hf6d1c39b707e223aE.exit.thread" ], [ %16, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hf6d1c39b707e223aE.exit" ], [ %33, %.thread ], [ %33, %.thread53.sink.split ]
   %29 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %30 = insertvalue { i64, ptr } %29, ptr %.sroa.5.0, 1
   ret { i64, ptr } %30
@@ -5359,7 +5359,7 @@ define hidden noundef zeroext i1 @_ZN21ruff_python_formatter7context9NodeLevel16
   br label %5
 
 5:                                                ; preds = %1, %4, %2
-  %.sroa.03.0 = phi i1 [ %3, %2 ], [ true, %4 ], [ false, %1 ]
+  %.sroa.03.0 = phi i1 [ true, %4 ], [ %3, %2 ], [ false, %1 ]
   ret i1 %.sroa.03.0
 }
 
@@ -5857,7 +5857,7 @@ define void @"_ZN168_$LT$ruff_python_formatter..other..string_literal..FormatStr
           to label %37 unwind label %35
 
 15:                                               ; preds = %4, %11
-  %.sroa.0.0 = phi i8 [ %8, %4 ], [ %spec.select, %11 ]
+  %.sroa.0.0 = phi i8 [ %spec.select, %11 ], [ %8, %4 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = load ptr, ptr %3, align 8, !nonnull !3, !align !65, !noundef !3

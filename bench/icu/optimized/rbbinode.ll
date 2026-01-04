@@ -153,7 +153,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -716,7 +716,7 @@ define void @_ZN6icu_778RBBINodeC2ERKS0_R10UErrorCode(ptr noundef nonnull align 
   ret void
 
 68:                                               ; preds = %65, %63, %61, %8
-  %.pn = phi { ptr, i32 } [ %66, %65 ], [ %64, %63 ], [ %62, %61 ], [ %9, %8 ]
+  %.pn = phi { ptr, i32 } [ %66, %65 ], [ %62, %61 ], [ %64, %63 ], [ %9, %8 ]
   tail call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #12
   resume { ptr, i32 } %.pn
 }
@@ -836,7 +836,7 @@ define void @_ZN6icu_778RBBINodeD2Ev(ptr noundef nonnull align 8 dereferenceable
   br label %52
 
 52:                                               ; preds = %51, %47, %44, %43, %39, %37
-  %.1.i = phi ptr [ %26, %37 ], [ %16, %43 ], [ %16, %39 ], [ %46, %51 ], [ %46, %47 ], [ %.037.i, %44 ]
+  %.1.i = phi ptr [ %.037.i, %44 ], [ %26, %37 ], [ %16, %43 ], [ %16, %39 ], [ %46, %51 ], [ %46, %47 ]
   %53 = icmp ne ptr %.1.i, %14
   %54 = icmp ne ptr %.1.i, null
   %55 = and i1 %53, %54
@@ -936,7 +936,7 @@ _ZN6icu_778RBBINode12NRDeleteNodeEPS0_.exit:      ; preds = %52, %8, %12
   br label %99
 
 99:                                               ; preds = %98, %94, %91, %90, %86, %84
-  %.1.i8 = phi ptr [ %73, %84 ], [ %63, %90 ], [ %63, %86 ], [ %93, %98 ], [ %93, %94 ], [ %.037.i6, %91 ]
+  %.1.i8 = phi ptr [ %.037.i6, %91 ], [ %73, %84 ], [ %63, %90 ], [ %63, %86 ], [ %93, %98 ], [ %93, %94 ]
   %100 = icmp ne ptr %.1.i8, %61
   %101 = icmp ne ptr %.1.i8, null
   %102 = and i1 %100, %101
@@ -1086,7 +1086,7 @@ define void @_ZN6icu_778RBBINode12NRDeleteNodeEPS0_(ptr noundef %0) local_unname
   br label %43
 
 43:                                               ; preds = %34, %30, %38, %42, %35, %28
-  %.1 = phi ptr [ %17, %28 ], [ %7, %34 ], [ %7, %30 ], [ %37, %42 ], [ %37, %38 ], [ %.037, %35 ]
+  %.1 = phi ptr [ %.037, %35 ], [ %17, %28 ], [ %7, %34 ], [ %7, %30 ], [ %37, %42 ], [ %37, %38 ]
   %44 = icmp ne ptr %.1, %5
   %45 = icmp ne ptr %.1, null
   %46 = and i1 %44, %45
@@ -1118,7 +1118,7 @@ define noundef ptr @_ZN6icu_778RBBINode9cloneTreeER10UErrorCodei(ptr noundef non
   ]
 
 common.ret51:                                     ; preds = %.thread, %30, %40, %52, %27, %9, %53, %43, %3, %8, %11
-  %common.ret51.op = phi ptr [ %spec.select, %11 ], [ null, %8 ], [ null, %3 ], [ null, %30 ], [ null, %40 ], [ null, %52 ], [ null, %27 ], [ %19, %53 ], [ %19, %43 ], [ %0, %9 ], [ null, %.thread ]
+  %common.ret51.op = phi ptr [ %spec.select, %11 ], [ %19, %53 ], [ null, %3 ], [ null, %8 ], [ null, %52 ], [ %0, %9 ], [ null, %.thread ], [ null, %30 ], [ null, %40 ], [ null, %27 ], [ %19, %43 ]
   ret ptr %common.ret51.op
 
 11:                                               ; preds = %9
@@ -1310,7 +1310,7 @@ define noundef ptr @_ZN6icu_778RBBINode16flattenVariablesER10UErrorCodei(ptr nou
   br label %46
 
 46:                                               ; preds = %.thread31, %.thread, %35, %44, %42, %31, %19, %14, %3, %8
-  %.0 = phi ptr [ %0, %8 ], [ %0, %3 ], [ %16, %19 ], [ %0, %14 ], [ %0, %31 ], [ %0, %42 ], [ %0, %44 ], [ %0, %35 ], [ %0, %.thread ], [ %0, %.thread31 ]
+  %.0 = phi ptr [ %0, %42 ], [ %0, %8 ], [ %0, %3 ], [ %0, %14 ], [ %0, %31 ], [ %16, %19 ], [ %0, %44 ], [ %0, %35 ], [ %0, %.thread ], [ %0, %.thread31 ]
   ret ptr %.0
 }
 

@@ -111,7 +111,7 @@ _ZN5folly10symbolizer12_GLOBAL__N_112getFrameInfoEP10unw_cursorRm.exit4.thread: 
   br i1 %.not.i, label %_ZN5folly10symbolizer12_GLOBAL__N_120getStackTraceInPlaceER10ucontext_tR10unw_cursorPmm.exit, label %.lr.ph, !llvm.loop !11
 
 _ZN5folly10symbolizer12_GLOBAL__N_120getStackTraceInPlaceER10ucontext_tR10unw_cursorPmm.exit: ; preds = %25, %33, %.lr.ph, %_ZN5folly10symbolizer12_GLOBAL__N_112getFrameInfoEP10unw_cursorRm.exit, %_ZN5folly10symbolizer12_GLOBAL__N_112getFrameInfoEP10unw_cursorRm.exit4.thread, %_ZN5folly10symbolizer12_GLOBAL__N_112getFrameInfoEP10unw_cursorRm.exit.thread, %2, %8, %11
-  %.018.i = phi i64 [ 0, %2 ], [ -1, %8 ], [ -1, %11 ], [ -1, %_ZN5folly10symbolizer12_GLOBAL__N_112getFrameInfoEP10unw_cursorRm.exit.thread ], [ -1, %_ZN5folly10symbolizer12_GLOBAL__N_112getFrameInfoEP10unw_cursorRm.exit4.thread ], [ 1, %_ZN5folly10symbolizer12_GLOBAL__N_112getFrameInfoEP10unw_cursorRm.exit ], [ %.019.i12, %25 ], [ %1, %33 ], [ -1, %.lr.ph ]
+  %.018.i = phi i64 [ -1, %11 ], [ 0, %2 ], [ -1, %8 ], [ -1, %_ZN5folly10symbolizer12_GLOBAL__N_112getFrameInfoEP10unw_cursorRm.exit.thread ], [ -1, %_ZN5folly10symbolizer12_GLOBAL__N_112getFrameInfoEP10unw_cursorRm.exit4.thread ], [ 1, %_ZN5folly10symbolizer12_GLOBAL__N_112getFrameInfoEP10unw_cursorRm.exit ], [ %1, %33 ], [ %.019.i12, %25 ], [ -1, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.018.i
@@ -247,7 +247,7 @@ _ZNSt10unique_ptrIZN5folly10symbolizer17getStackTraceHeapEPmmE3CtxSt14default_de
   resume { ptr, i32 } %lpad.phi
 
 _ZNSt10unique_ptrIZN5folly10symbolizer17getStackTraceHeapEPmmE3CtxSt14default_deleteIS3_EED2Ev.exit21: ; preds = %33, %25, %.noexc6, %.noexc5, %.noexc7.thread, %.noexc4, %.noexc, %2, %.noexc5.thread
-  %.018.i = phi i64 [ 0, %2 ], [ -1, %.noexc ], [ -1, %.noexc4 ], [ -1, %.noexc5.thread ], [ -1, %.noexc7.thread ], [ 1, %.noexc5 ], [ %1, %33 ], [ %.019.i30, %25 ], [ -1, %.noexc6 ]
+  %.018.i = phi i64 [ -1, %.noexc4 ], [ 0, %2 ], [ -1, %.noexc ], [ -1, %.noexc5.thread ], [ -1, %.noexc7.thread ], [ 1, %.noexc5 ], [ %.019.i30, %25 ], [ %1, %33 ], [ -1, %.noexc6 ]
   call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 1984) #12
   ret i64 %.018.i
 }
@@ -384,10 +384,10 @@ _ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.ex
   br i1 %exitcond.not, label %_ZN5folly10symbolizer12_GLOBAL__N_114walkAsyncStackEPmmPNS_15AsyncStackFrameE.exit, label %.lr.ph.i32
 
 _ZN5folly10symbolizer12_GLOBAL__N_114walkAsyncStackEPmmPNS_15AsyncStackFrameE.exit: ; preds = %.thread.i, %47, %51, %55, %59, %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit
-  %.sroa.0.1 = phi i64 [ 0, %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit ], [ %43, %59 ], [ %43, %55 ], [ %43, %51 ], [ %43, %47 ], [ %36, %.thread.i ]
-  %.sroa.5.2 = phi ptr [ null, %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit ], [ %56, %59 ], [ %56, %55 ], [ null, %51 ], [ null, %47 ], [ null, %.thread.i ]
-  %.sroa.8.2 = phi ptr [ null, %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit ], [ %61, %59 ], [ null, %55 ], [ null, %51 ], [ null, %47 ], [ null, %.thread.i ]
-  %.sroa.10.2 = phi ptr [ null, %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit ], [ %.0.i.i.i.i, %59 ], [ null, %55 ], [ null, %51 ], [ null, %47 ], [ null, %.thread.i ]
+  %.sroa.0.1 = phi i64 [ 0, %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit ], [ %43, %47 ], [ %43, %59 ], [ %43, %55 ], [ %43, %51 ], [ %36, %.thread.i ]
+  %.sroa.5.2 = phi ptr [ null, %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit ], [ null, %47 ], [ %56, %59 ], [ %56, %55 ], [ null, %51 ], [ null, %.thread.i ]
+  %.sroa.8.2 = phi ptr [ null, %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit ], [ null, %47 ], [ %61, %59 ], [ null, %55 ], [ null, %51 ], [ null, %.thread.i ]
+  %.sroa.10.2 = phi ptr [ null, %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit ], [ null, %47 ], [ %.0.i.i.i.i, %59 ], [ null, %55 ], [ null, %51 ], [ null, %.thread.i ]
   %63 = add i64 %.sroa.0.1, %34
   %64 = icmp ult i64 %63, %1
   br i1 %64, label %.lr.ph, label %.critedge, !llvm.loop !35

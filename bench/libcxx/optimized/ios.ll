@@ -987,7 +987,7 @@ _ZNSt3__110unique_ptrIPvPFvS1_EED2B8ne210000Ev.exit52: ; preds = %36
   br label %_ZNSt3__110unique_ptrIlPFvPvEED2B8ne210000Ev.exit54
 
 _ZNSt3__110unique_ptrIlPFvPvEED2B8ne210000Ev.exit54: ; preds = %129, %26, %_ZNSt3__110unique_ptrIPvPFvS1_EED2B8ne210000Ev.exit52
-  %.pn41100 = phi { ptr, i32 } [ %128, %_ZNSt3__110unique_ptrIPvPFvS1_EED2B8ne210000Ev.exit52 ], [ %128, %129 ], [ %27, %26 ]
+  %.pn41100 = phi { ptr, i32 } [ %128, %129 ], [ %128, %_ZNSt3__110unique_ptrIPvPFvS1_EED2B8ne210000Ev.exit52 ], [ %27, %26 ]
   %.not.i.i55 = icmp eq ptr %.sroa.075.0, null
   br i1 %.not.i.i55, label %_ZNSt3__110unique_ptrIiPFvPvEED2B8ne210000Ev.exit56, label %130
 
@@ -1006,7 +1006,7 @@ _ZNSt3__110unique_ptrIiPFvPvEED2B8ne210000Ev.exit56: ; preds = %130, %_ZNSt3__11
   br label %_ZNSt3__110unique_ptrIPFvNS_8ios_base5eventERS1_iEPFvPvEED2B8ne210000Ev.exit58
 
 _ZNSt3__110unique_ptrIPFvNS_8ios_base5eventERS1_iEPFvPvEED2B8ne210000Ev.exit58: ; preds = %131, %_ZNSt3__110unique_ptrIiPFvPvEED2B8ne210000Ev.exit56
-  %.pn41100105110 = phi { ptr, i32 } [ %.pn41100, %_ZNSt3__110unique_ptrIiPFvPvEED2B8ne210000Ev.exit56 ], [ %.pn41100105116, %131 ]
+  %.pn41100105110 = phi { ptr, i32 } [ %.pn41100105116, %131 ], [ %.pn41100, %_ZNSt3__110unique_ptrIiPFvPvEED2B8ne210000Ev.exit56 ]
   resume { ptr, i32 } %.pn41100105110
 }
 

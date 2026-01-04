@@ -728,7 +728,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h8f35cb274d7b4e1cE.exit: ; 
   %.pn7 = phi { ptr, i32 } [ %146, %145 ], [ %.pn.ph, %168 ]
   resume { ptr, i32 } %.pn7
 
-167:                                              ; preds = %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17ha7dd12306f579b54E.exit24", %100, %103, %106, %120, %121, %130
+167:                                              ; preds = %130, %121, %120, %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17ha7dd12306f579b54E.exit24", %100, %103, %106
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hcad0447e0b094afbE"(ptr noalias noundef align 8 dereferenceable(24) %24) #11
@@ -938,7 +938,7 @@ define noundef ptr @_ZN9uu_csplit11SplitWriter7writeln17h0d058d8aacf4cb82E(ptr n
   br label %43
 
 43:                                               ; preds = %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h43c2e3824d56a2eeE.exit17", %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h43c2e3824d56a2eeE.exit", %3, %38
-  %.0 = phi ptr [ null, %38 ], [ null, %3 ], [ %25, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h43c2e3824d56a2eeE.exit" ], [ %36, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h43c2e3824d56a2eeE.exit17" ]
+  %.0 = phi ptr [ null, %3 ], [ %25, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h43c2e3824d56a2eeE.exit" ], [ null, %38 ], [ %36, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h43c2e3824d56a2eeE.exit17" ]
   ret ptr %.0
 }
 
@@ -2499,7 +2499,7 @@ define void @_ZN9uu_csplit6uu_app17hd515f433625c3389E(ptr noalias noundef sret({
   ret void
 
 .body:                                            ; preds = %380, %372, %364, %332, %299, %251, %218, %186, %138, %88, %398, %397, %396, %395, %394, %393, %392, %391, %389, %385
-  %.pn = phi { ptr, i32 } [ %386, %385 ], [ %390, %389 ], [ %eh.lpad-body191.ph, %391 ], [ %eh.lpad-body174.ph, %392 ], [ %eh.lpad-body143.ph, %393 ], [ %eh.lpad-body128.ph, %394 ], [ %eh.lpad-body111.ph, %395 ], [ %eh.lpad-body80.ph, %396 ], [ %eh.lpad-body56.ph, %397 ], [ %399, %398 ], [ %89, %88 ], [ %139, %138 ], [ %187, %186 ], [ %219, %218 ], [ %252, %251 ], [ %300, %299 ], [ %333, %332 ], [ %365, %364 ], [ %373, %372 ], [ %381, %380 ]
+  %.pn = phi { ptr, i32 } [ %386, %385 ], [ %373, %372 ], [ %390, %389 ], [ %365, %364 ], [ %eh.lpad-body191.ph, %391 ], [ %333, %332 ], [ %eh.lpad-body174.ph, %392 ], [ %300, %299 ], [ %eh.lpad-body143.ph, %393 ], [ %252, %251 ], [ %eh.lpad-body128.ph, %394 ], [ %219, %218 ], [ %eh.lpad-body111.ph, %395 ], [ %187, %186 ], [ %eh.lpad-body80.ph, %396 ], [ %139, %138 ], [ %eh.lpad-body56.ph, %397 ], [ %89, %88 ], [ %399, %398 ], [ %381, %380 ]
   resume { ptr, i32 } %.pn
 
 385:                                              ; preds = %376

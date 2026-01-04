@@ -250,7 +250,7 @@ define hidden range(i32 0, 2) i32 @SSL_use_RSAPrivateKey_ASN1(ptr noundef readon
   br label %SSL_use_RSAPrivateKey.exit
 
 SSL_use_RSAPrivateKey.exit:                       ; preds = %10, %11
-  %.0.i = phi i32 [ 0, %10 ], [ %16, %11 ]
+  %.0.i = phi i32 [ %16, %11 ], [ 0, %10 ]
   tail call void @RSA_free(ptr noundef nonnull %4) #6
   br label %17
 
@@ -450,7 +450,7 @@ define hidden range(i32 0, 2) i32 @SSL_CTX_use_RSAPrivateKey_ASN1(ptr noundef re
   br label %SSL_CTX_use_RSAPrivateKey.exit
 
 SSL_CTX_use_RSAPrivateKey.exit:                   ; preds = %10, %11
-  %.0.i = phi i32 [ 0, %10 ], [ %16, %11 ]
+  %.0.i = phi i32 [ %16, %11 ], [ 0, %10 ]
   tail call void @RSA_free(ptr noundef nonnull %4) #6
   br label %17
 

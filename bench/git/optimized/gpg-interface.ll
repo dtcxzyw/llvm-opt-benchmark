@@ -318,7 +318,7 @@ parse_payload_metadata.exit:                      ; preds = %27, %33
   br label %66
 
 66:                                               ; preds = %parse_payload_metadata.exit, %52, %55
-  %.0 = phi i32 [ %65, %55 ], [ 1, %parse_payload_metadata.exit ], [ 1, %52 ]
+  %.0 = phi i32 [ 1, %parse_payload_metadata.exit ], [ %65, %55 ], [ 1, %52 ]
   ret i32 %.0
 }
 
@@ -902,7 +902,7 @@ get_format_by_name.exit67:                        ; preds = %.lr.ph, %.preheader
   br label %77
 
 77:                                               ; preds = %parse_gpg_trust_level.exit.thread, %66, %get_format_by_name.exit67, %59, %55, %51, %_.exit63, %32, %get_format_by_name.exit, %_.exit, %17, %set_signing_key.exit, %7
-  %.0 = phi i32 [ %76, %get_format_by_name.exit67 ], [ %60, %59 ], [ %56, %55 ], [ %52, %51 ], [ -1, %_.exit63 ], [ -1, %32 ], [ 0, %get_format_by_name.exit ], [ -1, %_.exit ], [ -1, %17 ], [ 0, %set_signing_key.exit ], [ -1, %7 ], [ 0, %66 ], [ 0, %parse_gpg_trust_level.exit.thread ]
+  %.0 = phi i32 [ %76, %get_format_by_name.exit67 ], [ 0, %parse_gpg_trust_level.exit.thread ], [ %60, %59 ], [ %56, %55 ], [ %52, %51 ], [ -1, %_.exit63 ], [ -1, %7 ], [ -1, %32 ], [ 0, %get_format_by_name.exit ], [ -1, %_.exit ], [ -1, %17 ], [ 0, %set_signing_key.exit ], [ 0, %66 ]
   ret i32 %.0
 }
 
@@ -1128,8 +1128,8 @@ replace_cstring.exit.i:                           ; preds = %90, %86
   br label %.thread97.i
 
 .thread97.i:                                      ; preds = %99, %96, %replace_cstring.exit.i, %83
-  %.39699.i = phi i32 [ 1, %replace_cstring.exit.i ], [ 1, %99 ], [ 1, %96 ], [ %.049138.i, %83 ]
-  %.4.i = phi ptr [ %.07.i67.i, %replace_cstring.exit.i ], [ %100, %99 ], [ %.07.i67.i, %96 ], [ %.07.i67.i, %83 ]
+  %.39699.i = phi i32 [ 1, %96 ], [ 1, %replace_cstring.exit.i ], [ 1, %99 ], [ %.049138.i, %83 ]
+  %.4.i = phi ptr [ %.07.i67.i, %96 ], [ %.07.i67.i, %replace_cstring.exit.i ], [ %100, %99 ], [ %.07.i67.i, %83 ]
   switch i64 %.050132.i, label %skip_prefix.exit.thread.i [
     i64 7, label %102
     i64 6, label %114
@@ -1236,8 +1236,8 @@ skip_prefix.exit70.i:                             ; preds = %78
   br i1 %exitcond155.not.i, label %skip_prefix.exit.thread.i, label %skip_prefix.exit.preheader.i, !llvm.loop !67
 
 skip_prefix.exit.thread.i:                        ; preds = %68, %skip_prefix.exit70.i, %.thread103.i, %replace_cstring.exit79.i, %111, %.thread97.i
-  %.189.i = phi ptr [ %.4.i, %111 ], [ %.5133.i.lcssa, %.thread103.i ], [ %128, %replace_cstring.exit79.i ], [ %.4.i, %.thread97.i ], [ %indvars.iv.i, %skip_prefix.exit70.i ], [ %.088.i, %68 ]
-  %.1.i = phi i32 [ %.39699.i, %111 ], [ %.39699.i, %.thread103.i ], [ %.39699.i, %replace_cstring.exit79.i ], [ %.39699.i, %.thread97.i ], [ %.049138.i, %skip_prefix.exit70.i ], [ %.049138.i, %68 ]
+  %.189.i = phi ptr [ %indvars.iv.i, %skip_prefix.exit70.i ], [ %.4.i, %.thread97.i ], [ %.4.i, %111 ], [ %.5133.i.lcssa, %.thread103.i ], [ %128, %replace_cstring.exit79.i ], [ %.088.i, %68 ]
+  %.1.i = phi i32 [ %.049138.i, %skip_prefix.exit70.i ], [ %.39699.i, %.thread97.i ], [ %.39699.i, %111 ], [ %.39699.i, %.thread103.i ], [ %.39699.i, %replace_cstring.exit79.i ], [ %.049138.i, %68 ]
   %140 = getelementptr inbounds nuw i8, ptr %.189.i, i64 1
   %141 = call ptr @strchrnul(ptr noundef nonnull %140, i32 noundef 10) #18
   %142 = load i8, ptr %141, align 1, !tbaa !33
@@ -1679,7 +1679,7 @@ _.exit79:                                         ; preds = %110, %112
   br i1 %.not63.not, label %.thread85, label %.thread82
 
 .thread85:                                        ; preds = %115, %121, %91
-  %.4 = phi i32 [ %.291, %91 ], [ 1, %121 ], [ %119, %115 ]
+  %.4 = phi i32 [ 1, %121 ], [ %.291, %91 ], [ %119, %115 ]
   %124 = load i8, ptr %spec.select67, align 1, !tbaa !33
   %.not57 = icmp eq i8 %124, 0
   br i1 %.not57, label %.thread82, label %83, !llvm.loop !72

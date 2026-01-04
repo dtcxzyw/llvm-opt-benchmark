@@ -200,8 +200,8 @@ in_utf8.exit.thread:                              ; preds = %34, %.lr.ph.split.s
   br label %71
 
 71:                                               ; preds = %69, %67, %65, %63, %61, %58
-  %.059 = phi i32 [ 18, %58 ], [ 19, %61 ], [ 22, %63 ], [ 20, %65 ], [ 30, %67 ], [ %., %69 ]
-  %.056 = phi i32 [ 4097, %58 ], [ 4097, %61 ], [ 4097, %63 ], [ 4097, %65 ], [ 4098, %67 ], [ %.86, %69 ]
+  %.059 = phi i32 [ 30, %67 ], [ 18, %58 ], [ 19, %61 ], [ 22, %63 ], [ 20, %65 ], [ %., %69 ]
+  %.056 = phi i32 [ 4098, %67 ], [ 4097, %58 ], [ 4097, %61 ], [ 4097, %63 ], [ 4097, %65 ], [ %.86, %69 ]
   %.not76 = icmp eq ptr %0, null
   br i1 %.not76, label %110, label %72
 
@@ -287,8 +287,8 @@ in_utf8.exit.thread:                              ; preds = %34, %.lr.ph.split.s
   unreachable
 
 96:                                               ; preds = %94, %92, %90, %89
-  %97 = phi i32 [ %.093, %89 ], [ %91, %90 ], [ %93, %92 ], [ %.pre, %94 ]
-  %.0 = phi ptr [ @cpy_asc, %89 ], [ @cpy_bmp, %90 ], [ @cpy_univ, %92 ], [ @cpy_utf8, %94 ]
+  %97 = phi i32 [ %.pre, %94 ], [ %.093, %89 ], [ %91, %90 ], [ %93, %92 ]
+  %.0 = phi ptr [ @cpy_utf8, %94 ], [ @cpy_asc, %89 ], [ @cpy_bmp, %90 ], [ @cpy_univ, %92 ]
   %98 = add nsw i32 %97, 1
   %99 = sext i32 %98 to i64
   %100 = call noalias ptr @CRYPTO_malloc(i64 noundef %99, ptr noundef nonnull @.str, i32 noundef 189) #7
@@ -316,7 +316,7 @@ in_utf8.exit.thread:                              ; preds = %34, %.lr.ph.split.s
   br label %110
 
 110:                                              ; preds = %102, %103, %83, %71, %18, %104, %87, %79, %57, %53, %49, %44, %in_utf8.exit.thread, %28, %23
-  %.058 = phi i32 [ -1, %44 ], [ -1, %23 ], [ -1, %49 ], [ -1, %53 ], [ -1, %57 ], [ -1, %87 ], [ %.059, %104 ], [ -1, %79 ], [ -1, %28 ], [ -1, %in_utf8.exit.thread ], [ -1, %18 ], [ %.059, %71 ], [ %.059, %83 ], [ -1, %103 ], [ -1, %102 ]
+  %.058 = phi i32 [ -1, %in_utf8.exit.thread ], [ -1, %44 ], [ -1, %23 ], [ -1, %49 ], [ -1, %53 ], [ -1, %57 ], [ %.059, %71 ], [ -1, %87 ], [ %.059, %83 ], [ %.059, %104 ], [ -1, %79 ], [ -1, %18 ], [ -1, %28 ], [ -1, %103 ], [ -1, %102 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.058
@@ -458,7 +458,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @traverse_string(ptr nounde
   br i1 %.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %28, %48, %.lr.ph.split.us42.split, %23, %.lr.ph.split.us.split, %11, %.lr.ph.split.split, %57, %61, %.lr.ph.split.split.us, %51, %.lr.ph.split.us42, %.lr.ph.split.us, %5
-  %.0 = phi i32 [ 1, %5 ], [ 1, %.lr.ph.split.us ], [ 1, %.lr.ph.split.us42 ], [ 1, %51 ], [ -1, %.lr.ph.split.split.us ], [ 1, %61 ], [ %59, %57 ], [ -1, %.lr.ph.split.split ], [ 1, %11 ], [ %9, %.lr.ph.split.us.split ], [ 1, %23 ], [ %21, %.lr.ph.split.us42.split ], [ 1, %48 ], [ %46, %28 ]
+  %.0 = phi i32 [ %59, %57 ], [ 1, %.lr.ph.split.us42 ], [ 1, %5 ], [ 1, %11 ], [ %21, %.lr.ph.split.us42.split ], [ 1, %51 ], [ 1, %.lr.ph.split.us ], [ -1, %.lr.ph.split.split.us ], [ 1, %61 ], [ -1, %.lr.ph.split.split ], [ %9, %.lr.ph.split.us.split ], [ 1, %23 ], [ %46, %28 ], [ 1, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -482,7 +482,7 @@ define internal range(i32 -1, 2) i32 @type_str(i64 noundef %0, ptr noundef captu
   br label %12
 
 12:                                               ; preds = %7, %2
-  %.030 = phi i64 [ %3, %2 ], [ %spec.select, %7 ]
+  %.030 = phi i64 [ %spec.select, %7 ], [ %3, %2 ]
   %13 = and i64 %.030, 2
   %.not31 = icmp eq i64 %13, 0
   br i1 %.not31, label %17, label %14
@@ -495,7 +495,7 @@ define internal range(i32 -1, 2) i32 @type_str(i64 noundef %0, ptr noundef captu
   br label %17
 
 17:                                               ; preds = %14, %12
-  %.1 = phi i64 [ %.030, %12 ], [ %spec.select37, %14 ]
+  %.1 = phi i64 [ %spec.select37, %14 ], [ %.030, %12 ]
   %18 = icmp ult i64 %0, 128
   %19 = and i64 %.1, -17
   %.2 = select i1 %18, i64 %.1, i64 %19

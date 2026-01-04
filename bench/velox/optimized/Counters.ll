@@ -2737,8 +2737,8 @@ if.end558:                                        ; preds = %if.end556, %if.end5
   ret void
 
 eh.resume:                                        ; preds = %if.then.i.i.i607, %lpad536, %lpad.i593, %if.then.i.i.i572, %lpad504, %lpad.i558, %if.then.i.i.i520, %lpad456, %lpad.i506, %if.then.i.i.i485, %lpad424, %lpad.i471, %if.then.i.i.i450, %lpad392, %lpad.i436, %if.then.i.i.i330, %lpad280, %lpad.i316, %if.then.i.i.i295, %lpad248, %lpad.i281, %if.then.i.i.i158, %lpad120, %lpad.i144, %if.then.i.i.i123, %lpad88, %lpad.i109, %if.then.i.i.i88, %lpad56, %lpad.i74, %if.then.i.i.i38, %lpad11, %lpad.i, %lpad546, %lpad466, %lpad354, %lpad338, %lpad322, %lpad306, %lpad290, %lpad210, %lpad194, %lpad178, %lpad162, %lpad146, %lpad130, %lpad18
-  %reporter545.sink = phi ptr [ %reporter545, %lpad546 ], [ %reporter465, %lpad466 ], [ %reporter353, %lpad354 ], [ %reporter337, %lpad338 ], [ %reporter321, %lpad322 ], [ %reporter305, %lpad306 ], [ %reporter289, %lpad290 ], [ %reporter209, %lpad210 ], [ %reporter193, %lpad194 ], [ %reporter177, %lpad178 ], [ %reporter161, %lpad162 ], [ %reporter145, %lpad146 ], [ %reporter129, %lpad130 ], [ %reporter17, %lpad18 ], [ %reporter, %lpad.i ], [ %reporter, %lpad11 ], [ %reporter, %if.then.i.i.i38 ], [ %reporter33, %lpad.i74 ], [ %reporter33, %lpad56 ], [ %reporter33, %if.then.i.i.i88 ], [ %reporter65, %lpad.i109 ], [ %reporter65, %lpad88 ], [ %reporter65, %if.then.i.i.i123 ], [ %reporter97, %lpad.i144 ], [ %reporter97, %lpad120 ], [ %reporter97, %if.then.i.i.i158 ], [ %reporter225, %lpad.i281 ], [ %reporter225, %lpad248 ], [ %reporter225, %if.then.i.i.i295 ], [ %reporter257, %lpad.i316 ], [ %reporter257, %lpad280 ], [ %reporter257, %if.then.i.i.i330 ], [ %reporter369, %lpad.i436 ], [ %reporter369, %lpad392 ], [ %reporter369, %if.then.i.i.i450 ], [ %reporter401, %lpad.i471 ], [ %reporter401, %lpad424 ], [ %reporter401, %if.then.i.i.i485 ], [ %reporter433, %lpad.i506 ], [ %reporter433, %lpad456 ], [ %reporter433, %if.then.i.i.i520 ], [ %reporter481, %lpad.i558 ], [ %reporter481, %lpad504 ], [ %reporter481, %if.then.i.i.i572 ], [ %reporter513, %lpad.i593 ], [ %reporter513, %lpad536 ], [ %reporter513, %if.then.i.i.i607 ]
-  %.pn33 = phi { ptr, i32 } [ %305, %lpad546 ], [ %266, %lpad466 ], [ %213, %lpad354 ], [ %202, %lpad338 ], [ %191, %lpad322 ], [ %180, %lpad306 ], [ %169, %lpad290 ], [ %130, %lpad210 ], [ %119, %lpad194 ], [ %108, %lpad178 ], [ %97, %lpad162 ], [ %86, %lpad146 ], [ %75, %lpad130 ], [ %22, %lpad18 ], [ %7, %lpad.i ], [ %10, %lpad11 ], [ %10, %if.then.i.i.i38 ], [ %32, %lpad.i74 ], [ %35, %lpad56 ], [ %35, %if.then.i.i.i88 ], [ %46, %lpad.i109 ], [ %49, %lpad88 ], [ %49, %if.then.i.i.i123 ], [ %60, %lpad.i144 ], [ %63, %lpad120 ], [ %63, %if.then.i.i.i158 ], [ %140, %lpad.i281 ], [ %143, %lpad248 ], [ %143, %if.then.i.i.i295 ], [ %154, %lpad.i316 ], [ %157, %lpad280 ], [ %157, %if.then.i.i.i330 ], [ %223, %lpad.i436 ], [ %226, %lpad392 ], [ %226, %if.then.i.i.i450 ], [ %237, %lpad.i471 ], [ %240, %lpad424 ], [ %240, %if.then.i.i.i485 ], [ %251, %lpad.i506 ], [ %254, %lpad456 ], [ %254, %if.then.i.i.i520 ], [ %276, %lpad.i558 ], [ %279, %lpad504 ], [ %279, %if.then.i.i.i572 ], [ %290, %lpad.i593 ], [ %293, %lpad536 ], [ %293, %if.then.i.i.i607 ]
+  %reporter545.sink = phi ptr [ %reporter545, %lpad546 ], [ %reporter481, %if.then.i.i.i572 ], [ %reporter433, %if.then.i.i.i520 ], [ %reporter465, %lpad466 ], [ %reporter401, %if.then.i.i.i485 ], [ %reporter369, %if.then.i.i.i450 ], [ %reporter257, %if.then.i.i.i330 ], [ %reporter353, %lpad354 ], [ %reporter337, %lpad338 ], [ %reporter321, %lpad322 ], [ %reporter305, %lpad306 ], [ %reporter289, %lpad290 ], [ %reporter225, %if.then.i.i.i295 ], [ %reporter97, %if.then.i.i.i158 ], [ %reporter209, %lpad210 ], [ %reporter193, %lpad194 ], [ %reporter177, %lpad178 ], [ %reporter161, %lpad162 ], [ %reporter145, %lpad146 ], [ %reporter129, %lpad130 ], [ %reporter65, %if.then.i.i.i123 ], [ %reporter33, %if.then.i.i.i88 ], [ %reporter, %if.then.i.i.i38 ], [ %reporter17, %lpad18 ], [ %reporter, %lpad.i ], [ %reporter, %lpad11 ], [ %reporter33, %lpad.i74 ], [ %reporter33, %lpad56 ], [ %reporter65, %lpad.i109 ], [ %reporter65, %lpad88 ], [ %reporter97, %lpad.i144 ], [ %reporter97, %lpad120 ], [ %reporter225, %lpad.i281 ], [ %reporter225, %lpad248 ], [ %reporter257, %lpad.i316 ], [ %reporter257, %lpad280 ], [ %reporter369, %lpad.i436 ], [ %reporter369, %lpad392 ], [ %reporter401, %lpad.i471 ], [ %reporter401, %lpad424 ], [ %reporter433, %lpad.i506 ], [ %reporter433, %lpad456 ], [ %reporter481, %lpad.i558 ], [ %reporter481, %lpad504 ], [ %reporter513, %lpad.i593 ], [ %reporter513, %lpad536 ], [ %reporter513, %if.then.i.i.i607 ]
+  %.pn33 = phi { ptr, i32 } [ %305, %lpad546 ], [ %279, %if.then.i.i.i572 ], [ %254, %if.then.i.i.i520 ], [ %266, %lpad466 ], [ %240, %if.then.i.i.i485 ], [ %226, %if.then.i.i.i450 ], [ %157, %if.then.i.i.i330 ], [ %213, %lpad354 ], [ %202, %lpad338 ], [ %191, %lpad322 ], [ %180, %lpad306 ], [ %169, %lpad290 ], [ %143, %if.then.i.i.i295 ], [ %63, %if.then.i.i.i158 ], [ %130, %lpad210 ], [ %119, %lpad194 ], [ %108, %lpad178 ], [ %97, %lpad162 ], [ %86, %lpad146 ], [ %75, %lpad130 ], [ %49, %if.then.i.i.i123 ], [ %35, %if.then.i.i.i88 ], [ %10, %if.then.i.i.i38 ], [ %22, %lpad18 ], [ %7, %lpad.i ], [ %10, %lpad11 ], [ %32, %lpad.i74 ], [ %35, %lpad56 ], [ %46, %lpad.i109 ], [ %49, %lpad88 ], [ %60, %lpad.i144 ], [ %63, %lpad120 ], [ %140, %lpad.i281 ], [ %143, %lpad248 ], [ %154, %lpad.i316 ], [ %157, %lpad280 ], [ %223, %lpad.i436 ], [ %226, %lpad392 ], [ %237, %lpad.i471 ], [ %240, %lpad424 ], [ %251, %lpad.i506 ], [ %254, %lpad456 ], [ %276, %lpad.i558 ], [ %279, %lpad504 ], [ %290, %lpad.i593 ], [ %293, %lpad536 ], [ %293, %if.then.i.i.i607 ]
   call void @_ZN5folly19ReadMostlySharedPtrIN8facebook5velox17BaseStatsReporterENS_10TLRefCountEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %reporter545.sink) #27
   resume { ptr, i32 } %.pn33
 }
@@ -7775,7 +7775,7 @@ _ZNSt8weak_ptrIvED2Ev.exit:                       ; preds = %while.end.thread, %
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
 if.then.i.i.i71:                                  ; preds = %if.then.i.i, %ehcleanup.thread.loopexit, %ehcleanup.thread.loopexit.split-lp
-  %.pn128 = phi { ptr, i32 } [ %lpad.loopexit, %ehcleanup.thread.loopexit ], [ %lpad.loopexit.split-lp, %ehcleanup.thread.loopexit.split-lp ], [ %40, %if.then.i.i ]
+  %.pn128 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %ehcleanup.thread.loopexit.split-lp ], [ %lpad.loopexit, %ehcleanup.thread.loopexit ], [ %40, %if.then.i.i ]
   %_M_weak_count.i.i.i.i72 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %51 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i73 = icmp eq i8 %51, 0
@@ -10128,7 +10128,7 @@ while.body.backedge.us.i.i:                       ; preds = %if.end16.us.i.i, %_
   br i1 %cmp.us.i.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE20yieldWaitForZeroBitsINS4_11WaitForeverEEEbRjjjRT_.exit, label %if.end.us.i.i, !llvm.loop !383
 
 _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE20yieldWaitForZeroBitsINS4_11WaitForeverEEEbRjjjRT_.exit: ; preds = %if.end.i54, %while.body.backedge.us.i.i, %for.end19.i
-  %9 = phi i32 [ %3, %for.end19.i ], [ %8, %while.body.backedge.us.i.i ], [ %2, %if.end.i54 ]
+  %9 = phi i32 [ %8, %while.body.backedge.us.i.i ], [ %3, %for.end19.i ], [ %2, %if.end.i54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %usage.i)
   br label %seqcst_fail50.i.i
 
@@ -10142,7 +10142,7 @@ if.end6.i:                                        ; preds = %if.end.i
   br i1 %cmp.i, label %seqcst_fail50.i.i, label %if.end.i, !llvm.loop !384
 
 seqcst_fail50.i.i:                                ; preds = %if.end6.i, %while.body, %land.lhs.true, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE20yieldWaitForZeroBitsINS4_11WaitForeverEEEbRjjjRT_.exit
-  %11 = phi i32 [ %0, %while.body ], [ %1, %land.lhs.true ], [ %9, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE20yieldWaitForZeroBitsINS4_11WaitForeverEEEbRjjjRT_.exit ], [ %10, %if.end6.i ]
+  %11 = phi i32 [ %9, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE20yieldWaitForZeroBitsINS4_11WaitForeverEEEbRjjjRT_.exit ], [ %0, %while.body ], [ %1, %land.lhs.true ], [ %10, %if.end6.i ]
   %and4 = lshr i32 %11, 1
   %cond = and i32 %and4, 256
   %or = and i32 %11, -673
@@ -11555,7 +11555,7 @@ if.end30:                                         ; preds = %invoke.cont26
   br i1 %cmp33, label %return, label %while.cond, !llvm.loop !406
 
 return:                                           ; preds = %if.end34.i, %if.end17.i, %if.end30, %sw.epilog, %if.end11.i, %if.end.i, %if.then28
-  %retval.0 = phi i1 [ false, %if.then28 ], [ true, %if.end.i ], [ true, %if.end11.i ], [ true, %sw.epilog ], [ true, %if.end30 ], [ %cmp.i.i.i.not.i, %if.end17.i ], [ %cmp.i.i.i.not.i, %if.end34.i ]
+  %retval.0 = phi i1 [ false, %if.then28 ], [ true, %if.end11.i ], [ true, %if.end30 ], [ true, %sw.epilog ], [ true, %if.end.i ], [ %cmp.i.i.i.not.i, %if.end17.i ], [ %cmp.i.i.i.not.i, %if.end34.i ]
   ret i1 %retval.0
 
 terminate.lpad:                                   ; preds = %if.end.i10, %while.cond
@@ -11645,7 +11645,7 @@ if.end34:                                         ; preds = %if.end, %_ZN5folly6
   br label %return
 
 return:                                           ; preds = %if.then20, %entry, %if.end34, %if.then31
-  %retval.0 = phi i1 [ true, %if.then31 ], [ false, %if.end34 ], [ false, %entry ], [ false, %if.then20 ]
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.then31 ], [ false, %if.end34 ], [ false, %if.then20 ]
   ret i1 %retval.0
 }
 

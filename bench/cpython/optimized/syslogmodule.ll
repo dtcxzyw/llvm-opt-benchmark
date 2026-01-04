@@ -362,7 +362,7 @@ Py_DECREF.exit.critedge.i:                        ; preds = %Py_DECREF.exit.thre
   br label %syslog_syslog_impl.exit
 
 syslog_syslog_impl.exit:                          ; preds = %Py_DECREF.exit.critedge.i, %43, %40, %_Py_XNewRef.exit.i, %23, %21, %12, %8, %6, %10
-  %.05 = phi ptr [ null, %10 ], [ null, %6 ], [ null, %8 ], [ null, %21 ], [ null, %12 ], [ null, %23 ], [ @_Py_NoneStruct, %_Py_XNewRef.exit.i ], [ @_Py_NoneStruct, %40 ], [ @_Py_NoneStruct, %43 ], [ @_Py_NoneStruct, %Py_DECREF.exit.critedge.i ]
+  %.05 = phi ptr [ null, %10 ], [ null, %8 ], [ null, %6 ], [ null, %21 ], [ null, %23 ], [ null, %12 ], [ @_Py_NoneStruct, %Py_DECREF.exit.critedge.i ], [ @_Py_NoneStruct, %_Py_XNewRef.exit.i ], [ @_Py_NoneStruct, %40 ], [ @_Py_NoneStruct, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.05
@@ -592,7 +592,7 @@ Py_INCREF.exit.thread6:                           ; preds = %Py_INCREF.exit.thre
   tail call void @PyErr_Clear() #4
   br label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %24, %20, %15, %12
+.thread:                                          ; preds = %.thread.sink.split, %24, %20, %12, %15
   %48 = tail call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, ptr noundef nonnull @_Py_NoneStruct, i64 noundef %1, i64 noundef %2) #4
   %49 = icmp slt i32 %48, 0
   br i1 %49, label %Py_DECREF.exit, label %56
@@ -640,7 +640,7 @@ Py_INCREF.exit.thread6:                           ; preds = %Py_INCREF.exit.thre
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %43, %.thread, %65, %62, %60, %56, %55, %52, %50, %42, %39, %37, %6
-  %.0 = phi ptr [ null, %6 ], [ null, %37 ], [ null, %39 ], [ null, %42 ], [ null, %50 ], [ null, %52 ], [ null, %55 ], [ @_Py_NoneStruct, %56 ], [ @_Py_NoneStruct, %60 ], [ @_Py_NoneStruct, %62 ], [ @_Py_NoneStruct, %65 ], [ null, %.thread ], [ null, %43 ]
+  %.0 = phi ptr [ null, %6 ], [ null, %55 ], [ null, %42 ], [ null, %37 ], [ null, %39 ], [ @_Py_NoneStruct, %65 ], [ null, %.thread ], [ null, %50 ], [ null, %52 ], [ @_Py_NoneStruct, %56 ], [ @_Py_NoneStruct, %60 ], [ @_Py_NoneStruct, %62 ], [ null, %43 ]
   ret ptr %.0
 }
 
@@ -857,7 +857,7 @@ define internal range(i32 -1, 1) i32 @syslog_exec(ptr noundef %0) #0 {
   br label %102
 
 102:                                              ; preds = %100, %97, %94, %91, %88, %85, %82, %79, %76, %73, %70, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %37, %34, %31, %28, %25, %22, %19, %16, %13, %10, %7, %4, %1
-  %.0 = phi i32 [ -1, %1 ], [ -1, %4 ], [ -1, %7 ], [ -1, %10 ], [ -1, %13 ], [ -1, %16 ], [ -1, %19 ], [ -1, %22 ], [ -1, %25 ], [ -1, %28 ], [ -1, %31 ], [ -1, %34 ], [ -1, %37 ], [ -1, %40 ], [ -1, %43 ], [ -1, %46 ], [ -1, %49 ], [ -1, %52 ], [ -1, %55 ], [ -1, %58 ], [ -1, %61 ], [ -1, %64 ], [ -1, %67 ], [ -1, %70 ], [ -1, %73 ], [ -1, %76 ], [ -1, %79 ], [ -1, %82 ], [ -1, %85 ], [ -1, %88 ], [ -1, %91 ], [ -1, %94 ], [ -1, %97 ], [ %.lobit, %100 ]
+  %.0 = phi i32 [ -1, %97 ], [ -1, %1 ], [ -1, %4 ], [ -1, %7 ], [ -1, %10 ], [ -1, %13 ], [ -1, %16 ], [ -1, %19 ], [ -1, %22 ], [ -1, %25 ], [ -1, %28 ], [ -1, %31 ], [ -1, %34 ], [ -1, %37 ], [ -1, %40 ], [ -1, %43 ], [ -1, %46 ], [ -1, %49 ], [ -1, %52 ], [ -1, %55 ], [ -1, %58 ], [ -1, %61 ], [ -1, %64 ], [ -1, %67 ], [ -1, %70 ], [ -1, %73 ], [ -1, %76 ], [ -1, %79 ], [ -1, %82 ], [ -1, %85 ], [ -1, %88 ], [ -1, %91 ], [ -1, %94 ], [ %.lobit, %100 ]
   ret i32 %.0
 }
 

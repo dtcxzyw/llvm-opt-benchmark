@@ -433,7 +433,7 @@ define internal fastcc void @handleSelectionRequest(ptr noundef nonnull readonly
   br label %writeTargetToProperty.exit
 
 writeTargetToProperty.exit:                       ; preds = %87, %1, %22, %._crit_edge.i, %79, %89
-  %.044.i = phi i64 [ %32, %22 ], [ %58, %._crit_edge.i ], [ %86, %79 ], [ 0, %1 ], [ %97, %89 ], [ 0, %87 ]
+  %.044.i = phi i64 [ 0, %1 ], [ %32, %22 ], [ %58, %._crit_edge.i ], [ %86, %79 ], [ %97, %89 ], [ 0, %87 ]
   %98 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store i64 %.044.i, ptr %98, align 8, !tbaa !106
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1046,7 +1046,7 @@ _glfwCreateInputContextX11.exit.i:                ; preds = %268, %244
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %269
 
-createNativeWindow.exit.thread:                   ; preds = %98, %.thread151.i, %.thread152.i
+createNativeWindow.exit.thread:                   ; preds = %.thread152.i, %.thread151.i, %98
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %362
 
@@ -1234,7 +1234,7 @@ _glfwFocusWindowX11.exit:                         ; preds = %329, %339, %346
   br label %362
 
 362:                                              ; preds = %createNativeWindow.exit.thread, %301, %299, %297, %295, %35, %33, %31, %29, %27, %358
-  %.0 = phi i32 [ 1, %358 ], [ 0, %27 ], [ 0, %29 ], [ 0, %31 ], [ 0, %33 ], [ 0, %35 ], [ 0, %295 ], [ 0, %297 ], [ 0, %299 ], [ 0, %301 ], [ 0, %createNativeWindow.exit.thread ]
+  %.0 = phi i32 [ 1, %358 ], [ 0, %299 ], [ 0, %createNativeWindow.exit.thread ], [ 0, %295 ], [ 0, %297 ], [ 0, %35 ], [ 0, %27 ], [ 0, %33 ], [ 0, %31 ], [ 0, %29 ], [ 0, %301 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   ret i32 %.0
@@ -4963,7 +4963,7 @@ updateCursorImage.exit:                           ; preds = %345
   br label %.loopexit323.i
 
 .loopexit323.i:                                   ; preds = %487, %496, %483
-  %.pre338373.i = phi ptr [ %.pre338.pre.i, %483 ], [ %.pre338372.i, %496 ], [ %.pre338372.i, %487 ]
+  %.pre338373.i = phi ptr [ %.pre338372.i, %496 ], [ %.pre338.pre.i, %483 ], [ %.pre338372.i, %487 ]
   %497 = icmp ne ptr %.pre338373.i, null
   %or.cond11.i = select i1 %482, i1 %497, i1 false
   br i1 %or.cond11.i, label %498, label %501
@@ -6061,7 +6061,7 @@ switch.lookup28:                                  ; preds = %26
   br label %.thread
 
 .thread:                                          ; preds = %33, %28, %23, %switch.lookup28
-  %.1 = phi i32 [ 1, %switch.lookup28 ], [ 1, %23 ], [ 0, %28 ], [ 0, %33 ]
+  %.1 = phi i32 [ 1, %23 ], [ 1, %switch.lookup28 ], [ 0, %28 ], [ 0, %33 ]
   ret i32 %.1
 }
 
@@ -6535,7 +6535,7 @@ define hidden range(i32 0, 12803) i32 @_glfwGetEGLPlatformX11(ptr noundef writeo
   br label %21
 
 21:                                               ; preds = %11, %.thread
-  %.1 = phi i32 [ 12802, %11 ], [ %., %.thread ]
+  %.1 = phi i32 [ %., %.thread ], [ 12802, %11 ]
   ret i32 %.1
 }
 
@@ -6652,7 +6652,7 @@ define hidden i32 @_glfwGetPhysicalDevicePresentationSupportX11(ptr noundef %0, 
   br label %35
 
 35:                                               ; preds = %31, %32, %21, %27, %26
-  %.2 = phi i32 [ 0, %21 ], [ %28, %27 ], [ 0, %26 ], [ %34, %32 ], [ 0, %31 ]
+  %.2 = phi i32 [ 0, %26 ], [ 0, %21 ], [ %28, %27 ], [ %34, %32 ], [ 0, %31 ]
   ret i32 %.2
 }
 
@@ -6708,7 +6708,7 @@ define hidden i32 @_glfwCreateWindowSurfaceX11(ptr noundef %0, ptr noundef reado
   br label %28
 
 28:                                               ; preds = %20, %26, %19, %15
-  %.0 = phi i32 [ -7, %19 ], [ -7, %15 ], [ %25, %26 ], [ 0, %20 ]
+  %.0 = phi i32 [ -7, %15 ], [ -7, %19 ], [ %25, %26 ], [ 0, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %43
 

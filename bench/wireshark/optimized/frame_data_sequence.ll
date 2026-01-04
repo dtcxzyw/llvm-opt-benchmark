@@ -347,7 +347,7 @@ define ptr @frame_data_sequence_find(ptr noundef readonly captures(address_is_nu
   br label %62
 
 62:                                               ; preds = %5, %2, %44, %31, %17, %10
-  %.0 = phi ptr [ %14, %10 ], [ %26, %17 ], [ %43, %31 ], [ %61, %44 ], [ null, %2 ], [ null, %5 ]
+  %.0 = phi ptr [ %61, %44 ], [ null, %2 ], [ %14, %10 ], [ %26, %17 ], [ %43, %31 ], [ null, %5 ]
   ret ptr %.0
 }
 
@@ -371,7 +371,7 @@ define void @free_frame_data_sequence(ptr noundef %0) local_unnamed_addr #0 {
   br label %9
 
 9:                                                ; preds = %3, %5, %7
-  %.0 = phi i32 [ 1, %3 ], [ 2, %5 ], [ %., %7 ]
+  %.0 = phi i32 [ 2, %5 ], [ %., %7 ], [ 1, %3 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call fastcc void @free_frame_data_array(ptr noundef %11, i32 noundef %2, i32 noundef %.0, i1 noundef zeroext true)
@@ -545,7 +545,7 @@ define void @find_and_mark_frame_depended_upon(ptr noundef %0, ptr readnone capt
   br label %frame_data_sequence_find.exit
 
 frame_data_sequence_find.exit:                    ; preds = %8, %13, %20, %34, %47
-  %.0.i = phi ptr [ %17, %13 ], [ %29, %20 ], [ %46, %34 ], [ %64, %47 ], [ null, %8 ]
+  %.0.i = phi ptr [ %64, %47 ], [ null, %8 ], [ %17, %13 ], [ %29, %20 ], [ %46, %34 ]
   %65 = getelementptr inbounds nuw i8, ptr %.0.i, i64 57
   %66 = load i16, ptr %65, align 1
   %67 = and i16 %66, 3

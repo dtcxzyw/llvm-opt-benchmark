@@ -728,7 +728,7 @@ H5C__write_cache_image.exit.thread:               ; preds = %305, %312, %H5C__fr
   br label %328
 
 328:                                              ; preds = %268, %319, %H5C__write_cache_image.exit.thread, %2
-  %.0 = phi i32 [ -1, %268 ], [ -1, %319 ], [ 0, %H5C__write_cache_image.exit.thread ], [ 0, %2 ]
+  %.0 = phi i32 [ -1, %268 ], [ 0, %2 ], [ -1, %319 ], [ 0, %H5C__write_cache_image.exit.thread ]
   ret i32 %.0
 }
 
@@ -2759,8 +2759,8 @@ H5C__prep_for_file_close__compute_fd_heights.exit.i: ; preds = %H5C__prep_for_fi
   br i1 %.not83.i, label %._crit_edge107.i, label %.lr.ph106.i, !llvm.loop !176
 
 ._crit_edge107.i:                                 ; preds = %333, %H5C__prep_for_file_close__compute_fd_heights.exit.i, %.preheader103.i.i, %.preheader112.i.i, %H5C__cache_image_block_entry_header_size.exit.i
-  %.075.lcssa.i = phi i32 [ 0, %H5C__prep_for_file_close__compute_fd_heights.exit.i ], [ 0, %.preheader112.i.i ], [ 0, %.preheader103.i.i ], [ 0, %H5C__cache_image_block_entry_header_size.exit.i ], [ %.176.i, %333 ]
-  %.073.lcssa.i = phi i64 [ %90, %H5C__prep_for_file_close__compute_fd_heights.exit.i ], [ %90, %.preheader112.i.i ], [ %90, %.preheader103.i.i ], [ %90, %H5C__cache_image_block_entry_header_size.exit.i ], [ %.174.i, %333 ]
+  %.075.lcssa.i = phi i32 [ 0, %H5C__prep_for_file_close__compute_fd_heights.exit.i ], [ 0, %H5C__cache_image_block_entry_header_size.exit.i ], [ 0, %.preheader112.i.i ], [ 0, %.preheader103.i.i ], [ %.176.i, %333 ]
+  %.073.lcssa.i = phi i64 [ %90, %H5C__prep_for_file_close__compute_fd_heights.exit.i ], [ %90, %H5C__cache_image_block_entry_header_size.exit.i ], [ %90, %.preheader112.i.i ], [ %90, %.preheader103.i.i ], [ %.174.i, %333 ]
   %335 = getelementptr inbounds nuw i8, ptr %17, i64 527696
   store i32 %.075.lcssa.i, ptr %335, align 8, !tbaa !59
   %336 = getelementptr inbounds nuw i8, ptr %17, i64 524824

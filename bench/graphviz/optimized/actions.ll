@@ -2617,7 +2617,7 @@ define ptr @sameG(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3
   br label %24
 
 24:                                               ; preds = %4, %10, %11
-  %.0 = phi ptr [ null, %11 ], [ null, %10 ], [ %6, %4 ]
+  %.0 = phi ptr [ null, %10 ], [ null, %11 ], [ %6, %4 ]
   ret ptr %.0
 }
 
@@ -2680,7 +2680,7 @@ define i64 @rindexOf(ptr noundef %0, ptr noundef readonly captures(none) %1) loc
   br i1 %21, label %._crit_edge, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %7, %2, %._crit_edge
-  %.0 = phi i64 [ %16, %._crit_edge ], [ %4, %2 ], [ -1, %7 ], [ -1, %.lr.ph ]
+  %.0 = phi i64 [ -1, %7 ], [ %4, %2 ], [ %16, %._crit_edge ], [ -1, %.lr.ph ]
   ret i64 %.0
 }
 
@@ -3292,7 +3292,7 @@ sameG.exit:                                       ; preds = %4
   br label %14
 
 14:                                               ; preds = %sameG.exit.thread, %10, %sameG.exit, %12
-  %.0 = phi ptr [ %13, %12 ], [ null, %sameG.exit ], [ null, %10 ], [ null, %sameG.exit.thread ]
+  %.0 = phi ptr [ null, %sameG.exit ], [ %13, %12 ], [ null, %10 ], [ null, %sameG.exit.thread ]
   ret ptr %.0
 }
 
@@ -3845,7 +3845,7 @@ agxbputc.exit27.thread:                           ; preds = %46
   br label %59
 
 agxbputc.exit27:                                  ; preds = %47, %._crit_edge
-  %.val.i = phi i8 [ %51, %47 ], [ %.val.i.i17, %._crit_edge ]
+  %.val.i = phi i8 [ %.val.i.i17, %._crit_edge ], [ %51, %47 ]
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 31
   switch i8 %.val.i, label %agxblen.exit.i.i [
     i8 -1, label %59
@@ -3985,7 +3985,7 @@ define range(i32 -1, 2) i32 @compare(ptr noundef readonly captures(address_is_nu
   br label %28
 
 28:                                               ; preds = %26, %16, %14, %8, %6, %4
-  %.0 = phi i32 [ %., %4 ], [ 1, %6 ], [ -1, %8 ], [ 1, %14 ], [ 0, %16 ], [ %.22, %26 ]
+  %.0 = phi i32 [ %., %4 ], [ 0, %16 ], [ %.22, %26 ], [ 1, %6 ], [ -1, %8 ], [ 1, %14 ]
   ret i32 %.0
 }
 
@@ -4483,9 +4483,9 @@ agxbuse.exit.thread.i:                            ; preds = %agxbputc.exit.i.i, 
   unreachable
 
 hsv2rgb.exit.i:                                   ; preds = %186, %185, %184, %183, %182, %167, %165
-  %.sink59.i.i = phi double [ %178, %182 ], [ %175, %183 ], [ %175, %184 ], [ %181, %185 ], [ %161, %186 ], [ %161, %165 ], [ %161, %167 ]
-  %.sink58.i.i = phi double [ %161, %182 ], [ %161, %183 ], [ %178, %184 ], [ %175, %185 ], [ %175, %186 ], [ %161, %165 ], [ %181, %167 ]
-  %.sink.i.i = phi double [ %175, %182 ], [ %181, %183 ], [ %161, %184 ], [ %161, %185 ], [ %178, %186 ], [ %161, %165 ], [ %175, %167 ]
+  %.sink59.i.i = phi double [ %161, %165 ], [ %178, %182 ], [ %175, %183 ], [ %175, %184 ], [ %181, %185 ], [ %161, %186 ], [ %161, %167 ]
+  %.sink58.i.i = phi double [ %161, %165 ], [ %161, %182 ], [ %161, %183 ], [ %178, %184 ], [ %175, %185 ], [ %175, %186 ], [ %181, %167 ]
+  %.sink.i.i = phi double [ %161, %165 ], [ %175, %182 ], [ %181, %183 ], [ %161, %184 ], [ %161, %185 ], [ %178, %186 ], [ %175, %167 ]
   %190 = fmul double %.sink59.i.i, 2.550000e+02
   %191 = fptoui double %190 to i8
   %.sroa.0.0.insert.ext49 = zext i8 %191 to i64
@@ -4569,7 +4569,7 @@ agxbfree.exit.thread.i:                           ; preds = %201, %agxbuse.exit.
   br label %resolveColor.exit.i
 
 resolveColor.exit.i:                              ; preds = %218, %216, %211, %208, %206, %204, %202
-  %.1.sink.i.i = phi ptr [ %.0110.i, %202 ], [ %.0110.i, %204 ], [ %.0110.i, %206 ], [ %217, %216 ], [ %26, %211 ], [ %.0110.i, %208 ], [ %spec.select.i.i, %218 ]
+  %.1.sink.i.i = phi ptr [ %.0110.i, %206 ], [ %.0110.i, %204 ], [ %.0110.i, %202 ], [ %26, %211 ], [ %spec.select.i.i, %218 ], [ %217, %216 ], [ %.0110.i, %208 ]
   %221 = call noalias ptr @strdup(ptr noundef nonnull %.1.sink.i.i) #24
   %.not118.i = icmp eq ptr %221, null
   br i1 %.not118.i, label %colorxlate.exit, label %.lr.ph.i.i
@@ -4662,7 +4662,7 @@ colorxlate.exit:                                  ; preds = %255, %resolveColor.
   br label %257
 
 .thread118:                                       ; preds = %90, %252
-  %.sroa.0.1.ph.ph117.in.in = phi i32 [ %.sroa.0.3.insert.insert96127, %90 ], [ %254, %252 ]
+  %.sroa.0.1.ph.ph117.in.in = phi i32 [ %254, %252 ], [ %.sroa.0.3.insert.insert96127, %90 ]
   %.sroa.0.1.ph.ph117.in = zext i32 %.sroa.0.1.ph.ph117.in.in to i64
   %.sroa.0.1.ph.ph117 = bitcast i64 %.sroa.0.1.ph.ph117.in to double
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -4800,7 +4800,7 @@ agxbfree.exit:                                    ; preds = %agxbuse.exit, %293
   br label %294
 
 294:                                              ; preds = %colorxlate.exit, %19, %3, %16, %agxbfree.exit
-  %.0 = phi ptr [ %291, %agxbfree.exit ], [ @.str.30, %16 ], [ @.str.30, %3 ], [ @.str.30, %19 ], [ @.str.30, %colorxlate.exit ]
+  %.0 = phi ptr [ @.str.30, %3 ], [ @.str.30, %19 ], [ %291, %agxbfree.exit ], [ @.str.30, %16 ], [ @.str.30, %colorxlate.exit ]
   ret ptr %.0
 }
 
@@ -5109,7 +5109,7 @@ mapEdge.exit:                                     ; preds = %.lr.ph86
   br i1 %.not66, label %.loopexit, label %.lr.ph96, !llvm.loop !78
 
 .loopexit:                                        ; preds = %54, %._crit_edge92, %43, %44, %3, %51, %10
-  %.0 = phi ptr [ null, %10 ], [ null, %51 ], [ null, %3 ], [ null, %44 ], [ null, %43 ], [ %5, %._crit_edge92 ], [ %5, %54 ]
+  %.0 = phi ptr [ null, %10 ], [ null, %3 ], [ null, %51 ], [ null, %43 ], [ null, %44 ], [ %5, %._crit_edge92 ], [ %5, %54 ]
   ret ptr %.0
 }
 

@@ -324,7 +324,7 @@ define void @_ZN3zmq12ws_encoder_t13message_readyEv(ptr noundef nonnull align 8 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %130, %127, %122, %119
-  %.sink = phi i8 [ %126, %122 ], [ 1, %119 ], [ %133, %130 ], [ 0, %127 ]
+  %.sink = phi i8 [ 1, %119 ], [ %126, %122 ], [ %133, %130 ], [ 0, %127 ]
   %134 = add nuw nsw i32 %.3, 1
   %135 = zext nneg i32 %.3 to i64
   %136 = getelementptr inbounds nuw i8, ptr %23, i64 %135

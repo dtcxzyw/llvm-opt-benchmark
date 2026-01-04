@@ -70,9 +70,9 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit:      ; preds = %3
   br label %.critedge
 
 30:                                               ; preds = %.thread, %10
-  %.126 = phi i64 [ %11, %10 ], [ %27, %.thread ]
-  %.023 = phi i8 [ %13, %10 ], [ %26, %.thread ]
-  %.1 = phi ptr [ %12, %10 ], [ %24, %.thread ]
+  %.126 = phi i64 [ %27, %.thread ], [ %11, %10 ]
+  %.023 = phi i8 [ %26, %.thread ], [ %13, %10 ]
+  %.1 = phi ptr [ %24, %.thread ], [ %12, %10 ]
   %31 = zext i8 %.023 to i64
   %32 = getelementptr inbounds nuw i8, ptr @_ZL17ISO88591ToIBM1047, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !9

@@ -78,7 +78,7 @@ define hidden noundef ptr @pj_guyou(ptr noundef %0) local_unnamed_addr #0 {
   br label %_Z34pj_projection_specific_setup_guyouP8PJconsts.exit
 
 _Z34pj_projection_specific_setup_guyouP8PJconsts.exit: ; preds = %7, %5, %11, %14
-  %.0 = phi ptr [ %12, %14 ], [ null, %11 ], [ %6, %5 ], [ %0, %7 ]
+  %.0 = phi ptr [ null, %11 ], [ %12, %14 ], [ %6, %5 ], [ %0, %7 ]
   ret ptr %.0
 }
 
@@ -261,7 +261,7 @@ define internal fastcc noundef ptr @_ZL14pj_adams_setupP8PJconstsN12_GLOBAL__N_1
   br label %.thread75
 
 .thread75:                                        ; preds = %21, %33, %43, %61, %38, %27, %.thread, %.thread73, %7, %11, %76, %56, %74, %5
-  %.0 = phi ptr [ %6, %5 ], [ %57, %56 ], [ %75, %74 ], [ %77, %76 ], [ %0, %11 ], [ %0, %7 ], [ %0, %.thread73 ], [ %0, %.thread ], [ %0, %27 ], [ %0, %38 ], [ %0, %61 ], [ %0, %43 ], [ %0, %33 ], [ %0, %21 ]
+  %.0 = phi ptr [ %6, %5 ], [ %75, %74 ], [ %77, %76 ], [ %57, %56 ], [ %0, %7 ], [ %0, %11 ], [ %0, %.thread73 ], [ %0, %.thread ], [ %0, %27 ], [ %0, %38 ], [ %0, %61 ], [ %0, %43 ], [ %0, %33 ], [ %0, %21 ]
   ret ptr %.0
 }
 
@@ -346,7 +346,7 @@ define hidden noundef ptr @pj_adams_hemi(ptr noundef %0) local_unnamed_addr #0 {
   br label %_Z39pj_projection_specific_setup_adams_hemiP8PJconsts.exit
 
 _Z39pj_projection_specific_setup_adams_hemiP8PJconsts.exit: ; preds = %7, %5, %11, %14
-  %.0 = phi ptr [ %12, %14 ], [ null, %11 ], [ %6, %5 ], [ %0, %7 ]
+  %.0 = phi ptr [ null, %11 ], [ %12, %14 ], [ %6, %5 ], [ %0, %7 ]
   ret ptr %.0
 }
 
@@ -418,7 +418,7 @@ define hidden noundef ptr @pj_adams_ws1(ptr noundef %0) local_unnamed_addr #0 {
   br label %_Z38pj_projection_specific_setup_adams_ws1P8PJconsts.exit
 
 _Z38pj_projection_specific_setup_adams_ws1P8PJconsts.exit: ; preds = %7, %5, %11, %14
-  %.0 = phi ptr [ %12, %14 ], [ null, %11 ], [ %6, %5 ], [ %0, %7 ]
+  %.0 = phi ptr [ null, %11 ], [ %12, %14 ], [ %6, %5 ], [ %0, %7 ]
   ret ptr %.0
 }
 
@@ -492,7 +492,7 @@ define hidden noundef ptr @pj_adams_ws2(ptr noundef %0) local_unnamed_addr #0 {
   br label %_Z38pj_projection_specific_setup_adams_ws2P8PJconsts.exit
 
 _Z38pj_projection_specific_setup_adams_ws2P8PJconsts.exit: ; preds = %7, %5, %12, %15
-  %.0 = phi ptr [ %13, %15 ], [ null, %12 ], [ %6, %5 ], [ %0, %7 ]
+  %.0 = phi ptr [ null, %12 ], [ %13, %15 ], [ %6, %5 ], [ %0, %7 ]
   ret ptr %.0
 }
 
@@ -711,10 +711,10 @@ define internal { double, double } @_ZL13adams_forward5PJ_LPP8PJconsts(double %0
   br label %119
 
 119:                                              ; preds = %.thread, %103, %84, %52, %25, %3
-  %.0187 = phi i1 [ false, %3 ], [ %39, %25 ], [ %67, %52 ], [ %102, %84 ], [ %114, %103 ], [ %78, %.thread ]
-  %.0185 = phi i1 [ false, %3 ], [ %38, %25 ], [ %66, %52 ], [ %101, %84 ], [ %113, %103 ], [ %77, %.thread ]
-  %.0183 = phi double [ 0.000000e+00, %3 ], [ %37, %25 ], [ %65, %52 ], [ %100, %84 ], [ %116, %103 ], [ %81, %.thread ]
-  %.0 = phi double [ 0.000000e+00, %3 ], [ %33, %25 ], [ %60, %52 ], [ %96, %84 ], [ %118, %103 ], [ %80, %.thread ]
+  %.0187 = phi i1 [ false, %3 ], [ %39, %25 ], [ %67, %52 ], [ %78, %.thread ], [ %102, %84 ], [ %114, %103 ]
+  %.0185 = phi i1 [ false, %3 ], [ %38, %25 ], [ %66, %52 ], [ %77, %.thread ], [ %101, %84 ], [ %113, %103 ]
+  %.0183 = phi double [ 0.000000e+00, %3 ], [ %37, %25 ], [ %65, %52 ], [ %81, %.thread ], [ %100, %84 ], [ %116, %103 ]
+  %.0 = phi double [ 0.000000e+00, %3 ], [ %33, %25 ], [ %60, %52 ], [ %80, %.thread ], [ %96, %84 ], [ %118, %103 ]
   %120 = load ptr, ptr %2, align 8, !tbaa !46
   %121 = fadd double %.0183, %.0
   %122 = tail call double @cos(double noundef %121) #10, !tbaa !52
@@ -910,9 +910,9 @@ _ZL9ell_int_5d.exit207:                           ; preds = %151
   %227 = fmul double %226, 0x3FE6A09E667F3BCD
   br label %.thread234
 
-.thread234:                                       ; preds = %188, %.thread223, %203, %205, %201, %_ZL9ell_int_5d.exit207, %207, %217, %221, %219, %82, %223, %50, %45, %22, %15
-  %.sroa.0173.0 = phi double [ %.sroa.0173.0.copyload, %15 ], [ 0.000000e+00, %22 ], [ %.sroa.0173.0.copyload174, %45 ], [ %.sroa.0173.0.copyload175, %50 ], [ %.sroa.0173.0.copyload176, %82 ], [ %225, %223 ], [ %.sroa.0.4, %207 ], [ %.sroa.0.4, %219 ], [ %.sroa.0.4, %221 ], [ %.sroa.0.4, %217 ], [ %159, %_ZL9ell_int_5d.exit207 ], [ %195, %.thread223 ], [ %199, %203 ], [ %206, %205 ], [ %202, %201 ], [ %.sroa.0.4, %188 ]
-  %.sroa.7.0 = phi double [ %.sroa.7.0.copyload, %15 ], [ %24, %22 ], [ %.sroa.7.0.copyload178, %45 ], [ %.sroa.7.0.copyload180, %50 ], [ %.sroa.7.0.copyload182, %82 ], [ %227, %223 ], [ %210, %207 ], [ %215, %219 ], [ %222, %221 ], [ %218, %217 ], [ %163, %_ZL9ell_int_5d.exit207 ], [ %.sroa.28.4, %.thread223 ], [ %.sroa.28.4, %203 ], [ %.sroa.28.4, %205 ], [ %.sroa.28.4, %201 ], [ %.sroa.28.4, %188 ]
+.thread234:                                       ; preds = %188, %205, %201, %.thread223, %203, %_ZL9ell_int_5d.exit207, %207, %217, %221, %219, %82, %223, %50, %45, %22, %15
+  %.sroa.0173.0 = phi double [ %.sroa.0173.0.copyload176, %82 ], [ %.sroa.0173.0.copyload, %15 ], [ 0.000000e+00, %22 ], [ %.sroa.0173.0.copyload174, %45 ], [ %.sroa.0173.0.copyload175, %50 ], [ %225, %223 ], [ %159, %_ZL9ell_int_5d.exit207 ], [ %.sroa.0.4, %207 ], [ %.sroa.0.4, %217 ], [ %.sroa.0.4, %219 ], [ %.sroa.0.4, %221 ], [ %.sroa.0.4, %188 ], [ %206, %205 ], [ %202, %201 ], [ %195, %.thread223 ], [ %199, %203 ]
+  %.sroa.7.0 = phi double [ %.sroa.7.0.copyload182, %82 ], [ %.sroa.7.0.copyload, %15 ], [ %24, %22 ], [ %.sroa.7.0.copyload178, %45 ], [ %.sroa.7.0.copyload180, %50 ], [ %227, %223 ], [ %163, %_ZL9ell_int_5d.exit207 ], [ %210, %207 ], [ %218, %217 ], [ %215, %219 ], [ %222, %221 ], [ %.sroa.28.4, %188 ], [ %.sroa.28.4, %205 ], [ %.sroa.28.4, %201 ], [ %.sroa.28.4, %.thread223 ], [ %.sroa.28.4, %203 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.0173.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.7.0, 1
   ret { double, double } %.fca.1.insert
@@ -1017,8 +1017,8 @@ define internal { double, double } @_ZL23peirce_q_square_inverse5PJ_XYP8PJconsts
   br label %33
 
 33:                                               ; preds = %29, %31, %27, %18, %10, %25, %16, %6, %9
-  %.sroa.020.0 = phi double [ 0xBFE921FB54442D18, %9 ], [ 0xBFE921FB54442D18, %6 ], [ 0xC002D97C7F3321D2, %16 ], [ 0.000000e+00, %25 ], [ 0x3FE921FB54442D18, %10 ], [ 0x4002D97C7F3321D2, %18 ], [ 0x3FF921FB54442D18, %27 ], [ %., %31 ], [ 0xBFF921FB54442D18, %29 ]
-  %.sroa.13.0 = phi double [ 0x3FE921FB54442D18, %9 ], [ 0.000000e+00, %6 ], [ %17, %16 ], [ 0.000000e+00, %25 ], [ 0.000000e+00, %10 ], [ 0.000000e+00, %18 ], [ 0.000000e+00, %27 ], [ 0.000000e+00, %31 ], [ 0.000000e+00, %29 ]
+  %.sroa.020.0 = phi double [ 0xBFE921FB54442D18, %9 ], [ 0xBFE921FB54442D18, %6 ], [ 0x3FF921FB54442D18, %27 ], [ 0xC002D97C7F3321D2, %16 ], [ 0x3FE921FB54442D18, %10 ], [ 0.000000e+00, %25 ], [ 0x4002D97C7F3321D2, %18 ], [ %., %31 ], [ 0xBFF921FB54442D18, %29 ]
+  %.sroa.13.0 = phi double [ 0x3FE921FB54442D18, %9 ], [ 0.000000e+00, %6 ], [ 0.000000e+00, %27 ], [ %17, %16 ], [ 0.000000e+00, %10 ], [ 0.000000e+00, %25 ], [ 0.000000e+00, %18 ], [ 0.000000e+00, %31 ], [ 0.000000e+00, %29 ]
   %34 = tail call { double, double } @_Z21pj_generic_inverse_2d5PJ_XYP8PJconsts5PJ_LPd(double %0, double %1, ptr noundef %2, double %.sroa.020.0, double %.sroa.13.0, double noundef 1.000000e-10)
   %35 = extractvalue { double, double } %34, 0
   %36 = extractvalue { double, double } %34, 1
@@ -1070,8 +1070,8 @@ define internal { double, double } @_ZL24peirce_q_diamond_inverse5PJ_XYP8PJconst
   br label %18
 
 18:                                               ; preds = %16, %14, %6, %11, %13
-  %.sroa.020.0 = phi double [ 0.000000e+00, %13 ], [ 0x3FE921FB54442D18, %11 ], [ 0x3FF921FB54442D18, %6 ], [ 0x4002D97C7F3321D2, %14 ], [ %., %16 ]
-  %.sroa.11.0 = phi double [ 0x3FE921FB54442D18, %13 ], [ 0.000000e+00, %11 ], [ 0.000000e+00, %6 ], [ 0.000000e+00, %14 ], [ 0.000000e+00, %16 ]
+  %.sroa.020.0 = phi double [ 0x4002D97C7F3321D2, %14 ], [ 0.000000e+00, %13 ], [ 0x3FE921FB54442D18, %11 ], [ 0x3FF921FB54442D18, %6 ], [ %., %16 ]
+  %.sroa.11.0 = phi double [ 0.000000e+00, %14 ], [ 0x3FE921FB54442D18, %13 ], [ 0.000000e+00, %11 ], [ 0.000000e+00, %6 ], [ 0.000000e+00, %16 ]
   %19 = tail call double @llvm.fabs.f64(double %0)
   %20 = fcmp ogt double %19, 0x3FFDAE62C8EA5AB5
   %21 = tail call double @llvm.fabs.f64(double %1)

@@ -1429,7 +1429,7 @@ define hidden i32 @dnsserver_dissect_struct_DNS_RPC_SERVER_INFO_DOTNET(ptr nound
   br label %29
 
 29:                                               ; preds = %24, %26, %19, %21
-  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %1, %24 ], [ %28, %26 ]
+  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %28, %26 ], [ %1, %24 ]
   %.not384 = icmp eq ptr %3, null
   br i1 %.not384, label %34, label %30
 
@@ -2429,7 +2429,7 @@ define internal i32 @dnsserver_dissect_element_DnssrvQuery2_data_(ptr noundef %0
   br label %33
 
 33:                                               ; preds = %30, %28, %25, %23
-  %.0.i = phi i32 [ %14, %23 ], [ %27, %25 ], [ %14, %28 ], [ %32, %30 ]
+  %.0.i = phi i32 [ %14, %23 ], [ %27, %25 ], [ %32, %30 ], [ %14, %28 ]
   %34 = load i32, ptr %8, align 4
   switch i32 %34, label %dnsserver_dissect_DNSSRV_RPC_UNION.exit [
     i32 0, label %35

@@ -440,7 +440,7 @@ _ZN6icu_777UVector14ensureCapacityEiR10UErrorCode.exit: ; preds = %27, %11
   br i1 %50, label %36, label %_ZN6icu_777UVector14ensureCapacityEiR10UErrorCode.exit.thread, !llvm.loop !22
 
 _ZN6icu_777UVector14ensureCapacityEiR10UErrorCode.exit.thread.sink.split: ; preds = %20, %17, %15, %9
-  %.sink = phi i32 [ 1, %9 ], [ 1, %15 ], [ 1, %17 ], [ 7, %20 ]
+  %.sink = phi i32 [ 1, %17 ], [ 1, %15 ], [ 1, %9 ], [ 7, %20 ]
   store i32 %.sink, ptr %3, align 4, !tbaa !6
   br label %_ZN6icu_777UVector14ensureCapacityEiR10UErrorCode.exit.thread
 
@@ -505,7 +505,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_777UVector14ensureCapacityEiR1
   br label %.thread
 
 .thread:                                          ; preds = %27, %19, %9, %28, %3, %15, %8
-  %.0 = phi i8 [ 0, %8 ], [ 0, %15 ], [ 0, %3 ], [ 1, %28 ], [ 1, %9 ], [ 0, %19 ], [ 0, %27 ]
+  %.0 = phi i8 [ 1, %9 ], [ 0, %8 ], [ 0, %15 ], [ 0, %3 ], [ 1, %28 ], [ 0, %19 ], [ 0, %27 ]
   ret i8 %.0
 }
 
@@ -840,7 +840,7 @@ _ZN6icu_777UVector14ensureCapacityEiR10UErrorCode.exit: ; preds = %._ZN6icu_777U
   br label %34
 
 .sink.split:                                      ; preds = %19, %16, %14, %9
-  %.sink = phi i32 [ 1, %9 ], [ 1, %14 ], [ 1, %16 ], [ 7, %19 ]
+  %.sink = phi i32 [ 1, %16 ], [ 1, %9 ], [ 1, %14 ], [ 7, %19 ]
   store i32 %.sink, ptr %2, align 4, !tbaa !6
   br label %31
 
@@ -1099,7 +1099,7 @@ _ZN6icu_777UVector14ensureCapacityEiR10UErrorCode.exit.thread: ; preds = %34, %.
   br i1 %46, label %50, label %_ZN6icu_777UVector14ensureCapacityEiR10UErrorCode.exit.thread.thread
 
 _ZN6icu_777UVector14ensureCapacityEiR10UErrorCode.exit.thread.thread.sink.split: ; preds = %_ZN6icu_777UVector14ensureCapacityEiR10UErrorCode.exit, %20, %17, %15, %10
-  %.sink = phi i32 [ 1, %10 ], [ 1, %15 ], [ 1, %17 ], [ 7, %20 ], [ 1, %_ZN6icu_777UVector14ensureCapacityEiR10UErrorCode.exit ]
+  %.sink = phi i32 [ 7, %20 ], [ 1, %17 ], [ 1, %10 ], [ 1, %15 ], [ 1, %_ZN6icu_777UVector14ensureCapacityEiR10UErrorCode.exit ]
   store i32 %.sink, ptr %3, align 4, !tbaa !6
   br label %_ZN6icu_777UVector14ensureCapacityEiR10UErrorCode.exit.thread.thread
 
@@ -1401,8 +1401,8 @@ _ZNK6icu_777UVector7indexOfE8UElementia.exit:     ; preds = %.lr.ph.i, %.lr.ph35
   %.not = icmp eq i64 %49, 0
   br i1 %.not, label %24, label %.thread
 
-.thread:                                          ; preds = %24, %_ZNK6icu_777UVector7indexOfE8UElementia.exit, %.preheader.i, %.preheader28.i, %45, %40, %18, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.loopexit.us, %22, %2, %.lr.ph.split.us
-  %50 = phi i8 [ 1, %2 ], [ 0, %.lr.ph.split.us ], [ 0, %22 ], [ 1, %18 ], [ 0, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.loopexit.us ], [ 0, %40 ], [ 0, %45 ], [ 1, %24 ], [ 0, %_ZNK6icu_777UVector7indexOfE8UElementia.exit ], [ 0, %.preheader.i ], [ 0, %.preheader28.i ]
+.thread:                                          ; preds = %24, %_ZNK6icu_777UVector7indexOfE8UElementia.exit, %.preheader28.i, %.preheader.i, %45, %40, %18, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.loopexit.us, %22, %2, %.lr.ph.split.us
+  %50 = phi i8 [ 1, %2 ], [ 0, %45 ], [ 0, %40 ], [ 0, %.lr.ph.split.us ], [ 1, %18 ], [ 0, %22 ], [ 0, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.loopexit.us ], [ 0, %_ZNK6icu_777UVector7indexOfE8UElementia.exit ], [ 1, %24 ], [ 0, %.preheader.i ], [ 0, %.preheader28.i ]
   ret i8 %50
 }
 
@@ -1495,7 +1495,7 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK6icu_777UVector7index
   br label %.thread
 
 .thread:                                          ; preds = %29, %36, %23, %.thread.loopexit59.split.loop.exit61, %.thread.loopexit57.split.loop.exit, %.thread.loopexit.split.loop.exit, %.preheader28, %.preheader
-  %.1 = phi i32 [ -1, %.preheader ], [ -1, %.preheader28 ], [ %37, %.thread.loopexit.split.loop.exit ], [ %38, %.thread.loopexit57.split.loop.exit ], [ %39, %.thread.loopexit59.split.loop.exit61 ], [ -1, %23 ], [ -1, %36 ], [ -1, %29 ]
+  %.1 = phi i32 [ -1, %.preheader28 ], [ -1, %23 ], [ -1, %36 ], [ -1, %.preheader ], [ %37, %.thread.loopexit.split.loop.exit ], [ %38, %.thread.loopexit57.split.loop.exit ], [ %39, %.thread.loopexit59.split.loop.exit61 ], [ -1, %29 ]
   ret i32 %.1
 }
 
@@ -1622,7 +1622,7 @@ _ZNK6icu_777UVector7indexOfE8UElementia.exit:     ; preds = %.lr.ph.i, %.lr.ph35
   %46 = icmp eq i64 %45, 0
   br i1 %46, label %._crit_edge, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread
 
-_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread: ; preds = %41, %36, %.preheader28.i, %.preheader.i, %_ZNK6icu_777UVector7indexOfE8UElementia.exit
+_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread: ; preds = %41, %36, %.preheader.i, %.preheader28.i, %_ZNK6icu_777UVector7indexOfE8UElementia.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = load i32, ptr %3, align 8, !tbaa !18
   %48 = sext i32 %47 to i64
@@ -1630,7 +1630,7 @@ _ZNK6icu_777UVector7indexOfE8UElementia.exit.thread: ; preds = %41, %36, %.prehe
   br i1 %49, label %.lr.ph.splitthread-pre-split, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %_ZNK6icu_777UVector7indexOfE8UElementia.exit, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.loopexit.us.us, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread.us.us, %.lr.ph.split.us, %2
-  %50 = phi i8 [ 1, %2 ], [ 1, %.lr.ph.split.us ], [ 1, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread.us.us ], [ 0, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.loopexit.us.us ], [ 1, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread ], [ 0, %_ZNK6icu_777UVector7indexOfE8UElementia.exit ]
+  %50 = phi i8 [ 1, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread.us.us ], [ 1, %2 ], [ 1, %.lr.ph.split.us ], [ 0, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.loopexit.us.us ], [ 1, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread ], [ 0, %_ZNK6icu_777UVector7indexOfE8UElementia.exit ]
   ret i8 %50
 }
 
@@ -1758,8 +1758,8 @@ _ZN6icu_777UVector15orphanElementAtEi.exit.i:     ; preds = %.lr.ph.i.i, %37
   tail call void %53(ptr noundef nonnull %41)
   br label %_ZN6icu_777UVector15removeElementAtEi.exit
 
-_ZN6icu_777UVector15removeElementAtEi.exit:       ; preds = %29, %24, %.preheader28.i, %.preheader.i, %54, %52, %_ZN6icu_777UVector15orphanElementAtEi.exit.i, %34, %_ZNK6icu_777UVector7indexOfE8UElementia.exit
-  %.1 = phi i8 [ %.017, %_ZNK6icu_777UVector7indexOfE8UElementia.exit ], [ 1, %34 ], [ 1, %_ZN6icu_777UVector15orphanElementAtEi.exit.i ], [ 1, %52 ], [ 1, %54 ], [ %.017, %.preheader.i ], [ %.017, %.preheader28.i ], [ %.017, %24 ], [ %.017, %29 ]
+_ZN6icu_777UVector15removeElementAtEi.exit:       ; preds = %29, %24, %.preheader.i, %.preheader28.i, %54, %52, %_ZN6icu_777UVector15orphanElementAtEi.exit.i, %34, %_ZNK6icu_777UVector7indexOfE8UElementia.exit
+  %.1 = phi i8 [ 1, %54 ], [ %.017, %_ZNK6icu_777UVector7indexOfE8UElementia.exit ], [ 1, %34 ], [ 1, %_ZN6icu_777UVector15orphanElementAtEi.exit.i ], [ 1, %52 ], [ %.017, %.preheader28.i ], [ %.017, %24 ], [ %.017, %.preheader.i ], [ %.017, %29 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = load i32, ptr %3, align 8, !tbaa !18
   %56 = sext i32 %55 to i64
@@ -1905,7 +1905,7 @@ _ZNK6icu_777UVector7indexOfE8UElementia.exit:     ; preds = %.lr.ph.i, %.lr.ph35
   %.not = icmp eq i64 %34, 0
   br i1 %.not, label %_ZN6icu_777UVector15removeElementAtEi.exit, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread.thread
 
-_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread.thread: ; preds = %30, %25, %_ZNK6icu_777UVector7indexOfE8UElementia.exit, %.preheader.i, %.preheader28.i
+_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread.thread: ; preds = %30, %25, %_ZNK6icu_777UVector7indexOfE8UElementia.exit, %.preheader28.i, %.preheader.i
   %35 = load i32, ptr %3, align 8, !tbaa !18
   %36 = sext i32 %35 to i64
   %.not10 = icmp sgt i64 %indvars.iv, %36
@@ -1950,7 +1950,7 @@ _ZN6icu_777UVector15orphanElementAtEi.exit.i:     ; preds = %.lr.ph.i.i, %37
   br label %_ZN6icu_777UVector15removeElementAtEi.exit
 
 _ZN6icu_777UVector15removeElementAtEi.exit:       ; preds = %54, %52, %_ZN6icu_777UVector15orphanElementAtEi.exit.i, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread.thread, %_ZNK6icu_777UVector7indexOfE8UElementia.exit
-  %.1 = phi i8 [ %.017, %_ZNK6icu_777UVector7indexOfE8UElementia.exit ], [ 1, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread.thread ], [ 1, %_ZN6icu_777UVector15orphanElementAtEi.exit.i ], [ 1, %52 ], [ 1, %54 ]
+  %.1 = phi i8 [ %.017, %_ZNK6icu_777UVector7indexOfE8UElementia.exit ], [ 1, %54 ], [ 1, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread.thread ], [ 1, %_ZN6icu_777UVector15orphanElementAtEi.exit.i ], [ 1, %52 ]
   %55 = icmp sgt i64 %indvars.iv, 1
   br i1 %55, label %12, label %._crit_edge, !llvm.loop !37
 }
@@ -2106,8 +2106,8 @@ _ZN6icu_777UVector15orphanElementAtEi.exit.i:     ; preds = %.lr.ph.i.i5, %28
   tail call void %46(ptr noundef nonnull %33)
   br label %_ZN6icu_777UVector15removeElementAtEi.exit
 
-_ZN6icu_777UVector15removeElementAtEi.exit:       ; preds = %16, %23, %.preheader28.i.i, %.preheader.i.i, %47, %44, %_ZN6icu_777UVector15orphanElementAtEi.exit.i, %25, %_ZNK6icu_777UVector7indexOfEPvi.exit
-  %.0 = phi i8 [ 0, %_ZNK6icu_777UVector7indexOfEPvi.exit ], [ 1, %25 ], [ 1, %_ZN6icu_777UVector15orphanElementAtEi.exit.i ], [ 1, %44 ], [ 1, %47 ], [ 0, %.preheader.i.i ], [ 0, %.preheader28.i.i ], [ 0, %23 ], [ 0, %16 ]
+_ZN6icu_777UVector15removeElementAtEi.exit:       ; preds = %16, %23, %.preheader.i.i, %.preheader28.i.i, %47, %44, %_ZN6icu_777UVector15orphanElementAtEi.exit.i, %25, %_ZNK6icu_777UVector7indexOfEPvi.exit
+  %.0 = phi i8 [ 1, %47 ], [ 0, %_ZNK6icu_777UVector7indexOfEPvi.exit ], [ 1, %25 ], [ 1, %_ZN6icu_777UVector15orphanElementAtEi.exit.i ], [ 1, %44 ], [ 0, %.preheader28.i.i ], [ 0, %.preheader.i.i ], [ 0, %23 ], [ 0, %16 ]
   ret i8 %.0
 }
 
@@ -2177,7 +2177,7 @@ define noundef i32 @_ZNK6icu_777UVector7indexOfEPvi(ptr noundef nonnull readonly
   br label %_ZNK6icu_777UVector7indexOfE8UElementia.exit
 
 _ZNK6icu_777UVector7indexOfE8UElementia.exit:     ; preds = %19, %26, %.preheader28.i, %.preheader.i, %.thread.loopexit57.split.loop.exit.i, %.thread.loopexit59.split.loop.exit61.i
-  %.1.i = phi i32 [ -1, %.preheader.i ], [ -1, %.preheader28.i ], [ %27, %.thread.loopexit57.split.loop.exit.i ], [ %28, %.thread.loopexit59.split.loop.exit61.i ], [ -1, %26 ], [ -1, %19 ]
+  %.1.i = phi i32 [ -1, %.preheader28.i ], [ %28, %.thread.loopexit59.split.loop.exit61.i ], [ %27, %.thread.loopexit57.split.loop.exit.i ], [ -1, %.preheader.i ], [ -1, %26 ], [ -1, %19 ]
   ret i32 %.1.i
 }
 
@@ -2251,7 +2251,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_777UVector6equalsERKS0_(ptr n
   br i1 %.not18, label %.critedge, label %24
 
 .critedge:                                        ; preds = %27, %24, %19, %18, %.preheader21, %.preheader, %2
-  %.0 = phi i8 [ 0, %2 ], [ 1, %.preheader ], [ 1, %.preheader21 ], [ 0, %19 ], [ 1, %18 ], [ 0, %27 ], [ 1, %24 ]
+  %.0 = phi i8 [ 1, %.preheader21 ], [ 0, %2 ], [ 1, %18 ], [ 1, %.preheader ], [ 0, %19 ], [ 0, %27 ], [ 1, %24 ]
   ret i8 %.0
 }
 
@@ -2323,7 +2323,7 @@ define noundef i32 @_ZNK6icu_777UVector7indexOfEii(ptr noundef nonnull readonly 
   br label %_ZNK6icu_777UVector7indexOfE8UElementia.exit
 
 _ZNK6icu_777UVector7indexOfE8UElementia.exit:     ; preds = %24, %18, %.preheader28.i, %.preheader.i, %.thread.loopexit.split.loop.exit.i, %.thread.loopexit59.split.loop.exit61.i
-  %.1.i = phi i32 [ -1, %.preheader.i ], [ -1, %.preheader28.i ], [ %28, %.thread.loopexit.split.loop.exit.i ], [ %29, %.thread.loopexit59.split.loop.exit61.i ], [ -1, %18 ], [ -1, %24 ]
+  %.1.i = phi i32 [ -1, %.preheader28.i ], [ -1, %18 ], [ %29, %.thread.loopexit59.split.loop.exit61.i ], [ -1, %.preheader.i ], [ %28, %.thread.loopexit.split.loop.exit.i ], [ -1, %24 ]
   ret i32 %.1.i
 }
 
@@ -2425,7 +2425,7 @@ define void @_ZN6icu_777UVector12sortedInsertE8UElementPFiS1_S1_ER10UErrorCode(p
   br label %_ZN6icu_777UVector14ensureCapacityEiR10UErrorCode.exit
 
 .sink.split:                                      ; preds = %20, %17, %15, %10
-  %.sink = phi i32 [ 1, %10 ], [ 1, %15 ], [ 1, %17 ], [ 7, %20 ]
+  %.sink = phi i32 [ 1, %17 ], [ 1, %10 ], [ 1, %15 ], [ 7, %20 ]
   store i32 %.sink, ptr %3, align 4, !tbaa !6
   br label %28
 

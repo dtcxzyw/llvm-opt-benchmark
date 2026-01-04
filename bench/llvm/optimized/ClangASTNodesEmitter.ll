@@ -1315,12 +1315,12 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %12
   br label %_ZNKSt4lessIN5clang6tblgen7ASTNodeEEclERKS2_S5_.exit.i.i
 
 _ZNKSt4lessIN5clang6tblgen7ASTNodeEEclERKS2_S5_.exit.i.i: ; preds = %21, %.thread.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi i32 [ %23, %21 ], [ %spec.select.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i ], [ 0, %.thread.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i ], [ %23, %21 ], [ 0, %.thread.i.i.i.i.i.i ]
   %24 = icmp slt i32 %.1.i.i.i.i.i.i, 0
   br label %.thread
 
 .thread:                                          ; preds = %_ZNKSt4lessIN5clang6tblgen7ASTNodeEEclERKS2_S5_.exit.i.i, %9
-  %25 = phi i1 [ true, %9 ], [ %24, %_ZNKSt4lessIN5clang6tblgen7ASTNodeEEclERKS2_S5_.exit.i.i ]
+  %25 = phi i1 [ %24, %_ZNKSt4lessIN5clang6tblgen7ASTNodeEEclERKS2_S5_.exit.i.i ], [ true, %9 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %25, ptr noundef nonnull %3, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(32) %10) #16
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load i64, ptr %26, align 8, !tbaa !15
@@ -2644,8 +2644,8 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit147:   ; preds = %478, %480, %481
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit150
 
 _ZN4llvm11raw_ostreamlsEPKc.exit150:              ; preds = %.thread, %493, %491
-  %.sroa.0159.1.lcssa228234 = phi ptr [ %.sroa.0159.1.lcssa, %493 ], [ %.sroa.0159.1.lcssa, %491 ], [ %25, %.thread ]
-  %.sroa.0160.1.lcssa229233 = phi ptr [ %.sroa.0160.1.lcssa, %493 ], [ %.sroa.0160.1.lcssa, %491 ], [ %25, %.thread ]
+  %.sroa.0159.1.lcssa228234 = phi ptr [ %25, %.thread ], [ %.sroa.0159.1.lcssa, %493 ], [ %.sroa.0159.1.lcssa, %491 ]
+  %.sroa.0160.1.lcssa229233 = phi ptr [ %25, %.thread ], [ %.sroa.0160.1.lcssa, %493 ], [ %.sroa.0160.1.lcssa, %491 ]
   %.val49 = load ptr, ptr %28, align 8, !tbaa !12
   call fastcc void @"_ZNSt8_Rb_treeIN5clang6tblgen7ASTNodeES2_St9_IdentityIS2_EZN12_GLOBAL__N_120ClangASTNodesEmitter8EmitNodeERN4llvm11raw_ostreamES2_E3$_0SaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E"(ptr noundef %.val49)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -2828,13 +2828,13 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i12: ; preds = %17
   br label %_ZNKSt4lessIN5clang6tblgen7ASTNodeEEclERKS2_S5_.exit.i17
 
 _ZNKSt4lessIN5clang6tblgen7ASTNodeEEclERKS2_S5_.exit.i17: ; preds = %21, %.thread.i.i.i.i.i18, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i12
-  %.1.i.i.i.i.i = phi i32 [ %23, %21 ], [ %spec.select.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i12 ], [ 0, %.thread.i.i.i.i.i18 ]
+  %.1.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i12 ], [ %23, %21 ], [ 0, %.thread.i.i.i.i.i18 ]
   %24 = icmp slt i32 %.1.i.i.i.i.i, 0
   br label %_ZNSt8_Rb_treeIN5clang6tblgen7ASTNodeESt4pairIKS2_S2_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE10_M_insert_IS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit
 
 _ZNSt8_Rb_treeIN5clang6tblgen7ASTNodeESt4pairIKS2_S2_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE10_M_insert_IS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit: ; preds = %2, %_ZNSt8_Rb_treeIN5clang6tblgen7ASTNodeESt4pairIKS2_S2_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE23_M_get_insert_equal_posERS4_.exit, %_ZNKSt4lessIN5clang6tblgen7ASTNodeEEclERKS2_S5_.exit.i17
-  %.0.lcssa.i24 = phi ptr [ %.0713.i, %_ZNSt8_Rb_treeIN5clang6tblgen7ASTNodeESt4pairIKS2_S2_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE23_M_get_insert_equal_posERS4_.exit ], [ %.0713.i, %_ZNKSt4lessIN5clang6tblgen7ASTNodeEEclERKS2_S5_.exit.i17 ], [ %4, %2 ]
-  %25 = phi i1 [ true, %_ZNSt8_Rb_treeIN5clang6tblgen7ASTNodeESt4pairIKS2_S2_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE23_M_get_insert_equal_posERS4_.exit ], [ %24, %_ZNKSt4lessIN5clang6tblgen7ASTNodeEEclERKS2_S5_.exit.i17 ], [ true, %2 ]
+  %.0.lcssa.i24 = phi ptr [ %.0713.i, %_ZNKSt4lessIN5clang6tblgen7ASTNodeEEclERKS2_S5_.exit.i17 ], [ %.0713.i, %_ZNSt8_Rb_treeIN5clang6tblgen7ASTNodeESt4pairIKS2_S2_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE23_M_get_insert_equal_posERS4_.exit ], [ %4, %2 ]
+  %25 = phi i1 [ %24, %_ZNKSt4lessIN5clang6tblgen7ASTNodeEEclERKS2_S5_.exit.i17 ], [ true, %_ZNSt8_Rb_treeIN5clang6tblgen7ASTNodeESt4pairIKS2_S2_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE23_M_get_insert_equal_posERS4_.exit ], [ true, %2 ]
   %26 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #19
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
@@ -3015,16 +3015,16 @@ _ZNKSt4lessIN5clang6tblgen7ASTNodeEEclERKS2_S5_.exit.thread11.i59: ; preds = %_Z
   br i1 %.not.i63, label %_ZNSt8_Rb_treeIN5clang6tblgen7ASTNodeESt4pairIKS2_S2_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_upper_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit, label %.lr.ph.i42, !llvm.loop !145
 
 _ZNKSt4lessIN5clang6tblgen7ASTNodeEEclERKS2_S5_.exit.thread71: ; preds = %_ZNKSt4lessIN5clang6tblgen7ASTNodeEEclERKS2_S5_.exit40, %.thread.i.i.i.i39, %_ZNKSt4lessIN5clang6tblgen7ASTNodeEEclERKS2_S5_.exit, %.thread.i.i.i.i, %.thread.i.i.i.i.thread
-  %.sink = phi i64 [ 24, %.thread.i.i.i.i.thread ], [ 24, %.thread.i.i.i.i ], [ 24, %_ZNKSt4lessIN5clang6tblgen7ASTNodeEEclERKS2_S5_.exit ], [ 16, %.thread.i.i.i.i39 ], [ 16, %_ZNKSt4lessIN5clang6tblgen7ASTNodeEEclERKS2_S5_.exit40 ]
-  %.123 = phi ptr [ %.02283, %.thread.i.i.i.i.thread ], [ %.02283, %.thread.i.i.i.i ], [ %.02283, %_ZNKSt4lessIN5clang6tblgen7ASTNodeEEclERKS2_S5_.exit ], [ %.084, %.thread.i.i.i.i39 ], [ %.084, %_ZNKSt4lessIN5clang6tblgen7ASTNodeEEclERKS2_S5_.exit40 ]
+  %.sink = phi i64 [ 24, %_ZNKSt4lessIN5clang6tblgen7ASTNodeEEclERKS2_S5_.exit ], [ 24, %.thread.i.i.i.i.thread ], [ 24, %.thread.i.i.i.i ], [ 16, %.thread.i.i.i.i39 ], [ 16, %_ZNKSt4lessIN5clang6tblgen7ASTNodeEEclERKS2_S5_.exit40 ]
+  %.123 = phi ptr [ %.02283, %_ZNKSt4lessIN5clang6tblgen7ASTNodeEEclERKS2_S5_.exit ], [ %.02283, %.thread.i.i.i.i.thread ], [ %.02283, %.thread.i.i.i.i ], [ %.084, %.thread.i.i.i.i39 ], [ %.084, %_ZNKSt4lessIN5clang6tblgen7ASTNodeEEclERKS2_S5_.exit40 ]
   %39 = getelementptr inbounds nuw i8, ptr %.084, i64 %.sink
   %.0 = load ptr, ptr %39, align 8, !tbaa !31
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %_ZNSt8_Rb_treeIN5clang6tblgen7ASTNodeESt4pairIKS2_S2_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_upper_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit, label %7, !llvm.loop !146
 
 _ZNSt8_Rb_treeIN5clang6tblgen7ASTNodeESt4pairIKS2_S2_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_upper_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit: ; preds = %_ZNKSt4lessIN5clang6tblgen7ASTNodeEEclERKS2_S5_.exit.thread71, %_ZNKSt4lessIN5clang6tblgen7ASTNodeEEclERKS2_S5_.exit.thread11.i59, %2, %_ZNSt8_Rb_treeIN5clang6tblgen7ASTNodeESt4pairIKS2_S2_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit
-  %.sroa.069.0 = phi ptr [ %.08.lcssa.i, %_ZNSt8_Rb_treeIN5clang6tblgen7ASTNodeESt4pairIKS2_S2_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit ], [ %4, %2 ], [ %.08.lcssa.i, %_ZNKSt4lessIN5clang6tblgen7ASTNodeEEclERKS2_S5_.exit.thread11.i59 ], [ %.123, %_ZNKSt4lessIN5clang6tblgen7ASTNodeEEclERKS2_S5_.exit.thread71 ]
-  %.sroa.3.0 = phi ptr [ %.02283, %_ZNSt8_Rb_treeIN5clang6tblgen7ASTNodeESt4pairIKS2_S2_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit ], [ %4, %2 ], [ %.19.i61, %_ZNKSt4lessIN5clang6tblgen7ASTNodeEEclERKS2_S5_.exit.thread11.i59 ], [ %.123, %_ZNKSt4lessIN5clang6tblgen7ASTNodeEEclERKS2_S5_.exit.thread71 ]
+  %.sroa.069.0 = phi ptr [ %.08.lcssa.i, %_ZNKSt4lessIN5clang6tblgen7ASTNodeEEclERKS2_S5_.exit.thread11.i59 ], [ %.08.lcssa.i, %_ZNSt8_Rb_treeIN5clang6tblgen7ASTNodeESt4pairIKS2_S2_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit ], [ %4, %2 ], [ %.123, %_ZNKSt4lessIN5clang6tblgen7ASTNodeEEclERKS2_S5_.exit.thread71 ]
+  %.sroa.3.0 = phi ptr [ %.19.i61, %_ZNKSt4lessIN5clang6tblgen7ASTNodeEEclERKS2_S5_.exit.thread11.i59 ], [ %.02283, %_ZNSt8_Rb_treeIN5clang6tblgen7ASTNodeESt4pairIKS2_S2_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit ], [ %4, %2 ], [ %.123, %_ZNKSt4lessIN5clang6tblgen7ASTNodeEEclERKS2_S5_.exit.thread71 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.069.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -3128,8 +3128,8 @@ _ZNKSt4lessIN5clang6tblgen7ASTNodeEEclERKS2_S5_.exit.thread.i.i: ; preds = %_ZNK
   br label %.lr.ph.i.i.i6
 
 .lr.ph.i.i.i6:                                    ; preds = %_ZNKSt4lessIN5clang6tblgen7ASTNodeEEclERKS2_S5_.exit.thread.i.i, %_ZNKSt4lessIN5clang6tblgen7ASTNodeEEclERKS2_S5_.exit.i.i, %.thread.i.i.i.i.i.i, %_ZNKSt8_Rb_treeIN5clang6tblgen7ASTNodeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i
-  %23 = phi i1 [ true, %_ZNKSt4lessIN5clang6tblgen7ASTNodeEEclERKS2_S5_.exit.thread.i.i ], [ false, %_ZNKSt4lessIN5clang6tblgen7ASTNodeEEclERKS2_S5_.exit.i.i ], [ false, %_ZNKSt8_Rb_treeIN5clang6tblgen7ASTNodeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i ], [ false, %.thread.i.i.i.i.i.i ]
-  %24 = phi i8 [ 1, %_ZNKSt4lessIN5clang6tblgen7ASTNodeEEclERKS2_S5_.exit.thread.i.i ], [ 0, %_ZNKSt4lessIN5clang6tblgen7ASTNodeEEclERKS2_S5_.exit.i.i ], [ 0, %_ZNKSt8_Rb_treeIN5clang6tblgen7ASTNodeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i ], [ 0, %.thread.i.i.i.i.i.i ]
+  %23 = phi i1 [ true, %_ZNKSt4lessIN5clang6tblgen7ASTNodeEEclERKS2_S5_.exit.thread.i.i ], [ false, %.thread.i.i.i.i.i.i ], [ false, %_ZNKSt8_Rb_treeIN5clang6tblgen7ASTNodeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i ], [ false, %_ZNKSt4lessIN5clang6tblgen7ASTNodeEEclERKS2_S5_.exit.i.i ]
+  %24 = phi i8 [ 1, %_ZNKSt4lessIN5clang6tblgen7ASTNodeEEclERKS2_S5_.exit.thread.i.i ], [ 0, %.thread.i.i.i.i.i.i ], [ 0, %_ZNKSt8_Rb_treeIN5clang6tblgen7ASTNodeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i ], [ 0, %_ZNKSt4lessIN5clang6tblgen7ASTNodeEEclERKS2_S5_.exit.i.i ]
   %25 = load ptr, ptr %.0.val3, align 8, !tbaa !63
   %.sroa.2.0..sroa_idx.i.i4.i.i.i.i.i8 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %.sroa.2.0.copyload.i.i5.i.i.i.i.i9 = load i64, ptr %.sroa.2.0..sroa_idx.i.i4.i.i.i.i.i8, align 8, !tbaa !99
@@ -3255,7 +3255,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i13.i.i.i.i: ; preds = %_ZN4llv
   br label %_ZStgtIJbN4llvm9StringRefEEJbS1_EEbRKSt5tupleIJDpT_EERKS2_IJDpT0_EE.exit
 
 _ZStgtIJbN4llvm9StringRefEEJbS1_EEbRKSt5tupleIJDpT_EERKS2_IJDpT0_EE.exit: ; preds = %_ZNKSt3setIN5clang6tblgen7ASTNodeESt4lessIS2_ESaIS2_EE5countERKS2_.exit43, %46, %.thread.i.i.thread.i.i.i.i, %.thread.i.i.i.i.i.i54, %_ZN4llvmltENS_9StringRefES0_.exit.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i13.i.i.i.i
-  %54 = phi i1 [ true, %_ZNKSt3setIN5clang6tblgen7ASTNodeESt4lessIS2_ESaIS2_EE5countERKS2_.exit43 ], [ false, %46 ], [ true, %_ZN4llvmltENS_9StringRefES0_.exit.i.i.i.i ], [ true, %.thread.i.i.i.i.i.i54 ], [ false, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i13.i.i.i.i ], [ %50, %.thread.i.i.thread.i.i.i.i ]
+  %54 = phi i1 [ true, %_ZNKSt3setIN5clang6tblgen7ASTNodeESt4lessIS2_ESaIS2_EE5countERKS2_.exit43 ], [ false, %46 ], [ true, %_ZN4llvmltENS_9StringRefES0_.exit.i.i.i.i ], [ false, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i13.i.i.i.i ], [ true, %.thread.i.i.i.i.i.i54 ], [ %50, %.thread.i.i.thread.i.i.i.i ]
   ret i1 %54
 }
 

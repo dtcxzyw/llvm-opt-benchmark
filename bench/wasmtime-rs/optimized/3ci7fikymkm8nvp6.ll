@@ -5343,7 +5343,7 @@ define noundef zeroext i1 @"_ZN77_$LT$wasmtime_wasi..preview1..types..Rights$u20
   br label %17
 
 17:                                               ; preds = %12, %15, %10, %8, %6, %2
-  %.0 = phi i1 [ true, %2 ], [ true, %6 ], [ true, %8 ], [ true, %10 ], [ %16, %15 ], [ true, %12 ]
+  %.0 = phi i1 [ true, %10 ], [ %16, %15 ], [ true, %2 ], [ true, %8 ], [ true, %6 ], [ true, %12 ]
   ret i1 %.0
 }
 
@@ -8812,7 +8812,7 @@ define noundef zeroext i1 @"_ZN78_$LT$wasmtime_wasi..preview1..types..Fdflags$u2
   br label %17
 
 17:                                               ; preds = %12, %15, %10, %8, %6, %2
-  %.0 = phi i1 [ true, %2 ], [ true, %6 ], [ true, %8 ], [ true, %10 ], [ %16, %15 ], [ true, %12 ]
+  %.0 = phi i1 [ true, %10 ], [ %16, %15 ], [ true, %2 ], [ true, %8 ], [ true, %6 ], [ true, %12 ]
   ret i1 %.0
 }
 
@@ -9564,7 +9564,7 @@ define noundef zeroext i1 @"_ZN79_$LT$wasmtime_wasi..preview1..types..Fstflags$u
   br label %17
 
 17:                                               ; preds = %12, %15, %10, %8, %6, %2
-  %.0 = phi i1 [ true, %2 ], [ true, %6 ], [ true, %8 ], [ true, %10 ], [ %16, %15 ], [ true, %12 ]
+  %.0 = phi i1 [ true, %10 ], [ %16, %15 ], [ true, %2 ], [ true, %8 ], [ true, %6 ], [ true, %12 ]
   ret i1 %.0
 }
 
@@ -9807,7 +9807,7 @@ define noundef zeroext i1 @"_ZN82_$LT$wasmtime_wasi..preview1..types..Lookupflag
   br label %17
 
 17:                                               ; preds = %12, %15, %10, %8, %6, %2
-  %.0 = phi i1 [ true, %2 ], [ true, %6 ], [ true, %8 ], [ true, %10 ], [ %16, %15 ], [ true, %12 ]
+  %.0 = phi i1 [ true, %10 ], [ %16, %15 ], [ true, %2 ], [ true, %8 ], [ true, %6 ], [ true, %12 ]
   ret i1 %.0
 }
 
@@ -10049,7 +10049,7 @@ define noundef zeroext i1 @"_ZN77_$LT$wasmtime_wasi..preview1..types..Oflags$u20
   br label %17
 
 17:                                               ; preds = %12, %15, %10, %8, %6, %2
-  %.0 = phi i1 [ true, %2 ], [ true, %6 ], [ true, %8 ], [ true, %10 ], [ %16, %15 ], [ true, %12 ]
+  %.0 = phi i1 [ true, %10 ], [ %16, %15 ], [ true, %2 ], [ true, %8 ], [ true, %6 ], [ true, %12 ]
   ret i1 %.0
 }
 
@@ -11737,7 +11737,7 @@ define noundef zeroext i1 @"_ZN83_$LT$wasmtime_wasi..preview1..types..Eventrwfla
   br label %17
 
 17:                                               ; preds = %12, %15, %10, %8, %6, %2
-  %.0 = phi i1 [ true, %2 ], [ true, %6 ], [ true, %8 ], [ true, %10 ], [ %16, %15 ], [ true, %12 ]
+  %.0 = phi i1 [ true, %10 ], [ %16, %15 ], [ true, %2 ], [ true, %8 ], [ true, %6 ], [ true, %12 ]
   ret i1 %.0
 }
 
@@ -12888,7 +12888,7 @@ define noundef zeroext i1 @"_ZN84_$LT$wasmtime_wasi..preview1..types..Subclockfl
   br label %17
 
 17:                                               ; preds = %12, %15, %10, %8, %6, %2
-  %.0 = phi i1 [ true, %2 ], [ true, %6 ], [ true, %8 ], [ true, %10 ], [ %16, %15 ], [ true, %12 ]
+  %.0 = phi i1 [ true, %10 ], [ %16, %15 ], [ true, %2 ], [ true, %8 ], [ true, %6 ], [ true, %12 ]
   ret i1 %.0
 }
 
@@ -17914,7 +17914,7 @@ define noundef zeroext i1 @"_ZN78_$LT$wasmtime_wasi..preview1..types..Riflags$u2
   br label %17
 
 17:                                               ; preds = %12, %15, %10, %8, %6, %2
-  %.0 = phi i1 [ true, %2 ], [ true, %6 ], [ true, %8 ], [ true, %10 ], [ %16, %15 ], [ true, %12 ]
+  %.0 = phi i1 [ true, %10 ], [ %16, %15 ], [ true, %2 ], [ true, %8 ], [ true, %6 ], [ true, %12 ]
   ret i1 %.0
 }
 
@@ -18157,7 +18157,7 @@ define noundef zeroext i1 @"_ZN78_$LT$wasmtime_wasi..preview1..types..Roflags$u2
   br label %17
 
 17:                                               ; preds = %12, %15, %10, %8, %6, %2
-  %.0 = phi i1 [ true, %2 ], [ true, %6 ], [ true, %8 ], [ true, %10 ], [ %16, %15 ], [ true, %12 ]
+  %.0 = phi i1 [ true, %10 ], [ %16, %15 ], [ true, %2 ], [ true, %8 ], [ true, %6 ], [ true, %12 ]
   ret i1 %.0
 }
 
@@ -18400,7 +18400,7 @@ define noundef zeroext i1 @"_ZN78_$LT$wasmtime_wasi..preview1..types..Sdflags$u2
   br label %17
 
 17:                                               ; preds = %12, %15, %10, %8, %6, %2
-  %.0 = phi i1 [ true, %2 ], [ true, %6 ], [ true, %8 ], [ true, %10 ], [ %16, %15 ], [ true, %12 ]
+  %.0 = phi i1 [ true, %10 ], [ %16, %15 ], [ true, %2 ], [ true, %8 ], [ true, %6 ], [ true, %12 ]
   ret i1 %.0
 }
 

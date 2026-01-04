@@ -834,7 +834,7 @@ setup_salt.exit:                                  ; preds = %140, %151
   br label %ascii_is_unsafe.exit.thread
 
 ascii_is_unsafe.exit.thread:                      ; preds = %.preheader122, %.preheader121, %122, %122, %122, %19, %19, %19, %38, %setup_salt.exit
-  %.0 = phi ptr [ %220, %setup_salt.exit ], [ null, %38 ], [ null, %122 ], [ null, %122 ], [ null, %19 ], [ null, %19 ], [ null, %19 ], [ null, %122 ], [ null, %.preheader121 ], [ null, %.preheader122 ]
+  %.0 = phi ptr [ null, %38 ], [ null, %.preheader121 ], [ null, %122 ], [ %220, %setup_salt.exit ], [ null, %122 ], [ null, %19 ], [ null, %19 ], [ null, %19 ], [ null, %122 ], [ null, %.preheader122 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

@@ -101,7 +101,7 @@ define internal range(i32 -2147483648, 1) i32 @hnm_decode_init(ptr noundef %0) #
   br label %49
 
 49:                                               ; preds = %15, %8, %46, %45, %7
-  %.0 = phi i32 [ -1094995529, %7 ], [ 0, %46 ], [ -12, %45 ], [ %13, %8 ], [ -22, %15 ]
+  %.0 = phi i32 [ -1094995529, %7 ], [ -12, %45 ], [ %13, %8 ], [ 0, %46 ], [ -22, %15 ]
   ret i32 %.0
 }
 
@@ -212,8 +212,8 @@ bytestream2_get_byte.exit24.us.i:                 ; preds = %bytestream2_get_byt
   br label %.lr.ph.us.preheader.i
 
 .lr.ph.us.preheader.i:                            ; preds = %52, %bytestream2_get_byte.exit.us.i
-  %.sroa.0.21217.us.i = phi ptr [ %22, %bytestream2_get_byte.exit.us.i ], [ %53, %52 ]
-  %56 = phi i16 [ 256, %bytestream2_get_byte.exit.us.i ], [ %spec.select.i, %52 ]
+  %.sroa.0.21217.us.i = phi ptr [ %53, %52 ], [ %22, %bytestream2_get_byte.exit.us.i ]
+  %56 = phi i16 [ %spec.select.i, %52 ], [ 256, %bytestream2_get_byte.exit.us.i ]
   %57 = trunc nuw i32 %.0.i.us.i to i8
   br label %.lr.ph.us.i
 
@@ -306,8 +306,8 @@ bytestream2_get_byte.exit24.i:                    ; preds = %bytestream2_get_byt
   br label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %100, %bytestream2_get_byte.exit.i
-  %.sroa.0.21217.i = phi ptr [ %37, %bytestream2_get_byte.exit.i ], [ %101, %100 ]
-  %104 = phi i16 [ 256, %bytestream2_get_byte.exit.i ], [ %spec.select42.i, %100 ]
+  %.sroa.0.21217.i = phi ptr [ %101, %100 ], [ %37, %bytestream2_get_byte.exit.i ]
+  %104 = phi i16 [ %spec.select42.i, %100 ], [ 256, %bytestream2_get_byte.exit.i ]
   %105 = trunc nuw i32 %.0.i.i to i8
   br label %.lr.ph.i
 
@@ -462,9 +462,9 @@ bytestream2_get_byte.exit.i80:                    ; preds = %168, %164
   br label %getbit.exit56.i
 
 getbit.exit56.i:                                  ; preds = %180, %175
-  %.sroa.0.11.i = phi ptr [ %.sroa.0.9.i, %175 ], [ %181, %180 ]
-  %.4102.i = phi i32 [ %158, %175 ], [ %182, %180 ]
-  %.4.i = phi i32 [ %159, %175 ], [ 32, %180 ]
+  %.sroa.0.11.i = phi ptr [ %181, %180 ], [ %.sroa.0.9.i, %175 ]
+  %.4102.i = phi i32 [ %182, %180 ], [ %158, %175 ]
+  %.4.i = phi i32 [ 32, %180 ], [ %159, %175 ]
   %183 = shl i32 %.4102.i, 1
   %184 = add nsw i32 %.4.i, -1
   %.not41.i = icmp sgt i32 %.4102.i, -1
@@ -544,10 +544,10 @@ getbit.exit60.i:                                  ; preds = %201
   br label %getbit.exit64.i
 
 getbit.exit64.i:                                  ; preds = %152, %176, %216, %212, %getbit.exit60.i, %getbit.exit60.thread.i
-  %.in.in.i = phi i32 [ %183, %getbit.exit60.i ], [ %.5103.ph.i, %getbit.exit60.thread.i ], [ %183, %212 ], [ %183, %216 ], [ 0, %176 ], [ 0, %152 ]
-  %.sroa.0.15.i = phi ptr [ %.sroa.0.11.i, %getbit.exit60.i ], [ %.sroa.0.13.ph.i, %getbit.exit60.thread.i ], [ %144, %212 ], [ %217, %216 ], [ %144, %176 ], [ %144, %152 ]
-  %.6104.i = phi i32 [ %210, %getbit.exit60.i ], [ %209, %getbit.exit60.thread.i ], [ 0, %212 ], [ %218, %216 ], [ 0, %176 ], [ 0, %152 ]
-  %.6.i = phi i32 [ %211, %getbit.exit60.i ], [ 31, %getbit.exit60.thread.i ], [ 32, %212 ], [ 32, %216 ], [ 30, %176 ], [ 29, %152 ]
+  %.in.in.i = phi i32 [ %.5103.ph.i, %getbit.exit60.thread.i ], [ %183, %getbit.exit60.i ], [ %183, %212 ], [ %183, %216 ], [ 0, %176 ], [ 0, %152 ]
+  %.sroa.0.15.i = phi ptr [ %.sroa.0.13.ph.i, %getbit.exit60.thread.i ], [ %.sroa.0.11.i, %getbit.exit60.i ], [ %144, %212 ], [ %217, %216 ], [ %144, %176 ], [ %144, %152 ]
+  %.6104.i = phi i32 [ %209, %getbit.exit60.thread.i ], [ %210, %getbit.exit60.i ], [ 0, %212 ], [ %218, %216 ], [ 0, %176 ], [ 0, %152 ]
+  %.6.i = phi i32 [ 31, %getbit.exit60.thread.i ], [ %211, %getbit.exit60.i ], [ 32, %212 ], [ 32, %216 ], [ 30, %176 ], [ 29, %152 ]
   %.in.i = lshr i32 %.in.in.i, 30
   %219 = and i32 %.in.i, 2
   %220 = lshr i32 %.6104.i, 31
@@ -567,11 +567,11 @@ getbit.exit64.i:                                  ; preds = %152, %176, %216, %2
   br label %bytestream2_get_byte.exit49.thread124.i
 
 bytestream2_get_byte.exit49.thread124.i:          ; preds = %227, %getbit.exit64.i, %bytestream2_get_byte.exit49.i, %bytestream2_get_le16.exit.i
-  %.sroa.0.3.i = phi ptr [ %198, %bytestream2_get_byte.exit49.i ], [ %189, %bytestream2_get_le16.exit.i ], [ %228, %227 ], [ %144, %getbit.exit64.i ]
-  %.2100.i = phi i32 [ %183, %bytestream2_get_byte.exit49.i ], [ %183, %bytestream2_get_le16.exit.i ], [ %221, %227 ], [ %221, %getbit.exit64.i ]
-  %.297.i = phi i32 [ %184, %bytestream2_get_byte.exit49.i ], [ %184, %bytestream2_get_le16.exit.i ], [ %222, %227 ], [ %222, %getbit.exit64.i ]
-  %.136.i = phi i32 [ %200, %bytestream2_get_byte.exit49.i ], [ %192, %bytestream2_get_le16.exit.i ], [ %223, %227 ], [ %223, %getbit.exit64.i ]
-  %.0.i = phi i32 [ %195, %bytestream2_get_byte.exit49.i ], [ %194, %bytestream2_get_le16.exit.i ], [ %231, %227 ], [ -256, %getbit.exit64.i ]
+  %.sroa.0.3.i = phi ptr [ %189, %bytestream2_get_le16.exit.i ], [ %198, %bytestream2_get_byte.exit49.i ], [ %228, %227 ], [ %144, %getbit.exit64.i ]
+  %.2100.i = phi i32 [ %183, %bytestream2_get_le16.exit.i ], [ %183, %bytestream2_get_byte.exit49.i ], [ %221, %227 ], [ %221, %getbit.exit64.i ]
+  %.297.i = phi i32 [ %184, %bytestream2_get_le16.exit.i ], [ %184, %bytestream2_get_byte.exit49.i ], [ %222, %227 ], [ %222, %getbit.exit64.i ]
+  %.136.i = phi i32 [ %192, %bytestream2_get_le16.exit.i ], [ %200, %bytestream2_get_byte.exit49.i ], [ %223, %227 ], [ %223, %getbit.exit64.i ]
+  %.0.i = phi i32 [ %194, %bytestream2_get_le16.exit.i ], [ %195, %bytestream2_get_byte.exit49.i ], [ %231, %227 ], [ -256, %getbit.exit64.i ]
   %232 = add nuw nsw i32 %.136.i, 2
   %233 = add i32 %.0.i, %.033141.i
   %234 = icmp slt i32 %233, 0
@@ -622,7 +622,7 @@ bytestream2_get_byte.exit49.thread124.i:          ; preds = %227, %getbit.exit64
   br i1 %253, label %150, label %unpack_intraframe.exit, !llvm.loop !50
 
 bytestream2_get_byte.exit49.thread.sink.split.i:  ; preds = %240, %235, %bytestream2_get_byte.exit49.thread124.i, %160
-  %.str.9.sink.i = phi ptr [ @.str.9, %160 ], [ @.str.10, %235 ], [ @.str.10, %bytestream2_get_byte.exit49.thread124.i ], [ @.str.9, %240 ]
+  %.str.9.sink.i = phi ptr [ @.str.10, %bytestream2_get_byte.exit49.thread124.i ], [ @.str.9, %160 ], [ @.str.10, %235 ], [ @.str.9, %240 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull %.str.9.sink.i) #7
   br label %unpack_intraframe.exit
 
@@ -840,8 +840,8 @@ bytestream2_get_byte.exit94.i:                    ; preds = %358, %bytestream2_g
   br label %bytestream2_get_byte.exit90.i
 
 bytestream2_get_byte.exit90.i:                    ; preds = %366, %bytestream2_get_byte.exit94.i, %337, %bytestream2_get_byte.exit.thread.i
-  %.sroa.0.1.i96 = phi ptr [ %.sroa.0.6.i, %bytestream2_get_byte.exit94.i ], [ %333, %366 ], [ %338, %337 ], [ %318, %bytestream2_get_byte.exit.thread.i ]
-  %.pn.i = phi i32 [ 1, %bytestream2_get_byte.exit94.i ], [ %367, %366 ], [ %340, %337 ], [ 0, %bytestream2_get_byte.exit.thread.i ]
+  %.sroa.0.1.i96 = phi ptr [ %333, %366 ], [ %.sroa.0.6.i, %bytestream2_get_byte.exit94.i ], [ %338, %337 ], [ %318, %bytestream2_get_byte.exit.thread.i ]
+  %.pn.i = phi i32 [ %367, %366 ], [ 1, %bytestream2_get_byte.exit94.i ], [ %340, %337 ], [ 0, %bytestream2_get_byte.exit.thread.i ]
   %.1.i = add i32 %.pn.i, %.0145.i
   %368 = load i32, ptr %321, align 4, !tbaa !35
   %369 = load i32, ptr %322, align 8, !tbaa !36
@@ -966,7 +966,7 @@ default.unreachable:                              ; preds = %bytestream2_get_byt
   unreachable
 
 .loopexit133.sink.split.i:                        ; preds = %390, %384, %380, %bytestream2_get_byte.exit90.i, %341
-  %.str.9.sink.i92 = phi ptr [ @.str.11, %341 ], [ @.str.11, %bytestream2_get_byte.exit90.i ], [ @.str.10, %380 ], [ @.str.10, %384 ], [ @.str.9, %390 ]
+  %.str.9.sink.i92 = phi ptr [ @.str.10, %384 ], [ @.str.10, %380 ], [ @.str.11, %bytestream2_get_byte.exit90.i ], [ @.str.11, %341 ], [ @.str.9, %390 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull %.str.9.sink.i92) #7
   br label %decode_interframe_v4a.exit
 
@@ -1405,7 +1405,7 @@ bytestream2_get_le16.exit159.i:                   ; preds = %555, %bytestream2_p
   br i1 %663, label %.preheader226.split.i, label %.loopexit227.i, !llvm.loop !64
 
 .loopexit227.i:                                   ; preds = %.preheader228.split.i, %.preheader228.split.us.i, %.preheader226.split.i, %.preheader226.split.us.i
-  %.6.i107 = phi i32 [ %.8.us.i, %.preheader226.split.us.i ], [ %.8.i, %.preheader226.split.i ], [ %.5.us.i, %.preheader228.split.us.i ], [ %.5.i, %.preheader228.split.i ]
+  %.6.i107 = phi i32 [ %.5.us.i, %.preheader228.split.us.i ], [ %.8.i, %.preheader226.split.i ], [ %.8.us.i, %.preheader226.split.us.i ], [ %.5.i, %.preheader228.split.i ]
   %664 = and i8 %.0.i169221.shrunk.i, 1
   %.not146.i = icmp eq i8 %664, 0
   br i1 %.not146.i, label %.loopexit.i108, label %665
@@ -1444,7 +1444,7 @@ bytestream2_get_le16.exit159.i:                   ; preds = %555, %bytestream2_p
   br i1 %684, label %457, label %.loopexit.loopexit, !llvm.loop !66
 
 decode_interframe_v4.exit:                        ; preds = %bytestream2_get_byte.exit.thread.i119, %bytestream2_get_byte.exit156.i, %bytestream2_get_byte.exit156.thread.i, %543, %562, %569, %.thread223.i, %.thread224.i, %.thread225.i, %586
-  %.str.10.sink.i = phi ptr [ @.str.11, %bytestream2_get_byte.exit.thread.i119 ], [ @.str.11, %bytestream2_get_byte.exit156.thread.i ], [ @.str.11, %bytestream2_get_byte.exit156.i ], [ @.str.11, %543 ], [ @.str.10, %562 ], [ @.str.10, %569 ], [ @.str.9, %.thread224.i ], [ @.str.9, %.thread223.i ], [ @.str.10, %.thread225.i ], [ @.str.10, %586 ]
+  %.str.10.sink.i = phi ptr [ @.str.10, %.thread225.i ], [ @.str.9, %.thread223.i ], [ @.str.10, %569 ], [ @.str.10, %562 ], [ @.str.11, %543 ], [ @.str.11, %bytestream2_get_byte.exit156.i ], [ @.str.11, %bytestream2_get_byte.exit.thread.i119 ], [ @.str.11, %bytestream2_get_byte.exit156.thread.i ], [ @.str.9, %.thread224.i ], [ @.str.10, %586 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull %.str.10.sink.i) #7
   br label %.critedge
 
@@ -1569,7 +1569,7 @@ hnm_update_palette.exit:                          ; preds = %.loopexit.us.i, %by
   br label %.critedge
 
 .critedge:                                        ; preds = %decode_interframe_v4.exit, %303, %132, %hnm_update_palette.exit, %741, %131, %10
-  %.0 = phi i32 [ -1094995529, %10 ], [ %743, %hnm_update_palette.exit ], [ -1094995529, %131 ], [ -1094995529, %741 ], [ %133, %132 ], [ %304, %303 ], [ -1094995529, %decode_interframe_v4.exit ]
+  %.0 = phi i32 [ -1094995529, %10 ], [ %743, %hnm_update_palette.exit ], [ -1094995529, %131 ], [ -1094995529, %741 ], [ %133, %132 ], [ -1094995529, %decode_interframe_v4.exit ], [ %304, %303 ]
   ret i32 %.0
 }
 

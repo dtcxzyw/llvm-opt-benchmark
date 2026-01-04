@@ -490,7 +490,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br i1 %58, label %common.ret.sink.split, label %common.ret
 
 "_ZN4core3ptr79drop_in_place$LT$alloc..sync..Arc$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$17hf6d994dad34c12a3E.exit": ; preds = %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17ha80e6b6bad139d64E.exit5", %94, %79, %85, %48, %54
-  %.pn = phi { ptr, i32 } [ %49, %54 ], [ %49, %48 ], [ %80, %85 ], [ %80, %79 ], [ %eh.lpad-body, %94 ], [ %eh.lpad-body, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17ha80e6b6bad139d64E.exit5" ]
+  %.pn = phi { ptr, i32 } [ %80, %79 ], [ %49, %48 ], [ %49, %54 ], [ %80, %85 ], [ %eh.lpad-body, %94 ], [ %eh.lpad-body, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17ha80e6b6bad139d64E.exit5" ]
   resume { ptr, i32 } %.pn
 
 59:                                               ; preds = %94, %85, %.body, %54
@@ -9229,7 +9229,7 @@ define hidden void @_ZN5tokio7runtime4task7harness11cancel_task17h023e7758e33435
   unreachable
 
 common.resume:                                    ; preds = %.body.i20, %36, %.body.i, %18
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %15, %.body.i ], [ %37, %36 ], [ %33, %.body.i20 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %15, %.body.i ], [ %33, %.body.i20 ], [ %37, %36 ]
   resume { ptr, i32 } %common.resume.op
 
 18:                                               ; preds = %7
@@ -9356,7 +9356,7 @@ define hidden void @_ZN5tokio7runtime4task7harness11cancel_task17h03498a6ce5e185
   unreachable
 
 common.resume:                                    ; preds = %.body.i20, %36, %.body.i, %18
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %15, %.body.i ], [ %37, %36 ], [ %33, %.body.i20 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %15, %.body.i ], [ %33, %.body.i20 ], [ %37, %36 ]
   resume { ptr, i32 } %common.resume.op
 
 18:                                               ; preds = %7
@@ -9485,7 +9485,7 @@ define hidden void @_ZN5tokio7runtime4task7harness11cancel_task17h05e76ead5e2a51
   unreachable
 
 common.resume:                                    ; preds = %.body.i20, %38, %.body.i, %19
-  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %16, %.body.i ], [ %39, %38 ], [ %35, %.body.i20 ]
+  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %16, %.body.i ], [ %35, %.body.i20 ], [ %39, %38 ]
   resume { ptr, i32 } %common.resume.op
 
 19:                                               ; preds = %7
@@ -9669,7 +9669,7 @@ define hidden void @_ZN5tokio7runtime4task7harness11cancel_task17h15256aba8ad31e
   unreachable
 
 common.resume:                                    ; preds = %.body.i20, %38, %.body.i, %19
-  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %16, %.body.i ], [ %39, %38 ], [ %35, %.body.i20 ]
+  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %16, %.body.i ], [ %35, %.body.i20 ], [ %39, %38 ]
   resume { ptr, i32 } %common.resume.op
 
 19:                                               ; preds = %7
@@ -9800,7 +9800,7 @@ define hidden void @_ZN5tokio7runtime4task7harness11cancel_task17h1fa8df4c5bd05a
   unreachable
 
 common.resume:                                    ; preds = %.body.i20, %38, %.body.i, %19
-  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %16, %.body.i ], [ %39, %38 ], [ %35, %.body.i20 ]
+  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %16, %.body.i ], [ %35, %.body.i20 ], [ %39, %38 ]
   resume { ptr, i32 } %common.resume.op
 
 19:                                               ; preds = %7
@@ -9930,7 +9930,7 @@ define hidden void @_ZN5tokio7runtime4task7harness11cancel_task17h21651c2a43fe5c
   unreachable
 
 common.resume:                                    ; preds = %.body.i24, %36, %.body.i, %18
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %15, %.body.i ], [ %37, %36 ], [ %33, %.body.i24 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %15, %.body.i ], [ %33, %.body.i24 ], [ %37, %36 ]
   resume { ptr, i32 } %common.resume.op
 
 18:                                               ; preds = %7
@@ -10059,7 +10059,7 @@ define hidden void @_ZN5tokio7runtime4task7harness11cancel_task17h276751ba347cbd
   unreachable
 
 common.resume:                                    ; preds = %.body.i24, %36, %.body.i, %18
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %15, %.body.i ], [ %37, %36 ], [ %33, %.body.i24 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %15, %.body.i ], [ %33, %.body.i24 ], [ %37, %36 ]
   resume { ptr, i32 } %common.resume.op
 
 18:                                               ; preds = %7
@@ -10189,7 +10189,7 @@ define hidden void @_ZN5tokio7runtime4task7harness11cancel_task17h2b487f2b8ecbc3
   unreachable
 
 common.resume:                                    ; preds = %.body.i20, %38, %.body.i, %19
-  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %16, %.body.i ], [ %39, %38 ], [ %35, %.body.i20 ]
+  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %16, %.body.i ], [ %35, %.body.i20 ], [ %39, %38 ]
   resume { ptr, i32 } %common.resume.op
 
 19:                                               ; preds = %7
@@ -10320,7 +10320,7 @@ define hidden void @_ZN5tokio7runtime4task7harness11cancel_task17h3c98abfb1899fd
   unreachable
 
 common.resume:                                    ; preds = %.body.i20, %38, %.body.i, %19
-  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %16, %.body.i ], [ %39, %38 ], [ %35, %.body.i20 ]
+  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %16, %.body.i ], [ %35, %.body.i20 ], [ %39, %38 ]
   resume { ptr, i32 } %common.resume.op
 
 19:                                               ; preds = %7
@@ -10452,7 +10452,7 @@ define hidden void @_ZN5tokio7runtime4task7harness11cancel_task17h453a1751401b55
   unreachable
 
 common.resume:                                    ; preds = %.body.i20, %40, %.body.i, %20
-  %common.resume.op = phi { ptr, i32 } [ %21, %20 ], [ %17, %.body.i ], [ %41, %40 ], [ %37, %.body.i20 ]
+  %common.resume.op = phi { ptr, i32 } [ %21, %20 ], [ %17, %.body.i ], [ %37, %.body.i20 ], [ %41, %40 ]
   resume { ptr, i32 } %common.resume.op
 
 20:                                               ; preds = %7
@@ -10584,7 +10584,7 @@ define hidden void @_ZN5tokio7runtime4task7harness11cancel_task17h4f68a2f20fc680
   unreachable
 
 common.resume:                                    ; preds = %.body.i20, %38, %.body.i, %19
-  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %16, %.body.i ], [ %39, %38 ], [ %35, %.body.i20 ]
+  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %16, %.body.i ], [ %35, %.body.i20 ], [ %39, %38 ]
   resume { ptr, i32 } %common.resume.op
 
 19:                                               ; preds = %7
@@ -10767,7 +10767,7 @@ define hidden void @_ZN5tokio7runtime4task7harness11cancel_task17h5ec2298fdfde24
   unreachable
 
 common.resume:                                    ; preds = %.body.i24, %36, %.body.i, %18
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %15, %.body.i ], [ %37, %36 ], [ %33, %.body.i24 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %15, %.body.i ], [ %33, %.body.i24 ], [ %37, %36 ]
   resume { ptr, i32 } %common.resume.op
 
 18:                                               ; preds = %7
@@ -10898,7 +10898,7 @@ define hidden void @_ZN5tokio7runtime4task7harness11cancel_task17h61038146ce73e0
   unreachable
 
 common.resume:                                    ; preds = %.body.i20, %40, %.body.i, %20
-  %common.resume.op = phi { ptr, i32 } [ %21, %20 ], [ %17, %.body.i ], [ %41, %40 ], [ %37, %.body.i20 ]
+  %common.resume.op = phi { ptr, i32 } [ %21, %20 ], [ %17, %.body.i ], [ %37, %.body.i20 ], [ %41, %40 ]
   resume { ptr, i32 } %common.resume.op
 
 20:                                               ; preds = %7
@@ -11028,7 +11028,7 @@ define hidden void @_ZN5tokio7runtime4task7harness11cancel_task17h645dd0fbe5d052
   unreachable
 
 common.resume:                                    ; preds = %.body.i20, %36, %.body.i, %18
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %15, %.body.i ], [ %37, %36 ], [ %33, %.body.i20 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %15, %.body.i ], [ %33, %.body.i20 ], [ %37, %36 ]
   resume { ptr, i32 } %common.resume.op
 
 18:                                               ; preds = %7
@@ -11155,7 +11155,7 @@ define hidden void @_ZN5tokio7runtime4task7harness11cancel_task17h703ff090b30095
   unreachable
 
 common.resume:                                    ; preds = %.body.i20, %36, %.body.i, %18
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %15, %.body.i ], [ %37, %36 ], [ %33, %.body.i20 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %15, %.body.i ], [ %33, %.body.i20 ], [ %37, %36 ]
   resume { ptr, i32 } %common.resume.op
 
 18:                                               ; preds = %7
@@ -11284,7 +11284,7 @@ define hidden void @_ZN5tokio7runtime4task7harness11cancel_task17h84fb481a2ff9e6
   unreachable
 
 common.resume:                                    ; preds = %.body.i20, %38, %.body.i, %19
-  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %16, %.body.i ], [ %39, %38 ], [ %35, %.body.i20 ]
+  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %16, %.body.i ], [ %35, %.body.i20 ], [ %39, %38 ]
   resume { ptr, i32 } %common.resume.op
 
 19:                                               ; preds = %7
@@ -11516,7 +11516,7 @@ define hidden void @_ZN5tokio7runtime4task7harness11cancel_task17h8e3a2dacae8889
   unreachable
 
 common.resume:                                    ; preds = %.body.i24, %36, %.body.i, %18
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %15, %.body.i ], [ %37, %36 ], [ %33, %.body.i24 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %15, %.body.i ], [ %33, %.body.i24 ], [ %37, %36 ]
   resume { ptr, i32 } %common.resume.op
 
 18:                                               ; preds = %7
@@ -11646,7 +11646,7 @@ define hidden void @_ZN5tokio7runtime4task7harness11cancel_task17h8f000dc1c2f6f4
   unreachable
 
 common.resume:                                    ; preds = %.body.i20, %38, %.body.i, %19
-  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %16, %.body.i ], [ %39, %38 ], [ %35, %.body.i20 ]
+  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %16, %.body.i ], [ %35, %.body.i20 ], [ %39, %38 ]
   resume { ptr, i32 } %common.resume.op
 
 19:                                               ; preds = %7
@@ -11775,7 +11775,7 @@ define hidden void @_ZN5tokio7runtime4task7harness11cancel_task17h9154bd8889f7f5
   unreachable
 
 common.resume:                                    ; preds = %.body.i20, %36, %.body.i, %18
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %15, %.body.i ], [ %37, %36 ], [ %33, %.body.i20 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %15, %.body.i ], [ %33, %.body.i20 ], [ %37, %36 ]
   resume { ptr, i32 } %common.resume.op
 
 18:                                               ; preds = %7
@@ -11904,7 +11904,7 @@ define hidden void @_ZN5tokio7runtime4task7harness11cancel_task17h9bee4632dbc4a6
   unreachable
 
 common.resume:                                    ; preds = %.body.i20, %38, %.body.i, %19
-  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %16, %.body.i ], [ %39, %38 ], [ %35, %.body.i20 ]
+  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %16, %.body.i ], [ %35, %.body.i20 ], [ %39, %38 ]
   resume { ptr, i32 } %common.resume.op
 
 19:                                               ; preds = %7
@@ -12034,7 +12034,7 @@ define hidden void @_ZN5tokio7runtime4task7harness11cancel_task17hc3f1361739d1f9
   unreachable
 
 common.resume:                                    ; preds = %.body.i24, %36, %.body.i, %18
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %15, %.body.i ], [ %37, %36 ], [ %33, %.body.i24 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %15, %.body.i ], [ %33, %.body.i24 ], [ %37, %36 ]
   resume { ptr, i32 } %common.resume.op
 
 18:                                               ; preds = %7
@@ -12162,7 +12162,7 @@ define hidden void @_ZN5tokio7runtime4task7harness11cancel_task17hc70fd56456866a
   unreachable
 
 common.resume:                                    ; preds = %.body.i20, %36, %.body.i, %18
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %15, %.body.i ], [ %37, %36 ], [ %33, %.body.i20 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %15, %.body.i ], [ %33, %.body.i20 ], [ %37, %36 ]
   resume { ptr, i32 } %common.resume.op
 
 18:                                               ; preds = %7
@@ -12291,7 +12291,7 @@ define hidden void @_ZN5tokio7runtime4task7harness11cancel_task17hccddcb43f3455c
   unreachable
 
 common.resume:                                    ; preds = %.body.i20, %38, %.body.i, %19
-  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %16, %.body.i ], [ %39, %38 ], [ %35, %.body.i20 ]
+  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %16, %.body.i ], [ %35, %.body.i20 ], [ %39, %38 ]
   resume { ptr, i32 } %common.resume.op
 
 19:                                               ; preds = %7
@@ -12422,7 +12422,7 @@ define hidden void @_ZN5tokio7runtime4task7harness11cancel_task17hd2d1fe0eac7da3
   unreachable
 
 common.resume:                                    ; preds = %.body.i20, %38, %.body.i, %19
-  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %16, %.body.i ], [ %39, %38 ], [ %35, %.body.i20 ]
+  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %16, %.body.i ], [ %35, %.body.i20 ], [ %39, %38 ]
   resume { ptr, i32 } %common.resume.op
 
 19:                                               ; preds = %7
@@ -12552,7 +12552,7 @@ define hidden void @_ZN5tokio7runtime4task7harness11cancel_task17hdcb52a61db3d43
   unreachable
 
 common.resume:                                    ; preds = %.body.i24, %36, %.body.i, %18
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %15, %.body.i ], [ %37, %36 ], [ %33, %.body.i24 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %15, %.body.i ], [ %33, %.body.i24 ], [ %37, %36 ]
   resume { ptr, i32 } %common.resume.op
 
 18:                                               ; preds = %7
@@ -12681,7 +12681,7 @@ define hidden void @_ZN5tokio7runtime4task7harness11cancel_task17he1ba017c78bb51
   unreachable
 
 common.resume:                                    ; preds = %.body.i24, %36, %.body.i, %18
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %15, %.body.i ], [ %37, %36 ], [ %33, %.body.i24 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %15, %.body.i ], [ %33, %.body.i24 ], [ %37, %36 ]
   resume { ptr, i32 } %common.resume.op
 
 18:                                               ; preds = %7
@@ -12811,7 +12811,7 @@ define hidden void @_ZN5tokio7runtime4task7harness11cancel_task17he22ec53993a278
   unreachable
 
 common.resume:                                    ; preds = %.body.i20, %38, %.body.i, %19
-  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %16, %.body.i ], [ %39, %38 ], [ %35, %.body.i20 ]
+  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %16, %.body.i ], [ %35, %.body.i20 ], [ %39, %38 ]
   resume { ptr, i32 } %common.resume.op
 
 19:                                               ; preds = %7
@@ -12940,7 +12940,7 @@ define hidden void @_ZN5tokio7runtime4task7harness11cancel_task17hee799fff6f3624
   unreachable
 
 common.resume:                                    ; preds = %.body.i20, %36, %.body.i, %18
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %15, %.body.i ], [ %37, %36 ], [ %33, %.body.i20 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %15, %.body.i ], [ %33, %.body.i20 ], [ %37, %36 ]
   resume { ptr, i32 } %common.resume.op
 
 18:                                               ; preds = %7
@@ -13067,7 +13067,7 @@ define hidden void @_ZN5tokio7runtime4task7harness11cancel_task17hf8d1065698398e
   unreachable
 
 common.resume:                                    ; preds = %.body.i20, %36, %.body.i, %18
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %15, %.body.i ], [ %37, %36 ], [ %33, %.body.i20 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %15, %.body.i ], [ %33, %.body.i20 ], [ %37, %36 ]
   resume { ptr, i32 } %common.resume.op
 
 18:                                               ; preds = %7
@@ -13195,7 +13195,7 @@ define hidden void @_ZN5tokio7runtime4task7harness11cancel_task17hfa73d3918120c6
   unreachable
 
 common.resume:                                    ; preds = %.body.i24, %36, %.body.i, %18
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %15, %.body.i ], [ %37, %36 ], [ %33, %.body.i24 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %15, %.body.i ], [ %33, %.body.i24 ], [ %37, %36 ]
   resume { ptr, i32 } %common.resume.op
 
 18:                                               ; preds = %7
@@ -13325,7 +13325,7 @@ define hidden void @_ZN5tokio7runtime4task7harness11cancel_task17hfa7908dddd4f96
   unreachable
 
 common.resume:                                    ; preds = %.body.i20, %38, %.body.i, %19
-  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %16, %.body.i ], [ %39, %38 ], [ %35, %.body.i20 ]
+  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %16, %.body.i ], [ %35, %.body.i20 ], [ %39, %38 ]
   resume { ptr, i32 } %common.resume.op
 
 19:                                               ; preds = %7
@@ -13549,7 +13549,7 @@ default.unreachable11:                            ; preds = %44, %1
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
+  %.2 = phi i8 [ 0, %49 ], [ 1, %47 ], [ 3, %48 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %51
 
@@ -13726,7 +13726,7 @@ _ZN3std9panicking3try17h2c1f9e1b8f728997E.exit.i: ; preds = %7
     i8 3, label %49
   ]
 
-46:                                               ; preds = %.thread.i, %35, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+46:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i", %.thread.i, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.15.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -13743,7 +13743,7 @@ _ZN3std9panicking3try17h2c1f9e1b8f728997E.exit.i: ; preds = %7
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
+  %.2 = phi i8 [ 0, %49 ], [ 1, %47 ], [ 3, %48 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %51
 
@@ -13986,12 +13986,12 @@ default.unreachable18:                            ; preds = %62, %1
   br label %_ZN5tokio7runtime4task7harness11cancel_task17h86d87c49ac72f118E.llvm.16590137254369539614.exit15
 
 _ZN5tokio7runtime4task7harness11cancel_task17h86d87c49ac72f118E.llvm.16590137254369539614.exit15: ; preds = %71, %68, %62, %66, %65
-  %.2 = phi i8 [ 1, %65 ], [ 3, %66 ], [ 2, %62 ], [ 0, %68 ], [ 0, %71 ]
+  %.2 = phi i8 [ 2, %62 ], [ 1, %65 ], [ 3, %66 ], [ 0, %68 ], [ 0, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZN5tokio7runtime4task7harness11cancel_task17h86d87c49ac72f118E.llvm.16590137254369539614.exit
 
 _ZN5tokio7runtime4task7harness11cancel_task17h86d87c49ac72f118E.llvm.16590137254369539614.exit: ; preds = %1, %54, %51, %_ZN5tokio7runtime4task7harness11cancel_task17h86d87c49ac72f118E.llvm.16590137254369539614.exit15, %1, %64
-  %.1 = phi i8 [ 0, %64 ], [ %.2, %_ZN5tokio7runtime4task7harness11cancel_task17h86d87c49ac72f118E.llvm.16590137254369539614.exit15 ], [ %12, %1 ], [ 0, %51 ], [ 0, %54 ], [ %12, %1 ]
+  %.1 = phi i8 [ 0, %64 ], [ %.2, %_ZN5tokio7runtime4task7harness11cancel_task17h86d87c49ac72f118E.llvm.16590137254369539614.exit15 ], [ %12, %1 ], [ 0, %54 ], [ 0, %51 ], [ %12, %1 ]
   ret i8 %.1
 }
 
@@ -14156,7 +14156,7 @@ _ZN3std9panicking3try17h68390cdce1ca6810E.exit.i: ; preds = %7
   br label %52
 
 52:                                               ; preds = %46, %51, %50, %49
-  %.2 = phi i8 [ 1, %49 ], [ 3, %50 ], [ 0, %51 ], [ 2, %46 ]
+  %.2 = phi i8 [ 0, %51 ], [ 1, %49 ], [ 3, %50 ], [ 2, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %53
 
@@ -14333,7 +14333,7 @@ _ZN3std9panicking3try17h83491d4c365e855dE.exit.i: ; preds = %7
     i8 3, label %49
   ]
 
-46:                                               ; preds = %.thread.i, %35, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+46:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i", %.thread.i, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.15.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -14350,7 +14350,7 @@ _ZN3std9panicking3try17h83491d4c365e855dE.exit.i: ; preds = %7
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
+  %.2 = phi i8 [ 0, %49 ], [ 1, %47 ], [ 3, %48 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %51
 
@@ -14507,7 +14507,7 @@ default.unreachable11:                            ; preds = %45, %1
   br label %51
 
 51:                                               ; preds = %45, %50, %49, %48
-  %.2 = phi i8 [ 1, %48 ], [ 3, %49 ], [ 0, %50 ], [ 2, %45 ]
+  %.2 = phi i8 [ 0, %50 ], [ 1, %48 ], [ 3, %49 ], [ 2, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %52
 
@@ -14684,7 +14684,7 @@ _ZN3std9panicking3try17hfe9aa9eca33dbd69E.exit.i: ; preds = %7
     i8 3, label %49
   ]
 
-46:                                               ; preds = %.thread.i, %35, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+46:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i", %.thread.i, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.15.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -14701,7 +14701,7 @@ _ZN3std9panicking3try17hfe9aa9eca33dbd69E.exit.i: ; preds = %7
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
+  %.2 = phi i8 [ 0, %49 ], [ 1, %47 ], [ 3, %48 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %51
 
@@ -14959,12 +14959,12 @@ _ZN3std9panicking3try17h48f7bda9fa19eff3E.exit.i: ; preds = %13
   br label %_ZN5tokio7runtime4task7harness11cancel_task17h568ce2a2840ed7f3E.llvm.16590137254369539614.exit15
 
 _ZN5tokio7runtime4task7harness11cancel_task17h568ce2a2840ed7f3E.llvm.16590137254369539614.exit15: ; preds = %72, %69, %63, %67, %66
-  %.2 = phi i8 [ 1, %66 ], [ 3, %67 ], [ 2, %63 ], [ 0, %69 ], [ 0, %72 ]
+  %.2 = phi i8 [ 2, %63 ], [ 1, %66 ], [ 3, %67 ], [ 0, %69 ], [ 0, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZN5tokio7runtime4task7harness11cancel_task17h568ce2a2840ed7f3E.llvm.16590137254369539614.exit
 
 _ZN5tokio7runtime4task7harness11cancel_task17h568ce2a2840ed7f3E.llvm.16590137254369539614.exit: ; preds = %1, %55, %52, %_ZN5tokio7runtime4task7harness11cancel_task17h568ce2a2840ed7f3E.llvm.16590137254369539614.exit15, %1, %65
-  %.1 = phi i8 [ 0, %65 ], [ %.2, %_ZN5tokio7runtime4task7harness11cancel_task17h568ce2a2840ed7f3E.llvm.16590137254369539614.exit15 ], [ %12, %1 ], [ 0, %52 ], [ 0, %55 ], [ %12, %1 ]
+  %.1 = phi i8 [ 0, %65 ], [ %.2, %_ZN5tokio7runtime4task7harness11cancel_task17h568ce2a2840ed7f3E.llvm.16590137254369539614.exit15 ], [ %12, %1 ], [ 0, %55 ], [ 0, %52 ], [ %12, %1 ]
   ret i8 %.1
 }
 
@@ -15136,7 +15136,7 @@ _ZN3std9panicking3try17haa24b3c7ac5f81bcE.exit.i: ; preds = %7
     i8 3, label %49
   ]
 
-46:                                               ; preds = %.thread.i, %35, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+46:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i", %.thread.i, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.15.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -15153,7 +15153,7 @@ _ZN3std9panicking3try17haa24b3c7ac5f81bcE.exit.i: ; preds = %7
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
+  %.2 = phi i8 [ 0, %49 ], [ 1, %47 ], [ 3, %48 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %51
 
@@ -15306,7 +15306,7 @@ default.unreachable11:                            ; preds = %44, %1
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
+  %.2 = phi i8 [ 0, %49 ], [ 1, %47 ], [ 3, %48 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %51
 
@@ -15516,7 +15516,7 @@ _ZN3std9panicking3try17h176e2208fea4c3a2E.exit.i: ; preds = %13
     i8 3, label %64
   ]
 
-61:                                               ; preds = %.thread.i, %41, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+61:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i", %.thread.i, %41
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.13.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -15570,12 +15570,12 @@ _ZN3std9panicking3try17h176e2208fea4c3a2E.exit.i: ; preds = %13
   br label %_ZN5tokio7runtime4task7harness11cancel_task17h8db4b6504392aab2E.llvm.16590137254369539614.exit15
 
 _ZN5tokio7runtime4task7harness11cancel_task17h8db4b6504392aab2E.llvm.16590137254369539614.exit15: ; preds = %67, %65, %59, %63, %62
-  %.2 = phi i8 [ 1, %62 ], [ 3, %63 ], [ 2, %59 ], [ 0, %65 ], [ 0, %67 ]
+  %.2 = phi i8 [ 2, %59 ], [ 1, %62 ], [ 3, %63 ], [ 0, %65 ], [ 0, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZN5tokio7runtime4task7harness11cancel_task17h8db4b6504392aab2E.llvm.16590137254369539614.exit
 
 _ZN5tokio7runtime4task7harness11cancel_task17h8db4b6504392aab2E.llvm.16590137254369539614.exit: ; preds = %1, %52, %50, %_ZN5tokio7runtime4task7harness11cancel_task17h8db4b6504392aab2E.llvm.16590137254369539614.exit15, %1, %61
-  %.1 = phi i8 [ 0, %61 ], [ %.2, %_ZN5tokio7runtime4task7harness11cancel_task17h8db4b6504392aab2E.llvm.16590137254369539614.exit15 ], [ %12, %1 ], [ 0, %50 ], [ 0, %52 ], [ %12, %1 ]
+  %.1 = phi i8 [ 0, %61 ], [ %.2, %_ZN5tokio7runtime4task7harness11cancel_task17h8db4b6504392aab2E.llvm.16590137254369539614.exit15 ], [ %12, %1 ], [ 0, %52 ], [ 0, %50 ], [ %12, %1 ]
   ret i8 %.1
 }
 
@@ -15724,7 +15724,7 @@ default.unreachable11:                            ; preds = %45, %1
   br label %51
 
 51:                                               ; preds = %45, %50, %49, %48
-  %.2 = phi i8 [ 1, %48 ], [ 3, %49 ], [ 0, %50 ], [ 2, %45 ]
+  %.2 = phi i8 [ 0, %50 ], [ 1, %48 ], [ 3, %49 ], [ 2, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %52
 
@@ -15877,7 +15877,7 @@ default.unreachable11:                            ; preds = %44, %1
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
+  %.2 = phi i8 [ 0, %49 ], [ 1, %47 ], [ 3, %48 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %51
 
@@ -16054,7 +16054,7 @@ _ZN3std9panicking3try17hb388154b942b6822E.exit.i: ; preds = %7
     i8 3, label %49
   ]
 
-46:                                               ; preds = %.thread.i, %35, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+46:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i", %.thread.i, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.15.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -16071,7 +16071,7 @@ _ZN3std9panicking3try17hb388154b942b6822E.exit.i: ; preds = %7
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
+  %.2 = phi i8 [ 0, %49 ], [ 1, %47 ], [ 3, %48 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %51
 
@@ -16224,7 +16224,7 @@ default.unreachable11:                            ; preds = %44, %1
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
+  %.2 = phi i8 [ 0, %49 ], [ 1, %47 ], [ 3, %48 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %51
 
@@ -16401,7 +16401,7 @@ _ZN3std9panicking3try17h315a9f1ec8eaef9bE.exit.i: ; preds = %7
     i8 3, label %49
   ]
 
-46:                                               ; preds = %.thread.i, %35, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+46:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i", %.thread.i, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.15.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -16418,7 +16418,7 @@ _ZN3std9panicking3try17h315a9f1ec8eaef9bE.exit.i: ; preds = %7
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
+  %.2 = phi i8 [ 0, %49 ], [ 1, %47 ], [ 3, %48 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %51
 
@@ -16571,7 +16571,7 @@ default.unreachable11:                            ; preds = %44, %1
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
+  %.2 = phi i8 [ 0, %49 ], [ 1, %47 ], [ 3, %48 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %51
 
@@ -16724,7 +16724,7 @@ default.unreachable11:                            ; preds = %44, %1
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
+  %.2 = phi i8 [ 0, %49 ], [ 1, %47 ], [ 3, %48 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %51
 
@@ -16877,7 +16877,7 @@ default.unreachable11:                            ; preds = %44, %1
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
+  %.2 = phi i8 [ 0, %49 ], [ 1, %47 ], [ 3, %48 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %51
 
@@ -17135,12 +17135,12 @@ _ZN3std9panicking3try17haa6a62bc900c1641E.exit.i: ; preds = %13
   br label %_ZN5tokio7runtime4task7harness11cancel_task17h14b6523c5a6e4c04E.llvm.16590137254369539614.exit15
 
 _ZN5tokio7runtime4task7harness11cancel_task17h14b6523c5a6e4c04E.llvm.16590137254369539614.exit15: ; preds = %72, %69, %63, %67, %66
-  %.2 = phi i8 [ 1, %66 ], [ 3, %67 ], [ 2, %63 ], [ 0, %69 ], [ 0, %72 ]
+  %.2 = phi i8 [ 2, %63 ], [ 1, %66 ], [ 3, %67 ], [ 0, %69 ], [ 0, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZN5tokio7runtime4task7harness11cancel_task17h14b6523c5a6e4c04E.llvm.16590137254369539614.exit
 
 _ZN5tokio7runtime4task7harness11cancel_task17h14b6523c5a6e4c04E.llvm.16590137254369539614.exit: ; preds = %1, %55, %52, %_ZN5tokio7runtime4task7harness11cancel_task17h14b6523c5a6e4c04E.llvm.16590137254369539614.exit15, %1, %65
-  %.1 = phi i8 [ 0, %65 ], [ %.2, %_ZN5tokio7runtime4task7harness11cancel_task17h14b6523c5a6e4c04E.llvm.16590137254369539614.exit15 ], [ %12, %1 ], [ 0, %52 ], [ 0, %55 ], [ %12, %1 ]
+  %.1 = phi i8 [ 0, %65 ], [ %.2, %_ZN5tokio7runtime4task7harness11cancel_task17h14b6523c5a6e4c04E.llvm.16590137254369539614.exit15 ], [ %12, %1 ], [ 0, %55 ], [ 0, %52 ], [ %12, %1 ]
   ret i8 %.1
 }
 
@@ -17289,7 +17289,7 @@ default.unreachable11:                            ; preds = %45, %1
   br label %51
 
 51:                                               ; preds = %45, %50, %49, %48
-  %.2 = phi i8 [ 1, %48 ], [ 3, %49 ], [ 0, %50 ], [ 2, %45 ]
+  %.2 = phi i8 [ 0, %50 ], [ 1, %48 ], [ 3, %49 ], [ 2, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %52
 
@@ -17442,7 +17442,7 @@ default.unreachable11:                            ; preds = %44, %1
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
+  %.2 = phi i8 [ 0, %49 ], [ 1, %47 ], [ 3, %48 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %51
 
@@ -17599,7 +17599,7 @@ default.unreachable11:                            ; preds = %45, %1
   br label %51
 
 51:                                               ; preds = %45, %50, %49, %48
-  %.2 = phi i8 [ 1, %48 ], [ 3, %49 ], [ 0, %50 ], [ 2, %45 ]
+  %.2 = phi i8 [ 0, %50 ], [ 1, %48 ], [ 3, %49 ], [ 2, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %52
 
@@ -17776,7 +17776,7 @@ _ZN3std9panicking3try17h090acf309411ee89E.exit.i: ; preds = %7
     i8 3, label %49
   ]
 
-46:                                               ; preds = %.thread.i, %35, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+46:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i", %.thread.i, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.15.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -17793,7 +17793,7 @@ _ZN3std9panicking3try17h090acf309411ee89E.exit.i: ; preds = %7
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
+  %.2 = phi i8 [ 0, %49 ], [ 1, %47 ], [ 3, %48 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %51
 
@@ -17946,7 +17946,7 @@ default.unreachable11:                            ; preds = %44, %1
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
+  %.2 = phi i8 [ 0, %49 ], [ 1, %47 ], [ 3, %48 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %51
 
@@ -18099,7 +18099,7 @@ default.unreachable11:                            ; preds = %44, %1
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
+  %.2 = phi i8 [ 0, %49 ], [ 1, %47 ], [ 3, %48 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %51
 
@@ -18252,7 +18252,7 @@ default.unreachable11:                            ; preds = %44, %1
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
+  %.2 = phi i8 [ 0, %49 ], [ 1, %47 ], [ 3, %48 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %51
 
@@ -18429,7 +18429,7 @@ _ZN3std9panicking3try17hcc5dc36c237b72cdE.exit.i: ; preds = %7
     i8 3, label %49
   ]
 
-46:                                               ; preds = %.thread.i, %35, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i"
+46:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16590137254369539614.exit.i1.i.i.i", %.thread.i, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.15.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -18446,7 +18446,7 @@ _ZN3std9panicking3try17hcc5dc36c237b72cdE.exit.i: ; preds = %7
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
+  %.2 = phi i8 [ 0, %49 ], [ 1, %47 ], [ 3, %48 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %51
 
@@ -18599,7 +18599,7 @@ default.unreachable11:                            ; preds = %44, %1
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
+  %.2 = phi i8 [ 0, %49 ], [ 1, %47 ], [ 3, %48 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %51
 
@@ -18754,7 +18754,7 @@ default.unreachable11:                            ; preds = %45, %1
   br label %51
 
 51:                                               ; preds = %45, %50, %49, %48
-  %.2 = phi i8 [ 1, %48 ], [ 3, %49 ], [ 0, %50 ], [ 2, %45 ]
+  %.2 = phi i8 [ 0, %50 ], [ 1, %48 ], [ 3, %49 ], [ 2, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %52
 
@@ -18907,7 +18907,7 @@ default.unreachable11:                            ; preds = %44, %1
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
+  %.2 = phi i8 [ 0, %49 ], [ 1, %47 ], [ 3, %48 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %51
 
@@ -19060,7 +19060,7 @@ default.unreachable11:                            ; preds = %44, %1
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
+  %.2 = phi i8 [ 0, %49 ], [ 1, %47 ], [ 3, %48 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %51
 
@@ -19213,7 +19213,7 @@ default.unreachable11:                            ; preds = %44, %1
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
+  %.2 = phi i8 [ 0, %49 ], [ 1, %47 ], [ 3, %48 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %51
 
@@ -19366,7 +19366,7 @@ default.unreachable11:                            ; preds = %44, %1
   br label %50
 
 50:                                               ; preds = %44, %49, %48, %47
-  %.2 = phi i8 [ 1, %47 ], [ 3, %48 ], [ 0, %49 ], [ 2, %44 ]
+  %.2 = phi i8 [ 0, %49 ], [ 1, %47 ], [ 3, %48 ], [ 2, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %51
 
@@ -19521,7 +19521,7 @@ default.unreachable11:                            ; preds = %45, %1
   br label %51
 
 51:                                               ; preds = %45, %50, %49, %48
-  %.2 = phi i8 [ 1, %48 ], [ 3, %49 ], [ 0, %50 ], [ 2, %45 ]
+  %.2 = phi i8 [ 0, %50 ], [ 1, %48 ], [ 3, %49 ], [ 2, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %52
 

@@ -1149,7 +1149,7 @@ define dso_local void @ieee80211_ibss_rx_queued_mgmt(ptr noundef %0, ptr noundef
   br label %246
 
 246:                                              ; preds = %244, %228
-  %247 = phi ptr [ %245, %244 ], [ %230, %228 ]
+  %247 = phi ptr [ %230, %228 ], [ %245, %244 ]
   %248 = icmp eq ptr %247, null
   br i1 %248, label %.thread20, label %249
 

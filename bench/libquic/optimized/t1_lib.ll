@@ -151,7 +151,7 @@ define hidden signext range(i8 0, 2) i8 @ssl_early_callback_init(ptr noundef cap
   br label %65
 
 65:                                               ; preds = %54, %56, %58, %36, %42, %28, %30, %33, %1, %13, %15, %26, %60, %52
-  %.014 = phi i8 [ 1, %52 ], [ 1, %60 ], [ 0, %26 ], [ 0, %15 ], [ 0, %13 ], [ 0, %1 ], [ 0, %33 ], [ 0, %30 ], [ 0, %28 ], [ 0, %42 ], [ 0, %36 ], [ 0, %58 ], [ 0, %56 ], [ 0, %54 ]
+  %.014 = phi i8 [ 0, %1 ], [ 0, %28 ], [ 1, %52 ], [ 0, %36 ], [ 1, %60 ], [ 0, %26 ], [ 0, %15 ], [ 0, %13 ], [ 0, %33 ], [ 0, %30 ], [ 0, %42 ], [ 0, %58 ], [ 0, %56 ], [ 0, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -271,13 +271,13 @@ define internal fastcc range(i32 0, 2) i32 @tls1_check_duplicate_extensions(ptr 
   br i1 %34, label %.loopexit, label %28
 
 .loopexit:                                        ; preds = %.lr.ph54, %28, %27, %.thread46, %.thread, %18
-  %.025 = phi ptr [ null, %18 ], [ null, %.thread ], [ %16, %.thread46 ], [ %16, %27 ], [ %16, %28 ], [ %16, %.lr.ph54 ]
-  %.024 = phi i32 [ 0, %18 ], [ 0, %.thread ], [ 0, %.thread46 ], [ 1, %27 ], [ 0, %.lr.ph54 ], [ 1, %28 ]
+  %.025 = phi ptr [ null, %.thread ], [ null, %18 ], [ %16, %.thread46 ], [ %16, %27 ], [ %16, %28 ], [ %16, %.lr.ph54 ]
+  %.024 = phi i32 [ 0, %.thread ], [ 0, %18 ], [ 0, %.thread46 ], [ 1, %27 ], [ 0, %.lr.ph54 ], [ 1, %28 ]
   call void @free(ptr noundef %.025) #21
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %1, %._crit_edge, %.loopexit
-  %.030 = phi i32 [ %.024, %.loopexit ], [ 1, %._crit_edge ], [ 1, %1 ]
+  %.030 = phi i32 [ 1, %._crit_edge ], [ %.024, %.loopexit ], [ 1, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.030
 }
@@ -321,8 +321,8 @@ define hidden range(i32 0, 2) i32 @SSL_early_callback_ctx_extension_get(ptr noun
   store i64 %21, ptr %3, align 8, !tbaa !52
   br label %.thread
 
-.thread:                                          ; preds = %14, %.lr.ph, %19
-  %.1.ph = phi i32 [ 1, %19 ], [ 0, %.lr.ph ], [ 0, %14 ]
+.thread:                                          ; preds = %.lr.ph, %14, %19
+  %.1.ph = phi i32 [ 1, %19 ], [ 0, %14 ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
@@ -409,7 +409,7 @@ tls1_get_curvelist.exit:                          ; preds = %2
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge.us, %12, %tls1_get_curvelist.exit, %2, %.split.us
-  %.022 = phi i32 [ 1, %.split.us ], [ 0, %2 ], [ 0, %tls1_get_curvelist.exit ], [ 0, %12 ], [ 0, %._crit_edge.us ]
+  %.022 = phi i32 [ 0, %tls1_get_curvelist.exit ], [ 0, %2 ], [ 1, %.split.us ], [ 0, %12 ], [ 0, %._crit_edge.us ]
   ret i32 %.022
 }
 
@@ -450,7 +450,7 @@ define hidden range(i32 0, 2) i32 @tls1_set_curves(ptr noundef captures(none) %0
   br label %16
 
 16:                                               ; preds = %4, %._crit_edge, %14
-  %.015 = phi i32 [ 0, %14 ], [ 1, %._crit_edge ], [ 0, %4 ]
+  %.015 = phi i32 [ 1, %._crit_edge ], [ 0, %14 ], [ 0, %4 ]
   ret i32 %.015
 }
 
@@ -525,7 +525,7 @@ tls1_get_curvelist.exit:                          ; preds = %8
   br label %._crit_edge.thread34
 
 ._crit_edge.thread34:                             ; preds = %._crit_edge.thread34.loopexit42.split.loop.exit, %tls1_get_curvelist.exit.thread, %tls1_get_curvelist.exit, %8, %23
-  %.014 = phi i32 [ 0, %23 ], [ %.mux.le, %._crit_edge.thread34.loopexit42.split.loop.exit ], [ 0, %tls1_get_curvelist.exit.thread ], [ 1, %tls1_get_curvelist.exit ], [ 1, %8 ]
+  %.014 = phi i32 [ 0, %23 ], [ 1, %tls1_get_curvelist.exit ], [ %.mux.le, %._crit_edge.thread34.loopexit42.split.loop.exit ], [ 0, %tls1_get_curvelist.exit.thread ], [ 1, %8 ]
   ret i32 %.014
 }
 
@@ -624,13 +624,13 @@ tls1_get_curvelist.exit.i:                        ; preds = %26
   br i1 %brmerge.not, label %25, label %tls1_check_curve_id.exit.loopexit24
 
 tls1_check_curve_id.exit.loopexit24:              ; preds = %tls1_get_curvelist.exit.i, %tls1_get_curvelist.exit.thread.i, %26, %._crit_edge.i
-  %.014.i.not.ph = phi i1 [ true, %26 ], [ true, %tls1_get_curvelist.exit.i ], [ false, %tls1_get_curvelist.exit.thread.i ], [ %43, %._crit_edge.i ]
+  %.014.i.not.ph = phi i1 [ true, %tls1_get_curvelist.exit.i ], [ %43, %._crit_edge.i ], [ false, %tls1_get_curvelist.exit.thread.i ], [ true, %26 ]
   %44 = select i1 %.014.i.not.ph, i1 %20, i1 false
   %45 = zext i1 %44 to i32
   br label %tls1_check_curve_id.exit
 
 tls1_check_curve_id.exit:                         ; preds = %41, %tls1_check_curve_id.exit.loopexit24, %tls1_curve_params_from_ec_key.exit.thread, %5, %2
-  %.0 = phi i32 [ 0, %5 ], [ 0, %2 ], [ 0, %tls1_curve_params_from_ec_key.exit.thread ], [ %45, %tls1_check_curve_id.exit.loopexit24 ], [ 0, %41 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %tls1_curve_params_from_ec_key.exit.thread ], [ 0, %2 ], [ %45, %tls1_check_curve_id.exit.loopexit24 ], [ 0, %41 ]
   call void @EVP_PKEY_free(ptr noundef %4) #21
   ret i32 %.0
 }
@@ -732,7 +732,7 @@ tls12_get_hash.exit.thread:                       ; preds = %.thread
   br label %tls12_get_hash.exit
 
 tls12_get_hash.exit:                              ; preds = %30, %32, %34, %36
-  %.0.i = phi ptr [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ]
+  %.0.i = phi ptr [ %37, %36 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ]
   store ptr %.0.i, ptr %1, align 8, !tbaa !92
   %38 = icmp eq ptr %.0.i, null
   br i1 %38, label %39, label %40
@@ -805,7 +805,7 @@ define hidden ptr @tls12_get_hash(i8 noundef zeroext %0) local_unnamed_addr #0 {
   br label %10
 
 10:                                               ; preds = %1, %8, %6, %4, %2
-  %.0 = phi ptr [ %3, %2 ], [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ null, %1 ]
+  %.0 = phi ptr [ %9, %8 ], [ %3, %2 ], [ %5, %4 ], [ %7, %6 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -1074,7 +1074,7 @@ define hidden i32 @ssl_add_clienthello_tlsext(ptr noundef %0, ptr noundef %1, i6
   br label %79
 
 79:                                               ; preds = %78, %76
-  %.136 = phi i32 [ 0, %78 ], [ %77, %76 ]
+  %.136 = phi i32 [ %77, %76 ], [ 0, %78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %80
 
@@ -1430,7 +1430,7 @@ ssl_scan_clienthello_tlsext.exit:                 ; preds = %82
   store i8 %106, ptr %104, align 2
   br label %ssl_check_clienthello_tlsext.exit.thread
 
-ssl_check_clienthello_tlsext.exit.thread:         ; preds = %100, %.thread.i5, %96
+ssl_check_clienthello_tlsext.exit.thread:         ; preds = %.thread.i5, %100, %96
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %110
 
@@ -1600,7 +1600,7 @@ define hidden range(i32 0, 2) i32 @ssl_parse_serverhello_tlsext(ptr noundef %0, 
   br label %70
 
 53:                                               ; preds = %.thread60.i, %2
-  %.031.i = phi i32 [ 0, %2 ], [ %.233.lcssa.i, %.thread60.i ]
+  %.031.i = phi i32 [ %.233.lcssa.i, %.thread60.i ], [ 0, %2 ]
   br label %54
 
 54:                                               ; preds = %68, %53
@@ -1831,8 +1831,8 @@ define hidden range(i32 0, 2) i32 @tls_process_ticket(ptr noundef %0, ptr nounde
   br label %.thread
 
 .thread:                                          ; preds = %24, %21, %49, %28, %32, %54, %43, %36, %26, %7, %73, %72, %64
-  %.056 = phi ptr [ null, %7 ], [ null, %36 ], [ null, %43 ], [ %52, %54 ], [ %52, %72 ], [ %52, %73 ], [ %52, %64 ], [ null, %26 ], [ null, %32 ], [ null, %28 ], [ null, %49 ], [ null, %21 ], [ null, %24 ]
-  %.055 = phi i32 [ 1, %7 ], [ 1, %36 ], [ 1, %43 ], [ 1, %54 ], [ 1, %72 ], [ 1, %73 ], [ 1, %64 ], [ 1, %26 ], [ 0, %32 ], [ 0, %28 ], [ 0, %49 ], [ 0, %21 ], [ 1, %24 ]
+  %.056 = phi ptr [ null, %7 ], [ null, %36 ], [ null, %43 ], [ null, %28 ], [ %52, %54 ], [ %52, %72 ], [ %52, %73 ], [ %52, %64 ], [ null, %49 ], [ null, %26 ], [ null, %32 ], [ null, %21 ], [ null, %24 ]
+  %.055 = phi i32 [ 1, %7 ], [ 1, %36 ], [ 1, %43 ], [ 0, %28 ], [ 1, %54 ], [ 1, %72 ], [ 1, %73 ], [ 1, %64 ], [ 0, %49 ], [ 1, %26 ], [ 0, %32 ], [ 0, %21 ], [ 1, %24 ]
   call void @free(ptr noundef %.056) #21
   call void @HMAC_CTX_cleanup(ptr noundef nonnull %8) #21
   %77 = call i32 @EVP_CIPHER_CTX_cleanup(ptr noundef nonnull %9) #21
@@ -1938,7 +1938,7 @@ tls12_get_sigid.exit:                             ; preds = %16
   br label %tls12_get_sigid.exit.thread
 
 tls12_get_sigid.exit.thread:                      ; preds = %20, %27, %24, %tls12_get_sigid.exit
-  %32 = phi i32 [ 0, %24 ], [ 0, %tls12_get_sigid.exit ], [ %31, %27 ], [ 0, %20 ]
+  %32 = phi i32 [ 0, %24 ], [ %31, %27 ], [ 0, %tls12_get_sigid.exit ], [ 0, %20 ]
   ret i32 %32
 }
 
@@ -2013,7 +2013,7 @@ define hidden range(i32 0, 2) i32 @tls1_parse_peer_sigalgs(ptr noundef %0, ptr n
   br i1 %.not28, label %31, label %23
 
 31:                                               ; preds = %23, %.critedge, %25
-  %.4 = phi i32 [ 0, %25 ], [ 0, %.critedge ], [ 1, %23 ]
+  %.4 = phi i32 [ 0, %.critedge ], [ 0, %25 ], [ 1, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %32
 
@@ -2089,7 +2089,7 @@ define hidden ptr @tls1_choose_signing_digest(ptr noundef %0) local_unnamed_addr
   br label %tls12_get_hash.exit
 
 tls12_get_hash.exit:                              ; preds = %20, %22, %24, %26
-  %.0.i = phi ptr [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ]
+  %.0.i = phi ptr [ %27, %26 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ]
   %28 = icmp eq ptr %.0.i, null
   br i1 %28, label %.thread, label %29
 
@@ -2109,7 +2109,7 @@ tls12_get_hash.exit:                              ; preds = %20, %22, %24, %26
   %.not34.not = icmp eq i32 %switch.select3.i, %4
   br i1 %.not34.not, label %.thread41, label %.thread
 
-.thread:                                          ; preds = %.lr.ph, %tls12_get_hash.exit, %29, %31
+.thread:                                          ; preds = %.lr.ph, %29, %tls12_get_hash.exit, %31
   %35 = add nuw i64 %.03045, 1
   %36 = load i64, ptr %10, align 8, !tbaa !137
   %.not35 = icmp ult i64 %35, %36
@@ -2286,7 +2286,7 @@ define internal range(i32 0, 2) i32 @ext_ri_add_clienthello(ptr noundef readonly
   br label %20
 
 20:                                               ; preds = %18, %2, %6, %8, %10
-  %.0 = phi i32 [ 0, %10 ], [ 0, %8 ], [ 0, %6 ], [ 0, %2 ], [ %spec.select, %18 ]
+  %.0 = phi i32 [ 0, %2 ], [ %spec.select, %18 ], [ 0, %10 ], [ 0, %8 ], [ 0, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -2525,7 +2525,7 @@ define internal range(i32 0, 2) i32 @ext_ri_add_serverhello(ptr noundef readonly
   br label %27
 
 27:                                               ; preds = %25, %2, %6, %8, %10, %18
-  %.0 = phi i32 [ 0, %18 ], [ 0, %10 ], [ 0, %8 ], [ 0, %6 ], [ 0, %2 ], [ %spec.select, %25 ]
+  %.0 = phi i32 [ 0, %2 ], [ %spec.select, %25 ], [ 0, %18 ], [ 0, %10 ], [ 0, %8 ], [ 0, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -2594,7 +2594,7 @@ define internal range(i32 0, 2) i32 @ext_sni_add_clienthello(ptr noundef readonl
   br label %25
 
 25:                                               ; preds = %23, %9, %11, %13, %15, %17, %19
-  %.1 = phi i32 [ 0, %19 ], [ 0, %17 ], [ 0, %15 ], [ 0, %13 ], [ 0, %11 ], [ 0, %9 ], [ %spec.select, %23 ]
+  %.1 = phi i32 [ 0, %9 ], [ %spec.select, %23 ], [ 0, %19 ], [ 0, %17 ], [ 0, %15 ], [ 0, %13 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2731,7 +2731,7 @@ define internal range(i32 0, 2) i32 @ext_sni_parse_clienthello(ptr noundef reado
   br label %45
 
 45:                                               ; preds = %29, %39, %8, %10, %12, %14, %16, %38, %28
-  %.1 = phi i32 [ 0, %28 ], [ 0, %38 ], [ 0, %16 ], [ 0, %14 ], [ 0, %12 ], [ 0, %10 ], [ 0, %8 ], [ 1, %39 ], [ 1, %29 ]
+  %.1 = phi i32 [ 0, %38 ], [ 0, %28 ], [ 0, %8 ], [ 0, %16 ], [ 0, %14 ], [ 0, %12 ], [ 0, %10 ], [ 1, %39 ], [ 1, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2779,7 +2779,7 @@ define internal range(i32 0, 2) i32 @ext_sni_add_serverhello(ptr noundef readonl
   br label %22
 
 22:                                               ; preds = %20, %18, %2, %6, %12
-  %.0 = phi i32 [ 1, %12 ], [ 1, %6 ], [ 1, %2 ], [ 0, %18 ], [ %spec.select, %20 ]
+  %.0 = phi i32 [ 1, %2 ], [ 0, %18 ], [ 1, %12 ], [ 1, %6 ], [ %spec.select, %20 ]
   ret i32 %.0
 }
 
@@ -2887,7 +2887,7 @@ define internal range(i32 0, 2) i32 @ext_ems_add_serverhello(ptr noundef readonl
   br label %11
 
 11:                                               ; preds = %9, %7, %2
-  %.0 = phi i32 [ 1, %2 ], [ 0, %7 ], [ %spec.select, %9 ]
+  %.0 = phi i32 [ 0, %7 ], [ 1, %2 ], [ %spec.select, %9 ]
   ret i32 %.0
 }
 
@@ -2951,7 +2951,7 @@ define internal range(i32 0, 2) i32 @ext_ticket_add_clienthello(ptr noundef %0, 
   br label %29
 
 29:                                               ; preds = %27, %21, %23, %25
-  %.1 = phi i32 [ 0, %25 ], [ 0, %23 ], [ 0, %21 ], [ %spec.select, %27 ]
+  %.1 = phi i32 [ 0, %21 ], [ %spec.select, %27 ], [ 0, %25 ], [ 0, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %30
 
@@ -3005,7 +3005,7 @@ define internal range(i32 0, 2) i32 @ext_ticket_add_serverhello(ptr noundef read
   br label %9
 
 9:                                                ; preds = %7, %5, %2
-  %.0 = phi i32 [ 1, %2 ], [ 0, %5 ], [ %spec.select, %7 ]
+  %.0 = phi i32 [ 0, %5 ], [ 1, %2 ], [ %spec.select, %7 ]
   ret i32 %.0
 }
 
@@ -3049,7 +3049,7 @@ define internal range(i32 0, 2) i32 @ext_sigalgs_add_clienthello(ptr noundef %0,
   br label %20
 
 20:                                               ; preds = %18, %10, %12, %14, %16
-  %.1 = phi i32 [ 0, %16 ], [ 0, %14 ], [ 0, %12 ], [ 0, %10 ], [ %spec.select, %18 ]
+  %.1 = phi i32 [ 0, %10 ], [ %spec.select, %18 ], [ 0, %16 ], [ 0, %14 ], [ 0, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %21
@@ -3109,7 +3109,7 @@ define internal range(i32 0, 2) i32 @ext_sigalgs_parse_clienthello(ptr noundef %
   br label %21
 
 21:                                               ; preds = %19, %12, %14, %16
-  %.1 = phi i32 [ 0, %16 ], [ 0, %14 ], [ 0, %12 ], [ %20, %19 ]
+  %.1 = phi i32 [ 0, %12 ], [ %20, %19 ], [ 0, %16 ], [ 0, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %22
 
@@ -3289,7 +3289,7 @@ define internal range(i32 0, 2) i32 @ext_ocsp_add_serverhello(ptr noundef readon
   br label %25
 
 25:                                               ; preds = %18, %21, %2, %6, %12
-  %.0 = phi i32 [ 1, %12 ], [ 1, %6 ], [ 1, %2 ], [ 0, %18 ], [ %24, %21 ]
+  %.0 = phi i32 [ 1, %2 ], [ 1, %12 ], [ 1, %6 ], [ 0, %18 ], [ %24, %21 ]
   ret i32 %.0
 }
 
@@ -3345,7 +3345,7 @@ define internal range(i32 0, 2) i32 @ext_npn_add_clienthello(ptr noundef readonl
   br label %25
 
 25:                                               ; preds = %23, %21, %2, %7, %13, %17
-  %.0 = phi i32 [ 1, %17 ], [ 1, %13 ], [ 1, %7 ], [ 1, %2 ], [ 0, %21 ], [ %spec.select, %23 ]
+  %.0 = phi i32 [ 1, %2 ], [ 0, %21 ], [ 1, %17 ], [ 1, %13 ], [ 1, %7 ], [ %spec.select, %23 ]
   ret i32 %.0
 }
 
@@ -3451,7 +3451,7 @@ define internal range(i32 0, 2) i32 @ext_npn_parse_serverhello(ptr noundef %0, p
   br label %51
 
 51:                                               ; preds = %50, %23, %3, %13
-  %.020 = phi i32 [ 0, %13 ], [ 1, %3 ], [ 0, %23 ], [ %.4, %50 ]
+  %.020 = phi i32 [ 1, %3 ], [ 0, %13 ], [ 0, %23 ], [ %.4, %50 ]
   ret i32 %.020
 }
 
@@ -3561,7 +3561,7 @@ define internal range(i32 0, 2) i32 @ext_npn_add_serverhello(ptr noundef %0, ptr
   br label %32
 
 32:                                               ; preds = %30, %21, %23, %25
-  %.2 = phi i32 [ 0, %25 ], [ 0, %23 ], [ 0, %21 ], [ %spec.select, %30 ]
+  %.2 = phi i32 [ 0, %21 ], [ %spec.select, %30 ], [ 0, %25 ], [ 0, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %33
 
@@ -3596,7 +3596,7 @@ define internal range(i32 0, 2) i32 @ext_sct_add_clienthello(ptr noundef readonl
   br label %10
 
 10:                                               ; preds = %8, %6, %2
-  %.0 = phi i32 [ 1, %2 ], [ 0, %6 ], [ %spec.select, %8 ]
+  %.0 = phi i32 [ 0, %6 ], [ 1, %2 ], [ %spec.select, %8 ]
   ret i32 %.0
 }
 
@@ -3632,7 +3632,7 @@ define internal range(i32 0, 2) i32 @ext_sct_parse_serverhello(ptr noundef reado
   br label %18
 
 18:                                               ; preds = %.sink.split, %8, %12, %3
-  %.0 = phi i32 [ 1, %3 ], [ 1, %12 ], [ 1, %8 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %12 ], [ 1, %8 ], [ 1, %3 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -3769,7 +3769,7 @@ define internal range(i32 0, 2) i32 @ext_alpn_add_clienthello(ptr noundef readon
   br label %27
 
 27:                                               ; preds = %25, %13, %15, %17, %19
-  %.1 = phi i32 [ 0, %19 ], [ 0, %17 ], [ 0, %15 ], [ 0, %13 ], [ %spec.select, %25 ]
+  %.1 = phi i32 [ 0, %13 ], [ %spec.select, %25 ], [ 0, %19 ], [ 0, %17 ], [ 0, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %28
@@ -3839,13 +3839,13 @@ define internal range(i32 0, 2) i32 @ext_alpn_parse_serverhello(ptr noundef read
   br label %30
 
 30:                                               ; preds = %24, %13, %15, %17, %19, %22, %29
-  %.1 = phi i32 [ 0, %29 ], [ 0, %22 ], [ 0, %19 ], [ 0, %17 ], [ 0, %15 ], [ 0, %13 ], [ 1, %24 ]
+  %.1 = phi i32 [ 0, %29 ], [ 0, %13 ], [ 0, %22 ], [ 0, %19 ], [ 0, %17 ], [ 0, %15 ], [ 1, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %31
 
 31:                                               ; preds = %3, %30, %12
-  %.0 = phi i32 [ 0, %12 ], [ %.1, %30 ], [ 1, %3 ]
+  %.0 = phi i32 [ %.1, %30 ], [ 0, %12 ], [ 1, %3 ]
   ret i32 %.0
 }
 
@@ -4036,7 +4036,7 @@ define internal range(i32 0, 2) i32 @ext_alpn_add_serverhello(ptr noundef readon
   br label %28
 
 28:                                               ; preds = %26, %11, %13, %15, %17, %19
-  %.1 = phi i32 [ 0, %19 ], [ 0, %17 ], [ 0, %15 ], [ 0, %13 ], [ 0, %11 ], [ %spec.select, %26 ]
+  %.1 = phi i32 [ 0, %11 ], [ %spec.select, %26 ], [ 0, %19 ], [ 0, %17 ], [ 0, %15 ], [ 0, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -4083,7 +4083,7 @@ define internal range(i32 0, 2) i32 @ext_channel_id_add_clienthello(ptr noundef 
   br label %14
 
 14:                                               ; preds = %12, %10, %2, %6
-  %.0 = phi i32 [ 1, %6 ], [ 1, %2 ], [ 0, %10 ], [ %spec.select, %12 ]
+  %.0 = phi i32 [ 1, %2 ], [ 0, %10 ], [ 1, %6 ], [ %spec.select, %12 ]
   ret i32 %.0
 }
 
@@ -4141,7 +4141,7 @@ define internal range(i32 0, 2) i32 @ext_channel_id_parse_clienthello(ptr nounde
   br label %19
 
 19:                                               ; preds = %13, %3, %5, %9, %15
-  %.0 = phi i32 [ 1, %15 ], [ 1, %9 ], [ 1, %5 ], [ 1, %3 ], [ 0, %13 ]
+  %.0 = phi i32 [ 1, %15 ], [ 1, %3 ], [ 1, %9 ], [ 1, %5 ], [ 0, %13 ]
   ret i32 %.0
 }
 
@@ -4166,7 +4166,7 @@ define internal range(i32 0, 2) i32 @ext_channel_id_add_serverhello(ptr noundef 
   br label %11
 
 11:                                               ; preds = %9, %7, %2
-  %.0 = phi i32 [ 1, %2 ], [ 0, %7 ], [ %spec.select, %9 ]
+  %.0 = phi i32 [ 0, %7 ], [ 1, %2 ], [ %spec.select, %9 ]
   ret i32 %.0
 }
 
@@ -4234,7 +4234,7 @@ define internal range(i32 0, 2) i32 @ext_srtp_add_clienthello(ptr noundef %0, pt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %25, %23, %10, %12, %14
-  %.2 = phi i32 [ 0, %14 ], [ 0, %12 ], [ 0, %10 ], [ 0, %23 ], [ %spec.select, %25 ], [ 0, %.preheader ]
+  %.2 = phi i32 [ 0, %10 ], [ 0, %14 ], [ 0, %12 ], [ %spec.select, %25 ], [ 0, %23 ], [ 0, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %27
@@ -4489,7 +4489,7 @@ define internal range(i32 0, 2) i32 @ext_srtp_add_serverhello(ptr noundef readon
   br label %24
 
 24:                                               ; preds = %22, %8, %10, %12, %14, %20
-  %.1 = phi i32 [ 0, %20 ], [ 0, %14 ], [ 0, %12 ], [ 0, %10 ], [ 0, %8 ], [ %spec.select, %22 ]
+  %.1 = phi i32 [ 0, %8 ], [ %spec.select, %22 ], [ 0, %20 ], [ 0, %14 ], [ 0, %12 ], [ 0, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %25
@@ -4571,7 +4571,7 @@ ssl_any_ec_cipher_suites_enabled.exit:            ; preds = %.critedge.i, %.lr.p
   br label %ext_ec_point_add_extension.exit
 
 ext_ec_point_add_extension.exit:                  ; preds = %ssl_any_ec_cipher_suites_enabled.exit, %26, %28, %30, %32
-  %.0.i = phi i32 [ 0, %30 ], [ 0, %28 ], [ 0, %26 ], [ 0, %ssl_any_ec_cipher_suites_enabled.exit ], [ %spec.select.i, %32 ]
+  %.0.i = phi i32 [ 0, %ssl_any_ec_cipher_suites_enabled.exit ], [ %spec.select.i, %32 ], [ 0, %30 ], [ 0, %28 ], [ 0, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %ssl_any_ec_cipher_suites_enabled.exit.thread
@@ -4610,7 +4610,7 @@ define internal range(i32 0, 2) i32 @ext_ec_point_parse_serverhello(ptr readnone
   br label %16
 
 16:                                               ; preds = %10, %6, %8, %15
-  %.1 = phi i32 [ 0, %15 ], [ 0, %8 ], [ 0, %6 ], [ 1, %10 ]
+  %.1 = phi i32 [ 0, %6 ], [ 0, %15 ], [ 0, %8 ], [ 1, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %17
 
@@ -4648,7 +4648,7 @@ define internal range(i32 0, 2) i32 @ext_ec_point_parse_clienthello(ptr readnone
   br label %16
 
 16:                                               ; preds = %15, %10, %8, %6
-  %.1.i = phi i32 [ 0, %15 ], [ 0, %8 ], [ 0, %6 ], [ 1, %10 ]
+  %.1.i = phi i32 [ 0, %6 ], [ 0, %15 ], [ 0, %8 ], [ 1, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %ext_ec_point_parse_serverhello.exit
 
@@ -4705,7 +4705,7 @@ define internal range(i32 0, 2) i32 @ext_ec_point_add_serverhello(ptr noundef re
   br label %ext_ec_point_add_extension.exit
 
 ext_ec_point_add_extension.exit:                  ; preds = %18, %20, %22, %24, %26
-  %.0.i = phi i32 [ 0, %24 ], [ 0, %22 ], [ 0, %20 ], [ 0, %18 ], [ %spec.select.i, %26 ]
+  %.0.i = phi i32 [ 0, %18 ], [ %spec.select.i, %26 ], [ 0, %24 ], [ 0, %22 ], [ 0, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %28
@@ -4817,7 +4817,7 @@ tls1_get_curvelist.exit:                          ; preds = %28
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge, %ssl_any_ec_cipher_suites_enabled.exit, %26, %28
-  %.1 = phi i32 [ 0, %28 ], [ 0, %26 ], [ 0, %ssl_any_ec_cipher_suites_enabled.exit ], [ %39, %._crit_edge ], [ 0, %.lr.ph ]
+  %.1 = phi i32 [ 0, %ssl_any_ec_cipher_suites_enabled.exit ], [ 0, %28 ], [ 0, %26 ], [ %39, %._crit_edge ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %ssl_any_ec_cipher_suites_enabled.exit.thread
@@ -4913,7 +4913,7 @@ define internal range(i32 0, 2) i32 @ext_ec_curves_parse_clienthello(ptr noundef
   br label %42
 
 42:                                               ; preds = %._crit_edge, %36, %6, %8, %11, %14, %23
-  %.1 = phi i32 [ 0, %23 ], [ 0, %14 ], [ 0, %11 ], [ 0, %8 ], [ 0, %6 ], [ 0, %36 ], [ 1, %._crit_edge ]
+  %.1 = phi i32 [ 0, %6 ], [ 0, %23 ], [ 0, %14 ], [ 0, %11 ], [ 0, %8 ], [ 0, %36 ], [ 1, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %43
 

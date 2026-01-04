@@ -3887,8 +3887,8 @@ get_service.exit:                                 ; preds = %get_op.exit.thread8
   %74 = call i32 %73(ptr noundef %0, ptr noundef %1, ptr noundef %51, ptr noundef null)
   br label %get_op.exit.thread
 
-get_op.exit.thread:                               ; preds = %35, %19, %26, %30, %get_op.exit78, %70, %get_op.exit, %13, %10, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %10 ], [ 0, %13 ], [ 0, %get_op.exit ], [ %74, %70 ], [ 0, %get_op.exit78 ], [ 0, %30 ], [ 0, %26 ], [ 0, %19 ], [ 0, %35 ]
+get_op.exit.thread:                               ; preds = %35, %19, %30, %26, %get_op.exit78, %70, %get_op.exit, %13, %10, %4
+  %.0 = phi i32 [ 0, %10 ], [ 0, %4 ], [ 0, %get_op.exit ], [ 0, %13 ], [ %74, %70 ], [ 0, %30 ], [ 0, %19 ], [ 0, %get_op.exit78 ], [ 0, %26 ], [ 0, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -4013,7 +4013,7 @@ get_service.exit:                                 ; preds = %25, %26
   br label %get_op.exit.thread
 
 get_op.exit.thread:                               ; preds = %18, %56, %61, %58, %get_op.exit, %12, %9, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %12 ], [ 0, %get_op.exit ], [ %57, %56 ], [ %63, %61 ], [ 0, %58 ], [ 0, %18 ]
+  %.0 = phi i32 [ 0, %12 ], [ 0, %4 ], [ 0, %9 ], [ 0, %get_op.exit ], [ %57, %56 ], [ %63, %61 ], [ 0, %58 ], [ 0, %18 ]
   ret i32 %.0
 }
 
@@ -4115,7 +4115,7 @@ get_err.exit:                                     ; preds = %20
   br label %get_err.exit.thread
 
 get_err.exit.thread:                              ; preds = %18, %47, %52, %49, %get_err.exit, %12, %9, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %12 ], [ 0, %get_err.exit ], [ %48, %47 ], [ %54, %52 ], [ 0, %49 ], [ 0, %18 ]
+  %.0 = phi i32 [ 0, %12 ], [ 0, %4 ], [ 0, %9 ], [ 0, %get_err.exit ], [ %48, %47 ], [ %54, %52 ], [ 0, %49 ], [ 0, %18 ]
   ret i32 %.0
 }
 
@@ -4429,8 +4429,8 @@ proto_item_set_hidden.exit47:                     ; preds = %proto_item_set_hidd
   br label %.sink.split
 
 .sink.split:                                      ; preds = %39, %46, %42
-  %hf_qsig_tc.sink = phi ptr [ @hf_qsig_pc, %42 ], [ @hf_qsig_ie_data, %46 ], [ @hf_qsig_tc, %39 ]
-  %.sink5 = phi i32 [ 1, %42 ], [ %47, %46 ], [ 1, %39 ]
+  %hf_qsig_tc.sink = phi ptr [ @hf_qsig_ie_data, %46 ], [ @hf_qsig_pc, %42 ], [ @hf_qsig_tc, %39 ]
+  %.sink5 = phi i32 [ %47, %46 ], [ 1, %42 ], [ 1, %39 ]
   %48 = load i32, ptr %hf_qsig_tc.sink, align 4
   %49 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %48, ptr noundef %0, i32 noundef 2, i32 noundef %.sink5, i32 noundef 0)
   br label %50

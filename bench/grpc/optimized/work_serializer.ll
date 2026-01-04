@@ -706,7 +706,7 @@ default.unreachable3:                             ; preds = %1
   unreachable
 
 _ZSt7reverseIPN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEEvT_S5_.exit: ; preds = %16, %4, %1, %32
-  %.0 = phi i1 [ false, %32 ], [ false, %1 ], [ true, %4 ], [ true, %16 ]
+  %.0 = phi i1 [ false, %1 ], [ false, %32 ], [ true, %4 ], [ true, %16 ]
   ret i1 %.0
 }
 

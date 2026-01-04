@@ -494,8 +494,8 @@ define dso_local i32 @Curl_conn_shutdown(ptr noundef %0, i32 noundef %1, ptr nou
   call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %0, ptr noundef nonnull %.169110, ptr noundef nonnull @.str.3) #12
   br label %114
 
-.thread:                                          ; preds = %49, %82, %77, %73, %68, %.split112.us, %99, %94, %90, %.split115.us
-  %113 = phi i32 [ %.us-phi, %82 ], [ %.us-phi, %77 ], [ %.us-phi, %73 ], [ %.us-phi, %68 ], [ %.us-phi, %.split112.us ], [ 0, %99 ], [ 0, %94 ], [ 0, %90 ], [ 0, %.split115.us ], [ 0, %49 ]
+.thread:                                          ; preds = %49, %.split112.us, %82, %77, %73, %68, %99, %94, %90, %.split115.us
+  %113 = phi i32 [ %.us-phi, %.split112.us ], [ %.us-phi, %82 ], [ %.us-phi, %77 ], [ %.us-phi, %73 ], [ %.us-phi, %68 ], [ 0, %99 ], [ 0, %94 ], [ 0, %90 ], [ 0, %.split115.us ], [ 0, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %120
 
@@ -517,7 +517,7 @@ define dso_local i32 @Curl_conn_shutdown(ptr noundef %0, i32 noundef %1, ptr nou
   br label %120
 
 120:                                              ; preds = %.thread, %25, %31, %35, %.split119.us, %.critedge100
-  %.0 = phi i32 [ 0, %.split119.us ], [ 0, %.critedge100 ], [ 28, %35 ], [ 28, %31 ], [ 28, %25 ], [ %113, %.thread ]
+  %.0 = phi i32 [ 0, %.critedge100 ], [ %113, %.thread ], [ 0, %.split119.us ], [ 28, %35 ], [ 28, %31 ], [ 28, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -1068,7 +1068,7 @@ conn_report_connect_stats.exit:                   ; preds = %cf_cntrl_update_inf
   br label %conn_report_connect_stats.exit44
 
 conn_report_connect_stats.exit44:                 ; preds = %37, %119, %.critedge, %46, %17, %conn_report_connect_stats.exit, %16
-  %.0 = phi i32 [ 2, %16 ], [ 0, %17 ], [ 0, %conn_report_connect_stats.exit ], [ 0, %46 ], [ %45, %.critedge ], [ %45, %119 ], [ %38, %37 ]
+  %.0 = phi i32 [ %45, %119 ], [ 2, %16 ], [ 0, %17 ], [ 0, %46 ], [ 0, %conn_report_connect_stats.exit ], [ %45, %.critedge ], [ %38, %37 ]
   ret i32 %.0
 }
 
@@ -1706,7 +1706,7 @@ define dso_local i32 @Curl_conn_cf_cntrl(ptr noundef %0, ptr noundef %1, i1 noun
   br i1 %.not15, label %._crit_edge, label %.lr.ph.split, !llvm.loop !130
 
 ._crit_edge:                                      ; preds = %23, %20, %13, %6
-  %.1 = phi i32 [ 0, %6 ], [ %.2.us, %13 ], [ %21, %20 ], [ 0, %23 ]
+  %.1 = phi i32 [ 0, %6 ], [ %.2.us, %13 ], [ 0, %23 ], [ %21, %20 ]
   ret i32 %.1
 }
 

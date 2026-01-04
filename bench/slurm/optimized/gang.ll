@@ -177,7 +177,7 @@ define dso_local void @gs_init() local_unnamed_addr #0 {
   br label %_get_gr_type.exit
 
 _get_gr_type.exit:                                ; preds = %13, %21, %24
-  %.0.i = phi i16 [ 2, %13 ], [ %..i, %21 ], [ %.lobit.i, %24 ]
+  %.0.i = phi i16 [ %.lobit.i, %24 ], [ 2, %13 ], [ %..i, %21 ]
   store i16 %.0.i, ptr @gr_type, align 2
   %26 = tail call ptr @list_create(ptr noundef nonnull @xfree_ptr) #7
   store ptr %26, ptr @preempt_job_list, align 8
@@ -1004,7 +1004,7 @@ _find_job_index.exit:                             ; preds = %22
   br label %_find_job_index.exit.thread
 
 _find_job_index.exit.thread:                      ; preds = %30, %16, %37
-  %39 = phi i32 [ 0, %16 ], [ %.pre, %37 ], [ %21, %30 ]
+  %39 = phi i32 [ %.pre, %37 ], [ 0, %16 ], [ %21, %30 ]
   %40 = add i32 %39, 1
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %42 = load i32, ptr %41, align 8
@@ -1211,7 +1211,7 @@ define internal fastcc void @_preempt_job_dequeue() unnamed_addr #0 {
   %43 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.64, i32 noundef 0, ptr noundef nonnull %6) #7
   br label %.critedge, !llvm.loop !14
 
-.critedge39:                                      ; preds = %21, %24, %27, %14, %39, %10, %12
+.critedge39:                                      ; preds = %21, %24, %27, %10, %39, %14, %12
   %44 = call i32 @job_signal(ptr noundef nonnull %6, i16 noundef zeroext 9, i16 noundef zeroext 0, i32 noundef 0, i1 noundef zeroext true) #7
   %45 = icmp eq i32 %44, 0
   %46 = call i32 @get_log_level() #7
@@ -1690,7 +1690,7 @@ define dso_local void @gs_reconfig() local_unnamed_addr #0 {
   br label %_get_gr_type.exit
 
 _get_gr_type.exit:                                ; preds = %14, %21, %24
-  %.0.i = phi i16 [ 2, %14 ], [ %..i, %21 ], [ %.lobit.i, %24 ]
+  %.0.i = phi i16 [ %.lobit.i, %24 ], [ 2, %14 ], [ %..i, %21 ]
   store i16 %.0.i, ptr @gr_type, align 2
   tail call fastcc void @_build_parts()
   %26 = tail call ptr @list_iterator_create(ptr noundef %15) #7
@@ -2654,8 +2654,8 @@ _resume_job.exit:                                 ; preds = %281, %290, %292, %2
   br i1 %317, label %.backedge.i, label %314
 
 .thread.i:                                        ; preds = %314, %311, %.preheader.i23
-  %318 = phi i32 [ 0, %.preheader.i23 ], [ %.pre.i27, %311 ], [ %310, %314 ]
-  %319 = phi ptr [ %308, %.preheader.i23 ], [ %313, %311 ], [ %308, %314 ]
+  %318 = phi i32 [ %.pre.i27, %311 ], [ 0, %.preheader.i23 ], [ %310, %314 ]
+  %319 = phi ptr [ %313, %311 ], [ %308, %.preheader.i23 ], [ %308, %314 ]
   %320 = getelementptr inbounds nuw i8, ptr %303, i64 28
   %321 = add i32 %318, 1
   %322 = getelementptr inbounds nuw i8, ptr %303, i64 40
@@ -3122,8 +3122,8 @@ define internal fastcc void @_cast_shadow(ptr noundef %0, i16 noundef zeroext %1
   br i1 %20, label %.backedge, label %17
 
 .thread:                                          ; preds = %17, %.preheader, %14
-  %21 = phi ptr [ %11, %.preheader ], [ %16, %14 ], [ %11, %17 ]
-  %22 = phi i32 [ 0, %.preheader ], [ %.pre, %14 ], [ %13, %17 ]
+  %21 = phi ptr [ %16, %14 ], [ %11, %.preheader ], [ %11, %17 ]
+  %22 = phi i32 [ %.pre, %14 ], [ 0, %.preheader ], [ %13, %17 ]
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %24 = add i32 %22, 1
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -3728,7 +3728,7 @@ _get_part_gr_type.exit.thread25:                  ; preds = %24, %_get_part_gr_t
   br label %_can_cpus_fit.exit
 
 _can_cpus_fit.exit:                               ; preds = %._crit_edge.i, %51, %49, %47, %45, %2, %10, %_get_part_gr_type.exit.thread
-  %.0 = phi i32 [ %31, %_get_part_gr_type.exit.thread ], [ 1, %10 ], [ 1, %2 ], [ 1, %45 ], [ 0, %47 ], [ 0, %49 ], [ 0, %51 ], [ %.not16.lcssa.i, %._crit_edge.i ]
+  %.0 = phi i32 [ 1, %45 ], [ %31, %_get_part_gr_type.exit.thread ], [ 1, %2 ], [ 0, %47 ], [ 1, %10 ], [ 0, %49 ], [ 0, %51 ], [ %.not16.lcssa.i, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

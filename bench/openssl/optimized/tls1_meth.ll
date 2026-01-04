@@ -102,7 +102,7 @@ define i32 @tls1_initialise_write_packets(ptr noundef %0, ptr noundef %1, i64 no
   br label %35
 
 .thread:                                          ; preds = %7, %28, %10
-  %31 = phi i64 [ 1, %28 ], [ 0, %10 ], [ 0, %7 ]
+  %31 = phi i64 [ 0, %10 ], [ 1, %28 ], [ 0, %7 ]
   %32 = getelementptr inbounds nuw %struct.wpacket_st, ptr %4, i64 %31
   %33 = getelementptr inbounds nuw %struct.tls_buffer_st, ptr %5, i64 %31
   %34 = tail call i32 @tls_initialise_write_packets_default(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef null, ptr noundef %32, ptr noundef %33, ptr noundef %6) #4
@@ -374,7 +374,7 @@ define internal range(i32 -2, 2) i32 @tls1_set_crypto_state(ptr noundef %0, i32 
   br label %121
 
 121:                                              ; preds = %107, %119, %.critedge, %105, %13, %101, %91, %88, %69, %58, %33, %27, %22
-  %.082 = phi i32 [ -2, %22 ], [ -2, %27 ], [ -2, %33 ], [ -2, %58 ], [ -2, %69 ], [ -2, %101 ], [ -2, %88 ], [ -2, %91 ], [ -2, %13 ], [ -2, %105 ], [ -2, %.critedge ], [ 1, %119 ], [ 1, %107 ]
+  %.082 = phi i32 [ -2, %91 ], [ -2, %22 ], [ -2, %27 ], [ -2, %33 ], [ -2, %58 ], [ -2, %69 ], [ -2, %101 ], [ -2, %105 ], [ -2, %.critedge ], [ -2, %13 ], [ -2, %88 ], [ 1, %119 ], [ 1, %107 ]
   ret i32 %.082
 }
 
@@ -774,7 +774,7 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
   br label %181
 
 181:                                              ; preds = %178, %177
-  %.0251 = phi i32 [ 0, %177 ], [ %spec.select, %178 ]
+  %.0251 = phi i32 [ %spec.select, %178 ], [ 0, %177 ]
   %182 = call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef nonnull %25, i32 noundef 42, i32 noundef %.0251, ptr noundef nonnull %74) #4
   %183 = icmp sgt i32 %182, 0
   br i1 %183, label %.critedge307, label %184
@@ -1044,7 +1044,7 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
   br label %.critedge305
 
 .critedge305:                                     ; preds = %93, %.thread318.thread, %143, %250, %299, %283, %117, %244, %246, %184, %23, %48, %53, %232, %.critedge311, %171, %159, %127, %69, %62, %54, %26, %14
-  %.0.shrunk = phi i1 [ false, %14 ], [ false, %62 ], [ false, %69 ], [ false, %127 ], [ false, %159 ], [ false, %171 ], [ false, %184 ], [ false, %54 ], [ false, %26 ], [ false, %23 ], [ false, %.critedge311 ], [ %247, %246 ], [ %245, %244 ], [ true, %232 ], [ false, %53 ], [ false, %48 ], [ false, %117 ], [ true, %250 ], [ false, %299 ], [ false, %283 ], [ false, %143 ], [ false, %.thread318.thread ], [ false, %93 ]
+  %.0.shrunk = phi i1 [ false, %14 ], [ false, %62 ], [ false, %69 ], [ false, %23 ], [ false, %53 ], [ false, %127 ], [ false, %159 ], [ false, %171 ], [ false, %48 ], [ false, %.critedge311 ], [ %247, %246 ], [ true, %232 ], [ %245, %244 ], [ false, %184 ], [ false, %54 ], [ false, %117 ], [ false, %26 ], [ false, %299 ], [ true, %250 ], [ false, %283 ], [ false, %143 ], [ false, %.thread318.thread ], [ false, %93 ]
   %.0 = zext i1 %.0.shrunk to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

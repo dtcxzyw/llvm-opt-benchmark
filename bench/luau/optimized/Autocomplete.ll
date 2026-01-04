@@ -2019,7 +2019,7 @@ _ZNSt6vectorIPN4Luau7AstNodeESaIS2_EED2Ev.exit:   ; preds = %_ZNSt12__shared_ptr
   unreachable
 
 .body:                                            ; preds = %252, %249, %203, %200
-  %.pn = phi { ptr, i32 } [ %201, %203 ], [ %201, %200 ], [ %250, %249 ], [ %250, %252 ]
+  %.pn = phi { ptr, i32 } [ %201, %200 ], [ %250, %252 ], [ %201, %203 ], [ %250, %249 ]
   call void @_ZNSt12__shared_ptrIN4Luau5ScopeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #11
   br label %257
 

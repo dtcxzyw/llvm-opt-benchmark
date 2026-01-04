@@ -126,7 +126,7 @@ define internal range(i32 -1094995529, 1) i32 @sds_read_header(ptr noundef %0) #
   br label %54
 
 54:                                               ; preds = %7, %1, %40
-  %.0 = phi i32 [ 0, %40 ], [ -12, %1 ], [ -1094995529, %7 ]
+  %.0 = phi i32 [ -12, %1 ], [ 0, %40 ], [ -1094995529, %7 ]
   ret i32 %.0
 }
 

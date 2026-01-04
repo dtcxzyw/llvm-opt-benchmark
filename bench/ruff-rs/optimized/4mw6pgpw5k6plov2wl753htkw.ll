@@ -226,7 +226,7 @@ define internal noundef range(i64 1, 0) i64 @"_ZN104_$LT$tracing_subscriber..reg
   ]
 
 6:                                                ; preds = %2, %16, %17
-  %.sroa.04.0 = phi i64 [ %.sroa.04.1, %16 ], [ %19, %17 ], [ %5, %2 ]
+  %.sroa.04.0 = phi i64 [ %19, %17 ], [ %.sroa.04.1, %16 ], [ %5, %2 ]
   %7 = call { i64, i64 } @"_ZN12sharded_slab4pool17Pool$LT$T$C$C$GT$11create_with17h47c3d3282c3f40caE"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, i64 noundef %.sroa.04.0)
   %8 = extractvalue { i64, i64 } %7, 0
   %9 = trunc nuw i64 %8 to i1
@@ -1119,7 +1119,7 @@ define hidden void @_ZN10rayon_core8registry8Registry12catch_unwind17hee28623a0b
   br label %common.resume
 
 common.resume:                                    ; preds = %185, %161, %176, %184
-  %common.resume.op = phi { ptr, i32 } [ %177, %184 ], [ %177, %176 ], [ %186, %185 ], [ %162, %161 ]
+  %common.resume.op = phi { ptr, i32 } [ %177, %176 ], [ %177, %184 ], [ %186, %185 ], [ %162, %161 ]
   resume { ptr, i32 } %common.resume.op
 
 185:                                              ; preds = %165
@@ -1635,7 +1635,7 @@ define hidden void @_ZN10rayon_core8registry8Registry12catch_unwind17hf2746d159d
   br label %common.resume
 
 common.resume:                                    ; preds = %189, %165, %180, %188
-  %common.resume.op = phi { ptr, i32 } [ %181, %188 ], [ %181, %180 ], [ %190, %189 ], [ %166, %165 ]
+  %common.resume.op = phi { ptr, i32 } [ %181, %180 ], [ %181, %188 ], [ %190, %189 ], [ %166, %165 ]
   resume { ptr, i32 } %common.resume.op
 
 189:                                              ; preds = %169
@@ -2065,7 +2065,7 @@ define internal noundef range(i64 0, 7) i64 @"_ZN113_$LT$tracing_subscriber..lay
   br label %_ZN18tracing_subscriber5layer18subscriber_is_none17h1cef810a40acf876E.exit
 
 _ZN18tracing_subscriber5layer18subscriber_is_none17h1cef810a40acf876E.exit: ; preds = %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.thread.i.i", %16, %19
-  %.merged.i.i = phi { i64, ptr } [ %11, %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.thread.i.i" ], [ %18, %16 ], [ %21, %19 ]
+  %.merged.i.i = phi { i64, ptr } [ %18, %16 ], [ %11, %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.thread.i.i" ], [ %21, %19 ]
   %22 = extractvalue { i64, ptr } %.merged.i.i, 0
   %23 = icmp eq i64 %22, 1
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 2351
@@ -2115,7 +2115,7 @@ _ZN18tracing_subscriber5layer18subscriber_is_none17h1cef810a40acf876E.exit: ; pr
   br label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h37b36e0c359f6fccE.exit"
 
 "_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h37b36e0c359f6fccE.exit": ; preds = %_ZN18tracing_subscriber5layer18subscriber_is_none17h1cef810a40acf876E.exit, %31, %35, %41, %42
-  %.sroa.07.0.i = phi i64 [ 6, %_ZN18tracing_subscriber5layer18subscriber_is_none17h1cef810a40acf876E.exit ], [ 6, %35 ], [ 6, %31 ], [ %spec.select.i, %42 ], [ %spec.select26.i, %41 ]
+  %.sroa.07.0.i = phi i64 [ 6, %35 ], [ %spec.select.i, %42 ], [ 6, %_ZN18tracing_subscriber5layer18subscriber_is_none17h1cef810a40acf876E.exit ], [ 6, %31 ], [ %spec.select26.i, %41 ]
   ret i64 %.sroa.07.0.i
 }
 
@@ -2156,7 +2156,7 @@ define hidden noundef range(i64 0, 7) i64 @"_ZN113_$LT$tracing_subscriber..layer
   br label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hd5d2056fcde6135aE.exit"
 
 "_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hd5d2056fcde6135aE.exit": ; preds = %1, %10, %14, %18
-  %.sroa.07.0.i.i = phi i64 [ %4, %1 ], [ 6, %14 ], [ 6, %10 ], [ %spec.select.i.i, %18 ]
+  %.sroa.07.0.i.i = phi i64 [ 6, %10 ], [ 6, %14 ], [ %4, %1 ], [ %spec.select.i.i, %18 ]
   %22 = tail call { i64, ptr } @_ZN18tracing_subscriber5layer5Layer12downcast_raw17h48aa8d59ed6c62f4E(ptr noundef nonnull align 8 %0, i64 noundef 7181427331871710250, i64 noundef 6854490230225825033)
   %23 = extractvalue { i64, ptr } %22, 0
   %24 = trunc nuw i64 %23 to i1
@@ -2172,7 +2172,7 @@ define hidden noundef range(i64 0, 7) i64 @"_ZN113_$LT$tracing_subscriber..layer
   br label %_ZN18tracing_subscriber5layer18subscriber_is_none17ha7d99fdc26a9e7ecE.exit
 
 _ZN18tracing_subscriber5layer18subscriber_is_none17ha7d99fdc26a9e7ecE.exit: ; preds = %25, %28
-  %.merged.i.i = phi { i64, ptr } [ %27, %25 ], [ %29, %28 ]
+  %.merged.i.i = phi { i64, ptr } [ %29, %28 ], [ %27, %25 ]
   %30 = extractvalue { i64, ptr } %.merged.i.i, 0
   %31 = icmp eq i64 %30, 1
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 2336
@@ -2242,7 +2242,7 @@ _ZN18tracing_subscriber5layer13layer_is_none17h57e1a01a4d06b3d9E.exit.thread.i: 
   br label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h694171959c0f23ddE.exit"
 
 "_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h694171959c0f23ddE.exit": ; preds = %_ZN18tracing_subscriber5layer18subscriber_is_none17ha7d99fdc26a9e7ecE.exit, %39, %44, %45, %51, %_ZN18tracing_subscriber5layer13layer_is_none17h57e1a01a4d06b3d9E.exit.thread.i, %.critedge.i, %53
-  %.sroa.07.0.i = phi i64 [ %.sroa.0.0.sroa.speculated.i.i, %.critedge.i ], [ %spec.select.i, %_ZN18tracing_subscriber5layer18subscriber_is_none17ha7d99fdc26a9e7ecE.exit ], [ 6, %39 ], [ 6, %45 ], [ %.sroa.0.0.sroa.speculated.i25.i, %53 ], [ 6, %_ZN18tracing_subscriber5layer13layer_is_none17h57e1a01a4d06b3d9E.exit.thread.i ], [ %spec.select.i, %51 ], [ %spec.select.i3, %44 ]
+  %.sroa.07.0.i = phi i64 [ %.sroa.0.0.sroa.speculated.i.i, %.critedge.i ], [ 6, %_ZN18tracing_subscriber5layer13layer_is_none17h57e1a01a4d06b3d9E.exit.thread.i ], [ %spec.select.i, %_ZN18tracing_subscriber5layer18subscriber_is_none17ha7d99fdc26a9e7ecE.exit ], [ 6, %39 ], [ %spec.select.i, %51 ], [ 6, %45 ], [ %.sroa.0.0.sroa.speculated.i25.i, %53 ], [ %spec.select.i3, %44 ]
   ret i64 %.sroa.07.0.i
 }
 
@@ -2278,7 +2278,7 @@ define hidden noundef range(i64 0, 7) i64 @"_ZN113_$LT$tracing_subscriber..layer
   br label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h8204edf596e6a5c2E.exit"
 
 "_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h8204edf596e6a5c2E.exit": ; preds = %1, %8, %12, %16
-  %.sroa.07.0.i = phi i64 [ %2, %1 ], [ 6, %12 ], [ 6, %8 ], [ %spec.select.i, %16 ]
+  %.sroa.07.0.i = phi i64 [ 6, %8 ], [ 6, %12 ], [ %2, %1 ], [ %spec.select.i, %16 ]
   ret i64 %.sroa.07.0.i
 }
 
@@ -2320,7 +2320,7 @@ define internal noundef range(i64 0, 7) i64 @"_ZN113_$LT$tracing_subscriber..lay
   br label %_ZN18tracing_subscriber5layer18subscriber_is_none17h1cef810a40acf876E.exit
 
 _ZN18tracing_subscriber5layer18subscriber_is_none17h1cef810a40acf876E.exit: ; preds = %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.thread.i.i", %16, %19
-  %.merged.i.i = phi { i64, ptr } [ %11, %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.thread.i.i" ], [ %18, %16 ], [ %21, %19 ]
+  %.merged.i.i = phi { i64, ptr } [ %18, %16 ], [ %11, %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.thread.i.i" ], [ %21, %19 ]
   %22 = extractvalue { i64, ptr } %.merged.i.i, 0
   %23 = icmp eq i64 %22, 1
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 2357
@@ -2370,7 +2370,7 @@ _ZN18tracing_subscriber5layer18subscriber_is_none17h1cef810a40acf876E.exit: ; pr
   br label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h64727a87f150fde7E.exit"
 
 "_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h64727a87f150fde7E.exit": ; preds = %_ZN18tracing_subscriber5layer18subscriber_is_none17h1cef810a40acf876E.exit, %31, %35, %41, %42
-  %.sroa.07.0.i = phi i64 [ 6, %_ZN18tracing_subscriber5layer18subscriber_is_none17h1cef810a40acf876E.exit ], [ 6, %35 ], [ 6, %31 ], [ %spec.select.i, %42 ], [ %spec.select26.i, %41 ]
+  %.sroa.07.0.i = phi i64 [ 6, %35 ], [ %spec.select.i, %42 ], [ 6, %_ZN18tracing_subscriber5layer18subscriber_is_none17h1cef810a40acf876E.exit ], [ 6, %31 ], [ %spec.select26.i, %41 ]
   ret i64 %.sroa.07.0.i
 }
 
@@ -2471,7 +2471,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN113_$LT$tracing_subscriber..layer..
   br label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite28_$u7b$$u7b$closure$u7d$$u7d$17h6d7c29707768900dE.exit11.i"
 
 "_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite28_$u7b$$u7b$closure$u7d$$u7d$17h6d7c29707768900dE.exit11.i": ; preds = %53, %51, %44
-  %.sroa.03.0.i.i.i10.i = phi i8 [ %46, %44 ], [ %49, %51 ], [ %55, %53 ]
+  %.sroa.03.0.i.i.i10.i = phi i8 [ %46, %44 ], [ %55, %53 ], [ %49, %51 ]
   %56 = icmp eq i8 %.sroa.0.0.i46, 1
   br i1 %56, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$13pick_interest17hb2e837c0a0fb676fE.exit", label %59
 
@@ -2490,7 +2490,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN113_$LT$tracing_subscriber..layer..
   br label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$13pick_interest17hb2e837c0a0fb676fE.exit"
 
 "_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$13pick_interest17hb2e837c0a0fb676fE.exit": ; preds = %22, %25, %27, %31, %33, %36, %47, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite28_$u7b$$u7b$closure$u7d$$u7d$17h6d7c29707768900dE.exit11.i", %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite28_$u7b$$u7b$closure$u7d$$u7d$17h6d7c29707768900dE.exit11.thread.i", %59, %.thread.i
-  %.sroa.03.0.i = phi i8 [ 0, %36 ], [ %.sroa.03.0.i.i.i10.i, %59 ], [ 1, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite28_$u7b$$u7b$closure$u7d$$u7d$17h6d7c29707768900dE.exit11.i" ], [ %62, %.thread.i ], [ %24, %22 ], [ 0, %25 ], [ %29, %31 ], [ 1, %27 ], [ %35, %33 ], [ 1, %47 ], [ 1, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite28_$u7b$$u7b$closure$u7d$$u7d$17h6d7c29707768900dE.exit11.thread.i" ]
+  %.sroa.03.0.i = phi i8 [ %62, %.thread.i ], [ 0, %36 ], [ %.sroa.03.0.i.i.i10.i, %59 ], [ 1, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite28_$u7b$$u7b$closure$u7d$$u7d$17h6d7c29707768900dE.exit11.i" ], [ %24, %22 ], [ 0, %25 ], [ %29, %31 ], [ 1, %27 ], [ %35, %33 ], [ 1, %47 ], [ 1, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite28_$u7b$$u7b$closure$u7d$$u7d$17h6d7c29707768900dE.exit11.thread.i" ]
   ret i8 %.sroa.03.0.i
 }
 
@@ -2934,7 +2934,7 @@ define hidden noundef range(i64 1, 0) i64 @"_ZN113_$LT$tracing_subscriber..layer
   ]
 
 8:                                                ; preds = %19, %18, %2
-  %.sroa.04.0.i = phi i64 [ %.sroa.04.1.i, %18 ], [ %21, %19 ], [ %7, %2 ]
+  %.sroa.04.0.i = phi i64 [ %21, %19 ], [ %.sroa.04.1.i, %18 ], [ %7, %2 ]
   %9 = call { i64, i64 } @"_ZN12sharded_slab4pool17Pool$LT$T$C$C$GT$11create_with17h47c3d3282c3f40caE"(ptr noundef nonnull align 8 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, i64 noundef %.sroa.04.0.i)
   %10 = extractvalue { i64, i64 } %9, 0
   %11 = trunc nuw i64 %10 to i1
@@ -3583,7 +3583,7 @@ define hidden void @_ZN12clap_builder4util9any_value8AnyValue13downcast_into17h2
   unreachable
 
 common.resume:                                    ; preds = %42, %46, %23, %27
-  %common.resume.op = phi { ptr, i32 } [ %24, %27 ], [ %24, %23 ], [ %43, %46 ], [ %43, %42 ]
+  %common.resume.op = phi { ptr, i32 } [ %24, %23 ], [ %24, %27 ], [ %43, %46 ], [ %43, %42 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc4sync83Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$C$A$GT$8downcast17h458f4f0cad68d723E.exit": ; preds = %2
@@ -4069,7 +4069,7 @@ define hidden void @_ZN12clap_builder4util9any_value8AnyValue13downcast_into17hf
   unreachable
 
 common.resume:                                    ; preds = %42, %46, %23, %27
-  %common.resume.op = phi { ptr, i32 } [ %24, %27 ], [ %24, %23 ], [ %43, %46 ], [ %43, %42 ]
+  %common.resume.op = phi { ptr, i32 } [ %24, %23 ], [ %24, %27 ], [ %43, %46 ], [ %43, %42 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc4sync83Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$C$A$GT$8downcast17hc8cfdb4a0e6dd222E.exit": ; preds = %2
@@ -4591,8 +4591,8 @@ _ZN4core3ops8function6FnOnce9call_once17hc838442818125a6cE.exit.thread2.i: ; pre
   br label %81
 
 56:                                               ; preds = %37, %33
-  %57 = phi i64 [ %36, %33 ], [ %.pre.i.i, %37 ]
-  %.sroa.0.0.i.i.i.i.i = phi ptr [ %35, %33 ], [ %_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h2da84f8e8455e125E._ZN12tracing_core10dispatcher4NONE17hf0e2c9ebb5a67983E.i.i.i.i.i, %37 ]
+  %57 = phi i64 [ %.pre.i.i, %37 ], [ %36, %33 ]
+  %.sroa.0.0.i.i.i.i.i = phi ptr [ %_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h2da84f8e8455e125E._ZN12tracing_core10dispatcher4NONE17hf0e2c9ebb5a67983E.i.i.i.i.i, %37 ], [ %35, %33 ]
   store ptr %.sroa.0.0.i.i.i.i.i, ptr %2, align 8
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.sroa.0.0.i.i4.i, ptr %58, align 8
@@ -4805,8 +4805,8 @@ switch.lookup:                                    ; preds = %"_ZN50_$LT$T$u20$as
   br label %25
 
 25:                                               ; preds = %switch.lookup, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h08736dfdd9d492ebE.exit"
-  %.sroa.4.0 = phi ptr [ @anon.5062a4e0c78f412ac3bb4f81f58f9281.28, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h08736dfdd9d492ebE.exit" ], [ @anon.5062a4e0c78f412ac3bb4f81f58f9281.26, %switch.lookup ]
-  %.sroa.0.0 = phi ptr [ inttoptr (i64 1 to ptr), %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h08736dfdd9d492ebE.exit" ], [ %spec.select22, %switch.lookup ]
+  %.sroa.4.0 = phi ptr [ @anon.5062a4e0c78f412ac3bb4f81f58f9281.26, %switch.lookup ], [ @anon.5062a4e0c78f412ac3bb4f81f58f9281.28, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h08736dfdd9d492ebE.exit" ]
+  %.sroa.0.0 = phi ptr [ %spec.select22, %switch.lookup ], [ inttoptr (i64 1 to ptr), %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h08736dfdd9d492ebE.exit" ]
   %26 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %27 = insertvalue { ptr, ptr } %26, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %27
@@ -4905,8 +4905,8 @@ switch.lookup:                                    ; preds = %"_ZN50_$LT$T$u20$as
   br label %25
 
 25:                                               ; preds = %switch.lookup, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hdf513b5f70a1045fE.exit"
-  %.sroa.4.0 = phi ptr [ @anon.5062a4e0c78f412ac3bb4f81f58f9281.28, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hdf513b5f70a1045fE.exit" ], [ @anon.5062a4e0c78f412ac3bb4f81f58f9281.26, %switch.lookup ]
-  %.sroa.0.0 = phi ptr [ inttoptr (i64 1 to ptr), %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hdf513b5f70a1045fE.exit" ], [ %spec.select22, %switch.lookup ]
+  %.sroa.4.0 = phi ptr [ @anon.5062a4e0c78f412ac3bb4f81f58f9281.26, %switch.lookup ], [ @anon.5062a4e0c78f412ac3bb4f81f58f9281.28, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hdf513b5f70a1045fE.exit" ]
+  %.sroa.0.0 = phi ptr [ %spec.select22, %switch.lookup ], [ inttoptr (i64 1 to ptr), %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hdf513b5f70a1045fE.exit" ]
   %26 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %27 = insertvalue { ptr, ptr } %26, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %27
@@ -5665,7 +5665,7 @@ define internal void @"_ZN3std4sync6poison4once4Once9call_once28_$u7b$$u7b$closu
           to label %.loopexit.i.i.i unwind label %112, !noalias !467
 
 .critedge.i.i.i:                                  ; preds = %214, %210, %174, %165, %146, %.body.thread151.loopexit.split-lp.i.i.i, %.body.thread151.loopexit.i.i.i, %.thread142.i.i.i, %112
-  %.pn46.pn.i.i.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i.i.i, %214 ], [ %113, %112 ], [ %lpad.thr_comm.i.i.i, %.thread142.i.i.i ], [ %lpad.thr_comm.split-lp150.i.i.i, %210 ], [ %147, %146 ], [ %166, %165 ], [ %175, %174 ], [ %lpad.loopexit.i.i.i, %.body.thread151.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %.body.thread151.loopexit.split-lp.i.i.i ]
+  %.pn46.pn.i.i.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i.i.i, %214 ], [ %lpad.thr_comm.i.i.i, %.thread142.i.i.i ], [ %113, %112 ], [ %lpad.thr_comm.split-lp150.i.i.i, %210 ], [ %175, %174 ], [ %147, %146 ], [ %166, %165 ], [ %lpad.loopexit.i.i.i, %.body.thread151.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %.body.thread151.loopexit.split-lp.i.i.i ]
   invoke void @"_ZN4core3ptr313drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$core..iter..adapters..zip..Zip$LT$alloc..vec..into_iter..IntoIter$LT$crossbeam_deque..deque..Worker$LT$rayon_core..job..JobRef$GT$$GT$$C$alloc..vec..into_iter..IntoIter$LT$crossbeam_deque..deque..Stealer$LT$rayon_core..job..JobRef$GT$$GT$$GT$$GT$$GT$17h0332eca0c344d33dE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %16) #24
           to label %82 unwind label %211, !noalias !467
 
@@ -5999,8 +5999,8 @@ _ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i.i.i.i.i: ; preds = %1
   br i1 %.sroa.010.1115.i.i.i, label %215, label %.thread159.i.i.i
 
 .thread109.i.i.i:                                 ; preds = %78, %52, %.thread129.i.i.i
-  %.pn46.pn.pn.pn.pn119.i.i.i = phi { ptr, i32 } [ %50, %.thread129.i.i.i ], [ %.pn.i.i.i, %52 ], [ %79, %78 ]
-  %.sroa.010.1115.i.i.i = phi i1 [ true, %.thread129.i.i.i ], [ true, %52 ], [ false, %78 ]
+  %.pn46.pn.pn.pn.pn119.i.i.i = phi { ptr, i32 } [ %.pn.i.i.i, %52 ], [ %50, %.thread129.i.i.i ], [ %79, %78 ]
+  %.sroa.010.1115.i.i.i = phi i1 [ true, %52 ], [ true, %.thread129.i.i.i ], [ false, %78 ]
   invoke void @"_ZN4core3ptr106drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_deque..deque..Stealer$LT$rayon_core..job..JobRef$GT$$GT$$GT$17hdd0f0f88993a5858E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22) #24
           to label %.thread120.i.i.i unwind label %211, !noalias !467
 

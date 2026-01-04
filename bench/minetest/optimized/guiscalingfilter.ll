@@ -641,7 +641,7 @@ if.then.i.i.i:                                    ; preds = %lpad.i
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %_ZN3irr4core6stringIcED2Ev.exit444, %if.then.i.i.i, %ehcleanup
-  %common.resume.op = phi { ptr, i32 } [ %17, %if.then.i.i.i ], [ %.pn257.pn.pn.pn, %_ZN3irr4core6stringIcED2Ev.exit444 ], [ %.pn, %ehcleanup ], [ %17, %lpad.i ]
+  %common.resume.op = phi { ptr, i32 } [ %17, %if.then.i.i.i ], [ %.pn, %ehcleanup ], [ %.pn257.pn.pn.pn, %_ZN3irr4core6stringIcED2Ev.exit444 ], [ %17, %lpad.i ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN3irr4core6stringIcEC2ERKS2_.exit:              ; preds = %if.end.i.i279, %if.end7

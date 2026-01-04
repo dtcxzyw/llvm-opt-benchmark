@@ -595,8 +595,8 @@ default.unreachable:                              ; preds = %256
   unreachable
 
 263:                                              ; preds = %262, %261, %256
-  %.0124.i = phi i32 [ 3, %261 ], [ 4, %262 ], [ 1, %256 ]
-  %.0123.shrunk.i = phi i8 [ %259, %261 ], [ 100, %262 ], [ %259, %256 ]
+  %.0124.i = phi i32 [ 4, %262 ], [ 3, %261 ], [ 1, %256 ]
+  %.0123.shrunk.i = phi i8 [ 100, %262 ], [ %259, %261 ], [ %259, %256 ]
   %.0123.i = zext nneg i8 %.0123.shrunk.i to i32
   call void @SDL_SendJoystickPowerInfo(ptr noundef nonnull %13, i32 noundef %.0124.i, i32 noundef %.0123.i) #9
   br label %264

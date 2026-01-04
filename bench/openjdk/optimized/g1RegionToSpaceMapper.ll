@@ -570,9 +570,9 @@ _ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit: ; preds = %
   br label %_ZN36G1RegionsSmallerThanCommitSizeMapper20numa_request_on_nodeEm.exit
 
 _ZN36G1RegionsSmallerThanCommitSizeMapper20numa_request_on_nodeEm.exit: ; preds = %44, %23, %53, %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit
-  %.129 = phi i64 [ %49, %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit ], [ %49, %53 ], [ %.02834, %23 ], [ %.02834, %44 ]
-  %.227 = phi i64 [ %spec.select, %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit ], [ %spec.select, %53 ], [ %.02535, %23 ], [ %.02535, %44 ]
-  %.2 = phi i1 [ %.1, %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit ], [ %.1, %53 ], [ false, %23 ], [ false, %44 ]
+  %.129 = phi i64 [ %49, %53 ], [ %49, %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit ], [ %.02834, %23 ], [ %.02834, %44 ]
+  %.227 = phi i64 [ %spec.select, %53 ], [ %spec.select, %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit ], [ %.02535, %23 ], [ %.02535, %44 ]
+  %.2 = phi i1 [ %.1, %53 ], [ %.1, %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit ], [ false, %23 ], [ false, %44 ]
   %60 = add nuw nsw i64 %.037, 1
   %.not.not = icmp samesign ult i64 %.037, %13
   br i1 %.not.not, label %18, label %_ZN11MutexLockerD2Ev.exit, !llvm.loop !10

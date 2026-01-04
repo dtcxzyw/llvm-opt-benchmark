@@ -369,7 +369,7 @@ define internal i32 @php_hash_xxh32_unserialize(ptr noundef %0, i64 noundef %1, 
   br label %.thread
 
 .thread:                                          ; preds = %10, %3, %7
-  %.07 = phi i32 [ -1, %3 ], [ %8, %7 ], [ %spec.select, %10 ]
+  %.07 = phi i32 [ %spec.select, %10 ], [ %8, %7 ], [ -1, %3 ]
   ret i32 %.07
 }
 
@@ -758,7 +758,7 @@ define internal i32 @php_hash_xxh64_unserialize(ptr noundef %0, i64 noundef %1, 
   br label %.thread
 
 .thread:                                          ; preds = %10, %3, %7
-  %.07 = phi i32 [ -1, %3 ], [ %8, %7 ], [ %spec.select, %10 ]
+  %.07 = phi i32 [ %spec.select, %10 ], [ %8, %7 ], [ -1, %3 ]
   ret i32 %.07
 }
 
@@ -2691,7 +2691,7 @@ XXH3_len_17to128_64b.exit.i23.i:                  ; preds = %581, %518
   br label %XXH_INLINE_XXH3_64bits_digest.exit
 
 XXH_INLINE_XXH3_64bits_digest.exit:               ; preds = %XXH3_mergeAccs.exit.i, %209, %233, %259, %286, %XXH3_len_17to128_64b.exit.i.i, %420, %426, %454, %477, %504, %XXH3_len_17to128_64b.exit.i23.i, %639
-  %.0.i = phi i64 [ %198, %XXH3_mergeAccs.exit.i ], [ %419, %XXH3_len_17to128_64b.exit.i.i ], [ %421, %420 ], [ %230, %209 ], [ %257, %233 ], [ %285, %259 ], [ %295, %286 ], [ %638, %XXH3_len_17to128_64b.exit.i23.i ], [ %640, %639 ], [ %451, %426 ], [ %475, %454 ], [ %503, %477 ], [ %515, %504 ]
+  %.0.i = phi i64 [ %198, %XXH3_mergeAccs.exit.i ], [ %295, %286 ], [ %421, %420 ], [ %419, %XXH3_len_17to128_64b.exit.i.i ], [ %230, %209 ], [ %257, %233 ], [ %285, %259 ], [ %640, %639 ], [ %638, %XXH3_len_17to128_64b.exit.i23.i ], [ %451, %426 ], [ %475, %454 ], [ %503, %477 ], [ %515, %504 ]
   %641 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.i)
   store i64 %641, ptr %0, align 1
   ret void
@@ -4864,7 +4864,7 @@ XXH3_len_17to128_128b.exit.i31.i:                 ; preds = %751, %681
   br label %XXH_INLINE_XXH3_128bits_digest.exit
 
 XXH_INLINE_XXH3_128bits_digest.exit:              ; preds = %XXH3_mergeAccs.exit27.i, %236, %277, %314, %356, %XXH3_len_17to128_128b.exit.i.i, %529, %534, %579, %613, %654, %XXH3_len_17to128_128b.exit.i31.i, %829
-  %.fca.1.insert.merged.i = phi { i64, i64 } [ %227, %XXH3_mergeAccs.exit27.i ], [ %.fca.1.insert.i.i.i, %XXH3_len_17to128_128b.exit.i.i ], [ %530, %529 ], [ %.fca.1.insert.i3.i.i, %236 ], [ %.fca.1.insert.i5.i.i, %277 ], [ %.fca.1.insert.i7.i.i, %314 ], [ %376, %356 ], [ %.fca.1.insert.i.i35.i, %XXH3_len_17to128_128b.exit.i31.i ], [ %830, %829 ], [ %.fca.1.insert.i4.i.i, %534 ], [ %.fca.1.insert.i6.i.i, %579 ], [ %.fca.1.insert.i8.i.i, %613 ], [ %678, %654 ]
+  %.fca.1.insert.merged.i = phi { i64, i64 } [ %227, %XXH3_mergeAccs.exit27.i ], [ %376, %356 ], [ %530, %529 ], [ %.fca.1.insert.i.i.i, %XXH3_len_17to128_128b.exit.i.i ], [ %.fca.1.insert.i3.i.i, %236 ], [ %.fca.1.insert.i5.i.i, %277 ], [ %.fca.1.insert.i7.i.i, %314 ], [ %830, %829 ], [ %.fca.1.insert.i.i35.i, %XXH3_len_17to128_128b.exit.i31.i ], [ %.fca.1.insert.i4.i.i, %534 ], [ %.fca.1.insert.i6.i.i, %579 ], [ %.fca.1.insert.i8.i.i, %613 ], [ %678, %654 ]
   %831 = extractvalue { i64, i64 } %.fca.1.insert.merged.i, 0
   %832 = extractvalue { i64, i64 } %.fca.1.insert.merged.i, 1
   %833 = tail call noundef i64 @llvm.bswap.i64(i64 %832)

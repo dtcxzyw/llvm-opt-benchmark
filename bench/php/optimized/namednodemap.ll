@@ -54,7 +54,7 @@ define hidden i64 @php_dom_get_namednodemap_length(ptr noundef readonly captures
   br i1 %.not20, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %15, %12, %9, %6, %1
-  %.013 = phi i64 [ 0, %1 ], [ %11, %9 ], [ 0, %6 ], [ 0, %12 ], [ 0, %15 ], [ %17, %.lr.ph ]
+  %.013 = phi i64 [ 0, %1 ], [ 0, %6 ], [ %11, %9 ], [ 0, %12 ], [ 0, %15 ], [ %17, %.lr.ph ]
   ret i64 %.013
 }
 
@@ -109,7 +109,7 @@ define hidden noundef i32 @dom_namednodemap_length_read(ptr noundef readonly cap
   br i1 %.not20.i, label %php_dom_get_namednodemap_length.exit, label %.lr.ph.i
 
 php_dom_get_namednodemap_length.exit:             ; preds = %.lr.ph.i, %2, %7, %10, %13, %16
-  %.013.i = phi i64 [ 0, %2 ], [ %12, %10 ], [ 0, %7 ], [ 0, %13 ], [ 0, %16 ], [ %18, %.lr.ph.i ]
+  %.013.i = phi i64 [ 0, %2 ], [ 0, %7 ], [ %12, %10 ], [ 0, %13 ], [ 0, %16 ], [ %18, %.lr.ph.i ]
   store i64 %.013.i, ptr %1, align 8, !tbaa !31
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %20, align 8, !tbaa !31
@@ -186,7 +186,7 @@ php_dom_follow_spec_doc_ref.exit.thread:          ; preds = %24, %php_dom_follow
   br label %39
 
 39:                                               ; preds = %10, %21, %php_dom_follow_spec_doc_ref.exit.thread, %32, %14, %7, %3
-  %.0 = phi ptr [ null, %7 ], [ null, %3 ], [ %20, %14 ], [ %36, %32 ], [ %38, %php_dom_follow_spec_doc_ref.exit.thread ], [ null, %21 ], [ %13, %10 ]
+  %.0 = phi ptr [ %38, %php_dom_follow_spec_doc_ref.exit.thread ], [ null, %3 ], [ null, %7 ], [ null, %21 ], [ %20, %14 ], [ %13, %10 ], [ %36, %32 ]
   ret ptr %.0
 }
 
@@ -580,7 +580,7 @@ define hidden void @zim_DOMNamedNodeMap_getNamedItemNS(ptr noundef readonly capt
   br label %41
 
 41:                                               ; preds = %22, %27, %37
-  %.0 = phi ptr [ %33, %27 ], [ %40, %37 ], [ %25, %22 ]
+  %.0 = phi ptr [ %40, %37 ], [ %33, %27 ], [ %25, %22 ]
   %.not29 = icmp eq ptr %.0, null
   br i1 %.not29, label %.thread, label %42
 
@@ -659,7 +659,7 @@ define hidden void @zim_DOMNamedNodeMap_count(ptr noundef readonly captures(none
   br i1 %.not20.i, label %php_dom_get_namednodemap_length.exit, label %.lr.ph.i
 
 php_dom_get_namednodemap_length.exit:             ; preds = %.lr.ph.i, %6, %14, %17, %20, %23
-  %.013.i = phi i64 [ 0, %6 ], [ %19, %17 ], [ 0, %14 ], [ 0, %20 ], [ 0, %23 ], [ %25, %.lr.ph.i ]
+  %.013.i = phi i64 [ 0, %6 ], [ 0, %14 ], [ %19, %17 ], [ 0, %20 ], [ 0, %23 ], [ %25, %.lr.ph.i ]
   store i64 %.013.i, ptr %1, align 8, !tbaa !31
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %27, align 8, !tbaa !31

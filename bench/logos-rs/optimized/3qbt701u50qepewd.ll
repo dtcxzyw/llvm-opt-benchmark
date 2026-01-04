@@ -142,8 +142,8 @@ define internal fastcc noundef zeroext i1 @_ZN13logos_codegen6parser12ignore_fla
   br label %.invoke
 
 .invoke:                                          ; preds = %.invoke.sink.split, %56, %50
-  %62 = phi ptr [ @anon.ef210b60d2e439ef389dcbe29160292b.6, %50 ], [ @anon.ef210b60d2e439ef389dcbe29160292b.7, %56 ], [ %.ph, %.invoke.sink.split ]
-  %63 = phi i32 [ 0, %50 ], [ 0, %56 ], [ %61, %.invoke.sink.split ]
+  %62 = phi ptr [ @anon.ef210b60d2e439ef389dcbe29160292b.7, %56 ], [ @anon.ef210b60d2e439ef389dcbe29160292b.6, %50 ], [ %.ph, %.invoke.sink.split ]
+  %63 = phi i32 [ 0, %56 ], [ 0, %50 ], [ %61, %.invoke.sink.split ]
   %64 = invoke align 8 ptr @_ZN13logos_codegen5error6Errors3err17hfe641ffc7d3ca420E(ptr align 8 %2, ptr nonnull align 1 %62, i64 54, i32 %63)
           to label %47 unwind label %18
 
@@ -224,7 +224,7 @@ default.unreachable:                              ; preds = %29
           to label %95 unwind label %.loopexit
 
 .thread:                                          ; preds = %.thread60.loopexit, %.thread60.loopexit.split-lp, %.loopexit, %.loopexit.split-lp, %107, %100, %72, %switch.early.test56, %switch.early.test56, %42, %130, %94, %67, %59, %58, %57
-  %.pn53 = phi { ptr, i32 } [ %lpad.phi80, %59 ], [ %lpad.phi80, %57 ], [ %lpad.phi80, %58 ], [ %lpad.phi80, %42 ], [ %lpad.thr_comm.split-lp, %94 ], [ %lpad.thr_comm.split-lp, %67 ], [ %102, %switch.early.test56 ], [ %102, %130 ], [ %101, %100 ], [ %102, %switch.early.test56 ], [ %.pn47, %72 ], [ %.pn, %107 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit73, %.thread60.loopexit ], [ %lpad.loopexit.split-lp74, %.thread60.loopexit.split-lp ]
+  %.pn53 = phi { ptr, i32 } [ %.pn, %107 ], [ %lpad.phi80, %59 ], [ %lpad.phi80, %57 ], [ %lpad.phi80, %58 ], [ %lpad.phi80, %42 ], [ %lpad.thr_comm.split-lp, %94 ], [ %lpad.thr_comm.split-lp, %67 ], [ %102, %switch.early.test56 ], [ %102, %130 ], [ %101, %100 ], [ %102, %switch.early.test56 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %.pn47, %72 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit73, %.thread60.loopexit ], [ %lpad.loopexit.split-lp74, %.thread60.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$proc_macro2..token_stream..IntoIter$GT$17ha227d63d784302e3E"(ptr nonnull align 8 %23) #5
           to label %24 unwind label %60
 
@@ -295,7 +295,7 @@ default.unreachable:                              ; preds = %29
           to label %.backedge unwind label %.loopexit
 
 .backedge:                                        ; preds = %.invoke, %106, %106, %46, %46, %71
-  %.be = phi i8 [ 1, %46 ], [ 2, %71 ], [ 1, %106 ], [ 1, %46 ], [ 1, %106 ], [ 1, %.invoke ]
+  %.be = phi i8 [ 1, %46 ], [ 1, %.invoke ], [ 2, %71 ], [ 1, %106 ], [ 1, %106 ], [ 1, %46 ]
   br label %29
 
 49:                                               ; preds = %36

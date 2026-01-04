@@ -307,7 +307,7 @@ define hidden range(i32 -1, 1) i32 @_select_exec(ptr noundef %0) #0 {
   br label %106
 
 106:                                              ; preds = %104, %101, %98, %95, %92, %89, %86, %83, %80, %77, %74, %71, %68, %65, %62, %59, %56, %52, %49, %46, %43, %40, %37, %34, %31, %28, %25, %22, %19, %16, %12, %9, %5, %1
-  %.0 = phi i32 [ -1, %1 ], [ -1, %5 ], [ -1, %9 ], [ -1, %12 ], [ -1, %16 ], [ -1, %19 ], [ -1, %22 ], [ -1, %25 ], [ -1, %28 ], [ -1, %31 ], [ -1, %34 ], [ -1, %37 ], [ -1, %40 ], [ -1, %43 ], [ -1, %46 ], [ -1, %49 ], [ -1, %52 ], [ -1, %56 ], [ -1, %59 ], [ -1, %62 ], [ -1, %65 ], [ -1, %68 ], [ -1, %71 ], [ -1, %74 ], [ -1, %77 ], [ -1, %80 ], [ -1, %83 ], [ -1, %86 ], [ -1, %89 ], [ -1, %92 ], [ -1, %95 ], [ -1, %98 ], [ -1, %101 ], [ %.lobit, %104 ]
+  %.0 = phi i32 [ -1, %101 ], [ -1, %1 ], [ -1, %5 ], [ -1, %9 ], [ -1, %12 ], [ -1, %16 ], [ -1, %19 ], [ -1, %22 ], [ -1, %25 ], [ -1, %28 ], [ -1, %31 ], [ -1, %34 ], [ -1, %37 ], [ -1, %40 ], [ -1, %43 ], [ -1, %46 ], [ -1, %49 ], [ -1, %52 ], [ -1, %56 ], [ -1, %59 ], [ -1, %62 ], [ -1, %65 ], [ -1, %68 ], [ -1, %71 ], [ -1, %74 ], [ -1, %77 ], [ -1, %80 ], [ -1, %83 ], [ -1, %86 ], [ -1, %89 ], [ -1, %92 ], [ -1, %95 ], [ -1, %98 ], [ %.lobit, %104 ]
   ret i32 %.0
 }
 
@@ -497,7 +497,7 @@ Py_DECREF.exit.i:                                 ; preds = %46, %43, %Py_DECREF
   br label %select_poll_register_impl.exit
 
 select_poll_register_impl.exit:                   ; preds = %48, %Py_DECREF.exit.i, %32, %29, %27, %19, %14, %8, %6
-  %.0 = phi ptr [ null, %8 ], [ null, %14 ], [ null, %6 ], [ @_Py_NoneStruct, %48 ], [ null, %19 ], [ null, %Py_DECREF.exit.i ], [ null, %27 ], [ null, %29 ], [ null, %32 ]
+  %.0 = phi ptr [ null, %8 ], [ null, %6 ], [ null, %14 ], [ @_Py_NoneStruct, %48 ], [ null, %Py_DECREF.exit.i ], [ null, %19 ], [ null, %27 ], [ null, %29 ], [ null, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -642,7 +642,7 @@ Py_DECREF.exit.i:                                 ; preds = %64, %61, %Py_DECREF
   br label %select_poll_modify_impl.exit
 
 select_poll_modify_impl.exit:                     ; preds = %66, %Py_DECREF.exit.i, %51, %48, %46, %41, %38, %33, %30, %27, %25, %15, %11, %7, %5
-  %.0 = phi ptr [ null, %7 ], [ null, %11 ], [ null, %5 ], [ @_Py_NoneStruct, %66 ], [ null, %15 ], [ null, %Py_DECREF.exit.i ], [ null, %25 ], [ null, %27 ], [ null, %30 ], [ null, %33 ], [ null, %38 ], [ null, %41 ], [ null, %46 ], [ null, %48 ], [ null, %51 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %5 ], [ null, %11 ], [ @_Py_NoneStruct, %66 ], [ null, %Py_DECREF.exit.i ], [ null, %30 ], [ null, %41 ], [ null, %15 ], [ null, %25 ], [ null, %27 ], [ null, %33 ], [ null, %38 ], [ null, %46 ], [ null, %48 ], [ null, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -933,7 +933,7 @@ update_ufd_array.exit.i:                          ; preds = %.lr.ph.i.i, %55
   br label %select_poll_poll_impl.exit
 
 105:                                              ; preds = %.thread79.i, %._crit_edge.i
-  %.05178.i = phi i32 [ %.lcssa89.i, %._crit_edge.i ], [ %.lcssa16, %.thread79.i ]
+  %.05178.i = phi i32 [ %.lcssa16, %.thread79.i ], [ %.lcssa89.i, %._crit_edge.i ]
   %106 = zext nneg i32 %.05178.i to i64
   %107 = call ptr @PyList_New(i64 noundef %106) #8
   %.not64.i = icmp eq ptr %107, null
@@ -1046,7 +1046,7 @@ Py_DECREF.exit71.i:                               ; preds = %117, %Py_DECREF.exi
   br label %select_poll_poll_impl.exit
 
 select_poll_poll_impl.exit:                       ; preds = %146, %17, %20, %26, %36, %update_ufd_array.exit.thread.i, %.thread79.i, %102, %105, %.thread120.i, %.preheader85.i, %Py_DECREF.exit71.i, %150, %153
-  %.0.i = phi ptr [ null, %26 ], [ null, %36 ], [ null, %20 ], [ null, %17 ], [ null, %102 ], [ null, %105 ], [ null, %update_ufd_array.exit.thread.i ], [ null, %Py_DECREF.exit71.i ], [ null, %150 ], [ null, %153 ], [ null, %.thread79.i ], [ %107, %.preheader85.i ], [ %108, %.thread120.i ], [ %107, %146 ]
+  %.0.i = phi ptr [ null, %17 ], [ null, %26 ], [ null, %36 ], [ null, %update_ufd_array.exit.thread.i ], [ null, %.thread79.i ], [ null, %105 ], [ null, %153 ], [ null, %20 ], [ null, %102 ], [ null, %Py_DECREF.exit71.i ], [ null, %150 ], [ %107, %.preheader85.i ], [ %108, %.thread120.i ], [ %107, %146 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %154
 
@@ -1856,12 +1856,12 @@ define internal ptr @select_epoll_poll(ptr noundef readonly captures(none) %0, p
   br i1 %exitcond.not.i, label %Py_DECREF.exit.i, label %100, !llvm.loop !50
 
 Py_DECREF.exit.i:                                 ; preds = %.lr.ph.i, %113, %112, %109, %107, %.preheader.i, %.thread.thread.i, %.thread.i, %92
-  %.044.i = phi ptr [ null, %92 ], [ null, %.thread.i ], [ null, %107 ], [ null, %109 ], [ null, %112 ], [ %96, %.preheader.i ], [ %98, %.thread.thread.i ], [ %96, %113 ], [ null, %.lr.ph.i ]
+  %.044.i = phi ptr [ null, %92 ], [ null, %.thread.i ], [ %96, %.preheader.i ], [ null, %112 ], [ null, %107 ], [ null, %109 ], [ %98, %.thread.thread.i ], [ %96, %113 ], [ null, %.lr.ph.i ]
   call void @PyMem_Free(ptr noundef nonnull %66) #8
   br label %select_epoll_poll_impl.exit
 
 select_epoll_poll_impl.exit:                      ; preds = %34, %40, %43, %49, %60, %74, %Py_DECREF.exit.i
-  %.0.i = phi ptr [ null, %34 ], [ null, %49 ], [ null, %74 ], [ %.044.i, %Py_DECREF.exit.i ], [ null, %60 ], [ null, %43 ], [ null, %40 ]
+  %.0.i = phi ptr [ null, %34 ], [ null, %60 ], [ null, %49 ], [ null, %74 ], [ %.044.i, %Py_DECREF.exit.i ], [ null, %43 ], [ null, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %115
 
@@ -2404,7 +2404,7 @@ Py_XDECREF.exit67.i:                              ; preds = %97, %94, %92, %Py_X
   br label %Py_XDECREF.exit70.i
 
 Py_XDECREF.exit70.i:                              ; preds = %.lr.ph.split, %.lr.ph.split.us, %103, %100, %98, %Py_XDECREF.exit67.i, %76, %48, %45, %39
-  %.047.i = phi ptr [ null, %39 ], [ null, %45 ], [ null, %48 ], [ null, %76 ], [ %.148.i, %Py_XDECREF.exit67.i ], [ %.148.i, %98 ], [ %.148.i, %100 ], [ %.148.i, %103 ], [ null, %.lr.ph.split.us ], [ null, %.lr.ph.split ]
+  %.047.i = phi ptr [ null, %39 ], [ null, %45 ], [ null, %48 ], [ null, %76 ], [ %.148.i, %103 ], [ %.148.i, %Py_XDECREF.exit67.i ], [ %.148.i, %98 ], [ %.148.i, %100 ], [ null, %.lr.ph.split.us ], [ null, %.lr.ph.split ]
   br label %104
 
 104:                                              ; preds = %Py_DECREF.exit.i.i, %Py_XDECREF.exit70.i
@@ -2523,7 +2523,7 @@ reap_obj.exit86.sink.split.i:                     ; preds = %36, %29
   br label %select_select_impl.exit
 
 select_select_impl.exit:                          ; preds = %reap_obj.exit79.i, %Py_DECREF.exit.i83.i, %29, %32, %reap_obj.exit86.sink.split.i
-  %.0.i = phi ptr [ null, %29 ], [ null, %32 ], [ null, %reap_obj.exit86.sink.split.i ], [ %.047.i, %Py_DECREF.exit.i83.i ], [ %.047.i, %reap_obj.exit79.i ]
+  %.0.i = phi ptr [ null, %32 ], [ null, %reap_obj.exit86.sink.split.i ], [ null, %29 ], [ %.047.i, %Py_DECREF.exit.i83.i ], [ %.047.i, %reap_obj.exit79.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -2728,7 +2728,7 @@ Py_XDECREF.exit:                                  ; preds = %14, %.loopexit, %50
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %58, %55, %Py_XDECREF.exit, %3, %Py_DECREF.exit59
-  %.0 = phi i32 [ %47, %Py_DECREF.exit59 ], [ -1, %3 ], [ -1, %Py_XDECREF.exit ], [ -1, %55 ], [ -1, %58 ]
+  %.0 = phi i32 [ -1, %3 ], [ %47, %Py_DECREF.exit59 ], [ -1, %Py_XDECREF.exit ], [ -1, %55 ], [ -1, %58 ]
   ret i32 %.0
 }
 
@@ -2837,7 +2837,7 @@ define internal fastcc ptr @set2list(ptr noundef nonnull readonly captures(none)
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %46, %.preheader, %58, %55, %53, %._crit_edge
-  %.0 = phi ptr [ null, %._crit_edge ], [ null, %53 ], [ null, %55 ], [ null, %58 ], [ %25, %.preheader ], [ %25, %46 ]
+  %.0 = phi ptr [ null, %58 ], [ null, %._crit_edge ], [ null, %53 ], [ null, %55 ], [ %25, %.preheader ], [ %25, %46 ]
   ret ptr %.0
 }
 

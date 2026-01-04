@@ -73,7 +73,7 @@ define noundef zeroext i1 @"_ZN75_$LT$wasmi_core..func_type..FuncTypeError$u20$a
   br label %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit
 
 _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit: ; preds = %10, %8
-  %.sroa.0.0.in = phi i1 [ %9, %8 ], [ %11, %10 ]
+  %.sroa.0.0.in = phi i1 [ %11, %10 ], [ %9, %8 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -564,8 +564,8 @@ default.unreachable2:                             ; preds = %2
   br label %6
 
 6:                                                ; preds = %2, %5, %4, %3
-  %.sroa.01.0 = phi i64 [ 4, %3 ], [ 3, %4 ], [ 10, %5 ], [ %0, %2 ]
-  %.sroa.5.0 = phi i64 [ undef, %3 ], [ undef, %4 ], [ %1, %5 ], [ undef, %2 ]
+  %.sroa.01.0 = phi i64 [ 10, %5 ], [ 4, %3 ], [ 3, %4 ], [ %0, %2 ]
+  %.sroa.5.0 = phi i64 [ %1, %5 ], [ undef, %3 ], [ undef, %4 ], [ undef, %2 ]
   %7 = insertvalue { i64, i64 } poison, i64 %.sroa.01.0, 0
   %8 = insertvalue { i64, i64 } %7, i64 %.sroa.5.0, 1
   ret { i64, i64 } %8

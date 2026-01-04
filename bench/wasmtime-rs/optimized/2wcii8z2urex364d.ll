@@ -221,7 +221,7 @@ define hidden nonnull ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar9copy
   unreachable
 
 .thread:                                          ; preds = %19, %36
-  %.pn1317 = phi { ptr, i32 } [ %37, %36 ], [ %.pn, %19 ]
+  %.pn1317 = phi { ptr, i32 } [ %.pn, %19 ], [ %37, %36 ]
   resume { ptr, i32 } %.pn1317
 
 36:                                               ; preds = %11
@@ -330,7 +330,7 @@ define hidden nonnull align 8 ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7Type
 "_ZN87_$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb4644e14fc9005d3E.exit": ; preds = %19
   br i1 %22, label %25, label %"_ZN87_$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb4644e14fc9005d3E.exit.thread"
 
-"_ZN87_$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb4644e14fc9005d3E.exit.thread": ; preds = %.noexc, %.noexc1, %.noexc2, %.noexc3, %"_ZN87_$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb4644e14fc9005d3E.exit"
+"_ZN87_$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb4644e14fc9005d3E.exit.thread": ; preds = %.noexc1, %.noexc2, %.noexc3, %.noexc, %"_ZN87_$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb4644e14fc9005d3E.exit"
   store ptr null, ptr %2, align 8
   invoke void @_ZN4core9panicking13assert_failed17h3659eb240c1e935eE(i8 0, ptr nonnull align 8 %5, ptr nonnull align 8 %3, ptr nonnull align 8 %2, ptr nonnull align 8 @anon.45c1bf1ea372aef3ca8c2f6251eb9182.7) #15
           to label %28 unwind label %23
@@ -951,7 +951,7 @@ default.unreachable113:                           ; preds = %2
 64:                                               ; preds = %230
   br i1 %.2, label %248, label %247
 
-.thread99:                                        ; preds = %.invoke116, %.invoke114, %.invoke, %227, %.thread, %75, %73, %65, %62, %101, %99, %91, %89, %134, %123, %126, %124, %115, %113, %167, %156, %159, %157, %148, %146, %175, %56, %199, %57
+.thread99:                                        ; preds = %.invoke116, %.invoke114, %.invoke, %227, %.thread, %199, %57, %75, %73, %65, %62, %101, %99, %91, %89, %134, %123, %126, %124, %115, %113, %167, %156, %159, %157, %148, %146, %175, %56
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %248
@@ -987,7 +987,7 @@ default.unreachable113:                           ; preds = %2
   br i1 %78, label %.invoke, label %80
 
 .invoke:                                          ; preds = %201, %177, %169, %161, %150, %136, %128, %117, %103, %93, %77, %67
-  %79 = phi ptr [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.8, %67 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.12, %77 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.16, %93 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.20, %103 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.24, %117 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.26, %128 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.28, %136 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.32, %150 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.34, %161 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.36, %169 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.40, %177 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.48, %201 ]
+  %79 = phi ptr [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.8, %67 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.40, %177 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.16, %93 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.12, %77 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.26, %128 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.24, %117 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.20, %103 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.34, %161 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.32, %150 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.28, %136 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.36, %169 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.48, %201 ]
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr nonnull align 8 %79) #15
           to label %.cont unwind label %.thread99
 
@@ -1307,8 +1307,8 @@ default.unreachable113:                           ; preds = %2
   br label %.invoke114
 
 .thread:                                          ; preds = %206, %182, %171, %138, %105, %85, %80, %58, %2, %38, %39
-  %.sroa.0.0.i = phi ptr [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.60, %38 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.65, %39 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.59, %2 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.61, %58 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.61, %80 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.62, %85 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.62, %105 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.63, %138 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.64, %171 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.66, %182 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.67, %206 ]
-  %.sroa.10.0.i = phi i64 [ 9, %38 ], [ 17, %39 ], [ 7, %2 ], [ 10, %58 ], [ 10, %80 ], [ 12, %85 ], [ 12, %105 ], [ 11, %138 ], [ 11, %171 ], [ 8, %182 ], [ 5, %206 ]
+  %.sroa.0.0.i = phi ptr [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.66, %182 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.60, %38 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.59, %2 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.61, %80 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.62, %105 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.63, %138 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.65, %39 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.64, %171 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.61, %58 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.62, %85 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.67, %206 ]
+  %.sroa.10.0.i = phi i64 [ 8, %182 ], [ 9, %38 ], [ 7, %2 ], [ 10, %80 ], [ 12, %105 ], [ 11, %138 ], [ 17, %39 ], [ 11, %171 ], [ 10, %58 ], [ 12, %85 ], [ 5, %206 ]
   store ptr %.sroa.0.0.i, ptr %5, align 8
   %221 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.sroa.10.0.i, ptr %221, align 8
@@ -1396,11 +1396,11 @@ default.unreachable113:                           ; preds = %2
           to label %230 unwind label %244
 
 247:                                              ; preds = %248, %64
-  %.pn8896 = phi { ptr, i32 } [ %.pn8897, %248 ], [ %.pn, %64 ]
+  %.pn8896 = phi { ptr, i32 } [ %.pn, %64 ], [ %.pn8897, %248 ]
   resume { ptr, i32 } %.pn8896
 
 248:                                              ; preds = %.thread99, %64
-  %.pn8897 = phi { ptr, i32 } [ %.pn, %64 ], [ %lpad.thr_comm, %.thread99 ]
+  %.pn8897 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread99 ], [ %.pn, %64 ]
   invoke void @"_ZN4core3ptr67drop_in_place$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$GT$17hf6c09c6f1c0b6e45E"(ptr nonnull align 8 %37) #16
           to label %247 unwind label %244
 }
@@ -1852,7 +1852,7 @@ default.unreachable9:                             ; preds = %3
   unreachable
 
 common.resume:                                    ; preds = %.body, %.body6, %88, %44, %25
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %25 ], [ %.pn.i2, %44 ], [ %.pn.i8, %88 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body7, %.body6 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i8, %88 ], [ %.pn.i, %25 ], [ %.pn.i2, %44 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body7, %.body6 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet7lane_of17hdce0b6bbcb872e74E.exit: ; preds = %30
@@ -3019,9 +3019,9 @@ default.unreachable12:                            ; preds = %4
   br i1 %13, label %15, label %18
 
 14:                                               ; preds = %24, %4, %6
-  %.sroa.01.0 = phi i16 [ %3, %6 ], [ %5, %4 ], [ 1, %24 ]
-  %.sroa.5.0 = phi i16 [ 1, %6 ], [ %1, %4 ], [ %9, %24 ]
-  %.sroa.8.0 = phi i16 [ 1, %6 ], [ %2, %4 ], [ %11, %24 ]
+  %.sroa.01.0 = phi i16 [ %5, %4 ], [ %3, %6 ], [ 1, %24 ]
+  %.sroa.5.0 = phi i16 [ %1, %4 ], [ 1, %6 ], [ %9, %24 ]
+  %.sroa.8.0 = phi i16 [ %2, %4 ], [ 1, %6 ], [ %11, %24 ]
   %.sroa.8.0.insert.ext = zext nneg i16 %.sroa.8.0 to i48
   %.sroa.8.0.insert.shift = shl nuw nsw i48 %.sroa.8.0.insert.ext, 32
   %.sroa.5.0.insert.ext = zext i16 %.sroa.5.0 to i48
@@ -3110,9 +3110,9 @@ define internal fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar12range_to_
   br i1 %12, label %16, label %.invoke
 
 .invoke:                                          ; preds = %16, %10, %7
-  %13 = phi ptr [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.96, %7 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.94, %10 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.88, %16 ]
-  %14 = phi i64 [ 39, %7 ], [ 40, %10 ], [ 29, %16 ]
-  %15 = phi ptr [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.102, %7 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.101, %10 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.98, %16 ]
+  %13 = phi ptr [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.94, %10 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.96, %7 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.88, %16 ]
+  %14 = phi i64 [ 40, %10 ], [ 39, %7 ], [ 29, %16 ]
+  %15 = phi ptr [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.101, %10 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.102, %7 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.98, %16 ]
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr nonnull align 1 %13, i64 %14, ptr nonnull align 8 %15) #15
           to label %.cont unwind label %.loopexit.split-lp
 
@@ -3358,7 +3358,7 @@ define hidden zeroext i1 @"_ZN88_$LT$cranelift_codegen_meta..cdsl..typevar..Inte
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %9, %6, %2, %15
-  %.0 = phi i1 [ %18, %15 ], [ false, %2 ], [ true, %6 ], [ false, %9 ]
+  %.0 = phi i1 [ %18, %15 ], [ true, %6 ], [ false, %2 ], [ false, %9 ]
   ret i1 %.0
 
 9:                                                ; preds = %6

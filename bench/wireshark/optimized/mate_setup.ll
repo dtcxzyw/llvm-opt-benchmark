@@ -546,7 +546,7 @@ analyze_config.exit:                              ; preds = %analyze_pdu_config.
   br label %140
 
 140:                                              ; preds = %analyze_config.exit, %137
-  %.0 = phi ptr [ null, %137 ], [ %., %analyze_config.exit ]
+  %.0 = phi ptr [ %., %analyze_config.exit ], [ null, %137 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
 }

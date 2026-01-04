@@ -225,8 +225,8 @@ _ZN4absl12_GLOBAL__N_111AnyOfPolicy4FindESt17basic_string_viewIcSt11char_traitsI
   br label %_ZN4absl12_GLOBAL__N_111GenericFindINS0_11AnyOfPolicyEEESt17basic_string_viewIcSt11char_traitsIcEES6_S6_mT_.exit
 
 _ZN4absl12_GLOBAL__N_111GenericFindINS0_11AnyOfPolicyEEESt17basic_string_viewIcSt11char_traitsIcEES6_S6_mT_.exit: ; preds = %12, %4, %_ZN4absl12_GLOBAL__N_111AnyOfPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i
-  %.sroa.020.0.i = phi i64 [ 0, %4 ], [ %spec.select.i, %_ZN4absl12_GLOBAL__N_111AnyOfPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i ], [ 0, %12 ]
-  %.sroa.421.0.i = phi ptr [ %5, %4 ], [ %spec.select26.i, %_ZN4absl12_GLOBAL__N_111AnyOfPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i ], [ %5, %12 ]
+  %.sroa.020.0.i = phi i64 [ %spec.select.i, %_ZN4absl12_GLOBAL__N_111AnyOfPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i ], [ 0, %4 ], [ 0, %12 ]
+  %.sroa.421.0.i = phi ptr [ %spec.select26.i, %_ZN4absl12_GLOBAL__N_111AnyOfPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i ], [ %5, %4 ], [ %5, %12 ]
   %.fca.0.insert.i = insertvalue { i64, ptr } poison, i64 %.sroa.020.0.i, 0
   %.fca.1.insert.i = insertvalue { i64, ptr } %.fca.0.insert.i, ptr %.sroa.421.0.i, 1
   ret { i64, ptr } %.fca.1.insert.i
@@ -371,8 +371,8 @@ _ZN4absl12_GLOBAL__N_111AnyOfPolicy4FindESt17basic_string_viewIcSt11char_traitsI
   br label %_ZN4absl12_GLOBAL__N_111GenericFindINS0_11AnyOfPolicyEEESt17basic_string_viewIcSt11char_traitsIcEES6_S6_mT_.exit
 
 _ZN4absl12_GLOBAL__N_111GenericFindINS0_11AnyOfPolicyEEESt17basic_string_viewIcSt11char_traitsIcEES6_S6_mT_.exit: ; preds = %20, %9, %10, %13, %_ZN4absl12_GLOBAL__N_111AnyOfPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i
-  %.sroa.020.0.i = phi i64 [ 0, %10 ], [ 0, %13 ], [ %spec.select.i, %_ZN4absl12_GLOBAL__N_111AnyOfPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i ], [ 0, %9 ], [ 0, %20 ]
-  %.sroa.421.0.i = phi ptr [ %12, %10 ], [ %14, %13 ], [ %spec.select26.i, %_ZN4absl12_GLOBAL__N_111AnyOfPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i ], [ %2, %9 ], [ %14, %20 ]
+  %.sroa.020.0.i = phi i64 [ %spec.select.i, %_ZN4absl12_GLOBAL__N_111AnyOfPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i ], [ 0, %9 ], [ 0, %10 ], [ 0, %13 ], [ 0, %20 ]
+  %.sroa.421.0.i = phi ptr [ %spec.select26.i, %_ZN4absl12_GLOBAL__N_111AnyOfPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i ], [ %2, %9 ], [ %12, %10 ], [ %14, %13 ], [ %14, %20 ]
   %.fca.0.insert.i7 = insertvalue { i64, ptr } poison, i64 %.sroa.020.0.i, 0
   %.fca.1.insert.i8 = insertvalue { i64, ptr } %.fca.0.insert.i7, ptr %.sroa.421.0.i, 1
   ret { i64, ptr } %.fca.1.insert.i8

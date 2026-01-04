@@ -612,7 +612,7 @@ define hidden noundef zeroext i1 @_ZNK12LIRGenerator22can_inline_as_constantEP11
   br label %26
 
 26:                                               ; preds = %2, %.fold.split, %12, %7
-  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ %25, %12 ], [ true, %.fold.split ]
+  %.0 = phi i1 [ false, %2 ], [ %25, %12 ], [ false, %7 ], [ true, %.fold.split ]
   ret i1 %.0
 }
 
@@ -837,7 +837,7 @@ _ZN22CompilationResourceObjnwEm.exit35:           ; preds = %101, %103
   br label %113
 
 113:                                              ; preds = %.sink.split, %_ZN22CompilationResourceObjnwEm.exit35, %_ZN22CompilationResourceObjnwEm.exit32, %_ZN22CompilationResourceObjnwEm.exit
-  %.0 = phi ptr [ null, %_ZN22CompilationResourceObjnwEm.exit ], [ null, %_ZN22CompilationResourceObjnwEm.exit32 ], [ null, %_ZN22CompilationResourceObjnwEm.exit35 ], [ %.0.i.i.i34.sink48, %.sink.split ]
+  %.0 = phi ptr [ null, %_ZN22CompilationResourceObjnwEm.exit32 ], [ null, %_ZN22CompilationResourceObjnwEm.exit ], [ null, %_ZN22CompilationResourceObjnwEm.exit35 ], [ %.0.i.i.i34.sink48, %.sink.split ]
   ret ptr %.0
 }
 
@@ -1117,7 +1117,7 @@ _ZN22CompilationResourceObjnwEm.exit38:           ; preds = %139, %141
   br label %152
 
 152:                                              ; preds = %.sink.split, %_ZN22CompilationResourceObjnwEm.exit38, %_ZN22CompilationResourceObjnwEm.exit35, %_ZN22CompilationResourceObjnwEm.exit
-  %.0 = phi ptr [ null, %_ZN22CompilationResourceObjnwEm.exit ], [ null, %_ZN22CompilationResourceObjnwEm.exit35 ], [ null, %_ZN22CompilationResourceObjnwEm.exit38 ], [ %.0.i.i.i37.sink53, %.sink.split ]
+  %.0 = phi ptr [ null, %_ZN22CompilationResourceObjnwEm.exit35 ], [ null, %_ZN22CompilationResourceObjnwEm.exit ], [ null, %_ZN22CompilationResourceObjnwEm.exit38 ], [ %.0.i.i.i37.sink53, %.sink.split ]
   ret ptr %.0
 }
 
@@ -1326,7 +1326,7 @@ _ZN22CompilationResourceObjnwEm.exit.i6:          ; preds = %45, %43
   unreachable
 
 _ZN11LIR_OprFact9longConstEl.exit:                ; preds = %48, %_ZN22CompilationResourceObjnwEm.exit.i6, %24, %_ZN22CompilationResourceObjnwEm.exit.i
-  %storemerge.in = phi ptr [ null, %_ZN22CompilationResourceObjnwEm.exit.i ], [ %.0.i.i.i.i, %24 ], [ null, %_ZN22CompilationResourceObjnwEm.exit.i6 ], [ %.0.i.i.i.i7, %48 ]
+  %storemerge.in = phi ptr [ %.0.i.i.i.i, %24 ], [ null, %_ZN22CompilationResourceObjnwEm.exit.i ], [ null, %_ZN22CompilationResourceObjnwEm.exit.i6 ], [ %.0.i.i.i.i7, %48 ]
   %storemerge = ptrtoint ptr %storemerge.in to i64
   ret i64 %storemerge
 }
@@ -1835,7 +1835,7 @@ _ZN8LIR_List10shift_leftE7LIR_OpriS0_.exit39:     ; preds = %_ZN22CompilationRes
   br label %_Z13is_power_of_2IiTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit34.thread
 
 _Z13is_power_of_2IiTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit34.thread: ; preds = %42, %5, %_ZN8LIR_List10shift_leftE7LIR_OpriS0_.exit39, %_ZN8LIR_List10shift_leftE7LIR_OpriS0_.exit
-  %.0 = phi i1 [ true, %_ZN8LIR_List10shift_leftE7LIR_OpriS0_.exit ], [ true, %_ZN8LIR_List10shift_leftE7LIR_OpriS0_.exit39 ], [ false, %5 ], [ false, %42 ]
+  %.0 = phi i1 [ true, %_ZN8LIR_List10shift_leftE7LIR_OpriS0_.exit ], [ true, %_ZN8LIR_List10shift_leftE7LIR_OpriS0_.exit39 ], [ false, %42 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -2170,7 +2170,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %2, %11
   br label %_ZN7LIRItem6resultEv.exit
 
 _ZN7LIRItem6resultEv.exit:                        ; preds = %31, %34, %37, %41
-  %.sroa.03.0.in.i = phi ptr [ %7, %41 ], [ %7, %37 ], [ %6, %34 ], [ %6, %31 ]
+  %.sroa.03.0.in.i = phi ptr [ %7, %37 ], [ %7, %41 ], [ %6, %34 ], [ %6, %31 ]
   %.sroa.03.0.i = load i64, ptr %.sroa.03.0.in.i, align 8
   %.sroa.0.0.copyload.i = load i64, ptr @_ZN8FrameMap7rax_oprE, align 8
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -2359,7 +2359,7 @@ _ZN11LIR_OprFact10floatConstEf.exit:              ; preds = %_ZN22CompilationRes
   br label %79
 
 79:                                               ; preds = %20, %_ZN11LIR_OprFact11doubleConstEd.exit, %_ZN11LIR_OprFact10floatConstEf.exit, %17, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit
-  %.sroa.011.0 = phi i64 [ %.sroa.011.0.copyload, %17 ], [ %26, %_ZN11LIR_OprFact11doubleConstEd.exit ], [ %53, %_ZN11LIR_OprFact10floatConstEf.exit ], [ %.sroa.011.0.copyload, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit ], [ %.sroa.011.0.copyload, %20 ]
+  %.sroa.011.0 = phi i64 [ %.sroa.011.0.copyload, %17 ], [ %26, %_ZN11LIR_OprFact11doubleConstEd.exit ], [ %53, %_ZN11LIR_OprFact10floatConstEf.exit ], [ %.sroa.011.0.copyload, %20 ], [ %.sroa.011.0.copyload, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit ]
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %81 = load ptr, ptr %80, align 8
   %82 = load i8, ptr %8, align 8
@@ -2396,7 +2396,7 @@ _ZN11LIR_OprFact10floatConstEf.exit:              ; preds = %_ZN22CompilationRes
   br label %_ZN7LIRItem6resultEv.exit
 
 _ZN7LIRItem6resultEv.exit:                        ; preds = %79, %84, %87, %91
-  %.sroa.03.0.in.i = phi ptr [ %7, %91 ], [ %7, %87 ], [ %6, %84 ], [ %6, %79 ]
+  %.sroa.03.0.in.i = phi ptr [ %7, %87 ], [ %7, %91 ], [ %6, %84 ], [ %6, %79 ]
   %.sroa.03.0.i = load i64, ptr %.sroa.03.0.in.i, align 8
   call void @_ZN8LIR_List6negateE7LIR_OprS0_S0_(ptr noundef nonnull align 8 dereferenceable(32) %81, i64 %.sroa.03.0.i, i64 %14, i64 %.sroa.011.0)
   %101 = call i64 @_ZN12LIRGenerator10round_itemE7LIR_Opr(ptr noundef nonnull align 8 dereferenceable(232) %0, i64 %14) #9
@@ -2743,7 +2743,7 @@ _ZN7LIRItem11is_registerEv.exit:                  ; preds = %24, %_ZN7LIRItemC2E
   br label %_ZN7LIRItem11is_registerEv.exit51
 
 _ZN7LIRItem11is_registerEv.exit51:                ; preds = %.thread, %45, %48, %52
-  %.sroa.03.0.in.i.i47 = phi ptr [ %21, %52 ], [ %21, %48 ], [ %20, %45 ], [ %20, %.thread ]
+  %.sroa.03.0.in.i.i47 = phi ptr [ %21, %48 ], [ %21, %52 ], [ %20, %45 ], [ %20, %.thread ]
   %.sroa.03.0.i.i48 = load i64, ptr %.sroa.03.0.in.i.i47, align 8
   %62 = and i64 %.sroa.03.0.i.i48, 7
   switch i64 %62, label %63 [
@@ -2952,7 +2952,7 @@ switch.lookup:                                    ; preds = %_ZN26GrowableArrayW
   br label %_ZN7LIRItem6resultEv.exit
 
 _ZN7LIRItem6resultEv.exit:                        ; preds = %132, %135, %138, %142
-  %.sroa.03.0.in.i = phi ptr [ %11, %142 ], [ %11, %138 ], [ %10, %135 ], [ %10, %132 ]
+  %.sroa.03.0.in.i = phi ptr [ %11, %138 ], [ %11, %142 ], [ %10, %135 ], [ %10, %132 ]
   %.sroa.03.0.i = load i64, ptr %.sroa.03.0.in.i, align 8
   %152 = load i8, ptr %22, align 8
   %153 = trunc i8 %152 to i1
@@ -2988,7 +2988,7 @@ _ZN7LIRItem6resultEv.exit:                        ; preds = %132, %135, %138, %1
   br label %_ZN7LIRItem6resultEv.exit69
 
 _ZN7LIRItem6resultEv.exit69:                      ; preds = %_ZN7LIRItem6resultEv.exit, %154, %157, %161
-  %.sroa.03.0.in.i66 = phi ptr [ %21, %161 ], [ %21, %157 ], [ %20, %154 ], [ %20, %_ZN7LIRItem6resultEv.exit ]
+  %.sroa.03.0.in.i66 = phi ptr [ %21, %157 ], [ %21, %161 ], [ %20, %154 ], [ %20, %_ZN7LIRItem6resultEv.exit ]
   %.sroa.03.0.i67 = load i64, ptr %.sroa.03.0.in.i66, align 8
   call void @_ZN12LIRGenerator17arithmetic_op_fpuEN9Bytecodes4CodeE7LIR_OprS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(232) %0, i32 noundef %69, i64 %64, i64 %.sroa.03.0.i, i64 %.sroa.03.0.i67, i64 %.sroa.020.0) #9
   %171 = call i64 @_ZN12LIRGenerator10round_itemE7LIR_Opr(ptr noundef nonnull align 8 dereferenceable(232) %0, i64 %64) #9
@@ -3466,7 +3466,7 @@ switch.lookup:                                    ; preds = %_ZN26GrowableArrayW
   br label %_ZN7LIRItem6resultEv.exit
 
 _ZN7LIRItem6resultEv.exit:                        ; preds = %switch.lookup, %145, %148, %152
-  %.sroa.03.0.in.i = phi ptr [ %26, %152 ], [ %26, %148 ], [ %25, %145 ], [ %25, %switch.lookup ]
+  %.sroa.03.0.in.i = phi ptr [ %26, %148 ], [ %26, %152 ], [ %25, %145 ], [ %25, %switch.lookup ]
   %.sroa.03.0.i = load i64, ptr %.sroa.03.0.in.i, align 8
   %162 = load ptr, ptr %127, align 8
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
@@ -3508,7 +3508,7 @@ _ZN7LIRItem6resultEv.exit:                        ; preds = %switch.lookup, %145
   br label %_ZN7LIRItem6resultEv.exit60
 
 _ZN7LIRItem6resultEv.exit60:                      ; preds = %_ZN7LIRItem6resultEv.exit, %168, %171, %175
-  %.sroa.03.0.in.i57 = phi ptr [ %26, %175 ], [ %26, %171 ], [ %25, %168 ], [ %25, %_ZN7LIRItem6resultEv.exit ]
+  %.sroa.03.0.in.i57 = phi ptr [ %26, %171 ], [ %26, %175 ], [ %25, %168 ], [ %25, %_ZN7LIRItem6resultEv.exit ]
   %.sroa.03.0.i58 = load i64, ptr %.sroa.03.0.in.i57, align 8
   %185 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %186 = load ptr, ptr %185, align 8
@@ -3739,7 +3739,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit70: ; preds = %_ZN7LIRItemC2EP11
   br label %_ZN7LIRItem6resultEv.exit74
 
 _ZN7LIRItem6resultEv.exit74:                      ; preds = %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit70, %275, %278, %282
-  %.sroa.03.0.in.i71 = phi ptr [ %256, %282 ], [ %256, %278 ], [ %255, %275 ], [ %255, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit70 ]
+  %.sroa.03.0.in.i71 = phi ptr [ %256, %278 ], [ %256, %282 ], [ %255, %275 ], [ %255, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit70 ]
   %.sroa.03.0.i72 = load i64, ptr %.sroa.03.0.in.i71, align 8
   %292 = load i8, ptr %267, align 8
   %293 = trunc i8 %292 to i1
@@ -3775,7 +3775,7 @@ _ZN7LIRItem6resultEv.exit74:                      ; preds = %_ZN7LIRItemC2EP11In
   br label %_ZN7LIRItem6resultEv.exit78
 
 _ZN7LIRItem6resultEv.exit78:                      ; preds = %_ZN7LIRItem6resultEv.exit74, %294, %297, %301
-  %.sroa.03.0.in.i75 = phi ptr [ %266, %301 ], [ %266, %297 ], [ %265, %294 ], [ %265, %_ZN7LIRItem6resultEv.exit74 ]
+  %.sroa.03.0.in.i75 = phi ptr [ %266, %297 ], [ %266, %301 ], [ %265, %294 ], [ %265, %_ZN7LIRItem6resultEv.exit74 ]
   %.sroa.03.0.i76 = load i64, ptr %.sroa.03.0.in.i75, align 8
   call void @_ZN12LIRGenerator18arithmetic_op_longEN9Bytecodes4CodeE7LIR_OprS2_S2_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(232) %0, i32 noundef %272, i64 %.sroa.010.0.copyload, i64 %.sroa.03.0.i72, i64 %.sroa.03.0.i76, ptr noundef null) #9
   %311 = call i64 @_ZN12LIRGenerator12rlock_resultEP11Instruction(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull %1) #9
@@ -3893,7 +3893,7 @@ _ZN7LIRItem16load_nonconstantEv.exit:             ; preds = %339, %_ZNK7LIR_Opr1
   br label %_ZN7LIRItem6resultEv.exit92
 
 _ZN7LIRItem6resultEv.exit92:                      ; preds = %_ZN7LIRItem16load_nonconstantEv.exit, %345, %348, %352
-  %.sroa.03.0.in.i89 = phi ptr [ %316, %352 ], [ %316, %348 ], [ %315, %345 ], [ %315, %_ZN7LIRItem16load_nonconstantEv.exit ]
+  %.sroa.03.0.in.i89 = phi ptr [ %316, %348 ], [ %316, %352 ], [ %315, %345 ], [ %315, %_ZN7LIRItem16load_nonconstantEv.exit ]
   %.sroa.03.0.i90 = load i64, ptr %.sroa.03.0.in.i89, align 8
   %362 = load i8, ptr %327, align 8
   %363 = trunc i8 %362 to i1
@@ -3929,7 +3929,7 @@ _ZN7LIRItem6resultEv.exit92:                      ; preds = %_ZN7LIRItem16load_n
   br label %_ZN7LIRItem6resultEv.exit96
 
 _ZN7LIRItem6resultEv.exit96:                      ; preds = %_ZN7LIRItem6resultEv.exit92, %364, %367, %371
-  %.sroa.03.0.in.i93 = phi ptr [ %326, %371 ], [ %326, %367 ], [ %325, %364 ], [ %325, %_ZN7LIRItem6resultEv.exit92 ]
+  %.sroa.03.0.in.i93 = phi ptr [ %326, %367 ], [ %326, %371 ], [ %325, %364 ], [ %325, %_ZN7LIRItem6resultEv.exit92 ]
   %.sroa.03.0.i94 = load i64, ptr %.sroa.03.0.in.i93, align 8
   call void @_ZN12LIRGenerator18arithmetic_op_longEN9Bytecodes4CodeE7LIR_OprS2_S2_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(232) %0, i32 noundef %341, i64 %.sroa.0.0.copyload.i88, i64 %.sroa.03.0.i90, i64 %.sroa.03.0.i94, ptr noundef null) #9
   br label %_ZN13GrowableArrayI9BasicTypeED2Ev.exit
@@ -4262,7 +4262,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit75: ; preds = %_ZN7LIRItemC2EP11
   br label %_ZN7LIRItem6resultEv.exit
 
 _ZN7LIRItem6resultEv.exit:                        ; preds = %35, %40, %43, %47
-  %.sroa.03.0.in.i = phi ptr [ %23, %47 ], [ %23, %43 ], [ %22, %40 ], [ %22, %35 ]
+  %.sroa.03.0.in.i = phi ptr [ %23, %43 ], [ %23, %47 ], [ %22, %40 ], [ %22, %35 ]
   %.sroa.03.0.i = load i64, ptr %.sroa.03.0.in.i, align 8
   %57 = load i8, ptr %14, align 8
   %58 = trunc i8 %57 to i1
@@ -4298,7 +4298,7 @@ _ZN7LIRItem6resultEv.exit:                        ; preds = %35, %40, %43, %47
   br label %_ZN7LIRItem6resultEv.exit81
 
 _ZN7LIRItem6resultEv.exit81:                      ; preds = %_ZN7LIRItem6resultEv.exit, %59, %62, %66
-  %.sroa.03.0.in.i78 = phi ptr [ %13, %66 ], [ %13, %62 ], [ %12, %59 ], [ %12, %_ZN7LIRItem6resultEv.exit ]
+  %.sroa.03.0.in.i78 = phi ptr [ %13, %62 ], [ %13, %66 ], [ %12, %59 ], [ %12, %_ZN7LIRItem6resultEv.exit ]
   %.sroa.03.0.i79 = load i64, ptr %.sroa.03.0.in.i78, align 8
   call void @_ZN8LIR_List4iremE7LIR_OprS0_S0_S0_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %37, i64 %.sroa.03.0.i, i64 %.sroa.03.0.i79, i64 %.sroa.0.0.copyload.i77, i64 %.sroa.0.0.copyload.i77, ptr noundef %29) #9
   br label %119
@@ -4342,7 +4342,7 @@ _ZN7LIRItem6resultEv.exit81:                      ; preds = %_ZN7LIRItem6resultE
   br label %_ZN7LIRItem6resultEv.exit85
 
 _ZN7LIRItem6resultEv.exit85:                      ; preds = %76, %81, %84, %88
-  %.sroa.03.0.in.i82 = phi ptr [ %23, %88 ], [ %23, %84 ], [ %22, %81 ], [ %22, %76 ]
+  %.sroa.03.0.in.i82 = phi ptr [ %23, %84 ], [ %23, %88 ], [ %22, %81 ], [ %22, %76 ]
   %.sroa.03.0.i83 = load i64, ptr %.sroa.03.0.in.i82, align 8
   %98 = load i8, ptr %14, align 8
   %99 = trunc i8 %98 to i1
@@ -4378,7 +4378,7 @@ _ZN7LIRItem6resultEv.exit85:                      ; preds = %76, %81, %84, %88
   br label %_ZN7LIRItem6resultEv.exit89
 
 _ZN7LIRItem6resultEv.exit89:                      ; preds = %_ZN7LIRItem6resultEv.exit85, %100, %103, %107
-  %.sroa.03.0.in.i86 = phi ptr [ %13, %107 ], [ %13, %103 ], [ %12, %100 ], [ %12, %_ZN7LIRItem6resultEv.exit85 ]
+  %.sroa.03.0.in.i86 = phi ptr [ %13, %103 ], [ %13, %107 ], [ %12, %100 ], [ %12, %_ZN7LIRItem6resultEv.exit85 ]
   %.sroa.03.0.i87 = load i64, ptr %.sroa.03.0.in.i86, align 8
   call void @_ZN8LIR_List4idivE7LIR_OprS0_S0_S0_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %78, i64 %.sroa.03.0.i83, i64 %.sroa.03.0.i87, i64 %.sroa.0.0.copyload.i76, i64 %.sroa.039.0.copyload124, ptr noundef %29) #9
   br label %119
@@ -4505,7 +4505,7 @@ _Z13is_power_of_2IiTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
   %169 = icmp samesign ult i32 %168, 2
   br i1 %169, label %171, label %170
 
-170:                                              ; preds = %_Z13is_power_of_2IiTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit102, %160, %154
+170:                                              ; preds = %154, %_Z13is_power_of_2IiTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit102, %160
   call void @_ZN7LIRItem9load_itemEv(ptr noundef nonnull align 8 dereferenceable(40) %.067) #9
   br label %.thread139
 
@@ -4901,7 +4901,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit16: ; preds = %_ZN7LIRItemC2EP11
   br label %_ZN7LIRItem6resultEv.exit
 
 _ZN7LIRItem6resultEv.exit:                        ; preds = %35, %41, %44, %48
-  %.sroa.03.0.in.i = phi ptr [ %8, %48 ], [ %8, %44 ], [ %7, %41 ], [ %7, %35 ]
+  %.sroa.03.0.in.i = phi ptr [ %8, %44 ], [ %8, %48 ], [ %7, %41 ], [ %7, %35 ]
   %.sroa.03.0.i = load i64, ptr %.sroa.03.0.in.i, align 8
   %58 = load i8, ptr %19, align 8
   %59 = trunc i8 %58 to i1
@@ -4937,7 +4937,7 @@ _ZN7LIRItem6resultEv.exit:                        ; preds = %35, %41, %44, %48
   br label %_ZN7LIRItem6resultEv.exit20
 
 _ZN7LIRItem6resultEv.exit20:                      ; preds = %_ZN7LIRItem6resultEv.exit, %60, %63, %67
-  %.sroa.03.0.in.i17 = phi ptr [ %18, %67 ], [ %18, %63 ], [ %17, %60 ], [ %17, %_ZN7LIRItem6resultEv.exit ]
+  %.sroa.03.0.in.i17 = phi ptr [ %18, %63 ], [ %18, %67 ], [ %17, %60 ], [ %17, %_ZN7LIRItem6resultEv.exit ]
   %.sroa.03.0.i18 = load i64, ptr %.sroa.03.0.in.i17, align 8
   %.sroa.0.0.copyload = load i64, ptr @_ZN11LIR_OprFact10illegalOprE, align 8
   call void @_ZN12LIRGenerator8shift_opEN9Bytecodes4CodeE7LIR_OprS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(232) %0, i32 noundef %38, i64 %36, i64 %.sroa.03.0.i, i64 %.sroa.03.0.i18, i64 %.sroa.0.0.copyload) #9
@@ -5093,7 +5093,7 @@ _ZN7LIRItem16load_nonconstantEv.exit:             ; preds = %54, %_ZNK7LIR_Opr11
   br label %_ZN7LIRItem6resultEv.exit
 
 _ZN7LIRItem6resultEv.exit:                        ; preds = %_ZN7LIRItem16load_nonconstantEv.exit, %60, %63, %67
-  %.sroa.03.0.in.i = phi ptr [ %31, %67 ], [ %31, %63 ], [ %30, %60 ], [ %30, %_ZN7LIRItem16load_nonconstantEv.exit ]
+  %.sroa.03.0.in.i = phi ptr [ %31, %63 ], [ %31, %67 ], [ %30, %60 ], [ %30, %_ZN7LIRItem16load_nonconstantEv.exit ]
   %.sroa.03.0.i = load i64, ptr %.sroa.03.0.in.i, align 8
   %77 = load i8, ptr %42, align 8
   %78 = trunc i8 %77 to i1
@@ -5129,7 +5129,7 @@ _ZN7LIRItem6resultEv.exit:                        ; preds = %_ZN7LIRItem16load_n
   br label %_ZN7LIRItem6resultEv.exit20
 
 _ZN7LIRItem6resultEv.exit20:                      ; preds = %_ZN7LIRItem6resultEv.exit, %79, %82, %86
-  %.sroa.03.0.in.i17 = phi ptr [ %41, %86 ], [ %41, %82 ], [ %40, %79 ], [ %40, %_ZN7LIRItem6resultEv.exit ]
+  %.sroa.03.0.in.i17 = phi ptr [ %41, %82 ], [ %41, %86 ], [ %40, %79 ], [ %40, %_ZN7LIRItem6resultEv.exit ]
   %.sroa.03.0.i18 = load i64, ptr %.sroa.03.0.in.i17, align 8
   call void @_ZN12LIRGenerator8logic_opEN9Bytecodes4CodeE7LIR_OprS2_S2_(ptr noundef nonnull align 8 dereferenceable(232) %0, i32 noundef %57, i64 %55, i64 %.sroa.03.0.i, i64 %.sroa.03.0.i18) #9
   ret void
@@ -5254,7 +5254,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit20: ; preds = %_ZN7LIRItemC2EP11
   br label %_ZN7LIRItem6resultEv.exit
 
 _ZN7LIRItem6resultEv.exit:                        ; preds = %39, %46, %49, %53
-  %.sroa.03.0.in.i = phi ptr [ %8, %53 ], [ %8, %49 ], [ %7, %46 ], [ %7, %39 ]
+  %.sroa.03.0.in.i = phi ptr [ %8, %49 ], [ %8, %53 ], [ %7, %46 ], [ %7, %39 ]
   %.sroa.03.0.i = load i64, ptr %.sroa.03.0.in.i, align 8
   %63 = load i8, ptr %19, align 8
   %64 = trunc i8 %63 to i1
@@ -5290,7 +5290,7 @@ _ZN7LIRItem6resultEv.exit:                        ; preds = %39, %46, %49, %53
   br label %_ZN7LIRItem6resultEv.exit24
 
 _ZN7LIRItem6resultEv.exit24:                      ; preds = %_ZN7LIRItem6resultEv.exit, %65, %68, %72
-  %.sroa.03.0.in.i21 = phi ptr [ %18, %72 ], [ %18, %68 ], [ %17, %65 ], [ %17, %_ZN7LIRItem6resultEv.exit ]
+  %.sroa.03.0.in.i21 = phi ptr [ %18, %68 ], [ %18, %72 ], [ %17, %65 ], [ %17, %_ZN7LIRItem6resultEv.exit ]
   %.sroa.03.0.i22 = load i64, ptr %.sroa.03.0.in.i21, align 8
   %82 = and i32 %41, -3
   %83 = icmp eq i32 %82, 149
@@ -5338,7 +5338,7 @@ _ZN7LIRItem6resultEv.exit24:                      ; preds = %_ZN7LIRItem6resultE
   br label %_ZN7LIRItem6resultEv.exit28
 
 _ZN7LIRItem6resultEv.exit28:                      ; preds = %86, %91, %94, %98
-  %.sroa.03.0.in.i25 = phi ptr [ %8, %98 ], [ %8, %94 ], [ %7, %91 ], [ %7, %86 ]
+  %.sroa.03.0.in.i25 = phi ptr [ %8, %94 ], [ %8, %98 ], [ %7, %91 ], [ %7, %86 ]
   %.sroa.03.0.i26 = load i64, ptr %.sroa.03.0.in.i25, align 8
   %108 = load i8, ptr %19, align 8
   %109 = trunc i8 %108 to i1
@@ -5374,7 +5374,7 @@ _ZN7LIRItem6resultEv.exit28:                      ; preds = %86, %91, %94, %98
   br label %_ZN7LIRItem6resultEv.exit32
 
 _ZN7LIRItem6resultEv.exit32:                      ; preds = %_ZN7LIRItem6resultEv.exit28, %110, %113, %117
-  %.sroa.03.0.in.i29 = phi ptr [ %18, %117 ], [ %18, %113 ], [ %17, %110 ], [ %17, %_ZN7LIRItem6resultEv.exit28 ]
+  %.sroa.03.0.in.i29 = phi ptr [ %18, %113 ], [ %18, %117 ], [ %17, %110 ], [ %17, %_ZN7LIRItem6resultEv.exit28 ]
   %.sroa.03.0.i30 = load i64, ptr %.sroa.03.0.in.i29, align 8
   call void @_ZN8LIR_List8lcmp2intE7LIR_OprS0_S0_(ptr noundef nonnull align 8 dereferenceable(32) %88, i64 %.sroa.03.0.i26, i64 %.sroa.03.0.i30, i64 %32)
   br label %129
@@ -6545,7 +6545,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit28: ; preds = %_ZN7LIRItemC2EP11
   br label %_ZN7LIRItem6resultEv.exit
 
 _ZN7LIRItem6resultEv.exit:                        ; preds = %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit28, %44, %47, %51
-  %.sroa.03.0.in.i = phi ptr [ %12, %51 ], [ %12, %47 ], [ %11, %44 ], [ %11, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit28 ]
+  %.sroa.03.0.in.i = phi ptr [ %12, %47 ], [ %12, %51 ], [ %11, %44 ], [ %11, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit28 ]
   %.sroa.03.0.i = load i64, ptr %.sroa.03.0.in.i, align 8
   %61 = load i8, ptr %25, align 8
   %62 = trunc i8 %61 to i1
@@ -6581,7 +6581,7 @@ _ZN7LIRItem6resultEv.exit:                        ; preds = %_ZN7LIRItemC2EP11In
   br label %_ZN7LIRItem6resultEv.exit32
 
 _ZN7LIRItem6resultEv.exit32:                      ; preds = %_ZN7LIRItem6resultEv.exit, %63, %66, %70
-  %.sroa.03.0.in.i29 = phi ptr [ %24, %70 ], [ %24, %66 ], [ %23, %63 ], [ %23, %_ZN7LIRItem6resultEv.exit ]
+  %.sroa.03.0.in.i29 = phi ptr [ %24, %66 ], [ %24, %70 ], [ %23, %63 ], [ %23, %_ZN7LIRItem6resultEv.exit ]
   %.sroa.03.0.i30 = load i64, ptr %.sroa.03.0.in.i29, align 8
   %80 = load i8, ptr %37, align 8
   %81 = trunc i8 %80 to i1
@@ -6617,7 +6617,7 @@ _ZN7LIRItem6resultEv.exit32:                      ; preds = %_ZN7LIRItem6resultE
   br label %_ZN7LIRItem6resultEv.exit36
 
 _ZN7LIRItem6resultEv.exit36:                      ; preds = %_ZN7LIRItem6resultEv.exit32, %82, %85, %89
-  %.sroa.03.0.in.i33 = phi ptr [ %36, %89 ], [ %36, %85 ], [ %35, %82 ], [ %35, %_ZN7LIRItem6resultEv.exit32 ]
+  %.sroa.03.0.in.i33 = phi ptr [ %36, %85 ], [ %36, %89 ], [ %35, %82 ], [ %35, %_ZN7LIRItem6resultEv.exit32 ]
   %.sroa.03.0.i34 = load i64, ptr %.sroa.03.0.in.i33, align 8
   %99 = call i64 @_ZN12LIRGenerator12rlock_resultEP11Instruction(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull %1) #9
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -7182,7 +7182,7 @@ _ZN13GrowableArrayI9BasicTypeE10deallocateEPS0_.exit.i156: ; preds = %.loopexit.
   br label %_ZN13GrowableArrayI9BasicTypeED2Ev.exit
 
 _ZN13GrowableArrayI9BasicTypeED2Ev.exit:          ; preds = %_ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exit90, %82, %_ZN13GrowableArrayI9BasicTypeE10deallocateEPS0_.exit.i156, %_ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exit85, %64, %_ZN13GrowableArrayI9BasicTypeE10deallocateEPS0_.exit.i
-  %.0 = phi ptr [ %54, %_ZN13GrowableArrayI9BasicTypeE10deallocateEPS0_.exit.i ], [ %54, %64 ], [ %54, %_ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exit85 ], [ %76, %_ZN13GrowableArrayI9BasicTypeE10deallocateEPS0_.exit.i156 ], [ %76, %82 ], [ %76, %_ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exit90 ]
+  %.0 = phi ptr [ %54, %_ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exit85 ], [ %54, %_ZN13GrowableArrayI9BasicTypeE10deallocateEPS0_.exit.i ], [ %54, %64 ], [ %76, %_ZN13GrowableArrayI9BasicTypeE10deallocateEPS0_.exit.i156 ], [ %76, %82 ], [ %76, %_ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exit90 ]
   %86 = load i32, ptr %29, align 8
   switch i32 %86, label %136 [
     i32 21, label %87
@@ -8068,7 +8068,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit49: ; preds = %_ZN7LIRItemC2EP11
   br label %_ZN7LIRItem6resultEv.exit
 
 _ZN7LIRItem6resultEv.exit:                        ; preds = %88, %116, %119, %123
-  %.sroa.03.0.in.i = phi ptr [ %30, %123 ], [ %30, %119 ], [ %29, %116 ], [ %29, %88 ]
+  %.sroa.03.0.in.i = phi ptr [ %30, %119 ], [ %30, %123 ], [ %29, %116 ], [ %29, %88 ]
   %.sroa.03.0.i = load i64, ptr %.sroa.03.0.in.i, align 8
   %133 = load i8, ptr %43, align 8
   %134 = trunc i8 %133 to i1
@@ -8104,7 +8104,7 @@ _ZN7LIRItem6resultEv.exit:                        ; preds = %88, %116, %119, %12
   br label %_ZN7LIRItem6resultEv.exit53
 
 _ZN7LIRItem6resultEv.exit53:                      ; preds = %_ZN7LIRItem6resultEv.exit, %135, %138, %142
-  %.sroa.03.0.in.i50 = phi ptr [ %42, %142 ], [ %42, %138 ], [ %41, %135 ], [ %41, %_ZN7LIRItem6resultEv.exit ]
+  %.sroa.03.0.in.i50 = phi ptr [ %42, %138 ], [ %42, %142 ], [ %41, %135 ], [ %41, %_ZN7LIRItem6resultEv.exit ]
   %.sroa.03.0.i51 = load i64, ptr %.sroa.03.0.in.i50, align 8
   %152 = load i8, ptr %55, align 8
   %153 = trunc i8 %152 to i1
@@ -8140,7 +8140,7 @@ _ZN7LIRItem6resultEv.exit53:                      ; preds = %_ZN7LIRItem6resultE
   br label %_ZN7LIRItem6resultEv.exit57
 
 _ZN7LIRItem6resultEv.exit57:                      ; preds = %_ZN7LIRItem6resultEv.exit53, %154, %157, %161
-  %.sroa.03.0.in.i54 = phi ptr [ %54, %161 ], [ %54, %157 ], [ %53, %154 ], [ %53, %_ZN7LIRItem6resultEv.exit53 ]
+  %.sroa.03.0.in.i54 = phi ptr [ %54, %157 ], [ %54, %161 ], [ %53, %154 ], [ %53, %_ZN7LIRItem6resultEv.exit53 ]
   %.sroa.03.0.i55 = load i64, ptr %.sroa.03.0.in.i54, align 8
   %171 = load i8, ptr %67, align 8
   %172 = trunc i8 %171 to i1
@@ -8176,7 +8176,7 @@ _ZN7LIRItem6resultEv.exit57:                      ; preds = %_ZN7LIRItem6resultE
   br label %_ZN7LIRItem6resultEv.exit61
 
 _ZN7LIRItem6resultEv.exit61:                      ; preds = %_ZN7LIRItem6resultEv.exit57, %173, %176, %180
-  %.sroa.03.0.in.i58 = phi ptr [ %66, %180 ], [ %66, %176 ], [ %65, %173 ], [ %65, %_ZN7LIRItem6resultEv.exit57 ]
+  %.sroa.03.0.in.i58 = phi ptr [ %66, %176 ], [ %66, %180 ], [ %65, %173 ], [ %65, %_ZN7LIRItem6resultEv.exit57 ]
   %.sroa.03.0.i59 = load i64, ptr %.sroa.03.0.in.i58, align 8
   %190 = load i8, ptr %79, align 8
   %191 = trunc i8 %190 to i1
@@ -8212,7 +8212,7 @@ _ZN7LIRItem6resultEv.exit61:                      ; preds = %_ZN7LIRItem6resultE
   br label %_ZN7LIRItem6resultEv.exit65
 
 _ZN7LIRItem6resultEv.exit65:                      ; preds = %_ZN7LIRItem6resultEv.exit61, %192, %195, %199
-  %.sroa.03.0.in.i62 = phi ptr [ %78, %199 ], [ %78, %195 ], [ %77, %192 ], [ %77, %_ZN7LIRItem6resultEv.exit61 ]
+  %.sroa.03.0.in.i62 = phi ptr [ %78, %195 ], [ %78, %199 ], [ %77, %192 ], [ %77, %_ZN7LIRItem6resultEv.exit61 ]
   %209 = shl i32 %109, 14
   %210 = or disjoint i32 %209, 11
   %211 = sext i32 %210 to i64
@@ -8422,7 +8422,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit46: ; preds = %_ZN7LIRItemC2EP11
   br label %_ZN7LIRItem6resultEv.exit
 
 _ZN7LIRItem6resultEv.exit:                        ; preds = %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit46, %41, %44, %48
-  %.sroa.03.0.in.i = phi ptr [ %20, %48 ], [ %20, %44 ], [ %19, %41 ], [ %19, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit46 ]
+  %.sroa.03.0.in.i = phi ptr [ %20, %44 ], [ %20, %48 ], [ %19, %41 ], [ %19, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit46 ]
   %.sroa.03.0.i = load i64, ptr %.sroa.03.0.in.i, align 8
   %58 = load i8, ptr %32, align 8
   %59 = trunc i8 %58 to i1
@@ -8458,7 +8458,7 @@ _ZN7LIRItem6resultEv.exit:                        ; preds = %_ZN7LIRItemC2EP11In
   br label %_ZN7LIRItem6resultEv.exit50
 
 _ZN7LIRItem6resultEv.exit50:                      ; preds = %_ZN7LIRItem6resultEv.exit, %60, %63, %67
-  %.sroa.03.0.in.i47 = phi ptr [ %31, %67 ], [ %31, %63 ], [ %30, %60 ], [ %30, %_ZN7LIRItem6resultEv.exit ]
+  %.sroa.03.0.in.i47 = phi ptr [ %31, %63 ], [ %31, %67 ], [ %30, %60 ], [ %30, %_ZN7LIRItem6resultEv.exit ]
   %.sroa.03.0.i48 = load i64, ptr %.sroa.03.0.in.i47, align 8
   call void @_ZN8LIR_List12update_crc32E7LIR_OprS0_S0_(ptr noundef nonnull align 8 dereferenceable(32) %38, i64 %.sroa.03.0.i, i64 %.sroa.03.0.i48, i64 %10)
   br label %_ZN13GrowableArrayI9BasicTypeED2Ev.exit
@@ -8638,8 +8638,8 @@ _ZN7LIRItem16load_nonconstantEv.exit:             ; preds = %135, %_ZNK7LIR_Opr1
   br label %_ZN7LIRItem6resultEv.exit70
 
 _ZN7LIRItem6resultEv.exit70:                      ; preds = %_ZN7LIRItem16load_nonconstantEv.exit, %138, %141, %145
-  %155 = phi i8 [ %.pre147, %145 ], [ %136, %141 ], [ %136, %138 ], [ %136, %_ZN7LIRItem16load_nonconstantEv.exit ]
-  %.sroa.03.0.in.i67 = phi ptr [ %109, %145 ], [ %109, %141 ], [ %108, %138 ], [ %108, %_ZN7LIRItem16load_nonconstantEv.exit ]
+  %155 = phi i8 [ %136, %141 ], [ %.pre147, %145 ], [ %136, %138 ], [ %136, %_ZN7LIRItem16load_nonconstantEv.exit ]
+  %.sroa.03.0.in.i67 = phi ptr [ %109, %141 ], [ %109, %145 ], [ %108, %138 ], [ %108, %_ZN7LIRItem16load_nonconstantEv.exit ]
   %.sroa.03.0.i68 = load i64, ptr %.sroa.03.0.in.i67, align 8
   %156 = load i8, ptr @UseCompressedClassPointers, align 1
   %157 = trunc i8 %156 to i1
@@ -8678,7 +8678,7 @@ _ZN7LIRItem6resultEv.exit70:                      ; preds = %_ZN7LIRItem16load_n
   br label %_ZN7LIRItem6resultEv.exit74
 
 _ZN7LIRItem6resultEv.exit74:                      ; preds = %_ZN7LIRItem6resultEv.exit70, %161, %164, %168
-  %.sroa.03.0.in.i71 = phi ptr [ %109, %168 ], [ %109, %164 ], [ %108, %161 ], [ %108, %_ZN7LIRItem6resultEv.exit70 ]
+  %.sroa.03.0.in.i71 = phi ptr [ %109, %164 ], [ %109, %168 ], [ %108, %161 ], [ %108, %_ZN7LIRItem6resultEv.exit70 ]
   %.sroa.03.0.i72 = load i64, ptr %.sroa.03.0.in.i71, align 8
   %178 = and i64 %.sroa.03.0.i72, 1
   %179 = icmp eq i64 %178, 0
@@ -8728,7 +8728,7 @@ _ZNK7LIR_Opr11is_constantEv.exit:                 ; preds = %_ZN7LIRItem6resultE
   br label %_ZN7LIRItem6resultEv.exit78
 
 _ZN7LIRItem6resultEv.exit78:                      ; preds = %184, %188, %191, %195
-  %.sroa.03.0.in.i75 = phi ptr [ %109, %195 ], [ %109, %191 ], [ %108, %188 ], [ %108, %184 ]
+  %.sroa.03.0.in.i75 = phi ptr [ %109, %191 ], [ %109, %195 ], [ %108, %188 ], [ %108, %184 ]
   %.sroa.03.0.i76 = load i64, ptr %.sroa.03.0.in.i75, align 8
   %205 = inttoptr i64 %.sroa.03.0.i76 to ptr
   %206 = load ptr, ptr %205, align 8
@@ -8776,7 +8776,7 @@ _ZNK7LIR_Opr11is_constantEv.exit.thread:          ; preds = %_ZN7LIRItem6resultE
   br label %_ZN7LIRItem6resultEv.exit82
 
 _ZN7LIRItem6resultEv.exit82:                      ; preds = %_ZNK7LIR_Opr11is_constantEv.exit.thread, %214, %217, %221
-  %.sroa.03.0.in.i79 = phi ptr [ %97, %221 ], [ %97, %217 ], [ %96, %214 ], [ %96, %_ZNK7LIR_Opr11is_constantEv.exit.thread ]
+  %.sroa.03.0.in.i79 = phi ptr [ %97, %217 ], [ %97, %221 ], [ %96, %214 ], [ %96, %_ZNK7LIR_Opr11is_constantEv.exit.thread ]
   %.sroa.03.0.i80 = load i64, ptr %.sroa.03.0.in.i79, align 8
   %231 = and i64 %.sroa.0140.0, 7
   %.not143 = icmp eq i64 %231, 7
@@ -9393,7 +9393,7 @@ _ZN7LIRItem16load_nonconstantEv.exit70:           ; preds = %101, %_ZNK7LIR_Opr1
   br label %_ZN7LIRItem6resultEv.exit
 
 _ZN7LIRItem6resultEv.exit:                        ; preds = %_ZN7LIRItem16load_nonconstantEv.exit70, %104, %107, %111
-  %.sroa.03.0.in.i = phi ptr [ %30, %111 ], [ %30, %107 ], [ %29, %104 ], [ %29, %_ZN7LIRItem16load_nonconstantEv.exit70 ]
+  %.sroa.03.0.in.i = phi ptr [ %30, %107 ], [ %30, %111 ], [ %29, %104 ], [ %29, %_ZN7LIRItem16load_nonconstantEv.exit70 ]
   %.sroa.03.0.i = load i64, ptr %.sroa.03.0.in.i, align 8
   %121 = and i64 %.sroa.03.0.i, 1
   %122 = icmp eq i64 %121, 0
@@ -9453,7 +9453,7 @@ _ZNK7LIR_Opr11is_constantEv.exit.thread:          ; preds = %_ZN7LIRItem6resultE
   br label %_ZN7LIRItem6resultEv.exit74
 
 _ZN7LIRItem6resultEv.exit74:                      ; preds = %_ZNK7LIR_Opr11is_constantEv.exit.thread, %136, %139, %143
-  %.sroa.03.0.in.i71 = phi ptr [ %17, %143 ], [ %17, %139 ], [ %16, %136 ], [ %16, %_ZNK7LIR_Opr11is_constantEv.exit.thread ]
+  %.sroa.03.0.in.i71 = phi ptr [ %17, %139 ], [ %17, %143 ], [ %16, %136 ], [ %16, %_ZNK7LIR_Opr11is_constantEv.exit.thread ]
   %.sroa.03.0.i72 = load i64, ptr %.sroa.03.0.in.i71, align 8
   %153 = load i8, ptr %55, align 8
   %154 = trunc i8 %153 to i1
@@ -9489,7 +9489,7 @@ _ZN7LIRItem6resultEv.exit74:                      ; preds = %_ZNK7LIR_Opr11is_co
   br label %_ZN7LIRItem6resultEv.exit78
 
 _ZN7LIRItem6resultEv.exit78:                      ; preds = %_ZN7LIRItem6resultEv.exit74, %155, %158, %162
-  %.sroa.03.0.in.i75 = phi ptr [ %54, %162 ], [ %54, %158 ], [ %53, %155 ], [ %53, %_ZN7LIRItem6resultEv.exit74 ]
+  %.sroa.03.0.in.i75 = phi ptr [ %54, %158 ], [ %54, %162 ], [ %53, %155 ], [ %53, %_ZN7LIRItem6resultEv.exit74 ]
   %.sroa.03.0.i76 = load i64, ptr %.sroa.03.0.in.i75, align 8
   %172 = and i64 %.sroa.03.0.i76, 1
   %173 = icmp eq i64 %172, 0
@@ -9549,7 +9549,7 @@ _ZNK7LIR_Opr11is_constantEv.exit79.thread:        ; preds = %_ZN7LIRItem6resultE
   br label %_ZN7LIRItem6resultEv.exit83
 
 _ZN7LIRItem6resultEv.exit83:                      ; preds = %_ZNK7LIR_Opr11is_constantEv.exit79.thread, %187, %190, %194
-  %.sroa.03.0.in.i80 = phi ptr [ %42, %194 ], [ %42, %190 ], [ %41, %187 ], [ %41, %_ZNK7LIR_Opr11is_constantEv.exit79.thread ]
+  %.sroa.03.0.in.i80 = phi ptr [ %42, %190 ], [ %42, %194 ], [ %41, %187 ], [ %41, %_ZNK7LIR_Opr11is_constantEv.exit79.thread ]
   %.sroa.03.0.i81 = load i64, ptr %.sroa.03.0.in.i80, align 8
   %204 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %205 = load ptr, ptr %204, align 8
@@ -9803,7 +9803,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %2, %11
   br label %_ZN7LIRItem6resultEv.exit
 
 _ZN7LIRItem6resultEv.exit:                        ; preds = %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit, %16, %19, %23
-  %.sroa.03.0.in.i = phi ptr [ %7, %23 ], [ %7, %19 ], [ %6, %16 ], [ %6, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit ]
+  %.sroa.03.0.in.i = phi ptr [ %7, %19 ], [ %7, %23 ], [ %6, %16 ], [ %6, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit ]
   %.sroa.03.0.i = load i64, ptr %.sroa.03.0.in.i, align 8
   %33 = call i64 @_ZN12LIRGenerator5rlockEP11Instruction(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull %1) #9
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -9970,7 +9970,7 @@ switch.lookup:                                    ; preds = %_ZN7LIRItemC2EP11In
   br label %_ZN7LIRItem6resultEv.exit
 
 _ZN7LIRItem6resultEv.exit:                        ; preds = %switch.lookup, %38, %41, %45
-  %.sroa.03.0.in.i = phi ptr [ %21, %45 ], [ %21, %41 ], [ %20, %38 ], [ %20, %switch.lookup ]
+  %.sroa.03.0.in.i = phi ptr [ %21, %41 ], [ %21, %45 ], [ %20, %38 ], [ %20, %switch.lookup ]
   %.sroa.03.0.i = load i64, ptr %.sroa.03.0.in.i, align 8
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %56 = load i8, ptr %55, align 8
@@ -10289,7 +10289,7 @@ switch.lookup:                                    ; preds = %_ZNK10ciMetadata9is
   br label %_ZN7LIRItem6resultEv.exit
 
 _ZN7LIRItem6resultEv.exit:                        ; preds = %switch.lookup, %39, %42, %46
-  %.sroa.03.0.in.i = phi ptr [ %7, %46 ], [ %7, %42 ], [ %6, %39 ], [ %6, %switch.lookup ]
+  %.sroa.03.0.in.i = phi ptr [ %7, %42 ], [ %7, %46 ], [ %6, %39 ], [ %6, %switch.lookup ]
   %.sroa.03.0.i = load i64, ptr %.sroa.03.0.in.i, align 8
   %56 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %57 = load ptr, ptr %56, align 8
@@ -11187,7 +11187,7 @@ _ZN22CompilationResourceObjnwEm.exit42:           ; preds = %125, %127
   br label %_ZN7LIRItem6resultEv.exit
 
 _ZN7LIRItem6resultEv.exit:                        ; preds = %130, %133, %136, %140
-  %.sroa.03.0.in.i = phi ptr [ %7, %140 ], [ %7, %136 ], [ %6, %133 ], [ %6, %130 ]
+  %.sroa.03.0.in.i = phi ptr [ %7, %136 ], [ %7, %140 ], [ %6, %133 ], [ %6, %130 ]
   %.sroa.03.0.i = load i64, ptr %.sroa.03.0.in.i, align 8
   %150 = getelementptr inbounds nuw i8, ptr %.0.i.i.i41, i64 8
   store i32 -1, ptr %150, align 8
@@ -11231,7 +11231,7 @@ _ZN7LIRItem6resultEv.exit:                        ; preds = %130, %133, %136, %1
   br label %171
 
 171:                                              ; preds = %.sink.split, %_ZN22CompilationResourceObjnwEm.exit42, %_ZN22CompilationResourceObjnwEm.exit39, %_ZN22CompilationResourceObjnwEm.exit
-  %.033 = phi ptr [ null, %_ZN22CompilationResourceObjnwEm.exit ], [ null, %_ZN22CompilationResourceObjnwEm.exit39 ], [ null, %_ZN22CompilationResourceObjnwEm.exit42 ], [ %.033.ph, %.sink.split ]
+  %.033 = phi ptr [ null, %_ZN22CompilationResourceObjnwEm.exit39 ], [ null, %_ZN22CompilationResourceObjnwEm.exit ], [ null, %_ZN22CompilationResourceObjnwEm.exit42 ], [ %.033.ph, %.sink.split ]
   %172 = call i64 @_ZN12LIRGenerator12rlock_resultEP11Instruction(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull %1) #9
   %.sroa.07.0.copyload = load i64, ptr @_ZN11LIR_OprFact10illegalOprE, align 8
   %173 = load ptr, ptr %14, align 8
@@ -11299,7 +11299,7 @@ _ZNK10ciMetadata9is_loadedEv.exit44:              ; preds = %171, %176
   br label %_ZN7LIRItem6resultEv.exit48
 
 _ZN7LIRItem6resultEv.exit48:                      ; preds = %188, %193, %196, %200
-  %.sroa.03.0.in.i45 = phi ptr [ %7, %200 ], [ %7, %196 ], [ %6, %193 ], [ %6, %188 ]
+  %.sroa.03.0.in.i45 = phi ptr [ %7, %196 ], [ %7, %200 ], [ %6, %193 ], [ %6, %188 ]
   %.sroa.03.0.i46 = load i64, ptr %.sroa.03.0.in.i45, align 8
   %210 = load ptr, ptr %14, align 8
   %211 = load ptr, ptr @objectType, align 8
@@ -11439,7 +11439,7 @@ _ZNK10ciMetadata9is_loadedEv.exit21:              ; preds = %_ZNK10ciMetadata9is
   br label %_ZN7LIRItem6resultEv.exit
 
 _ZN7LIRItem6resultEv.exit:                        ; preds = %42, %47, %50, %54
-  %.sroa.03.0.in.i = phi ptr [ %7, %54 ], [ %7, %50 ], [ %6, %47 ], [ %6, %42 ]
+  %.sroa.03.0.in.i = phi ptr [ %7, %50 ], [ %7, %54 ], [ %6, %47 ], [ %6, %42 ]
   %.sroa.03.0.i = load i64, ptr %.sroa.03.0.in.i, align 8
   %64 = load ptr, ptr %15, align 8
   %65 = load ptr, ptr @objectType, align 8

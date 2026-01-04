@@ -200,8 +200,8 @@ define hidden void @zend_object_dtor_property(ptr noundef %0, ptr noundef %1) lo
   br label %50
 
 50:                                               ; preds = %.thread, %40
-  %51 = phi i32 [ %42, %40 ], [ %.pre13, %.thread ]
-  %.06.i = phi ptr [ %35, %40 ], [ %49, %.thread ]
+  %51 = phi i32 [ %.pre13, %.thread ], [ %42, %40 ]
+  %.06.i = phi ptr [ %49, %.thread ], [ %35, %40 ]
   %52 = and i32 %51, -1008
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %54, label %i_zval_ptr_dtor.exit, !prof !38
@@ -682,8 +682,8 @@ define dso_local void @zend_objects_clone_members(ptr noundef %0, ptr noundef %1
   br label %37
 
 37:                                               ; preds = %.thread, %27
-  %38 = phi i32 [ %29, %27 ], [ %.pre, %.thread ]
-  %.06.i = phi ptr [ %22, %27 ], [ %36, %.thread ]
+  %38 = phi i32 [ %.pre, %.thread ], [ %29, %27 ]
+  %.06.i = phi ptr [ %36, %.thread ], [ %22, %27 ]
   %39 = and i32 %38, -1008
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %41, label %i_zval_ptr_dtor.exit, !prof !38

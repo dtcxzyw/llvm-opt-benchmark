@@ -84,7 +84,7 @@ define internal i32 @hevc_parse_sdp_line(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %.not57, label %83, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %20, %30, %27
-  %33 = phi i32 [ 0, %30 ], [ 0, %27 ], [ %26, %20 ]
+  %33 = phi i32 [ %26, %20 ], [ 0, %30 ], [ 0, %27 ]
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %35 = add nsw i32 %33, %24
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 44
@@ -151,7 +151,7 @@ define internal i32 @hevc_parse_sdp_line(ptr noundef %0, i32 noundef %1, ptr nou
   br label %83
 
 83:                                               ; preds = %17, %18, %30, %78, %4
-  %.0 = phi i32 [ 0, %4 ], [ %43, %78 ], [ %22, %30 ], [ 0, %18 ], [ 0, %17 ]
+  %.0 = phi i32 [ 0, %4 ], [ %22, %30 ], [ %43, %78 ], [ 0, %18 ], [ 0, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -298,7 +298,7 @@ define internal i32 @hevc_handle_packet(ptr noundef %0, ptr noundef %1, ptr noun
   br label %75
 
 75:                                               ; preds = %56, %43, %33, %71, %61, %58, %31, %28, %25, %12
-  %.069 = phi i32 [ -1094995529, %12 ], [ -1163346256, %25 ], [ -1094995529, %31 ], [ %.0, %71 ], [ -1094995529, %58 ], [ -1094995529, %61 ], [ -1094995529, %28 ], [ %35, %33 ], [ %46, %43 ], [ -11, %56 ]
+  %.069 = phi i32 [ -1094995529, %12 ], [ -1163346256, %25 ], [ -1094995529, %31 ], [ -1094995529, %28 ], [ %.0, %71 ], [ -1094995529, %58 ], [ %46, %43 ], [ -1094995529, %61 ], [ %35, %33 ], [ -11, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.069
 }
@@ -359,8 +359,8 @@ define internal noundef i32 @hevc_sdp_parse_fmtp_config(ptr noundef %0, ptr read
   unreachable
 
 24:                                               ; preds = %21, %19, %13, %11
-  %.sink48 = phi i64 [ 24, %11 ], [ 8, %13 ], [ 16, %19 ], [ 32, %21 ]
-  %.sink = phi i64 [ 48, %11 ], [ 40, %13 ], [ 44, %19 ], [ 52, %21 ]
+  %.sink48 = phi i64 [ 24, %11 ], [ 16, %19 ], [ 8, %13 ], [ 32, %21 ]
+  %.sink = phi i64 [ 48, %11 ], [ 44, %19 ], [ 40, %13 ], [ 52, %21 ]
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 %.sink48
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 %.sink
   %27 = tail call i32 @ff_h264_parse_sprop_parameter_sets(ptr noundef %0, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef %4) #9

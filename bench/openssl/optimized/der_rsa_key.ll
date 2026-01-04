@@ -87,8 +87,8 @@ define range(i32 0, 2) i32 @ossl_DER_w_RSASSA_PSS_params(ptr noundef %0, i32 nou
   br label %24
 
 24:                                               ; preds = %14, %23, %22, %21, %20, %19, %18
-  %.027 = phi ptr [ @ossl_der_aid_sha224Identifier, %18 ], [ @ossl_der_aid_sha256Identifier, %19 ], [ @ossl_der_aid_sha384Identifier, %20 ], [ @ossl_der_aid_sha512Identifier, %21 ], [ @ossl_der_aid_sha512_224Identifier, %22 ], [ @ossl_der_aid_sha512_256Identifier, %23 ], [ @ossl_der_aid_sha1Identifier, %14 ]
-  %.0 = phi i64 [ 15, %18 ], [ 15, %19 ], [ 15, %20 ], [ 15, %21 ], [ 15, %22 ], [ 15, %23 ], [ 11, %14 ]
+  %.027 = phi ptr [ @ossl_der_aid_sha512_256Identifier, %23 ], [ @ossl_der_aid_sha224Identifier, %18 ], [ @ossl_der_aid_sha256Identifier, %19 ], [ @ossl_der_aid_sha384Identifier, %20 ], [ @ossl_der_aid_sha512Identifier, %21 ], [ @ossl_der_aid_sha512_224Identifier, %22 ], [ @ossl_der_aid_sha1Identifier, %14 ]
+  %.0 = phi i64 [ 15, %23 ], [ 15, %18 ], [ 15, %19 ], [ 15, %20 ], [ 15, %21 ], [ 15, %22 ], [ 11, %14 ]
   %25 = tail call i32 @ossl_DER_w_begin_sequence(ptr noundef %0, i32 noundef %1) #2
   %.not34 = icmp eq i32 %25, 0
   br i1 %.not34, label %.critedge, label %26
@@ -144,7 +144,7 @@ define range(i32 0, 2) i32 @ossl_DER_w_RSASSA_PSS_params(ptr noundef %0, i32 nou
   br label %DER_w_MaskGenAlgorithm.exit
 
 DER_w_MaskGenAlgorithm.exit:                      ; preds = %37, %39, %40, %41, %42, %43
-  %.09.i = phi ptr [ @der_aid_mgf1SHA256Identifier, %39 ], [ @der_aid_mgf1SHA384Identifier, %40 ], [ @der_aid_mgf1SHA512Identifier, %41 ], [ @der_aid_mgf1SHA512_224Identifier, %42 ], [ @der_aid_mgf1SHA512_256Identifier, %43 ], [ @der_aid_mgf1SHA224Identifier, %37 ]
+  %.09.i = phi ptr [ @der_aid_mgf1SHA512_256Identifier, %43 ], [ @der_aid_mgf1SHA512_224Identifier, %42 ], [ @der_aid_mgf1SHA256Identifier, %39 ], [ @der_aid_mgf1SHA384Identifier, %40 ], [ @der_aid_mgf1SHA512Identifier, %41 ], [ @der_aid_mgf1SHA224Identifier, %37 ]
   %44 = tail call i32 @ossl_DER_w_precompiled(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %.09.i, i64 noundef 28) #2
   %.not37 = icmp eq i32 %44, 0
   br i1 %.not37, label %.critedge, label %DER_w_MaskGenAlgorithm.exit.thread41
@@ -165,7 +165,7 @@ DER_w_MaskGenAlgorithm.exit.thread41:             ; preds = %37, %DER_w_MaskGenA
   br label %.critedge
 
 .critedge:                                        ; preds = %34, %37, %3, %24, %28, %32, %DER_w_MaskGenAlgorithm.exit, %46, %48, %14, %4, %13, %11
-  %.028 = phi i32 [ 0, %11 ], [ 0, %13 ], [ 0, %4 ], [ 0, %14 ], [ 0, %46 ], [ 0, %DER_w_MaskGenAlgorithm.exit ], [ 0, %32 ], [ 0, %28 ], [ 0, %24 ], [ %51, %48 ], [ 0, %3 ], [ 0, %37 ], [ 0, %34 ]
+  %.028 = phi i32 [ 0, %11 ], [ 0, %13 ], [ 0, %4 ], [ 0, %14 ], [ %51, %48 ], [ 0, %46 ], [ 0, %DER_w_MaskGenAlgorithm.exit ], [ 0, %32 ], [ 0, %28 ], [ 0, %24 ], [ 0, %3 ], [ 0, %37 ], [ 0, %34 ]
   ret i32 %.028
 }
 
@@ -219,7 +219,7 @@ define range(i32 0, 2) i32 @ossl_DER_w_algorithmIdentifier_RSA_PSS(ptr noundef %
   br i1 %.not18, label %.critedge, label %.thread25
 
 .thread25:                                        ; preds = %.thread, %10, %8
-  %.0132428 = phi ptr [ @ossl_der_oid_id_RSASSA_PSS, %10 ], [ @ossl_der_oid_id_RSASSA_PSS, %8 ], [ @ossl_der_oid_rsaEncryption, %.thread ]
+  %.0132428 = phi ptr [ @ossl_der_oid_id_RSASSA_PSS, %8 ], [ @ossl_der_oid_id_RSASSA_PSS, %10 ], [ @ossl_der_oid_rsaEncryption, %.thread ]
   %12 = tail call i32 @ossl_DER_w_precompiled(ptr noundef %0, i32 noundef -1, ptr noundef nonnull %.0132428, i64 noundef 11) #2
   %.not19 = icmp eq i32 %12, 0
   br i1 %.not19, label %.critedge, label %13
@@ -231,7 +231,7 @@ define range(i32 0, 2) i32 @ossl_DER_w_algorithmIdentifier_RSA_PSS(ptr noundef %
   br label %.critedge
 
 .critedge:                                        ; preds = %.thread, %4, %5, %10, %.thread25, %13
-  %.015 = phi i32 [ 0, %.thread25 ], [ 0, %10 ], [ 0, %5 ], [ %16, %13 ], [ 0, %4 ], [ 0, %.thread ]
+  %.015 = phi i32 [ %16, %13 ], [ 0, %.thread25 ], [ 0, %10 ], [ 0, %5 ], [ 0, %4 ], [ 0, %.thread ]
   ret i32 %.015
 }
 

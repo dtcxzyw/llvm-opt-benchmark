@@ -9488,7 +9488,7 @@ getBitMaskParity.exit:                            ; preds = %.lr.ph.i
   br label %52
 
 52:                                               ; preds = %43, %.sink.split
-  %53 = phi double [ %47, %43 ], [ %51, %.sink.split ]
+  %53 = phi double [ %51, %.sink.split ], [ %47, %43 ]
   %54 = load double, ptr %8, align 8, !tbaa !4
   %55 = fmul double %32, %54
   %56 = call double @llvm.fmuladd.f64(double %53, double %30, double %55)
@@ -12524,7 +12524,7 @@ define internal void @statevec_applyPhaseFuncOverrides.omp_outlined(ptr noalias 
   br label %.loopexit79
 
 .loopexit79:                                      ; preds = %.lr.ph87, %.preheader78, %36, %74, %._crit_edge
-  %.1 = phi i64 [ %76, %74 ], [ %.2.lcssa, %._crit_edge ], [ 0, %36 ], [ 0, %.preheader78 ], [ %55, %.lr.ph87 ]
+  %.1 = phi i64 [ 0, %36 ], [ %76, %74 ], [ %.2.lcssa, %._crit_edge ], [ 0, %.preheader78 ], [ %55, %.lr.ph87 ]
   %77 = load i32, ptr %7, align 4, !tbaa !18
   %78 = icmp sgt i32 %77, 0
   br i1 %78, label %.lr.ph91.preheader, label %.preheader
@@ -12897,7 +12897,7 @@ define internal void @statevec_applyMultiVarPhaseFuncOverrides.omp_outlined(ptr 
   br label %.critedge
 
 .critedge:                                        ; preds = %.preheader106.thread, %.critedge.loopexit
-  %.084.lcssa108 = phi i64 [ %117, %.critedge.loopexit ], [ 0, %.preheader106.thread ]
+  %.084.lcssa108 = phi i64 [ 0, %.preheader106.thread ], [ %117, %.critedge.loopexit ]
   %118 = getelementptr inbounds nuw double, ptr %32, i64 %.084.lcssa108
   %119 = load double, ptr %118, align 8, !tbaa !4
   br label %.loopexit105
@@ -13243,7 +13243,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.sink.split, %.preheader171, %58, %93
-  %.3140 = phi i32 [ %95, %93 ], [ %.0137196, %58 ], [ %.0137196, %.preheader171 ], [ %.3140.ph, %.loopexit.sink.split ]
+  %.3140 = phi i32 [ %.0137196, %58 ], [ %.0137196, %.preheader171 ], [ %95, %93 ], [ %.3140.ph, %.loopexit.sink.split ]
   %indvars.iv.next265 = add nuw nsw i64 %indvars.iv264, 1
   %exitcond268.not = icmp eq i64 %indvars.iv.next265, %wide.trip.count267
   br i1 %exitcond268.not, label %.preheader183, label %58
@@ -13253,7 +13253,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   br label %.critedge
 
 .critedge:                                        ; preds = %.preheader183.thread, %.critedge.loopexit
-  %.0136.lcssa185 = phi i64 [ %109, %.critedge.loopexit ], [ 0, %.preheader183.thread ]
+  %.0136.lcssa185 = phi i64 [ 0, %.preheader183.thread ], [ %109, %.critedge.loopexit ]
   %110 = getelementptr inbounds nuw double, ptr %32, i64 %.0136.lcssa185
   %111 = load double, ptr %110, align 8, !tbaa !4
   br label %223
@@ -13341,7 +13341,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   br i1 %exitcond302.not, label %.loopexit174, label %.lr.ph230
 
 .loopexit174:                                     ; preds = %.lr.ph226, %.lr.ph230, %.preheader175, %.preheader173
-  %.1146 = phi double [ 0.000000e+00, %.preheader173 ], [ 0.000000e+00, %.preheader175 ], [ %128, %.lr.ph230 ], [ %123, %.lr.ph226 ]
+  %.1146 = phi double [ %128, %.lr.ph230 ], [ 0.000000e+00, %.preheader173 ], [ 0.000000e+00, %.preheader175 ], [ %123, %.lr.ph226 ]
   %129 = call double @sqrt(double noundef %.1146) #3, !tbaa !18
   %130 = load i32, ptr %11, align 4, !tbaa !18
   switch i32 %130, label %.fold.split [
@@ -13554,7 +13554,7 @@ default.unreachable317:                           ; preds = %.loopexit178
   unreachable
 
 223:                                              ; preds = %.critedge.thread, %218, %220, %.loopexit178, %209, %211, %163, %165, %._crit_edge222, %154, %156, %142, %144, %.loopexit174, %.fold.split, %133, %135, %137, %213, %158, %.critedge
-  %.0143 = phi double [ %111, %.critedge ], [ %139, %137 ], [ %160, %158 ], [ %215, %213 ], [ %129, %.loopexit174 ], [ %134, %133 ], [ %136, %135 ], [ 0.000000e+00, %.fold.split ], [ %143, %142 ], [ %146, %144 ], [ %.0148.lcssa, %._crit_edge222 ], [ %155, %154 ], [ %157, %156 ], [ %164, %163 ], [ %167, %165 ], [ 0.000000e+00, %.critedge.thread ], [ %sqrt, %.loopexit178 ], [ %210, %209 ], [ %212, %211 ], [ %219, %218 ], [ %222, %220 ]
+  %.0143 = phi double [ %111, %.critedge ], [ 0.000000e+00, %.critedge.thread ], [ %129, %.loopexit174 ], [ %139, %137 ], [ 0.000000e+00, %.fold.split ], [ %136, %135 ], [ %146, %144 ], [ %.0148.lcssa, %._crit_edge222 ], [ %160, %158 ], [ %219, %218 ], [ %157, %156 ], [ %167, %165 ], [ %sqrt, %.loopexit178 ], [ %215, %213 ], [ %222, %220 ], [ %212, %211 ], [ %134, %133 ], [ %143, %142 ], [ %155, %154 ], [ %164, %163 ], [ %210, %209 ]
   %224 = load i32, ptr %13, align 4, !tbaa !18
   %.not167 = icmp eq i32 %224, 0
   %225 = fneg double %.0143

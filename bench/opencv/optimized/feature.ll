@@ -854,7 +854,7 @@ common.resume.sink.split:                         ; preds = %72, %70, %68
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %57, %36, %15
-  %common.resume.op = phi { ptr, i32 } [ %16, %15 ], [ %37, %36 ], [ %58, %57 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %58, %57 ], [ %16, %15 ], [ %37, %36 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 17:                                               ; preds = %15
@@ -1176,7 +1176,7 @@ define hidden void @_ZN2cv6detail8tracking15contrib_feature18CvFeatureEvaluator6
           to label %common.resume unwind label %22
 
 common.resume:                                    ; preds = %71, %45, %20
-  %common.resume.op = phi { ptr, i32 } [ %21, %20 ], [ %46, %45 ], [ %72, %71 ]
+  %common.resume.op = phi { ptr, i32 } [ %46, %45 ], [ %21, %20 ], [ %72, %71 ]
   resume { ptr, i32 } %common.resume.op
 
 22:                                               ; preds = %20
@@ -2652,7 +2652,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12: ; preds = %22,
   br label %.body
 
 .body:                                            ; preds = %25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i
-  %.pn.pn = phi { ptr, i32 } [ %26, %25 ], [ %18, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i ]
+  %.pn.pn = phi { ptr, i32 } [ %18, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i ], [ %26, %25 ]
   %27 = load ptr, ptr %3, align 8, !tbaa !15
   %28 = icmp eq ptr %27, %6
   br i1 %28, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
@@ -3492,9 +3492,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit158:            ; preds = %213, %216, %217, %2
   %.not = icmp slt i32 %247, %.sroa.15.0.extract.trunc
   br i1 %.not, label %248, label %.critedge.backedge
 
-.critedge.backedge:                               ; preds = %245, %248, %197, %200, %153, %155, %109, %112, %73, %75, %37, %40
-  br label %.critedge, !llvm.loop !156
-
 248:                                              ; preds = %245
   %249 = mul nsw i32 %24, 3
   %250 = add nsw i32 %249, %16
@@ -3503,6 +3500,9 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit158:            ; preds = %213, %216, %217, %2
   %252 = icmp slt i32 %251, 3
   %or.cond150 = select i1 %.not129, i1 true, i1 %252
   br i1 %or.cond150, label %.critedge.backedge, label %253
+
+.critedge.backedge:                               ; preds = %248, %200, %155, %112, %75, %40, %197, %153, %109, %73, %37, %245
+  br label %.critedge, !llvm.loop !156
 
 253:                                              ; preds = %248
   store i32 6, ptr %0, align 8, !tbaa !149
@@ -9482,7 +9482,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !150
   br label %40
 

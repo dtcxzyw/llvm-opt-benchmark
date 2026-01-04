@@ -1149,9 +1149,9 @@ define dso_local i32 @get_device_system_crosststamp(ptr noundef readonly capture
   br label %.thread8
 
 .thread8:                                         ; preds = %36, %23, %32
-  %39 = phi i32 [ %8, %23 ], [ %8, %32 ], [ %38, %36 ]
-  %40 = phi i1 [ true, %23 ], [ true, %32 ], [ false, %36 ]
-  %41 = phi i8 [ %9, %23 ], [ %9, %32 ], [ %37, %36 ]
+  %39 = phi i32 [ %38, %36 ], [ %8, %23 ], [ %8, %32 ]
+  %40 = phi i1 [ false, %36 ], [ true, %23 ], [ true, %32 ]
+  %41 = phi i8 [ %37, %36 ], [ %9, %23 ], [ %9, %32 ]
   %42 = load i64, ptr getelementptr inbounds nuw (i8, ptr @tk_core, i64 48), align 16
   %43 = load i64, ptr getelementptr inbounds nuw (i8, ptr @tk_core, i64 152), align 8
   %44 = load i64, ptr getelementptr inbounds nuw (i8, ptr @tk_core, i64 104), align 8
@@ -1325,7 +1325,7 @@ define dso_local i32 @get_device_system_crosststamp(ptr noundef readonly capture
   br label %.thread11
 
 .thread11:                                        ; preds = %19, %.loopexit, %170, %103, %87, %95, %99, %151, %142, %127, %111, %57
-  %172 = phi i32 [ 0, %57 ], [ -75, %111 ], [ -75, %127 ], [ -75, %142 ], [ -75, %151 ], [ -22, %99 ], [ -22, %95 ], [ -22, %87 ], [ 0, %103 ], [ 0, %170 ], [ -19, %19 ], [ %17, %.loopexit ]
+  %172 = phi i32 [ 0, %57 ], [ -75, %151 ], [ 0, %103 ], [ 0, %170 ], [ -75, %127 ], [ -22, %87 ], [ -75, %111 ], [ -75, %142 ], [ -22, %99 ], [ -22, %95 ], [ -19, %19 ], [ %17, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %172
 }
@@ -3336,8 +3336,8 @@ tk_set_wall_to_mono.exit:                         ; preds = %73, %94
   br label %186
 
 186:                                              ; preds = %182, %171
-  %187 = phi i64 [ %184, %182 ], [ %172, %171 ]
-  %188 = phi i64 [ %185, %182 ], [ %153, %171 ]
+  %187 = phi i64 [ %172, %171 ], [ %184, %182 ]
+  %188 = phi i64 [ %153, %171 ], [ %185, %182 ]
   %189 = icmp sgt i32 %179, 0
   %190 = xor i32 %179, -1
   %191 = icmp ugt i32 %173, %190

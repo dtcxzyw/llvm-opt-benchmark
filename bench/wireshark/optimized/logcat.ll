@@ -108,7 +108,7 @@ switch.lookup:                                    ; preds = %3
   br label %32
 
 32:                                               ; preds = %7, %switch.lookup, %16, %15, %11, %10, %7, %20
-  %.0 = phi i32 [ 1, %20 ], [ %9, %7 ], [ 0, %10 ], [ -1, %11 ], [ 0, %15 ], [ -1, %16 ], [ %switch.load, %switch.lookup ], [ %9, %7 ]
+  %.0 = phi i32 [ 1, %20 ], [ 0, %15 ], [ -1, %16 ], [ %switch.load, %switch.lookup ], [ -1, %11 ], [ %9, %7 ], [ 0, %10 ], [ %9, %7 ]
   ret i32 %.0
 }
 
@@ -267,7 +267,7 @@ get_priority.exit.thread.us:                      ; preds = %41, %38, %35
   br label %77
 
 get_priority.exit.thread:                         ; preds = %55, %64, %70, %67
-  %.1 = phi i16 [ %25, %67 ], [ %25, %70 ], [ %25, %64 ], [ %.05279, %55 ]
+  %.1 = phi i16 [ %25, %64 ], [ %25, %67 ], [ %25, %70 ], [ %.05279, %55 ]
   br i1 %exitcond.not, label %.split85.us, label %55, !llvm.loop !8
 
 .split85.us:                                      ; preds = %get_priority.exit.thread, %get_priority.exit.thread.us
@@ -275,7 +275,7 @@ get_priority.exit.thread:                         ; preds = %55, %64, %70, %67
   br label %77
 
 77:                                               ; preds = %6, %.split81.us, %18, %8, %.split85.us, %.split83.us
-  %.0 = phi i32 [ %.us-phi, %.split83.us ], [ 0, %.split85.us ], [ 0, %8 ], [ %., %18 ], [ %.65, %.split81.us ], [ %switch.select69, %6 ]
+  %.0 = phi i32 [ %., %18 ], [ 0, %8 ], [ %.us-phi, %.split83.us ], [ %.65, %.split81.us ], [ %switch.select69, %6 ], [ 0, %.split85.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -323,7 +323,7 @@ define internal noundef zeroext i1 @logcat_seek_read(ptr noundef readonly captur
   br label %19
 
 19:                                               ; preds = %10, %15, %18, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %18 ], [ false, %15 ], [ true, %10 ]
+  %.0 = phi i1 [ false, %5 ], [ false, %15 ], [ false, %18 ], [ true, %10 ]
   ret i1 %.0
 }
 
@@ -426,7 +426,7 @@ define internal fastcc noundef zeroext i1 @logcat_read_packet(ptr noundef readon
   br label %41
 
 41:                                               ; preds = %16, %8, %5, %26
-  %.0 = phi i1 [ true, %26 ], [ false, %5 ], [ false, %8 ], [ false, %16 ]
+  %.0 = phi i1 [ true, %26 ], [ false, %8 ], [ false, %5 ], [ false, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }

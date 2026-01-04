@@ -41,7 +41,7 @@ define internal noalias ptr @ecdh_newctx(ptr noundef %0) #0 {
   br label %10
 
 10:                                               ; preds = %3, %1, %6
-  %.0 = phi ptr [ %4, %6 ], [ null, %1 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %1 ], [ %4, %6 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -78,7 +78,7 @@ define internal range(i32 0, 2) i32 @ecdh_init(ptr noundef captures(address_is_n
   br label %19
 
 19:                                               ; preds = %13, %3, %8, %11
-  %.0 = phi i32 [ 0, %11 ], [ 0, %8 ], [ 0, %3 ], [ %18, %13 ]
+  %.0 = phi i32 [ %18, %13 ], [ 0, %3 ], [ 0, %11 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -184,12 +184,12 @@ ecdh_plain_derive.exit.thread.i:                  ; preds = %22, %18
   br label %ecdh_X9_63_kdf_derive.exit
 
 ecdh_X9_63_kdf_derive.exit:                       ; preds = %14, %17, %ecdh_plain_derive.exit.thread.i, %34, %51
-  %.020.i = phi i32 [ 1, %14 ], [ 0, %17 ], [ %.0.i, %51 ], [ 0, %34 ], [ 0, %ecdh_plain_derive.exit.thread.i ]
+  %.020.i = phi i32 [ 1, %14 ], [ 0, %17 ], [ 0, %ecdh_plain_derive.exit.thread.i ], [ %.0.i, %51 ], [ 0, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %52
 
 52:                                               ; preds = %4, %ecdh_X9_63_kdf_derive.exit, %8
-  %.0 = phi i32 [ %9, %8 ], [ %.020.i, %ecdh_X9_63_kdf_derive.exit ], [ 0, %4 ]
+  %.0 = phi i32 [ %.020.i, %ecdh_X9_63_kdf_derive.exit ], [ %9, %8 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -251,7 +251,7 @@ ecdh_match_params.exit.thread17:                  ; preds = %15, %18
   br label %26
 
 26:                                               ; preds = %ecdh_match_params.exit.thread17, %ecdh_match_params.exit.thread, %21, %2, %23
-  %.0 = phi i32 [ 1, %23 ], [ 0, %2 ], [ 0, %21 ], [ 0, %ecdh_match_params.exit.thread ], [ 0, %ecdh_match_params.exit.thread17 ]
+  %.0 = phi i32 [ 0, %2 ], [ 1, %23 ], [ 0, %ecdh_match_params.exit.thread17 ], [ 0, %21 ], [ 0, %ecdh_match_params.exit.thread ]
   ret i32 %.0
 }
 
@@ -377,7 +377,7 @@ define internal ptr @ecdh_dupctx(ptr noundef readonly captures(none) %0) #0 {
   br label %44
 
 44:                                               ; preds = %27, %31, %34, %3, %1, %37
-  %.0 = phi ptr [ null, %37 ], [ null, %1 ], [ null, %3 ], [ %4, %34 ], [ %4, %31 ], [ %4, %27 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %37 ], [ null, %3 ], [ %4, %34 ], [ %4, %31 ], [ %4, %27 ]
   ret ptr %.0
 }
 
@@ -415,25 +415,21 @@ ossl_param_is_empty.exit:                         ; preds = %11
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %17 = call i32 @OSSL_PARAM_get_int(ptr noundef nonnull %15, ptr noundef nonnull %5) #8
   %.not55 = icmp eq i32 %17, 0
-  br i1 %.not55, label %22, label %18
+  br i1 %.not55, label %.critedge, label %18
 
 18:                                               ; preds = %16
   %19 = load i32, ptr %5, align 4, !tbaa !26
   %20 = add i32 %19, -2
   %or.cond = icmp ult i32 %20, -3
-  br i1 %or.cond, label %22, label %.critedge
+  br i1 %or.cond, label %.critedge, label %21
 
-.critedge:                                        ; preds = %18
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %19, ptr %21, align 8, !tbaa !14
+21:                                               ; preds = %18
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %19, ptr %22, align 8, !tbaa !14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %23
 
-22:                                               ; preds = %18, %16
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %ossl_param_is_empty.exit.thread
-
-23:                                               ; preds = %.critedge, %14
+23:                                               ; preds = %21, %14
   %24 = call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %1, ptr noundef nonnull @.str.2) #8
   %.not56 = icmp eq ptr %24, null
   br i1 %.not56, label %32, label %25
@@ -553,7 +549,11 @@ ossl_param_is_empty.exit:                         ; preds = %11
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %ossl_param_is_empty.exit.thread
 
-.critedge70:                                      ; preds = %40, %38, %34, %48
+.critedge:                                        ; preds = %18, %16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  br label %ossl_param_is_empty.exit.thread
+
+.critedge70:                                      ; preds = %34, %40, %48, %38
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %ossl_param_is_empty.exit.thread
 
@@ -566,8 +566,8 @@ ossl_param_is_empty.exit:                         ; preds = %11
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %ossl_param_is_empty.exit.thread
 
-ossl_param_is_empty.exit.thread:                  ; preds = %11, %57, %61, %.critedge74, %.critedge72, %.critedge70, %30, %25, %22, %ossl_param_is_empty.exit, %2
-  %.041 = phi i32 [ 0, %22 ], [ 0, %2 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %25 ], [ 0, %30 ], [ 0, %.critedge70 ], [ 0, %.critedge72 ], [ 0, %.critedge74 ], [ 1, %61 ], [ 1, %57 ], [ 1, %11 ]
+ossl_param_is_empty.exit.thread:                  ; preds = %11, %57, %61, %.critedge74, %.critedge72, %.critedge70, %30, %25, %.critedge, %ossl_param_is_empty.exit, %2
+  %.041 = phi i32 [ 0, %.critedge ], [ 0, %2 ], [ 0, %30 ], [ 0, %.critedge72 ], [ 0, %.critedge74 ], [ 0, %.critedge70 ], [ 0, %25 ], [ 1, %ossl_param_is_empty.exit ], [ 1, %61 ], [ 1, %57 ], [ 1, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.041
@@ -681,7 +681,7 @@ define internal range(i32 0, 2) i32 @ecdh_get_ctx_params(ptr noundef readonly ca
   br label %.critedge
 
 .critedge:                                        ; preds = %19, %44, %38, %33, %2, %15, %23, %50
-  %.033 = phi i32 [ 1, %50 ], [ 0, %23 ], [ 0, %15 ], [ 0, %2 ], [ 0, %33 ], [ 0, %38 ], [ 0, %44 ], [ 0, %19 ]
+  %.033 = phi i32 [ 0, %15 ], [ 1, %50 ], [ 0, %38 ], [ 0, %33 ], [ 0, %44 ], [ 0, %23 ], [ 0, %2 ], [ 0, %19 ]
   ret i32 %.033
 }
 
@@ -818,7 +818,7 @@ ecdh_size.exit:                                   ; preds = %13, %16
   br label %61
 
 61:                                               ; preds = %58, %60, %40, %23, %27, %22, %12
-  %.0 = phi i32 [ 0, %12 ], [ 1, %22 ], [ 0, %27 ], [ 0, %23 ], [ 0, %40 ], [ %.037, %60 ], [ %.037, %58 ]
+  %.0 = phi i32 [ 0, %12 ], [ 1, %22 ], [ 0, %40 ], [ 0, %23 ], [ 0, %27 ], [ %.037, %60 ], [ %.037, %58 ]
   ret i32 %.0
 }
 

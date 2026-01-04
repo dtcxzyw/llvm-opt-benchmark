@@ -313,7 +313,7 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   br label %102
 
 .thread:                                          ; preds = %83, %92, %88
-  %97 = phi i1 [ true, %92 ], [ false, %88 ], [ false, %83 ]
+  %97 = phi i1 [ false, %88 ], [ true, %92 ], [ false, %83 ]
   %98 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %99 = load i16, ptr %98, align 8, !tbaa !26
   %100 = icmp eq i16 %99, 0
@@ -375,10 +375,10 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 zend_string_copy.exit:                            ; preds = %117
   br i1 %.1796, label %zend_string_copy.exit.thread, label %.thread10
 
-zend_string_copy.exit.thread:                     ; preds = %72, %68, %121, %124, %zend_string_copy.exit
-  %.0755.shrunk9 = phi i1 [ %103, %zend_string_copy.exit ], [ %103, %124 ], [ %103, %121 ], [ false, %68 ], [ false, %72 ]
-  %133 = phi i1 [ true, %zend_string_copy.exit ], [ false, %124 ], [ true, %121 ], [ true, %68 ], [ true, %72 ]
-  %.07867 = phi ptr [ %114, %zend_string_copy.exit ], [ %132, %124 ], [ %114, %121 ], [ %62, %68 ], [ %62, %72 ]
+zend_string_copy.exit.thread:                     ; preds = %68, %72, %121, %124, %zend_string_copy.exit
+  %.0755.shrunk9 = phi i1 [ %103, %121 ], [ %103, %zend_string_copy.exit ], [ %103, %124 ], [ false, %72 ], [ false, %68 ]
+  %133 = phi i1 [ true, %121 ], [ true, %zend_string_copy.exit ], [ false, %124 ], [ true, %72 ], [ true, %68 ]
+  %.07867 = phi ptr [ %114, %121 ], [ %114, %zend_string_copy.exit ], [ %132, %124 ], [ %62, %72 ], [ %62, %68 ]
   %134 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 10) #19
   %.not921 = icmp eq ptr %134, null
   br i1 %.not921, label %135, label %137
@@ -666,9 +666,9 @@ zend_string_release.exit1077:                     ; preds = %215, %219, %226, %2
   br label %259
 
 259:                                              ; preds = %258, %252
-  %260 = phi i64 [ %.pre209, %258 ], [ %254, %252 ]
-  %261 = phi ptr [ %.pre207, %258 ], [ %251, %252 ]
-  %.1.i = phi i64 [ %.0.i, %258 ], [ %255, %252 ]
+  %260 = phi i64 [ %254, %252 ], [ %.pre209, %258 ]
+  %261 = phi ptr [ %251, %252 ], [ %.pre207, %258 ]
+  %.1.i = phi i64 [ %255, %252 ], [ %.0.i, %258 ]
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 24
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 %260
   store i64 2329560872202948419, ptr %263, align 1
@@ -889,9 +889,9 @@ smart_str_alloc.exit1095:                         ; preds = %307, %317
   br label %smart_str_alloc.exit1100
 
 smart_str_alloc.exit1100:                         ; preds = %.critedge1042.thread, %362
-  %363 = phi i64 [ %.pre224, %362 ], [ %358, %.critedge1042.thread ]
-  %364 = phi ptr [ %.pre222, %362 ], [ %359, %.critedge1042.thread ]
-  %.1.i1099 = phi i64 [ %.0.i1098, %362 ], [ %360, %.critedge1042.thread ]
+  %363 = phi i64 [ %358, %.critedge1042.thread ], [ %.pre224, %362 ]
+  %364 = phi ptr [ %359, %.critedge1042.thread ], [ %.pre222, %362 ]
+  %.1.i1099 = phi i64 [ %360, %.critedge1042.thread ], [ %.0.i1098, %362 ]
   %365 = getelementptr inbounds nuw i8, ptr %364, i64 24
   %366 = getelementptr inbounds nuw i8, ptr %365, i64 %363
   store i16 2573, ptr %366, align 1
@@ -1104,9 +1104,9 @@ zend_string_equals_cstr.exit1087:                 ; preds = %439
   br label %451
 
 451:                                              ; preds = %450, %444
-  %452 = phi i64 [ %.pre227, %450 ], [ %446, %444 ]
-  %453 = phi ptr [ %.pre225, %450 ], [ %443, %444 ]
-  %.1.i.i1326 = phi i64 [ %.0.i.i1325, %450 ], [ %447, %444 ]
+  %452 = phi i64 [ %446, %444 ], [ %.pre227, %450 ]
+  %453 = phi ptr [ %443, %444 ], [ %.pre225, %450 ]
+  %.1.i.i1326 = phi i64 [ %447, %444 ], [ %.0.i.i1325, %450 ]
   %454 = getelementptr inbounds nuw i8, ptr %453, i64 24
   %455 = getelementptr inbounds nuw i8, ptr %454, i64 %452
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %455, ptr nonnull align 1 %442, i64 %436, i1 false)
@@ -1132,7 +1132,7 @@ smart_str_appendc_ex.exit1270:                    ; preds = %451, %461
   br label %477
 
 zend_string_equals_cstr.exit1087.thread:          ; preds = %439, %zend_string_equals_cstr.exit, %405, %427, %zend_string_equals_cstr.exit1087, %433, %429
-  %.074939 = phi i32 [ %.0749.ph, %427 ], [ %.0749.ph, %zend_string_equals_cstr.exit1087 ], [ %.0749.ph, %433 ], [ %.0749.ph, %429 ], [ %5, %405 ], [ %.0749.ph, %zend_string_equals_cstr.exit ], [ %.0749.ph, %439 ]
+  %.074939 = phi i32 [ %.0749.ph, %429 ], [ %.0749.ph, %427 ], [ %.0749.ph, %zend_string_equals_cstr.exit1087 ], [ %.0749.ph, %433 ], [ %5, %405 ], [ %.0749.ph, %439 ], [ %.0749.ph, %zend_string_equals_cstr.exit ]
   %465 = load ptr, ptr %18, align 8, !tbaa !51
   %.not.i1121 = icmp eq ptr %465, null
   br i1 %.not.i1121, label %472, label %466, !prof !53
@@ -1155,9 +1155,9 @@ zend_string_equals_cstr.exit1087.thread:          ; preds = %439, %zend_string_e
   br label %smart_str_alloc.exit1125
 
 smart_str_alloc.exit1125:                         ; preds = %466, %472
-  %473 = phi i64 [ %.pre231, %472 ], [ %468, %466 ]
-  %474 = phi ptr [ %.pre229, %472 ], [ %465, %466 ]
-  %.1.i1124 = phi i64 [ %.0.i1123, %472 ], [ %469, %466 ]
+  %473 = phi i64 [ %468, %466 ], [ %.pre231, %472 ]
+  %474 = phi ptr [ %465, %466 ], [ %.pre229, %472 ]
+  %.1.i1124 = phi i64 [ %469, %466 ], [ %.0.i1123, %472 ]
   %475 = getelementptr inbounds nuw i8, ptr %474, i64 24
   %476 = getelementptr inbounds nuw i8, ptr %475, i64 %473
   store i32 542393671, ptr %476, align 1
@@ -1187,8 +1187,8 @@ smart_str_alloc.exit1125:                         ; preds = %466, %472
   br label %smart_str_alloc.exit1130
 
 smart_str_alloc.exit1130:                         ; preds = %480, %485
-  %486 = phi i64 [ %.pre242, %485 ], [ %.sink535, %480 ]
-  %487 = phi ptr [ %.pre240, %485 ], [ %478, %480 ]
+  %486 = phi i64 [ %.sink535, %480 ], [ %.pre242, %485 ]
+  %487 = phi ptr [ %478, %480 ], [ %.pre240, %485 ]
   %488 = getelementptr inbounds nuw i8, ptr %487, i64 24
   %489 = getelementptr inbounds nuw i8, ptr %488, i64 %486
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %489, ptr nonnull align 1 %1, i64 %481, i1 false)
@@ -1223,8 +1223,8 @@ smart_str_alloc.exit1130:                         ; preds = %480, %485
   br label %smart_str_alloc.exit1135
 
 smart_str_alloc.exit1135:                         ; preds = %496, %502
-  %503 = phi i64 [ %.pre234, %502 ], [ %.sink535, %496 ]
-  %504 = phi ptr [ %.pre232, %502 ], [ %478, %496 ]
+  %503 = phi i64 [ %.sink535, %496 ], [ %.pre234, %502 ]
+  %504 = phi ptr [ %478, %496 ], [ %.pre232, %502 ]
   %505 = getelementptr inbounds nuw i8, ptr %504, i64 24
   %506 = getelementptr inbounds nuw i8, ptr %505, i64 %503
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %506, ptr nonnull align 1 %497, i64 %498, i1 false)
@@ -1243,7 +1243,7 @@ smart_str_alloc.exit1135:                         ; preds = %496, %502
   br label %smart_str_appendc_ex.exit1265
 
 smart_str_appendc_ex.exit1265:                    ; preds = %507, %511
-  %512 = phi ptr [ %.pre235, %511 ], [ %478, %507 ]
+  %512 = phi ptr [ %478, %507 ], [ %.pre235, %511 ]
   %513 = getelementptr i8, ptr %512, i64 23
   %514 = getelementptr i8, ptr %513, i64 %508
   store i8 47, ptr %514, align 1, !tbaa !4
@@ -1272,7 +1272,7 @@ smart_str_appendc_ex.exit1265:                    ; preds = %507, %511
   br label %525
 
 525:                                              ; preds = %524, %520
-  %526 = phi ptr [ %.pre236, %524 ], [ %516, %520 ]
+  %526 = phi ptr [ %516, %520 ], [ %.pre236, %524 ]
   %527 = getelementptr i8, ptr %526, i64 23
   %528 = getelementptr i8, ptr %527, i64 %521
   store i8 63, ptr %528, align 1, !tbaa !4
@@ -1359,9 +1359,9 @@ zval_get_double.exit1078:                         ; preds = %552, %554
   br label %566
 
 566:                                              ; preds = %565, %559
-  %567 = phi i64 [ %.pre245, %565 ], [ %561, %559 ]
-  %568 = phi ptr [ %.pre243, %565 ], [ %558, %559 ]
-  %.1.i1144 = phi i64 [ %.0.i1143, %565 ], [ %562, %559 ]
+  %567 = phi i64 [ %561, %559 ], [ %.pre245, %565 ]
+  %568 = phi ptr [ %558, %559 ], [ %.pre243, %565 ]
+  %.1.i1144 = phi i64 [ %562, %559 ], [ %.0.i1143, %565 ]
   %569 = getelementptr inbounds nuw i8, ptr %568, i64 24
   %570 = getelementptr inbounds nuw i8, ptr %569, i64 %567
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %570, ptr noundef nonnull align 1 dereferenceable(6) @.str.28, i64 6, i1 false)
@@ -1442,9 +1442,9 @@ zval_get_double.exit1078:                         ; preds = %552, %554
   br label %604
 
 604:                                              ; preds = %603, %.thread518
-  %605 = phi i64 [ %.pre256, %603 ], [ %599, %.thread518 ]
-  %606 = phi ptr [ %.pre254, %603 ], [ %597, %.thread518 ]
-  %.1.i1159 = phi i64 [ %.0.i1158, %603 ], [ %600, %.thread518 ]
+  %605 = phi i64 [ %599, %.thread518 ], [ %.pre256, %603 ]
+  %606 = phi ptr [ %597, %.thread518 ], [ %.pre254, %603 ]
+  %.1.i1159 = phi i64 [ %600, %.thread518 ], [ %.0.i1158, %603 ]
   %607 = getelementptr inbounds nuw i8, ptr %606, i64 24
   %608 = getelementptr inbounds nuw i8, ptr %607, i64 %605
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %608, ptr noundef nonnull align 1 dereferenceable(11) @.str.29, i64 11, i1 false)
@@ -1521,9 +1521,9 @@ zval_get_double.exit1078:                         ; preds = %552, %554
   br label %644
 
 644:                                              ; preds = %643, %638
-  %645 = phi i64 [ %.pre259, %643 ], [ %640, %638 ]
-  %646 = phi ptr [ %.pre257, %643 ], [ %630, %638 ]
-  %.1.i.i1322 = phi i64 [ %.0.i.i1321, %643 ], [ %641, %638 ]
+  %645 = phi i64 [ %640, %638 ], [ %.pre259, %643 ]
+  %646 = phi ptr [ %630, %638 ], [ %.pre257, %643 ]
+  %.1.i.i1322 = phi i64 [ %641, %638 ], [ %.0.i.i1321, %643 ]
   %647 = getelementptr inbounds nuw i8, ptr %646, i64 24
   %648 = getelementptr inbounds nuw i8, ptr %647, i64 %645
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %648, ptr nonnull align 1 %635, i64 %637, i1 false)
@@ -1602,7 +1602,7 @@ smart_str_0.exit:                                 ; preds = %._crit_edge
   br label %smart_str_0.exit.thread
 
 smart_str_0.exit.thread:                          ; preds = %669, %681, %676, %672, %616, %._crit_edge, %smart_str_0.exit
-  %.0759 = phi ptr [ null, %smart_str_0.exit ], [ null, %._crit_edge ], [ null, %616 ], [ %670, %672 ], [ %670, %676 ], [ %670, %681 ], [ %670, %669 ]
+  %.0759 = phi ptr [ null, %616 ], [ null, %smart_str_0.exit ], [ null, %._crit_edge ], [ %670, %672 ], [ %670, %676 ], [ %670, %681 ], [ %670, %669 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %688
 
@@ -1837,9 +1837,9 @@ zend_string_alloc.exit1329:                       ; preds = %707
   br label %.thread50
 
 .thread50:                                        ; preds = %770, %.critedge35, %762, %725, %739, %743, %689
-  %.276157 = phi ptr [ %.3762, %725 ], [ %.3762, %739 ], [ %.3762, %743 ], [ %.1760, %689 ], [ %.3762, %762 ], [ %.3762, %.critedge35 ], [ %.3762, %770 ]
-  %.178856 = phi i32 [ %.8, %725 ], [ %.8, %739 ], [ %.8, %743 ], [ 0, %689 ], [ %.8, %762 ], [ %.8, %.critedge35 ], [ %.8, %770 ]
-  %.180055 = phi ptr [ %694, %725 ], [ %694, %739 ], [ %694, %743 ], [ null, %689 ], [ null, %762 ], [ %694, %.critedge35 ], [ %694, %770 ]
+  %.276157 = phi ptr [ %.1760, %689 ], [ %.3762, %725 ], [ %.3762, %739 ], [ %.3762, %743 ], [ %.3762, %762 ], [ %.3762, %.critedge35 ], [ %.3762, %770 ]
+  %.178856 = phi i32 [ 0, %689 ], [ %.8, %725 ], [ %.8, %739 ], [ %.8, %743 ], [ %.8, %762 ], [ %.8, %.critedge35 ], [ %.8, %770 ]
+  %.180055 = phi ptr [ null, %689 ], [ %694, %725 ], [ %694, %739 ], [ %694, %743 ], [ null, %762 ], [ %694, %.critedge35 ], [ %694, %770 ]
   %780 = getelementptr inbounds nuw i8, ptr %.276157, i64 4
   %781 = load i32, ptr %780, align 4, !tbaa !4
   %782 = and i32 %781, 64
@@ -1929,10 +1929,10 @@ zend_string_release_ex.exit1081.thread:           ; preds = %613, %682, %688, %6
   br label %826
 
 826:                                              ; preds = %825, %819
-  %827 = phi i64 [ %.pre270, %825 ], [ %824, %819 ]
-  %828 = phi i64 [ %.pre268, %825 ], [ %821, %819 ]
-  %829 = phi ptr [ %.pre266, %825 ], [ %818, %819 ]
-  %.1.i1164 = phi i64 [ %.0.i1163, %825 ], [ %822, %819 ]
+  %827 = phi i64 [ %824, %819 ], [ %.pre270, %825 ]
+  %828 = phi i64 [ %821, %819 ], [ %.pre268, %825 ]
+  %829 = phi ptr [ %818, %819 ], [ %.pre266, %825 ]
+  %.1.i1164 = phi i64 [ %822, %819 ], [ %.0.i1163, %825 ]
   %830 = getelementptr inbounds nuw i8, ptr %829, i64 24
   %831 = getelementptr inbounds nuw i8, ptr %829, i64 16
   %832 = getelementptr inbounds nuw i8, ptr %830, i64 %828
@@ -2050,9 +2050,9 @@ zend_string_free.exit:                            ; preds = %857, %863, %864
   br label %879
 
 879:                                              ; preds = %878, %872
-  %880 = phi i64 [ %.pre279, %878 ], [ %874, %872 ]
-  %881 = phi ptr [ %.pre277, %878 ], [ %871, %872 ]
-  %.1.i1179 = phi i64 [ %.0.i1178, %878 ], [ %875, %872 ]
+  %880 = phi i64 [ %874, %872 ], [ %.pre279, %878 ]
+  %881 = phi ptr [ %871, %872 ], [ %.pre277, %878 ]
+  %.1.i1179 = phi i64 [ %875, %872 ], [ %.0.i1178, %878 ]
   %882 = getelementptr inbounds nuw i8, ptr %881, i64 24
   %883 = getelementptr inbounds nuw i8, ptr %882, i64 %880
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %883, ptr noundef nonnull align 1 dereferenceable(6) @.str.40, i64 6, i1 false)
@@ -2134,9 +2134,9 @@ smart_str_alloc.exit1190:                         ; preds = %892, %901
   br label %920
 
 920:                                              ; preds = %919, %913
-  %921 = phi i64 [ %.pre288, %919 ], [ %915, %913 ]
-  %922 = phi ptr [ %.pre286, %919 ], [ %912, %913 ]
-  %.1.i1194 = phi i64 [ %.0.i1193, %919 ], [ %916, %913 ]
+  %921 = phi i64 [ %915, %913 ], [ %.pre288, %919 ]
+  %922 = phi ptr [ %912, %913 ], [ %.pre286, %919 ]
+  %.1.i1194 = phi i64 [ %916, %913 ], [ %.0.i1193, %919 ]
   %923 = getelementptr inbounds nuw i8, ptr %922, i64 24
   %924 = getelementptr inbounds nuw i8, ptr %923, i64 %921
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %924, ptr noundef nonnull align 1 dereferenceable(6) @.str.41, i64 6, i1 false)
@@ -2270,8 +2270,8 @@ smart_str_appendc_ex.exit:                        ; preds = %944, %947
   br label %smart_str_alloc.exit1205
 
 smart_str_alloc.exit1205:                         ; preds = %.thread71, %981
-  %982 = phi i64 [ %.pre299, %981 ], [ %977, %.thread71 ]
-  %983 = phi ptr [ %.pre297, %981 ], [ %978, %.thread71 ]
+  %982 = phi i64 [ %977, %.thread71 ], [ %.pre299, %981 ]
+  %983 = phi ptr [ %978, %.thread71 ], [ %.pre297, %981 ]
   %984 = getelementptr inbounds nuw i8, ptr %983, i64 24
   %985 = getelementptr inbounds nuw i8, ptr %984, i64 %982
   store i16 2573, ptr %985, align 1
@@ -2308,9 +2308,9 @@ smart_str_alloc.exit1205:                         ; preds = %.thread71, %981
   br label %smart_str_alloc.exit1210
 
 smart_str_alloc.exit1210:                         ; preds = %993, %999
-  %1000 = phi i64 [ %.pre302, %999 ], [ %995, %993 ]
-  %1001 = phi ptr [ %.pre300, %999 ], [ %992, %993 ]
-  %.1.i1209 = phi i64 [ %.0.i1208, %999 ], [ %996, %993 ]
+  %1000 = phi i64 [ %995, %993 ], [ %.pre302, %999 ]
+  %1001 = phi ptr [ %992, %993 ], [ %.pre300, %999 ]
+  %.1.i1209 = phi i64 [ %996, %993 ], [ %.0.i1208, %999 ]
   %1002 = getelementptr inbounds nuw i8, ptr %1001, i64 24
   %1003 = getelementptr inbounds nuw i8, ptr %1001, i64 16
   %1004 = getelementptr inbounds nuw i8, ptr %1002, i64 %1000
@@ -2388,9 +2388,9 @@ smart_str_alloc.exit1210:                         ; preds = %993, %999
   br label %smart_str_alloc.exit1110
 
 smart_str_alloc.exit1110:                         ; preds = %1033, %1039
-  %1040 = phi i64 [ %.pre305, %1039 ], [ %1035, %1033 ]
-  %1041 = phi ptr [ %.pre303, %1039 ], [ %1032, %1033 ]
-  %.1.i1109 = phi i64 [ %.0.i1108, %1039 ], [ %1036, %1033 ]
+  %1040 = phi i64 [ %1035, %1033 ], [ %.pre305, %1039 ]
+  %1041 = phi ptr [ %1032, %1033 ], [ %.pre303, %1039 ]
+  %.1.i1109 = phi i64 [ %1036, %1033 ], [ %.0.i1108, %1039 ]
   %1042 = getelementptr inbounds nuw i8, ptr %1041, i64 24
   %1043 = getelementptr inbounds nuw i8, ptr %1042, i64 %1040
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1043, ptr nonnull align 1 %1027, i64 %1030, i1 false)
@@ -2461,9 +2461,9 @@ smart_str_alloc.exit1110:                         ; preds = %1033, %1039
   br label %smart_str_alloc.exit1215
 
 smart_str_alloc.exit1215:                         ; preds = %1064, %1070
-  %1071 = phi i64 [ %.pre308, %1070 ], [ %1066, %1064 ]
-  %1072 = phi ptr [ %.pre306, %1070 ], [ %1063, %1064 ]
-  %.1.i1214 = phi i64 [ %.0.i1213, %1070 ], [ %1067, %1064 ]
+  %1071 = phi i64 [ %1066, %1064 ], [ %.pre308, %1070 ]
+  %1072 = phi ptr [ %1063, %1064 ], [ %.pre306, %1070 ]
+  %.1.i1214 = phi i64 [ %1067, %1064 ], [ %.0.i1213, %1070 ]
   %1073 = getelementptr inbounds nuw i8, ptr %1072, i64 24
   %1074 = getelementptr inbounds nuw i8, ptr %1073, i64 %1071
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %1074, ptr noundef nonnull align 1 dereferenceable(16) @.str.47, i64 16, i1 false)
@@ -2558,7 +2558,7 @@ smart_str_alloc.exit1215:                         ; preds = %1064, %1070
 1117:                                             ; preds = %._crit_edge315, %.thread77
   %1118 = phi i64 [ %1104, %.thread77 ], [ %.pre317, %._crit_edge315 ]
   %1119 = phi i64 [ %1114, %.thread77 ], [ %1116, %._crit_edge315 ]
-  %.1082 = phi i32 [ %1113, %.thread77 ], [ %.078768, %._crit_edge315 ]
+  %.1081 = phi i32 [ %1113, %.thread77 ], [ %.078768, %._crit_edge315 ]
   %1120 = phi ptr [ %1111, %.thread77 ], [ %.pr76, %._crit_edge315 ]
   %1121 = add i64 %1118, %1119
   %1122 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -2568,7 +2568,7 @@ smart_str_alloc.exit1215:                         ; preds = %1064, %1070
 
 1124:                                             ; preds = %1117, %1115
   %1125 = phi i64 [ %1116, %1115 ], [ %1119, %1117 ]
-  %.1080 = phi i32 [ %.078768, %1115 ], [ %.1082, %1117 ]
+  %.1082 = phi i32 [ %.078768, %1115 ], [ %.1081, %1117 ]
   %.0.i1223 = phi i64 [ %1116, %1115 ], [ %1121, %1117 ]
   call void @smart_str_erealloc(ptr noundef nonnull %18, i64 noundef %.0.i1223) #18
   %.pre318 = load ptr, ptr %18, align 8, !tbaa !51
@@ -2577,11 +2577,11 @@ smart_str_alloc.exit1215:                         ; preds = %1064, %1070
   br label %1126
 
 1126:                                             ; preds = %1124, %1117
-  %1127 = phi i64 [ %.pre320, %1124 ], [ %1118, %1117 ]
-  %1128 = phi ptr [ %.pre318, %1124 ], [ %1120, %1117 ]
-  %1129 = phi i64 [ %1125, %1124 ], [ %1119, %1117 ]
-  %.1081 = phi i32 [ %.1080, %1124 ], [ %.1082, %1117 ]
-  %.1.i1224 = phi i64 [ %.0.i1223, %1124 ], [ %1121, %1117 ]
+  %1127 = phi i64 [ %1118, %1117 ], [ %.pre320, %1124 ]
+  %1128 = phi ptr [ %1120, %1117 ], [ %.pre318, %1124 ]
+  %1129 = phi i64 [ %1119, %1117 ], [ %1125, %1124 ]
+  %.1080 = phi i32 [ %.1081, %1117 ], [ %.1082, %1124 ]
+  %.1.i1224 = phi i64 [ %1121, %1117 ], [ %.0.i1223, %1124 ]
   %1130 = getelementptr inbounds nuw i8, ptr %1128, i64 24
   %1131 = getelementptr inbounds nuw i8, ptr %1130, i64 %1127
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1131, ptr nonnull align 1 %.079966, i64 %1129, i1 false)
@@ -2614,7 +2614,7 @@ smart_str_alloc.exit1230:                         ; preds = %1126, %1137
   br label %._crit_edge350
 
 ._crit_edge350:                                   ; preds = %1048, %smart_str_alloc.exit1230
-  %.9 = phi i32 [ %.1081, %smart_str_alloc.exit1230 ], [ %.078768, %1048 ]
+  %.9 = phi i32 [ %.1080, %smart_str_alloc.exit1230 ], [ %.078768, %1048 ]
   %or.cond47 = icmp ne i32 %.pre351, 0
   %or.cond49 = and i1 %or.cond47, %191
   br i1 %or.cond49, label %1144, label %1249
@@ -2665,9 +2665,9 @@ smart_str_alloc.exit1230:                         ; preds = %1126, %1137
   br label %smart_str_alloc.exit1235
 
 smart_str_alloc.exit1235:                         ; preds = %1157, %1163
-  %1164 = phi i64 [ %.pre326, %1163 ], [ %1159, %1157 ]
-  %1165 = phi ptr [ %.pre324, %1163 ], [ %.pre337.pre, %1157 ]
-  %.1.i1234 = phi i64 [ %.0.i1233, %1163 ], [ %1160, %1157 ]
+  %1164 = phi i64 [ %1159, %1157 ], [ %.pre326, %1163 ]
+  %1165 = phi ptr [ %.pre337.pre, %1157 ], [ %.pre324, %1163 ]
+  %.1.i1234 = phi i64 [ %1160, %1157 ], [ %.0.i1233, %1163 ]
   %1166 = getelementptr inbounds nuw i8, ptr %1165, i64 24
   %1167 = getelementptr inbounds nuw i8, ptr %1166, i64 %1164
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %1167, ptr noundef nonnull align 1 dereferenceable(16) @.str.47, i64 16, i1 false)
@@ -2774,9 +2774,9 @@ smart_str_alloc.exit1240:                         ; preds = %1189, %1199
   br label %smart_str_alloc.exit1245
 
 smart_str_alloc.exit1245:                         ; preds = %1209, %1215
-  %1216 = phi i64 [ %.pre335, %1215 ], [ %1211, %1209 ]
-  %1217 = phi ptr [ %.pre333, %1215 ], [ %.pre337, %1209 ]
-  %.1.i1244 = phi i64 [ %.0.i1243, %1215 ], [ %1212, %1209 ]
+  %1216 = phi i64 [ %1211, %1209 ], [ %.pre335, %1215 ]
+  %1217 = phi ptr [ %.pre337, %1209 ], [ %.pre333, %1215 ]
+  %.1.i1244 = phi i64 [ %1212, %1209 ], [ %.0.i1243, %1215 ]
   %1218 = getelementptr inbounds nuw i8, ptr %1217, i64 24
   %1219 = getelementptr inbounds nuw i8, ptr %1217, i64 16
   %1220 = getelementptr inbounds nuw i8, ptr %1218, i64 %1216
@@ -2809,9 +2809,9 @@ smart_str_alloc.exit1245:                         ; preds = %1209, %1215
   br label %1230
 
 1230:                                             ; preds = %1229, %1223
-  %1231 = phi i64 [ %.pre340, %1229 ], [ %1225, %1223 ]
-  %1232 = phi ptr [ %.pre338, %1229 ], [ %1222, %1223 ]
-  %.1.i1249 = phi i64 [ %.0.i1248, %1229 ], [ %1226, %1223 ]
+  %1231 = phi i64 [ %1225, %1223 ], [ %.pre340, %1229 ]
+  %1232 = phi ptr [ %1222, %1223 ], [ %.pre338, %1229 ]
+  %.1.i1249 = phi i64 [ %1226, %1223 ], [ %.0.i1248, %1229 ]
   %1233 = getelementptr inbounds nuw i8, ptr %1232, i64 24
   %1234 = getelementptr inbounds nuw i8, ptr %1233, i64 %1231
   store i16 2573, ptr %1234, align 1
@@ -2866,9 +2866,9 @@ smart_str_alloc.exit1115:                         ; preds = %1230, %1244
   br label %smart_str_alloc.exit1255
 
 smart_str_alloc.exit1255:                         ; preds = %1251, %1257
-  %1258 = phi i64 [ %.pre346, %1257 ], [ %1253, %1251 ]
-  %1259 = phi ptr [ %.pre344, %1257 ], [ %1250, %1251 ]
-  %.1.i1254 = phi i64 [ %.0.i1253, %1257 ], [ %1254, %1251 ]
+  %1258 = phi i64 [ %1253, %1251 ], [ %.pre346, %1257 ]
+  %1259 = phi ptr [ %1250, %1251 ], [ %.pre344, %1257 ]
+  %.1.i1254 = phi i64 [ %1254, %1251 ], [ %.0.i1253, %1257 ]
   %1260 = getelementptr inbounds nuw i8, ptr %1259, i64 24
   %1261 = getelementptr inbounds nuw i8, ptr %1260, i64 %1258
   store i16 2573, ptr %1261, align 1
@@ -3026,8 +3026,8 @@ smart_str_alloc.exit1255:                         ; preds = %1251, %1257
   br label %1320
 
 1320:                                             ; preds = %1307, %1313, %1311, %1310, %1319, %1317, %1316
-  %.182588 = phi i32 [ 403, %1313 ], [ 403, %1311 ], [ 403, %1310 ], [ %.18258792, %1319 ], [ %.18258792, %1317 ], [ %.18258792, %1316 ], [ %.1825, %1307 ]
-  %.1768.shrunk = phi i1 [ %or.cond51, %1313 ], [ %or.cond51, %1311 ], [ %or.cond51, %1310 ], [ %or.cond51, %1319 ], [ %or.cond51, %1317 ], [ %or.cond51, %1316 ], [ true, %1307 ]
+  %.182588 = phi i32 [ %.18258792, %1316 ], [ 403, %1313 ], [ 403, %1311 ], [ 403, %1310 ], [ %.18258792, %1319 ], [ %.18258792, %1317 ], [ %.1825, %1307 ]
+  %.1768.shrunk = phi i1 [ %or.cond51, %1316 ], [ %or.cond51, %1313 ], [ %or.cond51, %1311 ], [ %or.cond51, %1310 ], [ %or.cond51, %1319 ], [ %or.cond51, %1317 ], [ true, %1307 ]
   %1321 = load i64, ptr %23, align 8, !tbaa !73
   %.not980 = icmp eq i64 %1321, 0
   br i1 %.not980, label %1335, label %1322
@@ -3316,9 +3316,9 @@ smart_str_alloc.exit1255:                         ; preds = %1251, %1257
   br i1 %.not1001, label %.thread100, label %1433
 
 .thread100:                                       ; preds = %.critedge1057, %1416, %1394, %1407, %1391, %1389, %1388, %1408, %1410, %1384
-  %.3817 = phi ptr [ %.1815169, %1408 ], [ %.1815169, %1410 ], [ %.1815169, %1391 ], [ %.1815169, %1389 ], [ %.1815169, %1388 ], [ %.1815169, %1384 ], [ %.1815169, %1407 ], [ %.1815169, %1394 ], [ %.1815169, %1416 ], [ null, %.critedge1057 ]
-  %.3808 = phi i8 [ %.0805170, %1408 ], [ %.0805170, %1410 ], [ %.0805170, %1391 ], [ %.0805170, %1389 ], [ %.0805170, %1388 ], [ %.2807, %1384 ], [ %.0805170, %1407 ], [ %.0805170, %1394 ], [ %.0805170, %1416 ], [ %.0805170, %.critedge1057 ]
-  %.3782 = phi i64 [ %.1780171, %1408 ], [ %.1780171, %1410 ], [ %.1780171, %1391 ], [ %.1780171, %1389 ], [ %.1780171, %1388 ], [ %.1780171, %1384 ], [ %.5784, %1407 ], [ %.1780171, %1394 ], [ %.1780171, %1416 ], [ %.1780171, %.critedge1057 ]
+  %.3817 = phi ptr [ %.1815169, %1408 ], [ %.1815169, %1410 ], [ %.1815169, %1394 ], [ %.1815169, %1407 ], [ %.1815169, %1384 ], [ %.1815169, %1391 ], [ %.1815169, %1389 ], [ %.1815169, %1388 ], [ %.1815169, %1416 ], [ null, %.critedge1057 ]
+  %.3808 = phi i8 [ %.0805170, %1408 ], [ %.0805170, %1410 ], [ %.0805170, %1394 ], [ %.0805170, %1407 ], [ %.2807, %1384 ], [ %.0805170, %1391 ], [ %.0805170, %1389 ], [ %.0805170, %1388 ], [ %.0805170, %1416 ], [ %.0805170, %.critedge1057 ]
+  %.3782 = phi i64 [ %.1780171, %1408 ], [ %.1780171, %1410 ], [ %.1780171, %1394 ], [ %.5784, %1407 ], [ %.1780171, %1384 ], [ %.1780171, %1391 ], [ %.1780171, %1389 ], [ %.1780171, %1388 ], [ %.1780171, %1416 ], [ %.1780171, %.critedge1057 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %1422 = load i64, ptr %25, align 8, !tbaa !73
   %1423 = and i64 %1422, -8
@@ -3342,14 +3342,14 @@ smart_str_alloc.exit1255:                         ; preds = %1251, %1257
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %1433
 
-.thread105:                                       ; preds = %1361, %1361, %1359
+.thread105:                                       ; preds = %1359, %1361, %1361
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %.loopexit
 
 1433:                                             ; preds = %.critedge1057, %.thread100
-  %.7821 = phi ptr [ %.3817, %.thread100 ], [ %1421, %.critedge1057 ]
-  %.5810 = phi i8 [ %.3808, %.thread100 ], [ %.0805170, %.critedge1057 ]
-  %.7 = phi i64 [ %.3782, %.thread100 ], [ %.1780171, %.critedge1057 ]
+  %.7821 = phi ptr [ %1421, %.critedge1057 ], [ %.3817, %.thread100 ]
+  %.5810 = phi i8 [ %.0805170, %.critedge1057 ], [ %.3808, %.thread100 ]
+  %.7 = phi i64 [ %.1780171, %.critedge1057 ], [ %.3782, %.thread100 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %1434 = call zeroext i1 @_php_stream_eof(ptr noundef nonnull %.0750) #18
   br i1 %1434, label %.loopexit, label %1357
@@ -3743,13 +3743,13 @@ zend_string_release_ex.exit1083:                  ; preds = %1477, %1481, %1486
   br label %1615
 
 1615:                                             ; preds = %.thread93, %1613, %1435, %1614, %1439, %1440, %399
-  %.0814 = phi ptr [ null, %399 ], [ %.1815122, %1440 ], [ null, %1613 ], [ null, %1614 ], [ %.1815122, %1435 ], [ %.1815122, %1439 ], [ null, %.thread93 ]
-  %.0785 = phi i32 [ 0, %399 ], [ %408, %1440 ], [ %408, %1613 ], [ %408, %1614 ], [ %408, %1435 ], [ %408, %1439 ], [ %408, %.thread93 ]
-  %.0779 = phi i64 [ 0, %399 ], [ %.1780118, %1440 ], [ %.1780118, %1613 ], [ %.1780118, %1614 ], [ %.1780118, %1435 ], [ %.1780118, %1439 ], [ 0, %.thread93 ]
-  %.0777 = phi i32 [ 0, %399 ], [ %.1778, %1440 ], [ %.1778, %1613 ], [ %.1778, %1614 ], [ %.1778, %1435 ], [ %.1778, %1439 ], [ %.1778, %.thread93 ]
-  %.0774 = phi ptr [ null, %399 ], [ %.2776, %1440 ], [ %.2776, %1613 ], [ %.2776, %1614 ], [ %.2776, %1435 ], [ %.2776, %1439 ], [ null, %.thread93 ]
-  %.0753 = phi ptr [ %34, %399 ], [ %34, %1440 ], [ %1536, %1613 ], [ %34, %1614 ], [ %34, %1435 ], [ %34, %1439 ], [ %34, %.thread93 ]
-  %.3 = phi ptr [ null, %399 ], [ %.0750, %1440 ], [ %.5, %1613 ], [ null, %1614 ], [ %.0750, %1435 ], [ %.0750, %1439 ], [ null, %.thread93 ]
+  %.0814 = phi ptr [ null, %399 ], [ %.1815122, %1440 ], [ null, %.thread93 ], [ null, %1613 ], [ null, %1614 ], [ %.1815122, %1435 ], [ %.1815122, %1439 ]
+  %.0785 = phi i32 [ 0, %399 ], [ %408, %1440 ], [ %408, %.thread93 ], [ %408, %1613 ], [ %408, %1614 ], [ %408, %1435 ], [ %408, %1439 ]
+  %.0779 = phi i64 [ 0, %399 ], [ %.1780118, %1440 ], [ 0, %.thread93 ], [ %.1780118, %1613 ], [ %.1780118, %1614 ], [ %.1780118, %1435 ], [ %.1780118, %1439 ]
+  %.0777 = phi i32 [ 0, %399 ], [ %.1778, %1440 ], [ %.1778, %.thread93 ], [ %.1778, %1613 ], [ %.1778, %1614 ], [ %.1778, %1435 ], [ %.1778, %1439 ]
+  %.0774 = phi ptr [ null, %399 ], [ %.2776, %1440 ], [ null, %.thread93 ], [ %.2776, %1613 ], [ %.2776, %1614 ], [ %.2776, %1435 ], [ %.2776, %1439 ]
+  %.0753 = phi ptr [ %34, %399 ], [ %34, %1440 ], [ %34, %.thread93 ], [ %1536, %1613 ], [ %34, %1614 ], [ %34, %1435 ], [ %34, %1439 ]
+  %.3 = phi ptr [ null, %399 ], [ %.0750, %1440 ], [ null, %.thread93 ], [ %.5, %1613 ], [ null, %1614 ], [ %.0750, %1435 ], [ %.0750, %1439 ]
   %1616 = load ptr, ptr %18, align 8, !tbaa !51
   %.not.i1309 = icmp eq ptr %1616, null
   br i1 %.not.i1309, label %smart_str_free_ex.exit, label %1617
@@ -3900,7 +3900,7 @@ smart_str_free_ex.exit:                           ; preds = %1615, %zend_string_
   br label %zend_string_release.exit
 
 zend_string_release.exit:                         ; preds = %185, %149, %148, %141, %137, %1631, %1671, %1673, %1677, %1665, %33, %77, %66, %32
-  %.0 = phi ptr [ null, %32 ], [ %67, %66 ], [ null, %185 ], [ null, %77 ], [ null, %33 ], [ %.3, %1665 ], [ %.3, %1677 ], [ %.3, %1673 ], [ %.3, %1671 ], [ null, %1631 ], [ null, %137 ], [ null, %141 ], [ null, %148 ], [ null, %149 ]
+  %.0 = phi ptr [ null, %32 ], [ null, %77 ], [ %67, %66 ], [ null, %1631 ], [ null, %185 ], [ null, %33 ], [ %.3, %1665 ], [ null, %149 ], [ %.3, %1677 ], [ %.3, %1673 ], [ %.3, %1671 ], [ null, %137 ], [ null, %141 ], [ null, %148 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -4035,9 +4035,9 @@ define internal fastcc range(i32 -1, 1) i32 @php_stream_handle_proxy_authorizati
   br label %30
 
 30:                                               ; preds = %29, %23
-  %31 = phi i64 [ %.pre79, %29 ], [ %25, %23 ]
-  %32 = phi ptr [ %.pre78, %29 ], [ %22, %23 ]
-  %.1.i62 = phi i64 [ %.0.i61, %29 ], [ %26, %23 ]
+  %31 = phi i64 [ %25, %23 ], [ %.pre79, %29 ]
+  %32 = phi ptr [ %22, %23 ], [ %.pre78, %29 ]
+  %.1.i62 = phi i64 [ %26, %23 ], [ %.0.i61, %29 ]
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 %31
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr nonnull align 1 %.142, i64 %21, i1 false)

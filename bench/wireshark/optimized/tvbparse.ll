@@ -97,7 +97,7 @@ define internal range(i32 -1, 2) i32 @cond_char(ptr noundef %0, i32 noundef %1, 
   br label %.critedge
 
 .critedge:                                        ; preds = %17, %9, %.lr.ph, %4, %24
-  %.016 = phi i32 [ 1, %24 ], [ -1, %4 ], [ -1, %.lr.ph ], [ -1, %9 ], [ -1, %17 ]
+  %.016 = phi i32 [ -1, %4 ], [ 1, %24 ], [ -1, %.lr.ph ], [ -1, %9 ], [ -1, %17 ]
   ret i32 %.016
 }
 
@@ -415,7 +415,7 @@ define internal i32 @cond_string(ptr noundef %0, i32 noundef %1, ptr noundef %2,
   br label %31
 
 31:                                               ; preds = %11, %4, %19
-  %.0 = phi i32 [ %6, %19 ], [ -1, %4 ], [ -1, %11 ]
+  %.0 = phi i32 [ -1, %4 ], [ %6, %19 ], [ -1, %11 ]
   ret i32 %.0
 }
 
@@ -665,7 +665,7 @@ define internal range(i32 -1, -2147483648) i32 @cond_one_of(ptr noundef %0, i32 
   br label %62
 
 62:                                               ; preds = %32, %9, %4, %._crit_edge
-  %.0 = phi i32 [ %30, %32 ], [ -1, %._crit_edge ], [ -1, %4 ], [ -1, %9 ]
+  %.0 = phi i32 [ -1, %._crit_edge ], [ -1, %4 ], [ %30, %32 ], [ -1, %9 ]
   ret i32 %.0
 }
 
@@ -902,7 +902,7 @@ define internal i32 @cond_hash(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   br label %83
 
 83:                                               ; preds = %10, %4, %60, %57, %54, %22
-  %.0 = phi i32 [ -1, %22 ], [ %63, %60 ], [ -1, %54 ], [ -1, %57 ], [ -1, %4 ], [ -1, %10 ]
+  %.0 = phi i32 [ -1, %57 ], [ -1, %4 ], [ -1, %22 ], [ %63, %60 ], [ -1, %54 ], [ -1, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -1232,7 +1232,7 @@ ignore_fcn.exit:                                  ; preds = %.lr.ph.i, %75, %.pr
   br label %100
 
 100:                                              ; preds = %.critedge, %10, %4, %._crit_edge
-  %.0 = phi i32 [ %99, %._crit_edge ], [ -1, %4 ], [ -1, %10 ], [ -1, %.critedge ]
+  %.0 = phi i32 [ %99, %._crit_edge ], [ -1, %4 ], [ -1, %.critedge ], [ -1, %10 ]
   ret i32 %.0
 }
 
@@ -1440,7 +1440,7 @@ define internal i32 @cond_some(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   br label %99
 
 99:                                               ; preds = %.thread, %.loopexit, %9, %4, %97
-  %.0 = phi i32 [ %98, %97 ], [ -1, %4 ], [ -1, %9 ], [ -1, %.loopexit ], [ -1, %.thread ]
+  %.0 = phi i32 [ %98, %97 ], [ -1, %4 ], [ -1, %.thread ], [ -1, %9 ], [ -1, %.loopexit ]
   ret i32 %.0
 }
 
@@ -1557,7 +1557,7 @@ define internal i32 @cond_until(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   unreachable
 
 54:                                               ; preds = %.critedge, %15, %4, %50, %46, %42
-  %.034 = phi i32 [ %44, %42 ], [ %49, %46 ], [ %51, %50 ], [ -1, %4 ], [ -1, %15 ], [ -1, %.critedge ]
+  %.034 = phi i32 [ -1, %15 ], [ -1, %4 ], [ %44, %42 ], [ %49, %46 ], [ %51, %50 ], [ -1, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.034
 }

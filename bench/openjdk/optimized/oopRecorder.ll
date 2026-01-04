@@ -511,7 +511,7 @@ define weak_odr hidden noundef i32 @_ZN13ValueRecorderIP8MetadataE16maybe_find_i
   br i1 %.not, label %.loopexit28, label %.thread
 
 .thread:                                          ; preds = %4, %32
-  %34 = phi ptr [ %17, %32 ], [ null, %4 ]
+  %34 = phi ptr [ null, %4 ], [ %17, %32 ]
   %35 = load ptr, ptr %0, align 8
   %36 = load i32, ptr %35, align 4
   %37 = icmp sgt i32 %36, 0
@@ -577,7 +577,7 @@ _ZNK17GrowableArrayViewIiE8containsERKi.exit:     ; preds = %53, %44
   br i1 %62, label %44, label %.loopexit28, !llvm.loop !9
 
 .loopexit28:                                      ; preds = %_ZNK17GrowableArrayViewIiE8containsERKi.exit, %.thread, %.loopexit, %58, %32, %23, %8, %2
-  %.018 = phi i32 [ 0, %2 ], [ -1, %8 ], [ %19, %23 ], [ -1, %32 ], [ %.0.in3439, %58 ], [ %.0.in3439, %.loopexit ], [ -1, %.thread ], [ -1, %_ZNK17GrowableArrayViewIiE8containsERKi.exit ]
+  %.018 = phi i32 [ %19, %23 ], [ 0, %2 ], [ -1, %8 ], [ %.0.in3439, %.loopexit ], [ -1, %32 ], [ %.0.in3439, %58 ], [ -1, %.thread ], [ -1, %_ZNK17GrowableArrayViewIiE8containsERKi.exit ]
   ret i32 %.018
 }
 
@@ -1039,7 +1039,7 @@ define weak_odr hidden noundef i32 @_ZN13ValueRecorderIP8_jobjectE16maybe_find_i
   br i1 %.not, label %.loopexit28, label %.thread
 
 .thread:                                          ; preds = %4, %32
-  %34 = phi ptr [ %17, %32 ], [ null, %4 ]
+  %34 = phi ptr [ null, %4 ], [ %17, %32 ]
   %35 = load ptr, ptr %0, align 8
   %36 = load i32, ptr %35, align 4
   %37 = icmp sgt i32 %36, 0
@@ -1105,7 +1105,7 @@ _ZNK17GrowableArrayViewIiE8containsERKi.exit:     ; preds = %53, %44
   br i1 %62, label %44, label %.loopexit28, !llvm.loop !11
 
 .loopexit28:                                      ; preds = %_ZNK17GrowableArrayViewIiE8containsERKi.exit, %.thread, %.loopexit, %58, %32, %23, %8, %2
-  %.018 = phi i32 [ 0, %2 ], [ -1, %8 ], [ %19, %23 ], [ -1, %32 ], [ %.0.in3439, %58 ], [ %.0.in3439, %.loopexit ], [ -1, %.thread ], [ -1, %_ZNK17GrowableArrayViewIiE8containsERKi.exit ]
+  %.018 = phi i32 [ %19, %23 ], [ 0, %2 ], [ -1, %8 ], [ %.0.in3439, %.loopexit ], [ -1, %32 ], [ %.0.in3439, %58 ], [ -1, %.thread ], [ -1, %_ZNK17GrowableArrayViewIiE8containsERKi.exit ]
   ret i32 %.018
 }
 
@@ -1517,7 +1517,7 @@ define hidden noundef i32 @_ZN12ObjectLookup10find_indexEP8_jobjectP11OopRecorde
   br label %_ZN10JNIHandles7resolveEP8_jobject.exit
 
 _ZN10JNIHandles7resolveEP8_jobject.exit:          ; preds = %8, %12, %16
-  %.0.i = phi ptr [ %11, %8 ], [ %15, %12 ], [ %18, %16 ]
+  %.0.i = phi ptr [ %18, %16 ], [ %11, %8 ], [ %15, %12 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load i32, ptr %19, align 8
   %21 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
@@ -1586,7 +1586,7 @@ _ZN12ObjectLookup12maybe_resortEv.exit:           ; preds = %_ZN10JNIHandles7res
   br label %_ZN12ObjectLookup19sort_oop_by_addressERKP7oopDescRKNS_11ObjectEntryE.exit.i.us
 
 _ZN12ObjectLookup19sort_oop_by_addressERKP7oopDescRKNS_11ObjectEntryE.exit.i.us: ; preds = %50, %46, %42
-  %.0.i.i.i.i.us = phi ptr [ %49, %46 ], [ %45, %42 ], [ %51, %50 ]
+  %.0.i.i.i.i.us = phi ptr [ %51, %50 ], [ %49, %46 ], [ %45, %42 ]
   %.not = icmp eq ptr %.0.i.i.i.i.us, null
   br i1 %.not, label %.split.us, label %52
 
@@ -1632,7 +1632,7 @@ _ZN12ObjectLookup19sort_oop_by_addressERKP7oopDescRKNS_11ObjectEntryE.exit.i.us:
   br label %_ZN12ObjectLookup19sort_oop_by_addressERKP7oopDescRKNS_11ObjectEntryE.exit.i
 
 _ZN12ObjectLookup19sort_oop_by_addressERKP7oopDescRKNS_11ObjectEntryE.exit.i: ; preds = %70, %66, %62
-  %.0.i.i.i.i = phi ptr [ %65, %62 ], [ %69, %66 ], [ %71, %70 ]
+  %.0.i.i.i.i = phi ptr [ %71, %70 ], [ %65, %62 ], [ %69, %66 ]
   %72 = icmp ult ptr %.0.i, %.0.i.i.i.i
   br i1 %72, label %73, label %75
 
@@ -1721,7 +1721,7 @@ _ZN26GrowableArrayWithAllocatorIN12ObjectLookup11ObjectEntryE13GrowableArrayIS1_
   br label %111
 
 .split.us:                                        ; preds = %75, %.lr.ph.i.split.us, %_ZN12ObjectLookup19sort_oop_by_addressERKP7oopDescRKNS_11ObjectEntryE.exit.i.us
-  %.pre-phi = phi i64 [ %37, %_ZN12ObjectLookup19sort_oop_by_addressERKP7oopDescRKNS_11ObjectEntryE.exit.i.us ], [ %37, %.lr.ph.i.split.us ], [ %57, %75 ]
+  %.pre-phi = phi i64 [ %37, %.lr.ph.i.split.us ], [ %37, %_ZN12ObjectLookup19sort_oop_by_addressERKP7oopDescRKNS_11ObjectEntryE.exit.i.us ], [ %57, %75 ]
   %107 = load ptr, ptr %33, align 8
   %108 = getelementptr inbounds nuw %"class.ObjectLookup::ObjectEntry", ptr %107, i64 %.pre-phi
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
@@ -1729,7 +1729,7 @@ _ZN26GrowableArrayWithAllocatorIN12ObjectLookup11ObjectEntryE13GrowableArrayIS1_
   br label %111
 
 111:                                              ; preds = %3, %.split.us, %_ZN26GrowableArrayWithAllocatorIN12ObjectLookup11ObjectEntryE13GrowableArrayIS1_EE13insert_beforeEiRKS1_.exit
-  %.0 = phi i32 [ %110, %.split.us ], [ %80, %_ZN26GrowableArrayWithAllocatorIN12ObjectLookup11ObjectEntryE13GrowableArrayIS1_EE13insert_beforeEiRKS1_.exit ], [ 0, %3 ]
+  %.0 = phi i32 [ %80, %_ZN26GrowableArrayWithAllocatorIN12ObjectLookup11ObjectEntryE13GrowableArrayIS1_EE13insert_beforeEiRKS1_.exit ], [ %110, %.split.us ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -2064,7 +2064,7 @@ define weak_odr hidden noundef i32 @_ZN13ValueRecorderIPhE16maybe_find_indexES0_
   br i1 %.not, label %.loopexit28, label %.thread
 
 .thread:                                          ; preds = %4, %32
-  %34 = phi ptr [ %17, %32 ], [ null, %4 ]
+  %34 = phi ptr [ null, %4 ], [ %17, %32 ]
   %35 = load ptr, ptr %0, align 8
   %36 = load i32, ptr %35, align 4
   %37 = icmp sgt i32 %36, 0
@@ -2130,7 +2130,7 @@ _ZNK17GrowableArrayViewIiE8containsERKi.exit:     ; preds = %53, %44
   br i1 %62, label %44, label %.loopexit28, !llvm.loop !16
 
 .loopexit28:                                      ; preds = %_ZNK17GrowableArrayViewIiE8containsERKi.exit, %.thread, %.loopexit, %58, %32, %23, %8, %2
-  %.018 = phi i32 [ 0, %2 ], [ -1, %8 ], [ %19, %23 ], [ -1, %32 ], [ %.0.in3439, %58 ], [ %.0.in3439, %.loopexit ], [ -1, %.thread ], [ -1, %_ZNK17GrowableArrayViewIiE8containsERKi.exit ]
+  %.018 = phi i32 [ %19, %23 ], [ 0, %2 ], [ -1, %8 ], [ %.0.in3439, %.loopexit ], [ -1, %32 ], [ %.0.in3439, %58 ], [ -1, %.thread ], [ -1, %_ZNK17GrowableArrayViewIiE8containsERKi.exit ]
   ret i32 %.018
 }
 
@@ -2671,7 +2671,7 @@ _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.
   br label %_ZN8XBarrier43load_barrier_on_phantom_oop_field_preloadedEPVP7oopDescS1_.exit
 
 _ZN8XBarrier43load_barrier_on_phantom_oop_field_preloadedEPVP7oopDescS1_.exit: ; preds = %8, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, %19, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i
-  %.0.i = phi ptr [ %18, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i ], [ %2, %8 ], [ %29, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i ], [ %2, %19 ]
+  %.0.i = phi ptr [ %2, %8 ], [ %18, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i ], [ %29, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i ], [ %2, %19 ]
   ret ptr %.0.i
 }
 
@@ -2825,7 +2825,7 @@ _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i: ; preds = %50
   br label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit
 
 _ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit: ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i, %1, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit, %45, %50, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i, %79
-  %.0.i4 = phi ptr [ %39, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit ], [ %39, %45 ], [ %39, %50 ], [ %39, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i ], [ %39, %79 ], [ null, %1 ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i ]
+  %.0.i4 = phi ptr [ %39, %79 ], [ %39, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit ], [ %39, %45 ], [ %39, %50 ], [ %39, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i ], [ null, %1 ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i ]
   ret ptr %.0.i4
 }
 
@@ -2932,7 +2932,7 @@ _ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit:      ; preds = %44, %45, %49, %54
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 _ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %61, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, %5, %11, %24, %31, %2
-  %.0 = phi ptr [ %1, %2 ], [ %.0.i.i.i, %31 ], [ %.0.i.i.i, %24 ], [ %1, %11 ], [ %1, %5 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
+  %.0 = phi ptr [ %1, %5 ], [ %1, %2 ], [ %.0.i.i.i, %24 ], [ %.0.i.i.i, %31 ], [ %1, %11 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
   ret ptr %.0
 }
 
@@ -3356,7 +3356,7 @@ _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.
   br label %_ZN8XBarrier43load_barrier_on_phantom_oop_field_preloadedEPVP7oopDescS1_.exit
 
 _ZN8XBarrier43load_barrier_on_phantom_oop_field_preloadedEPVP7oopDescS1_.exit: ; preds = %8, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, %19, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i
-  %.0.i = phi ptr [ %18, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i ], [ %2, %8 ], [ %29, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i ], [ %2, %19 ]
+  %.0.i = phi ptr [ %2, %8 ], [ %18, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i ], [ %29, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i ], [ %2, %19 ]
   ret ptr %.0.i
 }
 
@@ -3502,7 +3502,7 @@ _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i: ; preds = %50
   br label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit
 
 _ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit: ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i, %1, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit, %45, %50, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i, %79
-  %.0.i4 = phi ptr [ %39, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit ], [ %39, %45 ], [ %39, %50 ], [ %39, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i ], [ %39, %79 ], [ null, %1 ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i ]
+  %.0.i4 = phi ptr [ %39, %79 ], [ %39, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit ], [ %39, %45 ], [ %39, %50 ], [ %39, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i ], [ null, %1 ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i ]
   ret ptr %.0.i4
 }
 
@@ -3580,7 +3580,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
-  %.0.i.i = phi ptr [ null, %1 ], [ %6, %7 ], [ %6, %4 ]
+  %.0.i.i = phi ptr [ null, %1 ], [ %6, %4 ], [ %6, %7 ]
   ret ptr %.0.i.i
 }
 
@@ -3790,7 +3790,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
-  %.0.i.i = phi ptr [ null, %1 ], [ %6, %7 ], [ %6, %4 ]
+  %.0.i.i = phi ptr [ null, %1 ], [ %6, %4 ], [ %6, %7 ]
   ret ptr %.0.i.i
 }
 

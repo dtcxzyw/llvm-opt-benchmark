@@ -1270,7 +1270,7 @@ _ZN4ncnn3MatD2Ev.exit26:                          ; preds = %489, %486, %496, %5
   br label %505
 
 _ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %_ZN4ncnn3MatD2Ev.exit21, %_ZN4ncnn3MatD2Ev.exit19, %_ZN4ncnn3MatD2Ev.exit, %319, %_ZN4ncnn3MatD2Ev.exit24, %_ZNK4ncnn3Mat5emptyEv.exit117, %_ZNK4ncnn3Mat5emptyEv.exit116, %_ZNK4ncnn3Mat5emptyEv.exit
-  %.016 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit116 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit117 ], [ 0, %_ZN4ncnn3MatD2Ev.exit24 ], [ 0, %319 ], [ -100, %_ZN4ncnn3MatD2Ev.exit ], [ -100, %_ZN4ncnn3MatD2Ev.exit19 ], [ -100, %_ZN4ncnn3MatD2Ev.exit21 ]
+  %.016 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit117 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit116 ], [ 0, %_ZN4ncnn3MatD2Ev.exit24 ], [ 0, %319 ], [ -100, %_ZN4ncnn3MatD2Ev.exit19 ], [ -100, %_ZN4ncnn3MatD2Ev.exit ], [ -100, %_ZN4ncnn3MatD2Ev.exit21 ]
   ret i32 %.016
 
 505:                                              ; preds = %_ZN4ncnn3MatD2Ev.exit26, %_ZN4ncnn3MatD2Ev.exit25, %_ZN4ncnn3MatD2Ev.exit22, %_ZN4ncnn3MatD2Ev.exit20, %_ZN4ncnn3MatD2Ev.exit18
@@ -4289,8 +4289,8 @@ _ZN4ncnn3MatD2Ev.exit217:                         ; preds = %1521, %_ZN4ncnn3Mat
   br i1 %exitcond.not, label %.loopexit, label %1540, !llvm.loop !111
 
 .loopexit:                                        ; preds = %1540, %1536, %_ZN4ncnn3MatD2Ev.exit208, %_ZN4ncnn3MatD2Ev.exit214
-  %1569 = phi i1 [ false, %_ZN4ncnn3MatD2Ev.exit208 ], [ false, %_ZN4ncnn3MatD2Ev.exit214 ], [ true, %1536 ], [ true, %1540 ]
-  %.12 = phi i32 [ %1224, %_ZN4ncnn3MatD2Ev.exit208 ], [ %1436, %_ZN4ncnn3MatD2Ev.exit214 ], [ 0, %1536 ], [ 0, %1540 ]
+  %1569 = phi i1 [ false, %_ZN4ncnn3MatD2Ev.exit214 ], [ false, %_ZN4ncnn3MatD2Ev.exit208 ], [ true, %1536 ], [ true, %1540 ]
+  %.12 = phi i32 [ %1436, %_ZN4ncnn3MatD2Ev.exit214 ], [ %1224, %_ZN4ncnn3MatD2Ev.exit208 ], [ 0, %1536 ], [ 0, %1540 ]
   %1570 = load ptr, ptr %1075, align 8, !tbaa !7
   %.not.i260 = icmp eq ptr %1570, null
   br i1 %.not.i260, label %_ZN4ncnn3MatD2Ev.exit218, label %1571
@@ -4721,7 +4721,7 @@ _ZN4ncnn3Mat7releaseEv.exit.i:                    ; preds = %1729, %1730, %1725,
   br label %_ZN4ncnn3MataSERKS0_.exit519
 
 _ZN4ncnn3MataSERKS0_.exit519:                     ; preds = %165, %143, %_ZN4ncnn3Mat7releaseEv.exit.i, %1708, %_ZN4ncnn3MatD2Ev.exit221, %_ZN4ncnn3MatD2Ev.exit190, %_ZN4ncnn3MatD2Ev.exit184, %_ZNK4ncnn3Mat5emptyEv.exit520, %1701, %_ZNK4ncnn3Mat5emptyEv.exit
-  %.0 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ %.5, %_ZN4ncnn3MatD2Ev.exit221 ], [ %294, %_ZN4ncnn3MatD2Ev.exit184 ], [ %495, %_ZN4ncnn3MatD2Ev.exit190 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit520 ], [ 0, %1701 ], [ 0, %1708 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ -100, %143 ], [ -100, %165 ]
+  %.0 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ %495, %_ZN4ncnn3MatD2Ev.exit190 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit520 ], [ %.5, %_ZN4ncnn3MatD2Ev.exit221 ], [ %294, %_ZN4ncnn3MatD2Ev.exit184 ], [ -100, %143 ], [ 0, %1701 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ 0, %1708 ], [ -100, %165 ]
   %1751 = load ptr, ptr %35, align 8, !tbaa !7
   %.not.i228 = icmp eq ptr %1751, null
   br i1 %.not.i228, label %_ZN4ncnn3MatD2Ev.exit226, label %1752
@@ -4764,7 +4764,7 @@ _ZN4ncnn3MatD2Ev.exit226:                         ; preds = %1752, %_ZN4ncnn3Mat
   ret i32 %.0
 
 1767:                                             ; preds = %175, %_ZN4ncnn3MatD2Ev.exit187, %_ZN4ncnn3MatD2Ev.exit193, %_ZN4ncnn3MatD2Ev.exit225, %151, %_ZN4ncnn3MatD2Ev.exit181
-  %.pn176.pn = phi { ptr, i32 } [ %.pn, %_ZN4ncnn3MatD2Ev.exit181 ], [ %152, %151 ], [ %176, %175 ], [ %.pn163.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN4ncnn3MatD2Ev.exit225 ], [ %345, %_ZN4ncnn3MatD2Ev.exit187 ], [ %546, %_ZN4ncnn3MatD2Ev.exit193 ]
+  %.pn176.pn = phi { ptr, i32 } [ %152, %151 ], [ %.pn, %_ZN4ncnn3MatD2Ev.exit181 ], [ %176, %175 ], [ %.pn163.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN4ncnn3MatD2Ev.exit225 ], [ %345, %_ZN4ncnn3MatD2Ev.exit187 ], [ %546, %_ZN4ncnn3MatD2Ev.exit193 ]
   %1768 = load ptr, ptr %35, align 8, !tbaa !7
   %.not.i = icmp eq ptr %1768, null
   br i1 %.not.i, label %_ZN4ncnn3MatD2Ev.exit227, label %1769
@@ -7562,8 +7562,8 @@ _ZN4ncnn3MatD2Ev.exit185:                         ; preds = %1387, %_ZN4ncnn3Mat
   br i1 %exitcond.not, label %_ZNK4ncnn3Mat5emptyEv.exit441.thread, label %1406, !llvm.loop !167
 
 _ZNK4ncnn3Mat5emptyEv.exit441.thread:             ; preds = %1406, %1402, %_ZN4ncnn3MatC2EiimPNS_9AllocatorE.exit482, %_ZNK4ncnn3Mat5emptyEv.exit441, %_ZN4ncnn3MatD2Ev.exit164, %_ZN4ncnn3MatD2Ev.exit176, %_ZN4ncnn3MatD2Ev.exit182, %_ZN4ncnn3MatD2Ev.exit170
-  %1435 = phi i1 [ false, %_ZN4ncnn3MatD2Ev.exit176 ], [ false, %_ZN4ncnn3MatD2Ev.exit182 ], [ false, %_ZN4ncnn3MatD2Ev.exit164 ], [ false, %_ZN4ncnn3MatD2Ev.exit170 ], [ false, %_ZNK4ncnn3Mat5emptyEv.exit441 ], [ false, %_ZN4ncnn3MatC2EiimPNS_9AllocatorE.exit482 ], [ true, %1402 ], [ true, %1406 ]
-  %.5 = phi i32 [ %1090, %_ZN4ncnn3MatD2Ev.exit176 ], [ %1302, %_ZN4ncnn3MatD2Ev.exit182 ], [ %641, %_ZN4ncnn3MatD2Ev.exit164 ], [ %842, %_ZN4ncnn3MatD2Ev.exit170 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit441 ], [ -100, %_ZN4ncnn3MatC2EiimPNS_9AllocatorE.exit482 ], [ 0, %1402 ], [ 0, %1406 ]
+  %1435 = phi i1 [ false, %_ZN4ncnn3MatD2Ev.exit170 ], [ false, %_ZNK4ncnn3Mat5emptyEv.exit441 ], [ false, %_ZN4ncnn3MatD2Ev.exit176 ], [ false, %_ZN4ncnn3MatD2Ev.exit182 ], [ false, %_ZN4ncnn3MatD2Ev.exit164 ], [ false, %_ZN4ncnn3MatC2EiimPNS_9AllocatorE.exit482 ], [ true, %1402 ], [ true, %1406 ]
+  %.5 = phi i32 [ %842, %_ZN4ncnn3MatD2Ev.exit170 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit441 ], [ %1090, %_ZN4ncnn3MatD2Ev.exit176 ], [ %1302, %_ZN4ncnn3MatD2Ev.exit182 ], [ %641, %_ZN4ncnn3MatD2Ev.exit164 ], [ -100, %_ZN4ncnn3MatC2EiimPNS_9AllocatorE.exit482 ], [ 0, %1402 ], [ 0, %1406 ]
   %1436 = load ptr, ptr %511, align 8, !tbaa !7
   %.not.i208 = icmp eq ptr %1436, null
   br i1 %.not.i208, label %_ZN4ncnn3MatD2Ev.exit186, label %1437
@@ -7737,7 +7737,7 @@ _ZN4ncnn3MatD2Ev.exit189:                         ; preds = %1497, %1496, %1492,
   br label %_ZNK4ncnn3Mat5emptyEv.exit.thread
 
 _ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %59, %4, %_ZNK4ncnn3Mat5emptyEv.exit439, %_ZNK4ncnn3Mat5emptyEv.exit, %_ZN4ncnn3MatD2Ev.exit152, %_ZN4ncnn3MatD2Ev.exit158, %_ZN4ncnn3MatD2Ev.exit187, %1501
-  %.0 = phi i32 [ 0, %1501 ], [ %.4, %_ZN4ncnn3MatD2Ev.exit187 ], [ %186, %_ZN4ncnn3MatD2Ev.exit152 ], [ %387, %_ZN4ncnn3MatD2Ev.exit158 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit439 ], [ -100, %4 ], [ -100, %59 ]
+  %.0 = phi i32 [ %387, %_ZN4ncnn3MatD2Ev.exit158 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ 0, %1501 ], [ %.4, %_ZN4ncnn3MatD2Ev.exit187 ], [ %186, %_ZN4ncnn3MatD2Ev.exit152 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit439 ], [ -100, %4 ], [ -100, %59 ]
   %1502 = load ptr, ptr %35, align 8, !tbaa !7
   %.not.i192 = icmp eq ptr %1502, null
   br i1 %.not.i192, label %_ZN4ncnn3MatD2Ev.exit190, label %1503

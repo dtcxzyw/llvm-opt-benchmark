@@ -416,9 +416,9 @@ Abc_StringGetNumber.exit:                         ; preds = %Abc_StringGetNumber
   br i1 %or.cond.i175, label %.lr.ph.i172, label %Abc_StringGetNumber.exit168, !llvm.loop !51
 
 Abc_StringGetNumber.exit168:                      ; preds = %.lr.ph.i164, %.lr.ph.i172, %77, %63, %75
-  %.5 = phi ptr [ %76, %75 ], [ %64, %63 ], [ %61, %77 ], [ %84, %.lr.ph.i172 ], [ %72, %.lr.ph.i164 ]
-  %.1125 = phi i32 [ 0, %75 ], [ -1, %63 ], [ 0, %77 ], [ %83, %.lr.ph.i172 ], [ -1, %.lr.ph.i164 ]
-  %.1 = phi i32 [ -1, %75 ], [ 0, %63 ], [ -1, %77 ], [ -1, %.lr.ph.i172 ], [ %71, %.lr.ph.i164 ]
+  %.5 = phi ptr [ %84, %.lr.ph.i172 ], [ %76, %75 ], [ %64, %63 ], [ %61, %77 ], [ %72, %.lr.ph.i164 ]
+  %.1125 = phi i32 [ %83, %.lr.ph.i172 ], [ 0, %75 ], [ -1, %63 ], [ 0, %77 ], [ -1, %.lr.ph.i164 ]
+  %.1 = phi i32 [ -1, %.lr.ph.i172 ], [ -1, %75 ], [ 0, %63 ], [ -1, %77 ], [ %71, %.lr.ph.i164 ]
   %87 = getelementptr inbounds nuw i8, ptr %.5, i64 1
   %.pre = load i8, ptr %87, align 1, !tbaa !48
   br label %88
@@ -1057,7 +1057,7 @@ Vec_AttGrow.exit.i.i10:                           ; preds = %66, %52, %Abc_ObjMv
   br label %Abc_ObjMvVar.exit17
 
 Abc_ObjMvVar.exit17:                              ; preds = %Vec_AttGrow.exit.i.i10, %80
-  %88 = phi ptr [ %.pre19.i.i14, %80 ], [ %78, %Vec_AttGrow.exit.i.i10 ]
+  %88 = phi ptr [ %78, %Vec_AttGrow.exit.i.i10 ], [ %.pre19.i.i14, %80 ]
   %89 = load i32, ptr %88, align 4, !tbaa !44
   br label %Abc_ObjMvVar.exit.thread
 

@@ -367,7 +367,7 @@ define internal range(i32 -1, 1) i32 @pre_sync_fname(ptr noundef %0, i1 noundef 
   br label %14
 
 14:                                               ; preds = %5, %11, %10
-  %.0 = phi i32 [ -1, %10 ], [ 0, %11 ], [ 0, %5 ]
+  %.0 = phi i32 [ 0, %11 ], [ -1, %10 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -418,7 +418,7 @@ define range(i32 -1, 1) i32 @fsync_fname(ptr noundef %0, i1 noundef zeroext %1) 
   br label %21
 
 21:                                               ; preds = %5, %19, %10
-  %.0 = phi i32 [ -1, %10 ], [ 0, %19 ], [ 0, %5 ]
+  %.0 = phi i32 [ 0, %19 ], [ -1, %10 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -550,7 +550,7 @@ fsync_parent_path.exit:                           ; preds = %23, %26
   br label %28
 
 28:                                               ; preds = %fsync_parent_path.exit, %21, %2, %20, %11
-  %.0 = phi i32 [ -1, %11 ], [ -1, %20 ], [ -1, %2 ], [ -1, %21 ], [ %., %fsync_parent_path.exit ]
+  %.0 = phi i32 [ -1, %21 ], [ -1, %11 ], [ -1, %20 ], [ -1, %2 ], [ %., %fsync_parent_path.exit ]
   ret i32 %.0
 }
 
@@ -617,7 +617,7 @@ define range(i32 0, 5) i32 @get_dirent_type(ptr noundef %0, ptr noundef readonly
   br label %25
 
 25:                                               ; preds = %19, %.fold.split, %24, %23, %18
-  %.2 = phi i32 [ 0, %18 ], [ 3, %23 ], [ 4, %24 ], [ 2, %19 ], [ 1, %.fold.split ]
+  %.2 = phi i32 [ 0, %18 ], [ 2, %19 ], [ 3, %23 ], [ 4, %24 ], [ 1, %.fold.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
 

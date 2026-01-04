@@ -680,7 +680,7 @@ define hidden noundef zeroext i1 @_ZN7oopDesc6is_oopEPS_b(ptr noundef %0, i1 nou
   br label %15
 
 15:                                               ; preds = %2, %12, %8
-  %.0 = phi i1 [ %7, %2 ], [ true, %8 ], [ %14, %12 ]
+  %.0 = phi i1 [ %7, %2 ], [ %14, %12 ], [ true, %8 ]
   ret i1 %.0
 }
 
@@ -713,7 +713,7 @@ define hidden noundef zeroext i1 @_ZN7oopDesc14is_oop_or_nullEPS_b(ptr noundef %
   br label %_ZN7oopDesc6is_oopEPS_b.exit
 
 _ZN7oopDesc6is_oopEPS_b.exit:                     ; preds = %14, %10, %4, %2
-  %17 = phi i1 [ true, %2 ], [ %9, %4 ], [ true, %10 ], [ %16, %14 ]
+  %17 = phi i1 [ true, %2 ], [ %9, %4 ], [ %16, %14 ], [ true, %10 ]
   ret i1 %17
 }
 
@@ -1033,7 +1033,7 @@ define hidden noundef ptr @_ZN7oopDesc12load_oop_rawEPS_i(ptr noundef %0, i32 no
   br label %23
 
 23:                                               ; preds = %9, %21, %12
-  %.0 = phi ptr [ %20, %12 ], [ %22, %21 ], [ null, %9 ]
+  %.0 = phi ptr [ %22, %21 ], [ %20, %12 ], [ null, %9 ]
   ret ptr %.0
 }
 
@@ -1639,7 +1639,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm287014ES_E19oop_load_in_heap_atEP7oopDescl.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm287014ES_E19oop_load_in_heap_atEP7oopDescl.exit: ; preds = %2, %17, %21
-  %.0.i.i = phi ptr [ null, %2 ], [ %20, %21 ], [ %20, %17 ]
+  %.0.i.i = phi ptr [ null, %2 ], [ %20, %17 ], [ %20, %21 ]
   ret ptr %.0.i.i
 }
 
@@ -1817,7 +1817,7 @@ _ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit:      ; preds = %44, %45, %49, %54
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 _ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %61, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, %5, %11, %24, %31, %2
-  %.0 = phi ptr [ %1, %2 ], [ %.0.i.i.i, %31 ], [ %.0.i.i.i, %24 ], [ %1, %11 ], [ %1, %5 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
+  %.0 = phi ptr [ %1, %5 ], [ %1, %2 ], [ %.0.i.i.i, %24 ], [ %.0.i.i.i, %31 ], [ %1, %11 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
   ret ptr %.0
 }
 
@@ -2010,7 +2010,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm286982ES_E19oop_load_in_heap_atEP7oopDescl.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm286982ES_E19oop_load_in_heap_atEP7oopDescl.exit: ; preds = %2, %8, %11
-  %.0.i.i = phi ptr [ null, %2 ], [ %10, %11 ], [ %10, %8 ]
+  %.0.i.i = phi ptr [ null, %2 ], [ %10, %8 ], [ %10, %11 ]
   ret ptr %.0.i.i
 }
 

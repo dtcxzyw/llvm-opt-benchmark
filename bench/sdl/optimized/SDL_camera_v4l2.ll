@@ -470,18 +470,18 @@ xioctl.exit88:                                    ; preds = %93
 
 176:                                              ; preds = %168
   switch i32 %.2.ph, label %default.unreachable109 [
-    i32 1, label %177
-    i32 2, label %180
-    i32 3, label %182
+    i32 1, label %182
+    i32 2, label %177
+    i32 3, label %179
   ]
 
 177:                                              ; preds = %176
-  %178 = load i64, ptr %10, align 8
-  %179 = call fastcc zeroext i1 @AllocBufferRead(ptr noundef nonnull %0, i64 noundef %178)
-  br i1 %179, label %.thread100, label %192
+  %178 = call fastcc zeroext i1 @AllocBufferMmap(ptr noundef nonnull %0)
+  br i1 %178, label %185, label %192
 
-180:                                              ; preds = %176
-  %181 = call fastcc zeroext i1 @AllocBufferMmap(ptr noundef nonnull %0)
+179:                                              ; preds = %176
+  %180 = load i64, ptr %10, align 8
+  %181 = call fastcc zeroext i1 @AllocBufferUserPtr(ptr noundef nonnull %0, i64 noundef %180)
   br i1 %181, label %185, label %192
 
 default.unreachable109:                           ; preds = %176
@@ -489,14 +489,14 @@ default.unreachable109:                           ; preds = %176
 
 182:                                              ; preds = %176
   %183 = load i64, ptr %10, align 8
-  %184 = call fastcc zeroext i1 @AllocBufferUserPtr(ptr noundef nonnull %0, i64 noundef %183)
-  br i1 %184, label %185, label %192
+  %184 = call fastcc zeroext i1 @AllocBufferRead(ptr noundef nonnull %0, i64 noundef %183)
+  br i1 %184, label %.thread100, label %192
 
-185:                                              ; preds = %180, %182
+185:                                              ; preds = %177, %179
   %186 = call fastcc zeroext i1 @EnqueueBuffers(ptr noundef nonnull %0)
   br i1 %186, label %188, label %192
 
-.thread100:                                       ; preds = %177
+.thread100:                                       ; preds = %182
   %187 = call fastcc zeroext i1 @EnqueueBuffers(ptr noundef nonnull %0)
   br i1 %187, label %.thread101, label %192
 
@@ -520,8 +520,8 @@ default.unreachable109:                           ; preds = %176
   call void @SDL_CameraPermissionOutcome(ptr noundef nonnull %0, i1 noundef zeroext true) #11
   br label %192
 
-192:                                              ; preds = %.thread103, %.thread100, %180, %177, %.thread101, %182, %185, %168
-  %.6 = phi i1 [ false, %168 ], [ true, %.thread101 ], [ false, %182 ], [ false, %185 ], [ false, %177 ], [ false, %180 ], [ false, %.thread100 ], [ %190, %.thread103 ]
+192:                                              ; preds = %.thread103, %.thread100, %177, %179, %.thread101, %182, %185, %168
+  %.6 = phi i1 [ false, %168 ], [ true, %.thread101 ], [ %190, %.thread103 ], [ false, %182 ], [ false, %185 ], [ false, %179 ], [ false, %177 ], [ false, %.thread100 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %193
@@ -533,7 +533,7 @@ default.unreachable109:                           ; preds = %176
   br label %194
 
 194:                                              ; preds = %54, %56, %193, %70, %62, %40, %28, %19
-  %.070 = phi i1 [ %24, %19 ], [ %34, %28 ], [ %65, %62 ], [ false, %70 ], [ %.272, %193 ], [ %43, %40 ], [ %55, %54 ], [ %57, %56 ]
+  %.070 = phi i1 [ %24, %19 ], [ %34, %28 ], [ %43, %40 ], [ %65, %62 ], [ false, %70 ], [ %.272, %193 ], [ %55, %54 ], [ %57, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.070
@@ -655,7 +655,7 @@ xioctl.exit:                                      ; preds = %12, %15
   br i1 %58, label %.lr.ph39, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %43, %.lr.ph39, %.preheader35, %.preheader, %30, %23
-  %59 = phi ptr [ %20, %.preheader35 ], [ %20, %.preheader ], [ %.pre45, %30 ], [ %20, %23 ], [ %54, %.lr.ph39 ], [ %44, %43 ]
+  %59 = phi ptr [ %54, %.lr.ph39 ], [ %20, %23 ], [ %20, %.preheader35 ], [ %20, %.preheader ], [ %.pre45, %30 ], [ %44, %43 ]
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8
   call void @SDL_free_REAL(ptr noundef %61) #11
@@ -976,7 +976,7 @@ xioctl.exit58._crit_edge:                         ; preds = %xioctl.exit58, %.lr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %100, %44, %3, %57, %110, %35, %33, %18, %xioctl.exit58._crit_edge, %103, %55, %47, %21
-  %.044 = phi i32 [ 0, %21 ], [ 0, %47 ], [ 0, %55 ], [ 0, %103 ], [ 0, %xioctl.exit58._crit_edge ], [ 1, %18 ], [ 2, %33 ], [ 2, %35 ], [ 2, %110 ], [ 2, %57 ], [ 2, %3 ], [ 1, %44 ], [ 1, %100 ]
+  %.044 = phi i32 [ 1, %44 ], [ 0, %xioctl.exit58._crit_edge ], [ 0, %21 ], [ 1, %18 ], [ 0, %47 ], [ 0, %55 ], [ 2, %3 ], [ 0, %103 ], [ 2, %33 ], [ 2, %35 ], [ 2, %110 ], [ 2, %57 ], [ 1, %100 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.044
 }
@@ -1537,7 +1537,7 @@ define internal fastcc noundef zeroext i1 @AddCameraFormat(i32 noundef range(i32
   br i1 %46, label %17, label %.critedge, !llvm.loop !16
 
 .critedge:                                        ; preds = %20, %44, %36, %38, %7, %29
-  %.2 = phi i1 [ true, %29 ], [ true, %7 ], [ %37, %38 ], [ %37, %36 ], [ false, %20 ], [ true, %44 ]
+  %.2 = phi i1 [ true, %7 ], [ %37, %36 ], [ true, %29 ], [ %37, %38 ], [ true, %44 ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.2
 }
@@ -1893,7 +1893,7 @@ xioctl.exit37:                                    ; preds = %64
   br label %.thread
 
 .thread:                                          ; preds = %38, %71, %.preheader45, %.preheader, %1, %76, %43
-  %.4 = phi i1 [ %77, %76 ], [ %44, %43 ], [ true, %1 ], [ true, %.preheader ], [ true, %.preheader45 ], [ true, %71 ], [ true, %38 ]
+  %.4 = phi i1 [ %44, %43 ], [ %77, %76 ], [ true, %1 ], [ true, %.preheader ], [ true, %.preheader45 ], [ true, %71 ], [ true, %38 ]
   ret i1 %.4
 }
 

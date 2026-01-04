@@ -256,7 +256,7 @@ VP8GetBit.exit83.i:                               ; preds = %127, %121
   br label %136
 
 136:                                              ; preds = %VP8GetBit.exit83.i, %VP8GetBit.exit78.i, %19
-  %.sink.i = phi i8 [ %94, %VP8GetBit.exit78.i ], [ %135, %VP8GetBit.exit83.i ], [ 0, %19 ]
+  %.sink.i = phi i8 [ %135, %VP8GetBit.exit83.i ], [ %94, %VP8GetBit.exit78.i ], [ 0, %19 ]
   %137 = getelementptr inbounds nuw i8, ptr %24, i64 798
   store i8 %.sink.i, ptr %137, align 2, !tbaa !53
   %138 = load i32, ptr %17, align 8, !tbaa !55
@@ -574,9 +574,9 @@ VP8LoadNewBytes.exit.i104.i:                      ; preds = %288, %283, %278
   br label %VP8GetBit.exit103.i
 
 VP8GetBit.exit103.i:                              ; preds = %302, %296, %276, %270
-  %.0.i105.sink237.i = phi i32 [ %271, %270 ], [ %277, %276 ], [ %297, %296 ], [ %303, %302 ]
-  %.sink233.i = phi i32 [ %264, %270 ], [ %264, %276 ], [ %290, %296 ], [ %290, %302 ]
-  %304 = phi i8 [ 1, %270 ], [ 3, %276 ], [ 2, %296 ], [ 0, %302 ]
+  %.0.i105.sink237.i = phi i32 [ %277, %276 ], [ %271, %270 ], [ %297, %296 ], [ %303, %302 ]
+  %.sink233.i = phi i32 [ %264, %276 ], [ %264, %270 ], [ %290, %296 ], [ %290, %302 ]
+  %304 = phi i8 [ 3, %276 ], [ 1, %270 ], [ 2, %296 ], [ 0, %302 ]
   %305 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.0.i105.sink237.i, i1 true)
   %306 = xor i32 %305, 24
   %307 = shl i32 %.0.i105.sink237.i, %306

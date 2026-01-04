@@ -292,7 +292,7 @@ log_line_start.exit:                              ; preds = %96, %94, %88
   br label %116
 
 116:                                              ; preds = %83, %107
-  %117 = phi i8 [ %115, %107 ], [ 0, %83 ]
+  %117 = phi i8 [ 0, %83 ], [ %115, %107 ]
   store i8 %117, ptr @tool_debug_cb.newl, align 1, !tbaa !41
   store i1 false, ptr @tool_debug_cb.traced_data, align 1
   br label %251
@@ -425,7 +425,7 @@ log_line_start.exit102:                           ; preds = %159, %157, %148
   br label %172
 
 172:                                              ; preds = %163, %171, %170, %169, %168, %167
-  %.078 = phi ptr [ @.str.10, %167 ], [ @.str.11, %168 ], [ @.str.12, %169 ], [ @.str.13, %170 ], [ @.str.14, %171 ], [ @.str.9, %163 ]
+  %.078 = phi ptr [ @.str.14, %171 ], [ @.str.10, %167 ], [ @.str.11, %168 ], [ @.str.12, %169 ], [ @.str.13, %170 ], [ @.str.9, %163 ]
   %173 = call i32 (ptr, ptr, ...) @curl_mfprintf(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.22, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %.078, i64 noundef %3, i64 noundef %3) #5
   %.not.i103 = icmp eq i64 %3, 0
   br i1 %.not.i103, label %dump.exit, label %.lr.ph.i
@@ -469,7 +469,7 @@ log_line_start.exit102:                           ; preds = %159, %157, %148
   br i1 %191, label %.split92.us.us.i, label %._crit_edge119.i
 
 ._crit_edge119.i:                                 ; preds = %188, %182
-  %192 = phi i8 [ 13, %188 ], [ %186, %182 ]
+  %192 = phi i8 [ %186, %182 ], [ 13, %188 ]
   %193 = add i8 %192, -32
   %or.cond.us.us.i = icmp ult i8 %193, 95
   %narrow79.us.us.i = select i1 %or.cond.us.us.i, i8 %192, i8 46

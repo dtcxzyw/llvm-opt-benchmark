@@ -476,7 +476,7 @@ define dso_local void @ping_nodes() local_unnamed_addr #0 {
   br label %152
 
 152:                                              ; preds = %124, %55, %144, %148, %121, %107, %111, %.lr.ph, %52, %76
-  %.1 = phi ptr [ %.057115, %.lr.ph ], [ %.057115, %52 ], [ %.057115, %111 ], [ %.057115, %107 ], [ %.057115, %148 ], [ %.057115, %144 ], [ %.057115, %121 ], [ %.2, %76 ], [ %.057115, %55 ], [ %.057115, %124 ]
+  %.1 = phi ptr [ %.057115, %.lr.ph ], [ %.057115, %52 ], [ %.057115, %55 ], [ %.2, %76 ], [ %.057115, %121 ], [ %.057115, %148 ], [ %.057115, %111 ], [ %.057115, %107 ], [ %.057115, %144 ], [ %.057115, %124 ]
   %153 = load i32, ptr %1, align 4
   %154 = add nsw i32 %153, 1
   store i32 %154, ptr %1, align 4
@@ -884,7 +884,7 @@ define dso_local void @run_health_check() local_unnamed_addr #0 {
 141:                                              ; preds = %138
   br i1 %.not52, label %.thread, label %142
 
-.thread:                                          ; preds = %131, %130, %134, %140, %141
+.thread:                                          ; preds = %130, %140, %134, %131, %141
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %165
 

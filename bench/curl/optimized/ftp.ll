@@ -360,7 +360,7 @@ define internal range(i32 0, 28) i32 @ftp_setup_connection(ptr noundef %0, ptr n
   br label %76
 
 76:                                               ; preds = %47, %63, %69, %70, %2, %21, %12
-  %.0 = phi i32 [ 27, %21 ], [ 27, %12 ], [ 27, %2 ], [ 0, %70 ], [ 0, %69 ], [ 0, %63 ], [ 0, %47 ]
+  %.0 = phi i32 [ 27, %2 ], [ 27, %21 ], [ 27, %12 ], [ 0, %70 ], [ 0, %69 ], [ 0, %63 ], [ 0, %47 ]
   ret i32 %.0
 }
 
@@ -391,8 +391,8 @@ define internal i32 @ftp_do(ptr noundef %0, ptr noundef captures(none) initializ
   call void @Curl_cwriter_free(ptr noundef nonnull %0, ptr noundef %15) #10
   br label %.thread
 
-.thread:                                          ; preds = %14, %2
-  %.024.ph = phi i32 [ %10, %2 ], [ %13, %14 ]
+.thread:                                          ; preds = %2, %14
+  %.024.ph = phi i32 [ %13, %14 ], [ %10, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %ftp_regular_transfer.exit
 
@@ -576,7 +576,7 @@ define internal i32 @ftp_do(ptr noundef %0, ptr noundef captures(none) initializ
   br label %init_wc_data.exit.i
 
 init_wc_data.exit.i:                              ; preds = %97, %94, %90, %81, %60, %55, %48, %45
-  %.053.i.i = phi i32 [ %47, %45 ], [ %.071.i.i, %97 ], [ %62, %60 ], [ 27, %48 ], [ 27, %55 ], [ 0, %94 ], [ 0, %90 ], [ 0, %81 ]
+  %.053.i.i = phi i32 [ %47, %45 ], [ %.071.i.i, %97 ], [ 27, %55 ], [ %62, %60 ], [ 27, %48 ], [ 0, %94 ], [ 0, %90 ], [ 0, %81 ]
   %102 = load i8, ptr %24, align 8, !tbaa !109
   %103 = icmp eq i8 %102, 4
   br i1 %103, label %wc_statemach.exit, label %104
@@ -747,7 +747,7 @@ init_wc_data.exit.i:                              ; preds = %97, %94, %90, %81, 
   br label %.backedge.sink.split.i
 
 .backedge.sink.split.i:                           ; preds = %181, %157, %155, %151, %146, %106
-  %.sink.i = phi i8 [ %185, %181 ], [ 4, %106 ], [ 5, %157 ], [ 5, %146 ], [ 5, %151 ], [ 5, %155 ]
+  %.sink.i = phi i8 [ 4, %106 ], [ %185, %181 ], [ 5, %157 ], [ 5, %146 ], [ 5, %151 ], [ 5, %155 ]
   store i8 %.sink.i, ptr %24, align 8, !tbaa !109
   br label %.backedge.i.backedge
 
@@ -768,8 +768,8 @@ init_wc_data.exit.i:                              ; preds = %97, %94, %90, %81, 
   br label %.thread131.i
 
 .thread131.i:                                     ; preds = %188, %186
-  %.291135.i = phi i32 [ 0, %186 ], [ %.fr.i, %188 ]
-  %191 = phi i8 [ 7, %186 ], [ %spec.select.i, %188 ]
+  %.291135.i = phi i32 [ %.fr.i, %188 ], [ 0, %186 ]
+  %191 = phi i8 [ %spec.select.i, %188 ], [ 7, %186 ]
   store i8 %191, ptr %24, align 8, !tbaa !109
   br label %wc_statemach.exit
 
@@ -786,7 +786,7 @@ init_wc_data.exit.i:                              ; preds = %97, %94, %90, %81, 
   br label %wc_statemach.exit
 
 wc_statemach.exit:                                ; preds = %117, %140, %init_wc_data.exit.i, %104, %.thread.i, %168, %170, %174, %.thread131.i, %192, %195
-  %.1.i = phi i32 [ %.053.i.i, %104 ], [ %.291135.i, %.thread131.i ], [ %.053.i.i, %init_wc_data.exit.i ], [ 0, %195 ], [ 0, %192 ], [ 78, %.thread.i ], [ 0, %170 ], [ %169, %168 ], [ 0, %174 ], [ 27, %117 ], [ 88, %140 ]
+  %.1.i = phi i32 [ %.053.i.i, %init_wc_data.exit.i ], [ %.053.i.i, %104 ], [ 78, %.thread.i ], [ 0, %174 ], [ %.291135.i, %.thread131.i ], [ 0, %195 ], [ 0, %192 ], [ 0, %170 ], [ %169, %168 ], [ 27, %117 ], [ 88, %140 ]
   %197 = load ptr, ptr %21, align 8, !tbaa !108
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 64
   %199 = load i8, ptr %198, align 8, !tbaa !109
@@ -1173,7 +1173,7 @@ freedirs.exit.i:                                  ; preds = %._crit_edge.i.i, %f
   br label %ftp_regular_transfer.exit
 
 ftp_regular_transfer.exit:                        ; preds = %freedirs.exit.i, %362, %close_secondarysocket.exit.i.i, %320, %.thread, %201, %200, %wc_statemach.exit, %wc_statemach.exit
-  %.1 = phi i32 [ 0, %wc_statemach.exit ], [ 0, %wc_statemach.exit ], [ %.1.i, %200 ], [ %202, %201 ], [ %.024.ph, %.thread ], [ 0, %320 ], [ %.0.i27.i, %freedirs.exit.i ], [ 0, %362 ], [ %328, %close_secondarysocket.exit.i.i ]
+  %.1 = phi i32 [ %.024.ph, %.thread ], [ 0, %wc_statemach.exit ], [ %202, %201 ], [ %.1.i, %200 ], [ 0, %wc_statemach.exit ], [ %.0.i27.i, %freedirs.exit.i ], [ 0, %320 ], [ 0, %362 ], [ %328, %close_secondarysocket.exit.i.i ]
   ret i32 %.1
 }
 
@@ -1717,8 +1717,8 @@ close_secondarysocket.exit:                       ; preds = %139, %146, %152, %1
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.158) #10
   br label %.thread212
 
-.thread212:                                       ; preds = %218, %217, %164, %235, %232, %228, %225, %222, %245, %249, %253, %244, %.thread209
-  %.7 = phi i32 [ 0, %.thread209 ], [ 0, %228 ], [ 18, %235 ], [ 0, %232 ], [ 0, %225 ], [ 0, %222 ], [ 18, %244 ], [ 0, %245 ], [ 0, %249 ], [ 19, %253 ], [ %.2, %164 ], [ 18, %218 ], [ 70, %217 ]
+.thread212:                                       ; preds = %217, %218, %164, %235, %232, %228, %225, %222, %245, %249, %253, %244, %.thread209
+  %.7 = phi i32 [ 0, %.thread209 ], [ 0, %228 ], [ 18, %235 ], [ 0, %232 ], [ 0, %225 ], [ 0, %222 ], [ 18, %244 ], [ 0, %245 ], [ 0, %249 ], [ 19, %253 ], [ 18, %218 ], [ %.2, %164 ], [ 70, %217 ]
   %254 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 0, ptr %254, align 8, !tbaa !95
   %255 = getelementptr inbounds nuw i8, ptr %11, i64 1362
@@ -1985,8 +1985,8 @@ define internal i32 @ftp_do_more(ptr noundef %0, ptr noundef writeonly captures(
   %.not123 = icmp eq i32 %60, 0
   br i1 %.not123, label %61, label %.thread134
 
-.thread134:                                       ; preds = %49, %54, %59
-  %.3.ph = phi i32 [ %60, %59 ], [ %57, %54 ], [ %50, %49 ]
+.thread134:                                       ; preds = %54, %49, %59
+  %.3.ph = phi i32 [ %60, %59 ], [ %50, %49 ], [ %57, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %139
 
@@ -2133,7 +2133,7 @@ define internal i32 @ftp_do_more(ptr noundef %0, ptr noundef writeonly captures(
   br label %139
 
 139:                                              ; preds = %61, %.thread134, %22, %.thread, %111, %137, %128, %122, %115, %103, %70, %99, %97, %66, %28, %36
-  %.2 = phi i32 [ 0, %36 ], [ %31, %28 ], [ %69, %66 ], [ %98, %97 ], [ %102, %99 ], [ %73, %70 ], [ %106, %103 ], [ 0, %115 ], [ 0, %122 ], [ 0, %128 ], [ 0, %137 ], [ 0, %111 ], [ %11, %.thread ], [ %23, %22 ], [ 0, %61 ], [ %.3.ph, %.thread134 ]
+  %.2 = phi i32 [ 0, %137 ], [ %102, %99 ], [ %23, %22 ], [ %31, %28 ], [ %69, %66 ], [ %98, %97 ], [ 0, %111 ], [ 0, %36 ], [ %73, %70 ], [ %106, %103 ], [ %.3.ph, %.thread134 ], [ 0, %115 ], [ 0, %122 ], [ 0, %128 ], [ %11, %.thread ], [ 0, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.2
 }
@@ -2862,7 +2862,7 @@ define hidden i32 @Curl_GetFTPResponse(ptr noundef %0, ptr noundef captures(none
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %47, %42, %.thread107, %.thread102, %71, %77, %78
-  %.4 = phi i32 [ %.170.ph, %78 ], [ %.170.ph, %77 ], [ %.170.ph, %71 ], [ %.170.ph, %.thread102 ], [ 28, %.thread107 ], [ 56, %42 ], [ 42, %47 ]
+  %.4 = phi i32 [ 28, %.thread107 ], [ %.170.ph, %78 ], [ %.170.ph, %77 ], [ %.170.ph, %71 ], [ %.170.ph, %.thread102 ], [ 56, %42 ], [ 42, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.4
@@ -3521,7 +3521,7 @@ switch.lookup:                                    ; preds = %36
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.54) #10
   br label %.thread390
 
-.thread390:                                       ; preds = %.critedge373, %195, %202, %206, %192
+.thread390:                                       ; preds = %206, %.critedge373, %195, %202, %192
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %210
 
@@ -3936,7 +3936,7 @@ switch.lookup:                                    ; preds = %36
   br label %.thread403
 
 .thread403:                                       ; preds = %.critedge6, %258, %14, %376, %377, %339, %350, %351, %369, %362, %326, %327, %295, %296, %303, %309, %319, %265, %266, %273, %279, %289, %210, %211, %218, %224, %234, %131, %121, %120, %118, %96, %102, %90, %75, %52, %51, %switch.lookup, %407, %405, %403, %401, %399, %397, %393, %391, %389, %387, %293, %94, %92, %86, %.thread, %130, %207, %262, %.thread398, %.thread394, %70, %113, %54, %12, %396, %41, %30, %28, %10
-  %.0 = phi i32 [ %11, %10 ], [ %29, %28 ], [ 48, %41 ], [ 8, %30 ], [ 64, %70 ], [ 84, %396 ], [ %13, %12 ], [ 8, %54 ], [ 64, %113 ], [ %151, %.thread394 ], [ %159, %.thread398 ], [ 0, %407 ], [ %53, %52 ], [ %50, %switch.lookup ], [ 0, %51 ], [ %85, %75 ], [ %91, %90 ], [ %93, %92 ], [ %95, %94 ], [ %101, %96 ], [ 0, %102 ], [ %119, %118 ], [ 0, %120 ], [ %122, %121 ], [ %129, %130 ], [ %132, %131 ], [ 0, %234 ], [ 0, %218 ], [ 0, %224 ], [ 0, %211 ], [ 0, %210 ], [ 0, %207 ], [ 0, %289 ], [ 0, %273 ], [ 0, %279 ], [ 0, %266 ], [ 0, %265 ], [ 0, %262 ], [ 0, %293 ], [ 0, %319 ], [ 0, %303 ], [ 0, %309 ], [ 0, %296 ], [ 0, %295 ], [ %328, %327 ], [ 21, %326 ], [ 9, %351 ], [ %349, %339 ], [ 0, %350 ], [ %368, %362 ], [ %370, %369 ], [ %386, %377 ], [ 9, %376 ], [ %388, %387 ], [ %390, %389 ], [ %392, %391 ], [ %394, %393 ], [ %398, %397 ], [ %400, %399 ], [ %402, %401 ], [ %404, %403 ], [ %406, %405 ], [ 0, %14 ], [ 64, %86 ], [ %.1254.ph, %.thread ], [ 27, %.critedge6 ], [ %256, %258 ]
+  %.0 = phi i32 [ %11, %10 ], [ 84, %396 ], [ %151, %.thread394 ], [ %29, %28 ], [ 48, %41 ], [ 8, %30 ], [ %13, %12 ], [ 64, %70 ], [ 8, %54 ], [ %159, %.thread398 ], [ 64, %86 ], [ 64, %113 ], [ 0, %407 ], [ %53, %52 ], [ %50, %switch.lookup ], [ 0, %51 ], [ %.1254.ph, %.thread ], [ %85, %75 ], [ 0, %14 ], [ %91, %90 ], [ %93, %92 ], [ %95, %94 ], [ %101, %96 ], [ 0, %102 ], [ %119, %118 ], [ 0, %120 ], [ %122, %121 ], [ %129, %130 ], [ %132, %131 ], [ 0, %234 ], [ 0, %218 ], [ 0, %224 ], [ 0, %211 ], [ 0, %210 ], [ 0, %207 ], [ 0, %289 ], [ 0, %273 ], [ 0, %279 ], [ 0, %266 ], [ 0, %265 ], [ 0, %262 ], [ 0, %293 ], [ 0, %319 ], [ 0, %303 ], [ 0, %309 ], [ 0, %296 ], [ 0, %295 ], [ %328, %327 ], [ 21, %326 ], [ 9, %351 ], [ %349, %339 ], [ 0, %350 ], [ %368, %362 ], [ %370, %369 ], [ %386, %377 ], [ 9, %376 ], [ %388, %387 ], [ %390, %389 ], [ %392, %391 ], [ %394, %393 ], [ %398, %397 ], [ %400, %399 ], [ %402, %401 ], [ %404, %403 ], [ %406, %405 ], [ 27, %.critedge6 ], [ %256, %258 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -4669,7 +4669,7 @@ _ftp_state.exit90:                                ; preds = %96, %99, %106, %112
   br label %.critedge
 
 .critedge:                                        ; preds = %91, %90, %84, %80, %77, %58, %.thread98, %._crit_edge.thread, %_ftp_state.exit90, %135, %131, %140, %136, %120, %141, %.thread
-  %.366 = phi i32 [ 0, %.thread ], [ 0, %_ftp_state.exit90 ], [ %122, %120 ], [ %134, %131 ], [ 0, %135 ], [ %139, %136 ], [ 0, %140 ], [ %142, %141 ], [ %28, %._crit_edge.thread ], [ 0, %.thread98 ], [ %59, %58 ], [ %89, %84 ], [ 0, %90 ], [ %92, %91 ], [ %79, %77 ], [ 0, %80 ]
+  %.366 = phi i32 [ %142, %141 ], [ 0, %.thread98 ], [ %28, %._crit_edge.thread ], [ 0, %.thread ], [ 0, %_ftp_state.exit90 ], [ %122, %120 ], [ %134, %131 ], [ 0, %135 ], [ %139, %136 ], [ 0, %140 ], [ %59, %58 ], [ %89, %84 ], [ 0, %90 ], [ %92, %91 ], [ %79, %77 ], [ 0, %80 ]
   ret i32 %.366
 }
 
@@ -4786,7 +4786,7 @@ _ftp_state.exit:                                  ; preds = %16, %20, %26, %32, 
   br label %ftp_state_type.exit
 
 ftp_state_type.exit:                              ; preds = %59, %53, %14, %_ftp_state.exit
-  %.0 = phi i32 [ %15, %14 ], [ 0, %_ftp_state.exit ], [ %60, %59 ], [ %58, %53 ]
+  %.0 = phi i32 [ %15, %14 ], [ 0, %_ftp_state.exit ], [ %58, %53 ], [ %60, %59 ]
   ret i32 %.0
 }
 
@@ -4899,7 +4899,7 @@ ftp_213_date.exit:                                ; preds = %16
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %ftp_213_date.exit.thread
 
-ftp_213_date.exit.thread:                         ; preds = %16, %10, %72, %ftp_213_date.exit
+ftp_213_date.exit.thread:                         ; preds = %10, %16, %72, %ftp_213_date.exit
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 457
   %77 = load i32, ptr %76, align 1
   %78 = and i32 %77, 131072
@@ -5258,7 +5258,7 @@ _ftp_state.exit126:                               ; preds = %205, %213, %219, %2
   br label %ftp_state_type.exit
 
 ftp_state_type.exit:                              ; preds = %264, %258, %.thread155, %_ftp_state.exit126, %_ftp_state.exit
-  %.3 = phi i32 [ 0, %_ftp_state.exit126 ], [ 0, %_ftp_state.exit ], [ %.175.ph, %.thread155 ], [ %265, %264 ], [ %263, %258 ]
+  %.3 = phi i32 [ 0, %_ftp_state.exit126 ], [ %.175.ph, %.thread155 ], [ 0, %_ftp_state.exit ], [ %263, %258 ], [ %265, %264 ]
   ret i32 %.3
 }
 
@@ -5441,7 +5441,7 @@ define internal fastcc i32 @ftp_state_size_resp(ptr noundef %0, i32 noundef %1, 
   br label %58
 
 58:                                               ; preds = %46, %54, %50, %32, %35, %31
-  %.0 = phi i32 [ %41, %35 ], [ 78, %31 ], [ %49, %46 ], [ %53, %50 ], [ %57, %54 ], [ 0, %32 ]
+  %.0 = phi i32 [ 78, %31 ], [ %41, %35 ], [ %49, %46 ], [ %53, %50 ], [ %57, %54 ], [ 0, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -5746,7 +5746,7 @@ control_address.exit:                             ; preds = %50, %53
   br i1 %.not152, label %56, label %57
 
 56:                                               ; preds = %42, %control_address.exit
-  %.1 = phi i32 [ 13, %42 ], [ 27, %control_address.exit ]
+  %.1 = phi i32 [ 27, %control_address.exit ], [ 13, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread200
 
@@ -6156,8 +6156,8 @@ _ftp_state.exit:                                  ; preds = %229, %235, %241, %2
   store i8 0, ptr %233, align 2, !tbaa !136
   br label %.thread200
 
-.thread200:                                       ; preds = %56, %.thread193, %.thread209, %.thread206, %219, %195, %control_address.exit175, %_ftp_state.exit, %198, %185, %138, %136
-  %.5 = phi i32 [ %199, %198 ], [ 0, %_ftp_state.exit ], [ 15, %185 ], [ %137, %136 ], [ 13, %138 ], [ 27, %control_address.exit175 ], [ %194, %195 ], [ 27, %219 ], [ %.7.ph, %.thread206 ], [ 5, %.thread209 ], [ %.1, %56 ], [ 13, %.thread193 ]
+.thread200:                                       ; preds = %.thread193, %56, %.thread209, %.thread206, %219, %195, %control_address.exit175, %_ftp_state.exit, %198, %185, %138, %136
+  %.5 = phi i32 [ %199, %198 ], [ 27, %control_address.exit175 ], [ 0, %_ftp_state.exit ], [ %194, %195 ], [ 5, %.thread209 ], [ 15, %185 ], [ 13, %138 ], [ 27, %219 ], [ %.7.ph, %.thread206 ], [ %137, %136 ], [ 13, %.thread193 ], [ %.1, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.5
 }
@@ -6410,7 +6410,7 @@ define internal fastcc i32 @ftp_state_get_resp(ptr noundef %0, i32 noundef %1, i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %37, %._crit_edge, %44, %48
-  %49 = phi i64 [ %.pre, %._crit_edge ], [ -1, %44 ], [ %46, %48 ], [ -1, %37 ]
+  %49 = phi i64 [ %46, %48 ], [ %.pre, %._crit_edge ], [ -1, %44 ], [ -1, %37 ]
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %51 = load i64, ptr %50, align 8, !tbaa !148
   %52 = icmp sgt i64 %49, %51
@@ -7287,7 +7287,7 @@ _ftp_state.exit113:                               ; preds = %138, %142, %148, %1
   br label %159
 
 159:                                              ; preds = %_ftp_state.exit106, %110, %_ftp_state.exit113, %134, %_ftp_state.exit, %61, %57, %34
-  %.0 = phi i32 [ 63, %34 ], [ 0, %_ftp_state.exit ], [ 36, %57 ], [ 36, %61 ], [ %112, %110 ], [ 0, %_ftp_state.exit106 ], [ %137, %134 ], [ 0, %_ftp_state.exit113 ]
+  %.0 = phi i32 [ 63, %34 ], [ 0, %_ftp_state.exit ], [ 36, %61 ], [ 36, %57 ], [ %112, %110 ], [ 0, %_ftp_state.exit106 ], [ %137, %134 ], [ 0, %_ftp_state.exit113 ]
   ret i32 %.0
 }
 
@@ -7513,7 +7513,7 @@ _ftp_state.exit96:                                ; preds = %87, %92, %98, %104,
   %.not112 = icmp eq i64 %110, 0
   br i1 %.not112, label %111, label %.critedge89.thread109
 
-.critedge89.thread109:                            ; preds = %.thread, %72, %.critedge89
+.critedge89.thread109:                            ; preds = %72, %.thread, %.critedge89
   br label %111
 
 111:                                              ; preds = %.critedge89, %.critedge89.thread109
@@ -7568,8 +7568,8 @@ _ftp_state.exit103:                               ; preds = %116, %120, %126, %1
   store i8 33, ptr %118, align 2, !tbaa !136
   br label %.critedge89.thread
 
-.critedge89.thread:                               ; preds = %52, %.critedge, %16, %_ftp_state.exit, %_ftp_state.exit96, %111, %_ftp_state.exit103
-  %.5 = phi i32 [ 0, %_ftp_state.exit103 ], [ %115, %111 ], [ 31, %52 ], [ 31, %.critedge ], [ %19, %16 ], [ 0, %_ftp_state.exit ], [ 0, %_ftp_state.exit96 ]
+.critedge89.thread:                               ; preds = %52, %.critedge, %_ftp_state.exit, %16, %_ftp_state.exit96, %111, %_ftp_state.exit103
+  %.5 = phi i32 [ %115, %111 ], [ 0, %_ftp_state.exit103 ], [ 31, %52 ], [ 31, %.critedge ], [ 0, %_ftp_state.exit ], [ %19, %16 ], [ 0, %_ftp_state.exit96 ]
   ret i32 %.5
 }
 
@@ -7723,7 +7723,7 @@ default.unreachable35:                            ; preds = %_ftp_state.exit
   unreachable
 
 ftp_state_type_resp.exit:                         ; preds = %44, %42, %40, %37, %46, %_ftp_state.exit25
-  %.0 = phi i32 [ 0, %_ftp_state.exit25 ], [ %49, %46 ], [ %39, %37 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ]
+  %.0 = phi i32 [ %49, %46 ], [ 0, %_ftp_state.exit25 ], [ %45, %44 ], [ %39, %37 ], [ %41, %40 ], [ %43, %42 ]
   ret i32 %.0
 }
 
@@ -8115,10 +8115,10 @@ define internal fastcc i32 @ftp_state_use_port(ptr noundef %0, i32 noundef range
   %36 = sub i64 %34, %35
   br i1 %.not284, label %.thread, label %.thread353
 
-.thread353:                                       ; preds = %24, %20, %31
-  %.0236360 = phi ptr [ %33, %31 ], [ %23, %24 ], [ %16, %20 ]
-  %.1238359 = phi i64 [ %36, %31 ], [ %27, %24 ], [ 0, %20 ]
-  %.1240358 = phi ptr [ %32, %31 ], [ %16, %24 ], [ null, %20 ]
+.thread353:                                       ; preds = %20, %24, %31
+  %.0236360 = phi ptr [ %33, %31 ], [ %16, %20 ], [ %23, %24 ]
+  %.1238359 = phi i64 [ %36, %31 ], [ 0, %20 ], [ %27, %24 ]
+  %.1240358 = phi ptr [ %32, %31 ], [ null, %20 ], [ %16, %24 ]
   %37 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0236360, i32 noundef 58) #11
   %.not286 = icmp eq ptr %37, null
   br i1 %.not286, label %.thread, label %38
@@ -8178,8 +8178,8 @@ define internal fastcc i32 @ftp_state_use_port(ptr noundef %0, i32 noundef range
   br label %71
 
 .thread366:                                       ; preds = %49, %.thread, %2, %17
-  %.0231374 = phi i16 [ 0, %17 ], [ 0, %2 ], [ %spec.select328, %.thread ], [ %spec.select328405, %49 ]
-  %.0246372 = phi i16 [ 0, %17 ], [ 0, %2 ], [ %spec.select327, %.thread ], [ %spec.select327403, %49 ]
+  %.0231374 = phi i16 [ 0, %2 ], [ 0, %17 ], [ %spec.select328, %.thread ], [ %spec.select328405, %49 ]
+  %.0246372 = phi i16 [ 0, %2 ], [ 0, %17 ], [ %spec.select327, %.thread ], [ %spec.select327403, %49 ]
   store i32 128, ptr %6, align 4, !tbaa !147
   %60 = getelementptr inbounds nuw i8, ptr %13, i64 568
   %61 = load i32, ptr %60, align 8, !tbaa !147
@@ -8650,7 +8650,7 @@ define internal fastcc i32 @ftp_state_use_port(ptr noundef %0, i32 noundef range
   br label %.thread381
 
 .loopexit:                                        ; preds = %.split441.us.split, %.split441.us.split.preheader, %.split441, %.thread392, %.split443.us
-  %.0217409 = phi i32 [ 1, %.thread392 ], [ 0, %.split443.us ], [ 2, %.split441 ], [ 2, %.split441.us.split.preheader ], [ 2, %.split441.us.split ]
+  %.0217409 = phi i32 [ 0, %.split443.us ], [ 1, %.thread392 ], [ 2, %.split441 ], [ 2, %.split441.us.split.preheader ], [ 2, %.split441.us.split ]
   %253 = getelementptr inbounds nuw i8, ptr %13, i64 1344
   store i32 %.0217409, ptr %253, align 8, !tbaa !161
   call fastcc void @_ftp_state(ptr noundef nonnull %0, i8 noundef zeroext 28)
@@ -8663,7 +8663,7 @@ define internal fastcc i32 @ftp_state_use_port(ptr noundef %0, i32 noundef range
   br label %.thread381
 
 .thread381:                                       ; preds = %67, %63, %251, %.thread.thread, %49, %.loopexit, %255, %237, %194, %165, %.outer._crit_edge, %.split427.us, %155, %.critedge, %.thread385
-  %.0220 = phi i32 [ 30, %155 ], [ 30, %.split427.us ], [ 30, %.outer._crit_edge ], [ 30, %165 ], [ 30, %194 ], [ %236, %237 ], [ %254, %.loopexit ], [ 0, %255 ], [ %250, %251 ], [ 30, %.critedge ], [ 30, %.thread385 ], [ 30, %49 ], [ 30, %.thread.thread ], [ 30, %63 ], [ 30, %67 ]
+  %.0220 = phi i32 [ 30, %155 ], [ 30, %.split427.us ], [ 30, %.outer._crit_edge ], [ 30, %165 ], [ 30, %194 ], [ %236, %237 ], [ %254, %.loopexit ], [ 0, %255 ], [ %250, %251 ], [ 30, %.critedge ], [ 30, %.thread385 ], [ 30, %.thread.thread ], [ 30, %49 ], [ 30, %63 ], [ 30, %67 ]
   %256 = load ptr, ptr %8, align 8, !tbaa !198
   %.not321 = icmp eq ptr %256, null
   br i1 %.not321, label %258, label %257
@@ -8908,7 +8908,7 @@ define internal fastcc i32 @ftp_state_list(ptr noundef %0) unnamed_addr #0 {
   br label %25
 
 25:                                               ; preds = %17, %23
-  %.132 = phi ptr [ %15, %17 ], [ null, %23 ]
+  %.132 = phi ptr [ null, %23 ], [ %15, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %26
 
@@ -8996,7 +8996,7 @@ _ftp_state.exit:                                  ; preds = %44, %48, %55, %61, 
   br label %66
 
 66:                                               ; preds = %40, %_ftp_state.exit, %34, %.critedge
-  %.1 = phi i32 [ %13, %.critedge ], [ 27, %34 ], [ 0, %_ftp_state.exit ], [ %42, %40 ]
+  %.1 = phi i32 [ 27, %34 ], [ %13, %.critedge ], [ %42, %40 ], [ 0, %_ftp_state.exit ]
   ret i32 %.1
 }
 
@@ -9075,7 +9075,7 @@ define internal fastcc i32 @ftp_state_stor_prequote(ptr noundef %0) unnamed_addr
   br label %ftp_state_quote.exit
 
 ftp_state_quote.exit:                             ; preds = %.thread, %6, %35
-  %.366.i = phi i32 [ %36, %35 ], [ %12, %6 ], [ 0, %.thread ]
+  %.366.i = phi i32 [ %36, %35 ], [ 0, %.thread ], [ %12, %6 ]
   ret i32 %.366.i
 }
 
@@ -9395,7 +9395,7 @@ define internal fastcc range(i32 0, 11) i32 @ftp_check_ctrl_on_data_wait(ptr nou
   br label %.thread94
 
 .thread94:                                        ; preds = %71, %77, %81, %.thread, %33, %94, %26
-  %.0 = phi i32 [ 10, %26 ], [ 0, %33 ], [ %., %94 ], [ 10, %.thread ], [ 0, %81 ], [ 0, %77 ], [ 0, %71 ]
+  %.0 = phi i32 [ 10, %26 ], [ %., %94 ], [ 0, %33 ], [ 0, %71 ], [ 10, %.thread ], [ 0, %81 ], [ 0, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
@@ -9724,8 +9724,8 @@ select.unfold:                                    ; preds = %72, %66
   %.not118 = icmp eq ptr %49, null
   br i1 %.not118, label %.thread, label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %84, %.preheader, %24, %19, %45, %.critedge
-  %.092139 = phi ptr [ %49, %.critedge ], [ %25, %24 ], [ %20, %19 ], [ %47, %45 ], [ %49, %.preheader ], [ %85, %84 ]
+.critedge.thread:                                 ; preds = %84, %.preheader, %45, %19, %24, %.critedge
+  %.092139 = phi ptr [ %49, %.critedge ], [ %47, %45 ], [ %20, %19 ], [ %25, %24 ], [ %49, %.preheader ], [ %85, %84 ]
   %87 = load i8, ptr %.092139, align 1, !tbaa !20
   %.not119 = icmp eq i8 %87, 0
   br i1 %.not119, label %.thread, label %88
@@ -9862,7 +9862,7 @@ select.unfold:                                    ; preds = %72, %66
   br label %.critedge130
 
 .critedge130:                                     ; preds = %.thread135, %42, %31, %63, %150, %102, %13
-  %.080 = phi i32 [ %12, %13 ], [ 0, %150 ], [ 3, %102 ], [ 27, %63 ], [ 27, %31 ], [ 27, %42 ], [ 27, %.thread135 ]
+  %.080 = phi i32 [ %12, %13 ], [ 0, %150 ], [ 3, %102 ], [ 27, %63 ], [ 27, %.thread135 ], [ 27, %31 ], [ 27, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.080
@@ -9982,7 +9982,7 @@ define internal i32 @ftp_cw_lc_write(ptr noundef %0, ptr noundef readonly captur
   br label %.thread
 
 .thread:                                          ; preds = %36, %26, %._crit_edge, %55, %51, %43, %18
-  %.0 = phi i32 [ %21, %18 ], [ %45, %43 ], [ %54, %51 ], [ %58, %55 ], [ 0, %._crit_edge ], [ %28, %26 ], [ %38, %36 ]
+  %.0 = phi i32 [ %21, %18 ], [ 0, %._crit_edge ], [ %45, %43 ], [ %54, %51 ], [ %58, %55 ], [ %28, %26 ], [ %38, %36 ]
   ret i32 %.0
 }
 

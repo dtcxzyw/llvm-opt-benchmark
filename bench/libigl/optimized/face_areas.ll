@@ -1222,7 +1222,7 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEaSINS_13CwiseB
   br label %.body85
 
 .body85:                                          ; preds = %528, %520, %522, %524, %526, %50
-  %.pn60.pn.pn = phi { ptr, i32 } [ %51, %50 ], [ %529, %528 ], [ %521, %520 ], [ %523, %522 ], [ %525, %524 ], [ %527, %526 ]
+  %.pn60.pn.pn = phi { ptr, i32 } [ %51, %50 ], [ %525, %524 ], [ %523, %522 ], [ %521, %520 ], [ %527, %526 ], [ %529, %528 ]
   %530 = load ptr, ptr %31, align 8, !tbaa !23
   call void @free(ptr noundef %530) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %31)

@@ -142,7 +142,7 @@ select.unfold:                                    ; preds = %26, %32
   br i1 %35, label %.lr.ph, label %.thread35
 
 .thread35:                                        ; preds = %select.unfold, %26
-  %.3.ph = phi i32 [ %28, %26 ], [ 0, %select.unfold ]
+  %.3.ph = phi i32 [ 0, %select.unfold ], [ %28, %26 ]
   %.pre = load i32, ptr %3, align 4, !tbaa !8
   %36 = icmp sgt i32 %.pre, -1
   br i1 %36, label %.thread35.thread, label %_ZN5boost5scope15unique_resourceIiNS0_10fd_deleterENS0_18fd_resource_traitsEED2Ev.exit, !prof !12
@@ -214,7 +214,7 @@ define internal noundef range(i32 5, 4) i32 @_ZN5boost10filesystem6detail12_GLOB
   br i1 %19, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %18, %2, %10, %13
-  %.3 = phi i32 [ %8, %10 ], [ %14, %13 ], [ 0, %2 ], [ 0, %18 ]
+  %.3 = phi i32 [ %14, %13 ], [ %8, %10 ], [ 0, %2 ], [ 0, %18 ]
   ret i32 %.3
 }
 

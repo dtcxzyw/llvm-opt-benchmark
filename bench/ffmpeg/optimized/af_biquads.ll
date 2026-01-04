@@ -348,7 +348,7 @@ define internal i32 @activate(ptr noundef %0) #2 {
   br label %.thread
 
 .thread:                                          ; preds = %40, %14, %47, %22, %49, %44, %34, %25
-  %.1 = phi i32 [ %27, %25 ], [ 0, %34 ], [ %.137, %44 ], [ 0, %49 ], [ 0, %14 ], [ %.036, %22 ], [ -1497649742, %47 ], [ -12, %40 ]
+  %.1 = phi i32 [ 0, %14 ], [ %27, %25 ], [ 0, %34 ], [ %.137, %44 ], [ -1497649742, %47 ], [ 0, %49 ], [ %.036, %22 ], [ -12, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -611,7 +611,7 @@ define internal fastcc range(i32 -22, 1) i32 @config_filter(ptr noundef %0, i32 
   unreachable
 
 88:                                               ; preds = %.thread479, %75, %69, %60, %52, %45
-  %.0457 = phi nsz double [ %51, %45 ], [ %59, %52 ], [ %68, %60 ], [ %74, %69 ], [ %86, %75 ], [ 0.000000e+00, %.thread479 ]
+  %.0457 = phi nsz double [ %86, %75 ], [ %51, %45 ], [ %59, %52 ], [ %68, %60 ], [ %74, %69 ], [ 0.000000e+00, %.thread479 ]
   %89 = tail call nsz double @llvm.sqrt.f64(double %19)
   %90 = fmul nsz double %89, 2.000000e+00
   switch i32 %12, label %385 [
@@ -1197,7 +1197,7 @@ define internal fastcc range(i32 -22, 1) i32 @config_filter(ptr noundef %0, i32 
   br i1 %.not469514, label %.loopexit, label %.thread516
 
 .thread516:                                       ; preds = %443, %.thread
-  %449 = phi ptr [ %440, %.thread ], [ %.pre498, %443 ]
+  %449 = phi ptr [ %.pre498, %443 ], [ %440, %.thread ]
   br i1 %31, label %450, label %.critedge476
 
 450:                                              ; preds = %.thread516
@@ -1374,8 +1374,8 @@ define internal fastcc range(i32 -22, 1) i32 @config_filter(ptr noundef %0, i32 
   unreachable
 
 switch.lookup:                                    ; preds = %528, %523, %518, %513, %508, %503, %498
-  %switch.tableidx543.sink548 = phi i32 [ %switch.tableidx, %498 ], [ %switch.tableidx518, %503 ], [ %switch.tableidx523, %508 ], [ %switch.tableidx528, %513 ], [ %switch.tableidx533, %518 ], [ %switch.tableidx538, %523 ], [ %switch.tableidx543, %528 ]
-  %switch.table.config_filter.6.sink = phi ptr [ @switch.table.config_filter, %498 ], [ @switch.table.config_filter.1, %503 ], [ @switch.table.config_filter.2, %508 ], [ @switch.table.config_filter.3, %513 ], [ @switch.table.config_filter.4, %518 ], [ @switch.table.config_filter.5, %523 ], [ @switch.table.config_filter.6, %528 ]
+  %switch.tableidx543.sink548 = phi i32 [ %switch.tableidx538, %523 ], [ %switch.tableidx533, %518 ], [ %switch.tableidx528, %513 ], [ %switch.tableidx523, %508 ], [ %switch.tableidx518, %503 ], [ %switch.tableidx, %498 ], [ %switch.tableidx543, %528 ]
+  %switch.table.config_filter.6.sink = phi ptr [ @switch.table.config_filter.5, %523 ], [ @switch.table.config_filter.4, %518 ], [ @switch.table.config_filter.3, %513 ], [ @switch.table.config_filter.2, %508 ], [ @switch.table.config_filter.1, %503 ], [ @switch.table.config_filter, %498 ], [ @switch.table.config_filter.6, %528 ]
   %534 = zext nneg i32 %switch.tableidx543.sink548 to i64
   %switch.gep545 = getelementptr inbounds nuw ptr, ptr %switch.table.config_filter.6.sink, i64 %534
   %switch.load546 = load ptr, ptr %switch.gep545, align 8
@@ -1492,7 +1492,7 @@ switch.lookup:                                    ; preds = %528, %523, %518, %5
   unreachable
 
 convert_width2qfactor.exit.i:                     ; preds = %585, %575, %572, %570, %562, %562
-  %.0.i.i = phi nsz double [ %571, %570 ], [ %574, %572 ], [ %584, %575 ], [ %595, %585 ], [ %565, %562 ], [ %565, %562 ]
+  %.0.i.i = phi nsz double [ %595, %585 ], [ %571, %570 ], [ %574, %572 ], [ %584, %575 ], [ %565, %562 ], [ %565, %562 ]
   %597 = load i32, ptr %11, align 8, !tbaa !20
   switch i32 %597, label %743 [
     i32 0, label %598
@@ -1723,7 +1723,7 @@ convert_dir2zdf.exit:                             ; preds = %598, %611, %627, %6
   br label %.loopexit
 
 .loopexit:                                        ; preds = %482, %443, %.thread, %41, %466, %744, %40
-  %.0456 = phi i32 [ 0, %40 ], [ 0, %744 ], [ -12, %443 ], [ -12, %466 ], [ -22, %41 ], [ -12, %.thread ], [ -12, %482 ]
+  %.0456 = phi i32 [ 0, %40 ], [ -22, %41 ], [ 0, %744 ], [ -12, %466 ], [ -12, %443 ], [ -12, %.thread ], [ -12, %482 ]
   ret i32 %.0456
 }
 
@@ -1879,7 +1879,7 @@ define internal void @biquad_s16(ptr noundef readonly captures(none) %0, ptr nou
   br label %81
 
 81:                                               ; preds = %57, %76, %79, %71
-  %.sink162 = phi i16 [ 32767, %76 ], [ %80, %79 ], [ -32768, %71 ], [ %62, %57 ]
+  %.sink162 = phi i16 [ -32768, %71 ], [ 32767, %76 ], [ %80, %79 ], [ %62, %57 ]
   %82 = getelementptr inbounds nuw i16, ptr %2, i64 %34
   store i16 %.sink162, ptr %82, align 2, !tbaa !76
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
@@ -1940,7 +1940,7 @@ define internal void @biquad_s16(ptr noundef readonly captures(none) %0, ptr nou
   br label %.sink.split
 
 .sink.split:                                      ; preds = %87, %101, %109, %106
-  %.sink164 = phi i16 [ 32767, %106 ], [ %110, %109 ], [ -32768, %101 ], [ %90, %87 ]
+  %.sink164 = phi i16 [ -32768, %101 ], [ 32767, %106 ], [ %110, %109 ], [ %90, %87 ]
   %111 = getelementptr inbounds nuw i16, ptr %2, i64 %88
   store i16 %.sink164, ptr %111, align 2, !tbaa !76
   br label %112
@@ -2073,7 +2073,7 @@ define internal void @biquad_s32(ptr noundef readonly captures(none) %0, ptr nou
   br label %80
 
 80:                                               ; preds = %56, %75, %78, %70
-  %.sink162 = phi i32 [ 2147483647, %75 ], [ %79, %78 ], [ -2147483648, %70 ], [ %61, %56 ]
+  %.sink162 = phi i32 [ -2147483648, %70 ], [ 2147483647, %75 ], [ %79, %78 ], [ %61, %56 ]
   %81 = getelementptr inbounds nuw i32, ptr %2, i64 %33
   store i32 %.sink162, ptr %81, align 4, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
@@ -2134,7 +2134,7 @@ define internal void @biquad_s32(ptr noundef readonly captures(none) %0, ptr nou
   br label %.sink.split
 
 .sink.split:                                      ; preds = %86, %100, %108, %105
-  %.sink164 = phi i32 [ 2147483647, %105 ], [ %109, %108 ], [ -2147483648, %100 ], [ %89, %86 ]
+  %.sink164 = phi i32 [ -2147483648, %100 ], [ 2147483647, %105 ], [ %109, %108 ], [ %89, %86 ]
   %110 = getelementptr inbounds nuw i32, ptr %2, i64 %87
   store i32 %.sink164, ptr %110, align 4, !tbaa !30
   br label %111

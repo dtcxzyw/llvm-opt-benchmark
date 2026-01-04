@@ -37,7 +37,7 @@ define ptr @ossl_quic_rstream_new(ptr noundef %0, ptr noundef %1, i64 noundef %2
   br label %13
 
 13:                                               ; preds = %3, %10, %9
-  %.0 = phi ptr [ %4, %10 ], [ null, %9 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %9 ], [ %4, %10 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -162,7 +162,7 @@ ring_buf_destroy.exit:                            ; preds = %47, %48
   br label %49
 
 49:                                               ; preds = %12, %7, %3, %ring_buf_destroy.exit, %ring_buf_push.exit.thread, %._crit_edge
-  %.016 = phi i32 [ 1, %ring_buf_destroy.exit ], [ 0, %ring_buf_push.exit.thread ], [ 0, %._crit_edge ], [ 1, %3 ], [ 0, %7 ], [ 0, %12 ]
+  %.016 = phi i32 [ 0, %._crit_edge ], [ 1, %3 ], [ 0, %7 ], [ 1, %ring_buf_destroy.exit ], [ 0, %ring_buf_push.exit.thread ], [ 0, %12 ]
   ret i32 %.016
 }
 
@@ -409,7 +409,7 @@ ring_buf_get_ptr.exit:                            ; preds = %34
   br i1 %64, label %.thread115, label %17
 
 .thread115:                                       ; preds = %17, %26, %.thread94
-  %.143 = phi i64 [ %63, %17 ], [ %.042127, %26 ], [ %63, %.thread94 ]
+  %.143 = phi i64 [ %.042127, %26 ], [ %63, %17 ], [ %63, %.thread94 ]
   %65 = add i64 %.039, %22
   %66 = icmp ne i32 %5, 0
   %67 = icmp ne i64 %65, 0
@@ -495,7 +495,7 @@ ring_buf_cpop_range.exit.thread:                  ; preds = %6, %.thread115, %ri
   br label %.thread108
 
 .thread108:                                       ; preds = %ring_buf_get_ptr.exit, %55, %43, %52, %31, %34, %ring_buf_cpop_range.exit, %ring_buf_cpop_range.exit.thread
-  %.452 = phi i32 [ %.041123, %ring_buf_cpop_range.exit.thread ], [ 0, %ring_buf_cpop_range.exit ], [ 0, %34 ], [ 0, %31 ], [ 0, %52 ], [ 0, %43 ], [ 0, %55 ], [ 0, %ring_buf_get_ptr.exit ]
+  %.452 = phi i32 [ 0, %ring_buf_cpop_range.exit ], [ %.041123, %ring_buf_cpop_range.exit.thread ], [ 0, %34 ], [ 0, %31 ], [ 0, %52 ], [ 0, %43 ], [ 0, %55 ], [ 0, %ring_buf_get_ptr.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -636,7 +636,7 @@ ring_buf_get_ptr.exit:                            ; preds = %30
   br label %ring_buf_get_ptr.exit.thread
 
 ring_buf_get_ptr.exit.thread:                     ; preds = %25, %30, %ring_buf_get_ptr.exit, %16, %14, %43, %8
-  %.022 = phi i32 [ 1, %43 ], [ 1, %8 ], [ 0, %14 ], [ 0, %16 ], [ 0, %ring_buf_get_ptr.exit ], [ 0, %30 ], [ 0, %25 ]
+  %.022 = phi i32 [ 1, %43 ], [ 0, %16 ], [ 0, %14 ], [ 1, %8 ], [ 0, %ring_buf_get_ptr.exit ], [ 0, %30 ], [ 0, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.022
 }
@@ -775,7 +775,7 @@ get_rtt.exit:                                     ; preds = %53, %55
   br label %59
 
 59:                                               ; preds = %15, %12, %2, %get_rtt.exit, %58
-  %.0 = phi i32 [ 1, %58 ], [ 0, %get_rtt.exit ], [ 0, %2 ], [ 0, %12 ], [ 0, %15 ]
+  %.0 = phi i32 [ 0, %2 ], [ 1, %58 ], [ 0, %get_rtt.exit ], [ 0, %12 ], [ 0, %15 ]
   ret i32 %.0
 }
 
@@ -876,7 +876,7 @@ safe_add_u64.exit48.i:                            ; preds = %20
   br i1 %39, label %.lr.ph.i, label %ring_buf_write_at.exit, !llvm.loop !36
 
 ring_buf_write_at.exit:                           ; preds = %35, %4, %safe_add_u64.exit.i, %20, %safe_add_u64.exit48.i, %.preheader.i
-  %.037.i = phi i32 [ 0, %safe_add_u64.exit48.i ], [ 0, %safe_add_u64.exit.i ], [ 0, %4 ], [ 0, %20 ], [ 1, %.preheader.i ], [ 1, %35 ]
+  %.037.i = phi i32 [ 0, %4 ], [ 0, %safe_add_u64.exit48.i ], [ 0, %safe_add_u64.exit.i ], [ 0, %20 ], [ 1, %.preheader.i ], [ 1, %35 ]
   ret i32 %.037.i
 }
 
@@ -894,7 +894,7 @@ define range(i32 0, 2) i32 @ossl_quic_rstream_resize_rbuf(ptr noundef %0, i64 no
   br label %9
 
 9:                                                ; preds = %4, %2
-  %.0 = phi i32 [ 0, %2 ], [ %8, %4 ]
+  %.0 = phi i32 [ %8, %4 ], [ 0, %2 ]
   ret i32 %.0
 }
 

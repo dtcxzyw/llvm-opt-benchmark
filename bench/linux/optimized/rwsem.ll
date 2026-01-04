@@ -1081,7 +1081,7 @@ define internal fastcc void @rwsem_mark_wake(ptr noundef %0, i32 noundef range(i
   br label %.loopexit
 
 42:                                               ; preds = %.thread, %18
-  %.neg9 = phi i64 [ 0, %18 ], [ -256, %.thread ]
+  %.neg9 = phi i64 [ -256, %.thread ], [ 0, %18 ]
   store volatile ptr %4, ptr %4, align 8
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store volatile ptr %4, ptr %43, align 8
@@ -1335,8 +1335,8 @@ rwsem_spin_on_owner.exit:                         ; preds = %62
   %81 = select i1 %80, i32 1, i32 2
   br label %rwsem_spin_on_owner.exit.thread12
 
-rwsem_spin_on_owner.exit.thread12:                ; preds = %rwsem_spin_on_owner.exit, %46, %.lr.ph51, %62
-  %82 = phi i32 [ %81, %rwsem_spin_on_owner.exit ], [ 1, %46 ], [ 4, %.lr.ph51 ], [ 4, %62 ]
+rwsem_spin_on_owner.exit.thread12:                ; preds = %rwsem_spin_on_owner.exit, %62, %46, %.lr.ph51
+  %82 = phi i32 [ %81, %rwsem_spin_on_owner.exit ], [ 4, %62 ], [ 1, %46 ], [ 4, %.lr.ph51 ]
   %83 = load volatile i64, ptr %0, align 8
   %84 = and i64 %83, -251
   %85 = icmp eq i64 %84, 0
@@ -1420,8 +1420,8 @@ rwsem_spin_on_owner.exit.thread12:                ; preds = %rwsem_spin_on_owner
   br i1 %132, label %.lr.ph55, label %.thread25, !llvm.loop !14
 
 .thread17:                                        ; preds = %._crit_edge, %102, %112, %116
-  %133 = phi i64 [ %39, %116 ], [ %39, %112 ], [ %111, %102 ], [ %39, %._crit_edge ]
-  %134 = phi i32 [ %113, %116 ], [ %113, %112 ], [ 0, %102 ], [ %40, %._crit_edge ]
+  %133 = phi i64 [ %39, %._crit_edge ], [ %39, %116 ], [ %39, %112 ], [ %111, %102 ]
+  %134 = phi i32 [ %40, %._crit_edge ], [ %113, %116 ], [ %113, %112 ], [ 0, %102 ]
   %135 = load volatile i64, ptr %7, align 8
   %136 = and i64 %135, 8
   %137 = icmp eq i64 %136, 0

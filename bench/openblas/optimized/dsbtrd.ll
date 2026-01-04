@@ -117,7 +117,7 @@ define void @dsbtrd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not660, label %67, label %.thread
 
 .thread.sink.split:                               ; preds = %60, %58, %55, %52, %50, %47
-  %.sink = phi i32 [ -1, %47 ], [ -2, %50 ], [ -3, %52 ], [ -4, %55 ], [ -6, %58 ], [ -10, %60 ]
+  %.sink = phi i32 [ -1, %47 ], [ -2, %50 ], [ -4, %55 ], [ -6, %58 ], [ -3, %52 ], [ -10, %60 ]
   store i32 %.sink, ptr %11, align 4, !tbaa !3
   br label %.thread
 
@@ -527,7 +527,7 @@ thread-pre-split708.us:                           ; preds = %.loopexit731.us
   br i1 %.in697750.us, label %.lr.ph752.us, label %.loopexit727.us
 
 .loopexit727.us:                                  ; preds = %.lr.ph749.us, %.lr.ph752.us, %261, %304, %.loopexit730.us
-  %.2622.us = phi i32 [ %.1621757.us, %.loopexit730.us ], [ %.1621757.us, %304 ], [ %262, %261 ], [ %.1621757.us, %.lr.ph752.us ], [ %262, %.lr.ph749.us ]
+  %.2622.us = phi i32 [ %.1621757.us, %304 ], [ %.1621757.us, %.loopexit730.us ], [ %.1621757.us, %.lr.ph752.us ], [ %262, %261 ], [ %262, %.lr.ph749.us ]
   %309 = add nsw i32 %90, %.
   %310 = load i32, ptr %2, align 4, !tbaa !3
   %311 = icmp sgt i32 %309, %310
@@ -660,9 +660,9 @@ thread-pre-split708.us:                           ; preds = %.loopexit731.us
   br label %.loopexit733
 
 .loopexit733:                                     ; preds = %.loopexit733.loopexit, %78
-  %386 = phi i32 [ %317, %.loopexit733.loopexit ], [ %43, %78 ]
-  %387 = phi i32 [ %310, %.loopexit733.loopexit ], [ %73, %78 ]
-  %388 = phi i32 [ %.pre894, %.loopexit733.loopexit ], [ %72, %78 ]
+  %386 = phi i32 [ %43, %78 ], [ %317, %.loopexit733.loopexit ]
+  %387 = phi i32 [ %73, %78 ], [ %310, %.loopexit733.loopexit ]
+  %388 = phi i32 [ %72, %78 ], [ %.pre894, %.loopexit733.loopexit ]
   %389 = icmp sgt i32 %388, 0
   br i1 %389, label %.loopexit733.thread, label %398
 
@@ -1099,7 +1099,7 @@ thread-pre-split710.us:                           ; preds = %.loopexit721.us
   br i1 %.in677798.us, label %.lr.ph800.us, label %.loopexit717.us
 
 .loopexit717.us:                                  ; preds = %.lr.ph797.us, %.lr.ph800.us, %582, %625, %.loopexit720.us
-  %.5625.us = phi i32 [ %.4624806.us, %.loopexit720.us ], [ %.4624806.us, %625 ], [ %583, %582 ], [ %.4624806.us, %.lr.ph800.us ], [ %583, %.lr.ph797.us ]
+  %.5625.us = phi i32 [ %.4624806.us, %625 ], [ %.4624806.us, %.loopexit720.us ], [ %.4624806.us, %.lr.ph800.us ], [ %583, %582 ], [ %583, %.lr.ph797.us ]
   %630 = add nsw i32 %431, %.
   %631 = load i32, ptr %2, align 4, !tbaa !3
   %632 = icmp sgt i32 %630, %631
@@ -1231,8 +1231,8 @@ thread-pre-split710.us:                           ; preds = %.loopexit721.us
   br label %.loopexit723
 
 .loopexit723:                                     ; preds = %.loopexit723.loopexit, %413
-  %708 = phi i32 [ %631, %.loopexit723.loopexit ], [ %73, %413 ]
-  %709 = phi i32 [ %.pre897, %.loopexit723.loopexit ], [ %72, %413 ]
+  %708 = phi i32 [ %73, %413 ], [ %631, %.loopexit723.loopexit ]
+  %709 = phi i32 [ %72, %413 ], [ %.pre897, %.loopexit723.loopexit ]
   %710 = icmp sgt i32 %709, 0
   br i1 %710, label %.loopexit723.thread, label %718
 

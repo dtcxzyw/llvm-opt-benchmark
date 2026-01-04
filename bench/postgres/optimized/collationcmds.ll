@@ -186,7 +186,7 @@ define dso_local { i64, i32 } @DefineCollation(ptr noundef %0, ptr noundef %1, p
   unreachable
 
 61:                                               ; preds = %49, %46, %43, %40, %37, %34, %31, %.lr.ph248
-  %.0109 = phi ptr [ %6, %.lr.ph248 ], [ %7, %31 ], [ %8, %34 ], [ %9, %37 ], [ %10, %40 ], [ %11, %43 ], [ %12, %46 ], [ %13, %49 ]
+  %.0109 = phi ptr [ %12, %46 ], [ %6, %.lr.ph248 ], [ %7, %31 ], [ %8, %34 ], [ %9, %37 ], [ %10, %40 ], [ %11, %43 ], [ %13, %49 ]
   %62 = load ptr, ptr %.0109, align 8
   %.not182 = icmp eq ptr %62, null
   br i1 %.not182, label %64, label %63
@@ -402,11 +402,11 @@ list_length.exit.thread:                          ; preds = %.thread, %list_leng
   unreachable
 
 159:                                              ; preds = %145, %152, %149, %146
-  %160 = phi i1 [ false, %146 ], [ false, %149 ], [ true, %152 ], [ true, %145 ]
-  %161 = phi i1 [ true, %146 ], [ false, %149 ], [ false, %152 ], [ false, %145 ]
-  %162 = phi i1 [ false, %146 ], [ true, %149 ], [ false, %152 ], [ false, %145 ]
-  %163 = phi i1 [ true, %146 ], [ false, %149 ], [ true, %152 ], [ true, %145 ]
-  %.1126 = phi i8 [ 98, %146 ], [ 105, %149 ], [ 99, %152 ], [ 99, %145 ]
+  %160 = phi i1 [ true, %152 ], [ false, %146 ], [ false, %149 ], [ true, %145 ]
+  %161 = phi i1 [ false, %152 ], [ true, %146 ], [ false, %149 ], [ false, %145 ]
+  %162 = phi i1 [ false, %152 ], [ false, %146 ], [ true, %149 ], [ false, %145 ]
+  %163 = phi i1 [ true, %152 ], [ true, %146 ], [ false, %149 ], [ true, %145 ]
+  %.1126 = phi i8 [ 99, %152 ], [ 98, %146 ], [ 105, %149 ], [ 99, %145 ]
   br i1 %.not161231236, label %168, label %164
 
 164:                                              ; preds = %159
@@ -524,7 +524,7 @@ list_length.exit.thread:                          ; preds = %.thread, %list_leng
   br label %212
 
 212:                                              ; preds = %203, %206, %210, %208, %200
-  %.4 = phi ptr [ %.2116, %200 ], [ %.2116, %206 ], [ %.2116, %203 ], [ %205, %210 ], [ %205, %208 ]
+  %.4 = phi ptr [ %.2116, %200 ], [ %.2116, %203 ], [ %.2116, %206 ], [ %205, %210 ], [ %205, %208 ]
   call void @icu_validate_locale(ptr noundef nonnull %.4) #10
   br label %213
 
@@ -580,7 +580,7 @@ list_length.exit.thread:                          ; preds = %.thread, %list_leng
   br label %236
 
 236:                                              ; preds = %225, %235, %229
-  %.0123 = phi i32 [ %226, %225 ], [ %228, %235 ], [ -1, %229 ]
+  %.0123 = phi i32 [ -1, %229 ], [ %226, %225 ], [ %228, %235 ]
   %.not180 = icmp eq ptr %.1128, null
   br i1 %.not180, label %237, label %240
 
@@ -1169,7 +1169,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @pg_import_system_collat
   br label %create_collation_from_locale.exit
 
 create_collation_from_locale.exit:                ; preds = %67, %62
-  %.6 = phi i32 [ %.088100, %62 ], [ %68, %67 ]
+  %.6 = phi i32 [ %68, %67 ], [ %.088100, %62 ]
   br label %69
 
 69:                                               ; preds = %.loopexit.i, %create_collation_from_locale.exit
@@ -1243,12 +1243,12 @@ normalize_libc_locale_name.exit:                  ; preds = %69
   %93 = add i32 %.058103, 1
   br label %create_collation_from_locale.exit.thread
 
-create_collation_from_locale.exit.thread:         ; preds = %60, %56, %58, %50, %52, %43, %45, %normalize_libc_locale_name.exit, %86, %37, %39
-  %.189 = phi i32 [ %.088100, %39 ], [ %.088100, %37 ], [ %.6, %86 ], [ %.6, %normalize_libc_locale_name.exit ], [ %.088100, %45 ], [ %.088100, %43 ], [ %.088100, %52 ], [ %.088100, %50 ], [ %.088100, %58 ], [ %.088100, %56 ], [ %.088100, %60 ]
-  %.187 = phi i32 [ %.086101, %39 ], [ %.086101, %37 ], [ %63, %86 ], [ %63, %normalize_libc_locale_name.exit ], [ %.086101, %45 ], [ %.086101, %43 ], [ %.086101, %52 ], [ %.086101, %50 ], [ %.086101, %58 ], [ %.086101, %56 ], [ %.086101, %60 ]
-  %.162 = phi i32 [ %.061102, %39 ], [ %.061102, %37 ], [ %.364, %86 ], [ %.061102, %normalize_libc_locale_name.exit ], [ %.061102, %45 ], [ %.061102, %43 ], [ %.061102, %52 ], [ %.061102, %50 ], [ %.061102, %58 ], [ %.061102, %56 ], [ %.061102, %60 ]
-  %.159 = phi i32 [ %.058103, %39 ], [ %.058103, %37 ], [ %93, %86 ], [ %.058103, %normalize_libc_locale_name.exit ], [ %.058103, %45 ], [ %.058103, %43 ], [ %.058103, %52 ], [ %.058103, %50 ], [ %.058103, %58 ], [ %.058103, %56 ], [ %.058103, %60 ]
-  %.1 = phi ptr [ %.0104, %39 ], [ %.0104, %37 ], [ %.3, %86 ], [ %.0104, %normalize_libc_locale_name.exit ], [ %.0104, %45 ], [ %.0104, %43 ], [ %.0104, %52 ], [ %.0104, %50 ], [ %.0104, %58 ], [ %.0104, %56 ], [ %.0104, %60 ]
+create_collation_from_locale.exit.thread:         ; preds = %58, %52, %45, %50, %60, %56, %43, %normalize_libc_locale_name.exit, %86, %37, %39
+  %.189 = phi i32 [ %.088100, %39 ], [ %.088100, %37 ], [ %.6, %normalize_libc_locale_name.exit ], [ %.6, %86 ], [ %.088100, %43 ], [ %.088100, %56 ], [ %.088100, %60 ], [ %.088100, %50 ], [ %.088100, %45 ], [ %.088100, %52 ], [ %.088100, %58 ]
+  %.187 = phi i32 [ %.086101, %39 ], [ %.086101, %37 ], [ %63, %normalize_libc_locale_name.exit ], [ %63, %86 ], [ %.086101, %43 ], [ %.086101, %56 ], [ %.086101, %60 ], [ %.086101, %50 ], [ %.086101, %45 ], [ %.086101, %52 ], [ %.086101, %58 ]
+  %.162 = phi i32 [ %.061102, %39 ], [ %.061102, %37 ], [ %.061102, %normalize_libc_locale_name.exit ], [ %.364, %86 ], [ %.061102, %43 ], [ %.061102, %56 ], [ %.061102, %60 ], [ %.061102, %50 ], [ %.061102, %45 ], [ %.061102, %52 ], [ %.061102, %58 ]
+  %.159 = phi i32 [ %.058103, %39 ], [ %.058103, %37 ], [ %.058103, %normalize_libc_locale_name.exit ], [ %93, %86 ], [ %.058103, %43 ], [ %.058103, %56 ], [ %.058103, %60 ], [ %.058103, %50 ], [ %.058103, %45 ], [ %.058103, %52 ], [ %.058103, %58 ]
+  %.1 = phi ptr [ %.0104, %39 ], [ %.0104, %37 ], [ %.0104, %normalize_libc_locale_name.exit ], [ %.3, %86 ], [ %.0104, %43 ], [ %.0104, %56 ], [ %.0104, %60 ], [ %.0104, %50 ], [ %.0104, %45 ], [ %.0104, %52 ], [ %.0104, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %94 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 128, ptr noundef nonnull %23)
   %.not = icmp eq ptr %94, null
@@ -1420,7 +1420,7 @@ get_icu_locale_comment.exit:                      ; preds = %.preheader.i78
   br label %157
 
 157:                                              ; preds = %get_icu_locale_comment.exit.thread, %127, %155, %124
-  %.5 = phi i32 [ %.4114, %127 ], [ %133, %155 ], [ %.4114, %124 ], [ %133, %get_icu_locale_comment.exit.thread ]
+  %.5 = phi i32 [ %.4114, %127 ], [ %133, %get_icu_locale_comment.exit.thread ], [ %133, %155 ], [ %.4114, %124 ]
   %158 = add nsw i32 %.066115, 1
   %159 = call i32 @uloc_countAvailable_70() #10
   %160 = icmp slt i32 %158, %159

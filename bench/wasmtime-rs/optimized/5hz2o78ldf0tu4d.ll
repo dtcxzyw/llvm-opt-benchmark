@@ -1455,7 +1455,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h07a363319738bd7eE
   br i1 %.sroa.18.0.in.i.us, label %.split19.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %15, %12, %10
-  %.0.us.be = phi i32 [ %14, %12 ], [ %.sroa.07.0.i.us, %15 ], [ %.sroa.07.0.i15.us, %10 ]
+  %.0.us.be = phi i32 [ %.sroa.07.0.i15.us, %10 ], [ %14, %12 ], [ %.sroa.07.0.i.us, %15 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -1563,7 +1563,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h07a363319738bd7eE
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %40, %21, %38
-  %.0.be = phi i32 [ %42, %40 ], [ %.sroa.07.0.i, %21 ], [ %.sroa.07.0.i15, %38 ]
+  %.0.be = phi i32 [ %.sroa.07.0.i15, %38 ], [ %42, %40 ], [ %.sroa.07.0.i, %21 ]
   br label %.split
 }
 
@@ -1605,7 +1605,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h8b8c3c884aa23ef5E
   br i1 %.sroa.18.0.in.i.us, label %.split19.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %15, %12, %10
-  %.0.us.be = phi i32 [ %14, %12 ], [ %.sroa.07.0.i.us, %15 ], [ %.sroa.07.0.i15.us, %10 ]
+  %.0.us.be = phi i32 [ %.sroa.07.0.i15.us, %10 ], [ %14, %12 ], [ %.sroa.07.0.i.us, %15 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -1713,7 +1713,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h8b8c3c884aa23ef5E
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %40, %21, %38
-  %.0.be = phi i32 [ %42, %40 ], [ %.sroa.07.0.i, %21 ], [ %.sroa.07.0.i15, %38 ]
+  %.0.be = phi i32 [ %.sroa.07.0.i15, %38 ], [ %42, %40 ], [ %.sroa.07.0.i, %21 ]
   br label %.split
 }
 
@@ -2280,23 +2280,23 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %6 = load i32, ptr %5, align 4, !alias.scope !194, !noalias !197, !noundef !4
   %7 = and i32 %6, 16
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %9, label %"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h43c6e3c26e6cf3f5E.exit.i"
+  br i1 %8, label %9, label %12
 
 9:                                                ; preds = %2
   %10 = and i32 %6, 32
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %14
+  br i1 %11, label %14, label %"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h43c6e3c26e6cf3f5E.exit.i"
 
-12:                                               ; preds = %9
-  %13 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h0516a742b2dd93cdE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+12:                                               ; preds = %2
+  %13 = tail call noundef zeroext i1 @"_ZN4core3fmt3num55_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$usize$GT$3fmt17hee0abb22a215cd8dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br i1 %13, label %"_ZN71_$LT$core..ops..range..Range$LT$Idx$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hb89bc12dbdb57582E.exit", label %17
 
 14:                                               ; preds = %9
-  %15 = tail call noundef zeroext i1 @"_ZN4core3fmt3num55_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$usize$GT$3fmt17h15b2e6144ec4ae8fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %15 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h0516a742b2dd93cdE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br i1 %15, label %"_ZN71_$LT$core..ops..range..Range$LT$Idx$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hb89bc12dbdb57582E.exit", label %17
 
-"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h43c6e3c26e6cf3f5E.exit.i": ; preds = %2
-  %16 = tail call noundef zeroext i1 @"_ZN4core3fmt3num55_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$usize$GT$3fmt17hee0abb22a215cd8dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h43c6e3c26e6cf3f5E.exit.i": ; preds = %9
+  %16 = tail call noundef zeroext i1 @"_ZN4core3fmt3num55_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$usize$GT$3fmt17h15b2e6144ec4ae8fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br i1 %16, label %"_ZN71_$LT$core..ops..range..Range$LT$Idx$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hb89bc12dbdb57582E.exit", label %17
 
 17:                                               ; preds = %"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h43c6e3c26e6cf3f5E.exit.i", %14, %12
@@ -2339,7 +2339,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN71_$LT$core..ops..range..Range$LT$Idx$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hb89bc12dbdb57582E.exit"
 
 "_ZN71_$LT$core..ops..range..Range$LT$Idx$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hb89bc12dbdb57582E.exit": ; preds = %12, %14, %"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h43c6e3c26e6cf3f5E.exit.i", %17, %31, %33, %35
-  %.0.i = phi i1 [ true, %"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h43c6e3c26e6cf3f5E.exit.i" ], [ true, %17 ], [ %34, %33 ], [ %36, %35 ], [ %32, %31 ], [ true, %12 ], [ true, %14 ]
+  %.0.i = phi i1 [ true, %17 ], [ true, %"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h43c6e3c26e6cf3f5E.exit.i" ], [ %34, %33 ], [ %36, %35 ], [ %32, %31 ], [ true, %14 ], [ true, %12 ]
   ret i1 %.0.i
 }
 
@@ -6263,7 +6263,7 @@ define hidden void @_ZN17cranelift_codegen8machinst3abi6SigSet30make_abi_sig_fro
 31:                                               ; preds = %32
   resume { ptr, i32 } %lpad.thr_comm
 
-32:                                               ; preds = %4, %17
+32:                                               ; preds = %17, %4
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr62drop_in_place$LT$cranelift_codegen..ir..extfunc..Signature$GT$17hed7ac1e29833f791E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %2) #40
@@ -6571,7 +6571,7 @@ _ZN17cranelift_codegen8machinst3abi21missing_struct_return17h4ca3f883cd817cbaE.e
   br i1 %110, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbeee50f9182a0ed5E.exit", label %.invoke
 
 .invoke:                                          ; preds = %109, %80, %66
-  %112 = phi ptr [ @anon.1a7877b4d25764724cd66411c116da83.103, %66 ], [ @anon.1a7877b4d25764724cd66411c116da83.104, %80 ], [ @anon.1a7877b4d25764724cd66411c116da83.116, %109 ]
+  %112 = phi ptr [ @anon.1a7877b4d25764724cd66411c116da83.104, %80 ], [ @anon.1a7877b4d25764724cd66411c116da83.103, %66 ], [ @anon.1a7877b4d25764724cd66411c116da83.116, %109 ]
   invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.1a7877b4d25764724cd66411c116da83.44.llvm.6092180546091225645, i64 noundef 43, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1a7877b4d25764724cd66411c116da83.42.llvm.6092180546091225645, ptr noalias noundef readonly align 8 dereferenceable(24) %112) #38
           to label %.cont unwind label %53
 
@@ -8306,7 +8306,7 @@ define hidden noundef nonnull align 8 dereferenceable(176) ptr @"_ZN17cranelift_
   br label %"_ZN120_$LT$cranelift_codegen..isa..x64..abi..X64ABIMachineSpec$u20$as$u20$cranelift_codegen..machinst..abi..ABIMachineSpec$GT$15get_machine_env17h4ef256a3889d53bfE.exit"
 
 "_ZN120_$LT$cranelift_codegen..isa..x64..abi..X64ABIMachineSpec$u20$as$u20$cranelift_codegen..machinst..abi..ABIMachineSpec$GT$15get_machine_env17h4ef256a3889d53bfE.exit": ; preds = %13, %15, %16, %18
-  %.0.i = phi ptr [ @"_ZN120_$LT$cranelift_codegen..isa..x64..abi..X64ABIMachineSpec$u20$as$u20$cranelift_codegen..machinst..abi..ABIMachineSpec$GT$15get_machine_env11MACHINE_ENV17hf0d56cadf9918b34E.llvm.17911367524062806024", %13 ], [ @"_ZN120_$LT$cranelift_codegen..isa..x64..abi..X64ABIMachineSpec$u20$as$u20$cranelift_codegen..machinst..abi..ABIMachineSpec$GT$15get_machine_env11MACHINE_ENV17hf0d56cadf9918b34E.llvm.17911367524062806024", %15 ], [ @"_ZN120_$LT$cranelift_codegen..isa..x64..abi..X64ABIMachineSpec$u20$as$u20$cranelift_codegen..machinst..abi..ABIMachineSpec$GT$15get_machine_env11MACHINE_ENV17h46b2a3537ce50368E.llvm.17911367524062806024", %16 ], [ @"_ZN120_$LT$cranelift_codegen..isa..x64..abi..X64ABIMachineSpec$u20$as$u20$cranelift_codegen..machinst..abi..ABIMachineSpec$GT$15get_machine_env11MACHINE_ENV17h46b2a3537ce50368E.llvm.17911367524062806024", %18 ]
+  %.0.i = phi ptr [ @"_ZN120_$LT$cranelift_codegen..isa..x64..abi..X64ABIMachineSpec$u20$as$u20$cranelift_codegen..machinst..abi..ABIMachineSpec$GT$15get_machine_env11MACHINE_ENV17hf0d56cadf9918b34E.llvm.17911367524062806024", %15 ], [ @"_ZN120_$LT$cranelift_codegen..isa..x64..abi..X64ABIMachineSpec$u20$as$u20$cranelift_codegen..machinst..abi..ABIMachineSpec$GT$15get_machine_env11MACHINE_ENV17hf0d56cadf9918b34E.llvm.17911367524062806024", %13 ], [ @"_ZN120_$LT$cranelift_codegen..isa..x64..abi..X64ABIMachineSpec$u20$as$u20$cranelift_codegen..machinst..abi..ABIMachineSpec$GT$15get_machine_env11MACHINE_ENV17h46b2a3537ce50368E.llvm.17911367524062806024", %16 ], [ @"_ZN120_$LT$cranelift_codegen..isa..x64..abi..X64ABIMachineSpec$u20$as$u20$cranelift_codegen..machinst..abi..ABIMachineSpec$GT$15get_machine_env11MACHINE_ENV17h46b2a3537ce50368E.llvm.17911367524062806024", %18 ]
   ret ptr %.0.i
 }
 
@@ -8404,7 +8404,7 @@ define hidden void @"_ZN17cranelift_codegen8machinst3abi15Callee$LT$M$GT$20gen_c
   br label %.body
 
 .body:                                            ; preds = %.loopexit132, %.loopexit.split-lp, %236, %212, %117, %153
-  %eh.lpad-body = phi { ptr, i32 } [ %154, %153 ], [ %118, %117 ], [ %213, %212 ], [ %237, %236 ], [ %lpad.loopexit, %.loopexit132 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %213, %212 ], [ %154, %153 ], [ %118, %117 ], [ %237, %236 ], [ %lpad.loopexit, %.loopexit132 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr131drop_in_place$LT$smallvec..SmallVec$LT$$u5b$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$u3b$$u20$4$u5d$$GT$$GT$17h6c1fd4b1d7006a7aE"(ptr noalias noundef nonnull align 8 dereferenceable(168) %20) #40
           to label %52 unwind label %50
 
@@ -8424,9 +8424,9 @@ define hidden void @"_ZN17cranelift_codegen8machinst3abi15Callee$LT$M$GT$20gen_c
   ]
 
 .invoke:                                          ; preds = %6, %156, %53
-  %60 = phi i64 [ %3, %53 ], [ %3, %156 ], [ %28, %6 ]
-  %61 = phi i64 [ %54, %53 ], [ %158, %156 ], [ %30, %6 ]
-  %62 = phi ptr [ @anon.1a7877b4d25764724cd66411c116da83.146, %53 ], [ @anon.1a7877b4d25764724cd66411c116da83.152, %156 ], [ @anon.b5a8f862ed486d2c5aaf296739ee8a16.158.llvm.17595789031839490487, %6 ]
+  %60 = phi i64 [ %3, %156 ], [ %3, %53 ], [ %28, %6 ]
+  %61 = phi i64 [ %158, %156 ], [ %54, %53 ], [ %30, %6 ]
+  %62 = phi ptr [ @anon.1a7877b4d25764724cd66411c116da83.152, %156 ], [ @anon.1a7877b4d25764724cd66411c116da83.146, %53 ], [ @anon.b5a8f862ed486d2c5aaf296739ee8a16.158.llvm.17595789031839490487, %6 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %60, i64 noundef %61, ptr noalias noundef readonly align 8 dereferenceable(24) %62) #38
           to label %.cont unwind label %.loopexit.split-lp
 
@@ -8508,7 +8508,7 @@ default.unreachable148:                           ; preds = %.noexc69, %56
   br i1 %93, label %95, label %.invoke149
 
 .invoke149:                                       ; preds = %194, %160, %134, %.noexc69, %.noexc69, %86
-  %94 = phi ptr [ @anon.1a7877b4d25764724cd66411c116da83.148, %86 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.22.llvm.15687030032196409338, %.noexc69 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.22.llvm.15687030032196409338, %.noexc69 ], [ @anon.1a7877b4d25764724cd66411c116da83.150, %134 ], [ @anon.1a7877b4d25764724cd66411c116da83.151, %160 ], [ @anon.1a7877b4d25764724cd66411c116da83.153, %194 ]
+  %94 = phi ptr [ @anon.1a7877b4d25764724cd66411c116da83.148, %86 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.22.llvm.15687030032196409338, %.noexc69 ], [ @anon.1a7877b4d25764724cd66411c116da83.150, %134 ], [ @anon.1a7877b4d25764724cd66411c116da83.151, %160 ], [ @anon.2cddbf5bcaf761a71b3f633d4eb1e193.22.llvm.15687030032196409338, %.noexc69 ], [ @anon.1a7877b4d25764724cd66411c116da83.153, %194 ]
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) %94) #38
           to label %.cont150 unwind label %.loopexit.split-lp
 
@@ -8556,9 +8556,9 @@ default.unreachable148:                           ; preds = %.noexc69, %56
   ]
 
 .invoke151:                                       ; preds = %185, %165, %.noexc69
-  %104 = phi ptr [ @anon.93d33193ed412401645690e7206ea482.120.llvm.6890334928246803750, %.noexc69 ], [ @anon.cce7e70c2f474c62efac044d17224bb4.35.llvm.1715581770924364745, %165 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.172.llvm.17911367524062806024, %185 ]
-  %105 = phi i64 [ 40, %.noexc69 ], [ 40, %165 ], [ 45, %185 ]
-  %106 = phi ptr [ @anon.93d33193ed412401645690e7206ea482.315.llvm.6890334928246803750, %.noexc69 ], [ @anon.cce7e70c2f474c62efac044d17224bb4.37.llvm.1715581770924364745, %165 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.173.llvm.17911367524062806024, %185 ]
+  %104 = phi ptr [ @anon.cce7e70c2f474c62efac044d17224bb4.35.llvm.1715581770924364745, %165 ], [ @anon.93d33193ed412401645690e7206ea482.120.llvm.6890334928246803750, %.noexc69 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.172.llvm.17911367524062806024, %185 ]
+  %105 = phi i64 [ 40, %165 ], [ 40, %.noexc69 ], [ 45, %185 ]
+  %106 = phi ptr [ @anon.cce7e70c2f474c62efac044d17224bb4.37.llvm.1715581770924364745, %165 ], [ @anon.93d33193ed412401645690e7206ea482.315.llvm.6890334928246803750, %.noexc69 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.173.llvm.17911367524062806024, %185 ]
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 %104, i64 noundef %105, ptr noalias noundef readonly align 8 dereferenceable(24) %106) #38
           to label %.cont152 unwind label %.loopexit.split-lp
 
@@ -9211,7 +9211,7 @@ define hidden void @"_ZN17cranelift_codegen8machinst3abi15Callee$LT$M$GT$23gen_c
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %258, %233, %160, %218, %144
-  %eh.lpad-body = phi { ptr, i32 } [ %145, %144 ], [ %219, %218 ], [ %lpad.phi155, %160 ], [ %lpad.phi161, %233 ], [ %lpad.phi166, %258 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %145, %144 ], [ %lpad.phi161, %233 ], [ %219, %218 ], [ %lpad.phi155, %160 ], [ %lpad.phi166, %258 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr131drop_in_place$LT$smallvec..SmallVec$LT$$u5b$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$u3b$$u20$4$u5d$$GT$$GT$17h6c1fd4b1d7006a7aE"(ptr noalias noundef nonnull align 8 dereferenceable(168) %22) #40
           to label %31 unwind label %28
 
@@ -9432,9 +9432,9 @@ _ZN17cranelift_codegen8machinst7helpers7ty_bits17hc68604df68927d5dE.exit: ; pred
   br i1 %127, label %.invoke282, label %176
 
 .invoke282:                                       ; preds = %207, %.noexc87, %125
-  %128 = phi ptr [ @anon.cce7e70c2f474c62efac044d17224bb4.35.llvm.1715581770924364745, %125 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc87 ], [ @anon.93d33193ed412401645690e7206ea482.120.llvm.6890334928246803750, %207 ]
-  %129 = phi i64 [ 40, %125 ], [ 17, %.noexc87 ], [ 40, %207 ]
-  %130 = phi ptr [ @anon.cce7e70c2f474c62efac044d17224bb4.37.llvm.1715581770924364745, %125 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc87 ], [ @anon.93d33193ed412401645690e7206ea482.315.llvm.6890334928246803750, %207 ]
+  %128 = phi ptr [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc87 ], [ @anon.cce7e70c2f474c62efac044d17224bb4.35.llvm.1715581770924364745, %125 ], [ @anon.93d33193ed412401645690e7206ea482.120.llvm.6890334928246803750, %207 ]
+  %129 = phi i64 [ 17, %.noexc87 ], [ 40, %125 ], [ 40, %207 ]
+  %130 = phi ptr [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc87 ], [ @anon.cce7e70c2f474c62efac044d17224bb4.37.llvm.1715581770924364745, %125 ], [ @anon.93d33193ed412401645690e7206ea482.315.llvm.6890334928246803750, %207 ]
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 %128, i64 noundef %129, ptr noalias noundef readonly align 8 dereferenceable(24) %130) #38
           to label %.cont283 unwind label %.loopexit.split-lp
 
@@ -9497,7 +9497,7 @@ _ZN17cranelift_codegen8machinst7helpers7ty_bits17hc68604df68927d5dE.exit: ; pred
   br i1 %151, label %.invoke280, label %153
 
 .invoke280:                                       ; preds = %202, %221, %147
-  %152 = phi ptr [ @anon.1a7877b4d25764724cd66411c116da83.160, %147 ], [ @anon.1a7877b4d25764724cd66411c116da83.165, %221 ], [ @anon.1a7877b4d25764724cd66411c116da83.166, %202 ]
+  %152 = phi ptr [ @anon.1a7877b4d25764724cd66411c116da83.165, %221 ], [ @anon.1a7877b4d25764724cd66411c116da83.160, %147 ], [ @anon.1a7877b4d25764724cd66411c116da83.166, %202 ]
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) %152) #38
           to label %.cont281 unwind label %.loopexit.split-lp
 
@@ -9664,7 +9664,7 @@ _ZN17cranelift_codegen8machinst7helpers7ty_bits17hc68604df68927d5dE.exit72: ; pr
   ]
 
 202:                                              ; preds = %244, %205, %203, %201
-  %.048 = phi i16 [ %109, %201 ], [ %109, %203 ], [ %109, %205 ], [ 121, %244 ]
+  %.048 = phi i16 [ %109, %201 ], [ %109, %205 ], [ %109, %203 ], [ 121, %244 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   br i1 %trunc60, label %249, label %.invoke280
 
@@ -10654,7 +10654,7 @@ define hidden void @"_ZN17cranelift_codegen8machinst3abi15Callee$LT$M$GT$12gen_p
   br label %.body
 
 .body:                                            ; preds = %.body.i.i, %.body.i5.i, %75, %33
-  %eh.lpad-body = phi { ptr, i32 } [ %34, %33 ], [ %76, %75 ], [ %85, %.body.i.i ], [ %105, %.body.i5.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %76, %75 ], [ %34, %33 ], [ %85, %.body.i.i ], [ %105, %.body.i5.i ]
   invoke void @"_ZN4core3ptr131drop_in_place$LT$smallvec..SmallVec$LT$$u5b$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$u3b$$u20$4$u5d$$GT$$GT$17h6c1fd4b1d7006a7aE"(ptr noalias noundef nonnull align 8 dereferenceable(168) %16) #40
           to label %32 unwind label %30
 
@@ -12186,7 +12186,7 @@ _ZN17cranelift_codegen8settings5Flags17libcall_call_conv17hf903fd4bf88a7cefE.exi
   br label %_ZN17cranelift_codegen3isa9call_conv8CallConv11for_libcall17h60f7286af664fc54E.exit
 
 _ZN17cranelift_codegen3isa9call_conv8CallConv11for_libcall17h60f7286af664fc54E.exit: ; preds = %_ZN17cranelift_codegen8settings5Flags17libcall_call_conv17hf903fd4bf88a7cefE.exit.i, %100, %101, %102
-  %.0.i = phi i8 [ 0, %100 ], [ 1, %101 ], [ %94, %102 ], [ %92, %_ZN17cranelift_codegen8settings5Flags17libcall_call_conv17hf903fd4bf88a7cefE.exit.i ]
+  %.0.i = phi i8 [ %92, %_ZN17cranelift_codegen8settings5Flags17libcall_call_conv17hf903fd4bf88a7cefE.exit.i ], [ 0, %100 ], [ 1, %101 ], [ %94, %102 ]
   call void @"_ZN120_$LT$cranelift_codegen..isa..x64..abi..X64ABIMachineSpec$u20$as$u20$cranelift_codegen..machinst..abi..ABIMachineSpec$GT$10gen_memcpy17he4caf97c9c30c74eE"(ptr noalias noundef nonnull sret({ { [40 x i64] }, i64 }) align 8 captures(none) dereferenceable(328) %12, i8 noundef %.0.i, i32 noundef %.sroa.04.0.extract.trunc.i13, i32 noundef %.sroa.04.0.extract.trunc.i, i64 noundef %53, ptr noalias noundef nonnull align 8 dereferenceable(1944) %1)
   %103 = getelementptr inbounds nuw i8, ptr %12, i64 320
   %104 = load i64, ptr %103, align 8, !noundef !4
@@ -13037,7 +13037,7 @@ _ZN17cranelift_codegen8machinst7helpers7ty_bits17hc68604df68927d5dE.exit121.thre
           to label %342 unwind label %.loopexit198, !callees !1911
 
 _ZN17cranelift_codegen8machinst3reg3Reg5class17hc7c6786d1f35d9dcE.exit: ; preds = %306, %305, %_ZN17cranelift_codegen8machinst7helpers7ty_bits17hc68604df68927d5dE.exit121.thread
-  %.0.i122 = phi i8 [ 1, %305 ], [ 2, %306 ], [ 0, %_ZN17cranelift_codegen8machinst7helpers7ty_bits17hc68604df68927d5dE.exit121.thread ]
+  %.0.i122 = phi i8 [ 2, %306 ], [ 1, %305 ], [ 0, %_ZN17cranelift_codegen8machinst7helpers7ty_bits17hc68604df68927d5dE.exit121.thread ]
   store i8 %.0.i122, ptr %25, align 1
   %308 = load i8, ptr %34, align 1, !range !64, !noundef !4
   %309 = icmp eq i8 %308, %.0.i122
@@ -13150,9 +13150,9 @@ _ZN17cranelift_codegen8machinst7helpers7ty_bits17hc68604df68927d5dE.exit140: ; p
   br label %286
 
 .invoke340:                                       ; preds = %_ZN17cranelift_codegen8machinst7helpers7ty_bits17hc68604df68927d5dE.exit121.thread, %.noexc114, %225, %_ZN17cranelift_codegen8machinst7helpers7ty_bits17hc68604df68927d5dE.exit.thread, %.noexc170, %404, %.noexc156, %92
-  %344 = phi ptr [ @anon.1a7877b4d25764724cd66411c116da83.228, %92 ], [ @anon.93d33193ed412401645690e7206ea482.120.llvm.6890334928246803750, %.noexc156 ], [ @anon.cce7e70c2f474c62efac044d17224bb4.35.llvm.1715581770924364745, %404 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc170 ], [ @anon.93d33193ed412401645690e7206ea482.120.llvm.6890334928246803750, %_ZN17cranelift_codegen8machinst7helpers7ty_bits17hc68604df68927d5dE.exit.thread ], [ @anon.cce7e70c2f474c62efac044d17224bb4.35.llvm.1715581770924364745, %225 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc114 ], [ @anon.93d33193ed412401645690e7206ea482.120.llvm.6890334928246803750, %_ZN17cranelift_codegen8machinst7helpers7ty_bits17hc68604df68927d5dE.exit121.thread ]
-  %345 = phi i64 [ 35, %92 ], [ 40, %.noexc156 ], [ 40, %404 ], [ 17, %.noexc170 ], [ 40, %_ZN17cranelift_codegen8machinst7helpers7ty_bits17hc68604df68927d5dE.exit.thread ], [ 40, %225 ], [ 17, %.noexc114 ], [ 40, %_ZN17cranelift_codegen8machinst7helpers7ty_bits17hc68604df68927d5dE.exit121.thread ]
-  %346 = phi ptr [ @anon.1a7877b4d25764724cd66411c116da83.229, %92 ], [ @anon.93d33193ed412401645690e7206ea482.315.llvm.6890334928246803750, %.noexc156 ], [ @anon.cce7e70c2f474c62efac044d17224bb4.37.llvm.1715581770924364745, %404 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc170 ], [ @anon.93d33193ed412401645690e7206ea482.204.llvm.6890334928246803750, %_ZN17cranelift_codegen8machinst7helpers7ty_bits17hc68604df68927d5dE.exit.thread ], [ @anon.cce7e70c2f474c62efac044d17224bb4.37.llvm.1715581770924364745, %225 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc114 ], [ @anon.93d33193ed412401645690e7206ea482.315.llvm.6890334928246803750, %_ZN17cranelift_codegen8machinst7helpers7ty_bits17hc68604df68927d5dE.exit121.thread ]
+  %344 = phi ptr [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc170 ], [ @anon.cce7e70c2f474c62efac044d17224bb4.35.llvm.1715581770924364745, %404 ], [ @anon.1a7877b4d25764724cd66411c116da83.228, %92 ], [ @anon.93d33193ed412401645690e7206ea482.120.llvm.6890334928246803750, %.noexc156 ], [ @anon.93d33193ed412401645690e7206ea482.120.llvm.6890334928246803750, %_ZN17cranelift_codegen8machinst7helpers7ty_bits17hc68604df68927d5dE.exit121.thread ], [ @anon.93d33193ed412401645690e7206ea482.120.llvm.6890334928246803750, %_ZN17cranelift_codegen8machinst7helpers7ty_bits17hc68604df68927d5dE.exit.thread ], [ @anon.cce7e70c2f474c62efac044d17224bb4.35.llvm.1715581770924364745, %225 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc114 ]
+  %345 = phi i64 [ 17, %.noexc170 ], [ 40, %404 ], [ 35, %92 ], [ 40, %.noexc156 ], [ 40, %_ZN17cranelift_codegen8machinst7helpers7ty_bits17hc68604df68927d5dE.exit121.thread ], [ 40, %_ZN17cranelift_codegen8machinst7helpers7ty_bits17hc68604df68927d5dE.exit.thread ], [ 40, %225 ], [ 17, %.noexc114 ]
+  %346 = phi ptr [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc170 ], [ @anon.cce7e70c2f474c62efac044d17224bb4.37.llvm.1715581770924364745, %404 ], [ @anon.1a7877b4d25764724cd66411c116da83.229, %92 ], [ @anon.93d33193ed412401645690e7206ea482.315.llvm.6890334928246803750, %.noexc156 ], [ @anon.93d33193ed412401645690e7206ea482.315.llvm.6890334928246803750, %_ZN17cranelift_codegen8machinst7helpers7ty_bits17hc68604df68927d5dE.exit121.thread ], [ @anon.93d33193ed412401645690e7206ea482.204.llvm.6890334928246803750, %_ZN17cranelift_codegen8machinst7helpers7ty_bits17hc68604df68927d5dE.exit.thread ], [ @anon.cce7e70c2f474c62efac044d17224bb4.37.llvm.1715581770924364745, %225 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc114 ]
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 %344, i64 noundef %345, ptr noalias noundef readonly align 8 dereferenceable(24) %346) #38
           to label %.cont341 unwind label %.loopexit.split-lp
 
@@ -14208,7 +14208,7 @@ define hidden void @"_ZN17cranelift_codegen8machinst3abi17CallSite$LT$M$GT$9emit
           to label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$cranelift_codegen..result..CodegenError$GT$$GT$17hab3e439f402e911aE.llvm.6890334928246803750.exit.i" unwind label %46
 
 common.resume:                                    ; preds = %180, %148, %160, %131, %46
-  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %.pn82, %180 ], [ %149, %148 ], [ %132, %131 ], [ %161, %160 ]
+  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %.pn82, %180 ], [ %149, %148 ], [ %161, %160 ], [ %132, %131 ]
   resume { ptr, i32 } %common.resume.op
 
 46:                                               ; preds = %45
@@ -14328,7 +14328,7 @@ default.unreachable:                              ; preds = %"_ZN129_$LT$craneli
 .noexc:                                           ; preds = %78
   unreachable
 
-.thread90:                                        ; preds = %112, %"_ZN86_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h38897cba2fb6f197E.exit.thread", %78, %94, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$cranelift_codegen..result..CodegenError$GT$$GT$17hab3e439f402e911aE.llvm.6890334928246803750.exit.i31"
+.thread90:                                        ; preds = %112, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$cranelift_codegen..result..CodegenError$GT$$GT$17hab3e439f402e911aE.llvm.6890334928246803750.exit.i31", %"_ZN86_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h38897cba2fb6f197E.exit.thread", %78, %94
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread78
@@ -16549,7 +16549,7 @@ define internal fastcc void @"_ZN17cranelift_codegen8machinst6buffer19MachBuffer
   unreachable
 
 34:                                               ; preds = %118, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h892a425832998959E.exit.thread", %86, %40
-  %.019 = phi i1 [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h892a425832998959E.exit.thread" ], [ true, %86 ], [ true, %40 ], [ true, %118 ]
+  %.019 = phi i1 [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h892a425832998959E.exit.thread" ], [ true, %40 ], [ true, %118 ], [ true, %86 ]
   %35 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$smallvec..SmallVec$LT$$u5b$u8$u3b$$u20$8$u5d$$GT$$GT$$GT$17h99623bff2dea7daeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8) #40
@@ -17047,9 +17047,9 @@ define hidden void @"_ZN17cranelift_codegen8machinst6buffer19MachBuffer$LT$I$GT$
   br i1 %148, label %191, label %185
 
 .loopexit:                                        ; preds = %494, %55, %.loopexit286
-  %149 = phi i64 [ %62, %55 ], [ %.pre760, %.loopexit286 ], [ %498, %494 ]
-  %150 = phi ptr [ %61, %55 ], [ %.pre759, %.loopexit286 ], [ %497, %494 ]
-  %151 = phi i64 [ %59, %55 ], [ %.pre758, %.loopexit286 ], [ %495, %494 ]
+  %149 = phi i64 [ %.pre760, %.loopexit286 ], [ %62, %55 ], [ %498, %494 ]
+  %150 = phi ptr [ %.pre759, %.loopexit286 ], [ %61, %55 ], [ %497, %494 ]
+  %151 = phi i64 [ %.pre758, %.loopexit286 ], [ %59, %55 ], [ %495, %494 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2722)
   %152 = icmp ugt i64 %151, 4
   %.sink5.i14.i = select i1 %152, ptr %150, ptr %56
@@ -17617,7 +17617,7 @@ common.resume:                                    ; preds = %.body, %363
   unreachable
 
 .body:                                            ; preds = %.loopexit293, %.loopexit.split-lp294, %.loopexit287, %.loopexit.split-lp, %.thread273, %398, %486
-  %.pn142 = phi { ptr, i32 } [ %lpad.phi292, %486 ], [ %399, %398 ], [ %453, %.thread273 ], [ %lpad.loopexit, %.loopexit287 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit295, %.loopexit293 ], [ %lpad.loopexit.split-lp296, %.loopexit.split-lp294 ]
+  %.pn142 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.phi292, %486 ], [ %453, %.thread273 ], [ %399, %398 ], [ %lpad.loopexit, %.loopexit287 ], [ %lpad.loopexit295, %.loopexit293 ], [ %lpad.loopexit.split-lp296, %.loopexit.split-lp294 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$smallvec..SmallVec$LT$$u5b$u8$u3b$$u20$8$u5d$$GT$$GT$17h4bf0db7b08a9f5c8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %20) #40
           to label %common.resume unwind label %487
 
@@ -19539,8 +19539,8 @@ define hidden void @"_ZN17cranelift_codegen8machinst6buffer19MachBuffer$LT$I$GT$
           to label %.noexc56 unwind label %.loopexit
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %384, %140, %70
-  %.2 = phi i1 [ true, %70 ], [ true, %140 ], [ false, %384 ], [ true, %.loopexit.split-lp ], [ true, %.loopexit ]
-  %.pn = phi { ptr, i32 } [ %71, %70 ], [ %141, %140 ], [ %145, %384 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ]
+  %.2 = phi i1 [ true, %140 ], [ false, %384 ], [ true, %70 ], [ true, %.loopexit.split-lp ], [ true, %.loopexit ]
+  %.pn = phi { ptr, i32 } [ %141, %140 ], [ %145, %384 ], [ %71, %70 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ]
   invoke fastcc void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$GT$$GT$17hf7f4a35ac36f6c19E"(ptr nonnull %29, ptr nonnull %34) #40
           to label %.thread unwind label %381
 
@@ -21826,7 +21826,7 @@ define noundef range(i8 0, 11) i8 @"_ZN86_$LT$cranelift_codegen..ir..condcodes..
   br label %13
 
 13:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit74", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit74.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit70", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit66", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit62", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit58", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit54", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit50", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit46", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit42", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit"
-  %.0 = phi i8 [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit" ], [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit42" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit46" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit50" ], [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit54" ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit58" ], [ 7, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit62" ], [ 8, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit66" ], [ 9, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit70" ], [ 10, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit74.thread" ], [ %spec.select, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit74" ]
+  %.0 = phi i8 [ 9, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit70" ], [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit" ], [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit42" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit46" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit50" ], [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit54" ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit58" ], [ 7, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit62" ], [ 8, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit66" ], [ 10, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit74.thread" ], [ %spec.select, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit74" ]
   ret i8 %.0
 }
 
@@ -21950,7 +21950,7 @@ define noundef range(i8 0, 15) i8 @"_ZN88_$LT$cranelift_codegen..ir..condcodes..
   br label %17
 
 17:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit106", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit106.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit102", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit98", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit94", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit90", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit86", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit82", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit78", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit74", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit70", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit66", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit62", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit58", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit"
-  %.0 = phi i8 [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit" ], [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit58" ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit62" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit66" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit70" ], [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit74" ], [ 6, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit78" ], [ 7, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit82" ], [ 8, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit86" ], [ 9, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit90" ], [ 10, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit94" ], [ 11, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit98" ], [ 12, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit102" ], [ 14, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit106.thread" ], [ %spec.select, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit106" ]
+  %.0 = phi i8 [ 12, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit102" ], [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit" ], [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit58" ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit62" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit66" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit70" ], [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit74" ], [ 6, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit78" ], [ 7, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit82" ], [ 8, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit86" ], [ 9, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit90" ], [ 10, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit94" ], [ 11, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit98" ], [ 14, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit106.thread" ], [ %spec.select, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit106" ]
   ret i8 %.0
 }
 
@@ -22070,7 +22070,7 @@ define noundef range(i16 136, 183) i16 @_ZN17cranelift_codegen2ir12dynamic_type1
   br label %19
 
 19:                                               ; preds = %1, %18, %17, %16, %15, %14, %13, %12, %11
-  %.0 = phi i16 [ 182, %11 ], [ 151, %12 ], [ 167, %13 ], [ 136, %14 ], [ 152, %15 ], [ 137, %16 ], [ 155, %17 ], [ 140, %18 ], [ 166, %1 ]
+  %.0 = phi i16 [ 140, %18 ], [ 182, %11 ], [ 151, %12 ], [ 167, %13 ], [ 136, %14 ], [ 152, %15 ], [ 137, %16 ], [ 155, %17 ], [ 166, %1 ]
   ret i16 %.0
 }
 
@@ -22472,7 +22472,7 @@ default.unreachable11:                            ; preds = %2
   br label %"_ZN83_$LT$cranelift_codegen..ir..extname..TestcaseName$u20$as$u20$core..fmt..Display$GT$3fmt17hef68648ddb50ff1aE.exit"
 
 "_ZN83_$LT$cranelift_codegen..ir..extname..TestcaseName$u20$as$u20$core..fmt..Display$GT$3fmt17hef68648ddb50ff1aE.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1c76d89c562cb560E.llvm.6092180546091225645.exit.i", %20, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hf479013f25334422E.exit", %71, %43, %35
-  %.0.in = phi i1 [ %70, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hf479013f25334422E.exit" ], [ %78, %71 ], [ %42, %35 ], [ %50, %43 ], [ %34, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1c76d89c562cb560E.llvm.6092180546091225645.exit.i" ], [ true, %20 ]
+  %.0.in = phi i1 [ %70, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hf479013f25334422E.exit" ], [ %78, %71 ], [ %50, %43 ], [ %42, %35 ], [ %34, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1c76d89c562cb560E.llvm.6092180546091225645.exit.i" ], [ true, %20 ]
   ret i1 %.0.in
 }
 
@@ -22494,14 +22494,14 @@ define void @"_ZN91_$LT$cranelift_codegen..ir..extname..ExternalName$u20$as$u20$
   %5 = icmp eq i32 %bcmp.i9.fr.i, 0
   br i1 %5, label %"_ZN95_$LT$cranelift_codegen..ir..known_symbol..KnownSymbol$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h31f257a34b3ebc22E.exit", label %6
 
-"_ZN95_$LT$cranelift_codegen..ir..known_symbol..KnownSymbol$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h31f257a34b3ebc22E.exit": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit10.i"
-  %.0.i = phi i8 [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit10.i" ], [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit.i" ]
+"_ZN95_$LT$cranelift_codegen..ir..known_symbol..KnownSymbol$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h31f257a34b3ebc22E.exit": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit10.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit.i"
+  %.0.i = phi i8 [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit.i" ], [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit10.i" ]
   store i8 3, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.0.i, ptr %.sroa.4.0..sroa_idx, align 1
   br label %8
 
-6:                                                ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit10.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit.i", %3
+6:                                                ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit.i", %3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit10.i"
   %7 = tail call noundef i8 @"_ZN86_$LT$cranelift_codegen..ir..libcall..LibCall$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h4b43c7fea224ed53E"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !range !3885
   %.not11 = icmp eq i8 %7, 18
   br i1 %.not11, label %10, label %9
@@ -22550,7 +22550,7 @@ define noundef range(i8 0, 3) i8 @"_ZN94_$LT$cranelift_codegen..ir..stackslot..S
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit10.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit10.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit", %2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit10"
-  %.0 = phi i8 [ %spec.select, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit10" ], [ %spec.select15, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit" ], [ 2, %2 ]
+  %.0 = phi i8 [ %spec.select15, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit" ], [ 2, %2 ], [ %spec.select, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit10" ]
   ret i8 %.0
 }
 
@@ -23021,7 +23021,7 @@ _ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hfc16732641f8e30fE.exit
   br label %_ZN17cranelift_codegen3isa3x648encoding4evex15EvexInstruction21scaling_for_8bit_disp17ha4da5db242c58ff2E.exit
 
 _ZN17cranelift_codegen3isa3x648encoding4evex15EvexInstruction21scaling_for_8bit_disp17ha4da5db242c58ff2E.exit: ; preds = %99, %108, %112, %113, %_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hfc16732641f8e30fE.exit6.i, %116, %120, %121
-  %.0.i13 = phi i8 [ 16, %99 ], [ %..i, %_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hfc16732641f8e30fE.exit6.i ], [ 32, %112 ], [ 64, %113 ], [ 16, %108 ], [ 32, %120 ], [ 64, %121 ], [ 16, %116 ]
+  %.0.i13 = phi i8 [ %..i, %_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hfc16732641f8e30fE.exit6.i ], [ 16, %99 ], [ 16, %108 ], [ 64, %113 ], [ 32, %112 ], [ 64, %121 ], [ 32, %120 ], [ 16, %116 ]
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 23
   %123 = load i8, ptr %122, align 1, !range !316, !noundef !4
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 21
@@ -24111,8 +24111,8 @@ _ZN17cranelift_codegen3isa3x648encoding3rex11int_reg_enc17h3c38e1829d69ed5bE.exi
   br label %_ZN17cranelift_codegen3isa3x648encoding3rex3Imm3new17hdfb5f1496f602de6E.exit
 
 _ZN17cranelift_codegen3isa3x648encoding3rex3Imm3new17hdfb5f1496f602de6E.exit: ; preds = %_ZN17cranelift_codegen3isa3x648encoding3rex11int_reg_enc17h3c38e1829d69ed5bE.exit3, %21, %31, %36
-  %.sroa.6.0.shrunk.i = phi i32 [ 0, %_ZN17cranelift_codegen3isa3x648encoding3rex11int_reg_enc17h3c38e1829d69ed5bE.exit3 ], [ 0, %31 ], [ %narrow.i, %36 ], [ %narrow7.i, %21 ]
-  %.sroa.01.0.i = phi i64 [ 0, %_ZN17cranelift_codegen3isa3x648encoding3rex11int_reg_enc17h3c38e1829d69ed5bE.exit3 ], [ 2, %31 ], [ %spec.select5.i, %36 ], [ %spec.select6.i, %21 ]
+  %.sroa.6.0.shrunk.i = phi i32 [ %narrow.i, %36 ], [ 0, %_ZN17cranelift_codegen3isa3x648encoding3rex11int_reg_enc17h3c38e1829d69ed5bE.exit3 ], [ 0, %31 ], [ %narrow7.i, %21 ]
+  %.sroa.01.0.i = phi i64 [ %spec.select5.i, %36 ], [ 0, %_ZN17cranelift_codegen3isa3x648encoding3rex11int_reg_enc17h3c38e1829d69ed5bE.exit3 ], [ 2, %31 ], [ %spec.select6.i, %21 ]
   %.sroa.6.0.i = zext i32 %.sroa.6.0.shrunk.i to i64
   %.sroa.82.0.insert.ext.i = zext i32 %12 to i64
   %.sroa.82.0.insert.shift.i = shl nuw i64 %.sroa.82.0.insert.ext.i, 32
@@ -24435,8 +24435,8 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i29: ; preds = %144
   br label %_ZN17cranelift_codegen3isa3x648encoding3rex3Imm3new17hdfb5f1496f602de6E.exit46
 
 _ZN17cranelift_codegen3isa3x648encoding3rex3Imm3new17hdfb5f1496f602de6E.exit46: ; preds = %158, %161, %171, %176
-  %.sroa.6.0.shrunk.i35 = phi i32 [ 0, %158 ], [ 0, %171 ], [ %narrow.i44, %176 ], [ %narrow7.i33, %161 ]
-  %.sroa.01.0.i36 = phi i64 [ 0, %158 ], [ 2, %171 ], [ %spec.select5.i45, %176 ], [ %spec.select6.i34, %161 ]
+  %.sroa.6.0.shrunk.i35 = phi i32 [ %narrow.i44, %176 ], [ 0, %158 ], [ 0, %171 ], [ %narrow7.i33, %161 ]
+  %.sroa.01.0.i36 = phi i64 [ %spec.select5.i45, %176 ], [ 0, %158 ], [ 2, %171 ], [ %spec.select6.i34, %161 ]
   %.sroa.6.0.i37 = zext i32 %.sroa.6.0.shrunk.i35 to i64
   %.sroa.82.0.insert.ext.i38 = zext i32 %43 to i64
   %.sroa.82.0.insert.shift.i39 = shl nuw i64 %.sroa.82.0.insert.ext.i38, 32
@@ -27288,7 +27288,7 @@ define hidden void @_ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b832
   br i1 %566, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h632dd07ca4bfa040E.exit", label %.lr.ph.i
 
 .body:                                            ; preds = %.loopexit3555, %.loopexit.split-lp, %684, %5113, %4850, %4761, %4592, %4379, %4167, %4075, %3664, %2618, %2551, %2470, %2188, %2171, %2099, %2069, %1946, %1559
-  %.pn1500 = phi { ptr, i32 } [ %1560, %1559 ], [ %.pn1494.pn.pn, %1946 ], [ %2070, %2069 ], [ %2100, %2099 ], [ %2172, %2171 ], [ %2189, %2188 ], [ %2471, %2470 ], [ %.pn1485, %2551 ], [ %2619, %2618 ], [ %3665, %3664 ], [ %.pn1471.pn.pn, %4075 ], [ %.pn1461, %4167 ], [ %.pn1435, %4379 ], [ %.pn1409, %4592 ], [ %4762, %4761 ], [ %.pn1397, %4850 ], [ %.pn1390, %5113 ], [ %685, %684 ], [ %lpad.loopexit, %.loopexit3555 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn1500 = phi { ptr, i32 } [ %.pn1390, %5113 ], [ %1560, %1559 ], [ %.pn1494.pn.pn, %1946 ], [ %2070, %2069 ], [ %2100, %2099 ], [ %2172, %2171 ], [ %2189, %2188 ], [ %2471, %2470 ], [ %.pn1485, %2551 ], [ %2619, %2618 ], [ %3665, %3664 ], [ %.pn1471.pn.pn, %4075 ], [ %.pn1461, %4167 ], [ %.pn1435, %4379 ], [ %.pn1409, %4592 ], [ %4762, %4761 ], [ %.pn1397, %4850 ], [ %685, %684 ], [ %lpad.loopexit, %.loopexit3555 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr123drop_in_place$LT$smallvec..SmallVec$LT$$u5b$cranelift_codegen..isa..x64..inst..args..InstructionSet$u3b$$u20$2$u5d$$GT$$GT$17hc11cd4e60b71d944E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %559) #40
           to label %5262 unwind label %1563
 
@@ -27460,72 +27460,72 @@ define hidden void @_ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b832
     i8 0, label %.backedge.i
     i8 1, label %.backedge.i
     i8 2, label %595
-    i8 3, label %597
-    i8 4, label %598
-    i8 5, label %599
-    i8 6, label %600
-    i8 7, label %601
-    i8 8, label %602
-    i8 9, label %603
-    i8 10, label %604
-    i8 11, label %605
-    i8 12, label %606
-    i8 13, label %607
-    i8 14, label %608
-    i8 15, label %609
-    i8 16, label %610
+    i8 3, label %596
+    i8 4, label %597
+    i8 5, label %598
+    i8 6, label %599
+    i8 7, label %600
+    i8 8, label %601
+    i8 9, label %602
+    i8 10, label %603
+    i8 11, label %604
+    i8 12, label %605
+    i8 13, label %606
+    i8 14, label %607
+    i8 15, label %608
+    i8 16, label %609
   ]
 
 595:                                              ; preds = %592
   br i1 %.not18.i, label %611, label %.backedge.i
 
-.backedge.i:                                      ; preds = %610, %609, %608, %607, %606, %605, %604, %603, %602, %601, %600, %599, %598, %597, %595, %592, %592
-  %596 = icmp eq ptr %594, %569
-  br i1 %596, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h632dd07ca4bfa040E.exit", label %592
-
-597:                                              ; preds = %592
+596:                                              ; preds = %592
   br i1 %.not17.i, label %611, label %.backedge.i
 
-598:                                              ; preds = %592
+597:                                              ; preds = %592
   br i1 %.not16.i, label %611, label %.backedge.i
 
-599:                                              ; preds = %592
+598:                                              ; preds = %592
   br i1 %.not15.i, label %611, label %.backedge.i
 
-600:                                              ; preds = %592
+599:                                              ; preds = %592
   br i1 %.not14.i, label %611, label %.backedge.i
 
-601:                                              ; preds = %592
+600:                                              ; preds = %592
   br i1 %584, label %.backedge.i, label %611
 
-602:                                              ; preds = %592
+601:                                              ; preds = %592
   br i1 %.not13.i, label %611, label %.backedge.i
 
-603:                                              ; preds = %592
+602:                                              ; preds = %592
   br i1 %.not12.i, label %611, label %.backedge.i
 
-604:                                              ; preds = %592
+603:                                              ; preds = %592
   br i1 %.not11.i, label %611, label %.backedge.i
 
-605:                                              ; preds = %592
+604:                                              ; preds = %592
   br i1 %.not10.i, label %611, label %.backedge.i
 
-606:                                              ; preds = %592
+605:                                              ; preds = %592
   br i1 %577, label %.backedge.i, label %611
 
-607:                                              ; preds = %592
+606:                                              ; preds = %592
   br i1 %.not9.i, label %611, label %.backedge.i
 
-608:                                              ; preds = %592
+607:                                              ; preds = %592
   br i1 %.not8.i, label %611, label %.backedge.i
 
-609:                                              ; preds = %592
+608:                                              ; preds = %592
   br i1 %.not7.i, label %611, label %.backedge.i
 
-610:                                              ; preds = %592
+609:                                              ; preds = %592
   br i1 %.not.i, label %611, label %.backedge.i
 
-611:                                              ; preds = %595, %597, %598, %599, %600, %601, %602, %603, %604, %605, %606, %607, %608, %609, %610
+.backedge.i:                                      ; preds = %609, %608, %607, %606, %605, %604, %603, %602, %601, %600, %599, %598, %597, %596, %595, %592, %592
+  %610 = icmp eq ptr %594, %569
+  br i1 %610, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h632dd07ca4bfa040E.exit", label %592
+
+611:                                              ; preds = %609, %597, %598, %599, %600, %601, %602, %603, %604, %605, %606, %607, %608, %596, %595
   call void @llvm.lifetime.start.p0(ptr nonnull %558)
   call void @llvm.lifetime.start.p0(ptr nonnull %557)
   store ptr %560, ptr %557, align 8
@@ -27729,8 +27729,8 @@ default.unreachable:                              ; preds = %592, %5191, %5124, 
   br label %.invoke4272
 
 .invoke4272:                                      ; preds = %.invoke4314, %5222, %5191, %686, %1994, %1991, %5194, %5193, %2521, %2405, %2284, %700
-  %702 = phi ptr [ %701, %700 ], [ %2285, %2284 ], [ %2404, %2405 ], [ %2524, %2521 ], [ %753, %5193 ], [ %753, %5194 ], [ %1993, %1991 ], [ %1993, %1994 ], [ %690, %686 ], [ %753, %5191 ], [ %5217, %5222 ], [ %1993, %.invoke4314 ]
-  %703 = phi i8 [ -52, %700 ], [ %.sroa.41155.0.extract.trunc, %2284 ], [ %2407, %2405 ], [ %2523, %2521 ], [ -24, %5193 ], [ -8, %5194 ], [ -103, %1991 ], [ -104, %1994 ], [ -61, %686 ], [ -16, %5191 ], [ 23, %5222 ], [ -103, %.invoke4314 ]
+  %702 = phi ptr [ %701, %700 ], [ %753, %5191 ], [ %1993, %1991 ], [ %1993, %1994 ], [ %1993, %.invoke4314 ], [ %2285, %2284 ], [ %2404, %2405 ], [ %2524, %2521 ], [ %5217, %5222 ], [ %690, %686 ], [ %753, %5193 ], [ %753, %5194 ]
+  %703 = phi i8 [ -52, %700 ], [ -16, %5191 ], [ -103, %1991 ], [ -104, %1994 ], [ -103, %.invoke4314 ], [ %.sroa.41155.0.extract.trunc, %2284 ], [ %2407, %2405 ], [ %2523, %2521 ], [ 23, %5222 ], [ -61, %686 ], [ -24, %5193 ], [ -8, %5194 ]
   %704 = getelementptr inbounds nuw i8, ptr %2, i64 1072
   %705 = load i64, ptr %704, align 8, !alias.scope !4511, !noalias !4516, !noundef !4
   %706 = icmp ugt i64 %705, 1024
@@ -27755,9 +27755,9 @@ default.unreachable:                              ; preds = %592, %5191, %5124, 
   ]
 
 .invoke4774:                                      ; preds = %.noexc1846, %.noexc1856, %.noexc1867, %.noexc1878, %.noexc1889, %.noexc1900, %.noexc1911, %.noexc1922, %.noexc1933, %.noexc1944, %.noexc1955, %.noexc1966, %.noexc1977, %.noexc1988, %.noexc1999, %.noexc2010, %.noexc2021, %.noexc2032, %.noexc2043, %.noexc2054, %.noexc2065, %.noexc2076, %.noexc2087, %.noexc2098, %.noexc2109, %.noexc2120, %.noexc2131, %.noexc2142, %.noexc2153, %.noexc2164, %.noexc2175, %.noexc2186, %.noexc2197, %.noexc2208, %.noexc2219, %.noexc2230, %.noexc2241, %.noexc2252, %.noexc2263, %.noexc2274, %.noexc2285, %.noexc2296, %.noexc2307, %.noexc2318, %.noexc2329, %5059, %3184, %1512, %1571, %1794, %2151, %switch.lookup4866, %2527, %2533, %3121, %3245, %3246, %4158, %4362, %4579, %5034, %5032, %.noexc
-  %714 = phi ptr [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc ], [ @anon.1a7877b4d25764724cd66411c116da83.222.llvm.6092180546091225645, %1512 ], [ @anon.1a7877b4d25764724cd66411c116da83.222.llvm.6092180546091225645, %1571 ], [ @anon.1a7877b4d25764724cd66411c116da83.222.llvm.6092180546091225645, %1794 ], [ @anon.1a7877b4d25764724cd66411c116da83.222.llvm.6092180546091225645, %2151 ], [ @anon.1a7877b4d25764724cd66411c116da83.222.llvm.6092180546091225645, %switch.lookup4866 ], [ @anon.1a7877b4d25764724cd66411c116da83.553, %2527 ], [ @anon.1a7877b4d25764724cd66411c116da83.556, %2533 ], [ @anon.1a7877b4d25764724cd66411c116da83.222.llvm.6092180546091225645, %3121 ], [ @anon.1a7877b4d25764724cd66411c116da83.222.llvm.6092180546091225645, %3184 ], [ @anon.1a7877b4d25764724cd66411c116da83.222.llvm.6092180546091225645, %3245 ], [ @anon.1a7877b4d25764724cd66411c116da83.222.llvm.6092180546091225645, %3246 ], [ @anon.1a7877b4d25764724cd66411c116da83.222.llvm.6092180546091225645, %4158 ], [ @anon.1a7877b4d25764724cd66411c116da83.222.llvm.6092180546091225645, %4362 ], [ @anon.1a7877b4d25764724cd66411c116da83.222.llvm.6092180546091225645, %4579 ], [ @anon.1a7877b4d25764724cd66411c116da83.679, %5034 ], [ @anon.1a7877b4d25764724cd66411c116da83.681, %5032 ], [ @anon.1a7877b4d25764724cd66411c116da83.222.llvm.6092180546091225645, %5059 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2329 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2318 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2307 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2296 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2285 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2274 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2263 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2252 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2241 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2230 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2219 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2208 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2197 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2186 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2175 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2164 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2153 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2142 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2131 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2120 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2109 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2098 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2087 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2076 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2065 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2054 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2043 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2032 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2021 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2010 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc1999 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc1988 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc1977 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc1966 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc1955 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc1944 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc1933 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc1922 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc1911 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc1900 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc1889 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc1878 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc1867 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc1856 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc1846 ]
-  %715 = phi i64 [ 17, %.noexc ], [ 40, %1512 ], [ 40, %1571 ], [ 40, %1794 ], [ 40, %2151 ], [ 40, %switch.lookup4866 ], [ 48, %2527 ], [ 46, %2533 ], [ 40, %3121 ], [ 40, %3184 ], [ 40, %3245 ], [ 40, %3246 ], [ 40, %4158 ], [ 40, %4362 ], [ 40, %4579 ], [ 44, %5034 ], [ 45, %5032 ], [ 40, %5059 ], [ 17, %.noexc2329 ], [ 17, %.noexc2318 ], [ 17, %.noexc2307 ], [ 17, %.noexc2296 ], [ 17, %.noexc2285 ], [ 17, %.noexc2274 ], [ 17, %.noexc2263 ], [ 17, %.noexc2252 ], [ 17, %.noexc2241 ], [ 17, %.noexc2230 ], [ 17, %.noexc2219 ], [ 17, %.noexc2208 ], [ 17, %.noexc2197 ], [ 17, %.noexc2186 ], [ 17, %.noexc2175 ], [ 17, %.noexc2164 ], [ 17, %.noexc2153 ], [ 17, %.noexc2142 ], [ 17, %.noexc2131 ], [ 17, %.noexc2120 ], [ 17, %.noexc2109 ], [ 17, %.noexc2098 ], [ 17, %.noexc2087 ], [ 17, %.noexc2076 ], [ 17, %.noexc2065 ], [ 17, %.noexc2054 ], [ 17, %.noexc2043 ], [ 17, %.noexc2032 ], [ 17, %.noexc2021 ], [ 17, %.noexc2010 ], [ 17, %.noexc1999 ], [ 17, %.noexc1988 ], [ 17, %.noexc1977 ], [ 17, %.noexc1966 ], [ 17, %.noexc1955 ], [ 17, %.noexc1944 ], [ 17, %.noexc1933 ], [ 17, %.noexc1922 ], [ 17, %.noexc1911 ], [ 17, %.noexc1900 ], [ 17, %.noexc1889 ], [ 17, %.noexc1878 ], [ 17, %.noexc1867 ], [ 17, %.noexc1856 ], [ 17, %.noexc1846 ]
-  %716 = phi ptr [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc ], [ @anon.1a7877b4d25764724cd66411c116da83.519, %1512 ], [ @anon.1a7877b4d25764724cd66411c116da83.523, %1571 ], [ @anon.1a7877b4d25764724cd66411c116da83.529, %1794 ], [ @anon.1a7877b4d25764724cd66411c116da83.542, %2151 ], [ @anon.1a7877b4d25764724cd66411c116da83.548, %switch.lookup4866 ], [ @anon.1a7877b4d25764724cd66411c116da83.554, %2527 ], [ @anon.1a7877b4d25764724cd66411c116da83.557, %2533 ], [ @anon.1a7877b4d25764724cd66411c116da83.593, %3121 ], [ @anon.1a7877b4d25764724cd66411c116da83.598, %3184 ], [ @anon.1a7877b4d25764724cd66411c116da83.600, %3245 ], [ @anon.1a7877b4d25764724cd66411c116da83.601, %3246 ], [ @anon.1a7877b4d25764724cd66411c116da83.660, %4158 ], [ @anon.1a7877b4d25764724cd66411c116da83.662, %4362 ], [ @anon.1a7877b4d25764724cd66411c116da83.666, %4579 ], [ @anon.1a7877b4d25764724cd66411c116da83.680, %5034 ], [ @anon.1a7877b4d25764724cd66411c116da83.682, %5032 ], [ @anon.1a7877b4d25764724cd66411c116da83.683, %5059 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2329 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2318 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2307 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2296 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2285 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2274 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2263 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2252 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2241 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2230 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2219 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2208 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2197 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2186 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2175 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2164 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2153 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2142 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2131 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2120 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2109 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2098 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2087 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2076 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2065 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2054 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2043 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2032 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2021 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2010 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc1999 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc1988 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc1977 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc1966 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc1955 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc1944 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc1933 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc1922 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc1911 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc1900 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc1889 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc1878 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc1867 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc1856 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc1846 ]
+  %714 = phi ptr [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc ], [ @anon.1a7877b4d25764724cd66411c116da83.222.llvm.6092180546091225645, %5059 ], [ @anon.1a7877b4d25764724cd66411c116da83.222.llvm.6092180546091225645, %1512 ], [ @anon.1a7877b4d25764724cd66411c116da83.222.llvm.6092180546091225645, %1571 ], [ @anon.1a7877b4d25764724cd66411c116da83.222.llvm.6092180546091225645, %1794 ], [ @anon.1a7877b4d25764724cd66411c116da83.222.llvm.6092180546091225645, %2151 ], [ @anon.1a7877b4d25764724cd66411c116da83.222.llvm.6092180546091225645, %switch.lookup4866 ], [ @anon.1a7877b4d25764724cd66411c116da83.553, %2527 ], [ @anon.1a7877b4d25764724cd66411c116da83.556, %2533 ], [ @anon.1a7877b4d25764724cd66411c116da83.222.llvm.6092180546091225645, %3121 ], [ @anon.1a7877b4d25764724cd66411c116da83.222.llvm.6092180546091225645, %3184 ], [ @anon.1a7877b4d25764724cd66411c116da83.222.llvm.6092180546091225645, %3245 ], [ @anon.1a7877b4d25764724cd66411c116da83.222.llvm.6092180546091225645, %3246 ], [ @anon.1a7877b4d25764724cd66411c116da83.222.llvm.6092180546091225645, %4158 ], [ @anon.1a7877b4d25764724cd66411c116da83.222.llvm.6092180546091225645, %4362 ], [ @anon.1a7877b4d25764724cd66411c116da83.222.llvm.6092180546091225645, %4579 ], [ @anon.1a7877b4d25764724cd66411c116da83.679, %5034 ], [ @anon.1a7877b4d25764724cd66411c116da83.681, %5032 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2329 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2318 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2307 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2296 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2285 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2274 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2263 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2252 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2241 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2230 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2219 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2208 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2197 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2186 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2175 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2164 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2153 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2142 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2131 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2120 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2109 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2098 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2087 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2076 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2065 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2054 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2043 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2032 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2021 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc2010 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc1999 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc1988 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc1977 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc1966 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc1955 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc1944 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc1933 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc1922 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc1911 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc1900 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc1889 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc1878 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc1867 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc1856 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc1846 ]
+  %715 = phi i64 [ 17, %.noexc ], [ 40, %5059 ], [ 40, %1512 ], [ 40, %1571 ], [ 40, %1794 ], [ 40, %2151 ], [ 40, %switch.lookup4866 ], [ 48, %2527 ], [ 46, %2533 ], [ 40, %3121 ], [ 40, %3184 ], [ 40, %3245 ], [ 40, %3246 ], [ 40, %4158 ], [ 40, %4362 ], [ 40, %4579 ], [ 44, %5034 ], [ 45, %5032 ], [ 17, %.noexc2329 ], [ 17, %.noexc2318 ], [ 17, %.noexc2307 ], [ 17, %.noexc2296 ], [ 17, %.noexc2285 ], [ 17, %.noexc2274 ], [ 17, %.noexc2263 ], [ 17, %.noexc2252 ], [ 17, %.noexc2241 ], [ 17, %.noexc2230 ], [ 17, %.noexc2219 ], [ 17, %.noexc2208 ], [ 17, %.noexc2197 ], [ 17, %.noexc2186 ], [ 17, %.noexc2175 ], [ 17, %.noexc2164 ], [ 17, %.noexc2153 ], [ 17, %.noexc2142 ], [ 17, %.noexc2131 ], [ 17, %.noexc2120 ], [ 17, %.noexc2109 ], [ 17, %.noexc2098 ], [ 17, %.noexc2087 ], [ 17, %.noexc2076 ], [ 17, %.noexc2065 ], [ 17, %.noexc2054 ], [ 17, %.noexc2043 ], [ 17, %.noexc2032 ], [ 17, %.noexc2021 ], [ 17, %.noexc2010 ], [ 17, %.noexc1999 ], [ 17, %.noexc1988 ], [ 17, %.noexc1977 ], [ 17, %.noexc1966 ], [ 17, %.noexc1955 ], [ 17, %.noexc1944 ], [ 17, %.noexc1933 ], [ 17, %.noexc1922 ], [ 17, %.noexc1911 ], [ 17, %.noexc1900 ], [ 17, %.noexc1889 ], [ 17, %.noexc1878 ], [ 17, %.noexc1867 ], [ 17, %.noexc1856 ], [ 17, %.noexc1846 ]
+  %716 = phi ptr [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc ], [ @anon.1a7877b4d25764724cd66411c116da83.683, %5059 ], [ @anon.1a7877b4d25764724cd66411c116da83.519, %1512 ], [ @anon.1a7877b4d25764724cd66411c116da83.523, %1571 ], [ @anon.1a7877b4d25764724cd66411c116da83.529, %1794 ], [ @anon.1a7877b4d25764724cd66411c116da83.542, %2151 ], [ @anon.1a7877b4d25764724cd66411c116da83.548, %switch.lookup4866 ], [ @anon.1a7877b4d25764724cd66411c116da83.554, %2527 ], [ @anon.1a7877b4d25764724cd66411c116da83.557, %2533 ], [ @anon.1a7877b4d25764724cd66411c116da83.593, %3121 ], [ @anon.1a7877b4d25764724cd66411c116da83.598, %3184 ], [ @anon.1a7877b4d25764724cd66411c116da83.600, %3245 ], [ @anon.1a7877b4d25764724cd66411c116da83.601, %3246 ], [ @anon.1a7877b4d25764724cd66411c116da83.660, %4158 ], [ @anon.1a7877b4d25764724cd66411c116da83.662, %4362 ], [ @anon.1a7877b4d25764724cd66411c116da83.666, %4579 ], [ @anon.1a7877b4d25764724cd66411c116da83.680, %5034 ], [ @anon.1a7877b4d25764724cd66411c116da83.682, %5032 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2329 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2318 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2307 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2296 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2285 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2274 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2263 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2252 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2241 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2230 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2219 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2208 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2197 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2186 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2175 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2164 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2153 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2142 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2131 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2120 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2109 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2098 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2087 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2076 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2065 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2054 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2043 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2032 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2021 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc2010 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc1999 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc1988 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc1977 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc1966 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc1955 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc1944 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc1933 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc1922 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc1911 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc1900 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc1889 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc1878 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc1867 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc1856 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc1846 ]
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 %714, i64 noundef %715, ptr noalias noundef readonly align 8 dereferenceable(24) %716) #38
           to label %.cont4775 unwind label %.loopexit.split-lp
 
@@ -27765,8 +27765,8 @@ default.unreachable:                              ; preds = %592, %5191, %5124, 
   unreachable
 
 .invoke4772:                                      ; preds = %.noexc1856, %.noexc1867, %.noexc1878, %.noexc1889, %.noexc1900, %.noexc1911, %.noexc1922, %.noexc1933, %.noexc1944, %.noexc1955, %.noexc1966, %.noexc1977, %.noexc1988, %.noexc1999, %.noexc2010, %.noexc2021, %.noexc2032, %.noexc2043, %.noexc2054, %.noexc2065, %.noexc2076, %.noexc2087, %.noexc2098, %.noexc2109, %.noexc2120, %.noexc2131, %.noexc2142, %.noexc2153, %.noexc2164, %.noexc2175, %.noexc2186, %.noexc2197, %.noexc2208, %.noexc2219, %.noexc2230, %.noexc2241, %.noexc2252, %.noexc2263, %.noexc2274, %.noexc2285, %.noexc2296, %.noexc2307, %.noexc2318, %.noexc2329, %.noexc1846, %.noexc
-  %.lcssa4268.sink.sink = phi { i64, i64 } [ %712, %.noexc ], [ %811, %.noexc1856 ], [ %821, %.noexc1867 ], [ %831, %.noexc1878 ], [ %841, %.noexc1889 ], [ %851, %.noexc1900 ], [ %861, %.noexc1911 ], [ %871, %.noexc1922 ], [ %881, %.noexc1933 ], [ %895, %.noexc1944 ], [ %911, %.noexc1955 ], [ %925, %.noexc1966 ], [ %941, %.noexc1977 ], [ %955, %.noexc1988 ], [ %969, %.noexc1999 ], [ %985, %.noexc2010 ], [ %999, %.noexc2021 ], [ %1013, %.noexc2032 ], [ %1027, %.noexc2043 ], [ %1043, %.noexc2054 ], [ %1057, %.noexc2065 ], [ %1071, %.noexc2076 ], [ %1085, %.noexc2087 ], [ %1099, %.noexc2098 ], [ %1115, %.noexc2109 ], [ %1129, %.noexc2120 ], [ %1143, %.noexc2131 ], [ %1157, %.noexc2142 ], [ %1171, %.noexc2153 ], [ %1185, %.noexc2164 ], [ %1201, %.noexc2175 ], [ %1215, %.noexc2186 ], [ %1229, %.noexc2197 ], [ %1243, %.noexc2208 ], [ %1257, %.noexc2219 ], [ %1271, %.noexc2230 ], [ %1285, %.noexc2241 ], [ %1301, %.noexc2252 ], [ %1315, %.noexc2263 ], [ %1329, %.noexc2274 ], [ %1343, %.noexc2285 ], [ %1357, %.noexc2296 ], [ %1371, %.noexc2307 ], [ %1385, %.noexc2318 ], [ %1399, %.noexc2329 ], [ %799, %.noexc1846 ]
-  %717 = phi i64 [ %713, %.noexc ], [ %812, %.noexc1856 ], [ %822, %.noexc1867 ], [ %832, %.noexc1878 ], [ %842, %.noexc1889 ], [ %852, %.noexc1900 ], [ %862, %.noexc1911 ], [ %872, %.noexc1922 ], [ %882, %.noexc1933 ], [ %896, %.noexc1944 ], [ %912, %.noexc1955 ], [ %926, %.noexc1966 ], [ %942, %.noexc1977 ], [ %956, %.noexc1988 ], [ %970, %.noexc1999 ], [ %986, %.noexc2010 ], [ %1000, %.noexc2021 ], [ %1014, %.noexc2032 ], [ %1028, %.noexc2043 ], [ %1044, %.noexc2054 ], [ %1058, %.noexc2065 ], [ %1072, %.noexc2076 ], [ %1086, %.noexc2087 ], [ %1100, %.noexc2098 ], [ %1116, %.noexc2109 ], [ %1130, %.noexc2120 ], [ %1144, %.noexc2131 ], [ %1158, %.noexc2142 ], [ %1172, %.noexc2153 ], [ %1186, %.noexc2164 ], [ %1202, %.noexc2175 ], [ %1216, %.noexc2186 ], [ %1230, %.noexc2197 ], [ %1244, %.noexc2208 ], [ %1258, %.noexc2219 ], [ %1272, %.noexc2230 ], [ %1286, %.noexc2241 ], [ %1302, %.noexc2252 ], [ %1316, %.noexc2263 ], [ %1330, %.noexc2274 ], [ %1344, %.noexc2285 ], [ %1358, %.noexc2296 ], [ %1372, %.noexc2307 ], [ %1386, %.noexc2318 ], [ %1400, %.noexc2329 ], [ %800, %.noexc1846 ]
+  %.lcssa4268.sink.sink = phi { i64, i64 } [ %712, %.noexc ], [ %799, %.noexc1846 ], [ %1385, %.noexc2318 ], [ %1371, %.noexc2307 ], [ %1357, %.noexc2296 ], [ %1343, %.noexc2285 ], [ %1329, %.noexc2274 ], [ %1315, %.noexc2263 ], [ %1301, %.noexc2252 ], [ %1285, %.noexc2241 ], [ %1271, %.noexc2230 ], [ %1257, %.noexc2219 ], [ %1243, %.noexc2208 ], [ %1229, %.noexc2197 ], [ %1215, %.noexc2186 ], [ %1201, %.noexc2175 ], [ %1185, %.noexc2164 ], [ %1171, %.noexc2153 ], [ %1157, %.noexc2142 ], [ %1143, %.noexc2131 ], [ %1129, %.noexc2120 ], [ %1115, %.noexc2109 ], [ %1099, %.noexc2098 ], [ %1085, %.noexc2087 ], [ %1071, %.noexc2076 ], [ %1057, %.noexc2065 ], [ %1043, %.noexc2054 ], [ %1027, %.noexc2043 ], [ %1013, %.noexc2032 ], [ %999, %.noexc2021 ], [ %985, %.noexc2010 ], [ %969, %.noexc1999 ], [ %955, %.noexc1988 ], [ %941, %.noexc1977 ], [ %925, %.noexc1966 ], [ %911, %.noexc1955 ], [ %895, %.noexc1944 ], [ %881, %.noexc1933 ], [ %871, %.noexc1922 ], [ %861, %.noexc1911 ], [ %851, %.noexc1900 ], [ %841, %.noexc1889 ], [ %831, %.noexc1878 ], [ %821, %.noexc1867 ], [ %811, %.noexc1856 ], [ %1399, %.noexc2329 ]
+  %717 = phi i64 [ %713, %.noexc ], [ %800, %.noexc1846 ], [ %1386, %.noexc2318 ], [ %1372, %.noexc2307 ], [ %1358, %.noexc2296 ], [ %1344, %.noexc2285 ], [ %1330, %.noexc2274 ], [ %1316, %.noexc2263 ], [ %1302, %.noexc2252 ], [ %1286, %.noexc2241 ], [ %1272, %.noexc2230 ], [ %1258, %.noexc2219 ], [ %1244, %.noexc2208 ], [ %1230, %.noexc2197 ], [ %1216, %.noexc2186 ], [ %1202, %.noexc2175 ], [ %1186, %.noexc2164 ], [ %1172, %.noexc2153 ], [ %1158, %.noexc2142 ], [ %1144, %.noexc2131 ], [ %1130, %.noexc2120 ], [ %1116, %.noexc2109 ], [ %1100, %.noexc2098 ], [ %1086, %.noexc2087 ], [ %1072, %.noexc2076 ], [ %1058, %.noexc2065 ], [ %1044, %.noexc2054 ], [ %1028, %.noexc2043 ], [ %1014, %.noexc2032 ], [ %1000, %.noexc2021 ], [ %986, %.noexc2010 ], [ %970, %.noexc1999 ], [ %956, %.noexc1988 ], [ %942, %.noexc1977 ], [ %926, %.noexc1966 ], [ %912, %.noexc1955 ], [ %896, %.noexc1944 ], [ %882, %.noexc1933 ], [ %872, %.noexc1922 ], [ %862, %.noexc1911 ], [ %852, %.noexc1900 ], [ %842, %.noexc1889 ], [ %832, %.noexc1878 ], [ %822, %.noexc1867 ], [ %812, %.noexc1856 ], [ %1400, %.noexc2329 ]
   %718 = extractvalue { i64, i64 } %.lcssa4268.sink.sink, 1
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef %717, i64 noundef %718) #38
           to label %.cont4773 unwind label %.loopexit.split-lp
@@ -29780,7 +29780,7 @@ switch.lookup4780:                                ; preds = %1465
   br i1 %1507, label %.invoke4274, label %1509
 
 .invoke4274:                                      ; preds = %.noexc1704, %.noexc1708, %.noexc1713, %.noexc1718, %.noexc1723, %4032, %4027, %4016, %.noexc1654.thread3468, %.noexc1660, %.noexc1656, %.thread4084, %3783, %3656, %.noexc1671.thread3457, %.noexc1677, %.noexc1673, %3603, %.thread4076, %3587, %.noexc1697, %.noexc1695, %.noexc1691, %3523, %3512, %switch.lookup4915, %3469, %3446, %3444, %3441, %3439, %3411, %3400, %3371, %switch.lookup4903, %switch.lookup4895, %switch.lookup4889, %3297, %3281, %3255, %3219, %3191, %3189, %switch.lookup4885, %3173, %3143, %3141, %3114, %3078, %switch.lookup4875, %3063, %3030, %3028, %3013, %2975, %2973, %2957, %2955, %2831, %2820, %2815, %2610, %.noexc1728, %.noexc1733, %.noexc1738, %.noexc1823, %.noexc1743, %.noexc1748, %switch.lookup4858, %switch.lookup4846, %.noexc1758, %.noexc1763, %2090, %2080, %2060, %2051, %.noexc1768, %.noexc1773, %.noexc1778, %.noexc1783, %switch.lookup4799, %switch.lookup4792, %1659, %1651, %switch.lookup, %1614, %1549, %1543, %1537, %1520, %switch.lookup4784, %1504, %.noexc1798, %.noexc1803, %.noexc1808, %.noexc1813, %.noexc1818
-  %1508 = phi ptr [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1818 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1813 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1808 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1803 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1798 ], [ @anon.1a7877b4d25764724cd66411c116da83.516, %1504 ], [ @anon.1a7877b4d25764724cd66411c116da83.517, %switch.lookup4784 ], [ @anon.1a7877b4d25764724cd66411c116da83.518, %1520 ], [ @anon.1a7877b4d25764724cd66411c116da83.520, %1537 ], [ @anon.1a7877b4d25764724cd66411c116da83.521, %1543 ], [ @anon.1a7877b4d25764724cd66411c116da83.522, %1549 ], [ @anon.1a7877b4d25764724cd66411c116da83.524, %1614 ], [ @anon.1a7877b4d25764724cd66411c116da83.525, %switch.lookup ], [ @anon.1a7877b4d25764724cd66411c116da83.526, %1651 ], [ @anon.1a7877b4d25764724cd66411c116da83.527, %1659 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %switch.lookup4792 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %switch.lookup4799 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1783 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1778 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1773 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1768 ], [ @anon.1a7877b4d25764724cd66411c116da83.538, %2051 ], [ @anon.1a7877b4d25764724cd66411c116da83.539, %2060 ], [ @anon.1a7877b4d25764724cd66411c116da83.540, %2080 ], [ @anon.1a7877b4d25764724cd66411c116da83.541, %2090 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1763 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1758 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %switch.lookup4846 ], [ @anon.1a7877b4d25764724cd66411c116da83.493, %switch.lookup4858 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1748 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1743 ], [ @anon.1a7877b4d25764724cd66411c116da83.493, %.noexc1823 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1738 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1733 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1728 ], [ @anon.1a7877b4d25764724cd66411c116da83.558, %2610 ], [ @anon.1a7877b4d25764724cd66411c116da83.564, %2815 ], [ @anon.1a7877b4d25764724cd66411c116da83.565, %2820 ], [ @anon.1a7877b4d25764724cd66411c116da83.566, %2831 ], [ @anon.1a7877b4d25764724cd66411c116da83.567, %2955 ], [ @anon.1a7877b4d25764724cd66411c116da83.568, %2957 ], [ @anon.1a7877b4d25764724cd66411c116da83.572, %2973 ], [ @anon.1a7877b4d25764724cd66411c116da83.573, %2975 ], [ @anon.1a7877b4d25764724cd66411c116da83.578, %3013 ], [ @anon.1a7877b4d25764724cd66411c116da83.579, %3028 ], [ @anon.1a7877b4d25764724cd66411c116da83.580, %3030 ], [ @anon.1a7877b4d25764724cd66411c116da83.584, %3063 ], [ @anon.1a7877b4d25764724cd66411c116da83.585, %switch.lookup4875 ], [ @anon.1a7877b4d25764724cd66411c116da83.586, %3078 ], [ @anon.1a7877b4d25764724cd66411c116da83.590, %3114 ], [ @anon.1a7877b4d25764724cd66411c116da83.591, %3141 ], [ @anon.1a7877b4d25764724cd66411c116da83.592, %3143 ], [ @anon.1a7877b4d25764724cd66411c116da83.594, %3173 ], [ @anon.1a7877b4d25764724cd66411c116da83.595, %switch.lookup4885 ], [ @anon.1a7877b4d25764724cd66411c116da83.596, %3189 ], [ @anon.1a7877b4d25764724cd66411c116da83.597, %3191 ], [ @anon.1a7877b4d25764724cd66411c116da83.599, %3219 ], [ @anon.1a7877b4d25764724cd66411c116da83.602, %3255 ], [ @anon.1a7877b4d25764724cd66411c116da83.604, %3281 ], [ @anon.1a7877b4d25764724cd66411c116da83.605, %3297 ], [ @anon.1a7877b4d25764724cd66411c116da83.608, %switch.lookup4889 ], [ @anon.1a7877b4d25764724cd66411c116da83.610, %switch.lookup4895 ], [ @anon.1a7877b4d25764724cd66411c116da83.612, %switch.lookup4903 ], [ @anon.1a7877b4d25764724cd66411c116da83.613, %3371 ], [ @anon.1a7877b4d25764724cd66411c116da83.615, %3400 ], [ @anon.1a7877b4d25764724cd66411c116da83.616, %3411 ], [ @anon.1a7877b4d25764724cd66411c116da83.618, %3439 ], [ @anon.1a7877b4d25764724cd66411c116da83.619, %3441 ], [ @anon.1a7877b4d25764724cd66411c116da83.620, %3444 ], [ @anon.1a7877b4d25764724cd66411c116da83.621, %3446 ], [ @anon.1a7877b4d25764724cd66411c116da83.623, %3469 ], [ @anon.1a7877b4d25764724cd66411c116da83.624, %switch.lookup4915 ], [ @anon.1a7877b4d25764724cd66411c116da83.626, %3512 ], [ @anon.1a7877b4d25764724cd66411c116da83.628, %3523 ], [ @anon.1a7877b4d25764724cd66411c116da83.476, %.noexc1691 ], [ @anon.1a7877b4d25764724cd66411c116da83.478, %.noexc1695 ], [ @anon.1a7877b4d25764724cd66411c116da83.479, %.noexc1697 ], [ @anon.1a7877b4d25764724cd66411c116da83.630, %3587 ], [ @anon.1a7877b4d25764724cd66411c116da83.631, %.thread4076 ], [ @anon.1a7877b4d25764724cd66411c116da83.632, %3603 ], [ @anon.1a7877b4d25764724cd66411c116da83.476, %.noexc1673 ], [ @anon.1a7877b4d25764724cd66411c116da83.478, %.noexc1677 ], [ @anon.1a7877b4d25764724cd66411c116da83.479, %.noexc1671.thread3457 ], [ @anon.1a7877b4d25764724cd66411c116da83.634, %3656 ], [ @anon.1a7877b4d25764724cd66411c116da83.637, %3783 ], [ @anon.1a7877b4d25764724cd66411c116da83.638, %.thread4084 ], [ @anon.1a7877b4d25764724cd66411c116da83.476, %.noexc1656 ], [ @anon.1a7877b4d25764724cd66411c116da83.478, %.noexc1660 ], [ @anon.1a7877b4d25764724cd66411c116da83.479, %.noexc1654.thread3468 ], [ @anon.1a7877b4d25764724cd66411c116da83.649, %4016 ], [ @anon.1a7877b4d25764724cd66411c116da83.650, %4027 ], [ @anon.1a7877b4d25764724cd66411c116da83.651, %4032 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1723 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1718 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1713 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1708 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1704 ]
+  %1508 = phi ptr [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1798 ], [ @anon.1a7877b4d25764724cd66411c116da83.516, %1504 ], [ @anon.1a7877b4d25764724cd66411c116da83.517, %switch.lookup4784 ], [ @anon.1a7877b4d25764724cd66411c116da83.518, %1520 ], [ @anon.1a7877b4d25764724cd66411c116da83.520, %1537 ], [ @anon.1a7877b4d25764724cd66411c116da83.521, %1543 ], [ @anon.1a7877b4d25764724cd66411c116da83.522, %1549 ], [ @anon.1a7877b4d25764724cd66411c116da83.524, %1614 ], [ @anon.1a7877b4d25764724cd66411c116da83.525, %switch.lookup ], [ @anon.1a7877b4d25764724cd66411c116da83.526, %1651 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1768 ], [ @anon.1a7877b4d25764724cd66411c116da83.538, %2051 ], [ @anon.1a7877b4d25764724cd66411c116da83.539, %2060 ], [ @anon.1a7877b4d25764724cd66411c116da83.540, %2080 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1728 ], [ @anon.1a7877b4d25764724cd66411c116da83.558, %2610 ], [ @anon.1a7877b4d25764724cd66411c116da83.564, %2815 ], [ @anon.1a7877b4d25764724cd66411c116da83.565, %2820 ], [ @anon.1a7877b4d25764724cd66411c116da83.566, %2831 ], [ @anon.1a7877b4d25764724cd66411c116da83.567, %2955 ], [ @anon.1a7877b4d25764724cd66411c116da83.568, %2957 ], [ @anon.1a7877b4d25764724cd66411c116da83.572, %2973 ], [ @anon.1a7877b4d25764724cd66411c116da83.573, %2975 ], [ @anon.1a7877b4d25764724cd66411c116da83.578, %3013 ], [ @anon.1a7877b4d25764724cd66411c116da83.579, %3028 ], [ @anon.1a7877b4d25764724cd66411c116da83.580, %3030 ], [ @anon.1a7877b4d25764724cd66411c116da83.584, %3063 ], [ @anon.1a7877b4d25764724cd66411c116da83.585, %switch.lookup4875 ], [ @anon.1a7877b4d25764724cd66411c116da83.586, %3078 ], [ @anon.1a7877b4d25764724cd66411c116da83.590, %3114 ], [ @anon.1a7877b4d25764724cd66411c116da83.591, %3141 ], [ @anon.1a7877b4d25764724cd66411c116da83.592, %3143 ], [ @anon.1a7877b4d25764724cd66411c116da83.594, %3173 ], [ @anon.1a7877b4d25764724cd66411c116da83.595, %switch.lookup4885 ], [ @anon.1a7877b4d25764724cd66411c116da83.596, %3189 ], [ @anon.1a7877b4d25764724cd66411c116da83.597, %3191 ], [ @anon.1a7877b4d25764724cd66411c116da83.599, %3219 ], [ @anon.1a7877b4d25764724cd66411c116da83.602, %3255 ], [ @anon.1a7877b4d25764724cd66411c116da83.604, %3281 ], [ @anon.1a7877b4d25764724cd66411c116da83.605, %3297 ], [ @anon.1a7877b4d25764724cd66411c116da83.608, %switch.lookup4889 ], [ @anon.1a7877b4d25764724cd66411c116da83.610, %switch.lookup4895 ], [ @anon.1a7877b4d25764724cd66411c116da83.612, %switch.lookup4903 ], [ @anon.1a7877b4d25764724cd66411c116da83.613, %3371 ], [ @anon.1a7877b4d25764724cd66411c116da83.615, %3400 ], [ @anon.1a7877b4d25764724cd66411c116da83.616, %3411 ], [ @anon.1a7877b4d25764724cd66411c116da83.618, %3439 ], [ @anon.1a7877b4d25764724cd66411c116da83.619, %3441 ], [ @anon.1a7877b4d25764724cd66411c116da83.620, %3444 ], [ @anon.1a7877b4d25764724cd66411c116da83.621, %3446 ], [ @anon.1a7877b4d25764724cd66411c116da83.623, %3469 ], [ @anon.1a7877b4d25764724cd66411c116da83.624, %switch.lookup4915 ], [ @anon.1a7877b4d25764724cd66411c116da83.626, %3512 ], [ @anon.1a7877b4d25764724cd66411c116da83.479, %.noexc1697 ], [ @anon.1a7877b4d25764724cd66411c116da83.630, %3587 ], [ @anon.1a7877b4d25764724cd66411c116da83.631, %.thread4076 ], [ @anon.1a7877b4d25764724cd66411c116da83.479, %.noexc1671.thread3457 ], [ @anon.1a7877b4d25764724cd66411c116da83.634, %3656 ], [ @anon.1a7877b4d25764724cd66411c116da83.637, %3783 ], [ @anon.1a7877b4d25764724cd66411c116da83.479, %.noexc1654.thread3468 ], [ @anon.1a7877b4d25764724cd66411c116da83.649, %4016 ], [ @anon.1a7877b4d25764724cd66411c116da83.650, %4027 ], [ @anon.1a7877b4d25764724cd66411c116da83.638, %.thread4084 ], [ @anon.1a7877b4d25764724cd66411c116da83.476, %.noexc1656 ], [ @anon.1a7877b4d25764724cd66411c116da83.478, %.noexc1660 ], [ @anon.1a7877b4d25764724cd66411c116da83.632, %3603 ], [ @anon.1a7877b4d25764724cd66411c116da83.476, %.noexc1673 ], [ @anon.1a7877b4d25764724cd66411c116da83.478, %.noexc1677 ], [ @anon.1a7877b4d25764724cd66411c116da83.628, %3523 ], [ @anon.1a7877b4d25764724cd66411c116da83.476, %.noexc1691 ], [ @anon.1a7877b4d25764724cd66411c116da83.478, %.noexc1695 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1708 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1713 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1718 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1723 ], [ @anon.1a7877b4d25764724cd66411c116da83.651, %4032 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1733 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1738 ], [ @anon.1a7877b4d25764724cd66411c116da83.493, %.noexc1823 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1748 ], [ @anon.1a7877b4d25764724cd66411c116da83.493, %switch.lookup4858 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1758 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1763 ], [ @anon.1a7877b4d25764724cd66411c116da83.541, %2090 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1773 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1778 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1783 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %switch.lookup4799 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %switch.lookup4792 ], [ @anon.1a7877b4d25764724cd66411c116da83.527, %1659 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1803 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1808 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1813 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1818 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %switch.lookup4846 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1743 ], [ @anon.1a7877b4d25764724cd66411c116da83.491, %.noexc1704 ]
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1508) #38
           to label %.cont4275 unwind label %.loopexit.split-lp
 
@@ -30328,12 +30328,12 @@ switch.lookup4792:                                ; preds = %1677
   br label %.invoke4278
 
 .invoke4278:                                      ; preds = %2287, %2288, %2286, %2377, %1705, %1681
-  %1686 = phi i8 [ %switch.masked4798, %1681 ], [ %switch.masked4805, %1705 ], [ 0, %2377 ], [ %2264, %2287 ], [ 0, %2288 ], [ %2264, %2286 ]
-  %1687 = phi i32 [ %switch.load4794, %1681 ], [ %switch.load4801, %1705 ], [ %2383, %2377 ], [ 211, %2287 ], [ 211, %2288 ], [ 210, %2286 ]
-  %1688 = phi i64 [ 1, %1681 ], [ 1, %1705 ], [ 2, %2377 ], [ 1, %2287 ], [ 1, %2288 ], [ 1, %2286 ]
-  %1689 = phi i8 [ 2, %1681 ], [ 3, %1705 ], [ 0, %2377 ], [ %switch.masked4850, %2287 ], [ %switch.masked4850, %2288 ], [ %switch.masked4850, %2286 ]
-  %1690 = phi i8 [ %1685, %1681 ], [ %1709, %1705 ], [ %2379, %2377 ], [ %2263, %2287 ], [ %2263, %2288 ], [ %2263, %2286 ]
-  %1691 = phi i8 [ %1679, %1681 ], [ %1703, %1705 ], [ 3, %2377 ], [ %2265, %2287 ], [ %2265, %2288 ], [ %2265, %2286 ]
+  %1686 = phi i8 [ %switch.masked4798, %1681 ], [ %switch.masked4805, %1705 ], [ 0, %2377 ], [ %2264, %2286 ], [ %2264, %2287 ], [ 0, %2288 ]
+  %1687 = phi i32 [ %switch.load4794, %1681 ], [ %switch.load4801, %1705 ], [ %2383, %2377 ], [ 210, %2286 ], [ 211, %2287 ], [ 211, %2288 ]
+  %1688 = phi i64 [ 1, %1681 ], [ 1, %1705 ], [ 2, %2377 ], [ 1, %2286 ], [ 1, %2287 ], [ 1, %2288 ]
+  %1689 = phi i8 [ 2, %1681 ], [ 3, %1705 ], [ 0, %2377 ], [ %switch.masked4850, %2286 ], [ %switch.masked4850, %2287 ], [ %switch.masked4850, %2288 ]
+  %1690 = phi i8 [ %1685, %1681 ], [ %1709, %1705 ], [ %2379, %2377 ], [ %2263, %2286 ], [ %2263, %2287 ], [ %2263, %2288 ]
+  %1691 = phi i8 [ %1679, %1681 ], [ %1703, %1705 ], [ 3, %2377 ], [ %2265, %2286 ], [ %2265, %2287 ], [ %2265, %2288 ]
   invoke fastcc void @_ZN17cranelift_codegen3isa3x648encoding3rex16emit_std_enc_enc17hbdbbc3e26e2a493dE(ptr noalias noundef align 8 dereferenceable(4856) %2, i8 noundef %1686, i32 noundef %1687, i64 noundef %1688, i8 noundef %1689, i8 noundef %1690, i8 noundef %1691)
           to label %.loopexit unwind label %.loopexit.split-lp
 
@@ -30472,9 +30472,9 @@ switch.lookup4806:                                ; preds = %1737
           to label %.thread3418 unwind label %.loopexit.split-lp
 
 .thread3418:                                      ; preds = %switch.lookup4806, %1747
-  %.012263420 = phi i8 [ 0, %1747 ], [ %1740, %switch.lookup4806 ]
-  %.01341 = phi i32 [ 246, %1747 ], [ %switch.load4808, %switch.lookup4806 ]
-  %.01340 = phi i8 [ 0, %1747 ], [ %switch.masked4812, %switch.lookup4806 ]
+  %.012263420 = phi i8 [ %1740, %switch.lookup4806 ], [ 0, %1747 ]
+  %.01341 = phi i32 [ %switch.load4808, %switch.lookup4806 ], [ 246, %1747 ]
+  %.01340 = phi i8 [ %switch.masked4812, %switch.lookup4806 ], [ 0, %1747 ]
   %1751 = load i16, ptr %1712, align 4, !range !4519, !noundef !4
   %1752 = getelementptr inbounds nuw i8, ptr %1712, i64 2
   %1753 = load i16, ptr %1752, align 2
@@ -30604,7 +30604,7 @@ switch.lookup4806:                                ; preds = %1737
   br label %1798
 
 1798:                                             ; preds = %1794, %1797
-  %.01228 = phi i8 [ 0, %1797 ], [ %1795, %1794 ]
+  %.01228 = phi i8 [ %1795, %1794 ], [ 0, %1797 ]
   %1799 = load i8, ptr %1772, align 2, !range !316, !noundef !4
   %.1523 = or disjoint i8 %1799, 4
   %1800 = load i8, ptr %526, align 4, !range !403, !noundef !4
@@ -31238,7 +31238,7 @@ switch.lookup4806:                                ; preds = %1737
   br label %.invoke4280
 
 .invoke4280:                                      ; preds = %.invoke4316, %.invoke4315, %5048, %5041, %2032, %2024
-  %2026 = phi i32 [ %2025, %2024 ], [ %2034, %2032 ], [ %5042, %5041 ], [ %5050, %5048 ], [ 0, %.invoke4315 ], [ 0, %.invoke4316 ]
+  %2026 = phi i32 [ %2025, %2024 ], [ %2034, %2032 ], [ 0, %.invoke4316 ], [ 0, %.invoke4315 ], [ %5050, %5048 ], [ %5042, %5041 ]
   invoke fastcc void @"_ZN17cranelift_codegen8machinst6buffer19MachBuffer$LT$I$GT$4put417hfeb6bc400874c52bE"(ptr noalias noundef align 8 dereferenceable(4856) %2, i32 noundef %2026)
           to label %.loopexit unwind label %.loopexit.split-lp
 
@@ -32316,7 +32316,7 @@ _ZN17cranelift_codegen3isa3x648encoding3rex8RexFlags11emit_one_op17hbc1911c3c04d
   br label %2423
 
 2423:                                             ; preds = %2422, %2419
-  %.01306 = phi i8 [ 0, %2422 ], [ %2420, %2419 ]
+  %.01306 = phi i8 [ %2420, %2419 ], [ 0, %2422 ]
   %2424 = load i8, ptr %2410, align 1, !range !5011, !noundef !4
   %2425 = zext nneg i8 %2424 to i32
   %2426 = or disjoint i32 %2425, 3904
@@ -32441,7 +32441,7 @@ _ZN17cranelift_codegen3isa3x648encoding3rex8RexFlags11emit_one_op17hbc1911c3c04d
   br label %2466
 
 2466:                                             ; preds = %2463, %2464, %2465, %2461
-  %.01307 = phi i8 [ 53, %2463 ], [ 43, %2464 ], [ 44, %2465 ], [ 46, %2461 ]
+  %.01307 = phi i8 [ 44, %2465 ], [ 53, %2463 ], [ 46, %2461 ], [ 43, %2464 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %468)
   call void @llvm.lifetime.start.p0(ptr nonnull %467)
   %2467 = getelementptr inbounds nuw i8, ptr %467, i64 4
@@ -33399,9 +33399,9 @@ _ZN17cranelift_codegen3isa3x648encoding3rex8RexFlags11emit_one_op17hbc1911c3c04d
   br label %2748
 
 2748:                                             ; preds = %2640, %2640, %2747, %2746, %2745, %2744, %2743, %2742, %2741, %2740, %2739, %2738, %2737, %2736, %2735, %2734, %2733, %2732, %2731, %2730, %2729, %2728, %2727, %2726, %2725, %2724, %2723, %2722, %2721, %2720, %2719, %2718, %2717, %2716, %2715, %2714, %2713, %2712, %2711, %2710, %2709, %2708, %2707, %2706, %2705, %2704, %2703, %2702, %2701, %2700, %2699, %2698, %2697, %2696, %2695, %2694, %2693, %2692, %2691, %2690, %2689, %2688, %2687, %2686, %2685, %2684, %2683, %2682, %2681, %2680, %2679, %2678, %2677, %2676, %2675, %2674, %2673, %2672, %2671, %2670, %2669, %2668, %2667, %2666, %2665, %2664, %2663, %2662, %2661, %2660, %2659, %2658, %2657, %2656, %2655, %2654, %2653, %2652, %2651, %2650, %2649, %2648, %2647, %2646, %2645, %2644, %2643, %2642
-  %.01310 = phi i8 [ 5, %2642 ], [ 4, %2643 ], [ 0, %2644 ], [ 1, %2645 ], [ 0, %2646 ], [ 1, %2647 ], [ 4, %2648 ], [ 5, %2649 ], [ 0, %2650 ], [ 1, %2651 ], [ 5, %2652 ], [ 4, %2653 ], [ 0, %2654 ], [ 1, %2655 ], [ 5, %2656 ], [ 4, %2657 ], [ 0, %2658 ], [ 1, %2659 ], [ 5, %2660 ], [ 4, %2661 ], [ 0, %2662 ], [ 5, %2663 ], [ 4, %2664 ], [ 0, %2665 ], [ 1, %2666 ], [ 5, %2667 ], [ 4, %2668 ], [ 0, %2669 ], [ 1, %2670 ], [ 1, %2671 ], [ 1, %2672 ], [ 1, %2673 ], [ 1, %2674 ], [ 1, %2675 ], [ 1, %2676 ], [ 1, %2677 ], [ 1, %2678 ], [ 1, %2679 ], [ 1, %2680 ], [ 1, %2681 ], [ 1, %2682 ], [ 1, %2683 ], [ 1, %2684 ], [ 1, %2685 ], [ 1, %2686 ], [ 1, %2687 ], [ 1, %2688 ], [ 1, %2689 ], [ 1, %2690 ], [ 1, %2691 ], [ 1, %2692 ], [ 1, %2693 ], [ 1, %2694 ], [ 1, %2695 ], [ 1, %2696 ], [ 1, %2697 ], [ 1, %2698 ], [ 1, %2699 ], [ 1, %2700 ], [ 1, %2701 ], [ 1, %2702 ], [ 1, %2703 ], [ 1, %2704 ], [ 1, %2705 ], [ 1, %2706 ], [ 1, %2707 ], [ 1, %2708 ], [ 1, %2709 ], [ 1, %2710 ], [ 1, %2711 ], [ 1, %2712 ], [ 1, %2713 ], [ 1, %2714 ], [ 1, %2715 ], [ 1, %2716 ], [ 1, %2717 ], [ 1, %2718 ], [ 1, %2719 ], [ 1, %2720 ], [ 1, %2721 ], [ 1, %2722 ], [ 1, %2723 ], [ 1, %2724 ], [ 1, %2725 ], [ 1, %2726 ], [ 1, %2727 ], [ 1, %2728 ], [ 1, %2729 ], [ 1, %2730 ], [ 5, %2731 ], [ 4, %2732 ], [ 0, %2733 ], [ 1, %2734 ], [ 5, %2735 ], [ 4, %2736 ], [ 0, %2737 ], [ 1, %2738 ], [ 0, %2739 ], [ 0, %2740 ], [ 1, %2741 ], [ 1, %2742 ], [ 1, %2743 ], [ 1, %2744 ], [ 1, %2745 ], [ 1, %2746 ], [ 1, %2747 ], [ %2641, %2640 ], [ %2641, %2640 ]
-  %.01309 = phi i32 [ 3928, %2642 ], [ 3928, %2643 ], [ 3924, %2644 ], [ 3924, %2645 ], [ 3925, %2646 ], [ 3925, %2647 ], [ 3930, %2648 ], [ 3930, %2649 ], [ 3934, %2650 ], [ 3934, %2651 ], [ 3934, %2652 ], [ 3934, %2653 ], [ 3935, %2654 ], [ 3935, %2655 ], [ 3935, %2656 ], [ 3935, %2657 ], [ 3933, %2658 ], [ 3933, %2659 ], [ 3933, %2660 ], [ 3933, %2661 ], [ 3862, %2662 ], [ 3856, %2663 ], [ 3856, %2664 ], [ 3929, %2665 ], [ 3929, %2666 ], [ 3929, %2667 ], [ 3929, %2668 ], [ 3926, %2669 ], [ 3926, %2670 ], [ 3947, %2671 ], [ 3939, %2672 ], [ 997419, %2673 ], [ 3943, %2674 ], [ 4092, %2675 ], [ 4094, %2676 ], [ 4052, %2677 ], [ 4093, %2678 ], [ 4076, %2679 ], [ 4077, %2680 ], [ 4060, %2681 ], [ 4061, %2682 ], [ 4059, %2683 ], [ 4063, %2684 ], [ 4064, %2685 ], [ 4067, %2686 ], [ 3956, %2687 ], [ 3957, %2688 ], [ 3958, %2689 ], [ 997417, %2690 ], [ 3940, %2691 ], [ 3941, %2692 ], [ 3942, %2693 ], [ 997431, %2694 ], [ 997380, %2695 ], [ 4085, %2696 ], [ 997436, %2697 ], [ 4078, %2698 ], [ 997437, %2699 ], [ 4062, %2700 ], [ 997438, %2701 ], [ 997439, %2702 ], [ 997432, %2703 ], [ 4074, %2704 ], [ 997433, %2705 ], [ 4058, %2706 ], [ 997434, %2707 ], [ 997435, %2708 ], [ 997416, %2709 ], [ 4069, %2710 ], [ 4068, %2711 ], [ 997387, %2712 ], [ 997440, %2713 ], [ 4053, %2714 ], [ 4084, %2715 ], [ 4075, %2716 ], [ 997376, %2717 ], [ 4088, %2718 ], [ 4090, %2719 ], [ 4091, %2720 ], [ 4089, %2721 ], [ 4072, %2722 ], [ 4073, %2723 ], [ 4056, %2724 ], [ 4057, %2725 ], [ 3944, %2726 ], [ 3945, %2727 ], [ 3936, %2728 ], [ 3937, %2729 ], [ 4079, %2730 ], [ 3921, %2731 ], [ 3921, %2732 ], [ 3932, %2733 ], [ 3932, %2734 ], [ 3932, %2735 ], [ 3932, %2736 ], [ 3860, %2737 ], [ 3860, %2738 ], [ 3861, %2739 ], [ 3927, %2740 ], [ 3927, %2741 ], [ 997377, %2742 ], [ 997378, %2743 ], [ 3946, %2744 ], [ 3938, %2745 ], [ 3949, %2746 ], [ 3948, %2747 ], [ 3928, %2640 ], [ 3928, %2640 ]
-  %.01308 = phi i64 [ 2, %2642 ], [ 2, %2643 ], [ 2, %2644 ], [ 2, %2645 ], [ 2, %2646 ], [ 2, %2647 ], [ 2, %2648 ], [ 2, %2649 ], [ 2, %2650 ], [ 2, %2651 ], [ 2, %2652 ], [ 2, %2653 ], [ 2, %2654 ], [ 2, %2655 ], [ 2, %2656 ], [ 2, %2657 ], [ 2, %2658 ], [ 2, %2659 ], [ 2, %2660 ], [ 2, %2661 ], [ 2, %2662 ], [ 2, %2663 ], [ 2, %2664 ], [ 2, %2665 ], [ 2, %2666 ], [ 2, %2667 ], [ 2, %2668 ], [ 2, %2669 ], [ 2, %2670 ], [ 2, %2671 ], [ 2, %2672 ], [ 3, %2673 ], [ 2, %2674 ], [ 2, %2675 ], [ 2, %2676 ], [ 2, %2677 ], [ 2, %2678 ], [ 2, %2679 ], [ 2, %2680 ], [ 2, %2681 ], [ 2, %2682 ], [ 2, %2683 ], [ 2, %2684 ], [ 2, %2685 ], [ 2, %2686 ], [ 2, %2687 ], [ 2, %2688 ], [ 2, %2689 ], [ 3, %2690 ], [ 2, %2691 ], [ 2, %2692 ], [ 2, %2693 ], [ 3, %2694 ], [ 3, %2695 ], [ 2, %2696 ], [ 3, %2697 ], [ 2, %2698 ], [ 3, %2699 ], [ 2, %2700 ], [ 3, %2701 ], [ 3, %2702 ], [ 3, %2703 ], [ 2, %2704 ], [ 3, %2705 ], [ 2, %2706 ], [ 3, %2707 ], [ 3, %2708 ], [ 3, %2709 ], [ 2, %2710 ], [ 2, %2711 ], [ 3, %2712 ], [ 3, %2713 ], [ 2, %2714 ], [ 2, %2715 ], [ 2, %2716 ], [ 3, %2717 ], [ 2, %2718 ], [ 2, %2719 ], [ 2, %2720 ], [ 2, %2721 ], [ 2, %2722 ], [ 2, %2723 ], [ 2, %2724 ], [ 2, %2725 ], [ 2, %2726 ], [ 2, %2727 ], [ 2, %2728 ], [ 2, %2729 ], [ 2, %2730 ], [ 2, %2731 ], [ 2, %2732 ], [ 2, %2733 ], [ 2, %2734 ], [ 2, %2735 ], [ 2, %2736 ], [ 2, %2737 ], [ 2, %2738 ], [ 2, %2739 ], [ 2, %2740 ], [ 2, %2741 ], [ 3, %2742 ], [ 3, %2743 ], [ 2, %2744 ], [ 2, %2745 ], [ 2, %2746 ], [ 2, %2747 ], [ 2, %2640 ], [ 2, %2640 ]
+  %.01310 = phi i8 [ 1, %2747 ], [ %2641, %2640 ], [ 5, %2642 ], [ 4, %2643 ], [ 0, %2644 ], [ 1, %2645 ], [ 0, %2646 ], [ 1, %2647 ], [ 4, %2648 ], [ 5, %2649 ], [ 0, %2650 ], [ 1, %2651 ], [ 5, %2652 ], [ 4, %2653 ], [ 0, %2654 ], [ 1, %2655 ], [ 5, %2656 ], [ 4, %2657 ], [ 0, %2658 ], [ 1, %2659 ], [ 5, %2660 ], [ 4, %2661 ], [ 0, %2662 ], [ 5, %2663 ], [ 4, %2664 ], [ 0, %2665 ], [ 1, %2666 ], [ 5, %2667 ], [ 4, %2668 ], [ 0, %2669 ], [ 1, %2670 ], [ 1, %2671 ], [ 1, %2672 ], [ 1, %2673 ], [ 1, %2674 ], [ 1, %2675 ], [ 1, %2676 ], [ 1, %2677 ], [ 1, %2678 ], [ 1, %2679 ], [ 1, %2680 ], [ 1, %2681 ], [ 1, %2682 ], [ 1, %2683 ], [ 1, %2684 ], [ 1, %2685 ], [ 1, %2686 ], [ 1, %2687 ], [ 1, %2688 ], [ 1, %2689 ], [ 1, %2690 ], [ 1, %2691 ], [ 1, %2692 ], [ 1, %2693 ], [ 1, %2694 ], [ 1, %2695 ], [ 1, %2696 ], [ 1, %2697 ], [ 1, %2698 ], [ 1, %2699 ], [ 1, %2700 ], [ 1, %2701 ], [ 1, %2702 ], [ 1, %2703 ], [ 1, %2704 ], [ 1, %2705 ], [ 1, %2706 ], [ 1, %2707 ], [ 1, %2708 ], [ 1, %2709 ], [ 1, %2710 ], [ 1, %2711 ], [ 1, %2712 ], [ 1, %2713 ], [ 1, %2714 ], [ 1, %2715 ], [ 1, %2716 ], [ 1, %2717 ], [ 1, %2718 ], [ 1, %2719 ], [ 1, %2720 ], [ 1, %2721 ], [ 1, %2722 ], [ 1, %2723 ], [ 1, %2724 ], [ 1, %2725 ], [ 1, %2726 ], [ 1, %2727 ], [ 1, %2728 ], [ 1, %2729 ], [ 1, %2730 ], [ 5, %2731 ], [ 4, %2732 ], [ 0, %2733 ], [ 1, %2734 ], [ 5, %2735 ], [ 4, %2736 ], [ 0, %2737 ], [ 1, %2738 ], [ 0, %2739 ], [ 0, %2740 ], [ 1, %2741 ], [ 1, %2742 ], [ 1, %2743 ], [ 1, %2744 ], [ 1, %2745 ], [ 1, %2746 ], [ %2641, %2640 ]
+  %.01309 = phi i32 [ 3948, %2747 ], [ 3928, %2640 ], [ 3928, %2642 ], [ 3928, %2643 ], [ 3924, %2644 ], [ 3924, %2645 ], [ 3925, %2646 ], [ 3925, %2647 ], [ 3930, %2648 ], [ 3930, %2649 ], [ 3934, %2650 ], [ 3934, %2651 ], [ 3934, %2652 ], [ 3934, %2653 ], [ 3935, %2654 ], [ 3935, %2655 ], [ 3935, %2656 ], [ 3935, %2657 ], [ 3933, %2658 ], [ 3933, %2659 ], [ 3933, %2660 ], [ 3933, %2661 ], [ 3862, %2662 ], [ 3856, %2663 ], [ 3856, %2664 ], [ 3929, %2665 ], [ 3929, %2666 ], [ 3929, %2667 ], [ 3929, %2668 ], [ 3926, %2669 ], [ 3926, %2670 ], [ 3947, %2671 ], [ 3939, %2672 ], [ 997419, %2673 ], [ 3943, %2674 ], [ 4092, %2675 ], [ 4094, %2676 ], [ 4052, %2677 ], [ 4093, %2678 ], [ 4076, %2679 ], [ 4077, %2680 ], [ 4060, %2681 ], [ 4061, %2682 ], [ 4059, %2683 ], [ 4063, %2684 ], [ 4064, %2685 ], [ 4067, %2686 ], [ 3956, %2687 ], [ 3957, %2688 ], [ 3958, %2689 ], [ 997417, %2690 ], [ 3940, %2691 ], [ 3941, %2692 ], [ 3942, %2693 ], [ 997431, %2694 ], [ 997380, %2695 ], [ 4085, %2696 ], [ 997436, %2697 ], [ 4078, %2698 ], [ 997437, %2699 ], [ 4062, %2700 ], [ 997438, %2701 ], [ 997439, %2702 ], [ 997432, %2703 ], [ 4074, %2704 ], [ 997433, %2705 ], [ 4058, %2706 ], [ 997434, %2707 ], [ 997435, %2708 ], [ 997416, %2709 ], [ 4069, %2710 ], [ 4068, %2711 ], [ 997387, %2712 ], [ 997440, %2713 ], [ 4053, %2714 ], [ 4084, %2715 ], [ 4075, %2716 ], [ 997376, %2717 ], [ 4088, %2718 ], [ 4090, %2719 ], [ 4091, %2720 ], [ 4089, %2721 ], [ 4072, %2722 ], [ 4073, %2723 ], [ 4056, %2724 ], [ 4057, %2725 ], [ 3944, %2726 ], [ 3945, %2727 ], [ 3936, %2728 ], [ 3937, %2729 ], [ 4079, %2730 ], [ 3921, %2731 ], [ 3921, %2732 ], [ 3932, %2733 ], [ 3932, %2734 ], [ 3932, %2735 ], [ 3932, %2736 ], [ 3860, %2737 ], [ 3860, %2738 ], [ 3861, %2739 ], [ 3927, %2740 ], [ 3927, %2741 ], [ 997377, %2742 ], [ 997378, %2743 ], [ 3946, %2744 ], [ 3938, %2745 ], [ 3949, %2746 ], [ 3928, %2640 ]
+  %.01308 = phi i64 [ 2, %2747 ], [ 2, %2640 ], [ 2, %2642 ], [ 2, %2643 ], [ 2, %2644 ], [ 2, %2645 ], [ 2, %2646 ], [ 2, %2647 ], [ 2, %2648 ], [ 2, %2649 ], [ 2, %2650 ], [ 2, %2651 ], [ 2, %2652 ], [ 2, %2653 ], [ 2, %2654 ], [ 2, %2655 ], [ 2, %2656 ], [ 2, %2657 ], [ 2, %2658 ], [ 2, %2659 ], [ 2, %2660 ], [ 2, %2661 ], [ 2, %2662 ], [ 2, %2663 ], [ 2, %2664 ], [ 2, %2665 ], [ 2, %2666 ], [ 2, %2667 ], [ 2, %2668 ], [ 2, %2669 ], [ 2, %2670 ], [ 2, %2671 ], [ 2, %2672 ], [ 3, %2673 ], [ 2, %2674 ], [ 2, %2675 ], [ 2, %2676 ], [ 2, %2677 ], [ 2, %2678 ], [ 2, %2679 ], [ 2, %2680 ], [ 2, %2681 ], [ 2, %2682 ], [ 2, %2683 ], [ 2, %2684 ], [ 2, %2685 ], [ 2, %2686 ], [ 2, %2687 ], [ 2, %2688 ], [ 2, %2689 ], [ 3, %2690 ], [ 2, %2691 ], [ 2, %2692 ], [ 2, %2693 ], [ 3, %2694 ], [ 3, %2695 ], [ 2, %2696 ], [ 3, %2697 ], [ 2, %2698 ], [ 3, %2699 ], [ 2, %2700 ], [ 3, %2701 ], [ 3, %2702 ], [ 3, %2703 ], [ 2, %2704 ], [ 3, %2705 ], [ 2, %2706 ], [ 3, %2707 ], [ 3, %2708 ], [ 3, %2709 ], [ 2, %2710 ], [ 2, %2711 ], [ 3, %2712 ], [ 3, %2713 ], [ 2, %2714 ], [ 2, %2715 ], [ 2, %2716 ], [ 3, %2717 ], [ 2, %2718 ], [ 2, %2719 ], [ 2, %2720 ], [ 2, %2721 ], [ 2, %2722 ], [ 2, %2723 ], [ 2, %2724 ], [ 2, %2725 ], [ 2, %2726 ], [ 2, %2727 ], [ 2, %2728 ], [ 2, %2729 ], [ 2, %2730 ], [ 2, %2731 ], [ 2, %2732 ], [ 2, %2733 ], [ 2, %2734 ], [ 2, %2735 ], [ 2, %2736 ], [ 2, %2737 ], [ 2, %2738 ], [ 2, %2739 ], [ 2, %2740 ], [ 2, %2741 ], [ 3, %2742 ], [ 3, %2743 ], [ 2, %2744 ], [ 2, %2745 ], [ 2, %2746 ], [ 2, %2640 ]
   %2749 = load i8, ptr %395, align 4, !range !403, !noundef !4
   %.not3547 = icmp eq i8 %2749, 6
   br i1 %.not3547, label %2750, label %2753
@@ -33519,7 +33519,7 @@ _ZN17cranelift_codegen3isa3x648encoding3rex8RexFlags11emit_one_op17hbc1911c3c04d
   br label %2785
 
 2785:                                             ; preds = %2781, %2784, %2783
-  %.01297 = phi i32 [ 997396, %2783 ], [ 997392, %2784 ], [ 997397, %2781 ]
+  %.01297 = phi i32 [ 997392, %2784 ], [ 997396, %2783 ], [ 997397, %2781 ]
   %2786 = load i8, ptr %388, align 4, !range !403, !noundef !4
   %2787 = icmp eq i8 %2786, 6
   br i1 %2787, label %2788, label %2791
@@ -34152,8 +34152,8 @@ _ZN17cranelift_codegen3isa3x648encoding3rex8RexFlags11emit_one_op17hbc1911c3c04d
   br label %2955
 
 2955:                                             ; preds = %2836, %2954, %2953, %2952, %2951, %2950, %2949, %2948, %2947, %2946, %2945, %2944, %2943, %2942, %2941, %2940, %2939, %2938, %2937, %2936, %2935, %2934, %2933, %2932, %2931, %2930, %2929, %2928, %2927, %2926, %2925, %2924, %2923, %2922, %2921, %2920, %2919, %2918, %2917, %2916, %2915, %2914, %2913, %2912, %2911, %2910, %2909, %2908, %2907, %2906, %2905, %2904, %2903, %2902, %2901, %2900, %2899, %2898, %2897, %2896, %2895, %2894, %2893, %2892, %2891, %2890, %2889, %2888, %2887, %2886, %2885, %2884, %2883, %2882, %2881, %2880, %2879, %2878, %2877, %2876, %2875, %2874, %2873, %2872, %2871, %2870, %2869, %2868, %2867, %2866, %2865, %2864, %2863, %2862, %2861, %2860, %2859, %2858, %2857, %2856, %2855, %2854, %2853, %2852, %2851, %2850, %2849, %2848, %2847, %2846, %2845, %2844, %2843, %2842, %2841, %2840
-  %.01285 = phi i32 [ 16842752, %2840 ], [ 16842752, %2841 ], [ 16842752, %2842 ], [ 16842752, %2843 ], [ 16842752, %2844 ], [ 16842752, %2845 ], [ 16842752, %2846 ], [ 16842752, %2847 ], [ 16842752, %2848 ], [ 16842752, %2849 ], [ 16842752, %2850 ], [ 16842752, %2851 ], [ 16842752, %2852 ], [ 16842752, %2853 ], [ 16842752, %2854 ], [ 16842752, %2855 ], [ 16842752, %2856 ], [ 16842752, %2857 ], [ 16842752, %2858 ], [ 16842752, %2859 ], [ 16842752, %2860 ], [ 16777216, %2861 ], [ 16842752, %2862 ], [ 16842752, %2863 ], [ 16777216, %2864 ], [ 16842752, %2865 ], [ 16842752, %2866 ], [ 16777216, %2867 ], [ 16842752, %2868 ], [ 16842752, %2869 ], [ 33619968, %2870 ], [ 16842752, %2871 ], [ 33619968, %2872 ], [ 16842752, %2873 ], [ 33619968, %2874 ], [ 16842752, %2875 ], [ 16842752, %2876 ], [ 16842752, %2877 ], [ 16777216, %2878 ], [ 16842752, %2879 ], [ 16777216, %2880 ], [ 16777216, %2881 ], [ 16842752, %2882 ], [ 16842752, %2883 ], [ 16777216, %2884 ], [ 16842752, %2885 ], [ 16777216, %2886 ], [ 16842752, %2887 ], [ 16777216, %2888 ], [ 16842752, %2889 ], [ 16777216, %2890 ], [ 16842752, %2891 ], [ 16842752, %2892 ], [ 16842752, %2893 ], [ 16842752, %2894 ], [ 33619968, %2895 ], [ 16842752, %2896 ], [ 16842752, %2897 ], [ 16842752, %2898 ], [ 33619968, %2899 ], [ 16777216, %2900 ], [ 16842752, %2901 ], [ 16777216, %2902 ], [ 16842752, %2903 ], [ 16777216, %2904 ], [ 33619968, %2905 ], [ 16842752, %2906 ], [ 33619968, %2907 ], [ 33619968, %2908 ], [ 16842752, %2909 ], [ 33619968, %2910 ], [ 16842752, %2911 ], [ 33619968, %2912 ], [ 33619968, %2913 ], [ 16842752, %2914 ], [ 33619968, %2915 ], [ 33619968, %2916 ], [ 16842752, %2917 ], [ 16842752, %2918 ], [ 16842752, %2919 ], [ 16842752, %2920 ], [ 16842752, %2921 ], [ 33619968, %2922 ], [ 16842752, %2923 ], [ 33619968, %2924 ], [ 33619968, %2925 ], [ 16842752, %2926 ], [ 16842752, %2927 ], [ 16842752, %2928 ], [ 16842752, %2929 ], [ 16842752, %2930 ], [ 17104896, %2931 ], [ 17039360, %2932 ], [ 17104896, %2933 ], [ 17039360, %2934 ], [ 17104896, %2935 ], [ 17039360, %2936 ], [ 17104896, %2937 ], [ 17039360, %2938 ], [ 17104896, %2939 ], [ 17039360, %2940 ], [ 17104896, %2941 ], [ 17039360, %2942 ], [ 33619968, %2943 ], [ 33619968, %2944 ], [ 16842752, %2945 ], [ 16842752, %2946 ], [ 16842752, %2947 ], [ 16842752, %2948 ], [ 17104896, %2949 ], [ 17039360, %2950 ], [ 17104896, %2951 ], [ 17039360, %2952 ], [ 17104896, %2953 ], [ 17039360, %2954 ], [ 16842752, %2836 ]
-  %.01284 = phi i32 [ 210, %2840 ], [ 211, %2841 ], [ 252, %2842 ], [ 253, %2843 ], [ 254, %2844 ], [ 212, %2845 ], [ 236, %2846 ], [ 237, %2847 ], [ 220, %2848 ], [ 221, %2849 ], [ 248, %2850 ], [ 249, %2851 ], [ 250, %2852 ], [ 251, %2853 ], [ 232, %2854 ], [ 233, %2855 ], [ 216, %2856 ], [ 217, %2857 ], [ 224, %2858 ], [ 227, %2859 ], [ 219, %2860 ], [ 84, %2861 ], [ 84, %2862 ], [ 235, %2863 ], [ 86, %2864 ], [ 86, %2865 ], [ 239, %2866 ], [ 87, %2867 ], [ 87, %2868 ], [ 213, %2869 ], [ 64, %2870 ], [ 229, %2871 ], [ 11, %2872 ], [ 228, %2873 ], [ 40, %2874 ], [ 244, %2875 ], [ 105, %2876 ], [ 97, %2877 ], [ 20, %2878 ], [ 20, %2879 ], [ 21, %2880 ], [ 85, %2881 ], [ 85, %2882 ], [ 223, %2883 ], [ 88, %2884 ], [ 88, %2885 ], [ 92, %2886 ], [ 92, %2887 ], [ 89, %2888 ], [ 89, %2889 ], [ 94, %2890 ], [ 94, %2891 ], [ 116, %2892 ], [ 117, %2893 ], [ 118, %2894 ], [ 41, %2895 ], [ 100, %2896 ], [ 101, %2897 ], [ 102, %2898 ], [ 55, %2899 ], [ 93, %2900 ], [ 93, %2901 ], [ 95, %2902 ], [ 95, %2903 ], [ 22, %2904 ], [ 60, %2905 ], [ 238, %2906 ], [ 61, %2907 ], [ 56, %2908 ], [ 234, %2909 ], [ 57, %2910 ], [ 222, %2911 ], [ 62, %2912 ], [ 63, %2913 ], [ 218, %2914 ], [ 58, %2915 ], [ 59, %2916 ], [ 96, %2917 ], [ 104, %2918 ], [ 99, %2919 ], [ 107, %2920 ], [ 103, %2921 ], [ 43, %2922 ], [ 245, %2923 ], [ 4, %2924 ], [ 0, %2925 ], [ 241, %2926 ], [ 242, %2927 ], [ 243, %2928 ], [ 225, %2929 ], [ 226, %2930 ], [ 88, %2931 ], [ 88, %2932 ], [ 89, %2933 ], [ 89, %2934 ], [ 92, %2935 ], [ 92, %2936 ], [ 94, %2937 ], [ 94, %2938 ], [ 93, %2939 ], [ 93, %2940 ], [ 95, %2941 ], [ 95, %2942 ], [ 1, %2943 ], [ 2, %2944 ], [ 106, %2945 ], [ 98, %2946 ], [ 109, %2947 ], [ 108, %2948 ], [ 16, %2949 ], [ 16, %2950 ], [ 90, %2951 ], [ 90, %2952 ], [ 81, %2953 ], [ 81, %2954 ], [ 209, %2836 ]
+  %.01285 = phi i32 [ 17039360, %2954 ], [ 16842752, %2840 ], [ 16842752, %2841 ], [ 16842752, %2842 ], [ 16842752, %2843 ], [ 16842752, %2844 ], [ 16842752, %2845 ], [ 16842752, %2846 ], [ 16842752, %2847 ], [ 16842752, %2848 ], [ 16842752, %2849 ], [ 16842752, %2850 ], [ 16842752, %2851 ], [ 16842752, %2852 ], [ 16842752, %2853 ], [ 16842752, %2854 ], [ 16842752, %2855 ], [ 16842752, %2856 ], [ 16842752, %2857 ], [ 16842752, %2858 ], [ 16842752, %2859 ], [ 16842752, %2860 ], [ 16777216, %2861 ], [ 16842752, %2862 ], [ 16842752, %2863 ], [ 16777216, %2864 ], [ 16842752, %2865 ], [ 16842752, %2866 ], [ 16777216, %2867 ], [ 16842752, %2868 ], [ 16842752, %2869 ], [ 33619968, %2870 ], [ 16842752, %2871 ], [ 33619968, %2872 ], [ 16842752, %2873 ], [ 33619968, %2874 ], [ 16842752, %2875 ], [ 16842752, %2876 ], [ 16842752, %2877 ], [ 16777216, %2878 ], [ 16842752, %2879 ], [ 16777216, %2880 ], [ 16777216, %2881 ], [ 16842752, %2882 ], [ 16842752, %2883 ], [ 16777216, %2884 ], [ 16842752, %2885 ], [ 16777216, %2886 ], [ 16842752, %2887 ], [ 16777216, %2888 ], [ 16842752, %2889 ], [ 16777216, %2890 ], [ 16842752, %2891 ], [ 16842752, %2892 ], [ 16842752, %2893 ], [ 16842752, %2894 ], [ 33619968, %2895 ], [ 16842752, %2896 ], [ 16842752, %2897 ], [ 16842752, %2898 ], [ 33619968, %2899 ], [ 16777216, %2900 ], [ 16842752, %2901 ], [ 16777216, %2902 ], [ 16842752, %2903 ], [ 16777216, %2904 ], [ 33619968, %2905 ], [ 16842752, %2906 ], [ 33619968, %2907 ], [ 33619968, %2908 ], [ 16842752, %2909 ], [ 33619968, %2910 ], [ 16842752, %2911 ], [ 33619968, %2912 ], [ 33619968, %2913 ], [ 16842752, %2914 ], [ 33619968, %2915 ], [ 33619968, %2916 ], [ 16842752, %2917 ], [ 16842752, %2918 ], [ 16842752, %2919 ], [ 16842752, %2920 ], [ 16842752, %2921 ], [ 33619968, %2922 ], [ 16842752, %2923 ], [ 33619968, %2924 ], [ 33619968, %2925 ], [ 16842752, %2926 ], [ 16842752, %2927 ], [ 16842752, %2928 ], [ 16842752, %2929 ], [ 16842752, %2930 ], [ 17104896, %2931 ], [ 17039360, %2932 ], [ 17104896, %2933 ], [ 17039360, %2934 ], [ 17104896, %2935 ], [ 17039360, %2936 ], [ 17104896, %2937 ], [ 17039360, %2938 ], [ 17104896, %2939 ], [ 17039360, %2940 ], [ 17104896, %2941 ], [ 17039360, %2942 ], [ 33619968, %2943 ], [ 33619968, %2944 ], [ 16842752, %2945 ], [ 16842752, %2946 ], [ 16842752, %2947 ], [ 16842752, %2948 ], [ 17104896, %2949 ], [ 17039360, %2950 ], [ 17104896, %2951 ], [ 17039360, %2952 ], [ 17104896, %2953 ], [ 16842752, %2836 ]
+  %.01284 = phi i32 [ 81, %2954 ], [ 210, %2840 ], [ 211, %2841 ], [ 252, %2842 ], [ 253, %2843 ], [ 254, %2844 ], [ 212, %2845 ], [ 236, %2846 ], [ 237, %2847 ], [ 220, %2848 ], [ 221, %2849 ], [ 248, %2850 ], [ 249, %2851 ], [ 250, %2852 ], [ 251, %2853 ], [ 232, %2854 ], [ 233, %2855 ], [ 216, %2856 ], [ 217, %2857 ], [ 224, %2858 ], [ 227, %2859 ], [ 219, %2860 ], [ 84, %2861 ], [ 84, %2862 ], [ 235, %2863 ], [ 86, %2864 ], [ 86, %2865 ], [ 239, %2866 ], [ 87, %2867 ], [ 87, %2868 ], [ 213, %2869 ], [ 64, %2870 ], [ 229, %2871 ], [ 11, %2872 ], [ 228, %2873 ], [ 40, %2874 ], [ 244, %2875 ], [ 105, %2876 ], [ 97, %2877 ], [ 20, %2878 ], [ 20, %2879 ], [ 21, %2880 ], [ 85, %2881 ], [ 85, %2882 ], [ 223, %2883 ], [ 88, %2884 ], [ 88, %2885 ], [ 92, %2886 ], [ 92, %2887 ], [ 89, %2888 ], [ 89, %2889 ], [ 94, %2890 ], [ 94, %2891 ], [ 116, %2892 ], [ 117, %2893 ], [ 118, %2894 ], [ 41, %2895 ], [ 100, %2896 ], [ 101, %2897 ], [ 102, %2898 ], [ 55, %2899 ], [ 93, %2900 ], [ 93, %2901 ], [ 95, %2902 ], [ 95, %2903 ], [ 22, %2904 ], [ 60, %2905 ], [ 238, %2906 ], [ 61, %2907 ], [ 56, %2908 ], [ 234, %2909 ], [ 57, %2910 ], [ 222, %2911 ], [ 62, %2912 ], [ 63, %2913 ], [ 218, %2914 ], [ 58, %2915 ], [ 59, %2916 ], [ 96, %2917 ], [ 104, %2918 ], [ 99, %2919 ], [ 107, %2920 ], [ 103, %2921 ], [ 43, %2922 ], [ 245, %2923 ], [ 4, %2924 ], [ 0, %2925 ], [ 241, %2926 ], [ 242, %2927 ], [ 243, %2928 ], [ 225, %2929 ], [ 226, %2930 ], [ 88, %2931 ], [ 88, %2932 ], [ 89, %2933 ], [ 89, %2934 ], [ 92, %2935 ], [ 92, %2936 ], [ 94, %2937 ], [ 94, %2938 ], [ 93, %2939 ], [ 93, %2940 ], [ 95, %2941 ], [ 95, %2942 ], [ 1, %2943 ], [ 2, %2944 ], [ 106, %2945 ], [ 98, %2946 ], [ 109, %2947 ], [ 108, %2948 ], [ 16, %2949 ], [ 16, %2950 ], [ 90, %2951 ], [ 90, %2952 ], [ 81, %2953 ], [ 209, %2836 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %372)
   %2956 = icmp ugt i32 %2802, 767
   br i1 %2956, label %.invoke4274, label %2957
@@ -34225,7 +34225,7 @@ _ZN17cranelift_codegen3isa3x648encoding3rex8RexFlags11emit_one_op17hbc1911c3c04d
   br label %2973
 
 2973:                                             ; preds = %2828, %2972, %2971, %2970, %2969, %2968, %2967, %2966
-  %.01288 = phi i32 [ 16843378, %2966 ], [ 16843379, %2967 ], [ 16844401, %2968 ], [ 16844402, %2969 ], [ 16844403, %2970 ], [ 16843889, %2971 ], [ 16843890, %2972 ], [ 16843377, %2828 ]
+  %.01288 = phi i32 [ 16843890, %2972 ], [ 16843378, %2966 ], [ 16843379, %2967 ], [ 16844401, %2968 ], [ 16844402, %2969 ], [ 16844403, %2970 ], [ 16843889, %2971 ], [ 16843377, %2828 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %377)
   %2974 = icmp ugt i32 %2802, 767
   br i1 %2974, label %.invoke4274, label %2975
@@ -34415,8 +34415,8 @@ _ZN17cranelift_codegen3isa3x648encoding3rex8RexFlags11emit_one_op17hbc1911c3c04d
   br label %3028
 
 3028:                                             ; preds = %3020, %3027, %3026, %3025, %3024, %3023
-  %.01281 = phi i32 [ 16842752, %3023 ], [ 50397184, %3024 ], [ 50397184, %3025 ], [ 16777216, %3026 ], [ 50397184, %3027 ], [ 16777216, %3020 ]
-  %.01280 = phi i32 [ 194, %3023 ], [ 15, %3024 ], [ 33, %3025 ], [ 198, %3026 ], [ 14, %3027 ], [ 194, %3020 ]
+  %.01281 = phi i32 [ 50397184, %3027 ], [ 16842752, %3023 ], [ 50397184, %3024 ], [ 50397184, %3025 ], [ 16777216, %3026 ], [ 16777216, %3020 ]
+  %.01280 = phi i32 [ 14, %3027 ], [ 194, %3023 ], [ 15, %3024 ], [ 33, %3025 ], [ 198, %3026 ], [ 194, %3020 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %364)
   %3029 = icmp ugt i32 %2996, 767
   br i1 %3029, label %.invoke4274, label %3030
@@ -34807,9 +34807,9 @@ switch.lookup4875:                                ; preds = %3070
   br label %3141
 
 3141:                                             ; preds = %3121, %3121, %3140, %3139, %3138, %3137, %3136, %3135, %3134, %3133, %3132, %3131, %3130, %3129, %3128, %3127, %3126, %3125, %3124
-  %.01272 = phi i8 [ 0, %3124 ], [ 1, %3125 ], [ 0, %3126 ], [ 1, %3127 ], [ 0, %3128 ], [ 1, %3129 ], [ 0, %3130 ], [ 1, %3131 ], [ 0, %3132 ], [ 1, %3133 ], [ 0, %3134 ], [ 1, %3135 ], [ 0, %3136 ], [ 1, %3137 ], [ 0, %3138 ], [ 0, %3139 ], [ 0, %3140 ], [ %3122, %3121 ], [ %3122, %3121 ]
-  %.01271 = phi i32 [ 33619968, %3124 ], [ 33619968, %3125 ], [ 33619968, %3126 ], [ 33619968, %3127 ], [ 33619968, %3128 ], [ 33619968, %3129 ], [ 33619968, %3130 ], [ 33619968, %3131 ], [ 33619968, %3132 ], [ 33619968, %3133 ], [ 33619968, %3134 ], [ 33619968, %3135 ], [ 33619968, %3136 ], [ 33619968, %3137 ], [ 50397184, %3138 ], [ 50397184, %3139 ], [ 50397184, %3140 ], [ 33619968, %3121 ], [ 33619968, %3121 ]
-  %.01269 = phi i32 [ 168, %3124 ], [ 168, %3125 ], [ 153, %3126 ], [ 153, %3127 ], [ 152, %3128 ], [ 152, %3129 ], [ 173, %3130 ], [ 173, %3131 ], [ 172, %3132 ], [ 172, %3133 ], [ 157, %3134 ], [ 157, %3135 ], [ 156, %3136 ], [ 156, %3137 ], [ 75, %3138 ], [ 74, %3139 ], [ 76, %3140 ], [ 169, %3121 ], [ 169, %3121 ]
+  %.01272 = phi i8 [ 0, %3140 ], [ %3122, %3121 ], [ 0, %3124 ], [ 1, %3125 ], [ 0, %3126 ], [ 1, %3127 ], [ 0, %3128 ], [ 1, %3129 ], [ 0, %3130 ], [ 1, %3131 ], [ 0, %3132 ], [ 1, %3133 ], [ 0, %3134 ], [ 1, %3135 ], [ 0, %3136 ], [ 1, %3137 ], [ 0, %3138 ], [ 0, %3139 ], [ %3122, %3121 ]
+  %.01271 = phi i32 [ 50397184, %3140 ], [ 33619968, %3121 ], [ 33619968, %3124 ], [ 33619968, %3125 ], [ 33619968, %3126 ], [ 33619968, %3127 ], [ 33619968, %3128 ], [ 33619968, %3129 ], [ 33619968, %3130 ], [ 33619968, %3131 ], [ 33619968, %3132 ], [ 33619968, %3133 ], [ 33619968, %3134 ], [ 33619968, %3135 ], [ 33619968, %3136 ], [ 33619968, %3137 ], [ 50397184, %3138 ], [ 50397184, %3139 ], [ 33619968, %3121 ]
+  %.01269 = phi i32 [ 76, %3140 ], [ 169, %3121 ], [ 168, %3124 ], [ 168, %3125 ], [ 153, %3126 ], [ 153, %3127 ], [ 152, %3128 ], [ 152, %3129 ], [ 173, %3130 ], [ 173, %3131 ], [ 172, %3132 ], [ 172, %3133 ], [ 157, %3134 ], [ 157, %3135 ], [ 156, %3136 ], [ 156, %3137 ], [ 75, %3138 ], [ 74, %3139 ], [ 169, %3121 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %351)
   %3142 = icmp ugt i32 %3098, 767
   br i1 %3142, label %.invoke4274, label %3143
@@ -35206,8 +35206,8 @@ switch.lookup4885:                                ; preds = %3184
   br label %3255
 
 3255:                                             ; preds = %3246, %3245, %3226, %3254, %3253, %3252, %3251, %3250, %3249, %3248, %3247, %3244, %3243, %3242, %3241, %3240, %3239, %3238, %3237, %3236, %3235, %3234, %3233, %3232, %3231, %3230, %3229
-  %.01267 = phi i32 [ 33619968, %3229 ], [ 33619968, %3230 ], [ 33619968, %3231 ], [ 33619968, %3232 ], [ 33619968, %3233 ], [ 33619968, %3234 ], [ 33619968, %3235 ], [ 33619968, %3236 ], [ 16777216, %3237 ], [ 16842752, %3238 ], [ 17104896, %3239 ], [ 16777216, %3240 ], [ 16842752, %3241 ], [ 16777216, %3242 ], [ 16842752, %3243 ], [ 17104896, %3244 ], [ 16777216, %3247 ], [ 16842752, %3248 ], [ 17104896, %3249 ], [ 17039360, %3250 ], [ 33619968, %3251 ], [ 33619968, %3252 ], [ 33619968, %3253 ], [ 33619968, %3254 ], [ 33619968, %3226 ], [ 17104896, %3245 ], [ 17039360, %3246 ]
-  %.01266 = phi i32 [ 48, %3229 ], [ 35, %3230 ], [ 51, %3231 ], [ 37, %3232 ], [ 53, %3233 ], [ 28, %3234 ], [ 29, %3235 ], [ 30, %3236 ], [ 81, %3237 ], [ 81, %3238 ], [ 230, %3239 ], [ 91, %3240 ], [ 90, %3241 ], [ 90, %3242 ], [ 230, %3243 ], [ 91, %3244 ], [ 16, %3247 ], [ 16, %3248 ], [ 111, %3249 ], [ 18, %3250 ], [ 120, %3251 ], [ 121, %3252 ], [ 88, %3253 ], [ 24, %3254 ], [ 32, %3226 ], [ 16, %3245 ], [ 16, %3246 ]
+  %.01267 = phi i32 [ 33619968, %3254 ], [ 33619968, %3229 ], [ 33619968, %3230 ], [ 33619968, %3231 ], [ 33619968, %3232 ], [ 33619968, %3233 ], [ 33619968, %3234 ], [ 33619968, %3235 ], [ 33619968, %3236 ], [ 16777216, %3237 ], [ 16842752, %3238 ], [ 17104896, %3239 ], [ 16777216, %3240 ], [ 16842752, %3241 ], [ 16777216, %3242 ], [ 16842752, %3243 ], [ 17104896, %3244 ], [ 33619968, %3226 ], [ 17104896, %3245 ], [ 16777216, %3247 ], [ 16842752, %3248 ], [ 17104896, %3249 ], [ 17039360, %3250 ], [ 33619968, %3251 ], [ 33619968, %3252 ], [ 33619968, %3253 ], [ 17039360, %3246 ]
+  %.01266 = phi i32 [ 24, %3254 ], [ 48, %3229 ], [ 35, %3230 ], [ 51, %3231 ], [ 37, %3232 ], [ 53, %3233 ], [ 28, %3234 ], [ 29, %3235 ], [ 30, %3236 ], [ 81, %3237 ], [ 81, %3238 ], [ 230, %3239 ], [ 91, %3240 ], [ 90, %3241 ], [ 90, %3242 ], [ 230, %3243 ], [ 91, %3244 ], [ 32, %3226 ], [ 16, %3245 ], [ 16, %3247 ], [ 16, %3248 ], [ 111, %3249 ], [ 18, %3250 ], [ 120, %3251 ], [ 121, %3252 ], [ 88, %3253 ], [ 16, %3246 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %338)
   %3256 = icmp ugt i32 %3206, 767
   br i1 %3256, label %.invoke4274, label %3257
@@ -35369,9 +35369,9 @@ switch.lookup4885:                                ; preds = %3184
   br label %3297
 
 3297:                                             ; preds = %3288, %3296, %3295, %3294, %3293, %3292, %3291
-  %.01265 = phi i32 [ 65536, %3291 ], [ 262144, %3292 ], [ 327680, %3293 ], [ 65536, %3294 ], [ 65536, %3295 ], [ 65536, %3296 ], [ 65536, %3288 ]
-  %.01264 = phi i32 [ 50331648, %3291 ], [ 16777216, %3292 ], [ 16777216, %3293 ], [ 16777216, %3294 ], [ 50331648, %3295 ], [ 50331648, %3296 ], [ 50331648, %3288 ]
-  %.01263 = phi i32 [ 9, %3291 ], [ 112, %3292 ], [ 112, %3293 ], [ 112, %3294 ], [ 10, %3295 ], [ 11, %3296 ], [ 8, %3288 ]
+  %.01265 = phi i32 [ 65536, %3296 ], [ 65536, %3291 ], [ 262144, %3292 ], [ 327680, %3293 ], [ 65536, %3294 ], [ 65536, %3295 ], [ 65536, %3288 ]
+  %.01264 = phi i32 [ 50331648, %3296 ], [ 50331648, %3291 ], [ 16777216, %3292 ], [ 16777216, %3293 ], [ 16777216, %3294 ], [ 50331648, %3295 ], [ 50331648, %3288 ]
+  %.01263 = phi i32 [ 11, %3296 ], [ 9, %3291 ], [ 112, %3292 ], [ 112, %3293 ], [ 112, %3294 ], [ 10, %3295 ], [ 8, %3288 ]
   %3298 = icmp ugt i32 %3268, 767
   br i1 %3298, label %.invoke4274, label %3299
 
@@ -36758,9 +36758,9 @@ default.unreachable.i1669:                        ; preds = %.noexc1670
   br label %3715
 
 3715:                                             ; preds = %3682, %3714, %3713, %3712, %3711, %3710, %3709, %3708, %3707, %3706, %3705, %3704, %3703, %3702, %3701, %3700, %3699, %3698, %3697, %3696, %3695, %3694, %3693, %3692, %3691, %3690, %3689, %3688, %3687, %3686, %3685, %3684
-  %.01320 = phi i8 [ 5, %3684 ], [ 1, %3685 ], [ 0, %3686 ], [ 1, %3687 ], [ 5, %3688 ], [ 0, %3689 ], [ 1, %3690 ], [ 1, %3691 ], [ 5, %3692 ], [ 5, %3693 ], [ 4, %3694 ], [ 0, %3695 ], [ 1, %3696 ], [ 1, %3697 ], [ 1, %3698 ], [ 1, %3699 ], [ 1, %3700 ], [ 1, %3701 ], [ 1, %3702 ], [ 1, %3703 ], [ 1, %3704 ], [ 1, %3705 ], [ 1, %3706 ], [ 1, %3707 ], [ 1, %3708 ], [ 1, %3709 ], [ 1, %3710 ], [ 1, %3711 ], [ 0, %3712 ], [ 1, %3713 ], [ 4, %3714 ], [ 0, %3682 ]
-  %.01319 = phi i32 [ 4070, %3684 ], [ 3930, %3685 ], [ 3930, %3686 ], [ 4070, %3687 ], [ 3931, %3688 ], [ 3880, %3689 ], [ 3880, %3690 ], [ 3951, %3691 ], [ 3951, %3692 ], [ 3856, %3693 ], [ 3856, %3694 ], [ 3856, %3695 ], [ 3856, %3696 ], [ 997404, %3697 ], [ 997405, %3698 ], [ 997406, %3699 ], [ 997409, %3700 ], [ 997408, %3701 ], [ 997410, %3702 ], [ 997411, %3703 ], [ 997412, %3704 ], [ 997413, %3705 ], [ 997425, %3706 ], [ 997424, %3707 ], [ 997426, %3708 ], [ 997427, %3709 ], [ 997428, %3710 ], [ 997429, %3711 ], [ 3921, %3712 ], [ 3921, %3713 ], [ 3858, %3714 ], [ 3931, %3682 ]
-  %.01318 = phi i64 [ 2, %3684 ], [ 2, %3685 ], [ 2, %3686 ], [ 2, %3687 ], [ 2, %3688 ], [ 2, %3689 ], [ 2, %3690 ], [ 2, %3691 ], [ 2, %3692 ], [ 2, %3693 ], [ 2, %3694 ], [ 2, %3695 ], [ 2, %3696 ], [ 3, %3697 ], [ 3, %3698 ], [ 3, %3699 ], [ 3, %3700 ], [ 3, %3701 ], [ 3, %3702 ], [ 3, %3703 ], [ 3, %3704 ], [ 3, %3705 ], [ 3, %3706 ], [ 3, %3707 ], [ 3, %3708 ], [ 3, %3709 ], [ 3, %3710 ], [ 3, %3711 ], [ 2, %3712 ], [ 2, %3713 ], [ 2, %3714 ], [ 2, %3682 ]
+  %.01320 = phi i8 [ 4, %3714 ], [ 5, %3684 ], [ 1, %3685 ], [ 0, %3686 ], [ 1, %3687 ], [ 5, %3688 ], [ 0, %3689 ], [ 1, %3690 ], [ 1, %3691 ], [ 5, %3692 ], [ 5, %3693 ], [ 4, %3694 ], [ 0, %3695 ], [ 1, %3696 ], [ 1, %3697 ], [ 1, %3698 ], [ 1, %3699 ], [ 1, %3700 ], [ 1, %3701 ], [ 1, %3702 ], [ 1, %3703 ], [ 1, %3704 ], [ 1, %3705 ], [ 1, %3706 ], [ 1, %3707 ], [ 1, %3708 ], [ 1, %3709 ], [ 1, %3710 ], [ 1, %3711 ], [ 0, %3712 ], [ 1, %3713 ], [ 0, %3682 ]
+  %.01319 = phi i32 [ 3858, %3714 ], [ 4070, %3684 ], [ 3930, %3685 ], [ 3930, %3686 ], [ 4070, %3687 ], [ 3931, %3688 ], [ 3880, %3689 ], [ 3880, %3690 ], [ 3951, %3691 ], [ 3951, %3692 ], [ 3856, %3693 ], [ 3856, %3694 ], [ 3856, %3695 ], [ 3856, %3696 ], [ 997404, %3697 ], [ 997405, %3698 ], [ 997406, %3699 ], [ 997409, %3700 ], [ 997408, %3701 ], [ 997410, %3702 ], [ 997411, %3703 ], [ 997412, %3704 ], [ 997413, %3705 ], [ 997425, %3706 ], [ 997424, %3707 ], [ 997426, %3708 ], [ 997427, %3709 ], [ 997428, %3710 ], [ 997429, %3711 ], [ 3921, %3712 ], [ 3921, %3713 ], [ 3931, %3682 ]
+  %.01318 = phi i64 [ 2, %3714 ], [ 2, %3684 ], [ 2, %3685 ], [ 2, %3686 ], [ 2, %3687 ], [ 2, %3688 ], [ 2, %3689 ], [ 2, %3690 ], [ 2, %3691 ], [ 2, %3692 ], [ 2, %3693 ], [ 2, %3694 ], [ 2, %3695 ], [ 2, %3696 ], [ 3, %3697 ], [ 3, %3698 ], [ 3, %3699 ], [ 3, %3700 ], [ 3, %3701 ], [ 3, %3702 ], [ 3, %3703 ], [ 3, %3704 ], [ 3, %3705 ], [ 3, %3706 ], [ 3, %3707 ], [ 3, %3708 ], [ 3, %3709 ], [ 3, %3710 ], [ 3, %3711 ], [ 2, %3712 ], [ 2, %3713 ], [ 2, %3682 ]
   %3716 = load i8, ptr %428, align 4, !range !403, !noundef !4
   %3717 = icmp eq i8 %3716, 6
   br i1 %3717, label %3718, label %3721
@@ -36885,9 +36885,9 @@ default.unreachable.i1669:                        ; preds = %.noexc1670
   br label %3750
 
 3750:                                             ; preds = %3742, %3749, %3748, %3747, %3746, %3745, %3744
-  %.01317 = phi i8 [ 1, %3744 ], [ 1, %3745 ], [ 1, %3746 ], [ 1, %3747 ], [ 4, %3748 ], [ 5, %3749 ], [ 1, %3742 ]
-  %.01316 = phi i32 [ 997896, %3744 ], [ 997897, %3745 ], [ 997898, %3746 ], [ 997899, %3747 ], [ 3952, %3748 ], [ 3952, %3749 ], [ 3952, %3742 ]
-  %.01315 = phi i64 [ 3, %3744 ], [ 3, %3745 ], [ 3, %3746 ], [ 3, %3747 ], [ 2, %3748 ], [ 2, %3749 ], [ 2, %3742 ]
+  %.01317 = phi i8 [ 5, %3749 ], [ 1, %3744 ], [ 1, %3745 ], [ 1, %3746 ], [ 1, %3747 ], [ 4, %3748 ], [ 1, %3742 ]
+  %.01316 = phi i32 [ 3952, %3749 ], [ 997896, %3744 ], [ 997897, %3745 ], [ 997898, %3746 ], [ 997899, %3747 ], [ 3952, %3748 ], [ 3952, %3742 ]
+  %.01315 = phi i64 [ 2, %3749 ], [ 3, %3744 ], [ 3, %3745 ], [ 3, %3746 ], [ 3, %3747 ], [ 2, %3748 ], [ 2, %3742 ]
   %3751 = load i8, ptr %421, align 4, !range !403, !noundef !4
   %3752 = icmp eq i8 %3751, 6
   br i1 %3752, label %3753, label %3756
@@ -37309,9 +37309,9 @@ switch.lookup4930:                                ; preds = %3859
 3886:                                             ; preds = %3881
   br label %3887
 
-3887:                                             ; preds = %3881, %3886, %3885, %3884, %3883
-  %.01214.ph = phi i8 [ 5, %3881 ], [ 1, %3886 ], [ 1, %3885 ], [ 0, %3884 ], [ 4, %3883 ]
-  %.01213.ph = phi i32 [ 3884, %3881 ], [ 4055, %3886 ], [ 3920, %3885 ], [ 3920, %3884 ], [ 3884, %3883 ]
+3887:                                             ; preds = %3881, %3885, %3884, %3883, %3886
+  %.01214.ph = phi i8 [ 5, %3881 ], [ 1, %3885 ], [ 0, %3884 ], [ 4, %3883 ], [ 1, %3886 ]
+  %.01213.ph = phi i32 [ 3884, %3881 ], [ 3920, %3885 ], [ 3920, %3884 ], [ 3884, %3883 ], [ 4055, %3886 ]
   br label %3888
 
 3888:                                             ; preds = %3881, %3881, %3887
@@ -37372,12 +37372,12 @@ switch.lookup4930:                                ; preds = %3859
 3908:                                             ; preds = %3904
   br label %3909
 
-3909:                                             ; preds = %3904, %3907, %3906, %3908
-  %3910 = phi i32 [ %3903, %3908 ], [ %3899, %3906 ], [ %3899, %3907 ], [ %3899, %3904 ]
-  %.0120835073520 = phi i32 [ 4037, %3908 ], [ 997910, %3906 ], [ 997910, %3907 ], [ 997908, %3904 ]
-  %.0120735083518 = phi i64 [ 2, %3908 ], [ 3, %3906 ], [ 3, %3907 ], [ 3, %3904 ]
-  %..i247535103516 = phi i8 [ 1, %3908 ], [ 1, %3906 ], [ 0, %3907 ], [ 1, %3904 ]
-  %3911 = phi i32 [ %3899, %3908 ], [ %3903, %3906 ], [ %3903, %3907 ], [ %3903, %3904 ]
+3909:                                             ; preds = %3904, %3906, %3907, %3908
+  %3910 = phi i32 [ %3903, %3908 ], [ %3899, %3907 ], [ %3899, %3906 ], [ %3899, %3904 ]
+  %.0120835073520 = phi i32 [ 4037, %3908 ], [ 997910, %3907 ], [ 997910, %3906 ], [ 997908, %3904 ]
+  %.0120735083518 = phi i64 [ 2, %3908 ], [ 3, %3907 ], [ 3, %3906 ], [ 3, %3904 ]
+  %..i247535103516 = phi i8 [ 1, %3908 ], [ 0, %3907 ], [ 1, %3906 ], [ 1, %3904 ]
+  %3911 = phi i32 [ %3899, %3908 ], [ %3903, %3907 ], [ %3903, %3906 ], [ %3903, %3904 ]
   invoke fastcc void @_ZN17cranelift_codegen3isa3x648encoding3rex16emit_std_reg_reg17h8df5551b04817f09E(ptr noalias noundef align 8 dereferenceable(4856) %2, i8 noundef 1, i32 noundef %.0120835073520, i64 noundef %.0120735083518, i32 noundef %3910, i32 noundef %3911, i8 noundef %..i247535103516)
           to label %3912 unwind label %.loopexit.split-lp
 
@@ -38325,7 +38325,7 @@ switch.lookup4930:                                ; preds = %3859
   br label %_ZN17cranelift_codegen3isa3x644inst4args11OperandSize7to_bits17hea1ad9ffe9ddeae6E.exit
 
 _ZN17cranelift_codegen3isa3x644inst4args11OperandSize7to_bits17hea1ad9ffe9ddeae6E.exit: ; preds = %4199, %4198, %4197
-  %.0.i.i = phi i8 [ 16, %4198 ], [ 32, %4199 ], [ 8, %4197 ]
+  %.0.i.i = phi i8 [ 8, %4197 ], [ 16, %4198 ], [ 32, %4199 ]
   %4200 = icmp eq i8 %4159, 2
   br i1 %4200, label %4202, label %4214
 
@@ -39958,9 +39958,9 @@ switch.lookup4942:                                ; preds = %4368
   br label %4653
 
 4653:                                             ; preds = %4649, %4652, %4651
-  %.01201 = phi i8 [ 0, %4651 ], [ 1, %4652 ], [ 1, %4649 ]
-  %.01200 = phi i32 [ 3886, %4651 ], [ 3886, %4652 ], [ 997399, %4649 ]
-  %.01199 = phi i64 [ 2, %4651 ], [ 2, %4652 ], [ 3, %4649 ]
+  %.01201 = phi i8 [ 1, %4652 ], [ 0, %4651 ], [ 1, %4649 ]
+  %.01200 = phi i32 [ 3886, %4652 ], [ 3886, %4651 ], [ 997399, %4649 ]
+  %.01199 = phi i64 [ 2, %4652 ], [ 2, %4651 ], [ 3, %4649 ]
   %4654 = load i8, ptr %246, align 4, !range !403, !noundef !4
   %4655 = icmp eq i8 %4654, 6
   br i1 %4655, label %4656, label %4659
@@ -40054,9 +40054,9 @@ switch.lookup4942:                                ; preds = %4368
   br label %4681
 
 4681:                                             ; preds = %4671, %4672, %4673, %4674, %4675, %4676, %4677, %4678, %4679, %4680, %4669
-  %.01227 = phi i8 [ 1, %4671 ], [ 5, %4672 ], [ 4, %4673 ], [ 1, %4674 ], [ 1, %4675 ], [ 1, %4676 ], [ 1, %4677 ], [ 1, %4678 ], [ 0, %4679 ], [ 1, %4680 ], [ 0, %4669 ]
-  %.01224 = phi i32 [ 4034, %4671 ], [ 4034, %4672 ], [ 4034, %4673 ], [ 997921, %4674 ], [ 997903, %4675 ], [ 997920, %4676 ], [ 4036, %4677 ], [ 997922, %4678 ], [ 4038, %4679 ], [ 997902, %4680 ], [ 4034, %4669 ]
-  %.01223 = phi i64 [ 2, %4671 ], [ 2, %4672 ], [ 2, %4673 ], [ 3, %4674 ], [ 3, %4675 ], [ 3, %4676 ], [ 2, %4677 ], [ 3, %4678 ], [ 2, %4679 ], [ 3, %4680 ], [ 2, %4669 ]
+  %.01227 = phi i8 [ 1, %4680 ], [ 1, %4671 ], [ 5, %4672 ], [ 4, %4673 ], [ 1, %4674 ], [ 1, %4675 ], [ 1, %4676 ], [ 1, %4677 ], [ 1, %4678 ], [ 0, %4679 ], [ 0, %4669 ]
+  %.01224 = phi i32 [ 997902, %4680 ], [ 4034, %4671 ], [ 4034, %4672 ], [ 4034, %4673 ], [ 997921, %4674 ], [ 997903, %4675 ], [ 997920, %4676 ], [ 4036, %4677 ], [ 997922, %4678 ], [ 4038, %4679 ], [ 4034, %4669 ]
+  %.01223 = phi i64 [ 3, %4680 ], [ 2, %4671 ], [ 2, %4672 ], [ 2, %4673 ], [ 3, %4674 ], [ 3, %4675 ], [ 3, %4676 ], [ 2, %4677 ], [ 3, %4678 ], [ 2, %4679 ], [ 2, %4669 ]
   %4682 = load i8, ptr %657, align 1, !range !517, !noundef !4
   %4683 = icmp ne i8 %4682, 3
   %..i2489 = zext i1 %4683 to i8
@@ -41379,7 +41379,7 @@ switch.lookup4954:                                ; preds = %5152
   br label %5169
 
 5169:                                             ; preds = %5124, %5168, %5167, %5166, %5165
-  %.01367 = phi i8 [ 2, %5165 ], [ 4, %5166 ], [ 6, %5168 ], [ 5, %5167 ], [ %5126, %5124 ]
+  %.01367 = phi i8 [ 5, %5167 ], [ 2, %5165 ], [ 4, %5166 ], [ 6, %5168 ], [ %5126, %5124 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %129)
   invoke void @"_ZN17cranelift_codegen3isa3x644inst81_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$9alu_rmi_r17h70a7bbb37696dab7E"(ptr noalias noundef nonnull sret({ i8, [39 x i8] }) align 8 captures(none) dereferenceable(40) %129, i8 noundef 3, i8 noundef %.01367, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(16) %137, i32 noundef %5073)
           to label %5170 unwind label %5122
@@ -41763,8 +41763,8 @@ define internal fastcc void @_ZN17cranelift_codegen3isa3x644inst4emit32emit_retu
   br label %_ZN17cranelift_codegen8machinst3reg18AllocationConsumer13next_writable17hf38d8184eda66e12E.exit
 
 _ZN17cranelift_codegen8machinst3reg18AllocationConsumer13next_writable17hf38d8184eda66e12E.exit: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc839e7f701996aa8E.llvm.6890334928246803750.exit.thread.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc839e7f701996aa8E.llvm.6890334928246803750.exit.i.i", %"_ZN126_$LT$cranelift_codegen..machinst..reg..Reg$u20$as$u20$core..convert..From$LT$cranelift_codegen..machinst..reg..RealReg$GT$$GT$4from17h74b7944bde3496e2E.exit.i.i"
-  %.promoted = phi ptr [ %37, %"_ZN126_$LT$cranelift_codegen..machinst..reg..Reg$u20$as$u20$core..convert..From$LT$cranelift_codegen..machinst..reg..RealReg$GT$$GT$4from17h74b7944bde3496e2E.exit.i.i" ], [ %37, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc839e7f701996aa8E.llvm.6890334928246803750.exit.i.i" ], [ %39, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc839e7f701996aa8E.llvm.6890334928246803750.exit.thread.i.i" ]
-  %.0.i.i = phi i32 [ %55, %"_ZN126_$LT$cranelift_codegen..machinst..reg..Reg$u20$as$u20$core..convert..From$LT$cranelift_codegen..machinst..reg..RealReg$GT$$GT$4from17h74b7944bde3496e2E.exit.i.i" ], [ %34, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc839e7f701996aa8E.llvm.6890334928246803750.exit.i.i" ], [ %52, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc839e7f701996aa8E.llvm.6890334928246803750.exit.thread.i.i" ]
+  %.promoted = phi ptr [ %37, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc839e7f701996aa8E.llvm.6890334928246803750.exit.i.i" ], [ %37, %"_ZN126_$LT$cranelift_codegen..machinst..reg..Reg$u20$as$u20$core..convert..From$LT$cranelift_codegen..machinst..reg..RealReg$GT$$GT$4from17h74b7944bde3496e2E.exit.i.i" ], [ %39, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc839e7f701996aa8E.llvm.6890334928246803750.exit.thread.i.i" ]
+  %.0.i.i = phi i32 [ %34, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc839e7f701996aa8E.llvm.6890334928246803750.exit.i.i" ], [ %55, %"_ZN126_$LT$cranelift_codegen..machinst..reg..Reg$u20$as$u20$core..convert..From$LT$cranelift_codegen..machinst..reg..RealReg$GT$$GT$4from17h74b7944bde3496e2E.exit.i.i" ], [ %52, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc839e7f701996aa8E.llvm.6890334928246803750.exit.thread.i.i" ]
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %57 = load i64, ptr %56, align 8, !alias.scope !6081, !noalias !6084, !noundef !4
   %58 = icmp ugt i64 %57, 8
@@ -42679,7 +42679,7 @@ _ZN17cranelift_codegen8machinst3reg3Reg5class17hc7c6786d1f35d9dcE.exit: ; preds 
   br label %41
 
 41:                                               ; preds = %31, %40, %39
-  %.sroa.0206.0 = phi ptr [ @anon.1a7877b4d25764724cd66411c116da83.735, %39 ], [ @anon.1a7877b4d25764724cd66411c116da83.736, %40 ], [ @anon.1a7877b4d25764724cd66411c116da83.734, %31 ]
+  %.sroa.0206.0 = phi ptr [ @anon.1a7877b4d25764724cd66411c116da83.736, %40 ], [ @anon.1a7877b4d25764724cd66411c116da83.735, %39 ], [ @anon.1a7877b4d25764724cd66411c116da83.734, %31 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !6243)
@@ -42810,13 +42810,13 @@ _ZN17cranelift_codegen8machinst3reg3Reg5class17hc7c6786d1f35d9dcE.exit: ; preds 
   %77 = icmp eq i32 %bcmp.i373, 0
   br i1 %77, label %.thread434, label %_ZN17cranelift_codegen8machinst3reg3Reg5class17hc7c6786d1f35d9dcE.exit.thread
 
-.thread434:                                       ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit374", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit370", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit366", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit362", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit358", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit354", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit350", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit346", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit342", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit338", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit334", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit330", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit326", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit322", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit318", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit"
-  %.sroa.0.0446 = phi ptr [ @anon.1a7877b4d25764724cd66411c116da83.745, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit370" ], [ @anon.1a7877b4d25764724cd66411c116da83.748, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit366" ], [ @anon.1a7877b4d25764724cd66411c116da83.751, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit362" ], [ @anon.1a7877b4d25764724cd66411c116da83.754, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit358" ], [ @anon.1a7877b4d25764724cd66411c116da83.757, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit354" ], [ @anon.1a7877b4d25764724cd66411c116da83.760, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit350" ], [ @anon.1a7877b4d25764724cd66411c116da83.763, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit346" ], [ @anon.1a7877b4d25764724cd66411c116da83.766, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit342" ], [ @anon.1a7877b4d25764724cd66411c116da83.769, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit338" ], [ @anon.1a7877b4d25764724cd66411c116da83.772, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit334" ], [ @anon.1a7877b4d25764724cd66411c116da83.775, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit330" ], [ @anon.1a7877b4d25764724cd66411c116da83.778, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit326" ], [ @anon.1a7877b4d25764724cd66411c116da83.781, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit322" ], [ @anon.1a7877b4d25764724cd66411c116da83.784, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit318" ], [ @anon.1a7877b4d25764724cd66411c116da83.787, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit" ], [ @anon.1a7877b4d25764724cd66411c116da83.742, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit374" ]
-  %.sroa.21.sroa.22.0445 = phi i64 [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit370" ], [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit366" ], [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit362" ], [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit358" ], [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit354" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit350" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit346" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit342" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit338" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit334" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit330" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit326" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit322" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit318" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit" ], [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit374" ]
-  %.sroa.21.sroa.21.0444 = phi ptr [ @anon.1a7877b4d25764724cd66411c116da83.744, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit370" ], [ @anon.1a7877b4d25764724cd66411c116da83.747, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit366" ], [ @anon.1a7877b4d25764724cd66411c116da83.750, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit362" ], [ @anon.1a7877b4d25764724cd66411c116da83.753, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit358" ], [ @anon.1a7877b4d25764724cd66411c116da83.756, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit354" ], [ @anon.1a7877b4d25764724cd66411c116da83.759, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit350" ], [ @anon.1a7877b4d25764724cd66411c116da83.762, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit346" ], [ @anon.1a7877b4d25764724cd66411c116da83.765, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit342" ], [ @anon.1a7877b4d25764724cd66411c116da83.768, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit338" ], [ @anon.1a7877b4d25764724cd66411c116da83.771, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit334" ], [ @anon.1a7877b4d25764724cd66411c116da83.774, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit330" ], [ @anon.1a7877b4d25764724cd66411c116da83.777, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit326" ], [ @anon.1a7877b4d25764724cd66411c116da83.780, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit322" ], [ @anon.1a7877b4d25764724cd66411c116da83.783, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit318" ], [ @anon.1a7877b4d25764724cd66411c116da83.786, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit" ], [ @anon.1a7877b4d25764724cd66411c116da83.741, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit374" ]
-  %.sroa.21.sroa.0.0443 = phi i64 [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit370" ], [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit366" ], [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit362" ], [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit358" ], [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit354" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit350" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit346" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit342" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit338" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit334" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit330" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit326" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit322" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit318" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit" ], [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit374" ]
-  %.sroa.21.sroa.19.0442 = phi ptr [ @anon.1a7877b4d25764724cd66411c116da83.743, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit370" ], [ @anon.1a7877b4d25764724cd66411c116da83.746, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit366" ], [ @anon.1a7877b4d25764724cd66411c116da83.749, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit362" ], [ @anon.1a7877b4d25764724cd66411c116da83.752, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit358" ], [ @anon.1a7877b4d25764724cd66411c116da83.755, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit354" ], [ @anon.1a7877b4d25764724cd66411c116da83.758, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit350" ], [ @anon.1a7877b4d25764724cd66411c116da83.761, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit346" ], [ @anon.1a7877b4d25764724cd66411c116da83.764, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit342" ], [ @anon.1a7877b4d25764724cd66411c116da83.767, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit338" ], [ @anon.1a7877b4d25764724cd66411c116da83.770, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit334" ], [ @anon.1a7877b4d25764724cd66411c116da83.773, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit330" ], [ @anon.1a7877b4d25764724cd66411c116da83.776, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit326" ], [ @anon.1a7877b4d25764724cd66411c116da83.779, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit322" ], [ @anon.1a7877b4d25764724cd66411c116da83.782, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit318" ], [ @anon.1a7877b4d25764724cd66411c116da83.785, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit" ], [ @anon.1a7877b4d25764724cd66411c116da83.740, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit374" ]
-  %.sroa.21.sroa.20.0441 = phi i64 [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit370" ], [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit366" ], [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit362" ], [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit358" ], [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit354" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit350" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit346" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit342" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit338" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit334" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit330" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit326" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit322" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit318" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit" ], [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit374" ]
+.thread434:                                       ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit374", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit366", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit362", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit358", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit354", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit350", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit346", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit342", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit338", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit334", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit330", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit326", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit322", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit318", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit370"
+  %.sroa.0.0446 = phi ptr [ @anon.1a7877b4d25764724cd66411c116da83.742, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit374" ], [ @anon.1a7877b4d25764724cd66411c116da83.745, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit370" ], [ @anon.1a7877b4d25764724cd66411c116da83.748, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit366" ], [ @anon.1a7877b4d25764724cd66411c116da83.751, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit362" ], [ @anon.1a7877b4d25764724cd66411c116da83.754, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit358" ], [ @anon.1a7877b4d25764724cd66411c116da83.757, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit354" ], [ @anon.1a7877b4d25764724cd66411c116da83.760, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit350" ], [ @anon.1a7877b4d25764724cd66411c116da83.763, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit346" ], [ @anon.1a7877b4d25764724cd66411c116da83.766, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit342" ], [ @anon.1a7877b4d25764724cd66411c116da83.769, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit338" ], [ @anon.1a7877b4d25764724cd66411c116da83.772, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit334" ], [ @anon.1a7877b4d25764724cd66411c116da83.775, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit330" ], [ @anon.1a7877b4d25764724cd66411c116da83.778, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit326" ], [ @anon.1a7877b4d25764724cd66411c116da83.781, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit322" ], [ @anon.1a7877b4d25764724cd66411c116da83.784, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit318" ], [ @anon.1a7877b4d25764724cd66411c116da83.787, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit" ]
+  %.sroa.21.sroa.22.0445 = phi i64 [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit374" ], [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit370" ], [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit366" ], [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit362" ], [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit358" ], [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit354" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit350" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit346" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit342" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit338" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit334" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit330" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit326" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit322" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit318" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit" ]
+  %.sroa.21.sroa.21.0444 = phi ptr [ @anon.1a7877b4d25764724cd66411c116da83.741, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit374" ], [ @anon.1a7877b4d25764724cd66411c116da83.744, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit370" ], [ @anon.1a7877b4d25764724cd66411c116da83.747, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit366" ], [ @anon.1a7877b4d25764724cd66411c116da83.750, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit362" ], [ @anon.1a7877b4d25764724cd66411c116da83.753, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit358" ], [ @anon.1a7877b4d25764724cd66411c116da83.756, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit354" ], [ @anon.1a7877b4d25764724cd66411c116da83.759, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit350" ], [ @anon.1a7877b4d25764724cd66411c116da83.762, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit346" ], [ @anon.1a7877b4d25764724cd66411c116da83.765, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit342" ], [ @anon.1a7877b4d25764724cd66411c116da83.768, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit338" ], [ @anon.1a7877b4d25764724cd66411c116da83.771, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit334" ], [ @anon.1a7877b4d25764724cd66411c116da83.774, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit330" ], [ @anon.1a7877b4d25764724cd66411c116da83.777, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit326" ], [ @anon.1a7877b4d25764724cd66411c116da83.780, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit322" ], [ @anon.1a7877b4d25764724cd66411c116da83.783, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit318" ], [ @anon.1a7877b4d25764724cd66411c116da83.786, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit" ]
+  %.sroa.21.sroa.0.0443 = phi i64 [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit374" ], [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit370" ], [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit366" ], [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit362" ], [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit358" ], [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit354" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit350" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit346" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit342" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit338" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit334" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit330" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit326" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit322" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit318" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit" ]
+  %.sroa.21.sroa.19.0442 = phi ptr [ @anon.1a7877b4d25764724cd66411c116da83.740, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit374" ], [ @anon.1a7877b4d25764724cd66411c116da83.743, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit370" ], [ @anon.1a7877b4d25764724cd66411c116da83.746, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit366" ], [ @anon.1a7877b4d25764724cd66411c116da83.749, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit362" ], [ @anon.1a7877b4d25764724cd66411c116da83.752, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit358" ], [ @anon.1a7877b4d25764724cd66411c116da83.755, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit354" ], [ @anon.1a7877b4d25764724cd66411c116da83.758, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit350" ], [ @anon.1a7877b4d25764724cd66411c116da83.761, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit346" ], [ @anon.1a7877b4d25764724cd66411c116da83.764, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit342" ], [ @anon.1a7877b4d25764724cd66411c116da83.767, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit338" ], [ @anon.1a7877b4d25764724cd66411c116da83.770, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit334" ], [ @anon.1a7877b4d25764724cd66411c116da83.773, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit330" ], [ @anon.1a7877b4d25764724cd66411c116da83.776, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit326" ], [ @anon.1a7877b4d25764724cd66411c116da83.779, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit322" ], [ @anon.1a7877b4d25764724cd66411c116da83.782, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit318" ], [ @anon.1a7877b4d25764724cd66411c116da83.785, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit" ]
+  %.sroa.21.sroa.20.0441 = phi i64 [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit374" ], [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit370" ], [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit366" ], [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit362" ], [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit358" ], [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit354" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit350" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit346" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit342" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit338" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit334" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit330" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit326" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit322" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit318" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit" ]
   switch i8 %2, label %78 [
     i8 4, label %79
     i8 2, label %81
@@ -43044,7 +43044,7 @@ define hidden void @_ZN17cranelift_codegen3isa3x644inst4regs16pretty_print_reg17
   br label %_ZN17cranelift_codegen8machinst3reg18AllocationConsumer4next17h295ca37240d2b0deE.exit
 
 _ZN17cranelift_codegen8machinst3reg18AllocationConsumer4next17h295ca37240d2b0deE.exit: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc839e7f701996aa8E.llvm.6890334928246803750.exit.thread.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc839e7f701996aa8E.llvm.6890334928246803750.exit.i", %"_ZN126_$LT$cranelift_codegen..machinst..reg..Reg$u20$as$u20$core..convert..From$LT$cranelift_codegen..machinst..reg..RealReg$GT$$GT$4from17h74b7944bde3496e2E.exit.i"
-  %.0.i = phi i32 [ %25, %"_ZN126_$LT$cranelift_codegen..machinst..reg..Reg$u20$as$u20$core..convert..From$LT$cranelift_codegen..machinst..reg..RealReg$GT$$GT$4from17h74b7944bde3496e2E.exit.i" ], [ %1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc839e7f701996aa8E.llvm.6890334928246803750.exit.i" ], [ %22, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc839e7f701996aa8E.llvm.6890334928246803750.exit.thread.i" ]
+  %.0.i = phi i32 [ %1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc839e7f701996aa8E.llvm.6890334928246803750.exit.i" ], [ %25, %"_ZN126_$LT$cranelift_codegen..machinst..reg..Reg$u20$as$u20$core..convert..From$LT$cranelift_codegen..machinst..reg..RealReg$GT$$GT$4from17h74b7944bde3496e2E.exit.i" ], [ %22, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc839e7f701996aa8E.llvm.6890334928246803750.exit.thread.i" ]
   tail call void @_ZN17cranelift_codegen3isa3x644inst4regs15show_ireg_sized17h437d4eec508d4174E(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %0, i32 noundef %.0.i, i8 noundef %2)
   ret void
 }
@@ -43272,7 +43272,7 @@ define noundef i64 @_ZN17cranelift_codegen3isa6unwind6winx6410UnwindInfo9emit_si
   br label %"_ZN17cranelift_codegen3isa6unwind6winx6410UnwindInfo10node_count28_$u7b$$u7b$closure$u7d$$u7d$17h0c079aaf9df98390E.exit.i.i"
 
 "_ZN17cranelift_codegen3isa6unwind6winx6410UnwindInfo10node_count28_$u7b$$u7b$closure$u7d$$u7d$17h0c079aaf9df98390E.exit.i.i": ; preds = %11, %9, %7, %.preheader.i
-  %.0.i.i.i.i = phi i64 [ %..i.i.i.i, %9 ], [ 1, %.preheader.i ], [ %.3.i.i.i.i, %11 ], [ 1, %7 ]
+  %.0.i.i.i.i = phi i64 [ 1, %7 ], [ %..i.i.i.i, %9 ], [ %.3.i.i.i.i, %11 ], [ 1, %.preheader.i ]
   %13 = add i64 %.0.i.i.i.i, %.017.i.i
   %14 = add nuw i64 %.016.i.i, 1
   %15 = icmp eq i64 %14, %.val1
@@ -43340,7 +43340,7 @@ define void @_ZN17cranelift_codegen3isa6unwind6winx6410UnwindInfo4emit17hccb3fcf
   br label %"_ZN17cranelift_codegen3isa6unwind6winx6410UnwindInfo10node_count28_$u7b$$u7b$closure$u7d$$u7d$17h0c079aaf9df98390E.exit.i.i"
 
 "_ZN17cranelift_codegen3isa6unwind6winx6410UnwindInfo10node_count28_$u7b$$u7b$closure$u7d$$u7d$17h0c079aaf9df98390E.exit.i.i": ; preds = %16, %14, %12, %.preheader.i
-  %.0.i.i.i.i = phi i64 [ %..i.i.i.i, %14 ], [ 1, %.preheader.i ], [ %.3.i.i.i.i, %16 ], [ 1, %12 ]
+  %.0.i.i.i.i = phi i64 [ 1, %12 ], [ %..i.i.i.i, %14 ], [ %.3.i.i.i.i, %16 ], [ 1, %.preheader.i ]
   %18 = add i64 %.0.i.i.i.i, %.017.i.i
   %19 = add nuw i64 %.016.i.i, 1
   %20 = icmp eq i64 %19, %.val8
@@ -43831,7 +43831,7 @@ _ZN17cranelift_codegen3isa6unwind6winx646Writer12write_u16_le17h666cb19a588be6c2
   br label %"_ZN17cranelift_codegen3isa6unwind6winx6410UnwindInfo10node_count28_$u7b$$u7b$closure$u7d$$u7d$17h0c079aaf9df98390E.exit.i.i.i"
 
 "_ZN17cranelift_codegen3isa6unwind6winx6410UnwindInfo10node_count28_$u7b$$u7b$closure$u7d$$u7d$17h0c079aaf9df98390E.exit.i.i.i": ; preds = %202, %200, %198, %.preheader.i.i
-  %.0.i.i.i.i.i = phi i64 [ %..i.i.i.i.i, %200 ], [ 1, %.preheader.i.i ], [ %.3.i.i.i.i.i, %202 ], [ 1, %198 ]
+  %.0.i.i.i.i.i = phi i64 [ 1, %198 ], [ %..i.i.i.i.i, %200 ], [ %.3.i.i.i.i.i, %202 ], [ 1, %.preheader.i.i ]
   %204 = add i64 %.0.i.i.i.i.i, %.017.i.i.i
   %205 = add nuw i64 %.016.i.i.i, 1
   %206 = icmp eq i64 %205, %.val8
@@ -43968,7 +43968,7 @@ _ZN17cranelift_codegen3isa3x6411isa_builder17h5c834abc4ffec86dE.exit: ; preds = 
   ret void
 
 .critedge:                                        ; preds = %2, %7
-  %.sink = phi i8 [ 0, %7 ], [ 1, %2 ]
+  %.sink = phi i8 [ 1, %2 ], [ 0, %7 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sink, ptr %16, align 8
   store i64 16, ptr %0, align 8
@@ -44206,7 +44206,7 @@ _ZN14target_lexicon6triple6Triple26default_calling_convention17h4e6f5cfcf86d833b
   unreachable
 
 _ZN17cranelift_codegen3isa9call_conv8CallConv14triple_default17h1e692bddd2f3ce0fE.exit: ; preds = %2, %15, %_ZN14target_lexicon6triple6Triple26default_calling_convention17h4e6f5cfcf86d833bE.llvm.1715581770924364745.exit.thread.i
-  %.0.i = phi i8 [ 3, %_ZN14target_lexicon6triple6Triple26default_calling_convention17h4e6f5cfcf86d833bE.llvm.1715581770924364745.exit.thread.i ], [ 4, %2 ], [ 5, %15 ]
+  %.0.i = phi i8 [ 4, %2 ], [ 3, %_ZN14target_lexicon6triple6Triple26default_calling_convention17h4e6f5cfcf86d833bE.llvm.1715581770924364745.exit.thread.i ], [ 5, %15 ]
   ret i8 %.0.i
 }
 
@@ -44271,7 +44271,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_bits17h138809cd46da0e4aE.exit"
 
 "_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_bits17h138809cd46da0e4aE.exit": ; preds = %10, %9, %2
-  %.0.i = phi i16 [ 120, %9 ], [ 121, %10 ], [ 119, %2 ]
+  %.0.i = phi i16 [ 121, %10 ], [ 120, %9 ], [ 119, %2 ]
   ret i16 %.0.i
 }
 
@@ -44322,7 +44322,7 @@ default.unreachable:                              ; preds = %2
   br label %11
 
 11:                                               ; preds = %2, %10, %9
-  %.0 = phi i8 [ 32, %9 ], [ 64, %10 ], [ 16, %2 ]
+  %.0 = phi i8 [ 64, %10 ], [ 32, %9 ], [ 16, %2 ]
   ret i8 %.0
 }
 
@@ -44355,7 +44355,7 @@ default.unreachable:                              ; preds = %2
   br label %11
 
 11:                                               ; preds = %2, %10, %9
-  %.0 = phi i8 [ 4, %9 ], [ 8, %10 ], [ 2, %2 ]
+  %.0 = phi i8 [ 8, %10 ], [ 4, %9 ], [ 2, %2 ]
   ret i8 %.0
 }
 
@@ -44421,7 +44421,7 @@ _ZN14target_lexicon6triple6Triple26default_calling_convention17h4e6f5cfcf86d833b
   unreachable
 
 "_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$17default_call_conv17hc2f89dccfe491a46E.exit": ; preds = %2, %16, %_ZN14target_lexicon6triple6Triple26default_calling_convention17h4e6f5cfcf86d833bE.llvm.1715581770924364745.exit.thread.i.i
-  %.0.i.i = phi i8 [ 3, %_ZN14target_lexicon6triple6Triple26default_calling_convention17h4e6f5cfcf86d833bE.llvm.1715581770924364745.exit.thread.i.i ], [ 4, %2 ], [ 5, %16 ]
+  %.0.i.i = phi i8 [ 4, %2 ], [ 3, %_ZN14target_lexicon6triple6Triple26default_calling_convention17h4e6f5cfcf86d833bE.llvm.1715581770924364745.exit.thread.i.i ], [ 5, %16 ]
   %25 = tail call noundef align 8 dereferenceable(40) ptr %8(ptr noundef nonnull align 1 %0), !noalias !6571
   %26 = tail call noundef i8 @_ZN14target_lexicon6triple6Triple13pointer_width17h63d6a75f88923f76E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %25), !range !517, !noalias !6571
   %27 = icmp eq i8 %26, 3
@@ -44845,7 +44845,7 @@ _ZN17cranelift_codegen2ir8constant12ConstantPool4iter17h6e03a4947d4a67daE.exit: 
   br label %182
 
 182:                                              ; preds = %173, %._crit_edge136, %198, %197, %196, %195, %194, %190, %183
-  %.0 = phi i8 [ 2, %183 ], [ 2, %190 ], [ 2, %194 ], [ 2, %195 ], [ 2, %196 ], [ 2, %197 ], [ 2, %198 ], [ %.6.lcssa, %._crit_edge136 ], [ %.152, %173 ]
+  %.0 = phi i8 [ 2, %198 ], [ %.6.lcssa, %._crit_edge136 ], [ 2, %183 ], [ 2, %190 ], [ 2, %194 ], [ 2, %195 ], [ 2, %196 ], [ 2, %197 ], [ %.152, %173 ]
   ret i8 %.0
 
 183:                                              ; preds = %166
@@ -45446,7 +45446,7 @@ _ZN17cranelift_codegen6timing7compile17had9943bb3fd21f00E.exit: ; preds = %5
   br label %"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$GT$$GT$17hf7f4a35ac36f6c19E.exit"
 
 common.resume:                                    ; preds = %29, %67, %75, %48, %56
-  %common.resume.op = phi { ptr, i32 } [ %49, %56 ], [ %49, %48 ], [ %68, %75 ], [ %68, %67 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %68, %67 ], [ %49, %48 ], [ %49, %56 ], [ %68, %75 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$GT$$GT$17hf7f4a35ac36f6c19E.exit": ; preds = %83, %76, %64, %57
@@ -46202,7 +46202,7 @@ _ZN17cranelift_codegen7context7Context21compute_loop_analysis17h15a527380a76a111
   br label %_ZN17cranelift_codegen7context7Context11egraph_pass17h75764074d75a8ad7E.exit
 
 common.resume.i:                                  ; preds = %259, %251, %.body.i
-  %common.resume.op.i = phi { ptr, i32 } [ %252, %259 ], [ %252, %251 ], [ %.pn36.i, %.body.i ]
+  %common.resume.op.i = phi { ptr, i32 } [ %252, %251 ], [ %252, %259 ], [ %.pn36.i, %.body.i ]
   resume { ptr, i32 } %common.resume.op.i
 
 268:                                              ; preds = %185, %181, %.body.i
@@ -46509,7 +46509,7 @@ define void @_ZN17cranelift_codegen7context7Context17canonicalize_nans17h34a4045
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h6d62cd7a19e14337E.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h6d62cd7a19e14337E.exit.thread": ; preds = %"_ZN17cranelift_codegen7context7Context17canonicalize_nans28_$u7b$$u7b$closure$u7d$$u7d$17h465ce61531955cf6E.exit.thread.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h6d62cd7a19e14337E.exit", %34, %15
-  %.1 = phi i1 [ false, %15 ], [ %41, %34 ], [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h6d62cd7a19e14337E.exit" ], [ false, %"_ZN17cranelift_codegen7context7Context17canonicalize_nans28_$u7b$$u7b$closure$u7d$$u7d$17h465ce61531955cf6E.exit.thread.i" ]
+  %.1 = phi i1 [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h6d62cd7a19e14337E.exit" ], [ false, %15 ], [ %41, %34 ], [ false, %"_ZN17cranelift_codegen7context7Context17canonicalize_nans28_$u7b$$u7b$closure$u7d$$u7d$17h465ce61531955cf6E.exit.thread.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !7114
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3589f9a65abfbfd2E.llvm.16803308262639080379"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -46903,7 +46903,7 @@ define hidden noundef range(i32 256, 1025) i32 @_ZN17cranelift_codegen6egraph4co
   br label %5
 
 5:                                                ; preds = %1, %4, %3, %2
-  %.0 = phi i32 [ 256, %2 ], [ 768, %3 ], [ 512, %4 ], [ 1024, %1 ]
+  %.0 = phi i32 [ 512, %4 ], [ 256, %2 ], [ 768, %3 ], [ 1024, %1 ]
   ret i32 %.0
 }
 
@@ -47144,7 +47144,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph13clear_results17h6b87e50708db0cbaE.
   br label %"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE.exit.i"
 
 "_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE.exit.i": ; preds = %122, %121, %107
-  %.0.i.i.i10 = phi i16 [ 120, %121 ], [ 121, %122 ], [ 119, %107 ]
+  %.0.i.i.i10 = phi i16 [ 121, %122 ], [ 120, %121 ], [ 119, %107 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !7261
   store i32 1, ptr %13, align 8, !alias.scope !7271, !noalias !7261
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -47581,7 +47581,7 @@ _ZN17cranelift_codegen9legalizer11globalvalue13iadd_imm_addr17h8f3ab0ad7378abcaE
   br label %"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE.exit.i28"
 
 "_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE.exit.i28": ; preds = %328, %327, %318
-  %.0.i.i.i29 = phi i16 [ 120, %327 ], [ 121, %328 ], [ 119, %318 ]
+  %.0.i.i.i29 = phi i16 [ 121, %328 ], [ 120, %327 ], [ 119, %318 ]
   %329 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %330 = call noundef align 8 dereferenceable(16) ptr @"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h759f943f9cce642eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %329, i32 noundef %322, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff4fb00eed5659504e0ec1f2ac65c1d3.331.llvm.15230283897121687862), !noalias !4
   store i8 32, ptr %330, align 8
@@ -47780,7 +47780,7 @@ _ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i3.i
   br label %"_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE.exit.i40"
 
 "_ZN50_$LT$dyn$u20$cranelift_codegen..isa..TargetIsa$GT$12pointer_type17h4cf69479d3e9c55cE.exit.i40": ; preds = %409, %408, %400
-  %.0.i.i7.i = phi i16 [ 120, %408 ], [ 121, %409 ], [ 119, %400 ]
+  %.0.i.i7.i = phi i16 [ 121, %409 ], [ 120, %408 ], [ 119, %400 ]
   %410 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %411 = call noundef align 8 dereferenceable(16) ptr @"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h759f943f9cce642eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %410, i32 noundef %376, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff4fb00eed5659504e0ec1f2ac65c1d3.331.llvm.15230283897121687862), !noalias !7482
   store i8 35, ptr %411, align 8, !noalias !7468
@@ -48201,7 +48201,7 @@ default.unreachable31:                            ; preds = %"_ZN71_$LT$cranelif
   br label %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit"
 
 "_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit": ; preds = %14, %14, %19, %22
-  %.sroa.7.0.i = phi i32 [ %21, %19 ], [ %24, %22 ], [ undef, %14 ], [ undef, %14 ]
+  %.sroa.7.0.i = phi i32 [ undef, %14 ], [ %21, %19 ], [ %24, %22 ], [ undef, %14 ]
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %26 = load i64, ptr %25, align 8, !alias.scope !7534, !noalias !7537, !noundef !4
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -48224,7 +48224,7 @@ default.unreachable31:                            ; preds = %"_ZN71_$LT$cranelif
   br label %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit3"
 
 "_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit3": ; preds = %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit", %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit", %29, %32
-  %.sroa.7.0.i1 = phi i32 [ %31, %29 ], [ %34, %32 ], [ undef, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit" ], [ undef, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit" ]
+  %.sroa.7.0.i1 = phi i32 [ undef, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit" ], [ %31, %29 ], [ %34, %32 ], [ undef, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit" ]
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %36 = load i64, ptr %35, align 8, !alias.scope !7539, !noalias !7542, !noundef !4
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -48285,7 +48285,7 @@ default.unreachable31:                            ; preds = %"_ZN71_$LT$cranelif
   br label %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit6"
 
 "_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit6": ; preds = %53, %53, %58, %61
-  %.sroa.7.0.i4 = phi i32 [ %60, %58 ], [ %63, %61 ], [ undef, %53 ], [ undef, %53 ]
+  %.sroa.7.0.i4 = phi i32 [ undef, %53 ], [ %60, %58 ], [ %63, %61 ], [ undef, %53 ]
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %65 = load i64, ptr %64, align 8, !alias.scope !7544, !noalias !7547, !noundef !4
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -48308,7 +48308,7 @@ default.unreachable31:                            ; preds = %"_ZN71_$LT$cranelif
   br label %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit9"
 
 "_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit9": ; preds = %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit6", %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit6", %68, %71
-  %.sroa.7.0.i7 = phi i32 [ %70, %68 ], [ %73, %71 ], [ undef, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit6" ], [ undef, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit6" ]
+  %.sroa.7.0.i7 = phi i32 [ undef, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit6" ], [ %70, %68 ], [ %73, %71 ], [ undef, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit6" ]
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %75 = load i64, ptr %74, align 8, !alias.scope !7549, !noalias !7552, !noundef !4
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -48361,7 +48361,7 @@ default.unreachable31:                            ; preds = %"_ZN71_$LT$cranelif
   br label %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit12"
 
 "_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit12": ; preds = %86, %86, %91, %94
-  %.sroa.7.0.i10 = phi i32 [ %93, %91 ], [ %96, %94 ], [ undef, %86 ], [ undef, %86 ]
+  %.sroa.7.0.i10 = phi i32 [ undef, %86 ], [ %93, %91 ], [ %96, %94 ], [ undef, %86 ]
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %98 = load i64, ptr %97, align 8, !alias.scope !7554, !noalias !7557, !noundef !4
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -48384,7 +48384,7 @@ default.unreachable31:                            ; preds = %"_ZN71_$LT$cranelif
   br label %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit15"
 
 "_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit15": ; preds = %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit12", %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit12", %101, %104
-  %.sroa.7.0.i13 = phi i32 [ %103, %101 ], [ %106, %104 ], [ undef, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit12" ], [ undef, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit12" ]
+  %.sroa.7.0.i13 = phi i32 [ undef, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit12" ], [ %103, %101 ], [ %106, %104 ], [ undef, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.exit12" ]
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %108 = load i64, ptr %107, align 8, !alias.scope !7559, !noalias !7562, !noundef !4
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -48570,11 +48570,11 @@ default.unreachable1.i.i:                         ; preds = %19
   br label %"_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E.exit"
 
 "_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E.exit": ; preds = %11, %19, %20, %25, %34, %35
-  %.sroa.14.0 = phi i32 [ undef, %34 ], [ undef, %35 ], [ undef, %20 ], [ %29, %25 ], [ undef, %19 ], [ undef, %11 ]
-  %.sroa.13.0 = phi i32 [ undef, %34 ], [ undef, %35 ], [ %22, %20 ], [ %27, %25 ], [ undef, %19 ], [ undef, %11 ]
-  %.sroa.8.0 = phi i16 [ undef, %34 ], [ undef, %35 ], [ %24, %20 ], [ %33, %25 ], [ undef, %19 ], [ undef, %11 ]
-  %.sroa.7.0 = phi i8 [ undef, %34 ], [ undef, %35 ], [ undef, %20 ], [ %31, %25 ], [ undef, %19 ], [ undef, %11 ]
-  %.sroa.0.0 = phi i8 [ 4, %34 ], [ 5, %35 ], [ 0, %20 ], [ 1, %25 ], [ %3, %19 ], [ 3, %11 ]
+  %.sroa.14.0 = phi i32 [ undef, %35 ], [ undef, %19 ], [ undef, %34 ], [ undef, %20 ], [ %29, %25 ], [ undef, %11 ]
+  %.sroa.13.0 = phi i32 [ undef, %35 ], [ undef, %19 ], [ undef, %34 ], [ %22, %20 ], [ %27, %25 ], [ undef, %11 ]
+  %.sroa.8.0 = phi i16 [ undef, %35 ], [ undef, %19 ], [ undef, %34 ], [ %24, %20 ], [ %33, %25 ], [ undef, %11 ]
+  %.sroa.7.0 = phi i8 [ undef, %35 ], [ undef, %19 ], [ undef, %34 ], [ undef, %20 ], [ %31, %25 ], [ undef, %11 ]
+  %.sroa.0.0 = phi i8 [ 5, %35 ], [ %3, %19 ], [ 4, %34 ], [ 0, %20 ], [ 1, %25 ], [ 3, %11 ]
   store i8 %.sroa.0.0, ptr %0, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.7.0, ptr %.sroa.7.0..sroa_idx, align 1

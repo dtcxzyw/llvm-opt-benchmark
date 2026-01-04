@@ -114,7 +114,7 @@ define dso_local range(i32 -3, 1) i32 @_PySemaphore_Wait(ptr noundef %0, i64 nou
   unreachable
 
 _PySemaphore_PlatformWait.exit:                   ; preds = %22, %24, %27
-  %.0.i = phi i32 [ -2, %27 ], [ -3, %24 ], [ 0, %22 ]
+  %.0.i = phi i32 [ -3, %24 ], [ -2, %27 ], [ 0, %22 ]
   %.not11 = icmp eq ptr %.0, null
   br i1 %.not11, label %30, label %29
 
@@ -171,9 +171,9 @@ _PyRawMutex_Lock.exit:                            ; preds = %6, %15
   %16 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2, i1 true)
   switch i64 %16, label %29 [
     i64 0, label %17
-    i64 1, label %21
-    i64 2, label %25
-    i64 3, label %atomic_memcmp.exit
+    i64 1, label %atomic_memcmp.exit
+    i64 2, label %21
+    i64 3, label %25
   ]
 
 17:                                               ; preds = %_PyRawMutex_Lock.exit
@@ -183,27 +183,27 @@ _PyRawMutex_Lock.exit:                            ; preds = %6, %15
   br i1 %20, label %37, label %33
 
 21:                                               ; preds = %_PyRawMutex_Lock.exit
-  %22 = load atomic i16, ptr %0 seq_cst, align 2
-  %23 = load i16, ptr %1, align 2, !tbaa !21
-  %24 = icmp eq i16 %22, %23
+  %22 = load atomic i32, ptr %0 seq_cst, align 4
+  %23 = load i32, ptr %1, align 4, !tbaa !11
+  %24 = icmp eq i32 %22, %23
   br i1 %24, label %37, label %33
 
 25:                                               ; preds = %_PyRawMutex_Lock.exit
-  %26 = load atomic i32, ptr %0 seq_cst, align 4
-  %27 = load i32, ptr %1, align 4, !tbaa !11
-  %28 = icmp eq i32 %26, %27
+  %26 = load atomic i64, ptr %0 seq_cst, align 8
+  %27 = load i64, ptr %1, align 8, !tbaa !9
+  %28 = icmp eq i64 %26, %27
   br i1 %28, label %37, label %33
 
 29:                                               ; preds = %_PyRawMutex_Lock.exit
   unreachable
 
 atomic_memcmp.exit:                               ; preds = %_PyRawMutex_Lock.exit
-  %30 = load atomic i64, ptr %0 seq_cst, align 8
-  %31 = load i64, ptr %1, align 8, !tbaa !9
-  %32 = icmp eq i64 %30, %31
+  %30 = load atomic i16, ptr %0 seq_cst, align 2
+  %31 = load i16, ptr %1, align 2, !tbaa !21
+  %32 = icmp eq i16 %30, %31
   br i1 %32, label %37, label %33
 
-33:                                               ; preds = %25, %21, %17, %atomic_memcmp.exit
+33:                                               ; preds = %21, %25, %17, %atomic_memcmp.exit
   %34 = cmpxchg ptr %12, i64 1, i64 0 seq_cst seq_cst, align 8
   %35 = extractvalue { i64, i1 } %34, 1
   br i1 %35, label %_PyRawMutex_Unlock.exit, label %36
@@ -212,7 +212,7 @@ atomic_memcmp.exit:                               ; preds = %_PyRawMutex_Lock.ex
   tail call void @_PyRawMutex_UnlockSlow(ptr noundef %12) #10
   br label %_PyRawMutex_Unlock.exit
 
-37:                                               ; preds = %25, %21, %17, %atomic_memcmp.exit
+37:                                               ; preds = %21, %25, %17, %atomic_memcmp.exit
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %39 = call i32 @sem_init(ptr noundef nonnull %38, i32 noundef 0, i32 noundef 0) #10
   %40 = icmp slt i32 %39, 0
@@ -315,7 +315,7 @@ _PyRawMutex_Unlock.exit27.split:                  ; preds = %_PyRawMutex_Unlock.
   br label %76
 
 76:                                               ; preds = %75, %72, %_PyRawMutex_Unlock.exit27.split
-  %.0.i28 = phi ptr [ %71, %75 ], [ null, %72 ], [ null, %_PyRawMutex_Unlock.exit27.split ]
+  %.0.i28 = phi ptr [ %71, %75 ], [ null, %_PyRawMutex_Unlock.exit27.split ], [ null, %72 ]
   %77 = call i32 @sem_wait(ptr noundef nonnull %38) #10
   %.not = icmp eq i32 %77, -1
   br i1 %.not, label %78, label %_PySemaphore_PlatformWait.exit.i
@@ -363,7 +363,7 @@ _PySemaphore_Wait.exit:                           ; preds = %_PySemaphore_Platfo
   br label %_PyRawMutex_Unlock.exit29
 
 _PyRawMutex_Unlock.exit29:                        ; preds = %_PySemaphore_Wait.exit, %_PySemaphore_PlatformWait.exit.i.us, %_PyRawMutex_Unlock.exit27.split.us.preheader, %90, %82, %_PyRawMutex_Unlock.exit25
-  %.0 = phi i32 [ 0, %_PyRawMutex_Unlock.exit25 ], [ %53, %82 ], [ %53, %90 ], [ 0, %_PyRawMutex_Unlock.exit27.split.us.preheader ], [ 0, %_PySemaphore_PlatformWait.exit.i.us ], [ 0, %_PySemaphore_Wait.exit ]
+  %.0 = phi i32 [ 0, %_PyRawMutex_Unlock.exit25 ], [ %53, %90 ], [ %53, %82 ], [ 0, %_PyRawMutex_Unlock.exit27.split.us.preheader ], [ 0, %_PySemaphore_PlatformWait.exit.i.us ], [ 0, %_PySemaphore_Wait.exit ]
   %91 = call i32 @sem_destroy(ptr noundef nonnull %38) #10
   br label %_PyRawMutex_Unlock.exit
 

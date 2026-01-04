@@ -1918,7 +1918,7 @@ select.unfold:                                    ; preds = %96, %69
   br i1 %exitcond183, label %_ZNSt6vectorIlSaIlEED2Ev.exit91, label %69, !llvm.loop !97
 
 _ZNSt6vectorIlSaIlEED2Ev.exit91:                  ; preds = %select.unfold, %.preheader, %91, %41
-  %.030 = phi i32 [ 1, %41 ], [ 2, %91 ], [ 2, %.preheader ], [ 0, %select.unfold ]
+  %.030 = phi i32 [ 1, %41 ], [ 2, %91 ], [ 0, %select.unfold ], [ 2, %.preheader ]
   tail call void @_ZdlPvm(ptr noundef nonnull %39, i64 noundef 8000) #20
   tail call void @_ZdlPvm(ptr noundef nonnull %37, i64 noundef 1600) #20
   tail call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef 4000) #20

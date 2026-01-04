@@ -64,7 +64,7 @@ define dso_local ptr @SDLTest_TextWindowCreate(float noundef %0, float noundef %
   br label %22
 
 22:                                               ; preds = %6, %4, %21
-  %.0 = phi ptr [ null, %21 ], [ null, %4 ], [ %5, %6 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %21 ], [ %5, %6 ]
   ret ptr %.0
 }
 

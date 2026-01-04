@@ -923,23 +923,23 @@ define dso_local noundef i32 @_ZNK4llvm3pdb11SymbolCache16createSimpleTypeENS_8c
   br i1 %11, label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread18", label %12
 
 12:                                               ; preds = %.lr.ph.i.i.i.i
-  %.02956.i.i.i.i.add12 = or disjoint i64 %.02956.i.i.i.i.idx, 12
-  %.ptr15 = getelementptr inbounds nuw i8, ptr @_ZL12BuiltinTypes, i64 %.02956.i.i.i.i.add12
-  %.val31.i.i.i.i = load i32, ptr %.ptr15, align 4, !tbaa !82
+  %.02956.i.i.i.i.add11 = or disjoint i64 %.02956.i.i.i.i.idx, 12
+  %.ptr14 = getelementptr inbounds nuw i8, ptr @_ZL12BuiltinTypes, i64 %.02956.i.i.i.i.add11
+  %.val31.i.i.i.i = load i32, ptr %.ptr14, align 4, !tbaa !82
   %13 = icmp eq i32 %.val31.i.i.i.i, %10
   br i1 %13, label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread18", label %14
 
 14:                                               ; preds = %12
-  %.02956.i.i.i.i.add11 = add nuw nsw i64 %.02956.i.i.i.i.idx, 24
-  %.ptr14 = getelementptr inbounds nuw i8, ptr @_ZL12BuiltinTypes, i64 %.02956.i.i.i.i.add11
-  %.val33.i.i.i.i = load i32, ptr %.ptr14, align 8, !tbaa !82
+  %.02956.i.i.i.i.add = add nuw nsw i64 %.02956.i.i.i.i.idx, 24
+  %.ptr = getelementptr inbounds nuw i8, ptr @_ZL12BuiltinTypes, i64 %.02956.i.i.i.i.add
+  %.val33.i.i.i.i = load i32, ptr %.ptr, align 8, !tbaa !82
   %15 = icmp eq i32 %.val33.i.i.i.i, %10
   br i1 %15, label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit", label %16
 
 16:                                               ; preds = %14
-  %.02956.i.i.i.i.add = add nuw nsw i64 %.02956.i.i.i.i.idx, 36
-  %.ptr = getelementptr inbounds nuw i8, ptr @_ZL12BuiltinTypes, i64 %.02956.i.i.i.i.add
-  %.val35.i.i.i.i = load i32, ptr %.ptr, align 4, !tbaa !82
+  %.02956.i.i.i.i.add12 = add nuw nsw i64 %.02956.i.i.i.i.idx, 36
+  %.ptr15 = getelementptr inbounds nuw i8, ptr @_ZL12BuiltinTypes, i64 %.02956.i.i.i.i.add12
+  %.val35.i.i.i.i = load i32, ptr %.ptr15, align 4, !tbaa !82
   %17 = icmp eq i32 %.val35.i.i.i.i, %10
   br i1 %17, label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread18", label %18
 
@@ -956,14 +956,14 @@ define dso_local noundef i32 @_ZNK4llvm3pdb11SymbolCache16createSimpleTypeENS_8c
     i8 48, label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread.fold.split"
   ]
 
-"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread18": ; preds = %.lr.ph.i.i.i.i, %12, %16
-  %.028.i.i.i.i.idx.ph = phi i64 [ %.02956.i.i.i.i.add, %16 ], [ %.02956.i.i.i.i.add12, %12 ], [ %.02956.i.i.i.i.idx, %.lr.ph.i.i.i.i ]
+"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread18": ; preds = %16, %12, %.lr.ph.i.i.i.i
+  %.028.i.i.i.i.idx.ph = phi i64 [ %.02956.i.i.i.i.idx, %.lr.ph.i.i.i.i ], [ %.02956.i.i.i.i.add11, %12 ], [ %.02956.i.i.i.i.add12, %16 ]
   %.028.i.i.i.i.ptr20 = getelementptr inbounds nuw i8, ptr @_ZL12BuiltinTypes, i64 %.028.i.i.i.i.idx.ph
   br label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread"
 
 "_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit": ; preds = %14
-  %.028.i.i.i.i.ptr = getelementptr inbounds nuw i8, ptr @_ZL12BuiltinTypes, i64 %.02956.i.i.i.i.add11
-  %21 = icmp eq i64 %.02956.i.i.i.i.add11, 264
+  %.028.i.i.i.i.ptr = getelementptr inbounds nuw i8, ptr @_ZL12BuiltinTypes, i64 %.02956.i.i.i.i.add
+  %21 = icmp eq i64 %.02956.i.i.i.i.add, 264
   br i1 %21, label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread9", label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread"
 
 "_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread.fold.split": ; preds = %._crit_edge.loopexit.i.i.i.i
@@ -1272,23 +1272,23 @@ _ZN4llvm5ErrorD2Ev.exit10:                        ; preds = %4
   br i1 %38, label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread18.i", label %39
 
 39:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %.02956.i.i.i.i.add12.i = or disjoint i64 %.02956.i.i.i.i.idx.i, 12
-  %.ptr15.i = getelementptr inbounds nuw i8, ptr @_ZL12BuiltinTypes, i64 %.02956.i.i.i.i.add12.i
-  %.val31.i.i.i.i.i = load i32, ptr %.ptr15.i, align 4, !tbaa !82
+  %.02956.i.i.i.i.add11.i = or disjoint i64 %.02956.i.i.i.i.idx.i, 12
+  %.ptr14.i = getelementptr inbounds nuw i8, ptr @_ZL12BuiltinTypes, i64 %.02956.i.i.i.i.add11.i
+  %.val31.i.i.i.i.i = load i32, ptr %.ptr14.i, align 4, !tbaa !82
   %40 = icmp eq i32 %.val31.i.i.i.i.i, %37
   br i1 %40, label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread18.i", label %41
 
 41:                                               ; preds = %39
-  %.02956.i.i.i.i.add11.i = add nuw nsw i64 %.02956.i.i.i.i.idx.i, 24
-  %.ptr14.i = getelementptr inbounds nuw i8, ptr @_ZL12BuiltinTypes, i64 %.02956.i.i.i.i.add11.i
-  %.val33.i.i.i.i.i = load i32, ptr %.ptr14.i, align 8, !tbaa !82
+  %.02956.i.i.i.i.add.i = add nuw nsw i64 %.02956.i.i.i.i.idx.i, 24
+  %.ptr.i = getelementptr inbounds nuw i8, ptr @_ZL12BuiltinTypes, i64 %.02956.i.i.i.i.add.i
+  %.val33.i.i.i.i.i = load i32, ptr %.ptr.i, align 8, !tbaa !82
   %42 = icmp eq i32 %.val33.i.i.i.i.i, %37
   br i1 %42, label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.i", label %43
 
 43:                                               ; preds = %41
-  %.02956.i.i.i.i.add.i = add nuw nsw i64 %.02956.i.i.i.i.idx.i, 36
-  %.ptr.i = getelementptr inbounds nuw i8, ptr @_ZL12BuiltinTypes, i64 %.02956.i.i.i.i.add.i
-  %.val35.i.i.i.i.i = load i32, ptr %.ptr.i, align 4, !tbaa !82
+  %.02956.i.i.i.i.add12.i = add nuw nsw i64 %.02956.i.i.i.i.idx.i, 36
+  %.ptr15.i = getelementptr inbounds nuw i8, ptr @_ZL12BuiltinTypes, i64 %.02956.i.i.i.i.add12.i
+  %.val35.i.i.i.i.i = load i32, ptr %.ptr15.i, align 4, !tbaa !82
   %44 = icmp eq i32 %.val35.i.i.i.i.i, %37
   br i1 %44, label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread18.i", label %45
 
@@ -1306,20 +1306,20 @@ _ZN4llvm5ErrorD2Ev.exit10:                        ; preds = %4
   ]
 
 "_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread18.i": ; preds = %43, %39, %.lr.ph.i.i.i.i.i
-  %.028.i.i.i.i.idx.ph.i = phi i64 [ %.02956.i.i.i.i.add.i, %43 ], [ %.02956.i.i.i.i.add12.i, %39 ], [ %.02956.i.i.i.i.idx.i, %.lr.ph.i.i.i.i.i ]
+  %.028.i.i.i.i.idx.ph.i = phi i64 [ %.02956.i.i.i.i.idx.i, %.lr.ph.i.i.i.i.i ], [ %.02956.i.i.i.i.add11.i, %39 ], [ %.02956.i.i.i.i.add12.i, %43 ]
   %.028.i.i.i.i.ptr20.i = getelementptr inbounds nuw i8, ptr @_ZL12BuiltinTypes, i64 %.028.i.i.i.i.idx.ph.i
   br label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread.i"
 
 "_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.i": ; preds = %41
-  %.ptr14.i.le = getelementptr inbounds nuw i8, ptr @_ZL12BuiltinTypes, i64 %.02956.i.i.i.i.add11.i
-  %48 = icmp eq i64 %.02956.i.i.i.i.add11.i, 264
+  %.ptr.i.le = getelementptr inbounds nuw i8, ptr @_ZL12BuiltinTypes, i64 %.02956.i.i.i.i.add.i
+  %48 = icmp eq i64 %.02956.i.i.i.i.add.i, 264
   br i1 %48, label %_ZNK4llvm3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS2_15ModifierOptionsE.exit, label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread.i"
 
 "_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread.fold.split.i": ; preds = %._crit_edge.loopexit.i.i.i.i.i
   br label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread.i"
 
 "_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread.i": ; preds = %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread.fold.split.i", %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.i", %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread18.i", %._crit_edge.loopexit.i.i.i.i.i
-  %.028.i.i.i.i8.i = phi ptr [ %.ptr14.i.le, %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.i" ], [ getelementptr inbounds nuw (i8, ptr @_ZL12BuiltinTypes, i64 240), %._crit_edge.loopexit.i.i.i.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZL12BuiltinTypes, i64 252), %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread.fold.split.i" ], [ %.028.i.i.i.i.ptr20.i, %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread18.i" ]
+  %.028.i.i.i.i8.i = phi ptr [ %.ptr.i.le, %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.i" ], [ getelementptr inbounds nuw (i8, ptr @_ZL12BuiltinTypes, i64 240), %._crit_edge.loopexit.i.i.i.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZL12BuiltinTypes, i64 252), %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread.fold.split.i" ], [ %.028.i.i.i.i.ptr20.i, %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread18.i" ]
   %49 = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i8.i, i64 4
   %50 = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i8.i, i64 8
   %51 = call noundef i32 @_ZNK4llvm3pdb11SymbolCache12createSymbolINS0_17NativeTypeBuiltinEJRNS_8codeview15ModifierOptionsERKNS0_15PDB_BuiltinTypeERKjEEEjDpOT0_(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 2 dereferenceable(2) %6, ptr noundef nonnull align 4 dereferenceable(4) %49, ptr noundef nonnull align 4 dereferenceable(4) %50)
@@ -1356,7 +1356,7 @@ _ZNK4llvm3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS2_15Modifi
   br label %67
 
 67:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit9, %63, %65, %52, %_ZNK4llvm3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS2_15ModifierOptionsE.exit
-  %.1 = phi i32 [ %.0.i, %_ZNK4llvm3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS2_15ModifierOptionsE.exit ], [ 0, %_ZN4llvm5ErrorD2Ev.exit9 ], [ %64, %63 ], [ %66, %65 ], [ 0, %52 ]
+  %.1 = phi i32 [ %.0.i, %_ZNK4llvm3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS2_15ModifierOptionsE.exit ], [ 0, %_ZN4llvm5ErrorD2Ev.exit9 ], [ %66, %65 ], [ %64, %63 ], [ 0, %52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.1
 }
@@ -1588,23 +1588,23 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview9TypeIndexEjNS_12DenseMapInfoIS3
   br i1 %50, label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread18.i", label %51
 
 51:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %.02956.i.i.i.i.add12.i = or disjoint i64 %.02956.i.i.i.i.idx.i, 12
-  %.ptr15.i = getelementptr inbounds nuw i8, ptr @_ZL12BuiltinTypes, i64 %.02956.i.i.i.i.add12.i
-  %.val31.i.i.i.i.i = load i32, ptr %.ptr15.i, align 4, !tbaa !82
+  %.02956.i.i.i.i.add11.i = or disjoint i64 %.02956.i.i.i.i.idx.i, 12
+  %.ptr14.i = getelementptr inbounds nuw i8, ptr @_ZL12BuiltinTypes, i64 %.02956.i.i.i.i.add11.i
+  %.val31.i.i.i.i.i = load i32, ptr %.ptr14.i, align 4, !tbaa !82
   %52 = icmp eq i32 %.val31.i.i.i.i.i, %49
   br i1 %52, label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread18.i", label %53
 
 53:                                               ; preds = %51
-  %.02956.i.i.i.i.add11.i = add nuw nsw i64 %.02956.i.i.i.i.idx.i, 24
-  %.ptr14.i = getelementptr inbounds nuw i8, ptr @_ZL12BuiltinTypes, i64 %.02956.i.i.i.i.add11.i
-  %.val33.i.i.i.i.i = load i32, ptr %.ptr14.i, align 8, !tbaa !82
+  %.02956.i.i.i.i.add.i = add nuw nsw i64 %.02956.i.i.i.i.idx.i, 24
+  %.ptr.i = getelementptr inbounds nuw i8, ptr @_ZL12BuiltinTypes, i64 %.02956.i.i.i.i.add.i
+  %.val33.i.i.i.i.i = load i32, ptr %.ptr.i, align 8, !tbaa !82
   %54 = icmp eq i32 %.val33.i.i.i.i.i, %49
   br i1 %54, label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.i", label %55
 
 55:                                               ; preds = %53
-  %.02956.i.i.i.i.add.i = add nuw nsw i64 %.02956.i.i.i.i.idx.i, 36
-  %.ptr.i = getelementptr inbounds nuw i8, ptr @_ZL12BuiltinTypes, i64 %.02956.i.i.i.i.add.i
-  %.val35.i.i.i.i.i = load i32, ptr %.ptr.i, align 4, !tbaa !82
+  %.02956.i.i.i.i.add12.i = add nuw nsw i64 %.02956.i.i.i.i.idx.i, 36
+  %.ptr15.i = getelementptr inbounds nuw i8, ptr @_ZL12BuiltinTypes, i64 %.02956.i.i.i.i.add12.i
+  %.val35.i.i.i.i.i = load i32, ptr %.ptr15.i, align 4, !tbaa !82
   %56 = icmp eq i32 %.val35.i.i.i.i.i, %49
   br i1 %56, label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread18.i", label %57
 
@@ -1622,20 +1622,20 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview9TypeIndexEjNS_12DenseMapInfoIS3
   ]
 
 "_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread18.i": ; preds = %55, %51, %.lr.ph.i.i.i.i.i
-  %.028.i.i.i.i.idx.ph.i = phi i64 [ %.02956.i.i.i.i.add.i, %55 ], [ %.02956.i.i.i.i.add12.i, %51 ], [ %.02956.i.i.i.i.idx.i, %.lr.ph.i.i.i.i.i ]
+  %.028.i.i.i.i.idx.ph.i = phi i64 [ %.02956.i.i.i.i.idx.i, %.lr.ph.i.i.i.i.i ], [ %.02956.i.i.i.i.add11.i, %51 ], [ %.02956.i.i.i.i.add12.i, %55 ]
   %.028.i.i.i.i.ptr20.i = getelementptr inbounds nuw i8, ptr @_ZL12BuiltinTypes, i64 %.028.i.i.i.i.idx.ph.i
   br label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread.i"
 
 "_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.i": ; preds = %53
-  %.ptr14.i.le = getelementptr inbounds nuw i8, ptr @_ZL12BuiltinTypes, i64 %.02956.i.i.i.i.add11.i
-  %60 = icmp eq i64 %.02956.i.i.i.i.add11.i, 264
+  %.ptr.i.le = getelementptr inbounds nuw i8, ptr @_ZL12BuiltinTypes, i64 %.02956.i.i.i.i.add.i
+  %60 = icmp eq i64 %.02956.i.i.i.i.add.i, 264
   br i1 %60, label %_ZNK4llvm3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS2_15ModifierOptionsE.exit, label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread.i"
 
 "_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread.fold.split.i": ; preds = %._crit_edge.loopexit.i.i.i.i.i
   br label %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread.i"
 
 "_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread.i": ; preds = %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread.fold.split.i", %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.i", %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread18.i", %._crit_edge.loopexit.i.i.i.i.i
-  %.028.i.i.i.i8.i = phi ptr [ %.ptr14.i.le, %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.i" ], [ getelementptr inbounds nuw (i8, ptr @_ZL12BuiltinTypes, i64 240), %._crit_edge.loopexit.i.i.i.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZL12BuiltinTypes, i64 252), %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread.fold.split.i" ], [ %.028.i.i.i.i.ptr20.i, %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread18.i" ]
+  %.028.i.i.i.i8.i = phi ptr [ %.ptr.i.le, %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.i" ], [ getelementptr inbounds nuw (i8, ptr @_ZL12BuiltinTypes, i64 240), %._crit_edge.loopexit.i.i.i.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZL12BuiltinTypes, i64 252), %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread.fold.split.i" ], [ %.028.i.i.i.i.ptr20.i, %"_ZN4llvm7find_ifIRA22_K16BuiltinTypeEntryZNKS_3pdb11SymbolCache16createSimpleTypeENS_8codeview9TypeIndexENS7_15ModifierOptionsEE3$_0EEDaOT_T0_.exit.thread18.i" ]
   %61 = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i8.i, i64 4
   %62 = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i8.i, i64 8
   %63 = call noundef i32 @_ZNK4llvm3pdb11SymbolCache12createSymbolINS0_17NativeTypeBuiltinEJRNS_8codeview15ModifierOptionsERKNS0_15PDB_BuiltinTypeERKjEEEjDpOT0_(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 2 dereferenceable(2) %17, ptr noundef nonnull align 4 dereferenceable(4) %61, ptr noundef nonnull align 4 dereferenceable(4) %62)
@@ -3854,7 +3854,7 @@ _ZN4llvm14VarStreamArrayINS_8codeview8CVRecordINS1_10SymbolKindEEENS_23VarStream
 _ZNK4llvm20iterator_facade_baseINS_22VarStreamArrayIteratorINS_8codeview8CVRecordINS2_10SymbolKindEEENS_23VarStreamArrayExtractorIS5_EEEESt20forward_iterator_tagKS5_lPSA_RSA_EneERKS8_.exit: ; preds = %163
   br i1 %167, label %.critedge11, label %_ZNK4llvm20iterator_facade_baseINS_22VarStreamArrayIteratorINS_8codeview8CVRecordINS2_10SymbolKindEEENS_23VarStreamArrayExtractorIS5_EEEESt20forward_iterator_tagKS5_lPSA_RSA_EneERKS8_.exit.thread
 
-_ZNK4llvm20iterator_facade_baseINS_22VarStreamArrayIteratorINS_8codeview8CVRecordINS2_10SymbolKindEEENS_23VarStreamArrayExtractorIS5_EEEESt20forward_iterator_tagKS5_lPSA_RSA_EneERKS8_.exit.thread: ; preds = %160, %157, %168, %171, %_ZNK4llvm20iterator_facade_baseINS_22VarStreamArrayIteratorINS_8codeview8CVRecordINS2_10SymbolKindEEENS_23VarStreamArrayExtractorIS5_EEEESt20forward_iterator_tagKS5_lPSA_RSA_EneERKS8_.exit
+_ZNK4llvm20iterator_facade_baseINS_22VarStreamArrayIteratorINS_8codeview8CVRecordINS2_10SymbolKindEEENS_23VarStreamArrayExtractorIS5_EEEESt20forward_iterator_tagKS5_lPSA_RSA_EneERKS8_.exit.thread: ; preds = %157, %160, %168, %171, %_ZNK4llvm20iterator_facade_baseINS_22VarStreamArrayIteratorINS_8codeview8CVRecordINS2_10SymbolKindEEENS_23VarStreamArrayExtractorIS5_EEEESt20forward_iterator_tagKS5_lPSA_RSA_EneERKS8_.exit
   %172 = load i64, ptr %143, align 8, !tbaa !119
   %173 = icmp ult i64 %172, 4
   br i1 %173, label %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit15.thread, label %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
@@ -4686,7 +4686,7 @@ _ZNK4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralI
   br label %_ZNK4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE4sizeEv.exit
 
 _ZNK4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE4sizeEv.exit: ; preds = %_ZNK4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE5beginEv.exit22, %184, %185
-  %.0.i.i = phi i64 [ %190, %185 ], [ 0, %184 ], [ %.sroa.18.16.copyload204214, %_ZNK4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE5beginEv.exit22 ]
+  %.0.i.i = phi i64 [ 0, %184 ], [ %190, %185 ], [ %.sroa.18.16.copyload204214, %_ZNK4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE5beginEv.exit22 ]
   %191 = lshr i64 %.0.i.i, 2
   %192 = and i64 %191, 4294967295
   %193 = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -6676,7 +6676,7 @@ _ZNSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS3_EEaSEOS5_.exit.i.i.i.
   %266 = getelementptr inbounds nuw i8, ptr %41, i64 16
   br label %874
 
-_ZNK4llvm20iterator_facade_baseINS_22VarStreamArrayIteratorINS_8codeview21DebugSubsectionRecordENS_23VarStreamArrayExtractorIS3_EEEESt20forward_iterator_tagKS3_lPS8_RS8_EneERKS6_.exit.thread: ; preds = %192, %189, %200, %203, %_ZNK4llvm20iterator_facade_baseINS_22VarStreamArrayIteratorINS_8codeview21DebugSubsectionRecordENS_23VarStreamArrayExtractorIS3_EEEESt20forward_iterator_tagKS3_lPS8_RS8_EneERKS6_.exit
+_ZNK4llvm20iterator_facade_baseINS_22VarStreamArrayIteratorINS_8codeview21DebugSubsectionRecordENS_23VarStreamArrayExtractorIS3_EEEESt20forward_iterator_tagKS3_lPS8_RS8_EneERKS6_.exit.thread: ; preds = %189, %192, %200, %203, %_ZNK4llvm20iterator_facade_baseINS_22VarStreamArrayIteratorINS_8codeview21DebugSubsectionRecordENS_23VarStreamArrayExtractorIS3_EEEESt20forward_iterator_tagKS3_lPS8_RS8_EneERKS6_.exit
   %267 = call noundef i32 @_ZNK4llvm8codeview21DebugSubsectionRecord4kindEv(ptr noundef nonnull align 8 dereferenceable(56) %25) #18
   %.not = icmp eq i32 %267, 242
   br i1 %.not, label %268, label %838
@@ -6930,7 +6930,7 @@ _ZNK4llvm20iterator_facade_baseINS_22VarStreamArrayIteratorINS_8codeview15LineCo
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %793
 
-_ZNK4llvm20iterator_facade_baseINS_22VarStreamArrayIteratorINS_8codeview15LineColumnEntryENS2_19LineColumnExtractorEEESt20forward_iterator_tagKS3_lPS7_RS7_EneERKS5_.exit.thread: ; preds = %349, %346, %357, %360, %_ZNK4llvm20iterator_facade_baseINS_22VarStreamArrayIteratorINS_8codeview15LineColumnEntryENS2_19LineColumnExtractorEEESt20forward_iterator_tagKS3_lPS7_RS7_EneERKS5_.exit
+_ZNK4llvm20iterator_facade_baseINS_22VarStreamArrayIteratorINS_8codeview15LineColumnEntryENS2_19LineColumnExtractorEEESt20forward_iterator_tagKS3_lPS7_RS7_EneERKS5_.exit.thread: ; preds = %346, %349, %357, %360, %_ZNK4llvm20iterator_facade_baseINS_22VarStreamArrayIteratorINS_8codeview15LineColumnEntryENS2_19LineColumnExtractorEEESt20forward_iterator_tagKS3_lPS7_RS7_EneERKS5_.exit
   %362 = load i8, ptr %158, align 8, !tbaa !274, !range !294, !noundef !295
   %363 = trunc nuw i8 %362 to i1
   br i1 %363, label %364, label %366
@@ -11186,7 +11186,7 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !49
   br label %41
 
@@ -23181,7 +23181,7 @@ _ZNSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS3_EEaSEOS5_.exit: ; pre
   br label %_ZNSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS3_EEaSEOS5_.exit25
 
 _ZNSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS3_EEaSEOS5_.exit25: ; preds = %50, %36, %32, %._crit_edge
-  %.1 = phi i64 [ %.0.lcssa, %32 ], [ %.0.lcssa, %._crit_edge ], [ %38, %36 ], [ %38, %50 ]
+  %.1 = phi i64 [ %.0.lcssa, %._crit_edge ], [ %.0.lcssa, %32 ], [ %38, %36 ], [ %38, %50 ]
   %54 = load ptr, ptr %3, align 8, !tbaa !396
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !393

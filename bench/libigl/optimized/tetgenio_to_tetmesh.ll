@@ -622,13 +622,13 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br i1 %284, label %.preheader, label %.loopexit, !llvm.loop !86
 
 .loopexit.sink.split:                             ; preds = %72, %69, %30, %27
-  %.0.i.i.i155.sink = phi i8 [ %29, %27 ], [ %34, %30 ], [ %71, %69 ], [ %76, %72 ]
+  %.0.i.i.i155.sink = phi i8 [ %34, %30 ], [ %29, %27 ], [ %71, %69 ], [ %76, %72 ]
   %285 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext %.0.i.i.i155.sink)
   %286 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %285)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit.sink.split, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit151, %.loopexit158
-  %.0129 = phi i1 [ true, %.loopexit158 ], [ true, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit151 ], [ false, %.loopexit.sink.split ], [ true, %.preheader ]
+  %.0129 = phi i1 [ true, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit151 ], [ false, %.loopexit.sink.split ], [ true, %.loopexit158 ], [ true, %.preheader ]
   ret i1 %.0129
 }
 

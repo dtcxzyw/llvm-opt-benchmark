@@ -526,8 +526,8 @@ define internal fastcc void @_init_treeview(ptr noundef %0, i32 noundef range(i3
   br label %.lr.ph175
 
 ._crit_edge:                                      ; preds = %.lr.ph175, %.loopexit164, %.loopexit164.thread
-  %.0124222 = phi i32 [ 0, %.loopexit164.thread ], [ 0, %.loopexit164 ], [ %.1125.lcssa, %.lr.ph175 ]
-  %.pre-phi205 = phi i64 [ 0, %.loopexit164.thread ], [ 0, %.loopexit164 ], [ %wide.trip.count, %.lr.ph175 ]
+  %.0124222 = phi i32 [ 0, %.loopexit164 ], [ 0, %.loopexit164.thread ], [ %.1125.lcssa, %.lr.ph175 ]
+  %.pre-phi205 = phi i64 [ 0, %.loopexit164 ], [ 0, %.loopexit164.thread ], [ %wide.trip.count, %.lr.ph175 ]
   %94 = getelementptr inbounds nuw ptr, ptr %76, i64 %.pre-phi205
   %95 = load ptr, ptr %94, align 8, !tbaa !31
   %.not159176 = icmp eq ptr %95, null
@@ -807,8 +807,8 @@ _sort_dictionary_list.exit.sink.split:            ; preds = %218, %215
   br label %_sort_dictionary_list.exit
 
 _sort_dictionary_list.exit:                       ; preds = %_sort_dictionary_list.exit.sink.split, %218, %215, %212
-  %.sink227 = phi i64 [ 1144, %215 ], [ 1152, %212 ], [ 1136, %218 ], [ %.sink227.ph, %_sort_dictionary_list.exit.sink.split ]
-  %.sink225 = phi i32 [ 2, %215 ], [ 0, %212 ], [ 2, %218 ], [ %223, %_sort_dictionary_list.exit.sink.split ]
+  %.sink227 = phi i64 [ 1152, %212 ], [ 1136, %218 ], [ 1144, %215 ], [ %.sink227.ph, %_sort_dictionary_list.exit.sink.split ]
+  %.sink225 = phi i32 [ 0, %212 ], [ 2, %218 ], [ 2, %215 ], [ %223, %_sort_dictionary_list.exit.sink.split ]
   %224 = getelementptr inbounds nuw i8, ptr %.val162, i64 %.sink227
   %225 = load ptr, ptr %224, align 8, !tbaa !47
   %226 = call ptr @g_type_check_instance_cast(ptr noundef %225, i64 noundef %60) #16
@@ -1877,8 +1877,8 @@ define internal void @_tree_select_show(ptr readnone captures(none) %0, ptr noun
   br label %13
 
 13:                                               ; preds = %10, %11, %.fold.split, %12
-  %.04 = phi i32 [ 0, %12 ], [ 0, %10 ], [ 1, %11 ], [ 0, %.fold.split ]
-  %.0 = phi i32 [ 1, %12 ], [ %spec.select, %10 ], [ 0, %11 ], [ 0, %.fold.split ]
+  %.04 = phi i32 [ 0, %.fold.split ], [ 0, %12 ], [ 1, %11 ], [ 0, %10 ]
+  %.0 = phi i32 [ 0, %.fold.split ], [ 1, %12 ], [ 0, %11 ], [ %spec.select, %10 ]
   call void (ptr, ptr, ...) @g_object_set(ptr noundef %1, ptr noundef nonnull @.str.75, i32 noundef %.04, ptr noundef nonnull @.str.76, i32 noundef %.0, ptr noundef null) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2296,8 +2296,8 @@ _sort_attached_list.exit:                         ; preds = %12, %.thread
   br label %_sort_dictionary_list.exit
 
 _sort_dictionary_list.exit:                       ; preds = %_sort_attached_list.exit, %29, %.thread8
-  %.sink4.i = phi i64 [ 1144, %29 ], [ 1144, %.thread8 ], [ 1152, %_sort_attached_list.exit ]
-  %.sink1.i = phi i32 [ 2, %29 ], [ %35, %.thread8 ], [ 0, %_sort_attached_list.exit ]
+  %.sink4.i = phi i64 [ 1144, %.thread8 ], [ 1144, %29 ], [ 1152, %_sort_attached_list.exit ]
+  %.sink1.i = phi i32 [ %35, %.thread8 ], [ 2, %29 ], [ 0, %_sort_attached_list.exit ]
   %36 = getelementptr inbounds nuw i8, ptr %.val, i64 %.sink4.i
   %37 = load ptr, ptr %36, align 8, !tbaa !47
   %38 = tail call ptr @g_type_check_instance_cast(ptr noundef %37, i64 noundef %.pre-phi) #16
@@ -2368,8 +2368,8 @@ _sort_attached_list.exit:                         ; preds = %6, %12
   br label %_sort_dictionary_list.exit
 
 _sort_dictionary_list.exit:                       ; preds = %_sort_attached_list.exit, %23, %26
-  %.sink4.i = phi i64 [ 1144, %23 ], [ 1144, %26 ], [ 1152, %_sort_attached_list.exit ]
-  %.sink1.i = phi i32 [ 2, %23 ], [ %29, %26 ], [ 0, %_sort_attached_list.exit ]
+  %.sink4.i = phi i64 [ 1144, %26 ], [ 1144, %23 ], [ 1152, %_sort_attached_list.exit ]
+  %.sink1.i = phi i32 [ %29, %26 ], [ 2, %23 ], [ 0, %_sort_attached_list.exit ]
   %30 = getelementptr inbounds nuw i8, ptr %.val, i64 %.sink4.i
   %31 = load ptr, ptr %30, align 8, !tbaa !47
   %32 = tail call ptr @g_type_check_instance_cast(ptr noundef %31, i64 noundef %19) #16
@@ -2561,7 +2561,7 @@ define internal range(i32 0, 2) i32 @_enter_key_pressed(ptr noundef %0, ptr noun
   br label %43
 
 43:                                               ; preds = %3, %3, %29, %36, %42, %24
-  %.0 = phi i32 [ 0, %42 ], [ 1, %24 ], [ 1, %36 ], [ 1, %29 ], [ 1, %3 ], [ 1, %3 ]
+  %.0 = phi i32 [ 0, %42 ], [ 1, %24 ], [ 1, %29 ], [ 1, %36 ], [ 1, %3 ], [ 1, %3 ]
   ret i32 %.0
 }
 
@@ -3125,7 +3125,7 @@ define internal range(i32 0, 2) i32 @_dictionary_key_pressed(ptr noundef %0, ptr
   br label %63
 
 63:                                               ; preds = %48, %49, %19, %51, %52, %39, %24, %31
-  %.1 = phi i32 [ 0, %19 ], [ 1, %31 ], [ 0, %24 ], [ 0, %39 ], [ 1, %52 ], [ 0, %51 ], [ 1, %49 ], [ 1, %48 ]
+  %.1 = phi i32 [ 0, %19 ], [ 1, %31 ], [ 0, %24 ], [ 0, %51 ], [ 0, %39 ], [ 1, %52 ], [ 1, %49 ], [ 1, %48 ]
   call void @gtk_tree_path_free(ptr noundef %21) #16
   br label %64
 
@@ -8446,7 +8446,7 @@ define internal range(i32 0, 2) i32 @_completion_match_func(ptr noundef %0, ptr 
   br label %.critedge
 
 .critedge:                                        ; preds = %4, %.critedge54, %46, %30, %25, %21, %13
-  %.0 = phi i32 [ 0, %13 ], [ 0, %.critedge54 ], [ 0, %21 ], [ %.035, %46 ], [ 0, %30 ], [ 0, %25 ], [ 0, %4 ]
+  %.0 = phi i32 [ 0, %13 ], [ 0, %25 ], [ 0, %.critedge54 ], [ 0, %21 ], [ %.035, %46 ], [ 0, %30 ], [ 0, %4 ]
   ret i32 %.0
 }
 

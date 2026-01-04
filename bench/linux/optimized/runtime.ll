@@ -978,7 +978,7 @@ define internal fastcc i32 @rpm_suspend(ptr noundef %0, i32 noundef %1) unnamed_
   br label %.critedge
 
 .critedge:                                        ; preds = %82, %344, %352, %349, %345, %358, %.lr.ph, %58, %64, %76, %70, %79, %24, %138, %115, %366, %.loopexit, %285, %273, %270, %148, %144
-  %302 = phi i32 [ -11, %270 ], [ 0, %273 ], [ 0, %.loopexit ], [ 0, %285 ], [ 0, %144 ], [ 0, %148 ], [ %226, %366 ], [ 0, %115 ], [ -115, %138 ], [ -22, %24 ], [ %88, %82 ], [ %226, %344 ], [ %226, %352 ], [ %226, %349 ], [ %226, %345 ], [ -22, %358 ], [ -13, %.lr.ph ], [ -11, %58 ], [ -16, %64 ], [ -11, %76 ], [ -11, %70 ], [ -1, %79 ]
+  %302 = phi i32 [ -11, %270 ], [ 0, %273 ], [ 0, %.loopexit ], [ 0, %285 ], [ 0, %144 ], [ 0, %148 ], [ %226, %366 ], [ 0, %115 ], [ -115, %138 ], [ -22, %24 ], [ -22, %358 ], [ -13, %.lr.ph ], [ -11, %58 ], [ -16, %64 ], [ -11, %76 ], [ -11, %70 ], [ %226, %349 ], [ %226, %352 ], [ %88, %82 ], [ %226, %344 ], [ %226, %345 ], [ -1, %79 ]
   %303 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !27
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_rpm_return_int, i64 8), i32 2) #8
           to label %367 [label %304], !srcloc !14
@@ -1188,7 +1188,7 @@ define dso_local i32 @__pm_runtime_idle(ptr noundef %0, i32 noundef %1) #0 align
   br label %47
 
 47:                                               ; preds = %.thread, %43, %30, %26, %13, %12
-  %48 = phi i32 [ %46, %43 ], [ 0, %12 ], [ 0, %13 ], [ 0, %26 ], [ 0, %30 ], [ -22, %.thread ]
+  %48 = phi i32 [ %46, %43 ], [ -22, %.thread ], [ 0, %12 ], [ 0, %13 ], [ 0, %26 ], [ 0, %30 ]
   ret i32 %48
 }
 
@@ -1486,7 +1486,7 @@ define internal fastcc i32 @rpm_idle(ptr noundef %0, i32 noundef %1) unnamed_add
   br label %.thread20
 
 .thread20:                                        ; preds = %72, %.thread25, %110, %57, %46, %53, %39, %32, %27, %23, %68, %60, %166, %.thread28, %114
-  %171 = phi i32 [ 0, %.thread28 ], [ %160, %166 ], [ 0, %114 ], [ -115, %72 ], [ -11, %68 ], [ -11, %60 ], [ -1, %57 ], [ -11, %46 ], [ -11, %53 ], [ -16, %39 ], [ -11, %32 ], [ -13, %27 ], [ -22, %23 ], [ 0, %110 ], [ 0, %.thread25 ]
+  %171 = phi i32 [ 0, %.thread25 ], [ 0, %.thread28 ], [ %160, %166 ], [ 0, %114 ], [ -22, %23 ], [ -11, %60 ], [ -115, %72 ], [ -11, %68 ], [ -1, %57 ], [ -11, %46 ], [ -11, %53 ], [ -16, %39 ], [ -11, %32 ], [ -13, %27 ], [ 0, %110 ]
   %172 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !43
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_rpm_return_int, i64 8), i32 2) #8
           to label %193 [label %173], !srcloc !14
@@ -1627,7 +1627,7 @@ define dso_local i32 @__pm_runtime_suspend(ptr noundef %0, i32 noundef %1) #0 al
   br label %47
 
 47:                                               ; preds = %.thread, %43, %30, %26, %13, %12
-  %48 = phi i32 [ %46, %43 ], [ 0, %12 ], [ 0, %13 ], [ 0, %26 ], [ 0, %30 ], [ -22, %.thread ]
+  %48 = phi i32 [ %46, %43 ], [ -22, %.thread ], [ 0, %12 ], [ 0, %13 ], [ 0, %26 ], [ 0, %30 ]
   ret i32 %48
 }
 
@@ -2215,8 +2215,8 @@ split:                                            ; preds = %139, %136, %._crit_
   br label %.thread
 
 .thread:                                          ; preds = %92, %.backedge, %60, %72, %24, %80, %83, %.thread29, %291, %288
-  %295 = phi ptr [ %293, %291 ], [ %157, %288 ], [ %48, %.thread29 ], [ %48, %83 ], [ %48, %80 ], [ null, %24 ], [ %48, %72 ], [ %48, %60 ], [ %137, %.backedge ], [ %48, %92 ]
-  %296 = phi i32 [ %292, %291 ], [ %239, %288 ], [ %.ph28, %.thread29 ], [ -13, %83 ], [ 1, %80 ], [ -22, %24 ], [ 1, %60 ], [ -22, %72 ], [ -22, %.backedge ], [ 1, %92 ]
+  %295 = phi ptr [ %293, %291 ], [ %157, %288 ], [ %48, %83 ], [ %48, %.thread29 ], [ %48, %80 ], [ null, %24 ], [ %48, %60 ], [ %48, %72 ], [ %137, %.backedge ], [ %48, %92 ]
+  %296 = phi i32 [ %292, %291 ], [ %239, %288 ], [ -13, %83 ], [ %.ph28, %.thread29 ], [ 1, %80 ], [ -22, %24 ], [ 1, %60 ], [ -22, %72 ], [ -22, %.backedge ], [ 1, %92 ]
   %297 = icmp eq ptr %295, null
   br i1 %297, label %.thread39, label %.thread40
 
@@ -2235,7 +2235,7 @@ split:                                            ; preds = %139, %136, %._crit_
   br label %.thread39
 
 .thread39:                                        ; preds = %126, %130, %303, %.thread40, %.thread
-  %305 = phi i32 [ %298, %303 ], [ %298, %.thread40 ], [ %296, %.thread ], [ 0, %130 ], [ 0, %126 ]
+  %305 = phi i32 [ %296, %.thread ], [ %298, %303 ], [ %298, %.thread40 ], [ 0, %130 ], [ 0, %126 ]
   %306 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !49
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_rpm_return_int, i64 8), i32 2) #8
           to label %327 [label %307], !srcloc !14
@@ -2325,7 +2325,7 @@ define dso_local range(i32 -22, 2) i32 @pm_runtime_get_if_active(ptr noundef %0,
   br i1 %27, label %.thread, label %.lr.ph, !prof !9, !llvm.loop !10
 
 .thread:                                          ; preds = %.lr.ph, %25, %16, %15, %9, %2
-  %28 = phi i32 [ 1, %15 ], [ -22, %2 ], [ 0, %9 ], [ 0, %16 ], [ 1, %.lr.ph ], [ 0, %25 ]
+  %28 = phi i32 [ 1, %15 ], [ 0, %9 ], [ -22, %2 ], [ 0, %16 ], [ 1, %.lr.ph ], [ 0, %25 ]
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_rpm_usage, i64 8), i32 2) #8
           to label %49 [label %29], !srcloc !14
 
@@ -2497,8 +2497,8 @@ define dso_local range(i32 -2147483648, 1) i32 @__pm_runtime_set_status(ptr noun
   br i1 %81, label %.thread21, label %.preheader31, !llvm.loop !51
 
 .thread21:                                        ; preds = %79, %.lr.ph, %66, %55, %24
-  %82 = phi i32 [ 0, %24 ], [ %51, %55 ], [ %51, %66 ], [ %51, %.lr.ph ], [ 0, %79 ]
-  %83 = phi i32 [ 0, %24 ], [ 2, %55 ], [ 2, %66 ], [ 2, %.lr.ph ], [ 0, %79 ]
+  %82 = phi i32 [ 0, %24 ], [ %51, %55 ], [ %51, %.lr.ph ], [ %51, %66 ], [ 0, %79 ]
+  %83 = phi i32 [ 0, %24 ], [ 2, %55 ], [ 2, %.lr.ph ], [ 2, %66 ], [ 0, %79 ]
   tail call void @device_links_read_unlock(i32 noundef %25) #8
   br label %84
 

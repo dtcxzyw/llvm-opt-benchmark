@@ -1933,7 +1933,7 @@ cond.true.i:                                      ; preds = %if.end209
   br label %return
 
 return:                                           ; preds = %sw.epilog, %if.then30, %cond.true.i, %if.end209, %cleanup203.thread, %if.end61
-  %retval.3 = phi i1 [ true, %if.end61 ], [ %retval.2.ph, %cleanup203.thread ], [ %call.i, %cond.true.i ], [ false, %if.end209 ], [ true, %if.then30 ], [ true, %sw.epilog ]
+  %retval.3 = phi i1 [ true, %if.end61 ], [ false, %if.end209 ], [ %retval.2.ph, %cleanup203.thread ], [ %call.i, %cond.true.i ], [ true, %if.then30 ], [ true, %sw.epilog ]
   ret i1 %retval.3
 }
 
@@ -3427,7 +3427,7 @@ if.end:                                           ; preds = %for.body
   br i1 %cmp.i.not, label %cleanup16, label %for.body
 
 cleanup16:                                        ; preds = %if.end, %for.body, %for.inc.us, %if.end.us, %for.body.us, %entry
-  %spec.select = phi ptr [ null, %entry ], [ %call10.us, %if.end.us ], [ null, %for.inc.us ], [ %0, %for.body.us ], [ null, %if.end ], [ %3, %for.body ]
+  %spec.select = phi ptr [ null, %entry ], [ %0, %for.body.us ], [ %call10.us, %if.end.us ], [ null, %for.inc.us ], [ %3, %for.body ], [ null, %if.end ]
   ret ptr %spec.select
 }
 

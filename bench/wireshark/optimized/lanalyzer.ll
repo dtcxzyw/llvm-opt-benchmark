@@ -298,7 +298,7 @@ define hidden range(i32 -1, 2) i32 @lanalyzer_open(ptr noundef %0, ptr noundef %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %109, %101, %71, %105, %._crit_edge, %35, %24, %19, %12, %10, %120, %118, %97, %92, %68
-  %.0 = phi i32 [ -1, %68 ], [ -1, %92 ], [ -1, %97 ], [ 1, %120 ], [ -1, %118 ], [ %., %10 ], [ 0, %12 ], [ 0, %19 ], [ %.106, %24 ], [ %.107, %35 ], [ -1, %._crit_edge ], [ -1, %105 ], [ -1, %71 ], [ -1, %101 ], [ -1, %109 ]
+  %.0 = phi i32 [ %., %10 ], [ 0, %12 ], [ -1, %105 ], [ -1, %68 ], [ -1, %92 ], [ -1, %97 ], [ %.107, %35 ], [ -1, %._crit_edge ], [ 0, %19 ], [ 1, %120 ], [ -1, %118 ], [ %.106, %24 ], [ -1, %71 ], [ -1, %101 ], [ -1, %109 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -363,7 +363,7 @@ define internal noundef zeroext i1 @lanalyzer_seek_read(ptr noundef readonly cap
   br label %17
 
 17:                                               ; preds = %10, %13, %16, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %16 ], [ false, %13 ], [ true, %10 ]
+  %.0 = phi i1 [ false, %5 ], [ false, %13 ], [ false, %16 ], [ true, %10 ]
   ret i1 %.0
 }
 
@@ -528,7 +528,7 @@ define internal fastcc zeroext i1 @lanalyzer_read_trace_record(ptr noundef reado
   br label %87
 
 87:                                               ; preds = %31, %10, %5, %84, %42, %29, %18
-  %.0 = phi i1 [ false, %18 ], [ false, %29 ], [ false, %42 ], [ %86, %84 ], [ false, %5 ], [ false, %10 ], [ false, %31 ]
+  %.0 = phi i1 [ false, %18 ], [ false, %29 ], [ false, %42 ], [ %86, %84 ], [ false, %10 ], [ false, %5 ], [ false, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -584,7 +584,7 @@ define internal noundef zeroext i1 @lanalyzer_dump_open(ptr noundef %0, ptr noun
   br label %16
 
 16:                                               ; preds = %8, %14, %5
-  %.0 = phi i1 [ true, %14 ], [ false, %5 ], [ false, %8 ]
+  %.0 = phi i1 [ false, %5 ], [ true, %14 ], [ false, %8 ]
   ret i1 %.0
 }
 
@@ -767,7 +767,7 @@ s0write.exit:                                     ; preds = %86
   br label %96
 
 96:                                               ; preds = %92, %s0write.exit, %86, %81, %69, %65, %59, %57, %55, %42, %40, %39, %34, %27, %21
-  %.0 = phi i1 [ false, %21 ], [ false, %27 ], [ false, %34 ], [ false, %39 ], [ false, %40 ], [ false, %42 ], [ false, %55 ], [ false, %57 ], [ false, %59 ], [ false, %65 ], [ false, %69 ], [ false, %81 ], [ false, %86 ], [ false, %s0write.exit ], [ %95, %92 ]
+  %.0 = phi i1 [ false, %21 ], [ false, %27 ], [ false, %34 ], [ false, %39 ], [ false, %s0write.exit ], [ %95, %92 ], [ false, %86 ], [ false, %81 ], [ false, %69 ], [ false, %65 ], [ false, %59 ], [ false, %57 ], [ false, %55 ], [ false, %42 ], [ false, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i1 %.0
 }

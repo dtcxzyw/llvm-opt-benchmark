@@ -559,7 +559,7 @@ _ZNK7RegMask7overlapERKS_.exit70.thread:          ; preds = %146, %167, %169, %1
   br label %128, !llvm.loop !11
 
 _ZN16IndexSetIterator4nextEv.exit62.thread:       ; preds = %110, %140, %_ZN16IndexSetIterator4nextEv.exit62, %173, %_ZN16IndexSetIterator4nextEv.exit.thread
-  %.0 = phi i32 [ %.044, %_ZN16IndexSetIterator4nextEv.exit.thread ], [ %.4, %140 ], [ %.4, %_ZN16IndexSetIterator4nextEv.exit62 ], [ %175, %173 ], [ %112, %110 ]
+  %.0 = phi i32 [ %.044, %_ZN16IndexSetIterator4nextEv.exit.thread ], [ %175, %173 ], [ %.4, %140 ], [ %.4, %_ZN16IndexSetIterator4nextEv.exit62 ], [ %112, %110 ]
   ret i32 %.0
 }
 

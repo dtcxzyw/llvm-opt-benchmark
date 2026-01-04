@@ -1441,7 +1441,7 @@ _ZNSt6vectorIS_IN2cv5Size_IiEESaIS2_EESaIS4_EED2Ev.exit192: ; preds = %_ZSt8_Des
   ret i32 1
 
 333:                                              ; preds = %73, %132, %134, %214, %308, %309, %302, %71
-  %.pn139.pn = phi { ptr, i32 } [ %72, %71 ], [ %74, %73 ], [ %133, %132 ], [ %135, %134 ], [ %215, %214 ], [ %303, %302 ], [ %310, %309 ], [ %.pn, %308 ]
+  %.pn139.pn = phi { ptr, i32 } [ %72, %71 ], [ %74, %73 ], [ %133, %132 ], [ %215, %214 ], [ %.pn, %308 ], [ %135, %134 ], [ %303, %302 ], [ %310, %309 ]
   call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #22
   br label %334
 
@@ -1680,8 +1680,8 @@ define hidden void @_ZN6cvtest9ArrayTest17get_minmax_boundsEiiiRN2cv7Scalar_IdEE
   br label %18
 
 18:                                               ; preds = %6, %11, %14
-  %.010 = phi double [ %13, %11 ], [ %16, %14 ], [ 2.000000e+00, %6 ]
-  %.0 = phi double [ %12, %11 ], [ %17, %14 ], [ -2.000000e+00, %6 ]
+  %.010 = phi double [ %16, %14 ], [ %13, %11 ], [ 2.000000e+00, %6 ]
+  %.0 = phi double [ %17, %14 ], [ %12, %11 ], [ -2.000000e+00, %6 ]
   store double %.0, ptr %4, align 8, !tbaa !112
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store double %.0, ptr %19, align 8, !tbaa !112
@@ -2336,7 +2336,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !85
   br label %40
 

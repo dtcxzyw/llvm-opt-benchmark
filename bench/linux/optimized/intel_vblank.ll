@@ -214,8 +214,8 @@ define dso_local range(i32 0, 16777216) i32 @i915_get_vblank_counter(ptr noundef
   br i1 %135, label %123, label %.split6.us, !llvm.loop !7
 
 .split6.us:                                       ; preds = %123, %89, %.split.split.us, %.split.us.split.us
-  %.us-phi = phi i32 [ %83, %.split.us.split.us ], [ %116, %.split.split.us ], [ %100, %89 ], [ %131, %123 ]
-  %.us-phi7 = phi i32 [ %77, %.split.us.split.us ], [ %110, %.split.split.us ], [ %97, %89 ], [ %128, %123 ]
+  %.us-phi = phi i32 [ %116, %.split.split.us ], [ %100, %89 ], [ %83, %.split.us.split.us ], [ %131, %123 ]
+  %.us-phi7 = phi i32 [ %110, %.split.split.us ], [ %97, %89 ], [ %77, %.split.us.split.us ], [ %128, %123 ]
   tail call void @intel_uncore_forcewake_put__locked(ptr noundef nonnull %47, i32 noundef %50) #10
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %51, i64 noundef %52) #10
   %136 = zext i32 %.us-phi to i64

@@ -164,7 +164,7 @@ define void @dggsvp3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   br i1 %.not538, label %100, label %.thread574
 
 .thread574.sink.split:                            ; preds = %81, %77, %73, %69, %66, %63, %60, %57, %54, %52, %49, %46
-  %.sink = phi i32 [ -1, %46 ], [ -2, %49 ], [ -3, %52 ], [ -4, %54 ], [ -5, %57 ], [ -6, %60 ], [ -8, %63 ], [ -10, %66 ], [ -16, %69 ], [ -18, %73 ], [ -20, %77 ], [ -24, %81 ]
+  %.sink = phi i32 [ -1, %46 ], [ -3, %52 ], [ -5, %57 ], [ -8, %63 ], [ -16, %69 ], [ -20, %77 ], [ -18, %73 ], [ -10, %66 ], [ -6, %60 ], [ -4, %54 ], [ -2, %49 ], [ -24, %81 ]
   store i32 %.sink, ptr %24, align 4, !tbaa !3
   br label %.thread574
 
@@ -393,8 +393,8 @@ define void @dggsvp3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   br label %.loopexit600
 
 .loopexit601:                                     ; preds = %.loopexit600, %171, %168, %165
-  %196 = phi i32 [ %176, %171 ], [ %167, %168 ], [ %167, %165 ], [ %176, %.loopexit600 ]
-  %197 = phi i32 [ %175, %171 ], [ %167, %168 ], [ %.pre728, %165 ], [ %175, %.loopexit600 ]
+  %196 = phi i32 [ %167, %165 ], [ %176, %171 ], [ %167, %168 ], [ %176, %.loopexit600 ]
+  %197 = phi i32 [ %.pre728, %165 ], [ %175, %171 ], [ %167, %168 ], [ %175, %.loopexit600 ]
   %198 = sub nsw i32 %197, %196
   %.not551628 = icmp slt i32 %198, 1
   br i1 %.not551628, label %._crit_edge632, label %.lr.ph631.preheader
@@ -650,9 +650,9 @@ define void @dggsvp3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   br label %.loopexit597
 
 .loopexit598:                                     ; preds = %.loopexit597, %292, %281
-  %322 = phi i32 [ %299, %292 ], [ %284, %281 ], [ %299, %.loopexit597 ]
-  %323 = phi i32 [ %298, %292 ], [ %283, %281 ], [ %298, %.loopexit597 ]
-  %324 = phi i32 [ %301, %292 ], [ %282, %281 ], [ %301, %.loopexit597 ]
+  %322 = phi i32 [ %284, %281 ], [ %299, %292 ], [ %299, %.loopexit597 ]
+  %323 = phi i32 [ %283, %281 ], [ %298, %292 ], [ %298, %.loopexit597 ]
+  %324 = phi i32 [ %282, %281 ], [ %301, %292 ], [ %301, %.loopexit597 ]
   %325 = load i32, ptr %3, align 4, !tbaa !3
   %326 = icmp sgt i32 %325, %324
   br i1 %326, label %327, label %.loopexit596

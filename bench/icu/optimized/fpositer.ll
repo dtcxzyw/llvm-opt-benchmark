@@ -174,7 +174,7 @@ define noundef zeroext i1 @_ZNK6icu_7721FieldPositionIteratoreqERKS0_(ptr nounde
   br label %17
 
 17:                                               ; preds = %9, %15, %4, %2
-  %.0 = phi i1 [ true, %2 ], [ false, %4 ], [ %16, %15 ], [ %.mux, %9 ]
+  %.0 = phi i1 [ %.mux, %9 ], [ true, %2 ], [ false, %4 ], [ %16, %15 ]
   ret i1 %.0
 }
 

@@ -2793,7 +2793,7 @@ define dso_local void @serial8250_do_set_termios(ptr noundef %0, ptr noundef %1,
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %3, %12, %9
-  %15 = phi i32 [ %14, %12 ], [ %10, %9 ], [ %.pre, %3 ]
+  %15 = phi i32 [ %10, %9 ], [ %14, %12 ], [ %.pre, %3 ]
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = tail call zeroext i8 @tty_get_char_size(i32 noundef %15) #14
   %18 = add i8 %17, -5
@@ -6393,7 +6393,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @rx_trig_bytes_show(ptr n
   br i1 %27, label %.thread, label %28
 
 .thread:                                          ; preds = %13, %3, %17
-  %.ph = phi i32 [ -22, %3 ], [ -22, %13 ], [ -95, %17 ]
+  %.ph = phi i32 [ -22, %13 ], [ -22, %3 ], [ -95, %17 ]
   tail call void @mutex_unlock(ptr noundef nonnull %6) #14
   br label %31
 
@@ -6495,7 +6495,7 @@ define internal range(i64 1, 0) i64 @rx_trig_bytes_store(ptr noundef readonly ca
   br label %56
 
 .thread:                                          ; preds = %27, %23, %14
-  %.ph = phi i64 [ -22, %14 ], [ -22, %23 ], [ -95, %27 ]
+  %.ph = phi i64 [ -22, %23 ], [ -95, %27 ], [ -22, %14 ]
   call void @mutex_unlock(ptr noundef nonnull %16) #14
   br label %56
 

@@ -150,7 +150,7 @@ define linkonce_odr dso_local void @_ZN13b3OpenCLArrayIjEC2EP11_cl_contextP17_cl
   br label %_ZNK13b3OpenCLArrayIjE8copyToCLEP7_cl_memmmm.exit.i
 
 _ZNK13b3OpenCLArrayIjE8copyToCLEP7_cl_memmmm.exit.i: ; preds = %22, %19, %.thread.i
-  %.017.i = phi i64 [ 0, %.thread.i ], [ %3, %19 ], [ %3, %22 ]
+  %.017.i = phi i64 [ 0, %.thread.i ], [ %3, %22 ], [ %3, %19 ]
   %28 = load ptr, ptr %9, align 8, !tbaa !31
   %.not.i.i = icmp ne ptr %28, null
   %29 = load i8, ptr %12, align 8, !range !32

@@ -1982,9 +1982,9 @@ _ZN7QStringD2Ev.exit377:                          ; preds = %536, %_ZN17QArrayDa
           to label %.invoke unwind label %540
 
 .invoke:                                          ; preds = %.invoke471, %.invoke470, %551, %548, %545, %543
-  %553 = phi ptr [ %544, %543 ], [ %546, %545 ], [ %549, %548 ], [ %552, %551 ], [ %550, %.invoke470 ], [ %547, %.invoke471 ]
-  %554 = phi i32 [ 0, %543 ], [ 1, %545 ], [ %.0, %548 ], [ %.0, %551 ], [ %.0, %.invoke470 ], [ %.0, %.invoke471 ]
-  %555 = phi i32 [ %320, %543 ], [ %318, %545 ], [ %318, %548 ], [ %321, %551 ], [ %317, %.invoke470 ], [ %319, %.invoke471 ]
+  %553 = phi ptr [ %550, %.invoke470 ], [ %549, %548 ], [ %552, %551 ], [ %547, %.invoke471 ], [ %544, %543 ], [ %546, %545 ]
+  %554 = phi i32 [ %.0, %.invoke470 ], [ %.0, %548 ], [ %.0, %551 ], [ %.0, %.invoke471 ], [ 0, %543 ], [ 1, %545 ]
+  %555 = phi i32 [ %317, %.invoke470 ], [ %318, %548 ], [ %321, %551 ], [ %319, %.invoke471 ], [ %320, %543 ], [ %318, %545 ]
   invoke void @_ZN9QTreeView14setColumnWidthEii(ptr noundef align 8 dereferenceable_or_null(40) %553, i32 noundef %554, i32 noundef %555)
           to label %556 unwind label %540
 
@@ -2137,7 +2137,7 @@ _ZN5QListI7QStringED2Ev.exit401:                  ; preds = %585, %_ZN17QArrayDa
   br label %600
 
 600:                                              ; preds = %346, %356, %357, %599, %_ZN17QArrayDataPointerIDsED2Ev.exit293, %_ZN17QArrayDataPointerIDsED2Ev.exit301, %_ZN7QStringD2Ev.exit305, %_ZN7QStringD2Ev.exit309, %_ZN7QStringD2Ev.exit313, %350, %348, %_ZN7QStringD2Ev.exit285, %_ZN7QStringD2Ev.exit281
-  %.pn137.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn93, %_ZN7QStringD2Ev.exit285 ], [ %.pn, %_ZN7QStringD2Ev.exit281 ], [ %347, %346 ], [ %349, %348 ], [ %351, %350 ], [ %.pn137.pn, %599 ], [ %358, %357 ], [ %.pn101, %_ZN7QStringD2Ev.exit313 ], [ %.pn99, %_ZN7QStringD2Ev.exit309 ], [ %.pn97, %_ZN7QStringD2Ev.exit305 ], [ %366, %_ZN17QArrayDataPointerIDsED2Ev.exit301 ], [ %360, %_ZN17QArrayDataPointerIDsED2Ev.exit293 ], [ %.pn95, %356 ]
+  %.pn137.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7QStringD2Ev.exit281 ], [ %.pn93, %_ZN7QStringD2Ev.exit285 ], [ %347, %346 ], [ %351, %350 ], [ %349, %348 ], [ %.pn137.pn, %599 ], [ %358, %357 ], [ %.pn101, %_ZN7QStringD2Ev.exit313 ], [ %366, %_ZN17QArrayDataPointerIDsED2Ev.exit301 ], [ %.pn99, %_ZN7QStringD2Ev.exit309 ], [ %.pn95, %356 ], [ %.pn97, %_ZN7QStringD2Ev.exit305 ], [ %360, %_ZN17QArrayDataPointerIDsED2Ev.exit293 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(24) %44) #24
   call void @_ZN18TapParameterDialogD2Ev(ptr noundef align 8 dereferenceable_or_null(232) %0) #24
   resume { ptr, i32 } %.pn137.pn.pn.pn.pn.pn
@@ -9166,7 +9166,7 @@ _ZN7QStringD2Ev.exit138:                          ; preds = %233, %_ZN17QArrayDa
   br label %.body132
 
 .body132:                                         ; preds = %238, %231, %_ZN7QStringD2Ev.exit130, %_ZN7QStringD2Ev.exit116, %_ZN7QStringD2Ev.exit92, %_ZN7QStringD2Ev.exit68, %_ZN7QStringD2Ev.exit59, %97, %81, %65, %49
-  %.pn30 = phi { ptr, i32 } [ %.pn28, %_ZN7QStringD2Ev.exit130 ], [ %.pn26, %_ZN7QStringD2Ev.exit68 ], [ %.pn23.pn, %_ZN7QStringD2Ev.exit92 ], [ %.pn20.pn, %_ZN7QStringD2Ev.exit116 ], [ %.pn, %_ZN7QStringD2Ev.exit59 ], [ %50, %49 ], [ %66, %65 ], [ %82, %81 ], [ %98, %97 ], [ %239, %238 ], [ %232, %231 ]
+  %.pn30 = phi { ptr, i32 } [ %98, %97 ], [ %.pn28, %_ZN7QStringD2Ev.exit130 ], [ %.pn26, %_ZN7QStringD2Ev.exit68 ], [ %.pn23.pn, %_ZN7QStringD2Ev.exit92 ], [ %.pn20.pn, %_ZN7QStringD2Ev.exit116 ], [ %.pn, %_ZN7QStringD2Ev.exit59 ], [ %50, %49 ], [ %66, %65 ], [ %82, %81 ], [ %239, %238 ], [ %232, %231 ]
   %240 = load ptr, ptr %13, align 8
   %.not.i.i.i139 = icmp eq ptr %240, null
   br i1 %.not.i.i.i139, label %_ZN7QStringD2Ev.exit142, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i140

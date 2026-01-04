@@ -1033,7 +1033,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit171: ; preds = %32
   br i1 %345, label %.loopexit, label %342
 
 .loopexit:                                        ; preds = %342, %.body155, %.body155.thread
-  %.pn113.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %144, %.body155.thread ], [ %.pn78, %.body155 ], [ %.pn113.pn.pn.pn.pn.pn.pn.pn, %342 ]
+  %.pn113.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn78, %.body155 ], [ %144, %.body155.thread ], [ %.pn113.pn.pn.pn.pn.pn.pn.pn, %342 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %346
 
@@ -1089,7 +1089,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit174: ; preds = %34
   ret i32 %.0
 
 355:                                              ; preds = %.body, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit148
-  %.pn130 = phi { ptr, i32 } [ %.pn126.pn.pn, %.body ], [ %91, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit148 ]
+  %.pn130 = phi { ptr, i32 } [ %91, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit148 ], [ %.pn126.pn.pn, %.body ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #14
   br label %356
 

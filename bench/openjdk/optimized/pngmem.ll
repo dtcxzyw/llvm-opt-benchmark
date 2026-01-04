@@ -295,7 +295,7 @@ define hidden noalias ptr @png_realloc_array(ptr noalias noundef %0, ptr noundef
   br label %png_malloc_array_checked.exit
 
 png_malloc_array_checked.exit:                    ; preds = %24, %26
-  %.0.i = phi ptr [ %25, %24 ], [ %27, %26 ]
+  %.0.i = phi ptr [ %27, %26 ], [ %25, %24 ]
   %.not33 = icmp eq ptr %.0.i, null
   br i1 %.not33, label %png_malloc_array_checked.exit.thread, label %28
 

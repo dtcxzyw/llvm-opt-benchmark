@@ -122,9 +122,9 @@ define hidden range(i32 -1, 2) i32 @libpcap_open(ptr noundef %0, ptr noundef %1,
   br label %19
 
 19:                                               ; preds = %10, %10, %18, %17, %16, %15, %14, %13, %12
-  %.0119 = phi i1 [ false, %12 ], [ true, %13 ], [ true, %14 ], [ true, %15 ], [ true, %16 ], [ false, %17 ], [ false, %18 ], [ false, %10 ], [ false, %10 ]
-  %.0118 = phi i32 [ 7, %12 ], [ 1, %13 ], [ 1, %14 ], [ 0, %15 ], [ 0, %16 ], [ 1, %17 ], [ 1, %18 ], [ 7, %10 ], [ 7, %10 ]
-  %.0117 = phi i1 [ true, %12 ], [ false, %13 ], [ true, %14 ], [ false, %15 ], [ true, %16 ], [ false, %17 ], [ true, %18 ], [ false, %10 ], [ false, %10 ]
+  %.0119 = phi i1 [ false, %18 ], [ false, %12 ], [ true, %13 ], [ true, %14 ], [ true, %15 ], [ true, %16 ], [ false, %10 ], [ false, %10 ], [ false, %17 ]
+  %.0118 = phi i32 [ 1, %18 ], [ 7, %12 ], [ 1, %13 ], [ 1, %14 ], [ 0, %15 ], [ 0, %16 ], [ 7, %10 ], [ 7, %10 ], [ 1, %17 ]
+  %.0117 = phi i1 [ true, %18 ], [ true, %12 ], [ false, %13 ], [ true, %14 ], [ false, %15 ], [ true, %16 ], [ false, %10 ], [ false, %10 ], [ false, %17 ]
   %20 = load ptr, ptr %0, align 8
   %21 = call zeroext i1 @wtap_read_bytes(ptr noundef %20, ptr noundef nonnull %5, i32 noundef 20, ptr noundef %1, ptr noundef %2)
   br i1 %21, label %22, label %150
@@ -269,7 +269,7 @@ define hidden range(i32 -1, 2) i32 @libpcap_open(ptr noundef %0, ptr noundef %1,
   br label %.thread138
 
 .thread138:                                       ; preds = %82, %83, %84, %85
-  %.sink = phi i32 [ 6, %83 ], [ 10, %84 ], [ 0, %85 ], [ 1, %82 ]
+  %.sink = phi i32 [ 0, %85 ], [ 6, %83 ], [ 10, %84 ], [ 1, %82 ]
   store i32 %.sink, ptr %80, align 4
   %86 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %91
@@ -434,7 +434,7 @@ define hidden range(i32 -1, 2) i32 @libpcap_open(ptr noundef %0, ptr noundef %1,
   br label %150
 
 150:                                              ; preds = %147, %149, %125, %117, %23, %19, %10, %8, %123, %98, %89, %42
-  %.0 = phi i32 [ -1, %42 ], [ -1, %89 ], [ -1, %98 ], [ -1, %123 ], [ %., %8 ], [ 0, %10 ], [ -1, %19 ], [ -1, %23 ], [ -1, %117 ], [ -1, %125 ], [ 1, %149 ], [ 1, %147 ]
+  %.0 = phi i32 [ %., %8 ], [ -1, %42 ], [ -1, %89 ], [ -1, %98 ], [ -1, %125 ], [ -1, %23 ], [ -1, %123 ], [ -1, %117 ], [ -1, %19 ], [ 0, %10 ], [ 1, %149 ], [ 1, %147 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -479,7 +479,7 @@ define internal noundef zeroext i1 @libpcap_seek_read(ptr noundef %0, i64 nounde
   br label %17
 
 17:                                               ; preds = %10, %13, %16, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %16 ], [ false, %13 ], [ true, %10 ]
+  %.0 = phi i1 [ false, %5 ], [ false, %13 ], [ false, %16 ], [ true, %10 ]
   ret i1 %.0
 }
 
@@ -762,7 +762,7 @@ switch.early.test.i.i:                            ; preds = %thread-pre-split147
   br label %129
 
 129:                                              ; preds = %127, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %thread-pre-split147.i.i
-  %.9.i = phi i32 [ %spec.select58.i, %thread-pre-split147.i.i ], [ %spec.select58.i, %switch.early.test.i.i ], [ %spec.select58.i, %switch.early.test.i.i ], [ %spec.select58.i, %switch.early.test.i.i ], [ %spec.select58.i, %switch.early.test.i.i ], [ %spec.select59.i, %127 ]
+  %.9.i = phi i32 [ %spec.select58.i, %thread-pre-split147.i.i ], [ %spec.select59.i, %127 ], [ %spec.select58.i, %switch.early.test.i.i ], [ %spec.select58.i, %switch.early.test.i.i ], [ %spec.select58.i, %switch.early.test.i.i ], [ %spec.select58.i, %switch.early.test.i.i ]
   %130 = load ptr, ptr %0, align 8
   %131 = call zeroext i1 @wtap_read_bytes(ptr noundef %130, ptr noundef nonnull %9, i32 noundef 1, ptr noundef %3, ptr noundef %4)
   br i1 %131, label %137, label %132
@@ -965,7 +965,7 @@ libpcap_try_variant.exit:                         ; preds = %189, %.thread47.sin
   br i1 %exitcond151.not, label %.loopexit, label %209, !llvm.loop !19
 
 .loopexit:                                        ; preds = %libpcap_try_variant.exit, %202, %216, %194, %198
-  %.1 = phi i1 [ false, %194 ], [ true, %198 ], [ true, %216 ], [ false, %202 ], [ false, %libpcap_try_variant.exit ]
+  %.1 = phi i1 [ true, %198 ], [ false, %194 ], [ true, %216 ], [ false, %202 ], [ false, %libpcap_try_variant.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i1 %.1
 }
@@ -1173,10 +1173,10 @@ switch.lookup:                                    ; preds = %5
   br label %67
 
 67:                                               ; preds = %._crit_edge74, %62, %56
-  %68 = phi i32 [ %.pre76, %._crit_edge74 ], [ %.pre77, %56 ], [ %.pre77, %62 ]
-  %69 = phi i32 [ %.pre75, %._crit_edge74 ], [ %60, %56 ], [ 2, %62 ]
-  %.065 = phi i32 [ %65, %._crit_edge74 ], [ %59, %56 ], [ %59, %62 ]
-  %.064 = phi i32 [ %66, %._crit_edge74 ], [ %57, %56 ], [ %57, %62 ]
+  %68 = phi i32 [ %.pre76, %._crit_edge74 ], [ %.pre77, %62 ], [ %.pre77, %56 ]
+  %69 = phi i32 [ %.pre75, %._crit_edge74 ], [ 2, %62 ], [ %60, %56 ]
+  %.065 = phi i32 [ %65, %._crit_edge74 ], [ %59, %62 ], [ %59, %56 ]
+  %.064 = phi i32 [ %66, %._crit_edge74 ], [ %57, %62 ], [ %57, %56 ]
   %70 = icmp eq i32 %69, 6
   %71 = call i32 @pcap_process_pseudo_header(ptr noundef %1, i1 noundef zeroext %70, i32 noundef %68, i32 noundef %.064, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %72 = icmp slt i32 %71, 0
@@ -1251,7 +1251,7 @@ switch.lookup:                                    ; preds = %5
   br label %.critedge
 
 .critedge:                                        ; preds = %switch.lookup, %92, %100, %67, %63, %50, %51, %105
-  %.0 = phi i1 [ true, %105 ], [ false, %51 ], [ false, %50 ], [ false, %63 ], [ false, %67 ], [ false, %100 ], [ false, %92 ], [ false, %switch.lookup ]
+  %.0 = phi i1 [ false, %67 ], [ false, %63 ], [ true, %105 ], [ false, %100 ], [ false, %92 ], [ false, %50 ], [ false, %51 ], [ false, %switch.lookup ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
@@ -1441,7 +1441,7 @@ define internal fastcc zeroext i1 @libpcap_dump_write_packet(ptr noundef %0, ptr
   br label %44
 
 44:                                               ; preds = %40, %37, %28, %27, %18, %13
-  %.0 = phi i1 [ false, %13 ], [ false, %18 ], [ false, %27 ], [ false, %28 ], [ false, %37 ], [ %43, %40 ]
+  %.0 = phi i1 [ false, %13 ], [ false, %18 ], [ false, %27 ], [ false, %37 ], [ %43, %40 ], [ false, %28 ]
   ret i1 %.0
 }
 

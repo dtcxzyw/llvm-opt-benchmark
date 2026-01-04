@@ -145,7 +145,7 @@ define internal i32 @sdr2_read_packet(ptr noundef readonly captures(none) %0, pt
   br label %50
 
 50:                                               ; preds = %40, %46, %25, %21, %2
-  %.0 = phi i32 [ -1094995529, %2 ], [ %23, %21 ], [ %32, %25 ], [ %.030, %46 ], [ %.030, %40 ]
+  %.0 = phi i32 [ %32, %25 ], [ -1094995529, %2 ], [ %23, %21 ], [ %.030, %46 ], [ %.030, %40 ]
   ret i32 %.0
 }
 

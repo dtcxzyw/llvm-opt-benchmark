@@ -739,8 +739,8 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i104: ; preds = %246
   br i1 %254, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i.i, %.thread180, %.thread, %252
-  %255 = phi i64 [ 0, %.thread ], [ %253, %252 ], [ %245, %.thread180 ], [ %253, %.lr.ph.i.i.i.i.i.i.i ]
-  %.pre.i179 = phi ptr [ null, %.thread ], [ %249, %252 ], [ null, %.thread180 ], [ %249, %.lr.ph.i.i.i.i.i.i.i ]
+  %255 = phi i64 [ 0, %.thread ], [ %245, %.thread180 ], [ %253, %252 ], [ %253, %.lr.ph.i.i.i.i.i.i.i ]
+  %.pre.i179 = phi ptr [ null, %.thread ], [ null, %.thread180 ], [ %249, %252 ], [ %249, %.lr.ph.i.i.i.i.i.i.i ]
   %256 = icmp slt i64 %255, %241
   br i1 %256, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2INS_15PlainObjectBaseIS1_EEEERKT_.exit
 

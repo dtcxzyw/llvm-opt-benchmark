@@ -1928,7 +1928,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN5a
   br label %.body11
 
 .body11:                                          ; preds = %.thread, %25, %50
-  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %26, %25 ], [ %20, %.thread ]
+  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %20, %.thread ], [ %26, %25 ]
   call void @_ZN5arrow5DatumD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #24
   br label %.body
 
@@ -2228,7 +2228,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN5a
   br label %.body11
 
 .body11:                                          ; preds = %.thread, %25, %50
-  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %26, %25 ], [ %20, %.thread ]
+  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %20, %.thread ], [ %26, %25 ]
   call void @_ZN5arrow5DatumD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #24
   br label %.body
 
@@ -2400,7 +2400,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN5a
   br label %.body11
 
 .body11:                                          ; preds = %.thread, %25, %50
-  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %26, %25 ], [ %20, %.thread ]
+  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %20, %.thread ], [ %26, %25 ]
   call void @_ZN5arrow5DatumD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #24
   br label %.body
 
@@ -2572,7 +2572,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN5a
   br label %.body11
 
 .body11:                                          ; preds = %.thread, %25, %50
-  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %26, %25 ], [ %20, %.thread ]
+  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %20, %.thread ], [ %26, %25 ]
   call void @_ZN5arrow5DatumD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #24
   br label %.body
 
@@ -2744,7 +2744,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN5a
   br label %.body11
 
 .body11:                                          ; preds = %.thread, %25, %50
-  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %26, %25 ], [ %20, %.thread ]
+  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %20, %.thread ], [ %26, %25 ]
   call void @_ZN5arrow5DatumD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #24
   br label %.body
 
@@ -2916,7 +2916,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN5a
   br label %.body11
 
 .body11:                                          ; preds = %.thread, %25, %50
-  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %26, %25 ], [ %20, %.thread ]
+  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %20, %.thread ], [ %26, %25 ]
   call void @_ZN5arrow5DatumD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #24
   br label %.body
 
@@ -3088,7 +3088,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN5a
   br label %.body11
 
 .body11:                                          ; preds = %.thread, %25, %50
-  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %26, %25 ], [ %20, %.thread ]
+  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %20, %.thread ], [ %26, %25 ]
   call void @_ZN5arrow5DatumD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #24
   br label %.body
 
@@ -3260,7 +3260,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN5a
   br label %.body11
 
 .body11:                                          ; preds = %.thread, %25, %50
-  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %26, %25 ], [ %20, %.thread ]
+  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %20, %.thread ], [ %26, %25 ]
   call void @_ZN5arrow5DatumD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #24
   br label %.body
 
@@ -3432,7 +3432,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN5a
   br label %.body11
 
 .body11:                                          ; preds = %.thread, %25, %50
-  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %26, %25 ], [ %20, %.thread ]
+  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %20, %.thread ], [ %26, %25 ]
   call void @_ZN5arrow5DatumD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #24
   br label %.body
 
@@ -3604,7 +3604,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN5a
   br label %.body11
 
 .body11:                                          ; preds = %.thread, %25, %50
-  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %26, %25 ], [ %20, %.thread ]
+  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %20, %.thread ], [ %26, %25 ]
   call void @_ZN5arrow5DatumD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #24
   br label %.body
 
@@ -3776,7 +3776,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN5a
   br label %.body11
 
 .body11:                                          ; preds = %.thread, %25, %50
-  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %26, %25 ], [ %20, %.thread ]
+  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %20, %.thread ], [ %26, %25 ]
   call void @_ZN5arrow5DatumD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #24
   br label %.body
 
@@ -3948,7 +3948,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN5a
   br label %.body11
 
 .body11:                                          ; preds = %.thread, %25, %50
-  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %26, %25 ], [ %20, %.thread ]
+  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %20, %.thread ], [ %26, %25 ]
   call void @_ZN5arrow5DatumD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #24
   br label %.body
 
@@ -4120,7 +4120,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN5a
   br label %.body11
 
 .body11:                                          ; preds = %.thread, %25, %50
-  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %26, %25 ], [ %20, %.thread ]
+  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %20, %.thread ], [ %26, %25 ]
   call void @_ZN5arrow5DatumD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #24
   br label %.body
 
@@ -4292,7 +4292,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN5a
   br label %.body11
 
 .body11:                                          ; preds = %.thread, %25, %50
-  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %26, %25 ], [ %20, %.thread ]
+  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %20, %.thread ], [ %26, %25 ]
   call void @_ZN5arrow5DatumD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #24
   br label %.body
 
@@ -4464,7 +4464,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN5a
   br label %.body11
 
 .body11:                                          ; preds = %.thread, %25, %50
-  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %26, %25 ], [ %20, %.thread ]
+  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %20, %.thread ], [ %26, %25 ]
   call void @_ZN5arrow5DatumD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #24
   br label %.body
 
@@ -12875,7 +12875,7 @@ _ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEED2Ev.exit: ; preds = %_ZN5arrow6Res
   ret void
 
 .body:                                            ; preds = %151, %147, %144, %142, %_ZN5arrow6ResultIjED2Ev.exit.i
-  %.pn11 = phi { ptr, i32 } [ %143, %142 ], [ %114, %_ZN5arrow6ResultIjED2Ev.exit.i ], [ %145, %144 ], [ %145, %147 ], [ %145, %151 ]
+  %.pn11 = phi { ptr, i32 } [ %114, %_ZN5arrow6ResultIjED2Ev.exit.i ], [ %143, %142 ], [ %145, %144 ], [ %145, %147 ], [ %145, %151 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @_ZNSt12__shared_ptrIN5arrow6ScalarELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -14353,7 +14353,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21
   br label %.body
 
 .body:                                            ; preds = %154, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21, %152, %.body.i
-  %.pn = phi { ptr, i32 } [ %153, %152 ], [ %eh.lpad-body.i, %.body.i ], [ %155, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21 ], [ %155, %154 ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %153, %152 ], [ %155, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21 ], [ %155, %154 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %160
 
@@ -16559,7 +16559,7 @@ _ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEED2Ev.exit: ; preds = %_ZN5arrow6Res
   ret void
 
 .body:                                            ; preds = %183, %179, %176, %174, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i
-  %.pn11 = phi { ptr, i32 } [ %175, %174 ], [ %eh.lpad-body.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i ], [ %177, %176 ], [ %177, %179 ], [ %177, %183 ]
+  %.pn11 = phi { ptr, i32 } [ %eh.lpad-body.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i ], [ %175, %174 ], [ %177, %176 ], [ %177, %179 ], [ %177, %183 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @_ZNSt12__shared_ptrIN5arrow6ScalarELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -18836,7 +18836,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21
   br label %.body
 
 .body:                                            ; preds = %155, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21, %153, %.body.i
-  %.pn = phi { ptr, i32 } [ %154, %153 ], [ %eh.lpad-body.i, %.body.i ], [ %156, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21 ], [ %156, %155 ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %154, %153 ], [ %156, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21 ], [ %156, %155 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %161
 
@@ -21287,7 +21287,7 @@ _ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEED2Ev.exit: ; preds = %_ZN5arrow6Res
   ret void
 
 .body:                                            ; preds = %183, %179, %176, %174, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i
-  %.pn11 = phi { ptr, i32 } [ %175, %174 ], [ %eh.lpad-body.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i ], [ %177, %176 ], [ %177, %179 ], [ %177, %183 ]
+  %.pn11 = phi { ptr, i32 } [ %eh.lpad-body.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i ], [ %175, %174 ], [ %177, %176 ], [ %177, %179 ], [ %177, %183 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @_ZNSt12__shared_ptrIN5arrow6ScalarELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -24720,7 +24720,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18
   br label %.body
 
 .body:                                            ; preds = %87, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18, %85, %.body.i
-  %.pn = phi { ptr, i32 } [ %86, %85 ], [ %eh.lpad-body.i, %.body.i ], [ %88, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18 ], [ %88, %87 ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %86, %85 ], [ %88, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18 ], [ %88, %87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.body21
 
@@ -24819,7 +24819,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   br label %.body21
 
 .body21:                                          ; preds = %108, %137, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %46, %.body, %41
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %42, %41 ], [ %.pn, %.body ], [ %47, %46 ], [ %138, %137 ], [ %109, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %109, %108 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %42, %41 ], [ %47, %46 ], [ %.pn, %.body ], [ %138, %137 ], [ %109, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %109, %108 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %5) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn.pn.pn
@@ -28373,7 +28373,7 @@ _ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEED2Ev.exit: ; preds = %_ZN5arrow6Res
   ret void
 
 .body:                                            ; preds = %151, %147, %144, %142, %_ZN5arrow6ResultIjED2Ev.exit.i
-  %.pn11 = phi { ptr, i32 } [ %143, %142 ], [ %114, %_ZN5arrow6ResultIjED2Ev.exit.i ], [ %145, %144 ], [ %145, %147 ], [ %145, %151 ]
+  %.pn11 = phi { ptr, i32 } [ %114, %_ZN5arrow6ResultIjED2Ev.exit.i ], [ %143, %142 ], [ %145, %144 ], [ %145, %147 ], [ %145, %151 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @_ZNSt12__shared_ptrIN5arrow6ScalarELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -35942,7 +35942,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22
   br label %.body
 
 .body:                                            ; preds = %206, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22, %204, %.body.i
-  %.pn = phi { ptr, i32 } [ %205, %204 ], [ %.pn11.i, %.body.i ], [ %207, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22 ], [ %207, %206 ]
+  %.pn = phi { ptr, i32 } [ %.pn11.i, %.body.i ], [ %205, %204 ], [ %207, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22 ], [ %207, %206 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %212
 

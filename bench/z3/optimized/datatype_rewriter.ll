@@ -524,8 +524,8 @@ _ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i101:   ; preds = %.noexc106, %._crit_
   br i1 %exitcond.not, label %._crit_edge, label %184, !llvm.loop !112
 
 ._crit_edge:                                      ; preds = %234, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit86.thread, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit86
-  %.0.i85154 = phi i32 [ 0, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit86 ], [ 0, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit86.thread ], [ %178, %234 ]
-  %237 = phi ptr [ %179, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit86 ], [ %174, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit86.thread ], [ %.pre.i129, %234 ]
+  %.0.i85154 = phi i32 [ 0, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit86.thread ], [ 0, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit86 ], [ %178, %234 ]
+  %237 = phi ptr [ %174, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit86.thread ], [ %179, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit86 ], [ %.pre.i129, %234 ]
   %238 = load ptr, ptr %0, align 8, !tbaa !25
   %239 = invoke noundef ptr @_ZN11ast_manager6mk_appEP9func_decljPKP4expr(ptr noundef nonnull align 8 dereferenceable(976) %238, ptr noundef %154, i32 noundef %.0.i85154, ptr noundef %237)
           to label %240 unwind label %243
@@ -556,7 +556,7 @@ _ZNK4decl13get_decl_kindEv.exit.thread:           ; preds = %5, %_ZNK4decl13get_
   br label %_ZNK8datatype4util14is_constructorEPK3app.exit.thread
 
 _ZNK8datatype4util14is_constructorEPK3app.exit.thread: ; preds = %140, %135, %.thread, %110, %99, %94, %62, %57, %_ZNK4decl13get_decl_kindEv.exit.thread, %._crit_edge115, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit84, %242, %129, %_ZNK8datatype4util14is_constructorEPK3app.exit80, %88, %_ZNK8datatype4util14is_constructorEPK3app.exit78, %80, %84, %51, %_ZNK8datatype4util14is_constructorEPK3app.exit, %_ZNK4decl13get_decl_kindEv.exit, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit76, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit
-  %.060 = phi i32 [ 0, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ 4, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit76 ], [ 5, %_ZNK4decl13get_decl_kindEv.exit ], [ 5, %_ZNK8datatype4util14is_constructorEPK3app.exit ], [ 5, %51 ], [ 4, %84 ], [ 4, %80 ], [ 5, %_ZNK8datatype4util14is_constructorEPK3app.exit78 ], [ 5, %88 ], [ 5, %_ZNK8datatype4util14is_constructorEPK3app.exit80 ], [ 5, %129 ], [ 4, %242 ], [ 4, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit84 ], [ 5, %._crit_edge115 ], [ 5, %_ZNK4decl13get_decl_kindEv.exit.thread ], [ 5, %57 ], [ 5, %62 ], [ 5, %94 ], [ 5, %99 ], [ 4, %.thread ], [ 5, %110 ], [ 5, %135 ], [ 5, %140 ]
+  %.060 = phi i32 [ 5, %110 ], [ 5, %88 ], [ 0, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ 4, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit76 ], [ 5, %51 ], [ 5, %_ZNK4decl13get_decl_kindEv.exit ], [ 5, %99 ], [ 4, %80 ], [ 5, %129 ], [ 5, %_ZNK8datatype4util14is_constructorEPK3app.exit ], [ 4, %84 ], [ 5, %_ZNK8datatype4util14is_constructorEPK3app.exit78 ], [ 5, %_ZNK8datatype4util14is_constructorEPK3app.exit80 ], [ 4, %242 ], [ 4, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit84 ], [ 5, %_ZNK4decl13get_decl_kindEv.exit.thread ], [ 5, %62 ], [ 5, %._crit_edge115 ], [ 5, %57 ], [ 5, %94 ], [ 4, %.thread ], [ 5, %135 ], [ 5, %140 ]
   ret i32 %.060
 }
 
@@ -923,7 +923,7 @@ _ZN6bufferIP4exprLb0ELj16EED2Ev.exit:             ; preds = %122, %125
   resume { ptr, i32 } %.pn
 
 _ZNK8datatype4util14is_constructorEPK3app.exit.thread: ; preds = %36, %31, %20, %15, %4, %10, %_ZNK8datatype4util14is_constructorEPK3app.exit, %_ZNK8datatype4util14is_constructorEPK3app.exit24, %_ZN6bufferIP4exprLb0ELj16EED2Ev.exit, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit
-  %.021 = phi i32 [ 4, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ 1, %_ZN6bufferIP4exprLb0ELj16EED2Ev.exit ], [ 5, %_ZNK8datatype4util14is_constructorEPK3app.exit24 ], [ 5, %_ZNK8datatype4util14is_constructorEPK3app.exit ], [ 5, %10 ], [ 5, %4 ], [ 5, %15 ], [ 5, %20 ], [ 5, %31 ], [ 5, %36 ]
+  %.021 = phi i32 [ 4, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ 1, %_ZN6bufferIP4exprLb0ELj16EED2Ev.exit ], [ 5, %_ZNK8datatype4util14is_constructorEPK3app.exit24 ], [ 5, %_ZNK8datatype4util14is_constructorEPK3app.exit ], [ 5, %10 ], [ 5, %4 ], [ 5, %20 ], [ 5, %15 ], [ 5, %31 ], [ 5, %36 ]
   ret i32 %.021
 }
 

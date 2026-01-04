@@ -80,8 +80,8 @@ define hidden range(i32 -1, 2) i32 @ber_open(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not61, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %20, %22
-  %.055 = phi i8 [ %23, %22 ], [ 0, %20 ], [ %23, %.lr.ph ]
-  %.054 = phi i32 [ 0, %22 ], [ %21, %20 ], [ %33, %.lr.ph ]
+  %.055 = phi i8 [ 0, %20 ], [ %23, %22 ], [ %23, %.lr.ph ]
+  %.054 = phi i32 [ %21, %20 ], [ 0, %22 ], [ %33, %.lr.ph ]
   %narrow = add nuw i8 %.055, 2
   %34 = zext i8 %narrow to i32
   %35 = add i32 %.054, %34
@@ -113,7 +113,7 @@ define hidden range(i32 -1, 2) i32 @ber_open(ptr noundef %0, ptr noundef %1, ptr
   br label %50
 
 50:                                               ; preds = %38, %.loopexit, %9, %12, %7, %42
-  %.053 = phi i32 [ 1, %42 ], [ %., %7 ], [ 0, %12 ], [ 0, %9 ], [ 0, %.loopexit ], [ -1, %38 ]
+  %.053 = phi i32 [ 0, %9 ], [ 0, %.loopexit ], [ 1, %42 ], [ %., %7 ], [ 0, %12 ], [ -1, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.053
 }

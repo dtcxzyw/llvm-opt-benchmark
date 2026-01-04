@@ -755,7 +755,7 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17hbd1648375641326aE.exit.i: 
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$17new_uninitialized17hb15aa00cc6597036E.llvm.2207515806302133630.exit"
 
 _ZN9hashbrown3raw13RawTableInner17new_uninitialized17hbd1648375641326aE.exit.thread.i: ; preds = %27, %22
-  %.pn.i = phi { i64, i64 } [ %28, %27 ], [ %23, %22 ]
+  %.pn.i = phi { i64, i64 } [ %23, %22 ], [ %28, %27 ]
   %.sroa.11.02024.ph.i = extractvalue { i64, i64 } %.pn.i, 1
   %.sroa.6.026.ph.i = extractvalue { i64, i64 } %.pn.i, 0
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$17new_uninitialized17hb15aa00cc6597036E.llvm.2207515806302133630.exit"
@@ -3998,7 +3998,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.22
   br label %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17hbd1648375641326aE.exit.thread.i.i
 
 _ZN9hashbrown3raw13RawTableInner17new_uninitialized17hbd1648375641326aE.exit.thread.i.i: ; preds = %54, %49
-  %.pn.i.i = phi { i64, i64 } [ %55, %54 ], [ %50, %49 ]
+  %.pn.i.i = phi { i64, i64 } [ %50, %49 ], [ %55, %54 ]
   %.sroa.11.04454.ph.i.i = extractvalue { i64, i64 } %.pn.i.i, 1
   %.sroa.6.04356.ph.i.i = extractvalue { i64, i64 } %.pn.i.i, 0
   br label %66
@@ -4033,8 +4033,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   br label %.preheader
 
 66:                                               ; preds = %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17hbd1648375641326aE.exit.thread.i.i, %38
-  %.sroa.5.048.ph = phi i64 [ %40, %38 ], [ %.sroa.6.04356.ph.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17hbd1648375641326aE.exit.thread.i.i ]
-  %.sroa.9.046.ph = phi i64 [ %.sroa.6.0.i.i4, %38 ], [ %.sroa.11.04454.ph.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17hbd1648375641326aE.exit.thread.i.i ]
+  %.sroa.5.048.ph = phi i64 [ %.sroa.6.04356.ph.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17hbd1648375641326aE.exit.thread.i.i ], [ %40, %38 ]
+  %.sroa.9.046.ph = phi i64 [ %.sroa.11.04454.ph.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17hbd1648375641326aE.exit.thread.i.i ], [ %.sroa.6.0.i.i4, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !791
   br label %_ZN9hashbrown3raw13RawTableInner12resize_inner17h447ab3dd52cfecedE.exit.i
 
@@ -4532,7 +4532,7 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17hbd1648375641326aE.exit: ; 
   br label %30
 
 _ZN9hashbrown3raw13RawTableInner17new_uninitialized17hbd1648375641326aE.exit.thread: ; preds = %21, %16
-  %.pn = phi { i64, i64 } [ %22, %21 ], [ %17, %16 ]
+  %.pn = phi { i64, i64 } [ %17, %16 ], [ %22, %21 ]
   %.sroa.11.02024.ph = extractvalue { i64, i64 } %.pn, 1
   %.sroa.6.026.ph = extractvalue { i64, i64 } %.pn, 0
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8

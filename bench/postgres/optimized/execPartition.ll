@@ -714,7 +714,7 @@ FormPartitionKeyDatum.exit:                       ; preds = %._crit_edge.i
   br label %get_partition_for_tuple.exit.thread
 
 get_partition_for_tuple.exit:                     ; preds = %135, %153, %192, %.thread12.i, %.thread17.i
-  %.0.i128 = phi i32 [ %149, %135 ], [ %277, %.thread17.i ], [ %196, %192 ], [ %155, %153 ], [ %.4.ph.i, %.thread12.i ]
+  %.0.i128 = phi i32 [ %149, %135 ], [ %.4.ph.i, %.thread12.i ], [ %277, %.thread17.i ], [ %155, %153 ], [ %196, %192 ]
   %288 = icmp slt i32 %.0.i128, 0
   br i1 %288, label %289, label %get_partition_for_tuple.exit.thread
 
@@ -942,10 +942,10 @@ get_partition_for_tuple.exit.thread:              ; preds = %283, %286, %get_par
   br label %398
 
 398:                                              ; preds = %389, %393, %354, %366, %365, %386
-  %.2107 = phi ptr [ %.3108, %386 ], [ %358, %354 ], [ %364, %365 ], [ %367, %366 ], [ %.3108, %393 ], [ %.3108, %389 ]
-  %.1104 = phi ptr [ %.0103161, %386 ], [ %.0103161, %354 ], [ %.0103161, %365 ], [ %.0103161, %366 ], [ %388, %393 ], [ %388, %389 ]
-  %.1101 = phi ptr [ %.2102, %386 ], [ null, %354 ], [ null, %365 ], [ null, %366 ], [ %.2102, %393 ], [ %.2102, %389 ]
-  %.1 = phi ptr [ %.0163, %386 ], [ %.0163, %354 ], [ %.0163, %365 ], [ %.0163, %366 ], [ %392, %393 ], [ %392, %389 ]
+  %.2107 = phi ptr [ %.3108, %386 ], [ %367, %366 ], [ %358, %354 ], [ %364, %365 ], [ %.3108, %393 ], [ %.3108, %389 ]
+  %.1104 = phi ptr [ %.0103161, %386 ], [ %.0103161, %366 ], [ %.0103161, %354 ], [ %.0103161, %365 ], [ %388, %393 ], [ %388, %389 ]
+  %.1101 = phi ptr [ %.2102, %386 ], [ null, %366 ], [ null, %354 ], [ null, %365 ], [ %.2102, %393 ], [ %.2102, %389 ]
+  %.1 = phi ptr [ %.0163, %386 ], [ %.0163, %366 ], [ %.0163, %354 ], [ %.0163, %365 ], [ %392, %393 ], [ %392, %389 ]
   %399 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %400 = load ptr, ptr %399, align 8
   %401 = getelementptr inbounds nuw i8, ptr %400, i64 52
@@ -992,7 +992,7 @@ get_partition_for_tuple.exit.thread:              ; preds = %283, %286, %get_par
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %42, %416, %._crit_edge
-  %.0105.lcssa194 = phi ptr [ %.2107, %416 ], [ %.2107, %._crit_edge ], [ null, %42 ]
+  %.0105.lcssa194 = phi ptr [ %.2107, %._crit_edge ], [ %.2107, %416 ], [ null, %42 ]
   store ptr %27, ptr %28, align 8
   store ptr %32, ptr @CurrentMemoryContext, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -1580,7 +1580,7 @@ adjust_partition_colnos.exit:                     ; preds = %235, %199, %.lr.ph.
   br label %261
 
 261:                                              ; preds = %.sink.split, %110, %adjust_partition_colnos.exit, %list_length.exit263.thread
-  %.3 = phi ptr [ %.1, %110 ], [ %.1, %list_length.exit263.thread ], [ %.6, %adjust_partition_colnos.exit ], [ %.3.ph, %.sink.split ]
+  %.3 = phi ptr [ %.6, %adjust_partition_colnos.exit ], [ %.1, %110 ], [ %.1, %list_length.exit263.thread ], [ %.3.ph, %.sink.split ]
   %262 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %263 = load ptr, ptr %262, align 8
   store ptr %263, ptr @CurrentMemoryContext, align 8
@@ -2150,7 +2150,7 @@ list_length.exit172.i:                            ; preds = %56, %.lr.ph30
   br label %.critedge.i.preheader
 
 .critedge.i.preheader:                            ; preds = %136, %.critedge.loopexit.split.loop.exit234.i, %.preheader.i
-  %.2.i.ph = phi i32 [ %137, %.critedge.loopexit.split.loop.exit234.i ], [ %.0147188.i, %.preheader.i ], [ %128, %136 ]
+  %.2.i.ph = phi i32 [ %.0147188.i, %.preheader.i ], [ %137, %.critedge.loopexit.split.loop.exit234.i ], [ %128, %136 ]
   br label %.critedge.i
 
 .loopexit.i:                                      ; preds = %167

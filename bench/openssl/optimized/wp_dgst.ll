@@ -91,7 +91,7 @@ define void @WHIRLPOOL_BitUpdate(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   br i1 %.not206, label %.loopexit, label %.lr.ph210
 
 .loopexit159:                                     ; preds = %56, %71
-  %storemerge.ph = phi i32 [ %66, %56 ], [ 0, %71 ]
+  %storemerge.ph = phi i32 [ 0, %71 ], [ %66, %56 ]
   store i32 %storemerge.ph, ptr %4, align 8, !tbaa !5
   br label %.preheader
 

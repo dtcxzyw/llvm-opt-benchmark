@@ -2338,8 +2338,8 @@ default.unreachable20:                            ; preds = %148, %16
   %94 = icmp eq i8 %.in.in, 0
   br i1 %94, label %.thread7, label %.thread9
 
-.thread9:                                         ; preds = %.thread.thread.thread, %89, %85, %92
-  %95 = phi i32 [ %93, %92 ], [ 165000, %89 ], [ 300000, %85 ], [ 165000, %.thread.thread.thread ]
+.thread9:                                         ; preds = %.thread.thread.thread, %85, %89, %92
+  %95 = phi i32 [ %93, %92 ], [ 300000, %85 ], [ 165000, %89 ], [ 165000, %.thread.thread.thread ]
   call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.31, i32 noundef %95) #18
   br label %.thread7
 
@@ -4734,7 +4734,7 @@ define dso_local range(i32 2, 1) i32 @drm_edp_backlight_enable(ptr noundef %0, p
   br label %94
 
 94:                                               ; preds = %88, %.thread, %60
-  %95 = phi i32 [ %64, %60 ], [ %93, %.thread ], [ %., %88 ]
+  %95 = phi i32 [ %64, %60 ], [ %., %88 ], [ %93, %.thread ]
   ret i32 %95
 }
 
@@ -5785,7 +5785,7 @@ define internal i32 @drm_dp_i2c_xfer(ptr noundef readonly captures(none) %0, ptr
   br i1 %86, label %select.unfold, label %.preheader, !llvm.loop !53
 
 select.unfold:                                    ; preds = %80, %63, %48
-  %87 = phi i32 [ %56, %48 ], [ %spec.select, %63 ], [ %82, %80 ]
+  %87 = phi i32 [ %spec.select, %63 ], [ %56, %48 ], [ %82, %80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %88 = load i16, ptr %25, align 2
   %89 = trunc i16 %88 to i8
@@ -5813,8 +5813,8 @@ select.unfold:                                    ; preds = %80, %63, %48
   br i1 %104, label %.thread.loopexit19, label %20, !llvm.loop !55
 
 .thread.loopexit19:                               ; preds = %.loopexit, %20
-  %105 = phi i8 [ %102, %.loopexit ], [ %38, %20 ]
-  %.ph = phi i32 [ %2, %.loopexit ], [ %32, %20 ]
+  %105 = phi i8 [ %38, %20 ], [ %102, %.loopexit ]
+  %.ph = phi i32 [ %32, %20 ], [ %2, %.loopexit ]
   %106 = and i8 %105, -5
   br label %.thread
 

@@ -1146,7 +1146,7 @@ _ZNSt8multisetImSt4lessImESaImEE4findERKm.exit:   ; preds = %_ZNSt8_Rb_treeImmSt
   store i64 %.sink.i, ptr %36, align 8, !tbaa !149
   br label %57
 
-.critedge:                                        ; preds = %41, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPSt13_Rb_tree_nodeImEPSt18_Rb_tree_node_baseRKm.exit.i.i, %34, %30, %_ZNSt8multisetImSt4lessImESaImEE4findERKm.exit
+.critedge:                                        ; preds = %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPSt13_Rb_tree_nodeImEPSt18_Rb_tree_node_baseRKm.exit.i.i, %41, %34, %30, %_ZNSt8multisetImSt4lessImESaImEE4findERKm.exit
   %54 = load ptr, ptr %6, align 8, !tbaa !144
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %56 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN4llvm17DWARFDebugAranges5RangeESaIS2_EE12emplace_backIJRmRKmS8_EEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.032.043, ptr noundef nonnull align 8 dereferenceable(8) %55)
@@ -1226,7 +1226,7 @@ _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPSt13_Rb_tree_n
   br label %_ZNSt8multisetImSt4lessImESaImEE4findERKm.exit28
 
 _ZNSt8multisetImSt4lessImESaImEE4findERKm.exit28: ; preds = %70, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPSt13_Rb_tree_nodeImEPSt18_Rb_tree_node_baseRKm.exit.i.i25, %79
-  %.sroa.0.0.i.i27 = phi ptr [ %4, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPSt13_Rb_tree_nodeImEPSt18_Rb_tree_node_baseRKm.exit.i.i25 ], [ %4, %70 ], [ %spec.select.i.i26, %79 ]
+  %.sroa.0.0.i.i27 = phi ptr [ %4, %70 ], [ %4, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPSt13_Rb_tree_nodeImEPSt18_Rb_tree_node_baseRKm.exit.i.i25 ], [ %spec.select.i.i26, %79 ]
   %82 = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %.sroa.0.0.i.i27, ptr noundef nonnull align 8 dereferenceable(32) %4) #13
   call void @_ZdlPvm(ptr noundef nonnull %82, i64 noundef 40) #16
   br label %83

@@ -609,7 +609,7 @@ _ZNK8QPalette4baseEv.exit:                        ; preds = %78
   br i1 %.not, label %90, label %.invoke
 
 .invoke:                                          ; preds = %88, %52, %54, %55, %56, %57
-  %89 = phi ptr [ @_ZN10ColorUtils18expert_color_errorE, %57 ], [ @_ZN10ColorUtils17expert_color_warnE, %56 ], [ @_ZN10ColorUtils17expert_color_noteE, %55 ], [ @_ZN10ColorUtils17expert_color_chatE, %54 ], [ @_ZN10ColorUtils20expert_color_commentE, %52 ], [ @_ZN10ColorUtils23expert_color_foregroundE, %88 ]
+  %89 = phi ptr [ @_ZN10ColorUtils20expert_color_commentE, %52 ], [ @_ZN10ColorUtils18expert_color_errorE, %57 ], [ @_ZN10ColorUtils17expert_color_warnE, %56 ], [ @_ZN10ColorUtils17expert_color_noteE, %55 ], [ @_ZN10ColorUtils17expert_color_chatE, %54 ], [ @_ZN10ColorUtils23expert_color_foregroundE, %88 ]
   invoke void @_ZNK6QColorcv8QVariantEv(ptr dead_on_unwind writable sret(%class.QVariant) align 8 %0, ptr noundef nonnull align 4 dereferenceable_or_null(14) %89)
           to label %140 unwind label %32
 

@@ -340,12 +340,12 @@ celt_deinterleave_hadamard.exit:                  ; preds = %._crit_edge.us.i62,
   br label %147
 
 147:                                              ; preds = %celt_deinterleave_hadamard.exit, %._crit_edge235, %37
-  %.0618.i = phi i32 [ 0, %37 ], [ %.1619.i.lcssa, %celt_deinterleave_hadamard.exit ], [ %.1619.i.lcssa, %._crit_edge235 ]
-  %.0616.i = phi i32 [ 0, %37 ], [ %spec.select.i, %celt_deinterleave_hadamard.exit ], [ %spec.select.i, %._crit_edge235 ]
-  %.0596.i = phi i32 [ %18, %37 ], [ %.1597.i.lcssa, %celt_deinterleave_hadamard.exit ], [ %.1597.i.lcssa, %._crit_edge235 ]
-  %.0576.i = phi i32 [ %15, %37 ], [ %.2578.i.lcssa, %celt_deinterleave_hadamard.exit ], [ %.2578.i.lcssa, %._crit_edge235 ]
-  %.0572.i = phi ptr [ %9, %37 ], [ %.1573.i404, %celt_deinterleave_hadamard.exit ], [ %.1573.i404, %._crit_edge235 ]
-  %.0570.i = phi i32 [ %8, %37 ], [ %.1571.i.lcssa, %celt_deinterleave_hadamard.exit ], [ %.1571.i.lcssa, %._crit_edge235 ]
+  %.0618.i = phi i32 [ 0, %37 ], [ %.1619.i.lcssa, %._crit_edge235 ], [ %.1619.i.lcssa, %celt_deinterleave_hadamard.exit ]
+  %.0616.i = phi i32 [ 0, %37 ], [ %spec.select.i, %._crit_edge235 ], [ %spec.select.i, %celt_deinterleave_hadamard.exit ]
+  %.0596.i = phi i32 [ %18, %37 ], [ %.1597.i.lcssa, %._crit_edge235 ], [ %.1597.i.lcssa, %celt_deinterleave_hadamard.exit ]
+  %.0576.i = phi i32 [ %15, %37 ], [ %.2578.i.lcssa, %._crit_edge235 ], [ %.2578.i.lcssa, %celt_deinterleave_hadamard.exit ]
+  %.0572.i = phi ptr [ %9, %37 ], [ %.1573.i404, %._crit_edge235 ], [ %.1573.i404, %celt_deinterleave_hadamard.exit ]
+  %.0570.i = phi i32 [ %8, %37 ], [ %.1571.i.lcssa, %._crit_edge235 ], [ %.1571.i.lcssa, %celt_deinterleave_hadamard.exit ]
   %148 = mul i32 %10, 21
   %149 = add i32 %3, 21
   %150 = add i32 %149, %148
@@ -714,8 +714,8 @@ celt_stereo_is_decouple.exit88:                   ; preds = %.lr.ph.i84, %.loope
   br label %celt_stereo_is_decouple.exit
 
 celt_stereo_is_decouple.exit:                     ; preds = %.lr.ph.i78, %.lr.ph.i72, %celt_stereo_is_decouple.exit88, %343, %347, %300, %280, %.thread174, %314, %273
-  %.0613.i = phi i1 [ true, %273 ], [ true, %314 ], [ true, %.thread174 ], [ true, %280 ], [ true, %300 ], [ %348, %347 ], [ true, %343 ], [ true, %celt_stereo_is_decouple.exit88 ], [ true, %.lr.ph.i72 ], [ true, %.lr.ph.i78 ]
-  %.2595.i = phi i32 [ %276, %273 ], [ %201, %314 ], [ %272, %.thread174 ], [ 0, %280 ], [ %278, %300 ], [ 0, %347 ], [ 0, %343 ], [ 0, %celt_stereo_is_decouple.exit88 ], [ 0, %.lr.ph.i72 ], [ %278, %.lr.ph.i78 ]
+  %.0613.i = phi i1 [ true, %.thread174 ], [ true, %343 ], [ true, %273 ], [ true, %314 ], [ true, %.lr.ph.i72 ], [ true, %280 ], [ true, %300 ], [ %348, %347 ], [ true, %celt_stereo_is_decouple.exit88 ], [ true, %.lr.ph.i78 ]
+  %.2595.i = phi i32 [ %272, %.thread174 ], [ 0, %343 ], [ %276, %273 ], [ %201, %314 ], [ 0, %.lr.ph.i72 ], [ 0, %280 ], [ %278, %300 ], [ 0, %347 ], [ 0, %celt_stereo_is_decouple.exit88 ], [ %278, %.lr.ph.i78 ]
   %349 = load i32, ptr %237, align 8, !tbaa !36
   %350 = load i32, ptr %239, align 8, !tbaa !41
   %.not.i29 = icmp ult i32 %350, 65536
@@ -1400,11 +1400,11 @@ celt_pulses2bits.exit.thread:                     ; preds = %.lr.ph243, %celt_bi
   br label %celt_alg_quant.exit
 
 celt_alg_quant.exit:                              ; preds = %._crit_edge.us.i.i, %.lr.ph261, %.preheader211, %.preheader213, %.preheader21.i.i, %celt_normalize_residual.exit.i, %744, %571, %553
-  %.0563.i158 = phi ptr [ %.0563.i172411, %553 ], [ %.0563.i172411, %571 ], [ null, %744 ], [ null, %celt_normalize_residual.exit.i ], [ null, %.preheader21.i.i ], [ null, %.preheader213 ], [ null, %.preheader211 ], [ null, %.lr.ph261 ], [ null, %._crit_edge.us.i.i ]
-  %.0566.i156 = phi i32 [ %.0566.i171413, %553 ], [ %.0566.i171413, %571 ], [ %6, %744 ], [ %6, %celt_normalize_residual.exit.i ], [ %6, %.preheader21.i.i ], [ %6, %.preheader213 ], [ %6, %.preheader211 ], [ %6, %.lr.ph261 ], [ %6, %._crit_edge.us.i.i ]
-  %.2615.i = phi i1 [ %.0613.i, %553 ], [ %.0613.i, %571 ], [ true, %744 ], [ true, %celt_normalize_residual.exit.i ], [ true, %.preheader21.i.i ], [ true, %.preheader213 ], [ true, %.preheader211 ], [ true, %.lr.ph261 ], [ true, %._crit_edge.us.i.i ]
-  %.0612.i = phi nsz float [ %.0587.i, %553 ], [ %.0587.i, %571 ], [ 0.000000e+00, %744 ], [ 0.000000e+00, %celt_normalize_residual.exit.i ], [ 0.000000e+00, %.preheader21.i.i ], [ 0.000000e+00, %.preheader213 ], [ 0.000000e+00, %.preheader211 ], [ 0.000000e+00, %.lr.ph261 ], [ 0.000000e+00, %._crit_edge.us.i.i ]
-  %.2606.i = phi i32 [ %570, %553 ], [ %588, %571 ], [ 0, %744 ], [ 1, %celt_normalize_residual.exit.i ], [ 0, %.preheader21.i.i ], [ %714, %.preheader213 ], [ %713, %.preheader211 ], [ %.4608.i.ph, %.lr.ph261 ], [ %711, %._crit_edge.us.i.i ]
+  %.0563.i158 = phi ptr [ null, %.preheader21.i.i ], [ %.0563.i172411, %553 ], [ %.0563.i172411, %571 ], [ null, %.lr.ph261 ], [ null, %744 ], [ null, %celt_normalize_residual.exit.i ], [ null, %.preheader211 ], [ null, %.preheader213 ], [ null, %._crit_edge.us.i.i ]
+  %.0566.i156 = phi i32 [ %6, %.preheader21.i.i ], [ %.0566.i171413, %553 ], [ %.0566.i171413, %571 ], [ %6, %.lr.ph261 ], [ %6, %744 ], [ %6, %celt_normalize_residual.exit.i ], [ %6, %.preheader211 ], [ %6, %.preheader213 ], [ %6, %._crit_edge.us.i.i ]
+  %.2615.i = phi i1 [ true, %.preheader21.i.i ], [ %.0613.i, %553 ], [ %.0613.i, %571 ], [ true, %.lr.ph261 ], [ true, %744 ], [ true, %celt_normalize_residual.exit.i ], [ true, %.preheader211 ], [ true, %.preheader213 ], [ true, %._crit_edge.us.i.i ]
+  %.0612.i = phi nsz float [ 0.000000e+00, %.preheader21.i.i ], [ %.0587.i, %553 ], [ %.0587.i, %571 ], [ 0.000000e+00, %.lr.ph261 ], [ 0.000000e+00, %744 ], [ 0.000000e+00, %celt_normalize_residual.exit.i ], [ 0.000000e+00, %.preheader211 ], [ 0.000000e+00, %.preheader213 ], [ 0.000000e+00, %._crit_edge.us.i.i ]
+  %.2606.i = phi i32 [ 0, %.preheader21.i.i ], [ %570, %553 ], [ %588, %571 ], [ %.4608.i.ph, %.lr.ph261 ], [ 0, %744 ], [ 1, %celt_normalize_residual.exit.i ], [ %713, %.preheader211 ], [ %714, %.preheader213 ], [ %711, %._crit_edge.us.i.i ]
   br i1 %17, label %747, label %786
 
 747:                                              ; preds = %celt_alg_quant.exit
@@ -1479,9 +1479,9 @@ celt_stereo_merge.exit:                           ; preds = %772, %.preheader.i9
   br i1 %or.cond460.not, label %quant_band_template.exit, label %.lr.ph287.preheader
 
 .lr.ph287.preheader:                              ; preds = %celt_stereo_merge.exit, %.thread185
-  %.0563.i158180194195.ph433 = phi ptr [ %.0563.i172411, %.thread185 ], [ %.0563.i158, %celt_stereo_merge.exit ]
-  %.0566.i156181193196.ph432 = phi i32 [ 2, %.thread185 ], [ %.0566.i156, %celt_stereo_merge.exit ]
-  %.2606.i184191197.ph431 = phi i32 [ %497, %.thread185 ], [ %.2606.i, %celt_stereo_merge.exit ]
+  %.0563.i158180194195.ph433 = phi ptr [ %.0563.i158, %celt_stereo_merge.exit ], [ %.0563.i172411, %.thread185 ]
+  %.0566.i156181193196.ph432 = phi i32 [ %.0566.i156, %celt_stereo_merge.exit ], [ 2, %.thread185 ]
+  %.2606.i184191197.ph431 = phi i32 [ %.2606.i, %celt_stereo_merge.exit ], [ %497, %.thread185 ]
   %wide.trip.count367 = zext nneg i32 %.0566.i156181193196.ph432 to i64
   br label %.lr.ph287
 
@@ -1721,7 +1721,7 @@ celt_haar1.exit146:                               ; preds = %._crit_edge.us.i143
   br label %quant_band_template.exit
 
 quant_band_template.exit:                         ; preds = %.lr.ph287, %.thread185, %34, %35, %celt_stereo_merge.exit, %786, %.loopexit
-  %.0.i = phi i32 [ 1, %35 ], [ 1, %34 ], [ %.2606.i, %celt_stereo_merge.exit ], [ %871, %.loopexit ], [ %.2606.i, %786 ], [ %497, %.thread185 ], [ %.2606.i184191197.ph431, %.lr.ph287 ]
+  %.0.i = phi i32 [ 1, %34 ], [ 1, %35 ], [ %497, %.thread185 ], [ %.2606.i, %celt_stereo_merge.exit ], [ %871, %.loopexit ], [ %.2606.i, %786 ], [ %.2606.i184191197.ph431, %.lr.ph287 ]
   ret i32 %.0.i
 }
 
@@ -2442,7 +2442,7 @@ opus_rc_tell_frac.exit:                           ; preds = %283
   br label %.thread158
 
 .thread158:                                       ; preds = %402, %393
-  %.0574.i = phi i32 [ %404, %402 ], [ 0, %393 ]
+  %.0574.i = phi i32 [ 0, %393 ], [ %404, %402 ]
   %.neg660.i = add nsw i32 %.0574.i, -1
   %405 = sub nsw i32 1, %.0574.i
   %406 = getelementptr inbounds nuw i8, ptr %0, i64 2056
@@ -3031,11 +3031,11 @@ celt_pulses2bits.exit.thread:                     ; preds = %.lr.ph215, %celt_bi
   br label %celt_alg_unquant.exit
 
 celt_alg_unquant.exit:                            ; preds = %._crit_edge.us.i.i, %.lr.ph233, %.preheader183, %.preheader185, %.preheader21.i.i, %celt_normalize_residual.exit.i, %715, %482, %464
-  %.0563.i133 = phi ptr [ %.0563.i147, %464 ], [ %.0563.i147, %482 ], [ null, %715 ], [ null, %celt_normalize_residual.exit.i ], [ null, %.preheader21.i.i ], [ null, %.preheader185 ], [ null, %.preheader183 ], [ null, %.lr.ph233 ], [ null, %._crit_edge.us.i.i ]
-  %.0566.i131 = phi i32 [ %.0566.i146, %464 ], [ %.0566.i146, %482 ], [ %6, %715 ], [ %6, %celt_normalize_residual.exit.i ], [ %6, %.preheader21.i.i ], [ %6, %.preheader185 ], [ %6, %.preheader183 ], [ %6, %.lr.ph233 ], [ %6, %._crit_edge.us.i.i ]
-  %.2615.i = phi i1 [ %.0613.i, %464 ], [ %.0613.i, %482 ], [ true, %715 ], [ true, %celt_normalize_residual.exit.i ], [ true, %.preheader21.i.i ], [ true, %.preheader185 ], [ true, %.preheader183 ], [ true, %.lr.ph233 ], [ true, %._crit_edge.us.i.i ]
-  %.0612.i = phi nsz float [ %.0587.i, %464 ], [ %.0587.i, %482 ], [ 0.000000e+00, %715 ], [ 0.000000e+00, %celt_normalize_residual.exit.i ], [ 0.000000e+00, %.preheader21.i.i ], [ 0.000000e+00, %.preheader185 ], [ 0.000000e+00, %.preheader183 ], [ 0.000000e+00, %.lr.ph233 ], [ 0.000000e+00, %._crit_edge.us.i.i ]
-  %.2606.i = phi i32 [ %481, %464 ], [ %499, %482 ], [ 0, %715 ], [ 1, %celt_normalize_residual.exit.i ], [ 0, %.preheader21.i.i ], [ %685, %.preheader185 ], [ %684, %.preheader183 ], [ %.4608.i.ph, %.lr.ph233 ], [ %682, %._crit_edge.us.i.i ]
+  %.0563.i133 = phi ptr [ null, %.preheader21.i.i ], [ %.0563.i147, %464 ], [ %.0563.i147, %482 ], [ null, %.lr.ph233 ], [ null, %715 ], [ null, %celt_normalize_residual.exit.i ], [ null, %.preheader183 ], [ null, %.preheader185 ], [ null, %._crit_edge.us.i.i ]
+  %.0566.i131 = phi i32 [ %6, %.preheader21.i.i ], [ %.0566.i146, %464 ], [ %.0566.i146, %482 ], [ %6, %.lr.ph233 ], [ %6, %715 ], [ %6, %celt_normalize_residual.exit.i ], [ %6, %.preheader183 ], [ %6, %.preheader185 ], [ %6, %._crit_edge.us.i.i ]
+  %.2615.i = phi i1 [ true, %.preheader21.i.i ], [ %.0613.i, %464 ], [ %.0613.i, %482 ], [ true, %.lr.ph233 ], [ true, %715 ], [ true, %celt_normalize_residual.exit.i ], [ true, %.preheader183 ], [ true, %.preheader185 ], [ true, %._crit_edge.us.i.i ]
+  %.0612.i = phi nsz float [ 0.000000e+00, %.preheader21.i.i ], [ %.0587.i, %464 ], [ %.0587.i, %482 ], [ 0.000000e+00, %.lr.ph233 ], [ 0.000000e+00, %715 ], [ 0.000000e+00, %celt_normalize_residual.exit.i ], [ 0.000000e+00, %.preheader183 ], [ 0.000000e+00, %.preheader185 ], [ 0.000000e+00, %._crit_edge.us.i.i ]
+  %.2606.i = phi i32 [ 0, %.preheader21.i.i ], [ %481, %464 ], [ %499, %482 ], [ %.4608.i.ph, %.lr.ph233 ], [ 0, %715 ], [ 1, %celt_normalize_residual.exit.i ], [ %684, %.preheader183 ], [ %685, %.preheader185 ], [ %682, %._crit_edge.us.i.i ]
   br i1 %17, label %718, label %757
 
 718:                                              ; preds = %celt_alg_unquant.exit
@@ -3110,9 +3110,9 @@ celt_stereo_merge.exit:                           ; preds = %743, %.preheader.i,
   br i1 %or.cond.not, label %quant_band_template.exit, label %.lr.ph257.preheader
 
 .lr.ph257.preheader:                              ; preds = %celt_stereo_merge.exit, %.thread158
-  %.0563.i133153167168.ph387 = phi ptr [ %.0563.i147, %.thread158 ], [ %.0563.i133, %celt_stereo_merge.exit ]
-  %.0566.i131154166169.ph386 = phi i32 [ 2, %.thread158 ], [ %.0566.i131, %celt_stereo_merge.exit ]
-  %.2606.i157164170.ph385 = phi i32 [ %408, %.thread158 ], [ %.2606.i, %celt_stereo_merge.exit ]
+  %.0563.i133153167168.ph387 = phi ptr [ %.0563.i133, %celt_stereo_merge.exit ], [ %.0563.i147, %.thread158 ]
+  %.0566.i131154166169.ph386 = phi i32 [ %.0566.i131, %celt_stereo_merge.exit ], [ 2, %.thread158 ]
+  %.2606.i157164170.ph385 = phi i32 [ %.2606.i, %celt_stereo_merge.exit ], [ %408, %.thread158 ]
   %wide.trip.count330 = zext nneg i32 %.0566.i131154166169.ph386 to i64
   br label %.lr.ph257
 
@@ -3352,7 +3352,7 @@ celt_haar1.exit121:                               ; preds = %._crit_edge.us.i118
   br label %quant_band_template.exit
 
 quant_band_template.exit:                         ; preds = %.lr.ph257, %.thread158, %32, %33, %celt_stereo_merge.exit, %757, %.loopexit
-  %.0.i = phi i32 [ 1, %33 ], [ 1, %32 ], [ %.2606.i, %celt_stereo_merge.exit ], [ %842, %.loopexit ], [ %.2606.i, %757 ], [ %408, %.thread158 ], [ %.2606.i157164170.ph385, %.lr.ph257 ]
+  %.0.i = phi i32 [ 1, %32 ], [ 1, %33 ], [ %408, %.thread158 ], [ %.2606.i, %celt_stereo_merge.exit ], [ %842, %.loopexit ], [ %.2606.i, %757 ], [ %.2606.i157164170.ph385, %.lr.ph257 ]
   ret i32 %.0.i
 }
 

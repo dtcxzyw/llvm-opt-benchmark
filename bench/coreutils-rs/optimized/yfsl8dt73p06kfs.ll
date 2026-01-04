@@ -590,7 +590,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   unreachable
 
 common.resume:                                    ; preds = %80, %.body, %20, %28
-  %common.resume.op = phi { ptr, i32 } [ %29, %28 ], [ %21, %20 ], [ %.pn.ph, %80 ], [ %eh.lpad-body, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %21, %20 ], [ %29, %28 ], [ %.pn.ph, %80 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 32:                                               ; preds = %20
@@ -763,7 +763,7 @@ common.resume:                                    ; preds = %80, %.body, %20, %2
   br label %.body
 
 .body:                                            ; preds = %48, %62, %70, %76
-  %eh.lpad-body = phi { ptr, i32 } [ %77, %76 ], [ %71, %70 ], [ %63, %62 ], [ %.pn.i.i, %48 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %77, %76 ], [ %63, %62 ], [ %71, %70 ], [ %.pn.i.i, %48 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h46cfd56b6c04cf24E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #21
           to label %common.resume unwind label %78
 
@@ -896,7 +896,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br label %.body
 
 .body:                                            ; preds = %24, %31, %38
-  %eh.lpad-body = phi { ptr, i32 } [ %39, %38 ], [ %25, %24 ], [ %lpad.thr_comm.i.i, %31 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %39, %38 ], [ %lpad.thr_comm.i.i, %31 ], [ %25, %24 ]
   invoke void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$clap_builder..builder..str..Str$GT$$GT$17h4b320cb45f0dcee8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #21
           to label %"_ZN4core3ptr305drop_in_place$LT$core..iter..adapters..map..Map$LT$core..array..iter..IntoIter$LT$clap_builder..builder..str..Str$C$1_usize$GT$$C$clap_builder..builder..arg..Arg..value_names$LT$clap_builder..builder..str..Str$C$$u5b$clap_builder..builder..str..Str$u3b$$u20$1$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h30b5e4a900d887cbE.exit" unwind label %41
 

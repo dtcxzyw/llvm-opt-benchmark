@@ -48,7 +48,7 @@ define internal noalias ptr @rsa_newctx(ptr noundef %0) #0 {
   br label %8
 
 8:                                                ; preds = %3, %1, %6
-  %.0 = phi ptr [ %4, %6 ], [ null, %1 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %1 ], [ %4, %6 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -163,8 +163,8 @@ define internal range(i32 -2147483648, 2) i32 @rsa_encrypt(ptr noundef captures(
   store i64 %62, ptr %2, align 8, !tbaa !15
   br label %.critedge
 
-.critedge:                                        ; preds = %37, %50, %22, %59, %15, %16, %6, %61
-  %.0 = phi i32 [ 1, %61 ], [ 0, %6 ], [ 0, %15 ], [ 1, %16 ], [ %.141, %59 ], [ 0, %22 ], [ 0, %50 ], [ 0, %37 ]
+.critedge:                                        ; preds = %50, %37, %22, %59, %15, %16, %6, %61
+  %.0 = phi i32 [ 0, %6 ], [ 1, %16 ], [ 1, %61 ], [ %.141, %59 ], [ 0, %15 ], [ 0, %22 ], [ 0, %37 ], [ 0, %50 ]
   ret i32 %.0
 }
 
@@ -352,8 +352,8 @@ define internal range(i32 0, 2) i32 @rsa_decrypt(ptr noundef captures(none) %0, 
   %92 = and i32 %91, 1
   br label %.critedge
 
-.critedge:                                        ; preds = %37, %49, %65, %.thread, %6, %80, %29, %26, %25, %21, %18
-  %.0 = phi i32 [ 1, %18 ], [ 0, %21 ], [ %92, %80 ], [ 0, %25 ], [ 1, %26 ], [ 0, %29 ], [ 0, %6 ], [ 0, %.thread ], [ 0, %65 ], [ 0, %49 ], [ 0, %37 ]
+.critedge:                                        ; preds = %65, %37, %49, %.thread, %6, %80, %29, %26, %25, %21, %18
+  %.0 = phi i32 [ 1, %18 ], [ 0, %21 ], [ %92, %80 ], [ 0, %6 ], [ 0, %25 ], [ 1, %26 ], [ 0, %29 ], [ 0, %.thread ], [ 0, %49 ], [ 0, %37 ], [ 0, %65 ]
   ret i32 %.0
 }
 
@@ -438,7 +438,7 @@ define internal ptr @rsa_dupctx(ptr noundef readonly captures(none) %0) #0 {
   br label %26
 
 26:                                               ; preds = %.sink.split, %18, %21, %3, %1
-  %.0 = phi ptr [ null, %1 ], [ null, %3 ], [ %4, %21 ], [ %4, %18 ], [ null, %.sink.split ]
+  %.0 = phi ptr [ null, %1 ], [ null, %3 ], [ %4, %18 ], [ %4, %21 ], [ null, %.sink.split ]
   ret ptr %.0
 }
 
@@ -600,7 +600,7 @@ define internal range(i32 0, 2) i32 @rsa_get_ctx_params(ptr noundef readonly cap
   br label %76
 
 76:                                               ; preds = %71, %65, %59, %51, %31, %6, %20, %11, %2, %46, %75
-  %.0 = phi i32 [ 1, %75 ], [ 0, %46 ], [ 0, %2 ], [ 0, %11 ], [ 0, %20 ], [ 0, %6 ], [ 0, %31 ], [ 0, %51 ], [ 0, %59 ], [ 0, %65 ], [ 0, %71 ]
+  %.0 = phi i32 [ 0, %11 ], [ 0, %20 ], [ 1, %75 ], [ 0, %65 ], [ 0, %59 ], [ 0, %51 ], [ 0, %31 ], [ 0, %46 ], [ 0, %6 ], [ 0, %2 ], [ 0, %71 ]
   ret i32 %.0
 }
 
@@ -679,7 +679,7 @@ ossl_param_is_empty.exit:                         ; preds = %13
   store i32 0, ptr %6, align 4, !tbaa !29
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %34 = load i32, ptr %33, align 8, !tbaa !32
-  switch i32 %34, label %.critedge [
+  switch i32 %34, label %.critedge106 [
     i32 1, label %35
     i32 4, label %37
   ]
@@ -687,7 +687,7 @@ ossl_param_is_empty.exit:                         ; preds = %13
 35:                                               ; preds = %32
   %36 = call i32 @OSSL_PARAM_get_int(ptr noundef nonnull %31, ptr noundef nonnull %6) #7
   %.not93 = icmp eq i32 %36, 0
-  br i1 %.not93, label %.critedge, label %.thread-pre-split_crit_edge
+  br i1 %.not93, label %.critedge106, label %.thread-pre-split_crit_edge
 
 .thread-pre-split_crit_edge:                      ; preds = %35
   %.pr.pre = load i32, ptr %6, align 4, !tbaa !29
@@ -697,12 +697,12 @@ ossl_param_is_empty.exit:                         ; preds = %13
   %38 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !40
   %.not92 = icmp eq ptr %39, null
-  br i1 %.not92, label %.critedge, label %.preheader
+  br i1 %.not92, label %.critedge106, label %.preheader
 
 40:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not91 = icmp eq i64 %indvars.iv.next, 4
-  br i1 %.not91, label %.critedge106, label %.preheader, !llvm.loop !41
+  br i1 %.not91, label %.critedge, label %.preheader, !llvm.loop !41
 
 .preheader:                                       ; preds = %37, %40
   %indvars.iv = phi i64 [ %indvars.iv.next, %40 ], [ 0, %37 ]
@@ -720,8 +720,8 @@ ossl_param_is_empty.exit:                         ; preds = %13
 
 thread-pre-split:                                 ; preds = %.thread-pre-split_crit_edge, %46
   %48 = phi i32 [ %47, %46 ], [ %.pr.pre, %.thread-pre-split_crit_edge ]
-  switch i32 %48, label %.critedge106 [
-    i32 6, label %.critedge
+  switch i32 %48, label %.critedge [
+    i32 6, label %.critedge106
     i32 4, label %49
   ]
 
@@ -729,31 +729,27 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %51 = load ptr, ptr %50, align 8, !tbaa !17
   %52 = icmp eq ptr %51, null
-  br i1 %52, label %53, label %.critedge106
+  br i1 %52, label %53, label %.critedge
 
 53:                                               ; preds = %49
   %54 = load ptr, ptr %0, align 8, !tbaa !3
   %55 = call ptr @EVP_MD_fetch(ptr noundef %54, ptr noundef nonnull @.str.19, ptr noundef nonnull %4) #7
   store ptr %55, ptr %50, align 8, !tbaa !17
   %56 = icmp eq ptr %55, null
-  br i1 %56, label %.critedge, label %..critedge106_crit_edge
+  br i1 %56, label %.critedge106, label %..critedge_crit_edge
 
-..critedge106_crit_edge:                          ; preds = %53
+..critedge_crit_edge:                             ; preds = %53
   %.pre = load i32, ptr %6, align 4, !tbaa !29
-  br label %.critedge106
+  br label %.critedge
 
-.critedge106:                                     ; preds = %40, %..critedge106_crit_edge, %thread-pre-split, %49
-  %57 = phi i32 [ %.pre, %..critedge106_crit_edge ], [ %48, %thread-pre-split ], [ 4, %49 ], [ 0, %40 ]
+.critedge:                                        ; preds = %40, %..critedge_crit_edge, %thread-pre-split, %49
+  %57 = phi i32 [ %.pre, %..critedge_crit_edge ], [ %48, %thread-pre-split ], [ 4, %49 ], [ 0, %40 ]
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %57, ptr %58, align 8, !tbaa !16
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %59
 
-.critedge:                                        ; preds = %37, %53, %thread-pre-split, %32, %35
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %ossl_param_is_empty.exit.thread
-
-59:                                               ; preds = %.critedge106, %30
+59:                                               ; preds = %.critedge, %30
   %60 = call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %1, ptr noundef nonnull @.str.7) #7
   %.not94 = icmp eq ptr %60, null
   br i1 %.not94, label %75, label %61
@@ -870,6 +866,10 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %ossl_param_is_empty.exit.thread
 
+.critedge106:                                     ; preds = %37, %35, %thread-pre-split, %32, %53
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  br label %ossl_param_is_empty.exit.thread
+
 .critedge108:                                     ; preds = %77
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -887,8 +887,8 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %ossl_param_is_empty.exit.thread
 
-ossl_param_is_empty.exit.thread:                  ; preds = %13, %99, %103, %.critedge114, %.critedge112, %.critedge110, %.critedge108, %68, %65, %61, %.critedge, %24, %22, %18, %ossl_param_is_empty.exit, %2
-  %.068 = phi i32 [ 0, %.critedge ], [ 0, %2 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %18 ], [ 0, %22 ], [ 0, %24 ], [ 0, %61 ], [ 0, %65 ], [ 0, %68 ], [ 0, %.critedge108 ], [ 0, %.critedge110 ], [ 0, %.critedge112 ], [ 0, %.critedge114 ], [ 1, %103 ], [ 1, %99 ], [ 1, %13 ]
+ossl_param_is_empty.exit.thread:                  ; preds = %13, %99, %103, %.critedge114, %.critedge112, %.critedge110, %.critedge108, %68, %65, %61, %.critedge106, %24, %22, %18, %ossl_param_is_empty.exit, %2
+  %.068 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ 0, %2 ], [ 0, %22 ], [ 0, %65 ], [ 0, %68 ], [ 0, %.critedge108 ], [ 0, %.critedge110 ], [ 0, %.critedge112 ], [ 0, %.critedge114 ], [ 0, %61 ], [ 0, %24 ], [ 0, %.critedge106 ], [ 0, %18 ], [ 1, %103 ], [ 1, %99 ], [ 1, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -955,7 +955,7 @@ define internal fastcc range(i32 0, 2) i32 @rsa_init(ptr noundef captures(addres
   br label %24
 
 24:                                               ; preds = %20, %12, %10, %4, %23
-  %.0 = phi i32 [ 0, %23 ], [ 0, %4 ], [ 0, %10 ], [ 0, %12 ], [ %22, %20 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %12 ], [ %22, %20 ], [ 0, %23 ], [ 0, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

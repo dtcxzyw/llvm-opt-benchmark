@@ -994,7 +994,7 @@ switch.lookup:                                    ; preds = %56
   br label %_ZL23matches_property_suffixPKcS0_m.exit
 
 _ZL23matches_property_suffixPKcS0_m.exit:         ; preds = %53, %56, %switch.lookup, %1, %50, %50, %50, %44, %44, %44, %38, %38, %38, %32, %32, %32, %26, %26, %26, %20, %20, %20, %14, %14, %14, %8, %8, %8
-  %.0 = phi i1 [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %14 ], [ true, %14 ], [ true, %14 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %38 ], [ true, %38 ], [ true, %38 ], [ true, %44 ], [ true, %44 ], [ true, %44 ], [ true, %50 ], [ true, %50 ], [ true, %50 ], [ false, %1 ], [ %switch.masked, %switch.lookup ], [ false, %56 ], [ false, %53 ]
+  %.0 = phi i1 [ %switch.masked, %switch.lookup ], [ true, %50 ], [ true, %44 ], [ true, %38 ], [ true, %32 ], [ true, %26 ], [ true, %20 ], [ true, %14 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %14 ], [ true, %14 ], [ true, %20 ], [ true, %20 ], [ true, %26 ], [ true, %26 ], [ true, %32 ], [ true, %32 ], [ true, %38 ], [ true, %38 ], [ true, %44 ], [ true, %44 ], [ true, %50 ], [ true, %50 ], [ false, %1 ], [ false, %56 ], [ false, %53 ]
   ret i1 %.0
 }
 
@@ -1745,7 +1745,7 @@ define hidden noundef zeroext i1 @_ZN9Arguments16is_obsolete_flagEPKcP11JDK_Vers
   br label %_ZL19lookup_special_flagPKcR11SpecialFlag.exit.thread
 
 _ZL19lookup_special_flagPKcR11SpecialFlag.exit.thread: ; preds = %7, %17, %2, %14, %20, %23
-  %.0 = phi i1 [ false, %23 ], [ true, %20 ], [ false, %14 ], [ false, %2 ], [ false, %17 ], [ false, %7 ]
+  %.0 = phi i1 [ true, %20 ], [ false, %23 ], [ false, %14 ], [ false, %17 ], [ false, %2 ], [ false, %7 ]
   ret i1 %.0
 }
 
@@ -1843,7 +1843,7 @@ _ZL17version_less_than11JDK_VersionS_.exit3:      ; preds = %28
   br label %.critedge
 
 .critedge:                                        ; preds = %8, %2, %_ZL17version_less_than11JDK_VersionS_.exit3, %_ZL17version_less_than11JDK_VersionS_.exit, %15, %31
-  %.0 = phi i32 [ 1, %31 ], [ -1, %_ZL17version_less_than11JDK_VersionS_.exit ], [ -1, %_ZL17version_less_than11JDK_VersionS_.exit3 ], [ 0, %15 ], [ 0, %2 ], [ 0, %8 ]
+  %.0 = phi i32 [ -1, %_ZL17version_less_than11JDK_VersionS_.exit3 ], [ 1, %31 ], [ -1, %_ZL17version_less_than11JDK_VersionS_.exit ], [ 0, %15 ], [ 0, %2 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -1926,7 +1926,7 @@ _Z14multiply_by_1kImEbRT_.exit.thread.i:          ; preds = %23
   br label %25
 
 25:                                               ; preds = %_Z14multiply_by_1kImEbRT_.exit.thread.i, %21, %21
-  %.026.i = phi i64 [ %15, %21 ], [ %15, %21 ], [ %24, %_Z14multiply_by_1kImEbRT_.exit.thread.i ]
+  %.026.i = phi i64 [ %24, %_Z14multiply_by_1kImEbRT_.exit.thread.i ], [ %15, %21 ], [ %15, %21 ]
   %.not4.i16.i = icmp ult i64 %.026.i, 18014398509481984
   br i1 %.not4.i16.i, label %_Z14multiply_by_1kImEbRT_.exit17.thread.i, label %_ZL13parse_integerImEbPKcPPcPT_.exit.thread
 
@@ -1935,7 +1935,7 @@ _Z14multiply_by_1kImEbRT_.exit17.thread.i:        ; preds = %25
   br label %27
 
 27:                                               ; preds = %_Z14multiply_by_1kImEbRT_.exit17.thread.i, %21, %21
-  %.1.i = phi i64 [ %15, %21 ], [ %15, %21 ], [ %26, %_Z14multiply_by_1kImEbRT_.exit17.thread.i ]
+  %.1.i = phi i64 [ %26, %_Z14multiply_by_1kImEbRT_.exit17.thread.i ], [ %15, %21 ], [ %15, %21 ]
   %.not4.i18.i = icmp ult i64 %.1.i, 18014398509481984
   br i1 %.not4.i18.i, label %_Z14multiply_by_1kImEbRT_.exit19.thread.i, label %_ZL13parse_integerImEbPKcPPcPT_.exit.thread
 
@@ -1944,7 +1944,7 @@ _Z14multiply_by_1kImEbRT_.exit19.thread.i:        ; preds = %27
   br label %29
 
 29:                                               ; preds = %_Z14multiply_by_1kImEbRT_.exit19.thread.i, %21, %21
-  %.2.i = phi i64 [ %15, %21 ], [ %15, %21 ], [ %28, %_Z14multiply_by_1kImEbRT_.exit19.thread.i ]
+  %.2.i = phi i64 [ %28, %_Z14multiply_by_1kImEbRT_.exit19.thread.i ], [ %15, %21 ], [ %15, %21 ]
   %.not4.i20.i = icmp ult i64 %.2.i, 18014398509481984
   br i1 %.not4.i20.i, label %30, label %_ZL13parse_integerImEbPKcPPcPT_.exit.thread
 
@@ -1953,7 +1953,7 @@ _Z14multiply_by_1kImEbRT_.exit19.thread.i:        ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %19, i64 1
   br label %33
 
-_ZL13parse_integerImEbPKcPPcPT_.exit.thread:      ; preds = %2, %_Z18parse_integer_implImTnNSt9enable_ifIXcvbntsr3std9is_signedIT_EE5valueEiE4typeELi0ETnNS0_IXcvbeqstS1_Li8EEiE4typeELi0EEbPKcPPciPS1_.exit.i, %18, %23, %25, %27, %29, %13
+_ZL13parse_integerImEbPKcPPcPT_.exit.thread:      ; preds = %_Z18parse_integer_implImTnNSt9enable_ifIXcvbntsr3std9is_signedIT_EE5valueEiE4typeELi0ETnNS0_IXcvbeqstS1_Li8EEiE4typeELi0EEbPKcPPciPS1_.exit.i, %25, %23, %29, %18, %2, %27, %13
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %37
 
@@ -1967,7 +1967,7 @@ _ZL13parse_integerImEbPKcPPcPT_.exit.thread:      ; preds = %2, %_Z18parse_integ
   br label %37
 
 37:                                               ; preds = %_ZL13parse_integerImEbPKcPPcPT_.exit.thread, %33
-  %38 = phi i1 [ %36, %33 ], [ false, %_ZL13parse_integerImEbPKcPPcPT_.exit.thread ]
+  %38 = phi i1 [ false, %_ZL13parse_integerImEbPKcPPcPT_.exit.thread ], [ %36, %33 ]
   ret i1 %38
 }
 
@@ -2050,7 +2050,7 @@ default.unreachable15:                            ; preds = %1
   unreachable
 
 12:                                               ; preds = %10, %11, %1, %7
-  %.0 = phi ptr [ %., %7 ], [ %spec.select.i, %1 ], [ %spec.select.i, %11 ], [ %spec.select.i, %10 ]
+  %.0 = phi ptr [ %spec.select.i, %1 ], [ %., %7 ], [ %spec.select.i, %11 ], [ %spec.select.i, %10 ]
   ret ptr %.0
 }
 
@@ -2194,7 +2194,7 @@ _ZN9Arguments13find_jvm_flagEPKcm.exit:           ; preds = %32
   br label %_ZL13set_bool_flagP7JVMFlagb13JVMFlagOrigin.exit
 
 _ZL13set_bool_flagP7JVMFlagb13JVMFlagOrigin.exit: ; preds = %41, %44
-  %.0.i.i.i = phi i1 [ %46, %44 ], [ false, %41 ]
+  %.0.i.i.i = phi i1 [ false, %41 ], [ %46, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %74
 
@@ -2261,7 +2261,7 @@ _ZL15set_string_flagP7JVMFlagPKc13JVMFlagOrigin.exit: ; preds = %67, %72
   br label %74
 
 74:                                               ; preds = %_ZN9Arguments13find_jvm_flagEPKcm.exit.thread, %64, %47, %40, %_ZN9Arguments13find_jvm_flagEPKcm.exit, %19, %_ZL15set_string_flagP7JVMFlagPKc13JVMFlagOrigin.exit, %62, %60, %56, %54, %_ZL13set_bool_flagP7JVMFlagb13JVMFlagOrigin.exit
-  %.0 = phi i1 [ %.0.i.i.i, %_ZL13set_bool_flagP7JVMFlagb13JVMFlagOrigin.exit ], [ %55, %54 ], [ %57, %56 ], [ %61, %60 ], [ %63, %62 ], [ %.not.i55, %_ZL15set_string_flagP7JVMFlagPKc13JVMFlagOrigin.exit ], [ false, %19 ], [ false, %_ZN9Arguments13find_jvm_flagEPKcm.exit ], [ false, %40 ], [ false, %47 ], [ false, %64 ], [ false, %_ZN9Arguments13find_jvm_flagEPKcm.exit.thread ]
+  %.0 = phi i1 [ false, %40 ], [ false, %19 ], [ false, %_ZN9Arguments13find_jvm_flagEPKcm.exit ], [ %.0.i.i.i, %_ZL13set_bool_flagP7JVMFlagb13JVMFlagOrigin.exit ], [ %55, %54 ], [ %57, %56 ], [ %61, %60 ], [ %63, %62 ], [ %.not.i55, %_ZL15set_string_flagP7JVMFlagPKc13JVMFlagOrigin.exit ], [ false, %47 ], [ false, %64 ], [ false, %_ZN9Arguments13find_jvm_flagEPKcm.exit.thread ]
   ret i1 %.0
 }
 
@@ -2301,8 +2301,8 @@ define internal fastcc noundef zeroext i1 @_ZL21append_to_string_flagP7JVMFlagPK
   br label %.thread
 
 .thread:                                          ; preds = %15, %11, %8, %17
-  %.sink = phi ptr [ %20, %17 ], [ %1, %8 ], [ %1, %11 ], [ %10, %15 ]
-  %.016 = phi ptr [ %20, %17 ], [ null, %8 ], [ null, %11 ], [ null, %15 ]
+  %.sink = phi ptr [ %1, %11 ], [ %20, %17 ], [ %1, %8 ], [ %10, %15 ]
+  %.016 = phi ptr [ null, %11 ], [ %20, %17 ], [ null, %8 ], [ null, %15 ]
   store ptr %.sink, ptr %4, align 8
   %22 = call noundef i32 @_ZN13JVMFlagAccess9set_ccstrEP7JVMFlagPPKc13JVMFlagOrigin(ptr noundef nonnull %0, ptr noundef nonnull %4, i32 noundef %2) #32
   %23 = load ptr, ptr %4, align 8
@@ -2378,7 +2378,7 @@ define internal fastcc noundef zeroext i1 @_ZL19set_fp_numeric_flagP7JVMFlagPKc1
   br label %_ZN13JVMFlagAccess10set_doubleEP7JVMFlagPd13JVMFlagOrigin.exit
 
 _ZN13JVMFlagAccess10set_doubleEP7JVMFlagPd13JVMFlagOrigin.exit: ; preds = %23, %20, %11, %15, %3, %8
-  %.0 = phi i1 [ false, %8 ], [ false, %3 ], [ false, %15 ], [ false, %11 ], [ %25, %23 ], [ false, %20 ]
+  %.0 = phi i1 [ false, %15 ], [ false, %3 ], [ false, %11 ], [ false, %8 ], [ false, %20 ], [ %25, %23 ]
   ret i1 %.0
 }
 
@@ -2449,7 +2449,7 @@ define internal fastcc noundef zeroext i1 @_ZL16set_numeric_flagP7JVMFlagPKc13JV
   br label %38
 
 38:                                               ; preds = %33, %29, %25, %24, %19
-  %39 = phi i32 [ 10, %25 ], [ 10, %24 ], [ 16, %29 ], [ %37, %33 ], [ %23, %19 ]
+  %39 = phi i32 [ %37, %33 ], [ %23, %19 ], [ 10, %25 ], [ 10, %24 ], [ 16, %29 ]
   %40 = tail call ptr @__errno_location() #33
   store i32 0, ptr %40, align 4
   %41 = call i64 @strtoll(ptr noundef nonnull %1, ptr noundef nonnull %5, i32 noundef %39) #32
@@ -2489,7 +2489,7 @@ _Z14multiply_by_1kIiEbRT_.exit.thread.i.i:        ; preds = %52
   br label %55
 
 55:                                               ; preds = %_Z14multiply_by_1kIiEbRT_.exit.thread.i.i, %50, %50
-  %.026.i.i = phi i32 [ %47, %50 ], [ %47, %50 ], [ %54, %_Z14multiply_by_1kIiEbRT_.exit.thread.i.i ]
+  %.026.i.i = phi i32 [ %54, %_Z14multiply_by_1kIiEbRT_.exit.thread.i.i ], [ %47, %50 ], [ %47, %50 ]
   %56 = add i32 %.026.i.i, 2097152
   %or.cond.i16.i.i = icmp ult i32 %56, 4194304
   br i1 %or.cond.i16.i.i, label %_Z14multiply_by_1kIiEbRT_.exit17.thread.i.i, label %_ZL13parse_integerIiEbPKcPT_.exit.thread
@@ -2499,7 +2499,7 @@ _Z14multiply_by_1kIiEbRT_.exit17.thread.i.i:      ; preds = %55
   br label %58
 
 58:                                               ; preds = %_Z14multiply_by_1kIiEbRT_.exit17.thread.i.i, %50, %50
-  %.1.i.i = phi i32 [ %47, %50 ], [ %47, %50 ], [ %57, %_Z14multiply_by_1kIiEbRT_.exit17.thread.i.i ]
+  %.1.i.i = phi i32 [ %57, %_Z14multiply_by_1kIiEbRT_.exit17.thread.i.i ], [ %47, %50 ], [ %47, %50 ]
   %59 = add i32 %.1.i.i, 2097152
   %or.cond.i18.i.i = icmp ult i32 %59, 4194304
   br i1 %or.cond.i18.i.i, label %_Z14multiply_by_1kIiEbRT_.exit19.thread.i.i, label %_ZL13parse_integerIiEbPKcPT_.exit.thread
@@ -2509,7 +2509,7 @@ _Z14multiply_by_1kIiEbRT_.exit19.thread.i.i:      ; preds = %58
   br label %61
 
 61:                                               ; preds = %_Z14multiply_by_1kIiEbRT_.exit19.thread.i.i, %50, %50
-  %.2.i.i = phi i32 [ %47, %50 ], [ %47, %50 ], [ %60, %_Z14multiply_by_1kIiEbRT_.exit19.thread.i.i ]
+  %.2.i.i = phi i32 [ %60, %_Z14multiply_by_1kIiEbRT_.exit19.thread.i.i ], [ %47, %50 ], [ %47, %50 ]
   %62 = add i32 %.2.i.i, 2097152
   %or.cond.i20.i.i = icmp ult i32 %62, 4194304
   br i1 %or.cond.i20.i.i, label %63, label %_ZL13parse_integerIiEbPKcPT_.exit.thread
@@ -2600,7 +2600,7 @@ _ZL13parse_integerIiEbPKcPT_.exit:                ; preds = %50, %63
   br label %102
 
 102:                                              ; preds = %97, %93, %89, %88, %83
-  %103 = phi i32 [ 10, %89 ], [ 10, %88 ], [ 16, %93 ], [ %101, %97 ], [ %87, %83 ]
+  %103 = phi i32 [ %101, %97 ], [ %87, %83 ], [ 10, %89 ], [ 10, %88 ], [ 16, %93 ]
   %104 = tail call ptr @__errno_location() #33
   store i32 0, ptr %104, align 4
   %105 = call i64 @strtoll(ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef %103) #32
@@ -2636,7 +2636,7 @@ _Z14multiply_by_1kIlEbRT_.exit.thread.i.i:        ; preds = %113
   br label %116
 
 116:                                              ; preds = %_Z14multiply_by_1kIlEbRT_.exit.thread.i.i, %111, %111
-  %.026.i.i35 = phi i64 [ %105, %111 ], [ %105, %111 ], [ %115, %_Z14multiply_by_1kIlEbRT_.exit.thread.i.i ]
+  %.026.i.i35 = phi i64 [ %115, %_Z14multiply_by_1kIlEbRT_.exit.thread.i.i ], [ %105, %111 ], [ %105, %111 ]
   %117 = add i64 %.026.i.i35, 9007199254740992
   %or.cond.i16.i.i36 = icmp ult i64 %117, 18014398509481984
   br i1 %or.cond.i16.i.i36, label %_Z14multiply_by_1kIlEbRT_.exit17.thread.i.i, label %_ZL13parse_integerIlEbPKcPT_.exit.thread
@@ -2646,7 +2646,7 @@ _Z14multiply_by_1kIlEbRT_.exit17.thread.i.i:      ; preds = %116
   br label %119
 
 119:                                              ; preds = %_Z14multiply_by_1kIlEbRT_.exit17.thread.i.i, %111, %111
-  %.1.i.i33 = phi i64 [ %105, %111 ], [ %105, %111 ], [ %118, %_Z14multiply_by_1kIlEbRT_.exit17.thread.i.i ]
+  %.1.i.i33 = phi i64 [ %118, %_Z14multiply_by_1kIlEbRT_.exit17.thread.i.i ], [ %105, %111 ], [ %105, %111 ]
   %120 = add i64 %.1.i.i33, 9007199254740992
   %or.cond.i18.i.i34 = icmp ult i64 %120, 18014398509481984
   br i1 %or.cond.i18.i.i34, label %_Z14multiply_by_1kIlEbRT_.exit19.thread.i.i, label %_ZL13parse_integerIlEbPKcPT_.exit.thread
@@ -2656,7 +2656,7 @@ _Z14multiply_by_1kIlEbRT_.exit19.thread.i.i:      ; preds = %119
   br label %122
 
 122:                                              ; preds = %_Z14multiply_by_1kIlEbRT_.exit19.thread.i.i, %111, %111
-  %.2.i.i30 = phi i64 [ %105, %111 ], [ %105, %111 ], [ %121, %_Z14multiply_by_1kIlEbRT_.exit19.thread.i.i ]
+  %.2.i.i30 = phi i64 [ %121, %_Z14multiply_by_1kIlEbRT_.exit19.thread.i.i ], [ %105, %111 ], [ %105, %111 ]
   %123 = add i64 %.2.i.i30, 9007199254740992
   %or.cond.i20.i.i31 = icmp ult i64 %123, 18014398509481984
   br i1 %or.cond.i20.i.i31, label %124, label %_ZL13parse_integerIlEbPKcPT_.exit.thread
@@ -2728,7 +2728,7 @@ _ZL13parse_integerIlEbPKcPT_.exit:                ; preds = %111, %124
   br label %_ZN13JVMFlagAccess7set_intEP7JVMFlagPi13JVMFlagOrigin.exit
 
 _ZN13JVMFlagAccess7set_intEP7JVMFlagPi13JVMFlagOrigin.exit: ; preds = %3, %149, %147, %143, %141, %137, %135, %131, %129, %_ZL13parse_integerIlEbPKcPT_.exit.thread, %76, %74, %70, %68, %_ZL13parse_integerIiEbPKcPT_.exit.thread, %72, %133, %145, %139, %_ZL13parse_integerIlEbPKcPT_.exit, %_ZL13parse_integerIiEbPKcPT_.exit
-  %.0 = phi i32 [ 3, %_ZL13parse_integerIiEbPKcPT_.exit ], [ 3, %72 ], [ 3, %_ZL13parse_integerIlEbPKcPT_.exit ], [ 3, %133 ], [ 3, %139 ], [ 3, %145 ], [ 3, %_ZL13parse_integerIiEbPKcPT_.exit.thread ], [ %71, %70 ], [ 3, %68 ], [ %77, %76 ], [ 3, %74 ], [ 3, %_ZL13parse_integerIlEbPKcPT_.exit.thread ], [ %132, %131 ], [ 3, %129 ], [ %138, %137 ], [ 3, %135 ], [ %144, %143 ], [ 3, %141 ], [ %150, %149 ], [ 3, %147 ], [ 3, %3 ]
+  %.0 = phi i32 [ 3, %_ZL13parse_integerIiEbPKcPT_.exit.thread ], [ 3, %_ZL13parse_integerIiEbPKcPT_.exit ], [ %71, %70 ], [ 3, %72 ], [ 3, %_ZL13parse_integerIlEbPKcPT_.exit.thread ], [ 3, %_ZL13parse_integerIlEbPKcPT_.exit ], [ %132, %131 ], [ 3, %133 ], [ %138, %137 ], [ 3, %139 ], [ %144, %143 ], [ 3, %145 ], [ 3, %3 ], [ 3, %68 ], [ 3, %74 ], [ %77, %76 ], [ 3, %129 ], [ 3, %135 ], [ 3, %141 ], [ 3, %147 ], [ %150, %149 ]
   %151 = icmp eq i32 %.0, 0
   ret i1 %151
 }
@@ -3264,7 +3264,7 @@ switch.early.test:                                ; preds = %43
   br label %93
 
 93:                                               ; preds = %67, %33, %3, %90, %28
-  %.0 = phi i1 [ true, %28 ], [ %92, %90 ], [ true, %3 ], [ true, %33 ], [ true, %67 ]
+  %.0 = phi i1 [ true, %33 ], [ true, %28 ], [ true, %3 ], [ %92, %90 ], [ true, %67 ]
   ret i1 %.0
 }
 
@@ -3416,12 +3416,12 @@ _ZN9Arguments15build_jvm_flagsEPKc.exit:          ; preds = %58, %60
   br label %72
 
 72:                                               ; preds = %18, %.critedge51, %67, %67, %20, %_ZN9Arguments15build_jvm_flagsEPKc.exit, %.critedge, %22, %25
-  %.147 = phi i32 [ %.04654, %22 ], [ %27, %25 ], [ 0, %_ZN9Arguments15build_jvm_flagsEPKc.exit ], [ %69, %.critedge ], [ %.04654, %18 ], [ %.04654, %20 ], [ %.04654, %67 ], [ %.04654, %67 ], [ %.04654, %.critedge51 ]
-  %.145 = phi i1 [ true, %22 ], [ false, %25 ], [ true, %_ZN9Arguments15build_jvm_flagsEPKc.exit ], [ false, %.critedge ], [ true, %18 ], [ true, %20 ], [ false, %67 ], [ false, %67 ], [ false, %.critedge51 ]
-  %.143 = phi i1 [ false, %22 ], [ false, %25 ], [ %.04256, %_ZN9Arguments15build_jvm_flagsEPKc.exit ], [ %.04256, %.critedge ], [ %19, %18 ], [ true, %20 ], [ %.04256, %67 ], [ %.04256, %67 ], [ %.04256, %.critedge51 ]
-  %.141 = phi i1 [ %.04057, %22 ], [ %.04057, %25 ], [ false, %_ZN9Arguments15build_jvm_flagsEPKc.exit ], [ %.04057, %.critedge ], [ %.04057, %18 ], [ %.04057, %20 ], [ true, %67 ], [ true, %67 ], [ false, %.critedge51 ]
-  %.139 = phi i32 [ %.03858, %22 ], [ %.03858, %25 ], [ %.03858, %_ZN9Arguments15build_jvm_flagsEPKc.exit ], [ %.03858, %.critedge ], [ %.03858, %18 ], [ %.03858, %20 ], [ %.060, %67 ], [ %.060, %67 ], [ %.060, %.critedge51 ]
-  %.1 = phi i8 [ %.03759, %22 ], [ %.03759, %25 ], [ %51, %_ZN9Arguments15build_jvm_flagsEPKc.exit ], [ %.03759, %.critedge ], [ %.03759, %18 ], [ %.03759, %20 ], [ %.03759, %67 ], [ %.03759, %67 ], [ %.03759, %.critedge51 ]
+  %.147 = phi i32 [ %.04654, %20 ], [ %.04654, %.critedge51 ], [ %.04654, %18 ], [ %.04654, %22 ], [ %27, %25 ], [ 0, %_ZN9Arguments15build_jvm_flagsEPKc.exit ], [ %.04654, %67 ], [ %69, %.critedge ], [ %.04654, %67 ]
+  %.145 = phi i1 [ true, %20 ], [ false, %.critedge51 ], [ true, %18 ], [ true, %22 ], [ false, %25 ], [ true, %_ZN9Arguments15build_jvm_flagsEPKc.exit ], [ false, %67 ], [ false, %.critedge ], [ false, %67 ]
+  %.143 = phi i1 [ true, %20 ], [ %.04256, %.critedge51 ], [ %19, %18 ], [ false, %22 ], [ false, %25 ], [ %.04256, %_ZN9Arguments15build_jvm_flagsEPKc.exit ], [ %.04256, %67 ], [ %.04256, %.critedge ], [ %.04256, %67 ]
+  %.141 = phi i1 [ %.04057, %20 ], [ false, %.critedge51 ], [ %.04057, %18 ], [ %.04057, %22 ], [ %.04057, %25 ], [ false, %_ZN9Arguments15build_jvm_flagsEPKc.exit ], [ true, %67 ], [ %.04057, %.critedge ], [ true, %67 ]
+  %.139 = phi i32 [ %.03858, %20 ], [ %.060, %.critedge51 ], [ %.03858, %18 ], [ %.03858, %22 ], [ %.03858, %25 ], [ %.03858, %_ZN9Arguments15build_jvm_flagsEPKc.exit ], [ %.060, %67 ], [ %.03858, %.critedge ], [ %.060, %67 ]
+  %.1 = phi i8 [ %.03759, %20 ], [ %.03759, %.critedge51 ], [ %.03759, %18 ], [ %.03759, %22 ], [ %.03759, %25 ], [ %51, %_ZN9Arguments15build_jvm_flagsEPKc.exit ], [ %.03759, %67 ], [ %.03759, %.critedge ], [ %.03759, %67 ]
   %73 = call i32 @getc(ptr noundef nonnull %5)
   %74 = icmp ne i32 %73, -1
   %75 = icmp slt i32 %.147, 1023
@@ -4312,7 +4312,7 @@ _ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit: ; preds = %48, %64
   br label %122
 
 122:                                              ; preds = %114, %99, %120, %96
-  %.3 = phi i64 [ %.2, %120 ], [ %.2, %99 ], [ %.2, %96 ], [ %spec.select, %114 ]
+  %.3 = phi i64 [ %.2, %120 ], [ %.2, %96 ], [ %.2, %99 ], [ %spec.select, %114 ]
   %123 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not51 = icmp eq ptr %123, null
   br i1 %.not51, label %125, label %124
@@ -4657,7 +4657,7 @@ _ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit: ; preds = %23, %38
   br label %75
 
 75:                                               ; preds = %73, %71, %69, %67, %65, %63, %60, %57, %52, %48, %46, %44
-  %.0 = phi i32 [ -6, %44 ], [ -6, %46 ], [ -6, %48 ], [ -6, %52 ], [ -6, %57 ], [ -6, %60 ], [ -6, %63 ], [ -6, %65 ], [ -6, %67 ], [ -6, %69 ], [ -6, %71 ], [ %., %73 ]
+  %.0 = phi i32 [ -6, %71 ], [ -6, %44 ], [ -6, %46 ], [ -6, %48 ], [ -6, %52 ], [ -6, %57 ], [ -6, %60 ], [ -6, %63 ], [ -6, %65 ], [ -6, %67 ], [ -6, %69 ], [ %., %73 ]
   ret i32 %.0
 }
 
@@ -4978,7 +4978,7 @@ _Z14multiply_by_1kIjEbRT_.exit.thread.i:          ; preds = %26
   br label %28
 
 28:                                               ; preds = %_Z14multiply_by_1kIjEbRT_.exit.thread.i, %24, %24
-  %.026.i = phi i32 [ %21, %24 ], [ %21, %24 ], [ %27, %_Z14multiply_by_1kIjEbRT_.exit.thread.i ]
+  %.026.i = phi i32 [ %27, %_Z14multiply_by_1kIjEbRT_.exit.thread.i ], [ %21, %24 ], [ %21, %24 ]
   %.not4.i16.i = icmp ult i32 %.026.i, 4194304
   br i1 %.not4.i16.i, label %_Z14multiply_by_1kIjEbRT_.exit17.thread.i, label %_ZL13parse_integerIjEbPKcPPcPT_.exit.thread
 
@@ -4987,7 +4987,7 @@ _Z14multiply_by_1kIjEbRT_.exit17.thread.i:        ; preds = %28
   br label %30
 
 30:                                               ; preds = %_Z14multiply_by_1kIjEbRT_.exit17.thread.i, %24, %24
-  %.1.i = phi i32 [ %21, %24 ], [ %21, %24 ], [ %29, %_Z14multiply_by_1kIjEbRT_.exit17.thread.i ]
+  %.1.i = phi i32 [ %29, %_Z14multiply_by_1kIjEbRT_.exit17.thread.i ], [ %21, %24 ], [ %21, %24 ]
   %.not4.i18.i = icmp ult i32 %.1.i, 4194304
   br i1 %.not4.i18.i, label %_Z14multiply_by_1kIjEbRT_.exit19.thread.i, label %_ZL13parse_integerIjEbPKcPPcPT_.exit.thread
 
@@ -4996,7 +4996,7 @@ _Z14multiply_by_1kIjEbRT_.exit19.thread.i:        ; preds = %30
   br label %32
 
 32:                                               ; preds = %_Z14multiply_by_1kIjEbRT_.exit19.thread.i, %24, %24
-  %.2.i = phi i32 [ %21, %24 ], [ %21, %24 ], [ %31, %_Z14multiply_by_1kIjEbRT_.exit19.thread.i ]
+  %.2.i = phi i32 [ %31, %_Z14multiply_by_1kIjEbRT_.exit19.thread.i ], [ %21, %24 ], [ %21, %24 ]
   %.not4.i20.i = icmp ult i32 %.2.i, 4194304
   br i1 %.not4.i20.i, label %33, label %_ZL13parse_integerIjEbPKcPPcPT_.exit.thread
 
@@ -5005,7 +5005,7 @@ _Z14multiply_by_1kIjEbRT_.exit19.thread.i:        ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %22, i64 1
   br label %36
 
-_ZL13parse_integerIjEbPKcPPcPT_.exit.thread:      ; preds = %2, %20, %26, %28, %30, %32, %14, %13
+_ZL13parse_integerIjEbPKcPPcPT_.exit.thread:      ; preds = %32, %28, %26, %30, %20, %2, %14, %13
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %40
 
@@ -5019,7 +5019,7 @@ _ZL13parse_integerIjEbPKcPPcPT_.exit.thread:      ; preds = %2, %20, %26, %28, %
   br label %40
 
 40:                                               ; preds = %_ZL13parse_integerIjEbPKcPPcPT_.exit.thread, %36
-  %41 = phi i1 [ %39, %36 ], [ false, %_ZL13parse_integerIjEbPKcPPcPT_.exit.thread ]
+  %41 = phi i1 [ false, %_ZL13parse_integerIjEbPKcPPcPT_.exit.thread ], [ %39, %36 ]
   ret i1 %41
 }
 
@@ -5140,7 +5140,7 @@ define hidden noundef range(i32 -6, 1) i32 @_ZN9Arguments18parse_vm_init_argsEPK
   br label %39
 
 39:                                               ; preds = %35, %29, %27, %25, %4
-  %.0 = phi i32 [ %24, %4 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %38, %35 ]
+  %.0 = phi i32 [ %30, %29 ], [ %24, %4 ], [ %26, %25 ], [ %28, %27 ], [ %38, %35 ]
   ret i32 %.0
 }
 
@@ -6461,20 +6461,20 @@ sub_1289:                                         ; preds = %519
 636:                                              ; preds = %632
   %637 = load i8, ptr %617, align 1
   switch i8 %637, label %.critedge [
-    i8 0, label %638
-    i8 58, label %640
+    i8 0, label %641
+    i8 58, label %638
   ]
 
 638:                                              ; preds = %636
-  %639 = call noundef zeroext i1 @_ZN16LogConfiguration28parse_command_line_argumentsEPKc(ptr noundef nonnull @.str.216) #32
-  br i1 %639, label %.critedge159, label %.critedge
+  %639 = getelementptr inbounds nuw i8, ptr %617, i64 1
+  %640 = call noundef zeroext i1 @_ZN16LogConfiguration28parse_command_line_argumentsEPKc(ptr noundef nonnull %639) #32
+  br i1 %640, label %.critedge159, label %.critedge
 
-640:                                              ; preds = %636
-  %641 = getelementptr inbounds nuw i8, ptr %617, i64 1
-  %642 = call noundef zeroext i1 @_ZN16LogConfiguration28parse_command_line_argumentsEPKc(ptr noundef nonnull %641) #32
+641:                                              ; preds = %636
+  %642 = call noundef zeroext i1 @_ZN16LogConfiguration28parse_command_line_argumentsEPKc(ptr noundef nonnull @.str.216) #32
   br i1 %642, label %.critedge159, label %.critedge
 
-.critedge:                                        ; preds = %638, %636, %640, %620
+.critedge:                                        ; preds = %638, %636, %641, %620
   %643 = load i8, ptr @DisplayVMOutputToStdout, align 1
   %644 = trunc i8 %643 to i1
   %645 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
@@ -6916,7 +6916,7 @@ sub_1289:                                         ; preds = %519
   %831 = call noundef zeroext i1 @_ZN9Arguments13is_bad_optionEPK12JavaVMOptionh(ptr noundef %829, i8 noundef zeroext %830)
   br i1 %831, label %.loopexit293, label %.critedge159
 
-.critedge159:                                     ; preds = %638, %631, %635, %102, %109, %111, %105, %108, %99, %_ZL12match_optionPK12JavaVMOptionPPKcS4_b.exit242, %158, %193, %203, %217, %231, %241, %266, %301, %286, %318, %325, %363, %408, %443, %480, %489, %552, %558, %564, %570, %605, %640, %663, %673, %690, %723, %735, %753, %749, %811, %802, %825, %823, %820, %828, %766, %741, %729, %712, %716, %682, %668, %655, %656, %611, %581, %597, %598, %588, %567, %561, %555, %539, %546, %484, %476, %_ZN9Arguments17parse_memory_sizeEPKcPmmm.exit261, %433, %_ZN9Arguments17parse_memory_sizeEPKcPmmm.exit258, %344, %321, %305, %307, %277, %247, %235, %224, %210, %196, %127, %129, %795, %538
+.critedge159:                                     ; preds = %638, %631, %635, %102, %109, %111, %105, %108, %99, %_ZL12match_optionPK12JavaVMOptionPPKcS4_b.exit242, %158, %193, %203, %217, %231, %241, %266, %301, %286, %318, %325, %363, %408, %443, %480, %489, %552, %558, %564, %570, %605, %641, %663, %673, %690, %723, %735, %753, %749, %811, %802, %825, %823, %820, %828, %766, %741, %729, %712, %716, %682, %668, %655, %656, %611, %581, %597, %598, %588, %567, %561, %555, %539, %546, %484, %476, %_ZN9Arguments17parse_memory_sizeEPKcPmmm.exit261, %433, %_ZN9Arguments17parse_memory_sizeEPKcPmmm.exit258, %344, %321, %305, %307, %277, %247, %235, %224, %210, %196, %127, %129, %795, %538
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %832 = load i32, ptr %58, align 4
   %833 = sext i32 %832 to i64
@@ -6939,7 +6939,7 @@ sub_1289:                                         ; preds = %519
   br label %.loopexit293
 
 .loopexit293:                                     ; preds = %828, %825, %815, %811, %741, %739, %735, %733, %729, %727, %723, %721, %716, %714, %712, %710, %704, %690, %688, %686, %682, %680, %678, %656, %598, %595, %593, %588, %586, %581, %579, %546, %544, %480, %_ZN9Arguments17parse_memory_sizeEPKcPmmm.exit261, %443, %439, %433, %408, %_ZN9Arguments17parse_memory_sizeEPKcPmmm.exit258, %363, %360, %344, %_ZN9Arguments17parse_memory_sizeEPKcPmmm.exit, %325, %321, %307, %247, %241, %235, %231, %224, %217, %210, %203, %196, %838, %804, %786, %769, %754, %697, %.critedge, %.tail287.thread, %.tail.thread, %469, %select.unfold277, %424, %399, %select.unfold273, %_ZN9Arguments17parse_memory_sizeEPKcPmmm.exit255, %select.unfold, %267, %164, %149
-  %.0 = phi i32 [ -6, %149 ], [ -6, %164 ], [ -1, %267 ], [ -6, %select.unfold ], [ -6, %_ZN9Arguments17parse_memory_sizeEPKcPmmm.exit255 ], [ -6, %select.unfold273 ], [ -6, %399 ], [ -6, %424 ], [ -6, %select.unfold277 ], [ -6, %469 ], [ -6, %.tail.thread ], [ -6, %.tail287.thread ], [ -6, %.critedge ], [ -6, %697 ], [ -6, %754 ], [ -6, %769 ], [ -1, %786 ], [ -1, %804 ], [ 0, %838 ], [ -1, %828 ], [ -6, %825 ], [ -6, %815 ], [ -6, %811 ], [ -6, %741 ], [ -6, %739 ], [ -6, %735 ], [ -6, %733 ], [ -6, %729 ], [ -6, %727 ], [ -6, %723 ], [ -6, %721 ], [ -6, %716 ], [ -6, %714 ], [ -6, %712 ], [ -6, %710 ], [ -6, %704 ], [ -6, %690 ], [ -6, %688 ], [ -6, %686 ], [ -6, %682 ], [ -6, %680 ], [ -6, %678 ], [ -6, %656 ], [ -6, %598 ], [ -6, %595 ], [ -6, %593 ], [ -6, %588 ], [ -6, %586 ], [ -6, %581 ], [ -6, %579 ], [ -4, %546 ], [ -6, %544 ], [ -6, %480 ], [ -6, %_ZN9Arguments17parse_memory_sizeEPKcPmmm.exit261 ], [ -6, %443 ], [ %442, %439 ], [ -6, %433 ], [ -6, %408 ], [ -6, %_ZN9Arguments17parse_memory_sizeEPKcPmmm.exit258 ], [ -6, %363 ], [ -6, %360 ], [ -6, %344 ], [ -6, %_ZN9Arguments17parse_memory_sizeEPKcPmmm.exit ], [ -6, %325 ], [ -6, %321 ], [ -4, %307 ], [ %249, %247 ], [ -4, %241 ], [ -4, %235 ], [ -4, %231 ], [ -4, %224 ], [ -4, %217 ], [ -4, %210 ], [ -4, %203 ], [ -4, %196 ]
+  %.0 = phi i32 [ -6, %149 ], [ -6, %164 ], [ -6, %.tail.thread ], [ -6, %.tail287.thread ], [ -6, %select.unfold273 ], [ -6, %697 ], [ -6, %399 ], [ -6, %754 ], [ -6, %424 ], [ 0, %838 ], [ -6, %769 ], [ -1, %267 ], [ -6, %.critedge ], [ -6, %select.unfold277 ], [ -1, %786 ], [ -6, %select.unfold ], [ -6, %469 ], [ -1, %804 ], [ -6, %_ZN9Arguments17parse_memory_sizeEPKcPmmm.exit255 ], [ -1, %828 ], [ -6, %811 ], [ -6, %825 ], [ -6, %741 ], [ -6, %739 ], [ -6, %735 ], [ -6, %733 ], [ -6, %729 ], [ -6, %727 ], [ -6, %723 ], [ -6, %721 ], [ -6, %716 ], [ -6, %714 ], [ -6, %712 ], [ -6, %710 ], [ -6, %704 ], [ -6, %690 ], [ -6, %688 ], [ -6, %686 ], [ -6, %682 ], [ -6, %680 ], [ -6, %678 ], [ -6, %656 ], [ -6, %598 ], [ -6, %595 ], [ -6, %593 ], [ -6, %588 ], [ -6, %586 ], [ -6, %581 ], [ -6, %579 ], [ -4, %546 ], [ -6, %544 ], [ -6, %480 ], [ -6, %_ZN9Arguments17parse_memory_sizeEPKcPmmm.exit261 ], [ -6, %443 ], [ %442, %439 ], [ -6, %433 ], [ -6, %408 ], [ -6, %_ZN9Arguments17parse_memory_sizeEPKcPmmm.exit258 ], [ -6, %363 ], [ -6, %360 ], [ -6, %344 ], [ -6, %_ZN9Arguments17parse_memory_sizeEPKcPmmm.exit ], [ -6, %325 ], [ -6, %321 ], [ -4, %307 ], [ %249, %247 ], [ -4, %241 ], [ -4, %235 ], [ -4, %231 ], [ -4, %224 ], [ -4, %217 ], [ -4, %210 ], [ -4, %203 ], [ -4, %196 ], [ -6, %815 ]
   ret i32 %.0
 }
 
@@ -7086,7 +7086,7 @@ define hidden noundef range(i32 -6, 1) i32 @_ZN9Arguments21finalize_vm_init_args
   br label %63
 
 63:                                               ; preds = %61, %59, %57, %33, %22, %9
-  %.0 = phi i32 [ -1, %9 ], [ -1, %22 ], [ %34, %33 ], [ -1, %57 ], [ -1, %59 ], [ %., %61 ]
+  %.0 = phi i32 [ -1, %9 ], [ -1, %22 ], [ %34, %33 ], [ -1, %59 ], [ %., %61 ], [ -1, %57 ]
   ret i32 %.0
 }
 
@@ -7129,7 +7129,7 @@ define hidden noundef range(i32 -4, 1) i32 @_ZN9Arguments24process_patch_mod_opt
   br label %24
 
 24:                                               ; preds = %12, %18, %5
-  %.0 = phi i32 [ -1, %5 ], [ %., %18 ], [ -4, %12 ]
+  %.0 = phi i32 [ -1, %5 ], [ -4, %12 ], [ %., %18 ]
   ret i32 %.0
 }
 
@@ -7272,7 +7272,7 @@ _ZN9Arguments17parse_memory_sizeEPKcPmmm.exit.thread: ; preds = %_ZN12JVMFlagLim
   br label %_ZN9Arguments20describe_range_errorENS_9ArgsRangeE.exit
 
 _ZN9Arguments20describe_range_errorENS_9ArgsRangeE.exit: ; preds = %17, %25, %_ZN9Arguments17parse_memory_sizeEPKcPmmm.exit.thread, %32
-  %.0 = phi i32 [ 0, %32 ], [ -6, %_ZN9Arguments17parse_memory_sizeEPKcPmmm.exit.thread ], [ -6, %17 ], [ -6, %25 ]
+  %.0 = phi i32 [ 0, %32 ], [ -6, %_ZN9Arguments17parse_memory_sizeEPKcPmmm.exit.thread ], [ -6, %25 ], [ -6, %17 ]
   ret i32 %.0
 }
 
@@ -7529,7 +7529,7 @@ define hidden noundef range(i32 -4, 1) i32 @_ZN9Arguments34parse_options_environ
   br label %19
 
 19:                                               ; preds = %7, %2, %5, %10
-  %.0 = phi i32 [ %18, %10 ], [ 0, %5 ], [ 0, %2 ], [ -4, %7 ]
+  %.0 = phi i32 [ %18, %10 ], [ 0, %2 ], [ 0, %5 ], [ -4, %7 ]
   ret i32 %.0
 }
 
@@ -7695,8 +7695,8 @@ define hidden noundef range(i32 -4, 1) i32 @_ZN9Arguments20parse_options_bufferE
   br label %_ZN26GrowableArrayWithAllocatorI12JavaVMOption18GrowableArrayCHeapIS0_L8MEMFLAGS19EEE6appendERKS0_.exit
 
 _ZN26GrowableArrayWithAllocatorI12JavaVMOption18GrowableArrayCHeapIS0_L8MEMFLAGS19EEE6appendERKS0_.exit: ; preds = %.critedge2, %.preheader.i.i.i, %58
-  %.sroa.10.1 = phi i32 [ %.0.i.i.i.i, %.preheader.i.i.i ], [ %.0.i.i.i.i, %58 ], [ %.sroa.10.0103, %.critedge2 ]
-  %.sroa.17.1 = phi ptr [ %46, %.preheader.i.i.i ], [ %46, %58 ], [ %.sroa.17.0104, %.critedge2 ]
+  %.sroa.10.1 = phi i32 [ %.0.i.i.i.i, %58 ], [ %.0.i.i.i.i, %.preheader.i.i.i ], [ %.sroa.10.0103, %.critedge2 ]
+  %.sroa.17.1 = phi ptr [ %46, %58 ], [ %46, %.preheader.i.i.i ], [ %.sroa.17.0104, %.critedge2 ]
   %59 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %.sroa.17.1, i64 %indvars.iv
   store ptr %.042105, ptr %59, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %59, i64 8
@@ -7714,9 +7714,9 @@ _ZN26GrowableArrayWithAllocatorI12JavaVMOption18GrowableArrayCHeapIS0_L8MEMFLAGS
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.critedge.thread.loopexit111, %.critedge.thread.loopexit, %4
-  %.sroa.054.086 = phi i32 [ 0, %4 ], [ %62, %.critedge.thread.loopexit ], [ %63, %.critedge.thread.loopexit111 ]
-  %.sroa.10.083 = phi i32 [ 2, %4 ], [ %.sroa.10.0103, %.critedge.thread.loopexit ], [ %.sroa.10.1, %.critedge.thread.loopexit111 ]
-  %.sroa.17.079 = phi ptr [ %5, %4 ], [ %.sroa.17.0104, %.critedge.thread.loopexit ], [ %.sroa.17.1, %.critedge.thread.loopexit111 ]
+  %.sroa.054.086 = phi i32 [ %62, %.critedge.thread.loopexit ], [ 0, %4 ], [ %63, %.critedge.thread.loopexit111 ]
+  %.sroa.10.083 = phi i32 [ %.sroa.10.0103, %.critedge.thread.loopexit ], [ 2, %4 ], [ %.sroa.10.1, %.critedge.thread.loopexit111 ]
+  %.sroa.17.079 = phi ptr [ %.sroa.17.0104, %.critedge.thread.loopexit ], [ %5, %4 ], [ %.sroa.17.1, %.critedge.thread.loopexit111 ]
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i8 1, ptr %64, align 8
   %65 = zext nneg i32 %.sroa.054.086 to i64
@@ -7763,9 +7763,9 @@ _ZN26GrowableArrayWithAllocatorI12JavaVMOption18GrowableArrayCHeapIS0_L8MEMFLAGS
   br label %_ZN16ScopedVMInitArgs8set_argsEPK17GrowableArrayViewI12JavaVMOptionE.exit
 
 _ZN16ScopedVMInitArgs8set_argsEPK17GrowableArrayViewI12JavaVMOptionE.exit: ; preds = %._crit_edge.i52, %76, %.critedge.thread, %.critedge51
-  %.sroa.10.082 = phi i32 [ %.sroa.10.0103, %.critedge51 ], [ %.sroa.10.083, %76 ], [ %.sroa.10.083, %._crit_edge.i52 ], [ %.sroa.10.083, %.critedge.thread ]
-  %.sroa.17.078 = phi ptr [ %.sroa.17.0104, %.critedge51 ], [ %.sroa.17.079, %76 ], [ %.sroa.17.079, %._crit_edge.i52 ], [ %.sroa.17.079, %.critedge.thread ]
-  %.0 = phi i32 [ -1, %.critedge51 ], [ -4, %76 ], [ 0, %._crit_edge.i52 ], [ -4, %.critedge.thread ]
+  %.sroa.10.082 = phi i32 [ %.sroa.10.0103, %.critedge51 ], [ %.sroa.10.083, %._crit_edge.i52 ], [ %.sroa.10.083, %76 ], [ %.sroa.10.083, %.critedge.thread ]
+  %.sroa.17.078 = phi ptr [ %.sroa.17.0104, %.critedge51 ], [ %.sroa.17.079, %._crit_edge.i52 ], [ %.sroa.17.079, %76 ], [ %.sroa.17.079, %.critedge.thread ]
+  %.0 = phi i32 [ -1, %.critedge51 ], [ 0, %._crit_edge.i52 ], [ -4, %76 ], [ -4, %.critedge.thread ]
   %84 = icmp eq i32 %.sroa.10.082, 0
   %.not.i.i.i53 = icmp eq ptr %.sroa.17.078, null
   %or.cond = or i1 %84, %.not.i.i.i53
@@ -7963,7 +7963,7 @@ _ZN9Arguments33args_contains_vm_options_file_argEPK14JavaVMInitArgs.exit: ; pred
   br label %29
 
 29:                                               ; preds = %7, %5, %_ZN9Arguments33args_contains_vm_options_file_argEPK14JavaVMInitArgs.exit, %17
-  %.0 = phi i32 [ -6, %17 ], [ %28, %_ZN9Arguments33args_contains_vm_options_file_argEPK14JavaVMInitArgs.exit ], [ %6, %5 ], [ 0, %7 ]
+  %.0 = phi i32 [ %28, %_ZN9Arguments33args_contains_vm_options_file_argEPK14JavaVMInitArgs.exit ], [ %6, %5 ], [ -6, %17 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -7990,7 +7990,7 @@ _ZN18GrowableArrayCHeapI12JavaVMOptionL8MEMFLAGS19EE8allocateEiS1_.exit.i: ; pre
   br label %_ZN18GrowableArrayCHeapI12JavaVMOptionL8MEMFLAGS19EEC2Ei.exit
 
 _ZN18GrowableArrayCHeapI12JavaVMOptionL8MEMFLAGS19EEC2Ei.exit: ; preds = %4, %_ZN18GrowableArrayCHeapI12JavaVMOptionL8MEMFLAGS19EE8allocateEiS1_.exit.i, %.lr.ph.preheader.i.i
-  %.sroa.27.3 = phi ptr [ %12, %.lr.ph.preheader.i.i ], [ %12, %_ZN18GrowableArrayCHeapI12JavaVMOptionL8MEMFLAGS19EE8allocateEiS1_.exit.i ], [ null, %4 ]
+  %.sroa.27.3 = phi ptr [ %12, %_ZN18GrowableArrayCHeapI12JavaVMOptionL8MEMFLAGS19EE8allocateEiS1_.exit.i ], [ %12, %.lr.ph.preheader.i.i ], [ null, %4 ]
   %16 = load i32, ptr %5, align 4
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %.lr.ph86, label %._crit_edge
@@ -8085,8 +8085,8 @@ _ZN18GrowableArrayCHeapI12JavaVMOptionL8MEMFLAGS19EEC2Ei.exit: ; preds = %4, %_Z
   br label %_ZN26GrowableArrayWithAllocatorI12JavaVMOption18GrowableArrayCHeapIS0_L8MEMFLAGS19EEE6appendERKS0_.exit
 
 _ZN26GrowableArrayWithAllocatorI12JavaVMOption18GrowableArrayCHeapIS0_L8MEMFLAGS19EEE6appendERKS0_.exit: ; preds = %.lr.ph, %.preheader.i.i.i, %53
-  %.sroa.16.4 = phi i32 [ %.0.i.i.i.i, %.preheader.i.i.i ], [ %.0.i.i.i.i, %53 ], [ %.sroa.16.176, %.lr.ph ]
-  %.sroa.27.4 = phi ptr [ %40, %.preheader.i.i.i ], [ %40, %53 ], [ %.sroa.27.177, %.lr.ph ]
+  %.sroa.16.4 = phi i32 [ %.0.i.i.i.i, %53 ], [ %.0.i.i.i.i, %.preheader.i.i.i ], [ %.sroa.16.176, %.lr.ph ]
+  %.sroa.27.4 = phi ptr [ %40, %53 ], [ %40, %.preheader.i.i.i ], [ %.sroa.27.177, %.lr.ph ]
   %54 = getelementptr inbounds %struct.JavaVMOption, ptr %.sroa.27.4, i64 %indvars.iv93
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %29, i64 16, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -8226,7 +8226,7 @@ _ZN26GrowableArrayWithAllocatorI12JavaVMOption18GrowableArrayCHeapIS0_L8MEMFLAGS
   br label %_ZN16ScopedVMInitArgs8set_argsEPK17GrowableArrayViewI12JavaVMOptionE.exit
 
 _ZN16ScopedVMInitArgs8set_argsEPK17GrowableArrayViewI12JavaVMOptionE.exit: ; preds = %._crit_edge, %104, %._crit_edge.i
-  %.019.i = phi i32 [ -4, %104 ], [ 0, %._crit_edge.i ], [ -4, %._crit_edge ]
+  %.019.i = phi i32 [ 0, %._crit_edge.i ], [ -4, %104 ], [ -4, %._crit_edge ]
   %112 = icmp eq i32 %.sroa.16.0.lcssa, 0
   %.not.i.i.i = icmp eq ptr %.sroa.27.0.lcssa, null
   %or.cond = select i1 %112, i1 true, i1 %.not.i.i.i
@@ -8478,8 +8478,8 @@ _ZL12match_optionPK12JavaVMOptionPKc.exit55:      ; preds = %88, %_ZL12match_opt
   br label %_ZL12match_optionPK12JavaVMOptionPKc.exit60
 
 _ZL12match_optionPK12JavaVMOptionPKc.exit60:      ; preds = %_ZN16ScopedVMInitArgs23set_vm_options_file_argEPKc.exit38, %94, %_ZL12match_optionPK12JavaVMOptionPKc.exit55, %98, %92, %86, %80, %74, %_ZN9Arguments18set_jvm_flags_fileEPKc.exit
-  %.126 = phi i32 [ %.02588, %_ZN9Arguments18set_jvm_flags_fileEPKc.exit ], [ %.02588, %74 ], [ %.02588, %80 ], [ %.02588, %86 ], [ %.02588, %92 ], [ %.02588, %98 ], [ %.02588, %_ZL12match_optionPK12JavaVMOptionPKc.exit55 ], [ %.02588, %94 ], [ %spec.select, %_ZN16ScopedVMInitArgs23set_vm_options_file_argEPKc.exit38 ]
-  %.1 = phi ptr [ %.02489, %_ZN9Arguments18set_jvm_flags_fileEPKc.exit ], [ %.02489, %74 ], [ %.02489, %80 ], [ %.02489, %86 ], [ %.02489, %92 ], [ %.02489, %98 ], [ %.02489, %_ZL12match_optionPK12JavaVMOptionPKc.exit55 ], [ %.02489, %94 ], [ %spec.select79, %_ZN16ScopedVMInitArgs23set_vm_options_file_argEPKc.exit38 ]
+  %.126 = phi i32 [ %.02588, %_ZN9Arguments18set_jvm_flags_fileEPKc.exit ], [ %.02588, %94 ], [ %spec.select, %_ZN16ScopedVMInitArgs23set_vm_options_file_argEPKc.exit38 ], [ %.02588, %74 ], [ %.02588, %80 ], [ %.02588, %86 ], [ %.02588, %92 ], [ %.02588, %98 ], [ %.02588, %_ZL12match_optionPK12JavaVMOptionPKc.exit55 ]
+  %.1 = phi ptr [ %.02489, %_ZN9Arguments18set_jvm_flags_fileEPKc.exit ], [ %.02489, %94 ], [ %spec.select79, %_ZN16ScopedVMInitArgs23set_vm_options_file_argEPKc.exit38 ], [ %.02489, %74 ], [ %.02489, %80 ], [ %.02489, %86 ], [ %.02489, %92 ], [ %.02489, %98 ], [ %.02489, %_ZL12match_optionPK12JavaVMOptionPKc.exit55 ]
   %100 = add nsw i32 %.126, 1
   %101 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   %102 = load i32, ptr %101, align 4
@@ -8487,7 +8487,7 @@ _ZL12match_optionPK12JavaVMOptionPKc.exit60:      ; preds = %_ZN16ScopedVMInitAr
   br i1 %103, label %17, label %_ZN9Arguments22insert_vm_options_fileEPK14JavaVMInitArgsPKciP16ScopedVMInitArgsS6_.exit.thread, !llvm.loop !38
 
 _ZN9Arguments22insert_vm_options_fileEPK14JavaVMInitArgsPKciP16ScopedVMInitArgsS6_.exit.thread: ; preds = %_ZN9Arguments22insert_vm_options_fileEPK14JavaVMInitArgsPKciP16ScopedVMInitArgsS6_.exit, %_ZL12match_optionPK12JavaVMOptionPKc.exit60, %_ZN16ScopedVMInitArgs23set_vm_options_file_argEPKc.exit, %52, %33
-  %.0.ph = phi i32 [ -6, %52 ], [ -6, %33 ], [ %43, %_ZN16ScopedVMInitArgs23set_vm_options_file_argEPKc.exit ], [ 0, %_ZL12match_optionPK12JavaVMOptionPKc.exit60 ], [ %61, %_ZN9Arguments22insert_vm_options_fileEPK14JavaVMInitArgsPKciP16ScopedVMInitArgsS6_.exit ]
+  %.0.ph = phi i32 [ -6, %33 ], [ -6, %52 ], [ %43, %_ZN16ScopedVMInitArgs23set_vm_options_file_argEPKc.exit ], [ %61, %_ZN9Arguments22insert_vm_options_fileEPK14JavaVMInitArgsPKciP16ScopedVMInitArgsS6_.exit ], [ 0, %_ZL12match_optionPK12JavaVMOptionPKc.exit60 ]
   %.pr = load ptr, ptr %11, align 8
   %.not.i61 = icmp eq ptr %.pr, null
   br i1 %.not.i61, label %_ZN9Arguments22insert_vm_options_fileEPK14JavaVMInitArgsPKciP16ScopedVMInitArgsS6_.exit.thread.thread, label %104
@@ -8497,7 +8497,7 @@ _ZN9Arguments22insert_vm_options_fileEPK14JavaVMInitArgsPKciP16ScopedVMInitArgsS
   br label %_ZN9Arguments22insert_vm_options_fileEPK14JavaVMInitArgsPKciP16ScopedVMInitArgsS6_.exit.thread.thread
 
 _ZN9Arguments22insert_vm_options_fileEPK14JavaVMInitArgsPKciP16ScopedVMInitArgsS6_.exit.thread.thread: ; preds = %2, %104, %_ZN9Arguments22insert_vm_options_fileEPK14JavaVMInitArgsPKciP16ScopedVMInitArgsS6_.exit.thread
-  %.0106 = phi i32 [ %.0.ph, %104 ], [ %.0.ph, %_ZN9Arguments22insert_vm_options_fileEPK14JavaVMInitArgsPKciP16ScopedVMInitArgsS6_.exit.thread ], [ 0, %2 ]
+  %.0106 = phi i32 [ %.0.ph, %_ZN9Arguments22insert_vm_options_fileEPK14JavaVMInitArgsPKciP16ScopedVMInitArgsS6_.exit.thread ], [ %.0.ph, %104 ], [ 0, %2 ]
   %105 = load ptr, ptr %7, align 8
   %106 = icmp eq ptr %105, null
   br i1 %106, label %_ZN16ScopedVMInitArgsD2Ev.exit, label %.preheader.i
@@ -8947,7 +8947,7 @@ define hidden noundef i32 @_ZN9Arguments5parseEPK14JavaVMInitArgs(ptr noundef %0
   br label %_ZN9Arguments27expand_vm_options_as_neededEPK14JavaVMInitArgsP16ScopedVMInitArgsPPS0_.exit
 
 _ZN9Arguments27expand_vm_options_as_neededEPK14JavaVMInitArgsP16ScopedVMInitArgsPPS0_.exit: ; preds = %71, %67, %63, %61, %152, %154, %108, %93, %83, %58, %54, %1, %121
-  %.0 = phi i32 [ -1, %121 ], [ %53, %1 ], [ %55, %54 ], [ %60, %58 ], [ -6, %83 ], [ %94, %93 ], [ -6, %108 ], [ 0, %154 ], [ 0, %152 ], [ %62, %61 ], [ %66, %63 ], [ %70, %67 ], [ %74, %71 ]
+  %.0 = phi i32 [ %70, %67 ], [ %53, %1 ], [ %55, %54 ], [ %60, %58 ], [ 0, %152 ], [ %62, %61 ], [ %66, %63 ], [ -6, %83 ], [ -1, %121 ], [ -6, %108 ], [ %94, %93 ], [ 0, %154 ], [ %74, %71 ]
   %155 = load ptr, ptr %52, align 8
   %.not.i67 = icmp eq ptr %155, null
   br i1 %.not.i67, label %157, label %156
@@ -9579,7 +9579,7 @@ _ZNK14SystemProperty8readableEv.exit:             ; preds = %6
   br label %_ZNK14SystemProperty8readableEv.exit.thread6
 
 _ZNK14SystemProperty8readableEv.exit.thread6:     ; preds = %_ZNK14SystemProperty8readableEv.exit, %6, %_ZNK14SystemProperty8readableEv.exit.thread
-  %13 = phi i32 [ %5, %_ZNK14SystemProperty8readableEv.exit.thread ], [ %.011, %6 ], [ %spec.select, %_ZNK14SystemProperty8readableEv.exit ]
+  %13 = phi i32 [ %.011, %6 ], [ %spec.select, %_ZNK14SystemProperty8readableEv.exit ], [ %5, %_ZNK14SystemProperty8readableEv.exit.thread ]
   %14 = getelementptr inbounds nuw i8, ptr %.0410, i64 16
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
@@ -9625,7 +9625,7 @@ define hidden noundef ptr @_ZN9Arguments31PropertyList_get_readable_valueEP14Sys
   br label %.loopexit
 
 .loopexit:                                        ; preds = %14, %.loopexit.sink.split, %2, %11
-  %.010 = phi ptr [ null, %11 ], [ null, %2 ], [ %17, %.loopexit.sink.split ], [ null, %14 ]
+  %.010 = phi ptr [ null, %2 ], [ null, %11 ], [ %17, %.loopexit.sink.split ], [ null, %14 ]
   ret ptr %.010
 }
 

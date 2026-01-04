@@ -44,7 +44,7 @@ define noundef i32 @gzwrite(ptr noundef %0, ptr noundef %1, i32 noundef %2) loca
   br label %18
 
 18:                                               ; preds = %5, %8, %3, %14, %13
-  %.0 = phi i32 [ 0, %13 ], [ %17, %14 ], [ 0, %3 ], [ 0, %8 ], [ 0, %5 ]
+  %.0 = phi i32 [ %17, %14 ], [ 0, %3 ], [ 0, %13 ], [ 0, %8 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -228,7 +228,7 @@ gz_zero.exit:                                     ; preds = %27, %24, %12
   br i1 %.not67, label %.critedge70, label %85, !llvm.loop !26
 
 .critedge70:                                      ; preds = %37, %89, %85, %55, %74, %21, %80, %9, %3
-  %.056 = phi i64 [ 0, %3 ], [ 0, %9 ], [ 0, %80 ], [ 0, %21 ], [ %2, %55 ], [ 0, %74 ], [ %2, %89 ], [ 0, %85 ], [ 0, %37 ]
+  %.056 = phi i64 [ %2, %55 ], [ 0, %3 ], [ 0, %9 ], [ 0, %80 ], [ 0, %21 ], [ %2, %89 ], [ 0, %74 ], [ 0, %85 ], [ 0, %37 ]
   ret i64 %.056
 }
 
@@ -273,7 +273,7 @@ define noundef i64 @gzfwrite(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr
   br label %19
 
 19:                                               ; preds = %16, %15, %6, %9, %4, %14
-  %.0 = phi i64 [ 0, %14 ], [ 0, %4 ], [ 0, %9 ], [ 0, %6 ], [ %18, %16 ], [ 0, %15 ]
+  %.0 = phi i64 [ 0, %6 ], [ 0, %4 ], [ 0, %14 ], [ 0, %9 ], [ %18, %16 ], [ 0, %15 ]
   ret i64 %.0
 }
 
@@ -424,7 +424,7 @@ gz_zero.exit:                                     ; preds = %27, %23, %12
   br label %gz_zero.exit.thread
 
 gz_zero.exit.thread:                              ; preds = %37, %20, %72, %5, %9, %2, %62
-  %.0 = phi i32 [ %71, %62 ], [ -1, %2 ], [ -1, %9 ], [ -1, %5 ], [ %spec.select, %72 ], [ -1, %20 ], [ -1, %37 ]
+  %.0 = phi i32 [ %spec.select, %72 ], [ -1, %2 ], [ -1, %5 ], [ %71, %62 ], [ -1, %9 ], [ -1, %20 ], [ -1, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -463,7 +463,7 @@ define range(i32 -1, -2147483648) i32 @gzputs(ptr noundef %0, ptr noundef %1) lo
   br label %18
 
 18:                                               ; preds = %4, %7, %2, %13, %12
-  %.0 = phi i32 [ -1, %12 ], [ %17, %13 ], [ -1, %2 ], [ -1, %7 ], [ -1, %4 ]
+  %.0 = phi i32 [ %17, %13 ], [ -1, %2 ], [ -1, %12 ], [ -1, %7 ], [ -1, %4 ]
   ret i32 %.0
 }
 
@@ -657,7 +657,7 @@ gz_zero.exit._crit_edge:                          ; preds = %gz_zero.exit
   br label %102
 
 102:                                              ; preds = %82, %94, %58, %75, %77, %5, %9, %3, %92, %.loopexit, %19
-  %.0 = phi i32 [ %20, %19 ], [ %51, %.loopexit ], [ %93, %92 ], [ -2, %3 ], [ -2, %9 ], [ -2, %5 ], [ 0, %77 ], [ 0, %75 ], [ 0, %58 ], [ %73, %94 ], [ %73, %82 ]
+  %.0 = phi i32 [ 0, %58 ], [ -2, %3 ], [ %20, %19 ], [ %51, %.loopexit ], [ -2, %5 ], [ %93, %92 ], [ -2, %9 ], [ 0, %77 ], [ 0, %75 ], [ %73, %94 ], [ %73, %82 ]
   ret i32 %.0
 }
 
@@ -741,7 +741,7 @@ define internal fastcc range(i32 -1, 1) i32 @gz_init(ptr noundef nonnull initial
   br label %39
 
 39:                                               ; preds = %.thread, %31, %34, %28, %20, %10
-  %.0 = phi i32 [ -1, %10 ], [ -1, %20 ], [ -1, %28 ], [ 0, %34 ], [ 0, %31 ], [ 0, %.thread ]
+  %.0 = phi i32 [ -1, %10 ], [ -1, %28 ], [ -1, %20 ], [ 0, %34 ], [ 0, %31 ], [ 0, %.thread ]
   ret i32 %.0
 }
 
@@ -979,7 +979,7 @@ define internal fastcc range(i32 -1, 1) i32 @gz_comp(ptr noundef nonnull %0, i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %28, %.preheader, %.split81.us, %119, %37, %7, %.split79.us, %.split83.us, %24
-  %.0 = phi i32 [ -1, %24 ], [ -1, %.split83.us ], [ -1, %.split79.us ], [ -1, %7 ], [ 0, %37 ], [ 0, %119 ], [ 0, %.split81.us ], [ 0, %.preheader ], [ 0, %28 ]
+  %.0 = phi i32 [ 0, %37 ], [ -1, %24 ], [ -1, %7 ], [ 0, %.split81.us ], [ -1, %.split83.us ], [ -1, %.split79.us ], [ 0, %119 ], [ 0, %.preheader ], [ 0, %28 ]
   ret i32 %.0
 }
 
@@ -1098,7 +1098,7 @@ gz_zero.exit:                                     ; preds = %26, %22, %10
   br label %44
 
 44:                                               ; preds = %.sink.split, %4, %7, %2
-  %.0 = phi i32 [ -2, %2 ], [ -2, %7 ], [ -2, %4 ], [ %43, %.sink.split ]
+  %.0 = phi i32 [ -2, %7 ], [ -2, %2 ], [ -2, %4 ], [ %43, %.sink.split ]
   ret i32 %.0
 }
 
@@ -1240,7 +1240,7 @@ gz_zero.exit:                                     ; preds = %38, %34, %23
   br label %69
 
 69:                                               ; preds = %19, %5, %9, %12, %3, %67, %63, %.loopexit
-  %.0 = phi i32 [ %54, %.loopexit ], [ %64, %63 ], [ 0, %67 ], [ -2, %3 ], [ -2, %12 ], [ -2, %9 ], [ -2, %5 ], [ 0, %19 ]
+  %.0 = phi i32 [ 0, %67 ], [ -2, %3 ], [ -2, %5 ], [ %54, %.loopexit ], [ %64, %63 ], [ -2, %12 ], [ -2, %9 ], [ 0, %19 ]
   ret i32 %.0
 }
 

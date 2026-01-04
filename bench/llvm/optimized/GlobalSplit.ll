@@ -224,23 +224,23 @@ _ZN4llvm16dyn_cast_or_nullINS_14ConstantStructENS_8ConstantEEEDaPT0_.exit.i.i: ;
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %122 = load i8, ptr %121, align 8, !tbaa !20
   %123 = icmp ugt i8 %122, 28
-  br i1 %123, label %_ZN4llvm14CastIsPossibleINS_11GEPOperatorEPNS_4UserEvE10isPossibleERKS3_.exit.i.i.i.i, label %124
+  br i1 %123, label %124, label %126
 
 124:                                              ; preds = %119
-  %125 = icmp eq i8 %122, 5
-  br i1 %125, label %126, label %.critedge.i.i
+  %125 = icmp eq i8 %122, 63
+  br i1 %125, label %131, label %.critedge.i.i
 
-126:                                              ; preds = %124
-  %127 = getelementptr inbounds nuw i8, ptr %121, i64 2
-  %128 = load i16, ptr %127, align 2, !tbaa !28
-  %129 = icmp eq i16 %128, 34
-  br i1 %129, label %131, label %.critedge.i.i
+126:                                              ; preds = %119
+  %127 = icmp eq i8 %122, 5
+  br i1 %127, label %_ZN4llvm14CastIsPossibleINS_11GEPOperatorEPNS_4UserEvE10isPossibleERKS3_.exit.i.i.i.i, label %.critedge.i.i
 
-_ZN4llvm14CastIsPossibleINS_11GEPOperatorEPNS_4UserEvE10isPossibleERKS3_.exit.i.i.i.i: ; preds = %119
-  %130 = icmp eq i8 %122, 63
+_ZN4llvm14CastIsPossibleINS_11GEPOperatorEPNS_4UserEvE10isPossibleERKS3_.exit.i.i.i.i: ; preds = %126
+  %128 = getelementptr inbounds nuw i8, ptr %121, i64 2
+  %129 = load i16, ptr %128, align 2, !tbaa !28
+  %130 = icmp eq i16 %129, 34
   br i1 %130, label %131, label %.critedge.i.i
 
-131:                                              ; preds = %_ZN4llvm14CastIsPossibleINS_11GEPOperatorEPNS_4UserEvE10isPossibleERKS3_.exit.i.i.i.i, %126
+131:                                              ; preds = %_ZN4llvm14CastIsPossibleINS_11GEPOperatorEPNS_4UserEvE10isPossibleERKS3_.exit.i.i.i.i, %124
   store ptr %121, ptr %8, align 8, !tbaa !29
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZNK4llvm11GEPOperator10getInRangeEv(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.90") align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %121) #11
@@ -1035,8 +1035,8 @@ _ZN4llvm6utostrB5cxx11Emb.exit.i.i:               ; preds = %417, %415, %._crit_
   br label %_ZN4llvmplERKNS_5TwineES2_.exit.i.i
 
 _ZN4llvmplERKNS_5TwineES2_.exit.i.i:              ; preds = %423, %422, %_ZN4llvm6utostrB5cxx11Emb.exit.i.i
-  %.sink325.i.i = phi i8 [ 4, %422 ], [ %.014.i.i.i.i, %423 ], [ %421, %_ZN4llvm6utostrB5cxx11Emb.exit.i.i ]
-  %.sink.i.i = phi i8 [ 1, %422 ], [ 4, %423 ], [ 1, %_ZN4llvm6utostrB5cxx11Emb.exit.i.i ]
+  %.sink325.i.i = phi i8 [ %.014.i.i.i.i, %423 ], [ 4, %422 ], [ %421, %_ZN4llvm6utostrB5cxx11Emb.exit.i.i ]
+  %.sink.i.i = phi i8 [ 4, %423 ], [ 1, %422 ], [ 1, %_ZN4llvm6utostrB5cxx11Emb.exit.i.i ]
   store i8 %.sink325.i.i, ptr %82, align 8, !tbaa !81
   store i8 %.sink.i.i, ptr %83, align 1, !tbaa !81
   call void @_ZN4llvm14GlobalVariableC1ERNS_6ModuleEPNS_4TypeEbNS_11GlobalValue12LinkageTypesEPNS_8ConstantERKNS_5TwineEPS0_NS5_15ThreadLocalModeESt8optionalIjEb(ptr noundef nonnull align 8 dereferenceable(81) %385, ptr noundef nonnull align 8 dereferenceable(841) %386, ptr noundef %396, i1 noundef zeroext %398, i32 noundef 8, ptr noundef nonnull %394, ptr noundef nonnull align 8 dereferenceable(34) %22, ptr noundef null, i32 noundef 0, i64 0, i1 noundef zeroext false) #11
@@ -1351,7 +1351,7 @@ _ZL11splitGlobalRN4llvm14GlobalVariableE.exit.i:  ; preds = %_ZN4llvm11SmallVect
 _ZL12splitGlobalsRN4llvm6ModuleE.exit:            ; preds = %_ZL11splitGlobalRN4llvm14GlobalVariableE.exit.i
   br i1 %554, label %565, label %_ZL12splitGlobalsRN4llvm6ModuleE.exit.thread
 
-_ZL12splitGlobalsRN4llvm6ModuleE.exit.thread:     ; preds = %46, %41, %42, %_ZL12splitGlobalsRN4llvm6ModuleE.exit
+_ZL12splitGlobalsRN4llvm6ModuleE.exit.thread:     ; preds = %46, %42, %41, %_ZL12splitGlobalsRN4llvm6ModuleE.exit
   %.ptr1.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.ptr1.i, ptr %0, align 8, !tbaa !97, !alias.scope !99
   %555 = getelementptr inbounds nuw i8, ptr %0, i64 8

@@ -2791,7 +2791,7 @@ _ZN5wasmi6engine8executor5cache14CachedInstance11load_caches17hcb19514e98bbf501E
   br label %.thread58.i
 
 .thread58.i:                                      ; preds = %_ZN5wasmi6engine8executor5cache14CachedInstance11load_caches17hcb19514e98bbf501E.exit43.i, %200, %199
-  %231 = phi ptr [ %.pre65.i, %200 ], [ %.pre65.i, %199 ], [ %.pre.i, %_ZN5wasmi6engine8executor5cache14CachedInstance11load_caches17hcb19514e98bbf501E.exit43.i ]
+  %231 = phi ptr [ %.pre65.i, %199 ], [ %.pre65.i, %200 ], [ %.pre.i, %_ZN5wasmi6engine8executor5cache14CachedInstance11load_caches17hcb19514e98bbf501E.exit43.i ]
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 16
   %233 = load i64, ptr %232, align 8, !noalias !36, !noundef !3
   %.not35.i = icmp eq i64 %233, 0
@@ -4397,7 +4397,7 @@ _ZN5wasmi6engine8executor5cache14CachedInstance11load_caches17hcb19514e98bbf501E
   br label %.thread62.i
 
 .thread62.i:                                      ; preds = %_ZN5wasmi6engine8executor5cache14CachedInstance11load_caches17hcb19514e98bbf501E.exit45.i, %209, %208
-  %240 = phi ptr [ %.pre69.i, %209 ], [ %.pre69.i, %208 ], [ %.pre.i, %_ZN5wasmi6engine8executor5cache14CachedInstance11load_caches17hcb19514e98bbf501E.exit45.i ]
+  %240 = phi ptr [ %.pre69.i, %208 ], [ %.pre69.i, %209 ], [ %.pre.i, %_ZN5wasmi6engine8executor5cache14CachedInstance11load_caches17hcb19514e98bbf501E.exit45.i ]
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 16
   %242 = load i64, ptr %241, align 8, !noalias !262, !noundef !3
   %.not37.i = icmp eq i64 %242, 0

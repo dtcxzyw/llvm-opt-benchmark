@@ -534,7 +534,7 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_filesystem_p_get_data(ptr nou
   unreachable
 
 63:                                               ; preds = %34, %21, %5, %8
-  %.0 = phi i32 [ 0, %8 ], [ 0, %5 ], [ -1, %21 ], [ 0, %34 ]
+  %.0 = phi i32 [ 0, %5 ], [ -1, %21 ], [ 0, %8 ], [ 0, %34 ]
   ret i32 %.0
 }
 
@@ -778,7 +778,7 @@ _llite_path.exit.thread36:                        ; preds = %1, %_llite_path.exi
   br label %95
 
 95:                                               ; preds = %._crit_edge46, %94, %26, %27, %_llite_path.exit.thread, %22
-  %.020 = phi i32 [ -1, %22 ], [ -1, %_llite_path.exit.thread ], [ -1, %27 ], [ -1, %26 ], [ 0, %94 ], [ 0, %._crit_edge46 ]
+  %.020 = phi i32 [ -1, %26 ], [ -1, %_llite_path.exit.thread ], [ -1, %22 ], [ -1, %27 ], [ 0, %94 ], [ 0, %._crit_edge46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.020
 }

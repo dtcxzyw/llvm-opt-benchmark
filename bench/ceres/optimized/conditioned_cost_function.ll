@@ -312,7 +312,7 @@ _ZN4absl12lts_2024011612log_internal12Check_EQImplB5cxx11EiiPKc.exit63.thread: ;
   br i1 %exitcond.not, label %_ZN4absl12lts_2024011612log_internal12Check_EQImplIimEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit._crit_edge, label %68, !llvm.loop !47
 
 120:                                              ; preds = %96, %90, %110, %104, %118, %112, %59, %66, %57
-  %.pn51.pn = phi { ptr, i32 } [ %58, %57 ], [ %67, %66 ], [ %60, %59 ], [ %97, %96 ], [ %91, %90 ], [ %111, %110 ], [ %105, %104 ], [ %119, %118 ], [ %113, %112 ]
+  %.pn51.pn = phi { ptr, i32 } [ %58, %57 ], [ %60, %59 ], [ %67, %66 ], [ %105, %104 ], [ %91, %90 ], [ %97, %96 ], [ %111, %110 ], [ %119, %118 ], [ %113, %112 ]
   %121 = load ptr, ptr %10, align 8, !tbaa !13
   %.not.i.i.i = icmp eq ptr %121, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPN5ceres12CostFunctionESaIS2_EED2Ev.exit, label %122
@@ -1562,7 +1562,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
   br i1 %41, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPN5ceres12CostFunctionESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.us, !llvm.loop !69
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPN5ceres12CostFunctionESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %39, %.split.us, %._crit_edge.i.us
-  %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.07.us, %.split.us ], [ %.0920.i.i.us, %39 ], [ %.019.i.i.us, %.lr.ph.i.i.us ]
+  %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.07.us, %.split.us ], [ %.019.i.i.us, %.lr.ph.i.i.us ], [ %.0920.i.i.us, %39 ]
   %42 = getelementptr inbounds nuw ptr, ptr %.fr15, i64 %.0.lcssa.i.i.us
   store ptr %21, ptr %42, align 8, !tbaa !6
   %.not.us = icmp eq i64 %.07.us, 0

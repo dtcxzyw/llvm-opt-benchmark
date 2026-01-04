@@ -522,7 +522,7 @@ define internal fastcc i32 @get_mb_score(ptr noundef %0, i32 noundef %1, i32 nou
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %187, %113, %364, %264
-  %.pre-phi41.i = phi i64 [ %380, %364 ], [ %281, %264 ], [ %77, %113 ], [ %77, %187 ]
+  %.pre-phi41.i = phi i64 [ %281, %264 ], [ %380, %364 ], [ %77, %113 ], [ %77, %187 ]
   %396 = getelementptr inbounds nuw i8, ptr %0, i64 5112
   %397 = load ptr, ptr %396, align 8, !tbaa !59
   %398 = load ptr, ptr %46, align 8, !tbaa !60
@@ -737,7 +737,7 @@ define internal fastcc i32 @get_mb_score(ptr noundef %0, i32 noundef %1, i32 nou
   br label %cmp.exit
 
 cmp.exit:                                         ; preds = %520, %514, %500, %.loopexit.i, %56, %53, %49, %34
-  %.0.i = phi i32 [ %399, %.loopexit.i ], [ 536870912, %56 ], [ 536870912, %53 ], [ 536870912, %49 ], [ 536870912, %34 ], [ %561, %520 ], [ %519, %514 ], [ %509, %500 ]
+  %.0.i = phi i32 [ %509, %500 ], [ %519, %514 ], [ 536870912, %34 ], [ %399, %.loopexit.i ], [ 536870912, %56 ], [ 536870912, %53 ], [ 536870912, %49 ], [ %561, %520 ]
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %579, label %562
 
@@ -1633,9 +1633,9 @@ update_map_generation.exit:                       ; preds = %31, %52
   br label %665
 
 665:                                              ; preds = %.sink.split, %631, %615, %167, %141
-  %.promoted264348 = phi i32 [ %.promoted264357, %167 ], [ %.promoted264357, %141 ], [ %.promoted264349, %631 ], [ %.promoted264349, %615 ], [ %.sink, %.sink.split ]
-  %.promoted257335 = phi i32 [ %.promoted257344, %167 ], [ %.promoted257344, %141 ], [ %.promoted257336, %631 ], [ %.promoted257336, %615 ], [ %.sink485, %.sink.split ]
-  %.3.i = phi i32 [ %.1.i, %167 ], [ %.1.i, %141 ], [ %.11.i, %631 ], [ %.11.i, %615 ], [ %.3.i.ph, %.sink.split ]
+  %.promoted264348 = phi i32 [ %.promoted264357, %141 ], [ %.promoted264349, %631 ], [ %.promoted264357, %167 ], [ %.promoted264349, %615 ], [ %.sink, %.sink.split ]
+  %.promoted257335 = phi i32 [ %.promoted257344, %141 ], [ %.promoted257336, %631 ], [ %.promoted257344, %167 ], [ %.promoted257336, %615 ], [ %.sink485, %.sink.split ]
+  %.3.i = phi i32 [ %.1.i, %141 ], [ %.11.i, %631 ], [ %.1.i, %167 ], [ %.11.i, %615 ], [ %.3.i.ph, %.sink.split ]
   %666 = icmp sgt i32 %.3.i, 1024
   br i1 %666, label %667, label %900
 
@@ -1714,8 +1714,8 @@ update_map_generation.exit:                       ; preds = %31, %52
   br label %726
 
 726:                                              ; preds = %724, %696, %671
-  %.promoted264346 = phi i32 [ %686, %724 ], [ %.promoted264348, %696 ], [ %.promoted264348, %671 ]
-  %.promoted257333 = phi i32 [ %.1173.i, %724 ], [ %.promoted257335, %696 ], [ %.promoted257335, %671 ]
+  %.promoted264347 = phi i32 [ %686, %724 ], [ %.promoted264348, %696 ], [ %.promoted264348, %671 ]
+  %.promoted257334 = phi i32 [ %.1173.i, %724 ], [ %.promoted257335, %696 ], [ %.promoted257335, %671 ]
   %.14.i = phi i32 [ %722, %724 ], [ %.3.i, %696 ], [ %.3.i, %671 ]
   %727 = load i32, ptr %89, align 4, !tbaa !77
   %.not1164.i = icmp eq i32 %727, 0
@@ -1852,8 +1852,8 @@ update_map_generation.exit:                       ; preds = %31, %52
   br label %838
 
 838:                                              ; preds = %836, %808, %783
-  %.promoted264347 = phi i32 [ %798, %836 ], [ %.promoted264348, %808 ], [ %.promoted264348, %783 ]
-  %.promoted257334 = phi i32 [ %.1175.i, %836 ], [ %.promoted257335, %808 ], [ %.promoted257335, %783 ]
+  %.promoted264346 = phi i32 [ %798, %836 ], [ %.promoted264348, %808 ], [ %.promoted264348, %783 ]
+  %.promoted257333 = phi i32 [ %.1175.i, %836 ], [ %.promoted257335, %808 ], [ %.promoted257335, %783 ]
   %.16.i = phi i32 [ %834, %836 ], [ %.3.i, %808 ], [ %.3.i, %783 ]
   %839 = load i32, ptr %21, align 8, !tbaa !72
   %840 = add nsw i32 %839, 1
@@ -1935,9 +1935,9 @@ update_map_generation.exit:                       ; preds = %31, %52
   br label %900
 
 900:                                              ; preds = %.sink.split486, %871, %844, %838, %755, %728, %726, %665
-  %.promoted264 = phi i32 [ %.promoted264346, %726 ], [ %.promoted264347, %838 ], [ %.promoted264348, %665 ], [ %.promoted264346, %755 ], [ %.promoted264346, %728 ], [ %.promoted264347, %871 ], [ %.promoted264347, %844 ], [ %.sink487, %.sink.split486 ]
-  %.promoted257 = phi i32 [ %.promoted257333, %726 ], [ %.promoted257334, %838 ], [ %.promoted257335, %665 ], [ %.promoted257333, %755 ], [ %.promoted257333, %728 ], [ %.promoted257334, %871 ], [ %.promoted257334, %844 ], [ %.1176.i.sink, %.sink.split486 ]
-  %.13.i = phi i32 [ %.14.i, %726 ], [ %.16.i, %838 ], [ %.3.i, %665 ], [ %.14.i, %755 ], [ %.14.i, %728 ], [ %.16.i, %871 ], [ %.16.i, %844 ], [ %.13.i.ph, %.sink.split486 ]
+  %.promoted264 = phi i32 [ %.promoted264347, %726 ], [ %.promoted264348, %665 ], [ %.promoted264347, %728 ], [ %.promoted264346, %838 ], [ %.promoted264346, %871 ], [ %.promoted264347, %755 ], [ %.promoted264346, %844 ], [ %.sink487, %.sink.split486 ]
+  %.promoted257 = phi i32 [ %.promoted257334, %726 ], [ %.promoted257335, %665 ], [ %.promoted257334, %728 ], [ %.promoted257333, %838 ], [ %.promoted257333, %871 ], [ %.promoted257334, %755 ], [ %.promoted257333, %844 ], [ %.1176.i.sink, %.sink.split486 ]
+  %.13.i = phi i32 [ %.14.i, %726 ], [ %.3.i, %665 ], [ %.14.i, %728 ], [ %.16.i, %838 ], [ %.16.i, %871 ], [ %.14.i, %755 ], [ %.16.i, %844 ], [ %.13.i.ph, %.sink.split486 ]
   %901 = load ptr, ptr %18, align 8, !tbaa !79
   %902 = getelementptr inbounds nuw i8, ptr %901, i64 264
   %903 = load i32, ptr %902, align 8, !tbaa !95
@@ -2439,7 +2439,7 @@ diamond_search.exit193.loopexit:                  ; preds = %1206
   br label %diamond_search.exit193
 
 diamond_search.exit193:                           ; preds = %diamond_search.exit193.loopexit, %991, %995, %1211, %1215, %1219, %1224, %1226
-  %.0.i192 = phi i32 [ %992, %991 ], [ %996, %995 ], [ %1212, %1211 ], [ %1216, %1215 ], [ %1221, %1219 ], [ %1225, %1224 ], [ %1227, %1226 ], [ %.7.i198, %diamond_search.exit193.loopexit ]
+  %.0.i192 = phi i32 [ %992, %991 ], [ %996, %995 ], [ %1227, %1226 ], [ %1212, %1211 ], [ %1216, %1215 ], [ %1221, %1219 ], [ %1225, %1224 ], [ %.7.i198, %diamond_search.exit193.loopexit ]
   %1228 = load i32, ptr %12, align 8, !tbaa !58
   store i32 %1228, ptr %1, align 4, !tbaa !58
   %1229 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -3183,9 +3183,9 @@ cmp.exit:                                         ; preds = %1710
   br label %1749
 
 1749:                                             ; preds = %.sink.split489, %cmp.exit, %1710, %cmp.exit163, %1323
-  %.promoted322 = phi i32 [ %.promoted331, %cmp.exit163 ], [ %.promoted331, %1323 ], [ %.promoted323, %cmp.exit ], [ %.promoted323, %1710 ], [ %.sink490, %.sink.split489 ]
-  %.promoted234309 = phi i32 [ %.promoted234318, %cmp.exit163 ], [ %.promoted234318, %1323 ], [ %.promoted234310, %cmp.exit ], [ %.promoted234310, %1710 ], [ %.sink492, %.sink.split489 ]
-  %.3.i41 = phi i32 [ %.1.i38, %cmp.exit163 ], [ %.1.i38, %1323 ], [ %.11.i88, %cmp.exit ], [ %.11.i88, %1710 ], [ %.3.i41.ph, %.sink.split489 ]
+  %.promoted322 = phi i32 [ %.promoted331, %1323 ], [ %.promoted323, %cmp.exit ], [ %.promoted331, %cmp.exit163 ], [ %.promoted323, %1710 ], [ %.sink490, %.sink.split489 ]
+  %.promoted234309 = phi i32 [ %.promoted234318, %1323 ], [ %.promoted234310, %cmp.exit ], [ %.promoted234318, %cmp.exit163 ], [ %.promoted234310, %1710 ], [ %.sink492, %.sink.split489 ]
+  %.3.i41 = phi i32 [ %.1.i38, %1323 ], [ %.11.i88, %cmp.exit ], [ %.1.i38, %cmp.exit163 ], [ %.11.i88, %1710 ], [ %.3.i41.ph, %.sink.split489 ]
   %1750 = mul nsw i32 %9, %9
   %1751 = shl nsw i32 %1750, 2
   %1752 = icmp sgt i32 %.3.i41, %1751
@@ -3257,8 +3257,8 @@ cmp.exit153:                                      ; preds = %1757
   br label %1802
 
 1802:                                             ; preds = %1800, %cmp.exit153, %1757
-  %.promoted320 = phi i32 [ %1772, %1800 ], [ %.promoted322, %cmp.exit153 ], [ %.promoted322, %1757 ]
-  %.promoted234307 = phi i32 [ %.1173.i57, %1800 ], [ %.promoted234309, %cmp.exit153 ], [ %.promoted234309, %1757 ]
+  %.promoted321 = phi i32 [ %1772, %1800 ], [ %.promoted322, %cmp.exit153 ], [ %.promoted322, %1757 ]
+  %.promoted234308 = phi i32 [ %.1173.i57, %1800 ], [ %.promoted234309, %cmp.exit153 ], [ %.promoted234309, %1757 ]
   %.14.i59 = phi i32 [ %1798, %1800 ], [ %.3.i41, %cmp.exit153 ], [ %.3.i41, %1757 ]
   %1803 = load i32, ptr %1281, align 4, !tbaa !77
   %.not1164.i60 = icmp eq i32 %1803, 0
@@ -3377,8 +3377,8 @@ cmp.exit143:                                      ; preds = %1849
   br label %1894
 
 1894:                                             ; preds = %1892, %cmp.exit143, %1849
-  %.promoted321 = phi i32 [ %1864, %1892 ], [ %.promoted322, %cmp.exit143 ], [ %.promoted322, %1849 ]
-  %.promoted234308 = phi i32 [ %.1175.i63, %1892 ], [ %.promoted234309, %cmp.exit143 ], [ %.promoted234309, %1849 ]
+  %.promoted320 = phi i32 [ %1864, %1892 ], [ %.promoted322, %cmp.exit143 ], [ %.promoted322, %1849 ]
+  %.promoted234307 = phi i32 [ %.1175.i63, %1892 ], [ %.promoted234309, %cmp.exit143 ], [ %.promoted234309, %1849 ]
   %.16.i65 = phi i32 [ %1890, %1892 ], [ %.3.i41, %cmp.exit143 ], [ %.3.i41, %1849 ]
   %1895 = load i32, ptr %21, align 8, !tbaa !72
   %1896 = add nsw i32 %1895, 1
@@ -3451,9 +3451,9 @@ cmp.exit138:                                      ; preds = %1900
   br label %1946
 
 1946:                                             ; preds = %.sink.split493, %cmp.exit138, %1900, %1894, %cmp.exit148, %1804, %1802, %1749
-  %.promoted = phi i32 [ %.promoted320, %1802 ], [ %.promoted321, %1894 ], [ %.promoted322, %1749 ], [ %.promoted320, %cmp.exit148 ], [ %.promoted320, %1804 ], [ %.promoted321, %cmp.exit138 ], [ %.promoted321, %1900 ], [ %.sink494, %.sink.split493 ]
-  %.promoted234 = phi i32 [ %.promoted234307, %1802 ], [ %.promoted234308, %1894 ], [ %.promoted234309, %1749 ], [ %.promoted234307, %cmp.exit148 ], [ %.promoted234307, %1804 ], [ %.promoted234308, %cmp.exit138 ], [ %.promoted234308, %1900 ], [ %.1176.i66.sink, %.sink.split493 ]
-  %.13.i42 = phi i32 [ %.14.i59, %1802 ], [ %.16.i65, %1894 ], [ %.3.i41, %1749 ], [ %.14.i59, %cmp.exit148 ], [ %.14.i59, %1804 ], [ %.16.i65, %cmp.exit138 ], [ %.16.i65, %1900 ], [ %.13.i42.ph, %.sink.split493 ]
+  %.promoted = phi i32 [ %.promoted321, %1802 ], [ %.promoted322, %1749 ], [ %.promoted321, %1804 ], [ %.promoted320, %1894 ], [ %.promoted320, %cmp.exit138 ], [ %.promoted321, %cmp.exit148 ], [ %.promoted320, %1900 ], [ %.sink494, %.sink.split493 ]
+  %.promoted234 = phi i32 [ %.promoted234308, %1802 ], [ %.promoted234309, %1749 ], [ %.promoted234308, %1804 ], [ %.promoted234307, %1894 ], [ %.promoted234307, %cmp.exit138 ], [ %.promoted234308, %cmp.exit148 ], [ %.promoted234307, %1900 ], [ %.1176.i66.sink, %.sink.split493 ]
+  %.13.i42 = phi i32 [ %.14.i59, %1802 ], [ %.3.i41, %1749 ], [ %.14.i59, %1804 ], [ %.16.i65, %1894 ], [ %.16.i65, %cmp.exit138 ], [ %.14.i59, %cmp.exit148 ], [ %.16.i65, %1900 ], [ %.13.i42.ph, %.sink.split493 ]
   %1947 = load ptr, ptr %18, align 8, !tbaa !79
   %1948 = getelementptr inbounds nuw i8, ptr %1947, i64 264
   %1949 = load i32, ptr %1948, align 8, !tbaa !95
@@ -3903,7 +3903,7 @@ diamond_search.exit.loopexit:                     ; preds = %2195
   br label %diamond_search.exit
 
 diamond_search.exit:                              ; preds = %diamond_search.exit.loopexit, %2028, %2032, %2200, %2204, %2208, %2213, %2215
-  %.0.i191 = phi i32 [ %2029, %2028 ], [ %2033, %2032 ], [ %2201, %2200 ], [ %2205, %2204 ], [ %2210, %2208 ], [ %2214, %2213 ], [ %2216, %2215 ], [ %.7.i218, %diamond_search.exit.loopexit ]
+  %.0.i191 = phi i32 [ %2029, %2028 ], [ %2033, %2032 ], [ %2216, %2215 ], [ %2201, %2200 ], [ %2205, %2204 ], [ %2210, %2208 ], [ %2214, %2213 ], [ %.7.i218, %diamond_search.exit.loopexit ]
   %2217 = load i32, ptr %11, align 8, !tbaa !58
   store i32 %2217, ptr %1, align 4, !tbaa !58
   %2218 = getelementptr inbounds nuw i8, ptr %11, i64 4
@@ -4063,7 +4063,7 @@ define range(i32 -2147483648, 1) i32 @ff_me_init(ptr noundef %0, ptr noundef %1,
   br label %94
 
 94:                                               ; preds = %89, %79, %75, %93
-  %qpel_motion_search.sink = phi ptr [ @hpel_motion_search, %93 ], [ @qpel_motion_search, %75 ], [ @hpel_motion_search, %79 ], [ @sad_hpel_motion_search, %89 ]
+  %qpel_motion_search.sink = phi ptr [ @qpel_motion_search, %75 ], [ @hpel_motion_search, %79 ], [ @hpel_motion_search, %93 ], [ @sad_hpel_motion_search, %89 ]
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 760
   store ptr %qpel_motion_search.sink, ptr %95, align 8, !tbaa !111
   %.not87 = icmp eq i32 %72, 208
@@ -4725,7 +4725,7 @@ cmp.exit309:                                      ; preds = %248, %245
   br label %cmp_qpel.exit.us
 
 cmp_qpel.exit.us:                                 ; preds = %420, %406, %.thread.i.us
-  %.0.i310.us = phi i32 [ %452, %420 ], [ %415, %406 ], [ %405, %.thread.i.us ]
+  %.0.i310.us = phi i32 [ %415, %406 ], [ %452, %420 ], [ %405, %.thread.i.us ]
   %453 = sub nsw i32 %336, %34
   %454 = sext i32 %453 to i64
   %455 = getelementptr inbounds i8, ptr %32, i64 %454
@@ -5052,7 +5052,7 @@ cmp_qpel.exit.us:                                 ; preds = %420, %406, %.thread
   br label %cmp_qpel.exit
 
 cmp_qpel.exit:                                    ; preds = %.lr.ph.split, %475, %478, %480, %.loopexit.i
-  %.0.i310 = phi i32 [ %695, %.loopexit.i ], [ 536870912, %480 ], [ 536870912, %478 ], [ 536870912, %475 ], [ 536870912, %.lr.ph.split ]
+  %.0.i310 = phi i32 [ 536870912, %.lr.ph.split ], [ %695, %.loopexit.i ], [ 536870912, %480 ], [ 536870912, %478 ], [ 536870912, %475 ]
   %696 = sub nsw i32 %468, %34
   %697 = sext i32 %696 to i64
   %698 = getelementptr inbounds i8, ptr %32, i64 %697
@@ -6740,7 +6740,7 @@ get_limits.exit:                                  ; preds = %125, %138, %155
   br label %mid_pred.exit
 
 mid_pred.exit:                                    ; preds = %283, %285, %286, %288
-  %.0.i291 = phi i32 [ %252, %283 ], [ %252, %286 ], [ %..i, %285 ], [ %.20.i, %288 ]
+  %.0.i291 = phi i32 [ %..i, %285 ], [ %252, %286 ], [ %252, %283 ], [ %.20.i, %288 ]
   %289 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i32 %.0.i291, ptr %289, align 16, !tbaa !58
   %290 = icmp slt i32 %271, %237
@@ -6763,7 +6763,7 @@ mid_pred.exit:                                    ; preds = %283, %285, %286, %2
   br label %mid_pred.exit295
 
 mid_pred.exit295:                                 ; preds = %291, %293, %294, %296
-  %.0.i292 = phi i32 [ %271, %291 ], [ %271, %294 ], [ %..i294, %293 ], [ %.20.i293, %296 ]
+  %.0.i292 = phi i32 [ %..i294, %293 ], [ %271, %294 ], [ %271, %291 ], [ %.20.i293, %296 ]
   %297 = getelementptr inbounds nuw i8, ptr %7, i64 36
   store i32 %.0.i292, ptr %297, align 4, !tbaa !58
   %298 = getelementptr inbounds nuw i8, ptr %0, i64 496
@@ -7043,7 +7043,7 @@ ff_sqrt.exit304:                                  ; preds = %416, %475
   br label %489
 
 489:                                              ; preds = %486, %ff_sqrt.exit304
-  %.0244 = phi i32 [ 0, %ff_sqrt.exit304 ], [ %spec.select, %486 ]
+  %.0244 = phi i32 [ %spec.select, %486 ], [ 0, %ff_sqrt.exit304 ]
   %490 = shl nsw i32 %194, 1
   %491 = add nsw i32 %490, 51200
   %492 = icmp sgt i32 %491, %325
@@ -7084,7 +7084,7 @@ ff_sqrt.exit304:                                  ; preds = %416, %475
   br label %514
 
 514:                                              ; preds = %505, %497, %511
-  %.1245 = phi i32 [ %498, %497 ], [ %.0244, %511 ], [ %spec.select276, %505 ]
+  %.1245 = phi i32 [ %.0244, %511 ], [ %spec.select276, %505 ], [ %498, %497 ]
   %515 = load ptr, ptr %40, align 8, !tbaa !79
   %516 = getelementptr inbounds nuw i8, ptr %515, i64 64
   %517 = load i32, ptr %516, align 8, !tbaa !109
@@ -7284,8 +7284,8 @@ ff_sqrt.exit304:                                  ; preds = %416, %475
   br label %select.unfold
 
 select.unfold:                                    ; preds = %624, %622, %619
-  %.8 = phi i32 [ %.6, %622 ], [ %.6, %619 ], [ %spec.select359, %624 ]
-  %.4 = phi i32 [ %.2, %622 ], [ %.2, %619 ], [ %spec.select282, %624 ]
+  %.8 = phi i32 [ %.6, %622 ], [ %spec.select359, %624 ], [ %.6, %619 ]
+  %.4 = phi i32 [ %.2, %622 ], [ %spec.select282, %624 ], [ %.2, %619 ]
   %631 = load i32, ptr %5, align 4, !tbaa !58
   %632 = load i32, ptr %6, align 4, !tbaa !58
   %.not322 = icmp eq i32 %.8, 4
@@ -7834,7 +7834,7 @@ define internal fastcc i32 @h263_mv4_search(ptr noundef initializes((5216, 5224)
   br label %mid_pred.exit
 
 mid_pred.exit:                                    ; preds = %144, %146, %147, %149
-  %.0.i = phi i32 [ %117, %144 ], [ %117, %147 ], [ %..i, %146 ], [ %.20.i, %149 ]
+  %.0.i = phi i32 [ %..i, %146 ], [ %117, %147 ], [ %117, %144 ], [ %.20.i, %149 ]
   store i32 %.0.i, ptr %65, align 16, !tbaa !58
   %150 = icmp slt i32 %136, %103
   br i1 %150, label %151, label %154
@@ -7863,7 +7863,7 @@ mid_pred.exit:                                    ; preds = %144, %146, %147, %1
   br i1 %25, label %.preheader.split, label %.loopexit
 
 .thread:                                          ; preds = %156, %154, %153, %151
-  %.0.i243 = phi i32 [ %136, %151 ], [ %136, %154 ], [ %..i245, %153 ], [ %.20.i244, %156 ]
+  %.0.i243 = phi i32 [ %..i245, %153 ], [ %136, %154 ], [ %136, %151 ], [ %.20.i244, %156 ]
   store i32 %.0.i243, ptr %66, align 4, !tbaa !58
   store i32 %.0.i, ptr %67, align 8, !tbaa !16
   store i32 %.0.i243, ptr %68, align 4, !tbaa !17
@@ -7927,8 +7927,8 @@ mid_pred.exit:                                    ; preds = %144, %146, %147, %1
   br i1 %exitcond266.not, label %.loopexit, label %.preheader.split, !llvm.loop !158
 
 .loopexit:                                        ; preds = %166, %175, %.thread, %157
-  %storemerge298 = phi i32 [ %.0.i243, %.thread ], [ %103, %157 ], [ %103, %175 ], [ %.0.i243, %166 ]
-  %storemerge293296 = phi i32 [ %.0.i, %.thread ], [ %108, %157 ], [ %108, %175 ], [ %.0.i, %166 ]
+  %storemerge298 = phi i32 [ %.0.i243, %.thread ], [ %103, %175 ], [ %103, %157 ], [ %.0.i243, %166 ]
+  %storemerge293296 = phi i32 [ %.0.i, %.thread ], [ %108, %175 ], [ %108, %157 ], [ %.0.i, %166 ]
   %176 = load ptr, ptr %53, align 8, !tbaa !147
   %177 = trunc nuw nsw i64 %indvars.iv267 to i32
   %178 = call fastcc i32 @epzs_motion_search2(ptr noundef %0, ptr noundef %6, ptr noundef %7, ptr noundef %5, i32 noundef %177, i32 noundef %177, ptr noundef %176, i32 noundef %54, i32 noundef 1)
@@ -8437,7 +8437,7 @@ init_interlaced_ref.exit:                         ; preds = %6, %49
   br label %mid_pred.exit
 
 mid_pred.exit:                                    ; preds = %149, %151, %152, %154
-  %.0.i = phi i32 [ %119, %149 ], [ %119, %152 ], [ %..i, %151 ], [ %.20.i, %154 ]
+  %.0.i = phi i32 [ %..i, %151 ], [ %119, %152 ], [ %119, %149 ], [ %.20.i, %154 ]
   store i32 %.0.i, ptr %85, align 16, !tbaa !58
   %155 = icmp slt i32 %134, %108
   br i1 %155, label %156, label %159
@@ -8459,7 +8459,7 @@ mid_pred.exit:                                    ; preds = %149, %151, %152, %1
   br label %mid_pred.exit159
 
 mid_pred.exit159:                                 ; preds = %156, %158, %159, %161
-  %.0.i156 = phi i32 [ %134, %156 ], [ %134, %159 ], [ %..i158, %158 ], [ %.20.i157, %161 ]
+  %.0.i156 = phi i32 [ %..i158, %158 ], [ %134, %159 ], [ %134, %156 ], [ %.20.i157, %161 ]
   store i32 %.0.i156, ptr %86, align 4, !tbaa !58
   br label %162
 
@@ -8939,7 +8939,7 @@ get_limits.exit:                                  ; preds = %85, %98, %115
   br label %mid_pred.exit
 
 mid_pred.exit:                                    ; preds = %200, %202, %203, %205
-  %.0.i74 = phi i32 [ %171, %200 ], [ %171, %203 ], [ %..i, %202 ], [ %.20.i, %205 ]
+  %.0.i74 = phi i32 [ %..i, %202 ], [ %171, %203 ], [ %171, %200 ], [ %.20.i, %205 ]
   %206 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i32 %.0.i74, ptr %206, align 16, !tbaa !58
   %207 = icmp slt i32 %189, %153
@@ -8962,7 +8962,7 @@ mid_pred.exit:                                    ; preds = %200, %202, %203, %2
   br label %mid_pred.exit78
 
 mid_pred.exit78:                                  ; preds = %208, %210, %211, %213
-  %.0.i75 = phi i32 [ %189, %208 ], [ %189, %211 ], [ %..i77, %210 ], [ %.20.i76, %213 ]
+  %.0.i75 = phi i32 [ %..i77, %210 ], [ %189, %211 ], [ %189, %208 ], [ %.20.i76, %213 ]
   %214 = getelementptr inbounds nuw i8, ptr %7, i64 36
   store i32 %.0.i75, ptr %214, align 4, !tbaa !58
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 5176
@@ -9097,9 +9097,9 @@ init_ref.exit:                                    ; preds = %41
   br label %get_limits.exit
 
 get_limits.exit:                                  ; preds = %59, %66
-  %75 = phi i32 [ %74, %66 ], [ %65, %59 ]
-  %.pn = phi i32 [ 0, %66 ], [ -16, %59 ]
-  %76 = phi i32 [ %70, %66 ], [ %62, %59 ]
+  %75 = phi i32 [ %65, %59 ], [ %74, %66 ]
+  %.pn = phi i32 [ -16, %59 ], [ 0, %66 ]
+  %76 = phi i32 [ %62, %59 ], [ %70, %66 ]
   %77 = sub i32 %.pn, %11
   %78 = sub i32 %.pn, %12
   %79 = and i32 %56, 1
@@ -10029,7 +10029,7 @@ bidir_refine.exit:                                ; preds = %175, %530
   br label %625
 
 625:                                              ; preds = %618, %605, %614, %581
-  %.5 = phi i32 [ %.9, %614 ], [ %.9, %605 ], [ %.4142, %581 ], [ %spec.select155, %618 ]
+  %.5 = phi i32 [ %.9, %605 ], [ %spec.select155, %618 ], [ %.9, %614 ], [ %.4142, %581 ]
   %626 = trunc nuw nsw i32 %.5 to i16
   br label %627
 
@@ -10283,7 +10283,7 @@ define internal fastcc i32 @direct_search(ptr noundef initializes((2972, 2976), 
   br label %mid_pred.exit
 
 mid_pred.exit:                                    ; preds = %152, %154, %155, %157
-  %.0.i250 = phi i32 [ %.0.i243, %152 ], [ %.0.i243, %155 ], [ %..i251, %154 ], [ %.20.i, %157 ]
+  %.0.i250 = phi i32 [ %..i251, %154 ], [ %.0.i243, %155 ], [ %.0.i243, %152 ], [ %.20.i, %157 ]
   %158 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 %.0.i250, ptr %158, align 16, !tbaa !58
   %159 = icmp sgt i32 %.0.i241, %.0.i245
@@ -10306,7 +10306,7 @@ mid_pred.exit:                                    ; preds = %152, %154, %155, %1
   br label %mid_pred.exit255
 
 mid_pred.exit255:                                 ; preds = %160, %162, %163, %165
-  %.0.i252 = phi i32 [ %.0.i245, %160 ], [ %.0.i245, %163 ], [ %..i254, %162 ], [ %.20.i253, %165 ]
+  %.0.i252 = phi i32 [ %..i254, %162 ], [ %.0.i245, %163 ], [ %.0.i245, %160 ], [ %.20.i253, %165 ]
   %166 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store i32 %.0.i252, ptr %166, align 4, !tbaa !58
   br label %167
@@ -10385,9 +10385,9 @@ mid_pred.exit255:                                 ; preds = %160, %162, %163, %1
   br label %get_limits.exit
 
 get_limits.exit:                                  ; preds = %199, %204
-  %213 = phi i32 [ %212, %204 ], [ %203, %199 ]
-  %.pn = phi i32 [ 0, %204 ], [ -16, %199 ]
-  %214 = phi i32 [ %208, %204 ], [ %201, %199 ]
+  %213 = phi i32 [ %203, %199 ], [ %212, %204 ]
+  %.pn = phi i32 [ -16, %199 ], [ 0, %204 ]
+  %214 = phi i32 [ %201, %199 ], [ %208, %204 ]
   %215 = sub i32 %.pn, %192
   %216 = sub i32 %.pn, %193
   %217 = and i32 %196, 1
@@ -10488,9 +10488,9 @@ define internal fastcc i32 @estimate_motion_b(ptr noundef initializes((5160, 517
   br label %get_limits.exit
 
 get_limits.exit:                                  ; preds = %33, %40
-  %49 = phi i32 [ %48, %40 ], [ %39, %33 ]
-  %.pn = phi i32 [ 0, %40 ], [ -16, %33 ]
-  %50 = phi i32 [ %44, %40 ], [ %36, %33 ]
+  %49 = phi i32 [ %39, %33 ], [ %48, %40 ]
+  %.pn = phi i32 [ -16, %33 ], [ 0, %40 ]
+  %50 = phi i32 [ %36, %33 ], [ %44, %40 ]
   %51 = sub i32 %.pn, %24
   %52 = sub i32 %.pn, %25
   %53 = and i32 %30, 1
@@ -10618,7 +10618,7 @@ get_limits.exit:                                  ; preds = %33, %40
   br label %mid_pred.exit
 
 mid_pred.exit:                                    ; preds = %121, %123, %124, %126
-  %.0.i83 = phi i32 [ %92, %121 ], [ %92, %124 ], [ %..i, %123 ], [ %.20.i, %126 ]
+  %.0.i83 = phi i32 [ %..i, %123 ], [ %92, %124 ], [ %92, %121 ], [ %.20.i, %126 ]
   %127 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i32 %.0.i83, ptr %127, align 16, !tbaa !58
   %128 = icmp slt i32 %110, %78
@@ -10641,7 +10641,7 @@ mid_pred.exit:                                    ; preds = %121, %123, %124, %1
   br label %mid_pred.exit87
 
 mid_pred.exit87:                                  ; preds = %129, %131, %132, %134
-  %.0.i84 = phi i32 [ %110, %129 ], [ %110, %132 ], [ %..i86, %131 ], [ %.20.i85, %134 ]
+  %.0.i84 = phi i32 [ %..i86, %131 ], [ %110, %132 ], [ %110, %129 ], [ %.20.i85, %134 ]
   %135 = getelementptr inbounds nuw i8, ptr %9, i64 36
   store i32 %.0.i84, ptr %135, align 4, !tbaa !58
   br label %136
@@ -11790,7 +11790,7 @@ define internal fastcc i32 @cmp_fpel_internal(ptr noundef %0, i32 noundef %1, i3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %162, %297, %197
-  %.pre-phi26 = phi i64 [ %313, %297 ], [ %214, %197 ], [ %57, %162 ]
+  %.pre-phi26 = phi i64 [ %214, %197 ], [ %313, %297 ], [ %57, %162 ]
   %329 = getelementptr inbounds nuw i8, ptr %0, i64 5112
   %330 = load ptr, ptr %329, align 8, !tbaa !59
   %331 = load ptr, ptr %24, align 8, !tbaa !60
@@ -11870,7 +11870,7 @@ define internal fastcc i32 @cmp_fpel_internal(ptr noundef %0, i32 noundef %1, i3
   br label %cmp_direct_inline.exit
 
 cmp_direct_inline.exit:                           ; preds = %333, %352, %.loopexit, %34, %31, %27, %14
-  %.0 = phi i32 [ %332, %.loopexit ], [ 536870912, %34 ], [ 536870912, %31 ], [ 536870912, %27 ], [ 536870912, %14 ], [ %397, %352 ], [ %351, %333 ]
+  %.0 = phi i32 [ 536870912, %14 ], [ %332, %.loopexit ], [ 536870912, %34 ], [ 536870912, %31 ], [ 536870912, %27 ], [ %397, %352 ], [ %351, %333 ]
   ret i32 %.0
 }
 
@@ -12160,10 +12160,10 @@ cmp.exit:                                         ; preds = %156
   br label %194
 
 194:                                              ; preds = %191, %193, %42, %45, %48, %51, %37
-  %195 = phi i32 [ %38, %37 ], [ %38, %51 ], [ %38, %48 ], [ %38, %45 ], [ %38, %42 ], [ %190, %193 ], [ %39, %191 ]
-  %196 = phi i32 [ %39, %37 ], [ %39, %51 ], [ %39, %48 ], [ %39, %45 ], [ %39, %42 ], [ %190, %193 ], [ %39, %191 ]
-  %.1267 = phi i32 [ %.0266302, %37 ], [ %.0266302, %51 ], [ %.0266302, %48 ], [ %.0266302, %45 ], [ %.0266302, %42 ], [ 0, %193 ], [ %.0266302, %191 ]
-  %.1 = phi i32 [ %.0303, %37 ], [ %.0303, %51 ], [ %.0303, %48 ], [ %.0303, %45 ], [ %.0303, %42 ], [ %.2.lcssa, %193 ], [ %.2.lcssa, %191 ]
+  %195 = phi i32 [ %38, %42 ], [ %38, %37 ], [ %38, %51 ], [ %38, %48 ], [ %38, %45 ], [ %190, %193 ], [ %39, %191 ]
+  %196 = phi i32 [ %39, %42 ], [ %39, %37 ], [ %39, %51 ], [ %39, %48 ], [ %39, %45 ], [ %190, %193 ], [ %39, %191 ]
+  %.1267 = phi i32 [ %.0266302, %42 ], [ %.0266302, %37 ], [ %.0266302, %51 ], [ %.0266302, %48 ], [ %.0266302, %45 ], [ 0, %193 ], [ %.0266302, %191 ]
+  %.1 = phi i32 [ %.0303, %42 ], [ %.0303, %37 ], [ %.0303, %51 ], [ %.0303, %48 ], [ %.0303, %45 ], [ %.2.lcssa, %193 ], [ %.2.lcssa, %191 ]
   %197 = add nsw i32 %.1267, 1
   %198 = icmp slt i32 %.1267, 4
   br i1 %198, label %37, label %199, !llvm.loop !198
@@ -12531,7 +12531,7 @@ define internal fastcc i32 @sab_diamond_search(ptr noundef %0, ptr noundef nonnu
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit, %97, %163, %166
-  %.1582743 = phi i32 [ %164, %163 ], [ %164, %166 ], [ %98, %97 ], [ %.1582743.ph, %.thread.loopexit ]
+  %.1582743 = phi i32 [ %164, %166 ], [ %164, %163 ], [ %98, %97 ], [ %.1582743.ph, %.thread.loopexit ]
   %.not = icmp eq i32 %.1582743, 0
   br i1 %.not, label %167, label %97, !llvm.loop !210
 
@@ -12846,7 +12846,7 @@ cmp.exit683:                                      ; preds = %311
   br label %353
 
 353:                                              ; preds = %342, %301, %259, %219, %186, %177, %352
-  %.2570 = phi i32 [ %.1569769, %352 ], [ -1, %342 ], [ -1, %301 ], [ -1, %259 ], [ -1, %219 ], [ %.1569769, %177 ], [ %.1569769, %186 ]
+  %.2570 = phi i32 [ -1, %219 ], [ %.1569769, %177 ], [ %.1569769, %352 ], [ -1, %342 ], [ -1, %301 ], [ -1, %259 ], [ %.1569769, %186 ]
   %354 = add nsw i32 %.2570, 1
   %355 = icmp slt i32 %354, %168
   br i1 %355, label %177, label %._crit_edge771, !llvm.loop !216
@@ -15146,7 +15146,7 @@ define internal fastcc i32 @cmp_hpel(ptr noundef %0, i32 noundef %1, i32 noundef
   br label %cmp_direct_inline.exit
 
 cmp_direct_inline.exit:                           ; preds = %241, %254, %217, %.loopexit, %36, %33, %29, %14
-  %.0 = phi i32 [ %201, %.loopexit ], [ 536870912, %36 ], [ 536870912, %33 ], [ 536870912, %29 ], [ 536870912, %14 ], [ %295, %254 ], [ %240, %217 ], [ %250, %241 ]
+  %.0 = phi i32 [ 536870912, %14 ], [ %201, %.loopexit ], [ 536870912, %36 ], [ 536870912, %33 ], [ 536870912, %29 ], [ %295, %254 ], [ %240, %217 ], [ %250, %241 ]
   ret i32 %.0
 }
 
@@ -15711,9 +15711,9 @@ cmp.exit683:                                      ; preds = %391
   br label %438
 
 438:                                              ; preds = %.sink.split, %391, %cmp.exit683, %143, %cmp.exit689
-  %439 = phi i32 [ %144, %cmp.exit689 ], [ %144, %143 ], [ %392, %cmp.exit683 ], [ %392, %391 ], [ %.679.sink, %.sink.split ]
-  %440 = phi i32 [ %145, %cmp.exit689 ], [ %145, %143 ], [ %393, %cmp.exit683 ], [ %393, %391 ], [ %.sink, %.sink.split ]
-  %.3 = phi i32 [ %.1, %cmp.exit689 ], [ %.1, %143 ], [ %.8, %cmp.exit683 ], [ %.8, %391 ], [ %.3.ph, %.sink.split ]
+  %439 = phi i32 [ %144, %143 ], [ %392, %cmp.exit683 ], [ %144, %cmp.exit689 ], [ %392, %391 ], [ %.679.sink, %.sink.split ]
+  %440 = phi i32 [ %145, %143 ], [ %393, %cmp.exit683 ], [ %145, %cmp.exit689 ], [ %393, %391 ], [ %.sink, %.sink.split ]
+  %.3 = phi i32 [ %.1, %143 ], [ %.8, %cmp.exit683 ], [ %.1, %cmp.exit689 ], [ %.8, %391 ], [ %.3.ph, %.sink.split ]
   %441 = icmp sgt i32 %.3, 256
   br i1 %441, label %442, label %544
 
@@ -15849,9 +15849,9 @@ cmp.exit:                                         ; preds = %497
   br label %544
 
 544:                                              ; preds = %497, %542, %cmp.exit, %489, %438
-  %.promoted = phi i32 [ %490, %489 ], [ %439, %438 ], [ %.681, %542 ], [ %490, %cmp.exit ], [ %490, %497 ]
-  %.promoted692 = phi i32 [ %491, %489 ], [ %440, %438 ], [ %514, %542 ], [ %491, %cmp.exit ], [ %491, %497 ]
-  %.10 = phi i32 [ %.11, %489 ], [ %.3, %438 ], [ %540, %542 ], [ %.11, %cmp.exit ], [ %.11, %497 ]
+  %.promoted = phi i32 [ %439, %438 ], [ %490, %489 ], [ %.681, %542 ], [ %490, %cmp.exit ], [ %490, %497 ]
+  %.promoted692 = phi i32 [ %440, %438 ], [ %491, %489 ], [ %514, %542 ], [ %491, %cmp.exit ], [ %491, %497 ]
+  %.10 = phi i32 [ %.3, %438 ], [ %.11, %489 ], [ %540, %542 ], [ %.11, %cmp.exit ], [ %.11, %497 ]
   %545 = getelementptr inbounds nuw i8, ptr %0, i64 5156
   %546 = load i32, ptr %545, align 4, !tbaa !100
   %547 = icmp eq i32 %546, -1
@@ -16157,7 +16157,7 @@ diamond_search.exit.loopexit:                     ; preds = %719
   br label %diamond_search.exit
 
 diamond_search.exit:                              ; preds = %diamond_search.exit.loopexit, %548, %552, %724, %728, %732, %737, %739
-  %.0.i = phi i32 [ %549, %548 ], [ %553, %552 ], [ %725, %724 ], [ %729, %728 ], [ %734, %732 ], [ %738, %737 ], [ %740, %739 ], [ %.7.i, %diamond_search.exit.loopexit ]
+  %.0.i = phi i32 [ %549, %548 ], [ %553, %552 ], [ %740, %739 ], [ %725, %724 ], [ %729, %728 ], [ %734, %732 ], [ %738, %737 ], [ %.7.i, %diamond_search.exit.loopexit ]
   %741 = load i32, ptr %10, align 8, !tbaa !58
   store i32 %741, ptr %1, align 4, !tbaa !58
   %742 = getelementptr inbounds nuw i8, ptr %10, i64 4

@@ -96,7 +96,7 @@ define hidden i64 @X11_KeyCodeToSym(ptr noundef readonly captures(none) %0, i8 n
   br label %28
 
 28:                                               ; preds = %22, %23, %26, %11
-  %.0 = phi i8 [ %2, %11 ], [ %spec.store.select, %23 ], [ %27, %26 ], [ %21, %22 ]
+  %.0 = phi i8 [ %2, %11 ], [ %27, %26 ], [ %spec.store.select, %23 ], [ %21, %22 ]
   %29 = load ptr, ptr @X11_XkbLookupKeySym, align 8
   %30 = load ptr, ptr %8, align 8
   %31 = and i8 %.0, 3
@@ -117,7 +117,7 @@ define hidden i64 @X11_KeyCodeToSym(ptr noundef readonly captures(none) %0, i8 n
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %28, %38
-  %42 = phi i64 [ %41, %38 ], [ %spec.select, %28 ]
+  %42 = phi i64 [ %spec.select, %28 ], [ %41, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %42
@@ -385,7 +385,7 @@ X11_KeyCodeToSym.exit.thread.i:                   ; preds = %124
   br label %X11_KeyCodeToSDLScancode.exit
 
 X11_KeyCodeToSym.exit.i:                          ; preds = %128, %124
-  %131 = phi i64 [ %130, %128 ], [ %.pre.i.i, %124 ]
+  %131 = phi i64 [ %.pre.i.i, %124 ], [ %130, %128 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %132 = icmp eq i64 %131, 0
@@ -483,7 +483,7 @@ X11_KeyCodeToSym.exit.thread.i119:                ; preds = %158
   br label %X11_KeyCodeToSDLScancode.exit120
 
 X11_KeyCodeToSym.exit.i117:                       ; preds = %162, %158
-  %165 = phi i64 [ %164, %162 ], [ %.pre.i.i116, %158 ]
+  %165 = phi i64 [ %.pre.i.i116, %158 ], [ %164, %162 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %166 = icmp eq i64 %165, 0
@@ -749,7 +749,7 @@ X11_GetScrollLockModifierMask.exit:               ; preds = %..split.loop.exit1_
   br label %108
 
 108:                                              ; preds = %106, %103, %102, %92
-  %.0.i = phi i8 [ %87, %92 ], [ %spec.store.select.i, %103 ], [ %107, %106 ], [ %101, %102 ]
+  %.0.i = phi i8 [ %87, %92 ], [ %107, %106 ], [ %spec.store.select.i, %103 ], [ %101, %102 ]
   %109 = load ptr, ptr @X11_XkbLookupKeySym, align 8
   %110 = load ptr, ptr %89, align 8
   %111 = and i8 %.0.i, 3
@@ -774,7 +774,7 @@ X11_KeyCodeToSym.exit.thread:                     ; preds = %108
   br label %134
 
 X11_KeyCodeToSym.exit:                            ; preds = %108, %118
-  %122 = phi i64 [ %121, %118 ], [ %.pre.i, %108 ]
+  %122 = phi i64 [ %.pre.i, %108 ], [ %121, %118 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not40 = icmp eq i64 %122, 0
@@ -809,7 +809,7 @@ X11_KeyCodeToSym.exit:                            ; preds = %108, %118
   br label %133
 
 133:                                              ; preds = %127, %128, %129, %130, %131, %123
-  %.0 = phi i32 [ %126, %123 ], [ %132, %131 ], [ 27, %128 ], [ 8, %129 ], [ 127, %130 ], [ 13, %127 ]
+  %.0 = phi i32 [ %126, %123 ], [ %132, %131 ], [ 127, %130 ], [ 27, %128 ], [ 8, %129 ], [ 13, %127 ]
   call void @SDL_SetKeymapEntry(ptr noundef %8, i32 noundef %81, i16 noundef zeroext %125, i32 noundef %.0) #9
   br label %134
 

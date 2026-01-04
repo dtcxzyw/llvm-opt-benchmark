@@ -467,7 +467,7 @@ define internal ptr @H5HG__cache_heap_deserialize(ptr noundef readonly captures(
   br label %.loopexit
 
 .loopexit:                                        ; preds = %231, %..loopexit_crit_edge, %239, %205
-  %250 = phi ptr [ %.pre, %..loopexit_crit_edge ], [ %242, %239 ], [ %208, %205 ], [ %227, %231 ]
+  %250 = phi ptr [ %.pre, %..loopexit_crit_edge ], [ %208, %205 ], [ %242, %239 ], [ %227, %231 ]
   %251 = getelementptr inbounds nuw %struct.H5HG_obj_t, ptr %250, i64 %135
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 16
   store ptr %.0204286, ptr %252, align 8, !tbaa !30
@@ -579,7 +579,7 @@ define internal ptr @H5HG__cache_heap_deserialize(ptr noundef readonly captures(
   br label %.thread253
 
 .thread253:                                       ; preds = %14, %295, %4, %.thread248, %305
-  %.0207 = phi ptr [ null, %305 ], [ null, %.thread248 ], [ null, %4 ], [ %12, %295 ], [ null, %14 ]
+  %.0207 = phi ptr [ null, %305 ], [ null, %.thread248 ], [ null, %14 ], [ null, %4 ], [ %12, %295 ]
   ret ptr %.0207
 }
 
@@ -816,7 +816,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HG__hdr_deserialize(ptr noundef n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %85, %..loopexit_crit_edge, %93, %63
-  %102 = phi i64 [ %.pre, %..loopexit_crit_edge ], [ %101, %93 ], [ %81, %63 ], [ %91, %85 ]
+  %102 = phi i64 [ %.pre, %..loopexit_crit_edge ], [ %81, %63 ], [ %101, %93 ], [ %91, %85 ]
   %103 = icmp ult i64 %102, 4096
   br i1 %103, label %104, label %108
 

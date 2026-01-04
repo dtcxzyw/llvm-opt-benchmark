@@ -566,7 +566,7 @@ define dso_local i32 @i915_gem_evict_something(ptr noundef %0, ptr noundef %1, i
   br i1 %288, label %257, label %.thread37, !llvm.loop !31
 
 .thread37:                                        ; preds = %.loopexit43, %178, %.preheader, %263, %.thread35, %257, %.thread31, %221
-  %289 = phi i32 [ %234, %221 ], [ 0, %.thread31 ], [ -28, %.preheader ], [ -28, %263 ], [ 0, %257 ], [ %266, %.thread35 ], [ %180, %178 ], [ -28, %.loopexit43 ]
+  %289 = phi i32 [ %234, %221 ], [ 0, %.thread31 ], [ %266, %.thread35 ], [ %180, %178 ], [ -28, %.preheader ], [ -28, %263 ], [ 0, %257 ], [ -28, %.loopexit43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %289
@@ -934,7 +934,7 @@ define dso_local i32 @i915_gem_evict_for_node(ptr noundef %0, ptr noundef %1, pt
   br i1 %166, label %.split, label %.loopexit18, !llvm.loop !40
 
 .loopexit18:                                      ; preds = %.split, %144, %149, %153, %160, %110, %103, %98, %.split.us, %.thread13
-  %167 = phi i32 [ 0, %.thread13 ], [ -28, %103 ], [ -28, %98 ], [ -28, %.split.us ], [ 0, %110 ], [ -28, %153 ], [ -28, %149 ], [ -28, %144 ], [ -28, %.split ], [ 0, %160 ]
+  %167 = phi i32 [ 0, %.thread13 ], [ -28, %.split.us ], [ -28, %103 ], [ 0, %110 ], [ -28, %98 ], [ -28, %153 ], [ -28, %149 ], [ -28, %144 ], [ -28, %.split ], [ 0, %160 ]
   %168 = load ptr, ptr %5, align 8
   %169 = icmp eq ptr %168, %5
   br i1 %169, label %.loopexit, label %.preheader

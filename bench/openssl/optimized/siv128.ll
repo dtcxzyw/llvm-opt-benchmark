@@ -144,7 +144,7 @@ define range(i32 0, 2) i32 @ossl_siv128_init(ptr noundef %0, ptr noundef %1, i32
   br label %57
 
 57:                                               ; preds = %13, %7, %54, %50
-  %.0 = phi i32 [ 0, %50 ], [ 1, %54 ], [ 0, %7 ], [ 0, %13 ]
+  %.0 = phi i32 [ 1, %54 ], [ 0, %7 ], [ 0, %50 ], [ 0, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
@@ -359,7 +359,7 @@ siv128_do_encrypt.exit:                           ; preds = %13
   br label %28
 
 28:                                               ; preds = %siv128_do_encrypt.exit.thread, %siv128_do_encrypt.exit, %10, %4, %26
-  %.0 = phi i32 [ %23, %26 ], [ 0, %4 ], [ 0, %10 ], [ 0, %siv128_do_encrypt.exit ], [ 0, %siv128_do_encrypt.exit.thread ]
+  %.0 = phi i32 [ 0, %4 ], [ %23, %26 ], [ 0, %10 ], [ 0, %siv128_do_encrypt.exit ], [ 0, %siv128_do_encrypt.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -444,7 +444,7 @@ define internal fastcc range(i32 0, 2) i32 @siv128_do_s2v_p(ptr noundef captures
   br label %51
 
 51:                                               ; preds = %46, %27, %16, %13
-  %.0 = phi i32 [ 0, %16 ], [ 0, %13 ], [ 0, %27 ], [ %spec.select, %46 ]
+  %.0 = phi i32 [ %spec.select, %46 ], [ 0, %27 ], [ 0, %16 ], [ 0, %13 ]
   call void @EVP_MAC_CTX_free(ptr noundef nonnull %9) #10
   br label %52
 
@@ -534,7 +534,7 @@ siv128_do_encrypt.exit:                           ; preds = %11
   br label %40
 
 40:                                               ; preds = %siv128_do_encrypt.exit.thread, %siv128_do_encrypt.exit, %25, %4, %38, %37
-  %.020 = phi i32 [ 0, %37 ], [ %22, %38 ], [ 0, %4 ], [ 0, %25 ], [ 0, %siv128_do_encrypt.exit ], [ 0, %siv128_do_encrypt.exit.thread ]
+  %.020 = phi i32 [ 0, %4 ], [ 0, %37 ], [ %22, %38 ], [ 0, %25 ], [ 0, %siv128_do_encrypt.exit ], [ 0, %siv128_do_encrypt.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.020

@@ -1134,7 +1134,7 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_rx17hcc5e
   br label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h70ede7414087fc02E.exit"
 
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h70ede7414087fc02E.exit30": ; preds = %31, %13, %16
-  %.pn.pn = phi { ptr, i32 } [ %14, %16 ], [ %14, %13 ], [ %32, %31 ]
+  %.pn.pn = phi { ptr, i32 } [ %14, %13 ], [ %32, %31 ], [ %14, %16 ]
   resume { ptr, i32 } %.pn.pn
 
 13:                                               ; preds = %5
@@ -1225,7 +1225,7 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_rx17hd934
   br label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h70ede7414087fc02E.exit"
 
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h70ede7414087fc02E.exit30": ; preds = %32, %14, %17
-  %.pn.pn = phi { ptr, i32 } [ %15, %17 ], [ %15, %14 ], [ %33, %32 ]
+  %.pn.pn = phi { ptr, i32 } [ %15, %14 ], [ %33, %32 ], [ %15, %17 ]
   resume { ptr, i32 } %.pn.pn
 
 14:                                               ; preds = %5
@@ -1330,7 +1330,7 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17h1a15
   unreachable
 
 "_ZN4core3ptr110drop_in_place$LT$futures_channel..lock..TryLock$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$GT$17h14adcbefbba84c8eE.exit26": ; preds = %13, %32
-  %.pn18 = phi { ptr, i32 } [ %33, %32 ], [ %14, %13 ]
+  %.pn18 = phi { ptr, i32 } [ %14, %13 ], [ %33, %32 ]
   resume { ptr, i32 } %.pn18
 
 19:                                               ; preds = %5
@@ -1414,7 +1414,7 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17hcc7a
   unreachable
 
 "_ZN4core3ptr110drop_in_place$LT$futures_channel..lock..TryLock$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$GT$17h14adcbefbba84c8eE.exit26": ; preds = %12, %31
-  %.pn18 = phi { ptr, i32 } [ %32, %31 ], [ %13, %12 ]
+  %.pn18 = phi { ptr, i32 } [ %13, %12 ], [ %32, %31 ]
   resume { ptr, i32 } %.pn18
 
 18:                                               ; preds = %5

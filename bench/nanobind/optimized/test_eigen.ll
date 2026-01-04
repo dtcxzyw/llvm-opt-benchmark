@@ -3511,8 +3511,8 @@ define linkonce_odr hidden ptr @_ZN8nanobind6detail11type_casterIN5Eigen6MatrixI
   br label %20
 
 20:                                               ; preds = %11, %.thread, %12, %15
-  %.sroa.01.0.copyload = phi ptr [ %14, %15 ], [ null, %12 ], [ null, %11 ], [ null, %.thread ]
-  %.1 = phi i32 [ 5, %15 ], [ 6, %12 ], [ %1, %11 ], [ %.0.ph, %.thread ]
+  %.sroa.01.0.copyload = phi ptr [ null, %11 ], [ %14, %15 ], [ null, %12 ], [ null, %.thread ]
+  %.1 = phi i32 [ %1, %11 ], [ 5, %15 ], [ 6, %12 ], [ %.0.ph, %.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %21 = invoke noundef ptr @_ZN8nanobind6detail14ndarray_createEPvmPKmP7_objectPKlNS_6dlpack5dtypeEbiic(ptr noundef nonnull %0, i64 noundef 1, ptr noundef nonnull %5, ptr noundef %.sroa.01.0.copyload, ptr noundef nonnull %6, i32 73728, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0, i8 noundef signext 67) #31
           to label %22 unwind label %27
@@ -3708,8 +3708,8 @@ define linkonce_odr hidden ptr @_ZN8nanobind6detail11type_casterIN5Eigen6MatrixI
   br label %20
 
 20:                                               ; preds = %11, %.thread, %12, %15
-  %.sroa.01.0.copyload = phi ptr [ %14, %15 ], [ null, %12 ], [ null, %11 ], [ null, %.thread ]
-  %.1 = phi i32 [ 5, %15 ], [ 6, %12 ], [ %1, %11 ], [ %.0.ph, %.thread ]
+  %.sroa.01.0.copyload = phi ptr [ null, %11 ], [ %14, %15 ], [ null, %12 ], [ null, %.thread ]
+  %.1 = phi i32 [ %1, %11 ], [ 5, %15 ], [ 6, %12 ], [ %.0.ph, %.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %21 = invoke noundef ptr @_ZN8nanobind6detail14ndarray_createEPvmPKmP7_objectPKlNS_6dlpack5dtypeEbiic(ptr noundef nonnull %0, i64 noundef 1, ptr noundef nonnull %5, ptr noundef %.sroa.01.0.copyload, ptr noundef nonnull %6, i32 73728, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0, i8 noundef signext 67) #31
           to label %22 unwind label %27
@@ -4289,8 +4289,8 @@ define linkonce_odr hidden ptr @_ZN8nanobind6detail11type_casterIN5Eigen5ArrayIi
   br label %20
 
 20:                                               ; preds = %11, %.thread, %12, %15
-  %.sroa.01.0.copyload = phi ptr [ %14, %15 ], [ null, %12 ], [ null, %11 ], [ null, %.thread ]
-  %.1 = phi i32 [ 5, %15 ], [ 6, %12 ], [ %1, %11 ], [ %.0.ph, %.thread ]
+  %.sroa.01.0.copyload = phi ptr [ null, %.thread ], [ %14, %15 ], [ null, %12 ], [ null, %11 ]
+  %.1 = phi i32 [ %.0.ph, %.thread ], [ 5, %15 ], [ 6, %12 ], [ %1, %11 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %21 = invoke noundef ptr @_ZN8nanobind6detail14ndarray_createEPvmPKmP7_objectPKlNS_6dlpack5dtypeEbiic(ptr noundef nonnull %0, i64 noundef 1, ptr noundef nonnull %5, ptr noundef %.sroa.01.0.copyload, ptr noundef nonnull %6, i32 73728, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0, i8 noundef signext 67) #31
           to label %22 unwind label %27
@@ -4712,7 +4712,7 @@ define linkonce_odr hidden ptr @_ZN8nanobind6detail11type_casterIN5Eigen6MatrixI
           to label %20 unwind label %40
 
 .thread:                                          ; preds = %15, %3, %16
-  %.0.ph = phi i32 [ 5, %15 ], [ 3, %3 ], [ 3, %16 ]
+  %.0.ph = phi i32 [ 3, %3 ], [ 5, %15 ], [ 3, %16 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !77
   br label %33
@@ -4763,9 +4763,9 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2ERKS1_.exit: ; preds = %20
   br label %33
 
 33:                                               ; preds = %19, %.thread, %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2ERKS1_.exit, %25, %28
-  %.sroa.01.0.copyload = phi ptr [ %27, %28 ], [ null, %25 ], [ %21, %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2ERKS1_.exit ], [ null, %19 ], [ null, %.thread ]
-  %.017 = phi ptr [ %14, %28 ], [ %14, %25 ], [ %24, %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2ERKS1_.exit ], [ %14, %19 ], [ %14, %.thread ]
-  %.1 = phi i32 [ 5, %28 ], [ 6, %25 ], [ 5, %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2ERKS1_.exit ], [ %1, %19 ], [ %.0.ph, %.thread ]
+  %.sroa.01.0.copyload = phi ptr [ null, %19 ], [ %27, %28 ], [ null, %25 ], [ %21, %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2ERKS1_.exit ], [ null, %.thread ]
+  %.017 = phi ptr [ %14, %19 ], [ %14, %28 ], [ %14, %25 ], [ %24, %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2ERKS1_.exit ], [ %14, %.thread ]
+  %.1 = phi i32 [ %1, %19 ], [ 5, %28 ], [ 6, %25 ], [ 5, %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2ERKS1_.exit ], [ %.0.ph, %.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %34 = invoke noundef ptr @_ZN8nanobind6detail14ndarray_createEPvmPKmP7_objectPKlNS_6dlpack5dtypeEbiic(ptr noundef %.017, i64 noundef 1, ptr noundef nonnull %6, ptr noundef %.sroa.01.0.copyload, ptr noundef nonnull %7, i32 73728, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0, i8 noundef signext 67) #31
           to label %35 unwind label %40
@@ -5234,8 +5234,8 @@ define linkonce_odr hidden ptr @_ZN8nanobind6detail11type_casterIN5Eigen6MatrixI
   br label %22
 
 22:                                               ; preds = %13, %.thread, %14, %17
-  %.sroa.01.0.copyload = phi ptr [ %16, %17 ], [ null, %14 ], [ null, %13 ], [ null, %.thread ]
-  %.1 = phi i32 [ 5, %17 ], [ 6, %14 ], [ %1, %13 ], [ %.0.ph, %.thread ]
+  %.sroa.01.0.copyload = phi ptr [ null, %13 ], [ %16, %17 ], [ null, %14 ], [ null, %.thread ]
+  %.1 = phi i32 [ %1, %13 ], [ 5, %17 ], [ 6, %14 ], [ %.0.ph, %.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %23 = invoke noundef ptr @_ZN8nanobind6detail14ndarray_createEPvmPKmP7_objectPKlNS_6dlpack5dtypeEbiic(ptr noundef nonnull %0, i64 noundef 2, ptr noundef nonnull %5, ptr noundef %.sroa.01.0.copyload, ptr noundef nonnull %6, i32 73729, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0, i8 noundef signext 70) #31
           to label %24 unwind label %29
@@ -5568,7 +5568,7 @@ define linkonce_odr hidden ptr @_ZN8nanobind6detail11type_casterIN5Eigen6MatrixI
           to label %25 unwind label %45
 
 .thread:                                          ; preds = %19, %3, %20
-  %.0.ph = phi i32 [ 5, %19 ], [ 3, %3 ], [ 3, %20 ]
+  %.0.ph = phi i32 [ 3, %3 ], [ 5, %19 ], [ 3, %20 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !77
   br label %38
@@ -5619,9 +5619,9 @@ _ZN5Eigen6MatrixIjLin1ELin1ELi0ELin1ELin1EEC2ERKS1_.exit: ; preds = %25
   br label %38
 
 38:                                               ; preds = %24, %.thread, %_ZN5Eigen6MatrixIjLin1ELin1ELi0ELin1ELin1EEC2ERKS1_.exit, %30, %33
-  %.sroa.01.0.copyload = phi ptr [ %32, %33 ], [ null, %30 ], [ %26, %_ZN5Eigen6MatrixIjLin1ELin1ELi0ELin1ELin1EEC2ERKS1_.exit ], [ null, %24 ], [ null, %.thread ]
-  %.019 = phi ptr [ %18, %33 ], [ %18, %30 ], [ %29, %_ZN5Eigen6MatrixIjLin1ELin1ELi0ELin1ELin1EEC2ERKS1_.exit ], [ %18, %24 ], [ %18, %.thread ]
-  %.1 = phi i32 [ 5, %33 ], [ 6, %30 ], [ 5, %_ZN5Eigen6MatrixIjLin1ELin1ELi0ELin1ELin1EEC2ERKS1_.exit ], [ %1, %24 ], [ %.0.ph, %.thread ]
+  %.sroa.01.0.copyload = phi ptr [ null, %24 ], [ %32, %33 ], [ null, %30 ], [ %26, %_ZN5Eigen6MatrixIjLin1ELin1ELi0ELin1ELin1EEC2ERKS1_.exit ], [ null, %.thread ]
+  %.019 = phi ptr [ %18, %24 ], [ %18, %33 ], [ %18, %30 ], [ %29, %_ZN5Eigen6MatrixIjLin1ELin1ELi0ELin1ELin1EEC2ERKS1_.exit ], [ %18, %.thread ]
+  %.1 = phi i32 [ %1, %24 ], [ 5, %33 ], [ 6, %30 ], [ 5, %_ZN5Eigen6MatrixIjLin1ELin1ELi0ELin1ELin1EEC2ERKS1_.exit ], [ %.0.ph, %.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %39 = invoke noundef ptr @_ZN8nanobind6detail14ndarray_createEPvmPKmP7_objectPKlNS_6dlpack5dtypeEbiic(ptr noundef %.019, i64 noundef 2, ptr noundef nonnull %6, ptr noundef %.sroa.01.0.copyload, ptr noundef nonnull %7, i32 73729, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0, i8 noundef signext 70) #31
           to label %40 unwind label %45
@@ -6199,8 +6199,8 @@ define linkonce_odr hidden ptr @_ZN8nanobind6detail11type_casterIN5Eigen6MatrixI
   br label %22
 
 22:                                               ; preds = %13, %.thread, %14, %17
-  %.sroa.01.0.copyload = phi ptr [ %16, %17 ], [ null, %14 ], [ null, %13 ], [ null, %.thread ]
-  %.1 = phi i32 [ 5, %17 ], [ 6, %14 ], [ %1, %13 ], [ %.0.ph, %.thread ]
+  %.sroa.01.0.copyload = phi ptr [ null, %13 ], [ %16, %17 ], [ null, %14 ], [ null, %.thread ]
+  %.1 = phi i32 [ %1, %13 ], [ 5, %17 ], [ 6, %14 ], [ %.0.ph, %.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %23 = invoke noundef ptr @_ZN8nanobind6detail14ndarray_createEPvmPKmP7_objectPKlNS_6dlpack5dtypeEbiic(ptr noundef nonnull %0, i64 noundef 2, ptr noundef nonnull %5, ptr noundef %.sroa.01.0.copyload, ptr noundef nonnull %6, i32 73729, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0, i8 noundef signext 67) #31
           to label %24 unwind label %29
@@ -6533,7 +6533,7 @@ define linkonce_odr hidden ptr @_ZN8nanobind6detail11type_casterIN5Eigen6MatrixI
           to label %25 unwind label %45
 
 .thread:                                          ; preds = %19, %3, %20
-  %.0.ph = phi i32 [ 5, %19 ], [ 3, %3 ], [ 3, %20 ]
+  %.0.ph = phi i32 [ 3, %3 ], [ 5, %19 ], [ 3, %20 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !77
   br label %38
@@ -6584,9 +6584,9 @@ _ZN5Eigen6MatrixIjLin1ELin1ELi1ELin1ELin1EEC2ERKS1_.exit: ; preds = %25
   br label %38
 
 38:                                               ; preds = %24, %.thread, %_ZN5Eigen6MatrixIjLin1ELin1ELi1ELin1ELin1EEC2ERKS1_.exit, %30, %33
-  %.sroa.01.0.copyload = phi ptr [ %32, %33 ], [ null, %30 ], [ %26, %_ZN5Eigen6MatrixIjLin1ELin1ELi1ELin1ELin1EEC2ERKS1_.exit ], [ null, %24 ], [ null, %.thread ]
-  %.019 = phi ptr [ %18, %33 ], [ %18, %30 ], [ %29, %_ZN5Eigen6MatrixIjLin1ELin1ELi1ELin1ELin1EEC2ERKS1_.exit ], [ %18, %24 ], [ %18, %.thread ]
-  %.1 = phi i32 [ 5, %33 ], [ 6, %30 ], [ 5, %_ZN5Eigen6MatrixIjLin1ELin1ELi1ELin1ELin1EEC2ERKS1_.exit ], [ %1, %24 ], [ %.0.ph, %.thread ]
+  %.sroa.01.0.copyload = phi ptr [ null, %24 ], [ %32, %33 ], [ null, %30 ], [ %26, %_ZN5Eigen6MatrixIjLin1ELin1ELi1ELin1ELin1EEC2ERKS1_.exit ], [ null, %.thread ]
+  %.019 = phi ptr [ %18, %24 ], [ %18, %33 ], [ %18, %30 ], [ %29, %_ZN5Eigen6MatrixIjLin1ELin1ELi1ELin1ELin1EEC2ERKS1_.exit ], [ %18, %.thread ]
+  %.1 = phi i32 [ %1, %24 ], [ 5, %33 ], [ 6, %30 ], [ 5, %_ZN5Eigen6MatrixIjLin1ELin1ELi1ELin1ELin1EEC2ERKS1_.exit ], [ %.0.ph, %.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %39 = invoke noundef ptr @_ZN8nanobind6detail14ndarray_createEPvmPKmP7_objectPKlNS_6dlpack5dtypeEbiic(ptr noundef %.019, i64 noundef 2, ptr noundef nonnull %6, ptr noundef %.sroa.01.0.copyload, ptr noundef nonnull %7, i32 73729, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0, i8 noundef signext 67) #31
           to label %40 unwind label %45
@@ -11849,7 +11849,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   br i1 %exitcond102.not, label %.loopexit, label %.lr.ph94, !llvm.loop !689
 
 .loopexit:                                        ; preds = %.lr.ph89, %.lr.ph94, %.preheader, %64
-  %.2 = phi i32 [ %65, %64 ], [ %.075.lcssa, %.preheader ], [ %69, %.lr.ph94 ], [ %61, %.lr.ph89 ]
+  %.2 = phi i32 [ %69, %.lr.ph94 ], [ %65, %64 ], [ %.075.lcssa, %.preheader ], [ %61, %.lr.ph89 ]
   ret i32 %.2
 }
 
@@ -12163,7 +12163,7 @@ _ZN5Eigen12SparseMatrixIfLi1EiE7reserveEl.exit._crit_edge: ; preds = %_ZN5Eigen1
   br i1 %48, label %42, label %.critedge.i, !llvm.loop !692
 
 .critedge.i:                                      ; preds = %46, %42
-  %.0.lcssa.i = phi i64 [ %.08.i, %42 ], [ -1, %46 ]
+  %.0.lcssa.i = phi i64 [ -1, %46 ], [ %.08.i, %42 ]
   %.not.not11.i = icmp slt i64 %.0.lcssa.i, %39
   br i1 %.not.not11.i, label %.lr.ph13.i, label %_ZN5Eigen12SparseMatrixIfLi1EiE8finalizeEv.exit
 
@@ -12317,7 +12317,7 @@ _ZN5Eigen12SparseMatrixIfLi1EiE7reserveEl.exit53._crit_edge: ; preds = %_ZN5Eige
   br i1 %128, label %122, label %.critedge.i56, !llvm.loop !692
 
 .critedge.i56:                                    ; preds = %126, %122
-  %.0.lcssa.i57 = phi i64 [ %.08.i55, %122 ], [ -1, %126 ]
+  %.0.lcssa.i57 = phi i64 [ -1, %126 ], [ %.08.i55, %122 ]
   %.not.not11.i58 = icmp slt i64 %.0.lcssa.i57, %.pre123
   br i1 %.not.not11.i58, label %.lr.ph13.i59, label %.loopexit
 
@@ -12962,12 +12962,12 @@ _ZN5Eigen8internal15unary_evaluatorINS_10SparseViewINS_6MatrixIfLin1ELin1ELi0ELi
   ret ptr %0
 
 181:                                              ; preds = %131, %113
-  %.pn39 = phi { ptr, i32 } [ %114, %113 ], [ %lpad.phi, %131 ]
+  %.pn39 = phi { ptr, i32 } [ %lpad.phi, %131 ], [ %114, %113 ]
   call void @free(ptr noundef %.sroa.0.078) #32
   br label %.body46
 
 .body46:                                          ; preds = %181, %71, %89
-  %.pn42.pn = phi { ptr, i32 } [ %lpad.phi61, %89 ], [ %.pn39, %181 ], [ %72, %71 ]
+  %.pn42.pn = phi { ptr, i32 } [ %72, %71 ], [ %.pn39, %181 ], [ %lpad.phi61, %89 ]
   call void @_ZN5Eigen12SparseMatrixIfLi1EiED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %5) #32
   br label %.body
 
@@ -13745,7 +13745,7 @@ _ZN5Eigen12SparseMatrixIfLi0EiE7reserveEl.exit._crit_edge: ; preds = %_ZN5Eigen1
   br i1 %48, label %42, label %.critedge.i, !llvm.loop !740
 
 .critedge.i:                                      ; preds = %46, %42
-  %.0.lcssa.i = phi i64 [ %.08.i, %42 ], [ -1, %46 ]
+  %.0.lcssa.i = phi i64 [ -1, %46 ], [ %.08.i, %42 ]
   %.not.not11.i = icmp slt i64 %.0.lcssa.i, %39
   br i1 %.not.not11.i, label %.lr.ph13.i, label %_ZN5Eigen12SparseMatrixIfLi0EiE8finalizeEv.exit
 
@@ -13899,7 +13899,7 @@ _ZN5Eigen12SparseMatrixIfLi0EiE7reserveEl.exit53._crit_edge: ; preds = %_ZN5Eige
   br i1 %128, label %122, label %.critedge.i56, !llvm.loop !740
 
 .critedge.i56:                                    ; preds = %126, %122
-  %.0.lcssa.i57 = phi i64 [ %.08.i55, %122 ], [ -1, %126 ]
+  %.0.lcssa.i57 = phi i64 [ -1, %126 ], [ %.08.i55, %122 ]
   %.not.not11.i58 = icmp slt i64 %.0.lcssa.i57, %.pre123
   br i1 %.not.not11.i58, label %.lr.ph13.i59, label %.loopexit
 
@@ -14174,7 +14174,7 @@ _ZN5Eigen12SparseMatrixIfLi0EiE7reserveEl.exit._crit_edge: ; preds = %_ZN5Eigen1
   br i1 %58, label %52, label %.critedge.i, !llvm.loop !740
 
 .critedge.i:                                      ; preds = %56, %52
-  %.0.lcssa.i = phi i64 [ %.08.i, %52 ], [ -1, %56 ]
+  %.0.lcssa.i = phi i64 [ -1, %56 ], [ %.08.i, %52 ]
   %.not.not11.i = icmp slt i64 %.0.lcssa.i, %49
   br i1 %.not.not11.i, label %.lr.ph13.i, label %_ZN5Eigen12SparseMatrixIfLi0EiE8finalizeEv.exit
 
@@ -14352,7 +14352,7 @@ _ZN5Eigen12SparseMatrixIfLi0EiE7reserveEl.exit53._crit_edge: ; preds = %_ZN5Eige
   br i1 %141, label %135, label %.critedge.i56, !llvm.loop !740
 
 .critedge.i56:                                    ; preds = %139, %135
-  %.0.lcssa.i57 = phi i64 [ %.08.i55, %135 ], [ -1, %139 ]
+  %.0.lcssa.i57 = phi i64 [ -1, %139 ], [ %.08.i55, %135 ]
   %.not.not11.i58 = icmp slt i64 %.0.lcssa.i57, %.pre99
   br i1 %.not.not11.i58, label %.lr.ph13.i59, label %.loopexit89
 
@@ -15037,7 +15037,7 @@ _ZN8nanobind3lenENS_6handleE.exit:                ; preds = %_ZNK8nanobind6detai
   br label %155
 
 155:                                              ; preds = %126, %_ZN8nanobind3lenENS_6handleE.exit, %154
-  %.6 = phi i1 [ true, %154 ], [ false, %_ZN8nanobind3lenENS_6handleE.exit ], [ false, %126 ]
+  %.6 = phi i1 [ false, %_ZN8nanobind3lenENS_6handleE.exit ], [ true, %154 ], [ false, %126 ]
   %156 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %19) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %157 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %17) #32
@@ -15045,7 +15045,7 @@ _ZN8nanobind3lenENS_6handleE.exit:                ; preds = %_ZNK8nanobind6detai
   br label %158
 
 158:                                              ; preds = %_ZNK8nanobind6detail8accessorINS0_8str_attrEEcvT_INS_6objectETnNSt9enable_ifIXsr3stdE12is_base_of_vIS6_S4_EEiE4typeELi0EEEv.exit80, %_ZNK8nanobind6detail8accessorINS0_8str_attrEEcvT_INS_6objectETnNSt9enable_ifIXsr3stdE12is_base_of_vIS6_S4_EEiE4typeELi0EEEv.exit84, %155, %59, %_ZNK8nanobind6detail8accessorINS0_8str_attrEEcvT_INS_6objectETnNSt9enable_ifIXsr3stdE12is_base_of_vIS6_S4_EEiE4typeELi0EEEv.exit76
-  %.0 = phi i1 [ false, %_ZNK8nanobind6detail8accessorINS0_8str_attrEEcvT_INS_6objectETnNSt9enable_ifIXsr3stdE12is_base_of_vIS6_S4_EEiE4typeELi0EEEv.exit76 ], [ false, %59 ], [ false, %_ZNK8nanobind6detail8accessorINS0_8str_attrEEcvT_INS_6objectETnNSt9enable_ifIXsr3stdE12is_base_of_vIS6_S4_EEiE4typeELi0EEEv.exit80 ], [ %.6, %155 ], [ false, %_ZNK8nanobind6detail8accessorINS0_8str_attrEEcvT_INS_6objectETnNSt9enable_ifIXsr3stdE12is_base_of_vIS6_S4_EEiE4typeELi0EEEv.exit84 ]
+  %.0 = phi i1 [ false, %59 ], [ false, %_ZNK8nanobind6detail8accessorINS0_8str_attrEEcvT_INS_6objectETnNSt9enable_ifIXsr3stdE12is_base_of_vIS6_S4_EEiE4typeELi0EEEv.exit76 ], [ false, %_ZNK8nanobind6detail8accessorINS0_8str_attrEEcvT_INS_6objectETnNSt9enable_ifIXsr3stdE12is_base_of_vIS6_S4_EEiE4typeELi0EEEv.exit80 ], [ %.6, %155 ], [ false, %_ZNK8nanobind6detail8accessorINS0_8str_attrEEcvT_INS_6objectETnNSt9enable_ifIXsr3stdE12is_base_of_vIS6_S4_EEiE4typeELi0EEEv.exit84 ]
   %159 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
@@ -15453,7 +15453,7 @@ _ZN5Eigen12SparseMatrixIfLi1EiE7reserveEl.exit._crit_edge: ; preds = %_ZN5Eigen1
   br i1 %48, label %42, label %.critedge.i, !llvm.loop !692
 
 .critedge.i:                                      ; preds = %46, %42
-  %.0.lcssa.i = phi i64 [ %.08.i, %42 ], [ -1, %46 ]
+  %.0.lcssa.i = phi i64 [ -1, %46 ], [ %.08.i, %42 ]
   %.not.not11.i = icmp slt i64 %.0.lcssa.i, %39
   br i1 %.not.not11.i, label %.lr.ph13.i, label %_ZN5Eigen12SparseMatrixIfLi1EiE8finalizeEv.exit
 
@@ -15607,7 +15607,7 @@ _ZN5Eigen12SparseMatrixIfLi1EiE7reserveEl.exit53._crit_edge: ; preds = %_ZN5Eige
   br i1 %128, label %122, label %.critedge.i56, !llvm.loop !692
 
 .critedge.i56:                                    ; preds = %126, %122
-  %.0.lcssa.i57 = phi i64 [ %.08.i55, %122 ], [ -1, %126 ]
+  %.0.lcssa.i57 = phi i64 [ -1, %126 ], [ %.08.i55, %122 ]
   %.not.not11.i58 = icmp slt i64 %.0.lcssa.i57, %.pre113
   br i1 %.not.not11.i58, label %.lr.ph13.i59, label %.loopexit
 
@@ -16270,7 +16270,7 @@ _ZN8nanobind3lenENS_6handleE.exit:                ; preds = %_ZNK8nanobind6detai
   br label %155
 
 155:                                              ; preds = %126, %_ZN8nanobind3lenENS_6handleE.exit, %154
-  %.6 = phi i1 [ true, %154 ], [ false, %_ZN8nanobind3lenENS_6handleE.exit ], [ false, %126 ]
+  %.6 = phi i1 [ false, %_ZN8nanobind3lenENS_6handleE.exit ], [ true, %154 ], [ false, %126 ]
   %156 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %19) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %157 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %17) #32
@@ -16278,7 +16278,7 @@ _ZN8nanobind3lenENS_6handleE.exit:                ; preds = %_ZNK8nanobind6detai
   br label %158
 
 158:                                              ; preds = %_ZNK8nanobind6detail8accessorINS0_8str_attrEEcvT_INS_6objectETnNSt9enable_ifIXsr3stdE12is_base_of_vIS6_S4_EEiE4typeELi0EEEv.exit80, %_ZNK8nanobind6detail8accessorINS0_8str_attrEEcvT_INS_6objectETnNSt9enable_ifIXsr3stdE12is_base_of_vIS6_S4_EEiE4typeELi0EEEv.exit84, %155, %59, %_ZNK8nanobind6detail8accessorINS0_8str_attrEEcvT_INS_6objectETnNSt9enable_ifIXsr3stdE12is_base_of_vIS6_S4_EEiE4typeELi0EEEv.exit76
-  %.0 = phi i1 [ false, %_ZNK8nanobind6detail8accessorINS0_8str_attrEEcvT_INS_6objectETnNSt9enable_ifIXsr3stdE12is_base_of_vIS6_S4_EEiE4typeELi0EEEv.exit76 ], [ false, %59 ], [ false, %_ZNK8nanobind6detail8accessorINS0_8str_attrEEcvT_INS_6objectETnNSt9enable_ifIXsr3stdE12is_base_of_vIS6_S4_EEiE4typeELi0EEEv.exit80 ], [ %.6, %155 ], [ false, %_ZNK8nanobind6detail8accessorINS0_8str_attrEEcvT_INS_6objectETnNSt9enable_ifIXsr3stdE12is_base_of_vIS6_S4_EEiE4typeELi0EEEv.exit84 ]
+  %.0 = phi i1 [ false, %59 ], [ false, %_ZNK8nanobind6detail8accessorINS0_8str_attrEEcvT_INS_6objectETnNSt9enable_ifIXsr3stdE12is_base_of_vIS6_S4_EEiE4typeELi0EEEv.exit76 ], [ false, %_ZNK8nanobind6detail8accessorINS0_8str_attrEEcvT_INS_6objectETnNSt9enable_ifIXsr3stdE12is_base_of_vIS6_S4_EEiE4typeELi0EEEv.exit80 ], [ %.6, %155 ], [ false, %_ZNK8nanobind6detail8accessorINS0_8str_attrEEcvT_INS_6objectETnNSt9enable_ifIXsr3stdE12is_base_of_vIS6_S4_EEiE4typeELi0EEEv.exit84 ]
   %159 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
@@ -16436,7 +16436,7 @@ _ZN5Eigen12SparseMatrixIfLi0EiE7reserveEl.exit._crit_edge: ; preds = %_ZN5Eigen1
   br i1 %48, label %42, label %.critedge.i, !llvm.loop !740
 
 .critedge.i:                                      ; preds = %46, %42
-  %.0.lcssa.i = phi i64 [ %.08.i, %42 ], [ -1, %46 ]
+  %.0.lcssa.i = phi i64 [ -1, %46 ], [ %.08.i, %42 ]
   %.not.not11.i = icmp slt i64 %.0.lcssa.i, %39
   br i1 %.not.not11.i, label %.lr.ph13.i, label %_ZN5Eigen12SparseMatrixIfLi0EiE8finalizeEv.exit
 
@@ -16590,7 +16590,7 @@ _ZN5Eigen12SparseMatrixIfLi0EiE7reserveEl.exit53._crit_edge: ; preds = %_ZN5Eige
   br i1 %128, label %122, label %.critedge.i56, !llvm.loop !740
 
 .critedge.i56:                                    ; preds = %126, %122
-  %.0.lcssa.i57 = phi i64 [ %.08.i55, %122 ], [ -1, %126 ]
+  %.0.lcssa.i57 = phi i64 [ -1, %126 ], [ %.08.i55, %122 ]
   %.not.not11.i58 = icmp slt i64 %.0.lcssa.i57, %.pre113
   br i1 %.not.not11.i58, label %.lr.ph13.i59, label %.loopexit
 
@@ -16845,7 +16845,7 @@ _ZNK5Eigen8internal17CompressedStorageIfiE16searchLowerIndexElll.exit.i.i: ; pre
           to label %52 unwind label %53, !noalias !878
 
 52:                                               ; preds = %.invoke.i, %48
-  %.0.i.i = phi ptr [ %50, %48 ], [ %51, %.invoke.i ]
+  %.0.i.i = phi ptr [ %51, %.invoke.i ], [ %50, %48 ]
   store float 1.000000e+00, ptr %.0.i.i, align 4, !tbaa !53, !noalias !878
   store i8 1, ptr %6, align 8, !tbaa !653, !noalias !878
   invoke void @_ZN5Eigen12SparseMatrixIfLi1EiEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(72) %6) #31
@@ -16978,7 +16978,7 @@ _ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIfLi1EiEEE8nonZerosEv.exit: ; 
   br i1 %exitcond.not, label %.loopexit78, label %.lr.ph, !llvm.loop !883
 
 .loopexit78:                                      ; preds = %.lr.ph, %34, %.preheader, %30, %3
-  %50 = phi ptr [ %39, %.preheader ], [ %calloc, %30 ], [ %6, %3 ], [ %calloc, %34 ], [ %39, %.lr.ph ]
+  %50 = phi ptr [ %calloc, %34 ], [ %6, %3 ], [ %39, %.preheader ], [ %calloc, %30 ], [ %39, %.lr.ph ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %53 = load i64, ptr %52, align 8, !tbaa !691
@@ -18661,7 +18661,7 @@ _ZN5Eigen12SparseMatrixISt7complexIdELi0EiE7reserveEl.exit._crit_edge: ; preds =
   br i1 %48, label %42, label %.critedge.i, !llvm.loop !940
 
 .critedge.i:                                      ; preds = %46, %42
-  %.0.lcssa.i = phi i64 [ %.08.i, %42 ], [ -1, %46 ]
+  %.0.lcssa.i = phi i64 [ -1, %46 ], [ %.08.i, %42 ]
   %.not.not11.i = icmp slt i64 %.0.lcssa.i, %39
   br i1 %.not.not11.i, label %.lr.ph13.i, label %_ZN5Eigen12SparseMatrixISt7complexIdELi0EiE8finalizeEv.exit
 
@@ -18818,7 +18818,7 @@ _ZN5Eigen12SparseMatrixISt7complexIdELi0EiE7reserveEl.exit52._crit_edge: ; preds
   br i1 %128, label %122, label %.critedge.i55, !llvm.loop !940
 
 .critedge.i55:                                    ; preds = %126, %122
-  %.0.lcssa.i56 = phi i64 [ %.08.i54, %122 ], [ -1, %126 ]
+  %.0.lcssa.i56 = phi i64 [ -1, %126 ], [ %.08.i54, %122 ]
   %.not.not11.i57 = icmp slt i64 %.0.lcssa.i56, %.pre122
   br i1 %.not.not11.i57, label %.lr.ph13.i58, label %.loopexit
 
@@ -19286,8 +19286,8 @@ define linkonce_odr hidden ptr @_ZN8nanobind6detail11type_casterIN5Eigen5ArrayId
   br label %20
 
 20:                                               ; preds = %11, %.thread, %12, %15
-  %.sroa.01.0.copyload = phi ptr [ %14, %15 ], [ null, %12 ], [ null, %11 ], [ null, %.thread ]
-  %.1 = phi i32 [ 5, %15 ], [ 6, %12 ], [ %1, %11 ], [ %.0.ph, %.thread ]
+  %.sroa.01.0.copyload = phi ptr [ null, %.thread ], [ %14, %15 ], [ null, %12 ], [ null, %11 ]
+  %.1 = phi i32 [ %.0.ph, %.thread ], [ 5, %15 ], [ 6, %12 ], [ %1, %11 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %21 = invoke noundef ptr @_ZN8nanobind6detail14ndarray_createEPvmPKmP7_objectPKlNS_6dlpack5dtypeEbiic(ptr noundef nonnull %0, i64 noundef 1, ptr noundef nonnull %5, ptr noundef %.sroa.01.0.copyload, ptr noundef nonnull %6, i32 81922, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0, i8 noundef signext 67) #31
           to label %22 unwind label %27
@@ -19837,7 +19837,7 @@ define linkonce_odr hidden ptr @_ZN8nanobind6detail11type_casterIN5Eigen6MatrixI
           to label %25 unwind label %45
 
 .thread:                                          ; preds = %19, %3, %20
-  %.0.ph = phi i32 [ 5, %19 ], [ 3, %3 ], [ 3, %20 ]
+  %.0.ph = phi i32 [ 3, %3 ], [ 5, %19 ], [ 3, %20 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !77
   br label %38
@@ -19888,9 +19888,9 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2ERKS1_.exit: ; preds = %25
   br label %38
 
 38:                                               ; preds = %24, %.thread, %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2ERKS1_.exit, %30, %33
-  %.sroa.01.0.copyload = phi ptr [ %32, %33 ], [ null, %30 ], [ %26, %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2ERKS1_.exit ], [ null, %24 ], [ null, %.thread ]
-  %.019 = phi ptr [ %18, %33 ], [ %18, %30 ], [ %29, %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2ERKS1_.exit ], [ %18, %24 ], [ %18, %.thread ]
-  %.1 = phi i32 [ 5, %33 ], [ 6, %30 ], [ 5, %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2ERKS1_.exit ], [ %1, %24 ], [ %.0.ph, %.thread ]
+  %.sroa.01.0.copyload = phi ptr [ null, %24 ], [ %32, %33 ], [ null, %30 ], [ %26, %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2ERKS1_.exit ], [ null, %.thread ]
+  %.019 = phi ptr [ %18, %24 ], [ %18, %33 ], [ %18, %30 ], [ %29, %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2ERKS1_.exit ], [ %18, %.thread ]
+  %.1 = phi i32 [ %1, %24 ], [ 5, %33 ], [ 6, %30 ], [ 5, %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2ERKS1_.exit ], [ %.0.ph, %.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %39 = invoke noundef ptr @_ZN8nanobind6detail14ndarray_createEPvmPKmP7_objectPKlNS_6dlpack5dtypeEbiic(ptr noundef %.019, i64 noundef 2, ptr noundef nonnull %6, ptr noundef %.sroa.01.0.copyload, ptr noundef nonnull %7, i32 81922, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0, i8 noundef signext 70) #31
           to label %40 unwind label %45
@@ -21196,7 +21196,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   br label %12
 
 12:                                               ; preds = %7, %4
-  %.0 = phi i1 [ true, %4 ], [ %11, %7 ]
+  %.0 = phi i1 [ %11, %7 ], [ true, %4 ]
   ret i1 %.0
 }
 
@@ -22405,7 +22405,7 @@ define internal noundef nonnull ptr @_ZZN8nanobind6detail11func_createILb0ELb1EZ
   br label %44
 
 44:                                               ; preds = %.body, %42
-  %.pn.pn.i = phi { ptr, i32 } [ %32, %.body ], [ %43, %42 ]
+  %.pn.pn.i = phi { ptr, i32 } [ %43, %42 ], [ %32, %.body ]
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %46 = load ptr, ptr %45, align 8, !tbaa !1113
   call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %46) #32
@@ -22710,8 +22710,8 @@ define linkonce_odr hidden ptr @_ZN8nanobind6detail11type_casterIN5Eigen6MatrixI
   br label %20
 
 20:                                               ; preds = %11, %.thread, %12, %15
-  %.sroa.01.0.copyload = phi ptr [ %14, %15 ], [ null, %12 ], [ null, %11 ], [ null, %.thread ]
-  %.1 = phi i32 [ 5, %15 ], [ 6, %12 ], [ %1, %11 ], [ %.0.ph, %.thread ]
+  %.sroa.01.0.copyload = phi ptr [ null, %11 ], [ %14, %15 ], [ null, %12 ], [ null, %.thread ]
+  %.1 = phi i32 [ %1, %11 ], [ 5, %15 ], [ 6, %12 ], [ %.0.ph, %.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %21 = invoke noundef ptr @_ZN8nanobind6detail14ndarray_createEPvmPKmP7_objectPKlNS_6dlpack5dtypeEbiic(ptr noundef nonnull %0, i64 noundef 1, ptr noundef nonnull %5, ptr noundef %.sroa.01.0.copyload, ptr noundef nonnull %6, i32 81922, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0, i8 noundef signext 67) #31
           to label %22 unwind label %27
@@ -22857,7 +22857,7 @@ define linkonce_odr hidden ptr @_ZN8nanobind6detail11type_casterIN5Eigen6MatrixI
           to label %20 unwind label %40
 
 .thread:                                          ; preds = %15, %3, %16
-  %.0.ph = phi i32 [ 5, %15 ], [ 3, %3 ], [ 3, %16 ]
+  %.0.ph = phi i32 [ 3, %3 ], [ 5, %15 ], [ 3, %16 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !77
   br label %33
@@ -22908,9 +22908,9 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2ERKS1_.exit: ; preds = %20
   br label %33
 
 33:                                               ; preds = %19, %.thread, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2ERKS1_.exit, %25, %28
-  %.sroa.01.0.copyload = phi ptr [ %27, %28 ], [ null, %25 ], [ %21, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2ERKS1_.exit ], [ null, %19 ], [ null, %.thread ]
-  %.017 = phi ptr [ %14, %28 ], [ %14, %25 ], [ %24, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2ERKS1_.exit ], [ %14, %19 ], [ %14, %.thread ]
-  %.1 = phi i32 [ 5, %28 ], [ 6, %25 ], [ 5, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2ERKS1_.exit ], [ %1, %19 ], [ %.0.ph, %.thread ]
+  %.sroa.01.0.copyload = phi ptr [ null, %19 ], [ %27, %28 ], [ null, %25 ], [ %21, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2ERKS1_.exit ], [ null, %.thread ]
+  %.017 = phi ptr [ %14, %19 ], [ %14, %28 ], [ %14, %25 ], [ %24, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2ERKS1_.exit ], [ %14, %.thread ]
+  %.1 = phi i32 [ %1, %19 ], [ 5, %28 ], [ 6, %25 ], [ 5, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2ERKS1_.exit ], [ %.0.ph, %.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %34 = invoke noundef ptr @_ZN8nanobind6detail14ndarray_createEPvmPKmP7_objectPKlNS_6dlpack5dtypeEbiic(ptr noundef %.017, i64 noundef 1, ptr noundef nonnull %6, ptr noundef %.sroa.01.0.copyload, ptr noundef nonnull %7, i32 81922, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0, i8 noundef signext 67) #31
           to label %35 unwind label %40

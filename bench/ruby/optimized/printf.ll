@@ -104,8 +104,8 @@ define internal i64 @printf_test_call(i32 noundef %0, ptr noundef readonly captu
   br label %17
 
 17:                                               ; preds = %14, %8
-  %.087.i = phi i64 [ %15, %14 ], [ 4, %8 ]
-  %.0.i = phi i32 [ %16, %14 ], [ %0, %8 ]
+  %.087.i = phi i64 [ 4, %8 ], [ %15, %14 ]
+  %.0.i = phi i32 [ %0, %8 ], [ %16, %14 ]
   %18 = icmp samesign ult i32 %.0.i, 2
   br i1 %18, label %.thread, label %.preheader
 
@@ -123,7 +123,7 @@ define internal i64 @printf_test_call(i32 noundef %0, ptr noundef readonly captu
   br i1 %22, label %rb_scan_args_set.exit, label %.thread
 
 .thread:                                          ; preds = %3, %21, %17
-  %.0.i83 = phi i32 [ %.0.i, %21 ], [ %.0.i, %17 ], [ %0, %3 ]
+  %.0.i83 = phi i32 [ %.0.i, %17 ], [ %.0.i, %21 ], [ %0, %3 ]
   tail call void @rb_error_arity(i32 noundef %.0.i83, i32 noundef 2, i32 noundef 2) #7
   unreachable
 

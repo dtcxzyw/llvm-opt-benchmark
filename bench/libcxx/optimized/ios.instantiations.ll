@@ -2346,7 +2346,7 @@ _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE6sbumpcEv.exit.backedge: ; pred
   resume { ptr, i32 } %89
 
 92:                                               ; preds = %65, %7, %90
-  %.3 = phi i32 [ %spec.select, %90 ], [ %spec.select18, %65 ], [ 4, %7 ]
+  %.3 = phi i32 [ 4, %7 ], [ %spec.select18, %65 ], [ %spec.select, %90 ]
   %93 = load ptr, ptr %0, align 8, !tbaa !20
   %94 = getelementptr i8, ptr %93, i64 -24
   %95 = load i64, ptr %94, align 8
@@ -4250,8 +4250,8 @@ _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE6sbumpcEv.exit: ; preds = %18
   br label %48
 
 48:                                               ; preds = %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE6sbumpcEv.exit, %44, %47
-  %.07 = phi i32 [ 0, %44 ], [ 0, %47 ], [ 6, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE6sbumpcEv.exit ]
-  %.1 = phi i32 [ %.0.i9, %44 ], [ -1, %47 ], [ -1, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE6sbumpcEv.exit ]
+  %.07 = phi i32 [ 0, %47 ], [ 0, %44 ], [ 6, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE6sbumpcEv.exit ]
+  %.1 = phi i32 [ -1, %47 ], [ %.0.i9, %44 ], [ -1, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE6sbumpcEv.exit ]
   %49 = load ptr, ptr %0, align 8, !tbaa !20
   %50 = getelementptr i8, ptr %49, i64 -24
   %51 = load i64, ptr %50, align 8
@@ -4508,8 +4508,8 @@ _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE6sbumpcEv.exit.thread: ; preds 
   br label %.thread
 
 .thread:                                          ; preds = %9, %89
-  %.642 = phi ptr [ %.6, %89 ], [ %1, %9 ]
-  %.33041 = phi i32 [ %.330, %89 ], [ 4, %9 ]
+  %.642 = phi ptr [ %1, %9 ], [ %.6, %89 ]
+  %.33041 = phi i32 [ 4, %9 ], [ %.330, %89 ]
   %90 = load ptr, ptr %0, align 8, !tbaa !20
   %91 = getelementptr i8, ptr %90, i64 -24
   %92 = load i64, ptr %91, align 8
@@ -4709,8 +4709,8 @@ _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE6sbumpcEv.exit.backedge: ; pred
   call void @__cxa_end_catch()
   br label %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE6sbumpcEv.exit.thread
 
-_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE6sbumpcEv.exit.thread: ; preds = %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sgetcEv.exit, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputcEc.exit, %31, %71
-  %.2 = phi i32 [ 1, %71 ], [ 2, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sgetcEv.exit ], [ 0, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputcEc.exit ], [ 0, %31 ]
+_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE6sbumpcEv.exit.thread: ; preds = %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sgetcEv.exit, %31, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputcEc.exit, %71
+  %.2 = phi i32 [ 1, %71 ], [ 2, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sgetcEv.exit ], [ 0, %31 ], [ 0, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputcEc.exit ]
   %73 = load i64, ptr %5, align 8, !tbaa !37
   %74 = icmp eq i64 %73, 0
   %75 = or disjoint i32 %.2, 4
@@ -4959,9 +4959,9 @@ _ZNSt3__113basic_istreamIcNS_11char_traitsIcEEE12__inc_gcountB8ne210000Ev.exit.b
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %99
 
-_ZNSt3__113basic_istreamIcNS_11char_traitsIcEEE12__inc_gcountB8ne210000Ev.exit.thread: ; preds = %56, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sgetcEv.exit, %54, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE6sbumpcEv.exit, %101, %4
-  %.025 = phi i32 [ 1, %101 ], [ 0, %4 ], [ 0, %54 ], [ 0, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE6sbumpcEv.exit ], [ 4, %56 ], [ 2, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sgetcEv.exit ]
-  %.0 = phi ptr [ %.3, %101 ], [ %1, %4 ], [ %.1, %54 ], [ %.1, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE6sbumpcEv.exit ], [ %.1, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sgetcEv.exit ], [ %.1, %56 ]
+_ZNSt3__113basic_istreamIcNS_11char_traitsIcEEE12__inc_gcountB8ne210000Ev.exit.thread: ; preds = %56, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sgetcEv.exit, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE6sbumpcEv.exit, %54, %101, %4
+  %.025 = phi i32 [ 0, %4 ], [ 1, %101 ], [ 0, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE6sbumpcEv.exit ], [ 0, %54 ], [ 4, %56 ], [ 2, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sgetcEv.exit ]
+  %.0 = phi ptr [ %1, %4 ], [ %.3, %101 ], [ %.1, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE6sbumpcEv.exit ], [ %.1, %54 ], [ %.1, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sgetcEv.exit ], [ %.1, %56 ]
   %103 = icmp sgt i64 %2, 0
   br i1 %103, label %104, label %105
 
@@ -5165,7 +5165,7 @@ _ZNSt3__113basic_istreamIcNS_11char_traitsIcEEE12__inc_gcountB8ne210000Ev.exit28
   br label %.thread
 
 .thread:                                          ; preds = %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE6sbumpcEv.exit25, %_ZNSt3__113basic_istreamIcNS_11char_traitsIcEEE12__inc_gcountB8ne210000Ev.exit28, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE6sbumpcEv.exit, %_ZNSt3__113basic_istreamIcNS_11char_traitsIcEEE12__inc_gcountB8ne210000Ev.exit, %37, %85
-  %.5 = phi i32 [ 1, %85 ], [ 0, %37 ], [ 2, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE6sbumpcEv.exit ], [ 0, %_ZNSt3__113basic_istreamIcNS_11char_traitsIcEEE12__inc_gcountB8ne210000Ev.exit ], [ 2, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE6sbumpcEv.exit25 ], [ 0, %_ZNSt3__113basic_istreamIcNS_11char_traitsIcEEE12__inc_gcountB8ne210000Ev.exit28 ]
+  %.5 = phi i32 [ 0, %37 ], [ 1, %85 ], [ 0, %_ZNSt3__113basic_istreamIcNS_11char_traitsIcEEE12__inc_gcountB8ne210000Ev.exit ], [ 2, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE6sbumpcEv.exit ], [ 0, %_ZNSt3__113basic_istreamIcNS_11char_traitsIcEEE12__inc_gcountB8ne210000Ev.exit28 ], [ 2, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE6sbumpcEv.exit25 ]
   %86 = load ptr, ptr %0, align 8, !tbaa !20
   %87 = getelementptr i8, ptr %86, i64 -24
   %88 = load i64, ptr %87, align 8
@@ -5376,7 +5376,7 @@ _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sgetnEPcl.exit: ; preds = %8
   resume { ptr, i32 } %37
 
 40:                                               ; preds = %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sgetnEPcl.exit, %3, %38
-  %.0 = phi i32 [ 1, %38 ], [ %spec.select, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sgetnEPcl.exit ], [ 4, %3 ]
+  %.0 = phi i32 [ 4, %3 ], [ %spec.select, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sgetnEPcl.exit ], [ 1, %38 ]
   %41 = load ptr, ptr %0, align 8, !tbaa !20
   %42 = getelementptr i8, ptr %41, i64 -24
   %43 = load i64, ptr %42, align 8
@@ -5507,7 +5507,7 @@ _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sgetnEPcl.exit: ; preds = %47
   resume { ptr, i32 } %59
 
 62:                                               ; preds = %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE8in_availEv.exit, %46, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sgetnEPcl.exit, %3, %60
-  %.1 = phi i32 [ 1, %60 ], [ 4, %3 ], [ 2, %46 ], [ 0, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE8in_availEv.exit ], [ %spec.select, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sgetnEPcl.exit ]
+  %.1 = phi i32 [ 4, %3 ], [ 1, %60 ], [ 0, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE8in_availEv.exit ], [ %spec.select, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sgetnEPcl.exit ], [ 2, %46 ]
   %63 = load ptr, ptr %0, align 8, !tbaa !20
   %64 = getelementptr i8, ptr %63, i64 -24
   %65 = load i64, ptr %64, align 8
@@ -10767,7 +10767,7 @@ _ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE6sbumpcEv.exit.backedge: ; pred
   resume { ptr, i32 } %86
 
 89:                                               ; preds = %80, %7, %87
-  %.3 = phi i32 [ %spec.select, %87 ], [ %spec.select18, %80 ], [ 4, %7 ]
+  %.3 = phi i32 [ 4, %7 ], [ %spec.select18, %80 ], [ %spec.select, %87 ]
   %90 = load ptr, ptr %0, align 8, !tbaa !20
   %91 = getelementptr i8, ptr %90, i64 -24
   %92 = load i64, ptr %91, align 8
@@ -12654,8 +12654,8 @@ _ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE6sbumpcEv.exit: ; preds = %23, 
   br label %48
 
 48:                                               ; preds = %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE6sbumpcEv.exit, %44, %47
-  %.07 = phi i32 [ 0, %44 ], [ 0, %47 ], [ 6, %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE6sbumpcEv.exit ]
-  %.1 = phi i32 [ %.0.i, %44 ], [ -1, %47 ], [ -1, %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE6sbumpcEv.exit ]
+  %.07 = phi i32 [ 0, %47 ], [ 0, %44 ], [ 6, %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE6sbumpcEv.exit ]
+  %.1 = phi i32 [ -1, %47 ], [ %.0.i, %44 ], [ -1, %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE6sbumpcEv.exit ]
   %49 = load ptr, ptr %0, align 8, !tbaa !20
   %50 = getelementptr i8, ptr %49, i64 -24
   %51 = load i64, ptr %50, align 8
@@ -12907,8 +12907,8 @@ _ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE6sbumpcEv.exit.thread: ; preds 
   br label %.thread
 
 .thread:                                          ; preds = %9, %84
-  %.640 = phi ptr [ %.6, %84 ], [ %1, %9 ]
-  %.33039 = phi i32 [ %.330, %84 ], [ 4, %9 ]
+  %.640 = phi ptr [ %1, %9 ], [ %.6, %84 ]
+  %.33039 = phi i32 [ 4, %9 ], [ %.330, %84 ]
   %85 = load ptr, ptr %0, align 8, !tbaa !20
   %86 = getelementptr i8, ptr %85, i64 -24
   %87 = load i64, ptr %86, align 8
@@ -13105,8 +13105,8 @@ _ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE6sbumpcEv.exit.backedge: ; pred
   call void @__cxa_end_catch()
   br label %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE6sbumpcEv.exit.thread
 
-_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE6sbumpcEv.exit.thread: ; preds = %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE5sgetcEv.exit, %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE5sputcEw.exit, %31, %68
-  %.2 = phi i32 [ 1, %68 ], [ 2, %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE5sgetcEv.exit ], [ 0, %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE5sputcEw.exit ], [ 0, %31 ]
+_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE6sbumpcEv.exit.thread: ; preds = %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE5sgetcEv.exit, %31, %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE5sputcEw.exit, %68
+  %.2 = phi i32 [ 1, %68 ], [ 2, %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE5sgetcEv.exit ], [ 0, %31 ], [ 0, %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE5sputcEw.exit ]
   %70 = load i64, ptr %5, align 8, !tbaa !79
   %71 = icmp eq i64 %70, 0
   %72 = or disjoint i32 %.2, 4
@@ -13354,9 +13354,9 @@ _ZNSt3__113basic_istreamIwNS_11char_traitsIwEEE12__inc_gcountB8ne210000Ev.exit.b
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %97
 
-_ZNSt3__113basic_istreamIwNS_11char_traitsIwEEE12__inc_gcountB8ne210000Ev.exit.thread: ; preds = %55, %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE5sgetcEv.exit, %53, %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE6sbumpcEv.exit, %99, %4
-  %.025 = phi i32 [ 1, %99 ], [ 0, %4 ], [ 0, %53 ], [ 0, %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE6sbumpcEv.exit ], [ 4, %55 ], [ 2, %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE5sgetcEv.exit ]
-  %.0 = phi ptr [ %.3, %99 ], [ %1, %4 ], [ %.1, %53 ], [ %.1, %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE6sbumpcEv.exit ], [ %.1, %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE5sgetcEv.exit ], [ %.1, %55 ]
+_ZNSt3__113basic_istreamIwNS_11char_traitsIwEEE12__inc_gcountB8ne210000Ev.exit.thread: ; preds = %55, %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE5sgetcEv.exit, %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE6sbumpcEv.exit, %53, %99, %4
+  %.025 = phi i32 [ 0, %4 ], [ 1, %99 ], [ 0, %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE6sbumpcEv.exit ], [ 0, %53 ], [ 4, %55 ], [ 2, %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE5sgetcEv.exit ]
+  %.0 = phi ptr [ %1, %4 ], [ %.3, %99 ], [ %.1, %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE6sbumpcEv.exit ], [ %.1, %53 ], [ %.1, %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE5sgetcEv.exit ], [ %.1, %55 ]
   %101 = icmp sgt i64 %2, 0
   br i1 %101, label %102, label %103
 
@@ -13547,7 +13547,7 @@ _ZNSt3__113basic_istreamIwNS_11char_traitsIwEEE12__inc_gcountB8ne210000Ev.exit28
   br label %.thread
 
 .thread:                                          ; preds = %75, %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE6sbumpcEv.exit25, %_ZNSt3__113basic_istreamIwNS_11char_traitsIwEEE12__inc_gcountB8ne210000Ev.exit28, %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE6sbumpcEv.exit, %_ZNSt3__113basic_istreamIwNS_11char_traitsIwEEE12__inc_gcountB8ne210000Ev.exit, %37, %82
-  %.5 = phi i32 [ 1, %82 ], [ 0, %37 ], [ 2, %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE6sbumpcEv.exit ], [ 0, %_ZNSt3__113basic_istreamIwNS_11char_traitsIwEEE12__inc_gcountB8ne210000Ev.exit ], [ 0, %75 ], [ 2, %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE6sbumpcEv.exit25 ], [ 0, %_ZNSt3__113basic_istreamIwNS_11char_traitsIwEEE12__inc_gcountB8ne210000Ev.exit28 ]
+  %.5 = phi i32 [ 0, %37 ], [ 1, %82 ], [ 0, %_ZNSt3__113basic_istreamIwNS_11char_traitsIwEEE12__inc_gcountB8ne210000Ev.exit ], [ 2, %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE6sbumpcEv.exit ], [ 2, %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE6sbumpcEv.exit25 ], [ 0, %75 ], [ 0, %_ZNSt3__113basic_istreamIwNS_11char_traitsIwEEE12__inc_gcountB8ne210000Ev.exit28 ]
   %83 = load ptr, ptr %0, align 8, !tbaa !20
   %84 = getelementptr i8, ptr %83, i64 -24
   %85 = load i64, ptr %84, align 8
@@ -13757,7 +13757,7 @@ _ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE5sgetnEPwl.exit: ; preds = %8
   resume { ptr, i32 } %37
 
 40:                                               ; preds = %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE5sgetnEPwl.exit, %3, %38
-  %.0 = phi i32 [ 1, %38 ], [ %spec.select, %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE5sgetnEPwl.exit ], [ 4, %3 ]
+  %.0 = phi i32 [ 4, %3 ], [ %spec.select, %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE5sgetnEPwl.exit ], [ 1, %38 ]
   %41 = load ptr, ptr %0, align 8, !tbaa !20
   %42 = getelementptr i8, ptr %41, i64 -24
   %43 = load i64, ptr %42, align 8
@@ -13889,7 +13889,7 @@ _ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE5sgetnEPwl.exit: ; preds = %48
   resume { ptr, i32 } %60
 
 63:                                               ; preds = %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE8in_availEv.exit, %47, %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE5sgetnEPwl.exit, %3, %61
-  %.1 = phi i32 [ 1, %61 ], [ 4, %3 ], [ 2, %47 ], [ 0, %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE8in_availEv.exit ], [ %spec.select, %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE5sgetnEPwl.exit ]
+  %.1 = phi i32 [ 4, %3 ], [ 1, %61 ], [ 0, %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE8in_availEv.exit ], [ %spec.select, %_ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE5sgetnEPwl.exit ], [ 2, %47 ]
   %64 = load ptr, ptr %0, align 8, !tbaa !20
   %65 = getelementptr i8, ptr %64, i64 -24
   %66 = load i64, ptr %65, align 8
@@ -18987,7 +18987,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6resizeB8ne210000
   br label %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputcEc.exit
 
 _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputcEc.exit: ; preds = %2, %147, %141, %17, %116
-  %.1 = phi i32 [ -1, %116 ], [ -1, %17 ], [ %146, %141 ], [ %149, %147 ], [ 0, %2 ]
+  %.1 = phi i32 [ %149, %147 ], [ -1, %17 ], [ -1, %116 ], [ %146, %141 ], [ 0, %2 ]
   ret i32 %.1
 }
 
@@ -19069,7 +19069,7 @@ define weak_odr dso_local { i64, i64 } @_ZNSt3__115basic_stringbufIcNS_11char_tr
   br label %50
 
 50:                                               ; preds = %31, %35, %43, %49
-  %.0 = phi i64 [ %42, %35 ], [ %48, %43 ], [ %32, %49 ], [ 0, %31 ]
+  %.0 = phi i64 [ %32, %49 ], [ %42, %35 ], [ %48, %43 ], [ 0, %31 ]
   %51 = add nsw i64 %.0, %1
   %52 = icmp slt i64 %51, 0
   %53 = icmp slt i64 %32, %51
@@ -19123,7 +19123,7 @@ define weak_odr dso_local { i64, i64 } @_ZNSt3__115basic_stringbufIcNS_11char_tr
   br label %74
 
 74:                                               ; preds = %59, %55, %68, %70, %50, %31, %15, %11
-  %.sroa.8.0 = phi i64 [ -1, %11 ], [ -1, %15 ], [ -1, %31 ], [ -1, %50 ], [ %51, %70 ], [ %51, %68 ], [ -1, %55 ], [ -1, %59 ]
+  %.sroa.8.0 = phi i64 [ -1, %50 ], [ -1, %11 ], [ -1, %15 ], [ -1, %31 ], [ -1, %59 ], [ -1, %55 ], [ %51, %70 ], [ %51, %68 ]
   %.fca.1.insert = insertvalue { i64, i64 } { i64 0, i64 poison }, i64 %.sroa.8.0, 1
   ret { i64, i64 } %.fca.1.insert
 }
@@ -20186,7 +20186,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__113basic_filebufIcNS_11char_trai
   br label %19
 
 19:                                               ; preds = %1, %1, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3
-  %.0 = phi ptr [ null, %18 ], [ @.str.2, %3 ], [ @.str.3, %4 ], [ @.str.4, %5 ], [ @.str.5, %6 ], [ @.str.6, %7 ], [ @.str.7, %8 ], [ @.str.8, %9 ], [ @.str.9, %10 ], [ @.str.10, %11 ], [ @.str.11, %12 ], [ @.str.12, %13 ], [ @.str.13, %14 ], [ @.str.14, %15 ], [ @.str.15, %16 ], [ @.str.16, %17 ], [ @.str.1, %1 ], [ @.str.1, %1 ]
+  %.0 = phi ptr [ null, %18 ], [ @.str.16, %17 ], [ @.str.2, %3 ], [ @.str.3, %4 ], [ @.str.4, %5 ], [ @.str.5, %6 ], [ @.str.6, %7 ], [ @.str.7, %8 ], [ @.str.8, %9 ], [ @.str.9, %10 ], [ @.str.10, %11 ], [ @.str.11, %12 ], [ @.str.12, %13 ], [ @.str.13, %14 ], [ @.str.14, %15 ], [ @.str.15, %16 ], [ @.str.1, %1 ], [ @.str.1, %1 ]
   ret ptr %.0
 }
 
@@ -20423,7 +20423,7 @@ _ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE11__read_modeEv.exit: ; preds = %
   br label %134
 
 134:                                              ; preds = %78, %130, %51, %61, %131
-  %.3 = phi i32 [ %133, %131 ], [ %66, %61 ], [ -1, %51 ], [ %.2, %130 ], [ -1, %78 ]
+  %.3 = phi i32 [ %133, %131 ], [ -1, %51 ], [ %66, %61 ], [ %.2, %130 ], [ -1, %78 ]
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %136 = load ptr, ptr %135, align 8, !tbaa !29
   %137 = icmp eq ptr %136, %2
@@ -20766,7 +20766,7 @@ _ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE12__write_modeEv.exit._crit_edge:
   %spec.select.i = select i1 %49, i32 0, i32 %1
   br label %123
 
-.critedge:                                        ; preds = %79, %104, %102, %95
+.critedge:                                        ; preds = %104, %102, %79, %95
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %123
@@ -20945,7 +20945,7 @@ _ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE25__request_unbuffered_modeB8ne21
   br label %46
 
 46:                                               ; preds = %40, %43
-  %47 = phi i8 [ %36, %40 ], [ %.pre, %43 ]
+  %47 = phi i8 [ %.pre, %43 ], [ %36, %40 ]
   %48 = trunc nuw i8 %47 to i1
   br i1 %48, label %57, label %49
 
@@ -21039,8 +21039,8 @@ define weak_odr dso_local { i64, i64 } @_ZNSt3__113basic_filebufIcNS_11char_trai
   br label %35
 
 35:                                               ; preds = %24, %8, %19, %16, %31
-  %.sroa.011.0 = phi i64 [ %.sroa.0.0.copyload, %31 ], [ 0, %16 ], [ 0, %19 ], [ 0, %8 ], [ 0, %24 ]
-  %.sroa.6.0 = phi i64 [ %33, %31 ], [ -1, %16 ], [ -1, %19 ], [ -1, %8 ], [ -1, %24 ]
+  %.sroa.011.0 = phi i64 [ 0, %8 ], [ %.sroa.0.0.copyload, %31 ], [ 0, %24 ], [ 0, %16 ], [ 0, %19 ]
+  %.sroa.6.0 = phi i64 [ -1, %8 ], [ %33, %31 ], [ -1, %24 ], [ -1, %16 ], [ -1, %19 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.011.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.6.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -21073,8 +21073,8 @@ define weak_odr dso_local { i64, i64 } @_ZNSt3__113basic_filebufIcNS_11char_trai
   br label %18
 
 18:                                               ; preds = %13, %4, %8, %16
-  %.sroa.03.0 = phi i64 [ %1, %16 ], [ 0, %8 ], [ 0, %4 ], [ 0, %13 ]
-  %.sroa.44.0 = phi i64 [ %2, %16 ], [ -1, %8 ], [ -1, %4 ], [ -1, %13 ]
+  %.sroa.03.0 = phi i64 [ 0, %4 ], [ %1, %16 ], [ 0, %8 ], [ 0, %13 ]
+  %.sroa.44.0 = phi i64 [ -1, %4 ], [ %2, %16 ], [ -1, %8 ], [ -1, %13 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.03.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.44.0, 1
   ret { i64, i64 } %.fca.1.insert

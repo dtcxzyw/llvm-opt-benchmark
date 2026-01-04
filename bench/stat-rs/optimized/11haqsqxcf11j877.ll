@@ -309,7 +309,7 @@ define internal fastcc void @"_ZN8nalgebra4base12construction258_$LT$impl$u20$na
   ret void
 
 .body:                                            ; preds = %23, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %24, %23 ], [ %17, %16 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %24, %23 ]
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -679,7 +679,7 @@ define internal fastcc void @"_ZN8nalgebra4base3ops176_$LT$impl$u20$core..ops..a
   unreachable
 
 common.resume:                                    ; preds = %65, %58, %26, %32
-  %common.resume.op = phi { ptr, i32 } [ %33, %32 ], [ %27, %26 ], [ %66, %65 ], [ %59, %58 ]
+  %common.resume.op = phi { ptr, i32 } [ %27, %26 ], [ %33, %32 ], [ %66, %65 ], [ %59, %58 ]
   resume { ptr, i32 } %common.resume.op
 
 32:                                               ; preds = %21, %17, %3
@@ -1072,7 +1072,7 @@ define internal fastcc noundef double @"_ZN8nalgebra6linalg11determinant69_$LT$i
   br label %87
 
 87:                                               ; preds = %10, %42, %"_ZN4core3ptr122drop_in_place$LT$nalgebra..linalg..lu..LU$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$GT$$GT$17h3aaa1936cb2d3d54E.exit", %54, %39
-  %.sroa.0.0 = phi double [ %95, %"_ZN4core3ptr122drop_in_place$LT$nalgebra..linalg..lu..LU$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$GT$$GT$17h3aaa1936cb2d3d54E.exit" ], [ %41, %39 ], [ %86, %54 ], [ %53, %42 ], [ 1.000000e+00, %10 ]
+  %.sroa.0.0 = phi double [ %95, %"_ZN4core3ptr122drop_in_place$LT$nalgebra..linalg..lu..LU$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$GT$$GT$17h3aaa1936cb2d3d54E.exit" ], [ %53, %42 ], [ %41, %39 ], [ %86, %54 ], [ 1.000000e+00, %10 ]
   ret double %.sroa.0.0
 
 common.resume:                                    ; preds = %105, %88
@@ -1563,7 +1563,7 @@ define void @_ZN6statrs12distribution19multivariate_normal18MultivariateNormal17
   unreachable
 
 .body:                                            ; preds = %103, %99, %93
-  %.pn13 = phi { ptr, i32 } [ %104, %103 ], [ %100, %99 ], [ %94, %93 ]
+  %.pn13 = phi { ptr, i32 } [ %94, %93 ], [ %104, %103 ], [ %100, %99 ]
   invoke void @"_ZN4core3ptr247drop_in_place$LT$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$GT$$GT$$GT$17h3cfcfd743d3219eeE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %23) #13
           to label %73 unwind label %258
 
@@ -2471,7 +2471,7 @@ define void @"_ZN383_$LT$statrs..distribution..multivariate_normal..Multivariate
 .noexc5:                                          ; preds = %20
   unreachable
 
-.thread28:                                        ; preds = %2, %20, %"_ZN112_$LT$nalgebra..base..iter..MatrixIter$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hee2ac1e1f3f67ca7E.exit.thread"
+.thread28:                                        ; preds = %"_ZN112_$LT$nalgebra..base..iter..MatrixIter$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hee2ac1e1f3f67ca7E.exit.thread", %20, %2
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread

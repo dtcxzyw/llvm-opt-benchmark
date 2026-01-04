@@ -1153,7 +1153,7 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint16elem_exp_vartime17h1030
   br label %.body
 
 .body:                                            ; preds = %40, %32, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %33, %32 ], [ %41, %40 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %33, %32 ], [ %17, %16 ], [ %41, %40 ]
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hea6b5afbd10e64d6E.llvm.4129427866461079095"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
           to label %"_ZN4core3ptr105drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..N$C$ring..arithmetic..montgomery..R$GT$$GT$17h8ace95da077e69cfE.exit" unwind label %47
 
@@ -1346,7 +1346,7 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint18elem_exp_consttime17ha6
   br i1 %.not.i, label %.invoke, label %45
 
 .invoke:                                          ; preds = %49, %45, %41
-  %43 = phi ptr [ @anon.3d7c58adf55e998663b260eb9a3c9bca.24, %41 ], [ @anon.3d7c58adf55e998663b260eb9a3c9bca.25, %45 ], [ @anon.3d7c58adf55e998663b260eb9a3c9bca.26, %49 ]
+  %43 = phi ptr [ @anon.3d7c58adf55e998663b260eb9a3c9bca.25, %45 ], [ @anon.3d7c58adf55e998663b260eb9a3c9bca.24, %41 ], [ @anon.3d7c58adf55e998663b260eb9a3c9bca.26, %49 ]
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.3d7c58adf55e998663b260eb9a3c9bca.5, i64 noundef 35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %43) #17
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -1592,7 +1592,7 @@ _ZN4ring10arithmetic6bigint18elem_exp_consttime19scatter_powers_of_217h22efa0d9a
   unreachable
 
 "_ZN4core3ptr99drop_in_place$LT$ring..arithmetic..bigint..boxed_limbs..BoxedLimbs$LT$ring..rsa..keypair..Q$GT$$GT$17hec009bd539687f61E.exit47": ; preds = %118, %22
-  %.pn1159 = phi { ptr, i32 } [ %.pn, %22 ], [ %.pn1160, %118 ]
+  %.pn1159 = phi { ptr, i32 } [ %.pn1160, %118 ], [ %.pn, %22 ]
   resume { ptr, i32 } %.pn1159
 
 118:                                              ; preds = %23, %22
@@ -1700,7 +1700,7 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint18elem_exp_consttime17hdb
   br i1 %.not.i, label %.invoke, label %45
 
 .invoke:                                          ; preds = %49, %45, %41
-  %43 = phi ptr [ @anon.3d7c58adf55e998663b260eb9a3c9bca.24, %41 ], [ @anon.3d7c58adf55e998663b260eb9a3c9bca.25, %45 ], [ @anon.3d7c58adf55e998663b260eb9a3c9bca.26, %49 ]
+  %43 = phi ptr [ @anon.3d7c58adf55e998663b260eb9a3c9bca.25, %45 ], [ @anon.3d7c58adf55e998663b260eb9a3c9bca.24, %41 ], [ @anon.3d7c58adf55e998663b260eb9a3c9bca.26, %49 ]
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.3d7c58adf55e998663b260eb9a3c9bca.5, i64 noundef 35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %43) #17
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -1946,7 +1946,7 @@ _ZN4ring10arithmetic6bigint18elem_exp_consttime19scatter_powers_of_217h22efa0d9a
   unreachable
 
 "_ZN4core3ptr99drop_in_place$LT$ring..arithmetic..bigint..boxed_limbs..BoxedLimbs$LT$ring..rsa..keypair..P$GT$$GT$17ha9cf57d6ce2dfb66E.exit47": ; preds = %118, %22
-  %.pn1159 = phi { ptr, i32 } [ %.pn, %22 ], [ %.pn1160, %118 ]
+  %.pn1159 = phi { ptr, i32 } [ %.pn1160, %118 ], [ %.pn, %22 ]
   resume { ptr, i32 } %.pn1159
 
 118:                                              ; preds = %23, %22

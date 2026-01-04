@@ -263,7 +263,7 @@ _.exit66:                                         ; preds = %71, %69
   %75 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i65, ptr noundef %0, i32 noundef %74) #11
   br label %76
 
-76:                                               ; preds = %_.exit66, %_.exit57, %_.exit52
+76:                                               ; preds = %_.exit57, %_.exit52, %_.exit66
   %77 = tail call i32 @munmap(ptr noundef nonnull %45, i64 noundef %20) #11
   br label %.thread84
 
@@ -273,7 +273,7 @@ _.exit66:                                         ; preds = %71, %69
   br label %.thread84
 
 .thread84:                                        ; preds = %_.exit, %_.exit45, %_.exit48, %78, %76
-  %.07587 = phi i32 [ 0, %78 ], [ -1, %76 ], [ -1, %_.exit48 ], [ -1, %_.exit45 ], [ -1, %_.exit ]
+  %.07587 = phi i32 [ -1, %76 ], [ 0, %78 ], [ -1, %_.exit48 ], [ -1, %_.exit45 ], [ -1, %_.exit ]
   %79 = tail call i32 @close(i32 noundef %9) #11
   br label %80
 
@@ -318,7 +318,7 @@ define dso_local range(i32 -1, 1) i32 @load_pack_revindex(ptr noundef %0, ptr no
   br label %15
 
 15:                                               ; preds = %13, %11, %2, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %2 ], [ 0, %11 ], [ %., %13 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %11 ], [ %., %13 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -696,7 +696,7 @@ _.exit31:                                         ; preds = %46, %48
   br i1 %55, label %21, label %.loopexit, !llvm.loop !61
 
 .loopexit:                                        ; preds = %51, %.preheader, %16, %1, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %1 ], [ %.020, %16 ], [ %.020, %.preheader ], [ %.2, %51 ]
+  %.0 = phi i32 [ 0, %1 ], [ %.020, %16 ], [ 0, %4 ], [ %.020, %.preheader ], [ %.2, %51 ]
   ret i32 %.0
 }
 
@@ -782,7 +782,7 @@ can_use_midx_ridx_chunk.exit:                     ; preds = %8
   br label %41
 
 41:                                               ; preds = %1, %40, %can_use_midx_ridx_chunk.exit
-  %.0 = phi i32 [ 0, %can_use_midx_ridx_chunk.exit ], [ %36, %40 ], [ 0, %1 ]
+  %.0 = phi i32 [ %36, %40 ], [ 0, %can_use_midx_ridx_chunk.exit ], [ 0, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -855,7 +855,7 @@ load_pack_revindex.exit:                          ; preds = %10, %13
   %.not9.i.not = icmp eq i32 %15, 0
   br i1 %.not9.i.not, label %load_pack_revindex.exit.thread, label %30
 
-load_pack_revindex.exit.thread:                   ; preds = %13, %3, %7, %load_pack_revindex.exit
+load_pack_revindex.exit.thread:                   ; preds = %7, %13, %3, %load_pack_revindex.exit
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load i32, ptr %16, align 8, !tbaa !4
   %18 = add i32 %17, 1
@@ -888,7 +888,7 @@ load_pack_revindex.exit.thread:                   ; preds = %13, %3, %7, %load_p
   br label %30
 
 30:                                               ; preds = %.thread, %load_pack_revindex.exit, %28
-  %.0 = phi i32 [ -1, %28 ], [ -1, %load_pack_revindex.exit ], [ 0, %.thread ]
+  %.0 = phi i32 [ 0, %.thread ], [ -1, %28 ], [ -1, %load_pack_revindex.exit ]
   ret i32 %.0
 }
 
@@ -1267,7 +1267,7 @@ midx_pack_order_cmp.exit:                         ; preds = %72
   %.not26 = icmp sgt i64 %74, %73
   br i1 %.not26, label %midx_pack_order_cmp.exit.thread21, label %bsearch.exit
 
-midx_pack_order_cmp.exit.thread21:                ; preds = %70, %67, %midx_pack_order_cmp.exit
+midx_pack_order_cmp.exit.thread21:                ; preds = %67, %70, %midx_pack_order_cmp.exit
   %76 = add nuw i64 %27, 1
   br label %midx_pack_order_cmp.exit.thread
 

@@ -224,7 +224,7 @@ find_simple.exit63.thread66.sink.split:           ; preds = %55, %47, %32
   br label %find_simple.exit63.thread66
 
 find_simple.exit63.thread66:                      ; preds = %.lr.ph.i58, %find_simple.exit63.thread66.sink.split, %find_simple.exit63
-  %.1 = phi ptr [ %67, %find_simple.exit63 ], [ %71, %find_simple.exit63.thread66.sink.split ], [ %.09.i59, %.lr.ph.i58 ]
+  %.1 = phi ptr [ %71, %find_simple.exit63.thread66.sink.split ], [ %67, %find_simple.exit63 ], [ %.09.i59, %.lr.ph.i58 ]
   ret ptr %.1
 }
 
@@ -1043,7 +1043,7 @@ sub_0:                                            ; preds = %93
   br label %102
 
 102:                                              ; preds = %.tail, %93, %.tail.thread
-  %.str.12.sink = phi ptr [ %94, %.tail.thread ], [ @.str.13, %93 ], [ @.str.12, %.tail ]
+  %.str.12.sink = phi ptr [ @.str.13, %93 ], [ %94, %.tail.thread ], [ @.str.12, %.tail ]
   store ptr %.str.12.sink, ptr %2, align 8
   store ptr @.str.12, ptr %1, align 8
   br label %112
@@ -1264,8 +1264,8 @@ thread-pre-split:                                 ; preds = %53
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %104, %94, %101, %110
-  %.tr87.be = phi ptr [ %99, %101 ], [ %.179, %110 ], [ %99, %94 ], [ %.179, %104 ]
-  %.tr88.be.in = phi ptr [ %103, %101 ], [ %112, %110 ], [ %100, %94 ], [ %109, %104 ]
+  %.tr87.be = phi ptr [ %99, %101 ], [ %99, %94 ], [ %.179, %110 ], [ %.179, %104 ]
+  %.tr88.be.in = phi ptr [ %103, %101 ], [ %100, %94 ], [ %112, %110 ], [ %109, %104 ]
   %.tr88.be = load ptr, ptr %.tr88.be.in, align 8
   br label %tailrecurse
 

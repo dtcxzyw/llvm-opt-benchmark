@@ -115,7 +115,7 @@ sub_1:                                            ; preds = %sub_0
   unreachable
 
 .sink.split:                                      ; preds = %23, %21, %.tail.thread
-  %alt_odb.sink = phi ptr [ @load_all_packs, %.tail.thread ], [ @verbose, %21 ], [ @alt_odb, %23 ]
+  %alt_odb.sink = phi ptr [ @verbose, %21 ], [ @load_all_packs, %.tail.thread ], [ @alt_odb, %23 ]
   store i1 true, ptr %alt_odb.sink, align 4
   br label %30
 
@@ -348,7 +348,7 @@ load_all.exit:                                    ; preds = %add_pack_file.exit,
   br i1 %.not.i.i.i, label %llist_sorted_remove.exit.i.i, label %84
 
 llist_sorted_remove.exit.i.i:                     ; preds = %78, %100, %84, %96
-  %102 = phi ptr [ %.pre.i.i, %96 ], [ %74, %84 ], [ %74, %100 ], [ %74, %78 ]
+  %102 = phi ptr [ %.pre.i.i, %96 ], [ %74, %100 ], [ %74, %84 ], [ %74, %78 ]
   %.031.i9.i.i = phi ptr [ %.031.i11.i.i, %96 ], [ %.029.i12.i.i, %100 ], [ %.031.i11.i.i, %84 ], [ null, %78 ]
   %.0.i.i = load ptr, ptr %.025.i.i, align 8, !tbaa !27
   %.not.i.i = icmp eq ptr %.0.i.i, null
@@ -480,7 +480,7 @@ load_all_objects.exit:                            ; preds = %llist_sorted_differ
   br i1 %.not.i.i.i77, label %llist_sorted_remove.exit.i.i78, label %122
 
 llist_sorted_remove.exit.i.i78:                   ; preds = %116, %138, %122, %134
-  %140 = phi ptr [ %.pre.i.i91, %134 ], [ %112, %122 ], [ %112, %138 ], [ %112, %116 ]
+  %140 = phi ptr [ %.pre.i.i91, %134 ], [ %112, %138 ], [ %112, %122 ], [ %112, %116 ]
   %.031.i9.i.i79 = phi ptr [ %.031.i11.i.i75, %134 ], [ %.029.i12.i.i74, %138 ], [ %.031.i11.i.i75, %122 ], [ null, %116 ]
   %.0.i.i80 = load ptr, ptr %.025.i.i67, align 8, !tbaa !27
   %.not.i.i81 = icmp eq ptr %.0.i.i80, null
@@ -618,7 +618,7 @@ scan_alt_odb_packs.exit:                          ; preds = %..loopexit_crit_edg
   br i1 %.not.i.i98, label %llist_sorted_remove.exit.i, label %167
 
 llist_sorted_remove.exit.i:                       ; preds = %161, %183, %167, %179
-  %185 = phi ptr [ %.pre.i, %179 ], [ %157, %167 ], [ %157, %183 ], [ %157, %161 ]
+  %185 = phi ptr [ %.pre.i, %179 ], [ %157, %183 ], [ %157, %167 ], [ %157, %161 ]
   %.031.i9.i = phi ptr [ %.031.i11.i, %179 ], [ %.029.i12.i, %183 ], [ %.031.i11.i, %167 ], [ null, %161 ]
   %.0.i99 = load ptr, ptr %.025.i96, align 8, !tbaa !27
   %.not.i100 = icmp eq ptr %.0.i99, null
@@ -724,7 +724,7 @@ llist_sorted_difference_inplace.exit:             ; preds = %llist_sorted_remove
   br i1 %.not.i.i116, label %llist_sorted_remove.exit.i117, label %201
 
 llist_sorted_remove.exit.i117:                    ; preds = %195, %217, %201, %213
-  %219 = phi ptr [ %.pre.i127, %213 ], [ %191, %201 ], [ %191, %217 ], [ %191, %195 ]
+  %219 = phi ptr [ %.pre.i127, %213 ], [ %191, %217 ], [ %191, %201 ], [ %191, %195 ]
   %.031.i9.i118 = phi ptr [ %.031.i11.i114, %213 ], [ %.029.i12.i113, %217 ], [ %.031.i11.i114, %201 ], [ null, %195 ]
   %.0.i119 = load ptr, ptr %.025.i106, align 8, !tbaa !27
   %.not.i120 = icmp eq ptr %.0.i119, null
@@ -1350,7 +1350,7 @@ cmp_local_packs.exit:                             ; preds = %.preheaderthread-pr
   br i1 %.not.i.i.i171, label %llist_sorted_remove.exit.i.i172, label %431
 
 llist_sorted_remove.exit.i.i172:                  ; preds = %425, %447, %431, %443
-  %449 = phi ptr [ %.pre.i.i186, %443 ], [ %421, %431 ], [ %421, %447 ], [ %421, %425 ]
+  %449 = phi ptr [ %.pre.i.i186, %443 ], [ %421, %447 ], [ %421, %431 ], [ %421, %425 ]
   %.031.i9.i.i173 = phi ptr [ %.031.i11.i.i169, %443 ], [ %.029.i12.i.i168, %447 ], [ %.031.i11.i.i169, %431 ], [ null, %425 ]
   %.0.i.i174 = load ptr, ptr %.025.i.i161, align 8, !tbaa !27
   %.not.i.i175 = icmp eq ptr %.0.i.i174, null
@@ -1494,7 +1494,7 @@ llist_free.exit.i:                                ; preds = %.lr.ph.i34.i, %454
   br i1 %.not.i.i52.i, label %llist_sorted_remove.exit.i53.i, label %475
 
 llist_sorted_remove.exit.i53.i:                   ; preds = %469, %491, %475, %487
-  %493 = phi ptr [ %.pre.i62.i, %487 ], [ %465, %475 ], [ %465, %491 ], [ %465, %469 ]
+  %493 = phi ptr [ %.pre.i62.i, %487 ], [ %465, %491 ], [ %465, %475 ], [ %465, %469 ]
   %.031.i9.i54.i = phi ptr [ %.031.i11.i50.i, %487 ], [ %.029.i12.i49.i, %491 ], [ %.031.i11.i50.i, %475 ], [ null, %469 ]
   %.0.i55.i = load ptr, ptr %.025.i42.i, align 8, !tbaa !27
   %.not.i56.i = icmp eq ptr %.0.i55.i, null
@@ -1608,7 +1608,7 @@ llist_sorted_difference_inplace.exit66.i:         ; preds = %llist_sorted_remove
   br i1 %.not.i.i81.i, label %llist_sorted_remove.exit.i82.i, label %511
 
 llist_sorted_remove.exit.i82.i:                   ; preds = %505, %527, %511, %523
-  %529 = phi ptr [ %.pre.i91.i, %523 ], [ %501, %511 ], [ %501, %527 ], [ %501, %505 ]
+  %529 = phi ptr [ %.pre.i91.i, %523 ], [ %501, %527 ], [ %501, %511 ], [ %501, %505 ]
   %.031.i9.i83.i = phi ptr [ %.031.i11.i79.i, %523 ], [ %.029.i12.i78.i, %527 ], [ %.031.i11.i79.i, %511 ], [ null, %505 ]
   %.0.i84.i = load ptr, ptr %.025.i71.i, align 8, !tbaa !27
   %.not.i85.i = icmp eq ptr %.0.i84.i, null
@@ -1692,7 +1692,7 @@ sane_qsort.exit.i.i:                              ; preds = %._crit_edge.i.i178
   br i1 %exitcond.not.i.i, label %._crit_edge34.i.loopexit.i, label %.lr.ph33.i.i, !llvm.loop !86
 
 sort_pack_list.exit.i:                            ; preds = %._crit_edge34.i.i, %pack_list_size.exit.i.i
-  %.5.i = phi ptr [ %.2.i, %pack_list_size.exit.i.i ], [ %540, %._crit_edge34.i.i ]
+  %.5.i = phi ptr [ %540, %._crit_edge34.i.i ], [ %.2.i, %pack_list_size.exit.i.i ]
   %545 = getelementptr inbounds nuw i8, ptr %.5.i, i64 24
   %546 = load ptr, ptr %545, align 8, !tbaa !24
   %547 = getelementptr inbounds nuw i8, ptr %546, i64 16
@@ -1813,8 +1813,8 @@ sort_pack_list.exit.i:                            ; preds = %._crit_edge34.i.i, 
   br i1 %.not.i.i114.i, label %llist_sorted_remove.exit.i115.i, label %571
 
 llist_sorted_remove.exit.i115.i:                  ; preds = %565, %586, %571, %583
-  %588 = phi i64 [ %585, %583 ], [ %560, %571 ], [ %560, %586 ], [ %560, %565 ]
-  %589 = phi ptr [ %.pre.i125.i, %583 ], [ %561, %571 ], [ %561, %586 ], [ %561, %565 ]
+  %588 = phi i64 [ %585, %583 ], [ %560, %586 ], [ %560, %571 ], [ %560, %565 ]
+  %589 = phi ptr [ %.pre.i125.i, %583 ], [ %561, %586 ], [ %561, %571 ], [ %561, %565 ]
   %.031.i9.i116.i = phi ptr [ %.031.i11.i112.i, %583 ], [ %.029.i12.i111.i, %586 ], [ %.031.i11.i112.i, %571 ], [ null, %565 ]
   %.0.i117.i = load ptr, ptr %.025.i104.i, align 8, !tbaa !27
   %.not.i118.i = icmp eq ptr %.0.i117.i, null
@@ -2041,9 +2041,9 @@ pack_set_bytecount.exit.loopexit:                 ; preds = %.lr.ph.i205
   br label %pack_set_bytecount.exit
 
 pack_set_bytecount.exit:                          ; preds = %._crit_edge376.thread, %pack_set_bytecount.exit.loopexit
-  %677 = phi ptr [ %611, %pack_set_bytecount.exit.loopexit ], [ %605, %._crit_edge376.thread ]
-  %.011.i201250 = phi i64 [ %.011.i201, %pack_set_bytecount.exit.loopexit ], [ 0, %._crit_edge376.thread ]
-  %.0.lcssa.i208 = phi i64 [ %676, %pack_set_bytecount.exit.loopexit ], [ 0, %._crit_edge376.thread ]
+  %677 = phi ptr [ %605, %._crit_edge376.thread ], [ %611, %pack_set_bytecount.exit.loopexit ]
+  %.011.i201250 = phi i64 [ 0, %._crit_edge376.thread ], [ %.011.i201, %pack_set_bytecount.exit.loopexit ]
+  %.0.lcssa.i208 = phi i64 [ 0, %._crit_edge376.thread ], [ %676, %pack_set_bytecount.exit.loopexit ]
   %678 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %677, ptr noundef nonnull @.str.12, i64 noundef %.011.i201250, i64 noundef %.0.lcssa.i208) #18
   %679 = load ptr, ptr @stderr, align 8, !tbaa !11
   %680 = load ptr, ptr @all_objects, align 8, !tbaa !22
@@ -2453,7 +2453,7 @@ oidread.exit.i.i:                                 ; preds = %80, %.split.loop.ex
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %96, %88, %84, %53, %44, %39
-  %.2.ph = phi ptr [ %.04.i.i, %39 ], [ %.04.i.i, %44 ], [ %.04.i.i, %53 ], [ %.04.i.i.i, %84 ], [ %.04.i.i.i, %88 ], [ %.04.i.i.i, %96 ]
+  %.2.ph = phi ptr [ %.04.i.i, %53 ], [ %.04.i.i, %39 ], [ %.04.i.i, %44 ], [ %.04.i.i.i, %84 ], [ %.04.i.i.i, %88 ], [ %.04.i.i.i, %96 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %98 = load i64, ptr %97, align 8, !tbaa !60
   %99 = add i64 %98, 1
@@ -2867,7 +2867,7 @@ define internal range(i32 -1, 2) i32 @cmp_remaining_objects(ptr noundef readonly
   br label %24
 
 24:                                               ; preds = %22, %20, %14
-  %.0 = phi i32 [ 0, %14 ], [ %., %20 ], [ %.14, %22 ]
+  %.0 = phi i32 [ %.14, %22 ], [ %., %20 ], [ 0, %14 ]
   ret i32 %.0
 }
 

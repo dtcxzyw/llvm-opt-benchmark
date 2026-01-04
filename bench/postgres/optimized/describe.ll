@@ -1069,7 +1069,7 @@ define internal fastcc noundef zeroext i1 @validateSQLNamePattern(ptr noundef no
   br label %35
 
 35:                                               ; preds = %19, %28, %34, %20, %29
-  %.0 = phi i1 [ true, %29 ], [ true, %20 ], [ false, %34 ], [ false, %28 ], [ false, %19 ]
+  %.0 = phi i1 [ true, %20 ], [ true, %29 ], [ false, %34 ], [ false, %28 ], [ false, %19 ]
   call void @termPQExpBuffer(ptr noundef nonnull %11) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -1475,7 +1475,7 @@ define dso_local noundef zeroext i1 @describeFunctions(ptr noundef readonly %0, 
   br label %.sink.split123
 
 .sink.split123:                                   ; preds = %64, %81, %.sink.split122
-  %.str.90.sink = phi ptr [ @.str.90, %.sink.split122 ], [ @.str.90, %81 ], [ %spec.select127, %64 ]
+  %.str.90.sink = phi ptr [ %spec.select127, %64 ], [ @.str.90, %81 ], [ @.str.90, %.sink.split122 ]
   call void @appendPQExpBufferStr(ptr noundef nonnull %7, ptr noundef nonnull %.str.90.sink) #8
   br label %87
 
@@ -1599,7 +1599,7 @@ map_typename_pattern.exit:                        ; preds = %103, %.tail.thread,
   br label %130
 
 130:                                              ; preds = %118, %.loopexit, %121, %30, %26
-  %.091 = phi i1 [ true, %26 ], [ true, %30 ], [ true, %121 ], [ false, %.loopexit ], [ false, %118 ]
+  %.091 = phi i1 [ true, %26 ], [ true, %30 ], [ false, %118 ], [ true, %121 ], [ false, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.091
@@ -1684,7 +1684,7 @@ define dso_local noundef zeroext i1 @describeTypes(ptr noundef %0, i1 noundef ze
   br label %map_typename_pattern.exit
 
 map_typename_pattern.exit:                        ; preds = %14, %12, %13, %19
-  %.09.i = phi ptr [ %22, %19 ], [ null, %13 ], [ null, %12 ], [ %0, %14 ]
+  %.09.i = phi ptr [ null, %12 ], [ %22, %19 ], [ null, %13 ], [ %0, %14 ]
   %23 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %4, ptr noundef %.09.i, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.109, ptr noundef nonnull @.str.110, ptr noundef null, i32 noundef 3)
   br i1 %23, label %25, label %24
 
@@ -1887,7 +1887,7 @@ map_typename_pattern.exit:                        ; preds = %42, %.tail.thread, 
   br label %64
 
 64:                                               ; preds = %.thread, %.loopexit, %57
-  %.029 = phi i1 [ true, %57 ], [ false, %.loopexit ], [ false, %.thread ]
+  %.029 = phi i1 [ false, %.thread ], [ true, %57 ], [ false, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.029
@@ -2325,7 +2325,7 @@ define dso_local noundef zeroext i1 @describeTableDetails(ptr noundef %0, i1 nou
   br label %.critedge
 
 .critedge:                                        ; preds = %37, %34, %11, %._crit_edge, %25, %10
-  %.0 = phi i1 [ false, %25 ], [ true, %._crit_edge ], [ false, %10 ], [ false, %11 ], [ false, %34 ], [ false, %37 ]
+  %.0 = phi i1 [ false, %25 ], [ false, %11 ], [ true, %._crit_edge ], [ false, %10 ], [ false, %34 ], [ false, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
@@ -2559,8 +2559,8 @@ sub_1:                                            ; preds = %.tail1271
   br label %.thread
 
 .thread:                                          ; preds = %97, %103, %110, %108
-  %113 = phi i32 [ %106, %110 ], [ %106, %108 ], [ %106, %103 ], [ 100, %97 ]
-  %.sroa.110635.0 = phi ptr [ %112, %110 ], [ null, %108 ], [ null, %103 ], [ null, %97 ]
+  %113 = phi i32 [ %106, %108 ], [ %106, %110 ], [ %106, %103 ], [ 100, %97 ]
+  %.sroa.110635.0 = phi ptr [ null, %108 ], [ %112, %110 ], [ null, %103 ], [ null, %97 ]
   call void @PQclear(ptr noundef nonnull %34) #8
   %114 = sext i8 %45 to i32
   %115 = icmp eq i8 %45, 83
@@ -2840,7 +2840,7 @@ sub_1:                                            ; preds = %.tail1271
   br label %.thread1188
 
 .thread1188:                                      ; preds = %201, %190, %192, %200, %199, %194
-  %.str.700.sink = phi ptr [ @.str.699, %200 ], [ @.str.698, %199 ], [ @.str.692, %194 ], [ %.str.689..str.690, %192 ], [ @.str.691, %190 ], [ %.str.700..str.701, %201 ]
+  %.str.700.sink = phi ptr [ %.str.700..str.701, %201 ], [ @.str.691, %190 ], [ %.str.689..str.690, %192 ], [ @.str.692, %194 ], [ @.str.699, %200 ], [ @.str.698, %199 ]
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %9, ptr noundef nonnull %.str.700.sink, ptr noundef %0, ptr noundef %1) #8
   store ptr @.str.703, ptr %8, align 16
   %203 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -2852,7 +2852,7 @@ sub_1:                                            ; preds = %.tail1271
   br label %207
 
 .thread1190:                                      ; preds = %190, %197, %195
-  %.str.695.sink = phi ptr [ %.str.693..str.694, %195 ], [ %.str.695..str.696, %197 ], [ @.str.697, %190 ]
+  %.str.695.sink = phi ptr [ %.str.695..str.696, %197 ], [ %.str.693..str.694, %195 ], [ @.str.697, %190 ]
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %9, ptr noundef nonnull %.str.695.sink, ptr noundef %0, ptr noundef %1) #8
   store ptr @.str.703, ptr %8, align 16
   br label %207
@@ -3030,8 +3030,8 @@ sub_11297:                                        ; preds = %sub_01296
   br label %274
 
 274:                                              ; preds = %267, %.tail1295, %266, %272, %270
-  %.01039 = phi i1 [ false, %266 ], [ true, %270 ], [ true, %272 ], [ false, %.tail1295 ], [ false, %267 ]
-  %.01038 = phi ptr [ @.str.710, %266 ], [ %271, %270 ], [ %273, %272 ], [ @.str.709, %.tail1295 ], [ %269, %267 ]
+  %.01039 = phi i1 [ false, %.tail1295 ], [ false, %266 ], [ true, %270 ], [ true, %272 ], [ false, %267 ]
+  %.01038 = phi ptr [ @.str.709, %.tail1295 ], [ @.str.710, %266 ], [ %271, %270 ], [ %273, %272 ], [ %269, %267 ]
   call void @printTableAddCell(ptr noundef nonnull %7, ptr noundef %.01038, i1 noundef zeroext false, i1 noundef zeroext %.01039) #8
   br label %275
 
@@ -3085,7 +3085,7 @@ switch.edge:                                      ; preds = %285
   br label %289
 
 289:                                              ; preds = %switch.edge, %285, %.fold.split1151, %.fold.split, %288
-  %290 = phi ptr [ @.str.713, %285 ], [ @.str.717, %288 ], [ @.str.714, %.fold.split ], [ @.str.715, %.fold.split1151 ], [ @.str.716, %switch.edge ]
+  %290 = phi ptr [ @.str.713, %285 ], [ @.str.714, %.fold.split ], [ @.str.717, %288 ], [ @.str.715, %.fold.split1151 ], [ @.str.716, %switch.edge ]
   call void @printTableAddCell(ptr noundef nonnull %7, ptr noundef nonnull %290, i1 noundef zeroext false, i1 noundef zeroext false) #8
   br label %291
 
@@ -3869,7 +3869,7 @@ sub_01376:                                        ; preds = %528, %544
   br label %.thread1208
 
 .thread1208:                                      ; preds = %580, %578
-  %581 = phi i1 [ true, %580 ], [ %579, %578 ]
+  %581 = phi i1 [ %579, %578 ], [ true, %580 ]
   %or.cond131 = select i1 %or.cond118, i1 %581, i1 false
   br i1 %or.cond131, label %.thread1208.thread.sink.split, label %.thread1208.thread
 
@@ -4305,7 +4305,7 @@ switch.lookup:                                    ; preds = %738
   br label %.critedge1167.us
 
 .critedge1167.us:                                 ; preds = %740, %734, %730, %726, %722, %721
-  %.11017.us = phi i1 [ true, %740 ], [ %.010161442.us, %722 ], [ %.010161442.us, %721 ], [ %.010161442.us, %734 ], [ %.010161442.us, %730 ], [ %.010161442.us, %726 ]
+  %.11017.us = phi i1 [ true, %740 ], [ %.010161442.us, %722 ], [ %.010161442.us, %721 ], [ %.010161442.us, %726 ], [ %.010161442.us, %734 ], [ %.010161442.us, %730 ]
   %744 = add nuw nsw i32 %.91443.us, 1
   %exitcond1518.not = icmp eq i32 %744, %718
   br i1 %exitcond1518.not, label %._crit_edge1445.us, label %721, !llvm.loop !21
@@ -4428,7 +4428,7 @@ switch.lookup:                                    ; preds = %738
   br i1 %exitcond1521.not, label %.sink.split1601, label %.lr.ph1453, !llvm.loop !24
 
 .sink.split1601:                                  ; preds = %.lr.ph1453, %774, %419, %.tail1331.thread
-  %.sink1602 = phi ptr [ %363, %.tail1331.thread ], [ %363, %419 ], [ %773, %774 ], [ %773, %.lr.ph1453 ]
+  %.sink1602 = phi ptr [ %363, %419 ], [ %363, %.tail1331.thread ], [ %773, %774 ], [ %773, %.lr.ph1453 ]
   call void @PQclear(ptr noundef nonnull %.sink1602) #8
   br label %793
 
@@ -4492,13 +4492,13 @@ switch.lookup:                                    ; preds = %738
   br i1 %818, label %.lr.ph1457, label %.thread1231.sink.split, !llvm.loop !25
 
 .thread1231.sink.split:                           ; preds = %.lr.ph1457, %807, %810, %797
-  %.sink1603 = phi ptr [ %796, %797 ], [ %806, %810 ], [ %806, %807 ], [ %806, %.lr.ph1457 ]
-  %.19791234.ph = phi ptr [ null, %797 ], [ %802, %810 ], [ %802, %807 ], [ %802, %.lr.ph1457 ]
+  %.sink1603 = phi ptr [ %796, %797 ], [ %806, %807 ], [ %806, %810 ], [ %806, %.lr.ph1457 ]
+  %.19791234.ph = phi ptr [ null, %797 ], [ %802, %807 ], [ %802, %810 ], [ %802, %.lr.ph1457 ]
   call void @PQclear(ptr noundef nonnull %.sink1603) #8
   br label %.thread1231
 
 .thread1231:                                      ; preds = %.thread1231.sink.split, %803, %770, %793, %800
-  %.19791234 = phi ptr [ null, %800 ], [ null, %793 ], [ null, %770 ], [ %802, %803 ], [ %.19791234.ph, %.thread1231.sink.split ]
+  %.19791234 = phi ptr [ %802, %803 ], [ null, %770 ], [ null, %800 ], [ null, %793 ], [ %.19791234.ph, %.thread1231.sink.split ]
   br i1 %63, label %819, label %860
 
 819:                                              ; preds = %.thread1231
@@ -4618,7 +4618,7 @@ switch.lookup1607:                                ; preds = %.critedge1181.us
   br label %.critedge1179.us
 
 .critedge1179.us:                                 ; preds = %856, %845, %843, %841, %839, %837, %835, %833, %830
-  %.11003.us = phi i8 [ %.21004.us, %856 ], [ %.010021458.us, %833 ], [ %.010021458.us, %837 ], [ %.010021458.us, %841 ], [ %.010021458.us, %845 ], [ %.010021458.us, %830 ], [ %.010021458.us, %843 ], [ %.010021458.us, %839 ], [ %.010021458.us, %835 ]
+  %.11003.us = phi i8 [ %.21004.us, %856 ], [ %.010021458.us, %839 ], [ %.010021458.us, %837 ], [ %.010021458.us, %841 ], [ %.010021458.us, %845 ], [ %.010021458.us, %830 ], [ %.010021458.us, %843 ], [ %.010021458.us, %833 ], [ %.010021458.us, %835 ]
   %858 = add nuw nsw i32 %.131459.us, 1
   %exitcond1522.not = icmp eq i32 %858, %827
   br i1 %exitcond1522.not, label %._crit_edge1461.us, label %830, !llvm.loop !26
@@ -4951,9 +4951,9 @@ sub_01413:                                        ; preds = %sub_01413.sink.spli
   call void @printTable(ptr noundef nonnull %7, ptr noundef %980, i1 noundef zeroext false, ptr noundef %981) #8
   br label %.thread1201
 
-.thread1201:                                      ; preds = %863, %868, %._crit_edge1466, %878, %771, %753, %714, %667, %608, %569, %551, %522, %500, %422, %357, %366, %979, %311, %339, %348, %794, %804, %819
-  %.0978.ph = phi ptr [ %.19791234, %819 ], [ %802, %804 ], [ null, %794 ], [ null, %348 ], [ null, %339 ], [ null, %311 ], [ %.19791234, %979 ], [ null, %366 ], [ null, %357 ], [ null, %422 ], [ null, %500 ], [ null, %522 ], [ null, %551 ], [ null, %569 ], [ null, %608 ], [ null, %667 ], [ null, %714 ], [ null, %753 ], [ null, %771 ], [ %.19791234, %878 ], [ %.19791234, %._crit_edge1466 ], [ %.19791234, %868 ], [ %.19791234, %863 ]
-  %.0973.ph = phi i1 [ false, %819 ], [ false, %804 ], [ false, %794 ], [ false, %348 ], [ false, %339 ], [ false, %311 ], [ true, %979 ], [ false, %366 ], [ false, %357 ], [ false, %422 ], [ false, %500 ], [ false, %522 ], [ false, %551 ], [ false, %569 ], [ false, %608 ], [ false, %667 ], [ false, %714 ], [ false, %753 ], [ false, %771 ], [ false, %878 ], [ false, %._crit_edge1466 ], [ false, %868 ], [ false, %863 ]
+.thread1201:                                      ; preds = %863, %868, %878, %._crit_edge1466, %422, %500, %522, %551, %608, %569, %667, %714, %753, %771, %357, %366, %979, %804, %794, %348, %339, %311, %819
+  %.0978.ph = phi ptr [ %.19791234, %819 ], [ null, %311 ], [ null, %339 ], [ null, %357 ], [ %.19791234, %979 ], [ null, %348 ], [ null, %794 ], [ %802, %804 ], [ null, %422 ], [ null, %366 ], [ null, %771 ], [ null, %753 ], [ null, %714 ], [ null, %667 ], [ null, %569 ], [ null, %608 ], [ null, %551 ], [ null, %522 ], [ null, %500 ], [ %.19791234, %._crit_edge1466 ], [ %.19791234, %878 ], [ %.19791234, %868 ], [ %.19791234, %863 ]
+  %.0973.ph = phi i1 [ false, %819 ], [ false, %311 ], [ false, %339 ], [ false, %357 ], [ true, %979 ], [ false, %348 ], [ false, %794 ], [ false, %804 ], [ false, %422 ], [ false, %366 ], [ false, %771 ], [ false, %753 ], [ false, %714 ], [ false, %667 ], [ false, %569 ], [ false, %608 ], [ false, %551 ], [ false, %522 ], [ false, %500 ], [ false, %._crit_edge1466 ], [ false, %878 ], [ false, %868 ], [ false, %863 ]
   call void @printTableCleanup(ptr noundef nonnull %7) #8
   br label %982
 
@@ -6782,7 +6782,7 @@ define dso_local noundef zeroext i1 @listSchemas(ptr noundef %0, i1 noundef zero
   br label %44
 
 44:                                               ; preds = %.thread, %16
-  %.040 = phi ptr [ null, %16 ], [ %.2, %.thread ]
+  %.040 = phi ptr [ %.2, %.thread ], [ null, %16 ]
   %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 16), align 8
   %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 376), align 8
   call void @printQuery(ptr noundef nonnull %15, ptr noundef nonnull %5, ptr noundef %45, i1 noundef zeroext false, ptr noundef %46) #8
@@ -7012,7 +7012,7 @@ define dso_local noundef zeroext i1 @listTSParsers(ptr noundef %0, i1 noundef ze
   br label %listTSParsersVerbose.exit
 
 listTSParsersVerbose.exit:                        ; preds = %11, %12, %32, %.loopexit.i, %64, %._crit_edge.i
-  %.0.i = phi i1 [ false, %32 ], [ true, %._crit_edge.i ], [ false, %11 ], [ false, %12 ], [ false, %.loopexit.i ], [ false, %64 ]
+  %.0.i = phi i1 [ false, %32 ], [ false, %12 ], [ true, %._crit_edge.i ], [ false, %11 ], [ false, %.loopexit.i ], [ false, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %76
 
@@ -7328,7 +7328,7 @@ define dso_local noundef zeroext i1 @listTSConfigs(ptr noundef %0, i1 noundef ze
   br label %listTSConfigsVerbose.exit
 
 listTSConfigsVerbose.exit:                        ; preds = %11, %12, %30, %55, %61, %._crit_edge.i
-  %.032.i = phi i1 [ false, %30 ], [ true, %._crit_edge.i ], [ false, %11 ], [ false, %12 ], [ false, %55 ], [ false, %61 ]
+  %.032.i = phi i1 [ false, %30 ], [ false, %12 ], [ true, %._crit_edge.i ], [ false, %11 ], [ false, %55 ], [ false, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %73
 
@@ -7811,7 +7811,7 @@ define dso_local noundef zeroext i1 @listExtensionContents(ptr noundef %0) local
   br label %.critedge
 
 .critedge:                                        ; preds = %44, %38, %12, %._crit_edge, %28, %11
-  %.0 = phi i1 [ false, %28 ], [ true, %._crit_edge ], [ false, %11 ], [ false, %12 ], [ false, %38 ], [ false, %44 ]
+  %.0 = phi i1 [ false, %28 ], [ false, %12 ], [ true, %._crit_edge ], [ false, %11 ], [ false, %38 ], [ false, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
@@ -7856,7 +7856,7 @@ define dso_local noundef zeroext i1 @listPublications(ptr noundef %0) local_unna
   br label %17
 
 17:                                               ; preds = %16, %14
-  %18 = phi i32 [ %.pr6, %16 ], [ %.pr, %14 ]
+  %18 = phi i32 [ %.pr, %14 ], [ %.pr6, %16 ]
   %19 = icmp sgt i32 %18, 129999
   br i1 %19, label %20, label %.thread7
 
@@ -8183,7 +8183,7 @@ sub_1:                                            ; preds = %sub_0
   br label %85
 
 85:                                               ; preds = %84, %._crit_edge, %42, %28, %24, %11
-  %.0 = phi i1 [ true, %11 ], [ false, %42 ], [ false, %84 ], [ true, %._crit_edge ], [ false, %28 ], [ false, %24 ]
+  %.0 = phi i1 [ true, %11 ], [ false, %42 ], [ false, %24 ], [ false, %84 ], [ true, %._crit_edge ], [ false, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

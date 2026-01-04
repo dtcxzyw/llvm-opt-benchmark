@@ -68,15 +68,15 @@ define void @_ZN5ZXing10HRIFromGS1B5cxx11ESt17basic_string_viewIcSt11char_traits
   br i1 %11, label %"_ZN5ZXing6FindIfIA205_KNS_6AiInfoEZNS_10HRIFromGS1B5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit", label %12
 
 12:                                               ; preds = %10
-  %.02944.i.i.i.i.add70 = add nuw nsw i64 %.02944.i.i.i.i.idx, 12
-  %.ptr73 = getelementptr inbounds nuw i8, ptr @_ZN5ZXingL7aiInfosE, i64 %.02944.i.i.i.i.add70
-  %13 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing10HRIFromGS1B5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEE3$_0EclIPKNS2_6AiInfoEEEbT_"(i64 %.sroa.043.078, ptr readonly %.sroa.19.079, ptr noundef nonnull %.ptr73) #12
+  %.02944.i.i.i.i.add = add nuw nsw i64 %.02944.i.i.i.i.idx, 12
+  %.ptr = getelementptr inbounds nuw i8, ptr @_ZN5ZXingL7aiInfosE, i64 %.02944.i.i.i.i.add
+  %13 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing10HRIFromGS1B5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEE3$_0EclIPKNS2_6AiInfoEEEbT_"(i64 %.sroa.043.078, ptr readonly %.sroa.19.079, ptr noundef nonnull %.ptr) #12
   br i1 %13, label %"_ZN5ZXing6FindIfIA205_KNS_6AiInfoEZNS_10HRIFromGS1B5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.thread87", label %14
 
 14:                                               ; preds = %12
-  %.02944.i.i.i.i.add = add nuw nsw i64 %.02944.i.i.i.i.idx, 18
-  %.ptr = getelementptr inbounds nuw i8, ptr @_ZN5ZXingL7aiInfosE, i64 %.02944.i.i.i.i.add
-  %15 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing10HRIFromGS1B5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEE3$_0EclIPKNS2_6AiInfoEEEbT_"(i64 %.sroa.043.078, ptr readonly %.sroa.19.079, ptr noundef nonnull %.ptr) #12
+  %.02944.i.i.i.i.add70 = add nuw nsw i64 %.02944.i.i.i.i.idx, 18
+  %.ptr73 = getelementptr inbounds nuw i8, ptr @_ZN5ZXingL7aiInfosE, i64 %.02944.i.i.i.i.add70
+  %15 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing10HRIFromGS1B5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEE3$_0EclIPKNS2_6AiInfoEEEbT_"(i64 %.sroa.043.078, ptr readonly %.sroa.19.079, ptr noundef nonnull %.ptr73) #12
   br i1 %15, label %"_ZN5ZXing6FindIfIA205_KNS_6AiInfoEZNS_10HRIFromGS1B5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.thread87", label %16
 
 16:                                               ; preds = %14
@@ -89,8 +89,8 @@ define void @_ZN5ZXing10HRIFromGS1B5cxx11ESt17basic_string_viewIcSt11char_traits
   %19 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing10HRIFromGS1B5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEE3$_0EclIPKNS2_6AiInfoEEEbT_"(i64 %.sroa.043.078, ptr readonly %.sroa.19.079, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN5ZXingL7aiInfosE, i64 1224)) #12
   br i1 %19, label %"_ZN5ZXing6FindIfIA205_KNS_6AiInfoEZNS_10HRIFromGS1B5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.thread63", label %"_ZN5ZXing6FindIfIA205_KNS_6AiInfoEZNS_10HRIFromGS1B5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.thread"
 
-"_ZN5ZXing6FindIfIA205_KNS_6AiInfoEZNS_10HRIFromGS1B5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.thread87": ; preds = %8, %12, %14
-  %.028.i.i.i.i.idx.ph = phi i64 [ %.02944.i.i.i.i.add, %14 ], [ %.02944.i.i.i.i.add70, %12 ], [ %.02944.i.i.i.i.idx, %8 ]
+"_ZN5ZXing6FindIfIA205_KNS_6AiInfoEZNS_10HRIFromGS1B5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.thread87": ; preds = %14, %8, %12
+  %.028.i.i.i.i.idx.ph = phi i64 [ %.02944.i.i.i.i.add, %12 ], [ %.02944.i.i.i.i.idx, %8 ], [ %.02944.i.i.i.i.add70, %14 ]
   %.028.i.i.i.i.ptr89 = getelementptr inbounds nuw i8, ptr @_ZN5ZXingL7aiInfosE, i64 %.028.i.i.i.i.idx.ph
   br label %"_ZN5ZXing6FindIfIA205_KNS_6AiInfoEZNS_10HRIFromGS1B5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.thread63"
 
@@ -227,7 +227,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLISt17basic_string_viewIcS
   br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !17
 
 73:                                               ; preds = %30, %51, %70
-  %.pn.pn = phi { ptr, i32 } [ %71, %70 ], [ %31, %30 ], [ %52, %51 ]
+  %.pn.pn = phi { ptr, i32 } [ %52, %51 ], [ %71, %70 ], [ %31, %30 ]
   %74 = load ptr, ptr %4, align 8, !tbaa !18
   %75 = icmp eq ptr %74, %5
   br i1 %75, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -329,7 +329,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3:  ; preds = %_ZNSt11char_traitsI
   br label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
 
 _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %4, %13
-  %.0 = phi i32 [ %14, %13 ], [ 4, %4 ], [ 4, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 4, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3 ]
+  %.0 = phi i32 [ %14, %13 ], [ 4, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 4, %4 ], [ 4, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i3 ]
   ret i32 %.0
 }
 

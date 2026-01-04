@@ -516,8 +516,8 @@ invoke.cont37:                                    ; preds = %_ZN6google8protobuf
   %spec.select = add i64 %num_non_cold_subtables.11179, %inc
   br label %invoke.cont37.thread
 
-invoke.cont37.thread:                             ; preds = %invoke.cont37, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit35.i, %call2.i.i.noexc, %_ZN6google8protobuf8internal12_GLOBAL__N_110HasLazyRepEPKNS0_15FieldDescriptorENS1_17TailCallTableInfo15PerFieldOptionsE.exit.i
-  %43 = phi i64 [ %num_non_cold_subtables.11179, %_ZN6google8protobuf8internal12_GLOBAL__N_110HasLazyRepEPKNS0_15FieldDescriptorENS1_17TailCallTableInfo15PerFieldOptionsE.exit.i ], [ %num_non_cold_subtables.11179, %call2.i.i.noexc ], [ %num_non_cold_subtables.11179, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit35.i ], [ %spec.select, %invoke.cont37 ]
+invoke.cont37.thread:                             ; preds = %invoke.cont37, %call2.i.i.noexc, %_ZN6google8protobuf8internal12_GLOBAL__N_110HasLazyRepEPKNS0_15FieldDescriptorENS1_17TailCallTableInfo15PerFieldOptionsE.exit.i, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit35.i
+  %43 = phi i64 [ %num_non_cold_subtables.11179, %call2.i.i.noexc ], [ %spec.select, %invoke.cont37 ], [ %num_non_cold_subtables.11179, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit35.i ], [ %num_non_cold_subtables.11179, %_ZN6google8protobuf8internal12_GLOBAL__N_110HasLazyRepEPKNS0_15FieldDescriptorENS1_17TailCallTableInfo15PerFieldOptionsE.exit.i ]
   %incdec.ptr.i128 = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.01178, i64 8
   %cmp.i109.not = icmp eq ptr %incdec.ptr.i128, %13
   br i1 %cmp.i109.not, label %if.end44, label %for.body34
@@ -752,7 +752,7 @@ _ZNK6google8protobuf15OneofDescriptor12is_syntheticEv.exit.i.i: ; preds = %land.
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %_ZNK6google8protobuf15OneofDescriptor12is_syntheticEv.exit.i.i, %land.lhs.true.i.i171, %if.else3.i, %if.else.i168, %call.i.noexc201
-  %type_card.0.i = phi i16 [ 16, %call.i.noexc201 ], [ 32, %if.else.i168 ], [ 0, %if.else3.i ], [ 48, %land.lhs.true.i.i171 ], [ %70, %_ZNK6google8protobuf15OneofDescriptor12is_syntheticEv.exit.i.i ]
+  %type_card.0.i = phi i16 [ 32, %if.else.i168 ], [ 16, %call.i.noexc201 ], [ 0, %if.else3.i ], [ 48, %land.lhs.true.i.i171 ], [ %70, %_ZNK6google8protobuf15OneofDescriptor12is_syntheticEv.exit.i.i ]
   %type_once_.i.i173 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %71 = load ptr, ptr %type_once_.i.i173, align 8
   %tobool.not.i91.i = icmp eq ptr %71, null
@@ -1515,7 +1515,7 @@ sw.bb274.i:                                       ; preds = %_ZNK6google8protobu
   br label %invoke.cont82
 
 invoke.cont82:                                    ; preds = %sw.bb274.i, %land.lhs.true2.i.i, %sw.bb274.thread.i, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit187.i
-  %type_card.2.i = phi i16 [ %type_card.1.i, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit187.i ], [ %154, %sw.bb274.thread.i ], [ %spec.select.i, %land.lhs.true2.i.i ], [ %spec.select226.i, %sw.bb274.i ]
+  %type_card.2.i = phi i16 [ %154, %sw.bb274.thread.i ], [ %type_card.1.i, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit187.i ], [ %spec.select.i, %land.lhs.true2.i.i ], [ %spec.select226.i, %sw.bb274.i ]
   %160 = trunc i32 %call68.fca.1.extract to i16
   %161 = lshr i16 %160, 5
   %162 = and i16 %161, 8
@@ -2680,7 +2680,7 @@ invoke.cont276:                                   ; preds = %_ZNSt6vectorIN6goog
   br label %for.inc283
 
 for.inc283:                                       ; preds = %_ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo8AuxEntryESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i573, %if.then.i.i552, %_ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo8AuxEntryESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i527, %if.then.i.i506, %_ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo8AuxEntryESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i495, %if.then.i.i474, %_ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo8AuxEntryESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i401, %if.then.i.i380, %if.else163, %if.then185, %invoke.cont103, %invoke.cont120, %invoke.cont123, %invoke.cont117, %invoke.cont241, %land.lhs.true244, %invoke.cont276, %if.then231, %if.else233
-  %subtable_aux_idx.1 = phi i64 [ %subtable_aux_idx.01182, %invoke.cont117 ], [ %subtable_aux_idx.01182, %invoke.cont123 ], [ %subtable_aux_idx.01182, %invoke.cont120 ], [ %subtable_aux_idx.01182, %invoke.cont103 ], [ %subtable_aux_idx.01182, %if.else163 ], [ %inc194, %if.then185 ], [ %subtable_aux_idx.01182, %invoke.cont276 ], [ %subtable_aux_idx.01182, %land.lhs.true244 ], [ %subtable_aux_idx.01182, %invoke.cont241 ], [ %subtable_aux_idx.01182, %if.then231 ], [ %subtable_aux_idx.01182, %if.else233 ], [ %subtable_aux_idx.01182, %if.then.i.i380 ], [ %subtable_aux_idx.01182, %_ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo8AuxEntryESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i401 ], [ %subtable_aux_idx.01182, %if.then.i.i474 ], [ %subtable_aux_idx.01182, %_ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo8AuxEntryESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i495 ], [ %subtable_aux_idx.01182, %if.then.i.i506 ], [ %subtable_aux_idx.01182, %_ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo8AuxEntryESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i527 ], [ %subtable_aux_idx.01182, %if.then.i.i552 ], [ %subtable_aux_idx.01182, %_ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo8AuxEntryESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i573 ]
+  %subtable_aux_idx.1 = phi i64 [ %subtable_aux_idx.01182, %invoke.cont117 ], [ %subtable_aux_idx.01182, %invoke.cont123 ], [ %subtable_aux_idx.01182, %if.else233 ], [ %subtable_aux_idx.01182, %invoke.cont120 ], [ %subtable_aux_idx.01182, %invoke.cont103 ], [ %subtable_aux_idx.01182, %_ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo8AuxEntryESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i401 ], [ %subtable_aux_idx.01182, %_ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo8AuxEntryESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i495 ], [ %subtable_aux_idx.01182, %if.else163 ], [ %inc194, %if.then185 ], [ %subtable_aux_idx.01182, %_ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo8AuxEntryESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i527 ], [ %subtable_aux_idx.01182, %invoke.cont276 ], [ %subtable_aux_idx.01182, %land.lhs.true244 ], [ %subtable_aux_idx.01182, %invoke.cont241 ], [ %subtable_aux_idx.01182, %if.then231 ], [ %subtable_aux_idx.01182, %if.then.i.i380 ], [ %subtable_aux_idx.01182, %if.then.i.i474 ], [ %subtable_aux_idx.01182, %if.then.i.i506 ], [ %subtable_aux_idx.01182, %if.then.i.i552 ], [ %subtable_aux_idx.01182, %_ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo8AuxEntryESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i573 ]
   %incdec.ptr.i734 = getelementptr inbounds nuw i8, ptr %__begin254.sroa.0.01181, i64 8
   %cmp.i157.not = icmp eq ptr %incdec.ptr.i734, %47
   br i1 %cmp.i157.not, label %while.cond, label %for.body62
@@ -2794,7 +2794,7 @@ for.inc.i:                                        ; preds = %call6.i.noexc, %_ZN
   br i1 %cmp2.i752, label %for.body.i, label %invoke.cont303, !llvm.loop !4
 
 invoke.cont303:                                   ; preds = %for.inc.i, %if.then8.i, %for.cond.preheader.i, %while.end
-  %retval.sroa.2.0.i = phi i64 [ %302, %if.then8.i ], [ 0, %while.end ], [ 0, %for.cond.preheader.i ], [ 0, %for.inc.i ]
+  %retval.sroa.2.0.i = phi i64 [ 0, %while.end ], [ %302, %if.then8.i ], [ 0, %for.cond.preheader.i ], [ 0, %for.inc.i ]
   %end_group_tag.sroa.0.0.extract.trunc.i = trunc i64 %retval.sroa.2.0.i to i32
   %305 = and i64 %retval.sroa.2.0.i, 8589918208
   %or.cond.i765 = icmp eq i64 %305, 4294967296
@@ -4752,7 +4752,7 @@ while.end64.i:                                    ; preds = %_ZNSt6vectorIN6goog
   br i1 %cmp18.not.i, label %invoke.cont398.loopexit, label %for.body19.i, !llvm.loop !18
 
 ehcleanup.i:                                      ; preds = %if.then.i.i.i.i36.i, %lpad46.i, %lpad.loopexit.split-lp.i852, %lpad.loopexit.i858
-  %.pn.i = phi { ptr, i32 } [ %509, %lpad46.i ], [ %509, %if.then.i.i.i.i36.i ], [ %lpad.loopexit65.i, %lpad.loopexit.i858 ], [ %lpad.loopexit.split-lp66.i, %lpad.loopexit.split-lp.i852 ]
+  %.pn.i = phi { ptr, i32 } [ %509, %if.then.i.i.i.i36.i ], [ %509, %lpad46.i ], [ %lpad.loopexit65.i, %lpad.loopexit.i858 ], [ %lpad.loopexit.split-lp66.i, %lpad.loopexit.split-lp.i852 ]
   call void @_ZN6google8protobuf8internal17TailCallTableInfo15NumToEntryTableD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp397) #23
   br label %ehcleanup430
 
@@ -4764,10 +4764,10 @@ invoke.cont398.loopexit:                          ; preds = %while.end64.i
   br label %invoke.cont398
 
 invoke.cont398:                                   ; preds = %if.end.i845, %invoke.cont398.loopexit, %for.cond15.preheader.i, %for.end396
-  %522 = phi ptr [ %.pre1265, %invoke.cont398.loopexit ], [ null, %for.cond15.preheader.i ], [ null, %for.end396 ], [ null, %if.end.i845 ]
-  %523 = phi ptr [ %.pre1264, %invoke.cont398.loopexit ], [ null, %for.cond15.preheader.i ], [ null, %for.end396 ], [ null, %if.end.i845 ]
-  %524 = phi ptr [ %.pre1263, %invoke.cont398.loopexit ], [ null, %for.cond15.preheader.i ], [ null, %for.end396 ], [ null, %if.end.i845 ]
-  %525 = phi i32 [ %.pre1262, %invoke.cont398.loopexit ], [ %493, %for.cond15.preheader.i ], [ -1, %for.end396 ], [ %sub9.i, %if.end.i845 ]
+  %522 = phi ptr [ null, %for.end396 ], [ %.pre1265, %invoke.cont398.loopexit ], [ null, %for.cond15.preheader.i ], [ null, %if.end.i845 ]
+  %523 = phi ptr [ null, %for.end396 ], [ %.pre1264, %invoke.cont398.loopexit ], [ null, %for.cond15.preheader.i ], [ null, %if.end.i845 ]
+  %524 = phi ptr [ null, %for.end396 ], [ %.pre1263, %invoke.cont398.loopexit ], [ null, %for.cond15.preheader.i ], [ null, %if.end.i845 ]
+  %525 = phi i32 [ -1, %for.end396 ], [ %.pre1262, %invoke.cont398.loopexit ], [ %493, %for.cond15.preheader.i ], [ %sub9.i, %if.end.i845 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp30.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp45.i)
   store i32 %525, ptr %num_to_entry_table, align 8
@@ -5015,7 +5015,7 @@ lpad.loopexit.split-lp23.loopexit.split-lp.loopexit.i: ; preds = %_ZNKSt6vectorI
   br label %ehcleanup109.i
 
 lpad.loopexit.split-lp23.loopexit.split-lp.loopexit.split-lp.i: ; preds = %while.end.i909, %cond.true.i.i.i.i.i, %if.then.i.i.i.i36.invoke.i, %if.then.i.i.i.i.i935
-  %names.sroa.0.045.i = phi ptr [ %names.sroa.0.1.i, %while.end.i909 ], [ %names.sroa.0.052.i, %if.then.i.i.i.i.i935 ], [ %names.sroa.0.1.i, %cond.true.i.i.i.i.i ], [ %names.sroa.0.1.i, %if.then.i.i.i.i36.invoke.i ]
+  %names.sroa.0.045.i = phi ptr [ %names.sroa.0.1.i, %while.end.i909 ], [ %names.sroa.0.052.i, %if.then.i.i.i.i.i935 ], [ %names.sroa.0.1.i, %if.then.i.i.i.i36.invoke.i ], [ %names.sroa.0.1.i, %cond.true.i.i.i.i.i ]
   %lpad.loopexit.split-lp31.i = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup109.i
@@ -5390,7 +5390,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %invoke.cont427, %_Z
   ret void
 
 ehcleanup430:                                     ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit128.i, %if.then.i.i.i130.i, %eh.resume.i, %ehcleanup.i, %_ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo13FastFieldInfoESaIS4_EED2Ev.exit
-  %.pn = phi { ptr, i32 } [ %480, %_ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo13FastFieldInfoESaIS4_EED2Ev.exit ], [ %lpad.phi.i, %eh.resume.i ], [ %.pn.i, %ehcleanup.i ], [ %.pn10.i, %if.then.i.i.i130.i ], [ %.pn10.i, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit128.i ], [ %lpad.loopexit1114, %lpad.loopexit ], [ %lpad.loopexit1116, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit1119, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1122, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1125, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1126, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %480, %_ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo13FastFieldInfoESaIS4_EED2Ev.exit ], [ %lpad.phi.i, %eh.resume.i ], [ %.pn.i, %ehcleanup.i ], [ %.pn10.i, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit128.i ], [ %.pn10.i, %if.then.i.i.i130.i ], [ %lpad.loopexit1114, %lpad.loopexit ], [ %lpad.loopexit1116, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit1119, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1122, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1125, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1126, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %571 = load ptr, ptr %field_name_data, align 8
   %tobool.not.i.i.i948 = icmp eq ptr %571, null
   br i1 %tobool.not.i.i.i948, label %_ZNSt6vectorIhSaIhEED2Ev.exit950, label %if.then.i.i.i949
@@ -5653,8 +5653,8 @@ if.end.i.i12:                                     ; preds = %invoke.cont34
   br label %invoke.cont40
 
 invoke.cont40:                                    ; preds = %if.end.i.i12, %invoke.cont34, %invoke.cont34.thread
-  %sub.ptr.rhs.cast.i.i64 = phi i64 [ %sub.ptr.rhs.cast.i.i, %invoke.cont34 ], [ %sub.ptr.rhs.cast.i.i57, %invoke.cont34.thread ], [ %sub.ptr.rhs.cast.i.i, %if.end.i.i12 ]
-  %enum_values.sroa.14.2 = phi ptr [ %enum_values.sroa.14.1, %invoke.cont34 ], [ %enum_values.sroa.14.1, %invoke.cont34.thread ], [ %add.ptr.i.i, %if.end.i.i12 ]
+  %sub.ptr.rhs.cast.i.i64 = phi i64 [ %sub.ptr.rhs.cast.i.i, %invoke.cont34 ], [ %sub.ptr.rhs.cast.i.i, %if.end.i.i12 ], [ %sub.ptr.rhs.cast.i.i57, %invoke.cont34.thread ]
+  %enum_values.sroa.14.2 = phi ptr [ %enum_values.sroa.14.1, %invoke.cont34 ], [ %add.ptr.i.i, %if.end.i.i12 ], [ %enum_values.sroa.14.1, %invoke.cont34.thread ]
   %12 = load i32, ptr %enum_values.sroa.0.1, align 4
   %13 = add i32 %12, -32768
   %or.cond = icmp ult i32 %13, -65536
@@ -6375,7 +6375,7 @@ while.body.i.i.us:                                ; preds = %land.rhs.i.i.us
   br i1 %cmp.i22.i.us, label %land.rhs.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us, !llvm.loop !36
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us: ; preds = %land.rhs.i.i.us, %while.body.i.i.us, %while.body.us, %while.end.i.us
-  %__holeIndex.addr.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %while.end.i.us ], [ %__parent.0.us, %while.body.us ], [ %__parent.018.i.i.us, %while.body.i.i.us ], [ %__holeIndex.addr.017.i.i.us, %land.rhs.i.i.us ]
+  %__holeIndex.addr.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %while.end.i.us ], [ %__parent.0.us, %while.body.us ], [ %__holeIndex.addr.017.i.i.us, %land.rhs.i.i.us ], [ %__parent.018.i.i.us, %while.body.i.i.us ]
   %add.ptr.i9.i.i.us = getelementptr inbounds nuw i32, ptr %__first.coerce.fr, i64 %__holeIndex.addr.0.lcssa.i.i.us
   store i32 %1, ptr %add.ptr.i9.i.i.us, align 4
   %cmp8.us = icmp eq i64 %__parent.0.us, 0

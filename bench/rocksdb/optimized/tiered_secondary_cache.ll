@@ -445,7 +445,7 @@ _ZNSt10unique_ptrIN7rocksdb20TieredSecondaryCache12ResultHandleESt14default_dele
   br label %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit50
 
 116:                                              ; preds = %104, %_ZNSt10unique_ptrIN7rocksdb20TieredSecondaryCache12ResultHandleESt14default_deleteIS2_EED2Ev.exit, %74
-  %.pn37 = phi { ptr, i32 } [ %75, %74 ], [ %106, %_ZNSt10unique_ptrIN7rocksdb20TieredSecondaryCache12ResultHandleESt14default_deleteIS2_EED2Ev.exit ], [ %105, %104 ]
+  %.pn37 = phi { ptr, i32 } [ %75, %74 ], [ %105, %104 ], [ %106, %_ZNSt10unique_ptrIN7rocksdb20TieredSecondaryCache12ResultHandleESt14default_deleteIS2_EED2Ev.exit ]
   %117 = load ptr, ptr %11, align 8, !tbaa !37
   %.not.i45 = icmp eq ptr %117, null
   br i1 %.not.i45, label %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit47, label %_ZNKSt14default_deleteIN7rocksdb26SecondaryCacheResultHandleEEclEPS1_.exit.i46
@@ -935,11 +935,11 @@ _ZNKSt14default_deleteIN7rocksdb26SecondaryCacheResultHandleEEclEPS1_.exit.i.i.i
   br label %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit28
 
 _ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit28: ; preds = %.loopexit67, %.loopexit.split-lp68, %.loopexit, %.loopexit.split-lp, %113, %110, %41, %139, %33
-  %.sroa.13.2 = phi ptr [ %.sroa.13.0, %33 ], [ %.sroa.13.1.lcssa172, %139 ], [ %.sroa.13.1114, %41 ], [ %.sroa.13.1.lcssa172, %110 ], [ %.sroa.13.1.lcssa172, %113 ], [ %.sroa.13.1114, %.loopexit ], [ %.sroa.13.1114, %.loopexit.split-lp ], [ %.sroa.13.1114, %.loopexit67 ], [ %.sroa.13.1114, %.loopexit.split-lp68 ]
-  %.sroa.046.2 = phi ptr [ %.sroa.046.0, %33 ], [ %.sroa.046.1.lcssa174, %139 ], [ %.sroa.046.1116, %41 ], [ %.sroa.046.1.lcssa174, %110 ], [ %.sroa.046.1.lcssa174, %113 ], [ %.sroa.046.1116, %.loopexit ], [ %.sroa.046.1116, %.loopexit.split-lp ], [ %.sroa.046.1116, %.loopexit67 ], [ %.sroa.046.1116, %.loopexit.split-lp68 ]
-  %.sroa.19.2 = phi ptr [ %.sroa.19.0, %33 ], [ %.sroa.19.1.lcssa176, %139 ], [ %.sroa.19.1117, %41 ], [ %.sroa.19.1.lcssa176, %110 ], [ %.sroa.19.1.lcssa176, %113 ], [ %.sroa.12.0118, %.loopexit ], [ %.sroa.12.0118, %.loopexit.split-lp ], [ %.sroa.19.7, %.loopexit67 ], [ %.sroa.19.7, %.loopexit.split-lp68 ]
-  %.sroa.053.2 = phi ptr [ %.sroa.053.0, %33 ], [ %.sroa.053.1.lcssa178, %139 ], [ %.sroa.053.1119, %41 ], [ %.sroa.053.1.lcssa178, %110 ], [ %.sroa.053.1.lcssa178, %113 ], [ %.sroa.053.1119, %.loopexit ], [ %.sroa.053.1119, %.loopexit.split-lp ], [ %.sroa.053.7, %.loopexit67 ], [ %.sroa.053.7, %.loopexit.split-lp68 ]
-  %.pn.pn.pn = phi { ptr, i32 } [ %34, %33 ], [ %140, %139 ], [ %42, %41 ], [ %111, %110 ], [ %111, %113 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit69, %.loopexit67 ], [ %lpad.loopexit.split-lp70, %.loopexit.split-lp68 ]
+  %.sroa.13.2 = phi ptr [ %.sroa.13.0, %33 ], [ %.sroa.13.1114, %41 ], [ %.sroa.13.1.lcssa172, %139 ], [ %.sroa.13.1.lcssa172, %113 ], [ %.sroa.13.1114, %.loopexit.split-lp ], [ %.sroa.13.1.lcssa172, %110 ], [ %.sroa.13.1114, %.loopexit ], [ %.sroa.13.1114, %.loopexit67 ], [ %.sroa.13.1114, %.loopexit.split-lp68 ]
+  %.sroa.046.2 = phi ptr [ %.sroa.046.0, %33 ], [ %.sroa.046.1116, %41 ], [ %.sroa.046.1.lcssa174, %139 ], [ %.sroa.046.1.lcssa174, %113 ], [ %.sroa.046.1116, %.loopexit.split-lp ], [ %.sroa.046.1.lcssa174, %110 ], [ %.sroa.046.1116, %.loopexit ], [ %.sroa.046.1116, %.loopexit67 ], [ %.sroa.046.1116, %.loopexit.split-lp68 ]
+  %.sroa.19.2 = phi ptr [ %.sroa.19.0, %33 ], [ %.sroa.19.1117, %41 ], [ %.sroa.19.1.lcssa176, %139 ], [ %.sroa.19.1.lcssa176, %113 ], [ %.sroa.12.0118, %.loopexit.split-lp ], [ %.sroa.19.1.lcssa176, %110 ], [ %.sroa.12.0118, %.loopexit ], [ %.sroa.19.7, %.loopexit67 ], [ %.sroa.19.7, %.loopexit.split-lp68 ]
+  %.sroa.053.2 = phi ptr [ %.sroa.053.0, %33 ], [ %.sroa.053.1119, %41 ], [ %.sroa.053.1.lcssa178, %139 ], [ %.sroa.053.1.lcssa178, %113 ], [ %.sroa.053.1119, %.loopexit.split-lp ], [ %.sroa.053.1.lcssa178, %110 ], [ %.sroa.053.1119, %.loopexit ], [ %.sroa.053.7, %.loopexit67 ], [ %.sroa.053.7, %.loopexit.split-lp68 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %34, %33 ], [ %42, %41 ], [ %140, %139 ], [ %111, %113 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %111, %110 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit69, %.loopexit67 ], [ %lpad.loopexit.split-lp70, %.loopexit.split-lp68 ]
   %.not.i.i.i32 = icmp eq ptr %.sroa.046.2, null
   br i1 %.not.i.i.i32, label %_ZNSt6vectorIPN7rocksdb20TieredSecondaryCache12ResultHandleESaIS3_EED2Ev.exit33, label %141
 
@@ -1326,7 +1326,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK7rocksdb12Customizable12IsInstanceOf
   br label %22
 
 22:                                               ; preds = %21, %18, %6, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %6 ], [ false, %21 ], [ true, %18 ]
+  %.0 = phi i1 [ true, %6 ], [ false, %2 ], [ false, %21 ], [ true, %18 ]
   ret i1 %.0
 }
 

@@ -446,7 +446,7 @@ _ZNK24fixed_bit_vector_manager9last_wordERK16fixed_bit_vector.exit21: ; preds = 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %_ZNK24fixed_bit_vector_manager9last_wordERK16fixed_bit_vector.exit21, %5, %3
-  %.015 = phi i1 [ true, %3 ], [ %23, %_ZNK24fixed_bit_vector_manager9last_wordERK16fixed_bit_vector.exit21 ], [ true, %5 ], [ false, %.lr.ph ]
+  %.015 = phi i1 [ true, %3 ], [ true, %5 ], [ %23, %_ZNK24fixed_bit_vector_manager9last_wordERK16fixed_bit_vector.exit21 ], [ false, %.lr.ph ]
   ret i1 %.015
 }
 
@@ -507,7 +507,7 @@ _ZNK24fixed_bit_vector_manager9last_wordERK16fixed_bit_vector.exit21: ; preds = 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %3, %_ZNK24fixed_bit_vector_manager9last_wordERK16fixed_bit_vector.exit21
-  %.0 = phi i1 [ %23, %_ZNK24fixed_bit_vector_manager9last_wordERK16fixed_bit_vector.exit21 ], [ true, %3 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ true, %3 ], [ %23, %_ZNK24fixed_bit_vector_manager9last_wordERK16fixed_bit_vector.exit21 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 

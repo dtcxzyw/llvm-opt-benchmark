@@ -590,7 +590,7 @@ _ZN4llvm5APIntD2Ev.exit150:                       ; preds = %_ZN4llvm5APIntD2Ev.
   br label %.critedge130.thread
 
 .critedge130.thread:                              ; preds = %.critedge130, %.critedge119.thread
-  %235 = phi i1 [ %227, %.critedge130 ], [ true, %.critedge119.thread ]
+  %235 = phi i1 [ true, %.critedge119.thread ], [ %227, %.critedge130 ]
   %236 = load i32, ptr %74, align 8, !tbaa !17
   %237 = icmp ugt i32 %236, 64
   br i1 %237, label %238, label %_ZN4llvm5APIntD2Ev.exit153
@@ -807,7 +807,7 @@ _ZN4llvm12SCEVAAResult12GetBaseValueEPKNS_4SCEVE.exit164: ; preds = %285, %299, 
   br label %324
 
 324:                                              ; preds = %317, %_ZNK4llvm12LocationSize6isZeroEv.exit134.thread, %_ZNK4llvm12LocationSize6isZeroEv.exit, %_ZNK4llvm12LocationSize6isZeroEv.exit134, %_ZN4llvm5APIntD2Ev.exit154, %_ZN4llvm5APIntD2Ev.exit147, %323
-  %.sroa.0179.0 = phi i32 [ 0, %_ZN4llvm5APIntD2Ev.exit147 ], [ 1, %323 ], [ 0, %_ZN4llvm5APIntD2Ev.exit154 ], [ 0, %_ZNK4llvm12LocationSize6isZeroEv.exit134 ], [ 0, %_ZNK4llvm12LocationSize6isZeroEv.exit ], [ 3, %_ZNK4llvm12LocationSize6isZeroEv.exit134.thread ], [ 0, %317 ]
+  %.sroa.0179.0 = phi i32 [ 0, %_ZN4llvm5APIntD2Ev.exit154 ], [ 0, %_ZNK4llvm12LocationSize6isZeroEv.exit ], [ 0, %_ZN4llvm5APIntD2Ev.exit147 ], [ 1, %323 ], [ 3, %_ZNK4llvm12LocationSize6isZeroEv.exit134.thread ], [ 0, %_ZNK4llvm12LocationSize6isZeroEv.exit134 ], [ 0, %317 ]
   ret i32 %.sroa.0179.0
 }
 
@@ -1716,7 +1716,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIPNS_11AnalysisKeyEbLj8E
   br label %34
 
 34:                                               ; preds = %27, %27, %29
-  %.1 = phi ptr [ %.02738, %27 ], [ %33, %29 ], [ %.02738, %27 ]
+  %.1 = phi ptr [ %.02738, %27 ], [ %.02738, %27 ], [ %33, %29 ]
   %.028.add = add nuw nsw i64 %.028.idx37, 16
   %.not31 = icmp eq i64 %.028.add, 128
   br i1 %.not31, label %25, label %27, !llvm.loop !127

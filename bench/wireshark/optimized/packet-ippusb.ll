@@ -503,7 +503,7 @@ is_http_header.exit261:                           ; preds = %104, %102, %97, %91
   br label %209
 
 209:                                              ; preds = %197, %204, %is_http_header.exit261, %195, %107
-  %.1225 = phi i32 [ 0, %107 ], [ 0, %195 ], [ 0, %is_http_header.exit261 ], [ %206, %204 ], [ 0, %197 ]
+  %.1225 = phi i32 [ 0, %107 ], [ 0, %is_http_header.exit261 ], [ 0, %195 ], [ %206, %204 ], [ 0, %197 ]
   store i8 %90, ptr %89, align 8
   br label %299
 
@@ -654,12 +654,12 @@ is_http_header.exit261:                           ; preds = %104, %102, %97, %91
   br label %.thread268
 
 .thread268:                                       ; preds = %.thread268.sink.split, %.critedge, %274, %272, %290, %283, %210
-  %.5 = phi i32 [ 0, %.critedge ], [ %277, %274 ], [ 0, %272 ], [ %293, %290 ], [ 0, %283 ], [ 0, %210 ], [ %.5.ph, %.thread268.sink.split ]
+  %.5 = phi i32 [ 0, %283 ], [ 0, %.critedge ], [ %293, %290 ], [ %277, %274 ], [ 0, %272 ], [ 0, %210 ], [ %.5.ph, %.thread268.sink.split ]
   store i8 %90, ptr %89, align 8
   br label %299
 
 299:                                              ; preds = %.thread268, %209, %76
-  %.0224 = phi i32 [ %78, %76 ], [ %.1225, %209 ], [ %.5, %.thread268 ]
+  %.0224 = phi i32 [ %78, %76 ], [ %.5, %.thread268 ], [ %.1225, %209 ]
   %.not256 = icmp eq i32 %.0224, 0
   br i1 %.not256, label %.thread271, label %300
 

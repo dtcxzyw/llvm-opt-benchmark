@@ -932,7 +932,7 @@ thread-pre-split.i.i.i.i.i.i.i307:                ; preds = %.noexc315
   br label %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEES7_EEE11squaredNormEv.exit
 
 _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEES7_EEE11squaredNormEv.exit: ; preds = %.lr.ph85.i.i.i.i, %353, %342, %293
-  %.0.i.i = phi double [ 0.000000e+00, %293 ], [ %357, %353 ], [ %343, %342 ], [ %351, %.lr.ph85.i.i.i.i ]
+  %.0.i.i = phi double [ 0.000000e+00, %293 ], [ %343, %342 ], [ %357, %353 ], [ %351, %.lr.ph85.i.i.i.i ]
   %358 = load double, ptr %157, align 8, !tbaa !35
   %359 = fcmp olt double %.0.i.i, %358
   br i1 %359, label %772, label %360
@@ -2097,7 +2097,7 @@ _ZN5Eigen12SparseMatrixIdLi0EiED2Ev.exit380:      ; preds = %747, %750
   br label %765
 
 765:                                              ; preds = %.body356, %525
-  %.pn233 = phi { ptr, i32 } [ %.pn218.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body356 ], [ %526, %525 ]
+  %.pn233 = phi { ptr, i32 } [ %526, %525 ], [ %.pn218.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body356 ]
   %766 = load ptr, ptr %36, align 8, !tbaa !18
   call void @free(ptr noundef %766) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
@@ -2111,7 +2111,7 @@ _ZN5Eigen12SparseMatrixIdLi0EiED2Ev.exit380:      ; preds = %747, %750
   br label %768
 
 768:                                              ; preds = %.body348, %453, %451
-  %.pn239.pn = phi { ptr, i32 } [ %.pn233.pn.pn, %.body348 ], [ %454, %453 ], [ %452, %451 ]
+  %.pn239.pn = phi { ptr, i32 } [ %452, %451 ], [ %.pn233.pn.pn, %.body348 ], [ %454, %453 ]
   %769 = load ptr, ptr %33, align 8, !tbaa !18
   call void @free(ptr noundef %769) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
@@ -2147,7 +2147,7 @@ _ZN5Eigen12SparseMatrixIdLi0EiED2Ev.exit380:      ; preds = %747, %750
   ret i32 %.4
 
 779:                                              ; preds = %770, %.body316, %277
-  %.pn251 = phi { ptr, i32 } [ %eh.lpad-body317, %.body316 ], [ %278, %277 ], [ %.pn239.pn.pn.pn, %770 ]
+  %.pn251 = phi { ptr, i32 } [ %.pn239.pn.pn.pn, %770 ], [ %eh.lpad-body317, %.body316 ], [ %278, %277 ]
   %780 = load ptr, ptr %29, align 8, !tbaa !18
   call void @free(ptr noundef %780) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
@@ -4016,7 +4016,7 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2INS_14CwiseNullaryOpINS_8internal18sc
   br label %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEES7_EEE11squaredNormEv.exit
 
 _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEES7_EEE11squaredNormEv.exit: ; preds = %.lr.ph85.i.i.i.i, %368, %357, %308
-  %.0.i.i = phi double [ 0.000000e+00, %308 ], [ %372, %368 ], [ %358, %357 ], [ %366, %.lr.ph85.i.i.i.i ]
+  %.0.i.i = phi double [ 0.000000e+00, %308 ], [ %358, %357 ], [ %372, %368 ], [ %366, %.lr.ph85.i.i.i.i ]
   %373 = load double, ptr %178, align 8, !tbaa !35
   %374 = fcmp olt double %.0.i.i, %373
   br i1 %374, label %781, label %375
@@ -4082,10 +4082,10 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i: ; preds = %391
   unreachable
 
 .noexc333:                                        ; preds = %..noexc333_crit_edge, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i
-  %.pre-phi = phi i64 [ %.pre722, %..noexc333_crit_edge ], [ %385, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i ], [ %385, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i ]
-  %.sroa.0.4 = phi ptr [ %.sroa.0.0, %..noexc333_crit_edge ], [ %394, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i ], [ %.sroa.0.0, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i ]
-  %.sroa.10.2 = phi i64 [ %.sroa.10.0, %..noexc333_crit_edge ], [ %377, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i ], [ %377, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i ]
-  %.sroa.15.2 = phi i64 [ %.sroa.15.0, %..noexc333_crit_edge ], [ %378, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i ], [ %378, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i ]
+  %.pre-phi = phi i64 [ %.pre722, %..noexc333_crit_edge ], [ %385, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i ], [ %385, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i ]
+  %.sroa.0.4 = phi ptr [ %.sroa.0.0, %..noexc333_crit_edge ], [ %.sroa.0.0, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i ], [ %394, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i ]
+  %.sroa.10.2 = phi i64 [ %.sroa.10.0, %..noexc333_crit_edge ], [ %377, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i ], [ %377, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i ]
+  %.sroa.15.2 = phi i64 [ %.sroa.15.0, %..noexc333_crit_edge ], [ %378, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i ], [ %378, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i ]
   %397 = sdiv i64 %.pre-phi, 2
   %398 = shl nsw i64 %397, 1
   %399 = icmp sgt i64 %.pre-phi, 1
@@ -5211,7 +5211,7 @@ _ZN5Eigen12SparseMatrixIdLi0EiED2Ev.exit379:      ; preds = %756, %759
   br label %774
 
 774:                                              ; preds = %.body355, %536
-  %.pn233 = phi { ptr, i32 } [ %.pn218.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body355 ], [ %537, %536 ]
+  %.pn233 = phi { ptr, i32 } [ %537, %536 ], [ %.pn218.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body355 ]
   %775 = load ptr, ptr %40, align 8, !tbaa !18
   call void @free(ptr noundef %775) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
@@ -5225,7 +5225,7 @@ _ZN5Eigen12SparseMatrixIdLi0EiED2Ev.exit379:      ; preds = %756, %759
   br label %777
 
 777:                                              ; preds = %.body352, %464, %462, %460
-  %.pn239.pn = phi { ptr, i32 } [ %.pn233.pn.pn, %.body352 ], [ %465, %464 ], [ %463, %462 ], [ %461, %460 ]
+  %.pn239.pn = phi { ptr, i32 } [ %461, %460 ], [ %.pn233.pn.pn, %.body352 ], [ %465, %464 ], [ %463, %462 ]
   %778 = load ptr, ptr %36, align 8, !tbaa !18
   call void @free(ptr noundef %778) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
@@ -5260,8 +5260,8 @@ _ZN5Eigen12SparseMatrixIdLi0EiED2Ev.exit379:      ; preds = %756, %759
   ret i32 %.4
 
 787:                                              ; preds = %779, %294, %292
-  %.sroa.0.2 = phi ptr [ %.sroa.0.0, %292 ], [ %.sroa.0.0, %294 ], [ %.sroa.0.1, %779 ]
-  %.pn251 = phi { ptr, i32 } [ %293, %292 ], [ %295, %294 ], [ %.pn239.pn.pn.pn, %779 ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.1, %779 ], [ %.sroa.0.0, %292 ], [ %.sroa.0.0, %294 ]
+  %.pn251 = phi { ptr, i32 } [ %.pn239.pn.pn.pn, %779 ], [ %293, %292 ], [ %295, %294 ]
   call void @free(ptr noundef %.sroa.0.2) #18
   br label %.body319
 
@@ -6993,8 +6993,8 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE11setConstantERKd.exi
   br label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE12_set_noaliasINS_7ProductINS_12SparseMatrixIdLi0EiEES2_Li0EEEEERS2_RKNS_9DenseBaseIT_EE.exit.i
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE12_set_noaliasINS_7ProductINS_12SparseMatrixIdLi0EiEES2_Li0EEEEERS2_RKNS_9DenseBaseIT_EE.exit.i: ; preds = %2, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE11setConstantERKd.exit.loopexit.i.i.i.i.i.i, %20
-  %24 = phi ptr [ %.pre.i.i.i.i, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE11setConstantERKd.exit.loopexit.i.i.i.i.i.i ], [ %.pre.i.i.i.i, %20 ], [ %4, %2 ]
-  %25 = phi ptr [ %.pre13.i.i.i.i, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE11setConstantERKd.exit.loopexit.i.i.i.i.i.i ], [ %.pre13.i.i.i.i, %20 ], [ %8, %2 ]
+  %24 = phi ptr [ %.pre.i.i.i.i, %20 ], [ %.pre.i.i.i.i, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE11setConstantERKd.exit.loopexit.i.i.i.i.i.i ], [ %4, %2 ]
+  %25 = phi ptr [ %.pre13.i.i.i.i, %20 ], [ %.pre13.i.i.i.i, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE11setConstantERKd.exit.loopexit.i.i.i.i.i.i ], [ %8, %2 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store double 1.000000e+00, ptr %3, align 8, !tbaa !19
   invoke void @_ZN5Eigen8internal30sparse_time_dense_product_implINS_12SparseMatrixIdLi0EiEENS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEES5_dLi0ELb1EE3runERKS3_RKS5_RS5_RKd(ptr noundef nonnull align 8 dereferenceable(72) %24, ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %3)

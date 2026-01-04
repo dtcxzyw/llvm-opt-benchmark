@@ -1367,7 +1367,7 @@ define hidden ptr @OBJ_dup(ptr noundef readonly captures(address_is_null, ret: a
   br label %43
 
 43:                                               ; preds = %3, %1, %42, %38, %10
-  %.038 = phi ptr [ null, %10 ], [ null, %42 ], [ %8, %38 ], [ null, %1 ], [ %0, %3 ]
+  %.038 = phi ptr [ null, %1 ], [ null, %10 ], [ null, %42 ], [ %8, %38 ], [ %0, %3 ]
   ret ptr %.038
 }
 
@@ -1495,7 +1495,7 @@ bsearch.exit.thread.sink.split:                   ; preds = %32, %10
   br label %bsearch.exit.thread
 
 bsearch.exit.thread:                              ; preds = %obj_cmp.exit.thread, %bsearch.exit.thread.sink.split, %3, %1
-  %.0 = phi i32 [ 0, %1 ], [ %5, %3 ], [ %36, %bsearch.exit.thread.sink.split ], [ 0, %obj_cmp.exit.thread ]
+  %.0 = phi i32 [ %36, %bsearch.exit.thread.sink.split ], [ 0, %1 ], [ %5, %3 ], [ 0, %obj_cmp.exit.thread ]
   ret i32 %.0
 }
 
@@ -1594,7 +1594,7 @@ bsearch.exit:                                     ; preds = %20
   br label %bsearch.exit.thread
 
 bsearch.exit.thread:                              ; preds = %23, %6, %bsearch.exit
-  %.1 = phi i32 [ %26, %bsearch.exit ], [ %8, %6 ], [ 0, %23 ]
+  %.1 = phi i32 [ %8, %6 ], [ %26, %bsearch.exit ], [ 0, %23 ]
   ret i32 %.1
 }
 
@@ -1665,7 +1665,7 @@ bsearch.exit:                                     ; preds = %22
   br label %bsearch.exit.thread
 
 bsearch.exit.thread:                              ; preds = %25, %7, %bsearch.exit
-  %.1 = phi i32 [ %28, %bsearch.exit ], [ %9, %7 ], [ 0, %25 ]
+  %.1 = phi i32 [ %9, %7 ], [ %28, %bsearch.exit ], [ 0, %25 ]
   ret i32 %.1
 }
 
@@ -1768,7 +1768,7 @@ define hidden ptr @OBJ_txt2obj(ptr noundef %0, i32 noundef %1) local_unnamed_add
   br label %OBJ_nid2obj.exit
 
 OBJ_nid2obj.exit:                                 ; preds = %11, %24, %22, %25, %34, %33
-  %.0 = phi ptr [ null, %33 ], [ %37, %34 ], [ null, %25 ], [ null, %24 ], [ %21, %22 ], [ %13, %11 ]
+  %.0 = phi ptr [ null, %25 ], [ null, %33 ], [ %37, %34 ], [ null, %24 ], [ %21, %22 ], [ %13, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
@@ -1856,7 +1856,7 @@ OBJ_nid2obj.exit:                                 ; preds = %6, %19
   br label %31
 
 31:                                               ; preds = %OBJ_nid2obj.exit, %29, %20, %22
-  %.0 = phi i32 [ 0, %22 ], [ 0, %20 ], [ 0, %OBJ_nid2obj.exit ], [ %spec.select, %29 ]
+  %.0 = phi i32 [ 0, %OBJ_nid2obj.exit ], [ %spec.select, %29 ], [ 0, %22 ], [ 0, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -2352,9 +2352,9 @@ define hidden i32 @OBJ_obj2txt(ptr noundef %0, i32 noundef %1, ptr noundef %2, i
   br label %122
 
 122:                                              ; preds = %.thread207, %120
-  %.3143 = phi i32 [ %121, %120 ], [ %103, %.thread207 ]
-  %.6136 = phi i32 [ %.7137, %120 ], [ %.4134, %.thread207 ]
-  %.6 = phi ptr [ %.7, %120 ], [ %.4, %.thread207 ]
+  %.3143 = phi i32 [ %103, %.thread207 ], [ %121, %120 ]
+  %.6136 = phi i32 [ %.4134, %.thread207 ], [ %.7137, %120 ]
+  %.6 = phi ptr [ %.4, %.thread207 ], [ %.7, %120 ]
   %123 = icmp sgt i32 %36, 0
   br i1 %123, label %.preheader, label %._crit_edge, !llvm.loop !25
 
@@ -2364,13 +2364,13 @@ define hidden i32 @OBJ_obj2txt(ptr noundef %0, i32 noundef %1, ptr noundef %2, i
   call void @BN_free(ptr noundef %.0120.lcssa) #10
   br label %124
 
-.thread191:                                       ; preds = %82, %65, %.preheader, %57, %41, %49, %51, %.thread185
-  %.2122198 = phi ptr [ %.2122, %57 ], [ %.1121225, %41 ], [ null, %49 ], [ %.4124, %51 ], [ %.3123190, %.thread185 ], [ %.0120240, %.preheader ], [ %.1121225, %65 ], [ %.1121225, %82 ]
+.thread191:                                       ; preds = %82, %65, %.preheader, %57, %51, %49, %41, %.thread185
+  %.2122198 = phi ptr [ %.3123190, %.thread185 ], [ %.1121225, %41 ], [ %.2122, %57 ], [ %.4124, %51 ], [ null, %49 ], [ %.0120240, %.preheader ], [ %.1121225, %65 ], [ %.1121225, %82 ]
   call void @BN_free(ptr noundef %.2122198) #10
   br label %124
 
 124:                                              ; preds = %26, %9, %11, %.thread191, %._crit_edge
-  %.0 = phi i32 [ -1, %.thread191 ], [ %.0140.lcssa, %._crit_edge ], [ %28, %26 ], [ 0, %11 ], [ 0, %9 ]
+  %.0 = phi i32 [ %28, %26 ], [ 0, %9 ], [ 0, %11 ], [ -1, %.thread191 ], [ %.0140.lcssa, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

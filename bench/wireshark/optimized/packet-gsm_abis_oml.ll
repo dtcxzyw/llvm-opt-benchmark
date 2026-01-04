@@ -1345,7 +1345,7 @@ dissect_oml_manuf.exit:                           ; preds = %57, %61
   br label %63
 
 63:                                               ; preds = %36, %39, %45, %dissect_oml_manuf.exit, %41, %.split
-  %.051 = phi i32 [ 4, %.split ], [ %46, %45 ], [ %.0.i, %dissect_oml_manuf.exit ], [ 4, %41 ], [ 4, %39 ], [ 4, %36 ]
+  %.051 = phi i32 [ 4, %41 ], [ 4, %.split ], [ %46, %45 ], [ %.0.i, %dissect_oml_manuf.exit ], [ 4, %39 ], [ 4, %36 ]
   ret i32 %.051
 }
 
@@ -1565,9 +1565,9 @@ find_tlv_tag.exit:                                ; preds = %19, %.thread.i
   br label %.loopexit372
 
 48:                                               ; preds = %find_tlv_tag.exit, %41, %32, %28, %27, %23
-  %.0362 = phi i32 [ 1, %23 ], [ 1, %27 ], [ 2, %28 ], [ 3, %32 ], [ 2, %41 ], [ 1, %find_tlv_tag.exit ]
-  %.0361 = phi i32 [ 0, %23 ], [ 0, %27 ], [ 1, %28 ], [ 2, %32 ], [ 1, %41 ], [ 0, %find_tlv_tag.exit ]
-  %.0360 = phi i32 [ %26, %23 ], [ 1, %27 ], [ %31, %28 ], [ %40, %32 ], [ %45, %41 ], [ 0, %find_tlv_tag.exit ]
+  %.0362 = phi i32 [ 1, %23 ], [ 2, %41 ], [ 1, %27 ], [ 2, %28 ], [ 3, %32 ], [ 1, %find_tlv_tag.exit ]
+  %.0361 = phi i32 [ 0, %23 ], [ 1, %41 ], [ 0, %27 ], [ 1, %28 ], [ 2, %32 ], [ 0, %find_tlv_tag.exit ]
+  %.0360 = phi i32 [ %26, %23 ], [ %45, %41 ], [ 1, %27 ], [ %31, %28 ], [ %40, %32 ], [ 0, %find_tlv_tag.exit ]
   %49 = load i32, ptr @hf_oml_fom_attr_len, align 4
   %50 = add i32 %.0352384, 1
   %51 = tail call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %49, ptr noundef %0, i32 noundef %50, i32 noundef %.0361, i32 noundef %.0360)
@@ -1826,7 +1826,7 @@ find_tlv_tag.exit:                                ; preds = %19, %.thread.i
   br label %ipacc_tr_ie_chan_usage.exit.i
 
 ipacc_tr_ie_chan_usage.exit.i:                    ; preds = %.lr.ph.i.i, %202, %200, %140, %.lr.ph.i
-  %.1.i = phi i32 [ %139, %.lr.ph.i ], [ %139, %140 ], [ %205, %202 ], [ %.2.i.i, %200 ], [ %149, %.lr.ph.i.i ]
+  %.1.i = phi i32 [ %139, %.lr.ph.i ], [ %.2.i.i, %200 ], [ %139, %140 ], [ %205, %202 ], [ %149, %.lr.ph.i.i ]
   %206 = tail call i32 @tvb_reported_length_remaining(ptr noundef %55, i32 noundef %.1.i)
   %207 = icmp sgt i32 %206, 0
   br i1 %207, label %.lr.ph.i, label %dissect_ipacc_test_rep.exit, !llvm.loop !10
@@ -2138,7 +2138,7 @@ dissect_ipacc_test_rep.exit:                      ; preds = %.lr.ph379, %ipacc_t
   br label %408
 
 408:                                              ; preds = %48, %.loopexit
-  %.1353 = phi i32 [ %407, %.loopexit ], [ %52, %48 ]
+  %.1353 = phi i32 [ %52, %48 ], [ %407, %.loopexit ]
   %409 = sub i32 %.1353, %1
   %410 = icmp slt i32 %409, %2
   br i1 %410, label %8, label %.loopexit372

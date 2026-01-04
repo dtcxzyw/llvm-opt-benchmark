@@ -108,7 +108,7 @@ define range(i32 0, 21) i32 @cli_scanudf(ptr noundef %0, i64 noundef %1) local_u
   br label %.loopexit627
 
 30:                                               ; preds = %27, %25, %23, %21, %19, %17, %14
-  %.str.3.sink = phi ptr [ @.str.1, %14 ], [ @.str.3, %17 ], [ @.str.4, %19 ], [ @.str.5, %21 ], [ @.str.6, %23 ], [ @.str.7, %25 ], [ @.str.8, %27 ]
+  %.str.3.sink = phi ptr [ @.str.1, %14 ], [ @.str.4, %19 ], [ @.str.6, %23 ], [ @.str.7, %25 ], [ @.str.5, %21 ], [ @.str.3, %17 ], [ @.str.8, %27 ]
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull %.str.3.sink) #7
   %31 = load ptr, ptr %7, align 8, !tbaa !3
   %32 = getelementptr i8, ptr %31, i64 16
@@ -782,7 +782,7 @@ getAnchorVolumeDescriptorPointer.exit:            ; preds = %314
   br i1 %.not.i304, label %getFileSetDescriptor.exit, label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge.i.i311, %340, %346, %getAnchorVolumeDescriptorPointer.exit
-  %.0.i309.ph = phi i64 [ %.01523.i.i283, %getAnchorVolumeDescriptorPointer.exit ], [ %.01523.i.i300, %346 ], [ %.01523.i.i300, %340 ], [ %.01523.i.i283, %.critedge.i.i311 ]
+  %.0.i309.ph = phi i64 [ %.01523.i.i283, %getAnchorVolumeDescriptorPointer.exit ], [ %.01523.i.i300, %340 ], [ %.01523.i.i300, %346 ], [ %.01523.i.i283, %.critedge.i.i311 ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.20) #7
   br label %357
 
@@ -1218,7 +1218,7 @@ extractFile.exit.i:                               ; preds = %531, %529
   br i1 %.not25.i, label %parseFileEntryDescriptor.exit, label %extractFile.exit.thread.i
 
 extractFile.exit.thread.sink.split.i:             ; preds = %492, %482, %481, %472, %471, %465, %461
-  %.str.36.sink.i = phi ptr [ @.str.32, %465 ], [ @.str.33, %471 ], [ @.str.34, %472 ], [ @.str.35, %481 ], [ @.str.34, %482 ], [ @.str.36, %461 ], [ @.str.37, %492 ]
+  %.str.36.sink.i = phi ptr [ @.str.34, %482 ], [ @.str.35, %481 ], [ @.str.34, %472 ], [ @.str.33, %471 ], [ @.str.32, %465 ], [ @.str.36, %461 ], [ @.str.37, %492 ]
   call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull %.str.36.sink.i) #7
   br label %extractFile.exit.thread.i
 
@@ -1275,24 +1275,24 @@ parseFileEntryDescriptor.exit:                    ; preds = %extractFile.exit.i,
   br label %findFileIdentifiers.exit.thread
 
 findFileIdentifiers.exit.thread:                  ; preds = %419, %435, %379, %403, %406, %366, %364, %364, %364, %._crit_edge
-  %.sroa.0361.4 = phi ptr [ %.sroa.0361.2, %._crit_edge ], [ %.sroa.0361.2, %364 ], [ %.sroa.0361.2, %364 ], [ %.sroa.0361.2, %364 ], [ %.sroa.0361.2, %366 ], [ %.sroa.0361.2, %406 ], [ %.sroa.0361.6, %403 ], [ %.sroa.0361.6, %379 ], [ %.sroa.0361.2, %435 ], [ %.sroa.0361.2, %419 ]
-  %.sroa.10364.4 = phi i64 [ %.sroa.10364.2, %._crit_edge ], [ %.sroa.10364.2, %364 ], [ %.sroa.10364.2, %364 ], [ %.sroa.10364.2, %364 ], [ %.sroa.10364.2, %366 ], [ %.sroa.10364.2, %406 ], [ %.sroa.10364.8.insert.insert, %403 ], [ %.sroa.10364.8.insert.insert, %379 ], [ %.sroa.10364.2, %435 ], [ %.sroa.10364.2, %419 ]
-  %.sroa.0.4 = phi ptr [ %.sroa.0.2, %._crit_edge ], [ %.sroa.0.2, %364 ], [ %.sroa.0.2, %364 ], [ %.sroa.0.2, %364 ], [ %.sroa.0.2, %366 ], [ %.sroa.0.2, %406 ], [ %.sroa.0.2, %403 ], [ %.sroa.0.2, %379 ], [ %.sroa.0.6, %435 ], [ %.sroa.0.6, %419 ]
-  %.sroa.10.4 = phi i64 [ %.sroa.10.2, %._crit_edge ], [ %.sroa.10.2, %364 ], [ %.sroa.10.2, %364 ], [ %.sroa.10.2, %364 ], [ %.sroa.10.2, %366 ], [ %.sroa.10.2, %406 ], [ %.sroa.10.2, %403 ], [ %.sroa.10.2, %379 ], [ %.sroa.10.8.insert.insert, %435 ], [ %.sroa.10.8.insert.insert, %419 ]
-  %.4116 = phi ptr [ null, %._crit_edge ], [ %.2114, %364 ], [ %.2114, %364 ], [ %.2114, %364 ], [ %.2114, %366 ], [ %.2114, %406 ], [ %.2114, %403 ], [ %.2114, %379 ], [ %.2114, %435 ], [ %.2114, %419 ]
-  %.4110 = phi ptr [ null, %._crit_edge ], [ %.2108, %364 ], [ %.2108, %364 ], [ %.2108, %364 ], [ %.2108, %366 ], [ %.2108, %406 ], [ %.2108, %403 ], [ %.2108, %379 ], [ %.2108, %435 ], [ %.2108, %419 ]
-  %.3102 = phi ptr [ null, %._crit_edge ], [ %361, %364 ], [ %361, %364 ], [ %361, %364 ], [ %361, %366 ], [ %361, %406 ], [ %361, %403 ], [ %361, %379 ], [ %361, %435 ], [ %361, %419 ]
-  %.397 = phi i1 [ false, %._crit_edge ], [ true, %364 ], [ true, %364 ], [ true, %364 ], [ true, %366 ], [ true, %406 ], [ true, %403 ], [ true, %379 ], [ true, %435 ], [ true, %419 ]
+  %.sroa.0361.4 = phi ptr [ %.sroa.0361.2, %._crit_edge ], [ %.sroa.0361.2, %364 ], [ %.sroa.0361.2, %406 ], [ %.sroa.0361.2, %364 ], [ %.sroa.0361.2, %364 ], [ %.sroa.0361.2, %366 ], [ %.sroa.0361.6, %379 ], [ %.sroa.0361.6, %403 ], [ %.sroa.0361.2, %435 ], [ %.sroa.0361.2, %419 ]
+  %.sroa.10364.4 = phi i64 [ %.sroa.10364.2, %._crit_edge ], [ %.sroa.10364.2, %364 ], [ %.sroa.10364.2, %406 ], [ %.sroa.10364.2, %364 ], [ %.sroa.10364.2, %364 ], [ %.sroa.10364.2, %366 ], [ %.sroa.10364.8.insert.insert, %379 ], [ %.sroa.10364.8.insert.insert, %403 ], [ %.sroa.10364.2, %435 ], [ %.sroa.10364.2, %419 ]
+  %.sroa.0.4 = phi ptr [ %.sroa.0.2, %._crit_edge ], [ %.sroa.0.2, %364 ], [ %.sroa.0.2, %406 ], [ %.sroa.0.2, %364 ], [ %.sroa.0.2, %364 ], [ %.sroa.0.2, %366 ], [ %.sroa.0.2, %379 ], [ %.sroa.0.2, %403 ], [ %.sroa.0.6, %435 ], [ %.sroa.0.6, %419 ]
+  %.sroa.10.4 = phi i64 [ %.sroa.10.2, %._crit_edge ], [ %.sroa.10.2, %364 ], [ %.sroa.10.2, %406 ], [ %.sroa.10.2, %364 ], [ %.sroa.10.2, %364 ], [ %.sroa.10.2, %366 ], [ %.sroa.10.2, %379 ], [ %.sroa.10.2, %403 ], [ %.sroa.10.8.insert.insert, %435 ], [ %.sroa.10.8.insert.insert, %419 ]
+  %.4116 = phi ptr [ null, %._crit_edge ], [ %.2114, %364 ], [ %.2114, %406 ], [ %.2114, %364 ], [ %.2114, %364 ], [ %.2114, %366 ], [ %.2114, %379 ], [ %.2114, %403 ], [ %.2114, %435 ], [ %.2114, %419 ]
+  %.4110 = phi ptr [ null, %._crit_edge ], [ %.2108, %364 ], [ %.2108, %406 ], [ %.2108, %364 ], [ %.2108, %364 ], [ %.2108, %366 ], [ %.2108, %379 ], [ %.2108, %403 ], [ %.2108, %435 ], [ %.2108, %419 ]
+  %.3102 = phi ptr [ null, %._crit_edge ], [ %361, %364 ], [ %361, %406 ], [ %361, %364 ], [ %361, %364 ], [ %361, %366 ], [ %361, %379 ], [ %361, %403 ], [ %361, %435 ], [ %361, %419 ]
+  %.397 = phi i1 [ false, %._crit_edge ], [ true, %364 ], [ true, %406 ], [ true, %364 ], [ true, %364 ], [ true, %366 ], [ true, %379 ], [ true, %403 ], [ true, %435 ], [ true, %419 ]
   %563 = add i64 %.2415, 2048
   br label %44
 
 .thread484:                                       ; preds = %findFileEntries.exit, %findFileIdentifiers.exit, %363, %.loopexit609, %.loopexit610, %.loopexit611, %.loopexit612, %.loopexit613, %.loopexit614, %.loopexit615, %.loopexit616, %.loopexit617
-  %.sroa.0361.0 = phi ptr [ %.sroa.0361.2, %363 ], [ %47, %.loopexit617 ], [ %47, %.loopexit616 ], [ %47, %.loopexit615 ], [ %47, %.loopexit614 ], [ %47, %.loopexit613 ], [ %47, %.loopexit612 ], [ %47, %.loopexit611 ], [ %47, %.loopexit610 ], [ %47, %.loopexit609 ], [ %.sroa.0361.2, %findFileEntries.exit ], [ %.sroa.0361.5, %findFileIdentifiers.exit ]
-  %.sroa.0.0 = phi ptr [ %.sroa.0.2, %363 ], [ %52, %.loopexit617 ], [ %52, %.loopexit616 ], [ %52, %.loopexit615 ], [ %52, %.loopexit614 ], [ %52, %.loopexit613 ], [ %52, %.loopexit612 ], [ %52, %.loopexit611 ], [ %52, %.loopexit610 ], [ %52, %.loopexit609 ], [ %.sroa.0.5, %findFileEntries.exit ], [ %.sroa.0.2, %findFileIdentifiers.exit ]
-  %.0112 = phi ptr [ %.2114, %363 ], [ %.1113, %.loopexit617 ], [ null, %.loopexit616 ], [ %106, %.loopexit615 ], [ %106, %.loopexit614 ], [ %106, %.loopexit613 ], [ %106, %.loopexit612 ], [ %106, %.loopexit611 ], [ %106, %.loopexit610 ], [ %106, %.loopexit609 ], [ %.2114, %findFileEntries.exit ], [ %.2114, %findFileIdentifiers.exit ]
-  %.0106 = phi ptr [ %.2108, %363 ], [ %.1107, %.loopexit617 ], [ %.1107, %.loopexit616 ], [ null, %.loopexit615 ], [ %129, %.loopexit614 ], [ %129, %.loopexit613 ], [ %129, %.loopexit612 ], [ %129, %.loopexit611 ], [ %129, %.loopexit610 ], [ %129, %.loopexit609 ], [ %.2108, %findFileEntries.exit ], [ %.2108, %findFileIdentifiers.exit ]
-  %.099 = phi ptr [ null, %363 ], [ %.1100, %.loopexit617 ], [ %.1100, %.loopexit616 ], [ %.1100, %.loopexit615 ], [ %.1100, %.loopexit614 ], [ %.1100, %.loopexit613 ], [ %.1100, %.loopexit612 ], [ %.1100, %.loopexit611 ], [ %.1100, %.loopexit610 ], [ %.1100, %.loopexit609 ], [ %361, %findFileEntries.exit ], [ %361, %findFileIdentifiers.exit ]
-  %.087 = phi i32 [ 0, %363 ], [ 0, %.loopexit617 ], [ 0, %.loopexit616 ], [ 0, %.loopexit615 ], [ 0, %.loopexit614 ], [ 0, %.loopexit613 ], [ 0, %.loopexit612 ], [ 0, %.loopexit611 ], [ 0, %.loopexit610 ], [ 0, %.loopexit609 ], [ 20, %findFileEntries.exit ], [ 20, %findFileIdentifiers.exit ]
+  %.sroa.0361.0 = phi ptr [ %47, %.loopexit609 ], [ %.sroa.0361.2, %363 ], [ %47, %.loopexit610 ], [ %47, %.loopexit617 ], [ %47, %.loopexit616 ], [ %47, %.loopexit615 ], [ %47, %.loopexit614 ], [ %47, %.loopexit613 ], [ %47, %.loopexit612 ], [ %47, %.loopexit611 ], [ %.sroa.0361.2, %findFileEntries.exit ], [ %.sroa.0361.5, %findFileIdentifiers.exit ]
+  %.sroa.0.0 = phi ptr [ %52, %.loopexit609 ], [ %.sroa.0.2, %363 ], [ %52, %.loopexit610 ], [ %52, %.loopexit617 ], [ %52, %.loopexit616 ], [ %52, %.loopexit615 ], [ %52, %.loopexit614 ], [ %52, %.loopexit613 ], [ %52, %.loopexit612 ], [ %52, %.loopexit611 ], [ %.sroa.0.5, %findFileEntries.exit ], [ %.sroa.0.2, %findFileIdentifiers.exit ]
+  %.0112 = phi ptr [ %106, %.loopexit609 ], [ %.2114, %363 ], [ %106, %.loopexit610 ], [ %.1113, %.loopexit617 ], [ null, %.loopexit616 ], [ %106, %.loopexit615 ], [ %106, %.loopexit614 ], [ %106, %.loopexit613 ], [ %106, %.loopexit612 ], [ %106, %.loopexit611 ], [ %.2114, %findFileEntries.exit ], [ %.2114, %findFileIdentifiers.exit ]
+  %.0106 = phi ptr [ %129, %.loopexit609 ], [ %.2108, %363 ], [ %129, %.loopexit610 ], [ %.1107, %.loopexit617 ], [ %.1107, %.loopexit616 ], [ null, %.loopexit615 ], [ %129, %.loopexit614 ], [ %129, %.loopexit613 ], [ %129, %.loopexit612 ], [ %129, %.loopexit611 ], [ %.2108, %findFileEntries.exit ], [ %.2108, %findFileIdentifiers.exit ]
+  %.099 = phi ptr [ %.1100, %.loopexit609 ], [ null, %363 ], [ %.1100, %.loopexit610 ], [ %.1100, %.loopexit617 ], [ %.1100, %.loopexit616 ], [ %.1100, %.loopexit615 ], [ %.1100, %.loopexit614 ], [ %.1100, %.loopexit613 ], [ %.1100, %.loopexit612 ], [ %.1100, %.loopexit611 ], [ %361, %findFileEntries.exit ], [ %361, %findFileIdentifiers.exit ]
+  %.087 = phi i32 [ 0, %.loopexit609 ], [ 0, %363 ], [ 0, %.loopexit610 ], [ 0, %.loopexit617 ], [ 0, %.loopexit616 ], [ 0, %.loopexit615 ], [ 0, %.loopexit614 ], [ 0, %.loopexit613 ], [ 0, %.loopexit612 ], [ 0, %.loopexit611 ], [ 20, %findFileEntries.exit ], [ 20, %findFileIdentifiers.exit ]
   %.not.i339 = icmp eq ptr %.sroa.0361.0, null
   br i1 %.not.i339, label %freePointerList.exit, label %564
 
@@ -1307,11 +1307,11 @@ findFileIdentifiers.exit.thread:                  ; preds = %419, %435, %379, %4
   br label %freePointerList.exit
 
 freePointerList.exit:                             ; preds = %49, %.thread484, %564
-  %.087525 = phi i32 [ %.087, %.thread484 ], [ %.087539, %564 ], [ 20, %49 ]
-  %.099524 = phi ptr [ %.099, %.thread484 ], [ %.099538, %564 ], [ %.1100, %49 ]
-  %.0106523 = phi ptr [ %.0106, %.thread484 ], [ %.0106537, %564 ], [ %.1107, %49 ]
-  %.0112522 = phi ptr [ %.0112, %.thread484 ], [ %.0112536, %564 ], [ %.1113, %49 ]
-  %.sroa.0.0521 = phi ptr [ %.sroa.0.0, %.thread484 ], [ %.sroa.0.0535, %564 ], [ %.sroa.0.1, %49 ]
+  %.087525 = phi i32 [ %.087539, %564 ], [ %.087, %.thread484 ], [ 20, %49 ]
+  %.099524 = phi ptr [ %.099538, %564 ], [ %.099, %.thread484 ], [ %.1100, %49 ]
+  %.0106523 = phi ptr [ %.0106537, %564 ], [ %.0106, %.thread484 ], [ %.1107, %49 ]
+  %.0112522 = phi ptr [ %.0112536, %564 ], [ %.0112, %.thread484 ], [ %.1113, %49 ]
+  %.sroa.0.0521 = phi ptr [ %.sroa.0.0535, %564 ], [ %.sroa.0.0, %.thread484 ], [ %.sroa.0.1, %49 ]
   %.not.i340 = icmp eq ptr %.sroa.0.0521, null
   br i1 %.not.i340, label %freePointerList.exit341, label %565
 
@@ -1377,7 +1377,7 @@ freePointerList.exit341:                          ; preds = %freePointerList.exi
   br label %.thread572
 
 .thread572:                                       ; preds = %8, %587, %588, %2
-  %.086 = phi i32 [ 0, %2 ], [ %.087525, %588 ], [ %.087525, %587 ], [ 0, %8 ]
+  %.086 = phi i32 [ %.087525, %587 ], [ 0, %2 ], [ %.087525, %588 ], [ 0, %8 ]
   ret i32 %.086
 }
 

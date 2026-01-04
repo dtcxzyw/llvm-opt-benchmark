@@ -46,8 +46,8 @@ define range(i32 0, 2) i32 @ossl_pkcs5_pbkdf2_hmac_ex(ptr noundef %0, i32 nounde
   br label %26
 
 26:                                               ; preds = %10, %21, %23
-  %.032 = phi i32 [ %25, %23 ], [ %1, %21 ], [ 0, %10 ]
-  %.031 = phi ptr [ %0, %23 ], [ %0, %21 ], [ @.str, %10 ]
+  %.032 = phi i32 [ %1, %21 ], [ %25, %23 ], [ 0, %10 ]
+  %.031 = phi ptr [ %0, %21 ], [ %0, %23 ], [ @.str, %10 ]
   %27 = icmp eq ptr %2, null
   %28 = icmp eq i32 %3, 0
   %or.cond = and i1 %27, %28

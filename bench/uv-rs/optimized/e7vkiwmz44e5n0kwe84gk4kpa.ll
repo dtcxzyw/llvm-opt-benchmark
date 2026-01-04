@@ -277,7 +277,7 @@ define hidden noundef range(i8 0, 42) i8 @_ZN3std3sys3pal4unix17decode_error_kin
   br label %37
 
 37:                                               ; preds = %1, %39, %38, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.sroa.0.0 = phi i8 [ 41, %38 ], [ 8, %2 ], [ 9, %3 ], [ 28, %4 ], [ 6, %5 ], [ 2, %6 ], [ 3, %7 ], [ 30, %8 ], [ 26, %9 ], [ 12, %10 ], [ 27, %11 ], [ 4, %12 ], [ 35, %13 ], [ 20, %14 ], [ 15, %15 ], [ 18, %16 ], [ 0, %17 ], [ 38, %18 ], [ 24, %19 ], [ 36, %20 ], [ 32, %21 ], [ 33, %22 ], [ 10, %23 ], [ 5, %24 ], [ 7, %25 ], [ 14, %26 ], [ 16, %27 ], [ 11, %28 ], [ 17, %29 ], [ 25, %30 ], [ 19, %31 ], [ 22, %32 ], [ 29, %33 ], [ 31, %34 ], [ 39, %35 ], [ 1, %36 ], [ 13, %39 ], [ 34, %1 ]
+  %.sroa.0.0 = phi i8 [ 41, %38 ], [ 13, %39 ], [ 8, %2 ], [ 9, %3 ], [ 28, %4 ], [ 6, %5 ], [ 2, %6 ], [ 3, %7 ], [ 30, %8 ], [ 26, %9 ], [ 12, %10 ], [ 27, %11 ], [ 4, %12 ], [ 35, %13 ], [ 20, %14 ], [ 15, %15 ], [ 18, %16 ], [ 0, %17 ], [ 38, %18 ], [ 24, %19 ], [ 36, %20 ], [ 32, %21 ], [ 33, %22 ], [ 10, %23 ], [ 5, %24 ], [ 7, %25 ], [ 14, %26 ], [ 16, %27 ], [ 11, %28 ], [ 17, %29 ], [ 25, %30 ], [ 19, %31 ], [ 22, %32 ], [ 29, %33 ], [ 31, %34 ], [ 39, %35 ], [ 1, %36 ], [ 34, %1 ]
   ret i8 %.sroa.0.0
 
 38:                                               ; preds = %1
@@ -828,8 +828,8 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h3e
   ret void
 
 102:                                              ; preds = %79, %83
-  %103 = phi i8 [ %81, %79 ], [ %.pre, %83 ]
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %79 ], [ %89, %83 ]
+  %103 = phi i8 [ %.pre, %83 ], [ %81, %79 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %89, %83 ], [ %.sroa.6.1.i.i, %79 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %104 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -1772,8 +1772,8 @@ define hidden { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_f
   %58 = zext nneg i16 %57 to i64
   br label %_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17had99f58361dbddaaE.exit.thread
 
-_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17had99f58361dbddaaE.exit.thread: ; preds = %52, %48
-  %.sroa.3.0.i.ph = phi i64 [ %.sroa.6.1.i, %48 ], [ %58, %52 ]
+_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17had99f58361dbddaaE.exit.thread: ; preds = %48, %52
+  %.sroa.3.0.i.ph = phi i64 [ %58, %52 ], [ %.sroa.6.1.i, %48 ]
   %59 = inttoptr i64 %.sroa.3.0.i.ph to ptr
   br label %.loopexit
 

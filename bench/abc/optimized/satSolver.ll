@@ -1445,16 +1445,16 @@ sat_solver_enqueue.exit136:                       ; preds = %212
   br i1 %232, label %.lr.ph177, label %.thread, !llvm.loop !64
 
 .thread:                                          ; preds = %.lr.ph165, %.lr.ph177, %78, %227, %sat_solver_enqueue.exit.thread, %sat_solver_enqueue.exit, %sat_solver_enqueue.exit136.thread, %veci_push.exit, %sat_solver_enqueue.exit136, %118
-  %.9110 = phi ptr [ %120, %118 ], [ %.0101156, %veci_push.exit ], [ %181, %sat_solver_enqueue.exit136 ], [ %181, %sat_solver_enqueue.exit136.thread ], [ %53, %sat_solver_enqueue.exit.thread ], [ %53, %sat_solver_enqueue.exit ], [ %181, %227 ], [ %53, %78 ], [ %231, %.lr.ph177 ], [ %87, %.lr.ph165 ]
-  %.9 = phi ptr [ %.090157, %118 ], [ %.090157, %veci_push.exit ], [ %.090157, %sat_solver_enqueue.exit136 ], [ %.090157, %sat_solver_enqueue.exit136.thread ], [ %.090157, %sat_solver_enqueue.exit.thread ], [ %.090157, %sat_solver_enqueue.exit ], [ %.797173, %227 ], [ %.393161, %78 ], [ %.797, %.lr.ph177 ], [ %.393, %.lr.ph165 ]
-  %.8 = phi i32 [ %.1.ph182, %118 ], [ %.1.ph182, %veci_push.exit ], [ %.1.ph182, %sat_solver_enqueue.exit136 ], [ %.1.ph182, %sat_solver_enqueue.exit136.thread ], [ %.1.ph182, %sat_solver_enqueue.exit.thread ], [ %.1.ph182, %sat_solver_enqueue.exit ], [ %228, %227 ], [ %79, %78 ], [ %228, %.lr.ph177 ], [ %79, %.lr.ph165 ]
+  %.9110 = phi ptr [ %181, %sat_solver_enqueue.exit136.thread ], [ %120, %118 ], [ %.0101156, %veci_push.exit ], [ %181, %sat_solver_enqueue.exit136 ], [ %53, %sat_solver_enqueue.exit ], [ %53, %sat_solver_enqueue.exit.thread ], [ %231, %.lr.ph177 ], [ %181, %227 ], [ %53, %78 ], [ %87, %.lr.ph165 ]
+  %.9 = phi ptr [ %.090157, %sat_solver_enqueue.exit136.thread ], [ %.090157, %118 ], [ %.090157, %veci_push.exit ], [ %.090157, %sat_solver_enqueue.exit136 ], [ %.090157, %sat_solver_enqueue.exit ], [ %.090157, %sat_solver_enqueue.exit.thread ], [ %.797, %.lr.ph177 ], [ %.797173, %227 ], [ %.393161, %78 ], [ %.393, %.lr.ph165 ]
+  %.8 = phi i32 [ %.1.ph182, %sat_solver_enqueue.exit136.thread ], [ %.1.ph182, %118 ], [ %.1.ph182, %veci_push.exit ], [ %.1.ph182, %sat_solver_enqueue.exit136 ], [ %.1.ph182, %sat_solver_enqueue.exit ], [ %.1.ph182, %sat_solver_enqueue.exit.thread ], [ %228, %.lr.ph177 ], [ %228, %227 ], [ %79, %78 ], [ %79, %.lr.ph165 ]
   %233 = getelementptr inbounds nuw i8, ptr %.9, i64 4
   %234 = icmp ult ptr %233, %33
   br i1 %234, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !65
 
 .outer._crit_edge:                                ; preds = %.thread, %89, %22
-  %.1.ph.lcssa = phi i32 [ 0, %22 ], [ %.1.ph182, %89 ], [ %.8, %.thread ]
-  %.0101.lcssa = phi ptr [ %.val122, %22 ], [ %91, %89 ], [ %.9110, %.thread ]
+  %.1.ph.lcssa = phi i32 [ %.1.ph182, %89 ], [ 0, %22 ], [ %.8, %.thread ]
+  %.0101.lcssa = phi ptr [ %91, %89 ], [ %.val122, %22 ], [ %.9110, %.thread ]
   %.val123 = load ptr, ptr %30, align 8, !tbaa !31
   %235 = ptrtoint ptr %.0101.lcssa to i64
   %236 = ptrtoint ptr %.val123 to i64
@@ -3669,7 +3669,7 @@ clause_read.exit180:                              ; preds = %268, %269
   br label %.sink.split
 
 .sink.split:                                      ; preds = %266, %.lr.ph277, %280
-  %.sink = phi i32 [ %285, %280 ], [ %264, %.lr.ph277 ], [ %264, %266 ]
+  %.sink = phi i32 [ %264, %.lr.ph277 ], [ %285, %280 ], [ %264, %266 ]
   %286 = add nsw i32 %.3138275, 1
   %287 = sext i32 %.3138275 to i64
   %288 = getelementptr inbounds i32, ptr %.val, i64 %287
@@ -3867,13 +3867,13 @@ Sat_MemClauseHand.exit.i:                         ; preds = %306
   br label %386
 
 386:                                              ; preds = %379, %342, %341
-  %387 = phi ptr [ %334, %341 ], [ %380, %379 ], [ %334, %342 ]
-  %.087.val.i218 = phi i32 [ %339, %341 ], [ %.sink175.i233, %379 ], [ %339, %342 ]
-  %.3103.i219 = phi ptr [ null, %341 ], [ %.2102133.i213, %379 ], [ %spec.select.i216, %342 ]
-  %.296.i220 = phi i32 [ %.195136.i211, %341 ], [ %.397.i231, %379 ], [ %.195136.i211, %342 ]
-  %.292.i221 = phi i32 [ %.191137.i210, %341 ], [ %384, %379 ], [ %.191137.i210, %342 ]
-  %.286.i222 = phi i32 [ %.185138.i209, %341 ], [ 0, %379 ], [ %spec.select120.i217, %342 ]
-  %.2.i223 = phi i32 [ %.1139.i208, %341 ], [ %385, %379 ], [ %.1139.i208, %342 ]
+  %387 = phi ptr [ %380, %379 ], [ %334, %342 ], [ %334, %341 ]
+  %.087.val.i218 = phi i32 [ %.sink175.i233, %379 ], [ %339, %342 ], [ %339, %341 ]
+  %.3103.i219 = phi ptr [ %.2102133.i213, %379 ], [ %spec.select.i216, %342 ], [ null, %341 ]
+  %.296.i220 = phi i32 [ %.397.i231, %379 ], [ %.195136.i211, %342 ], [ %.195136.i211, %341 ]
+  %.292.i221 = phi i32 [ %384, %379 ], [ %.191137.i210, %342 ], [ %.191137.i210, %341 ]
+  %.286.i222 = phi i32 [ 0, %379 ], [ %spec.select120.i217, %342 ], [ %.185138.i209, %341 ]
+  %.2.i223 = phi i32 [ %385, %379 ], [ %.1139.i208, %342 ], [ %.1139.i208, %341 ]
   %388 = lshr i32 %.087.val.i218, 11
   %389 = and i32 %.087.val.i218, 1
   %390 = add nuw nsw i32 %388, 2
@@ -4360,7 +4360,7 @@ order_update.exit:                                ; preds = %107, %115, %..crite
   br label %163
 
 163:                                              ; preds = %.sink.split, %148, %153
-  %.188 = phi i32 [ %.087107, %148 ], [ %.087107, %153 ], [ %160, %.sink.split ]
+  %.188 = phi i32 [ %.087107, %153 ], [ %.087107, %148 ], [ %160, %.sink.split ]
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %.val95 = load i32, ptr %143, align 4, !tbaa !37
   %164 = sext i32 %.val95 to i64
@@ -4760,7 +4760,7 @@ veci_push.exit:                                   ; preds = %.lr.ph90, %49
   br label %sat_solver_enqueue.exit
 
 sat_solver_enqueue.exit:                          ; preds = %79, %83, %76, %123, %118, %._crit_edge109, %139
-  %.0 = phi i32 [ 1, %139 ], [ 0, %._crit_edge109 ], [ %122, %118 ], [ 1, %123 ], [ 0, %76 ], [ 1, %83 ], [ 1, %79 ]
+  %.0 = phi i32 [ 1, %139 ], [ %122, %118 ], [ 0, %._crit_edge109 ], [ 1, %123 ], [ 0, %76 ], [ 1, %83 ], [ 1, %79 ]
   ret i32 %.0
 }
 
@@ -6307,10 +6307,10 @@ veci_push.exit158.i.i:                            ; preds = %739, %724
   br i1 %756, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !158
 
 .loopexit.i.i:                                    ; preds = %753, %act_clause_bump.exit.i.i, %veci_push.exit147.i.i, %577, %535, %528
-  %.sroa.30.8.i = phi ptr [ %.sroa.30.7.i, %act_clause_bump.exit.i.i ], [ %.sroa.30.7.i, %577 ], [ %.sroa.30.9.i, %veci_push.exit147.i.i ], [ %.sroa.30.7.i, %535 ], [ %.sroa.30.7.i, %528 ], [ %.sroa.30.11.i, %753 ]
-  %.sroa.12.1.i = phi i32 [ %.sroa.12.0.i, %act_clause_bump.exit.i.i ], [ %.sroa.12.0.i, %577 ], [ %604, %veci_push.exit147.i.i ], [ %.sroa.12.0.i, %535 ], [ %.sroa.12.0.i, %528 ], [ %.sroa.12.3.i, %753 ]
-  %.sroa.0.6.i = phi i32 [ %.sroa.0.5.i, %act_clause_bump.exit.i.i ], [ %.sroa.0.5.i, %577 ], [ %.sroa.0.7.i, %veci_push.exit147.i.i ], [ %.sroa.0.5.i, %535 ], [ %.sroa.0.5.i, %528 ], [ %.sroa.0.9.i, %753 ]
-  %.2.i.i = phi i32 [ %.0108.i.i, %act_clause_bump.exit.i.i ], [ %578, %577 ], [ %.0108.i.i, %veci_push.exit147.i.i ], [ %.0108.i.i, %535 ], [ %.0108.i.i, %528 ], [ %.4.i.i, %753 ]
+  %.sroa.30.8.i = phi ptr [ %.sroa.30.7.i, %528 ], [ %.sroa.30.7.i, %act_clause_bump.exit.i.i ], [ %.sroa.30.7.i, %577 ], [ %.sroa.30.9.i, %veci_push.exit147.i.i ], [ %.sroa.30.7.i, %535 ], [ %.sroa.30.11.i, %753 ]
+  %.sroa.12.1.i = phi i32 [ %.sroa.12.0.i, %528 ], [ %.sroa.12.0.i, %act_clause_bump.exit.i.i ], [ %.sroa.12.0.i, %577 ], [ %604, %veci_push.exit147.i.i ], [ %.sroa.12.0.i, %535 ], [ %.sroa.12.3.i, %753 ]
+  %.sroa.0.6.i = phi i32 [ %.sroa.0.5.i, %528 ], [ %.sroa.0.5.i, %act_clause_bump.exit.i.i ], [ %.sroa.0.5.i, %577 ], [ %.sroa.0.7.i, %veci_push.exit147.i.i ], [ %.sroa.0.5.i, %535 ], [ %.sroa.0.9.i, %753 ]
+  %.2.i.i = phi i32 [ %.0108.i.i, %528 ], [ %.0108.i.i, %act_clause_bump.exit.i.i ], [ %578, %577 ], [ %.0108.i.i, %veci_push.exit147.i.i ], [ %.0108.i.i, %535 ], [ %.4.i.i, %753 ]
   %.val142.i.i = load ptr, ptr %40, align 8, !tbaa !78
   %757 = sext i32 %.0111.i.i to i64
   br label %758
@@ -8125,7 +8125,7 @@ veci_delete.exit211.i.backedge:                   ; preds = %1653, %1652
   br label %veci_delete.exit211.i
 
 veci_delete.exit.thread.sink.split.i:             ; preds = %sat_solver_canceluntil.exit277.i, %sat_solver_canceluntil.exit245.i, %sat_solver_canceluntil.exit209.i, %508
-  %.2.ph.ph.i = phi i8 [ -1, %508 ], [ 0, %sat_solver_canceluntil.exit209.i ], [ 0, %sat_solver_canceluntil.exit245.i ], [ 1, %sat_solver_canceluntil.exit277.i ]
+  %.2.ph.ph.i = phi i8 [ 0, %sat_solver_canceluntil.exit209.i ], [ 0, %sat_solver_canceluntil.exit245.i ], [ -1, %508 ], [ 1, %sat_solver_canceluntil.exit277.i ]
   call void @free(ptr noundef nonnull %.sroa.30.0.i.ph) #34
   br label %sat_solver_search.exit
 
@@ -8718,7 +8718,7 @@ veci_push.exit46:                                 ; preds = %160, %183
   br label %193
 
 193:                                              ; preds = %192, %veci_push.exit40, %veci_push.exit46, %veci_push.exit43
-  %.030 = phi i32 [ 0, %veci_push.exit43 ], [ 0, %veci_push.exit46 ], [ 0, %veci_push.exit40 ], [ %spec.select, %192 ]
+  %.030 = phi i32 [ 0, %veci_push.exit40 ], [ %spec.select, %192 ], [ 0, %veci_push.exit43 ], [ 0, %veci_push.exit46 ]
   ret i32 %.030
 }
 
@@ -9715,7 +9715,7 @@ sat_solver_canceluntil.exit54:                    ; preds = %._crit_edge, %._cri
   br label %156
 
 156:                                              ; preds = %sat_solver_canceluntil.exit54, %151, %154, %10, %13, %sat_solver_canceluntil.exit
-  %.0 = phi i32 [ -1, %sat_solver_canceluntil.exit ], [ -1, %13 ], [ -1, %10 ], [ -1, %154 ], [ -1, %151 ], [ %104, %sat_solver_canceluntil.exit54 ]
+  %.0 = phi i32 [ -1, %10 ], [ -1, %sat_solver_canceluntil.exit ], [ -1, %13 ], [ -1, %154 ], [ -1, %151 ], [ %104, %sat_solver_canceluntil.exit54 ]
   ret i32 %.0
 }
 
@@ -9786,7 +9786,7 @@ sat_solver_set_literal_polarity.exit.thread:      ; preds = %3
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %sat_solver_set_literal_polarity.exit.thread
-  %.063.lcssa = phi i32 [ 0, %sat_solver_set_literal_polarity.exit.thread ], [ %31, %._crit_edge.loopexit ]
+  %.063.lcssa = phi i32 [ %31, %._crit_edge.loopexit ], [ 0, %sat_solver_set_literal_polarity.exit.thread ]
   %32 = icmp eq i32 %.063.lcssa, %2
   br i1 %32, label %._crit_edge108, label %.preheader.preheader
 
@@ -9960,7 +9960,7 @@ sat_solver_pop.exit:                              ; preds = %.thread94, %._crit_
   br label %._crit_edge104
 
 ._crit_edge104:                                   ; preds = %._crit_edge104.sink.split, %101, %38, %41
-  %.1 = phi i32 [ 1, %41 ], [ %39, %38 ], [ 1, %101 ], [ %113, %._crit_edge104.sink.split ]
+  %.1 = phi i32 [ %39, %38 ], [ 1, %41 ], [ 1, %101 ], [ %113, %._crit_edge104.sink.split ]
   %114 = icmp sgt i32 %.063.lcssa, -1
   br i1 %114, label %.lr.ph107, label %._crit_edge108
 
@@ -10198,7 +10198,7 @@ sat_solver_pop.exit92:                            ; preds = %129, %._crit_edge52
   br i1 %235, label %129, label %._crit_edge108, !llvm.loop !193
 
 ._crit_edge108:                                   ; preds = %30, %sat_solver_pop.exit92, %._crit_edge104, %sat_solver_set_literal_polarity.exit.thread, %sat_solver_set_literal_polarity.exit, %._crit_edge
-  %.065 = phi i32 [ 1, %._crit_edge ], [ %16, %sat_solver_set_literal_polarity.exit ], [ %17, %sat_solver_set_literal_polarity.exit.thread ], [ %.1, %._crit_edge104 ], [ %.1, %sat_solver_pop.exit92 ], [ 1, %30 ]
+  %.065 = phi i32 [ 1, %._crit_edge ], [ %.1, %._crit_edge104 ], [ %16, %sat_solver_set_literal_polarity.exit ], [ %17, %sat_solver_set_literal_polarity.exit.thread ], [ %.1, %sat_solver_pop.exit92 ], [ 1, %30 ]
   ret i32 %.065
 }
 

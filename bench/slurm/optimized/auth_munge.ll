@@ -506,12 +506,12 @@ _print_cred.exit:                                 ; preds = %60, %62, %64, %66
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %80, %77, %83, %70
-  %not..not39 = phi i32 [ -1, %70 ], [ 0, %83 ], [ -1, %77 ], [ -1, %80 ], [ -1, %.lr.ph ]
+  %not..not39 = phi i32 [ -1, %80 ], [ -1, %70 ], [ 0, %83 ], [ -1, %77 ], [ -1, %.lr.ph ]
   call void @munge_ctx_destroy(ptr noundef nonnull %11) #13
   br label %84
 
 84:                                               ; preds = %3, %.loopexit, %18, %13
-  %.0 = phi i32 [ -1, %13 ], [ -1, %18 ], [ %not..not39, %.loopexit ], [ 0, %3 ]
+  %.0 = phi i32 [ %not..not39, %.loopexit ], [ -1, %18 ], [ -1, %13 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -627,7 +627,7 @@ define dso_local range(i32 -1, 1) i32 @auth_p_verify(ptr noundef %0, ptr noundef
   br label %13
 
 13:                                               ; preds = %10, %6, %4
-  %.0 = phi i32 [ -1, %4 ], [ 0, %6 ], [ %12, %10 ]
+  %.0 = phi i32 [ -1, %4 ], [ %12, %10 ], [ 0, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -720,7 +720,7 @@ define dso_local ptr @auth_p_get_host(ptr noundef readonly captures(address_is_n
   br label %26
 
 26:                                               ; preds = %19, %17, %24, %20, %9, %7
-  %.014 = phi ptr [ null, %7 ], [ null, %9 ], [ %21, %20 ], [ %21, %24 ], [ %16, %19 ], [ %16, %17 ]
+  %.014 = phi ptr [ null, %7 ], [ null, %9 ], [ %21, %24 ], [ %21, %20 ], [ %16, %19 ], [ %16, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.014
 }
@@ -931,7 +931,7 @@ auth_p_destroy.exit:                              ; preds = %19, %34
   br label %35
 
 35:                                               ; preds = %9, %auth_p_destroy.exit, %5
-  %.012 = phi ptr [ null, %auth_p_destroy.exit ], [ null, %5 ], [ %10, %9 ]
+  %.012 = phi ptr [ %10, %9 ], [ null, %5 ], [ null, %auth_p_destroy.exit ]
   ret ptr %.012
 }
 

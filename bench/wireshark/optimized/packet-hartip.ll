@@ -643,7 +643,7 @@ define internal noundef i32 @dissect_hartip_udp(ptr noundef %0, ptr noundef %1, 
   br i1 %17, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %8, %4
-  %.012 = phi i32 [ 0, %4 ], [ 0, %8 ], [ 0, %.preheader ], [ %15, %.lr.ph ]
+  %.012 = phi i32 [ 0, %8 ], [ 0, %4 ], [ 0, %.preheader ], [ %15, %.lr.ph ]
   ret i32 %.012
 }
 
@@ -711,8 +711,8 @@ define internal range(i32 0, 2) i32 @hartip_stats_tree_packet(ptr noundef %0, pt
   br label %10
 
 10:                                               ; preds = %5, %9, %8, %7
-  %.010 = phi ptr [ @.str.380, %7 ], [ @.str.381, %8 ], [ @.str.382, %9 ], [ @.str.379, %5 ]
-  %.0.in = phi ptr [ @st_node_responses, %7 ], [ @st_node_publish, %8 ], [ @st_node_errors, %9 ], [ @st_node_requests, %5 ]
+  %.010 = phi ptr [ @.str.382, %9 ], [ @.str.380, %7 ], [ @.str.381, %8 ], [ @.str.379, %5 ]
+  %.0.in = phi ptr [ @st_node_errors, %9 ], [ @st_node_responses, %7 ], [ @st_node_publish, %8 ], [ @st_node_requests, %5 ]
   %.0 = load i32, ptr %.0.in, align 4
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %12 = load i8, ptr %11, align 1
@@ -1582,7 +1582,7 @@ dissect_session_init.exit:                        ; preds = %95, %101
   br label %517
 
 517:                                              ; preds = %515, %513, %511
-  %.0.i96.i.i = phi i32 [ %512, %511 ], [ %514, %513 ], [ %516, %515 ]
+  %.0.i96.i.i = phi i32 [ %516, %515 ], [ %512, %511 ], [ %514, %513 ]
   %518 = icmp eq i32 %.0.i96.i.i, 0
   br i1 %518, label %.thread.i.i.i, label %521
 
@@ -1611,7 +1611,7 @@ dissect_session_init.exit:                        ; preds = %95, %101
   br label %dissect_parse_hart_cmds.exit.i
 
 dissect_parse_hart_cmds.exit.i:                   ; preds = %524, %529, %428, %287, %264
-  %.0.i.i = phi i32 [ %265, %264 ], [ %288, %287 ], [ %429, %428 ], [ %530, %529 ], [ %191, %524 ]
+  %.0.i.i = phi i32 [ %530, %529 ], [ %288, %287 ], [ %265, %264 ], [ %429, %428 ], [ %191, %524 ]
   %531 = icmp eq i32 %.0.i.i, 0
   br i1 %531, label %dissect_parse_hart_cmds.exit.thread182.i, label %.thread184.i
 
@@ -2108,7 +2108,7 @@ define internal fastcc range(i32 0, 2147483647) i32 @dissect_cmd48(ptr noundef %
   br label %.thread51
 
 .thread51:                                        ; preds = %6, %10, %21, %4, %34, %39
-  %.0 = phi i32 [ %3, %39 ], [ %3, %34 ], [ 0, %4 ], [ 13, %21 ], [ %3, %10 ], [ %3, %6 ]
+  %.0 = phi i32 [ %3, %34 ], [ %3, %39 ], [ 0, %4 ], [ 13, %21 ], [ %3, %10 ], [ %3, %6 ]
   ret i32 %.0
 }
 
@@ -2214,7 +2214,7 @@ dissect_timestamp.exit:                           ; preds = %6, %19
   br label %.thread83
 
 .thread83:                                        ; preds = %dissect_timestamp.exit, %28, %36, %44, %52, %4, %60, %68
-  %.0 = phi i32 [ %3, %68 ], [ %3, %60 ], [ 0, %4 ], [ %3, %52 ], [ %3, %44 ], [ %3, %36 ], [ %3, %28 ], [ %3, %dissect_timestamp.exit ]
+  %.0 = phi i32 [ %3, %60 ], [ %3, %68 ], [ 0, %4 ], [ %3, %52 ], [ %3, %44 ], [ %3, %36 ], [ %3, %28 ], [ %3, %dissect_timestamp.exit ]
   ret i32 %.0
 }
 

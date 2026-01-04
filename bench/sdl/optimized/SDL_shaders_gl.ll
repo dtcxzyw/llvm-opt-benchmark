@@ -238,7 +238,7 @@ define hidden noundef ptr @GL_CreateShaderContext() local_unnamed_addr #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge, %0, %83, %78
-  %.044 = phi ptr [ null, %83 ], [ null, %78 ], [ null, %0 ], [ %1, %.critedge ]
+  %.044 = phi ptr [ null, %83 ], [ null, %0 ], [ null, %78 ], [ %1, %.critedge ]
   ret ptr %.044
 }
 
@@ -352,7 +352,7 @@ define internal fastcc zeroext i1 @CompileShaderProgram(ptr noundef nonnull read
   br label %66
 
 66:                                               ; preds = %28, %18, %3, %61
-  %.0 = phi i1 [ %65, %61 ], [ true, %3 ], [ false, %18 ], [ false, %28 ]
+  %.0 = phi i1 [ true, %3 ], [ %65, %61 ], [ false, %18 ], [ false, %28 ]
   ret i1 %.0
 }
 

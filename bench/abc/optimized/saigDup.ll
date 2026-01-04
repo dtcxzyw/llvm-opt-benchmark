@@ -1408,8 +1408,8 @@ define range(i32 0, 2) i32 @Saig_ManVerifyCex(ptr noundef %0, ptr noundef readon
   %.0.lcssa = phi i32 [ 0, %2 ], [ %27, %20 ]
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %13 = load i32, ptr %12, align 4, !tbaa !61
-  %.not114 = icmp slt i32 %13, 0
-  br i1 %.not114, label %.critedge6._crit_edge, label %.preheader94.lr.ph
+  %.not113 = icmp slt i32 %13, 0
+  br i1 %.not113, label %.critedge6._crit_edge, label %.preheader94.lr.ph
 
 .preheader94.lr.ph:                               ; preds = %.critedge.preheader
   %14 = getelementptr i8, ptr %0, i64 108
@@ -1449,15 +1449,15 @@ define range(i32 0, 2) i32 @Saig_ManVerifyCex(ptr noundef %0, ptr noundef readon
   %41 = icmp slt i32 %27, %.val85
   br i1 %41, label %20, label %.critedge.preheader, !llvm.loop !63
 
-.preheader94:                                     ; preds = %.preheader94.lr.ph, %.critedge8
-  %.1116 = phi i32 [ %.0.lcssa, %.preheader94.lr.ph ], [ %.2.lcssa, %.critedge8 ]
-  %.168115 = phi i32 [ 0, %.preheader94.lr.ph ], [ %153, %.critedge8 ]
+.preheader94:                                     ; preds = %.preheader94.lr.ph, %.critedge
+  %.1115 = phi i32 [ %.0.lcssa, %.preheader94.lr.ph ], [ %.2.lcssa, %.critedge ]
+  %.168114 = phi i32 [ 0, %.preheader94.lr.ph ], [ %153, %.critedge ]
   %.val86100 = load i32, ptr %14, align 4, !tbaa !48
   %42 = icmp sgt i32 %.val86100, 0
   br i1 %42, label %.lr.ph103, label %.critedge2.preheader
 
 .critedge2.preheader:                             ; preds = %.lr.ph103, %.preheader94
-  %.2.lcssa = phi i32 [ %.1116, %.preheader94 ], [ %50, %.lr.ph103 ]
+  %.2.lcssa = phi i32 [ %.1115, %.preheader94 ], [ %50, %.lr.ph103 ]
   %43 = load ptr, ptr %17, align 8, !tbaa !28
   %44 = getelementptr i8, ptr %43, i64 4
   %.val72105 = load i32, ptr %44, align 4, !tbaa !26
@@ -1466,7 +1466,7 @@ define range(i32 0, 2) i32 @Saig_ManVerifyCex(ptr noundef %0, ptr noundef readon
 
 .lr.ph103:                                        ; preds = %.preheader94, %.lr.ph103
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph103 ], [ 0, %.preheader94 ]
-  %.2102 = phi i32 [ %50, %.lr.ph103 ], [ %.1116, %.preheader94 ]
+  %.2102 = phi i32 [ %50, %.lr.ph103 ], [ %.1115, %.preheader94 ]
   %46 = load ptr, ptr %15, align 8, !tbaa !25
   %47 = getelementptr i8, ptr %46, i64 8
   %.val75 = load ptr, ptr %47, align 8, !tbaa !29
@@ -1502,10 +1502,10 @@ define range(i32 0, 2) i32 @Saig_ManVerifyCex(ptr noundef %0, ptr noundef readon
 
 .lr.ph107:                                        ; preds = %.critedge2.preheader, %.critedge2
   %69 = phi ptr [ %106, %.critedge2 ], [ %43, %.critedge2.preheader ]
-  %indvars.iv120 = phi i64 [ %indvars.iv.next121, %.critedge2 ], [ 0, %.critedge2.preheader ]
+  %indvars.iv119 = phi i64 [ %indvars.iv.next120, %.critedge2 ], [ 0, %.critedge2.preheader ]
   %70 = getelementptr i8, ptr %69, i64 8
   %.val74 = load ptr, ptr %70, align 8, !tbaa !29
-  %71 = getelementptr inbounds nuw ptr, ptr %.val74, i64 %indvars.iv120
+  %71 = getelementptr inbounds nuw ptr, ptr %.val74, i64 %indvars.iv119
   %72 = load ptr, ptr %71, align 8, !tbaa !30
   %73 = icmp eq ptr %72, null
   br i1 %73, label %.critedge2, label %74
@@ -1554,19 +1554,19 @@ define range(i32 0, 2) i32 @Saig_ManVerifyCex(ptr noundef %0, ptr noundef readon
 
 .critedge2:                                       ; preds = %79, %74, %.lr.ph107
   %106 = phi ptr [ %.pre, %79 ], [ %69, %74 ], [ %69, %.lr.ph107 ]
-  %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
+  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %107 = getelementptr i8, ptr %106, i64 4
   %.val72 = load i32, ptr %107, align 4, !tbaa !26
   %108 = sext i32 %.val72 to i64
-  %109 = icmp slt i64 %indvars.iv.next121, %108
+  %109 = icmp slt i64 %indvars.iv.next120, %108
   br i1 %109, label %.lr.ph107, label %.critedge4.preheader, !llvm.loop !65
 
 .critedge4:                                       ; preds = %.critedge4.preheader, %.critedge4
-  %indvars.iv123 = phi i64 [ %indvars.iv.next124, %.critedge4 ], [ 0, %.critedge4.preheader ]
+  %indvars.iv122 = phi i64 [ %indvars.iv.next123, %.critedge4 ], [ 0, %.critedge4.preheader ]
   %110 = phi ptr [ %126, %.critedge4 ], [ %66, %.critedge4.preheader ]
   %111 = getelementptr i8, ptr %110, i64 8
   %.val73 = load ptr, ptr %111, align 8, !tbaa !29
-  %112 = getelementptr inbounds nuw ptr, ptr %.val73, i64 %indvars.iv123
+  %112 = getelementptr inbounds nuw ptr, ptr %.val73, i64 %indvars.iv122
   %113 = load ptr, ptr %112, align 8, !tbaa !30
   %114 = getelementptr i8, ptr %113, i64 8
   %.val78 = load ptr, ptr %114, align 8, !tbaa !33
@@ -1583,26 +1583,26 @@ define range(i32 0, 2) i32 @Saig_ManVerifyCex(ptr noundef %0, ptr noundef readon
   %124 = and i64 %121, -33
   %125 = or disjoint i64 %123, %124
   store i64 %125, ptr %120, align 8
-  %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
+  %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %126 = load ptr, ptr %18, align 8, !tbaa !37
   %127 = getelementptr i8, ptr %126, i64 4
   %.val71 = load i32, ptr %127, align 4, !tbaa !26
   %128 = sext i32 %.val71 to i64
-  %129 = icmp slt i64 %indvars.iv.next124, %128
+  %129 = icmp slt i64 %indvars.iv.next123, %128
   br i1 %129, label %.critedge4, label %.critedge6, !llvm.loop !66
 
 .critedge6:                                       ; preds = %.critedge4, %.critedge4.preheader
   %130 = load i32, ptr %12, align 4, !tbaa !61
-  %131 = icmp eq i32 %.168115, %130
+  %131 = icmp eq i32 %.168114, %130
   br i1 %131, label %.critedge6._crit_edge, label %.preheader
 
 .preheader:                                       ; preds = %.critedge6
   %.val84111 = load i32, ptr %7, align 8, !tbaa !39
   %132 = icmp sgt i32 %.val84111, 0
-  br i1 %132, label %.lr.ph113, label %.critedge8
+  br i1 %132, label %.critedge8, label %.critedge
 
-.lr.ph113:                                        ; preds = %.preheader, %.lr.ph113
-  %.3112 = phi i32 [ %150, %.lr.ph113 ], [ 0, %.preheader ]
+.critedge8:                                       ; preds = %.preheader, %.critedge8
+  %.3112 = phi i32 [ %150, %.critedge8 ], [ 0, %.preheader ]
   %.val88 = load ptr, ptr %18, align 8, !tbaa !37
   %.val89 = load i32, ptr %19, align 8, !tbaa !36
   %133 = getelementptr i8, ptr %.val88, i64 8
@@ -1630,19 +1630,19 @@ define range(i32 0, 2) i32 @Saig_ManVerifyCex(ptr noundef %0, ptr noundef readon
   %150 = add nuw nsw i32 %.3112, 1
   %.val84 = load i32, ptr %7, align 8, !tbaa !39
   %151 = icmp slt i32 %150, %.val84
-  br i1 %151, label %.lr.ph113, label %.critedge8.loopexit, !llvm.loop !67
+  br i1 %151, label %.critedge8, label %.critedge.loopexit, !llvm.loop !67
 
-.critedge8.loopexit:                              ; preds = %.lr.ph113
-  %.pre126 = load i32, ptr %12, align 4, !tbaa !61
-  br label %.critedge8
+.critedge.loopexit:                               ; preds = %.critedge8
+  %.pre125 = load i32, ptr %12, align 4, !tbaa !61
+  br label %.critedge
 
-.critedge8:                                       ; preds = %.critedge8.loopexit, %.preheader
-  %152 = phi i32 [ %.pre126, %.critedge8.loopexit ], [ %130, %.preheader ]
-  %153 = add nuw nsw i32 %.168115, 1
-  %.not.not = icmp slt i32 %.168115, %152
+.critedge:                                        ; preds = %.critedge.loopexit, %.preheader
+  %152 = phi i32 [ %.pre125, %.critedge.loopexit ], [ %130, %.preheader ]
+  %153 = add nuw nsw i32 %.168114, 1
+  %.not.not = icmp slt i32 %.168114, %152
   br i1 %.not.not, label %.preheader94, label %.critedge6._crit_edge, !llvm.loop !68
 
-.critedge6._crit_edge:                            ; preds = %.critedge8, %.critedge6, %.critedge.preheader
+.critedge6._crit_edge:                            ; preds = %.critedge, %.critedge6, %.critedge.preheader
   %154 = load i32, ptr %1, align 4, !tbaa !69
   %155 = getelementptr i8, ptr %0, i64 24
   %.val92 = load ptr, ptr %155, align 8, !tbaa !37
@@ -1686,8 +1686,8 @@ define range(i32 0, 2) i32 @Saig_ManVerifyCexNoClear(ptr noundef %0, ptr noundef
   %.0.lcssa = phi i32 [ 0, %2 ], [ %27, %20 ]
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %13 = load i32, ptr %12, align 4, !tbaa !61
-  %.not113 = icmp slt i32 %13, 0
-  br i1 %.not113, label %.critedge6._crit_edge, label %.preheader93.lr.ph
+  %.not112 = icmp slt i32 %13, 0
+  br i1 %.not112, label %.critedge6._crit_edge, label %.preheader93.lr.ph
 
 .preheader93.lr.ph:                               ; preds = %.critedge.preheader
   %14 = getelementptr i8, ptr %0, i64 108
@@ -1727,15 +1727,15 @@ define range(i32 0, 2) i32 @Saig_ManVerifyCexNoClear(ptr noundef %0, ptr noundef
   %41 = icmp slt i32 %27, %.val84
   br i1 %41, label %20, label %.critedge.preheader, !llvm.loop !70
 
-.preheader93:                                     ; preds = %.preheader93.lr.ph, %.critedge8
-  %.1115 = phi i32 [ %.0.lcssa, %.preheader93.lr.ph ], [ %.2.lcssa, %.critedge8 ]
-  %.167114 = phi i32 [ 0, %.preheader93.lr.ph ], [ %153, %.critedge8 ]
+.preheader93:                                     ; preds = %.preheader93.lr.ph, %.critedge
+  %.1114 = phi i32 [ %.0.lcssa, %.preheader93.lr.ph ], [ %.2.lcssa, %.critedge ]
+  %.167113 = phi i32 [ 0, %.preheader93.lr.ph ], [ %153, %.critedge ]
   %.val8599 = load i32, ptr %14, align 4, !tbaa !48
   %42 = icmp sgt i32 %.val8599, 0
   br i1 %42, label %.lr.ph102, label %.critedge2.preheader
 
 .critedge2.preheader:                             ; preds = %.lr.ph102, %.preheader93
-  %.2.lcssa = phi i32 [ %.1115, %.preheader93 ], [ %50, %.lr.ph102 ]
+  %.2.lcssa = phi i32 [ %.1114, %.preheader93 ], [ %50, %.lr.ph102 ]
   %43 = load ptr, ptr %17, align 8, !tbaa !28
   %44 = getelementptr i8, ptr %43, i64 4
   %.val71104 = load i32, ptr %44, align 4, !tbaa !26
@@ -1744,7 +1744,7 @@ define range(i32 0, 2) i32 @Saig_ManVerifyCexNoClear(ptr noundef %0, ptr noundef
 
 .lr.ph102:                                        ; preds = %.preheader93, %.lr.ph102
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph102 ], [ 0, %.preheader93 ]
-  %.2101 = phi i32 [ %50, %.lr.ph102 ], [ %.1115, %.preheader93 ]
+  %.2101 = phi i32 [ %50, %.lr.ph102 ], [ %.1114, %.preheader93 ]
   %46 = load ptr, ptr %15, align 8, !tbaa !25
   %47 = getelementptr i8, ptr %46, i64 8
   %.val74 = load ptr, ptr %47, align 8, !tbaa !29
@@ -1780,10 +1780,10 @@ define range(i32 0, 2) i32 @Saig_ManVerifyCexNoClear(ptr noundef %0, ptr noundef
 
 .lr.ph106:                                        ; preds = %.critedge2.preheader, %.critedge2
   %69 = phi ptr [ %106, %.critedge2 ], [ %43, %.critedge2.preheader ]
-  %indvars.iv119 = phi i64 [ %indvars.iv.next120, %.critedge2 ], [ 0, %.critedge2.preheader ]
+  %indvars.iv118 = phi i64 [ %indvars.iv.next119, %.critedge2 ], [ 0, %.critedge2.preheader ]
   %70 = getelementptr i8, ptr %69, i64 8
   %.val73 = load ptr, ptr %70, align 8, !tbaa !29
-  %71 = getelementptr inbounds nuw ptr, ptr %.val73, i64 %indvars.iv119
+  %71 = getelementptr inbounds nuw ptr, ptr %.val73, i64 %indvars.iv118
   %72 = load ptr, ptr %71, align 8, !tbaa !30
   %73 = icmp eq ptr %72, null
   br i1 %73, label %.critedge2, label %74
@@ -1832,19 +1832,19 @@ define range(i32 0, 2) i32 @Saig_ManVerifyCexNoClear(ptr noundef %0, ptr noundef
 
 .critedge2:                                       ; preds = %79, %74, %.lr.ph106
   %106 = phi ptr [ %.pre, %79 ], [ %69, %74 ], [ %69, %.lr.ph106 ]
-  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
+  %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %107 = getelementptr i8, ptr %106, i64 4
   %.val71 = load i32, ptr %107, align 4, !tbaa !26
   %108 = sext i32 %.val71 to i64
-  %109 = icmp slt i64 %indvars.iv.next120, %108
+  %109 = icmp slt i64 %indvars.iv.next119, %108
   br i1 %109, label %.lr.ph106, label %.critedge4.preheader, !llvm.loop !72
 
 .critedge4:                                       ; preds = %.critedge4.preheader, %.critedge4
-  %indvars.iv122 = phi i64 [ %indvars.iv.next123, %.critedge4 ], [ 0, %.critedge4.preheader ]
+  %indvars.iv121 = phi i64 [ %indvars.iv.next122, %.critedge4 ], [ 0, %.critedge4.preheader ]
   %110 = phi ptr [ %126, %.critedge4 ], [ %66, %.critedge4.preheader ]
   %111 = getelementptr i8, ptr %110, i64 8
   %.val72 = load ptr, ptr %111, align 8, !tbaa !29
-  %112 = getelementptr inbounds nuw ptr, ptr %.val72, i64 %indvars.iv122
+  %112 = getelementptr inbounds nuw ptr, ptr %.val72, i64 %indvars.iv121
   %113 = load ptr, ptr %112, align 8, !tbaa !30
   %114 = getelementptr i8, ptr %113, i64 8
   %.val77 = load ptr, ptr %114, align 8, !tbaa !33
@@ -1861,26 +1861,26 @@ define range(i32 0, 2) i32 @Saig_ManVerifyCexNoClear(ptr noundef %0, ptr noundef
   %124 = and i64 %121, -33
   %125 = or disjoint i64 %123, %124
   store i64 %125, ptr %120, align 8
-  %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
+  %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
   %126 = load ptr, ptr %18, align 8, !tbaa !37
   %127 = getelementptr i8, ptr %126, i64 4
   %.val70 = load i32, ptr %127, align 4, !tbaa !26
   %128 = sext i32 %.val70 to i64
-  %129 = icmp slt i64 %indvars.iv.next123, %128
+  %129 = icmp slt i64 %indvars.iv.next122, %128
   br i1 %129, label %.critedge4, label %.critedge6, !llvm.loop !73
 
 .critedge6:                                       ; preds = %.critedge4, %.critedge4.preheader
   %130 = load i32, ptr %12, align 4, !tbaa !61
-  %131 = icmp eq i32 %.167114, %130
+  %131 = icmp eq i32 %.167113, %130
   br i1 %131, label %.critedge6._crit_edge, label %.preheader
 
 .preheader:                                       ; preds = %.critedge6
   %.val83110 = load i32, ptr %7, align 8, !tbaa !39
   %132 = icmp sgt i32 %.val83110, 0
-  br i1 %132, label %.lr.ph112, label %.critedge8
+  br i1 %132, label %.critedge8, label %.critedge
 
-.lr.ph112:                                        ; preds = %.preheader, %.lr.ph112
-  %.3111 = phi i32 [ %150, %.lr.ph112 ], [ 0, %.preheader ]
+.critedge8:                                       ; preds = %.preheader, %.critedge8
+  %.3111 = phi i32 [ %150, %.critedge8 ], [ 0, %.preheader ]
   %.val87 = load ptr, ptr %18, align 8, !tbaa !37
   %.val88 = load i32, ptr %19, align 8, !tbaa !36
   %133 = getelementptr i8, ptr %.val87, i64 8
@@ -1908,19 +1908,19 @@ define range(i32 0, 2) i32 @Saig_ManVerifyCexNoClear(ptr noundef %0, ptr noundef
   %150 = add nuw nsw i32 %.3111, 1
   %.val83 = load i32, ptr %7, align 8, !tbaa !39
   %151 = icmp slt i32 %150, %.val83
-  br i1 %151, label %.lr.ph112, label %.critedge8.loopexit, !llvm.loop !74
+  br i1 %151, label %.critedge8, label %.critedge.loopexit, !llvm.loop !74
 
-.critedge8.loopexit:                              ; preds = %.lr.ph112
-  %.pre125 = load i32, ptr %12, align 4, !tbaa !61
-  br label %.critedge8
+.critedge.loopexit:                               ; preds = %.critedge8
+  %.pre124 = load i32, ptr %12, align 4, !tbaa !61
+  br label %.critedge
 
-.critedge8:                                       ; preds = %.critedge8.loopexit, %.preheader
-  %152 = phi i32 [ %.pre125, %.critedge8.loopexit ], [ %130, %.preheader ]
-  %153 = add nuw nsw i32 %.167114, 1
-  %.not.not = icmp slt i32 %.167114, %152
+.critedge:                                        ; preds = %.critedge.loopexit, %.preheader
+  %152 = phi i32 [ %.pre124, %.critedge.loopexit ], [ %130, %.preheader ]
+  %153 = add nuw nsw i32 %.167113, 1
+  %.not.not = icmp slt i32 %.167113, %152
   br i1 %.not.not, label %.preheader93, label %.critedge6._crit_edge, !llvm.loop !75
 
-.critedge6._crit_edge:                            ; preds = %.critedge8, %.critedge6, %.critedge.preheader
+.critedge6._crit_edge:                            ; preds = %.critedge, %.critedge6, %.critedge.preheader
   %154 = load i32, ptr %1, align 4, !tbaa !69
   %155 = getelementptr i8, ptr %0, i64 24
   %.val91 = load ptr, ptr %155, align 8, !tbaa !37
@@ -2044,8 +2044,8 @@ Vec_IntAlloc.exit:                                ; preds = %7, %12
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %50, %52, %42, %44
-  %.sink60 = phi ptr [ %43, %42 ], [ %45, %44 ], [ %51, %50 ], [ %53, %52 ]
-  %.sink = phi i32 [ 16, %42 ], [ 16, %44 ], [ %47, %50 ], [ %47, %52 ]
+  %.sink60 = phi ptr [ %45, %44 ], [ %43, %42 ], [ %51, %50 ], [ %53, %52 ]
+  %.sink = phi i32 [ 16, %44 ], [ 16, %42 ], [ %47, %50 ], [ %47, %52 ]
   store ptr %.sink60, ptr %17, align 8, !tbaa !45
   store i32 %.sink, ptr %9, align 8, !tbaa !51
   br label %Vec_IntPush.exit
@@ -2115,8 +2115,8 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br label %Vec_IntPush.exit39.sink.split
 
 Vec_IntPush.exit39.sink.split:                    ; preds = %86, %88, %78, %80
-  %.sink62 = phi ptr [ %79, %78 ], [ %81, %80 ], [ %87, %86 ], [ %89, %88 ]
-  %.sink61 = phi i32 [ 16, %78 ], [ 16, %80 ], [ %83, %86 ], [ %83, %88 ]
+  %.sink62 = phi ptr [ %81, %80 ], [ %79, %78 ], [ %87, %86 ], [ %89, %88 ]
+  %.sink61 = phi i32 [ 16, %80 ], [ 16, %78 ], [ %83, %86 ], [ %83, %88 ]
   store ptr %.sink62, ptr %17, align 8, !tbaa !45
   store i32 %.sink61, ptr %9, align 8, !tbaa !51
   br label %Vec_IntPush.exit39
@@ -2176,8 +2176,8 @@ define noundef ptr @Saig_ManExtendCex(ptr noundef %0, ptr noundef readonly captu
 .critedge.preheader:                              ; preds = %28, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %35, %28 ]
   %20 = load i32, ptr %4, align 4, !tbaa !61
-  %.not142 = icmp slt i32 %20, 0
-  br i1 %.not142, label %.critedge8._crit_edge, label %.preheader118.lr.ph
+  %.not141 = icmp slt i32 %20, 0
+  br i1 %.not141, label %.critedge8._crit_edge, label %.preheader118.lr.ph
 
 .preheader118.lr.ph:                              ; preds = %.critedge.preheader
   %21 = getelementptr i8, ptr %0, i64 108
@@ -2218,15 +2218,15 @@ define noundef ptr @Saig_ManExtendCex(ptr noundef %0, ptr noundef readonly captu
   %49 = icmp slt i32 %35, %.val107
   br i1 %49, label %28, label %.critedge.preheader, !llvm.loop !78
 
-.preheader118:                                    ; preds = %.preheader118.lr.ph, %.critedge10
-  %.1144 = phi i32 [ %.0.lcssa, %.preheader118.lr.ph ], [ %.2.lcssa, %.critedge10 ]
-  %.187143 = phi i32 [ 0, %.preheader118.lr.ph ], [ %184, %.critedge10 ]
+.preheader118:                                    ; preds = %.preheader118.lr.ph, %.critedge
+  %.1143 = phi i32 [ %.0.lcssa, %.preheader118.lr.ph ], [ %.2.lcssa, %.critedge ]
+  %.187142 = phi i32 [ 0, %.preheader118.lr.ph ], [ %184, %.critedge ]
   %.val108125 = load i32, ptr %21, align 4, !tbaa !48
   %50 = icmp sgt i32 %.val108125, 0
   br i1 %50, label %.lr.ph128, label %.critedge2.preheader
 
 .critedge2.preheader:                             ; preds = %.lr.ph128, %.preheader118
-  %.2.lcssa = phi i32 [ %.1144, %.preheader118 ], [ %59, %.lr.ph128 ]
+  %.2.lcssa = phi i32 [ %.1143, %.preheader118 ], [ %59, %.lr.ph128 ]
   %51 = load ptr, ptr %22, align 8, !tbaa !25
   %52 = getelementptr i8, ptr %51, i64 4
   %.val93130 = load i32, ptr %52, align 4, !tbaa !26
@@ -2240,7 +2240,7 @@ define noundef ptr @Saig_ManExtendCex(ptr noundef %0, ptr noundef readonly captu
 
 .lr.ph128:                                        ; preds = %.preheader118, %.lr.ph128
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph128 ], [ 0, %.preheader118 ]
-  %.2127 = phi i32 [ %59, %.lr.ph128 ], [ %.1144, %.preheader118 ]
+  %.2127 = phi i32 [ %59, %.lr.ph128 ], [ %.1143, %.preheader118 ]
   %55 = load ptr, ptr %22, align 8, !tbaa !25
   %56 = getelementptr i8, ptr %55, i64 8
   %.val97 = load ptr, ptr %56, align 8, !tbaa !29
@@ -2275,9 +2275,9 @@ define noundef ptr @Saig_ManExtendCex(ptr noundef %0, ptr noundef readonly captu
   br i1 %77, label %.lr.ph135, label %.critedge6.preheader
 
 78:                                               ; preds = %.lr.ph132, %.critedge2
-  %.val93157 = phi i32 [ %.val93130, %.lr.ph132 ], [ %.val93, %.critedge2 ]
-  %indvars.iv148 = phi i64 [ 0, %.lr.ph132 ], [ %indvars.iv.next149, %.critedge2 ]
-  %79 = getelementptr inbounds nuw ptr, ptr %.val96, i64 %indvars.iv148
+  %.val93156 = phi i32 [ %.val93130, %.lr.ph132 ], [ %.val93, %.critedge2 ]
+  %indvars.iv147 = phi i64 [ 0, %.lr.ph132 ], [ %indvars.iv.next148, %.critedge2 ]
+  %79 = getelementptr inbounds nuw ptr, ptr %.val96, i64 %indvars.iv147
   %80 = load ptr, ptr %79, align 8, !tbaa !30
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 24
   %82 = load i64, ptr %81, align 8
@@ -2287,8 +2287,8 @@ define noundef ptr @Saig_ManExtendCex(ptr noundef %0, ptr noundef readonly captu
 
 84:                                               ; preds = %78
   %.val110 = load i32, ptr %3, align 8, !tbaa !21
-  %85 = mul nsw i32 %.val110, %.187143
-  %86 = trunc nuw nsw i64 %indvars.iv148 to i32
+  %85 = mul nsw i32 %.val110, %.187142
+  %86 = trunc nuw nsw i64 %indvars.iv147 to i32
   %87 = add nsw i32 %85, %86
   %88 = and i32 %87, 31
   %89 = shl nuw i32 1, %88
@@ -2302,10 +2302,10 @@ define noundef ptr @Saig_ManExtendCex(ptr noundef %0, ptr noundef readonly captu
   br label %.critedge2
 
 .critedge2:                                       ; preds = %78, %84
-  %.val93 = phi i32 [ %.val93157, %78 ], [ %.val93.pre, %84 ]
-  %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
+  %.val93 = phi i32 [ %.val93156, %78 ], [ %.val93.pre, %84 ]
+  %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %95 = sext i32 %.val93 to i64
-  %96 = icmp slt i64 %indvars.iv.next149, %95
+  %96 = icmp slt i64 %indvars.iv.next148, %95
   br i1 %96, label %78, label %.critedge4.preheader, !llvm.loop !80
 
 .critedge6.preheader:                             ; preds = %.critedge4, %.critedge4.preheader
@@ -2317,10 +2317,10 @@ define noundef ptr @Saig_ManExtendCex(ptr noundef %0, ptr noundef readonly captu
 
 .lr.ph135:                                        ; preds = %.critedge4.preheader, %.critedge4
   %100 = phi ptr [ %137, %.critedge4 ], [ %75, %.critedge4.preheader ]
-  %indvars.iv151 = phi i64 [ %indvars.iv.next152, %.critedge4 ], [ 0, %.critedge4.preheader ]
+  %indvars.iv150 = phi i64 [ %indvars.iv.next151, %.critedge4 ], [ 0, %.critedge4.preheader ]
   %101 = getelementptr i8, ptr %100, i64 8
   %.val95 = load ptr, ptr %101, align 8, !tbaa !29
-  %102 = getelementptr inbounds nuw ptr, ptr %.val95, i64 %indvars.iv151
+  %102 = getelementptr inbounds nuw ptr, ptr %.val95, i64 %indvars.iv150
   %103 = load ptr, ptr %102, align 8, !tbaa !30
   %104 = icmp eq ptr %103, null
   br i1 %104, label %.critedge4, label %105
@@ -2369,19 +2369,19 @@ define noundef ptr @Saig_ManExtendCex(ptr noundef %0, ptr noundef readonly captu
 
 .critedge4:                                       ; preds = %110, %105, %.lr.ph135
   %137 = phi ptr [ %.pre, %110 ], [ %100, %105 ], [ %100, %.lr.ph135 ]
-  %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
+  %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %138 = getelementptr i8, ptr %137, i64 4
   %.val92 = load i32, ptr %138, align 4, !tbaa !26
   %139 = sext i32 %.val92 to i64
-  %140 = icmp slt i64 %indvars.iv.next152, %139
+  %140 = icmp slt i64 %indvars.iv.next151, %139
   br i1 %140, label %.lr.ph135, label %.critedge6.preheader, !llvm.loop !81
 
 .critedge6:                                       ; preds = %.critedge6.preheader, %.critedge6
-  %indvars.iv154 = phi i64 [ %indvars.iv.next155, %.critedge6 ], [ 0, %.critedge6.preheader ]
+  %indvars.iv153 = phi i64 [ %indvars.iv.next154, %.critedge6 ], [ 0, %.critedge6.preheader ]
   %141 = phi ptr [ %157, %.critedge6 ], [ %97, %.critedge6.preheader ]
   %142 = getelementptr i8, ptr %141, i64 8
   %.val94 = load ptr, ptr %142, align 8, !tbaa !29
-  %143 = getelementptr inbounds nuw ptr, ptr %.val94, i64 %indvars.iv154
+  %143 = getelementptr inbounds nuw ptr, ptr %.val94, i64 %indvars.iv153
   %144 = load ptr, ptr %143, align 8, !tbaa !30
   %145 = getelementptr i8, ptr %144, i64 8
   %.val100 = load ptr, ptr %145, align 8, !tbaa !33
@@ -2398,26 +2398,26 @@ define noundef ptr @Saig_ManExtendCex(ptr noundef %0, ptr noundef readonly captu
   %155 = and i64 %152, -33
   %156 = or disjoint i64 %154, %155
   store i64 %156, ptr %151, align 8
-  %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
+  %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
   %157 = load ptr, ptr %26, align 8, !tbaa !37
   %158 = getelementptr i8, ptr %157, i64 4
   %.val91 = load i32, ptr %158, align 4, !tbaa !26
   %159 = sext i32 %.val91 to i64
-  %160 = icmp slt i64 %indvars.iv.next155, %159
+  %160 = icmp slt i64 %indvars.iv.next154, %159
   br i1 %160, label %.critedge6, label %.critedge8, !llvm.loop !82
 
 .critedge8:                                       ; preds = %.critedge6, %.critedge6.preheader
   %161 = load i32, ptr %4, align 4, !tbaa !61
-  %162 = icmp eq i32 %.187143, %161
+  %162 = icmp eq i32 %.187142, %161
   br i1 %162, label %.critedge8._crit_edge, label %.preheader
 
 .preheader:                                       ; preds = %.critedge8
   %.val106139 = load i32, ptr %15, align 8, !tbaa !39
   %163 = icmp sgt i32 %.val106139, 0
-  br i1 %163, label %.lr.ph141, label %.critedge10
+  br i1 %163, label %.critedge10, label %.critedge
 
-.lr.ph141:                                        ; preds = %.preheader, %.lr.ph141
-  %.4140 = phi i32 [ %181, %.lr.ph141 ], [ 0, %.preheader ]
+.critedge10:                                      ; preds = %.preheader, %.critedge10
+  %.4140 = phi i32 [ %181, %.critedge10 ], [ 0, %.preheader ]
   %.val112 = load ptr, ptr %26, align 8, !tbaa !37
   %.val113 = load i32, ptr %27, align 8, !tbaa !36
   %164 = getelementptr i8, ptr %.val112, i64 8
@@ -2445,19 +2445,19 @@ define noundef ptr @Saig_ManExtendCex(ptr noundef %0, ptr noundef readonly captu
   %181 = add nuw nsw i32 %.4140, 1
   %.val106 = load i32, ptr %15, align 8, !tbaa !39
   %182 = icmp slt i32 %181, %.val106
-  br i1 %182, label %.lr.ph141, label %.critedge10.loopexit, !llvm.loop !83
+  br i1 %182, label %.critedge10, label %.critedge.loopexit, !llvm.loop !83
 
-.critedge10.loopexit:                             ; preds = %.lr.ph141
-  %.pre159 = load i32, ptr %4, align 4, !tbaa !61
-  br label %.critedge10
+.critedge.loopexit:                               ; preds = %.critedge10
+  %.pre158 = load i32, ptr %4, align 4, !tbaa !61
+  br label %.critedge
 
-.critedge10:                                      ; preds = %.critedge10.loopexit, %.preheader
-  %183 = phi i32 [ %.pre159, %.critedge10.loopexit ], [ %161, %.preheader ]
-  %184 = add nuw nsw i32 %.187143, 1
-  %.not.not = icmp slt i32 %.187143, %183
+.critedge:                                        ; preds = %.critedge.loopexit, %.preheader
+  %183 = phi i32 [ %.pre158, %.critedge.loopexit ], [ %161, %.preheader ]
+  %184 = add nuw nsw i32 %.187142, 1
+  %.not.not = icmp slt i32 %.187142, %183
   br i1 %.not.not, label %.preheader118, label %.critedge8._crit_edge, !llvm.loop !84
 
-.critedge8._crit_edge:                            ; preds = %.critedge10, %.critedge8, %.critedge.preheader
+.critedge8._crit_edge:                            ; preds = %.critedge, %.critedge8, %.critedge.preheader
   %185 = load i32, ptr %1, align 4, !tbaa !69
   %186 = getelementptr i8, ptr %0, i64 24
   %.val116 = load ptr, ptr %186, align 8, !tbaa !37
@@ -2507,8 +2507,8 @@ define range(i32 -2147483648, 2147483647) i32 @Saig_ManFindFailedPoCex(ptr nound
   %.0.lcssa = phi i32 [ 0, %2 ], [ %27, %20 ]
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %13 = load i32, ptr %12, align 4, !tbaa !61
-  %.not125 = icmp slt i32 %13, 0
-  br i1 %.not125, label %.critedge6._crit_edge, label %.preheader105.lr.ph
+  %.not124 = icmp slt i32 %13, 0
+  br i1 %.not124, label %.critedge6._crit_edge, label %.preheader105.lr.ph
 
 .preheader105.lr.ph:                              ; preds = %.critedge.preheader
   %14 = getelementptr i8, ptr %0, i64 108
@@ -2548,15 +2548,15 @@ define range(i32 -2147483648, 2147483647) i32 @Saig_ManFindFailedPoCex(ptr nound
   %41 = icmp slt i32 %27, %.val97
   br i1 %41, label %20, label %.critedge.preheader, !llvm.loop !85
 
-.preheader105:                                    ; preds = %.preheader105.lr.ph, %.critedge8
-  %.1127 = phi i32 [ %.0.lcssa, %.preheader105.lr.ph ], [ %.2.lcssa, %.critedge8 ]
-  %.175126 = phi i32 [ 0, %.preheader105.lr.ph ], [ %153, %.critedge8 ]
+.preheader105:                                    ; preds = %.preheader105.lr.ph, %.critedge
+  %.1126 = phi i32 [ %.0.lcssa, %.preheader105.lr.ph ], [ %.2.lcssa, %.critedge ]
+  %.175125 = phi i32 [ 0, %.preheader105.lr.ph ], [ %153, %.critedge ]
   %.val98111 = load i32, ptr %14, align 4, !tbaa !48
   %42 = icmp sgt i32 %.val98111, 0
   br i1 %42, label %.lr.ph114, label %.critedge2.preheader
 
 .critedge2.preheader:                             ; preds = %.lr.ph114, %.preheader105
-  %.2.lcssa = phi i32 [ %.1127, %.preheader105 ], [ %50, %.lr.ph114 ]
+  %.2.lcssa = phi i32 [ %.1126, %.preheader105 ], [ %50, %.lr.ph114 ]
   %43 = load ptr, ptr %17, align 8, !tbaa !28
   %44 = getelementptr i8, ptr %43, i64 4
   %.val82116 = load i32, ptr %44, align 4, !tbaa !26
@@ -2565,7 +2565,7 @@ define range(i32 -2147483648, 2147483647) i32 @Saig_ManFindFailedPoCex(ptr nound
 
 .lr.ph114:                                        ; preds = %.preheader105, %.lr.ph114
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph114 ], [ 0, %.preheader105 ]
-  %.2113 = phi i32 [ %50, %.lr.ph114 ], [ %.1127, %.preheader105 ]
+  %.2113 = phi i32 [ %50, %.lr.ph114 ], [ %.1126, %.preheader105 ]
   %46 = load ptr, ptr %15, align 8, !tbaa !25
   %47 = getelementptr i8, ptr %46, i64 8
   %.val86 = load ptr, ptr %47, align 8, !tbaa !29
@@ -2692,16 +2692,16 @@ define range(i32 -2147483648, 2147483647) i32 @Saig_ManFindFailedPoCex(ptr nound
 
 .critedge6:                                       ; preds = %.critedge4, %.critedge4.preheader
   %130 = load i32, ptr %12, align 4, !tbaa !61
-  %131 = icmp eq i32 %.175126, %130
+  %131 = icmp eq i32 %.175125, %130
   br i1 %131, label %.critedge6._crit_edge, label %.preheader
 
 .preheader:                                       ; preds = %.critedge6
   %.val96122 = load i32, ptr %7, align 8, !tbaa !39
   %132 = icmp sgt i32 %.val96122, 0
-  br i1 %132, label %.lr.ph124, label %.critedge8
+  br i1 %132, label %.critedge8, label %.critedge
 
-.lr.ph124:                                        ; preds = %.preheader, %.lr.ph124
-  %.3123 = phi i32 [ %150, %.lr.ph124 ], [ 0, %.preheader ]
+.critedge8:                                       ; preds = %.preheader, %.critedge8
+  %.3123 = phi i32 [ %150, %.critedge8 ], [ 0, %.preheader ]
   %.val100 = load ptr, ptr %18, align 8, !tbaa !37
   %.val101 = load i32, ptr %19, align 8, !tbaa !36
   %133 = getelementptr i8, ptr %.val100, i64 8
@@ -2729,19 +2729,19 @@ define range(i32 -2147483648, 2147483647) i32 @Saig_ManFindFailedPoCex(ptr nound
   %150 = add nuw nsw i32 %.3123, 1
   %.val96 = load i32, ptr %7, align 8, !tbaa !39
   %151 = icmp slt i32 %150, %.val96
-  br i1 %151, label %.lr.ph124, label %.critedge8.loopexit, !llvm.loop !89
+  br i1 %151, label %.critedge8, label %.critedge.loopexit, !llvm.loop !89
 
-.critedge8.loopexit:                              ; preds = %.lr.ph124
+.critedge.loopexit:                               ; preds = %.critedge8
   %.pre145 = load i32, ptr %12, align 4, !tbaa !61
-  br label %.critedge8
+  br label %.critedge
 
-.critedge8:                                       ; preds = %.critedge8.loopexit, %.preheader
-  %152 = phi i32 [ %.pre145, %.critedge8.loopexit ], [ %130, %.preheader ]
-  %153 = add nuw nsw i32 %.175126, 1
-  %.not.not = icmp slt i32 %.175126, %152
+.critedge:                                        ; preds = %.critedge.loopexit, %.preheader
+  %152 = phi i32 [ %.pre145, %.critedge.loopexit ], [ %130, %.preheader ]
+  %153 = add nuw nsw i32 %.175125, 1
+  %.not.not = icmp slt i32 %.175125, %152
   br i1 %.not.not, label %.preheader105, label %.critedge6._crit_edge, !llvm.loop !90
 
-.critedge6._crit_edge:                            ; preds = %.critedge8, %.critedge6, %.critedge.preheader
+.critedge6._crit_edge:                            ; preds = %.critedge, %.critedge6, %.critedge.preheader
   %154 = getelementptr i8, ptr %0, i64 112
   %.val95 = load i32, ptr %154, align 8, !tbaa !36
   %155 = icmp sgt i32 %.val95, 0

@@ -399,7 +399,7 @@ define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_inherit(ptr noundef capture
   br i1 %122, label %._crit_edge, label %.thread127.thread
 
 ._crit_edge:                                      ; preds = %116, %119, %111
-  %123 = phi ptr [ %118, %119 ], [ %112, %111 ], [ %118, %116 ]
+  %123 = phi ptr [ %112, %111 ], [ %118, %119 ], [ %118, %116 ]
   %124 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %125 = load ptr, ptr %124, align 8, !tbaa !23
   %126 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -531,7 +531,7 @@ X509_VERIFY_PARAM_set1_ip.exit:                   ; preds = %170, %172
   br label %X509_VERIFY_PARAM_set1_email.exit.thread
 
 X509_VERIFY_PARAM_set1_email.exit.thread:         ; preds = %169, %152, %.thread127.thread, %137, %.thread127, %.thread135, %X509_VERIFY_PARAM_set1_ip.exit, %.thread119, %103, %83, %13, %2
-  %.0 = phi i32 [ 1, %2 ], [ 1, %13 ], [ 0, %83 ], [ 0, %103 ], [ 0, %.thread119 ], [ 1, %X509_VERIFY_PARAM_set1_ip.exit ], [ 1, %.thread135 ], [ 1, %.thread127 ], [ 0, %137 ], [ 1, %.thread127.thread ], [ 0, %152 ], [ 0, %169 ]
+  %.0 = phi i32 [ 1, %2 ], [ 0, %83 ], [ 0, %.thread119 ], [ 1, %.thread127 ], [ 0, %103 ], [ 1, %13 ], [ 1, %.thread127.thread ], [ 1, %X509_VERIFY_PARAM_set1_ip.exit ], [ 1, %.thread135 ], [ 0, %137 ], [ 0, %152 ], [ 0, %169 ]
   ret i32 %.0
 }
 
@@ -600,7 +600,7 @@ define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1_policies(ptr noundef c
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %9, %2, %._crit_edge, %21, %8
-  %.0 = phi i32 [ 0, %21 ], [ 1, %._crit_edge ], [ 1, %8 ], [ 0, %2 ], [ 0, %9 ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ 0, %21 ], [ 0, %9 ], [ 1, %._crit_edge ], [ 0, %2 ], [ 1, %8 ], [ 0, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -936,7 +936,7 @@ define internal fastcc range(i32 0, 2) i32 @int_x509_param_set_hosts(ptr noundef
   br label %33
 
 33:                                               ; preds = %24, %27, %31, %14, %12, %5, %23
-  %.0 = phi i32 [ 0, %23 ], [ 0, %5 ], [ 1, %12 ], [ 0, %14 ], [ 0, %31 ], [ 0, %27 ], [ 1, %24 ]
+  %.0 = phi i32 [ 0, %14 ], [ 0, %5 ], [ 1, %12 ], [ 0, %23 ], [ 0, %27 ], [ 0, %31 ], [ 1, %24 ]
   ret i32 %.0
 }
 

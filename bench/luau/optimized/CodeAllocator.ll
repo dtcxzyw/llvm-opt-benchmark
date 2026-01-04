@@ -495,7 +495,7 @@ _ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_itera
   br label %_ZNSt6vectorIPvSaIS0_EE9push_backERKS0_.exit
 
 _ZNSt6vectorIPvSaIS0_EE9push_backERKS0_.exit:     ; preds = %18, %_ZNK4Luau7CodeGen13CodeAllocator13allocatePagesEm.exit, %_ZNSt6vectorIPhSaIS0_EE9push_backERKS0_.exit, %75, %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, %62, %2
-  %.05 = phi i1 [ false, %2 ], [ false, %_ZNK4Luau7CodeGen13CodeAllocator13allocatePagesEm.exit ], [ true, %_ZNSt6vectorIPhSaIS0_EE9push_backERKS0_.exit ], [ true, %75 ], [ true, %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ false, %62 ], [ false, %18 ]
+  %.05 = phi i1 [ false, %2 ], [ false, %_ZNK4Luau7CodeGen13CodeAllocator13allocatePagesEm.exit ], [ true, %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ false, %62 ], [ true, %_ZNSt6vectorIPhSaIS0_EE9push_backERKS0_.exit ], [ true, %75 ], [ false, %18 ]
   ret i1 %.05
 }
 
@@ -528,7 +528,7 @@ define dso_local noundef ptr @_ZNK4Luau7CodeGen13CodeAllocator13allocatePagesEm(
   br label %15
 
 15:                                               ; preds = %2, %9, %12
-  %.0 = phi ptr [ %8, %12 ], [ %8, %9 ], [ null, %2 ]
+  %.0 = phi ptr [ null, %2 ], [ %8, %12 ], [ %8, %9 ]
   ret ptr %.0
 }
 

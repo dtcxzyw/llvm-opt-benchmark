@@ -427,7 +427,7 @@ _ZN4NodenwEm.exit47:                              ; preds = %167, %169
   unreachable
 
 182:                                              ; preds = %158, %_ZN4NodenwEm.exit44, %172, %_ZN4NodenwEm.exit47, %_ZN4NodenwEm.exit41, %122, %_ZN4NodenwEm.exit38, %94, %_ZN4NodenwEm.exit35, %66, %_ZN4NodenwEm.exit, %38
-  %.0 = phi ptr [ %.0.i.i.i, %38 ], [ null, %_ZN4NodenwEm.exit ], [ %.0.i.i.i34, %66 ], [ null, %_ZN4NodenwEm.exit35 ], [ %.0.i.i.i37, %94 ], [ null, %_ZN4NodenwEm.exit38 ], [ %.0.i.i.i40, %122 ], [ null, %_ZN4NodenwEm.exit41 ], [ %.0.i.i.i43, %158 ], [ null, %_ZN4NodenwEm.exit44 ], [ %.0.i.i.i46, %172 ], [ null, %_ZN4NodenwEm.exit47 ]
+  %.0 = phi ptr [ null, %_ZN4NodenwEm.exit41 ], [ null, %_ZN4NodenwEm.exit ], [ null, %_ZN4NodenwEm.exit35 ], [ null, %_ZN4NodenwEm.exit38 ], [ %.0.i.i.i, %38 ], [ %.0.i.i.i34, %66 ], [ %.0.i.i.i37, %94 ], [ %.0.i.i.i40, %122 ], [ null, %_ZN4NodenwEm.exit44 ], [ %.0.i.i.i43, %158 ], [ %.0.i.i.i46, %172 ], [ null, %_ZN4NodenwEm.exit47 ]
   %183 = load ptr, ptr %8, align 8
   %184 = load ptr, ptr %183, align 8
   %185 = load ptr, ptr %184, align 8
@@ -2251,7 +2251,7 @@ _ZN16ciBytecodeStream15reset_to_methodEP8ciMethod.exit: ; preds = %47, %_ZN8ciMe
   br label %84
 
 84:                                               ; preds = %77, %73, %82
-  %.sink = phi float [ %83, %82 ], [ 1.000000e+00, %73 ], [ 1.000000e+00, %77 ]
+  %.sink = phi float [ 1.000000e+00, %73 ], [ %83, %82 ], [ 1.000000e+00, %77 ]
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store float %.sink, ptr %85, align 4
   %86 = load ptr, ptr %24, align 8
@@ -3517,8 +3517,8 @@ _ZN8GraphKit7set_i_oEP4Node.exit:                 ; preds = %283, %294
   br label %.thread
 
 .thread:                                          ; preds = %315, %329, %326
-  %335 = phi i32 [ %327, %326 ], [ %.pre84, %329 ], [ 3, %315 ]
-  %.1 = phi ptr [ %.0, %326 ], [ %spec.select, %329 ], [ %311, %315 ]
+  %335 = phi i32 [ %.pre84, %329 ], [ %327, %326 ], [ 3, %315 ]
+  %.1 = phi ptr [ %spec.select, %329 ], [ %.0, %326 ], [ %311, %315 ]
   %336 = zext i32 %335 to i64
   %337 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %336
   %338 = getelementptr inbounds nuw i8, ptr %337, i64 4
@@ -5365,7 +5365,7 @@ _ZNK5Parse5Block17can_elide_SEL_phiEj.exit.thread: ; preds = %443, %457, %_ZNK5P
   br label %485
 
 485:                                              ; preds = %406, %406, %_ZNK5Parse5Block17can_elide_SEL_phiEj.exit.thread, %405
-  %.1 = phi ptr [ %484, %_ZNK5Parse5Block17can_elide_SEL_phiEj.exit.thread ], [ %.080, %406 ], [ %.080, %406 ], [ %.080, %405 ]
+  %.1 = phi ptr [ %.080, %406 ], [ %.080, %405 ], [ %484, %_ZNK5Parse5Block17can_elide_SEL_phiEj.exit.thread ], [ %.080, %406 ]
   %.not87 = icmp eq ptr %.1, null
   br i1 %.not87, label %_ZNK8GraphKit15record_for_igvnEP4Node.exit136, label %.thread149
 
@@ -6946,7 +6946,7 @@ _ZN4NodenwEm.exit39.i:                            ; preds = %410, %408
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %413, %_ZN4NodenwEm.exit39.i, %389, %_ZN4NodenwEm.exit36.i, %366, %_ZN4NodenwEm.exit33.i, %317, %_ZN4NodenwEm.exit27.i
-  %.0.i.i.i38.sink.i = phi ptr [ %.0.i.i.i26.i, %317 ], [ null, %_ZN4NodenwEm.exit27.i ], [ %.0.i.i.i32.i, %366 ], [ null, %_ZN4NodenwEm.exit33.i ], [ %.0.i.i.i35.i, %389 ], [ null, %_ZN4NodenwEm.exit36.i ], [ %.0.i.i.i38.i, %413 ], [ null, %_ZN4NodenwEm.exit39.i ]
+  %.0.i.i.i38.sink.i = phi ptr [ null, %_ZN4NodenwEm.exit36.i ], [ null, %_ZN4NodenwEm.exit33.i ], [ null, %_ZN4NodenwEm.exit27.i ], [ %.0.i.i.i26.i, %317 ], [ %.0.i.i.i32.i, %366 ], [ %.0.i.i.i35.i, %389 ], [ %.0.i.i.i38.i, %413 ], [ null, %_ZN4NodenwEm.exit39.i ]
   %416 = load ptr, ptr %269, align 8
   %417 = load ptr, ptr %416, align 8
   %418 = tail call noundef ptr %417(ptr noundef nonnull align 8 dereferenceable(2400) %269, ptr noundef %.0.i.i.i38.sink.i) #14
@@ -9252,7 +9252,7 @@ _ZN14MergeMemStream14next_non_emptyEv.exit:       ; preds = %62, %.thread5.i.i, 
   br i1 %78, label %.lr.ph, label %.loopexit27, !llvm.loop !43
 
 .loopexit27:                                      ; preds = %_ZN14MergeMemStream14next_non_emptyEv.exit, %20, %16, %4
-  %.0 = phi i32 [ %19, %16 ], [ %7, %4 ], [ %22, %20 ], [ %22, %_ZN14MergeMemStream14next_non_emptyEv.exit ]
+  %.0 = phi i32 [ %7, %4 ], [ %19, %16 ], [ %22, %20 ], [ %22, %_ZN14MergeMemStream14next_non_emptyEv.exit ]
   ret i32 %.0
 }
 
@@ -9493,7 +9493,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %102, %91, %47
   %109 = icmp slt i32 %108, %17
   br i1 %109, label %.lr.ph.i.i.lr.ph, label %_ZN14MergeMemStream15next_non_empty2Ev.exit, !llvm.loop !44
 
-.loopexit.thread:                                 ; preds = %44, %.split.us.i.i, %.loopexit
+.loopexit.thread:                                 ; preds = %.split.us.i.i, %44, %.loopexit
   %.sroa.22.1.ph149 = phi ptr [ %36, %.loopexit ], [ %46, %44 ], [ %36, %.split.us.i.i ]
   %110 = phi ptr [ %15, %.loopexit ], [ %32, %44 ], [ %32, %.split.us.i.i ]
   %.not = icmp eq ptr %110, %.sroa.22.1.ph149
@@ -9666,18 +9666,18 @@ _ZNK8GraphKit15record_for_igvnEP4Node.exit:       ; preds = %_ZN9VectorSet8test_
   br label %_ZN14MergeMemStream10set_memoryEP4Node.exit
 
 197:                                              ; preds = %161, %_ZNK8GraphKit15record_for_igvnEP4Node.exit
-  %.039.ph = phi ptr [ %.079, %161 ], [ %195, %_ZNK8GraphKit15record_for_igvnEP4Node.exit ]
+  %.039.ph = phi ptr [ %195, %_ZNK8GraphKit15record_for_igvnEP4Node.exit ], [ %.079, %161 ]
   tail call void @_ZN12MergeMemNode13set_memory_atEjP4Node(ptr noundef nonnull align 8 dereferenceable(52) %10, i32 noundef %.sroa.7.1, ptr noundef %.039.ph) #14
   br label %_ZN14MergeMemStream10set_memoryEP4Node.exit
 
 _ZN14MergeMemStream10set_memoryEP4Node.exit:      ; preds = %111, %116, %197, %196, %121
-  %.1 = phi ptr [ %.038105, %121 ], [ %.079, %196 ], [ %.038105, %197 ], [ %.038105, %116 ], [ %.038105, %111 ]
+  %.1 = phi ptr [ %.038105, %197 ], [ %.038105, %121 ], [ %.079, %196 ], [ %.038105, %116 ], [ %.038105, %111 ]
   %198 = add nsw i32 %.sroa.7.1, 1
   %199 = icmp slt i32 %198, %17
   br i1 %199, label %.lr.ph.i.i, label %_ZN14MergeMemStream15next_non_empty2Ev.exit, !llvm.loop !44
 
 _ZN14MergeMemStream15next_non_empty2Ev.exit:      ; preds = %_ZN4Node7set_reqEjPS_.exit, %_ZN14MergeMemStream10set_memoryEP4Node.exit, %.thread5.us.i.i
-  %.038103 = phi ptr [ %.038105, %.thread5.us.i.i ], [ %.1, %_ZN14MergeMemStream10set_memoryEP4Node.exit ], [ %.038105, %_ZN4Node7set_reqEjPS_.exit ]
+  %.038103 = phi ptr [ %.1, %_ZN14MergeMemStream10set_memoryEP4Node.exit ], [ %.038105, %.thread5.us.i.i ], [ %.038105, %_ZN4Node7set_reqEjPS_.exit ]
   %200 = icmp ne ptr %.038103, null
   %201 = icmp eq i32 %2, 1
   %or.cond3 = and i1 %201, %200
@@ -10218,7 +10218,7 @@ _ZN4Node7set_reqEjPS_.exit.sink.split:            ; preds = %153, %197, %279
   br label %_ZN4Node7set_reqEjPS_.exit
 
 _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7set_reqEjPS_.exit.sink.split, %268, %186, %_ZN4Node7del_outEPS_.exit.i49, %142, %_ZN4Node7del_outEPS_.exit.i, %23, %3
-  %.0 = phi ptr [ null, %3 ], [ %12, %23 ], [ null, %_ZN4Node7del_outEPS_.exit.i ], [ null, %142 ], [ null, %_ZN4Node7del_outEPS_.exit.i49 ], [ null, %186 ], [ %202, %268 ], [ %.0.ph, %_ZN4Node7set_reqEjPS_.exit.sink.split ]
+  %.0 = phi ptr [ null, %186 ], [ null, %3 ], [ %12, %23 ], [ %202, %268 ], [ null, %_ZN4Node7del_outEPS_.exit.i ], [ null, %142 ], [ null, %_ZN4Node7del_outEPS_.exit.i49 ], [ %.0.ph, %_ZN4Node7set_reqEjPS_.exit.sink.split ]
   ret ptr %.0
 }
 
@@ -10364,7 +10364,7 @@ _ZN11PhaseValues8set_typeEPK4NodePK4Type.exit39:  ; preds = %65, %88
   br label %95
 
 95:                                               ; preds = %93, %94, %30, %_ZN11PhaseValues8set_typeEPK4NodePK4Type.exit
-  %.0 = phi ptr [ %51, %_ZN11PhaseValues8set_typeEPK4NodePK4Type.exit ], [ %20, %30 ], [ %79, %94 ], [ %79, %93 ]
+  %.0 = phi ptr [ %20, %30 ], [ %51, %_ZN11PhaseValues8set_typeEPK4NodePK4Type.exit ], [ %79, %94 ], [ %79, %93 ]
   ret ptr %.0
 }
 
@@ -11486,9 +11486,9 @@ _ZN11PhaseValues15set_type_bottomEPK4Node.exit:   ; preds = %.loopexit, %111
   tail call void @_ZN12MergeMemNode13set_memory_atEjP4Node(ptr noundef nonnull align 8 dereferenceable(52) %54, i32 noundef %.sroa.7.1, ptr noundef nonnull %99) #14
   br label %_ZN14MergeMemStream10set_memoryEP4Node.exit
 
-_ZN14MergeMemStream10set_memoryEP4Node.exit:      ; preds = %88, %.split.us.i.i, %121, %120
-  %.sroa.21.1.ph52 = phi ptr [ %80, %120 ], [ %80, %121 ], [ %90, %88 ], [ %80, %.split.us.i.i ]
-  %.sroa.15.1 = phi ptr [ %99, %120 ], [ %99, %121 ], [ %76, %88 ], [ %76, %.split.us.i.i ]
+_ZN14MergeMemStream10set_memoryEP4Node.exit:      ; preds = %.split.us.i.i, %88, %121, %120
+  %.sroa.21.1.ph52 = phi ptr [ %80, %121 ], [ %80, %120 ], [ %90, %88 ], [ %80, %.split.us.i.i ]
+  %.sroa.15.1 = phi ptr [ %99, %121 ], [ %99, %120 ], [ %76, %88 ], [ %76, %.split.us.i.i ]
   tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %.sroa.15.1, ptr noundef %.sroa.21.1.ph52) #14
   %122 = add nsw i32 %.sroa.7.1, 1
   %123 = icmp slt i32 %122, %65

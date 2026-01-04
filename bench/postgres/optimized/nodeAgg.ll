@@ -235,7 +235,7 @@ list_length.exit593.thread:                       ; preds = %48
   br label %list_length.exit595
 
 list_length.exit595:                              ; preds = %list_length.exit593.thread, %list_length.exit593
-  %55 = phi i32 [ %spec.select615, %list_length.exit593 ], [ %spec.select839, %list_length.exit593.thread ]
+  %55 = phi i32 [ %spec.select839, %list_length.exit593.thread ], [ %spec.select615, %list_length.exit593 ]
   %56 = getelementptr inbounds nuw i8, ptr %50, i64 104
   %57 = load i32, ptr %56, align 8
   %.not582 = icmp eq i32 %57, 2
@@ -380,9 +380,9 @@ list_length.exit595:                              ; preds = %list_length.exit593
   br label %.critedge585
 
 .critedge585:                                     ; preds = %100, %.critedge585.loopexit, %.lr.ph656
-  %122 = phi i32 [ %107, %.lr.ph656 ], [ %107, %.critedge585.loopexit ], [ 0, %100 ]
-  %.0478.lcssa = phi i32 [ 0, %.lr.ph656 ], [ %121, %.critedge585.loopexit ], [ 0, %100 ]
-  %.0477.lcssa = phi i32 [ 0, %.lr.ph656 ], [ %120, %.critedge585.loopexit ], [ 0, %100 ]
+  %122 = phi i32 [ %107, %.critedge585.loopexit ], [ %107, %.lr.ph656 ], [ 0, %100 ]
+  %.0478.lcssa = phi i32 [ %121, %.critedge585.loopexit ], [ 0, %.lr.ph656 ], [ 0, %100 ]
+  %.0477.lcssa = phi i32 [ %120, %.critedge585.loopexit ], [ 0, %.lr.ph656 ], [ 0, %100 ]
   store i32 %.0477.lcssa, ptr %19, align 8
   store i32 %.0478.lcssa, ptr %20, align 4
   %123 = sext i32 %.0493 to i64
@@ -1436,8 +1436,8 @@ list_length.exit609:                              ; preds = %600, %.critedge589,
   unreachable
 
 678:                                              ; preds = %672, %670, %658
-  %.0481 = phi i32 [ %.1482, %670 ], [ 0, %658 ], [ %.1482, %672 ]
-  %.0480 = phi i32 [ 0, %670 ], [ 0, %658 ], [ %674, %672 ]
+  %.0481 = phi i32 [ 0, %658 ], [ %.1482, %670 ], [ %.1482, %672 ]
+  %.0480 = phi i32 [ 0, %658 ], [ 0, %670 ], [ %674, %672 ]
   %679 = load i32, ptr %626, align 4
   %680 = zext i32 %679 to i64
   %681 = call ptr @SearchSysCache1(i32 noundef 47, i64 noundef %680) #11
@@ -1699,7 +1699,7 @@ list_length.exit611:                              ; preds = %717, %721
   br label %list_length.exit613
 
 list_length.exit613:                              ; preds = %796, %802, %799
-  %.sink842 = phi i32 [ %804, %802 ], [ 0, %799 ], [ %718, %796 ]
+  %.sink842 = phi i32 [ 0, %799 ], [ %804, %802 ], [ %718, %796 ]
   %805 = getelementptr inbounds nuw i8, ptr %748, i64 16
   store i32 %.sink842, ptr %805, align 8
   %806 = load i8, ptr %9, align 1, !range !6, !noundef !7
@@ -1797,8 +1797,8 @@ switch.lookup:                                    ; preds = %849
   br label %.fold.split
 
 .fold.split:                                      ; preds = %849, %switch.lookup, %843
-  %.0472 = phi i1 [ true, %843 ], [ %switch.masked, %switch.lookup ], [ false, %849 ]
-  %.0 = phi i1 [ true, %843 ], [ %switch.masked866, %switch.lookup ], [ false, %849 ]
+  %.0472 = phi i1 [ %switch.masked, %switch.lookup ], [ true, %843 ], [ false, %849 ]
+  %.0 = phi i1 [ %switch.masked866, %switch.lookup ], [ true, %843 ], [ false, %849 ]
   %852 = call ptr @ExecBuildAggTrans(ptr noundef nonnull %14, ptr noundef nonnull %840, i1 noundef zeroext %.0, i1 noundef zeroext %.0472, i1 noundef zeroext false) #11
   %853 = getelementptr inbounds nuw i8, ptr %840, i64 48
   store ptr %852, ptr %853, align 8
@@ -2684,7 +2684,7 @@ agg_retrieve_direct.exit:                         ; preds = %14, %agg_fill_hash_
   %454 = icmp eq i16 %453, 0
   br i1 %454, label %455, label %agg_retrieve_direct.exit.thread
 
-agg_retrieve_direct.exit.thread:                  ; preds = %209, %.backedge.i, %132, %14, %agg_retrieve_direct.exit, %452, %10
+agg_retrieve_direct.exit.thread:                  ; preds = %.backedge.i, %209, %132, %14, %agg_retrieve_direct.exit, %452, %10
   br label %455
 
 455:                                              ; preds = %.thread, %452, %agg_retrieve_direct.exit.thread
@@ -3273,7 +3273,7 @@ list_length.exit191:                              ; preds = %120, %123
   br i1 %201, label %.lr.ph214, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph214, %161, %.lr.ph, %137, %140
-  %.0167196208 = phi i32 [ %.0167195, %140 ], [ %.0167197, %137 ], [ %.0167195, %.lr.ph ], [ %.0167195, %161 ], [ %.0167195, %.lr.ph214 ]
+  %.0167196208 = phi i32 [ %.0167195, %140 ], [ %.0167197, %137 ], [ %.0167195, %161 ], [ %.0167195, %.lr.ph ], [ %.0167195, %.lr.ph214 ]
   %202 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %203 = load ptr, ptr %202, align 8
   %.not181 = icmp eq ptr %203, null
@@ -3942,13 +3942,13 @@ define dso_local range(i32 0, 3) i32 @AggCheckCallContext(ptr noundef readonly c
   br i1 %.not18, label %17, label %.sink.split
 
 .sink.split:                                      ; preds = %.thread, %8, %14
-  %.sink = phi ptr [ %16, %14 ], [ %12, %8 ], [ null, %.thread ]
-  %.0.ph = phi i32 [ 2, %14 ], [ 1, %8 ], [ 0, %.thread ]
+  %.sink = phi ptr [ %12, %8 ], [ %16, %14 ], [ null, %.thread ]
+  %.0.ph = phi i32 [ 1, %8 ], [ 2, %14 ], [ 0, %.thread ]
   store ptr %.sink, ptr %1, align 8
   br label %17
 
 17:                                               ; preds = %.sink.split, %.thread, %13, %7
-  %.0 = phi i32 [ 1, %7 ], [ 2, %13 ], [ 0, %.thread ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ 2, %13 ], [ 1, %7 ], [ 0, %.thread ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 
@@ -3982,7 +3982,7 @@ define dso_local ptr @AggGetAggref(ptr noundef readonly captures(none) %0) local
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %1, %4, %10
-  %.1 = phi ptr [ null, %10 ], [ null, %4 ], [ null, %1 ], [ %13, %.thread.sink.split ]
+  %.1 = phi ptr [ null, %1 ], [ null, %10 ], [ null, %4 ], [ %13, %.thread.sink.split ]
   ret ptr %.1
 }
 
@@ -4051,7 +4051,7 @@ define dso_local zeroext i1 @AggStateIsShared(ptr noundef readonly captures(none
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %1, %4, %17
-  %.1 = phi i1 [ true, %17 ], [ true, %4 ], [ true, %1 ], [ %22, %.thread.sink.split ]
+  %.1 = phi i1 [ true, %1 ], [ true, %17 ], [ true, %4 ], [ %22, %.thread.sink.split ]
   ret i1 %.1
 }
 
@@ -6220,7 +6220,7 @@ define internal fastcc void @finalize_aggregates(ptr noundef %0, ptr noundef %1,
   br i1 %112, label %.lr.ph.split.split.us74.i, label %.outer._crit_edge.thread99.i, !llvm.loop !50
 
 .split.us.i:                                      ; preds = %79, %.critedge.us.i, %.lr.ph.split.split.us74.i, %116, %.lr.ph.split.split.us.us.i
-  %.us-phi56.us.i = phi ptr [ %115, %.lr.ph.split.split.us.us.i ], [ %115, %116 ], [ %74, %.lr.ph.split.split.us74.i ], [ %74, %.critedge.us.i ], [ %74, %79 ]
+  %.us-phi56.us.i = phi ptr [ %115, %116 ], [ %115, %.lr.ph.split.split.us.us.i ], [ %74, %.lr.ph.split.split.us74.i ], [ %74, %.critedge.us.i ], [ %74, %79 ]
   call fastcc void @advance_transition_function(ptr noundef nonnull %0, ptr noundef nonnull %37, ptr noundef %38)
   store ptr %.us-phi56.us.i, ptr @CurrentMemoryContext, align 8
   %113 = load i8, ptr %71, align 2, !range !6, !noundef !7
@@ -7238,7 +7238,7 @@ define internal zeroext i1 @find_cols_walker(ptr noundef %0, ptr noundef %1) #1 
   br label %24
 
 24:                                               ; preds = %12, %16, %2, %22, %20
-  %.0 = phi i1 [ false, %20 ], [ %23, %22 ], [ false, %2 ], [ false, %16 ], [ false, %12 ]
+  %.0 = phi i1 [ %23, %22 ], [ false, %2 ], [ false, %20 ], [ false, %16 ], [ false, %12 ]
   ret i1 %.0
 }
 

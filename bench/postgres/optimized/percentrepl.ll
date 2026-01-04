@@ -100,7 +100,7 @@ define ptr @replace_percent_placeholders(ptr noundef %0, ptr noundef %1, ptr nou
   br label %38
 
 38:                                               ; preds = %33, %37
-  %.3 = phi i1 [ true, %37 ], [ %.02436, %33 ]
+  %.3 = phi i1 [ %.02436, %33 ], [ true, %37 ]
   br i1 %.not33, label %19, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %38, %19

@@ -365,12 +365,12 @@ _ZNK4llvm15SmallPtrSetImplIPKNS_8MCSymbolEE5countES3_.exit.thread: ; preds = %15
   br label %44
 
 44:                                               ; preds = %33, %35, %39, %43, %24
-  %.1 = phi i1 [ false, %24 ], [ false, %33 ], [ false, %35 ], [ false, %39 ], [ true, %43 ]
+  %.1 = phi i1 [ false, %24 ], [ true, %43 ], [ false, %39 ], [ false, %33 ], [ false, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNK4llvm15SmallPtrSetImplIPKNS_8MCSymbolEE5countES3_.exit.thread18
 
 _ZNK4llvm15SmallPtrSetImplIPKNS_8MCSymbolEE5countES3_.exit.thread18: ; preds = %.lr.ph.i.i, %_ZNK4llvm15SmallPtrSetImplIPKNS_8MCSymbolEE5countES3_.exit.thread, %_ZNK4llvm15SmallPtrSetImplIPKNS_8MCSymbolEE5countES3_.exit, %44
-  %.0 = phi i1 [ %.1, %44 ], [ true, %_ZNK4llvm15SmallPtrSetImplIPKNS_8MCSymbolEE5countES3_.exit ], [ false, %_ZNK4llvm15SmallPtrSetImplIPKNS_8MCSymbolEE5countES3_.exit.thread ], [ true, %.lr.ph.i.i ]
+  %.0 = phi i1 [ true, %_ZNK4llvm15SmallPtrSetImplIPKNS_8MCSymbolEE5countES3_.exit ], [ %.1, %44 ], [ false, %_ZNK4llvm15SmallPtrSetImplIPKNS_8MCSymbolEE5countES3_.exit.thread ], [ true, %.lr.ph.i.i ]
   ret i1 %.0
 }
 
@@ -442,10 +442,10 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit: ; preds = %3, %._crit_edge.i
   br label %31
 
 31:                                               ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread
-  %.fca.0.extract14 = phi ptr [ %.sink18, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ], [ %.fca.0.extract, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ]
-  %.fca.1.insert.merged.i12 = phi i8 [ %.sink17, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ], [ %30, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ]
-  %32 = phi ptr [ %.ph, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ], [ %.pre5, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ]
-  %33 = phi i32 [ %23, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ], [ %spec.select, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ]
+  %.fca.0.extract14 = phi ptr [ %.fca.0.extract, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ], [ %.sink18, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ]
+  %.fca.1.insert.merged.i12 = phi i8 [ %30, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ], [ %.sink17, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ]
+  %32 = phi ptr [ %.pre5, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ], [ %.ph, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ]
+  %33 = phi i32 [ %spec.select, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ], [ %23, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ]
   %.v.i5.i = zext i32 %33 to i64
   %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %.v.i5.i
   %.not3.i4.i.i6.i = icmp eq ptr %.fca.0.extract14, %34
@@ -603,7 +603,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm11MCAssembler13evaluateFixupERKNS_
   br label %76
 
 thread-pre-split:                                 ; preds = %49, %63, %65, %55, %61
-  %.176.ph.shrunk.ph = phi i1 [ false, %49 ], [ false, %61 ], [ false, %55 ], [ true, %63 ], [ %71, %65 ]
+  %.176.ph.shrunk.ph = phi i1 [ false, %49 ], [ false, %55 ], [ false, %61 ], [ true, %63 ], [ %71, %65 ]
   %.pr.pr = load ptr, ptr %3, align 8, !tbaa !71
   br label %76
 
@@ -656,7 +656,7 @@ _ZNK4llvm8MCSymbol9isDefinedEv.exit.thread102.sink.split: ; preds = %_ZNK4llvm8M
   br label %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread102
 
 _ZNK4llvm8MCSymbol9isDefinedEv.exit.thread102:    ; preds = %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread102.sink.split, %83, %_ZNK4llvm8MCSymbol9isDefinedEv.exit, %76
-  %.176100.shrunk = phi i1 [ %.176.ph.shrunk, %_ZNK4llvm8MCSymbol9isDefinedEv.exit ], [ %.176.ph.shrunk, %76 ], [ %.176.ph.shrunk, %83 ], [ %.176100.shrunk.ph, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread102.sink.split ]
+  %.176100.shrunk = phi i1 [ %.176.ph.shrunk, %76 ], [ %.176.ph.shrunk, %_ZNK4llvm8MCSymbol9isDefinedEv.exit ], [ %.176.ph.shrunk, %83 ], [ %.176100.shrunk.ph, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread102.sink.split ]
   %95 = load ptr, ptr %20, align 8, !tbaa !103
   %.not89 = icmp eq ptr %95, null
   br i1 %.not89, label %_ZNK4llvm8MCSymbol9isDefinedEv.exit97.thread105, label %96
@@ -805,7 +805,7 @@ _ZNK4llvm11MCAssembler17getFragmentOffsetERKNS_10MCFragmentE.exit: ; preds = %13
   br label %168
 
 168:                                              ; preds = %162, %154, %157, %146, %41, %.critedge, %15
-  %.073 = phi i1 [ true, %15 ], [ true, %.critedge ], [ %46, %41 ], [ false, %157 ], [ false, %154 ], [ true, %146 ], [ %167, %162 ]
+  %.073 = phi i1 [ true, %15 ], [ true, %.critedge ], [ %46, %41 ], [ %167, %162 ], [ false, %157 ], [ true, %146 ], [ false, %154 ]
   ret i1 %.073
 }
 
@@ -838,7 +838,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm8MCSymbol11isUndefinedEb
   br label %_ZNK4llvm8MCSymbol11getFragmentEb.exit
 
 _ZNK4llvm8MCSymbol11getFragmentEb.exit:           ; preds = %2, %4, %8
-  %.0.i = phi i1 [ %15, %8 ], [ true, %4 ], [ false, %2 ]
+  %.0.i = phi i1 [ %15, %8 ], [ false, %2 ], [ true, %4 ]
   ret i1 %.0.i
 }
 
@@ -1382,7 +1382,7 @@ _ZNK4llvm11MCAssembler11ensureValidERNS_9MCSectionE.exit65: ; preds = %169, %155
   unreachable
 
 221:                                              ; preds = %2, %217, %214, %211, %208, %205, %204, %139, %58, %55, %52, %51, %27, %24
-  %.0 = phi i64 [ %26, %24 ], [ %29, %27 ], [ %.1, %51 ], [ %54, %52 ], [ %57, %55 ], [ %60, %58 ], [ %.3, %139 ], [ %.4, %204 ], [ %207, %205 ], [ %210, %208 ], [ %213, %211 ], [ %216, %214 ], [ %219, %217 ], [ 4, %2 ]
+  %.0 = phi i64 [ %26, %24 ], [ %29, %27 ], [ %.1, %51 ], [ %54, %52 ], [ %57, %55 ], [ %60, %58 ], [ %219, %217 ], [ %.3, %139 ], [ %.4, %204 ], [ %207, %205 ], [ %210, %208 ], [ %213, %211 ], [ %216, %214 ], [ 4, %2 ]
   ret i64 %.0
 }
 
@@ -1521,7 +1521,7 @@ define dso_local void @_ZNK4llvm11MCAssembler12layoutBundleEPNS_10MCFragmentES2_
   br i1 %or.cond, label %_ZL20computeBundlePaddingjPKN4llvm17MCEncodedFragmentEmm.exit, label %_ZL20computeBundlePaddingjPKN4llvm17MCEncodedFragmentEmm.exit.thread
 
 _ZL20computeBundlePaddingjPKN4llvm17MCEncodedFragmentEmm.exit: ; preds = %29, %23, %25
-  %.0.i = phi i64 [ %24, %23 ], [ %28, %25 ], [ %31, %29 ]
+  %.0.i = phi i64 [ %28, %25 ], [ %24, %23 ], [ %31, %29 ]
   %32 = icmp ugt i64 %.0.i, 255
   br i1 %32, label %33, label %_ZL20computeBundlePaddingjPKN4llvm17MCEncodedFragmentEmm.exit.thread
 
@@ -2932,7 +2932,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i:    ; preds = %251, %249
   br i1 %290, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !237
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i:  ; preds = %287, %285, %281, %277, %272
-  %.0.i.i136.i = phi i32 [ %278, %277 ], [ %282, %281 ], [ %286, %285 ], [ 1, %272 ], [ %289, %287 ]
+  %.0.i.i136.i = phi i32 [ %286, %285 ], [ %278, %277 ], [ %282, %281 ], [ 1, %272 ], [ %289, %287 ]
   %291 = zext i32 %.0.i.i136.i to i64
   store ptr %119, ptr %30, align 8, !tbaa !238, !alias.scope !234
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %30, i64 noundef %291, i8 noundef signext 45) #16
@@ -3100,7 +3100,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_.ex
   br i1 %363, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i143.i, label %.lr.ph.i.i140.i, !llvm.loop !237
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i143.i: ; preds = %360, %358, %354, %350, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_.exit.i
-  %.0.i.i144.i = phi i32 [ %351, %350 ], [ %355, %354 ], [ %359, %358 ], [ 1, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_.exit.i ], [ %362, %360 ]
+  %.0.i.i144.i = phi i32 [ %359, %358 ], [ %351, %350 ], [ %355, %354 ], [ 1, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_.exit.i ], [ %362, %360 ]
   %364 = zext i32 %.0.i.i144.i to i64
   store ptr %124, ptr %31, align 8, !tbaa !238, !alias.scope !250
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %31, i64 noundef %364, i8 noundef signext 45) #16
@@ -4489,7 +4489,7 @@ _ZN4llvm13encodeULEB128EmPhj.exit:                ; preds = %47
   br label %80
 
 80:                                               ; preds = %76, %.preheader
-  %81 = phi i1 [ %.not31.i, %76 ], [ false, %.preheader ]
+  %81 = phi i1 [ false, %.preheader ], [ %.not31.i, %76 ]
   %82 = add i32 %.026.i, 1
   %83 = icmp ult i32 %82, %.0
   %or.cond32.i = select i1 %81, i1 true, i1 %83
@@ -4974,7 +4974,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm11MCAssembler20relaxPseudoProbeAddr
   br label %31
 
 31:                                               ; preds = %27, %21
-  %32 = phi i1 [ %.not31.i, %27 ], [ false, %21 ]
+  %32 = phi i1 [ false, %21 ], [ %.not31.i, %27 ]
   %33 = add i32 %.026.i, 1
   %34 = icmp ult i32 %33, %18
   %or.cond32.i = select i1 %32, i1 true, i1 %34
@@ -5162,7 +5162,7 @@ _ZN4llvm11MCAssembler18relaxDwarfLineAddrERNS_23MCDwarfLineAddrFragmentE.exit: ;
   br label %58
 
 58:                                               ; preds = %2, %56, %48, %40, %38, %36, %34, %_ZN4llvm11MCAssembler18relaxDwarfLineAddrERNS_23MCDwarfLineAddrFragmentE.exit, %7
-  %.0 = phi i1 [ %8, %7 ], [ %.0.i, %_ZN4llvm11MCAssembler18relaxDwarfLineAddrERNS_23MCDwarfLineAddrFragmentE.exit ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %47, %40 ], [ %55, %48 ], [ %57, %56 ], [ false, %2 ]
+  %.0 = phi i1 [ %57, %56 ], [ %8, %7 ], [ %.0.i, %_ZN4llvm11MCAssembler18relaxDwarfLineAddrERNS_23MCDwarfLineAddrFragmentE.exit ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %47, %40 ], [ %55, %48 ], [ false, %2 ]
   ret i1 %.0
 }
 

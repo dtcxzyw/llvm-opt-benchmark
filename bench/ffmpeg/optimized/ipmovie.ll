@@ -263,7 +263,7 @@ define internal range(i32 -2147483648, 1) i32 @ipmovie_read_header(ptr noundef %
   br label %init_audio.exit
 
 init_audio.exit:                                  ; preds = %13, %94, %60, %39, %35, %26, %24, %1, %96
-  %.0 = phi i32 [ 0, %96 ], [ %8, %1 ], [ -1094995529, %24 ], [ -5, %26 ], [ -1094995529, %35 ], [ -12, %39 ], [ 0, %94 ], [ -12, %60 ], [ -541478725, %13 ]
+  %.0 = phi i32 [ -5, %26 ], [ %8, %1 ], [ -12, %60 ], [ -1094995529, %24 ], [ -12, %39 ], [ 0, %96 ], [ -1094995529, %35 ], [ 0, %94 ], [ -541478725, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
@@ -310,7 +310,7 @@ switch.lookup:                                    ; preds = %12
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %14, %switch.lookup
-  %.1 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %16 ], [ -541478725, %14 ]
+  %.1 = phi i32 [ %switch.load, %switch.lookup ], [ -541478725, %14 ], [ 0, %16 ]
   ret i32 %.1
 }
 
@@ -793,7 +793,7 @@ switch.lookup:                                    ; preds = %12
   br i1 %.not273, label %.loopexit, label %48, !llvm.loop !86
 
 .loopexit:                                        ; preds = %181, %128, %95, %80, %243, %48, %50, %199, %179, %126, %93, %78, %241, %.thread, %switch.lookup, %59
-  %.2.shrunk = phi i16 [ -1, %59 ], [ %16, %switch.lookup ], [ -1, %.thread ], [ -1, %241 ], [ -1, %78 ], [ -1, %93 ], [ -1, %126 ], [ -1, %179 ], [ -1, %199 ], [ -1, %181 ], [ -1, %128 ], [ -1, %95 ], [ -1, %80 ], [ %16, %243 ], [ -2, %48 ], [ -1, %50 ]
+  %.2.shrunk = phi i16 [ -1, %59 ], [ %16, %switch.lookup ], [ -1, %.thread ], [ -1, %179 ], [ -1, %126 ], [ -1, %199 ], [ -1, %241 ], [ -1, %78 ], [ -1, %93 ], [ -1, %181 ], [ -1, %128 ], [ -1, %95 ], [ -1, %80 ], [ -2, %48 ], [ %16, %243 ], [ -1, %50 ]
   %.2 = zext i16 %.2.shrunk to i32
   %244 = load ptr, ptr %0, align 8, !tbaa !31
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 44
@@ -1144,7 +1144,7 @@ define internal fastcc range(i32 65531, 65536) i32 @load_ipmovie_packet(ptr noun
   br label %157
 
 157:                                              ; preds = %49, %153, %141, %126, %112, %81, %54, %22, %15
-  %.0 = phi i32 [ 65535, %15 ], [ 65534, %22 ], [ 65533, %54 ], [ 65534, %81 ], [ 65534, %112 ], [ 65534, %126 ], [ 65531, %49 ], [ 65531, %141 ], [ 65532, %153 ]
+  %.0 = phi i32 [ 65535, %15 ], [ 65534, %112 ], [ 65534, %126 ], [ 65534, %22 ], [ 65533, %54 ], [ 65534, %81 ], [ 65531, %49 ], [ 65531, %141 ], [ 65532, %153 ]
   ret i32 %.0
 }
 

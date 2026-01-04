@@ -1803,7 +1803,7 @@ proto_item_set_generated.exit203:                 ; preds = %141, %138, %135, %p
   br label %236
 
 236:                                              ; preds = %234, %218
-  %.0170 = phi i32 [ %235, %234 ], [ %224, %218 ]
+  %.0170 = phi i32 [ %224, %218 ], [ %235, %234 ]
   %237 = icmp sgt i32 %.0170, 0
   br i1 %237, label %238, label %243
 
@@ -3613,12 +3613,12 @@ define hidden i32 @dissect_deferred_pointers(ptr noundef %0, ptr noundef %1, i32
   br i1 %66, label %22, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %60, %64, %20
-  %.194.lcssa = phi ptr [ %.093, %20 ], [ %.194166, %64 ], [ %62, %60 ]
-  %.2107.lcssa = phi i32 [ %.0105, %20 ], [ %.3108, %64 ], [ 0, %60 ]
-  %.2100.lcssa = phi i32 [ %.098, %20 ], [ %.5103.ph, %64 ], [ %61, %60 ]
-  %.090.lcssa = phi i32 [ %.0105, %20 ], [ %65, %64 ], [ 0, %60 ]
-  %.186.lcssa = phi i32 [ 0, %20 ], [ %.287, %64 ], [ 1, %60 ]
-  %.2.lcssa = phi i32 [ %.084, %20 ], [ %.3, %64 ], [ %38, %60 ]
+  %.194.lcssa = phi ptr [ %.194166, %64 ], [ %.093, %20 ], [ %62, %60 ]
+  %.2107.lcssa = phi i32 [ %.3108, %64 ], [ %.0105, %20 ], [ 0, %60 ]
+  %.2100.lcssa = phi i32 [ %.5103.ph, %64 ], [ %.098, %20 ], [ %61, %60 ]
+  %.090.lcssa = phi i32 [ %65, %64 ], [ %.0105, %20 ], [ 0, %60 ]
+  %.186.lcssa = phi i32 [ %.287, %64 ], [ 0, %20 ], [ 1, %60 ]
+  %.2.lcssa = phi i32 [ %.3, %64 ], [ %.084, %20 ], [ %38, %60 ]
   %67 = add i32 %.2100.lcssa, -1
   %.not = icmp slt i32 %.090.lcssa, %67
   br i1 %.not, label %81, label %68
@@ -5186,8 +5186,8 @@ uuid_equal.exit:                                  ; preds = %69
   tail call void @add_srt_table_data(ptr noundef %8, i32 noundef %19, ptr noundef nonnull %84, ptr noundef %1)
   br label %uuid_equal.exit.thread
 
-uuid_equal.exit.thread:                           ; preds = %25, %29, %34, %39, %44, %49, %54, %59, %64, %69, %uuid_equal.exit, %78, %22, %16, %13, %5, %83
-  %.0 = phi i32 [ 1, %83 ], [ 0, %5 ], [ 0, %13 ], [ 0, %16 ], [ 0, %22 ], [ 0, %78 ], [ 0, %uuid_equal.exit ], [ 0, %69 ], [ 0, %64 ], [ 0, %59 ], [ 0, %54 ], [ 0, %49 ], [ 0, %44 ], [ 0, %39 ], [ 0, %34 ], [ 0, %29 ], [ 0, %25 ]
+uuid_equal.exit.thread:                           ; preds = %29, %34, %39, %44, %49, %54, %59, %64, %69, %25, %uuid_equal.exit, %78, %22, %16, %13, %5, %83
+  %.0 = phi i32 [ 0, %13 ], [ 0, %16 ], [ 0, %22 ], [ 1, %83 ], [ 0, %5 ], [ 0, %78 ], [ 0, %uuid_equal.exit ], [ 0, %25 ], [ 0, %69 ], [ 0, %64 ], [ 0, %59 ], [ 0, %54 ], [ 0, %49 ], [ 0, %44 ], [ 0, %39 ], [ 0, %34 ], [ 0, %29 ]
   ret i32 %.0
 }
 
@@ -6144,7 +6144,7 @@ dcerpc_tvb_get_ntohs.exit264:                     ; preds = %106, %108
   br label %262
 
 262:                                              ; preds = %258, %259, %260, %261, %248, %246, %251, %249, %254, %252, %257, %255, %243, %21, %16, %12, %10, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %10 ], [ false, %12 ], [ false, %16 ], [ false, %21 ], [ true, %243 ], [ true, %255 ], [ true, %257 ], [ true, %252 ], [ true, %254 ], [ true, %249 ], [ true, %251 ], [ true, %246 ], [ true, %248 ], [ true, %261 ], [ true, %260 ], [ true, %259 ], [ true, %258 ]
+  %.0 = phi i1 [ true, %258 ], [ false, %4 ], [ false, %10 ], [ false, %12 ], [ false, %16 ], [ false, %21 ], [ true, %243 ], [ true, %255 ], [ true, %257 ], [ true, %252 ], [ true, %254 ], [ true, %249 ], [ true, %251 ], [ true, %246 ], [ true, %248 ], [ true, %261 ], [ true, %260 ], [ true, %259 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
@@ -6301,7 +6301,7 @@ define internal fastcc void @show_stub_data(ptr noundef readonly captures(none) 
   br label %33
 
 26:                                               ; preds = %20, %14
-  %hf_dcerpc_decrypted_stub_data.sink = phi ptr [ %hf_dcerpc_stub_data.mux, %20 ], [ @hf_dcerpc_stub_data, %14 ]
+  %hf_dcerpc_decrypted_stub_data.sink = phi ptr [ @hf_dcerpc_stub_data, %14 ], [ %hf_dcerpc_stub_data.mux, %20 ]
   %27 = load i32, ptr %hf_dcerpc_decrypted_stub_data.sink, align 4
   %28 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %27, ptr noundef %1, i32 noundef %2, i32 noundef %spec.select44, i32 noundef 0)
   %29 = tail call fastcc i32 @dissect_verification_trailer(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef null)
@@ -7163,7 +7163,7 @@ define internal range(i32 0, 2) i32 @dcerpc_fragment_equal(ptr noundef readonly 
   br label %addresses_equal.exit
 
 addresses_equal.exit:                             ; preds = %41, %33, %27, %20, %12, %8, %48, %2
-  %53 = phi i32 [ 0, %2 ], [ %52, %48 ], [ 0, %8 ], [ 0, %12 ], [ 0, %20 ], [ 0, %27 ], [ 0, %33 ], [ 0, %41 ]
+  %53 = phi i32 [ 0, %20 ], [ %52, %48 ], [ 0, %2 ], [ 0, %8 ], [ 0, %12 ], [ 0, %27 ], [ 0, %33 ], [ 0, %41 ]
   ret i32 %53
 }
 
@@ -8106,9 +8106,9 @@ dissect_dcerpc_uint16.exit233.i:                  ; preds = %366, %363
   br label %dissect_dcerpc_uint16.exit229.i
 
 dissect_dcerpc_uint16.exit229.i:                  ; preds = %381, %380, %357, %356
-  %.sink287.i = phi i32 [ %348, %356 ], [ %348, %357 ], [ %372, %380 ], [ %372, %381 ]
-  %.0256.i = phi i16 [ %341, %356 ], [ %341, %357 ], [ %.in.i235.i, %380 ], [ %.in.i235.i, %381 ]
-  %.0255.i = phi i16 [ %.in.i227.i, %356 ], [ %.in.i227.i, %357 ], [ %365, %380 ], [ %365, %381 ]
+  %.sink287.i = phi i32 [ %348, %357 ], [ %348, %356 ], [ %372, %380 ], [ %372, %381 ]
+  %.0256.i = phi i16 [ %341, %357 ], [ %341, %356 ], [ %.in.i235.i, %380 ], [ %.in.i235.i, %381 ]
+  %.0255.i = phi i16 [ %.in.i227.i, %357 ], [ %.in.i227.i, %356 ], [ %365, %380 ], [ %365, %381 ]
   call void @tvb_ensure_bytes_exist(ptr noundef %194, i32 noundef %.sink287.i, i32 noundef 2)
   %.1.i = add i32 %.0261.i, 24
   br i1 %.not198.i, label %390, label %387
@@ -8685,7 +8685,7 @@ dcerpc_tvb_get_uuid.exit.i220:                    ; preds = %637, %636
   br label %dissect_dcerpc_uint32.exit120.i
 
 dissect_dcerpc_uint32.exit120.i:                  ; preds = %655, %654, %627, %626
-  %.sink.i = phi i32 [ %618, %626 ], [ %618, %627 ], [ %646, %654 ], [ %646, %655 ]
+  %.sink.i = phi i32 [ %618, %627 ], [ %618, %626 ], [ %646, %654 ], [ %646, %655 ]
   call void @tvb_ensure_bytes_exist(ptr noundef %194, i32 noundef %.sink.i, i32 noundef 4)
   %phi.call.i = add i32 %.2132.i, 24
   %.not98.i = icmp eq i32 %.084133.i, 0
@@ -11374,7 +11374,7 @@ switch.lookup:                                    ; preds = %1729
   br label %.thread.i306
 
 .thread.i306:                                     ; preds = %1729, %switch.lookup, %.fold.split241.i, %1981, %1978, %1977, %1973, %1969, %1965, %1961, %1958, %1954, %1950, %1947, %1944, %1940, %1937, %1936, %1932, %1928, %1924, %1920, %1916, %1912, %1909, %1908, %1904, %1900, %1896, %1892, %1888, %1884, %1881, %1880, %1876, %1872, %1868, %1864, %1860, %1857, %1856, %1852, %1848, %1844, %1840, %1837, %1833, %1829, %1825, %1822, %1819, %1818, %1814, %1811, %1810, %1809, %1807, %1806, %1804, %1803, %1802, %1798, %1794, %1790, %1786, %1782, %1779, %1775, %1771, %1767, %.thread309.i, %1763, %1753, %1749, %1745, %1742, %1738, %1734, %1732, %1728, %._crit_edge.i305
-  %.0233.i = phi ptr [ @.str.689, %._crit_edge.i305 ], [ @.str.689, %1728 ], [ @.str.689, %1745 ], [ @.str.689, %1742 ], [ @.str.689, %1771 ], [ @.str.689, %1767 ], [ @.str.689, %1794 ], [ @.str.689, %1790 ], [ @.str.689, %1786 ], [ @.str.689, %1782 ], [ @.str.689, %1779 ], [ @.str.689, %1802 ], [ @.str.269, %1803 ], [ @.str.689, %1806 ], [ @.str.605, %1809 ], [ @.str.595, %1810 ], [ @.str.689, %1811 ], [ @.str.689, %1818 ], [ @.str.689, %1829 ], [ @.str.689, %1825 ], [ @.str.689, %1822 ], [ @.str.689, %1848 ], [ @.str.689, %1844 ], [ @.str.689, %1840 ], [ @.str.689, %1837 ], [ @.str.689, %1872 ], [ @.str.689, %1868 ], [ @.str.689, %1864 ], [ @.str.689, %1860 ], [ @.str.689, %1857 ], [ @.str.689, %1856 ], [ @.str.689, %1900 ], [ @.str.689, %1896 ], [ @.str.689, %1892 ], [ @.str.689, %1888 ], [ @.str.689, %1884 ], [ @.str.689, %1881 ], [ @.str.689, %1880 ], [ @.str.689, %1928 ], [ @.str.689, %1924 ], [ @.str.689, %1920 ], [ @.str.689, %1916 ], [ @.str.689, %1912 ], [ @.str.689, %1909 ], [ @.str.689, %1908 ], [ @.str.689, %1936 ], [ @.str.689, %1937 ], [ @.str.689, %1969 ], [ @.str.689, %1965 ], [ @.str.689, %1961 ], [ @.str.689, %1958 ], [ @.str.689, %1977 ], [ %spec.select.i308, %1738 ], [ %spec.select238.i, %1749 ], [ @.str.699, %1763 ], [ %spec.select239.i, %1775 ], [ %spec.select240.i, %1798 ], [ @.str.703, %1807 ], [ @.str.689, %.fold.split241.i ], [ %spec.select242.i, %1814 ], [ %spec.select243.i, %1819 ], [ %spec.select244.i, %1833 ], [ %spec.select245.i, %1852 ], [ %spec.select246.i, %1876 ], [ %spec.select247.i, %1904 ], [ %spec.select248.i, %1932 ], [ %spec.select249.i, %1940 ], [ %spec.select250.i, %1954 ], [ %spec.select251.i, %1973 ], [ %spec.select252.i, %1978 ], [ %spec.select253.i, %1981 ], [ %spec.select254.i, %1804 ], [ @.str.689, %.thread309.i ], [ @.str.689, %1944 ], [ %spec.select312.i, %1734 ], [ @.str.689, %1732 ], [ @.str.689, %1753 ], [ %spec.select334.i, %1950 ], [ @.str.689, %1947 ], [ %switch.load, %switch.lookup ], [ @.str.689, %1729 ]
+  %.0233.i = phi ptr [ @.str.689, %._crit_edge.i305 ], [ @.str.689, %1728 ], [ %spec.select249.i, %1940 ], [ @.str.689, %1944 ], [ @.str.689, %.thread309.i ], [ %spec.select248.i, %1932 ], [ @.str.689, %1936 ], [ @.str.689, %1908 ], [ %switch.load, %switch.lookup ], [ @.str.689, %1909 ], [ %spec.select312.i, %1734 ], [ %spec.select253.i, %1981 ], [ @.str.689, %1732 ], [ %spec.select.i308, %1738 ], [ %spec.select334.i, %1950 ], [ @.str.689, %1745 ], [ @.str.689, %1742 ], [ %spec.select238.i, %1749 ], [ @.str.699, %1763 ], [ @.str.689, %1977 ], [ @.str.689, %1771 ], [ @.str.689, %1767 ], [ @.str.689, %1753 ], [ %spec.select239.i, %1775 ], [ %spec.select252.i, %1978 ], [ @.str.689, %1794 ], [ @.str.689, %1790 ], [ @.str.689, %1786 ], [ @.str.689, %1782 ], [ @.str.689, %1779 ], [ @.str.689, %1802 ], [ @.str.269, %1803 ], [ %spec.select250.i, %1954 ], [ @.str.689, %1937 ], [ @.str.689, %1806 ], [ %spec.select240.i, %1798 ], [ @.str.605, %1809 ], [ @.str.595, %1810 ], [ @.str.703, %1807 ], [ @.str.689, %.fold.split241.i ], [ %spec.select254.i, %1804 ], [ @.str.689, %1811 ], [ @.str.689, %1818 ], [ %spec.select242.i, %1814 ], [ @.str.689, %1958 ], [ %spec.select243.i, %1819 ], [ @.str.689, %1961 ], [ @.str.689, %1829 ], [ @.str.689, %1825 ], [ @.str.689, %1822 ], [ %spec.select244.i, %1833 ], [ @.str.689, %1965 ], [ @.str.689, %1848 ], [ @.str.689, %1844 ], [ @.str.689, %1840 ], [ @.str.689, %1837 ], [ %spec.select245.i, %1852 ], [ @.str.689, %1969 ], [ @.str.689, %1872 ], [ @.str.689, %1868 ], [ @.str.689, %1864 ], [ @.str.689, %1860 ], [ @.str.689, %1857 ], [ @.str.689, %1856 ], [ %spec.select246.i, %1876 ], [ %spec.select251.i, %1973 ], [ @.str.689, %1900 ], [ @.str.689, %1896 ], [ @.str.689, %1892 ], [ @.str.689, %1888 ], [ @.str.689, %1884 ], [ @.str.689, %1881 ], [ @.str.689, %1880 ], [ %spec.select247.i, %1904 ], [ @.str.689, %1947 ], [ @.str.689, %1928 ], [ @.str.689, %1924 ], [ @.str.689, %1920 ], [ @.str.689, %1916 ], [ @.str.689, %1912 ], [ @.str.689, %1729 ]
   %1983 = load ptr, ptr %103, align 8
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %1983, i32 noundef 25, ptr noundef nonnull @.str.717, ptr noundef nonnull %.0233.i)
   %1984 = load ptr, ptr %103, align 8
@@ -12164,7 +12164,7 @@ define internal fastcc void @dissect_auth_verf(ptr noundef %0, ptr noundef %1, p
   br label %57
 
 36:                                               ; preds = %15, %15, %26, %24, %22, %20
-  %.0.in = phi ptr [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %13, %15 ], [ %13, %15 ]
+  %.0.in = phi ptr [ %27, %26 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %13, %15 ], [ %13, %15 ]
   %.0 = load ptr, ptr %.0.in, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %44, label %37
@@ -12288,8 +12288,8 @@ decode_encrypted_data.exit:                       ; preds = %40
   tail call void @add_new_data_source(ptr noundef %2, ptr noundef nonnull %44, ptr noundef nonnull @.str.342)
   br label %decode_encrypted_data.exit.thread
 
-decode_encrypted_data.exit.thread:                ; preds = %36, %40, %20, %28, %decode_encrypted_data.exit, %45, %32
-  %.1 = phi ptr [ null, %32 ], [ %44, %45 ], [ null, %decode_encrypted_data.exit ], [ %23, %28 ], [ %23, %20 ], [ null, %40 ], [ null, %36 ]
+decode_encrypted_data.exit.thread:                ; preds = %40, %36, %20, %28, %decode_encrypted_data.exit, %45, %32
+  %.1 = phi ptr [ null, %decode_encrypted_data.exit ], [ null, %32 ], [ %44, %45 ], [ %23, %28 ], [ %23, %20 ], [ null, %36 ], [ null, %40 ]
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 3
   %49 = load i8, ptr %48, align 1
   %50 = and i8 %49, 3
@@ -13951,7 +13951,7 @@ define internal fastcc zeroext i1 @dissect_dcerpc_cn_bs_body(ptr noundef %0, ptr
   %.not = icmp eq i32 %108, 0
   br i1 %.not, label %.critedge.thread, label %21, !llvm.loop !30
 
-.critedge.thread:                                 ; preds = %106, %76, %74, %71, %78, %87, %3, %98
+.critedge.thread:                                 ; preds = %106, %76, %71, %74, %78, %87, %3, %98
   %.0..0..0..0.21 = load volatile i8, ptr %7, align 1, !range !11, !noundef !12
   %109 = trunc nuw i8 %.0..0..0..0.21 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

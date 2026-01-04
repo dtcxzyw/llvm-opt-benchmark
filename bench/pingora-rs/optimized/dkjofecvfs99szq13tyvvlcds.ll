@@ -125,7 +125,7 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17h86308c
   br i1 %.not24, label %.thread, label %32
 
 .thread:                                          ; preds = %32, %34, %28, %27
-  %.sroa.01.0 = phi ptr [ %7, %28 ], [ %7, %27 ], [ %36, %34 ], [ inttoptr (i64 8 to ptr), %32 ]
+  %.sroa.01.0 = phi ptr [ %7, %27 ], [ %7, %28 ], [ %36, %34 ], [ inttoptr (i64 8 to ptr), %32 ]
   store i64 %11, ptr %0, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.01.0, ptr %30, align 8

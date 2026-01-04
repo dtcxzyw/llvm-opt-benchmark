@@ -542,7 +542,7 @@ define internal fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Err
   br label %"_ZN4core3ptr140drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$diesel..result..DatabaseErrorInformation$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hd56e9e21725029fcE.exit"
 
 common.resume:                                    ; preds = %.body, %82, %90, %61, %69, %40, %48, %19, %27, %107
-  %common.resume.op = phi { ptr, i32 } [ %108, %107 ], [ %20, %27 ], [ %20, %19 ], [ %41, %48 ], [ %41, %40 ], [ %62, %69 ], [ %62, %61 ], [ %83, %90 ], [ %83, %82 ], [ %102, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %83, %82 ], [ %20, %19 ], [ %41, %40 ], [ %62, %61 ], [ %108, %107 ], [ %20, %27 ], [ %41, %48 ], [ %62, %69 ], [ %83, %90 ], [ %102, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 36:                                               ; preds = %1
@@ -1223,7 +1223,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i:  ; preds = %42
   unreachable
 
 common.resume:                                    ; preds = %240, %135, %.thread91.i, %52
-  %common.resume.op = phi { ptr, i32 } [ %53, %52 ], [ %136, %135 ], [ %.pn68.i, %.thread91.i ], [ %241, %240 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn68.i, %.thread91.i ], [ %53, %52 ], [ %136, %135 ], [ %241, %240 ]
   resume { ptr, i32 } %common.resume.op
 
 106:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit.i.i", %83
@@ -1657,11 +1657,11 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i26: ; preds = %129
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h4b5b8182eb47705bE"(ptr noalias noundef align 8 dereferenceable(32) %11) #19
           to label %.thread91.i unwind label %226, !noalias !268
 
-"_ZN155_$LT$diesel..connection..transaction_manager..AnsiTransactionManager$u20$as$u20$diesel..connection..transaction_manager..TransactionManager$LT$Conn$GT$$GT$18commit_transaction17h65c87298ee6e88efE.exit.thread": ; preds = %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit78.i", %128, %125
-  %.sroa.17.3.ph = phi i64 [ undef, %125 ], [ %.sroa.336.i.sroa.4.0.copyload, %128 ], [ %.sroa.17.1, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit78.i" ]
-  %.sroa.14.3.ph = phi ptr [ undef, %125 ], [ %.sroa.336.i.sroa.0.0.copyload, %128 ], [ %.sroa.14.1, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit78.i" ]
-  %.sroa.10.3.ph = phi ptr [ undef, %125 ], [ %124, %128 ], [ %.sroa.10.1, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit78.i" ]
-  %.sroa.037.3.ph = phi i64 [ -9223372036854775800, %125 ], [ %121, %128 ], [ %.sroa.037.1, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit78.i" ]
+"_ZN155_$LT$diesel..connection..transaction_manager..AnsiTransactionManager$u20$as$u20$diesel..connection..transaction_manager..TransactionManager$LT$Conn$GT$$GT$18commit_transaction17h65c87298ee6e88efE.exit.thread": ; preds = %128, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit78.i", %125
+  %.sroa.17.3.ph = phi i64 [ undef, %125 ], [ %.sroa.17.1, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit78.i" ], [ %.sroa.336.i.sroa.4.0.copyload, %128 ]
+  %.sroa.14.3.ph = phi ptr [ undef, %125 ], [ %.sroa.14.1, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit78.i" ], [ %.sroa.336.i.sroa.0.0.copyload, %128 ]
+  %.sroa.10.3.ph = phi ptr [ undef, %125 ], [ %.sroa.10.1, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit78.i" ], [ %124, %128 ]
+  %.sroa.037.3.ph = phi i64 [ -9223372036854775800, %125 ], [ %.sroa.037.1, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit78.i" ], [ %121, %128 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %233

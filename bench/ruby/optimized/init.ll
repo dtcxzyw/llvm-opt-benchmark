@@ -770,7 +770,7 @@ rsock_is_dgram.exit:                              ; preds = %60
   br label %97
 
 97:                                               ; preds = %82, %rsock_is_dgram.exit, %95, %75
-  %.0 = phi i64 [ %76, %75 ], [ %96, %95 ], [ 4, %rsock_is_dgram.exit ], [ %.0.i48, %82 ]
+  %.0 = phi i64 [ %76, %75 ], [ 4, %rsock_is_dgram.exit ], [ %96, %95 ], [ %.0.i48, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i64 %.0
@@ -1091,7 +1091,7 @@ rsock_socket0.exit11.thread14:                    ; preds = %rsock_socket0.exit,
   br label %rsock_socket0.exit11.thread
 
 rsock_socket0.exit11.thread:                      ; preds = %11, %rsock_socket0.exit.thread, %rsock_socket0.exit11.thread14, %rsock_socket0.exit11
-  %.013 = phi i32 [ %.016, %rsock_socket0.exit11.thread14 ], [ %12, %rsock_socket0.exit11 ], [ -1, %11 ], [ %5, %rsock_socket0.exit.thread ]
+  %.013 = phi i32 [ %12, %rsock_socket0.exit11 ], [ %.016, %rsock_socket0.exit11.thread14 ], [ -1, %11 ], [ %5, %rsock_socket0.exit.thread ]
   ret i32 %.013
 }
 
@@ -1202,13 +1202,13 @@ switch.lookup:                                    ; preds = %26
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %switch.lookup, %44
-  %.sink.i = phi i32 [ %45, %44 ], [ %switch.load, %switch.lookup ]
+  %.sink.i = phi i32 [ %switch.load, %switch.lookup ], [ %45, %44 ]
   %47 = call ptr @rb_errno_ptr() #10
   store i32 %.sink.i, ptr %47, align 4, !tbaa !6
   br label %wait_connectable.exit
 
 wait_connectable.exit:                            ; preds = %22, %rb_num2int_inline.exit.i, %41, %44, %44, %44, %44, %44, %44, %44, %.sink.split.i
-  %.0.i = phi i32 [ -1, %22 ], [ -1, %rb_num2int_inline.exit.i ], [ -1, %41 ], [ 0, %44 ], [ 0, %44 ], [ 0, %44 ], [ 0, %44 ], [ 0, %44 ], [ 0, %44 ], [ 0, %44 ], [ -1, %.sink.split.i ]
+  %.0.i = phi i32 [ 0, %44 ], [ -1, %22 ], [ -1, %41 ], [ -1, %rb_num2int_inline.exit.i ], [ 0, %44 ], [ 0, %44 ], [ 0, %44 ], [ 0, %44 ], [ 0, %44 ], [ 0, %44 ], [ -1, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %48
@@ -1293,7 +1293,7 @@ define i64 @rsock_s_accept_nonblock(i64 noundef %0, i64 noundef %1, ptr noundef 
   br label %cloexec_accept.exit
 
 cloexec_accept.exit:                              ; preds = %.thread.i, %13, %16
-  %17 = phi i32 [ %8, %.thread.i ], [ %11, %13 ], [ %11, %16 ]
+  %17 = phi i32 [ %8, %.thread.i ], [ %11, %16 ], [ %11, %13 ]
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %cloexec_accept.exit.thread, label %27
 
@@ -1547,7 +1547,7 @@ define range(i32 0, 65536) i32 @rsock_getfamily(ptr noundef captures(none) %0) l
   br label %22
 
 22:                                               ; preds = %9, %1, %20, %8, %7
-  %.0 = phi i32 [ %21, %20 ], [ 2, %7 ], [ 10, %8 ], [ 1, %1 ], [ 0, %9 ]
+  %.0 = phi i32 [ 1, %1 ], [ %21, %20 ], [ 10, %8 ], [ 2, %7 ], [ 0, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0

@@ -236,7 +236,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL24perf_context_switch_ra
   br label %41
 
 41:                                               ; preds = %40, %31, %26
-  %42 = phi double [ %38, %40 ], [ %38, %31 ], [ %27, %26 ]
+  %42 = phi double [ %27, %26 ], [ %38, %40 ], [ %38, %31 ]
   %43 = fcmp ugt double %42, 0.000000e+00
   br i1 %43, label %44, label %.thread
 
@@ -329,7 +329,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN23CPUPerformanceInterface14CPUPer
 select.unfold:                                    ; preds = %14
   br label %32
 
-32:                                               ; preds = %14, %11, %select.unfold
+32:                                               ; preds = %11, %14, %select.unfold
   %.07.ph = phi double [ %26, %select.unfold ], [ %26, %14 ], [ 0.000000e+00, %11 ]
   %.0.i.ph = phi double [ %30, %select.unfold ], [ 1.000000e+00, %14 ], [ 0.000000e+00, %11 ]
   %33 = fadd double %.07.ph, %.0.i.ph
@@ -403,7 +403,7 @@ _ZL14get_systemtypev.exit.i:                      ; preds = %22, %14
   %26 = call noundef zeroext i1 @_ZN2os5Linux20get_tick_informationEPNS0_12CPUPerfTicksEi(ptr noundef nonnull %15, i32 noundef -1) #18
   br i1 %26, label %_ZL13get_jvm_ticksPN2os5Linux12CPUPerfTicksE.exit, label %_ZL13get_jvm_ticksPN2os5Linux12CPUPerfTicksE.exit.thread
 
-_ZL13get_jvm_ticksPN2os5Linux12CPUPerfTicksE.exit.thread: ; preds = %_ZL14get_systemtypev.exit.i, %23, %25
+_ZL13get_jvm_ticksPN2os5Linux12CPUPerfTicksE.exit.thread: ; preds = %23, %_ZL14get_systemtypev.exit.i, %25
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %55
@@ -465,7 +465,7 @@ _ZL13get_jvm_ticksPN2os5Linux12CPUPerfTicksE.exit: ; preds = %25
   br label %55
 
 55:                                               ; preds = %_ZL13get_jvm_ticksPN2os5Linux12CPUPerfTicksE.exit.thread, %33, %29, %36
-  %.0 = phi double [ %54, %36 ], [ -1.000000e+00, %29 ], [ 0.000000e+00, %33 ], [ -1.000000e+00, %_ZL13get_jvm_ticksPN2os5Linux12CPUPerfTicksE.exit.thread ]
+  %.0 = phi double [ -1.000000e+00, %_ZL13get_jvm_ticksPN2os5Linux12CPUPerfTicksE.exit.thread ], [ -1.000000e+00, %29 ], [ %54, %36 ], [ 0.000000e+00, %33 ]
   ret double %.0
 }
 
@@ -772,7 +772,7 @@ define hidden noundef zeroext i1 @_ZNK22SystemProcessInterface15SystemProcesses1
   br label %21
 
 21:                                               ; preds = %17, %2, %8
-  %.0 = phi i1 [ false, %8 ], [ false, %2 ], [ %20, %17 ]
+  %.0 = phi i1 [ false, %2 ], [ %20, %17 ], [ false, %8 ]
   ret i1 %.0
 }
 
@@ -1750,7 +1750,7 @@ _ZL13open_statfilev.exit:                         ; preds = %1
   br label %15
 
 15:                                               ; preds = %_ZL13open_statfilev.exit, %_ZL13open_statfilev.exit.thread, %13, %11
-  %.0 = phi i32 [ 0, %11 ], [ -1, %13 ], [ -1, %_ZL13open_statfilev.exit.thread ], [ -1, %_ZL13open_statfilev.exit ]
+  %.0 = phi i32 [ -1, %13 ], [ 0, %11 ], [ -1, %_ZL13open_statfilev.exit.thread ], [ -1, %_ZL13open_statfilev.exit ]
   call void @llvm.va_end.p0(ptr nonnull %2)
   ret i32 %.0
 }

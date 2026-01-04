@@ -1222,7 +1222,7 @@ define zeroext i1 @epan_dissect_packet_contains_field(ptr noundef readonly captu
   br label %16
 
 16:                                               ; preds = %6, %2, %3, %9
-  %.0 = phi i1 [ %14, %9 ], [ false, %3 ], [ false, %2 ], [ false, %6 ]
+  %.0 = phi i1 [ false, %2 ], [ %14, %9 ], [ false, %3 ], [ false, %6 ]
   ret i1 %.0
 }
 

@@ -532,7 +532,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit116: ; preds = %137,
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit111
 
 141:                                              ; preds = %.loopexit, %.loopexit.split-lp, %139, %131
-  %.pn38 = phi { ptr, i32 } [ %140, %139 ], [ %132, %131 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn38 = phi { ptr, i32 } [ %132, %131 ], [ %140, %139 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %16) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %142
@@ -1030,7 +1030,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69: ; preds = %152
   br label %156
 
 156:                                              ; preds = %99, %144, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69, %63
-  %.pn54.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn47.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69 ], [ %64, %63 ], [ %.pn54.pn.pn.pn, %144 ], [ %100, %99 ]
+  %.pn54.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %64, %63 ], [ %.pn47.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69 ], [ %.pn54.pn.pn.pn, %144 ], [ %100, %99 ]
   %157 = load ptr, ptr %8, align 8, !tbaa !35
   %.not.i.i.i70 = icmp eq ptr %157, null
   br i1 %.not.i.i.i70, label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit71, label %158

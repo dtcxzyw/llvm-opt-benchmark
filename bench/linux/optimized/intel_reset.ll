@@ -301,7 +301,7 @@ define dso_local i32 @__intel_gt_reset(ptr noundef %0, i32 noundef %1) local_unn
   br i1 %22, label %select.unfold, label %133
 
 select.unfold:                                    ; preds = %21, %2, %8, %10, %12, %18
-  %.ph = phi ptr [ @g33_do_reset, %18 ], [ @g4x_do_reset, %12 ], [ @ilk_do_reset, %10 ], [ @gen6_reset_engines, %8 ], [ @gen8_reset_engines, %2 ], [ @i915_do_reset, %21 ]
+  %.ph = phi ptr [ @gen8_reset_engines, %2 ], [ @g33_do_reset, %18 ], [ @g4x_do_reset, %12 ], [ @ilk_do_reset, %10 ], [ @gen6_reset_engines, %8 ], [ @i915_do_reset, %21 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8
   tail call void @intel_uncore_forcewake_get(ptr noundef %24, i32 noundef 65535) #10
@@ -1538,7 +1538,7 @@ define dso_local i32 @__intel_engine_reset_bh(ptr noundef %0, ptr noundef %1) lo
   br label %.thread9
 
 .thread9:                                         ; preds = %18, %.lr.ph13, %8, %._crit_edge, %2
-  %84 = phi i32 [ -19, %2 ], [ %62, %._crit_edge ], [ 0, %8 ], [ %62, %.lr.ph13 ], [ 0, %18 ]
+  %84 = phi i32 [ -19, %2 ], [ 0, %8 ], [ %62, %._crit_edge ], [ %62, %.lr.ph13 ], [ 0, %18 ]
   ret i32 %84
 }
 
@@ -3004,7 +3004,7 @@ define internal range(i32 -110, 1) i32 @g4x_do_reset(ptr noundef readonly captur
   br label %.sink.split
 
 .thread12:                                        ; preds = %51, %79, %74
-  %88 = phi i32 [ 0, %74 ], [ -110, %79 ], [ -110, %51 ]
+  %88 = phi i32 [ -110, %79 ], [ 0, %74 ], [ -110, %51 ]
   %89 = call i32 @pci_write_config_byte(ptr noundef %9, i32 noundef 192, i8 noundef zeroext 0) #10
   %90 = load i32, ptr %12, align 4
   %91 = add i32 %90, 25100
@@ -3427,12 +3427,12 @@ define internal fastcc i32 @__gen11_reset_engines(ptr noundef readonly captures(
   br label %132
 
 132:                                              ; preds = %68, %124, %116
-  %.pn22 = phi ptr [ %110, %116 ], [ %110, %124 ], [ %23, %68 ]
-  %133 = phi i32 [ %119, %116 ], [ %127, %124 ], [ %58, %68 ]
-  %134 = phi i32 [ %120, %116 ], [ %128, %124 ], [ %59, %68 ]
-  %135 = phi i32 [ %120, %116 ], [ %129, %124 ], [ %60, %68 ]
-  %136 = phi i32 [ 2, %116 ], [ 1, %124 ], [ %61, %68 ]
-  %.pn23.in = phi i8 [ %123, %116 ], [ %131, %124 ], [ %62, %68 ]
+  %.pn22 = phi ptr [ %110, %124 ], [ %110, %116 ], [ %23, %68 ]
+  %133 = phi i32 [ %127, %124 ], [ %119, %116 ], [ %58, %68 ]
+  %134 = phi i32 [ %128, %124 ], [ %120, %116 ], [ %59, %68 ]
+  %135 = phi i32 [ %129, %124 ], [ %120, %116 ], [ %60, %68 ]
+  %136 = phi i32 [ 1, %124 ], [ 2, %116 ], [ %61, %68 ]
+  %.pn23.in = phi i8 [ %131, %124 ], [ %123, %116 ], [ %62, %68 ]
   %.pn23 = zext nneg i8 %.pn23.in to i32
   %137 = shl i32 131072, %.pn23
   %.pn.in = getelementptr inbounds nuw i8, ptr %.pn22, i64 44
@@ -3503,9 +3503,9 @@ define internal fastcc i32 @__gen11_reset_engines(ptr noundef readonly captures(
   br label %.thread20
 
 .thread20:                                        ; preds = %76, %79, %93, %178, %169, %32, %14
-  %182 = phi i32 [ %26, %14 ], [ %26, %169 ], [ %26, %32 ], [ %181, %178 ], [ %26, %93 ], [ %26, %79 ], [ %26, %76 ]
-  %183 = phi i32 [ %11, %14 ], [ %138, %169 ], [ %11, %32 ], [ %138, %178 ], [ %11, %93 ], [ %11, %79 ], [ %11, %76 ]
-  %184 = phi i32 [ 0, %14 ], [ 0, %169 ], [ 0, %32 ], [ %163, %178 ], [ 0, %93 ], [ 0, %79 ], [ 0, %76 ]
+  %182 = phi i32 [ %26, %14 ], [ %26, %169 ], [ %181, %178 ], [ %26, %32 ], [ %26, %93 ], [ %26, %79 ], [ %26, %76 ]
+  %183 = phi i32 [ %11, %14 ], [ %138, %169 ], [ %138, %178 ], [ %11, %32 ], [ %11, %93 ], [ %11, %79 ], [ %11, %76 ]
+  %184 = phi i32 [ 0, %14 ], [ 0, %169 ], [ %163, %178 ], [ 0, %32 ], [ 0, %93 ], [ 0, %79 ], [ 0, %76 ]
   %185 = icmp eq i32 %184, 0
   br i1 %185, label %9, label %.loopexit, !llvm.loop !107
 

@@ -765,7 +765,7 @@ zval_get_tmp_string.exit478:                      ; preds = %257, %259
   br label %286
 
 286:                                              ; preds = %.lr.ph685, %279, %285, %283
-  %.0398 = phi i8 [ %280, %279 ], [ %284, %283 ], [ 0, %285 ], [ %276, %.lr.ph685 ]
+  %.0398 = phi i8 [ 0, %285 ], [ %280, %279 ], [ %284, %283 ], [ %276, %.lr.ph685 ]
   %.not458 = icmp eq i32 %.0400681, 0
   br i1 %.not458, label %._crit_edge791, label %287
 
@@ -857,7 +857,7 @@ zval_get_tmp_string.exit478:                      ; preds = %257, %259
   br label %321
 
 321:                                              ; preds = %193, %.fold.split, %320
-  %.0397 = phi ptr [ @little_endian_short_map, %320 ], [ @big_endian_short_map, %193 ], [ @machine_endian_short_map, %.fold.split ]
+  %.0397 = phi ptr [ @big_endian_short_map, %193 ], [ @little_endian_short_map, %320 ], [ @machine_endian_short_map, %.fold.split ]
   %322 = icmp sgt i32 %198, 0
   br i1 %322, label %.lr.ph657.preheader, label %zend_tmp_string_release.exit
 
@@ -942,7 +942,7 @@ php_pack.exit497:                                 ; preds = %343
   br label %355
 
 355:                                              ; preds = %193, %.fold.split474, %354
-  %.0396 = phi ptr [ @little_endian_long_map, %354 ], [ @big_endian_long_map, %193 ], [ @machine_endian_long_map, %.fold.split474 ]
+  %.0396 = phi ptr [ @big_endian_long_map, %193 ], [ @little_endian_long_map, %354 ], [ @machine_endian_long_map, %.fold.split474 ]
   %356 = icmp sgt i32 %198, 0
   br i1 %356, label %.lr.ph650.preheader, label %zend_tmp_string_release.exit
 
@@ -988,7 +988,7 @@ php_pack.exit501:                                 ; preds = %361
   br label %372
 
 372:                                              ; preds = %193, %.fold.split475, %371
-  %.0395 = phi ptr [ @little_endian_longlong_map, %371 ], [ @big_endian_longlong_map, %193 ], [ @machine_endian_longlong_map, %.fold.split475 ]
+  %.0395 = phi ptr [ @big_endian_longlong_map, %193 ], [ @little_endian_longlong_map, %371 ], [ @machine_endian_longlong_map, %.fold.split475 ]
   %373 = icmp sgt i32 %198, 0
   br i1 %373, label %.lr.ph613.preheader, label %zend_tmp_string_release.exit
 
@@ -1282,8 +1282,8 @@ zend_tmp_string_release.exit.loopexit706:         ; preds = %php_pack.exit505
   br label %zend_tmp_string_release.exit
 
 zend_tmp_string_release.exit:                     ; preds = %zend_tmp_string_release.exit.loopexit706, %zend_tmp_string_release.exit.loopexit705, %zend_tmp_string_release.exit.loopexit704, %zend_tmp_string_release.exit.loopexit703, %zend_tmp_string_release.exit.loopexit702, %zend_tmp_string_release.exit.loopexit701, %zend_tmp_string_release.exit.loopexit700, %zend_tmp_string_release.exit.loopexit699, %zend_tmp_string_release.exit.loopexit698, %zend_tmp_string_release.exit.loopexit697, %zend_tmp_string_release.exit.loopexit, %372, %.preheader560, %.preheader558, %.preheader556, %.preheader554, %.preheader552, %355, %321, %337, %.preheader, %311, %._crit_edge686, %301, %305, %310, %zval_get_tmp_string.exit, %238, %242, %247, %485, %487, %193, %483, %478
-  %.4377 = phi i32 [ %.3376688, %193 ], [ %482, %478 ], [ %spec.store.select, %483 ], [ %198, %487 ], [ %198, %485 ], [ %237, %247 ], [ %237, %242 ], [ %237, %238 ], [ %237, %zval_get_tmp_string.exit ], [ %.5378.lcssa, %310 ], [ %.5378.lcssa, %305 ], [ %.5378.lcssa, %301 ], [ %.5378.lcssa, %._crit_edge686 ], [ %.3376688, %311 ], [ %.3376688, %.preheader ], [ %.3376688, %337 ], [ %.3376688, %321 ], [ %.3376688, %355 ], [ %.3376688, %.preheader552 ], [ %.3376688, %.preheader554 ], [ %.3376688, %.preheader556 ], [ %.3376688, %.preheader558 ], [ %.3376688, %.preheader560 ], [ %.3376688, %372 ], [ %492, %zend_tmp_string_release.exit.loopexit ], [ %476, %zend_tmp_string_release.exit.loopexit697 ], [ %352, %zend_tmp_string_release.exit.loopexit698 ], [ %496, %zend_tmp_string_release.exit.loopexit699 ], [ %498, %zend_tmp_string_release.exit.loopexit700 ], [ %401, %zend_tmp_string_release.exit.loopexit701 ], [ %416, %zend_tmp_string_release.exit.loopexit702 ], [ %433, %zend_tmp_string_release.exit.loopexit703 ], [ %447, %zend_tmp_string_release.exit.loopexit704 ], [ %461, %zend_tmp_string_release.exit.loopexit705 ], [ %505, %zend_tmp_string_release.exit.loopexit706 ]
-  %.5371 = phi i32 [ %.4370689, %193 ], [ %.4370689, %478 ], [ %.4370689, %483 ], [ %.4370689, %487 ], [ %.4370689, %485 ], [ %217, %247 ], [ %217, %242 ], [ %217, %238 ], [ %217, %zval_get_tmp_string.exit ], [ %251, %310 ], [ %251, %305 ], [ %251, %301 ], [ %251, %._crit_edge686 ], [ %.4370689, %311 ], [ %.4370689, %.preheader ], [ %.4370689, %337 ], [ %.4370689, %321 ], [ %.4370689, %355 ], [ %.4370689, %.preheader552 ], [ %.4370689, %.preheader554 ], [ %.4370689, %.preheader556 ], [ %.4370689, %.preheader558 ], [ %.4370689, %.preheader560 ], [ %.4370689, %372 ], [ %493, %zend_tmp_string_release.exit.loopexit ], [ %494, %zend_tmp_string_release.exit.loopexit697 ], [ %495, %zend_tmp_string_release.exit.loopexit698 ], [ %497, %zend_tmp_string_release.exit.loopexit699 ], [ %499, %zend_tmp_string_release.exit.loopexit700 ], [ %500, %zend_tmp_string_release.exit.loopexit701 ], [ %501, %zend_tmp_string_release.exit.loopexit702 ], [ %502, %zend_tmp_string_release.exit.loopexit703 ], [ %503, %zend_tmp_string_release.exit.loopexit704 ], [ %504, %zend_tmp_string_release.exit.loopexit705 ], [ %506, %zend_tmp_string_release.exit.loopexit706 ]
+  %.4377 = phi i32 [ %.3376688, %193 ], [ %198, %485 ], [ %237, %zval_get_tmp_string.exit ], [ %.5378.lcssa, %._crit_edge686 ], [ %433, %zend_tmp_string_release.exit.loopexit703 ], [ %461, %zend_tmp_string_release.exit.loopexit705 ], [ %492, %zend_tmp_string_release.exit.loopexit ], [ %476, %zend_tmp_string_release.exit.loopexit697 ], [ %352, %zend_tmp_string_release.exit.loopexit698 ], [ %496, %zend_tmp_string_release.exit.loopexit699 ], [ %498, %zend_tmp_string_release.exit.loopexit700 ], [ %401, %zend_tmp_string_release.exit.loopexit701 ], [ %416, %zend_tmp_string_release.exit.loopexit702 ], [ %447, %zend_tmp_string_release.exit.loopexit704 ], [ %482, %478 ], [ %spec.store.select, %483 ], [ %198, %487 ], [ %237, %247 ], [ %237, %242 ], [ %237, %238 ], [ %.5378.lcssa, %310 ], [ %.5378.lcssa, %305 ], [ %.5378.lcssa, %301 ], [ %.3376688, %311 ], [ %.3376688, %.preheader ], [ %.3376688, %337 ], [ %.3376688, %321 ], [ %.3376688, %355 ], [ %.3376688, %.preheader552 ], [ %.3376688, %.preheader554 ], [ %.3376688, %.preheader556 ], [ %.3376688, %.preheader558 ], [ %.3376688, %.preheader560 ], [ %.3376688, %372 ], [ %505, %zend_tmp_string_release.exit.loopexit706 ]
+  %.5371 = phi i32 [ %.4370689, %193 ], [ %.4370689, %485 ], [ %217, %zval_get_tmp_string.exit ], [ %251, %._crit_edge686 ], [ %502, %zend_tmp_string_release.exit.loopexit703 ], [ %504, %zend_tmp_string_release.exit.loopexit705 ], [ %493, %zend_tmp_string_release.exit.loopexit ], [ %494, %zend_tmp_string_release.exit.loopexit697 ], [ %495, %zend_tmp_string_release.exit.loopexit698 ], [ %497, %zend_tmp_string_release.exit.loopexit699 ], [ %499, %zend_tmp_string_release.exit.loopexit700 ], [ %500, %zend_tmp_string_release.exit.loopexit701 ], [ %501, %zend_tmp_string_release.exit.loopexit702 ], [ %503, %zend_tmp_string_release.exit.loopexit704 ], [ %.4370689, %478 ], [ %.4370689, %483 ], [ %.4370689, %487 ], [ %217, %247 ], [ %217, %242 ], [ %217, %238 ], [ %251, %310 ], [ %251, %305 ], [ %251, %301 ], [ %.4370689, %311 ], [ %.4370689, %.preheader ], [ %.4370689, %337 ], [ %.4370689, %321 ], [ %.4370689, %355 ], [ %.4370689, %.preheader552 ], [ %.4370689, %.preheader554 ], [ %.4370689, %.preheader556 ], [ %.4370689, %.preheader558 ], [ %.4370689, %.preheader560 ], [ %.4370689, %372 ], [ %506, %zend_tmp_string_release.exit.loopexit706 ]
   %507 = add nuw i64 %.5690, 1
   %exitcond790.not = icmp eq i64 %507, %.0372.lcssa
   br i1 %exitcond790.not, label %._crit_edge692.loopexit, label %193
@@ -1414,11 +1414,11 @@ zend_parse_arg_long_ex.exit:                      ; preds = %39
   %45 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %40, ptr noundef nonnull %16, i32 noundef 3) #12
   br i1 %45, label %.critedge481, label %.thread, !prof !23
 
-.thread:                                          ; preds = %zend_parse_arg_long_ex.exit, %zend_parse_arg_str_ex.exit, %zend_parse_arg_str_ex.exit524, %22
-  %.0401586 = phi i32 [ 2, %zend_parse_arg_str_ex.exit ], [ 1, %zend_parse_arg_str_ex.exit524 ], [ 0, %22 ], [ 3, %zend_parse_arg_long_ex.exit ]
-  %.0402585 = phi ptr [ %31, %zend_parse_arg_str_ex.exit ], [ %24, %zend_parse_arg_str_ex.exit524 ], [ null, %22 ], [ %40, %zend_parse_arg_long_ex.exit ]
-  %.0404584 = phi i32 [ 4, %zend_parse_arg_str_ex.exit ], [ 4, %zend_parse_arg_str_ex.exit524 ], [ 0, %22 ], [ 0, %zend_parse_arg_long_ex.exit ]
-  %.0406583 = phi i32 [ 9, %zend_parse_arg_str_ex.exit ], [ 9, %zend_parse_arg_str_ex.exit524 ], [ 1, %22 ], [ 9, %zend_parse_arg_long_ex.exit ]
+.thread:                                          ; preds = %zend_parse_arg_long_ex.exit, %zend_parse_arg_str_ex.exit524, %zend_parse_arg_str_ex.exit, %22
+  %.0401586 = phi i32 [ 3, %zend_parse_arg_long_ex.exit ], [ 0, %22 ], [ 1, %zend_parse_arg_str_ex.exit524 ], [ 2, %zend_parse_arg_str_ex.exit ]
+  %.0402585 = phi ptr [ %40, %zend_parse_arg_long_ex.exit ], [ null, %22 ], [ %24, %zend_parse_arg_str_ex.exit524 ], [ %31, %zend_parse_arg_str_ex.exit ]
+  %.0404584 = phi i32 [ 0, %zend_parse_arg_long_ex.exit ], [ 0, %22 ], [ 4, %zend_parse_arg_str_ex.exit524 ], [ 4, %zend_parse_arg_str_ex.exit ]
+  %.0406583 = phi i32 [ 9, %zend_parse_arg_long_ex.exit ], [ 1, %22 ], [ 9, %zend_parse_arg_str_ex.exit524 ], [ 9, %zend_parse_arg_str_ex.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.0406583, i32 noundef %.0401586, ptr noundef null, i32 noundef %.0404584, ptr noundef %.0402585) #12
   br label %.critedge491
 
@@ -1542,11 +1542,11 @@ zend_parse_arg_long_ex.exit:                      ; preds = %39
   br i1 %98, label %.lr.ph645, label %.critedge12
 
 .critedge12:                                      ; preds = %86, %.lr.ph645, %95, %67, %.critedge
-  %.1733 = phi ptr [ %.1, %.critedge ], [ %69, %67 ], [ %.1740, %95 ], [ %.1740, %.lr.ph645 ], [ %scevgep, %86 ]
-  %.0412732 = phi i32 [ %.0412, %.critedge ], [ 1, %67 ], [ %.0412738, %95 ], [ %.0412738, %.lr.ph645 ], [ %83, %86 ]
-  %.5387.lcssa = phi i64 [ %.1383, %.critedge ], [ 0, %67 ], [ %.5387643, %.lr.ph645 ], [ 0, %95 ], [ 0, %86 ]
-  %.5.lcssa = phi ptr [ %.1, %.critedge ], [ %69, %67 ], [ %.5644, %.lr.ph645 ], [ %scevgep703, %95 ], [ %scevgep, %86 ]
-  %.lcssa = phi i1 [ false, %.critedge ], [ false, %67 ], [ %.not467, %95 ], [ %.not467, %.lr.ph645 ], [ false, %86 ]
+  %.1733 = phi ptr [ %.1, %.critedge ], [ %.1740, %.lr.ph645 ], [ %69, %67 ], [ %.1740, %95 ], [ %scevgep, %86 ]
+  %.0412732 = phi i32 [ %.0412, %.critedge ], [ %.0412738, %.lr.ph645 ], [ 1, %67 ], [ %.0412738, %95 ], [ %83, %86 ]
+  %.5387.lcssa = phi i64 [ %.1383, %.critedge ], [ %.5387643, %.lr.ph645 ], [ 0, %67 ], [ 0, %95 ], [ 0, %86 ]
+  %.5.lcssa = phi ptr [ %.1, %.critedge ], [ %.5644, %.lr.ph645 ], [ %69, %67 ], [ %scevgep703, %95 ], [ %scevgep, %86 ]
+  %.lcssa = phi i1 [ false, %.critedge ], [ %.not467, %.lr.ph645 ], [ false, %67 ], [ %.not467, %95 ], [ false, %86 ]
   %99 = ptrtoint ptr %.5.lcssa to i64
   %100 = ptrtoint ptr %.1733 to i64
   %101 = sub i64 %99, %100
@@ -1618,7 +1618,7 @@ zend_parse_arg_long_ex.exit:                      ; preds = %39
   br label %.critedge491
 
 117:                                              ; preds = %.critedge12, %104, %115, %114, %113, %112
-  %.0415 = phi i32 [ -1, %104 ], [ 1, %112 ], [ 2, %113 ], [ 4, %114 ], [ 8, %115 ], [ 0, %.critedge12 ]
+  %.0415 = phi i32 [ 2, %113 ], [ -1, %104 ], [ 8, %115 ], [ 4, %114 ], [ 0, %.critedge12 ], [ 1, %112 ]
   %.not468672 = icmp eq i32 %.0412732, 0
   br i1 %.not468672, label %.loopexit, label %.lr.ph677
 
@@ -2569,9 +2569,9 @@ zend_symtable_update.exit517:                     ; preds = %525, %_zend_handle_
   br label %537
 
 537:                                              ; preds = %536, %535, %345, %zend_string_init_fast.exit, %529, %534, %531, %zend_symtable_update.exit517, %zend_symtable_update.exit515, %zend_symtable_update.exit513, %zend_symtable_update.exit511, %zend_symtable_update.exit509, %zend_symtable_update.exit507, %zend_symtable_update.exit505, %zend_symtable_update.exit501, %zend_symtable_update.exit499, %zend_symtable_update.exit
-  %.2417 = phi i32 [ %.1416673, %zend_string_init_fast.exit ], [ %171, %zend_symtable_update.exit ], [ %202, %zend_symtable_update.exit499 ], [ %241, %zend_symtable_update.exit501 ], [ %.1416673, %345 ], [ %.1416673, %zend_symtable_update.exit505 ], [ %.1416673, %zend_symtable_update.exit507 ], [ %.1416673, %zend_symtable_update.exit509 ], [ %.1416673, %zend_symtable_update.exit511 ], [ %.1416673, %zend_symtable_update.exit513 ], [ %.1416673, %zend_symtable_update.exit515 ], [ %.1416673, %zend_symtable_update.exit517 ], [ %.1416673, %534 ], [ %.1416673, %531 ], [ %.1416673, %529 ], [ %.1416673, %535 ], [ %.1416673, %536 ]
-  %.1398 = phi i32 [ %.0397674, %zend_string_init_fast.exit ], [ %.0397674, %zend_symtable_update.exit ], [ %.0397674, %zend_symtable_update.exit499 ], [ %.0397674, %zend_symtable_update.exit501 ], [ %.0397674, %345 ], [ %.0397674, %zend_symtable_update.exit505 ], [ %.0397674, %zend_symtable_update.exit507 ], [ %.0397674, %zend_symtable_update.exit509 ], [ %.0397674, %zend_symtable_update.exit511 ], [ %.0397674, %zend_symtable_update.exit513 ], [ %.0397674, %zend_symtable_update.exit515 ], [ %.0397674, %zend_symtable_update.exit517 ], [ %126, %534 ], [ %126, %531 ], [ %.0397674, %529 ], [ %126, %535 ], [ %126, %536 ]
-  %.3392 = phi i64 [ %.2391675, %zend_string_init_fast.exit ], [ %.2391675, %zend_symtable_update.exit ], [ %.2391675, %zend_symtable_update.exit499 ], [ %.2391675, %zend_symtable_update.exit501 ], [ %.2391675, %345 ], [ %.2391675, %zend_symtable_update.exit505 ], [ %.2391675, %zend_symtable_update.exit507 ], [ %.2391675, %zend_symtable_update.exit509 ], [ %.2391675, %zend_symtable_update.exit511 ], [ %.2391675, %zend_symtable_update.exit513 ], [ %.2391675, %zend_symtable_update.exit515 ], [ %.2391675, %zend_symtable_update.exit517 ], [ %533, %534 ], [ %533, %531 ], [ %.2391675, %529 ], [ %125, %535 ], [ %.2391675, %536 ]
+  %.2417 = phi i32 [ %.1416673, %zend_string_init_fast.exit ], [ %171, %zend_symtable_update.exit ], [ %202, %zend_symtable_update.exit499 ], [ %241, %zend_symtable_update.exit501 ], [ %.1416673, %345 ], [ %.1416673, %zend_symtable_update.exit505 ], [ %.1416673, %zend_symtable_update.exit507 ], [ %.1416673, %zend_symtable_update.exit509 ], [ %.1416673, %zend_symtable_update.exit511 ], [ %.1416673, %zend_symtable_update.exit513 ], [ %.1416673, %zend_symtable_update.exit515 ], [ %.1416673, %zend_symtable_update.exit517 ], [ %.1416673, %529 ], [ %.1416673, %534 ], [ %.1416673, %531 ], [ %.1416673, %535 ], [ %.1416673, %536 ]
+  %.1398 = phi i32 [ %.0397674, %zend_string_init_fast.exit ], [ %.0397674, %zend_symtable_update.exit ], [ %.0397674, %zend_symtable_update.exit499 ], [ %.0397674, %zend_symtable_update.exit501 ], [ %.0397674, %345 ], [ %.0397674, %zend_symtable_update.exit505 ], [ %.0397674, %zend_symtable_update.exit507 ], [ %.0397674, %zend_symtable_update.exit509 ], [ %.0397674, %zend_symtable_update.exit511 ], [ %.0397674, %zend_symtable_update.exit513 ], [ %.0397674, %zend_symtable_update.exit515 ], [ %.0397674, %zend_symtable_update.exit517 ], [ %.0397674, %529 ], [ %126, %534 ], [ %126, %531 ], [ %126, %535 ], [ %126, %536 ]
+  %.3392 = phi i64 [ %.2391675, %zend_string_init_fast.exit ], [ %.2391675, %zend_symtable_update.exit ], [ %.2391675, %zend_symtable_update.exit499 ], [ %.2391675, %zend_symtable_update.exit501 ], [ %.2391675, %345 ], [ %.2391675, %zend_symtable_update.exit505 ], [ %.2391675, %zend_symtable_update.exit507 ], [ %.2391675, %zend_symtable_update.exit509 ], [ %.2391675, %zend_symtable_update.exit511 ], [ %.2391675, %zend_symtable_update.exit513 ], [ %.2391675, %zend_symtable_update.exit515 ], [ %.2391675, %zend_symtable_update.exit517 ], [ %.2391675, %529 ], [ %533, %534 ], [ %533, %531 ], [ %125, %535 ], [ %.2391675, %536 ]
   %538 = getelementptr inbounds nuw i8, ptr %.0423, i64 4
   %539 = load i32, ptr %538, align 4, !tbaa !4
   %540 = and i32 %539, 64

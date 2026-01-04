@@ -92,7 +92,7 @@ define void @ff_rtp_send_av1(ptr noundef %0, ptr noundef readonly captures(addre
   br i1 %36, label %21, label %44, !llvm.loop !30
 
 parse_leb.exit.thread:                            ; preds = %21, %23, %31, %34
-  %.str.6.sink.i = phi ptr [ @.str.6, %21 ], [ @.str.7, %31 ], [ @.str.7, %23 ], [ @.str.8, %34 ]
+  %.str.6.sink.i = phi ptr [ @.str.6, %21 ], [ @.str.7, %23 ], [ @.str.7, %31 ], [ @.str.8, %34 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull %.str.6.sink.i) #3
   br label %.thread
 
@@ -105,7 +105,7 @@ parse_leb.exit.thread:                            ; preds = %21, %23, %31, %34
   br i1 %49, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %44, %17, %parse_leb.exit.thread, %16, %4
-  %.0186 = phi i8 [ 0, %4 ], [ 0, %parse_leb.exit.thread ], [ 8, %16 ], [ 0, %17 ], [ 0, %44 ]
+  %.0186 = phi i8 [ 0, %4 ], [ 8, %16 ], [ 0, %parse_leb.exit.thread ], [ 0, %17 ], [ 0, %44 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %.not280439 = icmp eq i32 %2, 0
   br i1 %.not280439, label %.thread388, label %.lr.ph452.preheader
@@ -220,7 +220,7 @@ parse_leb.exit.thread:                            ; preds = %21, %23, %31, %34
   br i1 %89, label %74, label %parse_leb.exit307, !llvm.loop !30
 
 parse_leb.exit307.thread:                         ; preds = %74, %76, %84, %87
-  %.str.6.sink.i306 = phi ptr [ @.str.6, %74 ], [ @.str.7, %84 ], [ @.str.7, %76 ], [ @.str.8, %87 ]
+  %.str.6.sink.i306 = phi ptr [ @.str.6, %74 ], [ @.str.7, %76 ], [ @.str.7, %84 ], [ @.str.8, %87 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull %.str.6.sink.i306) #3
   br label %.thread388
 
@@ -361,10 +361,10 @@ calc_leb_size.exit:                               ; preds = %.preheader403
   br i1 %149, label %.sink.split, label %.lr.ph.i309
 
 .sink.split:                                      ; preds = %.lr.ph.i309, %.lr.ph.i, %141, %130
-  %.07.lcssa.i313.sink = phi i32 [ %.2223, %130 ], [ %.2223, %141 ], [ %136, %.lr.ph.i ], [ %147, %.lr.ph.i309 ]
-  %.08.lcssa.i312.sink = phi ptr [ %.2234, %130 ], [ %.2234, %141 ], [ %135, %.lr.ph.i ], [ %146, %.lr.ph.i309 ]
-  %.lcssa.i314.sink525 = phi i32 [ 1, %130 ], [ 1, %141 ], [ %137, %.lr.ph.i ], [ %148, %.lr.ph.i309 ]
-  %.5204.ph = phi i32 [ %.2201, %130 ], [ 1, %141 ], [ %.2201, %.lr.ph.i ], [ 1, %.lr.ph.i309 ]
+  %.07.lcssa.i313.sink = phi i32 [ %136, %.lr.ph.i ], [ %.2223, %130 ], [ %.2223, %141 ], [ %147, %.lr.ph.i309 ]
+  %.08.lcssa.i312.sink = phi ptr [ %135, %.lr.ph.i ], [ %.2234, %130 ], [ %.2234, %141 ], [ %146, %.lr.ph.i309 ]
+  %.lcssa.i314.sink525 = phi i32 [ %137, %.lr.ph.i ], [ 1, %130 ], [ 1, %141 ], [ %148, %.lr.ph.i309 ]
+  %.5204.ph = phi i32 [ %.2201, %.lr.ph.i ], [ %.2201, %130 ], [ 1, %141 ], [ 1, %.lr.ph.i309 ]
   %150 = trunc nuw nsw i32 %.07.lcssa.i313.sink to i8
   store i8 %150, ptr %.08.lcssa.i312.sink, align 1, !tbaa !29
   %151 = sext i32 %.lcssa.i314.sink525 to i64
@@ -559,15 +559,15 @@ write_leb_n.exit:                                 ; preds = %202
   br i1 %236, label %218, label %.thread366, !llvm.loop !37
 
 .thread366:                                       ; preds = %218, %.thread353, %calc_leb_size.exit319, %191
-  %.5261 = phi i32 [ %.3259, %calc_leb_size.exit319 ], [ %.3259, %191 ], [ 0, %.thread353 ], [ 0, %218 ]
-  %.8252 = phi i32 [ %.3247, %calc_leb_size.exit319 ], [ %.3247, %191 ], [ %189, %.thread353 ], [ %233, %218 ]
-  %.8240 = phi ptr [ %.3235, %calc_leb_size.exit319 ], [ %.3235, %191 ], [ %187, %.thread353 ], [ %235, %218 ]
-  %.3230 = phi ptr [ %.3198, %calc_leb_size.exit319 ], [ %.3198, %191 ], [ %.3198, %.thread353 ], [ %221, %218 ]
-  %.3224 = phi i32 [ %117, %calc_leb_size.exit319 ], [ %117, %191 ], [ %117, %.thread353 ], [ %222, %218 ]
-  %.3220 = phi i32 [ %118, %calc_leb_size.exit319 ], [ %118, %191 ], [ %118, %.thread353 ], [ -1, %218 ]
-  %.3216 = phi i32 [ %.0189, %calc_leb_size.exit319 ], [ %.0189, %191 ], [ %.0189, %.thread353 ], [ -1, %218 ]
-  %.6205 = phi i32 [ 0, %calc_leb_size.exit319 ], [ 0, %191 ], [ %.4203, %.thread353 ], [ 0, %218 ]
-  %.9 = phi i8 [ %.6, %calc_leb_size.exit319 ], [ %.6, %191 ], [ 0, %.thread353 ], [ -128, %218 ]
+  %.5261 = phi i32 [ %.3259, %191 ], [ %.3259, %calc_leb_size.exit319 ], [ 0, %.thread353 ], [ 0, %218 ]
+  %.8252 = phi i32 [ %.3247, %191 ], [ %.3247, %calc_leb_size.exit319 ], [ %189, %.thread353 ], [ %233, %218 ]
+  %.8240 = phi ptr [ %.3235, %191 ], [ %.3235, %calc_leb_size.exit319 ], [ %187, %.thread353 ], [ %235, %218 ]
+  %.3230 = phi ptr [ %.3198, %191 ], [ %.3198, %calc_leb_size.exit319 ], [ %.3198, %.thread353 ], [ %221, %218 ]
+  %.3224 = phi i32 [ %117, %191 ], [ %117, %calc_leb_size.exit319 ], [ %117, %.thread353 ], [ %222, %218 ]
+  %.3220 = phi i32 [ %118, %191 ], [ %118, %calc_leb_size.exit319 ], [ %118, %.thread353 ], [ -1, %218 ]
+  %.3216 = phi i32 [ %.0189, %191 ], [ %.0189, %calc_leb_size.exit319 ], [ %.0189, %.thread353 ], [ -1, %218 ]
+  %.6205 = phi i32 [ 0, %191 ], [ 0, %calc_leb_size.exit319 ], [ %.4203, %.thread353 ], [ 0, %218 ]
+  %.9 = phi i8 [ %.6, %191 ], [ %.6, %calc_leb_size.exit319 ], [ 0, %.thread353 ], [ -128, %218 ]
   br i1 %.not291, label %122, label %.loopexit
 
 .loopexit:                                        ; preds = %.thread366, %110
@@ -587,7 +587,7 @@ write_leb_n.exit:                                 ; preds = %202
   %.not281 = icmp sgt i8 %237, -1
   br i1 %.not281, label %57, label %.lr.ph452._crit_edge
 
-.thread388:                                       ; preds = %174, %.thread, %parse_leb.exit307.thread, %64, %103, %107, %104, %.lr.ph452._crit_edge
+.thread388:                                       ; preds = %174, %.thread, %103, %64, %parse_leb.exit307.thread, %107, %104, %.lr.ph452._crit_edge
   ret void
 }
 

@@ -288,7 +288,7 @@ define hidden range(i32 -2147483648, 2) i32 @porter_ISO_8859_1_stem(ptr noundef 
   %97 = icmp sgt i32 %96, -1
   br i1 %97, label %98, label %.loopexit
 
-98:                                               ; preds = %87, %89, %92, %95, %85, %76, %79
+98:                                               ; preds = %87, %89, %92, %95, %85, %79, %76
   %99 = load i32, ptr %8, align 4
   store i32 %99, ptr %5, align 8
   store i32 %99, ptr %25, align 8
@@ -432,7 +432,7 @@ define hidden range(i32 -2147483648, 2) i32 @porter_ISO_8859_1_stem(ptr noundef 
   %164 = icmp sgt i32 %163, -1
   br i1 %164, label %165, label %.loopexit
 
-165:                                              ; preds = %109, %113, %141, %144, %149, %160, %139, %158, %116, %.thread155.i, %147, %107, %98, %102, %111
+165:                                              ; preds = %109, %113, %141, %144, %149, %160, %139, %102, %.thread155.i, %107, %158, %147, %116, %111, %98
   %166 = load i32, ptr %8, align 4
   store i32 %166, ptr %5, align 8
   %167 = tail call fastcc i32 @r_Step_1c(ptr noundef nonnull %0)
@@ -529,7 +529,7 @@ define hidden range(i32 -2147483648, 2) i32 @porter_ISO_8859_1_stem(ptr noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %40, %207, %113, %.critedge.i, %144, %149, %160, %89, %92, %95, %.thread332, %185, %181, %177, %173, %169, %165, %16
-  %.3 = phi i32 [ %19, %16 ], [ %167, %165 ], [ %171, %169 ], [ %175, %173 ], [ %179, %177 ], [ %183, %181 ], [ %187, %185 ], [ 1, %.thread332 ], [ %90, %89 ], [ %93, %92 ], [ %96, %95 ], [ %114, %113 ], [ %145, %144 ], [ %151, %149 ], [ %163, %160 ], [ %122, %.critedge.i ], [ %209, %207 ], [ %42, %40 ]
+  %.3 = phi i32 [ %19, %16 ], [ %187, %185 ], [ %183, %181 ], [ %179, %177 ], [ %175, %173 ], [ %171, %169 ], [ %167, %165 ], [ %209, %207 ], [ %90, %89 ], [ %145, %144 ], [ 1, %.thread332 ], [ %93, %92 ], [ %96, %95 ], [ %163, %160 ], [ %151, %149 ], [ %114, %113 ], [ %122, %.critedge.i ], [ %42, %40 ]
   ret i32 %.3
 }
 
@@ -580,7 +580,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_Step_1c(ptr noundef init
   br label %.thread39
 
 .thread39:                                        ; preds = %7, %1, %13, %17
-  %.1 = phi i32 [ %spec.select, %17 ], [ 0, %13 ], [ 0, %1 ], [ 0, %7 ]
+  %.1 = phi i32 [ 0, %13 ], [ %spec.select, %17 ], [ 0, %7 ], [ 0, %1 ]
   ret i32 %.1
 }
 
@@ -716,7 +716,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_Step_2(ptr noundef initi
   br label %67
 
 67:                                               ; preds = %19, %1, %8, %15, %27, %30, %33, %36, %39, %42, %45, %48, %51, %54, %57, %60, %63, %21, %66
-  %.0 = phi i32 [ 1, %66 ], [ %28, %27 ], [ %31, %30 ], [ %34, %33 ], [ %37, %36 ], [ %40, %39 ], [ %43, %42 ], [ %46, %45 ], [ %49, %48 ], [ %52, %51 ], [ %55, %54 ], [ %58, %57 ], [ %61, %60 ], [ %64, %63 ], [ 0, %21 ], [ 0, %15 ], [ 0, %8 ], [ 0, %1 ], [ 0, %19 ]
+  %.0 = phi i32 [ 0, %1 ], [ 1, %66 ], [ %28, %27 ], [ %31, %30 ], [ %34, %33 ], [ %37, %36 ], [ %40, %39 ], [ %43, %42 ], [ %46, %45 ], [ %49, %48 ], [ %52, %51 ], [ %55, %54 ], [ %58, %57 ], [ %61, %60 ], [ %64, %63 ], [ 0, %21 ], [ 0, %15 ], [ 0, %8 ], [ 0, %19 ]
   ret i32 %.0
 }
 
@@ -792,7 +792,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_Step_3(ptr noundef initi
   br label %37
 
 37:                                               ; preds = %19, %1, %8, %15, %27, %30, %33, %21, %36
-  %.0 = phi i32 [ 1, %36 ], [ %28, %27 ], [ %31, %30 ], [ %34, %33 ], [ 0, %21 ], [ 0, %15 ], [ 0, %8 ], [ 0, %1 ], [ 0, %19 ]
+  %.0 = phi i32 [ 0, %1 ], [ 1, %36 ], [ %28, %27 ], [ %31, %30 ], [ %34, %33 ], [ 0, %21 ], [ 0, %15 ], [ 0, %8 ], [ 0, %19 ]
   ret i32 %.0
 }
 
@@ -876,7 +876,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_Step_4(ptr noundef initi
   br label %.thread62
 
 .thread62:                                        ; preds = %30, %28, %18, %1, %8, %14, %25, %36, %20, %39
-  %.0 = phi i32 [ 1, %39 ], [ %26, %25 ], [ %37, %36 ], [ 0, %20 ], [ 0, %14 ], [ 0, %8 ], [ 0, %1 ], [ 0, %18 ], [ 0, %28 ], [ 0, %30 ]
+  %.0 = phi i32 [ 0, %1 ], [ 1, %39 ], [ %26, %25 ], [ 0, %18 ], [ %37, %36 ], [ 0, %20 ], [ 0, %14 ], [ 0, %8 ], [ 0, %30 ], [ 0, %28 ]
   ret i32 %.0
 }
 
@@ -934,7 +934,7 @@ r_shortv.exit:                                    ; preds = %22
   %.not4.i.not = icmp eq i32 %24, 0
   br i1 %.not4.i.not, label %.thread, label %r_shortv.exit.thread
 
-r_shortv.exit.thread:                             ; preds = %22, %20, %r_shortv.exit
+r_shortv.exit.thread:                             ; preds = %20, %22, %r_shortv.exit
   %25 = load i32, ptr %15, align 4
   %26 = add i32 %.neg, %25
   store i32 %26, ptr %2, align 8
@@ -947,7 +947,7 @@ r_shortv.exit.thread:                             ; preds = %22, %20, %r_shortv.
   br label %.thread
 
 .thread:                                          ; preds = %r_shortv.exit, %18, %27, %1, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %1 ], [ %spec.select, %27 ], [ 0, %r_shortv.exit ], [ 0, %18 ]
+  %.0 = phi i32 [ %spec.select, %27 ], [ 0, %7 ], [ 0, %1 ], [ 0, %r_shortv.exit ], [ 0, %18 ]
   ret i32 %.0
 }
 
@@ -999,7 +999,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_Step_5b(ptr noundef init
   br label %24
 
 24:                                               ; preds = %21, %13, %16, %1, %7
-  %.0 = phi i32 [ 0, %13 ], [ 0, %7 ], [ 0, %1 ], [ 0, %16 ], [ %spec.select, %21 ]
+  %.0 = phi i32 [ 0, %13 ], [ 0, %1 ], [ 0, %16 ], [ %spec.select, %21 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -1045,7 +1045,7 @@ define internal fastcc range(i32 0, 2) i32 @r_shortv(ptr noundef %0) unnamed_add
   br label %7
 
 7:                                                ; preds = %5, %3, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %3 ], [ %., %5 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %1 ], [ %., %5 ]
   ret i32 %.0
 }
 

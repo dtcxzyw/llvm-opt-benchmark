@@ -878,7 +878,7 @@ Abc_NodeRestructureCut.exit.thread.i:             ; preds = %173, %Dec_GraphFree
   br label %411
 
 Abc_NodeRestructureCut.exit.i:                    ; preds = %404, %256, %248
-  %.0.i.i = phi ptr [ %calloc.i97.i.i, %256 ], [ %.085.i.i, %404 ], [ %calloc.i97.i.i, %248 ]
+  %.0.i.i = phi ptr [ %.085.i.i, %404 ], [ %calloc.i97.i.i, %256 ], [ %calloc.i97.i.i, %248 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %Abc_NodeRestructure.exit
@@ -1708,7 +1708,7 @@ Vec_PtrPush.exit65:                               ; preds = %.Vec_PtrGrow.exit11
   br i1 %145, label %.critedge2, label %.critedge6, !llvm.loop !128
 
 .critedge6:                                       ; preds = %.critedge2, %3, %.critedge.preheader, %.critedge2.preheader
-  %.val45.lcssa = phi i32 [ %.val46, %.critedge2.preheader ], [ %.val4673.pre, %.critedge.preheader ], [ 0, %3 ], [ %.val45, %.critedge2 ]
+  %.val45.lcssa = phi i32 [ %.val46, %.critedge2.preheader ], [ 0, %3 ], [ %.val4673.pre, %.critedge.preheader ], [ %.val45, %.critedge2 ]
   %146 = load ptr, ptr %7, align 8, !tbaa !59
   %147 = getelementptr i8, ptr %146, i64 4
   %.val = load i32, ptr %147, align 4, !tbaa !39
@@ -2165,8 +2165,8 @@ Vec_IntAlloc.exit:                                ; preds = %21, %26
   br label %Vec_IntPush.exit.us.sink.split
 
 Vec_IntPush.exit.us.sink.split:                   ; preds = %56, %58, %51, %53
-  %.sink674 = phi ptr [ %52, %51 ], [ %54, %53 ], [ %57, %56 ], [ %59, %58 ]
-  %.sink = phi i32 [ %48, %51 ], [ %48, %53 ], [ 16, %56 ], [ 16, %58 ]
+  %.sink674 = phi ptr [ %54, %53 ], [ %52, %51 ], [ %57, %56 ], [ %59, %58 ]
+  %.sink = phi i32 [ %48, %53 ], [ %48, %51 ], [ 16, %56 ], [ 16, %58 ]
   store ptr %.sink674, ptr %31, align 8, !tbaa !92
   store i32 %.sink, ptr %23, align 8, !tbaa !91
   br label %Vec_IntPush.exit.us
@@ -2263,7 +2263,7 @@ Abc_NodeEdgeDsdPushOrdered.exit:                  ; preds = %93, %74, %._crit_ed
   br i1 %100, label %.lr.ph.split, label %.critedge, !llvm.loop !131
 
 .critedge:                                        ; preds = %.lr.ph.split, %Abc_NodeEdgeDsdPushOrdered.exit, %.lr.ph.split.us, %Vec_IntPush.exit.us, %Vec_IntAlloc.exit
-  %101 = phi ptr [ %30, %Vec_IntAlloc.exit ], [ %36, %.lr.ph.split.us ], [ %.pre.i.us564, %Vec_IntPush.exit.us ], [ %30, %Abc_NodeEdgeDsdPushOrdered.exit ], [ %30, %.lr.ph.split ]
+  %101 = phi ptr [ %36, %.lr.ph.split.us ], [ %30, %Vec_IntAlloc.exit ], [ %.pre.i.us564, %Vec_IntPush.exit.us ], [ %30, %Abc_NodeEdgeDsdPushOrdered.exit ], [ %30, %.lr.ph.split ]
   switch i32 %.fr556, label %1063 [
     i32 3, label %.preheader
     i32 4, label %.preheader541
@@ -4724,7 +4724,7 @@ Abc_NodeSetTravIdCurrent.exit106:                 ; preds = %Vec_PtrPush.exit91,
   br i1 %335, label %.lr.ph116, label %.critedge, !llvm.loop !137
 
 .critedge:                                        ; preds = %31, %.critedge2, %Abc_NtkIncrementTravId.exit, %.preheader
-  %.032 = phi i32 [ 1, %.preheader ], [ 1, %Abc_NtkIncrementTravId.exit ], [ 1, %.critedge2 ], [ 0, %31 ]
+  %.032 = phi i32 [ 1, %.preheader ], [ 1, %.critedge2 ], [ 1, %Abc_NtkIncrementTravId.exit ], [ 0, %31 ]
   ret i32 %.032
 }
 
@@ -5938,7 +5938,7 @@ Abc_NodeMffcConstants.exit:                       ; preds = %5
   br label %54
 
 54:                                               ; preds = %.sink.split, %42, %40, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %40 ], [ null, %42 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi ptr [ null, %42 ], [ null, %40 ], [ null, %3 ], [ %.0.ph, %.sink.split ]
   ret ptr %.0
 }
 

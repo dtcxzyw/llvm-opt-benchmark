@@ -359,7 +359,7 @@ _Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3A
   br label %_ZNK13gjkepa2_impl215b3MinkowskiDiff7SupportERK9b3Vector3jRK20b3AlignedObjectArrayIS1_ES7_.exit
 
 _ZNK13gjkepa2_impl215b3MinkowskiDiff7SupportERK9b3Vector3jRK20b3AlignedObjectArrayIS1_ES7_.exit: ; preds = %168, %184, %_Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit.sink.split.i.i
-  %.pn.i = phi { <2 x float>, <2 x float> } [ zeroinitializer, %168 ], [ zeroinitializer, %184 ], [ %205, %_Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit.sink.split.i.i ]
+  %.pn.i = phi { <2 x float>, <2 x float> } [ %205, %_Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit.sink.split.i.i ], [ zeroinitializer, %168 ], [ zeroinitializer, %184 ]
   %206 = extractvalue { <2 x float>, <2 x float> } %.pn.i, 0
   %207 = extractvalue { <2 x float>, <2 x float> } %.pn.i, 1
   %.sroa.073.0.vec.extract = extractelement <2 x float> %206, i64 0
@@ -1332,7 +1332,7 @@ _ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit116: ; p
   br label %_ZN13gjkepa2_impl25b3GJK13projectoriginERK9b3Vector3S3_PfRj.exit
 
 _ZN13gjkepa2_impl25b3GJK13projectoriginERK9b3Vector3S3_PfRj.exit: ; preds = %343, %339, %333, %364, %354, %302
-  %.457 = phi float [ %.053, %302 ], [ %363, %354 ], [ %376, %364 ], [ %336, %333 ], [ %342, %339 ], [ %353, %343 ]
+  %.457 = phi float [ %.053, %302 ], [ %376, %364 ], [ %363, %354 ], [ %353, %343 ], [ %336, %333 ], [ %342, %339 ]
   %377 = fcmp ult float %.457, 0.000000e+00
   br i1 %377, label %.thread144, label %378
 
@@ -1456,8 +1456,8 @@ _ZN13gjkepa2_impl25b3GJK13projectoriginERK9b3Vector3S3_PfRj.exit: ; preds = %343
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge, %.thread144, %.thread
-  %.pre-phi = phi i64 [ %431, %.thread144 ], [ %.pre169.pre-phi, %.thread ], [ %143, %._crit_edge ]
-  %445 = phi i32 [ %443, %.thread144 ], [ %444, %.thread ], [ %spec.select, %._crit_edge ]
+  %.pre-phi = phi i64 [ %.pre169.pre-phi, %.thread ], [ %431, %.thread144 ], [ %143, %._crit_edge ]
+  %445 = phi i32 [ %444, %.thread ], [ %443, %.thread144 ], [ %spec.select, %._crit_edge ]
   %446 = getelementptr inbounds nuw %"struct.gjkepa2_impl2::b3GJK::sSimplex", ptr %38, i64 %.pre-phi
   %447 = getelementptr inbounds nuw i8, ptr %0, i64 472
   store ptr %446, ptr %447, align 8, !tbaa !23
@@ -1801,8 +1801,8 @@ _ZNK13gjkepa2_impl215b3MinkowskiDiff7SupportERK9b3Vector3jRK20b3AlignedObjectArr
   br label %214
 
 ._crit_edge:                                      ; preds = %_ZNK13gjkepa2_impl215b3MinkowskiDiff7SupportERK9b3Vector3jRK20b3AlignedObjectArrayIS1_ES7_.exit, %_Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit.sink.split.i.i.loopexit83.us, %_ZNK13gjkepa2_impl215b3MinkowskiDiff7SupportERK9b3Vector3jRK20b3AlignedObjectArrayIS1_ES7_.exit.us, %_Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit.sink.split.i.i.loopexit.us.us, %.preheader
-  %.sroa.067.0.lcssa = phi <2 x float> [ zeroinitializer, %.preheader ], [ %.sroa.067.4.vec.insert.us.us, %_Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit.sink.split.i.i.loopexit.us.us ], [ %.sroa.067.4.vec.insert.us, %_ZNK13gjkepa2_impl215b3MinkowskiDiff7SupportERK9b3Vector3jRK20b3AlignedObjectArrayIS1_ES7_.exit.us ], [ %.sroa.067.4.vec.insert.us100, %_Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit.sink.split.i.i.loopexit83.us ], [ %.sroa.067.4.vec.insert, %_ZNK13gjkepa2_impl215b3MinkowskiDiff7SupportERK9b3Vector3jRK20b3AlignedObjectArrayIS1_ES7_.exit ]
-  %.sroa.11.0.lcssa = phi <2 x float> [ zeroinitializer, %.preheader ], [ %.sroa.11.8.vec.insert.us.us, %_Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit.sink.split.i.i.loopexit.us.us ], [ %.sroa.11.8.vec.insert.us, %_ZNK13gjkepa2_impl215b3MinkowskiDiff7SupportERK9b3Vector3jRK20b3AlignedObjectArrayIS1_ES7_.exit.us ], [ %.sroa.11.8.vec.insert.us102, %_Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit.sink.split.i.i.loopexit83.us ], [ %.sroa.11.8.vec.insert, %_ZNK13gjkepa2_impl215b3MinkowskiDiff7SupportERK9b3Vector3jRK20b3AlignedObjectArrayIS1_ES7_.exit ]
+  %.sroa.067.0.lcssa = phi <2 x float> [ zeroinitializer, %.preheader ], [ %.sroa.067.4.vec.insert.us100, %_Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit.sink.split.i.i.loopexit83.us ], [ %.sroa.067.4.vec.insert.us, %_ZNK13gjkepa2_impl215b3MinkowskiDiff7SupportERK9b3Vector3jRK20b3AlignedObjectArrayIS1_ES7_.exit.us ], [ %.sroa.067.4.vec.insert.us.us, %_Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit.sink.split.i.i.loopexit.us.us ], [ %.sroa.067.4.vec.insert, %_ZNK13gjkepa2_impl215b3MinkowskiDiff7SupportERK9b3Vector3jRK20b3AlignedObjectArrayIS1_ES7_.exit ]
+  %.sroa.11.0.lcssa = phi <2 x float> [ zeroinitializer, %.preheader ], [ %.sroa.11.8.vec.insert.us102, %_Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit.sink.split.i.i.loopexit83.us ], [ %.sroa.11.8.vec.insert.us, %_ZNK13gjkepa2_impl215b3MinkowskiDiff7SupportERK9b3Vector3jRK20b3AlignedObjectArrayIS1_ES7_.exit.us ], [ %.sroa.11.8.vec.insert.us.us, %_Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit.sink.split.i.i.loopexit.us.us ], [ %.sroa.11.8.vec.insert, %_ZNK13gjkepa2_impl215b3MinkowskiDiff7SupportERK9b3Vector3jRK20b3AlignedObjectArrayIS1_ES7_.exit ]
   store i32 1, ptr %7, align 16, !tbaa !44
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2534,14 +2534,14 @@ _ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit105: ; preds = %_ZN
   br i1 %exitcond.not, label %.loopexit269, label %165, !llvm.loop !88
 
 .loopexit269:                                     ; preds = %.loopexit, %313, %.thread
-  %.sroa.0226.0294 = phi float [ %.sroa.0226.0300, %313 ], [ %.sroa.0226.0300, %.thread ], [ %.sroa.0226.0.copyload227, %.loopexit ]
-  %.sroa.6.0291 = phi float [ %.sroa.6.0301, %313 ], [ %.sroa.6.0301, %.thread ], [ %.sroa.6.0.copyload229, %.loopexit ]
-  %.sroa.7.0288 = phi float [ %.sroa.7.0302, %313 ], [ %.sroa.7.0302, %.thread ], [ %.sroa.7.0.copyload231, %.loopexit ]
-  %.sroa.8.0285 = phi float [ %.sroa.8.0303, %313 ], [ %.sroa.8.0303, %.thread ], [ %.sroa.8.0.copyload233, %.loopexit ]
-  %.sroa.8235.0282 = phi float [ %.sroa.8235.0304, %313 ], [ %.sroa.8235.0304, %.thread ], [ %.sroa.8235.0.copyload236, %.loopexit ]
-  %.sroa.10239.0279 = phi ptr [ %.sroa.10239.0305, %313 ], [ %.sroa.10239.0305, %.thread ], [ %.sroa.10239.0.copyload240, %.loopexit ]
-  %.sroa.13.0276 = phi ptr [ %.sroa.13.0306, %313 ], [ %.sroa.13.0306, %.thread ], [ %.sroa.13.0.copyload243, %.loopexit ]
-  %.sroa.16.0273 = phi ptr [ %.sroa.16.0307, %313 ], [ %.sroa.16.0307, %.thread ], [ %.sroa.16.0.copyload246, %.loopexit ]
+  %.sroa.0226.0294 = phi float [ %.sroa.0226.0300, %.thread ], [ %.sroa.0226.0300, %313 ], [ %.sroa.0226.0.copyload227, %.loopexit ]
+  %.sroa.6.0291 = phi float [ %.sroa.6.0301, %.thread ], [ %.sroa.6.0301, %313 ], [ %.sroa.6.0.copyload229, %.loopexit ]
+  %.sroa.7.0288 = phi float [ %.sroa.7.0302, %.thread ], [ %.sroa.7.0302, %313 ], [ %.sroa.7.0.copyload231, %.loopexit ]
+  %.sroa.8.0285 = phi float [ %.sroa.8.0303, %.thread ], [ %.sroa.8.0303, %313 ], [ %.sroa.8.0.copyload233, %.loopexit ]
+  %.sroa.8235.0282 = phi float [ %.sroa.8235.0304, %.thread ], [ %.sroa.8235.0304, %313 ], [ %.sroa.8235.0.copyload236, %.loopexit ]
+  %.sroa.10239.0279 = phi ptr [ %.sroa.10239.0305, %.thread ], [ %.sroa.10239.0305, %313 ], [ %.sroa.10239.0.copyload240, %.loopexit ]
+  %.sroa.13.0276 = phi ptr [ %.sroa.13.0306, %.thread ], [ %.sroa.13.0306, %313 ], [ %.sroa.13.0.copyload243, %.loopexit ]
+  %.sroa.16.0273 = phi ptr [ %.sroa.16.0307, %.thread ], [ %.sroa.16.0307, %313 ], [ %.sroa.16.0.copyload246, %.loopexit ]
   %314 = fmul float %.sroa.0226.0294, %.sroa.8235.0282
   %315 = fmul float %.sroa.6.0291, %.sroa.8235.0282
   %316 = fmul float %.sroa.7.0288, %.sroa.8235.0282
@@ -4229,7 +4229,7 @@ _ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit164: ; p
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.thread, label %235, !llvm.loop !94
 
-432:                                              ; preds = %_ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit116, %_ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit164
+432:                                              ; preds = %_ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit164, %_ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit116
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %711
 
@@ -5057,7 +5057,7 @@ _ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit: ; preds = %_ZN13g
   br label %.critedge
 
 .critedge:                                        ; preds = %60, %73, %32, %6, %_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit, %56
-  %.4 = phi i1 [ true, %56 ], [ true, %_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit ], [ false, %6 ], [ false, %32 ], [ false, %73 ], [ false, %60 ]
+  %.4 = phi i1 [ true, %_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit ], [ true, %56 ], [ false, %6 ], [ false, %32 ], [ false, %73 ], [ false, %60 ]
   ret i1 %.4
 }
 

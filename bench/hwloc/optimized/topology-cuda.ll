@@ -204,8 +204,8 @@ switch.lookup91:                                  ; preds = %72
   %switch.load93 = load i32, ptr %switch.gep92, align 4
   br label %hwloc_cuda_cores_per_MP.exit.thread
 
-hwloc_cuda_cores_per_MP.exit.thread:              ; preds = %switch.lookup91, %switch.lookup, %68, %hwloc_cuda_cores_per_MP.exit.thread.fold.split, %52, %67, %69
-  %.0.i59 = phi i32 [ 192, %52 ], [ 8, %67 ], [ 128, %69 ], [ 32, %68 ], [ 48, %hwloc_cuda_cores_per_MP.exit.thread.fold.split ], [ %switch.load, %switch.lookup ], [ %switch.load93, %switch.lookup91 ]
+hwloc_cuda_cores_per_MP.exit.thread:              ; preds = %switch.lookup91, %switch.lookup, %68, %hwloc_cuda_cores_per_MP.exit.thread.fold.split, %52, %69, %67
+  %.0.i59 = phi i32 [ 32, %68 ], [ %switch.load93, %switch.lookup91 ], [ %switch.load, %switch.lookup ], [ 48, %hwloc_cuda_cores_per_MP.exit.thread.fold.split ], [ 192, %52 ], [ 128, %69 ], [ 8, %67 ]
   %76 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 32, ptr noundef nonnull @.str.13, i32 noundef %.0.i59) #8
   %77 = call i32 @hwloc_modify_infos(ptr noundef nonnull %44, i64 noundef 1, ptr noundef nonnull @.str.14, ptr noundef nonnull %7) #8
   br label %hwloc_cuda_cores_per_MP.exit.thread60
@@ -256,7 +256,7 @@ hwloc_cuda_cores_per_MP.exit.thread60:            ; preds = %72, %70, %68, %67, 
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge, %27, %30, %14, %2
-  %.0 = phi i32 [ 0, %2 ], [ -1, %14 ], [ -1, %30 ], [ -1, %27 ], [ 0, %._crit_edge ], [ 0, %.preheader ]
+  %.0 = phi i32 [ -1, %27 ], [ 0, %2 ], [ -1, %14 ], [ -1, %30 ], [ 0, %._crit_edge ], [ 0, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0

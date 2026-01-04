@@ -1158,7 +1158,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77: ; preds = %88,
   br label %93
 
 93:                                               ; preds = %.loopexit, %.loopexit.split-lp, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51
-  %.pn33.pn = phi { ptr, i32 } [ %.pn29, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51 ], [ %.pn31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn33.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51 ], [ %.pn29, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77 ], [ %.pn31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %94 = load ptr, ptr %0, align 8, !tbaa !105
   %95 = icmp eq ptr %94, %6
   br i1 %95, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit80, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78
@@ -1332,18 +1332,18 @@ _ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit.thread188: ; preds = %50, %41, %_ZN10
   %spec.select = or i1 %.091217, %not.
   br label %78
 
-78:                                               ; preds = %69, %39, %34, %32, %75, %.thread
-  %.198.ph = phi i1 [ %.097216, %.thread ], [ %.097216, %75 ], [ %.097216, %32 ], [ %.097216, %34 ], [ true, %39 ], [ %.097216, %69 ]
-  %.192.ph = phi i1 [ %.091217, %.thread ], [ %spec.select, %75 ], [ %.091217, %32 ], [ %.091217, %34 ], [ %.091217, %39 ], [ %.091217, %69 ]
-  %.288.ph = phi i32 [ %74, %.thread ], [ %.086218, %75 ], [ %.086218, %32 ], [ %.086218, %34 ], [ %.086218, %39 ], [ %.086218, %69 ]
-  %.282.ph = phi i32 [ %.5, %.thread ], [ %.5, %75 ], [ %.080219, %32 ], [ %.080219, %34 ], [ %40, %39 ], [ %.5, %69 ]
+78:                                               ; preds = %69, %32, %39, %34, %75, %.thread
+  %.198.ph = phi i1 [ %.097216, %.thread ], [ %.097216, %75 ], [ %.097216, %69 ], [ %.097216, %34 ], [ true, %39 ], [ %.097216, %32 ]
+  %.192.ph = phi i1 [ %.091217, %.thread ], [ %spec.select, %75 ], [ %.091217, %69 ], [ %.091217, %34 ], [ %.091217, %39 ], [ %.091217, %32 ]
+  %.288.ph = phi i32 [ %74, %.thread ], [ %.086218, %75 ], [ %.086218, %69 ], [ %.086218, %34 ], [ %.086218, %39 ], [ %.086218, %32 ]
+  %.282.ph = phi i32 [ %.5, %.thread ], [ %.5, %75 ], [ %.5, %69 ], [ %.080219, %34 ], [ %40, %39 ], [ %.080219, %32 ]
   %79 = getelementptr inbounds nuw i8, ptr %.0101215, i64 4
   %.not = icmp eq ptr %79, %18
   br i1 %.not, label %._crit_edge, label %28, !llvm.loop !119
 
 ._crit_edge:                                      ; preds = %28, %78
-  %.086.lcssa = phi i32 [ %.086218, %28 ], [ %.288.ph, %78 ]
-  %.080.lcssa = phi i32 [ %.080219, %28 ], [ %.282.ph, %78 ]
+  %.086.lcssa = phi i32 [ %.288.ph, %78 ], [ %.086218, %28 ]
+  %.080.lcssa = phi i32 [ %.282.ph, %78 ], [ %.080219, %28 ]
   %.086.lcssa.fr = freeze i32 %.086.lcssa
   %80 = icmp sgt i32 %.080.lcssa, 0
   br i1 %80, label %81, label %87
@@ -1366,9 +1366,9 @@ _ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit.thread188: ; preds = %50, %41, %_ZN10
   br label %91
 
 91:                                               ; preds = %87, %.thread263
-  %.6269 = phi i32 [ 0, %.thread263 ], [ %.6, %87 ]
-  %.086.lcssa262267 = phi i32 [ 0, %.thread263 ], [ %90, %87 ]
-  %92 = phi i32 [ %19, %.thread263 ], [ %spec.select285, %87 ]
+  %.6269 = phi i32 [ %.6, %87 ], [ 0, %.thread263 ]
+  %.086.lcssa262267 = phi i32 [ %90, %87 ], [ 0, %.thread263 ]
+  %92 = phi i32 [ %spec.select285, %87 ], [ %19, %.thread263 ]
   %93 = or i32 %.6269, %92
   %or.cond4 = icmp eq i32 %93, 0
   br i1 %or.cond4, label %_ZN10duckdb_re28PODArrayIiED2Ev.exit, label %94
@@ -1539,8 +1539,8 @@ _ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   br i1 %.not.i21.i.i.i, label %_ZSt4sortIPiEvT_S1_.exit, label %.lr.ph.i15.i.i.i, !llvm.loop !122
 
 _ZSt4sortIPiEvT_S1_.exit:                         ; preds = %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i.i.i, %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i, %132, %_ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i, %.critedge
-  %.not127281 = phi i1 [ %.not127, %132 ], [ %.not127, %_ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i ], [ true, %.critedge ], [ %.not127, %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i ], [ %.not127, %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i.i.i ]
-  %.095.ptr.lcssa276 = phi ptr [ %.095.ptr.lcssa275, %132 ], [ %.095.ptr.lcssa275, %_ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i ], [ %.095.ptr225.le, %.critedge ], [ %.095.ptr.lcssa275, %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i ], [ %.095.ptr.lcssa275, %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i.i.i ]
+  %.not127281 = phi i1 [ %.not127, %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i ], [ true, %.critedge ], [ %.not127, %132 ], [ %.not127, %_ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i ], [ %.not127, %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i.i.i ]
+  %.095.ptr.lcssa276 = phi ptr [ %.095.ptr.lcssa275, %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i ], [ %.095.ptr225.le, %.critedge ], [ %.095.ptr.lcssa275, %132 ], [ %.095.ptr.lcssa275, %_ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i ], [ %.095.ptr.lcssa275, %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i.i.i ]
   %spec.select133.idx = select i1 %.not127281, i64 4, i64 0
   %spec.select133 = getelementptr inbounds nuw i8, ptr %.095.ptr.lcssa276, i64 %spec.select133.idx
   %149 = icmp ult ptr %spec.select133, %100
@@ -1755,12 +1755,12 @@ _ZSt4sortIPiEvT_S1_.exit173:                      ; preds = %_ZSt25__unguarded_l
   br label %_ZN10duckdb_re28PODArrayIiED2Ev.exit176
 
 _ZN10duckdb_re28PODArrayIiED2Ev.exit:             ; preds = %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit.thread, %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit, %.loopexit, %91
-  %.4 = phi ptr [ inttoptr (i64 1 to ptr), %91 ], [ %228, %.loopexit ], [ inttoptr (i64 2 to ptr), %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit ], [ inttoptr (i64 2 to ptr), %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit.thread ]
+  %.4 = phi ptr [ %228, %.loopexit ], [ inttoptr (i64 1 to ptr), %91 ], [ inttoptr (i64 2 to ptr), %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit ], [ inttoptr (i64 2 to ptr), %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit.thread ]
   tail call void @_ZdlPv(ptr noundef nonnull %13) #22
   ret ptr %.4
 
 _ZN10duckdb_re28PODArrayIiED2Ev.exit176:          ; preds = %229, %198, %150
-  %.pn128 = phi { ptr, i32 } [ %151, %150 ], [ %230, %229 ], [ %199, %198 ]
+  %.pn128 = phi { ptr, i32 } [ %151, %150 ], [ %199, %198 ], [ %230, %229 ]
   tail call void @_ZdlPv(ptr noundef nonnull %13) #22
   resume { ptr, i32 } %.pn128
 }
@@ -1986,7 +1986,7 @@ define hidden void @_ZN10duckdb_re23DFA10AddToQueueEPNS0_5WorkqEij(ptr noundef n
 
 .outer:                                           ; preds = %.outer.backedge, %24
   %.142.ph = phi i32 [ %25, %24 ], [ %.142.ph.be, %.outer.backedge ]
-  %.040.ph = phi i32 [ %28, %24 ], [ %111, %.outer.backedge ]
+  %.040.ph = phi i32 [ %28, %24 ], [ %127, %.outer.backedge ]
   %29 = load ptr, ptr %0, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 120
   br label %.backedge70
@@ -2029,8 +2029,8 @@ define hidden void @_ZN10duckdb_re23DFA10AddToQueueEPNS0_5WorkqEij(ptr noundef n
   store i32 %47, ptr %1, align 8, !tbaa !81
   br label %.backedge
 
-.backedge:                                        ; preds = %122, %select.unfold, %.backedge70, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit, %_ZN10LogMessageD2Ev.exit, %39, %34, %31
-  %.041.be = phi i32 [ %.142.ph, %31 ], [ %.142.ph, %34 ], [ %.142.ph, %39 ], [ %.142.ph, %_ZN10LogMessageD2Ev.exit ], [ %.142.ph, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit ], [ %.142.ph, %.backedge70 ], [ %.142.ph, %select.unfold ], [ %.6, %122 ]
+.backedge:                                        ; preds = %121, %select.unfold, %.backedge70, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit, %_ZN10LogMessageD2Ev.exit, %39, %34, %31
+  %.041.be = phi i32 [ %.142.ph, %31 ], [ %.142.ph, %34 ], [ %.142.ph, %39 ], [ %.142.ph, %_ZN10LogMessageD2Ev.exit ], [ %.142.ph, %select.unfold ], [ %.142.ph, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit ], [ %.142.ph, %.backedge70 ], [ %.6, %121 ]
   %48 = icmp sgt i32 %.041.be, 0
   br i1 %48, label %24, label %130, !llvm.loop !133
 
@@ -2085,8 +2085,8 @@ _ZN10duckdb_re23DFA5Workq10insert_newEi.exit:     ; preds = %63, %.thread52
     i32 5, label %select.unfold
     i32 3, label %85
     i32 6, label %85
-    i32 1, label %112
-    i32 4, label %114
+    i32 1, label %111
+    i32 4, label %113
   ]
 
 72:                                               ; preds = %_ZN10duckdb_re23DFA5Workq10insert_newEi.exit
@@ -2178,41 +2178,41 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %78, %_ZNKSt7__cxx11
   %.pre61 = load i32, ptr %86, align 4, !tbaa !114
   br label %.outer.backedge
 
-.outer.backedge:                                  ; preds = %93, %97, %100, %104, %107, %126
-  %.sink = phi i32 [ %127, %126 ], [ %.pre61, %107 ], [ %94, %104 ], [ %94, %100 ], [ %94, %97 ], [ %94, %93 ]
-  %.142.ph.be = phi i32 [ %.6, %126 ], [ %108, %107 ], [ %.4, %104 ], [ %.4, %100 ], [ %.4, %97 ], [ %.4, %93 ]
-  %111 = lshr i32 %.sink, 4
-  br label %.outer
-
-112:                                              ; preds = %_ZN10duckdb_re23DFA5Workq10insert_newEi.exit
-  %113 = add nuw nsw i32 %.040, 1
+111:                                              ; preds = %_ZN10duckdb_re23DFA5Workq10insert_newEi.exit
+  %112 = add nuw nsw i32 %.040, 1
   br label %.backedge70.backedge
 
-114:                                              ; preds = %_ZN10duckdb_re23DFA5Workq10insert_newEi.exit
-  %115 = getelementptr inbounds nuw %"class.duckdb_re2::Prog::Inst", ptr %68, i64 %.pre-phi
-  %116 = and i32 %70, 8
-  %.not = icmp eq i32 %116, 0
-  br i1 %.not, label %117, label %122
+113:                                              ; preds = %_ZN10duckdb_re23DFA5Workq10insert_newEi.exit
+  %114 = getelementptr inbounds nuw %"class.duckdb_re2::Prog::Inst", ptr %68, i64 %.pre-phi
+  %115 = and i32 %70, 8
+  %.not = icmp eq i32 %115, 0
+  br i1 %.not, label %116, label %121
 
-117:                                              ; preds = %114
-  %118 = add nuw nsw i32 %.040, 1
-  %119 = add nsw i32 %.142.ph, 1
-  %120 = sext i32 %.142.ph to i64
-  %121 = getelementptr inbounds i32, ptr %7, i64 %120
-  store i32 %118, ptr %121, align 4, !tbaa !77
-  br label %122
+116:                                              ; preds = %113
+  %117 = add nuw nsw i32 %.040, 1
+  %118 = add nsw i32 %.142.ph, 1
+  %119 = sext i32 %.142.ph to i64
+  %120 = getelementptr inbounds i32, ptr %7, i64 %119
+  store i32 %117, ptr %120, align 4, !tbaa !77
+  br label %121
 
-122:                                              ; preds = %117, %114
-  %.6 = phi i32 [ %.142.ph, %114 ], [ %119, %117 ]
-  %123 = getelementptr inbounds nuw i8, ptr %115, i64 4
-  %124 = load i32, ptr %123, align 4, !tbaa !104
-  %125 = and i32 %124, %12
-  %.not43 = icmp eq i32 %125, 0
-  br i1 %.not43, label %126, label %.backedge
+121:                                              ; preds = %116, %113
+  %.6 = phi i32 [ %.142.ph, %113 ], [ %118, %116 ]
+  %122 = getelementptr inbounds nuw i8, ptr %114, i64 4
+  %123 = load i32, ptr %122, align 4, !tbaa !104
+  %124 = and i32 %123, %12
+  %.not43 = icmp eq i32 %124, 0
+  br i1 %.not43, label %125, label %.backedge
 
-126:                                              ; preds = %122
-  %127 = load i32, ptr %115, align 4, !tbaa !114
+125:                                              ; preds = %121
+  %126 = load i32, ptr %114, align 4, !tbaa !114
   br label %.outer.backedge
+
+.outer.backedge:                                  ; preds = %93, %97, %100, %104, %107, %125
+  %.sink = phi i32 [ %126, %125 ], [ %.pre61, %107 ], [ %94, %104 ], [ %94, %100 ], [ %94, %97 ], [ %94, %93 ]
+  %.142.ph.be = phi i32 [ %.6, %125 ], [ %108, %107 ], [ %.4, %104 ], [ %.4, %100 ], [ %.4, %97 ], [ %.4, %93 ]
+  %127 = lshr i32 %.sink, 4
+  br label %.outer
 
 select.unfold:                                    ; preds = %_ZN10duckdb_re23DFA5Workq10insert_newEi.exit, %_ZN10duckdb_re23DFA5Workq10insert_newEi.exit
   %128 = and i32 %70, 8
@@ -2222,8 +2222,8 @@ select.unfold:                                    ; preds = %_ZN10duckdb_re23DFA
   %.not91 = icmp eq i32 %128, 0
   br i1 %.not91, label %.backedge70.backedge, label %.backedge
 
-.backedge70.backedge:                             ; preds = %select.unfold, %112
-  %.040.be = phi i32 [ %spec.select53, %select.unfold ], [ %113, %112 ]
+.backedge70.backedge:                             ; preds = %select.unfold, %111
+  %.040.be = phi i32 [ %112, %111 ], [ %spec.select53, %select.unfold ]
   br label %.backedge70
 
 130:                                              ; preds = %.backedge
@@ -2505,7 +2505,7 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %69, %_ZNKSt7__cxx11
   br i1 %112, label %.critedge, label %_ZN10duckdb_re23DFA5Workq4markEv.exit
 
 _ZN10duckdb_re23DFA5Workq4markEv.exit:            ; preds = %56, %56, %56, %56, %56, %47, %42, %39, %111, %106, %93, %100, %76, %_ZN10LogMessageD2Ev.exit
-  %.1 = phi ptr [ %.042, %_ZN10LogMessageD2Ev.exit ], [ %.042, %56 ], [ %.042, %56 ], [ %.042, %56 ], [ %.042, %56 ], [ %.042, %56 ], [ %96, %93 ], [ %105, %100 ], [ %.042, %76 ], [ %.042, %106 ], [ %.042, %111 ], [ %.042, %39 ], [ %.042, %42 ], [ %.042, %47 ]
+  %.1 = phi ptr [ %.042, %111 ], [ %.042, %106 ], [ %.042, %_ZN10LogMessageD2Ev.exit ], [ %.042, %56 ], [ %.042, %56 ], [ %.042, %56 ], [ %.042, %56 ], [ %.042, %56 ], [ %96, %93 ], [ %105, %100 ], [ %.042, %76 ], [ %.042, %39 ], [ %.042, %42 ], [ %.042, %47 ]
   %113 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   %114 = load ptr, ptr %11, align 8, !tbaa !85
   %115 = load i32, ptr %1, align 8, !tbaa !81
@@ -2979,7 +2979,7 @@ _ZN10duckdb_re23DFA7ByteMapEi.exit73:             ; preds = %172, %175
   br label %184
 
 184:                                              ; preds = %_ZN10duckdb_re23DFA7ByteMapEi.exit73, %_ZN10duckdb_re23DFA7ByteMapEi.exit, %8, %_ZN10LogMessageD2Ev.exit70, %_ZN10LogMessageD2Ev.exit66, %_ZN10LogMessageD2Ev.exit
-  %.043 = phi ptr [ null, %_ZN10LogMessageD2Ev.exit ], [ null, %_ZN10LogMessageD2Ev.exit66 ], [ null, %_ZN10LogMessageD2Ev.exit70 ], [ inttoptr (i64 2 to ptr), %8 ], [ %169, %_ZN10duckdb_re23DFA7ByteMapEi.exit73 ], [ %.0.i.i, %_ZN10duckdb_re23DFA7ByteMapEi.exit ]
+  %.043 = phi ptr [ inttoptr (i64 2 to ptr), %8 ], [ null, %_ZN10LogMessageD2Ev.exit ], [ null, %_ZN10LogMessageD2Ev.exit66 ], [ null, %_ZN10LogMessageD2Ev.exit70 ], [ %169, %_ZN10duckdb_re23DFA7ByteMapEi.exit73 ], [ %.0.i.i, %_ZN10duckdb_re23DFA7ByteMapEi.exit ]
   ret ptr %.043
 
 185:                                              ; preds = %58, %41, %24
@@ -4260,7 +4260,7 @@ _ZN10duckdb_re210SparseSetTIvE6insertEi.exit235:  ; preds = %_ZNK10duckdb_re210S
   br label %.critedge191.thread
 
 .critedge191.thread:                              ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit204, %180, %178, %108, %296, %298, %.critedge196, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit224
-  %.4 = phi i1 [ %297, %296 ], [ true, %298 ], [ %341, %.critedge196 ], [ false, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit224 ], [ true, %180 ], [ %179, %178 ], [ false, %108 ], [ false, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit204 ]
+  %.4 = phi i1 [ false, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit224 ], [ %297, %296 ], [ true, %298 ], [ %341, %.critedge196 ], [ false, %108 ], [ true, %180 ], [ %179, %178 ], [ false, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit204 ]
   ret i1 %.4
 
 342:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit225, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit206
@@ -5050,7 +5050,7 @@ _ZN10duckdb_re210SparseSetTIvE6insertEi.exit250:  ; preds = %_ZNK10duckdb_re210S
   br label %.critedge203.thread
 
 .critedge203.thread:                              ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit219, %180, %178, %108, %298, %300, %.critedge208, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit239
-  %.4 = phi i1 [ %299, %298 ], [ true, %300 ], [ %343, %.critedge208 ], [ false, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit239 ], [ true, %180 ], [ %179, %178 ], [ false, %108 ], [ false, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit219 ]
+  %.4 = phi i1 [ false, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit239 ], [ %299, %298 ], [ true, %300 ], [ %343, %.critedge208 ], [ false, %108 ], [ true, %180 ], [ %179, %178 ], [ false, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit219 ]
   ret i1 %.4
 
 344:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit240, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit221
@@ -5820,7 +5820,7 @@ _ZN10duckdb_re210SparseSetTIvE6insertEi.exit235:  ; preds = %_ZNK10duckdb_re210S
   br label %.thread
 
 .thread:                                          ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit204, %.critedge191, %180, %179, %109, %297, %298, %.critedge196, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit224, %.critedge
-  %.0 = phi i1 [ true, %.critedge ], [ false, %297 ], [ true, %298 ], [ %.not260, %.critedge196 ], [ false, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit224 ], [ true, %.critedge191 ], [ true, %180 ], [ false, %179 ], [ false, %109 ], [ false, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit204 ]
+  %.0 = phi i1 [ true, %.critedge ], [ false, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit224 ], [ false, %297 ], [ true, %298 ], [ %.not260, %.critedge196 ], [ false, %109 ], [ true, %.critedge191 ], [ true, %180 ], [ false, %179 ], [ false, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit204 ]
   ret i1 %.0
 
 340:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit225, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit206
@@ -6594,7 +6594,7 @@ _ZN10duckdb_re210SparseSetTIvE6insertEi.exit250:  ; preds = %_ZNK10duckdb_re210S
   br label %.thread
 
 .thread:                                          ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit219, %.critedge203, %180, %179, %109, %299, %300, %.critedge208, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit239, %.critedge
-  %.0 = phi i1 [ true, %.critedge ], [ false, %299 ], [ true, %300 ], [ %.not264, %.critedge208 ], [ false, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit239 ], [ true, %.critedge203 ], [ true, %180 ], [ false, %179 ], [ false, %109 ], [ false, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit219 ]
+  %.0 = phi i1 [ true, %.critedge ], [ false, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit239 ], [ false, %299 ], [ true, %300 ], [ %.not264, %.critedge208 ], [ false, %109 ], [ true, %.critedge203 ], [ true, %180 ], [ false, %179 ], [ false, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit219 ]
   ret i1 %.0
 
 342:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit240, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit221
@@ -7423,7 +7423,7 @@ _ZN10duckdb_re210SparseSetTIvE6insertEi.exit240:  ; preds = %_ZNK10duckdb_re210S
   br label %.critedge194.thread
 
 .critedge194.thread:                              ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit208, %202, %200, %130, %318, %320, %.critedge199, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit229
-  %.4 = phi i1 [ %319, %318 ], [ true, %320 ], [ %363, %.critedge199 ], [ false, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit229 ], [ true, %202 ], [ %201, %200 ], [ false, %130 ], [ false, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit208 ]
+  %.4 = phi i1 [ false, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit229 ], [ %319, %318 ], [ true, %320 ], [ %363, %.critedge199 ], [ false, %130 ], [ true, %202 ], [ %201, %200 ], [ false, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit208 ]
   ret i1 %.4
 
 364:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit230, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit210
@@ -8257,7 +8257,7 @@ _ZN10duckdb_re210SparseSetTIvE6insertEi.exit261:  ; preds = %_ZNK10duckdb_re210S
   br label %.critedge212.thread
 
 .critedge212.thread:                              ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit229, %202, %200, %130, %320, %322, %.critedge217, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit250
-  %.4 = phi i1 [ %321, %320 ], [ true, %322 ], [ %365, %.critedge217 ], [ false, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit250 ], [ true, %202 ], [ %201, %200 ], [ false, %130 ], [ false, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit229 ]
+  %.4 = phi i1 [ false, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit250 ], [ %321, %320 ], [ true, %322 ], [ %365, %.critedge217 ], [ false, %130 ], [ true, %202 ], [ %201, %200 ], [ false, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit229 ]
   ret i1 %.4
 
 366:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit251, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit231
@@ -9068,7 +9068,7 @@ _ZN10duckdb_re210SparseSetTIvE6insertEi.exit240:  ; preds = %_ZNK10duckdb_re210S
   br label %.thread
 
 .thread:                                          ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit208, %.critedge194, %202, %201, %131, %319, %320, %.critedge199, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit229, %.critedge
-  %.0 = phi i1 [ true, %.critedge ], [ false, %319 ], [ true, %320 ], [ %.not269, %.critedge199 ], [ false, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit229 ], [ true, %.critedge194 ], [ true, %202 ], [ false, %201 ], [ false, %131 ], [ false, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit208 ]
+  %.0 = phi i1 [ true, %.critedge ], [ false, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit229 ], [ false, %319 ], [ true, %320 ], [ %.not269, %.critedge199 ], [ false, %131 ], [ true, %.critedge194 ], [ true, %202 ], [ false, %201 ], [ false, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit208 ]
   ret i1 %.0
 
 362:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit230, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit210
@@ -9883,7 +9883,7 @@ _ZN10duckdb_re210SparseSetTIvE6insertEi.exit261:  ; preds = %_ZNK10duckdb_re210S
   br label %.thread
 
 .thread:                                          ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit229, %.critedge212, %202, %201, %131, %321, %322, %.critedge217, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit250, %.critedge
-  %.0 = phi i1 [ true, %.critedge ], [ false, %321 ], [ true, %322 ], [ %.not275, %.critedge217 ], [ false, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit250 ], [ true, %.critedge212 ], [ true, %202 ], [ false, %201 ], [ false, %131 ], [ false, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit229 ]
+  %.0 = phi i1 [ true, %.critedge ], [ false, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit250 ], [ false, %321 ], [ true, %322 ], [ %.not275, %.critedge217 ], [ false, %131 ], [ true, %.critedge212 ], [ true, %202 ], [ false, %201 ], [ false, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit229 ]
   ret i1 %.0
 
 364:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit251, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit231
@@ -10029,8 +10029,8 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZStlsISt11char_tra
   br label %56
 
 56:                                               ; preds = %51, %48, %46, %41, %37, %35
-  %.037 = phi i64 [ 0, %35 ], [ 2, %37 ], [ %., %41 ], [ 0, %46 ], [ 2, %48 ], [ %.44, %51 ]
-  %.036 = phi i32 [ 5, %35 ], [ 1, %37 ], [ %.43, %41 ], [ 5, %46 ], [ 1, %48 ], [ %.45, %51 ]
+  %.037 = phi i64 [ 2, %48 ], [ 0, %35 ], [ %., %41 ], [ 2, %37 ], [ %.44, %51 ], [ 0, %46 ]
+  %.036 = phi i32 [ 1, %48 ], [ 5, %35 ], [ %.43, %41 ], [ 1, %37 ], [ %.45, %51 ], [ 5, %46 ]
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %58 = load i8, ptr %57, align 8, !tbaa !217, !range !117, !noundef !118
   %59 = zext nneg i8 %58 to i64
@@ -10123,7 +10123,7 @@ _ZN10LogMessageD2Ev.exit70:                       ; preds = %_ZStlsISt11char_tra
   br label %102
 
 102:                                              ; preds = %_ZN10LogMessageD2Ev.exit70, %100, %96, %92, %86, %_ZN10LogMessageD2Ev.exit
-  %.0 = phi i1 [ true, %_ZN10LogMessageD2Ev.exit ], [ false, %_ZN10LogMessageD2Ev.exit70 ], [ true, %100 ], [ true, %96 ], [ true, %92 ], [ true, %86 ]
+  %.0 = phi i1 [ true, %_ZN10LogMessageD2Ev.exit ], [ false, %_ZN10LogMessageD2Ev.exit70 ], [ true, %100 ], [ true, %96 ], [ true, %86 ], [ true, %92 ]
   ret i1 %.0
 
 103:                                              ; preds = %84, %29
@@ -10391,7 +10391,7 @@ _ZN10duckdb_re23DFA14FastSearchLoopEPNS0_12SearchParamsE.exit: ; preds = %49
   br label %69
 
 69:                                               ; preds = %64, %67, %42, %44, %39
-  %.1 = phi i1 [ true, %44 ], [ false, %39 ], [ false, %42 ], [ false, %64 ], [ %61, %67 ]
+  %.1 = phi i1 [ false, %39 ], [ true, %44 ], [ false, %42 ], [ false, %64 ], [ %61, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZN10duckdb_re23DFA8RWLockerD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %10) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -10637,7 +10637,7 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re24Prog9SearchDFAERKNS_11StringPi
   br label %37
 
 37:                                               ; preds = %35, %33
-  %38 = phi i1 [ true, %33 ], [ %spec.select, %35 ]
+  %38 = phi i1 [ %spec.select, %35 ], [ true, %33 ]
   switch i32 %4, label %39 [
     i32 3, label %41
     i32 2, label %40
@@ -10663,9 +10663,9 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re24Prog9SearchDFAERKNS_11StringPi
   br label %45
 
 45:                                               ; preds = %43, %41
-  %.03862 = phi i1 [ false, %41 ], [ %.038.ph, %43 ]
-  %.037 = phi i1 [ %42, %41 ], [ %not.or.cond, %43 ]
-  %.136 = phi i32 [ 3, %41 ], [ %spec.select47, %43 ]
+  %.03862 = phi i1 [ %.038.ph, %43 ], [ false, %41 ]
+  %.037 = phi i1 [ %not.or.cond, %43 ], [ %42, %41 ]
+  %.136 = phi i32 [ %spec.select47, %43 ], [ 3, %41 ]
   %46 = tail call noundef ptr @_ZN10duckdb_re24Prog6GetDFAENS0_9MatchKindE(ptr noundef nonnull align 8 dereferenceable(432) %0, i32 noundef %.136)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %47 = load i8, ptr %21, align 2, !tbaa !227, !range !117, !noundef !118
@@ -10909,8 +10909,8 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc68
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc68, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.0127.0 = phi ptr [ %65, %.noexc68 ], [ %65, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.0.i.i.i.i.i = phi ptr [ %66, %.noexc68 ], [ %69, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.0127.0 = phi ptr [ %65, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %65, %.noexc68 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.0.i.i.i.i.i = phi ptr [ %69, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %66, %.noexc68 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
   %70 = getelementptr inbounds nuw i8, ptr %56, i64 168
   br label %85
 
@@ -10991,7 +10991,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i71: ; preds = %.noexc76
   br label %85, !llvm.loop !239
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit77:             ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i71, %.noexc76, %.critedge.thread
-  %.sroa.0118.0 = phi ptr [ %73, %.noexc76 ], [ %73, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i71 ], [ null, %.critedge.thread ]
+  %.sroa.0118.0 = phi ptr [ %73, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i71 ], [ %73, %.noexc76 ], [ null, %.critedge.thread ]
   %104 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %105 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %106 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -11205,7 +11205,7 @@ _ZN10duckdb_re29MutexLockC2EPNS_5MutexE.exit.i:   ; preds = %.lr.ph
 ..loopexit_crit_edge21.i.i.i.i:                   ; preds = %181
   br label %.loopexit145, !llvm.loop !251
 
-.loopexit145:                                     ; preds = %.lr.ph.i.i.i.i, %.preheader, %167, %..loopexit_crit_edge21.i.i.i.i
+.loopexit145:                                     ; preds = %.lr.ph.i.i.i.i, %.preheader, %..loopexit_crit_edge21.i.i.i.i, %167
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %186 = trunc i64 %162 to i32
   store i32 %186, ptr %12, align 4, !tbaa !77
@@ -11242,7 +11242,7 @@ _ZNSt13unordered_mapIPN10duckdb_re23DFA5StateEiSt4hashIS3_ESt8equal_toIS3_ESaISt
   br label %.body
 
 _ZNSt13unordered_mapIPN10duckdb_re23DFA5StateEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEE4findERS9_.exit: ; preds = %178, %163, %._ZNSt13unordered_mapIPN10duckdb_re23DFA5StateEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEE4findERS9_.exit_crit_edge, %191, %173
-  %197 = phi ptr [ %.pre, %._ZNSt13unordered_mapIPN10duckdb_re23DFA5StateEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEE4findERS9_.exit_crit_edge ], [ %192, %191 ], [ %135, %173 ], [ %135, %163 ], [ %135, %178 ]
+  %197 = phi ptr [ %.pre, %._ZNSt13unordered_mapIPN10duckdb_re23DFA5StateEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEE4findERS9_.exit_crit_edge ], [ %135, %163 ], [ %135, %173 ], [ %192, %191 ], [ %135, %178 ]
   %198 = ptrtoint ptr %197 to i64
   %199 = load i64, ptr %39, align 8, !tbaa !230
   %200 = urem i64 %198, %199
@@ -11300,7 +11300,7 @@ _ZNSt10_HashtableIPN10duckdb_re23DFA5StateESt4pairIKS3_iESaIS6_ENSt8__detail10_S
   br label %.body
 
 .loopexit:                                        ; preds = %209, %.noexc93, %204
-  %.pn.i.i = phi ptr [ %205, %204 ], [ %220, %.noexc93 ], [ %211, %209 ]
+  %.pn.i.i = phi ptr [ %220, %.noexc93 ], [ %205, %204 ], [ %211, %209 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   %222 = load i32, ptr %.1.i.i, align 4, !tbaa !77
   %223 = icmp eq i32 %128, 256
@@ -11325,9 +11325,9 @@ _ZNSt10_HashtableIPN10duckdb_re23DFA5StateESt4pairIKS3_iESaIS6_ENSt8__detail10_S
   br label %.loopexit148
 
 _ZN10duckdb_re23DFA7ByteMapEi.exit:               ; preds = %225, %228, %152, %155
-  %.0.i.sink = phi i32 [ %154, %152 ], [ %160, %155 ], [ %227, %225 ], [ %233, %228 ]
-  %.sink = phi i32 [ -1, %152 ], [ -1, %155 ], [ %222, %225 ], [ %222, %228 ]
-  %235 = sext i32 %.0.i.sink to i64
+  %.0.i96.sink = phi i32 [ %160, %155 ], [ %154, %152 ], [ %227, %225 ], [ %233, %228 ]
+  %.sink = phi i32 [ -1, %155 ], [ -1, %152 ], [ %222, %225 ], [ %222, %228 ]
+  %235 = sext i32 %.0.i96.sink to i64
   %236 = getelementptr inbounds nuw i32, ptr %.sroa.0118.0, i64 %235
   store i32 %.sink, ptr %236, align 4, !tbaa !77
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -11336,7 +11336,7 @@ _ZN10duckdb_re23DFA7ByteMapEi.exit:               ; preds = %225, %228, %152, %1
   br i1 %.not.not, label %.loopexit148, label %.lr.ph
 
 .body:                                            ; preds = %.loopexit149, %.loopexit.split-lp, %146, %133, %_ZNSt10_HashtableIPN10duckdb_re23DFA5StateESt4pairIKS3_iESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i, %195
-  %.pn = phi { ptr, i32 } [ %196, %195 ], [ %134, %133 ], [ %147, %146 ], [ %221, %_ZNSt10_HashtableIPN10duckdb_re23DFA5StateESt4pairIKS3_iESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i ], [ %lpad.loopexit, %.loopexit149 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %221, %_ZNSt10_HashtableIPN10duckdb_re23DFA5StateESt4pairIKS3_iESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i ], [ %196, %195 ], [ %147, %146 ], [ %134, %133 ], [ %lpad.loopexit, %.loopexit149 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %253
 
@@ -11480,7 +11480,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %254, %253
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit111
 
 _ZNSt6vectorIiSaIiEED2Ev.exit111:                 ; preds = %83, %_ZNSt6vectorIiSaIiEED2Ev.exit, %279, %81, %79
-  %.pn59.pn.pn.pn = phi { ptr, i32 } [ %82, %81 ], [ %80, %79 ], [ %84, %83 ], [ %.pn59, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %.pn59.pn142, %279 ]
+  %.pn59.pn.pn.pn = phi { ptr, i32 } [ %80, %79 ], [ %82, %81 ], [ %84, %83 ], [ %.pn59, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %.pn59.pn142, %279 ]
   call void @_ZNSt5dequeIPN10duckdb_re23DFA5StateESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %9) #19
   br label %280
 
@@ -11787,7 +11787,7 @@ _ZNSt10_HashtableIPN10duckdb_re23DFA5StateESt4pairIKS3_iESaIS6_ENSt8__detail10_S
   br label %.body112
 
 .loopexit222:                                     ; preds = %71, %.noexc111, %66
-  %.pn.i.i = phi ptr [ %67, %66 ], [ %82, %.noexc111 ], [ %73, %71 ]
+  %.pn.i.i = phi ptr [ %82, %.noexc111 ], [ %67, %66 ], [ %73, %71 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   %84 = load i32, ptr %.1.i.i, align 4, !tbaa !77
   %85 = icmp sgt i32 %84, 0
@@ -11855,7 +11855,7 @@ _ZNSt10_HashtableIPN10duckdb_re23DFA5StateESt4pairIKS3_iESaIS6_ENSt8__detail10_S
   br label %.body112
 
 .loopexit221:                                     ; preds = %99, %.noexc124, %94
-  %.pn.i.i122 = phi ptr [ %95, %94 ], [ %110, %.noexc124 ], [ %101, %99 ]
+  %.pn.i.i122 = phi ptr [ %110, %.noexc124 ], [ %95, %94 ], [ %101, %99 ]
   %.1.i.i123 = getelementptr inbounds nuw i8, ptr %.pn.i.i122, i64 16
   %112 = load i32, ptr %.1.i.i123, align 4, !tbaa !77
   %113 = add nsw i32 %112, 1
@@ -12018,7 +12018,7 @@ _ZNSt10_HashtableIPN10duckdb_re23DFA5StateESt4pairIKS3_iESaIS6_ENSt8__detail10_S
   br label %.body112
 
 .loopexit213:                                     ; preds = %156, %.noexc139, %151
-  %.pn.i.i137 = phi ptr [ %152, %151 ], [ %167, %.noexc139 ], [ %158, %156 ]
+  %.pn.i.i137 = phi ptr [ %167, %.noexc139 ], [ %152, %151 ], [ %158, %156 ]
   %.1.i.i138 = getelementptr inbounds nuw i8, ptr %.pn.i.i137, i64 16
   %169 = load i32, ptr %.1.i.i138, align 4, !tbaa !77
   %170 = icmp sgt i32 %169, 0
@@ -12086,7 +12086,7 @@ _ZNSt10_HashtableIPN10duckdb_re23DFA5StateESt4pairIKS3_iESaIS6_ENSt8__detail10_S
   br label %.body112
 
 .loopexit212:                                     ; preds = %184, %.noexc153, %179
-  %.pn.i.i151 = phi ptr [ %180, %179 ], [ %195, %.noexc153 ], [ %186, %184 ]
+  %.pn.i.i151 = phi ptr [ %195, %.noexc153 ], [ %180, %179 ], [ %186, %184 ]
   %.1.i.i152 = getelementptr inbounds nuw i8, ptr %.pn.i.i151, i64 16
   %197 = load i32, ptr %.1.i.i152, align 4, !tbaa !77
   %198 = add nsw i32 %197, 1
@@ -12131,7 +12131,7 @@ _ZNSt10_HashtableIPN10duckdb_re23DFA5StateESt4pairIKS3_iESaIS6_ENSt8__detail10_S
   %211 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %210, i64 noundef 0, i64 noundef 1, i8 noundef signext %209)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc.exit158 unwind label %.loopexit.split-lp
 
-212:                                              ; preds = %204, %202
+212:                                              ; preds = %202, %204
   %213 = add nsw i32 %.054251, -1
   %.not302 = icmp eq i32 %.054251, 0
   br i1 %.not302, label %.loopexit214, label %199, !llvm.loop !266
@@ -12156,7 +12156,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc.exit158: ; preds
   br label %.body112
 
 .loopexit214:                                     ; preds = %115, %124, %212, %201, %215
-  %.6 = phi i1 [ %217, %215 ], [ false, %201 ], [ true, %212 ], [ false, %124 ], [ false, %115 ]
+  %.6 = phi i1 [ %217, %215 ], [ false, %124 ], [ false, %201 ], [ true, %212 ], [ false, %115 ]
   %220 = load ptr, ptr %8, align 8, !tbaa !150
   %221 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %220) #19
   %.not.i.i159 = icmp eq i32 %221, 0
@@ -12196,7 +12196,7 @@ _ZN10duckdb_re29MutexLockD2Ev.exit:               ; preds = %.loopexit214
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit106
 
 .body112:                                         ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit215, %.loopexit.split-lp216, %_ZNSt10_HashtableIPN10duckdb_re23DFA5StateESt4pairIKS3_iESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i136, %_ZNSt10_HashtableIPN10duckdb_re23DFA5StateESt4pairIKS3_iESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i150, %171, %_ZNSt10_HashtableIPN10duckdb_re23DFA5StateESt4pairIKS3_iESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i, %_ZNSt10_HashtableIPN10duckdb_re23DFA5StateESt4pairIKS3_iESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i121, %86, %116, %218
-  %.pn92 = phi { ptr, i32 } [ %219, %218 ], [ %117, %116 ], [ %83, %_ZNSt10_HashtableIPN10duckdb_re23DFA5StateESt4pairIKS3_iESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i ], [ %87, %86 ], [ %111, %_ZNSt10_HashtableIPN10duckdb_re23DFA5StateESt4pairIKS3_iESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i121 ], [ %168, %_ZNSt10_HashtableIPN10duckdb_re23DFA5StateESt4pairIKS3_iESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i136 ], [ %172, %171 ], [ %196, %_ZNSt10_HashtableIPN10duckdb_re23DFA5StateESt4pairIKS3_iESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i150 ], [ %lpad.loopexit217, %.loopexit215 ], [ %lpad.loopexit.split-lp218, %.loopexit.split-lp216 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn92 = phi { ptr, i32 } [ %219, %218 ], [ %117, %116 ], [ %111, %_ZNSt10_HashtableIPN10duckdb_re23DFA5StateESt4pairIKS3_iESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i121 ], [ %196, %_ZNSt10_HashtableIPN10duckdb_re23DFA5StateESt4pairIKS3_iESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i150 ], [ %lpad.loopexit.split-lp218, %.loopexit.split-lp216 ], [ %83, %_ZNSt10_HashtableIPN10duckdb_re23DFA5StateESt4pairIKS3_iESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i ], [ %87, %86 ], [ %168, %_ZNSt10_HashtableIPN10duckdb_re23DFA5StateESt4pairIKS3_iESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i136 ], [ %172, %171 ], [ %lpad.loopexit217, %.loopexit215 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN10duckdb_re29MutexLockD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #19
   br label %.body109
 
@@ -12206,7 +12206,7 @@ _ZN10duckdb_re29MutexLockD2Ev.exit:               ; preds = %.loopexit214
   br label %238
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit106: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit, %38, %33, %_ZN10duckdb_re29MutexLockD2Ev.exit
-  %.1 = phi i1 [ %.6, %_ZN10duckdb_re29MutexLockD2Ev.exit ], [ false, %33 ], [ false, %38 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit ]
+  %.1 = phi i1 [ false, %33 ], [ false, %38 ], [ %.6, %_ZN10duckdb_re29MutexLockD2Ev.exit ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN10duckdb_re23DFA8RWLockerD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %6) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -12770,7 +12770,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter_le
   br i1 %42, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.us, !llvm.loop !271
 
 _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %40, %.split.us, %._crit_edge.i.us
-  %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.013.us, %.split.us ], [ %.018.i.i.us, %40 ], [ %.01317.i.i.us, %.lr.ph.i.i.us ]
+  %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.013.us, %.split.us ], [ %.01317.i.i.us, %.lr.ph.i.i.us ], [ %.018.i.i.us, %40 ]
   %43 = getelementptr inbounds nuw i32, ptr %0, i64 %.013.lcssa.i.i.us
   store i32 %21, ptr %43, align 4, !tbaa !77
   %.not.us = icmp eq i64 %.013.us, 0
@@ -13064,7 +13064,7 @@ _ZNKSt8__detail15_Hash_code_baseIPN10duckdb_re23DFA5StateES4_NS_9_IdentityENS2_9
   br i1 %.not19.i.i13, label %.split, label %_ZNKSt10_HashtableIPN10duckdb_re23DFA5StateES3_SaIS3_ENSt8__detail9_IdentityENS1_10StateEqualENS1_9StateHashENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_find_nodeEmRKS3_m.exit, !llvm.loop !283
 
 _ZNKSt10_HashtableIPN10duckdb_re23DFA5StateES3_SaIS3_ENSt8__detail9_IdentityENS1_10StateEqualENS1_9StateHashENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_find_nodeEmRKS3_m.exit: ; preds = %84, %.loopexit.i.i, %103, %96, %77, %.loopexit.i.i.us, %66, %73, %_ZNKSt8__detail15_Hashtable_baseIPN10duckdb_re23DFA5StateES4_NS_9_IdentityENS2_10StateEqualENS2_9StateHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS4_RKNS_16_Hash_node_valueIS4_Lb1EEE.exit, %10, %.preheader.i.i, %25, %5, %_ZNKSt8__detail15_Hash_code_baseIPN10duckdb_re23DFA5StateES4_NS_9_IdentityENS2_9StateHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERKS4_.exit
-  %.sroa.014.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseIPN10duckdb_re23DFA5StateES4_NS_9_IdentityENS2_9StateHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERKS4_.exit ], [ null, %5 ], [ %.sroa.014.029, %25 ], [ null, %_ZNKSt8__detail15_Hashtable_baseIPN10duckdb_re23DFA5StateES4_NS_9_IdentityENS2_10StateEqualENS2_9StateHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS4_RKNS_16_Hash_node_valueIS4_Lb1EEE.exit ], [ %.sroa.014.029, %10 ], [ %.sroa.014.029, %.preheader.i.i ], [ %64, %73 ], [ null, %.loopexit.i.i.us ], [ null, %77 ], [ %64, %66 ], [ %82, %96 ], [ %82, %84 ], [ null, %103 ], [ null, %.loopexit.i.i ]
+  %.sroa.014.1 = phi ptr [ %64, %66 ], [ null, %5 ], [ %82, %96 ], [ null, %_ZNKSt8__detail15_Hash_code_baseIPN10duckdb_re23DFA5StateES4_NS_9_IdentityENS2_9StateHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERKS4_.exit ], [ %.sroa.014.029, %25 ], [ %.sroa.014.029, %.preheader.i.i ], [ %.sroa.014.029, %10 ], [ null, %_ZNKSt8__detail15_Hashtable_baseIPN10duckdb_re23DFA5StateES4_NS_9_IdentityENS2_10StateEqualENS2_9StateHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS4_RKNS_16_Hash_node_valueIS4_Lb1EEE.exit ], [ %64, %73 ], [ null, %77 ], [ null, %.loopexit.i.i.us ], [ null, %.loopexit.i.i ], [ null, %103 ], [ %82, %84 ]
   ret ptr %.sroa.014.1
 }
 
@@ -13309,8 +13309,8 @@ _ZNSt10_HashtableIPN10duckdb_re23DFA5StateES3_SaIS3_ENSt8__detail9_IdentityENS1_
   resume { ptr, i32 } %111
 
 _ZNKSt10_HashtableIPN10duckdb_re23DFA5StateES3_SaIS3_ENSt8__detail9_IdentityENS1_10StateEqualENS1_9StateHashENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS3_EEPNS5_10_Hash_nodeIS3_Lb1EEEmRKT_m.exit.thread46: ; preds = %11, %.preheader.i.i, %26, %85, %67, %74, %.critedge, %_ZNKSt10_HashtableIPN10duckdb_re23DFA5StateES3_SaIS3_ENSt8__detail9_IdentityENS1_10StateEqualENS1_9StateHashENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS3_EEPNS5_10_Hash_nodeIS3_Lb1EEEmRKT_m.exit
-  %.sroa.039.1 = phi ptr [ %83, %_ZNKSt10_HashtableIPN10duckdb_re23DFA5StateES3_SaIS3_ENSt8__detail9_IdentityENS1_10StateEqualENS1_9StateHashENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS3_EEPNS5_10_Hash_nodeIS3_Lb1EEEmRKT_m.exit ], [ %110, %.critedge ], [ %65, %74 ], [ %65, %67 ], [ %83, %85 ], [ %.sroa.036.059, %26 ], [ %.sroa.036.059, %.preheader.i.i ], [ %.sroa.036.059, %11 ]
-  %.sroa.440.1 = phi i8 [ 0, %_ZNKSt10_HashtableIPN10duckdb_re23DFA5StateES3_SaIS3_ENSt8__detail9_IdentityENS1_10StateEqualENS1_9StateHashENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS3_EEPNS5_10_Hash_nodeIS3_Lb1EEEmRKT_m.exit ], [ 1, %.critedge ], [ 0, %74 ], [ 0, %67 ], [ 0, %85 ], [ 0, %26 ], [ 0, %.preheader.i.i ], [ 0, %11 ]
+  %.sroa.039.1 = phi ptr [ %83, %_ZNKSt10_HashtableIPN10duckdb_re23DFA5StateES3_SaIS3_ENSt8__detail9_IdentityENS1_10StateEqualENS1_9StateHashENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS3_EEPNS5_10_Hash_nodeIS3_Lb1EEEmRKT_m.exit ], [ %110, %.critedge ], [ %65, %67 ], [ %.sroa.036.059, %26 ], [ %83, %85 ], [ %65, %74 ], [ %.sroa.036.059, %.preheader.i.i ], [ %.sroa.036.059, %11 ]
+  %.sroa.440.1 = phi i8 [ 0, %_ZNKSt10_HashtableIPN10duckdb_re23DFA5StateES3_SaIS3_ENSt8__detail9_IdentityENS1_10StateEqualENS1_9StateHashENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS3_EEPNS5_10_Hash_nodeIS3_Lb1EEEmRKT_m.exit ], [ 1, %.critedge ], [ 0, %67 ], [ 0, %26 ], [ 0, %85 ], [ 0, %74 ], [ 0, %.preheader.i.i ], [ 0, %11 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.039.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.440.1, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -13716,7 +13716,7 @@ _ZNSt10_HashtableIPN10duckdb_re23DFA5StateESt4pairIKS3_iESaIS6_ENSt8__detail10_S
   resume { ptr, i32 } %46
 
 _ZNKSt10_HashtableIPN10duckdb_re23DFA5StateESt4pairIKS3_iESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit: ; preds = %35, %21, %30
-  %.sroa.043.0.ph = phi ptr [ %31, %30 ], [ %.sroa.035.0, %21 ], [ %37, %35 ]
+  %.sroa.043.0.ph = phi ptr [ %.sroa.035.0, %21 ], [ %31, %30 ], [ %37, %35 ]
   tail call void @_ZdlPv(ptr noundef nonnull %4) #22
   br label %_ZNSt10_HashtableIPN10duckdb_re23DFA5StateESt4pairIKS3_iESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
@@ -14090,7 +14090,7 @@ _ZSt4copyIPPPN10duckdb_re23DFA5StateES5_ET0_T_S7_S6_.exit26: ; preds = %_ZNSt11_
   br label %_ZSt4copyIPPPN10duckdb_re23DFA5StateES5_ET0_T_S7_S6_.exit
 
 _ZSt4copyIPPPN10duckdb_re23DFA5StateES5_ET0_T_S7_S6_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPPN10duckdb_re23DFA5StateES5_ET0_T_S7_S6_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPPN10duckdb_re23DFA5StateES5_ET0_T_S7_S6_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPPN10duckdb_re23DFA5StateES5_ET0_T_S7_S6_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !244
   %57 = load ptr, ptr %.0, align 8, !tbaa !245
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24

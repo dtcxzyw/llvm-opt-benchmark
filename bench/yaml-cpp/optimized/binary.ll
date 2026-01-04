@@ -209,7 +209,7 @@ define void @_ZN4YAML12DecodeBase64ERKNSt7__cxx1112basic_stringIcSt11char_traits
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.noexc, %14
-  %.0.i.i.i.i.i = phi ptr [ %12, %.noexc ], [ %11, %14 ]
+  %.0.i.i.i.i.i = phi ptr [ %11, %14 ], [ %12, %.noexc ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %52
@@ -382,9 +382,9 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i: ; preds = %85, %_ZSt2
   br label %.thread68
 
 .thread68:                                        ; preds = %90, %68, %72, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i, %88
-  %.sroa.13.0 = phi ptr [ %86, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i ], [ %.0.i.i.i.i.i, %88 ], [ %69, %68 ], [ %73, %72 ], [ %spec.select, %90 ]
-  %.sroa.19.0 = phi ptr [ %87, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i ], [ %11, %88 ], [ %11, %68 ], [ %11, %72 ], [ %11, %90 ]
-  %.sroa.053.1 = phi ptr [ %79, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i ], [ %10, %88 ], [ %10, %68 ], [ %10, %72 ], [ %10, %90 ]
+  %.sroa.13.0 = phi ptr [ %86, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i ], [ %.0.i.i.i.i.i, %88 ], [ %spec.select, %90 ], [ %69, %68 ], [ %73, %72 ]
+  %.sroa.19.0 = phi ptr [ %87, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i ], [ %11, %88 ], [ %11, %90 ], [ %11, %68 ], [ %11, %72 ]
+  %.sroa.053.1 = phi ptr [ %79, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i ], [ %10, %88 ], [ %10, %90 ], [ %10, %68 ], [ %10, %72 ]
   store ptr %.sroa.053.1, ptr %0, align 8, !tbaa !17
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.13.0, ptr %92, align 8, !tbaa !19

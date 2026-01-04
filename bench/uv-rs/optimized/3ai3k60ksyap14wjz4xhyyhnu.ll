@@ -362,7 +362,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br label %.body
 
 .body:                                            ; preds = %44, %51, %55
-  %eh.lpad-body = phi { ptr, i32 } [ %56, %55 ], [ %45, %44 ], [ %lpad.thr_comm.i.i, %51 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %56, %55 ], [ %lpad.thr_comm.i.i, %51 ], [ %45, %44 ]
   invoke void @"_ZN4core3ptr124drop_in_place$LT$alloc..vec..Vec$LT$uv_distribution_types..specified_requirement..UnresolvedRequirementSpecification$GT$$GT$17h136903f72c1dfbbbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #23
           to label %"_ZN4core3ptr328drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uv_distribution_types..requirement..Requirement$GT$$C$$LT$uv_distribution_types..specified_requirement..UnresolvedRequirementSpecification$u20$as$u20$core..convert..From$LT$uv_distribution_types..requirement..Requirement$GT$$GT$..from$GT$$GT$17hb74fc3995e56f7bcE.exit" unwind label %58
 
@@ -537,7 +537,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br label %.body
 
 .body:                                            ; preds = %44, %51, %55
-  %eh.lpad-body = phi { ptr, i32 } [ %56, %55 ], [ %45, %44 ], [ %lpad.thr_comm.i.i, %51 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %56, %55 ], [ %lpad.thr_comm.i.i, %51 ], [ %45, %44 ]
   invoke void @"_ZN4core3ptr118drop_in_place$LT$alloc..vec..Vec$LT$uv_distribution_types..specified_requirement..NameRequirementSpecification$GT$$GT$17h7401479759395d5cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #23
           to label %"_ZN4core3ptr322drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uv_distribution_types..requirement..Requirement$GT$$C$$LT$uv_distribution_types..specified_requirement..NameRequirementSpecification$u20$as$u20$core..convert..From$LT$uv_distribution_types..requirement..Requirement$GT$$GT$..from$GT$$GT$17h18f15bf05a699175E.exit" unwind label %58
 

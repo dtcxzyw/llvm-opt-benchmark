@@ -727,7 +727,7 @@ define dso_local noundef zeroext i1 @_ZN27btContinuousConvexCollision16calcTimeO
   br label %.critedge
 
 .critedge:                                        ; preds = %146, %140, %.critedge.critedge, %104, %._crit_edge, %110
-  %.569 = phi i1 [ true, %._crit_edge ], [ false, %110 ], [ false, %104 ], [ false, %.critedge.critedge ], [ false, %140 ], [ false, %146 ]
+  %.569 = phi i1 [ false, %104 ], [ true, %._crit_edge ], [ false, %.critedge.critedge ], [ false, %110 ], [ false, %140 ], [ false, %146 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %181

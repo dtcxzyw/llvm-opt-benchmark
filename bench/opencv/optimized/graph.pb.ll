@@ -1040,8 +1040,8 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread43: ; preds = %1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread43, %44, %46
-  %.039 = phi i32 [ %42, %44 ], [ %.fca.1.extract.i, %46 ], [ %34, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread43 ]
-  %.0.i18 = phi ptr [ %45, %44 ], [ %.fca.0.extract.i, %46 ], [ %36, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread43 ]
+  %.039 = phi i32 [ %.fca.1.extract.i, %46 ], [ %42, %44 ], [ %34, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread43 ]
+  %.0.i18 = phi ptr [ %.fca.0.extract.i, %46 ], [ %45, %44 ], [ %36, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread43 ]
   %48 = lshr i32 %.039, 3
   switch i32 %48, label %126 [
     i32 1, label %49
@@ -1168,8 +1168,8 @@ _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread: ; preds = %107, %97
   store i32 %.0.i21.ph, ptr %9, align 8, !tbaa !35
   br label %.backedge
 
-.backedge:                                        ; preds = %72, %75, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN17opencv_tensorflow8GraphDef26_internal_mutable_versionsEv.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN17opencv_tensorflow8GraphDef25_internal_mutable_libraryEv.exit
-  %.040.be = phi ptr [ %143, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %93, %_ZN17opencv_tensorflow8GraphDef25_internal_mutable_libraryEv.exit ], [ %.fca.0.extract.i.i.i, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %125, %_ZN17opencv_tensorflow8GraphDef26_internal_mutable_versionsEv.exit ], [ %.0.i.i22.ph, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread ], [ %71, %75 ], [ %71, %72 ]
+.backedge:                                        ; preds = %72, %75, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread, %_ZN17opencv_tensorflow8GraphDef25_internal_mutable_libraryEv.exit, %_ZN17opencv_tensorflow8GraphDef26_internal_mutable_versionsEv.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit
+  %.040.be = phi ptr [ %.fca.0.extract.i.i.i, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %93, %_ZN17opencv_tensorflow8GraphDef25_internal_mutable_libraryEv.exit ], [ %143, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %125, %_ZN17opencv_tensorflow8GraphDef26_internal_mutable_versionsEv.exit ], [ %.0.i.i22.ph, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread ], [ %71, %75 ], [ %71, %72 ]
   br label %14, !llvm.loop !53
 
 _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit: ; preds = %101
@@ -1254,8 +1254,8 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   %.not12 = icmp eq ptr %143, null
   br i1 %.not12, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge, !prof !51
 
-_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN17opencv_tensorflow8GraphDef26_internal_mutable_versionsEv.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN17opencv_tensorflow8GraphDef25_internal_mutable_libraryEv.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN17opencv_tensorflow8GraphDef18_internal_add_nodeEv.exit, %26, %130, %.thread52
-  %.3 = phi ptr [ %.0.i18, %.thread52 ], [ null, %130 ], [ %spec.select, %26 ], [ null, %_ZN17opencv_tensorflow8GraphDef18_internal_add_nodeEv.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ null, %_ZN17opencv_tensorflow8GraphDef26_internal_mutable_versionsEv.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN17opencv_tensorflow8GraphDef25_internal_mutable_libraryEv.exit ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN17opencv_tensorflow8GraphDef25_internal_mutable_libraryEv.exit, %_ZN17opencv_tensorflow8GraphDef26_internal_mutable_versionsEv.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN17opencv_tensorflow8GraphDef18_internal_add_nodeEv.exit, %26, %130, %.thread52
+  %.3 = phi ptr [ %spec.select, %26 ], [ null, %_ZN17opencv_tensorflow8GraphDef18_internal_add_nodeEv.exit ], [ %.0.i18, %.thread52 ], [ null, %130 ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN17opencv_tensorflow8GraphDef25_internal_mutable_libraryEv.exit ], [ null, %_ZN17opencv_tensorflow8GraphDef26_internal_mutable_versionsEv.exit ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   ret ptr %.3
 }
 
@@ -2811,8 +2811,8 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread68: ; preds = %.
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread68, %44, %46
-  %.0 = phi i32 [ %42, %44 ], [ %.fca.1.extract.i, %46 ], [ %34, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread68 ]
-  %.0.i39 = phi ptr [ %45, %44 ], [ %.fca.0.extract.i, %46 ], [ %36, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread68 ]
+  %.0 = phi i32 [ %.fca.1.extract.i, %46 ], [ %42, %44 ], [ %34, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread68 ]
+  %.0.i39 = phi ptr [ %.fca.0.extract.i, %46 ], [ %45, %44 ], [ %36, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread68 ]
   %48 = lshr i32 %.0, 3
   switch i32 %48, label %153 [
     i32 1, label %49
@@ -2848,7 +2848,7 @@ _ZN17opencv_tensorflow7NodeDef22_internal_mutable_nameB5cxx11Ev.exit: ; preds = 
   %63 = load i64, ptr %62, align 8, !tbaa !98
   %64 = tail call noundef zeroext i1 @_ZN6google8protobuf8internal10VerifyUTF8ENS0_20stringpiece_internal11StringPieceEPKc(ptr %61, i64 %63, ptr noundef nonnull @.str.4)
   %.not31 = icmp eq ptr %60, null
-  br i1 %64, label %select.unfold75, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, !prof !24
+  br i1 %64, label %select.unfold76, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, !prof !24
 
 65:                                               ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
   %66 = and i32 %.0, 255
@@ -2876,7 +2876,7 @@ _ZN17opencv_tensorflow7NodeDef20_internal_mutable_opB5cxx11Ev.exit: ; preds = %6
   %79 = load i64, ptr %78, align 8, !tbaa !98
   %80 = tail call noundef zeroext i1 @_ZN6google8protobuf8internal10VerifyUTF8ENS0_20stringpiece_internal11StringPieceEPKc(ptr %77, i64 %79, ptr noundef nonnull @.str.5)
   %.not30 = icmp eq ptr %76, null
-  br i1 %80, label %select.unfold75, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, !prof !24
+  br i1 %80, label %select.unfold76, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, !prof !24
 
 81:                                               ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
   %82 = and i32 %.0, 255
@@ -2984,7 +2984,7 @@ _ZN17opencv_tensorflow7NodeDef24_internal_mutable_deviceB5cxx11Ev.exit: ; preds 
   %137 = load i64, ptr %136, align 8, !tbaa !98
   %138 = tail call noundef zeroext i1 @_ZN6google8protobuf8internal10VerifyUTF8ENS0_20stringpiece_internal11StringPieceEPKc(ptr %135, i64 %137, ptr noundef nonnull @.str.7)
   %.not28 = icmp eq ptr %134, null
-  br i1 %138, label %select.unfold75, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, !prof !24
+  br i1 %138, label %select.unfold76, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, !prof !24
 
 139:                                              ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
   %140 = and i32 %.0, 255
@@ -3050,19 +3050,19 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   %.0.i = phi ptr [ %167, %164 ], [ %169, %168 ]
   %170 = tail call noundef ptr @_ZN6google8protobuf8internal17UnknownFieldParseEmPNS0_15UnknownFieldSetEPKcPNS1_12ParseContextE(i64 noundef %161, ptr noundef %.0.i, ptr noundef %.0.i39, ptr noundef nonnull %2)
   %.not32 = icmp eq ptr %170, null
-  br i1 %.not32, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold75, !prof !51
+  br i1 %.not32, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold76, !prof !51
 
-select.unfold75:                                  ; preds = %_ZN17opencv_tensorflow7NodeDef24_internal_mutable_deviceB5cxx11Ev.exit, %_ZN17opencv_tensorflow7NodeDef20_internal_mutable_opB5cxx11Ev.exit, %_ZN17opencv_tensorflow7NodeDef22_internal_mutable_nameB5cxx11Ev.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit
-  %.164 = phi ptr [ %170, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %60, %_ZN17opencv_tensorflow7NodeDef22_internal_mutable_nameB5cxx11Ev.exit ], [ %76, %_ZN17opencv_tensorflow7NodeDef20_internal_mutable_opB5cxx11Ev.exit ], [ %134, %_ZN17opencv_tensorflow7NodeDef24_internal_mutable_deviceB5cxx11Ev.exit ]
-  %.1 = phi i1 [ false, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %.not31, %_ZN17opencv_tensorflow7NodeDef22_internal_mutable_nameB5cxx11Ev.exit ], [ %.not30, %_ZN17opencv_tensorflow7NodeDef20_internal_mutable_opB5cxx11Ev.exit ], [ %.not28, %_ZN17opencv_tensorflow7NodeDef24_internal_mutable_deviceB5cxx11Ev.exit ]
+select.unfold76:                                  ; preds = %_ZN17opencv_tensorflow7NodeDef24_internal_mutable_deviceB5cxx11Ev.exit, %_ZN17opencv_tensorflow7NodeDef20_internal_mutable_opB5cxx11Ev.exit, %_ZN17opencv_tensorflow7NodeDef22_internal_mutable_nameB5cxx11Ev.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit
+  %.164 = phi ptr [ %76, %_ZN17opencv_tensorflow7NodeDef20_internal_mutable_opB5cxx11Ev.exit ], [ %134, %_ZN17opencv_tensorflow7NodeDef24_internal_mutable_deviceB5cxx11Ev.exit ], [ %170, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %60, %_ZN17opencv_tensorflow7NodeDef22_internal_mutable_nameB5cxx11Ev.exit ]
+  %.1 = phi i1 [ %.not30, %_ZN17opencv_tensorflow7NodeDef20_internal_mutable_opB5cxx11Ev.exit ], [ %.not28, %_ZN17opencv_tensorflow7NodeDef24_internal_mutable_deviceB5cxx11Ev.exit ], [ false, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %.not31, %_ZN17opencv_tensorflow7NodeDef22_internal_mutable_nameB5cxx11Ev.exit ]
   br i1 %.1, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %150, %147, %117, %120, %select.unfold75
-  %.063.be = phi ptr [ %.164, %select.unfold75 ], [ %112, %120 ], [ %112, %117 ], [ %146, %147 ], [ %146, %150 ]
+.backedge.backedge:                               ; preds = %150, %147, %117, %120, %select.unfold76
+  %.063.be = phi ptr [ %.164, %select.unfold76 ], [ %112, %117 ], [ %112, %120 ], [ %146, %147 ], [ %146, %150 ]
   br label %.backedge
 
-_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN17opencv_tensorflow7NodeDef22_internal_mutable_nameB5cxx11Ev.exit, %_ZN17opencv_tensorflow7NodeDef20_internal_mutable_opB5cxx11Ev.exit, %_ZN17opencv_tensorflow7NodeDef24_internal_mutable_deviceB5cxx11Ev.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %select.unfold75, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %144, %_ZN17opencv_tensorflow7NodeDef19_internal_add_inputB5cxx11Ev.exit, %26, %157, %.thread83
-  %.4 = phi ptr [ %.0.i39, %.thread83 ], [ %spec.select, %26 ], [ null, %157 ], [ null, %_ZN17opencv_tensorflow7NodeDef19_internal_add_inputB5cxx11Ev.exit ], [ null, %144 ], [ null, %_ZN17opencv_tensorflow7NodeDef22_internal_mutable_nameB5cxx11Ev.exit ], [ null, %_ZN17opencv_tensorflow7NodeDef20_internal_mutable_opB5cxx11Ev.exit ], [ null, %_ZN17opencv_tensorflow7NodeDef24_internal_mutable_deviceB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ null, %select.unfold75 ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN17opencv_tensorflow7NodeDef22_internal_mutable_nameB5cxx11Ev.exit, %_ZN17opencv_tensorflow7NodeDef20_internal_mutable_opB5cxx11Ev.exit, %_ZN17opencv_tensorflow7NodeDef24_internal_mutable_deviceB5cxx11Ev.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %select.unfold76, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %144, %_ZN17opencv_tensorflow7NodeDef19_internal_add_inputB5cxx11Ev.exit, %26, %157, %.thread83
+  %.4 = phi ptr [ null, %_ZN17opencv_tensorflow7NodeDef19_internal_add_inputB5cxx11Ev.exit ], [ null, %144 ], [ %spec.select, %26 ], [ %.0.i39, %.thread83 ], [ null, %157 ], [ null, %_ZN17opencv_tensorflow7NodeDef22_internal_mutable_nameB5cxx11Ev.exit ], [ null, %_ZN17opencv_tensorflow7NodeDef20_internal_mutable_opB5cxx11Ev.exit ], [ null, %_ZN17opencv_tensorflow7NodeDef24_internal_mutable_deviceB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ null, %select.unfold76 ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   ret ptr %.4
 }
 
@@ -3455,8 +3455,8 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
   br i1 %exitcond.not.i.i.i.i, label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit, label %155, !llvm.loop !111
 
 _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit: ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.thread.i.i.i.i, %_ZNK17opencv_tensorflow7NodeDef14_internal_attrB5cxx11Ev.exit, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.i.i.i.i
-  %.sroa.7.0.i = phi i64 [ %storemerge6.i.i.i.i, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.i.i.i.i ], [ %storemerge6.i.i.i.i, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i ], [ %149, %_ZNK17opencv_tensorflow7NodeDef14_internal_attrB5cxx11Ev.exit ], [ %151, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.thread.i.i.i.i ]
-  %.sroa.0.0.i = phi ptr [ %164, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.i.i.i.i ], [ %157, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i ], [ null, %_ZNK17opencv_tensorflow7NodeDef14_internal_attrB5cxx11Ev.exit ], [ null, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.thread.i.i.i.i ]
+  %.sroa.7.0.i = phi i64 [ %storemerge6.i.i.i.i, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i ], [ %storemerge6.i.i.i.i, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.i.i.i.i ], [ %149, %_ZNK17opencv_tensorflow7NodeDef14_internal_attrB5cxx11Ev.exit ], [ %151, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.thread.i.i.i.i ]
+  %.sroa.0.0.i = phi ptr [ %157, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i ], [ %164, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.i.i.i.i ], [ null, %_ZNK17opencv_tensorflow7NodeDef14_internal_attrB5cxx11Ev.exit ], [ null, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.thread.i.i.i.i ]
   store ptr %.sroa.0.0.i, ptr %4, align 8, !tbaa !107, !alias.scope !147
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %132, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !109, !alias.scope !147
@@ -3608,8 +3608,8 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
   br i1 %exitcond.not.i.i.i.i73, label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit74, label %204, !llvm.loop !111
 
 _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit74: ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.thread.i.i.i.i72, %196, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i69, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.i.i.i.i71
-  %.sroa.7.0.i62 = phi i64 [ %storemerge6.i.i.i.i67, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.i.i.i.i71 ], [ %storemerge6.i.i.i.i67, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i69 ], [ %198, %196 ], [ %200, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.thread.i.i.i.i72 ]
-  %.sroa.0.0.i63 = phi ptr [ %213, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.i.i.i.i71 ], [ %206, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i69 ], [ null, %196 ], [ null, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.thread.i.i.i.i72 ]
+  %.sroa.7.0.i62 = phi i64 [ %storemerge6.i.i.i.i67, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i69 ], [ %storemerge6.i.i.i.i67, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.i.i.i.i71 ], [ %198, %196 ], [ %200, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.thread.i.i.i.i72 ]
+  %.sroa.0.0.i63 = phi ptr [ %206, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i69 ], [ %213, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.i.i.i.i71 ], [ null, %196 ], [ null, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.thread.i.i.i.i72 ]
   store ptr %.sroa.0.0.i63, ptr %5, align 8, !tbaa !107, !alias.scope !157
   %.sroa.6.0..sroa_idx.i64 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %132, ptr %.sroa.6.0..sroa_idx.i64, align 8, !tbaa !109, !alias.scope !157
@@ -3920,8 +3920,8 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
   br i1 %exitcond.not.i.i.i.i, label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit, label %22, !llvm.loop !111
 
 _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit: ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.thread.i.i.i.i, %._crit_edge, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.i.i.i.i
-  %.sroa.7.0.i = phi i64 [ %storemerge6.i.i.i.i, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.i.i.i.i ], [ %storemerge6.i.i.i.i, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i ], [ %16, %._crit_edge ], [ %18, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.thread.i.i.i.i ]
-  %.sroa.0.0.i = phi ptr [ %31, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.i.i.i.i ], [ %24, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i ], [ null, %._crit_edge ], [ null, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.thread.i.i.i.i ]
+  %.sroa.7.0.i = phi i64 [ %storemerge6.i.i.i.i, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i ], [ %storemerge6.i.i.i.i, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.i.i.i.i ], [ %16, %._crit_edge ], [ %18, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.thread.i.i.i.i ]
+  %.sroa.0.0.i = phi ptr [ %24, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i ], [ %31, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.i.i.i.i ], [ null, %._crit_edge ], [ null, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.thread.i.i.i.i ]
   store ptr %.sroa.0.0.i, ptr %2, align 8, !tbaa !107, !alias.scope !165
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %11, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !109, !alias.scope !165
@@ -4977,8 +4977,8 @@ _ZN6google8protobuf8internal12MapEntryImplIN17opencv_tensorflow26NodeDef_AttrEnt
   %.not18.not = icmp eq ptr %.2, null
   br i1 %.not18.not, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %11
 
-_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE9ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4ReadEPKcPNS1_12ParseContextEPSA_.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %101, %23, %96
-  %.5 = phi ptr [ %.0.i51, %96 ], [ %spec.select, %23 ], [ null, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE9ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4ReadEPKcPNS1_12ParseContextEPSA_.exit ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %101 ]
+_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE9ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4ReadEPKcPNS1_12ParseContextEPSA_.exit, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %101, %23, %96
+  %.5 = phi ptr [ %.0.i51, %96 ], [ %spec.select, %23 ], [ null, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE9ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4ReadEPKcPNS1_12ParseContextEPSA_.exit ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %101 ]
   ret ptr %.5
 }
 
@@ -5608,8 +5608,8 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
   br i1 %exitcond.not.i.i.i.i, label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit, label %14, !llvm.loop !111
 
 _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit: ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.thread.i.i.i.i, %2, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.i.i.i.i
-  %.sroa.7.0.i = phi i64 [ %storemerge6.i.i.i.i, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.i.i.i.i ], [ %storemerge6.i.i.i.i, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i ], [ %8, %2 ], [ %10, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.thread.i.i.i.i ]
-  %.sroa.0.0.i = phi ptr [ %23, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.i.i.i.i ], [ %16, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i ], [ null, %2 ], [ null, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.thread.i.i.i.i ]
+  %.sroa.7.0.i = phi i64 [ %storemerge6.i.i.i.i, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i ], [ %storemerge6.i.i.i.i, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.i.i.i.i ], [ %8, %2 ], [ %10, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.thread.i.i.i.i ]
+  %.sroa.0.0.i = phi ptr [ %16, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i ], [ %23, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.i.i.i.i ], [ null, %2 ], [ null, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.thread.i.i.i.i ]
   %25 = load ptr, ptr %1, align 8, !tbaa !220
   store ptr %.sroa.0.0.i, ptr %25, align 8, !tbaa !107
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -6547,7 +6547,7 @@ _ZNSt3mapISt17reference_wrapperIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap11DestroyTreeEPSt3mapISt17reference_wrapperIKS7_EPvSt4lessIS7_ENS0_8internal12MapAllocatorISt4pairIKSF_SG_EEEE.exit
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap11DestroyTreeEPSt3mapISt17reference_wrapperIKS7_EPvSt4lessIS7_ENS0_8internal12MapAllocatorISt4pairIKSF_SG_EEEE.exit: ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap11DestroyNodeEPNSB_4NodeE.exit, %14, %7, %_ZNSt3mapISt17reference_wrapperIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPvSt4lessIS6_EN6google8protobuf8internal12MapAllocatorISt4pairIKS8_S9_EEEED2Ev.exit.i, %51
-  %.1 = phi i64 [ %25, %51 ], [ %25, %_ZNSt3mapISt17reference_wrapperIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPvSt4lessIS6_EN6google8protobuf8internal12MapAllocatorISt4pairIKS8_S9_EEEED2Ev.exit.i ], [ %.037, %7 ], [ %.037, %14 ], [ %.037, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap11DestroyNodeEPNSB_4NodeE.exit ]
+  %.1 = phi i64 [ %.037, %14 ], [ %25, %_ZNSt3mapISt17reference_wrapperIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPvSt4lessIS6_EN6google8protobuf8internal12MapAllocatorISt4pairIKS8_S9_EEEED2Ev.exit.i ], [ %.037, %7 ], [ %25, %51 ], [ %.037, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap11DestroyNodeEPNSB_4NodeE.exit ]
   %59 = add i64 %.1, 1
   %60 = load i64, ptr %2, align 8, !tbaa !92
   %61 = icmp ult i64 %59, %60
@@ -7058,7 +7058,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stri
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24ResizeIfLoadIsOutOfRangeEm.exit.thread
 
-_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24ResizeIfLoadIsOutOfRangeEm.exit.thread: ; preds = %23, %26, %37, %39
+_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24ResizeIfLoadIsOutOfRangeEm.exit.thread: ; preds = %37, %23, %26, %39
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %44 = load i64, ptr %43, align 8, !tbaa !274
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -7396,8 +7396,8 @@ _ZNSt3mapISt17reference_wrapperIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   store i64 %40, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !62
   br label %75
 
-.critedge:                                        ; preds = %_ZN6google8protobuf8internal18TransparentSupportINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6EqualsERKS8_SB_.exit.thread34, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit, %_ZNSt8_Rb_treeISt17reference_wrapperIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIKS8_PvESt10_Select1stISC_ESt4lessIS6_EN6google8protobuf8internal12MapAllocatorISC_EEE14_M_lower_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRSA_.exit.i.i, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap12BucketNumberIS7_EEmRKT_.exit, %_ZNSt3mapISt17reference_wrapperIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPvSt4lessIS6_EN6google8protobuf8internal12MapAllocatorISt4pairIKS8_S9_EEEE4findERSH_.exit
-  %.033 = phi i64 [ %40, %_ZNSt3mapISt17reference_wrapperIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPvSt4lessIS6_EN6google8protobuf8internal12MapAllocatorISt4pairIKS8_S9_EEEE4findERSH_.exit ], [ %20, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap12BucketNumberIS7_EEmRKT_.exit ], [ %40, %_ZNSt8_Rb_treeISt17reference_wrapperIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIKS8_PvESt10_Select1stISC_ESt4lessIS6_EN6google8protobuf8internal12MapAllocatorISC_EEE14_M_lower_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRSA_.exit.i.i ], [ %40, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit ], [ %20, %_ZN6google8protobuf8internal18TransparentSupportINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6EqualsERKS8_SB_.exit.thread34 ]
+.critedge:                                        ; preds = %_ZN6google8protobuf8internal18TransparentSupportINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6EqualsERKS8_SB_.exit.thread34, %_ZNSt8_Rb_treeISt17reference_wrapperIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIKS8_PvESt10_Select1stISC_ESt4lessIS6_EN6google8protobuf8internal12MapAllocatorISC_EEE14_M_lower_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRSA_.exit.i.i, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap12BucketNumberIS7_EEmRKT_.exit, %_ZNSt3mapISt17reference_wrapperIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPvSt4lessIS6_EN6google8protobuf8internal12MapAllocatorISt4pairIKS8_S9_EEEE4findERSH_.exit
+  %.033 = phi i64 [ %40, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit ], [ %40, %_ZNSt3mapISt17reference_wrapperIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPvSt4lessIS6_EN6google8protobuf8internal12MapAllocatorISt4pairIKS8_S9_EEEE4findERSH_.exit ], [ %40, %_ZNSt8_Rb_treeISt17reference_wrapperIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIKS8_PvESt10_Select1stISC_ESt4lessIS6_EN6google8protobuf8internal12MapAllocatorISC_EEE14_M_lower_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRSA_.exit.i.i ], [ %20, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap12BucketNumberIS7_EEmRKT_.exit ], [ %20, %_ZN6google8protobuf8internal18TransparentSupportINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6EqualsERKS8_SB_.exit.thread34 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %75
 
@@ -7877,7 +7877,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %32
 
 32:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i, %15
-  %33 = phi i1 [ true, %15 ], [ %31, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ]
+  %33 = phi i1 [ %31, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ], [ true, %15 ]
   %34 = load ptr, ptr %10, align 8, !tbaa !249
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %_ZN6google8protobuf5Arena11CreateArrayIhEEPT_PS1_m.exit.i.i.i.i.i.i
@@ -7981,7 +7981,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %32
 
 32:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i, %15
-  %33 = phi i1 [ true, %15 ], [ %31, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ]
+  %33 = phi i1 [ %31, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ], [ true, %15 ]
   %34 = load ptr, ptr %2, align 8, !tbaa !249
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %_ZN6google8protobuf5Arena11CreateArrayIhEEPT_PS1_m.exit.i.i.i.i.i.i
@@ -8133,8 +8133,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %38
 
 38:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13, %._crit_edge.thread
-  %.sroa.027.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
-  %.sroa.4.0 = phi ptr [ %.028.lcssa39, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
+  %.sroa.027.0 = phi ptr [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ], [ null, %._crit_edge.thread ]
+  %.sroa.4.0 = phi ptr [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ], [ %.028.lcssa39, %._crit_edge.thread ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.027.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -8510,7 +8510,7 @@ _ZN6google8protobuf8internal10MoveHelperILb0ELb0ELb1ENSt7__cxx1112basic_stringIc
   br label %.critedge17
 
 .critedge17:                                      ; preds = %104, %68, %19, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit33, %111, %.critedge21, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i, %173, %176, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE9ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4ReadEPKcPNS1_12ParseContextEPSA_.exit, %.critedge, %.critedge19, %49
-  %.09 = phi ptr [ null, %49 ], [ null, %.critedge19 ], [ null, %.critedge ], [ null, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE9ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4ReadEPKcPNS1_12ParseContextEPSA_.exit ], [ %175, %176 ], [ null, %173 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ], [ %.fca.0.extract.i.i29, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit33 ], [ null, %111 ], [ null, %.critedge21 ], [ null, %19 ], [ null, %68 ], [ %spec.select, %104 ]
+  %.09 = phi ptr [ null, %.critedge19 ], [ null, %173 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ], [ null, %49 ], [ null, %.critedge ], [ null, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE9ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4ReadEPKcPNS1_12ParseContextEPSA_.exit ], [ %175, %176 ], [ %.fca.0.extract.i.i29, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit33 ], [ null, %.critedge21 ], [ null, %111 ], [ %spec.select, %104 ], [ null, %68 ], [ null, %19 ]
   ret ptr %.09
 }
 
@@ -10791,7 +10791,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
   br label %_ZN6google8protobuf5Arena11OwnInternalIN17opencv_tensorflow26NodeDef_AttrEntry_DoNotUseEEEvPT_St17integral_constantIbLb1EE.exit
 
 _ZN6google8protobuf5Arena11OwnInternalIN17opencv_tensorflow26NodeDef_AttrEntry_DoNotUseEEEvPT_St17integral_constantIbLb1EE.exit: ; preds = %12, %10, %8, %7, %9
-  %.0 = phi ptr [ %1, %9 ], [ null, %7 ], [ %1, %8 ], [ %11, %10 ], [ %11, %12 ]
+  %.0 = phi ptr [ %1, %9 ], [ %1, %8 ], [ null, %7 ], [ %11, %10 ], [ %11, %12 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !30
   %.not.i18 = icmp eq ptr %17, null

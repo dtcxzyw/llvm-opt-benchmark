@@ -1441,7 +1441,7 @@ define dso_local ptr @dm_get_md(i32 noundef %0) #0 align 16 {
   unreachable
 
 dm_get.exit:                                      ; preds = %26, %6, %22, %17, %10
-  %32 = phi ptr [ null, %6 ], [ null, %22 ], [ null, %17 ], [ null, %10 ], [ %8, %26 ]
+  %32 = phi ptr [ null, %17 ], [ null, %10 ], [ null, %6 ], [ null, %22 ], [ %8, %26 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull @_minor_lock) #23
   br label %33
 
@@ -2125,7 +2125,7 @@ define dso_local i32 @dm_resume(ptr noundef %0) local_unnamed_addr #0 align 16 {
   br label %__dm_resume.exit
 
 __dm_resume.exit:                                 ; preds = %3, %28, %51, %25, %21
-  %52 = phi i32 [ 0, %51 ], [ -22, %25 ], [ -22, %21 ], [ %29, %28 ], [ -22, %3 ]
+  %52 = phi i32 [ %29, %28 ], [ 0, %51 ], [ -22, %25 ], [ -22, %21 ], [ -22, %3 ]
   tail call void @mutex_unlock(ptr noundef %0) #23
   br label %.loopexit
 
@@ -3533,9 +3533,9 @@ define internal void @dm_submit_bio(ptr noundef %0) #0 align 16 {
   br label %367
 
 .thread15:                                        ; preds = %.thread14, %48
-  %60 = phi ptr [ %39, %48 ], [ %51, %.thread14 ]
-  %61 = phi ptr [ %0, %48 ], [ %46, %.thread14 ]
-  %62 = phi i1 [ false, %48 ], [ true, %.thread14 ]
+  %60 = phi ptr [ %51, %.thread14 ], [ %39, %48 ]
+  %61 = phi ptr [ %46, %.thread14 ], [ %0, %48 ]
+  %62 = phi i1 [ true, %.thread14 ], [ false, %48 ]
   %63 = getelementptr inbounds nuw i8, ptr %10, i64 552
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 248
@@ -4168,7 +4168,7 @@ define internal noundef range(i32 0, 2) i32 @dm_poll_bio(ptr noundef captures(no
   br label %54
 
 54:                                               ; preds = %.sink.split, %.critedge4, %3
-  %55 = phi i32 [ 0, %3 ], [ 1, %.critedge4 ], [ %.ph, %.sink.split ]
+  %55 = phi i32 [ 1, %.critedge4 ], [ 0, %3 ], [ %.ph, %.sink.split ]
   ret i32 %55
 }
 
@@ -4662,7 +4662,7 @@ alloc_tio.exit:                                   ; preds = %61, %107
   br i1 %148, label %.thread, label %.lr.ph.split, !llvm.loop !123
 
 .thread:                                          ; preds = %.loopexit, %.lr.ph.split, %.lr.ph.split.us, %134, %7
-  %149 = phi i32 [ 0, %7 ], [ 0, %134 ], [ %139, %.lr.ph.split.us ], [ %147, %.lr.ph.split ], [ 0, %.loopexit ]
+  %149 = phi i32 [ 0, %7 ], [ 0, %134 ], [ %147, %.lr.ph.split ], [ %139, %.lr.ph.split.us ], [ 0, %.loopexit ]
   ret i32 %149
 }
 
@@ -5284,9 +5284,9 @@ define internal fastcc noundef zeroext range(i8 0, 2) i8 @__process_abnormal_io(
   br label %15
 
 15:                                               ; preds = %2, %13, %14
-  %.sink5 = phi i64 [ 44, %13 ], [ 48, %14 ], [ 40, %2 ]
-  %.sink = phi i64 [ 196, %13 ], [ 200, %14 ], [ 188, %2 ]
-  %16 = phi i16 [ 8, %13 ], [ 16, %14 ], [ 4, %2 ]
+  %.sink5 = phi i64 [ 48, %14 ], [ 44, %13 ], [ 40, %2 ]
+  %.sink = phi i64 [ 200, %14 ], [ 196, %13 ], [ 188, %2 ]
+  %16 = phi i16 [ 16, %14 ], [ 8, %13 ], [ 4, %2 ]
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink5
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink
   %19 = load i32, ptr %17, align 4

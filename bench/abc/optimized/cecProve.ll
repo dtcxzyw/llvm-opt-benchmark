@@ -440,7 +440,7 @@ define i32 @Cec_GiaWaitThreads(ptr noundef readonly captures(none) %0, i32 nound
   br label %._crit_edge29
 
 ._crit_edge29:                                    ; preds = %8, %18, %20, %24, %15, %11
-  %.1 = phi i32 [ %17, %18 ], [ %17, %20 ], [ %17, %24 ], [ -1, %15 ], [ -1, %11 ], [ %.02027, %8 ]
+  %.1 = phi i32 [ -1, %11 ], [ %17, %18 ], [ %17, %20 ], [ %17, %24 ], [ -1, %15 ], [ %.02027, %8 ]
   %26 = getelementptr inbounds %struct.Par_ThData_t_, ptr %0, i64 %10
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %28 = load i32, ptr %27, align 4, !tbaa !68
@@ -995,8 +995,8 @@ Cec_GiaWaitThreads.exit.thread160:                ; preds = %Cec_GiaInitThreads.
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.split, %Cec_GiaWaitThreads.exit.thread160
-  %.1197 = phi i32 [ %.1, %Cec_GiaWaitThreads.exit.thread160 ], [ 1, %.split ], [ %.1198, %.lr.ph ]
-  %.1155195 = phi i32 [ %.1155, %Cec_GiaWaitThreads.exit.thread160 ], [ -1, %.split ], [ %.1155196, %.lr.ph ]
+  %.1197 = phi i32 [ 1, %.split ], [ %.1, %Cec_GiaWaitThreads.exit.thread160 ], [ %.1198, %.lr.ph ]
+  %.1155195 = phi i32 [ -1, %.split ], [ %.1155, %Cec_GiaWaitThreads.exit.thread160 ], [ %.1155196, %.lr.ph ]
   br i1 %29, label %250, label %276
 
 250:                                              ; preds = %._crit_edge

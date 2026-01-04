@@ -2989,8 +2989,8 @@ _ZN2cv3MatD2Ev.exit.i:                            ; preds = %108, %106, %103, %1
   br label %._crit_edge135
 
 ._crit_edge135:                                   ; preds = %109, %121, %120
-  %.021.i = phi i32 [ %.122.i, %121 ], [ %.122.i, %120 ], [ %93, %109 ]
-  %.0.i = phi i32 [ %129, %121 ], [ %91, %120 ], [ %91, %109 ]
+  %.021.i = phi i32 [ %.122.i, %120 ], [ %.122.i, %121 ], [ %93, %109 ]
+  %.0.i = phi i32 [ %91, %120 ], [ %129, %121 ], [ %91, %109 ]
   %130 = load ptr, ptr %9, align 8, !tbaa !191, !noalias !185
   invoke void @_ZN4ncnn3Mat18from_pixels_resizeEPKhiiiiiPNS_9AllocatorE(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %15, ptr noundef %130, i32 noundef %.056, i32 noundef %96, i32 noundef %97, i32 noundef %.0.i, i32 noundef %.021.i, ptr noundef null)
           to label %131 unwind label %100
@@ -3621,8 +3621,8 @@ _ZN2cv3MatD2Ev.exit.i:                            ; preds = %108, %106, %103, %1
   br label %._crit_edge150
 
 ._crit_edge150:                                   ; preds = %109, %121, %120
-  %.021.i = phi i32 [ %.122.i, %121 ], [ %.122.i, %120 ], [ %93, %109 ]
-  %.0.i = phi i32 [ %129, %121 ], [ %91, %120 ], [ %91, %109 ]
+  %.021.i = phi i32 [ %.122.i, %120 ], [ %.122.i, %121 ], [ %93, %109 ]
+  %.0.i = phi i32 [ %91, %120 ], [ %129, %121 ], [ %91, %109 ]
   %130 = load ptr, ptr %9, align 8, !tbaa !191, !noalias !201
   invoke void @_ZN4ncnn3Mat18from_pixels_resizeEPKhiiiiiPNS_9AllocatorE(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %15, ptr noundef %130, i32 noundef %.064, i32 noundef %96, i32 noundef %97, i32 noundef %.0.i, i32 noundef %.021.i, ptr noundef null)
           to label %131 unwind label %100
@@ -5592,8 +5592,8 @@ _ZN2cv3MatD2Ev.exit.i:                            ; preds = %108, %106, %103, %1
   br label %._crit_edge139
 
 ._crit_edge139:                                   ; preds = %109, %121, %120
-  %.021.i = phi i32 [ %.122.i, %121 ], [ %.122.i, %120 ], [ %93, %109 ]
-  %.0.i = phi i32 [ %129, %121 ], [ %91, %120 ], [ %91, %109 ]
+  %.021.i = phi i32 [ %.122.i, %120 ], [ %.122.i, %121 ], [ %93, %109 ]
+  %.0.i = phi i32 [ %91, %120 ], [ %129, %121 ], [ %91, %109 ]
   %130 = load ptr, ptr %9, align 8, !tbaa !191, !noalias !243
   invoke void @_ZN4ncnn3Mat18from_pixels_resizeEPKhiiiiiPNS_9AllocatorE(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %15, ptr noundef %130, i32 noundef %.059, i32 noundef %96, i32 noundef %97, i32 noundef %.0.i, i32 noundef %.021.i, ptr noundef null)
           to label %131 unwind label %100
@@ -6683,8 +6683,8 @@ _ZN2cv3MatD2Ev.exit.i:                            ; preds = %162, %160, %157, %1
   br label %._crit_edge158
 
 ._crit_edge158:                                   ; preds = %163, %175, %174
-  %.021.i = phi i32 [ %.122.i, %175 ], [ %.122.i, %174 ], [ %147, %163 ]
-  %.0.i = phi i32 [ %183, %175 ], [ %145, %174 ], [ %145, %163 ]
+  %.021.i = phi i32 [ %.122.i, %174 ], [ %.122.i, %175 ], [ %147, %163 ]
+  %.0.i = phi i32 [ %145, %174 ], [ %183, %175 ], [ %145, %163 ]
   %184 = load ptr, ptr %17, align 8, !tbaa !191, !noalias !265
   invoke void @_ZN4ncnn3Mat18from_pixels_resizeEPKhiiiiiPNS_9AllocatorE(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %23, ptr noundef %184, i32 noundef %.065, i32 noundef %150, i32 noundef %151, i32 noundef %.0.i, i32 noundef %.021.i, ptr noundef null)
           to label %185 unwind label %154
@@ -8290,8 +8290,8 @@ _ZN2cv3MatD2Ev.exit.i:                            ; preds = %162, %160, %157, %1
   br label %._crit_edge158
 
 ._crit_edge158:                                   ; preds = %163, %175, %174
-  %.021.i = phi i32 [ %.122.i, %175 ], [ %.122.i, %174 ], [ %147, %163 ]
-  %.0.i = phi i32 [ %183, %175 ], [ %145, %174 ], [ %145, %163 ]
+  %.021.i = phi i32 [ %.122.i, %174 ], [ %.122.i, %175 ], [ %147, %163 ]
+  %.0.i = phi i32 [ %145, %174 ], [ %183, %175 ], [ %145, %163 ]
   %184 = load ptr, ptr %17, align 8, !tbaa !191, !noalias !307
   invoke void @_ZN4ncnn3Mat18from_pixels_resizeEPKhiiiiiPNS_9AllocatorE(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %23, ptr noundef %184, i32 noundef %.065, i32 noundef %150, i32 noundef %151, i32 noundef %.0.i, i32 noundef %.021.i, ptr noundef null)
           to label %185 unwind label %154
@@ -10860,8 +10860,8 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit63.i:       ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %.not.i138, label %_ZL27parse_comma_pixel_type_listPc.exit, label %.lr.ph.i137, !llvm.loop !350
 
 547:                                              ; preds = %.loopexit.split-lp96.i, %.loopexit95.i, %.loopexit.split-lp91.i, %.loopexit90.i, %.loopexit.split-lp86.i, %.loopexit85.i, %.loopexit.split-lp81.i, %.loopexit80.i, %.loopexit.split-lp76.i, %.loopexit75.i, %.loopexit.split-lp.i148, %.loopexit.i146
-  %548 = phi ptr [ %351, %.loopexit.i146 ], [ %351, %.loopexit.split-lp.i148 ], [ %383, %.loopexit75.i ], [ %383, %.loopexit.split-lp76.i ], [ %415, %.loopexit80.i ], [ %415, %.loopexit.split-lp81.i ], [ %447, %.loopexit85.i ], [ %447, %.loopexit.split-lp86.i ], [ %479, %.loopexit90.i ], [ %479, %.loopexit.split-lp91.i ], [ %511, %.loopexit95.i ], [ %511, %.loopexit.split-lp96.i ]
-  %.pn.i140 = phi { ptr, i32 } [ %lpad.loopexit.i147, %.loopexit.i146 ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i148 ], [ %lpad.loopexit77.i, %.loopexit75.i ], [ %lpad.loopexit.split-lp78.i, %.loopexit.split-lp76.i ], [ %lpad.loopexit82.i, %.loopexit80.i ], [ %lpad.loopexit.split-lp83.i, %.loopexit.split-lp81.i ], [ %lpad.loopexit87.i, %.loopexit85.i ], [ %lpad.loopexit.split-lp88.i, %.loopexit.split-lp86.i ], [ %lpad.loopexit92.i, %.loopexit90.i ], [ %lpad.loopexit.split-lp93.i, %.loopexit.split-lp91.i ], [ %lpad.loopexit97.i, %.loopexit95.i ], [ %lpad.loopexit.split-lp98.i, %.loopexit.split-lp96.i ]
+  %548 = phi ptr [ %479, %.loopexit.split-lp91.i ], [ %447, %.loopexit.split-lp86.i ], [ %415, %.loopexit.split-lp81.i ], [ %383, %.loopexit.split-lp76.i ], [ %351, %.loopexit.split-lp.i148 ], [ %351, %.loopexit.i146 ], [ %383, %.loopexit75.i ], [ %415, %.loopexit80.i ], [ %447, %.loopexit85.i ], [ %479, %.loopexit90.i ], [ %511, %.loopexit95.i ], [ %511, %.loopexit.split-lp96.i ]
+  %.pn.i140 = phi { ptr, i32 } [ %lpad.loopexit.split-lp93.i, %.loopexit.split-lp91.i ], [ %lpad.loopexit.split-lp88.i, %.loopexit.split-lp86.i ], [ %lpad.loopexit.split-lp83.i, %.loopexit.split-lp81.i ], [ %lpad.loopexit.split-lp78.i, %.loopexit.split-lp76.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i148 ], [ %lpad.loopexit.i147, %.loopexit.i146 ], [ %lpad.loopexit77.i, %.loopexit75.i ], [ %lpad.loopexit82.i, %.loopexit80.i ], [ %lpad.loopexit87.i, %.loopexit85.i ], [ %lpad.loopexit92.i, %.loopexit90.i ], [ %lpad.loopexit97.i, %.loopexit95.i ], [ %lpad.loopexit.split-lp98.i, %.loopexit.split-lp96.i ]
   %.not.i.i.i.i141 = icmp eq ptr %548, null
   br i1 %.not.i.i.i.i141, label %.body150, label %549
 
@@ -11219,7 +11219,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit164: ; preds = %70
   br label %715
 
 .body150:                                         ; preds = %549, %547, %219, %241, %.body122, %594, %689
-  %.pn.pn = phi { ptr, i32 } [ %690, %689 ], [ %595, %594 ], [ %lpad.phi.i, %.body122 ], [ %242, %241 ], [ %220, %219 ], [ %.pn.i140, %549 ], [ %.pn.i140, %547 ]
+  %.pn.pn = phi { ptr, i32 } [ %690, %689 ], [ %595, %594 ], [ %220, %219 ], [ %lpad.phi.i, %.body122 ], [ %242, %241 ], [ %.pn.i140, %547 ], [ %.pn.i140, %549 ]
   %712 = load ptr, ptr %15, align 8, !tbaa !84
   %713 = icmp eq ptr %712, %148
   br i1 %713, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit167, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i165
@@ -11653,7 +11653,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIS_IfSa
   br label %134
 
 131:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit37, %.loopexit.split-lp38
-  %.pn = phi { ptr, i32 } [ %lpad.loopexit39, %.loopexit37 ], [ %lpad.loopexit.split-lp40, %.loopexit.split-lp38 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp40, %.loopexit.split-lp38 ], [ %lpad.loopexit39, %.loopexit37 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %132 = load ptr, ptr %5, align 8, !tbaa !65
   %.not.i.i.i32 = icmp eq ptr %132, null
   br i1 %.not.i.i.i32, label %_ZNSt6vectorIfSaIfEED2Ev.exit33, label %133

@@ -198,7 +198,7 @@ define dso_local ptr @lookup_object(ptr noundef readonly captures(none) %0, ptr 
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph56, %7, %25, %26, %2
-  %.0 = phi ptr [ null, %2 ], [ %.lcssa50, %26 ], [ %.lcssa50, %25 ], [ null, %7 ], [ null, %.lr.ph56 ]
+  %.0 = phi ptr [ null, %2 ], [ %.lcssa50, %25 ], [ %.lcssa50, %26 ], [ null, %7 ], [ null, %.lr.ph56 ]
   ret ptr %.0
 }
 
@@ -408,7 +408,7 @@ type_name.exit17:                                 ; preds = %type_name.exit, %34
   br label %39
 
 39:                                               ; preds = %18, %type_name.exit17, %12, %13, %3
-  %.0 = phi ptr [ %0, %3 ], [ %0, %13 ], [ %0, %12 ], [ null, %type_name.exit17 ], [ null, %18 ]
+  %.0 = phi ptr [ %0, %12 ], [ %0, %3 ], [ %0, %13 ], [ null, %type_name.exit17 ], [ null, %18 ]
   ret ptr %.0
 }
 
@@ -574,7 +574,7 @@ define dso_local range(i32 -2, 1) i32 @peel_object(ptr noundef %0, ptr noundef %
   br label %22
 
 22:                                               ; preds = %15, %.critedge, %11, %8, %17
-  %.1 = phi i32 [ 0, %17 ], [ -1, %8 ], [ -1, %11 ], [ -2, %.critedge ], [ -1, %15 ]
+  %.1 = phi i32 [ -1, %11 ], [ 0, %17 ], [ -2, %.critedge ], [ -1, %8 ], [ -1, %15 ]
   ret i32 %.1
 }
 
@@ -685,7 +685,7 @@ _.exit:                                           ; preds = %36, %38
   br label %.critedge
 
 .critedge:                                        ; preds = %34, %25, %20, %_.exit, %9, %7, %10, %22, %17, %23, %31, %29, %27, %32
-  %.1 = phi ptr [ null, %_.exit ], [ %8, %9 ], [ null, %7 ], [ %11, %17 ], [ %11, %22 ], [ null, %10 ], [ null, %23 ], [ %24, %31 ], [ %24, %29 ], [ %24, %27 ], [ null, %32 ], [ null, %20 ], [ null, %25 ], [ %spec.select, %34 ]
+  %.1 = phi ptr [ null, %25 ], [ null, %32 ], [ null, %20 ], [ null, %_.exit ], [ null, %7 ], [ %11, %22 ], [ %24, %29 ], [ %8, %9 ], [ null, %10 ], [ %11, %17 ], [ %24, %27 ], [ null, %23 ], [ %24, %31 ], [ %spec.select, %34 ]
   ret ptr %.1
 }
 
@@ -837,7 +837,7 @@ lookup_replace_object.exit:                       ; preds = %3, %17, %23
   br label %lookup_object.exit
 
 lookup_object.exit:                               ; preds = %.lr.ph.i.preheader, %46, %.lr.ph.i._crit_edge
-  %.lcssa95138 = phi ptr [ %44, %46 ], [ %44, %.lr.ph.i._crit_edge ], [ %36, %.lr.ph.i.preheader ]
+  %.lcssa95138 = phi ptr [ %44, %.lr.ph.i._crit_edge ], [ %44, %46 ], [ %36, %.lr.ph.i.preheader ]
   %49 = load i32, ptr %.lcssa95138, align 4
   %50 = and i32 %49, 1
   %.not57 = icmp eq i32 %50, 0
@@ -1032,7 +1032,7 @@ _.exit80:                                         ; preds = %114, %116
   br label %lookup_object.exit77
 
 lookup_object.exit77:                             ; preds = %.lr.ph107, %.lr.ph.i68.preheader, %93, %.lr.ph.i68._crit_edge, %76, %71, %106, %126, %129, %lookup_object.exit, %51, %_.exit80, %104, %_.exit
-  %.0 = phi ptr [ null, %_.exit ], [ %105, %104 ], [ null, %_.exit80 ], [ %52, %51 ], [ %.lcssa95138, %lookup_object.exit ], [ %123, %129 ], [ %123, %126 ], [ null, %106 ], [ null, %71 ], [ %91, %93 ], [ %91, %.lr.ph.i68._crit_edge ], [ null, %76 ], [ %83, %.lr.ph.i68.preheader ], [ null, %.lr.ph107 ]
+  %.0 = phi ptr [ %52, %51 ], [ null, %106 ], [ null, %_.exit ], [ %105, %104 ], [ %.lcssa95138, %lookup_object.exit ], [ null, %_.exit80 ], [ %123, %126 ], [ %123, %129 ], [ null, %71 ], [ %91, %.lr.ph.i68._crit_edge ], [ %91, %93 ], [ null, %76 ], [ %83, %.lr.ph.i68.preheader ], [ null, %.lr.ph107 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1154,7 +1154,7 @@ define dso_local void @add_object_array_with_path(ptr noundef %0, ptr noundef %1
   br label %24
 
 24:                                               ; preds = %20, %17, %22
-  %object_array_slopbuf.sink = phi ptr [ %23, %22 ], [ null, %17 ], [ @object_array_slopbuf, %20 ]
+  %object_array_slopbuf.sink = phi ptr [ null, %17 ], [ %23, %22 ], [ @object_array_slopbuf, %20 ]
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %object_array_slopbuf.sink, ptr %25, align 8, !tbaa !85
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 24
@@ -1217,7 +1217,7 @@ define dso_local void @add_object_array(ptr noundef %0, ptr noundef %1, ptr noun
   br label %add_object_array_with_path.exit
 
 add_object_array_with_path.exit:                  ; preds = %15, %18, %20
-  %object_array_slopbuf.sink.i = phi ptr [ %21, %20 ], [ null, %15 ], [ @object_array_slopbuf, %18 ]
+  %object_array_slopbuf.sink.i = phi ptr [ null, %15 ], [ %21, %20 ], [ @object_array_slopbuf, %18 ]
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %object_array_slopbuf.sink.i, ptr %22, align 8, !tbaa !85
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 24

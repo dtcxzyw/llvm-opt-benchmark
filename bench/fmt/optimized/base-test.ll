@@ -7630,7 +7630,7 @@ _ZN7testing15AssertionResultD2Ev.exit150:         ; preds = %182, %_ZNKSt14defau
   ret void
 
 191:                                              ; preds = %_ZN7testing7MessageD2Ev.exit145, %_ZN7testing7MessageD2Ev.exit129, %_ZN7testing7MessageD2Ev.exit113, %_ZN7testing7MessageD2Ev.exit98, %_ZN7testing7MessageD2Ev.exit87
-  %.pn79.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn, %_ZN7testing7MessageD2Ev.exit145 ], [ %.pn49.pn, %_ZN7testing7MessageD2Ev.exit129 ], [ %.pn46.pn, %_ZN7testing7MessageD2Ev.exit113 ], [ %.pn43.pn, %_ZN7testing7MessageD2Ev.exit98 ], [ %.pn.pn, %_ZN7testing7MessageD2Ev.exit87 ]
+  %.pn79.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZN7testing7MessageD2Ev.exit87 ], [ %.pn46.pn, %_ZN7testing7MessageD2Ev.exit113 ], [ %.pn52.pn, %_ZN7testing7MessageD2Ev.exit145 ], [ %.pn49.pn, %_ZN7testing7MessageD2Ev.exit129 ], [ %.pn43.pn, %_ZN7testing7MessageD2Ev.exit98 ]
   resume { ptr, i32 } %.pn79.pn.pn.pn
 }
 
@@ -13142,7 +13142,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78
   br label %.body
 
 .body:                                            ; preds = %170, %125, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78, %168, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  %.pn19 = phi { ptr, i32 } [ %169, %168 ], [ %126, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %171, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78 ], [ %126, %125 ], [ %171, %170 ]
+  %.pn19 = phi { ptr, i32 } [ %171, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78 ], [ %169, %168 ], [ %126, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %126, %125 ], [ %171, %170 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %178
 
@@ -16562,7 +16562,7 @@ _ZN7testing15AssertionResultD2Ev.exit41:          ; preds = %75, %_ZNKSt14defaul
   br label %86
 
 86:                                               ; preds = %85, %48
-  %.pn14.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %48 ], [ %.pn14.pn.pn, %85 ]
+  %.pn14.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn14.pn.pn, %85 ], [ %.pn.pn.pn, %48 ]
   %87 = getelementptr inbounds nuw i8, ptr %2, i64 32
   call void @_ZN7testing8internal14FunctionMockerIFmmEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %87) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -17967,7 +17967,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78
   br label %.body
 
 .body:                                            ; preds = %170, %125, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78, %168, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  %.pn19 = phi { ptr, i32 } [ %169, %168 ], [ %126, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %171, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78 ], [ %126, %125 ], [ %171, %170 ]
+  %.pn19 = phi { ptr, i32 } [ %171, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78 ], [ %169, %168 ], [ %126, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %126, %125 ], [ %171, %170 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %178
 
@@ -19050,7 +19050,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78
   br label %.body
 
 .body:                                            ; preds = %170, %125, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78, %168, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  %.pn19 = phi { ptr, i32 } [ %169, %168 ], [ %126, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %171, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78 ], [ %126, %125 ], [ %171, %170 ]
+  %.pn19 = phi { ptr, i32 } [ %171, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78 ], [ %169, %168 ], [ %126, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %126, %125 ], [ %171, %170 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %178
 
@@ -19608,7 +19608,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78
   br label %.body
 
 .body:                                            ; preds = %170, %125, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78, %168, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  %.pn19 = phi { ptr, i32 } [ %169, %168 ], [ %126, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %171, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78 ], [ %126, %125 ], [ %171, %170 ]
+  %.pn19 = phi { ptr, i32 } [ %171, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78 ], [ %169, %168 ], [ %126, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %126, %125 ], [ %171, %170 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %178
 
@@ -19724,7 +19724,7 @@ define hidden void @_ZN25arg_test_pointer_arg_Test8TestBodyEv(ptr nonnull readno
   unreachable
 
 common.resume:                                    ; preds = %121, %129, %62, %9
-  %common.resume.op = phi { ptr, i32 } [ %10, %9 ], [ %63, %62 ], [ %.pn20, %129 ], [ %.pn15, %121 ]
+  %common.resume.op = phi { ptr, i32 } [ %63, %62 ], [ %10, %9 ], [ %.pn20, %129 ], [ %.pn15, %121 ]
   resume { ptr, i32 } %common.resume.op
 
 14:                                               ; preds = %1
@@ -20519,7 +20519,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78
   br label %.body
 
 .body:                                            ; preds = %170, %125, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78, %168, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  %.pn19 = phi { ptr, i32 } [ %169, %168 ], [ %126, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %171, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78 ], [ %126, %125 ], [ %171, %170 ]
+  %.pn19 = phi { ptr, i32 } [ %171, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78 ], [ %169, %168 ], [ %126, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %126, %125 ], [ %171, %170 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %178
 
@@ -20635,7 +20635,7 @@ define hidden void @_ZN34arg_test_volatile_pointer_arg_Test8TestBodyEv(ptr nonnu
   unreachable
 
 common.resume:                                    ; preds = %121, %129, %62, %9
-  %common.resume.op = phi { ptr, i32 } [ %10, %9 ], [ %63, %62 ], [ %.pn19, %129 ], [ %.pn14, %121 ]
+  %common.resume.op = phi { ptr, i32 } [ %63, %62 ], [ %10, %9 ], [ %.pn19, %129 ], [ %.pn14, %121 ]
   resume { ptr, i32 } %common.resume.op
 
 14:                                               ; preds = %1
@@ -21673,7 +21673,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78
   br label %.body
 
 .body:                                            ; preds = %170, %125, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78, %168, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  %.pn19 = phi { ptr, i32 } [ %169, %168 ], [ %126, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %171, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78 ], [ %126, %125 ], [ %171, %170 ]
+  %.pn19 = phi { ptr, i32 } [ %171, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78 ], [ %169, %168 ], [ %126, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %126, %125 ], [ %171, %170 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %178
 
@@ -22762,7 +22762,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78
   br label %.body
 
 .body:                                            ; preds = %170, %125, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78, %168, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  %.pn19 = phi { ptr, i32 } [ %169, %168 ], [ %126, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %171, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78 ], [ %126, %125 ], [ %171, %170 ]
+  %.pn19 = phi { ptr, i32 } [ %171, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78 ], [ %169, %168 ], [ %126, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %126, %125 ], [ %171, %170 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %178
 
@@ -23048,7 +23048,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit626: ; preds = %_Z
   ret void
 
 61:                                               ; preds = %56, %19
-  %.pn188.pn.pn.pn = phi { ptr, i32 } [ %.pn168.pn.pn, %56 ], [ %20, %19 ]
+  %.pn188.pn.pn.pn = phi { ptr, i32 } [ %20, %19 ], [ %.pn168.pn.pn, %56 ]
   %62 = load ptr, ptr %3, align 8, !tbaa !40
   %63 = icmp eq ptr %62, %8
   br i1 %63, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i628, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i627
@@ -24095,7 +24095,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit233: ; preds = %35
           cleanup
   br label %417
 
-367:                                              ; preds = %346, %343, %.critedge
+367:                                              ; preds = %343, %346, %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %35)
           to label %368 unwind label %376
@@ -26783,7 +26783,7 @@ _ZN7testing15AssertionResultD2Ev.exit566:         ; preds = %1223, %_ZNKSt14defa
   ret void
 
 common.resume:                                    ; preds = %_ZN7testing8internal14TrueWithStringD2Ev.exit248, %_ZN7testing7MessageD2Ev.exit256, %_ZN7testing7MessageD2Ev.exit273, %_ZN7testing7MessageD2Ev.exit287, %_ZN7testing7MessageD2Ev.exit306, %_ZN7testing7MessageD2Ev.exit325, %_ZN7testing7MessageD2Ev.exit342, %_ZN7testing7MessageD2Ev.exit356, %_ZN7testing7MessageD2Ev.exit375, %_ZN7testing7MessageD2Ev.exit394, %_ZN7testing7MessageD2Ev.exit411, %_ZN7testing7MessageD2Ev.exit425, %_ZN7testing7MessageD2Ev.exit444, %_ZN7testing7MessageD2Ev.exit463, %_ZN7testing7MessageD2Ev.exit480, %_ZN7testing7MessageD2Ev.exit499, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit517, %_ZN7testing7MessageD2Ev.exit525, %_ZN7testing7MessageD2Ev.exit542, %_ZN7testing7MessageD2Ev.exit561, %_ZN7testing7MessageD2Ev.exit221, %_ZN7testing7MessageD2Ev.exit208, %_ZN7testing7MessageD2Ev.exit195, %_ZN7testing7MessageD2Ev.exit185
-  %.pn165.pn.pn.pn = phi { ptr, i32 } [ %.pn92.pn, %_ZN7testing7MessageD2Ev.exit221 ], [ %.pn89.pn, %_ZN7testing7MessageD2Ev.exit208 ], [ %.pn85.pn.pn, %_ZN7testing7MessageD2Ev.exit195 ], [ %.pn.pn, %_ZN7testing7MessageD2Ev.exit185 ], [ %.pn165.pn, %_ZN7testing7MessageD2Ev.exit561 ], [ %.pn161.pn.pn, %_ZN7testing7MessageD2Ev.exit542 ], [ %.pn158.pn, %_ZN7testing7MessageD2Ev.exit525 ], [ %.pn156, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit517 ], [ %.pn153.pn, %_ZN7testing7MessageD2Ev.exit499 ], [ %.pn149.pn.pn, %_ZN7testing7MessageD2Ev.exit480 ], [ %.pn146.pn, %_ZN7testing7MessageD2Ev.exit463 ], [ %.pn143.pn, %_ZN7testing7MessageD2Ev.exit444 ], [ %.pn140.pn, %_ZN7testing7MessageD2Ev.exit425 ], [ %.pn136.pn.pn, %_ZN7testing7MessageD2Ev.exit411 ], [ %.pn133.pn, %_ZN7testing7MessageD2Ev.exit394 ], [ %.pn130.pn, %_ZN7testing7MessageD2Ev.exit375 ], [ %.pn127.pn, %_ZN7testing7MessageD2Ev.exit356 ], [ %.pn123.pn.pn, %_ZN7testing7MessageD2Ev.exit342 ], [ %.pn120.pn, %_ZN7testing7MessageD2Ev.exit325 ], [ %.pn117.pn, %_ZN7testing7MessageD2Ev.exit306 ], [ %.pn114.pn, %_ZN7testing7MessageD2Ev.exit287 ], [ %.pn110.pn.pn, %_ZN7testing7MessageD2Ev.exit273 ], [ %.pn107.pn, %_ZN7testing7MessageD2Ev.exit256 ], [ %.pn103.pn.pn, %_ZN7testing8internal14TrueWithStringD2Ev.exit248 ]
+  %.pn165.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZN7testing7MessageD2Ev.exit185 ], [ %.pn92.pn, %_ZN7testing7MessageD2Ev.exit221 ], [ %.pn89.pn, %_ZN7testing7MessageD2Ev.exit208 ], [ %.pn85.pn.pn, %_ZN7testing7MessageD2Ev.exit195 ], [ %.pn165.pn, %_ZN7testing7MessageD2Ev.exit561 ], [ %.pn161.pn.pn, %_ZN7testing7MessageD2Ev.exit542 ], [ %.pn158.pn, %_ZN7testing7MessageD2Ev.exit525 ], [ %.pn156, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit517 ], [ %.pn153.pn, %_ZN7testing7MessageD2Ev.exit499 ], [ %.pn149.pn.pn, %_ZN7testing7MessageD2Ev.exit480 ], [ %.pn146.pn, %_ZN7testing7MessageD2Ev.exit463 ], [ %.pn143.pn, %_ZN7testing7MessageD2Ev.exit444 ], [ %.pn140.pn, %_ZN7testing7MessageD2Ev.exit425 ], [ %.pn136.pn.pn, %_ZN7testing7MessageD2Ev.exit411 ], [ %.pn133.pn, %_ZN7testing7MessageD2Ev.exit394 ], [ %.pn130.pn, %_ZN7testing7MessageD2Ev.exit375 ], [ %.pn127.pn, %_ZN7testing7MessageD2Ev.exit356 ], [ %.pn123.pn.pn, %_ZN7testing7MessageD2Ev.exit342 ], [ %.pn120.pn, %_ZN7testing7MessageD2Ev.exit325 ], [ %.pn117.pn, %_ZN7testing7MessageD2Ev.exit306 ], [ %.pn114.pn, %_ZN7testing7MessageD2Ev.exit287 ], [ %.pn110.pn.pn, %_ZN7testing7MessageD2Ev.exit273 ], [ %.pn107.pn, %_ZN7testing7MessageD2Ev.exit256 ], [ %.pn103.pn.pn, %_ZN7testing8internal14TrueWithStringD2Ev.exit248 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   resume { ptr, i32 } %.pn165.pn.pn.pn
@@ -34707,7 +34707,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %_ZN
   unreachable
 
 common.resume:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28, %56, %59
-  %common.resume.op = phi { ptr, i32 } [ %57, %59 ], [ %57, %56 ], [ %.pn8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25 ]
+  %common.resume.op = phi { ptr, i32 } [ %57, %56 ], [ %57, %59 ], [ %.pn8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIFmmEEC2ERKS1_.exit.i.i:            ; preds = %52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22
@@ -38090,7 +38090,7 @@ _ZNSt10shared_ptrIN7testing8internal15ExpectationBaseEEC2INS1_16TypedExpectation
   br label %_ZNSt16allocator_traitsISaISt10shared_ptrIN7testing8internal15ExpectationBaseEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i
 
 _ZNSt16allocator_traitsISaISt10shared_ptrIN7testing8internal15ExpectationBaseEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i: ; preds = %54, %53
-  %56 = phi ptr [ %47, %53 ], [ %.pre.i, %54 ]
+  %56 = phi ptr [ %.pre.i, %54 ], [ %47, %53 ]
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store ptr %57, ptr %46, align 8, !tbaa !770
   br label %_ZNSt6vectorISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE9push_backERKS4_.exit
@@ -40785,7 +40785,7 @@ define linkonce_odr hidden void @_ZN36numeric_arg_test_make_and_visit_TestIbE8Te
   unreachable
 
 common.resume:                                    ; preds = %177, %185, %193, %118, %65, %12
-  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %66, %65 ], [ %119, %118 ], [ %.pn26, %193 ], [ %.pn21, %185 ], [ %.pn16, %177 ]
+  %common.resume.op = phi { ptr, i32 } [ %119, %118 ], [ %13, %12 ], [ %66, %65 ], [ %.pn26, %193 ], [ %.pn21, %185 ], [ %.pn16, %177 ]
   resume { ptr, i32 } %common.resume.op
 
 17:                                               ; preds = %1
@@ -41749,7 +41749,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78
   br label %.body
 
 .body:                                            ; preds = %170, %125, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78, %168, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  %.pn19 = phi { ptr, i32 } [ %169, %168 ], [ %126, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %171, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78 ], [ %126, %125 ], [ %171, %170 ]
+  %.pn19 = phi { ptr, i32 } [ %171, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78 ], [ %169, %168 ], [ %126, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %126, %125 ], [ %171, %170 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %178
 
@@ -42712,7 +42712,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %_ZN
   unreachable
 
 common.resume:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28, %56, %59
-  %common.resume.op = phi { ptr, i32 } [ %57, %59 ], [ %57, %56 ], [ %.pn8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25 ]
+  %common.resume.op = phi { ptr, i32 } [ %57, %56 ], [ %57, %59 ], [ %.pn8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIF11test_resultbEEC2ERKS2_.exit.i.i: ; preds = %52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22
@@ -47818,7 +47818,7 @@ _ZNSt10shared_ptrIN7testing8internal15ExpectationBaseEEC2INS1_16TypedExpectation
   br label %_ZNSt16allocator_traitsISaISt10shared_ptrIN7testing8internal15ExpectationBaseEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i
 
 _ZNSt16allocator_traitsISaISt10shared_ptrIN7testing8internal15ExpectationBaseEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i: ; preds = %54, %53
-  %56 = phi ptr [ %47, %53 ], [ %.pre.i, %54 ]
+  %56 = phi ptr [ %.pre.i, %54 ], [ %47, %53 ]
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store ptr %57, ptr %46, align 8, !tbaa !770
   br label %_ZNSt6vectorISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE9push_backERKS4_.exit
@@ -49119,7 +49119,7 @@ define linkonce_odr hidden void @_ZN36numeric_arg_test_make_and_visit_TestIaE8Te
   unreachable
 
 common.resume:                                    ; preds = %177, %185, %193, %118, %65, %12
-  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %66, %65 ], [ %119, %118 ], [ %.pn26, %193 ], [ %.pn21, %185 ], [ %.pn16, %177 ]
+  %common.resume.op = phi { ptr, i32 } [ %119, %118 ], [ %13, %12 ], [ %66, %65 ], [ %.pn26, %193 ], [ %.pn21, %185 ], [ %.pn16, %177 ]
   resume { ptr, i32 } %common.resume.op
 
 17:                                               ; preds = %1
@@ -50083,7 +50083,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78
   br label %.body
 
 .body:                                            ; preds = %170, %125, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78, %168, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  %.pn19 = phi { ptr, i32 } [ %169, %168 ], [ %126, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %171, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78 ], [ %126, %125 ], [ %171, %170 ]
+  %.pn19 = phi { ptr, i32 } [ %171, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78 ], [ %169, %168 ], [ %126, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %126, %125 ], [ %171, %170 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %178
 
@@ -51044,7 +51044,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %_ZN
   unreachable
 
 common.resume:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28, %56, %59
-  %common.resume.op = phi { ptr, i32 } [ %57, %59 ], [ %57, %56 ], [ %.pn8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25 ]
+  %common.resume.op = phi { ptr, i32 } [ %57, %56 ], [ %57, %59 ], [ %.pn8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIF11test_resultiEEC2ERKS2_.exit.i.i: ; preds = %52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22
@@ -54452,7 +54452,7 @@ _ZNSt10shared_ptrIN7testing8internal15ExpectationBaseEEC2INS1_16TypedExpectation
   br label %_ZNSt16allocator_traitsISaISt10shared_ptrIN7testing8internal15ExpectationBaseEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i
 
 _ZNSt16allocator_traitsISaISt10shared_ptrIN7testing8internal15ExpectationBaseEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i: ; preds = %54, %53
-  %56 = phi ptr [ %47, %53 ], [ %.pre.i, %54 ]
+  %56 = phi ptr [ %.pre.i, %54 ], [ %47, %53 ]
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store ptr %57, ptr %46, align 8, !tbaa !770
   br label %_ZNSt6vectorISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE9push_backERKS4_.exit
@@ -55752,7 +55752,7 @@ define linkonce_odr hidden void @_ZN36numeric_arg_test_make_and_visit_TestIhE8Te
   unreachable
 
 common.resume:                                    ; preds = %177, %185, %193, %118, %65, %12
-  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %66, %65 ], [ %119, %118 ], [ %.pn26, %193 ], [ %.pn21, %185 ], [ %.pn16, %177 ]
+  %common.resume.op = phi { ptr, i32 } [ %119, %118 ], [ %13, %12 ], [ %66, %65 ], [ %.pn26, %193 ], [ %.pn21, %185 ], [ %.pn16, %177 ]
   resume { ptr, i32 } %common.resume.op
 
 17:                                               ; preds = %1
@@ -56716,7 +56716,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78
   br label %.body
 
 .body:                                            ; preds = %170, %125, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78, %168, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  %.pn19 = phi { ptr, i32 } [ %169, %168 ], [ %126, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %171, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78 ], [ %126, %125 ], [ %171, %170 ]
+  %.pn19 = phi { ptr, i32 } [ %171, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78 ], [ %169, %168 ], [ %126, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %126, %125 ], [ %171, %170 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %178
 
@@ -57677,7 +57677,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %_ZN
   unreachable
 
 common.resume:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28, %56, %59
-  %common.resume.op = phi { ptr, i32 } [ %57, %59 ], [ %57, %56 ], [ %.pn8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25 ]
+  %common.resume.op = phi { ptr, i32 } [ %57, %56 ], [ %57, %59 ], [ %.pn8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIF11test_resultjEEC2ERKS2_.exit.i.i: ; preds = %52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22
@@ -61089,7 +61089,7 @@ _ZNSt10shared_ptrIN7testing8internal15ExpectationBaseEEC2INS1_16TypedExpectation
   br label %_ZNSt16allocator_traitsISaISt10shared_ptrIN7testing8internal15ExpectationBaseEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i
 
 _ZNSt16allocator_traitsISaISt10shared_ptrIN7testing8internal15ExpectationBaseEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i: ; preds = %54, %53
-  %56 = phi ptr [ %47, %53 ], [ %.pre.i, %54 ]
+  %56 = phi ptr [ %.pre.i, %54 ], [ %47, %53 ]
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store ptr %57, ptr %46, align 8, !tbaa !770
   br label %_ZNSt6vectorISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE9push_backERKS4_.exit
@@ -62389,7 +62389,7 @@ define linkonce_odr hidden void @_ZN36numeric_arg_test_make_and_visit_TestIsE8Te
   unreachable
 
 common.resume:                                    ; preds = %177, %185, %193, %118, %65, %12
-  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %66, %65 ], [ %119, %118 ], [ %.pn26, %193 ], [ %.pn21, %185 ], [ %.pn16, %177 ]
+  %common.resume.op = phi { ptr, i32 } [ %119, %118 ], [ %13, %12 ], [ %66, %65 ], [ %.pn26, %193 ], [ %.pn21, %185 ], [ %.pn16, %177 ]
   resume { ptr, i32 } %common.resume.op
 
 17:                                               ; preds = %1
@@ -63757,7 +63757,7 @@ define linkonce_odr hidden void @_ZN36numeric_arg_test_make_and_visit_TestItE8Te
   unreachable
 
 common.resume:                                    ; preds = %177, %185, %193, %118, %65, %12
-  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %66, %65 ], [ %119, %118 ], [ %.pn26, %193 ], [ %.pn21, %185 ], [ %.pn16, %177 ]
+  %common.resume.op = phi { ptr, i32 } [ %119, %118 ], [ %13, %12 ], [ %66, %65 ], [ %.pn26, %193 ], [ %.pn21, %185 ], [ %.pn16, %177 ]
   resume { ptr, i32 } %common.resume.op
 
 17:                                               ; preds = %1
@@ -65125,7 +65125,7 @@ define linkonce_odr hidden void @_ZN36numeric_arg_test_make_and_visit_TestIiE8Te
   unreachable
 
 common.resume:                                    ; preds = %177, %185, %193, %118, %65, %12
-  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %66, %65 ], [ %119, %118 ], [ %.pn26, %193 ], [ %.pn21, %185 ], [ %.pn16, %177 ]
+  %common.resume.op = phi { ptr, i32 } [ %119, %118 ], [ %13, %12 ], [ %66, %65 ], [ %.pn26, %193 ], [ %.pn21, %185 ], [ %.pn16, %177 ]
   resume { ptr, i32 } %common.resume.op
 
 17:                                               ; preds = %1
@@ -66493,7 +66493,7 @@ define linkonce_odr hidden void @_ZN36numeric_arg_test_make_and_visit_TestIjE8Te
   unreachable
 
 common.resume:                                    ; preds = %177, %185, %193, %118, %65, %12
-  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %66, %65 ], [ %119, %118 ], [ %.pn26, %193 ], [ %.pn21, %185 ], [ %.pn16, %177 ]
+  %common.resume.op = phi { ptr, i32 } [ %119, %118 ], [ %13, %12 ], [ %66, %65 ], [ %.pn26, %193 ], [ %.pn21, %185 ], [ %.pn16, %177 ]
   resume { ptr, i32 } %common.resume.op
 
 17:                                               ; preds = %1
@@ -67861,7 +67861,7 @@ define linkonce_odr hidden void @_ZN36numeric_arg_test_make_and_visit_TestIlE8Te
   unreachable
 
 common.resume:                                    ; preds = %177, %185, %193, %118, %65, %12
-  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %66, %65 ], [ %119, %118 ], [ %.pn26, %193 ], [ %.pn21, %185 ], [ %.pn16, %177 ]
+  %common.resume.op = phi { ptr, i32 } [ %119, %118 ], [ %13, %12 ], [ %66, %65 ], [ %.pn26, %193 ], [ %.pn21, %185 ], [ %.pn16, %177 ]
   resume { ptr, i32 } %common.resume.op
 
 17:                                               ; preds = %1
@@ -68825,7 +68825,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78
   br label %.body
 
 .body:                                            ; preds = %170, %125, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78, %168, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  %.pn19 = phi { ptr, i32 } [ %169, %168 ], [ %126, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %171, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78 ], [ %126, %125 ], [ %171, %170 ]
+  %.pn19 = phi { ptr, i32 } [ %171, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78 ], [ %169, %168 ], [ %126, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %126, %125 ], [ %171, %170 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %178
 
@@ -69786,7 +69786,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %_ZN
   unreachable
 
 common.resume:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28, %56, %59
-  %common.resume.op = phi { ptr, i32 } [ %57, %59 ], [ %57, %56 ], [ %.pn8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25 ]
+  %common.resume.op = phi { ptr, i32 } [ %57, %56 ], [ %57, %59 ], [ %.pn8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIF11test_resultxEEC2ERKS2_.exit.i.i: ; preds = %52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22
@@ -73196,7 +73196,7 @@ _ZNSt10shared_ptrIN7testing8internal15ExpectationBaseEEC2INS1_16TypedExpectation
   br label %_ZNSt16allocator_traitsISaISt10shared_ptrIN7testing8internal15ExpectationBaseEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i
 
 _ZNSt16allocator_traitsISaISt10shared_ptrIN7testing8internal15ExpectationBaseEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i: ; preds = %54, %53
-  %56 = phi ptr [ %47, %53 ], [ %.pre.i, %54 ]
+  %56 = phi ptr [ %.pre.i, %54 ], [ %47, %53 ]
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store ptr %57, ptr %46, align 8, !tbaa !770
   br label %_ZNSt6vectorISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE9push_backERKS4_.exit
@@ -74496,7 +74496,7 @@ define linkonce_odr hidden void @_ZN36numeric_arg_test_make_and_visit_TestImE8Te
   unreachable
 
 common.resume:                                    ; preds = %177, %185, %193, %118, %65, %12
-  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %66, %65 ], [ %119, %118 ], [ %.pn26, %193 ], [ %.pn21, %185 ], [ %.pn16, %177 ]
+  %common.resume.op = phi { ptr, i32 } [ %119, %118 ], [ %13, %12 ], [ %66, %65 ], [ %.pn26, %193 ], [ %.pn21, %185 ], [ %.pn16, %177 ]
   resume { ptr, i32 } %common.resume.op
 
 17:                                               ; preds = %1
@@ -75460,7 +75460,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78
   br label %.body
 
 .body:                                            ; preds = %170, %125, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78, %168, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  %.pn19 = phi { ptr, i32 } [ %169, %168 ], [ %126, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %171, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78 ], [ %126, %125 ], [ %171, %170 ]
+  %.pn19 = phi { ptr, i32 } [ %171, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78 ], [ %169, %168 ], [ %126, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %126, %125 ], [ %171, %170 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %178
 
@@ -76421,7 +76421,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %_ZN
   unreachable
 
 common.resume:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28, %56, %59
-  %common.resume.op = phi { ptr, i32 } [ %57, %59 ], [ %57, %56 ], [ %.pn8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25 ]
+  %common.resume.op = phi { ptr, i32 } [ %57, %56 ], [ %57, %59 ], [ %.pn8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIF11test_resultyEEC2ERKS2_.exit.i.i: ; preds = %52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22
@@ -79831,7 +79831,7 @@ _ZNSt10shared_ptrIN7testing8internal15ExpectationBaseEEC2INS1_16TypedExpectation
   br label %_ZNSt16allocator_traitsISaISt10shared_ptrIN7testing8internal15ExpectationBaseEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i
 
 _ZNSt16allocator_traitsISaISt10shared_ptrIN7testing8internal15ExpectationBaseEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i: ; preds = %54, %53
-  %56 = phi ptr [ %47, %53 ], [ %.pre.i, %54 ]
+  %56 = phi ptr [ %.pre.i, %54 ], [ %47, %53 ]
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store ptr %57, ptr %46, align 8, !tbaa !770
   br label %_ZNSt6vectorISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE9push_backERKS4_.exit
@@ -81131,7 +81131,7 @@ define linkonce_odr hidden void @_ZN36numeric_arg_test_make_and_visit_TestIxE8Te
   unreachable
 
 common.resume:                                    ; preds = %177, %185, %193, %118, %65, %12
-  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %66, %65 ], [ %119, %118 ], [ %.pn26, %193 ], [ %.pn21, %185 ], [ %.pn16, %177 ]
+  %common.resume.op = phi { ptr, i32 } [ %119, %118 ], [ %13, %12 ], [ %66, %65 ], [ %.pn26, %193 ], [ %.pn21, %185 ], [ %.pn16, %177 ]
   resume { ptr, i32 } %common.resume.op
 
 17:                                               ; preds = %1
@@ -82499,7 +82499,7 @@ define linkonce_odr hidden void @_ZN36numeric_arg_test_make_and_visit_TestIyE8Te
   unreachable
 
 common.resume:                                    ; preds = %177, %185, %193, %118, %65, %12
-  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %66, %65 ], [ %119, %118 ], [ %.pn26, %193 ], [ %.pn21, %185 ], [ %.pn16, %177 ]
+  %common.resume.op = phi { ptr, i32 } [ %119, %118 ], [ %13, %12 ], [ %66, %65 ], [ %.pn26, %193 ], [ %.pn21, %185 ], [ %.pn16, %177 ]
   resume { ptr, i32 } %common.resume.op
 
 17:                                               ; preds = %1
@@ -83867,7 +83867,7 @@ define linkonce_odr hidden void @_ZN36numeric_arg_test_make_and_visit_TestIfE8Te
   unreachable
 
 common.resume:                                    ; preds = %180, %188, %196, %120, %66, %12
-  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %67, %66 ], [ %121, %120 ], [ %.pn26, %196 ], [ %.pn21, %188 ], [ %.pn16, %180 ]
+  %common.resume.op = phi { ptr, i32 } [ %121, %120 ], [ %13, %12 ], [ %67, %66 ], [ %.pn26, %196 ], [ %.pn21, %188 ], [ %.pn16, %180 ]
   resume { ptr, i32 } %common.resume.op
 
 17:                                               ; preds = %1
@@ -84843,7 +84843,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78
   br label %.body
 
 .body:                                            ; preds = %170, %125, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78, %168, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  %.pn19 = phi { ptr, i32 } [ %169, %168 ], [ %126, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %171, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78 ], [ %126, %125 ], [ %171, %170 ]
+  %.pn19 = phi { ptr, i32 } [ %171, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78 ], [ %169, %168 ], [ %126, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %126, %125 ], [ %171, %170 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %178
 
@@ -85804,7 +85804,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %_ZN
   unreachable
 
 common.resume:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28, %56, %59
-  %common.resume.op = phi { ptr, i32 } [ %57, %59 ], [ %57, %56 ], [ %.pn8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25 ]
+  %common.resume.op = phi { ptr, i32 } [ %57, %56 ], [ %57, %59 ], [ %.pn8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIF11test_resultfEEC2ERKS2_.exit.i.i: ; preds = %52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22
@@ -89218,7 +89218,7 @@ _ZNSt10shared_ptrIN7testing8internal15ExpectationBaseEEC2INS1_16TypedExpectation
   br label %_ZNSt16allocator_traitsISaISt10shared_ptrIN7testing8internal15ExpectationBaseEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i
 
 _ZNSt16allocator_traitsISaISt10shared_ptrIN7testing8internal15ExpectationBaseEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i: ; preds = %54, %53
-  %56 = phi ptr [ %47, %53 ], [ %.pre.i, %54 ]
+  %56 = phi ptr [ %.pre.i, %54 ], [ %47, %53 ]
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store ptr %57, ptr %46, align 8, !tbaa !770
   br label %_ZNSt6vectorISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE9push_backERKS4_.exit
@@ -90516,7 +90516,7 @@ define linkonce_odr hidden void @_ZN36numeric_arg_test_make_and_visit_TestIdE8Te
   unreachable
 
 common.resume:                                    ; preds = %177, %185, %193, %118, %65, %12
-  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %66, %65 ], [ %119, %118 ], [ %.pn26, %193 ], [ %.pn21, %185 ], [ %.pn16, %177 ]
+  %common.resume.op = phi { ptr, i32 } [ %119, %118 ], [ %13, %12 ], [ %66, %65 ], [ %.pn26, %193 ], [ %.pn21, %185 ], [ %.pn16, %177 ]
   resume { ptr, i32 } %common.resume.op
 
 17:                                               ; preds = %1
@@ -91480,7 +91480,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78
   br label %.body
 
 .body:                                            ; preds = %170, %125, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78, %168, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  %.pn19 = phi { ptr, i32 } [ %169, %168 ], [ %126, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %171, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78 ], [ %126, %125 ], [ %171, %170 ]
+  %.pn19 = phi { ptr, i32 } [ %171, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78 ], [ %169, %168 ], [ %126, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %126, %125 ], [ %171, %170 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %178
 
@@ -92441,7 +92441,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %_ZN
   unreachable
 
 common.resume:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28, %56, %59
-  %common.resume.op = phi { ptr, i32 } [ %57, %59 ], [ %57, %56 ], [ %.pn8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25 ]
+  %common.resume.op = phi { ptr, i32 } [ %57, %56 ], [ %57, %59 ], [ %.pn8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIF11test_resultdEEC2ERKS2_.exit.i.i: ; preds = %52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22
@@ -95849,7 +95849,7 @@ _ZNSt10shared_ptrIN7testing8internal15ExpectationBaseEEC2INS1_16TypedExpectation
   br label %_ZNSt16allocator_traitsISaISt10shared_ptrIN7testing8internal15ExpectationBaseEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i
 
 _ZNSt16allocator_traitsISaISt10shared_ptrIN7testing8internal15ExpectationBaseEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i: ; preds = %54, %53
-  %56 = phi ptr [ %47, %53 ], [ %.pre.i, %54 ]
+  %56 = phi ptr [ %.pre.i, %54 ], [ %47, %53 ]
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store ptr %57, ptr %46, align 8, !tbaa !770
   br label %_ZNSt6vectorISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE9push_backERKS4_.exit
@@ -96464,7 +96464,7 @@ define linkonce_odr hidden void @_ZN36numeric_arg_test_make_and_visit_TestIeE8Te
   unreachable
 
 common.resume:                                    ; preds = %260, %267, %274, %174, %93, %12
-  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %94, %93 ], [ %175, %174 ], [ %.pn28, %274 ], [ %.pn23, %267 ], [ %.pn18, %260 ]
+  %common.resume.op = phi { ptr, i32 } [ %175, %174 ], [ %13, %12 ], [ %94, %93 ], [ %.pn28, %274 ], [ %.pn23, %267 ], [ %.pn18, %260 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7testing10StrictMockI12mock_visitorIeEEC2Ev.exit: ; preds = %1
@@ -97674,7 +97674,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78
   br label %.body
 
 .body:                                            ; preds = %170, %125, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78, %168, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  %.pn19 = phi { ptr, i32 } [ %169, %168 ], [ %126, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %171, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78 ], [ %126, %125 ], [ %171, %170 ]
+  %.pn19 = phi { ptr, i32 } [ %171, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78 ], [ %169, %168 ], [ %126, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %126, %125 ], [ %171, %170 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %178
 
@@ -98635,7 +98635,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %_ZN
   unreachable
 
 common.resume:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28, %56, %59
-  %common.resume.op = phi { ptr, i32 } [ %57, %59 ], [ %57, %56 ], [ %.pn8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25 ]
+  %common.resume.op = phi { ptr, i32 } [ %57, %56 ], [ %57, %59 ], [ %.pn8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIF11test_resulteEEC2ERKS2_.exit.i.i: ; preds = %52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22
@@ -102062,7 +102062,7 @@ _ZNSt10shared_ptrIN7testing8internal15ExpectationBaseEEC2INS1_16TypedExpectation
   br label %_ZNSt16allocator_traitsISaISt10shared_ptrIN7testing8internal15ExpectationBaseEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i
 
 _ZNSt16allocator_traitsISaISt10shared_ptrIN7testing8internal15ExpectationBaseEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i: ; preds = %54, %53
-  %56 = phi ptr [ %47, %53 ], [ %.pre.i, %54 ]
+  %56 = phi ptr [ %.pre.i, %54 ], [ %47, %53 ]
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store ptr %57, ptr %46, align 8, !tbaa !770
   br label %_ZNSt6vectorISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE9push_backERKS4_.exit
@@ -105417,7 +105417,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %_ZN
   unreachable
 
 common.resume:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28, %56, %59
-  %common.resume.op = phi { ptr, i32 } [ %57, %59 ], [ %57, %56 ], [ %.pn8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25 ]
+  %common.resume.op = phi { ptr, i32 } [ %57, %56 ], [ %57, %59 ], [ %.pn8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIF11test_resultcEEC2ERKS2_.exit.i.i: ; preds = %52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22
@@ -108366,7 +108366,7 @@ _ZNSt10shared_ptrIN7testing8internal15ExpectationBaseEEC2INS1_16TypedExpectation
   br label %_ZNSt16allocator_traitsISaISt10shared_ptrIN7testing8internal15ExpectationBaseEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i
 
 _ZNSt16allocator_traitsISaISt10shared_ptrIN7testing8internal15ExpectationBaseEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i: ; preds = %54, %53
-  %56 = phi ptr [ %47, %53 ], [ %.pre.i, %54 ]
+  %56 = phi ptr [ %.pre.i, %54 ], [ %47, %53 ]
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store ptr %57, ptr %46, align 8, !tbaa !770
   br label %_ZNSt6vectorISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE9push_backERKS4_.exit
@@ -109572,7 +109572,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %_ZN
   unreachable
 
 common.resume:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28, %56, %59
-  %common.resume.op = phi { ptr, i32 } [ %57, %59 ], [ %57, %56 ], [ %.pn8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25 ]
+  %common.resume.op = phi { ptr, i32 } [ %57, %56 ], [ %57, %59 ], [ %.pn8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIF11test_resultPKcEEC2ERKS4_.exit.i.i: ; preds = %52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22
@@ -112525,7 +112525,7 @@ _ZNSt10shared_ptrIN7testing8internal15ExpectationBaseEEC2INS1_16TypedExpectation
   br label %_ZNSt16allocator_traitsISaISt10shared_ptrIN7testing8internal15ExpectationBaseEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i
 
 _ZNSt16allocator_traitsISaISt10shared_ptrIN7testing8internal15ExpectationBaseEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i: ; preds = %54, %53
-  %56 = phi ptr [ %47, %53 ], [ %.pre.i, %54 ]
+  %56 = phi ptr [ %.pre.i, %54 ], [ %47, %53 ]
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store ptr %57, ptr %46, align 8, !tbaa !770
   br label %_ZNSt6vectorISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE9push_backERKS4_.exit
@@ -113731,7 +113731,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %_ZN
   unreachable
 
 common.resume:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28, %56, %59
-  %common.resume.op = phi { ptr, i32 } [ %57, %59 ], [ %57, %56 ], [ %.pn8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25 ]
+  %common.resume.op = phi { ptr, i32 } [ %57, %56 ], [ %57, %59 ], [ %.pn8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIF11test_resultN3fmt3v1117basic_string_viewIcEEEEC2ERKS6_.exit.i.i: ; preds = %52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22
@@ -116712,7 +116712,7 @@ _ZNSt10shared_ptrIN7testing8internal15ExpectationBaseEEC2INS1_16TypedExpectation
   br label %_ZNSt16allocator_traitsISaISt10shared_ptrIN7testing8internal15ExpectationBaseEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i
 
 _ZNSt16allocator_traitsISaISt10shared_ptrIN7testing8internal15ExpectationBaseEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i: ; preds = %54, %53
-  %56 = phi ptr [ %47, %53 ], [ %.pre.i, %54 ]
+  %56 = phi ptr [ %.pre.i, %54 ], [ %47, %53 ]
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store ptr %57, ptr %46, align 8, !tbaa !770
   br label %_ZNSt6vectorISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE9push_backERKS4_.exit
@@ -117918,7 +117918,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %_ZN
   unreachable
 
 common.resume:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28, %56, %59
-  %common.resume.op = phi { ptr, i32 } [ %57, %59 ], [ %57, %56 ], [ %.pn8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25 ]
+  %common.resume.op = phi { ptr, i32 } [ %57, %56 ], [ %57, %59 ], [ %.pn8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIF11test_resultPKvEEC2ERKS4_.exit.i.i: ; preds = %52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22
@@ -120918,7 +120918,7 @@ _ZNSt10shared_ptrIN7testing8internal15ExpectationBaseEEC2INS1_16TypedExpectation
   br label %_ZNSt16allocator_traitsISaISt10shared_ptrIN7testing8internal15ExpectationBaseEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i
 
 _ZNSt16allocator_traitsISaISt10shared_ptrIN7testing8internal15ExpectationBaseEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i: ; preds = %54, %53
-  %56 = phi ptr [ %47, %53 ], [ %.pre.i, %54 ]
+  %56 = phi ptr [ %.pre.i, %54 ], [ %47, %53 ]
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store ptr %57, ptr %46, align 8, !tbaa !770
   br label %_ZNSt6vectorISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE9push_backERKS4_.exit
@@ -122124,7 +122124,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %_ZN
   unreachable
 
 common.resume:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28, %56, %59
-  %common.resume.op = phi { ptr, i32 } [ %57, %59 ], [ %57, %56 ], [ %.pn8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25 ]
+  %common.resume.op = phi { ptr, i32 } [ %57, %56 ], [ %57, %59 ], [ %.pn8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIF11test_resultN3fmt3v1116basic_format_argINS2_7contextEE6handleEEEC2ERKS8_.exit.i.i: ; preds = %52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22
@@ -125047,7 +125047,7 @@ _ZNSt10shared_ptrIN7testing8internal15ExpectationBaseEEC2INS1_16TypedExpectation
   br label %_ZNSt16allocator_traitsISaISt10shared_ptrIN7testing8internal15ExpectationBaseEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i
 
 _ZNSt16allocator_traitsISaISt10shared_ptrIN7testing8internal15ExpectationBaseEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i: ; preds = %54, %53
-  %56 = phi ptr [ %47, %53 ], [ %.pre.i, %54 ]
+  %56 = phi ptr [ %.pre.i, %54 ], [ %47, %53 ]
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store ptr %57, ptr %46, align 8, !tbaa !770
   br label %_ZNSt6vectorISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE9push_backERKS4_.exit
@@ -126967,7 +126967,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %_ZN
   unreachable
 
 common.resume:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28, %56, %59
-  %common.resume.op = phi { ptr, i32 } [ %57, %59 ], [ %57, %56 ], [ %.pn8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25 ]
+  %common.resume.op = phi { ptr, i32 } [ %57, %56 ], [ %57, %59 ], [ %.pn8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIF11test_resultN3fmt3v119monostateEEEC2ERKS5_.exit.i.i: ; preds = %52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22
@@ -129871,7 +129871,7 @@ _ZNSt10shared_ptrIN7testing8internal15ExpectationBaseEEC2INS1_16TypedExpectation
   br label %_ZNSt16allocator_traitsISaISt10shared_ptrIN7testing8internal15ExpectationBaseEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i
 
 _ZNSt16allocator_traitsISaISt10shared_ptrIN7testing8internal15ExpectationBaseEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i: ; preds = %54, %53
-  %56 = phi ptr [ %47, %53 ], [ %.pre.i, %54 ]
+  %56 = phi ptr [ %.pre.i, %54 ], [ %47, %53 ]
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store ptr %57, ptr %46, align 8, !tbaa !770
   br label %_ZNSt6vectorISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE9push_backERKS4_.exit

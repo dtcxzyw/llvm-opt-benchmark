@@ -370,7 +370,7 @@ define range(i32 0, 2) i32 @button_released(ptr noundef readonly captures(none) 
   br label %61
 
 61:                                               ; preds = %31, %59, %12, %9, %6
-  %.0 = phi i32 [ 0, %12 ], [ 0, %9 ], [ 0, %6 ], [ 1, %59 ], [ 1, %31 ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %12 ], [ 0, %9 ], [ 1, %59 ], [ 1, %31 ]
   ret i32 %.0
 }
 
@@ -661,7 +661,7 @@ define void @color_picker_apply(ptr noundef %0, ptr noundef readnone captures(no
   br label %64
 
 64:                                               ; preds = %54, %36, %27
-  %65 = phi reassoc nsz arcp contract afn float [ %53, %36 ], [ %63, %54 ], [ %33, %27 ]
+  %65 = phi reassoc nsz arcp contract afn float [ %63, %54 ], [ %53, %36 ], [ %33, %27 ]
   %66 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i.i
   store float %65, ptr %66, align 4, !tbaa !60
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -1550,10 +1550,10 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br label %_get_selected_area.exit
 
 _get_selected_area.exit:                          ; preds = %38, %97, %.preheader3.i, %103
-  %.sroa.0.0 = phi i32 [ 0, %97 ], [ %spec.select1.i, %103 ], [ 0, %.preheader3.i ], [ 0, %38 ]
-  %.sroa.7.0 = phi i32 [ 0, %97 ], [ %spec.select2.i, %103 ], [ 0, %.preheader3.i ], [ 0, %38 ]
-  %.sroa.9.0 = phi i32 [ 0, %97 ], [ %spec.select1.i.c, %103 ], [ 0, %.preheader3.i ], [ 0, %38 ]
-  %.sroa.12.0 = phi i32 [ 0, %97 ], [ %spec.select2.i.c, %103 ], [ 0, %.preheader3.i ], [ 0, %38 ]
+  %.sroa.0.0 = phi i32 [ 0, %97 ], [ %spec.select1.i, %103 ], [ 0, %38 ], [ 0, %.preheader3.i ]
+  %.sroa.7.0 = phi i32 [ 0, %97 ], [ %spec.select2.i, %103 ], [ 0, %38 ], [ 0, %.preheader3.i ]
+  %.sroa.9.0 = phi i32 [ 0, %97 ], [ %spec.select1.i.c, %103 ], [ 0, %38 ], [ 0, %.preheader3.i ]
+  %.sroa.12.0 = phi i32 [ 0, %97 ], [ %spec.select2.i.c, %103 ], [ 0, %38 ], [ 0, %.preheader3.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %104 = load i32, ptr %40, align 4, !tbaa !194
   %105 = load i32, ptr %42, align 4, !tbaa !195
@@ -1861,7 +1861,7 @@ _get_sum_and_average.exit.i.i:                    ; preds = %.lr.ph.i.i.i
   br label %._crit_edge401.i.i
 
 ._crit_edge401.i.i:                               ; preds = %226, %224, %222, %211
-  %.2250.i.i = phi i32 [ %.1249326.i.i, %222 ], [ 7, %224 ], [ %274, %226 ], [ %.1249326.i.i, %211 ]
+  %.2250.i.i = phi i32 [ %274, %226 ], [ %.1249326.i.i, %222 ], [ 7, %224 ], [ %.1249326.i.i, %211 ]
   %275 = fadd reassoc nsz arcp contract afn float %.0243328.i.i, %215
   %indvars.iv.next373.i.i = add nuw nsw i64 %indvars.iv372.i.i, 1
   %exitcond.not.i15.i = icmp eq i64 %indvars.iv.next373.i.i, %wide.trip.count.i.i
@@ -1951,7 +1951,7 @@ _get_sum_and_average.exit.i.i:                    ; preds = %.lr.ph.i.i.i
   br label %._crit_edge402.i.i
 
 ._crit_edge402.i.i:                               ; preds = %291, %289, %287, %276
-  %.4.i.i = phi i32 [ %.3334.i.i, %287 ], [ 7, %289 ], [ %339, %291 ], [ %.3334.i.i, %276 ]
+  %.4.i.i = phi i32 [ %339, %291 ], [ %.3334.i.i, %287 ], [ 7, %289 ], [ %.3334.i.i, %276 ]
   %340 = fadd reassoc nsz arcp contract afn float %.0236336.i.i, %280
   %indvars.iv.next376.i.i = add nuw nsw i64 %indvars.iv375.i.i, 1
   %exitcond379.not.i.i = icmp eq i64 %indvars.iv.next376.i.i, 8192
@@ -2105,8 +2105,8 @@ _get_sum_and_average.exit.i.i:                    ; preds = %.lr.ph.i.i.i
   br label %.critedge5.i.i
 
 .critedge5.i.i:                                   ; preds = %404, %411, %.critedge5.loopexit.split.loop.exit441.i.i
-  %.0235.lcssa.i25.i = phi i32 [ %406, %.critedge5.loopexit.split.loop.exit441.i.i ], [ %406, %411 ], [ 1, %404 ]
-  %.0234.lcssa.i.i = phi i32 [ %412, %.critedge5.loopexit.split.loop.exit441.i.i ], [ %407, %411 ], [ 0, %404 ]
+  %.0235.lcssa.i25.i = phi i32 [ %406, %411 ], [ %406, %.critedge5.loopexit.split.loop.exit441.i.i ], [ 1, %404 ]
+  %.0234.lcssa.i.i = phi i32 [ %407, %411 ], [ %412, %.critedge5.loopexit.split.loop.exit441.i.i ], [ 0, %404 ]
   %413 = shl i32 %398, 3
   %414 = shl i32 %.0235.lcssa.i25.i, 3
   %415 = fmul reassoc nsz arcp contract afn float %190, 8.000000e+00
@@ -2334,7 +2334,7 @@ gamma2.exit275.i.i:                               ; preds = %525, %523
   br label %572
 
 572:                                              ; preds = %571, %554
-  %.2.i.i = phi nsz float [ 0.000000e+00, %571 ], [ %562, %554 ]
+  %.2.i.i = phi nsz float [ %562, %554 ], [ 0.000000e+00, %571 ]
   %573 = fcmp ord float %567, 0.000000e+00
   br i1 %573, label %575, label %574
 
@@ -2343,7 +2343,7 @@ gamma2.exit275.i.i:                               ; preds = %525, %523
   br label %575
 
 575:                                              ; preds = %574, %572
-  %.1217.i.i = phi nsz float [ 0.000000e+00, %574 ], [ %567, %572 ]
+  %.1217.i.i = phi nsz float [ %567, %572 ], [ 0.000000e+00, %574 ]
   %576 = fcmp ord float %569, 0.000000e+00
   br i1 %576, label %_auto_exposure.exit, label %577
 
@@ -2352,11 +2352,11 @@ gamma2.exit275.i.i:                               ; preds = %525, %523
   br label %_auto_exposure.exit
 
 _auto_exposure.exit:                              ; preds = %_get_sum_and_average.exit.i.i, %._crit_edge.i14.i, %.preheader322.i.i, %._crit_edge338.i.i, %377, %575, %577
-  %.1217315.i.i = phi float [ %.1217.i.i, %577 ], [ %.1217.i.i, %575 ], [ 0.000000e+00, %._crit_edge.i14.i ], [ 0.000000e+00, %._crit_edge338.i.i ], [ 0.000000e+00, %377 ], [ 0.000000e+00, %_get_sum_and_average.exit.i.i ], [ 0.000000e+00, %.preheader322.i.i ]
-  %.0222292301314.i.i = phi float [ %568, %577 ], [ %568, %575 ], [ 0.000000e+00, %._crit_edge.i14.i ], [ 0.000000e+00, %._crit_edge338.i.i ], [ 0.000000e+00, %377 ], [ 0.000000e+00, %_get_sum_and_average.exit.i.i ], [ 0.000000e+00, %.preheader322.i.i ]
-  %.0227290303313.i.i = phi float [ %475, %577 ], [ %475, %575 ], [ 0.000000e+00, %._crit_edge.i14.i ], [ 0.000000e+00, %._crit_edge338.i.i ], [ 0.000000e+00, %377 ], [ 0.000000e+00, %_get_sum_and_average.exit.i.i ], [ 0.000000e+00, %.preheader322.i.i ]
-  %.2304312.i.i = phi float [ %.2.i.i, %577 ], [ %.2.i.i, %575 ], [ 0.000000e+00, %._crit_edge.i14.i ], [ 0.000000e+00, %._crit_edge338.i.i ], [ 0.000000e+00, %377 ], [ 0.000000e+00, %_get_sum_and_average.exit.i.i ], [ 0.000000e+00, %.preheader322.i.i ]
-  %.1226.i.i = phi nsz float [ 0.000000e+00, %577 ], [ %569, %575 ], [ 0.000000e+00, %._crit_edge.i14.i ], [ 0.000000e+00, %._crit_edge338.i.i ], [ 0.000000e+00, %377 ], [ 0.000000e+00, %_get_sum_and_average.exit.i.i ], [ 0.000000e+00, %.preheader322.i.i ]
+  %.1217315.i.i = phi float [ %.1217.i.i, %575 ], [ %.1217.i.i, %577 ], [ 0.000000e+00, %._crit_edge.i14.i ], [ 0.000000e+00, %._crit_edge338.i.i ], [ 0.000000e+00, %377 ], [ 0.000000e+00, %_get_sum_and_average.exit.i.i ], [ 0.000000e+00, %.preheader322.i.i ]
+  %.0222292301314.i.i = phi float [ %568, %575 ], [ %568, %577 ], [ 0.000000e+00, %._crit_edge.i14.i ], [ 0.000000e+00, %._crit_edge338.i.i ], [ 0.000000e+00, %377 ], [ 0.000000e+00, %_get_sum_and_average.exit.i.i ], [ 0.000000e+00, %.preheader322.i.i ]
+  %.0227290303313.i.i = phi float [ %475, %575 ], [ %475, %577 ], [ 0.000000e+00, %._crit_edge.i14.i ], [ 0.000000e+00, %._crit_edge338.i.i ], [ 0.000000e+00, %377 ], [ 0.000000e+00, %_get_sum_and_average.exit.i.i ], [ 0.000000e+00, %.preheader322.i.i ]
+  %.2304312.i.i = phi float [ %.2.i.i, %575 ], [ %.2.i.i, %577 ], [ 0.000000e+00, %._crit_edge.i14.i ], [ 0.000000e+00, %._crit_edge338.i.i ], [ 0.000000e+00, %377 ], [ 0.000000e+00, %_get_sum_and_average.exit.i.i ], [ 0.000000e+00, %.preheader322.i.i ]
+  %.1226.i.i = phi nsz float [ %569, %575 ], [ 0.000000e+00, %577 ], [ 0.000000e+00, %._crit_edge.i14.i ], [ 0.000000e+00, %._crit_edge338.i.i ], [ 0.000000e+00, %377 ], [ 0.000000e+00, %_get_sum_and_average.exit.i.i ], [ 0.000000e+00, %.preheader322.i.i ]
   store float %.2304312.i.i, ptr %111, align 4, !tbaa !60
   store float %.1217315.i.i, ptr %21, align 4, !tbaa !60
   store float %.0222292301314.i.i, ptr %112, align 4, !tbaa !60
@@ -2545,7 +2545,7 @@ _auto_exposure.exit:                              ; preds = %_get_sum_and_averag
   br label %711
 
 711:                                              ; preds = %701, %683, %674
-  %712 = phi reassoc nsz arcp contract afn float [ %700, %683 ], [ %710, %701 ], [ %680, %674 ]
+  %712 = phi reassoc nsz arcp contract afn float [ %710, %701 ], [ %700, %683 ], [ %680, %674 ]
   %713 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i.i218
   store float %712, ptr %713, align 4, !tbaa !60
   %indvars.iv.next.i.i219 = add nuw nsw i64 %indvars.iv.i.i218, 1
@@ -2784,7 +2784,7 @@ get_lut_contrast.exit:                            ; preds = %795, %799
   br label %856
 
 856:                                              ; preds = %846, %828, %819
-  %857 = phi reassoc nsz arcp contract afn float [ %845, %828 ], [ %855, %846 ], [ %825, %819 ]
+  %857 = phi reassoc nsz arcp contract afn float [ %855, %846 ], [ %845, %828 ], [ %825, %819 ]
   %858 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i.i.i225
   store float %857, ptr %858, align 4, !tbaa !60
   %indvars.iv.next.i.i.i226 = add nuw nsw i64 %indvars.iv.i.i.i225, 1
@@ -2911,7 +2911,7 @@ dt_ioppr_apply_trc.exit.i.i:                      ; preds = %856
   br label %dt_rgb_norm.exit
 
 dt_rgb_norm.exit:                                 ; preds = %dt_ioppr_apply_trc.exit.i.i, %870, %884, %895, %903, %912, %920, %932, %949
-  %.0.i222 = phi nsz float [ %902, %895 ], [ %911, %903 ], [ %919, %912 ], [ %931, %920 ], [ %948, %932 ], [ %957, %949 ], [ %894, %884 ], [ %869, %dt_ioppr_apply_trc.exit.i.i ], [ %883, %870 ]
+  %.0.i222 = phi nsz float [ %957, %949 ], [ %902, %895 ], [ %911, %903 ], [ %919, %912 ], [ %931, %920 ], [ %948, %932 ], [ %894, %884 ], [ %869, %dt_ioppr_apply_trc.exit.i.i ], [ %883, %870 ]
   %958 = fcmp reassoc nsz arcp contract afn ogt float %.0.i222, 0.000000e+00
   br i1 %958, label %959, label %964
 
@@ -3132,7 +3132,7 @@ define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, pt
   br label %43
 
 43:                                               ; preds = %40, %2, %38, %34, %30, %26, %22, %18, %14, %10, %6
-  %.0 = phi ptr [ %39, %38 ], [ %35, %34 ], [ %31, %30 ], [ %27, %26 ], [ %23, %22 ], [ %19, %18 ], [ %15, %14 ], [ %11, %10 ], [ %7, %6 ], [ %0, %2 ], [ %spec.select, %40 ]
+  %.0 = phi ptr [ %0, %2 ], [ %spec.select, %40 ], [ %39, %38 ], [ %35, %34 ], [ %31, %30 ], [ %27, %26 ], [ %23, %22 ], [ %19, %18 ], [ %15, %14 ], [ %11, %10 ], [ %7, %6 ]
   ret ptr %.0
 }
 
@@ -3197,7 +3197,7 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #3 {
   br label %23
 
 23:                                               ; preds = %21, %19, %17, %15, %13, %11, %9, %7, %5, %3, %1
-  %.0 = phi ptr [ @introspection_linear, %1 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %9 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 440), %11 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 528), %13 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 616), %15 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 704), %17 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 792), %19 ], [ %., %21 ]
+  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 792), %19 ], [ %., %21 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 704), %17 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 616), %15 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 528), %13 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 440), %11 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %9 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ @introspection_linear, %1 ]
   ret ptr %.0
 }
 

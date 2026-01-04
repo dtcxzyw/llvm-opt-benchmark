@@ -649,7 +649,7 @@ define dso_local i32 @i915_gem_wait_ioctl(ptr noundef readnone captures(none) %0
   br label %.thread9
 
 .thread9:                                         ; preds = %64, %66, %.thread7, %67, %3
-  %68 = phi i32 [ -22, %3 ], [ %61, %67 ], [ -2, %.thread7 ], [ %61, %66 ], [ %61, %64 ]
+  %68 = phi i32 [ -22, %3 ], [ %61, %64 ], [ -2, %.thread7 ], [ %61, %67 ], [ %61, %66 ]
   ret i32 %68
 }
 

@@ -1592,8 +1592,8 @@ avpriv_mirror.exit:                               ; preds = %23, %.preheader
   br i1 %34, label %32, label %avpriv_mirror.exit42, !llvm.loop !27
 
 avpriv_mirror.exit42:                             ; preds = %32, %5, %avpriv_mirror.exit
-  %35 = phi ptr [ %28, %avpriv_mirror.exit ], [ %18, %5 ], [ %28, %32 ]
-  %.0.i39 = phi i32 [ %29, %avpriv_mirror.exit ], [ 0, %5 ], [ %.1.i41, %32 ]
+  %35 = phi ptr [ %18, %5 ], [ %28, %avpriv_mirror.exit ], [ %28, %32 ]
+  %.0.i39 = phi i32 [ 0, %5 ], [ %29, %avpriv_mirror.exit ], [ %.1.i41, %32 ]
   %36 = mul nsw i32 %.0.i39, %4
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds i8, ptr %18, i64 %37
@@ -3461,8 +3461,8 @@ avpriv_mirror.exit42:                             ; preds = %23, %.preheader
   br i1 %34, label %32, label %avpriv_mirror.exit, !llvm.loop !27
 
 avpriv_mirror.exit:                               ; preds = %32, %5, %avpriv_mirror.exit42
-  %35 = phi ptr [ %28, %avpriv_mirror.exit42 ], [ %18, %5 ], [ %28, %32 ]
-  %.0.i = phi i32 [ %29, %avpriv_mirror.exit42 ], [ 0, %5 ], [ %.1.i, %32 ]
+  %35 = phi ptr [ %18, %5 ], [ %28, %avpriv_mirror.exit42 ], [ %28, %32 ]
+  %.0.i = phi i32 [ 0, %5 ], [ %29, %avpriv_mirror.exit42 ], [ %.1.i, %32 ]
   %36 = mul nsw i32 %.0.i, %4
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds i8, ptr %18, i64 %37
@@ -5210,8 +5210,8 @@ avpriv_mirror.exit42:                             ; preds = %23, %.preheader
   br i1 %34, label %32, label %avpriv_mirror.exit, !llvm.loop !27
 
 avpriv_mirror.exit:                               ; preds = %32, %5, %avpriv_mirror.exit42
-  %35 = phi ptr [ %28, %avpriv_mirror.exit42 ], [ %18, %5 ], [ %28, %32 ]
-  %.0.i = phi i32 [ %29, %avpriv_mirror.exit42 ], [ 0, %5 ], [ %.1.i, %32 ]
+  %35 = phi ptr [ %18, %5 ], [ %28, %avpriv_mirror.exit42 ], [ %28, %32 ]
+  %.0.i = phi i32 [ 0, %5 ], [ %29, %avpriv_mirror.exit42 ], [ %.1.i, %32 ]
   %36 = mul nsw i32 %.0.i, %4
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds i8, ptr %18, i64 %37

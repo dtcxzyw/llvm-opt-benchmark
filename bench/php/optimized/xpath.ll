@@ -593,8 +593,8 @@ define internal fastcc void @php_xpath_eval(ptr %.32.val, i32 %.44.val, ptr noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge, %.critedge.us, %93, %91, %.thread12, %87, %129
-  %.sroa.6.0 = phi i32 [ 775, %129 ], [ 7, %87 ], [ 7, %.thread12 ], [ 7, %91 ], [ 775, %93 ], [ 775, %.critedge.us ], [ 775, %.critedge ]
-  %.sroa.0.0 = phi ptr [ %94, %129 ], [ @zend_empty_array, %87 ], [ @zend_empty_array, %.thread12 ], [ @zend_empty_array, %91 ], [ %94, %93 ], [ %94, %.critedge.us ], [ %94, %.critedge ]
+  %.sroa.6.0 = phi i32 [ 7, %91 ], [ 775, %129 ], [ 7, %87 ], [ 7, %.thread12 ], [ 775, %93 ], [ 775, %.critedge.us ], [ 775, %.critedge ]
+  %.sroa.0.0 = phi ptr [ @zend_empty_array, %91 ], [ %94, %129 ], [ @zend_empty_array, %87 ], [ @zend_empty_array, %.thread12 ], [ %94, %93 ], [ %94, %.critedge.us ], [ %94, %.critedge ]
   %130 = load ptr, ptr @dom_modern_nodelist_class_entry, align 8
   %131 = load ptr, ptr @dom_nodelist_class_entry, align 8
   %132 = select i1 %2, ptr %130, ptr %131
@@ -758,9 +758,9 @@ zend_parse_arg_array_ht_or_str.exit..critedge_crit_edge: ; preds = %zend_parse_a
   call void @zend_wrong_parameter_error(i32 noundef %.03468, i32 noundef %.03567, ptr noundef null, i32 noundef %.03666, ptr noundef %.03765) #12
   br label %26
 
-.critedge:                                        ; preds = %12, %zend_parse_arg_array_ht_or_str.exit..critedge_crit_edge, %18, %16, %10
-  %22 = phi ptr [ null, %10 ], [ %17, %16 ], [ null, %18 ], [ %.pre, %zend_parse_arg_array_ht_or_str.exit..critedge_crit_edge ], [ null, %12 ]
-  %.1 = phi ptr [ null, %10 ], [ null, %16 ], [ %19, %18 ], [ null, %zend_parse_arg_array_ht_or_str.exit..critedge_crit_edge ], [ null, %12 ]
+.critedge:                                        ; preds = %12, %zend_parse_arg_array_ht_or_str.exit..critedge_crit_edge, %16, %18, %10
+  %22 = phi ptr [ %17, %16 ], [ null, %10 ], [ %.pre, %zend_parse_arg_array_ht_or_str.exit..critedge_crit_edge ], [ null, %18 ], [ null, %12 ]
+  %.1 = phi ptr [ null, %16 ], [ null, %10 ], [ null, %zend_parse_arg_array_ht_or_str.exit..critedge_crit_edge ], [ %19, %18 ], [ null, %12 ]
   %23 = getelementptr inbounds i8, ptr %5, i64 -24
   %24 = load ptr, ptr %23, align 8, !tbaa !4
   %25 = call i32 @php_dom_xpath_callbacks_update_method_handler(ptr noundef nonnull %6, ptr noundef %24, ptr noundef null, ptr noundef %22, ptr noundef %.1, i32 noundef 0, ptr noundef null) #12
@@ -882,11 +882,11 @@ zend_parse_arg_path_str.exit72:                   ; preds = %36, %34
   br label %zend_parse_arg_path_str.exit.thread
 
 zend_parse_arg_path_str.exit.thread:              ; preds = %zend_parse_arg_str_ex.exit77, %36, %zend_parse_arg_str_ex.exit, %23, %13, %43
-  %45 = phi ptr [ null, %13 ], [ %44, %43 ], [ null, %23 ], [ null, %zend_parse_arg_str_ex.exit ], [ null, %36 ], [ null, %zend_parse_arg_str_ex.exit77 ]
-  %.063 = phi ptr [ null, %13 ], [ %41, %43 ], [ %15, %23 ], [ %15, %zend_parse_arg_str_ex.exit ], [ %28, %36 ], [ %28, %zend_parse_arg_str_ex.exit77 ]
-  %.062 = phi i32 [ 0, %13 ], [ %., %43 ], [ 16, %23 ], [ 16, %zend_parse_arg_str_ex.exit ], [ 16, %36 ], [ 16, %zend_parse_arg_str_ex.exit77 ]
-  %.061 = phi i32 [ 0, %13 ], [ 3, %43 ], [ 1, %23 ], [ 1, %zend_parse_arg_str_ex.exit ], [ 2, %36 ], [ 2, %zend_parse_arg_str_ex.exit77 ]
-  %.060 = phi i32 [ 1, %13 ], [ %.68, %43 ], [ 9, %23 ], [ 9, %zend_parse_arg_str_ex.exit ], [ 9, %36 ], [ 9, %zend_parse_arg_str_ex.exit77 ]
+  %45 = phi ptr [ null, %13 ], [ %44, %43 ], [ null, %zend_parse_arg_str_ex.exit ], [ null, %23 ], [ null, %36 ], [ null, %zend_parse_arg_str_ex.exit77 ]
+  %.063 = phi ptr [ null, %13 ], [ %41, %43 ], [ %15, %zend_parse_arg_str_ex.exit ], [ %15, %23 ], [ %28, %36 ], [ %28, %zend_parse_arg_str_ex.exit77 ]
+  %.062 = phi i32 [ 0, %13 ], [ %., %43 ], [ 16, %zend_parse_arg_str_ex.exit ], [ 16, %23 ], [ 16, %36 ], [ 16, %zend_parse_arg_str_ex.exit77 ]
+  %.061 = phi i32 [ 0, %13 ], [ 3, %43 ], [ 1, %zend_parse_arg_str_ex.exit ], [ 1, %23 ], [ 2, %36 ], [ 2, %zend_parse_arg_str_ex.exit77 ]
+  %.060 = phi i32 [ 1, %13 ], [ %.68, %43 ], [ 9, %zend_parse_arg_str_ex.exit ], [ 9, %23 ], [ 9, %36 ], [ 9, %zend_parse_arg_str_ex.exit77 ]
   call void @zend_wrong_parameter_error(i32 noundef %.060, i32 noundef %.061, ptr noundef %45, i32 noundef %.062, ptr noundef %.063) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %57
@@ -1083,7 +1083,7 @@ smart_str_alloc.exit:                             ; preds = %32
   br label %83
 
 83:                                               ; preds = %82, %64
-  %84 = phi ptr [ %.pre, %82 ], [ %66, %64 ]
+  %84 = phi ptr [ %66, %64 ], [ %.pre, %82 ]
   %85 = getelementptr i8, ptr %84, i64 23
   %86 = getelementptr i8, ptr %85, i64 %80
   store i8 %79, ptr %86, align 1, !tbaa !21

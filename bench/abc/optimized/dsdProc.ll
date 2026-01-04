@@ -914,9 +914,9 @@ dsdKernelCheckContainment.exit.thread:            ; preds = %224
   %exitcond.not.i792 = icmp eq i64 %indvars.iv.next.i791, %wide.trip.count.i788
   br i1 %exitcond.not.i792, label %dsdKernelCopyListPlusOne.exit, label %.lr.ph.i789, !llvm.loop !60
 
-dsdKernelCopyListPlusOneMinusOne.exit.thread:     ; preds = %.dsdKernelCopyListPlusOneMinusOne.exit.thread_crit_edge, %.thread, %._crit_edge
-  %.pre-phi = phi i32 [ %.pre1115, %.dsdKernelCopyListPlusOneMinusOne.exit.thread_crit_edge ], [ %288, %.thread ], [ %285, %._crit_edge ]
-  %352 = phi i16 [ %.pre1110, %.dsdKernelCopyListPlusOneMinusOne.exit.thread_crit_edge ], [ %287, %.thread ], [ %284, %._crit_edge ]
+dsdKernelCopyListPlusOneMinusOne.exit.thread:     ; preds = %.dsdKernelCopyListPlusOneMinusOne.exit.thread_crit_edge, %._crit_edge, %.thread
+  %.pre-phi = phi i32 [ %.pre1115, %.dsdKernelCopyListPlusOneMinusOne.exit.thread_crit_edge ], [ %285, %._crit_edge ], [ %288, %.thread ]
+  %352 = phi i16 [ %.pre1110, %.dsdKernelCopyListPlusOneMinusOne.exit.thread_crit_edge ], [ %284, %._crit_edge ], [ %287, %.thread ]
   %353 = icmp sgt i16 %352, 0
   br i1 %353, label %.lr.ph993, label %._crit_edge994
 
@@ -1553,7 +1553,7 @@ dsdKernelCopyListPlusOne.exit820:                 ; preds = %.lr.ph.i816, %528
   store ptr %673, ptr %674, align 8, !tbaa !24
   br label %675
 
-.thread955:                                       ; preds = %585, %558, %550, %501, %.thread916, %.thread934
+.thread955:                                       ; preds = %585, %558, %.thread916, %550, %501, %.thread934
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -2200,7 +2200,7 @@ dsdKernelFindContainingComponent.exit845:         ; preds = %.lr.ph1232, %.lr.ph
   br i1 %1037, label %987, label %.critedge.i, !llvm.loop !76
 
 .critedge.i:                                      ; preds = %987, %1036
-  %.05765.i = phi i32 [ %.2.i, %1036 ], [ %.05766.i, %987 ]
+  %.05765.i = phi i32 [ %.05766.i, %987 ], [ %.2.i, %1036 ]
   %or.cond7 = icmp ult i32 %.05765.i, 2
   br i1 %or.cond7, label %.critedge.i.thread, label %1042
 
@@ -2275,8 +2275,8 @@ dsdKernelFindContainingComponent.exit845:         ; preds = %.lr.ph1232, %.lr.ph
   br label %dsdKernelCopyListPlusOne.exit
 
 dsdKernelCopyListPlusOne.exit:                    ; preds = %351, %.lr.ph.i757, %.lr.ph.i, %.lr.ph.i782, %.lr.ph.i763, %.lr.ph.i737, %329, %675, %dsdKernelCopyListPlusOne.exit799, %dsdKernelCopyListPlusOne.exit806, %156, %82, %211, %dsdKernelCopyListPlusOne.exit774, %.lr.ph.i776, %65, %dsdKernelCopyListPlusOne.exit748, %.lr.ph.i750, %.loopexit, %465
-  %.0555 = phi ptr [ %68, %65 ], [ %140, %dsdKernelCopyListPlusOne.exit748 ], [ %153, %.lr.ph.i750 ], [ %214, %211 ], [ %202, %dsdKernelCopyListPlusOne.exit774 ], [ %223, %.lr.ph.i776 ], [ %468, %465 ], [ %686, %.loopexit ], [ %.13, %675 ], [ %89, %82 ], [ %163, %156 ], [ %.7, %dsdKernelCopyListPlusOne.exit799 ], [ %.10, %dsdKernelCopyListPlusOne.exit806 ], [ %338, %329 ], [ %100, %.lr.ph.i737 ], [ %177, %.lr.ph.i763 ], [ %218, %.lr.ph.i782 ], [ %89, %.lr.ph.i ], [ %163, %.lr.ph.i757 ], [ %338, %351 ]
-  %.0540 = phi ptr [ null, %65 ], [ %110, %dsdKernelCopyListPlusOne.exit748 ], [ %110, %.lr.ph.i750 ], [ %192, %211 ], [ %192, %dsdKernelCopyListPlusOne.exit774 ], [ %192, %.lr.ph.i776 ], [ %242, %465 ], [ %242, %.loopexit ], [ %242, %675 ], [ %78, %82 ], [ %110, %156 ], [ %242, %dsdKernelCopyListPlusOne.exit799 ], [ %242, %dsdKernelCopyListPlusOne.exit806 ], [ %242, %329 ], [ %78, %.lr.ph.i737 ], [ %110, %.lr.ph.i763 ], [ %192, %.lr.ph.i782 ], [ %78, %.lr.ph.i ], [ %110, %.lr.ph.i757 ], [ %242, %351 ]
+  %.0555 = phi ptr [ %68, %65 ], [ %100, %.lr.ph.i737 ], [ %89, %.lr.ph.i ], [ %140, %dsdKernelCopyListPlusOne.exit748 ], [ %153, %.lr.ph.i750 ], [ %177, %.lr.ph.i763 ], [ %218, %.lr.ph.i782 ], [ %214, %211 ], [ %202, %dsdKernelCopyListPlusOne.exit774 ], [ %223, %.lr.ph.i776 ], [ %163, %.lr.ph.i757 ], [ %468, %465 ], [ %686, %.loopexit ], [ %.13, %675 ], [ %89, %82 ], [ %163, %156 ], [ %338, %329 ], [ %.10, %dsdKernelCopyListPlusOne.exit806 ], [ %.7, %dsdKernelCopyListPlusOne.exit799 ], [ %338, %351 ]
+  %.0540 = phi ptr [ null, %65 ], [ %78, %.lr.ph.i737 ], [ %78, %.lr.ph.i ], [ %110, %dsdKernelCopyListPlusOne.exit748 ], [ %110, %.lr.ph.i750 ], [ %110, %.lr.ph.i763 ], [ %192, %.lr.ph.i782 ], [ %192, %211 ], [ %192, %dsdKernelCopyListPlusOne.exit774 ], [ %192, %.lr.ph.i776 ], [ %110, %.lr.ph.i757 ], [ %242, %465 ], [ %242, %.loopexit ], [ %242, %675 ], [ %78, %82 ], [ %110, %156 ], [ %242, %329 ], [ %242, %dsdKernelCopyListPlusOne.exit806 ], [ %242, %dsdKernelCopyListPlusOne.exit799 ], [ %242, %351 ]
   %1059 = ptrtoint ptr %.0555 to i64
   %1060 = and i64 %1059, -2
   %1061 = inttoptr i64 %1060 to ptr
@@ -2456,8 +2456,8 @@ define internal fastcc i32 @dsdKernelFindCommonComponents(ptr noundef readonly c
   br label %.critedge
 
 .critedge:                                        ; preds = %68, %6, %70
-  %.05765 = phi i32 [ %.05766, %70 ], [ 0, %6 ], [ %.2, %68 ]
-  %.062 = phi i32 [ %.068, %70 ], [ 0, %6 ], [ %.1, %68 ]
+  %.05765 = phi i32 [ 0, %6 ], [ %.05766, %70 ], [ %.2, %68 ]
+  %.062 = phi i32 [ 0, %6 ], [ %.068, %70 ], [ %.1, %68 ]
   %71 = icmp slt i32 %.062, %13
   br i1 %71, label %72, label %78
 

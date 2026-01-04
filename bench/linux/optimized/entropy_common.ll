@@ -194,10 +194,10 @@ define dso_local i64 @FSE_readNCount_bmi2(ptr noundef writeonly captures(none) %
   br label %110
 
 110:                                              ; preds = %.thread, %38
-  %111 = phi ptr [ %39, %38 ], [ %106, %.thread ]
-  %112 = phi i32 [ %43, %38 ], [ %109, %.thread ]
-  %113 = phi i32 [ %44, %38 ], [ %107, %.thread ]
-  %114 = phi i32 [ %45, %38 ], [ %86, %.thread ]
+  %111 = phi ptr [ %106, %.thread ], [ %39, %38 ]
+  %112 = phi i32 [ %109, %.thread ], [ %43, %38 ]
+  %113 = phi i32 [ %107, %.thread ], [ %44, %38 ]
+  %114 = phi i32 [ %86, %.thread ], [ %45, %38 ]
   %115 = shl nuw nsw i32 %42, 1
   %116 = add nsw i32 %115, -1
   %117 = sub i32 %116, %41
@@ -461,10 +461,10 @@ define internal fastcc i64 @FSE_readNCount_body_bmi2(ptr noundef writeonly captu
   br label %105
 
 105:                                              ; preds = %.thread, %33
-  %106 = phi ptr [ %34, %33 ], [ %101, %.thread ]
-  %107 = phi i32 [ %38, %33 ], [ %104, %.thread ]
-  %108 = phi i32 [ %39, %33 ], [ %102, %.thread ]
-  %109 = phi i32 [ %40, %33 ], [ %81, %.thread ]
+  %106 = phi ptr [ %101, %.thread ], [ %34, %33 ]
+  %107 = phi i32 [ %104, %.thread ], [ %38, %33 ]
+  %108 = phi i32 [ %102, %.thread ], [ %39, %33 ]
+  %109 = phi i32 [ %81, %.thread ], [ %40, %33 ]
   %110 = shl nuw nsw i32 %37, 1
   %111 = add nsw i32 %110, -1
   %112 = sub i32 %111, %36

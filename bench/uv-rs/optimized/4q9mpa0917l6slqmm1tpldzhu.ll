@@ -111,7 +111,7 @@ define hidden void @_ZN12clap_builder4util9any_value8AnyValue13downcast_into17h0
   unreachable
 
 common.resume:                                    ; preds = %59, %64, %22, %26
-  %common.resume.op = phi { ptr, i32 } [ %23, %26 ], [ %23, %22 ], [ %60, %64 ], [ %60, %59 ]
+  %common.resume.op = phi { ptr, i32 } [ %23, %22 ], [ %23, %26 ], [ %60, %64 ], [ %60, %59 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc4sync83Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$C$A$GT$8downcast17h9dd72fa18c6f5a15E.llvm.7498170970457563685.exit": ; preds = %2
@@ -299,7 +299,7 @@ define hidden void @_ZN12clap_builder4util9any_value8AnyValue13downcast_into17h0
   unreachable
 
 common.resume:                                    ; preds = %75, %80, %22, %26
-  %common.resume.op = phi { ptr, i32 } [ %23, %26 ], [ %23, %22 ], [ %76, %80 ], [ %76, %75 ]
+  %common.resume.op = phi { ptr, i32 } [ %23, %22 ], [ %23, %26 ], [ %76, %80 ], [ %76, %75 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc4sync83Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$C$A$GT$8downcast17h9b124bd544b92f7dE.llvm.7498170970457563685.exit": ; preds = %2
@@ -758,7 +758,7 @@ define hidden void @_ZN12clap_builder4util9any_value8AnyValue13downcast_into17h0
   unreachable
 
 common.resume:                                    ; preds = %55, %60, %23, %27
-  %common.resume.op = phi { ptr, i32 } [ %24, %27 ], [ %24, %23 ], [ %56, %60 ], [ %56, %55 ]
+  %common.resume.op = phi { ptr, i32 } [ %24, %23 ], [ %24, %27 ], [ %56, %60 ], [ %56, %55 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc4sync83Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$C$A$GT$8downcast17h88e8fd314434131dE.llvm.7498170970457563685.exit": ; preds = %2
@@ -1181,7 +1181,7 @@ define hidden void @_ZN12clap_builder4util9any_value8AnyValue13downcast_into17h1
   unreachable
 
 common.resume:                                    ; preds = %55, %60, %23, %27
-  %common.resume.op = phi { ptr, i32 } [ %24, %27 ], [ %24, %23 ], [ %56, %60 ], [ %56, %55 ]
+  %common.resume.op = phi { ptr, i32 } [ %24, %23 ], [ %24, %27 ], [ %56, %60 ], [ %56, %55 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc4sync83Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$C$A$GT$8downcast17ha9051250eb776bd7E.llvm.7498170970457563685.exit": ; preds = %2
@@ -2205,7 +2205,7 @@ define hidden void @_ZN12clap_builder4util9any_value8AnyValue13downcast_into17h4
   unreachable
 
 common.resume:                                    ; preds = %53, %57, %23, %27
-  %common.resume.op = phi { ptr, i32 } [ %24, %27 ], [ %24, %23 ], [ %54, %57 ], [ %54, %53 ]
+  %common.resume.op = phi { ptr, i32 } [ %24, %23 ], [ %24, %27 ], [ %54, %57 ], [ %54, %53 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc4sync83Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$C$A$GT$8downcast17he3540902901a7341E.llvm.7498170970457563685.exit": ; preds = %2
@@ -3669,7 +3669,7 @@ define hidden void @_ZN12clap_builder4util9any_value8AnyValue13downcast_into17h8
   unreachable
 
 common.resume:                                    ; preds = %53, %57, %23, %27
-  %common.resume.op = phi { ptr, i32 } [ %24, %27 ], [ %24, %23 ], [ %54, %57 ], [ %54, %53 ]
+  %common.resume.op = phi { ptr, i32 } [ %24, %23 ], [ %24, %27 ], [ %54, %57 ], [ %54, %53 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc4sync83Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$C$A$GT$8downcast17h9079820078698395E.llvm.7498170970457563685.exit": ; preds = %2
@@ -3831,7 +3831,7 @@ define hidden void @_ZN12clap_builder4util9any_value8AnyValue13downcast_into17h8
   unreachable
 
 common.resume:                                    ; preds = %52, %56, %22, %26
-  %common.resume.op = phi { ptr, i32 } [ %23, %26 ], [ %23, %22 ], [ %53, %56 ], [ %53, %52 ]
+  %common.resume.op = phi { ptr, i32 } [ %23, %22 ], [ %23, %26 ], [ %53, %56 ], [ %53, %52 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc4sync83Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$C$A$GT$8downcast17h62363e66617adcb7E.llvm.7498170970457563685.exit": ; preds = %2
@@ -4120,7 +4120,7 @@ define hidden void @_ZN12clap_builder4util9any_value8AnyValue13downcast_into17h8
   unreachable
 
 common.resume:                                    ; preds = %55, %60, %23, %27
-  %common.resume.op = phi { ptr, i32 } [ %24, %27 ], [ %24, %23 ], [ %56, %60 ], [ %56, %55 ]
+  %common.resume.op = phi { ptr, i32 } [ %24, %23 ], [ %24, %27 ], [ %56, %60 ], [ %56, %55 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc4sync83Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$C$A$GT$8downcast17h505f0ea18c3870bfE.llvm.7498170970457563685.exit": ; preds = %2
@@ -4304,7 +4304,7 @@ define hidden void @_ZN12clap_builder4util9any_value8AnyValue13downcast_into17h8
   unreachable
 
 common.resume:                                    ; preds = %50, %54, %23, %27
-  %common.resume.op = phi { ptr, i32 } [ %24, %27 ], [ %24, %23 ], [ %51, %54 ], [ %51, %50 ]
+  %common.resume.op = phi { ptr, i32 } [ %24, %23 ], [ %24, %27 ], [ %51, %54 ], [ %51, %50 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc4sync83Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$C$A$GT$8downcast17h7c9629abeea05f8eE.llvm.7498170970457563685.exit": ; preds = %2
@@ -5208,7 +5208,7 @@ define hidden void @_ZN12clap_builder4util9any_value8AnyValue13downcast_into17hb
   unreachable
 
 common.resume:                                    ; preds = %51, %55, %23, %27
-  %common.resume.op = phi { ptr, i32 } [ %24, %27 ], [ %24, %23 ], [ %52, %55 ], [ %52, %51 ]
+  %common.resume.op = phi { ptr, i32 } [ %24, %23 ], [ %24, %27 ], [ %52, %55 ], [ %52, %51 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc4sync83Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$C$A$GT$8downcast17hf5f2efcd2a525560E.llvm.7498170970457563685.exit": ; preds = %2
@@ -5764,7 +5764,7 @@ define hidden void @_ZN12clap_builder4util9any_value8AnyValue13downcast_into17hd
   unreachable
 
 common.resume:                                    ; preds = %51, %55, %23, %27
-  %common.resume.op = phi { ptr, i32 } [ %24, %27 ], [ %24, %23 ], [ %52, %55 ], [ %52, %51 ]
+  %common.resume.op = phi { ptr, i32 } [ %24, %23 ], [ %24, %27 ], [ %52, %55 ], [ %52, %51 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc4sync83Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$C$A$GT$8downcast17h380c425a94f5608fE.llvm.7498170970457563685.exit": ; preds = %2
@@ -6102,7 +6102,7 @@ define hidden void @_ZN12clap_builder4util9any_value8AnyValue13downcast_into17he
   unreachable
 
 common.resume:                                    ; preds = %55, %60, %23, %27
-  %common.resume.op = phi { ptr, i32 } [ %24, %27 ], [ %24, %23 ], [ %56, %60 ], [ %56, %55 ]
+  %common.resume.op = phi { ptr, i32 } [ %24, %23 ], [ %24, %27 ], [ %56, %60 ], [ %56, %55 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc4sync83Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$C$A$GT$8downcast17h8b908ea189d7cb17E.llvm.7498170970457563685.exit": ; preds = %2
@@ -6408,7 +6408,7 @@ define hidden void @_ZN12clap_builder4util9any_value8AnyValue13downcast_into17he
   unreachable
 
 common.resume:                                    ; preds = %.body.i, %62, %24, %28
-  %common.resume.op = phi { ptr, i32 } [ %25, %28 ], [ %25, %24 ], [ %eh.lpad-body.i, %62 ], [ %eh.lpad-body.i, %.body.i ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %25, %28 ], [ %eh.lpad-body.i, %62 ], [ %eh.lpad-body.i, %.body.i ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc4sync83Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$C$A$GT$8downcast17h86a1b2648ab086c1E.llvm.7498170970457563685.exit": ; preds = %2
@@ -6620,7 +6620,7 @@ define hidden void @_ZN12clap_builder4util9any_value8AnyValue13downcast_into17he
   unreachable
 
 common.resume:                                    ; preds = %65, %69, %23, %27
-  %common.resume.op = phi { ptr, i32 } [ %24, %27 ], [ %24, %23 ], [ %66, %69 ], [ %66, %65 ]
+  %common.resume.op = phi { ptr, i32 } [ %24, %23 ], [ %24, %27 ], [ %66, %69 ], [ %66, %65 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc4sync83Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$C$A$GT$8downcast17h4985bf0fdd6ea519E.llvm.7498170970457563685.exit": ; preds = %2
@@ -6846,7 +6846,7 @@ define hidden void @_ZN12clap_builder4util9any_value8AnyValue13downcast_into17he
   unreachable
 
 common.resume:                                    ; preds = %54, %59, %23, %27
-  %common.resume.op = phi { ptr, i32 } [ %24, %27 ], [ %24, %23 ], [ %55, %59 ], [ %55, %54 ]
+  %common.resume.op = phi { ptr, i32 } [ %24, %23 ], [ %24, %27 ], [ %55, %59 ], [ %55, %54 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc4sync83Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$C$A$GT$8downcast17h6a296fba33215f36E.llvm.7498170970457563685.exit": ; preds = %2
@@ -7027,7 +7027,7 @@ define hidden void @_ZN12clap_builder4util9any_value8AnyValue13downcast_into17he
   unreachable
 
 common.resume:                                    ; preds = %52, %56, %22, %26
-  %common.resume.op = phi { ptr, i32 } [ %23, %26 ], [ %23, %22 ], [ %53, %56 ], [ %53, %52 ]
+  %common.resume.op = phi { ptr, i32 } [ %23, %22 ], [ %23, %26 ], [ %53, %56 ], [ %53, %52 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc4sync83Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$C$A$GT$8downcast17h7c566b88bc085436E.llvm.7498170970457563685.exit": ; preds = %2
@@ -12417,7 +12417,7 @@ define internal fastcc void @"_ZN4core3ptr57drop_in_place$LT$uv_pypi_types..pars
   unreachable
 
 common.resume:                                    ; preds = %58, %42, %19, %24
-  %common.resume.op = phi { ptr, i32 } [ %20, %24 ], [ %20, %19 ], [ %43, %42 ], [ %59, %58 ]
+  %common.resume.op = phi { ptr, i32 } [ %43, %42 ], [ %20, %19 ], [ %20, %24 ], [ %59, %58 ]
   resume { ptr, i32 } %common.resume.op
 
 32:                                               ; preds = %1
@@ -20065,7 +20065,7 @@ define hidden void @"_ZN70_$LT$uv_pep508..Requirement$LT$T$GT$$u20$as$u20$core..
   unreachable
 
 .body:                                            ; preds = %345, %341, %276, %223, %209, %153, %100, %437
-  %.pn = phi { ptr, i32 } [ %438, %437 ], [ %346, %345 ], [ %101, %100 ], [ %154, %153 ], [ %210, %209 ], [ %224, %223 ], [ %277, %276 ], [ %342, %341 ]
+  %.pn = phi { ptr, i32 } [ %438, %437 ], [ %346, %345 ], [ %277, %276 ], [ %224, %223 ], [ %101, %100 ], [ %154, %153 ], [ %210, %209 ], [ %342, %341 ]
   invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_normalize..extra_name..ExtraName$u5d$$GT$$GT$17h6c230d15a09133ecE"(ptr %41, i64 %42) #22
           to label %37 unwind label %439
 

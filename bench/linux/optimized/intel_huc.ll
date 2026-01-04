@@ -489,7 +489,7 @@ define dso_local i32 @intel_huc_init(ptr noundef %0) local_unnamed_addr #0 align
   br label %.thread9
 
 .thread9:                                         ; preds = %33, %48, %77, %63, %.thread10, %121, %117
-  %122 = phi i32 [ %113, %121 ], [ %113, %117 ], [ %102, %.thread10 ], [ -8, %33 ], [ -8, %48 ], [ -5, %77 ], [ -5, %63 ]
+  %122 = phi i32 [ %113, %117 ], [ %102, %.thread10 ], [ %113, %121 ], [ -8, %33 ], [ -8, %48 ], [ -5, %77 ], [ -5, %63 ]
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 6, ptr %123, align 4
   %124 = load ptr, ptr %2, align 8
@@ -769,7 +769,7 @@ define dso_local i32 @intel_huc_auth(ptr noundef %0, i32 noundef %1) local_unnam
   br label %60
 
 54:                                               ; preds = %52, %42
-  %55 = phi i32 [ %53, %52 ], [ %51, %42 ]
+  %55 = phi i32 [ %51, %42 ], [ %53, %52 ]
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %60
 
@@ -1058,7 +1058,7 @@ define dso_local void @intel_huc_update_auth_status(ptr noundef %0) local_unname
   br label %huc_is_fully_authenticated.exit
 
 huc_is_fully_authenticated.exit:                  ; preds = %18, %25
-  %35 = phi i32 [ 0, %18 ], [ %31, %25 ]
+  %35 = phi i32 [ %31, %25 ], [ 0, %18 ]
   %36 = getelementptr i8, ptr %0, i64 432
   %37 = load i32, ptr %36, align 4
   %38 = and i32 %37, %35

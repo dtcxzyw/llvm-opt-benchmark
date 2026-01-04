@@ -118,7 +118,7 @@ define hidden noundef range(i8 0, 3) i8 @_ZN3std10sys_common4once5futex4Once5sta
   br label %12
 
 12:                                               ; preds = %1, %11, %10
-  %.0 = phi i8 [ 1, %10 ], [ 2, %11 ], [ 0, %1 ]
+  %.0 = phi i8 [ 2, %11 ], [ 1, %10 ], [ 0, %1 ]
   ret i8 %.0
 }
 
@@ -3544,7 +3544,7 @@ define hidden void @"_ZN4core3ptr54drop_in_place$LT$ockam_node..messages..NodeMe
   unreachable
 
 .body:                                            ; preds = %123, %116
-  %.pn6 = phi { ptr, i32 } [ %124, %123 ], [ %117, %116 ]
+  %.pn6 = phi { ptr, i32 } [ %117, %116 ], [ %124, %123 ]
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 48
   invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicUsize$GT$$GT$17hdf5a167203d4523dE"(ptr noalias noundef align 8 dereferenceable(8) %122) #18
           to label %130 unwind label %150
@@ -3627,8 +3627,8 @@ define hidden void @"_ZN4core3ptr54drop_in_place$LT$ockam_node..messages..NodeMe
   unreachable
 
 152:                                              ; preds = %130, %135, %.body48, %172
-  %.sink82 = phi i64 [ 56, %172 ], [ 56, %.body48 ], [ 64, %135 ], [ 64, %130 ]
-  %.pn12 = phi { ptr, i32 } [ %173, %172 ], [ %.pn, %.body48 ], [ %136, %135 ], [ %.pn8, %130 ]
+  %.sink82 = phi i64 [ 56, %.body48 ], [ 56, %172 ], [ 64, %135 ], [ 64, %130 ]
+  %.pn12 = phi { ptr, i32 } [ %.pn, %.body48 ], [ %173, %172 ], [ %136, %135 ], [ %.pn8, %130 ]
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink82
   tail call void @"_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$ockam_core..routing..address_meta..AddressAndMetadata$GT$$GT$17h9390a05546a1364aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %153) #18
   resume { ptr, i32 } %.pn12
@@ -3683,7 +3683,7 @@ define hidden void @"_ZN4core3ptr54drop_in_place$LT$ockam_node..messages..NodeMe
   unreachable
 
 .body48:                                          ; preds = %169, %162
-  %.pn = phi { ptr, i32 } [ %170, %169 ], [ %163, %162 ]
+  %.pn = phi { ptr, i32 } [ %163, %162 ], [ %170, %169 ]
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 48
   invoke void @"_ZN4core3ptr151drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$core..result..Result$LT$ockam_node..messages..RouterReply$C$ockam_core..error..Error$GT$$GT$$GT$17he0f00b7a129f935fE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %168) #18
           to label %152 unwind label %150

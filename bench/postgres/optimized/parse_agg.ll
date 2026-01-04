@@ -468,7 +468,7 @@ define internal fastcc void @check_agglevels_and_constraints(ptr noundef %0, ptr
   br label %30
 
 30:                                               ; preds = %28, %26, %25
-  %.019.i = phi i32 [ %29, %28 ], [ %..i, %25 ], [ %22, %26 ]
+  %.019.i = phi i32 [ %..i, %25 ], [ %29, %28 ], [ %22, %26 ]
   %31 = icmp eq i32 %.019.i, %24
   br i1 %31, label %32, label %42
 
@@ -651,13 +651,13 @@ check_agg_arguments.exit:                         ; preds = %42, %55
 90:                                               ; preds = %._crit_edge
   br label %91
 
-91:                                               ; preds = %._crit_edge, %._crit_edge, %71, %72, %73, %74, %75, %76, %77, %78, %79, %80, %81, %82, %83, %84, %85, %86, %87, %88, %89, %90
-  %.str.30.sink = phi ptr [ @.str.32, %71 ], [ @.str.34, %72 ], [ @.str.36, %73 ], [ @.str.38, %74 ], [ @.str.40, %75 ], [ @.str.42, %76 ], [ @.str.44, %77 ], [ @.str.46, %78 ], [ @.str.48, %79 ], [ @.str.50, %80 ], [ @.str.52, %81 ], [ @.str.54, %82 ], [ @.str.56, %83 ], [ @.str.58, %84 ], [ @.str.60, %85 ], [ @.str.62, %86 ], [ @.str.64, %87 ], [ @.str.66, %88 ], [ @.str.68, %89 ], [ @.str.70, %90 ], [ @.str.30, %._crit_edge ], [ @.str.30, %._crit_edge ]
-  %.str.29.sink = phi ptr [ @.str.31, %71 ], [ @.str.33, %72 ], [ @.str.35, %73 ], [ @.str.37, %74 ], [ @.str.39, %75 ], [ @.str.41, %76 ], [ @.str.43, %77 ], [ @.str.45, %78 ], [ @.str.47, %79 ], [ @.str.49, %80 ], [ @.str.51, %81 ], [ @.str.53, %82 ], [ @.str.55, %83 ], [ @.str.57, %84 ], [ @.str.59, %85 ], [ @.str.61, %86 ], [ @.str.63, %87 ], [ @.str.65, %88 ], [ @.str.67, %89 ], [ @.str.69, %90 ], [ @.str.29, %._crit_edge ], [ @.str.29, %._crit_edge ]
-  %.str.29..str.30 = select i1 %5, ptr %.str.29.sink, ptr %.str.30.sink
+91:                                               ; preds = %._crit_edge, %._crit_edge, %84, %77, %79, %71, %83, %72, %78, %82, %73, %86, %90, %80, %81, %89, %76, %88, %85, %74, %87, %75
+  %.str.58.sink = phi ptr [ @.str.58, %84 ], [ @.str.44, %77 ], [ @.str.40, %75 ], [ @.str.48, %79 ], [ @.str.32, %71 ], [ @.str.56, %83 ], [ @.str.34, %72 ], [ @.str.46, %78 ], [ @.str.54, %82 ], [ @.str.36, %73 ], [ @.str.62, %86 ], [ @.str.70, %90 ], [ @.str.50, %80 ], [ @.str.52, %81 ], [ @.str.68, %89 ], [ @.str.42, %76 ], [ @.str.66, %88 ], [ @.str.60, %85 ], [ @.str.38, %74 ], [ @.str.64, %87 ], [ @.str.30, %._crit_edge ], [ @.str.30, %._crit_edge ]
+  %.str.57.sink = phi ptr [ @.str.57, %84 ], [ @.str.43, %77 ], [ @.str.39, %75 ], [ @.str.47, %79 ], [ @.str.31, %71 ], [ @.str.55, %83 ], [ @.str.33, %72 ], [ @.str.45, %78 ], [ @.str.53, %82 ], [ @.str.35, %73 ], [ @.str.61, %86 ], [ @.str.69, %90 ], [ @.str.49, %80 ], [ @.str.51, %81 ], [ @.str.67, %89 ], [ @.str.41, %76 ], [ @.str.65, %88 ], [ @.str.59, %85 ], [ @.str.37, %74 ], [ @.str.63, %87 ], [ @.str.29, %._crit_edge ], [ @.str.29, %._crit_edge ]
+  %.str.57..str.58 = select i1 %5, ptr %.str.57.sink, ptr %.str.58.sink
   %92 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   %93 = call i32 @errcode(i32 noundef 50364548) #10
-  %94 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.23, ptr noundef nonnull %.str.29..str.30) #10
+  %94 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.23, ptr noundef nonnull %.str.57..str.58) #10
   %95 = call i32 @parser_errposition(ptr noundef nonnull %.0.lcssa, i32 noundef %.057) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 596, ptr noundef nonnull @__func__.check_agglevels_and_constraints) #10
   unreachable
@@ -857,8 +857,8 @@ define dso_local void @transformWindowFuncCall(ptr noundef %0, ptr noundef captu
 37:                                               ; preds = %18
   br label %38
 
-38:                                               ; preds = %18, %18, %34, %21, %22, %23, %37, %24, %36, %35, %25, %26, %27, %28, %29, %30, %31, %32, %33
-  %.0.ph = phi ptr [ @.str.18, %33 ], [ @.str.17, %32 ], [ @.str.16, %31 ], [ @.str.15, %30 ], [ @.str.14, %29 ], [ @.str.13, %28 ], [ @.str.12, %27 ], [ @.str.11, %26 ], [ @.str.10, %25 ], [ @.str.20, %35 ], [ @.str.21, %36 ], [ @.str.9, %24 ], [ @.str.22, %37 ], [ @.str.8, %23 ], [ @.str.7, %22 ], [ @.str.6, %21 ], [ @.str.19, %34 ], [ @.str.5, %18 ], [ @.str.5, %18 ]
+38:                                               ; preds = %18, %18, %34, %33, %21, %32, %22, %31, %30, %23, %37, %29, %24, %28, %36, %35, %27, %26, %25
+  %.0.ph = phi ptr [ @.str.10, %25 ], [ @.str.11, %26 ], [ @.str.12, %27 ], [ @.str.20, %35 ], [ @.str.21, %36 ], [ @.str.13, %28 ], [ @.str.9, %24 ], [ @.str.14, %29 ], [ @.str.22, %37 ], [ @.str.8, %23 ], [ @.str.15, %30 ], [ @.str.16, %31 ], [ @.str.7, %22 ], [ @.str.17, %32 ], [ @.str.6, %21 ], [ @.str.18, %33 ], [ @.str.19, %34 ], [ @.str.5, %18 ], [ @.str.5, %18 ]
   %39 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   %40 = tail call i32 @errcode(i32 noundef 655492) #10
   %41 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.23, ptr noundef nonnull %.0.ph) #10
@@ -1610,7 +1610,7 @@ list_length.exit:                                 ; preds = %.lr.ph.split, %21
   br i1 %65, label %.lr.ph173, label %..critedge129_crit_edge167.split
 
 .critedge127:                                     ; preds = %..critedge129_crit_edge167.split, %.lr.ph165.lr.ph, %.lr.ph177, %.lr.ph177.split.split, %.lr.ph258
-  %.0103.lcssa = phi ptr [ null, %.lr.ph258 ], [ null, %.lr.ph177.split.split ], [ null, %.lr.ph177 ], [ null, %.lr.ph165.lr.ph ], [ %split168, %..critedge129_crit_edge167.split ]
+  %.0103.lcssa = phi ptr [ null, %.lr.ph258 ], [ null, %.lr.ph165.lr.ph ], [ null, %.lr.ph177 ], [ null, %.lr.ph177.split.split ], [ %split168, %..critedge129_crit_edge167.split ]
   %indvars.iv.next232 = add nuw nsw i64 %indvars.iv231256, 1
   %66 = load i32, ptr %46, align 4
   %67 = sext i32 %66 to i64
@@ -1714,7 +1714,7 @@ list_length.exit135.thread:                       ; preds = %list_length.exit135
   br i1 %.not115, label %.critedge133, label %94, !llvm.loop !14
 
 .critedge133:                                     ; preds = %list_length.exit, %94, %110, %list_length.exit135.thread, %3
-  %.0 = phi ptr [ null, %3 ], [ %.188199.lcssa, %list_length.exit135.thread ], [ %.4, %110 ], [ %.390207, %94 ], [ null, %list_length.exit ]
+  %.0 = phi ptr [ %.390207, %94 ], [ null, %3 ], [ %.188199.lcssa, %list_length.exit135.thread ], [ %.4, %110 ], [ null, %list_length.exit ]
   ret ptr %.0
 }
 
@@ -1905,7 +1905,7 @@ list_length.exit:                                 ; preds = %10
   br i1 %76, label %.lr.ph92, label %.critedge80
 
 .critedge80:                                      ; preds = %.lr.ph92, %..critedge78_crit_edge98.split, %.preheader83.us, %62, %.lr.ph, %._crit_edge, %6, %4, %1
-  %.0 = phi ptr [ null, %1 ], [ %5, %4 ], [ %9, %6 ], [ %34, %._crit_edge ], [ null, %62 ], [ null, %.lr.ph ], [ %42, %.preheader83.us ], [ %47, %..critedge78_crit_edge98.split ], [ %73, %.lr.ph92 ]
+  %.0 = phi ptr [ null, %1 ], [ %5, %4 ], [ %9, %6 ], [ %34, %._crit_edge ], [ %47, %..critedge78_crit_edge98.split ], [ %42, %.preheader83.us ], [ null, %62 ], [ null, %.lr.ph ], [ %73, %.lr.ph92 ]
   ret ptr %.0
 }
 
@@ -2025,7 +2025,7 @@ cmp_list_len_asc.exit.thread.thread:              ; preds = %list_length.exit.i.
   br i1 %.not, label %.thread43, label %23, !llvm.loop !17
 
 .thread43:                                        ; preds = %28, %30, %34, %39, %cmp_list_len_asc.exit.thread.thread, %cmp_list_len_asc.exit, %list_length.exit.i.thread, %cmp_list_len_asc.exit.thread
-  %.3 = phi i32 [ %11, %cmp_list_len_asc.exit.thread ], [ 0, %list_length.exit.i.thread ], [ %8, %cmp_list_len_asc.exit ], [ %15, %cmp_list_len_asc.exit.thread.thread ], [ %11, %28 ], [ %11, %30 ], [ 1, %34 ], [ -1, %39 ]
+  %.3 = phi i32 [ %8, %cmp_list_len_asc.exit ], [ 0, %list_length.exit.i.thread ], [ %11, %cmp_list_len_asc.exit.thread ], [ %15, %cmp_list_len_asc.exit.thread.thread ], [ -1, %39 ], [ 1, %34 ], [ %11, %28 ], [ %11, %30 ]
   ret i32 %.3
 }
 
@@ -2179,7 +2179,7 @@ define dso_local noundef zeroext i1 @agg_args_support_sendreceive(ptr noundef re
   br i1 %35, label %.lr.ph42, label %.critedge29
 
 .critedge29:                                      ; preds = %.critedge, %1, %.lr.ph, %.split39
-  %.not2432 = phi i1 [ false, %.split39 ], [ true, %.lr.ph ], [ true, %1 ], [ true, %.critedge ]
+  %.not2432 = phi i1 [ false, %.split39 ], [ true, %1 ], [ true, %.lr.ph ], [ true, %.critedge ]
   ret i1 %.not2432
 }
 
@@ -2536,7 +2536,7 @@ thread-pre-split:                                 ; preds = %27, %4
   br label %76
 
 76:                                               ; preds = %6, %16, %13, %2, %.thread59.thread, %70
-  %.0 = phi i1 [ %72, %70 ], [ %75, %.thread59.thread ], [ false, %2 ], [ false, %13 ], [ false, %16 ], [ false, %6 ]
+  %.0 = phi i1 [ %75, %.thread59.thread ], [ false, %2 ], [ %72, %70 ], [ false, %13 ], [ false, %16 ], [ false, %6 ]
   ret i1 %.0
 }
 
@@ -2569,7 +2569,7 @@ define internal ptr @substitute_grouped_columns_mutator(ptr noundef %0, ptr noun
   br i1 %11, label %.thread, label %17
 
 common.ret226:                                    ; preds = %.thread148, %.thread148, %.split179, %.split, %78, %82, %160, %89, %.thread161, %2, %17, %18, %203, %196, %.thread
-  %common.ret226.op = phi ptr [ %12, %.thread ], [ %200, %196 ], [ %204, %203 ], [ %0, %18 ], [ %0, %17 ], [ null, %2 ], [ %0, %.thread148 ], [ %0, %.thread148 ], [ %0, %160 ], [ %131, %.split179 ], [ %0, %89 ], [ %0, %.thread161 ], [ %67, %82 ], [ %67, %78 ], [ %67, %.split ]
+  %common.ret226.op = phi ptr [ %12, %.thread ], [ %67, %78 ], [ %0, %17 ], [ null, %2 ], [ %200, %196 ], [ %204, %203 ], [ %0, %.thread148 ], [ %67, %.split ], [ %0, %18 ], [ %0, %.thread148 ], [ %131, %.split179 ], [ %0, %89 ], [ %0, %160 ], [ %0, %.thread161 ], [ %67, %82 ]
   ret ptr %common.ret226.op
 
 .thread:                                          ; preds = %6
@@ -2978,7 +2978,7 @@ define internal zeroext i1 @finalize_grouping_exprs_walker(ptr noundef %0, ptr n
   br i1 %11, label %.thread, label %16
 
 common.ret235:                                    ; preds = %2, %16, %118, %.thread189, %124, %4, %4, %.thread
-  %common.ret235.op = phi i1 [ %15, %.thread ], [ %128, %124 ], [ %131, %.thread189 ], [ false, %118 ], [ false, %16 ], [ false, %2 ], [ false, %4 ], [ false, %4 ]
+  %common.ret235.op = phi i1 [ %15, %.thread ], [ false, %4 ], [ false, %16 ], [ false, %2 ], [ %128, %124 ], [ %131, %.thread189 ], [ false, %118 ], [ false, %4 ]
   ret i1 %common.ret235.op
 
 .thread:                                          ; preds = %6
@@ -3160,7 +3160,7 @@ common.ret235:                                    ; preds = %2, %16, %118, %.thr
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %.critedge114.thread, label %113
 
-.critedge114.thread:                              ; preds = %88, %.lr.ph, %46, %82, %85, %.critedge114, %51, %.lr.ph138, %94, %81
+.critedge114.thread:                              ; preds = %.lr.ph, %88, %46, %85, %82, %.critedge114, %51, %.lr.ph138, %94, %81
   %107 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   %108 = tail call i32 @errcode(i32 noundef 50364548) #10
   %109 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.81) #10

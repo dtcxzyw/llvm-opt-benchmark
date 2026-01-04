@@ -1763,7 +1763,7 @@ define linkonce_odr dso_local noundef i32 @_ZN4Luau7CodeGen13getJumpTargetEjj(i3
   br label %.thread
 
 .thread:                                          ; preds = %2, %11, %16, %13, %7, %3
-  %.0 = phi i32 [ %6, %3 ], [ %10, %7 ], [ %15, %13 ], [ %19, %16 ], [ -1, %11 ], [ -1, %2 ]
+  %.0 = phi i32 [ %6, %3 ], [ %10, %7 ], [ %15, %13 ], [ %19, %16 ], [ -1, %2 ], [ -1, %11 ]
   ret i32 %.0
 }
 
@@ -2182,8 +2182,8 @@ _ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEED2Ev.exit: ; preds = %21, %._c
   br label %"_ZZN4Luau7CodeGen9IrBuilder5cloneERKNS0_7IrBlockEbENK3$_0clERNS0_4IrOpE.exit32"
 
 "_ZZN4Luau7CodeGen9IrBuilder5cloneERKNS0_7IrBlockEbENK3$_0clERNS0_4IrOpE.exit32": ; preds = %76, %74, %38, %80, %63, %"_ZZN4Luau7CodeGen9IrBuilder5cloneERKNS0_7IrBlockEbENK3$_0clERNS0_4IrOpE.exit"
-  %.sroa.665.0123 = phi i32 [ %.sroa.665.0, %63 ], [ %.sroa.665.0, %80 ], [ %.sroa.665.0, %"_ZZN4Luau7CodeGen9IrBuilder5cloneERKNS0_7IrBlockEbENK3$_0clERNS0_4IrOpE.exit" ], [ %.sroa.665.0.copyload, %38 ], [ %.sroa.665.0, %74 ], [ %.sroa.665.0, %76 ]
-  %.sroa.10.0 = phi i32 [ %.sroa.10.0.copyload, %63 ], [ %85, %80 ], [ %.sroa.10.0.copyload, %"_ZZN4Luau7CodeGen9IrBuilder5cloneERKNS0_7IrBlockEbENK3$_0clERNS0_4IrOpE.exit" ], [ %.sroa.10.0.copyload, %38 ], [ %.sroa.10.0.copyload, %74 ], [ %.sroa.10.0.copyload, %76 ]
+  %.sroa.665.0123 = phi i32 [ %.sroa.665.0, %63 ], [ %.sroa.665.0, %"_ZZN4Luau7CodeGen9IrBuilder5cloneERKNS0_7IrBlockEbENK3$_0clERNS0_4IrOpE.exit" ], [ %.sroa.665.0, %80 ], [ %.sroa.665.0.copyload, %38 ], [ %.sroa.665.0, %74 ], [ %.sroa.665.0, %76 ]
+  %.sroa.10.0 = phi i32 [ %.sroa.10.0.copyload, %63 ], [ %.sroa.10.0.copyload, %"_ZZN4Luau7CodeGen9IrBuilder5cloneERKNS0_7IrBlockEbENK3$_0clERNS0_4IrOpE.exit" ], [ %85, %80 ], [ %.sroa.10.0.copyload, %38 ], [ %.sroa.10.0.copyload, %74 ], [ %.sroa.10.0.copyload, %76 ]
   %86 = and i32 %.sroa.14.0.copyload, 15
   %87 = icmp eq i32 %86, 4
   br i1 %87, label %88, label %"_ZZN4Luau7CodeGen9IrBuilder5cloneERKNS0_7IrBlockEbENK3$_0clERNS0_4IrOpE.exit36"
@@ -2271,8 +2271,8 @@ _ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEED2Ev.exit: ; preds = %21, %._c
   br label %"_ZZN4Luau7CodeGen9IrBuilder5cloneERKNS0_7IrBlockEbENK3$_0clERNS0_4IrOpE.exit40"
 
 "_ZZN4Luau7CodeGen9IrBuilder5cloneERKNS0_7IrBlockEbENK3$_0clERNS0_4IrOpE.exit40": ; preds = %126, %124, %88, %130, %113, %"_ZZN4Luau7CodeGen9IrBuilder5cloneERKNS0_7IrBlockEbENK3$_0clERNS0_4IrOpE.exit36"
-  %.sroa.14.0127 = phi i32 [ %.sroa.14.0, %113 ], [ %.sroa.14.0, %130 ], [ %.sroa.14.0, %"_ZZN4Luau7CodeGen9IrBuilder5cloneERKNS0_7IrBlockEbENK3$_0clERNS0_4IrOpE.exit36" ], [ %.sroa.14.0.copyload, %88 ], [ %.sroa.14.0, %124 ], [ %.sroa.14.0, %126 ]
-  %.sroa.18.0 = phi i32 [ %.sroa.18.0.copyload, %113 ], [ %135, %130 ], [ %.sroa.18.0.copyload, %"_ZZN4Luau7CodeGen9IrBuilder5cloneERKNS0_7IrBlockEbENK3$_0clERNS0_4IrOpE.exit36" ], [ %.sroa.18.0.copyload, %88 ], [ %.sroa.18.0.copyload, %124 ], [ %.sroa.18.0.copyload, %126 ]
+  %.sroa.14.0127 = phi i32 [ %.sroa.14.0, %113 ], [ %.sroa.14.0, %"_ZZN4Luau7CodeGen9IrBuilder5cloneERKNS0_7IrBlockEbENK3$_0clERNS0_4IrOpE.exit36" ], [ %.sroa.14.0, %130 ], [ %.sroa.14.0.copyload, %88 ], [ %.sroa.14.0, %124 ], [ %.sroa.14.0, %126 ]
+  %.sroa.18.0 = phi i32 [ %.sroa.18.0.copyload, %113 ], [ %.sroa.18.0.copyload, %"_ZZN4Luau7CodeGen9IrBuilder5cloneERKNS0_7IrBlockEbENK3$_0clERNS0_4IrOpE.exit36" ], [ %135, %130 ], [ %.sroa.18.0.copyload, %88 ], [ %.sroa.18.0.copyload, %124 ], [ %.sroa.18.0.copyload, %126 ]
   %136 = and i32 %.sroa.22.0.copyload, 15
   %137 = icmp eq i32 %136, 4
   br i1 %137, label %138, label %"_ZZN4Luau7CodeGen9IrBuilder5cloneERKNS0_7IrBlockEbENK3$_0clERNS0_4IrOpE.exit44"
@@ -2360,8 +2360,8 @@ _ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEED2Ev.exit: ; preds = %21, %._c
   br label %"_ZZN4Luau7CodeGen9IrBuilder5cloneERKNS0_7IrBlockEbENK3$_0clERNS0_4IrOpE.exit48"
 
 "_ZZN4Luau7CodeGen9IrBuilder5cloneERKNS0_7IrBlockEbENK3$_0clERNS0_4IrOpE.exit48": ; preds = %176, %174, %138, %180, %163, %"_ZZN4Luau7CodeGen9IrBuilder5cloneERKNS0_7IrBlockEbENK3$_0clERNS0_4IrOpE.exit44"
-  %.sroa.22.0132 = phi i32 [ %.sroa.22.0, %163 ], [ %.sroa.22.0, %180 ], [ %.sroa.22.0, %"_ZZN4Luau7CodeGen9IrBuilder5cloneERKNS0_7IrBlockEbENK3$_0clERNS0_4IrOpE.exit44" ], [ %.sroa.22.0.copyload, %138 ], [ %.sroa.22.0, %174 ], [ %.sroa.22.0, %176 ]
-  %.sroa.26.0 = phi i32 [ %.sroa.26.0.copyload, %163 ], [ %185, %180 ], [ %.sroa.26.0.copyload, %"_ZZN4Luau7CodeGen9IrBuilder5cloneERKNS0_7IrBlockEbENK3$_0clERNS0_4IrOpE.exit44" ], [ %.sroa.26.0.copyload, %138 ], [ %.sroa.26.0.copyload, %174 ], [ %.sroa.26.0.copyload, %176 ]
+  %.sroa.22.0132 = phi i32 [ %.sroa.22.0, %163 ], [ %.sroa.22.0, %"_ZZN4Luau7CodeGen9IrBuilder5cloneERKNS0_7IrBlockEbENK3$_0clERNS0_4IrOpE.exit44" ], [ %.sroa.22.0, %180 ], [ %.sroa.22.0.copyload, %138 ], [ %.sroa.22.0, %174 ], [ %.sroa.22.0, %176 ]
+  %.sroa.26.0 = phi i32 [ %.sroa.26.0.copyload, %163 ], [ %.sroa.26.0.copyload, %"_ZZN4Luau7CodeGen9IrBuilder5cloneERKNS0_7IrBlockEbENK3$_0clERNS0_4IrOpE.exit44" ], [ %185, %180 ], [ %.sroa.26.0.copyload, %138 ], [ %.sroa.26.0.copyload, %174 ], [ %.sroa.26.0.copyload, %176 ]
   %186 = and i32 %.sroa.30.0.copyload, 15
   %187 = icmp eq i32 %186, 4
   br i1 %187, label %188, label %"_ZZN4Luau7CodeGen9IrBuilder5cloneERKNS0_7IrBlockEbENK3$_0clERNS0_4IrOpE.exit52"
@@ -2405,7 +2405,7 @@ _ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEED2Ev.exit: ; preds = %21, %._c
   br label %"_ZZN4Luau7CodeGen9IrBuilder5cloneERKNS0_7IrBlockEbENK3$_0clERNS0_4IrOpE.exit52"
 
 "_ZZN4Luau7CodeGen9IrBuilder5cloneERKNS0_7IrBlockEbENK3$_0clERNS0_4IrOpE.exit52": ; preds = %201, %199, %205, %188, %"_ZZN4Luau7CodeGen9IrBuilder5cloneERKNS0_7IrBlockEbENK3$_0clERNS0_4IrOpE.exit48"
-  %.sroa.30.0 = phi i32 [ %.sroa.30.0.copyload, %188 ], [ %210, %205 ], [ %.sroa.30.0.copyload, %"_ZZN4Luau7CodeGen9IrBuilder5cloneERKNS0_7IrBlockEbENK3$_0clERNS0_4IrOpE.exit48" ], [ %.sroa.30.0.copyload, %199 ], [ %.sroa.30.0.copyload, %201 ]
+  %.sroa.30.0 = phi i32 [ %.sroa.30.0.copyload, %188 ], [ %.sroa.30.0.copyload, %"_ZZN4Luau7CodeGen9IrBuilder5cloneERKNS0_7IrBlockEbENK3$_0clERNS0_4IrOpE.exit48" ], [ %210, %205 ], [ %.sroa.30.0.copyload, %199 ], [ %.sroa.30.0.copyload, %201 ]
   invoke void @_ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(624) %26, i32 %.sroa.665.0123)
           to label %211 unwind label %303
 
@@ -2571,8 +2571,8 @@ _ZN4Luau6detail14DenseHashTableIjSt4pairIjjES2_IKjjENS0_16ItemInterfaceMapIjjEES
   br i1 %exitcond.not.i, label %._crit_edge31.thread.i, label %251, !llvm.loop !173
 
 _ZN4Luau6detail14DenseHashTableIjSt4pairIjjES2_IKjjENS0_16ItemInterfaceMapIjjEESt4hashIjESt8equal_toIjEE14rehash_if_fullERS4_.exit.i: ; preds = %232, %._crit_edge31.i, %._crit_edge31.thread.i, %217
-  %.sroa.20.4 = phi i64 [ %.sroa.20.1166, %217 ], [ %spec.select.i, %._crit_edge31.thread.i ], [ 16, %._crit_edge31.i ], [ %.sroa.20.1166, %232 ]
-  %.sroa.0.4 = phi ptr [ %.sroa.0.1168, %217 ], [ %.sroa.0.0.i, %._crit_edge31.thread.i ], [ %.sroa.0.0.i, %._crit_edge31.i ], [ %.sroa.0.1168, %232 ]
+  %.sroa.20.4 = phi i64 [ %.sroa.20.1166, %217 ], [ 16, %._crit_edge31.i ], [ %spec.select.i, %._crit_edge31.thread.i ], [ %.sroa.20.1166, %232 ]
+  %.sroa.0.4 = phi ptr [ %.sroa.0.1168, %217 ], [ %.sroa.0.0.i, %._crit_edge31.i ], [ %.sroa.0.0.i, %._crit_edge31.thread.i ], [ %.sroa.0.1168, %232 ]
   %278 = add i64 %.sroa.20.4, -1
   %279 = and i64 %278, %32
   %280 = getelementptr inbounds nuw %"struct.std::pair", ptr %.sroa.0.4, i64 %279
@@ -2646,7 +2646,7 @@ _ZN4Luau6detail14DenseHashTableIjSt4pairIjjES2_IKjjENS0_16ItemInterfaceMapIjjEES
   br label %_ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEED2Ev.exit58
 
 _ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEED2Ev.exit58: ; preds = %303, %305
-  %.pn140 = phi { ptr, i32 } [ %304, %303 ], [ %306, %305 ]
+  %.pn140 = phi { ptr, i32 } [ %306, %305 ], [ %304, %303 ]
   resume { ptr, i32 } %.pn140
 }
 
@@ -2873,7 +2873,7 @@ define dso_local range(i32 2, -12) i32 @_ZN4Luau7CodeGen9IrBuilder8constAnyENS0_
   %62 = load i32, ptr %61, align 4, !tbaa !137
   br label %93
 
-.critedge:                                        ; preds = %56, %52, %4, %11
+.critedge:                                        ; preds = %56, %52, %11, %4
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %65 = load ptr, ptr %64, align 8, !tbaa !189
@@ -3046,7 +3046,7 @@ define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_Z
   br label %_ZN4Luau6detail14DenseHashTableINS_7CodeGen9IrBuilder11ConstantKeyESt4pairIS4_jES5_IKS4_jENS0_16ItemInterfaceMapIS4_jEENS3_15ConstantKeyHashESt8equal_toIS4_EE14rehash_if_fullERS7_.exit
 
 _ZN4Luau6detail14DenseHashTableINS_7CodeGen9IrBuilder11ConstantKeyESt4pairIS4_jES5_IKS4_jENS0_16ItemInterfaceMapIS4_jEENS3_15ConstantKeyHashESt8equal_toIS4_EE14rehash_if_fullERS7_.exit: ; preds = %45, %2, %.loopexit.i
-  %61 = phi i64 [ %6, %2 ], [ %.pre, %.loopexit.i ], [ %6, %45 ]
+  %61 = phi i64 [ %.pre, %.loopexit.i ], [ %6, %2 ], [ %6, %45 ]
   %62 = add i64 %61, -1
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %64 = load i64, ptr %63, align 8, !tbaa !184

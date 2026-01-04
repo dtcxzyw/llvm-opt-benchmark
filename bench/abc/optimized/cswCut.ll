@@ -717,13 +717,13 @@ define internal fastcc range(i32 0, 2) i32 @Csw_CutMergeOrdered(ptr noundef read
   br i1 %106, label %.loopexit, label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %56, %37, %102, %.preheader102, %.preheader101, %64
-  %.0.lcssa.sink = phi i8 [ %65, %64 ], [ %6, %.preheader101 ], [ %6, %.preheader102 ], [ %.0.lcssa, %102 ], [ %6, %37 ], [ %6, %56 ]
+  %.0.lcssa.sink = phi i8 [ %6, %.preheader102 ], [ %65, %64 ], [ %.0.lcssa, %102 ], [ %6, %37 ], [ %6, %.preheader101 ], [ %6, %56 ]
   %107 = getelementptr inbounds nuw i8, ptr %3, i64 23
   store i8 %.0.lcssa.sink, ptr %107, align 1, !tbaa !24
   br label %.loopexit
 
 .loopexit:                                        ; preds = %54, %32, %.loopexit.sink.split, %.critedge._crit_edge, %102
-  %.096 = phi i32 [ 0, %102 ], [ 0, %.critedge._crit_edge ], [ 1, %.loopexit.sink.split ], [ 0, %32 ], [ 0, %54 ]
+  %.096 = phi i32 [ 1, %.loopexit.sink.split ], [ 0, %102 ], [ 0, %.critedge._crit_edge ], [ 0, %32 ], [ 0, %54 ]
   ret i32 %.096
 }
 
@@ -776,8 +776,8 @@ switch.lookup:                                    ; preds = %Aig_ManObj.exit42
   br label %29
 
 29:                                               ; preds = %switch.lookup, %Aig_ManObj.exit42
-  %.036 = phi i32 [ %26, %Aig_ManObj.exit42 ], [ %switch.load, %switch.lookup ]
-  %.0 = phi i64 [ 0, %Aig_ManObj.exit42 ], [ 1, %switch.lookup ]
+  %.036 = phi i32 [ %switch.load, %switch.lookup ], [ %26, %Aig_ManObj.exit42 ]
+  %.0 = phi i64 [ 1, %switch.lookup ], [ 0, %Aig_ManObj.exit42 ]
   %30 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.036)
   %31 = icmp eq i32 %30, 1
   br i1 %31, label %.split, label %.thread49
@@ -1661,7 +1661,7 @@ Abc_Clock.exit149:                                ; preds = %._crit_edge187, %37
   br label %387
 
 387:                                              ; preds = %22, %3, %Abc_Clock.exit149, %307, %280, %Aig_ManObj.exit, %233
-  %.0 = phi ptr [ %245, %233 ], [ %274, %Aig_ManObj.exit ], [ %279, %280 ], [ %295, %307 ], [ %1, %Abc_Clock.exit149 ], [ %1, %3 ], [ %1, %22 ]
+  %.0 = phi ptr [ %1, %3 ], [ %245, %233 ], [ %274, %Aig_ManObj.exit ], [ %279, %280 ], [ %295, %307 ], [ %1, %Abc_Clock.exit149 ], [ %1, %22 ]
   ret ptr %.0
 }
 

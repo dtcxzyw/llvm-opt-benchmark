@@ -1204,9 +1204,9 @@ _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i.i: ; preds
   br label %"_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_110buildGraphERKNS2_12LogicByScopeEE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i.i"
 
 "_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_110buildGraphERKNS2_12LogicByScopeEE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i.i": ; preds = %125, %123, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i.i, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i.i, %102
-  %.sroa.0.2.i.i = phi ptr [ %.sroa.0.1.i.i, %123 ], [ %113, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i.i ], [ %.sroa.0.1.i.i, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ], [ %.sroa.0.1.i.i, %102 ], [ %.sroa.0.1.i.i, %125 ]
-  %.sroa.13.1.i.i = phi ptr [ %.sroa.13.0.i.i, %123 ], [ %121, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i.i ], [ %106, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ], [ %103, %102 ], [ %spec.select.i.i, %125 ]
-  %.sroa.21.2.i.i = phi ptr [ %.sroa.21.1.i.i, %123 ], [ %122, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i.i ], [ %.sroa.21.1.i.i, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ], [ %.sroa.21.1.i.i, %102 ], [ %.sroa.21.1.i.i, %125 ]
+  %.sroa.0.2.i.i = phi ptr [ %.sroa.0.1.i.i, %123 ], [ %.sroa.0.1.i.i, %125 ], [ %.sroa.0.1.i.i, %102 ], [ %.sroa.0.1.i.i, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ], [ %113, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i.i ]
+  %.sroa.13.1.i.i = phi ptr [ %.sroa.13.0.i.i, %123 ], [ %spec.select.i.i, %125 ], [ %103, %102 ], [ %106, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ], [ %121, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i.i ]
+  %.sroa.21.2.i.i = phi ptr [ %.sroa.21.1.i.i, %123 ], [ %.sroa.21.1.i.i, %125 ], [ %.sroa.21.1.i.i, %102 ], [ %.sroa.21.1.i.i, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ], [ %122, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i.i ]
   %127 = ptrtoint ptr %81 to i64
   %128 = ptrtoint ptr %.045.i.i.i to i64
   %129 = sub i64 %127, %128
@@ -1352,7 +1352,7 @@ _ZN12VNUser3InUseD2Ev.exit:                       ; preds = %.body.i, %162
   unreachable
 
 _ZN12VNUser2InUseD2Ev.exit:                       ; preds = %160, %_ZN12VNUser3InUseD2Ev.exit, %158, %156
-  %.pn.pn.pn.i = phi { ptr, i32 } [ %159, %158 ], [ %157, %156 ], [ %161, %160 ], [ %.pn.i, %_ZN12VNUser3InUseD2Ev.exit ]
+  %.pn.pn.pn.i = phi { ptr, i32 } [ %157, %156 ], [ %159, %158 ], [ %161, %160 ], [ %.pn.i, %_ZN12VNUser3InUseD2Ev.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !4
   br label %172
 
@@ -1760,9 +1760,9 @@ _ZNSt6vectorIP13V3GraphVertexSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17
   br label %294
 
 290:                                              ; preds = %.loopexit.split-lp137.i, %.loopexit136.i, %.loopexit.split-lp.i30, %.loopexit.i27, %220, %.loopexit.split-lp142.i, %.loopexit141.i
-  %.sroa.0.2.i = phi ptr [ %.sroa.0.4.i, %220 ], [ %.sroa.0.0178.i, %.loopexit141.i ], [ %.sroa.0.0178.i, %.loopexit.split-lp142.i ], [ %.sroa.0.6.ph.i, %.loopexit.i27 ], [ %.sroa.0.5190.i, %.loopexit.split-lp.i30 ], [ %.sroa.0.9.ph.i, %.loopexit136.i ], [ %.sroa.0.8184.i, %.loopexit.split-lp137.i ]
-  %.sroa.26.2.i = phi ptr [ %.sroa.26.4.i, %220 ], [ %.sroa.26.0180.i, %.loopexit141.i ], [ %.sroa.26.0180.i, %.loopexit.split-lp142.i ], [ %.sroa.26.6.ph.i, %.loopexit.i27 ], [ %.sroa.26.5192.i, %.loopexit.split-lp.i30 ], [ %.sroa.26.9.ph.i, %.loopexit136.i ], [ %.sroa.26.8186.i, %.loopexit.split-lp137.i ]
-  %.pn42.pn.pn.i = phi { ptr, i32 } [ %221, %220 ], [ %lpad.loopexit143.i, %.loopexit141.i ], [ %lpad.loopexit.split-lp144.i, %.loopexit.split-lp142.i ], [ %lpad.loopexit.i28, %.loopexit.i27 ], [ %lpad.loopexit.split-lp.i31, %.loopexit.split-lp.i30 ], [ %lpad.loopexit138.i, %.loopexit136.i ], [ %lpad.loopexit.split-lp139.i, %.loopexit.split-lp137.i ]
+  %.sroa.0.2.i = phi ptr [ %.sroa.0.5190.i, %.loopexit.split-lp.i30 ], [ %.sroa.0.0178.i, %.loopexit.split-lp142.i ], [ %.sroa.0.4.i, %220 ], [ %.sroa.0.0178.i, %.loopexit141.i ], [ %.sroa.0.6.ph.i, %.loopexit.i27 ], [ %.sroa.0.9.ph.i, %.loopexit136.i ], [ %.sroa.0.8184.i, %.loopexit.split-lp137.i ]
+  %.sroa.26.2.i = phi ptr [ %.sroa.26.5192.i, %.loopexit.split-lp.i30 ], [ %.sroa.26.0180.i, %.loopexit.split-lp142.i ], [ %.sroa.26.4.i, %220 ], [ %.sroa.26.0180.i, %.loopexit141.i ], [ %.sroa.26.6.ph.i, %.loopexit.i27 ], [ %.sroa.26.9.ph.i, %.loopexit136.i ], [ %.sroa.26.8186.i, %.loopexit.split-lp137.i ]
+  %.pn42.pn.pn.i = phi { ptr, i32 } [ %lpad.loopexit.split-lp.i31, %.loopexit.split-lp.i30 ], [ %lpad.loopexit.split-lp144.i, %.loopexit.split-lp142.i ], [ %221, %220 ], [ %lpad.loopexit143.i, %.loopexit141.i ], [ %lpad.loopexit.i28, %.loopexit.i27 ], [ %lpad.loopexit138.i, %.loopexit136.i ], [ %lpad.loopexit.split-lp139.i, %.loopexit.split-lp137.i ]
   %.not.i.i.i90.i = icmp eq ptr %.sroa.0.2.i, null
   br i1 %.not.i.i.i90.i, label %.body, label %.thread.i
 
@@ -2044,12 +2044,12 @@ _ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE17_M_reallo
   br label %392
 
 _ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E19SimpleItertatorImplIS0_Lb0EEppEv.exit.i39: ; preds = %361, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, %368, %339, %338
-  %.sroa.0.1 = phi ptr [ %383, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %.sroa.0.0, %368 ], [ %.sroa.0.0, %339 ], [ %.sroa.0.0, %338 ], [ %.sroa.0.0, %361 ]
-  %.sroa.11.1 = phi ptr [ %387, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %369, %368 ], [ %.sroa.11.0, %339 ], [ %.sroa.11.0, %338 ], [ %.sroa.11.0, %361 ]
-  %.sroa.16.1 = phi ptr [ %389, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %.sroa.16.0, %368 ], [ %.sroa.16.0, %339 ], [ %.sroa.16.0, %338 ], [ %.sroa.16.0, %361 ]
-  %.val16.i.i43.i = phi ptr [ %383, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %.val16.i.i.i, %368 ], [ %.val16.i.i.i, %339 ], [ %.val16.i.i.i, %338 ], [ %.val16.i.i.i, %361 ]
-  %390 = phi ptr [ %389, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %330, %368 ], [ %330, %339 ], [ %330, %338 ], [ %330, %361 ]
-  %391 = phi ptr [ %387, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %369, %368 ], [ %331, %339 ], [ %331, %338 ], [ %331, %361 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %338 ], [ %383, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %.sroa.0.0, %368 ], [ %.sroa.0.0, %339 ], [ %.sroa.0.0, %361 ]
+  %.sroa.11.1 = phi ptr [ %.sroa.11.0, %338 ], [ %387, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %369, %368 ], [ %.sroa.11.0, %339 ], [ %.sroa.11.0, %361 ]
+  %.sroa.16.1 = phi ptr [ %.sroa.16.0, %338 ], [ %389, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %.sroa.16.0, %368 ], [ %.sroa.16.0, %339 ], [ %.sroa.16.0, %361 ]
+  %.val16.i.i43.i = phi ptr [ %.val16.i.i.i, %338 ], [ %383, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %.val16.i.i.i, %368 ], [ %.val16.i.i.i, %339 ], [ %.val16.i.i.i, %361 ]
+  %390 = phi ptr [ %330, %338 ], [ %389, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %330, %368 ], [ %330, %339 ], [ %330, %361 ]
+  %391 = phi ptr [ %331, %338 ], [ %387, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %369, %368 ], [ %331, %339 ], [ %331, %361 ]
   %.sroa.027.0.i = load ptr, ptr %332, align 8, !tbaa !65, !noalias !82
   %.not33.i = icmp eq ptr %.sroa.027.0.i, null
   br i1 %.not33.i, label %._crit_edge.i40.loopexit, label %.lr.ph.i36
@@ -2702,7 +2702,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61.i.i: ; preds = 
   br label %_ZNSt14_Function_baseD2Ev.exit47.i.i
 
 _ZNSt14_Function_baseD2Ev.exit47.i.i:             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55.i.i, %584, %581, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50.i.i, %568, %565, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45.i.i
-  %.pn18.pn.i.i = phi { ptr, i32 } [ %.pn18.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61.i.i ], [ %.pn16.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55.i.i ], [ %.pn14.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50.i.i ], [ %.pn12.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45.i.i ], [ %566, %565 ], [ %566, %568 ], [ %582, %581 ], [ %582, %584 ]
+  %.pn18.pn.i.i = phi { ptr, i32 } [ %.pn18.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61.i.i ], [ %.pn16.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55.i.i ], [ %566, %568 ], [ %.pn14.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50.i.i ], [ %.pn12.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45.i.i ], [ %566, %565 ], [ %582, %581 ], [ %582, %584 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %618
 
@@ -3076,9 +3076,9 @@ _ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6oLinksEvEES0_E19SimpleItertatorImplIS0_Lb0EEp
   br label %724
 
 724:                                              ; preds = %.loopexit.split-lp24.i, %.loopexit23.i, %.loopexit.split-lp.i100, %.loopexit.i87
-  %.sroa.13.5.i = phi ptr [ %.sroa.13.3.ph.i, %.loopexit.i87 ], [ %.sroa.9.167.i, %.loopexit.split-lp.i100 ], [ %.sroa.13.4.i86, %.loopexit23.i ], [ %.sroa.13.4.i86, %.loopexit.split-lp24.i ]
-  %.sroa.018.5.i = phi ptr [ %.sroa.018.3.ph.i, %.loopexit.i87 ], [ %.sroa.018.168.i, %.loopexit.split-lp.i100 ], [ %.sroa.018.4.i, %.loopexit23.i ], [ %.sroa.018.4.i, %.loopexit.split-lp24.i ]
-  %.pn51.i = phi { ptr, i32 } [ %lpad.loopexit.i88, %.loopexit.i87 ], [ %lpad.loopexit.split-lp.i101, %.loopexit.split-lp.i100 ], [ %lpad.loopexit25.i, %.loopexit23.i ], [ %lpad.loopexit.split-lp26.i, %.loopexit.split-lp24.i ]
+  %.sroa.13.5.i = phi ptr [ %.sroa.9.167.i, %.loopexit.split-lp.i100 ], [ %.sroa.13.3.ph.i, %.loopexit.i87 ], [ %.sroa.13.4.i86, %.loopexit23.i ], [ %.sroa.13.4.i86, %.loopexit.split-lp24.i ]
+  %.sroa.018.5.i = phi ptr [ %.sroa.018.168.i, %.loopexit.split-lp.i100 ], [ %.sroa.018.3.ph.i, %.loopexit.i87 ], [ %.sroa.018.4.i, %.loopexit23.i ], [ %.sroa.018.4.i, %.loopexit.split-lp24.i ]
+  %.pn51.i = phi { ptr, i32 } [ %lpad.loopexit.split-lp.i101, %.loopexit.split-lp.i100 ], [ %lpad.loopexit.i88, %.loopexit.i87 ], [ %lpad.loopexit25.i, %.loopexit23.i ], [ %lpad.loopexit.split-lp26.i, %.loopexit.split-lp24.i ]
   call void @_ZN12VNUser1InUseD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #33
   br label %757
 
@@ -3374,7 +3374,7 @@ _ZN10AstSenTreeC2EP8FileLineP10AstSenItem.exit.i: ; preds = %819, %.noexc94.i
   br label %830
 
 830:                                              ; preds = %828, %826, %815, %813, %811, %809, %774, %772
-  %.pn44.pn.pn.pn.pn.i = phi { ptr, i32 } [ %773, %772 ], [ %775, %774 ], [ %827, %826 ], [ %829, %828 ], [ %812, %811 ], [ %810, %809 ], [ %814, %813 ], [ %816, %815 ]
+  %.pn44.pn.pn.pn.pn.i = phi { ptr, i32 } [ %773, %772 ], [ %775, %774 ], [ %829, %828 ], [ %827, %826 ], [ %810, %809 ], [ %812, %811 ], [ %814, %813 ], [ %816, %815 ]
   call void @_ZN13SenTreeFinderD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %6) #33
   br label %831
 
@@ -3435,7 +3435,7 @@ _ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.exit
   br label %.body73
 
 .body73:                                          ; preds = %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.exit98.i, %475, %849, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i.i, %_ZNSt6vectorISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESaIS5_EED2Ev.exit63.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36.i, %642
-  %eh.lpad-body74 = phi { ptr, i32 } [ %449, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i.i ], [ %.pn18.pn.pn.i.i, %_ZNSt6vectorISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESaIS5_EED2Ev.exit63.i.i ], [ %.pn.pn.i66, %642 ], [ %629, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36.i ], [ %.pn54.pn.pn.pn.i, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.exit98.i ], [ %850, %849 ], [ %476, %475 ]
+  %eh.lpad-body74 = phi { ptr, i32 } [ %629, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36.i ], [ %449, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i.i ], [ %.pn18.pn.pn.i.i, %_ZNSt6vectorISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESaIS5_EED2Ev.exit63.i.i ], [ %.pn.pn.i66, %642 ], [ %.pn54.pn.pn.pn.i, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.exit98.i ], [ %850, %849 ], [ %476, %475 ]
   %.not.i.i.i106 = icmp eq ptr %.sroa.0.2, null
   br i1 %.not.i.i.i106, label %.body, label %851
 
@@ -3460,7 +3460,7 @@ _ZNSt10unique_ptrIN7V3Sched12_GLOBAL__N_15GraphESt14default_deleteIS2_EED2Ev.exi
   ret void
 
 .body:                                            ; preds = %392, %393, %847, %.body73, %851, %298, %.thread.i, %290, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35
-  %.pn7.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35 ], [ %299, %298 ], [ %.pn42.pn.pn.i, %.thread.i ], [ %.pn42.pn.pn.i, %290 ], [ %848, %847 ], [ %lpad.phi.i, %393 ], [ %lpad.phi.i, %392 ], [ %eh.lpad-body74, %.body73 ], [ %eh.lpad-body74, %851 ]
+  %.pn7.pn = phi { ptr, i32 } [ %.pn42.pn.pn.i, %290 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35 ], [ %299, %298 ], [ %.pn42.pn.pn.i, %.thread.i ], [ %lpad.phi.i, %392 ], [ %848, %847 ], [ %lpad.phi.i, %393 ], [ %eh.lpad-body74, %.body73 ], [ %eh.lpad-body74, %851 ]
   call fastcc void @_ZNSt10unique_ptrIN7V3Sched12_GLOBAL__N_15GraphESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %common.resume
@@ -4084,7 +4084,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i40
   br label %.body
 
 .body:                                            ; preds = %126, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i40, %124, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i
-  %.pn = phi { ptr, i32 } [ %125, %124 ], [ %83, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i ], [ %127, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i40 ], [ %127, %126 ]
+  %.pn = phi { ptr, i32 } [ %83, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i ], [ %125, %124 ], [ %127, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i40 ], [ %127, %126 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %133
 
@@ -4902,7 +4902,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK13V3GraphVertex7sortCmpEPKS_(ptr 
   br label %18
 
 18:                                               ; preds = %16, %10, %8, %2
-  %.0 = phi i32 [ -1, %2 ], [ 1, %8 ], [ -1, %10 ], [ %., %16 ]
+  %.0 = phi i32 [ -1, %10 ], [ -1, %2 ], [ 1, %8 ], [ %., %16 ]
   ret i32 %.0
 }
 
@@ -7481,7 +7481,7 @@ _ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_
   unreachable
 
 common.resume:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49, %.body, %167, %18, %21
-  %common.resume.op = phi { ptr, i32 } [ %19, %21 ], [ %19, %18 ], [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %167 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %21 ], [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %167 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2ERKS9_.exit: ; preds = %16
@@ -7758,8 +7758,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i.i: ; preds = %113, %111, %80, %78
-  %.sroa.4.043.i.i = phi i64 [ 0, %78 ], [ 0, %80 ], [ %.012.i.i.i.i, %111 ], [ %.012.i.i.i.i, %113 ]
-  %.sroa.9.038.i.i = phi ptr [ null, %78 ], [ null, %80 ], [ %57, %111 ], [ %57, %113 ]
+  %.sroa.4.043.i.i = phi i64 [ 0, %80 ], [ 0, %78 ], [ %.012.i.i.i.i, %111 ], [ %.012.i.i.i.i, %113 ]
+  %.sroa.9.038.i.i = phi ptr [ null, %80 ], [ null, %78 ], [ %57, %111 ], [ %57, %113 ]
   %126 = shl nuw nsw i64 %.sroa.4.043.i.i, 4
   call void @_ZdlPvm(ptr noundef %.sroa.9.038.i.i, i64 noundef %126) #33
   %.phi.trans.insert28.i = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -7767,9 +7767,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL
   br label %130
 
 .body.i.i:                                        ; preds = %121, %118, %106, %103, %88, %85, %73, %70
-  %.sroa.4.045.i.i = phi i64 [ 0, %73 ], [ 0, %70 ], [ 0, %85 ], [ 0, %88 ], [ %.012.i.i.i.i, %106 ], [ %.012.i.i.i.i, %103 ], [ %.012.i.i.i.i, %118 ], [ %.012.i.i.i.i, %121 ]
-  %.sroa.9.040.i.i = phi ptr [ null, %73 ], [ null, %70 ], [ null, %85 ], [ null, %88 ], [ %57, %106 ], [ %57, %103 ], [ %57, %118 ], [ %57, %121 ]
-  %.pn.i.i = phi { ptr, i32 } [ %71, %73 ], [ %71, %70 ], [ %86, %85 ], [ %86, %88 ], [ %104, %106 ], [ %104, %103 ], [ %119, %118 ], [ %119, %121 ]
+  %.sroa.4.045.i.i = phi i64 [ 0, %88 ], [ %.012.i.i.i.i, %103 ], [ 0, %70 ], [ 0, %73 ], [ %.012.i.i.i.i, %121 ], [ 0, %85 ], [ %.012.i.i.i.i, %106 ], [ %.012.i.i.i.i, %118 ]
+  %.sroa.9.040.i.i = phi ptr [ null, %88 ], [ %57, %103 ], [ null, %70 ], [ null, %73 ], [ %57, %121 ], [ null, %85 ], [ %57, %106 ], [ %57, %118 ]
+  %.pn.i.i = phi { ptr, i32 } [ %86, %88 ], [ %104, %103 ], [ %71, %70 ], [ %71, %73 ], [ %119, %121 ], [ %86, %85 ], [ %104, %106 ], [ %119, %118 ]
   %127 = shl nuw nsw i64 %.sroa.4.045.i.i, 4
   call void @_ZdlPvm(ptr noundef %.sroa.9.040.i.i, i64 noundef %127) #33
   %128 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -7865,7 +7865,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %154, %156
   br label %172
 
 .body:                                            ; preds = %33, %36, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit11.i, %149
-  %eh.lpad-body = phi { ptr, i32 } [ %34, %36 ], [ %34, %33 ], [ %.pn.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit11.i ], [ %.pn.i.i, %149 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i.i, %149 ], [ %34, %33 ], [ %34, %36 ], [ %.pn.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit11.i ]
   %166 = load ptr, ptr %12, align 8, !tbaa !145
   %.not.i27 = icmp eq ptr %166, null
   br i1 %.not.i27, label %common.resume, label %167
@@ -8067,7 +8067,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i44
   br label %.body30
 
 .body30:                                          ; preds = %249, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i44, %247, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i
-  %.pn = phi { ptr, i32 } [ %248, %247 ], [ %201, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i ], [ %250, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i44 ], [ %250, %249 ]
+  %.pn = phi { ptr, i32 } [ %201, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i ], [ %248, %247 ], [ %250, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i44 ], [ %250, %249 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %255
 
@@ -8705,7 +8705,7 @@ define internal fastcc void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_i
   unreachable
 
 common.resume:                                    ; preds = %38, %41, %141, %138, %133, %130, %125, %122, %107, %110, %81, %84, %58, %61, %23, %26
-  %common.resume.op = phi { ptr, i32 } [ %24, %26 ], [ %24, %23 ], [ %59, %61 ], [ %59, %58 ], [ %82, %84 ], [ %82, %81 ], [ %108, %110 ], [ %108, %107 ], [ %39, %38 ], [ %39, %41 ], [ %123, %122 ], [ %123, %125 ], [ %131, %130 ], [ %131, %133 ], [ %139, %138 ], [ %139, %141 ]
+  %common.resume.op = phi { ptr, i32 } [ %108, %107 ], [ %24, %23 ], [ %59, %58 ], [ %82, %81 ], [ %24, %26 ], [ %59, %61 ], [ %82, %84 ], [ %108, %110 ], [ %39, %41 ], [ %39, %38 ], [ %131, %133 ], [ %123, %125 ], [ %123, %122 ], [ %131, %130 ], [ %139, %138 ], [ %139, %141 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit: ; preds = %13, %19
@@ -9041,7 +9041,7 @@ define internal fastcc void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_
   unreachable
 
 common.resume:                                    ; preds = %67, %70, %75, %78, %130, %133, %138, %141, %173, %176, %158, %161, %115, %118, %92, %95, %52, %55, %29, %32
-  %common.resume.op = phi { ptr, i32 } [ %30, %32 ], [ %30, %29 ], [ %53, %55 ], [ %53, %52 ], [ %93, %95 ], [ %93, %92 ], [ %116, %118 ], [ %116, %115 ], [ %159, %161 ], [ %159, %158 ], [ %68, %67 ], [ %68, %70 ], [ %76, %75 ], [ %76, %78 ], [ %131, %130 ], [ %131, %133 ], [ %139, %138 ], [ %139, %141 ], [ %174, %173 ], [ %174, %176 ]
+  %common.resume.op = phi { ptr, i32 } [ %159, %158 ], [ %30, %29 ], [ %53, %52 ], [ %93, %92 ], [ %116, %115 ], [ %30, %32 ], [ %53, %55 ], [ %93, %95 ], [ %116, %118 ], [ %159, %161 ], [ %139, %141 ], [ %68, %70 ], [ %76, %78 ], [ %131, %133 ], [ %68, %67 ], [ %76, %75 ], [ %131, %130 ], [ %139, %138 ], [ %174, %173 ], [ %174, %176 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit: ; preds = %20, %25
@@ -9506,7 +9506,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL
   unreachable
 
 common.resume:                                    ; preds = %75, %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit22, %37, %40
-  %common.resume.op = phi { ptr, i32 } [ %38, %40 ], [ %38, %37 ], [ %lpad.phi, %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit22 ], [ %lpad.phi, %75 ]
+  %common.resume.op = phi { ptr, i32 } [ %38, %37 ], [ %38, %40 ], [ %lpad.phi, %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit22 ], [ %lpad.phi, %75 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit: ; preds = %35
@@ -9741,7 +9741,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL
   unreachable
 
 common.resume:                                    ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit63, %97, %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit93, %164, %276, %279, %284, %287, %261, %264, %236, %239, %109, %112, %42, %45
-  %common.resume.op = phi { ptr, i32 } [ %43, %45 ], [ %43, %42 ], [ %110, %112 ], [ %110, %109 ], [ %237, %239 ], [ %237, %236 ], [ %262, %264 ], [ %262, %261 ], [ %lpad.phi, %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit63 ], [ %lpad.phi, %97 ], [ %lpad.phi126, %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit93 ], [ %lpad.phi126, %164 ], [ %277, %276 ], [ %277, %279 ], [ %285, %284 ], [ %285, %287 ]
+  %common.resume.op = phi { ptr, i32 } [ %262, %261 ], [ %43, %42 ], [ %110, %109 ], [ %237, %236 ], [ %43, %45 ], [ %110, %112 ], [ %237, %239 ], [ %262, %264 ], [ %lpad.phi, %97 ], [ %lpad.phi126, %164 ], [ %277, %279 ], [ %lpad.phi, %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit63 ], [ %lpad.phi126, %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit93 ], [ %277, %276 ], [ %285, %284 ], [ %285, %287 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit: ; preds = %40
@@ -10214,7 +10214,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL_
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !421
 
 _ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS8_SaIS8_EEEEEET_SE_SE_SE_.exit: ; preds = %._crit_edge69.i.i, %._crit_edge.i.i, %.lr.ph.i.i.i, %169, %171
-  %.sroa.015.0.i.i = phi ptr [ %.sroa.0.0, %169 ], [ %.sroa.0117.0, %171 ], [ %1, %.lr.ph.i.i.i ], [ %193, %._crit_edge.i.i ], [ %193, %._crit_edge69.i.i ]
+  %.sroa.015.0.i.i = phi ptr [ %.sroa.0117.0, %171 ], [ %.sroa.0.0, %169 ], [ %1, %.lr.ph.i.i.i ], [ %193, %._crit_edge.i.i ], [ %193, %._crit_edge69.i.i ]
   %227 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %228 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %229 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -10431,7 +10431,7 @@ define internal fastcc void @_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__norma
   unreachable
 
 common.resume:                                    ; preds = %.body, %422, %.body37, %428, %.body82, %434, %270, %273, %130, %133, %28, %31
-  %common.resume.op = phi { ptr, i32 } [ %29, %31 ], [ %29, %28 ], [ %131, %133 ], [ %131, %130 ], [ %271, %273 ], [ %271, %270 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %422 ], [ %eh.lpad-body38, %.body37 ], [ %eh.lpad-body38, %428 ], [ %eh.lpad-body83, %.body82 ], [ %eh.lpad-body83, %434 ]
+  %common.resume.op = phi { ptr, i32 } [ %271, %270 ], [ %29, %28 ], [ %131, %130 ], [ %29, %31 ], [ %131, %133 ], [ %271, %273 ], [ %eh.lpad-body38, %428 ], [ %eh.lpad-body, %422 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body38, %.body37 ], [ %eh.lpad-body83, %.body82 ], [ %eh.lpad-body83, %434 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit: ; preds = %4, %24
@@ -11533,7 +11533,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL
   br i1 %420, label %124, label %._crit_edge, !llvm.loop !428
 
 .body:                                            ; preds = %46, %49, %64, %67, %79, %82, %94, %97
-  %eh.lpad-body = phi { ptr, i32 } [ %47, %49 ], [ %47, %46 ], [ %80, %82 ], [ %80, %79 ], [ %65, %64 ], [ %65, %67 ], [ %95, %94 ], [ %95, %97 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %95, %97 ], [ %80, %79 ], [ %47, %46 ], [ %47, %49 ], [ %80, %82 ], [ %65, %67 ], [ %65, %64 ], [ %95, %94 ]
   %421 = load ptr, ptr %19, align 8, !tbaa !145
   %.not.i.i86 = icmp eq ptr %421, null
   br i1 %.not.i.i86, label %common.resume, label %422
@@ -11550,7 +11550,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL
   unreachable
 
 .body37:                                          ; preds = %147, %150, %193, %195, %206, %209, %251, %253
-  %eh.lpad-body38 = phi { ptr, i32 } [ %148, %150 ], [ %148, %147 ], [ %207, %209 ], [ %207, %206 ], [ %lpad.phi89.i, %193 ], [ %lpad.phi89.i, %195 ], [ %lpad.phi.i, %251 ], [ %lpad.phi.i, %253 ]
+  %eh.lpad-body38 = phi { ptr, i32 } [ %lpad.phi.i, %253 ], [ %207, %206 ], [ %148, %147 ], [ %148, %150 ], [ %207, %209 ], [ %lpad.phi89.i, %195 ], [ %lpad.phi89.i, %193 ], [ %lpad.phi.i, %251 ]
   %427 = load ptr, ptr %110, align 8, !tbaa !145
   %.not.i.i88 = icmp eq ptr %427, null
   br i1 %.not.i.i88, label %common.resume, label %428
@@ -11567,7 +11567,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL
   unreachable
 
 .body82:                                          ; preds = %287, %290, %342, %344, %355, %358, %406, %408
-  %eh.lpad-body83 = phi { ptr, i32 } [ %288, %290 ], [ %288, %287 ], [ %356, %358 ], [ %356, %355 ], [ %lpad.phi86.i, %342 ], [ %lpad.phi86.i, %344 ], [ %lpad.phi.i69, %406 ], [ %lpad.phi.i69, %408 ]
+  %eh.lpad-body83 = phi { ptr, i32 } [ %lpad.phi.i69, %408 ], [ %356, %355 ], [ %288, %287 ], [ %288, %290 ], [ %356, %358 ], [ %lpad.phi86.i, %344 ], [ %lpad.phi86.i, %342 ], [ %lpad.phi.i69, %406 ]
   %433 = load ptr, ptr %117, align 8, !tbaa !145
   %.not.i.i90 = icmp eq ptr %433, null
   br i1 %.not.i.i90, label %common.resume, label %434
@@ -11667,7 +11667,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121Sche
   unreachable
 
 common.resume:                                    ; preds = %70, %72, %161, %163, %497, %494, %489, %486, %299, %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit158, %232, %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit127, %471, %474, %447, %450, %244, %247, %177, %180, %100, %103, %38, %41
-  %common.resume.op = phi { ptr, i32 } [ %39, %41 ], [ %39, %38 ], [ %101, %103 ], [ %101, %100 ], [ %178, %180 ], [ %178, %177 ], [ %245, %247 ], [ %245, %244 ], [ %448, %450 ], [ %448, %447 ], [ %472, %474 ], [ %472, %471 ], [ %lpad.phi215, %70 ], [ %lpad.phi215, %72 ], [ %lpad.phi209, %161 ], [ %lpad.phi209, %163 ], [ %lpad.phi, %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit127 ], [ %lpad.phi, %232 ], [ %lpad.phi203, %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit158 ], [ %lpad.phi203, %299 ], [ %487, %486 ], [ %487, %489 ], [ %495, %494 ], [ %495, %497 ]
+  %common.resume.op = phi { ptr, i32 } [ %472, %471 ], [ %39, %38 ], [ %101, %100 ], [ %178, %177 ], [ %245, %244 ], [ %448, %447 ], [ %39, %41 ], [ %101, %103 ], [ %178, %180 ], [ %245, %247 ], [ %448, %450 ], [ %472, %474 ], [ %lpad.phi209, %163 ], [ %lpad.phi215, %72 ], [ %lpad.phi215, %70 ], [ %lpad.phi209, %161 ], [ %lpad.phi, %232 ], [ %lpad.phi203, %299 ], [ %487, %489 ], [ %lpad.phi, %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit127 ], [ %lpad.phi203, %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit158 ], [ %487, %486 ], [ %495, %494 ], [ %495, %497 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit, %34
@@ -12706,7 +12706,7 @@ _ZSt13move_backwardIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN
   br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !421
 
 _ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_lET_SD_SD_SD_T1_SE_T0_SE_.exit: ; preds = %._crit_edge69.i.i.i, %._crit_edge.i.i.i, %.lr.ph.i.i.i.i, %307, %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i, %344, %_ZSt13move_backwardIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i, %380, %382
-  %.sroa.032.0.i = phi ptr [ %342, %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i ], [ %379, %_ZSt13move_backwardIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i ], [ %.sroa.0194.0, %307 ], [ %.sroa.0.0, %344 ], [ %.sroa.0.0, %380 ], [ %.sroa.0194.0, %382 ], [ %1, %.lr.ph.i.i.i.i ], [ %404, %._crit_edge.i.i.i ], [ %404, %._crit_edge69.i.i.i ]
+  %.sroa.032.0.i = phi ptr [ %342, %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i ], [ %.sroa.0.0, %344 ], [ %379, %_ZSt13move_backwardIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i ], [ %.sroa.0194.0, %307 ], [ %.sroa.0194.0, %382 ], [ %.sroa.0.0, %380 ], [ %1, %.lr.ph.i.i.i.i ], [ %404, %._crit_edge.i.i.i ], [ %404, %._crit_edge69.i.i.i ]
   %438 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %439 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %440 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -13627,29 +13627,29 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   br label %_ZN9AstActive9addStmtspEP7AstNode.exit
 
 62:                                               ; preds = %_ZNKSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE12_M_check_lenEmPKc.exit.i.i, %43, %._crit_edge.i.i
-  %.0 = phi i1 [ true, %._crit_edge.i.i ], [ false, %43 ], [ false, %_ZNKSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE12_M_check_lenEmPKc.exit.i.i ]
+  %.0 = phi i1 [ false, %_ZNKSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE12_M_check_lenEmPKc.exit.i.i ], [ true, %._crit_edge.i.i ], [ false, %43 ]
   %63 = landingpad { ptr, i32 }
           cleanup
   %64 = load ptr, ptr %5, align 8, !tbaa !80
   %65 = icmp eq ptr %64, %28
-  br i1 %65, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i17, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18
+  br i1 %65, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i17: ; preds = %62
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.0, label %68, label %69
-
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18: ; preds = %62
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16: ; preds = %62
   %66 = load i64, ptr %28, align 8, !tbaa !69
   %67 = add i64 %66, 1
   call void @_ZdlPvm(ptr noundef %64, i64 noundef %67) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.0, label %68, label %69
 
-68:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i17, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18: ; preds = %62
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  br i1 %.0, label %68, label %69
+
+68:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18
   call void @_ZdlPvm(ptr noundef nonnull %25, i64 noundef 192) #31
   br label %69
 
-69:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i17, %68, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18
+69:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16, %68, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18
   resume { ptr, i32 } %63
 
 _ZN9AstActive9addStmtspEP7AstNode.exit:           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %20

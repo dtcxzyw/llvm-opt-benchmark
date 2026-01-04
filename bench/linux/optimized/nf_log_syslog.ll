@@ -1486,7 +1486,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_tcp_header(ptr n
   br label %156
 
 156:                                              ; preds = %108, %116, %153, %.thread9, %.thread, %5
-  %157 = phi i32 [ 1, %.thread ], [ 0, %5 ], [ 1, %.thread9 ], [ 0, %153 ], [ 0, %116 ], [ 0, %108 ]
+  %157 = phi i32 [ 0, %5 ], [ 1, %.thread9 ], [ 1, %.thread ], [ 0, %153 ], [ 0, %116 ], [ 0, %108 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %157
 }

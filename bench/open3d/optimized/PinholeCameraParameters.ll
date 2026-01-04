@@ -409,7 +409,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58: ; preds = %55,
   br label %70
 
 70:                                               ; preds = %66, %62, %34, %11
-  %.041 = phi i1 [ false, %34 ], [ false, %11 ], [ false, %62 ], [ %69, %66 ]
+  %.041 = phi i1 [ false, %34 ], [ false, %62 ], [ %69, %66 ], [ false, %11 ]
   ret i1 %.041
 }
 

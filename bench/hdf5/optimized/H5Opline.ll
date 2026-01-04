@@ -597,14 +597,14 @@ H5O__pline_reset.exit.i:                          ; preds = %._crit_edge.i.i, %2
   %304 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5O_pline_t_reg_free_list, ptr noundef nonnull %28) #12
   br label %H5O__pline_decode.exit.thread
 
-H5O__pline_decode.exit.thread:                    ; preds = %.thread.i, %30, %303, %H5O__pline_reset.exit.i
+H5O__pline_decode.exit.thread:                    ; preds = %.thread.i, %H5O__pline_reset.exit.i, %30, %303
   %305 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
   %306 = load i64, ptr @H5E_CANTDECODE_g, align 8, !tbaa !10
   %307 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.H5O__pline_shared_decode, i32 noundef 75, i64 noundef %305, i64 noundef %306, ptr noundef nonnull @.str.7) #12
   br label %H5O__pline_decode.exit.thread18
 
 H5O__pline_decode.exit.thread18:                  ; preds = %270, %.preheader.i, %18, %H5O__pline_decode.exit.thread, %22, %6
-  %.0 = phi ptr [ null, %18 ], [ %16, %22 ], [ null, %H5O__pline_decode.exit.thread ], [ null, %6 ], [ %28, %.preheader.i ], [ %28, %270 ]
+  %.0 = phi ptr [ null, %18 ], [ %16, %22 ], [ null, %H5O__pline_decode.exit.thread ], [ %28, %.preheader.i ], [ null, %6 ], [ %28, %270 ]
   ret ptr %.0
 }
 
@@ -794,7 +794,7 @@ define internal range(i32 -1, 1) i32 @H5O__pline_shared_encode(ptr noundef %0, i
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.lr.ph.preheader.i, %100, %83
-  %.3.i = phi ptr [ %101, %100 ], [ %99, %83 ], [ %scevgep28.i, %.lr.ph.preheader.i ]
+  %.3.i = phi ptr [ %99, %83 ], [ %101, %100 ], [ %scevgep28.i, %.lr.ph.preheader.i ]
   %108 = load i64, ptr %92, align 8, !tbaa !29
   %.not24.i = icmp eq i64 %108, 0
   br i1 %.not24.i, label %._crit_edge.thread.i, label %.lr.ph14.i
@@ -860,7 +860,7 @@ define internal range(i32 -1, 1) i32 @H5O__pline_shared_encode(ptr noundef %0, i
   br i1 %146, label %.lr.ph21.i, label %H5O__pline_encode.exit, !llvm.loop !43
 
 H5O__pline_encode.exit:                           ; preds = %._crit_edge.thread.i, %39, %22, %19, %5
-  %.0 = phi i32 [ -1, %22 ], [ 0, %19 ], [ 0, %5 ], [ 0, %39 ], [ 0, %._crit_edge.thread.i ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %19 ], [ -1, %22 ], [ 0, %39 ], [ 0, %._crit_edge.thread.i ]
   ret i32 %.0
 }
 
@@ -1114,7 +1114,7 @@ H5O__pline_reset.exit:                            ; preds = %92, %130
   br label %H5O__pline_free.exit
 
 H5O__pline_free.exit:                             ; preds = %86, %.preheader, %13, %90, %139, %132, %2, %H5O__pline_reset.exit
-  %.065 = phi ptr [ null, %H5O__pline_reset.exit ], [ null, %2 ], [ null, %132 ], [ null, %139 ], [ %.067, %90 ], [ null, %13 ], [ %.067, %.preheader ], [ %.067, %86 ]
+  %.065 = phi ptr [ null, %H5O__pline_reset.exit ], [ null, %139 ], [ null, %13 ], [ null, %2 ], [ null, %132 ], [ %.067, %90 ], [ %.067, %.preheader ], [ %.067, %86 ]
   ret ptr %.065
 }
 
@@ -1511,7 +1511,7 @@ define internal noundef ptr @H5O__pline_shared_copy_file(ptr noundef %0, ptr nou
   br label %.thread
 
 .thread:                                          ; preds = %17, %21, %24, %7
-  %.0 = phi ptr [ null, %24 ], [ null, %7 ], [ %15, %21 ], [ null, %17 ]
+  %.0 = phi ptr [ null, %24 ], [ null, %17 ], [ null, %7 ], [ %15, %21 ]
   ret ptr %.0
 }
 

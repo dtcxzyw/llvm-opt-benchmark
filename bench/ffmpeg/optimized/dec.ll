@@ -188,7 +188,7 @@ define internal i32 @vvc_decode_init(ptr noundef %0) #1 {
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %._crit_edge, %22, %17, %1, %42
-  %.0 = phi i32 [ 0, %42 ], [ %9, %1 ], [ %20, %17 ], [ -12, %22 ], [ -12, %._crit_edge ], [ %37, %.lr.ph ]
+  %.0 = phi i32 [ %20, %17 ], [ %9, %1 ], [ 0, %42 ], [ -12, %22 ], [ -12, %._crit_edge ], [ %37, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -1394,7 +1394,7 @@ smvd_find.exit71.i.i.i.i.i:                       ; preds = %553, %smvd_find.exi
   br i1 %626, label %618, label %.critedge2.i.i.i.i.i, !llvm.loop !250
 
 .critedge2.i.i.i.i.i:                             ; preds = %612, %623, %618, %.critedge.i.i.i.i.i
-  %.0.lcssa.i.i.i.i.i = phi i64 [ %602, %.critedge.i.i.i.i.i ], [ %.07.i.i.i.i.i, %618 ], [ %624, %623 ], [ %602, %612 ]
+  %.0.lcssa.i.i.i.i.i = phi i64 [ %602, %.critedge.i.i.i.i.i ], [ %624, %623 ], [ %.07.i.i.i.i.i, %618 ], [ %602, %612 ]
   %627 = trunc i64 %.0.lcssa.i.i.i.i.i to i32
   %628 = sub i32 %627, %595
   %629 = sub nsw i32 %.018.i.i.i.i.i.i, %.sroa.6.017.i.i.i.i
@@ -1546,7 +1546,7 @@ decode_slice.exit.i.i:                            ; preds = %685, %slice_init_en
   br i1 %704, label %136, label %decode_nal_units.exit, !llvm.loop !268
 
 .loopexit.i:                                      ; preds = %698, %685, %680, %566, %561, %422, %385, %317, %312, %179, %160, %203, %646, %475, %frame_start.exit.thread.i.i.i.i, %frame_context_for_each_tl.exit.thread.i.i.i.i.i.i, %slices_realloc.exit.i.i.i, %150
-  %.0.i.ph.i = phi i32 [ -12, %slices_realloc.exit.i.i.i ], [ %473, %475 ], [ %.0.i.i.i.i.i, %frame_start.exit.thread.i.i.i.i ], [ -12, %frame_context_for_each_tl.exit.thread.i.i.i.i.i.i ], [ -1163346256, %150 ], [ %649, %646 ], [ %205, %203 ], [ %683, %680 ], [ %694, %685 ], [ %424, %422 ], [ -12, %160 ], [ -12, %312 ], [ -12, %317 ], [ -1094995529, %385 ], [ %180, %179 ], [ -1094995529, %566 ], [ -12, %561 ], [ %699, %698 ]
+  %.0.i.ph.i = phi i32 [ %205, %203 ], [ -1163346256, %150 ], [ %.0.i.i.i.i.i, %frame_start.exit.thread.i.i.i.i ], [ -12, %slices_realloc.exit.i.i.i ], [ -12, %frame_context_for_each_tl.exit.thread.i.i.i.i.i.i ], [ %649, %646 ], [ %473, %475 ], [ -1094995529, %385 ], [ %683, %680 ], [ %694, %685 ], [ %424, %422 ], [ -12, %312 ], [ -12, %317 ], [ %180, %179 ], [ -12, %561 ], [ -1094995529, %566 ], [ %699, %698 ], [ -12, %160 ]
   %.03787108.i = trunc i64 %indvars.iv.i to i32
   %705 = load ptr, ptr %8, align 8, !tbaa !38
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %705, i32 noundef 24, ptr noundef nonnull @.str.6, i32 noundef %.03787108.i) #10
@@ -1668,8 +1668,8 @@ wait_delayed_frame.exit.i36:                      ; preds = %742
   %766 = load i32, ptr %9, align 8, !tbaa !58
   br label %get_decoded_frame.exit
 
-get_decoded_frame.exit:                           ; preds = %55, %wait_delayed_frame.exit.i, %wait_delayed_frame.exit.thread.us.i, %17, %.loopexit.i, %707, %134, %wait_delayed_frame.exit.i36, %69, %59, %.split26.us.i, %765, %712
-  %.0 = phi i32 [ %766, %765 ], [ %713, %712 ], [ %67, %59 ], [ 0, %69 ], [ 0, %.split26.us.i ], [ %751, %wait_delayed_frame.exit.i36 ], [ %.0.i.ph.i, %.loopexit.i ], [ %.0.i.ph.i, %707 ], [ %92, %134 ], [ %27, %17 ], [ 0, %wait_delayed_frame.exit.thread.us.i ], [ %43, %wait_delayed_frame.exit.i ], [ 0, %55 ]
+get_decoded_frame.exit:                           ; preds = %55, %wait_delayed_frame.exit.i, %wait_delayed_frame.exit.thread.us.i, %17, %707, %.loopexit.i, %134, %wait_delayed_frame.exit.i36, %69, %59, %.split26.us.i, %765, %712
+  %.0 = phi i32 [ %.0.i.ph.i, %707 ], [ %751, %wait_delayed_frame.exit.i36 ], [ %766, %765 ], [ %713, %712 ], [ %67, %59 ], [ 0, %69 ], [ 0, %.split26.us.i ], [ %.0.i.ph.i, %.loopexit.i ], [ %92, %134 ], [ %27, %17 ], [ 0, %wait_delayed_frame.exit.thread.us.i ], [ 0, %55 ], [ %43, %wait_delayed_frame.exit.i ]
   ret i32 %.0
 }
 
@@ -2401,9 +2401,9 @@ define internal void @pixel_buffer_nz_tl_init(ptr noundef writeonly captures(non
   br label %.thread122
 
 .thread122:                                       ; preds = %24, %.thread120
-  %33 = phi i32 [ 0, %.thread120 ], [ %31, %24 ]
-  %34 = phi i32 [ 0, %.thread120 ], [ %28, %24 ]
-  %wide.trip.count194 = phi i64 [ 1, %.thread120 ], [ %32, %24 ]
+  %33 = phi i32 [ %31, %24 ], [ 0, %.thread120 ]
+  %34 = phi i32 [ %28, %24 ], [ 0, %.thread120 ]
+  %wide.trip.count194 = phi i64 [ %32, %24 ], [ 1, %.thread120 ]
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 21972
   %36 = load i32, ptr %35, align 4, !tbaa !204
   %.not113 = icmp eq i32 %36, %34
@@ -2980,7 +2980,7 @@ define internal fastcc range(i32 -12, 1) i32 @frame_context_init(ptr noundef wri
   br label %.loopexit
 
 .loopexit:                                        ; preds = %7, %13, %10, %2
-  %.016 = phi i32 [ -12, %2 ], [ -12, %10 ], [ %., %13 ], [ -12, %7 ]
+  %.016 = phi i32 [ -12, %10 ], [ %., %13 ], [ -12, %2 ], [ -12, %7 ]
   ret i32 %.016
 }
 

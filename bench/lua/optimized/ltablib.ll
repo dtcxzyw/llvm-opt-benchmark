@@ -259,7 +259,7 @@ define internal i32 @tunpack(ptr noundef %0) #0 {
   br label %24
 
 24:                                               ; preds = %9, %._crit_edge, %.critedge
-  %.0 = phi i32 [ %20, %.critedge ], [ %17, %._crit_edge ], [ 0, %9 ]
+  %.0 = phi i32 [ %17, %._crit_edge ], [ %20, %.critedge ], [ 0, %9 ]
   ret i32 %.0
 }
 
@@ -804,7 +804,7 @@ partition.exit:                                   ; preds = %78
   %93 = icmp ult i32 %.281, %.278
   br i1 %93, label %.lr.ph, label %.thread
 
-.thread:                                          ; preds = %92, %13, %41, %4
+.thread:                                          ; preds = %92, %41, %13, %4
   ret void
 }
 

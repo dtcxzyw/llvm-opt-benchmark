@@ -98,7 +98,7 @@ define internal range(i32 -2147483648, 1) i32 @dts2pts_init(ptr noundef %0) #0 {
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge54, %31, %28, %19, %16, %9, %40
-  %.039 = phi i32 [ 0, %40 ], [ -12, %9 ], [ -12, %16 ], [ %24, %19 ], [ %29, %28 ], [ 0, %31 ], [ -558323010, %.critedge54 ]
+  %.039 = phi i32 [ 0, %31 ], [ -12, %16 ], [ %24, %19 ], [ 0, %40 ], [ %29, %28 ], [ -12, %9 ], [ -558323010, %.critedge54 ]
   ret i32 %.039
 }
 
@@ -357,7 +357,7 @@ thread-pre-split:                                 ; preds = %34, %37
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.12, i32 noundef %132) #10
   br label %.thread64
 
-.thread64:                                        ; preds = %121, %131
+.thread64:                                        ; preds = %131, %121
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %135
 
@@ -981,8 +981,8 @@ select.unfold:                                    ; preds = %213
   br label %.thread199
 
 .thread199:                                       ; preds = %61, %118, %select.unfold, %._crit_edge229, %239
-  %.1159221 = phi i32 [ %.1159.lcssa, %239 ], [ %.1159.lcssa, %._crit_edge229 ], [ %.1159225, %select.unfold ], [ %.1159225, %61 ], [ %.1159225, %118 ]
-  %.0121 = phi i32 [ -1094995529, %239 ], [ 0, %._crit_edge229 ], [ %221, %select.unfold ], [ %.1227, %61 ], [ %116, %118 ]
+  %.1159221 = phi i32 [ %.1159.lcssa, %._crit_edge229 ], [ %.1159.lcssa, %239 ], [ %.1159225, %select.unfold ], [ %.1159225, %61 ], [ %.1159225, %118 ]
+  %.0121 = phi i32 [ 0, %._crit_edge229 ], [ -1094995529, %239 ], [ %221, %select.unfold ], [ %.1227, %61 ], [ %116, %118 ]
   call void @ff_cbs_fragment_reset(ptr noundef nonnull %10) #10
   %.not151 = icmp eq i32 %.1159221, 0
   br i1 %.not151, label %240, label %241
@@ -993,7 +993,7 @@ select.unfold:                                    ; preds = %213
   br label %241
 
 241:                                              ; preds = %.thread199, %240, %1
-  %.0120 = phi i32 [ %11, %1 ], [ %.0121211, %240 ], [ %.0121, %.thread199 ]
+  %.0120 = phi i32 [ %.0121, %.thread199 ], [ %11, %1 ], [ %.0121211, %240 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

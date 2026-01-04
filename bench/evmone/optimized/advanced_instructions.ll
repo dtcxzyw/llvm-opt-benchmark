@@ -4214,8 +4214,8 @@ _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread13.i
   br label %_ZN6evmone8advanced5instr4implILNS_6OpcodeE243EXadL_ZNS_5instr4core11return_implIL16evmc_status_code0EEENS_10TermResultENS_8StackTopElRNS_14ExecutionStateEEEEES8_RNS0_22AdvancedExecutionStateE.exit
 
 _ZN6evmone8advanced5instr4implILNS_6OpcodeE243EXadL_ZNS_5instr4core11return_implIL16evmc_status_code0EEENS_10TermResultENS_8StackTopElRNS_14ExecutionStateEEEEES8_RNS0_22AdvancedExecutionStateE.exit: ; preds = %19, %28, %31, %40, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.i.i, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread13.i.i, %53
-  %.112.i.i = phi i64 [ %.0.i.i, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.i.i ], [ %.116.i.i, %53 ], [ %.116.i.i, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread13.i.i ], [ %6, %28 ], [ %6, %19 ], [ %6, %40 ], [ %6, %31 ]
-  %.sroa.0.0.i.i = phi i32 [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.i.i ], [ 0, %53 ], [ 0, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread13.i.i ], [ 3, %28 ], [ 3, %19 ], [ 3, %40 ], [ 3, %31 ]
+  %.112.i.i = phi i64 [ %.0.i.i, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.i.i ], [ %.116.i.i, %53 ], [ %.116.i.i, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread13.i.i ], [ %6, %19 ], [ %6, %28 ], [ %6, %40 ], [ %6, %31 ]
+  %.sroa.0.0.i.i = phi i32 [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.i.i ], [ 0, %53 ], [ 0, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread13.i.i ], [ 3, %19 ], [ 3, %28 ], [ 3, %40 ], [ 3, %31 ]
   store i64 %.112.i.i, ptr %5, align 8, !tbaa !106
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store i32 %.sroa.0.0.i.i, ptr %56, align 8, !tbaa !3
@@ -4490,8 +4490,8 @@ _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread13.i
   br label %_ZN6evmone8advanced5instr4implILNS_6OpcodeE253EXadL_ZNS_5instr4core11return_implIL16evmc_status_code2EEENS_10TermResultENS_8StackTopElRNS_14ExecutionStateEEEEES8_RNS0_22AdvancedExecutionStateE.exit
 
 _ZN6evmone8advanced5instr4implILNS_6OpcodeE253EXadL_ZNS_5instr4core11return_implIL16evmc_status_code2EEENS_10TermResultENS_8StackTopElRNS_14ExecutionStateEEEEES8_RNS0_22AdvancedExecutionStateE.exit: ; preds = %19, %28, %31, %40, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.i.i, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread13.i.i, %53
-  %.112.i.i = phi i64 [ %.0.i.i, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.i.i ], [ %.116.i.i, %53 ], [ %.116.i.i, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread13.i.i ], [ %6, %28 ], [ %6, %19 ], [ %6, %40 ], [ %6, %31 ]
-  %.sroa.0.0.i.i = phi i32 [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.i.i ], [ 2, %53 ], [ 2, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread13.i.i ], [ 3, %28 ], [ 3, %19 ], [ 3, %40 ], [ 3, %31 ]
+  %.112.i.i = phi i64 [ %.0.i.i, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.i.i ], [ %.116.i.i, %53 ], [ %.116.i.i, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread13.i.i ], [ %6, %19 ], [ %6, %28 ], [ %6, %40 ], [ %6, %31 ]
+  %.sroa.0.0.i.i = phi i32 [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.i.i ], [ 2, %53 ], [ 2, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread13.i.i ], [ 3, %19 ], [ 3, %28 ], [ 3, %40 ], [ 3, %31 ]
   store i64 %.112.i.i, ptr %5, align 8, !tbaa !106
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store i32 %.sroa.0.0.i.i, ptr %56, align 8, !tbaa !3
@@ -4597,10 +4597,10 @@ define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_Z
   br label %_ZN6evmone8advanced5instr4implILNS_6OpcodeE27EXadL_ZNS_5instr4core3shlENS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateE.exit
 
 _ZN6evmone8advanced5instr4implILNS_6OpcodeE27EXadL_ZNS_5instr4core3shlENS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateE.exit: ; preds = %6, %13, %23, %42, %59, %67
-  %.sroa.0.0.i.i.i = phi i64 [ 0, %6 ], [ 0, %13 ], [ %24, %23 ], [ 0, %42 ], [ 0, %67 ], [ 0, %59 ]
-  %.sroa.7.0.i.i.i = phi i64 [ 0, %6 ], [ 0, %13 ], [ %29, %23 ], [ %44, %42 ], [ 0, %67 ], [ 0, %59 ]
-  %.sroa.8.0.i.i.i = phi i64 [ 0, %6 ], [ 0, %13 ], [ %41, %23 ], [ %53, %42 ], [ 0, %67 ], [ %61, %59 ]
-  %.sroa.10.0.i.i.i = phi i64 [ 0, %6 ], [ 0, %13 ], [ %40, %23 ], [ %56, %42 ], [ %69, %67 ], [ %66, %59 ]
+  %.sroa.0.0.i.i.i = phi i64 [ 0, %6 ], [ 0, %42 ], [ 0, %13 ], [ %24, %23 ], [ 0, %67 ], [ 0, %59 ]
+  %.sroa.7.0.i.i.i = phi i64 [ 0, %6 ], [ %44, %42 ], [ 0, %13 ], [ %29, %23 ], [ 0, %67 ], [ 0, %59 ]
+  %.sroa.8.0.i.i.i = phi i64 [ 0, %6 ], [ %53, %42 ], [ 0, %13 ], [ %41, %23 ], [ 0, %67 ], [ %61, %59 ]
+  %.sroa.10.0.i.i.i = phi i64 [ 0, %6 ], [ %56, %42 ], [ 0, %13 ], [ %40, %23 ], [ %69, %67 ], [ %66, %59 ]
   store i64 %.sroa.0.0.i.i.i, ptr %7, align 8
   %.sroa.7.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 -56
   store i64 %.sroa.7.0.i.i.i, ptr %.sroa.7.0..sroa_idx.i.i.i, align 8
@@ -4717,10 +4717,10 @@ define internal noundef nonnull ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_Z
   br label %_ZN6evmone8advanced5instr4implILNS_6OpcodeE28EXadL_ZNS_5instr4core3shrENS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateE.exit
 
 _ZN6evmone8advanced5instr4implILNS_6OpcodeE28EXadL_ZNS_5instr4core3shrENS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateE.exit: ; preds = %6, %13, %24, %42, %59, %67
-  %.sroa.0.0.i.i.i = phi i64 [ 0, %6 ], [ 0, %13 ], [ %39, %24 ], [ %56, %42 ], [ %65, %59 ], [ %69, %67 ]
-  %.sroa.7.0.i.i.i = phi i64 [ 0, %6 ], [ 0, %13 ], [ %41, %24 ], [ %54, %42 ], [ %66, %59 ], [ 0, %67 ]
-  %.sroa.9.0.i.i.i = phi i64 [ 0, %6 ], [ 0, %13 ], [ %29, %24 ], [ %44, %42 ], [ 0, %59 ], [ 0, %67 ]
-  %.sroa.11.0.i.i.i = phi i64 [ 0, %6 ], [ 0, %13 ], [ %30, %24 ], [ 0, %42 ], [ 0, %59 ], [ 0, %67 ]
+  %.sroa.0.0.i.i.i = phi i64 [ 0, %6 ], [ %56, %42 ], [ 0, %13 ], [ %39, %24 ], [ %65, %59 ], [ %69, %67 ]
+  %.sroa.7.0.i.i.i = phi i64 [ 0, %6 ], [ %54, %42 ], [ 0, %13 ], [ %41, %24 ], [ %66, %59 ], [ 0, %67 ]
+  %.sroa.9.0.i.i.i = phi i64 [ 0, %6 ], [ %44, %42 ], [ 0, %13 ], [ %29, %24 ], [ 0, %59 ], [ 0, %67 ]
+  %.sroa.11.0.i.i.i = phi i64 [ 0, %6 ], [ 0, %42 ], [ 0, %13 ], [ %30, %24 ], [ 0, %59 ], [ 0, %67 ]
   store i64 %.sroa.0.0.i.i.i, ptr %7, align 8
   %.sroa.7.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 -56
   store i64 %.sroa.7.0.i.i.i, ptr %.sroa.7.0..sroa_idx.i.i.i, align 8
@@ -5634,7 +5634,7 @@ _ZN4intx8internal9normalizeILj256ELj256EEENS0_19normalized_div_argsIXT_EXT0_EEER
   br label %_ZN4intx8internal9normalizeILj256ELj256EEENS0_19normalized_div_argsIXT_EXT0_EEERKNS_4uintIXT_EEERKNS4_IXT0_EEE.exit
 
 _ZN4intx8internal9normalizeILj256ELj256EEENS0_19normalized_div_argsIXT_EXT0_EEERKNS_4uintIXT_EEERKNS4_IXT0_EEE.exit: ; preds = %66, %72
-  %74 = phi i32 [ %storemerge.i.lcssa32, %66 ], [ %73, %72 ]
+  %74 = phi i32 [ %73, %72 ], [ %storemerge.i.lcssa32, %66 ]
   %75 = icmp sgt i32 %74, -1
   tail call void @llvm.assume(i1 %75)
   %.not = icmp samesign ugt i32 %74, %storemerge51.i.lcssa34
@@ -6206,7 +6206,7 @@ _ZN4intx15reciprocal_2by1Em.exit:                 ; preds = %45
   br label %78
 
 78:                                               ; preds = %75, %73, %64
-  %.2 = phi i64 [ %74, %73 ], [ %.016, %64 ], [ %spec.select, %75 ]
+  %.2 = phi i64 [ %.016, %64 ], [ %spec.select, %75 ], [ %74, %73 ]
   ret i64 %.2
 }
 
@@ -7099,7 +7099,7 @@ _ZN4intx8internal9normalizeILj320ELj256EEENS0_19normalized_div_argsIXT_EXT0_EEER
   br label %_ZN4intx8internal9normalizeILj320ELj256EEENS0_19normalized_div_argsIXT_EXT0_EEERKNS_4uintIXT_EEERKNS4_IXT0_EEE.exit
 
 _ZN4intx8internal9normalizeILj320ELj256EEENS0_19normalized_div_argsIXT_EXT0_EEERKNS_4uintIXT_EEERKNS4_IXT0_EEE.exit: ; preds = %66, %72
-  %74 = phi i32 [ %storemerge.i.lcssa32, %66 ], [ %73, %72 ]
+  %74 = phi i32 [ %73, %72 ], [ %storemerge.i.lcssa32, %66 ]
   %75 = icmp sgt i32 %74, -1
   tail call void @llvm.assume(i1 %75)
   %.not = icmp samesign ugt i32 %74, %storemerge51.i.lcssa34
@@ -7419,7 +7419,7 @@ _ZN4intx8internal9normalizeILj512ELj256EEENS0_19normalized_div_argsIXT_EXT0_EEER
   br label %_ZN4intx8internal9normalizeILj512ELj256EEENS0_19normalized_div_argsIXT_EXT0_EEERKNS_4uintIXT_EEERKNS4_IXT0_EEE.exit
 
 _ZN4intx8internal9normalizeILj512ELj256EEENS0_19normalized_div_argsIXT_EXT0_EEERKNS_4uintIXT_EEERKNS4_IXT0_EEE.exit: ; preds = %66, %72
-  %74 = phi i32 [ %storemerge.i.lcssa32, %66 ], [ %73, %72 ]
+  %74 = phi i32 [ %73, %72 ], [ %storemerge.i.lcssa32, %66 ]
   %75 = icmp sgt i32 %74, -1
   tail call void @llvm.assume(i1 %75)
   %.not = icmp samesign ugt i32 %74, %storemerge51.i.lcssa34
@@ -8467,9 +8467,9 @@ _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread30: 
   call void @llvm.lifetime.end.p0(ptr nonnull %5) #27
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread
 
-_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %30, %39, %18, %27, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit, %59, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread30
-  %.sroa.0.0 = phi i32 [ 0, %59 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread30 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 3, %27 ], [ 3, %18 ], [ 3, %39 ], [ 3, %30 ]
-  %.sroa.4.0 = phi i64 [ %54, %59 ], [ %54, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread30 ], [ %.0, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %1, %27 ], [ %1, %18 ], [ %1, %39 ], [ %1, %30 ]
+_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %30, %39, %27, %18, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit, %59, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread30
+  %.sroa.0.0 = phi i32 [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread30 ], [ 0, %59 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 3, %18 ], [ 3, %27 ], [ 3, %39 ], [ 3, %30 ]
+  %.sroa.4.0 = phi i64 [ %54, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread30 ], [ %54, %59 ], [ %.0, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %1, %18 ], [ %1, %27 ], [ %1, %39 ], [ %1, %30 ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %.sroa.4.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -8723,9 +8723,9 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit:           ; preds = %_ZN6evmone12check_m
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %92, i8 0, i64 %93, i1 false)
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread
 
-_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %30, %39, %18, %27, %73, %89, %88, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
-  %.sroa.0.0 = phi i32 [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 3, %73 ], [ 0, %89 ], [ 0, %88 ], [ 3, %27 ], [ 3, %18 ], [ 3, %39 ], [ 3, %30 ]
-  %.sroa.4.0 = phi i64 [ %.0, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %79, %73 ], [ %79, %89 ], [ %79, %88 ], [ %1, %27 ], [ %1, %18 ], [ %1, %39 ], [ %1, %30 ]
+_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %30, %39, %27, %18, %73, %89, %88, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
+  %.sroa.0.0 = phi i32 [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 0, %88 ], [ 3, %73 ], [ 0, %89 ], [ 3, %18 ], [ 3, %27 ], [ 3, %39 ], [ 3, %30 ]
+  %.sroa.4.0 = phi i64 [ %.0, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %79, %88 ], [ %79, %73 ], [ %79, %89 ], [ %1, %18 ], [ %1, %27 ], [ %1, %39 ], [ %1, %30 ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %.sroa.4.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -8882,9 +8882,9 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit:           ; preds = %_ZN6evmone12check_m
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %90, i8 0, i64 %91, i1 false)
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread
 
-_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %30, %39, %18, %27, %71, %87, %86, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
-  %.sroa.0.0 = phi i32 [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 3, %71 ], [ 0, %87 ], [ 0, %86 ], [ 3, %27 ], [ 3, %18 ], [ 3, %39 ], [ 3, %30 ]
-  %.sroa.4.0 = phi i64 [ %.0, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %77, %71 ], [ %77, %87 ], [ %77, %86 ], [ %1, %27 ], [ %1, %18 ], [ %1, %39 ], [ %1, %30 ]
+_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %30, %39, %27, %18, %71, %87, %86, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
+  %.sroa.0.0 = phi i32 [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 0, %86 ], [ 3, %71 ], [ 0, %87 ], [ 3, %18 ], [ 3, %27 ], [ 3, %39 ], [ 3, %30 ]
+  %.sroa.4.0 = phi i64 [ %.0, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %77, %86 ], [ %77, %71 ], [ %77, %87 ], [ %1, %18 ], [ %1, %27 ], [ %1, %39 ], [ %1, %30 ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %.sroa.4.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -9079,9 +9079,9 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit:           ; preds = %82, %89
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %117, i8 0, i64 %114, i1 false)
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread
 
-_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %40, %49, %28, %37, %81, %113, %101, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread39, %78
-  %.sroa.0.0 = phi i32 [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread39 ], [ 3, %78 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 0, %101 ], [ 0, %113 ], [ 0, %81 ], [ 3, %37 ], [ 3, %28 ], [ 3, %49 ], [ 3, %40 ]
-  %.sroa.5.0 = phi i64 [ %63, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread39 ], [ %79, %78 ], [ %.1, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %.0, %101 ], [ %.0, %113 ], [ %.0, %81 ], [ %1, %37 ], [ %1, %28 ], [ %1, %49 ], [ %1, %40 ]
+_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %40, %49, %37, %28, %81, %113, %101, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread39, %78
+  %.sroa.0.0 = phi i32 [ 3, %78 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread39 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 0, %81 ], [ 0, %101 ], [ 0, %113 ], [ 3, %28 ], [ 3, %37 ], [ 3, %49 ], [ 3, %40 ]
+  %.sroa.5.0 = phi i64 [ %79, %78 ], [ %63, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread39 ], [ %.1, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %.0, %81 ], [ %.0, %101 ], [ %.0, %113 ], [ %1, %28 ], [ %1, %37 ], [ %1, %49 ], [ %1, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5) #27
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %.sroa.5.0, 1
@@ -9294,9 +9294,9 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit48:         ; preds = %95, %96
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %118, ptr nonnull align 1 %120, i64 %51, i1 false)
   br label %.critedge
 
-.critedge:                                        ; preds = %115, %116, %30, %39, %18, %27, %76, %_ZN4intxltERKNS_4uintILj256EEES3_.exit48, %106, %110, %90, %89, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
-  %.sroa.040.0 = phi i32 [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 3, %76 ], [ 9, %_ZN4intxltERKNS_4uintILj256EEES3_.exit48 ], [ 3, %110 ], [ 9, %106 ], [ 0, %90 ], [ 0, %89 ], [ 3, %27 ], [ 3, %18 ], [ 3, %39 ], [ 3, %30 ], [ 0, %116 ], [ 0, %115 ]
-  %.sroa.7.0 = phi i64 [ %.2, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %81, %76 ], [ %.379, %_ZN4intxltERKNS_4uintILj256EEES3_.exit48 ], [ %113, %110 ], [ %.379, %106 ], [ %81, %90 ], [ %81, %89 ], [ %1, %27 ], [ %1, %18 ], [ %1, %39 ], [ %1, %30 ], [ %113, %116 ], [ %113, %115 ]
+.critedge:                                        ; preds = %116, %115, %30, %39, %27, %18, %76, %_ZN4intxltERKNS_4uintILj256EEES3_.exit48, %106, %110, %90, %89, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
+  %.sroa.040.0 = phi i32 [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 0, %89 ], [ 3, %110 ], [ 3, %76 ], [ 9, %_ZN4intxltERKNS_4uintILj256EEES3_.exit48 ], [ 9, %106 ], [ 3, %30 ], [ 0, %90 ], [ 3, %18 ], [ 3, %27 ], [ 3, %39 ], [ 0, %115 ], [ 0, %116 ]
+  %.sroa.7.0 = phi i64 [ %.2, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %81, %89 ], [ %113, %110 ], [ %81, %76 ], [ %.379, %_ZN4intxltERKNS_4uintILj256EEES3_.exit48 ], [ %.379, %106 ], [ %1, %30 ], [ %81, %90 ], [ %1, %18 ], [ %1, %27 ], [ %1, %39 ], [ %113, %115 ], [ %113, %116 ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %.sroa.040.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %.sroa.7.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -9447,9 +9447,9 @@ _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread24: 
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %87, ptr nonnull align 1 %88, i64 %79, i1 false)
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread
 
-_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %57, %66, %45, %54, %84, %85, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread24
-  %.sroa.0.0 = phi i32 [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread24 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 0, %85 ], [ 0, %84 ], [ 3, %54 ], [ 3, %45 ], [ 3, %66 ], [ 3, %57 ]
-  %.sroa.4.0 = phi i64 [ %82, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread24 ], [ %.0, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %82, %85 ], [ %82, %84 ], [ %1, %54 ], [ %1, %45 ], [ %1, %66 ], [ %1, %57 ]
+_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %57, %66, %54, %45, %84, %85, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread24
+  %.sroa.0.0 = phi i32 [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread24 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 0, %84 ], [ 0, %85 ], [ 3, %45 ], [ 3, %54 ], [ 3, %66 ], [ 3, %57 ]
+  %.sroa.4.0 = phi i64 [ %82, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread24 ], [ %.0, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %82, %84 ], [ %82, %85 ], [ %1, %45 ], [ %1, %54 ], [ %1, %66 ], [ %1, %57 ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %.sroa.4.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -9574,9 +9574,9 @@ _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread36: 
   call void @llvm.lifetime.end.p0(ptr nonnull %5) #27
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread
 
-_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %36, %45, %24, %33, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread36, %.preheader, %3
-  %.sroa.0.0 = phi i32 [ 11, %3 ], [ 0, %.preheader ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread36 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 3, %33 ], [ 3, %24 ], [ 3, %45 ], [ 3, %36 ]
-  %.sroa.5.0 = phi i64 [ 0, %3 ], [ %58, %.preheader ], [ %58, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread36 ], [ %.032, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %1, %33 ], [ %1, %24 ], [ %1, %45 ], [ %1, %36 ]
+_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %36, %45, %33, %24, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread36, %.preheader, %3
+  %.sroa.0.0 = phi i32 [ 11, %3 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread36 ], [ 0, %.preheader ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 3, %24 ], [ 3, %33 ], [ 3, %45 ], [ 3, %36 ]
+  %.sroa.5.0 = phi i64 [ 0, %3 ], [ %58, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread36 ], [ %58, %.preheader ], [ %.032, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %1, %24 ], [ %1, %33 ], [ %1, %45 ], [ %1, %36 ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %.sroa.5.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -9720,9 +9720,9 @@ _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread35: 
   call void @llvm.lifetime.end.p0(ptr nonnull %5) #27
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread
 
-_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %37, %46, %25, %34, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread35, %61, %3
-  %.sroa.0.0 = phi i32 [ 11, %3 ], [ 0, %61 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread35 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 3, %34 ], [ 3, %25 ], [ 3, %46 ], [ 3, %37 ]
-  %.sroa.5.0 = phi i64 [ 0, %3 ], [ %59, %61 ], [ %59, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread35 ], [ %.031, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %1, %34 ], [ %1, %25 ], [ %1, %46 ], [ %1, %37 ]
+_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %37, %46, %34, %25, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread35, %61, %3
+  %.sroa.0.0 = phi i32 [ 11, %3 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread35 ], [ 0, %61 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 3, %25 ], [ 3, %34 ], [ 3, %46 ], [ 3, %37 ]
+  %.sroa.5.0 = phi i64 [ 0, %3 ], [ %59, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread35 ], [ %59, %61 ], [ %.031, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %1, %25 ], [ %1, %34 ], [ %1, %46 ], [ %1, %37 ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %.sroa.5.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -9878,9 +9878,9 @@ _ZNSt5arrayIN4evmc7bytes32ELm2EEC2Ev.exit:        ; preds = %_ZNSt5arrayIN4evmc7
   %.not = icmp eq i64 %.0.add, 64
   br i1 %.not, label %62, label %_ZNSt5arrayIN4evmc7bytes32ELm2EEC2Ev.exit
 
-_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %37, %46, %25, %34, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread35, %62, %3
-  %.sroa.0.0 = phi i32 [ 11, %3 ], [ 0, %62 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread35 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 3, %34 ], [ 3, %25 ], [ 3, %46 ], [ 3, %37 ]
-  %.sroa.5.0 = phi i64 [ 0, %3 ], [ %60, %62 ], [ %60, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread35 ], [ %.031, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %1, %34 ], [ %1, %25 ], [ %1, %46 ], [ %1, %37 ]
+_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %37, %46, %34, %25, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread35, %62, %3
+  %.sroa.0.0 = phi i32 [ 11, %3 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread35 ], [ 0, %62 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 3, %25 ], [ 3, %34 ], [ 3, %46 ], [ 3, %37 ]
+  %.sroa.5.0 = phi i64 [ 0, %3 ], [ %60, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread35 ], [ %60, %62 ], [ %.031, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %1, %25 ], [ %1, %34 ], [ %1, %46 ], [ %1, %37 ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %.sroa.5.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -10036,9 +10036,9 @@ _ZNSt5arrayIN4evmc7bytes32ELm3EEC2Ev.exit:        ; preds = %_ZNSt5arrayIN4evmc7
   %.not = icmp eq i64 %.0.add, 96
   br i1 %.not, label %62, label %_ZNSt5arrayIN4evmc7bytes32ELm3EEC2Ev.exit
 
-_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %37, %46, %25, %34, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread35, %62, %3
-  %.sroa.0.0 = phi i32 [ 11, %3 ], [ 0, %62 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread35 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 3, %34 ], [ 3, %25 ], [ 3, %46 ], [ 3, %37 ]
-  %.sroa.5.0 = phi i64 [ 0, %3 ], [ %60, %62 ], [ %60, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread35 ], [ %.031, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %1, %34 ], [ %1, %25 ], [ %1, %46 ], [ %1, %37 ]
+_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %37, %46, %34, %25, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread35, %62, %3
+  %.sroa.0.0 = phi i32 [ 11, %3 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread35 ], [ 0, %62 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 3, %25 ], [ 3, %34 ], [ 3, %46 ], [ 3, %37 ]
+  %.sroa.5.0 = phi i64 [ 0, %3 ], [ %60, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread35 ], [ %60, %62 ], [ %.031, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %1, %25 ], [ %1, %34 ], [ %1, %46 ], [ %1, %37 ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %.sroa.5.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -10194,9 +10194,9 @@ _ZNSt5arrayIN4evmc7bytes32ELm4EEC2Ev.exit:        ; preds = %_ZNSt5arrayIN4evmc7
   %.not = icmp eq i64 %.0.add, 128
   br i1 %.not, label %62, label %_ZNSt5arrayIN4evmc7bytes32ELm4EEC2Ev.exit
 
-_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %37, %46, %25, %34, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread35, %62, %3
-  %.sroa.0.0 = phi i32 [ 11, %3 ], [ 0, %62 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread35 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 3, %34 ], [ 3, %25 ], [ 3, %46 ], [ 3, %37 ]
-  %.sroa.5.0 = phi i64 [ 0, %3 ], [ %60, %62 ], [ %60, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread35 ], [ %.031, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %1, %34 ], [ %1, %25 ], [ %1, %46 ], [ %1, %37 ]
+_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %37, %46, %34, %25, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread35, %62, %3
+  %.sroa.0.0 = phi i32 [ 11, %3 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread35 ], [ 0, %62 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 3, %25 ], [ 3, %34 ], [ 3, %46 ], [ 3, %37 ]
+  %.sroa.5.0 = phi i64 [ 0, %3 ], [ %60, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread35 ], [ %60, %62 ], [ %.031, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %1, %25 ], [ %1, %34 ], [ %1, %46 ], [ %1, %37 ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %.sroa.5.0, 1
   ret { i32, i64 } %.fca.1.insert

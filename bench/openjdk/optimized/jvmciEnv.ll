@@ -632,7 +632,7 @@ define hidden noundef zeroext i1 @_ZNK17JVMCICompileState19jvmti_state_changedEv
   br label %29
 
 29:                                               ; preds = %23, %17, %11, %5, %1
-  %.0 = phi i1 [ true, %1 ], [ true, %5 ], [ true, %11 ], [ true, %17 ], [ %or.cond8, %23 ]
+  %.0 = phi i1 [ true, %1 ], [ %or.cond8, %23 ], [ true, %17 ], [ true, %11 ], [ true, %5 ]
   ret i1 %.0
 }
 
@@ -1363,7 +1363,7 @@ define hidden void @_ZN8JVMCIEnv26describe_pending_exceptionEP12outputStream(ptr
   br label %37
 
 37:                                               ; preds = %27, %29, %31, %36
-  %.136 = phi ptr [ %.03547, %31 ], [ %.03547, %36 ], [ %.03547, %29 ], [ %.048, %27 ]
+  %.136 = phi ptr [ %.03547, %29 ], [ %.03547, %31 ], [ %.03547, %36 ], [ %.048, %27 ]
   %38 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.048) #16
   %39 = getelementptr inbounds i8, ptr %.048, i64 %38
   br label %52
@@ -1390,7 +1390,7 @@ define hidden void @_ZN8JVMCIEnv26describe_pending_exceptionEP12outputStream(ptr
   br label %50
 
 50:                                               ; preds = %40, %42, %44, %49
-  %.3 = phi ptr [ %.03547, %44 ], [ %.03547, %49 ], [ %.03547, %42 ], [ %.048, %40 ]
+  %.3 = phi ptr [ %.03547, %42 ], [ %.03547, %44 ], [ %.03547, %49 ], [ %.048, %40 ]
   %51 = getelementptr inbounds nuw i8, ptr %25, i64 1
   br label %52
 
@@ -1851,7 +1851,7 @@ _ZNK7oopDesc11is_objArrayEv.exit:                 ; preds = %149, %159
   br label %206
 
 206:                                              ; preds = %.sink.split, %200, %203, %93, %_ZN13JNIAccessMarkD2Ev.exit
-  %.1 = phi i1 [ false, %_ZN13JNIAccessMarkD2Ev.exit ], [ false, %93 ], [ true, %203 ], [ true, %200 ], [ true, %.sink.split ]
+  %.1 = phi i1 [ false, %93 ], [ false, %_ZN13JNIAccessMarkD2Ev.exit ], [ true, %203 ], [ true, %200 ], [ true, %.sink.split ]
   ret i1 %.1
 }
 
@@ -2079,8 +2079,8 @@ define linkonce_odr hidden void @_ZN20ExceptionTranslation4doitEP10JavaThread(pt
   br label %49
 
 49:                                               ; preds = %41, %47, %31, %39, %27
-  %50 = phi i1 [ false, %27 ], [ true, %39 ], [ false, %31 ], [ false, %47 ], [ false, %41 ]
-  %.1 = phi i32 [ %.0, %27 ], [ %spec.select, %39 ], [ %.0, %31 ], [ %.0, %47 ], [ %.0, %41 ]
+  %50 = phi i1 [ false, %27 ], [ false, %31 ], [ true, %39 ], [ false, %47 ], [ false, %41 ]
+  %.1 = phi i32 [ %.0, %27 ], [ %.0, %31 ], [ %spec.select, %39 ], [ %.0, %47 ], [ %.0, %41 ]
   %51 = load ptr, ptr %10, align 8
   %.not.i.i.i.i = icmp eq ptr %51, null
   br i1 %.not.i.i.i.i, label %53, label %52
@@ -4578,7 +4578,7 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %11
   br label %85
 
 85:                                               ; preds = %78, %71, %64, %57, %50, %43, %36, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  %.1 = phi i8 [ 4, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit ], [ 8, %36 ], [ 9, %43 ], [ 5, %50 ], [ 10, %57 ], [ 11, %64 ], [ 6, %71 ], [ %., %78 ]
+  %.1 = phi i8 [ 6, %71 ], [ 4, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit ], [ 8, %36 ], [ 9, %43 ], [ 5, %50 ], [ 10, %57 ], [ 11, %64 ], [ %., %78 ]
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %17) #14
   %86 = load ptr, ptr %14, align 8
   %87 = load i8, ptr @UseSystemMemoryBarrier, align 1
@@ -4736,8 +4736,8 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %59
 
 59:                                               ; preds = %13, %_ZN13JNIAccessMarkD2Ev.exit, %17, %6
-  %.sroa.5.0 = phi i8 [ %20, %17 ], [ %44, %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %6 ], [ 0, %13 ]
-  %.sroa.0.0 = phi ptr [ %19, %17 ], [ %42, %_ZN13JNIAccessMarkD2Ev.exit ], [ null, %6 ], [ null, %13 ]
+  %.sroa.5.0 = phi i8 [ 0, %6 ], [ %20, %17 ], [ %44, %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %13 ]
+  %.sroa.0.0 = phi ptr [ null, %6 ], [ %19, %17 ], [ %42, %_ZN13JNIAccessMarkD2Ev.exit ], [ null, %13 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.5.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -5753,7 +5753,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %100
 
 100:                                              ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit, %_ZN13JNIAccessMarkD2Ev.exit, %61
-  %.0 = phi i8 [ %64, %61 ], [ %., %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ]
+  %.0 = phi i8 [ %., %_ZN13JNIAccessMarkD2Ev.exit ], [ %64, %61 ], [ 0, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ]
   ret i8 %.0
 }
 
@@ -5950,7 +5950,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %100
 
 100:                                              ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit, %_ZN13JNIAccessMarkD2Ev.exit, %61
-  %.0 = phi i8 [ %64, %61 ], [ %., %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ]
+  %.0 = phi i8 [ %., %_ZN13JNIAccessMarkD2Ev.exit ], [ %64, %61 ], [ 0, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ]
   ret i8 %.0
 }
 
@@ -6217,8 +6217,8 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %158
 
 158:                                              ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit19, %_ZN13JNIAccessMarkD2Ev.exit, %115
-  %.sroa.025.0 = phi ptr [ %118, %115 ], [ %.sroa.025.1, %_ZN13JNIAccessMarkD2Ev.exit ], [ null, %_ZN6HandleC2EP6ThreadP7oopDesc.exit19 ]
-  %.sroa.5.0 = phi i8 [ %120, %115 ], [ %.sroa.5.1, %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %_ZN6HandleC2EP6ThreadP7oopDesc.exit19 ]
+  %.sroa.025.0 = phi ptr [ %.sroa.025.1, %_ZN13JNIAccessMarkD2Ev.exit ], [ %118, %115 ], [ null, %_ZN6HandleC2EP6ThreadP7oopDesc.exit19 ]
+  %.sroa.5.0 = phi i8 [ %.sroa.5.1, %_ZN13JNIAccessMarkD2Ev.exit ], [ %120, %115 ], [ 0, %_ZN6HandleC2EP6ThreadP7oopDesc.exit19 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.025.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.5.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -6701,8 +6701,8 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %69
 
 69:                                               ; preds = %12, %_ZN13JNIAccessMarkD2Ev.exit, %26
-  %.sroa.5.0 = phi i8 [ %31, %26 ], [ %.sroa.5.1, %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %12 ]
-  %.sroa.0.0 = phi ptr [ %29, %26 ], [ %.sroa.0.1, %_ZN13JNIAccessMarkD2Ev.exit ], [ null, %12 ]
+  %.sroa.5.0 = phi i8 [ %.sroa.5.1, %_ZN13JNIAccessMarkD2Ev.exit ], [ %31, %26 ], [ 0, %12 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.1, %_ZN13JNIAccessMarkD2Ev.exit ], [ %29, %26 ], [ null, %12 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.5.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -6834,8 +6834,8 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %69
 
 69:                                               ; preds = %12, %_ZN13JNIAccessMarkD2Ev.exit, %26
-  %.sroa.5.0 = phi i8 [ %31, %26 ], [ %.sroa.5.1, %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %12 ]
-  %.sroa.0.0 = phi ptr [ %29, %26 ], [ %.sroa.0.1, %_ZN13JNIAccessMarkD2Ev.exit ], [ null, %12 ]
+  %.sroa.5.0 = phi i8 [ %.sroa.5.1, %_ZN13JNIAccessMarkD2Ev.exit ], [ %31, %26 ], [ 0, %12 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.1, %_ZN13JNIAccessMarkD2Ev.exit ], [ %29, %26 ], [ null, %12 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.5.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -7013,8 +7013,8 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %95
 
 95:                                               ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit, %_ZN13JNIAccessMarkD2Ev.exit, %53
-  %.sroa.08.0 = phi ptr [ %56, %53 ], [ %.sroa.08.1, %_ZN13JNIAccessMarkD2Ev.exit ], [ null, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ]
-  %.sroa.5.0 = phi i8 [ %58, %53 ], [ %.sroa.5.1, %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ]
+  %.sroa.08.0 = phi ptr [ %.sroa.08.1, %_ZN13JNIAccessMarkD2Ev.exit ], [ %56, %53 ], [ null, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ]
+  %.sroa.5.0 = phi i8 [ %.sroa.5.1, %_ZN13JNIAccessMarkD2Ev.exit ], [ %58, %53 ], [ 0, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.08.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.5.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -7337,8 +7337,8 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %76
 
 76:                                               ; preds = %14, %_ZN13JNIAccessMarkD2Ev.exit, %32
-  %.sroa.5.0 = phi i8 [ %37, %32 ], [ %.sroa.5.1, %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %14 ]
-  %.sroa.0.0 = phi ptr [ %35, %32 ], [ %.sroa.0.1, %_ZN13JNIAccessMarkD2Ev.exit ], [ null, %14 ]
+  %.sroa.5.0 = phi i8 [ %.sroa.5.1, %_ZN13JNIAccessMarkD2Ev.exit ], [ %37, %32 ], [ 0, %14 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.1, %_ZN13JNIAccessMarkD2Ev.exit ], [ %35, %32 ], [ null, %14 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.5.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -7639,8 +7639,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %87
   br label %143
 
 143:                                              ; preds = %123, %109, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit, %135
-  %.sroa.045.1 = phi ptr [ %140, %135 ], [ null, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit ], [ null, %109 ], [ null, %123 ]
-  %.sroa.12.1 = phi i8 [ %142, %135 ], [ 0, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit ], [ 0, %109 ], [ 0, %123 ]
+  %.sroa.045.1 = phi ptr [ %140, %135 ], [ null, %109 ], [ null, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit ], [ null, %123 ]
+  %.sroa.12.1 = phi i8 [ %142, %135 ], [ 0, %109 ], [ 0, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit ], [ 0, %123 ]
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %91) #14
   %144 = load ptr, ptr %88, align 8
   %145 = load i8, ptr @UseSystemMemoryBarrier, align 1
@@ -7682,8 +7682,8 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %158
 
 158:                                              ; preds = %70, %_ZNK6HandleclEv.exit, %_ZN6HandleC2EP6ThreadP7oopDesc.exit, %36, %30, %4, %_ZN13JNIAccessMarkD2Ev.exit, %_ZNK6HandleclEv.exit39
-  %.sroa.045.0 = phi ptr [ %84, %_ZNK6HandleclEv.exit39 ], [ %.sroa.045.1, %_ZN13JNIAccessMarkD2Ev.exit ], [ null, %4 ], [ null, %30 ], [ null, %36 ], [ null, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ null, %_ZNK6HandleclEv.exit ], [ null, %70 ]
-  %.sroa.12.0 = phi i8 [ %86, %_ZNK6HandleclEv.exit39 ], [ %.sroa.12.1, %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %4 ], [ 0, %30 ], [ 0, %36 ], [ 0, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ 0, %_ZNK6HandleclEv.exit ], [ 0, %70 ]
+  %.sroa.045.0 = phi ptr [ %.sroa.045.1, %_ZN13JNIAccessMarkD2Ev.exit ], [ null, %4 ], [ null, %30 ], [ null, %36 ], [ null, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ %84, %_ZNK6HandleclEv.exit39 ], [ null, %_ZNK6HandleclEv.exit ], [ null, %70 ]
+  %.sroa.12.0 = phi i8 [ %.sroa.12.1, %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %4 ], [ 0, %30 ], [ 0, %36 ], [ 0, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ %86, %_ZNK6HandleclEv.exit39 ], [ 0, %_ZNK6HandleclEv.exit ], [ 0, %70 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.045.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.12.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -8040,8 +8040,8 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %186
 
 186:                                              ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit35, %_ZN6HandleC2EP6ThreadP7oopDesc.exit, %33, %27, %6, %_ZN13JNIAccessMarkD2Ev.exit, %_ZNK6HandleclEv.exit
-  %.sroa.039.0 = phi ptr [ %134, %_ZNK6HandleclEv.exit ], [ %.sroa.039.1, %_ZN13JNIAccessMarkD2Ev.exit ], [ null, %6 ], [ null, %27 ], [ null, %33 ], [ null, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ null, %_ZN6HandleC2EP6ThreadP7oopDesc.exit35 ]
-  %.sroa.9.0 = phi i8 [ %136, %_ZNK6HandleclEv.exit ], [ %.sroa.9.1, %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %6 ], [ 0, %27 ], [ 0, %33 ], [ 0, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ 0, %_ZN6HandleC2EP6ThreadP7oopDesc.exit35 ]
+  %.sroa.039.0 = phi ptr [ null, %6 ], [ null, %27 ], [ null, %33 ], [ null, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ %134, %_ZNK6HandleclEv.exit ], [ %.sroa.039.1, %_ZN13JNIAccessMarkD2Ev.exit ], [ null, %_ZN6HandleC2EP6ThreadP7oopDesc.exit35 ]
+  %.sroa.9.0 = phi i8 [ 0, %6 ], [ 0, %27 ], [ 0, %33 ], [ 0, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ %136, %_ZNK6HandleclEv.exit ], [ %.sroa.9.1, %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %_ZN6HandleC2EP6ThreadP7oopDesc.exit35 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.039.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.9.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -8275,15 +8275,15 @@ _ZN8JVMCIEnv46get_HotSpotResolvedJavaMethodImpl_methodHandleE11JVMCIObject.exit:
   br i1 %.not25, label %126, label %.sink.split
 
 .sink.split:                                      ; preds = %_ZN8JVMCIEnv46get_HotSpotResolvedJavaMethodImpl_methodHandleE11JVMCIObject.exit, %_ZN13JNIAccessMarkD2Ev.exit, %_ZN6HandleC2EP6ThreadP7oopDesc.exit
-  %.sroa.035.0.ph = phi ptr [ null, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ null, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.sroa.030.0, %_ZN8JVMCIEnv46get_HotSpotResolvedJavaMethodImpl_methodHandleE11JVMCIObject.exit ]
-  %.sroa.5.0.ph = phi i8 [ 0, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ 0, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.sroa.6.0, %_ZN8JVMCIEnv46get_HotSpotResolvedJavaMethodImpl_methodHandleE11JVMCIObject.exit ]
+  %.sroa.035.0.ph = phi ptr [ null, %_ZN13JNIAccessMarkD2Ev.exit ], [ null, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ %.sroa.030.0, %_ZN8JVMCIEnv46get_HotSpotResolvedJavaMethodImpl_methodHandleE11JVMCIObject.exit ]
+  %.sroa.5.0.ph = phi i8 [ 0, %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ %.sroa.6.0, %_ZN8JVMCIEnv46get_HotSpotResolvedJavaMethodImpl_methodHandleE11JVMCIObject.exit ]
   %125 = load ptr, ptr %26, align 8
   call void @_ZN12JVMCIRuntime14release_handleEP10_jmetadata(ptr noundef nonnull align 8 dereferenceable(93) %125, ptr noundef %28) #14
   br label %126
 
 126:                                              ; preds = %.sink.split, %_ZN8JVMCIEnv46get_HotSpotResolvedJavaMethodImpl_methodHandleE11JVMCIObject.exit, %3, %10
-  %.sroa.035.0 = phi ptr [ null, %10 ], [ null, %3 ], [ %.sroa.030.0, %_ZN8JVMCIEnv46get_HotSpotResolvedJavaMethodImpl_methodHandleE11JVMCIObject.exit ], [ %.sroa.035.0.ph, %.sink.split ]
-  %.sroa.5.0 = phi i8 [ 0, %10 ], [ 0, %3 ], [ %.sroa.6.0, %_ZN8JVMCIEnv46get_HotSpotResolvedJavaMethodImpl_methodHandleE11JVMCIObject.exit ], [ %.sroa.5.0.ph, %.sink.split ]
+  %.sroa.035.0 = phi ptr [ null, %10 ], [ %.sroa.030.0, %_ZN8JVMCIEnv46get_HotSpotResolvedJavaMethodImpl_methodHandleE11JVMCIObject.exit ], [ null, %3 ], [ %.sroa.035.0.ph, %.sink.split ]
+  %.sroa.5.0 = phi i8 [ 0, %10 ], [ %.sroa.6.0, %_ZN8JVMCIEnv46get_HotSpotResolvedJavaMethodImpl_methodHandleE11JVMCIObject.exit ], [ 0, %3 ], [ %.sroa.5.0.ph, %.sink.split ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.035.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.5.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -8385,8 +8385,8 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %50
 
 50:                                               ; preds = %3, %_ZN13JNIAccessMarkD2Ev.exit, %10
-  %.sroa.04.0 = phi ptr [ %12, %10 ], [ %33, %_ZN13JNIAccessMarkD2Ev.exit ], [ null, %3 ]
-  %.sroa.45.0 = phi i8 [ %14, %10 ], [ %35, %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %3 ]
+  %.sroa.04.0 = phi ptr [ %33, %_ZN13JNIAccessMarkD2Ev.exit ], [ %12, %10 ], [ null, %3 ]
+  %.sroa.45.0 = phi i8 [ %35, %_ZN13JNIAccessMarkD2Ev.exit ], [ %14, %10 ], [ 0, %3 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.04.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.45.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -8520,8 +8520,8 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %65
 
 65:                                               ; preds = %3, %_ZN13JNIAccessMarkD2Ev.exit, %_ZN6HandleC2EP6ThreadP7oopDesc.exit
-  %.sroa.06.0 = phi ptr [ %29, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ %48, %_ZN13JNIAccessMarkD2Ev.exit ], [ null, %3 ]
-  %.sroa.47.0 = phi i8 [ %31, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ %50, %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %3 ]
+  %.sroa.06.0 = phi ptr [ %48, %_ZN13JNIAccessMarkD2Ev.exit ], [ %29, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ null, %3 ]
+  %.sroa.47.0 = phi i8 [ %50, %_ZN13JNIAccessMarkD2Ev.exit ], [ %31, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ 0, %3 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.06.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.47.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -9016,8 +9016,8 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %94
 
 94:                                               ; preds = %93, %3
-  %.sroa.4.0 = phi i8 [ 0, %3 ], [ %spec.select, %93 ]
-  %.sroa.018.0 = phi ptr [ null, %3 ], [ %spec.select21, %93 ]
+  %.sroa.4.0 = phi i8 [ %spec.select, %93 ], [ 0, %3 ]
+  %.sroa.018.0 = phi ptr [ %spec.select21, %93 ], [ null, %3 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.018.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.4.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -9301,7 +9301,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %51
 
 51:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %14
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %14 ], [ %.fca.1.insert.i.i.i9, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i9, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %14 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -9407,7 +9407,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %51
 
 51:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %14
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %14 ], [ %.fca.1.insert.i.i.i9, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i9, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %14 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -9524,7 +9524,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %59
 
 59:                                               ; preds = %18, %10, %_ZN13JNIAccessMarkD2Ev.exit, %21
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %21 ], [ %.fca.1.insert.i.i.i14, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ], [ zeroinitializer, %18 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i14, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ], [ %.fca.1.insert.i.i.i, %21 ], [ zeroinitializer, %18 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -9630,7 +9630,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %51
 
 51:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %14
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %14 ], [ %.fca.1.insert.i.i.i9, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i9, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %14 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -9736,7 +9736,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %51
 
 51:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %14
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %14 ], [ %.fca.1.insert.i.i.i9, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i9, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %14 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -9860,8 +9860,8 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %66
 
 66:                                               ; preds = %23, %16, %_ZN13JNIAccessMarkD2Ev.exit, %27
-  %.sroa.5.0 = phi i8 [ %33, %27 ], [ %51, %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %16 ], [ 0, %23 ]
-  %.sroa.0.0 = phi ptr [ %31, %27 ], [ %49, %_ZN13JNIAccessMarkD2Ev.exit ], [ null, %16 ], [ null, %23 ]
+  %.sroa.5.0 = phi i8 [ %51, %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %16 ], [ %33, %27 ], [ 0, %23 ]
+  %.sroa.0.0 = phi ptr [ %49, %_ZN13JNIAccessMarkD2Ev.exit ], [ null, %16 ], [ %31, %27 ], [ null, %23 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.5.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -9993,8 +9993,8 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %64
 
 64:                                               ; preds = %21, %14, %_ZN13JNIAccessMarkD2Ev.exit, %25
-  %.sroa.5.0 = phi i8 [ %31, %25 ], [ %49, %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %14 ], [ 0, %21 ]
-  %.sroa.0.0 = phi ptr [ %29, %25 ], [ %47, %_ZN13JNIAccessMarkD2Ev.exit ], [ null, %14 ], [ null, %21 ]
+  %.sroa.5.0 = phi i8 [ %49, %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %14 ], [ %31, %25 ], [ 0, %21 ]
+  %.sroa.0.0 = phi ptr [ %47, %_ZN13JNIAccessMarkD2Ev.exit ], [ null, %14 ], [ %29, %25 ], [ null, %21 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.5.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -10129,8 +10129,8 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %71
 
 71:                                               ; preds = %25, %18, %_ZN13JNIAccessMarkD2Ev.exit, %29
-  %.sroa.5.0 = phi i8 [ %35, %29 ], [ %56, %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %18 ], [ 0, %25 ]
-  %.sroa.0.0 = phi ptr [ %33, %29 ], [ %54, %_ZN13JNIAccessMarkD2Ev.exit ], [ null, %18 ], [ null, %25 ]
+  %.sroa.5.0 = phi i8 [ %56, %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %18 ], [ %35, %29 ], [ 0, %25 ]
+  %.sroa.0.0 = phi ptr [ %54, %_ZN13JNIAccessMarkD2Ev.exit ], [ null, %18 ], [ %33, %29 ], [ null, %25 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.5.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -10448,8 +10448,8 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %118
 
 118:                                              ; preds = %17, %10, %_ZN13JNIAccessMarkD2Ev.exit, %_ZNK6HandleclEv.exit33
-  %.sroa.047.0 = phi ptr [ %70, %_ZNK6HandleclEv.exit33 ], [ %101, %_ZN13JNIAccessMarkD2Ev.exit ], [ null, %10 ], [ null, %17 ]
-  %.sroa.5.0 = phi i8 [ %72, %_ZNK6HandleclEv.exit33 ], [ %103, %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %10 ], [ 0, %17 ]
+  %.sroa.047.0 = phi ptr [ %101, %_ZN13JNIAccessMarkD2Ev.exit ], [ null, %10 ], [ %70, %_ZNK6HandleclEv.exit33 ], [ null, %17 ]
+  %.sroa.5.0 = phi i8 [ %103, %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %10 ], [ %72, %_ZNK6HandleclEv.exit33 ], [ 0, %17 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.047.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.5.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -10612,8 +10612,8 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit.thread
 
 _ZN6HandleC2EP6ThreadP7oopDesc.exit.thread:       ; preds = %4, %36, %29, %_ZN13JNIAccessMarkD2Ev.exit, %_ZNK6HandleclEv.exit
-  %.sroa.6.0 = phi i8 [ %43, %_ZNK6HandleclEv.exit ], [ %66, %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %29 ], [ 0, %36 ], [ 0, %4 ]
-  %.sroa.0.0 = phi ptr [ %41, %_ZNK6HandleclEv.exit ], [ %64, %_ZN13JNIAccessMarkD2Ev.exit ], [ null, %29 ], [ null, %36 ], [ null, %4 ]
+  %.sroa.6.0 = phi i8 [ %66, %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %36 ], [ 0, %29 ], [ %43, %_ZNK6HandleclEv.exit ], [ 0, %4 ]
+  %.sroa.0.0 = phi ptr [ %64, %_ZN13JNIAccessMarkD2Ev.exit ], [ null, %36 ], [ null, %29 ], [ %41, %_ZNK6HandleclEv.exit ], [ null, %4 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.6.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -10758,7 +10758,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit22:            ; preds = %60, %62
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
 _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i, %12, %4, %64, %_ZN6HandleC2EP6ThreadP7oopDesc.exit22, %50, %40
-  %.sroa.025.0 = phi ptr [ null, %40 ], [ null, %50 ], [ %.0.i.i.i.i20, %_ZN6HandleC2EP6ThreadP7oopDesc.exit22 ], [ null, %64 ], [ null, %4 ], [ %.0.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i ], [ null, %12 ]
+  %.sroa.025.0 = phi ptr [ null, %64 ], [ null, %4 ], [ null, %40 ], [ null, %50 ], [ %.0.i.i.i.i20, %_ZN6HandleC2EP6ThreadP7oopDesc.exit22 ], [ %.0.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i ], [ null, %12 ]
   ret ptr %.sroa.025.0
 }
 
@@ -10942,8 +10942,8 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %60
 
 60:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %_ZNK6HandleclEv.exit
-  %.sroa.07.0 = phi ptr [ %20, %_ZNK6HandleclEv.exit ], [ %38, %_ZN13JNIAccessMarkD2Ev.exit ], [ null, %10 ]
-  %.sroa.4.0 = phi i8 [ %21, %_ZNK6HandleclEv.exit ], [ %59, %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %10 ]
+  %.sroa.07.0 = phi ptr [ %38, %_ZN13JNIAccessMarkD2Ev.exit ], [ %20, %_ZNK6HandleclEv.exit ], [ null, %10 ]
+  %.sroa.4.0 = phi i8 [ %59, %_ZN13JNIAccessMarkD2Ev.exit ], [ %21, %_ZNK6HandleclEv.exit ], [ 0, %10 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.07.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.4.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -11089,7 +11089,7 @@ define hidden noundef zeroext range(i8 4, 100) i8 @_ZN8JVMCIEnv19typeCharToBasic
   br label %15
 
 15:                                               ; preds = %3, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4
-  %.0 = phi i8 [ 99, %13 ], [ 8, %4 ], [ 9, %5 ], [ 5, %6 ], [ 10, %7 ], [ 6, %8 ], [ 11, %9 ], [ 7, %10 ], [ 12, %11 ], [ 99, %12 ], [ 4, %3 ]
+  %.0 = phi i8 [ 99, %13 ], [ 99, %12 ], [ 8, %4 ], [ 9, %5 ], [ 5, %6 ], [ 10, %7 ], [ 6, %8 ], [ 11, %9 ], [ 7, %10 ], [ 12, %11 ], [ 4, %3 ]
   ret i8 %.0
 }
 
@@ -11945,7 +11945,7 @@ _ZN8JVMCIEnv28set_InstalledCode_entryPointE11JVMCIObjectl.exit49: ; preds = %66,
   br label %_ZN8JVMCIEnv14lookup_nmethodEPhl.exit48
 
 _ZN8JVMCIEnv14lookup_nmethodEPhl.exit48:          ; preds = %54, %_ZN8JVMCIEnv14lookup_nmethodEPhl.exit, %73, %71, %33, %17, %_ZN8JVMCIEnv18isa_HotSpotNmethodE11JVMCIObject.exit, %_ZN8JVMCIEnv25get_InstalledCode_addressE11JVMCIObject.exit
-  %.0 = phi ptr [ null, %_ZN8JVMCIEnv25get_InstalledCode_addressE11JVMCIObject.exit ], [ %12, %_ZN8JVMCIEnv18isa_HotSpotNmethodE11JVMCIObject.exit ], [ %12, %17 ], [ %28, %33 ], [ null, %71 ], [ null, %73 ], [ %49, %54 ], [ %28, %_ZN8JVMCIEnv14lookup_nmethodEPhl.exit ]
+  %.0 = phi ptr [ null, %73 ], [ null, %_ZN8JVMCIEnv25get_InstalledCode_addressE11JVMCIObject.exit ], [ %28, %33 ], [ %12, %_ZN8JVMCIEnv18isa_HotSpotNmethodE11JVMCIObject.exit ], [ %12, %17 ], [ null, %71 ], [ %49, %54 ], [ %28, %_ZN8JVMCIEnv14lookup_nmethodEPhl.exit ]
   ret ptr %.0
 }
 
@@ -12137,7 +12137,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -12340,7 +12340,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -12518,7 +12518,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -12790,7 +12790,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -13083,7 +13083,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -13507,7 +13507,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -13685,7 +13685,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -13863,7 +13863,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -14138,7 +14138,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -14347,7 +14347,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -14597,7 +14597,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -14851,7 +14851,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -15097,7 +15097,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -15482,7 +15482,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -15777,7 +15777,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -16252,7 +16252,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -16543,7 +16543,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -17114,7 +17114,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -17407,7 +17407,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -17651,7 +17651,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -17805,7 +17805,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -18051,7 +18051,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -18250,7 +18250,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -18451,7 +18451,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -18609,7 +18609,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -18787,7 +18787,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -18988,7 +18988,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -19516,7 +19516,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -19694,7 +19694,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -19898,7 +19898,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -20052,7 +20052,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -20206,7 +20206,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -20360,7 +20360,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -20514,7 +20514,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -20668,7 +20668,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -20822,7 +20822,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -20976,7 +20976,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -21130,7 +21130,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -21284,7 +21284,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -21438,7 +21438,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -21592,7 +21592,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -21746,7 +21746,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -21900,7 +21900,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -22054,7 +22054,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -22208,7 +22208,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -22362,7 +22362,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -22516,7 +22516,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -22670,7 +22670,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -23010,7 +23010,7 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %10, %_ZN13JNIAccessMarkD2Ev.exit, %15
-  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i, %15 ], [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ zeroinitializer, %10 ]
+  %.pn = phi { ptr, i8 } [ %.fca.1.insert.i.i.i8, %_ZN13JNIAccessMarkD2Ev.exit ], [ %.fca.1.insert.i.i.i, %15 ], [ zeroinitializer, %10 ]
   ret { ptr, i8 } %.pn
 }
 
@@ -23350,7 +23350,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm2383974ES_E19oop_load_in_heap_atEP7oopDescl.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm2383974ES_E19oop_load_in_heap_atEP7oopDescl.exit: ; preds = %2, %17, %21
-  %.0.i.i = phi ptr [ null, %2 ], [ %20, %21 ], [ %20, %17 ]
+  %.0.i.i = phi ptr [ null, %2 ], [ %20, %17 ], [ %20, %21 ]
   ret ptr %.0.i.i
 }
 
@@ -23526,7 +23526,7 @@ _ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit:      ; preds = %44, %45, %49, %54
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 _ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %61, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, %5, %11, %24, %31, %2
-  %.0 = phi ptr [ %1, %2 ], [ %.0.i.i.i, %31 ], [ %.0.i.i.i, %24 ], [ %1, %11 ], [ %1, %5 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
+  %.0 = phi ptr [ %1, %5 ], [ %1, %2 ], [ %.0.i.i.i, %24 ], [ %.0.i.i.i, %31 ], [ %1, %11 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
   ret ptr %.0
 }
 
@@ -23716,7 +23716,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm2383942ES_E19oop_load_in_heap_atEP7oopDescl.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm2383942ES_E19oop_load_in_heap_atEP7oopDescl.exit: ; preds = %2, %8, %11
-  %.0.i.i = phi ptr [ null, %2 ], [ %10, %11 ], [ %10, %8 ]
+  %.0.i.i = phi ptr [ null, %2 ], [ %10, %8 ], [ %10, %11 ]
   ret ptr %.0.i.i
 }
 
@@ -23924,7 +23924,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %20, %30
   br label %92
 
 92:                                               ; preds = %69, %65, %89, %61, %42
-  %.0 = phi i32 [ %91, %89 ], [ 0, %42 ], [ 0, %61 ], [ 0, %65 ], [ 0, %69 ]
+  %.0 = phi i32 [ 0, %61 ], [ 0, %65 ], [ %91, %89 ], [ 0, %42 ], [ 0, %69 ]
   ret i32 %.0
 }
 
@@ -25495,7 +25495,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
-  %.0.i.i = phi ptr [ null, %1 ], [ %6, %7 ], [ %6, %4 ]
+  %.0.i.i = phi ptr [ null, %1 ], [ %6, %4 ], [ %6, %7 ]
   ret ptr %.0.i.i
 }
 
@@ -25582,7 +25582,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
-  %.0.i.i = phi ptr [ null, %1 ], [ %6, %7 ], [ %6, %4 ]
+  %.0.i.i = phi ptr [ null, %1 ], [ %6, %4 ], [ %6, %7 ]
   ret ptr %.0.i.i
 }
 

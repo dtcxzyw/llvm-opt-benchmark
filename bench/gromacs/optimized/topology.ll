@@ -1177,7 +1177,7 @@ define void @_ZN10gmx_mtop_t8finalizeEv(ptr noundef nonnull align 8 dereferencea
   br label %.thread
 
 .thread:                                          ; preds = %15, %23, %19
-  %24 = phi ptr [ %22, %23 ], [ %22, %19 ], [ %18, %15 ]
+  %24 = phi ptr [ %22, %19 ], [ %22, %23 ], [ %18, %15 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %26 = load ptr, ptr %25, align 8, !tbaa !101
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -3297,7 +3297,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit70: ; preds = %.lo
   br i1 %.not, label %19, label %20
 
 172:                                              ; preds = %56, %110, %166, %54
-  %.pn.pn = phi { ptr, i32 } [ %167, %166 ], [ %55, %54 ], [ %57, %56 ], [ %111, %110 ]
+  %.pn.pn = phi { ptr, i32 } [ %55, %54 ], [ %167, %166 ], [ %57, %56 ], [ %111, %110 ]
   %173 = load ptr, ptr %6, align 8, !tbaa !173
   %174 = icmp eq ptr %173, %9
   br i1 %174, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i71
@@ -3386,8 +3386,8 @@ define void @_Z13compareMtopABP8_IO_FILERK10gmx_mtop_tff(ptr noundef %0, ptr nou
   br i1 %40, label %_ZL12cmp_iparm_ABP8_IO_FILEPKciRK9t_iparamsff.exit.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %37, %33, %20
-  %.02232.i.i = phi i32 [ %39, %37 ], [ 1, %33 ], [ 2, %20 ]
-  %.02331.shrunk.i.i = phi i32 [ 0, %37 ], [ %.lobit.i.i, %33 ], [ 0, %20 ]
+  %.02232.i.i = phi i32 [ %39, %37 ], [ 2, %20 ], [ 1, %33 ]
+  %.02331.shrunk.i.i = phi i32 [ 0, %37 ], [ 0, %20 ], [ %.lobit.i.i, %33 ]
   %.02331.i.i = zext nneg i32 %.02331.shrunk.i.i to i64
   %41 = sext i32 %31 to i64
   %42 = zext nneg i32 %.02232.i.i to i64

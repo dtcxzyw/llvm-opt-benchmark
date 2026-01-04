@@ -209,7 +209,7 @@ define internal i32 @index_encode(ptr noundef %0, ptr readnone captures(none) %1
   br i1 %70, label %15, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %66, %21, %34
-  %.3.ph = phi i32 [ 0, %66 ], [ %24, %21 ], [ %37, %34 ]
+  %.3.ph = phi i32 [ 0, %66 ], [ %37, %34 ], [ %24, %21 ]
   %.pre97 = load i64, ptr %6, align 8, !tbaa !23
   %.not77 = icmp eq i64 %.pre97, %10
   br i1 %.not77, label %.loopexit, label %71
@@ -224,7 +224,7 @@ define internal i32 @index_encode(ptr noundef %0, ptr readnone captures(none) %1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %15, %56, %53, %9, %._crit_edge, %71
-  %.0 = phi i32 [ %.3.ph, %71 ], [ %.3.ph, %._crit_edge ], [ 0, %9 ], [ 1, %56 ], [ 0, %53 ], [ 11, %15 ]
+  %.0 = phi i32 [ %.3.ph, %71 ], [ %.3.ph, %._crit_edge ], [ 1, %56 ], [ 0, %9 ], [ 0, %53 ], [ 11, %15 ]
   ret i32 %.0
 }
 
@@ -357,7 +357,7 @@ define dso_local range(i32 0, 12) i32 @lzma_index_buffer_encode(ptr noundef %0, 
   br label %26
 
 26:                                               ; preds = %12, %4, %9, %25
-  %.020 = phi i32 [ %.0, %25 ], [ 11, %9 ], [ 11, %4 ], [ 10, %12 ]
+  %.020 = phi i32 [ %.0, %25 ], [ 11, %4 ], [ 11, %9 ], [ 10, %12 ]
   ret i32 %.020
 }
 

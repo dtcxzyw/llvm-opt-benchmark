@@ -470,8 +470,8 @@ _ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit: ; preds = %28, %30
   br label %63
 
 63:                                               ; preds = %46, %22, %22, %.thread, %.thread, %51, %53, %55, %57, %59, %61, %45, %41
-  %.sink30 = phi i32 [ 3, %51 ], [ 2, %53 ], [ 5, %55 ], [ 6, %57 ], [ 7, %59 ], [ 8, %61 ], [ 0, %45 ], [ 0, %41 ], [ 1, %.thread ], [ 1, %.thread ], [ 1, %22 ], [ 1, %22 ], [ 10, %46 ]
-  %.sink = phi i32 [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ 65535, %45 ], [ 65535, %41 ], [ 0, %.thread ], [ 0, %.thread ], [ 0, %22 ], [ 0, %22 ], [ 65535, %46 ]
+  %.sink30 = phi i32 [ 3, %51 ], [ 2, %53 ], [ 5, %55 ], [ 6, %57 ], [ 7, %59 ], [ 8, %61 ], [ 1, %22 ], [ 0, %45 ], [ 0, %41 ], [ 1, %.thread ], [ 1, %.thread ], [ 1, %22 ], [ 10, %46 ]
+  %.sink = phi i32 [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ 0, %22 ], [ 65535, %45 ], [ 65535, %41 ], [ 0, %.thread ], [ 0, %.thread ], [ 0, %22 ], [ 65535, %46 ]
   store i32 %.sink30, ptr %0, align 4, !tbaa !34
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %64, align 4, !tbaa !38
@@ -649,8 +649,8 @@ _ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit: ; preds = %28, %30
   br label %65
 
 65:                                               ; preds = %46, %22, %22, %.thread, %.thread, %51, %53, %55, %57, %59, %61, %63, %45, %41
-  %.sink32 = phi i32 [ 2, %51 ], [ 3, %53 ], [ 4, %55 ], [ 5, %57 ], [ 6, %59 ], [ 7, %61 ], [ 8, %63 ], [ 0, %45 ], [ 0, %41 ], [ 1, %.thread ], [ 1, %.thread ], [ 1, %22 ], [ 1, %22 ], [ 10, %46 ]
-  %.sink = phi i32 [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ %64, %63 ], [ 65535, %45 ], [ 65535, %41 ], [ 0, %.thread ], [ 0, %.thread ], [ 0, %22 ], [ 0, %22 ], [ 65535, %46 ]
+  %.sink32 = phi i32 [ 2, %51 ], [ 3, %53 ], [ 4, %55 ], [ 5, %57 ], [ 6, %59 ], [ 7, %61 ], [ 8, %63 ], [ 1, %22 ], [ 0, %45 ], [ 0, %41 ], [ 1, %.thread ], [ 1, %.thread ], [ 1, %22 ], [ 10, %46 ]
+  %.sink = phi i32 [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ %64, %63 ], [ 0, %22 ], [ 65535, %45 ], [ 65535, %41 ], [ 0, %.thread ], [ 0, %.thread ], [ 0, %22 ], [ 65535, %46 ]
   store i32 %.sink32, ptr %0, align 4, !tbaa !34
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %66, align 4, !tbaa !38
@@ -1051,7 +1051,7 @@ _ZN5boost10filesystem4pathD2Ev.exit66:            ; preds = %_ZNK5boost6system10
   br label %157
 
 151:                                              ; preds = %99, %101, %144, %97
-  %.pn.pn = phi { ptr, i32 } [ %145, %144 ], [ %98, %97 ], [ %102, %101 ], [ %100, %99 ]
+  %.pn.pn = phi { ptr, i32 } [ %98, %97 ], [ %145, %144 ], [ %102, %101 ], [ %100, %99 ]
   %152 = load ptr, ptr %14, align 8, !tbaa !13
   %153 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %154 = icmp eq ptr %152, %153
@@ -1859,7 +1859,7 @@ _ZN5boost10filesystem4pathD2Ev.exit157:           ; preds = %420, %_ZNKSt7__cxx1
   br label %429
 
 _ZN5boost10filesystem4pathD2Ev.exit154:           ; preds = %415, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i152, %_ZN5boost10filesystem4pathD2Ev.exit69, %78
-  %.pn49.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %_ZN5boost10filesystem4pathD2Ev.exit69 ], [ %79, %78 ], [ %.pn49.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i152 ], [ %.pn49.pn, %415 ]
+  %.pn49.pn.pn = phi { ptr, i32 } [ %79, %78 ], [ %.pn.pn.pn, %_ZN5boost10filesystem4pathD2Ev.exit69 ], [ %.pn49.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i152 ], [ %.pn49.pn, %415 ]
   %425 = load ptr, ptr %13, align 8, !tbaa !13
   %426 = icmp eq ptr %425, %44
   br i1 %426, label %_ZN5boost10filesystem4pathD2Ev.exit160, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i158
@@ -2036,7 +2036,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit33: ; preds = %37, %33
   call void @_ZdaPv(ptr noundef nonnull %24) #31
   br label %39
 
-_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit36: ; preds = %29, %30
+_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit36: ; preds = %30, %29
   call void @_ZdaPv(ptr noundef nonnull %24) #31
   br label %.loopexit
 
@@ -2556,7 +2556,7 @@ _ZN5boost10filesystem4pathD2Ev.exit65:            ; preds = %_ZNK5boost6system10
   br label %157
 
 151:                                              ; preds = %99, %101, %144, %97
-  %.pn.pn = phi { ptr, i32 } [ %145, %144 ], [ %98, %97 ], [ %102, %101 ], [ %100, %99 ]
+  %.pn.pn = phi { ptr, i32 } [ %98, %97 ], [ %145, %144 ], [ %102, %101 ], [ %100, %99 ]
   %152 = load ptr, ptr %14, align 8, !tbaa !13
   %153 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %154 = icmp eq ptr %152, %153
@@ -3325,7 +3325,7 @@ _ZN5boost10filesystem4pathD2Ev.exit155:           ; preds = %404, %_ZNKSt7__cxx1
   br label %413
 
 _ZN5boost10filesystem4pathD2Ev.exit152:           ; preds = %399, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i150, %_ZN5boost10filesystem4pathD2Ev.exit68, %78
-  %.pn48.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %_ZN5boost10filesystem4pathD2Ev.exit68 ], [ %79, %78 ], [ %.pn48.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i150 ], [ %.pn48.pn, %399 ]
+  %.pn48.pn.pn = phi { ptr, i32 } [ %79, %78 ], [ %.pn.pn.pn, %_ZN5boost10filesystem4pathD2Ev.exit68 ], [ %.pn48.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i150 ], [ %.pn48.pn, %399 ]
   %409 = load ptr, ptr %13, align 8, !tbaa !13
   %410 = icmp eq ptr %409, %44
   br i1 %410, label %_ZN5boost10filesystem4pathD2Ev.exit158, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i156
@@ -4362,7 +4362,7 @@ _ZN5boost10filesystem4pathD2Ev.exit117:           ; preds = %_ZNK5boost6system10
   br i1 %cond, label %338, label %_ZNK5boost6system10error_codecvbEv.exit67.thread
 
 333:                                              ; preds = %.loopexit164, %.loopexit.split-lp165, %_ZN5boost10filesystem4pathD2Ev.exit102, %257
-  %.pn51 = phi { ptr, i32 } [ %258, %257 ], [ %.pn, %_ZN5boost10filesystem4pathD2Ev.exit102 ], [ %lpad.loopexit166, %.loopexit164 ], [ %lpad.loopexit.split-lp167, %.loopexit.split-lp165 ]
+  %.pn51 = phi { ptr, i32 } [ %.pn, %_ZN5boost10filesystem4pathD2Ev.exit102 ], [ %258, %257 ], [ %lpad.loopexit166, %.loopexit164 ], [ %lpad.loopexit.split-lp167, %.loopexit.split-lp165 ]
   %334 = load ptr, ptr %13, align 8, !tbaa !13
   %335 = icmp eq ptr %334, %73
   br i1 %335, label %_ZN5boost10filesystem4pathD2Ev.exit120, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i118
@@ -4386,10 +4386,10 @@ _ZN5boost10filesystem4pathD2Ev.exit120:           ; preds = %333, %_ZNKSt7__cxx1
           to label %.preheader169 unwind label %100, !llvm.loop !106
 
 _ZNK5boost6system10error_codecvbEv.exit67.thread: ; preds = %149, %_ZNK5boost6system10error_codecvbEv.exit67, %.preheader169, %_ZN5boost10filesystem4pathD2Ev.exit117, %164
-  %.lcssa249272 = phi i32 [ %145, %164 ], [ %145, %149 ], [ %145, %_ZNK5boost6system10error_codecvbEv.exit67 ], [ %84, %.preheader169 ], [ %145, %_ZN5boost10filesystem4pathD2Ev.exit117 ]
-  %.lcssa239259 = phi i32 [ %144, %164 ], [ %144, %149 ], [ %144, %_ZNK5boost6system10error_codecvbEv.exit67 ], [ %85, %.preheader169 ], [ %144, %_ZN5boost10filesystem4pathD2Ev.exit117 ]
-  %.042 = phi i32 [ 2, %164 ], [ 3, %149 ], [ 3, %_ZNK5boost6system10error_codecvbEv.exit67 ], [ 6, %.preheader169 ], [ %.143, %_ZN5boost10filesystem4pathD2Ev.exit117 ]
-  %.2 = phi i32 [ 0, %164 ], [ %.1, %149 ], [ %.1, %_ZNK5boost6system10error_codecvbEv.exit67 ], [ %.1, %.preheader169 ], [ %167, %_ZN5boost10filesystem4pathD2Ev.exit117 ]
+  %.lcssa249272 = phi i32 [ %145, %164 ], [ %145, %149 ], [ %145, %_ZNK5boost6system10error_codecvbEv.exit67 ], [ %145, %_ZN5boost10filesystem4pathD2Ev.exit117 ], [ %84, %.preheader169 ]
+  %.lcssa239259 = phi i32 [ %144, %164 ], [ %144, %149 ], [ %144, %_ZNK5boost6system10error_codecvbEv.exit67 ], [ %144, %_ZN5boost10filesystem4pathD2Ev.exit117 ], [ %85, %.preheader169 ]
+  %.042 = phi i32 [ 2, %164 ], [ 3, %149 ], [ 3, %_ZNK5boost6system10error_codecvbEv.exit67 ], [ %.143, %_ZN5boost10filesystem4pathD2Ev.exit117 ], [ 6, %.preheader169 ]
+  %.2 = phi i32 [ 0, %164 ], [ %.1, %149 ], [ %.1, %_ZNK5boost6system10error_codecvbEv.exit67 ], [ %167, %_ZN5boost10filesystem4pathD2Ev.exit117 ], [ %.1, %.preheader169 ]
   %341 = load ptr, ptr %11, align 8, !tbaa !13
   %342 = icmp eq ptr %341, %80
   br i1 %342, label %_ZN5boost10filesystem11path_detail13path_iteratorD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
@@ -5841,7 +5841,7 @@ _ZN5boost9iteratorsneINS_10filesystem18directory_iteratorENS2_15directory_entryE
   br label %_ZNK5boost6system10error_codecvbEv.exit290.thread
 
 447:                                              ; preds = %419, %_ZN5boost10filesystem4pathD2Ev.exit312
-  %.pn159.pn = phi { ptr, i32 } [ %420, %419 ], [ %.pn156.pn, %_ZN5boost10filesystem4pathD2Ev.exit312 ]
+  %.pn159.pn = phi { ptr, i32 } [ %.pn156.pn, %_ZN5boost10filesystem4pathD2Ev.exit312 ], [ %420, %419 ]
   call void @_ZN5boost10filesystem18directory_iteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %27) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %448
@@ -6531,8 +6531,8 @@ _ZN5boost5scope15unique_resourceIiNS0_10fd_deleterENS0_18fd_resource_traitsEE5re
   br label %158
 
 .loopexit171.sink.split:                          ; preds = %45, %55, %60, %35, %32, %28, %.thread.thread155
-  %.ph = phi i32 [ %141, %.thread.thread155 ], [ -1, %32 ], [ %29, %28 ], [ -1, %35 ], [ %53, %60 ], [ %53, %55 ], [ %43, %45 ]
-  %.170.ph = phi i32 [ %.9.ph.ph, %.thread.thread155 ], [ 38, %32 ], [ %31, %28 ], [ 38, %35 ], [ 17, %60 ], [ %57, %55 ], [ %47, %45 ]
+  %.ph = phi i32 [ %29, %28 ], [ %141, %.thread.thread155 ], [ -1, %32 ], [ -1, %35 ], [ %53, %55 ], [ %53, %60 ], [ %43, %45 ]
+  %.170.ph = phi i32 [ %31, %28 ], [ %.9.ph.ph, %.thread.thread155 ], [ 38, %32 ], [ 38, %35 ], [ %57, %55 ], [ 17, %60 ], [ %47, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit171
 
@@ -6835,15 +6835,15 @@ _ZN5boost10filesystem6detail12_GLOBAL__N_18close_fdEi.exit: ; preds = %_ZN5boost
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %28
 
-.thread.thread155:                                ; preds = %136, %_ZN5boost10filesystem6detail12_GLOBAL__N_19full_syncEi.exit, %113, %_ZN5boost10filesystem6detail12_GLOBAL__N_115equivalent_statERK5statxS5_.exit, %70, %67
-  %141 = phi i32 [ %62, %67 ], [ %62, %70 ], [ %62, %_ZN5boost10filesystem6detail12_GLOBAL__N_115equivalent_statERK5statxS5_.exit ], [ %62, %113 ], [ %62, %_ZN5boost10filesystem6detail12_GLOBAL__N_19full_syncEi.exit ], [ -1, %136 ]
-  %.9.ph.ph = phi i32 [ 38, %67 ], [ 38, %70 ], [ 17, %_ZN5boost10filesystem6detail12_GLOBAL__N_115equivalent_statERK5statxS5_.exit ], [ %112, %113 ], [ %.10, %_ZN5boost10filesystem6detail12_GLOBAL__N_19full_syncEi.exit ], [ %138, %136 ]
+.thread.thread155:                                ; preds = %_ZN5boost10filesystem6detail12_GLOBAL__N_19full_syncEi.exit, %113, %_ZN5boost10filesystem6detail12_GLOBAL__N_115equivalent_statERK5statxS5_.exit, %70, %67, %136
+  %141 = phi i32 [ -1, %136 ], [ %62, %67 ], [ %62, %70 ], [ %62, %_ZN5boost10filesystem6detail12_GLOBAL__N_115equivalent_statERK5statxS5_.exit ], [ %62, %113 ], [ %62, %_ZN5boost10filesystem6detail12_GLOBAL__N_19full_syncEi.exit ]
+  %.9.ph.ph = phi i32 [ %138, %136 ], [ 38, %67 ], [ 38, %70 ], [ 17, %_ZN5boost10filesystem6detail12_GLOBAL__N_115equivalent_statERK5statxS5_.exit ], [ %112, %113 ], [ %.10, %_ZN5boost10filesystem6detail12_GLOBAL__N_19full_syncEi.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit171.sink.split
 
-.thread:                                          ; preds = %136, %136, %_ZN5boost10filesystem6detail12_GLOBAL__N_18close_fdEi.exit, %91, %99
-  %142 = phi i32 [ -1, %_ZN5boost10filesystem6detail12_GLOBAL__N_18close_fdEi.exit ], [ %62, %91 ], [ %62, %99 ], [ -1, %136 ], [ -1, %136 ]
-  %.5.ph = phi i1 [ true, %_ZN5boost10filesystem6detail12_GLOBAL__N_18close_fdEi.exit ], [ false, %91 ], [ false, %99 ], [ true, %136 ], [ true, %136 ]
+.thread:                                          ; preds = %136, %136, %_ZN5boost10filesystem6detail12_GLOBAL__N_18close_fdEi.exit, %99, %91
+  %142 = phi i32 [ %62, %91 ], [ -1, %_ZN5boost10filesystem6detail12_GLOBAL__N_18close_fdEi.exit ], [ %62, %99 ], [ -1, %136 ], [ -1, %136 ]
+  %.5.ph = phi i1 [ false, %91 ], [ true, %_ZN5boost10filesystem6detail12_GLOBAL__N_18close_fdEi.exit ], [ false, %99 ], [ true, %136 ], [ true, %136 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %143
@@ -6948,7 +6948,7 @@ define noundef zeroext i1 @_ZN5boost10filesystem6detail16create_directoryERKNS0_
   br label %39
 
 25:                                               ; preds = %.thread, %8
-  %.022 = phi i32 [ 511, %8 ], [ %21, %.thread ]
+  %.022 = phi i32 [ %21, %.thread ], [ 511, %8 ]
   %26 = load ptr, ptr %0, align 8, !tbaa !13
   %27 = call i32 @mkdir(ptr noundef %26, i32 noundef %.022) #27
   %28 = icmp eq i32 %27, 0
@@ -6991,7 +6991,7 @@ _ZN5boost10filesystem12is_directoryERKNS0_4pathERNS_6system10error_codeE.exit: ;
   br label %39
 
 39:                                               ; preds = %24, %25, %.critedge, %38
-  %.2 = phi i1 [ false, %38 ], [ false, %24 ], [ false, %.critedge ], [ true, %25 ]
+  %.2 = phi i1 [ false, %.critedge ], [ false, %38 ], [ false, %24 ], [ true, %25 ]
   ret i1 %.2
 }
 
@@ -7191,8 +7191,8 @@ _ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit48: ; preds = %55
   br label %65
 
 65:                                               ; preds = %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit48, %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit48.thread
-  %66 = phi ptr [ %59, %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit48.thread ], [ %64, %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit48 ]
-  %67 = phi i64 [ 3, %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit48.thread ], [ %spec.select, %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit48 ]
+  %66 = phi ptr [ %64, %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit48 ], [ %59, %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit48.thread ]
+  %67 = phi i64 [ %spec.select, %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit48 ], [ 3, %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit48.thread ]
   store i64 %67, ptr %66, align 8, !tbaa !26
   store i32 36, ptr %6, align 8, !tbaa !15
   %68 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -7291,7 +7291,7 @@ _ZN5boost10filesystem4path6assignEPKcS3_.exit:    ; preds = %.thread68, %.thread
   ret void
 
 98:                                               ; preds = %86, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit, %70, %72, %32, %34, %52
-  %.pn43.pn = phi { ptr, i32 } [ %53, %52 ], [ %35, %34 ], [ %33, %32 ], [ %73, %72 ], [ %71, %70 ], [ %93, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit ], [ %87, %86 ]
+  %.pn43.pn = phi { ptr, i32 } [ %33, %32 ], [ %53, %52 ], [ %35, %34 ], [ %73, %72 ], [ %71, %70 ], [ %93, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit ], [ %87, %86 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %99 = load ptr, ptr %0, align 8, !tbaa !13
   %100 = icmp eq ptr %99, %9
@@ -7358,8 +7358,8 @@ _ZN5boost6system4errc15make_error_codeENS1_6errc_tE.exit: ; preds = %21
   br label %31
 
 31:                                               ; preds = %_ZN5boost6system4errc15make_error_codeENS1_6errc_tE.exit, %_ZN5boost6system4errc15make_error_codeENS1_6errc_tE.exit.thread
-  %32 = phi ptr [ %25, %_ZN5boost6system4errc15make_error_codeENS1_6errc_tE.exit.thread ], [ %30, %_ZN5boost6system4errc15make_error_codeENS1_6errc_tE.exit ]
-  %33 = phi i64 [ 3, %_ZN5boost6system4errc15make_error_codeENS1_6errc_tE.exit.thread ], [ %spec.select, %_ZN5boost6system4errc15make_error_codeENS1_6errc_tE.exit ]
+  %32 = phi ptr [ %30, %_ZN5boost6system4errc15make_error_codeENS1_6errc_tE.exit ], [ %25, %_ZN5boost6system4errc15make_error_codeENS1_6errc_tE.exit.thread ]
+  %33 = phi i64 [ %spec.select, %_ZN5boost6system4errc15make_error_codeENS1_6errc_tE.exit ], [ 3, %_ZN5boost6system4errc15make_error_codeENS1_6errc_tE.exit.thread ]
   store i64 %33, ptr %32, align 8, !tbaa !26, !alias.scope !142
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @_ZN5boost6system6detail18generic_cat_holderIvE8instanceE, ptr %34, align 8, !tbaa !15, !alias.scope !142
@@ -8004,7 +8004,7 @@ _ZNK5boost6system10error_codecvbEv.exit.thread:   ; preds = %237
   br label %.loopexit
 
 _ZNK5boost6system10error_codecvbEv.exit.thread122: ; preds = %237, %_ZN5boost10filesystem6detail16create_directoryERKNS0_4pathEPS3_PNS_6system10error_codeE.exit, %221, %218, %_ZN5boost10filesystem6detail15path_algorithms9append_v4ERNS0_4pathERKS3_.exit
-  %.232.ph = phi i1 [ %.030, %218 ], [ %.030, %221 ], [ %.030, %_ZN5boost10filesystem6detail15path_algorithms9append_v4ERNS0_4pathERKS3_.exit ], [ %225, %_ZN5boost10filesystem6detail16create_directoryERKNS0_4pathEPS3_PNS_6system10error_codeE.exit ], [ %225, %237 ]
+  %.232.ph = phi i1 [ %.030, %_ZN5boost10filesystem6detail15path_algorithms9append_v4ERNS0_4pathERKS3_.exit ], [ %.030, %218 ], [ %.030, %221 ], [ %225, %237 ], [ %225, %_ZN5boost10filesystem6detail16create_directoryERKNS0_4pathEPS3_PNS_6system10error_codeE.exit ]
   invoke void @_ZN5boost10filesystem6detail15path_algorithms12increment_v4ERNS0_11path_detail13path_iteratorE(ptr noundef nonnull align 8 dereferenceable(48) %11)
           to label %203 unwind label %244, !llvm.loop !156
 
@@ -8312,8 +8312,8 @@ define noundef zeroext i1 @_ZN5boost10filesystem6detail13equivalent_v3ERKNS0_4pa
   %47 = icmp eq i64 %44, %46
   br label %_ZN5boost10filesystem6detail12_GLOBAL__N_115equivalent_statERK5statxS5_.exit.thread
 
-_ZN5boost10filesystem6detail12_GLOBAL__N_115equivalent_statERK5statxS5_.exit.thread: ; preds = %27, %24, %30, %36, %42
-  %.1.ph = phi i1 [ %47, %42 ], [ false, %30 ], [ false, %36 ], [ false, %24 ], [ false, %27 ]
+_ZN5boost10filesystem6detail12_GLOBAL__N_115equivalent_statERK5statxS5_.exit.thread: ; preds = %24, %27, %30, %36, %42
+  %.1.ph = phi i1 [ %47, %42 ], [ false, %30 ], [ false, %36 ], [ false, %27 ], [ false, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %48
 
@@ -9750,7 +9750,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i71
 
 215:                                              ; preds = %.loopexit, %.loopexit.split-lp, %208, %165, %163, %116
-  %.pn41 = phi { ptr, i32 } [ %117, %116 ], [ %166, %165 ], [ %209, %208 ], [ %164, %163 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn41 = phi { ptr, i32 } [ %164, %163 ], [ %117, %116 ], [ %166, %165 ], [ %209, %208 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %216 = load ptr, ptr %12, align 8, !tbaa !13
   %217 = icmp eq ptr %216, %87
   br i1 %217, label %_ZN5boost10filesystem4pathD2Ev.exit75, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i73
@@ -9940,7 +9940,7 @@ define noundef zeroext i1 @_ZN5boost10filesystem6detail6removeERKNS0_4pathEPNS_6
   br label %_ZN5boost10filesystem6detail12_GLOBAL__N_111remove_implERKNS0_4pathEPNS_6system10error_codeE.exit
 
 _ZN5boost10filesystem6detail12_GLOBAL__N_111remove_implERKNS0_4pathEPNS_6system10error_codeE.exit: ; preds = %.split5, %7, %8, %13, %13, %16
-  %.0.i = phi i1 [ false, %7 ], [ true, %8 ], [ false, %13 ], [ false, %16 ], [ false, %13 ], [ false, %.split5 ]
+  %.0.i = phi i1 [ false, %7 ], [ false, %.split5 ], [ true, %8 ], [ false, %13 ], [ false, %16 ], [ false, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %17
 
@@ -10009,7 +10009,7 @@ define internal fastcc noundef zeroext i1 @_ZN5boost10filesystem6detail12_GLOBAL
   br label %_ZN5boost10filesystem6detail12_GLOBAL__N_111remove_implERKNS0_4pathENS0_9file_typeEPNS_6system10error_codeEi.exit
 
 _ZN5boost10filesystem6detail12_GLOBAL__N_111remove_implERKNS0_4pathENS0_9file_typeEPNS_6system10error_codeEi.exit: ; preds = %2, %21, %18, %18, %13, %12
-  %.0 = phi i1 [ false, %12 ], [ true, %13 ], [ false, %18 ], [ false, %21 ], [ false, %18 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %12 ], [ false, %2 ], [ true, %13 ], [ false, %18 ], [ false, %21 ], [ false, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -10537,8 +10537,8 @@ _ZNK5boost6system10error_codecvbEv.exit110.thread139: ; preds = %158, %_ZNK5boos
   br i1 %165, label %_ZN5boost9iteratorsneINS_10filesystem18directory_iteratorENS2_15directory_entryENS0_25single_pass_traversal_tagERS4_lS3_S4_S5_S6_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INS7_12always_bool2ES9_SA_E4typeEE4typeERKNS0_15iterator_facadeIS9_T0_T1_T2_T3_EERKNSI_ISA_T5_T6_T7_T8_EE.exit.thread.loopexit207, label %.lr.ph.split, !llvm.loop !176
 
 _ZN5boost9iteratorsneINS_10filesystem18directory_iteratorENS2_15directory_entryENS0_25single_pass_traversal_tagERS4_lS3_S4_S5_S6_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INS7_12always_bool2ES9_SA_E4typeEE4typeERKNS0_15iterator_facadeIS9_T0_T1_T2_T3_EERKNSI_ISA_T5_T6_T7_T8_EE.exit.thread.loopexit207: ; preds = %161, %153, %_ZNK5boost10filesystem18directory_iterator6is_endEv.exit.thread.i.i.i, %_ZNK5boost6system10error_codecvbEv.exit110.thread139, %_ZN5boost9iteratorsneINS_10filesystem18directory_iteratorENS2_15directory_entryENS0_25single_pass_traversal_tagERS4_lS3_S4_S5_S6_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INS7_12always_bool2ES9_SA_E4typeEE4typeERKNS0_15iterator_facadeIS9_T0_T1_T2_T3_EERKNSI_ISA_T5_T6_T7_T8_EE.exit, %_ZNK5boost6system10error_codecvbEv.exit110, %_ZNK5boost6system10error_codecvbEv.exit107
-  %.456.ph = phi i32 [ 1, %_ZNK5boost6system10error_codecvbEv.exit107 ], [ 1, %_ZNK5boost6system10error_codecvbEv.exit110 ], [ 0, %_ZN5boost9iteratorsneINS_10filesystem18directory_iteratorENS2_15directory_entryENS0_25single_pass_traversal_tagERS4_lS3_S4_S5_S6_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INS7_12always_bool2ES9_SA_E4typeEE4typeERKNS0_15iterator_facadeIS9_T0_T1_T2_T3_EERKNSI_ISA_T5_T6_T7_T8_EE.exit ], [ 0, %_ZNK5boost6system10error_codecvbEv.exit110.thread139 ], [ 0, %_ZNK5boost10filesystem18directory_iterator6is_endEv.exit.thread.i.i.i ], [ 1, %153 ], [ 1, %161 ]
-  %.3.ph208 = phi i64 [ %150, %_ZNK5boost6system10error_codecvbEv.exit107 ], [ %150, %_ZNK5boost6system10error_codecvbEv.exit110 ], [ %.2167, %_ZN5boost9iteratorsneINS_10filesystem18directory_iteratorENS2_15directory_entryENS0_25single_pass_traversal_tagERS4_lS3_S4_S5_S6_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INS7_12always_bool2ES9_SA_E4typeEE4typeERKNS0_15iterator_facadeIS9_T0_T1_T2_T3_EERKNSI_ISA_T5_T6_T7_T8_EE.exit ], [ %150, %_ZNK5boost6system10error_codecvbEv.exit110.thread139 ], [ %.2167, %_ZNK5boost10filesystem18directory_iterator6is_endEv.exit.thread.i.i.i ], [ %150, %153 ], [ %150, %161 ]
+  %.456.ph = phi i32 [ 0, %_ZNK5boost10filesystem18directory_iterator6is_endEv.exit.thread.i.i.i ], [ 1, %_ZNK5boost6system10error_codecvbEv.exit107 ], [ 1, %153 ], [ 1, %161 ], [ 0, %_ZN5boost9iteratorsneINS_10filesystem18directory_iteratorENS2_15directory_entryENS0_25single_pass_traversal_tagERS4_lS3_S4_S5_S6_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INS7_12always_bool2ES9_SA_E4typeEE4typeERKNS0_15iterator_facadeIS9_T0_T1_T2_T3_EERKNSI_ISA_T5_T6_T7_T8_EE.exit ], [ 1, %_ZNK5boost6system10error_codecvbEv.exit110 ], [ 0, %_ZNK5boost6system10error_codecvbEv.exit110.thread139 ]
+  %.3.ph208 = phi i64 [ %.2167, %_ZNK5boost10filesystem18directory_iterator6is_endEv.exit.thread.i.i.i ], [ %150, %_ZNK5boost6system10error_codecvbEv.exit107 ], [ %150, %153 ], [ %150, %161 ], [ %.2167, %_ZN5boost9iteratorsneINS_10filesystem18directory_iteratorENS2_15directory_entryENS0_25single_pass_traversal_tagERS4_lS3_S4_S5_S6_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INS7_12always_bool2ES9_SA_E4typeEE4typeERKNS0_15iterator_facadeIS9_T0_T1_T2_T3_EERKNSI_ISA_T5_T6_T7_T8_EE.exit ], [ %150, %_ZNK5boost6system10error_codecvbEv.exit110 ], [ %150, %_ZNK5boost6system10error_codecvbEv.exit110.thread139 ]
   %.pre = load ptr, ptr %14, align 8, !tbaa !111
   br label %_ZN5boost9iteratorsneINS_10filesystem18directory_iteratorENS2_15directory_entryENS0_25single_pass_traversal_tagERS4_lS3_S4_S5_S6_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INS7_12always_bool2ES9_SA_E4typeEE4typeERKNS0_15iterator_facadeIS9_T0_T1_T2_T3_EERKNSI_ISA_T5_T6_T7_T8_EE.exit.thread
 
@@ -10563,14 +10563,14 @@ _ZN5boost9iteratorsneINS_10filesystem18directory_iteratorENS2_15directory_entryE
   br label %_ZN5boost10filesystem18directory_iteratorD2Ev.exit
 
 _ZN5boost10filesystem18directory_iteratorD2Ev.exit: ; preds = %_ZNK5boost10filesystem18directory_iterator6is_endEv.exit.thread.i.i.i.us, %_ZNK5boost6system10error_codecvbEv.exit100.thread130, %_ZN5boost9iteratorsneINS_10filesystem18directory_iteratorENS2_15directory_entryENS0_25single_pass_traversal_tagERS4_lS3_S4_S5_S6_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INS7_12always_bool2ES9_SA_E4typeEE4typeERKNS0_15iterator_facadeIS9_T0_T1_T2_T3_EERKNSI_ISA_T5_T6_T7_T8_EE.exit.thread, %_ZN5boost9iteratorsneINS_10filesystem18directory_iteratorENS2_15directory_entryENS0_25single_pass_traversal_tagERS4_lS3_S4_S5_S6_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INS7_12always_bool2ES9_SA_E4typeEE4typeERKNS0_15iterator_facadeIS9_T0_T1_T2_T3_EERKNSI_ISA_T5_T6_T7_T8_EE.exit.thread.thread260, %170
-  %.3259 = phi i64 [ %.3, %_ZN5boost9iteratorsneINS_10filesystem18directory_iteratorENS2_15directory_entryENS0_25single_pass_traversal_tagERS4_lS3_S4_S5_S6_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INS7_12always_bool2ES9_SA_E4typeEE4typeERKNS0_15iterator_facadeIS9_T0_T1_T2_T3_EERKNSI_ISA_T5_T6_T7_T8_EE.exit.thread ], [ %.3265, %_ZN5boost9iteratorsneINS_10filesystem18directory_iteratorENS2_15directory_entryENS0_25single_pass_traversal_tagERS4_lS3_S4_S5_S6_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INS7_12always_bool2ES9_SA_E4typeEE4typeERKNS0_15iterator_facadeIS9_T0_T1_T2_T3_EERKNSI_ISA_T5_T6_T7_T8_EE.exit.thread.thread260 ], [ %.3265, %170 ], [ 0, %_ZNK5boost6system10error_codecvbEv.exit100.thread130 ], [ %.2167.us, %_ZNK5boost10filesystem18directory_iterator6is_endEv.exit.thread.i.i.i.us ]
-  %.456258 = phi i32 [ %.456, %_ZN5boost9iteratorsneINS_10filesystem18directory_iteratorENS2_15directory_entryENS0_25single_pass_traversal_tagERS4_lS3_S4_S5_S6_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INS7_12always_bool2ES9_SA_E4typeEE4typeERKNS0_15iterator_facadeIS9_T0_T1_T2_T3_EERKNSI_ISA_T5_T6_T7_T8_EE.exit.thread ], [ %.456264, %_ZN5boost9iteratorsneINS_10filesystem18directory_iteratorENS2_15directory_entryENS0_25single_pass_traversal_tagERS4_lS3_S4_S5_S6_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INS7_12always_bool2ES9_SA_E4typeEE4typeERKNS0_15iterator_facadeIS9_T0_T1_T2_T3_EERKNSI_ISA_T5_T6_T7_T8_EE.exit.thread.thread260 ], [ %.456264, %170 ], [ 0, %_ZNK5boost6system10error_codecvbEv.exit100.thread130 ], [ 0, %_ZNK5boost10filesystem18directory_iterator6is_endEv.exit.thread.i.i.i.us ]
+  %.3259 = phi i64 [ %.3265, %170 ], [ %.3, %_ZN5boost9iteratorsneINS_10filesystem18directory_iteratorENS2_15directory_entryENS0_25single_pass_traversal_tagERS4_lS3_S4_S5_S6_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INS7_12always_bool2ES9_SA_E4typeEE4typeERKNS0_15iterator_facadeIS9_T0_T1_T2_T3_EERKNSI_ISA_T5_T6_T7_T8_EE.exit.thread ], [ %.3265, %_ZN5boost9iteratorsneINS_10filesystem18directory_iteratorENS2_15directory_entryENS0_25single_pass_traversal_tagERS4_lS3_S4_S5_S6_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INS7_12always_bool2ES9_SA_E4typeEE4typeERKNS0_15iterator_facadeIS9_T0_T1_T2_T3_EERKNSI_ISA_T5_T6_T7_T8_EE.exit.thread.thread260 ], [ 0, %_ZNK5boost6system10error_codecvbEv.exit100.thread130 ], [ %.2167.us, %_ZNK5boost10filesystem18directory_iterator6is_endEv.exit.thread.i.i.i.us ]
+  %.456258 = phi i32 [ %.456264, %170 ], [ %.456, %_ZN5boost9iteratorsneINS_10filesystem18directory_iteratorENS2_15directory_entryENS0_25single_pass_traversal_tagERS4_lS3_S4_S5_S6_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INS7_12always_bool2ES9_SA_E4typeEE4typeERKNS0_15iterator_facadeIS9_T0_T1_T2_T3_EERKNSI_ISA_T5_T6_T7_T8_EE.exit.thread ], [ %.456264, %_ZN5boost9iteratorsneINS_10filesystem18directory_iteratorENS2_15directory_entryENS0_25single_pass_traversal_tagERS4_lS3_S4_S5_S6_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INS7_12always_bool2ES9_SA_E4typeEE4typeERKNS0_15iterator_facadeIS9_T0_T1_T2_T3_EERKNSI_ISA_T5_T6_T7_T8_EE.exit.thread.thread260 ], [ 0, %_ZNK5boost6system10error_codecvbEv.exit100.thread130 ], [ 0, %_ZNK5boost10filesystem18directory_iterator6is_endEv.exit.thread.i.i.i.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %171
 
 171:                                              ; preds = %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit104.thread, %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit.thread, %_ZN5boost10filesystem18directory_iteratorD2Ev.exit, %126
-  %.355 = phi i32 [ 1, %126 ], [ %.456258, %_ZN5boost10filesystem18directory_iteratorD2Ev.exit ], [ 4, %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit.thread ], [ 4, %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit104.thread ]
-  %.1 = phi i64 [ 0, %126 ], [ %.3259, %_ZN5boost10filesystem18directory_iteratorD2Ev.exit ], [ 0, %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit.thread ], [ 0, %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit104.thread ]
+  %.355 = phi i32 [ %.456258, %_ZN5boost10filesystem18directory_iteratorD2Ev.exit ], [ 4, %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit.thread ], [ 1, %126 ], [ 4, %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit104.thread ]
+  %.1 = phi i64 [ %.3259, %_ZN5boost10filesystem18directory_iteratorD2Ev.exit ], [ 0, %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit.thread ], [ 0, %126 ], [ 0, %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit104.thread ]
   %172 = load i32, ptr %11, align 4, !tbaa !19
   %173 = icmp sgt i32 %172, -1
   br i1 %173, label %174, label %_ZN5boost10filesystem6detail25directory_iterator_paramsD2Ev.exit, !prof !32
@@ -10610,7 +10610,7 @@ _ZN5boost10filesystem18directory_iteratorD2Ev.exit113: ; preds = %_ZN5boost10fil
   ]
 
 184:                                              ; preds = %.loopexit, %.loopexit.split-lp, %157, %124
-  %.pn85 = phi { ptr, i32 } [ %125, %124 ], [ %.us-phi195, %157 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn85 = phi { ptr, i32 } [ %.us-phi195, %157 ], [ %125, %124 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN5boost10filesystem6detail25directory_iterator_paramsD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %11) #27
   br label %185
 
@@ -10642,7 +10642,7 @@ _ZN5boost10filesystem18directory_iteratorD2Ev.exit113: ; preds = %_ZN5boost10fil
           to label %_ZN5boost10filesystem6detail12_GLOBAL__N_111remove_implERKNS0_4pathENS0_9file_typeEPNS_6system10error_codeEi.exit unwind label %200
 
 _ZN5boost10filesystem6detail12_GLOBAL__N_111remove_implERKNS0_4pathENS0_9file_typeEPNS_6system10error_codeEi.exit: ; preds = %189, %189, %.thread141, %192
-  %.0.i = phi i64 [ 1, %.thread141 ], [ 0, %189 ], [ 0, %189 ], [ 0, %192 ]
+  %.0.i = phi i64 [ 0, %192 ], [ 1, %.thread141 ], [ 0, %189 ], [ 0, %189 ]
   %193 = add i64 %.0.i, %.047143
   br i1 %.not84, label %_ZNK5boost6system10error_codecvbEv.exit117.thread146, label %194
 
@@ -10702,7 +10702,7 @@ _ZNK5boost6system10error_codecvbEv.exit117.thread146: ; preds = %194, %_ZNK5boos
   br label %.thread152
 
 .thread152:                                       ; preds = %_ZN5boost10filesystem18directory_iteratorD2Ev.exit113, %_ZNK5boost6system10error_codecvbEv.exit117.thread146, %_ZNK5boost6system10error_codecvbEv.exit117, %197, %.thread157, %211
-  %.7 = phi i64 [ -1, %211 ], [ %.250.ph, %.thread157 ], [ -1, %_ZNK5boost6system10error_codecvbEv.exit117 ], [ %193, %_ZNK5boost6system10error_codecvbEv.exit117.thread146 ], [ -1, %197 ], [ -1, %_ZN5boost10filesystem18directory_iteratorD2Ev.exit113 ]
+  %.7 = phi i64 [ -1, %211 ], [ %.250.ph, %.thread157 ], [ -1, %197 ], [ %193, %_ZNK5boost6system10error_codecvbEv.exit117.thread146 ], [ -1, %_ZNK5boost6system10error_codecvbEv.exit117 ], [ -1, %_ZN5boost10filesystem18directory_iteratorD2Ev.exit113 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %212 = load ptr, ptr %5, align 8, !tbaa !13
   %213 = icmp eq ptr %212, %15
@@ -11823,7 +11823,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i71
 
 215:                                              ; preds = %.loopexit, %.loopexit.split-lp, %208, %165, %163, %116
-  %.pn41 = phi { ptr, i32 } [ %117, %116 ], [ %166, %165 ], [ %209, %208 ], [ %164, %163 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn41 = phi { ptr, i32 } [ %164, %163 ], [ %117, %116 ], [ %166, %165 ], [ %209, %208 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %216 = load ptr, ptr %12, align 8, !tbaa !13
   %217 = icmp eq ptr %216, %87
   br i1 %217, label %_ZN5boost10filesystem4pathD2Ev.exit75, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i73
@@ -12013,7 +12013,7 @@ _ZNK5boost6system15error_condition6cat_idEv.exit12.i: ; preds = %20
   br label %_ZN5boost6systemeqERKNS0_15error_conditionES3_.exit
 
 _ZN5boost6systemeqERKNS0_15error_conditionES3_.exit: ; preds = %3, %15, %16, %_ZNK5boost6system15error_condition6cat_idEv.exit12.i, %24
-  %.0.i = phi i1 [ %23, %_ZNK5boost6system15error_condition6cat_idEv.exit12.i ], [ %32, %24 ], [ false, %3 ], [ %19, %16 ], [ true, %15 ]
+  %.0.i = phi i1 [ %32, %24 ], [ false, %3 ], [ %23, %_ZNK5boost6system15error_condition6cat_idEv.exit12.i ], [ %19, %16 ], [ true, %15 ]
   ret i1 %.0.i
 }
 
@@ -12071,7 +12071,7 @@ _ZNK5boost6system10error_code5valueEv.exit.i:     ; preds = %12
   br label %_ZNK5boost6system10error_code6equalsEiRKNS0_14error_categoryE.exit
 
 _ZNK5boost6system10error_code6equalsEiRKNS0_14error_categoryE.exit: ; preds = %6, %12, %_ZNK5boost6system10error_code5valueEv.exit.i, %25, %28
-  %.0.i = phi i1 [ %11, %6 ], [ false, %12 ], [ %24, %_ZNK5boost6system10error_code5valueEv.exit.i ], [ false, %25 ], [ %38, %28 ]
+  %.0.i = phi i1 [ %11, %6 ], [ %24, %_ZNK5boost6system10error_code5valueEv.exit.i ], [ false, %12 ], [ false, %25 ], [ %38, %28 ]
   ret i1 %.0.i
 }
 
@@ -12376,7 +12376,7 @@ _ZN5boost7atomics6detail26core_operations_gcc_atomicILm8ELb0ELb0EE5storeERVmmNS_
   br i1 %38, label %.lr.ph.i.i, label %_ZN5boost10filesystem6detail12_GLOBAL__N_126copy_file_data_preallocateINS2_23copy_file_data_sendfileEE4implEiimm.exit
 
 _ZN5boost10filesystem6detail12_GLOBAL__N_126copy_file_data_preallocateINS2_23copy_file_data_sendfileEE4implEiimm.exit: ; preds = %18, %37, %26, %35, %34, %32, %_ZN5boost10filesystem6detail12_GLOBAL__N_119preallocate_storageEim.exit.thread.i, %.thread23
-  %.120 = phi i32 [ %15, %.thread23 ], [ %30, %32 ], [ %30, %34 ], [ %36, %35 ], [ 0, %_ZN5boost10filesystem6detail12_GLOBAL__N_119preallocate_storageEim.exit.thread.i ], [ 0, %26 ], [ 0, %37 ], [ %20, %18 ]
+  %.120 = phi i32 [ %15, %.thread23 ], [ 0, %37 ], [ %36, %35 ], [ %30, %32 ], [ %30, %34 ], [ 0, %_ZN5boost10filesystem6detail12_GLOBAL__N_119preallocate_storageEim.exit.thread.i ], [ 0, %26 ], [ %20, %18 ]
   ret i32 %.120
 }
 
@@ -12487,7 +12487,7 @@ _ZN5boost7atomics6detail26core_operations_gcc_atomicILm8ELb0ELb0EE5storeERVmmNS_
   br i1 %40, label %.lr.ph.i.i, label %_ZN5boost10filesystem6detail12_GLOBAL__N_126copy_file_data_preallocateINS2_30copy_file_data_copy_file_rangeEE4implEiimm.exit
 
 _ZN5boost10filesystem6detail12_GLOBAL__N_126copy_file_data_preallocateINS2_30copy_file_data_copy_file_rangeEE4implEiimm.exit: ; preds = %18, %39, %26, %37, %35, %34, %32, %_ZN5boost10filesystem6detail12_GLOBAL__N_119preallocate_storageEim.exit.thread.i, %.thread23
-  %.120 = phi i32 [ %15, %.thread23 ], [ %30, %32 ], [ %30, %34 ], [ %38, %37 ], [ %36, %35 ], [ 0, %_ZN5boost10filesystem6detail12_GLOBAL__N_119preallocate_storageEim.exit.thread.i ], [ 0, %26 ], [ 0, %39 ], [ %20, %18 ]
+  %.120 = phi i32 [ %15, %.thread23 ], [ 0, %39 ], [ %36, %35 ], [ %30, %32 ], [ %30, %34 ], [ %38, %37 ], [ 0, %_ZN5boost10filesystem6detail12_GLOBAL__N_119preallocate_storageEim.exit.thread.i ], [ 0, %26 ], [ %20, %18 ]
   ret i32 %.120
 }
 
@@ -12607,8 +12607,8 @@ _ZN5boost7atomics6detail26core_operations_gcc_atomicILm8ELb0ELb0EE5storeERVmmNS_
   %22 = icmp ult i64 %.127, %2
   br i1 %22, label %.lr.ph, label %.thread37
 
-.thread37:                                        ; preds = %21, %10, %4, %16, %18, %19
-  %.3 = phi i32 [ %14, %16 ], [ %14, %18 ], [ %20, %19 ], [ 0, %4 ], [ 0, %10 ], [ 0, %21 ]
+.thread37:                                        ; preds = %21, %10, %4, %18, %19, %16
+  %.3 = phi i32 [ %20, %19 ], [ %14, %16 ], [ %14, %18 ], [ 0, %4 ], [ 0, %10 ], [ 0, %21 ]
   ret i32 %.3
 }
 
@@ -12745,7 +12745,7 @@ _ZNK5boost6system10error_code5valueEv.exit17:     ; preds = %_ZNK5boost6system10
   br label %_ZNK5boost6system10error_code8categoryEv.exit
 
 _ZNK5boost6system10error_code8categoryEv.exit:    ; preds = %41, %42, %43
-  %.0.i18 = phi ptr [ @_ZN5boost6system6detail18interop_cat_holderIvE8instanceE, %42 ], [ %45, %43 ], [ @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, %41 ]
+  %.0.i18 = phi ptr [ %45, %43 ], [ @_ZN5boost6system6detail18interop_cat_holderIvE8instanceE, %42 ], [ @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, %41 ]
   switch i64 %7, label %47 [
     i64 0, label %_ZNK5boost6system10error_code8categoryEv.exit20
     i64 1, label %46
@@ -12760,7 +12760,7 @@ _ZNK5boost6system10error_code8categoryEv.exit:    ; preds = %41, %42, %43
   br label %_ZNK5boost6system10error_code8categoryEv.exit20
 
 _ZNK5boost6system10error_code8categoryEv.exit20:  ; preds = %_ZNK5boost6system10error_code8categoryEv.exit, %46, %47
-  %.0.i19 = phi ptr [ @_ZN5boost6system6detail18interop_cat_holderIvE8instanceE, %46 ], [ %49, %47 ], [ @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, %_ZNK5boost6system10error_code8categoryEv.exit ]
+  %.0.i19 = phi ptr [ %49, %47 ], [ @_ZN5boost6system6detail18interop_cat_holderIvE8instanceE, %46 ], [ @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, %_ZNK5boost6system10error_code8categoryEv.exit ]
   %50 = getelementptr inbounds nuw i8, ptr %.0.i19, i64 8
   %51 = load i64, ptr %50, align 8, !tbaa !21
   %52 = icmp eq i64 %51, 0
@@ -12772,7 +12772,7 @@ _ZNK5boost6system10error_code8categoryEv.exit20:  ; preds = %_ZNK5boost6system10
   br label %58
 
 58:                                               ; preds = %_ZNK5boost6system10error_code5valueEv.exit17, %_ZNK5boost6system10error_code8categoryEv.exit20, %2, %11
-  %.0 = phi i1 [ %20, %11 ], [ false, %2 ], [ false, %_ZNK5boost6system10error_code5valueEv.exit17 ], [ %57, %_ZNK5boost6system10error_code8categoryEv.exit20 ]
+  %.0 = phi i1 [ false, %2 ], [ %20, %11 ], [ false, %_ZNK5boost6system10error_code5valueEv.exit17 ], [ %57, %_ZNK5boost6system10error_code8categoryEv.exit20 ]
   ret i1 %.0
 }
 

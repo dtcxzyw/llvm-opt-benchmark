@@ -687,14 +687,14 @@ autocommit_converter.exit:                        ; preds = %111, %115
   br label %pysqlite_connection_init_impl.exit
 
 .thread147:                                       ; preds = %115, %109, %.thread162, %.thread, %42, %52, %isolation_level_converter.exit, %82, %87, %97, %105
-  %.0161 = phi i32 [ %103, %105 ], [ 0, %97 ], [ 0, %87 ], [ 0, %82 ], [ 0, %isolation_level_converter.exit ], [ 0, %52 ], [ 0, %42 ], [ 0, %.thread ], [ %.0176, %.thread162 ], [ %.0176, %109 ], [ %.0176, %115 ]
-  %.065160 = phi i32 [ %.1, %105 ], [ %93, %97 ], [ 128, %87 ], [ 128, %82 ], [ 128, %isolation_level_converter.exit ], [ 128, %52 ], [ 128, %42 ], [ 128, %.thread ], [ %.1, %.thread162 ], [ %.1, %109 ], [ %.1, %115 ]
-  %.068159 = phi i32 [ %.169, %105 ], [ %.169, %97 ], [ %.169, %87 ], [ %80, %82 ], [ 1, %isolation_level_converter.exit ], [ 1, %52 ], [ 1, %42 ], [ 1, %.thread ], [ %.169, %.thread162 ], [ %.169, %109 ], [ %.169, %115 ]
-  %.070158 = phi i32 [ %.171, %105 ], [ %.171, %97 ], [ %.171, %87 ], [ %.171, %82 ], [ %.171, %isolation_level_converter.exit ], [ %48, %52 ], [ 0, %42 ], [ 0, %.thread ], [ %.171, %.thread162 ], [ %.171, %109 ], [ %.171, %115 ]
-  %.072157 = phi double [ %.173, %105 ], [ %.173, %97 ], [ %.173, %87 ], [ %.173, %82 ], [ %.173, %isolation_level_converter.exit ], [ %.173, %52 ], [ %.2, %42 ], [ 5.000000e+00, %.thread ], [ %.173, %.thread162 ], [ %.173, %109 ], [ %.173, %115 ]
-  %.0140156 = phi ptr [ %.1141, %105 ], [ %.1141, %97 ], [ %.1141, %87 ], [ %.1141, %82 ], [ %.2142, %isolation_level_converter.exit ], [ @.str.66, %52 ], [ @.str.66, %42 ], [ @.str.66, %.thread ], [ %.1141, %.thread162 ], [ %.1141, %109 ], [ %.1141, %115 ]
-  %119 = phi i1 [ false, %105 ], [ false, %97 ], [ false, %87 ], [ false, %82 ], [ false, %isolation_level_converter.exit ], [ false, %52 ], [ false, %42 ], [ false, %.thread ], [ false, %.thread162 ], [ true, %109 ], [ false, %115 ]
-  %.0138 = phi i32 [ -1, %105 ], [ -1, %97 ], [ -1, %87 ], [ -1, %82 ], [ -1, %isolation_level_converter.exit ], [ -1, %52 ], [ -1, %42 ], [ -1, %.thread ], [ 1, %.thread162 ], [ 0, %109 ], [ -1, %115 ]
+  %.0161 = phi i32 [ %103, %105 ], [ 0, %.thread ], [ 0, %97 ], [ 0, %87 ], [ 0, %82 ], [ 0, %isolation_level_converter.exit ], [ 0, %52 ], [ 0, %42 ], [ %.0176, %.thread162 ], [ %.0176, %109 ], [ %.0176, %115 ]
+  %.065160 = phi i32 [ %.1, %105 ], [ 128, %.thread ], [ %93, %97 ], [ 128, %87 ], [ 128, %82 ], [ 128, %isolation_level_converter.exit ], [ 128, %52 ], [ 128, %42 ], [ %.1, %.thread162 ], [ %.1, %109 ], [ %.1, %115 ]
+  %.068159 = phi i32 [ %.169, %105 ], [ 1, %.thread ], [ %.169, %97 ], [ %.169, %87 ], [ %80, %82 ], [ 1, %isolation_level_converter.exit ], [ 1, %52 ], [ 1, %42 ], [ %.169, %.thread162 ], [ %.169, %109 ], [ %.169, %115 ]
+  %.070158 = phi i32 [ %.171, %105 ], [ 0, %.thread ], [ %.171, %97 ], [ %.171, %87 ], [ %.171, %82 ], [ %.171, %isolation_level_converter.exit ], [ %48, %52 ], [ 0, %42 ], [ %.171, %.thread162 ], [ %.171, %109 ], [ %.171, %115 ]
+  %.072157 = phi double [ %.173, %105 ], [ 5.000000e+00, %.thread ], [ %.173, %97 ], [ %.173, %87 ], [ %.173, %82 ], [ %.173, %isolation_level_converter.exit ], [ %.173, %52 ], [ %.2, %42 ], [ %.173, %.thread162 ], [ %.173, %109 ], [ %.173, %115 ]
+  %.0140156 = phi ptr [ %.1141, %105 ], [ @.str.66, %.thread ], [ %.1141, %97 ], [ %.1141, %87 ], [ %.1141, %82 ], [ %.2142, %isolation_level_converter.exit ], [ @.str.66, %52 ], [ @.str.66, %42 ], [ %.1141, %.thread162 ], [ %.1141, %109 ], [ %.1141, %115 ]
+  %119 = phi i1 [ false, %105 ], [ false, %.thread ], [ false, %97 ], [ false, %87 ], [ false, %82 ], [ false, %isolation_level_converter.exit ], [ false, %52 ], [ false, %42 ], [ false, %.thread162 ], [ true, %109 ], [ false, %115 ]
+  %.0138 = phi i32 [ -1, %105 ], [ -1, %.thread ], [ -1, %97 ], [ -1, %87 ], [ -1, %82 ], [ -1, %isolation_level_converter.exit ], [ -1, %52 ], [ -1, %42 ], [ 1, %.thread162 ], [ 0, %109 ], [ -1, %115 ]
   %120 = call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.141, ptr noundef nonnull @.str.142, ptr noundef %29) #7
   %121 = icmp slt i32 %120, 0
   br i1 %121, label %pysqlite_connection_init_impl.exit, label %122
@@ -1013,8 +1013,8 @@ Py_DECREF.exit85.i:                               ; preds = %209, %206, %Py_DECR
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %pysqlite_connection_init_impl.exit
 
-pysqlite_connection_init_impl.exit:               ; preds = %get_isolation_level.exit.thread.i, %get_isolation_level.exit.i, %63, %73, %274, %.thread147, %autocommit_converter.exit, %102, %95, %79, %50, %40, %26, %19
-  %.074 = phi i32 [ -1, %19 ], [ -1, %50 ], [ -1, %79 ], [ -1, %95 ], [ -1, %102 ], [ -1, %autocommit_converter.exit ], [ -1, %40 ], [ -1, %26 ], [ %.1.i, %274 ], [ -1, %.thread147 ], [ -1, %73 ], [ -1, %63 ], [ -1, %get_isolation_level.exit.i ], [ -1, %get_isolation_level.exit.thread.i ]
+pysqlite_connection_init_impl.exit:               ; preds = %get_isolation_level.exit.i, %63, %get_isolation_level.exit.thread.i, %73, %274, %.thread147, %autocommit_converter.exit, %102, %95, %79, %50, %40, %26, %19
+  %.074 = phi i32 [ -1, %19 ], [ -1, %50 ], [ -1, %79 ], [ -1, %95 ], [ -1, %102 ], [ -1, %26 ], [ -1, %autocommit_converter.exit ], [ -1, %.thread147 ], [ -1, %40 ], [ %.1.i, %274 ], [ -1, %73 ], [ -1, %get_isolation_level.exit.thread.i ], [ -1, %63 ], [ -1, %get_isolation_level.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.074
 }
@@ -1094,7 +1094,7 @@ pysqlite_check_connection.exit:                   ; preds = %22
   br label %38
 
 38:                                               ; preds = %pysqlite_check_connection.exit.thread, %pysqlite_check_thread.exit, %35, %33, %31
-  %.0 = phi ptr [ null, %pysqlite_check_thread.exit ], [ null, %31 ], [ null, %33 ], [ %37, %35 ], [ null, %pysqlite_check_connection.exit.thread ]
+  %.0 = phi ptr [ %37, %35 ], [ null, %33 ], [ null, %31 ], [ null, %pysqlite_check_thread.exit ], [ null, %pysqlite_check_connection.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -2009,10 +2009,10 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %.thread93, %PyObjec
   br i1 %.not83, label %79, label %pysqlite_connection_backup_impl.exit
 
 79:                                               ; preds = %67, %72, %77, %74, %49, %44, %PyObject_TypeCheck.exit.thread
-  %.053 = phi i32 [ %.154, %72 ], [ %.154, %77 ], [ %.154, %74 ], [ %.154, %49 ], [ %40, %44 ], [ -1, %PyObject_TypeCheck.exit.thread ], [ %.154, %67 ]
-  %.051 = phi ptr [ %.152, %72 ], [ %.152, %77 ], [ %.152, %74 ], [ %48, %49 ], [ @_Py_NoneStruct, %44 ], [ @_Py_NoneStruct, %PyObject_TypeCheck.exit.thread ], [ %.152, %67 ]
-  %.050 = phi ptr [ %.1, %72 ], [ %.1, %77 ], [ %.1, %74 ], [ @.str.42, %49 ], [ @.str.42, %44 ], [ @.str.42, %PyObject_TypeCheck.exit.thread ], [ %60, %67 ]
-  %.049 = phi double [ %.val88, %72 ], [ -1.000000e+00, %77 ], [ %75, %74 ], [ 2.500000e-01, %49 ], [ 2.500000e-01, %44 ], [ 2.500000e-01, %PyObject_TypeCheck.exit.thread ], [ 2.500000e-01, %67 ]
+  %.053 = phi i32 [ %.154, %72 ], [ %.154, %77 ], [ %.154, %74 ], [ -1, %PyObject_TypeCheck.exit.thread ], [ %.154, %49 ], [ %40, %44 ], [ %.154, %67 ]
+  %.051 = phi ptr [ %.152, %72 ], [ %.152, %77 ], [ %.152, %74 ], [ @_Py_NoneStruct, %PyObject_TypeCheck.exit.thread ], [ %48, %49 ], [ @_Py_NoneStruct, %44 ], [ %.152, %67 ]
+  %.050 = phi ptr [ %.1, %72 ], [ %.1, %77 ], [ %.1, %74 ], [ @.str.42, %PyObject_TypeCheck.exit.thread ], [ @.str.42, %49 ], [ @.str.42, %44 ], [ %60, %67 ]
+  %.049 = phi double [ %.val88, %72 ], [ -1.000000e+00, %77 ], [ %75, %74 ], [ 2.500000e-01, %PyObject_TypeCheck.exit.thread ], [ 2.500000e-01, %49 ], [ 2.500000e-01, %44 ], [ 2.500000e-01, %67 ]
   %80 = fmul double %.049, 1.000000e+03
   %81 = fptosi double %80 to i32
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -2243,7 +2243,7 @@ Py_DECREF.exit.thread.i:                          ; preds = %157, %154, %.lr.ph.
   br label %pysqlite_connection_backup_impl.exit
 
 pysqlite_connection_backup_impl.exit:             ; preds = %172, %.split.us.i, %Py_DECREF.exit.i, %147, %126, %121, %pysqlite_check_connection.exit72.thread.i, %pysqlite_check_connection.exit.thread.i, %pysqlite_check_thread.exit.i, %.thread96, %27, %58, %12, %42, %77
-  %.058 = phi ptr [ null, %42 ], [ null, %77 ], [ null, %58 ], [ null, %27 ], [ null, %12 ], [ null, %.thread96 ], [ null, %121 ], [ null, %147 ], [ null, %172 ], [ null, %Py_DECREF.exit.i ], [ null, %126 ], [ null, %pysqlite_check_thread.exit.i ], [ @_Py_NoneStruct, %.split.us.i ], [ null, %pysqlite_check_connection.exit.thread.i ], [ null, %pysqlite_check_connection.exit72.thread.i ]
+  %.058 = phi ptr [ null, %42 ], [ null, %12 ], [ null, %77 ], [ null, %.thread96 ], [ null, %58 ], [ null, %27 ], [ null, %121 ], [ null, %147 ], [ null, %172 ], [ null, %pysqlite_check_connection.exit72.thread.i ], [ null, %Py_DECREF.exit.i ], [ null, %126 ], [ null, %pysqlite_check_thread.exit.i ], [ null, %pysqlite_check_connection.exit.thread.i ], [ @_Py_NoneStruct, %.split.us.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.058
 }
@@ -2315,7 +2315,7 @@ Py_DECREF.exit.i:                                 ; preds = %30, %27, %25, %22
   br label %pysqlite_connection_close_impl.exit
 
 pysqlite_connection_close_impl.exit:              ; preds = %pysqlite_check_thread.exit.i, %16, %Py_DECREF.exit.i
-  %.0.i = phi ptr [ null, %16 ], [ null, %pysqlite_check_thread.exit.i ], [ %._Py_NoneStruct.i, %Py_DECREF.exit.i ]
+  %.0.i = phi ptr [ %._Py_NoneStruct.i, %Py_DECREF.exit.i ], [ null, %pysqlite_check_thread.exit.i ], [ null, %16 ]
   ret ptr %.0.i
 }
 
@@ -2353,7 +2353,7 @@ define internal noundef ptr @pysqlite_connection_create_aggregate(ptr noundef re
   br i1 %.not33, label %.thread39, label %45
 
 .thread39:                                        ; preds = %5, %15, %13
-  %18 = phi ptr [ %12, %15 ], [ %12, %13 ], [ %2, %5 ]
+  %18 = phi ptr [ %12, %13 ], [ %12, %15 ], [ %2, %5 ]
   %19 = load ptr, ptr %18, align 8, !tbaa !25
   %20 = getelementptr i8, ptr %19, i64 8
   %.val = load ptr, ptr %20, align 8, !tbaa !16
@@ -2408,7 +2408,7 @@ define internal noundef ptr @pysqlite_connection_create_aggregate(ptr noundef re
   br label %45
 
 45:                                               ; preds = %.split, %.split28, %40, %24, %15, %11, %30, %23
-  %.0 = phi ptr [ null, %15 ], [ null, %24 ], [ null, %30 ], [ null, %40 ], [ null, %23 ], [ null, %11 ], [ %39, %.split ], [ %44, %.split28 ]
+  %.0 = phi ptr [ null, %15 ], [ null, %24 ], [ null, %30 ], [ null, %40 ], [ null, %11 ], [ null, %23 ], [ %39, %.split ], [ %44, %.split28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
@@ -2624,7 +2624,7 @@ free_callback_context.exit.i:                     ; preds = %92, %89, %87, %Py_X
   br label %pysqlite_connection_create_collation_impl.exit
 
 pysqlite_connection_create_collation_impl.exit:   ; preds = %93, %.thread.i, %72, %60, %58, %pysqlite_check_connection.exit.thread.i, %pysqlite_check_thread.exit.i, %19, %11, %25, %18
-  %.0 = phi ptr [ null, %19 ], [ null, %25 ], [ null, %18 ], [ null, %11 ], [ null, %pysqlite_check_thread.exit.i ], [ null, %93 ], [ null, %58 ], [ @_Py_NoneStruct, %72 ], [ null, %pysqlite_check_connection.exit.thread.i ], [ @_Py_NoneStruct, %.thread.i ], [ null, %60 ]
+  %.0 = phi ptr [ null, %19 ], [ null, %25 ], [ null, %11 ], [ null, %18 ], [ null, %pysqlite_check_thread.exit.i ], [ null, %pysqlite_check_connection.exit.thread.i ], [ null, %93 ], [ @_Py_NoneStruct, %.thread.i ], [ null, %58 ], [ @_Py_NoneStruct, %72 ], [ null, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
@@ -2666,8 +2666,8 @@ define internal noundef ptr @pysqlite_connection_create_function(ptr noundef rea
   br i1 %.not42, label %.thread53, label %pysqlite_connection_create_function_impl.exit
 
 .thread53:                                        ; preds = %10, %18, %16
-  %21 = phi i64 [ %14, %18 ], [ %14, %16 ], [ 3, %10 ]
-  %22 = phi ptr [ %15, %18 ], [ %15, %16 ], [ %2, %10 ]
+  %21 = phi i64 [ %14, %16 ], [ %14, %18 ], [ 3, %10 ]
+  %22 = phi ptr [ %15, %16 ], [ %15, %18 ], [ %2, %10 ]
   %23 = load ptr, ptr %22, align 8, !tbaa !25
   %24 = getelementptr i8, ptr %23, i64 8
   %.val = load ptr, ptr %24, align 8, !tbaa !16
@@ -2822,7 +2822,7 @@ _Py_NewRef.exit.i.i:                              ; preds = %82, %78
   br label %pysqlite_connection_create_function_impl.exit
 
 pysqlite_connection_create_function_impl.exit:    ; preds = %94, %88, %pysqlite_check_connection.exit.i, %pysqlite_check_connection.exit.thread.i, %pysqlite_check_thread.exit.i, %46, %41, %28, %18, %13, %34, %27
-  %.035 = phi ptr [ null, %18 ], [ null, %28 ], [ null, %34 ], [ null, %41 ], [ null, %46 ], [ null, %27 ], [ null, %13 ], [ null, %pysqlite_check_thread.exit.i ], [ null, %94 ], [ @_Py_NoneStruct, %88 ], [ null, %pysqlite_check_connection.exit.thread.i ], [ null, %pysqlite_check_connection.exit.i ]
+  %.035 = phi ptr [ null, %18 ], [ null, %28 ], [ null, %34 ], [ null, %41 ], [ null, %46 ], [ null, %13 ], [ null, %27 ], [ null, %pysqlite_check_thread.exit.i ], [ null, %pysqlite_check_connection.exit.thread.i ], [ @_Py_NoneStruct, %88 ], [ null, %94 ], [ null, %pysqlite_check_connection.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.035
 }
@@ -2986,7 +2986,7 @@ Py_XDECREF.exit.sink.split.i:                     ; preds = %24, %20
   br label %pysqlite_connection_executemany_impl.exit
 
 pysqlite_connection_executemany_impl.exit:        ; preds = %Py_XDECREF.exit.sink.split.i, %24, %Py_DECREF.exit.i, %20, %18, %12, %4, %11
-  %.0 = phi ptr [ null, %11 ], [ null, %4 ], [ %15, %Py_DECREF.exit.i ], [ %15, %24 ], [ null, %12 ], [ null, %18 ], [ null, %20 ], [ %.01222.ph.i, %Py_XDECREF.exit.sink.split.i ]
+  %.0 = phi ptr [ null, %4 ], [ null, %11 ], [ %15, %24 ], [ null, %20 ], [ %15, %Py_DECREF.exit.i ], [ null, %12 ], [ null, %18 ], [ %.01222.ph.i, %Py_XDECREF.exit.sink.split.i ]
   ret ptr %.0
 }
 
@@ -3034,7 +3034,7 @@ Py_XDECREF.exit.sink.split:                       ; preds = %16, %12
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %Py_XDECREF.exit.sink.split, %12, %10, %2, %Py_DECREF.exit, %16
-  %.01323 = phi ptr [ %3, %Py_DECREF.exit ], [ %3, %16 ], [ null, %2 ], [ null, %10 ], [ null, %12 ], [ %.01323.ph, %Py_XDECREF.exit.sink.split ]
+  %.01323 = phi ptr [ %3, %16 ], [ null, %12 ], [ %3, %Py_DECREF.exit ], [ null, %2 ], [ null, %10 ], [ %.01323.ph, %Py_XDECREF.exit.sink.split ]
   ret ptr %.01323
 }
 
@@ -3112,7 +3112,7 @@ Py_XDECREF.exit.sink.split.i:                     ; preds = %28, %24
   br label %pysqlite_connection_execute_impl.exit
 
 pysqlite_connection_execute_impl.exit:            ; preds = %Py_XDECREF.exit.sink.split.i, %28, %Py_DECREF.exit.i, %24, %22, %18, %5, %12
-  %.012 = phi ptr [ null, %12 ], [ null, %5 ], [ %19, %Py_DECREF.exit.i ], [ %19, %28 ], [ null, %18 ], [ null, %22 ], [ null, %24 ], [ %.01222.ph.i, %Py_XDECREF.exit.sink.split.i ]
+  %.012 = phi ptr [ null, %5 ], [ null, %12 ], [ %19, %28 ], [ null, %24 ], [ %19, %Py_DECREF.exit.i ], [ null, %18 ], [ null, %22 ], [ %.01222.ph.i, %Py_XDECREF.exit.sink.split.i ]
   ret ptr %.012
 }
 
@@ -3195,7 +3195,7 @@ Py_DECREF.exit23.i:                               ; preds = %29, %26, %24
   br label %pysqlite_connection_exit_impl.exit
 
 pysqlite_connection_exit_impl.exit:               ; preds = %35, %32, %30, %Py_DECREF.exit23.i, %23, %15, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %23 ], [ null, %Py_DECREF.exit23.i ], [ @_Py_FalseStruct, %30 ], [ @_Py_FalseStruct, %32 ], [ @_Py_FalseStruct, %35 ], [ null, %15 ]
+  %.0 = phi ptr [ null, %4 ], [ @_Py_FalseStruct, %35 ], [ null, %23 ], [ null, %Py_DECREF.exit23.i ], [ @_Py_FalseStruct, %30 ], [ @_Py_FalseStruct, %32 ], [ null, %15 ]
   ret ptr %.0
 }
 
@@ -3389,12 +3389,12 @@ Py_DECREF.exit21.i.sink.split:                    ; preds = %57, %46
   br label %Py_DECREF.exit21.i
 
 Py_DECREF.exit21.i:                               ; preds = %Py_DECREF.exit21.i.sink.split, %57, %Py_DECREF.exit19.i, %46, %44
-  %.2.i = phi ptr [ null, %44 ], [ null, %46 ], [ %50, %Py_DECREF.exit19.i ], [ %50, %57 ], [ %.2.i.ph, %Py_DECREF.exit21.i.sink.split ]
+  %.2.i = phi ptr [ %50, %57 ], [ null, %44 ], [ null, %46 ], [ %50, %Py_DECREF.exit19.i ], [ %.2.i.ph, %Py_DECREF.exit21.i.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %pysqlite_connection_iterdump_impl.exit
 
 pysqlite_connection_iterdump_impl.exit:           ; preds = %Py_DECREF.exit21.i, %37, %35, %pysqlite_check_connection.exit.thread.i, %11
-  %.021 = phi ptr [ null, %11 ], [ %.2.i, %Py_DECREF.exit21.i ], [ null, %37 ], [ null, %35 ], [ null, %pysqlite_check_connection.exit.thread.i ]
+  %.021 = phi ptr [ null, %11 ], [ null, %pysqlite_check_connection.exit.thread.i ], [ %.2.i, %Py_DECREF.exit21.i ], [ null, %37 ], [ null, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.021
 }
@@ -3432,7 +3432,7 @@ define internal noundef ptr @pysqlite_connection_set_authorizer(ptr noundef capt
   br i1 %.not21, label %.thread23, label %pysqlite_connection_set_authorizer_impl.exit
 
 .thread23:                                        ; preds = %5, %14, %12
-  %17 = phi ptr [ %11, %14 ], [ %11, %12 ], [ %2, %5 ]
+  %17 = phi ptr [ %11, %12 ], [ %11, %14 ], [ %2, %5 ]
   %18 = load ptr, ptr %17, align 8, !tbaa !25
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %20 = load i32, ptr %19, align 4, !tbaa !21
@@ -3620,13 +3620,13 @@ set_callback_context.exit.sink.split.sink.split.i: ; preds = %96, %61
   br label %set_callback_context.exit.sink.split.i
 
 set_callback_context.exit.sink.split.i:           ; preds = %set_callback_context.exit.sink.split.sink.split.i, %96, %94, %Py_XDECREF.exit.i.i32.i, %61, %59, %Py_XDECREF.exit.i.i.i
-  %.sink.i = phi ptr [ %48, %61 ], [ %48, %59 ], [ %48, %Py_XDECREF.exit.i.i.i ], [ %83, %96 ], [ %83, %94 ], [ %83, %Py_XDECREF.exit.i.i32.i ], [ %.sink.ph.i, %set_callback_context.exit.sink.split.sink.split.i ]
-  %.017.ph.i = phi i32 [ %46, %61 ], [ %46, %59 ], [ %46, %Py_XDECREF.exit.i.i.i ], [ %81, %96 ], [ %81, %94 ], [ %81, %Py_XDECREF.exit.i.i32.i ], [ %.017.ph.ph.i, %set_callback_context.exit.sink.split.sink.split.i ]
+  %.sink.i = phi ptr [ %48, %Py_XDECREF.exit.i.i.i ], [ %83, %94 ], [ %48, %61 ], [ %48, %59 ], [ %83, %Py_XDECREF.exit.i.i32.i ], [ %83, %96 ], [ %.sink.ph.i, %set_callback_context.exit.sink.split.sink.split.i ]
+  %.017.ph.i = phi i32 [ %46, %Py_XDECREF.exit.i.i.i ], [ %81, %94 ], [ %46, %61 ], [ %46, %59 ], [ %81, %Py_XDECREF.exit.i.i32.i ], [ %81, %96 ], [ %.017.ph.ph.i, %set_callback_context.exit.sink.split.sink.split.i ]
   call void @PyMem_Free(ptr noundef nonnull %.sink.i) #7
   br label %set_callback_context.exit.i
 
 set_callback_context.exit.i:                      ; preds = %set_callback_context.exit.sink.split.i, %76, %45
-  %.017.i = phi i32 [ %46, %45 ], [ %81, %76 ], [ %.017.ph.i, %set_callback_context.exit.sink.split.i ]
+  %.017.i = phi i32 [ %81, %76 ], [ %46, %45 ], [ %.017.ph.i, %set_callback_context.exit.sink.split.i ]
   %.not23.i = icmp eq i32 %.017.i, 0
   br i1 %.not23.i, label %pysqlite_connection_set_authorizer_impl.exit, label %99
 
@@ -3686,7 +3686,7 @@ free_callback_context.exit.i43.i:                 ; preds = %119, %116, %114, %P
   br label %pysqlite_connection_set_authorizer_impl.exit
 
 pysqlite_connection_set_authorizer_impl.exit:     ; preds = %free_callback_context.exit.i43.i, %99, %set_callback_context.exit.i, %64, %pysqlite_check_connection.exit.thread.i, %pysqlite_check_thread.exit.i, %14, %10
-  %.0 = phi ptr [ null, %14 ], [ null, %10 ], [ null, %pysqlite_check_thread.exit.i ], [ @_Py_NoneStruct, %set_callback_context.exit.i ], [ null, %pysqlite_check_connection.exit.thread.i ], [ null, %99 ], [ null, %free_callback_context.exit.i43.i ], [ null, %64 ]
+  %.0 = phi ptr [ null, %14 ], [ null, %10 ], [ null, %pysqlite_check_thread.exit.i ], [ null, %pysqlite_check_connection.exit.thread.i ], [ null, %free_callback_context.exit.i43.i ], [ @_Py_NoneStruct, %set_callback_context.exit.i ], [ null, %99 ], [ null, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
@@ -3718,7 +3718,7 @@ define internal noundef ptr @pysqlite_connection_set_progress_handler(ptr nounde
   br i1 %.not26, label %.thread29, label %26
 
 .thread29:                                        ; preds = %5, %14, %12
-  %17 = phi ptr [ %11, %14 ], [ %11, %12 ], [ %2, %5 ]
+  %17 = phi ptr [ %11, %12 ], [ %11, %14 ], [ %2, %5 ]
   %18 = load ptr, ptr %17, align 8, !tbaa !25
   %19 = getelementptr i8, ptr %17, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !25
@@ -3769,7 +3769,7 @@ define internal noundef ptr @pysqlite_connection_set_trace_callback(ptr noundef 
   br i1 %.not21, label %.thread23, label %pysqlite_connection_set_trace_callback_impl.exit
 
 .thread23:                                        ; preds = %5, %14, %12
-  %17 = phi ptr [ %11, %14 ], [ %11, %12 ], [ %2, %5 ]
+  %17 = phi ptr [ %11, %12 ], [ %11, %14 ], [ %2, %5 ]
   %18 = load ptr, ptr %17, align 8, !tbaa !25
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %20 = load i32, ptr %19, align 4, !tbaa !21
@@ -3966,7 +3966,7 @@ free_callback_context.exit.i28.i:                 ; preds = %100, %97, %95, %Py_
   br label %pysqlite_connection_set_trace_callback_impl.exit
 
 pysqlite_connection_set_trace_callback_impl.exit: ; preds = %free_callback_context.exit.i28.i, %77, %65, %free_callback_context.exit.i.i, %45, %pysqlite_check_connection.exit.thread.i, %pysqlite_check_thread.exit.i, %14, %10
-  %.0 = phi ptr [ null, %14 ], [ null, %10 ], [ null, %pysqlite_check_thread.exit.i ], [ null, %pysqlite_check_connection.exit.thread.i ], [ null, %65 ], [ @_Py_NoneStruct, %free_callback_context.exit.i.i ], [ @_Py_NoneStruct, %45 ], [ @_Py_NoneStruct, %free_callback_context.exit.i28.i ], [ @_Py_NoneStruct, %77 ]
+  %.0 = phi ptr [ null, %14 ], [ null, %10 ], [ null, %65 ], [ null, %pysqlite_check_thread.exit.i ], [ null, %pysqlite_check_connection.exit.thread.i ], [ @_Py_NoneStruct, %45 ], [ @_Py_NoneStruct, %free_callback_context.exit.i.i ], [ @_Py_NoneStruct, %free_callback_context.exit.i28.i ], [ @_Py_NoneStruct, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
@@ -4190,7 +4190,7 @@ pysqlite_check_connection.exit.i:                 ; preds = %50
   br label %serialize_impl.exit
 
 serialize_impl.exit:                              ; preds = %76, %pysqlite_check_connection.exit.thread.i, %pysqlite_check_thread.exit.i, %24, %12, %30, %23
-  %.025 = phi ptr [ null, %24 ], [ null, %30 ], [ null, %23 ], [ null, %12 ], [ %.1.i, %76 ], [ null, %pysqlite_check_thread.exit.i ], [ null, %pysqlite_check_connection.exit.thread.i ]
+  %.025 = phi ptr [ null, %24 ], [ null, %30 ], [ null, %12 ], [ null, %23 ], [ %.1.i, %76 ], [ null, %pysqlite_check_connection.exit.thread.i ], [ null, %pysqlite_check_thread.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.025
 }
@@ -4381,7 +4381,7 @@ pysqlite_check_connection.exit.i:                 ; preds = %69
   br label %deserialize_impl.exit
 
 deserialize_impl.exit:                            ; preds = %89, %83, %81, %pysqlite_check_connection.exit.thread.i, %pysqlite_check_thread.exit.i, %.thread54, %43, %33, %17, %49, %42
-  %.035 = phi ptr [ null, %43 ], [ null, %49 ], [ null, %42 ], [ null, %33 ], [ null, %17 ], [ null, %.thread54 ], [ null, %pysqlite_check_thread.exit.i ], [ %82, %81 ], [ null, %89 ], [ @_Py_NoneStruct, %83 ], [ null, %pysqlite_check_connection.exit.thread.i ]
+  %.035 = phi ptr [ null, %43 ], [ null, %49 ], [ null, %17 ], [ null, %42 ], [ null, %.thread54 ], [ null, %33 ], [ null, %pysqlite_check_thread.exit.i ], [ null, %pysqlite_check_connection.exit.thread.i ], [ %82, %81 ], [ null, %89 ], [ @_Py_NoneStruct, %83 ]
   %94 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %95 = load ptr, ptr %94, align 8, !tbaa !95
   %.not47 = icmp eq ptr %95, null
@@ -4470,7 +4470,7 @@ define internal noundef ptr @create_window_function(ptr noundef readonly capture
   br label %40
 
 40:                                               ; preds = %.split, %.split27, %35, %19, %11, %25, %18
-  %.0 = phi ptr [ null, %19 ], [ null, %25 ], [ null, %35 ], [ null, %18 ], [ null, %11 ], [ %34, %.split ], [ %39, %.split27 ]
+  %.0 = phi ptr [ null, %19 ], [ null, %25 ], [ null, %35 ], [ null, %11 ], [ null, %18 ], [ %34, %.split ], [ %39, %.split27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
@@ -4781,7 +4781,7 @@ pysqlite_check_connection.exit.i:                 ; preds = %39
   br label %setconfig_impl.exit
 
 setconfig_impl.exit:                              ; preds = %64, %47, %pysqlite_check_connection.exit.thread.i, %pysqlite_check_thread.exit.i, %16, %12, %6
-  %.012 = phi ptr [ null, %12 ], [ null, %16 ], [ null, %6 ], [ %.1.i, %64 ], [ %49, %47 ], [ null, %pysqlite_check_thread.exit.i ], [ null, %pysqlite_check_connection.exit.thread.i ]
+  %.012 = phi ptr [ null, %12 ], [ null, %6 ], [ null, %16 ], [ %.1.i, %64 ], [ %49, %47 ], [ null, %pysqlite_check_connection.exit.thread.i ], [ null, %pysqlite_check_thread.exit.i ]
   ret ptr %.012
 }
 
@@ -5009,7 +5009,7 @@ connection_exec_stmt.exit21.thread:               ; preds = %68, %.critedge.i19
   br label %connection_exec_stmt.exit
 
 connection_exec_stmt.exit:                        ; preds = %32, %pysqlite_check_connection.exit, %39, %68, %connection_exec_stmt.exit21.thread, %connection_exec_stmt.exit18.thread, %connection_exec_stmt.exit.thread, %pysqlite_check_connection.exit.thread, %pysqlite_check_thread.exit
-  %.0 = phi ptr [ null, %pysqlite_check_thread.exit ], [ null, %pysqlite_check_connection.exit.thread ], [ null, %connection_exec_stmt.exit.thread ], [ null, %connection_exec_stmt.exit18.thread ], [ null, %connection_exec_stmt.exit21.thread ], [ @_Py_NoneStruct, %68 ], [ @_Py_NoneStruct, %39 ], [ @_Py_NoneStruct, %pysqlite_check_connection.exit ], [ @_Py_NoneStruct, %32 ]
+  %.0 = phi ptr [ null, %connection_exec_stmt.exit21.thread ], [ null, %pysqlite_check_thread.exit ], [ null, %connection_exec_stmt.exit.thread ], [ null, %connection_exec_stmt.exit18.thread ], [ null, %pysqlite_check_connection.exit.thread ], [ @_Py_NoneStruct, %68 ], [ @_Py_NoneStruct, %39 ], [ @_Py_NoneStruct, %pysqlite_check_connection.exit ], [ @_Py_NoneStruct, %32 ]
   ret ptr %.0
 }
 
@@ -5113,7 +5113,7 @@ _Py_NewRef.exit.i:                                ; preds = %36, %32
   br label %create_callback_context.exit.thread
 
 create_callback_context.exit.thread:              ; preds = %pysqlite_check_connection.exit, %pysqlite_check_connection.exit.thread, %pysqlite_check_thread.exit, %48, %42
-  %.0 = phi ptr [ null, %pysqlite_check_thread.exit ], [ null, %48 ], [ @_Py_NoneStruct, %42 ], [ null, %pysqlite_check_connection.exit.thread ], [ null, %pysqlite_check_connection.exit ]
+  %.0 = phi ptr [ null, %pysqlite_check_thread.exit ], [ null, %pysqlite_check_connection.exit.thread ], [ @_Py_NoneStruct, %42 ], [ null, %48 ], [ null, %pysqlite_check_connection.exit ]
   ret ptr %.0
 }
 
@@ -5192,7 +5192,7 @@ Py_DECREF.exit:                                   ; preds = %27, %30, %33
   br label %35
 
 35:                                               ; preds = %25, %34, %Py_DECREF.exit
-  %.0 = phi ptr [ %28, %Py_DECREF.exit ], [ null, %34 ], [ null, %25 ]
+  %.0 = phi ptr [ null, %25 ], [ %28, %Py_DECREF.exit ], [ null, %34 ]
   %36 = load i32, ptr %23, align 8, !tbaa !34
   %.not.i.i = icmp sgt i32 %36, -1
   br i1 %.not.i.i, label %37, label %Py_XDECREF.exit
@@ -5515,7 +5515,7 @@ define internal fastcc ptr @_pysqlite_build_py_params(ptr noundef %0, i32 nounde
   br label %_Py_NewRef.exit.thread
 
 _Py_NewRef.exit:                                  ; preds = %.thread42, %.thread, %15, %12
-  %.1 = phi ptr [ %14, %12 ], [ %17, %15 ], [ %27, %.thread ], [ %37, %.thread42 ]
+  %.1 = phi ptr [ %37, %.thread42 ], [ %14, %12 ], [ %17, %15 ], [ %27, %.thread ]
   %.not38 = icmp eq ptr %.1, null
   br i1 %.not38, label %.loopexit, label %_Py_NewRef.exit.thread
 
@@ -5547,7 +5547,7 @@ _Py_NewRef.exit.thread:                           ; preds = %41, %38, %_Py_NewRe
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %_Py_NewRef.exit.thread, %.preheader, %49, %46, %.loopexit, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %.loopexit ], [ null, %46 ], [ null, %49 ], [ %5, %.preheader ], [ %5, %_Py_NewRef.exit.thread ]
+  %.0 = phi ptr [ null, %49 ], [ null, %3 ], [ null, %.loopexit ], [ null, %46 ], [ %5, %.preheader ], [ %5, %_Py_NewRef.exit.thread ]
   ret ptr %.0
 }
 
@@ -5726,7 +5726,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %16, %PyObject_TypeC
   br label %57
 
 57:                                               ; preds = %6, %.thread, %.thread50, %33, %45, %.thread55, %.thread52, %20, %14, %48
-  %.1 = phi i32 [ -1, %48 ], [ -1, %14 ], [ -1, %20 ], [ -1, %.thread52 ], [ -1, %.thread55 ], [ 0, %45 ], [ 0, %33 ], [ 0, %.thread50 ], [ 0, %.thread ], [ 0, %6 ]
+  %.1 = phi i32 [ -1, %20 ], [ -1, %48 ], [ -1, %14 ], [ -1, %.thread52 ], [ -1, %.thread55 ], [ 0, %45 ], [ 0, %33 ], [ 0, %.thread50 ], [ 0, %.thread ], [ 0, %6 ]
   ret i32 %.1
 }
 
@@ -5826,7 +5826,7 @@ define internal i32 @collation_callback(ptr noundef readonly captures(none) %0, 
   br label %37
 
 37:                                               ; preds = %.sink.split, %14, %18, %30, %35, %.thread
-  %.020.ph = phi ptr [ %22, %.thread ], [ %22, %35 ], [ %22, %30 ], [ null, %18 ], [ null, %14 ], [ %22, %.sink.split ]
+  %.020.ph = phi ptr [ %22, %.thread ], [ %22, %35 ], [ null, %14 ], [ null, %18 ], [ %22, %30 ], [ %22, %.sink.split ]
   %38 = load i32, ptr %12, align 8, !tbaa !34
   %.not.i.i = icmp sgt i32 %38, -1
   br i1 %.not.i.i, label %39, label %Py_XDECREF.exit
@@ -6165,7 +6165,7 @@ Py_INCREF.exit:                                   ; preds = %83, %86
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %96, %93, %91, %Py_INCREF.exit, %53, %50, %44, %pysqlite_check_connection.exit.thread, %pysqlite_check_thread.exit, %_pysqlite_drop_unused_cursor_references.exit, %34
-  %.0 = phi ptr [ null, %pysqlite_check_thread.exit ], [ null, %34 ], [ %35, %_pysqlite_drop_unused_cursor_references.exit ], [ null, %pysqlite_check_connection.exit.thread ], [ null, %44 ], [ null, %50 ], [ null, %53 ], [ %35, %Py_INCREF.exit ], [ %35, %91 ], [ %35, %93 ], [ %35, %96 ]
+  %.0 = phi ptr [ null, %pysqlite_check_thread.exit ], [ null, %34 ], [ %35, %_pysqlite_drop_unused_cursor_references.exit ], [ null, %pysqlite_check_connection.exit.thread ], [ null, %53 ], [ null, %44 ], [ null, %50 ], [ %35, %Py_INCREF.exit ], [ %35, %91 ], [ %35, %93 ], [ %35, %96 ]
   ret ptr %.0
 }
 
@@ -6347,7 +6347,7 @@ connection_exec_stmt.exit21.thread:               ; preds = %68, %.critedge.i19
   br label %connection_exec_stmt.exit
 
 connection_exec_stmt.exit:                        ; preds = %32, %pysqlite_check_connection.exit, %39, %68, %connection_exec_stmt.exit21.thread, %connection_exec_stmt.exit18.thread, %connection_exec_stmt.exit.thread, %pysqlite_check_connection.exit.thread, %pysqlite_check_thread.exit
-  %.0 = phi ptr [ null, %pysqlite_check_thread.exit ], [ null, %pysqlite_check_connection.exit.thread ], [ null, %connection_exec_stmt.exit.thread ], [ null, %connection_exec_stmt.exit18.thread ], [ null, %connection_exec_stmt.exit21.thread ], [ @_Py_NoneStruct, %68 ], [ @_Py_NoneStruct, %39 ], [ @_Py_NoneStruct, %pysqlite_check_connection.exit ], [ @_Py_NoneStruct, %32 ]
+  %.0 = phi ptr [ null, %connection_exec_stmt.exit21.thread ], [ null, %pysqlite_check_thread.exit ], [ null, %connection_exec_stmt.exit.thread ], [ null, %connection_exec_stmt.exit18.thread ], [ null, %pysqlite_check_connection.exit.thread ], [ @_Py_NoneStruct, %68 ], [ @_Py_NoneStruct, %39 ], [ @_Py_NoneStruct, %pysqlite_check_connection.exit ], [ @_Py_NoneStruct, %32 ]
   ret ptr %.0
 }
 
@@ -6419,7 +6419,7 @@ define internal i32 @authorizer_callback(ptr noundef readonly captures(none) %0,
   br label %print_or_clear_traceback.exit22
 
 print_or_clear_traceback.exit22:                  ; preds = %35, %33, %19, %23, %26
-  %.1 = phi i32 [ -1, %26 ], [ %24, %23 ], [ 1, %19 ], [ 1, %33 ], [ 1, %35 ]
+  %.1 = phi i32 [ 1, %19 ], [ -1, %26 ], [ %24, %23 ], [ 1, %33 ], [ 1, %35 ]
   %36 = load i32, ptr %9, align 8, !tbaa !34
   %.not.i = icmp sgt i32 %36, -1
   br i1 %.not.i, label %37, label %print_or_clear_traceback.exit
@@ -6435,7 +6435,7 @@ print_or_clear_traceback.exit22:                  ; preds = %35, %33, %19, %23, 
   br label %print_or_clear_traceback.exit
 
 print_or_clear_traceback.exit:                    ; preds = %40, %37, %print_or_clear_traceback.exit22, %18, %16
-  %.0 = phi i32 [ 1, %16 ], [ 1, %18 ], [ %.1, %print_or_clear_traceback.exit22 ], [ %.1, %37 ], [ %.1, %40 ]
+  %.0 = phi i32 [ 1, %18 ], [ 1, %16 ], [ %.1, %print_or_clear_traceback.exit22 ], [ %.1, %37 ], [ %.1, %40 ]
   tail call void @PyGILState_Release(i32 noundef %7) #7
   ret i32 %.0
 }
@@ -6637,7 +6637,7 @@ free_callback_context.exit.i29:                   ; preds = %84, %81, %79, %Py_X
   br label %set_callback_context.exit30
 
 set_callback_context.exit30:                      ; preds = %62, %free_callback_context.exit.i29, %31, %free_callback_context.exit.i, %50, %pysqlite_check_connection.exit.thread, %pysqlite_check_thread.exit
-  %.014 = phi ptr [ null, %pysqlite_check_thread.exit ], [ null, %pysqlite_check_connection.exit.thread ], [ null, %50 ], [ @_Py_NoneStruct, %free_callback_context.exit.i ], [ @_Py_NoneStruct, %31 ], [ @_Py_NoneStruct, %free_callback_context.exit.i29 ], [ @_Py_NoneStruct, %62 ]
+  %.014 = phi ptr [ null, %50 ], [ null, %pysqlite_check_thread.exit ], [ null, %pysqlite_check_connection.exit.thread ], [ @_Py_NoneStruct, %31 ], [ @_Py_NoneStruct, %free_callback_context.exit.i ], [ @_Py_NoneStruct, %free_callback_context.exit.i29 ], [ @_Py_NoneStruct, %62 ]
   ret ptr %.014
 }
 
@@ -6744,7 +6744,7 @@ define internal noundef i32 @trace_callback(i32 noundef %0, ptr noundef readonly
   br label %28
 
 28:                                               ; preds = %.thread, %26
-  %.121 = phi ptr [ %27, %26 ], [ %23, %.thread ]
+  %.121 = phi ptr [ %23, %.thread ], [ %27, %26 ]
   %.not23 = icmp eq ptr %.121, null
   br i1 %.not23, label %Py_XDECREF.exit, label %29
 
@@ -6891,7 +6891,7 @@ pysqlite_check_connection.exit:                   ; preds = %21
   br label %37
 
 37:                                               ; preds = %pysqlite_check_connection.exit.thread, %pysqlite_check_thread.exit, %31, %34
-  %.0 = phi ptr [ null, %pysqlite_check_thread.exit ], [ null, %31 ], [ %36, %34 ], [ null, %pysqlite_check_connection.exit.thread ]
+  %.0 = phi ptr [ null, %pysqlite_check_thread.exit ], [ null, %pysqlite_check_connection.exit.thread ], [ null, %31 ], [ %36, %34 ]
   ret ptr %.0
 }
 
@@ -7035,7 +7035,7 @@ _Py_NewRef.exit.i:                                ; preds = %46, %42
   br label %.critedge
 
 .critedge:                                        ; preds = %40, %pysqlite_check_connection.exit.thread, %pysqlite_check_thread.exit, %59, %58, %8
-  %.020 = phi ptr [ null, %8 ], [ null, %pysqlite_check_thread.exit ], [ null, %59 ], [ @_Py_NoneStruct, %58 ], [ null, %pysqlite_check_connection.exit.thread ], [ null, %40 ]
+  %.020 = phi ptr [ null, %8 ], [ null, %pysqlite_check_thread.exit ], [ null, %pysqlite_check_connection.exit.thread ], [ null, %59 ], [ @_Py_NoneStruct, %58 ], [ null, %40 ]
   ret ptr %.020
 }
 
@@ -7342,7 +7342,7 @@ Py_XDECREF.exit:                                  ; preds = %79, %76, %74, %47, 
   br label %80
 
 80:                                               ; preds = %pysqlite_check_connection.exit.thread, %pysqlite_check_thread.exit, %Py_XDECREF.exit
-  %.0 = phi ptr [ %.1, %Py_XDECREF.exit ], [ null, %pysqlite_check_thread.exit ], [ null, %pysqlite_check_connection.exit.thread ]
+  %.0 = phi ptr [ %.1, %Py_XDECREF.exit ], [ null, %pysqlite_check_connection.exit.thread ], [ null, %pysqlite_check_thread.exit ]
   ret ptr %.0
 }
 
@@ -7443,7 +7443,7 @@ pysqlite_check_connection.exit:                   ; preds = %21
   br label %42
 
 42:                                               ; preds = %pysqlite_check_connection.exit.thread, %pysqlite_check_thread.exit, %41, %29
-  %.0 = phi i32 [ %.1, %41 ], [ -1, %29 ], [ -1, %pysqlite_check_thread.exit ], [ -1, %pysqlite_check_connection.exit.thread ]
+  %.0 = phi i32 [ %.1, %41 ], [ -1, %29 ], [ -1, %pysqlite_check_connection.exit.thread ], [ -1, %pysqlite_check_thread.exit ]
   ret i32 %.0
 }
 
@@ -7493,7 +7493,7 @@ pysqlite_check_connection.exit:                   ; preds = %9
   br label %21
 
 21:                                               ; preds = %pysqlite_check_connection.exit.thread, %pysqlite_check_connection.exit, %19
-  %.0 = phi ptr [ %20, %19 ], [ @_Py_NoneStruct, %pysqlite_check_connection.exit ], [ null, %pysqlite_check_connection.exit.thread ]
+  %.0 = phi ptr [ %20, %19 ], [ null, %pysqlite_check_connection.exit.thread ], [ @_Py_NoneStruct, %pysqlite_check_connection.exit ]
   ret ptr %.0
 }
 
@@ -7579,8 +7579,8 @@ isolation_level_converter.exit:                   ; preds = %get_isolation_level
   store ptr %28, ptr %9, align 8, !tbaa !46
   br label %Py_DECREF.exit
 
-Py_DECREF.exit:                                   ; preds = %isolation_level_converter.exit, %33, %23, %get_isolation_level.exit.i, %get_isolation_level.exit.thread.i, %18, %15, %13, %10, %5
-  %.0 = phi i32 [ -1, %5 ], [ -1, %10 ], [ 0, %13 ], [ 0, %15 ], [ 0, %18 ], [ 0, %isolation_level_converter.exit ], [ -1, %33 ], [ -1, %23 ], [ -1, %get_isolation_level.exit.i ], [ -1, %get_isolation_level.exit.thread.i ]
+Py_DECREF.exit:                                   ; preds = %isolation_level_converter.exit, %33, %get_isolation_level.exit.thread.i, %23, %get_isolation_level.exit.i, %18, %15, %13, %10, %5
+  %.0 = phi i32 [ -1, %5 ], [ 0, %18 ], [ -1, %10 ], [ 0, %13 ], [ 0, %15 ], [ 0, %isolation_level_converter.exit ], [ -1, %33 ], [ -1, %get_isolation_level.exit.thread.i ], [ -1, %23 ], [ -1, %get_isolation_level.exit.i ]
   ret i32 %.0
 }
 
@@ -7668,7 +7668,7 @@ pysqlite_check_connection.exit:                   ; preds = %9
   br label %18
 
 18:                                               ; preds = %pysqlite_check_connection.exit.thread, %pysqlite_check_connection.exit
-  %.0 = phi ptr [ %_Py_TrueStruct._Py_FalseStruct, %pysqlite_check_connection.exit ], [ null, %pysqlite_check_connection.exit.thread ]
+  %.0 = phi ptr [ null, %pysqlite_check_connection.exit.thread ], [ %_Py_TrueStruct._Py_FalseStruct, %pysqlite_check_connection.exit ]
   ret ptr %.0
 }
 
@@ -7741,7 +7741,7 @@ pysqlite_check_connection.exit:                   ; preds = %20
   br label %33
 
 33:                                               ; preds = %pysqlite_check_connection.exit.thread, %pysqlite_check_thread.exit, %pysqlite_check_connection.exit, %31, %30
-  %.0 = phi ptr [ @_Py_FalseStruct, %30 ], [ %32, %31 ], [ null, %pysqlite_check_thread.exit ], [ @_Py_TrueStruct, %pysqlite_check_connection.exit ], [ null, %pysqlite_check_connection.exit.thread ]
+  %.0 = phi ptr [ null, %pysqlite_check_thread.exit ], [ @_Py_FalseStruct, %30 ], [ %32, %31 ], [ null, %pysqlite_check_connection.exit.thread ], [ @_Py_TrueStruct, %pysqlite_check_connection.exit ]
   ret ptr %.0
 }
 
@@ -7905,7 +7905,7 @@ connection_exec_stmt.exit25.thread:               ; preds = %67, %.critedge.i23
   br label %connection_exec_stmt.exit
 
 connection_exec_stmt.exit:                        ; preds = %43, %60, %.thread, %50, %67, %connection_exec_stmt.exit25.thread, %connection_exec_stmt.exit.thread, %autocommit_converter.exit, %pysqlite_check_connection.exit.thread, %pysqlite_check_thread.exit
-  %.0 = phi i32 [ -1, %pysqlite_check_thread.exit ], [ -1, %autocommit_converter.exit ], [ -1, %pysqlite_check_connection.exit.thread ], [ -1, %connection_exec_stmt.exit.thread ], [ -1, %connection_exec_stmt.exit25.thread ], [ 0, %67 ], [ 0, %50 ], [ 0, %.thread ], [ 0, %60 ], [ 0, %43 ]
+  %.0 = phi i32 [ -1, %connection_exec_stmt.exit25.thread ], [ -1, %autocommit_converter.exit ], [ -1, %connection_exec_stmt.exit.thread ], [ -1, %pysqlite_check_thread.exit ], [ -1, %pysqlite_check_connection.exit.thread ], [ 0, %67 ], [ 0, %50 ], [ 0, %.thread ], [ 0, %60 ], [ 0, %43 ]
   ret i32 %.0
 }
 

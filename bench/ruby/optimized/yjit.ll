@@ -1111,7 +1111,7 @@ define hidden range(i32 0, 16) i32 @rb_get_cme_def_type(ptr noundef readonly cap
   br label %9
 
 9:                                                ; preds = %5, %1, %2
-  %.0 = phi i32 [ 7, %2 ], [ 7, %1 ], [ %8, %5 ]
+  %.0 = phi i32 [ 7, %1 ], [ %8, %5 ], [ 7, %2 ]
   ret i32 %.0
 }
 
@@ -1628,7 +1628,7 @@ define hidden i64 @rb_yarv_class_of(i64 noundef %0) local_unnamed_addr #4 {
   br label %rb_class_of.exit
 
 rb_class_of.exit:                                 ; preds = %6, %9, %10, %11, %12, %14
-  %.0.in.i = phi ptr [ @rb_cNilClass, %10 ], [ @rb_cTrueClass, %11 ], [ %8, %6 ], [ @rb_cFalseClass, %9 ], [ @rb_cInteger, %12 ], [ %spec.select.i, %14 ]
+  %.0.in.i = phi ptr [ %8, %6 ], [ @rb_cNilClass, %10 ], [ @rb_cTrueClass, %11 ], [ @rb_cFalseClass, %9 ], [ @rb_cInteger, %12 ], [ %spec.select.i, %14 ]
   %.0.i = load i64, ptr %.0.in.i, align 8, !tbaa !15
   ret i64 %.0.i
 }
@@ -1684,7 +1684,7 @@ RSTRING_PTR.exit17.i:                             ; preds = %19, %RSTRING_PTR.ex
   br label %rb_str_eql_internal.exit
 
 rb_str_eql_internal.exit:                         ; preds = %2, %9, %RSTRING_PTR.exit17.i, %21
-  %.0.i = phi i64 [ 0, %2 ], [ 0, %9 ], [ 20, %RSTRING_PTR.exit17.i ], [ %..i, %21 ]
+  %.0.i = phi i64 [ 0, %2 ], [ 0, %9 ], [ %..i, %21 ], [ 20, %RSTRING_PTR.exit17.i ]
   ret i64 %.0.i
 }
 
@@ -1792,7 +1792,7 @@ rb_array_const_ptr.exit.i:                        ; preds = %10, %6
   br label %rb_ary_entry_internal.exit
 
 rb_ary_entry_internal.exit:                       ; preds = %rb_array_const_ptr.exit.i, %18, %21, %22
-  %.0.i = phi i64 [ %24, %22 ], [ 4, %rb_array_const_ptr.exit.i ], [ 4, %18 ], [ 4, %21 ]
+  %.0.i = phi i64 [ 4, %18 ], [ 4, %rb_array_const_ptr.exit.i ], [ %24, %22 ], [ 4, %21 ]
   ret i64 %.0.i
 }
 
@@ -1964,7 +1964,7 @@ rbimpl_RB_TYPE_P_fastpath.exit10:                 ; preds = %RARRAY_AREF.exit
   br label %rbimpl_RB_TYPE_P_fastpath.exit.thread
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %rbimpl_RB_TYPE_P_fastpath.exit10, %RARRAY_AREF.exit, %1, %rb_array_len.exit.thread, %rb_array_len.exit, %rbimpl_RB_TYPE_P_fastpath.exit
-  %.0 = phi i64 [ 0, %rbimpl_RB_TYPE_P_fastpath.exit ], [ 0, %rb_array_len.exit ], [ 0, %rb_array_len.exit.thread ], [ 0, %1 ], [ 0, %RARRAY_AREF.exit ], [ %spec.select, %rbimpl_RB_TYPE_P_fastpath.exit10 ]
+  %.0 = phi i64 [ 0, %rbimpl_RB_TYPE_P_fastpath.exit ], [ 0, %rb_array_len.exit ], [ 0, %RARRAY_AREF.exit ], [ %spec.select, %rbimpl_RB_TYPE_P_fastpath.exit10 ], [ 0, %1 ], [ 0, %rb_array_len.exit.thread ]
   ret i64 %.0
 }
 
@@ -2033,7 +2033,7 @@ rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %RARRAY_AREF.exit
   br label %33
 
 33:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit, %16, %.critedge, %rb_array_len.exit
-  %.0 = phi i64 [ 0, %rb_array_len.exit ], [ 20, %.critedge ], [ 20, %16 ], [ 0, %rbimpl_RB_TYPE_P_fastpath.exit ]
+  %.0 = phi i64 [ 20, %16 ], [ 0, %rb_array_len.exit ], [ 0, %rbimpl_RB_TYPE_P_fastpath.exit ], [ 20, %.critedge ]
   ret i64 %.0
 }
 
@@ -2262,7 +2262,7 @@ switch.lookup:                                    ; preds = %12
   br label %rbimpl_RB_TYPE_P_fastpath.exit
 
 rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %7, %15, %17, %switch.lookup
-  %.0.i6.i = phi i32 [ %11, %7 ], [ 21, %15 ], [ %spec.select.i.i, %17 ], [ %switch.load, %switch.lookup ]
+  %.0.i6.i = phi i32 [ %11, %7 ], [ %spec.select.i.i, %17 ], [ 21, %15 ], [ %switch.load, %switch.lookup ]
   %20 = icmp eq i32 %1, %.0.i6.i
   ret i1 %20
 }

@@ -396,7 +396,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %14, %18
   br i1 %.not608, label %.invoke, label %186
 
 .invoke:                                          ; preds = %541, %537, %533, %178, %511
-  %180 = phi ptr [ @.str.8, %511 ], [ @.str.5, %178 ], [ @.str.9, %533 ], [ @.str.10, %537 ], [ @.str.11, %541 ]
+  %180 = phi ptr [ @.str.8, %511 ], [ @.str.5, %178 ], [ @.str.11, %541 ], [ @.str.10, %537 ], [ @.str.9, %533 ]
   %181 = phi i32 [ %512, %511 ], [ %179, %178 ], [ %518, %533 ], [ %518, %537 ], [ %518, %541 ]
   invoke void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 3, ptr noundef nonnull %180, i32 noundef %181)
           to label %.loopexit unwind label %.loopexit.split-lp
@@ -916,7 +916,7 @@ _ZL9addUniquePhRhih.exit658.invoke:               ; preds = %.loopexit.i666.us, 
   br label %_ZL8containsPKhhh.exit
 
 _ZL8containsPKhhh.exit:                           ; preds = %.lr.ph.i, %._crit_edge870, %.loopexit801, %323
-  %.2577 = phi i32 [ %.1576872, %323 ], [ %350, %._crit_edge870 ], [ %.1576872, %.loopexit801 ], [ %.1576872, %.lr.ph.i ]
+  %.2577 = phi i32 [ %.1576872, %323 ], [ %.1576872, %.loopexit801 ], [ %350, %._crit_edge870 ], [ %.1576872, %.lr.ph.i ]
   %indvars.iv.next996 = add nuw nsw i64 %indvars.iv995, 1
   %exitcond999.not = icmp eq i64 %indvars.iv.next996, %wide.trip.count998
   br i1 %exitcond999.not, label %.loopexit802, label %323, !llvm.loop !21
@@ -1584,8 +1584,8 @@ _ZL8containsPKhhh.exit690:                        ; preds = %.lr.ph.i685, %401, 
   br label %702
 
 702:                                              ; preds = %697, %690, %688, %635
-  %.2537.us = phi i8 [ %.1536.us, %697 ], [ %.1536.us, %690 ], [ %.1536.us, %688 ], [ %.0535906.us, %635 ]
-  %.1534.us = phi i8 [ %701, %697 ], [ %.0533907.us, %690 ], [ %.0533907.us, %688 ], [ %.0533907.us, %635 ]
+  %.2537.us = phi i8 [ %.1536.us, %697 ], [ %.0535906.us, %635 ], [ %.1536.us, %688 ], [ %.1536.us, %690 ]
+  %.1534.us = phi i8 [ %701, %697 ], [ %.0533907.us, %635 ], [ %.0533907.us, %688 ], [ %.0533907.us, %690 ]
   %indvars.iv.next1046 = add nuw nsw i64 %indvars.iv1045, 1
   %exitcond1047.not = icmp eq i64 %indvars.iv.next1046, 4
   br i1 %exitcond1047.not, label %630, label %635, !llvm.loop !33
@@ -1617,8 +1617,8 @@ _ZL8containsPKhhh.exit690:                        ; preds = %.lr.ph.i685, %401, 
   br label %._crit_edge917
 
 ._crit_edge917:                                   ; preds = %._crit_edge917.loopexit, %._crit_edge903
-  %713 = phi i32 [ %.pre1079, %._crit_edge917.loopexit ], [ 0, %._crit_edge903 ]
-  %714 = phi i32 [ %.pre1078, %._crit_edge917.loopexit ], [ %485, %._crit_edge903 ]
+  %713 = phi i32 [ 0, %._crit_edge903 ], [ %.pre1079, %._crit_edge917.loopexit ]
+  %714 = phi i32 [ %485, %._crit_edge903 ], [ %.pre1078, %._crit_edge917.loopexit ]
   %715 = icmp sgt i32 %714, %713
   br i1 %715, label %716, label %._crit_edge917.thread
 
@@ -1646,7 +1646,7 @@ _ZL8containsPKhhh.exit690:                        ; preds = %.lr.ph.i685, %401, 
   br i1 %724, label %529, label %.loopexit, !llvm.loop !36
 
 .loopexit:                                        ; preds = %721, %_ZL9addUniquePhRhih.exit658.invoke, %.invoke, %513, %._crit_edge897
-  %.2 = phi i1 [ true, %._crit_edge897 ], [ true, %513 ], [ false, %.invoke ], [ false, %_ZL9addUniquePhRhih.exit658.invoke ], [ true, %721 ]
+  %.2 = phi i1 [ false, %.invoke ], [ false, %_ZL9addUniquePhRhih.exit658.invoke ], [ true, %._crit_edge897 ], [ true, %513 ], [ true, %721 ]
   invoke void @_Z6rcFreePv(ptr noundef %177)
           to label %_ZN14rcScopedDeleteI13rcLayerRegionED2Ev.exit702 unwind label %725
 

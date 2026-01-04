@@ -209,7 +209,7 @@ define noundef zeroext i1 @_ZN3net13NullDecrypter13DecryptPacketEhmN4base16Basic
   br label %.critedge24
 
 .critedge24:                                      ; preds = %42, %33, %26, %.critedge, %.thread
-  %.0 = phi i1 [ false, %.thread ], [ true, %42 ], [ false, %33 ], [ false, %26 ], [ false, %.critedge ]
+  %.0 = phi i1 [ false, %.thread ], [ false, %33 ], [ true, %42 ], [ false, %26 ], [ false, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i1 %.0
 }

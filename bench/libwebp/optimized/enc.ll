@@ -1683,7 +1683,7 @@ define internal void @Intra16Preds_C(ptr noalias noundef writeonly captures(none
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %22, %17, %.loopexit.i
-  %.3.i = phi i32 [ %25, %22 ], [ %16, %.loopexit.i ], [ 128, %17 ]
+  %.3.i = phi i32 [ %16, %.loopexit.i ], [ %25, %22 ], [ 128, %17 ]
   %26 = trunc i32 %.3.i to i8
   br label %27
 
@@ -1910,7 +1910,7 @@ define internal void @IntraChromaPreds_C(ptr noalias noundef writeonly captures(
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %23, %18, %.loopexit.i
-  %.3.i = phi i32 [ %26, %23 ], [ %17, %.loopexit.i ], [ 128, %18 ]
+  %.3.i = phi i32 [ %17, %.loopexit.i ], [ %26, %23 ], [ 128, %18 ]
   %27 = trunc i32 %.3.i to i8
   br label %28
 
@@ -2127,9 +2127,9 @@ VerticalPred.exit:                                ; preds = %.preheader.i31, %.p
   br label %._crit_edge.i68
 
 ._crit_edge.i68:                                  ; preds = %.preheader133, %99, %.loopexit.i66
-  %.025124 = phi ptr [ %94, %99 ], [ %.025, %.loopexit.i66 ], [ null, %.preheader133 ]
-  %spec.select121 = phi ptr [ null, %99 ], [ %78, %.loopexit.i66 ], [ null, %.preheader133 ]
-  %.3.i69 = phi i32 [ %102, %99 ], [ %92, %.loopexit.i66 ], [ 128, %.preheader133 ]
+  %.025124 = phi ptr [ %.025, %.loopexit.i66 ], [ %94, %99 ], [ null, %.preheader133 ]
+  %spec.select121 = phi ptr [ %78, %.loopexit.i66 ], [ null, %99 ], [ null, %.preheader133 ]
+  %.3.i69 = phi i32 [ %92, %.loopexit.i66 ], [ %102, %99 ], [ 128, %.preheader133 ]
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %104 = trunc i32 %.3.i69 to i8
   br label %105

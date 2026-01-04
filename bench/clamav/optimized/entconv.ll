@@ -968,8 +968,8 @@ u16_normalize.exit:                               ; preds = %7
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %u16_normalize.exit.thread10, label %u16_normalize.exit.thread
 
-u16_normalize.exit.thread:                        ; preds = %31, %14, %10, %u16_normalize.exit
-  %.031.i9 = phi ptr [ %1, %u16_normalize.exit ], [ %32, %31 ], [ %15, %14 ], [ %12, %10 ]
+u16_normalize.exit.thread:                        ; preds = %31, %10, %14, %u16_normalize.exit
+  %.031.i9 = phi ptr [ %1, %u16_normalize.exit ], [ %32, %31 ], [ %12, %10 ], [ %15, %14 ]
   %33 = getelementptr inbounds nuw i8, ptr %.031.i9, i64 1
   store i8 0, ptr %.031.i9, align 1, !tbaa !3
   br label %u16_normalize.exit.thread10
@@ -1052,8 +1052,8 @@ u16_normalize.exit:                               ; preds = %7
   %.not14 = icmp eq ptr %0, null
   br i1 %.not14, label %.critedge, label %u16_normalize.exit.thread
 
-u16_normalize.exit.thread:                        ; preds = %32, %17, %13, %u16_normalize.exit
-  %.031.i17 = phi ptr [ %0, %u16_normalize.exit ], [ %33, %32 ], [ %18, %17 ], [ %15, %13 ]
+u16_normalize.exit.thread:                        ; preds = %32, %13, %17, %u16_normalize.exit
+  %.031.i17 = phi ptr [ %0, %u16_normalize.exit ], [ %33, %32 ], [ %15, %13 ], [ %18, %17 ]
   store i8 0, ptr %.031.i17, align 1, !tbaa !3
   br label %.critedge
 
@@ -1229,11 +1229,11 @@ define ptr @encoding_detect_bom(ptr noundef readonly captures(none) %0, i64 noun
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.792) #16
   br label %detect_encoding.exit.thread
 
-detect_encoding.exit.thread:                      ; preds = %4, %28, %35, %48, %87, %83, %79, %75, %24, %6, %71, %61, %9, %67, %64, %20, %16, %12
+detect_encoding.exit.thread:                      ; preds = %4, %75, %87, %9, %24, %28, %6, %35, %48, %79, %67, %83, %64, %71, %61, %20, %16, %12
   br label %detect_encoding.exit
 
-detect_encoding.exit:                             ; preds = %32, %67, %71, %24, %detect_encoding.exit.thread, %60, %56, %47, %43, %20, %16, %12, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %detect_encoding.exit.thread ], [ @.str.764, %47 ], [ @.str.768, %60 ], [ @.str.765, %12 ], [ @.str.777, %16 ], [ @.str.765, %20 ], [ @.str.780, %43 ], [ @.str.773, %56 ], [ @.str.777, %24 ], [ @.str.764, %71 ], [ @.str.780, %67 ], [ %switch.select9, %32 ]
+detect_encoding.exit:                             ; preds = %32, %71, %67, %24, %detect_encoding.exit.thread, %60, %56, %47, %43, %20, %16, %12, %2
+  %.0 = phi ptr [ null, %2 ], [ null, %detect_encoding.exit.thread ], [ @.str.773, %56 ], [ @.str.764, %47 ], [ @.str.765, %12 ], [ @.str.777, %16 ], [ @.str.765, %20 ], [ @.str.777, %24 ], [ @.str.780, %43 ], [ @.str.768, %60 ], [ %switch.select9, %32 ], [ @.str.764, %71 ], [ @.str.780, %67 ]
   ret ptr %.0
 }
 
@@ -1307,7 +1307,7 @@ define range(i32 -1, 3) i32 @encoding_normalize_toascii(ptr noundef readonly cap
   %exitcond34.not.i = icmp eq i64 %37, %15
   br i1 %exitcond34.not.i, label %.loopexit, label %28
 
-.loopexit42:                                      ; preds = %.lr.ph.i, %14, %._crit_edge.i, %._crit_edge.thread.i
+.loopexit42:                                      ; preds = %.lr.ph.i, %._crit_edge.i, %14, %._crit_edge.thread.i
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str) #16
   br label %184
 
@@ -1876,8 +1876,8 @@ define range(i32 0, 28) i32 @cli_codepage_to_utf8(ptr noundef %0, i64 noundef %1
   br label %.thread
 
 .thread:                                          ; preds = %82, %.thread.loopexit201, %83, %20, %22, %39
-  %.1102 = phi ptr [ %18, %39 ], [ %18, %22 ], [ %18, %20 ], [ %79, %83 ], [ %18, %.thread.loopexit201 ], [ null, %82 ]
-  %.096 = phi i64 [ %1, %39 ], [ %1, %22 ], [ %1, %20 ], [ %85, %83 ], [ %1, %.thread.loopexit201 ], [ %55, %82 ]
+  %.1102 = phi ptr [ %18, %20 ], [ %18, %39 ], [ %18, %.thread.loopexit201 ], [ %18, %22 ], [ %79, %83 ], [ null, %82 ]
+  %.096 = phi i64 [ %1, %20 ], [ %1, %39 ], [ %1, %.thread.loopexit201 ], [ %1, %22 ], [ %85, %83 ], [ %55, %82 ]
   store ptr %.1102, ptr %3, align 8, !tbaa !28
   store i64 %.096, ptr %4, align 8, !tbaa !29
   br label %.thread157
@@ -1892,7 +1892,7 @@ define range(i32 0, 28) i32 @cli_codepage_to_utf8(ptr noundef %0, i64 noundef %1
   br label %.thread157
 
 .thread157:                                       ; preds = %.thread134, %43, %14, %.thread, %.thread162, %86
-  %.0107161 = phi i32 [ %.5112.ph, %86 ], [ 20, %.thread162 ], [ 22, %.thread134 ], [ 20, %43 ], [ 0, %.thread ], [ 3, %14 ]
+  %.0107161 = phi i32 [ 20, %.thread162 ], [ 3, %14 ], [ %.5112.ph, %86 ], [ 22, %.thread134 ], [ 20, %43 ], [ 0, %.thread ]
   ret i32 %.0107161
 }
 
@@ -2152,7 +2152,7 @@ define ptr @cli_utf16_to_utf8(ptr noundef readonly captures(none) %0, i64 nounde
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge, %26
-  %108 = phi i64 [ 0, %26 ], [ %spec.select117, %._crit_edge ]
+  %108 = phi i64 [ %spec.select117, %._crit_edge ], [ 0, %26 ]
   %109 = getelementptr inbounds nuw i8, ptr %15, i64 %108
   store i8 0, ptr %109, align 1, !tbaa !3
   br label %110
@@ -2210,7 +2210,7 @@ define range(i32 0, 2) i32 @cli_isutf8(ptr noundef readonly captures(none) %0, i
   br i1 %24, label %25, label %.critedge
 
 25:                                               ; preds = %22, %19, %16, %13, %10
-  %.0 = phi i32 [ 1, %10 ], [ 2, %13 ], [ 3, %16 ], [ 4, %19 ], [ 5, %22 ]
+  %.0 = phi i32 [ 4, %19 ], [ 1, %10 ], [ 2, %13 ], [ 3, %16 ], [ 5, %22 ]
   %26 = add i32 %.0, %.02942
   br label %28
 
@@ -2238,7 +2238,7 @@ define range(i32 0, 2) i32 @cli_isutf8(ptr noundef readonly captures(none) %0, i
   br i1 %35, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %7, %.loopexit, %22, %28, %30, %2
-  %.232 = phi i32 [ 1, %2 ], [ 0, %30 ], [ 0, %28 ], [ 0, %7 ], [ 1, %.loopexit ], [ 0, %22 ]
+  %.232 = phi i32 [ 1, %2 ], [ 0, %28 ], [ 0, %30 ], [ 0, %7 ], [ 0, %22 ], [ 1, %.loopexit ]
   ret i32 %.232
 }
 

@@ -681,7 +681,7 @@ radius_only.exit:                                 ; preds = %.lr.ph.split.split.
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.thread.fold.split7.i, %.thread.fold.split.i, %225, %225
-  %.0743.i = phi i32 [ 16, %225 ], [ 16, %225 ], [ 21, %.thread.fold.split.i ], [ %208, %.thread.fold.split7.i ]
+  %.0743.i = phi i32 [ 21, %.thread.fold.split.i ], [ 16, %225 ], [ 16, %225 ], [ %208, %.thread.fold.split7.i ]
   %226 = call zeroext i8 @lv_color_format_get_size(i32 noundef %.0743.i) #6
   %227 = zext i8 %226 to i32
   br label %.thread4.i

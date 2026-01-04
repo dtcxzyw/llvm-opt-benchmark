@@ -4552,8 +4552,8 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit: ; preds = %4
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19.backedge
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19.backedge: ; preds = %65, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit
-  %.025.be = phi i32 [ %spec.select, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %.2, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit ], [ %spec.select27, %65 ]
-  %.011.be = phi i64 [ %45, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %35, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit ], [ %.sroa.07.0.i, %65 ]
+  %.025.be = phi i32 [ %.2, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit ], [ %spec.select, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %spec.select27, %65 ]
+  %.011.be = phi i64 [ %35, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit ], [ %45, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %.sroa.07.0.i, %65 ]
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19
 
 68:                                               ; preds = %68, %64
@@ -4703,8 +4703,8 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit: ; preds = %4
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19.backedge
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19.backedge: ; preds = %64, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit
-  %.025.be = phi i32 [ %spec.select, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %.2, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit ], [ %spec.select27, %64 ]
-  %.011.be = phi i64 [ %45, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %35, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit ], [ %.sroa.07.0.i, %64 ]
+  %.025.be = phi i32 [ %.2, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit ], [ %spec.select, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %spec.select27, %64 ]
+  %.011.be = phi i64 [ %35, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit ], [ %45, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %.sroa.07.0.i, %64 ]
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19
 
 67:                                               ; preds = %67, %63
@@ -4855,8 +4855,8 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit: ; preds = %4
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19.backedge
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19.backedge: ; preds = %65, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit
-  %.025.be = phi i32 [ %spec.select, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %.2, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit ], [ %spec.select27, %65 ]
-  %.011.be = phi i64 [ %46, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %36, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit ], [ %.sroa.07.0.i, %65 ]
+  %.025.be = phi i32 [ %.2, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit ], [ %spec.select, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %spec.select27, %65 ]
+  %.011.be = phi i64 [ %36, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit ], [ %46, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %.sroa.07.0.i, %65 ]
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19
 
 68:                                               ; preds = %68, %64
@@ -5007,8 +5007,8 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit: ; preds = %4
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19.backedge
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19.backedge: ; preds = %65, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit
-  %.025.be = phi i32 [ %spec.select, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %.2, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit ], [ %spec.select27, %65 ]
-  %.011.be = phi i64 [ %46, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %36, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit ], [ %.sroa.07.0.i, %65 ]
+  %.025.be = phi i32 [ %.2, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit ], [ %spec.select, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %spec.select27, %65 ]
+  %.011.be = phi i64 [ %36, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit ], [ %46, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %.sroa.07.0.i, %65 ]
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19
 
 68:                                               ; preds = %68, %64
@@ -5159,8 +5159,8 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit: ; preds = %4
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19.backedge
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19.backedge: ; preds = %65, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit
-  %.025.be = phi i32 [ %spec.select, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %.2, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit ], [ %spec.select27, %65 ]
-  %.011.be = phi i64 [ %46, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %36, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit ], [ %.sroa.07.0.i, %65 ]
+  %.025.be = phi i32 [ %.2, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit ], [ %spec.select, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %spec.select27, %65 ]
+  %.011.be = phi i64 [ %36, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit ], [ %46, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %.sroa.07.0.i, %65 ]
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19
 
 68:                                               ; preds = %68, %64
@@ -5279,8 +5279,8 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit: ; preds = %5
   br i1 %54, label %52, label %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19: ; preds = %69, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit
-  %.126 = phi i32 [ %spec.select, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %.2, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit ], [ %spec.select27, %69 ]
-  %.1 = phi i64 [ %51, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %42, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit ], [ %.sroa.07.0.i, %69 ]
+  %.126 = phi i32 [ %.2, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit ], [ %spec.select, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %spec.select27, %69 ]
+  %.1 = phi i64 [ %42, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit ], [ %51, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %.sroa.07.0.i, %69 ]
   %55 = load i64, ptr %5, align 16, !noundef !4
   %56 = and i64 %55, %.1
   %57 = icmp eq i64 %56, 0
@@ -5438,8 +5438,8 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit: ; preds = %5
   br i1 %53, label %51, label %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19: ; preds = %68, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit
-  %.126 = phi i32 [ %spec.select, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %.2, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit ], [ %spec.select27, %68 ]
-  %.1 = phi i64 [ %50, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %41, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit ], [ %.sroa.07.0.i, %68 ]
+  %.126 = phi i32 [ %.2, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit ], [ %spec.select, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %spec.select27, %68 ]
+  %.1 = phi i64 [ %41, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit ], [ %50, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %.sroa.07.0.i, %68 ]
   %54 = load i64, ptr %5, align 16, !noundef !4
   %55 = and i64 %54, %.1
   %56 = icmp eq i64 %55, 0
@@ -5598,8 +5598,8 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit: ; preds = %5
   br i1 %54, label %52, label %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19: ; preds = %69, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit
-  %.126 = phi i32 [ %spec.select, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %.2, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit ], [ %spec.select27, %69 ]
-  %.1 = phi i64 [ %51, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %42, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit ], [ %.sroa.07.0.i, %69 ]
+  %.126 = phi i32 [ %.2, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit ], [ %spec.select, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %spec.select27, %69 ]
+  %.1 = phi i64 [ %42, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit ], [ %51, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %.sroa.07.0.i, %69 ]
   %55 = load i64, ptr %5, align 16, !noundef !4
   %56 = and i64 %55, %.1
   %57 = icmp eq i64 %56, 0
@@ -6164,8 +6164,8 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit.i: ; preds = 
   br i1 %69, label %67, label %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit.i
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19.i: ; preds = %81, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit.i, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit.i
-  %.126.i = phi i32 [ %spec.select.i, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit.i ], [ %.2.i, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit.i ], [ %spec.select27.i, %81 ]
-  %.1.i = phi i64 [ %66, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit.i ], [ %57, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit.i ], [ %.sroa.07.0.i.i, %81 ]
+  %.126.i = phi i32 [ %.2.i, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit.i ], [ %spec.select.i, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit.i ], [ %spec.select27.i, %81 ]
+  %.1.i = phi i64 [ %57, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit.i ], [ %66, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit.i ], [ %.sroa.07.0.i.i, %81 ]
   %70 = load i64, ptr %18, align 16, !noalias !699, !noundef !4
   %71 = and i64 %70, %.1.i
   %72 = icmp eq i64 %71, 0
@@ -6343,7 +6343,7 @@ _ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit17h799346beabb6d62aE.
   unreachable
 
 "_ZN4core3ptr56drop_in_place$LT$crossbeam_channel..context..Context$GT$17h3683d54ff00f23adE.exit.i.i.i": ; preds = %141, %138, %120, %115
-  %.pn18.i.i.i = phi { ptr, i32 } [ %116, %120 ], [ %116, %115 ], [ %lpad.loopexit, %141 ], [ %lpad.loopexit, %138 ]
+  %.pn18.i.i.i = phi { ptr, i32 } [ %lpad.loopexit, %138 ], [ %116, %115 ], [ %116, %120 ], [ %lpad.loopexit, %141 ]
   resume { ptr, i32 } %.pn18.i.i.i
 
 128:                                              ; preds = %_ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit17h799346beabb6d62aE.exit.thread.i.i
@@ -6409,7 +6409,7 @@ _ZN17crossbeam_channel7context7Context4with17h58b95c252cb411d3E.exit: ; preds = 
   br i1 %145, label %.lr.ph.i.backedge, label %.critedge
 
 .critedge:                                        ; preds = %106, %_ZN17crossbeam_channel7context7Context4with17h58b95c252cb411d3E.exit, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19.i, %3, %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$5write17h6ffdfcd40353b1ebE.exit"
-  %.0 = phi i8 [ 2, %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$5write17h6ffdfcd40353b1ebE.exit" ], [ 1, %3 ], [ 1, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19.i ], [ 1, %_ZN17crossbeam_channel7context7Context4with17h58b95c252cb411d3E.exit ], [ 0, %106 ], [ 1, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit ]
+  %.0 = phi i8 [ 2, %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$5write17h6ffdfcd40353b1ebE.exit" ], [ 1, %3 ], [ 1, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19.i ], [ 0, %106 ], [ 1, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit ], [ 1, %_ZN17crossbeam_channel7context7Context4with17h58b95c252cb411d3E.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i8 %.0
 }
@@ -7550,7 +7550,7 @@ define hidden void @"_ZN4core3ptr148drop_in_place$LT$moka..notification..notifie
   unreachable
 
 common.resume:                                    ; preds = %30, %11, %17
-  %common.resume.op = phi { ptr, i32 } [ %12, %17 ], [ %12, %11 ], [ %31, %30 ]
+  %common.resume.op = phi { ptr, i32 } [ %12, %11 ], [ %12, %17 ], [ %31, %30 ]
   resume { ptr, i32 } %common.resume.op
 
 25:                                               ; preds = %1
@@ -10379,7 +10379,7 @@ define hidden void @"_ZN71_$LT$F$u20$as$u20$scheduled_thread_pool..thunk..Invoke
   ret void
 
 32:                                               ; preds = %29, %20, %15, %8
-  %eh.lpad-body = phi { ptr, i32 } [ %30, %29 ], [ %16, %20 ], [ %16, %15 ], [ %9, %8 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %30, %29 ], [ %16, %15 ], [ %16, %20 ], [ %9, %8 ]
   call void @__rust_dealloc(ptr noundef nonnull %0, i64 noundef 16, i64 noundef 8) #21
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -11359,7 +11359,7 @@ define void @_ZN13mini_lsm_mvcc7compact6tiered26TieredCompactionController23appl
   unreachable
 
 common.resume:                                    ; preds = %.critedge47, %43, %46
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn.i, %46 ], [ %.pn.pn.pn.i, %43 ], [ %.pn4484, %.critedge47 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn.i, %43 ], [ %.pn.pn.pn.i, %46 ], [ %.pn4484, %.critedge47 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN82_$LT$mini_lsm_mvcc..lsm_storage..LsmStorageState$u20$as$u20$core..clone..Clone$GT$5clone17hc1e2b3ba699578dfE.exit": ; preds = %72, %"_ZN87_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$hashbrown..raw..RawTableClone$GT$15clone_from_spec17h4c1d3a479b3c98d2E.llvm.11246187030462519964.exit.i.i.i"
@@ -11445,14 +11445,14 @@ common.resume:                                    ; preds = %.critedge47, %43, %
   call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.231749247c9dbb1d881e71a77925d738.89) #36
   unreachable
 
-.thread88:                                        ; preds = %"_ZN82_$LT$mini_lsm_mvcc..lsm_storage..LsmStorageState$u20$as$u20$core..clone..Clone$GT$5clone17hc1e2b3ba699578dfE.exit", %93
+.thread88:                                        ; preds = %93, %"_ZN82_$LT$mini_lsm_mvcc..lsm_storage..LsmStorageState$u20$as$u20$core..clone..Clone$GT$5clone17hc1e2b3ba699578dfE.exit"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
 
 .body65:                                          ; preds = %.loopexit, %.loopexit.split-lp, %201, %177, %134
-  %.039 = phi i1 [ false, %134 ], [ true, %177 ], [ true, %201 ], [ true, %.loopexit.split-lp ], [ true, %.loopexit ]
-  %.pn = phi { ptr, i32 } [ %135, %134 ], [ %178, %177 ], [ %202, %201 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ]
+  %.039 = phi i1 [ false, %134 ], [ true, %201 ], [ true, %177 ], [ true, %.loopexit.split-lp ], [ true, %.loopexit ]
+  %.pn = phi { ptr, i32 } [ %135, %134 ], [ %202, %201 ], [ %178, %177 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ]
   invoke void @"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17hf41f80f7c1276c9eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %26) #34
           to label %212 unwind label %210
 
@@ -11792,7 +11792,7 @@ common.resume:                                    ; preds = %.critedge47, %43, %
           to label %213 unwind label %210
 
 .thread:                                          ; preds = %98, %213, %.thread88
-  %.pn4484 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread88 ], [ %.pn, %213 ], [ %99, %98 ]
+  %.pn4484 = phi { ptr, i32 } [ %.pn, %213 ], [ %lpad.thr_comm, %.thread88 ], [ %99, %98 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1665)
   call void @llvm.experimental.noalias.scope.decl(metadata !1668)
   %215 = load ptr, ptr %83, align 8, !alias.scope !1671, !nonnull !4, !noundef !4

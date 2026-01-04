@@ -197,9 +197,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59: ; preds = %26,
   br label %189
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %._ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit_crit_edge, %.lr.ph, %57
-  %69 = phi ptr [ %.pre96, %57 ], [ %.pre96, %.lr.ph ], [ %.pre95, %._ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit_crit_edge ]
-  %70 = phi ptr [ %.pre94, %57 ], [ %.pre94, %.lr.ph ], [ %.pre, %._ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit_crit_edge ]
-  %.241 = phi i32 [ %58, %57 ], [ %.14087, %.lr.ph ], [ %58, %._ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit_crit_edge ]
+  %69 = phi ptr [ %.pre96, %.lr.ph ], [ %.pre96, %57 ], [ %.pre95, %._ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit_crit_edge ]
+  %70 = phi ptr [ %.pre94, %.lr.ph ], [ %.pre94, %57 ], [ %.pre, %._ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit_crit_edge ]
+  %.241 = phi i32 [ %.14087, %.lr.ph ], [ %58, %57 ], [ %58, %._ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit_crit_edge ]
   %71 = add i32 %.241, 1
   %72 = zext i32 %71 to i64
   %73 = ptrtoint ptr %70 to i64
@@ -288,7 +288,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63: ; preds = %92,
   br i1 %114, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !42
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %111, %109, %105, %101, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63
-  %.0.i.i = phi i32 [ %102, %101 ], [ %106, %105 ], [ %110, %109 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63 ], [ %113, %111 ]
+  %.0.i.i = phi i32 [ %110, %109 ], [ %102, %101 ], [ %106, %105 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63 ], [ %113, %111 ]
   %.lobit.i = lshr i32 %97, 31
   %115 = add i32 %.0.i.i, %.lobit.i
   %116 = zext i32 %115 to i64

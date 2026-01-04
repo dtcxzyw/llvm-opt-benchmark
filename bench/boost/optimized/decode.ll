@@ -77,7 +77,7 @@ define noundef signext i8 @_ZN5boost4urls6detail10decode_oneEPKc(ptr noundef rea
   br label %_ZN5boost4urls7grammar12hexdig_valueEc.exit
 
 _ZN5boost4urls7grammar12hexdig_valueEc.exit:      ; preds = %1, %3, %4, %5, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16, %17
-  %.0.i = phi i8 [ 0, %3 ], [ 16, %4 ], [ 32, %5 ], [ 48, %6 ], [ 64, %7 ], [ 80, %8 ], [ 96, %9 ], [ 112, %10 ], [ -128, %11 ], [ -112, %12 ], [ -96, %13 ], [ -80, %14 ], [ -64, %15 ], [ -48, %16 ], [ -32, %17 ], [ -16, %1 ]
+  %.0.i = phi i8 [ -16, %1 ], [ 0, %3 ], [ 16, %4 ], [ 32, %5 ], [ 48, %6 ], [ 64, %7 ], [ 80, %8 ], [ 96, %9 ], [ 112, %10 ], [ -128, %11 ], [ -112, %12 ], [ -96, %13 ], [ -80, %14 ], [ -64, %15 ], [ -48, %16 ], [ -32, %17 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %19 = load i8, ptr %18, align 1, !tbaa !3
   %switch.tableidx = add i8 %19, -48
@@ -255,7 +255,7 @@ define noundef i64 @_ZN5boost4urls6detail13decode_unsafeEPcPKcNS_4core17basic_st
   br label %.backedge.i11
 
 .backedge.i11:                                    ; preds = %54, %51
-  %.028.be.i12 = phi ptr [ %53, %51 ], [ %42, %54 ]
+  %.028.be.i12 = phi ptr [ %42, %54 ], [ %53, %51 ]
   %.0.be.i13 = getelementptr inbounds nuw i8, ptr %.035.i, i64 1
   %.not.i14 = icmp eq ptr %.028.be.i12, %7
   br i1 %.not.i14, label %._crit_edge.i15, label %35, !llvm.loop !9
@@ -270,7 +270,7 @@ define noundef i64 @_ZN5boost4urls6detail13decode_unsafeEPcPKcNS_4core17basic_st
   br label %_ZN5boost4urls6detail18decode_unsafe_implILb1EEEmPcPKcNS_4core17basic_string_viewIcEE.exit
 
 _ZN5boost4urls6detail18decode_unsafe_implILb1EEEmPcPKcNS_4core17basic_string_viewIcEE.exit: ; preds = %._crit_edge.i15, %47, %37, %._crit_edge.i, %23, %12
-  %.sink.i17.sink = phi i64 [ %32, %._crit_edge.i ], [ %25, %23 ], [ %13, %12 ], [ %55, %._crit_edge.i15 ], [ %49, %47 ], [ %38, %37 ]
+  %.sink.i17.sink = phi i64 [ %13, %12 ], [ %32, %._crit_edge.i ], [ %25, %23 ], [ %55, %._crit_edge.i15 ], [ %49, %47 ], [ %38, %37 ]
   %56 = ptrtoint ptr %0 to i64
   %57 = sub i64 %.sink.i17.sink, %56
   ret i64 %57

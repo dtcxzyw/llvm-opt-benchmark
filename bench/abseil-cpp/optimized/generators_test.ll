@@ -2517,7 +2517,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.thread
 
 .thread:                                          ; preds = %85, %.preheader43, %148, %150
-  %.0 = phi i32 [ 2147483647, %148 ], [ %151, %150 ], [ 0, %.preheader43 ], [ %.134, %85 ]
+  %.0 = phi i32 [ %151, %150 ], [ 2147483647, %148 ], [ 0, %.preheader43 ], [ %.134, %85 ]
   ret i32 %.0
 }
 
@@ -2754,7 +2754,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.thread
 
 .thread:                                          ; preds = %85, %.preheader43, %148, %150
-  %.0 = phi i16 [ 32767, %148 ], [ %151, %150 ], [ 0, %.preheader43 ], [ %.134, %85 ]
+  %.0 = phi i16 [ %151, %150 ], [ 32767, %148 ], [ 0, %.preheader43 ], [ %.134, %85 ]
   ret i16 %.0
 }
 
@@ -2988,7 +2988,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.thread
 
 .thread:                                          ; preds = %85, %.preheader43, %148, %150
-  %.0 = phi i16 [ -1, %148 ], [ %151, %150 ], [ 0, %.preheader43 ], [ %.134, %85 ]
+  %.0 = phi i16 [ %151, %150 ], [ -1, %148 ], [ 0, %.preheader43 ], [ %.134, %85 ]
   ret i16 %.0
 }
 
@@ -3222,7 +3222,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.thread
 
 .thread:                                          ; preds = %85, %.preheader43, %148, %150
-  %.0 = phi i32 [ -1, %148 ], [ %151, %150 ], [ 0, %.preheader43 ], [ %.134, %85 ]
+  %.0 = phi i32 [ %151, %150 ], [ -1, %148 ], [ 0, %.preheader43 ], [ %.134, %85 ]
   ret i32 %.0
 }
 
@@ -3456,7 +3456,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.thread
 
 .thread:                                          ; preds = %85, %.preheader43, %148, %150
-  %.0 = phi i64 [ 9223372036854775807, %148 ], [ %151, %150 ], [ 0, %.preheader43 ], [ %.134, %85 ]
+  %.0 = phi i64 [ %151, %150 ], [ 9223372036854775807, %148 ], [ 0, %.preheader43 ], [ %.134, %85 ]
   ret i64 %.0
 }
 
@@ -3690,7 +3690,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.thread
 
 .thread:                                          ; preds = %85, %.preheader43, %148, %150
-  %.0 = phi i64 [ -1, %148 ], [ %151, %150 ], [ 0, %.preheader43 ], [ %.134, %85 ]
+  %.0 = phi i64 [ %151, %150 ], [ -1, %148 ], [ 0, %.preheader43 ], [ %.134, %85 ]
   ret i64 %.0
 }
 
@@ -3934,8 +3934,8 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.thread
 
 .thread:                                          ; preds = %85, %.preheader55, %150, %148
-  %.sroa.8.2 = phi i64 [ 9223372036854775807, %148 ], [ %.sroa.8.0.extract.trunc47, %150 ], [ 0, %.preheader55 ], [ %.sroa.8.1, %85 ]
-  %.sroa.032.2 = phi i64 [ -1, %148 ], [ %.sroa.032.0.extract.trunc38, %150 ], [ 0, %.preheader55 ], [ %.sroa.032.1, %85 ]
+  %.sroa.8.2 = phi i64 [ %.sroa.8.0.extract.trunc47, %150 ], [ 9223372036854775807, %148 ], [ 0, %.preheader55 ], [ %.sroa.8.1, %85 ]
+  %.sroa.032.2 = phi i64 [ %.sroa.032.0.extract.trunc38, %150 ], [ -1, %148 ], [ 0, %.preheader55 ], [ %.sroa.032.1, %85 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.032.2, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.8.2, 1
   ret { i64, i64 } %.fca.1.insert
@@ -4187,8 +4187,8 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.thread
 
 .thread:                                          ; preds = %87, %150, %7, %152
-  %.fca.1.load = phi i64 [ %.fca.1.load.pre, %152 ], [ 0, %7 ], [ -1, %150 ], [ %.tr.i.i.i43, %87 ]
-  %.fca.0.load = phi i64 [ %.fca.0.load.pre, %152 ], [ 0, %7 ], [ -1, %150 ], [ %.sroa.0.0.extract.trunc.i.i.i42, %87 ]
+  %.fca.1.load = phi i64 [ %.fca.1.load.pre, %152 ], [ -1, %150 ], [ 0, %7 ], [ %.tr.i.i.i43, %87 ]
+  %.fca.0.load = phi i64 [ %.fca.0.load.pre, %152 ], [ -1, %150 ], [ 0, %7 ], [ %.sroa.0.0.extract.trunc.i.i.i42, %87 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.fca.0.load, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { i64, i64 } %.fca.1.insert
@@ -11633,7 +11633,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
   br label %.thread
 
 .thread:                                          ; preds = %40, %.preheader45, %130, %132
-  %.0 = phi i32 [ 2147483647, %130 ], [ %133, %132 ], [ 0, %.preheader45 ], [ %.134, %40 ]
+  %.0 = phi i32 [ %133, %132 ], [ 2147483647, %130 ], [ 0, %.preheader45 ], [ %.134, %40 ]
   ret i32 %.0
 }
 
@@ -11859,7 +11859,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
   br label %.thread
 
 .thread:                                          ; preds = %40, %.preheader45, %130, %132
-  %.0 = phi i16 [ 32767, %130 ], [ %133, %132 ], [ 0, %.preheader45 ], [ %.134, %40 ]
+  %.0 = phi i16 [ %133, %132 ], [ 32767, %130 ], [ 0, %.preheader45 ], [ %.134, %40 ]
   ret i16 %.0
 }
 
@@ -12085,7 +12085,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
   br label %.thread
 
 .thread:                                          ; preds = %40, %.preheader45, %130, %132
-  %.0 = phi i16 [ -1, %130 ], [ %133, %132 ], [ 0, %.preheader45 ], [ %.134, %40 ]
+  %.0 = phi i16 [ %133, %132 ], [ -1, %130 ], [ 0, %.preheader45 ], [ %.134, %40 ]
   ret i16 %.0
 }
 
@@ -12311,7 +12311,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
   br label %.thread
 
 .thread:                                          ; preds = %40, %.preheader45, %130, %132
-  %.0 = phi i32 [ -1, %130 ], [ %133, %132 ], [ 0, %.preheader45 ], [ %.134, %40 ]
+  %.0 = phi i32 [ %133, %132 ], [ -1, %130 ], [ 0, %.preheader45 ], [ %.134, %40 ]
   ret i32 %.0
 }
 
@@ -12537,7 +12537,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
   br label %.thread
 
 .thread:                                          ; preds = %40, %.preheader45, %130, %132
-  %.0 = phi i64 [ 9223372036854775807, %130 ], [ %133, %132 ], [ 0, %.preheader45 ], [ %.134, %40 ]
+  %.0 = phi i64 [ %133, %132 ], [ 9223372036854775807, %130 ], [ 0, %.preheader45 ], [ %.134, %40 ]
   ret i64 %.0
 }
 
@@ -12763,7 +12763,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
   br label %.thread
 
 .thread:                                          ; preds = %40, %.preheader45, %130, %132
-  %.0 = phi i64 [ -1, %130 ], [ %133, %132 ], [ 0, %.preheader45 ], [ %.134, %40 ]
+  %.0 = phi i64 [ %133, %132 ], [ -1, %130 ], [ 0, %.preheader45 ], [ %.134, %40 ]
   ret i64 %.0
 }
 
@@ -12999,8 +12999,8 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
   br label %.thread
 
 .thread:                                          ; preds = %40, %.preheader57, %132, %130
-  %.sroa.8.2 = phi i64 [ 9223372036854775807, %130 ], [ %.sroa.8.0.extract.trunc49, %132 ], [ 0, %.preheader57 ], [ %.sroa.8.1, %40 ]
-  %.sroa.034.2 = phi i64 [ -1, %130 ], [ %.sroa.034.0.extract.trunc40, %132 ], [ 0, %.preheader57 ], [ %.sroa.034.1, %40 ]
+  %.sroa.8.2 = phi i64 [ %.sroa.8.0.extract.trunc49, %132 ], [ 9223372036854775807, %130 ], [ 0, %.preheader57 ], [ %.sroa.8.1, %40 ]
+  %.sroa.034.2 = phi i64 [ %.sroa.034.0.extract.trunc40, %132 ], [ -1, %130 ], [ 0, %.preheader57 ], [ %.sroa.034.1, %40 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.034.2, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.8.2, 1
   ret { i64, i64 } %.fca.1.insert
@@ -13241,8 +13241,8 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
   br label %.thread
 
 .thread:                                          ; preds = %42, %132, %7, %134
-  %.fca.1.load = phi i64 [ %.fca.1.load.pre, %134 ], [ 0, %7 ], [ -1, %132 ], [ %.tr.i.i.i45, %42 ]
-  %.fca.0.load = phi i64 [ %.fca.0.load.pre, %134 ], [ 0, %7 ], [ -1, %132 ], [ %.sroa.0.0.extract.trunc.i.i.i44, %42 ]
+  %.fca.1.load = phi i64 [ %.fca.1.load.pre, %134 ], [ -1, %132 ], [ 0, %7 ], [ %.tr.i.i.i45, %42 ]
+  %.fca.0.load = phi i64 [ %.fca.0.load.pre, %134 ], [ -1, %132 ], [ 0, %7 ], [ %.sroa.0.0.extract.trunc.i.i.i44, %42 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.fca.0.load, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { i64, i64 } %.fca.1.insert
@@ -17133,8 +17133,8 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   br i1 %86, label %.lr.ph.i.i.i.i.i.i.i.i, label %.split.i.i.i.i.i.i.i.preheader, !llvm.loop !364
 
 .split.i.i.i.i.i.i.i.preheader:                   ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %78, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit.i
-  %.narrow.i.i.i.i.i.i19.i.i.i.i.i.i.i.ph = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %78 ], [ %.narrow.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit.i ], [ %.narrow.i.i.i.i.i.i30.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.sroa.0.0.extract.trunc.i17.i.i.i.i.i18.i.i.i.i.i.i.i.ph = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i.i.i.i, %78 ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i28.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.narrow.i.i.i.i.i.i19.i.i.i.i.i.i.i.ph = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit.i ], [ %.narrow.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %78 ], [ %.narrow.i.i.i.i.i.i30.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.sroa.0.0.extract.trunc.i17.i.i.i.i.i18.i.i.i.i.i.i.i.ph = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i.i.i.i, %78 ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i28.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
   br label %.split.i.i.i.i.i.i.i
 
 .split.i.i.i.i.i.i.i:                             ; preds = %.split.i.i.i.i.i.i.i.preheader, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i.i.i
@@ -17428,8 +17428,8 @@ _ZN4absl7UniformImRNS_15random_internal17NonsecureURBGBaseINS1_10pcg_engineINS1_
   br i1 %182, label %.lr.ph.i.i.i.i.i.i181.i.i, label %..loopexit_crit_edge.i.i.i.i.i.i193.i.i, !llvm.loop !364
 
 ..loopexit_crit_edge.i.i.i.i.i.i193.i.i:          ; preds = %.lr.ph.i.i.i.i.i.i181.i.i, %174, %_ZN4absl7UniformImRNS_15random_internal17NonsecureURBGBaseINS1_10pcg_engineINS1_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS1_17pcg_xsl_rr_128_64EEENS1_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESC_E4typeEOT0_SC_SC_.exit.i.i
-  %.sroa.22.0.copyload.i.i.i.i.i.i.i.i.i.i197.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i.i.i.i177.i.i, %174 ], [ %.narrow.i.i.i.i.i.i.i.i.i.i.i.i177.i.i, %_ZN4absl7UniformImRNS_15random_internal17NonsecureURBGBaseINS1_10pcg_engineINS1_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS1_17pcg_xsl_rr_128_64EEENS1_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESC_E4typeEOT0_SC_SC_.exit.i.i ], [ %.narrow.i.i.i.i.i.i30.i.i.i.i.i.i191.i.i, %.lr.ph.i.i.i.i.i.i181.i.i ]
-  %.sroa.01.0.copyload.i.i.i.i.i.i.i.i.i.i195.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i.i175.i.i, %174 ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i.i175.i.i, %_ZN4absl7UniformImRNS_15random_internal17NonsecureURBGBaseINS1_10pcg_engineINS1_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS1_17pcg_xsl_rr_128_64EEENS1_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESC_E4typeEOT0_SC_SC_.exit.i.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i28.i.i.i.i.i.i189.i.i, %.lr.ph.i.i.i.i.i.i181.i.i ]
+  %.sroa.22.0.copyload.i.i.i.i.i.i.i.i.i.i197.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i.i.i.i177.i.i, %_ZN4absl7UniformImRNS_15random_internal17NonsecureURBGBaseINS1_10pcg_engineINS1_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS1_17pcg_xsl_rr_128_64EEENS1_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESC_E4typeEOT0_SC_SC_.exit.i.i ], [ %.narrow.i.i.i.i.i.i.i.i.i.i.i.i177.i.i, %174 ], [ %.narrow.i.i.i.i.i.i30.i.i.i.i.i.i191.i.i, %.lr.ph.i.i.i.i.i.i181.i.i ]
+  %.sroa.01.0.copyload.i.i.i.i.i.i.i.i.i.i195.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i.i175.i.i, %_ZN4absl7UniformImRNS_15random_internal17NonsecureURBGBaseINS1_10pcg_engineINS1_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS1_17pcg_xsl_rr_128_64EEENS1_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESC_E4typeEOT0_SC_SC_.exit.i.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i.i175.i.i, %174 ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i28.i.i.i.i.i.i189.i.i, %.lr.ph.i.i.i.i.i.i181.i.i ]
   %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i.i198.i.i = zext i64 %.sroa.22.0.copyload.i.i.i.i.i.i.i.i.i.i197.i.i to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.i.i.i.i199.i.i = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i.i198.i.i, 64
   %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i.i200.i.i = zext i64 %.sroa.01.0.copyload.i.i.i.i.i.i.i.i.i.i195.i.i to i128
@@ -17477,8 +17477,8 @@ _ZN4absl7UniformImRNS_15random_internal17NonsecureURBGBaseINS1_10pcg_engineINS1_
   br i1 %201, label %.lr.ph.i.i.i.i.i.i209.i.i, label %..loopexit_crit_edge.i.i.i.i.i.i221.i.i, !llvm.loop !366
 
 ..loopexit_crit_edge.i.i.i.i.i.i221.i.i:          ; preds = %.lr.ph.i.i.i.i.i.i209.i.i, %191, %..loopexit_crit_edge.i.i.i.i.i.i193.i.i
-  %.sroa.22.0.copyload.i.i.i.i.i.i.i.i.i.i224.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i.i.i.i205.i.i, %191 ], [ %.narrow.i.i.i.i.i.i.i.i.i.i.i.i205.i.i, %..loopexit_crit_edge.i.i.i.i.i.i193.i.i ], [ %.narrow.i.i.i.i.i.i30.i.i.i.i.i.i219.i.i, %.lr.ph.i.i.i.i.i.i209.i.i ]
-  %.sroa.01.0.copyload.i.i.i.i.i.i.i.i.i.i222.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i.i203.i.i, %191 ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i.i203.i.i, %..loopexit_crit_edge.i.i.i.i.i.i193.i.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i28.i.i.i.i.i.i217.i.i, %.lr.ph.i.i.i.i.i.i209.i.i ]
+  %.sroa.22.0.copyload.i.i.i.i.i.i.i.i.i.i224.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i.i.i.i205.i.i, %..loopexit_crit_edge.i.i.i.i.i.i193.i.i ], [ %.narrow.i.i.i.i.i.i.i.i.i.i.i.i205.i.i, %191 ], [ %.narrow.i.i.i.i.i.i30.i.i.i.i.i.i219.i.i, %.lr.ph.i.i.i.i.i.i209.i.i ]
+  %.sroa.01.0.copyload.i.i.i.i.i.i.i.i.i.i222.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i.i203.i.i, %..loopexit_crit_edge.i.i.i.i.i.i193.i.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i.i203.i.i, %191 ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i28.i.i.i.i.i.i217.i.i, %.lr.ph.i.i.i.i.i.i209.i.i ]
   %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i.i225.i.i = zext i64 %.sroa.22.0.copyload.i.i.i.i.i.i.i.i.i.i224.i.i to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.i.i.i.i226.i.i = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i.i225.i.i, 64
   %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i.i227.i.i = zext i64 %.sroa.01.0.copyload.i.i.i.i.i.i.i.i.i.i222.i.i to i128
@@ -17526,8 +17526,8 @@ _ZN4absl7UniformImRNS_15random_internal17NonsecureURBGBaseINS1_10pcg_engineINS1_
   br i1 %220, label %.lr.ph.i.i.i.i.i.i236.i.i, label %..loopexit_crit_edge.i.i.i.i.i.i248.i.i, !llvm.loop !367
 
 ..loopexit_crit_edge.i.i.i.i.i.i248.i.i:          ; preds = %.lr.ph.i.i.i.i.i.i236.i.i, %210, %..loopexit_crit_edge.i.i.i.i.i.i221.i.i
-  %.sroa.22.0.copyload.i.i.i.i.i.i.i.i.i.i251.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i.i.i.i232.i.i, %210 ], [ %.narrow.i.i.i.i.i.i.i.i.i.i.i.i232.i.i, %..loopexit_crit_edge.i.i.i.i.i.i221.i.i ], [ %.narrow.i.i.i.i.i.i30.i.i.i.i.i.i246.i.i, %.lr.ph.i.i.i.i.i.i236.i.i ]
-  %.sroa.01.0.copyload.i.i.i.i.i.i.i.i.i.i249.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i.i230.i.i, %210 ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i.i230.i.i, %..loopexit_crit_edge.i.i.i.i.i.i221.i.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i28.i.i.i.i.i.i244.i.i, %.lr.ph.i.i.i.i.i.i236.i.i ]
+  %.sroa.22.0.copyload.i.i.i.i.i.i.i.i.i.i251.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i.i.i.i232.i.i, %..loopexit_crit_edge.i.i.i.i.i.i221.i.i ], [ %.narrow.i.i.i.i.i.i.i.i.i.i.i.i232.i.i, %210 ], [ %.narrow.i.i.i.i.i.i30.i.i.i.i.i.i246.i.i, %.lr.ph.i.i.i.i.i.i236.i.i ]
+  %.sroa.01.0.copyload.i.i.i.i.i.i.i.i.i.i249.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i.i230.i.i, %..loopexit_crit_edge.i.i.i.i.i.i221.i.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i.i230.i.i, %210 ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i28.i.i.i.i.i.i244.i.i, %.lr.ph.i.i.i.i.i.i236.i.i ]
   %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i.i252.i.i = zext i64 %.sroa.22.0.copyload.i.i.i.i.i.i.i.i.i.i251.i.i to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.i.i.i.i253.i.i = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i.i252.i.i, 64
   %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i.i254.i.i = zext i64 %.sroa.01.0.copyload.i.i.i.i.i.i.i.i.i.i249.i.i to i128
@@ -17575,8 +17575,8 @@ _ZN4absl7UniformImRNS_15random_internal17NonsecureURBGBaseINS1_10pcg_engineINS1_
   br i1 %239, label %.lr.ph.i.i.i.i.i.i263.i.i, label %..loopexit_crit_edge.i.i.i.i.i.i275.i.i, !llvm.loop !368
 
 ..loopexit_crit_edge.i.i.i.i.i.i275.i.i:          ; preds = %.lr.ph.i.i.i.i.i.i263.i.i, %229, %..loopexit_crit_edge.i.i.i.i.i.i248.i.i
-  %.sroa.22.0.copyload.i.i.i.i.i.i.i.i.i.i278.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i.i.i.i259.i.i, %229 ], [ %.narrow.i.i.i.i.i.i.i.i.i.i.i.i259.i.i, %..loopexit_crit_edge.i.i.i.i.i.i248.i.i ], [ %.narrow.i.i.i.i.i.i30.i.i.i.i.i.i273.i.i, %.lr.ph.i.i.i.i.i.i263.i.i ]
-  %.sroa.01.0.copyload.i.i.i.i.i.i.i.i.i.i276.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i.i257.i.i, %229 ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i.i257.i.i, %..loopexit_crit_edge.i.i.i.i.i.i248.i.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i28.i.i.i.i.i.i271.i.i, %.lr.ph.i.i.i.i.i.i263.i.i ]
+  %.sroa.22.0.copyload.i.i.i.i.i.i.i.i.i.i278.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i.i.i.i259.i.i, %..loopexit_crit_edge.i.i.i.i.i.i248.i.i ], [ %.narrow.i.i.i.i.i.i.i.i.i.i.i.i259.i.i, %229 ], [ %.narrow.i.i.i.i.i.i30.i.i.i.i.i.i273.i.i, %.lr.ph.i.i.i.i.i.i263.i.i ]
+  %.sroa.01.0.copyload.i.i.i.i.i.i.i.i.i.i276.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i.i257.i.i, %..loopexit_crit_edge.i.i.i.i.i.i248.i.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i.i257.i.i, %229 ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i28.i.i.i.i.i.i271.i.i, %.lr.ph.i.i.i.i.i.i263.i.i ]
   %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i.i279.i.i = zext i64 %.sroa.22.0.copyload.i.i.i.i.i.i.i.i.i.i278.i.i to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.i.i.i.i280.i.i = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i.i279.i.i, 64
   %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i.i281.i.i = zext i64 %.sroa.01.0.copyload.i.i.i.i.i.i.i.i.i.i276.i.i to i128
@@ -17948,8 +17948,8 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br i1 %379, label %.lr.ph.i.i.i.i.i.i473.i.i, label %..loopexit_crit_edge.i.i.i.i.i.i485.i.i, !llvm.loop !364
 
 ..loopexit_crit_edge.i.i.i.i.i.i485.i.i:          ; preds = %.lr.ph.i.i.i.i.i.i473.i.i, %371, %361
-  %.sroa.22.0.copyload.i.i.i.i.i.i.i.i.i.i489.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i.i.i.i468.i.i, %371 ], [ %.narrow.i.i.i.i.i.i.i.i.i.i.i.i468.i.i, %361 ], [ %.narrow.i.i.i.i.i.i30.i.i.i.i.i.i483.i.i, %.lr.ph.i.i.i.i.i.i473.i.i ]
-  %.sroa.01.0.copyload.i.i.i.i.i.i.i.i.i.i487.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i.i466.i.i, %371 ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i.i466.i.i, %361 ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i28.i.i.i.i.i.i481.i.i, %.lr.ph.i.i.i.i.i.i473.i.i ]
+  %.sroa.22.0.copyload.i.i.i.i.i.i.i.i.i.i489.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i.i.i.i468.i.i, %361 ], [ %.narrow.i.i.i.i.i.i.i.i.i.i.i.i468.i.i, %371 ], [ %.narrow.i.i.i.i.i.i30.i.i.i.i.i.i483.i.i, %.lr.ph.i.i.i.i.i.i473.i.i ]
+  %.sroa.01.0.copyload.i.i.i.i.i.i.i.i.i.i487.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i.i466.i.i, %361 ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i.i466.i.i, %371 ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i28.i.i.i.i.i.i481.i.i, %.lr.ph.i.i.i.i.i.i473.i.i ]
   %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i.i490.i.i = zext i64 %.sroa.22.0.copyload.i.i.i.i.i.i.i.i.i.i489.i.i to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.i.i.i.i491.i.i = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i.i490.i.i, 64
   %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i.i492.i.i = zext i64 %.sroa.01.0.copyload.i.i.i.i.i.i.i.i.i.i487.i.i to i128
@@ -17994,8 +17994,8 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br i1 %395, label %.lr.ph.i.i.i.i.i.i502.i.i, label %..loopexit_crit_edge.i.i.i.i.i.i514.i.i, !llvm.loop !364
 
 ..loopexit_crit_edge.i.i.i.i.i.i514.i.i:          ; preds = %.lr.ph.i.i.i.i.i.i502.i.i, %387, %..loopexit_crit_edge.i.i.i.i.i.i485.i.i
-  %.sroa.22.0.copyload.i.i.i.i.i.i.i.i.i.i517.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i.i.i.i497.i.i, %387 ], [ %.narrow.i.i.i.i.i.i.i.i.i.i.i.i497.i.i, %..loopexit_crit_edge.i.i.i.i.i.i485.i.i ], [ %.narrow.i.i.i.i.i.i30.i.i.i.i.i.i512.i.i, %.lr.ph.i.i.i.i.i.i502.i.i ]
-  %.sroa.01.0.copyload.i.i.i.i.i.i.i.i.i.i515.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i.i495.i.i, %387 ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i.i495.i.i, %..loopexit_crit_edge.i.i.i.i.i.i485.i.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i28.i.i.i.i.i.i510.i.i, %.lr.ph.i.i.i.i.i.i502.i.i ]
+  %.sroa.22.0.copyload.i.i.i.i.i.i.i.i.i.i517.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i.i.i.i497.i.i, %..loopexit_crit_edge.i.i.i.i.i.i485.i.i ], [ %.narrow.i.i.i.i.i.i.i.i.i.i.i.i497.i.i, %387 ], [ %.narrow.i.i.i.i.i.i30.i.i.i.i.i.i512.i.i, %.lr.ph.i.i.i.i.i.i502.i.i ]
+  %.sroa.01.0.copyload.i.i.i.i.i.i.i.i.i.i515.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i.i495.i.i, %..loopexit_crit_edge.i.i.i.i.i.i485.i.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i.i495.i.i, %387 ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i28.i.i.i.i.i.i510.i.i, %.lr.ph.i.i.i.i.i.i502.i.i ]
   %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i.i518.i.i = zext i64 %.sroa.22.0.copyload.i.i.i.i.i.i.i.i.i.i517.i.i to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.i.i.i.i519.i.i = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i.i518.i.i, 64
   %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i.i520.i.i = zext i64 %.sroa.01.0.copyload.i.i.i.i.i.i.i.i.i.i515.i.i to i128
@@ -18040,8 +18040,8 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br i1 %411, label %.lr.ph.i.i.i.i.i.i530.i.i, label %..loopexit_crit_edge.i.i.i.i.i.i542.i.i, !llvm.loop !364
 
 ..loopexit_crit_edge.i.i.i.i.i.i542.i.i:          ; preds = %.lr.ph.i.i.i.i.i.i530.i.i, %403, %..loopexit_crit_edge.i.i.i.i.i.i514.i.i
-  %.sroa.22.0.copyload.i.i.i.i.i.i.i.i.i.i545.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i.i.i.i525.i.i, %403 ], [ %.narrow.i.i.i.i.i.i.i.i.i.i.i.i525.i.i, %..loopexit_crit_edge.i.i.i.i.i.i514.i.i ], [ %.narrow.i.i.i.i.i.i30.i.i.i.i.i.i540.i.i, %.lr.ph.i.i.i.i.i.i530.i.i ]
-  %.sroa.01.0.copyload.i.i.i.i.i.i.i.i.i.i543.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i.i523.i.i, %403 ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i.i523.i.i, %..loopexit_crit_edge.i.i.i.i.i.i514.i.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i28.i.i.i.i.i.i538.i.i, %.lr.ph.i.i.i.i.i.i530.i.i ]
+  %.sroa.22.0.copyload.i.i.i.i.i.i.i.i.i.i545.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i.i.i.i525.i.i, %..loopexit_crit_edge.i.i.i.i.i.i514.i.i ], [ %.narrow.i.i.i.i.i.i.i.i.i.i.i.i525.i.i, %403 ], [ %.narrow.i.i.i.i.i.i30.i.i.i.i.i.i540.i.i, %.lr.ph.i.i.i.i.i.i530.i.i ]
+  %.sroa.01.0.copyload.i.i.i.i.i.i.i.i.i.i543.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i.i523.i.i, %..loopexit_crit_edge.i.i.i.i.i.i514.i.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i.i523.i.i, %403 ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i28.i.i.i.i.i.i538.i.i, %.lr.ph.i.i.i.i.i.i530.i.i ]
   %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i.i546.i.i = zext i64 %.sroa.22.0.copyload.i.i.i.i.i.i.i.i.i.i545.i.i to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.i.i.i.i547.i.i = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i.i546.i.i, 64
   %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i.i548.i.i = zext i64 %.sroa.01.0.copyload.i.i.i.i.i.i.i.i.i.i543.i.i to i128
@@ -18086,8 +18086,8 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br i1 %427, label %.lr.ph.i.i.i.i.i.i558.i.i, label %..loopexit_crit_edge.i.i.i.i.i.i570.i.i, !llvm.loop !364
 
 ..loopexit_crit_edge.i.i.i.i.i.i570.i.i:          ; preds = %.lr.ph.i.i.i.i.i.i558.i.i, %419, %..loopexit_crit_edge.i.i.i.i.i.i542.i.i
-  %.sroa.22.0.copyload.i.i.i.i.i.i.i.i.i.i573.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i.i.i.i553.i.i, %419 ], [ %.narrow.i.i.i.i.i.i.i.i.i.i.i.i553.i.i, %..loopexit_crit_edge.i.i.i.i.i.i542.i.i ], [ %.narrow.i.i.i.i.i.i30.i.i.i.i.i.i568.i.i, %.lr.ph.i.i.i.i.i.i558.i.i ]
-  %.sroa.01.0.copyload.i.i.i.i.i.i.i.i.i.i571.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i.i551.i.i, %419 ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i.i551.i.i, %..loopexit_crit_edge.i.i.i.i.i.i542.i.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i28.i.i.i.i.i.i566.i.i, %.lr.ph.i.i.i.i.i.i558.i.i ]
+  %.sroa.22.0.copyload.i.i.i.i.i.i.i.i.i.i573.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i.i.i.i553.i.i, %..loopexit_crit_edge.i.i.i.i.i.i542.i.i ], [ %.narrow.i.i.i.i.i.i.i.i.i.i.i.i553.i.i, %419 ], [ %.narrow.i.i.i.i.i.i30.i.i.i.i.i.i568.i.i, %.lr.ph.i.i.i.i.i.i558.i.i ]
+  %.sroa.01.0.copyload.i.i.i.i.i.i.i.i.i.i571.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i.i551.i.i, %..loopexit_crit_edge.i.i.i.i.i.i542.i.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i.i551.i.i, %419 ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i28.i.i.i.i.i.i566.i.i, %.lr.ph.i.i.i.i.i.i558.i.i ]
   %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i.i574.i.i = zext i64 %.sroa.22.0.copyload.i.i.i.i.i.i.i.i.i.i573.i.i to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.i.i.i.i575.i.i = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i.i574.i.i, 64
   %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i.i576.i.i = zext i64 %.sroa.01.0.copyload.i.i.i.i.i.i.i.i.i.i571.i.i to i128
@@ -18132,8 +18132,8 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br i1 %443, label %.lr.ph.i.i.i.i.i.i586.i.i, label %..loopexit_crit_edge.i.i.i.i.i.i598.i.i, !llvm.loop !364
 
 ..loopexit_crit_edge.i.i.i.i.i.i598.i.i:          ; preds = %.lr.ph.i.i.i.i.i.i586.i.i, %435, %..loopexit_crit_edge.i.i.i.i.i.i570.i.i
-  %.sroa.22.0.copyload.i.i.i.i.i.i.i.i.i.i602.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i.i.i.i581.i.i, %435 ], [ %.narrow.i.i.i.i.i.i.i.i.i.i.i.i581.i.i, %..loopexit_crit_edge.i.i.i.i.i.i570.i.i ], [ %.narrow.i.i.i.i.i.i30.i.i.i.i.i.i596.i.i, %.lr.ph.i.i.i.i.i.i586.i.i ]
-  %.sroa.01.0.copyload.i.i.i.i.i.i.i.i.i.i600.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i.i579.i.i, %435 ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i.i579.i.i, %..loopexit_crit_edge.i.i.i.i.i.i570.i.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i28.i.i.i.i.i.i594.i.i, %.lr.ph.i.i.i.i.i.i586.i.i ]
+  %.sroa.22.0.copyload.i.i.i.i.i.i.i.i.i.i602.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i.i.i.i581.i.i, %..loopexit_crit_edge.i.i.i.i.i.i570.i.i ], [ %.narrow.i.i.i.i.i.i.i.i.i.i.i.i581.i.i, %435 ], [ %.narrow.i.i.i.i.i.i30.i.i.i.i.i.i596.i.i, %.lr.ph.i.i.i.i.i.i586.i.i ]
+  %.sroa.01.0.copyload.i.i.i.i.i.i.i.i.i.i600.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i.i579.i.i, %..loopexit_crit_edge.i.i.i.i.i.i570.i.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i.i579.i.i, %435 ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i28.i.i.i.i.i.i594.i.i, %.lr.ph.i.i.i.i.i.i586.i.i ]
   %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i.i603.i.i = zext i64 %.sroa.22.0.copyload.i.i.i.i.i.i.i.i.i.i602.i.i to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.i.i.i.i604.i.i = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i.i603.i.i, 64
   %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i.i605.i.i = zext i64 %.sroa.01.0.copyload.i.i.i.i.i.i.i.i.i.i600.i.i to i128
@@ -19576,7 +19576,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.thread
 
 .thread:                                          ; preds = %.preheader67, %..thread.loopexit_crit_edge, %95, %97
-  %.0 = phi i32 [ 2147483647, %95 ], [ %98, %97 ], [ %.134, %..thread.loopexit_crit_edge ], [ 0, %.preheader67 ]
+  %.0 = phi i32 [ %98, %97 ], [ 2147483647, %95 ], [ %.134, %..thread.loopexit_crit_edge ], [ 0, %.preheader67 ]
   ret i32 %.0
 }
 
@@ -19771,7 +19771,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.thread
 
 .thread:                                          ; preds = %.preheader67, %..thread.loopexit_crit_edge, %95, %97
-  %.0 = phi i16 [ 32767, %95 ], [ %98, %97 ], [ %.134, %..thread.loopexit_crit_edge ], [ 0, %.preheader67 ]
+  %.0 = phi i16 [ %98, %97 ], [ 32767, %95 ], [ %.134, %..thread.loopexit_crit_edge ], [ 0, %.preheader67 ]
   ret i16 %.0
 }
 
@@ -19966,7 +19966,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.thread
 
 .thread:                                          ; preds = %.preheader67, %..thread.loopexit_crit_edge, %95, %97
-  %.0 = phi i16 [ -1, %95 ], [ %98, %97 ], [ %.134, %..thread.loopexit_crit_edge ], [ 0, %.preheader67 ]
+  %.0 = phi i16 [ %98, %97 ], [ -1, %95 ], [ %.134, %..thread.loopexit_crit_edge ], [ 0, %.preheader67 ]
   ret i16 %.0
 }
 
@@ -20161,7 +20161,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.thread
 
 .thread:                                          ; preds = %.preheader67, %..thread.loopexit_crit_edge, %95, %97
-  %.0 = phi i32 [ -1, %95 ], [ %98, %97 ], [ %.134, %..thread.loopexit_crit_edge ], [ 0, %.preheader67 ]
+  %.0 = phi i32 [ %98, %97 ], [ -1, %95 ], [ %.134, %..thread.loopexit_crit_edge ], [ 0, %.preheader67 ]
   ret i32 %.0
 }
 
@@ -20356,7 +20356,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.thread
 
 .thread:                                          ; preds = %.preheader67, %..thread.loopexit_crit_edge, %95, %97
-  %.0 = phi i64 [ 9223372036854775807, %95 ], [ %98, %97 ], [ %.134, %..thread.loopexit_crit_edge ], [ 0, %.preheader67 ]
+  %.0 = phi i64 [ %98, %97 ], [ 9223372036854775807, %95 ], [ %.134, %..thread.loopexit_crit_edge ], [ 0, %.preheader67 ]
   ret i64 %.0
 }
 
@@ -20551,7 +20551,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.thread
 
 .thread:                                          ; preds = %.preheader67, %..thread.loopexit_crit_edge, %95, %97
-  %.0 = phi i64 [ -1, %95 ], [ %98, %97 ], [ %.134, %..thread.loopexit_crit_edge ], [ 0, %.preheader67 ]
+  %.0 = phi i64 [ %98, %97 ], [ -1, %95 ], [ %.134, %..thread.loopexit_crit_edge ], [ 0, %.preheader67 ]
   ret i64 %.0
 }
 
@@ -20756,8 +20756,8 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.thread
 
 .thread:                                          ; preds = %.preheader79, %..thread.loopexit_crit_edge, %97, %95
-  %.sroa.8.2 = phi i64 [ 9223372036854775807, %95 ], [ %.sroa.8.0.extract.trunc71, %97 ], [ %.sroa.8.1, %..thread.loopexit_crit_edge ], [ 0, %.preheader79 ]
-  %.sroa.056.2 = phi i64 [ -1, %95 ], [ %.sroa.056.0.extract.trunc62, %97 ], [ %.sroa.056.1, %..thread.loopexit_crit_edge ], [ 0, %.preheader79 ]
+  %.sroa.8.2 = phi i64 [ %.sroa.8.0.extract.trunc71, %97 ], [ 9223372036854775807, %95 ], [ %.sroa.8.1, %..thread.loopexit_crit_edge ], [ 0, %.preheader79 ]
+  %.sroa.056.2 = phi i64 [ %.sroa.056.0.extract.trunc62, %97 ], [ -1, %95 ], [ %.sroa.056.1, %..thread.loopexit_crit_edge ], [ 0, %.preheader79 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.056.2, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.8.2, 1
   ret { i64, i64 } %.fca.1.insert
@@ -20967,8 +20967,8 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.thread
 
 .thread:                                          ; preds = %97, %7, %..thread.loopexit_crit_edge, %99
-  %.fca.1.load = phi i64 [ %.fca.1.load.pre, %99 ], [ %.tr.i.i.i70, %..thread.loopexit_crit_edge ], [ 0, %7 ], [ -1, %97 ]
-  %.fca.0.load = phi i64 [ %.fca.0.load.pre, %99 ], [ %.sroa.0.0.extract.trunc.i.i.i69, %..thread.loopexit_crit_edge ], [ 0, %7 ], [ -1, %97 ]
+  %.fca.1.load = phi i64 [ %.fca.1.load.pre, %99 ], [ 0, %7 ], [ %.tr.i.i.i70, %..thread.loopexit_crit_edge ], [ -1, %97 ]
+  %.fca.0.load = phi i64 [ %.fca.0.load.pre, %99 ], [ 0, %7 ], [ %.sroa.0.0.extract.trunc.i.i.i69, %..thread.loopexit_crit_edge ], [ -1, %97 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.fca.0.load, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { i64, i64 } %.fca.1.insert

@@ -367,7 +367,7 @@ define hidden noundef i32 @_ZN7Matcher21warp_incoming_stk_argEP9VMRegImpl(ptr no
   br label %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
 
 _ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit:         ; preds = %27, %23, %16, %18
-  %.0 = phi i32 [ -1, %18 ], [ %11, %16 ], [ %30, %27 ], [ -1, %23 ]
+  %.0 = phi i32 [ %11, %16 ], [ -1, %18 ], [ -1, %23 ], [ %30, %27 ]
   ret i32 %.0
 }
 
@@ -755,7 +755,7 @@ _ZN7RegMask6InsertEi.exit66:                      ; preds = %212, %216
   br label %_ZN7Matcher21warp_incoming_stk_argEP9VMRegImpl.exit.thread
 
 _ZN7Matcher21warp_incoming_stk_argEP9VMRegImpl.exit.thread: ; preds = %.thread, %196, %_ZN7RegMask6InsertEi.exit66, %_ZN7Matcher21warp_incoming_stk_argEP9VMRegImpl.exit
-  %.0.i85 = phi i16 [ %224, %_ZN7RegMask6InsertEi.exit66 ], [ -1, %_ZN7Matcher21warp_incoming_stk_argEP9VMRegImpl.exit ], [ -1, %196 ], [ -1, %.thread ]
+  %.0.i85 = phi i16 [ -1, %_ZN7Matcher21warp_incoming_stk_argEP9VMRegImpl.exit ], [ %224, %_ZN7RegMask6InsertEi.exit66 ], [ -1, %196 ], [ -1, %.thread ]
   %225 = load ptr, ptr %173, align 8
   %.not10.i67 = icmp ult ptr %225, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
   br i1 %.not10.i67, label %243, label %226
@@ -843,8 +843,8 @@ _ZN7RegMask6InsertEi.exit72:                      ; preds = %259, %263
   br label %_ZN7Matcher21warp_incoming_stk_argEP9VMRegImpl.exit71.thread
 
 _ZN7Matcher21warp_incoming_stk_argEP9VMRegImpl.exit71.thread: ; preds = %_ZN7Matcher21warp_incoming_stk_argEP9VMRegImpl.exit71, %_ZN7RegMask6InsertEi.exit72, %239, %243, %179
-  %.0.i6987.sink = phi i16 [ -1, %179 ], [ %271, %_ZN7RegMask6InsertEi.exit72 ], [ -1, %_ZN7Matcher21warp_incoming_stk_argEP9VMRegImpl.exit71 ], [ -1, %239 ], [ -1, %243 ]
-  %.0.i85.sink = phi i16 [ -1, %179 ], [ %.0.i85, %_ZN7RegMask6InsertEi.exit72 ], [ %.0.i85, %_ZN7Matcher21warp_incoming_stk_argEP9VMRegImpl.exit71 ], [ %.0.i85, %239 ], [ %.0.i85, %243 ]
+  %.0.i6987.sink = phi i16 [ -1, %179 ], [ -1, %_ZN7Matcher21warp_incoming_stk_argEP9VMRegImpl.exit71 ], [ %271, %_ZN7RegMask6InsertEi.exit72 ], [ -1, %239 ], [ -1, %243 ]
+  %.0.i85.sink = phi i16 [ -1, %179 ], [ %.0.i85, %_ZN7Matcher21warp_incoming_stk_argEP9VMRegImpl.exit71 ], [ %.0.i85, %_ZN7RegMask6InsertEi.exit72 ], [ %.0.i85, %239 ], [ %.0.i85, %243 ]
   %272 = load ptr, ptr %129, align 8
   %273 = getelementptr inbounds nuw %class.OptoRegPair, ptr %272, i64 %indvars.iv107
   store i16 %.0.i6987.sink, ptr %273, align 2
@@ -2441,7 +2441,7 @@ _ZN7Compile17locate_node_notesEP13GrowableArrayIP10Node_NotesEib.exit: ; preds =
   br label %_ZN7Compile17locate_node_notesEP13GrowableArrayIP10Node_NotesEib.exit.i
 
 _ZN7Compile17locate_node_notesEP13GrowableArrayIP10Node_NotesEib.exit.i: ; preds = %197, %196
-  %.0.i.i136 = phi ptr [ %205, %197 ], [ null, %196 ]
+  %.0.i.i136 = phi ptr [ null, %196 ], [ %205, %197 ]
   %206 = load ptr, ptr %175, align 8
   %.not5.i.i = icmp eq ptr %206, null
   br i1 %.not5.i.i, label %_ZN7Compile17set_node_notes_atEiP10Node_Notes.exit, label %207
@@ -2451,7 +2451,7 @@ _ZN7Compile17locate_node_notesEP13GrowableArrayIP10Node_NotesEib.exit.i: ; preds
   br label %_ZN7Compile17set_node_notes_atEiP10Node_Notes.exit
 
 _ZN7Compile17set_node_notes_atEiP10Node_Notes.exit: ; preds = %164, %207, %_ZN7Compile17locate_node_notesEP13GrowableArrayIP10Node_NotesEib.exit.i, %180, %_ZN7Compile17locate_node_notesEP13GrowableArrayIP10Node_NotesEib.exit, %84, %_ZN7Matcher12set_new_nodeEPK4NodePS0_.exit
-  %.0112 = phi ptr [ %.1113, %_ZN7Matcher12set_new_nodeEPK4NodePS0_.exit ], [ %90, %84 ], [ %.1113, %_ZN7Compile17locate_node_notesEP13GrowableArrayIP10Node_NotesEib.exit ], [ %.1113, %180 ], [ %.1113, %_ZN7Compile17locate_node_notesEP13GrowableArrayIP10Node_NotesEib.exit.i ], [ %.1113, %207 ], [ %.1113, %164 ]
+  %.0112 = phi ptr [ %.1113, %_ZN7Matcher12set_new_nodeEPK4NodePS0_.exit ], [ %90, %84 ], [ %.1113, %207 ], [ %.1113, %_ZN7Compile17locate_node_notesEP13GrowableArrayIP10Node_NotesEib.exit ], [ %.1113, %180 ], [ %.1113, %_ZN7Compile17locate_node_notesEP13GrowableArrayIP10Node_NotesEib.exit.i ], [ %.1113, %164 ]
   %208 = load ptr, ptr %4, align 8
   store ptr %.0112, ptr %208, align 8
   br label %209
@@ -3052,8 +3052,8 @@ define hidden noundef ptr @_ZN7Matcher10match_treeEPK4Node(ptr noundef nonnull a
   br label %56
 
 56:                                               ; preds = %53, %.preheader, %49
-  %.149 = phi i32 [ %.04858, %49 ], [ %.04858, %.preheader ], [ %spec.select55, %53 ]
-  %.147 = phi i32 [ %.04659, %49 ], [ %.04659, %.preheader ], [ %spec.select56, %53 ]
+  %.149 = phi i32 [ %.04858, %.preheader ], [ %spec.select55, %53 ], [ %.04858, %49 ]
+  %.147 = phi i32 [ %.04659, %.preheader ], [ %spec.select56, %53 ], [ %.04659, %49 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 128
   br i1 %exitcond.not, label %57, label %.preheader, !llvm.loop !21
@@ -3623,7 +3623,7 @@ _ZN7RegMask6InsertEi.exit:                        ; preds = %64, %68
   unreachable
 
 158:                                              ; preds = %144, %152, %153, %154, %155
-  %.sink = phi ptr [ %35, %152 ], [ %80, %153 ], [ %85, %154 ], [ %136, %155 ], [ %23, %144 ]
+  %.sink = phi ptr [ %136, %155 ], [ %35, %152 ], [ %80, %153 ], [ %85, %154 ], [ %23, %144 ]
   %159 = getelementptr inbounds nuw i8, ptr %147, i64 64
   store ptr %.sink, ptr %159, align 8
   %indvars.iv.next243 = add nuw nsw i64 %indvars.iv242, 1
@@ -7048,7 +7048,7 @@ _ZN4NodenwEm.exit70:                              ; preds = %195, %197
   unreachable
 
 210:                                              ; preds = %_ZN4NodenwEm.exit70, %200, %_ZN4NodenwEm.exit67, %172, %_ZN4NodenwEm.exit64, %144, %_ZN4NodenwEm.exit61, %117, %_ZN4NodenwEm.exit58, %90, %_ZN4NodenwEm.exit55, %63, %_ZN4NodenwEm.exit, %36
-  %.044 = phi ptr [ %.0.i.i.i, %36 ], [ null, %_ZN4NodenwEm.exit ], [ %.0.i.i.i54, %63 ], [ null, %_ZN4NodenwEm.exit55 ], [ %.0.i.i.i57, %90 ], [ null, %_ZN4NodenwEm.exit58 ], [ %.0.i.i.i60, %117 ], [ null, %_ZN4NodenwEm.exit61 ], [ %.0.i.i.i63, %144 ], [ null, %_ZN4NodenwEm.exit64 ], [ %.0.i.i.i66, %172 ], [ null, %_ZN4NodenwEm.exit67 ], [ %.0.i.i.i69, %200 ], [ null, %_ZN4NodenwEm.exit70 ]
+  %.044 = phi ptr [ null, %_ZN4NodenwEm.exit67 ], [ null, %_ZN4NodenwEm.exit ], [ null, %_ZN4NodenwEm.exit55 ], [ null, %_ZN4NodenwEm.exit58 ], [ null, %_ZN4NodenwEm.exit61 ], [ null, %_ZN4NodenwEm.exit64 ], [ %.0.i.i.i, %36 ], [ %.0.i.i.i54, %63 ], [ %.0.i.i.i57, %90 ], [ %.0.i.i.i60, %117 ], [ %.0.i.i.i63, %144 ], [ %.0.i.i.i66, %172 ], [ %.0.i.i.i69, %200 ], [ null, %_ZN4NodenwEm.exit70 ]
   %211 = tail call noundef ptr @_ZN7Matcher10match_treeEPK4Node(ptr noundef nonnull align 8 dereferenceable(1008) %0, ptr noundef %.044)
   %212 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %213 = load i32, ptr %212, align 8
@@ -7097,7 +7097,7 @@ _ZN7Matcher20specialize_mach_nodeEP8MachNode.exit: ; preds = %229, %215, %210
   br label %237
 
 237:                                              ; preds = %3, %_ZN7Matcher20specialize_mach_nodeEP8MachNode.exit, %206
-  %.0 = phi ptr [ %236, %_ZN7Matcher20specialize_mach_nodeEP8MachNode.exit ], [ %207, %206 ], [ null, %3 ]
+  %.0 = phi ptr [ %207, %206 ], [ %236, %_ZN7Matcher20specialize_mach_nodeEP8MachNode.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -7262,11 +7262,11 @@ define hidden noundef ptr @_ZN7Matcher10match_sfptEP13SafePointNode(ptr noundef 
   br i1 %109, label %448, label %110
 
 110:                                              ; preds = %97, %81, %78, %88, %85
-  %.0144 = phi ptr [ %11, %85 ], [ %11, %88 ], [ %11, %78 ], [ %11, %81 ], [ null, %97 ]
-  %.0143 = phi ptr [ %1, %85 ], [ %1, %88 ], [ %1, %78 ], [ %1, %81 ], [ null, %97 ]
-  %.0141 = phi i32 [ %13, %85 ], [ %13, %88 ], [ %13, %78 ], [ %13, %81 ], [ 5, %97 ]
-  %.0140 = phi ptr [ %14, %85 ], [ %14, %88 ], [ %14, %78 ], [ %14, %81 ], [ null, %97 ]
-  %.0139 = phi ptr [ %14, %85 ], [ %14, %88 ], [ %14, %78 ], [ %14, %81 ], [ %98, %97 ]
+  %.0144 = phi ptr [ %11, %81 ], [ %11, %85 ], [ %11, %88 ], [ %11, %78 ], [ null, %97 ]
+  %.0143 = phi ptr [ %1, %81 ], [ %1, %85 ], [ %1, %88 ], [ %1, %78 ], [ null, %97 ]
+  %.0141 = phi i32 [ %13, %81 ], [ %13, %85 ], [ %13, %88 ], [ %13, %78 ], [ 5, %97 ]
+  %.0140 = phi ptr [ %14, %81 ], [ %14, %85 ], [ %14, %88 ], [ %14, %78 ], [ null, %97 ]
+  %.0139 = phi ptr [ %14, %81 ], [ %14, %85 ], [ %14, %88 ], [ %14, %78 ], [ %98, %97 ]
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %112 = load i8, ptr %111, align 8
   %113 = getelementptr inbounds nuw i8, ptr %.0139, i64 108
@@ -7522,8 +7522,8 @@ _ZN7RegMask6InsertEi.exit:                        ; preds = %223, %226
   br label %_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit
 
 _ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit: ; preds = %235, %245
-  %.5 = phi i32 [ %.2203, %245 ], [ %spec.select, %235 ]
-  %.0.i163 = phi i32 [ %248, %245 ], [ %237, %235 ]
+  %.5 = phi i32 [ %spec.select, %235 ], [ %.2203, %245 ]
+  %.0.i163 = phi i32 [ %237, %235 ], [ %248, %245 ]
   %.not194 = icmp eq i32 %.0.i163, -1
   br i1 %.not194, label %_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit.thread, label %249
 
@@ -7560,7 +7560,7 @@ _ZN7RegMask6InsertEi.exit164:                     ; preds = %255, %259
   br label %_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit.thread
 
 _ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit.thread: ; preds = %244, %240, %_ZN7RegMask6InsertEi.exit164, %_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit
-  %.5183 = phi i32 [ %.5, %_ZN7RegMask6InsertEi.exit164 ], [ %.5, %_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit ], [ %spec.select, %240 ], [ %.2203, %244 ]
+  %.5183 = phi i32 [ %.5, %_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit ], [ %.5, %_ZN7RegMask6InsertEi.exit164 ], [ %spec.select, %240 ], [ %.2203, %244 ]
   %.not13.i165 = icmp ult ptr %181, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
   br i1 %.not13.i165, label %276, label %267
 
@@ -7591,8 +7591,8 @@ _ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit.thread: ; preds = %244, %
   br label %_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit169
 
 _ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit169: ; preds = %267, %277
-  %.7 = phi i32 [ %.5183, %277 ], [ %spec.select191, %267 ]
-  %.0.i167 = phi i32 [ %280, %277 ], [ %269, %267 ]
+  %.7 = phi i32 [ %spec.select191, %267 ], [ %.5183, %277 ]
+  %.0.i167 = phi i32 [ %269, %267 ], [ %280, %277 ]
   %.not195 = icmp eq i32 %.0.i167, -1
   br i1 %.not195, label %_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit169.thread, label %281
 
@@ -7629,7 +7629,7 @@ _ZN7RegMask6InsertEi.exit170:                     ; preds = %287, %291
   br label %_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit169.thread
 
 _ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit169.thread: ; preds = %174, %276, %272, %_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit169, %_ZN7RegMask6InsertEi.exit170
-  %.3 = phi i32 [ %.7, %_ZN7RegMask6InsertEi.exit170 ], [ %.7, %_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit169 ], [ %spec.select191, %272 ], [ %.5183, %276 ], [ %.2203, %174 ]
+  %.3 = phi i32 [ %.7, %_ZN7RegMask6InsertEi.exit170 ], [ %.7, %_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit169 ], [ %.2203, %174 ], [ %spec.select191, %272 ], [ %.5183, %276 ]
   %indvars.iv.next222 = add nuw nsw i64 %indvars.iv221, 1
   %exitcond225.not = icmp eq i64 %indvars.iv.next222, %151
   br i1 %exitcond225.not, label %.loopexit197, label %174, !llvm.loop !40
@@ -7905,7 +7905,7 @@ _ZNK7RegMask11is_NotEmptyEv.exit.thread:          ; preds = %.loopexit, %_ZNK7Re
   br label %448
 
 448:                                              ; preds = %._crit_edge212, %413, %443, %430, %418, %97, %7
-  %.0138 = phi ptr [ null, %7 ], [ null, %97 ], [ %.0139, %418 ], [ %.0139, %430 ], [ %.0139, %443 ], [ %.0139, %413 ], [ %.0139, %._crit_edge212 ]
+  %.0138 = phi ptr [ null, %7 ], [ %.0139, %._crit_edge212 ], [ null, %97 ], [ %.0139, %418 ], [ %.0139, %430 ], [ %.0139, %443 ], [ %.0139, %413 ]
   ret ptr %.0138
 }
 
@@ -8087,7 +8087,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %89, %91, %103
   br i1 %exitcond.not, label %.loopexit, label %76, !llvm.loop !44
 
 .loopexit:                                        ; preds = %111, %71, %_ZN4Node7set_reqEjPS_.exit, %_ZN9Node_List4pushEP4Node.exit
-  %.033 = phi ptr [ %110, %_ZN4Node7set_reqEjPS_.exit ], [ %61, %_ZN9Node_List4pushEP4Node.exit ], [ %61, %71 ], [ %61, %111 ]
+  %.033 = phi ptr [ %61, %_ZN9Node_List4pushEP4Node.exit ], [ %110, %_ZN4Node7set_reqEjPS_.exit ], [ %61, %71 ], [ %61, %111 ]
   %112 = load i32, ptr %49, align 8
   %113 = add i32 %112, 1
   store i32 %113, ptr %49, align 8
@@ -8162,7 +8162,7 @@ define hidden noundef i32 @_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi(ptr
   br label %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
 
 _ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit:         ; preds = %22, %20, %13, %15
-  %.0 = phi i32 [ -1, %15 ], [ %9, %13 ], [ %25, %22 ], [ -1, %20 ]
+  %.0 = phi i32 [ %9, %13 ], [ -1, %15 ], [ -1, %20 ], [ %25, %22 ]
   ret i32 %.0
 }
 
@@ -8263,7 +8263,7 @@ define hidden noundef ptr @_ZN7Matcher10Label_RootEPK4NodeP5StatePS0_RS5_(ptr no
   br label %54
 
 54:                                               ; preds = %53, %35, %49, %52, %29
-  %.161 = phi ptr [ %48, %52 ], [ %48, %49 ], [ %.06076, %35 ], [ %.06076, %29 ], [ %spec.select, %53 ]
+  %.161 = phi ptr [ %48, %52 ], [ %48, %49 ], [ %.06076, %29 ], [ %spec.select, %53 ], [ %.06076, %35 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader, label %29, !llvm.loop !45
@@ -8442,7 +8442,7 @@ _ZL14match_into_regPK4NodePS_S2_ib.exit.thread:   ; preds = %.preheader.i, %122,
   br label %158
 
 158:                                              ; preds = %154, %150, %148
-  %.2 = phi ptr [ null, %150 ], [ %.05779, %148 ], [ %spec.select73, %154 ]
+  %.2 = phi ptr [ %.05779, %148 ], [ %spec.select73, %154 ], [ null, %150 ]
   %159 = tail call noundef ptr @_ZN7Matcher10Label_RootEPK4NodeP5StatePS0_RS5_(ptr noundef nonnull align 8 dereferenceable(1008) %0, ptr noundef nonnull %64, ptr noundef nonnull %65, ptr noundef %.2, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %160 = load ptr, ptr %28, align 8
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 352
@@ -8557,7 +8557,7 @@ define hidden noundef ptr @_ZN7Matcher10ReduceInstEP5StateiRP4Node(ptr noundef n
   tail call void @_ZN4Node7set_reqEjPS_(ptr noundef nonnull align 8 dereferenceable(52) %25, i32 noundef 0, ptr noundef nonnull %48)
   br label %_ZN7Matcher16find_shared_nodeEP4Nodej.exit
 
-58:                                               ; preds = %10, %15, %37, %26, %20, %54
+58:                                               ; preds = %10, %15, %54, %37, %26, %20
   %59 = tail call noundef ptr @_ZN5State17MachNodeGeneratorEi(ptr noundef nonnull align 8 dereferenceable(1920) %1, i32 noundef %2) #15
   %.not60 = icmp eq ptr %59, null
   br i1 %.not60, label %60, label %62
@@ -8841,7 +8841,7 @@ _ZN10Node_Array3mapEjP4Node.exit:                 ; preds = %198, %203
   br label %_ZN7Matcher16find_shared_nodeEP4Nodej.exit
 
 _ZN7Matcher16find_shared_nodeEP4Nodej.exit:       ; preds = %57, %50, %32, %209
-  %.054 = phi ptr [ %100, %209 ], [ %25, %32 ], [ %25, %57 ], [ %25, %50 ]
+  %.054 = phi ptr [ %100, %209 ], [ %25, %50 ], [ %25, %57 ], [ %25, %32 ]
   ret ptr %.054
 }
 
@@ -8927,7 +8927,7 @@ define hidden noundef ptr @_ZN7Matcher16find_shared_nodeEP4Nodej(ptr noundef non
   br label %55
 
 55:                                               ; preds = %51, %17, %23, %47, %54, %34, %29, %12, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %12 ], [ %22, %29 ], [ null, %34 ], [ %22, %54 ], [ %22, %47 ], [ null, %23 ], [ null, %17 ], [ null, %51 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %12 ], [ %22, %29 ], [ null, %51 ], [ null, %34 ], [ %22, %47 ], [ %22, %54 ], [ null, %23 ], [ null, %17 ]
   ret ptr %.0
 }
 
@@ -9437,7 +9437,7 @@ define hidden noundef zeroext i1 @_ZN7Matcher21is_vshift_con_patternEP4NodeS1_(p
   br label %25
 
 25:                                               ; preds = %3, %6, %11, %16
-  %.0 = phi i1 [ false, %11 ], [ false, %6 ], [ %24, %16 ], [ false, %3 ]
+  %.0 = phi i1 [ %24, %16 ], [ false, %11 ], [ false, %6 ], [ false, %3 ]
   ret i1 %.0
 }
 
@@ -9974,7 +9974,7 @@ _ZNK4Type8make_ptrEv.exit.thread57:               ; preds = %157, %_ZNK4Type8mak
   br label %_ZNK4Type8make_ptrEv.exit.thread
 
 _ZNK4Type8make_ptrEv.exit.thread:                 ; preds = %157, %_ZN7Matcher12set_dontcareEP4Node.exit, %_ZN7Matcher12set_dontcareEP4Node.exit47, %_ZN7Matcher10set_sharedEP4Node.exit55, %168, %174, %78, %70, %66, %57, %92, %88, %79, %149, %143, %164, %_ZNK4Type8make_ptrEv.exit.thread57, %_ZNK4Type8make_ptrEv.exit, %190, %185, %_ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateE.exit53, %_ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateE.exit45
-  %.0 = phi i1 [ true, %_ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateE.exit45 ], [ true, %_ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateE.exit53 ], [ false, %185 ], [ false, %190 ], [ false, %_ZNK4Type8make_ptrEv.exit ], [ false, %_ZNK4Type8make_ptrEv.exit.thread57 ], [ false, %164 ], [ false, %143 ], [ false, %149 ], [ false, %79 ], [ false, %88 ], [ false, %92 ], [ false, %57 ], [ false, %66 ], [ false, %70 ], [ false, %78 ], [ false, %174 ], [ false, %168 ], [ false, %_ZN7Matcher10set_sharedEP4Node.exit55 ], [ false, %_ZN7Matcher12set_dontcareEP4Node.exit47 ], [ false, %_ZN7Matcher12set_dontcareEP4Node.exit ], [ false, %157 ]
+  %.0 = phi i1 [ true, %_ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateE.exit53 ], [ true, %_ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateE.exit45 ], [ false, %185 ], [ false, %190 ], [ false, %_ZNK4Type8make_ptrEv.exit ], [ false, %_ZNK4Type8make_ptrEv.exit.thread57 ], [ false, %164 ], [ false, %143 ], [ false, %149 ], [ false, %79 ], [ false, %88 ], [ false, %92 ], [ false, %57 ], [ false, %66 ], [ false, %70 ], [ false, %78 ], [ false, %174 ], [ false, %168 ], [ false, %_ZN7Matcher10set_sharedEP4Node.exit55 ], [ false, %_ZN7Matcher12set_dontcareEP4Node.exit47 ], [ false, %_ZN7Matcher12set_dontcareEP4Node.exit ], [ false, %157 ]
   ret i1 %.0
 }
 
@@ -12124,7 +12124,7 @@ define hidden noundef zeroext i1 @_ZN7Matcher35gen_narrow_oop_implicit_null_chec
   br label %9
 
 9:                                                ; preds = %0, %6, %3
-  %.0 = phi i1 [ false, %0 ], [ true, %3 ], [ %8, %6 ]
+  %.0 = phi i1 [ %8, %6 ], [ false, %0 ], [ true, %3 ]
   ret i1 %.0
 }
 
@@ -12498,7 +12498,7 @@ define hidden noundef ptr @_ZN7Matcher25specialize_vector_operandEP8MachNodej(pt
   br label %_ZN7Matcher20specialize_temp_nodeEP12MachTempNodeP8MachNodej.exit
 
 _ZN7Matcher20specialize_temp_nodeEP12MachTempNodeP8MachNodej.exit: ; preds = %39, %30, %3, %5, %49, %51
-  %.0 = phi ptr [ %55, %51 ], [ %11, %49 ], [ %11, %5 ], [ %1, %3 ], [ %11, %30 ], [ %11, %39 ]
+  %.0 = phi ptr [ %11, %5 ], [ %1, %3 ], [ %55, %51 ], [ %11, %49 ], [ %11, %30 ], [ %11, %39 ]
   %56 = load ptr, ptr %.0, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 40
   %58 = load ptr, ptr %57, align 8
@@ -12749,7 +12749,7 @@ tailrecurse:                                      ; preds = %54, %1
   br i1 %or.cond103, label %.lr.ph, label %.loopexit, !llvm.loop !54
 
 .loopexit:                                        ; preds = %54, %26, %40, %.lr.ph, %59, %56
-  %.0 = phi i1 [ true, %40 ], [ true, %.lr.ph ], [ false, %59 ], [ false, %56 ], [ false, %26 ], [ false, %54 ]
+  %.0 = phi i1 [ true, %.lr.ph ], [ false, %56 ], [ true, %40 ], [ false, %59 ], [ false, %26 ], [ false, %54 ]
   ret i1 %.0
 }
 
@@ -12899,7 +12899,7 @@ _ZNK7Compile21is_method_compilationEv.exit:       ; preds = %1
   br i1 %90, label %28, label %_ZNK7Compile21is_method_compilationEv.exit.thread, !llvm.loop !57
 
 _ZNK7Compile21is_method_compilationEv.exit.thread: ; preds = %19, %28, %71, %86, %12, %1, %_ZNK7Compile21is_method_compilationEv.exit
-  %.0 = phi i1 [ false, %_ZNK7Compile21is_method_compilationEv.exit ], [ false, %1 ], [ false, %12 ], [ false, %28 ], [ true, %71 ], [ false, %86 ], [ false, %19 ]
+  %.0 = phi i1 [ false, %_ZNK7Compile21is_method_compilationEv.exit ], [ false, %1 ], [ false, %86 ], [ false, %12 ], [ false, %28 ], [ true, %71 ], [ false, %19 ]
   ret i1 %.0
 }
 

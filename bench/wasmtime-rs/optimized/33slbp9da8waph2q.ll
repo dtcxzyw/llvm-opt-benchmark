@@ -768,7 +768,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.10930056130443165094.exit: ; preds
   br label %39
 
 39:                                               ; preds = %37, %33, %30, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.10930056130443165094.exit
-  %.0 = phi ptr [ %29, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.10930056130443165094.exit ], [ %31, %30 ], [ null, %33 ], [ %38, %37 ]
+  %.0 = phi ptr [ %31, %30 ], [ %38, %37 ], [ %29, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.10930056130443165094.exit ], [ null, %33 ]
   ret ptr %.0
 }
 
@@ -815,7 +815,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17hc3f0d01ce287d82bE
   br i1 %.sroa.18.0.in.i.us, label %.split19.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %15, %12, %10
-  %.0.us.be = phi i32 [ %14, %12 ], [ %.sroa.07.0.i.us, %15 ], [ %.sroa.07.0.i15.us, %10 ]
+  %.0.us.be = phi i32 [ %.sroa.07.0.i15.us, %10 ], [ %14, %12 ], [ %.sroa.07.0.i.us, %15 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -923,7 +923,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17hc3f0d01ce287d82bE
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %40, %21, %38
-  %.0.be = phi i32 [ %42, %40 ], [ %.sroa.07.0.i, %21 ], [ %.sroa.07.0.i15, %38 ]
+  %.0.be = phi i32 [ %.sroa.07.0.i15, %38 ], [ %42, %40 ], [ %.sroa.07.0.i, %21 ]
   br label %.split
 }
 
@@ -1997,7 +1997,7 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4e31948b9277a2a6E.exit.i.i"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4e31948b9277a2a6E.exit.i.i": ; preds = %62, %57, %54, %51
-  %.0.i.i.i.i.i = phi i8 [ %61, %57 ], [ %53, %51 ], [ %67, %62 ], [ %56, %54 ]
+  %.0.i.i.i.i.i = phi i8 [ %56, %54 ], [ %61, %57 ], [ %53, %51 ], [ %67, %62 ]
   %68 = trunc i8 %.0.i.i.i.i.i to i1
   br i1 %68, label %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h2307eb73495a23bdE.exit.i", label %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h5d8332c349d6c5b4E.exit"
 
@@ -2006,11 +2006,11 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_
   br i1 %69, label %.loopexit.thread, label %.lr.ph.i
 
 "_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h5d8332c349d6c5b4E.exit": ; preds = %32, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4e31948b9277a2a6E.exit.i.i", %49, %47, %2
-  %.not44 = phi i1 [ true, %2 ], [ true, %32 ], [ false, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4e31948b9277a2a6E.exit.i.i" ], [ false, %49 ], [ false, %47 ]
-  %.sroa.4.042 = phi ptr [ %0, %2 ], [ %34, %32 ], [ %.sink21.i.i, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4e31948b9277a2a6E.exit.i.i" ], [ %.sink21.i.i, %49 ], [ %.sink21.i.i, %47 ]
-  %.sroa.16.140 = phi i64 [ 0, %2 ], [ %.sroa.16.0, %32 ], [ %46, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4e31948b9277a2a6E.exit.i.i" ], [ %46, %49 ], [ %46, %47 ]
-  %.sroa.415.038 = phi i64 [ undef, %2 ], [ undef, %32 ], [ %.sroa.16.0, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4e31948b9277a2a6E.exit.i.i" ], [ %.sroa.16.0, %49 ], [ %.sroa.16.0, %47 ]
-  %70 = phi i64 [ 0, %2 ], [ 0, %32 ], [ %46, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4e31948b9277a2a6E.exit.i.i" ], [ %46, %49 ], [ %46, %47 ]
+  %.not44 = phi i1 [ true, %2 ], [ true, %32 ], [ false, %49 ], [ false, %47 ], [ false, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4e31948b9277a2a6E.exit.i.i" ]
+  %.sroa.4.042 = phi ptr [ %0, %2 ], [ %34, %32 ], [ %.sink21.i.i, %49 ], [ %.sink21.i.i, %47 ], [ %.sink21.i.i, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4e31948b9277a2a6E.exit.i.i" ]
+  %.sroa.16.140 = phi i64 [ 0, %2 ], [ %.sroa.16.0, %32 ], [ %46, %49 ], [ %46, %47 ], [ %46, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4e31948b9277a2a6E.exit.i.i" ]
+  %.sroa.415.038 = phi i64 [ undef, %2 ], [ undef, %32 ], [ %.sroa.16.0, %49 ], [ %.sroa.16.0, %47 ], [ %.sroa.16.0, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4e31948b9277a2a6E.exit.i.i" ]
+  %70 = phi i64 [ 0, %2 ], [ 0, %32 ], [ %46, %49 ], [ %46, %47 ], [ %46, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4e31948b9277a2a6E.exit.i.i" ]
   %71 = icmp eq ptr %.sroa.4.042, %3
   br i1 %71, label %.loopexit, label %.lr.ph.i9
 
@@ -2128,7 +2128,7 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4e31948b9277a2a6E.exit.i.i11"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4e31948b9277a2a6E.exit.i.i11": ; preds = %126, %121, %118, %115
-  %.0.i.i.i.i.i12 = phi i8 [ %125, %121 ], [ %117, %115 ], [ %131, %126 ], [ %120, %118 ]
+  %.0.i.i.i.i.i12 = phi i8 [ %120, %118 ], [ %125, %121 ], [ %117, %115 ], [ %131, %126 ]
   %132 = trunc i8 %.0.i.i.i.i.i12 to i1
   br i1 %132, label %133, label %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h8d6ed31d7991e92eE.exit"
 
@@ -2143,11 +2143,11 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_
   %138 = add i64 %137, %135
   br i1 %.not44, label %.loopexit.thread, label %140
 
-.loopexit:                                        ; preds = %133, %104, %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h5d8332c349d6c5b4E.exit"
+.loopexit:                                        ; preds = %104, %133, %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h5d8332c349d6c5b4E.exit"
   br i1 %.not44, label %.loopexit.thread, label %140
 
 .loopexit.thread:                                 ; preds = %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h2307eb73495a23bdE.exit.i", %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h8d6ed31d7991e92eE.exit", %.loopexit
-  %139 = phi i64 [ %70, %.loopexit ], [ %138, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h8d6ed31d7991e92eE.exit" ], [ 0, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h2307eb73495a23bdE.exit.i" ]
+  %139 = phi i64 [ %138, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h8d6ed31d7991e92eE.exit" ], [ %70, %.loopexit ], [ 0, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h2307eb73495a23bdE.exit.i" ]
   br label %140
 
 140:                                              ; preds = %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h8d6ed31d7991e92eE.exit", %.loopexit, %.loopexit.thread
@@ -15433,7 +15433,7 @@ _ZN13wasmtime_wasi4host7network4util23validate_address_family17h1c352f4e9308f37e
   br label %160
 
 160:                                              ; preds = %.critedge, %145, %80, %114, %117, %157, %154, %15
-  %.0 = phi ptr [ %16, %15 ], [ %119, %117 ], [ %116, %114 ], [ %.1, %80 ], [ %159, %157 ], [ %156, %154 ], [ null, %145 ], [ null, %.critedge ]
+  %.0 = phi ptr [ %16, %15 ], [ %156, %154 ], [ %.1, %80 ], [ %119, %117 ], [ %116, %114 ], [ %159, %157 ], [ null, %145 ], [ null, %.critedge ]
   ret ptr %.0
 }
 

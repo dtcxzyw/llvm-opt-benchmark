@@ -315,9 +315,9 @@ zend_parse_arg_long_ex.exit..critedge_crit_edge:  ; preds = %zend_parse_arg_long
   br label %.critedge
 
 .thread:                                          ; preds = %zend_parse_arg_long_ex.exit, %zend_parse_arg_long_ex.exit55, %7
-  %.04767 = phi i32 [ 9, %zend_parse_arg_long_ex.exit55 ], [ 1, %7 ], [ 9, %zend_parse_arg_long_ex.exit ]
-  %.04866 = phi i32 [ 1, %zend_parse_arg_long_ex.exit55 ], [ 0, %7 ], [ 2, %zend_parse_arg_long_ex.exit ]
-  %.05065 = phi ptr [ %9, %zend_parse_arg_long_ex.exit55 ], [ null, %7 ], [ %16, %zend_parse_arg_long_ex.exit ]
+  %.04767 = phi i32 [ 9, %zend_parse_arg_long_ex.exit ], [ 1, %7 ], [ 9, %zend_parse_arg_long_ex.exit55 ]
+  %.04866 = phi i32 [ 2, %zend_parse_arg_long_ex.exit ], [ 0, %7 ], [ 1, %zend_parse_arg_long_ex.exit55 ]
+  %.05065 = phi ptr [ %16, %zend_parse_arg_long_ex.exit ], [ null, %7 ], [ %9, %zend_parse_arg_long_ex.exit55 ]
   call void @zend_wrong_parameter_error(i32 noundef %.04767, i32 noundef %.04866, ptr noundef null, i32 noundef 0, ptr noundef %.05065) #10
   br label %34
 
@@ -1030,9 +1030,9 @@ zend_parse_arg_long_ex.exit55..critedge_crit_edge: ; preds = %zend_parse_arg_lon
   br label %.critedge
 
 .thread:                                          ; preds = %zend_parse_arg_long_ex.exit55, %zend_parse_arg_long_ex.exit, %7
-  %.04767 = phi i32 [ 9, %zend_parse_arg_long_ex.exit ], [ 1, %7 ], [ 9, %zend_parse_arg_long_ex.exit55 ]
-  %.04866 = phi i32 [ 1, %zend_parse_arg_long_ex.exit ], [ 0, %7 ], [ 2, %zend_parse_arg_long_ex.exit55 ]
-  %.05065 = phi ptr [ %9, %zend_parse_arg_long_ex.exit ], [ null, %7 ], [ %16, %zend_parse_arg_long_ex.exit55 ]
+  %.04767 = phi i32 [ 9, %zend_parse_arg_long_ex.exit55 ], [ 1, %7 ], [ 9, %zend_parse_arg_long_ex.exit ]
+  %.04866 = phi i32 [ 2, %zend_parse_arg_long_ex.exit55 ], [ 0, %7 ], [ 1, %zend_parse_arg_long_ex.exit ]
+  %.05065 = phi ptr [ %16, %zend_parse_arg_long_ex.exit55 ], [ null, %7 ], [ %9, %zend_parse_arg_long_ex.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.04767, i32 noundef %.04866, ptr noundef null, i32 noundef 0, ptr noundef %.05065) #10
   br label %34
 
@@ -1761,10 +1761,10 @@ zend_parse_arg_long_ex.exit..critedge_crit_edge:  ; preds = %zend_parse_arg_long
   br label %.critedge
 
 .thread:                                          ; preds = %zend_parse_arg_long_ex.exit, %zend_parse_arg_str_ex.exit, %17, %7
-  %.04973 = phi i32 [ 1, %7 ], [ 9, %17 ], [ 9, %zend_parse_arg_str_ex.exit ], [ 9, %zend_parse_arg_long_ex.exit ]
-  %.05072 = phi i32 [ 0, %7 ], [ 1, %17 ], [ 1, %zend_parse_arg_str_ex.exit ], [ 2, %zend_parse_arg_long_ex.exit ]
-  %.05171 = phi i32 [ 0, %7 ], [ 16, %17 ], [ 16, %zend_parse_arg_str_ex.exit ], [ 0, %zend_parse_arg_long_ex.exit ]
-  %.05270 = phi ptr [ null, %7 ], [ %9, %17 ], [ %9, %zend_parse_arg_str_ex.exit ], [ %22, %zend_parse_arg_long_ex.exit ]
+  %.04973 = phi i32 [ 9, %zend_parse_arg_long_ex.exit ], [ 9, %zend_parse_arg_str_ex.exit ], [ 1, %7 ], [ 9, %17 ]
+  %.05072 = phi i32 [ 2, %zend_parse_arg_long_ex.exit ], [ 1, %zend_parse_arg_str_ex.exit ], [ 0, %7 ], [ 1, %17 ]
+  %.05171 = phi i32 [ 0, %zend_parse_arg_long_ex.exit ], [ 16, %zend_parse_arg_str_ex.exit ], [ 0, %7 ], [ 16, %17 ]
+  %.05270 = phi ptr [ %22, %zend_parse_arg_long_ex.exit ], [ %9, %zend_parse_arg_str_ex.exit ], [ null, %7 ], [ %9, %17 ]
   call void @zend_wrong_parameter_error(i32 noundef %.04973, i32 noundef %.05072, ptr noundef null, i32 noundef %.05171, ptr noundef %.05270) #10
   br label %46
 
@@ -1924,15 +1924,15 @@ zend_parse_arg_long_ex.exit96:                    ; preds = %41
   %47 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %42, ptr noundef nonnull %6, i32 noundef 4) #10
   br i1 %47, label %.critedge, label %.thread, !prof !15
 
-.thread:                                          ; preds = %zend_parse_arg_long_ex.exit96, %zend_parse_arg_str_ex.exit, %20, %zend_parse_arg_long_ex.exit94, %zend_parse_arg_long_ex.exit, %10
-  %.078114 = phi i32 [ 9, %zend_parse_arg_long_ex.exit94 ], [ 9, %zend_parse_arg_long_ex.exit ], [ 1, %10 ], [ 9, %20 ], [ 9, %zend_parse_arg_str_ex.exit ], [ 9, %zend_parse_arg_long_ex.exit96 ]
-  %.080113 = phi i32 [ 0, %zend_parse_arg_long_ex.exit94 ], [ 0, %zend_parse_arg_long_ex.exit ], [ 0, %10 ], [ 16, %20 ], [ 16, %zend_parse_arg_str_ex.exit ], [ 0, %zend_parse_arg_long_ex.exit96 ]
-  %.081112 = phi ptr [ %34, %zend_parse_arg_long_ex.exit94 ], [ %25, %zend_parse_arg_long_ex.exit ], [ null, %10 ], [ %12, %20 ], [ %12, %zend_parse_arg_str_ex.exit ], [ %42, %zend_parse_arg_long_ex.exit96 ]
-  %.082111 = phi i32 [ 3, %zend_parse_arg_long_ex.exit94 ], [ 2, %zend_parse_arg_long_ex.exit ], [ 0, %10 ], [ 1, %20 ], [ 1, %zend_parse_arg_str_ex.exit ], [ 4, %zend_parse_arg_long_ex.exit96 ]
+.thread:                                          ; preds = %zend_parse_arg_long_ex.exit96, %zend_parse_arg_str_ex.exit, %20, %zend_parse_arg_long_ex.exit, %zend_parse_arg_long_ex.exit94, %10
+  %.078114 = phi i32 [ 9, %zend_parse_arg_long_ex.exit96 ], [ 9, %zend_parse_arg_str_ex.exit ], [ 1, %10 ], [ 9, %zend_parse_arg_long_ex.exit ], [ 9, %zend_parse_arg_long_ex.exit94 ], [ 9, %20 ]
+  %.080113 = phi i32 [ 0, %zend_parse_arg_long_ex.exit96 ], [ 16, %zend_parse_arg_str_ex.exit ], [ 0, %10 ], [ 0, %zend_parse_arg_long_ex.exit ], [ 0, %zend_parse_arg_long_ex.exit94 ], [ 16, %20 ]
+  %.081112 = phi ptr [ %42, %zend_parse_arg_long_ex.exit96 ], [ %12, %zend_parse_arg_str_ex.exit ], [ null, %10 ], [ %25, %zend_parse_arg_long_ex.exit ], [ %34, %zend_parse_arg_long_ex.exit94 ], [ %12, %20 ]
+  %.082111 = phi i32 [ 4, %zend_parse_arg_long_ex.exit96 ], [ 1, %zend_parse_arg_str_ex.exit ], [ 0, %10 ], [ 2, %zend_parse_arg_long_ex.exit ], [ 3, %zend_parse_arg_long_ex.exit94 ], [ 1, %20 ]
   call void @zend_wrong_parameter_error(i32 noundef %.078114, i32 noundef %.082111, ptr noundef null, i32 noundef %.080113, ptr noundef %.081112) #10
   br label %84
 
-.critedge:                                        ; preds = %zend_parse_arg_long_ex.exit96, %.thread115, %31, %40
+.critedge:                                        ; preds = %zend_parse_arg_long_ex.exit96, %.thread115, %40, %31
   %48 = load ptr, ptr %3, align 8, !tbaa !43
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %50 = call i32 @php_check_open_basedir_ex(ptr noundef nonnull %49, i32 noundef 0) #10
@@ -2160,10 +2160,10 @@ zend_parse_arg_long_ex.exit:                      ; preds = %26
   br i1 %32, label %.critedge, label %.thread, !prof !15
 
 .thread:                                          ; preds = %zend_parse_arg_long_ex.exit, %zend_parse_arg_path.exit, %8
-  %.05586 = phi i32 [ 9, %zend_parse_arg_path.exit ], [ 1, %8 ], [ 9, %zend_parse_arg_long_ex.exit ]
-  %.05685 = phi i32 [ 1, %zend_parse_arg_path.exit ], [ 0, %8 ], [ 2, %zend_parse_arg_long_ex.exit ]
-  %.05784 = phi i32 [ 16, %zend_parse_arg_path.exit ], [ 0, %8 ], [ 0, %zend_parse_arg_long_ex.exit ]
-  %.05883 = phi ptr [ %10, %zend_parse_arg_path.exit ], [ null, %8 ], [ %27, %zend_parse_arg_long_ex.exit ]
+  %.05586 = phi i32 [ 9, %zend_parse_arg_long_ex.exit ], [ 1, %8 ], [ 9, %zend_parse_arg_path.exit ]
+  %.05685 = phi i32 [ 2, %zend_parse_arg_long_ex.exit ], [ 0, %8 ], [ 1, %zend_parse_arg_path.exit ]
+  %.05784 = phi i32 [ 0, %zend_parse_arg_long_ex.exit ], [ 0, %8 ], [ 16, %zend_parse_arg_path.exit ]
+  %.05883 = phi ptr [ %27, %zend_parse_arg_long_ex.exit ], [ null, %8 ], [ %10, %zend_parse_arg_path.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.05586, i32 noundef %.05685, ptr noundef null, i32 noundef %.05784, ptr noundef %.05883) #10
   br label %50
 
@@ -2298,10 +2298,10 @@ zend_parse_arg_long_ex.exit:                      ; preds = %26
   br i1 %32, label %.critedge, label %.thread, !prof !15
 
 .thread:                                          ; preds = %zend_parse_arg_long_ex.exit, %zend_parse_arg_path.exit, %8
-  %.05485 = phi i32 [ 9, %zend_parse_arg_path.exit ], [ 1, %8 ], [ 9, %zend_parse_arg_long_ex.exit ]
-  %.05584 = phi i32 [ 1, %zend_parse_arg_path.exit ], [ 0, %8 ], [ 2, %zend_parse_arg_long_ex.exit ]
-  %.05683 = phi i32 [ 16, %zend_parse_arg_path.exit ], [ 0, %8 ], [ 0, %zend_parse_arg_long_ex.exit ]
-  %.05782 = phi ptr [ %10, %zend_parse_arg_path.exit ], [ null, %8 ], [ %27, %zend_parse_arg_long_ex.exit ]
+  %.05485 = phi i32 [ 9, %zend_parse_arg_long_ex.exit ], [ 1, %8 ], [ 9, %zend_parse_arg_path.exit ]
+  %.05584 = phi i32 [ 2, %zend_parse_arg_long_ex.exit ], [ 0, %8 ], [ 1, %zend_parse_arg_path.exit ]
+  %.05683 = phi i32 [ 0, %zend_parse_arg_long_ex.exit ], [ 0, %8 ], [ 16, %zend_parse_arg_path.exit ]
+  %.05782 = phi ptr [ %27, %zend_parse_arg_long_ex.exit ], [ null, %8 ], [ %10, %zend_parse_arg_path.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.05485, i32 noundef %.05584, ptr noundef null, i32 noundef %.05683, ptr noundef %.05782) #10
   br label %49
 
@@ -2963,10 +2963,10 @@ zend_parse_arg_long_ex.exit71..critedge_crit_edge: ; preds = %zend_parse_arg_lon
   %.pre = load i64, ptr %6, align 8, !tbaa !12
   br label %.critedge
 
-.thread:                                          ; preds = %zend_parse_arg_long_ex.exit71, %zend_parse_arg_long_ex.exit69, %zend_parse_arg_long_ex.exit, %9
-  %.06184 = phi i32 [ 9, %zend_parse_arg_long_ex.exit69 ], [ 9, %zend_parse_arg_long_ex.exit ], [ 1, %9 ], [ 9, %zend_parse_arg_long_ex.exit71 ]
-  %.06283 = phi i32 [ 2, %zend_parse_arg_long_ex.exit69 ], [ 1, %zend_parse_arg_long_ex.exit ], [ 0, %9 ], [ 3, %zend_parse_arg_long_ex.exit71 ]
-  %.06482 = phi ptr [ %18, %zend_parse_arg_long_ex.exit69 ], [ %11, %zend_parse_arg_long_ex.exit ], [ null, %9 ], [ %25, %zend_parse_arg_long_ex.exit71 ]
+.thread:                                          ; preds = %zend_parse_arg_long_ex.exit71, %zend_parse_arg_long_ex.exit, %zend_parse_arg_long_ex.exit69, %9
+  %.06184 = phi i32 [ 9, %zend_parse_arg_long_ex.exit71 ], [ 1, %9 ], [ 9, %zend_parse_arg_long_ex.exit ], [ 9, %zend_parse_arg_long_ex.exit69 ]
+  %.06283 = phi i32 [ 3, %zend_parse_arg_long_ex.exit71 ], [ 0, %9 ], [ 1, %zend_parse_arg_long_ex.exit ], [ 2, %zend_parse_arg_long_ex.exit69 ]
+  %.06482 = phi ptr [ %25, %zend_parse_arg_long_ex.exit71 ], [ null, %9 ], [ %11, %zend_parse_arg_long_ex.exit ], [ %18, %zend_parse_arg_long_ex.exit69 ]
   call void @zend_wrong_parameter_error(i32 noundef %.06184, i32 noundef %.06283, ptr noundef null, i32 noundef 0, ptr noundef %.06482) #10
   br label %44
 
@@ -3154,10 +3154,10 @@ zend_parse_arg_long_ex.exit:                      ; preds = %zend_parse_arg_str_
   br i1 %23, label %.critedge, label %.thread, !prof !15
 
 .thread:                                          ; preds = %zend_parse_arg_long_ex.exit, %zend_parse_arg_string.exit, %7
-  %.04780 = phi i32 [ 9, %zend_parse_arg_string.exit ], [ 1, %7 ], [ 9, %zend_parse_arg_long_ex.exit ]
-  %.04879 = phi i32 [ 1, %zend_parse_arg_string.exit ], [ 0, %7 ], [ 2, %zend_parse_arg_long_ex.exit ]
-  %.04978 = phi i32 [ 4, %zend_parse_arg_string.exit ], [ 0, %7 ], [ 0, %zend_parse_arg_long_ex.exit ]
-  %.05077 = phi ptr [ %9, %zend_parse_arg_string.exit ], [ null, %7 ], [ %18, %zend_parse_arg_long_ex.exit ]
+  %.04780 = phi i32 [ 9, %zend_parse_arg_long_ex.exit ], [ 1, %7 ], [ 9, %zend_parse_arg_string.exit ]
+  %.04879 = phi i32 [ 2, %zend_parse_arg_long_ex.exit ], [ 0, %7 ], [ 1, %zend_parse_arg_string.exit ]
+  %.04978 = phi i32 [ 0, %zend_parse_arg_long_ex.exit ], [ 0, %7 ], [ 4, %zend_parse_arg_string.exit ]
+  %.05077 = phi ptr [ %18, %zend_parse_arg_long_ex.exit ], [ null, %7 ], [ %9, %zend_parse_arg_string.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.04780, i32 noundef %.04879, ptr noundef null, i32 noundef %.04978, ptr noundef %.05077) #10
   br label %33
 
@@ -3320,10 +3320,10 @@ zend_parse_arg_long_ex.exit:                      ; preds = %22
   br i1 %30, label %.critedge, label %.thread, !prof !15
 
 .thread:                                          ; preds = %zend_parse_arg_long_ex.exit, %zend_parse_arg_path.exit, %7
-  %.090 = phi i32 [ 1, %zend_parse_arg_path.exit ], [ 0, %7 ], [ 2, %zend_parse_arg_long_ex.exit ]
-  %.05389 = phi i32 [ 9, %zend_parse_arg_path.exit ], [ 1, %7 ], [ 9, %zend_parse_arg_long_ex.exit ]
-  %.05488 = phi ptr [ %9, %zend_parse_arg_path.exit ], [ null, %7 ], [ %25, %zend_parse_arg_long_ex.exit ]
-  %.05587 = phi i32 [ 16, %zend_parse_arg_path.exit ], [ 0, %7 ], [ 0, %zend_parse_arg_long_ex.exit ]
+  %.090 = phi i32 [ 2, %zend_parse_arg_long_ex.exit ], [ 0, %7 ], [ 1, %zend_parse_arg_path.exit ]
+  %.05389 = phi i32 [ 9, %zend_parse_arg_long_ex.exit ], [ 1, %7 ], [ 9, %zend_parse_arg_path.exit ]
+  %.05488 = phi ptr [ %25, %zend_parse_arg_long_ex.exit ], [ null, %7 ], [ %9, %zend_parse_arg_path.exit ]
+  %.05587 = phi i32 [ 0, %zend_parse_arg_long_ex.exit ], [ 0, %7 ], [ 16, %zend_parse_arg_path.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.05389, i32 noundef %.090, ptr noundef null, i32 noundef %.05587, ptr noundef %.05488) #10
   br label %49
 

@@ -118,8 +118,8 @@ define noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__17ArchCloseAllFilesEiPK
   br label %.critedge44
 
 .critedge44:                                      ; preds = %.preheader, %25, %.critedge
-  %.133 = phi i32 [ %spec.select45, %.critedge ], [ %.03256, %25 ], [ %.03256, %.preheader ]
-  %.131 = phi i32 [ %spec.select46, %.critedge ], [ %.03058, %25 ], [ %.03058, %.preheader ]
+  %.133 = phi i32 [ %.03256, %25 ], [ %spec.select45, %.critedge ], [ %.03256, %.preheader ]
+  %.131 = phi i32 [ %.03058, %25 ], [ %spec.select46, %.critedge ], [ %.03058, %.preheader ]
   %30 = add nuw nsw i32 %.12960, 1
   %exitcond77.not = icmp eq i32 %30, %.026
   br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph63.split, !llvm.loop !6

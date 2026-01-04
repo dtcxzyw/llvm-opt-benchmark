@@ -279,7 +279,7 @@ lean_nat_le.exit21:                               ; preds = %10
   br label %14
 
 14:                                               ; preds = %lean_nat_le.exit21, %11, %lean_nat_le.exit, %7, %13, %9
-  %l___private_Std_Time_Time_HourMarker_0__Std_Time_reprHourMarker____x40_Std_Time_Time_HourMarker___hyg_12____closed__12.sink = phi ptr [ @l___private_Std_Time_Time_HourMarker_0__Std_Time_reprHourMarker____x40_Std_Time_Time_HourMarker___hyg_12____closed__14, %13 ], [ @l___private_Std_Time_Time_HourMarker_0__Std_Time_reprHourMarker____x40_Std_Time_Time_HourMarker___hyg_12____closed__8, %9 ], [ @l___private_Std_Time_Time_HourMarker_0__Std_Time_reprHourMarker____x40_Std_Time_Time_HourMarker___hyg_12____closed__5, %7 ], [ @l___private_Std_Time_Time_HourMarker_0__Std_Time_reprHourMarker____x40_Std_Time_Time_HourMarker___hyg_12____closed__5, %lean_nat_le.exit ], [ @l___private_Std_Time_Time_HourMarker_0__Std_Time_reprHourMarker____x40_Std_Time_Time_HourMarker___hyg_12____closed__12, %11 ], [ @l___private_Std_Time_Time_HourMarker_0__Std_Time_reprHourMarker____x40_Std_Time_Time_HourMarker___hyg_12____closed__12, %lean_nat_le.exit21 ]
+  %l___private_Std_Time_Time_HourMarker_0__Std_Time_reprHourMarker____x40_Std_Time_Time_HourMarker___hyg_12____closed__12.sink = phi ptr [ @l___private_Std_Time_Time_HourMarker_0__Std_Time_reprHourMarker____x40_Std_Time_Time_HourMarker___hyg_12____closed__5, %lean_nat_le.exit ], [ @l___private_Std_Time_Time_HourMarker_0__Std_Time_reprHourMarker____x40_Std_Time_Time_HourMarker___hyg_12____closed__14, %13 ], [ @l___private_Std_Time_Time_HourMarker_0__Std_Time_reprHourMarker____x40_Std_Time_Time_HourMarker___hyg_12____closed__8, %9 ], [ @l___private_Std_Time_Time_HourMarker_0__Std_Time_reprHourMarker____x40_Std_Time_Time_HourMarker___hyg_12____closed__5, %7 ], [ @l___private_Std_Time_Time_HourMarker_0__Std_Time_reprHourMarker____x40_Std_Time_Time_HourMarker___hyg_12____closed__12, %11 ], [ @l___private_Std_Time_Time_HourMarker_0__Std_Time_reprHourMarker____x40_Std_Time_Time_HourMarker___hyg_12____closed__12, %lean_nat_le.exit21 ]
   %15 = load ptr, ptr %l___private_Std_Time_Time_HourMarker_0__Std_Time_reprHourMarker____x40_Std_Time_Time_HourMarker___hyg_12____closed__12.sink, align 8, !tbaa !10
   %16 = tail call ptr @l_Repr_addAppParen(ptr noundef %15, ptr noundef %1) #7
   ret ptr %16
@@ -355,7 +355,7 @@ l___private_Std_Time_Time_HourMarker_0__Std_Time_reprHourMarker____x40_Std_Time_
   br label %lean_dec.exit
 
 l___private_Std_Time_Time_HourMarker_0__Std_Time_reprHourMarker____x40_Std_Time_Time_HourMarker___hyg_12_.exit: ; preds = %lean_nat_le.exit21.i, %lean_nat_le.exit.i
-  %l___private_Std_Time_Time_HourMarker_0__Std_Time_reprHourMarker____x40_Std_Time_Time_HourMarker___hyg_12____closed__12.sink.i = phi ptr [ @l___private_Std_Time_Time_HourMarker_0__Std_Time_reprHourMarker____x40_Std_Time_Time_HourMarker___hyg_12____closed__8, %lean_nat_le.exit.i ], [ @l___private_Std_Time_Time_HourMarker_0__Std_Time_reprHourMarker____x40_Std_Time_Time_HourMarker___hyg_12____closed__14, %lean_nat_le.exit21.i ]
+  %l___private_Std_Time_Time_HourMarker_0__Std_Time_reprHourMarker____x40_Std_Time_Time_HourMarker___hyg_12____closed__12.sink.i = phi ptr [ @l___private_Std_Time_Time_HourMarker_0__Std_Time_reprHourMarker____x40_Std_Time_Time_HourMarker___hyg_12____closed__14, %lean_nat_le.exit21.i ], [ @l___private_Std_Time_Time_HourMarker_0__Std_Time_reprHourMarker____x40_Std_Time_Time_HourMarker___hyg_12____closed__8, %lean_nat_le.exit.i ]
   br label %l___private_Std_Time_Time_HourMarker_0__Std_Time_reprHourMarker____x40_Std_Time_Time_HourMarker___hyg_12_.exit.thread12
 
 l___private_Std_Time_Time_HourMarker_0__Std_Time_reprHourMarker____x40_Std_Time_Time_HourMarker___hyg_12_.exit.thread12: ; preds = %lean_nat_le.exit21.i, %lean_nat_le.exit.i, %l___private_Std_Time_Time_HourMarker_0__Std_Time_reprHourMarker____x40_Std_Time_Time_HourMarker___hyg_12_.exit
@@ -380,7 +380,7 @@ l___private_Std_Time_Time_HourMarker_0__Std_Time_reprHourMarker____x40_Std_Time_
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %l___private_Std_Time_Time_HourMarker_0__Std_Time_reprHourMarker____x40_Std_Time_Time_HourMarker___hyg_12_.exit.thread16, %33, %32, %30, %l___private_Std_Time_Time_HourMarker_0__Std_Time_reprHourMarker____x40_Std_Time_Time_HourMarker___hyg_12_.exit.thread
-  %34 = phi ptr [ %23, %l___private_Std_Time_Time_HourMarker_0__Std_Time_reprHourMarker____x40_Std_Time_Time_HourMarker___hyg_12_.exit.thread ], [ %27, %30 ], [ %27, %32 ], [ %27, %33 ], [ %25, %l___private_Std_Time_Time_HourMarker_0__Std_Time_reprHourMarker____x40_Std_Time_Time_HourMarker___hyg_12_.exit.thread16 ]
+  %34 = phi ptr [ %23, %l___private_Std_Time_Time_HourMarker_0__Std_Time_reprHourMarker____x40_Std_Time_Time_HourMarker___hyg_12_.exit.thread ], [ %25, %l___private_Std_Time_Time_HourMarker_0__Std_Time_reprHourMarker____x40_Std_Time_Time_HourMarker___hyg_12_.exit.thread16 ], [ %27, %30 ], [ %27, %32 ], [ %27, %33 ]
   ret ptr %34
 }
 
@@ -826,7 +826,7 @@ lean_int_emod.exit.thread28:                      ; preds = %45
   br label %lean_inc.exit
 
 lean_inc.exit:                                    ; preds = %65, %60, %49, %lean_int_emod.exit.thread28, %71, %73, %74, %13, %16, %18, %19, %75, %20
-  %.1 = phi ptr [ %21, %20 ], [ %76, %75 ], [ %1, %19 ], [ %1, %18 ], [ %1, %16 ], [ %1, %13 ], [ %48, %lean_int_emod.exit.thread28 ], [ %68, %71 ], [ %68, %73 ], [ %68, %74 ], [ %66, %65 ], [ %64, %60 ], [ %.0.i, %49 ]
+  %.1 = phi ptr [ %21, %20 ], [ %76, %75 ], [ %1, %13 ], [ %1, %19 ], [ %1, %18 ], [ %1, %16 ], [ %68, %74 ], [ %48, %lean_int_emod.exit.thread28 ], [ %68, %71 ], [ %68, %73 ], [ %66, %65 ], [ %64, %60 ], [ %.0.i, %49 ]
   ret ptr %.1
 }
 
@@ -961,7 +961,7 @@ lean_int_dec_lt.exit:                             ; preds = %5, %9
   br label %lean_dec.exit9
 
 lean_dec.exit9:                                   ; preds = %29, %35, %37, %38, %19, %25, %27, %28
-  %.sink = phi ptr [ %4, %28 ], [ %4, %27 ], [ %4, %25 ], [ %4, %19 ], [ %3, %38 ], [ %3, %37 ], [ %3, %35 ], [ %3, %29 ]
+  %.sink = phi ptr [ %4, %19 ], [ %4, %28 ], [ %4, %27 ], [ %4, %25 ], [ %3, %38 ], [ %3, %37 ], [ %3, %35 ], [ %3, %29 ]
   %39 = tail call ptr @lean_apply_1(ptr noundef %.sink, ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
   ret ptr %39
 }
@@ -1101,7 +1101,7 @@ lean_int_add.exit.thread50:                       ; preds = %.thread63
   br label %lean_dec.exit32
 
 lean_dec.exit32:                                  ; preds = %38, %33, %48, %47, %45, %lean_int_add.exit.thread50
-  %.0.i49 = phi ptr [ %24, %lean_int_add.exit.thread50 ], [ %42, %45 ], [ %42, %47 ], [ %42, %48 ], [ %39, %38 ], [ %37, %33 ]
+  %.0.i49 = phi ptr [ %42, %48 ], [ %24, %lean_int_add.exit.thread50 ], [ %42, %45 ], [ %42, %47 ], [ %39, %38 ], [ %37, %33 ]
   tail call void @lean_inc_heartbeat() #7
   %49 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #7
   %50 = icmp eq ptr %49, null

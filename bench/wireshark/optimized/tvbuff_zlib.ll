@@ -353,7 +353,7 @@ define noundef ptr @tvb_uncompress_zlib(ptr noundef %0, i32 noundef %1, i32 noun
   br label %.critedge244
 
 .critedge244:                                     ; preds = %72, %124, %7, %3, %146, %142, %139, %57, %29
-  %.0200 = phi ptr [ null, %29 ], [ %.0227, %146 ], [ null, %57 ], [ null, %139 ], [ null, %142 ], [ null, %3 ], [ null, %7 ], [ null, %124 ], [ null, %72 ]
+  %.0200 = phi ptr [ null, %142 ], [ null, %3 ], [ null, %29 ], [ %.0227, %146 ], [ null, %57 ], [ null, %7 ], [ null, %139 ], [ null, %124 ], [ null, %72 ]
   ret ptr %.0200
 }
 

@@ -4145,7 +4145,7 @@ define dso_local i32 @acct_storage_p_roll_usage(ptr noundef %0, i64 noundef %1, 
   br label %20
 
 20:                                               ; preds = %5, %16, %19
-  %.0 = phi i32 [ %14, %19 ], [ %14, %16 ], [ %15, %5 ]
+  %.0 = phi i32 [ %14, %16 ], [ %14, %19 ], [ %15, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -4334,7 +4334,7 @@ define dso_local ptr @acct_storage_p_node_inx(ptr noundef readnone captures(none
   br label %38
 
 38:                                               ; preds = %35, %37, %16, %17, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %17 ], [ null, %16 ], [ %36, %37 ], [ %36, %35 ]
+  %.0 = phi ptr [ null, %16 ], [ null, %2 ], [ null, %17 ], [ %36, %37 ], [ %36, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -5104,7 +5104,7 @@ _fill_stdout_str.exit:                            ; preds = %143, %142, %136, %1
   br label %204
 
 204:                                              ; preds = %157, %199, %13
-  %.0 = phi i32 [ 0, %199 ], [ -1, %13 ], [ -1, %157 ]
+  %.0 = phi i32 [ -1, %13 ], [ 0, %199 ], [ -1, %157 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -5367,7 +5367,7 @@ define dso_local range(i32 -1, 1) i32 @jobacct_storage_p_job_complete(ptr nounde
   br label %63
 
 63:                                               ; preds = %60, %55, %52
-  %.sink = phi i32 [ 8192, %52 ], [ 1024, %55 ], [ %spec.select, %60 ]
+  %.sink = phi i32 [ 8192, %52 ], [ %spec.select, %60 ], [ 1024, %55 ]
   %64 = getelementptr inbounds nuw i8, ptr %4, i64 76
   store i32 %.sink, ptr %64, align 4
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 852
@@ -5434,7 +5434,7 @@ define dso_local range(i32 -1, 1) i32 @jobacct_storage_p_job_complete(ptr nounde
   br label %97
 
 97:                                               ; preds = %93, %13
-  %.0 = phi i32 [ -1, %13 ], [ %.lobit, %93 ]
+  %.0 = phi i32 [ %.lobit, %93 ], [ -1, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

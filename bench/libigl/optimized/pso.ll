@@ -157,7 +157,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %36, %38
   unreachable
 
 .body:                                            ; preds = %47, %44, %30, %27
-  %.pn = phi { ptr, i32 } [ %28, %30 ], [ %28, %27 ], [ %45, %44 ], [ %45, %47 ]
+  %.pn = phi { ptr, i32 } [ %28, %27 ], [ %45, %47 ], [ %28, %30 ], [ %45, %44 ]
   %52 = load ptr, ptr %7, align 8, !tbaa !13
   call void @free(ptr noundef %52) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -675,7 +675,7 @@ _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i316.
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i225.us, label %_ZN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEaSERKS1_.exit229.us, label %.lr.ph.i.i.i.i.i.i.i.i.i223.us, !llvm.loop !32
 
 _ZN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEaSERKS1_.exit229.us: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i223.us, %._crit_edge.i.i.i.i.i.i.i.i222.us, %_ZN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEaSERKS1_.exit218.us, %172
-  %.469.us = phi float [ %.368753.us, %_ZN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEaSERKS1_.exit218.us ], [ %.368753.us, %172 ], [ %208, %._crit_edge.i.i.i.i.i.i.i.i222.us ], [ %208, %.lr.ph.i.i.i.i.i.i.i.i.i223.us ]
+  %.469.us = phi float [ %.368753.us, %172 ], [ %.368753.us, %_ZN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEaSERKS1_.exit218.us ], [ %208, %._crit_edge.i.i.i.i.i.i.i.i222.us ], [ %208, %.lr.ph.i.i.i.i.i.i.i.i.i223.us ]
   call void @free(ptr noundef %.sroa.0.4984) #14
   call void @free(ptr noundef %.sroa.0819.2964973983) #14
   %indvars.iv.next805 = add nuw nsw i64 %indvars.iv804, 1
@@ -1194,7 +1194,7 @@ _ZN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEaSINS_13CwiseBinaryOpINS_8internal17sca
   br label %.body288
 
 .split.us:                                        ; preds = %._crit_edge757.us
-  call void @free(ptr noundef %24) #14
+  call void @free(ptr noundef nonnull %24) #14
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.split.us, %.lr.ph.i.i
@@ -1238,7 +1238,7 @@ _ZNSt6vectorIN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_
   ret float %.us-phi100210111030103610441049
 
 .body288:                                         ; preds = %.body300, %413, %.loopexit716, %.loopexit.split-lp717, %355, %.body277
-  %.pn118.pn.pn.pn = phi { ptr, i32 } [ %.pn118.pn, %.body277 ], [ %.pn114.pn.pn, %355 ], [ %lpad.loopexit718, %.loopexit716 ], [ %lpad.loopexit.split-lp719, %.loopexit.split-lp717 ], [ %.pn106.pn, %.body300 ], [ %414, %413 ]
+  %.pn118.pn.pn.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp719, %.loopexit.split-lp717 ], [ %.pn118.pn, %.body277 ], [ %.pn114.pn.pn, %355 ], [ %lpad.loopexit718, %.loopexit716 ], [ %.pn106.pn, %.body300 ], [ %414, %413 ]
   call void @free(ptr noundef %24) #14
   br label %.body
 

@@ -1947,7 +1947,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs11VerticalCRSEEED2Ev.exit: 
   br label %.critedge
 
 618:                                              ; preds = %386, %388, %373, %_ZN7testing7MessageD2Ev.exit286, %336
-  %.pn133.pn.pn.pn = phi { ptr, i32 } [ %.pn133.pn.pn, %_ZN7testing7MessageD2Ev.exit286 ], [ %337, %336 ], [ %374, %373 ], [ %387, %386 ], [ %.pn129, %388 ]
+  %.pn133.pn.pn.pn = phi { ptr, i32 } [ %.pn133.pn.pn, %_ZN7testing7MessageD2Ev.exit286 ], [ %374, %373 ], [ %337, %336 ], [ %387, %386 ], [ %.pn129, %388 ]
   %619 = load ptr, ptr %20, align 8, !tbaa !51
   %620 = icmp eq ptr %619, %266
   br i1 %620, label %_ZN7testing8internal14TrueWithStringD2Ev.exit305, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i303
@@ -2127,7 +2127,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit312: ; preds = %67
           cleanup
   br label %761
 
-687:                                              ; preds = %666, %663, %.critedge
+687:                                              ; preds = %663, %666, %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %32)
           to label %688 unwind label %696
@@ -4410,7 +4410,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit559: ; preds = %14
   unreachable
 
 _ZN12_GLOBAL__N_112ObjectKeeperD2Ev.exit560:      ; preds = %1476, %1102, %1101, %1053, %_ZN7testing7MessageD2Ev.exit409
-  %.pn199.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn179.pn.pn.pn, %1101 ], [ %.pn175.pn.pn, %1053 ], [ %.pn169.pn.pn, %_ZN7testing7MessageD2Ev.exit409 ], [ %1103, %1102 ], [ %.pn199.pn.pn.pn.pn.pn.pn.pn, %1476 ]
+  %.pn199.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn169.pn.pn, %_ZN7testing7MessageD2Ev.exit409 ], [ %.pn179.pn.pn.pn, %1101 ], [ %.pn175.pn.pn, %1053 ], [ %1103, %1102 ], [ %.pn199.pn.pn.pn.pn.pn.pn.pn, %1476 ]
   %1481 = invoke ptr @proj_destroy(ptr noundef %953)
           to label %_ZN12_GLOBAL__N_112ObjectKeeperD2Ev.exit561 unwind label %1482
 
@@ -4434,7 +4434,7 @@ _ZN12_GLOBAL__N_112ObjectKeeperD2Ev.exit561:      ; preds = %_ZN12_GLOBAL__N_112
   unreachable
 
 _ZN12_GLOBAL__N_115PjContextKeeperD2Ev.exit562:   ; preds = %_ZN12_GLOBAL__N_112ObjectKeeperD2Ev.exit561, %958, %_ZN7testing7MessageD2Ev.exit387, %909, %_ZN7testing7MessageD2Ev.exit348
-  %.pn199.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn165.pn.pn, %_ZN7testing7MessageD2Ev.exit387 ], [ %.pn160.pn.pn.pn, %909 ], [ %.pn156.pn.pn, %_ZN7testing7MessageD2Ev.exit348 ], [ %959, %958 ], [ %.pn199.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_112ObjectKeeperD2Ev.exit561 ]
+  %.pn199.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn156.pn.pn, %_ZN7testing7MessageD2Ev.exit348 ], [ %.pn165.pn.pn, %_ZN7testing7MessageD2Ev.exit387 ], [ %.pn160.pn.pn.pn, %909 ], [ %959, %958 ], [ %.pn199.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_112ObjectKeeperD2Ev.exit561 ]
   call void @_ZNSt12__shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %39) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @_ZN5osgeo4proj4util15BaseObjectNNPtrD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %37) #25
@@ -6529,7 +6529,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit296: ; preds = %54
           cleanup
   br label %664
 
-554:                                              ; preds = %533, %530, %.critedge
+554:                                              ; preds = %530, %533, %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %31)
           to label %555 unwind label %563
@@ -8673,7 +8673,7 @@ _ZN12_GLOBAL__N_112ObjectKeeperD2Ev.exit512:      ; preds = %1309, %817
   unreachable
 
 _ZN12_GLOBAL__N_115PjContextKeeperD2Ev.exit513:   ; preds = %_ZN12_GLOBAL__N_112ObjectKeeperD2Ev.exit512, %815, %814, %_ZN7testing7MessageD2Ev.exit348, %726
-  %.pn176.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn147.pn.pn, %814 ], [ %.pn143.pn.pn, %_ZN7testing7MessageD2Ev.exit348 ], [ %.pn138.pn.pn.pn, %726 ], [ %816, %815 ], [ %.pn176.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_112ObjectKeeperD2Ev.exit512 ]
+  %.pn176.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn138.pn.pn.pn, %726 ], [ %.pn147.pn.pn, %814 ], [ %.pn143.pn.pn, %_ZN7testing7MessageD2Ev.exit348 ], [ %816, %815 ], [ %.pn176.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_112ObjectKeeperD2Ev.exit512 ]
   call void @_ZNSt12__shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %38) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void @_ZN5osgeo4proj4util15BaseObjectNNPtrD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %36) #25
@@ -9414,7 +9414,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit195: ; preds = %19
           cleanup
   br label %261
 
-207:                                              ; preds = %186, %183, %.critedge
+207:                                              ; preds = %183, %186, %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12)
           to label %208 unwind label %216
@@ -10044,7 +10044,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit244: ; preds = %_Z
   br i1 %454, label %511, label %478
 
 455:                                              ; preds = %315, %317, %302, %_ZN7testing7MessageD2Ev.exit224, %266
-  %.pn105.pn.pn.pn = phi { ptr, i32 } [ %.pn105.pn.pn, %_ZN7testing7MessageD2Ev.exit224 ], [ %267, %266 ], [ %303, %302 ], [ %316, %315 ], [ %.pn101, %317 ]
+  %.pn105.pn.pn.pn = phi { ptr, i32 } [ %.pn105.pn.pn, %_ZN7testing7MessageD2Ev.exit224 ], [ %303, %302 ], [ %267, %266 ], [ %316, %315 ], [ %.pn101, %317 ]
   %456 = load ptr, ptr %14, align 8, !tbaa !51
   %457 = icmp eq ptr %456, %232
   br i1 %457, label %_ZN7testing8internal14TrueWithStringD2Ev.exit247, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i245
@@ -10883,7 +10883,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit328: ; preds = %75
           cleanup
   br label %886
 
-762:                                              ; preds = %741, %738, %.critedge166
+762:                                              ; preds = %738, %741, %.critedge166
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %42)
           to label %763 unwind label %771

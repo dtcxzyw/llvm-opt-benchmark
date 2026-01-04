@@ -113,7 +113,7 @@ define internal range(i32 0, 2) i32 @test_empty() #0 {
   br label %13
 
 13:                                               ; preds = %10, %0, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %0 ], [ %spec.select, %10 ]
+  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %10 ], [ 0, %7 ]
   %14 = load ptr, ptr %1, align 8, !tbaa !11
   call void @OPENSSL_sk_free(ptr noundef %14) #5
   %15 = load ptr, ptr %2, align 8, !tbaa !11
@@ -177,7 +177,7 @@ define internal range(i32 0, 2) i32 @test_unsupported() #0 {
   br label %28
 
 28:                                               ; preds = %23, %0, %9, %12, %16, %19
-  %.0 = phi i32 [ 0, %19 ], [ 0, %16 ], [ 0, %12 ], [ 0, %9 ], [ 0, %0 ], [ %spec.select, %23 ]
+  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %23 ], [ 0, %19 ], [ 0, %16 ], [ 0, %12 ], [ 0, %9 ]
   %29 = load ptr, ptr %1, align 8, !tbaa !11
   call void @OPENSSL_sk_free(ptr noundef %29) #5
   %30 = load ptr, ptr %2, align 8, !tbaa !11
@@ -249,7 +249,7 @@ define internal range(i32 0, 2) i32 @test_v2() #0 {
   br label %33
 
 33:                                               ; preds = %28, %23, %0, %9, %12, %16, %19
-  %.0 = phi i32 [ 0, %23 ], [ 0, %19 ], [ 0, %16 ], [ 0, %12 ], [ 0, %9 ], [ 0, %0 ], [ %spec.select, %28 ]
+  %.0 = phi i32 [ 0, %23 ], [ %spec.select, %28 ], [ 0, %0 ], [ 0, %19 ], [ 0, %16 ], [ 0, %12 ], [ 0, %9 ]
   %34 = load ptr, ptr %1, align 8, !tbaa !11
   call void @OPENSSL_sk_free(ptr noundef %34) #5
   %35 = load ptr, ptr %2, align 8, !tbaa !11
@@ -344,7 +344,7 @@ define internal range(i32 0, 2) i32 @test_v3() #0 {
   br label %45
 
 45:                                               ; preds = %40, %0, %6, %9, %13, %16, %20, %25, %30, %35
-  %.0 = phi i32 [ 0, %35 ], [ 0, %30 ], [ 0, %25 ], [ 0, %20 ], [ 0, %16 ], [ 0, %13 ], [ 0, %9 ], [ 0, %6 ], [ 0, %0 ], [ %spec.select, %40 ]
+  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %40 ], [ 0, %35 ], [ 0, %30 ], [ 0, %25 ], [ 0, %20 ], [ 0, %16 ], [ 0, %13 ], [ 0, %9 ], [ 0, %6 ]
   %46 = load ptr, ptr %1, align 8, !tbaa !11
   call void @OPENSSL_sk_free(ptr noundef %46) #5
   %47 = load ptr, ptr %2, align 8, !tbaa !11

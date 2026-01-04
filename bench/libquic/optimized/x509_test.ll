@@ -148,7 +148,7 @@ define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef read
   unreachable
 
 common.resume:                                    ; preds = %432, %_ZN20ScopedOpenSSLContextI13env_md_ctx_stiXadL_Z15EVP_MD_CTX_initEEXadL_Z18EVP_MD_CTX_cleanupEEED2Ev.exit12.i, %399, %419, %367, %386, %52, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %53, %52 ], [ %.pn77.pn.pn.pn.pn.pn.pn.pn.i, %.body.i ], [ %368, %367 ], [ %.pn.i5, %386 ], [ %400, %399 ], [ %.pn.i12, %419 ], [ %433, %432 ], [ %.pn.pn.i, %_ZN20ScopedOpenSSLContextI13env_md_ctx_stiXadL_Z15EVP_MD_CTX_initEEXadL_Z18EVP_MD_CTX_cleanupEEED2Ev.exit12.i ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i12, %419 ], [ %.pn77.pn.pn.pn.pn.pn.pn.pn.i, %.body.i ], [ %.pn.i5, %386 ], [ %53, %52 ], [ %368, %367 ], [ %400, %399 ], [ %433, %432 ], [ %.pn.pn.i, %_ZN20ScopedOpenSSLContextI13env_md_ctx_stiXadL_Z15EVP_MD_CTX_initEEXadL_Z18EVP_MD_CTX_cleanupEEED2Ev.exit12.i ]
   resume { ptr, i32 } %common.resume.op
 
 52:                                               ; preds = %2

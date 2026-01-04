@@ -86,7 +86,7 @@ define noundef double @_ZN6icu_7717double_conversion13StrtodTrimmedENS0_6VectorI
   br label %_ZNK6icu_7717double_conversion6Double10NextDoubleEv.exit
 
 _ZNK6icu_7717double_conversion6Double10NextDoubleEv.exit: ; preds = %3, %46, %43, %41, %36, %33, %30, %28, %24, %7
-  %.0 = phi double [ %6, %7 ], [ %32, %30 ], [ %35, %33 ], [ 0.000000e+00, %28 ], [ 0x7FF0000000000000, %24 ], [ %6, %36 ], [ %45, %43 ], [ %48, %46 ], [ 0.000000e+00, %41 ], [ %6, %3 ]
+  %.0 = phi double [ %45, %43 ], [ %6, %36 ], [ %6, %7 ], [ 0x7FF0000000000000, %24 ], [ 0.000000e+00, %28 ], [ %35, %33 ], [ %32, %30 ], [ 0.000000e+00, %41 ], [ %48, %46 ], [ %6, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret double %.0
 }
@@ -283,9 +283,9 @@ _ZN6icu_7717double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.i: 
   br label %_ZN6icu_7717double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.thread.i
 
 _ZN6icu_7717double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.thread.i: ; preds = %_ZN6icu_7717double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.i, %_ZN6icu_7717double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i.i
-  %99 = phi i32 [ %2, %_ZN6icu_7717double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i.i ], [ %98, %_ZN6icu_7717double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.i ]
-  %spec.select.sink.i103.i = phi i64 [ %.0.lcssa.i.i.i, %_ZN6icu_7717double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i.i ], [ %spec.select.i.i, %_ZN6icu_7717double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.i ]
-  %100 = phi i64 [ 0, %_ZN6icu_7717double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i.i ], [ 4, %_ZN6icu_7717double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.i ]
+  %99 = phi i32 [ %98, %_ZN6icu_7717double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.i ], [ %2, %_ZN6icu_7717double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i.i ]
+  %spec.select.sink.i103.i = phi i64 [ %spec.select.i.i, %_ZN6icu_7717double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.i ], [ %.0.lcssa.i.i.i, %_ZN6icu_7717double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i.i ]
+  %100 = phi i64 [ 4, %_ZN6icu_7717double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.i ], [ 0, %_ZN6icu_7717double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i.i ]
   %101 = icmp ult i64 %spec.select.sink.i103.i, 18014398509481984
   br i1 %101, label %.lr.ph.i.i15, label %.preheader.i.i
 
@@ -530,12 +530,12 @@ _ZN6icu_7717double_conversionL11DiyFpStrtodENS0_6VectorIKcEEiPd.exit: ; preds = 
   br label %224
 
 .sink.split:                                      ; preds = %_ZN6icu_7717double_conversion5DiyFp9NormalizeEv.exit.i, %_ZN6icu_7717double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit49.i, %_ZN6icu_7717double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit40.i, %_ZN6icu_7717double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i, %11, %8, %4
-  %.sink = phi double [ 0.000000e+00, %4 ], [ 0x7FF0000000000000, %8 ], [ 0.000000e+00, %11 ], [ %78, %_ZN6icu_7717double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit49.i ], [ %51, %_ZN6icu_7717double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit40.i ], [ %33, %_ZN6icu_7717double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i ], [ 0.000000e+00, %_ZN6icu_7717double_conversion5DiyFp9NormalizeEv.exit.i ]
+  %.sink = phi double [ %33, %_ZN6icu_7717double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i ], [ 0.000000e+00, %11 ], [ 0x7FF0000000000000, %8 ], [ 0.000000e+00, %4 ], [ %78, %_ZN6icu_7717double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit49.i ], [ %51, %_ZN6icu_7717double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit40.i ], [ 0.000000e+00, %_ZN6icu_7717double_conversion5DiyFp9NormalizeEv.exit.i ]
   store double %.sink, ptr %3, align 8, !tbaa !3
   br label %224
 
 224:                                              ; preds = %_ZN6icu_7717double_conversionL11DiyFpStrtodENS0_6VectorIKcEEiPd.exit, %.sink.split
-  %.0 = phi i1 [ %spec.select, %_ZN6icu_7717double_conversionL11DiyFpStrtodENS0_6VectorIKcEEiPd.exit ], [ true, %.sink.split ]
+  %.0 = phi i1 [ true, %.sink.split ], [ %spec.select, %_ZN6icu_7717double_conversionL11DiyFpStrtodENS0_6VectorIKcEEiPd.exit ]
   ret i1 %.0
 }
 
@@ -732,7 +732,7 @@ _ZN6icu_7717double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit: ; pr
   br label %_ZN6icu_7717double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit
 
 _ZN6icu_7717double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit: ; preds = %_ZN6icu_7717double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit, %31, %48, %52, %54, %57, %60, %65, %67, %70
-  %.0.i = phi double [ %30, %31 ], [ %56, %54 ], [ %59, %57 ], [ 0.000000e+00, %52 ], [ 0x7FF0000000000000, %48 ], [ %30, %60 ], [ %69, %67 ], [ %72, %70 ], [ 0.000000e+00, %65 ], [ %30, %_ZN6icu_7717double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit ]
+  %.0.i = phi double [ %69, %67 ], [ %30, %60 ], [ %30, %31 ], [ 0x7FF0000000000000, %48 ], [ 0.000000e+00, %52 ], [ %59, %57 ], [ %56, %54 ], [ 0.000000e+00, %65 ], [ %72, %70 ], [ %30, %_ZN6icu_7717double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret double %.0.i
@@ -865,8 +865,8 @@ _ZNK6icu_7717double_conversion6Double10NextDoubleEv.exit: ; preds = %20
   br i1 %28, label %_ZNK6icu_7717double_conversion6Double14PreviousDoubleEv.exit.thread, label %_ZNK6icu_7717double_conversion6Double14PreviousDoubleEv.exit
 
 _ZNK6icu_7717double_conversion6Double14PreviousDoubleEv.exit: ; preds = %25, %15, %20, %_ZNK6icu_7717double_conversion6Double10NextDoubleEv.exit
-  %.sink = phi i64 [ 1, %_ZNK6icu_7717double_conversion6Double10NextDoubleEv.exit ], [ 1, %20 ], [ -1, %15 ], [ -1, %25 ]
-  %.0.i4970 = phi double [ %23, %_ZNK6icu_7717double_conversion6Double10NextDoubleEv.exit ], [ 0.000000e+00, %20 ], [ 0x7FF0000000000000, %15 ], [ %27, %25 ]
+  %.sink = phi i64 [ 1, %20 ], [ 1, %_ZNK6icu_7717double_conversion6Double10NextDoubleEv.exit ], [ -1, %15 ], [ -1, %25 ]
+  %.0.i4970 = phi double [ 0.000000e+00, %20 ], [ %23, %_ZNK6icu_7717double_conversion6Double10NextDoubleEv.exit ], [ 0x7FF0000000000000, %15 ], [ %27, %25 ]
   %29 = add nsw i64 %.sink, %16
   %.0.i50 = bitcast i64 %29 to double
   %30 = fcmp ult double %.0.i50, 0x47EFFFFFE0000000
@@ -982,7 +982,7 @@ _ZN6icu_7717double_conversionL18SanitizedDoubletofEd.exit58: ; preds = %_ZNK6icu
   br label %78
 
 78:                                               ; preds = %70, %73, %74, %_ZN6icu_7717double_conversionL18SanitizedDoubletofEd.exit58, %_ZN6icu_7717double_conversionL18SanitizedDoubletofEd.exit
-  %.0 = phi float [ %.0.i, %_ZN6icu_7717double_conversionL18SanitizedDoubletofEd.exit ], [ %.0.i, %_ZN6icu_7717double_conversionL18SanitizedDoubletofEd.exit58 ], [ %.0.i51, %70 ], [ %.046, %73 ], [ %..046, %74 ]
+  %.0 = phi float [ %.0.i, %_ZN6icu_7717double_conversionL18SanitizedDoubletofEd.exit ], [ %.0.i, %_ZN6icu_7717double_conversionL18SanitizedDoubletofEd.exit58 ], [ %.046, %73 ], [ %.0.i51, %70 ], [ %..046, %74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret float %.0
 }

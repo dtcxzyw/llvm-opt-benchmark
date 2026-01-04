@@ -245,8 +245,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit38: ; 
   br i1 %65, label %69, label %.invoke
 
 .invoke:                                          ; preds = %24, %66, %62, %52
-  %67 = phi ptr [ @.str, %52 ], [ @.str, %62 ], [ @.str.11, %66 ], [ @.str.5, %24 ]
-  %68 = phi i64 [ 42, %52 ], [ 45, %62 ], [ 49, %66 ], [ 34, %24 ]
+  %67 = phi ptr [ @.str, %62 ], [ @.str, %52 ], [ @.str.11, %66 ], [ @.str.5, %24 ]
+  %68 = phi i64 [ 45, %62 ], [ 42, %52 ], [ 49, %66 ], [ 34, %24 ]
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__10Arch_ErrorEPKcS1_mS1_(ptr noundef nonnull %67, ptr noundef nonnull @__func__.main, i64 noundef %68, ptr noundef nonnull @.str.1) #12
           to label %.cont unwind label %29
 

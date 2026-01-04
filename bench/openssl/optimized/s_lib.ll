@@ -406,7 +406,7 @@ define ptr @EVP_SKEY_get0_key_id(ptr noundef readonly captures(address_is_null) 
   br label %12
 
 12:                                               ; preds = %3, %1, %8
-  %.0 = phi ptr [ %11, %8 ], [ null, %1 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %1 ], [ %11, %8 ], [ null, %3 ]
   ret ptr %.0
 }
 

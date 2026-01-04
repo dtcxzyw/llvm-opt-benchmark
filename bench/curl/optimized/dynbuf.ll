@@ -81,7 +81,7 @@ curlx_dyn_reset.exit:                             ; preds = %9, %10
   br label %18
 
 18:                                               ; preds = %curlx_dyn_reset.exit, %12, %6, %2
-  %.0 = phi i32 [ 43, %2 ], [ 0, %6 ], [ 0, %12 ], [ 0, %curlx_dyn_reset.exit ]
+  %.0 = phi i32 [ 0, %6 ], [ 43, %2 ], [ 0, %12 ], [ 0, %curlx_dyn_reset.exit ]
   ret i32 %.0
 }
 
@@ -130,7 +130,7 @@ define dso_local range(i32 0, 101) i32 @curlx_dyn_addn(ptr noundef captures(none
   br label %22
 
 22:                                               ; preds = %21, %18, %16
-  %.141.i = phi i64 [ %10, %16 ], [ %..i, %18 ], [ %spec.select.i, %21 ]
+  %.141.i = phi i64 [ %..i, %18 ], [ %spec.select.i, %21 ], [ %10, %16 ]
   %.not48.i = icmp eq i64 %.141.i, %15
   %.pre51.pre.i = load ptr, ptr %0, align 8, !tbaa !11
   br i1 %.not48.i, label %27, label %23
@@ -217,7 +217,7 @@ define dso_local range(i32 0, 101) i32 @curlx_dyn_add(ptr noundef captures(none)
   br label %22
 
 22:                                               ; preds = %21, %18, %16
-  %.141.i = phi i64 [ %10, %16 ], [ %..i, %18 ], [ %spec.select.i, %21 ]
+  %.141.i = phi i64 [ %..i, %18 ], [ %spec.select.i, %21 ], [ %10, %16 ]
   %.not48.i = icmp eq i64 %.141.i, %15
   %.pre51.pre.i = load ptr, ptr %0, align 8, !tbaa !11
   br i1 %.not48.i, label %27, label %23
@@ -312,7 +312,7 @@ define dso_local range(i32 0, 101) i32 @curlx_dyn_vaddf(ptr noundef captures(non
   br label %25
 
 25:                                               ; preds = %24, %21, %19
-  %.141.i = phi i64 [ %13, %19 ], [ %..i, %21 ], [ %spec.select.i, %24 ]
+  %.141.i = phi i64 [ %..i, %21 ], [ %spec.select.i, %24 ], [ %13, %19 ]
   %.not48.i = icmp eq i64 %.141.i, %18
   %.pre51.pre.i = load ptr, ptr %0, align 8, !tbaa !11
   br i1 %.not48.i, label %30, label %26

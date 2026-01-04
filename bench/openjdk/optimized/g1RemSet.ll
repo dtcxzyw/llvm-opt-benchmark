@@ -1143,8 +1143,8 @@ _ZN17G1RemSetScanState26iterate_dirty_regions_fromEP19G1HeapRegionClosurej.exit:
   br label %_ZN8JfrEventI20EventGCPhaseParallelE13should_commitEv.exit.i
 
 _ZN8JfrEventI20EventGCPhaseParallelE13should_commitEv.exit.i: ; preds = %69, %67
-  %72 = phi i64 [ %.pre3.i.i.i, %69 ], [ %68, %67 ]
-  %73 = phi i64 [ %71, %69 ], [ 0, %67 ]
+  %72 = phi i64 [ %68, %67 ], [ %.pre3.i.i.i, %69 ]
+  %73 = phi i64 [ 0, %67 ], [ %71, %69 ]
   %74 = sub nsw i64 %73, %72
   %75 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 1752), align 8
   %76 = icmp sge i64 %74, %75
@@ -1933,7 +1933,7 @@ _ZNK15G1CollectedHeap30heap_region_containing_or_nullEPKv.exit: ; preds = %2
   br label %_ZNK15G1CollectedHeap30heap_region_containing_or_nullEPKv.exit.thread
 
 _ZNK15G1CollectedHeap30heap_region_containing_or_nullEPKv.exit.thread: ; preds = %2, %47, %43, %41, %_ZNK15G1CollectedHeap30heap_region_containing_or_nullEPKv.exit, %50
-  %.0 = phi i1 [ true, %50 ], [ false, %_ZNK15G1CollectedHeap30heap_region_containing_or_nullEPKv.exit ], [ false, %41 ], [ false, %43 ], [ false, %47 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %41 ], [ false, %_ZNK15G1CollectedHeap30heap_region_containing_or_nullEPKv.exit ], [ false, %43 ], [ true, %50 ], [ false, %47 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -2752,7 +2752,7 @@ define linkonce_odr hidden void @_ZN24G1ScanHRForRegionClosure12ChunkScanner14on
   br i1 %31, label %.lr.ph29.i, label %_ZNK24G1ScanHRForRegionClosure12ChunkScanner21find_first_dirty_cardEPh.exit, !llvm.loop !23
 
 _ZNK24G1ScanHRForRegionClosure12ChunkScanner21find_first_dirty_cardEPh.exit: ; preds = %.lr.ph.i, %.loopexit.i, %.preheader.i, %.preheader19.i
-  %.015.i = phi ptr [ %9, %.preheader19.i ], [ %.226.i, %.preheader.i ], [ %9, %.loopexit.i ], [ %.01625.i, %.lr.ph.i ]
+  %.015.i = phi ptr [ %9, %.loopexit.i ], [ %.226.i, %.preheader.i ], [ %9, %.preheader19.i ], [ %.01625.i, %.lr.ph.i ]
   %32 = ptrtoint ptr %.015.i to i64
   %33 = and i64 %32, 7
   %34 = icmp eq i64 %33, 0
@@ -2808,7 +2808,7 @@ _ZNK24G1ScanHRForRegionClosure12ChunkScanner21find_first_dirty_cardEPh.exit: ; p
   br i1 %53, label %.lr.ph29.i17, label %_ZNK24G1ScanHRForRegionClosure12ChunkScanner25find_first_non_dirty_cardEPh.exit, !llvm.loop !26
 
 _ZNK24G1ScanHRForRegionClosure12ChunkScanner25find_first_non_dirty_cardEPh.exit: ; preds = %.lr.ph.i12, %.loopexit.i25, %.preheader.i21, %.preheader19.i15
-  %.015.i14 = phi ptr [ %9, %.preheader19.i15 ], [ %.226.i23, %.preheader.i21 ], [ %9, %.loopexit.i25 ], [ %.01625.i13, %.lr.ph.i12 ]
+  %.015.i14 = phi ptr [ %9, %.loopexit.i25 ], [ %.226.i23, %.preheader.i21 ], [ %9, %.preheader19.i15 ], [ %.01625.i13, %.lr.ph.i12 ]
   %54 = icmp eq ptr %.015.i, %.015.i14
   br i1 %54, label %_ZNK24G1ScanHRForRegionClosure12ChunkScanner25find_first_non_dirty_cardEPh.exit._crit_edge, label %55
 
@@ -4714,7 +4714,7 @@ _ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i.i: ; preds = %62
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEPhPKT_mSE_.exit.i.i
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEPhPKT_mSE_.exit.i.i: ; preds = %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i.i, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.i.i.i.i, %61
-  %.pn.i.i.i = phi i64 [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.i.i.i.i ], [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i.i ], [ 1, %61 ]
+  %.pn.i.i.i = phi i64 [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i.i ], [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.i.i.i.i ], [ 1, %61 ]
   %66 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 %.pn.i.i.i
   store ptr %66, ptr %35, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEvT_.exit
@@ -5124,7 +5124,7 @@ _ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i: ; preds = %93
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEPhPKT_mSE_.exit.i
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEPhPKT_mSE_.exit.i: ; preds = %87, %85, %78, %71, %64, %57, %50, %43, %38, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.i.i.i
-  %.pn.i.i = phi i64 [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.i.i.i ], [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i ], [ 9, %87 ], [ 8, %85 ], [ 7, %78 ], [ 6, %71 ], [ 5, %64 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
+  %.pn.i.i = phi i64 [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i ], [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.i.i.i ], [ 9, %87 ], [ 8, %85 ], [ 7, %78 ], [ 6, %71 ], [ 5, %64 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
   %98 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %.pn.i.i
   store ptr %98, ptr %7, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEvPKT_m.exit
@@ -5331,7 +5331,7 @@ _ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.thread.i.i.i: ; preds = %93
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIlEEPhPKT_mSE_.exit.i
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIlEEPhPKT_mSE_.exit.i: ; preds = %87, %85, %78, %71, %64, %57, %50, %43, %38, %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.thread.i.i.i, %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.i.i.i
-  %.pn.i.i = phi i64 [ 8, %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.i.i.i ], [ 8, %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.thread.i.i.i ], [ 9, %87 ], [ 8, %85 ], [ 7, %78 ], [ 6, %71 ], [ 5, %64 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
+  %.pn.i.i = phi i64 [ 8, %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.thread.i.i.i ], [ 8, %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.i.i.i ], [ 9, %87 ], [ 8, %85 ], [ 7, %78 ], [ 6, %71 ], [ 5, %64 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
   %98 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %.pn.i.i
   store ptr %98, ptr %7, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIlEEvPKT_m.exit
@@ -5434,7 +5434,7 @@ _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE4seekEl.exit.i: ; preds = %38
   br label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit: ; preds = %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE4seekEl.exit.i, %41, %30, %28, %37, %38, %25
-  %.0 = phi i64 [ %23, %25 ], [ 0, %37 ], [ %23, %38 ], [ %23, %28 ], [ %23, %30 ], [ %23, %41 ], [ %23, %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE4seekEl.exit.i ]
+  %.0 = phi i64 [ %23, %38 ], [ %23, %25 ], [ 0, %37 ], [ %23, %30 ], [ %23, %28 ], [ %23, %41 ], [ %23, %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE4seekEl.exit.i ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %48 = load ptr, ptr %47, align 8
   %.not.i.i.i14 = icmp eq ptr %48, null
@@ -5619,7 +5619,7 @@ _ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i: ; preds = %65
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIjEEPhPKT_mSE_.exit
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIjEEPhPKT_mSE_.exit: ; preds = %38, %43, %50, %57, %59, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i
-  %.011.i.i.pn.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i ], [ 5, %59 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
+  %.011.i.i.pn.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ], [ 5, %59 ]
   %70 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %.011.i.i.pn.i
   store ptr %70, ptr %7, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIjEEvPKT_m.exit
@@ -5984,7 +5984,7 @@ _ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.thread.i.i: ; preds = %65
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIiEEPhPKT_mSE_.exit
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIiEEPhPKT_mSE_.exit: ; preds = %38, %43, %50, %57, %59, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.i.i, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.thread.i.i
-  %.011.i.i.pn.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.thread.i.i ], [ 5, %59 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
+  %.011.i.i.pn.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.thread.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.i.i ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ], [ 5, %59 ]
   %70 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %.011.i.i.pn.i
   store ptr %70, ptr %7, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIiEEvPKT_m.exit
@@ -6221,8 +6221,8 @@ _ZN20EventGCPhaseParallelC2E14EventStartTime.exit: ; preds = %12, %17
   br label %_ZN8JfrEventI20EventGCPhaseParallelE13should_commitEv.exit.i
 
 _ZN8JfrEventI20EventGCPhaseParallelE13should_commitEv.exit.i: ; preds = %60, %58
-  %63 = phi i64 [ %.pre3.i.i.i, %60 ], [ %59, %58 ]
-  %64 = phi i64 [ %62, %60 ], [ 0, %58 ]
+  %63 = phi i64 [ %59, %58 ], [ %.pre3.i.i.i, %60 ]
+  %64 = phi i64 [ 0, %58 ], [ %62, %60 ]
   %65 = sub nsw i64 %64, %63
   %66 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 1752), align 8
   %67 = icmp sge i64 %65, %66
@@ -6309,8 +6309,8 @@ _ZN20EventGCPhaseParallelC2E14EventStartTime.exit4: ; preds = %72, %77
   br label %_ZN8JfrEventI20EventGCPhaseParallelE13should_commitEv.exit.i6
 
 _ZN8JfrEventI20EventGCPhaseParallelE13should_commitEv.exit.i6: ; preds = %107, %105
-  %110 = phi i64 [ %.pre3.i.i.i8, %107 ], [ %106, %105 ]
-  %111 = phi i64 [ %109, %107 ], [ 0, %105 ]
+  %110 = phi i64 [ %106, %105 ], [ %.pre3.i.i.i8, %107 ]
+  %111 = phi i64 [ 0, %105 ], [ %109, %107 ]
   %112 = sub nsw i64 %111, %110
   %113 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 1752), align 8
   %114 = icmp sge i64 %112, %113
@@ -8296,7 +8296,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6BitMap7iterateIZN15G1CardSet
   br i1 %30, label %_ZNK6BitMap18find_first_set_bitEmm.exit, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread
 
 _ZNK6BitMap18find_first_set_bitEmm.exit:          ; preds = %10, %27
-  %.0.i.i = phi i64 [ %.01018, %10 ], [ %29, %27 ]
+  %.0.i.i = phi i64 [ %29, %27 ], [ %.01018, %10 ]
   %.not.not = icmp ult i64 %.0.i.i, %4
   br i1 %.not.not, label %31, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread
 
@@ -11087,7 +11087,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread: ; preds = %84,
   br label %129
 
 129:                                              ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread, %113, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit ], [ null, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit ], [ %2, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26 ], [ %112, %113 ], [ %112, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread ]
+  %.0 = phi ptr [ null, %4 ], [ %2, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26 ], [ null, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit ], [ %112, %113 ], [ %112, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread ]
   ret ptr %.0
 }
 
@@ -11194,7 +11194,7 @@ _ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit:      ; preds = %44, %45, %49, %54
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 _ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %61, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, %5, %11, %24, %31, %2
-  %.0 = phi ptr [ %1, %2 ], [ %.0.i.i.i, %31 ], [ %.0.i.i.i, %24 ], [ %1, %11 ], [ %1, %5 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
+  %.0 = phi ptr [ %1, %5 ], [ %1, %2 ], [ %.0.i.i.i, %24 ], [ %.0.i.i.i, %31 ], [ %1, %11 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
   ret ptr %.0
 }
 
@@ -11433,7 +11433,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread: ; preds = %84,
   br label %115
 
 115:                                              ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread, %113, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit ], [ null, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit ], [ %2, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26 ], [ %112, %113 ], [ %112, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread ]
+  %.0 = phi ptr [ null, %4 ], [ %2, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26 ], [ null, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit ], [ %112, %113 ], [ %112, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread ]
   ret ptr %.0
 }
 
@@ -11531,7 +11531,7 @@ _ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDe
   br label %_ZN8XBarrier7barrierIXadL_ZNS_25is_good_or_null_fast_pathEmEEXadL_ZNS_42weak_load_barrier_on_phantom_oop_slow_pathEmEEEEP7oopDescPVS2_S2_.exit
 
 _ZN8XBarrier7barrierIXadL_ZNS_25is_good_or_null_fast_pathEmEEXadL_ZNS_42weak_load_barrier_on_phantom_oop_slow_pathEmEEEEP7oopDescPVS2_S2_.exit: ; preds = %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, %22, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, %6
-  %.0 = phi ptr [ %18, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i ], [ %1, %6 ], [ %29, %22 ], [ %46, %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i ]
+  %.0 = phi ptr [ %1, %6 ], [ %18, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i ], [ %29, %22 ], [ %46, %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i ]
   ret ptr %.0
 }
 
@@ -12087,7 +12087,7 @@ _ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDe
   br label %_ZN8XBarrier7barrierIXadL_ZNS_25is_good_or_null_fast_pathEmEEXadL_ZNS_39weak_load_barrier_on_weak_oop_slow_pathEmEEEEP7oopDescPVS2_S2_.exit
 
 _ZN8XBarrier7barrierIXadL_ZNS_25is_good_or_null_fast_pathEmEEXadL_ZNS_39weak_load_barrier_on_weak_oop_slow_pathEmEEEEP7oopDescPVS2_S2_.exit: ; preds = %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, %22, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, %6
-  %.0 = phi ptr [ %18, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i ], [ %1, %6 ], [ %29, %22 ], [ %46, %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i ]
+  %.0 = phi ptr [ %1, %6 ], [ %18, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i ], [ %29, %22 ], [ %46, %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i ]
   ret ptr %.0
 }
 
@@ -14877,7 +14877,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br i1 %49, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop14G1CMOopClosureEEEbPT_mm.exit
 
 _ZNK6BitMap18find_first_set_bitEmm.exit.i.i:      ; preds = %46, %30
-  %.0.i.i.i.i = phi i64 [ %.0917.i.i, %30 ], [ %48, %46 ]
+  %.0.i.i.i.i = phi i64 [ %48, %46 ], [ %.0917.i.i, %30 ]
   %.not.not.i.i = icmp ult i64 %.0.i.i.i.i, %25
   br i1 %.not.not.i.i, label %50, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop14G1CMOopClosureEEEbPT_mm.exit
 
@@ -15120,7 +15120,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br i1 %49, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc14G1CMOopClosureEEEbPT_mm.exit
 
 _ZNK6BitMap18find_first_set_bitEmm.exit.i.i:      ; preds = %46, %30
-  %.0.i.i.i.i = phi i64 [ %.0917.i.i, %30 ], [ %48, %46 ]
+  %.0.i.i.i.i = phi i64 [ %48, %46 ], [ %.0917.i.i, %30 ]
   %.not.not.i.i = icmp ult i64 %.0.i.i.i.i, %25
   br i1 %.not.not.i.i, label %50, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc14G1CMOopClosureEEEbPT_mm.exit
 
@@ -20965,7 +20965,7 @@ _ZN16InstanceRefKlass11do_referentI9narrowOop17G1ScanCardClosureK10MrContainsEEv
   unreachable
 
 _ZN16InstanceRefKlass25oop_oop_iterate_discoveryI9narrowOop17G1ScanCardClosureK10MrContainsEEvP7oopDesc13ReferenceTypePT0_RT1_.exit.sink.split: ; preds = %73, %_ZN16InstanceRefKlass11do_referentI9narrowOop17G1ScanCardClosureK10MrContainsEEvP7oopDescPT0_RT1_.exit.i15, %_ZN16InstanceRefKlass11do_referentI9narrowOop17G1ScanCardClosureK10MrContainsEEvP7oopDescPT0_RT1_.exit.i
-  %.sink = phi ptr [ %47, %_ZN16InstanceRefKlass11do_referentI9narrowOop17G1ScanCardClosureK10MrContainsEEvP7oopDescPT0_RT1_.exit.i ], [ %69, %_ZN16InstanceRefKlass11do_referentI9narrowOop17G1ScanCardClosureK10MrContainsEEvP7oopDescPT0_RT1_.exit.i15 ], [ %78, %73 ]
+  %.sink = phi ptr [ %69, %_ZN16InstanceRefKlass11do_referentI9narrowOop17G1ScanCardClosureK10MrContainsEEvP7oopDescPT0_RT1_.exit.i15 ], [ %47, %_ZN16InstanceRefKlass11do_referentI9narrowOop17G1ScanCardClosureK10MrContainsEEvP7oopDescPT0_RT1_.exit.i ], [ %78, %73 ]
   tail call void @_ZN17G1ScanCardClosure11do_oop_workI9narrowOopEEvPT_(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef %.sink)
   br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryI9narrowOop17G1ScanCardClosureK10MrContainsEEvP7oopDesc13ReferenceTypePT0_RT1_.exit
 
@@ -21444,7 +21444,7 @@ _ZN16InstanceRefKlass11do_referentIP7oopDesc17G1ScanCardClosureK10MrContainsEEvS
   unreachable
 
 _ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc17G1ScanCardClosureK10MrContainsEEvS2_13ReferenceTypePT0_RT1_.exit.sink.split: ; preds = %73, %_ZN16InstanceRefKlass11do_referentIP7oopDesc17G1ScanCardClosureK10MrContainsEEvS2_PT0_RT1_.exit.i15, %_ZN16InstanceRefKlass11do_referentIP7oopDesc17G1ScanCardClosureK10MrContainsEEvS2_PT0_RT1_.exit.i
-  %.sink = phi ptr [ %47, %_ZN16InstanceRefKlass11do_referentIP7oopDesc17G1ScanCardClosureK10MrContainsEEvS2_PT0_RT1_.exit.i ], [ %69, %_ZN16InstanceRefKlass11do_referentIP7oopDesc17G1ScanCardClosureK10MrContainsEEvS2_PT0_RT1_.exit.i15 ], [ %78, %73 ]
+  %.sink = phi ptr [ %69, %_ZN16InstanceRefKlass11do_referentIP7oopDesc17G1ScanCardClosureK10MrContainsEEvS2_PT0_RT1_.exit.i15 ], [ %47, %_ZN16InstanceRefKlass11do_referentIP7oopDesc17G1ScanCardClosureK10MrContainsEEvS2_PT0_RT1_.exit.i ], [ %78, %73 ]
   tail call void @_ZN17G1ScanCardClosure11do_oop_workIP7oopDescEEvPT_(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef %.sink)
   br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc17G1ScanCardClosureK10MrContainsEEvS2_13ReferenceTypePT0_RT1_.exit
 
@@ -23027,7 +23027,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass29oop_oop_iterate_s
   br i1 %66, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop17G1ScanCardClosureEEvP17stackChunkOopDescPT0_PlS7_.exit
 
 _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i:    ; preds = %63, %47
-  %.0.i.i.i.i.i = phi i64 [ %.0917.i.i.i, %47 ], [ %65, %63 ]
+  %.0.i.i.i.i.i = phi i64 [ %65, %63 ], [ %.0917.i.i.i, %47 ]
   %.not.not.i.i.i = icmp ult i64 %.0.i.i.i.i.i, %43
   br i1 %.not.not.i.i.i, label %67, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop17G1ScanCardClosureEEvP17stackChunkOopDescPT0_PlS7_.exit
 
@@ -23145,7 +23145,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass29oop_oop_iterate_s
   br i1 %66, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc17G1ScanCardClosureEEvP17stackChunkOopDescPT0_PlS8_.exit
 
 _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i:    ; preds = %63, %47
-  %.0.i.i.i.i.i = phi i64 [ %.0917.i.i.i, %47 ], [ %65, %63 ]
+  %.0.i.i.i.i.i = phi i64 [ %65, %63 ], [ %.0917.i.i.i, %47 ]
   %.not.not.i.i.i = icmp ult i64 %.0.i.i.i.i.i, %43
   br i1 %.not.not.i.i.i, label %67, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc17G1ScanCardClosureEEvP17stackChunkOopDescPT0_PlS8_.exit
 
@@ -26313,7 +26313,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   br i1 %62, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop17G1ScanCardClosureEEvP17stackChunkOopDescPT0_PlS7_.exit
 
 _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i:    ; preds = %59, %43
-  %.0.i.i.i.i.i = phi i64 [ %.0917.i.i.i, %43 ], [ %61, %59 ]
+  %.0.i.i.i.i.i = phi i64 [ %61, %59 ], [ %.0917.i.i.i, %43 ]
   %.not.not.i.i.i = icmp ult i64 %.0.i.i.i.i.i, %39
   br i1 %.not.not.i.i.i, label %63, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop17G1ScanCardClosureEEvP17stackChunkOopDescPT0_PlS7_.exit
 
@@ -26509,7 +26509,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   br i1 %62, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc17G1ScanCardClosureEEvP17stackChunkOopDescPT0_PlS8_.exit
 
 _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i:    ; preds = %59, %43
-  %.0.i.i.i.i.i = phi i64 [ %.0917.i.i.i, %43 ], [ %61, %59 ]
+  %.0.i.i.i.i.i = phi i64 [ %61, %59 ], [ %.0917.i.i.i, %43 ]
   %.not.not.i.i.i = icmp ult i64 %.0.i.i.i.i.i, %39
   br i1 %.not.not.i.i.i, label %63, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc17G1ScanCardClosureEEvP17stackChunkOopDescPT0_PlS8_.exit
 
@@ -26939,7 +26939,7 @@ _ZN7oopDesc16oop_iterate_sizeI28G1ConcurrentRefineOopClosureEEmPT_.exit: ; preds
   br label %_ZNK7oopDesc21klass_or_null_acquireEv.exit.thread
 
 _ZNK7oopDesc21klass_or_null_acquireEv.exit.thread: ; preds = %11, %_ZNK7oopDesc21klass_or_null_acquireEv.exit, %_ZN7oopDesc16oop_iterate_sizeI28G1ConcurrentRefineOopClosureEEmPT_.exit, %_ZN7oopDesc11oop_iterateI28G1ConcurrentRefineOopClosureEEvPT_9MemRegion.exit
-  %.0 = phi ptr [ %64, %_ZN7oopDesc11oop_iterateI28G1ConcurrentRefineOopClosureEEvPT_9MemRegion.exit ], [ %125, %_ZN7oopDesc16oop_iterate_sizeI28G1ConcurrentRefineOopClosureEEmPT_.exit ], [ null, %_ZNK7oopDesc21klass_or_null_acquireEv.exit ], [ null, %11 ]
+  %.0 = phi ptr [ %125, %_ZN7oopDesc16oop_iterate_sizeI28G1ConcurrentRefineOopClosureEEmPT_.exit ], [ %64, %_ZN7oopDesc11oop_iterateI28G1ConcurrentRefineOopClosureEEvPT_9MemRegion.exit ], [ null, %_ZNK7oopDesc21klass_or_null_acquireEv.exit ], [ null, %11 ]
   ret ptr %.0
 }
 
@@ -30168,7 +30168,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6BitMap7iterateIZNKS_7iterate
   br i1 %28, label %_ZNK6BitMap18find_first_set_bitEmm.exit, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread
 
 _ZNK6BitMap18find_first_set_bitEmm.exit:          ; preds = %8, %25
-  %.0.i.i = phi i64 [ %.0917, %8 ], [ %27, %25 ]
+  %.0.i.i = phi i64 [ %27, %25 ], [ %.0917, %8 ]
   %.not.not = icmp ult i64 %.0.i.i, %3
   br i1 %.not.not, label %29, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread
 
@@ -30568,7 +30568,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6BitMap7iterateIZNKS_7iterate
   br i1 %28, label %_ZNK6BitMap18find_first_set_bitEmm.exit, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread
 
 _ZNK6BitMap18find_first_set_bitEmm.exit:          ; preds = %8, %25
-  %.0.i.i = phi i64 [ %.0917, %8 ], [ %27, %25 ]
+  %.0.i.i = phi i64 [ %27, %25 ], [ %.0917, %8 ]
   %.not.not = icmp ult i64 %.0.i.i, %3
   br i1 %.not.not, label %29, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread
 

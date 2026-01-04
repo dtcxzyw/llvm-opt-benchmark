@@ -563,8 +563,8 @@ define ptr @res_getStringNoTrace_77(ptr noundef readonly captures(none) %0, i32 
   br label %57
 
 57:                                               ; preds = %44, %17, %26, %34, %21, %53
-  %.133 = phi i32 [ %56, %53 ], [ %22, %21 ], [ %32, %26 ], [ %42, %34 ], [ %18, %17 ], [ 0, %44 ]
-  %.2 = phi ptr [ %55, %53 ], [ %23, %21 ], [ %33, %26 ], [ %43, %34 ], [ %12, %17 ], [ null, %44 ]
+  %.133 = phi i32 [ %18, %17 ], [ %56, %53 ], [ %22, %21 ], [ %32, %26 ], [ %42, %34 ], [ 0, %44 ]
+  %.2 = phi ptr [ %12, %17 ], [ %55, %53 ], [ %23, %21 ], [ %33, %26 ], [ %43, %34 ], [ null, %44 ]
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %59, label %58
 
@@ -748,7 +748,7 @@ define i32 @res_countArrayItems_77(ptr noundef readonly captures(none) %0, i32 n
   br label %30
 
 30:                                               ; preds = %15, %13, %7, %5, %2, %2, %2, %2, %2, %2, %29, %22
-  %.0 = phi i32 [ 0, %29 ], [ %28, %22 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ %12, %7 ], [ 0, %5 ], [ %21, %15 ], [ 0, %13 ]
+  %.0 = phi i32 [ 0, %29 ], [ %28, %22 ], [ 1, %2 ], [ 0, %5 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ %12, %7 ], [ %21, %15 ], [ 0, %13 ]
   ret i32 %.0
 }
 
@@ -876,9 +876,9 @@ define noundef ptr @_ZNK6icu_7717ResourceDataValue9getStringERiR10UErrorCode(ptr
   %63 = load i32, ptr %61, align 4, !tbaa !22
   br label %_ZN6icu_7713res_getStringERKNS_14ResourceTracerEPK12ResourceDatajPi.exit.thread
 
-_ZN6icu_7713res_getStringERKNS_14ResourceTracerEPK12ResourceDatajPi.exit.thread: ; preds = %60, %28, %33, %41, %24
-  %.133.i.i.ph = phi i32 [ %25, %24 ], [ %49, %41 ], [ %39, %33 ], [ %29, %28 ], [ %63, %60 ]
-  %.2.i.i.ph = phi ptr [ %19, %24 ], [ %50, %41 ], [ %40, %33 ], [ %30, %28 ], [ %62, %60 ]
+_ZN6icu_7713res_getStringERKNS_14ResourceTracerEPK12ResourceDatajPi.exit.thread: ; preds = %24, %60, %28, %33, %41
+  %.133.i.i.ph = phi i32 [ %49, %41 ], [ %39, %33 ], [ %29, %28 ], [ %63, %60 ], [ %25, %24 ]
+  %.2.i.i.ph = phi ptr [ %50, %41 ], [ %40, %33 ], [ %30, %28 ], [ %62, %60 ], [ %19, %24 ]
   store i32 %.133.i.i.ph, ptr %1, align 4, !tbaa !22
   br label %65
 
@@ -1344,7 +1344,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7717ResourceDataValue21isNoIn
   br label %_ZN12_GLOBAL__N_121isNoInheritanceMarkerEPK12ResourceDataj.exit
 
 _ZN12_GLOBAL__N_121isNoInheritanceMarkerEPK12ResourceDataj.exit: ; preds = %1, %10, %17, %21, %25, %29, %31, %39, %43, %47, %51, %55, %59
-  %.0.shrunk.i = phi i1 [ false, %21 ], [ false, %17 ], [ false, %10 ], [ %28, %25 ], [ false, %43 ], [ false, %39 ], [ %50, %47 ], [ false, %55 ], [ false, %51 ], [ %62, %59 ], [ false, %31 ], [ false, %29 ], [ false, %1 ]
+  %.0.shrunk.i = phi i1 [ false, %31 ], [ %28, %25 ], [ false, %21 ], [ false, %17 ], [ false, %10 ], [ %62, %59 ], [ %50, %47 ], [ false, %43 ], [ false, %39 ], [ false, %55 ], [ false, %51 ], [ false, %29 ], [ false, %1 ]
   %.0.i = zext i1 %.0.shrunk.i to i8
   ret i8 %.0.i
 }
@@ -1518,9 +1518,9 @@ _ZNK6icu_7713ResourceArray19internalGetResourceEPK12ResourceDatai.exit: ; preds 
   %91 = load i32, ptr %89, align 4, !tbaa !22
   br label %92
 
-92:                                               ; preds = %88, %57, %62, %70, %53
-  %.133.i.ph = phi i32 [ %54, %53 ], [ %78, %70 ], [ %68, %62 ], [ %58, %57 ], [ %91, %88 ]
-  %.2.i.ph = phi ptr [ %48, %53 ], [ %79, %70 ], [ %69, %62 ], [ %59, %57 ], [ %90, %88 ]
+92:                                               ; preds = %53, %88, %57, %62, %70
+  %.133.i.ph = phi i32 [ %78, %70 ], [ %68, %62 ], [ %58, %57 ], [ %91, %88 ], [ %54, %53 ]
+  %.2.i.ph = phi ptr [ %79, %70 ], [ %69, %62 ], [ %59, %57 ], [ %90, %88 ], [ %48, %53 ]
   %93 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %2, i64 %indvars.iv
   store ptr %.2.i.ph, ptr %6, align 8, !tbaa !57
   %94 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %93, i8 noundef signext 1, ptr noundef nonnull %6, i32 noundef %.133.i.ph)
@@ -1541,13 +1541,13 @@ _ZNK6icu_7713ResourceArray19internalGetResourceEPK12ResourceDatai.exit: ; preds 
   resume { ptr, i32 } %98
 
 .loopexit.sink.split:                             ; preds = %80, %18, %11, %12
-  %.sink = phi i32 [ 1, %12 ], [ 1, %11 ], [ 15, %18 ], [ 17, %80 ]
-  %.0.ph = phi i32 [ 0, %12 ], [ 0, %11 ], [ %16, %18 ], [ 0, %80 ]
+  %.sink = phi i32 [ 15, %18 ], [ 1, %11 ], [ 1, %12 ], [ 17, %80 ]
+  %.0.ph = phi i32 [ %16, %18 ], [ 0, %11 ], [ 0, %12 ], [ 0, %80 ]
   store i32 %.sink, ptr %4, align 4, !tbaa !3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %95, %.loopexit.sink.split, %.preheader, %14, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %14 ], [ %16, %.preheader ], [ %.0.ph, %.loopexit.sink.split ], [ %16, %95 ]
+  %.0 = phi i32 [ 0, %5 ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %14 ], [ %16, %.preheader ], [ %16, %95 ]
   ret i32 %.0
 }
 
@@ -1687,9 +1687,9 @@ define noundef i32 @_ZNK6icu_7717ResourceDataValue29getStringArrayOrStringAsArra
   %83 = load i32, ptr %81, align 4, !tbaa !22
   br label %84
 
-84:                                               ; preds = %80, %48, %53, %61, %44
-  %.133.i.i.ph = phi i32 [ %45, %44 ], [ %69, %61 ], [ %59, %53 ], [ %49, %48 ], [ %83, %80 ]
-  %.2.i.i.ph = phi ptr [ %39, %44 ], [ %70, %61 ], [ %60, %53 ], [ %50, %48 ], [ %82, %80 ]
+84:                                               ; preds = %44, %80, %48, %53, %61
+  %.133.i.i.ph = phi i32 [ %69, %61 ], [ %59, %53 ], [ %49, %48 ], [ %83, %80 ], [ %45, %44 ]
+  %.2.i.i.ph = phi ptr [ %70, %61 ], [ %60, %53 ], [ %50, %48 ], [ %82, %80 ], [ %39, %44 ]
   store ptr %.2.i.i.ph, ptr %6, align 8, !tbaa !57
   %85 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %1, i8 noundef signext 1, ptr noundef nonnull %6, i32 noundef %.133.i.i.ph)
           to label %86 unwind label %88
@@ -1711,7 +1711,7 @@ _ZN6icu_7713res_getStringERKNS_14ResourceTracerEPK12ResourceDatajPi.exit: ; pred
   br label %91
 
 91:                                               ; preds = %86, %_ZN6icu_7713res_getStringERKNS_14ResourceTracerEPK12ResourceDatajPi.exit, %17, %.thread, %25, %10
-  %.0 = phi i32 [ %16, %10 ], [ 0, %25 ], [ 1, %.thread ], [ 0, %17 ], [ 1, %86 ], [ 0, %_ZN6icu_7713res_getStringERKNS_14ResourceTracerEPK12ResourceDatajPi.exit ]
+  %.0 = phi i32 [ %16, %10 ], [ 0, %17 ], [ 0, %25 ], [ 1, %.thread ], [ 1, %86 ], [ 0, %_ZN6icu_7713res_getStringERKNS_14ResourceTracerEPK12ResourceDatajPi.exit ]
   ret i32 %.0
 }
 
@@ -2326,7 +2326,7 @@ define i32 @res_getTableItemByKey_77(ptr noundef readonly captures(none) %0, i32
   br label %146
 
 146:                                              ; preds = %12, %114, %10, %.thread, %.thread77, %.thread80, %141, %112, %50, %4, %7
-  %.0 = phi i32 [ %58, %50 ], [ %113, %112 ], [ %145, %141 ], [ -1, %7 ], [ -1, %4 ], [ -1, %.thread80 ], [ -1, %.thread77 ], [ -1, %.thread ], [ -1, %10 ], [ -1, %114 ], [ -1, %12 ]
+  %.0 = phi i32 [ %145, %141 ], [ -1, %4 ], [ %58, %50 ], [ %113, %112 ], [ -1, %7 ], [ -1, %.thread80 ], [ -1, %.thread77 ], [ -1, %.thread ], [ -1, %10 ], [ -1, %114 ], [ -1, %12 ]
   ret i32 %.0
 }
 
@@ -2520,7 +2520,7 @@ define i32 @res_getTableItemByIndex_77(ptr noundef readonly captures(none) %0, i
   br label %118
 
 118:                                              ; preds = %9, %93, %7, %10, %47, %94, %.thread101, %.thread99, %.thread, %4
-  %.0 = phi i32 [ -1, %4 ], [ %46, %.thread ], [ %92, %.thread99 ], [ %117, %.thread101 ], [ -1, %94 ], [ -1, %47 ], [ -1, %10 ], [ -1, %7 ], [ -1, %93 ], [ -1, %9 ]
+  %.0 = phi i32 [ %117, %.thread101 ], [ -1, %4 ], [ %46, %.thread ], [ %92, %.thread99 ], [ -1, %94 ], [ -1, %47 ], [ -1, %10 ], [ -1, %7 ], [ -1, %93 ], [ -1, %9 ]
   ret i32 %.0
 }
 
@@ -2608,8 +2608,8 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7713ResourceTable14getKeyAndV
   br label %53
 
 53:                                               ; preds = %42, %47, %22, %26
-  %54 = phi ptr [ %17, %22 ], [ %17, %26 ], [ %41, %42 ], [ %41, %47 ]
-  %storemerge = phi ptr [ %25, %22 ], [ %32, %26 ], [ %46, %42 ], [ %52, %47 ]
+  %54 = phi ptr [ %17, %26 ], [ %17, %22 ], [ %41, %42 ], [ %41, %47 ]
+  %storemerge = phi ptr [ %32, %26 ], [ %25, %22 ], [ %46, %42 ], [ %52, %47 ]
   store ptr %storemerge, ptr %2, align 8, !tbaa !63
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %56 = load ptr, ptr %55, align 8, !tbaa !52
@@ -2815,7 +2815,7 @@ _ZL18makeResourceFrom16PK12ResourceDatai.exit:    ; preds = %70, %78
   br label %_ZL18_res_findTableItemPK12ResourceDataPKtiPKcPS5_.exit.thread
 
 _ZL18_res_findTableItemPK12ResourceDataPKtiPKcPS5_.exit.thread: ; preds = %40, %65, %42, %5, %90
-  %.014 = phi i8 [ 1, %90 ], [ 0, %5 ], [ 0, %42 ], [ 0, %65 ], [ 0, %40 ]
+  %.014 = phi i8 [ 1, %90 ], [ 0, %65 ], [ 0, %5 ], [ 0, %42 ], [ 0, %40 ]
   ret i8 %.014
 }
 
@@ -2886,7 +2886,7 @@ define i32 @res_getArrayItem_77(ptr noundef readonly captures(none) %0, i32 noun
   br label %41
 
 41:                                               ; preds = %8, %6, %9, %19, %.thread27, %.thread, %3
-  %.0 = phi i32 [ -1, %3 ], [ %18, %.thread ], [ %40, %.thread27 ], [ -1, %19 ], [ -1, %9 ], [ -1, %6 ], [ -1, %8 ]
+  %.0 = phi i32 [ %40, %.thread27 ], [ -1, %3 ], [ %18, %.thread ], [ -1, %19 ], [ -1, %9 ], [ -1, %6 ], [ -1, %8 ]
   ret i32 %.0
 }
 
@@ -3102,7 +3102,7 @@ switch.early.test:                                ; preds = %22
   br label %res_getArrayItem_77.exit
 
 res_getArrayItem_77.exit:                         ; preds = %.thread27.i, %58, %.thread.i, %49, %48, %45, %37, %41
-  %.1 = phi i32 [ -1, %41 ], [ -1, %37 ], [ %57, %.thread.i ], [ %76, %.thread27.i ], [ -1, %58 ], [ -1, %49 ], [ -1, %45 ], [ -1, %48 ]
+  %.1 = phi i32 [ -1, %37 ], [ -1, %41 ], [ %76, %.thread27.i ], [ -1, %48 ], [ %57, %.thread.i ], [ -1, %58 ], [ -1, %49 ], [ -1, %45 ]
   store ptr null, ptr %3, align 8, !tbaa !63
   br label %77
 
@@ -3113,8 +3113,8 @@ res_getArrayItem_77.exit:                         ; preds = %.thread27.i, %58, %
   %79 = load ptr, ptr %2, align 8, !tbaa !63
   br i1 %.not75, label %.critedge, label %18, !llvm.loop !68
 
-.critedge:                                        ; preds = %switch.early.test, %77, %18, %28, %8, %4
-  %.071 = phi i32 [ %1, %4 ], [ -1, %8 ], [ %.067.fr, %77 ], [ %.06878, %18 ], [ %.06878, %switch.early.test ], [ -1, %28 ]
+.critedge:                                        ; preds = %switch.early.test, %18, %77, %28, %8, %4
+  %.071 = phi i32 [ -1, %8 ], [ %1, %4 ], [ %.06878, %18 ], [ %.067.fr, %77 ], [ %.06878, %switch.early.test ], [ -1, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.071
@@ -3187,7 +3187,7 @@ define i32 @ures_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
   br i1 %switch, label %54, label %.thread
 
 .thread:                                          ; preds = %15, %34, %37, %26, %22
-  %39 = phi i8 [ 101, %34 ], [ 101, %37 ], [ 101, %26 ], [ 101, %22 ], [ %20, %15 ]
+  %39 = phi i8 [ %20, %15 ], [ 101, %34 ], [ 101, %37 ], [ 101, %26 ], [ 101, %22 ]
   %40 = zext i8 %17 to i32
   %41 = zext i8 %39 to i32
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 14
@@ -3311,7 +3311,7 @@ define i32 @ures_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
 114:                                              ; preds = %109
   tail call void (ptr, ptr, ...) @udata_printError_77(ptr noundef nonnull %0, ptr noundef nonnull @.str.5)
   store i32 7, ptr %4, align 4, !tbaa !3
-  br label %182
+  br label %.critedge
 
 115:                                              ; preds = %109, %107
   %.pre-phi = phi i64 [ %110, %109 ], [ %.pre164, %107 ]
@@ -3341,11 +3341,11 @@ define i32 @ures_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
 130:                                              ; preds = %121
   call void (ptr, ptr, ...) @udata_printError_77(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, i32 noundef %125)
   %.not160 = icmp eq ptr %116, %9
-  br i1 %.not160, label %182, label %131
+  br i1 %.not160, label %.critedge, label %131
 
 131:                                              ; preds = %130
   call void @uprv_free_77(ptr noundef nonnull %116)
-  br label %182
+  br label %.critedge
 
 132:                                              ; preds = %121
   %133 = icmp slt i32 %79, %.0134
@@ -3368,11 +3368,11 @@ define i32 @ures_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
   %146 = shl nsw i32 %139, 1
   call void (ptr, ptr, ...) @udata_printError_77(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, i32 noundef %146)
   %.not159 = icmp eq ptr %116, %9
-  br i1 %.not159, label %182, label %147
+  br i1 %.not159, label %.critedge, label %147
 
 147:                                              ; preds = %145
   call void @uprv_free_77(ptr noundef nonnull %116)
-  br label %182
+  br label %.critedge
 
 148:                                              ; preds = %134, %132
   store ptr %101, ptr %8, align 8, !tbaa !77
@@ -3402,11 +3402,11 @@ define i32 @ures_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
   call void (ptr, ptr, ...) @udata_printError_77(ptr noundef nonnull %0, ptr noundef nonnull @.str.8, i32 noundef %91)
   store i32 7, ptr %4, align 4, !tbaa !3
   %.not155 = icmp eq ptr %116, %9
-  br i1 %.not155, label %182, label %163
+  br i1 %.not155, label %.critedge, label %163
 
 163:                                              ; preds = %162
   call void @uprv_free_77(ptr noundef nonnull %116)
-  br label %182
+  br label %.critedge
 
 164:                                              ; preds = %153
   %165 = getelementptr inbounds nuw %struct.Row, ptr %159, i64 %154
@@ -3438,31 +3438,31 @@ define i32 @ures_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
 175:                                              ; preds = %174, %171
   %176 = load ptr, ptr %117, align 8, !tbaa !75
   %.not158 = icmp eq ptr %176, %9
-  br i1 %.not158, label %.critedge, label %177
+  br i1 %.not158, label %178, label %177
 
 177:                                              ; preds = %175
   call void @uprv_free_77(ptr noundef %176)
-  br label %.critedge
+  br label %178
 
-.critedge:                                        ; preds = %177, %175
-  %178 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %179 = load ptr, ptr %178, align 8, !tbaa !80
-  %180 = shl nuw nsw i32 %76, 2
-  %181 = call noundef i32 %179(ptr noundef nonnull %0, ptr noundef nonnull %64, i32 noundef %180, ptr noundef nonnull %101, ptr noundef nonnull %4)
+178:                                              ; preds = %177, %175
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %180 = load ptr, ptr %179, align 8, !tbaa !80
+  %181 = shl nuw nsw i32 %76, 2
+  %182 = call noundef i32 %180(ptr noundef nonnull %0, ptr noundef nonnull %64, i32 noundef %181, ptr noundef nonnull %101, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %183
 
-182:                                              ; preds = %162, %163, %145, %147, %130, %131, %114
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %186
-
-183:                                              ; preds = %.critedge, %95
+183:                                              ; preds = %178, %95
   %184 = shl nsw i32 %88, 2
   %185 = add nsw i32 %184, %10
   br label %186
 
-186:                                              ; preds = %182, %5, %12, %183, %94, %74, %61, %.thread
-  %.0 = phi i32 [ 0, %74 ], [ 0, %94 ], [ %185, %183 ], [ 0, %182 ], [ 0, %61 ], [ 0, %.thread ], [ 0, %12 ], [ 0, %5 ]
+.critedge:                                        ; preds = %162, %163, %147, %131, %145, %130, %114
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  br label %186
+
+186:                                              ; preds = %.critedge, %5, %12, %183, %94, %74, %61, %.thread
+  %.0 = phi i32 [ 0, %.thread ], [ 0, %74 ], [ 0, %94 ], [ %185, %183 ], [ 0, %.critedge ], [ 0, %61 ], [ 0, %12 ], [ 0, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

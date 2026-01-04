@@ -186,7 +186,7 @@ define hidden void @"_ZN76_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$
   br label %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h49b579ba364cf2b3E.exit.thread.i
 
 _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h49b579ba364cf2b3E.exit.thread.i: ; preds = %28, %26
-  %.pn.i = phi { i64, i64 } [ %29, %28 ], [ %27, %26 ]
+  %.pn.i = phi { i64, i64 } [ %27, %26 ], [ %29, %28 ]
   %.sroa.12.027.i = extractvalue { i64, i64 } %.pn.i, 1
   %.sroa.7.028.i = extractvalue { i64, i64 } %.pn.i, 0
   %.pre = add i64 %.sroa.7.028.i, 17

@@ -2619,7 +2619,7 @@ _ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit26: ; preds = %80, %86, %89
   br label %97
 
 97:                                               ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, %1, %96
-  %.0 = phi i1 [ true, %96 ], [ true, %1 ], [ false, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit ], [ false, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit ], [ false, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit ]
+  %.0 = phi i1 [ true, %1 ], [ true, %96 ], [ false, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit ], [ false, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit ], [ false, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit ]
   ret i1 %.0
 }
 
@@ -3112,7 +3112,7 @@ _ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit11: ; preds = %21, %24, %27
   br i1 %43, label %.lr.ph, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, !llvm.loop !109
 
 _ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread: ; preds = %.lr.ph.i, %.lr.ph, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit11, %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit
-  %.0 = phi i32 [ -1, %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit ], [ 8, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit11 ], [ %.sroa.speculated, %.lr.ph ], [ -1, %.lr.ph.i ]
+  %.0 = phi i32 [ %.sroa.speculated, %.lr.ph ], [ -1, %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit ], [ 8, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit11 ], [ -1, %.lr.ph.i ]
   ret i32 %.0
 }
 
@@ -3226,7 +3226,7 @@ _ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit17: ; preds = %22, %25, %28
   br i1 %47, label %.lr.ph, label %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread, !llvm.loop !110
 
 _ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit.thread: ; preds = %.lr.ph.i, %45, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit17, %.thread, %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit
-  %.0 = phi i32 [ -1, %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit ], [ %40, %.thread ], [ 8, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit17 ], [ 8, %45 ], [ -1, %.lr.ph.i ]
+  %.0 = phi i32 [ 8, %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit17 ], [ -1, %_ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.exit ], [ %40, %.thread ], [ 8, %45 ], [ -1, %.lr.ph.i ]
   ret i32 %.0
 }
 
@@ -4319,9 +4319,9 @@ _ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit23: ; preds = %.loopexit, %2
   br label %48
 
 48:                                               ; preds = %34, %.lr.ph, %39
-  %.111 = phi ptr [ %.val13, %39 ], [ %.01028, %.lr.ph ], [ %.01028, %34 ]
-  %.19 = phi i32 [ %47, %39 ], [ %.0829, %.lr.ph ], [ %.0829, %34 ]
-  %.1 = phi i32 [ %44, %39 ], [ %.030, %.lr.ph ], [ %.030, %34 ]
+  %.111 = phi ptr [ %.val13, %39 ], [ %.01028, %34 ], [ %.01028, %.lr.ph ]
+  %.19 = phi i32 [ %47, %39 ], [ %.0829, %34 ], [ %.0829, %.lr.ph ]
+  %.1 = phi i32 [ %44, %39 ], [ %.030, %34 ], [ %.030, %.lr.ph ]
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.024.026, i64 56
   %50 = icmp ult ptr %49, %.val.i
   br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !126
@@ -5146,7 +5146,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %.body
 
 .body:                                            ; preds = %_ZN5boost9unit_test19log_checkpoint_dataD2Ev.exit, %4, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i32, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  %.pn11.pn.pn.pn = phi { ptr, i32 } [ %5, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %.pn11.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i32 ], [ %5, %4 ], [ %.pn11.pn, %_ZN5boost9unit_test19log_checkpoint_dataD2Ev.exit ]
+  %.pn11.pn.pn.pn = phi { ptr, i32 } [ %5, %4 ], [ %.pn11.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i32 ], [ %5, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %.pn11.pn, %_ZN5boost9unit_test19log_checkpoint_dataD2Ev.exit ]
   %.val = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 24), align 8
   %.not.i.i.i35 = icmp eq ptr %.val, null
   br i1 %.not.i.i.i35, label %_ZNSt6vectorIPN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implESaIS4_EED2Ev.exit, label %194
@@ -5902,8 +5902,8 @@ _ZNKSt4lessIN5boost9unit_test13basic_cstringIKcEEEclERKS4_S7_.exit.i.i.i: ; pred
   br label %_ZNKSt4lessIN5boost9unit_test13basic_cstringIKcEEEclERKS4_S7_.exit.thread.i.i.i
 
 _ZNKSt4lessIN5boost9unit_test13basic_cstringIKcEEEclERKS4_S7_.exit.thread.i.i.i: ; preds = %32, %37, %_ZNKSt4lessIN5boost9unit_test13basic_cstringIKcEEEclERKS4_S7_.exit.i.i.i, %27
-  %.sink.i.i.i = phi i64 [ 24, %37 ], [ 16, %27 ], [ 16, %_ZNKSt4lessIN5boost9unit_test13basic_cstringIKcEEEclERKS4_S7_.exit.i.i.i ], [ 16, %32 ]
-  %.19.i.i.i = phi ptr [ %.0814.i.i.i, %37 ], [ %.015.i.i.i, %27 ], [ %.015.i.i.i, %_ZNKSt4lessIN5boost9unit_test13basic_cstringIKcEEEclERKS4_S7_.exit.i.i.i ], [ %.015.i.i.i, %32 ]
+  %.sink.i.i.i = phi i64 [ 24, %37 ], [ 16, %_ZNKSt4lessIN5boost9unit_test13basic_cstringIKcEEEclERKS4_S7_.exit.i.i.i ], [ 16, %27 ], [ 16, %32 ]
+  %.19.i.i.i = phi ptr [ %.0814.i.i.i, %37 ], [ %.015.i.i.i, %_ZNKSt4lessIN5boost9unit_test13basic_cstringIKcEEEclERKS4_S7_.exit.i.i.i ], [ %.015.i.i.i, %27 ], [ %.015.i.i.i, %32 ]
   %38 = getelementptr inbounds nuw i8, ptr %.015.i.i.i, i64 %.sink.i.i.i
   %.1.i.i.i = load ptr, ptr %38, align 8, !tbaa !4
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
@@ -5952,7 +5952,7 @@ _ZNKSt4lessIN5boost9unit_test13basic_cstringIKcEEEclERKS4_S7_.exit.i.i: ; preds 
   %.not27 = icmp slt i8 %50, %51
   br i1 %.not27, label %_ZNSt3mapIN5boost9unit_test13basic_cstringIKcEENS0_10shared_ptrINS0_7runtime8argumentEEESt4lessIS4_ESaISt4pairIKS4_S8_EEE4findERSC_.exit.thread, label %_ZNSt3mapIN5boost9unit_test13basic_cstringIKcEENS0_10shared_ptrINS0_7runtime8argumentEEESt4lessIS4_ESaISt4pairIKS4_S8_EEE4findERSC_.exit
 
-_ZNSt3mapIN5boost9unit_test13basic_cstringIKcEENS0_10shared_ptrINS0_7runtime8argumentEEESt4lessIS4_ESaISt4pairIKS4_S8_EEE4findERSC_.exit.thread: ; preds = %2, %_ZNSt8_Rb_treeIN5boost9unit_test13basic_cstringIKcEESt4pairIKS4_NS0_10shared_ptrINS0_7runtime8argumentEEEESt10_Select1stISB_ESt4lessIS4_ESaISB_EE14_M_lower_boundEPSt13_Rb_tree_nodeISB_EPSt18_Rb_tree_node_baseRS6_.exit.i.i, %_ZNKSt4lessIN5boost9unit_test13basic_cstringIKcEEEclERKS4_S7_.exit.i.i, %48
+_ZNSt3mapIN5boost9unit_test13basic_cstringIKcEENS0_10shared_ptrINS0_7runtime8argumentEEESt4lessIS4_ESaISt4pairIKS4_S8_EEE4findERSC_.exit.thread: ; preds = %2, %_ZNKSt4lessIN5boost9unit_test13basic_cstringIKcEEEclERKS4_S7_.exit.i.i, %_ZNSt8_Rb_treeIN5boost9unit_test13basic_cstringIKcEESt4pairIKS4_NS0_10shared_ptrINS0_7runtime8argumentEEEESt10_Select1stISB_ESt4lessIS4_ESaISB_EE14_M_lower_boundEPSt13_Rb_tree_nodeISB_EPSt18_Rb_tree_node_baseRS6_.exit.i.i, %48
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

@@ -411,7 +411,7 @@ define internal fastcc range(i32 0, 5) i32 @interpret_urb_result(ptr noundef %0,
   br label %57
 
 57:                                               ; preds = %56, %55, %52, %9, %6, %5
-  %58 = phi i32 [ 4, %56 ], [ 1, %55 ], [ %8, %6 ], [ 2, %9 ], [ %54, %52 ], [ 3, %5 ]
+  %58 = phi i32 [ 4, %56 ], [ %54, %52 ], [ 1, %55 ], [ 3, %5 ], [ %8, %6 ], [ 2, %9 ]
   ret i32 %58
 }
 
@@ -1870,7 +1870,7 @@ define dso_local noundef range(i32 0, 4) i32 @usb_stor_Bulk_transport(ptr nounde
   br label %.thread6
 
 .thread6:                                         ; preds = %78, %.thread6.fold.split, %94, %.thread4, %76
-  %107 = phi i32 [ 0, %76 ], [ 0, %.thread4 ], [ 0, %94 ], [ 1, %78 ], [ 0, %.thread6.fold.split ]
+  %107 = phi i32 [ 0, %76 ], [ 1, %78 ], [ 0, %94 ], [ 0, %.thread4 ], [ 0, %.thread6.fold.split ]
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %109 = load i32, ptr %108, align 4
   %110 = load ptr, ptr %55, align 8
@@ -2025,7 +2025,7 @@ define dso_local noundef range(i32 0, 4) i32 @usb_stor_Bulk_transport(ptr nounde
   br label %210
 
 ._crit_edge:                                      ; preds = %189, %200
-  %206 = phi i32 [ 0, %200 ], [ %193, %189 ]
+  %206 = phi i32 [ %193, %189 ], [ 0, %200 ]
   %207 = call i32 @llvm.umin.i32(i32 %164, i32 %9)
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %209 = call i32 @llvm.umax.i32(i32 %206, i32 %207)
@@ -2053,7 +2053,7 @@ define dso_local noundef range(i32 0, 4) i32 @usb_stor_Bulk_transport(ptr nounde
   br label %.thread7
 
 .thread7:                                         ; preds = %78, %217, %214, %212, %210, %181, %172, %168, %159, %44
-  %218 = phi i32 [ 3, %217 ], [ 2, %214 ], [ 3, %44 ], [ 3, %159 ], [ 3, %168 ], [ 3, %172 ], [ 3, %181 ], [ 0, %212 ], [ 1, %210 ], [ 3, %78 ]
+  %218 = phi i32 [ 0, %212 ], [ 3, %217 ], [ 1, %210 ], [ 2, %214 ], [ 3, %44 ], [ 3, %159 ], [ 3, %168 ], [ 3, %172 ], [ 3, %181 ], [ 3, %78 ]
   ret i32 %218
 }
 

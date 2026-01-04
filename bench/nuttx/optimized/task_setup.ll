@@ -124,7 +124,7 @@ define internal fastcc range(i32 -12, 1) i32 @nxthread_setup_scheduler(ptr nound
   call void @free(ptr noundef %.pre.i)
   br label %9
 
-58:                                               ; preds = %26, %30
+58:                                               ; preds = %30, %26
   %59 = trunc i32 %1 to i8
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 %59, ptr %60, align 4

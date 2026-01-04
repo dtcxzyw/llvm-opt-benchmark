@@ -288,7 +288,7 @@ define hidden noundef ptr @setupBlitVector(ptr noundef %0, ptr noundef %1, i32 n
   br label %186
 
 186:                                              ; preds = %.thread, %._crit_edge, %32, %57, %47
-  %.0 = phi ptr [ null, %47 ], [ null, %57 ], [ null, %32 ], [ %37, %._crit_edge ], [ %37, %.thread ]
+  %.0 = phi ptr [ null, %32 ], [ null, %47 ], [ null, %57 ], [ %37, %._crit_edge ], [ %37, %.thread ]
   ret ptr %.0
 }
 
@@ -622,7 +622,7 @@ RefineBounds.exit:                                ; preds = %._crit_edge.i
   br i1 %.not65, label %97, label %.sink.split
 
 .sink.split:                                      ; preds = %94, %77, %69
-  %.sink = phi ptr [ %71, %69 ], [ %79, %77 ], [ %96, %94 ]
+  %.sink = phi ptr [ %79, %77 ], [ %71, %69 ], [ %96, %94 ]
   call void %.sink(ptr noundef %0, ptr noundef nonnull %12, ptr noundef nonnull %10) #10
   br label %97
 
@@ -1005,7 +1005,7 @@ getInvLCDGammaLUT.exit.i:                         ; preds = %168, %.preheader.i.
   br i1 %.not68.i, label %drawGlyphListLCD.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %186, %92, %84
-  %.sink.i = phi ptr [ %86, %84 ], [ %94, %92 ], [ %188, %186 ]
+  %.sink.i = phi ptr [ %94, %92 ], [ %86, %84 ], [ %188, %186 ]
   call void %.sink.i(ptr noundef nonnull %0, ptr noundef nonnull %27, ptr noundef nonnull %9) #10
   br label %drawGlyphListLCD.exit
 
@@ -1457,7 +1457,7 @@ define hidden noundef ptr @setupLCDBlitVector(ptr noundef %0, ptr noundef %1, i3
   br label %294
 
 294:                                              ; preds = %.thread, %._crit_edge, %32, %194, %93, %80, %61, %52
-  %.0 = phi ptr [ null, %52 ], [ null, %61 ], [ null, %80 ], [ null, %93 ], [ null, %194 ], [ null, %32 ], [ %42, %._crit_edge ], [ %42, %.thread ]
+  %.0 = phi ptr [ null, %194 ], [ null, %52 ], [ null, %61 ], [ null, %80 ], [ null, %93 ], [ null, %32 ], [ %42, %._crit_edge ], [ %42, %.thread ]
   ret ptr %.0
 }
 

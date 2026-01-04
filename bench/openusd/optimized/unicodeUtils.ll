@@ -108,7 +108,7 @@ define noundef range(i32 0, 2097152) i32 @_ZNK32pxrInternal_v0_24__pxrReserved__
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__23TfUtf8CodePointIterator18_GetEncodingLengthEv.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__23TfUtf8CodePointIterator18_GetEncodingLengthEv.exit: ; preds = %1, %8, %10, %12
-  %.0.i = phi i8 [ 0, %1 ], [ 2, %8 ], [ 3, %10 ], [ %..i, %12 ]
+  %.0.i = phi i8 [ 3, %10 ], [ 0, %1 ], [ %..i, %12 ], [ 2, %8 ]
   %14 = zext nneg i8 %.0.i to i64
   %15 = ptrtoint ptr %4 to i64
   %16 = ptrtoint ptr %2 to i64
@@ -269,7 +269,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__23TfUtf8CodePointIterator18_GetEncodingLen
   br label %107
 
 107:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__23TfUtf8CodePointIterator18_GetEncodingLengthEv.exit.thread, %24, %87, %89, %84, %78, %54, %56, %52, %45, %28, %25, %_ZNK32pxrInternal_v0_24__pxrReserved__23TfUtf8CodePointIterator18_GetEncodingLengthEv.exit, %92, %58, %31
-  %.0 = phi i32 [ %37, %31 ], [ %68, %58 ], [ %106, %92 ], [ 65533, %_ZNK32pxrInternal_v0_24__pxrReserved__23TfUtf8CodePointIterator18_GetEncodingLengthEv.exit ], [ 65533, %25 ], [ 65533, %28 ], [ 65533, %45 ], [ 65533, %52 ], [ 65533, %56 ], [ 65533, %54 ], [ 65533, %78 ], [ 65533, %84 ], [ 65533, %89 ], [ 65533, %87 ], [ 65533, %24 ], [ %spec.select, %_ZNK32pxrInternal_v0_24__pxrReserved__23TfUtf8CodePointIterator18_GetEncodingLengthEv.exit.thread ]
+  %.0 = phi i32 [ 65533, %87 ], [ 65533, %24 ], [ %spec.select, %_ZNK32pxrInternal_v0_24__pxrReserved__23TfUtf8CodePointIterator18_GetEncodingLengthEv.exit.thread ], [ 65533, %25 ], [ %37, %31 ], [ 65533, %28 ], [ %68, %58 ], [ 65533, %45 ], [ 65533, %52 ], [ 65533, %56 ], [ 65533, %54 ], [ %106, %92 ], [ 65533, %78 ], [ 65533, %84 ], [ 65533, %89 ], [ 65533, %_ZNK32pxrInternal_v0_24__pxrReserved__23TfUtf8CodePointIterator18_GetEncodingLengthEv.exit ]
   ret i32 %.0
 }
 

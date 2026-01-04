@@ -276,7 +276,7 @@ define dso_local i32 @ext4_free_clusters_after_init(ptr noundef %0, i32 noundef 
   br i1 %92, label %ext4_bg_has_super.exit, label %.preheader.i, !llvm.loop !7
 
 ext4_bg_has_super.exit:                           ; preds = %.preheader7.i, %.preheader5.i, %.preheader.i, %87, %29, %45, %49, %54, %56, %61, %73, %83
-  %93 = phi i32 [ 1, %29 ], [ 1, %45 ], [ 1, %56 ], [ 1, %54 ], [ 0, %61 ], [ %53, %49 ], [ 0, %83 ], [ 0, %73 ], [ 1, %.preheader.i ], [ 0, %87 ], [ 1, %.preheader5.i ], [ 1, %.preheader7.i ]
+  %93 = phi i32 [ 1, %29 ], [ 1, %45 ], [ 1, %56 ], [ 1, %54 ], [ 0, %61 ], [ %53, %49 ], [ 0, %83 ], [ 1, %.preheader.i ], [ 0, %73 ], [ 1, %.preheader5.i ], [ 0, %87 ], [ 1, %.preheader7.i ]
   %94 = getelementptr inbounds nuw i8, ptr %30, i64 96
   %95 = load i32, ptr %94, align 8
   %96 = and i32 %95, 16
@@ -1063,7 +1063,7 @@ define internal fastcc noundef range(i32 -117, 1) i32 @ext4_init_block_bitmap(pt
   br i1 %75, label %ext4_bg_has_super.exit, label %.preheader.i, !llvm.loop !7
 
 ext4_bg_has_super.exit:                           ; preds = %.preheader7.i, %.preheader5.i, %.preheader.i, %70, %28, %32, %37, %39, %44, %56, %66
-  %76 = phi i32 [ 1, %28 ], [ 1, %39 ], [ 1, %37 ], [ 0, %44 ], [ %36, %32 ], [ 0, %66 ], [ 0, %56 ], [ 1, %.preheader.i ], [ 0, %70 ], [ 1, %.preheader5.i ], [ 1, %.preheader7.i ]
+  %76 = phi i32 [ 1, %.preheader.i ], [ 1, %28 ], [ 1, %39 ], [ 1, %37 ], [ 0, %44 ], [ %36, %32 ], [ 0, %66 ], [ 1, %.preheader5.i ], [ 0, %56 ], [ 0, %70 ], [ 1, %.preheader7.i ]
   %77 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %78 = load i32, ptr %77, align 8
   %79 = and i32 %78, 16
@@ -1682,7 +1682,7 @@ define internal fastcc noundef range(i32 -117, 1) i32 @ext4_validate_block_bitma
   br label %ext4_valid_block_bitmap.exit.thread
 
 ext4_valid_block_bitmap.exit:                     ; preds = %151, %93, %105, %110, %117, %122, %126, %132, %137, %141
-  %165 = phi i64 [ %101, %110 ], [ %101, %105 ], [ %101, %93 ], [ %118, %126 ], [ %118, %122 ], [ %118, %117 ], [ %133, %141 ], [ %133, %137 ], [ %133, %132 ], [ %133, %151 ]
+  %165 = phi i64 [ %133, %132 ], [ %101, %110 ], [ %101, %105 ], [ %101, %93 ], [ %118, %126 ], [ %118, %122 ], [ %118, %117 ], [ %133, %141 ], [ %133, %137 ], [ %133, %151 ]
   %166 = icmp eq i64 %165, 0
   %.pre16 = load ptr, ptr %5, align 8
   br i1 %166, label %ext4_valid_block_bitmap.exit.thread, label %171, !prof !37
@@ -2316,7 +2316,7 @@ define dso_local range(i32 0, 2) i32 @ext4_bg_has_super(ptr noundef readonly cap
   br i1 %60, label %.thread4, label %.preheader, !llvm.loop !7
 
 .thread4:                                         ; preds = %.preheader7, %.preheader5, %55, %.preheader, %41, %51, %29, %24, %22, %17, %13, %2
-  %61 = phi i32 [ 1, %2 ], [ 1, %13 ], [ 1, %24 ], [ 1, %22 ], [ 0, %29 ], [ %21, %17 ], [ 0, %51 ], [ 0, %41 ], [ 0, %55 ], [ 1, %.preheader ], [ 1, %.preheader5 ], [ 1, %.preheader7 ]
+  %61 = phi i32 [ 1, %2 ], [ 1, %13 ], [ 1, %24 ], [ 1, %22 ], [ 0, %29 ], [ %21, %17 ], [ 0, %51 ], [ 1, %.preheader ], [ 0, %41 ], [ 1, %.preheader5 ], [ 0, %55 ], [ 1, %.preheader7 ]
   ret i32 %61
 }
 
@@ -2459,8 +2459,8 @@ ext4_bg_has_super.exit.thread:                    ; preds = %.preheader7.i, %.pr
   %90 = zext i1 %89 to i64
   br label %ext4_bg_has_super.exit.thread2
 
-ext4_bg_has_super.exit.thread2:                   ; preds = %65, %51, %61, %39, %78, %75, %73, %ext4_bg_has_super.exit
-  %91 = phi i64 [ %90, %78 ], [ %74, %73 ], [ %77, %75 ], [ 0, %ext4_bg_has_super.exit ], [ 0, %39 ], [ 0, %61 ], [ 0, %51 ], [ 0, %65 ]
+ext4_bg_has_super.exit.thread2:                   ; preds = %65, %39, %51, %61, %78, %75, %73, %ext4_bg_has_super.exit
+  %91 = phi i64 [ %90, %78 ], [ %74, %73 ], [ %77, %75 ], [ 0, %ext4_bg_has_super.exit ], [ 0, %61 ], [ 0, %39 ], [ 0, %51 ], [ 0, %65 ]
   ret i64 %91
 }
 
@@ -2559,7 +2559,7 @@ define dso_local i32 @ext4_num_base_meta_blocks(ptr noundef readonly captures(no
   br i1 %60, label %ext4_bg_has_super.exit, label %.preheader.i, !llvm.loop !7
 
 ext4_bg_has_super.exit:                           ; preds = %.preheader7.i, %.preheader5.i, %.preheader.i, %55, %2, %13, %17, %22, %24, %29, %41, %51
-  %61 = phi i32 [ 1, %2 ], [ 1, %13 ], [ 1, %24 ], [ 1, %22 ], [ 0, %29 ], [ %21, %17 ], [ 0, %51 ], [ 0, %41 ], [ 1, %.preheader.i ], [ 0, %55 ], [ 1, %.preheader5.i ], [ 1, %.preheader7.i ]
+  %61 = phi i32 [ 1, %2 ], [ 1, %13 ], [ 1, %24 ], [ 1, %22 ], [ 0, %29 ], [ %21, %17 ], [ 0, %51 ], [ 1, %.preheader.i ], [ 0, %41 ], [ 1, %.preheader5.i ], [ 0, %55 ], [ 1, %.preheader7.i ]
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %63 = load i32, ptr %62, align 8
   %64 = and i32 %63, 16

@@ -903,7 +903,7 @@ _ZL16next_file_numberPKcjjP12outputStream.exit:   ; preds = %80, %88, %60, %79
   br label %129
 
 129:                                              ; preds = %112, %115, %125, %_ZL16next_file_numberPKcjjP12outputStream.exit, %3, %107, %59
-  %.0 = phi i1 [ false, %107 ], [ false, %59 ], [ false, %3 ], [ false, %_ZL16next_file_numberPKcjjP12outputStream.exit ], [ true, %125 ], [ true, %115 ], [ true, %112 ]
+  %.0 = phi i1 [ false, %3 ], [ false, %107 ], [ false, %_ZL16next_file_numberPKcjjP12outputStream.exit ], [ false, %59 ], [ true, %125 ], [ true, %115 ], [ true, %112 ]
   ret i1 %.0
 }
 
@@ -1007,7 +1007,7 @@ define hidden noundef i32 @_ZN13LogFileOutput14write_blockingERK14LogDecorations
   br label %_ZN13LogFileOutput13should_rotateEv.exit.thread
 
 _ZN13LogFileOutput13should_rotateEv.exit.thread:  ; preds = %13, %20, %8, %24, %3
-  %.0 = phi i32 [ 0, %3 ], [ %9, %24 ], [ %11, %8 ], [ %9, %20 ], [ %9, %13 ]
+  %.0 = phi i32 [ 0, %3 ], [ %9, %13 ], [ %9, %24 ], [ %11, %8 ], [ %9, %20 ]
   tail call void @_ZN14PosixSemaphore6signalEj(ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 1) #13
   ret i32 %.0
 }
@@ -1101,7 +1101,7 @@ define hidden noundef i32 @_ZN13LogFileOutput5writeERK14LogDecorationsPKc(ptr no
   br label %15
 
 15:                                               ; preds = %3, %10, %9
-  %.0 = phi i32 [ 0, %9 ], [ %14, %10 ], [ 0, %3 ]
+  %.0 = phi i32 [ %14, %10 ], [ 0, %9 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -1160,7 +1160,7 @@ _ZN13LogFileOutput13should_rotateEv.exit.thread:  ; preds = %13, %20, %24, %9
   br label %25
 
 25:                                               ; preds = %2, %_ZN13LogFileOutput13should_rotateEv.exit.thread, %8
-  %.0 = phi i32 [ 0, %8 ], [ %11, %_ZN13LogFileOutput13should_rotateEv.exit.thread ], [ 0, %2 ]
+  %.0 = phi i32 [ %11, %_ZN13LogFileOutput13should_rotateEv.exit.thread ], [ 0, %8 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -1230,8 +1230,8 @@ _Z24byte_size_in_proper_unitImET_S0_.exit:        ; preds = %2
   br label %_Z25proper_unit_for_byte_sizem.exit
 
 _Z25proper_unit_for_byte_sizem.exit:              ; preds = %.thread, %_Z24byte_size_in_proper_unitImET_S0_.exit, %12
-  %.0.i6 = phi i64 [ %11, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %spec.select.i, %12 ], [ %10, %.thread ]
-  %.0.i3 = phi ptr [ @.str.31, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %.str.33..str.34.i, %12 ], [ @.str.32, %.thread ]
+  %.0.i6 = phi i64 [ %10, %.thread ], [ %11, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %spec.select.i, %12 ]
+  %.0.i3 = phi ptr [ @.str.32, %.thread ], [ @.str.31, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %.str.33..str.34.i, %12 ]
   %15 = load i8, ptr @_ZN16LogConfiguration11_async_modeE, align 1
   %16 = trunc i8 %15 to i1
   %17 = select i1 %16, ptr @.str.26, ptr @.str.27

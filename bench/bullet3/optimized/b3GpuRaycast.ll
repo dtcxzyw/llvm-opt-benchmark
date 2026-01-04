@@ -692,7 +692,7 @@ define dso_local noundef zeroext i1 @_Z9rayConvexRK9b3Vector3S1_RK22b3ConvexPoly
   br label %.thread63
 
 .thread63:                                        ; preds = %49, %56, %6, %._crit_edge, %59
-  %.3 = phi i1 [ true, %59 ], [ false, %._crit_edge ], [ false, %6 ], [ false, %56 ], [ false, %49 ]
+  %.3 = phi i1 [ false, %._crit_edge ], [ true, %59 ], [ false, %6 ], [ false, %56 ], [ false, %49 ]
   ret i1 %.3
 }
 
@@ -1122,8 +1122,8 @@ _ZN13b3ProfileZoneD2Ev.exit82:                    ; preds = %232
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %20, %237, %._crit_edge
-  %.sroa.6117.1.lcssa184 = phi <2 x float> [ %.sroa.6117.3, %237 ], [ %.sroa.6117.3, %._crit_edge ], [ %.sroa.6117.0160, %20 ]
-  %.sroa.0116.1.lcssa183 = phi <2 x float> [ %.sroa.0116.3, %237 ], [ %.sroa.0116.3, %._crit_edge ], [ %.sroa.0116.0159, %20 ]
+  %.sroa.6117.1.lcssa184 = phi <2 x float> [ %.sroa.6117.3, %._crit_edge ], [ %.sroa.6117.3, %237 ], [ %.sroa.6117.0160, %20 ]
+  %.sroa.0116.1.lcssa183 = phi <2 x float> [ %.sroa.0116.3, %._crit_edge ], [ %.sroa.0116.3, %237 ], [ %.sroa.0116.0159, %20 ]
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
   %269 = load i32, ptr %9, align 4, !tbaa !78
   %270 = sext i32 %269 to i64
@@ -2068,7 +2068,7 @@ _ZN13b3ProfileZoneD2Ev.exit78:                    ; preds = %428, %430, %439
   unreachable
 
 _ZN13b3ProfileZoneD2Ev.exit77:                    ; preds = %443, %449, %426, %_ZN13b3ProfileZoneD2Ev.exit78, %419, %421, %134
-  %.pn35.pn.pn = phi { ptr, i32 } [ %135, %134 ], [ %420, %419 ], [ %422, %421 ], [ %427, %426 ], [ %.pn31.pn, %_ZN13b3ProfileZoneD2Ev.exit78 ], [ %444, %443 ], [ %.pn35, %449 ]
+  %.pn35.pn.pn = phi { ptr, i32 } [ %.pn31.pn, %_ZN13b3ProfileZoneD2Ev.exit78 ], [ %422, %421 ], [ %135, %134 ], [ %420, %419 ], [ %427, %426 ], [ %444, %443 ], [ %.pn35, %449 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %_ZN13b3ProfileZoneD2Ev.exit81
 
@@ -2091,7 +2091,7 @@ _ZN13b3ProfileZoneD2Ev.exit77:                    ; preds = %443, %449, %426, %_
   unreachable
 
 _ZN13b3ProfileZoneD2Ev.exit81:                    ; preds = %453, %455, %132, %_ZN13b3ProfileZoneD2Ev.exit77, %130
-  %.pn39.pn.pn = phi { ptr, i32 } [ %131, %130 ], [ %.pn35.pn.pn, %_ZN13b3ProfileZoneD2Ev.exit77 ], [ %133, %132 ], [ %454, %453 ], [ %456, %455 ]
+  %.pn39.pn.pn = phi { ptr, i32 } [ %131, %130 ], [ %133, %132 ], [ %.pn35.pn.pn, %_ZN13b3ProfileZoneD2Ev.exit77 ], [ %454, %453 ], [ %456, %455 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZN13b3ProfileZoneD2Ev.exit49
 

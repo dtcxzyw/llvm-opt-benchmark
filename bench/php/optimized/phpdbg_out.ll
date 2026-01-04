@@ -220,7 +220,7 @@ define hidden noundef i32 @phpdbg_process_print(i32 noundef %0, i32 noundef %1, 
   br label %.thread
 
 .thread:                                          ; preds = %60, %73, %74, %51, %52
-  %.034 = phi i32 [ %3, %52 ], [ %3, %51 ], [ %.049, %74 ], [ -1, %73 ], [ -1, %60 ]
+  %.034 = phi i32 [ %3, %51 ], [ %3, %52 ], [ %.049, %74 ], [ -1, %73 ], [ -1, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.034
 }

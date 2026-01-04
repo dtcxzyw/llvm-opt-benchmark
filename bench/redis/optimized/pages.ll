@@ -688,7 +688,7 @@ je_pages_purge_lazy.exit.thread:                  ; preds = %76, %je_pages_purge
   br label %os_pages_unmap.exit
 
 os_pages_unmap.exit:                              ; preds = %init_thp_state.exit, %78, %88, %7
-  %.04 = phi i1 [ true, %7 ], [ false, %78 ], [ false, %88 ], [ true, %init_thp_state.exit ]
+  %.04 = phi i1 [ true, %7 ], [ true, %init_thp_state.exit ], [ false, %88 ], [ false, %78 ]
   ret i1 %.04
 }
 

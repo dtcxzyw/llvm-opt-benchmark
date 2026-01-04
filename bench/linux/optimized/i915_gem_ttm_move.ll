@@ -797,7 +797,7 @@ define internal fastcc ptr @__i915_ttm_move(ptr noundef %0, ptr noundef %1, i1 n
   br label %.thread48
 
 .critedge:                                        ; preds = %191, %87, %.thread46
-  %194 = phi ptr [ %193, %.thread46 ], [ %90, %87 ], [ %176, %191 ]
+  %194 = phi ptr [ %90, %87 ], [ %193, %.thread46 ], [ %176, %191 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %195 = icmp ugt ptr %194, inttoptr (i64 -4096 to ptr)
   br i1 %195, label %.thread48, label %196
@@ -915,7 +915,7 @@ define internal fastcc ptr @__i915_ttm_move(ptr noundef %0, ptr noundef %1, i1 n
   br i1 %254, label %266, label %321
 
 .thread48:                                        ; preds = %.critedge, %.critedge.thread, %18
-  %255 = phi ptr [ inttoptr (i64 -22 to ptr), %18 ], [ inttoptr (i64 -22 to ptr), %.critedge.thread ], [ %194, %.critedge ]
+  %255 = phi ptr [ inttoptr (i64 -22 to ptr), %.critedge.thread ], [ inttoptr (i64 -22 to ptr), %18 ], [ %194, %.critedge ]
   %256 = ptrtoint ptr %255 to i64
   %257 = trunc i64 %256 to i32
   switch i32 %257, label %258 [
@@ -1020,7 +1020,7 @@ define internal fastcc ptr @__i915_ttm_move(ptr noundef %0, ptr noundef %1, i1 n
   br label %.thread58
 
 .thread58:                                        ; preds = %304, %306, %307, %.thread56, %266
-  %308 = phi ptr [ %270, %307 ], [ %270, %.thread56 ], [ %202, %266 ], [ %270, %306 ], [ %270, %304 ]
+  %308 = phi ptr [ %202, %266 ], [ %270, %307 ], [ %270, %.thread56 ], [ %270, %306 ], [ %270, %304 ]
   %309 = icmp eq ptr %308, null
   br i1 %309, label %.thread59, label %310
 
@@ -1045,7 +1045,7 @@ define internal fastcc ptr @__i915_ttm_move(ptr noundef %0, ptr noundef %1, i1 n
   br label %.thread59
 
 .thread59:                                        ; preds = %315, %317, %.thread53, %318, %.thread58
-  %319 = phi ptr [ %308, %318 ], [ null, %.thread58 ], [ null, %.thread53 ], [ %308, %317 ], [ %308, %315 ]
+  %319 = phi ptr [ null, %.thread58 ], [ %308, %318 ], [ null, %.thread53 ], [ %308, %317 ], [ %308, %315 ]
   call void @kfree(ptr noundef %319) #9
   %320 = select i1 %19, ptr null, ptr inttoptr (i64 -5 to ptr)
   br label %.thread62
@@ -1135,7 +1135,7 @@ define internal fastcc ptr @__i915_ttm_move(ptr noundef %0, ptr noundef %1, i1 n
   br label %.thread62
 
 .thread62:                                        ; preds = %196, %.thread48, %.thread48, %.thread48, %263, %.thread68, %321, %.thread59
-  %360 = phi ptr [ null, %.thread68 ], [ %244, %321 ], [ %320, %.thread59 ], [ %265, %263 ], [ %255, %.thread48 ], [ %255, %.thread48 ], [ %255, %.thread48 ], [ %194, %196 ]
+  %360 = phi ptr [ %320, %.thread59 ], [ null, %.thread68 ], [ %244, %321 ], [ %265, %263 ], [ %255, %.thread48 ], [ %255, %.thread48 ], [ %255, %.thread48 ], [ %194, %196 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret ptr %360
 }

@@ -702,7 +702,7 @@ define hidden void @"_ZN71_$LT$toml_edit..de..Deserializer$u20$as$u20$serde..de.
   invoke void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct17h95d874dc3bece0f6E"(ptr noalias noundef nonnull sret({ i64, [11 x i64] }) align 8 captures(none) dereferenceable(96) %13, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(184) %12, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 %4, i64 noundef %5)
           to label %18 unwind label %53
 
-.body.thread6:                                    ; preds = %33, %36
+.body.thread6:                                    ; preds = %36, %33
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -821,7 +821,7 @@ define hidden void @"_ZN71_$LT$toml_edit..de..Deserializer$u20$as$u20$serde..de.
   ret void
 
 .body.thread:                                     ; preds = %22, %.body.thread6, %53
-  %eh.lpad-body5 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %53 ], [ %lpad.thr_comm, %.body.thread6 ], [ %23, %22 ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread6 ], [ %lpad.thr_comm.split-lp, %53 ], [ %23, %22 ]
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 224
   invoke void @"_ZN4core3ptr53drop_in_place$LT$toml_edit..raw_string..RawString$GT$17h272cec652e4b44daE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %52) #14
           to label %56 unwind label %54
@@ -972,7 +972,7 @@ define hidden void @"_ZN179_$LT$migrations_internals.._..$LT$impl$u20$serde..de.
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06861a582078534bE.exit.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06861a582078534bE.exit.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06861a582078534bE.exit", %3
-  %.sink = phi i8 [ 1, %3 ], [ %spec.select, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06861a582078534bE.exit" ]
+  %.sink = phi i8 [ %spec.select, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06861a582078534bE.exit" ], [ 1, %3 ]
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sink, ptr %5, align 8
   store i64 2, ptr %0, align 8

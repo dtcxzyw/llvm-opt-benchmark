@@ -681,7 +681,7 @@ define hidden noundef zeroext i1 @_ZN6Thread23is_JavaThread_protectedEPK10JavaTh
   br i1 %24, label %_ZN6Thread30is_JavaThread_protected_by_TLHEPK10JavaThread.exit, label %20, !llvm.loop !8
 
 _ZN6Thread30is_JavaThread_protected_by_TLHEPK10JavaThread.exit: ; preds = %21, %20, %14, %6, %10, %1
-  %.0 = phi i1 [ true, %1 ], [ true, %10 ], [ true, %6 ], [ true, %14 ], [ %.not.not.not.not.i.not.not.not, %20 ], [ %.not.not.not.not.i.not.not.not, %21 ]
+  %.0 = phi i1 [ true, %14 ], [ true, %1 ], [ true, %6 ], [ true, %10 ], [ %.not.not.not.not.i.not.not.not, %20 ], [ %.not.not.not.not.i.not.not.not, %21 ]
   ret i1 %.0
 }
 
@@ -946,8 +946,8 @@ _Z24byte_size_in_proper_unitImET_S0_.exit:        ; preds = %_ZN6Thread22cooked_
   br label %_Z25proper_unit_for_byte_sizem.exit
 
 _Z25proper_unit_for_byte_sizem.exit:              ; preds = %.thread, %_Z24byte_size_in_proper_unitImET_S0_.exit, %50
-  %.0.i1620 = phi i64 [ %49, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %spec.select.i15, %50 ], [ %48, %.thread ]
-  %.0.i17 = phi ptr [ @.str.25, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %.str.27..str.28.i, %50 ], [ @.str.26, %.thread ]
+  %.0.i1620 = phi i64 [ %48, %.thread ], [ %49, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %spec.select.i15, %50 ]
+  %.0.i17 = phi ptr [ @.str.26, %.thread ], [ @.str.25, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %.str.27..str.28.i, %50 ]
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.10, i64 noundef %.0.i1620, ptr noundef nonnull %.0.i17) #12
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %54 = load i64, ptr %53, align 8
@@ -1070,8 +1070,8 @@ _Z24byte_size_in_proper_unitImET_S0_.exit:        ; preds = %18
   br label %_Z25proper_unit_for_byte_sizem.exit
 
 _Z25proper_unit_for_byte_sizem.exit:              ; preds = %.thread, %_Z24byte_size_in_proper_unitImET_S0_.exit, %35
-  %.0.i13 = phi i64 [ %34, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %spec.select.i, %35 ], [ %33, %.thread ]
-  %.0.i10 = phi ptr [ @.str.25, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %.str.27..str.28.i, %35 ], [ @.str.26, %.thread ]
+  %.0.i13 = phi i64 [ %33, %.thread ], [ %34, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %spec.select.i, %35 ]
+  %.0.i10 = phi ptr [ @.str.26, %.thread ], [ @.str.25, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %.str.27..str.28.i, %35 ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.15, i32 noundef %21, i64 noundef %28, i64 noundef %29, i64 noundef %.0.i13, ptr noundef nonnull %.0.i10) #12
   br label %40
 

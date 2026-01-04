@@ -289,9 +289,9 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   br label %42
 
 42:                                               ; preds = %41, %39, %38, %20
-  %.0.i = phi i64 [ 6, %39 ], [ 5, %41 ], [ 4, %20 ], [ %22, %38 ]
-  %43 = phi i1 [ false, %39 ], [ false, %41 ], [ true, %20 ], [ true, %38 ]
-  %.sroa.726.0.i = phi i64 [ %40, %39 ], [ 0, %41 ], [ %22, %20 ], [ %22, %38 ]
+  %.0.i = phi i64 [ 5, %41 ], [ 6, %39 ], [ 4, %20 ], [ %22, %38 ]
+  %43 = phi i1 [ false, %41 ], [ false, %39 ], [ true, %20 ], [ true, %38 ]
+  %.sroa.726.0.i = phi i64 [ 0, %41 ], [ %40, %39 ], [ %22, %20 ], [ %22, %38 ]
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %45 = load i64, ptr %44, align 8, !alias.scope !26, !noalias !28, !noundef !8
   %46 = invoke noundef align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$17try_new_uninit_in17h7ceae7a3cee8aaddE.llvm.7332213574936156402"()
@@ -745,9 +745,9 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   br label %206
 
 206:                                              ; preds = %205, %203, %202, %163
-  %.0.i35 = phi i64 [ 6, %203 ], [ 5, %205 ], [ 4, %163 ], [ 5, %202 ]
-  %207 = phi i1 [ false, %203 ], [ false, %205 ], [ true, %163 ], [ true, %202 ]
-  %.sroa.7.0.i = phi i64 [ %204, %203 ], [ 0, %205 ], [ %155, %163 ], [ 5, %202 ]
+  %.0.i35 = phi i64 [ 5, %205 ], [ 6, %203 ], [ 4, %163 ], [ 5, %202 ]
+  %207 = phi i1 [ false, %205 ], [ false, %203 ], [ true, %163 ], [ true, %202 ]
+  %.sroa.7.0.i = phi i64 [ 0, %205 ], [ %204, %203 ], [ %155, %163 ], [ 5, %202 ]
   %208 = invoke noundef align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$17try_new_uninit_in17h8c920b144eac2e25E.llvm.7332213574936156402"()
           to label %.noexc.i36 unwind label %.loopexit70, !noalias !104
 
@@ -1043,7 +1043,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   ret void
 
 .body:                                            ; preds = %145, %141, %301, %103
-  %.pn.pn = phi { ptr, i32 } [ %.pn.ph.i, %103 ], [ %eh.lpad-body.ph.i, %145 ], [ %142, %141 ], [ %.pn.ph.i33, %301 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn.ph.i, %103 ], [ %.pn.ph.i33, %301 ], [ %eh.lpad-body.ph.i, %145 ], [ %142, %141 ]
   resume { ptr, i32 } %.pn.pn
 }
 

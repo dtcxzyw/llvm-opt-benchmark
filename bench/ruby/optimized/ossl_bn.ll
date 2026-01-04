@@ -1978,7 +1978,7 @@ try_convert_to_bn.exit:                           ; preds = %6, %rb_integer_type
   br label %try_convert_to_bn.exit.thread
 
 try_convert_to_bn.exit.thread:                    ; preds = %11, %rb_integer_type_p.exit.i, %30, %try_convert_to_bn.exit
-  %.0 = phi i64 [ 0, %try_convert_to_bn.exit ], [ %., %30 ], [ 0, %rb_integer_type_p.exit.i ], [ 0, %11 ]
+  %.0 = phi i64 [ %., %30 ], [ 0, %try_convert_to_bn.exit ], [ 0, %rb_integer_type_p.exit.i ], [ 0, %11 ]
   ret i64 %.0
 }
 

@@ -96,7 +96,7 @@ define hidden i32 @onigenc_mbclen_approximate(ptr noundef %0, ptr noundef %1, pt
   br label %16
 
 16:                                               ; preds = %7, %3, %9
-  %.0 = phi i32 [ %15, %9 ], [ %5, %3 ], [ 1, %7 ]
+  %.0 = phi i32 [ %5, %3 ], [ %15, %9 ], [ 1, %7 ]
   ret i32 %.0
 }
 
@@ -290,7 +290,7 @@ define dso_local ptr @onigenc_step_back(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not, label %.critedge, label %7, !llvm.loop !20
 
 .critedge:                                        ; preds = %10, %11, %7, %5
-  %.010 = phi ptr [ null, %5 ], [ %.01115, %7 ], [ null, %11 ], [ null, %10 ]
+  %.010 = phi ptr [ null, %5 ], [ null, %11 ], [ %.01115, %7 ], [ null, %10 ]
   ret ptr %.010
 }
 
@@ -582,7 +582,7 @@ define dso_local i32 @onigenc_ascii_apply_all_case_fold(i32 noundef %0, ptr noun
   br i1 %.not17, label %6, label %15
 
 15:                                               ; preds = %6, %13, %7
-  %.014 = phi i32 [ %12, %7 ], [ %14, %13 ], [ 0, %6 ]
+  %.014 = phi i32 [ %14, %13 ], [ %12, %7 ], [ 0, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.014
 }
@@ -647,8 +647,8 @@ define dso_local i32 @onigenc_apply_all_case_fold_with_map(i32 noundef %0, ptr n
   %.not17.i = icmp eq i32 %18, 0
   br i1 %.not17.i, label %10, label %onigenc_ascii_apply_all_case_fold.exit.thread
 
-onigenc_ascii_apply_all_case_fold.exit.thread:    ; preds = %11, %17
-  %.014.i.ph = phi i32 [ %18, %17 ], [ %16, %11 ]
+onigenc_ascii_apply_all_case_fold.exit.thread:    ; preds = %17, %11
+  %.014.i.ph = phi i32 [ %16, %11 ], [ %18, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
@@ -697,7 +697,7 @@ onigenc_ascii_apply_all_case_fold.exit:           ; preds = %10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %26, %.lr.ph, %onigenc_ascii_apply_all_case_fold.exit.thread, %._crit_edge, %30
-  %.028 = phi i32 [ %31, %30 ], [ 0, %._crit_edge ], [ %.014.i.ph, %onigenc_ascii_apply_all_case_fold.exit.thread ], [ %29, %26 ], [ %25, %.lr.ph ]
+  %.028 = phi i32 [ %31, %30 ], [ %.014.i.ph, %onigenc_ascii_apply_all_case_fold.exit.thread ], [ 0, %._crit_edge ], [ %25, %.lr.ph ], [ %29, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.028
 }
@@ -870,7 +870,7 @@ define dso_local range(i32 0, 5) i32 @onigenc_get_case_fold_codes_by_str_with_ma
   br label %.loopexit
 
 .loopexit:                                        ; preds = %65, %.loopexit.sink.split, %.preheader, %29, %38, %41, %10, %19, %22
-  %.074 = phi i32 [ 1, %22 ], [ 1, %19 ], [ 1, %10 ], [ 1, %41 ], [ 1, %38 ], [ 1, %29 ], [ 0, %.preheader ], [ %.074.ph, %.loopexit.sink.split ], [ 0, %65 ]
+  %.074 = phi i32 [ 1, %41 ], [ 1, %38 ], [ 0, %.preheader ], [ 1, %10 ], [ %.074.ph, %.loopexit.sink.split ], [ 1, %29 ], [ 1, %22 ], [ 1, %19 ], [ 0, %65 ]
   ret i32 %.074
 }
 
@@ -1033,7 +1033,7 @@ define dso_local i32 @onigenc_mbn_mbc_to_code(ptr noundef %0, ptr noundef %1, pt
   br label %onigenc_mbclen.exit
 
 onigenc_mbclen.exit:                              ; preds = %9, %32, %27, %17
-  %35 = phi i32 [ %.0.i, %17 ], [ %31, %27 ], [ %34, %32 ], [ %5, %9 ]
+  %35 = phi i32 [ %34, %32 ], [ %.0.i, %17 ], [ %31, %27 ], [ %5, %9 ]
   %36 = load i8, ptr %1, align 1, !tbaa !24
   %37 = zext i8 %36 to i32
   %38 = icmp eq i32 %35, 1
@@ -1127,7 +1127,7 @@ define dso_local i32 @onigenc_mbn_mbc_case_fold(ptr noundef %0, i32 noundef %1, 
   br label %onigenc_mbclen.exit
 
 onigenc_mbclen.exit:                              ; preds = %27, %21, %42, %37
-  %45 = phi i32 [ %41, %37 ], [ %44, %42 ], [ %17, %21 ], [ %34, %27 ]
+  %45 = phi i32 [ %44, %42 ], [ %17, %21 ], [ %41, %37 ], [ %34, %27 ]
   %46 = icmp sgt i32 %45, 0
   br i1 %46, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1148,7 +1148,7 @@ onigenc_mbclen.exit:                              ; preds = %27, %21, %42, %37
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %.lr.ph, %21, %onigenc_mbclen.exit
-  %52 = phi i32 [ %45, %onigenc_mbclen.exit ], [ 0, %21 ], [ %47, %.lr.ph ]
+  %52 = phi i32 [ 0, %21 ], [ %45, %onigenc_mbclen.exit ], [ %47, %.lr.ph ]
   %53 = load ptr, ptr %2, align 8, !tbaa !19
   %54 = sext i32 %52 to i64
   %55 = getelementptr i8, ptr %53, i64 %54
@@ -1185,7 +1185,7 @@ define dso_local range(i32 1, 5) i32 @onigenc_mb4_code_to_mbclen(i32 noundef %0,
   br label %5
 
 5:                                                ; preds = %4, %3, %2
-  %.0 = phi i32 [ 4, %2 ], [ 3, %3 ], [ %., %4 ]
+  %.0 = phi i32 [ 3, %3 ], [ 4, %2 ], [ %., %4 ]
   ret i32 %.0
 }
 

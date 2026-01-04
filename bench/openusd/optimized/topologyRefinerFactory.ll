@@ -460,7 +460,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8
   br label %41
 
@@ -573,7 +573,7 @@ _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8
   br label %41
 
@@ -687,7 +687,7 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far26TopologyRefinerFactoryBas
   br label %30
 
 30:                                               ; preds = %27, %28, %29, %22, %14
-  %.0 = phi i1 [ true, %29 ], [ false, %14 ], [ false, %22 ], [ false, %28 ], [ false, %27 ]
+  %.0 = phi i1 [ true, %29 ], [ false, %22 ], [ false, %14 ], [ false, %28 ], [ false, %27 ]
   ret i1 %.0
 }
 
@@ -834,7 +834,7 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far26TopologyRefinerFactoryBas
   br label %.critedge
 
 .critedge:                                        ; preds = %.backedge, %51, %.critedge213._crit_edge, %46
-  %76 = phi i32 [ %.pre, %.critedge213._crit_edge ], [ %27, %46 ], [ %27, %51 ], [ %27, %.backedge ]
+  %76 = phi i32 [ %27, %46 ], [ %.pre, %.critedge213._crit_edge ], [ %27, %51 ], [ %27, %.backedge ]
   %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 1
   %77 = sext i32 %76 to i64
   %78 = icmp slt i64 %indvars.iv.next287, %77

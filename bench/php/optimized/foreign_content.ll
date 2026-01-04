@@ -369,7 +369,7 @@ lxb_html_tree_mathml_text_integration_point.exit.i: ; preds = %123, %119
   br label %lxb_html_tree_insertion_mode_foreign_content_script_closed.exit
 
 lxb_html_tree_insertion_mode_foreign_content_script_closed.exit: ; preds = %127, %lxb_html_tree_mathml_text_integration_point.exit.i, %123, %lxb_html_tree_current_node.exit.i22, %110, %.critedge.sink.split.i, %.loopexit.i, %80, %60, %57, %.loopexit.i.i, %45, %25, %130, %97, %95, %93
-  %.0 = phi i1 [ %131, %130 ], [ %94, %93 ], [ %96, %95 ], [ true, %97 ], [ true, %57 ], [ %28, %25 ], [ true, %45 ], [ %56, %.loopexit.i.i ], [ %63, %60 ], [ true, %80 ], [ %91, %.loopexit.i ], [ %129, %.critedge.sink.split.i ], [ false, %110 ], [ false, %lxb_html_tree_current_node.exit.i22 ], [ false, %123 ], [ false, %lxb_html_tree_mathml_text_integration_point.exit.i ], [ false, %127 ]
+  %.0 = phi i1 [ %91, %.loopexit.i ], [ %56, %.loopexit.i.i ], [ %131, %130 ], [ %94, %93 ], [ %96, %95 ], [ true, %97 ], [ true, %57 ], [ %28, %25 ], [ true, %45 ], [ %63, %60 ], [ true, %80 ], [ %129, %.critedge.sink.split.i ], [ false, %110 ], [ false, %lxb_html_tree_current_node.exit.i22 ], [ false, %123 ], [ false, %lxb_html_tree_mathml_text_integration_point.exit.i ], [ false, %127 ]
   ret i1 %.0
 }
 
@@ -526,7 +526,7 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_foreign_content_
   br label %lxb_html_tree_adjusted_current_node.exit
 
 lxb_html_tree_adjusted_current_node.exit:         ; preds = %2, %._crit_edge.i
-  %.0.i = phi ptr [ %10, %._crit_edge.i ], [ %4, %2 ]
+  %.0.i = phi ptr [ %4, %2 ], [ %10, %._crit_edge.i ]
   %11 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %12 = load i64, ptr %11, align 8, !tbaa !30
   switch i64 %12, label %15 [

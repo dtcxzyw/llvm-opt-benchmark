@@ -1706,7 +1706,7 @@ define hidden void @"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u2
   br i1 %83, label %171, label %173, !prof !55
 
 84:                                               ; preds = %204, %171, %113, %98, %87, %59, %56, %53
-  %.sroa.2417.1.i.i = phi ptr [ %206, %204 ], [ %89, %87 ], [ %73, %98 ], [ %114, %113 ], [ %172, %171 ], [ %55, %53 ], [ %58, %56 ], [ %61, %59 ]
+  %.sroa.2417.1.i.i = phi ptr [ %206, %204 ], [ %172, %171 ], [ %55, %53 ], [ %58, %56 ], [ %89, %87 ], [ %73, %98 ], [ %114, %113 ], [ %61, %59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !145
   br label %"_ZN10serde_json5value2de77_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$11deserialize17h30ce5f67b586abd2E.exit.thread51.i.i"
 
@@ -1898,7 +1898,7 @@ _ZN5serde2de9SeqAccess12next_element17h486c51c4c09d52f3E.exit.i.i.i.i.i: ; preds
   br label %"_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$..deserialize..ValueVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17hd6d751a768fdd1b7E.exit.i.i.i.i"
 
 common.resume.i.i.i.i:                            ; preds = %178, %146, %.body.i.i.i.i.i
-  %common.resume.op.i.i.i.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %147, %146 ], [ %179, %178 ]
+  %common.resume.op.i.i.i.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %179, %178 ], [ %147, %146 ]
   resume { ptr, i32 } %common.resume.op.i.i.i.i
 
 141:                                              ; preds = %.body.i.i.i.i.i
@@ -2506,7 +2506,7 @@ define hidden void @"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u2
   br i1 %83, label %171, label %173, !prof !55
 
 84:                                               ; preds = %204, %171, %113, %98, %87, %59, %56, %53
-  %.sroa.2417.1.i.i = phi ptr [ %206, %204 ], [ %89, %87 ], [ %73, %98 ], [ %114, %113 ], [ %172, %171 ], [ %55, %53 ], [ %58, %56 ], [ %61, %59 ]
+  %.sroa.2417.1.i.i = phi ptr [ %206, %204 ], [ %172, %171 ], [ %55, %53 ], [ %58, %56 ], [ %89, %87 ], [ %73, %98 ], [ %114, %113 ], [ %61, %59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !257
   br label %"_ZN10serde_json5value2de77_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$11deserialize17ha03fee131b2498fdE.exit.thread51.i.i"
 
@@ -2698,7 +2698,7 @@ _ZN5serde2de9SeqAccess12next_element17hfcd8549cfd864462E.exit.i.i.i.i.i: ; preds
   br label %"_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$..deserialize..ValueVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h6dd68d0a821b3a40E.exit.i.i.i.i"
 
 common.resume.i.i.i.i:                            ; preds = %178, %146, %.body.i.i.i.i.i
-  %common.resume.op.i.i.i.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %147, %146 ], [ %179, %178 ]
+  %common.resume.op.i.i.i.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %179, %178 ], [ %147, %146 ]
   resume { ptr, i32 } %common.resume.op.i.i.i.i
 
 141:                                              ; preds = %.body.i.i.i.i.i

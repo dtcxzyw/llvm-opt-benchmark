@@ -410,7 +410,7 @@ _ZN3std4sync6poison4Flag5guard17he6a8ad3ae7c4397eE.llvm.2275879227513204832.exit
   unreachable
 
 .body:                                            ; preds = %112, %117, %103, %77, %72, %98, %135
-  %.pn = phi { ptr, i32 } [ %99, %98 ], [ %lpad.thr_comm, %135 ], [ %lpad.thr_comm.split-lp, %103 ], [ %73, %72 ], [ %78, %77 ], [ %113, %117 ], [ %113, %112 ]
+  %.pn = phi { ptr, i32 } [ %78, %77 ], [ %99, %98 ], [ %lpad.thr_comm, %135 ], [ %lpad.thr_comm.split-lp, %103 ], [ %73, %72 ], [ %113, %117 ], [ %113, %112 ]
   invoke fastcc void @"_ZN4core3ptr270drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..sync..Arc$LT$rodio..source..buffered..Frame$LT$rodio..source..samples_converter..SamplesConverter$LT$rodio..decoder..Decoder$LT$std..io..cursor..Cursor$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$C$f32$GT$$GT$$GT$$GT$$GT$17h0b65a521a299065dE"(ptr nonnull %13, i8 %.sroa.01.0.i.i) #26
           to label %common.resume unwind label %101
 
@@ -609,7 +609,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.exit.i.i31: ; preds = %125, %1
   store i64 0, ptr %0, align 8
   ret void
 
-135:                                              ; preds = %92, %97
+135:                                              ; preds = %97, %92
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr172drop_in_place$LT$rodio..source..samples_converter..SamplesConverter$LT$rodio..decoder..Decoder$LT$std..io..cursor..Cursor$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$C$f32$GT$$GT$17ha19bd961eda0b956E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %5) #26
@@ -905,7 +905,7 @@ define hidden noalias noundef nonnull ptr @_ZN5rodio6source8buffered7extract17h1
   resume { ptr, i32 } %.pn3768
 
 .thread:                                          ; preds = %88, %.thread73, %17, %8
-  %.pn3769 = phi { ptr, i32 } [ %9, %8 ], [ %18, %17 ], [ %35, %.thread73 ], [ %35, %88 ]
+  %.pn3769 = phi { ptr, i32 } [ %18, %17 ], [ %9, %8 ], [ %35, %.thread73 ], [ %35, %88 ]
   invoke void @"_ZN4core3ptr172drop_in_place$LT$rodio..source..samples_converter..SamplesConverter$LT$rodio..decoder..Decoder$LT$std..io..cursor..Cursor$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$C$f32$GT$$GT$17ha19bd961eda0b956E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %0) #26
           to label %.thread70 unwind label %84
 }
@@ -1089,10 +1089,10 @@ define hidden void @"_ZN5rodio7decoder3wav19WavDecoder$LT$R$GT$3new17hc02f30ae38
   unreachable
 
 .thread24:                                        ; preds = %52, %32, %57
-  %.pn23 = phi { ptr, i32 } [ %lpad.thr_comm, %57 ], [ %33, %32 ], [ %53, %52 ]
+  %.pn23 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %57 ], [ %53, %52 ]
   resume { ptr, i32 } %.pn23
 
-57:                                               ; preds = %20, %15, %2
+57:                                               ; preds = %15, %2, %20
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr77drop_in_place$LT$std..io..cursor..Cursor$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h919c930661916bfcE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #26

@@ -1705,7 +1705,7 @@ Abc_NtkFraigTrustOne.exit:                        ; preds = %.critedge.i, %168
   br label %173
 
 173:                                              ; preds = %Abc_NtkFraigTrustOne.exit, %172, %Abc_NtkFraigTrustCheck.exit, %Abc_NtkIsSopLogic.exit.thread
-  %.0 = phi ptr [ null, %172 ], [ null, %Abc_NtkFraigTrustCheck.exit ], [ null, %Abc_NtkIsSopLogic.exit.thread ], [ %37, %Abc_NtkFraigTrustOne.exit ]
+  %.0 = phi ptr [ null, %Abc_NtkIsSopLogic.exit.thread ], [ null, %172 ], [ null, %Abc_NtkFraigTrustCheck.exit ], [ %37, %Abc_NtkFraigTrustOne.exit ]
   ret ptr %.0
 }
 

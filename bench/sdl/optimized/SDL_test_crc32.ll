@@ -50,27 +50,24 @@ declare zeroext i1 @SDL_SetError(ptr noundef, ...) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @SDLTest_Crc32Calc(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef captures(none) initializes((0, 4)) %3) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %SDLTest_Crc32CalcStart.exit, label %6
+  br i1 %.not.i, label %SDLTest_Crc32CalcStart.exit, label %8
 
 SDLTest_Crc32CalcStart.exit:                      ; preds = %4
   store i32 0, ptr %3, align 4
   %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #2
-  br i1 %5, label %SDLTest_Crc32CalcBuffer.exit, label %SDLTest_Crc32CalcEnd.exit
+  br i1 %5, label %6, label %SDLTest_Crc32CalcEnd.exit
 
-6:                                                ; preds = %4
+6:                                                ; preds = %SDLTest_Crc32CalcStart.exit
+  store i32 0, ptr %3, align 4
+  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #2
+  br i1 %7, label %19, label %SDLTest_Crc32CalcEnd.exit
+
+8:                                                ; preds = %4
   store i32 -1, ptr %3, align 4
   %.not19.i = icmp eq ptr %1, null
-  br i1 %.not19.i, label %7, label %9
+  br i1 %.not19.i, label %SDLTest_Crc32CalcBuffer.exit, label %9
 
-7:                                                ; preds = %6
-  %8 = tail call zeroext i1 (ptr, ...) @SDL_SetError(ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #2
-  br i1 %8, label %._crit_edge, label %SDLTest_Crc32CalcEnd.exit
-
-._crit_edge:                                      ; preds = %7
-  %.pre = load i32, ptr %3, align 4
-  br label %SDLTest_Crc32CalcBuffer.exit.thread
-
-9:                                                ; preds = %6
+9:                                                ; preds = %8
   %.not2021.i = icmp eq i32 %2, 0
   br i1 %.not2021.i, label %SDLTest_Crc32CalcBuffer.exit.thread, label %.lr.ph.i
 
@@ -91,24 +88,27 @@ SDLTest_Crc32CalcStart.exit:                      ; preds = %4
   %.not20.i = icmp eq i32 %17, 0
   br i1 %.not20.i, label %SDLTest_Crc32CalcBuffer.exit.thread, label %.lr.ph.i, !llvm.loop !7
 
-SDLTest_Crc32CalcBuffer.exit:                     ; preds = %SDLTest_Crc32CalcStart.exit
-  store i32 0, ptr %3, align 4
-  %18 = tail call zeroext i1 (ptr, ...) @SDL_SetError(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #2
-  br i1 %18, label %19, label %SDLTest_Crc32CalcEnd.exit
+SDLTest_Crc32CalcBuffer.exit:                     ; preds = %8
+  %18 = tail call zeroext i1 (ptr, ...) @SDL_SetError(ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #2
+  br i1 %18, label %SDLTest_Crc32CalcBuffer.exit._crit_edge, label %SDLTest_Crc32CalcEnd.exit
 
-19:                                               ; preds = %SDLTest_Crc32CalcBuffer.exit
+SDLTest_Crc32CalcBuffer.exit._crit_edge:          ; preds = %SDLTest_Crc32CalcBuffer.exit
+  %.pre = load i32, ptr %3, align 4
+  br label %SDLTest_Crc32CalcBuffer.exit.thread
+
+19:                                               ; preds = %6
   store i32 0, ptr %3, align 4
   %20 = tail call zeroext i1 (ptr, ...) @SDL_SetError(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #2
   br label %SDLTest_Crc32CalcEnd.exit
 
-SDLTest_Crc32CalcBuffer.exit.thread:              ; preds = %.lr.ph.i, %9, %._crit_edge
-  %21 = phi i32 [ %.pre, %._crit_edge ], [ -1, %9 ], [ %15, %.lr.ph.i ]
+SDLTest_Crc32CalcBuffer.exit.thread:              ; preds = %.lr.ph.i, %9, %SDLTest_Crc32CalcBuffer.exit._crit_edge
+  %21 = phi i32 [ %.pre, %SDLTest_Crc32CalcBuffer.exit._crit_edge ], [ -1, %9 ], [ %15, %.lr.ph.i ]
   %22 = xor i32 %21, -1
   store i32 %22, ptr %3, align 4
   br label %SDLTest_Crc32CalcEnd.exit
 
-SDLTest_Crc32CalcEnd.exit:                        ; preds = %SDLTest_Crc32CalcBuffer.exit.thread, %19, %7, %SDLTest_Crc32CalcBuffer.exit, %SDLTest_Crc32CalcStart.exit
-  %.0 = phi i1 [ false, %SDLTest_Crc32CalcStart.exit ], [ false, %SDLTest_Crc32CalcBuffer.exit ], [ false, %7 ], [ true, %SDLTest_Crc32CalcBuffer.exit.thread ], [ %20, %19 ]
+SDLTest_Crc32CalcEnd.exit:                        ; preds = %SDLTest_Crc32CalcBuffer.exit.thread, %19, %6, %SDLTest_Crc32CalcBuffer.exit, %SDLTest_Crc32CalcStart.exit
+  %.0 = phi i1 [ false, %SDLTest_Crc32CalcBuffer.exit ], [ false, %6 ], [ false, %SDLTest_Crc32CalcStart.exit ], [ true, %SDLTest_Crc32CalcBuffer.exit.thread ], [ %20, %19 ]
   ret i1 %.0
 }
 

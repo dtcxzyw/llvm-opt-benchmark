@@ -210,7 +210,7 @@ count_items.exit60:                               ; preds = %21
   br label %77
 
 77:                                               ; preds = %50, %count_items.exit60, %._crit_edge, %71, %62, %49, %46, %11
-  %.044 = phi i32 [ -22, %46 ], [ -22, %62 ], [ -22, %71 ], [ 0, %._crit_edge ], [ -22, %49 ], [ -22, %11 ], [ -12, %count_items.exit60 ], [ -12, %50 ]
+  %.044 = phi i32 [ -22, %46 ], [ -22, %62 ], [ -22, %71 ], [ 0, %._crit_edge ], [ -12, %count_items.exit60 ], [ -22, %49 ], [ -22, %11 ], [ -12, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.044
@@ -455,7 +455,7 @@ filter_frame.exit:                                ; preds = %33, %61
   br label %request_frame.exit
 
 request_frame.exit:                               ; preds = %122, %85, %15, %.critedge, %84, %79, %filter_frame.exit
-  %.1 = phi i32 [ %.0.i, %filter_frame.exit ], [ 0, %79 ], [ 0, %84 ], [ 0, %15 ], [ %16, %.critedge ], [ %123, %122 ], [ -12, %85 ]
+  %.1 = phi i32 [ 0, %15 ], [ %.0.i, %filter_frame.exit ], [ 0, %79 ], [ %16, %.critedge ], [ 0, %84 ], [ %123, %122 ], [ -12, %85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

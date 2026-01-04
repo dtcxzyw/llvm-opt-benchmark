@@ -502,7 +502,7 @@ Saig_ObjDualFanin.exit221:                        ; preds = %Aig_ObjFaninId0.exi
   br i1 %272, label %228, label %.critedge4, !llvm.loop !44
 
 .critedge4:                                       ; preds = %224, %269, %.preheader269, %.preheader
-  %.2132 = phi ptr [ %173, %.preheader ], [ %173, %.preheader269 ], [ %270, %269 ], [ %225, %224 ]
+  %.2132 = phi ptr [ %270, %269 ], [ %173, %.preheader ], [ %173, %.preheader269 ], [ %225, %224 ]
   %273 = ptrtoint ptr %.2132 to i64
   %274 = sext i32 %5 to i64
   %275 = xor i64 %273, %274

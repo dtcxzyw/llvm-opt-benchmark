@@ -952,7 +952,7 @@ _ZN6google8protobuf8internal14WireFormatLite20ReadMessageNoVirtualIN3net23Cached
   %110 = icmp eq ptr %108, %109
   br i1 %110, label %111, label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIlLNS2_9FieldTypeE3EEEbPNS0_2io16CodedInputStreamEPT_.exit.backedge
 
-_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIlLNS2_9FieldTypeE3EEEbPNS0_2io16CodedInputStreamEPT_.exit.backedge: ; preds = %107, %113, %67, %73, %46, %50, %125
+_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIlLNS2_9FieldTypeE3EEEbPNS0_2io16CodedInputStreamEPT_.exit.backedge: ; preds = %107, %113, %73, %67, %50, %46, %125
   br label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIlLNS2_9FieldTypeE3EEEbPNS0_2io16CodedInputStreamEPT_.exit
 
 111:                                              ; preds = %107
@@ -991,8 +991,8 @@ _ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit: ; preds = %111, %1
 125:                                              ; preds = %123
   br i1 %124, label %_ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIlLNS2_9FieldTypeE3EEEbPNS0_2io16CodedInputStreamEPT_.exit.backedge, label %_ZN6google8protobuf8internal14WireFormatLite20ReadMessageNoVirtualIN3net23CachedNetworkParametersEEEbPNS0_2io16CodedInputStreamEPT_.exit.thread, !prof !46
 
-_ZN6google8protobuf8internal14WireFormatLite20ReadMessageNoVirtualIN3net23CachedNetworkParametersEEEbPNS0_2io16CodedInputStreamEPT_.exit.thread: ; preds = %118, %122, %38, %54, %77, %.noexc41, %.noexc42, %.noexc40, %.noexc29, %125, %_ZN6google8protobuf8internal14WireFormatLite20ReadMessageNoVirtualIN3net23CachedNetworkParametersEEEbPNS0_2io16CodedInputStreamEPT_.exit, %45, %_ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit
-  %.019 = phi i1 [ true, %_ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit ], [ true, %118 ], [ true, %122 ], [ true, %38 ], [ true, %54 ], [ true, %77 ], [ false, %.noexc41 ], [ false, %.noexc42 ], [ false, %.noexc40 ], [ false, %.noexc29 ], [ false, %125 ], [ false, %_ZN6google8protobuf8internal14WireFormatLite20ReadMessageNoVirtualIN3net23CachedNetworkParametersEEEbPNS0_2io16CodedInputStreamEPT_.exit ], [ false, %45 ]
+_ZN6google8protobuf8internal14WireFormatLite20ReadMessageNoVirtualIN3net23CachedNetworkParametersEEEbPNS0_2io16CodedInputStreamEPT_.exit.thread: ; preds = %122, %38, %54, %77, %118, %.noexc42, %.noexc41, %.noexc40, %45, %125, %_ZN6google8protobuf8internal14WireFormatLite20ReadMessageNoVirtualIN3net23CachedNetworkParametersEEEbPNS0_2io16CodedInputStreamEPT_.exit, %.noexc29, %_ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit
+  %.019 = phi i1 [ true, %_ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit ], [ true, %122 ], [ true, %38 ], [ true, %54 ], [ true, %77 ], [ true, %118 ], [ false, %.noexc41 ], [ false, %.noexc40 ], [ false, %125 ], [ false, %_ZN6google8protobuf8internal14WireFormatLite20ReadMessageNoVirtualIN3net23CachedNetworkParametersEEEbPNS0_2io16CodedInputStreamEPT_.exit ], [ false, %45 ], [ false, %.noexc29 ], [ false, %.noexc42 ]
   call void @_ZN6google8protobuf2io17CodedOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(26) %4) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN6google8protobuf2io22LazyStringOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %3) #22
@@ -2065,7 +2065,7 @@ _ZN6google8protobuf2io16CodedInputStream9ExpectTagEj.exit: ; preds = %77
   store ptr %80, ptr %1, align 8, !tbaa !40
   br label %.preheader
 
-81:                                               ; preds = %77, %73
+81:                                               ; preds = %73, %77
   %82 = load i32, ptr %11, align 8, !tbaa !79
   %83 = add nsw i32 %82, 1
   store i32 %83, ptr %11, align 8, !tbaa !79
@@ -2107,7 +2107,7 @@ _ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit: ; preds = %85, %87
   br i1 %97, label %_ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit.thread.backedge, label %_ZN6google8protobuf8internal14WireFormatLite36ReadMessageNoVirtualNoRecursionDepthIN3net18SourceAddressTokenEEEbPNS0_2io16CodedInputStreamEPT_.exit.thread, !prof !46
 
 _ZN6google8protobuf8internal14WireFormatLite36ReadMessageNoVirtualNoRecursionDepthIN3net18SourceAddressTokenEEEbPNS0_2io16CodedInputStreamEPT_.exit.thread: ; preds = %92, %98, %37, %.noexc34, %_ZN6google8protobuf8internal14WireFormatLite36ReadMessageNoVirtualNoRecursionDepthIN3net18SourceAddressTokenEEEbPNS0_2io16CodedInputStreamEPT_.exit, %_ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit
-  %.017 = phi i1 [ true, %_ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit ], [ false, %_ZN6google8protobuf8internal14WireFormatLite36ReadMessageNoVirtualNoRecursionDepthIN3net18SourceAddressTokenEEEbPNS0_2io16CodedInputStreamEPT_.exit ], [ false, %.noexc34 ], [ true, %92 ], [ false, %98 ], [ false, %37 ]
+  %.017 = phi i1 [ true, %_ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit ], [ false, %.noexc34 ], [ false, %_ZN6google8protobuf8internal14WireFormatLite36ReadMessageNoVirtualNoRecursionDepthIN3net18SourceAddressTokenEEEbPNS0_2io16CodedInputStreamEPT_.exit ], [ false, %98 ], [ false, %37 ], [ true, %92 ]
   call void @_ZN6google8protobuf2io17CodedOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(26) %4) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN6google8protobuf2io22LazyStringOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %3) #22

@@ -358,8 +358,8 @@ Abc_AigNodeIsChoice.exit:                         ; preds = %53
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %85, %87, %77, %79
-  %.sink191 = phi ptr [ %78, %77 ], [ %80, %79 ], [ %86, %85 ], [ %88, %87 ]
-  %.sink = phi i32 [ 16, %77 ], [ 16, %79 ], [ %82, %85 ], [ %82, %87 ]
+  %.sink191 = phi ptr [ %80, %79 ], [ %78, %77 ], [ %86, %85 ], [ %88, %87 ]
+  %.sink = phi i32 [ 16, %79 ], [ 16, %77 ], [ %82, %85 ], [ %82, %87 ]
   store ptr %.sink191, ptr %63, align 8, !tbaa !50
   store i32 %.sink, ptr %60, align 8, !tbaa !49
   br label %Vec_IntPush.exit
@@ -405,7 +405,7 @@ Abc_AigNodeIsChoice.exit.thread:                  ; preds = %53, %Vec_IntFree.ex
   br i1 %105, label %44, label %.critedge2.preheader, !llvm.loop !52
 
 .critedge4.preheader:                             ; preds = %.critedge6, %9, %.critedge.preheader, %.critedge2.preheader
-  %.0.lcssa189 = phi i1 [ %43, %.critedge2.preheader ], [ true, %.critedge.preheader ], [ true, %9 ], [ %43, %.critedge6 ]
+  %.0.lcssa189 = phi i1 [ true, %9 ], [ %43, %.critedge2.preheader ], [ true, %.critedge.preheader ], [ %43, %.critedge6 ]
   %106 = getelementptr i8, ptr %0, i64 64
   %.val130153 = load ptr, ptr %106, align 8, !tbaa !53
   %107 = getelementptr i8, ptr %.val130153, i64 4

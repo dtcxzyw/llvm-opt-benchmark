@@ -89,6 +89,7 @@ define void @dbdsdc_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .thread553:                                       ; preds = %42
   %48 = select i1 %.not466, i1 true, i1 %.not
   %spec.select = select i1 %48, i32 -2, i32 -1
+  %spec.select567 = select i1 %48, i32 -2, i32 -1
   br label %.thread.sink.split
 
 49:                                               ; preds = %44
@@ -118,12 +119,13 @@ define void @dbdsdc_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not470, label %64, label %.thread
 
 .thread.sink.split:                               ; preds = %.thread553, %56, %52, %49, %44
-  %.sink557 = phi i32 [ -1, %44 ], [ -3, %49 ], [ -7, %52 ], [ -9, %56 ], [ %spec.select, %.thread553 ]
+  %.sink557 = phi i32 [ -9, %56 ], [ -1, %44 ], [ -7, %52 ], [ -3, %49 ], [ %spec.select, %.thread553 ]
+  %.ph = phi i32 [ -9, %56 ], [ -1, %44 ], [ -7, %52 ], [ -3, %49 ], [ %spec.select567, %.thread553 ]
   store i32 %.sink557, ptr %13, align 4, !tbaa !3
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %60
-  %61 = phi i32 [ %.pr, %60 ], [ %.sink557, %.thread.sink.split ]
+  %61 = phi i32 [ %.pr, %60 ], [ %.ph, %.thread.sink.split ]
   %62 = sub nsw i32 0, %61
   store i32 %62, ptr %15, align 4, !tbaa !3
   %63 = call i32 @xerbla_(ptr noundef nonnull @.str.5, ptr noundef nonnull %15, i32 noundef 6) #5

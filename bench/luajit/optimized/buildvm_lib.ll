@@ -307,8 +307,8 @@ define dso_local void @emit_lib(ptr noundef %0) local_unnamed_addr #0 {
   %.not127 = icmp eq ptr %103, null
   br i1 %.not127, label %106, label %81, !llvm.loop !30
 
-104:                                              ; preds = %95, %91
-  %.3.ph = phi ptr [ %86, %91 ], [ %100, %95 ]
+104:                                              ; preds = %91, %95
+  %.3.ph = phi ptr [ %100, %95 ], [ %86, %91 ]
   %105 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.3.ph, ptr noundef nonnull dereferenceable(1) @.str.9) #18
   %.not126 = icmp eq ptr %105, null
   br i1 %.not126, label %.loopexit, label %.lr.ph, !llvm.loop !31

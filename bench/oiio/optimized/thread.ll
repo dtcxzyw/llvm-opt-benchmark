@@ -1482,7 +1482,7 @@ _ZNSt6vectorISt10unique_ptrISt6threadSt14default_deleteIS1_EESaIS4_EED2Ev.exit: 
   br label %255
 
 255:                                              ; preds = %.loopexit, %.loopexit.split-lp, %175, %253, %201, %197
-  %.pn.pn = phi { ptr, i32 } [ %202, %201 ], [ %254, %253 ], [ %198, %197 ], [ %176, %175 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn.pn = phi { ptr, i32 } [ %198, %197 ], [ %202, %201 ], [ %254, %253 ], [ %176, %175 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt6vectorISt10unique_ptrISt6threadSt14default_deleteIS1_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %.pn.pn
@@ -2929,7 +2929,7 @@ _ZNSt23__atomic_futex_unsignedILj2147483648EE24_M_load_when_equal_untilINSt6chro
   br label %_ZNSt13__future_base13_State_baseV28wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit
 
 _ZNSt13__future_base13_State_baseV28wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit: ; preds = %_ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit, %9, %14, %_ZNSt23__atomic_futex_unsignedILj2147483648EE24_M_load_when_equal_untilINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEEbjSt12memory_orderRKNS2_10time_pointINS2_3_V212steady_clockET_EE.exit.i, %_ZNSt23__atomic_futex_unsignedILj2147483648EE24_M_load_when_equal_untilINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEEbjSt12memory_orderRKNS2_10time_pointINS2_3_V212steady_clockET_EE.exit.thread.i
-  %.0.i = phi i32 [ 0, %_ZNSt23__atomic_futex_unsignedILj2147483648EE24_M_load_when_equal_untilINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEEbjSt12memory_orderRKNS2_10time_pointINS2_3_V212steady_clockET_EE.exit.thread.i ], [ 0, %_ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit ], [ 2, %9 ], [ 1, %_ZNSt23__atomic_futex_unsignedILj2147483648EE24_M_load_when_equal_untilINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEEbjSt12memory_orderRKNS2_10time_pointINS2_3_V212steady_clockET_EE.exit.i ], [ 1, %14 ]
+  %.0.i = phi i32 [ 2, %9 ], [ 0, %_ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit ], [ 0, %_ZNSt23__atomic_futex_unsignedILj2147483648EE24_M_load_when_equal_untilINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEEbjSt12memory_orderRKNS2_10time_pointINS2_3_V212steady_clockET_EE.exit.thread.i ], [ 1, %_ZNSt23__atomic_futex_unsignedILj2147483648EE24_M_load_when_equal_untilINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEEbjSt12memory_orderRKNS2_10time_pointINS2_3_V212steady_clockET_EE.exit.i ], [ 1, %14 ]
   ret i32 %.0.i
 }
 
@@ -3291,7 +3291,7 @@ _ZN11OpenImageIO6v3_1_06paropt7resolveEv.exit.thread: ; preds = %39
   br label %54
 
 54:                                               ; preds = %45, %47, %_ZN11OpenImageIO6v3_1_06paropt7resolveEv.exit
-  %.0 = phi i64 [ %.sroa.speculated17, %47 ], [ %.sroa.speculated29, %_ZN11OpenImageIO6v3_1_06paropt7resolveEv.exit ], [ %41, %45 ]
+  %.0 = phi i64 [ %.sroa.speculated29, %_ZN11OpenImageIO6v3_1_06paropt7resolveEv.exit ], [ %.sroa.speculated17, %47 ], [ %41, %45 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %.not.i = icmp eq ptr %26, null
   br i1 %.not.i, label %55, label %_ZN11OpenImageIO6v3_1_08task_setC2EPNS0_11thread_poolE.exit
@@ -5903,7 +5903,7 @@ _ZNSt12__shared_ptrISt13packaged_taskIFviEELN9__gnu_cxx12_Lock_policyE2EED2Ev.ex
   ret void
 
 .body38:                                          ; preds = %105, %_ZNSt14_Function_baseD2Ev.exit4.i, %124, %126
-  %.pn13 = phi { ptr, i32 } [ %125, %124 ], [ %127, %126 ], [ %106, %105 ], [ %90, %_ZNSt14_Function_baseD2Ev.exit4.i ]
+  %.pn13 = phi { ptr, i32 } [ %127, %126 ], [ %125, %124 ], [ %106, %105 ], [ %90, %_ZNSt14_Function_baseD2Ev.exit4.i ]
   call void @_ZNSt12__shared_ptrISt13packaged_taskIFviEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #32
   br label %152
 
@@ -8348,7 +8348,7 @@ _ZSt4copyIPPPSt8functionIFviEES5_ET0_T_S7_S6_.exit26: ; preds = %_ZNSt11_Deque_b
   br label %_ZSt4copyIPPPSt8functionIFviEES5_ET0_T_S7_S6_.exit
 
 _ZSt4copyIPPPSt8functionIFviEES5_ET0_T_S7_S6_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPPSt8functionIFviEES5_ET0_T_S7_S6_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPPSt8functionIFviEES5_ET0_T_S7_S6_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPPSt8functionIFviEES5_ET0_T_S7_S6_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !116
   %58 = load ptr, ptr %.0, align 8, !tbaa !125
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24

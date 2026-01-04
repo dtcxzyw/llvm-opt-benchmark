@@ -2270,7 +2270,7 @@ pmix_obj_update.exit121:                          ; preds = %.loopexit156
   %189 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 1, i64 noundef %.pre206, i64 noundef %186) #12
   br label %.thread141
 
-.loopexit155:                                     ; preds = %108, %105, %99
+.loopexit155:                                     ; preds = %108, %99, %105
   %.pr = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_ptl_base_framework, i64 76), align 4, !tbaa !28
   %or.cond15 = icmp ult i32 %.pr, 64
   br i1 %or.cond15, label %190, label %.thread141
@@ -2418,7 +2418,7 @@ thread-pre-split.i123:                            ; preds = %220, %.thread232
   store ptr %.027.i128, ptr %213, align 8, !tbaa !181
   br label %read_bytes.exit.sink.split
 
-.loopexit:                                        ; preds = %234, %231, %225
+.loopexit:                                        ; preds = %234, %225, %231
   %.pr150 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_ptl_base_framework, i64 76), align 4, !tbaa !28
   store ptr %.027.i128, ptr %213, align 8, !tbaa !181
   %or.cond21 = icmp ult i32 %.pr150, 64

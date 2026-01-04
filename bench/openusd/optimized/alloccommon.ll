@@ -584,7 +584,7 @@ define hidden range(i32 0, 2) i32 @av1_alloc_above_context_buffers(ptr noundef c
   br i1 %.not50, label %.loopexit, label %47
 
 .loopexit:                                        ; preds = %14, %.preheader, %54, %47, %._crit_edge59.us, %25, %40, %32, %.preheader53, %18, %._crit_edge
-  %.046 = phi i32 [ 1, %._crit_edge ], [ 1, %18 ], [ 0, %.preheader53 ], [ 1, %32 ], [ 1, %._crit_edge59.us ], [ 1, %25 ], [ 0, %40 ], [ 1, %.preheader ], [ 1, %54 ], [ 0, %47 ], [ 1, %14 ]
+  %.046 = phi i32 [ 1, %32 ], [ 1, %18 ], [ 0, %.preheader53 ], [ 1, %._crit_edge ], [ 1, %._crit_edge59.us ], [ 0, %47 ], [ 1, %25 ], [ 0, %40 ], [ 1, %.preheader ], [ 1, %54 ], [ 1, %14 ]
   ret i32 %.046
 }
 
@@ -653,7 +653,7 @@ define hidden range(i32 0, 2) i32 @av1_alloc_context_buffers(ptr noundef %0, i32
   %.not27.i = icmp eq ptr %43, null
   br i1 %.not27.i, label %45, label %alloc_mi.exit
 
-45:                                               ; preds = %31, %37, %41
+45:                                               ; preds = %37, %31, %41
   %46 = load ptr, ptr %5, align 8
   tail call void %46(ptr noundef nonnull %4, i32 noundef 0, i32 noundef 0) #4
   %47 = load ptr, ptr %32, align 8

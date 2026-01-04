@@ -883,7 +883,7 @@ define linkonce_odr void @_ZN5folly8fbvectorINS_5RangeIPKcEESaIS4_EE16emplace_ba
   br label %_ZNK5folly8fbvectorINS_5RangeIPKcEESaIS4_EE23computePushBackCapacityEv.exit
 
 _ZNK5folly8fbvectorINS_5RangeIPKcEESaIS4_EE23computePushBackCapacityEv.exit: ; preds = %17, %21, %23
-  %.0.i = phi i64 [ %18, %17 ], [ %22, %21 ], [ %26, %23 ]
+  %.0.i = phi i64 [ %26, %23 ], [ %18, %17 ], [ %22, %21 ]
   %27 = shl i64 %.0.i, 4
   %28 = icmp eq i64 %27, 0
   br i1 %28, label %_ZN5folly14goodMallocSizeEm.exit, label %_ZNK5folly8fbvectorINS_5RangeIPKcEESaIS4_EE23computePushBackCapacityEv.exit.thread
@@ -921,7 +921,7 @@ _ZN5folly10canNallocxEv.exit.i:                   ; preds = %34, %32, %_ZNK5foll
   br label %_ZN5folly14goodMallocSizeEm.exit
 
 _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %_ZNK5folly8fbvectorINS_5RangeIPKcEESaIS4_EE23computePushBackCapacityEv.exit, %_ZN5folly10canNallocxEv.exit.i, %40
-  %.0.i22 = phi i64 [ %42, %40 ], [ 0, %_ZNK5folly8fbvectorINS_5RangeIPKcEESaIS4_EE23computePushBackCapacityEv.exit ], [ %29, %_ZN5folly10canNallocxEv.exit.i ]
+  %.0.i22 = phi i64 [ 0, %_ZNK5folly8fbvectorINS_5RangeIPKcEESaIS4_EE23computePushBackCapacityEv.exit ], [ %42, %40 ], [ %29, %_ZN5folly10canNallocxEv.exit.i ]
   %43 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS_13usingJEMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
   %44 = icmp eq i8 %43, 0
   br i1 %44, label %45, label %_ZN5folly13usingJEMallocEv.exit, !prof !50
@@ -996,7 +996,7 @@ _ZN5folly10canNallocxEv.exit.i23:                 ; preds = %72, %70, %67
   br label %_ZN5folly14goodMallocSizeEm.exit27
 
 _ZN5folly14goodMallocSizeEm.exit27:               ; preds = %60, %_ZN5folly10canNallocxEv.exit.i23, %78
-  %.0.i24 = phi i64 [ %80, %78 ], [ 0, %60 ], [ %65, %_ZN5folly10canNallocxEv.exit.i23 ]
+  %.0.i24 = phi i64 [ 0, %60 ], [ %80, %78 ], [ %65, %_ZN5folly10canNallocxEv.exit.i23 ]
   %81 = sub i64 %.0.i22, %.0.i24
   %82 = load ptr, ptr %0, align 8, !tbaa !49
   %83 = call i64 @xallocx(ptr noundef %82, i64 noundef %.0.i24, i64 noundef %81, i32 noundef 0) #27
@@ -1302,7 +1302,7 @@ define linkonce_odr noundef zeroext i1 @_ZZN5folly13usingJEMallocEvENK11Initiali
   br label %33
 
 33:                                               ; preds = %28, %26, %14
-  %.1 = phi i1 [ false, %14 ], [ %32, %28 ], [ false, %26 ]
+  %.1 = phi i1 [ false, %26 ], [ false, %14 ], [ %32, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %34
@@ -1548,7 +1548,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb0ENS_12small_vec
   br label %_ZNK5folly12small_vectorINS_5RangeIPKcEELm1EvE8capacityEv.exit.i.i
 
 _ZNK5folly12small_vectorINS_5RangeIPKcEELm1EvE8capacityEv.exit.i.i: ; preds = %35, %32, %31, %26
-  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %26 ], [ %34, %32 ], [ 0, %31 ]
+  %.0.i.i.i = phi i64 [ 1, %26 ], [ %37, %35 ], [ %34, %32 ], [ 0, %31 ]
   %38 = icmp eq i64 %.0.i.i.i, %27
   br i1 %38, label %39, label %41
 
@@ -1636,7 +1636,7 @@ _ZZN5folly6detail17splitByCharScalarILb0ENS_12small_vectorINS_5RangeIPKcEELm1EvE
   br label %_ZNK5folly12small_vectorINS_5RangeIPKcEELm1EvE8capacityEv.exit.i.i16
 
 _ZNK5folly12small_vectorINS_5RangeIPKcEELm1EvE8capacityEv.exit.i.i16: ; preds = %69, %66, %65, %59
-  %.0.i.i.i17 = phi i64 [ %71, %69 ], [ 1, %59 ], [ %68, %66 ], [ 0, %65 ]
+  %.0.i.i.i17 = phi i64 [ 1, %59 ], [ %71, %69 ], [ %68, %66 ], [ 0, %65 ]
   %72 = icmp eq i64 %.0.i.i.i17, %60
   br i1 %72, label %73, label %76
 
@@ -1713,7 +1713,7 @@ define linkonce_odr void @_ZN5folly12small_vectorINS_5RangeIPKcEELm1EvE16makeSiz
   br label %_ZNK5folly12small_vectorINS_5RangeIPKcEELm1EvE8capacityEv.exit.i
 
 _ZNK5folly12small_vectorINS_5RangeIPKcEELm1EvE8capacityEv.exit.i: ; preds = %19, %16, %15, %9
-  %.0.i.i = phi i64 [ %21, %19 ], [ 1, %9 ], [ %18, %16 ], [ 0, %15 ]
+  %.0.i.i = phi i64 [ 1, %9 ], [ %21, %19 ], [ %18, %16 ], [ 0, %15 ]
   %22 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.0.i.i, i64 3)
   %23 = extractvalue { i64, i1 } %22, 1
   br i1 %23, label %_ZN5folly11checked_mulImvEEbPT_S1_S1_.exit.i, label %_ZNK5folly12small_vectorINS_5RangeIPKcEELm1EvE14computeNewSizeEv.exit, !prof !66
@@ -1771,7 +1771,7 @@ _ZN5folly10canNallocxEv.exit.i:                   ; preds = %37, %35, %28
   br label %_ZN5folly14goodMallocSizeEm.exit
 
 _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %_ZN5folly10canNallocxEv.exit.i, %43
-  %.0.i20 = phi i64 [ %45, %43 ], [ %32, %_ZN5folly10canNallocxEv.exit.i ]
+  %.0.i20 = phi i64 [ %32, %_ZN5folly10canNallocxEv.exit.i ], [ %45, %43 ]
   %46 = sub i64 %.0.i20, %31
   %47 = lshr i64 %46, 4
   %48 = and i64 %46, -16
@@ -2052,7 +2052,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb1ENS_12small_vec
   br label %_ZNK5folly12small_vectorINS_5RangeIPKcEELm1EvE8capacityEv.exit.i.i
 
 _ZNK5folly12small_vectorINS_5RangeIPKcEELm1EvE8capacityEv.exit.i.i: ; preds = %36, %33, %32, %27
-  %.0.i.i.i = phi i64 [ %38, %36 ], [ 1, %27 ], [ %35, %33 ], [ 0, %32 ]
+  %.0.i.i.i = phi i64 [ 1, %27 ], [ %38, %36 ], [ %35, %33 ], [ 0, %32 ]
   %39 = icmp eq i64 %.0.i.i.i, %28
   br i1 %39, label %40, label %42
 
@@ -2142,7 +2142,7 @@ _ZZN5folly6detail17splitByCharScalarILb1ENS_12small_vectorINS_5RangeIPKcEELm1EvE
   br label %_ZNK5folly12small_vectorINS_5RangeIPKcEELm1EvE8capacityEv.exit.i.i19
 
 _ZNK5folly12small_vectorINS_5RangeIPKcEELm1EvE8capacityEv.exit.i.i19: ; preds = %72, %69, %68, %62
-  %.0.i.i.i20 = phi i64 [ %74, %72 ], [ 1, %62 ], [ %71, %69 ], [ 0, %68 ]
+  %.0.i.i.i20 = phi i64 [ 1, %62 ], [ %74, %72 ], [ %71, %69 ], [ 0, %68 ]
   %75 = icmp eq i64 %.0.i.i.i20, %63
   br i1 %75, label %76, label %79
 
@@ -6219,7 +6219,7 @@ define linkonce_odr void @_ZN5folly8fbvectorISt17basic_string_viewIcSt11char_tra
   br label %_ZNK5folly8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaIS4_EE23computePushBackCapacityEv.exit
 
 _ZNK5folly8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaIS4_EE23computePushBackCapacityEv.exit: ; preds = %17, %21, %23
-  %.0.i = phi i64 [ %18, %17 ], [ %22, %21 ], [ %26, %23 ]
+  %.0.i = phi i64 [ %26, %23 ], [ %18, %17 ], [ %22, %21 ]
   %27 = shl i64 %.0.i, 4
   %28 = icmp eq i64 %27, 0
   br i1 %28, label %_ZN5folly14goodMallocSizeEm.exit, label %_ZNK5folly8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaIS4_EE23computePushBackCapacityEv.exit.thread
@@ -6257,7 +6257,7 @@ _ZN5folly10canNallocxEv.exit.i:                   ; preds = %34, %32, %_ZNK5foll
   br label %_ZN5folly14goodMallocSizeEm.exit
 
 _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %_ZNK5folly8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaIS4_EE23computePushBackCapacityEv.exit, %_ZN5folly10canNallocxEv.exit.i, %40
-  %.0.i22 = phi i64 [ %42, %40 ], [ 0, %_ZNK5folly8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaIS4_EE23computePushBackCapacityEv.exit ], [ %29, %_ZN5folly10canNallocxEv.exit.i ]
+  %.0.i22 = phi i64 [ 0, %_ZNK5folly8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaIS4_EE23computePushBackCapacityEv.exit ], [ %42, %40 ], [ %29, %_ZN5folly10canNallocxEv.exit.i ]
   %43 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS_13usingJEMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
   %44 = icmp eq i8 %43, 0
   br i1 %44, label %45, label %_ZN5folly13usingJEMallocEv.exit, !prof !50
@@ -6332,7 +6332,7 @@ _ZN5folly10canNallocxEv.exit.i23:                 ; preds = %72, %70, %67
   br label %_ZN5folly14goodMallocSizeEm.exit27
 
 _ZN5folly14goodMallocSizeEm.exit27:               ; preds = %60, %_ZN5folly10canNallocxEv.exit.i23, %78
-  %.0.i24 = phi i64 [ %80, %78 ], [ 0, %60 ], [ %65, %_ZN5folly10canNallocxEv.exit.i23 ]
+  %.0.i24 = phi i64 [ 0, %60 ], [ %80, %78 ], [ %65, %_ZN5folly10canNallocxEv.exit.i23 ]
   %81 = sub i64 %.0.i22, %.0.i24
   %82 = load ptr, ptr %0, align 8, !tbaa !153
   %83 = call i64 @xallocx(ptr noundef %82, i64 noundef %.0.i24, i64 noundef %81, i32 noundef 0) #27
@@ -6586,7 +6586,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb0ENS_12small_vec
   br label %_ZNK5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvE8capacityEv.exit.i.i
 
 _ZNK5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvE8capacityEv.exit.i.i: ; preds = %34, %31, %30, %25
-  %.0.i.i.i = phi i64 [ %36, %34 ], [ 1, %25 ], [ %33, %31 ], [ 0, %30 ]
+  %.0.i.i.i = phi i64 [ 1, %25 ], [ %36, %34 ], [ %33, %31 ], [ 0, %30 ]
   %37 = icmp eq i64 %.0.i.i.i, %26
   br i1 %37, label %38, label %40
 
@@ -6672,7 +6672,7 @@ _ZZN5folly6detail17splitByCharScalarILb0ENS_12small_vectorISt17basic_string_view
   br label %_ZNK5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvE8capacityEv.exit.i.i16
 
 _ZNK5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvE8capacityEv.exit.i.i16: ; preds = %66, %63, %62, %56
-  %.0.i.i.i17 = phi i64 [ %68, %66 ], [ 1, %56 ], [ %65, %63 ], [ 0, %62 ]
+  %.0.i.i.i17 = phi i64 [ 1, %56 ], [ %68, %66 ], [ %65, %63 ], [ 0, %62 ]
   %69 = icmp eq i64 %.0.i.i.i17, %57
   br i1 %69, label %70, label %73
 
@@ -6745,7 +6745,7 @@ define linkonce_odr void @_ZN5folly12small_vectorISt17basic_string_viewIcSt11cha
   br label %_ZNK5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvE8capacityEv.exit.i
 
 _ZNK5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvE8capacityEv.exit.i: ; preds = %19, %16, %15, %9
-  %.0.i.i = phi i64 [ %21, %19 ], [ 1, %9 ], [ %18, %16 ], [ 0, %15 ]
+  %.0.i.i = phi i64 [ 1, %9 ], [ %21, %19 ], [ %18, %16 ], [ 0, %15 ]
   %22 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.0.i.i, i64 3)
   %23 = extractvalue { i64, i1 } %22, 1
   br i1 %23, label %_ZN5folly11checked_mulImvEEbPT_S1_S1_.exit.i, label %_ZNK5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvE14computeNewSizeEv.exit, !prof !66
@@ -6803,7 +6803,7 @@ _ZN5folly10canNallocxEv.exit.i:                   ; preds = %37, %35, %28
   br label %_ZN5folly14goodMallocSizeEm.exit
 
 _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %_ZN5folly10canNallocxEv.exit.i, %43
-  %.0.i20 = phi i64 [ %45, %43 ], [ %32, %_ZN5folly10canNallocxEv.exit.i ]
+  %.0.i20 = phi i64 [ %32, %_ZN5folly10canNallocxEv.exit.i ], [ %45, %43 ]
   %46 = sub i64 %.0.i20, %31
   %47 = lshr i64 %46, 4
   %48 = and i64 %46, -16
@@ -7031,7 +7031,7 @@ define linkonce_odr void @_ZN5folly6detail17splitByCharScalarILb1ENS_12small_vec
   br label %_ZNK5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvE8capacityEv.exit.i.i
 
 _ZNK5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvE8capacityEv.exit.i.i: ; preds = %35, %32, %31, %26
-  %.0.i.i.i = phi i64 [ %37, %35 ], [ 1, %26 ], [ %34, %32 ], [ 0, %31 ]
+  %.0.i.i.i = phi i64 [ 1, %26 ], [ %37, %35 ], [ %34, %32 ], [ 0, %31 ]
   %38 = icmp eq i64 %.0.i.i.i, %27
   br i1 %38, label %39, label %41
 
@@ -7119,7 +7119,7 @@ _ZZN5folly6detail17splitByCharScalarILb1ENS_12small_vectorISt17basic_string_view
   br label %_ZNK5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvE8capacityEv.exit.i.i19
 
 _ZNK5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvE8capacityEv.exit.i.i19: ; preds = %69, %66, %65, %59
-  %.0.i.i.i20 = phi i64 [ %71, %69 ], [ 1, %59 ], [ %68, %66 ], [ 0, %65 ]
+  %.0.i.i.i20 = phi i64 [ 1, %59 ], [ %71, %69 ], [ %68, %66 ], [ 0, %65 ]
   %72 = icmp eq i64 %.0.i.i.i20, %60
   br i1 %72, label %73, label %76
 
@@ -11397,7 +11397,7 @@ _ZN5folly10canNallocxEv.exit.i:                   ; preds = %12, %10, %7
   br label %_ZN5folly14goodMallocSizeEm.exit
 
 _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %3, %_ZN5folly10canNallocxEv.exit.i, %18
-  %.0.i = phi i64 [ %20, %18 ], [ 0, %3 ], [ %5, %_ZN5folly10canNallocxEv.exit.i ]
+  %.0.i = phi i64 [ 0, %3 ], [ %20, %18 ], [ %5, %_ZN5folly10canNallocxEv.exit.i ]
   %21 = call noalias ptr @malloc(i64 noundef %.0.i) #30
   %.not.i9 = icmp eq ptr %21, null
   br i1 %.not.i9, label %22, label %_ZN5folly13checkedMallocEm.exit
@@ -11541,7 +11541,7 @@ _ZN5folly10canNallocxEv.exit.i:                   ; preds = %27, %25, %22
   br label %_ZN5folly14goodMallocSizeEm.exit
 
 _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %20, %_ZN5folly10canNallocxEv.exit.i, %33
-  %.0.i10 = phi i64 [ %35, %33 ], [ 0, %20 ], [ %15, %_ZN5folly10canNallocxEv.exit.i ]
+  %.0.i10 = phi i64 [ 0, %20 ], [ %35, %33 ], [ %15, %_ZN5folly10canNallocxEv.exit.i ]
   %36 = call noalias ptr @malloc(i64 noundef %.0.i10) #30
   %.not.i11 = icmp eq ptr %36, null
   br i1 %.not.i11, label %37, label %_ZN5folly13checkedMallocEm.exit
@@ -11906,7 +11906,7 @@ define linkonce_odr void @_ZN5folly8fbvectorINSt7__cxx1112basic_stringIcSt11char
   br label %_ZNK5folly8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE23computePushBackCapacityEv.exit
 
 _ZNK5folly8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE23computePushBackCapacityEv.exit: ; preds = %19, %23, %25
-  %.0.i = phi i64 [ %20, %19 ], [ %24, %23 ], [ %28, %25 ]
+  %.0.i = phi i64 [ %28, %25 ], [ %20, %19 ], [ %24, %23 ]
   %29 = shl i64 %.0.i, 5
   %30 = icmp eq i64 %29, 0
   br i1 %30, label %_ZN5folly14goodMallocSizeEm.exit, label %_ZNK5folly8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE23computePushBackCapacityEv.exit.thread
@@ -11944,7 +11944,7 @@ _ZN5folly10canNallocxEv.exit.i:                   ; preds = %36, %34, %_ZNK5foll
   br label %_ZN5folly14goodMallocSizeEm.exit
 
 _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %_ZNK5folly8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE23computePushBackCapacityEv.exit, %_ZN5folly10canNallocxEv.exit.i, %42
-  %.0.i22 = phi i64 [ %44, %42 ], [ 0, %_ZNK5folly8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE23computePushBackCapacityEv.exit ], [ %31, %_ZN5folly10canNallocxEv.exit.i ]
+  %.0.i22 = phi i64 [ 0, %_ZNK5folly8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE23computePushBackCapacityEv.exit ], [ %44, %42 ], [ %31, %_ZN5folly10canNallocxEv.exit.i ]
   %45 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS_13usingJEMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
   %46 = icmp eq i8 %45, 0
   br i1 %46, label %47, label %_ZN5folly13usingJEMallocEv.exit, !prof !50
@@ -12019,7 +12019,7 @@ _ZN5folly10canNallocxEv.exit.i23:                 ; preds = %74, %72, %69
   br label %_ZN5folly14goodMallocSizeEm.exit27
 
 _ZN5folly14goodMallocSizeEm.exit27:               ; preds = %62, %_ZN5folly10canNallocxEv.exit.i23, %80
-  %.0.i24 = phi i64 [ %82, %80 ], [ 0, %62 ], [ %67, %_ZN5folly10canNallocxEv.exit.i23 ]
+  %.0.i24 = phi i64 [ 0, %62 ], [ %82, %80 ], [ %67, %_ZN5folly10canNallocxEv.exit.i23 ]
   %83 = sub i64 %.0.i22, %.0.i24
   %84 = load ptr, ptr %0, align 8, !tbaa !263
   %85 = call i64 @xallocx(ptr noundef %84, i64 noundef %.0.i24, i64 noundef %83, i32 noundef 0) #27
@@ -12677,7 +12677,7 @@ define linkonce_odr void @_ZN5folly8fbvectorINS_14basic_fbstringIcSt11char_trait
   br label %_ZNK5folly8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaIS7_EE23computePushBackCapacityEv.exit
 
 _ZNK5folly8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaIS7_EE23computePushBackCapacityEv.exit: ; preds = %19, %23, %25
-  %.0.i = phi i64 [ %20, %19 ], [ %24, %23 ], [ %28, %25 ]
+  %.0.i = phi i64 [ %28, %25 ], [ %20, %19 ], [ %24, %23 ]
   %29 = mul i64 %.0.i, 24
   %30 = icmp eq i64 %29, 0
   br i1 %30, label %_ZN5folly14goodMallocSizeEm.exit, label %_ZNK5folly8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaIS7_EE23computePushBackCapacityEv.exit.thread
@@ -12715,7 +12715,7 @@ _ZN5folly10canNallocxEv.exit.i:                   ; preds = %36, %34, %_ZNK5foll
   br label %_ZN5folly14goodMallocSizeEm.exit
 
 _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %_ZNK5folly8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaIS7_EE23computePushBackCapacityEv.exit, %_ZN5folly10canNallocxEv.exit.i, %42
-  %.0.i22 = phi i64 [ %44, %42 ], [ 0, %_ZNK5folly8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaIS7_EE23computePushBackCapacityEv.exit ], [ %31, %_ZN5folly10canNallocxEv.exit.i ]
+  %.0.i22 = phi i64 [ 0, %_ZNK5folly8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaIS7_EE23computePushBackCapacityEv.exit ], [ %44, %42 ], [ %31, %_ZN5folly10canNallocxEv.exit.i ]
   %45 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS_13usingJEMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
   %46 = icmp eq i8 %45, 0
   br i1 %46, label %47, label %_ZN5folly13usingJEMallocEv.exit, !prof !50
@@ -12790,7 +12790,7 @@ _ZN5folly10canNallocxEv.exit.i23:                 ; preds = %74, %72, %69
   br label %_ZN5folly14goodMallocSizeEm.exit27
 
 _ZN5folly14goodMallocSizeEm.exit27:               ; preds = %62, %_ZN5folly10canNallocxEv.exit.i23, %80
-  %.0.i24 = phi i64 [ %82, %80 ], [ 0, %62 ], [ %67, %_ZN5folly10canNallocxEv.exit.i23 ]
+  %.0.i24 = phi i64 [ 0, %62 ], [ %82, %80 ], [ %67, %_ZN5folly10canNallocxEv.exit.i23 ]
   %83 = sub i64 %.0.i22, %.0.i24
   %84 = load ptr, ptr %0, align 8, !tbaa !273
   %85 = call i64 @xallocx(ptr noundef %84, i64 noundef %.0.i24, i64 noundef %83, i32 noundef 0) #27

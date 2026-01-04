@@ -73,7 +73,7 @@ define internal noundef i32 @acpi_ns_init_one_object(ptr noundef %0, i32 %1, ptr
   br label %15
 
 15:                                               ; preds = %14, %13, %12, %11
-  %16 = phi i64 [ 40, %14 ], [ 36, %13 ], [ 32, %12 ], [ 28, %11 ]
+  %16 = phi i64 [ 40, %14 ], [ 36, %13 ], [ 28, %11 ], [ 32, %12 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = add i32 %18, 1

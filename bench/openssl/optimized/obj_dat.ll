@@ -2490,7 +2490,7 @@ define ptr @OBJ_txt2obj(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %30
 
 30:                                               ; preds = %22, %19, %16, %26, %15, %9
-  %.0 = phi ptr [ %29, %26 ], [ %10, %9 ], [ null, %15 ], [ null, %16 ], [ null, %19 ], [ null, %22 ]
+  %.0 = phi ptr [ null, %15 ], [ null, %16 ], [ null, %19 ], [ %29, %26 ], [ %10, %9 ], [ null, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
@@ -2822,9 +2822,9 @@ OBJ_nid2sn.exit.thread:                           ; preds = %OBJ_nid2ln.exit.thr
   br label %64
 
 64:                                               ; preds = %.thread, %62
-  %.1124 = phi i32 [ 0, %62 ], [ 1, %.thread ]
-  %.3120 = phi ptr [ %.2119218, %62 ], [ %.4121183, %.thread ]
-  %.1112 = phi i64 [ %63, %62 ], [ %.2113, %.thread ]
+  %.1124 = phi i32 [ 1, %.thread ], [ 0, %62 ]
+  %.3120 = phi ptr [ %.4121183, %.thread ], [ %.2119218, %62 ]
+  %.1112 = phi i64 [ %.2113, %.thread ], [ %63, %62 ]
   %65 = load i8, ptr %43, align 1, !tbaa !20
   %66 = add nsw i32 %41, -1
   %67 = icmp ne i32 %66, 0
@@ -2969,9 +2969,9 @@ OBJ_nid2sn.exit.thread:                           ; preds = %OBJ_nid2ln.exit.thr
   br label %129
 
 129:                                              ; preds = %.thread199, %127
-  %.3141 = phi i32 [ %128, %127 ], [ %110, %.thread199 ]
-  %.6134 = phi i32 [ %.7135, %127 ], [ %.4132, %.thread199 ]
-  %.6 = phi ptr [ %.7, %127 ], [ %.4, %.thread199 ]
+  %.3141 = phi i32 [ %110, %.thread199 ], [ %128, %127 ]
+  %.6134 = phi i32 [ %.4132, %.thread199 ], [ %.7135, %127 ]
+  %.6 = phi ptr [ %.4, %.thread199 ], [ %.7, %127 ]
   %130 = icmp sgt i32 %41, 0
   br i1 %130, label %.preheader, label %._crit_edge, !llvm.loop !26
 
@@ -2981,13 +2981,13 @@ OBJ_nid2sn.exit.thread:                           ; preds = %OBJ_nid2ln.exit.thr
   call void @BN_free(ptr noundef %.1118.lcssa) #10
   br label %131
 
-.thread184:                                       ; preds = %89, %72, %.preheader, %64, %46, %55, %58, %.thread, %OBJ_nid2sn.exit.thread
-  %.0117 = phi ptr [ null, %OBJ_nid2sn.exit.thread ], [ %.3120, %64 ], [ %.2119218, %46 ], [ null, %55 ], [ %.5122, %58 ], [ %.4121183, %.thread ], [ %.1118233, %.preheader ], [ %.2119218, %72 ], [ %.2119218, %89 ]
+.thread184:                                       ; preds = %89, %72, %.preheader, %64, %46, %58, %55, %.thread, %OBJ_nid2sn.exit.thread
+  %.0117 = phi ptr [ null, %OBJ_nid2sn.exit.thread ], [ %.4121183, %.thread ], [ null, %55 ], [ %.3120, %64 ], [ %.2119218, %46 ], [ %.5122, %58 ], [ %.1118233, %.preheader ], [ %.2119218, %72 ], [ %.2119218, %89 ]
   call void @BN_free(ptr noundef %.0117) #10
   br label %131
 
 131:                                              ; preds = %9, %11, %.thread184, %._crit_edge, %30
-  %.0 = phi i32 [ -1, %.thread184 ], [ %.0138.lcssa, %._crit_edge ], [ %32, %30 ], [ 0, %11 ], [ 0, %9 ]
+  %.0 = phi i32 [ %32, %30 ], [ -1, %.thread184 ], [ 0, %9 ], [ 0, %11 ], [ %.0138.lcssa, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -3149,8 +3149,8 @@ define i32 @OBJ_create_objects(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %15, %29, %.critedge2, %23, %37
-  %.233 = phi ptr [ %.132, %37 ], [ null, %23 ], [ %.132, %.critedge2 ], [ %.132, %29 ], [ null, %15 ]
-  %.3 = phi ptr [ %spec.store.select, %37 ], [ %.051, %23 ], [ null, %.critedge2 ], [ null, %29 ], [ %.051, %15 ]
+  %.233 = phi ptr [ %.132, %.critedge2 ], [ %.132, %37 ], [ null, %23 ], [ %.132, %29 ], [ null, %15 ]
+  %.3 = phi ptr [ null, %.critedge2 ], [ %spec.store.select, %37 ], [ %.051, %23 ], [ null, %29 ], [ %.051, %15 ]
   %40 = load i8, ptr %2, align 16, !tbaa !20
   %41 = icmp eq i8 %40, 0
   br i1 %41, label %._crit_edge, label %42
@@ -3353,7 +3353,7 @@ ossl_obj_obj2nid.exit:                            ; preds = %51, %41
   br label %65
 
 65:                                               ; preds = %18, %62, %ossl_obj_write_lock.exit.thread, %24, %16, %9
-  %.029 = phi i32 [ 0, %9 ], [ 0, %16 ], [ %.0, %62 ], [ 0, %ossl_obj_write_lock.exit.thread ], [ 0, %24 ], [ 0, %18 ]
+  %.029 = phi i32 [ 0, %9 ], [ 0, %16 ], [ 0, %24 ], [ %.0, %62 ], [ 0, %ossl_obj_write_lock.exit.thread ], [ 0, %18 ]
   ret i32 %.029
 }
 
@@ -3449,7 +3449,7 @@ ossl_obj_read_lock.exit.thread19:                 ; preds = %21, %ossl_obj_read_
   br label %ossl_obj_unlock.exit
 
 ossl_obj_unlock.exit:                             ; preds = %39, %38, %9, %6, %2, %ossl_obj_read_lock.exit.thread, %15
-  %.0 = phi i32 [ %20, %15 ], [ 0, %ossl_obj_read_lock.exit.thread ], [ 0, %2 ], [ %8, %6 ], [ 0, %9 ], [ %.07, %38 ], [ %.07, %39 ]
+  %.0 = phi i32 [ 0, %ossl_obj_read_lock.exit.thread ], [ 0, %2 ], [ %8, %6 ], [ %20, %15 ], [ 0, %9 ], [ %.07, %38 ], [ %.07, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -3669,7 +3669,7 @@ ossl_obj_unlock.exit51:                           ; preds = %ossl_obj_unlock.exi
   br label %90
 
 90:                                               ; preds = %2, %89, %ossl_obj_unlock.exit
-  %.034 = phi i32 [ 0, %89 ], [ %83, %ossl_obj_unlock.exit ], [ 0, %2 ]
+  %.034 = phi i32 [ %83, %ossl_obj_unlock.exit ], [ 0, %89 ], [ 0, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.034
@@ -3873,7 +3873,7 @@ define internal i64 @added_obj_hash(ptr noundef readonly captures(none) %0) #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %5, %29, %25, %22
-  %.1 = phi i64 [ %24, %22 ], [ %28, %25 ], [ %32, %29 ], [ %9, %5 ], [ %21, %.lr.ph ]
+  %.1 = phi i64 [ %32, %29 ], [ %24, %22 ], [ %28, %25 ], [ %9, %5 ], [ %21, %.lr.ph ]
   %33 = and i64 %.1, 1073741823
   %34 = load i32, ptr %0, align 8, !tbaa !17
   %35 = sext i32 %34 to i64
@@ -3963,7 +3963,7 @@ define internal i32 @added_obj_cmp(ptr noundef readonly captures(none) %0, ptr n
   br label %48
 
 48:                                               ; preds = %6, %36, %32, %27, %24, %11, %2, %42, %40, %30, %17
-  %.0 = phi i32 [ %23, %17 ], [ %31, %30 ], [ %41, %40 ], [ %47, %42 ], [ %5, %2 ], [ %16, %11 ], [ -1, %24 ], [ 1, %27 ], [ -1, %32 ], [ 1, %36 ], [ 0, %6 ]
+  %.0 = phi i32 [ %47, %42 ], [ 1, %36 ], [ %5, %2 ], [ %23, %17 ], [ %16, %11 ], [ -1, %24 ], [ %31, %30 ], [ 1, %27 ], [ -1, %32 ], [ %41, %40 ], [ 0, %6 ]
   ret i32 %.0
 }
 

@@ -271,7 +271,7 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef captures(address_i
   br label %124
 
 124:                                              ; preds = %._crit_edge.thread, %123, %17, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %17 ], [ 1, %123 ], [ 1, %._crit_edge.thread ]
+  %.0 = phi i32 [ 1, %._crit_edge.thread ], [ 0, %5 ], [ 0, %17 ], [ 1, %123 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

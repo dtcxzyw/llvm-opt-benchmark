@@ -426,7 +426,7 @@ define i32 @Dsd_TreeCountNonTerminalNodes(ptr noundef readonly captures(none) %0
   br i1 %29, label %20, label %Dsd_TreeUnmark.exit, !llvm.loop !24
 
 Dsd_TreeUnmark.exit:                              ; preds = %20, %1, %._crit_edge
-  %.07.lcssa17 = phi i32 [ %14, %._crit_edge ], [ 0, %1 ], [ %14, %20 ]
+  %.07.lcssa17 = phi i32 [ 0, %1 ], [ %14, %._crit_edge ], [ %14, %20 ]
   ret i32 %.07.lcssa17
 }
 
@@ -537,7 +537,7 @@ define i32 @Dsd_TreeCountPrimeNodes(ptr noundef readonly captures(none) %0) loca
   br i1 %29, label %20, label %Dsd_TreeUnmark.exit, !llvm.loop !24
 
 Dsd_TreeUnmark.exit:                              ; preds = %20, %1, %._crit_edge
-  %.07.lcssa17 = phi i32 [ %14, %._crit_edge ], [ 0, %1 ], [ %14, %20 ]
+  %.07.lcssa17 = phi i32 [ 0, %1 ], [ %14, %._crit_edge ], [ %14, %20 ]
   ret i32 %.07.lcssa17
 }
 
@@ -777,8 +777,8 @@ Dsd_TreeCountNonTerminalNodes.exit.loopexit:      ; preds = %.lr.ph.i.i
   br label %Dsd_TreeCountNonTerminalNodes.exit
 
 Dsd_TreeCountNonTerminalNodes.exit:               ; preds = %Dsd_TreeCountNonTerminalNodes.exit.loopexit, %2, %._crit_edge.i
-  %31 = phi i1 [ false, %._crit_edge.i ], [ false, %2 ], [ %30, %Dsd_TreeCountNonTerminalNodes.exit.loopexit ]
-  %.07.lcssa17.i = phi i32 [ %16, %._crit_edge.i ], [ 0, %2 ], [ %16, %Dsd_TreeCountNonTerminalNodes.exit.loopexit ]
+  %31 = phi i1 [ false, %2 ], [ false, %._crit_edge.i ], [ %30, %Dsd_TreeCountNonTerminalNodes.exit.loopexit ]
+  %.07.lcssa17.i = phi i32 [ 0, %2 ], [ %16, %._crit_edge.i ], [ %16, %Dsd_TreeCountNonTerminalNodes.exit.loopexit ]
   store i32 0, ptr %3, align 4, !tbaa !28
   %32 = sext i32 %.07.lcssa17.i to i64
   %33 = shl nsw i64 %32, 3
@@ -1041,7 +1041,7 @@ define i32 @Dsd_TreeSuppSize_rec(ptr noundef readonly captures(none) %0) local_u
   br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !44
 
 .loopexit:                                        ; preds = %9, %.preheader, %1, %8
-  %.010 = phi i32 [ 1, %8 ], [ 0, %1 ], [ 0, %.preheader ], [ %16, %9 ]
+  %.010 = phi i32 [ 0, %1 ], [ 1, %8 ], [ 0, %.preheader ], [ %16, %9 ]
   ret i32 %.010
 }
 
@@ -3251,7 +3251,7 @@ tailrecurse:                                      ; preds = %10
   br i1 %16, label %._crit_edge.loopexit, label %.lr.ph
 
 common.ret38:                                     ; preds = %._crit_edge.loopexit, %2, %17
-  %common.ret38.op = phi i64 [ %accumulator.ret.tr, %17 ], [ 0, %2 ], [ %37, %._crit_edge.loopexit ]
+  %common.ret38.op = phi i64 [ %accumulator.ret.tr, %17 ], [ %37, %._crit_edge.loopexit ], [ 0, %2 ]
   ret i64 %common.ret38.op
 
 17:                                               ; preds = %10

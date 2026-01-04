@@ -445,7 +445,7 @@ define range(i32 -6, 1) i32 @Java_sun_nio_fs_LinuxNativeDispatcher_directCopy0(p
   br i1 %.not32, label %throwUnixException.exit, label %.split45.backedge
 
 throwUnixException.exit:                          ; preds = %18, %74, %43, %69, %67, %60, %58, %32, %30, %.critedge2.thread, %.split44.us, %57, %.split.us
-  %.0 = phi i32 [ -5, %.split.us ], [ -6, %57 ], [ 0, %.split44.us ], [ -2, %.critedge2.thread ], [ -5, %30 ], [ -5, %32 ], [ -5, %58 ], [ -5, %60 ], [ -5, %67 ], [ -5, %69 ], [ 0, %43 ], [ 0, %74 ], [ 0, %18 ]
+  %.0 = phi i32 [ -5, %.split.us ], [ -5, %69 ], [ -2, %.critedge2.thread ], [ 0, %.split44.us ], [ -6, %57 ], [ -5, %32 ], [ -5, %60 ], [ -5, %30 ], [ -5, %58 ], [ -5, %67 ], [ 0, %74 ], [ 0, %43 ], [ 0, %18 ]
   ret i32 %.0
 }
 

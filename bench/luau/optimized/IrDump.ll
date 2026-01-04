@@ -929,7 +929,7 @@ switch.lookup:                                    ; preds = %10
   br label %14
 
 14:                                               ; preds = %10, %switch.lookup, %4, %5
-  %.0 = phi ptr [ %9, %5 ], [ @.str.170, %4 ], [ %switch.load, %switch.lookup ], [ null, %10 ]
+  %.0 = phi ptr [ %9, %5 ], [ %switch.load, %switch.lookup ], [ @.str.170, %4 ], [ null, %10 ]
   ret ptr %.0
 }
 
@@ -963,7 +963,7 @@ switch.lookup:                                    ; preds = %12
   br label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit
 
 _ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit: ; preds = %12, %switch.lookup, %6, %7
-  %.0.i = phi ptr [ %11, %7 ], [ @.str.170, %6 ], [ %switch.load, %switch.lookup ], [ null, %12 ]
+  %.0.i = phi ptr [ %11, %7 ], [ %switch.load, %switch.lookup ], [ @.str.170, %6 ], [ null, %12 ]
   %.not = icmp sgt i8 %4, -1
   %16 = select i1 %.not, ptr @.str.183, ptr @.str.182
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.181, ptr noundef %.0.i, ptr noundef nonnull %16)
@@ -997,7 +997,7 @@ switch.lookup36:                                  ; preds = %26
   br label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit27
 
 _ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit27: ; preds = %26, %switch.lookup36, %20, %21
-  %.0.i25 = phi ptr [ %25, %21 ], [ @.str.170, %20 ], [ %switch.load38, %switch.lookup36 ], [ null, %26 ]
+  %.0.i25 = phi ptr [ %25, %21 ], [ %switch.load38, %switch.lookup36 ], [ @.str.170, %20 ], [ null, %26 ]
   %.not20 = icmp sgt i8 %18, -1
   %30 = select i1 %.not20, ptr @.str.183, ptr @.str.182
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.181, ptr noundef %.0.i25, ptr noundef nonnull %30)
@@ -1031,7 +1031,7 @@ switch.lookup39:                                  ; preds = %40
   br label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit31
 
 _ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit31: ; preds = %40, %switch.lookup39, %34, %35
-  %.0.i29 = phi ptr [ %39, %35 ], [ @.str.170, %34 ], [ %switch.load41, %switch.lookup39 ], [ null, %40 ]
+  %.0.i29 = phi ptr [ %39, %35 ], [ %switch.load41, %switch.lookup39 ], [ @.str.170, %34 ], [ null, %40 ]
   %.not21 = icmp sgt i8 %32, -1
   %44 = select i1 %.not21, ptr @.str.183, ptr @.str.182
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.181, ptr noundef %.0.i29, ptr noundef nonnull %44)
@@ -1070,7 +1070,7 @@ switch.lookup42:                                  ; preds = %56
   br label %_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit35
 
 _ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc.exit35: ; preds = %56, %switch.lookup42, %50, %51
-  %.0.i33 = phi ptr [ %55, %51 ], [ @.str.170, %50 ], [ %switch.load44, %switch.lookup42 ], [ null, %56 ]
+  %.0.i33 = phi ptr [ %55, %51 ], [ %switch.load44, %switch.lookup42 ], [ @.str.170, %50 ], [ null, %56 ]
   %.not23 = icmp sgt i8 %48, -1
   %60 = select i1 %.not23, ptr @.str.183, ptr @.str.182
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.181, ptr noundef %.0.i33, ptr noundef nonnull %60)
@@ -1211,7 +1211,7 @@ _ZN4Luau7CodeGen14hasSideEffectsENS0_5IrCmdE.exit._crit_edge: ; preds = %_ZN4Lua
   br label %72
 
 72:                                               ; preds = %67, %62, %57, %52, %47, %40
-  %.sroa.0.0.i = phi i32 [ %44, %40 ], [ %49, %47 ], [ %54, %52 ], [ %59, %57 ], [ %64, %62 ], [ %spec.select.i, %67 ]
+  %.sroa.0.0.i = phi i32 [ %spec.select.i, %67 ], [ %44, %40 ], [ %49, %47 ], [ %54, %52 ], [ %59, %57 ], [ %64, %62 ]
   %73 = and i32 %.sroa.0.0.i, 15
   %74 = icmp eq i32 %73, 5
   br i1 %74, label %75, label %_ZN4Luau7CodeGenL24getJumpTargetExtraLiveInERNS0_17IrToStringContextERKNS0_7IrBlockEjRKNS0_6IrInstE.exit
@@ -2810,7 +2810,7 @@ _ZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_7IrBlockEj.exit: ; pred
   ret void
 
 99:                                               ; preds = %.split, %.split.us, %.loopexit, %.loopexit.split-lp, %67, %72, %89, %48, %19, %11
-  %.pn78 = phi { ptr, i32 } [ %20, %19 ], [ %12, %11 ], [ %49, %48 ], [ %73, %72 ], [ %68, %67 ], [ %90, %89 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %96, %.split ], [ %80, %.split.us ]
+  %.pn78 = phi { ptr, i32 } [ %20, %19 ], [ %12, %11 ], [ %49, %48 ], [ %90, %89 ], [ %73, %72 ], [ %68, %67 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %96, %.split ], [ %80, %.split.us ]
   %100 = load ptr, ptr %0, align 8, !tbaa !165
   %101 = icmp eq ptr %100, %3
   br i1 %101, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i

@@ -168,8 +168,8 @@ define hidden i64 @je_malloc_strtoumax(ptr noalias noundef %0, ptr noalias nound
   br label %26
 
 26:                                               ; preds = %23, %17, %20, %.loopexit
-  %.066 = phi i32 [ %2, %20 ], [ %2, %.loopexit ], [ %spec.store.select, %17 ], [ %spec.store.select4, %23 ]
-  %.3 = phi ptr [ %.2, %20 ], [ %.2, %.loopexit ], [ %spec.select83, %17 ], [ %spec.select85, %23 ]
+  %.066 = phi i32 [ %2, %.loopexit ], [ %spec.store.select4, %23 ], [ %2, %20 ], [ %spec.store.select, %17 ]
+  %.3 = phi ptr [ %.2, %.loopexit ], [ %spec.select85, %23 ], [ %.2, %20 ], [ %spec.select83, %17 ]
   %27 = icmp eq i32 %.066, 0
   %spec.store.select5 = select i1 %27, i32 10, i32 %.066
   %28 = zext nneg i32 %spec.store.select5 to i64
@@ -241,8 +241,8 @@ define hidden i64 @je_malloc_strtoumax(ptr noalias noundef %0, ptr noalias nound
   br label %57
 
 57:                                               ; preds = %.thread93, %14, %.critedge7, %55, %6
-  %.068 = phi i64 [ -1, %6 ], [ -1, %55 ], [ %spec.select89, %.critedge7 ], [ 0, %14 ], [ -1, %.thread93 ]
-  %.062 = phi ptr [ %0, %6 ], [ %0, %55 ], [ %.4, %.critedge7 ], [ %15, %14 ], [ %50, %.thread93 ]
+  %.068 = phi i64 [ -1, %6 ], [ %spec.select89, %.critedge7 ], [ -1, %.thread93 ], [ -1, %55 ], [ 0, %14 ]
+  %.062 = phi ptr [ %0, %6 ], [ %.4, %.critedge7 ], [ %50, %.thread93 ], [ %0, %55 ], [ %15, %14 ]
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %58, label %.sink.split
 
@@ -373,10 +373,10 @@ define hidden i64 @je_malloc_vsnprintf(ptr noundef writeonly captures(none) %0, 
   br label %40
 
 40:                                               ; preds = %.loopexit559, %32, %.loopexit560
-  %41 = phi ptr [ %.pre, %.loopexit560 ], [ %35, %32 ], [ %storemerge, %.loopexit559 ]
-  %.1407 = phi i8 [ %.0406, %.loopexit560 ], [ 32, %32 ], [ 32, %.loopexit559 ]
-  %.0400 = phi i32 [ %39, %.loopexit560 ], [ %spec.select, %32 ], [ -1, %.loopexit559 ]
-  %.2390 = phi i8 [ %.0388.ph906, %.loopexit560 ], [ %spec.select482, %32 ], [ %.0388.ph906, %.loopexit559 ]
+  %41 = phi ptr [ %35, %32 ], [ %.pre, %.loopexit560 ], [ %storemerge, %.loopexit559 ]
+  %.1407 = phi i8 [ 32, %32 ], [ %.0406, %.loopexit560 ], [ 32, %.loopexit559 ]
+  %.0400 = phi i32 [ %spec.select, %32 ], [ %39, %.loopexit560 ], [ -1, %.loopexit559 ]
+  %.2390 = phi i8 [ %spec.select482, %32 ], [ %.0388.ph906, %.loopexit560 ], [ %.0388.ph906, %.loopexit559 ]
   %42 = load i8, ptr %41, align 1, !tbaa !8
   %43 = icmp eq i8 %42, 46
   br i1 %43, label %44, label %66
@@ -681,7 +681,7 @@ thread-pre-split778:                              ; preds = %thread-pre-split778
   unreachable
 
 173:                                              ; preds = %169, %157, %145, %133, %121, %109, %96
-  %.0409 = phi i64 [ %99, %96 ], [ %111, %109 ], [ %123, %121 ], [ %135, %133 ], [ %147, %145 ], [ %159, %157 ], [ %171, %169 ]
+  %.0409 = phi i64 [ %99, %96 ], [ %171, %169 ], [ %111, %109 ], [ %147, %145 ], [ %123, %121 ], [ %159, %157 ], [ %135, %133 ]
   %spec.select.i = call i64 @llvm.abs.i64(i64 %.0409, i1 true)
   store i8 0, ptr %17, align 16, !tbaa !8
   br label %.preheader.i.i
@@ -962,8 +962,8 @@ u2s.exit.i483:                                    ; preds = %287
   br label %o2s.exit
 
 o2s.exit:                                         ; preds = %u2s.exit.i483, %298
-  %.1511 = phi i64 [ %300, %298 ], [ %297, %u2s.exit.i483 ]
-  %.0.i = phi ptr [ %299, %298 ], [ %294, %u2s.exit.i483 ]
+  %.1511 = phi i64 [ %297, %u2s.exit.i483 ], [ %300, %298 ]
+  %.0.i = phi ptr [ %294, %u2s.exit.i483 ], [ %299, %298 ]
   %301 = icmp eq i32 %.0400, -1
   br i1 %301, label %.thread515, label %303
 

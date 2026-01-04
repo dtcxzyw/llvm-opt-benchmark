@@ -787,8 +787,8 @@ define internal noundef zeroext i1 @"_ZN68_$LT$rowan..api..SyntaxNode$LT$L$GT$$u
   %80 = icmp eq i64 %79, 2
   br i1 %80, label %81, label %83
 
-"_ZN4core3ptr231drop_in_place$LT$rowan..utility_types..WalkEvent$LT$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$$GT$17h7f1554965c37090dE.exit68": ; preds = %101, %94, %156, %158, %.thread101, %163, %.thread223, %168, %.thread101.thread, %126, %133, %.loopexit130
-  %.pn35 = phi { ptr, i32 } [ %lpad.loopexit132, %.loopexit130 ], [ %.pn, %158 ], [ %.pn, %.thread101 ], [ %157, %156 ], [ %.pn210226, %163 ], [ %.pn210226, %.thread223 ], [ %.pn219222, %168 ], [ %.pn219222, %.thread101.thread ], [ %127, %126 ], [ %127, %133 ], [ %95, %94 ], [ %95, %101 ]
+"_ZN4core3ptr231drop_in_place$LT$rowan..utility_types..WalkEvent$LT$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$$GT$17h7f1554965c37090dE.exit68": ; preds = %94, %101, %156, %158, %.thread101, %163, %.thread223, %168, %.thread101.thread, %126, %133, %.loopexit130
+  %.pn35 = phi { ptr, i32 } [ %lpad.loopexit132, %.loopexit130 ], [ %.pn219222, %.thread101.thread ], [ %.pn, %158 ], [ %.pn210226, %.thread223 ], [ %.pn, %.thread101 ], [ %157, %156 ], [ %.pn210226, %163 ], [ %.pn219222, %168 ], [ %127, %126 ], [ %127, %133 ], [ %95, %101 ], [ %95, %94 ]
   invoke void @"_ZN4core3ptr54drop_in_place$LT$rowan..cursor..PreorderWithTokens$GT$17h3271595007459477E.llvm.5962488337460620365"(ptr noalias noundef nonnull align 8 dereferenceable(48) %17)
           to label %"_ZN4core3ptr92drop_in_place$LT$rowan..api..PreorderWithTokens$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hefadca1b45137d6bE.exit" unwind label %124
 
@@ -1289,16 +1289,16 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.exit38: ; preds = %_ZN5ro
   %.sroa.07.048 = phi i64 [ 21, %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.exit33 ], [ %71, %.backedge ]
   %71 = add nuw nsw i64 %.sroa.07.048, 1
   %.not.i = icmp ult i64 %.sroa.07.048, %55
-  br i1 %.not.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit", label %72
+  br i1 %.not.i, label %72, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit"
 
 72:                                               ; preds = %70
-  %73 = icmp eq i64 %.sroa.07.048, %55
-  br i1 %73, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", label %.backedge
+  %73 = getelementptr inbounds nuw i8, ptr %57, i64 %.sroa.07.048
+  %74 = load i8, ptr %73, align 1, !alias.scope !127, !noundef !4
+  %75 = icmp sgt i8 %74, -65
+  br i1 %75, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", label %.backedge
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit": ; preds = %70
-  %74 = getelementptr inbounds nuw i8, ptr %57, i64 %.sroa.07.048
-  %75 = load i8, ptr %74, align 1, !alias.scope !127, !noundef !4
-  %76 = icmp sgt i8 %75, -65
+  %76 = icmp eq i64 %.sroa.07.048, %55
   br i1 %76, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", label %.backedge
 
 .backedge:                                        ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit", %72
@@ -1312,7 +1312,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.exit38: ; preds = %_ZN5ro
           to label %98 unwind label %96
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit", %72
-  %.sroa.07.04851 = phi i64 [ %55, %72 ], [ %.sroa.07.048, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit" ]
+  %.sroa.07.04851 = phi i64 [ %.sroa.07.048, %72 ], [ %55, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)

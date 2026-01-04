@@ -455,7 +455,7 @@ gxf_init_timecode_track.exit:                     ; preds = %15, %187, %188
   br label %.thread
 
 .thread:                                          ; preds = %53, %25, %82, %145, %71, %52, %48, %44, %gxf_init_timecode_track.exit, %211, %14
-  %.0 = phi i32 [ 0, %211 ], [ -1163346256, %14 ], [ %209, %gxf_init_timecode_track.exit ], [ -22, %82 ], [ -1, %145 ], [ -22, %71 ], [ -22, %52 ], [ -22, %48 ], [ -22, %44 ], [ -12, %25 ], [ %54, %53 ]
+  %.0 = phi i32 [ %209, %gxf_init_timecode_track.exit ], [ -1163346256, %14 ], [ 0, %211 ], [ -22, %48 ], [ -22, %82 ], [ -1, %145 ], [ -22, %71 ], [ -22, %44 ], [ -22, %52 ], [ -12, %25 ], [ %54, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -1640,7 +1640,7 @@ define internal fastcc void @gxf_write_track_description(ptr noundef readonly ca
   br label %83
 
 83:                                               ; preds = %82, %81, %76, %76
-  %.0.i = phi i32 [ 20, %81 ], [ 23, %82 ], [ 7, %76 ], [ 7, %76 ]
+  %.0.i = phi i32 [ 23, %82 ], [ 20, %81 ], [ 7, %76 ], [ 7, %76 ]
   %84 = getelementptr inbounds nuw i8, ptr %78, i64 48
   %85 = load i64, ptr %84, align 8, !tbaa !71
   %86 = sitofp i64 %85 to float

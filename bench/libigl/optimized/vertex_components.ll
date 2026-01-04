@@ -547,7 +547,7 @@ _ZSt4copyIPPiS1_ET0_T_S3_S2_.exit24.i:            ; preds = %221, %219, %218
   br label %.noexc54
 
 .noexc54:                                         ; preds = %_ZSt4copyIPPiS1_ET0_T_S3_S2_.exit24.i, %200, %198, %195, %187, %185, %184
-  %.0.i = phi ptr [ %213, %_ZSt4copyIPPiS1_ET0_T_S3_S2_.exit24.i ], [ %177, %184 ], [ %177, %185 ], [ %177, %187 ], [ %177, %195 ], [ %177, %198 ], [ %177, %200 ]
+  %.0.i = phi ptr [ %213, %_ZSt4copyIPPiS1_ET0_T_S3_S2_.exit24.i ], [ %177, %187 ], [ %177, %184 ], [ %177, %185 ], [ %177, %195 ], [ %177, %198 ], [ %177, %200 ]
   store ptr %.0.i, ptr %21, align 8, !tbaa !36
   %224 = load ptr, ptr %.0.i, align 8, !tbaa !37
   store ptr %224, ptr %20, align 8, !tbaa !38
@@ -660,9 +660,9 @@ _ZNSt5queueIiSt5dequeIiSaIiEEED2Ev.exit:          ; preds = %._crit_edge, %_ZNSt
   br i1 %257, label %36, label %._crit_edge137, !llvm.loop !54
 
 258:                                              ; preds = %.loopexit92, %.loopexit.split-lp, %.loopexit93, %.loopexit.split-lp94, %95
-  %.sroa.15.3 = phi ptr [ %.sroa.15.0131, %95 ], [ %.sroa.11.0132, %.loopexit93 ], [ %.sroa.11.0132, %.loopexit.split-lp94 ], [ %.sroa.15.5, %.loopexit92 ], [ %.sroa.15.5, %.loopexit.split-lp ]
-  %.sroa.066.3 = phi ptr [ %.sroa.066.0133, %95 ], [ %.sroa.066.0133, %.loopexit93 ], [ %.sroa.066.0133, %.loopexit.split-lp94 ], [ %.sroa.066.5, %.loopexit92 ], [ %.sroa.066.5, %.loopexit.split-lp ]
-  %.pn35.pn.pn = phi { ptr, i32 } [ %96, %95 ], [ %lpad.loopexit95, %.loopexit93 ], [ %lpad.loopexit.split-lp96, %.loopexit.split-lp94 ], [ %lpad.loopexit, %.loopexit92 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.15.3 = phi ptr [ %.sroa.15.0131, %95 ], [ %.sroa.11.0132, %.loopexit.split-lp94 ], [ %.sroa.11.0132, %.loopexit93 ], [ %.sroa.15.5, %.loopexit92 ], [ %.sroa.15.5, %.loopexit.split-lp ]
+  %.sroa.066.3 = phi ptr [ %.sroa.066.0133, %95 ], [ %.sroa.066.0133, %.loopexit.split-lp94 ], [ %.sroa.066.0133, %.loopexit93 ], [ %.sroa.066.5, %.loopexit92 ], [ %.sroa.066.5, %.loopexit.split-lp ]
+  %.pn35.pn.pn = phi { ptr, i32 } [ %96, %95 ], [ %lpad.loopexit.split-lp96, %.loopexit.split-lp94 ], [ %lpad.loopexit95, %.loopexit93 ], [ %lpad.loopexit, %.loopexit92 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt5queueIiSt5dequeIiSaIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #20
   br label %259
 
@@ -1344,7 +1344,7 @@ _ZSt4copyIPPiS1_ET0_T_S3_S2_.exit24.i:            ; preds = %220, %218, %217
   br label %.noexc54
 
 .noexc54:                                         ; preds = %_ZSt4copyIPPiS1_ET0_T_S3_S2_.exit24.i, %199, %197, %194, %186, %184, %183
-  %.0.i = phi ptr [ %212, %_ZSt4copyIPPiS1_ET0_T_S3_S2_.exit24.i ], [ %176, %183 ], [ %176, %184 ], [ %176, %186 ], [ %176, %194 ], [ %176, %197 ], [ %176, %199 ]
+  %.0.i = phi ptr [ %212, %_ZSt4copyIPPiS1_ET0_T_S3_S2_.exit24.i ], [ %176, %186 ], [ %176, %183 ], [ %176, %184 ], [ %176, %194 ], [ %176, %197 ], [ %176, %199 ]
   store ptr %.0.i, ptr %21, align 8, !tbaa !36
   %223 = load ptr, ptr %.0.i, align 8, !tbaa !37
   store ptr %223, ptr %20, align 8, !tbaa !38
@@ -1457,9 +1457,9 @@ _ZNSt5queueIiSt5dequeIiSaIiEEED2Ev.exit:          ; preds = %._crit_edge, %_ZNSt
   br i1 %256, label %36, label %._crit_edge137, !llvm.loop !69
 
 257:                                              ; preds = %.loopexit92, %.loopexit.split-lp, %.loopexit93, %.loopexit.split-lp94, %95
-  %.sroa.15.3 = phi ptr [ %.sroa.15.0131, %95 ], [ %.sroa.11.0132, %.loopexit93 ], [ %.sroa.11.0132, %.loopexit.split-lp94 ], [ %.sroa.15.5, %.loopexit92 ], [ %.sroa.15.5, %.loopexit.split-lp ]
-  %.sroa.066.3 = phi ptr [ %.sroa.066.0133, %95 ], [ %.sroa.066.0133, %.loopexit93 ], [ %.sroa.066.0133, %.loopexit.split-lp94 ], [ %.sroa.066.5, %.loopexit92 ], [ %.sroa.066.5, %.loopexit.split-lp ]
-  %.pn35.pn.pn = phi { ptr, i32 } [ %96, %95 ], [ %lpad.loopexit95, %.loopexit93 ], [ %lpad.loopexit.split-lp96, %.loopexit.split-lp94 ], [ %lpad.loopexit, %.loopexit92 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.15.3 = phi ptr [ %.sroa.15.0131, %95 ], [ %.sroa.11.0132, %.loopexit.split-lp94 ], [ %.sroa.11.0132, %.loopexit93 ], [ %.sroa.15.5, %.loopexit92 ], [ %.sroa.15.5, %.loopexit.split-lp ]
+  %.sroa.066.3 = phi ptr [ %.sroa.066.0133, %95 ], [ %.sroa.066.0133, %.loopexit.split-lp94 ], [ %.sroa.066.0133, %.loopexit93 ], [ %.sroa.066.5, %.loopexit92 ], [ %.sroa.066.5, %.loopexit.split-lp ]
+  %.pn35.pn.pn = phi { ptr, i32 } [ %96, %95 ], [ %lpad.loopexit.split-lp96, %.loopexit.split-lp94 ], [ %lpad.loopexit95, %.loopexit93 ], [ %lpad.loopexit, %.loopexit92 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt5queueIiSt5dequeIiSaIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #20
   br label %258
 
@@ -2006,7 +2006,7 @@ _ZSt4copyIPPiS1_ET0_T_S3_S2_.exit24.i:            ; preds = %219, %217, %216
   br label %.noexc54
 
 .noexc54:                                         ; preds = %_ZSt4copyIPPiS1_ET0_T_S3_S2_.exit24.i, %198, %196, %193, %185, %183, %182
-  %.0.i = phi ptr [ %211, %_ZSt4copyIPPiS1_ET0_T_S3_S2_.exit24.i ], [ %175, %182 ], [ %175, %183 ], [ %175, %185 ], [ %175, %193 ], [ %175, %196 ], [ %175, %198 ]
+  %.0.i = phi ptr [ %211, %_ZSt4copyIPPiS1_ET0_T_S3_S2_.exit24.i ], [ %175, %185 ], [ %175, %182 ], [ %175, %183 ], [ %175, %193 ], [ %175, %196 ], [ %175, %198 ]
   store ptr %.0.i, ptr %20, align 8, !tbaa !36
   %222 = load ptr, ptr %.0.i, align 8, !tbaa !37
   store ptr %222, ptr %19, align 8, !tbaa !38
@@ -2119,9 +2119,9 @@ _ZNSt5queueIiSt5dequeIiSaIiEEED2Ev.exit:          ; preds = %._crit_edge, %_ZNSt
   br i1 %255, label %35, label %._crit_edge148, !llvm.loop !75
 
 256:                                              ; preds = %.loopexit104, %.loopexit.split-lp, %.loopexit105, %.loopexit.split-lp106, %94
-  %.sroa.15.3 = phi ptr [ %.sroa.15.0143, %94 ], [ %.sroa.11.0144, %.loopexit105 ], [ %.sroa.11.0144, %.loopexit.split-lp106 ], [ %.sroa.15.5, %.loopexit104 ], [ %.sroa.15.5, %.loopexit.split-lp ]
-  %.sroa.066.3 = phi ptr [ %.sroa.066.0145, %94 ], [ %.sroa.066.0145, %.loopexit105 ], [ %.sroa.066.0145, %.loopexit.split-lp106 ], [ %.sroa.066.5, %.loopexit104 ], [ %.sroa.066.5, %.loopexit.split-lp ]
-  %.pn35.pn.pn = phi { ptr, i32 } [ %95, %94 ], [ %lpad.loopexit107, %.loopexit105 ], [ %lpad.loopexit.split-lp108, %.loopexit.split-lp106 ], [ %lpad.loopexit, %.loopexit104 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.15.3 = phi ptr [ %.sroa.15.0143, %94 ], [ %.sroa.11.0144, %.loopexit.split-lp106 ], [ %.sroa.11.0144, %.loopexit105 ], [ %.sroa.15.5, %.loopexit104 ], [ %.sroa.15.5, %.loopexit.split-lp ]
+  %.sroa.066.3 = phi ptr [ %.sroa.066.0145, %94 ], [ %.sroa.066.0145, %.loopexit.split-lp106 ], [ %.sroa.066.0145, %.loopexit105 ], [ %.sroa.066.5, %.loopexit104 ], [ %.sroa.066.5, %.loopexit.split-lp ]
+  %.pn35.pn.pn = phi { ptr, i32 } [ %95, %94 ], [ %lpad.loopexit.split-lp108, %.loopexit.split-lp106 ], [ %lpad.loopexit107, %.loopexit105 ], [ %lpad.loopexit, %.loopexit104 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt5queueIiSt5dequeIiSaIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #20
   br label %257
 
@@ -2645,7 +2645,7 @@ _ZSt4copyIPPiS1_ET0_T_S3_S2_.exit24.i:            ; preds = %220, %218, %217
   br label %.noexc56
 
 .noexc56:                                         ; preds = %_ZSt4copyIPPiS1_ET0_T_S3_S2_.exit24.i, %199, %197, %194, %186, %184, %183
-  %.0.i = phi ptr [ %212, %_ZSt4copyIPPiS1_ET0_T_S3_S2_.exit24.i ], [ %176, %183 ], [ %176, %184 ], [ %176, %186 ], [ %176, %194 ], [ %176, %197 ], [ %176, %199 ]
+  %.0.i = phi ptr [ %212, %_ZSt4copyIPPiS1_ET0_T_S3_S2_.exit24.i ], [ %176, %186 ], [ %176, %183 ], [ %176, %184 ], [ %176, %194 ], [ %176, %197 ], [ %176, %199 ]
   store ptr %.0.i, ptr %20, align 8, !tbaa !36
   %223 = load ptr, ptr %.0.i, align 8, !tbaa !37
   store ptr %223, ptr %19, align 8, !tbaa !38
@@ -2758,9 +2758,9 @@ _ZNSt5queueIiSt5dequeIiSaIiEEED2Ev.exit:          ; preds = %._crit_edge, %_ZNSt
   br i1 %256, label %35, label %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i43, !llvm.loop !92
 
 257:                                              ; preds = %.loopexit106, %.loopexit.split-lp, %.loopexit107, %.loopexit.split-lp108, %94
-  %.sroa.15.3 = phi ptr [ %.sroa.15.0145, %94 ], [ %.sroa.11.0146, %.loopexit107 ], [ %.sroa.11.0146, %.loopexit.split-lp108 ], [ %.sroa.15.5, %.loopexit106 ], [ %.sroa.15.5, %.loopexit.split-lp ]
-  %.sroa.068.3 = phi ptr [ %.sroa.068.0147, %94 ], [ %.sroa.068.0147, %.loopexit107 ], [ %.sroa.068.0147, %.loopexit.split-lp108 ], [ %.sroa.068.5, %.loopexit106 ], [ %.sroa.068.5, %.loopexit.split-lp ]
-  %.pn35.pn.pn = phi { ptr, i32 } [ %95, %94 ], [ %lpad.loopexit109, %.loopexit107 ], [ %lpad.loopexit.split-lp110, %.loopexit.split-lp108 ], [ %lpad.loopexit, %.loopexit106 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.15.3 = phi ptr [ %.sroa.15.0145, %94 ], [ %.sroa.11.0146, %.loopexit.split-lp108 ], [ %.sroa.11.0146, %.loopexit107 ], [ %.sroa.15.5, %.loopexit106 ], [ %.sroa.15.5, %.loopexit.split-lp ]
+  %.sroa.068.3 = phi ptr [ %.sroa.068.0147, %94 ], [ %.sroa.068.0147, %.loopexit.split-lp108 ], [ %.sroa.068.0147, %.loopexit107 ], [ %.sroa.068.5, %.loopexit106 ], [ %.sroa.068.5, %.loopexit.split-lp ]
+  %.pn35.pn.pn = phi { ptr, i32 } [ %95, %94 ], [ %lpad.loopexit.split-lp110, %.loopexit.split-lp108 ], [ %lpad.loopexit109, %.loopexit107 ], [ %lpad.loopexit, %.loopexit106 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt5queueIiSt5dequeIiSaIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #20
   br label %258
 
@@ -3532,7 +3532,7 @@ _ZSt4copyIPPiS1_ET0_T_S3_S2_.exit24:              ; preds = %67, %68, %70
   br label %_ZSt4copyIPPiS1_ET0_T_S3_S2_.exit
 
 _ZSt4copyIPPiS1_ET0_T_S3_S2_.exit:                ; preds = %47, %45, %42, %34, %32, %31, %_ZSt4copyIPPiS1_ET0_T_S3_S2_.exit24
-  %.0 = phi ptr [ %62, %_ZSt4copyIPPiS1_ET0_T_S3_S2_.exit24 ], [ %24, %31 ], [ %24, %32 ], [ %24, %34 ], [ %24, %42 ], [ %24, %45 ], [ %24, %47 ]
+  %.0 = phi ptr [ %62, %_ZSt4copyIPPiS1_ET0_T_S3_S2_.exit24 ], [ %24, %34 ], [ %24, %31 ], [ %24, %32 ], [ %24, %42 ], [ %24, %45 ], [ %24, %47 ]
   store ptr %.0, ptr %6, align 8, !tbaa !36
   %74 = load ptr, ptr %.0, align 8, !tbaa !37
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 24

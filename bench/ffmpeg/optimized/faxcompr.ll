@@ -286,9 +286,9 @@ find_group3_syncmarker.exit:                      ; preds = %find_group3_syncmar
   br label %get_vlc2.exit.i
 
 get_vlc2.exit.i:                                  ; preds = %120, %.lr.ph.i
-  %.064.i.i = phi i32 [ %122, %120 ], [ %.val3853.i, %.lr.ph.i ]
-  %.062.i.i = phi i32 [ %136, %120 ], [ %115, %.lr.ph.i ]
-  %.0.i.i86 = phi i32 [ %139, %120 ], [ %118, %.lr.ph.i ]
+  %.064.i.i = phi i32 [ %.val3853.i, %.lr.ph.i ], [ %122, %120 ]
+  %.062.i.i = phi i32 [ %115, %.lr.ph.i ], [ %136, %120 ]
+  %.0.i.i86 = phi i32 [ %118, %.lr.ph.i ], [ %139, %120 ]
   %140 = add i32 %.0.i.i86, %.064.i.i
   %141 = tail call i32 @llvm.umin.i32(i32 %102, i32 %140)
   store i32 %141, ptr %35, align 8, !tbaa !35
@@ -397,7 +397,7 @@ get_vlc2.exit.i:                                  ; preds = %120, %.lr.ph.i
   br label %align_get_bits.exit
 
 .loopexit:                                        ; preds = %176, %170, %.loopexit43.i, %175, %152, %147, %96
-  %.1.i = phi i32 [ -1094995529, %147 ], [ 0, %.loopexit43.i ], [ -1094995529, %152 ], [ -1094995529, %175 ], [ -1094995529, %96 ], [ -1094995529, %176 ], [ %.3.i, %170 ]
+  %.1.i = phi i32 [ -1094995529, %175 ], [ -1094995529, %147 ], [ 0, %.loopexit43.i ], [ -1094995529, %152 ], [ -1094995529, %96 ], [ -1094995529, %176 ], [ %.3.i, %170 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -437,9 +437,9 @@ align_get_bits.exit:                              ; preds = %183, %180, %.loopex
   br i1 %exitcond.not, label %.loopexit105, label %.lr.ph128.split, !llvm.loop !37
 
 .loopexit105:                                     ; preds = %align_get_bits.exit, %191, %59, %64, %.lr.ph128.split.us, %.thread98.us, %36, %8, %21
-  %.072 = phi i32 [ -1094995529, %21 ], [ -12, %8 ], [ 0, %36 ], [ %53, %.lr.ph128.split.us ], [ 0, %.thread98.us ], [ 0, %64 ], [ 0, %59 ], [ %.3.ph, %align_get_bits.exit ], [ 0, %191 ]
-  %.069 = phi ptr [ %18, %21 ], [ %18, %8 ], [ %18, %36 ], [ %.170124.us, %.lr.ph128.split.us ], [ %.1125.us, %.thread98.us ], [ %.170124, %64 ], [ %.170124, %59 ], [ %.170124, %align_get_bits.exit ], [ %.170124..1125, %191 ]
-  %.068 = phi ptr [ %17, %21 ], [ %17, %8 ], [ %17, %36 ], [ %.1125.us, %.lr.ph128.split.us ], [ %.170124.us, %.thread98.us ], [ %.1125, %64 ], [ %.1125, %59 ], [ %.1125, %align_get_bits.exit ], [ %.1125..170124, %191 ]
+  %.072 = phi i32 [ -1094995529, %21 ], [ -12, %8 ], [ %53, %.lr.ph128.split.us ], [ 0, %36 ], [ 0, %64 ], [ 0, %.thread98.us ], [ 0, %191 ], [ %.3.ph, %align_get_bits.exit ], [ 0, %59 ]
+  %.069 = phi ptr [ %18, %21 ], [ %18, %8 ], [ %.170124.us, %.lr.ph128.split.us ], [ %18, %36 ], [ %.170124, %64 ], [ %.1125.us, %.thread98.us ], [ %.170124..1125, %191 ], [ %.170124, %align_get_bits.exit ], [ %.170124, %59 ]
+  %.068 = phi ptr [ %17, %21 ], [ %17, %8 ], [ %.1125.us, %.lr.ph128.split.us ], [ %17, %36 ], [ %.1125, %64 ], [ %.170124.us, %.thread98.us ], [ %.1125..170124, %191 ], [ %.1125, %align_get_bits.exit ], [ %.1125, %59 ]
   tail call void @av_free(ptr noundef %.068) #7
   tail call void @av_free(ptr noundef %.069) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -613,9 +613,9 @@ define internal fastcc i32 @decode_group3_2d_line(ptr noundef %0, ptr noundef no
   br label %get_vlc2.exit
 
 get_vlc2.exit:                                    ; preds = %63, %82
-  %.064.i = phi i32 [ %84, %82 ], [ %62, %63 ]
-  %.062.i = phi i32 [ %98, %82 ], [ %77, %63 ]
-  %.0.i = phi i32 [ %101, %82 ], [ %80, %63 ]
+  %.064.i = phi i32 [ %62, %63 ], [ %84, %82 ]
+  %.062.i = phi i32 [ %77, %63 ], [ %98, %82 ]
+  %.0.i = phi i32 [ %80, %63 ], [ %101, %82 ]
   %102 = add i32 %.0.i, %.064.i
   %103 = tail call i32 @llvm.umin.i32(i32 %65, i32 %102)
   store i32 %103, ptr %12, align 8, !tbaa !35
@@ -765,10 +765,10 @@ get_vlc2.exit:                                    ; preds = %63, %82
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit, %148, %165, %54
-  %.4132 = phi i32 [ %.0128, %148 ], [ %155, %165 ], [ %.3131, %54 ], [ %.0128, %.thread.loopexit ]
-  %.2123 = phi i32 [ %144, %148 ], [ %156, %165 ], [ %.2130, %54 ], [ %114, %.thread.loopexit ]
-  %.3117 = phi i32 [ 0, %148 ], [ 0, %165 ], [ %56, %54 ], [ 0, %.thread.loopexit ]
-  %.4107 = phi ptr [ %.0103, %148 ], [ %153, %165 ], [ %.3106, %54 ], [ %.0103, %.thread.loopexit ]
+  %.4132 = phi i32 [ %.3131, %54 ], [ %.0128, %148 ], [ %155, %165 ], [ %.0128, %.thread.loopexit ]
+  %.2123 = phi i32 [ %.2130, %54 ], [ %144, %148 ], [ %156, %165 ], [ %114, %.thread.loopexit ]
+  %.3117 = phi i32 [ %56, %54 ], [ 0, %148 ], [ 0, %165 ], [ 0, %.thread.loopexit ]
+  %.4107 = phi ptr [ %.3106, %54 ], [ %.0103, %148 ], [ %153, %165 ], [ %.0103, %.thread.loopexit ]
   %.2123.fr = freeze i32 %.2123
   %168 = icmp ult i32 %.2123.fr, %2
   %169 = icmp ule i32 %.4132, %.2123.fr
@@ -819,8 +819,8 @@ get_vlc2.exit:                                    ; preds = %63, %82
   store i32 0, ptr %179, align 4, !tbaa !29
   br label %.thread173
 
-.thread173:                                       ; preds = %123, %17, %.loopexit, %61, %105, %112, %117, %147, %53, %164, %159, %38, %177, %182, %181
-  %.6 = phi i32 [ -1, %181 ], [ 0, %182 ], [ 0, %177 ], [ -1094995529, %53 ], [ -1094995529, %164 ], [ -1094995529, %159 ], [ -1094995529, %38 ], [ -1163346256, %147 ], [ -1094995529, %117 ], [ -1094995529, %112 ], [ -1094995529, %105 ], [ -1094995529, %61 ], [ -1094995529, %123 ], [ -1094995529, %17 ], [ %.1, %.loopexit ]
+.thread173:                                       ; preds = %123, %17, %.loopexit, %61, %105, %112, %117, %147, %164, %159, %38, %53, %177, %182, %181
+  %.6 = phi i32 [ -1094995529, %117 ], [ -1, %181 ], [ 0, %182 ], [ 0, %177 ], [ -1094995529, %53 ], [ -1094995529, %164 ], [ -1094995529, %159 ], [ -1163346256, %147 ], [ -1094995529, %112 ], [ -1094995529, %38 ], [ -1094995529, %61 ], [ -1094995529, %105 ], [ -1094995529, %123 ], [ -1094995529, %17 ], [ %.1, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.6
 }
@@ -1181,12 +1181,12 @@ define internal fastcc range(i32 -1094995529, 2) i32 @decode_uncompressed(ptr no
   br label %.critedge
 
 .critedge.sink.split:                             ; preds = %11, %61, %58
-  %.str.6.sink = phi ptr [ @.str.7, %58 ], [ @.str.8, %61 ], [ @.str.6, %11 ]
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull %.str.6.sink) #7
+  %.str.8.sink = phi ptr [ @.str.7, %58 ], [ @.str.8, %61 ], [ @.str.6, %11 ]
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull %.str.8.sink) #7
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %20, %80, %87, %77, %86, %79, %74
-  %.273 = phi i32 [ -1094995529, %74 ], [ -1094995529, %79 ], [ -1094995529, %86 ], [ 1, %77 ], [ 0, %87 ], [ 0, %80 ], [ -1094995529, %20 ], [ -1094995529, %.critedge.sink.split ]
+  %.273 = phi i32 [ -1094995529, %74 ], [ 0, %80 ], [ -1094995529, %79 ], [ -1094995529, %86 ], [ 1, %77 ], [ 0, %87 ], [ -1094995529, %20 ], [ -1094995529, %.critedge.sink.split ]
   ret i32 %.273
 }
 

@@ -98,7 +98,7 @@ define hidden void @lj_asm_patchexit(ptr noundef %0, ptr noundef readonly captur
   br i1 %58, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %54, %50, %4, %41
-  %.055.lcssa = phi ptr [ %6, %41 ], [ %6, %4 ], [ %.05560, %50 ], [ %57, %54 ]
+  %.055.lcssa = phi ptr [ %6, %41 ], [ %6, %4 ], [ %57, %54 ], [ %.05560, %50 ]
   %59 = icmp ult ptr %.055.lcssa, %22
   br i1 %59, label %.lr.ph67, label %._crit_edge68
 
@@ -292,9 +292,9 @@ define internal fastcc i32 @asm_x86_inslen(ptr noundef readonly captures(none) %
   br label %.loopexit56
 
 .loopexit56:                                      ; preds = %3, %24, %28, %50, %40, %17
-  %.252 = phi ptr [ %18, %17 ], [ %.050.ph, %28 ], [ %42, %40 ], [ %.050.ph, %50 ], [ %.050.ph, %24 ], [ %.050.ph, %3 ]
-  %.3 = phi i32 [ %.047.ph.ph, %17 ], [ %.047.ph.ph, %28 ], [ %43, %40 ], [ %52, %50 ], [ %.047.ph.ph, %24 ], [ %.047.ph.ph, %3 ]
-  %.2 = phi i32 [ %.0.ph, %17 ], [ %spec.store.select, %28 ], [ %41, %40 ], [ %.0.ph, %50 ], [ 2, %24 ], [ %.0.ph, %3 ]
+  %.252 = phi ptr [ %18, %17 ], [ %.050.ph, %24 ], [ %.050.ph, %28 ], [ %42, %40 ], [ %.050.ph, %50 ], [ %.050.ph, %3 ]
+  %.3 = phi i32 [ %.047.ph.ph, %17 ], [ %.047.ph.ph, %24 ], [ %.047.ph.ph, %28 ], [ %43, %40 ], [ %52, %50 ], [ %.047.ph.ph, %3 ]
+  %.2 = phi i32 [ %.0.ph, %17 ], [ 2, %24 ], [ %spec.store.select, %28 ], [ %41, %40 ], [ %.0.ph, %50 ], [ %.0.ph, %3 ]
   %53 = and i32 %.2, 15
   %54 = add i32 %53, %.3
   %55 = getelementptr inbounds nuw i8, ptr %.252, i64 1
@@ -329,7 +329,7 @@ default.unreachable116:                           ; preds = %.loopexit56
   unreachable
 
 68:                                               ; preds = %59, %66, %64
-  %.5 = phi i32 [ %54, %59 ], [ %65, %64 ], [ %67, %66 ]
+  %.5 = phi i32 [ %67, %66 ], [ %54, %59 ], [ %65, %64 ]
   %69 = and i32 %57, 7
   %70 = icmp eq i32 %69, 4
   br i1 %70, label %71, label %80
@@ -349,7 +349,7 @@ default.unreachable116:                           ; preds = %.loopexit56
   br label %80
 
 80:                                               ; preds = %74, %68, %71, %.loopexit56, %62, %.loopexit, %4
-  %.054 = phi i32 [ %7, %4 ], [ %63, %62 ], [ %23, %.loopexit ], [ %54, %.loopexit56 ], [ %72, %71 ], [ %.5, %68 ], [ %spec.select, %74 ]
+  %.054 = phi i32 [ %7, %4 ], [ %54, %.loopexit56 ], [ %63, %62 ], [ %23, %.loopexit ], [ %.5, %68 ], [ %spec.select, %74 ], [ %72, %71 ]
   ret i32 %.054
 }
 
@@ -995,8 +995,8 @@ ra_setup.exit.i:                                  ; preds = %254
   %330 = icmp eq i8 %329, 100
   br i1 %330, label %.lr.ph.i.i161, label %asm_callx_flags.exit.i, !llvm.loop !94
 
-.thread:                                          ; preds = %320, %322
-  %.0.i.i.ph = phi i32 [ 0, %320 ], [ 1, %322 ]
+.thread:                                          ; preds = %322, %320
+  %.0.i.i.ph = phi i32 [ 1, %322 ], [ 0, %320 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   br label %asm_collectargs.exit.i.i
 
@@ -1483,13 +1483,13 @@ asm_setup_call_slots.exit188.i:                   ; preds = %442, %asm_count_cal
   br label %549
 
 547:                                              ; preds = %537, %534, %531, %527, %523, %520, %519, %512, %508, %505, %491, %477, %465, %464, %455, %319, %316, %316, %316, %316, %316, %316
-  %.2130.i = phi i32 [ %.0128198.i, %534 ], [ %.0128198.i, %537 ], [ %.0128198.i, %531 ], [ 1, %319 ], [ %.0128198.i, %455 ], [ 1, %465 ], [ 0, %464 ], [ %.0128198.i, %477 ], [ %.0128198.i, %491 ], [ %.0128198.i, %505 ], [ %.0128198.i, %508 ], [ %.0128198.i, %512 ], [ 1, %520 ], [ 0, %519 ], [ %.0128198.i, %316 ], [ %.0128198.i, %316 ], [ %.0128198.i, %316 ], [ %.0128198.i, %316 ], [ %.0128198.i, %316 ], [ %.0128198.i, %316 ], [ %.0128198.i, %523 ], [ %.0128198.i, %527 ]
+  %.2130.i = phi i32 [ %.0128198.i, %534 ], [ %.0128198.i, %537 ], [ %.0128198.i, %531 ], [ 1, %319 ], [ %.0128198.i, %455 ], [ 1, %465 ], [ 0, %464 ], [ %.0128198.i, %477 ], [ %.0128198.i, %491 ], [ %.0128198.i, %505 ], [ %.0128198.i, %508 ], [ %.0128198.i, %512 ], [ 1, %520 ], [ 0, %519 ], [ %.0128198.i, %316 ], [ %.0128198.i, %316 ], [ %.0128198.i, %316 ], [ %.0128198.i, %316 ], [ %.0128198.i, %316 ], [ %.0128198.i, %316 ], [ %.0128198.i, %527 ], [ %.0128198.i, %523 ]
   %548 = getelementptr inbounds nuw i8, ptr %.4199.i, i64 6
   store i16 255, ptr %548, align 2, !tbaa !20
   br label %549
 
 549:                                              ; preds = %547, %545, %503, %496, %494, %484, %482, %475, %463, %461, %458, %450, %asm_setup_call_slots.exit188.i, %382, %asm_setup_call_slots.exit.i, %315, %312
-  %.1129.i = phi i32 [ %.0128198.i, %312 ], [ %.0128198.i, %315 ], [ %.2130.i, %547 ], [ %.0128198.i, %545 ], [ %.0128198.i, %458 ], [ 1, %463 ], [ 0, %461 ], [ %.0128198.i, %475 ], [ 1, %484 ], [ 0, %482 ], [ 1, %496 ], [ 0, %494 ], [ %.0128198.i, %503 ], [ 1, %450 ], [ 0, %asm_setup_call_slots.exit188.i ], [ 1, %382 ], [ 0, %asm_setup_call_slots.exit.i ]
+  %.1129.i = phi i32 [ %.0128198.i, %312 ], [ %.0128198.i, %315 ], [ %.2130.i, %547 ], [ %.0128198.i, %545 ], [ 0, %asm_setup_call_slots.exit188.i ], [ %.0128198.i, %503 ], [ %.0128198.i, %458 ], [ 1, %463 ], [ 0, %461 ], [ %.0128198.i, %475 ], [ 1, %484 ], [ 0, %482 ], [ 1, %496 ], [ 0, %494 ], [ 1, %450 ], [ 1, %382 ], [ 0, %asm_setup_call_slots.exit.i ]
   %550 = getelementptr inbounds nuw i8, ptr %.4199.i, i64 8
   %551 = icmp ult ptr %550, %309
   br i1 %551, label %311, label %._crit_edge203.i, !llvm.loop !99
@@ -1703,8 +1703,8 @@ checkmclim.exit.i:                                ; preds = %asm_baseslot.exit.i
   br label %emit_rmro.exit.i
 
 emit_rmro.exit.i:                                 ; preds = %665, %662, %656
-  %.029.i.i = phi ptr [ %664, %662 ], [ %666, %665 ], [ %658, %656 ]
-  %.0.i44.i = phi i8 [ 94, %662 ], [ -98, %665 ], [ 30, %656 ]
+  %.029.i.i = phi ptr [ %658, %656 ], [ %666, %665 ], [ %664, %662 ]
+  %.0.i44.i = phi i8 [ 30, %656 ], [ -98, %665 ], [ 94, %662 ]
   %667 = getelementptr inbounds i8, ptr %.029.i.i, i64 -1
   store i8 %.0.i44.i, ptr %667, align 1, !tbaa !20
   %668 = getelementptr i8, ptr %.029.i.i, i64 -2
@@ -1797,7 +1797,7 @@ emit_loadu64.exit:                                ; preds = %.thread.i.i291, %._
   br i1 %718, label %.thread.i, label %719
 
 719:                                              ; preds = %717, %713, %707, %700
-  %.052.i = phi i32 [ %706, %700 ], [ %712, %707 ], [ %716, %713 ], [ %695, %717 ]
+  %.052.i = phi i32 [ %716, %713 ], [ %695, %717 ], [ %706, %700 ], [ %712, %707 ]
   %720 = icmp eq i32 %.052.i, 0
   br i1 %720, label %.thread.i, label %._crit_edge.i.i
 
@@ -1990,8 +1990,8 @@ emit_movmroi.exit.i.i:                            ; preds = %794, %791
   br label %emit_movmroi.exit65.i.i
 
 emit_movmroi.exit65.i.i:                          ; preds = %807, %804, %799
-  %.029.i.i63.i.i = phi ptr [ %806, %804 ], [ %808, %807 ], [ %801, %799 ]
-  %.0.i.i64.i.i = phi i8 [ 66, %804 ], [ -126, %807 ], [ 2, %799 ]
+  %.029.i.i63.i.i = phi ptr [ %801, %799 ], [ %808, %807 ], [ %806, %804 ]
+  %.0.i.i64.i.i = phi i8 [ 2, %799 ], [ -126, %807 ], [ 66, %804 ]
   %809 = getelementptr inbounds i8, ptr %.029.i.i63.i.i, i64 -1
   store i8 %.0.i.i64.i.i, ptr %809, align 1, !tbaa !20
   %810 = getelementptr i8, ptr %.029.i.i63.i.i, i64 -2
@@ -2040,8 +2040,8 @@ ra_alloc1.exit.i.i:                               ; preds = %817, %811
   br label %831
 
 831:                                              ; preds = %829, %826, %ra_alloc1.exit.i.i
-  %.029.i.i.i = phi ptr [ %828, %826 ], [ %830, %829 ], [ %819, %ra_alloc1.exit.i.i ]
-  %.0.i66.i.i = phi i32 [ 64, %826 ], [ 128, %829 ], [ 0, %ra_alloc1.exit.i.i ]
+  %.029.i.i.i = phi ptr [ %819, %ra_alloc1.exit.i.i ], [ %830, %829 ], [ %828, %826 ]
+  %.0.i66.i.i = phi i32 [ 0, %ra_alloc1.exit.i.i ], [ 128, %829 ], [ 64, %826 ]
   %832 = shl nuw nsw i32 %.0.i.i66.i, 3
   %833 = and i32 %832, 56
   %834 = or disjoint i32 %.0.i66.i.i, %833
@@ -2061,7 +2061,7 @@ ra_alloc1.exit.i.i:                               ; preds = %817, %811
   br label %emit_rmro.exit.i.i
 
 emit_rmro.exit.i.i:                               ; preds = %840, %831
-  %.046.i.i.i.i = phi ptr [ %841, %840 ], [ %838, %831 ]
+  %.046.i.i.i.i = phi ptr [ %838, %831 ], [ %841, %840 ]
   store ptr %.046.i.i.i.i, ptr %89, align 8, !tbaa !60
   br label %998
 
@@ -2110,8 +2110,8 @@ ra_alloc1.exit70.i.i:                             ; preds = %851, %847
   br label %865
 
 865:                                              ; preds = %863, %860, %ra_alloc1.exit70.i.i
-  %.029.i71.i.i = phi ptr [ %862, %860 ], [ %864, %863 ], [ %857, %ra_alloc1.exit70.i.i ]
-  %.0.i72.i.i = phi i32 [ 64, %860 ], [ 128, %863 ], [ 0, %ra_alloc1.exit70.i.i ]
+  %.029.i71.i.i = phi ptr [ %857, %ra_alloc1.exit70.i.i ], [ %864, %863 ], [ %862, %860 ]
+  %.0.i72.i.i = phi i32 [ 0, %ra_alloc1.exit70.i.i ], [ 128, %863 ], [ 64, %860 ]
   %866 = shl nuw nsw i32 %.0.i69.i.i, 3
   %867 = and i32 %866, 56
   %868 = or disjoint i32 %.0.i72.i.i, %867
@@ -2132,7 +2132,7 @@ ra_alloc1.exit70.i.i:                             ; preds = %851, %847
   br label %emit_rmro.exit76.i.i
 
 emit_rmro.exit76.i.i:                             ; preds = %875, %865
-  %.046.i.i75.i.i = phi ptr [ %872, %875 ], [ %873, %865 ]
+  %.046.i.i75.i.i = phi ptr [ %873, %865 ], [ %872, %875 ]
   store ptr %.046.i.i75.i.i, ptr %89, align 8, !tbaa !60
   br label %998
 
@@ -2210,9 +2210,9 @@ ra_alloc1.exit79.i.i:                             ; preds = %882, %878
   br label %emit_rmro.exit85.i.i
 
 emit_rmro.exit85.i.i:                             ; preds = %916, %913, %903, %900
-  %.029.i.i86.sink20.i.i = phi ptr [ %902, %900 ], [ %904, %903 ], [ %915, %913 ], [ %917, %916 ]
-  %.0.i.i87.sink.i.i = phi i8 [ 74, %900 ], [ -118, %903 ], [ 66, %913 ], [ -126, %916 ]
-  %.sink.i.i = phi i8 [ -127, %900 ], [ -127, %903 ], [ -57, %913 ], [ -57, %916 ]
+  %.029.i.i86.sink20.i.i = phi ptr [ %904, %903 ], [ %902, %900 ], [ %915, %913 ], [ %917, %916 ]
+  %.0.i.i87.sink.i.i = phi i8 [ -118, %903 ], [ 74, %900 ], [ 66, %913 ], [ -126, %916 ]
+  %.sink.i.i = phi i8 [ -127, %903 ], [ -127, %900 ], [ -57, %913 ], [ -57, %916 ]
   %918 = getelementptr inbounds i8, ptr %.029.i.i86.sink20.i.i, i64 -1
   store i8 %.0.i.i87.sink.i.i, ptr %918, align 1, !tbaa !20
   %919 = getelementptr i8, ptr %.029.i.i86.sink20.i.i, i64 -2
@@ -2245,8 +2245,8 @@ emit_rmro.exit85.i.i:                             ; preds = %916, %913, %903, %9
   br label %934
 
 934:                                              ; preds = %932, %929, %emit_rmro.exit85.i.i
-  %.029.i89.i.i = phi ptr [ %931, %929 ], [ %933, %932 ], [ %919, %emit_rmro.exit85.i.i ]
-  %.0.i90.i.i = phi i32 [ 64, %929 ], [ 128, %932 ], [ 0, %emit_rmro.exit85.i.i ]
+  %.029.i89.i.i = phi ptr [ %919, %emit_rmro.exit85.i.i ], [ %933, %932 ], [ %931, %929 ]
+  %.0.i90.i.i = phi i32 [ 0, %emit_rmro.exit85.i.i ], [ 128, %932 ], [ 64, %929 ]
   %935 = shl nuw nsw i32 %.0.i78.i.i, 3
   %936 = and i32 %935, 56
   %937 = or disjoint i32 %.0.i90.i.i, %936
@@ -2271,7 +2271,7 @@ emit_rmro.exit85.i.i:                             ; preds = %916, %913, %903, %9
   br label %emit_rmro.exit94.i.i
 
 emit_rmro.exit94.i.i:                             ; preds = %944, %934
-  %.046.i.i93.i.i = phi ptr [ %949, %944 ], [ %941, %934 ]
+  %.046.i.i93.i.i = phi ptr [ %941, %934 ], [ %949, %944 ]
   store ptr %.046.i.i93.i.i, ptr %89, align 8, !tbaa !60
   br label %998
 
@@ -2308,8 +2308,8 @@ emit_rmro.exit94.i.i:                             ; preds = %944, %934
   br label %emit_rmro.exit100.i.i
 
 emit_rmro.exit100.i.i:                            ; preds = %964, %961, %956
-  %.029.i95.i.i = phi ptr [ %963, %961 ], [ %965, %964 ], [ %958, %956 ]
-  %.0.i96.i.i = phi i8 [ 66, %961 ], [ -126, %964 ], [ 2, %956 ]
+  %.029.i95.i.i = phi ptr [ %958, %956 ], [ %965, %964 ], [ %963, %961 ]
+  %.0.i96.i.i = phi i8 [ 2, %956 ], [ -126, %964 ], [ 66, %961 ]
   %966 = getelementptr inbounds i8, ptr %.029.i95.i.i, i64 -1
   store i8 %.0.i96.i.i, ptr %966, align 1, !tbaa !20
   %967 = getelementptr i8, ptr %.029.i95.i.i, i64 -2
@@ -2372,8 +2372,8 @@ emit_movmroi.exit103.i.i:                         ; preds = %969
   br label %emit_movmroi.exit106.i.i
 
 emit_movmroi.exit106.i.i:                         ; preds = %992, %989, %emit_movmroi.exit103.i.i
-  %.029.i.i104.i.i = phi ptr [ %991, %989 ], [ %993, %992 ], [ %986, %emit_movmroi.exit103.i.i ]
-  %.0.i.i105.i.i = phi i8 [ 66, %989 ], [ -126, %992 ], [ 2, %emit_movmroi.exit103.i.i ]
+  %.029.i.i104.i.i = phi ptr [ %986, %emit_movmroi.exit103.i.i ], [ %993, %992 ], [ %991, %989 ]
+  %.0.i.i105.i.i = phi i8 [ 2, %emit_movmroi.exit103.i.i ], [ -126, %992 ], [ 66, %989 ]
   %994 = getelementptr inbounds i8, ptr %.029.i.i104.i.i, i64 -1
   store i8 %.0.i.i105.i.i, ptr %994, align 1, !tbaa !20
   %995 = getelementptr i8, ptr %.029.i.i104.i.i, i64 -2
@@ -2678,8 +2678,8 @@ asm_snap_checkrename.exit.i:                      ; preds = %1147, %1120
   br label %asm_snap_checkrename.exit.thread.i
 
 asm_snap_checkrename.exit.thread.i:               ; preds = %asm_snap_checkrename.exit.i, %1105, %.lr.ph.i187
-  %1150 = phi ptr [ %1093, %.lr.ph.i187 ], [ %1093, %1105 ], [ %.pre19.i, %asm_snap_checkrename.exit.i ]
-  %1151 = phi i32 [ %1094, %.lr.ph.i187 ], [ %1094, %1105 ], [ %.pre18.i, %asm_snap_checkrename.exit.i ]
+  %1150 = phi ptr [ %1093, %1105 ], [ %1093, %.lr.ph.i187 ], [ %.pre19.i, %asm_snap_checkrename.exit.i ]
+  %1151 = phi i32 [ %1094, %1105 ], [ %1094, %.lr.ph.i187 ], [ %.pre18.i, %asm_snap_checkrename.exit.i ]
   %1152 = add i32 %1151, 1
   store i32 %1152, ptr %157, align 8, !tbaa !85
   %1153 = getelementptr inbounds nuw i8, ptr %1150, i64 12
@@ -2975,7 +2975,7 @@ checkmclim.exit108.i.i:                           ; preds = %1198, %1182
   br label %emit_movrr.exit.i.i.i
 
 emit_movrr.exit.i.i.i:                            ; preds = %1267, %1253, %1247, %1225
-  %1271 = phi ptr [ %1252, %1247 ], [ %1241, %1225 ], [ %1270, %1267 ], [ %1261, %1253 ]
+  %1271 = phi ptr [ %1252, %1247 ], [ %1241, %1225 ], [ %1261, %1253 ], [ %1270, %1267 ]
   store ptr %1271, ptr %89, align 8, !tbaa !60
   %1272 = load ptr, ptr %143, align 8, !tbaa !68
   %1273 = getelementptr inbounds nuw %union.IRIns, ptr %1272, i64 %1211
@@ -3284,8 +3284,8 @@ ra_alloc1.exit.i.i1040:                           ; preds = %1408, %1399
   br label %1434
 
 1434:                                             ; preds = %1432, %1429, %1420
-  %.029.i.i.i.i.i = phi ptr [ %1431, %1429 ], [ %1433, %1432 ], [ %1426, %1420 ]
-  %.0.i.i.i.i.i1060 = phi i32 [ 64, %1429 ], [ 128, %1432 ], [ 0, %1420 ]
+  %.029.i.i.i.i.i = phi ptr [ %1426, %1420 ], [ %1433, %1432 ], [ %1431, %1429 ]
+  %.0.i.i.i.i.i1060 = phi i32 [ 0, %1420 ], [ 128, %1432 ], [ 64, %1429 ]
   %1435 = getelementptr inbounds i8, ptr %.029.i.i.i.i.i, i64 -1
   store i8 36, ptr %1435, align 1, !tbaa !20
   %1436 = shl nuw nsw i32 %1390, 3
@@ -3334,8 +3334,8 @@ ra_alloc1.exit.i.i1040:                           ; preds = %1408, %1399
   br label %1462
 
 1462:                                             ; preds = %1460, %1457, %1451
-  %.029.i.i.i.i1043 = phi ptr [ %1459, %1457 ], [ %1461, %1460 ], [ %1454, %1451 ]
-  %.0.i.i121.i.i = phi i32 [ 64, %1457 ], [ 128, %1460 ], [ 0, %1451 ]
+  %.029.i.i.i.i1043 = phi ptr [ %1454, %1451 ], [ %1461, %1460 ], [ %1459, %1457 ]
+  %.0.i.i121.i.i = phi i32 [ 0, %1451 ], [ 128, %1460 ], [ 64, %1457 ]
   %1463 = getelementptr inbounds i8, ptr %.029.i.i.i.i1043, i64 -1
   store i8 36, ptr %1463, align 1, !tbaa !20
   %1464 = shl nuw nsw i32 %1390, 3
@@ -3360,7 +3360,7 @@ ra_alloc1.exit.i.i1040:                           ; preds = %1408, %1399
   br label %ra_save.exit.i.i
 
 ra_save.exit.i.i:                                 ; preds = %1473, %1462, %1445, %1434
-  %storemerge.i.i1045 = phi ptr [ %1450, %1445 ], [ %1442, %1434 ], [ %1470, %1473 ], [ %1471, %1462 ]
+  %storemerge.i.i1045 = phi ptr [ %1450, %1445 ], [ %1442, %1434 ], [ %1471, %1462 ], [ %1470, %1473 ]
   store ptr %storemerge.i.i1045, ptr %89, align 8, !tbaa !60
   %1476 = load ptr, ptr %92, align 8, !tbaa !62
   %1477 = icmp ult ptr %storemerge.i.i1045, %1476
@@ -3467,7 +3467,7 @@ asm_phi_shuffle.exit.i:                           ; preds = %checkmclim.exit.i.i
   br label %1537
 
 1537:                                             ; preds = %1532, %1516
-  %.046.i.i.i.i.i1058 = phi ptr [ %1536, %1532 ], [ %1530, %1516 ]
+  %.046.i.i.i.i.i1058 = phi ptr [ %1530, %1516 ], [ %1536, %1532 ]
   store ptr %.046.i.i.i.i.i1058, ptr %89, align 8, !tbaa !60
   %.pre.i38.i = load ptr, ptr %143, align 8, !tbaa !68
   %.pre199.i.i = load i32, ptr %51, align 8, !tbaa !39
@@ -3576,7 +3576,7 @@ asm_phi_shuffle.exit.i:                           ; preds = %checkmclim.exit.i.i
   br label %1596
 
 1596:                                             ; preds = %1590, %1579
-  %.046.i.i.i106.us.i.i = phi ptr [ %1595, %1590 ], [ %1587, %1579 ]
+  %.046.i.i.i106.us.i.i = phi ptr [ %1587, %1579 ], [ %1595, %1590 ]
   store ptr %.046.i.i.i106.us.i.i, ptr %89, align 8, !tbaa !60
   %1597 = load i8, ptr %1549, align 1, !tbaa !20
   %1598 = zext i8 %1597 to i32
@@ -3608,8 +3608,8 @@ asm_phi_shuffle.exit.i:                           ; preds = %checkmclim.exit.i.i
   br label %1614
 
 1614:                                             ; preds = %1611, %1609, %1596
-  %.029.i.i108.us.i.i = phi ptr [ %1613, %1611 ], [ %1610, %1609 ], [ %.046.i.i.i106.us.i.i, %1596 ]
-  %.0.i.i109.us.i.i = phi i32 [ 64, %1611 ], [ 128, %1609 ], [ 0, %1596 ]
+  %.029.i.i108.us.i.i = phi ptr [ %.046.i.i.i106.us.i.i, %1596 ], [ %1610, %1609 ], [ %1613, %1611 ]
+  %.0.i.i109.us.i.i = phi i32 [ 0, %1596 ], [ 128, %1609 ], [ 64, %1611 ]
   %1615 = getelementptr inbounds i8, ptr %.029.i.i108.us.i.i, i64 -1
   store i8 36, ptr %1615, align 1, !tbaa !20
   %1616 = or disjoint i32 %.0.i.i109.us.i.i, %1545
@@ -3634,7 +3634,7 @@ asm_phi_shuffle.exit.i:                           ; preds = %checkmclim.exit.i.i
   br label %emit_rmro.exit.i111.us.i.i
 
 emit_rmro.exit.i111.us.i.i:                       ; preds = %1623, %1614
-  %.046.i.i.i112.us.i.i = phi ptr [ %1628, %1623 ], [ %1620, %1614 ]
+  %.046.i.i.i112.us.i.i = phi ptr [ %1620, %1614 ], [ %1628, %1623 ]
   store ptr %.046.i.i.i112.us.i.i, ptr %89, align 8, !tbaa !60
   %1629 = load ptr, ptr %92, align 8, !tbaa !62
   %1630 = icmp ult ptr %.046.i.i.i112.us.i.i, %1629
@@ -3720,7 +3720,7 @@ checkmclim.exit103.us.i.i:                        ; preds = %emit_rmro.exit.i111
   br label %1677
 
 1677:                                             ; preds = %1674, %1664
-  %.046.i.i.i.i1053 = phi ptr [ %1672, %1674 ], [ %1673, %1664 ]
+  %.046.i.i.i.i1053 = phi ptr [ %1673, %1664 ], [ %1672, %1674 ]
   store ptr %.046.i.i.i.i1053, ptr %89, align 8, !tbaa !60
   %1678 = load i8, ptr %1637, align 1, !tbaa !20
   %1679 = zext i8 %1678 to i32
@@ -3748,8 +3748,8 @@ checkmclim.exit103.us.i.i:                        ; preds = %emit_rmro.exit.i111
   br label %1692
 
 1692:                                             ; preds = %1690, %1687, %1677
-  %.029.i146.i.i = phi ptr [ %1689, %1687 ], [ %1691, %1690 ], [ %.046.i.i.i.i1053, %1677 ]
-  %.0.i147.i.i = phi i32 [ 64, %1687 ], [ 128, %1690 ], [ 0, %1677 ]
+  %.029.i146.i.i = phi ptr [ %.046.i.i.i.i1053, %1677 ], [ %1691, %1690 ], [ %1689, %1687 ]
+  %.0.i147.i.i = phi i32 [ 0, %1677 ], [ 128, %1690 ], [ 64, %1687 ]
   %1693 = getelementptr inbounds i8, ptr %.029.i146.i.i, i64 -1
   store i8 36, ptr %1693, align 1, !tbaa !20
   %1694 = or disjoint i32 %.0.i147.i.i, %1543
@@ -3770,7 +3770,7 @@ checkmclim.exit103.us.i.i:                        ; preds = %emit_rmro.exit.i111
   br label %emit_rmro.exit151.i.i
 
 emit_rmro.exit151.i.i:                            ; preds = %1700, %1692
-  %.046.i.i150.i.i = phi ptr [ %1698, %1700 ], [ %1699, %1692 ]
+  %.046.i.i150.i.i = phi ptr [ %1699, %1692 ], [ %1698, %1700 ]
   store ptr %.046.i.i150.i.i, ptr %89, align 8, !tbaa !60
   %1703 = load ptr, ptr %92, align 8, !tbaa !62
   %1704 = icmp ult ptr %.046.i.i150.i.i, %1703
@@ -3789,8 +3789,8 @@ checkmclim.exit103.i.i:                           ; preds = %emit_rmro.exit151.i
   br i1 %1709, label %.lr.ph191.split.i.i, label %._crit_edge192.i.i, !llvm.loop !127
 
 ._crit_edge192.i.i:                               ; preds = %checkmclim.exit103.i.i, %checkmclim.exit103.us.i.i, %1537
-  %.082.i77.i = phi i32 [ 0, %1537 ], [ %.082.i7881.i, %checkmclim.exit103.us.i.i ], [ %1540, %checkmclim.exit103.i.i ]
-  %1710 = phi ptr [ %.046.i.i.i.i.i1058, %1537 ], [ %1631, %checkmclim.exit103.us.i.i ], [ %1705, %checkmclim.exit103.i.i ]
+  %.082.i77.i = phi i32 [ %.082.i7881.i, %checkmclim.exit103.us.i.i ], [ 0, %1537 ], [ %1540, %checkmclim.exit103.i.i ]
+  %1710 = phi ptr [ %1631, %checkmclim.exit103.us.i.i ], [ %.046.i.i.i.i.i1058, %1537 ], [ %1705, %checkmclim.exit103.i.i ]
   %1711 = load i32, ptr %152, align 8, !tbaa !78
   %1712 = shl nuw i32 1, %.082.i77.i
   %1713 = and i32 %1711, %1712
@@ -3868,7 +3868,7 @@ checkmclim.exit103.i.i:                           ; preds = %emit_rmro.exit151.i
   br label %emit_storeofs.exit120.i.sink.split.i
 
 emit_storeofs.exit120.i.sink.split.i:             ; preds = %1757, %1746, %1740, %1726
-  %.046.i.i156.i.sink.i = phi ptr [ %1745, %1740 ], [ %1737, %1726 ], [ %1754, %1757 ], [ %1755, %1746 ]
+  %.046.i.i156.i.sink.i = phi ptr [ %1745, %1740 ], [ %1737, %1726 ], [ %1755, %1746 ], [ %1754, %1757 ]
   store ptr %.046.i.i156.i.sink.i, ptr %89, align 8, !tbaa !60
   br label %emit_storeofs.exit120.i.i
 
@@ -3925,7 +3925,7 @@ emit_storeofs.exit120.i.i:                        ; preds = %emit_storeofs.exit1
   br label %emit_rmro.exit163.i.i
 
 emit_rmro.exit163.i.i:                            ; preds = %1788, %1768
-  %.046.i.i162.i.i = phi ptr [ %1785, %1788 ], [ %1786, %1768 ]
+  %.046.i.i162.i.i = phi ptr [ %1786, %1768 ], [ %1785, %1788 ]
   store ptr %.046.i.i162.i.i, ptr %89, align 8, !tbaa !60
   %.pre200.i.i = load ptr, ptr %143, align 8, !tbaa !68
   br label %1791
@@ -4021,7 +4021,7 @@ emit_rmro.exit163.i.i:                            ; preds = %1788, %1768
   br label %emit_rmro.exit169.i.i
 
 emit_rmro.exit169.i.i:                            ; preds = %1843, %1834
-  %.046.i.i168.i.i = phi ptr [ %1841, %1843 ], [ %1842, %1834 ]
+  %.046.i.i168.i.i = phi ptr [ %1842, %1834 ], [ %1841, %1843 ]
   store ptr %.046.i.i168.i.i, ptr %89, align 8, !tbaa !60
   %1846 = load i8, ptr %1807, align 1, !tbaa !20
   %1847 = zext i8 %1846 to i32
@@ -4049,8 +4049,8 @@ emit_rmro.exit169.i.i:                            ; preds = %1843, %1834
   br label %1860
 
 1860:                                             ; preds = %1858, %1855, %emit_rmro.exit169.i.i
-  %.029.i170.i.i = phi ptr [ %1857, %1855 ], [ %1859, %1858 ], [ %.046.i.i168.i.i, %emit_rmro.exit169.i.i ]
-  %.0.i171.i.i = phi i32 [ 64, %1855 ], [ 128, %1858 ], [ 0, %emit_rmro.exit169.i.i ]
+  %.029.i170.i.i = phi ptr [ %.046.i.i168.i.i, %emit_rmro.exit169.i.i ], [ %1859, %1858 ], [ %1857, %1855 ]
+  %.0.i171.i.i = phi i32 [ 0, %emit_rmro.exit169.i.i ], [ 128, %1858 ], [ 64, %1855 ]
   %1861 = getelementptr inbounds i8, ptr %.029.i170.i.i, i64 -1
   store i8 36, ptr %1861, align 1, !tbaa !20
   %1862 = or disjoint i32 %.0.i171.i.i, %1803
@@ -4070,7 +4070,7 @@ emit_rmro.exit169.i.i:                            ; preds = %1843, %1834
   br label %emit_rmro.exit175.i.i
 
 emit_rmro.exit175.i.i:                            ; preds = %1867, %1860
-  %.046.i.i174.i.i = phi ptr [ %1865, %1867 ], [ %1866, %1860 ]
+  %.046.i.i174.i.i = phi ptr [ %1866, %1860 ], [ %1865, %1867 ]
   store ptr %.046.i.i174.i.i, ptr %89, align 8, !tbaa !60
   %1870 = load ptr, ptr %92, align 8, !tbaa !62
   %1871 = icmp ult ptr %.046.i.i174.i.i, %1870
@@ -4131,7 +4131,7 @@ checkmclim.exit.i31.i:                            ; preds = %emit_rmro.exit175.i
   br label %emit_rmro.exit181.i.i
 
 emit_rmro.exit181.i.i:                            ; preds = %1902, %1881
-  %.046.i.i180.i.i = phi ptr [ %1899, %1902 ], [ %1900, %1881 ]
+  %.046.i.i180.i.i = phi ptr [ %1900, %1881 ], [ %1899, %1902 ]
   store ptr %.046.i.i180.i.i, ptr %89, align 8, !tbaa !60
   br label %asm_phi_copyspill.exit.i
 
@@ -4390,7 +4390,7 @@ ra_scratch.exit.i1021:                            ; preds = %2016
   br label %emit_rr.exit.i.i1025
 
 emit_rr.exit.i.i1025:                             ; preds = %2052, %2031
-  %.046.i.i.i.i1026 = phi ptr [ %2057, %2052 ], [ %2046, %2031 ]
+  %.046.i.i.i.i1026 = phi ptr [ %2046, %2031 ], [ %2057, %2052 ]
   store ptr %.046.i.i.i.i1026, ptr %89, align 8, !tbaa !60
   br label %emit_movrr.exit.i1018
 
@@ -4420,7 +4420,7 @@ emit_rr.exit.i.i1025:                             ; preds = %2052, %2031
   br label %emit_rr.exit9.i.i
 
 emit_rr.exit9.i.i:                                ; preds = %2071, %2058
-  %.046.i.i8.i.i = phi ptr [ %2074, %2071 ], [ %2065, %2058 ]
+  %.046.i.i8.i.i = phi ptr [ %2065, %2058 ], [ %2074, %2071 ]
   store ptr %.046.i.i8.i.i, ptr %89, align 8, !tbaa !60
   br label %emit_movrr.exit.i1018
 
@@ -5143,7 +5143,7 @@ ra_dest.exit.i958:                                ; preds = %2425, %2422
   br label %asm_bswap.exit
 
 asm_bswap.exit:                                   ; preds = %ra_dest.exit.i958, %2443
-  %.046.i.i = phi ptr [ %2448, %2443 ], [ %2437, %ra_dest.exit.i958 ]
+  %.046.i.i = phi ptr [ %2437, %ra_dest.exit.i958 ], [ %2448, %2443 ]
   store ptr %.046.i.i, ptr %89, align 8, !tbaa !60
   %2449 = load i16, ptr %1014, align 8, !tbaa !20
   %2450 = zext i16 %2449 to i32
@@ -5705,8 +5705,8 @@ asm_lea.exit.thread.i:                            ; preds = %2564, %2555, %2552,
   br label %2739
 
 2739:                                             ; preds = %2737, %2734, %2725
-  %.029.i.i926 = phi ptr [ %2736, %2734 ], [ %2738, %2737 ], [ %1156, %2725 ]
-  %.0.i.i927 = phi i8 [ 64, %2734 ], [ -128, %2737 ], [ 0, %2725 ]
+  %.029.i.i926 = phi ptr [ %1156, %2725 ], [ %2738, %2737 ], [ %2736, %2734 ]
+  %.0.i.i927 = phi i8 [ 0, %2725 ], [ -128, %2737 ], [ 64, %2734 ]
   %2740 = getelementptr inbounds i8, ptr %.029.i.i926, i64 -1
   store i8 36, ptr %2740, align 1, !tbaa !20
   %2741 = shl i8 %2724, 3
@@ -5748,8 +5748,8 @@ emit_rmro.exit.i924:                              ; preds = %2719, %2749, %2739
   br label %asm_ldexp.exit
 
 asm_ldexp.exit:                                   ; preds = %emit_rmro.exit.i924, %2753, %2756
-  %.029.i19.i = phi ptr [ %2755, %2753 ], [ %2757, %2756 ], [ %2750, %emit_rmro.exit.i924 ]
-  %.0.i20.i925 = phi i8 [ 92, %2753 ], [ -100, %2756 ], [ 28, %emit_rmro.exit.i924 ]
+  %.029.i19.i = phi ptr [ %2750, %emit_rmro.exit.i924 ], [ %2757, %2756 ], [ %2755, %2753 ]
+  %.0.i20.i925 = phi i8 [ 28, %emit_rmro.exit.i924 ], [ -100, %2756 ], [ 92, %2753 ]
   %2758 = getelementptr inbounds i8, ptr %.029.i19.i, i64 -1
   store i8 36, ptr %2758, align 1, !tbaa !20
   %2759 = getelementptr inbounds i8, ptr %.029.i19.i, i64 -2
@@ -6209,8 +6209,8 @@ ra_dest.exit53.i:                                 ; preds = %2914, %2911
   br label %emit_rmro.exit.i1174
 
 emit_rmro.exit.i1174:                             ; preds = %2986, %2983, %2978
-  %.029.i.i1175 = phi ptr [ %2985, %2983 ], [ %2987, %2986 ], [ %2946, %2978 ]
-  %.0.i44.i1176 = phi i8 [ 70, %2983 ], [ -122, %2986 ], [ 6, %2978 ]
+  %.029.i.i1175 = phi ptr [ %2946, %2978 ], [ %2987, %2986 ], [ %2985, %2983 ]
+  %.0.i44.i1176 = phi i8 [ 6, %2978 ], [ -122, %2986 ], [ 70, %2983 ]
   %2988 = getelementptr inbounds i8, ptr %.029.i.i1175, i64 -1
   store i8 %.0.i44.i1176, ptr %2988, align 1, !tbaa !20
   %2989 = getelementptr i8, ptr %.029.i.i1175, i64 -2
@@ -6552,7 +6552,7 @@ ra_scratch.exit.i850:                             ; preds = %3140, %ra_evict.exi
   br label %asm_tobit.exit
 
 asm_tobit.exit:                                   ; preds = %3147, %3163
-  %.046.i.i.i848 = phi ptr [ %3156, %3163 ], [ %3157, %3147 ]
+  %.046.i.i.i848 = phi ptr [ %3157, %3147 ], [ %3156, %3163 ]
   store ptr %.046.i.i.i848, ptr %89, align 8, !tbaa !60
   %3166 = getelementptr inbounds nuw i8, ptr %1014, i64 2
   %3167 = load i16, ptr %3166, align 2, !tbaa !20
@@ -7382,7 +7382,7 @@ emit_rmro.exit74.i:                               ; preds = %3527, %3525, %3523,
   br label %emit_rmro.exit86.i
 
 emit_rmro.exit86.i:                               ; preds = %3594, %3586
-  %.046.i.i.i772 = phi ptr [ %3595, %3594 ], [ %3592, %3586 ]
+  %.046.i.i.i772 = phi ptr [ %3592, %3586 ], [ %3595, %3594 ]
   store ptr %.046.i.i.i772, ptr %89, align 8, !tbaa !60
   br label %asm_ir.exit
 
@@ -7735,10 +7735,10 @@ ra_scratch.exit.i.i:                              ; preds = %3740, %ra_evict.exi
   br label %emit_rmro.exit.i.i210
 
 emit_rmro.exit.i.i210:                            ; preds = %3773, %3771, %3767, %.thread.i52.i.i, %3760, %3758, %3754, %.thread.i.i.i
-  %.031.i45.sink126.i.i = phi i32 [ 4, %3760 ], [ %.0.i.i.i.i209, %3758 ], [ %.0.i.i.i.i209, %3754 ], [ 37, %.thread.i.i.i ], [ 4, %3773 ], [ %.0.i.i.i.i209, %3771 ], [ %.0.i.i.i.i209, %3767 ], [ 37, %.thread.i52.i.i ]
-  %.1.i47.sink.i.i = phi i32 [ 0, %3760 ], [ 64, %3758 ], [ 64, %3754 ], [ 0, %.thread.i.i.i ], [ 0, %3773 ], [ 64, %3771 ], [ 64, %3767 ], [ 0, %.thread.i52.i.i ]
-  %.130.i46.sink121.i.i = phi ptr [ %3762, %3760 ], [ %3759, %3758 ], [ %3756, %3754 ], [ %3753, %.thread.i.i.i ], [ %3775, %3773 ], [ %3772, %3771 ], [ %3769, %3767 ], [ %3766, %.thread.i52.i.i ]
-  %.sink.i.i211 = phi i8 [ -115, %3760 ], [ -115, %3758 ], [ -115, %3754 ], [ -115, %.thread.i.i.i ], [ -117, %3773 ], [ -117, %3771 ], [ -117, %3767 ], [ -117, %.thread.i52.i.i ]
+  %.031.i45.sink126.i.i = phi i32 [ 37, %.thread.i.i.i ], [ 4, %3760 ], [ %.0.i.i.i.i209, %3758 ], [ %.0.i.i.i.i209, %3754 ], [ 4, %3773 ], [ %.0.i.i.i.i209, %3771 ], [ %.0.i.i.i.i209, %3767 ], [ 37, %.thread.i52.i.i ]
+  %.1.i47.sink.i.i = phi i32 [ 0, %.thread.i.i.i ], [ 0, %3760 ], [ 64, %3758 ], [ 64, %3754 ], [ 0, %3773 ], [ 64, %3771 ], [ 64, %3767 ], [ 0, %.thread.i52.i.i ]
+  %.130.i46.sink121.i.i = phi ptr [ %3753, %.thread.i.i.i ], [ %3762, %3760 ], [ %3759, %3758 ], [ %3756, %3754 ], [ %3775, %3773 ], [ %3772, %3771 ], [ %3769, %3767 ], [ %3766, %.thread.i52.i.i ]
+  %.sink.i.i211 = phi i8 [ -115, %.thread.i.i.i ], [ -115, %3760 ], [ -115, %3758 ], [ -115, %3754 ], [ -117, %3773 ], [ -117, %3771 ], [ -117, %3767 ], [ -117, %.thread.i52.i.i ]
   %3776 = shl nuw nsw i32 %.0.i.i.i207, 3
   %3777 = and i32 %3776, 56
   %3778 = and i32 %.031.i45.sink126.i.i, 7
@@ -7898,7 +7898,7 @@ asm_guardcc.exit.i.i:                             ; preds = %3833, %3823
   br label %emit_rmro.exit65.i.i
 
 emit_rmro.exit65.i.i:                             ; preds = %3865, %3857
-  %.046.i.i.i.i216 = phi ptr [ %3866, %3865 ], [ %3863, %3857 ]
+  %.046.i.i.i.i216 = phi ptr [ %3863, %3857 ], [ %3866, %3865 ]
   store ptr %.046.i.i.i.i216, ptr %89, align 8, !tbaa !60
   br label %3867
 
@@ -8661,7 +8661,7 @@ asm_fusestrref.exit.i._crit_edge:                 ; preds = %asm_fusestrref.exit
   br label %emit_rr.exit.i.i664
 
 emit_rr.exit.i.i664:                              ; preds = %4256, %.thread.i.i663
-  %.046.i.i.i.i665 = phi ptr [ %4259, %4256 ], [ %4250, %.thread.i.i663 ]
+  %.046.i.i.i.i665 = phi ptr [ %4250, %.thread.i.i663 ], [ %4259, %4256 ]
   store ptr %.046.i.i.i.i665, ptr %89, align 8, !tbaa !60
   br label %asm_ir.exit
 
@@ -9096,7 +9096,7 @@ asm_guardcc.exit.i152.i:                          ; preds = %4463, %4454, %4451
   br label %emit_rr.exit.i.i
 
 emit_rr.exit.i.i:                                 ; preds = %4479, %asm_guardcc.exit.i152.i
-  %4481 = phi i64 [ -3, %4479 ], [ -2, %asm_guardcc.exit.i152.i ]
+  %4481 = phi i64 [ -2, %asm_guardcc.exit.i152.i ], [ -3, %4479 ]
   %4482 = getelementptr i8, ptr %4475, i64 %4481
   %4483 = getelementptr inbounds i8, ptr %4482, i64 -1
   store ptr %4483, ptr %89, align 8, !tbaa !60
@@ -9402,8 +9402,8 @@ checkmclim.exit.i.i202:                           ; preds = %4620
   br label %4648
 
 4648:                                             ; preds = %4646, %4643, %4636
-  %.248.i609 = phi ptr [ %4645, %4643 ], [ %4647, %4646 ], [ %4624, %4636 ]
-  %.2.i610 = phi i32 [ 64, %4643 ], [ 128, %4646 ], [ 0, %4636 ]
+  %.248.i609 = phi ptr [ %4647, %4646 ], [ %4645, %4643 ], [ %4624, %4636 ]
+  %.2.i610 = phi i32 [ 128, %4646 ], [ 64, %4643 ], [ 0, %4636 ]
   %4649 = load i8, ptr %214, align 1, !tbaa !133
   %.not54.i611 = icmp eq i8 %4649, -128
   br i1 %.not54.i611, label %4675, label %4650
@@ -9476,7 +9476,7 @@ checkmclim.exit.i.i202:                           ; preds = %4620
   br label %emit_mrm.exit612
 
 emit_mrm.exit612:                                 ; preds = %4650, %4671, %4679, %4687
-  %storemerge.i601 = phi ptr [ %4674, %4671 ], [ %4664, %4650 ], [ %4688, %4687 ], [ %4685, %4679 ]
+  %storemerge.i601 = phi ptr [ %4664, %4650 ], [ %4688, %4687 ], [ %4674, %4671 ], [ %4685, %4679 ]
   store ptr %storemerge.i601, ptr %89, align 8, !tbaa !60
   br label %asm_ir.exit
 
@@ -9551,8 +9551,8 @@ emit_mrm.exit612:                                 ; preds = %4650, %4671, %4679,
   br label %4725
 
 4725:                                             ; preds = %4723, %4720, %4713
-  %.248.i592 = phi ptr [ %4722, %4720 ], [ %4724, %4723 ], [ %4699, %4713 ]
-  %.2.i593 = phi i32 [ 64, %4720 ], [ 128, %4723 ], [ 0, %4713 ]
+  %.248.i592 = phi ptr [ %4724, %4723 ], [ %4722, %4720 ], [ %4699, %4713 ]
+  %.2.i593 = phi i32 [ 128, %4723 ], [ 64, %4720 ], [ 0, %4713 ]
   %4726 = load i8, ptr %214, align 1, !tbaa !133
   %.not54.i594 = icmp eq i8 %4726, -128
   br i1 %.not54.i594, label %4752, label %4727
@@ -9625,7 +9625,7 @@ emit_mrm.exit612:                                 ; preds = %4650, %4671, %4679,
   br label %emit_mrm.exit595
 
 emit_mrm.exit595:                                 ; preds = %4727, %4748, %4756, %4764
-  %storemerge.i584 = phi ptr [ %4751, %4748 ], [ %4741, %4727 ], [ %4765, %4764 ], [ %4762, %4756 ]
+  %storemerge.i584 = phi ptr [ %4741, %4727 ], [ %4765, %4764 ], [ %4751, %4748 ], [ %4762, %4756 ]
   %4766 = getelementptr inbounds i8, ptr %storemerge.i584, i64 -1
   store ptr %4766, ptr %89, align 8, !tbaa !60
   store i8 47, ptr %4766, align 1, !tbaa !20
@@ -9709,8 +9709,8 @@ emit_mrm.exit595:                                 ; preds = %4727, %4748, %4756,
   br label %4807
 
 4807:                                             ; preds = %4805, %4802, %4795
-  %.248.i575 = phi ptr [ %4804, %4802 ], [ %4806, %4805 ], [ %4783, %4795 ]
-  %.2.i576 = phi i32 [ 64, %4802 ], [ 128, %4805 ], [ 0, %4795 ]
+  %.248.i575 = phi ptr [ %4806, %4805 ], [ %4804, %4802 ], [ %4783, %4795 ]
+  %.2.i576 = phi i32 [ 128, %4805 ], [ 64, %4802 ], [ 0, %4795 ]
   %4808 = load i8, ptr %214, align 1, !tbaa !133
   %.not54.i577 = icmp eq i8 %4808, -128
   br i1 %.not54.i577, label %4830, label %4809
@@ -9838,8 +9838,8 @@ emit_mrm.exit578:                                 ; preds = %4809, %4834
   br label %4875
 
 4875:                                             ; preds = %4873, %4870, %4863
-  %.248.i558 = phi ptr [ %4872, %4870 ], [ %4874, %4873 ], [ %4851, %4863 ]
-  %.2.i559 = phi i32 [ 64, %4870 ], [ 128, %4873 ], [ 0, %4863 ]
+  %.248.i558 = phi ptr [ %4874, %4873 ], [ %4872, %4870 ], [ %4851, %4863 ]
+  %.2.i559 = phi i32 [ 128, %4873 ], [ 64, %4870 ], [ 0, %4863 ]
   %4876 = load i8, ptr %214, align 1, !tbaa !133
   %.not54.i560 = icmp eq i8 %4876, -128
   br i1 %.not54.i560, label %4902, label %4877
@@ -9912,7 +9912,7 @@ emit_mrm.exit578:                                 ; preds = %4809, %4834
   br label %emit_mrm.exit561
 
 emit_mrm.exit561:                                 ; preds = %4877, %4898, %4906, %4914
-  %storemerge.i550 = phi ptr [ %4901, %4898 ], [ %4891, %4877 ], [ %4915, %4914 ], [ %4912, %4906 ]
+  %storemerge.i550 = phi ptr [ %4891, %4877 ], [ %4915, %4914 ], [ %4901, %4898 ], [ %4912, %4906 ]
   store ptr %storemerge.i550, ptr %89, align 8, !tbaa !60
   br label %asm_ir.exit
 
@@ -10081,8 +10081,8 @@ ra_alloc1.exit.i517:                              ; preds = %4982, %ra_scratch.e
   br label %5002
 
 5002:                                             ; preds = %5000, %4997, %4992
-  %.029.i.i525 = phi ptr [ %4999, %4997 ], [ %5001, %5000 ], [ %4988, %4992 ]
-  %.0.i117.i = phi i32 [ 64, %4997 ], [ 128, %5000 ], [ 0, %4992 ]
+  %.029.i.i525 = phi ptr [ %4988, %4992 ], [ %5001, %5000 ], [ %4999, %4997 ]
+  %.0.i117.i = phi i32 [ 0, %4992 ], [ 128, %5000 ], [ 64, %4997 ]
   %5003 = icmp eq i32 %4994, 4
   br i1 %5003, label %5004, label %5009
 
@@ -10129,7 +10129,7 @@ ra_alloc1.exit.i517:                              ; preds = %4982, %ra_scratch.e
   br label %emit_rmro.exit.i522
 
 emit_rmro.exit.i522:                              ; preds = %5024, %5009
-  %.046.i.i.i523 = phi ptr [ %5017, %5024 ], [ %5018, %5009 ]
+  %.046.i.i.i523 = phi ptr [ %5018, %5009 ], [ %5017, %5024 ]
   store ptr %.046.i.i.i523, ptr %89, align 8, !tbaa !60
   br label %5257
 
@@ -10364,7 +10364,7 @@ asm_guardcc.exit.i506:                            ; preds = %5135, %5126, %5123
   br label %emit_rr.exit.i510
 
 emit_rr.exit.i510:                                ; preds = %5149, %asm_guardcc.exit.i506
-  %5151 = phi i64 [ -3, %5149 ], [ -2, %asm_guardcc.exit.i506 ]
+  %5151 = phi i64 [ -2, %asm_guardcc.exit.i506 ], [ -3, %5149 ]
   %5152 = getelementptr i8, ptr %5145, i64 %5151
   %5153 = getelementptr inbounds i8, ptr %5152, i64 -1
   store ptr %5153, ptr %89, align 8, !tbaa !60
@@ -10418,8 +10418,8 @@ emit_rr.exit.i510:                                ; preds = %5149, %asm_guardcc.
   br label %5174
 
 5174:                                             ; preds = %5172, %5169, %5164
-  %.029.i139.i = phi ptr [ %5171, %5169 ], [ %5173, %5172 ], [ %5160, %5164 ]
-  %.0.i140.i = phi i32 [ 64, %5169 ], [ 128, %5172 ], [ 0, %5164 ]
+  %.029.i139.i = phi ptr [ %5160, %5164 ], [ %5173, %5172 ], [ %5171, %5169 ]
+  %.0.i140.i = phi i32 [ 0, %5164 ], [ 128, %5172 ], [ 64, %5169 ]
   %5175 = icmp eq i32 %5166, 4
   br i1 %5175, label %5176, label %emit_rmro.exit142.i
 
@@ -10512,8 +10512,8 @@ emit_rmro.exit142.i:                              ; preds = %5178, %5176, %5174,
   br label %5219
 
 5219:                                             ; preds = %5217, %5214, %5209
-  %.029.i158.i = phi ptr [ %5216, %5214 ], [ %5218, %5217 ], [ %5205, %5209 ]
-  %.0.i159.i = phi i32 [ 64, %5214 ], [ 128, %5217 ], [ 0, %5209 ]
+  %.029.i158.i = phi ptr [ %5205, %5209 ], [ %5218, %5217 ], [ %5216, %5214 ]
+  %.0.i159.i = phi i32 [ 0, %5209 ], [ 128, %5217 ], [ 64, %5214 ]
   %5220 = icmp eq i32 %5211, 4
   br i1 %5220, label %5221, label %emit_rmro.exit161.i
 
@@ -10764,7 +10764,7 @@ asm_guardcc.exit170._crit_edge.i:                 ; preds = %asm_guardcc.exit170
   br label %emit_rmro.exit183.i
 
 emit_rmro.exit183.i:                              ; preds = %5346, %5338
-  %.046.i.i177.i = phi ptr [ %5347, %5346 ], [ %5344, %5338 ]
+  %.046.i.i177.i = phi ptr [ %5344, %5338 ], [ %5347, %5346 ]
   store ptr %.046.i.i177.i, ptr %89, align 8, !tbaa !60
   br label %asm_ir.exit
 
@@ -10812,8 +10812,8 @@ emit_rmro.exit183.i:                              ; preds = %5346, %5338
   br label %5366
 
 5366:                                             ; preds = %5364, %5361, %5356
-  %.029.i193.i = phi ptr [ %5363, %5361 ], [ %5365, %5364 ], [ %5352, %5356 ]
-  %.0.i194.i = phi i32 [ 64, %5361 ], [ 128, %5364 ], [ 0, %5356 ]
+  %.029.i193.i = phi ptr [ %5352, %5356 ], [ %5365, %5364 ], [ %5363, %5361 ]
+  %.0.i194.i = phi i32 [ 0, %5356 ], [ 128, %5364 ], [ 64, %5361 ]
   %5367 = icmp eq i32 %5358, 4
   br i1 %5367, label %5368, label %emit_rmro.exit196.i
 
@@ -10930,7 +10930,7 @@ emit_rmro.exit196.i:                              ; preds = %5370, %5368, %5366,
   br label %emit_rmro.exit209.i
 
 emit_rmro.exit209.i:                              ; preds = %5419, %5411
-  %.046.i.i203.i = phi ptr [ %5420, %5419 ], [ %5417, %5411 ]
+  %.046.i.i203.i = phi ptr [ %5417, %5411 ], [ %5420, %5419 ]
   store ptr %.046.i.i203.i, ptr %89, align 8, !tbaa !60
   br label %asm_ir.exit
 
@@ -10983,7 +10983,7 @@ ra_scratch.exit212.i:                             ; preds = %5429, %5427
   br label %emit_rr.exit216.i
 
 emit_rr.exit216.i:                                ; preds = %5446, %ra_scratch.exit212.i
-  %5448 = phi i64 [ -3, %5446 ], [ -2, %ra_scratch.exit212.i ]
+  %5448 = phi i64 [ -2, %ra_scratch.exit212.i ], [ -3, %5446 ]
   %5449 = getelementptr i8, ptr %5439, i64 %5448
   %5450 = getelementptr inbounds i8, ptr %5449, i64 -1
   store ptr %5450, ptr %89, align 8, !tbaa !60
@@ -11032,8 +11032,8 @@ emit_rr.exit216.i:                                ; preds = %5446, %ra_scratch.e
   br label %5470
 
 5470:                                             ; preds = %5468, %5465, %5460
-  %.029.i229.i = phi ptr [ %5467, %5465 ], [ %5469, %5468 ], [ %5456, %5460 ]
-  %.0.i230.i = phi i32 [ 64, %5465 ], [ 128, %5468 ], [ 0, %5460 ]
+  %.029.i229.i = phi ptr [ %5456, %5460 ], [ %5469, %5468 ], [ %5467, %5465 ]
+  %.0.i230.i = phi i32 [ 0, %5460 ], [ 128, %5468 ], [ 64, %5465 ]
   %5471 = icmp eq i32 %5462, 4
   br i1 %5471, label %5472, label %emit_rmro.exit232.i
 
@@ -11215,8 +11215,8 @@ ra_alloc1.exit.i179.i:                            ; preds = %5518, %5511
   br label %5570
 
 5570:                                             ; preds = %5568, %5565, %5558
-  %.248.i486 = phi ptr [ %5567, %5565 ], [ %5569, %5568 ], [ %5546, %5558 ]
-  %.2.i487 = phi i32 [ 64, %5565 ], [ 128, %5568 ], [ 0, %5558 ]
+  %.248.i486 = phi ptr [ %5569, %5568 ], [ %5567, %5565 ], [ %5546, %5558 ]
+  %.2.i487 = phi i32 [ 128, %5568 ], [ 64, %5565 ], [ 0, %5558 ]
   %5571 = load i8, ptr %214, align 1, !tbaa !133
   %.not54.i488 = icmp eq i8 %5571, -128
   br i1 %.not54.i488, label %5597, label %5572
@@ -11295,7 +11295,7 @@ ra_alloc1.exit.i179.i:                            ; preds = %5518, %5511
   br label %emit_mrm.exit489
 
 emit_mrm.exit489:                                 ; preds = %.thread1856, %5572, %5593, %5603, %5610
-  %storemerge.i478 = phi ptr [ %5596, %5593 ], [ %5586, %5572 ], [ %5611, %5610 ], [ %5608, %5603 ], [ %5602, %.thread1856 ]
+  %storemerge.i478 = phi ptr [ %5586, %5572 ], [ %5611, %5610 ], [ %5596, %5593 ], [ %5608, %5603 ], [ %5602, %.thread1856 ]
   %5612 = load i32, ptr %172, align 8, !tbaa !132
   %5613 = add nsw i32 %5612, 4
   store i32 %5613, ptr %172, align 8, !tbaa !132
@@ -11406,8 +11406,8 @@ ra_alloc1.exit56.i.i:                             ; preds = %5624, %5617
   br label %5667
 
 5667:                                             ; preds = %5665, %5662, %5655
-  %.248.i469 = phi ptr [ %5664, %5662 ], [ %5666, %5665 ], [ %5643, %5655 ]
-  %.2.i470 = phi i32 [ 64, %5662 ], [ 128, %5665 ], [ 0, %5655 ]
+  %.248.i469 = phi ptr [ %5666, %5665 ], [ %5664, %5662 ], [ %5643, %5655 ]
+  %.2.i470 = phi i32 [ 128, %5665 ], [ 64, %5662 ], [ 0, %5655 ]
   %5668 = load i8, ptr %214, align 1, !tbaa !133
   %.not54.i471 = icmp eq i8 %5668, -128
   br i1 %.not54.i471, label %5694, label %5669
@@ -11480,7 +11480,7 @@ ra_alloc1.exit56.i.i:                             ; preds = %5624, %5617
   br label %emit_mrm.exit472
 
 emit_mrm.exit472:                                 ; preds = %5669, %5690, %5698, %5706
-  %storemerge.i461 = phi ptr [ %5693, %5690 ], [ %5683, %5669 ], [ %5707, %5706 ], [ %5704, %5698 ]
+  %storemerge.i461 = phi ptr [ %5683, %5669 ], [ %5707, %5706 ], [ %5693, %5690 ], [ %5704, %5698 ]
   store ptr %storemerge.i461, ptr %89, align 8, !tbaa !60
   %5708 = load i32, ptr %172, align 8, !tbaa !132
   %5709 = add nsw i32 %5708, -4
@@ -11553,8 +11553,8 @@ emit_mrm.exit472:                                 ; preds = %5669, %5690, %5698,
   br label %5742
 
 5742:                                             ; preds = %5740, %5737, %5730
-  %.248.i452 = phi ptr [ %5739, %5737 ], [ %5741, %5740 ], [ %5718, %5730 ]
-  %.2.i453 = phi i32 [ 64, %5737 ], [ 128, %5740 ], [ 0, %5730 ]
+  %.248.i452 = phi ptr [ %5741, %5740 ], [ %5739, %5737 ], [ %5718, %5730 ]
+  %.2.i453 = phi i32 [ 128, %5740 ], [ 64, %5737 ], [ 0, %5730 ]
   %5743 = load i8, ptr %214, align 1, !tbaa !133
   %.not54.i454 = icmp eq i8 %5743, -128
   br i1 %.not54.i454, label %5769, label %5744
@@ -11633,7 +11633,7 @@ emit_mrm.exit472:                                 ; preds = %5669, %5690, %5698,
   br label %emit_mrm.exit455
 
 emit_mrm.exit455:                                 ; preds = %5782, %5775, %5765, %5744, %.thread1862, %5711
-  %5784 = phi ptr [ %.pre1493, %5711 ], [ %5768, %5765 ], [ %5758, %5744 ], [ %5783, %5782 ], [ %5780, %5775 ], [ %5774, %.thread1862 ]
+  %5784 = phi ptr [ %.pre1493, %5711 ], [ %5758, %5744 ], [ %5783, %5782 ], [ %5768, %5765 ], [ %5780, %5775 ], [ %5774, %.thread1862 ]
   %5785 = load i32, ptr %172, align 8, !tbaa !132
   %5786 = add nsw i32 %5785, 4
   store i32 %5786, ptr %172, align 8, !tbaa !132
@@ -11691,8 +11691,8 @@ emit_mrm.exit455:                                 ; preds = %5782, %5775, %5765,
   br label %5811
 
 5811:                                             ; preds = %5809, %5806, %5799
-  %.248.i = phi ptr [ %5808, %5806 ], [ %5810, %5809 ], [ %5787, %5799 ]
-  %.2.i438 = phi i32 [ 64, %5806 ], [ 128, %5809 ], [ 0, %5799 ]
+  %.248.i = phi ptr [ %5810, %5809 ], [ %5808, %5806 ], [ %5787, %5799 ]
+  %.2.i438 = phi i32 [ 128, %5809 ], [ 64, %5806 ], [ 0, %5799 ]
   %5812 = load i8, ptr %214, align 1, !tbaa !133
   %.not54.i = icmp eq i8 %5812, -128
   br i1 %.not54.i, label %5838, label %5813
@@ -11771,7 +11771,7 @@ emit_mrm.exit455:                                 ; preds = %5782, %5775, %5765,
   br label %emit_mrm.exit
 
 emit_mrm.exit:                                    ; preds = %.thread1868, %5813, %5834, %5844, %5851
-  %storemerge.i433 = phi ptr [ %5837, %5834 ], [ %5827, %5813 ], [ %5852, %5851 ], [ %5849, %5844 ], [ %5843, %.thread1868 ]
+  %storemerge.i433 = phi ptr [ %5827, %5813 ], [ %5852, %5851 ], [ %5837, %5834 ], [ %5849, %5844 ], [ %5843, %.thread1868 ]
   store ptr %storemerge.i433, ptr %89, align 8, !tbaa !60
   br label %asm_ir.exit
 
@@ -11891,7 +11891,7 @@ emit_loadi.exit.sink.split.i:                     ; preds = %._crit_edge.i.i423,
   br label %asm_tnew.exit
 
 asm_tnew.exit:                                    ; preds = %.thread.i.i428, %._crit_edge.i.i423, %emit_loadi.exit.sink.split.i
-  %storemerge.i427 = phi ptr [ %5898, %.thread.i.i428 ], [ %5910, %._crit_edge.i.i423 ], [ %5912, %emit_loadi.exit.sink.split.i ]
+  %storemerge.i427 = phi ptr [ %5910, %._crit_edge.i.i423 ], [ %5898, %.thread.i.i428 ], [ %5912, %emit_loadi.exit.sink.split.i ]
   store ptr %storemerge.i427, ptr %89, align 8, !tbaa !60
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %asm_ir.exit
@@ -12015,7 +12015,7 @@ asm_tnew.exit:                                    ; preds = %.thread.i.i428, %._
   br label %emit_rmro.exit57.i.i
 
 emit_rmro.exit57.i.i:                             ; preds = %5976, %5970
-  %.046.i.i56.i.i = phi ptr [ %5980, %5976 ], [ %5974, %5970 ]
+  %.046.i.i56.i.i = phi ptr [ %5974, %5970 ], [ %5980, %5976 ]
   store ptr %.046.i.i56.i.i, ptr %89, align 8, !tbaa !60
   %5981 = trunc i64 %5953 to i32
   %5982 = icmp ult i64 %5953, 4294967296
@@ -12085,8 +12085,8 @@ emit_rmro.exit57.i.i:                             ; preds = %5976, %5970
   br label %emit_rmro.exit.i414
 
 emit_rmro.exit.i414:                              ; preds = %6013, %6010, %6005
-  %.029.i.i415 = phi ptr [ %6012, %6010 ], [ %6014, %6013 ], [ %.046.i.i56.i.i, %6005 ]
-  %.0.i44.i416 = phi i8 [ 78, %6010 ], [ -114, %6013 ], [ 14, %6005 ]
+  %.029.i.i415 = phi ptr [ %.046.i.i56.i.i, %6005 ], [ %6014, %6013 ], [ %6012, %6010 ]
+  %.0.i44.i416 = phi i8 [ 14, %6005 ], [ -114, %6013 ], [ 78, %6010 ]
   %6015 = getelementptr inbounds i8, ptr %.029.i.i415, i64 -1
   store i8 %.0.i44.i416, ptr %6015, align 1, !tbaa !20
   %6016 = getelementptr i8, ptr %.029.i.i415, i64 -2
@@ -12268,7 +12268,7 @@ ra_alloc1.exit.i186.i:                            ; preds = %6042, %6038
   br label %asm_cnew.exit.i
 
 emit_gri.exit.i.i200:                             ; preds = %ra_alloc1.exit.i186.i, %6059, %5957, %5965, %.emit_gri.exit.i.i200_crit_edge, %6034, %6029, %emit_rmro.exit.i414, %._crit_edge.i.i417, %.thread.i.i419
-  %6116 = phi ptr [ %.pre1492, %.emit_gri.exit.i.i200_crit_edge ], [ %6037, %6034 ], [ %6033, %6029 ], [ %6017, %emit_rmro.exit.i414 ], [ %5997, %._crit_edge.i.i417 ], [ %5995, %.thread.i.i419 ], [ %5969, %5965 ], [ %5963, %5957 ], [ %6064, %6059 ], [ %6056, %ra_alloc1.exit.i186.i ]
+  %6116 = phi ptr [ %.pre1492, %.emit_gri.exit.i.i200_crit_edge ], [ %6037, %6034 ], [ %6033, %6029 ], [ %6017, %emit_rmro.exit.i414 ], [ %5997, %._crit_edge.i.i417 ], [ %5995, %.thread.i.i419 ], [ %5969, %5965 ], [ %5963, %5957 ], [ %6056, %ra_alloc1.exit.i186.i ], [ %6064, %6059 ]
   %6117 = getelementptr inbounds i8, ptr %6116, i64 -1
   store i8 8, ptr %6117, align 1, !tbaa !20
   %6118 = getelementptr inbounds i8, ptr %6116, i64 -2
@@ -12370,7 +12370,7 @@ emit_gri.exit.i.i200:                             ; preds = %ra_alloc1.exit.i186
   br label %asm_cnew.exit.i
 
 asm_cnew.exit.i:                                  ; preds = %._crit_edge.i72.i.i, %6172, %.thread.i75.i.i, %6163, %._crit_edge.i.i182.i, %6114, %.thread.i.i183.i, %6105
-  %.0.i74.i.i.sink = phi ptr [ %6108, %6105 ], [ %6099, %.thread.i.i183.i ], [ %6115, %6114 ], [ %6112, %._crit_edge.i.i182.i ], [ %6166, %6163 ], [ %6157, %.thread.i75.i.i ], [ %6173, %6172 ], [ %6170, %._crit_edge.i72.i.i ]
+  %.0.i74.i.i.sink = phi ptr [ %6166, %6163 ], [ %6112, %._crit_edge.i.i182.i ], [ %6108, %6105 ], [ %6099, %.thread.i.i183.i ], [ %6115, %6114 ], [ %6157, %.thread.i75.i.i ], [ %6173, %6172 ], [ %6170, %._crit_edge.i72.i.i ]
   store ptr %.0.i74.i.i.sink, ptr %89, align 8, !tbaa !60
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
@@ -12621,9 +12621,9 @@ ra_scratch.exit.i398:                             ; preds = %6249, %6247
   br label %6282
 
 6282:                                             ; preds = %6279, %6277, %.thread86.i, %6274, %.thread.i.i403
-  %.031.i.i400 = phi i32 [ 4, %6279 ], [ %.0.i.i385, %6277 ], [ 37, %.thread.i.i403 ], [ %.0.i.i385, %.thread86.i ], [ %.0.i.i385, %6274 ]
-  %.130.i.i401 = phi ptr [ %6281, %6279 ], [ %6278, %6277 ], [ %6273, %.thread.i.i403 ], [ %6276, %.thread86.i ], [ %6257, %6274 ]
-  %.1.i66.i = phi i32 [ 0, %6279 ], [ 0, %6277 ], [ 0, %.thread.i.i403 ], [ 64, %.thread86.i ], [ 0, %6274 ]
+  %.031.i.i400 = phi i32 [ 4, %6279 ], [ %.0.i.i385, %6277 ], [ %.0.i.i385, %6274 ], [ 37, %.thread.i.i403 ], [ %.0.i.i385, %.thread86.i ]
+  %.130.i.i401 = phi ptr [ %6281, %6279 ], [ %6278, %6277 ], [ %6257, %6274 ], [ %6273, %.thread.i.i403 ], [ %6276, %.thread86.i ]
+  %.1.i66.i = phi i32 [ 0, %6279 ], [ 0, %6277 ], [ 0, %6274 ], [ 0, %.thread.i.i403 ], [ 64, %.thread86.i ]
   %6283 = shl nuw nsw i32 %.0.i.i.i399, 3
   %6284 = and i32 %6283, 56
   %6285 = and i32 %.031.i.i400, 7
@@ -12651,9 +12651,9 @@ ra_scratch.exit.i398:                             ; preds = %6249, %6247
   br label %6341
 
 6300:                                             ; preds = %6267, %6265, %.thread.i405, %6262, %.thread.i.i.i406
-  %.031.i.i.i = phi i32 [ 4, %6267 ], [ %.0.i.i385, %6265 ], [ 37, %.thread.i.i.i406 ], [ %.0.i.i385, %.thread.i405 ], [ %.0.i.i385, %6262 ]
-  %.130.i.i.i = phi ptr [ %6269, %6267 ], [ %6266, %6265 ], [ %6261, %.thread.i.i.i406 ], [ %6264, %.thread.i405 ], [ %6257, %6262 ]
-  %.1.i.i.i404 = phi i32 [ 0, %6267 ], [ 0, %6265 ], [ 0, %.thread.i.i.i406 ], [ 64, %.thread.i405 ], [ 0, %6262 ]
+  %.031.i.i.i = phi i32 [ 4, %6267 ], [ %.0.i.i385, %6265 ], [ %.0.i.i385, %6262 ], [ 37, %.thread.i.i.i406 ], [ %.0.i.i385, %.thread.i405 ]
+  %.130.i.i.i = phi ptr [ %6269, %6267 ], [ %6266, %6265 ], [ %6257, %6262 ], [ %6261, %.thread.i.i.i406 ], [ %6264, %.thread.i405 ]
+  %.1.i.i.i404 = phi i32 [ 0, %6267 ], [ 0, %6265 ], [ 0, %6262 ], [ 0, %.thread.i.i.i406 ], [ 64, %.thread.i405 ]
   %6301 = shl nuw nsw i32 %.0.i.i.i399, 3
   %6302 = and i32 %6301, 56
   %6303 = and i32 %.031.i.i.i, 7
@@ -12726,7 +12726,7 @@ emit_rmro.exit.i49.i:                             ; preds = %6326, %6324, %6320,
   br label %asm_bufhdr.exit
 
 6341:                                             ; preds = %6297, %6282
-  %.046.i.i.i402 = phi ptr [ %6290, %6297 ], [ %6291, %6282 ]
+  %.046.i.i.i402 = phi ptr [ %6291, %6282 ], [ %6290, %6297 ]
   br i1 %.not.i.i40.i, label %6342, label %6351
 
 6342:                                             ; preds = %6341
@@ -12784,7 +12784,7 @@ emit_rmro.exit.i49.i:                             ; preds = %6326, %6324, %6320,
   br label %emit_rmro.exit81.i
 
 emit_rmro.exit81.i:                               ; preds = %6365, %6354
-  %.046.i.i76.i = phi ptr [ %6360, %6365 ], [ %6361, %6354 ]
+  %.046.i.i76.i = phi ptr [ %6361, %6354 ], [ %6360, %6365 ]
   store ptr %.046.i.i76.i, ptr %89, align 8, !tbaa !60
   br label %asm_bufhdr.exit
 
@@ -13002,8 +13002,8 @@ emit_rmro.exit.i.i.i:                             ; preds = %6432, %6430, %6426,
   br label %emit_storeofs.exit.i.i
 
 emit_storeofs.exit.i.i:                           ; preds = %6479, %6464, %emit_rmro.exit.i.i.i
-  %.sink.i.i389 = phi ptr [ %6450, %emit_rmro.exit.i.i.i ], [ %6472, %6479 ], [ %6473, %6464 ]
-  %.pre-phi.i.i390 = phi i32 [ %6443, %emit_rmro.exit.i.i.i ], [ %6474, %6479 ], [ %6474, %6464 ]
+  %.sink.i.i389 = phi ptr [ %6450, %emit_rmro.exit.i.i.i ], [ %6473, %6464 ], [ %6472, %6479 ]
+  %.pre-phi.i.i390 = phi i32 [ %6443, %emit_rmro.exit.i.i.i ], [ %6474, %6464 ], [ %6474, %6479 ]
   store ptr %.sink.i.i389, ptr %89, align 8, !tbaa !60
   %6482 = or disjoint i32 %.0.i.i.i57.i, 524800
   %6483 = load ptr, ptr %59, align 8, !tbaa !44
@@ -13029,7 +13029,7 @@ emit_storeofs.exit.i.i:                           ; preds = %6479, %6464, %emit_
   br label %emit_gri.exit.i.i391
 
 emit_gri.exit.i.i391:                             ; preds = %6493, %emit_storeofs.exit.i.i
-  %.046.i.i.i61.i = phi ptr [ %6494, %6493 ], [ %6491, %emit_storeofs.exit.i.i ]
+  %.046.i.i.i61.i = phi ptr [ %6491, %emit_storeofs.exit.i.i ], [ %6494, %6493 ]
   br i1 %6420, label %6495, label %6523
 
 6495:                                             ; preds = %emit_gri.exit.i.i391
@@ -13148,12 +13148,12 @@ emit_rmro.exit.i21.i.i:                           ; preds = %6505, %6503, %6499,
   br label %asm_bufhdr_write.exit.i
 
 asm_bufhdr_write.exit.i:                          ; preds = %6550, %6536, %emit_rmro.exit.i21.i.i
-  %storemerge.i.i = phi ptr [ %6522, %emit_rmro.exit.i21.i.i ], [ %6544, %6550 ], [ %6545, %6536 ]
+  %storemerge.i.i = phi ptr [ %6522, %emit_rmro.exit.i21.i.i ], [ %6545, %6536 ], [ %6544, %6550 ]
   store ptr %storemerge.i.i, ptr %89, align 8, !tbaa !60
   br label %asm_bufhdr.exit
 
 asm_bufhdr.exit:                                  ; preds = %ra_dest.exit.i388, %emit_rmro.exit.i49.i, %emit_rmro.exit81.i, %6368, %6383, %6396, %6399, %asm_bufhdr_write.exit.i
-  %.033.i = phi ptr [ %1014, %ra_dest.exit.i388 ], [ %1014, %asm_bufhdr_write.exit.i ], [ %.0.i395, %6399 ], [ %1014, %6396 ], [ %1014, %6383 ], [ %1014, %6368 ], [ %1014, %emit_rmro.exit.i49.i ], [ %1014, %emit_rmro.exit81.i ]
+  %.033.i = phi ptr [ %1014, %ra_dest.exit.i388 ], [ %1014, %6383 ], [ %1014, %asm_bufhdr_write.exit.i ], [ %1014, %6368 ], [ %.0.i395, %6399 ], [ %1014, %6396 ], [ %1014, %emit_rmro.exit.i49.i ], [ %1014, %emit_rmro.exit81.i ]
   %6553 = load i16, ptr %.033.i, align 8, !tbaa !20
   %6554 = zext i16 %6553 to i32
   call fastcc void @ra_left(ptr noundef nonnull %29, i32 noundef %.0.i.i385, i32 noundef %6554)
@@ -13238,9 +13238,9 @@ asm_bufhdr.exit:                                  ; preds = %ra_dest.exit.i388, 
   br label %6600
 
 6600:                                             ; preds = %6594, %6590, %6589, %6584, %6581, %6578, %6574, %6567
-  %6601 = phi i32 [ 32765, %6589 ], [ %6596, %6594 ], [ %6560, %6581 ], [ %6560, %6578 ], [ 32765, %6574 ], [ %6560, %6567 ], [ %6592, %6590 ], [ %6560, %6584 ]
-  %.131.i = phi i32 [ -129, %6589 ], [ -129, %6594 ], [ -129, %6581 ], [ -129, %6578 ], [ %6577, %6574 ], [ -129, %6567 ], [ -129, %6590 ], [ -129, %6584 ]
-  %.1.i364 = phi ptr [ getelementptr inbounds nuw (i8, ptr @lj_ir_callinfo, i64 128), %6589 ], [ getelementptr inbounds nuw (i8, ptr @lj_ir_callinfo, i64 256), %6594 ], [ getelementptr inbounds nuw (i8, ptr @lj_ir_callinfo, i64 272), %6581 ], [ getelementptr inbounds nuw (i8, ptr @lj_ir_callinfo, i64 272), %6578 ], [ getelementptr inbounds nuw (i8, ptr @lj_ir_callinfo, i64 288), %6574 ], [ getelementptr inbounds nuw (i8, ptr @lj_ir_callinfo, i64 272), %6567 ], [ %..i374, %6590 ], [ getelementptr inbounds nuw (i8, ptr @lj_ir_callinfo, i64 272), %6584 ]
+  %6601 = phi i32 [ %6560, %6578 ], [ 32765, %6589 ], [ %6592, %6590 ], [ %6560, %6567 ], [ %6596, %6594 ], [ %6560, %6584 ], [ %6560, %6581 ], [ 32765, %6574 ]
+  %.131.i = phi i32 [ -129, %6578 ], [ -129, %6589 ], [ -129, %6590 ], [ -129, %6567 ], [ -129, %6594 ], [ -129, %6584 ], [ -129, %6581 ], [ %6577, %6574 ]
+  %.1.i364 = phi ptr [ getelementptr inbounds nuw (i8, ptr @lj_ir_callinfo, i64 272), %6578 ], [ getelementptr inbounds nuw (i8, ptr @lj_ir_callinfo, i64 128), %6589 ], [ %..i374, %6590 ], [ getelementptr inbounds nuw (i8, ptr @lj_ir_callinfo, i64 272), %6567 ], [ getelementptr inbounds nuw (i8, ptr @lj_ir_callinfo, i64 256), %6594 ], [ getelementptr inbounds nuw (i8, ptr @lj_ir_callinfo, i64 272), %6584 ], [ getelementptr inbounds nuw (i8, ptr @lj_ir_callinfo, i64 272), %6581 ], [ getelementptr inbounds nuw (i8, ptr @lj_ir_callinfo, i64 288), %6574 ]
   call fastcc void @asm_setupresult(ptr noundef nonnull %29, ptr noundef nonnull %1014, ptr noundef %.1.i364)
   call fastcc void @asm_gencall(ptr noundef nonnull %29, ptr noundef %.1.i364, ptr noundef %13)
   %6602 = icmp eq i32 %6601, 32765
@@ -13313,7 +13313,7 @@ asm_bufhdr.exit:                                  ; preds = %ra_dest.exit.i388, 
   br label %emit_rr.exit.i.i371
 
 emit_rr.exit.i.i371:                              ; preds = %6640, %.thread.i.i369
-  %.046.i.i.i.i372 = phi ptr [ %6643, %6640 ], [ %6634, %.thread.i.i369 ]
+  %.046.i.i.i.i372 = phi ptr [ %6634, %.thread.i.i369 ], [ %6643, %6640 ]
   store ptr %.046.i.i.i.i372, ptr %89, align 8, !tbaa !60
   br label %asm_bufput.exit
 
@@ -13522,7 +13522,7 @@ emit_rmro.exit.i358:                              ; preds = %6695, %6693, %6689,
   br label %emit_rmro.exit34.i
 
 emit_rmro.exit34.i:                               ; preds = %6742, %6734
-  %.046.i.i.i361 = phi ptr [ %6743, %6742 ], [ %6740, %6734 ]
+  %.046.i.i.i361 = phi ptr [ %6740, %6734 ], [ %6743, %6742 ]
   %6744 = ptrtoint ptr %6684 to i64
   %6745 = ptrtoint ptr %.046.i.i.i361 to i64
   %6746 = sub i64 %6744, %6745
@@ -13575,7 +13575,7 @@ emit_rmro.exit34.i:                               ; preds = %6742, %6734
   br label %asm_tbar.exit
 
 6766:                                             ; preds = %6759, %6755
-  %.130.i37.i = phi ptr [ %6760, %6759 ], [ %6757, %6755 ]
+  %.130.i37.i = phi ptr [ %6757, %6755 ], [ %6760, %6759 ]
   %6767 = trunc nuw nsw i32 %.0.i.i354 to i8
   %6768 = and i8 %6767, 7
   %6769 = or disjoint i8 %6768, 64
@@ -13593,7 +13593,7 @@ emit_rmro.exit34.i:                               ; preds = %6742, %6734
   br label %asm_tbar.exit
 
 asm_tbar.exit:                                    ; preds = %.thread.i362, %6766, %6773
-  %.046.i.i41.i = phi ptr [ %6774, %6773 ], [ %6771, %6766 ], [ %6765, %.thread.i362 ]
+  %.046.i.i41.i = phi ptr [ %6771, %6766 ], [ %6774, %6773 ], [ %6765, %.thread.i362 ]
   store ptr %.046.i.i41.i, ptr %89, align 8, !tbaa !60
   br label %asm_ir.exit
 
@@ -13722,7 +13722,7 @@ ra_alloc1.exit.i345:                              ; preds = %6821, %6817
   br label %emit_rmro.exit.i348
 
 6846:                                             ; preds = %6839, %6835
-  %.130.i.i = phi ptr [ %6840, %6839 ], [ %6837, %6835 ]
+  %.130.i.i = phi ptr [ %6837, %6835 ], [ %6840, %6839 ]
   %6847 = trunc nuw nsw i32 %.0.i.i346 to i8
   %6848 = and i8 %6847, 7
   %6849 = or disjoint i8 %6848, 64
@@ -13740,7 +13740,7 @@ ra_alloc1.exit.i345:                              ; preds = %6821, %6817
   br label %emit_rmro.exit.i348
 
 emit_rmro.exit.i348:                              ; preds = %6853, %6846, %.thread.i347, %6812
-  %6855 = phi ptr [ %.pre.i351, %6812 ], [ %6854, %6853 ], [ %6851, %6846 ], [ %6845, %.thread.i347 ]
+  %6855 = phi ptr [ %.pre.i351, %6812 ], [ %6851, %6846 ], [ %6854, %6853 ], [ %6845, %.thread.i347 ]
   %6856 = ptrtoint ptr %6855 to i64
   %6857 = sub i64 %6799, %6856
   %6858 = trunc i64 %6857 to i8
@@ -13793,7 +13793,7 @@ emit_rmro.exit.i348:                              ; preds = %6853, %6846, %.thre
   br label %asm_obar.exit
 
 6877:                                             ; preds = %6870, %6866
-  %.130.i31.i = phi ptr [ %6871, %6870 ], [ %6868, %6866 ]
+  %.130.i31.i = phi ptr [ %6868, %6866 ], [ %6871, %6870 ]
   %6878 = and i8 %6796, 7
   %6879 = or disjoint i8 %6878, 64
   %6880 = getelementptr inbounds i8, ptr %.130.i31.i, i64 -1
@@ -13810,7 +13810,7 @@ emit_rmro.exit.i348:                              ; preds = %6853, %6846, %.thre
   br label %asm_obar.exit
 
 asm_obar.exit:                                    ; preds = %.thread45.i, %6877, %6883
-  %.046.i.i34.i = phi ptr [ %6884, %6883 ], [ %6881, %6877 ], [ %6876, %.thread45.i ]
+  %.046.i.i34.i = phi ptr [ %6881, %6877 ], [ %6884, %6883 ], [ %6876, %.thread45.i ]
   store ptr %.046.i.i34.i, ptr %89, align 8, !tbaa !60
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %asm_ir.exit
@@ -14128,7 +14128,7 @@ asm_fuseloadm.exit.i:                             ; preds = %7003, %ra_alloc1.ex
   br label %emit_rr.exit.i339
 
 emit_rr.exit.i339:                                ; preds = %7056, %.critedge.i
-  %.046.i.i.i340 = phi ptr [ %7059, %7056 ], [ %7050, %.critedge.i ]
+  %.046.i.i.i340 = phi ptr [ %7050, %.critedge.i ], [ %7059, %7056 ]
   store ptr %.046.i.i.i340, ptr %89, align 8, !tbaa !60
   br label %asm_ir.exit
 
@@ -14501,7 +14501,7 @@ ra_scratch.exit.i:                                ; preds = %7194, %ra_evict.exi
   br label %emit_rr.exit194.i
 
 emit_rr.exit194.i:                                ; preds = %7259, %7245
-  %.046.i.i193.i = phi ptr [ %7262, %7259 ], [ %7253, %7245 ]
+  %.046.i.i193.i = phi ptr [ %7253, %7245 ], [ %7262, %7259 ]
   store ptr %.046.i.i193.i, ptr %89, align 8, !tbaa !60
   %.pre.i326 = load i8, ptr %1061, align 4, !tbaa !20
   %.pre232.i = and i8 %.pre.i326, 31
@@ -15168,8 +15168,8 @@ asm_guardcc.exit.i:                               ; preds = %7549, %7540, %7537
   br label %asm_strto.exit
 
 asm_strto.exit:                                   ; preds = %asm_guardcc.exit.i, %7577, %7580
-  %.029.i.i317 = phi ptr [ %7579, %7577 ], [ %7581, %7580 ], [ %7574, %asm_guardcc.exit.i ]
-  %.0.i13.i = phi i8 [ 64, %7577 ], [ -128, %7580 ], [ 0, %asm_guardcc.exit.i ]
+  %.029.i.i317 = phi ptr [ %7574, %asm_guardcc.exit.i ], [ %7581, %7580 ], [ %7579, %7577 ]
+  %.0.i13.i = phi i8 [ 0, %asm_guardcc.exit.i ], [ -128, %7580 ], [ 64, %7577 ]
   %7582 = getelementptr inbounds i8, ptr %.029.i.i317, i64 -1
   store i8 36, ptr %7582, align 1, !tbaa !20
   %7583 = shl i8 %7563, 3
@@ -15282,7 +15282,7 @@ asm_call.exit.i:                                  ; preds = %7610, %7606
   br i1 %7631, label %.lr.ph.i.i307, label %.loopexit.i.i, !llvm.loop !94
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i307, %7623, %7621
-  %.0.i.i298 = phi i32 [ 1, %7623 ], [ 0, %7621 ], [ %7627, %.lr.ph.i.i307 ]
+  %.0.i.i298 = phi i32 [ 0, %7621 ], [ 1, %7623 ], [ %7627, %.lr.ph.i.i307 ]
   %7632 = getelementptr inbounds nuw i8, ptr %1014, i64 2
   %7633 = load i16, ptr %7632, align 2, !tbaa !20
   %7634 = zext i16 %7633 to i64
@@ -15461,7 +15461,7 @@ ra_alloc1.exit.i:                                 ; preds = %7713, %7707
   br label %emit_rr.exit.i
 
 emit_rr.exit.i:                                   ; preds = %7726, %ra_alloc1.exit.i
-  %.046.i.i.i = phi ptr [ %7727, %7726 ], [ %7724, %ra_alloc1.exit.i ]
+  %.046.i.i.i = phi ptr [ %7724, %ra_alloc1.exit.i ], [ %7727, %7726 ]
   store ptr %.046.i.i.i, ptr %89, align 8, !tbaa !60
   br label %asm_callx.exit
 
@@ -15744,7 +15744,7 @@ asm_snap_alloc.exit.i224:                         ; preds = %7821, %7805, %7799,
   br label %asm_head_side_base.exit.i
 
 asm_head_side_base.exit.i:                        ; preds = %7863, %7846, %7837, %asm_snap_alloc.exit.i224
-  %.0.i.i225 = phi i32 [ %7862, %7846 ], [ %7825, %7837 ], [ 128, %7863 ], [ 128, %asm_snap_alloc.exit.i224 ]
+  %.0.i.i225 = phi i32 [ %7825, %7837 ], [ %7862, %7846 ], [ 128, %7863 ], [ 128, %asm_snap_alloc.exit.i224 ]
   %.not209.i = icmp eq i32 %.0.i.i225, 128
   %7867 = shl nuw i32 1, %.0.i.i225
   %7868 = xor i32 %7867, -1
@@ -15888,7 +15888,7 @@ asm_head_side_base.exit.i:                        ; preds = %7863, %7846, %7837,
   br label %ra_save.exit.i
 
 ra_save.exit.i:                                   ; preds = %7943, %7933, %7917, %7907
-  %storemerge353.i = phi ptr [ %7922, %7917 ], [ %7914, %7907 ], [ %7940, %7943 ], [ %7941, %7933 ]
+  %storemerge353.i = phi ptr [ %7922, %7917 ], [ %7914, %7907 ], [ %7941, %7933 ], [ %7940, %7943 ]
   store ptr %storemerge353.i, ptr %89, align 8, !tbaa !60
   %7946 = load ptr, ptr %92, align 8, !tbaa !62
   %7947 = icmp ult ptr %storemerge353.i, %7946
@@ -15959,8 +15959,8 @@ checkmclim.exit233.i:                             ; preds = %7952, %7949, %ra_sa
   br label %7974
 
 7974:                                             ; preds = %7968, %7965, %7963, %7958
-  %.1182.i = phi i32 [ %.0181289.i, %7958 ], [ %.0181289.i, %7968 ], [ %.0181289.i, %7965 ], [ %spec.select.i237, %7963 ]
-  %.1165.i = phi i32 [ %.0164292.i, %7958 ], [ %7973, %7968 ], [ %.0164292.i, %7965 ], [ %.0164292.i, %7963 ]
+  %.1182.i = phi i32 [ %.0181289.i, %7958 ], [ %spec.select.i237, %7963 ], [ %.0181289.i, %7965 ], [ %.0181289.i, %7968 ]
+  %.1165.i = phi i32 [ %.0164292.i, %7958 ], [ %.0164292.i, %7963 ], [ %.0164292.i, %7965 ], [ %7973, %7968 ]
   %.not226.i = icmp ult i16 %7877, 256
   %7975 = shl nuw i32 1, %7878
   %7976 = xor i32 %7975, -1
@@ -16103,8 +16103,8 @@ checkmclim.exit233.i:                             ; preds = %7952, %7949, %ra_sa
   br label %8053
 
 8053:                                             ; preds = %8051, %8048, %8039
-  %.029.i.i.i249.i = phi ptr [ %8050, %8048 ], [ %8052, %8051 ], [ %8045, %8039 ]
-  %.0.i.i.i250.i = phi i32 [ 64, %8048 ], [ 128, %8051 ], [ 0, %8039 ]
+  %.029.i.i.i249.i = phi ptr [ %8045, %8039 ], [ %8052, %8051 ], [ %8050, %8048 ]
+  %.0.i.i.i250.i = phi i32 [ 0, %8039 ], [ 128, %8051 ], [ 64, %8048 ]
   %8054 = getelementptr inbounds i8, ptr %.029.i.i.i249.i, i64 -1
   store i8 36, ptr %8054, align 1, !tbaa !20
   %8055 = shl nuw nsw i32 %8033, 3
@@ -16153,8 +16153,8 @@ checkmclim.exit233.i:                             ; preds = %7952, %7949, %ra_sa
   br label %8081
 
 8081:                                             ; preds = %8079, %8076, %8070
-  %.029.i.i242.i = phi ptr [ %8078, %8076 ], [ %8080, %8079 ], [ %8073, %8070 ]
-  %.0.i.i243.i = phi i32 [ 64, %8076 ], [ 128, %8079 ], [ 0, %8070 ]
+  %.029.i.i242.i = phi ptr [ %8073, %8070 ], [ %8080, %8079 ], [ %8078, %8076 ]
+  %.0.i.i243.i = phi i32 [ 0, %8070 ], [ 128, %8079 ], [ 64, %8076 ]
   %8082 = getelementptr inbounds i8, ptr %.029.i.i242.i, i64 -1
   store i8 36, ptr %8082, align 1, !tbaa !20
   %8083 = shl nuw nsw i32 %8033, 3
@@ -16179,7 +16179,7 @@ checkmclim.exit233.i:                             ; preds = %7952, %7949, %ra_sa
   br label %ra_save.exit254.i
 
 ra_save.exit254.i:                                ; preds = %8092, %8081, %8064, %8053
-  %storemerge354.i = phi ptr [ %8069, %8064 ], [ %8061, %8053 ], [ %8089, %8092 ], [ %8090, %8081 ]
+  %storemerge354.i = phi ptr [ %8069, %8064 ], [ %8061, %8053 ], [ %8090, %8081 ], [ %8089, %8092 ]
   store ptr %storemerge354.i, ptr %89, align 8, !tbaa !60
   %8095 = shl nuw i32 1, %8033
   %8096 = xor i32 %8095, -1
@@ -16413,7 +16413,7 @@ emit_addptr.exit.i230:                            ; preds = %emit_gri.exit.i.i22
   br label %emit_loadofs.exit.i
 
 emit_loadofs.exit.i:                              ; preds = %8214, %8201, %8185, %8172
-  %storemerge.i231 = phi ptr [ %8190, %8185 ], [ %8182, %8172 ], [ %8211, %8214 ], [ %8212, %8201 ]
+  %storemerge.i231 = phi ptr [ %8190, %8185 ], [ %8182, %8172 ], [ %8212, %8201 ], [ %8211, %8214 ]
   store ptr %storemerge.i231, ptr %89, align 8, !tbaa !60
   %8217 = load ptr, ptr %92, align 8, !tbaa !62
   %8218 = icmp ult ptr %storemerge.i231, %8217
@@ -16551,7 +16551,7 @@ checkmclim.exit230.i:                             ; preds = %checkmclim.exit230.
   br label %emit_movrr.exit.i
 
 emit_movrr.exit.i:                                ; preds = %8304, %8290, %8284, %8262
-  %storemerge270.i = phi ptr [ %8289, %8284 ], [ %8278, %8262 ], [ %8307, %8304 ], [ %8298, %8290 ]
+  %storemerge270.i = phi ptr [ %8289, %8284 ], [ %8278, %8262 ], [ %8298, %8290 ], [ %8307, %8304 ]
   store ptr %storemerge270.i, ptr %89, align 8, !tbaa !60
   %8308 = load ptr, ptr %92, align 8, !tbaa !62
   %8309 = icmp ult ptr %storemerge270.i, %8308
@@ -16638,7 +16638,7 @@ emit_movrr.exit.i:                                ; preds = %8304, %8290, %8284,
   br label %emit_rr.exit.i.i1082
 
 emit_rr.exit.i.i1082:                             ; preds = %8357, %8318
-  %.046.i.i.i.i1083 = phi ptr [ %8362, %8357 ], [ %8352, %8318 ]
+  %.046.i.i.i.i1083 = phi ptr [ %8352, %8318 ], [ %8362, %8357 ]
   store ptr %.046.i.i.i.i1083, ptr %89, align 8, !tbaa !60
   %8363 = load ptr, ptr %143, align 8, !tbaa !68
   %8364 = getelementptr inbounds nuw %union.IRIns, ptr %8363, i64 %8325
@@ -16740,7 +16740,7 @@ ra_rename.exit1084:                               ; preds = %8367, %emit_rr.exit
   br label %emit_rr.exit9.i.i1067
 
 emit_rr.exit9.i.i1067:                            ; preds = %8425, %8395
-  %.046.i.i8.i.i1068 = phi ptr [ %8428, %8425 ], [ %8421, %8395 ]
+  %.046.i.i8.i.i1068 = phi ptr [ %8421, %8395 ], [ %8428, %8425 ]
   store ptr %.046.i.i8.i.i1068, ptr %89, align 8, !tbaa !60
   %8429 = load ptr, ptr %143, align 8, !tbaa !68
   %8430 = getelementptr inbounds nuw %union.IRIns, ptr %8429, i64 %8402
@@ -17449,9 +17449,9 @@ asm_snap_checkrename.exit:                        ; preds = %99, %71
   %.pre19 = load ptr, ptr %5, align 8, !tbaa !45
   br label %asm_snap_checkrename.exit.thread
 
-asm_snap_checkrename.exit.thread:                 ; preds = %43, %56, %asm_snap_checkrename.exit
-  %102 = phi ptr [ %44, %43 ], [ %44, %56 ], [ %.pre19, %asm_snap_checkrename.exit ]
-  %103 = phi i32 [ %45, %43 ], [ %45, %56 ], [ %.pre18, %asm_snap_checkrename.exit ]
+asm_snap_checkrename.exit.thread:                 ; preds = %56, %43, %asm_snap_checkrename.exit
+  %102 = phi ptr [ %44, %56 ], [ %44, %43 ], [ %.pre19, %asm_snap_checkrename.exit ]
+  %103 = phi i32 [ %45, %56 ], [ %45, %43 ], [ %.pre18, %asm_snap_checkrename.exit ]
   %104 = add i32 %103, 1
   store i32 %104, ptr %4, align 8, !tbaa !85
   %105 = getelementptr inbounds nuw i8, ptr %102, i64 12
@@ -17664,7 +17664,7 @@ emit_loadi.exit.sink.split:                       ; preds = %._crit_edge.i, %115
   br label %emit_loadi.exit
 
 emit_loadi.exit:                                  ; preds = %emit_loadi.exit.sink.split, %._crit_edge.i, %.thread.i
-  %storemerge = phi ptr [ %109, %.thread.i ], [ %121, %._crit_edge.i ], [ %123, %emit_loadi.exit.sink.split ]
+  %storemerge = phi ptr [ %121, %._crit_edge.i ], [ %109, %.thread.i ], [ %123, %emit_loadi.exit.sink.split ]
   %124 = ptrtoint ptr %4 to i64
   %125 = ptrtoint ptr %storemerge to i64
   %126 = sub i64 %124, %125
@@ -17891,7 +17891,7 @@ define internal fastcc void @emit_loadu64(ptr noundef nonnull captures(none) %0,
   br label %emit_rr.exit.i
 
 emit_rr.exit.i:                                   ; preds = %31, %.thread.i
-  %.046.i.i.i = phi ptr [ %36, %31 ], [ %25, %.thread.i ]
+  %.046.i.i.i = phi ptr [ %25, %.thread.i ], [ %36, %31 ]
   store ptr %.046.i.i.i, ptr %8, align 8, !tbaa !60
   br label %emit_loadi.exit
 
@@ -17976,8 +17976,8 @@ emit_rr.exit.i:                                   ; preds = %31, %.thread.i
   br label %emit_rmro.exit
 
 emit_rmro.exit:                                   ; preds = %70, %77, %80
-  %.029.i = phi ptr [ %79, %77 ], [ %81, %80 ], [ %73, %70 ]
-  %.0.i44 = phi i32 [ 64, %77 ], [ 128, %80 ], [ 0, %70 ]
+  %.029.i = phi ptr [ %73, %70 ], [ %81, %80 ], [ %79, %77 ]
+  %.0.i44 = phi i32 [ 0, %70 ], [ 128, %80 ], [ 64, %77 ]
   %82 = shl i32 %1, 3
   %83 = and i32 %82, 56
   %84 = or disjoint i32 %.0.i44, %83
@@ -18094,8 +18094,8 @@ define internal fastcc void @emit_rma(ptr noundef nonnull captures(none) %0, i32
   br label %25
 
 25:                                               ; preds = %23, %20, %13
-  %.029.i = phi ptr [ %22, %20 ], [ %24, %23 ], [ %16, %13 ]
-  %.0.i69 = phi i32 [ 64, %20 ], [ 128, %23 ], [ 0, %13 ]
+  %.029.i = phi ptr [ %16, %13 ], [ %24, %23 ], [ %22, %20 ]
+  %.0.i69 = phi i32 [ 0, %13 ], [ 128, %23 ], [ 64, %20 ]
   %26 = shl nuw nsw i32 %2, 3
   %27 = and i32 %26, 56
   %28 = or disjoint i32 %.0.i69, %27
@@ -18661,7 +18661,7 @@ emit_gri.exit:                                    ; preds = %53, %50
   br label %emit_rmro.exit
 
 emit_rmro.exit:                                   ; preds = %87, %92
-  %.130.i = phi ptr [ %93, %92 ], [ %90, %87 ]
+  %.130.i = phi ptr [ %90, %87 ], [ %93, %92 ]
   %94 = shl nuw nsw i32 %13, 3
   %95 = and i32 %94, 56
   %96 = or disjoint i32 %95, %89
@@ -18822,7 +18822,7 @@ define internal fastcc range(i32 0, 256) i32 @ra_rematk(ptr noundef nonnull capt
   br label %emit_rr.exit.i
 
 emit_rr.exit.i:                                   ; preds = %64, %.thread.i
-  %.046.i.i.i = phi ptr [ %67, %64 ], [ %58, %.thread.i ]
+  %.046.i.i.i = phi ptr [ %58, %.thread.i ], [ %67, %64 ]
   store ptr %.046.i.i.i, ptr %42, align 8, !tbaa !60
   br label %emit_loadi.exit
 
@@ -19212,7 +19212,7 @@ define internal fastcc range(i32 0, 256) i32 @ra_evict(ptr noundef nonnull captu
   br label %148
 
 148:                                              ; preds = %.sink.split, %144, %68
-  %.13 = phi i32 [ %.12, %68 ], [ %.28, %144 ], [ %spec.select230, %.sink.split ]
+  %.13 = phi i32 [ %.28, %144 ], [ %.12, %68 ], [ %spec.select230, %.sink.split ]
   %149 = and i32 %.13, 65535
   %150 = icmp samesign ult i32 %149, 32768
   br i1 %150, label %171, label %151
@@ -19295,7 +19295,7 @@ define internal fastcc void @emit_loadk64(ptr noundef nonnull captures(none) %0,
   br label %emit_rr.exit
 
 emit_rr.exit:                                     ; preds = %8, %27
-  %.046.i.i = phi ptr [ %30, %27 ], [ %21, %8 ]
+  %.046.i.i = phi ptr [ %21, %8 ], [ %30, %27 ]
   store ptr %.046.i.i, ptr %10, align 8, !tbaa !60
   br label %121
 
@@ -19457,7 +19457,7 @@ emit_rr.exit:                                     ; preds = %8, %27
   br label %emit_rmro.exit
 
 emit_rmro.exit:                                   ; preds = %88, %118
-  %.046.i.i62 = phi ptr [ %120, %118 ], [ %107, %88 ]
+  %.046.i.i62 = phi ptr [ %107, %88 ], [ %120, %118 ]
   store ptr %.046.i.i62, ptr %43, align 8, !tbaa !60
   br label %121
 
@@ -19505,8 +19505,8 @@ define internal fastcc void @emit_rmro(ptr noundef nonnull captures(none) %0, i3
   br label %22
 
 22:                                               ; preds = %11, %20, %17
-  %.029 = phi ptr [ %19, %17 ], [ %21, %20 ], [ %7, %11 ]
-  %.0 = phi i32 [ 64, %17 ], [ 128, %20 ], [ 0, %11 ]
+  %.029 = phi ptr [ %7, %11 ], [ %21, %20 ], [ %19, %17 ]
+  %.0 = phi i32 [ 0, %11 ], [ 128, %20 ], [ 64, %17 ]
   %23 = icmp eq i32 %13, 4
   br i1 %23, label %24, label %29
 
@@ -19737,8 +19737,8 @@ ra_spill.exit:                                    ; preds = %6, %40
   br label %78
 
 78:                                               ; preds = %76, %73, %62
-  %.029.i.i = phi ptr [ %75, %73 ], [ %77, %76 ], [ %69, %62 ]
-  %.0.i.i = phi i8 [ 64, %73 ], [ -128, %76 ], [ 0, %62 ]
+  %.029.i.i = phi ptr [ %69, %62 ], [ %77, %76 ], [ %75, %73 ]
+  %.0.i.i = phi i8 [ 0, %62 ], [ -128, %76 ], [ 64, %73 ]
   %79 = getelementptr inbounds i8, ptr %.029.i.i, i64 -1
   store i8 36, ptr %79, align 1, !tbaa !20
   %80 = shl nuw nsw i8 %44, 3
@@ -19764,7 +19764,7 @@ ra_spill.exit:                                    ; preds = %6, %40
   br label %emit_rmro.exit.i
 
 emit_rmro.exit.i:                                 ; preds = %88, %78
-  %.046.i.i.i = phi ptr [ %93, %88 ], [ %85, %78 ]
+  %.046.i.i.i = phi ptr [ %85, %78 ], [ %93, %88 ]
   store ptr %.046.i.i.i, ptr %68, align 8, !tbaa !60
   br label %emit_loadofs.exit
 
@@ -19793,8 +19793,8 @@ emit_rmro.exit.i:                                 ; preds = %88, %78
   br label %107
 
 107:                                              ; preds = %105, %102, %94
-  %.029.i = phi ptr [ %104, %102 ], [ %106, %105 ], [ %98, %94 ]
-  %.0.i23 = phi i8 [ 64, %102 ], [ -128, %105 ], [ 0, %94 ]
+  %.029.i = phi ptr [ %98, %94 ], [ %106, %105 ], [ %104, %102 ]
+  %.0.i23 = phi i8 [ 0, %94 ], [ -128, %105 ], [ 64, %102 ]
   %108 = getelementptr inbounds i8, ptr %.029.i, i64 -1
   store i8 36, ptr %108, align 1, !tbaa !20
   %109 = shl i8 %44, 3
@@ -19818,7 +19818,7 @@ emit_rmro.exit.i:                                 ; preds = %88, %78
   br label %emit_rmro.exit
 
 emit_rmro.exit:                                   ; preds = %107, %117
-  %.046.i.i = phi ptr [ %114, %117 ], [ %115, %107 ]
+  %.046.i.i = phi ptr [ %115, %107 ], [ %114, %117 ]
   store ptr %.046.i.i, ptr %97, align 8, !tbaa !60
   br label %emit_loadofs.exit
 
@@ -20430,10 +20430,10 @@ asm_guardcc.exit:                                 ; preds = %74, %87
   br label %.sink.split
 
 .sink.split:                                      ; preds = %152, %141, %129, %125, %149, %156
-  %.sink330.sink = phi i64 [ -5, %156 ], [ -1, %149 ], [ -5, %141 ], [ -1, %129 ], [ -1, %125 ], [ -1, %152 ]
-  %.sink.sink = phi i8 [ -118, %156 ], [ %151, %149 ], [ %.0.i256, %141 ], [ 0, %129 ], [ 0, %125 ], [ 0, %152 ]
-  %.sink26.i257.sink = phi i64 [ -6, %156 ], [ -2, %149 ], [ -6, %141 ], [ -2, %129 ], [ -2, %125 ], [ -2, %152 ]
-  %.sink.i258.sink = phi i8 [ 15, %156 ], [ 122, %149 ], [ 15, %141 ], [ 123, %129 ], [ 123, %125 ], [ 122, %152 ]
+  %.sink330.sink = phi i64 [ -1, %149 ], [ -1, %125 ], [ -5, %156 ], [ -5, %141 ], [ -1, %129 ], [ -1, %152 ]
+  %.sink.sink = phi i8 [ %151, %149 ], [ 0, %125 ], [ -118, %156 ], [ %.0.i256, %141 ], [ 0, %129 ], [ 0, %152 ]
+  %.sink26.i257.sink = phi i64 [ -2, %149 ], [ -2, %125 ], [ -6, %156 ], [ -6, %141 ], [ -2, %129 ], [ -2, %152 ]
+  %.sink.i258.sink = phi i8 [ 122, %149 ], [ 123, %125 ], [ 15, %156 ], [ 15, %141 ], [ 123, %129 ], [ 122, %152 ]
   %158 = getelementptr inbounds i8, ptr %97, i64 %.sink330.sink
   store i8 %.sink.sink, ptr %158, align 1, !tbaa !20
   %159 = getelementptr inbounds i8, ptr %97, i64 %.sink26.i257.sink
@@ -20992,7 +20992,7 @@ asm_guardcc.exit276:                              ; preds = %430, %443
   br label %emit_rr.exit
 
 emit_rr.exit:                                     ; preds = %455, %475
-  %.046.i.i = phi ptr [ %480, %475 ], [ %469, %455 ]
+  %.046.i.i = phi ptr [ %469, %455 ], [ %480, %475 ]
   store ptr %.046.i.i, ptr %406, align 8, !tbaa !60
   %481 = getelementptr inbounds nuw i8, ptr %215, i64 8
   %482 = icmp eq ptr %481, %1
@@ -21030,7 +21030,7 @@ emit_gmrmi.exit:                                  ; preds = %489, %492
   tail call fastcc void @emit_mrm(ptr noundef nonnull %0, i32 noundef %.0.i279, i32 noundef %495, i32 noundef %496)
   br label %.critedge
 
-497:                                              ; preds = %206, %189
+497:                                              ; preds = %189, %206
   %498 = zext i16 %.0211.in to i64
   %499 = getelementptr inbounds nuw %union.IRIns, ptr %168, i64 %498
   %500 = getelementptr inbounds nuw i8, ptr %499, i64 6
@@ -21395,7 +21395,7 @@ ra_dest.exit:                                     ; preds = %83, %86
   br label %emit_rr.exit
 
 emit_rr.exit:                                     ; preds = %ra_dest.exit, %109
-  %.046.i.i = phi ptr [ %114, %109 ], [ %103, %ra_dest.exit ]
+  %.046.i.i = phi ptr [ %103, %ra_dest.exit ], [ %114, %109 ]
   store ptr %.046.i.i, ptr %95, align 8, !tbaa !60
   %115 = load i16, ptr %1, align 8, !tbaa !20
   %116 = zext i16 %115 to i32
@@ -21589,7 +21589,7 @@ ra_dest.exit:                                     ; preds = %76, %79
   %104 = trunc nsw i64 %100 to i32
   br label %asm_isk32.exit
 
-105:                                              ; preds = %98, %82
+105:                                              ; preds = %82, %98
   %106 = load i16, ptr %1, align 8, !tbaa !20
   %107 = zext i16 %106 to i64
   %108 = getelementptr inbounds nuw %union.IRIns, ptr %.pre, i64 %107
@@ -21666,9 +21666,9 @@ asm_swapops.exit:                                 ; preds = %131, %143, %146
   %spec.select144 = select i1 %switch.i, i32 %5, i32 %8
   br label %.thread138
 
-.thread138:                                       ; preds = %asm_swapops.exit, %139, %118, %105, %121, %124, %146
-  %153 = phi i32 [ %5, %146 ], [ %5, %124 ], [ %5, %121 ], [ %8, %139 ], [ %8, %118 ], [ %8, %105 ], [ %spec.select, %asm_swapops.exit ]
-  %154 = phi i32 [ %8, %146 ], [ %8, %124 ], [ %8, %121 ], [ %5, %139 ], [ %5, %118 ], [ %5, %105 ], [ %spec.select144, %asm_swapops.exit ]
+.thread138:                                       ; preds = %asm_swapops.exit, %118, %139, %105, %124, %121, %146
+  %153 = phi i32 [ %5, %121 ], [ %spec.select, %asm_swapops.exit ], [ %5, %124 ], [ %5, %146 ], [ %8, %105 ], [ %8, %118 ], [ %8, %139 ]
+  %154 = phi i32 [ %8, %121 ], [ %spec.select144, %asm_swapops.exit ], [ %8, %124 ], [ %8, %146 ], [ %5, %105 ], [ %5, %118 ], [ %5, %139 ]
   %155 = shl nuw i32 1, %.0.i
   %156 = xor i32 %155, -1
   %157 = and i32 %.074, %156
@@ -21719,9 +21719,9 @@ ra_alloc1.exit.i:                                 ; preds = %177, %173
   br label %asm_isk32.exit
 
 asm_isk32.exit:                                   ; preds = %184, %ra_alloc1.exit.i, %103, %96, %ra_dest.exit
-  %.0113 = phi i32 [ 0, %ra_dest.exit ], [ %104, %103 ], [ %97, %96 ], [ 0, %ra_alloc1.exit.i ], [ 0, %184 ]
-  %.075 = phi i32 [ %.mux, %ra_dest.exit ], [ %37, %103 ], [ %37, %96 ], [ %.0.i.i, %ra_alloc1.exit.i ], [ %185, %184 ]
-  %.072 = phi i32 [ %5, %ra_dest.exit ], [ %5, %103 ], [ %5, %96 ], [ %154, %ra_alloc1.exit.i ], [ %154, %184 ]
+  %.0113 = phi i32 [ 0, %ra_dest.exit ], [ %97, %96 ], [ %104, %103 ], [ 0, %ra_alloc1.exit.i ], [ 0, %184 ]
+  %.075 = phi i32 [ %.mux, %ra_dest.exit ], [ %37, %96 ], [ %37, %103 ], [ %.0.i.i, %ra_alloc1.exit.i ], [ %185, %184 ]
+  %.072 = phi i32 [ %5, %ra_dest.exit ], [ %5, %96 ], [ %5, %103 ], [ %154, %ra_alloc1.exit.i ], [ %154, %184 ]
   %186 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %187 = load i8, ptr %186, align 4, !tbaa !20
   %.not85 = icmp sgt i8 %187, -1
@@ -21891,7 +21891,7 @@ asm_guardcc.exit:                                 ; preds = %216, %220, %232
   br label %emit_gri.exit
 
 emit_gri.exit:                                    ; preds = %269, %283
-  %.046.i.i = phi ptr [ %289, %283 ], [ %277, %269 ]
+  %.046.i.i = phi ptr [ %277, %269 ], [ %289, %283 ]
   store ptr %.046.i.i, ptr %11, align 8, !tbaa !60
   br label %340
 
@@ -22290,7 +22290,7 @@ asm_fuseloadm.exit:                               ; preds = %ra_alloc1.exit.i, %
   br label %emit_rr.exit
 
 emit_rr.exit:                                     ; preds = %151, %172
-  %.046.i.i = phi ptr [ %177, %172 ], [ %166, %151 ]
+  %.046.i.i = phi ptr [ %166, %151 ], [ %177, %172 ]
   store ptr %.046.i.i, ptr %158, align 8, !tbaa !60
   br label %479
 
@@ -22336,7 +22336,7 @@ emit_rr.exit:                                     ; preds = %151, %172
   br label %emit_rr.exit112
 
 emit_rr.exit112:                                  ; preds = %178, %202
-  %.046.i.i111 = phi ptr [ %207, %202 ], [ %196, %178 ]
+  %.046.i.i111 = phi ptr [ %196, %178 ], [ %207, %202 ]
   store ptr %.046.i.i111, ptr %180, align 8, !tbaa !60
   br label %479
 
@@ -22720,7 +22720,7 @@ ra_scratch.exit:                                  ; preds = %ra_evict.exit179, %
   br label %emit_rr.exit151
 
 emit_rr.exit151:                                  ; preds = %ra_scratch.exit, %413
-  %.046.i.i150 = phi ptr [ %418, %413 ], [ %407, %ra_scratch.exit ]
+  %.046.i.i150 = phi ptr [ %407, %ra_scratch.exit ], [ %418, %413 ]
   store ptr %.046.i.i150, ptr %401, align 8, !tbaa !60
   br label %419
 
@@ -22801,7 +22801,7 @@ ra_scratch.exit154:                               ; preds = %426, %ra_evict.exit
   br label %emit_rr.exit158
 
 emit_rr.exit158:                                  ; preds = %437, %459
-  %.046.i.i157 = phi ptr [ %464, %459 ], [ %453, %437 ]
+  %.046.i.i157 = phi ptr [ %453, %437 ], [ %464, %459 ]
   store ptr %.046.i.i157, ptr %445, align 8, !tbaa !60
   %465 = shl nuw i32 1, %.0
   %466 = xor i32 %465, -1
@@ -22830,12 +22830,12 @@ emit_rr.exit158:                                  ; preds = %437, %459
   br label %emit_rr.exit162
 
 emit_rr.exit162:                                  ; preds = %470, %477
-  %.046.i.i161 = phi ptr [ %478, %477 ], [ %475, %470 ]
+  %.046.i.i161 = phi ptr [ %475, %470 ], [ %478, %477 ]
   store ptr %.046.i.i161, ptr %445, align 8, !tbaa !60
   br label %479
 
 479:                                              ; preds = %emit_rr.exit158, %emit_rr.exit162, %emit_rr.exit112, %emit_rr.exit, %.critedge
-  %.081 = phi i32 [ %.0.i, %.critedge ], [ %.0.i, %emit_rr.exit ], [ %.0.i, %emit_rr.exit112 ], [ %.1, %emit_rr.exit162 ], [ %.1, %emit_rr.exit158 ]
+  %.081 = phi i32 [ %.0.i, %emit_rr.exit112 ], [ %.0.i, %.critedge ], [ %.0.i, %emit_rr.exit ], [ %.1, %emit_rr.exit162 ], [ %.1, %emit_rr.exit158 ]
   %480 = load i16, ptr %1, align 8, !tbaa !20
   %481 = zext i16 %480 to i32
   tail call fastcc void @ra_left(ptr noundef %0, i32 noundef %.081, i32 noundef %481)
@@ -23036,9 +23036,9 @@ asm_swapops.exit:                                 ; preds = %87, %99, %102
   %spec.select59 = select i1 %switch.i, i32 %5, i32 %8
   br label %.thread55
 
-.thread55:                                        ; preds = %asm_swapops.exit, %95, %74, %60, %77, %80, %102
-  %109 = phi i32 [ %5, %102 ], [ %5, %80 ], [ %5, %77 ], [ %8, %95 ], [ %8, %74 ], [ %8, %60 ], [ %spec.select, %asm_swapops.exit ]
-  %110 = phi i32 [ %8, %102 ], [ %8, %80 ], [ %8, %77 ], [ %5, %95 ], [ %5, %74 ], [ %5, %60 ], [ %spec.select59, %asm_swapops.exit ]
+.thread55:                                        ; preds = %asm_swapops.exit, %74, %95, %60, %80, %77, %102
+  %109 = phi i32 [ %5, %77 ], [ %spec.select, %asm_swapops.exit ], [ %5, %80 ], [ %5, %102 ], [ %8, %60 ], [ %8, %74 ], [ %8, %95 ]
+  %110 = phi i32 [ %8, %77 ], [ %spec.select59, %asm_swapops.exit ], [ %8, %80 ], [ %8, %102 ], [ %5, %60 ], [ %5, %74 ], [ %5, %95 ]
   %111 = shl nuw i32 1, %.0.i
   %112 = xor i32 %111, -1
   %113 = and i32 %.033, %112
@@ -23046,8 +23046,8 @@ asm_swapops.exit:                                 ; preds = %87, %99, %102
   br label %115
 
 115:                                              ; preds = %ra_dest.exit, %.thread55
-  %.031 = phi i32 [ %114, %.thread55 ], [ %.mux, %ra_dest.exit ]
-  %.0 = phi i32 [ %110, %.thread55 ], [ %5, %ra_dest.exit ]
+  %.031 = phi i32 [ %.mux, %ra_dest.exit ], [ %114, %.thread55 ]
+  %.0 = phi i32 [ %5, %ra_dest.exit ], [ %110, %.thread55 ]
   tail call fastcc void @emit_mrm(ptr noundef %0, i32 noundef %2, i32 noundef %.0.i, i32 noundef %.031)
   tail call fastcc void @ra_left(ptr noundef %0, i32 noundef %.0.i, i32 noundef %.0)
   ret void
@@ -23669,7 +23669,7 @@ checkmclim.exit183:                               ; preds = %313
   br label %emit_gmroi.exit
 
 emit_gmroi.exit:                                  ; preds = %345, %354
-  %.046.i.i.i = phi ptr [ %355, %354 ], [ %352, %345 ]
+  %.046.i.i.i = phi ptr [ %352, %345 ], [ %355, %354 ]
   %356 = ptrtoint ptr %254 to i64
   %357 = ptrtoint ptr %.046.i.i.i to i64
   %358 = sub i64 %356, %357
@@ -23817,7 +23817,7 @@ emit_gmroi.exit:                                  ; preds = %345, %354
   br label %emit_rmro.exit226
 
 emit_rmro.exit226:                                ; preds = %411, %426
-  %.046.i.i = phi ptr [ %419, %426 ], [ %420, %411 ]
+  %.046.i.i = phi ptr [ %420, %411 ], [ %419, %426 ]
   %429 = ptrtoint ptr %.046.i.i to i64
   %430 = sub i64 %394, %429
   %431 = trunc i64 %430 to i8
@@ -23967,7 +23967,7 @@ emit_rmro.exit226:                                ; preds = %411, %426
   br label %emit_gmroi.exit247
 
 emit_gmroi.exit247:                               ; preds = %488, %497
-  %.046.i.i.i244 = phi ptr [ %498, %497 ], [ %495, %488 ]
+  %.046.i.i.i244 = phi ptr [ %495, %488 ], [ %498, %497 ]
   %499 = ptrtoint ptr %254 to i64
   %500 = ptrtoint ptr %.046.i.i.i244 to i64
   %501 = sub i64 %499, %500
@@ -24147,13 +24147,13 @@ emit_rmro.exit268:                                ; preds = %.thread.i267, %537,
   br i1 %.not.i.i273, label %emit_rmro.exit279, label %emit_rmro.exit279.sink.split
 
 .thread.sink.split:                               ; preds = %524, %447, %384
-  %.130.i.i251.sink = phi ptr [ %.130.i.i210, %384 ], [ %.130.i229, %447 ], [ %.130.i.i251, %524 ]
+  %.130.i.i251.sink = phi ptr [ %.130.i229, %447 ], [ %.130.i.i210, %384 ], [ %.130.i.i251, %524 ]
   %584 = getelementptr i8, ptr %.130.i.i251.sink, i64 -3
   store i8 65, ptr %584, align 1, !tbaa !20
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %524, %447, %384
-  %.046.i.i.i254.sink = phi ptr [ %391, %384 ], [ %453, %447 ], [ %531, %524 ], [ %584, %.thread.sink.split ]
+  %.046.i.i.i254.sink = phi ptr [ %453, %447 ], [ %531, %524 ], [ %391, %384 ], [ %584, %.thread.sink.split ]
   store ptr %.046.i.i.i254.sink, ptr %152, align 8, !tbaa !60
   %585 = ptrtoint ptr %.046.i.i.i254.sink to i64
   %586 = ptrtoint ptr %213 to i64
@@ -24269,7 +24269,7 @@ emit_rmro.exit279:                                ; preds = %emit_rmro.exit279.s
   br label %ir_khash.exit
 
 ir_khash.exit:                                    ; preds = %645, %634, %620
-  %653 = phi i32 [ %625, %620 ], [ %652, %645 ], [ %635, %634 ]
+  %653 = phi i32 [ %652, %645 ], [ %635, %634 ], [ %625, %620 ]
   %654 = icmp eq i32 %653, 0
   br i1 %654, label %655, label %ir_khash.exit.thread
 
@@ -24328,8 +24328,8 @@ emit_rmro.exit294:                                ; preds = %.thread.i293, %660,
   store ptr %680, ptr %152, align 8, !tbaa !60
   br label %1013
 
-ir_khash.exit.thread:                             ; preds = %.thread420, %615, %ir_khash.exit
-  %681 = phi i32 [ %653, %ir_khash.exit ], [ 1, %615 ], [ 1, %.thread420 ]
+ir_khash.exit.thread:                             ; preds = %615, %.thread420, %ir_khash.exit
+  %681 = phi i32 [ %653, %ir_khash.exit ], [ 1, %.thread420 ], [ 1, %615 ]
   %682 = load ptr, ptr %152, align 8, !tbaa !60
   %.not.i295 = icmp samesign ult i32 %.0.i185, 128
   br i1 %.not.i295, label %683, label %692
@@ -24400,7 +24400,7 @@ emit_rmro.exit305:                                ; preds = %.thread.i304, %686,
   br label %emit_rr.exit
 
 emit_rr.exit:                                     ; preds = %emit_rmro.exit305, %713
-  %.046.i.i308 = phi ptr [ %714, %713 ], [ %712, %emit_rmro.exit305 ]
+  %.046.i.i308 = phi ptr [ %712, %emit_rmro.exit305 ], [ %714, %713 ]
   %.not.i309 = icmp eq i32 %217, 5
   br i1 %.not.i309, label %715, label %717
 
@@ -24443,7 +24443,7 @@ emit_rr.exit:                                     ; preds = %emit_rmro.exit305, 
   br label %emit_rmrxo.exit
 
 emit_rmrxo.exit:                                  ; preds = %717, %735
-  %.046.i.i313 = phi ptr [ %738, %735 ], [ %728, %717 ]
+  %.046.i.i313 = phi ptr [ %728, %717 ], [ %738, %735 ]
   store ptr %.046.i.i313, ptr %152, align 8, !tbaa !60
   br i1 %121, label %780, label %739
 
@@ -24480,7 +24480,7 @@ emit_rmrxo.exit:                                  ; preds = %717, %735
   br label %emit_gri.exit
 
 emit_gri.exit:                                    ; preds = %747, %751
-  %.046.i.i316 = phi ptr [ %752, %751 ], [ %750, %747 ]
+  %.046.i.i316 = phi ptr [ %750, %747 ], [ %752, %751 ]
   br i1 %.not.i295, label %753, label %762
 
 753:                                              ; preds = %emit_gri.exit
@@ -24538,7 +24538,7 @@ emit_gri.exit:                                    ; preds = %747, %751
   br label %emit_rmro.exit327
 
 emit_rmro.exit327:                                ; preds = %765, %776
-  %.046.i.i323 = phi ptr [ %779, %776 ], [ %771, %765 ]
+  %.046.i.i323 = phi ptr [ %771, %765 ], [ %779, %776 ]
   store ptr %.046.i.i323, ptr %152, align 8, !tbaa !60
   br label %1013
 
@@ -24605,7 +24605,7 @@ emit_rmro.exit327:                                ; preds = %765, %776
   br label %emit_rmro.exit338
 
 emit_rmro.exit338:                                ; preds = %795, %806
-  %.046.i.i334 = phi ptr [ %809, %806 ], [ %801, %795 ]
+  %.046.i.i334 = phi ptr [ %801, %795 ], [ %809, %806 ]
   br i1 %.not.i295, label %810, label %819
 
 810:                                              ; preds = %emit_rmro.exit338
@@ -24662,7 +24662,7 @@ emit_rmro.exit338:                                ; preds = %795, %806
   br label %emit_rmro.exit349
 
 emit_rmro.exit349:                                ; preds = %822, %832
-  %.046.i.i345 = phi ptr [ %835, %832 ], [ %828, %822 ]
+  %.046.i.i345 = phi ptr [ %828, %822 ], [ %835, %832 ]
   store ptr %.046.i.i345, ptr %152, align 8, !tbaa !60
   br label %1013
 
@@ -24724,7 +24724,7 @@ emit_rmro.exit349:                                ; preds = %822, %832
   br label %emit_rmro.exit360
 
 emit_rmro.exit360:                                ; preds = %849, %860
-  %.046.i.i356 = phi ptr [ %863, %860 ], [ %855, %849 ]
+  %.046.i.i356 = phi ptr [ %855, %849 ], [ %863, %860 ]
   %864 = and i32 %.0176, 7
   %865 = or disjoint i32 %864, %718
   %866 = trunc i32 %865 to i8
@@ -24747,7 +24747,7 @@ emit_rmro.exit360:                                ; preds = %849, %860
   br label %emit_rr.exit364
 
 emit_rr.exit364:                                  ; preds = %emit_rmro.exit360, %873
-  %877 = phi i64 [ -3, %873 ], [ -2, %emit_rmro.exit360 ]
+  %877 = phi i64 [ -2, %emit_rmro.exit360 ], [ -3, %873 ]
   %878 = getelementptr i8, ptr %.046.i.i356, i64 %877
   %879 = getelementptr inbounds i8, ptr %878, i64 -1
   store ptr %879, ptr %152, align 8, !tbaa !60
@@ -24768,7 +24768,7 @@ emit_rr.exit364:                                  ; preds = %emit_rmro.exit360, 
   br label %emit_rr.exit368
 
 emit_rr.exit368:                                  ; preds = %emit_rr.exit364, %885
-  %.046.i.i367 = phi ptr [ %886, %885 ], [ %884, %emit_rr.exit364 ]
+  %.046.i.i367 = phi ptr [ %884, %emit_rr.exit364 ], [ %886, %885 ]
   %887 = getelementptr inbounds i8, ptr %.046.i.i367, i64 -1
   store i8 %867, ptr %887, align 1, !tbaa !20
   %888 = getelementptr i8, ptr %.046.i.i367, i64 -2
@@ -24783,7 +24783,7 @@ emit_rr.exit368:                                  ; preds = %emit_rr.exit364, %8
   br label %emit_rr.exit372
 
 emit_rr.exit372:                                  ; preds = %emit_rr.exit368, %889
-  %.046.i.i371 = phi ptr [ %892, %889 ], [ %888, %emit_rr.exit368 ]
+  %.046.i.i371 = phi ptr [ %888, %emit_rr.exit368 ], [ %892, %889 ]
   store ptr %.046.i.i371, ptr %152, align 8, !tbaa !60
   %893 = load ptr, ptr %314, align 8, !tbaa !62
   %894 = icmp ult ptr %.046.i.i371, %893
@@ -24811,7 +24811,7 @@ checkmclim.exit:                                  ; preds = %emit_rr.exit372
   br label %emit_rr.exit376
 
 emit_rr.exit376:                                  ; preds = %checkmclim.exit, %901
-  %.046.i.i375 = phi ptr [ %902, %901 ], [ %900, %checkmclim.exit ]
+  %.046.i.i375 = phi ptr [ %900, %checkmclim.exit ], [ %902, %901 ]
   %903 = shl nuw nsw i32 %.0176, 3
   %904 = or disjoint i32 %903, %217
   %905 = trunc i32 %904 to i8
@@ -24834,7 +24834,7 @@ emit_rr.exit376:                                  ; preds = %checkmclim.exit, %9
   br label %emit_rr.exit380
 
 emit_rr.exit380:                                  ; preds = %emit_rr.exit376, %912
-  %916 = phi i64 [ -3, %912 ], [ -2, %emit_rr.exit376 ]
+  %916 = phi i64 [ -2, %emit_rr.exit376 ], [ -3, %912 ]
   %917 = getelementptr i8, ptr %.046.i.i375, i64 %916
   %918 = getelementptr inbounds i8, ptr %917, i64 -1
   store ptr %918, ptr %152, align 8, !tbaa !60
@@ -24852,7 +24852,7 @@ emit_rr.exit380:                                  ; preds = %emit_rr.exit376, %9
   br label %emit_rr.exit384
 
 emit_rr.exit384:                                  ; preds = %emit_rr.exit380, %922
-  %.046.i.i383 = phi ptr [ %923, %922 ], [ %921, %emit_rr.exit380 ]
+  %.046.i.i383 = phi ptr [ %921, %emit_rr.exit380 ], [ %923, %922 ]
   %924 = getelementptr inbounds i8, ptr %.046.i.i383, i64 -1
   store i8 %906, ptr %924, align 1, !tbaa !20
   %925 = getelementptr i8, ptr %.046.i.i383, i64 -2
@@ -24867,7 +24867,7 @@ emit_rr.exit384:                                  ; preds = %emit_rr.exit380, %9
   br label %emit_rr.exit388
 
 emit_rr.exit388:                                  ; preds = %emit_rr.exit384, %926
-  %.046.i.i387 = phi ptr [ %929, %926 ], [ %925, %emit_rr.exit384 ]
+  %.046.i.i387 = phi ptr [ %925, %emit_rr.exit384 ], [ %929, %926 ]
   store ptr %.046.i.i387, ptr %152, align 8, !tbaa !60
   br i1 %320, label %930, label %969
 
@@ -24891,7 +24891,7 @@ emit_rr.exit388:                                  ; preds = %emit_rr.exit384, %9
   br label %emit_rr.exit392
 
 emit_rr.exit392:                                  ; preds = %930, %937
-  %941 = phi i64 [ -3, %937 ], [ -2, %930 ]
+  %941 = phi i64 [ -2, %930 ], [ -3, %937 ]
   %942 = getelementptr i8, ptr %.046.i.i387, i64 %941
   %943 = getelementptr inbounds i8, ptr %942, i64 -1
   store ptr %943, ptr %152, align 8, !tbaa !60
@@ -24920,7 +24920,7 @@ emit_rr.exit392:                                  ; preds = %930, %937
   br label %emit_rr.exit399
 
 emit_rr.exit399:                                  ; preds = %emit_rr.exit392, %953
-  %.046.i.i398 = phi ptr [ %956, %953 ], [ %952, %emit_rr.exit392 ]
+  %.046.i.i398 = phi ptr [ %952, %emit_rr.exit392 ], [ %956, %953 ]
   %957 = shl nuw nsw i32 %.0, 3
   %958 = or disjoint i32 %957, %217
   %959 = trunc i32 %958 to i8
@@ -24962,7 +24962,7 @@ emit_rr.exit399:                                  ; preds = %emit_rr.exit392, %9
   br label %emit_rr.exit406
 
 emit_rr.exit406:                                  ; preds = %969, %979
-  %.046.i.i405 = phi ptr [ %982, %979 ], [ %975, %969 ]
+  %.046.i.i405 = phi ptr [ %975, %969 ], [ %982, %979 ]
   %983 = xor i32 %319, -1
   %984 = shl nsw i32 %983, 15
   %985 = getelementptr inbounds i8, ptr %.046.i.i405, i64 -4
@@ -24981,7 +24981,7 @@ emit_rr.exit406:                                  ; preds = %969, %979
   br label %emit_gri.exit411
 
 emit_gri.exit411:                                 ; preds = %emit_rr.exit406, %989
-  %.046.i.i410 = phi ptr [ %990, %989 ], [ %988, %emit_rr.exit406 ]
+  %.046.i.i410 = phi ptr [ %988, %emit_rr.exit406 ], [ %990, %989 ]
   store ptr %.046.i.i410, ptr %152, align 8, !tbaa !60
   %991 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %992 = load i32, ptr %991, align 8, !tbaa !49
@@ -25257,8 +25257,8 @@ asm_fusefref.exit:                                ; preds = %53, %70, %87, %ra_a
   br label %120
 
 120:                                              ; preds = %107, %115, %114, %113, %112, %111, %110
-  %.014 = phi i32 [ %spec.select, %115 ], [ %.0.i, %110 ], [ %.0.i, %111 ], [ %.0.i, %112 ], [ %.0.i, %113 ], [ %.0.i, %114 ], [ %.0.i, %107 ]
-  %.0 = phi i32 [ -1962934018, %115 ], [ -1240530691, %110 ], [ -1089535747, %111 ], [ -1223753475, %112 ], [ 269480700, %113 ], [ 269480956, %114 ], [ -1106312963, %107 ]
+  %.014 = phi i32 [ %spec.select, %115 ], [ %.0.i, %114 ], [ %.0.i, %110 ], [ %.0.i, %111 ], [ %.0.i, %112 ], [ %.0.i, %113 ], [ %.0.i, %107 ]
+  %.0 = phi i32 [ -1962934018, %115 ], [ 269480956, %114 ], [ -1240530691, %110 ], [ -1089535747, %111 ], [ -1223753475, %112 ], [ 269480700, %113 ], [ -1106312963, %107 ]
   tail call fastcc void @emit_mrm(ptr noundef %0, i32 noundef %.0, i32 noundef %.014, i32 noundef 32)
   ret void
 }
@@ -25322,7 +25322,7 @@ define internal fastcc void @asm_fxstore(ptr noundef nonnull captures(none) %0, 
   %37 = trunc nsw i64 %33 to i32
   br label %asm_isk32.exit
 
-asm_isk32.exit.thread:                            ; preds = %10, %31, %6, %6, %6, %6
+asm_isk32.exit.thread:                            ; preds = %31, %10, %6, %6, %6, %6
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %39 = load i16, ptr %38, align 2, !tbaa !20
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -25506,8 +25506,8 @@ asm_fusefref.exit:                                ; preds = %72, %87, %104, %ra_
   br label %137
 
 137:                                              ; preds = %127, %127, %132, %131, %130, %128
-  %.1 = phi i32 [ %spec.select, %132 ], [ %129, %128 ], [ %.040, %130 ], [ %.040, %131 ], [ %.040, %127 ], [ %.040, %127 ]
-  %.0 = phi i32 [ -1996488450, %132 ], [ -2013265666, %128 ], [ 286257916, %130 ], [ 286258172, %131 ], [ -1989803779, %127 ], [ -1989803779, %127 ]
+  %.1 = phi i32 [ %spec.select, %132 ], [ %129, %128 ], [ %.040, %131 ], [ %.040, %130 ], [ %.040, %127 ], [ %.040, %127 ]
+  %.0 = phi i32 [ -1996488450, %132 ], [ -2013265666, %128 ], [ 286258172, %131 ], [ 286257916, %130 ], [ -1989803779, %127 ], [ -1989803779, %127 ]
   tail call fastcc void @emit_mrm(ptr noundef %0, i32 noundef %.0, i32 noundef %.1, i32 noundef 32)
   br label %154
 
@@ -25624,7 +25624,7 @@ define internal fastcc void @ra_rename(ptr noundef nonnull captures(none) %0, i3
   br label %emit_rr.exit.i
 
 emit_rr.exit.i:                                   ; preds = %53, %30
-  %.046.i.i.i = phi ptr [ %58, %53 ], [ %47, %30 ]
+  %.046.i.i.i = phi ptr [ %47, %30 ], [ %58, %53 ]
   store ptr %.046.i.i.i, ptr %39, align 8, !tbaa !60
   br label %emit_movrr.exit
 
@@ -25656,7 +25656,7 @@ emit_rr.exit.i:                                   ; preds = %53, %30
   br label %emit_rr.exit9.i
 
 emit_rr.exit9.i:                                  ; preds = %74, %59
-  %.046.i.i8.i = phi ptr [ %77, %74 ], [ %68, %59 ]
+  %.046.i.i8.i = phi ptr [ %68, %59 ], [ %77, %74 ]
   store ptr %.046.i.i8.i, ptr %60, align 8, !tbaa !60
   br label %emit_movrr.exit
 
@@ -25743,8 +25743,8 @@ define internal fastcc void @ra_save(ptr noundef nonnull captures(none) %0, i8 %
   br label %22
 
 22:                                               ; preds = %20, %17, %7
-  %.029.i.i = phi ptr [ %19, %17 ], [ %21, %20 ], [ %14, %7 ]
-  %.0.i.i = phi i32 [ 64, %17 ], [ 128, %20 ], [ 0, %7 ]
+  %.029.i.i = phi ptr [ %14, %7 ], [ %21, %20 ], [ %19, %17 ]
+  %.0.i.i = phi i32 [ 0, %7 ], [ 128, %20 ], [ 64, %17 ]
   %23 = getelementptr inbounds i8, ptr %.029.i.i, i64 -1
   store i8 36, ptr %23, align 1, !tbaa !20
   %24 = shl nuw nsw i32 %1, 3
@@ -25771,7 +25771,7 @@ define internal fastcc void @ra_save(ptr noundef nonnull captures(none) %0, i8 %
   br label %emit_rmro.exit.i
 
 emit_rmro.exit.i:                                 ; preds = %33, %22
-  %.046.i.i.i = phi ptr [ %38, %33 ], [ %30, %22 ]
+  %.046.i.i.i = phi ptr [ %30, %22 ], [ %38, %33 ]
   store ptr %.046.i.i.i, ptr %13, align 8, !tbaa !60
   br label %emit_storeofs.exit
 
@@ -25799,8 +25799,8 @@ emit_rmro.exit.i:                                 ; preds = %33, %22
   br label %51
 
 51:                                               ; preds = %49, %46, %39
-  %.029.i = phi ptr [ %48, %46 ], [ %50, %49 ], [ %43, %39 ]
-  %.0.i = phi i32 [ 64, %46 ], [ 128, %49 ], [ 0, %39 ]
+  %.029.i = phi ptr [ %43, %39 ], [ %50, %49 ], [ %48, %46 ]
+  %.0.i = phi i32 [ 0, %39 ], [ 128, %49 ], [ 64, %46 ]
   %52 = getelementptr inbounds i8, ptr %.029.i, i64 -1
   store i8 36, ptr %52, align 1, !tbaa !20
   %53 = shl nuw nsw i32 %1, 3
@@ -25825,7 +25825,7 @@ emit_rmro.exit.i:                                 ; preds = %33, %22
   br label %emit_rmro.exit
 
 emit_rmro.exit:                                   ; preds = %51, %62
-  %.046.i.i = phi ptr [ %59, %62 ], [ %60, %51 ]
+  %.046.i.i = phi ptr [ %60, %51 ], [ %59, %62 ]
   store ptr %.046.i.i, ptr %42, align 8, !tbaa !60
   br label %emit_storeofs.exit
 
@@ -26156,8 +26156,8 @@ ra_spill.exit:                                    ; preds = %20, %52
   br label %asm_fuseloadk64.exit
 
 asm_fuseloadk64.exit:                             ; preds = %74, %69, %95, %125
-  %.sink69.in.i = phi i64 [ %133, %125 ], [ %86, %95 ], [ %71, %69 ], [ %79, %74 ]
-  %.sink.i = phi i8 [ 37, %125 ], [ 37, %95 ], [ -128, %69 ], [ 14, %74 ]
+  %.sink69.in.i = phi i64 [ %71, %69 ], [ %133, %125 ], [ %86, %95 ], [ %79, %74 ]
+  %.sink.i = phi i8 [ -128, %69 ], [ 37, %125 ], [ 37, %95 ], [ 14, %74 ]
   %.sink69.i = trunc i64 %.sink69.in.i to i32
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i32 %.sink69.i, ptr %134, align 8, !tbaa !132
@@ -26303,8 +26303,8 @@ asm_fuseloadk64.exit:                             ; preds = %74, %69, %95, %125
   br label %asm_fuseloadk64.exit156
 
 asm_fuseloadk64.exit156:                          ; preds = %159, %154, %180, %210
-  %.sink69.in.i142 = phi i64 [ %218, %210 ], [ %171, %180 ], [ %156, %154 ], [ %164, %159 ]
-  %.sink.i143 = phi i8 [ 37, %210 ], [ 37, %180 ], [ -128, %154 ], [ 14, %159 ]
+  %.sink69.in.i142 = phi i64 [ %156, %154 ], [ %218, %210 ], [ %171, %180 ], [ %164, %159 ]
+  %.sink.i143 = phi i8 [ -128, %154 ], [ 37, %210 ], [ 37, %180 ], [ 14, %159 ]
   %.sink69.i144 = trunc i64 %.sink69.in.i142 to i32
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i32 %.sink69.i144, ptr %219, align 8, !tbaa !132
@@ -26565,7 +26565,7 @@ noconflict.exit168:                               ; preds = %344, %.preheader.i1
   store i32 %370, ptr %368, align 8, !tbaa !132
   br label %.critedge128
 
-.critedge:                                        ; preds = %335, %339, %.lr.ph.split.split.us.i167, %290, %294, %.lr.ph.split.split.us.i162, %245, %249, %.lr.ph.split.split.us.i, %140, %noconflict.exit, %222
+.critedge:                                        ; preds = %339, %.lr.ph.split.split.us.i167, %335, %294, %.lr.ph.split.split.us.i162, %290, %249, %.lr.ph.split.split.us.i, %245, %140, %noconflict.exit, %222
   %371 = icmp eq i8 %58, 69
   br i1 %371, label %.critedge.thread202, label %.critedge.thread
 
@@ -26702,8 +26702,8 @@ asm_fusefref.exit:                                ; preds = %381, %396, %413, %r
   %445 = tail call fastcc i32 @ra_allocref(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   br label %.critedge128
 
-.critedge128:                                     ; preds = %150, %asm_fuseloadk64.exit156, %asm_fuseloadk64.exit, %262, %noconflict.exit163, %314, %noconflict.exit168, %362, %.split, %.split107, %asm_fusefref.exit, %ra_spill.exit, %12
-  %.0 = phi i32 [ 32, %asm_fusefref.exit ], [ 32, %ra_spill.exit ], [ 32, %asm_fuseloadk64.exit ], [ %19, %12 ], [ %435, %.split ], [ %445, %.split107 ], [ 32, %362 ], [ 32, %noconflict.exit168 ], [ 32, %314 ], [ 32, %noconflict.exit163 ], [ 32, %262 ], [ 32, %asm_fuseloadk64.exit156 ], [ 32, %150 ]
+.critedge128:                                     ; preds = %150, %asm_fuseloadk64.exit156, %asm_fuseloadk64.exit, %362, %262, %noconflict.exit163, %314, %noconflict.exit168, %.split, %.split107, %asm_fusefref.exit, %ra_spill.exit, %12
+  %.0 = phi i32 [ 32, %asm_fusefref.exit ], [ %19, %12 ], [ 32, %ra_spill.exit ], [ 32, %asm_fuseloadk64.exit ], [ 32, %362 ], [ %445, %.split107 ], [ %435, %.split ], [ 32, %noconflict.exit168 ], [ 32, %314 ], [ 32, %noconflict.exit163 ], [ 32, %262 ], [ 32, %asm_fuseloadk64.exit156 ], [ 32, %150 ]
   ret i32 %.0
 }
 
@@ -26769,8 +26769,8 @@ define internal fastcc void @emit_mrm(ptr noundef nonnull captures(none) %0, i32
   br label %35
 
 35:                                               ; preds = %23, %30, %33
-  %.248 = phi ptr [ %32, %30 ], [ %34, %33 ], [ %6, %23 ]
-  %.2 = phi i32 [ 64, %30 ], [ 128, %33 ], [ 0, %23 ]
+  %.248 = phi ptr [ %34, %33 ], [ %32, %30 ], [ %6, %23 ]
+  %.2 = phi i32 [ 128, %33 ], [ 64, %30 ], [ 0, %23 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 165
   %37 = load i8, ptr %36, align 1, !tbaa !133
   %.not54 = icmp eq i8 %37, -128
@@ -26950,7 +26950,7 @@ define internal fastcc void @emit_mrm(ptr noundef nonnull captures(none) %0, i32
   br label %emit_op.exit62
 
 emit_op.exit62:                                   ; preds = %146, %123, %114, %98, %71, %59
-  %storemerge = phi ptr [ %70, %59 ], [ %100, %98 ], [ %76, %71 ], [ %122, %114 ], [ %148, %146 ], [ %127, %123 ]
+  %storemerge = phi ptr [ %76, %71 ], [ %70, %59 ], [ %100, %98 ], [ %122, %114 ], [ %148, %146 ], [ %127, %123 ]
   store ptr %storemerge, ptr %5, align 8, !tbaa !60
   ret void
 }
@@ -27001,7 +27001,7 @@ define internal fastcc range(i32 0, 2) i32 @asm_isk32(ptr noundef nonnull readon
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %3, %22
-  %.1 = phi i32 [ 0, %22 ], [ 0, %3 ], [ 1, %.thread.sink.split ]
+  %.1 = phi i32 [ 0, %3 ], [ 0, %22 ], [ 1, %.thread.sink.split ]
   ret i32 %.1
 }
 
@@ -27176,7 +27176,7 @@ define internal fastcc range(i32 0, 2) i32 @noconflict(ptr readonly captures(non
   br i1 %68, label %.lr.ph.split.split, label %.loopexit, !llvm.loop !179
 
 .loopexit:                                        ; preds = %.lr.ph.split.split, %56, %56, %61, %57, %66, %.lr.ph.split.split.us, %41, %37, %46, %.lr.ph.split.us.split, %26, %26, %27, %.lr.ph.split.us.split.us, %16, %.preheader, %3
-  %.021 = phi i32 [ 0, %3 ], [ 1, %.preheader ], [ 0, %.lr.ph.split.us.split.us ], [ 1, %16 ], [ 0, %.lr.ph.split.us.split ], [ 0, %26 ], [ 0, %26 ], [ 1, %27 ], [ 0, %.lr.ph.split.split.us ], [ 0, %41 ], [ 0, %37 ], [ 1, %46 ], [ 0, %.lr.ph.split.split ], [ 0, %56 ], [ 0, %56 ], [ 0, %61 ], [ 0, %57 ], [ 1, %66 ]
+  %.021 = phi i32 [ 0, %3 ], [ 1, %.preheader ], [ 0, %37 ], [ 0, %.lr.ph.split.us.split.us ], [ 0, %.lr.ph.split.us.split ], [ 1, %16 ], [ 0, %26 ], [ 0, %26 ], [ 1, %27 ], [ 1, %46 ], [ 0, %.lr.ph.split.split.us ], [ 0, %41 ], [ 0, %56 ], [ 0, %56 ], [ 0, %.lr.ph.split.split ], [ 0, %57 ], [ 1, %66 ], [ 0, %61 ]
   ret i32 %.021
 }
 
@@ -27557,8 +27557,8 @@ define internal fastcc void @asm_fusexref(ptr noundef nonnull captures(none) ini
   %.not81 = icmp sgt i8 %77, -1
   br i1 %.not81, label %123, label %asm_isk32.exit.thread
 
-asm_isk32.exit.thread:                            ; preds = %37, %56, %75
-  %.073 = phi ptr [ %67, %75 ], [ %7, %56 ], [ %7, %37 ]
+asm_isk32.exit.thread:                            ; preds = %56, %37, %75
+  %.073 = phi ptr [ %67, %75 ], [ %7, %37 ], [ %7, %56 ]
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 166
   store i8 0, ptr %78, align 2, !tbaa !134
   %79 = load i16, ptr %.073, align 8, !tbaa !20
@@ -27581,9 +27581,9 @@ asm_isk32.exit.thread:                            ; preds = %37, %56, %75
   br label %91
 
 91:                                               ; preds = %88, %asm_isk32.exit.thread, %asm_isk32.exit.thread
-  %.068 = phi ptr [ %85, %asm_isk32.exit.thread ], [ %90, %88 ], [ %85, %asm_isk32.exit.thread ]
-  %.066 = phi i32 [ %80, %asm_isk32.exit.thread ], [ %83, %88 ], [ %80, %asm_isk32.exit.thread ]
-  %.1 = phi i32 [ %83, %asm_isk32.exit.thread ], [ %80, %88 ], [ %83, %asm_isk32.exit.thread ]
+  %.068 = phi ptr [ %85, %asm_isk32.exit.thread ], [ %85, %asm_isk32.exit.thread ], [ %90, %88 ]
+  %.066 = phi i32 [ %80, %asm_isk32.exit.thread ], [ %80, %asm_isk32.exit.thread ], [ %83, %88 ]
+  %.1 = phi i32 [ %83, %asm_isk32.exit.thread ], [ %83, %asm_isk32.exit.thread ], [ %80, %88 ]
   %92 = getelementptr inbounds nuw i8, ptr %.068, i64 4
   %93 = load i8, ptr %92, align 4, !tbaa !20
   %94 = and i8 %93, 64
@@ -27638,7 +27638,7 @@ asm_isk32.exit.thread:                            ; preds = %37, %56, %75
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %98, %101, %105, %113, %95, %91
-  %.167 = phi i32 [ %.066, %91 ], [ %.066, %113 ], [ %.066, %95 ], [ %.066, %105 ], [ %.066, %101 ], [ %.066, %98 ], [ %.167.ph, %.thread.sink.split ]
+  %.167 = phi i32 [ %.066, %95 ], [ %.066, %91 ], [ %.066, %105 ], [ %.066, %101 ], [ %.066, %113 ], [ %.066, %98 ], [ %.167.ph, %.thread.sink.split ]
   %118 = tail call fastcc i32 @ra_alloc1(ptr noundef %0, i32 noundef %.167, i32 noundef %2)
   %119 = shl nuw i32 1, %118
   %120 = xor i32 %119, -1
@@ -27649,9 +27649,9 @@ asm_isk32.exit.thread:                            ; preds = %37, %56, %75
   br label %123
 
 123:                                              ; preds = %.thread, %75, %71, %63, %.critedge, %27, %31, %34
-  %124 = phi ptr [ %5, %.critedge ], [ %5, %27 ], [ %5, %34 ], [ %5, %31 ], [ %.pre, %.thread ], [ %5, %75 ], [ %5, %71 ], [ %5, %63 ]
-  %.172 = phi i32 [ %2, %.critedge ], [ %2, %27 ], [ %2, %34 ], [ %2, %31 ], [ %121, %.thread ], [ %2, %75 ], [ %2, %71 ], [ %2, %63 ]
-  %.2 = phi i32 [ %1, %.critedge ], [ %1, %27 ], [ %1, %34 ], [ %1, %31 ], [ %.1, %.thread ], [ %65, %75 ], [ %65, %71 ], [ %65, %63 ]
+  %124 = phi ptr [ %5, %.critedge ], [ %5, %27 ], [ %5, %31 ], [ %5, %34 ], [ %.pre, %.thread ], [ %5, %75 ], [ %5, %71 ], [ %5, %63 ]
+  %.172 = phi i32 [ %2, %.critedge ], [ %2, %27 ], [ %2, %31 ], [ %2, %34 ], [ %121, %.thread ], [ %2, %75 ], [ %2, %71 ], [ %2, %63 ]
+  %.2 = phi i32 [ %1, %.critedge ], [ %1, %27 ], [ %1, %31 ], [ %1, %34 ], [ %.1, %.thread ], [ %65, %75 ], [ %65, %71 ], [ %65, %63 ]
   %125 = zext nneg i32 %.2 to i64
   %126 = getelementptr inbounds nuw %union.IRIns, ptr %124, i64 %125
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 6
@@ -27770,15 +27770,15 @@ define internal fastcc void @asm_fusearef(ptr noundef nonnull captures(none) ini
   br label %.thread.sink.split.i
 
 .thread.sink.split.i:                             ; preds = %39, %54, %52, %.preheader.i.i
-  %.sink.i = phi i32 [ 64, %.preheader.i.i ], [ %53, %52 ], [ %57, %54 ], [ 64, %39 ]
+  %.sink.i = phi i32 [ 64, %.preheader.i.i ], [ %57, %54 ], [ %53, %52 ], [ 64, %39 ]
   store i32 %.sink.i, ptr %9, align 8, !tbaa !132
   %58 = load i16, ptr %8, align 8, !tbaa !20
   %.pre20 = zext i16 %58 to i64
   br label %asm_fuseabase.exit
 
 asm_fuseabase.exit:                               ; preds = %.lr.ph.split.us.split.us.i.i, %3, %12, %19, %22, %26, %42, %.thread.sink.split.i
-  %.pre-phi = phi i64 [ %7, %3 ], [ %7, %12 ], [ %7, %19 ], [ %7, %22 ], [ %7, %26 ], [ %7, %42 ], [ %.pre20, %.thread.sink.split.i ], [ %7, %.lr.ph.split.us.split.us.i.i ]
-  %.1.i.in = phi i16 [ %4, %3 ], [ %4, %12 ], [ %4, %19 ], [ %4, %22 ], [ %4, %26 ], [ %4, %42 ], [ %58, %.thread.sink.split.i ], [ %4, %.lr.ph.split.us.split.us.i.i ]
+  %.pre-phi = phi i64 [ %.pre20, %.thread.sink.split.i ], [ %7, %3 ], [ %7, %12 ], [ %7, %19 ], [ %7, %22 ], [ %7, %26 ], [ %7, %42 ], [ %7, %.lr.ph.split.us.split.us.i.i ]
+  %.1.i.in = phi i16 [ %58, %.thread.sink.split.i ], [ %4, %3 ], [ %4, %12 ], [ %4, %19 ], [ %4, %22 ], [ %4, %26 ], [ %4, %42 ], [ %4, %.lr.ph.split.us.split.us.i.i ]
   %59 = getelementptr inbounds nuw %union.IRIns, ptr %6, i64 %.pre-phi
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 6
   %61 = load i8, ptr %60, align 2, !tbaa !20
@@ -27955,7 +27955,7 @@ define internal fastcc void @ra_left(ptr noundef nonnull captures(none) %0, i32 
   br label %emit_rr.exit.i
 
 emit_rr.exit.i:                                   ; preds = %52, %.thread.i
-  %.046.i.i.i = phi ptr [ %55, %52 ], [ %46, %.thread.i ]
+  %.046.i.i.i = phi ptr [ %46, %.thread.i ], [ %55, %52 ]
   store ptr %.046.i.i.i, ptr %29, align 8, !tbaa !60
   br label %emit_loadi.exit
 
@@ -28079,7 +28079,7 @@ emit_rr.exit.i:                                   ; preds = %52, %.thread.i
   br label %emit_rr.exit.i57
 
 emit_rr.exit.i57:                                 ; preds = %122, %101
-  %.046.i.i.i58 = phi ptr [ %127, %122 ], [ %116, %101 ]
+  %.046.i.i.i58 = phi ptr [ %116, %101 ], [ %127, %122 ]
   store ptr %.046.i.i.i58, ptr %108, align 8, !tbaa !60
   br label %emit_loadi.exit
 
@@ -28111,7 +28111,7 @@ emit_rr.exit.i57:                                 ; preds = %122, %101
   br label %emit_rr.exit9.i
 
 emit_rr.exit9.i:                                  ; preds = %143, %128
-  %.046.i.i8.i = phi ptr [ %146, %143 ], [ %137, %128 ]
+  %.046.i.i8.i = phi ptr [ %137, %128 ], [ %146, %143 ]
   store ptr %.046.i.i8.i, ptr %129, align 8, !tbaa !60
   br label %emit_loadi.exit
 
@@ -28410,7 +28410,7 @@ emit_rmro.exit:                                   ; preds = %72, %75
   br label %emit_movrr.exit.i
 
 emit_movrr.exit.i:                                ; preds = %159, %.thread119.i
-  %.046.i.i.i.i = phi ptr [ %163, %159 ], [ %157, %.thread119.i ]
+  %.046.i.i.i.i = phi ptr [ %157, %.thread119.i ], [ %163, %159 ]
   store ptr %.046.i.i.i.i, ptr %154, align 8, !tbaa !60
   %.not69.i = icmp eq i32 %.063117121.i, 2
   br i1 %.not69.i, label %emit_movrr.exit79.i, label %164
@@ -28450,7 +28450,7 @@ emit_movrr.exit.i:                                ; preds = %159, %.thread119.i
   br label %emit_rr.exit.i.i
 
 emit_rr.exit.i.i:                                 ; preds = %180, %166
-  %.046.i.i.i78.i = phi ptr [ %185, %180 ], [ %177, %166 ]
+  %.046.i.i.i78.i = phi ptr [ %177, %166 ], [ %185, %180 ]
   store ptr %.046.i.i.i78.i, ptr %154, align 8, !tbaa !60
   br label %emit_movrr.exit79.i
 
@@ -28472,7 +28472,7 @@ emit_rr.exit.i.i:                                 ; preds = %180, %166
   br label %emit_rr.exit9.i.i
 
 emit_rr.exit9.i.i:                                ; preds = %192, %186
-  %.046.i.i8.i.i = phi ptr [ %193, %192 ], [ %190, %186 ]
+  %.046.i.i8.i.i = phi ptr [ %190, %186 ], [ %193, %192 ]
   store ptr %.046.i.i8.i.i, ptr %154, align 8, !tbaa !60
   br label %emit_movrr.exit79.i
 
@@ -28511,7 +28511,7 @@ emit_rr.exit9.i.i:                                ; preds = %192, %186
   br label %emit_movrr.exit84.i
 
 emit_movrr.exit84.i:                              ; preds = %208, %195
-  %.046.i.i.i83.i = phi ptr [ %212, %208 ], [ %206, %195 ]
+  %.046.i.i.i83.i = phi ptr [ %206, %195 ], [ %212, %208 ]
   store ptr %.046.i.i.i83.i, ptr %203, align 8, !tbaa !60
   %.not68.i = icmp eq i32 %.0127149.i, 0
   br i1 %.not68.i, label %emit_movrr.exit79.i, label %213
@@ -28551,7 +28551,7 @@ emit_movrr.exit84.i:                              ; preds = %208, %195
   br label %emit_rr.exit.i90.i
 
 emit_rr.exit.i90.i:                               ; preds = %229, %215
-  %.046.i.i.i91.i = phi ptr [ %234, %229 ], [ %226, %215 ]
+  %.046.i.i.i91.i = phi ptr [ %226, %215 ], [ %234, %229 ]
   store ptr %.046.i.i.i91.i, ptr %203, align 8, !tbaa !60
   br label %emit_movrr.exit79.i
 
@@ -28573,7 +28573,7 @@ emit_rr.exit.i90.i:                               ; preds = %229, %215
   br label %emit_rr.exit9.i86.i
 
 emit_rr.exit9.i86.i:                              ; preds = %241, %235
-  %.046.i.i8.i87.i = phi ptr [ %242, %241 ], [ %239, %235 ]
+  %.046.i.i8.i87.i = phi ptr [ %239, %235 ], [ %242, %241 ]
   store ptr %.046.i.i8.i87.i, ptr %203, align 8, !tbaa !60
   br label %emit_movrr.exit79.i
 
@@ -28614,7 +28614,7 @@ emit_rr.exit9.i86.i:                              ; preds = %241, %235
   br label %emit_rr.exit.i98.i
 
 emit_rr.exit.i98.i:                               ; preds = %262, %245
-  %.046.i.i.i99.i = phi ptr [ %267, %262 ], [ %259, %245 ]
+  %.046.i.i.i99.i = phi ptr [ %259, %245 ], [ %267, %262 ]
   store ptr %.046.i.i.i99.i, ptr %254, align 8, !tbaa !60
   br label %emit_movrr.exit100.i
 
@@ -28637,7 +28637,7 @@ emit_rr.exit.i98.i:                               ; preds = %262, %245
   br label %emit_rr.exit9.i94.i
 
 emit_rr.exit9.i94.i:                              ; preds = %276, %268
-  %.046.i.i8.i95.i = phi ptr [ %277, %276 ], [ %274, %268 ]
+  %.046.i.i8.i95.i = phi ptr [ %274, %268 ], [ %277, %276 ]
   store ptr %.046.i.i8.i95.i, ptr %269, align 8, !tbaa !60
   br label %emit_movrr.exit100.i
 
@@ -28684,7 +28684,7 @@ emit_movrr.exit100.i:                             ; preds = %emit_rr.exit9.i94.i
   br label %emit_rr.exit.i106.i
 
 emit_rr.exit.i106.i:                              ; preds = %297, %280
-  %.046.i.i.i107.i = phi ptr [ %302, %297 ], [ %294, %280 ]
+  %.046.i.i.i107.i = phi ptr [ %294, %280 ], [ %302, %297 ]
   store ptr %.046.i.i.i107.i, ptr %289, align 8, !tbaa !60
   br label %emit_movrr.exit79.i
 
@@ -28711,7 +28711,7 @@ emit_rr.exit.i106.i:                              ; preds = %297, %280
   br label %emit_rr.exit9.i102.i
 
 emit_rr.exit9.i102.i:                             ; preds = %312, %303
-  %.046.i.i8.i103.i = phi ptr [ %315, %312 ], [ %309, %303 ]
+  %.046.i.i8.i103.i = phi ptr [ %309, %303 ], [ %315, %312 ]
   store ptr %.046.i.i8.i103.i, ptr %304, align 8, !tbaa !60
   br label %emit_movrr.exit79.i
 
@@ -28770,7 +28770,7 @@ emit_movrr.exit79.i:                              ; preds = %emit_rr.exit9.i102.
   br label %ra_save.exit.i
 
 ra_save.exit.i:                                   ; preds = %340, %335
-  %.046.i.i.i.i.i = phi ptr [ %344, %340 ], [ %338, %335 ]
+  %.046.i.i.i.i.i = phi ptr [ %338, %335 ], [ %344, %340 ]
   store ptr %.046.i.i.i.i.i, ptr %327, align 8, !tbaa !60
   br label %345
 
@@ -28828,7 +28828,7 @@ ra_save.exit.i:                                   ; preds = %340, %335
   br label %ra_save.exit115.i
 
 ra_save.exit115.i:                                ; preds = %369, %364
-  %.046.i.i.i.i114.i = phi ptr [ %373, %369 ], [ %367, %364 ]
+  %.046.i.i.i.i114.i = phi ptr [ %367, %364 ], [ %373, %369 ]
   store ptr %.046.i.i.i.i114.i, ptr %356, align 8, !tbaa !60
   br label %ra_destpair.exit
 
@@ -29011,7 +29011,7 @@ select.unfold:                                    ; preds = %44
   br label %emit_rr.exit.i
 
 emit_rr.exit.i:                                   ; preds = %82, %.thread.i
-  %.046.i.i.i = phi ptr [ %85, %82 ], [ %77, %.thread.i ]
+  %.046.i.i.i = phi ptr [ %77, %.thread.i ], [ %85, %82 ]
   store ptr %.046.i.i.i, ptr %32, align 8, !tbaa !60
   br label %emit_loadi.exit
 
@@ -29089,7 +29089,7 @@ emit_rr.exit.i:                                   ; preds = %82, %.thread.i
   br label %emit_rr.exit.i81
 
 emit_rr.exit.i81:                                 ; preds = %125, %104
-  %.046.i.i.i82 = phi ptr [ %130, %125 ], [ %119, %104 ]
+  %.046.i.i.i82 = phi ptr [ %119, %104 ], [ %130, %125 ]
   store ptr %.046.i.i.i82, ptr %32, align 8, !tbaa !60
   br label %emit_loadi.exit
 
@@ -29120,7 +29120,7 @@ emit_rr.exit.i81:                                 ; preds = %125, %104
   br label %emit_rr.exit9.i
 
 emit_rr.exit9.i:                                  ; preds = %145, %131
-  %.046.i.i8.i = phi ptr [ %148, %145 ], [ %139, %131 ]
+  %.046.i.i8.i = phi ptr [ %139, %131 ], [ %148, %145 ]
   store ptr %.046.i.i8.i, ptr %32, align 8, !tbaa !60
   br label %emit_loadi.exit
 
@@ -29173,8 +29173,8 @@ ra_alloc1.exit:                                   ; preds = %.thread102, %155
   br label %174
 
 174:                                              ; preds = %172, %169, %ra_alloc1.exit
-  %.029.i = phi ptr [ %171, %169 ], [ %173, %172 ], [ %165, %ra_alloc1.exit ]
-  %.0.i85 = phi i32 [ 64, %169 ], [ 128, %172 ], [ 0, %ra_alloc1.exit ]
+  %.029.i = phi ptr [ %165, %ra_alloc1.exit ], [ %173, %172 ], [ %171, %169 ]
+  %.0.i85 = phi i32 [ 0, %ra_alloc1.exit ], [ 128, %172 ], [ 64, %169 ]
   %175 = getelementptr inbounds i8, ptr %.029.i, i64 -1
   store i8 36, ptr %175, align 1, !tbaa !20
   %176 = shl nuw nsw i32 %.0.i84, 3
@@ -29199,7 +29199,7 @@ ra_alloc1.exit:                                   ; preds = %.thread102, %155
   br label %emit_rmro.exit
 
 emit_rmro.exit:                                   ; preds = %174, %185
-  %.046.i.i = phi ptr [ %182, %185 ], [ %183, %174 ]
+  %.046.i.i = phi ptr [ %183, %174 ], [ %182, %185 ]
   store ptr %.046.i.i, ptr %32, align 8, !tbaa !60
   %188 = add nsw i32 %.061125, 8
   br label %emit_loadi.exit
@@ -29243,8 +29243,8 @@ ra_alloc1.exit88:                                 ; preds = %.thread115, %192
   br label %emit_rmro.exit93
 
 emit_rmro.exit93:                                 ; preds = %ra_alloc1.exit88, %202, %205
-  %.029.i89 = phi ptr [ %204, %202 ], [ %206, %205 ], [ %198, %ra_alloc1.exit88 ]
-  %.0.i90 = phi i32 [ 64, %202 ], [ 128, %205 ], [ 0, %ra_alloc1.exit88 ]
+  %.029.i89 = phi ptr [ %198, %ra_alloc1.exit88 ], [ %206, %205 ], [ %204, %202 ]
+  %.0.i90 = phi i32 [ 0, %ra_alloc1.exit88 ], [ 128, %205 ], [ 64, %202 ]
   %207 = getelementptr inbounds i8, ptr %.029.i89, i64 -1
   store i8 36, ptr %207, align 1, !tbaa !20
   %208 = shl nuw nsw i32 %.0.i87, 3
@@ -29267,9 +29267,9 @@ emit_rmro.exit93:                                 ; preds = %ra_alloc1.exit88, %
   br label %emit_loadi.exit
 
 emit_loadi.exit:                                  ; preds = %emit_rr.exit9.i, %emit_rr.exit.i81, %92, %emit_rr.exit.i, %emit_rmro.exit, %emit_rmro.exit93, %55, %149
-  %.2100 = phi i32 [ %.2113, %55 ], [ %.2113, %149 ], [ %.2101105, %emit_rmro.exit ], [ %.063124, %emit_rmro.exit93 ], [ %.2113, %emit_rr.exit.i ], [ %.2113, %92 ], [ %.2113, %emit_rr.exit.i81 ], [ %.2113, %emit_rr.exit9.i ]
-  %.16698 = phi i32 [ %.166112, %55 ], [ %.166112, %149 ], [ %.065123, %emit_rmro.exit ], [ %48, %emit_rmro.exit93 ], [ %.166112, %emit_rr.exit.i ], [ %.166112, %92 ], [ %.166112, %emit_rr.exit.i81 ], [ %.166112, %emit_rr.exit9.i ]
-  %.1 = phi i32 [ %.061125, %55 ], [ %.061125, %149 ], [ %188, %emit_rmro.exit ], [ %220, %emit_rmro.exit93 ], [ %.061125, %emit_rr.exit.i ], [ %.061125, %92 ], [ %.061125, %emit_rr.exit.i81 ], [ %.061125, %emit_rr.exit9.i ]
+  %.2100 = phi i32 [ %.063124, %emit_rmro.exit93 ], [ %.2113, %55 ], [ %.2113, %149 ], [ %.2113, %92 ], [ %.2101105, %emit_rmro.exit ], [ %.2113, %emit_rr.exit.i ], [ %.2113, %emit_rr.exit.i81 ], [ %.2113, %emit_rr.exit9.i ]
+  %.16698 = phi i32 [ %48, %emit_rmro.exit93 ], [ %.166112, %55 ], [ %.166112, %149 ], [ %.166112, %92 ], [ %.065123, %emit_rmro.exit ], [ %.166112, %emit_rr.exit.i ], [ %.166112, %emit_rr.exit.i81 ], [ %.166112, %emit_rr.exit9.i ]
+  %.1 = phi i32 [ %220, %emit_rmro.exit93 ], [ %.061125, %55 ], [ %.061125, %149 ], [ %.061125, %92 ], [ %188, %emit_rmro.exit ], [ %.061125, %emit_rr.exit.i ], [ %.061125, %emit_rr.exit.i81 ], [ %.061125, %emit_rr.exit9.i ]
   %221 = load ptr, ptr %32, align 8, !tbaa !60
   %222 = load ptr, ptr %33, align 8, !tbaa !62
   %223 = icmp ult ptr %221, %222
@@ -29502,7 +29502,7 @@ ra_dest.exit:                                     ; preds = %35, %38
   br label %emit_rr.exit.i
 
 emit_rr.exit.i:                                   ; preds = %68, %45
-  %.046.i.i.i = phi ptr [ %73, %68 ], [ %62, %45 ]
+  %.046.i.i.i = phi ptr [ %62, %45 ], [ %73, %68 ]
   store ptr %.046.i.i.i, ptr %54, align 8, !tbaa !60
   br label %emit_movrr.exit
 
@@ -29534,7 +29534,7 @@ emit_rr.exit.i:                                   ; preds = %68, %45
   br label %emit_rr.exit9.i
 
 emit_rr.exit9.i:                                  ; preds = %89, %74
-  %.046.i.i8.i = phi ptr [ %92, %89 ], [ %83, %74 ]
+  %.046.i.i8.i = phi ptr [ %83, %74 ], [ %92, %89 ]
   store ptr %.046.i.i8.i, ptr %75, align 8, !tbaa !60
   br label %emit_movrr.exit
 
@@ -29639,8 +29639,8 @@ define internal fastcc void @asm_x87load(ptr noundef nonnull %0, i32 noundef ran
   br label %emit_rmro.exit
 
 emit_rmro.exit:                                   ; preds = %39, %48, %51
-  %.029.i = phi ptr [ %50, %48 ], [ %52, %51 ], [ %44, %39 ]
-  %.0.i = phi i8 [ 68, %48 ], [ -124, %51 ], [ 4, %39 ]
+  %.029.i = phi ptr [ %44, %39 ], [ %52, %51 ], [ %50, %48 ]
+  %.0.i = phi i8 [ 4, %39 ], [ -124, %51 ], [ 68, %48 ]
   %53 = getelementptr inbounds i8, ptr %.029.i, i64 -1
   store i8 36, ptr %53, align 1, !tbaa !20
   %54 = getelementptr inbounds i8, ptr %.029.i, i64 -2
@@ -29893,7 +29893,7 @@ ra_alloc1.exit:                                   ; preds = %ra_dest.exit, %101
   br label %emit_rr.exit
 
 emit_rr.exit:                                     ; preds = %ra_alloc1.exit, %136
-  %.046.i.i = phi ptr [ %141, %136 ], [ %130, %ra_alloc1.exit ]
+  %.046.i.i = phi ptr [ %130, %ra_alloc1.exit ], [ %141, %136 ]
   store ptr %.046.i.i, ptr %119, align 8, !tbaa !60
   %142 = load i8, ptr %111, align 4, !tbaa !20
   %143 = and i8 %142, 31
@@ -29923,7 +29923,7 @@ emit_rr.exit:                                     ; preds = %ra_alloc1.exit, %13
   br label %emit_rr.exit29
 
 emit_rr.exit29:                                   ; preds = %emit_rr.exit, %154
-  %.046.i.i28 = phi ptr [ %159, %154 ], [ %150, %emit_rr.exit ]
+  %.046.i.i28 = phi ptr [ %150, %emit_rr.exit ], [ %159, %154 ]
   %spec.select = select i1 %93, i32 %92, i32 %89
   store ptr %.046.i.i28, ptr %119, align 8, !tbaa !60
   tail call fastcc void @ra_left(ptr noundef %0, i32 noundef %.0.i, i32 noundef %spec.select)
@@ -30013,9 +30013,9 @@ ra_alloc1.exit:                                   ; preds = %19, %23
   br label %43
 
 43:                                               ; preds = %35, %.thread, %40, %38, %.thread.i
-  %.031.i = phi i32 [ 4, %40 ], [ %1, %38 ], [ 37, %.thread.i ], [ %1, %.thread ], [ %1, %35 ]
-  %.130.i = phi ptr [ %42, %40 ], [ %39, %38 ], [ %34, %.thread.i ], [ %37, %.thread ], [ %31, %35 ]
-  %.1.i = phi i32 [ 0, %40 ], [ 0, %38 ], [ 0, %.thread.i ], [ 64, %.thread ], [ 0, %35 ]
+  %.031.i = phi i32 [ 4, %40 ], [ %1, %38 ], [ %1, %35 ], [ 37, %.thread.i ], [ %1, %.thread ]
+  %.130.i = phi ptr [ %42, %40 ], [ %39, %38 ], [ %31, %35 ], [ %34, %.thread.i ], [ %37, %.thread ]
+  %.1.i = phi i32 [ 0, %40 ], [ 0, %38 ], [ 0, %35 ], [ 0, %.thread.i ], [ 64, %.thread ]
   %44 = shl nuw nsw i32 %.0.i, 3
   %45 = and i32 %44, 56
   %46 = and i32 %.031.i, 7
@@ -30043,7 +30043,7 @@ ra_alloc1.exit:                                   ; preds = %19, %23
   br label %emit_rmro.exit
 
 emit_rmro.exit:                                   ; preds = %43, %58
-  %.046.i.i = phi ptr [ %51, %58 ], [ %52, %43 ]
+  %.046.i.i = phi ptr [ %52, %43 ], [ %51, %58 ]
   store ptr %.046.i.i, ptr %30, align 8, !tbaa !60
   br label %.thread113
 
@@ -30098,7 +30098,7 @@ emit_rmro.exit:                                   ; preds = %43, %58
   br label %86
 
 86:                                               ; preds = %84, %80
-  %.130.i.i = phi ptr [ %85, %84 ], [ %82, %80 ]
+  %.130.i.i = phi ptr [ %82, %80 ], [ %85, %84 ]
   %87 = trunc nuw nsw i32 %81 to i8
   %88 = or disjoint i8 %87, 64
   %89 = getelementptr inbounds i8, ptr %.130.i.i, i64 -1
@@ -30115,7 +30115,7 @@ emit_rmro.exit:                                   ; preds = %43, %58
   br label %94
 
 94:                                               ; preds = %86, %92
-  %.046.i.i.i.ph = phi ptr [ %90, %86 ], [ %93, %92 ]
+  %.046.i.i.i.ph = phi ptr [ %93, %92 ], [ %90, %86 ]
   %95 = load i32, ptr %5, align 8, !tbaa !20
   %96 = getelementptr inbounds i8, ptr %.046.i.i.i.ph, i64 -4
   store i32 %95, ptr %96, align 4, !tbaa !21
@@ -30178,7 +30178,7 @@ emit_rmro.exit:                                   ; preds = %43, %58
   br label %emit_movmroi.exit56
 
 emit_movmroi.exit56:                              ; preds = %.thread.i48, %110, %114
-  %.046.i.i.i51 = phi ptr [ %115, %114 ], [ %113, %110 ], [ %108, %.thread.i48 ]
+  %.046.i.i.i51 = phi ptr [ %113, %110 ], [ %115, %114 ], [ %108, %.thread.i48 ]
   store ptr %.046.i.i.i51, ptr %69, align 8, !tbaa !60
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread113
@@ -30313,7 +30313,7 @@ ra_alloc1.exit59:                                 ; preds = %116, %120
   br label %emit_rmro.exit71
 
 178:                                              ; preds = %171, %167
-  %.130.i.i80 = phi ptr [ %172, %171 ], [ %169, %167 ]
+  %.130.i.i80 = phi ptr [ %169, %167 ], [ %172, %171 ]
   %179 = trunc nuw nsw i32 %168 to i8
   %180 = or disjoint i8 %179, 64
   %181 = getelementptr inbounds i8, ptr %.130.i.i80, i64 -1
@@ -30330,7 +30330,7 @@ ra_alloc1.exit59:                                 ; preds = %116, %120
   br label %emit_rmro.exit71
 
 emit_rmro.exit71:                                 ; preds = %184, %178, %.thread.i73, %161, %153
-  %.046.i.i.i76.sink = phi ptr [ %162, %161 ], [ %159, %153 ], [ %185, %184 ], [ %182, %178 ], [ %177, %.thread.i73 ]
+  %.046.i.i.i76.sink = phi ptr [ %162, %161 ], [ %159, %153 ], [ %182, %178 ], [ %185, %184 ], [ %177, %.thread.i73 ]
   store ptr %.046.i.i.i76.sink, ptr %137, align 8, !tbaa !60
   %186 = load i8, ptr %12, align 4, !tbaa !20
   %187 = and i8 %186, 31
@@ -30378,9 +30378,9 @@ emit_rmro.exit71:                                 ; preds = %184, %178, %.thread
   br label %205
 
 205:                                              ; preds = %197, %.thread110, %202, %200, %.thread.i94
-  %.031.i85 = phi i32 [ 4, %202 ], [ %1, %200 ], [ 37, %.thread.i94 ], [ %1, %.thread110 ], [ %1, %197 ]
-  %.130.i86 = phi ptr [ %204, %202 ], [ %201, %200 ], [ %196, %.thread.i94 ], [ %199, %.thread110 ], [ %.046.i.i.i76.sink, %197 ]
-  %.1.i87 = phi i32 [ 0, %202 ], [ 0, %200 ], [ 0, %.thread.i94 ], [ 64, %.thread110 ], [ 0, %197 ]
+  %.031.i85 = phi i32 [ 4, %202 ], [ %1, %200 ], [ %1, %197 ], [ 37, %.thread.i94 ], [ %1, %.thread110 ]
+  %.130.i86 = phi ptr [ %204, %202 ], [ %201, %200 ], [ %.046.i.i.i76.sink, %197 ], [ %196, %.thread.i94 ], [ %199, %.thread110 ]
+  %.1.i87 = phi i32 [ 0, %202 ], [ 0, %200 ], [ 0, %197 ], [ 0, %.thread.i94 ], [ 64, %.thread110 ]
   %206 = shl nuw nsw i32 %.0.i58, 3
   %207 = and i32 %206, 56
   %208 = and i32 %.031.i85, 7
@@ -30409,7 +30409,7 @@ emit_rmro.exit71:                                 ; preds = %184, %178, %.thread
   br label %emit_rmro.exit95
 
 emit_rmro.exit95:                                 ; preds = %205, %219
-  %.046.i.i90 = phi ptr [ %224, %219 ], [ %213, %205 ]
+  %.046.i.i90 = phi ptr [ %213, %205 ], [ %224, %219 ]
   store ptr %.046.i.i90, ptr %193, align 8, !tbaa !60
   br label %.thread113
 
@@ -30796,7 +30796,7 @@ asm_guardcc.exit25:                               ; preds = %175, %179, %191
   br label %emit_rr.exit
 
 emit_rr.exit:                                     ; preds = %asm_guardcc.exit25, %212
-  %.046.i.i = phi ptr [ %205, %212 ], [ %206, %asm_guardcc.exit25 ]
+  %.046.i.i = phi ptr [ %206, %asm_guardcc.exit25 ], [ %205, %212 ]
   %215 = shl nuw nsw i32 %.0.i.i, 3
   %216 = and i32 %.0.i, 7
   %217 = or disjoint i32 %216, %215
@@ -30823,7 +30823,7 @@ emit_rr.exit:                                     ; preds = %asm_guardcc.exit25,
   br label %emit_rr.exit31
 
 emit_rr.exit31:                                   ; preds = %emit_rr.exit, %228
-  %.046.i.i30 = phi ptr [ %221, %228 ], [ %222, %emit_rr.exit ]
+  %.046.i.i30 = phi ptr [ %222, %emit_rr.exit ], [ %221, %228 ]
   %231 = or disjoint i32 %200, %215
   %232 = trunc i32 %231 to i8
   %233 = or i8 %232, -64
@@ -30843,7 +30843,7 @@ emit_rr.exit31:                                   ; preds = %emit_rr.exit, %228
   br label %emit_rr.exit35
 
 emit_rr.exit35:                                   ; preds = %emit_rr.exit31, %237
-  %.046.i.i34 = phi ptr [ %240, %237 ], [ %235, %emit_rr.exit31 ]
+  %.046.i.i34 = phi ptr [ %235, %emit_rr.exit31 ], [ %240, %237 ]
   store ptr %.046.i.i34, ptr %113, align 8, !tbaa !60
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %242 = load ptr, ptr %241, align 8, !tbaa !62
@@ -30881,7 +30881,7 @@ checkmclim.exit:                                  ; preds = %emit_rr.exit35
   br label %emit_rr.exit39
 
 emit_rr.exit39:                                   ; preds = %checkmclim.exit, %258
-  %.046.i.i38 = phi ptr [ %251, %258 ], [ %252, %checkmclim.exit ]
+  %.046.i.i38 = phi ptr [ %252, %checkmclim.exit ], [ %251, %258 ]
   store ptr %.046.i.i38, ptr %113, align 8, !tbaa !60
   ret void
 }

@@ -348,10 +348,10 @@ _ZN7meshoptL28buildTriangleAdjacencySparseERNS_18TriangleAdjacency2EPKjmmR17mesh
   br label %_ZN7meshoptL28buildTriangleAdjacencySparseERNS_18TriangleAdjacency2EPKjmmR17meshopt_Allocator.exit
 
 _ZN7meshoptL28buildTriangleAdjacencySparseERNS_18TriangleAdjacency2EPKjmmR17meshopt_Allocator.exit: ; preds = %.lr.ph67.i, %_ZN7meshoptL28buildTriangleAdjacencySparseERNS_18TriangleAdjacency2EPKjmmR17meshopt_Allocator.exit.loopexit, %.preheader.i181
-  %.pre-phi = phi i64 [ %.pre234, %_ZN7meshoptL28buildTriangleAdjacencySparseERNS_18TriangleAdjacency2EPKjmmR17meshopt_Allocator.exit.loopexit ], [ %120, %.preheader.i181 ], [ %120, %.lr.ph67.i ]
-  %166 = phi ptr [ %31, %_ZN7meshoptL28buildTriangleAdjacencySparseERNS_18TriangleAdjacency2EPKjmmR17meshopt_Allocator.exit.loopexit ], [ %110, %.preheader.i181 ], [ %110, %.lr.ph67.i ]
-  %167 = phi ptr [ %36, %_ZN7meshoptL28buildTriangleAdjacencySparseERNS_18TriangleAdjacency2EPKjmmR17meshopt_Allocator.exit.loopexit ], [ %117, %.preheader.i181 ], [ %117, %.lr.ph67.i ]
-  %168 = phi ptr [ %28, %_ZN7meshoptL28buildTriangleAdjacencySparseERNS_18TriangleAdjacency2EPKjmmR17meshopt_Allocator.exit.loopexit ], [ %107, %.preheader.i181 ], [ %107, %.lr.ph67.i ]
+  %.pre-phi = phi i64 [ %120, %.preheader.i181 ], [ %.pre234, %_ZN7meshoptL28buildTriangleAdjacencySparseERNS_18TriangleAdjacency2EPKjmmR17meshopt_Allocator.exit.loopexit ], [ %120, %.lr.ph67.i ]
+  %166 = phi ptr [ %110, %.preheader.i181 ], [ %31, %_ZN7meshoptL28buildTriangleAdjacencySparseERNS_18TriangleAdjacency2EPKjmmR17meshopt_Allocator.exit.loopexit ], [ %110, %.lr.ph67.i ]
+  %167 = phi ptr [ %117, %.preheader.i181 ], [ %36, %_ZN7meshoptL28buildTriangleAdjacencySparseERNS_18TriangleAdjacency2EPKjmmR17meshopt_Allocator.exit.loopexit ], [ %117, %.lr.ph67.i ]
+  %168 = phi ptr [ %107, %.preheader.i181 ], [ %28, %_ZN7meshoptL28buildTriangleAdjacencySparseERNS_18TriangleAdjacency2EPKjmmR17meshopt_Allocator.exit.loopexit ], [ %107, %.lr.ph67.i ]
   %169 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8, !tbaa !4
   %170 = invoke noundef ptr %169(i64 noundef %.pre-phi)
           to label %171 unwind label %278
@@ -1156,7 +1156,7 @@ define internal fastcc noundef i32 @_ZN7meshoptL19getNeighborTriangleERK15meshop
   br label %96
 
 96:                                               ; preds = %70, %74, %78, %.lr.ph, %94, %92
-  %.092 = phi i32 [ %93, %92 ], [ %95, %94 ], [ 0, %.lr.ph ], [ 1, %78 ], [ 1, %74 ], [ 1, %70 ]
+  %.092 = phi i32 [ %95, %94 ], [ 0, %.lr.ph ], [ %93, %92 ], [ 1, %78 ], [ 1, %74 ], [ 1, %70 ]
   %97 = icmp sgt i32 %.092, %.184102
   br i1 %97, label %149, label %98
 
@@ -2268,7 +2268,7 @@ define dso_local void @meshopt_optimizeMeshlet(ptr noundef captures(none) %0, pt
   br label %._crit_edge99
 
 ._crit_edge99:                                    ; preds = %._crit_edge.thread, %._crit_edge99.loopexit
-  %.079.lcssa = phi i64 [ %68, %._crit_edge99.loopexit ], [ 0, %._crit_edge.thread ]
+  %.079.lcssa = phi i64 [ 0, %._crit_edge.thread ], [ %68, %._crit_edge99.loopexit ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %0, ptr nonnull align 16 %6, i64 %.079.lcssa, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

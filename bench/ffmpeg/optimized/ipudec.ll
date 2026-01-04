@@ -44,7 +44,7 @@ define internal range(i32 0, 101) i32 @ipu_read_probe(ptr noundef readonly captu
   br label %21
 
 21:                                               ; preds = %17, %13, %9, %5, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %5 ], [ 0, %9 ], [ 0, %13 ], [ %., %17 ]
+  %.0 = phi i32 [ 0, %13 ], [ 0, %1 ], [ 0, %5 ], [ 0, %9 ], [ %., %17 ]
   ret i32 %.0
 }
 

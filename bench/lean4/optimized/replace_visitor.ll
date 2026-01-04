@@ -1847,7 +1847,7 @@ _ZN4lean4exprC2ERKS0_.exit:                       ; preds = %66, %65, %63, %_ZNS
   ret void
 
 314:                                              ; preds = %307, %287, %267, %247, %227, %207, %187, %167, %147, %128, %108, %88
-  %.pn = phi { ptr, i32 } [ %89, %88 ], [ %109, %108 ], [ %129, %128 ], [ %148, %147 ], [ %168, %167 ], [ %188, %187 ], [ %208, %207 ], [ %228, %227 ], [ %248, %247 ], [ %268, %267 ], [ %288, %287 ], [ %308, %307 ]
+  %.pn = phi { ptr, i32 } [ %308, %307 ], [ %89, %88 ], [ %109, %108 ], [ %129, %128 ], [ %148, %147 ], [ %168, %167 ], [ %188, %187 ], [ %208, %207 ], [ %228, %227 ], [ %248, %247 ], [ %268, %267 ], [ %288, %287 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -2043,7 +2043,7 @@ _ZNSt10_HashtableIN4lean4exprESt4pairIKS1_S1_ESaIS4_ENSt8__detail10_Select1stENS
   ret { ptr, i8 } %.fca.1.insert
 
 61:                                               ; preds = %55, %52, %19
-  %.pn.pn.pn = phi { ptr, i32 } [ %20, %19 ], [ %56, %55 ], [ %53, %52 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %20, %19 ], [ %53, %52 ], [ %56, %55 ]
   call void @_ZNSt10_HashtableIN4lean4exprESt4pairIKS1_S1_ESaIS4_ENSt8__detail10_Select1stENS0_16is_bi_equal_procENS0_9expr_hashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn.pn

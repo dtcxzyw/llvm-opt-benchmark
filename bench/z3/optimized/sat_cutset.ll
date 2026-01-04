@@ -308,7 +308,7 @@ _ZN3sat7cut_set6shrinkERSt8functionIFvjRKNS_3cutEEEj.exit: ; preds = %_ZNKSt8fun
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNK3sat3cutixEj.exit.i, %_ZNK3sat3cutixEj.exit38.i, %_ZN3sat7cut_set6shrinkERSt8functionIFvjRKNS_3cutEEEj.exit
-  %105 = phi i1 [ true, %_ZN3sat7cut_set6shrinkERSt8functionIFvjRKNS_3cutEEEj.exit ], [ false, %_ZNK3sat3cutixEj.exit38.i ], [ false, %_ZNK3sat3cutixEj.exit.i ]
+  %105 = phi i1 [ false, %_ZNK3sat3cutixEj.exit38.i ], [ true, %_ZN3sat7cut_set6shrinkERSt8functionIFvjRKNS_3cutEEEj.exit ], [ false, %_ZNK3sat3cutixEj.exit.i ]
   ret i1 %105
 }
 
@@ -763,7 +763,7 @@ _ZNK3sat3cutixEj.exit.i.i.i.i:                    ; preds = %64, %_ZNK3sat3cutix
   br label %129
 
 _ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit: ; preds = %_ZNK3sat3cutixEj.exit.i.i.i.i, %33, %39, %36
-  %.1 = phi ptr [ %.04490, %36 ], [ %.04490, %39 ], [ %.04589, %33 ], [ %.04490, %_ZNK3sat3cutixEj.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.04589, %33 ], [ %.04490, %36 ], [ %.04490, %39 ], [ %.04490, %_ZNK3sat3cutixEj.exit.i.i.i.i ]
   %80 = getelementptr inbounds nuw i8, ptr %.04589, i64 16
   %.not = icmp eq ptr %80, %24
   br i1 %.not, label %.preheader, label %33, !llvm.loop !48
@@ -864,7 +864,7 @@ _ZNK3sat3cutixEj.exit.i.i.i.i56:                  ; preds = %112, %_ZNK3sat3cuti
   br label %129
 
 _ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit61: ; preds = %_ZNK3sat3cutixEj.exit.i.i.i.i56, %81, %87, %84
-  %.3 = phi ptr [ %.296, %84 ], [ %.296, %87 ], [ %.14695, %81 ], [ %.296, %_ZNK3sat3cutixEj.exit.i.i.i.i56 ]
+  %.3 = phi ptr [ %.14695, %81 ], [ %.296, %84 ], [ %.296, %87 ], [ %.296, %_ZNK3sat3cutixEj.exit.i.i.i.i56 ]
   %128 = getelementptr inbounds nuw i8, ptr %.14695, i64 16
   %.not47 = icmp eq ptr %128, %22
   br i1 %.not47, label %._crit_edge, label %81, !llvm.loop !49
@@ -4732,7 +4732,7 @@ define hidden noundef i32 @_ZNK3sat3cut4hashEv(ptr noundef nonnull readonly alig
   br label %"_Z18get_composite_hashIN3sat3cutEZNKS1_4hashEvE3$_0ZNKS1_4hashEvE3$_1EjT_jRKT0_RKT1_.exit"
 
 "_Z18get_composite_hashIN3sat3cutEZNKS1_4hashEvE3$_0ZNKS1_4hashEvE3$_1EjT_jRKT0_RKT1_.exit": ; preds = %1, %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit.i", %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit374.i", %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit378.i", %246
-  %.0.i = phi i32 [ %282, %246 ], [ %55, %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit.i" ], [ %98, %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit374.i" ], [ %180, %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit378.i" ], [ 11, %1 ]
+  %.0.i = phi i32 [ %282, %246 ], [ %180, %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit378.i" ], [ %55, %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit.i" ], [ %98, %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit374.i" ], [ 11, %1 ]
   ret i32 %.0.i
 }
 
@@ -5091,7 +5091,7 @@ define hidden noundef i32 @_ZNK3sat3cut8dom_hashEv(ptr noundef nonnull readonly 
   br label %"_Z18get_composite_hashIN3sat3cutEZNKS1_8dom_hashEvE3$_0ZNKS1_8dom_hashEvE3$_1EjT_jRKT0_RKT1_.exit"
 
 "_Z18get_composite_hashIN3sat3cutEZNKS1_8dom_hashEvE3$_0ZNKS1_8dom_hashEvE3$_1EjT_jRKT0_RKT1_.exit": ; preds = %1, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit.i", %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit374.i", %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit378.i", %241
-  %.0.i = phi i32 [ %277, %241 ], [ %46, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit.i" ], [ %91, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit374.i" ], [ %175, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit378.i" ], [ 11, %1 ]
+  %.0.i = phi i32 [ %277, %241 ], [ %175, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit378.i" ], [ %46, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit.i" ], [ %91, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit374.i" ], [ 11, %1 ]
   ret i32 %.0.i
 }
 
@@ -5698,7 +5698,7 @@ _ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_pr
   br i1 %.not27, label %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit.thread, label %59, !llvm.loop !85
 
 _ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit.thread: ; preds = %22, %.preheader.i.i.i.i, %53, %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit39, %.preheader.i.i.i.i32, %59, %90, %.preheader
-  %.026 = phi ptr [ null, %.preheader ], [ %.150, %90 ], [ null, %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit39 ], [ %.150, %.preheader.i.i.i.i32 ], [ null, %59 ], [ %.048, %53 ], [ null, %22 ], [ %.048, %.preheader.i.i.i.i ]
+  %.026 = phi ptr [ null, %.preheader ], [ %.150, %90 ], [ %.048, %53 ], [ null, %59 ], [ null, %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit39 ], [ %.150, %.preheader.i.i.i.i32 ], [ null, %22 ], [ %.048, %.preheader.i.i.i.i ]
   ret ptr %.026
 }
 

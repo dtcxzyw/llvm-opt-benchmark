@@ -108,7 +108,7 @@ gettoalign.exit:                                  ; preds = %13
   br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %35, %13, %gettoalign.exit
-  %39 = phi i64 [ %28, %gettoalign.exit ], [ %.03958, %13 ], [ %28, %35 ]
+  %39 = phi i64 [ %.03958, %13 ], [ %28, %gettoalign.exit ], [ %28, %35 ]
   switch i8 %14, label %105 [
     i8 98, label %40
     i8 66, label %40
@@ -455,7 +455,7 @@ gettoalign.exit:                                  ; preds = %.lr.ph, %23
   br i1 %57, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !34
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %.lr.ph33.i, %.preheader.i, %.preheader27.i
-  %.125.i = phi i64 [ 0, %.preheader.i ], [ 0, %.preheader27.i ], [ %51, %.lr.ph33.i ], [ %56, %.lr.ph.i ]
+  %.125.i = phi i64 [ %51, %.lr.ph33.i ], [ 0, %.preheader.i ], [ 0, %.preheader27.i ], [ %56, %.lr.ph.i ]
   %.not.i = icmp eq i16 %42, 0
   br i1 %.not.i, label %58, label %60
 
@@ -573,8 +573,8 @@ correctbytes.exit103:                             ; preds = %.lr.ph.i98, %79
   br label %103
 
 103:                                              ; preds = %95, %101, %88
-  %.173 = phi i64 [ %97, %101 ], [ %20, %88 ], [ %97, %95 ]
-  %.2 = phi i32 [ %98, %101 ], [ %.071107, %88 ], [ %98, %95 ]
+  %.173 = phi i64 [ %97, %95 ], [ %97, %101 ], [ %20, %88 ]
+  %.2 = phi i32 [ %98, %95 ], [ %98, %101 ], [ %.071107, %88 ]
   %104 = getelementptr inbounds nuw i8, ptr %8, i64 %30
   call void @lua_pushlstring(ptr noundef %0, ptr noundef %104, i64 noundef %.173) #7
   %105 = add nsw i32 %.2, 1
@@ -861,7 +861,7 @@ getnum.exit20:                                    ; preds = %59
   br label %getnum.exit20.thread
 
 getnum.exit20.thread:                             ; preds = %40, %73, %getnum.exit20
-  %.010.i1522 = phi i32 [ %66, %73 ], [ %66, %getnum.exit20 ], [ 4, %40 ]
+  %.010.i1522 = phi i32 [ %66, %getnum.exit20 ], [ %66, %73 ], [ 4, %40 ]
   %75 = sext i32 %.010.i1522 to i64
   br label %getnum.exit
 
@@ -869,7 +869,7 @@ getnum.exit20.thread:                             ; preds = %40, %73, %getnum.ex
   br label %getnum.exit
 
 getnum.exit:                                      ; preds = %7, %getnum.exit.loopexit, %3, %3, %3, %76, %getnum.exit20.thread, %6, %5, %4
-  %.0 = phi i64 [ 0, %76 ], [ 2, %4 ], [ 8, %5 ], [ 4, %6 ], [ %75, %getnum.exit20.thread ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %7 ], [ %39, %getnum.exit.loopexit ]
+  %.0 = phi i64 [ 0, %76 ], [ %75, %getnum.exit20.thread ], [ 2, %4 ], [ 8, %5 ], [ 1, %3 ], [ 4, %6 ], [ 1, %3 ], [ 1, %3 ], [ 1, %7 ], [ %39, %getnum.exit.loopexit ]
   ret i64 %.0
 }
 

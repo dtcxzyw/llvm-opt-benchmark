@@ -52,7 +52,7 @@ define internal range(i32 -558323010, 1) i32 @pcm_bluray_encode_init(ptr noundef
   br label %13
 
 13:                                               ; preds = %7, %12, %11
-  %.012 = phi i16 [ 1024, %11 ], [ 1280, %12 ], [ 256, %7 ]
+  %.012 = phi i16 [ 1280, %12 ], [ 1024, %11 ], [ 256, %7 ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %15 = tail call i64 @av_channel_layout_subset(ptr noundef nonnull %14, i64 noundef -1) #5
   switch i64 %15, label %29 [
@@ -96,7 +96,7 @@ define internal range(i32 -558323010, 1) i32 @pcm_bluray_encode_init(ptr noundef
   br label %25
 
 25:                                               ; preds = %13, %24, %23, %22, %21, %20, %19, %18, %17, %16
-  %.014 = phi i16 [ 12288, %16 ], [ 16384, %17 ], [ 20480, %18 ], [ 24576, %19 ], [ 28672, %20 ], [ -32768, %21 ], [ -28672, %22 ], [ -24576, %23 ], [ -20480, %24 ], [ 4096, %13 ]
+  %.014 = phi i16 [ -20480, %24 ], [ 12288, %16 ], [ 16384, %17 ], [ 20480, %18 ], [ 24576, %19 ], [ 28672, %20 ], [ -32768, %21 ], [ -28672, %22 ], [ -24576, %23 ], [ 4096, %13 ]
   %26 = or disjoint i16 %.012, %.013
   %27 = or disjoint i16 %26, %.014
   store i16 %27, ptr %3, align 2, !tbaa !30

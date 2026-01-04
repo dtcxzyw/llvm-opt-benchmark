@@ -1625,7 +1625,7 @@ _ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit: ; pr
   br label %37, !llvm.loop !126
 
 _ZN9grpc_core5Party15WakeupFromStateILb1EEEvmt.exit: ; preds = %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit, %39, %2, %48
-  %.0 = phi i64 [ %31, %48 ], [ -1, %2 ], [ %31, %39 ], [ -1, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit ]
+  %.0 = phi i64 [ -1, %2 ], [ %31, %48 ], [ %31, %39 ], [ -1, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit ]
   ret i64 %.0
 }
 

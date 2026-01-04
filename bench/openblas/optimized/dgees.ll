@@ -165,7 +165,7 @@ define void @dgees_(ptr noundef %0, ptr noundef %1, ptr noundef readonly capture
   br i1 %.not354, label %93, label %.thread367
 
 .thread367.sink.split:                            ; preds = %86, %56, %53, %50, %48, %45
-  %.sink427 = phi i32 [ -1, %45 ], [ -2, %48 ], [ -4, %50 ], [ -6, %53 ], [ -11, %56 ], [ -13, %86 ]
+  %.sink427 = phi i32 [ -1, %45 ], [ -4, %50 ], [ -6, %53 ], [ -2, %48 ], [ -11, %56 ], [ -13, %86 ]
   store i32 %.sink427, ptr %14, align 4, !tbaa !3
   br label %.thread367
 
@@ -213,7 +213,7 @@ define void @dgees_(ptr noundef %0, ptr noundef %1, ptr noundef readonly capture
   br i1 %110, label %111, label %112
 
 111:                                              ; preds = %96, %108
-  %storemerge = phi double [ %109, %108 ], [ %106, %96 ]
+  %storemerge = phi double [ %106, %96 ], [ %109, %108 ]
   store double %storemerge, ptr %24, align 8, !tbaa !7
   call void @dlascl_(ptr noundef nonnull @.str.9, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %18, ptr noundef nonnull %24, ptr noundef nonnull %3, ptr noundef nonnull %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %20) #5
   br label %112
@@ -575,9 +575,9 @@ define void @dgees_(ptr noundef %0, ptr noundef %1, ptr noundef readonly capture
   br label %.thread375
 
 .thread375:                                       ; preds = %.thread375.sink.split, %275, %269, %273, %279, %270
-  %.0329 = phi i32 [ %266, %270 ], [ 1, %279 ], [ %266, %273 ], [ 0, %269 ], [ 0, %275 ], [ %.0329.ph, %.thread375.sink.split ]
-  %.1324 = phi i32 [ 0, %270 ], [ -1, %279 ], [ 1, %273 ], [ 0, %269 ], [ -1, %275 ], [ %.1324.ph, %.thread375.sink.split ]
-  %.1322 = phi i32 [ %.0321402, %270 ], [ 1, %279 ], [ %.0321402, %273 ], [ %.0321402, %269 ], [ 0, %275 ], [ %.1322.ph, %.thread375.sink.split ]
+  %.0329 = phi i32 [ %266, %270 ], [ 0, %269 ], [ 1, %279 ], [ 0, %275 ], [ %266, %273 ], [ %.0329.ph, %.thread375.sink.split ]
+  %.1324 = phi i32 [ 0, %270 ], [ 0, %269 ], [ -1, %279 ], [ -1, %275 ], [ 1, %273 ], [ %.1324.ph, %.thread375.sink.split ]
+  %.1322 = phi i32 [ %.0321402, %270 ], [ %.0321402, %269 ], [ 1, %279 ], [ 0, %275 ], [ %.0321402, %273 ], [ %.1322.ph, %.thread375.sink.split ]
   %indvars.iv.next410 = add nuw nsw i64 %indvars.iv409, 1
   %285 = load i32, ptr %16, align 4, !tbaa !3
   %286 = sext i32 %285 to i64

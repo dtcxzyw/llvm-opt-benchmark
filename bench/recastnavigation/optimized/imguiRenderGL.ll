@@ -196,7 +196,7 @@ define dso_local i32 @stbtt_GetFontOffsetForIndex(ptr noundef readonly captures(
   br label %_ZL13stbtt__isfontPKh.exit.thread18
 
 _ZL13stbtt__isfontPKh.exit.thread18:              ; preds = %16, %23, %19, %62, %2, %4, %8, %12, %27, %31, %35, %39, %43, %47, %54, %58, %81, %100, %51
-  %.0 = phi i32 [ %53, %51 ], [ %121, %100 ], [ -1, %81 ], [ -1, %58 ], [ -1, %54 ], [ -1, %47 ], [ -1, %43 ], [ -1, %39 ], [ -1, %35 ], [ -1, %31 ], [ -1, %27 ], [ -1, %12 ], [ -1, %8 ], [ -1, %4 ], [ -1, %2 ], [ -1, %62 ], [ -1, %19 ], [ -1, %23 ], [ -1, %16 ]
+  %.0 = phi i32 [ %53, %51 ], [ -1, %81 ], [ %121, %100 ], [ -1, %62 ], [ -1, %58 ], [ -1, %54 ], [ -1, %16 ], [ -1, %4 ], [ -1, %47 ], [ -1, %43 ], [ -1, %39 ], [ -1, %35 ], [ -1, %31 ], [ -1, %27 ], [ -1, %12 ], [ -1, %8 ], [ -1, %2 ], [ -1, %19 ], [ -1, %23 ]
   ret i32 %.0
 }
 
@@ -800,7 +800,7 @@ _ZL17stbtt__find_tablePhjPKc.exit156:             ; preds = %334
   br label %_ZL17stbtt__find_tablePhjPKc.exit156.thread
 
 _ZL17stbtt__find_tablePhjPKc.exit156.thread:      ; preds = %338, %_ZL17stbtt__find_tablePhjPKc.exit156, %314, %357
-  %.sink = phi i32 [ %365, %357 ], [ 65535, %314 ], [ 65535, %_ZL17stbtt__find_tablePhjPKc.exit156 ], [ 65535, %338 ]
+  %.sink = phi i32 [ %365, %357 ], [ 65535, %_ZL17stbtt__find_tablePhjPKc.exit156 ], [ 65535, %314 ], [ 65535, %338 ]
   %366 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %.sink, ptr %366, align 4
   %367 = zext i32 %.0.i158 to i64
@@ -906,7 +906,7 @@ _ZL17stbtt__find_tablePhjPKc.exit156.thread:      ; preds = %338, %_ZL17stbtt__f
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %_ZL17stbtt__find_tablePhjPKc.exit156.thread, %._crit_edge, %_ZL17stbtt__find_tablePhjPKc.exit145, %417
-  %.0 = phi i32 [ 1, %417 ], [ 0, %_ZL17stbtt__find_tablePhjPKc.exit145 ], [ 0, %._crit_edge ], [ 0, %_ZL17stbtt__find_tablePhjPKc.exit156.thread ]
+  %.0 = phi i32 [ 0, %_ZL17stbtt__find_tablePhjPKc.exit145 ], [ 1, %417 ], [ 0, %._crit_edge ], [ 0, %_ZL17stbtt__find_tablePhjPKc.exit156.thread ]
   ret i32 %.0
 }
 
@@ -1275,7 +1275,7 @@ define dso_local i32 @stbtt_FindGlyphIndex(ptr noundef readonly captures(none) %
   br i1 %261, label %191, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %260, %170, %167, %238, %._crit_edge, %56, %2, %29, %36, %14, %257, %151, %138, %45, %23
-  %.0 = phi i32 [ %28, %23 ], [ %55, %45 ], [ %150, %138 ], [ %166, %151 ], [ %259, %257 ], [ 0, %14 ], [ 0, %36 ], [ 0, %29 ], [ 0, %2 ], [ 0, %56 ], [ 0, %._crit_edge ], [ %256, %238 ], [ 0, %167 ], [ 0, %170 ], [ 0, %260 ]
+  %.0 = phi i32 [ %28, %23 ], [ 0, %167 ], [ %55, %45 ], [ 0, %14 ], [ 0, %29 ], [ 0, %2 ], [ 0, %56 ], [ %150, %138 ], [ %166, %151 ], [ %259, %257 ], [ 0, %._crit_edge ], [ %256, %238 ], [ 0, %36 ], [ 0, %170 ], [ 0, %260 ]
   ret i32 %.0
 }
 
@@ -2217,7 +2217,7 @@ _ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit393: ; preds = %334, %351, %
   br label %523
 
 523:                                              ; preds = %_ZL20stbtt__GetGlyfOffsetPK14stbtt_fontinfoi.exit.thread, %511, %89, %_ZL20stbtt__GetGlyfOffsetPK14stbtt_fontinfoi.exit, %.loopexit
-  %.0 = phi i32 [ %.5, %.loopexit ], [ 0, %_ZL20stbtt__GetGlyfOffsetPK14stbtt_fontinfoi.exit ], [ 0, %89 ], [ 0, %511 ], [ 0, %_ZL20stbtt__GetGlyfOffsetPK14stbtt_fontinfoi.exit.thread ]
+  %.0 = phi i32 [ 0, %89 ], [ 0, %_ZL20stbtt__GetGlyfOffsetPK14stbtt_fontinfoi.exit ], [ %.5, %.loopexit ], [ 0, %511 ], [ 0, %_ZL20stbtt__GetGlyfOffsetPK14stbtt_fontinfoi.exit.thread ]
   ret i32 %.0
 }
 
@@ -2399,7 +2399,7 @@ define dso_local range(i32 0, 2) i32 @stbtt_GetGlyphBox(ptr noundef readonly cap
   br label %_ZL20stbtt__GetGlyfOffsetPK14stbtt_fontinfoi.exit.thread
 
 _ZL20stbtt__GetGlyfOffsetPK14stbtt_fontinfoi.exit.thread: ; preds = %79, %9, %6, %117, %118
-  %.0 = phi i32 [ 1, %118 ], [ 1, %117 ], [ 0, %6 ], [ 0, %9 ], [ 0, %79 ]
+  %.0 = phi i32 [ 0, %79 ], [ 1, %118 ], [ 1, %117 ], [ 0, %6 ], [ 0, %9 ]
   ret i32 %.0
 }
 
@@ -2520,7 +2520,7 @@ define dso_local range(i32 0, 2) i32 @stbtt_IsGlyphEmpty(ptr noundef readonly ca
   br label %_ZL20stbtt__GetGlyfOffsetPK14stbtt_fontinfoi.exit.thread
 
 _ZL20stbtt__GetGlyfOffsetPK14stbtt_fontinfoi.exit.thread: ; preds = %75, %5, %2, %78
-  %.0 = phi i32 [ %84, %78 ], [ 1, %2 ], [ 1, %5 ], [ 1, %75 ]
+  %.0 = phi i32 [ %84, %78 ], [ 1, %75 ], [ 1, %2 ], [ 1, %5 ]
   ret i32 %.0
 }
 
@@ -2772,7 +2772,7 @@ define dso_local range(i32 -32768, 32768) i32 @stbtt_GetGlyphKernAdvance(ptr nou
   br i1 %.not28, label %.loopexit, label %33, !llvm.loop !16
 
 .loopexit:                                        ; preds = %72, %22, %15, %10, %3, %63
-  %.0 = phi i32 [ %71, %63 ], [ 0, %3 ], [ 0, %10 ], [ 0, %15 ], [ 0, %22 ], [ 0, %72 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %10 ], [ %71, %63 ], [ 0, %15 ], [ 0, %22 ], [ 0, %72 ]
   ret i32 %.0
 }
 
@@ -2889,7 +2889,7 @@ define dso_local range(i32 -32768, 32768) i32 @stbtt_GetCodepointKernAdvance(ptr
   br i1 %.not28.i, label %stbtt_GetGlyphKernAdvance.exit, label %35, !llvm.loop !16
 
 stbtt_GetGlyphKernAdvance.exit:                   ; preds = %74, %65, %24, %17, %6, %3
-  %.0 = phi i32 [ 0, %3 ], [ %73, %65 ], [ 0, %6 ], [ 0, %17 ], [ 0, %24 ], [ 0, %74 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %24 ], [ 0, %6 ], [ %73, %65 ], [ 0, %17 ], [ 0, %74 ]
   ret i32 %.0
 }
 
@@ -3683,10 +3683,10 @@ define dso_local void @stbtt_Rasterize(ptr noundef readonly captures(none) %0, f
   br label %_ZL16stbtt__add_pointP12stbtt__pointiff.exit.us.i
 
 _ZL16stbtt__add_pointP12stbtt__pointiff.exit.us.i: ; preds = %86, %78, %68, %60, %44, %40
-  %.3.us.i = phi i32 [ %.2785.us.i, %40 ], [ %.2785.us.i, %44 ], [ %79, %78 ], [ %79, %86 ], [ %.2785.us.i, %60 ], [ %.2785.us.i, %68 ]
-  %.2.us.i = phi i32 [ %.1756.us.i, %40 ], [ %.1756.us.i, %44 ], [ %.pre.i, %78 ], [ %.pre.i, %86 ], [ %.1756.us.i, %60 ], [ %.1756.us.i, %68 ]
-  %.172.us.i = phi float [ %.0717.us.i, %40 ], [ %57, %44 ], [ %81, %78 ], [ %81, %86 ], [ %62, %60 ], [ %62, %68 ]
-  %.1.us.i = phi float [ %.08.us.i, %40 ], [ %59, %44 ], [ %84, %78 ], [ %84, %86 ], [ %65, %60 ], [ %65, %68 ]
+  %.3.us.i = phi i32 [ %.2785.us.i, %40 ], [ %.2785.us.i, %44 ], [ %79, %86 ], [ %79, %78 ], [ %.2785.us.i, %60 ], [ %.2785.us.i, %68 ]
+  %.2.us.i = phi i32 [ %.1756.us.i, %40 ], [ %.1756.us.i, %44 ], [ %.pre.i, %86 ], [ %.pre.i, %78 ], [ %.1756.us.i, %60 ], [ %.1756.us.i, %68 ]
+  %.172.us.i = phi float [ %.0717.us.i, %40 ], [ %57, %44 ], [ %81, %86 ], [ %81, %78 ], [ %62, %60 ], [ %62, %68 ]
+  %.1.us.i = phi float [ %.08.us.i, %40 ], [ %59, %44 ], [ %84, %86 ], [ %84, %78 ], [ %65, %60 ], [ %65, %68 ]
   %indvars.iv.next20.i = add nuw nsw i64 %indvars.iv19.i, 1
   %exitcond23.not.i = icmp eq i64 %indvars.iv.next20.i, %wide.trip.count.i
   br i1 %exitcond23.not.i, label %._crit_edge11.us.i, label %40, !llvm.loop !18
@@ -4148,9 +4148,9 @@ _ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.i.i: ; preds = %_ZL
   br label %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i
 
 _ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i: ; preds = %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.i.i, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.i.i.i, %246, %.lr.ph15.i.i
-  %.sroa.5.6.i.i = phi ptr [ %.sroa.5.4.i.i, %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.i.i ], [ %.sroa.5.311.i.i, %.lr.ph15.i.i ], [ null, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.i.i.i ], [ null, %246 ]
-  %.sroa.9.4.i.i = phi i32 [ %.sroa.9.2.i.i, %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.i.i ], [ %.sroa.9.112.i.i, %.lr.ph15.i.i ], [ %250, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.i.i.i ], [ 0, %246 ]
-  %.sroa.0.4.i.i = phi ptr [ %.sroa.0.2.i.i, %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.i.i ], [ %.sroa.0.113.i.i, %.lr.ph15.i.i ], [ null, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.i.i.i ], [ %.sroa.0.113.i.i, %246 ]
+  %.sroa.5.6.i.i = phi ptr [ null, %246 ], [ %.sroa.5.4.i.i, %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.i.i ], [ %.sroa.5.311.i.i, %.lr.ph15.i.i ], [ null, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.i.i.i ]
+  %.sroa.9.4.i.i = phi i32 [ 0, %246 ], [ %.sroa.9.2.i.i, %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.i.i ], [ %.sroa.9.112.i.i, %.lr.ph15.i.i ], [ %250, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.i.i.i ]
+  %.sroa.0.4.i.i = phi ptr [ %.sroa.0.113.i.i, %246 ], [ %.sroa.0.2.i.i, %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.i.i ], [ %.sroa.0.113.i.i, %.lr.ph15.i.i ], [ null, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.i.i.i ]
   %281 = getelementptr inbounds nuw i8, ptr %.114.i.i, i64 20
   %282 = getelementptr inbounds nuw i8, ptr %.114.i.i, i64 24
   %283 = load float, ptr %282, align 4
@@ -6511,7 +6511,7 @@ define dso_local range(i32 0, 2) i32 @stbtt_PackBegin(ptr noundef writeonly capt
   br label %37
 
 37:                                               ; preds = %18, %34, %16, %17
-  %.0 = phi i32 [ 0, %17 ], [ 0, %16 ], [ 1, %34 ], [ 1, %18 ]
+  %.0 = phi i32 [ 0, %16 ], [ 0, %17 ], [ 1, %34 ], [ 1, %18 ]
   ret i32 %.0
 }
 
@@ -6820,11 +6820,11 @@ define dso_local i32 @stbtt_PackFontRangesGatherRects(ptr noundef readonly captu
   %208 = xor i32 %197, -1
   br label %stbtt_GetGlyphBitmapBoxSubpixel.exit
 
-stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %157, %91, %81, %160
-  %.063 = phi i32 [ %207, %160 ], [ -1, %81 ], [ -1, %91 ], [ -1, %157 ]
-  %.062 = phi i32 [ %208, %160 ], [ -1, %81 ], [ -1, %91 ], [ -1, %157 ]
-  %.061 = phi i32 [ %201, %160 ], [ 0, %81 ], [ 0, %91 ], [ 0, %157 ]
-  %.sink.i = phi i32 [ %206, %160 ], [ 0, %81 ], [ 0, %91 ], [ 0, %157 ]
+stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %81, %91, %157, %160
+  %.063 = phi i32 [ %207, %160 ], [ -1, %157 ], [ -1, %91 ], [ -1, %81 ]
+  %.062 = phi i32 [ %208, %160 ], [ -1, %157 ], [ -1, %91 ], [ -1, %81 ]
+  %.061 = phi i32 [ %201, %160 ], [ 0, %157 ], [ 0, %91 ], [ 0, %81 ]
+  %.sink.i = phi i32 [ %206, %160 ], [ 0, %157 ], [ 0, %91 ], [ 0, %81 ]
   %209 = load i32, ptr %16, align 4
   %210 = add i32 %.063, %84
   %211 = add i32 %210, %.061
@@ -7193,9 +7193,9 @@ stbtt_GetGlyphHMetrics.exit:                      ; preds = %109, %105
   %252 = fptosi float %251 to i32
   br label %stbtt_GetGlyphBitmapBox.exit
 
-stbtt_GetGlyphBitmapBox.exit:                     ; preds = %225, %160, %stbtt_GetGlyphHMetrics.exit, %228
-  %.0193 = phi i32 [ %247, %228 ], [ 0, %stbtt_GetGlyphHMetrics.exit ], [ 0, %160 ], [ 0, %225 ]
-  %.0192 = phi i32 [ %252, %228 ], [ 0, %stbtt_GetGlyphHMetrics.exit ], [ 0, %160 ], [ 0, %225 ]
+stbtt_GetGlyphBitmapBox.exit:                     ; preds = %stbtt_GetGlyphHMetrics.exit, %160, %225, %228
+  %.0193 = phi i32 [ %247, %228 ], [ 0, %225 ], [ 0, %160 ], [ 0, %stbtt_GetGlyphHMetrics.exit ]
+  %.0192 = phi i32 [ %252, %228 ], [ 0, %225 ], [ 0, %160 ], [ 0, %stbtt_GetGlyphHMetrics.exit ]
   %253 = load ptr, ptr %24, align 8
   %254 = sext i32 %116 to i64
   %255 = getelementptr inbounds i8, ptr %253, i64 %254
@@ -7332,9 +7332,9 @@ stbtt_GetGlyphBitmapBox.exit:                     ; preds = %225, %160, %stbtt_G
   %359 = fptosi float %358 to i32
   br label %stbtt_GetGlyphBitmapBoxSubpixel.exit.i
 
-stbtt_GetGlyphBitmapBoxSubpixel.exit.i:           ; preds = %332, %266, %stbtt_GetGlyphBitmapBox.exit, %335
-  %.021.i = phi i32 [ %354, %335 ], [ 0, %stbtt_GetGlyphBitmapBox.exit ], [ 0, %266 ], [ 0, %332 ]
-  %.0.i138 = phi i32 [ %359, %335 ], [ 0, %stbtt_GetGlyphBitmapBox.exit ], [ 0, %266 ], [ 0, %332 ]
+stbtt_GetGlyphBitmapBoxSubpixel.exit.i:           ; preds = %stbtt_GetGlyphBitmapBox.exit, %266, %332, %335
+  %.021.i = phi i32 [ %354, %335 ], [ 0, %332 ], [ 0, %266 ], [ 0, %stbtt_GetGlyphBitmapBox.exit ]
+  %.0.i138 = phi i32 [ %359, %335 ], [ 0, %332 ], [ 0, %266 ], [ 0, %stbtt_GetGlyphBitmapBox.exit ]
   store ptr %259, ptr %26, align 8
   store i32 %261, ptr %9, align 8
   store i32 %263, ptr %27, align 4
@@ -7526,8 +7526,8 @@ stbtt_MakeGlyphBitmapSubpixel.exit:               ; preds = %stbtt_GetGlyphBitma
   br i1 %exitcond183.not.i, label %.loopexit.i, label %.lr.ph138.i, !llvm.loop !41
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %.lr.ph120.i, %.lr.ph126.i, %.lr.ph132.i, %.lr.ph138.i, %.preheader.i, %.preheader105.i, %.preheader107.i, %.preheader109.i, %.preheader111.i
-  %.189.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader105.i ], [ 0, %.preheader107.i ], [ 0, %.preheader109.i ], [ 0, %.preheader111.i ], [ %380, %.lr.ph138.i ], [ %380, %.lr.ph132.i ], [ %380, %.lr.ph126.i ], [ %380, %.lr.ph120.i ], [ %380, %.lr.ph.i ]
-  %.1.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader105.i ], [ 0, %.preheader107.i ], [ 0, %.preheader109.i ], [ 0, %.preheader111.i ], [ %446, %.lr.ph138.i ], [ %390, %.lr.ph132.i ], [ %404, %.lr.ph126.i ], [ %418, %.lr.ph120.i ], [ %431, %.lr.ph.i ]
+  %.189.i = phi i32 [ %380, %.lr.ph138.i ], [ %380, %.lr.ph132.i ], [ %380, %.lr.ph126.i ], [ %380, %.lr.ph120.i ], [ 0, %.preheader.i ], [ 0, %.preheader105.i ], [ 0, %.preheader107.i ], [ 0, %.preheader109.i ], [ 0, %.preheader111.i ], [ %380, %.lr.ph.i ]
+  %.1.i = phi i32 [ %446, %.lr.ph138.i ], [ %390, %.lr.ph132.i ], [ %404, %.lr.ph126.i ], [ %418, %.lr.ph120.i ], [ 0, %.preheader.i ], [ 0, %.preheader105.i ], [ 0, %.preheader107.i ], [ 0, %.preheader109.i ], [ 0, %.preheader111.i ], [ %431, %.lr.ph.i ]
   %453 = icmp slt i32 %.189.i, %369
   br i1 %453, label %.lr.ph143.preheader.i, label %._crit_edge.i
 
@@ -7747,8 +7747,8 @@ _ZL18stbtt__h_prefilterPhiiij.exit:               ; preds = %_ZL18stbtt__h_prefi
   br i1 %exitcond198.not.i, label %.loopexit.i145, label %.lr.ph153.i, !llvm.loop !48
 
 .loopexit.i145:                                   ; preds = %.lr.ph.i141, %.lr.ph135.i, %.lr.ph141.i, %.lr.ph147.i, %.lr.ph153.i, %.preheader.i153, %.preheader120.i, %.preheader122.i, %.preheader124.i, %.preheader126.i
-  %.1104.i = phi i32 [ 0, %.preheader.i153 ], [ 0, %.preheader120.i ], [ 0, %.preheader122.i ], [ 0, %.preheader124.i ], [ 0, %.preheader126.i ], [ %485, %.lr.ph153.i ], [ %485, %.lr.ph147.i ], [ %485, %.lr.ph141.i ], [ %485, %.lr.ph135.i ], [ %485, %.lr.ph.i141 ]
-  %.1.i146 = phi i32 [ 0, %.preheader.i153 ], [ 0, %.preheader120.i ], [ 0, %.preheader122.i ], [ 0, %.preheader124.i ], [ 0, %.preheader126.i ], [ %556, %.lr.ph153.i ], [ %496, %.lr.ph147.i ], [ %511, %.lr.ph141.i ], [ %526, %.lr.ph135.i ], [ %540, %.lr.ph.i141 ]
+  %.1104.i = phi i32 [ %485, %.lr.ph153.i ], [ %485, %.lr.ph147.i ], [ %485, %.lr.ph141.i ], [ %485, %.lr.ph135.i ], [ 0, %.preheader.i153 ], [ 0, %.preheader120.i ], [ 0, %.preheader122.i ], [ 0, %.preheader124.i ], [ 0, %.preheader126.i ], [ %485, %.lr.ph.i141 ]
+  %.1.i146 = phi i32 [ %556, %.lr.ph153.i ], [ %496, %.lr.ph147.i ], [ %511, %.lr.ph141.i ], [ %526, %.lr.ph135.i ], [ 0, %.preheader.i153 ], [ 0, %.preheader120.i ], [ 0, %.preheader122.i ], [ 0, %.preheader124.i ], [ 0, %.preheader126.i ], [ %540, %.lr.ph.i141 ]
   %563 = icmp slt i32 %.1104.i, %475
   br i1 %563, label %.lr.ph158.preheader.i, label %._crit_edge.i147
 
@@ -8034,7 +8034,7 @@ define dso_local range(i32 0, 2) i32 @stbtt_PackFontRanges(ptr noundef captures(
   br label %._crit_edge59
 
 ._crit_edge59:                                    ; preds = %5, %._crit_edge59.loopexit
-  %.046.lcssa = phi i64 [ %33, %._crit_edge59.loopexit ], [ 0, %5 ]
+  %.046.lcssa = phi i64 [ 0, %5 ], [ %33, %._crit_edge59.loopexit ]
   %34 = tail call noalias noundef ptr @malloc(i64 noundef %.046.lcssa) #27
   %35 = icmp eq ptr %34, null
   br i1 %35, label %79, label %36
@@ -8442,7 +8442,7 @@ define internal fastcc noundef range(i32 -2147483647, -2147483648) i32 @_ZL42stb
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %13, %14, %22, %24, %31, %41, %44, %61, %68, %75, %84, %86, %93, %100, %107, %4
-  %.0 = phi i32 [ 0, %4 ], [ %.165, %107 ], [ -1, %100 ], [ -1, %93 ], [ -1, %86 ], [ -1, %84 ], [ -1, %75 ], [ -1, %68 ], [ -1, %61 ], [ -1, %44 ], [ -1, %41 ], [ -1, %31 ], [ -1, %24 ], [ -1, %22 ], [ -1, %14 ], [ -1, %13 ]
+  %.0 = phi i32 [ 0, %4 ], [ %.165, %107 ], [ -1, %14 ], [ -1, %22 ], [ -1, %24 ], [ -1, %31 ], [ -1, %41 ], [ -1, %44 ], [ -1, %61 ], [ -1, %68 ], [ -1, %75 ], [ -1, %84 ], [ -1, %86 ], [ -1, %93 ], [ -1, %100 ], [ -1, %13 ]
   ret i32 %.0
 }
 
@@ -8636,7 +8636,7 @@ _ZL17stbtt__find_tablePhjPKc.exit:                ; preds = %35
   br i1 %exitcond.not, label %_ZL17stbtt__find_tablePhjPKc.exit.thread, label %75, !llvm.loop !59
 
 _ZL17stbtt__find_tablePhjPKc.exit.thread:         ; preds = %39, %127, %58, %6, %_ZL17stbtt__find_tablePhjPKc.exit, %111
-  %.0 = phi ptr [ %126, %111 ], [ null, %_ZL17stbtt__find_tablePhjPKc.exit ], [ null, %6 ], [ null, %58 ], [ null, %127 ], [ null, %39 ]
+  %.0 = phi ptr [ %126, %111 ], [ null, %_ZL17stbtt__find_tablePhjPKc.exit ], [ null, %58 ], [ null, %6 ], [ null, %127 ], [ null, %39 ]
   ret ptr %.0
 }
 
@@ -8919,7 +8919,7 @@ _ZL17stbtt__find_tablePhjPKc.exit60.i:            ; preds = %122
   %.not44.i = icmp eq i32 %157, 0
   br i1 %.not44.i, label %.loopexit, label %_ZL14stbtt__matchesPhjS_i.exit
 
-.loopexit:                                        ; preds = %126, %63, %150, %156, %_ZL17stbtt__find_tablePhjPKc.exit.i, %_ZL17stbtt__find_tablePhjPKc.exit60.i, %9, %14, %18, %22, %26, %30, %34, %38, %42, %46, %50, %54, %58, %._crit_edge.i
+.loopexit:                                        ; preds = %126, %63, %150, %156, %_ZL17stbtt__find_tablePhjPKc.exit60.i, %_ZL17stbtt__find_tablePhjPKc.exit.i, %9, %14, %18, %22, %26, %30, %34, %38, %42, %46, %50, %54, %58, %._crit_edge.i
   %158 = add nuw nsw i32 %.01017, 1
   %159 = tail call i32 @stbtt_GetFontOffsetForIndex(ptr noundef nonnull %0, i32 noundef %158)
   %160 = icmp slt i32 %159, 0
@@ -9506,8 +9506,8 @@ _ZL15drawRoundedRectffffffj.exit:                 ; preds = %.preheader.i
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %.preheader.i.i, %241, %246, %245
-  %.124.i.i = phi float [ %265, %246 ], [ %.023.i.i, %245 ], [ %.023.i.i, %241 ], [ %.023.i.i, %.preheader.i.i ]
-  %.1.i.i = phi float [ %268, %246 ], [ %.021.i.i, %245 ], [ %243, %.preheader.i.i ], [ %.021.i.i, %241 ]
+  %.124.i.i = phi float [ %.023.i.i, %245 ], [ %265, %246 ], [ %.023.i.i, %241 ], [ %.023.i.i, %.preheader.i.i ]
+  %.1.i.i = phi float [ %.021.i.i, %245 ], [ %268, %246 ], [ %243, %.preheader.i.i ], [ %.021.i.i, %241 ]
   %269 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
   br label %.preheader65.i, !llvm.loop !67
 
@@ -9568,8 +9568,8 @@ _ZL13getTextLengthP15stbtt_bakedcharPKc.exit.i:   ; preds = %.preheader65.i
   br label %.loopexit.i37.i
 
 .loopexit.i37.i:                                  ; preds = %.preheader.i33.i, %273, %278, %277
-  %.124.i38.i = phi float [ %297, %278 ], [ %.023.i30.i, %277 ], [ %.023.i30.i, %273 ], [ %.023.i30.i, %.preheader.i33.i ]
-  %.1.i39.i = phi float [ %300, %278 ], [ %.021.i31.i, %277 ], [ %275, %.preheader.i33.i ], [ %.021.i31.i, %273 ]
+  %.124.i38.i = phi float [ %.023.i30.i, %277 ], [ %297, %278 ], [ %.023.i30.i, %273 ], [ %.023.i30.i, %.preheader.i33.i ]
+  %.1.i39.i = phi float [ %.021.i31.i, %277 ], [ %300, %278 ], [ %275, %.preheader.i33.i ], [ %.021.i31.i, %273 ]
   %301 = getelementptr inbounds nuw i8, ptr %.0.i32.i, i64 1
   br label %.preheader66.i, !llvm.loop !67
 
@@ -9673,7 +9673,7 @@ _ZL13getTextLengthP15stbtt_bakedcharPKc.exit41.i: ; preds = %.preheader66.i
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.preheader.i61, %316, %322, %321
-  %.2.i = phi float [ %359, %322 ], [ %.169.i, %321 ], [ %.169.i, %316 ], [ %319, %.preheader.i61 ]
+  %.2.i = phi float [ %.169.i, %321 ], [ %359, %322 ], [ %.169.i, %316 ], [ %319, %.preheader.i61 ]
   %360 = getelementptr inbounds nuw i8, ptr %.02470.i, i64 1
   %361 = load i8, ptr %360, align 1
   %.not.i = icmp eq i8 %361, 0
@@ -10285,7 +10285,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL16stbtt__matchpairPhjS_ii
   br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %127, %136, %144, %146, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %146 ], [ 1, %144 ], [ 1, %136 ], [ 1, %127 ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %146 ], [ 1, %136 ], [ 1, %144 ], [ 1, %127 ]
   ret i32 %.0
 }
 

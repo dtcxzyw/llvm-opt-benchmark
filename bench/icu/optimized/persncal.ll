@@ -314,7 +314,7 @@ _ZN6icu_7715PersianCalendar10isLeapYearEi.exit:   ; preds = %9, %17, %19
   br label %33
 
 33:                                               ; preds = %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit, %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread, %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread6
-  %34 = phi ptr [ %25, %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread6 ], [ %16, %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread ], [ %spec.select, %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit ]
+  %34 = phi ptr [ %25, %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread6 ], [ %spec.select, %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit ], [ %16, %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread ]
   %35 = load i8, ptr %34, align 1, !tbaa !14
   %36 = sext i8 %35 to i32
   ret i32 %36
@@ -437,7 +437,7 @@ _ZN6icu_77L17firstJulianOfYearEl.exit:            ; preds = %15, %27
   br label %40
 
 40:                                               ; preds = %_ZN6icu_77L17firstJulianOfYearEl.exit, %34, %5, %14
-  %.05 = phi i64 [ 0, %14 ], [ 0, %5 ], [ %39, %34 ], [ %32, %_ZN6icu_77L17firstJulianOfYearEl.exit ]
+  %.05 = phi i64 [ 0, %5 ], [ 0, %14 ], [ %39, %34 ], [ %32, %_ZN6icu_77L17firstJulianOfYearEl.exit ]
   ret i64 %.05
 }
 
@@ -477,7 +477,7 @@ define noundef i32 @_ZN6icu_7715PersianCalendar21handleGetExtendedYearER10UError
   br label %_ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit
 
 _ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit: ; preds = %19, %15, %12, %8, %2
-  %.0 = phi i32 [ 0, %2 ], [ %14, %12 ], [ 1, %8 ], [ %21, %19 ], [ 1, %15 ]
+  %.0 = phi i32 [ 1, %8 ], [ 0, %2 ], [ %14, %12 ], [ %21, %19 ], [ 1, %15 ]
   ret i32 %.0
 }
 
@@ -630,7 +630,7 @@ define noundef i32 @_ZNK6icu_7715PersianCalendar14getRelatedYearER10UErrorCode(p
   br label %12
 
 12:                                               ; preds = %2, %10, %9
-  %.0 = phi i32 [ 0, %9 ], [ %11, %10 ], [ 0, %2 ]
+  %.0 = phi i32 [ %11, %10 ], [ 0, %9 ], [ 0, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

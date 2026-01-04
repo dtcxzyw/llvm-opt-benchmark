@@ -480,7 +480,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
+  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %entry ]
   %isolate_.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 88
   %12 = load ptr, ptr %isolate_.i, align 8
   %principal_realm_.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 2728
@@ -1163,7 +1163,7 @@ delete.notnull.i:                                 ; preds = %land.lhs.true4.i
   br label %_ZN4node17BaseObjectPtrImplINS_4quic11BindingDataELb1EED2Ev.exit
 
 _ZN4node17BaseObjectPtrImplINS_4quic11BindingDataELb1EED2Ev.exit: ; preds = %do.end10, %land.lhs.true.i, %land.lhs.true4.i, %delete.notnull.i
-  %retval.0.i.i4 = phi ptr [ %3, %land.lhs.true.i ], [ %3, %land.lhs.true4.i ], [ %3, %delete.notnull.i ], [ null, %do.end10 ]
+  %retval.0.i.i4 = phi ptr [ %3, %land.lhs.true4.i ], [ %3, %delete.notnull.i ], [ %3, %land.lhs.true.i ], [ null, %do.end10 ]
   ret ptr %retval.0.i.i4
 }
 

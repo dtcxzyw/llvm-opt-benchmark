@@ -225,7 +225,7 @@ define dso_local i32 @build_all_nodeline_info(i1 noundef zeroext %0, i32 noundef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge, %._crit_edge24
-  %.2 = phi i32 [ 0, %._crit_edge24 ], [ 0, %._crit_edge ], [ %11, %.lr.ph ]
+  %.2 = phi i32 [ 0, %._crit_edge ], [ 0, %._crit_edge24 ], [ %11, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.2
 }
@@ -351,7 +351,7 @@ define dso_local range(i32 0, 23) i32 @hostlist2bitmap(ptr noundef %0, i1 nounde
   br label %_single_node_name2bitmap.exit
 
 _single_node_name2bitmap.exit:                    ; preds = %.thread26.i, %20, %.thread33.i
-  %.2.i = phi i32 [ 22, %.thread33.i ], [ 0, %20 ], [ 0, %.thread26.i ]
+  %.2.i = phi i32 [ 0, %20 ], [ 22, %.thread33.i ], [ 0, %.thread26.i ]
   tail call void @free(ptr noundef nonnull %12) #15
   %23 = tail call ptr @hostlist_next(ptr noundef %10) #15
   %.not13 = icmp eq ptr %23, null
@@ -1090,7 +1090,7 @@ define dso_local i32 @expand_nodeline_info(ptr noundef %0, ptr noundef %1, ptr n
   br label %.thread231
 
 .thread231:                                       ; preds = %.preheader, %132, %131
-  %.1117224229235 = phi i32 [ %120, %132 ], [ %120, %131 ], [ 0, %.preheader ]
+  %.1117224229235 = phi i32 [ %120, %131 ], [ %120, %132 ], [ 0, %.preheader ]
   %133 = load ptr, ptr %5, align 8
   %.not168 = icmp eq ptr %133, null
   br i1 %.not168, label %135, label %134
@@ -1361,7 +1361,7 @@ define dso_local range(i32 -2, 8195) i32 @state_str2int(ptr noundef %0, ptr noun
   br label %.thread16
 
 .thread16:                                        ; preds = %20, %17, %.thread, %25, %23
-  %.118 = phi i32 [ -2, %25 ], [ %.1, %23 ], [ 512, %17 ], [ 4226, %.thread ], [ 8194, %20 ]
+  %.118 = phi i32 [ %.1, %23 ], [ -2, %25 ], [ 4226, %.thread ], [ 512, %17 ], [ 8194, %20 ]
   ret i32 %.118
 }
 
@@ -1897,7 +1897,7 @@ define dso_local range(i32 0, 2170) i32 @add_node_record(ptr noundef %0, ptr nou
   br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !26
 
 .loopexit:                                        ; preds = %25, %14, %.preheader, %11, %3
-  %.017 = phi i32 [ 2168, %3 ], [ 2169, %11 ], [ 2169, %.preheader ], [ %24, %14 ], [ 2169, %25 ]
+  %.017 = phi i32 [ 2168, %3 ], [ 2169, %11 ], [ %24, %14 ], [ 2169, %.preheader ], [ 2169, %25 ]
   ret i32 %.017
 }
 
@@ -2340,7 +2340,7 @@ define internal fastcc ptr @_find_node_record(ptr noundef %0, i1 noundef zeroext
   br label %44
 
 44:                                               ; preds = %34, %15, %13, %9, %12, %43, %28
-  %.0 = phi ptr [ %30, %28 ], [ %.1, %43 ], [ null, %12 ], [ null, %9 ], [ null, %13 ], [ %16, %15 ], [ null, %34 ]
+  %.0 = phi ptr [ null, %9 ], [ null, %13 ], [ %30, %28 ], [ %.1, %43 ], [ %16, %15 ], [ null, %12 ], [ null, %34 ]
   ret ptr %.0
 }
 
@@ -2382,7 +2382,7 @@ define dso_local ptr @next_node(ptr noundef captures(none) %0) local_unnamed_add
   br i1 %or.cond, label %.preheader, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.preheader, %11, %1, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %1 ], [ %10, %.preheader ], [ null, %11 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %1 ], [ null, %11 ], [ %10, %.preheader ]
   ret ptr %.0
 }
 
@@ -2945,7 +2945,7 @@ define internal fastcc range(i32 0, 23) i32 @_single_node_name2bitmap(ptr nounde
   br label %27
 
 27:                                               ; preds = %.thread26, %21, %23, %25, %.thread33
-  %.2 = phi i32 [ 22, %.thread33 ], [ 0, %25 ], [ 0, %23 ], [ 0, %21 ], [ 0, %.thread26 ]
+  %.2 = phi i32 [ 0, %25 ], [ 22, %.thread33 ], [ 0, %23 ], [ 0, %21 ], [ 0, %.thread26 ]
   ret i32 %.2
 }
 
@@ -4938,7 +4938,7 @@ define dso_local range(i32 -1, 1) i32 @node_record_unpack(ptr noundef writeonly 
   br label %440
 
 440:                                              ; preds = %192, %434, %329, %439
-  %.0298 = phi i32 [ -1, %439 ], [ 0, %329 ], [ 0, %434 ], [ 0, %192 ]
+  %.0298 = phi i32 [ 0, %192 ], [ 0, %434 ], [ 0, %329 ], [ -1, %439 ]
   ret i32 %.0298
 }
 

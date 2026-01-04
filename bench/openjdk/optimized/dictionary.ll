@@ -1470,7 +1470,7 @@ _ZNK6HandleclEv.exit1.i:                          ; preds = %10
   %.not.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i, label %_ZN15DictionaryEntry31has_package_access_been_grantedE6Handle.exit, label %.lr.ph.i.i, !llvm.loop !12
 
-.loopexit:                                        ; preds = %.lr.ph.i.i, %10, %_ZNK6HandleclEv.exit.i, %_ZNK6HandleclEv.exit1.i, %6
+.loopexit:                                        ; preds = %.lr.ph.i.i, %6, %10, %_ZNK6HandleclEv.exit.i, %_ZNK6HandleclEv.exit1.i
   %27 = load ptr, ptr %5, align 8
   br label %_ZN15DictionaryEntry31has_package_access_been_grantedE6Handle.exit
 
@@ -1702,7 +1702,7 @@ _ZN11MutexLockerD2Ev.exit.critedge:               ; preds = %87
   call void @_ZN15DictionaryEntry27add_to_package_access_cacheEP15ClassLoaderData6Handle(ptr noundef nonnull align 8 dereferenceable(16) %94, ptr noundef %96, ptr nonnull %3)
   br label %_ZN11MutexLockerD2Ev.exit
 
-_ZN11MutexLockerD2Ev.exit:                        ; preds = %.lr.ph.i.i.i, %_ZN11MutexLockerD2Ev.exit.critedge, %9, %_ZNK6HandleclEv.exit1.i.i, %_ZNK6HandleclEv.exit.i.i, %16, %_ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit, %_ZN12ResourceMarkD2Ev.exit, %5
+_ZN11MutexLockerD2Ev.exit:                        ; preds = %.lr.ph.i.i.i, %_ZN11MutexLockerD2Ev.exit.critedge, %_ZNK6HandleclEv.exit1.i.i, %_ZNK6HandleclEv.exit.i.i, %16, %9, %_ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit, %_ZN12ResourceMarkD2Ev.exit, %5
   ret void
 }
 
@@ -2920,7 +2920,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
-  %.0.i.i = phi ptr [ null, %1 ], [ %6, %7 ], [ %6, %4 ]
+  %.0.i.i = phi ptr [ null, %1 ], [ %6, %4 ], [ %6, %7 ]
   ret ptr %.0.i.i
 }
 
@@ -3078,7 +3078,7 @@ _ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit:      ; preds = %44, %45, %49, %54
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 _ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %61, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, %5, %11, %24, %31, %2
-  %.0 = phi ptr [ %1, %2 ], [ %.0.i.i.i, %31 ], [ %.0.i.i.i, %24 ], [ %1, %11 ], [ %1, %5 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
+  %.0 = phi ptr [ %1, %5 ], [ %1, %2 ], [ %.0.i.i.i, %24 ], [ %.0.i.i.i, %31 ], [ %1, %11 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
   ret ptr %.0
 }
 
@@ -3256,7 +3256,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
-  %.0.i.i = phi ptr [ null, %1 ], [ %6, %7 ], [ %6, %4 ]
+  %.0.i.i = phi ptr [ null, %1 ], [ %6, %4 ], [ %6, %7 ]
   ret ptr %.0.i.i
 }
 
@@ -4097,7 +4097,7 @@ _ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE6Bucket9cas_firstEPNS
 .backedge:                                        ; preds = %93, %92
   br label %36, !llvm.loop !48
 
-.thread:                                          ; preds = %88, %86
+.thread:                                          ; preds = %86, %88
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   store volatile i64 %37, ptr %32, align 8
   br label %105
@@ -4296,7 +4296,7 @@ _ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE13InternalTableC2Em.e
   br label %_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE15try_resize_lockEP6Thread.exit.thread
 
 _ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE15try_resize_lockEP6Thread.exit.thread: ; preds = %7, %14, %3, %_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE13InternalTableC2Em.exit, %25
-  %.0 = phi i1 [ false, %25 ], [ true, %_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE13InternalTableC2Em.exit ], [ false, %3 ], [ false, %14 ], [ false, %7 ]
+  %.0 = phi i1 [ false, %3 ], [ false, %25 ], [ true, %_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE13InternalTableC2Em.exit ], [ false, %14 ], [ false, %7 ]
   ret i1 %.0
 }
 
@@ -4498,8 +4498,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN19ConcurrentHashTableIN10Dicti
   unreachable
 
 70:                                               ; preds = %50, %60
-  %.145 = phi ptr [ %.04052, %50 ], [ %.04450, %60 ]
-  %.143 = phi ptr [ %.04251, %50 ], [ %.04052, %60 ]
+  %.145 = phi ptr [ %.04450, %60 ], [ %.04052, %50 ]
+  %.143 = phi ptr [ %.04052, %60 ], [ %.04251, %50 ]
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !51
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   %71 = load volatile ptr, ptr %19, align 8

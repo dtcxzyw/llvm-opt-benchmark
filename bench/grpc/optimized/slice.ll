@@ -1525,7 +1525,7 @@ define i32 @grpc_slice_slice(ptr noundef byval(%struct.grpc_slice) align 8 %0, p
   br i1 %.not27, label %grpc_slice_eq.exit, label %.lr.ph, !llvm.loop !87
 
 grpc_slice_eq.exit:                               ; preds = %83, %74, %78, %42, %40, %29, %2, %55
-  %.022 = phi i32 [ %73, %55 ], [ -1, %2 ], [ %52, %42 ], [ -1, %29 ], [ 0, %40 ], [ %82, %78 ], [ -1, %74 ], [ -1, %83 ]
+  %.022 = phi i32 [ 0, %40 ], [ -1, %2 ], [ %73, %55 ], [ %52, %42 ], [ -1, %29 ], [ %82, %78 ], [ -1, %74 ], [ -1, %83 ]
   ret i32 %.022
 }
 

@@ -100,7 +100,7 @@ define noundef signext i8 @_ZNK5boost4urls11decode_view8iteratordeEv(ptr noundef
   br label %_ZN5boost4urls7grammar12hexdig_valueEc.exit
 
 _ZN5boost4urls7grammar12hexdig_valueEc.exit:      ; preds = %9, %12, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26
-  %.0.i = phi i8 [ 0, %12 ], [ 16, %13 ], [ 32, %14 ], [ 48, %15 ], [ 64, %16 ], [ 80, %17 ], [ 96, %18 ], [ 112, %19 ], [ -128, %20 ], [ -112, %21 ], [ -96, %22 ], [ -80, %23 ], [ -64, %24 ], [ -48, %25 ], [ -32, %26 ], [ -16, %9 ]
+  %.0.i = phi i8 [ -16, %9 ], [ 0, %12 ], [ 16, %13 ], [ 32, %14 ], [ 48, %15 ], [ 64, %16 ], [ 80, %17 ], [ 96, %18 ], [ 112, %19 ], [ -128, %20 ], [ -112, %21 ], [ -96, %22 ], [ -80, %23 ], [ -64, %24 ], [ -48, %25 ], [ -32, %26 ]
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %28 = load i8, ptr %27, align 1, !tbaa !12
   %switch.tableidx = add i8 %28, -48
@@ -119,7 +119,7 @@ _ZN5boost4urls7grammar12hexdig_valueEc.exit4:     ; preds = %switch.lookup, %_ZN
   br label %32
 
 32:                                               ; preds = %1, %._crit_edge, %_ZN5boost4urls7grammar12hexdig_valueEc.exit4
-  %.0 = phi i8 [ %31, %_ZN5boost4urls7grammar12hexdig_valueEc.exit4 ], [ %7, %._crit_edge ], [ 32, %1 ]
+  %.0 = phi i8 [ %31, %_ZN5boost4urls7grammar12hexdig_valueEc.exit4 ], [ 32, %1 ], [ %7, %._crit_edge ]
   ret i8 %.0
 }
 

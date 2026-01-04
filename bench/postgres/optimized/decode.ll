@@ -259,7 +259,7 @@ define dso_local void @xact_decode(ptr noundef %0, ptr noundef readonly captures
   br label %FilterPrepare.exit
 
 FilterPrepare.exit:                               ; preds = %48, %44, %39, %37
-  %.052 = phi i1 [ false, %37 ], [ %50, %48 ], [ false, %39 ], [ true, %44 ]
+  %.052 = phi i1 [ false, %37 ], [ false, %39 ], [ %50, %48 ], [ true, %44 ]
   %51 = load ptr, ptr %10, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 104
   %53 = load ptr, ptr %52, align 8
@@ -443,7 +443,7 @@ DecodeCommit.exit:                                ; preds = %._crit_edge.i, %120
   br label %FilterPrepare.exit61
 
 FilterPrepare.exit61:                             ; preds = %147, %143, %138, %136
-  %.053 = phi i1 [ false, %136 ], [ %149, %147 ], [ false, %138 ], [ true, %143 ]
+  %.053 = phi i1 [ false, %136 ], [ false, %138 ], [ %149, %147 ], [ true, %143 ]
   %150 = load ptr, ptr %10, align 8
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 104
   %152 = load ptr, ptr %151, align 8
@@ -1006,7 +1006,7 @@ FilterByOrigin.exit.thread:                       ; preds = %20, %FilterByOrigin
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %72, %32
-  %.sink = phi i8 [ 0, %32 ], [ %spec.select, %72 ]
+  %.sink = phi i8 [ %spec.select, %72 ], [ 0, %32 ]
   %76 = getelementptr inbounds nuw i8, ptr %34, i64 44
   store i8 %.sink, ptr %76, align 4
   %77 = load ptr, ptr %31, align 8

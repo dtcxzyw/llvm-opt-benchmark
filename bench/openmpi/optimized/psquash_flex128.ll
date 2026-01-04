@@ -101,8 +101,8 @@ switch.lookup:                                    ; preds = %2
   br label %6
 
 6:                                                ; preds = %switch.lookup, %._crit_edge
-  %7 = phi i64 [ %4, %._crit_edge ], [ %switch.load, %switch.lookup ]
-  %.0 = phi i32 [ -27, %._crit_edge ], [ 0, %switch.lookup ]
+  %7 = phi i64 [ %switch.load, %switch.lookup ], [ %4, %._crit_edge ]
+  %.0 = phi i32 [ 0, %switch.lookup ], [ -27, %._crit_edge ]
   store i64 %7, ptr %1, align 8, !tbaa !35
   ret i32 %.0
 }
@@ -166,13 +166,13 @@ define internal range(i32 -27, 1) i32 @flex128_encode_int(i16 noundef zeroext %0
   %.0.copyload1 = load i64, ptr %1, align 1
   br label %.preheader
 
+.preheader:                                       ; preds = %19, %6, %9, %11, %14, %16, %18
+  %.016.i.ph = phi i64 [ %.0.copyload, %19 ], [ %8, %6 ], [ %10, %9 ], [ %13, %11 ], [ %15, %14 ], [ %17, %16 ], [ %.0.copyload1, %18 ]
+  br label %22
+
 19:                                               ; preds = %4
   %.0.copyload = load i64, ptr %1, align 1
   br label %.preheader
-
-.preheader:                                       ; preds = %6, %9, %11, %14, %16, %18, %19
-  %.016.i.ph = phi i64 [ %8, %6 ], [ %10, %9 ], [ %13, %11 ], [ %15, %14 ], [ %17, %16 ], [ %.0.copyload1, %18 ], [ %.0.copyload, %19 ]
-  br label %22
 
 20:                                               ; preds = %4
   %21 = tail call ptr @PMIx_Error_string(i32 noundef -27) #7
@@ -365,8 +365,8 @@ flex_unpack_integer.exit:                         ; preds = %33, %.lr.ph.prehead
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %65, ptr noundef nonnull @.str.4, i32 noundef 292) #7
   br label %.thread69
 
-.thread69:                                        ; preds = %63, %62, %59, %57, %53, %51, %47, %64, %44, %7
-  %.0 = phi i32 [ -27, %7 ], [ -20, %44 ], [ -27, %64 ], [ 0, %47 ], [ 0, %51 ], [ 0, %53 ], [ 0, %57 ], [ 0, %59 ], [ 0, %62 ], [ 0, %63 ]
+.thread69:                                        ; preds = %62, %59, %57, %53, %51, %47, %63, %64, %44, %7
+  %.0 = phi i32 [ -27, %7 ], [ -20, %44 ], [ -27, %64 ], [ 0, %63 ], [ 0, %47 ], [ 0, %51 ], [ 0, %53 ], [ 0, %57 ], [ 0, %59 ], [ 0, %62 ]
   ret i32 %.0
 }
 

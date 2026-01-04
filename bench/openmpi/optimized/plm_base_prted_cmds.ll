@@ -219,7 +219,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %64
   br label %78
 
 78:                                               ; preds = %pmix_obj_update.exit, %77, %75, %13, %28
-  %.0 = phi i32 [ %25, %28 ], [ 0, %13 ], [ %51, %75 ], [ %51, %77 ], [ %51, %pmix_obj_update.exit ]
+  %.0 = phi i32 [ 0, %13 ], [ %25, %28 ], [ %51, %75 ], [ %51, %77 ], [ %51, %pmix_obj_update.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0

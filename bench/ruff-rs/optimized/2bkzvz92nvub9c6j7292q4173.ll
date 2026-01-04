@@ -429,15 +429,15 @@ _ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.thread.i: ; preds = %8
   br label %_ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i
 
 _ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i: ; preds = %14, %11
-  %.sroa.02.0.i = phi ptr [ %.0..0..0..0..0..sroa.02.0.copyload3.i, %11 ], [ %9, %14 ]
-  %.sroa.6.0.i = phi i64 [ %.8..8..8..8..8..sroa.6.0.copyload6.i, %11 ], [ %2, %14 ]
-  %.sroa.7.0.i = phi i64 [ %.16..16..16..16..16..sroa.7.0.copyload9.i, %11 ], [ %15, %14 ]
+  %.sroa.02.0.i = phi ptr [ %9, %14 ], [ %.0..0..0..0..0..sroa.02.0.copyload3.i, %11 ]
+  %.sroa.6.0.i = phi i64 [ %2, %14 ], [ %.8..8..8..8..8..sroa.6.0.copyload6.i, %11 ]
+  %.sroa.7.0.i = phi i64 [ %15, %14 ], [ %.16..16..16..16..16..sroa.7.0.copyload9.i, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %16 = and i64 %.sroa.7.0.i, -72057594037927936
   %or.cond = icmp eq i64 %16, -2738188573441261568
   br i1 %or.cond, label %_ZN11compact_str13CompactString7try_new17h5a56d5c1a0af9f3bE.exit.thread, label %17, !prof !40
 
-_ZN11compact_str13CompactString7try_new17h5a56d5c1a0af9f3bE.exit.thread: ; preds = %_ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.thread.i, %_ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i
+_ZN11compact_str13CompactString7try_new17h5a56d5c1a0af9f3bE.exit.thread: ; preds = %_ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i, %_ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.thread.i
   tail call void @_ZN11compact_str20unwrap_with_msg_fail17he5045e13a520481bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6590dc96b775749cee7aee339d2e7d.4) #23
   unreachable
 
@@ -526,15 +526,15 @@ _ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.thread.i: ; preds = %23
   br label %_ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i
 
 _ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i: ; preds = %29, %26
-  %.sroa.02.0.i = phi ptr [ %.0..0..0..0..0..sroa.02.0.copyload3.i, %26 ], [ %24, %29 ]
-  %.sroa.6.0.i = phi i64 [ %.8..8..8..8..8..sroa.6.0.copyload6.i, %26 ], [ %19, %29 ]
-  %.sroa.7.0.i = phi i64 [ %.16..16..16..16..16..sroa.7.0.copyload9.i, %26 ], [ %30, %29 ]
+  %.sroa.02.0.i = phi ptr [ %24, %29 ], [ %.0..0..0..0..0..sroa.02.0.copyload3.i, %26 ]
+  %.sroa.6.0.i = phi i64 [ %19, %29 ], [ %.8..8..8..8..8..sroa.6.0.copyload6.i, %26 ]
+  %.sroa.7.0.i = phi i64 [ %30, %29 ], [ %.16..16..16..16..16..sroa.7.0.copyload9.i, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %31 = and i64 %.sroa.7.0.i, -72057594037927936
   %or.cond = icmp eq i64 %31, -2738188573441261568
   br i1 %or.cond, label %_ZN11compact_str13CompactString7try_new17h5a56d5c1a0af9f3bE.exit.thread, label %32, !prof !40
 
-_ZN11compact_str13CompactString7try_new17h5a56d5c1a0af9f3bE.exit.thread: ; preds = %_ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.thread.i, %_ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i
+_ZN11compact_str13CompactString7try_new17h5a56d5c1a0af9f3bE.exit.thread: ; preds = %_ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i, %_ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.thread.i
   tail call void @_ZN11compact_str20unwrap_with_msg_fail17he5045e13a520481bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6590dc96b775749cee7aee339d2e7d.5) #23
   unreachable
 
@@ -869,7 +869,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN161_$LT$ruff_formatter.._..$LT$
   br label %15
 
 15:                                               ; preds = %2, %19, %13
-  %.sroa.81.0 = phi i32 [ %20, %19 ], [ %14, %13 ], [ %.sroa.525.0.extract.trunc, %2 ]
+  %.sroa.81.0 = phi i32 [ %14, %13 ], [ %20, %19 ], [ %.sroa.525.0.extract.trunc, %2 ]
   %16 = zext i32 %.sroa.81.0 to i64
   %17 = shl nuw i64 %16, 32
   %18 = or disjoint i64 %17, 1
@@ -961,7 +961,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN192_$LT$ruff_python_formatter..
   br label %27
 
 19:                                               ; preds = %2, %25, %23, %14
-  %.sroa.111.0 = phi i32 [ %15, %14 ], [ %24, %23 ], [ %26, %25 ], [ %.sroa.530.0.extract.trunc, %2 ]
+  %.sroa.111.0 = phi i32 [ %26, %25 ], [ %15, %14 ], [ %24, %23 ], [ %.sroa.530.0.extract.trunc, %2 ]
   %20 = zext i32 %.sroa.111.0 to i64
   %21 = shl nuw i64 %20, 32
   %22 = or disjoint i64 %21, 1
@@ -1064,7 +1064,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN206_$LT$ruff_linter..rules..pyl
   br label %33
 
 21:                                               ; preds = %2, %31, %29, %27, %25, %16
-  %.sroa.171.0 = phi i32 [ %17, %16 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %.sroa.542.0.extract.trunc, %2 ]
+  %.sroa.171.0 = phi i32 [ %32, %31 ], [ %17, %16 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %.sroa.542.0.extract.trunc, %2 ]
   %22 = zext i32 %.sroa.171.0 to i64
   %23 = shl nuw i64 %22, 32
   %24 = or disjoint i64 %23, 1
@@ -1233,7 +1233,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN211_$LT$ruff_linter..rules..pyl
   br i1 %31, label %32, label %6, !prof !102
 
 32:                                               ; preds = %86, %82, %68, %41, %28, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit4"
-  %.sroa.7.0.insert.insert = phi i64 [ %101, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit4" ], [ 0, %28 ], [ 512, %41 ], [ 256, %68 ], [ 768, %82 ], [ 1024, %86 ]
+  %.sroa.7.0.insert.insert = phi i64 [ %101, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit4" ], [ 768, %82 ], [ 0, %28 ], [ 512, %41 ], [ 256, %68 ], [ 1024, %86 ]
   ret i64 %.sroa.7.0.insert.insert
 
 33:                                               ; preds = %16
@@ -1462,7 +1462,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN213_$LT$ruff_linter..rules..fla
   br label %15
 
 15:                                               ; preds = %2, %19, %13
-  %.sroa.81.0 = phi i32 [ %20, %19 ], [ %14, %13 ], [ %.sroa.525.0.extract.trunc, %2 ]
+  %.sroa.81.0 = phi i32 [ %14, %13 ], [ %20, %19 ], [ %.sroa.525.0.extract.trunc, %2 ]
   %16 = zext i32 %.sroa.81.0 to i64
   %17 = shl nuw i64 %16, 32
   %18 = or disjoint i64 %17, 1
@@ -2872,9 +2872,9 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !241
   br label %21
 
-21:                                               ; preds = %17, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %20, %17 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %18, %17 ]
+21:                                               ; preds = %2, %17
+  %.sroa.6.0.i.ph = phi i64 [ %20, %17 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %18, %17 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #23
   unreachable
 
@@ -3104,9 +3104,9 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i: ; preds = %12
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !247
   br label %40
 
-40:                                               ; preds = %36, %5, %9, %12
-  %.sroa.6.0.i.ph = phi i64 [ undef, %12 ], [ undef, %9 ], [ undef, %5 ], [ %39, %36 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %12 ], [ 0, %9 ], [ 0, %5 ], [ %37, %36 ]
+40:                                               ; preds = %5, %9, %36, %12
+  %.sroa.6.0.i.ph = phi i64 [ undef, %12 ], [ %39, %36 ], [ undef, %9 ], [ undef, %5 ]
+  %.sroa.04.0.i.ph = phi i64 [ 0, %12 ], [ %37, %36 ], [ 0, %9 ], [ 0, %5 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6590dc96b775749cee7aee339d2e7d.54) #23
   unreachable
 

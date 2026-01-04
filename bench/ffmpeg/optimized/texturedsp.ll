@@ -1400,7 +1400,7 @@ decompress_indices.exit:                          ; preds = %32
   br label %160
 
 160:                                              ; preds = %147, %.fold.split, %149, %151, %150
-  %.0 = phi i8 [ %.fr54, %149 ], [ -1, %150 ], [ %159, %151 ], [ %.fr53, %147 ], [ 0, %.fold.split ]
+  %.0 = phi i8 [ %159, %151 ], [ %.fr54, %149 ], [ -1, %150 ], [ %.fr53, %147 ], [ 0, %.fold.split ]
   %161 = and i32 %.146, 3
   %162 = zext nneg i32 %161 to i64
   %163 = getelementptr inbounds nuw i32, ptr %4, i64 %162

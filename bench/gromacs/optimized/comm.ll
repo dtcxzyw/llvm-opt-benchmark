@@ -120,7 +120,7 @@ define noundef i32 @_Z17tMPI_Comm_compareP10tmpi_comm_S0_Pi(ptr noundef readonly
   br i1 %32, label %18, label %.loopexit, !llvm.loop !34
 
 .loopexit.sink.split:                             ; preds = %24, %26, %8, %5, %3
-  %.sink = phi i32 [ 0, %3 ], [ 3, %5 ], [ 3, %8 ], [ 3, %26 ], [ 3, %24 ]
+  %.sink = phi i32 [ 3, %8 ], [ 3, %5 ], [ 0, %3 ], [ 3, %26 ], [ 3, %24 ]
   store i32 %.sink, ptr %2, align 4, !tbaa !28
   br label %.loopexit
 
@@ -132,7 +132,7 @@ define noundef i32 @_Z17tMPI_Comm_compareP10tmpi_comm_S0_Pi(ptr noundef readonly
 define noundef i32 @_Z15tMPI_Comm_allocPP10tmpi_comm_S0_i(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = tail call noundef ptr @_Z11tMPI_Mallocm(i64 noundef 536)
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %.critedge116, label %6
+  br i1 %5, label %.critedge, label %6
 
 6:                                                ; preds = %3
   %7 = load i32, ptr @Nthreads, align 4, !tbaa !28
@@ -142,7 +142,7 @@ define noundef i32 @_Z15tMPI_Comm_allocPP10tmpi_comm_S0_i(ptr noundef writeonly 
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %10, ptr %11, align 8, !tbaa !29
   %12 = icmp eq ptr %10, null
-  br i1 %12, label %.critedge116, label %13
+  br i1 %12, label %.critedge, label %13
 
 13:                                               ; preds = %6
   store i32 %2, ptr %4, align 8, !tbaa !3
@@ -154,7 +154,7 @@ define noundef i32 @_Z15tMPI_Comm_allocPP10tmpi_comm_S0_i(ptr noundef writeonly 
 16:                                               ; preds = %13
   %17 = load ptr, ptr @TMPI_COMM_WORLD, align 8, !tbaa !35
   %18 = tail call noundef i32 @_Z10tMPI_ErrorP10tmpi_comm_i(ptr noundef %17, i32 noundef 2)
-  br label %.critedge116
+  br label %.critedge
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 280
@@ -165,7 +165,7 @@ define noundef i32 @_Z15tMPI_Comm_allocPP10tmpi_comm_S0_i(ptr noundef writeonly 
 22:                                               ; preds = %19
   %23 = load ptr, ptr @TMPI_COMM_WORLD, align 8, !tbaa !35
   %24 = tail call noundef i32 @_Z10tMPI_ErrorP10tmpi_comm_i(ptr noundef %23, i32 noundef 2)
-  br label %.critedge116
+  br label %.critedge
 
 25:                                               ; preds = %19
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 352
@@ -176,7 +176,7 @@ define noundef i32 @_Z15tMPI_Comm_allocPP10tmpi_comm_S0_i(ptr noundef writeonly 
 28:                                               ; preds = %25
   %29 = load ptr, ptr @TMPI_COMM_WORLD, align 8, !tbaa !35
   %30 = tail call noundef i32 @_Z10tMPI_ErrorP10tmpi_comm_i(ptr noundef %29, i32 noundef 2)
-  br label %.critedge116
+  br label %.critedge
 
 31:                                               ; preds = %25
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 424
@@ -209,7 +209,7 @@ define noundef i32 @_Z15tMPI_Comm_allocPP10tmpi_comm_S0_i(ptr noundef writeonly 
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store ptr %45, ptr %46, align 8, !tbaa !39
   %47 = icmp eq ptr %45, null
-  br i1 %47, label %.critedge116, label %48
+  br i1 %47, label %.critedge, label %48
 
 48:                                               ; preds = %._crit_edge
   %49 = shl nuw nsw i64 %43, 2
@@ -217,11 +217,11 @@ define noundef i32 @_Z15tMPI_Comm_allocPP10tmpi_comm_S0_i(ptr noundef writeonly 
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %50, ptr %51, align 8, !tbaa !40
   %52 = icmp eq ptr %50, null
-  br i1 %52, label %.critedge116, label %.preheader120
+  br i1 %52, label %.critedge, label %.preheader120
 
 .preheader120:                                    ; preds = %48
   %.not135 = icmp eq i32 %.093.lcssa, 0
-  br i1 %.not135, label %.critedge, label %.lr.ph130.preheader
+  br i1 %.not135, label %.critedge116, label %.lr.ph130.preheader
 
 .lr.ph130.preheader:                              ; preds = %.preheader120
   %wide.trip.count146 = zext i32 %.093.lcssa to i64
@@ -243,7 +243,7 @@ define noundef i32 @_Z15tMPI_Comm_allocPP10tmpi_comm_S0_i(ptr noundef writeonly 
   %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv143
   store ptr %60, ptr %62, align 8, !tbaa !41
   %.not109 = icmp eq ptr %60, null
-  br i1 %.not109, label %.critedge116, label %.preheader119
+  br i1 %.not109, label %.critedge, label %.preheader119
 
 .preheader119:                                    ; preds = %.lr.ph130
   %63 = icmp sgt i32 %55, 0
@@ -267,9 +267,9 @@ define noundef i32 @_Z15tMPI_Comm_allocPP10tmpi_comm_S0_i(ptr noundef writeonly 
 ._crit_edge127:                                   ; preds = %.lr.ph126, %.preheader119
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %exitcond147.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count146
-  br i1 %exitcond147.not, label %.critedge, label %.lr.ph130, !llvm.loop !44
+  br i1 %exitcond147.not, label %.critedge116, label %.lr.ph130, !llvm.loop !44
 
-.critedge:                                        ; preds = %._crit_edge127, %.preheader120
+.critedge116:                                     ; preds = %._crit_edge127, %.preheader120
   %68 = load i32, ptr @Nthreads, align 4, !tbaa !28
   %69 = sext i32 %68 to i64
   %70 = shl nsw i64 %69, 6
@@ -277,9 +277,9 @@ define noundef i32 @_Z15tMPI_Comm_allocPP10tmpi_comm_S0_i(ptr noundef writeonly 
   %72 = getelementptr inbounds nuw i8, ptr %4, i64 192
   store ptr %71, ptr %72, align 8, !tbaa !45
   %73 = icmp eq ptr %71, null
-  br i1 %73, label %.critedge116, label %74
+  br i1 %73, label %.critedge, label %74
 
-74:                                               ; preds = %.critedge
+74:                                               ; preds = %.critedge116
   %75 = load i32, ptr @Nthreads, align 4, !tbaa !28
   %76 = sext i32 %75 to i64
   %77 = shl nsw i64 %76, 6
@@ -287,7 +287,7 @@ define noundef i32 @_Z15tMPI_Comm_allocPP10tmpi_comm_S0_i(ptr noundef writeonly 
   %79 = getelementptr inbounds nuw i8, ptr %4, i64 200
   store ptr %78, ptr %79, align 8, !tbaa !46
   %80 = icmp eq ptr %78, null
-  br i1 %80, label %.critedge116, label %81
+  br i1 %80, label %.critedge, label %81
 
 81:                                               ; preds = %74
   %.not110 = icmp eq ptr %1, null
@@ -300,7 +300,7 @@ define noundef i32 @_Z15tMPI_Comm_allocPP10tmpi_comm_S0_i(ptr noundef writeonly 
   %85 = getelementptr inbounds nuw i8, ptr %4, i64 176
   store ptr %84, ptr %85, align 8, !tbaa !49
   %86 = icmp eq ptr %84, null
-  br i1 %86, label %.critedge116, label %.preheader117
+  br i1 %86, label %.critedge, label %.preheader117
 
 87:                                               ; preds = %.preheader117
   br i1 %88, label %.preheader117, label %92, !llvm.loop !50
@@ -312,7 +312,7 @@ define noundef i32 @_Z15tMPI_Comm_allocPP10tmpi_comm_S0_i(ptr noundef writeonly 
   %90 = getelementptr inbounds nuw %struct.coll_env, ptr %89, i64 %indvars.iv148
   %91 = tail call noundef i32 @_Z18tMPI_Coll_env_initP8coll_envi(ptr noundef %90, i32 noundef %2)
   %.not115 = icmp eq i32 %91, 0
-  br i1 %.not115, label %87, label %.critedge116
+  br i1 %.not115, label %87, label %.critedge
 
 92:                                               ; preds = %87
   %93 = sext i32 %2 to i64
@@ -321,7 +321,7 @@ define noundef i32 @_Z15tMPI_Comm_allocPP10tmpi_comm_S0_i(ptr noundef writeonly 
   %96 = getelementptr inbounds nuw i8, ptr %4, i64 184
   store ptr %95, ptr %96, align 8, !tbaa !51
   %97 = icmp eq ptr %95, null
-  br i1 %97, label %.critedge116, label %.preheader
+  br i1 %97, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %92
   %98 = icmp sgt i32 %2, 0
@@ -342,7 +342,7 @@ define noundef i32 @_Z15tMPI_Comm_allocPP10tmpi_comm_S0_i(ptr noundef writeonly 
   %101 = getelementptr inbounds nuw %struct.coll_sync, ptr %100, i64 %indvars.iv151
   %102 = tail call noundef i32 @_Z19tMPI_Coll_sync_initP9coll_synci(ptr noundef %101, i32 noundef %2)
   %.not114 = icmp eq i32 %102, 0
-  br i1 %.not114, label %99, label %.critedge116
+  br i1 %.not114, label %99, label %.critedge
 
 ._crit_edge134:                                   ; preds = %99, %.preheader
   %103 = load ptr, ptr @tmpi_global, align 8, !tbaa !53
@@ -354,7 +354,7 @@ define noundef i32 @_Z15tMPI_Comm_allocPP10tmpi_comm_S0_i(ptr noundef writeonly 
 
 107:                                              ; preds = %._crit_edge134
   %108 = tail call noundef i32 @_Z10tMPI_ErrorP10tmpi_comm_i(ptr noundef %106, i32 noundef 2)
-  br label %.critedge116
+  br label %.critedge
 
 109:                                              ; preds = %._crit_edge134
   %.not112 = icmp eq ptr %106, null
@@ -388,14 +388,14 @@ define noundef i32 @_Z15tMPI_Comm_allocPP10tmpi_comm_S0_i(ptr noundef writeonly 
 122:                                              ; preds = %118
   %123 = load ptr, ptr @TMPI_COMM_WORLD, align 8, !tbaa !35
   %124 = tail call noundef i32 @_Z10tMPI_ErrorP10tmpi_comm_i(ptr noundef %123, i32 noundef 2)
-  br label %.critedge116
+  br label %.critedge
 
 125:                                              ; preds = %118
   store ptr %4, ptr %0, align 8, !tbaa !35
-  br label %.critedge116
+  br label %.critedge
 
-.critedge116:                                     ; preds = %.lr.ph130, %.preheader117, %.lr.ph133, %._crit_edge, %48, %92, %81, %74, %.critedge, %6, %3, %125, %122, %107, %28, %22, %16
-  %.098 = phi i32 [ %18, %16 ], [ %24, %22 ], [ %30, %28 ], [ %108, %107 ], [ %124, %122 ], [ 0, %125 ], [ 1, %3 ], [ 1, %6 ], [ 1, %.critedge ], [ 1, %74 ], [ 1, %81 ], [ 1, %92 ], [ 1, %48 ], [ 1, %._crit_edge ], [ %102, %.lr.ph133 ], [ %91, %.preheader117 ], [ 1, %.lr.ph130 ]
+.critedge:                                        ; preds = %.lr.ph130, %.preheader117, %.lr.ph133, %92, %81, %74, %.critedge116, %._crit_edge, %48, %6, %3, %125, %122, %107, %28, %22, %16
+  %.098 = phi i32 [ 1, %6 ], [ 1, %3 ], [ %18, %16 ], [ %24, %22 ], [ %30, %28 ], [ 1, %._crit_edge ], [ 1, %.critedge116 ], [ 1, %74 ], [ 1, %81 ], [ %91, %.preheader117 ], [ 1, %92 ], [ %108, %107 ], [ %124, %122 ], [ 0, %125 ], [ %102, %.lr.ph133 ], [ 1, %48 ], [ 1, %.lr.ph130 ]
   ret i32 %.098
 }
 
@@ -566,7 +566,7 @@ define noundef i32 @_Z17tMPI_Comm_destroyP10tmpi_comm_i(ptr noundef %0, i32 noun
   br label %72
 
 72:                                               ; preds = %.sink.split, %65, %66
-  %.041 = phi i32 [ 0, %66 ], [ 0, %65 ], [ %71, %.sink.split ]
+  %.041 = phi i32 [ 0, %65 ], [ 0, %66 ], [ %71, %.sink.split ]
   ret i32 %.041
 }
 
@@ -612,7 +612,7 @@ define noundef i32 @_Z14tMPI_Comm_freePP10tmpi_comm_(ptr noundef readonly captur
   br label %14
 
 14:                                               ; preds = %10, %1, %13
-  %.0 = phi i32 [ 0, %13 ], [ 0, %1 ], [ %12, %10 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %13 ], [ %12, %10 ]
   ret i32 %.0
 }
 
@@ -985,7 +985,7 @@ _Z11tMPI_Comm_NP10tmpi_comm_.exit144:             ; preds = %43, %40
   br label %._crit_edge.thread95.i
 
 ._crit_edge.thread95.i:                           ; preds = %.thread.i, %._crit_edge.thread.i, %._crit_edge.i, %.lr.ph73.i
-  %.1159 = phi i32 [ %.0158, %.lr.ph73.i ], [ %148, %._crit_edge.thread.i ], [ %.0158, %._crit_edge.i ], [ %.0158, %.thread.i ]
+  %.1159 = phi i32 [ %.0158, %.lr.ph73.i ], [ %.0158, %._crit_edge.i ], [ %148, %._crit_edge.thread.i ], [ %.0158, %.thread.i ]
   %indvars.iv.next82.i = add nuw nsw i64 %indvars.iv81.i, 1
   %exitcond.not.i147 = icmp eq i64 %indvars.iv.next82.i, %.pre-phi
   br i1 %exitcond.not.i147, label %_ZL17tMPI_Split_colorsiPKiS0_PiS1_S1_S1_.exit, label %.lr.ph73.i, !llvm.loop !73
@@ -1181,7 +1181,7 @@ _ZL17tMPI_Split_colorsiPKiS0_PiS1_S1_S1_.exit:    ; preds = %._crit_edge.thread9
   br label %214
 
 214:                                              ; preds = %.thread171, %209, %211, %79, %69, %27, %_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit.thread
-  %.0 = phi i32 [ %29, %27 ], [ %71, %69 ], [ %213, %211 ], [ %81, %79 ], [ %22, %_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit.thread ], [ 0, %209 ], [ %.1.ph, %.thread171 ]
+  %.0 = phi i32 [ %29, %27 ], [ %71, %69 ], [ %213, %211 ], [ %22, %_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit.thread ], [ %.1.ph, %.thread171 ], [ %81, %79 ], [ 0, %209 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

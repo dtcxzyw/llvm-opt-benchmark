@@ -1110,8 +1110,8 @@ Vec_IntFind.exit:                                 ; preds = %117, %Vec_IntPush.e
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %.loopexit.loopexit, %.critedge.thread-pre-split.loopexit92_crit_edge
-  %127 = phi ptr [ %.pr.pre.pre, %.critedge.thread-pre-split.loopexit92_crit_edge ], [ %26, %.loopexit.loopexit ], [ %26, %25 ]
-  %.0 = phi i32 [ 0, %.critedge.thread-pre-split.loopexit92_crit_edge ], [ -1, %.loopexit.loopexit ], [ 1, %25 ]
+  %127 = phi ptr [ %26, %.loopexit.loopexit ], [ %.pr.pre.pre, %.critedge.thread-pre-split.loopexit92_crit_edge ], [ %26, %25 ]
+  %.0 = phi i32 [ -1, %.loopexit.loopexit ], [ 0, %.critedge.thread-pre-split.loopexit92_crit_edge ], [ 1, %25 ]
   %.not.i84 = icmp eq ptr %127, null
   br i1 %.not.i84, label %Vec_IntFree.exit, label %.loopexit.thread
 
@@ -1330,8 +1330,8 @@ Vec_IntAlloc.exit:                                ; preds = %.critedge, %68
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %100, %102, %92, %94
-  %.sink110 = phi ptr [ %93, %92 ], [ %95, %94 ], [ %101, %100 ], [ %103, %102 ]
-  %.sink = phi i32 [ 16, %92 ], [ 16, %94 ], [ %97, %100 ], [ %97, %102 ]
+  %.sink110 = phi ptr [ %95, %94 ], [ %93, %92 ], [ %101, %100 ], [ %103, %102 ]
+  %.sink = phi i32 [ 16, %94 ], [ 16, %92 ], [ %97, %100 ], [ %97, %102 ]
   store ptr %.sink110, ptr %73, align 8, !tbaa !31
   store i32 %.sink, ptr %65, align 8, !tbaa !50
   br label %Vec_IntPush.exit
@@ -1497,8 +1497,8 @@ Vec_IntAlloc.exit:                                ; preds = %11, %20
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %48, %50, %40, %42
-  %.sink55 = phi ptr [ %41, %40 ], [ %43, %42 ], [ %49, %48 ], [ %51, %50 ]
-  %.sink = phi i32 [ 16, %40 ], [ 16, %42 ], [ %45, %48 ], [ %45, %50 ]
+  %.sink55 = phi ptr [ %43, %42 ], [ %41, %40 ], [ %49, %48 ], [ %51, %50 ]
+  %.sink = phi i32 [ 16, %42 ], [ 16, %40 ], [ %45, %48 ], [ %45, %50 ]
   store ptr %.sink55, ptr %25, align 8, !tbaa !31
   store i32 %.sink, ptr %17, align 8, !tbaa !50
   br label %Vec_IntPush.exit

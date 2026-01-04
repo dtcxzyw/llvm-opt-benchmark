@@ -102,7 +102,7 @@ _.exit17:                                         ; preds = %22, %24
   br label %32
 
 32:                                               ; preds = %30, %29, %5
-  %.0 = phi i32 [ 0, %29 ], [ %7, %5 ], [ %spec.select, %30 ]
+  %.0 = phi i32 [ %7, %5 ], [ %spec.select, %30 ], [ 0, %29 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load ptr, ptr %33, align 8, !tbaa !15
   store i32 %.0, ptr %34, align 4, !tbaa !10
@@ -819,7 +819,7 @@ strbuf_addch.exit42:                              ; preds = %strbuf_avail.exit.i
   br label %50
 
 50:                                               ; preds = %.sink.split, %11, %strbuf_addch.exit42, %25
-  %.0 = phi i32 [ -1, %25 ], [ 0, %strbuf_addch.exit42 ], [ 0, %11 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ -1, %25 ], [ 0, %11 ], [ 0, %strbuf_addch.exit42 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 

@@ -600,7 +600,7 @@ define noundef range(i64 0, -280375465082880) i64 @_ZN6icu_7713UCollationPCE9pro
   br label %.thread
 
 .thread:                                          ; preds = %24, %29, %32
-  %.022 = phi i64 [ %spec.select, %29 ], [ %37, %32 ], [ 0, %24 ]
+  %.022 = phi i64 [ %37, %32 ], [ %spec.select, %29 ], [ 0, %24 ]
   ret i64 %.022
 }
 
@@ -700,7 +700,7 @@ _ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit: ; preds = %15
   resume { ptr, i32 } %.pn
 
 33:                                               ; preds = %18, %31, %4, %14
-  %.0 = phi ptr [ null, %14 ], [ null, %4 ], [ null, %18 ], [ %22, %31 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %14 ], [ null, %18 ], [ %22, %31 ]
   ret ptr %.0
 }
 
@@ -842,7 +842,7 @@ define noundef range(i64 1, -280375465082880) i64 @_ZN6icu_7713UCollationPCE13ne
   br label %_ZN6icu_7713UCollationPCE9processCEEj.exit
 
 _ZN6icu_7713UCollationPCE9processCEEj.exit:       ; preds = %45, %47, %41
-  %.015 = phi i64 [ 0, %45 ], [ %52, %47 ], [ 0, %41 ]
+  %.015 = phi i64 [ 0, %41 ], [ %52, %47 ], [ 0, %45 ]
   %53 = icmp eq i64 %.015, 0
   br i1 %53, label %14, label %_ZN6icu_7713UCollationPCE9processCEEj.exit.thread, !llvm.loop !50
 
@@ -1259,7 +1259,7 @@ _ZN6icu_779PCEBuffer3getEv.exit:                  ; preds = %.critedge2, %.prehe
   br label %164
 
 164:                                              ; preds = %.thread, %147, %148, %4, %162
-  %.0 = phi i64 [ %163, %162 ], [ 9223372036854775807, %4 ], [ 9223372036854775807, %148 ], [ 9223372036854775807, %147 ], [ 9223372036854775807, %.thread ]
+  %.0 = phi i64 [ %163, %162 ], [ 9223372036854775807, %.thread ], [ 9223372036854775807, %4 ], [ 9223372036854775807, %148 ], [ 9223372036854775807, %147 ]
   ret i64 %.0
 }
 

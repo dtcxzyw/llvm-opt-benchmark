@@ -495,7 +495,7 @@ _ZNSt8functionIFvRKN10open_spiel5StateEEED2Ev.exit13.i: ; preds = %206, %203
   br label %.body.i
 
 common.resume:                                    ; preds = %.body.i120, %1261, %.body.i98, %1139, %.body.i75, %1015, %.body.i56, %912, %.body.i41, %799, %.body.i11, %520, %.body.i1, %332, %.body.i27, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i, %.body.i ], [ %.pn11.pn.pn.i, %.body.i27 ], [ %.pn9.pn.pn.pn.pn.i, %332 ], [ %.pn.i2, %.body.i1 ], [ %.pn16.pn.i, %520 ], [ %.pn.i12, %.body.i11 ], [ %.pn14.pn.i, %799 ], [ %.pn.i42, %.body.i41 ], [ %.pn17.pn.i, %912 ], [ %.pn.i57, %.body.i56 ], [ %.pn11.pn.i, %1015 ], [ %.pn.i76, %.body.i75 ], [ %.pn13.pn.i, %1139 ], [ %.pn.i99, %.body.i98 ], [ %.pn15.pn.pn.i, %1261 ], [ %.pn.i121, %.body.i120 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i, %.body.i ], [ %.pn.i99, %.body.i98 ], [ %.pn.i2, %.body.i1 ], [ %.pn11.pn.pn.i, %.body.i27 ], [ %.pn.i12, %.body.i11 ], [ %.pn.i42, %.body.i41 ], [ %.pn.i57, %.body.i56 ], [ %.pn.i76, %.body.i75 ], [ %.pn9.pn.pn.pn.pn.i, %332 ], [ %.pn16.pn.i, %520 ], [ %.pn14.pn.i, %799 ], [ %.pn17.pn.i, %912 ], [ %.pn11.pn.i, %1015 ], [ %.pn13.pn.i, %1139 ], [ %.pn15.pn.pn.i, %1261 ], [ %.pn.i121, %.body.i120 ]
   resume { ptr, i32 } %common.resume.op
 
 .body.i:                                          ; preds = %211, %199, %.body
@@ -1299,7 +1299,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit33.i: ; p
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit24.i
 
 _ZNSt6vectorIlSaIlEED2Ev.exit24.i:                ; preds = %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit33.i, %455, %418, %415, %410, %407, %405, %.loopexit.split-lp.i, %.loopexit.i
-  %.pn16.i = phi { ptr, i32 } [ %406, %405 ], [ %.pn12.pn.pn.i, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit33.i ], [ %456, %455 ], [ %408, %407 ], [ %408, %410 ], [ %416, %415 ], [ %416, %418 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+  %.pn16.i = phi { ptr, i32 } [ %408, %410 ], [ %416, %418 ], [ %456, %455 ], [ %406, %405 ], [ %.pn12.pn.pn.i, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit33.i ], [ %408, %407 ], [ %416, %415 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   %516 = load ptr, ptr %82, align 8
   %.not.i34.i = icmp eq ptr %516, null
   br i1 %.not.i34.i, label %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit36.i, label %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i35.i
@@ -1806,8 +1806,8 @@ _ZNSt8functionIFvRKN10open_spiel5StateEEED2Ev.exit40.i: ; preds = %689, %686
   br label %.body.i27
 
 .body.i27:                                        ; preds = %694, %682, %681, %675, %673, %671, %.body149, %.body152, %.body155
-  %.sink.i = phi ptr [ %70, %671 ], [ %70, %.body155 ], [ %70, %673 ], [ %73, %675 ], [ %73, %.body152 ], [ %73, %681 ], [ %76, %682 ], [ %76, %.body149 ], [ %76, %694 ]
-  %.pn11.pn.pn.i = phi { ptr, i32 } [ %672, %671 ], [ %529, %.body155 ], [ %674, %673 ], [ %676, %675 ], [ %539, %.body152 ], [ %.pn8.i, %681 ], [ %683, %682 ], [ %587, %.body149 ], [ %.pn11.i, %694 ]
+  %.sink.i = phi ptr [ %73, %681 ], [ %70, %673 ], [ %70, %671 ], [ %70, %.body155 ], [ %73, %675 ], [ %73, %.body152 ], [ %76, %682 ], [ %76, %.body149 ], [ %76, %694 ]
+  %.pn11.pn.pn.i = phi { ptr, i32 } [ %.pn8.i, %681 ], [ %674, %673 ], [ %672, %671 ], [ %529, %.body155 ], [ %676, %675 ], [ %539, %.body152 ], [ %683, %682 ], [ %587, %.body149 ], [ %.pn11.i, %694 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink.i) #16
   br label %common.resume
 
@@ -2086,7 +2086,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN10open_spiel18twenty_forty_eight12_GLOBAL__N_125MultipleMergePossibleTestEv.exit
 
 .body19.ithread-pre-split:                        ; preds = %742, %745, %750, %752
-  %.pn14.i.ph = phi { ptr, i32 } [ %743, %745 ], [ %743, %742 ], [ %751, %750 ], [ %753, %752 ]
+  %.pn14.i.ph = phi { ptr, i32 } [ %743, %742 ], [ %743, %745 ], [ %751, %750 ], [ %753, %752 ]
   %.pr = load ptr, ptr %63, align 8
   br label %.body19.i
 
@@ -2415,7 +2415,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN10open_spiel18twenty_forty_eight12_GLOBAL__N_119OneMergePerTurnTestEv.exit
 
 .body22thread-pre-split.i:                        ; preds = %865, %857, %855, %850, %847
-  %.pn17.ph.i = phi { ptr, i32 } [ %848, %850 ], [ %848, %847 ], [ %858, %857 ], [ %856, %855 ], [ %866, %865 ]
+  %.pn17.ph.i = phi { ptr, i32 } [ %848, %847 ], [ %848, %850 ], [ %858, %857 ], [ %856, %855 ], [ %866, %865 ]
   %.pr.i = load ptr, ptr %50, align 8
   br label %.body22.i
 
@@ -2712,7 +2712,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN10open_spiel18twenty_forty_eight12_GLOBAL__N_117TerminalStateTestEv.exit
 
 .body16thread-pre-split.i:                        ; preds = %968, %966, %961, %958
-  %.pn11.ph.i = phi { ptr, i32 } [ %959, %961 ], [ %959, %958 ], [ %967, %966 ], [ %969, %968 ]
+  %.pn11.ph.i = phi { ptr, i32 } [ %959, %958 ], [ %959, %961 ], [ %967, %966 ], [ %969, %968 ]
   %.pr.i85 = load ptr, ptr %41, align 8
   br label %.body16.i
 
@@ -3056,7 +3056,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN10open_spiel18twenty_forty_eight12_GLOBAL__N_111GameWonTestEv.exit
 
 .body18thread-pre-split.i:                        ; preds = %1092, %1075, %1073, %1068, %1065
-  %.pn13.ph.i = phi { ptr, i32 } [ %1066, %1068 ], [ %1066, %1065 ], [ %1076, %1075 ], [ %1074, %1073 ], [ %1093, %1092 ]
+  %.pn13.ph.i = phi { ptr, i32 } [ %1066, %1065 ], [ %1066, %1068 ], [ %1076, %1075 ], [ %1074, %1073 ], [ %1093, %1092 ]
   %.pr.i107 = load ptr, ptr %27, align 8
   br label %.body18.i
 
@@ -3403,7 +3403,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %.body21.ithread-pre-split
 
 .body21.ithread-pre-split:                        ; preds = %1231, %1234, %1239, %1249, %1251
-  %.pn15.pn.i.ph = phi { ptr, i32 } [ %.pn15.i, %1251 ], [ %.pn15.i, %1249 ], [ %1232, %1234 ], [ %1232, %1231 ], [ %1240, %1239 ]
+  %.pn15.pn.i.ph = phi { ptr, i32 } [ %1232, %1231 ], [ %.pn15.i, %1249 ], [ %.pn15.i, %1251 ], [ %1240, %1239 ], [ %1232, %1234 ]
   %.pr183 = load ptr, ptr %17, align 8
   br label %.body21.i
 

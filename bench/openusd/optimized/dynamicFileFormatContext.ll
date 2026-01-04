@@ -702,7 +702,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit9.i12: ; preds = %174, %16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryD2Ev.exit: ; preds = %_ZNKSt14default_deleteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7VtValueESt4lessIvESaISt4pairIKS6_S8_EEEEclEPSF_.exit.i.i, %99, %3, %"_ZN32pxrInternal_v0_24__pxrReserved__27PcpDynamicFileFormatContext19_ComposeValueHelper17ComposeFieldValueIZNKS0_12ComposeValueERKNS_7TfTokenEPNS_7VtValueEE3$_1EEbPKS0_S5_bRKT_.exit"
-  %.0 = phi i1 [ %178, %"_ZN32pxrInternal_v0_24__pxrReserved__27PcpDynamicFileFormatContext19_ComposeValueHelper17ComposeFieldValueIZNKS0_12ComposeValueERKNS_7TfTokenEPNS_7VtValueEE3$_1EEbPKS0_S5_bRKT_.exit" ], [ false, %3 ], [ %94, %99 ], [ %94, %_ZNKSt14default_deleteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7VtValueESt4lessIvESaISt4pairIKS6_S8_EEEEclEPSF_.exit.i.i ]
+  %.0 = phi i1 [ false, %3 ], [ %178, %"_ZN32pxrInternal_v0_24__pxrReserved__27PcpDynamicFileFormatContext19_ComposeValueHelper17ComposeFieldValueIZNKS0_12ComposeValueERKNS_7TfTokenEPNS_7VtValueEE3$_1EEbPKS0_S5_bRKT_.exit" ], [ %94, %99 ], [ %94, %_ZNKSt14default_deleteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7VtValueESt4lessIvESaISt4pairIKS6_S8_EEEEclEPSF_.exit.i.i ]
   ret i1 %.0
 }
 
@@ -1371,8 +1371,8 @@ select.unfold:                                    ; preds = %19, %._crit_edge.th
   br label %31
 
 31:                                               ; preds = %22, %._crit_edge.i6
-  %32 = phi i64 [ %.pre.i, %._crit_edge.i6 ], [ %25, %22 ]
-  %33 = phi i1 [ true, %._crit_edge.i6 ], [ %30, %22 ]
+  %32 = phi i64 [ %25, %22 ], [ %.pre.i, %._crit_edge.i6 ]
+  %33 = phi i1 [ %30, %22 ], [ true, %._crit_edge.i6 ]
   %34 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #21
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   store i64 %32, ptr %35, align 8
@@ -2516,7 +2516,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit82: ; preds = %.loopexit, 
   ret i1 %.2
 
 376:                                              ; preds = %.loopexit93, %.loopexit.split-lp, %357, %210, %103
-  %.pn35 = phi { ptr, i32 } [ %lpad.phi98, %103 ], [ %.pn33, %357 ], [ %211, %210 ], [ %lpad.loopexit, %.loopexit93 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn35 = phi { ptr, i32 } [ %lpad.phi98, %103 ], [ %211, %210 ], [ %.pn33, %357 ], [ %lpad.loopexit, %.loopexit93 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %15) #18
   resume { ptr, i32 } %.pn35
 }
@@ -4263,7 +4263,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit77: ; preds = %.loopexit, 
   ret i1 %.2
 
 346:                                              ; preds = %.loopexit88, %.loopexit.split-lp, %327, %180, %73
-  %.pn35 = phi { ptr, i32 } [ %lpad.phi93, %73 ], [ %.pn33, %327 ], [ %181, %180 ], [ %lpad.loopexit, %.loopexit88 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn35 = phi { ptr, i32 } [ %lpad.phi93, %73 ], [ %181, %180 ], [ %.pn33, %327 ], [ %lpad.loopexit, %.loopexit88 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %14) #18
   resume { ptr, i32 } %.pn35
 }
@@ -5227,7 +5227,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit78: ; preds = %.loopexit, 
   ret i1 %.2
 
 354:                                              ; preds = %.loopexit89, %.loopexit.split-lp, %335, %188, %81
-  %.pn35 = phi { ptr, i32 } [ %lpad.phi94, %81 ], [ %.pn33, %335 ], [ %189, %188 ], [ %lpad.loopexit, %.loopexit89 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn35 = phi { ptr, i32 } [ %lpad.phi94, %81 ], [ %189, %188 ], [ %.pn33, %335 ], [ %lpad.loopexit, %.loopexit89 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %14) #18
   resume { ptr, i32 } %.pn35
 }
@@ -6321,7 +6321,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit77: ; preds = %.loopexit, 
   ret i1 %.2
 
 346:                                              ; preds = %.loopexit88, %.loopexit.split-lp, %327, %180, %73
-  %.pn35 = phi { ptr, i32 } [ %lpad.phi93, %73 ], [ %.pn33, %327 ], [ %181, %180 ], [ %lpad.loopexit, %.loopexit88 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn35 = phi { ptr, i32 } [ %lpad.phi93, %73 ], [ %181, %180 ], [ %.pn33, %327 ], [ %lpad.loopexit, %.loopexit88 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %14) #18
   resume { ptr, i32 } %.pn35
 }

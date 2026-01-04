@@ -117,14 +117,14 @@ define range(i32 0, -2147483648) i32 @EVP_SealInit(ptr noundef %0, ptr noundef %
   br i1 %exitcond.not, label %.loopexit, label %38, !llvm.loop !14
 
 .loopexit:                                        ; preds = %53, %.thread, %35, %32, %25, %28
-  %.042 = phi ptr [ null, %25 ], [ null, %28 ], [ null, %32 ], [ null, %35 ], [ %41, %.thread ], [ null, %53 ]
-  %.039 = phi i32 [ 0, %25 ], [ 0, %28 ], [ 0, %32 ], [ 0, %35 ], [ 0, %.thread ], [ %6, %53 ]
+  %.042 = phi ptr [ null, %25 ], [ null, %28 ], [ null, %32 ], [ %41, %.thread ], [ null, %35 ], [ null, %53 ]
+  %.039 = phi i32 [ 0, %25 ], [ 0, %28 ], [ 0, %32 ], [ 0, %.thread ], [ 0, %35 ], [ %6, %53 ]
   call void @EVP_PKEY_CTX_free(ptr noundef %.042) #3
   call void @OPENSSL_cleanse(ptr noundef nonnull %8, i64 noundef 64) #3
   br label %57
 
 57:                                               ; preds = %22, %19, %10, %.loopexit
-  %.041 = phi i32 [ %.039, %.loopexit ], [ 0, %10 ], [ 1, %19 ], [ 0, %22 ]
+  %.041 = phi i32 [ 1, %19 ], [ %.039, %.loopexit ], [ 0, %22 ], [ 0, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.041
 }

@@ -616,7 +616,7 @@ _ZN3vcg3ply10PlyElement8FindPropEPKc.exit:        ; preds = %.lr.ph.i
   br label %_ZN3vcg3ply10PlyElement8FindPropEPKc.exit.thread
 
 _ZN3vcg3ply10PlyElement8FindPropEPKc.exit.thread: ; preds = %17, %10, %.thread, %39, %50, %29, %32, %36, %25, %_ZN3vcg3ply10PlyElement8FindPropEPKc.exit, %.thread61
-  %.0 = phi i32 [ 0, %.thread61 ], [ 10, %_ZN3vcg3ply10PlyElement8FindPropEPKc.exit ], [ 10, %25 ], [ 11, %36 ], [ 11, %32 ], [ 11, %29 ], [ 12, %50 ], [ 12, %39 ], [ 12, %.thread ], [ 9, %10 ], [ 9, %17 ]
+  %.0 = phi i32 [ 11, %29 ], [ 12, %.thread ], [ 10, %_ZN3vcg3ply10PlyElement8FindPropEPKc.exit ], [ 10, %25 ], [ 0, %.thread61 ], [ 11, %36 ], [ 11, %32 ], [ 12, %50 ], [ 12, %39 ], [ 9, %10 ], [ 9, %17 ]
   ret i32 %.0
 }
 
@@ -1254,7 +1254,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   br label %_ZN3vcg3ply7PlyFile7DestroyEv.exit114
 
 ._crit_edge124:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit, %130, %158, %155, %151, %148, %145, %142, %139, %134, %132, %119, %85, %162, %76, %72, %70, %63, %._crit_edge, %31, %27, %25, %20
-  %.sink142 = phi i32 [ 3, %20 ], [ 2, %25 ], [ 3, %27 ], [ 3, %31 ], [ 4, %._crit_edge ], [ 3, %63 ], [ 4, %70 ], [ 3, %72 ], [ 3, %76 ], [ 3, %162 ], [ 3, %85 ], [ 5, %119 ], [ 6, %132 ], [ 5, %134 ], [ 5, %139 ], [ 7, %142 ], [ 5, %145 ], [ 7, %148 ], [ 5, %151 ], [ 7, %155 ], [ 5, %158 ], [ 5, %130 ], [ 3, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit ]
+  %.sink142 = phi i32 [ 3, %20 ], [ 3, %76 ], [ 3, %72 ], [ 4, %70 ], [ 3, %63 ], [ 4, %._crit_edge ], [ 5, %158 ], [ 3, %31 ], [ 3, %27 ], [ 2, %25 ], [ 7, %155 ], [ 5, %151 ], [ 7, %148 ], [ 5, %145 ], [ 7, %142 ], [ 5, %139 ], [ 5, %134 ], [ 6, %132 ], [ 5, %119 ], [ 3, %85 ], [ 3, %162 ], [ 5, %130 ], [ 3, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit ]
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 %.sink142, ptr %170, align 4
   %.pr = load ptr, ptr %12, align 8
@@ -1422,7 +1422,7 @@ define noundef range(i32 -1, 9) i32 @_ZNK3vcg3ply7PlyFile8FindTypeEPKc(ptr nonnu
   br label %.split.loop.exit
 
 .split.loop.exit:                                 ; preds = %11, %.split.loop.exit13, %.split.loop.exit11
-  %.07 = phi i32 [ %12, %.split.loop.exit11 ], [ %13, %.split.loop.exit13 ], [ -1, %11 ]
+  %.07 = phi i32 [ %13, %.split.loop.exit13 ], [ %12, %.split.loop.exit11 ], [ -1, %11 ]
   ret i32 %.07
 }
 
@@ -1603,13 +1603,13 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %22, %29, %31, %33, 
   %87 = icmp eq i32 %86, -1
   br i1 %87, label %_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit.thread, label %_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit
 
-_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit.thread: ; preds = %80, %82, %85
+_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit.thread: ; preds = %80, %85, %82
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
-_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit:       ; preds = %85, %82
-  %.0.i = phi i32 [ %83, %82 ], [ %86, %85 ]
+_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit:       ; preds = %82, %85
+  %.0.i = phi i32 [ %86, %85 ], [ %83, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not39 = icmp eq i32 %.0.i, 0
@@ -1661,13 +1661,13 @@ _ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit:       ; preds = %85, %82
   br label %_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit44
 
 _ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit44:     ; preds = %100, %103, %106
-  %.0.i42 = phi i32 [ %spec.store.select.i.i43, %103 ], [ %spec.store.select.i3.i41, %106 ], [ 0, %100 ]
+  %.0.i42 = phi i32 [ %spec.store.select.i3.i41, %106 ], [ %spec.store.select.i.i43, %103 ], [ 0, %100 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %68, %66, %_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit, %78, %62, %.preheader, %_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit.thread, %12, %_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit44, %91
-  %.035 = phi i32 [ %99, %91 ], [ %.0.i42, %_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit44 ], [ 0, %12 ], [ 0, %_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit.thread ], [ 1, %.preheader ], [ 1, %62 ], [ 0, %_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit ], [ 1, %78 ], [ 0, %68 ], [ 1, %66 ]
+  %.035 = phi i32 [ 0, %12 ], [ 0, %_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit.thread ], [ 1, %62 ], [ %.0.i42, %_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit44 ], [ %99, %91 ], [ 1, %78 ], [ 1, %.preheader ], [ 0, %_ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit ], [ 1, %66 ], [ 0, %68 ]
   ret i32 %.035
 }
 
@@ -1862,7 +1862,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %20, %27, %29, %31, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %66, %64, %.lr.ph50, %76, %60, %.preheader, %10, %97, %88
-  %.038 = phi i32 [ %96, %88 ], [ %105, %97 ], [ 0, %10 ], [ 1, %.preheader ], [ 1, %60 ], [ 0, %.lr.ph50 ], [ 1, %76 ], [ 0, %66 ], [ 1, %64 ]
+  %.038 = phi i32 [ 0, %10 ], [ %96, %88 ], [ 1, %60 ], [ %105, %97 ], [ 1, %76 ], [ 1, %.preheader ], [ 0, %.lr.ph50 ], [ 0, %66 ], [ 1, %64 ]
   ret i32 %.038
 }
 
@@ -2423,8 +2423,8 @@ _ZN3vcg3ply10PlyElement9AddToReadEPKciimiiiim.exit: ; preds = %.thread.i, %60
   store i64 %10, ptr %76, align 8
   br label %78
 
-.loopexit:                                        ; preds = %27, %_ZN3vcg3ply10PlyElement8FindPropEPKc.exit.i, %35, %46, %42, %39, %60, %49, %.thread.i, %_ZN3vcg3ply7PlyFile11FindElementEPKc.exit
-  %.0.i17.ph = phi i32 [ 9, %_ZN3vcg3ply7PlyFile11FindElementEPKc.exit ], [ 12, %.thread.i ], [ 12, %49 ], [ 12, %60 ], [ 11, %39 ], [ 11, %42 ], [ 11, %46 ], [ 10, %35 ], [ 10, %_ZN3vcg3ply10PlyElement8FindPropEPKc.exit.i ], [ 9, %27 ]
+.loopexit:                                        ; preds = %27, %39, %.thread.i, %_ZN3vcg3ply10PlyElement8FindPropEPKc.exit.i, %35, %46, %42, %60, %49, %_ZN3vcg3ply7PlyFile11FindElementEPKc.exit
+  %.0.i17.ph = phi i32 [ 11, %39 ], [ 9, %_ZN3vcg3ply7PlyFile11FindElementEPKc.exit ], [ 12, %49 ], [ 12, %60 ], [ 11, %42 ], [ 11, %46 ], [ 10, %35 ], [ 10, %_ZN3vcg3ply10PlyElement8FindPropEPKc.exit.i ], [ 12, %.thread.i ], [ 9, %27 ]
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 %.0.i17.ph, ptr %77, align 4
   br label %78
@@ -5982,7 +5982,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit32:       ; preds = %98, %104
   br i1 %or.cond.not, label %98, label %.loopexit, !llvm.loop !64
 
 .loopexit:                                        ; preds = %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit32, %95, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit, %18, %11
-  %.031 = phi i1 [ false, %11 ], [ false, %18 ], [ false, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ], [ false, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ], [ false, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit ], [ true, %95 ], [ %.not, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit32 ]
+  %.031 = phi i1 [ false, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit ], [ false, %_ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit ], [ false, %_ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit ], [ false, %11 ], [ false, %18 ], [ true, %95 ], [ %.not, %_ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit32 ]
   ret i1 %.031
 }
 

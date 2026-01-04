@@ -1008,11 +1008,11 @@ define internal i32 @dissect_knxip(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %106
 
 106:                                              ; preds = %.thread149, %96, %102, %104, %100, %67, %76, %53
-  %107 = phi i32 [ %55, %76 ], [ %55, %67 ], [ %.pre-phi, %53 ], [ %55, %100 ], [ %55, %104 ], [ %55, %102 ], [ %55, %96 ], [ %55, %.thread149 ]
-  %.0121148 = phi i8 [ %.0121147, %76 ], [ %.0121147, %67 ], [ %.0121, %53 ], [ %.0121147, %100 ], [ %.0121147, %104 ], [ %.0121147, %102 ], [ %.0121147, %96 ], [ %.0121147, %.thread149 ]
-  %.0129 = phi i16 [ %70, %76 ], [ 0, %67 ], [ 0, %53 ], [ %70, %100 ], [ %70, %104 ], [ %70, %102 ], [ %70, %96 ], [ %70, %.thread149 ]
-  %.1 = phi i8 [ %.2, %76 ], [ %.2, %67 ], [ 1, %53 ], [ 1, %100 ], [ 1, %104 ], [ %.2, %102 ], [ 1, %96 ], [ %.2, %.thread149 ]
-  %.0 = phi i32 [ 4, %76 ], [ 2, %67 ], [ 1, %53 ], [ 6, %100 ], [ 6, %104 ], [ 6, %102 ], [ 6, %96 ], [ 4, %.thread149 ]
+  %107 = phi i32 [ %.pre-phi, %53 ], [ %55, %76 ], [ %55, %67 ], [ %55, %100 ], [ %55, %104 ], [ %55, %102 ], [ %55, %96 ], [ %55, %.thread149 ]
+  %.0121148 = phi i8 [ %.0121, %53 ], [ %.0121147, %76 ], [ %.0121147, %67 ], [ %.0121147, %100 ], [ %.0121147, %104 ], [ %.0121147, %102 ], [ %.0121147, %96 ], [ %.0121147, %.thread149 ]
+  %.0129 = phi i16 [ 0, %53 ], [ %70, %76 ], [ 0, %67 ], [ %70, %100 ], [ %70, %104 ], [ %70, %102 ], [ %70, %96 ], [ %70, %.thread149 ]
+  %.1 = phi i8 [ 1, %53 ], [ %.2, %76 ], [ %.2, %67 ], [ 1, %100 ], [ 1, %104 ], [ %.2, %102 ], [ 1, %96 ], [ %.2, %.thread149 ]
+  %.0 = phi i32 [ 1, %53 ], [ 4, %76 ], [ 2, %67 ], [ 6, %100 ], [ 6, %104 ], [ 6, %102 ], [ 6, %96 ], [ 4, %.thread149 ]
   %108 = icmp samesign ult i32 %.0, %107
   br i1 %108, label %109, label %113
 
@@ -2065,8 +2065,8 @@ define internal fastcc zeroext i8 @dissect_hpai(ptr noundef %0, ptr noundef %1, 
   br label %118
 
 118:                                              ; preds = %.thread153, %38, %116, %43, %23
-  %.0129 = phi i8 [ 0, %23 ], [ %40, %38 ], [ 1, %43 ], [ %16, %116 ], [ %37, %.thread153 ]
-  %.0 = phi i1 [ true, %23 ], [ true, %38 ], [ true, %43 ], [ %117, %116 ], [ true, %.thread153 ]
+  %.0129 = phi i8 [ 0, %23 ], [ %40, %38 ], [ %37, %.thread153 ], [ 1, %43 ], [ %16, %116 ]
+  %.0 = phi i1 [ true, %23 ], [ true, %38 ], [ true, %.thread153 ], [ true, %43 ], [ %117, %116 ]
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %120 = load ptr, ptr %119, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %120, i32 noundef 25, ptr noundef nonnull @.str.325, ptr noundef nonnull %9)
@@ -3510,8 +3510,8 @@ define internal fastcc void @dissect_cri(ptr noundef %0, ptr noundef %1, ptr nou
   br label %.thread136
 
 .thread136:                                       ; preds = %74, %.thread135, %77, %80, %45, %43, %51, %50, %34
-  %.1113 = phi i8 [ %.0112, %34 ], [ %.0112, %50 ], [ %.0112, %51 ], [ %.0112, %45 ], [ %.0112, %43 ], [ %.2134, %80 ], [ %.2134, %77 ], [ %.2134, %.thread135 ], [ %.2134, %74 ]
-  %.1111 = phi i8 [ 0, %34 ], [ %38, %50 ], [ %38, %51 ], [ %38, %45 ], [ %38, %43 ], [ 4, %80 ], [ 4, %77 ], [ 4, %.thread135 ], [ 4, %74 ]
+  %.1113 = phi i8 [ %.0112, %34 ], [ %.0112, %50 ], [ %.2134, %77 ], [ %.0112, %51 ], [ %.0112, %43 ], [ %.2134, %80 ], [ %.0112, %45 ], [ %.2134, %.thread135 ], [ %.2134, %74 ]
+  %.1111 = phi i8 [ 0, %34 ], [ %38, %50 ], [ 4, %77 ], [ %38, %51 ], [ %38, %43 ], [ 4, %80 ], [ %38, %45 ], [ 4, %.thread135 ], [ 4, %74 ]
   %.not125 = icmp eq i8 %.1113, 0
   br i1 %.not125, label %.thread138, label %85
 
@@ -3738,9 +3738,9 @@ define internal fastcc void @dissect_crd(ptr noundef %0, ptr noundef %1, ptr nou
   br label %81
 
 81:                                               ; preds = %44, %42, %80, %50, %49, %33
-  %.1103 = phi i8 [ 0, %33 ], [ 1, %49 ], [ 1, %50 ], [ %.2104126, %80 ], [ 0, %44 ], [ 0, %42 ]
-  %.1101 = phi i8 [ 0, %33 ], [ %37, %49 ], [ %37, %50 ], [ 4, %80 ], [ %37, %44 ], [ %37, %42 ]
-  %.1 = phi i8 [ %.0, %33 ], [ %.0, %49 ], [ %.0, %50 ], [ %.2127, %80 ], [ %.0, %44 ], [ %.0, %42 ]
+  %.1103 = phi i8 [ 0, %33 ], [ 1, %49 ], [ %.2104126, %80 ], [ 1, %50 ], [ 0, %44 ], [ 0, %42 ]
+  %.1101 = phi i8 [ 0, %33 ], [ %37, %49 ], [ 4, %80 ], [ %37, %50 ], [ %37, %44 ], [ %37, %42 ]
+  %.1 = phi i8 [ %.0, %33 ], [ %.0, %49 ], [ %.2127, %80 ], [ %.0, %50 ], [ %.0, %44 ], [ %.0, %42 ]
   %.not121 = icmp eq i8 %.1, 0
   br i1 %.not121, label %.thread128, label %82
 
@@ -4795,12 +4795,12 @@ define internal fastcc zeroext range(i8 0, 2) i8 @dissect_secure_wrapper(i8 noun
   br label %99
 
 99:                                               ; preds = %._crit_edge, %._crit_edge.thread
-  %100 = phi ptr [ %88, %._crit_edge.thread ], [ %spec.select, %._crit_edge ]
+  %100 = phi ptr [ %spec.select, %._crit_edge ], [ %88, %._crit_edge.thread ]
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %79, ptr noundef nonnull @.str.242, ptr noundef nonnull %100)
   br label %115
 
-101:                                              ; preds = %95, %.thread
-  %.3.ph = phi ptr [ %84, %.thread ], [ %94, %95 ]
+101:                                              ; preds = %.thread, %95
+  %.3.ph = phi ptr [ %94, %95 ], [ %84, %.thread ]
   %102 = call ptr @tvb_new_child_real_data(ptr noundef %1, ptr noundef nonnull %.3.ph, i32 noundef %64, i32 noundef %64)
   %103 = add nsw i32 %10, -32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %4, ptr noundef nonnull @.str.461)
@@ -5659,7 +5659,7 @@ define internal fastcc ptr @decrypt_secure_wrapper(ptr noundef %0, ptr noundef %
   br label %23
 
 23:                                               ; preds = %4, %10, %22
-  %.028 = phi ptr [ %.1, %22 ], [ null, %10 ], [ null, %4 ]
+  %.028 = phi ptr [ null, %10 ], [ %.1, %22 ], [ null, %4 ]
   ret ptr %.028
 }
 

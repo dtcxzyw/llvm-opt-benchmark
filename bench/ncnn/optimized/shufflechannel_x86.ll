@@ -837,7 +837,7 @@ _ZN4ncnn3MatD2Ev.exit339:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   br label %_ZN4ncnn3MataSERKS0_.exit
 
 _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %.lr.ph962, %._crit_edge969, %._crit_edge981, %._crit_edge991, %_ZN4ncnn3MatD2Ev.exit322, %.preheader947, %.preheader945, %.preheader, %261, %93, %_ZN4ncnn3Mat7releaseEv.exit477, %41, %_ZN4ncnn3MatD2Ev.exit327, %431, %_ZNK4ncnn3Mat5emptyEv.exit, %_ZNK4ncnn3Mat5emptyEv.exit304, %_ZNK4ncnn3Mat8elembitsEv.exit.thread
-  %.0 = phi i32 [ -100, %_ZNK4ncnn3Mat8elembitsEv.exit.thread ], [ %188, %_ZN4ncnn3MatD2Ev.exit327 ], [ %432, %431 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit304 ], [ 0, %41 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit477 ], [ -100, %93 ], [ -100, %261 ], [ 0, %.preheader ], [ 0, %.preheader945 ], [ 0, %.preheader947 ], [ 0, %_ZN4ncnn3MatD2Ev.exit322 ], [ 0, %._crit_edge991 ], [ 0, %._crit_edge981 ], [ 0, %._crit_edge969 ], [ 0, %.lr.ph962 ]
+  %.0 = phi i32 [ -100, %_ZNK4ncnn3Mat8elembitsEv.exit.thread ], [ 0, %.preheader947 ], [ %432, %431 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ %188, %_ZN4ncnn3MatD2Ev.exit327 ], [ 0, %.preheader945 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit304 ], [ 0, %.preheader ], [ -100, %261 ], [ 0, %41 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit477 ], [ -100, %93 ], [ 0, %_ZN4ncnn3MatD2Ev.exit322 ], [ 0, %._crit_edge969 ], [ 0, %._crit_edge991 ], [ 0, %._crit_edge981 ], [ 0, %.lr.ph962 ]
   ret i32 %.0
 }
 

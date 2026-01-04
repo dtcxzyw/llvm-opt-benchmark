@@ -437,7 +437,7 @@ if.end12.i.i:                                     ; preds = %if.else.i.i, %while
   %cmp.i5.i.i = icmp ult i8 %9, %8
   br i1 %cmp.i5.i.i, label %if.then.i.i, label %_ZNSt8_Rb_treeIN8proxygen17StructuredHeaders11DecodeErrorESt4pairIKS2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISB_ESt4lessIS2_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i
 
-if.then.i.i:                                      ; preds = %if.end12.i.i, %land.lhs.true.i, %if.then.i.i6
+if.then.i.i:                                      ; preds = %if.end12.i.i, %if.then.i.i6, %land.lhs.true.i
   %retval.sroa.12.0.i.ph = phi ptr [ %__y.0.lcssa26.i.i, %if.then.i.i6 ], [ %2, %land.lhs.true.i ], [ %__y.0.lcssa25.i.i, %if.end12.i.i ]
   %call5.i.i3 = invoke ptr @_ZNSt8_Rb_treeIN8proxygen17StructuredHeaders11DecodeErrorESt4pairIKS2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISB_ESt4lessIS2_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef null, ptr noundef nonnull %retval.sroa.12.0.i.ph, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.04.i, ptr noundef nonnull align 8 dereferenceable(8) %__an.i)
           to label %_ZNSt8_Rb_treeIN8proxygen17StructuredHeaders11DecodeErrorESt4pairIKS2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISB_ESt4lessIS2_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i unwind label %lpad4
@@ -810,7 +810,7 @@ if.end12.i.i:                                     ; preds = %if.else.i.i, %while
   %cmp.i5.i.i = icmp ult i8 %9, %8
   br i1 %cmp.i5.i.i, label %if.then.i.i, label %_ZNSt8_Rb_treeIN8proxygen17StructuredHeaders11EncodeErrorESt4pairIKS2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISB_ESt4lessIS2_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i
 
-if.then.i.i:                                      ; preds = %if.end12.i.i, %land.lhs.true.i, %if.then.i.i6
+if.then.i.i:                                      ; preds = %if.end12.i.i, %if.then.i.i6, %land.lhs.true.i
   %retval.sroa.12.0.i.ph = phi ptr [ %__y.0.lcssa26.i.i, %if.then.i.i6 ], [ %2, %land.lhs.true.i ], [ %__y.0.lcssa25.i.i, %if.end12.i.i ]
   %call5.i.i3 = invoke ptr @_ZNSt8_Rb_treeIN8proxygen17StructuredHeaders11EncodeErrorESt4pairIKS2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISB_ESt4lessIS2_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef null, ptr noundef nonnull %retval.sroa.12.0.i.ph, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.04.i, ptr noundef nonnull align 8 dereferenceable(8) %__an.i)
           to label %_ZNSt8_Rb_treeIN8proxygen17StructuredHeaders11EncodeErrorESt4pairIKS2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISB_ESt4lessIS2_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i unwind label %lpad4
@@ -883,7 +883,7 @@ switch.lookup:                                    ; preds = %switch.early.test
   br label %lor.end
 
 lor.end:                                          ; preds = %switch.early.test, %switch.lookup, %lor.lhs.false, %entry
-  %3 = phi i1 [ true, %entry ], [ true, %lor.lhs.false ], [ %switch.masked, %switch.lookup ], [ false, %switch.early.test ]
+  %3 = phi i1 [ %switch.masked, %switch.lookup ], [ true, %entry ], [ true, %lor.lhs.false ], [ false, %switch.early.test ]
   ret i1 %3
 }
 
@@ -1050,7 +1050,7 @@ for.inc:                                          ; preds = %lor.lhs.false, %for
   br i1 %cmp.i.not, label %return, label %for.body, !llvm.loop !9
 
 return:                                           ; preds = %_ZN8proxygen17StructuredHeaders31isValidEncodedBinaryContentCharEc.exit, %if.else, %for.inc, %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end ], [ false, %_ZN8proxygen17StructuredHeaders31isValidEncodedBinaryContentCharEc.exit ], [ false, %if.else ], [ true, %for.inc ]
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end ], [ false, %if.else ], [ false, %_ZN8proxygen17StructuredHeaders31isValidEncodedBinaryContentCharEc.exit ], [ true, %for.inc ]
   ret i1 %retval.0
 }
 
@@ -1179,7 +1179,7 @@ sw.epilog:                                        ; preds = %entry
   br label %return
 
 return:                                           ; preds = %land.rhs.i54, %if.end.i52, %sw.bb10, %land.rhs.i34, %if.end.i32, %sw.bb6, %land.rhs.i17, %if.end.i15, %sw.bb2, %land.rhs.i, %if.end.i, %sw.bb, %entry, %sw.epilog
-  %retval.0 = phi i1 [ false, %sw.epilog ], [ true, %entry ], [ true, %sw.bb ], [ false, %if.end.i ], [ %cmp7.i, %land.rhs.i ], [ true, %sw.bb2 ], [ false, %if.end.i15 ], [ %cmp7.i19, %land.rhs.i17 ], [ true, %sw.bb6 ], [ false, %if.end.i32 ], [ %cmp7.i39, %land.rhs.i34 ], [ true, %sw.bb10 ], [ false, %if.end.i52 ], [ %cmp7.i59, %land.rhs.i54 ]
+  %retval.0 = phi i1 [ false, %sw.epilog ], [ true, %entry ], [ %cmp7.i, %land.rhs.i ], [ %cmp7.i19, %land.rhs.i17 ], [ %cmp7.i39, %land.rhs.i34 ], [ true, %sw.bb ], [ false, %if.end.i ], [ true, %sw.bb2 ], [ false, %if.end.i15 ], [ true, %sw.bb6 ], [ false, %if.end.i32 ], [ true, %sw.bb10 ], [ false, %if.end.i52 ], [ %cmp7.i59, %land.rhs.i54 ]
   ret i1 %retval.0
 }
 
@@ -1414,8 +1414,8 @@ lor.rhs:                                          ; preds = %entry
   br label %lor.end
 
 lor.end:                                          ; preds = %entry.lor.end_crit_edge, %lor.rhs
-  %2 = phi i8 [ %.pre, %entry.lor.end_crit_edge ], [ %0, %lor.rhs ]
-  %3 = phi i1 [ true, %entry.lor.end_crit_edge ], [ %cmp.i, %lor.rhs ]
+  %2 = phi i8 [ %0, %lor.rhs ], [ %.pre, %entry.lor.end_crit_edge ]
+  %3 = phi i1 [ %cmp.i, %lor.rhs ], [ true, %entry.lor.end_crit_edge ]
   %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #20
   %_M_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 32
   store i8 %2, ptr %_M_storage.i.i.i.i, align 8
@@ -1497,8 +1497,8 @@ lor.rhs:                                          ; preds = %entry
   br label %lor.end
 
 lor.end:                                          ; preds = %entry.lor.end_crit_edge, %lor.rhs
-  %2 = phi i8 [ %.pre, %entry.lor.end_crit_edge ], [ %0, %lor.rhs ]
-  %3 = phi i1 [ true, %entry.lor.end_crit_edge ], [ %cmp.i, %lor.rhs ]
+  %2 = phi i8 [ %0, %lor.rhs ], [ %.pre, %entry.lor.end_crit_edge ]
+  %3 = phi i1 [ %cmp.i, %lor.rhs ], [ true, %entry.lor.end_crit_edge ]
   %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #20
   %_M_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 32
   store i8 %2, ptr %_M_storage.i.i.i.i, align 8
@@ -1658,7 +1658,7 @@ arraydestroy.body30.i:                            ; preds = %arraydestroy.body30
   br i1 %arraydestroy.done33.i, label %common.resume, label %arraydestroy.body30.i
 
 common.resume:                                    ; preds = %arraydestroy.body.i, %arraydestroy.body30.i, %arraydestroy.body.i12, %arraydestroy.body27.i
-  %common.resume.op = phi { ptr, i32 } [ %7, %arraydestroy.body27.i ], [ %6, %arraydestroy.body.i12 ], [ %2, %arraydestroy.body30.i ], [ %1, %arraydestroy.body.i ]
+  %common.resume.op = phi { ptr, i32 } [ %2, %arraydestroy.body30.i ], [ %6, %arraydestroy.body.i12 ], [ %7, %arraydestroy.body27.i ], [ %1, %arraydestroy.body.i ]
   resume { ptr, i32 } %common.resume.op
 
 __cxx_global_var_init.exit:                       ; preds = %arraydestroy.body24.i

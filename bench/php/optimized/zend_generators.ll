@@ -420,8 +420,8 @@ zend_object_release.exit:                         ; preds = %34, %29, %28, %19
   br label %76
 
 76:                                               ; preds = %.thread, %66
-  %77 = phi i32 [ %68, %66 ], [ %.pre21, %.thread ]
-  %.06.i = phi ptr [ %61, %66 ], [ %75, %.thread ]
+  %77 = phi i32 [ %.pre21, %.thread ], [ %68, %66 ]
+  %.06.i = phi ptr [ %75, %.thread ], [ %61, %66 ]
   %78 = and i32 %77, -1008
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %80, label %i_zval_ptr_dtor.exit, !prof !26
@@ -1174,7 +1174,7 @@ zend_generator_update_root.exit:                  ; preds = %108, %111
   br label %zend_object_release.exit
 
 zend_object_release.exit:                         ; preds = %113, %zend_object_release.exit68, %153, %148, %147
-  %.3 = phi ptr [ %.010.i, %147 ], [ %.010.i, %148 ], [ %.010.i, %153 ], [ %0, %zend_object_release.exit68 ], [ %.0.i, %113 ]
+  %.3 = phi ptr [ %.010.i, %153 ], [ %.010.i, %147 ], [ %.010.i, %148 ], [ %0, %zend_object_release.exit68 ], [ %.0.i, %113 ]
   ret ptr %.3
 }
 
@@ -1722,8 +1722,8 @@ define internal fastcc range(i32 -1, 1) i32 @zend_generator_get_next_delegated_v
   br label %.thread
 
 .thread:                                          ; preds = %55, %59, %62, %33
-  %.sink = phi i32 [ 262, %59 ], [ 4, %62 ], [ 4, %33 ], [ 6, %55 ]
-  %.1.in = phi i64 [ %indvars.iv.next142, %59 ], [ %indvars.iv.next142, %62 ], [ %indvars.iv.next, %33 ], [ %indvars.iv.next142, %55 ]
+  %.sink = phi i32 [ 4, %33 ], [ 262, %59 ], [ 4, %62 ], [ 6, %55 ]
+  %.1.in = phi i64 [ %indvars.iv.next, %33 ], [ %indvars.iv.next142, %59 ], [ %indvars.iv.next142, %62 ], [ %indvars.iv.next142, %55 ]
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 %.sink, ptr %65, align 8, !tbaa !24
   %.1 = trunc i64 %.1.in to i32
@@ -1814,7 +1814,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_generator_get_next_delegated_v
   store i32 4, ptr %110, align 8, !tbaa !24
   br label %111
 
-.thread120:                                       ; preds = %.preheader125, %.preheader, %83, %76, %70, %106
+.thread120:                                       ; preds = %.preheader125, %.preheader, %106, %76, %70, %83
   tail call void @zval_ptr_dtor(ptr noundef nonnull %2) #11
   store i32 0, ptr %3, align 8, !tbaa !24
   br label %111
@@ -2160,7 +2160,7 @@ zend_generator_get_current.exit:                  ; preds = %zend_generator_ensu
   br label %63
 
 63:                                               ; preds = %.sink.split, %47, %53
-  %.0 = phi ptr [ %55, %53 ], [ %44, %47 ], [ %.sink.in, %.sink.split ]
+  %.0 = phi ptr [ %44, %47 ], [ %55, %53 ], [ %.sink.in, %.sink.split ]
   %64 = load ptr, ptr %.0, align 8, !tbaa !24
   %65 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %66 = load i32, ptr %65, align 8, !tbaa !24
@@ -2306,7 +2306,7 @@ zend_generator_get_current.exit:                  ; preds = %zend_generator_ensu
   br label %63
 
 63:                                               ; preds = %.sink.split, %47, %53
-  %.0 = phi ptr [ %55, %53 ], [ %44, %47 ], [ %.sink.in, %.sink.split ]
+  %.0 = phi ptr [ %44, %47 ], [ %55, %53 ], [ %.sink.in, %.sink.split ]
   %64 = load ptr, ptr %.0, align 8, !tbaa !24
   %65 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %66 = load i32, ptr %65, align 8, !tbaa !24
@@ -2579,7 +2579,7 @@ zend_generator_get_current.exit:                  ; preds = %59, %72, %75
   br label %96
 
 96:                                               ; preds = %.sink.split, %78, %86
-  %.064 = phi ptr [ %88, %86 ], [ %79, %78 ], [ %.sink.in, %.sink.split ]
+  %.064 = phi ptr [ %79, %78 ], [ %88, %86 ], [ %.sink.in, %.sink.split ]
   %97 = load ptr, ptr %.064, align 8, !tbaa !24
   %98 = getelementptr inbounds nuw i8, ptr %.064, i64 8
   %99 = load i32, ptr %98, align 8, !tbaa !24
@@ -2647,11 +2647,11 @@ thread-pre-split:                                 ; preds = %instanceof_function
   br label %26
 
 26:                                               ; preds = %6, %22, %20
-  %.062 = phi i32 [ 1, %6 ], [ 3, %22 ], [ 9, %20 ]
-  %.060 = phi ptr [ null, %6 ], [ %25, %22 ], [ null, %20 ]
-  %.058 = phi i32 [ 0, %6 ], [ 0, %22 ], [ 18, %20 ]
-  %.057 = phi ptr [ null, %6 ], [ %8, %22 ], [ %8, %20 ]
-  %.0 = phi i32 [ 0, %6 ], [ 1, %22 ], [ 1, %20 ]
+  %.062 = phi i32 [ 1, %6 ], [ 9, %20 ], [ 3, %22 ]
+  %.060 = phi ptr [ null, %6 ], [ null, %20 ], [ %25, %22 ]
+  %.058 = phi i32 [ 0, %6 ], [ 18, %20 ], [ 0, %22 ]
+  %.057 = phi ptr [ null, %6 ], [ %8, %20 ], [ %8, %22 ]
+  %.0 = phi i32 [ 0, %6 ], [ 1, %20 ], [ 1, %22 ]
   tail call void @zend_wrong_parameter_error(i32 noundef %.062, i32 noundef %.0, ptr noundef %.060, i32 noundef %.058, ptr noundef %.057) #11
   br label %.critedge73
 
@@ -2858,7 +2858,7 @@ zend_generator_get_current.exit:                  ; preds = %zend_generator_thro
   br label %113
 
 113:                                              ; preds = %.sink.split, %95, %103
-  %.059 = phi ptr [ %105, %103 ], [ %96, %95 ], [ %.sink.in, %.sink.split ]
+  %.059 = phi ptr [ %96, %95 ], [ %105, %103 ], [ %.sink.in, %.sink.split ]
   %114 = load ptr, ptr %.059, align 8, !tbaa !24
   %115 = getelementptr inbounds nuw i8, ptr %.059, i64 8
   %116 = load i32, ptr %115, align 8, !tbaa !24
@@ -3011,7 +3011,7 @@ define hidden void @zim_Generator___debugInfo(ptr noundef readonly captures(none
   br label %37
 
 37:                                               ; preds = %28, %34, %16
-  %.sink = phi i32 [ 262, %34 ], [ 262, %16 ], [ 6, %28 ]
+  %.sink = phi i32 [ 262, %16 ], [ 262, %34 ], [ 6, %28 ]
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %.sink, ptr %38, align 8, !tbaa !24
   %39 = load ptr, ptr %1, align 8, !tbaa !24
@@ -3492,7 +3492,7 @@ zend_object_release.exit95:                       ; preds = %92, %89, %88, %83, 
   br i1 %exitcond.not, label %._crit_edge, label %118
 
 ._crit_edge:                                      ; preds = %132, %118
-  %.0.lcssa = phi i32 [ %.2.ph, %132 ], [ %.0114, %118 ]
+  %.0.lcssa = phi i32 [ %.0114, %118 ], [ %.2.ph, %132 ]
   %.not88118 = icmp eq i32 %.0.lcssa, -1
   br i1 %.not88118, label %.thread106, label %.lr.ph121.preheader
 
@@ -4153,7 +4153,7 @@ zend_generator_get_current.exit:                  ; preds = %zend_generator_ensu
   br label %56
 
 56:                                               ; preds = %.sink.split, %40, %46
-  %.0 = phi ptr [ %48, %46 ], [ %37, %40 ], [ %.sink.in, %.sink.split ]
+  %.0 = phi ptr [ %37, %40 ], [ %48, %46 ], [ %.sink.in, %.sink.split ]
   %57 = load ptr, ptr %.0, align 8, !tbaa !24
   %58 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %59 = load i32, ptr %58, align 8, !tbaa !24
@@ -4321,7 +4321,7 @@ tailrecurse:                                      ; preds = %.lr.ph
   br i1 %.not21.not, label %.critedge, label %25
 
 .critedge:                                        ; preds = %tailrecurse, %.lr.ph, %29, %32, %1, %12
-  %.018 = phi i1 [ false, %12 ], [ true, %1 ], [ true, %29 ], [ false, %32 ], [ true, %tailrecurse ], [ false, %.lr.ph ]
+  %.018 = phi i1 [ true, %1 ], [ false, %12 ], [ false, %32 ], [ true, %29 ], [ true, %tailrecurse ], [ false, %.lr.ph ]
   ret i1 %.018
 }
 

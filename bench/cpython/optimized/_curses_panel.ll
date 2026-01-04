@@ -285,7 +285,7 @@ find_po.exit.i:                                   ; preds = %12
   br label %_curses_panel_bottom_panel_impl.exit
 
 _curses_panel_bottom_panel_impl.exit:             ; preds = %2, %7, %20, %find_po.exit.i, %24
-  %.0.i = phi ptr [ null, %20 ], [ null, %2 ], [ @_Py_NoneStruct, %7 ], [ %13, %find_po.exit.i ], [ %13, %24 ]
+  %.0.i = phi ptr [ null, %2 ], [ null, %20 ], [ @_Py_NoneStruct, %7 ], [ %13, %find_po.exit.i ], [ %13, %24 ]
   ret ptr %.0.i
 }
 
@@ -429,7 +429,7 @@ find_po.exit.i:                                   ; preds = %12
   br label %_curses_panel_top_panel_impl.exit
 
 _curses_panel_top_panel_impl.exit:                ; preds = %2, %7, %20, %find_po.exit.i, %24
-  %.0.i = phi ptr [ null, %20 ], [ null, %2 ], [ @_Py_NoneStruct, %7 ], [ %13, %find_po.exit.i ], [ %13, %24 ]
+  %.0.i = phi ptr [ null, %2 ], [ null, %20 ], [ @_Py_NoneStruct, %7 ], [ %13, %find_po.exit.i ], [ %13, %24 ]
   ret ptr %.0.i
 }
 
@@ -550,7 +550,7 @@ Py_DECREF.exit:                                   ; preds = %29, %32, %35
   br label %Py_DECREF.exit21
 
 Py_DECREF.exit21:                                 ; preds = %28, %25, %23, %16, %Py_DECREF.exit, %12, %9, %6, %1
-  %.0 = phi i32 [ -1, %1 ], [ -1, %6 ], [ -1, %9 ], [ -1, %12 ], [ -1, %16 ], [ %.lobit, %Py_DECREF.exit ], [ -1, %23 ], [ -1, %25 ], [ -1, %28 ]
+  %.0 = phi i32 [ -1, %12 ], [ -1, %1 ], [ -1, %6 ], [ -1, %9 ], [ -1, %16 ], [ %.lobit, %Py_DECREF.exit ], [ -1, %23 ], [ -1, %25 ], [ -1, %28 ]
   ret i32 %.0
 }
 
@@ -732,7 +732,7 @@ find_po.exit.i:                                   ; preds = %8
   br label %_curses_panel_panel_above_impl.exit
 
 _curses_panel_panel_above_impl.exit:              ; preds = %2, %16, %find_po.exit.i, %20
-  %.0.i = phi ptr [ null, %16 ], [ @_Py_NoneStruct, %2 ], [ %9, %find_po.exit.i ], [ %9, %20 ]
+  %.0.i = phi ptr [ @_Py_NoneStruct, %2 ], [ null, %16 ], [ %9, %find_po.exit.i ], [ %9, %20 ]
   ret ptr %.0.i
 }
 
@@ -778,7 +778,7 @@ find_po.exit.i:                                   ; preds = %8
   br label %_curses_panel_panel_below_impl.exit
 
 _curses_panel_panel_below_impl.exit:              ; preds = %2, %16, %find_po.exit.i, %20
-  %.0.i = phi ptr [ null, %16 ], [ @_Py_NoneStruct, %2 ], [ %9, %find_po.exit.i ], [ %9, %20 ]
+  %.0.i = phi ptr [ @_Py_NoneStruct, %2 ], [ null, %16 ], [ %9, %find_po.exit.i ], [ %9, %20 ]
   ret ptr %.0.i
 }
 
@@ -931,7 +931,7 @@ _curses_panel_panel_move_impl.exit.sink.split:    ; preds = %.split22, %.split
   br label %_curses_panel_panel_move_impl.exit
 
 _curses_panel_panel_move_impl.exit:               ; preds = %_curses_panel_panel_move_impl.exit.sink.split, %.split22, %.split, %27, %16, %10
-  %.0 = phi ptr [ null, %16 ], [ null, %27 ], [ null, %10 ], [ @_Py_NoneStruct, %.split ], [ @_Py_NoneStruct, %.split22 ], [ null, %_curses_panel_panel_move_impl.exit.sink.split ]
+  %.0 = phi ptr [ null, %16 ], [ null, %27 ], [ null, %10 ], [ @_Py_NoneStruct, %.split22 ], [ @_Py_NoneStruct, %.split ], [ null, %_curses_panel_panel_move_impl.exit.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
@@ -1044,7 +1044,7 @@ _Py_NewRef.exit.i:                                ; preds = %49, %44
   br label %_curses_panel_panel_replace_impl.exit
 
 _curses_panel_panel_replace_impl.exit:            ; preds = %55, %52, %_Py_NewRef.exit.i, %42, %36, %10, %18
-  %.0 = phi ptr [ null, %18 ], [ null, %10 ], [ null, %36 ], [ null, %42 ], [ @_Py_NoneStruct, %_Py_NewRef.exit.i ], [ @_Py_NoneStruct, %52 ], [ @_Py_NoneStruct, %55 ]
+  %.0 = phi ptr [ null, %10 ], [ null, %18 ], [ null, %36 ], [ null, %42 ], [ @_Py_NoneStruct, %_Py_NewRef.exit.i ], [ @_Py_NoneStruct, %52 ], [ @_Py_NoneStruct, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }

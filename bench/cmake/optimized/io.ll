@@ -1753,7 +1753,7 @@ _ZNSt5dequeIhSaIhEE9pop_frontEv.exit:             ; preds = %79, %81
   br i1 %89, label %_ZNSt18condition_variable4waitIZN12_GLOBAL__N_14Pipe4readEPvmEUlvE_EEvRSt11unique_lockISt5mutexET_.exit.thread, label %18, !llvm.loop !100
 
 _ZNSt18condition_variable4waitIZN12_GLOBAL__N_14Pipe4readEPvmEUlvE_EEvRSt11unique_lockISt5mutexET_.exit.thread: ; preds = %18, %.critedge, %.noexc, %_ZNSt5dequeIhSaIhEE9pop_frontEv.exit
-  %.0 = phi i64 [ %2, %_ZNSt5dequeIhSaIhEE9pop_frontEv.exit ], [ %.013, %.noexc ], [ %.013, %18 ], [ %2, %.critedge ]
+  %.0 = phi i64 [ %.013, %.noexc ], [ %2, %_ZNSt5dequeIhSaIhEE9pop_frontEv.exit ], [ %.013, %18 ], [ %2, %.critedge ]
   %90 = load i8, ptr %6, align 8, !tbaa !90, !range !85, !noundef !86
   %91 = trunc nuw i8 %90 to i1
   br i1 %91, label %92, label %_ZNSt11unique_lockISt5mutexED2Ev.exit16
@@ -2283,7 +2283,7 @@ _ZSt4copyIPPhS1_ET0_T_S3_S2_.exit26:              ; preds = %_ZNSt11_Deque_baseI
   br label %_ZSt4copyIPPhS1_ET0_T_S3_S2_.exit
 
 _ZSt4copyIPPhS1_ET0_T_S3_S2_.exit:                ; preds = %32, %31, %28, %27, %_ZSt4copyIPPhS1_ET0_T_S3_S2_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPhS1_ET0_T_S3_S2_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPhS1_ET0_T_S3_S2_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !91
   %58 = load ptr, ptr %.0, align 8, !tbaa !81
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24

@@ -1965,9 +1965,9 @@ _ZNK3irr4core8vector3dIsEeqERKS2_.exit1916.thread3021.1: ; preds = %_ZNK3irr4cor
   br label %if.end281.1
 
 if.end281.1:                                      ; preds = %if.end281.thread, %_ZNK3irr4core8vector3dIsEeqERKS2_.exit1916.thread3021.1, %if.then279.1, %_ZNK3irr4core8vector3dIsEeqERKS2_.exit1890.1, %if.then269.1, %land.lhs.true.i1856.1, %land.lhs.true.i1856, %land.lhs.true.i1831.1.thread, %land.lhs.true.i1831
-  %vertices245.sroa.45.0 = phi float [ %vertices245.sroa.45.12.copyload, %_ZNK3irr4core8vector3dIsEeqERKS2_.exit1890.1 ], [ %conv17.i1927.1, %if.then279.1 ], [ %conv17.i1902.1, %_ZNK3irr4core8vector3dIsEeqERKS2_.exit1916.thread3021.1 ], [ %conv17.i1876.1, %if.then269.1 ], [ %vertices245.sroa.45.12.copyload, %land.lhs.true.i1856.1 ], [ %conv17.i1850.1, %land.lhs.true.i1831.1.thread ], [ %vertices245.sroa.45.12.copyload, %land.lhs.true.i1831 ], [ %vertices245.sroa.45.12.copyload, %land.lhs.true.i1856 ], [ %vertices245.sroa.45.12.copyload, %if.end281.thread ]
-  %vertices245.sroa.30.0 = phi float [ %vertices245.sroa.30.12.copyload, %_ZNK3irr4core8vector3dIsEeqERKS2_.exit1890.1 ], [ %conv10.i1925.1, %if.then279.1 ], [ %conv10.i1900.1, %_ZNK3irr4core8vector3dIsEeqERKS2_.exit1916.thread3021.1 ], [ %conv10.i1874.1, %if.then269.1 ], [ %vertices245.sroa.30.12.copyload, %land.lhs.true.i1856.1 ], [ %conv10.i1849.1, %land.lhs.true.i1831.1.thread ], [ %vertices245.sroa.30.12.copyload, %land.lhs.true.i1831 ], [ %vertices245.sroa.30.12.copyload, %land.lhs.true.i1856 ], [ %vertices245.sroa.30.12.copyload, %if.end281.thread ]
-  %351 = phi <2 x float> [ %342, %_ZNK3irr4core8vector3dIsEeqERKS2_.exit1890.1 ], [ %342, %if.then279.1 ], [ %342, %_ZNK3irr4core8vector3dIsEeqERKS2_.exit1916.thread3021.1 ], [ %344, %if.then269.1 ], [ %343, %land.lhs.true.i1856.1 ], [ %318, %land.lhs.true.i1831.1.thread ], [ %313, %land.lhs.true.i1831 ], [ %322, %land.lhs.true.i1856 ], [ %330, %if.end281.thread ]
+  %vertices245.sroa.45.0 = phi float [ %vertices245.sroa.45.12.copyload, %_ZNK3irr4core8vector3dIsEeqERKS2_.exit1890.1 ], [ %conv17.i1927.1, %if.then279.1 ], [ %conv17.i1902.1, %_ZNK3irr4core8vector3dIsEeqERKS2_.exit1916.thread3021.1 ], [ %vertices245.sroa.45.12.copyload, %if.end281.thread ], [ %conv17.i1876.1, %if.then269.1 ], [ %vertices245.sroa.45.12.copyload, %land.lhs.true.i1856.1 ], [ %conv17.i1850.1, %land.lhs.true.i1831.1.thread ], [ %vertices245.sroa.45.12.copyload, %land.lhs.true.i1831 ], [ %vertices245.sroa.45.12.copyload, %land.lhs.true.i1856 ]
+  %vertices245.sroa.30.0 = phi float [ %vertices245.sroa.30.12.copyload, %_ZNK3irr4core8vector3dIsEeqERKS2_.exit1890.1 ], [ %conv10.i1925.1, %if.then279.1 ], [ %conv10.i1900.1, %_ZNK3irr4core8vector3dIsEeqERKS2_.exit1916.thread3021.1 ], [ %vertices245.sroa.30.12.copyload, %if.end281.thread ], [ %conv10.i1874.1, %if.then269.1 ], [ %vertices245.sroa.30.12.copyload, %land.lhs.true.i1856.1 ], [ %conv10.i1849.1, %land.lhs.true.i1831.1.thread ], [ %vertices245.sroa.30.12.copyload, %land.lhs.true.i1831 ], [ %vertices245.sroa.30.12.copyload, %land.lhs.true.i1856 ]
+  %351 = phi <2 x float> [ %342, %_ZNK3irr4core8vector3dIsEeqERKS2_.exit1890.1 ], [ %342, %if.then279.1 ], [ %342, %_ZNK3irr4core8vector3dIsEeqERKS2_.exit1916.thread3021.1 ], [ %330, %if.end281.thread ], [ %344, %if.then269.1 ], [ %343, %land.lhs.true.i1856.1 ], [ %318, %land.lhs.true.i1831.1.thread ], [ %313, %land.lhs.true.i1831 ], [ %322, %land.lhs.true.i1856 ]
   %352 = extractelement <2 x float> %351, i64 0
   %cmp.i.i1766 = fcmp nsz olt float %352, %vertices245.sroa.30.0
   %box285.sroa.11.0 = select i1 %cmp.i.i1766, float %vertices245.sroa.30.0, float %352
@@ -5049,7 +5049,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   br i1 %105, label %invoke.cont43.preheader3, label %vector.body, !llvm.loop !220
 
 invoke.cont43.preheader3:                         ; preds = %vector.body, %vector.memcheck, %vector.scevcheck, %invoke.cont43.preheader
-  %indvars.iv.ph = phi i64 [ 0, %invoke.cont43.preheader ], [ 0, %vector.scevcheck ], [ 0, %vector.memcheck ], [ %n.vec, %vector.body ]
+  %indvars.iv.ph = phi i64 [ 0, %vector.memcheck ], [ 0, %invoke.cont43.preheader ], [ 0, %vector.scevcheck ], [ %n.vec, %vector.body ]
   br label %invoke.cont43
 
 invoke.cont43:                                    ; preds = %invoke.cont43.preheader3, %invoke.cont43
@@ -5346,7 +5346,7 @@ for.body.epil:                                    ; preds = %if.end56.loopexit.u
   br i1 %epil.iter.cmp.not, label %for.body63.preheader, label %for.body.epil, !llvm.loop !227
 
 for.body63.preheader:                             ; preds = %for.body41, %for.body.epil, %for.body41.prol.loopexit, %if.end56.loopexit.unr-lcssa
-  %wide.trip.count252.pre-phi = phi i64 [ %wide.trip.count, %for.body41.prol.loopexit ], [ %wide.trip.count247, %if.end56.loopexit.unr-lcssa ], [ %wide.trip.count247, %for.body.epil ], [ %wide.trip.count, %for.body41 ]
+  %wide.trip.count252.pre-phi = phi i64 [ %wide.trip.count247, %for.body.epil ], [ %wide.trip.count247, %if.end56.loopexit.unr-lcssa ], [ %wide.trip.count, %for.body41.prol.loopexit ], [ %wide.trip.count, %for.body41 ]
   %mul58 = mul i32 %nodecount, %conv
   %xtraiter279 = and i64 %wide.trip.count252.pre-phi, 3
   %36 = icmp ult i32 %nodecount, 4

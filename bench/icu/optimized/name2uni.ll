@@ -168,7 +168,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1011,9 +1011,9 @@ _ZN6icu_7713UnicodeString8truncateEi.exit118:     ; preds = %138, %132, %131
   br label %_ZN6icu_7713UnicodeString8truncateEi.exit.thread
 
 _ZN6icu_7713UnicodeString8truncateEi.exit.thread: ; preds = %54, %163, %90, %170, %74, %_ZNK6icu_7713UnicodeString6charAtEi.exit, %50
-  %.176 = phi i32 [ %.075143, %50 ], [ %.075143, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %.075143, %74 ], [ %171, %170 ], [ %.075143, %90 ], [ %.075143, %163 ], [ %.075143, %54 ]
-  %.171.shrunk = phi i1 [ false, %50 ], [ true, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ true, %74 ], [ false, %170 ], [ %97, %90 ], [ %.not96.not, %163 ], [ false, %54 ]
-  %.1 = phi i32 [ %.069145, %50 ], [ %.069145, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %.069145, %74 ], [ %.069145, %170 ], [ %.069145, %90 ], [ %.069145, %163 ], [ %.075143, %54 ]
+  %.176 = phi i32 [ %171, %170 ], [ %.075143, %74 ], [ %.075143, %50 ], [ %.075143, %90 ], [ %.075143, %163 ], [ %.075143, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %.075143, %54 ]
+  %.171.shrunk = phi i1 [ false, %170 ], [ true, %74 ], [ false, %50 ], [ %97, %90 ], [ %.not96.not, %163 ], [ true, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ false, %54 ]
+  %.1 = phi i32 [ %.069145, %170 ], [ %.069145, %74 ], [ %.069145, %50 ], [ %.069145, %90 ], [ %.069145, %163 ], [ %.069145, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %.075143, %54 ]
   %.171 = zext i1 %.171.shrunk to i32
   %172 = icmp ult i32 %45, 65536
   %173 = select i1 %172, i32 1, i32 2
@@ -1028,9 +1028,9 @@ _ZN6icu_7713UnicodeString8truncateEi.exit.thread: ; preds = %54, %163, %90, %170
   br i1 %175, label %41, label %.outer._crit_edge, !llvm.loop !31
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %27
-  %.072.ph.lcssa142 = phi i32 [ %34, %27 ], [ %.072.ph152, %.backedge ], [ %.173, %.outer ]
-  %.075.lcssa = phi i32 [ %32, %27 ], [ %.075.be, %.backedge ], [ %.3, %.outer ]
-  %.069.lcssa = phi i32 [ -1, %27 ], [ %.069.be, %.backedge ], [ -1, %.outer ]
+  %.072.ph.lcssa142 = phi i32 [ %.072.ph152, %.backedge ], [ %34, %27 ], [ %.173, %.outer ]
+  %.075.lcssa = phi i32 [ %.075.be, %.backedge ], [ %32, %27 ], [ %.3, %.outer ]
+  %.069.lcssa = phi i32 [ %.069.be, %.backedge ], [ -1, %27 ], [ -1, %.outer ]
   %176 = load i32, ptr %33, align 4, !tbaa !25
   %177 = sub i32 %.072.ph.lcssa142, %176
   %178 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -1059,7 +1059,7 @@ _ZN6icu_7713UnicodeString8truncateEi.exit.thread: ; preds = %54, %163, %90, %170
   ret void
 
 186:                                              ; preds = %.loopexit, %.loopexit.split-lp, %115, %154, %69
-  %.pn102 = phi { ptr, i32 } [ %70, %69 ], [ %155, %154 ], [ %116, %115 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn102 = phi { ptr, i32 } [ %70, %69 ], [ %116, %115 ], [ %155, %154 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #14

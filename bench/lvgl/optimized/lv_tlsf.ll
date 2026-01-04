@@ -888,8 +888,8 @@ search_suitable_block.exit:                       ; preds = %21, %33
   store i32 %74, ptr %72, align 8, !tbaa !3
   br label %remove_free_block.exit
 
-remove_free_block.exit:                           ; preds = %28, %2, %mapping_search.exit, %69, %64, %62, %54, %search_suitable_block.exit
-  %.029 = phi ptr [ null, %search_suitable_block.exit ], [ %44, %54 ], [ %44, %62 ], [ %44, %64 ], [ %44, %69 ], [ null, %mapping_search.exit ], [ null, %2 ], [ null, %28 ]
+remove_free_block.exit:                           ; preds = %28, %mapping_search.exit, %2, %69, %64, %62, %54, %search_suitable_block.exit
+  %.029 = phi ptr [ %44, %69 ], [ null, %search_suitable_block.exit ], [ %44, %54 ], [ %44, %62 ], [ %44, %64 ], [ null, %2 ], [ null, %mapping_search.exit ], [ null, %28 ]
   ret ptr %.029
 }
 
@@ -1956,7 +1956,7 @@ block_insert.exit.i:                              ; preds = %mapping_insert.exit
   br label %.critedge63
 
 .critedge63:                                      ; preds = %44, %46, %.critedge, %block_insert.exit.i, %adjust_request_size.exit, %6, %lv_tlsf_malloc.exit
-  %.1 = phi ptr [ null, %6 ], [ %16, %lv_tlsf_malloc.exit ], [ null, %adjust_request_size.exit ], [ %45, %46 ], [ null, %44 ], [ %1, %.critedge ], [ %1, %block_insert.exit.i ]
+  %.1 = phi ptr [ null, %adjust_request_size.exit ], [ %16, %lv_tlsf_malloc.exit ], [ null, %6 ], [ null, %44 ], [ %45, %46 ], [ %1, %.critedge ], [ %1, %block_insert.exit.i ]
   ret ptr %.1
 }
 

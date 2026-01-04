@@ -544,7 +544,7 @@ clar_print_init.exit:                             ; preds = %clar_parse_args.exi
   unreachable
 
 thread-pre-split:                                 ; preds = %125, %122
-  %129 = phi ptr [ null, %122 ], [ %126, %125 ]
+  %129 = phi ptr [ %126, %125 ], [ null, %122 ]
   br i1 %124, label %142, label %.thread.thread
 
 .thread.thread:                                   ; preds = %117, %.thread, %thread-pre-split
@@ -2201,7 +2201,7 @@ sub_2249:                                         ; preds = %sub_1248
   %364 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %362, i64 noundef %363, ptr noundef nonnull %5, i32 noundef %354) #31
   br label %.thread244
 
-.thread241:                                       ; preds = %54, %116, %167, %229, %271, %320, %351, %52, %114, %165, %227
+.thread241:                                       ; preds = %320, %271, %229, %167, %116, %54, %351, %52, %114, %165, %227
   call void @llvm.va_end.p0(ptr nonnull %6)
   br label %368
 
@@ -2210,7 +2210,7 @@ sub_2249:                                         ; preds = %sub_1248
   %367 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 4096, ptr noundef nonnull @.str.17, i32 noundef %224, ptr noundef nonnull %222, i32 noundef %224, ptr noundef nonnull %221, i32 noundef %366) #31
   br label %.thread244
 
-.thread244:                                       ; preds = %356, %325, %276, %239, %176, %129, %63, %.critedge, %126, %.critedge13, %365
+.thread244:                                       ; preds = %129, %63, %356, %325, %276, %239, %176, %.critedge, %126, %.critedge13, %365
   call void @llvm.va_end.p0(ptr nonnull %6)
   call void @clar__fail(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef nonnull %7, i32 noundef %4)
   br label %368

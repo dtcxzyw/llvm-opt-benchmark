@@ -949,7 +949,7 @@ thread-pre-split356.thread:                       ; preds = %77, %58, %58, %58, 
   br i1 %.not185, label %.sink.split, label %.preheader560
 
 .sink.split:                                      ; preds = %296, %295, %294, %293, %292
-  %.sink532 = phi i64 [ 76140, %292 ], [ 76145, %293 ], [ 76245, %294 ], [ 76390, %295 ], [ 76230, %296 ]
+  %.sink532 = phi i64 [ 76140, %292 ], [ 76145, %293 ], [ 76390, %295 ], [ 76245, %294 ], [ 76230, %296 ]
   store i64 %.sink532, ptr %290, align 8, !tbaa !80
   %297 = getelementptr inbounds nuw i8, ptr %0, i64 1344
   store i64 %.sink532, ptr %297, align 8, !tbaa !86
@@ -1291,7 +1291,7 @@ thread-pre-split356.thread:                       ; preds = %77, %58, %58, %58, 
   br i1 %exitcond494.not, label %.loopexit, label %415, !llvm.loop !104
 
 .loopexit:                                        ; preds = %233, %193, %159, %168, %147, %123, %421, %373, %369, %360, %288, %278, %248, %239, %234, %120, %120, %165, %189, %223, %228, %214, %266, %270, %269, %.loopexit384, %313, %.loopexit386, %366, %.critedge, %370, %382, %.loopexit388, %332, %284, %245, %.loopexit405, %209, %169, %130, %128, %144, %151, %141, %137, %134
-  %422 = phi i1 [ false, %130 ], [ false, %128 ], [ true, %151 ], [ false, %144 ], [ false, %141 ], [ false, %137 ], [ false, %134 ], [ false, %165 ], [ false, %169 ], [ false, %189 ], [ false, %209 ], [ false, %.loopexit405 ], [ false, %223 ], [ false, %228 ], [ false, %214 ], [ false, %245 ], [ false, %.loopexit384 ], [ false, %269 ], [ false, %270 ], [ false, %266 ], [ false, %284 ], [ false, %.loopexit386 ], [ false, %313 ], [ false, %332 ], [ false, %.loopexit388 ], [ false, %.critedge ], [ false, %366 ], [ false, %382 ], [ false, %370 ], [ false, %120 ], [ false, %120 ], [ false, %234 ], [ false, %239 ], [ false, %248 ], [ false, %278 ], [ false, %288 ], [ false, %360 ], [ false, %369 ], [ false, %373 ], [ false, %421 ], [ false, %123 ], [ false, %147 ], [ false, %168 ], [ false, %159 ], [ false, %193 ], [ false, %233 ]
+  %422 = phi i1 [ false, %130 ], [ false, %128 ], [ false, %421 ], [ false, %120 ], [ false, %120 ], [ true, %151 ], [ false, %159 ], [ false, %144 ], [ false, %141 ], [ false, %137 ], [ false, %134 ], [ false, %382 ], [ false, %165 ], [ false, %147 ], [ false, %169 ], [ false, %189 ], [ false, %123 ], [ false, %209 ], [ false, %.loopexit405 ], [ false, %223 ], [ false, %228 ], [ false, %373 ], [ false, %214 ], [ false, %369 ], [ false, %245 ], [ false, %234 ], [ false, %.loopexit384 ], [ false, %269 ], [ false, %270 ], [ false, %266 ], [ false, %370 ], [ false, %284 ], [ false, %193 ], [ false, %.loopexit386 ], [ false, %313 ], [ false, %332 ], [ false, %.loopexit388 ], [ false, %.critedge ], [ false, %288 ], [ false, %366 ], [ false, %248 ], [ false, %239 ], [ false, %278 ], [ false, %360 ], [ false, %168 ], [ false, %233 ]
   %423 = getelementptr inbounds nuw i8, ptr %0, i64 1200
   %424 = getelementptr inbounds nuw i8, ptr %0, i64 1356
   %425 = load i8, ptr %424, align 4, !tbaa !73
@@ -2001,7 +2001,7 @@ thread-pre-split356.thread:                       ; preds = %77, %58, %58, %58, 
   br label %.thread377.sink.split
 
 .thread377.sink.split:                            ; preds = %650, %645, %.thread381
-  %.sink537 = phi i16 [ 6, %.thread381 ], [ 43, %645 ], [ %..pr374, %650 ]
+  %.sink537 = phi i16 [ 43, %645 ], [ 6, %.thread381 ], [ %..pr374, %650 ]
   store i16 %.sink537, ptr %589, align 2, !tbaa !78
   br label %.thread377
 

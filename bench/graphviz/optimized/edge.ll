@@ -421,7 +421,7 @@ agsubrep.exit.i35:                                ; preds = %55
   br label %agfstin.exit
 
 agfstin.exit:                                     ; preds = %70, %agsubrep.exit.thread.i33
-  %81 = phi ptr [ %52, %agsubrep.exit.thread.i33 ], [ %78, %70 ]
+  %81 = phi ptr [ %78, %70 ], [ %52, %agsubrep.exit.thread.i33 ]
   %.not29 = icmp eq ptr %81, null
   br i1 %.not29, label %.critedge, label %82
 
@@ -479,7 +479,7 @@ agnxtin.exit44:                                   ; preds = %agsubrep.exit.threa
   br i1 %114, label %86, label %.critedge, !llvm.loop !36
 
 .critedge:                                        ; preds = %agsubrep.exit.i40, %agnxtin.exit44, %111, %agsubrep.exit.i35, %agsubrep.exit.i30, %agfstin.exit, %82, %agnxtout.exit
-  %.1 = phi ptr [ %29, %agnxtout.exit ], [ null, %agsubrep.exit.i35 ], [ null, %agsubrep.exit.i30 ], [ null, %agfstin.exit ], [ %81, %82 ], [ null, %agsubrep.exit.i40 ], [ null, %agnxtin.exit44 ], [ %108, %111 ]
+  %.1 = phi ptr [ %29, %agnxtout.exit ], [ %81, %82 ], [ null, %agsubrep.exit.i30 ], [ null, %agsubrep.exit.i35 ], [ null, %agfstin.exit ], [ %108, %111 ], [ null, %agsubrep.exit.i40 ], [ null, %agnxtin.exit44 ]
   ret ptr %.1
 }
 
@@ -746,7 +746,7 @@ agfindedge_by_key.exit:                           ; preds = %agsubrep.exit.threa
   br label %36
 
 36:                                               ; preds = %31, %agfindedge_by_key.exit
-  %.0 = phi i1 [ false, %agfindedge_by_key.exit ], [ %or.cond.not, %31 ]
+  %.0 = phi i1 [ %or.cond.not, %31 ], [ false, %agfindedge_by_key.exit ]
   ret i1 %.0
 }
 
@@ -1093,7 +1093,7 @@ newedge.exit:                                     ; preds = %gv_alloc.exit.i, %1
   br label %.thread124
 
 .thread124:                                       ; preds = %.thread121.thread, %.thread121, %.thread131, %agfindedge_by_key.exit, %.thread138, %59, %newedge.exit, %127, %.thread150, %.thread147
-  %.1 = phi ptr [ %133, %newedge.exit ], [ null, %127 ], [ null, %.thread150 ], [ null, %.thread147 ], [ %.182141, %.thread138 ], [ %68, %59 ], [ %40, %agfindedge_by_key.exit ], [ null, %.thread131 ], [ null, %.thread121 ], [ null, %.thread121.thread ]
+  %.1 = phi ptr [ null, %.thread147 ], [ %133, %newedge.exit ], [ null, %127 ], [ null, %.thread150 ], [ %68, %59 ], [ %.182141, %.thread138 ], [ %40, %agfindedge_by_key.exit ], [ null, %.thread131 ], [ null, %.thread121 ], [ null, %.thread121.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret ptr %.1
 }
@@ -1304,7 +1304,7 @@ agfindedge_by_key.exit:                           ; preds = %agsubrep.exit.threa
   br label %63
 
 63:                                               ; preds = %agfindedge_by_key.exit.thread, %56, %59, %62, %agfindedge_by_key.exit
-  %.0 = phi i32 [ -1, %agfindedge_by_key.exit ], [ 0, %62 ], [ 0, %59 ], [ -1, %56 ], [ -1, %agfindedge_by_key.exit.thread ]
+  %.0 = phi i32 [ 0, %59 ], [ -1, %agfindedge_by_key.exit ], [ 0, %62 ], [ -1, %56 ], [ -1, %agfindedge_by_key.exit.thread ]
   ret i32 %.0
 }
 
@@ -1394,7 +1394,7 @@ agsubrep.exit.i:                                  ; preds = %23
   br label %agfindedge_by_key.exit
 
 agfindedge_by_key.exit:                           ; preds = %agsubrep.exit.i, %37
-  %.0.i = phi ptr [ %46, %37 ], [ null, %agsubrep.exit.i ]
+  %.0.i = phi ptr [ null, %agsubrep.exit.i ], [ %46, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %49 = icmp eq ptr %.0.i, null
   %or.cond5 = select i1 %13, i1 %49, i1 false
@@ -1612,7 +1612,7 @@ define internal range(i32 -1, 2) i32 @agedgeseqcmpf(ptr noundef readonly capture
   br label %24
 
 24:                                               ; preds = %21, %15, %13, %7, %23
-  %.0 = phi i32 [ 0, %23 ], [ -1, %7 ], [ 1, %13 ], [ -1, %15 ], [ 1, %21 ]
+  %.0 = phi i32 [ -1, %15 ], [ -1, %7 ], [ 0, %23 ], [ 1, %13 ], [ 1, %21 ]
   ret i32 %.0
 }
 

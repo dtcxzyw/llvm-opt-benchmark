@@ -3010,7 +3010,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit235: ; preds = %_ZN32pxrIn
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit110
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit110: ; preds = %561, %556, %552, %547, %543, %538, %534, %529, %525, %520, %516, %511, %507, %502, %498, %493, %867, %740, %738, %565, %491, %489, %487
-  %.pn52 = phi { ptr, i32 } [ %566, %565 ], [ %741, %740 ], [ %868, %867 ], [ %488, %487 ], [ %739, %738 ], [ %492, %491 ], [ %490, %489 ], [ %494, %493 ], [ %494, %498 ], [ %503, %502 ], [ %503, %507 ], [ %512, %511 ], [ %512, %516 ], [ %521, %520 ], [ %521, %525 ], [ %530, %529 ], [ %530, %534 ], [ %539, %538 ], [ %539, %543 ], [ %548, %547 ], [ %548, %552 ], [ %557, %556 ], [ %557, %561 ]
+  %.pn52 = phi { ptr, i32 } [ %566, %565 ], [ %741, %740 ], [ %868, %867 ], [ %488, %487 ], [ %557, %556 ], [ %739, %738 ], [ %557, %561 ], [ %548, %552 ], [ %539, %543 ], [ %530, %534 ], [ %521, %525 ], [ %512, %516 ], [ %503, %507 ], [ %494, %498 ], [ %490, %489 ], [ %492, %491 ], [ %494, %493 ], [ %503, %502 ], [ %512, %511 ], [ %521, %520 ], [ %530, %529 ], [ %539, %538 ], [ %548, %547 ]
   call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #17
   call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #17
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %3) #17

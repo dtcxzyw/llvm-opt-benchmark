@@ -4582,7 +4582,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %227
   br label %.loopexit
 
 .loopexit:                                        ; preds = %261, %.loopexit.sink.split, %106
-  %.0 = phi i32 [ -1, %106 ], [ %.0.ph, %.loopexit.sink.split ], [ -1, %261 ]
+  %.0 = phi i32 [ %.0.ph, %.loopexit.sink.split ], [ -1, %106 ], [ -1, %261 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -6081,7 +6081,7 @@ Sbd_TransposeMatrix64.exit242:                    ; preds = %180, %.loopexit408,
   br label %252
 
 252:                                              ; preds = %249, %246
-  %.sink = phi i32 [ 48, %246 ], [ %., %249 ]
+  %.sink = phi i32 [ %., %249 ], [ 48, %246 ]
   %putchar198 = tail call i32 @putchar(i32 %.sink)
   %indvars.iv.next344 = add nuw nsw i64 %indvars.iv343, 1
   %exitcond346.not = icmp eq i64 %indvars.iv.next344, 64
@@ -6646,7 +6646,7 @@ Sbd_ManCoverReverseOrder.exit268:                 ; preds = %444, %._crit_edge32
   br i1 %501, label %361, label %.loopexit, !llvm.loop !190
 
 .loopexit:                                        ; preds = %Sbd_ManCoverReverseOrder.exit268, %Sbd_ManCoverReverseOrder.exit268.preheader, %492, %488, %Abc_Clock.exit270
-  %.0159 = phi i32 [ 0, %Abc_Clock.exit270 ], [ 1, %492 ], [ 1, %488 ], [ 0, %Sbd_ManCoverReverseOrder.exit268.preheader ], [ 0, %Sbd_ManCoverReverseOrder.exit268 ]
+  %.0159 = phi i32 [ 0, %Abc_Clock.exit270 ], [ 1, %488 ], [ 1, %492 ], [ 0, %Sbd_ManCoverReverseOrder.exit268.preheader ], [ 0, %Sbd_ManCoverReverseOrder.exit268 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -7631,7 +7631,7 @@ Vec_IntPush.exit125:                              ; preds = %.Vec_IntGrow.exit10
   br label %Sbd_ManFindCandsSimple.exit
 
 Sbd_ManFindCandsSimple.exit:                      ; preds = %.loopexit127, %.loopexit127.i, %229, %Vec_IntPush.exit125.i, %Vec_IntPush.exit104.i, %Vec_IntPush.exit.i, %22, %404, %370, %Vec_IntPush.exit125, %Vec_IntPush.exit
-  %.0 = phi i32 [ 1, %Vec_IntPush.exit ], [ 1, %Vec_IntPush.exit125 ], [ 1, %370 ], [ 1, %404 ], [ 1, %Vec_IntPush.exit.i ], [ 1, %Vec_IntPush.exit104.i ], [ 1, %Vec_IntPush.exit125.i ], [ 1, %229 ], [ 0, %22 ], [ 0, %.loopexit127.i ], [ 0, %.loopexit127 ]
+  %.0 = phi i32 [ 0, %.loopexit127.i ], [ 1, %Vec_IntPush.exit ], [ 1, %Vec_IntPush.exit125 ], [ 1, %370 ], [ 1, %404 ], [ 1, %Vec_IntPush.exit.i ], [ 1, %Vec_IntPush.exit104.i ], [ 1, %Vec_IntPush.exit125.i ], [ 1, %229 ], [ 0, %22 ], [ 0, %.loopexit127 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -9710,7 +9710,7 @@ Abc_Clock.exit541:                                ; preds = %Abc_Clock.exit539, 
   br label %.loopexit584
 
 .loopexit584:                                     ; preds = %119, %.thread558, %618, %._crit_edge726, %._crit_edge684, %388, %.thread551, %._crit_edge648, %.critedge3.thread, %.critedge3, %234, %._crit_edge602
-  %.4 = phi i32 [ 0, %234 ], [ 1, %._crit_edge602 ], [ 0, %.critedge3 ], [ 0, %.critedge3.thread ], [ %357, %._crit_edge648 ], [ 0, %.thread551 ], [ 0, %388 ], [ %478, %._crit_edge684 ], [ %612, %618 ], [ 0, %._crit_edge726 ], [ 0, %.thread558 ], [ 0, %119 ]
+  %.4 = phi i32 [ %478, %._crit_edge684 ], [ 0, %.thread558 ], [ 1, %._crit_edge602 ], [ 0, %.critedge3 ], [ 0, %.critedge3.thread ], [ %357, %._crit_edge648 ], [ 0, %.thread551 ], [ 0, %388 ], [ 0, %234 ], [ %612, %618 ], [ 0, %._crit_edge726 ], [ 0, %119 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -11093,7 +11093,7 @@ Vec_IntPush.exit119:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %157, label %.lr.ph157, label %.critedge4, !llvm.loop !260
 
 .critedge4:                                       ; preds = %.lr.ph157, %.critedge2, %132, %.critedge2.preheader
-  %158 = phi ptr [ %133, %.critedge2.preheader ], [ %133, %132 ], [ %144, %.lr.ph157 ], [ %154, %.critedge2 ]
+  %158 = phi ptr [ %133, %132 ], [ %133, %.critedge2.preheader ], [ %154, %.critedge2 ], [ %144, %.lr.ph157 ]
   %159 = load ptr, ptr %5, align 8, !tbaa !75
   %160 = getelementptr i8, ptr %159, i64 24
   %.val161 = load i32, ptr %160, align 8, !tbaa !17
@@ -13010,8 +13010,8 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   br label %Vec_IntGrow.exit23thread-pre-split.i.i
 
 Vec_IntGrow.exit23thread-pre-split.i.i:           ; preds = %114, %116, %106, %108
-  %storemerge = phi ptr [ %107, %106 ], [ %109, %108 ], [ %115, %114 ], [ %117, %116 ]
-  %.sink.i.i = phi i32 [ 16, %106 ], [ 16, %108 ], [ %111, %114 ], [ %111, %116 ]
+  %storemerge = phi ptr [ %109, %108 ], [ %107, %106 ], [ %115, %114 ], [ %117, %116 ]
+  %.sink.i.i = phi i32 [ 16, %108 ], [ 16, %106 ], [ %111, %114 ], [ %111, %116 ]
   store ptr %storemerge, ptr %6, align 8, !tbaa !49
   store i32 %.sink.i.i, ptr %3, align 8, !tbaa !51
   br label %Vec_IntGrow.exit23.i.i
@@ -13054,10 +13054,10 @@ Vec_IntPushOrder.exit.i:                          ; preds = %124, %._crit_edge.l
   br label %Vec_IntPushUniqueOrder.exit
 
 Vec_IntPushUniqueOrder.exit:                      ; preds = %97, %Vec_IntPushOrder.exit.i, %89, %.lr.ph
-  %.val94134 = phi ptr [ %.val94133, %Vec_IntPushOrder.exit.i ], [ %.val94135, %89 ], [ %.val94135, %.lr.ph ], [ %.val94135, %97 ]
-  %130 = phi i32 [ %.pre, %Vec_IntPushOrder.exit.i ], [ %70, %89 ], [ %70, %.lr.ph ], [ %70, %97 ]
-  %.pre.i130 = phi ptr [ %.pre.i131, %Vec_IntPushOrder.exit.i ], [ %71, %89 ], [ %71, %.lr.ph ], [ %71, %97 ]
-  %131 = phi ptr [ %.pre.i131, %Vec_IntPushOrder.exit.i ], [ %72, %89 ], [ %72, %.lr.ph ], [ %72, %97 ]
+  %.val94134 = phi ptr [ %.val94135, %.lr.ph ], [ %.val94133, %Vec_IntPushOrder.exit.i ], [ %.val94135, %89 ], [ %.val94135, %97 ]
+  %130 = phi i32 [ %70, %.lr.ph ], [ %.pre, %Vec_IntPushOrder.exit.i ], [ %70, %89 ], [ %70, %97 ]
+  %.pre.i130 = phi ptr [ %71, %.lr.ph ], [ %.pre.i131, %Vec_IntPushOrder.exit.i ], [ %71, %89 ], [ %71, %97 ]
+  %131 = phi ptr [ %72, %.lr.ph ], [ %.pre.i131, %Vec_IntPushOrder.exit.i ], [ %72, %89 ], [ %72, %97 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %132 = sext i32 %130 to i64
   %.not73.not = icmp slt i64 %indvars.iv, %132
@@ -13184,7 +13184,7 @@ Vec_IntAlloc.exit.thread:                         ; preds = %Vec_IntFreeP.exit
   br label %Vec_IntGrow.exit.i
 
 Vec_IntGrow.exit.i:                               ; preds = %178, %Vec_IntAlloc.exit
-  %181 = phi ptr [ %180, %178 ], [ %164, %Vec_IntAlloc.exit ]
+  %181 = phi ptr [ %164, %Vec_IntAlloc.exit ], [ %180, %178 ]
   %182 = icmp sgt i32 %.val74, 0
   br i1 %182, label %.lr.ph.i103, label %Vec_IntFill.exit
 
@@ -13611,8 +13611,8 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
   br label %.critedge2, !llvm.loop !289
 
 .critedge2:                                       ; preds = %.lr.ph89, %..critedge2_crit_edge, %.lr.ph89.preheader
-  %.val6291.pre = phi i32 [ %.val63, %..critedge2_crit_edge ], [ %.val6387, %.lr.ph89.preheader ], [ %.val63, %.lr.ph89 ]
-  %119 = phi ptr [ %115, %..critedge2_crit_edge ], [ %103, %.lr.ph89.preheader ], [ %115, %.lr.ph89 ]
+  %.val6291.pre = phi i32 [ %.val6387, %.lr.ph89.preheader ], [ %.val63, %..critedge2_crit_edge ], [ %.val63, %.lr.ph89 ]
+  %119 = phi ptr [ %103, %.lr.ph89.preheader ], [ %115, %..critedge2_crit_edge ], [ %115, %.lr.ph89 ]
   %120 = icmp sgt i32 %.val6291.pre, 0
   br i1 %120, label %.lr.ph93, label %.critedge4
 

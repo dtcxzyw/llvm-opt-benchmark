@@ -273,12 +273,12 @@ define internal fastcc ptr @dofindsubquery(ptr noundef %0, ptr noundef %1, ptr n
   br label %findeq.exit
 
 findeq.exit:                                      ; preds = %43, %109, %123
-  %.077.i = phi ptr [ %.087.i, %43 ], [ %0, %109 ], [ %.289.i, %123 ]
+  %.077.i = phi ptr [ %.289.i, %123 ], [ %0, %109 ], [ %.087.i, %43 ]
   %.not34 = icmp eq ptr %.077.i, null
   br i1 %.not34, label %160, label %findeq.exit.thread
 
-findeq.exit.thread:                               ; preds = %115, %44, %35, %110, %24, %18, %7, %13, %findeq.exit
-  %.077.i39 = phi ptr [ %.077.i, %findeq.exit ], [ %0, %13 ], [ %0, %7 ], [ %0, %18 ], [ %0, %24 ], [ %0, %110 ], [ %0, %35 ], [ %0, %44 ], [ %0, %115 ]
+findeq.exit.thread:                               ; preds = %44, %115, %35, %13, %110, %18, %7, %24, %findeq.exit
+  %.077.i39 = phi ptr [ %.077.i, %findeq.exit ], [ %0, %24 ], [ %0, %7 ], [ %0, %18 ], [ %0, %110 ], [ %0, %13 ], [ %0, %35 ], [ %0, %115 ], [ %0, %44 ]
   %124 = getelementptr inbounds nuw i8, ptr %.077.i39, i64 8
   %125 = load i32, ptr %124, align 8
   %126 = and i32 %125, 2
@@ -355,7 +355,7 @@ findeq.exit.thread:                               ; preds = %115, %44, %35, %110
   br label %160
 
 160:                                              ; preds = %151, %156, %152, %._crit_edge, %128, %findeq.exit.thread, %findeq.exit
-  %.0 = phi ptr [ %.077.i39, %128 ], [ %.077.i39, %findeq.exit.thread ], [ null, %findeq.exit ], [ null, %151 ], [ %159, %156 ], [ %.077.i39, %152 ], [ %.077.i39, %._crit_edge ]
+  %.0 = phi ptr [ null, %findeq.exit ], [ %.077.i39, %128 ], [ %.077.i39, %findeq.exit.thread ], [ null, %151 ], [ %159, %156 ], [ %.077.i39, %152 ], [ %.077.i39, %._crit_edge ]
   ret ptr %.0
 }
 
@@ -533,7 +533,7 @@ define dso_local i64 @tsquery_rewrite_query(ptr noundef readonly captures(none) 
   br label %101
 
 101:                                              ; preds = %78, %100, %68, %.lr.ph
-  %.2 = phi ptr [ %.1111, %.lr.ph ], [ %.1111, %68 ], [ %99, %100 ], [ %.1111, %78 ]
+  %.2 = phi ptr [ %.1111, %68 ], [ %.1111, %.lr.ph ], [ %99, %100 ], [ %.1111, %78 ]
   %102 = add nuw i64 %.082110, 1
   %103 = load i64, ptr @SPI_processed, align 8
   %104 = icmp ult i64 %102, %103
@@ -596,7 +596,7 @@ define dso_local i64 @tsquery_rewrite_query(ptr noundef readonly captures(none) 
   br label %123
 
 123:                                              ; preds = %119, %122, %16, %19
-  %.078.in = phi ptr [ %7, %19 ], [ %7, %16 ], [ %.079, %122 ], [ %.079, %119 ]
+  %.078.in = phi ptr [ %7, %16 ], [ %7, %19 ], [ %.079, %122 ], [ %.079, %119 ]
   %.078 = ptrtoint ptr %.078.in to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.078
@@ -765,7 +765,7 @@ define dso_local i64 @tsquery_rewrite(ptr noundef readonly captures(none) %0) lo
   br label %57
 
 57:                                               ; preds = %.sink.split, %1, %16, %55, %45
-  %.055.in = phi ptr [ %6, %45 ], [ %48, %55 ], [ %6, %16 ], [ %6, %1 ], [ %.055.in.ph, %.sink.split ]
+  %.055.in = phi ptr [ %6, %16 ], [ %6, %45 ], [ %48, %55 ], [ %6, %1 ], [ %.055.in.ph, %.sink.split ]
   %.055 = ptrtoint ptr %.055.in to i64
   ret i64 %.055
 }

@@ -311,8 +311,8 @@ openFile.exit.i:                                  ; preds = %53
   unreachable
 
 .thread102.i:                                     ; preds = %60, %.lr.ph.i, %38, %76, %93, %92, %69, %59, %openFile.exit.i
-  %.121 = phi i32 [ %.020, %69 ], [ %.020, %93 ], [ %.020, %92 ], [ %.020, %openFile.exit.i ], [ %.020, %59 ], [ %.020, %76 ], [ 1, %38 ], [ 1, %.lr.ph.i ], [ %.020, %60 ]
-  %.1 = phi ptr [ %.019, %69 ], [ %.019, %93 ], [ %.019, %92 ], [ %.019, %openFile.exit.i ], [ %.019, %59 ], [ %.093.i, %76 ], [ %.019, %38 ], [ %.019, %.lr.ph.i ], [ %.019, %60 ]
+  %.121 = phi i32 [ %.020, %60 ], [ %.020, %69 ], [ %.020, %59 ], [ %.020, %93 ], [ %.020, %92 ], [ %.020, %76 ], [ %.020, %openFile.exit.i ], [ 1, %38 ], [ 1, %.lr.ph.i ]
+  %.1 = phi ptr [ %.019, %60 ], [ %.019, %69 ], [ %.019, %59 ], [ %.019, %93 ], [ %.019, %92 ], [ %.093.i, %76 ], [ %.019, %openFile.exit.i ], [ %.019, %38 ], [ %.019, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !14

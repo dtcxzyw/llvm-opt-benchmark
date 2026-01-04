@@ -66,7 +66,7 @@ define i32 @ossl_ec_encoding_name2id(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %3, %1, %10
-  %.0 = phi i32 [ %11, %10 ], [ 1, %1 ], [ -1, %3 ]
+  %.0 = phi i32 [ 1, %1 ], [ %11, %10 ], [ -1, %3 ]
   ret i32 %.0
 }
 
@@ -160,7 +160,7 @@ define i32 @ossl_ec_pt_format_name2id(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %3, %1, %10
-  %.0 = phi i32 [ %11, %10 ], [ 4, %1 ], [ -1, %3 ]
+  %.0 = phi i32 [ 4, %1 ], [ %11, %10 ], [ -1, %3 ]
   ret i32 %.0
 }
 
@@ -407,13 +407,13 @@ ec_param_encoding_id2name.exit.thread:            ; preds = %24, %ec_param_encod
   br i1 %.not119.i, label %ec_group_explicit_todata.exit, label %107
 
 ec_group_explicit_todata.exit:                    ; preds = %41, %52, %57, %59, %61, %63, %68, %71, %76, %81, %85, %88, %96, %105
-  %.sink149.i = phi i32 [ 180, %41 ], [ 193, %52 ], [ 198, %57 ], [ 204, %63 ], [ 204, %61 ], [ 204, %59 ], [ 214, %68 ], [ 219, %71 ], [ 229, %76 ], [ 241, %81 ], [ 246, %85 ], [ 252, %88 ], [ 264, %96 ], [ 279, %105 ]
-  %.sink.i = phi i32 [ 103, %41 ], [ 524291, %52 ], [ 141, %57 ], [ 524303, %63 ], [ 524303, %61 ], [ 524303, %59 ], [ 122, %68 ], [ 524303, %71 ], [ 524303, %76 ], [ 173, %81 ], [ 173, %85 ], [ 524303, %88 ], [ 524303, %96 ], [ 524303, %105 ]
+  %.sink149.i = phi i32 [ 246, %85 ], [ 241, %81 ], [ 229, %76 ], [ 214, %68 ], [ 204, %59 ], [ 198, %57 ], [ 193, %52 ], [ 180, %41 ], [ 264, %96 ], [ 252, %88 ], [ 219, %71 ], [ 204, %63 ], [ 204, %61 ], [ 279, %105 ]
+  %.sink.i = phi i32 [ 173, %85 ], [ 173, %81 ], [ 524303, %76 ], [ 122, %68 ], [ 524303, %59 ], [ 141, %57 ], [ 524291, %52 ], [ 103, %41 ], [ 524303, %96 ], [ 524303, %88 ], [ 524303, %71 ], [ 524303, %63 ], [ 524303, %61 ], [ 524303, %105 ]
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink149.i, ptr noundef nonnull @__func__.ec_group_explicit_todata) #4
   br label %.thread53.sink.split
 
-107:                                              ; preds = %.thread137.i, %105, %100
+107:                                              ; preds = %105, %.thread137.i, %100
   br i1 %40, label %.thread53, label %.thread
 
 .thread:                                          ; preds = %37, %107
@@ -488,7 +488,7 @@ define range(i32 0, 2) i32 @ossl_ec_set_ecdh_cofactor_mode(ptr noundef %0, i32 n
   br label %13
 
 13:                                               ; preds = %11, %12, %7, %4, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %4 ], [ 1, %7 ], [ 1, %12 ], [ 1, %11 ]
+  %.0 = phi i32 [ 1, %7 ], [ 0, %2 ], [ 0, %4 ], [ 1, %12 ], [ 1, %11 ]
   ret i32 %.0
 }
 
@@ -606,9 +606,9 @@ define range(i32 0, 2) i32 @ossl_ec_key_fromdata(ptr noundef %0, ptr noundef %1,
 50:                                               ; preds = %48, %.thread59
   br label %.thread
 
-.thread:                                          ; preds = %43, %39, %35, %30, %33, %48, %46, %19, %21, %24, %14, %50
-  %.033 = phi ptr [ null, %14 ], [ null, %21 ], [ %.1, %50 ], [ %.1, %48 ], [ %.1, %46 ], [ %22, %24 ], [ null, %19 ], [ %.1, %33 ], [ %.1, %30 ], [ %.1, %35 ], [ %.1, %39 ], [ %.1, %43 ]
-  %.032 = phi i32 [ 0, %14 ], [ 0, %21 ], [ 1, %50 ], [ 0, %48 ], [ 0, %46 ], [ 0, %24 ], [ 0, %19 ], [ 0, %33 ], [ 0, %30 ], [ 0, %35 ], [ 0, %39 ], [ 0, %43 ]
+.thread:                                          ; preds = %43, %33, %39, %35, %30, %48, %46, %19, %21, %24, %14, %50
+  %.033 = phi ptr [ null, %14 ], [ null, %21 ], [ %.1, %50 ], [ %.1, %48 ], [ %.1, %46 ], [ null, %19 ], [ %22, %24 ], [ %.1, %30 ], [ %.1, %35 ], [ %.1, %39 ], [ %.1, %33 ], [ %.1, %43 ]
+  %.032 = phi i32 [ 0, %14 ], [ 0, %21 ], [ 1, %50 ], [ 0, %48 ], [ 0, %46 ], [ 0, %19 ], [ 0, %24 ], [ 0, %30 ], [ 0, %35 ], [ 0, %39 ], [ 0, %33 ], [ 0, %43 ]
   call void @BN_CTX_free(ptr noundef %16) #4
   %51 = load ptr, ptr %4, align 8, !tbaa !27
   call void @BN_clear_free(ptr noundef %51) #4
@@ -618,7 +618,7 @@ define range(i32 0, 2) i32 @ossl_ec_key_fromdata(ptr noundef %0, ptr noundef %1,
   br label %53
 
 53:                                               ; preds = %3, %.thread
-  %.0 = phi i32 [ %.032, %.thread ], [ 0, %3 ]
+  %.0 = phi i32 [ 0, %3 ], [ %.032, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -781,29 +781,29 @@ ossl_ec_set_ecdh_cofactor_mode.exit:              ; preds = %15, %12, %10
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %36 = load i32, ptr %35, align 8, !tbaa !30
   switch i32 %36, label %ec_key_point_format_fromdata.exit [
-    i32 4, label %37
-    i32 6, label %40
+    i32 4, label %40
+    i32 6, label %37
   ]
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %39 = load ptr, ptr %38, align 8, !tbaa !32
-  store ptr %39, ptr %4, align 8, !tbaa !26
-  %.not.i.i = icmp eq ptr %39, null
-  br i1 %.not.i.i, label %ec_key_point_format_fromdata.exit, label %.preheader.i.preheader.i.i
+  %38 = call i32 @OSSL_PARAM_get_utf8_ptr(ptr noundef nonnull %33, ptr noundef nonnull %4) #4
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %ec_key_point_format_fromdata.exit, label %43
 
 40:                                               ; preds = %34
-  %41 = call i32 @OSSL_PARAM_get_utf8_ptr(ptr noundef nonnull %33, ptr noundef nonnull %4) #4
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %ec_key_point_format_fromdata.exit, label %43
+  %41 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %42 = load ptr, ptr %41, align 8, !tbaa !32
+  store ptr %42, ptr %4, align 8, !tbaa !26
+  %.not.i.i = icmp eq ptr %42, null
+  br i1 %.not.i.i, label %ec_key_point_format_fromdata.exit, label %.preheader.i.preheader.i.i
 
-43:                                               ; preds = %40
+43:                                               ; preds = %37
   %.pr.i.i = load ptr, ptr %4, align 8, !tbaa !26
   %44 = icmp eq ptr %.pr.i.i, null
   br i1 %44, label %54, label %.preheader.i.preheader.i.i
 
-.preheader.i.preheader.i.i:                       ; preds = %43, %37
-  %45 = phi ptr [ %.pr.i.i, %43 ], [ %39, %37 ]
+.preheader.i.preheader.i.i:                       ; preds = %43, %40
+  %45 = phi ptr [ %.pr.i.i, %43 ], [ %42, %40 ]
   br label %.preheader.i.i.i
 
 46:                                               ; preds = %.preheader.i.i.i
@@ -848,29 +848,29 @@ ec_key_point_format_fromdata.exit:                ; preds = %46, %34, %37, %40
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %59 = load i32, ptr %58, align 8, !tbaa !30
   switch i32 %59, label %.loopexit [
-    i32 4, label %60
-    i32 6, label %63
+    i32 4, label %63
+    i32 6, label %60
   ]
 
 60:                                               ; preds = %57
-  %61 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  %62 = load ptr, ptr %61, align 8, !tbaa !32
-  store ptr %62, ptr %3, align 8, !tbaa !26
-  %.not.i.i36 = icmp eq ptr %62, null
-  br i1 %.not.i.i36, label %.loopexit, label %.preheader.i.i.preheader.i.i
+  %61 = call i32 @OSSL_PARAM_get_utf8_ptr(ptr noundef nonnull %56, ptr noundef nonnull %3) #4
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %.loopexit, label %66
 
 63:                                               ; preds = %57
-  %64 = call i32 @OSSL_PARAM_get_utf8_ptr(ptr noundef nonnull %56, ptr noundef nonnull %3) #4
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %.loopexit, label %66
+  %64 = getelementptr inbounds nuw i8, ptr %56, i64 16
+  %65 = load ptr, ptr %64, align 8, !tbaa !32
+  store ptr %65, ptr %3, align 8, !tbaa !26
+  %.not.i.i36 = icmp eq ptr %65, null
+  br i1 %.not.i.i36, label %.loopexit, label %.preheader.i.i.preheader.i.i
 
-66:                                               ; preds = %63
+66:                                               ; preds = %60
   %.pr.i.i34 = load ptr, ptr %3, align 8, !tbaa !26
   %67 = icmp eq ptr %.pr.i.i34, null
   br i1 %67, label %ec_key_group_check_fromdata.exit, label %.preheader.i.i.preheader.i.i
 
-.preheader.i.i.preheader.i.i:                     ; preds = %66, %60
-  %68 = phi ptr [ %.pr.i.i34, %66 ], [ %62, %60 ]
+.preheader.i.i.preheader.i.i:                     ; preds = %66, %63
+  %68 = phi ptr [ %.pr.i.i34, %66 ], [ %65, %63 ]
   br label %.preheader.i.i.i.i
 
 69:                                               ; preds = %.preheader.i.i.i.i
@@ -898,7 +898,7 @@ ec_key_group_check_fromdata.exit:                 ; preds = %66, %ec_check_group
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %ec_key_group_check_fromdata.exit.thread
 
-.loopexit:                                        ; preds = %69, %57, %63, %60
+.loopexit:                                        ; preds = %69, %60, %57, %63
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %ec_key_group_check_fromdata.exit.thread
 
@@ -907,7 +907,7 @@ ec_key_group_check_fromdata.exit:                 ; preds = %66, %ec_check_group
   br label %ec_key_group_check_fromdata.exit.thread
 
 ec_key_group_check_fromdata.exit.thread:          ; preds = %55, %.loopexit, %ec_key_group_check_fromdata.exit, %ec_key_point_format_fromdata.exit, %.critedge28, %ossl_ec_set_ecdh_cofactor_mode.exit, %2
-  %.016 = phi i32 [ 0, %ossl_ec_set_ecdh_cofactor_mode.exit ], [ 0, %2 ], [ 0, %.critedge28 ], [ 0, %ec_key_point_format_fromdata.exit ], [ 0, %.loopexit ], [ 1, %ec_key_group_check_fromdata.exit ], [ 1, %55 ]
+  %.016 = phi i32 [ 0, %ossl_ec_set_ecdh_cofactor_mode.exit ], [ 0, %ec_key_point_format_fromdata.exit ], [ 0, %2 ], [ 0, %.critedge28 ], [ 0, %.loopexit ], [ 1, %ec_key_group_check_fromdata.exit ], [ 1, %55 ]
   ret i32 %.016
 }
 
@@ -1118,7 +1118,7 @@ define ptr @ossl_ec_key_dup(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
   br label %99
 
 99:                                               ; preds = %88, %90, %95, %5, %98, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %98 ], [ null, %5 ], [ %12, %95 ], [ %12, %90 ], [ %12, %88 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %5 ], [ null, %98 ], [ %12, %95 ], [ %12, %90 ], [ %12, %88 ]
   ret ptr %.0
 }
 
@@ -1146,29 +1146,29 @@ define range(i32 0, 2) i32 @ossl_ec_encoding_param2id(ptr noundef %0, ptr nounde
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !30
   switch i32 %5, label %.critedge [
-    i32 4, label %6
-    i32 6, label %9
+    i32 4, label %9
+    i32 6, label %6
   ]
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !32
-  store ptr %8, ptr %3, align 8, !tbaa !26
-  %.not = icmp eq ptr %8, null
-  br i1 %.not, label %.critedge, label %.preheader.i.preheader
+  %7 = call i32 @OSSL_PARAM_get_utf8_ptr(ptr noundef nonnull %0, ptr noundef nonnull %3) #4
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %.critedge, label %12
 
 9:                                                ; preds = %2
-  %10 = call i32 @OSSL_PARAM_get_utf8_ptr(ptr noundef nonnull %0, ptr noundef nonnull %3) #4
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %.critedge, label %12
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %11 = load ptr, ptr %10, align 8, !tbaa !32
+  store ptr %11, ptr %3, align 8, !tbaa !26
+  %.not = icmp eq ptr %11, null
+  br i1 %.not, label %.critedge, label %.preheader.i.preheader
 
-12:                                               ; preds = %9
+12:                                               ; preds = %6
   %.pr = load ptr, ptr %3, align 8, !tbaa !26
   %13 = icmp eq ptr %.pr, null
   br i1 %13, label %ossl_ec_encoding_name2id.exit.thread14, label %.preheader.i.preheader
 
-.preheader.i.preheader:                           ; preds = %6, %12
-  %14 = phi ptr [ %.pr, %12 ], [ %8, %6 ]
+.preheader.i.preheader:                           ; preds = %9, %12
+  %14 = phi ptr [ %.pr, %12 ], [ %11, %9 ]
   br label %.preheader.i
 
 15:                                               ; preds = %.preheader.i
@@ -1194,7 +1194,7 @@ ossl_ec_encoding_name2id.exit.thread14:           ; preds = %ossl_ec_encoding_na
   br label %.critedge
 
 .critedge:                                        ; preds = %15, %6, %9, %2, %ossl_ec_encoding_name2id.exit.thread14
-  %.1 = phi i32 [ 1, %ossl_ec_encoding_name2id.exit.thread14 ], [ 0, %2 ], [ 0, %9 ], [ 0, %6 ], [ 0, %15 ]
+  %.1 = phi i32 [ 1, %ossl_ec_encoding_name2id.exit.thread14 ], [ 0, %6 ], [ 0, %2 ], [ 0, %9 ], [ 0, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.1
 }
@@ -1209,29 +1209,29 @@ define range(i32 0, 2) i32 @ossl_ec_pt_format_param2id(ptr noundef %0, ptr nound
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !30
   switch i32 %5, label %.critedge [
-    i32 4, label %6
-    i32 6, label %9
+    i32 4, label %9
+    i32 6, label %6
   ]
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !32
-  store ptr %8, ptr %3, align 8, !tbaa !26
-  %.not = icmp eq ptr %8, null
-  br i1 %.not, label %.critedge, label %.preheader.i.preheader
+  %7 = call i32 @OSSL_PARAM_get_utf8_ptr(ptr noundef nonnull %0, ptr noundef nonnull %3) #4
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %.critedge, label %12
 
 9:                                                ; preds = %2
-  %10 = call i32 @OSSL_PARAM_get_utf8_ptr(ptr noundef nonnull %0, ptr noundef nonnull %3) #4
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %.critedge, label %12
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %11 = load ptr, ptr %10, align 8, !tbaa !32
+  store ptr %11, ptr %3, align 8, !tbaa !26
+  %.not = icmp eq ptr %11, null
+  br i1 %.not, label %.critedge, label %.preheader.i.preheader
 
-12:                                               ; preds = %9
+12:                                               ; preds = %6
   %.pr = load ptr, ptr %3, align 8, !tbaa !26
   %13 = icmp eq ptr %.pr, null
   br i1 %13, label %ossl_ec_pt_format_name2id.exit.thread14, label %.preheader.i.preheader
 
-.preheader.i.preheader:                           ; preds = %6, %12
-  %14 = phi ptr [ %.pr, %12 ], [ %8, %6 ]
+.preheader.i.preheader:                           ; preds = %9, %12
+  %14 = phi ptr [ %.pr, %12 ], [ %11, %9 ]
   br label %.preheader.i
 
 15:                                               ; preds = %.preheader.i
@@ -1258,7 +1258,7 @@ ossl_ec_pt_format_name2id.exit.thread14:          ; preds = %ossl_ec_pt_format_n
   br label %.critedge
 
 .critedge:                                        ; preds = %15, %6, %9, %2, %ossl_ec_pt_format_name2id.exit.thread14
-  %.1 = phi i32 [ 1, %ossl_ec_pt_format_name2id.exit.thread14 ], [ 0, %2 ], [ 0, %9 ], [ 0, %6 ], [ 0, %15 ]
+  %.1 = phi i32 [ 1, %ossl_ec_pt_format_name2id.exit.thread14 ], [ 0, %6 ], [ 0, %2 ], [ 0, %9 ], [ 0, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.1
 }

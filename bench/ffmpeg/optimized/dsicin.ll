@@ -35,7 +35,7 @@ define internal range(i32 0, 101) i32 @cin_probe(ptr noundef readonly captures(n
   br label %14
 
 14:                                               ; preds = %11, %5, %8, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %8 ], [ 0, %5 ], [ %spec.select, %11 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %1 ], [ %spec.select, %11 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -150,8 +150,8 @@ cin_read_file_header.exit:                        ; preds = %25
   store i64 %57, ptr %58, align 8, !tbaa !61
   br label %cin_read_file_header.exit.thread
 
-cin_read_file_header.exit.thread:                 ; preds = %25, %7, %23, %1, %30, %cin_read_file_header.exit, %43
-  %.0 = phi i32 [ 0, %43 ], [ -12, %cin_read_file_header.exit ], [ -12, %30 ], [ -1094995529, %1 ], [ -1094995529, %23 ], [ -1094995529, %7 ], [ -1094995529, %25 ]
+cin_read_file_header.exit.thread:                 ; preds = %23, %25, %1, %7, %30, %cin_read_file_header.exit, %43
+  %.0 = phi i32 [ -12, %30 ], [ 0, %43 ], [ -12, %cin_read_file_header.exit ], [ -1094995529, %7 ], [ -1094995529, %1 ], [ -1094995529, %25 ], [ -1094995529, %23 ]
   ret i32 %.0
 }
 
@@ -318,8 +318,8 @@ cin_read_frame_header.exit.thread.sink.split:     ; preds = %84, %89
   store i32 %.sink, ptr %7, align 4, !tbaa !36
   br label %cin_read_frame_header.exit.thread
 
-cin_read_frame_header.exit.thread:                ; preds = %cin_read_frame_header.exit.thread.sink.split, %30, %27, %25, %10, %22, %86, %52, %46, %38
-  %.059 = phi i32 [ -1094995529, %38 ], [ %50, %46 ], [ %78, %52 ], [ %87, %86 ], [ -1094995529, %27 ], [ -1094995529, %25 ], [ -5, %10 ], [ -5, %22 ], [ -1094995529, %30 ], [ 0, %cin_read_frame_header.exit.thread.sink.split ]
+cin_read_frame_header.exit.thread:                ; preds = %cin_read_frame_header.exit.thread.sink.split, %30, %22, %25, %10, %27, %86, %52, %46, %38
+  %.059 = phi i32 [ -5, %10 ], [ %87, %86 ], [ -1094995529, %38 ], [ %50, %46 ], [ -1094995529, %30 ], [ %78, %52 ], [ -1094995529, %27 ], [ -5, %22 ], [ -1094995529, %25 ], [ 0, %cin_read_frame_header.exit.thread.sink.split ]
   ret i32 %.059
 }
 

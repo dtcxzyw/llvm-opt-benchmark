@@ -93,7 +93,7 @@ define dso_local range(i32 -1, 1) i32 @init() local_unnamed_addr #0 {
   br label %10
 
 10:                                               ; preds = %6, %4, %8
-  %.0 = phi i32 [ 0, %8 ], [ 0, %4 ], [ -1, %6 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %8 ], [ -1, %6 ]
   ret i32 %.0
 }
 
@@ -422,7 +422,7 @@ define dso_local noundef i32 @acct_gather_profile_p_node_step_start(ptr noundef 
   br label %_determine_profile.exit
 
 _determine_profile.exit:                          ; preds = %16, %18
-  %.0.i = phi i32 [ %17, %16 ], [ %spec.select.i, %18 ]
+  %.0.i = phi i32 [ %spec.select.i, %18 ], [ %17, %16 ]
   store i32 %.0.i, ptr @g_profile_running, align 4
   ret i32 0
 }

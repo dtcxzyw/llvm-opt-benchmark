@@ -655,7 +655,7 @@ define internal range(i32 0, 2) i32 @dt_iop_colorcorrection_button_press(ptr rea
   br label %26
 
 26:                                               ; preds = %.sink.split, %3, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %3 ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %7 ], [ 1, %.sink.split ]
   ret i32 %.0
 }
 
@@ -696,7 +696,7 @@ define internal noundef i32 @dt_iop_colorcorrection_motion_notify(ptr noundef %0
   br label %30
 
 30:                                               ; preds = %3, %29, %27
-  %31 = phi reassoc nsz arcp contract afn double [ %24, %29 ], [ 0.000000e+00, %27 ], [ %25, %3 ]
+  %31 = phi reassoc nsz arcp contract afn double [ 0.000000e+00, %27 ], [ %24, %29 ], [ %25, %3 ]
   %32 = fptrunc reassoc nsz arcp contract afn double %31 to float
   %33 = add nsw i32 %20, -1
   %34 = sitofp i32 %33 to double
@@ -716,7 +716,7 @@ define internal noundef i32 @dt_iop_colorcorrection_motion_notify(ptr noundef %0
   br label %44
 
 44:                                               ; preds = %30, %43, %41
-  %45 = phi reassoc nsz arcp contract afn double [ %38, %43 ], [ 0.000000e+00, %41 ], [ %39, %30 ]
+  %45 = phi reassoc nsz arcp contract afn double [ 0.000000e+00, %41 ], [ %38, %43 ], [ %39, %30 ]
   %46 = fptrunc reassoc nsz arcp contract afn double %45 to float
   %47 = fpext reassoc nsz arcp contract afn float %32 to double
   %48 = fmul reassoc nsz arcp contract afn double %47, 2.000000e+00
@@ -928,8 +928,8 @@ define internal range(i32 0, 2) i32 @dt_iop_colorcorrection_key_press(ptr nounde
   br label %17
 
 17:                                               ; preds = %15, %16, %14, %11, %11
-  %.050 = phi nsz float [ 0.000000e+00, %14 ], [ 5.000000e-01, %15 ], [ -5.000000e-01, %16 ], [ 0.000000e+00, %11 ], [ 0.000000e+00, %11 ]
-  %.049 = phi nsz float [ -5.000000e-01, %14 ], [ 0.000000e+00, %15 ], [ 0.000000e+00, %16 ], [ 5.000000e-01, %11 ], [ 5.000000e-01, %11 ]
+  %.050 = phi nsz float [ 0.000000e+00, %11 ], [ 0.000000e+00, %14 ], [ 5.000000e-01, %15 ], [ -5.000000e-01, %16 ], [ 0.000000e+00, %11 ]
+  %.049 = phi nsz float [ 5.000000e-01, %11 ], [ -5.000000e-01, %14 ], [ 0.000000e+00, %15 ], [ 0.000000e+00, %16 ], [ 5.000000e-01, %11 ]
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %19 = load i32, ptr %18, align 8, !tbaa !135
   %20 = tail call reassoc nsz arcp contract afn float @dt_accel_get_speed_multiplier(ptr noundef %0, i32 noundef %19) #18
@@ -1116,7 +1116,7 @@ define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, pt
   br label %19
 
 19:                                               ; preds = %16, %2, %14, %10, %6
-  %.0 = phi ptr [ %15, %14 ], [ %11, %10 ], [ %7, %6 ], [ %0, %2 ], [ %spec.select, %16 ]
+  %.0 = phi ptr [ %0, %2 ], [ %spec.select, %16 ], [ %15, %14 ], [ %11, %10 ], [ %7, %6 ]
   ret ptr %.0
 }
 
@@ -1151,7 +1151,7 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #1 {
   br label %11
 
 11:                                               ; preds = %9, %7, %5, %3, %1
-  %.0 = phi ptr [ @introspection_linear, %1 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ %., %9 ]
+  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ %., %9 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ @introspection_linear, %1 ]
   ret ptr %.0
 }
 

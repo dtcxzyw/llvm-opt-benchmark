@@ -91,7 +91,7 @@ define void @_ZN7Imf_3_417GenericOutputFile31writeMagicNumberAndVersionFieldERNS
   br label %15
 
 15:                                               ; preds = %13, %10
-  %.0 = phi i32 [ 2050, %10 ], [ %spec.select, %13 ]
+  %.0 = phi i32 [ %spec.select, %13 ], [ 2050, %10 ]
   %16 = call noundef zeroext i1 @_ZN7Imf_3_413usesLongNamesERKNS_6HeaderE(ptr noundef nonnull align 8 dereferenceable(49) %2)
   %17 = or disjoint i32 %.0, 1024
   %spec.select9 = select i1 %16, i32 %17, i32 %.0

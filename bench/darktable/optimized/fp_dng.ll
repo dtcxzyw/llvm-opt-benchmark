@@ -56,7 +56,7 @@ define void @_ZN18tile_stripe_data_t4initEP10tiff_ifd_tRK20libraw_image_sizes_tR
   br label %31
 
 31:                                               ; preds = %26, %6
-  %32 = phi i8 [ 0, %6 ], [ %30, %26 ]
+  %32 = phi i8 [ %30, %26 ], [ 0, %6 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %32, ptr %33, align 1, !tbaa !34
   %34 = load i32, ptr %9, align 8
@@ -1177,9 +1177,9 @@ _Z17__DNG_FP24ToFloatPKh.exit.i:                  ; preds = %359, %356, %354, %3
   br i1 %exitcond.not.i130, label %_ZL12expandFloatsPhii.exit, label %.lr.ph.i127, !llvm.loop !140
 
 _ZL12expandFloatsPhii.exit:                       ; preds = %_Z17__DNG_FP24ToFloatPKh.exit.i, %_Z17__DNG_HalfToFloatt.exit.i, %.lr.ph.i127, %_ZL13DecodeFPDeltaPhS_iii.exit, %_ZL13DecodeFPDeltaPhS_iii.exit.thread164, %_ZL13DecodeFPDeltaPhS_iii.exit.thread
-  %374 = phi i32 [ %295, %_ZL13DecodeFPDeltaPhS_iii.exit ], [ %287, %_ZL13DecodeFPDeltaPhS_iii.exit.thread ], [ %291, %_ZL13DecodeFPDeltaPhS_iii.exit.thread164 ], [ %295, %.lr.ph.i127 ], [ %287, %_Z17__DNG_HalfToFloatt.exit.i ], [ %291, %_Z17__DNG_FP24ToFloatPKh.exit.i ]
-  %375 = phi i32 [ %296, %_ZL13DecodeFPDeltaPhS_iii.exit ], [ %288, %_ZL13DecodeFPDeltaPhS_iii.exit.thread ], [ %292, %_ZL13DecodeFPDeltaPhS_iii.exit.thread164 ], [ %296, %.lr.ph.i127 ], [ %288, %_Z17__DNG_HalfToFloatt.exit.i ], [ %292, %_Z17__DNG_FP24ToFloatPKh.exit.i ]
-  %.1.i = phi nsz float [ 0.000000e+00, %_ZL13DecodeFPDeltaPhS_iii.exit ], [ 0.000000e+00, %_ZL13DecodeFPDeltaPhS_iii.exit.thread ], [ 0.000000e+00, %_ZL13DecodeFPDeltaPhS_iii.exit.thread164 ], [ %.3..i, %.lr.ph.i127 ], [ %.046..i, %_Z17__DNG_HalfToFloatt.exit.i ], [ %.2..i, %_Z17__DNG_FP24ToFloatPKh.exit.i ]
+  %374 = phi i32 [ %295, %_ZL13DecodeFPDeltaPhS_iii.exit ], [ %287, %_Z17__DNG_HalfToFloatt.exit.i ], [ %295, %.lr.ph.i127 ], [ %287, %_ZL13DecodeFPDeltaPhS_iii.exit.thread ], [ %291, %_ZL13DecodeFPDeltaPhS_iii.exit.thread164 ], [ %291, %_Z17__DNG_FP24ToFloatPKh.exit.i ]
+  %375 = phi i32 [ %296, %_ZL13DecodeFPDeltaPhS_iii.exit ], [ %288, %_Z17__DNG_HalfToFloatt.exit.i ], [ %296, %.lr.ph.i127 ], [ %288, %_ZL13DecodeFPDeltaPhS_iii.exit.thread ], [ %292, %_ZL13DecodeFPDeltaPhS_iii.exit.thread164 ], [ %292, %_Z17__DNG_FP24ToFloatPKh.exit.i ]
+  %.1.i = phi nsz float [ 0.000000e+00, %_ZL13DecodeFPDeltaPhS_iii.exit ], [ %.046..i, %_Z17__DNG_HalfToFloatt.exit.i ], [ %.3..i, %.lr.ph.i127 ], [ 0.000000e+00, %_ZL13DecodeFPDeltaPhS_iii.exit.thread ], [ 0.000000e+00, %_ZL13DecodeFPDeltaPhS_iii.exit.thread164 ], [ %.2..i, %_Z17__DNG_FP24ToFloatPKh.exit.i ]
   %376 = fcmp reassoc nsz arcp contract afn ogt float %.2181, %.1.i
   %377 = select reassoc nsz arcp contract afn i1 %376, float %.2181, float %.1.i
   %378 = add i64 %.085180, %.087190
@@ -1393,9 +1393,9 @@ define void @_ZN6LibRaw17convertFloatToIntEfff(ptr noundef nonnull align 8 deref
   br i1 %.not53, label %108, label %15
 
 15:                                               ; preds = %12, %9, %4
-  %.044 = phi ptr [ %8, %4 ], [ %11, %9 ], [ %14, %12 ]
-  %16 = phi i1 [ false, %4 ], [ true, %9 ], [ false, %12 ]
-  %17 = phi i1 [ false, %4 ], [ false, %9 ], [ true, %12 ]
+  %.044 = phi ptr [ %11, %9 ], [ %8, %4 ], [ %14, %12 ]
+  %16 = phi i1 [ true, %9 ], [ false, %4 ], [ false, %12 ]
+  %17 = phi i1 [ false, %9 ], [ false, %4 ], [ true, %12 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i16, ptr %18, align 8, !tbaa !120
   %20 = zext i16 %19 to i32
@@ -2252,7 +2252,7 @@ _Z17__DNG_FP24ToFloatPKh.exit.i:                  ; preds = %298, %295, %293, %2
   br i1 %exitcond.not.i136, label %_ZL12expandFloatsPhii.exit, label %.lr.ph.i133, !llvm.loop !140
 
 _ZL12expandFloatsPhii.exit:                       ; preds = %.lr.ph.i133, %_Z17__DNG_FP24ToFloatPKh.exit.i, %_Z17__DNG_HalfToFloatt.exit.i, %266, %.preheader.i, %.preheader60.i, %_ZL13libraw_swap32Phi.exit
-  %.1.i = phi nsz float [ 0.000000e+00, %_ZL13libraw_swap32Phi.exit ], [ 0.000000e+00, %.preheader.i ], [ 0.000000e+00, %266 ], [ 0.000000e+00, %.preheader60.i ], [ %.046..i, %_Z17__DNG_HalfToFloatt.exit.i ], [ %.2..i, %_Z17__DNG_FP24ToFloatPKh.exit.i ], [ %.3..i, %.lr.ph.i133 ]
+  %.1.i = phi nsz float [ 0.000000e+00, %_ZL13libraw_swap32Phi.exit ], [ %.046..i, %_Z17__DNG_HalfToFloatt.exit.i ], [ %.2..i, %_Z17__DNG_FP24ToFloatPKh.exit.i ], [ 0.000000e+00, %.preheader.i ], [ 0.000000e+00, %266 ], [ 0.000000e+00, %.preheader60.i ], [ %.3..i, %.lr.ph.i133 ]
   br i1 %166, label %313, label %323
 
 313:                                              ; preds = %_ZL12expandFloatsPhii.exit

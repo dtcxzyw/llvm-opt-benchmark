@@ -90,7 +90,7 @@ define internal range(i32 -2147483648, 1) i32 @kvag_read_header(ptr noundef %0) 
   br label %42
 
 42:                                               ; preds = %9, %4, %1, %13
-  %.0 = phi i32 [ 0, %13 ], [ -12, %1 ], [ %7, %4 ], [ -1094995529, %9 ]
+  %.0 = phi i32 [ -12, %1 ], [ %7, %4 ], [ 0, %13 ], [ -1094995529, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

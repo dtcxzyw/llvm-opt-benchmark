@@ -340,7 +340,7 @@ define internal i32 @config_output(ptr noundef captures(none) %0) #0 {
   br label %73
 
 73:                                               ; preds = %66, %63, %59, %.critedge, %68
-  %.1 = phi i32 [ %70, %68 ], [ -22, %.critedge ], [ %61, %59 ], [ %64, %63 ], [ 0, %66 ]
+  %.1 = phi i32 [ %61, %59 ], [ %64, %63 ], [ %70, %68 ], [ -22, %.critedge ], [ 0, %66 ]
   ret i32 %.1
 }
 
@@ -552,8 +552,8 @@ ff_blend_init.exit:                               ; preds = %40, %.thread22.sink
   %exitcond = icmp eq i64 %indvars.iv.next73, 4
   br i1 %exitcond, label %.thread62, label %10, !llvm.loop !75
 
-.thread62:                                        ; preds = %63, %57, %85, %.lr.ph
-  %spec.select = phi i32 [ %77, %.lr.ph ], [ -12, %57 ], [ -12, %63 ], [ 0, %85 ]
+.thread62:                                        ; preds = %57, %63, %85, %.lr.ph
+  %spec.select = phi i32 [ %77, %.lr.ph ], [ -12, %63 ], [ -12, %57 ], [ 0, %85 ]
   ret i32 %spec.select
 }
 
@@ -1226,7 +1226,7 @@ define internal void @blend_burn_8bit(ptr noundef readonly captures(none) %0, i6
   br label %29
 
 29:                                               ; preds = %21, %16
-  %30 = phi i32 [ 0, %16 ], [ %spec.select.us, %21 ]
+  %30 = phi i32 [ %spec.select.us, %21 ], [ 0, %16 ]
   %31 = zext i8 %18 to i32
   %32 = sub nsw i32 %30, %31
   %33 = sitofp i32 %32 to float
@@ -1443,7 +1443,7 @@ define internal void @blend_divide_8bit(ptr noundef readonly captures(none) %0, 
   br label %.thread.us
 
 .thread.us:                                       ; preds = %23, %16
-  %28 = phi i32 [ 255, %16 ], [ %27, %23 ]
+  %28 = phi i32 [ %27, %23 ], [ 255, %16 ]
   %29 = zext i8 %.fr.us to i32
   %30 = sub nsw i32 %28, %29
   %31 = sitofp i32 %30 to float
@@ -1505,7 +1505,7 @@ define internal void @blend_dodge_8bit(ptr noundef readonly captures(none) %0, i
   br label %28
 
 28:                                               ; preds = %21, %16
-  %29 = phi i32 [ 255, %16 ], [ %spec.select.us, %21 ]
+  %29 = phi i32 [ %spec.select.us, %21 ], [ 255, %16 ]
   %30 = zext i8 %18 to i32
   %31 = sub nsw i32 %29, %30
   %32 = sitofp i32 %31 to float
@@ -1734,7 +1734,7 @@ define internal void @blend_glow_8bit(ptr noundef readonly captures(none) %0, i6
   br label %28
 
 28:                                               ; preds = %21, %16
-  %29 = phi i32 [ 255, %16 ], [ %spec.select.us, %21 ]
+  %29 = phi i32 [ %spec.select.us, %21 ], [ 255, %16 ]
   %30 = zext i8 %18 to i32
   %31 = sub nsw i32 %29, %30
   %32 = sitofp i32 %31 to float
@@ -2481,7 +2481,7 @@ define internal void @blend_pinlight_8bit(ptr noundef readonly captures(none) %0
   br label %29
 
 29:                                               ; preds = %28, %26
-  %30 = phi i32 [ %..us, %28 ], [ %.53.us, %26 ]
+  %30 = phi i32 [ %.53.us, %26 ], [ %..us, %28 ]
   %31 = sub nsw i32 %30, %19
   %32 = sitofp i32 %31 to float
   %33 = tail call nsz float @llvm.fmuladd.f32(float %32, float %13, float %20)
@@ -2542,7 +2542,7 @@ define internal void @blend_reflect_8bit(ptr noundef readonly captures(none) %0,
   br label %28
 
 28:                                               ; preds = %23, %16
-  %29 = phi i32 [ 255, %16 ], [ %spec.select.us, %23 ]
+  %29 = phi i32 [ %spec.select.us, %23 ], [ 255, %16 ]
   %30 = zext i8 %18 to i32
   %31 = sub nsw i32 %29, %30
   %32 = sitofp i32 %31 to float
@@ -2790,7 +2790,7 @@ define internal void @blend_vividlight_8bit(ptr noundef readonly captures(none) 
   br label %40
 
 40:                                               ; preds = %31, %29, %22
-  %41 = phi i32 [ 0, %29 ], [ %spec.select.us, %31 ], [ %spec.select61.us, %22 ]
+  %41 = phi i32 [ %spec.select61.us, %22 ], [ %spec.select.us, %31 ], [ 0, %29 ]
   %42 = sub nsw i32 %41, %19
   %43 = sitofp i32 %42 to float
   %44 = tail call nsz float @llvm.fmuladd.f32(float %43, float %13, float %20)
@@ -2909,7 +2909,7 @@ define internal void @blend_softdifference_8bit(ptr noundef readonly captures(no
   br label %36
 
 36:                                               ; preds = %31, %27
-  %37 = phi i32 [ %35, %31 ], [ %30, %27 ]
+  %37 = phi i32 [ %30, %27 ], [ %35, %31 ]
   %.fr.us = freeze i32 %37
   %.not.i.us = icmp ult i32 %.fr.us, 256
   %isnotneg.i.us = icmp sgt i32 %.fr.us, -1
@@ -2919,7 +2919,7 @@ define internal void @blend_softdifference_8bit(ptr noundef readonly captures(no
   br label %.thread.us
 
 .thread.us:                                       ; preds = %36, %25
-  %40 = phi i32 [ 0, %25 ], [ %39, %36 ]
+  %40 = phi i32 [ %39, %36 ], [ 0, %25 ]
   %41 = sub nsw i32 %40, %19
   %42 = sitofp i32 %41 to float
   %43 = tail call nsz float @llvm.fmuladd.f32(float %42, float %13, float %20)
@@ -4862,7 +4862,7 @@ define internal void @blend_pinlight_9bit(ptr noundef readonly captures(none) %0
   br label %32
 
 32:                                               ; preds = %31, %29
-  %33 = phi i32 [ %..us, %31 ], [ %.53.us, %29 ]
+  %33 = phi i32 [ %.53.us, %29 ], [ %..us, %31 ]
   %34 = sub nsw i32 %33, %22
   %35 = sitofp i32 %34 to float
   %36 = tail call nsz float @llvm.fmuladd.f32(float %35, float %13, float %23)
@@ -5182,7 +5182,7 @@ define internal void @blend_vividlight_9bit(ptr noundef readonly captures(none) 
   br label %45
 
 45:                                               ; preds = %35, %33, %25
-  %46 = phi i32 [ 0, %33 ], [ %spec.select.us, %35 ], [ %spec.select61.us, %25 ]
+  %46 = phi i32 [ %spec.select61.us, %25 ], [ %spec.select.us, %35 ], [ 0, %33 ]
   %47 = sub nsw i32 %46, %22
   %48 = sitofp i32 %47 to float
   %49 = tail call nsz float @llvm.fmuladd.f32(float %48, float %13, float %23)
@@ -5311,14 +5311,14 @@ define internal void @blend_softdifference_9bit(ptr noundef readonly captures(no
   br label %41
 
 41:                                               ; preds = %36, %30
-  %42 = phi i32 [ %40, %36 ], [ %33, %30 ]
+  %42 = phi i32 [ %33, %30 ], [ %40, %36 ]
   %.fr.us = freeze i32 %42
   %43 = tail call i32 @llvm.smax.i32(i32 %.fr.us, i32 0)
   %44 = tail call i32 @llvm.umin.i32(i32 %43, i32 511)
   br label %.thread57.us
 
 .thread57.us:                                     ; preds = %41, %34, %28
-  %45 = phi i32 [ 0, %28 ], [ 0, %34 ], [ %44, %41 ]
+  %45 = phi i32 [ %44, %41 ], [ 0, %34 ], [ 0, %28 ]
   %46 = sub nsw i32 %45, %22
   %47 = sitofp i32 %46 to float
   %48 = tail call nsz float @llvm.fmuladd.f32(float %47, float %13, float %23)
@@ -7207,7 +7207,7 @@ define internal void @blend_pinlight_10bit(ptr noundef readonly captures(none) %
   br label %32
 
 32:                                               ; preds = %31, %29
-  %33 = phi i32 [ %..us, %31 ], [ %.53.us, %29 ]
+  %33 = phi i32 [ %.53.us, %29 ], [ %..us, %31 ]
   %34 = sub nsw i32 %33, %22
   %35 = sitofp i32 %34 to float
   %36 = tail call nsz float @llvm.fmuladd.f32(float %35, float %13, float %23)
@@ -7527,7 +7527,7 @@ define internal void @blend_vividlight_10bit(ptr noundef readonly captures(none)
   br label %45
 
 45:                                               ; preds = %35, %33, %25
-  %46 = phi i32 [ 0, %33 ], [ %spec.select.us, %35 ], [ %spec.select61.us, %25 ]
+  %46 = phi i32 [ %spec.select61.us, %25 ], [ %spec.select.us, %35 ], [ 0, %33 ]
   %47 = sub nsw i32 %46, %22
   %48 = sitofp i32 %47 to float
   %49 = tail call nsz float @llvm.fmuladd.f32(float %48, float %13, float %23)
@@ -7656,14 +7656,14 @@ define internal void @blend_softdifference_10bit(ptr noundef readonly captures(n
   br label %41
 
 41:                                               ; preds = %36, %30
-  %42 = phi i32 [ %40, %36 ], [ %33, %30 ]
+  %42 = phi i32 [ %33, %30 ], [ %40, %36 ]
   %.fr.us = freeze i32 %42
   %43 = tail call i32 @llvm.smax.i32(i32 %.fr.us, i32 0)
   %44 = tail call i32 @llvm.umin.i32(i32 %43, i32 1023)
   br label %.thread57.us
 
 .thread57.us:                                     ; preds = %41, %34, %28
-  %45 = phi i32 [ 0, %28 ], [ 0, %34 ], [ %44, %41 ]
+  %45 = phi i32 [ %44, %41 ], [ 0, %34 ], [ 0, %28 ]
   %46 = sub nsw i32 %45, %22
   %47 = sitofp i32 %46 to float
   %48 = tail call nsz float @llvm.fmuladd.f32(float %47, float %13, float %23)
@@ -9552,7 +9552,7 @@ define internal void @blend_pinlight_12bit(ptr noundef readonly captures(none) %
   br label %32
 
 32:                                               ; preds = %31, %29
-  %33 = phi i32 [ %..us, %31 ], [ %.53.us, %29 ]
+  %33 = phi i32 [ %.53.us, %29 ], [ %..us, %31 ]
   %34 = sub nsw i32 %33, %22
   %35 = sitofp i32 %34 to float
   %36 = tail call nsz float @llvm.fmuladd.f32(float %35, float %13, float %23)
@@ -9872,7 +9872,7 @@ define internal void @blend_vividlight_12bit(ptr noundef readonly captures(none)
   br label %45
 
 45:                                               ; preds = %35, %33, %25
-  %46 = phi i32 [ 0, %33 ], [ %spec.select.us, %35 ], [ %spec.select61.us, %25 ]
+  %46 = phi i32 [ %spec.select61.us, %25 ], [ %spec.select.us, %35 ], [ 0, %33 ]
   %47 = sub nsw i32 %46, %22
   %48 = sitofp i32 %47 to float
   %49 = tail call nsz float @llvm.fmuladd.f32(float %48, float %13, float %23)
@@ -10001,14 +10001,14 @@ define internal void @blend_softdifference_12bit(ptr noundef readonly captures(n
   br label %41
 
 41:                                               ; preds = %36, %30
-  %42 = phi i32 [ %40, %36 ], [ %33, %30 ]
+  %42 = phi i32 [ %33, %30 ], [ %40, %36 ]
   %.fr.us = freeze i32 %42
   %43 = tail call i32 @llvm.smax.i32(i32 %.fr.us, i32 0)
   %44 = tail call i32 @llvm.umin.i32(i32 %43, i32 4095)
   br label %.thread57.us
 
 .thread57.us:                                     ; preds = %41, %34, %28
-  %45 = phi i32 [ 0, %28 ], [ 0, %34 ], [ %44, %41 ]
+  %45 = phi i32 [ %44, %41 ], [ 0, %34 ], [ 0, %28 ]
   %46 = sub nsw i32 %45, %22
   %47 = sitofp i32 %46 to float
   %48 = tail call nsz float @llvm.fmuladd.f32(float %47, float %13, float %23)
@@ -11897,7 +11897,7 @@ define internal void @blend_pinlight_14bit(ptr noundef readonly captures(none) %
   br label %32
 
 32:                                               ; preds = %31, %29
-  %33 = phi i32 [ %..us, %31 ], [ %.53.us, %29 ]
+  %33 = phi i32 [ %.53.us, %29 ], [ %..us, %31 ]
   %34 = sub nsw i32 %33, %22
   %35 = sitofp i32 %34 to float
   %36 = tail call nsz float @llvm.fmuladd.f32(float %35, float %13, float %23)
@@ -12217,7 +12217,7 @@ define internal void @blend_vividlight_14bit(ptr noundef readonly captures(none)
   br label %45
 
 45:                                               ; preds = %35, %33, %25
-  %46 = phi i32 [ 0, %33 ], [ %spec.select.us, %35 ], [ %spec.select61.us, %25 ]
+  %46 = phi i32 [ %spec.select61.us, %25 ], [ %spec.select.us, %35 ], [ 0, %33 ]
   %47 = sub nsw i32 %46, %22
   %48 = sitofp i32 %47 to float
   %49 = tail call nsz float @llvm.fmuladd.f32(float %48, float %13, float %23)
@@ -12346,14 +12346,14 @@ define internal void @blend_softdifference_14bit(ptr noundef readonly captures(n
   br label %41
 
 41:                                               ; preds = %36, %30
-  %42 = phi i32 [ %40, %36 ], [ %33, %30 ]
+  %42 = phi i32 [ %33, %30 ], [ %40, %36 ]
   %.fr.us = freeze i32 %42
   %43 = tail call i32 @llvm.smax.i32(i32 %.fr.us, i32 0)
   %44 = tail call i32 @llvm.umin.i32(i32 %43, i32 16383)
   br label %.thread57.us
 
 .thread57.us:                                     ; preds = %41, %34, %28
-  %45 = phi i32 [ 0, %28 ], [ 0, %34 ], [ %44, %41 ]
+  %45 = phi i32 [ %44, %41 ], [ 0, %34 ], [ 0, %28 ]
   %46 = sub nsw i32 %45, %22
   %47 = sitofp i32 %46 to float
   %48 = tail call nsz float @llvm.fmuladd.f32(float %47, float %13, float %23)
@@ -13286,7 +13286,7 @@ define internal void @blend_dodge_16bit(ptr noundef readonly captures(none) %0, 
   br label %32
 
 32:                                               ; preds = %24, %19
-  %33 = phi i32 [ 65535, %19 ], [ %spec.select.us, %24 ]
+  %33 = phi i32 [ %spec.select.us, %24 ], [ 65535, %19 ]
   %34 = zext i16 %21 to i32
   %35 = sub nsw i32 %33, %34
   %36 = sitofp i32 %35 to float
@@ -13523,7 +13523,7 @@ define internal void @blend_glow_16bit(ptr noundef readonly captures(none) %0, i
   br label %32
 
 32:                                               ; preds = %24, %19
-  %33 = phi i32 [ 65535, %19 ], [ %spec.select.us, %24 ]
+  %33 = phi i32 [ %spec.select.us, %24 ], [ 65535, %19 ]
   %34 = zext i16 %21 to i32
   %35 = sub nsw i32 %33, %34
   %36 = sitofp i32 %35 to float
@@ -14237,7 +14237,7 @@ define internal void @blend_pinlight_16bit(ptr noundef readonly captures(none) %
   br label %32
 
 32:                                               ; preds = %31, %29
-  %33 = phi i32 [ %..us, %31 ], [ %.53.us, %29 ]
+  %33 = phi i32 [ %.53.us, %29 ], [ %..us, %31 ]
   %34 = sub nsw i32 %33, %22
   %35 = sitofp i32 %34 to float
   %36 = tail call nsz float @llvm.fmuladd.f32(float %35, float %13, float %23)
@@ -14551,7 +14551,7 @@ define internal void @blend_vividlight_16bit(ptr noundef readonly captures(none)
   br label %45
 
 45:                                               ; preds = %35, %33, %25
-  %46 = phi i32 [ 0, %33 ], [ %spec.select.us, %35 ], [ %spec.select61.us, %25 ]
+  %46 = phi i32 [ %spec.select61.us, %25 ], [ %spec.select.us, %35 ], [ 0, %33 ]
   %47 = sub nsw i32 %46, %22
   %48 = sitofp i32 %47 to float
   %49 = tail call nsz float @llvm.fmuladd.f32(float %48, float %13, float %23)
@@ -14676,14 +14676,14 @@ define internal void @blend_softdifference_16bit(ptr noundef readonly captures(n
   br label %39
 
 39:                                               ; preds = %34, %30
-  %40 = phi i32 [ %38, %34 ], [ %33, %30 ]
+  %40 = phi i32 [ %33, %30 ], [ %38, %34 ]
   %.fr.us = freeze i32 %40
   %41 = tail call i32 @llvm.smax.i32(i32 %.fr.us, i32 0)
   %42 = tail call i32 @llvm.umin.i32(i32 %41, i32 65535)
   br label %.thread57.us
 
 .thread57.us:                                     ; preds = %39, %28
-  %43 = phi i32 [ 0, %28 ], [ %42, %39 ]
+  %43 = phi i32 [ %42, %39 ], [ 0, %28 ]
   %44 = sub nsw i32 %43, %22
   %45 = sitofp i32 %44 to float
   %46 = tail call nsz float @llvm.fmuladd.f32(float %45, float %13, float %23)
@@ -15310,7 +15310,7 @@ define internal void @blend_burn_32bit(ptr noundef readonly captures(none) %0, i
   br label %34
 
 34:                                               ; preds = %33, %25, %20
-  %35 = phi nsz double [ %31, %33 ], [ 0.000000e+00, %25 ], [ %23, %20 ]
+  %35 = phi nsz double [ 0.000000e+00, %25 ], [ %31, %33 ], [ %23, %20 ]
   %36 = fsub nsz double %35, %23
   %37 = tail call nsz double @llvm.fmuladd.f64(double %36, double %19, double %23)
   %38 = fptrunc nsz double %37 to float
@@ -15569,7 +15569,7 @@ define internal void @blend_dodge_32bit(ptr noundef readonly captures(none) %0, 
   br label %33
 
 33:                                               ; preds = %32, %25, %20
-  %34 = phi nsz double [ %30, %32 ], [ 1.000000e+00, %25 ], [ %23, %20 ]
+  %34 = phi nsz double [ 1.000000e+00, %25 ], [ %30, %32 ], [ %23, %20 ]
   %35 = fsub nsz double %34, %23
   %36 = tail call nsz double @llvm.fmuladd.f64(double %35, double %19, double %23)
   %37 = fptrunc nsz double %36 to float
@@ -15790,7 +15790,7 @@ define internal void @blend_glow_32bit(ptr noundef readonly captures(none) %0, i
   br label %31
 
 31:                                               ; preds = %30, %23, %19
-  %32 = phi nsz float [ %28, %30 ], [ 1.000000e+00, %23 ], [ 1.000000e+00, %19 ]
+  %32 = phi nsz float [ 1.000000e+00, %23 ], [ %28, %30 ], [ 1.000000e+00, %19 ]
   %33 = fsub nsz float %32, %21
   %34 = tail call nsz float @llvm.fmuladd.f32(float %33, float %13, float %21)
   %35 = getelementptr inbounds nuw float, ptr %.04251.us, i64 %indvars.iv
@@ -16516,7 +16516,7 @@ define internal void @blend_pinlight_32bit(ptr noundef readonly captures(none) %
   br label %32
 
 32:                                               ; preds = %29, %25
-  %33 = phi nsz float [ %..us, %29 ], [ %.53.us, %25 ]
+  %33 = phi nsz float [ %.53.us, %25 ], [ %..us, %29 ]
   %34 = fsub nsz float %33, %21
   %35 = tail call nsz float @llvm.fmuladd.f32(float %34, float %13, float %21)
   %36 = getelementptr inbounds nuw float, ptr %.04457.us, i64 %indvars.iv
@@ -16577,7 +16577,7 @@ define internal void @blend_reflect_32bit(ptr noundef readonly captures(none) %0
   br label %31
 
 31:                                               ; preds = %30, %25, %19
-  %32 = phi nsz float [ %28, %30 ], [ 1.000000e+00, %25 ], [ 1.000000e+00, %19 ]
+  %32 = phi nsz float [ 1.000000e+00, %25 ], [ %28, %30 ], [ 1.000000e+00, %19 ]
   %33 = fsub nsz float %32, %21
   %34 = tail call nsz float @llvm.fmuladd.f32(float %33, float %13, float %21)
   %35 = getelementptr inbounds nuw float, ptr %.04251.us, i64 %indvars.iv
@@ -16824,7 +16824,7 @@ define internal void @blend_vividlight_32bit(ptr noundef readonly captures(none)
   br label %51
 
 51:                                               ; preds = %50, %42, %38, %37, %30, %25
-  %52 = phi nsz double [ %48, %50 ], [ 0.000000e+00, %42 ], [ %35, %37 ], [ 1.000000e+00, %30 ], [ %40, %38 ], [ %28, %25 ]
+  %52 = phi nsz double [ 0.000000e+00, %42 ], [ 1.000000e+00, %30 ], [ %48, %50 ], [ %40, %38 ], [ %35, %37 ], [ %28, %25 ]
   %53 = fsub nsz double %52, %23
   %54 = tail call nsz double @llvm.fmuladd.f64(double %53, double %19, double %23)
   %55 = fptrunc nsz double %54 to float
@@ -16944,7 +16944,7 @@ define internal void @blend_softdifference_32bit(ptr noundef readonly captures(n
   br label %36
 
 36:                                               ; preds = %32, %30, %27, %25
-  %37 = phi nsz float [ %35, %32 ], [ 0.000000e+00, %30 ], [ %29, %27 ], [ 0.000000e+00, %25 ]
+  %37 = phi nsz float [ 0.000000e+00, %30 ], [ %35, %32 ], [ %29, %27 ], [ 0.000000e+00, %25 ]
   %38 = fsub nsz float %37, %21
   %39 = tail call nsz float @llvm.fmuladd.f32(float %38, float %13, float %21)
   %40 = getelementptr inbounds nuw float, ptr %.04655.us, i64 %indvars.iv
@@ -17357,7 +17357,7 @@ define internal i32 @blend_frame_for_dualinput(ptr noundef %0) #0 {
   br label %23
 
 23:                                               ; preds = %1, %16, %10
-  %.0 = phi i32 [ %22, %16 ], [ %15, %10 ], [ %6, %1 ]
+  %.0 = phi i32 [ %15, %10 ], [ %22, %16 ], [ %6, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
@@ -17477,7 +17477,7 @@ define internal fastcc ptr @blend_frame(ptr noundef %0, ptr noundef %1, ptr noun
   br label %66
 
 66:                                               ; preds = %.sink.split, %._crit_edge, %3
-  %.0.in = phi ptr [ %4, %3 ], [ %5, %._crit_edge ], [ %.0.in.ph, %.sink.split ]
+  %.0.in = phi ptr [ %5, %._crit_edge ], [ %4, %3 ], [ %.0.in.ph, %.sink.split ]
   %.0 = load ptr, ptr %.0.in, align 8, !tbaa !645
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0

@@ -1258,7 +1258,7 @@ define internal void @write_frame_header(ptr noundef %0) #0 {
   br label %.thread63.thread
 
 .thread63.thread:                                 ; preds = %63, %59, %.thread63, %23, %.thread
-  %.sink = phi i32 [ %., %.thread ], [ 194, %23 ], [ 194, %.thread63 ], [ 195, %59 ], [ %.69, %63 ]
+  %.sink = phi i32 [ %., %.thread ], [ %.69, %63 ], [ 195, %59 ], [ 194, %.thread63 ], [ 194, %23 ]
   tail call fastcc void @emit_sof(ptr noundef nonnull %0, i32 noundef %.sink)
   ret void
 }

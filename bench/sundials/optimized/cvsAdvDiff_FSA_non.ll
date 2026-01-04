@@ -179,10 +179,10 @@ sub_0.i:                                          ; preds = %32, %29, %24
   unreachable
 
 ProcessArgs.exit:                                 ; preds = %.tail40.i, %.tail.i, %10
-  %.0171 = phi i32 [ 0, %10 ], [ 1, %.tail.i ], [ 1, %.tail40.i ]
-  %.not94 = phi ptr [ @.str.21, %10 ], [ @.str.20, %.tail.i ], [ @.str.21, %.tail40.i ]
-  %.0170 = phi i32 [ 0, %10 ], [ 1, %.tail.i ], [ 0, %.tail40.i ]
-  %.0169 = phi i32 [ -1, %10 ], [ %.sink.i, %.tail.i ], [ %.sink.i, %.tail40.i ]
+  %.0171 = phi i32 [ 1, %.tail.i ], [ 0, %10 ], [ 1, %.tail40.i ]
+  %.not94 = phi ptr [ @.str.20, %.tail.i ], [ @.str.21, %10 ], [ @.str.21, %.tail40.i ]
+  %.0170 = phi i32 [ 1, %.tail.i ], [ 0, %10 ], [ 0, %.tail40.i ]
+  %.0169 = phi i32 [ %.sink.i, %.tail.i ], [ -1, %10 ], [ %.sink.i, %.tail40.i ]
   %49 = call i32 @SUNContext_Create(i32 noundef 0, ptr noundef nonnull %5) #13
   %50 = icmp slt i32 %49, 0
   br i1 %50, label %check_retval.exit, label %53
@@ -452,11 +452,11 @@ check_retval.exit139:                             ; preds = %174
   br label %181
 
 181:                                              ; preds = %178, %110
-  %.str.20.sink = phi ptr [ @.str.22, %110 ], [ %.not94, %178 ]
-  %.068 = phi ptr [ null, %110 ], [ %118, %178 ]
-  %.065 = phi ptr [ null, %110 ], [ %113, %178 ]
-  %.064 = phi ptr [ null, %110 ], [ %131, %178 ]
-  %.1 = phi ptr [ null, %110 ], [ %.0263, %178 ]
+  %.str.20.sink = phi ptr [ %.not94, %178 ], [ @.str.22, %110 ]
+  %.068 = phi ptr [ %118, %178 ], [ null, %110 ]
+  %.065 = phi ptr [ %113, %178 ], [ null, %110 ]
+  %.064 = phi ptr [ %131, %178 ], [ null, %110 ]
+  %.1 = phi ptr [ %.0263, %178 ], [ null, %110 ]
   %182 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.20.sink)
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %puts95 = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
@@ -543,7 +543,7 @@ check_retval.exit143:                             ; preds = %193
   br label %209
 
 209:                                              ; preds = %check_retval.exit139, %check_retval.exit135, %check_retval.exit133, %check_retval.exit131, %check_retval.exit129, %check_retval.exit127, %check_retval.exit125.thread, %check_retval.exit123.thread, %check_retval.exit121.thread, %check_retval.exit119, %check_retval.exit117, %check_retval.exit115, %check_retval.exit113, %check_retval.exit111, %check_retval.exit109, %check_retval.exit107, %check_retval.exit105, %check_retval.exit, %206
-  %.071 = phi i32 [ 0, %206 ], [ 1, %check_retval.exit ], [ 1, %check_retval.exit105 ], [ 1, %check_retval.exit107 ], [ 1, %check_retval.exit109 ], [ 1, %check_retval.exit111 ], [ 1, %check_retval.exit113 ], [ 1, %check_retval.exit115 ], [ 1, %check_retval.exit117 ], [ 1, %check_retval.exit119 ], [ 1, %check_retval.exit127 ], [ 1, %check_retval.exit129 ], [ 1, %check_retval.exit131 ], [ 1, %check_retval.exit133 ], [ 1, %check_retval.exit135 ], [ 1, %check_retval.exit139 ], [ 1, %check_retval.exit121.thread ], [ 1, %check_retval.exit123.thread ], [ 1, %check_retval.exit125.thread ]
+  %.071 = phi i32 [ 0, %206 ], [ 1, %check_retval.exit ], [ 1, %check_retval.exit105 ], [ 1, %check_retval.exit107 ], [ 1, %check_retval.exit109 ], [ 1, %check_retval.exit111 ], [ 1, %check_retval.exit113 ], [ 1, %check_retval.exit115 ], [ 1, %check_retval.exit117 ], [ 1, %check_retval.exit119 ], [ 1, %check_retval.exit121.thread ], [ 1, %check_retval.exit123.thread ], [ 1, %check_retval.exit125.thread ], [ 1, %check_retval.exit127 ], [ 1, %check_retval.exit129 ], [ 1, %check_retval.exit131 ], [ 1, %check_retval.exit133 ], [ 1, %check_retval.exit135 ], [ 1, %check_retval.exit139 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

@@ -279,7 +279,7 @@ define internal i32 @acpi_thermal_add(ptr noundef %0) #2 align 16 {
   br label %82
 
 82:                                               ; preds = %65, %77, %80, %73, %71
-  %83 = phi i32 [ -274000, %80 ], [ -274000, %71 ], [ -274000, %73 ], [ %78, %77 ], [ %70, %65 ]
+  %83 = phi i32 [ -274000, %73 ], [ -274000, %80 ], [ -274000, %71 ], [ %78, %77 ], [ %70, %65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %84 = icmp ne i32 %83, -274000
   %85 = zext i1 %84 to i32
@@ -939,7 +939,7 @@ define internal fastcc noundef zeroext i1 @acpi_thermal_init_trip(ptr noundef no
   br label %80
 
 80:                                               ; preds = %74, %._crit_edge, %67
-  %81 = phi i64 [ -274000, %67 ], [ %.pre5, %._crit_edge ], [ %spec.select, %74 ]
+  %81 = phi i64 [ -274000, %67 ], [ %spec.select, %74 ], [ %.pre5, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %82
 
@@ -1463,7 +1463,7 @@ define internal noundef i32 @acpi_thermal_adjust_trip(ptr noundef %0, ptr nounde
   br label %49
 
 49:                                               ; preds = %43, %._crit_edge, %30
-  %50 = phi i64 [ -274000, %30 ], [ %.pre5, %._crit_edge ], [ %spec.select, %43 ]
+  %50 = phi i64 [ -274000, %30 ], [ %spec.select, %43 ], [ %.pre5, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %51
 

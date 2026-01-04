@@ -161,7 +161,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %58, %_ZNSt6vectorIi
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit11
 
 _ZNSt6vectorIiSaIiEED2Ev.exit11:                  ; preds = %25, %_ZNSt6vectorIiSaIiEED2Ev.exit.i, %65, %63
-  %.pn.pn = phi { ptr, i32 } [ %64, %63 ], [ %66, %65 ], [ %15, %25 ], [ %15, %_ZNSt6vectorIiSaIiEED2Ev.exit.i ]
+  %.pn.pn = phi { ptr, i32 } [ %64, %63 ], [ %66, %65 ], [ %15, %_ZNSt6vectorIiSaIiEED2Ev.exit.i ], [ %15, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZNSt7__cxx1110_List_baseIN5ZXing13GenericGFPolyESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #16
   resume { ptr, i32 } %.pn.pn
@@ -457,7 +457,7 @@ _ZNSt15__allocated_ptrISaISt10_List_nodeIN5ZXing13GenericGFPolyEEEED2Ev.exit9.i.
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit36
 
 _ZNSt6vectorIiSaIiEED2Ev.exit36:                  ; preds = %96, %98, %_ZNSt6vectorIiSaIiEED2Ev.exit.i26, %68, %94
-  %.pn.pn.pn = phi { ptr, i32 } [ %95, %94 ], [ %97, %96 ], [ %99, %98 ], [ %60, %68 ], [ %60, %_ZNSt6vectorIiSaIiEED2Ev.exit.i26 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %95, %94 ], [ %97, %96 ], [ %99, %98 ], [ %60, %_ZNSt6vectorIiSaIiEED2Ev.exit.i26 ], [ %60, %68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.body33
 
@@ -835,7 +835,7 @@ _ZN5ZXing13GenericGFPolyD2Ev.exit52:              ; preds = %_ZNSt6vectorIiSaIiE
   br label %.body
 
 .body:                                            ; preds = %_ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i, %50, %_ZNSt6vectorIiSaIiEED2Ev.exit.i, %110
-  %.pn35.pn.pn.pn = phi { ptr, i32 } [ %.pn35.pn.pn, %110 ], [ %34, %_ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i ], [ %40, %50 ], [ %40, %_ZNSt6vectorIiSaIiEED2Ev.exit.i ]
+  %.pn35.pn.pn.pn = phi { ptr, i32 } [ %.pn35.pn.pn, %110 ], [ %34, %_ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i ], [ %40, %_ZNSt6vectorIiSaIiEED2Ev.exit.i ], [ %40, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %111
 

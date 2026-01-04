@@ -228,7 +228,7 @@ define internal ptr @H5O__group_create(ptr noundef %0, ptr noundef %1, ptr nound
   br label %.thread
 
 .thread:                                          ; preds = %13, %24, %35, %32, %3
-  %.0 = phi ptr [ null, %35 ], [ null, %32 ], [ null, %3 ], [ %11, %24 ], [ null, %13 ]
+  %.0 = phi ptr [ null, %35 ], [ null, %32 ], [ null, %13 ], [ null, %3 ], [ %11, %24 ]
   ret ptr %.0
 }
 

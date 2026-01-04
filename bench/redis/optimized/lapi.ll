@@ -88,7 +88,7 @@ define dso_local range(i32 0, 2) i32 @lua_checkstack(ptr noundef %0, i32 noundef
   br label %35
 
 35:                                               ; preds = %2, %4, %16, %34, %26
-  %.0 = phi i32 [ 1, %34 ], [ 1, %26 ], [ 1, %16 ], [ 0, %4 ], [ 0, %2 ]
+  %.0 = phi i32 [ 1, %16 ], [ 1, %34 ], [ 1, %26 ], [ 0, %4 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -808,7 +808,7 @@ define dso_local i32 @lua_type(ptr noundef captures(address) %0, i32 noundef %1)
   br i1 %.not.i, label %index2adr.exit.thread, label %index2adr.exit
 
 index2adr.exit:                                   ; preds = %4, %36, %14, %20, %24, %34
-  %.1.i = phi ptr [ %18, %14 ], [ %49, %36 ], [ %23, %20 ], [ %30, %24 ], [ %35, %34 ], [ %9, %4 ]
+  %.1.i = phi ptr [ %35, %34 ], [ %18, %14 ], [ %49, %36 ], [ %23, %20 ], [ %30, %24 ], [ %9, %4 ]
   %50 = icmp eq ptr %.1.i, @luaO_nilobject_
   br i1 %50, label %index2adr.exit.thread, label %51
 
@@ -1111,7 +1111,7 @@ define dso_local range(i32 0, 2) i32 @lua_isstring(ptr noundef captures(address)
   br i1 %.not.i.i, label %lua_type.exit, label %index2adr.exit.i
 
 index2adr.exit.i:                                 ; preds = %36, %34, %24, %20, %14, %4
-  %.1.i.i = phi ptr [ %18, %14 ], [ %49, %36 ], [ %23, %20 ], [ %30, %24 ], [ %35, %34 ], [ %9, %4 ]
+  %.1.i.i = phi ptr [ %35, %34 ], [ %18, %14 ], [ %49, %36 ], [ %23, %20 ], [ %30, %24 ], [ %9, %4 ]
   %50 = icmp eq ptr %.1.i.i, @luaO_nilobject_
   br i1 %50, label %lua_type.exit, label %51
 
@@ -2375,7 +2375,7 @@ index2adr.exit:                                   ; preds = %4, %14, %20, %24, %
   br label %71
 
 71:                                               ; preds = %index2adr.exit, %67, %65, %61, %57, %53
-  %.0 = phi i64 [ %56, %53 ], [ %60, %57 ], [ %64, %61 ], [ %70, %67 ], [ 0, %65 ], [ 0, %index2adr.exit ]
+  %.0 = phi i64 [ 0, %65 ], [ %56, %53 ], [ %60, %57 ], [ %64, %61 ], [ %70, %67 ], [ 0, %index2adr.exit ]
   ret i64 %.0
 }
 
@@ -2578,7 +2578,7 @@ index2adr.exit:                                   ; preds = %4, %14, %20, %24, %
   br label %58
 
 58:                                               ; preds = %index2adr.exit, %56, %53
-  %.0 = phi ptr [ %55, %53 ], [ %57, %56 ], [ null, %index2adr.exit ]
+  %.0 = phi ptr [ %57, %56 ], [ %55, %53 ], [ null, %index2adr.exit ]
   ret ptr %.0
 }
 
@@ -2870,7 +2870,7 @@ index2adr.exit.i:                                 ; preds = %92, %90, %80, %76, 
   br label %lua_touserdata.exit
 
 lua_touserdata.exit:                              ; preds = %112, %109, %index2adr.exit.i, %index2adr.exit, %57, %55, %53
-  %.0 = phi ptr [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ null, %index2adr.exit ], [ %111, %109 ], [ %113, %112 ], [ null, %index2adr.exit.i ]
+  %.0 = phi ptr [ null, %index2adr.exit ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %113, %112 ], [ %111, %109 ], [ null, %index2adr.exit.i ]
   ret ptr %.0
 }
 
@@ -4611,7 +4611,7 @@ index2adr.exit:                                   ; preds = %4, %14, %20, %24, %
   store i32 5, ptr %74, align 8, !tbaa !20
   br label %75
 
-75:                                               ; preds = %53, %60, %67
+75:                                               ; preds = %67, %53, %60
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %77 = load ptr, ptr %76, align 8, !tbaa !4
   %78 = getelementptr inbounds i8, ptr %77, i64 -16
@@ -5019,7 +5019,7 @@ define dso_local i32 @lua_gc(ptr noundef %0, i32 noundef %1, i32 noundef %2) loc
   br label %.loopexit
 
 .loopexit:                                        ; preds = %30, %33, %3, %39, %36, %18, %13, %12, %8, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %8 ], [ 0, %12 ], [ %17, %13 ], [ %22, %18 ], [ %38, %36 ], [ %41, %39 ], [ -1, %3 ], [ 1, %33 ], [ 0, %30 ]
+  %.0 = phi i32 [ -1, %3 ], [ 0, %6 ], [ 0, %8 ], [ 0, %12 ], [ %17, %13 ], [ %22, %18 ], [ %41, %39 ], [ %38, %36 ], [ 0, %30 ], [ 1, %33 ]
   ret i32 %.0
 }
 
@@ -5408,8 +5408,8 @@ index2adr.exit:                                   ; preds = %5, %15, %21, %25, %
   br label %aux_upvalue.exit
 
 aux_upvalue.exit:                                 ; preds = %76, %65
-  %.0 = phi ptr [ %83, %76 ], [ %68, %65 ]
-  %.0.i = phi ptr [ %88, %76 ], [ @.str.4, %65 ]
+  %.0 = phi ptr [ %68, %65 ], [ %83, %76 ]
+  %.0.i = phi ptr [ @.str.4, %65 ], [ %88, %76 ]
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %90 = load ptr, ptr %89, align 8, !tbaa !4
   %91 = load i64, ptr %.0, align 8, !tbaa !19
@@ -5423,8 +5423,8 @@ aux_upvalue.exit:                                 ; preds = %76, %65
   store ptr %96, ptr %89, align 8, !tbaa !4
   br label %aux_upvalue.exit.thread
 
-aux_upvalue.exit.thread:                          ; preds = %69, %73, %59, %61, %index2adr.exit, %aux_upvalue.exit
-  %.0.i14 = phi ptr [ %.0.i, %aux_upvalue.exit ], [ null, %index2adr.exit ], [ null, %61 ], [ null, %59 ], [ null, %73 ], [ null, %69 ]
+aux_upvalue.exit.thread:                          ; preds = %69, %73, %61, %59, %index2adr.exit, %aux_upvalue.exit
+  %.0.i14 = phi ptr [ %.0.i, %aux_upvalue.exit ], [ null, %index2adr.exit ], [ null, %59 ], [ null, %61 ], [ null, %73 ], [ null, %69 ]
   ret ptr %.0.i14
 }
 
@@ -5564,8 +5564,8 @@ index2adr.exit:                                   ; preds = %5, %15, %21, %25, %
   br label %aux_upvalue.exit
 
 aux_upvalue.exit:                                 ; preds = %76, %65
-  %.0 = phi ptr [ %83, %76 ], [ %68, %65 ]
-  %.0.i = phi ptr [ %88, %76 ], [ @.str.4, %65 ]
+  %.0 = phi ptr [ %68, %65 ], [ %83, %76 ]
+  %.0.i = phi ptr [ @.str.4, %65 ], [ %88, %76 ]
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %90 = load ptr, ptr %89, align 8, !tbaa !4
   %91 = getelementptr inbounds i8, ptr %90, i64 -16
@@ -5602,8 +5602,8 @@ aux_upvalue.exit:                                 ; preds = %76, %65
   tail call void @luaC_barrierf(ptr noundef nonnull %0, ptr noundef nonnull %106, ptr noundef nonnull %101) #14
   br label %aux_upvalue.exit.thread
 
-aux_upvalue.exit.thread:                          ; preds = %69, %73, %59, %61, %index2adr.exit, %aux_upvalue.exit, %100, %105, %110
-  %.0.i23 = phi ptr [ %.0.i, %aux_upvalue.exit ], [ %.0.i, %100 ], [ %.0.i, %105 ], [ %.0.i, %110 ], [ null, %index2adr.exit ], [ null, %61 ], [ null, %59 ], [ null, %73 ], [ null, %69 ]
+aux_upvalue.exit.thread:                          ; preds = %69, %73, %61, %59, %index2adr.exit, %aux_upvalue.exit, %100, %105, %110
+  %.0.i23 = phi ptr [ %.0.i, %110 ], [ %.0.i, %aux_upvalue.exit ], [ %.0.i, %100 ], [ %.0.i, %105 ], [ null, %index2adr.exit ], [ null, %59 ], [ null, %61 ], [ null, %73 ], [ null, %69 ]
   ret ptr %.0.i23
 }
 

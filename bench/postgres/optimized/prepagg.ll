@@ -301,7 +301,7 @@ find_compatible_agg.exit.i:                       ; preds = %156
   br label %preprocess_aggref.exit
 
 find_compatible_agg.exit.thread.i:                ; preds = %169, %find_compatible_agg.exit.i, %.lr.ph.i.i, %78, %76
-  %.2137.i = phi ptr [ null, %find_compatible_agg.exit.i ], [ null, %78 ], [ null, %76 ], [ null, %.lr.ph.i.i ], [ %.1.i, %169 ]
+  %.2137.i = phi ptr [ null, %find_compatible_agg.exit.i ], [ null, %76 ], [ null, %78 ], [ null, %.lr.ph.i.i ], [ %.1.i, %169 ]
   %184 = call noundef ptr @palloc0(i64 noundef 32) #4
   store i32 326, ptr %184, align 4
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 24
@@ -486,7 +486,7 @@ list_length.exit.i:                               ; preds = %191, %find_compatib
   br label %276
 
 276:                                              ; preds = %._crit_edge.i.i, %.critedge.i.i, %266, %263, %260, %257, %.lr.ph35.i.i
-  %277 = phi i32 [ %.pre.i.i, %._crit_edge.i.i ], [ %246, %.critedge.i.i ], [ %246, %257 ], [ %246, %.lr.ph35.i.i ], [ %246, %263 ], [ %246, %260 ], [ %246, %266 ]
+  %277 = phi i32 [ %.pre.i.i, %._crit_edge.i.i ], [ %246, %.critedge.i.i ], [ %246, %.lr.ph35.i.i ], [ %246, %260 ], [ %246, %266 ], [ %246, %257 ], [ %246, %263 ]
   %indvars.iv.next.i128.i = add nuw nsw i64 %indvars.iv.i126.i, 1
   %278 = sext i32 %277 to i64
   %279 = icmp slt i64 %indvars.iv.next.i128.i, %278
@@ -627,7 +627,7 @@ preprocess_aggref.exit:                           ; preds = %173, %334
   br label %340
 
 340:                                              ; preds = %2, %338, %preprocess_aggref.exit
-  %.0 = phi i1 [ false, %preprocess_aggref.exit ], [ %339, %338 ], [ false, %2 ]
+  %.0 = phi i1 [ %339, %338 ], [ false, %preprocess_aggref.exit ], [ false, %2 ]
   ret i1 %.0
 }
 

@@ -1505,7 +1505,7 @@ define hidden noundef zeroext i1 @_ZNK12mpfx_manager8is_int64ERK4mpfx(ptr nounde
   br i1 %or.cond33.not, label %.lr.ph, label %_ZNK12mpfx_manager6is_intERK4mpfx.exit, !llvm.loop !40
 
 _ZNK12mpfx_manager6is_intERK4mpfx.exit:           ; preds = %.lr.ph.i, %.lr.ph, %30, %26, %.loopexit
-  %.014 = phi i1 [ true, %.loopexit ], [ false, %26 ], [ true, %30 ], [ %.not, %.lr.ph ], [ false, %.lr.ph.i ]
+  %.014 = phi i1 [ true, %30 ], [ true, %.loopexit ], [ false, %26 ], [ %.not, %.lr.ph ], [ false, %.lr.ph.i ]
   ret i1 %.014
 }
 
@@ -1572,7 +1572,7 @@ define hidden noundef zeroext i1 @_ZNK12mpfx_manager9is_uint64ERK4mpfx(ptr nound
   br i1 %or.cond.not, label %.lr.ph, label %.critedge, !llvm.loop !41
 
 .critedge:                                        ; preds = %.lr.ph.i, %.lr.ph, %18, %.loopexit
-  %.011 = phi i1 [ false, %.loopexit ], [ true, %18 ], [ %.not, %.lr.ph ], [ false, %.lr.ph.i ]
+  %.011 = phi i1 [ true, %18 ], [ %.not, %.lr.ph ], [ false, %.loopexit ], [ false, %.lr.ph.i ]
   ret i1 %.011
 }
 
@@ -2667,8 +2667,8 @@ _ZN6id_gen7recycleEj.exit.i.i92:                  ; preds = %_ZN6vectorIjLb0EjE9
   br i1 %223, label %.lr.ph137, label %.loopexit, !llvm.loop !55
 
 .loopexit:                                        ; preds = %.lr.ph134, %.lr.ph137, %.preheader117
-  %224 = phi i32 [ %207, %.preheader117 ], [ %221, %.lr.ph137 ], [ %215, %.lr.ph134 ]
-  %.2 = phi i1 [ %.072.lcssa, %.preheader117 ], [ %spec.select86, %.lr.ph137 ], [ %.072.lcssa, %.lr.ph134 ]
+  %224 = phi i32 [ %221, %.lr.ph137 ], [ %207, %.preheader117 ], [ %215, %.lr.ph134 ]
+  %.2 = phi i1 [ %spec.select86, %.lr.ph137 ], [ %.072.lcssa, %.preheader117 ], [ %.072.lcssa, %.lr.ph134 ]
   br i1 %.2, label %.loopexit..critedge_crit_edge, label %_ZN12mpfx_manager11set_epsilonER4mpfx.exit
 
 .loopexit..critedge_crit_edge:                    ; preds = %.loopexit
@@ -4196,7 +4196,7 @@ define hidden noundef zeroext i1 @_ZNK12mpfx_manager2ltERK4mpfxS2_(ptr noundef n
   br label %48
 
 48:                                               ; preds = %33, %34, %18, %19, %8, %9, %13
-  %.0 = phi i1 [ %14, %13 ], [ false, %8 ], [ %.not13, %9 ], [ true, %18 ], [ %32, %19 ], [ false, %33 ], [ %47, %34 ]
+  %.0 = phi i1 [ %32, %19 ], [ %14, %13 ], [ %.not13, %9 ], [ false, %8 ], [ true, %18 ], [ false, %33 ], [ %47, %34 ]
   ret i1 %.0
 }
 
@@ -4960,7 +4960,7 @@ define hidden void @_ZN12mpfx_manager5floorER4mpfx(ptr noundef nonnull align 8 d
   br i1 %32, label %.lr.ph25, label %.loopexit, !llvm.loop !74
 
 .loopexit:                                        ; preds = %.lr.ph25, %..loopexit_crit_edge, %.preheader20, %.preheader, %._crit_edge
-  %33 = phi i32 [ %.pre31, %..loopexit_crit_edge ], [ 0, %.preheader20 ], [ 0, %.preheader ], [ %.ph, %._crit_edge ], [ %30, %.lr.ph25 ]
+  %33 = phi i32 [ %.pre31, %..loopexit_crit_edge ], [ %.ph, %._crit_edge ], [ 0, %.preheader20 ], [ 0, %.preheader ], [ %30, %.lr.ph25 ]
   %34 = load i32, ptr %0, align 8, !tbaa !13
   %35 = zext i32 %33 to i64
   %36 = getelementptr inbounds nuw i32, ptr %11, i64 %35
@@ -5123,7 +5123,7 @@ define hidden void @_ZN12mpfx_manager4ceilER4mpfx(ptr noundef nonnull align 8 de
   br i1 %35, label %.lr.ph, label %.loopexit, !llvm.loop !76
 
 .loopexit:                                        ; preds = %.lr.ph, %..loopexit_crit_edge, %.preheader, %.preheader19, %._crit_edge
-  %36 = phi i32 [ %.pre30, %..loopexit_crit_edge ], [ 0, %.preheader ], [ 0, %.preheader19 ], [ %.ph, %._crit_edge ], [ %33, %.lr.ph ]
+  %36 = phi i32 [ %.pre30, %..loopexit_crit_edge ], [ %.ph, %._crit_edge ], [ 0, %.preheader ], [ 0, %.preheader19 ], [ %33, %.lr.ph ]
   %37 = load i32, ptr %0, align 8, !tbaa !13
   %38 = zext i32 %36 to i64
   %39 = getelementptr inbounds nuw i32, ptr %11, i64 %38
@@ -5659,7 +5659,7 @@ define hidden noundef zeroext i1 @_ZNK12mpfx_manager15is_power_of_twoERK4mpfxRj(
   br i1 %.not20, label %34, label %_ZNK12mpfx_manager6is_intERK4mpfx.exit, !llvm.loop !80
 
 _ZNK12mpfx_manager6is_intERK4mpfx.exit:           ; preds = %.lr.ph.i, %35, %34, %23, %.loopexit
-  %.017 = phi i1 [ false, %.loopexit ], [ false, %23 ], [ %.not33.not, %34 ], [ %.not33.not, %35 ], [ false, %.lr.ph.i ]
+  %.017 = phi i1 [ %.not33.not, %35 ], [ false, %.loopexit ], [ false, %23 ], [ %.not33.not, %34 ], [ false, %.lr.ph.i ]
   ret i1 %.017
 }
 
@@ -5734,7 +5734,7 @@ define hidden noundef zeroext i1 @_ZNK12mpfx_manager15is_power_of_twoERK4mpfx(pt
   br i1 %.not20.i, label %28, label %_ZNK12mpfx_manager15is_power_of_twoERK4mpfxRj.exit, !llvm.loop !80
 
 _ZNK12mpfx_manager15is_power_of_twoERK4mpfxRj.exit: ; preds = %.lr.ph.i.i, %28, %29, %.loopexit.i, %21
-  %.017.i = phi i1 [ false, %.loopexit.i ], [ false, %21 ], [ %.not33.i.not.not, %29 ], [ %.not33.i.not.not, %28 ], [ false, %.lr.ph.i.i ]
+  %.017.i = phi i1 [ %.not33.i.not.not, %28 ], [ false, %.loopexit.i ], [ false, %21 ], [ %.not33.i.not.not, %29 ], [ false, %.lr.ph.i.i ]
   ret i1 %.017.i
 }
 
@@ -6836,7 +6836,7 @@ _ZN6bufferIcLb0ELj1024EED2Ev.exit:                ; preds = %_ZStlsISt11char_tra
   br label %157
 
 _ZNK12mpfx_manager6is_intERK4mpfx.exit45.thread:  ; preds = %77, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %_ZN6bufferIcLb0ELj1024EED2Ev.exit
-  %147 = phi i32 [ %70, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ], [ %.pre95, %_ZN6bufferIcLb0ELj1024EED2Ev.exit ], [ %70, %77 ]
+  %147 = phi i32 [ %.pre95, %_ZN6bufferIcLb0ELj1024EED2Ev.exit ], [ %70, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ], [ %70, %77 ]
   %148 = and i32 %147, 1
   %.not87 = icmp eq i32 %148, 0
   br i1 %.not87, label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit80, label %149

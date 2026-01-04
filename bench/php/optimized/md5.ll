@@ -143,10 +143,10 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %20
   br i1 %cond.fr65, label %25, label %.thread75, !prof !14
 
 .thread75:                                        ; preds = %zend_parse_arg_bool_ex.exit, %zend_parse_arg_str_ex.exit, %10
-  %.084 = phi i32 [ 1, %zend_parse_arg_str_ex.exit ], [ 0, %10 ], [ 2, %zend_parse_arg_bool_ex.exit ]
-  %.05483 = phi ptr [ %12, %zend_parse_arg_str_ex.exit ], [ null, %10 ], [ %23, %zend_parse_arg_bool_ex.exit ]
-  %.05582 = phi i32 [ 4, %zend_parse_arg_str_ex.exit ], [ 0, %10 ], [ 2, %zend_parse_arg_bool_ex.exit ]
-  %.05781 = phi i32 [ 9, %zend_parse_arg_str_ex.exit ], [ 1, %10 ], [ 9, %zend_parse_arg_bool_ex.exit ]
+  %.084 = phi i32 [ 0, %10 ], [ 1, %zend_parse_arg_str_ex.exit ], [ 2, %zend_parse_arg_bool_ex.exit ]
+  %.05483 = phi ptr [ null, %10 ], [ %12, %zend_parse_arg_str_ex.exit ], [ %23, %zend_parse_arg_bool_ex.exit ]
+  %.05582 = phi i32 [ 0, %10 ], [ 4, %zend_parse_arg_str_ex.exit ], [ 2, %zend_parse_arg_bool_ex.exit ]
+  %.05781 = phi i32 [ 1, %10 ], [ 9, %zend_parse_arg_str_ex.exit ], [ 9, %zend_parse_arg_bool_ex.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.05781, i32 noundef %.084, ptr noundef null, i32 noundef %.05582, ptr noundef %.05483) #11
   br label %76
 
@@ -553,10 +553,10 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %29
   br i1 %cond.fr83, label %.critedge, label %.thread93, !prof !14
 
 .thread93:                                        ; preds = %zend_parse_arg_bool_ex.exit, %zend_parse_arg_path.exit, %11
-  %.0103 = phi i32 [ 1, %zend_parse_arg_path.exit ], [ 0, %11 ], [ 2, %zend_parse_arg_bool_ex.exit ]
-  %.062102 = phi ptr [ %13, %zend_parse_arg_path.exit ], [ null, %11 ], [ %32, %zend_parse_arg_bool_ex.exit ]
-  %.063101 = phi i32 [ 16, %zend_parse_arg_path.exit ], [ 0, %11 ], [ 2, %zend_parse_arg_bool_ex.exit ]
-  %.065100 = phi i32 [ 9, %zend_parse_arg_path.exit ], [ 1, %11 ], [ 9, %zend_parse_arg_bool_ex.exit ]
+  %.0103 = phi i32 [ 0, %11 ], [ 1, %zend_parse_arg_path.exit ], [ 2, %zend_parse_arg_bool_ex.exit ]
+  %.062102 = phi ptr [ null, %11 ], [ %13, %zend_parse_arg_path.exit ], [ %32, %zend_parse_arg_bool_ex.exit ]
+  %.063101 = phi i32 [ 0, %11 ], [ 16, %zend_parse_arg_path.exit ], [ 2, %zend_parse_arg_bool_ex.exit ]
+  %.065100 = phi i32 [ 1, %11 ], [ 9, %zend_parse_arg_path.exit ], [ 9, %zend_parse_arg_bool_ex.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.065100, i32 noundef %.0103, ptr noundef null, i32 noundef %.063101, ptr noundef %.062102) #11
   br label %116
 

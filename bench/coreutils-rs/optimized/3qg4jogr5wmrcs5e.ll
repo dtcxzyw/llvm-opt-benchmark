@@ -874,8 +874,8 @@ define hidden void @_ZN9uu_csplit10split_name9SplitName3new17h1ea9e83da374a5ceE(
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   br label %28
 
-.thread141:                                       ; preds = %76, %97
-  %.0115.ph = phi i8 [ %.4, %97 ], [ %.5, %76 ]
+.thread141:                                       ; preds = %97, %76
+  %.0115.ph = phi i8 [ %.5, %76 ], [ %.4, %97 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -965,7 +965,7 @@ define hidden void @_ZN9uu_csplit10split_name9SplitName3new17h1ea9e83da374a5ceE(
           to label %.thread unwind label %90
 
 51:                                               ; preds = %61, %.noexc.i, %93, %63
-  %.2 = phi i8 [ %.5, %93 ], [ %.5, %63 ], [ 1, %.noexc.i ], [ 1, %61 ]
+  %.2 = phi i8 [ %.5, %93 ], [ %.5, %63 ], [ 1, %61 ], [ 1, %.noexc.i ]
   %52 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -1186,8 +1186,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %61
   br label %89
 
 .thread:                                          ; preds = %.body, %.thread141, %122
-  %.pn120140 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %122 ], [ %lpad.thr_comm, %.thread141 ], [ %.pn, %.body ]
-  %.1116139 = phi i8 [ 1, %122 ], [ %.0115.ph, %.thread141 ], [ %.3, %.body ]
+  %.pn120140 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread141 ], [ %lpad.thr_comm.split-lp, %122 ], [ %.pn, %.body ]
+  %.1116139 = phi i8 [ %.0115.ph, %.thread141 ], [ 1, %122 ], [ %.3, %.body ]
   %119 = load i64, ptr %2, align 8, !range !12, !noundef !13
   %120 = icmp ne i64 %119, -9223372036854775808
   %121 = trunc nuw i8 %.1116139 to i1

@@ -452,7 +452,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #0 {
   br label %111
 
 111:                                              ; preds = %55, %110, %109, %54, %10
-  %.0 = phi i32 [ 1, %109 ], [ 0, %110 ], [ 0, %54 ], [ 0, %10 ], [ 0, %55 ]
+  %.0 = phi i32 [ 1, %109 ], [ 0, %110 ], [ 0, %10 ], [ 0, %54 ], [ 0, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
@@ -1600,7 +1600,7 @@ define internal fastcc i32 @execute_verify_popo_test(ptr noundef nonnull capture
   br label %.thread
 
 .thread:                                          ; preds = %11, %18, %1, %28
-  %.011 = phi i32 [ %36, %28 ], [ 0, %18 ], [ 0, %1 ], [ 0, %11 ]
+  %.011 = phi i32 [ 0, %18 ], [ %36, %28 ], [ 0, %1 ], [ 0, %11 ]
   ret i32 %.011
 }
 

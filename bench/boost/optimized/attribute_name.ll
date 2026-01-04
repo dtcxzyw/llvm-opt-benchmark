@@ -1004,7 +1004,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41: ; preds = %_ZN
   br label %238
 
 236:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41, %230
-  %.pn22.pn.pn.pn = phi { ptr, i32 } [ %.pn22.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %231, %230 ], [ %.pn19.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41 ]
+  %.pn22.pn.pn.pn = phi { ptr, i32 } [ %231, %230 ], [ %.pn19.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41 ], [ %.pn22.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %237 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
   resume { ptr, i32 } %.pn22.pn.pn.pn
 
@@ -1941,7 +1941,7 @@ _ZSt4copyIPPN5boost3log11v2_mt_posix14attribute_name10repository4nodeES7_ET0_T_S
   br label %_ZSt4copyIPPN5boost3log11v2_mt_posix14attribute_name10repository4nodeES7_ET0_T_S9_S8_.exit
 
 _ZSt4copyIPPN5boost3log11v2_mt_posix14attribute_name10repository4nodeES7_ET0_T_S9_S8_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPN5boost3log11v2_mt_posix14attribute_name10repository4nodeES7_ET0_T_S9_S8_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPN5boost3log11v2_mt_posix14attribute_name10repository4nodeES7_ET0_T_S9_S8_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPN5boost3log11v2_mt_posix14attribute_name10repository4nodeES7_ET0_T_S9_S8_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !26
   %58 = load ptr, ptr %.0, align 8, !tbaa !27
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2060,7 +2060,7 @@ _ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb1EEEE9i
   br i1 %46, label %.lr.ph.i, label %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb1EEEE9prev_nodeEPNS0_19compact_rbtree_nodeIS3_EE.exit, !llvm.loop !113
 
 _ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb1EEEE9prev_nodeEPNS0_19compact_rbtree_nodeIS3_EE.exit: ; preds = %.lr.ph.i, %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb1EEEE9is_headerEPKNS0_19compact_rbtree_nodeIS3_EE.exit.thread17.i, %19, %28, %30, %35, %.preheader.i
-  %.013.i = phi ptr [ %23, %35 ], [ %23, %30 ], [ %23, %28 ], [ %23, %19 ], [ %.022.i, %.preheader.i ], [ %.05.i.i, %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb1EEEE9is_headerEPKNS0_19compact_rbtree_nodeIS3_EE.exit.thread17.i ], [ %.0.i, %.lr.ph.i ]
+  %.013.i = phi ptr [ %.05.i.i, %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb1EEEE9is_headerEPKNS0_19compact_rbtree_nodeIS3_EE.exit.thread17.i ], [ %23, %19 ], [ %23, %35 ], [ %23, %30 ], [ %23, %28 ], [ %.022.i, %.preheader.i ], [ %.0.i, %.lr.ph.i ]
   %47 = getelementptr inbounds nuw i8, ptr %.013.i, i64 32
   %48 = load ptr, ptr %47, align 8, !tbaa !10
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -2189,8 +2189,8 @@ _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb1EEEE5depthE
   br label %.thread35
 
 .thread35:                                        ; preds = %.critedge.i, %93, %60, %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb1EEEE5depthEPKNS0_19compact_rbtree_nodeIS3_EE.exit
-  %.sroa.032.1 = phi ptr [ null, %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb1EEEE5depthEPKNS0_19compact_rbtree_nodeIS3_EE.exit ], [ null, %60 ], [ %.026.lcssa.i, %93 ], [ %.026.lcssa.i, %.critedge.i ]
-  %.sroa.3.1 = phi i8 [ 1, %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb1EEEE5depthEPKNS0_19compact_rbtree_nodeIS3_EE.exit ], [ 1, %60 ], [ 0, %93 ], [ 1, %.critedge.i ]
+  %.sroa.032.1 = phi ptr [ null, %60 ], [ null, %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb1EEEE5depthEPKNS0_19compact_rbtree_nodeIS3_EE.exit ], [ %.026.lcssa.i, %93 ], [ %.026.lcssa.i, %.critedge.i ]
+  %.sroa.3.1 = phi i8 [ 1, %60 ], [ 1, %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb1EEEE5depthEPKNS0_19compact_rbtree_nodeIS3_EE.exit ], [ 0, %93 ], [ 1, %.critedge.i ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.032.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.3.1, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -2448,7 +2448,7 @@ _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb1EEEE25rotat
   br label %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb1EEEE12rotate_rightEPNS0_19compact_rbtree_nodeIS3_EES8_S8_S8_.exit
 
 _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb1EEEE12rotate_rightEPNS0_19compact_rbtree_nodeIS3_EES8_S8_S8_.exit: ; preds = %146, %145, %138, %91, %90, %83
-  %.142 = phi ptr [ %.041, %83 ], [ %.041, %90 ], [ %.041, %91 ], [ %.243, %138 ], [ %.243, %145 ], [ %.243, %146 ]
+  %.142 = phi ptr [ %.041, %91 ], [ %.041, %83 ], [ %.041, %90 ], [ %.243, %138 ], [ %.243, %145 ], [ %.243, %146 ]
   %148 = load ptr, ptr %.142, align 8, !tbaa !27
   %149 = ptrtoint ptr %148 to i64
   %150 = or i64 %149, 1
@@ -2472,7 +2472,7 @@ _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb1EEEE12rotat
   %163 = icmp eq ptr %0, %162
   br i1 %163, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %152, %.lr.ph, %2, %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb1EEEE12rotate_rightEPNS0_19compact_rbtree_nodeIS3_EES8_S8_S8_.exit
+.loopexit:                                        ; preds = %.lr.ph, %152, %2, %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb1EEEE12rotate_rightEPNS0_19compact_rbtree_nodeIS3_EES8_S8_S8_.exit
   %164 = load ptr, ptr %0, align 8, !tbaa !49
   %165 = ptrtoint ptr %164 to i64
   %166 = and i64 %165, -2
@@ -3010,7 +3010,7 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %7
   br label %_ZNKSt9type_infoeqERKS_.exit.thread4
 
 _ZNKSt9type_infoeqERKS_.exit.thread4:             ; preds = %_ZNKSt9type_infoeqERKS_.exit, %7, %_ZNKSt9type_infoeqERKS_.exit.thread
-  %12 = phi ptr [ %6, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %7 ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
+  %12 = phi ptr [ null, %7 ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ], [ %6, %_ZNKSt9type_infoeqERKS_.exit.thread ]
   ret ptr %12
 }
 

@@ -1113,8 +1113,8 @@ dss_sp_update_state.exit.i:                       ; preds = %513, %dss_sp_update
   br i1 %exitcond.not.i74.i, label %.sink.split, label %dss_sp_update_state.exit.i, !llvm.loop !91
 
 .sink.split:                                      ; preds = %dss_sp_update_state.exit.i, %15, %16
-  %.sink = phi i32 [ 0, %16 ], [ 0, %15 ], [ 1, %dss_sp_update_state.exit.i ]
-  %.0.ph = phi i32 [ -1094995529, %16 ], [ -1094995529, %15 ], [ 42, %dss_sp_update_state.exit.i ]
+  %.sink = phi i32 [ 0, %15 ], [ 0, %16 ], [ 1, %dss_sp_update_state.exit.i ]
+  %.0.ph = phi i32 [ -1094995529, %15 ], [ -1094995529, %16 ], [ 42, %dss_sp_update_state.exit.i ]
   store i32 %.sink, ptr %2, align 4, !tbaa !29
   br label %527
 

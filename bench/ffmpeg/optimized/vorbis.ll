@@ -203,7 +203,7 @@ define range(i32 -1094995529, 1) i32 @ff_vorbis_len2vlc(ptr noundef readonly cap
   br i1 %.not, label %51, label %.loopexit
 
 .loopexit:                                        ; preds = %8, %26, %.lr.ph94, %40, %51, %.preheader, %.critedge2.thread136, %.critedge2, %11, %.critedge
-  %.0 = phi i32 [ 0, %.critedge ], [ -1094995529, %11 ], [ 0, %.critedge2 ], [ 0, %.critedge2.thread136 ], [ 0, %51 ], [ -1094995529, %.preheader ], [ -1094995529, %40 ], [ -1094995529, %.lr.ph94 ], [ 0, %26 ], [ 0, %8 ]
+  %.0 = phi i32 [ 0, %.critedge2.thread136 ], [ 0, %.critedge ], [ -1094995529, %11 ], [ 0, %.critedge2 ], [ -1094995529, %40 ], [ 0, %26 ], [ -1094995529, %.preheader ], [ -1094995529, %.lr.ph94 ], [ 0, %51 ], [ 0, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

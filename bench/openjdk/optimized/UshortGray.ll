@@ -1218,8 +1218,8 @@ define hidden void @UshortGraySrcMaskFill(ptr noundef %0, ptr noundef %1, i32 no
   br label %30
 
 30:                                               ; preds = %10, %.fold.split, %27
-  %.072 = phi i32 [ %29, %27 ], [ 0, %10 ], [ %24, %.fold.split ]
-  %.069 = phi i16 [ %25, %27 ], [ 0, %10 ], [ %25, %.fold.split ]
+  %.072 = phi i32 [ 0, %10 ], [ %29, %27 ], [ %24, %.fold.split ]
+  %.069 = phi i16 [ 0, %10 ], [ %25, %27 ], [ %25, %.fold.split ]
   %31 = shl nsw i32 %4, 1
   %32 = sub nsw i32 %12, %31
   %.not80 = icmp eq ptr %1, null
@@ -1626,8 +1626,8 @@ define hidden void @UshortGrayAlphaMaskFill(ptr noundef %0, ptr noundef %1, i32 
   br i1 %93, label %114, label %94
 
 94:                                               ; preds = %92, %86, %87
-  %.098 = phi i32 [ %89, %87 ], [ %25, %86 ], [ 0, %92 ]
-  %.097 = phi i32 [ %91, %87 ], [ %.0109, %86 ], [ 0, %92 ]
+  %.098 = phi i32 [ %25, %86 ], [ %89, %87 ], [ 0, %92 ]
+  %.097 = phi i32 [ %.0109, %86 ], [ %91, %87 ], [ 0, %92 ]
   %.not139 = icmp eq i32 %.4119, 0
   br i1 %.not139, label %107, label %95
 

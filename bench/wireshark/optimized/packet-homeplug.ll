@@ -631,7 +631,7 @@ define internal i32 @dissect_homeplug(ptr noundef %0, ptr noundef %1, ptr nounde
   %19 = icmp slt i32 %18, 1
   br i1 %19, label %check_tvb_length.exit, label %20
 
-20:                                               ; preds = %4, %15
+20:                                               ; preds = %15, %4
   %21 = tail call ptr @ptvcursor_tree(ptr noundef %14)
   %.not.i21 = icmp eq ptr %21, null
   br i1 %.not.i21, label %dissect_homeplug_mctrl.exit, label %22
@@ -675,7 +675,7 @@ dissect_homeplug_mctrl.exit:                      ; preds = %20, %22
   %43 = icmp slt i32 %42, 1
   br i1 %43, label %check_tvb_length.exit, label %44
 
-44:                                               ; preds = %.lr.ph, %39
+44:                                               ; preds = %39, %.lr.ph
   %45 = tail call ptr @ptvcursor_tree(ptr noundef %14)
   %.not.i26 = icmp eq ptr %45, null
   br i1 %.not.i26, label %dissect_homeplug_mehdr.exit, label %46
@@ -707,7 +707,7 @@ dissect_homeplug_mehdr.exit:                      ; preds = %44, %46
   %63 = icmp slt i32 %62, 1
   br i1 %63, label %check_tvb_length.exit, label %64
 
-64:                                               ; preds = %dissect_homeplug_mehdr.exit, %59
+64:                                               ; preds = %59, %dissect_homeplug_mehdr.exit
   %65 = tail call ptr @ptvcursor_tree(ptr noundef %14)
   %.not.i31 = icmp eq ptr %65, null
   br i1 %.not.i31, label %dissect_homeplug_melen.exit, label %66
@@ -1488,15 +1488,15 @@ define internal fastcc void @dissect_homeplug_mme(ptr noundef %0, ptr noundef %1
   br i1 %470, label %.sink.split.i, label %474
 
 .sink.split.sink.split.i:                         ; preds = %463, %462, %461, %460, %459, %458, %457, %456, %442
-  %.str.342.sink.i = phi ptr [ @.str.343, %456 ], [ @.str.344, %457 ], [ @.str.345, %458 ], [ @.str.346, %459 ], [ @.str.347, %460 ], [ @.str.348, %461 ], [ @.str.349, %462 ], [ @.str.350, %463 ], [ @.str.342, %442 ]
-  %hf_homeplug_hreq_reset_delay.sink.ph.i = phi ptr [ @hf_homeplug_hreq_gfv, %456 ], [ @hf_homeplug_hreq_gnek, %457 ], [ @hf_homeplug_hreq_gclbpl, %458 ], [ @hf_homeplug_hreq_nvds, %459 ], [ @hf_homeplug_hreq_grbt, %460 ], [ @hf_homeplug_hreq_gslnm, %461 ], [ @hf_homeplug_hreq_gsss, %462 ], [ @hf_homeplug_hreq_rsl, %463 ], [ @hf_homeplug_hreq_gdv, %442 ]
+  %.str.342.sink.i = phi ptr [ @.str.350, %463 ], [ @.str.343, %456 ], [ @.str.344, %457 ], [ @.str.345, %458 ], [ @.str.346, %459 ], [ @.str.347, %460 ], [ @.str.348, %461 ], [ @.str.349, %462 ], [ @.str.342, %442 ]
+  %hf_homeplug_hreq_reset_delay.sink.ph.i = phi ptr [ @hf_homeplug_hreq_rsl, %463 ], [ @hf_homeplug_hreq_gfv, %456 ], [ @hf_homeplug_hreq_gnek, %457 ], [ @hf_homeplug_hreq_gclbpl, %458 ], [ @hf_homeplug_hreq_nvds, %459 ], [ @hf_homeplug_hreq_grbt, %460 ], [ @hf_homeplug_hreq_gslnm, %461 ], [ @hf_homeplug_hreq_gsss, %462 ], [ @hf_homeplug_hreq_gdv, %442 ]
   %471 = load ptr, ptr %3, align 8
   tail call void @col_set_str(ptr noundef %471, i32 noundef 25, ptr noundef nonnull %.str.342.sink.i)
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.sink.split.sink.split.i, %464, %442
-  %hf_homeplug_hreq_reset_delay.sink.i = phi ptr [ @hf_homeplug_hreq_reset_delay, %464 ], [ @hf_homeplug_hreq_mid, %442 ], [ %hf_homeplug_hreq_reset_delay.sink.ph.i, %.sink.split.sink.split.i ]
-  %.sink33.i = phi i32 [ 2, %464 ], [ 1, %442 ], [ 1, %.sink.split.sink.split.i ]
+  %hf_homeplug_hreq_reset_delay.sink.i = phi ptr [ @hf_homeplug_hreq_mid, %442 ], [ @hf_homeplug_hreq_reset_delay, %464 ], [ %hf_homeplug_hreq_reset_delay.sink.ph.i, %.sink.split.sink.split.i ]
+  %.sink33.i = phi i32 [ 1, %442 ], [ 2, %464 ], [ 1, %.sink.split.sink.split.i ]
   %472 = load i32, ptr %hf_homeplug_hreq_reset_delay.sink.i, align 4
   %473 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %472, i32 noundef %.sink33.i, i32 noundef 0)
   br label %474
@@ -1558,8 +1558,8 @@ define internal fastcc void @dissect_homeplug_mme(ptr noundef %0, ptr noundef %1
   br label %504
 
 504:                                              ; preds = %502, %496, %492, %488, %478
-  %hf_homeplug_hrsp_mid.sink.i = phi ptr [ @hf_homeplug_hrsp_invalid, %502 ], [ @hf_homeplug_hrsp_gnekr_key, %496 ], [ @hf_homeplug_hrsp_version, %492 ], [ @hf_homeplug_hrsp_version, %488 ], [ @hf_homeplug_hrsp_mid, %478 ]
-  %.sink20.i = phi i32 [ 1, %502 ], [ 8, %496 ], [ -1, %492 ], [ -1, %488 ], [ 1, %478 ]
+  %hf_homeplug_hrsp_mid.sink.i = phi ptr [ @hf_homeplug_hrsp_version, %488 ], [ @hf_homeplug_hrsp_invalid, %502 ], [ @hf_homeplug_hrsp_gnekr_key, %496 ], [ @hf_homeplug_hrsp_version, %492 ], [ @hf_homeplug_hrsp_mid, %478 ]
+  %.sink20.i = phi i32 [ -1, %488 ], [ 1, %502 ], [ 8, %496 ], [ -1, %492 ], [ 1, %478 ]
   %505 = load i32, ptr %hf_homeplug_hrsp_mid.sink.i, align 4
   %506 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %505, i32 noundef %.sink20.i, i32 noundef 0)
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)

@@ -344,13 +344,13 @@ define i32 @H5Pset_fapl_splitter(i64 noundef %0, ptr noundef captures(address_is
   br label %.thread47
 
 75:                                               ; preds = %71, %67
-  %.021 = phi i32 [ -1, %67 ], [ %73, %71 ]
+  %.021 = phi i32 [ %73, %71 ], [ -1, %67 ]
   %76 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5FD_splitter_fapl_t_reg_free_list, ptr noundef nonnull %58) #12
   %77 = call i32 @H5CX_pop(i1 noundef zeroext true) #12
   br i1 %66, label %.thread47, label %79, !prof !19
 
 .thread47:                                        ; preds = %32, %25, %12, %.thread52, %75
-  %.021324151 = phi i32 [ %.021, %75 ], [ -1, %.thread52 ], [ -1, %12 ], [ -1, %25 ], [ -1, %32 ]
+  %.021324151 = phi i32 [ -1, %.thread52 ], [ %.021, %75 ], [ -1, %12 ], [ -1, %25 ], [ -1, %32 ]
   %78 = call i32 @H5E_dump_api_stack() #12
   br label %79
 
@@ -877,12 +877,12 @@ define range(i32 -1, 1) i32 @H5Pget_fapl_splitter(i64 noundef %0, ptr noundef %1
   br label %.thread83
 
 .thread83:                                        ; preds = %128, %32, %25, %12, %124, %.thread88
-  %.040577787 = phi i32 [ -1, %128 ], [ -1, %.thread88 ], [ %.04067, %124 ], [ -1, %12 ], [ -1, %25 ], [ -1, %32 ]
+  %.040577787 = phi i32 [ %.04067, %124 ], [ -1, %128 ], [ -1, %.thread88 ], [ -1, %12 ], [ -1, %25 ], [ -1, %32 ]
   %130 = call i32 @H5E_dump_api_stack() #12
   br label %131
 
 131:                                              ; preds = %.thread100, %124, %.thread83
-  %.040577786 = phi i32 [ %.040577787, %.thread83 ], [ %.04067, %124 ], [ 0, %.thread100 ]
+  %.040577786 = phi i32 [ %.040577787, %.thread83 ], [ 0, %.thread100 ], [ %.04067, %124 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.040577786
 }
@@ -1112,7 +1112,7 @@ define internal ptr @H5FD__splitter_fapl_copy(ptr noundef readonly captures(none
   br label %.thread
 
 .thread:                                          ; preds = %11, %29, %39, %1
-  %.0 = phi ptr [ null, %39 ], [ null, %1 ], [ %9, %29 ], [ null, %11 ]
+  %.0 = phi ptr [ null, %39 ], [ null, %11 ], [ null, %1 ], [ %9, %29 ]
   ret ptr %.0
 }
 
@@ -1380,7 +1380,7 @@ define internal ptr @H5FD__splitter_open(ptr noundef %0, i32 noundef %1, i64 nou
   br label %140
 
 140:                                              ; preds = %128, %133, %136, %124, %115, %103, %94
-  %.1 = phi ptr [ null, %94 ], [ null, %103 ], [ null, %124 ], [ null, %136 ], [ null, %115 ], [ %38, %133 ], [ %38, %128 ]
+  %.1 = phi ptr [ null, %103 ], [ null, %124 ], [ null, %136 ], [ %38, %128 ], [ null, %115 ], [ %38, %133 ], [ null, %94 ]
   %.not98 = icmp eq ptr %.178, null
   br i1 %.not98, label %.thread, label %.thread111
 
@@ -1391,7 +1391,7 @@ define internal ptr @H5FD__splitter_open(ptr noundef %0, i32 noundef %1, i64 nou
   br label %.thread
 
 .thread:                                          ; preds = %.thread111, %140
-  %.1109 = phi ptr [ %.1118, %.thread111 ], [ %.1, %140 ]
+  %.1109 = phi ptr [ %.1, %140 ], [ %.1118, %.thread111 ]
   %142 = icmp eq ptr %.1109, null
   br i1 %142, label %.thread.thread132, label %.thread.thread
 
@@ -2285,8 +2285,8 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_delete(ptr noundef %0, i64 
   br label %.thread
 
 72:                                               ; preds = %61, %65, %26, %30, %44
-  %.130 = phi ptr [ null, %44 ], [ %13, %30 ], [ %13, %26 ], [ %48, %65 ], [ %48, %61 ]
-  %.028 = phi ptr [ %45, %44 ], [ %13, %30 ], [ %13, %26 ], [ %48, %65 ], [ %48, %61 ]
+  %.130 = phi ptr [ null, %44 ], [ %13, %26 ], [ %13, %30 ], [ %48, %65 ], [ %48, %61 ]
+  %.028 = phi ptr [ %45, %44 ], [ %13, %26 ], [ %13, %30 ], [ %48, %65 ], [ %48, %61 ]
   %73 = load i64, ptr %.028, align 8, !tbaa !29
   %74 = tail call i32 @H5FDdelete(ptr noundef %0, i64 noundef %73) #12
   %75 = icmp slt i32 %74, 0

@@ -506,7 +506,7 @@ select.unfold18:                                  ; preds = %63, %66
   br label %101
 
 101:                                              ; preds = %62, %63, %54, %55, %46, %47, %100, %94, %93, %75, %71, %select.unfold18
-  %102 = phi i32 [ %67, %select.unfold18 ], [ -14, %100 ], [ %67, %94 ], [ -514, %75 ], [ -514, %71 ], [ %67, %93 ], [ -14, %47 ], [ -14, %46 ], [ -14, %55 ], [ -14, %54 ], [ -14, %63 ], [ -14, %62 ]
+  %102 = phi i32 [ %67, %93 ], [ -14, %47 ], [ -14, %55 ], [ %67, %select.unfold18 ], [ -14, %100 ], [ %67, %94 ], [ -514, %75 ], [ -514, %71 ], [ -14, %46 ], [ -14, %54 ], [ -14, %62 ], [ -14, %63 ]
   %103 = icmp eq ptr %28, %7
   br i1 %103, label %105, label %104
 
@@ -769,8 +769,8 @@ define internal fastcc i32 @do_select(i32 noundef %0, ptr noundef readonly captu
   br label %.thread27
 
 .thread27:                                        ; preds = %129, %114, %166
-  %168 = phi i32 [ 0, %166 ], [ 0, %114 ], [ 1, %129 ]
-  %169 = phi i64 [ %167, %166 ], [ 0, %114 ], [ 0, %129 ]
+  %168 = phi i32 [ 1, %129 ], [ 0, %166 ], [ 0, %114 ]
+  %169 = phi i64 [ 0, %129 ], [ %167, %166 ], [ 0, %114 ]
   %170 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %171 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %172 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2431,8 +2431,8 @@ define internal fastcc i32 @do_sys_poll(ptr noundef %0, i32 noundef %1, ptr noun
   br label %.thread
 
 .thread:                                          ; preds = %66, %48, %103
-  %105 = phi i32 [ 0, %103 ], [ 0, %48 ], [ 1, %66 ]
-  %106 = phi i64 [ %104, %103 ], [ 0, %48 ], [ 0, %66 ]
+  %105 = phi i32 [ 1, %66 ], [ 0, %103 ], [ 0, %48 ]
+  %106 = phi i64 [ 0, %66 ], [ %104, %103 ], [ 0, %48 ]
   %107 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %108 = getelementptr inbounds nuw i8, ptr %13, i64 24
   br label %.outer

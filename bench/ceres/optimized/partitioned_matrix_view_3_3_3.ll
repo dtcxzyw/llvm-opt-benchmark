@@ -1056,7 +1056,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit57:                  ; preds = %144, %_ZNSt6vectorI
   ret void
 
 169:                                              ; preds = %162, %166, %164, %104, %110, %47, %45
-  %.pn47.pn = phi { ptr, i32 } [ %48, %47 ], [ %46, %45 ], [ %111, %110 ], [ %105, %104 ], [ %163, %162 ], [ %167, %166 ], [ %165, %164 ]
+  %.pn47.pn = phi { ptr, i32 } [ %46, %45 ], [ %105, %104 ], [ %48, %47 ], [ %111, %110 ], [ %163, %162 ], [ %167, %166 ], [ %165, %164 ]
   %170 = load ptr, ptr %38, align 8, !tbaa !11
   %.not.i.i.i58 = icmp eq ptr %170, null
   br i1 %.not.i.i.i58, label %_ZNSt6vectorIiSaIiEED2Ev.exit59, label %171

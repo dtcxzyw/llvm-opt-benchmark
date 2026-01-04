@@ -62,7 +62,7 @@ list_remove_head.exit.thread:                     ; preds = %0
   br label %list_remove_head.exit9
 
 list_remove_head.exit9:                           ; preds = %list_remove_head.exit, %10, %8, %18, %16
-  %.0 = phi ptr [ %17, %18 ], [ null, %16 ], [ %1, %list_remove_head.exit ], [ %9, %10 ], [ null, %8 ]
+  %.0 = phi ptr [ %1, %list_remove_head.exit ], [ %17, %18 ], [ null, %16 ], [ %9, %10 ], [ null, %8 ]
   ret ptr %.0
 }
 

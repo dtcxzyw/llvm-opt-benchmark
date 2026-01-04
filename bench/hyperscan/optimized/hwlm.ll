@@ -93,7 +93,7 @@ vermUnalign.exit54:                               ; preds = %43
   br label %run_hwlm_accel.exit
 
 52:                                               ; preds = %vermUnalign.exit54.thread, %40
-  %.143.i = phi ptr [ %23, %40 ], [ %48, %vermUnalign.exit54.thread ]
+  %.143.i = phi ptr [ %48, %vermUnalign.exit54.thread ], [ %23, %40 ]
   %53 = getelementptr inbounds i8, ptr %24, i64 -1
   %54 = getelementptr inbounds nuw i8, ptr %.143.i, i64 31
   %55 = icmp ult ptr %54, %53
@@ -222,7 +222,7 @@ vermUnalignNocase.exit50:                         ; preds = %109
   br label %run_hwlm_accel.exit
 
 119:                                              ; preds = %vermUnalignNocase.exit50.thread, %106
-  %.143.i30 = phi ptr [ %23, %106 ], [ %115, %vermUnalignNocase.exit50.thread ]
+  %.143.i30 = phi ptr [ %115, %vermUnalignNocase.exit50.thread ], [ %23, %106 ]
   %120 = getelementptr inbounds i8, ptr %24, i64 -1
   %121 = getelementptr inbounds nuw i8, ptr %.143.i30, i64 31
   %122 = icmp ult ptr %121, %120
@@ -320,7 +320,7 @@ vermUnalignNocase.exit:                           ; preds = %vermSearchAlignedNo
   br i1 %.not.i36, label %.preheader302, label %175
 
 .preheader302:                                    ; preds = %dvermPrecondition.exit73.thread, %164
-  %.020.i78.ph = phi ptr [ %185, %dvermPrecondition.exit73.thread ], [ %23, %164 ]
+  %.020.i78.ph = phi ptr [ %23, %164 ], [ %185, %dvermPrecondition.exit73.thread ]
   br label %189
 
 175:                                              ; preds = %164
@@ -427,7 +427,7 @@ dvermPrecondition.exit:                           ; preds = %dvermSearchAligned.
   br i1 %.not.i38, label %.preheader308, label %237
 
 .preheader308:                                    ; preds = %dvermPreconditionNocase.exit68.thread, %226
-  %.022.i.ph = phi ptr [ %248, %dvermPreconditionNocase.exit68.thread ], [ %23, %226 ]
+  %.022.i.ph = phi ptr [ %23, %226 ], [ %248, %dvermPreconditionNocase.exit68.thread ]
   br label %252
 
 237:                                              ; preds = %226
@@ -542,7 +542,7 @@ dvermPreconditionNocase.exit:                     ; preds = %dvermSearchAlignedN
   br label %run_hwlm_accel.exit
 
 run_hwlm_accel.exit:                              ; preds = %103, %.lr.ph167, %37, %.lr.ph177, %.preheader139, %.preheader, %134, %146, %65, %76, %vermUnalign.exit54, %vermUnalignNocase.exit50, %dvermSearchAligned.exit, %dvermPrecondition.exit73, %dvermSearchAlignedNocase.exit, %dvermPreconditionNocase.exit68, %290, %dvermPreconditionNocase.exit, %223, %dvermPrecondition.exit, %vermUnalignNocase.exit, %vermUnalign.exit, %22, %294, %300
-  %.0.i22 = phi ptr [ %299, %294 ], [ %305, %300 ], [ %23, %22 ], [ %51, %vermUnalign.exit54 ], [ %92, %vermUnalign.exit ], [ %118, %vermUnalignNocase.exit50 ], [ %163, %vermUnalignNocase.exit ], [ %188, %dvermPrecondition.exit73 ], [ %..i, %223 ], [ %210, %dvermSearchAligned.exit ], [ %222, %dvermPrecondition.exit ], [ %251, %dvermPreconditionNocase.exit68 ], [ %..i45, %290 ], [ %276, %dvermSearchAlignedNocase.exit ], [ %289, %dvermPreconditionNocase.exit ], [ %68, %65 ], [ %79, %76 ], [ %137, %134 ], [ %149, %146 ], [ %23, %.preheader ], [ %23, %.preheader139 ], [ %38, %37 ], [ %.042.i176, %.lr.ph177 ], [ %104, %103 ], [ %.042.i33166, %.lr.ph167 ]
+  %.0.i22 = phi ptr [ %305, %300 ], [ %23, %22 ], [ %289, %dvermPreconditionNocase.exit ], [ %79, %76 ], [ %222, %dvermPrecondition.exit ], [ %299, %294 ], [ %137, %134 ], [ %149, %146 ], [ %51, %vermUnalign.exit54 ], [ %92, %vermUnalign.exit ], [ %68, %65 ], [ %23, %.preheader139 ], [ %118, %vermUnalignNocase.exit50 ], [ %163, %vermUnalignNocase.exit ], [ %188, %dvermPrecondition.exit73 ], [ %..i, %223 ], [ %210, %dvermSearchAligned.exit ], [ %251, %dvermPreconditionNocase.exit68 ], [ %..i45, %290 ], [ %276, %dvermSearchAlignedNocase.exit ], [ %23, %.preheader ], [ %.042.i176, %.lr.ph177 ], [ %38, %37 ], [ %104, %103 ], [ %.042.i33166, %.lr.ph167 ]
   %.not.i = icmp eq i8 %26, 0
   %306 = zext i8 %26 to i64
   %307 = sub nsw i64 0, %306
@@ -702,7 +702,7 @@ vermUnalign.exit184:                              ; preds = %37
   br label %run_hwlm_accel.exit
 
 46:                                               ; preds = %vermUnalign.exit184.thread, %34
-  %.143.i104 = phi ptr [ %1, %34 ], [ %42, %vermUnalign.exit184.thread ]
+  %.143.i104 = phi ptr [ %42, %vermUnalign.exit184.thread ], [ %1, %34 ]
   %47 = getelementptr inbounds i8, ptr %20, i64 -1
   %48 = getelementptr inbounds nuw i8, ptr %.143.i104, i64 31
   %49 = icmp ult ptr %48, %47
@@ -827,7 +827,7 @@ vermUnalignNocase.exit168:                        ; preds = %102
   br label %run_hwlm_accel.exit
 
 112:                                              ; preds = %vermUnalignNocase.exit168.thread, %99
-  %.143.i113 = phi ptr [ %1, %99 ], [ %108, %vermUnalignNocase.exit168.thread ]
+  %.143.i113 = phi ptr [ %108, %vermUnalignNocase.exit168.thread ], [ %1, %99 ]
   %113 = getelementptr inbounds i8, ptr %20, i64 -1
   %114 = getelementptr inbounds nuw i8, ptr %.143.i113, i64 31
   %115 = icmp ult ptr %114, %113
@@ -925,7 +925,7 @@ vermUnalignNocase.exit:                           ; preds = %vermSearchAlignedNo
   br i1 %.not.i147, label %.preheader920, label %168
 
 .preheader920:                                    ; preds = %dvermPrecondition.exit267.thread, %157
-  %.020.i299.ph = phi ptr [ %178, %dvermPrecondition.exit267.thread ], [ %1, %157 ]
+  %.020.i299.ph = phi ptr [ %1, %157 ], [ %178, %dvermPrecondition.exit267.thread ]
   br label %182
 
 168:                                              ; preds = %157
@@ -1032,7 +1032,7 @@ dvermPrecondition.exit:                           ; preds = %dvermSearchAligned.
   br i1 %.not.i156, label %.preheader926, label %230
 
 .preheader926:                                    ; preds = %dvermPreconditionNocase.exit250.thread, %219
-  %.022.i.ph = phi ptr [ %241, %dvermPreconditionNocase.exit250.thread ], [ %1, %219 ]
+  %.022.i.ph = phi ptr [ %1, %219 ], [ %241, %dvermPreconditionNocase.exit250.thread ]
   br label %245
 
 230:                                              ; preds = %219
@@ -1147,7 +1147,7 @@ dvermPreconditionNocase.exit:                     ; preds = %dvermSearchAlignedN
   br label %run_hwlm_accel.exit
 
 run_hwlm_accel.exit:                              ; preds = %.lr.ph552, %96, %.lr.ph562, %31, %127, %139, %59, %70, %vermUnalign.exit184, %vermUnalignNocase.exit168, %dvermSearchAligned.exit, %dvermPrecondition.exit267, %dvermSearchAlignedNocase.exit, %dvermPreconditionNocase.exit250, %293, %287, %22, %vermUnalign.exit, %vermUnalignNocase.exit, %dvermPrecondition.exit, %216, %dvermPreconditionNocase.exit, %283
-  %.0 = phi ptr [ %292, %287 ], [ %298, %293 ], [ %1, %22 ], [ %45, %vermUnalign.exit184 ], [ %86, %vermUnalign.exit ], [ %111, %vermUnalignNocase.exit168 ], [ %156, %vermUnalignNocase.exit ], [ %181, %dvermPrecondition.exit267 ], [ %..i154, %216 ], [ %203, %dvermSearchAligned.exit ], [ %215, %dvermPrecondition.exit ], [ %244, %dvermPreconditionNocase.exit250 ], [ %..i163, %283 ], [ %269, %dvermSearchAlignedNocase.exit ], [ %282, %dvermPreconditionNocase.exit ], [ %62, %59 ], [ %73, %70 ], [ %130, %127 ], [ %142, %139 ], [ %.042.i107561, %.lr.ph562 ], [ %32, %31 ], [ %.042.i116551, %.lr.ph552 ], [ %97, %96 ]
+  %.0 = phi ptr [ %282, %dvermPreconditionNocase.exit ], [ %298, %293 ], [ %1, %22 ], [ %269, %dvermSearchAlignedNocase.exit ], [ %73, %70 ], [ %215, %dvermPrecondition.exit ], [ %292, %287 ], [ %130, %127 ], [ %142, %139 ], [ %45, %vermUnalign.exit184 ], [ %86, %vermUnalign.exit ], [ %62, %59 ], [ %32, %31 ], [ %111, %vermUnalignNocase.exit168 ], [ %156, %vermUnalignNocase.exit ], [ %181, %dvermPrecondition.exit267 ], [ %..i154, %216 ], [ %203, %dvermSearchAligned.exit ], [ %244, %dvermPreconditionNocase.exit250 ], [ %..i163, %283 ], [ %.042.i107561, %.lr.ph562 ], [ %.042.i116551, %.lr.ph552 ], [ %97, %96 ]
   %299 = icmp eq i64 %2, 16
   br i1 %299, label %run_hwlm_accel.exit.thread, label %300
 
@@ -1430,7 +1430,7 @@ dvermPreconditionNocase.exit253:                  ; preds = %dvermSearchAlignedN
   br label %run_hwlm_accel.exit69
 
 run_hwlm_accel.exit69:                            ; preds = %vermSearchAlignedNocase.exit209, %vermSearchAligned.exit235, %dvermSearchAligned.exit311, %dvermSearchAlignedNocase.exit290, %444, %dvermPreconditionNocase.exit253, %397, %dvermPrecondition.exit270, %vermUnalignNocase.exit171, %vermUnalign.exit187, %314, %449, %455
-  %.0.i68 = phi ptr [ %454, %449 ], [ %460, %455 ], [ %7, %314 ], [ %336, %vermUnalign.exit187 ], [ %327, %vermSearchAligned.exit235 ], [ %358, %vermUnalignNocase.exit171 ], [ %348, %vermSearchAlignedNocase.exit209 ], [ %..i136, %397 ], [ %384, %dvermSearchAligned.exit311 ], [ %396, %dvermPrecondition.exit270 ], [ %..i145, %444 ], [ %430, %dvermSearchAlignedNocase.exit290 ], [ %443, %dvermPreconditionNocase.exit253 ]
+  %.0.i68 = phi ptr [ %460, %455 ], [ %7, %314 ], [ %443, %dvermPreconditionNocase.exit253 ], [ %430, %dvermSearchAlignedNocase.exit290 ], [ %396, %dvermPrecondition.exit270 ], [ %454, %449 ], [ %327, %vermSearchAligned.exit235 ], [ %336, %vermUnalign.exit187 ], [ %348, %vermSearchAlignedNocase.exit209 ], [ %358, %vermUnalignNocase.exit171 ], [ %..i145, %444 ], [ %..i136, %397 ], [ %384, %dvermSearchAligned.exit311 ]
   %461 = ptrtoint ptr %.0.i68 to i64
   %462 = ptrtoint ptr %7 to i64
   %463 = sub i64 %461, %462
@@ -1512,7 +1512,7 @@ vermUnalign.exit196:                              ; preds = %485
   br label %run_hwlm_accel.exit71
 
 494:                                              ; preds = %vermUnalign.exit196.thread, %482
-  %.143.i = phi ptr [ %468, %482 ], [ %490, %vermUnalign.exit196.thread ]
+  %.143.i = phi ptr [ %490, %vermUnalign.exit196.thread ], [ %468, %482 ]
   %495 = getelementptr inbounds i8, ptr %469, i64 -1
   %496 = getelementptr inbounds nuw i8, ptr %.143.i, i64 31
   %497 = icmp ult ptr %496, %495
@@ -1642,7 +1642,7 @@ vermUnalignNocase.exit180:                        ; preds = %551
   br label %run_hwlm_accel.exit71
 
 561:                                              ; preds = %vermUnalignNocase.exit180.thread, %548
-  %.143.i77 = phi ptr [ %468, %548 ], [ %557, %vermUnalignNocase.exit180.thread ]
+  %.143.i77 = phi ptr [ %557, %vermUnalignNocase.exit180.thread ], [ %468, %548 ]
   %562 = getelementptr inbounds i8, ptr %469, i64 -1
   %563 = getelementptr inbounds nuw i8, ptr %.143.i77, i64 31
   %564 = icmp ult ptr %563, %562
@@ -1740,7 +1740,7 @@ vermUnalignNocase.exit177:                        ; preds = %vermSearchAlignedNo
   br i1 %.not.i118, label %.preheader892, label %617
 
 .preheader892:                                    ; preds = %dvermPrecondition.exit279.thread, %606
-  %.020.i312.ph = phi ptr [ %627, %dvermPrecondition.exit279.thread ], [ %468, %606 ]
+  %.020.i312.ph = phi ptr [ %468, %606 ], [ %627, %dvermPrecondition.exit279.thread ]
   br label %631
 
 617:                                              ; preds = %606
@@ -1847,7 +1847,7 @@ dvermPrecondition.exit276:                        ; preds = %dvermSearchAligned.
   br i1 %.not.i120, label %.preheader898, label %679
 
 .preheader898:                                    ; preds = %dvermPreconditionNocase.exit262.thread, %668
-  %.022.i291.ph = phi ptr [ %690, %dvermPreconditionNocase.exit262.thread ], [ %468, %668 ]
+  %.022.i291.ph = phi ptr [ %468, %668 ], [ %690, %dvermPreconditionNocase.exit262.thread ]
   br label %694
 
 679:                                              ; preds = %668
@@ -1962,7 +1962,7 @@ dvermPreconditionNocase.exit259:                  ; preds = %dvermSearchAlignedN
   br label %run_hwlm_accel.exit71
 
 run_hwlm_accel.exit71:                            ; preds = %545, %.lr.ph600, %479, %.lr.ph610, %.preheader503, %.preheader, %576, %588, %507, %518, %vermUnalign.exit196, %vermUnalignNocase.exit180, %dvermSearchAligned.exit319, %dvermPrecondition.exit279, %dvermSearchAlignedNocase.exit298, %dvermPreconditionNocase.exit262, %732, %dvermPreconditionNocase.exit259, %665, %dvermPrecondition.exit276, %vermUnalignNocase.exit177, %vermUnalign.exit193, %465, %736, %742
-  %.0.i70 = phi ptr [ %741, %736 ], [ %747, %742 ], [ %468, %465 ], [ %493, %vermUnalign.exit196 ], [ %534, %vermUnalign.exit193 ], [ %560, %vermUnalignNocase.exit180 ], [ %605, %vermUnalignNocase.exit177 ], [ %630, %dvermPrecondition.exit279 ], [ %..i, %665 ], [ %652, %dvermSearchAligned.exit319 ], [ %664, %dvermPrecondition.exit276 ], [ %693, %dvermPreconditionNocase.exit262 ], [ %..i127, %732 ], [ %718, %dvermSearchAlignedNocase.exit298 ], [ %731, %dvermPreconditionNocase.exit259 ], [ %510, %507 ], [ %521, %518 ], [ %579, %576 ], [ %591, %588 ], [ %468, %.preheader ], [ %468, %.preheader503 ], [ %480, %479 ], [ %.042.i609, %.lr.ph610 ], [ %546, %545 ], [ %.042.i80599, %.lr.ph600 ]
+  %.0.i70 = phi ptr [ %747, %742 ], [ %468, %465 ], [ %731, %dvermPreconditionNocase.exit259 ], [ %521, %518 ], [ %664, %dvermPrecondition.exit276 ], [ %741, %736 ], [ %579, %576 ], [ %591, %588 ], [ %493, %vermUnalign.exit196 ], [ %534, %vermUnalign.exit193 ], [ %510, %507 ], [ %468, %.preheader503 ], [ %560, %vermUnalignNocase.exit180 ], [ %605, %vermUnalignNocase.exit177 ], [ %630, %dvermPrecondition.exit279 ], [ %..i, %665 ], [ %652, %dvermSearchAligned.exit319 ], [ %693, %dvermPreconditionNocase.exit262 ], [ %..i127, %732 ], [ %718, %dvermSearchAlignedNocase.exit298 ], [ %468, %.preheader ], [ %.042.i609, %.lr.ph610 ], [ %480, %479 ], [ %546, %545 ], [ %.042.i80599, %.lr.ph600 ]
   %748 = zext i8 %16 to i64
   %749 = getelementptr inbounds nuw i8, ptr %468, i64 %748
   %.not66 = icmp ult ptr %.0.i70, %749

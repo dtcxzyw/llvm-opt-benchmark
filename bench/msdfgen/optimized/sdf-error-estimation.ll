@@ -292,7 +292,7 @@ eh.resume.sink.split:                             ; preds = %lpad22, %lpad
   br label %eh.resume
 
 eh.resume:                                        ; preds = %eh.resume.sink.split, %lpad22, %lpad
-  %.pn = phi { ptr, i32 } [ %3, %lpad ], [ %lpad.phi, %lpad22 ], [ %.pn.ph, %eh.resume.sink.split ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad22 ], [ %3, %lpad ], [ %.pn.ph, %eh.resume.sink.split ]
   resume { ptr, i32 } %.pn
 }
 
@@ -823,7 +823,7 @@ eh.resume.sink.split:                             ; preds = %lpad22, %lpad
   br label %eh.resume
 
 eh.resume:                                        ; preds = %eh.resume.sink.split, %lpad22, %lpad
-  %.pn = phi { ptr, i32 } [ %3, %lpad ], [ %lpad.phi, %lpad22 ], [ %.pn.ph, %eh.resume.sink.split ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad22 ], [ %3, %lpad ], [ %.pn.ph, %eh.resume.sink.split ]
   resume { ptr, i32 } %.pn
 }
 
@@ -1337,7 +1337,7 @@ eh.resume.sink.split:                             ; preds = %lpad22, %lpad
   br label %eh.resume
 
 eh.resume:                                        ; preds = %eh.resume.sink.split, %lpad22, %lpad
-  %.pn = phi { ptr, i32 } [ %3, %lpad ], [ %lpad.phi, %lpad22 ], [ %.pn.ph, %eh.resume.sink.split ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad22 ], [ %3, %lpad ], [ %.pn.ph, %eh.resume.sink.split ]
   resume { ptr, i32 } %.pn
 }
 
@@ -1488,7 +1488,7 @@ _ZN7msdfgen8ScanlineD2Ev.exit30:                  ; preds = %ehcleanup, %if.then
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %if.then.i.i.i.i26, %_ZN7msdfgen8ScanlineD2Ev.exit24, %entry, %lor.lhs.false
-  %retval.0 = phi double [ 0.000000e+00, %lor.lhs.false ], [ 0.000000e+00, %entry ], [ %div35, %_ZN7msdfgen8ScanlineD2Ev.exit24 ], [ %div35, %if.then.i.i.i.i26 ]
+  %retval.0 = phi double [ 0.000000e+00, %entry ], [ 0.000000e+00, %lor.lhs.false ], [ %div35, %_ZN7msdfgen8ScanlineD2Ev.exit24 ], [ %div35, %if.then.i.i.i.i26 ]
   ret double %retval.0
 }
 
@@ -1639,7 +1639,7 @@ _ZN7msdfgen8ScanlineD2Ev.exit30:                  ; preds = %ehcleanup, %if.then
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %if.then.i.i.i.i26, %_ZN7msdfgen8ScanlineD2Ev.exit24, %entry, %lor.lhs.false
-  %retval.0 = phi double [ 0.000000e+00, %lor.lhs.false ], [ 0.000000e+00, %entry ], [ %div35, %_ZN7msdfgen8ScanlineD2Ev.exit24 ], [ %div35, %if.then.i.i.i.i26 ]
+  %retval.0 = phi double [ 0.000000e+00, %entry ], [ 0.000000e+00, %lor.lhs.false ], [ %div35, %_ZN7msdfgen8ScanlineD2Ev.exit24 ], [ %div35, %if.then.i.i.i.i26 ]
   ret double %retval.0
 }
 
@@ -1790,7 +1790,7 @@ _ZN7msdfgen8ScanlineD2Ev.exit30:                  ; preds = %ehcleanup, %if.then
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %if.then.i.i.i.i26, %_ZN7msdfgen8ScanlineD2Ev.exit24, %entry, %lor.lhs.false
-  %retval.0 = phi double [ 0.000000e+00, %lor.lhs.false ], [ 0.000000e+00, %entry ], [ %div35, %_ZN7msdfgen8ScanlineD2Ev.exit24 ], [ %div35, %if.then.i.i.i.i26 ]
+  %retval.0 = phi double [ 0.000000e+00, %entry ], [ 0.000000e+00, %lor.lhs.false ], [ %div35, %_ZN7msdfgen8ScanlineD2Ev.exit24 ], [ %div35, %if.then.i.i.i.i26 ]
   ret double %retval.0
 }
 

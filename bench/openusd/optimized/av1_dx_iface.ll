@@ -667,12 +667,12 @@ init_decoder.exit:                                ; preds = %164, %170, %175
   store i32 0, ptr %203, align 8
   br label %decode_one.exit.thread132
 
-decode_one.exit.thread:                           ; preds = %222, %225
-  %.0.i81.ph = phi i32 [ 1, %225 ], [ %224, %222 ]
+decode_one.exit.thread:                           ; preds = %225, %222
+  %.0.i81.ph = phi i32 [ %224, %222 ], [ 1, %225 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %init_decoder.exit.thread
 
-decode_one.exit.thread132:                        ; preds = %266, %269, %272, %276, %279
+decode_one.exit.thread132:                        ; preds = %276, %266, %279, %269, %272
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.preheader
 
@@ -715,7 +715,7 @@ decode_one.exit:                                  ; preds = %266
   br i1 %289, label %204, label %init_decoder.exit.thread, !llvm.loop !9
 
 init_decoder.exit.thread:                         ; preds = %208, %210, %decode_one.exit, %._crit_edge102, %191, %66, %91, %86, %79, %75, %decode_one.exit.thread, %184, %182, %61, %59
-  %.0 = phi i32 [ 0, %59 ], [ 8, %61 ], [ 7, %182 ], [ 7, %184 ], [ %.0.i81.ph, %decode_one.exit.thread ], [ 2, %75 ], [ 2, %79 ], [ 2, %86 ], [ 2, %91 ], [ 2, %66 ], [ 0, %191 ], [ 7, %208 ], [ 7, %210 ], [ %.pre.i.i, %decode_one.exit ], [ 0, %._crit_edge102 ]
+  %.0 = phi i32 [ 0, %59 ], [ 2, %79 ], [ 8, %61 ], [ %.0.i81.ph, %decode_one.exit.thread ], [ 7, %182 ], [ 7, %184 ], [ 2, %86 ], [ 2, %91 ], [ 2, %66 ], [ 2, %75 ], [ 0, %191 ], [ %.pre.i.i, %decode_one.exit ], [ 7, %208 ], [ 7, %210 ], [ 0, %._crit_edge102 ]
   ret i32 %.0
 }
 
@@ -1061,7 +1061,7 @@ move_decoder_metadata_to_img.exit:                ; preds = %52, %59
   br label %add_grain_if_needed.exit
 
 add_grain_if_needed.exit:                         ; preds = %163, %199
-  %.0.i = phi ptr [ %164, %199 ], [ %53, %163 ]
+  %.0.i = phi ptr [ %53, %163 ], [ %164, %199 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %204
 
@@ -1085,7 +1085,7 @@ add_grain_if_needed.exit:                         ; preds = %163, %199
   br label %move_decoder_metadata_to_img.exit136
 
 move_decoder_metadata_to_img.exit136:             ; preds = %71, %66, %207, %10, %check_resync.exit, %44, %2, %204
-  %.0 = phi ptr [ %.0.i143, %204 ], [ null, %2 ], [ null, %44 ], [ null, %check_resync.exit ], [ null, %207 ], [ null, %10 ], [ %53, %66 ], [ %53, %71 ]
+  %.0 = phi ptr [ null, %2 ], [ %.0.i143, %204 ], [ null, %207 ], [ null, %10 ], [ null, %44 ], [ null, %check_resync.exit ], [ %53, %66 ], [ %53, %71 ]
   ret ptr %.0
 }
 
@@ -1112,7 +1112,7 @@ define internal range(i32 0, 9) i32 @decoder_set_fb_fn(ptr noundef captures(none
   br label %15
 
 15:                                               ; preds = %7, %4, %11
-  %.0 = phi i32 [ 0, %11 ], [ 8, %4 ], [ 1, %7 ]
+  %.0 = phi i32 [ 8, %4 ], [ 0, %11 ], [ 1, %7 ]
   ret i32 %.0
 }
 
@@ -2063,7 +2063,7 @@ define internal range(i32 0, 9) i32 @ctrl_get_frame_corrupted(ptr noundef readon
   br label %37
 
 37:                                               ; preds = %15, %18, %31, %34, %27
-  %.0 = phi i32 [ 1, %27 ], [ 0, %34 ], [ 0, %31 ], [ 1, %18 ], [ 8, %15 ]
+  %.0 = phi i32 [ 1, %18 ], [ 1, %27 ], [ 0, %31 ], [ 0, %34 ], [ 8, %15 ]
   ret i32 %.0
 }
 
@@ -2272,7 +2272,7 @@ define internal range(i32 0, 9) i32 @ctrl_get_img_format(ptr noundef readonly ca
   br label %get_img_format.exit
 
 get_img_format.exit:                              ; preds = %21, %32, %35
-  %.0.i = phi i32 [ 262, %21 ], [ 261, %32 ], [ %spec.select.i, %35 ]
+  %.0.i = phi i32 [ %spec.select.i, %35 ], [ 262, %21 ], [ 261, %32 ]
   %.not.i = icmp eq i8 %30, 0
   %37 = or disjoint i32 %.0.i, 2048
   %spec.select14.i = select i1 %.not.i, i32 %.0.i, i32 %37
@@ -2932,7 +2932,7 @@ get_ref_frame.exit:                               ; preds = %20
   br label %get_ref_frame.exit.thread
 
 get_ref_frame.exit.thread:                        ; preds = %20, %18, %15, %get_ref_frame.exit
-  %.0 = phi i32 [ 0, %get_ref_frame.exit ], [ 8, %15 ], [ 1, %18 ], [ 1, %20 ]
+  %.0 = phi i32 [ 8, %15 ], [ 0, %get_ref_frame.exit ], [ 1, %18 ], [ 1, %20 ]
   ret i32 %.0
 }
 
@@ -3231,7 +3231,7 @@ define internal range(i32 0, 9) i32 @ctrl_get_frame_flags(ptr noundef readonly c
   br label %41
 
 41:                                               ; preds = %35, %40, %19, %15
-  %.0 = phi i32 [ 8, %15 ], [ 1, %19 ], [ 0, %40 ], [ 0, %35 ]
+  %.0 = phi i32 [ 1, %19 ], [ 8, %15 ], [ 0, %40 ], [ 0, %35 ]
   ret i32 %.0
 }
 
@@ -4237,7 +4237,7 @@ parse_timing_info.exit.i:                         ; preds = %74, %71
   br i1 %exitcond.not.i, label %parse_operating_points.exit, label %.split.split.i, !llvm.loop !15
 
 parse_operating_points.exit:                      ; preds = %144, %124, %109, %96, %61
-  %.033.i = phi i32 [ 0, %61 ], [ %spec.select.us.us.i, %96 ], [ %spec.select.us.i, %109 ], [ %spec.select.us57.i, %124 ], [ %spec.select.i, %144 ]
+  %.033.i = phi i32 [ 0, %61 ], [ %spec.select.us57.i, %124 ], [ %spec.select.us.i, %109 ], [ %spec.select.us.us.i, %96 ], [ %spec.select.i, %144 ]
   %146 = call i32 @aom_get_num_layers_from_operating_point_idc(i32 noundef %.033.i, ptr noundef nonnull %38, ptr noundef nonnull %39) #12
   %.not49.i.not = icmp eq i32 %146, 0
   br i1 %.not49.i.not, label %147, label %parse_operating_points.exit.thread
@@ -4311,7 +4311,7 @@ parse_operating_points.exit:                      ; preds = %144, %124, %109, %9
   br label %.thread
 
 .thread:                                          ; preds = %167, %.thread125, %175
-  %.2105 = phi i32 [ %.076, %.thread125 ], [ %.076, %175 ], [ %.177, %167 ]
+  %.2105 = phi i32 [ %.076, %175 ], [ %.076, %.thread125 ], [ %.177, %167 ]
   %.not99 = icmp eq ptr %3, null
   br i1 %.not99, label %parse_operating_points.exit.thread, label %176
 
@@ -4320,7 +4320,7 @@ parse_operating_points.exit:                      ; preds = %144, %124, %109, %9
   br label %parse_operating_points.exit.thread
 
 parse_operating_points.exit.thread:               ; preds = %74, %66, %171, %159, %parse_operating_points.exit, %50, %48, %40, %.thread, %176, %26, %21, %11, %4
-  %.0 = phi i32 [ 8, %4 ], [ %16, %11 ], [ 7, %21 ], [ %30, %26 ], [ 0, %176 ], [ 0, %.thread ], [ 1, %74 ], [ 1, %66 ], [ %174, %171 ], [ 7, %159 ], [ 1, %parse_operating_points.exit ], [ 5, %50 ], [ 7, %48 ], [ 7, %40 ]
+  %.0 = phi i32 [ 0, %176 ], [ 8, %4 ], [ %16, %11 ], [ 7, %21 ], [ %30, %26 ], [ 0, %.thread ], [ 1, %74 ], [ 1, %66 ], [ 7, %159 ], [ %174, %171 ], [ 5, %50 ], [ 7, %48 ], [ 7, %40 ], [ 1, %parse_operating_points.exit ]
   ret i32 %.0
 }
 
@@ -4428,7 +4428,7 @@ define internal ptr @AllocWithGetFrameBufferCb(ptr noundef readonly captures(non
   br label %20
 
 20:                                               ; preds = %16, %12, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %12 ], [ %spec.select, %16 ]
+  %.0 = phi ptr [ null, %12 ], [ null, %2 ], [ %spec.select, %16 ]
   ret ptr %.0
 }
 

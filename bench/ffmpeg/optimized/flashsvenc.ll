@@ -98,7 +98,7 @@ define internal range(i32 -2147483648, 1) i32 @flashsv_encode_frame(ptr noundef 
   br label %23
 
 23:                                               ; preds = %16, %12
-  %.1 = phi i32 [ %.041, %12 ], [ %spec.select, %16 ]
+  %.1 = phi i32 [ %spec.select, %16 ], [ %.041, %12 ]
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %25 = load i32, ptr %24, align 8, !tbaa !35
   %26 = zext i32 %25 to i64

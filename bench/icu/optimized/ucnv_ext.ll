@@ -131,7 +131,7 @@ define signext range(i8 0, 2) i8 @ucnv_extInitialMatchToU_77(ptr noundef %0, ptr
   br label %_ZL16ucnv_extWriteToUP10UConverterPKijPPDsPKDsPPiiP10UErrorCode.exit
 
 _ZL16ucnv_extWriteToUP10UConverterPKijPPDsPKDsPPiiP10UErrorCode.exit: ; preds = %44, %42, %54, %._crit_edge57
-  %.046 = phi i8 [ 1, %._crit_edge57 ], [ 0, %54 ], [ 1, %42 ], [ 1, %44 ]
+  %.046 = phi i8 [ 0, %54 ], [ 1, %._crit_edge57 ], [ 1, %42 ], [ 1, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i8 %.046
 }
@@ -198,8 +198,8 @@ define internal fastcc noundef i32 @_ZL16ucnv_extMatchToUPKiaPKciS2_iPjaa(ptr no
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %34, %33, %26
-  %.159 = phi i32 [ %.058, %26 ], [ %32, %33 ], [ %spec.select, %34 ]
-  %.1 = phi i32 [ %.052, %26 ], [ %.pre97, %33 ], [ %spec.select122, %34 ]
+  %.159 = phi i32 [ %.058, %26 ], [ %spec.select, %34 ], [ %32, %33 ]
+  %.1 = phi i32 [ %.052, %26 ], [ %spec.select122, %34 ], [ %.pre97, %33 ]
   %37 = icmp slt i32 %.056, %3
   br i1 %37, label %38, label %40
 
@@ -320,8 +320,8 @@ define internal fastcc noundef i32 @_ZL16ucnv_extMatchToUPKiaPKciS2_iPjaa(ptr no
   br i1 %103, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !29
 
 .loopexit.i:                                      ; preds = %95, %93, %89, %81, %77, %71
-  %.061.i = phi i32 [ %.064.i, %77 ], [ %.064.i, %81 ], [ %.064.i, %89 ], [ %.064.i, %93 ], [ %31, %71 ], [ %..0.i, %95 ]
-  %.148.i = phi i32 [ %.04763.i, %77 ], [ %82, %81 ], [ %87, %89 ], [ %94, %93 ], [ 0, %71 ], [ %.047..i, %95 ]
+  %.061.i = phi i32 [ %.064.i, %93 ], [ %.064.i, %77 ], [ %.064.i, %81 ], [ %.064.i, %89 ], [ %31, %71 ], [ %..0.i, %95 ]
+  %.148.i = phi i32 [ %94, %93 ], [ %.04763.i, %77 ], [ %82, %81 ], [ %87, %89 ], [ 0, %71 ], [ %.047..i, %95 ]
   %104 = icmp slt i32 %.148.i, %.061.i
   br i1 %104, label %105, label %_ZL15ucnv_extFindToUPKjih.exit.thread
 
@@ -355,8 +355,8 @@ _ZL15ucnv_extFindToUPKjih.exit:                   ; preds = %105, %66
   br label %_ZL15ucnv_extFindToUPKjih.exit.thread
 
 _ZL15ucnv_extFindToUPKjih.exit.thread:            ; preds = %105, %.loopexit.i, %50, %_ZL15ucnv_extFindToUPKjih.exit, %115, %114, %44, %45
-  %.260 = phi i32 [ %.159, %44 ], [ %.159, %45 ], [ %.049.i, %114 ], [ %spec.select124, %115 ], [ %.159, %_ZL15ucnv_extFindToUPKjih.exit ], [ %.159, %50 ], [ %.159, %.loopexit.i ], [ %.159, %105 ]
-  %.2 = phi i32 [ %.1, %44 ], [ %.1, %45 ], [ %.pre, %114 ], [ %spec.select125, %115 ], [ %.1, %_ZL15ucnv_extFindToUPKjih.exit ], [ %.1, %50 ], [ %.1, %.loopexit.i ], [ %.1, %105 ]
+  %.260 = phi i32 [ %.159, %45 ], [ %.049.i, %114 ], [ %spec.select124, %115 ], [ %.159, %44 ], [ %.159, %_ZL15ucnv_extFindToUPKjih.exit ], [ %.159, %50 ], [ %.159, %.loopexit.i ], [ %.159, %105 ]
+  %.2 = phi i32 [ %.1, %45 ], [ %.pre, %114 ], [ %spec.select125, %115 ], [ %.1, %44 ], [ %.1, %_ZL15ucnv_extFindToUPKjih.exit ], [ %.1, %50 ], [ %.1, %.loopexit.i ], [ %.1, %105 ]
   %118 = icmp eq i32 %.2, 0
   br i1 %118, label %121, label %119
 
@@ -366,7 +366,7 @@ _ZL15ucnv_extFindToUPKjih.exit.thread:            ; preds = %105, %.loopexit.i, 
   br label %121
 
 121:                                              ; preds = %_ZL15ucnv_extFindToUPKjih.exit.thread, %20, %8, %10, %119, %48
-  %.061 = phi i32 [ %.2, %119 ], [ %49, %48 ], [ 0, %10 ], [ 0, %8 ], [ 0, %20 ], [ 0, %_ZL15ucnv_extFindToUPKjih.exit.thread ]
+  %.061 = phi i32 [ %49, %48 ], [ 0, %8 ], [ 0, %20 ], [ %.2, %119 ], [ 0, %10 ], [ 0, %_ZL15ucnv_extFindToUPKjih.exit.thread ]
   ret i32 %.061
 }
 
@@ -935,8 +935,8 @@ define internal fastcc noundef i32 @_ZL18ucnv_extMatchFromUPKiiPKDsiS2_iPjaa(ptr
   br i1 %127, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !53
 
 .loopexit.i:                                      ; preds = %119, %117, %113, %105, %101, %95
-  %.042.i = phi i32 [ %.045.i, %101 ], [ %.045.i, %105 ], [ %.045.i, %113 ], [ %.045.i, %117 ], [ %71, %95 ], [ %..0.i, %119 ]
-  %.133.i = phi i32 [ %.03244.i, %101 ], [ %106, %105 ], [ %111, %113 ], [ %118, %117 ], [ 0, %95 ], [ %.032..i, %119 ]
+  %.042.i = phi i32 [ %.045.i, %117 ], [ %.045.i, %101 ], [ %.045.i, %105 ], [ %.045.i, %113 ], [ %71, %95 ], [ %..0.i, %119 ]
+  %.133.i = phi i32 [ %118, %117 ], [ %.03244.i, %101 ], [ %106, %105 ], [ %111, %113 ], [ 0, %95 ], [ %.032..i, %119 ]
   %128 = icmp slt i32 %.133.i, %.042.i
   br i1 %128, label %129, label %_ZL17ucnv_extFindFromUPKDsiDs.exit.thread
 
@@ -972,8 +972,8 @@ define internal fastcc noundef i32 @_ZL18ucnv_extMatchFromUPKiiPKDsiS2_iPjaa(ptr
   br label %_ZL17ucnv_extFindFromUPKDsiDs.exit.thread
 
 _ZL17ucnv_extFindFromUPKDsiDs.exit.thread:        ; preds = %129, %.loopexit.i, %144, %140, %89, %90
-  %.281 = phi i32 [ %138, %144 ], [ %.180, %140 ], [ %.180, %89 ], [ %.180, %90 ], [ %.180, %.loopexit.i ], [ %.180, %129 ]
-  %.2 = phi i32 [ %146, %144 ], [ %.1, %140 ], [ %.1, %89 ], [ %.1, %90 ], [ %.1, %.loopexit.i ], [ %.1, %129 ]
+  %.281 = phi i32 [ %.180, %90 ], [ %138, %144 ], [ %.180, %140 ], [ %.180, %89 ], [ %.180, %.loopexit.i ], [ %.180, %129 ]
+  %.2 = phi i32 [ %.1, %90 ], [ %146, %144 ], [ %.1, %140 ], [ %.1, %89 ], [ %.1, %.loopexit.i ], [ %.1, %129 ]
   %147 = icmp eq i32 %.2, 0
   br i1 %147, label %160, label %157
 
@@ -1003,7 +1003,7 @@ _ZL17ucnv_extFindFromUPKDsiDs.exit.thread:        ; preds = %129, %.loopexit.i, 
   br label %160
 
 160:                                              ; preds = %157, %148, %_ZL17ucnv_extFindFromUPKDsiDs.exit.thread, %15, %11, %9, %159, %93
-  %.083 = phi i32 [ %.3, %159 ], [ %94, %93 ], [ 0, %9 ], [ 0, %11 ], [ 0, %15 ], [ 0, %_ZL17ucnv_extFindFromUPKDsiDs.exit.thread ], [ 0, %148 ], [ 1, %157 ]
+  %.083 = phi i32 [ 0, %_ZL17ucnv_extFindFromUPKDsiDs.exit.thread ], [ 0, %9 ], [ 0, %11 ], [ 0, %15 ], [ 0, %148 ], [ %.3, %159 ], [ %94, %93 ], [ 1, %157 ]
   ret i32 %.083
 }
 

@@ -264,8 +264,8 @@ sink_checkphi.exit.sink_checkalloc.exit.thread_crit_edge.i: ; preds = %sink_chec
   br label %sink_checkalloc.exit.thread.i
 
 sink_checkalloc.exit.thread.i:                    ; preds = %sink_checkphi.exit.sink_checkalloc.exit.thread_crit_edge.i, %130, %91, %84, %78
-  %.pre-phi.i = phi i64 [ %.pre81.i, %sink_checkphi.exit.sink_checkalloc.exit.thread_crit_edge.i ], [ %79, %130 ], [ %79, %91 ], [ %79, %84 ], [ %79, %78 ]
-  %134 = phi ptr [ %.pre79.i, %sink_checkphi.exit.sink_checkalloc.exit.thread_crit_edge.i ], [ %.val.i, %130 ], [ %.val.i, %91 ], [ %.val.i, %84 ], [ %.val.i, %78 ]
+  %.pre-phi.i = phi i64 [ %.pre81.i, %sink_checkphi.exit.sink_checkalloc.exit.thread_crit_edge.i ], [ %79, %130 ], [ %79, %78 ], [ %79, %84 ], [ %79, %91 ]
+  %134 = phi ptr [ %.pre79.i, %sink_checkphi.exit.sink_checkalloc.exit.thread_crit_edge.i ], [ %.val.i, %130 ], [ %.val.i, %78 ], [ %.val.i, %84 ], [ %.val.i, %91 ]
   %135 = getelementptr inbounds nuw %union.IRIns, ptr %134, i64 %.pre-phi.i
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 4
   %137 = load i8, ptr %136, align 4, !tbaa !37
@@ -800,7 +800,7 @@ define internal fastcc range(i32 0, 2) i32 @sink_phidep(ptr noundef %0, i32 noun
   br label %28
 
 28:                                               ; preds = %24, %17, %9, %3, %27
-  %.0 = phi i32 [ 0, %27 ], [ 1, %3 ], [ 1, %9 ], [ 1, %17 ], [ 1, %24 ]
+  %.0 = phi i32 [ 1, %3 ], [ 1, %9 ], [ 1, %17 ], [ 0, %27 ], [ 1, %24 ]
   ret i32 %.0
 }
 

@@ -208,8 +208,8 @@ define range(i32 -2147483648, 1) i32 @ff_fbdev_get_device_list(ptr noundef %0) l
   br i1 %56, label %.loopexit, label %57
 
 57:                                               ; preds = %14, %17, %54, %48
-  %.121 = phi i32 [ %.22256, %54 ], [ %38, %48 ], [ %.02043, %17 ], [ %.02043, %14 ]
-  %.1 = phi ptr [ %.01944, %54 ], [ %.2, %48 ], [ %.01944, %17 ], [ %.01944, %14 ]
+  %.121 = phi i32 [ %38, %48 ], [ %.22256, %54 ], [ %.02043, %17 ], [ %.02043, %14 ]
+  %.1 = phi ptr [ %.2, %48 ], [ %.01944, %54 ], [ %.01944, %17 ], [ %.01944, %14 ]
   %58 = add nuw nsw i32 %.02342, 1
   %exitcond.not = icmp eq i32 %58, 32
   br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !34

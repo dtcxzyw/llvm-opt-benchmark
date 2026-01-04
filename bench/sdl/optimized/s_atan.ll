@@ -82,8 +82,8 @@ define hidden double @SDL_uclibc_atan(double noundef %0) local_unnamed_addr #0 {
   br label %42
 
 42:                                               ; preds = %17, %30, %26, %40, %36
-  %.057 = phi i64 [ 0, %26 ], [ 1, %30 ], [ 2, %36 ], [ 3, %40 ], [ 4294967295, %17 ]
-  %.056 = phi double [ %29, %26 ], [ %33, %30 ], [ %39, %36 ], [ %41, %40 ], [ %0, %17 ]
+  %.057 = phi i64 [ 3, %40 ], [ 0, %26 ], [ 1, %30 ], [ 2, %36 ], [ 4294967295, %17 ]
+  %.056 = phi double [ %41, %40 ], [ %29, %26 ], [ %33, %30 ], [ %39, %36 ], [ %0, %17 ]
   %43 = fmul double %.056, %.056
   %44 = fmul double %43, %43
   %45 = tail call double @llvm.fmuladd.f64(double %44, double 0x3F90AD3AE322DA11, double 0x3FA97B4B24760DEB)
@@ -121,7 +121,7 @@ define hidden double @SDL_uclibc_atan(double noundef %0) local_unnamed_addr #0 {
   br label %73
 
 73:                                               ; preds = %17, %11, %13, %60, %56
-  %.1 = phi double [ %59, %56 ], [ %72, %60 ], [ %12, %11 ], [ %., %13 ], [ %0, %17 ]
+  %.1 = phi double [ %72, %60 ], [ %., %13 ], [ %59, %56 ], [ %12, %11 ], [ %0, %17 ]
   ret double %.1
 }
 

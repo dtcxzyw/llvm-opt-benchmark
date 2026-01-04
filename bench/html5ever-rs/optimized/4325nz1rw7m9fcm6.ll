@@ -132,8 +132,8 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hbf1cf90a93069965E.exit.i.i.i"
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hbf1cf90a93069965E.exit.i.i.i": ; preds = %50, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h21f509f0b96a0ffdE.exit.i.i.i.i", %30
-  %.sroa.4.0.i.i.i.i = phi i64 [ %33, %50 ], [ %48, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h21f509f0b96a0ffdE.exit.i.i.i.i" ], [ 0, %30 ]
-  %.sroa.0.0.i.i.i.i = phi ptr [ %51, %50 ], [ %49, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h21f509f0b96a0ffdE.exit.i.i.i.i" ], [ @anon.6f3c6b367c46f8fde1b475e7ef736ec3.1, %30 ]
+  %.sroa.4.0.i.i.i.i = phi i64 [ %48, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h21f509f0b96a0ffdE.exit.i.i.i.i" ], [ %33, %50 ], [ 0, %30 ]
+  %.sroa.0.0.i.i.i.i = phi ptr [ %49, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h21f509f0b96a0ffdE.exit.i.i.i.i" ], [ %51, %50 ], [ @anon.6f3c6b367c46f8fde1b475e7ef736ec3.1, %30 ]
   %52 = load i64, ptr %32, align 8, !range !18, !noundef !12
   %53 = icmp eq i64 %52, 15
   br i1 %53, label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hbf1cf90a93069965E.exit10.i.i.i", label %54
@@ -169,8 +169,8 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hbf1cf90a93069965E.exit10.i.i.i"
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hbf1cf90a93069965E.exit10.i.i.i": ; preds = %69, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h21f509f0b96a0ffdE.exit.i6.i.i.i", %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hbf1cf90a93069965E.exit.i.i.i"
-  %.sroa.4.0.i8.i.i.i = phi i64 [ %52, %69 ], [ %67, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h21f509f0b96a0ffdE.exit.i6.i.i.i" ], [ 0, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hbf1cf90a93069965E.exit.i.i.i" ]
-  %.sroa.0.0.i9.i.i.i = phi ptr [ %70, %69 ], [ %68, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h21f509f0b96a0ffdE.exit.i6.i.i.i" ], [ @anon.6f3c6b367c46f8fde1b475e7ef736ec3.1, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hbf1cf90a93069965E.exit.i.i.i" ]
+  %.sroa.4.0.i8.i.i.i = phi i64 [ %67, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h21f509f0b96a0ffdE.exit.i6.i.i.i" ], [ %52, %69 ], [ 0, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hbf1cf90a93069965E.exit.i.i.i" ]
+  %.sroa.0.0.i9.i.i.i = phi ptr [ %68, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h21f509f0b96a0ffdE.exit.i6.i.i.i" ], [ %70, %69 ], [ @anon.6f3c6b367c46f8fde1b475e7ef736ec3.1, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hbf1cf90a93069965E.exit.i.i.i" ]
   %.not.i.i.i.i = icmp eq i64 %.sroa.4.0.i.i.i.i, %.sroa.4.0.i8.i.i.i
   br i1 %.not.i.i.i.i, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hf6a5ae392cc05372E.exit", label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hf6a5ae392cc05372E.exit.thread"
 
@@ -179,7 +179,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %.not = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %.not, label %6, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hf6a5ae392cc05372E.exit.thread"
 
-"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hf6a5ae392cc05372E.exit.thread": ; preds = %6, %18, %.critedge.i.i.i.i, %20, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hbf1cf90a93069965E.exit10.i.i.i", %"_ZN73_$LT$markup5ever..interface..QualName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5068dbc38f72d19bE.exit.i.i.i", %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hf6a5ae392cc05372E.exit"
+"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hf6a5ae392cc05372E.exit.thread": ; preds = %6, %.critedge.i.i.i.i, %20, %18, %"_ZN73_$LT$markup5ever..interface..QualName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5068dbc38f72d19bE.exit.i.i.i", %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hbf1cf90a93069965E.exit10.i.i.i", %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hf6a5ae392cc05372E.exit"
   ret i1 %8
 }
 
@@ -273,8 +273,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hbf1cf90a93069965E.exit.i.i.i.i"
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hbf1cf90a93069965E.exit.i.i.i.i": ; preds = %47, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h21f509f0b96a0ffdE.exit.i.i.i.i.i", %27
-  %.sroa.4.0.i.i.i.i.i = phi i64 [ %30, %47 ], [ %45, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h21f509f0b96a0ffdE.exit.i.i.i.i.i" ], [ 0, %27 ]
-  %.sroa.0.0.i.i.i.i.i = phi ptr [ %48, %47 ], [ %46, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h21f509f0b96a0ffdE.exit.i.i.i.i.i" ], [ @anon.6f3c6b367c46f8fde1b475e7ef736ec3.1, %27 ]
+  %.sroa.4.0.i.i.i.i.i = phi i64 [ %45, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h21f509f0b96a0ffdE.exit.i.i.i.i.i" ], [ %30, %47 ], [ 0, %27 ]
+  %.sroa.0.0.i.i.i.i.i = phi ptr [ %46, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h21f509f0b96a0ffdE.exit.i.i.i.i.i" ], [ %48, %47 ], [ @anon.6f3c6b367c46f8fde1b475e7ef736ec3.1, %27 ]
   %49 = load i64, ptr %29, align 8, !range !18, !noalias !38, !noundef !12
   %50 = icmp eq i64 %49, 15
   br i1 %50, label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hbf1cf90a93069965E.exit10.i.i.i.i", label %51
@@ -310,8 +310,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hbf1cf90a93069965E.exit10.i.i.i.i"
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hbf1cf90a93069965E.exit10.i.i.i.i": ; preds = %66, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h21f509f0b96a0ffdE.exit.i6.i.i.i.i", %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hbf1cf90a93069965E.exit.i.i.i.i"
-  %.sroa.4.0.i8.i.i.i.i = phi i64 [ %49, %66 ], [ %64, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h21f509f0b96a0ffdE.exit.i6.i.i.i.i" ], [ 0, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hbf1cf90a93069965E.exit.i.i.i.i" ]
-  %.sroa.0.0.i9.i.i.i.i = phi ptr [ %67, %66 ], [ %65, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h21f509f0b96a0ffdE.exit.i6.i.i.i.i" ], [ @anon.6f3c6b367c46f8fde1b475e7ef736ec3.1, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hbf1cf90a93069965E.exit.i.i.i.i" ]
+  %.sroa.4.0.i8.i.i.i.i = phi i64 [ %64, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h21f509f0b96a0ffdE.exit.i6.i.i.i.i" ], [ %49, %66 ], [ 0, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hbf1cf90a93069965E.exit.i.i.i.i" ]
+  %.sroa.0.0.i9.i.i.i.i = phi ptr [ %65, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h21f509f0b96a0ffdE.exit.i6.i.i.i.i" ], [ %67, %66 ], [ @anon.6f3c6b367c46f8fde1b475e7ef736ec3.1, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hbf1cf90a93069965E.exit.i.i.i.i" ]
   %.not.i.i.i.i.i = icmp eq i64 %.sroa.4.0.i.i.i.i.i, %.sroa.4.0.i8.i.i.i.i
   br i1 %.not.i.i.i.i.i, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hf6a5ae392cc05372E.exit.i", label %_ZN4core4iter6traits8iterator8Iterator8try_fold17he118547b8014c3bbE.llvm.18221057410045122173.exit
 

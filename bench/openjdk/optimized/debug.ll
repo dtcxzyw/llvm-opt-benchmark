@@ -2684,7 +2684,7 @@ _ZN9UNSIGNED512check_lengthIPhmNS_11ArrayGetSetIS1_mEEEEiT_T0_S5_T1_.exit.thread
   br i1 %or.cond.i9, label %_ZN9UNSIGNED59read_uintIPhmNS_11ArrayGetSetIS1_mEEEEjT_RT0_S5_T1_.exit, label %.lr.ph.i6, !llvm.loop !7
 
 _ZN9UNSIGNED59read_uintIPhmNS_11ArrayGetSetIS1_mEEEEjT_RT0_S5_T1_.exit: ; preds = %.lr.ph.i, %.lr.ph.i6, %.lr.ph.i.preheader, %.preheader.i5, %_ZN9UNSIGNED512check_lengthIPhmNS_11ArrayGetSetIS1_mEEEEiT_T0_S5_T1_.exit.thread16, %_ZN9UNSIGNED512check_lengthIPhmNS_11ArrayGetSetIS1_mEEEEiT_T0_S5_T1_.exit
-  %.0 = phi i32 [ 0, %_ZN9UNSIGNED512check_lengthIPhmNS_11ArrayGetSetIS1_mEEEEiT_T0_S5_T1_.exit ], [ %35, %_ZN9UNSIGNED512check_lengthIPhmNS_11ArrayGetSetIS1_mEEEEiT_T0_S5_T1_.exit.thread16 ], [ %42, %.preheader.i5 ], [ 0, %.lr.ph.i.preheader ], [ %51, %.lr.ph.i6 ], [ 0, %.lr.ph.i ]
+  %.0 = phi i32 [ 0, %.lr.ph.i.preheader ], [ 0, %_ZN9UNSIGNED512check_lengthIPhmNS_11ArrayGetSetIS1_mEEEEiT_T0_S5_T1_.exit ], [ %35, %_ZN9UNSIGNED512check_lengthIPhmNS_11ArrayGetSetIS1_mEEEEiT_T0_S5_T1_.exit.thread16 ], [ %42, %.preheader.i5 ], [ %51, %.lr.ph.i6 ], [ 0, %.lr.ph.i ]
   %54 = load ptr, ptr @tty, align 8
   %55 = load ptr, ptr %54, align 8
   %56 = load ptr, ptr %55, align 8
@@ -3129,7 +3129,7 @@ define hidden noundef zeroext i1 @_Z26handle_assert_poison_faultPKvS0_(ptr nound
   br label %14
 
 14:                                               ; preds = %2, %8, %13, %9, %5
-  %.0 = phi i1 [ false, %5 ], [ true, %9 ], [ true, %13 ], [ true, %8 ], [ false, %2 ]
+  %.0 = phi i1 [ true, %8 ], [ false, %5 ], [ true, %9 ], [ true, %13 ], [ false, %2 ]
   ret i1 %.0
 }
 

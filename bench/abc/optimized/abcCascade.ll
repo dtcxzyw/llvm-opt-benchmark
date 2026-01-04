@@ -585,7 +585,7 @@ define i32 @Abc_ResCheckNonStrict(ptr noundef readonly captures(none) %0, i32 no
   br i1 %.not39.us, label %Abc_ResCheckUnique.exit.us, label %._crit_edge.us
 
 ._crit_edge.us:                                   ; preds = %Abc_ResCheckUnique.exit.us, %.loopexit.us, %.loopexit53.us
-  %.033.lcssa.us = phi i32 [ %10, %.loopexit53.us ], [ %10, %.loopexit.us ], [ %smax, %Abc_ResCheckUnique.exit.us ]
+  %.033.lcssa.us = phi i32 [ %10, %.loopexit.us ], [ %10, %.loopexit53.us ], [ %smax, %Abc_ResCheckUnique.exit.us ]
   %33 = icmp eq i32 %.033.lcssa.us, %7
   %34 = zext i1 %33 to i32
   %spec.select.us = add nuw nsw i32 %.065.us, %34
@@ -594,8 +594,8 @@ define i32 @Abc_ResCheckNonStrict(ptr noundef readonly captures(none) %0, i32 no
   br i1 %exitcond71.not, label %._crit_edge66, label %.preheader.us, !llvm.loop !49
 
 Abc_ResCheckUnique.exit.us:                       ; preds = %.lr.ph.i43.us, %.lr.ph.i.us, %.loopexit.us, %.loopexit53.us
-  %.132.us = phi i32 [ %30, %.loopexit.us ], [ %.03155.us, %.loopexit53.us ], [ %.03155.us, %.lr.ph.i.us ], [ %.03155.us, %.lr.ph.i43.us ]
-  %.130.us = phi i32 [ %.02956.us, %.loopexit.us ], [ %21, %.loopexit53.us ], [ %.02956.us, %.lr.ph.i.us ], [ %.02956.us, %.lr.ph.i43.us ]
+  %.132.us = phi i32 [ %30, %.loopexit.us ], [ %.03155.us, %.lr.ph.i.us ], [ %.03155.us, %.loopexit53.us ], [ %.03155.us, %.lr.ph.i43.us ]
+  %.130.us = phi i32 [ %.02956.us, %.loopexit.us ], [ %.02956.us, %.lr.ph.i.us ], [ %21, %.loopexit53.us ], [ %.02956.us, %.lr.ph.i43.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !50
@@ -891,7 +891,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %.crite
   br i1 %.not39.us.i, label %Abc_ResCheckUnique.exit.us.i, label %._crit_edge.us.i
 
 ._crit_edge.us.i:                                 ; preds = %Abc_ResCheckUnique.exit.us.i, %.loopexit.us.i, %.loopexit53.us.i
-  %.033.lcssa.us.i = phi i32 [ %81, %.loopexit53.us.i ], [ %81, %.loopexit.us.i ], [ %smax.i, %Abc_ResCheckUnique.exit.us.i ]
+  %.033.lcssa.us.i = phi i32 [ %81, %.loopexit.us.i ], [ %81, %.loopexit53.us.i ], [ %smax.i, %Abc_ResCheckUnique.exit.us.i ]
   %104 = icmp eq i32 %.033.lcssa.us.i, %24
   %105 = zext i1 %104 to i32
   %spec.select.us.i = add nuw nsw i32 %.065.us.i, %105
@@ -900,8 +900,8 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %.crite
   br i1 %exitcond71.not.i, label %Abc_ResCheckNonStrict.exit, label %.preheader.us.i, !llvm.loop !49
 
 Abc_ResCheckUnique.exit.us.i:                     ; preds = %.lr.ph.i43.us.i, %.lr.ph.i.us.i, %.loopexit.us.i, %.loopexit53.us.i
-  %.132.us.i = phi i32 [ %101, %.loopexit.us.i ], [ %.03155.us.i, %.loopexit53.us.i ], [ %.03155.us.i, %.lr.ph.i.us.i ], [ %.03155.us.i, %.lr.ph.i43.us.i ]
-  %.130.us.i = phi i32 [ %.02956.us.i, %.loopexit.us.i ], [ %92, %.loopexit53.us.i ], [ %.02956.us.i, %.lr.ph.i.us.i ], [ %.02956.us.i, %.lr.ph.i43.us.i ]
+  %.132.us.i = phi i32 [ %101, %.loopexit.us.i ], [ %.03155.us.i, %.lr.ph.i.us.i ], [ %.03155.us.i, %.loopexit53.us.i ], [ %.03155.us.i, %.lr.ph.i43.us.i ]
+  %.130.us.i = phi i32 [ %.02956.us.i, %.loopexit.us.i ], [ %.02956.us.i, %.lr.ph.i.us.i ], [ %92, %.loopexit53.us.i ], [ %.02956.us.i, %.lr.ph.i43.us.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %80, !llvm.loop !50
@@ -1063,10 +1063,10 @@ define range(i32 0, 2) i32 @Abc_ResMigrate(ptr noundef %0, ptr noundef %1, i32 n
   br label %73
 
 73:                                               ; preds = %69, %.preheader.us
-  %74 = phi i32 [ %72, %69 ], [ %36, %.preheader.us ]
-  %.sroa.0.2.us = phi i32 [ %.sroa.0.3.us, %69 ], [ %.sroa.0.173.us, %.preheader.us ]
-  %.sroa.5.2.us = phi i32 [ %.sroa.5.3.us, %69 ], [ %.sroa.5.175.us, %.preheader.us ]
-  %.2.us = phi i32 [ %.3.us, %69 ], [ %.176.us, %.preheader.us ]
+  %74 = phi i32 [ %36, %.preheader.us ], [ %72, %69 ]
+  %.sroa.0.2.us = phi i32 [ %.sroa.0.173.us, %.preheader.us ], [ %.sroa.0.3.us, %69 ]
+  %.sroa.5.2.us = phi i32 [ %.sroa.5.175.us, %.preheader.us ], [ %.sroa.5.3.us, %69 ]
+  %.2.us = phi i32 [ %.176.us, %.preheader.us ], [ %.3.us, %69 ]
   %75 = add nuw nsw i32 %.06174.us, 1
   %exitcond.not = icmp eq i32 %75, %2
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.preheader.us, !llvm.loop !70
@@ -1511,9 +1511,9 @@ Abc_ResStartPart.exit:                            ; preds = %34
   br label %46
 
 46:                                               ; preds = %46, %.lr.ph39.us.us.us.us.i
-  %exitcond79.not.i = phi i1 [ false, %.lr.ph39.us.us.us.us.i ], [ true, %46 ]
-  %indvars.iv75.i.sroa.phi = phi ptr [ %14, %.lr.ph39.us.us.us.us.i ], [ %indvars.iv75.i.sroa.gep, %46 ]
-  %indvars.iv75.i = phi i32 [ 0, %.lr.ph39.us.us.us.us.i ], [ 1, %46 ]
+  %exitcond79.not.i = phi i1 [ true, %46 ], [ false, %.lr.ph39.us.us.us.us.i ]
+  %indvars.iv75.i.sroa.phi = phi ptr [ %indvars.iv75.i.sroa.gep, %46 ], [ %14, %.lr.ph39.us.us.us.us.i ]
+  %indvars.iv75.i = phi i32 [ 1, %46 ], [ 0, %.lr.ph39.us.us.us.us.i ]
   %47 = load i32, ptr %indvars.iv75.i.sroa.phi, align 4, !tbaa !39
   %48 = and i32 %47, %45
   %.not32.us.us.us.us.i = icmp eq i32 %48, 0
@@ -1677,11 +1677,11 @@ Abc_ResMigrate.exit.thread:                       ; preds = %66
   br label %123
 
 123:                                              ; preds = %96, %.preheader.us.i
-  %124 = phi i32 [ %121, %96 ], [ %91, %.preheader.us.i ]
-  %125 = phi i32 [ %122, %96 ], [ %92, %.preheader.us.i ]
-  %.sroa.0.2.us.i = phi i32 [ %.sroa.0.3.us.i, %96 ], [ %.sroa.0.173.us.i, %.preheader.us.i ]
-  %.sroa.5.2.us.i = phi i32 [ %.sroa.5.3.us.i, %96 ], [ %.sroa.5.175.us.i, %.preheader.us.i ]
-  %.2.us.i = phi i32 [ %.3.us.i, %96 ], [ %.176.us.i, %.preheader.us.i ]
+  %124 = phi i32 [ %91, %.preheader.us.i ], [ %121, %96 ]
+  %125 = phi i32 [ %92, %.preheader.us.i ], [ %122, %96 ]
+  %.sroa.0.2.us.i = phi i32 [ %.sroa.0.173.us.i, %.preheader.us.i ], [ %.sroa.0.3.us.i, %96 ]
+  %.sroa.5.2.us.i = phi i32 [ %.sroa.5.175.us.i, %.preheader.us.i ], [ %.sroa.5.3.us.i, %96 ]
+  %.2.us.i = phi i32 [ %.176.us.i, %.preheader.us.i ], [ %.3.us.i, %96 ]
   %126 = add nuw nsw i32 %.06174.us.i, 1
   %exitcond.not.i143 = icmp eq i32 %126, %2
   br i1 %exitcond.not.i143, label %..loopexit_crit_edge.us.i, label %.preheader.us.i, !llvm.loop !70
@@ -2032,11 +2032,11 @@ Abc_ResSwapRandom.exit185:                        ; preds = %.split.us.us.split.
   br label %278
 
 278:                                              ; preds = %251, %.preheader.us.i203
-  %279 = phi i32 [ %276, %251 ], [ %246, %.preheader.us.i203 ]
-  %280 = phi i32 [ %277, %251 ], [ %247, %.preheader.us.i203 ]
-  %.sroa.0.2.us.i220 = phi i32 [ %.sroa.0.3.us.i217, %251 ], [ %.sroa.0.173.us.i207, %.preheader.us.i203 ]
-  %.sroa.5.2.us.i221 = phi i32 [ %.sroa.5.3.us.i218, %251 ], [ %.sroa.5.175.us.i205, %.preheader.us.i203 ]
-  %.2.us.i222 = phi i32 [ %.3.us.i219, %251 ], [ %.176.us.i204, %.preheader.us.i203 ]
+  %279 = phi i32 [ %246, %.preheader.us.i203 ], [ %276, %251 ]
+  %280 = phi i32 [ %247, %.preheader.us.i203 ], [ %277, %251 ]
+  %.sroa.0.2.us.i220 = phi i32 [ %.sroa.0.173.us.i207, %.preheader.us.i203 ], [ %.sroa.0.3.us.i217, %251 ]
+  %.sroa.5.2.us.i221 = phi i32 [ %.sroa.5.175.us.i205, %.preheader.us.i203 ], [ %.sroa.5.3.us.i218, %251 ]
+  %.2.us.i222 = phi i32 [ %.176.us.i204, %.preheader.us.i203 ], [ %.3.us.i219, %251 ]
   %281 = add nuw nsw i32 %.06174.us.i206, 1
   %exitcond.not.i223 = icmp eq i32 %281, %2
   br i1 %exitcond.not.i223, label %..loopexit_crit_edge.us.i224, label %.preheader.us.i203, !llvm.loop !70
@@ -2202,11 +2202,11 @@ Abc_ResPrint.exit250:                             ; preds = %._crit_edge.us.i245
   br label %363
 
 363:                                              ; preds = %336, %.preheader.us.i268
-  %364 = phi i32 [ %361, %336 ], [ %331, %.preheader.us.i268 ]
-  %365 = phi i32 [ %362, %336 ], [ %332, %.preheader.us.i268 ]
-  %.sroa.0.2.us.i285 = phi i32 [ %.sroa.0.3.us.i282, %336 ], [ %.sroa.0.173.us.i272, %.preheader.us.i268 ]
-  %.sroa.5.2.us.i286 = phi i32 [ %.sroa.5.3.us.i283, %336 ], [ %.sroa.5.175.us.i270, %.preheader.us.i268 ]
-  %.2.us.i287 = phi i32 [ %.3.us.i284, %336 ], [ %.176.us.i269, %.preheader.us.i268 ]
+  %364 = phi i32 [ %331, %.preheader.us.i268 ], [ %361, %336 ]
+  %365 = phi i32 [ %332, %.preheader.us.i268 ], [ %362, %336 ]
+  %.sroa.0.2.us.i285 = phi i32 [ %.sroa.0.173.us.i272, %.preheader.us.i268 ], [ %.sroa.0.3.us.i282, %336 ]
+  %.sroa.5.2.us.i286 = phi i32 [ %.sroa.5.175.us.i270, %.preheader.us.i268 ], [ %.sroa.5.3.us.i283, %336 ]
+  %.2.us.i287 = phi i32 [ %.176.us.i269, %.preheader.us.i268 ], [ %.3.us.i284, %336 ]
   %366 = add nuw nsw i32 %.06174.us.i271, 1
   %exitcond.not.i288 = icmp eq i32 %366, %2
   br i1 %exitcond.not.i288, label %..loopexit_crit_edge.us.i289, label %.preheader.us.i268, !llvm.loop !70
@@ -2372,11 +2372,11 @@ Abc_ResPrint.exit315:                             ; preds = %._crit_edge.us.i310
   br label %448
 
 448:                                              ; preds = %421, %.preheader.us.i333
-  %449 = phi i32 [ %446, %421 ], [ %416, %.preheader.us.i333 ]
-  %450 = phi i32 [ %447, %421 ], [ %417, %.preheader.us.i333 ]
-  %.sroa.0.2.us.i350 = phi i32 [ %.sroa.0.3.us.i347, %421 ], [ %.sroa.0.173.us.i337, %.preheader.us.i333 ]
-  %.sroa.5.2.us.i351 = phi i32 [ %.sroa.5.3.us.i348, %421 ], [ %.sroa.5.175.us.i335, %.preheader.us.i333 ]
-  %.2.us.i352 = phi i32 [ %.3.us.i349, %421 ], [ %.176.us.i334, %.preheader.us.i333 ]
+  %449 = phi i32 [ %416, %.preheader.us.i333 ], [ %446, %421 ]
+  %450 = phi i32 [ %417, %.preheader.us.i333 ], [ %447, %421 ]
+  %.sroa.0.2.us.i350 = phi i32 [ %.sroa.0.173.us.i337, %.preheader.us.i333 ], [ %.sroa.0.3.us.i347, %421 ]
+  %.sroa.5.2.us.i351 = phi i32 [ %.sroa.5.175.us.i335, %.preheader.us.i333 ], [ %.sroa.5.3.us.i348, %421 ]
+  %.2.us.i352 = phi i32 [ %.176.us.i334, %.preheader.us.i333 ], [ %.3.us.i349, %421 ]
   %451 = add nuw nsw i32 %.06174.us.i336, 1
   %exitcond.not.i353 = icmp eq i32 %451, %2
   br i1 %exitcond.not.i353, label %..loopexit_crit_edge.us.i354, label %.preheader.us.i333, !llvm.loop !70
@@ -2701,11 +2701,11 @@ Abc_ResSwapRandom.exit415:                        ; preds = %.split.us.us.split.
   br label %589
 
 589:                                              ; preds = %562, %.preheader.us.i433
-  %590 = phi i32 [ %587, %562 ], [ %557, %.preheader.us.i433 ]
-  %591 = phi i32 [ %588, %562 ], [ %558, %.preheader.us.i433 ]
-  %.sroa.0.2.us.i450 = phi i32 [ %.sroa.0.3.us.i447, %562 ], [ %.sroa.0.173.us.i437, %.preheader.us.i433 ]
-  %.sroa.5.2.us.i451 = phi i32 [ %.sroa.5.3.us.i448, %562 ], [ %.sroa.5.175.us.i435, %.preheader.us.i433 ]
-  %.2.us.i452 = phi i32 [ %.3.us.i449, %562 ], [ %.176.us.i434, %.preheader.us.i433 ]
+  %590 = phi i32 [ %557, %.preheader.us.i433 ], [ %587, %562 ]
+  %591 = phi i32 [ %558, %.preheader.us.i433 ], [ %588, %562 ]
+  %.sroa.0.2.us.i450 = phi i32 [ %.sroa.0.173.us.i437, %.preheader.us.i433 ], [ %.sroa.0.3.us.i447, %562 ]
+  %.sroa.5.2.us.i451 = phi i32 [ %.sroa.5.175.us.i435, %.preheader.us.i433 ], [ %.sroa.5.3.us.i448, %562 ]
+  %.2.us.i452 = phi i32 [ %.176.us.i434, %.preheader.us.i433 ], [ %.3.us.i449, %562 ]
   %592 = add nuw nsw i32 %.06174.us.i436, 1
   %exitcond.not.i453 = icmp eq i32 %592, %2
   br i1 %exitcond.not.i453, label %..loopexit_crit_edge.us.i454, label %.preheader.us.i433, !llvm.loop !70
@@ -2871,11 +2871,11 @@ Abc_ResPrint.exit480:                             ; preds = %._crit_edge.us.i475
   br label %674
 
 674:                                              ; preds = %647, %.preheader.us.i498
-  %675 = phi i32 [ %672, %647 ], [ %642, %.preheader.us.i498 ]
-  %676 = phi i32 [ %673, %647 ], [ %643, %.preheader.us.i498 ]
-  %.sroa.0.2.us.i515 = phi i32 [ %.sroa.0.3.us.i512, %647 ], [ %.sroa.0.173.us.i502, %.preheader.us.i498 ]
-  %.sroa.5.2.us.i516 = phi i32 [ %.sroa.5.3.us.i513, %647 ], [ %.sroa.5.175.us.i500, %.preheader.us.i498 ]
-  %.2.us.i517 = phi i32 [ %.3.us.i514, %647 ], [ %.176.us.i499, %.preheader.us.i498 ]
+  %675 = phi i32 [ %642, %.preheader.us.i498 ], [ %672, %647 ]
+  %676 = phi i32 [ %643, %.preheader.us.i498 ], [ %673, %647 ]
+  %.sroa.0.2.us.i515 = phi i32 [ %.sroa.0.173.us.i502, %.preheader.us.i498 ], [ %.sroa.0.3.us.i512, %647 ]
+  %.sroa.5.2.us.i516 = phi i32 [ %.sroa.5.175.us.i500, %.preheader.us.i498 ], [ %.sroa.5.3.us.i513, %647 ]
+  %.2.us.i517 = phi i32 [ %.176.us.i499, %.preheader.us.i498 ], [ %.3.us.i514, %647 ]
   %677 = add nuw nsw i32 %.06174.us.i501, 1
   %exitcond.not.i518 = icmp eq i32 %677, %2
   br i1 %exitcond.not.i518, label %..loopexit_crit_edge.us.i519, label %.preheader.us.i498, !llvm.loop !70
@@ -3041,11 +3041,11 @@ Abc_ResPrint.exit545:                             ; preds = %._crit_edge.us.i540
   br label %759
 
 759:                                              ; preds = %732, %.preheader.us.i563
-  %760 = phi i32 [ %757, %732 ], [ %727, %.preheader.us.i563 ]
-  %761 = phi i32 [ %758, %732 ], [ %728, %.preheader.us.i563 ]
-  %.sroa.0.2.us.i580 = phi i32 [ %.sroa.0.3.us.i577, %732 ], [ %.sroa.0.173.us.i567, %.preheader.us.i563 ]
-  %.sroa.5.2.us.i581 = phi i32 [ %.sroa.5.3.us.i578, %732 ], [ %.sroa.5.175.us.i565, %.preheader.us.i563 ]
-  %.2.us.i582 = phi i32 [ %.3.us.i579, %732 ], [ %.176.us.i564, %.preheader.us.i563 ]
+  %760 = phi i32 [ %727, %.preheader.us.i563 ], [ %757, %732 ]
+  %761 = phi i32 [ %728, %.preheader.us.i563 ], [ %758, %732 ]
+  %.sroa.0.2.us.i580 = phi i32 [ %.sroa.0.173.us.i567, %.preheader.us.i563 ], [ %.sroa.0.3.us.i577, %732 ]
+  %.sroa.5.2.us.i581 = phi i32 [ %.sroa.5.175.us.i565, %.preheader.us.i563 ], [ %.sroa.5.3.us.i578, %732 ]
+  %.2.us.i582 = phi i32 [ %.176.us.i564, %.preheader.us.i563 ], [ %.3.us.i579, %732 ]
   %762 = add nuw nsw i32 %.06174.us.i566, 1
   %exitcond.not.i583 = icmp eq i32 %762, %2
   br i1 %exitcond.not.i583, label %..loopexit_crit_edge.us.i584, label %.preheader.us.i563, !llvm.loop !70
@@ -3211,11 +3211,11 @@ Abc_ResPrint.exit610:                             ; preds = %._crit_edge.us.i605
   br label %844
 
 844:                                              ; preds = %817, %.preheader.us.i628
-  %845 = phi i32 [ %842, %817 ], [ %812, %.preheader.us.i628 ]
-  %846 = phi i32 [ %843, %817 ], [ %813, %.preheader.us.i628 ]
-  %.sroa.0.2.us.i645 = phi i32 [ %.sroa.0.3.us.i642, %817 ], [ %.sroa.0.173.us.i632, %.preheader.us.i628 ]
-  %.sroa.5.2.us.i646 = phi i32 [ %.sroa.5.3.us.i643, %817 ], [ %.sroa.5.175.us.i630, %.preheader.us.i628 ]
-  %.2.us.i647 = phi i32 [ %.3.us.i644, %817 ], [ %.176.us.i629, %.preheader.us.i628 ]
+  %845 = phi i32 [ %812, %.preheader.us.i628 ], [ %842, %817 ]
+  %846 = phi i32 [ %813, %.preheader.us.i628 ], [ %843, %817 ]
+  %.sroa.0.2.us.i645 = phi i32 [ %.sroa.0.173.us.i632, %.preheader.us.i628 ], [ %.sroa.0.3.us.i642, %817 ]
+  %.sroa.5.2.us.i646 = phi i32 [ %.sroa.5.175.us.i630, %.preheader.us.i628 ], [ %.sroa.5.3.us.i643, %817 ]
+  %.2.us.i647 = phi i32 [ %.176.us.i629, %.preheader.us.i628 ], [ %.3.us.i644, %817 ]
   %847 = add nuw nsw i32 %.06174.us.i631, 1
   %exitcond.not.i648 = icmp eq i32 %847, %2
   br i1 %exitcond.not.i648, label %..loopexit_crit_edge.us.i649, label %.preheader.us.i628, !llvm.loop !70
@@ -3381,11 +3381,11 @@ Abc_ResPrint.exit675:                             ; preds = %._crit_edge.us.i670
   br label %929
 
 929:                                              ; preds = %902, %.preheader.us.i693
-  %930 = phi i32 [ %927, %902 ], [ %897, %.preheader.us.i693 ]
-  %931 = phi i32 [ %928, %902 ], [ %898, %.preheader.us.i693 ]
-  %.sroa.0.2.us.i710 = phi i32 [ %.sroa.0.3.us.i707, %902 ], [ %.sroa.0.173.us.i697, %.preheader.us.i693 ]
-  %.sroa.5.2.us.i711 = phi i32 [ %.sroa.5.3.us.i708, %902 ], [ %.sroa.5.175.us.i695, %.preheader.us.i693 ]
-  %.2.us.i712 = phi i32 [ %.3.us.i709, %902 ], [ %.176.us.i694, %.preheader.us.i693 ]
+  %930 = phi i32 [ %897, %.preheader.us.i693 ], [ %927, %902 ]
+  %931 = phi i32 [ %898, %.preheader.us.i693 ], [ %928, %902 ]
+  %.sroa.0.2.us.i710 = phi i32 [ %.sroa.0.173.us.i697, %.preheader.us.i693 ], [ %.sroa.0.3.us.i707, %902 ]
+  %.sroa.5.2.us.i711 = phi i32 [ %.sroa.5.175.us.i695, %.preheader.us.i693 ], [ %.sroa.5.3.us.i708, %902 ]
+  %.2.us.i712 = phi i32 [ %.176.us.i694, %.preheader.us.i693 ], [ %.3.us.i709, %902 ]
   %932 = add nuw nsw i32 %.06174.us.i696, 1
   %exitcond.not.i713 = icmp eq i32 %932, %2
   br i1 %exitcond.not.i713, label %..loopexit_crit_edge.us.i714, label %.preheader.us.i693, !llvm.loop !70
@@ -3551,11 +3551,11 @@ Abc_ResPrint.exit740:                             ; preds = %._crit_edge.us.i735
   br label %1014
 
 1014:                                             ; preds = %987, %.preheader.us.i758
-  %1015 = phi i32 [ %1012, %987 ], [ %982, %.preheader.us.i758 ]
-  %1016 = phi i32 [ %1013, %987 ], [ %983, %.preheader.us.i758 ]
-  %.sroa.0.2.us.i775 = phi i32 [ %.sroa.0.3.us.i772, %987 ], [ %.sroa.0.173.us.i762, %.preheader.us.i758 ]
-  %.sroa.5.2.us.i776 = phi i32 [ %.sroa.5.3.us.i773, %987 ], [ %.sroa.5.175.us.i760, %.preheader.us.i758 ]
-  %.2.us.i777 = phi i32 [ %.3.us.i774, %987 ], [ %.176.us.i759, %.preheader.us.i758 ]
+  %1015 = phi i32 [ %982, %.preheader.us.i758 ], [ %1012, %987 ]
+  %1016 = phi i32 [ %983, %.preheader.us.i758 ], [ %1013, %987 ]
+  %.sroa.0.2.us.i775 = phi i32 [ %.sroa.0.173.us.i762, %.preheader.us.i758 ], [ %.sroa.0.3.us.i772, %987 ]
+  %.sroa.5.2.us.i776 = phi i32 [ %.sroa.5.175.us.i760, %.preheader.us.i758 ], [ %.sroa.5.3.us.i773, %987 ]
+  %.2.us.i777 = phi i32 [ %.176.us.i759, %.preheader.us.i758 ], [ %.3.us.i774, %987 ]
   %1017 = add nuw nsw i32 %.06174.us.i761, 1
   %exitcond.not.i778 = icmp eq i32 %1017, %2
   br i1 %exitcond.not.i778, label %..loopexit_crit_edge.us.i779, label %.preheader.us.i758, !llvm.loop !70

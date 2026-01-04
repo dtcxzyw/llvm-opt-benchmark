@@ -136,7 +136,7 @@ define range(i32 0, 2) i32 @SSL_SRP_CTX_free(ptr noundef %0) local_unnamed_addr 
   br label %10
 
 10:                                               ; preds = %3, %6, %8, %1
-  %11 = phi ptr [ null, %1 ], [ %9, %8 ], [ null, %6 ], [ %0, %3 ]
+  %11 = phi ptr [ null, %1 ], [ null, %6 ], [ %9, %8 ], [ %0, %3 ]
   %12 = tail call i32 @ssl_srp_ctx_free_intern(ptr noundef %11)
   ret i32 %12
 }
@@ -313,8 +313,8 @@ define range(i32 0, 2) i32 @ssl_srp_ctx_init_intern(ptr noundef captures(address
   br label %117
 
 96:                                               ; preds = %88, %81, %25, %32, %39, %46, %53, %60, %67, %74
-  %.sink89 = phi i32 [ 130, %74 ], [ 130, %67 ], [ 130, %60 ], [ 130, %53 ], [ 130, %46 ], [ 130, %39 ], [ 130, %32 ], [ 130, %25 ], [ 135, %81 ], [ 140, %88 ]
-  %.sink = phi i32 [ 524291, %74 ], [ 524291, %67 ], [ 524291, %60 ], [ 524291, %53 ], [ 524291, %46 ], [ 524291, %39 ], [ 524291, %32 ], [ 524291, %25 ], [ 786691, %81 ], [ 786691, %88 ]
+  %.sink89 = phi i32 [ 135, %81 ], [ 130, %25 ], [ 130, %74 ], [ 130, %67 ], [ 130, %60 ], [ 130, %53 ], [ 130, %46 ], [ 130, %39 ], [ 130, %32 ], [ 140, %88 ]
+  %.sink = phi i32 [ 786691, %81 ], [ 524291, %25 ], [ 524291, %74 ], [ 524291, %67 ], [ 524291, %60 ], [ 524291, %53 ], [ 524291, %46 ], [ 524291, %39 ], [ 524291, %32 ], [ 786691, %88 ]
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink89, ptr noundef nonnull @__func__.ssl_srp_ctx_init_intern) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef %.sink, ptr noundef null) #6
@@ -352,7 +352,7 @@ define range(i32 0, 2) i32 @ssl_srp_ctx_init_intern(ptr noundef captures(address
   br label %117
 
 117:                                              ; preds = %1, %3, %96, %92
-  %.0 = phi i32 [ 0, %96 ], [ 1, %92 ], [ 0, %3 ], [ 0, %1 ]
+  %.0 = phi i32 [ 1, %92 ], [ 0, %96 ], [ 0, %3 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -386,7 +386,7 @@ define range(i32 0, 2) i32 @SSL_SRP_CTX_init(ptr noundef %0) local_unnamed_addr 
   br label %10
 
 10:                                               ; preds = %3, %6, %8, %1
-  %11 = phi ptr [ null, %1 ], [ %9, %8 ], [ null, %6 ], [ %0, %3 ]
+  %11 = phi ptr [ null, %1 ], [ null, %6 ], [ %9, %8 ], [ %0, %3 ]
   %12 = tail call i32 @ssl_srp_ctx_init_intern(ptr noundef %11)
   ret i32 %12
 }
@@ -498,7 +498,7 @@ define i32 @ssl_srp_server_param_with_username_intern(ptr noundef captures(none)
   br label %48
 
 48:                                               ; preds = %30, %14, %18, %22, %26, %8, %35
-  %.0 = phi i32 [ %47, %35 ], [ %13, %8 ], [ 2, %26 ], [ 2, %22 ], [ 2, %18 ], [ 2, %14 ], [ 2, %30 ]
+  %.0 = phi i32 [ %47, %35 ], [ %13, %8 ], [ 2, %14 ], [ 2, %26 ], [ 2, %22 ], [ 2, %18 ], [ 2, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -599,7 +599,7 @@ define range(i32 -1, 2) i32 @SSL_set_srp_server_param_pw(ptr noundef %0, ptr nou
   br label %.thread
 
 .thread:                                          ; preds = %9, %4, %17, %.thread29, %11
-  %.0 = phi i32 [ -1, %11 ], [ -1, %.thread29 ], [ %., %17 ], [ -1, %4 ], [ -1, %9 ]
+  %.0 = phi i32 [ %., %17 ], [ -1, %11 ], [ -1, %.thread29 ], [ -1, %4 ], [ -1, %9 ]
   ret i32 %.0
 }
 
@@ -792,7 +792,7 @@ define range(i32 -1, 2) i32 @SSL_set_srp_server_param(ptr noundef %0, ptr nounde
   br label %.thread
 
 .thread:                                          ; preds = %11, %6, %73, %64, %67, %70, %61, %13
-  %.0 = phi i32 [ -1, %13 ], [ -1, %61 ], [ -1, %70 ], [ -1, %67 ], [ -1, %64 ], [ %spec.select, %73 ], [ -1, %6 ], [ -1, %11 ]
+  %.0 = phi i32 [ -1, %61 ], [ -1, %13 ], [ -1, %64 ], [ %spec.select, %73 ], [ -1, %70 ], [ -1, %67 ], [ -1, %6 ], [ -1, %11 ]
   ret i32 %.0
 }
 
@@ -1131,7 +1131,7 @@ define range(i32 0, 2) i32 @ssl_srp_calc_a_param_intern(ptr noundef captures(non
   br label %19
 
 19:                                               ; preds = %8, %1
-  %.0 = phi i32 [ 0, %1 ], [ %., %8 ]
+  %.0 = phi i32 [ %., %8 ], [ 0, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -1188,7 +1188,7 @@ define range(i32 0, 2) i32 @SRP_Calc_A_param(ptr noundef %0) local_unnamed_addr 
   br label %ssl_srp_calc_a_param_intern.exit
 
 ssl_srp_calc_a_param_intern.exit:                 ; preds = %.thread10, %18
-  %.0.i = phi i32 [ 0, %.thread10 ], [ %..i, %18 ]
+  %.0.i = phi i32 [ %..i, %18 ], [ 0, %.thread10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.thread
 

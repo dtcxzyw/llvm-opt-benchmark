@@ -1149,7 +1149,7 @@ lor.lhs.false.i.i.i.i:                            ; preds = %if.end3.i.i.i.i
   br i1 %cmp.not.i.i.i.i, label %for.cond.i.i.i.i, label %if.then, !llvm.loop !74
 
 if.then:                                          ; preds = %for.body, %if.end3.i.i.i.i, %lor.lhs.false.i.i.i.i, %for.cond.i.i.us
-  %storemerge72.lcssa.sink = phi i64 [ %storemerge72.us, %for.cond.i.i.us ], [ %storemerge72, %lor.lhs.false.i.i.i.i ], [ %storemerge72, %if.end3.i.i.i.i ], [ %storemerge72, %for.body ]
+  %storemerge72.lcssa.sink = phi i64 [ %storemerge72, %if.end3.i.i.i.i ], [ %storemerge72.us, %for.cond.i.i.us ], [ %storemerge72, %lor.lhs.false.i.i.i.i ], [ %storemerge72, %for.body ]
   store i64 %storemerge72.lcssa.sink, ptr %caller, align 8, !tbaa !65
   %.not = icmp eq ptr @_ZTH13verbosestream, null
   br i1 %.not, label %_ZTW13verbosestream.exit, label %9

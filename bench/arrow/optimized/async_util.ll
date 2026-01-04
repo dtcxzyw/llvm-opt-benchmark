@@ -820,7 +820,7 @@ _ZNKSt14default_deleteIN5arrow4util12_GLOBAL__N_122AsyncTaskSchedulerImplEEclEPS
   br label %.body
 
 .body:                                            ; preds = %_ZNKSt14default_deleteIN5arrow4util12_GLOBAL__N_122AsyncTaskSchedulerImplEEclEPS3_.exit.i28, %.body11, %157, %_ZN5arrow8internal6FnOnceIFvRKNS_6StatusEEED2Ev.exit7.i
-  %.pn.pn.pn = phi { ptr, i32 } [ %158, %157 ], [ %.pn.i.i.i, %_ZN5arrow8internal6FnOnceIFvRKNS_6StatusEEED2Ev.exit7.i ], [ %.pn, %.body11 ], [ %.pn.pn41, %_ZNKSt14default_deleteIN5arrow4util12_GLOBAL__N_122AsyncTaskSchedulerImplEEclEPS3_.exit.i28 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.i.i.i, %_ZN5arrow8internal6FnOnceIFvRKNS_6StatusEEED2Ev.exit7.i ], [ %158, %157 ], [ %.pn, %.body11 ], [ %.pn.pn41, %_ZNKSt14default_deleteIN5arrow4util12_GLOBAL__N_122AsyncTaskSchedulerImplEEclEPS3_.exit.i28 ]
   %174 = load ptr, ptr %14, align 8, !tbaa !96
   %.not.i.i30 = icmp eq ptr %174, null
   br i1 %.not.i.i30, label %_ZN5arrow4util7tracing4SpanD2Ev.exit32, label %_ZNKSt14default_deleteIN5arrow4util7tracing11SpanDetailsEEclEPS3_.exit.i.i31
@@ -3150,7 +3150,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %_ZNSt10unique_ptrIN
   ret i1 %.not
 
 _ZNSt10unique_ptrIN5arrow4util18AsyncTaskScheduler4TaskESt14default_deleteIS3_EED2Ev.exit16: ; preds = %_ZNKSt14default_deleteIN5arrow4util18AsyncTaskScheduler4TaskEEclEPS3_.exit.i11.i, %.body.thread21.i, %_ZNKSt14default_deleteIN5arrow4util18AsyncTaskScheduler4TaskEEclEPS3_.exit.i15, %.body, %_ZN5arrow6StatusD2Ev.exit10, %26
-  %.pn7 = phi { ptr, i32 } [ %.pn, %_ZN5arrow6StatusD2Ev.exit10 ], [ %27, %26 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %_ZNKSt14default_deleteIN5arrow4util18AsyncTaskScheduler4TaskEEclEPS3_.exit.i15 ], [ %.pn5.i.ph.i, %.body.thread21.i ], [ %eh.lpad-body19.i, %_ZNKSt14default_deleteIN5arrow4util18AsyncTaskScheduler4TaskEEclEPS3_.exit.i11.i ]
+  %.pn7 = phi { ptr, i32 } [ %27, %26 ], [ %.pn, %_ZN5arrow6StatusD2Ev.exit10 ], [ %eh.lpad-body, %_ZNKSt14default_deleteIN5arrow4util18AsyncTaskScheduler4TaskEEclEPS3_.exit.i15 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body19.i, %_ZNKSt14default_deleteIN5arrow4util18AsyncTaskScheduler4TaskEEclEPS3_.exit.i11.i ], [ %.pn5.i.ph.i, %.body.thread21.i ]
   %194 = load i8, ptr %11, align 8, !tbaa !100, !range !94, !noundef !95
   %195 = trunc nuw i8 %194 to i1
   br i1 %195, label %196, label %_ZNSt11unique_lockISt5mutexED2Ev.exit21
@@ -4726,7 +4726,7 @@ _ZN5arrow6FutureINS_8internal5EmptyEED2Ev.exit:   ; preds = %_ZN5arrow6FutureINS
   br label %_ZNSt8optionalIN5arrow6FutureINS0_8internal5EmptyEEEEC2IRS4_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS5_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISA_ISt10in_place_tSH_EESt16is_constructibleIS4_JSD_EESt14is_convertibleISD_S4_EEEbE4typeELb1EEEOSD_.exit
 
 _ZNSt8optionalIN5arrow6FutureINS0_8internal5EmptyEEEEC2IRS4_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS5_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISA_ISt10in_place_tSH_EESt16is_constructibleIS4_JSD_EESt14is_convertibleISD_S4_EEEbE4typeELb1EEEOSD_.exit: ; preds = %103, %100, %_ZN5arrow6FutureINS_8internal5EmptyEED2Ev.exit, %22, %19, %12, %27
-  %.sink = phi i8 [ 0, %27 ], [ 1, %12 ], [ 1, %19 ], [ 1, %22 ], [ 1, %_ZN5arrow6FutureINS_8internal5EmptyEED2Ev.exit ], [ 1, %100 ], [ 1, %103 ]
+  %.sink = phi i8 [ 1, %22 ], [ 0, %27 ], [ 1, %12 ], [ 1, %19 ], [ 1, %_ZN5arrow6FutureINS_8internal5EmptyEED2Ev.exit ], [ 1, %100 ], [ 1, %103 ]
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %105, align 8, !tbaa !253
   %106 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %7) #26
@@ -5848,7 +5848,7 @@ _ZZN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl7AddTaskESt10uniqu
   br label %_ZZN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl7AddTaskESt10unique_ptrINS0_18AsyncTaskScheduler4TaskESt14default_deleteIS5_EEENUlRKNS_6StatusEE_D2Ev.exit46
 
 _ZZN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl7AddTaskESt10unique_ptrINS0_18AsyncTaskScheduler4TaskESt14default_deleteIS5_EEENUlRKNS_6StatusEE_D2Ev.exit46: ; preds = %_ZZN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl7AddTaskESt10unique_ptrINS0_18AsyncTaskScheduler4TaskESt14default_deleteIS5_EEENUlRKNS_6StatusEE_D2Ev.exit46.sink.split, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i13.i, %104
-  %eh.lpad-body = phi { ptr, i32 } [ %108, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i13.i ], [ %105, %104 ], [ %eh.lpad-body.ph, %_ZZN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl7AddTaskESt10unique_ptrINS0_18AsyncTaskScheduler4TaskESt14default_deleteIS5_EEENUlRKNS_6StatusEE_D2Ev.exit46.sink.split ]
+  %eh.lpad-body = phi { ptr, i32 } [ %105, %104 ], [ %108, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i13.i ], [ %eh.lpad-body.ph, %_ZZN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl7AddTaskESt10unique_ptrINS0_18AsyncTaskScheduler4TaskESt14default_deleteIS5_EEENUlRKNS_6StatusEE_D2Ev.exit46.sink.split ]
   call fastcc void @_ZNSt12__shared_ptrIN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImplELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull %74) #26
   br label %.thread83
 
@@ -5972,13 +5972,13 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %192, %193
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread74
 
-.thread74:                                        ; preds = %135, %137, %29, %_ZNSt10unique_ptrIN5arrow4util18AsyncTaskScheduler4TaskESt14default_deleteIS3_EED2Ev.exit28, %.thread79, %195
-  %.pn14.pn.pn.pn.pn78 = phi { ptr, i32 } [ %141, %195 ], [ %139, %.thread79 ], [ %136, %135 ], [ %138, %137 ], [ %30, %29 ], [ %32, %_ZNSt10unique_ptrIN5arrow4util18AsyncTaskScheduler4TaskESt14default_deleteIS3_EED2Ev.exit28 ]
+.thread74:                                        ; preds = %135, %137, %_ZNSt10unique_ptrIN5arrow4util18AsyncTaskScheduler4TaskESt14default_deleteIS3_EED2Ev.exit28, %29, %.thread79, %195
+  %.pn14.pn.pn.pn.pn78 = phi { ptr, i32 } [ %139, %.thread79 ], [ %141, %195 ], [ %136, %135 ], [ %138, %137 ], [ %32, %_ZNSt10unique_ptrIN5arrow4util18AsyncTaskScheduler4TaskESt14default_deleteIS3_EED2Ev.exit28 ], [ %30, %29 ]
   %196 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %8) #26
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit58
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit58:          ; preds = %.thread83, %.thread74
-  %.pn14.pn.pn.pn.pn77 = phi { ptr, i32 } [ %.pn14.pn.pn.pn.pn78, %.thread74 ], [ %.pn14.pn.ph, %.thread83 ]
+  %.pn14.pn.pn.pn.pn77 = phi { ptr, i32 } [ %.pn14.pn.ph, %.thread83 ], [ %.pn14.pn.pn.pn.pn78, %.thread74 ]
   resume { ptr, i32 } %.pn14.pn.pn.pn.pn77
 }
 
@@ -6745,8 +6745,8 @@ _ZNSt10unique_ptrIN5arrow4util18AsyncTaskScheduler4TaskESt14default_deleteIS3_EE
   br label %.body
 
 _ZNSt11unique_lockISt5mutexE4lockEv.exit:         ; preds = %87, %70, %73, %_ZNSt10unique_ptrIN5arrow4util18AsyncTaskScheduler4TaskESt14default_deleteIS3_EED2Ev.exit46
-  %.sroa.10.2 = phi i8 [ 0, %70 ], [ 0, %73 ], [ %.sroa.10.7, %_ZNSt10unique_ptrIN5arrow4util18AsyncTaskScheduler4TaskESt14default_deleteIS3_EED2Ev.exit46 ], [ 1, %87 ]
-  %.0 = phi i32 [ 1, %70 ], [ 1, %73 ], [ %.1, %_ZNSt10unique_ptrIN5arrow4util18AsyncTaskScheduler4TaskESt14default_deleteIS3_EED2Ev.exit46 ], [ 2, %87 ]
+  %.sroa.10.2 = phi i8 [ 0, %70 ], [ %.sroa.10.7, %_ZNSt10unique_ptrIN5arrow4util18AsyncTaskScheduler4TaskESt14default_deleteIS3_EED2Ev.exit46 ], [ 0, %73 ], [ 1, %87 ]
+  %.0 = phi i32 [ 1, %70 ], [ %.1, %_ZNSt10unique_ptrIN5arrow4util18AsyncTaskScheduler4TaskESt14default_deleteIS3_EED2Ev.exit46 ], [ 1, %73 ], [ 2, %87 ]
   %126 = load i8, ptr %11, align 8, !tbaa !253, !range !94, !noundef !95
   %127 = trunc nuw i8 %126 to i1
   br i1 %127, label %128, label %_ZNSt14_Optional_baseIN5arrow6FutureINS0_8internal5EmptyEEELb0ELb0EED2Ev.exit

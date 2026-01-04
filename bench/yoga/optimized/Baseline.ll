@@ -280,7 +280,7 @@ _ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorppEv.exit: ; preds = %
   br i1 %123, label %48, label %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit
 
 _ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit: ; preds = %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorppEv.exit, %60, %_ZN8facebook4yoga21resolveChildAlignmentEPKNS0_4NodeES3_.exit.thread, %85, %_ZNK8facebook4yoga18LayoutableChildrenINS0_4NodeEE5beginEv.exit
-  %.129 = phi ptr [ null, %_ZNK8facebook4yoga18LayoutableChildrenINS0_4NodeEE5beginEv.exit ], [ %62, %85 ], [ %62, %_ZN8facebook4yoga21resolveChildAlignmentEPKNS0_4NodeES3_.exit.thread ], [ %.02866, %60 ], [ %.2, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorppEv.exit ]
+  %.129 = phi ptr [ null, %_ZNK8facebook4yoga18LayoutableChildrenINS0_4NodeEE5beginEv.exit ], [ %.02866, %60 ], [ %62, %_ZN8facebook4yoga21resolveChildAlignmentEPKNS0_4NodeES3_.exit.thread ], [ %62, %85 ], [ %.2, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorppEv.exit ]
   %124 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %125 = load ptr, ptr %124, align 8, !tbaa !74
   %.not12.i.i.i36 = icmp eq ptr %125, null
@@ -572,7 +572,7 @@ _ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit32: ; preds =
   br label %common.resume
 
 96:                                               ; preds = %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit22, %6, %1
-  %.0 = phi i1 [ false, %1 ], [ true, %6 ], [ %.not37.not.lcssa, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit22 ]
+  %.0 = phi i1 [ %.not37.not.lcssa, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit22 ], [ false, %1 ], [ true, %6 ]
   ret i1 %.0
 }
 

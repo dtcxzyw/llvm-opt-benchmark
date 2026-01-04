@@ -251,7 +251,7 @@ find_tar_filter.exit:                             ; preds = %.lr.ph.i, %42
   br label %67
 
 67:                                               ; preds = %57, %63, %65, %2, %53, %51
-  %.016 = phi i32 [ 0, %53 ], [ -1, %51 ], [ 0, %2 ], [ 0, %65 ], [ 0, %63 ], [ 0, %57 ]
+  %.016 = phi i32 [ 0, %63 ], [ 0, %2 ], [ 0, %53 ], [ -1, %51 ], [ 0, %65 ], [ 0, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -368,7 +368,7 @@ define internal i32 @write_tar_archive(ptr readnone captures(none) %0, ptr nound
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %37, %30
-  %.pre.i.i = phi i64 [ %34, %30 ], [ 0, %37 ]
+  %.pre.i.i = phi i64 [ 0, %37 ], [ %34, %30 ]
   %.not24.i.i.i = icmp ugt i64 %31, 499
   br i1 %.not24.i.i.i, label %do_write_blocked.exit.i.i, label %._crit_edge.i.i.thread.i
 
@@ -721,7 +721,7 @@ get_path_prefix.exit.thread:                      ; preds = %49, %get_path_prefi
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %95, %88
-  %.pre.i.i = phi i64 [ %92, %88 ], [ 0, %95 ]
+  %.pre.i.i = phi i64 [ 0, %95 ], [ %92, %88 ]
   %.not24.i.i.i = icmp ugt i64 %89, 499
   br i1 %.not24.i.i.i, label %do_write_blocked.exit.i.i, label %._crit_edge.i.i.thread.i
 
@@ -777,9 +777,9 @@ write_if_needed.exit.i.i7.sink.split.i:           ; preds = %106, %105
   br label %write_if_needed.exit.i.i7.i
 
 write_if_needed.exit.i.i7.i:                      ; preds = %write_if_needed.exit.i.i7.sink.split.i, %106, %105
-  %.pre6.i8.i = phi i64 [ %110, %106 ], [ %.pr.i, %105 ], [ 0, %write_if_needed.exit.i.i7.sink.split.i ]
-  %.019.i.i9.i = phi i64 [ %109, %106 ], [ %80, %105 ], [ %.019.i.i9.ph.i, %write_if_needed.exit.i.i7.sink.split.i ]
-  %.018.i.i10.i = phi ptr [ %111, %106 ], [ %83, %105 ], [ %.018.i.i10.ph.i, %write_if_needed.exit.i.i7.sink.split.i ]
+  %.pre6.i8.i = phi i64 [ %.pr.i, %105 ], [ %110, %106 ], [ 0, %write_if_needed.exit.i.i7.sink.split.i ]
+  %.019.i.i9.i = phi i64 [ %80, %105 ], [ %109, %106 ], [ %.019.i.i9.ph.i, %write_if_needed.exit.i.i7.sink.split.i ]
+  %.018.i.i10.i = phi ptr [ %83, %105 ], [ %111, %106 ], [ %.018.i.i10.ph.i, %write_if_needed.exit.i.i7.sink.split.i ]
   %114 = icmp ugt i64 %.019.i.i9.i, 10239
   br i1 %114, label %.lr.ph.i.i18.i, label %._crit_edge.i.i11.i
 
@@ -865,7 +865,7 @@ write_extended_header.exit:                       ; preds = %128, %131
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %135, %142
-  %.pre.i = phi i64 [ %139, %135 ], [ 0, %142 ]
+  %.pre.i = phi i64 [ 0, %142 ], [ %139, %135 ]
   %.not24.i.i = icmp ugt i64 %136, 499
   br i1 %.not24.i.i, label %do_write_blocked.exit.i, label %._crit_edge.i.i.thread
 
@@ -1127,7 +1127,7 @@ stream_blocked.exit:                              ; preds = %_.exit.i, %finish_r
   br label %write_blocked.exit88
 
 write_blocked.exit88:                             ; preds = %187, %184, %write_blocked.exit, %stream_blocked.exit, %_.exit
-  %.0 = phi i32 [ -1, %_.exit ], [ %.0.i100, %stream_blocked.exit ], [ 0, %write_blocked.exit ], [ 0, %184 ], [ 0, %187 ]
+  %.0 = phi i32 [ -1, %_.exit ], [ 0, %write_blocked.exit ], [ %.0.i100, %stream_blocked.exit ], [ 0, %184 ], [ 0, %187 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i32 %.0

@@ -501,8 +501,8 @@ bytestream2_get_byte.exit153:                     ; preds = %164
   %254 = load i32, ptr %7, align 8, !tbaa !42
   br label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph, %212, %bytestream2_get_byte.exit151, %86, %.loopexit, %bytestream2_get_byte.exit153, %142, %138, %40, %26, %4, %253, %23
-  %.0 = phi i32 [ -1094995529, %23 ], [ %254, %253 ], [ -1094995529, %4 ], [ -1094995529, %26 ], [ %42, %40 ], [ %140, %138 ], [ -1094995529, %142 ], [ -1094995529, %bytestream2_get_byte.exit153 ], [ %251, %.loopexit ], [ -1094995529, %86 ], [ -1094995529, %bytestream2_get_byte.exit151 ], [ -1094995529, %212 ], [ -1094995529, %.lr.ph ]
+.critedge:                                        ; preds = %212, %.lr.ph, %86, %bytestream2_get_byte.exit151, %.loopexit, %bytestream2_get_byte.exit153, %142, %138, %40, %26, %4, %253, %23
+  %.0 = phi i32 [ %251, %.loopexit ], [ -1094995529, %23 ], [ -1094995529, %4 ], [ -1094995529, %26 ], [ %42, %40 ], [ -1094995529, %bytestream2_get_byte.exit153 ], [ %254, %253 ], [ %140, %138 ], [ -1094995529, %142 ], [ -1094995529, %86 ], [ -1094995529, %bytestream2_get_byte.exit151 ], [ -1094995529, %.lr.ph ], [ -1094995529, %212 ]
   ret i32 %.0
 }
 
@@ -1211,7 +1211,7 @@ copy_color_mask.exit:                             ; preds = %354, %285, %.lr.ph
   br i1 %368, label %.preheader, label %.critedge, !llvm.loop !71
 
 .critedge:                                        ; preds = %bytestream2_get_le16.exit, %83, %set_src_position.exit, %._crit_edge241, %.lr.ph240, %316, %.preheader.lr.ph, %209, %bytestream2_get_le16.exit173
-  %.3 = phi i32 [ -1094995529, %bytestream2_get_le16.exit173 ], [ 0, %209 ], [ 0, %.preheader.lr.ph ], [ -1094995529, %316 ], [ -1094995529, %.lr.ph240 ], [ 0, %._crit_edge241 ], [ -1094995529, %set_src_position.exit ], [ -1094995529, %83 ], [ -1094995529, %bytestream2_get_le16.exit ]
+  %.3 = phi i32 [ 0, %._crit_edge241 ], [ -1094995529, %.lr.ph240 ], [ 0, %209 ], [ -1094995529, %bytestream2_get_le16.exit173 ], [ 0, %.preheader.lr.ph ], [ -1094995529, %set_src_position.exit ], [ -1094995529, %316 ], [ -1094995529, %83 ], [ -1094995529, %bytestream2_get_le16.exit ]
   ret i32 %.3
 }
 

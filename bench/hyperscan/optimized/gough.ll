@@ -268,7 +268,7 @@ doReports.exit:                                   ; preds = %66, %39, %62, %35
   br label %98
 
 nfaExecGough8_Q2i.exit:                           ; preds = %.thread, %doReports.exit.thread, %94
-  %.296.i = phi i8 [ 1, %94 ], [ 0, %doReports.exit.thread ], [ %.5.i.ph, %.thread ]
+  %.296.i = phi i8 [ 0, %doReports.exit.thread ], [ 1, %94 ], [ %.5.i.ph, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i8 %.296.i
 }
@@ -531,7 +531,7 @@ doReports.exit:                                   ; preds = %66, %39, %62, %35
   br label %98
 
 nfaExecGough16_Q2i.exit:                          ; preds = %.thread, %doReports.exit.thread, %94
-  %.296.i = phi i8 [ 1, %94 ], [ 0, %doReports.exit.thread ], [ %.5.i.ph, %.thread ]
+  %.296.i = phi i8 [ 0, %doReports.exit.thread ], [ 1, %94 ], [ %.5.i.ph, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i8 %.296.i
 }
@@ -820,7 +820,7 @@ doReports.exit:                                   ; preds = %66, %39, %62, %35
   br label %98
 
 nfaExecGough8_Q2i.exit:                           ; preds = %.thread, %doReports.exit.thread, %94
-  %.296.i = phi i8 [ 1, %94 ], [ 0, %doReports.exit.thread ], [ %.5.i.ph, %.thread ]
+  %.296.i = phi i8 [ 0, %doReports.exit.thread ], [ 1, %94 ], [ %.5.i.ph, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i8 %.296.i
 }
@@ -1106,7 +1106,7 @@ doReports.exit:                                   ; preds = %66, %39, %62, %35
   br label %98
 
 nfaExecGough16_Q2i.exit:                          ; preds = %.thread, %doReports.exit.thread, %94
-  %.296.i = phi i8 [ 1, %94 ], [ 0, %doReports.exit.thread ], [ %.5.i.ph, %.thread ]
+  %.296.i = phi i8 [ 0, %doReports.exit.thread ], [ 1, %94 ], [ %.5.i.ph, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i8 %.296.i
 }
@@ -1343,7 +1343,7 @@ nfaExecGough8_Q2i.exit:                           ; preds = %109
   br label %135
 
 135:                                              ; preds = %133, %nfaExecGough8_Q2i.exit, %nfaExecGough8_Q2i.exit.thread, %nfaExecGough8_Q2i.exit.thread35
-  %.0 = phi i8 [ 0, %nfaExecGough8_Q2i.exit.thread ], [ 0, %nfaExecGough8_Q2i.exit ], [ 0, %nfaExecGough8_Q2i.exit.thread35 ], [ %spec.select, %133 ]
+  %.0 = phi i8 [ %spec.select, %133 ], [ 0, %nfaExecGough8_Q2i.exit.thread ], [ 0, %nfaExecGough8_Q2i.exit ], [ 0, %nfaExecGough8_Q2i.exit.thread35 ]
   ret i8 %.0
 }
 
@@ -1578,7 +1578,7 @@ nfaExecGough16_Q2i.exit:                          ; preds = %109
   br label %132
 
 132:                                              ; preds = %130, %nfaExecGough16_Q2i.exit, %nfaExecGough16_Q2i.exit.thread, %nfaExecGough16_Q2i.exit.thread35
-  %.0 = phi i8 [ 0, %nfaExecGough16_Q2i.exit.thread ], [ 0, %nfaExecGough16_Q2i.exit ], [ 0, %nfaExecGough16_Q2i.exit.thread35 ], [ %spec.select, %130 ]
+  %.0 = phi i8 [ %spec.select, %130 ], [ 0, %nfaExecGough16_Q2i.exit.thread ], [ 0, %nfaExecGough16_Q2i.exit ], [ 0, %nfaExecGough16_Q2i.exit.thread35 ]
   ret i8 %.0
 }
 
@@ -3062,9 +3062,9 @@ run_prog.exit11:                                  ; preds = %281, %.lr.ph395
   br label %.loopexit.loopexit
 
 doReports.exit.i:                                 ; preds = %357, %331, %327, %353, %371, %run_prog.exit11
-  %.340 = phi i32 [ %.138390, %run_prog.exit11 ], [ %.138390, %371 ], [ %.138390, %327 ], [ %345, %353 ], [ %.138390, %331 ], [ %.138390, %357 ]
-  %.332 = phi i16 [ %.130391, %run_prog.exit11 ], [ %.130391, %371 ], [ %.130391, %327 ], [ %314, %353 ], [ %.130391, %331 ], [ %.130391, %357 ]
-  %.3 = phi i32 [ %.1392, %run_prog.exit11 ], [ %.1392, %371 ], [ %.1392, %327 ], [ %347, %353 ], [ %.1392, %331 ], [ %.1392, %357 ]
+  %.340 = phi i32 [ %.138390, %run_prog.exit11 ], [ %.138390, %371 ], [ %.138390, %331 ], [ %.138390, %327 ], [ %345, %353 ], [ %.138390, %357 ]
+  %.332 = phi i16 [ %.130391, %run_prog.exit11 ], [ %.130391, %371 ], [ %.130391, %331 ], [ %.130391, %327 ], [ %314, %353 ], [ %.130391, %357 ]
+  %.3 = phi i32 [ %.1392, %run_prog.exit11 ], [ %.1392, %371 ], [ %.1392, %331 ], [ %.1392, %327 ], [ %347, %353 ], [ %.1392, %357 ]
   %385 = icmp ult ptr %265, %12
   %386 = icmp ne i8 %313, 0
   %387 = and i1 %385, %386
@@ -3087,7 +3087,7 @@ goughExec8_i.exit.sink.split:                     ; preds = %goughExec8_i.exit.s
   br label %goughExec8_i.exit
 
 goughExec8_i.exit:                                ; preds = %238, %213, %254, %353, %327, %367, %goughExec8_i.exit.sink.split, %._crit_edge
-  %.6.i = phi i8 [ 1, %._crit_edge ], [ 1, %goughExec8_i.exit.sink.split ], [ 0, %367 ], [ 0, %327 ], [ 0, %353 ], [ 0, %254 ], [ 0, %213 ], [ 0, %238 ]
+  %.6.i = phi i8 [ 1, %goughExec8_i.exit.sink.split ], [ 0, %254 ], [ 0, %353 ], [ 1, %._crit_edge ], [ 0, %367 ], [ 0, %213 ], [ 0, %327 ], [ 0, %238 ]
   ret i8 %.6.i
 }
 
@@ -3753,10 +3753,10 @@ doSherman16.exit.doReports.exit196.i_crit_edge:   ; preds = %doSherman16.exit
   br i1 %.not63.i193.i, label %goughExec16_i.exit, label %175
 
 doReports.exit196.i:                              ; preds = %175, %149, %doSherman16.exit.doReports.exit196.i_crit_edge, %145, %171
-  %.pre-phi = phi i16 [ %.pre177, %doSherman16.exit.doReports.exit196.i_crit_edge ], [ %137, %145 ], [ %137, %171 ], [ %137, %149 ], [ %137, %175 ]
-  %.843 = phi i32 [ %.641130, %doSherman16.exit.doReports.exit196.i_crit_edge ], [ %.641130, %145 ], [ %163, %171 ], [ %.641130, %149 ], [ %.641130, %175 ]
-  %.833 = phi i16 [ %.631131, %doSherman16.exit.doReports.exit196.i_crit_edge ], [ %.631131, %145 ], [ %137, %171 ], [ %.631131, %149 ], [ %.631131, %175 ]
-  %.8 = phi i32 [ %.6132, %doSherman16.exit.doReports.exit196.i_crit_edge ], [ %.6132, %145 ], [ %165, %171 ], [ %.6132, %149 ], [ %.6132, %175 ]
+  %.pre-phi = phi i16 [ %.pre177, %doSherman16.exit.doReports.exit196.i_crit_edge ], [ %137, %171 ], [ %137, %149 ], [ %137, %145 ], [ %137, %175 ]
+  %.843 = phi i32 [ %.641130, %doSherman16.exit.doReports.exit196.i_crit_edge ], [ %163, %171 ], [ %.641130, %149 ], [ %.641130, %145 ], [ %.641130, %175 ]
+  %.833 = phi i16 [ %.631131, %doSherman16.exit.doReports.exit196.i_crit_edge ], [ %137, %171 ], [ %.631131, %149 ], [ %.631131, %145 ], [ %.631131, %175 ]
+  %.8 = phi i32 [ %.6132, %doSherman16.exit.doReports.exit196.i_crit_edge ], [ %165, %171 ], [ %.6132, %149 ], [ %.6132, %145 ], [ %.6132, %175 ]
   %189 = icmp ult ptr %47, %.0157.i
   %190 = icmp ne i16 %.pre-phi, 0
   %191 = select i1 %189, i1 %190, i1 false
@@ -4074,10 +4074,10 @@ doSherman16.exit16:                               ; preds = %.thread67, %271, %2
   br label %.loopexit.loopexit
 
 doReports.exit.i:                                 ; preds = %330, %304, %326, %300, %.doReports.exit.i_crit_edge
-  %.439 = phi i32 [ %.136298, %.doReports.exit.i_crit_edge ], [ %.136298, %300 ], [ %318, %326 ], [ %.136298, %304 ], [ %.136298, %330 ]
-  %.429 = phi i16 [ %.126299, %.doReports.exit.i_crit_edge ], [ %.126299, %300 ], [ %292, %326 ], [ %.126299, %304 ], [ %.126299, %330 ]
-  %.4 = phi i32 [ %.1300, %.doReports.exit.i_crit_edge ], [ %.1300, %300 ], [ %320, %326 ], [ %.1300, %304 ], [ %.1300, %330 ]
-  %.7151.i = phi i16 [ %.pre178, %.doReports.exit.i_crit_edge ], [ %292, %300 ], [ %292, %326 ], [ %292, %304 ], [ %292, %330 ]
+  %.439 = phi i32 [ %.136298, %300 ], [ %.136298, %.doReports.exit.i_crit_edge ], [ %318, %326 ], [ %.136298, %304 ], [ %.136298, %330 ]
+  %.429 = phi i16 [ %.126299, %300 ], [ %.126299, %.doReports.exit.i_crit_edge ], [ %292, %326 ], [ %.126299, %304 ], [ %.126299, %330 ]
+  %.4 = phi i32 [ %.1300, %300 ], [ %.1300, %.doReports.exit.i_crit_edge ], [ %320, %326 ], [ %.1300, %304 ], [ %.1300, %330 ]
+  %.7151.i = phi i16 [ %292, %300 ], [ %.pre178, %.doReports.exit.i_crit_edge ], [ %292, %326 ], [ %292, %304 ], [ %292, %330 ]
   %364 = icmp ult ptr %202, %13
   %365 = icmp ne i16 %.7151.i, 0
   %366 = select i1 %364, i1 %365, i1 false
@@ -4096,7 +4096,7 @@ doReports.exit.i:                                 ; preds = %330, %304, %326, %3
   br label %goughExec16_i.exit
 
 goughExec16_i.exit:                               ; preds = %171, %145, %185, %326, %300, %340, %287, %132, %368
-  %.6.i = phi i8 [ 1, %368 ], [ 1, %132 ], [ 1, %287 ], [ 0, %340 ], [ 0, %300 ], [ 0, %326 ], [ 0, %185 ], [ 0, %145 ], [ 0, %171 ]
+  %.6.i = phi i8 [ 0, %340 ], [ 0, %185 ], [ 1, %368 ], [ 1, %132 ], [ 1, %287 ], [ 0, %326 ], [ 0, %300 ], [ 0, %145 ], [ 0, %171 ]
   ret i8 %.6.i
 }
 

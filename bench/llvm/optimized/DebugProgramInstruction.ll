@@ -793,7 +793,7 @@ _ZN4llvm17DbgRecordParamRefINS_7DILabelEED2Ev.exit.i: ; preds = %22, %19
   br label %_ZN4llvm17DbgVariableRecordD2Ev.exit
 
 _ZN4llvm17DbgVariableRecordD2Ev.exit:             ; preds = %25, %_ZN4llvm17DbgRecordParamRefINS_7DILabelEED2Ev.exit.i, %18, %_ZN4llvm17DbgRecordParamRefINS_15DILocalVariableEED2Ev.exit.i
-  %.sink = phi i64 [ 96, %_ZN4llvm17DbgRecordParamRefINS_15DILocalVariableEED2Ev.exit.i ], [ 96, %18 ], [ 48, %_ZN4llvm17DbgRecordParamRefINS_7DILabelEED2Ev.exit.i ], [ 48, %25 ]
+  %.sink = phi i64 [ 96, %18 ], [ 96, %_ZN4llvm17DbgRecordParamRefINS_15DILocalVariableEED2Ev.exit.i ], [ 48, %_ZN4llvm17DbgRecordParamRefINS_7DILabelEED2Ev.exit.i ], [ 48, %25 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef %.sink) #19
   ret void
 }
@@ -1686,7 +1686,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm17DbgVariableRecord21createLinkedD
   br label %_ZNK4llvm11Instruction11getMetadataEj.exit
 
 _ZNK4llvm11Instruction11getMetadataEj.exit:       ; preds = %7, %11
-  %.0.i = phi ptr [ %12, %11 ], [ null, %7 ]
+  %.0.i = phi ptr [ null, %7 ], [ %12, %11 ]
   %13 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #20
   %14 = tail call noundef ptr @_ZN4llvm15ValueAsMetadata3getEPNS_5ValueE(ptr noundef %1) #18
   %15 = tail call noundef ptr @_ZN4llvm15ValueAsMetadata3getEPNS_5ValueE(ptr noundef %4) #18
@@ -1885,8 +1885,8 @@ define dso_local void @_ZN4llvm17DbgVariableRecord25replaceVariableLocationOpEPN
   br label %_ZNK4llvm17DbgVariableRecord12location_opsEv.exit
 
 _ZNK4llvm17DbgVariableRecord12location_opsEv.exit: ; preds = %28, %34
-  %.sroa.8.0 = phi i64 [ %44, %34 ], [ %33, %28 ]
-  %.sroa.025.0 = phi i64 [ %38, %34 ], [ %30, %28 ]
+  %.sroa.8.0 = phi i64 [ %33, %28 ], [ %44, %34 ]
+  %.sroa.025.0 = phi i64 [ %30, %28 ], [ %38, %34 ]
   %.not5.i.i.i.i = icmp eq i64 %.sroa.025.0, %.sroa.8.0
   br i1 %.not5.i.i.i.i, label %_ZN4llvm4findIRNS_14iterator_rangeINS_17DbgVariableRecord20location_op_iteratorEEEPNS_5ValueEEEDaOT_RKT0_.exit.thread, label %.lr.ph.i.i.i.i
 
@@ -2350,7 +2350,7 @@ _ZN4llvm11SmallVectorIPNS_15ValueAsMetadataELj4EED2Ev.exit: ; preds = %.sink.spl
   br label %_ZNK4llvm17DbgVariableRecord21getVariableLocationOpEj.exit13
 
 _ZNK4llvm17DbgVariableRecord21getVariableLocationOpEj.exit13: ; preds = %.thread22, %.sink.split.i10
-  %.0.i12 = phi ptr [ null, %.thread22 ], [ %67, %.sink.split.i10 ]
+  %.0.i12 = phi ptr [ %67, %.sink.split.i10 ], [ null, %.thread22 ]
   %68 = load i8, ptr %.0.i12, align 8, !tbaa !120
   %69 = icmp eq i8 %68, 24
   br i1 %69, label %70, label %75
@@ -2369,7 +2369,7 @@ _ZNK4llvm17DbgVariableRecord21getVariableLocationOpEj.exit13: ; preds = %.thread
   br label %_ZN4llvmL13getAsMetadataEPNS_5ValueE.exit16
 
 _ZN4llvmL13getAsMetadataEPNS_5ValueE.exit16:      ; preds = %75, %70, %.thread21, %58
-  %77 = phi ptr [ %32, %58 ], [ %32, %.thread21 ], [ %spec.select.i.i.i15, %70 ], [ %76, %75 ]
+  %77 = phi ptr [ %32, %.thread21 ], [ %32, %58 ], [ %spec.select.i.i.i15, %70 ], [ %76, %75 ]
   %78 = load i32, ptr %21, align 8, !tbaa !101
   %79 = load i32, ptr %22, align 4, !tbaa !121
   %.not.i.i.not.i = icmp ult i32 %78, %79
@@ -2483,13 +2483,13 @@ _ZN4llvm17DbgVariableRecord13setExpressionEPNS_12DIExpressionE.exit: ; preds = %
   br label %_ZNK4llvm17DbgVariableRecord12location_opsEv.exit
 
 _ZNK4llvm17DbgVariableRecord12location_opsEv.exit: ; preds = %24, %30
-  %.sroa.7.0 = phi i64 [ %40, %30 ], [ %29, %24 ]
-  %.sroa.026.0 = phi i64 [ %34, %30 ], [ %26, %24 ]
+  %.sroa.7.0 = phi i64 [ %29, %24 ], [ %40, %30 ]
+  %.sroa.026.0 = phi i64 [ %26, %24 ], [ %34, %30 ]
   %.not3132 = icmp eq i64 %.sroa.026.0, %.sroa.7.0
   br i1 %.not3132, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit, %.critedge.i, %_ZN4llvm17DbgVariableRecord13setExpressionEPNS_12DIExpressionE.exit, %_ZNK4llvm17DbgVariableRecord12location_opsEv.exit
-  %41 = phi i32 [ 0, %_ZNK4llvm17DbgVariableRecord12location_opsEv.exit ], [ 0, %_ZN4llvm17DbgVariableRecord13setExpressionEPNS_12DIExpressionE.exit ], [ 0, %.critedge.i ], [ %74, %_ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit ]
+  %41 = phi i32 [ 0, %.critedge.i ], [ 0, %_ZNK4llvm17DbgVariableRecord12location_opsEv.exit ], [ 0, %_ZN4llvm17DbgVariableRecord13setExpressionEPNS_12DIExpressionE.exit ], [ %74, %_ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit ]
   %.idx = shl nuw nsw i64 %2, 3
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not34 = icmp eq i64 %2, 0
@@ -2710,8 +2710,8 @@ define dso_local void @_ZN4llvm17DbgVariableRecord15setKillLocationEv(ptr nounde
   br label %_ZNK4llvm17DbgVariableRecord12location_opsEv.exit
 
 _ZNK4llvm17DbgVariableRecord12location_opsEv.exit: ; preds = %13, %19
-  %.sroa.7.0 = phi i64 [ %29, %19 ], [ %18, %13 ]
-  %.sroa.013.0 = phi i64 [ %23, %19 ], [ %15, %13 ]
+  %.sroa.7.0 = phi i64 [ %18, %13 ], [ %29, %19 ]
+  %.sroa.013.0 = phi i64 [ %15, %13 ], [ %23, %19 ]
   %.not17 = icmp eq i64 %.sroa.013.0, %.sroa.7.0
   br i1 %.not17, label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit, label %.lr.ph
 
@@ -2877,8 +2877,8 @@ _ZNK4llvm17DbgVariableRecord25getNumVariableLocationOpsEv.exit.thread.thread: ; 
   br label %_ZNK4llvm17DbgVariableRecord12location_opsEv.exit
 
 _ZNK4llvm17DbgVariableRecord12location_opsEv.exit: ; preds = %18, %24
-  %.sroa.0.0 = phi i64 [ %28, %24 ], [ %20, %18 ]
-  %.sroa.7.0 = phi i64 [ %34, %24 ], [ %23, %18 ]
+  %.sroa.0.0 = phi i64 [ %20, %18 ], [ %28, %24 ]
+  %.sroa.7.0 = phi i64 [ %23, %18 ], [ %34, %24 ]
   %.not4.i.i.i.i.i.i = icmp eq i64 %.sroa.0.0, %.sroa.7.0
   br i1 %.not4.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_17DbgVariableRecord20location_op_iteratorEEEZNKS2_14isKillLocationEvE3$_0EEbOT_T0_.exit", label %.lr.ph.i.i.i.i.i.i
 

@@ -240,9 +240,9 @@ define internal i32 @ppr_mapper(ptr noundef %0, ptr noundef %1) #0 {
   br label %103
 
 103:                                              ; preds = %90, %.fold.split, %96, %98, %100, %102, %101, %99, %97
-  %.0262 = phi i16 [ 2, %96 ], [ 2, %97 ], [ 2, %98 ], [ 2, %99 ], [ 2, %100 ], [ 2, %101 ], [ 2, %102 ], [ 1, %90 ], [ 2, %.fold.split ]
-  %.not386 = phi i1 [ true, %96 ], [ true, %97 ], [ true, %98 ], [ true, %99 ], [ true, %100 ], [ true, %101 ], [ true, %102 ], [ false, %90 ], [ false, %.fold.split ]
-  %.0261 = phi i16 [ 3, %96 ], [ 2, %97 ], [ 6, %98 ], [ 5, %99 ], [ 4, %100 ], [ 7, %101 ], [ 8, %102 ], [ 1, %90 ], [ 0, %.fold.split ]
+  %.0262 = phi i16 [ 1, %90 ], [ 2, %96 ], [ 2, %97 ], [ 2, %98 ], [ 2, %99 ], [ 2, %100 ], [ 2, %101 ], [ 2, %102 ], [ 2, %.fold.split ]
+  %.not386 = phi i1 [ false, %90 ], [ true, %96 ], [ true, %97 ], [ true, %98 ], [ true, %99 ], [ true, %100 ], [ true, %101 ], [ true, %102 ], [ false, %.fold.split ]
+  %.0261 = phi i16 [ 1, %90 ], [ 3, %96 ], [ 2, %97 ], [ 6, %98 ], [ 5, %99 ], [ 4, %100 ], [ 7, %101 ], [ 8, %102 ], [ 0, %.fold.split ]
   %104 = getelementptr inbounds nuw i8, ptr %91, i64 136
   %105 = load i16, ptr %104, align 8, !tbaa !39
   %106 = and i16 %105, -256
@@ -922,13 +922,13 @@ pmix_obj_run_destructors.exit358:                 ; preds = %.lr.ph.i355, %409
   br i1 %426, label %.lr.ph, label %.critedge15, !llvm.loop !88
 
 .critedge15:                                      ; preds = %423, %.lr.ph, %.preheader, %pmix_obj_update.exit324, %378, %376, %339
-  %.6 = phi i32 [ %.5473, %339 ], [ %353, %376 ], [ %353, %378 ], [ %353, %pmix_obj_update.exit324 ], [ %.5473, %.preheader ], [ %353, %423 ], [ %.7468, %.lr.ph ]
+  %.6 = phi i32 [ %.5473, %339 ], [ %353, %378 ], [ %353, %pmix_obj_update.exit324 ], [ %353, %376 ], [ %.5473, %.preheader ], [ %353, %423 ], [ %.7468, %.lr.ph ]
   %427 = add nuw i32 %.0260472, 1
   %exitcond.not = icmp eq i32 %427, %319
   br i1 %exitcond.not, label %.critedge, label %336, !llvm.loop !89
 
 .critedge:                                        ; preds = %336, %.critedge15, %310, %.lr.ph476, %.preheader387, %pmix_obj_update.exit, %265, %263
-  %.4 = phi i32 [ %240, %263 ], [ %240, %265 ], [ %240, %pmix_obj_update.exit ], [ %.0256483, %.preheader387 ], [ %240, %310 ], [ %.3474, %.lr.ph476 ], [ %.6, %.critedge15 ], [ %.5473, %336 ]
+  %.4 = phi i32 [ %240, %263 ], [ %240, %265 ], [ %240, %pmix_obj_update.exit ], [ %.3474, %.lr.ph476 ], [ %.0256483, %.preheader387 ], [ %240, %310 ], [ %.6, %.critedge15 ], [ %.5473, %336 ]
   store i16 %7, ptr %6, align 4, !tbaa !8
   %428 = load i32, ptr %204, align 8, !tbaa !63
   %429 = icmp eq i32 %.4, %428
@@ -1076,7 +1076,7 @@ pmix_obj_run_destructors.exit369:                 ; preds = %.lr.ph.i366, %._cri
   br label %543
 
 .loopexit:                                        ; preds = %pmix_obj_run_constructors.exit, %210, %236, %349, %191, %438, %177
-  %.0251 = phi i32 [ %176, %177 ], [ -43, %438 ], [ -43, %191 ], [ -2, %349 ], [ -2, %236 ], [ %211, %210 ], [ %176, %pmix_obj_run_constructors.exit ]
+  %.0251 = phi i32 [ %176, %177 ], [ %211, %210 ], [ -43, %191 ], [ -43, %438 ], [ -2, %349 ], [ -2, %236 ], [ %176, %pmix_obj_run_constructors.exit ]
   %498 = load volatile i64, ptr %156, align 8, !tbaa !92
   %499 = icmp eq i64 %498, 0
   br i1 %499, label %._crit_edge497, label %.lr.ph496
@@ -1175,7 +1175,7 @@ pmix_obj_run_destructors.exit381:                 ; preds = %.lr.ph.i378, %._cri
   br label %543
 
 543:                                              ; preds = %pmix_obj_update.exit325, %400, %398, %pmix_obj_update.exit322, %287, %285, %70, %72, %29, %31, %37, %11, %13, %19, %pmix_obj_run_destructors.exit381, %._crit_edge494, %117
-  %.0 = phi i32 [ -43, %117 ], [ %.0251, %pmix_obj_run_destructors.exit381 ], [ %497, %._crit_edge494 ], [ -46, %19 ], [ -46, %13 ], [ -46, %11 ], [ -46, %37 ], [ -46, %31 ], [ -46, %29 ], [ -46, %72 ], [ -46, %70 ], [ %241, %285 ], [ %241, %287 ], [ %241, %pmix_obj_update.exit322 ], [ %354, %398 ], [ %354, %400 ], [ %354, %pmix_obj_update.exit325 ]
+  %.0 = phi i32 [ %497, %._crit_edge494 ], [ -46, %11 ], [ -46, %29 ], [ -43, %117 ], [ %.0251, %pmix_obj_run_destructors.exit381 ], [ -46, %70 ], [ %241, %pmix_obj_update.exit322 ], [ -46, %19 ], [ -46, %13 ], [ -46, %37 ], [ -46, %31 ], [ -46, %72 ], [ %241, %285 ], [ %241, %287 ], [ %354, %398 ], [ %354, %400 ], [ %354, %pmix_obj_update.exit325 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

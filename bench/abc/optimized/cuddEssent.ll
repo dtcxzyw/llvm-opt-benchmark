@@ -251,12 +251,12 @@ define internal fastcc ptr @ddFindEssentialRecur(ptr noundef %0, ptr noundef %1)
   br label %145
 
 145:                                              ; preds = %105, %114, %35, %75, %51, %136, %102, %38
-  %.099 = phi ptr [ %43, %38 ], [ %59, %51 ], [ %78, %75 ], [ %99, %102 ], [ %133, %136 ], [ %4, %35 ], [ %4, %114 ], [ %4, %105 ]
+  %.099 = phi ptr [ %43, %38 ], [ %133, %136 ], [ %59, %51 ], [ %78, %75 ], [ %99, %102 ], [ %4, %114 ], [ %4, %35 ], [ %4, %105 ]
   tail call void @cuddCacheInsert1(ptr noundef nonnull %0, ptr noundef nonnull @Cudd_FindEssential, ptr noundef %1, ptr noundef %.099) #13
   br label %146
 
 146:                                              ; preds = %111, %84, %60, %10, %2, %145, %135, %125, %101, %74
-  %.0 = phi ptr [ %.099, %145 ], [ null, %74 ], [ null, %101 ], [ null, %125 ], [ null, %135 ], [ %4, %2 ], [ %11, %10 ], [ null, %60 ], [ null, %84 ], [ null, %111 ]
+  %.0 = phi ptr [ null, %135 ], [ %4, %2 ], [ %.099, %145 ], [ %11, %10 ], [ null, %74 ], [ null, %60 ], [ null, %101 ], [ null, %84 ], [ null, %125 ], [ null, %111 ]
   ret ptr %.0
 }
 
@@ -518,7 +518,7 @@ Cudd_tlcInfoFree.exit:                            ; preds = %73, %76
   br label %emptyClauseSet.exit
 
 emptyClauseSet.exit:                              ; preds = %54, %bitVectorFree.exit45, %45, %bitVectorFree.exit38, %38, %36, %19, %18, %12, %bitVectorFree.exit55, %85, %23, %33
-  %.029 = phi ptr [ null, %33 ], [ null, %23 ], [ %56, %85 ], [ null, %bitVectorFree.exit55 ], [ null, %18 ], [ %13, %19 ], [ null, %12 ], [ null, %36 ], [ null, %38 ], [ null, %bitVectorFree.exit38 ], [ null, %45 ], [ null, %bitVectorFree.exit45 ], [ null, %54 ]
+  %.029 = phi ptr [ null, %bitVectorFree.exit55 ], [ null, %23 ], [ null, %33 ], [ null, %12 ], [ null, %38 ], [ null, %45 ], [ %56, %85 ], [ %13, %19 ], [ null, %18 ], [ null, %36 ], [ null, %bitVectorFree.exit38 ], [ null, %bitVectorFree.exit45 ], [ null, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.029
@@ -551,7 +551,7 @@ define internal fastcc noalias noundef ptr @emptyClauseSet() unnamed_addr #2 {
   br label %11
 
 11:                                               ; preds = %0, %7, %6
-  %.0 = phi ptr [ null, %6 ], [ %1, %7 ], [ null, %0 ]
+  %.0 = phi ptr [ %1, %7 ], [ null, %6 ], [ null, %0 ]
   ret ptr %.0
 }
 
@@ -693,7 +693,7 @@ define internal fastcc ptr @ddFindTwoLiteralClausesRecur(ptr noundef %0, ptr nou
   br label %emptyClauseSet.exit
 
 emptyClauseSet.exit:                              ; preds = %63, %67, %68
-  %.0.i = phi ptr [ null, %67 ], [ %61, %68 ], [ null, %63 ]
+  %.0.i = phi ptr [ %61, %68 ], [ null, %67 ], [ null, %63 ]
   store ptr %.0.i, ptr %4, align 8, !tbaa !40
   br label %151
 
@@ -883,7 +883,7 @@ emptyClauseSet.exit:                              ; preds = %63, %67, %68
   br label %emptyClauseSet.exit117.thread
 
 emptyClauseSet.exit117.thread:                    ; preds = %151, %96, %39, %72, %76, %157, %156, %142, %133, %118, %112, %107, %50, %103, %83, %46, %6
-  %.0 = phi ptr [ %7, %6 ], [ null, %46 ], [ null, %83 ], [ null, %103 ], [ null, %50 ], [ null, %107 ], [ null, %112 ], [ null, %118 ], [ null, %133 ], [ null, %142 ], [ null, %156 ], [ null, %157 ], [ null, %76 ], [ null, %72 ], [ null, %39 ], [ null, %96 ], [ %155, %151 ]
+  %.0 = phi ptr [ %7, %6 ], [ null, %133 ], [ null, %46 ], [ null, %72 ], [ null, %142 ], [ null, %96 ], [ null, %50 ], [ null, %83 ], [ null, %156 ], [ null, %103 ], [ null, %39 ], [ null, %107 ], [ null, %112 ], [ null, %118 ], [ null, %157 ], [ null, %76 ], [ %155, %151 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -974,7 +974,7 @@ bitVectorRead.exit22:                             ; preds = %16
   br label %41
 
 41:                                               ; preds = %16, %8, %11, %6, %bitVectorRead.exit22
-  %.0 = phi i32 [ 1, %bitVectorRead.exit22 ], [ 0, %6 ], [ 0, %11 ], [ 0, %8 ], [ 0, %16 ]
+  %.0 = phi i32 [ 1, %bitVectorRead.exit22 ], [ 0, %6 ], [ 0, %8 ], [ 0, %11 ], [ 0, %16 ]
   ret i32 %.0
 }
 
@@ -998,21 +998,21 @@ define range(i32 0, 2) i32 @Cudd_PrintTwoLiteralClauses(ptr noundef %0, ptr noun
   %14 = load ptr, ptr %5, align 8, !tbaa !34
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !37
-  %.fr129 = freeze ptr %16
+  %.fr128 = freeze ptr %16
   %17 = load i32, ptr %14, align 4, !tbaa !36
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %19 = load i32, ptr %18, align 4, !tbaa !36
   %20 = or i32 %19, %17
-  %.not112 = icmp eq i32 %20, 0
-  br i1 %.not112, label %._crit_edge, label %.lr.ph
+  %.not111 = icmp eq i32 %20, 0
+  br i1 %.not111, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
   %.not54 = icmp eq ptr %2, null
-  %21 = icmp eq ptr %.fr129, null
+  %21 = icmp eq ptr %.fr128, null
   br i1 %.not54, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %50
-  %indvars.iv144 = phi i64 [ %indvars.iv.next145, %50 ], [ 0, %.lr.ph ]
+  %indvars.iv143 = phi i64 [ %indvars.iv.next144, %50 ], [ 0, %.lr.ph ]
   %22 = phi i32 [ %54, %50 ], [ %19, %.lr.ph ]
   %23 = phi i32 [ %52, %50 ], [ %17, %.lr.ph ]
   %24 = icmp eq i32 %22, 2147483647
@@ -1022,28 +1022,28 @@ define range(i32 0, 2) i32 @Cudd_PrintTwoLiteralClauses(ptr noundef %0, ptr noun
   br i1 %21, label %bitVectorRead.exit70.thread.us, label %bitVectorRead.exit68.us
 
 bitVectorRead.exit68.us:                          ; preds = %25
-  %26 = lshr i64 %indvars.iv144, 6
-  %27 = and i64 %indvars.iv144, 62
+  %26 = lshr i64 %indvars.iv143, 6
+  %27 = and i64 %indvars.iv143, 62
   %28 = and i64 %26, 67108863
-  %29 = getelementptr inbounds nuw i64, ptr %.fr129, i64 %28
+  %29 = getelementptr inbounds nuw i64, ptr %.fr128, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !44
-  %31 = and i64 %indvars.iv144, 62
+  %31 = and i64 %indvars.iv143, 62
   %32 = shl nuw nsw i64 1, %31
-  %.fr106.us = freeze i64 %30
-  %.fr107.us = freeze i64 %32
-  %33 = and i64 %.fr106.us, %.fr107.us
+  %.fr105.us = freeze i64 %30
+  %.fr106.us = freeze i64 %32
+  %33 = and i64 %.fr105.us, %.fr106.us
   %.not55.us = icmp eq i64 %33, 0
   %spec.select97.us = select i1 %.not55.us, ptr @.str.2, ptr @.str.1
   %34 = shl nuw i64 2, %27
-  %.fr109.us = freeze i64 %34
-  %35 = and i64 %.fr106.us, %.fr109.us
+  %.fr108.us = freeze i64 %34
+  %35 = and i64 %.fr105.us, %.fr108.us
   %.not56.us = icmp eq i64 %35, 0
   %spec.select98.us = select i1 %.not56.us, ptr @.str.2, ptr @.str.1
   br label %bitVectorRead.exit70.thread.us
 
 bitVectorRead.exit70.thread.us:                   ; preds = %bitVectorRead.exit68.us, %25
-  %36 = phi ptr [ @.str.2, %25 ], [ %spec.select97.us, %bitVectorRead.exit68.us ]
-  %37 = phi ptr [ @.str.2, %25 ], [ %spec.select98.us, %bitVectorRead.exit68.us ]
+  %36 = phi ptr [ %spec.select97.us, %bitVectorRead.exit68.us ], [ @.str.2, %25 ]
+  %37 = phi ptr [ %spec.select98.us, %bitVectorRead.exit68.us ], [ @.str.2, %25 ]
   %38 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.5, ptr noundef nonnull %36, i32 noundef %23, ptr noundef nonnull %37, i32 noundef %22) #13
   br label %50
 
@@ -1051,15 +1051,15 @@ bitVectorRead.exit70.thread.us:                   ; preds = %bitVectorRead.exit6
   br i1 %21, label %bitVectorRead.exit66.thread.us, label %bitVectorRead.exit66.us
 
 bitVectorRead.exit66.us:                          ; preds = %39
-  %40 = lshr i64 %indvars.iv144, 6
-  %41 = and i64 %indvars.iv144, 62
+  %40 = lshr i64 %indvars.iv143, 6
+  %41 = and i64 %indvars.iv143, 62
   %42 = and i64 %40, 67108863
-  %43 = getelementptr inbounds nuw i64, ptr %.fr129, i64 %42
+  %43 = getelementptr inbounds nuw i64, ptr %.fr128, i64 %42
   %44 = load i64, ptr %43, align 8, !tbaa !44
   %45 = shl nuw nsw i64 1, %41
-  %.fr110.us = freeze i64 %44
-  %.fr111.us = freeze i64 %45
-  %46 = and i64 %.fr110.us, %.fr111.us
+  %.fr109.us = freeze i64 %44
+  %.fr110.us = freeze i64 %45
+  %46 = and i64 %.fr109.us, %.fr110.us
   %.not57.us = icmp eq i64 %46, 0
   br i1 %.not57.us, label %bitVectorRead.exit66.thread.us, label %47
 
@@ -1072,8 +1072,8 @@ bitVectorRead.exit66.thread.us:                   ; preds = %bitVectorRead.exit6
   br label %50
 
 50:                                               ; preds = %47, %bitVectorRead.exit70.thread.us
-  %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 2
-  %51 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.next145
+  %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 2
+  %51 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.next144
   %52 = load i32, ptr %51, align 4, !tbaa !36
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %54 = load i32, ptr %53, align 4, !tbaa !36
@@ -1085,7 +1085,7 @@ bitVectorRead.exit66.thread.us:                   ; preds = %bitVectorRead.exit6
   br i1 %21, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.split
 
 .lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split, %67
-  %indvars.iv141 = phi i64 [ %indvars.iv.next142, %67 ], [ 0, %.lr.ph.split ]
+  %indvars.iv140 = phi i64 [ %indvars.iv.next141, %67 ], [ 0, %.lr.ph.split ]
   %56 = phi i32 [ %71, %67 ], [ %19, %.lr.ph.split ]
   %57 = phi i32 [ %69, %67 ], [ %17, %.lr.ph.split ]
   %58 = icmp eq i32 %56, 2147483647
@@ -1106,14 +1106,14 @@ bitVectorRead.exit.thread.us.us:                  ; preds = %.lr.ph.split.split.
   br label %67
 
 67:                                               ; preds = %bitVectorRead.exit.thread.us.us, %bitVectorRead.exit64.thread.us.us
-  %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 2
-  %68 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.next142
+  %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 2
+  %68 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.next141
   %69 = load i32, ptr %68, align 4, !tbaa !36
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %71 = load i32, ptr %70, align 4, !tbaa !36
   %72 = or i32 %71, %69
-  %.not.us118.us = icmp eq i32 %72, 0
-  br i1 %.not.us118.us, label %._crit_edge, label %.lr.ph.split.split.us.split.us, !llvm.loop !46
+  %.not.us117.us = icmp eq i32 %72, 0
+  br i1 %.not.us117.us, label %._crit_edge, label %.lr.ph.split.split.us.split.us, !llvm.loop !46
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split, %97
   %indvars.iv = phi i64 [ %indvars.iv.next, %97 ], [ 0, %.lr.ph.split ]
@@ -1123,21 +1123,21 @@ bitVectorRead.exit.thread.us.us:                  ; preds = %.lr.ph.split.split.
   %76 = lshr i64 %indvars.iv, 6
   %77 = and i64 %indvars.iv, 62
   %78 = and i64 %76, 67108863
-  %79 = getelementptr inbounds nuw i64, ptr %.fr129, i64 %78
+  %79 = getelementptr inbounds nuw i64, ptr %.fr128, i64 %78
   %80 = load i64, ptr %79, align 8, !tbaa !44
   %.fr = freeze i64 %80
   br i1 %75, label %bitVectorRead.exit, label %bitVectorRead.exit62
 
 bitVectorRead.exit:                               ; preds = %.lr.ph.split.split.split
   %81 = shl nuw nsw i64 1, %77
-  %.fr105 = freeze i64 %81
-  %82 = and i64 %.fr, %.fr105
+  %.fr104 = freeze i64 %81
+  %82 = and i64 %.fr, %.fr104
   %.not60 = icmp eq i64 %82, 0
-  %spec.select128 = select i1 %.not60, ptr @.str.2, ptr @.str.1
+  %spec.select127 = select i1 %.not60, ptr @.str.2, ptr @.str.1
   %83 = zext i32 %74 to i64
   %84 = getelementptr inbounds nuw ptr, ptr %2, i64 %83
   %85 = load ptr, ptr %84, align 8, !tbaa !47
-  %86 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str, ptr noundef nonnull %spec.select128, ptr noundef %85) #13
+  %86 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str, ptr noundef nonnull %spec.select127, ptr noundef %85) #13
   br label %97
 
 bitVectorRead.exit62:                             ; preds = %.lr.ph.split.split.split
@@ -1152,8 +1152,8 @@ bitVectorRead.exit62:                             ; preds = %.lr.ph.split.split.
   %91 = and i64 %.fr, %.fr101
   %.not59 = icmp eq i64 %91, 0
   %spec.select = select i1 %.not59, ptr @.str.2, ptr @.str.1
-  %.pn103 = zext i32 %74 to i64
-  %.in102 = getelementptr inbounds nuw ptr, ptr %2, i64 %.pn103
+  %.pn.pn = zext i32 %74 to i64
+  %.in102 = getelementptr inbounds nuw ptr, ptr %2, i64 %.pn.pn
   %92 = load ptr, ptr %.in102, align 8, !tbaa !47
   %93 = zext i32 %73 to i64
   %94 = getelementptr inbounds nuw ptr, ptr %2, i64 %93
@@ -1692,7 +1692,7 @@ impliedp.exit.thread:                             ; preds = %bitVectorRead.exit4
   %285 = add nsw i32 %.0334, 2
   br label %.outer, !llvm.loop !56
 
-beforep.exit.thread16:                            ; preds = %163, %161, %158
+beforep.exit.thread16:                            ; preds = %163, %158, %161
   %.not59 = icmp eq i32 %80, 2147483647
   br i1 %.not59, label %286, label %327
 
@@ -2031,7 +2031,7 @@ beforep.exit474.thread:                           ; preds = %443, %439, %421, %b
   %.not407 = icmp eq ptr %470, null
   br i1 %.not407, label %.thread, label %449, !llvm.loop !57
 
-beforep.exit474.thread32:                         ; preds = %441, %437, %beforep.exit474
+beforep.exit474.thread32:                         ; preds = %437, %441, %beforep.exit474
   %471 = getelementptr inbounds nuw i8, ptr %.437499, i64 16
   %472 = load ptr, ptr %471, align 8, !tbaa !55
   br label %473
@@ -2262,8 +2262,8 @@ beforep.exit475.thread:                           ; preds = %.lr.ph112.beforep.e
   %583 = load ptr, ptr %582, align 8, !tbaa !55
   br label %612
 
-beforep.exit475.thread41:                         ; preds = %.beforep.exit475.thread41_crit_edge, %548, %544, %beforep.exit475
-  %584 = phi i16 [ %.pre144, %.beforep.exit475.thread41_crit_edge ], [ %535, %548 ], [ %535, %544 ], [ %535, %beforep.exit475 ]
+beforep.exit475.thread41:                         ; preds = %.beforep.exit475.thread41_crit_edge, %544, %548, %beforep.exit475
+  %584 = phi i16 [ %.pre144, %.beforep.exit475.thread41_crit_edge ], [ %535, %544 ], [ %535, %548 ], [ %535, %beforep.exit475 ]
   %585 = shl nsw i64 %indvars.iv.next, 1
   %586 = getelementptr inbounds i32, ptr %506, i64 %585
   store i32 %.pre, ptr %586, align 4, !tbaa !36
@@ -2307,9 +2307,9 @@ beforep.exit475.thread41:                         ; preds = %.beforep.exit475.th
   br i1 %615, label %.lr.ph112, label %.loopexit, !llvm.loop !62
 
 .loopexit68:                                      ; preds = %286, %impliedp.exit469.thread27, %87, %166, %impliedp.exit.thread21, %476, %452, %406, %409, %._crit_edge, %510
-  %.0379 = phi ptr [ %.1380.ph, %406 ], [ %407, %409 ], [ null, %._crit_edge ], [ null, %510 ], [ %.438398, %452 ], [ %.438398, %476 ], [ %.1380.ph, %impliedp.exit.thread21 ], [ %.1380.ph, %166 ], [ %.1380.ph, %87 ], [ %.1380.ph, %impliedp.exit469.thread27 ], [ %.1380.ph, %286 ]
-  %.0370 = phi ptr [ %.1371.ph252, %406 ], [ %.1371.ph252, %409 ], [ null, %._crit_edge ], [ null, %510 ], [ %.437499, %452 ], [ %.437499, %476 ], [ %.1371.ph252, %impliedp.exit.thread21 ], [ %.1371.ph252, %166 ], [ %.1371.ph252, %87 ], [ %.1371.ph252, %impliedp.exit469.thread27 ], [ %.1371.ph252, %286 ]
-  %.0359 = phi ptr [ null, %406 ], [ null, %409 ], [ %.5364, %._crit_edge ], [ %.5364, %510 ], [ %.236194, %452 ], [ %.636590, %476 ], [ null, %impliedp.exit.thread21 ], [ null, %166 ], [ null, %87 ], [ null, %impliedp.exit469.thread27 ], [ null, %286 ]
+  %.0379 = phi ptr [ %.438398, %476 ], [ %.1380.ph, %406 ], [ %407, %409 ], [ null, %510 ], [ null, %._crit_edge ], [ %.438398, %452 ], [ %.1380.ph, %impliedp.exit.thread21 ], [ %.1380.ph, %166 ], [ %.1380.ph, %87 ], [ %.1380.ph, %impliedp.exit469.thread27 ], [ %.1380.ph, %286 ]
+  %.0370 = phi ptr [ %.437499, %476 ], [ %.1371.ph252, %406 ], [ %.1371.ph252, %409 ], [ null, %510 ], [ null, %._crit_edge ], [ %.437499, %452 ], [ %.1371.ph252, %impliedp.exit.thread21 ], [ %.1371.ph252, %166 ], [ %.1371.ph252, %87 ], [ %.1371.ph252, %impliedp.exit469.thread27 ], [ %.1371.ph252, %286 ]
+  %.0359 = phi ptr [ %.636590, %476 ], [ null, %406 ], [ null, %409 ], [ %.5364, %510 ], [ %.5364, %._crit_edge ], [ %.236194, %452 ], [ null, %impliedp.exit.thread21 ], [ null, %166 ], [ null, %87 ], [ null, %impliedp.exit469.thread27 ], [ null, %286 ]
   %616 = load ptr, ptr %12, align 8, !tbaa !34
   %.not.i476 = icmp eq ptr %616, null
   br i1 %.not.i476, label %618, label %617
@@ -2378,7 +2378,7 @@ beforep.exit475.thread41:                         ; preds = %.beforep.exit475.th
   br i1 %.not419, label %.loopexit, label %.lr.ph124, !llvm.loop !66
 
 .loopexit:                                        ; preds = %612, %.lr.ph124, %2, %517, %.preheader
-  %.0 = phi ptr [ null, %.preheader ], [ %12, %517 ], [ null, %2 ], [ null, %.lr.ph124 ], [ %12, %612 ]
+  %.0 = phi ptr [ null, %.preheader ], [ %12, %517 ], [ null, %.lr.ph124 ], [ null, %2 ], [ %12, %612 ]
   ret ptr %.0
 }
 

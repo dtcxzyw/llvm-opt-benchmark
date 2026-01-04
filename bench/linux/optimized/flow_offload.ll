@@ -989,7 +989,7 @@ define dso_local noundef i32 @flow_block_cb_setup_simple(ptr noundef %0, ptr nou
   br label %.thread12
 
 .thread12:                                        ; preds = %60, %20, %47, %66, %63, %38, %.thread, %11, %7
-  %78 = phi i32 [ 0, %66 ], [ %37, %.thread ], [ 0, %38 ], [ -95, %7 ], [ -2, %63 ], [ -95, %11 ], [ -2, %47 ], [ -16, %20 ], [ -2, %60 ]
+  %78 = phi i32 [ 0, %66 ], [ %37, %.thread ], [ 0, %38 ], [ -95, %7 ], [ -95, %11 ], [ -2, %63 ], [ -16, %20 ], [ -2, %47 ], [ -2, %60 ]
   ret i32 %78
 }
 
@@ -1318,7 +1318,7 @@ define dso_local noundef ptr @flow_indr_block_cb_alloc(ptr noundef %0, ptr nound
   br label %.thread
 
 .thread:                                          ; preds = %10, %20, %14
-  %33 = phi ptr [ %12, %20 ], [ %12, %14 ], [ inttoptr (i64 -12 to ptr), %10 ]
+  %33 = phi ptr [ %12, %14 ], [ %12, %20 ], [ inttoptr (i64 -12 to ptr), %10 ]
   ret ptr %33
 }
 

@@ -579,7 +579,7 @@ define internal zeroext i1 @VULKAN_CreateRenderer(ptr noundef %0, ptr noundef %1
   br label %64
 
 64:                                               ; preds = %54, %58, %52, %17, %8, %16, %6
-  %.0 = phi i1 [ %7, %6 ], [ false, %16 ], [ false, %8 ], [ false, %17 ], [ false, %52 ], [ true, %58 ], [ true, %54 ]
+  %.0 = phi i1 [ %7, %6 ], [ false, %8 ], [ false, %17 ], [ false, %52 ], [ false, %16 ], [ true, %58 ], [ true, %54 ]
   ret i1 %.0
 }
 
@@ -650,7 +650,7 @@ define internal zeroext i1 @VULKAN_SupportsBlendMode(ptr readnone captures(none)
   br label %GetBlendFactor.exit
 
 GetBlendFactor.exit:                              ; preds = %2, %11, %9
-  %.0 = phi i1 [ false, %9 ], [ %13, %11 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %2 ], [ %13, %11 ], [ false, %9 ]
   ret i1 %.0
 }
 
@@ -716,7 +716,7 @@ define internal zeroext i1 @VULKAN_CreateTexture(ptr noundef readonly captures(n
   br label %SDLPixelFormatToVkTextureFormat.exit
 
 SDLPixelFormatToVkTextureFormat.exit:             ; preds = %3, %18, %19, %21, %23, %24, %25, %26, %27, %28
-  %.0.i = phi i32 [ 0, %28 ], [ 64, %18 ], [ 1000156000, %23 ], [ 1000156001, %24 ], [ 1000156002, %25 ], [ 1000156003, %26 ], [ 1000156013, %27 ], [ 97, %3 ], [ %..i, %19 ], [ %.4.i, %21 ]
+  %.0.i = phi i32 [ 0, %28 ], [ 1000156013, %27 ], [ 64, %18 ], [ %..i, %19 ], [ 97, %3 ], [ %.4.i, %21 ], [ 1000156003, %26 ], [ 1000156000, %23 ], [ 1000156001, %24 ], [ 1000156002, %25 ]
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1417,8 +1417,8 @@ VULKAN_DestroyImage.exit88.i:                     ; preds = %318, %315, %312
   call void @llvm.debugtrap()
   br label %VULKAN_AllocateImage.exit
 
-VULKAN_AllocateImage.exit.thread:                 ; preds = %.thread.i, %.thread95.i, %.thread98.i
-  %.4.i103.ph = phi i32 [ %.sink129.i, %.thread98.i ], [ -13, %.thread95.i ], [ %157, %.thread.i ]
+VULKAN_AllocateImage.exit.thread:                 ; preds = %.thread98.i, %.thread.i, %.thread95.i
+  %.4.i103.ph = phi i32 [ -13, %.thread95.i ], [ %157, %.thread.i ], [ %.sink129.i, %.thread98.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %326
 
@@ -1482,7 +1482,7 @@ VULKAN_AllocateImage.exit:                        ; preds = %VULKAN_DestroyImage
   br label %353
 
 353:                                              ; preds = %.thread112, %.thread109, %.thread104, %330, %333, %340, %350, %42, %127, %40, %36
-  %.0 = phi i1 [ %41, %40 ], [ false, %127 ], [ %37, %36 ], [ false, %42 ], [ false, %330 ], [ false, %350 ], [ true, %340 ], [ true, %333 ], [ %56, %.thread104 ], [ %.2.ph, %.thread109 ], [ false, %.thread112 ]
+  %.0 = phi i1 [ %41, %40 ], [ false, %42 ], [ false, %127 ], [ %37, %36 ], [ false, %330 ], [ false, %350 ], [ true, %340 ], [ true, %333 ], [ %56, %.thread104 ], [ %.2.ph, %.thread109 ], [ false, %.thread112 ]
   ret i1 %.0
 }
 
@@ -1589,7 +1589,7 @@ VULKAN_VkFormatGetNumPlanes.exit:                 ; preds = %26
   br label %.loopexit
 
 .loopexit:                                        ; preds = %34, %.critedge, %55, %12, %10
-  %.050 = phi i1 [ %11, %10 ], [ false, %12 ], [ true, %.critedge ], [ false, %55 ], [ false, %34 ]
+  %.050 = phi i1 [ false, %12 ], [ %11, %10 ], [ true, %.critedge ], [ false, %55 ], [ false, %34 ]
   ret i1 %.050
 }
 
@@ -1651,7 +1651,7 @@ define internal zeroext i1 @VULKAN_UpdateTextureYUV(ptr noundef readonly capture
   br label %54
 
 54:                                               ; preds = %42, %30, %16, %14
-  %.0 = phi i1 [ %15, %14 ], [ false, %16 ], [ false, %30 ], [ %53, %42 ]
+  %.0 = phi i1 [ false, %30 ], [ %53, %42 ], [ false, %16 ], [ %15, %14 ]
   ret i1 %.0
 }
 
@@ -1701,7 +1701,7 @@ define internal zeroext i1 @VULKAN_UpdateTextureNV(ptr noundef readonly captures
   br label %42
 
 42:                                               ; preds = %28, %14, %12
-  %.0 = phi i1 [ %13, %12 ], [ false, %14 ], [ %41, %28 ]
+  %.0 = phi i1 [ false, %14 ], [ %41, %28 ], [ %13, %12 ]
   ret i1 %.0
 }
 
@@ -1748,7 +1748,7 @@ define internal zeroext i1 @VULKAN_LockTexture(ptr noundef readonly captures(non
   br label %VULKAN_GetBytesPerPixel.exit
 
 VULKAN_GetBytesPerPixel.exit:                     ; preds = %17, %21, %22, %23
-  %.0.i = phi i64 [ 4, %23 ], [ 2, %21 ], [ 8, %22 ], [ 1, %17 ]
+  %.0.i = phi i64 [ 4, %23 ], [ 8, %22 ], [ 2, %21 ], [ 1, %17 ]
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %25 = load i32, ptr %24, align 4
   %26 = sext i32 %25 to i64
@@ -2991,7 +2991,7 @@ VULKAN_ActivateCommandBuffer.exit:                ; preds = %200, %206
   br label %290
 
 290:                                              ; preds = %288, %284, %276, %276, %276, %276, %283
-  %.sink = phi float [ 3.000000e+00, %283 ], [ 1.000000e+00, %276 ], [ 1.000000e+00, %276 ], [ 1.000000e+00, %276 ], [ 1.000000e+00, %276 ], [ 2.000000e+00, %284 ], [ %., %288 ]
+  %.sink = phi float [ 2.000000e+00, %284 ], [ %., %288 ], [ 1.000000e+00, %276 ], [ 3.000000e+00, %283 ], [ 1.000000e+00, %276 ], [ 1.000000e+00, %276 ], [ 1.000000e+00, %276 ]
   store float %.sink, ptr %103, align 4
   %291 = getelementptr inbounds nuw i8, ptr %.092117, i64 56
   %292 = load i32, ptr %291, align 8
@@ -3256,7 +3256,7 @@ VULKAN_SetCopyState.exit:                         ; preds = %.critedge.i.i, %342
   br i1 %.not96, label %.loopexit, label %145, !llvm.loop !11
 
 .loopexit:                                        ; preds = %398, %.preheader, %52, %36, %24
-  %.0 = phi i1 [ %25, %24 ], [ false, %36 ], [ false, %52 ], [ true, %.preheader ], [ true, %398 ]
+  %.0 = phi i1 [ %25, %24 ], [ false, %52 ], [ false, %36 ], [ true, %.preheader ], [ true, %398 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i1 %.0
 }
@@ -3331,7 +3331,7 @@ define internal ptr @VULKAN_RenderReadPixels(ptr noundef readonly captures(none)
   br label %VULKAN_GetBytesPerPixel.exit
 
 VULKAN_GetBytesPerPixel.exit:                     ; preds = %33, %34, %35, %36
-  %.0.i = phi i64 [ 4, %36 ], [ 2, %34 ], [ 8, %35 ], [ 1, %33 ]
+  %.0.i = phi i64 [ 4, %36 ], [ 8, %35 ], [ 2, %34 ], [ 1, %33 ]
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = load i32, ptr %37, align 4
   %39 = sext i32 %38 to i64
@@ -3484,7 +3484,7 @@ VULKAN_RecordPipelineImageBarrier.exit53:         ; preds = %VULKAN_RecordPipeli
   br label %VULKAN_VkFormatToSDLPixelFormat.exit
 
 VULKAN_VkFormatToSDLPixelFormat.exit:             ; preds = %VULKAN_RecordPipelineImageBarrier.exit53, %105, %106, %107, %108
-  %.0.i54 = phi i32 [ 0, %108 ], [ 376840196, %105 ], [ 376905732, %106 ], [ 438321160, %107 ], [ 372645892, %VULKAN_RecordPipelineImageBarrier.exit53 ]
+  %.0.i54 = phi i32 [ 0, %108 ], [ 438321160, %107 ], [ 376840196, %105 ], [ 376905732, %106 ], [ 372645892, %VULKAN_RecordPipelineImageBarrier.exit53 ]
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %110 = load ptr, ptr %109, align 8
   %.not51 = icmp eq ptr %110, null
@@ -3637,7 +3637,7 @@ define internal noundef zeroext i1 @VULKAN_AddVulkanRenderSemaphores(ptr noundef
   br label %.critedge
 
 .critedge:                                        ; preds = %54, %20, %13, %45, %._crit_edge
-  %.4 = phi i1 [ true, %._crit_edge ], [ true, %45 ], [ false, %13 ], [ false, %20 ], [ false, %54 ]
+  %.4 = phi i1 [ false, %20 ], [ true, %._crit_edge ], [ false, %54 ], [ true, %45 ], [ false, %13 ]
   ret i1 %.4
 }
 
@@ -4001,7 +4001,7 @@ VULKAN_RecordPipelineImageBarrier.exit:           ; preds = %15, %30
   br label %189
 
 189:                                              ; preds = %12, %188, %.critedge99, %.critedge, %61, %10
-  %.0 = phi i1 [ false, %61 ], [ %11, %10 ], [ false, %.critedge ], [ false, %.critedge99 ], [ true, %188 ], [ true, %12 ]
+  %.0 = phi i1 [ false, %61 ], [ false, %.critedge ], [ false, %.critedge99 ], [ %11, %10 ], [ true, %188 ], [ true, %12 ]
   ret i1 %.0
 }
 
@@ -4337,13 +4337,13 @@ define internal fastcc i32 @VULKAN_CreateDeviceResources(ptr noundef %0, i32 nou
   br i1 %34, label %.sink.split.sink.split.i, label %VULKAN_LoadGlobalFunctions.exit
 
 .sink.split.sink.split.i:                         ; preds = %33, %28, %23
-  %.str.80.sink6.i = phi ptr [ @.str.76, %23 ], [ @.str.78, %28 ], [ @.str.80, %33 ]
+  %.str.80.sink6.i = phi ptr [ @.str.78, %28 ], [ @.str.76, %23 ], [ @.str.80, %33 ]
   tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull %.str.80.sink6.i) #7
   tail call void @llvm.debugtrap()
   br label %VULKAN_LoadGlobalFunctions.exit
 
 VULKAN_LoadGlobalFunctions.exit:                  ; preds = %23, %28, %33, %.sink.split.sink.split.i
-  %.str.80.sink.i = phi ptr [ @.str.76, %23 ], [ @.str.78, %28 ], [ @.str.80, %33 ], [ %.str.80.sink6.i, %.sink.split.sink.split.i ]
+  %.str.80.sink.i = phi ptr [ @.str.78, %28 ], [ @.str.76, %23 ], [ @.str.80, %33 ], [ %.str.80.sink6.i, %.sink.split.sink.split.i ]
   %35 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull %.str.80.sink.i) #7
   br label %381
 
@@ -4671,13 +4671,13 @@ VULKAN_LoadGlobalFunctions.exit:                  ; preds = %23, %28, %33, %.sin
   br i1 %186, label %.sink.split, label %187
 
 .sink.split:                                      ; preds = %185, %179, %173, %167, %161, %155, %149, %143, %137, %131, %125, %119, %113, %107, %101
-  %.str.111.sink249 = phi ptr [ @.str.83, %101 ], [ @.str.85, %107 ], [ @.str.87, %113 ], [ @.str.89, %119 ], [ @.str.91, %125 ], [ @.str.93, %131 ], [ @.str.95, %137 ], [ @.str.97, %143 ], [ @.str.99, %149 ], [ @.str.101, %155 ], [ @.str.103, %161 ], [ @.str.105, %167 ], [ @.str.107, %173 ], [ @.str.109, %179 ], [ @.str.111, %185 ]
+  %.str.111.sink249 = phi ptr [ @.str.109, %179 ], [ @.str.107, %173 ], [ @.str.105, %167 ], [ @.str.103, %161 ], [ @.str.101, %155 ], [ @.str.99, %149 ], [ @.str.97, %143 ], [ @.str.95, %137 ], [ @.str.93, %131 ], [ @.str.91, %125 ], [ @.str.89, %119 ], [ @.str.87, %113 ], [ @.str.85, %107 ], [ @.str.83, %101 ], [ @.str.111, %185 ]
   call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull %.str.111.sink249) #7
   call void @llvm.debugtrap()
   br label %187
 
 187:                                              ; preds = %.sink.split, %185, %179, %173, %167, %161, %155, %149, %143, %137, %131, %125, %119, %113, %107, %101
-  %.str.111.sink = phi ptr [ @.str.83, %101 ], [ @.str.85, %107 ], [ @.str.87, %113 ], [ @.str.89, %119 ], [ @.str.91, %125 ], [ @.str.93, %131 ], [ @.str.95, %137 ], [ @.str.97, %143 ], [ @.str.99, %149 ], [ @.str.101, %155 ], [ @.str.103, %161 ], [ @.str.105, %167 ], [ @.str.107, %173 ], [ @.str.109, %179 ], [ @.str.111, %185 ], [ %.str.111.sink249, %.sink.split ]
+  %.str.111.sink = phi ptr [ @.str.109, %179 ], [ @.str.107, %173 ], [ @.str.105, %167 ], [ @.str.103, %161 ], [ @.str.101, %155 ], [ @.str.99, %149 ], [ @.str.97, %143 ], [ @.str.95, %137 ], [ @.str.93, %131 ], [ @.str.91, %125 ], [ @.str.89, %119 ], [ @.str.87, %113 ], [ @.str.85, %107 ], [ @.str.83, %101 ], [ @.str.111, %185 ], [ %.str.111.sink249, %.sink.split ]
   %188 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull %.str.111.sink) #7
   call fastcc void @VULKAN_DestroyAll(ptr noundef nonnull %0)
   br label %381
@@ -5088,7 +5088,7 @@ VULKAN_LoadGlobalFunctions.exit:                  ; preds = %23, %28, %33, %.sin
   br label %381
 
 381:                                              ; preds = %294, %94, %VULKAN_LoadGlobalFunctions.exit, %380, %299, %234, %221, %187, %43, %.thread, %16
-  %.0 = phi i32 [ %.5, %380 ], [ -13, %299 ], [ %289, %294 ], [ -13, %234 ], [ -13, %221 ], [ -13, %187 ], [ %89, %94 ], [ -13, %43 ], [ -13, %.thread ], [ -13, %16 ], [ -13, %VULKAN_LoadGlobalFunctions.exit ]
+  %.0 = phi i32 [ %.5, %380 ], [ -13, %299 ], [ %289, %294 ], [ -13, %234 ], [ -13, %221 ], [ -13, %187 ], [ %89, %94 ], [ -13, %43 ], [ -13, %16 ], [ -13, %.thread ], [ -13, %VULKAN_LoadGlobalFunctions.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -5666,8 +5666,8 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %231, %233
   br label %251
 
 251:                                              ; preds = %.fold.split.i, %250, %241
-  %.0438.i = phi i32 [ 64, %250 ], [ 97, %241 ], [ 44, %.fold.split.i ]
-  %.0437.i = phi i32 [ 1000104008, %250 ], [ 1000104002, %241 ], [ 0, %.fold.split.i ]
+  %.0438.i = phi i32 [ 97, %241 ], [ 64, %250 ], [ 44, %.fold.split.i ]
+  %.0437.i = phi i32 [ 1000104002, %241 ], [ 1000104008, %250 ], [ 0, %.fold.split.i ]
   %252 = getelementptr inbounds nuw i8, ptr %20, i64 10360
   %253 = load i32, ptr %252, align 8
   %254 = icmp eq i32 %253, 1
@@ -5920,7 +5920,7 @@ thread-pre-split:                                 ; preds = %299, %305
   br label %VULKAN_CreateSwapChain.exit.thread
 
 .sink.split.sink.split:                           ; preds = %352, %.lr.ph99, %351, %.lr.ph104, %.preheader46, %.preheader47, %342
-  %.0419.i.ph.ph = phi i32 [ 2, %342 ], [ 2, %.preheader46 ], [ 2, %.preheader47 ], [ %347, %.lr.ph104 ], [ %.6425.i, %351 ], [ 3, %.lr.ph99 ], [ 2, %352 ]
+  %.0419.i.ph.ph = phi i32 [ 2, %342 ], [ 2, %.preheader47 ], [ %.6425.i, %351 ], [ 2, %.preheader46 ], [ %347, %.lr.ph104 ], [ 2, %352 ], [ 3, %.lr.ph99 ]
   call void @SDL_free_REAL(ptr noundef %330) #7
   br label %.sink.split
 
@@ -6460,8 +6460,8 @@ VULKAN_CreateSwapChain.exit.thread39:             ; preds = %397, %412, %429, %.
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %VULKAN_CreateSwapChain.exit.thread
 
-VULKAN_CreateSwapChain.exit.thread43:             ; preds = %486, %533, %.thread26, %.thread31, %582, %573
-  %.9.i.ph = phi i32 [ %617, %.thread31 ], [ %501, %.thread26 ], [ %520, %533 ], [ %481, %486 ], [ -13, %582 ], [ -13, %573 ]
+VULKAN_CreateSwapChain.exit.thread43:             ; preds = %486, %533, %.thread31, %.thread26, %582, %573
+  %.9.i.ph = phi i32 [ %501, %.thread26 ], [ %481, %486 ], [ %617, %.thread31 ], [ %520, %533 ], [ -13, %582 ], [ -13, %573 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %VULKAN_CreateSwapChain.exit.thread
@@ -6896,7 +6896,7 @@ define internal fastcc noundef zeroext i1 @VULKAN_UpdateTextureInternal(ptr noun
   br label %VULKAN_GetBytesPerPixel.exit.thread
 
 VULKAN_GetBytesPerPixel.exit.thread:              ; preds = %11, %15, %16
-  %.0.i.ph = phi i64 [ 1, %11 ], [ 8, %16 ], [ 2, %15 ]
+  %.0.i.ph = phi i64 [ 1, %11 ], [ 2, %15 ], [ 8, %16 ]
   %17 = sext i32 %6 to i64
   %18 = mul nsw i64 %.0.i.ph, %17
   %19 = sext i32 %7 to i64
@@ -6918,10 +6918,10 @@ VULKAN_GetBytesPerPixel.exit:                     ; preds = %11
   br label %VULKAN_VkFormatGetNumPlanes.exit
 
 VULKAN_VkFormatGetNumPlanes.exit:                 ; preds = %VULKAN_GetBytesPerPixel.exit, %VULKAN_GetBytesPerPixel.exit, %VULKAN_GetBytesPerPixel.exit.thread, %VULKAN_GetBytesPerPixel.exit, %25
-  %26 = phi i64 [ %24, %VULKAN_GetBytesPerPixel.exit ], [ %20, %VULKAN_GetBytesPerPixel.exit.thread ], [ %24, %25 ], [ %24, %VULKAN_GetBytesPerPixel.exit ], [ %24, %VULKAN_GetBytesPerPixel.exit ]
-  %27 = phi i64 [ %23, %VULKAN_GetBytesPerPixel.exit ], [ %19, %VULKAN_GetBytesPerPixel.exit.thread ], [ %23, %25 ], [ %23, %VULKAN_GetBytesPerPixel.exit ], [ %23, %VULKAN_GetBytesPerPixel.exit ]
-  %28 = phi i64 [ %22, %VULKAN_GetBytesPerPixel.exit ], [ %18, %VULKAN_GetBytesPerPixel.exit.thread ], [ %22, %25 ], [ %22, %VULKAN_GetBytesPerPixel.exit ], [ %22, %VULKAN_GetBytesPerPixel.exit ]
-  %29 = phi i1 [ false, %VULKAN_GetBytesPerPixel.exit ], [ true, %VULKAN_GetBytesPerPixel.exit.thread ], [ true, %25 ], [ false, %VULKAN_GetBytesPerPixel.exit ], [ false, %VULKAN_GetBytesPerPixel.exit ]
+  %26 = phi i64 [ %24, %VULKAN_GetBytesPerPixel.exit ], [ %24, %25 ], [ %20, %VULKAN_GetBytesPerPixel.exit.thread ], [ %24, %VULKAN_GetBytesPerPixel.exit ], [ %24, %VULKAN_GetBytesPerPixel.exit ]
+  %27 = phi i64 [ %23, %VULKAN_GetBytesPerPixel.exit ], [ %23, %25 ], [ %19, %VULKAN_GetBytesPerPixel.exit.thread ], [ %23, %VULKAN_GetBytesPerPixel.exit ], [ %23, %VULKAN_GetBytesPerPixel.exit ]
+  %28 = phi i64 [ %22, %VULKAN_GetBytesPerPixel.exit ], [ %22, %25 ], [ %18, %VULKAN_GetBytesPerPixel.exit.thread ], [ %22, %VULKAN_GetBytesPerPixel.exit ], [ %22, %VULKAN_GetBytesPerPixel.exit ]
+  %29 = phi i1 [ false, %VULKAN_GetBytesPerPixel.exit ], [ true, %25 ], [ true, %VULKAN_GetBytesPerPixel.exit.thread ], [ false, %VULKAN_GetBytesPerPixel.exit ], [ false, %VULKAN_GetBytesPerPixel.exit ]
   tail call fastcc void @VULKAN_EnsureCommandBuffer(ptr noundef %0)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 10208
   %31 = load ptr, ptr %30, align 8
@@ -8766,8 +8766,8 @@ thread-pre-split12:                               ; preds = %400
   br label %492
 
 466:                                              ; preds = %.thread16, %.thread14, %407
-  %.2138 = phi i64 [ %415, %407 ], [ 0, %.thread14 ], [ 0, %.thread16 ]
-  %.1134 = phi ptr [ %397, %407 ], [ %397, %.thread14 ], [ %464, %.thread16 ]
+  %.2138 = phi i64 [ 0, %.thread16 ], [ %415, %407 ], [ 0, %.thread14 ]
+  %.1134 = phi ptr [ %464, %.thread16 ], [ %397, %407 ], [ %397, %.thread14 ]
   %467 = load ptr, ptr %81, align 8
   %468 = getelementptr inbounds nuw i8, ptr %467, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %468, ptr noundef nonnull align 4 dereferenceable(48) %.0130, i64 48, i1 false)
@@ -10188,7 +10188,7 @@ define internal fastcc noundef zeroext i1 @VULKAN_InstanceExtensionFound(ptr nou
   br label %.critedge28
 
 .critedge28:                                      ; preds = %33, %24, %12, %.critedge, %9
-  %.018 = phi i1 [ false, %9 ], [ false, %.critedge ], [ false, %12 ], [ true, %33 ], [ false, %24 ]
+  %.018 = phi i1 [ false, %9 ], [ false, %12 ], [ false, %.critedge ], [ true, %33 ], [ false, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.018
 }
@@ -10468,7 +10468,7 @@ define internal fastcc i32 @VULKAN_FindPhysicalDevice(ptr noundef %0) unnamed_ad
   br i1 %98, label %.lr.ph, label %.loopexit166, !llvm.loop !62
 
 .loopexit166:                                     ; preds = %95, %68, %94
-  %99 = phi i32 [ 0, %68 ], [ %.pre244, %94 ], [ %96, %95 ]
+  %99 = phi i32 [ %.pre244, %94 ], [ 0, %68 ], [ %96, %95 ]
   %100 = load i32, ptr %45, align 4
   %101 = icmp eq i32 %100, %99
   br i1 %101, label %.loopexit, label %102
@@ -10570,8 +10570,8 @@ define internal fastcc i32 @VULKAN_FindPhysicalDevice(ptr noundef %0) unnamed_ad
   %143 = icmp eq i32 %142, 0
   br i1 %143, label %.critedge, label %137
 
-.critedge.thread159:                              ; preds = %112, %134, %125, %67, %.thread139
-  %.2.ph158 = phi i32 [ -13, %.thread139 ], [ -13, %67 ], [ -13, %125 ], [ %128, %134 ], [ -13, %112 ]
+.critedge.thread159:                              ; preds = %67, %125, %.thread139, %134, %112
+  %.2.ph158 = phi i32 [ -13, %112 ], [ %128, %134 ], [ -13, %.thread139 ], [ -13, %125 ], [ -13, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %153
@@ -10583,10 +10583,10 @@ define internal fastcc i32 @VULKAN_FindPhysicalDevice(ptr noundef %0) unnamed_ad
   br label %.loopexit167
 
 .loopexit:                                        ; preds = %137, %.preheader, %48, %54, %.loopexit166, %102, %115
-  %.2111.ph = phi ptr [ %.3112, %115 ], [ %.3112, %102 ], [ %.3112, %.loopexit166 ], [ %.0109201, %54 ], [ %.0109201, %48 ], [ %.3112, %.preheader ], [ %.3112, %137 ]
-  %.1107.ph = phi i32 [ %.2108, %115 ], [ %.2108, %102 ], [ %.2108, %.loopexit166 ], [ %.0106202, %54 ], [ %.0106202, %48 ], [ %.2108, %.preheader ], [ %.2108, %137 ]
-  %.2104.ph = phi ptr [ %.0102203, %115 ], [ %.0102203, %102 ], [ %.0102203, %.loopexit166 ], [ %.0102203, %54 ], [ %.0102203, %48 ], [ %.3105, %.preheader ], [ %.3105, %137 ]
-  %.1100.ph = phi i32 [ %.099204, %115 ], [ %.099204, %102 ], [ %.099204, %.loopexit166 ], [ %.099204, %54 ], [ %.099204, %48 ], [ %.2101, %.preheader ], [ %.2101, %137 ]
+  %.2111.ph = phi ptr [ %.0109201, %48 ], [ %.3112, %115 ], [ %.3112, %102 ], [ %.3112, %.loopexit166 ], [ %.0109201, %54 ], [ %.3112, %.preheader ], [ %.3112, %137 ]
+  %.1107.ph = phi i32 [ %.0106202, %48 ], [ %.2108, %115 ], [ %.2108, %102 ], [ %.2108, %.loopexit166 ], [ %.0106202, %54 ], [ %.2108, %.preheader ], [ %.2108, %137 ]
+  %.2104.ph = phi ptr [ %.0102203, %48 ], [ %.0102203, %115 ], [ %.0102203, %102 ], [ %.0102203, %.loopexit166 ], [ %.0102203, %54 ], [ %.3105, %.preheader ], [ %.3105, %137 ]
+  %.1100.ph = phi i32 [ %.099204, %48 ], [ %.099204, %115 ], [ %.099204, %102 ], [ %.099204, %.loopexit166 ], [ %.099204, %54 ], [ %.2101, %.preheader ], [ %.2101, %137 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 1
@@ -10619,7 +10619,7 @@ define internal fastcc i32 @VULKAN_FindPhysicalDevice(ptr noundef %0) unnamed_ad
   br label %153
 
 153:                                              ; preds = %.critedge.thread159, %.loopexit167, %151, %36, %23, %14
-  %.0 = phi i32 [ %9, %14 ], [ -13, %23 ], [ %31, %36 ], [ -13, %151 ], [ 0, %.loopexit167 ], [ %.2.ph158, %.critedge.thread159 ]
+  %.0 = phi i32 [ %9, %14 ], [ -13, %23 ], [ %31, %36 ], [ %.2.ph158, %.critedge.thread159 ], [ -13, %151 ], [ 0, %.loopexit167 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

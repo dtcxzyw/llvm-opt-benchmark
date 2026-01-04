@@ -726,7 +726,7 @@ define noundef i32 @_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UE
   br label %36
 
 36:                                               ; preds = %4, %34, %32, %14
-  %.0 = phi i32 [ %12, %14 ], [ %30, %32 ], [ %35, %34 ], [ %2, %4 ]
+  %.0 = phi i32 [ %35, %34 ], [ %12, %14 ], [ %30, %32 ], [ %2, %4 ]
   ret i32 %.0
 }
 
@@ -891,8 +891,8 @@ define noundef i32 @_ZN6icu_7722FormattedStringBuilder6insertEiRKNS_13UnicodeStr
   br label %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit
 
 _ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit: ; preds = %18, %36, %38
-  %40 = phi i32 [ %9, %18 ], [ %9, %36 ], [ %.pre, %38 ]
-  %.0.i = phi i32 [ %16, %18 ], [ %34, %36 ], [ %39, %38 ]
+  %40 = phi i32 [ %.pre, %38 ], [ %9, %18 ], [ %9, %36 ]
+  %.0.i = phi i32 [ %39, %38 ], [ %16, %18 ], [ %34, %36 ]
   %41 = icmp slt i32 %40, 1
   %42 = icmp sgt i32 %8, 0
   %or.cond = and i1 %41, %42
@@ -1067,7 +1067,7 @@ _ZN6icu_7722FormattedStringBuilder6removeEii.exit: ; preds = %_ZN12_GLOBAL__N_11
   br label %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit
 
 _ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit: ; preds = %42, %40, %22, %_ZN6icu_7722FormattedStringBuilder6removeEii.exit
-  %.028 = phi i32 [ %48, %_ZN6icu_7722FormattedStringBuilder6removeEii.exit ], [ %20, %22 ], [ %38, %40 ], [ %43, %42 ]
+  %.028 = phi i32 [ %48, %_ZN6icu_7722FormattedStringBuilder6removeEii.exit ], [ %43, %42 ], [ %20, %22 ], [ %38, %40 ]
   %78 = load i32, ptr %7, align 4, !tbaa !16
   %79 = icmp slt i32 %78, 1
   %80 = icmp sgt i32 %9, 0
@@ -1260,8 +1260,8 @@ define noundef i32 @_ZN6icu_7722FormattedStringBuilder6insertEiRKS0_R10UErrorCod
   br label %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit
 
 _ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit: ; preds = %21, %39, %41
-  %43 = phi i32 [ %5, %21 ], [ %5, %39 ], [ %.pre, %41 ]
-  %.0.i = phi i32 [ %19, %21 ], [ %37, %39 ], [ %42, %41 ]
+  %43 = phi i32 [ %.pre, %41 ], [ %5, %21 ], [ %5, %39 ]
+  %.0.i = phi i32 [ %42, %41 ], [ %19, %21 ], [ %37, %39 ]
   %44 = icmp slt i32 %43, 1
   %45 = icmp sgt i32 %12, 0
   %or.cond = and i1 %44, %45
@@ -1308,7 +1308,7 @@ _ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit: ; pre
   br i1 %exitcond.not, label %.loopexit, label %52, !llvm.loop !21
 
 .loopexit:                                        ; preds = %52, %10, %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit, %4, %9
-  %.0 = phi i32 [ 0, %9 ], [ 0, %4 ], [ 0, %10 ], [ %12, %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit ], [ %12, %52 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %10 ], [ %12, %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit ], [ %12, %52 ]
   ret i32 %.0
 }
 
@@ -1822,7 +1822,7 @@ _ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit21: ; preds = %._crit
   br label %82
 
 82:                                               ; preds = %54, %68, %74, %80, %40, %39, %33
-  %.pn17.pn = phi { ptr, i32 } [ %81, %80 ], [ %41, %40 ], [ %.pn, %39 ], [ %34, %33 ], [ %55, %54 ], [ %69, %68 ], [ %75, %74 ]
+  %.pn17.pn = phi { ptr, i32 } [ %34, %33 ], [ %81, %80 ], [ %41, %40 ], [ %.pn, %39 ], [ %55, %54 ], [ %69, %68 ], [ %75, %74 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #15
   resume { ptr, i32 } %.pn17.pn
 }
@@ -1910,7 +1910,7 @@ define noundef zeroext i1 @_ZNK6icu_7722FormattedStringBuilder13contentEqualsERK
   br i1 %.not16, label %30, label %.critedge
 
 .critedge:                                        ; preds = %31, %38, %30, %.preheader, %2
-  %.012 = phi i1 [ false, %2 ], [ true, %.preheader ], [ false, %31 ], [ false, %38 ], [ true, %30 ]
+  %.012 = phi i1 [ false, %2 ], [ true, %.preheader ], [ false, %38 ], [ false, %31 ], [ true, %30 ]
   ret i1 %.012
 }
 

@@ -135,8 +135,8 @@ define range(i32 0, 2) i32 @BN_X931_derive_prime_ex(ptr noundef %0, ptr noundef 
   %63 = tail call i32 @BN_GENCB_call(ptr noundef %8, i32 noundef 3, i32 noundef 0) #2
   br label %.thread106
 
-.thread106:                                       ; preds = %61, %57, %53, %51, %.preheader, %47, %45, %43, %38, %36, %34, %32, %30, %28, %26, %24, %19, %.critedge
-  %.079 = phi i32 [ 0, %19 ], [ 1, %.critedge ], [ 0, %47 ], [ 0, %45 ], [ 0, %43 ], [ 0, %38 ], [ 0, %36 ], [ 0, %34 ], [ 0, %32 ], [ 0, %30 ], [ 0, %28 ], [ 0, %26 ], [ 0, %24 ], [ 0, %.preheader ], [ 0, %51 ], [ 0, %53 ], [ 0, %57 ], [ 0, %61 ]
+.thread106:                                       ; preds = %61, %57, %.preheader, %51, %53, %47, %45, %43, %38, %36, %34, %32, %30, %28, %26, %24, %19, %.critedge
+  %.079 = phi i32 [ 0, %19 ], [ 1, %.critedge ], [ 0, %24 ], [ 0, %47 ], [ 0, %45 ], [ 0, %43 ], [ 0, %38 ], [ 0, %36 ], [ 0, %34 ], [ 0, %32 ], [ 0, %30 ], [ 0, %28 ], [ 0, %26 ], [ 0, %53 ], [ 0, %51 ], [ 0, %.preheader ], [ 0, %57 ], [ 0, %61 ]
   tail call void @BN_CTX_end(ptr noundef %7) #2
   br label %64
 
@@ -192,7 +192,7 @@ define internal fastcc range(i32 0, 2) i32 @bn_x931_derive_pi(ptr noundef %0, pt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %10, %8, %4, %18
-  %.0 = phi i32 [ 1, %18 ], [ 0, %4 ], [ 0, %8 ], [ 0, %10 ], [ 0, %16 ]
+  %.0 = phi i32 [ 0, %8 ], [ 1, %18 ], [ 0, %4 ], [ 0, %10 ], [ 0, %16 ]
   ret i32 %.0
 }
 
@@ -273,7 +273,7 @@ define range(i32 0, 2) i32 @BN_X931_generate_Xpq(ptr noundef %0, ptr noundef %1,
   br label %23
 
 23:                                               ; preds = %22, %7, %4, %.loopexit
-  %.022 = phi i32 [ 0, %.loopexit ], [ 0, %4 ], [ 0, %7 ], [ %., %22 ]
+  %.022 = phi i32 [ 0, %4 ], [ 0, %.loopexit ], [ %., %22 ], [ 0, %7 ]
   ret i32 %.022
 }
 
@@ -322,7 +322,7 @@ define range(i32 0, 2) i32 @BN_X931_generate_prime_ex(ptr noundef %0, ptr nounde
   br label %26
 
 26:                                               ; preds = %24, %22, %20, %17
-  %.0 = phi i32 [ 0, %17 ], [ 0, %22 ], [ 0, %20 ], [ %25, %24 ]
+  %.0 = phi i32 [ 0, %17 ], [ 0, %20 ], [ %25, %24 ], [ 0, %22 ]
   tail call void @BN_CTX_end(ptr noundef %7) #2
   ret i32 %.0
 }

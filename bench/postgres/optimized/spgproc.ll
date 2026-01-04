@@ -100,7 +100,7 @@ point_box_distance.exit.us:                       ; preds = %.lr.ph, %point_box_
   br label %point_box_distance.exit
 
 point_box_distance.exit:                          ; preds = %52, %31, %27, %24, %.lr.ph.split
-  %54 = phi double [ %53, %52 ], [ 0x7FF8000000000000, %31 ], [ 0x7FF8000000000000, %27 ], [ 0x7FF8000000000000, %24 ], [ 0x7FF8000000000000, %.lr.ph.split ]
+  %54 = phi double [ 0x7FF8000000000000, %.lr.ph.split ], [ %53, %52 ], [ 0x7FF8000000000000, %31 ], [ 0x7FF8000000000000, %27 ], [ 0x7FF8000000000000, %24 ]
   store double %54, ptr %.01417, align 8
   %55 = add nuw nsw i32 %.01516, 1
   %56 = getelementptr inbounds nuw i8, ptr %.018, i64 72

@@ -135,8 +135,8 @@ define dso_local range(i32 -1, 1) i32 @job_container_init() local_unnamed_addr #
   br i1 %.not14, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %48, %14, %7, %12, %10, %45
-  %.not17 = phi i1 [ true, %7 ], [ false, %45 ], [ true, %12 ], [ true, %10 ], [ true, %14 ], [ true, %48 ]
-  %.0 = phi i32 [ 0, %7 ], [ -1, %45 ], [ 0, %12 ], [ 0, %10 ], [ 0, %14 ], [ 0, %48 ]
+  %.not17 = phi i1 [ true, %7 ], [ false, %45 ], [ true, %10 ], [ true, %12 ], [ true, %14 ], [ true, %48 ]
+  %.0 = phi i32 [ 0, %7 ], [ -1, %45 ], [ 0, %10 ], [ 0, %12 ], [ 0, %14 ], [ 0, %48 ]
   %52 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_container_context_lock) #7
   %.not16 = icmp eq i32 %52, 0
   br i1 %.not16, label %55, label %53

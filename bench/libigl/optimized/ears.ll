@@ -235,7 +235,7 @@ _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i.i.i
   br label %82
 
 82:                                               ; preds = %77, %79
-  %.pn13.pn = phi { ptr, i32 } [ %80, %79 ], [ %78, %77 ]
+  %.pn13.pn = phi { ptr, i32 } [ %78, %77 ], [ %80, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %91
 

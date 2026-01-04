@@ -318,7 +318,7 @@ ascii_to_unicode_le.exit:                         ; preds = %.lr.ph.i, %6
   br label %25
 
 25:                                               ; preds = %.thread, %6, %2, %23
-  %.0 = phi i32 [ %20, %23 ], [ 27, %2 ], [ 27, %6 ], [ 27, %.thread ]
+  %.0 = phi i32 [ 27, %2 ], [ %20, %23 ], [ 27, %6 ], [ 27, %.thread ]
   ret i32 %.0
 }
 
@@ -384,7 +384,7 @@ ascii_to_unicode_le.exit:                         ; preds = %.lr.ph.i24, %ascii_
   br label %33
 
 33:                                               ; preds = %9, %6, %ascii_to_unicode_le.exit
-  %.0 = phi i32 [ %31, %ascii_to_unicode_le.exit ], [ 27, %6 ], [ 27, %9 ]
+  %.0 = phi i32 [ 27, %6 ], [ %31, %ascii_to_unicode_le.exit ], [ 27, %9 ]
   ret i32 %.0
 }
 

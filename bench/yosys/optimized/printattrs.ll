@@ -159,7 +159,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   br label %common.resume
 
 common.resume:                                    ; preds = %66, %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit152, %26, %29
-  %common.resume.op = phi { ptr, i32 } [ %27, %29 ], [ %27, %26 ], [ %.pn107.pn.pn, %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit152 ], [ %67, %66 ]
+  %common.resume.op = phi { ptr, i32 } [ %27, %26 ], [ %27, %29 ], [ %.pn107.pn.pn, %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit152 ], [ %67, %66 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_.exit: ; preds = %20
@@ -654,7 +654,7 @@ _ZNSt6vectorIPN5Yosys5RTLIL4WireESaIS3_EED2Ev.exit150: ; preds = %218, %220
   br i1 %.not, label %._crit_edge201.loopexit, label %68
 
 228:                                              ; preds = %108, %178, %_ZNSt6vectorIPN5Yosys5RTLIL4WireESaIS3_EED2Ev.exit150, %120, %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit135, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118, %94
-  %.pn107.pn.pn = phi { ptr, i32 } [ %95, %94 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118 ], [ %.pn102.pn.pn, %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit135 ], [ %121, %120 ], [ %.pn95.pn.pn, %_ZNSt6vectorIPN5Yosys5RTLIL4WireESaIS3_EED2Ev.exit150 ], [ %179, %178 ], [ %109, %108 ]
+  %.pn107.pn.pn = phi { ptr, i32 } [ %179, %178 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118 ], [ %121, %120 ], [ %95, %94 ], [ %.pn102.pn.pn, %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit135 ], [ %.pn95.pn.pn, %_ZNSt6vectorIPN5Yosys5RTLIL4WireESaIS3_EED2Ev.exit150 ], [ %109, %108 ]
   %229 = load ptr, ptr %5, align 8, !tbaa !26
   %.not.i.i.i151 = icmp eq ptr %229, null
   br i1 %.not.i.i.i151, label %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit152, label %230

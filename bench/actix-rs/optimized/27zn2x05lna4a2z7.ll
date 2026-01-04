@@ -1311,10 +1311,10 @@ select.unfold.i.i.i.i:                            ; preds = %165, %"_ZN4core3str
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %123, %83
-  %189 = phi i64 [ %48, %123 ], [ %78, %83 ], [ %166, %.loopexit.loopexit ]
-  %.lcssa6105 = phi i64 [ %.lcssa6108111, %123 ], [ %.lcssa6108111, %83 ], [ %169, %.loopexit.loopexit ]
-  %190 = phi i1 [ true, %123 ], [ true, %83 ], [ %188, %.loopexit.loopexit ]
-  %.us-phi.i.i.i.i = phi i64 [ %127, %123 ], [ %87, %83 ], [ %178, %.loopexit.loopexit ]
+  %189 = phi i64 [ %78, %83 ], [ %48, %123 ], [ %166, %.loopexit.loopexit ]
+  %.lcssa6105 = phi i64 [ %.lcssa6108111, %83 ], [ %.lcssa6108111, %123 ], [ %169, %.loopexit.loopexit ]
+  %190 = phi i1 [ true, %83 ], [ true, %123 ], [ %188, %.loopexit.loopexit ]
+  %.us-phi.i.i.i.i = phi i64 [ %87, %83 ], [ %127, %123 ], [ %178, %.loopexit.loopexit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.510.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.510.i.i, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false), !noalias !157
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !143

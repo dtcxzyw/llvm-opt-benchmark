@@ -107,7 +107,7 @@ define i32 @ossl_asn1_do_lock(ptr noundef readonly captures(none) %0, i32 nounde
   br label %CRYPTO_DOWN_REF.exit
 
 CRYPTO_DOWN_REF.exit:                             ; preds = %14, %35, %28, %24, %31, %5, %9, %3, %27
-  %.0 = phi i32 [ -1, %27 ], [ 0, %3 ], [ 0, %9 ], [ 0, %5 ], [ -1, %14 ], [ %30, %28 ], [ 0, %35 ], [ 1, %24 ], [ %33, %31 ]
+  %.0 = phi i32 [ -1, %27 ], [ 0, %3 ], [ 0, %5 ], [ 0, %9 ], [ -1, %14 ], [ 1, %24 ], [ %30, %28 ], [ 0, %35 ], [ %33, %31 ]
   ret i32 %.0
 }
 
@@ -154,7 +154,7 @@ asn1_get_enc_ptr.exit:                            ; preds = %11
   store i32 1, ptr %20, align 8, !tbaa !25
   br label %asn1_get_enc_ptr.exit.thread
 
-asn1_get_enc_ptr.exit.thread:                     ; preds = %7, %11, %2, %4, %asn1_get_enc_ptr.exit
+asn1_get_enc_ptr.exit.thread:                     ; preds = %7, %11, %4, %2, %asn1_get_enc_ptr.exit
   ret void
 }
 
@@ -193,7 +193,7 @@ asn1_get_enc_ptr.exit:                            ; preds = %11
   store i32 1, ptr %21, align 8, !tbaa !25
   br label %asn1_get_enc_ptr.exit.thread
 
-asn1_get_enc_ptr.exit.thread:                     ; preds = %7, %11, %2, %4, %asn1_get_enc_ptr.exit
+asn1_get_enc_ptr.exit.thread:                     ; preds = %7, %11, %4, %2, %asn1_get_enc_ptr.exit
   ret void
 }
 
@@ -247,8 +247,8 @@ asn1_get_enc_ptr.exit:                            ; preds = %13
   store i32 0, ptr %30, align 8, !tbaa !25
   br label %asn1_get_enc_ptr.exit.thread
 
-asn1_get_enc_ptr.exit.thread:                     ; preds = %9, %13, %4, %6, %24, %asn1_get_enc_ptr.exit, %28
-  %.0 = phi i32 [ 1, %28 ], [ 0, %asn1_get_enc_ptr.exit ], [ 0, %24 ], [ 1, %6 ], [ 1, %4 ], [ 1, %13 ], [ 1, %9 ]
+asn1_get_enc_ptr.exit.thread:                     ; preds = %9, %13, %6, %4, %24, %asn1_get_enc_ptr.exit, %28
+  %.0 = phi i32 [ 1, %28 ], [ 1, %9 ], [ 0, %asn1_get_enc_ptr.exit ], [ 0, %24 ], [ 1, %4 ], [ 1, %6 ], [ 1, %13 ]
   ret i32 %.0
 }
 
@@ -317,8 +317,8 @@ asn1_get_const_enc_ptr.exit:                      ; preds = %13
   store i32 %37, ptr %0, align 4, !tbaa !13
   br label %asn1_get_const_enc_ptr.exit.thread
 
-asn1_get_const_enc_ptr.exit.thread:               ; preds = %9, %13, %4, %6, %33, %34, %asn1_get_const_enc_ptr.exit
-  %.0 = phi i32 [ 0, %asn1_get_const_enc_ptr.exit ], [ 1, %34 ], [ 1, %33 ], [ 0, %6 ], [ 0, %4 ], [ 0, %13 ], [ 0, %9 ]
+asn1_get_const_enc_ptr.exit.thread:               ; preds = %9, %13, %6, %4, %33, %34, %asn1_get_const_enc_ptr.exit
+  %.0 = phi i32 [ 0, %9 ], [ 0, %asn1_get_const_enc_ptr.exit ], [ 1, %34 ], [ 1, %33 ], [ 0, %4 ], [ 0, %6 ], [ 0, %13 ]
   ret i32 %.0
 }
 
@@ -446,7 +446,7 @@ define ptr @ossl_asn1_do_adb(ptr noundef readonly captures(none) %0, ptr noundef
   br label %54
 
 54:                                               ; preds = %52, %53, %._crit_edge, %17, %3, %46, %35
-  %.023 = phi ptr [ null, %35 ], [ %47, %46 ], [ %1, %3 ], [ %19, %17 ], [ %51, %._crit_edge ], [ null, %53 ], [ null, %52 ]
+  %.023 = phi ptr [ %19, %17 ], [ %51, %._crit_edge ], [ %1, %3 ], [ null, %35 ], [ %47, %46 ], [ null, %53 ], [ null, %52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.023
 }

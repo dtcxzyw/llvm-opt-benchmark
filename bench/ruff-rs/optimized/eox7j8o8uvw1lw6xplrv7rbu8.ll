@@ -43,8 +43,8 @@ define hidden { i1, i64 } @_ZN19ruff_python_literal6escape12choose_quote17h4e6d9
   br i1 %10, label %8, label %11
 
 11:                                               ; preds = %4, %6, %9, %5, %8
-  %.sroa.3.0 = phi i64 [ 0, %8 ], [ %1, %9 ], [ %0, %6 ], [ 0, %5 ], [ 0, %4 ]
-  %.sroa.04.0.in = phi i1 [ %.sroa.09.0, %8 ], [ true, %9 ], [ false, %6 ], [ false, %5 ], [ true, %4 ]
+  %.sroa.3.0 = phi i64 [ 0, %8 ], [ %1, %9 ], [ 0, %5 ], [ %0, %6 ], [ 0, %4 ]
+  %.sroa.04.0.in = phi i1 [ %.sroa.09.0, %8 ], [ true, %9 ], [ false, %5 ], [ false, %6 ], [ true, %4 ]
   %12 = insertvalue { i1, i64 } poison, i1 %.sroa.04.0.in, 0
   %13 = insertvalue { i1, i64 } %12, i64 %.sroa.3.0, 1
   ret { i1, i64 } %13
@@ -163,7 +163,7 @@ define hidden void @_ZN19ruff_python_literal6escape13UnicodeEscape26output_layou
   br label %_ZN19ruff_python_literal6escape12choose_quote17h4e6d971e91101446E.exit
 
 _ZN19ruff_python_literal6escape12choose_quote17h4e6d971e91101446E.exit: ; preds = %5, %7, %9
-  %.sroa.04.0.in.i = phi i8 [ %10, %9 ], [ 0, %7 ], [ 1, %5 ]
+  %.sroa.04.0.in.i = phi i8 [ %10, %9 ], [ 1, %5 ], [ 0, %7 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sroa.04.0.in.i, ptr %11, align 8
   store i64 0, ptr %0, align 8
@@ -186,7 +186,7 @@ define hidden noundef range(i64 1, 11) i64 @_ZN19ruff_python_literal6escape13Uni
   br i1 %or.cond, label %5, label %6
 
 5:                                                ; preds = %14, %16, %10, %12, %6, %2, %1, %1, %1, %1
-  %.sroa.04.0 = phi i64 [ 2, %1 ], [ 2, %1 ], [ 2, %1 ], [ 2, %1 ], [ 4, %2 ], [ 1, %6 ], [ %., %12 ], [ 4, %10 ], [ %.5, %16 ], [ 2, %14 ]
+  %.sroa.04.0 = phi i64 [ 2, %1 ], [ 4, %2 ], [ 4, %10 ], [ %.5, %16 ], [ 2, %1 ], [ 2, %14 ], [ %., %12 ], [ 1, %6 ], [ 2, %1 ], [ 2, %1 ]
   ret i64 %.sroa.04.0
 
 6:                                                ; preds = %2
@@ -256,7 +256,7 @@ define hidden void @_ZN19ruff_python_literal6escape11AsciiEscape26output_layout_
   br label %_ZN19ruff_python_literal6escape12choose_quote17h4e6d971e91101446E.exit
 
 _ZN19ruff_python_literal6escape12choose_quote17h4e6d971e91101446E.exit: ; preds = %5, %7, %9
-  %.sroa.04.0.in.i = phi i8 [ %10, %9 ], [ 0, %7 ], [ 1, %5 ]
+  %.sroa.04.0.in.i = phi i8 [ %10, %9 ], [ 1, %5 ], [ 0, %7 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sroa.04.0.in.i, ptr %11, align 8
   store i64 0, ptr %0, align 8
@@ -279,7 +279,7 @@ define hidden noundef range(i64 1, 5) i64 @_ZN19ruff_python_literal6escape11Asci
   br label %4
 
 4:                                                ; preds = %1, %1, %1, %1, %2
-  %.sroa.0.0 = phi i64 [ %., %2 ], [ 2, %1 ], [ 2, %1 ], [ 2, %1 ], [ 2, %1 ]
+  %.sroa.0.0 = phi i64 [ 2, %1 ], [ 2, %1 ], [ %., %2 ], [ 2, %1 ], [ 2, %1 ]
   ret i64 %.sroa.0.0
 }
 

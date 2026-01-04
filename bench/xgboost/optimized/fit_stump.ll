@@ -768,7 +768,7 @@ _ZN7xgboost10collective6ResultD2Ev.exit:          ; preds = %._crit_edge98, %_ZN
   br label %.body
 
 .body:                                            ; preds = %196, %167, %233, %165, %146, %163
-  %.pn26.pn.pn = phi { ptr, i32 } [ %164, %163 ], [ %166, %165 ], [ %.pn.i.i, %146 ], [ %.pn18, %196 ], [ %168, %167 ], [ %.pn21.pn, %233 ]
+  %.pn26.pn.pn = phi { ptr, i32 } [ %.pn.i.i, %146 ], [ %164, %163 ], [ %166, %165 ], [ %.pn21.pn, %233 ], [ %168, %167 ], [ %.pn18, %196 ]
   call void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInternalIdEEED1Ev(ptr noundef nonnull align 8 dereferenceable(25) %14) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %234
@@ -1518,8 +1518,8 @@ _ZSt6fill_nIPPvmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc27
   br label %_ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit
 
 _ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit:            ; preds = %_ZSt6fill_nIPPvmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc27, %_ZNSt6vectorIPvSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i
-  %.sroa.11.0 = phi ptr [ %11, %.noexc27 ], [ %11, %_ZSt6fill_nIPPvmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIPvSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ]
-  %.sroa.042.0 = phi ptr [ %10, %.noexc27 ], [ %10, %_ZSt6fill_nIPPvmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIPvSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ]
+  %.sroa.11.0 = phi ptr [ %11, %_ZSt6fill_nIPPvmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %11, %.noexc27 ], [ null, %_ZNSt6vectorIPvSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ]
+  %.sroa.042.0 = phi ptr [ %10, %_ZSt6fill_nIPPvmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %10, %.noexc27 ], [ null, %_ZNSt6vectorIPvSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ]
   %15 = trunc i64 %2 to i32
   %16 = invoke i32 @backtrace(ptr noundef %.sroa.042.0, i32 noundef %15)
           to label %17 unwind label %24

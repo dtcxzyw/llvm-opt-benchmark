@@ -1595,7 +1595,7 @@ switch.early.test:                                ; preds = %19
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %19, %switch.early.test, %switch.early.test, %16, %17, %11
-  %.sink108 = phi ptr [ %1, %11 ], [ %1, %17 ], [ %1, %16 ], [ %1, %switch.early.test ], [ %1, %switch.early.test ], [ %1, %19 ], [ %26, %.sink.split.sink.split ]
+  %.sink108 = phi ptr [ %1, %11 ], [ %1, %16 ], [ %1, %17 ], [ %1, %switch.early.test ], [ %1, %19 ], [ %1, %switch.early.test ], [ %26, %.sink.split.sink.split ]
   %27 = tail call ptr @Abc_ObjName(ptr noundef %.sink108) #10
   %28 = tail call ptr @Abc_ObjAssignName(ptr noundef %7, ptr noundef %27, ptr noundef null) #10
   br label %29
@@ -2665,7 +2665,7 @@ Abc_NodeIsConst.exit:                             ; preds = %1
   br label %Abc_NodeIsConst.exit.thread
 
 Abc_NodeIsConst.exit.thread:                      ; preds = %6, %1, %Abc_NodeIsConst.exit, %24, %18, %12, %8
-  %.0 = phi i32 [ %11, %8 ], [ %17, %12 ], [ %23, %18 ], [ %30, %24 ], [ 0, %Abc_NodeIsConst.exit ], [ 0, %1 ], [ 0, %6 ]
+  %.0 = phi i32 [ %11, %8 ], [ %17, %12 ], [ %23, %18 ], [ %30, %24 ], [ 0, %Abc_NodeIsConst.exit ], [ 0, %6 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -2730,7 +2730,7 @@ Abc_NodeIsConst.exit:                             ; preds = %1
   br label %Abc_NodeIsConst.exit.thread
 
 Abc_NodeIsConst.exit.thread:                      ; preds = %6, %1, %Abc_NodeIsConst.exit, %26, %19, %12, %8
-  %.0 = phi i32 [ %11, %8 ], [ %18, %12 ], [ %25, %19 ], [ %32, %26 ], [ 0, %Abc_NodeIsConst.exit ], [ 0, %1 ], [ 0, %6 ]
+  %.0 = phi i32 [ %11, %8 ], [ %18, %12 ], [ %25, %19 ], [ %32, %26 ], [ 0, %Abc_NodeIsConst.exit ], [ 0, %6 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -2788,7 +2788,7 @@ define i32 @Abc_NodeIsBuf(ptr noundef readonly captures(none) %0) local_unnamed_
   br label %31
 
 31:                                               ; preds = %3, %1, %24, %17, %10, %6
-  %.0 = phi i32 [ %9, %6 ], [ %16, %10 ], [ %23, %17 ], [ %30, %24 ], [ 0, %1 ], [ 0, %3 ]
+  %.0 = phi i32 [ 0, %1 ], [ %9, %6 ], [ %16, %10 ], [ %23, %17 ], [ %30, %24 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -2844,7 +2844,7 @@ define i32 @Abc_NodeIsInv(ptr noundef readonly captures(none) %0) local_unnamed_
   br label %29
 
 29:                                               ; preds = %3, %1, %22, %16, %10, %6
-  %.0 = phi i32 [ %9, %6 ], [ %15, %10 ], [ %21, %16 ], [ %28, %22 ], [ 0, %1 ], [ 0, %3 ]
+  %.0 = phi i32 [ 0, %1 ], [ %9, %6 ], [ %15, %10 ], [ %21, %16 ], [ %28, %22 ], [ 0, %3 ]
   ret i32 %.0
 }
 

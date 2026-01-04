@@ -210,7 +210,7 @@ _ZN3std4path4Path4join17h990aba3230c2e93eE.exit:  ; preds = %16
   br label %40
 
 .thread:                                          ; preds = %43, %19, %10
-  %.pn37 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %10 ], [ %20, %19 ], [ %lpad.thr_comm.split-lp44, %43 ]
+  %.pn37 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp44, %43 ], [ %20, %19 ], [ %lpad.thr_comm.split-lp, %10 ]
   resume { ptr, i32 } %.pn37
 
 43:                                               ; preds = %.thread41, %10

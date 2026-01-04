@@ -390,7 +390,7 @@ if.then32:                                        ; preds = %sw.bb30
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb30, %if.then32, %if.end19, %if.then21, %sw.bb4, %if.then6, %sw.bb2, %if.then, %entry
-  %nprec.0 = phi i32 [ 0, %entry ], [ 2, %if.then ], [ 2, %sw.bb2 ], [ 3, %if.then6 ], [ 3, %sw.bb4 ], [ 5, %if.then21 ], [ 5, %if.end19 ], [ 0, %if.then32 ], [ 0, %sw.bb30 ]
+  %nprec.0 = phi i32 [ 0, %sw.bb30 ], [ 5, %if.end19 ], [ 0, %if.then32 ], [ 2, %sw.bb2 ], [ 3, %sw.bb4 ], [ 5, %if.then21 ], [ 3, %if.then6 ], [ 2, %if.then ], [ 0, %entry ]
   ret i32 %nprec.0
 }
 
@@ -1892,7 +1892,7 @@ delete.notnull:                                   ; preds = %if.then86
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end10, %if.end75, %delete.notnull, %if.then86, %if.then8
-  %t.0 = phi i32 [ %call9, %if.then8 ], [ %call82, %if.then86 ], [ %call82, %delete.notnull ], [ %call82, %if.end75 ], [ %call14, %if.end10 ]
+  %t.0 = phi i32 [ %call9, %if.then8 ], [ %call82, %if.end75 ], [ %call82, %if.then86 ], [ %call82, %delete.notnull ], [ %call14, %if.end10 ]
   %42 = load ptr, ptr %_M_finish.i.i.i, align 8
   %43 = load ptr, ptr %_M_first3.i.i.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %42, %43
@@ -2145,7 +2145,7 @@ _ZSt4copyIPPN3re29WalkStateIiEES4_ET0_T_S6_S5_.exit30: ; preds = %_ZNSt11_Deque_
   br label %if.end65
 
 if.end65:                                         ; preds = %if.then.i.i.i.i.i19, %if.else, %if.then.i.i.i.i.i, %if.then14, %_ZSt4copyIPPN3re29WalkStateIiEES4_ET0_T_S6_S5_.exit30
-  %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPN3re29WalkStateIiEES4_ET0_T_S6_S5_.exit30 ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i19 ]
+  %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPN3re29WalkStateIiEES4_ET0_T_S6_S5_.exit30 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i19 ]
   store ptr %__new_nstart.0, ptr %_M_node3, align 8
   %5 = load ptr, ptr %__new_nstart.0, align 8
   %_M_first.i = getelementptr inbounds nuw i8, ptr %this, i64 24

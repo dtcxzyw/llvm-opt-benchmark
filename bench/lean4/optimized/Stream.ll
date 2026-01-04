@@ -182,9 +182,9 @@ lean_dec.exit28:                                  ; preds = %65, %64, %62, %lean
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit28, %lean_alloc_ctor.exit34, %14
-  %.sink56 = phi ptr [ %19, %14 ], [ %45, %lean_alloc_ctor.exit34 ], [ %66, %lean_dec.exit28 ]
-  %.sink53 = phi i32 [ 16908312, %14 ], [ 16908312, %lean_alloc_ctor.exit34 ], [ 131096, %lean_dec.exit28 ]
-  %.sink = phi ptr [ %0, %14 ], [ %40, %lean_alloc_ctor.exit34 ], [ %50, %lean_dec.exit28 ]
+  %.sink56 = phi ptr [ %45, %lean_alloc_ctor.exit34 ], [ %19, %14 ], [ %66, %lean_dec.exit28 ]
+  %.sink53 = phi i32 [ 16908312, %lean_alloc_ctor.exit34 ], [ 16908312, %14 ], [ 131096, %lean_dec.exit28 ]
+  %.sink = phi ptr [ %40, %lean_alloc_ctor.exit34 ], [ %0, %14 ], [ %50, %lean_dec.exit28 ]
   %69 = getelementptr inbounds nuw i8, ptr %.sink56, i64 4
   store i32 1, ptr %.sink56, align 4, !tbaa !4
   store i32 %.sink53, ptr %69, align 4
@@ -620,7 +620,7 @@ lean_alloc_ctor.exit100:                          ; preds = %lean_dec.exit
   br label %171
 
 171:                                              ; preds = %lean_alloc_ctor.exit100, %136, %lean_dec.exit68, %lean_dec.exit69, %lean_dec.exit65, %lean_alloc_ctor.exit
-  %.3 = phi ptr [ %35, %lean_dec.exit69 ], [ %82, %lean_dec.exit68 ], [ %118, %lean_alloc_ctor.exit ], [ %135, %lean_dec.exit65 ], [ %165, %lean_alloc_ctor.exit100 ], [ %35, %136 ]
+  %.3 = phi ptr [ %135, %lean_dec.exit65 ], [ %82, %lean_dec.exit68 ], [ %35, %lean_dec.exit69 ], [ %118, %lean_alloc_ctor.exit ], [ %165, %lean_alloc_ctor.exit100 ], [ %35, %136 ]
   ret ptr %.3
 }
 
@@ -1131,7 +1131,7 @@ _init_l_IO_FS_Stream_readJson___closed__3.exit:   ; preds = %_init_l_IO_FS_Strea
   br label %68
 
 68:                                               ; preds = %.sink.split, %lean_dec_ref.exit19, %lean_dec_ref.exit17, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit17 ], [ %38, %lean_dec_ref.exit19 ], [ %.sink43, %.sink.split ]
+  %.0 = phi ptr [ %28, %lean_dec_ref.exit17 ], [ %38, %lean_dec_ref.exit19 ], [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink43, %.sink.split ]
   ret ptr %.0
 }
 

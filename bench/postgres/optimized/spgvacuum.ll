@@ -1410,7 +1410,7 @@ BufferGetPage.exit:                               ; preds = %8, %14
   br label %50
 
 50:                                               ; preds = %47, %40, %43, %38, %32, %BufferGetPage.exit
-  %51 = phi i8 [ 0, %32 ], [ 0, %BufferGetPage.exit ], [ 1, %38 ], [ %49, %47 ], [ 0, %40 ], [ 0, %43 ]
+  %51 = phi i8 [ 1, %38 ], [ 0, %BufferGetPage.exit ], [ 0, %32 ], [ %49, %47 ], [ 0, %43 ], [ 0, %40 ]
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i8 %51, ptr %52, align 4
   store i16 0, ptr %6, align 4
@@ -1521,8 +1521,8 @@ BufferGetPage.exit:                               ; preds = %8, %14
   br i1 %.not72, label %.critedge, label %61, !llvm.loop !20
 
 .critedge:                                        ; preds = %61, %99
-  %.063.lcssa = phi i1 [ %.06384, %61 ], [ %.164, %99 ]
-  %.059.lcssa = phi i16 [ %.05986, %61 ], [ %.160, %99 ]
+  %.063.lcssa = phi i1 [ %.164, %99 ], [ %.06384, %61 ]
+  %.059.lcssa = phi i16 [ %.160, %99 ], [ %.05986, %61 ]
   %107 = zext i16 %.059.lcssa to i64
   %.not75 = icmp eq i16 %.059.lcssa, 0
   br i1 %.not75, label %119, label %.preheader

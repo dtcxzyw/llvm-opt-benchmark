@@ -303,7 +303,7 @@ define range(i32 -22, 1) i32 @ff_vorbiscomment_write(ptr noundef %0, ptr noundef
   br label %.critedge116
 
 .critedge116:                                     ; preds = %.lr.ph, %._crit_edge, %.preheader, %94, %.critedge
-  %.8 = phi i32 [ -22, %.critedge ], [ 0, %94 ], [ 0, %.preheader ], [ 0, %._crit_edge ], [ -22, %.lr.ph ]
+  %.8 = phi i32 [ 0, %.preheader ], [ -22, %.critedge ], [ 0, %94 ], [ 0, %._crit_edge ], [ -22, %.lr.ph ]
   ret i32 %.8
 }
 

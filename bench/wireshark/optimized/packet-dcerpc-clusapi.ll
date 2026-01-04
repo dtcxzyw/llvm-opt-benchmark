@@ -2772,7 +2772,7 @@ define hidden i32 @clusapi_dissect_struct_RPC_SECURITY_DESCRIPTOR(ptr noundef %0
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not48 = icmp eq ptr %3, null
   br i1 %.not48, label %32, label %28
 
@@ -2864,7 +2864,7 @@ define hidden i32 @clusapi_dissect_struct_RPC_SECURITY_ATTRIBUTES(ptr noundef %0
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not48 = icmp eq ptr %3, null
   br i1 %.not48, label %32, label %28
 
@@ -3203,7 +3203,7 @@ define hidden i32 @clusapi_dissect_struct_ENUM_ENTRY(ptr noundef %0, i32 noundef
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -3284,7 +3284,7 @@ define hidden i32 @clusapi_dissect_struct_ENUM_LIST(ptr noundef %0, i32 noundef 
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -3364,7 +3364,7 @@ define hidden i32 @clusapi_dissect_struct_GROUP_ENUM_ENTRY(ptr noundef %0, i32 n
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not84 = icmp eq ptr %3, null
   br i1 %.not84, label %32, label %28
 
@@ -3459,7 +3459,7 @@ define hidden i32 @clusapi_dissect_struct_RESOURCE_ENUM_ENTRY(ptr noundef %0, i3
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not78 = icmp eq ptr %3, null
   br i1 %.not78, label %32, label %28
 
@@ -3552,7 +3552,7 @@ define hidden i32 @clusapi_dissect_struct_GROUP_ENUM_LIST(ptr noundef %0, i32 no
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -3632,7 +3632,7 @@ define hidden i32 @clusapi_dissect_struct_RESOURCE_ENUM_LIST(ptr noundef %0, i32
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -4484,7 +4484,7 @@ define hidden i32 @clusapi_dissect_struct_CLUSTER_MRR_NODE_RESPONSE(ptr noundef 
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not54 = icmp eq ptr %3, null
   br i1 %.not54, label %32, label %28
 
@@ -4569,7 +4569,7 @@ define hidden i32 @clusapi_dissect_struct_CLUSTER_MRR_RESPONSE(ptr noundef %0, i
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -4650,7 +4650,7 @@ define hidden i32 @clusapi_dissect_struct_NOTIFICATION_DATA_ASYNC_RPC(ptr nounde
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not48 = icmp eq ptr %3, null
   br i1 %.not48, label %32, label %28
 

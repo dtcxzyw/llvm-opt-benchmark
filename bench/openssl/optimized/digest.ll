@@ -364,7 +364,7 @@ EVP_MD_CTX_free.exit.critedge:                    ; preds = %4
   br label %EVP_MD_CTX_free.exit
 
 EVP_MD_CTX_free.exit:                             ; preds = %EVP_MD_CTX_free.exit.critedge, %EVP_MD_CTX_reset.exit.i, %EVP_MD_CTX_free.exit20, %26
-  %.013 = phi ptr [ %5, %26 ], [ null, %EVP_MD_CTX_free.exit20 ], [ null, %EVP_MD_CTX_reset.exit.i ], [ null, %EVP_MD_CTX_free.exit.critedge ]
+  %.013 = phi ptr [ %5, %26 ], [ null, %EVP_MD_CTX_free.exit20 ], [ null, %EVP_MD_CTX_free.exit.critedge ], [ null, %EVP_MD_CTX_reset.exit.i ]
   ret ptr %.013
 }
 
@@ -983,7 +983,7 @@ cleanup_old_md_data.exit167:                      ; preds = %174, %185, %188, %1
   br label %237
 
 237:                                              ; preds = %.thread179, %.thread173, %evp_md_ctx_free_algctx.exit, %227, %206, %114, %223, %231, %167, %163, %162, %155, %113, %25, %18, %16, %14
-  %.0 = phi i32 [ %15, %14 ], [ %17, %16 ], [ 0, %18 ], [ %236, %231 ], [ 0, %223 ], [ 0, %167 ], [ 0, %155 ], [ 0, %162 ], [ %164, %163 ], [ 0, %113 ], [ 0, %25 ], [ 0, %evp_md_ctx_free_algctx.exit ], [ 0, %114 ], [ 0, %206 ], [ 1, %227 ], [ 0, %.thread173 ], [ 0, %.thread179 ]
+  %.0 = phi i32 [ %15, %14 ], [ %17, %16 ], [ 0, %18 ], [ 0, %206 ], [ %236, %231 ], [ 0, %223 ], [ 0, %114 ], [ 0, %.thread179 ], [ 0, %167 ], [ 0, %evp_md_ctx_free_algctx.exit ], [ 0, %155 ], [ 0, %162 ], [ %164, %163 ], [ 0, %25 ], [ 0, %.thread173 ], [ 0, %113 ], [ 1, %227 ]
   ret i32 %.0
 }
 
@@ -1120,7 +1120,7 @@ define i32 @EVP_DigestUpdate(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
   br label %48
 
 48:                                               ; preds = %46, %43, %3, %39, %38, %24, %22, %20, %9
-  %.0 = phi i32 [ 0, %9 ], [ %21, %20 ], [ %23, %22 ], [ 0, %24 ], [ 0, %38 ], [ %42, %39 ], [ 1, %3 ], [ %47, %46 ], [ 0, %43 ]
+  %.0 = phi i32 [ %42, %39 ], [ 0, %9 ], [ %21, %20 ], [ %23, %22 ], [ 0, %24 ], [ 1, %3 ], [ 0, %38 ], [ %47, %46 ], [ 0, %43 ]
   ret i32 %.0
 }
 
@@ -1272,7 +1272,7 @@ define i32 @EVP_DigestFinal_ex(ptr noundef %0, ptr noundef %1, ptr noundef write
   br label %60
 
 60:                                               ; preds = %27, %38, %36, %8, %3, %53, %26, %21
-  %.0 = phi i32 [ %45, %53 ], [ 0, %21 ], [ 0, %26 ], [ 0, %3 ], [ 0, %8 ], [ %30, %36 ], [ 0, %38 ], [ %30, %27 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %3 ], [ %45, %53 ], [ 0, %21 ], [ 0, %26 ], [ %30, %36 ], [ 0, %38 ], [ %30, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -1459,7 +1459,7 @@ EVP_MD_CTX_set_params.exit.thread:                ; preds = %EVP_MD_CTX_set_para
   br label %88
 
 88:                                               ; preds = %80, %87, %57, %24, %19, %10
-  %.026 = phi i32 [ 0, %10 ], [ 0, %19 ], [ 0, %24 ], [ %.0, %57 ], [ %74, %80 ], [ 0, %87 ]
+  %.026 = phi i32 [ 0, %10 ], [ %.0, %57 ], [ 0, %19 ], [ 0, %24 ], [ %74, %80 ], [ 0, %87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.026
 }
@@ -2006,7 +2006,7 @@ EVP_MD_CTX_reset.exit119:                         ; preds = %155, %157
   br label %165
 
 165:                                              ; preds = %159, %138, %98, %101, %163, %EVP_MD_CTX_reset.exit119, %114, %EVP_MD_CTX_reset.exit115, %97, %40, %4
-  %.081 = phi i32 [ 0, %4 ], [ 0, %EVP_MD_CTX_reset.exit115 ], [ %164, %163 ], [ 0, %EVP_MD_CTX_reset.exit119 ], [ 0, %114 ], [ 0, %40 ], [ 0, %97 ], [ 1, %101 ], [ 1, %98 ], [ 0, %138 ], [ 1, %159 ]
+  %.081 = phi i32 [ 0, %4 ], [ 0, %EVP_MD_CTX_reset.exit115 ], [ 0, %97 ], [ %164, %163 ], [ 0, %138 ], [ 0, %EVP_MD_CTX_reset.exit119 ], [ 1, %98 ], [ 0, %114 ], [ 0, %40 ], [ 1, %101 ], [ 1, %159 ]
   ret i32 %.081
 }
 
@@ -2293,7 +2293,7 @@ define ptr @EVP_MD_CTX_settable_params(ptr noundef readonly captures(address_is_
   br label %33
 
 33:                                               ; preds = %18, %21, %1, %24, %16
-  %.0 = phi ptr [ %17, %16 ], [ %32, %24 ], [ null, %1 ], [ null, %21 ], [ null, %18 ]
+  %.0 = phi ptr [ null, %1 ], [ %17, %16 ], [ %32, %24 ], [ null, %21 ], [ null, %18 ]
   ret ptr %.0
 }
 
@@ -2435,7 +2435,7 @@ define ptr @EVP_MD_CTX_gettable_params(ptr noundef readonly captures(address_is_
   br label %33
 
 33:                                               ; preds = %18, %21, %1, %24, %16
-  %.0 = phi ptr [ %17, %16 ], [ %32, %24 ], [ null, %1 ], [ null, %21 ], [ null, %18 ]
+  %.0 = phi ptr [ null, %1 ], [ %17, %16 ], [ %32, %24 ], [ null, %21 ], [ null, %18 ]
   ret ptr %.0
 }
 
@@ -2602,12 +2602,12 @@ define range(i32 0, -2147483648) i32 @EVP_MD_CTX_ctrl(ptr noundef %0, i32 nounde
   br label %EVP_MD_CTX_get_params.exit
 
 EVP_MD_CTX_get_params.exit:                       ; preds = %66, %59, %41, %34, %75
-  %.021 = phi i32 [ %76, %75 ], [ %35, %34 ], [ %44, %41 ], [ %60, %59 ], [ %69, %66 ]
+  %.021 = phi i32 [ %76, %75 ], [ %69, %66 ], [ %60, %59 ], [ %35, %34 ], [ %44, %41 ]
   %.021.fr = freeze i32 %.021
   %77 = icmp slt i32 %.021.fr, 1
   br i1 %77, label %EVP_MD_CTX_get_params.exit.thread, label %78
 
-EVP_MD_CTX_get_params.exit.thread:                ; preds = %61, %63, %36, %38, %16, %EVP_MD_CTX_get_params.exit
+EVP_MD_CTX_get_params.exit.thread:                ; preds = %61, %63, %38, %36, %16, %EVP_MD_CTX_get_params.exit
   br label %78
 
 78:                                               ; preds = %EVP_MD_CTX_get_params.exit.thread, %EVP_MD_CTX_get_params.exit, %74, %8
@@ -2952,7 +2952,7 @@ CRYPTO_DOWN_REF.exit.i109:                        ; preds = %39
   br label %146
 
 146:                                              ; preds = %63, %68, %65, %74, %71, %80, %77, %86, %83, %92, %89, %98, %95, %103, %100, %109, %106, %114, %111, %119, %116, %124, %121, %129, %126, %134, %131, %139, %136, %144, %141
-  %.1 = phi i32 [ %70, %68 ], [ %.0, %65 ], [ %76, %74 ], [ %.0, %71 ], [ %82, %80 ], [ %.0, %77 ], [ %88, %86 ], [ %.0, %83 ], [ %94, %92 ], [ %.0, %89 ], [ %.0, %98 ], [ %.0, %95 ], [ %105, %103 ], [ %.0, %100 ], [ %.0, %109 ], [ %.0, %106 ], [ %.0, %114 ], [ %.0, %111 ], [ %.0, %119 ], [ %.0, %116 ], [ %.0, %124 ], [ %.0, %121 ], [ %.0, %129 ], [ %.0, %126 ], [ %.0, %134 ], [ %.0, %131 ], [ %.0, %139 ], [ %.0, %136 ], [ %.0, %144 ], [ %.0, %141 ], [ %.0, %63 ]
+  %.1 = phi i32 [ %.0, %63 ], [ %70, %68 ], [ %.0, %65 ], [ %76, %74 ], [ %.0, %71 ], [ %82, %80 ], [ %.0, %77 ], [ %88, %86 ], [ %.0, %83 ], [ %94, %92 ], [ %.0, %89 ], [ %.0, %98 ], [ %.0, %95 ], [ %105, %103 ], [ %.0, %100 ], [ %.0, %109 ], [ %.0, %106 ], [ %.0, %114 ], [ %.0, %111 ], [ %.0, %119 ], [ %.0, %116 ], [ %.0, %124 ], [ %.0, %121 ], [ %.0, %129 ], [ %.0, %126 ], [ %.0, %134 ], [ %.0, %131 ], [ %.0, %139 ], [ %.0, %136 ], [ %.0, %144 ], [ %.0, %141 ]
   %147 = getelementptr inbounds nuw i8, ptr %.085, i64 16
   br label %63, !llvm.loop !90
 
@@ -3121,7 +3121,7 @@ EVP_MD_free.exit120:                              ; preds = %191, %CRYPTO_DOWN_R
   br label %EVP_MD_free.exit
 
 EVP_MD_free.exit:                                 ; preds = %evp_md_cache_constants.exit.thread, %43, %CRYPTO_DOWN_REF.exit.i109, %36, %30, %CRYPTO_DOWN_REF.exit.i, %23, %EVP_MD_free.exit120, %EVP_MD_free.exit115, %16
-  %.086 = phi ptr [ null, %16 ], [ null, %EVP_MD_free.exit115 ], [ null, %EVP_MD_free.exit120 ], [ null, %23 ], [ null, %CRYPTO_DOWN_REF.exit.i ], [ null, %30 ], [ null, %36 ], [ null, %CRYPTO_DOWN_REF.exit.i109 ], [ null, %43 ], [ %15, %evp_md_cache_constants.exit.thread ]
+  %.086 = phi ptr [ null, %16 ], [ null, %EVP_MD_free.exit120 ], [ null, %30 ], [ null, %EVP_MD_free.exit115 ], [ %15, %evp_md_cache_constants.exit.thread ], [ null, %23 ], [ null, %CRYPTO_DOWN_REF.exit.i ], [ null, %36 ], [ null, %CRYPTO_DOWN_REF.exit.i109 ], [ null, %43 ]
   ret ptr %.086
 }
 

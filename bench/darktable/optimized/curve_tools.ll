@@ -256,7 +256,7 @@ define noalias noundef ptr @spline_cubic_set(i32 noundef %0, ptr noundef readonl
   br label %spline_cubic_set_internal.exit
 
 spline_cubic_set_internal.exit:                   ; preds = %7, %3, %._crit_edge.i
-  %.0133.i = phi ptr [ null, %3 ], [ %61, %._crit_edge.i ], [ null, %7 ]
+  %.0133.i = phi ptr [ %61, %._crit_edge.i ], [ null, %3 ], [ null, %7 ]
   ret ptr %.0133.i
 }
 
@@ -339,7 +339,7 @@ define noalias noundef ptr @catmull_rom_set(i32 noundef %0, ptr noundef readonly
   br i1 %exitcond52.not, label %._crit_edge, label %.lr.ph
 
 .loopexit:                                        ; preds = %7, %3, %._crit_edge
-  %.039 = phi ptr [ %15, %._crit_edge ], [ null, %3 ], [ null, %7 ]
+  %.039 = phi ptr [ null, %3 ], [ %15, %._crit_edge ], [ null, %7 ]
   ret ptr %.039
 }
 
@@ -479,7 +479,7 @@ define noalias noundef ptr @monotone_hermite_set(i32 noundef %0, ptr noundef rea
   br i1 %exitcond113.not, label %._crit_edge96, label %.lr.ph95
 
 .loopexit:                                        ; preds = %7, %3, %._crit_edge96
-  %.0 = phi ptr [ %17, %._crit_edge96 ], [ null, %3 ], [ null, %7 ]
+  %.0 = phi ptr [ null, %3 ], [ %17, %._crit_edge96 ], [ null, %7 ]
   ret ptr %.0
 }
 
@@ -601,7 +601,7 @@ define noalias noundef ptr @d3_np_fs(i32 noundef %0, ptr noundef captures(none) 
   br i1 %.not, label %.loopexit, label %.lr.ph76
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph76, %._crit_edge73, %3
-  %.058 = phi ptr [ null, %3 ], [ %10, %._crit_edge73 ], [ %10, %.lr.ph76 ], [ null, %.lr.ph ]
+  %.058 = phi ptr [ %10, %._crit_edge73 ], [ null, %3 ], [ %10, %.lr.ph76 ], [ null, %.lr.ph ]
   ret ptr %.058
 }
 

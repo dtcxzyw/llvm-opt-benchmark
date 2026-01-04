@@ -286,7 +286,7 @@ is_executable.exit:                               ; preds = %30
   br label %40
 
 40:                                               ; preds = %.thread, %1, %5, %39
-  %.0 = phi ptr [ null, %39 ], [ null, %5 ], [ null, %1 ], [ %35, %.thread ]
+  %.0 = phi ptr [ %35, %.thread ], [ null, %39 ], [ null, %5 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -334,7 +334,7 @@ define dso_local range(i32 -1, 1) i32 @sane_execvp(ptr noundef %0, ptr noundef %
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %5, %8, %13, %2
-  %.0 = phi i32 [ 0, %2 ], [ -1, %13 ], [ -1, %8 ], [ -1, %5 ], [ -1, %.thread.sink.split ]
+  %.0 = phi i32 [ 0, %2 ], [ -1, %5 ], [ -1, %13 ], [ -1, %8 ], [ -1, %.thread.sink.split ]
   ret i32 %.0
 }
 
@@ -422,8 +422,8 @@ define dso_local range(i32 -1, 1) i32 @start_command(ptr noundef %0) local_unnam
   br label %.thread
 
 .thread:                                          ; preds = %1, %41, %28
-  %44 = phi i16 [ %.pre, %41 ], [ %26, %28 ], [ %26, %1 ]
-  %45 = phi i1 [ true, %41 ], [ false, %28 ], [ false, %1 ]
+  %44 = phi i16 [ %26, %28 ], [ %.pre, %41 ], [ %26, %1 ]
+  %45 = phi i1 [ false, %28 ], [ true, %41 ], [ false, %1 ]
   %46 = and i16 %44, 130
   %or.cond = icmp eq i16 %46, 0
   br i1 %or.cond, label %47, label %.thread177
@@ -457,8 +457,8 @@ define dso_local range(i32 -1, 1) i32 @start_command(ptr noundef %0) local_unnam
   br label %.thread177
 
 .thread177:                                       ; preds = %.thread, %60, %47
-  %62 = phi i16 [ %.pre193, %60 ], [ %44, %47 ], [ %44, %.thread ]
-  %63 = phi i1 [ true, %60 ], [ false, %47 ], [ false, %.thread ]
+  %62 = phi i16 [ %44, %47 ], [ %.pre193, %60 ], [ %44, %.thread ]
+  %63 = phi i1 [ false, %47 ], [ true, %60 ], [ false, %.thread ]
   %64 = and i16 %62, 4
   %.not128 = icmp eq i16 %64, 0
   br i1 %.not128, label %65, label %.thread178
@@ -526,9 +526,9 @@ define dso_local range(i32 -1, 1) i32 @start_command(ptr noundef %0) local_unnam
   br label %92
 
 92:                                               ; preds = %.sink.split245, %85, %57, %35
-  %.pre-phi = phi ptr [ %73, %85 ], [ %55, %57 ], [ %36, %35 ], [ %.pre-phi.ph, %.sink.split245 ]
-  %.0110 = phi i32 [ %74, %85 ], [ %56, %57 ], [ %37, %35 ], [ %.0110.ph, %.sink.split245 ]
-  %.0109 = phi ptr [ @.str.4, %85 ], [ @.str.3, %57 ], [ @.str.2, %35 ], [ %.0109.ph, %.sink.split245 ]
+  %.pre-phi = phi ptr [ %55, %57 ], [ %36, %35 ], [ %73, %85 ], [ %.pre-phi.ph, %.sink.split245 ]
+  %.0110 = phi i32 [ %56, %57 ], [ %37, %35 ], [ %74, %85 ], [ %.0110.ph, %.sink.split245 ]
+  %.0109 = phi ptr [ @.str.3, %57 ], [ @.str.2, %35 ], [ @.str.4, %85 ], [ %.0109.ph, %.sink.split245 ]
   %93 = load ptr, ptr %0, align 8, !tbaa !25
   %94 = load ptr, ptr %93, align 8, !tbaa !26
   %95 = call ptr @strerror(i32 noundef %.0110) #21
@@ -545,7 +545,7 @@ define dso_local range(i32 -1, 1) i32 @start_command(ptr noundef %0) local_unnam
   br label %.thread178
 
 .thread178:                                       ; preds = %.thread177, %98, %65
-  %100 = phi i1 [ true, %98 ], [ false, %65 ], [ false, %.thread177 ]
+  %100 = phi i1 [ false, %65 ], [ true, %98 ], [ false, %.thread177 ]
   call void @trace2_child_start_fl(ptr noundef nonnull @.str, i32 noundef 734, ptr noundef nonnull %0) #21
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) @__const.prep_childenv.key, i64 24, i1 false)
@@ -2038,8 +2038,8 @@ switch.early.test:                                ; preds = %22
   br i1 %.not.i, label %clear_child_for_cleanup.exit, label %.lr.ph.i, !llvm.loop !81
 
 clear_child_for_cleanup.exit:                     ; preds = %.critedge.i, %.critedge, %33, %14, %.lr.ph.i._crit_edge, %.thread, %36
-  %.038 = phi i32 [ 0, %36 ], [ %.039, %.thread ], [ %.039, %.lr.ph.i._crit_edge ], [ 0, %33 ], [ 0, %14 ], [ %10, %.critedge ], [ %.039, %.critedge.i ]
-  %.02536 = phi i32 [ %.025, %36 ], [ %.02537, %.thread ], [ %.02537, %.lr.ph.i._crit_edge ], [ -1, %33 ], [ -1, %14 ], [ -1, %.critedge ], [ %.02537, %.critedge.i ]
+  %.038 = phi i32 [ %10, %.critedge ], [ 0, %36 ], [ %.039, %.thread ], [ %.039, %.lr.ph.i._crit_edge ], [ 0, %33 ], [ 0, %14 ], [ %.039, %.critedge.i ]
+  %.02536 = phi i32 [ -1, %.critedge ], [ %.025, %36 ], [ %.02537, %.thread ], [ %.02537, %.lr.ph.i._crit_edge ], [ -1, %33 ], [ -1, %14 ], [ %.02537, %.critedge.i ]
   %46 = tail call ptr @__errno_location() #23
   store i32 %.038, ptr %46, align 4, !tbaa !18
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2109,15 +2109,15 @@ define dso_local range(i32 -1, 256) i32 @finish_command_in_signal(ptr noundef %0
   %23 = and i32 %22, 255
   br label %25
 
-wait_or_whine.exit.thread:                        ; preds = %8, %.critedge32.i, %19
-  %.038.i.ph = phi i32 [ 0, %19 ], [ 0, %.critedge32.i ], [ %10, %8 ]
+wait_or_whine.exit.thread:                        ; preds = %8, %19, %.critedge32.i
+  %.038.i.ph = phi i32 [ 0, %.critedge32.i ], [ 0, %19 ], [ %10, %8 ]
   %24 = tail call ptr @__errno_location() #23
   store i32 %.038.i.ph, ptr %24, align 4, !tbaa !18
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %27
 
 25:                                               ; preds = %21, %17
-  %.02536.i = phi i32 [ %18, %17 ], [ %23, %21 ]
+  %.02536.i = phi i32 [ %23, %21 ], [ %18, %17 ]
   %26 = tail call ptr @__errno_location() #23
   store i32 0, ptr %26, align 4, !tbaa !18
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -2437,7 +2437,7 @@ set_cloexec.exit53:                               ; preds = %66, %63, %set_cloex
   br label %.thread
 
 .thread:                                          ; preds = %set_cloexec.exit53, %89, %97, %95, %37, %16
-  %.0 = phi i32 [ -1, %16 ], [ -1, %37 ], [ -1, %95 ], [ -1, %97 ], [ -1, %89 ], [ 0, %set_cloexec.exit53 ]
+  %.0 = phi i32 [ -1, %16 ], [ -1, %37 ], [ -1, %89 ], [ -1, %95 ], [ -1, %97 ], [ 0, %set_cloexec.exit53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
@@ -2902,7 +2902,7 @@ pump_io.exit:                                     ; preds = %129, %._crit_edge.i
   br label %142
 
 142:                                              ; preds = %pump_io.exit, %34, %35, %17
-  %.043 = phi i32 [ -1, %17 ], [ -1, %35 ], [ -1, %34 ], [ %spec.select, %pump_io.exit ]
+  %.043 = phi i32 [ -1, %34 ], [ -1, %17 ], [ -1, %35 ], [ %spec.select, %pump_io.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.043
 }
@@ -3239,7 +3239,7 @@ pp_start_one.exit:                                ; preds = %142, %136, %strbuf_
   br i1 %exitcond.not, label %.critedgethread-pre-split, label %kill_children.exit76.backedge
 
 kill_children.exit76.backedge:                    ; preds = %336, %pp_start_one.exit, %pp_output.exit, %324, %320, %pp_collect_finished.exit
-  %.033102.be = phi i32 [ %166, %pp_start_one.exit ], [ 0, %pp_output.exit ], [ 0, %324 ], [ 0, %320 ], [ 0, %pp_collect_finished.exit ], [ 0, %336 ]
+  %.033102.be = phi i32 [ %166, %pp_start_one.exit ], [ 0, %pp_collect_finished.exit ], [ 0, %pp_output.exit ], [ 0, %324 ], [ 0, %320 ], [ 0, %336 ]
   br label %kill_children.exit76, !llvm.loop !133
 
 .critedgethread-pre-split:                        ; preds = %162, %pp_start_one.exit, %kill_children.exit76, %87, %88, %97, %146, %150
@@ -3565,7 +3565,7 @@ strbuf_setlen.exit.i:                             ; preds = %._crit_edge87.i, %2
   br i1 %.not.i66, label %pp_collect_finished.exit, label %.preheader.i55, !llvm.loop !144
 
 pp_collect_finished.exit:                         ; preds = %._crit_edge.i58, %260, %strbuf_setlen.exit.i, %246
-  %.1.i = phi i32 [ %.05692.i, %246 ], [ %271, %strbuf_setlen.exit.i ], [ %.05692.i, %._crit_edge.i58 ], [ %spec.select.i63, %260 ]
+  %.1.i = phi i32 [ %.05692.i, %246 ], [ %spec.select.i63, %260 ], [ %.05692.i, %._crit_edge.i58 ], [ %271, %strbuf_setlen.exit.i ]
   %.not42 = icmp eq i32 %.1.i, 0
   br i1 %.not42, label %kill_children.exit76.backedge, label %320
 
@@ -3912,7 +3912,7 @@ define dso_local range(i32 0, 5) i32 @start_bg_command(ptr noundef %0, ptr nound
   br label %56
 
 56:                                               ; preds = %.thread, %16, %48, %55, %35, %28
-  %.028 = phi i32 [ 4, %48 ], [ 1, %55 ], [ 2, %35 ], [ 0, %28 ], [ 1, %16 ], [ 3, %.thread ]
+  %.028 = phi i32 [ 0, %28 ], [ 4, %48 ], [ 1, %55 ], [ 3, %.thread ], [ 2, %35 ], [ 1, %16 ]
   call void @strvec_clear(ptr noundef nonnull %0) #21
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @strvec_clear(ptr noundef nonnull %57) #21

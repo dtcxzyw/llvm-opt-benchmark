@@ -830,7 +830,7 @@ define hidden noundef zeroext i1 @"_ZN140_$LT$protobuf..reflect..message..genera
   br label %"_ZN73_$LT$yara_x_proto_json..test..Message$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8f4adb98f47122fdE.exit"
 
 "_ZN73_$LT$yara_x_proto_json..test..Message$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8f4adb98f47122fdE.exit": ; preds = %17, %18, %19, %30, %31, %32, %44, %45, %46, %58, %59, %60, %73, %74, %75, %86, %88, %90, %102, %103, %104, %113, %114, %115, %128, %129, %130, %143, %144, %145, %151, %157
-  %.sroa.0.0.shrunk.i = phi i1 [ %158, %157 ], [ false, %143 ], [ false, %128 ], [ false, %113 ], [ false, %102 ], [ false, %90 ], [ false, %86 ], [ false, %73 ], [ false, %58 ], [ false, %44 ], [ false, %30 ], [ false, %17 ], [ false, %144 ], [ false, %129 ], [ false, %114 ], [ false, %103 ], [ false, %88 ], [ false, %74 ], [ false, %59 ], [ false, %45 ], [ false, %31 ], [ false, %18 ], [ false, %19 ], [ false, %32 ], [ false, %46 ], [ false, %60 ], [ false, %75 ], [ false, %104 ], [ false, %115 ], [ false, %130 ], [ false, %145 ], [ %.mux.i, %151 ]
+  %.sroa.0.0.shrunk.i = phi i1 [ %158, %157 ], [ false, %18 ], [ false, %130 ], [ false, %143 ], [ false, %128 ], [ false, %113 ], [ false, %102 ], [ false, %90 ], [ false, %86 ], [ false, %73 ], [ false, %58 ], [ false, %44 ], [ false, %30 ], [ false, %17 ], [ false, %144 ], [ false, %129 ], [ false, %114 ], [ false, %103 ], [ false, %88 ], [ false, %74 ], [ false, %59 ], [ false, %45 ], [ false, %31 ], [ %.mux.i, %151 ], [ false, %19 ], [ false, %32 ], [ false, %46 ], [ false, %60 ], [ false, %75 ], [ false, %145 ], [ false, %104 ], [ false, %115 ]
   ret i1 %.sroa.0.0.shrunk.i
 
 159:                                              ; preds = %7
@@ -994,7 +994,7 @@ define hidden noundef zeroext i1 @"_ZN140_$LT$protobuf..reflect..message..genera
   br label %"_ZN78_$LT$yara_x_proto_json..yara..FieldOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbb410720705ddca0E.exit"
 
 "_ZN78_$LT$yara_x_proto_json..yara..FieldOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbb410720705ddca0E.exit": ; preds = %16, %17, %18, %29, %31, %33, %44, %46, %54, %55, %56, %68, %69, %70, %76, %82
-  %.sroa.0.0.shrunk.i = phi i1 [ %83, %82 ], [ false, %68 ], [ false, %54 ], [ false, %44 ], [ false, %33 ], [ false, %29 ], [ false, %16 ], [ false, %69 ], [ false, %55 ], [ false, %46 ], [ false, %31 ], [ false, %17 ], [ false, %18 ], [ false, %56 ], [ false, %70 ], [ %.mux.i, %76 ]
+  %.sroa.0.0.shrunk.i = phi i1 [ %83, %82 ], [ false, %17 ], [ false, %56 ], [ false, %68 ], [ false, %54 ], [ false, %44 ], [ false, %33 ], [ false, %29 ], [ false, %16 ], [ false, %69 ], [ false, %55 ], [ false, %46 ], [ false, %31 ], [ %.mux.i, %76 ], [ false, %18 ], [ false, %70 ]
   ret i1 %.sroa.0.0.shrunk.i
 
 84:                                               ; preds = %7
@@ -1087,7 +1087,7 @@ define hidden noundef zeroext i1 @"_ZN140_$LT$protobuf..reflect..message..genera
   br label %"_ZN76_$LT$yara_x_proto_json..test..SubMessage$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd178947151a06f10E.exit"
 
 "_ZN76_$LT$yara_x_proto_json..test..SubMessage$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd178947151a06f10E.exit": ; preds = %17, %18, %19, %29, %30, %31, %37, %41, %47
-  %.sroa.0.0.shrunk.i = phi i1 [ %48, %47 ], [ false, %37 ], [ false, %29 ], [ false, %17 ], [ false, %30 ], [ false, %18 ], [ false, %19 ], [ false, %31 ], [ %.mux.i, %41 ]
+  %.sroa.0.0.shrunk.i = phi i1 [ %48, %47 ], [ false, %18 ], [ false, %31 ], [ false, %37 ], [ false, %29 ], [ false, %17 ], [ false, %30 ], [ %.mux.i, %41 ], [ false, %19 ]
   ret i1 %.sroa.0.0.shrunk.i
 
 49:                                               ; preds = %7
@@ -1232,7 +1232,7 @@ define hidden noundef zeroext i1 @"_ZN140_$LT$protobuf..reflect..message..genera
   br label %"_ZN79_$LT$yara_x_proto_json..yara..ModuleOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdfbfd944146ac9b5E.exit"
 
 "_ZN79_$LT$yara_x_proto_json..yara..ModuleOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdfbfd944146ac9b5E.exit": ; preds = %14, %15, %16, %28, %29, %30, %42, %43, %44, %56, %57, %58, %64, %70
-  %.sroa.0.0.shrunk.i = phi i1 [ %71, %70 ], [ false, %56 ], [ false, %42 ], [ false, %28 ], [ false, %14 ], [ false, %57 ], [ false, %43 ], [ false, %29 ], [ false, %15 ], [ false, %16 ], [ false, %30 ], [ false, %44 ], [ false, %58 ], [ %.mux.i, %64 ]
+  %.sroa.0.0.shrunk.i = phi i1 [ %71, %70 ], [ false, %15 ], [ false, %58 ], [ false, %56 ], [ false, %42 ], [ false, %28 ], [ false, %14 ], [ false, %57 ], [ false, %43 ], [ false, %29 ], [ %.mux.i, %64 ], [ false, %16 ], [ false, %30 ], [ false, %44 ]
   ret i1 %.sroa.0.0.shrunk.i
 
 72:                                               ; preds = %7
@@ -1263,31 +1263,31 @@ define hidden noundef zeroext i1 @"_ZN140_$LT$protobuf..reflect..message..genera
 
 13:                                               ; preds = %10
   %14 = icmp eq i64 %11, %12
-  br i1 %14, label %17, label %"_ZN82_$LT$yara_x_proto_json..yara..EnumValueOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h662fded8e71301d0E.exit"
+  br i1 %14, label %21, label %"_ZN82_$LT$yara_x_proto_json..yara..EnumValueOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h662fded8e71301d0E.exit"
 
 15:                                               ; preds = %10
   %16 = icmp eq i64 %12, 2
   br i1 %16, label %29, label %"_ZN82_$LT$yara_x_proto_json..yara..EnumValueOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h662fded8e71301d0E.exit"
 
-17:                                               ; preds = %13
-  %18 = trunc nuw i64 %11 to i1
-  %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %20 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  br i1 %18, label %21, label %25
+17:                                               ; preds = %21
+  %18 = load i64, ptr %23, align 8, !noundef !53
+  %19 = load i64, ptr %24, align 8, !noundef !53
+  %20 = icmp eq i64 %18, %19
+  br i1 %20, label %29, label %"_ZN82_$LT$yara_x_proto_json..yara..EnumValueOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h662fded8e71301d0E.exit"
 
-21:                                               ; preds = %17
-  %22 = load double, ptr %19, align 8, !noundef !53
-  %23 = load double, ptr %20, align 8, !noundef !53
-  %24 = fcmp oeq double %22, %23
-  br i1 %24, label %29, label %"_ZN82_$LT$yara_x_proto_json..yara..EnumValueOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h662fded8e71301d0E.exit"
+21:                                               ; preds = %13
+  %22 = trunc nuw i64 %11 to i1
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  br i1 %22, label %25, label %17
 
-25:                                               ; preds = %17
-  %26 = load i64, ptr %19, align 8, !noundef !53
-  %27 = load i64, ptr %20, align 8, !noundef !53
-  %28 = icmp eq i64 %26, %27
+25:                                               ; preds = %21
+  %26 = load double, ptr %23, align 8, !noundef !53
+  %27 = load double, ptr %24, align 8, !noundef !53
+  %28 = fcmp oeq double %26, %27
   br i1 %28, label %29, label %"_ZN82_$LT$yara_x_proto_json..yara..EnumValueOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h662fded8e71301d0E.exit"
 
-29:                                               ; preds = %25, %21, %15
+29:                                               ; preds = %25, %17, %15
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %31 = load ptr, ptr %30, align 8, !align !57, !noundef !53
   %.not4.i = icmp eq ptr %31, null
@@ -1302,8 +1302,8 @@ define hidden noundef zeroext i1 @"_ZN140_$LT$protobuf..reflect..message..genera
   %36 = tail call noundef zeroext i1 @"_ZN94_$LT$std..collections..hash..map..HashMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17haf540ce183fb83a7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %31, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %33)
   br label %"_ZN82_$LT$yara_x_proto_json..yara..EnumValueOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h662fded8e71301d0E.exit"
 
-"_ZN82_$LT$yara_x_proto_json..yara..EnumValueOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h662fded8e71301d0E.exit": ; preds = %13, %15, %21, %25, %29, %35
-  %.sroa.0.0.shrunk.i = phi i1 [ %36, %35 ], [ false, %13 ], [ false, %15 ], [ false, %21 ], [ false, %25 ], [ %.mux.i, %29 ]
+"_ZN82_$LT$yara_x_proto_json..yara..EnumValueOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h662fded8e71301d0E.exit": ; preds = %13, %15, %17, %25, %29, %35
+  %.sroa.0.0.shrunk.i = phi i1 [ %36, %35 ], [ false, %17 ], [ false, %15 ], [ false, %13 ], [ %.mux.i, %29 ], [ false, %25 ]
   ret i1 %.sroa.0.0.shrunk.i
 
 37:                                               ; preds = %7
@@ -1420,7 +1420,7 @@ define hidden noundef zeroext i1 @"_ZN140_$LT$protobuf..reflect..message..genera
   br label %"_ZN74_$LT$yara_x_proto_json..yara..AclEntry$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc47690976ae8511bE.exit"
 
 "_ZN74_$LT$yara_x_proto_json..yara..AclEntry$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc47690976ae8511bE.exit": ; preds = %16, %17, %18, %30, %31, %32, %38, %44, %50, %56
-  %.sroa.0.0.shrunk.i = phi i1 [ %57, %56 ], [ false, %44 ], [ false, %38 ], [ false, %30 ], [ false, %16 ], [ false, %31 ], [ false, %17 ], [ false, %18 ], [ false, %32 ], [ %.mux.i, %50 ]
+  %.sroa.0.0.shrunk.i = phi i1 [ %57, %56 ], [ false, %17 ], [ false, %32 ], [ false, %44 ], [ false, %38 ], [ false, %30 ], [ false, %16 ], [ false, %31 ], [ %.mux.i, %50 ], [ false, %18 ]
   ret i1 %.sroa.0.0.shrunk.i
 
 58:                                               ; preds = %7
@@ -1500,7 +1500,7 @@ define hidden noundef zeroext i1 @"_ZN140_$LT$protobuf..reflect..message..genera
   br label %"_ZN77_$LT$yara_x_proto_json..yara..EnumOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3190fa0003240445E.exit"
 
 "_ZN77_$LT$yara_x_proto_json..yara..EnumOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3190fa0003240445E.exit": ; preds = %14, %15, %16, %27, %29, %31, %37
-  %.sroa.0.0.shrunk.i = phi i1 [ %38, %37 ], [ false, %27 ], [ false, %14 ], [ false, %29 ], [ false, %15 ], [ false, %16 ], [ %.mux.i, %31 ]
+  %.sroa.0.0.shrunk.i = phi i1 [ %38, %37 ], [ false, %15 ], [ false, %16 ], [ false, %27 ], [ false, %14 ], [ false, %29 ], [ %.mux.i, %31 ]
   ret i1 %.sroa.0.0.shrunk.i
 
 39:                                               ; preds = %7
@@ -1564,7 +1564,7 @@ define hidden noundef zeroext i1 @"_ZN140_$LT$protobuf..reflect..message..genera
   br label %"_ZN80_$LT$yara_x_proto_json..yara..MessageOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha512dda23487e26aE.exit"
 
 "_ZN80_$LT$yara_x_proto_json..yara..MessageOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha512dda23487e26aE.exit": ; preds = %14, %15, %16, %22, %28
-  %.sroa.0.0.shrunk.i = phi i1 [ %29, %28 ], [ false, %14 ], [ false, %15 ], [ false, %16 ], [ %.mux.i, %22 ]
+  %.sroa.0.0.shrunk.i = phi i1 [ %29, %28 ], [ false, %15 ], [ false, %16 ], [ false, %14 ], [ %.mux.i, %22 ]
   ret i1 %.sroa.0.0.shrunk.i
 
 30:                                               ; preds = %7
@@ -1738,7 +1738,7 @@ define hidden { ptr, ptr } @"_ZN140_$LT$protobuf..reflect..message..generated..M
   unreachable
 
 common.resume:                                    ; preds = %67, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9c8546d75467d724E.exit6.i", %26
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn.i, %26 ], [ %.pn.pn.pn.i, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9c8546d75467d724E.exit6.i" ], [ %68, %67 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn.i, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9c8546d75467d724E.exit6.i" ], [ %.pn.pn.pn.i, %26 ], [ %68, %67 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN72_$LT$yara_x_proto_json..yara..AclEntry$u20$as$u20$core..clone..Clone$GT$5clone17h073f1b321d8f75a1E.exit": ; preds = %48
@@ -2113,7 +2113,7 @@ define hidden { ptr, ptr } @"_ZN140_$LT$protobuf..reflect..message..generated..M
   unreachable
 
 common.resume:                                    ; preds = %130, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hdf6d45ac18a3b180E.exit.i", %43
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn.i, %43 ], [ %.pn.pn.pn.i, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hdf6d45ac18a3b180E.exit.i" ], [ %131, %130 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn.i, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hdf6d45ac18a3b180E.exit.i" ], [ %.pn.pn.pn.i, %43 ], [ %131, %130 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN71_$LT$yara_x_proto_json..test..Message$u20$as$u20$core..clone..Clone$GT$5clone17hd78be7867f37268dE.exit": ; preds = %98
@@ -2386,7 +2386,7 @@ define hidden { ptr, ptr } @"_ZN140_$LT$protobuf..reflect..message..generated..M
   unreachable
 
 common.resume:                                    ; preds = %80, %22, %25
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn.i, %25 ], [ %.pn.pn.pn.i, %22 ], [ %81, %80 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn.i, %22 ], [ %.pn.pn.pn.i, %25 ], [ %81, %80 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN76_$LT$yara_x_proto_json..yara..FieldOptions$u20$as$u20$core..clone..Clone$GT$5clone17ha10ab18352d71c02E.exit": ; preds = %50
@@ -2482,7 +2482,7 @@ define hidden { ptr, ptr } @"_ZN140_$LT$protobuf..reflect..message..generated..M
           to label %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hed906d0faf7c3096E.exit.i.i" unwind label %16, !noalias !122
 
 common.resume:                                    ; preds = %30, %16, %22
-  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %23, %22 ], [ %31, %30 ]
+  %common.resume.op = phi { ptr, i32 } [ %23, %22 ], [ %17, %16 ], [ %31, %30 ]
   resume { ptr, i32 } %common.resume.op
 
 16:                                               ; preds = %14
@@ -2656,7 +2656,7 @@ define hidden { ptr, ptr } @"_ZN140_$LT$protobuf..reflect..message..generated..M
   unreachable
 
 common.resume:                                    ; preds = %42, %.body.i, %34
-  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %34 ], [ %eh.lpad-body.i, %.body.i ], [ %43, %42 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %eh.lpad-body.i, %34 ], [ %43, %42 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN75_$LT$yara_x_proto_json..yara..EnumOptions$u20$as$u20$core..clone..Clone$GT$5clone17h691b7c2b094f70e2E.exit": ; preds = %22
@@ -2913,7 +2913,7 @@ define hidden { ptr, ptr } @"_ZN140_$LT$protobuf..reflect..message..generated..M
   unreachable
 
 common.resume:                                    ; preds = %81, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9c8546d75467d724E.exit8.i", %29
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn.i, %29 ], [ %.pn.pn.pn.i, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9c8546d75467d724E.exit8.i" ], [ %82, %81 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn.i, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9c8546d75467d724E.exit8.i" ], [ %.pn.pn.pn.i, %29 ], [ %82, %81 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN77_$LT$yara_x_proto_json..yara..ModuleOptions$u20$as$u20$core..clone..Clone$GT$5clone17hf09a8e390584b156E.exit": ; preds = %53
@@ -3063,7 +3063,7 @@ define hidden { ptr, ptr } @"_ZN140_$LT$protobuf..reflect..message..generated..M
   unreachable
 
 common.resume:                                    ; preds = %39, %.body.i, %32
-  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %32 ], [ %eh.lpad-body.i, %.body.i ], [ %40, %39 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %eh.lpad-body.i, %32 ], [ %40, %39 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN78_$LT$yara_x_proto_json..yara..MessageOptions$u20$as$u20$core..clone..Clone$GT$5clone17h2b97d05a6f4f976fE.exit": ; preds = %20
@@ -3444,7 +3444,7 @@ define internal fastcc noundef zeroext i1 @"_ZN76_$LT$yara_x_proto_json..test..S
   br i1 %brmerge, label %39, label %40
 
 39:                                               ; preds = %33, %23, %11, %10, %22, %9, %21, %29, %40
-  %.sroa.0.0.shrunk = phi i1 [ %41, %40 ], [ false, %29 ], [ false, %21 ], [ false, %9 ], [ false, %22 ], [ false, %10 ], [ false, %11 ], [ false, %23 ], [ %.mux, %33 ]
+  %.sroa.0.0.shrunk = phi i1 [ %41, %40 ], [ false, %10 ], [ false, %23 ], [ false, %29 ], [ false, %21 ], [ false, %9 ], [ false, %22 ], [ %.mux, %33 ], [ false, %11 ]
   ret i1 %.sroa.0.0.shrunk
 
 40:                                               ; preds = %33

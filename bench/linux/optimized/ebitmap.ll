@@ -920,7 +920,7 @@ define dso_local range(i32 0, 2) i32 @ebitmap_contains(ptr noundef readonly capt
   br i1 %117, label %64, label %.loopexit19, !llvm.loop !30
 
 .loopexit19:                                      ; preds = %64, %112, %58, %52, %15, %9
-  %118 = phi i1 [ %13, %9 ], [ true, %15 ], [ %56, %52 ], [ true, %58 ], [ %116, %112 ], [ true, %64 ]
+  %118 = phi i1 [ %13, %9 ], [ true, %15 ], [ true, %58 ], [ %56, %52 ], [ %116, %112 ], [ true, %64 ]
   %119 = xor i1 %118, true
   %120 = zext i1 %119 to i32
   br label %.loopexit
@@ -1086,7 +1086,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ebitmap_read(ptr noundef capture
   br i1 %90, label %.thread, label %.preheader21, !llvm.loop !32
 
 91:                                               ; preds = %24, %67, %45, %39, %17, %30, %72, %63
-  %92 = phi i32 [ -22, %30 ], [ -22, %72 ], [ -12, %63 ], [ -22, %17 ], [ -22, %39 ], [ -22, %45 ], [ -22, %67 ], [ -22, %24 ]
+  %92 = phi i32 [ -22, %72 ], [ -12, %63 ], [ -22, %30 ], [ -22, %17 ], [ -22, %39 ], [ -22, %45 ], [ -22, %67 ], [ -22, %24 ]
   %93 = icmp eq ptr %0, null
   br i1 %93, label %.thread, label %94
 
@@ -1113,7 +1113,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ebitmap_read(ptr noundef capture
   br label %.thread
 
 .thread:                                          ; preds = %88, %2, %101, %91
-  %103 = phi i32 [ %92, %91 ], [ %102, %101 ], [ -22, %2 ], [ 0, %88 ]
+  %103 = phi i32 [ -22, %2 ], [ %92, %91 ], [ %102, %101 ], [ 0, %88 ]
   ret i32 %103
 }
 
@@ -1319,8 +1319,8 @@ define dso_local range(i32 -22, 1) i32 @ebitmap_write(ptr noundef readonly captu
   br label %134
 
 127:                                              ; preds = %.thread23, %.preheader29
-  %128 = phi i32 [ %100, %.preheader29 ], [ %121, %.thread23 ]
-  %129 = phi i64 [ %98, %.preheader29 ], [ 0, %.thread23 ]
+  %128 = phi i32 [ %121, %.thread23 ], [ %100, %.preheader29 ]
+  %129 = phi i64 [ 0, %.thread23 ], [ %98, %.preheader29 ]
   %130 = sub i32 %99, %128
   %131 = zext nneg i32 %130 to i64
   %132 = shl nuw i64 1, %131
@@ -1406,7 +1406,7 @@ define dso_local range(i32 -22, 1) i32 @ebitmap_write(ptr noundef readonly captu
   br label %.thread24
 
 .thread24:                                        ; preds = %89, %110, %107, %74, %170, %173, %92, %180, %67
-  %185 = phi i32 [ -22, %67 ], [ 0, %180 ], [ 0, %92 ], [ -22, %173 ], [ -22, %170 ], [ 0, %74 ], [ -22, %107 ], [ -22, %110 ], [ 0, %89 ]
+  %185 = phi i32 [ -22, %67 ], [ -22, %173 ], [ 0, %92 ], [ 0, %180 ], [ -22, %170 ], [ 0, %74 ], [ -22, %110 ], [ -22, %107 ], [ 0, %89 ]
   ret i32 %185
 }
 

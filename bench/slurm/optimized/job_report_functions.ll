@@ -583,8 +583,8 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
   %.not330 = icmp eq ptr %221, null
   br i1 %.not330, label %._crit_edge404, label %.lr.ph403.split, !llvm.loop !15
 
-.thread363:                                       ; preds = %218, %206, %211, %216, %.lr.ph403.split.us
-  %.us-phi = phi ptr [ %196, %.lr.ph403.split.us ], [ %200, %216 ], [ %200, %211 ], [ %200, %206 ], [ %200, %218 ]
+.thread363:                                       ; preds = %218, %211, %206, %216, %.lr.ph403.split.us
+  %.us-phi = phi ptr [ %196, %.lr.ph403.split.us ], [ %200, %216 ], [ %200, %206 ], [ %200, %211 ], [ %200, %218 ]
   call void @list_iterator_destroy(ptr noundef %192) #11
   br label %255
 
@@ -1121,7 +1121,7 @@ define dso_local noundef ptr @slurmdb_report_job_sizes_grouped_by_wckey(ptr noun
   br i1 %.not25.i, label %.critedge27.sink.split.i, label %107
 
 .critedge27.sink.split.i:                         ; preds = %92, %138, %97
-  %.sink.i = phi ptr [ %100, %97 ], [ %100, %138 ], [ %91, %92 ]
+  %.sink.i = phi ptr [ %100, %138 ], [ %100, %97 ], [ %91, %92 ]
   call void @list_iterator_destroy(ptr noundef %.sink.i) #11
   br label %.critedge27.i
 

@@ -122,7 +122,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm8Operator24hasPoisonGeneratingFlag
   br label %25
 
 25:                                               ; preds = %17, %18, %22
-  %.1 = phi i1 [ true, %18 ], [ %24, %22 ], [ undef, %17 ]
+  %.1 = phi i1 [ %24, %22 ], [ true, %18 ], [ undef, %17 ]
   %spec.select = and i1 %.not36, %.1
   br label %.critedge
 
@@ -194,7 +194,7 @@ _ZN4llvm5APIntD2Ev.exit.i.i.i.i.i:                ; preds = %54, %50, %45
   br label %_ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit
 
 _ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit: ; preds = %39, %43, %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i, %58, %61
-  %62 = phi i1 [ false, %43 ], [ true, %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i ], [ true, %58 ], [ true, %61 ], [ false, %39 ]
+  %62 = phi i1 [ true, %61 ], [ false, %43 ], [ true, %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i ], [ true, %58 ], [ false, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.critedge
 
@@ -238,12 +238,12 @@ _ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit: ; preds = %39, %
   br label %82
 
 82:                                               ; preds = %73, %75, %79
-  %.3 = phi i1 [ true, %75 ], [ %81, %79 ], [ undef, %73 ]
+  %.3 = phi i1 [ %81, %79 ], [ true, %75 ], [ undef, %73 ]
   %spec.select31 = and i1 %74, %.3
   br label %.critedge
 
 .critedge:                                        ; preds = %36, %_ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit, %82, %67, %25, %10, %14, %68, %31, %26
-  %.0 = phi i1 [ %30, %26 ], [ %35, %31 ], [ %72, %68 ], [ true, %10 ], [ %16, %14 ], [ %spec.select, %25 ], [ %spec.select29, %67 ], [ %spec.select31, %82 ], [ %62, %_ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit ], [ true, %36 ]
+  %.0 = phi i1 [ true, %10 ], [ %spec.select29, %67 ], [ %72, %68 ], [ %16, %14 ], [ %spec.select31, %82 ], [ %30, %26 ], [ %35, %31 ], [ %spec.select, %25 ], [ %62, %_ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit ], [ true, %36 ]
   ret i1 %.0
 }
 
@@ -1074,7 +1074,7 @@ _ZN4llvm5APIntD2Ev.exit85:                        ; preds = %_ZNK4llvm25generic_
   br label %176
 
 176:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit85, %141
-  %.345 = phi i32 [ 1, %141 ], [ %.53, %_ZN4llvm5APIntD2Ev.exit85 ]
+  %.345 = phi i32 [ %.53, %_ZN4llvm5APIntD2Ev.exit85 ], [ 1, %141 ]
   %177 = load i32, ptr %47, align 8, !tbaa !16
   %178 = icmp ugt i32 %177, 64
   br i1 %178, label %179, label %_ZN4llvm5APIntD2Ev.exit86
@@ -1851,7 +1851,7 @@ _ZN4llvm5APIntD2Ev.exit71:                        ; preds = %.thread123, %161, %
 _ZN4llvm5APIntD2Ev.exit49:                        ; preds = %_ZNK4llvm11ConstantInt6isZeroEv.exit
   br i1 %.0.i.i, label %_ZN4llvm5APIntD2Ev.exit49.thread, label %.critedge
 
-_ZN4llvm5APIntD2Ev.exit49.thread:                 ; preds = %_ZN4llvm5APIntD2Ev.exit49, %137, %134, %_ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE26getSequentialElementStrideERKNS_10DataLayoutE.exit, %_ZN4llvm5APIntD2Ev.exit71, %_ZN4llvm5APIntD2Ev.exit
+_ZN4llvm5APIntD2Ev.exit49.thread:                 ; preds = %_ZN4llvm5APIntD2Ev.exit49, %137, %134, %_ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE26getSequentialElementStrideERKNS_10DataLayoutE.exit, %_ZN4llvm5APIntD2Ev.exit, %_ZN4llvm5APIntD2Ev.exit71
   br i1 %.not.not.i, label %219, label %_ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE14getIndexedTypeEv.exit.i75
 
 219:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit49.thread
@@ -2357,7 +2357,7 @@ _ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i:    ; preds = %_ZNK4llvm4Type13get
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i, %22, %20, %1, %4, %4, %4, %4, %4, %4, %4, %4, %4, %43
-  %.1 = phi i1 [ false, %43 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ false, %1 ], [ false, %20 ], [ false, %22 ], [ %spec.select.i.i21.i.i, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i ]
+  %.1 = phi i1 [ false, %43 ], [ true, %4 ], [ true, %4 ], [ false, %1 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i ], [ false, %22 ], [ false, %20 ], [ %spec.select.i.i21.i.i, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i ]
   ret i1 %.1
 }
 
@@ -2498,8 +2498,8 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %2
   unreachable
 
 58:                                               ; preds = %2, %2, %54, %43, %42, %41, %40, %39, %38, %35, %32, %15, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit, %5
-  %.sroa.079.0 = phi i64 [ %9, %5 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %31, %15 ], [ %34, %32 ], [ %37, %35 ], [ 32, %38 ], [ 64, %39 ], [ 128, %40 ], [ 8192, %41 ], [ 80, %42 ], [ %52, %43 ], [ %.fca.0.extract, %54 ], [ 16, %2 ], [ 16, %2 ]
-  %.sroa.14.0 = phi i8 [ 0, %5 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %22, %15 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ 0, %35 ], [ 0, %38 ], [ 0, %39 ], [ 0, %40 ], [ 0, %41 ], [ 0, %42 ], [ %53, %43 ], [ %.fca.1.extract, %54 ], [ 0, %2 ], [ 0, %2 ]
+  %.sroa.079.0 = phi i64 [ %9, %5 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %31, %15 ], [ %34, %32 ], [ %37, %35 ], [ %.fca.0.extract, %54 ], [ 32, %38 ], [ 64, %39 ], [ 128, %40 ], [ 8192, %41 ], [ 80, %42 ], [ %52, %43 ], [ 16, %2 ], [ 16, %2 ]
+  %.sroa.14.0 = phi i8 [ 0, %5 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %22, %15 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ 0, %35 ], [ %.fca.1.extract, %54 ], [ 0, %38 ], [ 0, %39 ], [ 0, %40 ], [ 0, %41 ], [ 0, %42 ], [ %53, %43 ], [ 0, %2 ], [ 0, %2 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.079.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.14.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -2785,7 +2785,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIPNS_5ValueEjLj4ENS_12De
   br label %34
 
 34:                                               ; preds = %27, %27, %29
-  %.1 = phi ptr [ %.02738, %27 ], [ %33, %29 ], [ %.02738, %27 ]
+  %.1 = phi ptr [ %.02738, %27 ], [ %.02738, %27 ], [ %33, %29 ]
   %.028.add = add nuw nsw i64 %.028.idx37, 16
   %.not31 = icmp eq i64 %.028.add, 64
   br i1 %.not31, label %25, label %27, !llvm.loop !112

@@ -458,8 +458,8 @@ define internal range(i32 -2147483648, 1) i32 @mxf_write_packet(ptr noundef %0, 
   br label %171
 
 150:                                              ; preds = %111, %147, %145, %132, %123, %122, %121, %120, %114, %87, %74, %60
-  %.sroa.6.3 = phi i8 [ %.sroa.6.2, %60 ], [ %.sroa.6.2, %74 ], [ %.sroa.6.2, %87 ], [ %.sroa.6.2, %114 ], [ %116, %123 ], [ %116, %120 ], [ %116, %121 ], [ %116, %122 ], [ %.sroa.6.2, %132 ], [ %146, %145 ], [ %149, %147 ], [ %spec.select, %111 ]
-  %.sroa.3.3 = phi i16 [ %.sroa.3.2, %60 ], [ %.sroa.3.2, %74 ], [ %.sroa.3.2, %87 ], [ %.sroa.3.2, %114 ], [ %.sroa.3.2, %123 ], [ %.sroa.3.2, %120 ], [ %.sroa.3.2, %121 ], [ %.sroa.3.2, %122 ], [ %144, %132 ], [ %144, %145 ], [ %144, %147 ], [ %.sroa.3.2, %111 ]
+  %.sroa.6.3 = phi i8 [ %.sroa.6.2, %60 ], [ %.sroa.6.2, %74 ], [ %.sroa.6.2, %87 ], [ %.sroa.6.2, %114 ], [ %spec.select, %111 ], [ %149, %147 ], [ %116, %123 ], [ %116, %120 ], [ %116, %121 ], [ %116, %122 ], [ %.sroa.6.2, %132 ], [ %146, %145 ]
+  %.sroa.3.3 = phi i16 [ %.sroa.3.2, %60 ], [ %.sroa.3.2, %74 ], [ %.sroa.3.2, %87 ], [ %.sroa.3.2, %114 ], [ %.sroa.3.2, %111 ], [ %144, %147 ], [ %.sroa.3.2, %123 ], [ %.sroa.3.2, %120 ], [ %.sroa.3.2, %121 ], [ %.sroa.3.2, %122 ], [ %144, %132 ], [ %144, %145 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %151 = load i32, ptr %51, align 8, !tbaa !52
   %152 = add nsw i32 %151, -4
@@ -468,8 +468,8 @@ define internal range(i32 -2147483648, 1) i32 @mxf_write_packet(ptr noundef %0, 
   br i1 %154, label %60, label %.loopexit.i, !llvm.loop !66
 
 .loopexit.i:                                      ; preds = %150, %98, %92, %49
-  %.sroa.6.1 = phi i8 [ %.sroa.6.2, %98 ], [ %.sroa.6.2, %92 ], [ 0, %49 ], [ %.sroa.6.3, %150 ]
-  %.sroa.3.1 = phi i16 [ %.sroa.3.2, %98 ], [ %.sroa.3.2, %92 ], [ 0, %49 ], [ %.sroa.3.3, %150 ]
+  %.sroa.6.1 = phi i8 [ 0, %49 ], [ %.sroa.6.2, %98 ], [ %.sroa.6.2, %92 ], [ %.sroa.6.3, %150 ]
+  %.sroa.3.1 = phi i16 [ 0, %49 ], [ %.sroa.3.2, %98 ], [ %.sroa.3.2, %92 ], [ %.sroa.3.3, %150 ]
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %156 = load ptr, ptr %155, align 8, !tbaa !44
   %157 = icmp eq ptr %156, @ff_mxf_d10_muxer
@@ -511,12 +511,12 @@ mxf_get_mpeg2_codec_ul.exit.thread.fold.split.i:  ; preds = %167
   br label %mxf_get_mpeg2_codec_ul.exit.thread.i
 
 mxf_get_mpeg2_codec_ul.exit.thread.i:             ; preds = %mxf_get_mpeg2_codec_ul.exit.thread.fold.split.i, %167, %166, %165, %162
-  %.0.i100.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @mxf_mpeg2_codec_uls, i64 16), %162 ], [ getelementptr inbounds nuw (i8, ptr @mxf_mpeg2_codec_uls, i64 144), %166 ], [ getelementptr inbounds nuw (i8, ptr @mxf_mpeg2_codec_uls, i64 80), %165 ], [ getelementptr inbounds nuw (i8, ptr @mxf_mpeg2_codec_uls, i64 48), %167 ], [ getelementptr inbounds nuw (i8, ptr @mxf_mpeg2_codec_uls, i64 112), %mxf_get_mpeg2_codec_ul.exit.thread.fold.split.i ]
+  %.0.i100.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @mxf_mpeg2_codec_uls, i64 48), %167 ], [ getelementptr inbounds nuw (i8, ptr @mxf_mpeg2_codec_uls, i64 80), %165 ], [ getelementptr inbounds nuw (i8, ptr @mxf_mpeg2_codec_uls, i64 16), %162 ], [ getelementptr inbounds nuw (i8, ptr @mxf_mpeg2_codec_uls, i64 144), %166 ], [ getelementptr inbounds nuw (i8, ptr @mxf_mpeg2_codec_uls, i64 112), %mxf_get_mpeg2_codec_ul.exit.thread.fold.split.i ]
   %170 = getelementptr inbounds nuw i8, ptr %50, i64 32
   store ptr %.0.i100.i, ptr %170, align 8, !tbaa !68
   br label %mxf_parse_mpeg2_frame.exit
 
-171:                                              ; preds = %.critedge.i, %158, %162, %167
+171:                                              ; preds = %.critedge.i, %167, %158, %162
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.30) #14
   br label %mxf_write_opatom_packet.exit
 
@@ -605,7 +605,7 @@ switch.lookup.i:                                  ; preds = %191
   store i32 %218, ptr %219, align 8, !tbaa !74
   br label %mxf_parse_mpeg2_frame.exit
 
-.loopexit:                                        ; preds = %190, %175, %191
+.loopexit:                                        ; preds = %190, %191, %175
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.31) #14
   br label %mxf_write_opatom_packet.exit
 
@@ -722,7 +722,7 @@ mxf_parse_prores_frame.exit:                      ; preds = %230
   br label %278
 
 278:                                              ; preds = %275, %273, %271, %270, %268
-  %.032.i = phi i32 [ %269, %270 ], [ %269, %268 ], [ %272, %271 ], [ %274, %273 ], [ %spec.select.i, %275 ]
+  %.032.i = phi i32 [ %spec.select.i, %275 ], [ %274, %273 ], [ %269, %270 ], [ %269, %268 ], [ %272, %271 ]
   %279 = zext nneg i32 %.032.i to i64
   %280 = getelementptr inbounds nuw %struct.anon.2, ptr @mxf_dv_uls, i64 %279
   %281 = getelementptr inbounds nuw i8, ptr %.val154, i64 40
@@ -926,11 +926,11 @@ get_ue_golomb_long.exit.i:                        ; preds = %383, %380, %348
   br label %404
 
 404:                                              ; preds = %343, %402, %400, %get_ue_golomb_long.exit.i, %346, %322, %311, %307
-  %.sroa.6.10 = phi i8 [ %.sroa.6.9, %307 ], [ %312, %322 ], [ %312, %311 ], [ %347, %346 ], [ %.sroa.6.9, %get_ue_golomb_long.exit.i ], [ %401, %400 ], [ %403, %402 ], [ %spec.select257, %343 ]
-  %.195.i = phi i32 [ %.094122.i, %307 ], [ %.094122.i, %322 ], [ %.094122.i, %311 ], [ %.094122.i, %346 ], [ %.094122.i, %get_ue_golomb_long.exit.i ], [ %.094122.i, %400 ], [ %.094122.i, %402 ], [ %spec.select258, %343 ]
-  %.193.i = phi i32 [ %.092123.i, %307 ], [ 1, %322 ], [ %.092123.i, %311 ], [ %.092123.i, %346 ], [ %.092123.i, %get_ue_golomb_long.exit.i ], [ %.092123.i, %400 ], [ %.092123.i, %402 ], [ %.092123.i, %343 ]
-  %.191.i = phi i32 [ %.090124.i, %307 ], [ %338, %322 ], [ %.090124.i, %311 ], [ %.090124.i, %346 ], [ %.090124.i, %get_ue_golomb_long.exit.i ], [ %.090124.i, %400 ], [ %.090124.i, %402 ], [ %.090124.i, %343 ]
-  %.1.i = phi ptr [ %308, %307 ], [ %315, %322 ], [ %308, %311 ], [ %294, %346 ], [ %294, %get_ue_golomb_long.exit.i ], [ %294, %400 ], [ %294, %402 ], [ %308, %343 ]
+  %.sroa.6.10 = phi i8 [ %.sroa.6.9, %307 ], [ %312, %322 ], [ %312, %311 ], [ %spec.select257, %343 ], [ %403, %402 ], [ %347, %346 ], [ %.sroa.6.9, %get_ue_golomb_long.exit.i ], [ %401, %400 ]
+  %.195.i = phi i32 [ %.094122.i, %307 ], [ %.094122.i, %322 ], [ %.094122.i, %311 ], [ %spec.select258, %343 ], [ %.094122.i, %402 ], [ %.094122.i, %346 ], [ %.094122.i, %get_ue_golomb_long.exit.i ], [ %.094122.i, %400 ]
+  %.193.i = phi i32 [ %.092123.i, %307 ], [ 1, %322 ], [ %.092123.i, %311 ], [ %.092123.i, %343 ], [ %.092123.i, %402 ], [ %.092123.i, %346 ], [ %.092123.i, %get_ue_golomb_long.exit.i ], [ %.092123.i, %400 ]
+  %.191.i = phi i32 [ %.090124.i, %307 ], [ %338, %322 ], [ %.090124.i, %311 ], [ %.090124.i, %343 ], [ %.090124.i, %402 ], [ %.090124.i, %346 ], [ %.090124.i, %get_ue_golomb_long.exit.i ], [ %.090124.i, %400 ]
+  %.1.i = phi ptr [ %308, %307 ], [ %315, %322 ], [ %308, %311 ], [ %308, %343 ], [ %294, %402 ], [ %294, %346 ], [ %294, %get_ue_golomb_long.exit.i ], [ %294, %400 ]
   %405 = call ptr @avpriv_find_start_code(ptr noundef %.1.i, ptr noundef nonnull %294, ptr noundef nonnull %6) #14
   %.not.i178 = icmp ult ptr %405, %294
   br i1 %.not.i178, label %307, label %._crit_edge.i
@@ -1104,7 +1104,7 @@ mxf_parse_h264_frame.exit.thread:                 ; preds = %.thread.i, %._crit_
   br label %mxf_parse_mpeg2_frame.exit
 
 .split133.us.thread.i:                            ; preds = %314, %435, %.split133.us.i
-  %.str.43.sink = phi ptr [ @.str.43, %.split133.us.i ], [ @.str.43, %435 ], [ @.str.42, %314 ]
+  %.str.43.sink = phi ptr [ @.str.43, %435 ], [ @.str.43, %.split133.us.i ], [ @.str.42, %314 ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull %.str.43.sink) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1454,8 +1454,8 @@ bytestream2_peek_be16.exit.thread.i:              ; preds = %bytestream2_peek_be
   br label %mxf_parse_mpeg2_frame.exit
 
 mxf_parse_mpeg2_frame.exit:                       ; preds = %220, %231, %661, %660, %613, %610, %588, %587, %mxf_parse_ffv1_frame.exit.thread, %mxf_parse_h264_frame.exit.thread, %278, %241, %237, %217, %172, %mxf_get_mpeg2_codec_ul.exit.thread.i, %.loopexit.i, %44
-  %.sroa.6.0 = phi i8 [ 0, %44 ], [ %.sroa.6.1, %.loopexit.i ], [ %.sroa.6.1, %mxf_get_mpeg2_codec_ul.exit.thread.i ], [ 0, %172 ], [ 0, %217 ], [ 0, %237 ], [ 0, %241 ], [ 0, %278 ], [ %.sroa.6.11.ph, %mxf_parse_h264_frame.exit.thread ], [ 0, %mxf_parse_ffv1_frame.exit.thread ], [ 0, %587 ], [ 0, %588 ], [ 0, %610 ], [ 0, %613 ], [ 0, %660 ], [ 0, %661 ], [ 0, %231 ], [ 0, %220 ]
-  %.sroa.3.0 = phi i16 [ 0, %44 ], [ %.sroa.3.1, %.loopexit.i ], [ %.sroa.3.1, %mxf_get_mpeg2_codec_ul.exit.thread.i ], [ 0, %172 ], [ 0, %217 ], [ 0, %237 ], [ 0, %241 ], [ 0, %278 ], [ 0, %mxf_parse_h264_frame.exit.thread ], [ 0, %mxf_parse_ffv1_frame.exit.thread ], [ 0, %587 ], [ 0, %588 ], [ 0, %610 ], [ 0, %613 ], [ 0, %660 ], [ 0, %661 ], [ 0, %231 ], [ 0, %220 ]
+  %.sroa.6.0 = phi i8 [ 0, %44 ], [ 0, %278 ], [ %.sroa.6.1, %mxf_get_mpeg2_codec_ul.exit.thread.i ], [ 0, %661 ], [ 0, %217 ], [ %.sroa.6.11.ph, %mxf_parse_h264_frame.exit.thread ], [ 0, %mxf_parse_ffv1_frame.exit.thread ], [ %.sroa.6.1, %.loopexit.i ], [ 0, %172 ], [ 0, %237 ], [ 0, %241 ], [ 0, %587 ], [ 0, %588 ], [ 0, %610 ], [ 0, %613 ], [ 0, %660 ], [ 0, %231 ], [ 0, %220 ]
+  %.sroa.3.0 = phi i16 [ 0, %44 ], [ 0, %278 ], [ %.sroa.3.1, %mxf_get_mpeg2_codec_ul.exit.thread.i ], [ 0, %661 ], [ 0, %217 ], [ 0, %mxf_parse_h264_frame.exit.thread ], [ 0, %mxf_parse_ffv1_frame.exit.thread ], [ %.sroa.3.1, %.loopexit.i ], [ 0, %172 ], [ 0, %237 ], [ 0, %241 ], [ 0, %587 ], [ 0, %588 ], [ 0, %610 ], [ 0, %613 ], [ 0, %660 ], [ 0, %231 ], [ 0, %220 ]
   %668 = load i32, ptr %28, align 8, !tbaa !45
   %.not141 = icmp eq i32 %668, 0
   br i1 %.not141, label %mxf_compute_edit_unit_byte_count.exit, label %669
@@ -2091,7 +2091,7 @@ mxf_write_klv_fill.exit213:                       ; preds = %911, %920
   br label %mxf_write_opatom_packet.exit
 
 mxf_write_opatom_packet.exit:                     ; preds = %.loopexit.i216, %950, %761, %mxf_write_klv_fill.exit.i, %726, %989, %813, %797, %779, %898, %678, %582, %.split133.us.thread.i, %mxf_parse_prores_frame.exit, %.loopexit, %171, %43, %26
-  %.0 = phi i32 [ -1, %678 ], [ -1163346256, %898 ], [ -1, %171 ], [ -1, %.loopexit ], [ -1, %mxf_parse_prores_frame.exit ], [ -1, %.split133.us.thread.i ], [ -1, %582 ], [ %41, %43 ], [ -1094995529, %26 ], [ %780, %779 ], [ %798, %797 ], [ %814, %813 ], [ 0, %989 ], [ 0, %761 ], [ %727, %726 ], [ %744, %mxf_write_klv_fill.exit.i ], [ 0, %950 ], [ 0, %.loopexit.i216 ]
+  %.0 = phi i32 [ -1, %678 ], [ %41, %43 ], [ %814, %813 ], [ %798, %797 ], [ -1163346256, %898 ], [ -1094995529, %26 ], [ %780, %779 ], [ -1, %171 ], [ -1, %.loopexit ], [ -1, %mxf_parse_prores_frame.exit ], [ %744, %mxf_write_klv_fill.exit.i ], [ -1, %.split133.us.thread.i ], [ -1, %582 ], [ 0, %989 ], [ 0, %761 ], [ %727, %726 ], [ 0, %950 ], [ 0, %.loopexit.i216 ]
   ret i32 %.0
 }
 
@@ -2429,7 +2429,7 @@ mxf_write_klv_fill.exit63:                        ; preds = %155, %164
   br i1 %186, label %177, label %.loopexit, !llvm.loop !150
 
 .loopexit:                                        ; preds = %177, %173, %mxf_write_random_index_pack.exit, %170, %152, %139, %46, %43, %1, %12
-  %.044 = phi i32 [ -1313558101, %12 ], [ -1313558101, %1 ], [ %44, %43 ], [ %47, %46 ], [ %144, %139 ], [ %153, %152 ], [ %171, %170 ], [ 0, %mxf_write_random_index_pack.exit ], [ 0, %173 ], [ 0, %177 ]
+  %.044 = phi i32 [ %44, %43 ], [ %47, %46 ], [ %153, %152 ], [ %171, %170 ], [ %144, %139 ], [ -1313558101, %1 ], [ -1313558101, %12 ], [ 0, %mxf_write_random_index_pack.exit ], [ 0, %173 ], [ 0, %177 ]
   ret i32 %.044
 }
 
@@ -2616,7 +2616,7 @@ define internal range(i32 -2147483648, 2) i32 @mxf_interleave(ptr noundef %0, pt
   br label %mxf_interleave_get_packet.exit
 
 mxf_interleave_get_packet.exit:                   ; preds = %._crit_edge.thread.sink.split.i, %35, %._crit_edge.i, %22, %6
-  %.1 = phi i32 [ %20, %6 ], [ 0, %._crit_edge.i ], [ 0, %35 ], [ 0, %22 ], [ %.138.ph.i, %._crit_edge.thread.sink.split.i ]
+  %.1 = phi i32 [ %20, %6 ], [ 0, %35 ], [ 0, %22 ], [ 0, %._crit_edge.i ], [ %.138.ph.i, %._crit_edge.thread.sink.split.i ]
   ret i32 %.1
 }
 
@@ -2972,7 +2972,7 @@ choose_chroma_location.exit.thread:               ; preds = %choose_chroma_locat
   br label %.thread302
 
 170:                                              ; preds = %166, %168, %158, %163, %164
-  %.0218 = phi i64 [ %167, %166 ], [ %169, %168 ], [ 0, %158 ], [ 1, %163 ], [ 1, %164 ]
+  %.0218 = phi i64 [ %169, %168 ], [ 0, %158 ], [ %167, %166 ], [ 1, %163 ], [ 1, %164 ]
   %171 = getelementptr inbounds nuw [16 x i8], ptr @mxf_d10_codec_uls, i64 %.0218
   %172 = getelementptr inbounds nuw i8, ptr %41, i64 32
   store ptr %171, ptr %172, align 8, !tbaa !68
@@ -3134,8 +3134,8 @@ choose_chroma_location.exit.thread:               ; preds = %choose_chroma_locat
   br label %270
 
 .thread293.sink.split:                            ; preds = %230, %225, %195, %189
-  %.str.91.sink = phi ptr [ @.str.91, %189 ], [ @.str.92, %195 ], [ @.str.94, %225 ], [ @.str.95, %230 ]
-  %.7.ph.ph = phi i32 [ -1, %189 ], [ -1, %195 ], [ -1163346256, %225 ], [ -22, %230 ]
+  %.str.91.sink = phi ptr [ @.str.94, %225 ], [ @.str.91, %189 ], [ @.str.92, %195 ], [ @.str.95, %230 ]
+  %.7.ph.ph = phi i32 [ -1163346256, %225 ], [ -1, %189 ], [ -1, %195 ], [ -22, %230 ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull %.str.91.sink) #14
   br label %.thread293
 
@@ -3455,8 +3455,8 @@ mxf_parse_timestamp.exit:                         ; preds = %395, %400
   store i32 -1, ptr %441, align 8, !tbaa !120
   br label %.thread302
 
-.thread302:                                       ; preds = %choose_chroma_location.exit.thread, %37, %270, %291, %289, %.thread280, %157, %.thread293, %54, %mxf_get_essence_container_ul_index.exit.thread, %434, %438, %15
-  %.0 = phi i32 [ -1, %15 ], [ 0, %438 ], [ -12, %434 ], [ %.7.ph, %.thread293 ], [ -1, %54 ], [ -1, %mxf_get_essence_container_ul_index.exit.thread ], [ -1, %.thread280 ], [ -22, %157 ], [ -1, %289 ], [ -1, %291 ], [ %274, %270 ], [ -12, %37 ], [ %136, %choose_chroma_location.exit.thread ]
+.thread302:                                       ; preds = %choose_chroma_location.exit.thread, %270, %37, %291, %289, %.thread280, %157, %.thread293, %54, %mxf_get_essence_container_ul_index.exit.thread, %434, %438, %15
+  %.0 = phi i32 [ -1, %15 ], [ -12, %434 ], [ 0, %438 ], [ %.7.ph, %.thread293 ], [ -1, %.thread280 ], [ -1, %mxf_get_essence_container_ul_index.exit.thread ], [ -1, %54 ], [ -22, %157 ], [ -1, %289 ], [ -1, %291 ], [ -12, %37 ], [ %274, %270 ], [ %136, %choose_chroma_location.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -3605,7 +3605,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mxf_write_partition(ptr no
   br label %.critedge
 
 .critedge:                                        ; preds = %.thread, %41, %31
-  %body_partition_key.sink = phi ptr [ %3, %31 ], [ %3, %41 ], [ @body_partition_key, %.thread ]
+  %body_partition_key.sink = phi ptr [ %3, %41 ], [ %3, %31 ], [ @body_partition_key, %.thread ]
   tail call void @avio_write(ptr noundef %9, ptr noundef nonnull %body_partition_key.sink, i32 noundef 16) #14
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %48 = load i32, ptr %47, align 8, !tbaa !133
@@ -3662,7 +3662,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mxf_write_partition(ptr no
   br label %.critedge113
 
 .critedge113:                                     ; preds = %.critedge113.sink.split, %61, %62, %.critedge
-  %.sink = phi i64 [ 0, %.critedge ], [ 0, %62 ], [ 0, %61 ], [ %69, %.critedge113.sink.split ]
+  %.sink = phi i64 [ 0, %62 ], [ 0, %61 ], [ 0, %.critedge ], [ %69, %.critedge113.sink.split ]
   tail call void @avio_wb64(ptr noundef %9, i64 noundef %.sink) #14
   %70 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %71 = load i64, ptr %70, align 8, !tbaa !143
@@ -3779,7 +3779,7 @@ mxf_write_klv_fill.exit:                          ; preds = %92, %101
   br label %128
 
 128:                                              ; preds = %123, %114
-  %.178.i = phi i32 [ %.077227.i, %114 ], [ %spec.select.i, %123 ]
+  %.178.i = phi i32 [ %spec.select.i, %123 ], [ %.077227.i, %114 ]
   %129 = getelementptr inbounds nuw i8, ptr %119, i64 32
   %130 = load ptr, ptr %129, align 8, !tbaa !223
   %131 = getelementptr inbounds nuw i8, ptr %119, i64 40
@@ -4780,15 +4780,15 @@ get_rac.exit24:                                   ; preds = %82, %96, %101
   br label %get_rac.exit26
 
 get_rac.exit26:                                   ; preds = %143, %157, %162, %165, %179, %184
-  %187 = phi i32 [ %148, %143 ], [ %139, %165 ], [ %151, %157 ], [ %151, %162 ], [ %173, %179 ], [ %173, %184 ]
-  %.0.i25 = phi i32 [ 0, %143 ], [ 1, %165 ], [ 0, %157 ], [ 0, %162 ], [ 1, %179 ], [ 1, %184 ]
+  %187 = phi i32 [ %148, %143 ], [ %139, %165 ], [ %151, %162 ], [ %151, %157 ], [ %173, %179 ], [ %173, %184 ]
+  %.0.i25 = phi i32 [ 0, %143 ], [ 1, %165 ], [ 0, %162 ], [ 0, %157 ], [ 1, %179 ], [ 1, %184 ]
   %reass.add = shl i32 %.035, 1
   %188 = or disjoint i32 %.0.i25, %reass.add
   %189 = icmp sgt i32 %.019.in34, 1
   br i1 %189, label %131, label %get_rac.exit.thread, !llvm.loop !237
 
 get_rac.exit.thread:                              ; preds = %128, %get_rac.exit26, %get_rac.exit24, %60, %55, %38
-  %.020 = phi i32 [ 0, %38 ], [ 0, %55 ], [ 0, %60 ], [ 1, %get_rac.exit24 ], [ %188, %get_rac.exit26 ], [ -1094995529, %128 ]
+  %.020 = phi i32 [ 0, %60 ], [ %188, %get_rac.exit26 ], [ 0, %38 ], [ 0, %55 ], [ 1, %get_rac.exit24 ], [ -1094995529, %128 ]
   ret i32 %.020
 }
 
@@ -5250,8 +5250,8 @@ mxf_write_preface.exit:                           ; preds = %73, %klv_ber_length
   br label %145
 
 145:                                              ; preds = %.thread43.i.i.i, %.thread.i.i.i
-  %.12341.i.i.i = phi ptr [ %.2.i.i.i, %.thread.i.i.i ], [ %.12347.i.i.i, %.thread43.i.i.i ]
-  %.130.i.i.i = phi i64 [ %.231.i.i.i, %.thread.i.i.i ], [ %.02952.i.i.i, %.thread43.i.i.i ]
+  %.12341.i.i.i = phi ptr [ %.12347.i.i.i, %.thread43.i.i.i ], [ %.2.i.i.i, %.thread.i.i.i ]
+  %.130.i.i.i = phi i64 [ %.02952.i.i.i, %.thread43.i.i.i ], [ %.231.i.i.i, %.thread.i.i.i ]
   %146 = load i8, ptr %.12341.i.i.i, align 1, !tbaa !54
   %.not.i.i.i = icmp eq i8 %146, 0
   br i1 %.not.i.i.i, label %mxf_utf16len.exit.i.i, label %.lr.ph.i.i.i
@@ -5333,8 +5333,8 @@ mxf_utf16_local_tag_length.exit.i:                ; preds = %mxf_utf16len.exit.t
   br label %175
 
 175:                                              ; preds = %.thread43.i.i75.i, %.thread.i.i85.i
-  %.12341.i.i77.i = phi ptr [ %.2.i.i72.i, %.thread.i.i85.i ], [ %.12347.i.i76.i, %.thread43.i.i75.i ]
-  %.130.i.i78.i = phi i64 [ %.231.i.i87.i, %.thread.i.i85.i ], [ %.02952.i.i66.i, %.thread43.i.i75.i ]
+  %.12341.i.i77.i = phi ptr [ %.12347.i.i76.i, %.thread43.i.i75.i ], [ %.2.i.i72.i, %.thread.i.i85.i ]
+  %.130.i.i78.i = phi i64 [ %.02952.i.i66.i, %.thread43.i.i75.i ], [ %.231.i.i87.i, %.thread.i.i85.i ]
   %176 = load i8, ptr %.12341.i.i77.i, align 1, !tbaa !54
   %.not.i.i79.i = icmp eq i8 %176, 0
   br i1 %.not.i.i79.i, label %mxf_utf16len.exit.i80.i, label %.lr.ph.i.i64.i
@@ -5413,8 +5413,8 @@ mxf_utf16_local_tag_length.exit88.i:              ; preds = %mxf_utf16len.exit.t
   br label %205
 
 205:                                              ; preds = %.thread43.i.i102.i, %.thread.i.i112.i
-  %.12341.i.i104.i = phi ptr [ %.2.i.i99.i, %.thread.i.i112.i ], [ %.12347.i.i103.i, %.thread43.i.i102.i ]
-  %.130.i.i105.i = phi i64 [ %.231.i.i114.i, %.thread.i.i112.i ], [ %.02952.i.i93.i, %.thread43.i.i102.i ]
+  %.12341.i.i104.i = phi ptr [ %.12347.i.i103.i, %.thread43.i.i102.i ], [ %.2.i.i99.i, %.thread.i.i112.i ]
+  %.130.i.i105.i = phi i64 [ %.02952.i.i93.i, %.thread43.i.i102.i ], [ %.231.i.i114.i, %.thread.i.i112.i ]
   %206 = load i8, ptr %.12341.i.i104.i, align 1, !tbaa !54
   %.not.i.i106.i = icmp eq i8 %206, 0
   br i1 %.not.i.i106.i, label %mxf_utf16len.exit.i107.i, label %.lr.ph.i.i91.i
@@ -5497,8 +5497,8 @@ mxf_utf16_local_tag_length.exit115.i:             ; preds = %mxf_utf16len.exit.t
   br label %236
 
 236:                                              ; preds = %.thread43.i.i129.i, %.thread.i.i139.i
-  %.12341.i.i131.i = phi ptr [ %.2.i.i126.i, %.thread.i.i139.i ], [ %.12347.i.i130.i, %.thread43.i.i129.i ]
-  %.130.i.i132.i = phi i64 [ %.231.i.i141.i, %.thread.i.i139.i ], [ %.02952.i.i120.i, %.thread43.i.i129.i ]
+  %.12341.i.i131.i = phi ptr [ %.12347.i.i130.i, %.thread43.i.i129.i ], [ %.2.i.i126.i, %.thread.i.i139.i ]
+  %.130.i.i132.i = phi i64 [ %.02952.i.i120.i, %.thread43.i.i129.i ], [ %.231.i.i141.i, %.thread.i.i139.i ]
   %237 = load i8, ptr %.12341.i.i131.i, align 1, !tbaa !54
   %.not.i.i133.i = icmp eq i8 %237, 0
   br i1 %.not.i.i133.i, label %mxf_utf16len.exit.i134.i, label %.lr.ph.i.i118.i
@@ -5740,8 +5740,8 @@ mxf_write_content_storage.exit:                   ; preds = %275
   br label %314
 
 314:                                              ; preds = %.thread43.i.i.i72, %.thread.i.i.i98
-  %.12341.i.i.i74 = phi ptr [ %.2.i.i.i69, %.thread.i.i.i98 ], [ %.12347.i.i.i73, %.thread43.i.i.i72 ]
-  %.130.i.i.i75 = phi i64 [ %.231.i.i.i100, %.thread.i.i.i98 ], [ %.02952.i.i.i63, %.thread43.i.i.i72 ]
+  %.12341.i.i.i74 = phi ptr [ %.12347.i.i.i73, %.thread43.i.i.i72 ], [ %.2.i.i.i69, %.thread.i.i.i98 ]
+  %.130.i.i.i75 = phi i64 [ %.02952.i.i.i63, %.thread43.i.i.i72 ], [ %.231.i.i.i100, %.thread.i.i.i98 ]
   %315 = load i8, ptr %.12341.i.i.i74, align 1, !tbaa !54
   %.not.i.i.i76 = icmp eq i8 %315, 0
   br i1 %.not.i.i.i76, label %mxf_utf16len.exit.i.i77, label %.lr.ph.i.i.i61
@@ -5859,8 +5859,8 @@ mxf_utf16_local_tag_length.exit.i81:              ; preds = %mxf_utf16len.exit.t
   br label %366
 
 366:                                              ; preds = %.thread43.i.i.i.i.i, %.thread.i.i.i.i.i
-  %.12341.i.i.i.i.i = phi ptr [ %.2.i.i.i.i.i, %.thread.i.i.i.i.i ], [ %.12347.i.i.i.i.i, %.thread43.i.i.i.i.i ]
-  %.130.i.i.i.i.i = phi i64 [ %.231.i.i.i.i.i, %.thread.i.i.i.i.i ], [ %.02952.i.i.i.i.i, %.thread43.i.i.i.i.i ]
+  %.12341.i.i.i.i.i = phi ptr [ %.12347.i.i.i.i.i, %.thread43.i.i.i.i.i ], [ %.2.i.i.i.i.i, %.thread.i.i.i.i.i ]
+  %.130.i.i.i.i.i = phi i64 [ %.02952.i.i.i.i.i, %.thread43.i.i.i.i.i ], [ %.231.i.i.i.i.i, %.thread.i.i.i.i.i ]
   %367 = load i8, ptr %.12341.i.i.i.i.i, align 1, !tbaa !54
   %.not.i.i.i.i.i = icmp eq i8 %367, 0
   br i1 %.not.i.i.i.i.i, label %mxf_utf16len.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i
@@ -5942,8 +5942,8 @@ mxf_utf16_local_tag_length.exit.i.i.i:            ; preds = %mxf_utf16len.exit.t
   br label %396
 
 396:                                              ; preds = %.thread43.i.i40.i.i.i, %.thread.i.i50.i.i.i
-  %.12341.i.i42.i.i.i = phi ptr [ %.2.i.i37.i.i.i, %.thread.i.i50.i.i.i ], [ %.12347.i.i41.i.i.i, %.thread43.i.i40.i.i.i ]
-  %.130.i.i43.i.i.i = phi i64 [ %.231.i.i52.i.i.i, %.thread.i.i50.i.i.i ], [ %.02952.i.i31.i.i.i, %.thread43.i.i40.i.i.i ]
+  %.12341.i.i42.i.i.i = phi ptr [ %.12347.i.i41.i.i.i, %.thread43.i.i40.i.i.i ], [ %.2.i.i37.i.i.i, %.thread.i.i50.i.i.i ]
+  %.130.i.i43.i.i.i = phi i64 [ %.02952.i.i31.i.i.i, %.thread43.i.i40.i.i.i ], [ %.231.i.i52.i.i.i, %.thread.i.i50.i.i.i ]
   %397 = load i8, ptr %.12341.i.i42.i.i.i, align 1, !tbaa !54
   %.not.i.i44.i.i.i = icmp eq i8 %397, 0
   br i1 %.not.i.i44.i.i.i, label %mxf_utf16len.exit.i45.i.i.i, label %.lr.ph.i.i29.i.i.i
@@ -7046,8 +7046,8 @@ define internal fastcc void @mxf_write_local_tag_utf16(ptr noundef readonly capt
   br label %28
 
 28:                                               ; preds = %.thread43.i, %.thread.i
-  %.12341.i = phi ptr [ %.2.i, %.thread.i ], [ %.12347.i, %.thread43.i ]
-  %.130.i = phi i64 [ %.231.i, %.thread.i ], [ %.02952.i, %.thread43.i ]
+  %.12341.i = phi ptr [ %.12347.i, %.thread43.i ], [ %.2.i, %.thread.i ]
+  %.130.i = phi i64 [ %.02952.i, %.thread43.i ], [ %.231.i, %.thread.i ]
   %29 = load i8, ptr %.12341.i, align 1, !tbaa !54
   %.not.i = icmp eq i8 %29, 0
   br i1 %.not.i, label %mxf_utf16len.exit, label %.lr.ph.i
@@ -7835,9 +7835,9 @@ mxf_get_codec_ul_by_id.exit290:                   ; preds = %.lr.ph.i286, %37, %
   br label %.thread
 
 .thread:                                          ; preds = %mxf_get_codec_ul_by_id.exit290, %45, %.fold.split, %42, %46
-  %.0322 = phi i32 [ %11, %46 ], [ %11, %.fold.split ], [ 1920, %42 ], [ 1280, %45 ], [ %11, %mxf_get_codec_ul_by_id.exit290 ]
-  %.0183 = phi i32 [ %52, %46 ], [ %13, %.fold.split ], [ %13, %42 ], [ %13, %45 ], [ %13, %mxf_get_codec_ul_by_id.exit290 ]
-  %.1 = phi i32 [ %49, %46 ], [ %11, %.fold.split ], [ 1920, %42 ], [ 1280, %45 ], [ %11, %mxf_get_codec_ul_by_id.exit290 ]
+  %.0322 = phi i32 [ %11, %mxf_get_codec_ul_by_id.exit290 ], [ %11, %46 ], [ %11, %.fold.split ], [ 1920, %42 ], [ 1280, %45 ]
+  %.0183 = phi i32 [ %13, %mxf_get_codec_ul_by_id.exit290 ], [ %52, %46 ], [ %13, %.fold.split ], [ %13, %42 ], [ %13, %45 ]
+  %.1 = phi i32 [ %11, %mxf_get_codec_ul_by_id.exit290 ], [ %49, %46 ], [ %11, %.fold.split ], [ 1920, %42 ], [ 1280, %45 ]
   %53 = getelementptr i8, ptr %0, i64 24
   %.val277 = load ptr, ptr %53, align 8, !tbaa !4
   %.val278 = load ptr, ptr %6, align 8, !tbaa !24
@@ -7911,7 +7911,7 @@ mxf_get_codec_ul_by_id.exit290:                   ; preds = %.lr.ph.i286, %37, %
   br label %72
 
 72:                                               ; preds = %61, %70, %71
-  %.0184 = phi i32 [ 486, %70 ], [ %69, %71 ], [ 576, %61 ]
+  %.0184 = phi i32 [ %69, %71 ], [ 486, %70 ], [ 576, %61 ]
   %.val257 = load ptr, ptr %53, align 8, !tbaa !4
   %.val258 = load ptr, ptr %6, align 8, !tbaa !24
   tail call fastcc void @mxf_write_local_tag(ptr %.val257, ptr %.val258, i32 noundef 4, i32 noundef 12808)
@@ -8081,8 +8081,8 @@ mxf_get_codec_ul_by_id.exit290:                   ; preds = %.lr.ph.i286, %37, %
   br label %139
 
 139:                                              ; preds = %120, %138, %137, %136, %135, %130, %125
-  %.0187 = phi i32 [ 0, %138 ], [ %129, %125 ], [ %134, %130 ], [ 270, %135 ], [ 0, %136 ], [ 584, %137 ], [ 320, %120 ]
-  %.0185 = phi i32 [ 0, %138 ], [ 23, %125 ], [ 20, %130 ], [ 7, %135 ], [ 26, %136 ], [ 21, %137 ], [ 7, %120 ]
+  %.0187 = phi i32 [ 0, %138 ], [ %129, %125 ], [ 584, %137 ], [ %134, %130 ], [ 270, %135 ], [ 0, %136 ], [ 320, %120 ]
+  %.0185 = phi i32 [ 0, %138 ], [ 23, %125 ], [ 21, %137 ], [ 20, %130 ], [ 7, %135 ], [ 26, %136 ], [ 7, %120 ]
   %140 = load i32, ptr %54, align 4, !tbaa !58
   %141 = icmp eq i32 %140, 0
   %142 = icmp ne i32 %.0187, 0
@@ -8584,7 +8584,7 @@ define internal fastcc i64 @mxf_write_generic_sound_common(ptr noundef %0, ptr n
   br label %.critedge
 
 .critedge:                                        ; preds = %58, %56, %56, %49, %59, %42
-  %.sink = phi i32 [ %62, %59 ], [ %45, %42 ], [ %31, %49 ], [ %57, %56 ], [ %57, %56 ], [ %.pre62, %58 ]
+  %.sink = phi i32 [ %45, %42 ], [ %62, %59 ], [ %31, %49 ], [ %57, %56 ], [ %57, %56 ], [ %.pre62, %58 ]
   tail call void @avio_wb32(ptr noundef %5, i32 noundef %.sink) #14
   %.val = load ptr, ptr %6, align 8, !tbaa !4
   %.val51 = load ptr, ptr %4, align 8, !tbaa !24

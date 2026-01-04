@@ -767,7 +767,7 @@ _.exit:                                           ; preds = %43, %45
   br label %get_stash_info_assert.exit.thread
 
 get_stash_info_assert.exit.thread:                ; preds = %4, %_.exit.i, %_.exit, %48
-  %.0 = phi i32 [ %42, %_.exit ], [ %50, %48 ], [ -1, %_.exit.i ], [ -1, %4 ]
+  %.0 = phi i32 [ %50, %48 ], [ %42, %_.exit ], [ -1, %_.exit.i ], [ -1, %4 ]
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 288
   call void @strbuf_release(ptr noundef nonnull %51) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -2274,7 +2274,7 @@ _.exit67:                                         ; preds = %68, %70
   br label %79
 
 79:                                               ; preds = %73, %38, %41, %37
-  %.not50 = phi i1 [ false, %73 ], [ true, %37 ], [ true, %41 ], [ true, %38 ]
+  %.not50 = phi i1 [ true, %37 ], [ false, %73 ], [ true, %41 ], [ true, %38 ]
   %80 = load ptr, ptr @the_repository, align 8, !tbaa !18
   call void @init_ui_merge_options(ptr noundef nonnull %11, ptr noundef %80) #15
   %81 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -2907,7 +2907,7 @@ _.exit:                                           ; preds = %38, %40
   br label %43
 
 43:                                               ; preds = %33, %17, %11, %1, %_.exit
-  %.0 = phi i32 [ -1, %_.exit ], [ -1, %1 ], [ -1, %11 ], [ -1, %17 ], [ 0, %33 ]
+  %.0 = phi i32 [ -1, %17 ], [ -1, %1 ], [ -1, %11 ], [ -1, %_.exit ], [ 0, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -3147,7 +3147,7 @@ _.exit:                                           ; preds = %11, %14
   br label %18
 
 18:                                               ; preds = %3, %_.exit
-  %.0 = phi i32 [ -1, %_.exit ], [ %.mux, %3 ]
+  %.0 = phi i32 [ %.mux, %3 ], [ -1, %_.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -3205,7 +3205,7 @@ define internal fastcc range(i32 -1, 2) i32 @check_changes_tracked_files(ptr nou
   br label %20
 
 20:                                               ; preds = %18, %10
-  %.0 = phi i32 [ 1, %10 ], [ %spec.select, %18 ]
+  %.0 = phi i32 [ %spec.select, %18 ], [ 1, %10 ]
   call void @release_revisions(ptr noundef nonnull %2) #15
   br label %21
 
@@ -3549,7 +3549,7 @@ _.exit94:                                         ; preds = %150, %153
   br label %156
 
 156:                                              ; preds = %149, %_.exit94, %119, %_.exit91, %86, %_.exit82, %73, %_.exit79, %35, %28, %_.exit76, %138, %116, %109, %_.exit88, %104, %97, %_.exit85, %_.exit
-  %.047 = phi i32 [ -1, %_.exit ], [ -1, %97 ], [ -1, %_.exit85 ], [ 1, %104 ], [ 0, %138 ], [ -1, %109 ], [ -1, %_.exit88 ], [ 1, %116 ], [ -1, %_.exit76 ], [ -1, %28 ], [ 1, %35 ], [ -1, %_.exit79 ], [ -1, %73 ], [ -1, %_.exit82 ], [ -1, %86 ], [ -1, %_.exit91 ], [ -1, %119 ], [ -1, %_.exit94 ], [ -1, %149 ]
+  %.047 = phi i32 [ -1, %_.exit ], [ -1, %28 ], [ 1, %35 ], [ -1, %73 ], [ -1, %97 ], [ -1, %_.exit85 ], [ 1, %104 ], [ -1, %119 ], [ 0, %138 ], [ -1, %109 ], [ -1, %_.exit88 ], [ 1, %116 ], [ -1, %86 ], [ -1, %_.exit76 ], [ -1, %_.exit79 ], [ -1, %_.exit82 ], [ -1, %_.exit91 ], [ -1, %_.exit94 ], [ -1, %149 ]
   call void @strbuf_release(ptr noundef nonnull %12) #15
   call void @strbuf_release(ptr noundef nonnull %11) #15
   call void @strbuf_release(ptr noundef nonnull %13) #15
@@ -3720,7 +3720,7 @@ define internal fastcc range(i32 -1, 1) i32 @save_untracked_files(ptr noundef no
   br label %26
 
 26:                                               ; preds = %19, %15, %2
-  %.0 = phi i32 [ -1, %2 ], [ -1, %15 ], [ %spec.select, %19 ]
+  %.0 = phi i32 [ %spec.select, %19 ], [ -1, %2 ], [ -1, %15 ]
   call void @release_index(ptr noundef nonnull %5) #15
   call void @strbuf_release(ptr noundef nonnull %3) #15
   %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @stash_index_path, i64 16), align 8, !tbaa !131
@@ -3844,7 +3844,7 @@ _.exit:                                           ; preds = %52, %55
   br label %58
 
 58:                                               ; preds = %51, %_.exit, %44, %40, %4, %48
-  %.0 = phi i32 [ %31, %48 ], [ -1, %4 ], [ -1, %40 ], [ -1, %44 ], [ 1, %_.exit ], [ 1, %51 ]
+  %.0 = phi i32 [ -1, %44 ], [ -1, %4 ], [ -1, %40 ], [ %31, %48 ], [ 1, %_.exit ], [ 1, %51 ]
   call void @release_index(ptr noundef nonnull %7) #15
   %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @stash_index_path, i64 16), align 8, !tbaa !131
   %60 = call i32 @remove_path(ptr noundef %59) #15
@@ -3907,7 +3907,7 @@ _.exit:                                           ; preds = %20, %23
   br label %26
 
 26:                                               ; preds = %19, %_.exit, %12, %3, %16
-  %.0 = phi i32 [ 0, %16 ], [ -1, %3 ], [ -1, %12 ], [ 1, %_.exit ], [ 1, %19 ]
+  %.0 = phi i32 [ -1, %12 ], [ -1, %3 ], [ 0, %16 ], [ 1, %_.exit ], [ 1, %19 ]
   call void @release_index(ptr noundef nonnull %5) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -3983,7 +3983,7 @@ define internal fastcc range(i32 -1, 1) i32 @stash_working_tree(ptr noundef nonn
   br label %38
 
 38:                                               ; preds = %34, %21, %13, %2
-  %.0 = phi i32 [ -1, %2 ], [ -1, %13 ], [ -1, %21 ], [ %spec.select, %34 ]
+  %.0 = phi i32 [ %spec.select, %34 ], [ -1, %2 ], [ -1, %13 ], [ -1, %21 ]
   call void @release_index(ptr noundef nonnull %6) #15
   call void @release_revisions(ptr noundef nonnull %3) #15
   call void @strbuf_release(ptr noundef nonnull %5) #15
@@ -4493,7 +4493,7 @@ _.exit134:                                        ; preds = %130, %132
   %.not96 = icmp eq i32 %182, 0
   br i1 %.not96, label %183, label %.thread141
 
-.thread141:                                       ; preds = %170, %173, %176
+.thread141:                                       ; preds = %173, %170, %176
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -4610,8 +4610,8 @@ _.exit137:                                        ; preds = %213, %216
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br i1 %.not102, label %.thread146, label %224
 
-.thread146:                                       ; preds = %_.exit137, %212, %219, %221
-  %.9.ph = phi i32 [ 0, %219 ], [ -1, %212 ], [ -1, %_.exit137 ], [ 0, %221 ]
+.thread146:                                       ; preds = %212, %_.exit137, %219, %221
+  %.9.ph = phi i32 [ -1, %212 ], [ 0, %219 ], [ -1, %_.exit137 ], [ 0, %221 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %225
 
@@ -4620,7 +4620,7 @@ _.exit137:                                        ; preds = %213, %216
   br label %225
 
 225:                                              ; preds = %224, %.thread146, %.thread141, %82, %203, %184, %157, %116, %187, %189, %191, %122, %_.exit131, %106, %_.exit128, %94, %_.exit125, %_.exit122, %_.exit116, %_.exit
-  %.066 = phi i32 [ -1, %_.exit ], [ -1, %_.exit116 ], [ -1, %_.exit122 ], [ -1, %122 ], [ -1, %_.exit131 ], [ -1, %224 ], [ 0, %189 ], [ 0, %191 ], [ %.672., %203 ], [ 0, %187 ], [ -1, %184 ], [ -1, %157 ], [ -1, %106 ], [ -1, %_.exit128 ], [ 0, %94 ], [ 0, %_.exit125 ], [ -1, %82 ], [ -1, %116 ], [ -1, %.thread141 ], [ %.9.ph, %.thread146 ]
+  %.066 = phi i32 [ -1, %_.exit ], [ -1, %_.exit116 ], [ -1, %_.exit122 ], [ -1, %82 ], [ -1, %122 ], [ -1, %_.exit131 ], [ -1, %224 ], [ 0, %189 ], [ 0, %191 ], [ -1, %116 ], [ %.672., %203 ], [ 0, %187 ], [ -1, %.thread141 ], [ -1, %184 ], [ -1, %157 ], [ -1, %106 ], [ -1, %_.exit128 ], [ 0, %94 ], [ 0, %_.exit125 ], [ %.9.ph, %.thread146 ]
   call void @strbuf_release(ptr noundef nonnull %9) #15
   call void @strbuf_release(ptr noundef nonnull %12) #15
   %226 = getelementptr inbounds nuw i8, ptr %8, i64 288

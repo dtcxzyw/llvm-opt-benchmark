@@ -295,7 +295,7 @@ define dso_local noundef zeroext i1 @_ZN15btGjkConvexCast16calcTimeOfImpactERK11
   br label %.thread
 
 .thread:                                          ; preds = %86, %77, %75, %.thread.sink.split, %6, %._crit_edge
-  %.3 = phi i1 [ false, %._crit_edge ], [ false, %6 ], [ true, %.thread.sink.split ], [ false, %75 ], [ false, %77 ], [ false, %86 ]
+  %.3 = phi i1 [ false, %._crit_edge ], [ true, %.thread.sink.split ], [ false, %6 ], [ false, %75 ], [ false, %77 ], [ false, %86 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

@@ -389,9 +389,9 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i86: ; preds = %_ZN
   unreachable
 
 .preheader190:                                    ; preds = %66, %.thread, %._crit_edge.thread
-  %.sroa.0142.2162168176264 = phi ptr [ null, %._crit_edge.thread ], [ null, %.thread ], [ %calloc265, %66 ]
-  %.sroa.0128.2177263 = phi ptr [ null, %._crit_edge.thread ], [ null, %.thread ], [ %calloc, %66 ]
-  %48 = phi i1 [ false, %._crit_edge.thread ], [ false, %.thread ], [ true, %66 ]
+  %.sroa.0142.2162168176264 = phi ptr [ null, %.thread ], [ null, %._crit_edge.thread ], [ %calloc265, %66 ]
+  %.sroa.0128.2177263 = phi ptr [ null, %.thread ], [ null, %._crit_edge.thread ], [ %calloc, %66 ]
+  %48 = phi i1 [ false, %.thread ], [ false, %._crit_edge.thread ], [ true, %66 ]
   %49 = sdiv i64 %10, 8
   %50 = shl nsw i64 %49, 3
   %51 = sdiv i64 %10, 4
@@ -410,8 +410,8 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i86: ; preds = %_ZN
   br label %73
 
 62:                                               ; preds = %228, %46, %43
-  %.sroa.0128.0 = phi ptr [ %.sroa.0128.2177263, %228 ], [ null, %46 ], [ null, %43 ]
-  %.sroa.0142.0 = phi ptr [ %.sroa.0142.2162168176264, %228 ], [ %calloc265, %46 ], [ null, %43 ]
+  %.sroa.0128.0 = phi ptr [ null, %46 ], [ %.sroa.0128.2177263, %228 ], [ null, %43 ]
+  %.sroa.0142.0 = phi ptr [ %calloc265, %46 ], [ %.sroa.0142.2162168176264, %228 ], [ null, %43 ]
   %63 = landingpad { ptr, i32 }
           cleanup
   br label %243
@@ -533,7 +533,7 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i86: ; preds = %_ZN
   br i1 %exitcond92.not.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffEv.exit, label %.lr.ph85.i.i.i.i, !llvm.loop !39
 
 _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffEv.exit: ; preds = %.lr.ph80.i.i.i.i, %.lr.ph85.i.i.i.i, %109, %103
-  %.2.i.i.i.i = phi i32 [ %110, %109 ], [ %104, %103 ], [ %113, %.lr.ph85.i.i.i.i ], [ %107, %.lr.ph80.i.i.i.i ]
+  %.2.i.i.i.i = phi i32 [ %113, %.lr.ph85.i.i.i.i ], [ %110, %109 ], [ %104, %103 ], [ %107, %.lr.ph80.i.i.i.i ]
   %115 = icmp eq i32 %.2.i.i.i.i, 1
   br i1 %115, label %.preheader, label %.thread186
 
@@ -750,7 +750,7 @@ _ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELin1
   br i1 %exitcond241.not, label %._crit_edge216.thread, label %.lr.ph215, !llvm.loop !51
 
 _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE3sumEv.exit: ; preds = %.lr.ph80.i.i.i, %.lr.ph85.i.i.i, %210, %200, %._crit_edge216
-  %.0.i = phi i32 [ 0, %._crit_edge216 ], [ %211, %210 ], [ %205, %200 ], [ %214, %.lr.ph85.i.i.i ], [ %208, %.lr.ph80.i.i.i ]
+  %.0.i = phi i32 [ 0, %._crit_edge216 ], [ %214, %.lr.ph85.i.i.i ], [ %211, %210 ], [ %205, %200 ], [ %208, %.lr.ph80.i.i.i ]
   %219 = sext i32 %.0.i to i64
   %220 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %221 = load i64, ptr %220, align 8, !tbaa !26
@@ -988,9 +988,9 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i86: ; preds = %_ZN
   unreachable
 
 .preheader190:                                    ; preds = %66, %.thread, %._crit_edge.thread
-  %.sroa.0142.2162168176264 = phi ptr [ null, %._crit_edge.thread ], [ null, %.thread ], [ %calloc265, %66 ]
-  %.sroa.0128.2177263 = phi ptr [ null, %._crit_edge.thread ], [ null, %.thread ], [ %calloc, %66 ]
-  %48 = phi i1 [ false, %._crit_edge.thread ], [ false, %.thread ], [ true, %66 ]
+  %.sroa.0142.2162168176264 = phi ptr [ null, %.thread ], [ null, %._crit_edge.thread ], [ %calloc265, %66 ]
+  %.sroa.0128.2177263 = phi ptr [ null, %.thread ], [ null, %._crit_edge.thread ], [ %calloc, %66 ]
+  %48 = phi i1 [ false, %.thread ], [ false, %._crit_edge.thread ], [ true, %66 ]
   %49 = sdiv i64 %10, 8
   %50 = shl nsw i64 %49, 3
   %51 = sdiv i64 %10, 4
@@ -1009,8 +1009,8 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i86: ; preds = %_ZN
   br label %73
 
 62:                                               ; preds = %228, %46, %43
-  %.sroa.0128.0 = phi ptr [ %.sroa.0128.2177263, %228 ], [ null, %46 ], [ null, %43 ]
-  %.sroa.0142.0 = phi ptr [ %.sroa.0142.2162168176264, %228 ], [ %calloc265, %46 ], [ null, %43 ]
+  %.sroa.0128.0 = phi ptr [ null, %46 ], [ %.sroa.0128.2177263, %228 ], [ null, %43 ]
+  %.sroa.0142.0 = phi ptr [ %calloc265, %46 ], [ %.sroa.0142.2162168176264, %228 ], [ null, %43 ]
   %63 = landingpad { ptr, i32 }
           cleanup
   br label %243
@@ -1132,7 +1132,7 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i86: ; preds = %_ZN
   br i1 %exitcond92.not.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffEv.exit, label %.lr.ph85.i.i.i.i, !llvm.loop !39
 
 _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffEv.exit: ; preds = %.lr.ph80.i.i.i.i, %.lr.ph85.i.i.i.i, %109, %103
-  %.2.i.i.i.i = phi i32 [ %110, %109 ], [ %104, %103 ], [ %113, %.lr.ph85.i.i.i.i ], [ %107, %.lr.ph80.i.i.i.i ]
+  %.2.i.i.i.i = phi i32 [ %113, %.lr.ph85.i.i.i.i ], [ %110, %109 ], [ %104, %103 ], [ %107, %.lr.ph80.i.i.i.i ]
   %115 = icmp eq i32 %.2.i.i.i.i, 1
   br i1 %115, label %.preheader, label %.thread186
 
@@ -1349,7 +1349,7 @@ _ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELin1
   br i1 %exitcond241.not, label %._crit_edge216.thread, label %.lr.ph215, !llvm.loop !62
 
 _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE3sumEv.exit: ; preds = %.lr.ph80.i.i.i, %.lr.ph85.i.i.i, %210, %200, %._crit_edge216
-  %.0.i = phi i32 [ 0, %._crit_edge216 ], [ %211, %210 ], [ %205, %200 ], [ %214, %.lr.ph85.i.i.i ], [ %208, %.lr.ph80.i.i.i ]
+  %.0.i = phi i32 [ 0, %._crit_edge216 ], [ %214, %.lr.ph85.i.i.i ], [ %211, %210 ], [ %205, %200 ], [ %208, %.lr.ph80.i.i.i ]
   %219 = sext i32 %.0.i to i64
   %220 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %221 = load i64, ptr %220, align 8, !tbaa !26
@@ -1613,7 +1613,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZZN3igl10predicates12ear_clip
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %90, %92, %._crit_edge, %71, %51
-  %.2 = phi i1 [ true, %51 ], [ false, %71 ], [ %or.cond5.not, %._crit_edge ], [ false, %92 ], [ false, %90 ], [ false, %.lr.ph ]
+  %.2 = phi i1 [ %or.cond5.not, %._crit_edge ], [ true, %51 ], [ false, %71 ], [ false, %92 ], [ false, %90 ], [ false, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %111
@@ -2244,7 +2244,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZZN3igl10predicates12ear_clip
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %93, %95, %._crit_edge, %74, %54
-  %.2 = phi i1 [ true, %54 ], [ false, %74 ], [ %or.cond5.not, %._crit_edge ], [ false, %95 ], [ false, %93 ], [ false, %.lr.ph ]
+  %.2 = phi i1 [ %or.cond5.not, %._crit_edge ], [ true, %54 ], [ false, %74 ], [ false, %95 ], [ false, %93 ], [ false, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %114

@@ -174,7 +174,7 @@ avifGetExifTiffHeaderOffset.exit.sink.split:      ; preds = %58, %.preheader, %5
   br label %avifGetExifTiffHeaderOffset.exit
 
 avifGetExifTiffHeaderOffset.exit:                 ; preds = %15, %.lr.ph, %35, %37, %39, %41, %avifGetExifTiffHeaderOffset.exit.sink.split, %3, %29, %20, %27
-  %.0 = phi i32 [ 17, %27 ], [ 17, %20 ], [ 17, %29 ], [ 17, %3 ], [ 0, %avifGetExifTiffHeaderOffset.exit.sink.split ], [ 17, %41 ], [ 17, %39 ], [ 17, %37 ], [ 17, %35 ], [ 17, %.lr.ph ], [ 17, %15 ]
+  %.0 = phi i32 [ 17, %3 ], [ 0, %avifGetExifTiffHeaderOffset.exit.sink.split ], [ 17, %29 ], [ 17, %.lr.ph ], [ 17, %20 ], [ 17, %27 ], [ 17, %41 ], [ 17, %39 ], [ 17, %37 ], [ 17, %35 ], [ 17, %15 ]
   ret i32 %.0
 }
 
@@ -253,9 +253,9 @@ define hidden range(i32 0, 18) i32 @avifImageExtractExifOrientationToIrotImir(pt
   br label %.sink.split
 
 .sink.split:                                      ; preds = %11, %15, %19, %21, %23, %25, %27, %29, %31
-  %.sink49 = phi i32 [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %5, %15 ], [ %5, %11 ]
-  %.sink47 = phi i8 [ 1, %31 ], [ 3, %29 ], [ 3, %27 ], [ 1, %25 ], [ 0, %23 ], [ 2, %21 ], [ 0, %19 ], [ 0, %15 ], [ 0, %11 ]
-  %.sink = phi i8 [ 0, %31 ], [ 0, %29 ], [ 0, %27 ], [ 0, %25 ], [ 0, %23 ], [ 0, %21 ], [ 1, %19 ], [ 0, %15 ], [ 0, %11 ]
+  %.sink49 = phi i32 [ %5, %11 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %5, %15 ]
+  %.sink47 = phi i8 [ 0, %11 ], [ 1, %31 ], [ 3, %29 ], [ 3, %27 ], [ 1, %25 ], [ 0, %23 ], [ 2, %21 ], [ 0, %19 ], [ 0, %15 ]
+  %.sink = phi i8 [ 0, %11 ], [ 0, %31 ], [ 0, %29 ], [ 0, %27 ], [ 0, %25 ], [ 0, %23 ], [ 0, %21 ], [ 1, %19 ], [ 0, %15 ]
   store i32 %.sink49, ptr %3, align 4
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i8 %.sink47, ptr %33, align 8
@@ -336,9 +336,9 @@ define hidden i32 @avifImageSetMetadataExif(ptr noundef %0, ptr noundef %1, i64 
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %35, %33, %31, %29, %27, %25, %23, %19, %15
-  %.sink49.i = phi i32 [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %10, %19 ], [ %10, %15 ]
-  %.sink47.i = phi i8 [ 1, %35 ], [ 3, %33 ], [ 3, %31 ], [ 1, %29 ], [ 0, %27 ], [ 2, %25 ], [ 0, %23 ], [ 0, %19 ], [ 0, %15 ]
-  %.sink.i = phi i8 [ 0, %35 ], [ 0, %33 ], [ 0, %31 ], [ 0, %29 ], [ 0, %27 ], [ 0, %25 ], [ 1, %23 ], [ 0, %19 ], [ 0, %15 ]
+  %.sink49.i = phi i32 [ %10, %15 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %10, %19 ]
+  %.sink47.i = phi i8 [ 0, %15 ], [ 1, %35 ], [ 3, %33 ], [ 3, %31 ], [ 1, %29 ], [ 0, %27 ], [ 2, %25 ], [ 0, %23 ], [ 0, %19 ]
+  %.sink.i = phi i8 [ 0, %15 ], [ 0, %35 ], [ 0, %33 ], [ 0, %31 ], [ 0, %29 ], [ 0, %27 ], [ 0, %25 ], [ 1, %23 ], [ 0, %19 ]
   store i32 %.sink49.i, ptr %8, align 4
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i8 %.sink47.i, ptr %37, align 8

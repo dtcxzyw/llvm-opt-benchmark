@@ -138,7 +138,7 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
   br label %62
 
 62:                                               ; preds = %59, %57, %55, %53, %61, %43
-  %.0268 = phi i32 [ %spec.store.select, %61 ], [ %47, %43 ], [ 44100, %53 ], [ 22050, %55 ], [ 16000, %57 ], [ 11025, %59 ]
+  %.0268 = phi i32 [ %47, %43 ], [ 44100, %53 ], [ 22050, %55 ], [ 16000, %57 ], [ %spec.store.select, %61 ], [ 11025, %59 ]
   %63 = load i64, ptr %15, align 8, !tbaa !29
   %64 = sitofp i64 %63 to float
   %65 = mul nsw i32 %47, %6
@@ -393,7 +393,7 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
   br label %208
 
 195:                                              ; preds = %190, %188, %186
-  %exponent_band_44100.sink = phi ptr [ @exponent_band_44100, %186 ], [ @exponent_band_32000, %188 ], [ @exponent_band_22050, %190 ]
+  %exponent_band_44100.sink = phi ptr [ @exponent_band_32000, %188 ], [ @exponent_band_44100, %186 ], [ @exponent_band_22050, %190 ]
   %196 = sext i32 %184 to i64
   %197 = getelementptr inbounds [25 x i8], ptr %exponent_band_44100.sink, i64 %196
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 1
@@ -609,7 +609,7 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
   br label %307
 
 307:                                              ; preds = %301, %306, %304, %298
-  %.0267 = phi i64 [ 2, %306 ], [ 4, %304 ], [ 4, %298 ], [ 0, %301 ]
+  %.0267 = phi i64 [ 4, %298 ], [ 2, %306 ], [ 4, %304 ], [ 0, %301 ]
   %308 = getelementptr inbounds nuw %struct.CoefVLCTable, ptr @coef_vlcs, i64 %.0267
   %309 = getelementptr inbounds nuw i8, ptr %4, i64 1152
   store ptr %308, ptr %309, align 16, !tbaa !74
@@ -634,7 +634,7 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
   br label %325
 
 325:                                              ; preds = %307, %.loopexit, %2, %10, %14, %318, %85
-  %.0 = phi i32 [ -1163346256, %85 ], [ %324, %318 ], [ -1, %14 ], [ -1, %10 ], [ -1, %2 ], [ -12, %.loopexit ], [ %316, %307 ]
+  %.0 = phi i32 [ -1, %2 ], [ -1163346256, %85 ], [ -12, %.loopexit ], [ %324, %318 ], [ -1, %14 ], [ -1, %10 ], [ %316, %307 ]
   ret i32 %.0
 }
 
@@ -739,7 +739,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @init_coef_vlc(ptr noundef 
   br label %43
 
 43:                                               ; preds = %5, %._crit_edge45, %27
-  %.0 = phi i32 [ 0, %._crit_edge45 ], [ -12, %27 ], [ %16, %5 ]
+  %.0 = phi i32 [ -12, %27 ], [ 0, %._crit_edge45 ], [ %16, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -765,7 +765,7 @@ define range(i32 9, 14) i32 @ff_wma_total_gain_to_bits(i32 noundef %0) local_unn
   br label %9
 
 9:                                                ; preds = %7, %5, %3, %1
-  %.0 = phi i32 [ 13, %1 ], [ 12, %3 ], [ 11, %5 ], [ %., %7 ]
+  %.0 = phi i32 [ 11, %5 ], [ 13, %1 ], [ 12, %3 ], [ %., %7 ]
   ret i32 %.0
 }
 
@@ -898,8 +898,8 @@ define range(i32 0, -2147483648) i32 @ff_wma_get_large_val(ptr noundef captures(
   br label %select.unfold
 
 select.unfold:                                    ; preds = %28, %17, %1
-  %39 = phi i32 [ %spec.select.i9, %17 ], [ %spec.select.i, %1 ], [ %spec.select.i10, %28 ]
-  %.0 = phi i32 [ 16, %17 ], [ 8, %1 ], [ %spec.select, %28 ]
+  %39 = phi i32 [ %spec.select.i, %1 ], [ %spec.select.i10, %28 ], [ %spec.select.i9, %17 ]
+  %.0 = phi i32 [ 8, %1 ], [ %spec.select, %28 ], [ 16, %17 ]
   %40 = icmp samesign ult i32 %.0, 26
   %41 = lshr i32 %39, 3
   %42 = zext nneg i32 %41 to i64

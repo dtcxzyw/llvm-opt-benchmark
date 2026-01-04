@@ -1284,7 +1284,7 @@ define internal void @_ZL12pollset_workP12grpc_pollsetPP19grpc_pollset_workerN9g
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.noexc40, %74, %73, %67, %60, %.noexc36
-  %.07290.i = phi ptr [ %.07291.i, %60 ], [ %.07291.i, %67 ], [ %.07291.i, %73 ], [ %.07291.i, %74 ], [ %51, %.noexc36 ], [ %57, %.noexc40 ]
+  %.07290.i = phi ptr [ %.07291.i, %74 ], [ %.07291.i, %60 ], [ %51, %.noexc36 ], [ %.07291.i, %67 ], [ %.07291.i, %73 ], [ %57, %.noexc40 ]
   br i1 %41, label %86, label %82
 
 82:                                               ; preds = %.loopexit.i
@@ -1573,7 +1573,7 @@ _ZN9grpc_coremiENS_9TimestampES0_.exit.i.i:       ; preds = %183, %180
   br label %_ZL31poll_deadline_to_millis_timeoutN9grpc_core9TimestampE.exit.i
 
 _ZL31poll_deadline_to_millis_timeoutN9grpc_core9TimestampE.exit.i: ; preds = %.thread15.i.i, %188, %_ZN9grpc_coremiENS_9TimestampES0_.exit.i.i, %180, %.thread.i.i.i, %173, %164
-  %.0.i.i = phi i32 [ -1, %164 ], [ 2147483647, %_ZN9grpc_coremiENS_9TimestampES0_.exit.i.i ], [ 0, %.thread15.i.i ], [ %190, %188 ], [ 2147483647, %173 ], [ 2147483647, %.thread.i.i.i ], [ 2147483647, %180 ]
+  %.0.i.i = phi i32 [ -1, %164 ], [ %190, %188 ], [ 2147483647, %_ZN9grpc_coremiENS_9TimestampES0_.exit.i.i ], [ 0, %.thread15.i.i ], [ 2147483647, %180 ], [ 2147483647, %173 ], [ 2147483647, %.thread.i.i.i ]
   br label %191
 
 191:                                              ; preds = %195, %_ZL31poll_deadline_to_millis_timeoutN9grpc_core9TimestampE.exit.i
@@ -2238,7 +2238,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit105:        ; preds = %_ZL10end_workerP12g
   ret void
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %222, %423, %277, %288, %235, %158
-  %.pn = phi { ptr, i32 } [ %289, %288 ], [ %236, %235 ], [ %159, %158 ], [ %223, %222 ], [ %.pn.i, %277 ], [ %424, %423 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit111, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit114, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit116, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit119, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %289, %288 ], [ %236, %235 ], [ %159, %158 ], [ %223, %222 ], [ %.pn.i, %277 ], [ %424, %423 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit111, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit114, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit116, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit119, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ]
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
@@ -2532,7 +2532,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %90, %_ZN4absl12lts_
   ret void
 
 117:                                              ; preds = %41, %50, %53, %66, %70, %113, %104
-  %.pn.pn = phi { ptr, i32 } [ %105, %104 ], [ %114, %113 ], [ %42, %41 ], [ %54, %53 ], [ %51, %50 ], [ %67, %66 ], [ %71, %70 ]
+  %.pn.pn = phi { ptr, i32 } [ %114, %113 ], [ %105, %104 ], [ %42, %41 ], [ %54, %53 ], [ %51, %50 ], [ %67, %66 ], [ %71, %70 ]
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
   resume { ptr, i32 } %.pn.pn
 }
@@ -3846,7 +3846,7 @@ _ZL18fd_global_shutdownv.exit:                    ; preds = %.lr.ph.i6, %92
   br label %_ZL18epoll_set_shutdownv.exit
 
 _ZL18epoll_set_shutdownv.exit:                    ; preds = %100, %_ZL18fd_global_shutdownv.exit, %_ZL14epoll_set_initv.exit, %0, %107, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi41EEERS2_RAT__Kc.exit
-  %.03 = phi i1 [ true, %107 ], [ false, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi41EEERS2_RAT__Kc.exit ], [ true, %0 ], [ false, %_ZL14epoll_set_initv.exit ], [ false, %_ZL18fd_global_shutdownv.exit ], [ false, %100 ]
+  %.03 = phi i1 [ false, %_ZL14epoll_set_initv.exit ], [ true, %107 ], [ true, %0 ], [ false, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi41EEERS2_RAT__Kc.exit ], [ false, %_ZL18fd_global_shutdownv.exit ], [ false, %100 ]
   ret i1 %.03
 }
 

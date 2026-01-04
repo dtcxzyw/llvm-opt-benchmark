@@ -1904,7 +1904,7 @@ __gmpz_popcount.exit:                             ; preds = %1
   br label %_ZleIA1_12__mpz_structS1_EbRK10__gmp_exprIT_T0_Ei.exit.thread
 
 _ZleIA1_12__mpz_structS1_EbRK10__gmp_exprIT_T0_Ei.exit.thread: ; preds = %1, %__gmpz_popcount.exit, %9
-  %.0 = phi i32 [ %12, %9 ], [ 0, %__gmpz_popcount.exit ], [ 0, %1 ]
+  %.0 = phi i32 [ 0, %1 ], [ %12, %9 ], [ 0, %__gmpz_popcount.exit ]
   ret i32 %.0
 }
 

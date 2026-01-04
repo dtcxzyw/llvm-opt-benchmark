@@ -57,7 +57,7 @@ define i32 @gzread(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed
   br label %22
 
 22:                                               ; preds = %19, %5, %8, %3, %21, %13
-  %.0 = phi i32 [ -1, %13 ], [ %17, %21 ], [ -1, %3 ], [ -1, %8 ], [ -1, %5 ], [ -1, %19 ]
+  %.0 = phi i32 [ %17, %21 ], [ -1, %3 ], [ -1, %13 ], [ -1, %5 ], [ -1, %8 ], [ -1, %19 ]
   ret i32 %.0
 }
 
@@ -130,7 +130,7 @@ define internal fastcc i64 @gz_read(ptr noundef nonnull %0, ptr noundef %1, i64 
   %.not.i = icmp eq i64 %.1.i, 0
   br i1 %.not.i, label %gz_skip.exit.thread, label %15, !llvm.loop !22
 
-gz_skip.exit.thread:                              ; preds = %30, %36, %8, %5
+gz_skip.exit.thread:                              ; preds = %36, %30, %8, %5
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -246,7 +246,7 @@ gz_load.exit:                                     ; preds = %85
   br label %gz_load.exit.thread
 
 gz_load.exit.thread:                              ; preds = %82, %87, %94, %48
-  %.1 = phi i32 [ %95, %94 ], [ %spec.select58, %48 ], [ %.254, %87 ], [ %83, %82 ]
+  %.1 = phi i32 [ %spec.select58, %48 ], [ %95, %94 ], [ %.254, %87 ], [ %83, %82 ]
   %96 = zext i32 %.1 to i64
   %97 = sub i64 %.035, %96
   %98 = getelementptr inbounds nuw i8, ptr %.037, i64 %96
@@ -264,7 +264,7 @@ gz_load.exit.thread:                              ; preds = %82, %87, %94, %48
   br i1 %.not46, label %gz_skip.exit, label %46, !llvm.loop !32
 
 gz_skip.exit:                                     ; preds = %33, %102, %91, %69, %gz_load.exit, %60, %3
-  %.039 = phi i64 [ 0, %3 ], [ 0, %gz_load.exit ], [ %.0, %60 ], [ %.2, %102 ], [ 0, %91 ], [ 0, %69 ], [ 0, %33 ]
+  %.039 = phi i64 [ 0, %gz_load.exit ], [ 0, %3 ], [ 0, %91 ], [ %.0, %60 ], [ %.2, %102 ], [ 0, %69 ], [ 0, %33 ]
   ret i64 %.039
 }
 
@@ -311,7 +311,7 @@ define i64 @gzfread(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef 
   br label %19
 
 19:                                               ; preds = %16, %15, %6, %9, %4, %14
-  %.0 = phi i64 [ 0, %14 ], [ 0, %4 ], [ 0, %9 ], [ 0, %6 ], [ %18, %16 ], [ 0, %15 ]
+  %.0 = phi i64 [ 0, %6 ], [ 0, %4 ], [ 0, %14 ], [ 0, %9 ], [ %18, %16 ], [ 0, %15 ]
   ret i64 %.0
 }
 
@@ -365,7 +365,7 @@ define range(i32 -1, 256) i32 @gzgetc(ptr noundef %0) local_unnamed_addr #0 {
   br label %28
 
 28:                                               ; preds = %4, %7, %1, %22, %12
-  %.0 = phi i32 [ %21, %12 ], [ %27, %22 ], [ -1, %1 ], [ -1, %7 ], [ -1, %4 ]
+  %.0 = phi i32 [ %27, %22 ], [ -1, %1 ], [ %21, %12 ], [ -1, %7 ], [ -1, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -420,7 +420,7 @@ define range(i32 -1, 256) i32 @gzgetc_(ptr noundef %0) local_unnamed_addr #0 {
   br label %gzgetc.exit
 
 gzgetc.exit:                                      ; preds = %1, %4, %7, %12, %22
-  %.0.i = phi i32 [ %21, %12 ], [ %27, %22 ], [ -1, %1 ], [ -1, %7 ], [ -1, %4 ]
+  %.0.i = phi i32 [ %27, %22 ], [ -1, %1 ], [ %21, %12 ], [ -1, %7 ], [ -1, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0.i
 }
@@ -618,7 +618,7 @@ gz_skip.exit:                                     ; preds = %45, %51, %23
   br label %.thread
 
 .thread:                                          ; preds = %48, %4, %53, %gz_skip.exit, %15, %.thread71, %2, %._crit_edge, %77, %57
-  %.047 = phi i32 [ %0, %57 ], [ -1, %77 ], [ %0, %._crit_edge ], [ -1, %2 ], [ -1, %.thread71 ], [ -1, %15 ], [ -1, %gz_skip.exit ], [ -1, %53 ], [ -1, %4 ], [ -1, %48 ]
+  %.047 = phi i32 [ %0, %._crit_edge ], [ -1, %2 ], [ -1, %15 ], [ -1, %gz_skip.exit ], [ %0, %57 ], [ -1, %77 ], [ -1, %.thread71 ], [ -1, %53 ], [ -1, %4 ], [ -1, %48 ]
   ret i32 %.047
 }
 
@@ -692,7 +692,7 @@ define internal fastcc range(i32 -1, 1) i32 @gz_look(ptr noundef nonnull %0) unn
   ]
 
 .thread:                                          ; preds = %33, %26
-  %35 = phi i32 [ %28, %26 ], [ %34, %33 ]
+  %35 = phi i32 [ %34, %33 ], [ %28, %26 ]
   %36 = load ptr, ptr %2, align 8, !tbaa !40
   %37 = load i8, ptr %36, align 1, !tbaa !33
   %38 = icmp eq i8 %37, 31
@@ -743,7 +743,7 @@ define internal fastcc range(i32 -1, 1) i32 @gz_look(ptr noundef nonnull %0) unn
   br label %62
 
 62:                                               ; preds = %33, %30, %54, %52, %43, %23, %18
-  %.0 = phi i32 [ -1, %18 ], [ -1, %23 ], [ 0, %43 ], [ 0, %52 ], [ 0, %54 ], [ -1, %30 ], [ %34, %33 ]
+  %.0 = phi i32 [ -1, %18 ], [ -1, %23 ], [ 0, %54 ], [ -1, %30 ], [ 0, %43 ], [ 0, %52 ], [ %34, %33 ]
   ret i32 %.0
 }
 
@@ -832,7 +832,7 @@ define noundef ptr @gzgets(ptr noundef %0, ptr noundef writeonly captures(addres
   %.not.i = icmp eq i64 %.1.i, 0
   br i1 %.not.i, label %gz_skip.exit.thread, label %23, !llvm.loop !22
 
-gz_skip.exit.thread:                              ; preds = %38, %44, %16, %13
+gz_skip.exit.thread:                              ; preds = %44, %38, %16, %13
   %45 = add nsw i32 %2, -1
   %.not63 = icmp eq i32 %45, 0
   br i1 %.not63, label %gz_skip.exit, label %.preheader
@@ -905,7 +905,7 @@ gz_skip.exit.thread:                              ; preds = %38, %44, %16, %13
   br label %gz_skip.exit
 
 gz_skip.exit:                                     ; preds = %41, %51, %gz_skip.exit.thread, %.loopexit, %7, %10, %3, %79
-  %.0 = phi ptr [ %1, %79 ], [ null, %3 ], [ null, %10 ], [ null, %7 ], [ null, %.loopexit ], [ null, %gz_skip.exit.thread ], [ null, %51 ], [ null, %41 ]
+  %.0 = phi ptr [ %1, %79 ], [ null, %3 ], [ null, %7 ], [ null, %.loopexit ], [ null, %gz_skip.exit.thread ], [ null, %10 ], [ null, %51 ], [ null, %41 ]
   ret ptr %.0
 }
 
@@ -1016,7 +1016,7 @@ gz_load.exit:                                     ; preds = %35
   br label %.critedge2, !llvm.loop !45
 
 .critedge:                                        ; preds = %54, %49, %43, %13, %10, %gz_load.exit, %.loopexit
-  %.0 = phi i32 [ 0, %.loopexit ], [ -1, %gz_load.exit ], [ 0, %54 ], [ 0, %49 ], [ -1, %43 ], [ 0, %13 ], [ -1, %10 ]
+  %.0 = phi i32 [ 0, %.loopexit ], [ -1, %gz_load.exit ], [ 0, %54 ], [ 0, %49 ], [ 0, %13 ], [ -1, %10 ], [ -1, %43 ]
   ret i32 %.0
 }
 
@@ -1201,7 +1201,7 @@ define internal fastcc range(i32 -1, 1) i32 @gz_decomp(ptr noundef nonnull %0) u
   br label %.loopexit
 
 .loopexit:                                        ; preds = %9, %.loopexit30, %36, %18, %17, %16
-  %.0 = phi i32 [ -1, %16 ], [ -1, %17 ], [ -1, %18 ], [ 0, %36 ], [ 0, %.loopexit30 ], [ -1, %9 ]
+  %.0 = phi i32 [ -1, %18 ], [ 0, %.loopexit30 ], [ -1, %16 ], [ -1, %17 ], [ 0, %36 ], [ -1, %9 ]
   ret i32 %.0
 }
 
@@ -1313,7 +1313,7 @@ gz_load.exit:                                     ; preds = %42
   br label %51
 
 51:                                               ; preds = %gz_load.exit, %5, %.loopexit, %1
-  %.021 = phi i32 [ -1, %1 ], [ -1, %gz_load.exit ], [ 0, %.loopexit ], [ 0, %5 ]
+  %.021 = phi i32 [ -1, %gz_load.exit ], [ -1, %1 ], [ 0, %.loopexit ], [ 0, %5 ]
   ret i32 %.021
 }
 

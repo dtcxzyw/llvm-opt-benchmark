@@ -132,7 +132,7 @@ define dso_local i32 @uv_tty_init(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br label %39
 
 39:                                               ; preds = %4, %34, %30, %.critedge
-  %.0 = phi i32 [ %14, %.critedge ], [ 0, %34 ], [ %27, %30 ], [ -22, %4 ]
+  %.0 = phi i32 [ %27, %30 ], [ %14, %.critedge ], [ 0, %34 ], [ -22, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -217,7 +217,7 @@ define dso_local range(i32 0, 18) i32 @uv_guess_handle(i32 noundef %0) local_unn
   br label %31
 
 31:                                               ; preds = %29, %26, %23, %19, %17, %11, %11, %9, %7, %1, %.thread, %16, %15
-  %.0 = phi i32 [ 7, %15 ], [ 0, %.thread ], [ 0, %16 ], [ 0, %1 ], [ 14, %7 ], [ 0, %9 ], [ 17, %11 ], [ 17, %11 ], [ 0, %17 ], [ 0, %19 ], [ 15, %23 ], [ 12, %26 ], [ 7, %29 ]
+  %.0 = phi i32 [ 0, %16 ], [ 0, %1 ], [ 14, %7 ], [ 0, %9 ], [ 17, %11 ], [ 7, %15 ], [ 17, %11 ], [ 0, %17 ], [ 0, %19 ], [ 15, %23 ], [ 12, %26 ], [ 0, %.thread ], [ 7, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -355,7 +355,7 @@ uv__tcsetattr.exit.thread:                        ; preds = %45, %uv__tcsetattr.
   br label %54
 
 54:                                               ; preds = %uv__tcsetattr.exit, %uv__tcsetattr.exit.thread, %2, %.critedge
-  %.0 = phi i32 [ %20, %.critedge ], [ 0, %2 ], [ 0, %uv__tcsetattr.exit.thread ], [ %52, %uv__tcsetattr.exit ]
+  %.0 = phi i32 [ 0, %2 ], [ %20, %.critedge ], [ 0, %uv__tcsetattr.exit.thread ], [ %52, %uv__tcsetattr.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

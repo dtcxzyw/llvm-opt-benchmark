@@ -117,7 +117,7 @@ define internal range(i32 -2147483648, 1) i32 @tdsc_init(ptr noundef initializes
   br label %47
 
 47:                                               ; preds = %31, %29, %19, %27, %11, %43, %10
-  %.0 = phi i32 [ 0, %43 ], [ -1094995529, %10 ], [ %17, %11 ], [ -12, %27 ], [ -12, %19 ], [ -12, %29 ], [ %41, %31 ]
+  %.0 = phi i32 [ -1094995529, %10 ], [ -12, %29 ], [ 0, %43 ], [ -12, %19 ], [ %17, %11 ], [ -12, %27 ], [ %41, %31 ]
   ret i32 %.0
 }
 
@@ -1475,7 +1475,7 @@ tdsc_load_cursor.exit.i:                          ; preds = %652, %480, %459, %b
   br label %.thread133
 
 .thread133:                                       ; preds = %._crit_edge.i.i, %._crit_edge205.i.i, %._crit_edge228.i.i, %357, %tdsc_parse_tdsf.exit.thread120, %656, %tdsc_load_cursor.exit.i, %.preheader189.i.i, %.preheader192.i.i, %._crit_edge221.i.i, %.preheader186.lr.ph.i.i, %.preheader187.i.i, %bytestream2_get_le32.exit.i102, %.thread126, %bytestream2_get_le32.exit96.thread
-  %.076129 = phi i1 [ true, %.thread126 ], [ %.076, %bytestream2_get_le32.exit96.thread ], [ %.076, %bytestream2_get_le32.exit.i102 ], [ %.076, %.preheader187.i.i ], [ %.076, %.preheader186.lr.ph.i.i ], [ %.076, %._crit_edge221.i.i ], [ %.076, %.preheader192.i.i ], [ %.076, %.preheader189.i.i ], [ %.076, %tdsc_load_cursor.exit.i ], [ %.076, %656 ], [ %.0.i93, %tdsc_parse_tdsf.exit.thread120 ], [ %.0.i93, %357 ], [ %.076, %._crit_edge228.i.i ], [ %.076, %._crit_edge205.i.i ], [ %.076, %._crit_edge.i.i ]
+  %.076129 = phi i1 [ true, %.thread126 ], [ %.076, %bytestream2_get_le32.exit96.thread ], [ %.076, %bytestream2_get_le32.exit.i102 ], [ %.076, %.preheader187.i.i ], [ %.076, %.preheader186.lr.ph.i.i ], [ %.076, %._crit_edge221.i.i ], [ %.076, %656 ], [ %.076, %.preheader192.i.i ], [ %.076, %.preheader189.i.i ], [ %.0.i93, %357 ], [ %.076, %._crit_edge228.i.i ], [ %.076, %tdsc_load_cursor.exit.i ], [ %.076, %._crit_edge205.i.i ], [ %.0.i93, %tdsc_parse_tdsf.exit.thread120 ], [ %.076, %._crit_edge.i.i ]
   %657 = call i32 @ff_get_buffer(ptr noundef %0, ptr noundef %1, i32 noundef 0) #7
   %658 = icmp slt i32 %657, 0
   br i1 %658, label %bytestream2_get_le32.exit96, label %659
@@ -1652,8 +1652,8 @@ tdsc_paint_cursor.exit:                           ; preds = %._crit_edge.us.i, %
   %768 = load i32, ptr %35, align 8, !tbaa !54
   br label %bytestream2_get_le32.exit96
 
-bytestream2_get_le32.exit96:                      ; preds = %259, %bytestream2_get_le32.exit98.i.i, %tdsc_load_cursor.exit.i, %63, %tdsc_parse_tdsf.exit, %bytestream2_get_le32.exit46.i, %bytestream2_get_le16.exit49.i, %bytestream2_get_le16.exit.i, %._crit_edge.i, %139, %bytestream2_get_le32.exit46.thread.i, %bytestream2_get_le16.exit.thread.i, %bytestream2_get_le16.exit49.thread.i, %345, %split.i.i, %.loopexit.i.i, %248, %.thread130, %28, %659, %.thread133, %766, %53, %39
-  %.2 = phi i32 [ -1313558101, %39 ], [ -1094995529, %53 ], [ %768, %766 ], [ %26, %28 ], [ %657, %.thread133 ], [ %662, %659 ], [ -1094995529, %.thread130 ], [ -1094995529, %63 ], [ %223, %tdsc_parse_tdsf.exit ], [ %246, %248 ], [ -1094995529, %.loopexit.i.i ], [ -1094995529, %split.i.i ], [ -1094995529, %345 ], [ -1094995529, %bytestream2_get_le16.exit49.thread.i ], [ -1094995529, %bytestream2_get_le16.exit.thread.i ], [ -1094995529, %bytestream2_get_le32.exit46.thread.i ], [ %141, %139 ], [ %130, %._crit_edge.i ], [ -1094995529, %bytestream2_get_le16.exit.i ], [ -1094995529, %bytestream2_get_le16.exit49.i ], [ -1094995529, %bytestream2_get_le32.exit46.i ], [ %.0.i23.i, %tdsc_load_cursor.exit.i ], [ -1094995529, %bytestream2_get_le32.exit98.i.i ], [ -1094995529, %259 ]
+bytestream2_get_le32.exit96:                      ; preds = %259, %bytestream2_get_le32.exit98.i.i, %tdsc_load_cursor.exit.i, %63, %tdsc_parse_tdsf.exit, %bytestream2_get_le16.exit49.thread.i, %bytestream2_get_le32.exit46.i, %bytestream2_get_le16.exit.i, %._crit_edge.i, %bytestream2_get_le16.exit49.i, %139, %bytestream2_get_le32.exit46.thread.i, %bytestream2_get_le16.exit.thread.i, %split.i.i, %.loopexit.i.i, %345, %248, %.thread130, %28, %659, %.thread133, %766, %53, %39
+  %.2 = phi i32 [ -1313558101, %39 ], [ -1094995529, %53 ], [ %26, %28 ], [ %657, %.thread133 ], [ %768, %766 ], [ -1094995529, %bytestream2_get_le16.exit49.thread.i ], [ -1094995529, %.thread130 ], [ %662, %659 ], [ -1094995529, %63 ], [ %223, %tdsc_parse_tdsf.exit ], [ -1094995529, %bytestream2_get_le32.exit46.i ], [ %.0.i23.i, %tdsc_load_cursor.exit.i ], [ %246, %248 ], [ -1094995529, %345 ], [ -1094995529, %.loopexit.i.i ], [ -1094995529, %split.i.i ], [ -1094995529, %bytestream2_get_le16.exit.thread.i ], [ -1094995529, %bytestream2_get_le32.exit46.thread.i ], [ %141, %139 ], [ -1094995529, %bytestream2_get_le16.exit49.i ], [ %130, %._crit_edge.i ], [ -1094995529, %bytestream2_get_le16.exit.i ], [ -1094995529, %bytestream2_get_le32.exit98.i.i ], [ -1094995529, %259 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.2
 }

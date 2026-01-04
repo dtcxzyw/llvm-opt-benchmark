@@ -358,7 +358,7 @@ _ZN6icu_779UVector327setSizeEi.exit:              ; preds = %39, %45, %49, %.loo
   br i1 %79, label %73, label %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread, !llvm.loop !19
 
 _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.sink.split: ; preds = %25, %21, %19, %14, %12
-  %.sink = phi i32 [ 1, %12 ], [ 15, %14 ], [ 1, %19 ], [ 1, %21 ], [ 7, %25 ]
+  %.sink = phi i32 [ 1, %21 ], [ 1, %19 ], [ 15, %14 ], [ 1, %12 ], [ 7, %25 ]
   store i32 %.sink, ptr %2, align 4, !tbaa !16
   br label %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread
 
@@ -439,7 +439,7 @@ _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit: ; preds = %28, %8
   store i32 %1, ptr %5, align 8, !tbaa !6
   br label %.critedge
 
-.critedge:                                        ; preds = %21, %17, %11, %2, %.loopexit
+.critedge:                                        ; preds = %21, %11, %17, %2, %.loopexit
   ret void
 }
 
@@ -607,7 +607,7 @@ _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit: ; preds = %38, %9
   %53 = icmp samesign ugt i64 %indvars.iv.next, %44
   br i1 %53, label %49, label %._crit_edge, !llvm.loop !22
 
-_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread: ; preds = %37, %29, %13, %24, %21, %._crit_edge, %6, %4
+_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread: ; preds = %37, %29, %24, %21, %13, %._crit_edge, %6, %4
   ret void
 }
 
@@ -657,7 +657,7 @@ _ZNK6icu_779UVector327indexOfEii.exit:            ; preds = %15
   br i1 %exitcond.not, label %.thread, label %.lr.ph.i, !llvm.loop !24
 
 .thread:                                          ; preds = %_ZNK6icu_779UVector327indexOfEii.exit, %19, %2, %.lr.ph
-  %21 = phi i8 [ 1, %2 ], [ 0, %.lr.ph ], [ 0, %19 ], [ 1, %_ZNK6icu_779UVector327indexOfEii.exit ]
+  %21 = phi i8 [ 0, %.lr.ph ], [ 0, %19 ], [ 1, %2 ], [ 1, %_ZNK6icu_779UVector327indexOfEii.exit ]
   ret i8 %21
 }
 
@@ -1068,7 +1068,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_779UVector3214expandCapacityEi
   br label %35
 
 35:                                               ; preds = %25, %34, %33, %9, %3, %20, %17, %8
-  %.0 = phi i8 [ 0, %8 ], [ 0, %17 ], [ 0, %20 ], [ 0, %3 ], [ 1, %9 ], [ 0, %25 ], [ 0, %33 ], [ 1, %34 ]
+  %.0 = phi i8 [ 1, %9 ], [ 0, %8 ], [ 0, %3 ], [ 0, %17 ], [ 0, %20 ], [ 0, %25 ], [ 0, %33 ], [ 1, %34 ]
   ret i8 %.0
 }
 
@@ -1255,7 +1255,7 @@ _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.._crit_edge27_crit_edge
   %62 = icmp sgt i64 %indvars.iv.next, %54
   br i1 %62, label %58, label %._crit_edge27, !llvm.loop !32
 
-_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread: ; preds = %47, %39, %20, %34, %31, %24, %._crit_edge27
+_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread: ; preds = %47, %39, %34, %31, %20, %24, %._crit_edge27
   ret void
 }
 

@@ -581,7 +581,7 @@ define internal fastcc range(i32 -1, 1) i32 @__i8042_command(ptr noundef capture
   br label %.loopexit
 
 .loopexit:                                        ; preds = %153, %68, %74, %156, %.split15.us, %.split13.us, %102, %.loopexit7, %22, %2
-  %163 = phi i32 [ -1, %2 ], [ -1, %22 ], [ -1, %102 ], [ -1, %.split13.us ], [ -1, %.split15.us ], [ 0, %.loopexit7 ], [ -1, %156 ], [ 0, %74 ], [ 0, %68 ], [ 0, %153 ]
+  %163 = phi i32 [ -1, %2 ], [ -1, %22 ], [ -1, %102 ], [ -1, %.split13.us ], [ -1, %.split15.us ], [ 0, %.loopexit7 ], [ -1, %156 ], [ 0, %68 ], [ 0, %74 ], [ 0, %153 ]
   ret i32 %163
 }
 
@@ -1219,7 +1219,7 @@ i8042_create_aux_port.exit.thread:                ; preds = %212
   br label %i8042_create_aux_port.exit
 
 i8042_create_aux_port.exit:                       ; preds = %235, %212, %248, %.loopexit33
-  %252 = phi i32 [ %242, %.loopexit33 ], [ %245, %248 ], [ -12, %212 ], [ %237, %235 ]
+  %252 = phi i32 [ -12, %212 ], [ %242, %.loopexit33 ], [ %245, %248 ], [ %237, %235 ]
   br label %253
 
 253:                                              ; preds = %253, %i8042_create_aux_port.exit

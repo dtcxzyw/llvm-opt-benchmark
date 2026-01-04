@@ -481,7 +481,7 @@ define hidden noundef zeroext i1 @_ZN12JfrOptionSet10initializeEP10JavaThread(pt
   store ptr %30, ptr %29, align 8
   br label %_ZL38parse_flight_recorder_options_internalP10JavaThread.exit.thread
 
-_ZL38parse_flight_recorder_options_internalP10JavaThread.exit.thread: ; preds = %18, %20, %41, %43
+_ZL38parse_flight_recorder_options_internalP10JavaThread.exit.thread: ; preds = %20, %18, %41, %43
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %53
 
@@ -1084,7 +1084,7 @@ _ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit39.i: ; p
   br label %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit.i
 
 _ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit.i: ; preds = %261, %259, %257, %256, %254
-  %.0.i.i = phi i64 [ %258, %257 ], [ %260, %259 ], [ %262, %261 ], [ %255, %256 ], [ %255, %254 ]
+  %.0.i.i = phi i64 [ %262, %261 ], [ %258, %257 ], [ %260, %259 ], [ %255, %256 ], [ %255, %254 ]
   %263 = load i64, ptr %45, align 8
   %.sroa.010.0.copyload.i41.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 56), align 8
   %.sroa.18.0.copyload.i42.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 64), align 8
@@ -1115,7 +1115,7 @@ _ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit.i: ; 
   br label %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit46.i
 
 _ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit46.i: ; preds = %269, %267, %265, %264, %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit.i
-  %.0.i45.i = phi i64 [ %266, %265 ], [ %268, %267 ], [ %270, %269 ], [ %263, %264 ], [ %263, %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit.i ]
+  %.0.i45.i = phi i64 [ %270, %269 ], [ %266, %265 ], [ %268, %267 ], [ %263, %264 ], [ %263, %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit.i ]
   %271 = load i64, ptr %49, align 8
   %.sroa.010.0.copyload.i47.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 56), align 8
   %.sroa.18.0.copyload.i48.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 64), align 8
@@ -1146,7 +1146,7 @@ _ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit46.i: 
   br label %_ZL36post_process_adjusted_memory_optionsRK16JfrMemoryOptions.exit
 
 _ZL36post_process_adjusted_memory_optionsRK16JfrMemoryOptions.exit: ; preds = %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit46.i, %272, %273, %275, %277
-  %.0.i51.i = phi i64 [ %274, %273 ], [ %276, %275 ], [ %278, %277 ], [ %271, %272 ], [ %271, %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit46.i ]
+  %.0.i51.i = phi i64 [ %278, %277 ], [ %274, %273 ], [ %276, %275 ], [ %271, %272 ], [ %271, %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit46.i ]
   store i64 %255, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 56), align 8
   store i64 %.0.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 64), align 8
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 48), align 8
@@ -1161,8 +1161,8 @@ _ZL36post_process_adjusted_memory_optionsRK16JfrMemoryOptions.exit: ; preds = %_
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 48), align 8
   br label %_ZL26ensure_valid_minimum_sizesv.exit.thread
 
-_ZL26ensure_valid_minimum_sizesv.exit.thread:     ; preds = %97, %95, %103, %68, %64, %39, %33, %25, %23, %28, %10, %4, %180, %170, %172, %177, %179, %_ZL36post_process_adjusted_memory_optionsRK16JfrMemoryOptions.exit
-  %.0 = phi i1 [ true, %_ZL36post_process_adjusted_memory_optionsRK16JfrMemoryOptions.exit ], [ false, %179 ], [ false, %177 ], [ false, %172 ], [ false, %170 ], [ false, %180 ], [ false, %4 ], [ false, %10 ], [ false, %28 ], [ false, %23 ], [ false, %25 ], [ false, %33 ], [ false, %39 ], [ false, %64 ], [ false, %68 ], [ false, %103 ], [ false, %95 ], [ false, %97 ]
+_ZL26ensure_valid_minimum_sizesv.exit.thread:     ; preds = %97, %95, %103, %64, %68, %39, %33, %25, %23, %4, %10, %28, %180, %170, %172, %177, %179, %_ZL36post_process_adjusted_memory_optionsRK16JfrMemoryOptions.exit
+  %.0 = phi i1 [ true, %_ZL36post_process_adjusted_memory_optionsRK16JfrMemoryOptions.exit ], [ false, %39 ], [ false, %170 ], [ false, %180 ], [ false, %25 ], [ false, %179 ], [ false, %177 ], [ false, %172 ], [ false, %28 ], [ false, %10 ], [ false, %4 ], [ false, %23 ], [ false, %33 ], [ false, %68 ], [ false, %64 ], [ false, %103 ], [ false, %95 ], [ false, %97 ]
   ret i1 %.0
 }
 
@@ -1305,7 +1305,7 @@ define hidden noundef zeroext i1 @_ZN12JfrOptionSet9configureEP10JavaThread(ptr 
   br label %88
 
 88:                                               ; preds = %43, %35, %22, %85
-  %.1 = phi i1 [ false, %85 ], [ false, %22 ], [ false, %35 ], [ true, %43 ]
+  %.1 = phi i1 [ false, %35 ], [ false, %22 ], [ false, %85 ], [ true, %43 ]
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV30JfrConfigureFlightRecorderDCmd, i64 16), ptr %3, align 8
   %89 = getelementptr inbounds nuw i8, ptr %3, i64 672
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %89, align 8
@@ -1803,7 +1803,7 @@ _ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit: ; preds = %7,
   br label %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit.i
 
 _ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit.i: ; preds = %31, %29, %27, %26
-  %.0.i.i = phi i64 [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %1, %26 ]
+  %.0.i.i = phi i64 [ %32, %31 ], [ %28, %27 ], [ %30, %29 ], [ %1, %26 ]
   %33 = sext i8 %.sroa.1.0.copyload.i.i to i32
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.81, ptr noundef nonnull @_ZL14lower_than_msg, i64 noundef %.0.i.i, i32 noundef %33)
   br label %_ZL22log_out_of_range_valueI12DCmdArgumentI18MemorySizeArgumentELb1EEvRT_m.exit
@@ -1898,7 +1898,7 @@ _ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit: ; preds = %7,
   br label %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit.i
 
 _ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit.i: ; preds = %31, %29, %27, %26
-  %.0.i.i = phi i64 [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %1, %26 ]
+  %.0.i.i = phi i64 [ %32, %31 ], [ %28, %27 ], [ %30, %29 ], [ %1, %26 ]
   %33 = sext i8 %.sroa.1.0.copyload.i.i to i32
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.81, ptr noundef nonnull @_ZL15higher_than_msg, i64 noundef %.0.i.i, i32 noundef %33)
   br label %_ZL22log_out_of_range_valueI12DCmdArgumentI18MemorySizeArgumentELb0EEvRT_m.exit

@@ -466,10 +466,10 @@ _ZN4core5slice6memchr12memchr_naive17hfd0c67ed66d0062bE.exit.i.i: ; preds = %21,
   br i1 %.not.i, label %.lr.ph.split.split.i.i31, label %"_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17h39c9170098d22661E.exit50.thread"
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17h39c9170098d22661E.exit50.thread": ; preds = %25, %32, %69, %76, %36, %80
-  %.sroa.016.0 = phi ptr [ %37, %80 ], [ %11, %36 ], [ %37, %76 ], [ %37, %69 ], [ %11, %32 ], [ %11, %25 ]
-  %.sroa.9.0 = phi i64 [ %75, %80 ], [ %31, %36 ], [ %38, %76 ], [ %38, %69 ], [ %7, %32 ], [ %7, %25 ]
-  %.sroa.025.0 = phi ptr [ %81, %80 ], [ %37, %36 ], [ @anon.f4bec6b4278e6a0adae1e8a6418cb3a1.4, %76 ], [ @anon.f4bec6b4278e6a0adae1e8a6418cb3a1.4, %69 ], [ @anon.f4bec6b4278e6a0adae1e8a6418cb3a1.4, %32 ], [ @anon.f4bec6b4278e6a0adae1e8a6418cb3a1.4, %25 ]
-  %.sroa.526.0 = phi i64 [ %82, %80 ], [ %38, %36 ], [ 0, %76 ], [ 0, %69 ], [ 0, %32 ], [ 0, %25 ]
+  %.sroa.016.0 = phi ptr [ %11, %36 ], [ %37, %69 ], [ %37, %80 ], [ %37, %76 ], [ %11, %32 ], [ %11, %25 ]
+  %.sroa.9.0 = phi i64 [ %31, %36 ], [ %38, %69 ], [ %75, %80 ], [ %38, %76 ], [ %7, %32 ], [ %7, %25 ]
+  %.sroa.025.0 = phi ptr [ %37, %36 ], [ @anon.f4bec6b4278e6a0adae1e8a6418cb3a1.4, %69 ], [ %81, %80 ], [ @anon.f4bec6b4278e6a0adae1e8a6418cb3a1.4, %76 ], [ @anon.f4bec6b4278e6a0adae1e8a6418cb3a1.4, %32 ], [ @anon.f4bec6b4278e6a0adae1e8a6418cb3a1.4, %25 ]
+  %.sroa.526.0 = phi i64 [ %38, %36 ], [ 0, %69 ], [ %82, %80 ], [ 0, %76 ], [ 0, %32 ], [ 0, %25 ]
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
   %40 = load ptr, ptr %39, align 8, !alias.scope !64, !noalias !67, !nonnull !7, !noundef !7

@@ -291,7 +291,7 @@ define internal fastcc noundef i32 @popenCommand(ptr noundef readonly captures(n
   br label %.thread70
 
 .thread70:                                        ; preds = %17, %23, %10, %56, %.loopexit
-  %.04674 = phi i32 [ %55, %56 ], [ %55, %.loopexit ], [ -1, %10 ], [ -1, %23 ], [ -1, %17 ]
+  %.04674 = phi i32 [ %55, %.loopexit ], [ %55, %56 ], [ -1, %10 ], [ -1, %23 ], [ -1, %17 ]
   tail call void @free(ptr noundef %9) #14
   tail call void (ptr, ...) @jvmLauncherLog(ptr noundef nonnull @.str.11, i32 noundef %.04674) #14
   ret i32 %.04674
@@ -327,7 +327,7 @@ define internal range(i32 0, 2) i32 @findLauncherLib(ptr noundef writeonly captu
   br label %16
 
 16:                                               ; preds = %2, %5, %11, %15
-  %.0 = phi i32 [ 0, %15 ], [ 0, %11 ], [ 1, %5 ], [ 1, %2 ]
+  %.0 = phi i32 [ 0, %11 ], [ 0, %15 ], [ 1, %5 ], [ 1, %2 ]
   ret i32 %.0
 }
 

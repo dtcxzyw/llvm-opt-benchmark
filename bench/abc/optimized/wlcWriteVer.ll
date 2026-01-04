@@ -628,7 +628,7 @@ Wlc_ObjFaninId.exit:                              ; preds = %Wlc_ObjFaninId.exit
   br i1 %exitcond31.not, label %.critedge, label %Wlc_ObjFaninId.exit, !llvm.loop !41
 
 .critedge:                                        ; preds = %Wlc_ObjHasArray.exit.thread.i.i.us16, %Wlc_ObjFaninId.exit, %Wlc_ObjHasArray.exit.thread.i.i.us, %2
-  %.0.lcssa = phi i32 [ 0, %2 ], [ %18, %Wlc_ObjHasArray.exit.thread.i.i.us ], [ %41, %Wlc_ObjFaninId.exit ], [ %31, %Wlc_ObjHasArray.exit.thread.i.i.us16 ]
+  %.0.lcssa = phi i32 [ 0, %2 ], [ %41, %Wlc_ObjFaninId.exit ], [ %18, %Wlc_ObjHasArray.exit.thread.i.i.us ], [ %31, %Wlc_ObjHasArray.exit.thread.i.i.us16 ]
   ret i32 %.0.lcssa
 }
 
@@ -789,7 +789,7 @@ Wlc_WriteVerIntVec.exit:                          ; preds = %31, %14
   br i1 %77, label %56, label %Wlc_WriteVerIntVec.exit916, !llvm.loop !40
 
 Wlc_WriteVerIntVec.exit916:                       ; preds = %68, %.thread, %50, %48, %47
-  %78 = phi ptr [ %43, %48 ], [ %43, %47 ], [ %51, %50 ], [ %45, %.thread ], [ %51, %68 ]
+  %78 = phi ptr [ %45, %.thread ], [ %43, %48 ], [ %43, %47 ], [ %51, %50 ], [ %51, %68 ]
   %79 = tail call i64 @fwrite(ptr nonnull @.str.18, i64 5, i64 1, ptr %0)
   %80 = getelementptr i8, ptr %1, i64 648
   %.val7911114 = load i32, ptr %80, align 8, !tbaa !24
@@ -1258,7 +1258,7 @@ Wlc_ObjFaninId.exit.i:                            ; preds = %Wlc_ObjFaninId.exit
   br i1 %exitcond31.not.i, label %Wlc_ObjFaninBitNum.exit, label %Wlc_ObjFaninId.exit.i, !llvm.loop !41
 
 Wlc_ObjFaninBitNum.exit:                          ; preds = %Wlc_ObjHasArray.exit.thread.i.i.us16.i, %Wlc_ObjFaninId.exit.i, %Wlc_ObjHasArray.exit.thread.i.i.us.i, %239
-  %.0.lcssa.i = phi i32 [ 0, %239 ], [ %262, %Wlc_ObjHasArray.exit.thread.i.i.us.i ], [ %285, %Wlc_ObjFaninId.exit.i ], [ %275, %Wlc_ObjHasArray.exit.thread.i.i.us16.i ]
+  %.0.lcssa.i = phi i32 [ 0, %239 ], [ %285, %Wlc_ObjFaninId.exit.i ], [ %262, %Wlc_ObjHasArray.exit.thread.i.i.us.i ], [ %275, %Wlc_ObjHasArray.exit.thread.i.i.us16.i ]
   call void @Extra_PrintHex(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %.0.lcssa.i) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %Abc_TtPrintHexArrayRev.exit

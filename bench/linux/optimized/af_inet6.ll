@@ -459,7 +459,7 @@ inet_addr_valid_or_nonlocal.exit:                 ; preds = %73, %81, %86
   br label %.thread9
 
 .thread9:                                         ; preds = %inet_addr_valid_or_nonlocal.exit, %140, %59
-  %141 = phi i32 [ 100663423, %140 ], [ 0, %59 ], [ %76, %inet_addr_valid_or_nonlocal.exit ]
+  %141 = phi i32 [ 0, %59 ], [ 100663423, %140 ], [ %76, %inet_addr_valid_or_nonlocal.exit ]
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %141, ptr %142, align 4
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 760
@@ -571,7 +571,7 @@ inet_addr_valid_or_nonlocal.exit:                 ; preds = %73, %81, %86
   br label %.thread
 
 .thread:                                          ; preds = %inet_addr_valid_or_nonlocal.exit, %61, %.thread13, %198, %185, %169, %54, %51
-  %202 = phi i32 [ %204, %.thread13 ], [ 0, %198 ], [ -22, %54 ], [ -22, %51 ], [ %167, %169 ], [ %167, %185 ], [ -99, %inet_addr_valid_or_nonlocal.exit ], [ -22, %61 ]
+  %202 = phi i32 [ %204, %.thread13 ], [ %167, %185 ], [ 0, %198 ], [ -22, %54 ], [ -22, %51 ], [ %167, %169 ], [ -99, %inet_addr_valid_or_nonlocal.exit ], [ -22, %61 ]
   br i1 %49, label %205, label %203
 
 203:                                              ; preds = %.thread
@@ -584,7 +584,7 @@ inet_addr_valid_or_nonlocal.exit:                 ; preds = %73, %81, %86
   br label %.thread
 
 205:                                              ; preds = %203, %.thread, %43, %26, %14
-  %206 = phi i32 [ -97, %14 ], [ -22, %26 ], [ -13, %43 ], [ %202, %203 ], [ %202, %.thread ]
+  %206 = phi i32 [ %202, %.thread ], [ %202, %203 ], [ -97, %14 ], [ -22, %26 ], [ -13, %43 ]
   ret i32 %206
 }
 
@@ -1231,7 +1231,7 @@ define dso_local noundef range(i32 -22, 1) i32 @inet6_register_protosw(ptr nound
   br i1 %28, label %.thread, label %35
 
 .thread:                                          ; preds = %23, %8, %27
-  %29 = phi ptr [ %14, %27 ], [ %10, %8 ], [ %24, %23 ]
+  %29 = phi ptr [ %10, %8 ], [ %14, %27 ], [ %24, %23 ]
   %30 = load ptr, ptr %29, align 8
   store ptr %30, ptr %0, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2332,7 +2332,7 @@ define internal i32 @inet6_create(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %99, %106, %103
-  %.pre-phi = phi i16 [ 255, %106 ], [ %102, %103 ], [ %102, %99 ]
+  %.pre-phi = phi i16 [ %102, %103 ], [ 255, %106 ], [ %102, %99 ]
   %108 = getelementptr inbounds nuw i8, ptr %79, i64 712
   store ptr @inet6_sock_destruct, ptr %108, align 8
   %109 = getelementptr inbounds nuw i8, ptr %79, i64 16

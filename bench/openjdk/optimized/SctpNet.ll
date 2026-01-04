@@ -92,7 +92,7 @@ define hidden range(i32 -5, 1) i32 @sctpHandleSocketErrorWithMessage(ptr noundef
   br label %8
 
 8:                                                ; preds = %3, %7, %6, %5, %4
-  %.0 = phi ptr [ @.str.4, %7 ], [ @.str.1, %4 ], [ @.str.2, %5 ], [ @.str.3, %6 ], [ @.str, %3 ]
+  %.0 = phi ptr [ @.str.4, %7 ], [ @.str.3, %6 ], [ @.str.1, %4 ], [ @.str.2, %5 ], [ @.str, %3 ]
   %9 = tail call ptr @__errno_location() #9
   store i32 %1, ptr %9, align 4
   %10 = icmp eq ptr %2, null
@@ -282,7 +282,7 @@ loadSocketExtensionFuncs.exit:                    ; preds = %37
   br label %loadSocketExtensionFuncs.exit.thread
 
 loadSocketExtensionFuncs.exit.thread:             ; preds = %40, %35, %30, %25, %20, %15, %10, %52, %54, %50, %49
-  %.0 = phi i32 [ -5, %49 ], [ %51, %50 ], [ %44, %54 ], [ %44, %52 ], [ 0, %10 ], [ 0, %15 ], [ 0, %20 ], [ 0, %25 ], [ 0, %30 ], [ 0, %35 ], [ 0, %40 ]
+  %.0 = phi i32 [ -5, %49 ], [ %51, %50 ], [ %44, %52 ], [ %44, %54 ], [ 0, %10 ], [ 0, %15 ], [ 0, %20 ], [ 0, %25 ], [ 0, %30 ], [ 0, %35 ], [ 0, %40 ]
   ret i32 %.0
 }
 
@@ -415,7 +415,7 @@ define range(i32 -5, 2) i32 @Java_sun_nio_ch_sctp_SctpNet_connect0(ptr noundef %
   br label %18
 
 18:                                               ; preds = %9, %12, %5, %16, %15
-  %.0 = phi i32 [ -3, %15 ], [ %17, %16 ], [ -5, %5 ], [ -2, %12 ], [ 1, %9 ]
+  %.0 = phi i32 [ -2, %12 ], [ -5, %5 ], [ -3, %15 ], [ %17, %16 ], [ 1, %9 ]
   ret i32 %.0
 }
 
@@ -693,7 +693,7 @@ initializeISA.exit:                               ; preds = %18, %24, %36
   br label %initializeISA.exit.thread
 
 initializeISA.exit.thread:                        ; preds = %30, %initializeISA.exit, %13, %.thread, %48, %9
-  %.024 = phi ptr [ null, %9 ], [ null, %48 ], [ %46, %.thread ], [ null, %13 ], [ null, %initializeISA.exit ], [ null, %30 ]
+  %.024 = phi ptr [ null, %9 ], [ %46, %.thread ], [ null, %13 ], [ null, %48 ], [ null, %initializeISA.exit ], [ null, %30 ]
   ret ptr %.024
 }
 
@@ -818,7 +818,7 @@ initializeISA.exit:                               ; preds = %18, %24, %36
   br label %initializeISA.exit.thread
 
 initializeISA.exit.thread:                        ; preds = %30, %initializeISA.exit, %13, %.thread, %48, %9
-  %.025 = phi ptr [ null, %9 ], [ null, %48 ], [ %46, %.thread ], [ null, %13 ], [ null, %initializeISA.exit ], [ null, %30 ]
+  %.025 = phi ptr [ null, %9 ], [ %46, %.thread ], [ null, %13 ], [ null, %48 ], [ null, %initializeISA.exit ], [ null, %30 ]
   ret ptr %.025
 }
 

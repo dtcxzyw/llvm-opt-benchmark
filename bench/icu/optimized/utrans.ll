@@ -129,7 +129,7 @@ define void @_ZN6icu_7715ReplaceableGlue20handleReplaceBetweenEiiRKNS_13UnicodeS
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %4, %16, %18
-  %.0.i = phi ptr [ %17, %16 ], [ %20, %18 ], [ null, %4 ]
+  %.0.i = phi ptr [ %20, %18 ], [ %17, %16 ], [ null, %4 ]
   %21 = icmp slt i16 %12, 0
   %22 = ashr i16 %12, 5
   %23 = sext i16 %22 to i32
@@ -292,7 +292,7 @@ define ptr @utrans_openU_77(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr 
   resume { ptr, i32 } %.pn36.pn
 
 53:                                               ; preds = %7, %14, %50, %19
-  %.027 = phi ptr [ null, %19 ], [ %.229, %50 ], [ null, %14 ], [ null, %7 ]
+  %.027 = phi ptr [ %.229, %50 ], [ null, %19 ], [ null, %14 ], [ null, %7 ]
   ret ptr %.027
 }
 
@@ -333,7 +333,7 @@ define ptr @utrans_open_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 n
   br label %18
 
 18:                                               ; preds = %15, %13, %6
-  %.0.i = phi ptr [ %14, %13 ], [ %17, %15 ], [ null, %6 ]
+  %.0.i = phi ptr [ %17, %15 ], [ %14, %13 ], [ null, %6 ]
   %19 = icmp slt i16 %9, 0
   %20 = ashr i16 %9, 5
   %21 = sext i16 %20 to i32
@@ -407,7 +407,7 @@ define noundef ptr @utrans_clone_77(ptr noundef %0, ptr noundef captures(address
   br label %15
 
 15:                                               ; preds = %.sink.split, %9, %2, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %2 ], [ %13, %9 ], [ null, %.sink.split ]
+  %.0 = phi ptr [ null, %2 ], [ %13, %9 ], [ null, %4 ], [ null, %.sink.split ]
   ret ptr %.0
 }
 
@@ -470,7 +470,7 @@ define ptr @utrans_getUnicodeID_77(ptr noundef %0, ptr noundef writeonly capture
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %16, %22, %24
-  %.0.i = phi ptr [ %23, %22 ], [ %26, %24 ], [ null, %16 ]
+  %.0.i = phi ptr [ %26, %24 ], [ %23, %22 ], [ null, %16 ]
   ret ptr %.0.i
 }
 
@@ -654,7 +654,7 @@ define void @utrans_setFilter_77(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   resume { ptr, i32 } %.pn
 
 35:                                               ; preds = %.thread34, %12, %11
-  %.018 = phi ptr [ null, %12 ], [ null, %11 ], [ %.1.ph, %.thread34 ]
+  %.018 = phi ptr [ %.1.ph, %.thread34 ], [ null, %12 ], [ null, %11 ]
   call void @_ZN6icu_7714Transliterator11adoptFilterEPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %.018)
   br label %36
 
@@ -715,7 +715,7 @@ define noalias noundef ptr @utrans_openIDs_77(ptr noundef captures(address_is_nu
   br label %14
 
 14:                                               ; preds = %1, %3, %10, %9
-  %.0 = phi ptr [ null, %9 ], [ %7, %10 ], [ null, %3 ], [ null, %1 ]
+  %.0 = phi ptr [ %7, %10 ], [ null, %9 ], [ null, %3 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -1085,7 +1085,7 @@ define noundef i32 @utrans_toRules_77(ptr noundef %0, i8 noundef signext %1, ptr
   resume { ptr, i32 } %.pn
 
 36:                                               ; preds = %5, %9, %28, %17
-  %.016 = phi i32 [ 0, %17 ], [ %27, %28 ], [ 0, %9 ], [ 0, %5 ]
+  %.016 = phi i32 [ %27, %28 ], [ 0, %17 ], [ 0, %9 ], [ 0, %5 ]
   ret i32 %.016
 }
 
@@ -1126,7 +1126,7 @@ define ptr @utrans_getSourceSet_77(ptr noundef %0, i8 noundef signext %1, ptr no
   br label %20
 
 20:                                               ; preds = %14, %18, %4, %6
-  %.0 = phi ptr [ %2, %6 ], [ %2, %4 ], [ %.010, %18 ], [ %.010, %14 ]
+  %.0 = phi ptr [ %2, %4 ], [ %2, %6 ], [ %.010, %18 ], [ %.010, %14 ]
   ret ptr %.0
 }
 
@@ -1231,7 +1231,7 @@ define internal noundef ptr @_ZL17utrans_enum_unextP12UEnumerationPiP10UErrorCod
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %34, %32, %26, %38, %37, %3, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %3 ], [ null, %38 ], [ null, %37 ], [ %33, %32 ], [ %36, %34 ], [ null, %26 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %5 ], [ null, %37 ], [ null, %38 ], [ %36, %34 ], [ %33, %32 ], [ null, %26 ]
   ret ptr %.0
 }
 

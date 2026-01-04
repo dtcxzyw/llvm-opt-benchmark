@@ -941,7 +941,7 @@ write_bin_error.exit156.i:                        ; preds = %128, %125
   br label %206
 
 .thread.sink.split.i:                             ; preds = %142, %141, %139
-  %.sink.i = phi i16 [ 2, %141 ], [ 3, %142 ], [ 1, %139 ]
+  %.sink.i = phi i16 [ 3, %142 ], [ 2, %141 ], [ 1, %139 ]
   store i16 %.sink.i, ptr %65, align 8, !tbaa !48
   br label %.thread.i
 
@@ -1156,7 +1156,7 @@ define dso_local void @write_bin_error(ptr noundef %0, i32 noundef %1, ptr nound
   br label %19
 
 19:                                               ; preds = %5, %6, %7, %8, %9, %10, %11, %12, %13, %14, %4
-  %.0 = phi ptr [ %2, %4 ], [ @.str.15, %14 ], [ @.str.7, %6 ], [ @.str.8, %7 ], [ @.str.9, %8 ], [ @.str.10, %9 ], [ @.str.11, %10 ], [ @.str.12, %11 ], [ @.str.13, %12 ], [ @.str.14, %13 ], [ @.str.6, %5 ]
+  %.0 = phi ptr [ %2, %4 ], [ @.str.15, %14 ], [ @.str.14, %13 ], [ @.str.7, %6 ], [ @.str.8, %7 ], [ @.str.9, %8 ], [ @.str.10, %9 ], [ @.str.11, %10 ], [ @.str.12, %11 ], [ @.str.13, %12 ], [ @.str.6, %5 ]
   %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8, !tbaa !57
   %21 = icmp sgt i32 %20, 1
   br i1 %21, label %22, label %27

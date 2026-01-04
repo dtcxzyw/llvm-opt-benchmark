@@ -549,7 +549,7 @@ _get_time.exit.split.loop.exit:                   ; preds = %147
   br label %_get_time.exit
 
 _get_time.exit:                                   ; preds = %226, %218, %194, %188, %182, %169, %163, %.thread.thread.i, %.thread.i, %149, %_get_time.exit.split.loop.exit
-  %.0.i = phi i32 [ %231, %_get_time.exit.split.loop.exit ], [ %storemerge, %149 ], [ %156, %.thread.i ], [ %158, %.thread.thread.i ], [ %164, %163 ], [ %158, %169 ], [ %183, %182 ], [ %189, %188 ], [ %183, %194 ], [ %213, %218 ], [ %213, %226 ]
+  %.0.i = phi i32 [ %231, %_get_time.exit.split.loop.exit ], [ %189, %188 ], [ %158, %169 ], [ %183, %194 ], [ %183, %182 ], [ %213, %218 ], [ %storemerge, %149 ], [ %164, %163 ], [ %156, %.thread.i ], [ %158, %.thread.thread.i ], [ %213, %226 ]
   store i32 %.0.i, ptr %8, align 4
   br label %.loopexit
 
@@ -559,9 +559,9 @@ _get_time.exit:                                   ; preds = %226, %218, %194, %1
   br i1 %.not86, label %234, label %.loopexit
 
 234:                                              ; preds = %_get_time.exit.thread, %123, %switch.early.test, %switch.early.test, %46, %232, %88, %84, %80, %76, %72, %62, %55
-  %.1108 = phi i32 [ %.0107, %46 ], [ %.0107, %55 ], [ %.0107, %62 ], [ 0, %72 ], [ 12, %76 ], [ 11, %80 ], [ 15, %84 ], [ 16, %88 ], [ %131, %123 ], [ %.0107, %232 ], [ %.0107, %switch.early.test ], [ %.0107, %switch.early.test ], [ %.281.i, %_get_time.exit.thread ]
-  %.1104 = phi i32 [ %.0103, %46 ], [ %.0103, %55 ], [ %.0103, %62 ], [ 0, %72 ], [ 0, %76 ], [ 0, %80 ], [ 0, %84 ], [ 0, %88 ], [ %132, %123 ], [ %.0103, %232 ], [ %.0103, %switch.early.test ], [ %.0103, %switch.early.test ], [ %174, %_get_time.exit.thread ]
-  %.1102 = phi i32 [ %.0101, %46 ], [ %.0101, %55 ], [ %.0101, %62 ], [ 0, %72 ], [ 0, %76 ], [ 0, %80 ], [ 0, %84 ], [ 0, %88 ], [ %133, %123 ], [ %.0101, %232 ], [ %.0101, %switch.early.test ], [ %.0101, %switch.early.test ], [ %.078.i, %_get_time.exit.thread ]
+  %.1108 = phi i32 [ %.0107, %46 ], [ %.0107, %55 ], [ %.0107, %62 ], [ 0, %72 ], [ 12, %76 ], [ 11, %80 ], [ 15, %84 ], [ 16, %88 ], [ %131, %123 ], [ %.281.i, %_get_time.exit.thread ], [ %.0107, %232 ], [ %.0107, %switch.early.test ], [ %.0107, %switch.early.test ]
+  %.1104 = phi i32 [ %.0103, %46 ], [ %.0103, %55 ], [ %.0103, %62 ], [ 0, %72 ], [ 0, %76 ], [ 0, %80 ], [ 0, %84 ], [ 0, %88 ], [ %132, %123 ], [ %174, %_get_time.exit.thread ], [ %.0103, %232 ], [ %.0103, %switch.early.test ], [ %.0103, %switch.early.test ]
+  %.1102 = phi i32 [ %.0101, %46 ], [ %.0101, %55 ], [ %.0101, %62 ], [ 0, %72 ], [ 0, %76 ], [ 0, %80 ], [ 0, %84 ], [ 0, %88 ], [ %133, %123 ], [ %.078.i, %_get_time.exit.thread ], [ %.0101, %232 ], [ %.0101, %switch.early.test ], [ %.0101, %switch.early.test ]
   %235 = load i32, ptr %8, align 4
   %236 = add nsw i32 %235, 1
   br label %42, !llvm.loop !12
@@ -702,10 +702,10 @@ thread-pre-split:                                 ; preds = %242, %240
   br label %301
 
 301:                                              ; preds = %273, %.thread121, %298, %296, %258
-  %302 = phi i32 [ %270, %.thread121 ], [ %300, %298 ], [ %297, %296 ], [ %260, %258 ], [ %spec.select, %273 ]
-  %303 = phi i32 [ %266, %.thread121 ], [ %278, %298 ], [ %278, %296 ], [ %259, %258 ], [ %259, %273 ]
-  %.3106126 = phi i32 [ %.0103, %.thread121 ], [ %.3106127132, %298 ], [ %.3106127132, %296 ], [ %.3106, %258 ], [ %.3106, %273 ]
-  %.3110124 = phi i32 [ %.0107, %.thread121 ], [ %.3110125133, %298 ], [ %.3110125133, %296 ], [ %.3110, %258 ], [ %.3110, %273 ]
+  %302 = phi i32 [ %270, %.thread121 ], [ %260, %258 ], [ %spec.select, %273 ], [ %300, %298 ], [ %297, %296 ]
+  %303 = phi i32 [ %266, %.thread121 ], [ %259, %258 ], [ %259, %273 ], [ %278, %298 ], [ %278, %296 ]
+  %.3106126 = phi i32 [ %.0103, %.thread121 ], [ %.3106, %258 ], [ %.3106, %273 ], [ %.3106127132, %298 ], [ %.3106127132, %296 ]
+  %.3110124 = phi i32 [ %.0107, %.thread121 ], [ %.3110, %258 ], [ %.3110, %273 ], [ %.3110125133, %298 ], [ %.3110125133, %296 ]
   %304 = getelementptr inbounds nuw i8, ptr %9, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %304, i8 0, i64 32, i1 false)
   store i32 %.0101, ptr %9, align 8
@@ -874,9 +874,9 @@ define dso_local i32 @time_str2secs(ptr noundef %0) #0 {
   br label %27
 
 27:                                               ; preds = %25, %23, %20
-  %.137.i = phi i32 [ %.03653.i, %23 ], [ %.03653.i, %25 ], [ %spec.select.i, %20 ]
-  %.135.i = phi i32 [ %24, %23 ], [ %.03454.i, %25 ], [ %.03454.i, %20 ]
-  %.133.i = phi i32 [ 0, %23 ], [ %26, %25 ], [ %.03255.i, %20 ]
+  %.137.i = phi i32 [ %spec.select.i, %20 ], [ %.03653.i, %25 ], [ %.03653.i, %23 ]
+  %.135.i = phi i32 [ %.03454.i, %20 ], [ %.03454.i, %25 ], [ %24, %23 ]
+  %.133.i = phi i32 [ %.03255.i, %20 ], [ %26, %25 ], [ 0, %23 ]
   %28 = getelementptr inbounds nuw i8, ptr %.03852.i, i64 1
   %29 = load i8, ptr %28, align 1
   %.not.i = icmp eq i8 %29, 0
@@ -959,8 +959,8 @@ _is_valid_timespec.exit:                          ; preds = %42, %37
   %68 = add nsw i32 %66, %67
   br label %_is_valid_timespec.exit.thread
 
-_is_valid_timespec.exit.thread:                   ; preds = %22, %23, %16, %42, %40, %37, %35, %30, %._crit_edge.i, %10, %12, %14, %1, %7, %60
-  %.0 = phi i32 [ %68, %60 ], [ -2, %7 ], [ -2, %1 ], [ -1, %14 ], [ -1, %12 ], [ -1, %10 ], [ -2, %._crit_edge.i ], [ -2, %30 ], [ -2, %35 ], [ -2, %37 ], [ -2, %40 ], [ -2, %42 ], [ -2, %16 ], [ -2, %23 ], [ -2, %22 ]
+_is_valid_timespec.exit.thread:                   ; preds = %22, %23, %16, %37, %35, %30, %._crit_edge.i, %42, %40, %10, %12, %14, %1, %7, %60
+  %.0 = phi i32 [ -2, %1 ], [ %68, %60 ], [ -1, %10 ], [ -2, %7 ], [ -1, %14 ], [ -1, %12 ], [ -2, %40 ], [ -2, %42 ], [ -2, %._crit_edge.i ], [ -2, %30 ], [ -2, %35 ], [ -2, %37 ], [ -2, %16 ], [ -2, %23 ], [ -2, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1420,7 +1420,7 @@ define internal fastcc range(i32 -1, 1) i32 @_get_date(ptr noundef readonly capt
   br label %164
 
 163:                                              ; preds = %149, %112, %69, %36, %30, %24, %21, %5, %135, %110, %88, %67
-  %.0143 = phi i32 [ %6, %21 ], [ %25, %24 ], [ %31, %30 ], [ %37, %36 ], [ %68, %67 ], [ %70, %69 ], [ %89, %88 ], [ %111, %110 ], [ %spec.select, %112 ], [ %136, %135 ], [ %150, %149 ], [ %6, %5 ]
+  %.0143 = phi i32 [ %6, %21 ], [ %6, %5 ], [ %25, %24 ], [ %111, %110 ], [ %31, %30 ], [ %150, %149 ], [ %37, %36 ], [ %136, %135 ], [ %68, %67 ], [ %70, %69 ], [ %spec.select, %112 ], [ %89, %88 ]
   store i32 %.0143, ptr %1, align 4
   br label %164
 
@@ -1604,7 +1604,7 @@ define internal fastcc nonnull ptr @_relative_date_fmt(i32 %.20.val, i32 %.28.va
   br label %29
 
 29:                                               ; preds = %27, %25, %23, %21, %17
-  %.0 = phi ptr [ @.str.37, %17 ], [ @.str.38, %21 ], [ @.str.39, %23 ], [ @.str.40, %25 ], [ %.str.41..str.42, %27 ]
+  %.0 = phi ptr [ @.str.40, %25 ], [ @.str.37, %17 ], [ @.str.38, %21 ], [ @.str.39, %23 ], [ %.str.41..str.42, %27 ]
   ret ptr %.0
 }
 

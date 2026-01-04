@@ -66,9 +66,9 @@ define ptr @OSSL_ESS_signing_cert_new_init(ptr noundef %0, ptr noundef %1, i32 n
   br i1 %.not24, label %.thread, label %20
 
 .thread:                                          ; preds = %27, %.lr.ph, %12, %15, %9, %3
-  %.sink36 = phi i32 [ 33, %3 ], [ 38, %9 ], [ 44, %15 ], [ 44, %12 ], [ 51, %.lr.ph ], [ 55, %27 ]
-  %.sink = phi i32 [ 524342, %3 ], [ 524303, %9 ], [ 524342, %15 ], [ 524342, %12 ], [ 524342, %.lr.ph ], [ 524303, %27 ]
-  %.020 = phi ptr [ null, %3 ], [ null, %9 ], [ %13, %15 ], [ %13, %12 ], [ null, %.lr.ph ], [ %25, %27 ]
+  %.sink36 = phi i32 [ 44, %15 ], [ 44, %12 ], [ 38, %9 ], [ 33, %3 ], [ 51, %.lr.ph ], [ 55, %27 ]
+  %.sink = phi i32 [ 524342, %15 ], [ 524342, %12 ], [ 524303, %9 ], [ 524342, %3 ], [ 524342, %.lr.ph ], [ 524303, %27 ]
+  %.020 = phi ptr [ %13, %15 ], [ %13, %12 ], [ null, %9 ], [ null, %3 ], [ null, %.lr.ph ], [ %25, %27 ]
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink36, ptr noundef nonnull @__func__.OSSL_ESS_signing_cert_new_init) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 54, i32 noundef %.sink, ptr noundef null) #6
@@ -273,9 +273,9 @@ define ptr @OSSL_ESS_signing_cert_v2_new_init(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not27, label %.thread, label %15
 
 .thread:                                          ; preds = %22, %.lr.ph, %10, %7, %4
-  %.sink40 = phi i32 [ 135, %4 ], [ 140, %7 ], [ 144, %10 ], [ 153, %.lr.ph ], [ 157, %22 ]
-  %.sink = phi i32 [ 524342, %4 ], [ 524342, %7 ], [ 524303, %10 ], [ 524342, %.lr.ph ], [ 524303, %22 ]
-  %.021 = phi ptr [ null, %4 ], [ null, %7 ], [ %8, %10 ], [ null, %.lr.ph ], [ %20, %22 ]
+  %.sink40 = phi i32 [ 135, %4 ], [ 144, %10 ], [ 140, %7 ], [ 153, %.lr.ph ], [ 157, %22 ]
+  %.sink = phi i32 [ 524342, %4 ], [ 524303, %10 ], [ 524342, %7 ], [ 524342, %.lr.ph ], [ 524303, %22 ]
+  %.021 = phi ptr [ null, %4 ], [ %8, %10 ], [ null, %7 ], [ null, %.lr.ph ], [ %20, %22 ]
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink40, ptr noundef nonnull @__func__.OSSL_ESS_signing_cert_v2_new_init) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 54, i32 noundef %.sink, ptr noundef null) #6
@@ -532,7 +532,7 @@ define range(i32 -2147483647, 2) i32 @OSSL_ESS_check_signing_certs(ptr noundef r
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph45, %28, %.loopexit.sink.split, %.preheader
-  %.032 = phi i32 [ 1, %.preheader ], [ -1, %.loopexit.sink.split ], [ %32, %.lr.ph45 ], [ 1, %28 ], [ %26, %.lr.ph ]
+  %.032 = phi i32 [ -1, %.loopexit.sink.split ], [ %32, %.lr.ph45 ], [ 1, %.preheader ], [ 1, %28 ], [ %26, %.lr.ph ]
   ret i32 %.032
 }
 
@@ -690,7 +690,7 @@ ess_issuer_serial_cmp.exit:                       ; preds = %57
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 54, i32 noundef 105, ptr noundef null) #6
   br label %77
 
-ess_issuer_serial_cmp.exit.thread:                ; preds = %53, %57, %48, %50, %41, %ess_issuer_serial_cmp.exit
+ess_issuer_serial_cmp.exit.thread:                ; preds = %53, %57, %50, %48, %41, %ess_issuer_serial_cmp.exit
   %74 = add nuw nsw i32 %.03351, 1
   %75 = call i32 @OPENSSL_sk_num(ptr noundef %3) #6
   %76 = icmp slt i32 %74, %75

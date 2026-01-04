@@ -1099,8 +1099,8 @@ _ZN6marisa8grimoire6vector6VectorIjE9push_backERKj.exit103: ; preds = %167, %.pr
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE6resizeEm.exit, %257, %197, %._crit_edge
-  %.lcssa241 = phi i64 [ %195, %257 ], [ %195, %197 ], [ %195, %._crit_edge ], [ 0, %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE6resizeEm.exit ]
-  %.073.lcssa235 = phi i32 [ %54, %257 ], [ %54, %197 ], [ %54, %._crit_edge ], [ 0, %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE6resizeEm.exit ]
+  %.lcssa241 = phi i64 [ %195, %._crit_edge ], [ %195, %257 ], [ %195, %197 ], [ 0, %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE6resizeEm.exit ]
+  %.073.lcssa235 = phi i32 [ %54, %._crit_edge ], [ %54, %257 ], [ %54, %197 ], [ 0, %_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE6resizeEm.exit ]
   %266 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %.lcssa241, ptr %266, align 8, !tbaa !32
   %267 = getelementptr inbounds nuw i8, ptr %1, i64 56

@@ -241,7 +241,7 @@ define dso_local void @io_poll_task_func(ptr noundef %0, ptr noundef %1) #0 alig
   br label %.thread15
 
 .thread13:                                        ; preds = %70, %68, %52, %24, %49, %67, %2
-  %104 = phi i32 [ 2, %67 ], [ -125, %2 ], [ 3, %49 ], [ %69, %70 ], [ 2, %68 ], [ -125, %24 ], [ 0, %52 ]
+  %104 = phi i32 [ 2, %67 ], [ -125, %2 ], [ 3, %49 ], [ %69, %70 ], [ -125, %24 ], [ 0, %52 ], [ 2, %68 ]
   call fastcc void @io_poll_remove_entries(ptr noundef %0)
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %106 = load ptr, ptr %105, align 8
@@ -727,7 +727,7 @@ define dso_local range(i32 0, 3) i32 @io_arm_poll_handler(ptr noundef %0, i32 no
   br label %.thread7
 
 .thread7:                                         ; preds = %64, %.thread, %126, %122, %109, %106, %103, %17, %2
-  %129 = phi i32 [ %105, %103 ], [ 1, %2 ], [ 1, %17 ], [ 0, %106 ], [ 0, %109 ], [ 0, %122 ], [ 0, %126 ], [ 1, %.thread ], [ 1, %64 ]
+  %129 = phi i32 [ %105, %103 ], [ 1, %2 ], [ 1, %17 ], [ 1, %64 ], [ 0, %106 ], [ 0, %109 ], [ 0, %122 ], [ 0, %126 ], [ 1, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %129
 }
@@ -1349,7 +1349,7 @@ define dso_local noundef range(i32 -2, 1) i32 @io_poll_cancel(ptr noundef %0, pt
   br label %16
 
 16:                                               ; preds = %.thread, %12, %3
-  %17 = phi i32 [ %5, %3 ], [ %15, %12 ], [ %11, %.thread ]
+  %17 = phi i32 [ %5, %3 ], [ %11, %.thread ], [ %15, %12 ]
   ret i32 %17
 }
 
@@ -1465,8 +1465,8 @@ define internal fastcc noundef range(i32 -2, 1) i32 @__io_poll_cancel(ptr nounde
   br i1 %77, label %.thread16.sink.split, label %55, !llvm.loop !40
 
 .thread:                                          ; preds = %24, %26, %60, %69
-  %.ph10 = phi ptr [ %45, %69 ], [ %45, %60 ], [ %17, %26 ], [ %17, %24 ]
-  %.ph11 = phi ptr [ %56, %69 ], [ %56, %60 ], [ %31, %26 ], [ %21, %24 ]
+  %.ph10 = phi ptr [ %45, %69 ], [ %17, %26 ], [ %45, %60 ], [ %17, %24 ]
+  %.ph11 = phi ptr [ %56, %69 ], [ %31, %26 ], [ %56, %60 ], [ %21, %24 ]
   tail call fastcc void @io_poll_cancel_req(ptr noundef nonnull %.ph11)
   %78 = icmp eq ptr %.ph10, null
   br i1 %78, label %.thread16, label %.thread16.sink.split
@@ -1784,8 +1784,8 @@ define dso_local noundef range(i32 -114, 1) i32 @io_poll_remove(ptr noundef capt
   br label %81
 
 81:                                               ; preds = %64, %80, %70, %66
-  %cond20 = phi i1 [ false, %66 ], [ true, %70 ], [ true, %80 ], [ false, %64 ]
-  %82 = phi i32 [ -114, %66 ], [ 0, %70 ], [ 0, %80 ], [ -114, %64 ]
+  %cond20 = phi i1 [ false, %64 ], [ false, %66 ], [ true, %70 ], [ true, %80 ]
+  %82 = phi i32 [ -114, %64 ], [ -114, %66 ], [ 0, %70 ], [ 0, %80 ]
   %83 = icmp eq ptr %23, null
   br i1 %83, label %85, label %84
 
@@ -1862,8 +1862,8 @@ define dso_local noundef range(i32 -114, 1) i32 @io_poll_remove(ptr noundef capt
   br label %122
 
 122:                                              ; preds = %105, %121, %111, %107
-  %123 = phi i1 [ false, %107 ], [ true, %111 ], [ true, %121 ], [ false, %105 ]
-  %124 = phi i32 [ -114, %107 ], [ 0, %111 ], [ 0, %121 ], [ -114, %105 ]
+  %123 = phi i1 [ false, %105 ], [ false, %107 ], [ true, %111 ], [ true, %121 ]
+  %124 = phi i32 [ -114, %105 ], [ -114, %107 ], [ 0, %111 ], [ 0, %121 ]
   %125 = icmp eq ptr %53, null
   br i1 %125, label %127, label %126
 
@@ -1989,7 +1989,7 @@ define dso_local noundef range(i32 -114, 1) i32 @io_poll_remove(ptr noundef capt
   br label %191
 
 191:                                              ; preds = %85, %179, %.thread19, %126, %.thread18, %180, %133, %127
-  %192 = phi i32 [ 0, %180 ], [ %82, %85 ], [ %124, %127 ], [ -14, %133 ], [ 0, %179 ], [ -2, %.thread18 ], [ %124, %126 ], [ 0, %.thread19 ]
+  %192 = phi i32 [ 0, %.thread19 ], [ 0, %180 ], [ %82, %85 ], [ %124, %127 ], [ -14, %133 ], [ 0, %179 ], [ -2, %.thread18 ], [ %124, %126 ]
   br i1 %10, label %195, label %193
 
 193:                                              ; preds = %191

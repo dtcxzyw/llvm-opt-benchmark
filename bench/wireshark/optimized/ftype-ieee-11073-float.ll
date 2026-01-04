@@ -101,8 +101,8 @@ define internal noundef zeroext i1 @sfloat_ieee_11073_val_from_literal(ptr nound
   br i1 %.not135, label %.loopexit149.sink.split, label %.loopexit149
 
 23:                                               ; preds = %7, %19
-  %.0116 = phi ptr [ %1, %19 ], [ %8, %7 ]
-  %.0114 = phi i32 [ 2047, %19 ], [ 2048, %7 ]
+  %.0116 = phi ptr [ %8, %7 ], [ %1, %19 ]
+  %.0114 = phi i32 [ 2048, %7 ], [ 2047, %19 ]
   br label %24
 
 24:                                               ; preds = %24, %23
@@ -215,10 +215,10 @@ define internal noundef zeroext i1 @sfloat_ieee_11073_val_from_literal(ptr nound
   br i1 %68, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %.preheader148, %28, %34, %40, %46, %52, %58, %55, %49, %43, %37, %31
-  %.3119 = phi ptr [ %.2118, %31 ], [ %.2118, %34 ], [ %.2118, %37 ], [ %.2118, %40 ], [ %.2118, %43 ], [ %.2118, %46 ], [ %.2118, %49 ], [ %.2118, %52 ], [ %.2118, %55 ], [ %.2118, %58 ], [ %.2118, %28 ], [ %.2118, %.preheader148 ], [ %.2118, %.preheader ], [ %.4120153, %.lr.ph ]
-  %.1109 = phi i32 [ %.0108, %31 ], [ %36, %34 ], [ %39, %37 ], [ %42, %40 ], [ %45, %43 ], [ %48, %46 ], [ %51, %49 ], [ %54, %52 ], [ %57, %55 ], [ %60, %58 ], [ %29, %28 ], [ %.0108, %.preheader148 ], [ %.0108, %.preheader ], [ %.3111, %.lr.ph ]
-  %.1107 = phi i8 [ %32, %31 ], [ %.0106, %34 ], [ %.0106, %37 ], [ %.0106, %40 ], [ %.0106, %43 ], [ %.0106, %46 ], [ %.0106, %49 ], [ %.0106, %52 ], [ %.0106, %55 ], [ %.0106, %58 ], [ %.0106, %28 ], [ %.0106, %.preheader148 ], [ %.0106, %.preheader ], [ %.3, %.lr.ph ]
-  %.1 = phi i8 [ %.0105, %31 ], [ %.0105, %34 ], [ %.0105, %37 ], [ %.0105, %40 ], [ %.0105, %43 ], [ %.0105, %46 ], [ %.0105, %49 ], [ %.0105, %52 ], [ %.0105, %55 ], [ %.0105, %58 ], [ %.0105, %28 ], [ %.0105, %.preheader148 ], [ 1, %.preheader ], [ 1, %.lr.ph ]
+  %.3119 = phi ptr [ %.2118, %31 ], [ %.2118, %.preheader148 ], [ %.2118, %34 ], [ %.2118, %37 ], [ %.2118, %40 ], [ %.2118, %43 ], [ %.2118, %46 ], [ %.2118, %49 ], [ %.2118, %52 ], [ %.2118, %55 ], [ %.2118, %58 ], [ %.2118, %28 ], [ %.2118, %.preheader ], [ %.4120153, %.lr.ph ]
+  %.1109 = phi i32 [ %.0108, %31 ], [ %.0108, %.preheader148 ], [ %36, %34 ], [ %39, %37 ], [ %42, %40 ], [ %45, %43 ], [ %48, %46 ], [ %51, %49 ], [ %54, %52 ], [ %57, %55 ], [ %60, %58 ], [ %29, %28 ], [ %.0108, %.preheader ], [ %.3111, %.lr.ph ]
+  %.1107 = phi i8 [ %32, %31 ], [ %.0106, %.preheader148 ], [ %.0106, %34 ], [ %.0106, %37 ], [ %.0106, %40 ], [ %.0106, %43 ], [ %.0106, %46 ], [ %.0106, %49 ], [ %.0106, %52 ], [ %.0106, %55 ], [ %.0106, %58 ], [ %.0106, %28 ], [ %.0106, %.preheader ], [ %.3, %.lr.ph ]
+  %.1 = phi i8 [ %.0105, %31 ], [ %.0105, %.preheader148 ], [ %.0105, %34 ], [ %.0105, %37 ], [ %.0105, %40 ], [ %.0105, %43 ], [ %.0105, %46 ], [ %.0105, %49 ], [ %.0105, %52 ], [ %.0105, %55 ], [ %.0105, %58 ], [ %.0105, %28 ], [ 1, %.preheader ], [ 1, %.lr.ph ]
   %69 = icmp ugt i32 %.1109, %.0114
   br i1 %69, label %.loopexit149, label %70
 
@@ -267,13 +267,13 @@ define internal noundef zeroext i1 @sfloat_ieee_11073_val_from_literal(ptr nound
   br label %.loopexit149.sink.split
 
 .loopexit149.sink.split:                          ; preds = %21, %17, %15, %13, %10, %85
-  %.sink = phi i16 [ %89, %85 ], [ 2050, %10 ], [ 2049, %13 ], [ 2048, %15 ], [ 2047, %17 ], [ 2046, %21 ]
+  %.sink = phi i16 [ %89, %85 ], [ 2047, %17 ], [ 2048, %15 ], [ 2049, %13 ], [ 2050, %10 ], [ 2046, %21 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %.sink, ptr %90, align 8
   br label %.loopexit149
 
 .loopexit149:                                     ; preds = %.loopexit, %.preheader148, %61, %31, %.loopexit149.sink.split, %7, %7, %.critedge, %21, %17, %13, %10, %4, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %4 ], [ false, %7 ], [ false, %10 ], [ false, %13 ], [ false, %17 ], [ false, %21 ], [ false, %.critedge ], [ false, %7 ], [ true, %.loopexit149.sink.split ], [ false, %31 ], [ false, %61 ], [ false, %.preheader148 ], [ false, %.loopexit ]
+  %.0 = phi i1 [ false, %.critedge ], [ false, %4 ], [ false, %4 ], [ false, %7 ], [ false, %7 ], [ false, %10 ], [ false, %17 ], [ false, %13 ], [ true, %.loopexit149.sink.split ], [ false, %21 ], [ false, %31 ], [ false, %61 ], [ false, %.preheader148 ], [ false, %.loopexit ]
   ret i1 %.0
 }
 
@@ -505,7 +505,7 @@ switch.lookup:                                    ; preds = %2
   br label %21
 
 21:                                               ; preds = %switch.lookup, %6, %9
-  %.sink = phi double [ %19, %9 ], [ 0.000000e+00, %6 ], [ %switch.load, %switch.lookup ]
+  %.sink = phi double [ %19, %9 ], [ %switch.load, %switch.lookup ], [ 0.000000e+00, %6 ]
   store double %.sink, ptr %1, align 8
   ret i32 0
 }
@@ -735,12 +735,12 @@ sfloat_to_normal_form.exit90.i:                   ; preds = %._crit_edge.thread.
   br i1 %.not65.i, label %sfloat_ieee_11073_cmp_lt.exit, label %.lr.ph.i, !llvm.loop !33
 
 sfloat_ieee_11073_cmp_lt.exit:                    ; preds = %.lr.ph.i, %.lr.ph17.i, %.preheader.i, %.preheader4.i
-  %.150.i = phi i16 [ %spec.select.i, %.preheader.i ], [ %spec.select.i, %.preheader4.i ], [ %spec.select.i, %.lr.ph17.i ], [ %88, %.lr.ph.i ]
-  %.3.i = phi i16 [ %.047.i, %.preheader.i ], [ %.047.i, %.preheader4.i ], [ %83, %.lr.ph17.i ], [ %.047.i, %.lr.ph.i ]
+  %.150.i = phi i16 [ %spec.select.i, %.preheader.i ], [ %spec.select.i, %.lr.ph17.i ], [ %spec.select.i, %.preheader4.i ], [ %88, %.lr.ph.i ]
+  %.3.i = phi i16 [ %.047.i, %.preheader.i ], [ %83, %.lr.ph17.i ], [ %.047.i, %.preheader4.i ], [ %.047.i, %.lr.ph.i ]
   %89 = icmp slt i16 %.150.i, %.3.i
   br i1 %89, label %sfloat_ieee_11073_cmp_lt.exit.thread, label %sfloat_ieee_11073_cmp_lt.exit.thread29
 
-sfloat_ieee_11073_cmp_lt.exit.thread29:           ; preds = %84, %60, %60, %60, %60, %sfloat_to_normal_form.exit90.i, %61, %sfloat_ieee_11073_cmp_lt.exit
+sfloat_ieee_11073_cmp_lt.exit.thread29:           ; preds = %sfloat_to_normal_form.exit90.i, %84, %60, %60, %60, %60, %61, %sfloat_ieee_11073_cmp_lt.exit
   br i1 %or.cond.i.i, label %sfloat_to_normal_form.exit.i21, label %90
 
 90:                                               ; preds = %sfloat_ieee_11073_cmp_lt.exit.thread29
@@ -857,8 +857,8 @@ sfloat_ieee_11073_cmp_eq.exit:                    ; preds = %sfloat_to_normal_fo
   %141 = zext i1 %140 to i32
   br label %sfloat_ieee_11073_cmp_lt.exit.thread
 
-sfloat_ieee_11073_cmp_lt.exit.thread:             ; preds = %80, %76, %63, %61, %sfloat_ieee_11073_cmp_lt.exit, %sfloat_ieee_11073_cmp_eq.exit
-  %storemerge = phi i32 [ %141, %sfloat_ieee_11073_cmp_eq.exit ], [ -1, %sfloat_ieee_11073_cmp_lt.exit ], [ -1, %61 ], [ -1, %63 ], [ -1, %76 ], [ -1, %80 ]
+sfloat_ieee_11073_cmp_lt.exit.thread:             ; preds = %76, %80, %63, %61, %sfloat_ieee_11073_cmp_lt.exit, %sfloat_ieee_11073_cmp_eq.exit
+  %storemerge = phi i32 [ %141, %sfloat_ieee_11073_cmp_eq.exit ], [ -1, %sfloat_ieee_11073_cmp_lt.exit ], [ -1, %61 ], [ -1, %63 ], [ -1, %80 ], [ -1, %76 ]
   store i32 %storemerge, ptr %2, align 4
   ret i32 0
 }
@@ -950,8 +950,8 @@ define internal noundef zeroext i1 @float_ieee_11073_val_from_literal(ptr nounde
   br i1 %.not135, label %.loopexit149.sink.split, label %.loopexit149
 
 23:                                               ; preds = %7, %19
-  %.0116 = phi ptr [ %1, %19 ], [ %8, %7 ]
-  %.0114 = phi i32 [ 8388607, %19 ], [ 8388608, %7 ]
+  %.0116 = phi ptr [ %8, %7 ], [ %1, %19 ]
+  %.0114 = phi i32 [ 8388608, %7 ], [ 8388607, %19 ]
   br label %24
 
 24:                                               ; preds = %24, %23
@@ -1064,10 +1064,10 @@ define internal noundef zeroext i1 @float_ieee_11073_val_from_literal(ptr nounde
   br i1 %68, label %.lr.ph, label %.loopexit, !llvm.loop !35
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %.preheader148, %28, %34, %40, %46, %52, %58, %55, %49, %43, %37, %31
-  %.3119 = phi ptr [ %.2118, %31 ], [ %.2118, %34 ], [ %.2118, %37 ], [ %.2118, %40 ], [ %.2118, %43 ], [ %.2118, %46 ], [ %.2118, %49 ], [ %.2118, %52 ], [ %.2118, %55 ], [ %.2118, %58 ], [ %.2118, %28 ], [ %.2118, %.preheader148 ], [ %.2118, %.preheader ], [ %.4120153, %.lr.ph ]
-  %.1109 = phi i32 [ %.0108, %31 ], [ %36, %34 ], [ %39, %37 ], [ %42, %40 ], [ %45, %43 ], [ %48, %46 ], [ %51, %49 ], [ %54, %52 ], [ %57, %55 ], [ %60, %58 ], [ %29, %28 ], [ %.0108, %.preheader148 ], [ %.0108, %.preheader ], [ %.3111, %.lr.ph ]
-  %.1107 = phi i16 [ %32, %31 ], [ %.0106, %34 ], [ %.0106, %37 ], [ %.0106, %40 ], [ %.0106, %43 ], [ %.0106, %46 ], [ %.0106, %49 ], [ %.0106, %52 ], [ %.0106, %55 ], [ %.0106, %58 ], [ %.0106, %28 ], [ %.0106, %.preheader148 ], [ %.0106, %.preheader ], [ %.3, %.lr.ph ]
-  %.1 = phi i8 [ %.0105, %31 ], [ %.0105, %34 ], [ %.0105, %37 ], [ %.0105, %40 ], [ %.0105, %43 ], [ %.0105, %46 ], [ %.0105, %49 ], [ %.0105, %52 ], [ %.0105, %55 ], [ %.0105, %58 ], [ %.0105, %28 ], [ %.0105, %.preheader148 ], [ 1, %.preheader ], [ 1, %.lr.ph ]
+  %.3119 = phi ptr [ %.2118, %31 ], [ %.2118, %.preheader148 ], [ %.2118, %34 ], [ %.2118, %37 ], [ %.2118, %40 ], [ %.2118, %43 ], [ %.2118, %46 ], [ %.2118, %49 ], [ %.2118, %52 ], [ %.2118, %55 ], [ %.2118, %58 ], [ %.2118, %28 ], [ %.2118, %.preheader ], [ %.4120153, %.lr.ph ]
+  %.1109 = phi i32 [ %.0108, %31 ], [ %.0108, %.preheader148 ], [ %36, %34 ], [ %39, %37 ], [ %42, %40 ], [ %45, %43 ], [ %48, %46 ], [ %51, %49 ], [ %54, %52 ], [ %57, %55 ], [ %60, %58 ], [ %29, %28 ], [ %.0108, %.preheader ], [ %.3111, %.lr.ph ]
+  %.1107 = phi i16 [ %32, %31 ], [ %.0106, %.preheader148 ], [ %.0106, %34 ], [ %.0106, %37 ], [ %.0106, %40 ], [ %.0106, %43 ], [ %.0106, %46 ], [ %.0106, %49 ], [ %.0106, %52 ], [ %.0106, %55 ], [ %.0106, %58 ], [ %.0106, %28 ], [ %.0106, %.preheader ], [ %.3, %.lr.ph ]
+  %.1 = phi i8 [ %.0105, %31 ], [ %.0105, %.preheader148 ], [ %.0105, %34 ], [ %.0105, %37 ], [ %.0105, %40 ], [ %.0105, %43 ], [ %.0105, %46 ], [ %.0105, %49 ], [ %.0105, %52 ], [ %.0105, %55 ], [ %.0105, %58 ], [ %.0105, %28 ], [ 1, %.preheader ], [ 1, %.lr.ph ]
   %69 = icmp ugt i32 %.1109, %.0114
   br i1 %69, label %.loopexit149, label %70
 
@@ -1117,13 +1117,13 @@ define internal noundef zeroext i1 @float_ieee_11073_val_from_literal(ptr nounde
   br label %.loopexit149.sink.split
 
 .loopexit149.sink.split:                          ; preds = %21, %17, %15, %13, %10, %86
-  %.sink = phi i32 [ %90, %86 ], [ 8388610, %10 ], [ 8388609, %13 ], [ 8388608, %15 ], [ 8388607, %17 ], [ 8388606, %21 ]
+  %.sink = phi i32 [ %90, %86 ], [ 8388607, %17 ], [ 8388608, %15 ], [ 8388609, %13 ], [ 8388610, %10 ], [ 8388606, %21 ]
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sink, ptr %91, align 8
   br label %.loopexit149
 
 .loopexit149:                                     ; preds = %.loopexit, %.preheader148, %61, %31, %.loopexit149.sink.split, %7, %7, %.critedge, %21, %17, %13, %10, %4, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %4 ], [ false, %7 ], [ false, %10 ], [ false, %13 ], [ false, %17 ], [ false, %21 ], [ false, %.critedge ], [ false, %7 ], [ true, %.loopexit149.sink.split ], [ false, %31 ], [ false, %61 ], [ false, %.preheader148 ], [ false, %.loopexit ]
+  %.0 = phi i1 [ false, %.critedge ], [ false, %4 ], [ false, %4 ], [ false, %7 ], [ false, %7 ], [ false, %10 ], [ false, %17 ], [ false, %13 ], [ true, %.loopexit149.sink.split ], [ false, %21 ], [ false, %31 ], [ false, %61 ], [ false, %.preheader148 ], [ false, %.loopexit ]
   ret i1 %.0
 }
 
@@ -1339,7 +1339,7 @@ switch.lookup:                                    ; preds = %2
   br label %17
 
 17:                                               ; preds = %switch.lookup, %6, %9
-  %.sink = phi double [ %15, %9 ], [ 0.000000e+00, %6 ], [ %switch.load, %switch.lookup ]
+  %.sink = phi double [ %15, %9 ], [ %switch.load, %switch.lookup ], [ 0.000000e+00, %6 ]
   store double %.sink, ptr %1, align 8
   ret i32 0
 }
@@ -1537,12 +1537,12 @@ float_to_normal_form.exit76.i:                    ; preds = %._crit_edge.i66.i, 
   br i1 %.not57.i, label %float_ieee_11073_cmp_lt.exit, label %.lr.ph.i, !llvm.loop !60
 
 float_ieee_11073_cmp_lt.exit:                     ; preds = %.lr.ph.i, %.lr.ph11.i, %.preheader.i, %.preheader2.i
-  %.349.i = phi i32 [ %.046.i, %.preheader.i ], [ %.046.i, %.preheader2.i ], [ %69, %.lr.ph11.i ], [ %.046.i, %.lr.ph.i ]
-  %.144.i = phi i32 [ %spec.select.i, %.preheader.i ], [ %spec.select.i, %.preheader2.i ], [ %spec.select.i, %.lr.ph11.i ], [ %76, %.lr.ph.i ]
+  %.349.i = phi i32 [ %.046.i, %.preheader2.i ], [ %.046.i, %.preheader.i ], [ %69, %.lr.ph11.i ], [ %.046.i, %.lr.ph.i ]
+  %.144.i = phi i32 [ %spec.select.i, %.preheader2.i ], [ %spec.select.i, %.preheader.i ], [ %spec.select.i, %.lr.ph11.i ], [ %76, %.lr.ph.i ]
   %77 = icmp slt i32 %.144.i, %.349.i
   br i1 %77, label %float_ieee_11073_cmp_lt.exit.thread, label %float_ieee_11073_cmp_lt.exit.thread24
 
-float_ieee_11073_cmp_lt.exit.thread24:            ; preds = %70, %48, %48, %48, %48, %float_to_normal_form.exit76.i, %49, %float_ieee_11073_cmp_lt.exit
+float_ieee_11073_cmp_lt.exit.thread24:            ; preds = %float_to_normal_form.exit76.i, %70, %48, %48, %48, %48, %49, %float_ieee_11073_cmp_lt.exit
   br i1 %or.cond.i.i, label %float_to_normal_form.exit.i15, label %78
 
 78:                                               ; preds = %float_ieee_11073_cmp_lt.exit.thread24
@@ -1633,8 +1633,8 @@ float_ieee_11073_cmp_eq.exit:                     ; preds = %float_to_normal_for
   %117 = zext i1 %116 to i32
   br label %float_ieee_11073_cmp_lt.exit.thread
 
-float_ieee_11073_cmp_lt.exit.thread:              ; preds = %51, %63, %._crit_edge.i, %49, %float_ieee_11073_cmp_lt.exit, %float_ieee_11073_cmp_eq.exit
-  %storemerge = phi i32 [ %117, %float_ieee_11073_cmp_eq.exit ], [ -1, %float_ieee_11073_cmp_lt.exit ], [ -1, %49 ], [ -1, %._crit_edge.i ], [ -1, %63 ], [ -1, %51 ]
+float_ieee_11073_cmp_lt.exit.thread:              ; preds = %._crit_edge.i, %63, %51, %49, %float_ieee_11073_cmp_lt.exit, %float_ieee_11073_cmp_eq.exit
+  %storemerge = phi i32 [ %117, %float_ieee_11073_cmp_eq.exit ], [ -1, %float_ieee_11073_cmp_lt.exit ], [ -1, %49 ], [ -1, %51 ], [ -1, %63 ], [ -1, %._crit_edge.i ]
   store i32 %storemerge, ptr %2, align 4
   ret i32 0
 }

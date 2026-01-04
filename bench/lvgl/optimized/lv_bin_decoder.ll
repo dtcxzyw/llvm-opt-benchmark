@@ -124,7 +124,7 @@ define range(i32 0, 2) i32 @lv_bin_decoder_info(ptr readnone captures(none) %0, 
   br label %41
 
 41:                                               ; preds = %36, %39, %3, %.critedge, %11
-  %.0 = phi i32 [ 0, %11 ], [ 0, %.critedge ], [ 0, %3 ], [ 1, %39 ], [ 1, %36 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %.critedge ], [ 1, %36 ], [ 0, %11 ], [ 1, %39 ]
   ret i32 %.0
 }
 
@@ -369,7 +369,7 @@ get_decoder_data.exit170:                         ; preds = %85, %91
   br label %116
 
 116:                                              ; preds = %get_decoder_data.exit170, %100, %115
-  %.0140 = phi ptr [ %95, %100 ], [ %95, %115 ], [ %46, %get_decoder_data.exit170 ]
+  %.0140 = phi ptr [ %95, %115 ], [ %95, %100 ], [ %46, %get_decoder_data.exit170 ]
   %117 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store ptr %.0140, ptr %117, align 8, !tbaa !34
   %118 = getelementptr inbounds nuw i8, ptr %.0140, i64 8
@@ -387,16 +387,16 @@ get_decoder_data.exit170:                         ; preds = %85, %91
   br label %.thread184
 
 127:                                              ; preds = %get_decoder_data.exit166, %69, %42, %38
-  %.3120 = phi i32 [ %39, %38 ], [ %43, %42 ], [ %84, %get_decoder_data.exit166 ], [ %70, %69 ]
+  %.3120 = phi i32 [ %70, %69 ], [ %39, %38 ], [ %43, %42 ], [ %84, %get_decoder_data.exit166 ]
   %.not153.not = icmp eq i32 %.3120, 0
   br i1 %.not153.not, label %.thread, label %.thread184
 
-.thread:                                          ; preds = %get_decoder_data.exit162, %49, %34, %25, %2, %127
+.thread:                                          ; preds = %get_decoder_data.exit162, %49, %25, %34, %2, %127
   tail call fastcc void @free_decoder_data(ptr noundef nonnull %1)
   br label %.critedge
 
-.thread184:                                       ; preds = %116, %122, %75, %40, %127
-  %.0127188 = phi i1 [ false, %127 ], [ true, %116 ], [ true, %122 ], [ true, %75 ], [ false, %40 ]
+.thread184:                                       ; preds = %122, %116, %40, %75, %127
+  %.0127188 = phi i1 [ false, %127 ], [ true, %122 ], [ true, %116 ], [ false, %40 ], [ true, %75 ]
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %129 = load ptr, ptr %128, align 8, !tbaa !34
   %130 = icmp eq ptr %129, null
@@ -521,7 +521,7 @@ get_decoder_data.exit178:                         ; preds = %170, %176
   br label %.critedge
 
 .critedge:                                        ; preds = %20, %24, %44, %139, %178, %149, %148, %153, %.thread184, %7, %.thread
-  %.0 = phi i32 [ 0, %.thread ], [ 0, %7 ], [ 1, %.thread184 ], [ 0, %139 ], [ %.9, %178 ], [ 1, %149 ], [ 1, %148 ], [ 1, %153 ], [ 0, %44 ], [ 0, %24 ], [ 0, %20 ]
+  %.0 = phi i32 [ 0, %20 ], [ 0, %.thread ], [ 1, %153 ], [ 1, %.thread184 ], [ 0, %44 ], [ 0, %7 ], [ 0, %139 ], [ 1, %148 ], [ %.9, %178 ], [ 1, %149 ], [ 0, %24 ]
   ret i32 %.0
 }
 
@@ -870,7 +870,7 @@ fs_read_file_at.exit174:                          ; preds = %144
   br label %.critedge
 
 .critedge:                                        ; preds = %switch.early.test179, %144, %15, %40, %160, %192, %161, %175, %158, %fs_read_file_at.exit174, %fs_read_file_at.exit.thread, %140, %54
-  %.0 = phi i32 [ 0, %switch.early.test179 ], [ 0, %15 ], [ 0, %54 ], [ 0, %fs_read_file_at.exit.thread ], [ 1, %140 ], [ 1, %158 ], [ 0, %fs_read_file_at.exit174 ], [ 1, %192 ], [ 0, %161 ], [ 0, %175 ], [ 0, %160 ], [ 0, %40 ], [ 0, %144 ]
+  %.0 = phi i32 [ 0, %switch.early.test179 ], [ 0, %15 ], [ 0, %160 ], [ 0, %54 ], [ 0, %fs_read_file_at.exit.thread ], [ 0, %fs_read_file_at.exit174 ], [ 0, %175 ], [ 1, %140 ], [ 1, %158 ], [ 1, %192 ], [ 0, %161 ], [ 0, %40 ], [ 0, %144 ]
   ret i32 %.0
 }
 

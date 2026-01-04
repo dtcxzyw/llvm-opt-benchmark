@@ -720,7 +720,7 @@ lsf_restore_from_previous.exit:                   ; preds = %118, %lsf_decode.ex
   br label %381
 
 ff_acelp_decode_4bit_to_2nd_delay3.exit:          ; preds = %357, %361, %332, %327
-  %.0251 = phi i32 [ %329, %327 ], [ %334, %332 ], [ %364, %361 ], [ %360, %357 ]
+  %.0251 = phi i32 [ %329, %327 ], [ %360, %357 ], [ %334, %332 ], [ %364, %361 ]
   %367 = add nsw i32 %.0251, 1
   %368 = sdiv i32 %367, 3
   store i32 %368, ptr %indvars.iv369.sroa.phi405, align 4, !tbaa !60
@@ -1084,7 +1084,7 @@ g729d_get_new_exc.exit:                           ; preds = %500
   br label %566
 
 566:                                              ; preds = %4, %._crit_edge350, %42
-  %.0 = phi i32 [ %565, %._crit_edge350 ], [ -1094995529, %42 ], [ %22, %4 ]
+  %.0 = phi i32 [ -1094995529, %42 ], [ %565, %._crit_edge350 ], [ %22, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)

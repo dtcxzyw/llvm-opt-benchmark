@@ -245,15 +245,15 @@ define internal fastcc noundef nonnull ptr @gather_convert_stats_ascii(ptr nound
   %.sroa.11.1.fr.i = freeze i32 %.sroa.11.1.i
   %47 = add nuw i64 %.2.i.i, 1
   %48 = icmp ult i64 %47, %1
-  br i1 %48, label %.lr.ph.i.i, label %gather_stats.exit.i, !llvm.loop !9
+  br i1 %48, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !9
 
-gather_stats.exit.i:                              ; preds = %40
+._crit_edge.i.i:                                  ; preds = %40
   %.not.i.i = icmp eq i32 %.sroa.5.1.i, 0
   %.not4.i.i = icmp eq i32 %.sroa.0.1.i, 0
   %or.cond17.i = select i1 %.not.i.i, i1 %.not4.i.i, i1 false
   br i1 %or.cond17.i, label %convert_is_binary.exit.i, label %gather_convert_stats.exit
 
-convert_is_binary.exit.i:                         ; preds = %gather_stats.exit.i
+convert_is_binary.exit.i:                         ; preds = %._crit_edge.i.i
   %49 = getelementptr i8, ptr %0, i64 %1
   %50 = getelementptr i8, ptr %49, i64 -1
   %51 = load i8, ptr %50, align 1, !tbaa !8
@@ -266,8 +266,8 @@ convert_is_binary.exit.i:                         ; preds = %gather_stats.exit.i
   %spec.select18.i = select i1 %.not.i, i32 4, i32 0
   br label %gather_convert_stats.exit
 
-gather_convert_stats.exit:                        ; preds = %gather_stats.exit.i, %convert_is_binary.exit.i
-  %55 = phi i32 [ 4, %gather_stats.exit.i ], [ %spec.select18.i, %convert_is_binary.exit.i ]
+gather_convert_stats.exit:                        ; preds = %._crit_edge.i.i, %convert_is_binary.exit.i
+  %55 = phi i32 [ 4, %._crit_edge.i.i ], [ %spec.select18.i, %convert_is_binary.exit.i ]
   %.not12.i = icmp eq i32 %.sroa.9.1.i, 0
   %56 = or disjoint i32 %55, 2
   %.1.i = select i1 %.not12.i, i32 %55, i32 %56
@@ -289,7 +289,7 @@ switch.lookup:                                    ; preds = %57
   br label %.thread
 
 .thread:                                          ; preds = %2, %57, %switch.lookup, %gather_convert_stats.exit
-  %.0 = phi ptr [ @.str.11, %gather_convert_stats.exit ], [ %switch.load, %switch.lookup ], [ @.str.20, %57 ], [ @.str.20, %2 ]
+  %.0 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.11, %gather_convert_stats.exit ], [ @.str.20, %57 ], [ @.str.20, %2 ]
   ret ptr %.0
 }
 
@@ -540,8 +540,8 @@ define dso_local void @convert_attrs(ptr noundef %0, ptr noundef captures(none) 
   %.not7.i = icmp eq i32 %22, 0
   br i1 %.not7.i, label %git_path_check_crlf.exit.thread, label %24
 
-git_path_check_crlf.exit.thread:                  ; preds = %8, %15, %19, %21
-  %.0.i.ph = phi i32 [ 5, %21 ], [ 3, %19 ], [ 1, %15 ], [ 2, %8 ]
+git_path_check_crlf.exit.thread:                  ; preds = %15, %8, %19, %21
+  %.0.i.ph = phi i32 [ 5, %21 ], [ 3, %19 ], [ 2, %8 ], [ 1, %15 ]
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %.0.i.ph, ptr %23, align 4, !tbaa !44
   br label %37
@@ -576,7 +576,7 @@ git_path_check_crlf.exit.thread:                  ; preds = %8, %15, %19, %21
   br label %git_path_check_crlf.exit53
 
 git_path_check_crlf.exit53:                       ; preds = %24, %28, %32, %34, %36
-  %.0.i52 = phi i32 [ 0, %36 ], [ 2, %24 ], [ 1, %28 ], [ 3, %32 ], [ 5, %34 ]
+  %.0.i52 = phi i32 [ 1, %28 ], [ 2, %24 ], [ 0, %36 ], [ 3, %32 ], [ 5, %34 ]
   store i32 %.0.i52, ptr %25, align 4, !tbaa !44
   br label %37
 
@@ -694,8 +694,8 @@ git_path_check_eol.exit:                          ; preds = %.tail.i
   br label %git_path_check_encoding.exit
 
 git_path_check_encoding.exit:                     ; preds = %.thread73, %68, %74
-  %76 = phi i32 [ %65, %68 ], [ %65, %.thread73 ], [ %.pre88, %74 ]
-  %.0.i60 = phi ptr [ null, %68 ], [ null, %.thread73 ], [ %..i, %74 ]
+  %76 = phi i32 [ %65, %.thread73 ], [ %.pre88, %74 ], [ %65, %68 ]
+  %.0.i60 = phi ptr [ null, %.thread73 ], [ %..i, %74 ], [ null, %68 ]
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %.0.i60, ptr %77, align 8, !tbaa !53
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -736,7 +736,7 @@ text_eol_is_crlf.exit.thread:                     ; preds = %80, %text_eol_is_cr
   br i1 %or.cond9, label %.thread85.sink.split, label %.thread85
 
 .thread85.sink.split:                             ; preds = %87, %85, %82, %80, %text_eol_is_crlf.exit, %text_eol_is_crlf.exit.thread
-  %.sink97 = phi i32 [ 3, %text_eol_is_crlf.exit.thread ], [ 4, %text_eol_is_crlf.exit ], [ 4, %80 ], [ 1, %82 ], [ 7, %85 ], [ 6, %87 ]
+  %.sink97 = phi i32 [ 7, %85 ], [ 1, %82 ], [ 4, %80 ], [ 3, %text_eol_is_crlf.exit.thread ], [ 4, %text_eol_is_crlf.exit ], [ 6, %87 ]
   store i32 %.sink97, ptr %39, align 4, !tbaa !44
   br label %.thread85
 
@@ -846,7 +846,7 @@ define internal i32 @read_convert_config(ptr noundef %0, ptr noundef %1, ptr rea
   br label %47
 
 47:                                               ; preds = %42, %4, %44, %38, %32, %26
-  %.027 = phi i32 [ 0, %44 ], [ %41, %38 ], [ %35, %32 ], [ %29, %26 ], [ 0, %4 ], [ 0, %42 ]
+  %.027 = phi i32 [ 0, %4 ], [ 0, %44 ], [ %41, %38 ], [ %35, %32 ], [ %29, %26 ], [ 0, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -911,7 +911,7 @@ define dso_local range(i32 0, 2) i32 @would_convert_to_git_filter_fd(ptr noundef
   br label %apply_filter.exit
 
 apply_filter.exit:                                ; preds = %5, %2
-  %.0 = phi i32 [ 0, %2 ], [ %spec.select, %5 ]
+  %.0 = phi i32 [ %spec.select, %5 ], [ 0, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -1308,7 +1308,7 @@ _.exit.i48:                                       ; preds = %94, %92
   br label %168
 
 166:                                              ; preds = %162, %154
-  %.071.i = phi i32 [ %158, %154 ], [ %164, %162 ]
+  %.071.i = phi i32 [ %164, %162 ], [ %158, %154 ]
   %167 = call i32 @sigchain_pop(i32 noundef 13) #22
   %.not111.i = icmp eq i32 %.071.i, 0
   br i1 %.not111.i, label %185, label %168
@@ -1371,7 +1371,7 @@ apply_multi_file_filter.exit:                     ; preds = %79, %80, %handle_fi
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %28, %.thread53, %.thread.thread68, %.thread, %17, %9, %apply_multi_file_filter.exit, %apply_single_file_filter.exit
-  %.029 = phi i32 [ %.011.i, %apply_single_file_filter.exit ], [ %.068.i, %apply_multi_file_filter.exit ], [ 0, %9 ], [ 1, %17 ], [ 0, %.thread ], [ 0, %.thread.thread68 ], [ 0, %.thread53 ], [ 0, %28 ]
+  %.029 = phi i32 [ %.011.i, %apply_single_file_filter.exit ], [ %.068.i, %apply_multi_file_filter.exit ], [ 1, %17 ], [ 0, %9 ], [ 0, %.thread ], [ 0, %.thread.thread68 ], [ 0, %.thread53 ], [ 0, %28 ]
   ret i32 %.029
 }
 
@@ -1708,7 +1708,7 @@ _.exit:                                           ; preds = %55, %57
   br label %81
 
 81:                                               ; preds = %validate_encoding.exit, %13, %6, %10, %78, %60
-  %.0 = phi i32 [ 1, %78 ], [ 0, %60 ], [ 0, %10 ], [ 0, %6 ], [ 1, %13 ], [ 0, %validate_encoding.exit ]
+  %.0 = phi i32 [ 1, %13 ], [ 1, %78 ], [ 0, %60 ], [ 0, %6 ], [ 0, %10 ], [ 0, %validate_encoding.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -1757,7 +1757,7 @@ define internal fastcc range(i32 0, 2) i32 @crlf_to_git(ptr noundef %0, ptr noun
   ]
 
 24:                                               ; preds = %.lr.ph.i
-  %25 = add i64 %.031.i, 1
+  %25 = add nuw i64 %.031.i, 1
   %26 = icmp ult i64 %25, %3
   br i1 %26, label %27, label %33
 
@@ -1828,17 +1828,17 @@ define internal fastcc range(i32 0, 2) i32 @crlf_to_git(ptr noundef %0, ptr noun
   %56 = phi i32 [ %20, %46 ], [ %20, %42 ], [ %20, %49 ], [ %20, %31 ], [ %20, %33 ], [ %36, %35 ], [ %20, %37 ]
   %57 = phi i32 [ %48, %46 ], [ %21, %42 ], [ %21, %49 ], [ %21, %31 ], [ %21, %33 ], [ %21, %35 ], [ %38, %37 ]
   %.2.i = phi i64 [ %.031.i, %46 ], [ %.031.i, %42 ], [ %.031.i, %49 ], [ %25, %31 ], [ %.031.i, %33 ], [ %.031.i, %35 ], [ %.031.i, %37 ]
-  %58 = add i64 %.2.i, 1
+  %58 = add nuw i64 %.2.i, 1
   %59 = icmp ult i64 %58, %3
-  br i1 %59, label %.lr.ph.i, label %gather_stats.exit, !llvm.loop !9
+  br i1 %59, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !9
 
-gather_stats.exit:                                ; preds = %51
-  %60 = getelementptr i8, ptr %2, i64 %3
-  %61 = getelementptr i8, ptr %60, i64 -1
-  %62 = load i8, ptr %61, align 1, !tbaa !8
-  %63 = icmp eq i8 %62, 26
-  %64 = add i32 %57, -1
-  %spec.select201 = select i1 %63, i32 %64, i32 %.sroa.20.1
+._crit_edge.i:                                    ; preds = %51
+  %60 = add i32 %57, -1
+  %61 = getelementptr i8, ptr %2, i64 %3
+  %62 = getelementptr i8, ptr %61, i64 -1
+  %63 = load i8, ptr %62, align 1, !tbaa !8
+  %64 = icmp eq i8 %63, 26
+  %spec.select201 = select i1 %64, i32 %60, i32 %.sroa.20.1
   %65 = icmp ne i32 %.sroa.12.1, 0
   %66 = add i32 %5, -5
   %or.cond7 = icmp ult i32 %66, 3
@@ -1849,7 +1849,7 @@ gather_stats.exit.thread:                         ; preds = %15
   %or.cond7110 = icmp ult i32 %67, 3
   br i1 %or.cond7110, label %convert_is_binary.exit.thread172, label %74
 
-68:                                               ; preds = %gather_stats.exit
+68:                                               ; preds = %._crit_edge.i
   %.not.i = icmp ne i32 %.sroa.6.1, 0
   %.not4.i = icmp ne i32 %.sroa.096.1, 0
   %or.cond202.not209 = select i1 %.not.i, i1 true, i1 %.not4.i
@@ -1859,11 +1859,11 @@ gather_stats.exit.thread:                         ; preds = %15
   br i1 %or.cond206, label %strbuf_setlen.exit, label %convert_is_binary.exit.thread172
 
 convert_is_binary.exit.thread172:                 ; preds = %68, %gather_stats.exit.thread
-  %.sroa.16.2111145156188 = phi i32 [ 0, %gather_stats.exit.thread ], [ %.sroa.16.1, %68 ]
-  %.sroa.20.2113143157187 = phi i32 [ 0, %gather_stats.exit.thread ], [ %spec.select201, %68 ]
-  %.sroa.12.2116142158186 = phi i32 [ 0, %gather_stats.exit.thread ], [ %.sroa.12.1, %68 ]
-  %.sroa.9.2118140159185 = phi i32 [ 0, %gather_stats.exit.thread ], [ %.sroa.9.1, %68 ]
-  %70 = phi i1 [ false, %gather_stats.exit.thread ], [ %65, %68 ]
+  %.sroa.16.2111145156188 = phi i32 [ %.sroa.16.1, %68 ], [ 0, %gather_stats.exit.thread ]
+  %.sroa.20.2113143157187 = phi i32 [ %spec.select201, %68 ], [ 0, %gather_stats.exit.thread ]
+  %.sroa.12.2116142158186 = phi i32 [ %.sroa.12.1, %68 ], [ 0, %gather_stats.exit.thread ]
+  %.sroa.9.2118140159185 = phi i32 [ %.sroa.9.1, %68 ], [ 0, %gather_stats.exit.thread ]
+  %70 = phi i1 [ %65, %68 ], [ false, %gather_stats.exit.thread ]
   %71 = and i32 %6, 4
   %.not73 = icmp eq i32 %71, 0
   br i1 %.not73, label %72, label %74
@@ -1874,16 +1874,16 @@ convert_is_binary.exit.thread172:                 ; preds = %68, %gather_stats.e
   %spec.select = select i1 %.not74, i1 %70, i1 false
   br label %74
 
-74:                                               ; preds = %gather_stats.exit.thread, %72, %convert_is_binary.exit.thread172, %gather_stats.exit
-  %or.cond7123 = phi i1 [ true, %convert_is_binary.exit.thread172 ], [ false, %gather_stats.exit ], [ true, %72 ], [ false, %gather_stats.exit.thread ]
-  %75 = phi i1 [ %70, %convert_is_binary.exit.thread172 ], [ %65, %gather_stats.exit ], [ %70, %72 ], [ false, %gather_stats.exit.thread ]
-  %.sroa.096.3122 = phi i32 [ 0, %convert_is_binary.exit.thread172 ], [ %.sroa.096.1, %gather_stats.exit ], [ 0, %72 ], [ 0, %gather_stats.exit.thread ]
-  %.sroa.6.2120 = phi i32 [ 0, %convert_is_binary.exit.thread172 ], [ %.sroa.6.1, %gather_stats.exit ], [ 0, %72 ], [ 0, %gather_stats.exit.thread ]
-  %.sroa.9.2117 = phi i32 [ %.sroa.9.2118140159185, %convert_is_binary.exit.thread172 ], [ %.sroa.9.1, %gather_stats.exit ], [ %.sroa.9.2118140159185, %72 ], [ 0, %gather_stats.exit.thread ]
-  %.sroa.12.2115 = phi i32 [ %.sroa.12.2116142158186, %convert_is_binary.exit.thread172 ], [ %.sroa.12.1, %gather_stats.exit ], [ %.sroa.12.2116142158186, %72 ], [ 0, %gather_stats.exit.thread ]
-  %.sroa.20.2114 = phi i32 [ %.sroa.20.2113143157187, %convert_is_binary.exit.thread172 ], [ %spec.select201, %gather_stats.exit ], [ %.sroa.20.2113143157187, %72 ], [ 0, %gather_stats.exit.thread ]
-  %.sroa.16.2112 = phi i32 [ %.sroa.16.2111145156188, %convert_is_binary.exit.thread172 ], [ %.sroa.16.1, %gather_stats.exit ], [ %.sroa.16.2111145156188, %72 ], [ 0, %gather_stats.exit.thread ]
-  %.063.shrunk = phi i1 [ %70, %convert_is_binary.exit.thread172 ], [ %65, %gather_stats.exit ], [ %spec.select, %72 ], [ false, %gather_stats.exit.thread ]
+74:                                               ; preds = %gather_stats.exit.thread, %72, %convert_is_binary.exit.thread172, %._crit_edge.i
+  %or.cond7123 = phi i1 [ true, %convert_is_binary.exit.thread172 ], [ false, %._crit_edge.i ], [ true, %72 ], [ false, %gather_stats.exit.thread ]
+  %75 = phi i1 [ %70, %convert_is_binary.exit.thread172 ], [ %65, %._crit_edge.i ], [ %70, %72 ], [ false, %gather_stats.exit.thread ]
+  %.sroa.096.3122 = phi i32 [ 0, %convert_is_binary.exit.thread172 ], [ %.sroa.096.1, %._crit_edge.i ], [ 0, %72 ], [ 0, %gather_stats.exit.thread ]
+  %.sroa.6.2120 = phi i32 [ 0, %convert_is_binary.exit.thread172 ], [ %.sroa.6.1, %._crit_edge.i ], [ 0, %72 ], [ 0, %gather_stats.exit.thread ]
+  %.sroa.9.2117 = phi i32 [ %.sroa.9.2118140159185, %convert_is_binary.exit.thread172 ], [ %.sroa.9.1, %._crit_edge.i ], [ %.sroa.9.2118140159185, %72 ], [ 0, %gather_stats.exit.thread ]
+  %.sroa.12.2115 = phi i32 [ %.sroa.12.2116142158186, %convert_is_binary.exit.thread172 ], [ %.sroa.12.1, %._crit_edge.i ], [ %.sroa.12.2116142158186, %72 ], [ 0, %gather_stats.exit.thread ]
+  %.sroa.20.2114 = phi i32 [ %.sroa.20.2113143157187, %convert_is_binary.exit.thread172 ], [ %spec.select201, %._crit_edge.i ], [ %.sroa.20.2113143157187, %72 ], [ 0, %gather_stats.exit.thread ]
+  %.sroa.16.2112 = phi i32 [ %.sroa.16.2111145156188, %convert_is_binary.exit.thread172 ], [ %.sroa.16.1, %._crit_edge.i ], [ %.sroa.16.2111145156188, %72 ], [ 0, %gather_stats.exit.thread ]
+  %.063.shrunk = phi i1 [ %70, %convert_is_binary.exit.thread172 ], [ %65, %._crit_edge.i ], [ %spec.select, %72 ], [ false, %gather_stats.exit.thread ]
   %76 = and i32 %6, 2
   %.not75 = icmp eq i32 %76, 0
   br i1 %.not75, label %77, label %80
@@ -1964,9 +1964,9 @@ will_convert_lf_to_crlf.exit:                     ; preds = %93, %90
   %95 = add i32 %spec.select204, %spec.select203
   br label %will_convert_lf_to_crlf.exit.thread
 
-will_convert_lf_to_crlf.exit.thread:              ; preds = %93, %82, %text_eol_is_crlf.exit.i.i, %80, %80, %80, %91, %output_eol.exit.thread.i, %output_eol.exit.i, %will_convert_lf_to_crlf.exit
-  %.sroa.11.1 = phi i32 [ %95, %will_convert_lf_to_crlf.exit ], [ %spec.select203, %output_eol.exit.i ], [ %spec.select203, %output_eol.exit.thread.i ], [ %spec.select203, %91 ], [ %spec.select203, %80 ], [ %spec.select203, %80 ], [ %spec.select203, %80 ], [ %spec.select203, %text_eol_is_crlf.exit.i.i ], [ %spec.select203, %82 ], [ 0, %93 ]
-  %.sroa.5.1 = phi i32 [ 0, %will_convert_lf_to_crlf.exit ], [ %spec.select204, %output_eol.exit.i ], [ 0, %output_eol.exit.thread.i ], [ 1, %91 ], [ %spec.select204, %80 ], [ %spec.select204, %80 ], [ %spec.select204, %80 ], [ %spec.select204, %text_eol_is_crlf.exit.i.i ], [ %spec.select204, %82 ], [ 1, %93 ]
+will_convert_lf_to_crlf.exit.thread:              ; preds = %93, %text_eol_is_crlf.exit.i.i, %80, %80, %80, %82, %91, %output_eol.exit.thread.i, %output_eol.exit.i, %will_convert_lf_to_crlf.exit
+  %.sroa.11.1 = phi i32 [ %95, %will_convert_lf_to_crlf.exit ], [ %spec.select203, %output_eol.exit.i ], [ %spec.select203, %output_eol.exit.thread.i ], [ %spec.select203, %91 ], [ 0, %93 ], [ %spec.select203, %text_eol_is_crlf.exit.i.i ], [ %spec.select203, %82 ], [ %spec.select203, %80 ], [ %spec.select203, %80 ], [ %spec.select203, %80 ]
+  %.sroa.5.1 = phi i32 [ 0, %will_convert_lf_to_crlf.exit ], [ %spec.select204, %output_eol.exit.i ], [ 0, %output_eol.exit.thread.i ], [ 1, %91 ], [ 1, %93 ], [ %spec.select204, %text_eol_is_crlf.exit.i.i ], [ %spec.select204, %82 ], [ %spec.select204, %80 ], [ %spec.select204, %80 ], [ %spec.select204, %80 ]
   %.not11.i87 = icmp eq i32 %.sroa.11.1, 0
   %or.cond.i = select i1 %75, i1 %.not11.i87, i1 false
   br i1 %or.cond.i, label %96, label %103
@@ -2124,7 +2124,7 @@ strbuf_avail.exit:                                ; preds = %check_global_conv_f
   br label %strbuf_setlen.exit
 
 strbuf_setlen.exit:                               ; preds = %68, %149, %148, %check_global_conv_flags_eol.exit, %12, %7, %9
-  %.0 = phi i32 [ 0, %9 ], [ 0, %7 ], [ 1, %12 ], [ %.mux, %check_global_conv_flags_eol.exit ], [ 1, %148 ], [ 1, %149 ], [ 0, %68 ]
+  %.0 = phi i32 [ 0, %7 ], [ 1, %12 ], [ 1, %149 ], [ %.mux, %check_global_conv_flags_eol.exit ], [ 0, %68 ], [ 0, %9 ], [ 1, %148 ]
   ret i32 %.0
 }
 
@@ -2211,7 +2211,7 @@ define internal fastcc range(i32 0, 2) i32 @ident_to_git(ptr noundef %0, i64 nou
   br i1 %or.cond.i, label %.preheader.i, label %.outer.backedge.i, !llvm.loop !88
 
 count_ident.exit:                                 ; preds = %.outer.backedge.i, %21, %.backedge.i, %11
-  %.0.ph.lcssa.i = phi i32 [ %.0.ph48.i, %11 ], [ %.0.ph48.i, %.backedge.i ], [ %.0.ph.be.i, %.outer.backedge.i ], [ %spec.select.i, %21 ]
+  %.0.ph.lcssa.i = phi i32 [ %.0.ph48.i, %.backedge.i ], [ %.0.ph48.i, %11 ], [ %.0.ph.be.i, %.outer.backedge.i ], [ %spec.select.i, %21 ]
   %.not62 = icmp eq i32 %.0.ph.lcssa.i, 0
   br i1 %.not62, label %strbuf_setlen.exit, label %31
 
@@ -2326,7 +2326,7 @@ strbuf_avail.exit:                                ; preds = %31
   br label %strbuf_setlen.exit
 
 strbuf_setlen.exit:                               ; preds = %6, %77, %76, %31, %4, %count_ident.exit
-  %.047 = phi i32 [ 0, %count_ident.exit ], [ 0, %4 ], [ 1, %31 ], [ 1, %76 ], [ 1, %77 ], [ 0, %6 ]
+  %.047 = phi i32 [ 1, %77 ], [ 0, %4 ], [ 0, %count_ident.exit ], [ 1, %31 ], [ 1, %76 ], [ 0, %6 ]
   ret i32 %.047
 }
 
@@ -2456,7 +2456,7 @@ define internal fastcc range(i32 0, 2) i32 @convert_to_working_tree_ca_internal(
   br i1 %or.cond.i.i, label %.preheader.i.i, label %.outer.backedge.i.i, !llvm.loop !88
 
 count_ident.exit.i:                               ; preds = %27, %.outer.backedge.i.i, %17, %.backedge.i.i
-  %.0.ph.lcssa.i.i = phi i32 [ %.0.ph48.i.i, %.backedge.i.i ], [ %.0.ph48.i.i, %17 ], [ %spec.select.i.i, %27 ], [ %.0.ph.be.i.i, %.outer.backedge.i.i ]
+  %.0.ph.lcssa.i.i = phi i32 [ %.0.ph48.i.i, %17 ], [ %.0.ph48.i.i, %.backedge.i.i ], [ %spec.select.i.i, %27 ], [ %.0.ph.be.i.i, %.outer.backedge.i.i ]
   %.not63.i = icmp eq i32 %.0.ph.lcssa.i.i, 0
   br i1 %.not63.i, label %ident_to_worktree.exit.thread, label %37
 
@@ -2509,8 +2509,8 @@ count_ident.exit.i:                               ; preds = %27, %.outer.backedg
   br i1 %.not65.i, label %66, label %.backedge.i
 
 .backedge.i:                                      ; preds = %91, %81, %76, %66, %64, %.lr.ph.i
-  %.054.be.i = phi i64 [ %.256.i, %91 ], [ %62, %76 ], [ %62, %66 ], [ %62, %81 ], [ %62, %64 ], [ %62, %.lr.ph.i ]
-  %.052.be.i = phi ptr [ %.2.i, %91 ], [ %58, %76 ], [ %58, %66 ], [ %58, %81 ], [ %58, %64 ], [ %58, %.lr.ph.i ]
+  %.054.be.i = phi i64 [ %62, %66 ], [ %.256.i, %91 ], [ %62, %76 ], [ %62, %81 ], [ %62, %64 ], [ %62, %.lr.ph.i ]
+  %.052.be.i = phi ptr [ %58, %66 ], [ %.2.i, %91 ], [ %58, %76 ], [ %58, %81 ], [ %58, %64 ], [ %58, %.lr.ph.i ]
   %65 = call ptr @memchr(ptr noundef nonnull %.052.be.i, i32 noundef 36, i64 noundef %.054.be.i) #23
   %.not64.i = icmp eq ptr %65, null
   br i1 %.not64.i, label %.loopexit, label %.lr.ph.i
@@ -2758,15 +2758,15 @@ output_eol.exit.i:                                ; preds = %117, %115
   %.2.i.i = phi i64 [ %.031.i.i, %150 ], [ %.031.i.i, %146 ], [ %.031.i.i, %153 ], [ %129, %135 ], [ %.031.i.i, %137 ], [ %.031.i.i, %139 ], [ %.031.i.i, %141 ]
   %162 = add nuw i64 %.2.i.i, 1
   %163 = icmp ult i64 %162, %.045
-  br i1 %163, label %.lr.ph.i.i61, label %gather_stats.exit.i, !llvm.loop !9
+  br i1 %163, label %.lr.ph.i.i61, label %._crit_edge.i.i, !llvm.loop !9
 
-gather_stats.exit.i:                              ; preds = %155
-  %164 = getelementptr i8, ptr %.044, i64 %.045
-  %165 = getelementptr i8, ptr %164, i64 -1
-  %166 = load i8, ptr %165, align 1, !tbaa !8
-  %167 = icmp eq i8 %166, 26
-  %168 = add i32 %161, -1
-  %spec.select.i = select i1 %167, i32 %168, i32 %.sroa.15.1.i
+._crit_edge.i.i:                                  ; preds = %155
+  %164 = add i32 %161, -1
+  %165 = getelementptr i8, ptr %.044, i64 %.045
+  %166 = getelementptr i8, ptr %165, i64 -1
+  %167 = load i8, ptr %166, align 1, !tbaa !8
+  %168 = icmp eq i8 %167, 26
+  %spec.select.i = select i1 %168, i32 %164, i32 %.sroa.15.1.i
   switch i32 %110, label %172 [
     i32 1, label %crlf_to_worktree.exit
     i32 4, label %output_eol.exit.thread.i.i
@@ -2778,7 +2778,7 @@ gather_stats.exit.i:                              ; preds = %155
     i32 5, label %169
   ]
 
-169:                                              ; preds = %gather_stats.exit.i, %gather_stats.exit.i
+169:                                              ; preds = %._crit_edge.i.i, %._crit_edge.i.i
   %170 = load i32, ptr @auto_crlf, align 4, !tbaa !16
   switch i32 %170, label %text_eol_is_crlf.exit.i.i.i [
     i32 1, label %output_eol.exit.thread.i.i
@@ -2793,7 +2793,7 @@ text_eol_is_crlf.exit.i.i.i:                      ; preds = %169
   %or.cond62.i = select i1 %.not.i.i.i, i1 true, i1 %.not11.i.old.i
   br i1 %or.cond62.i, label %crlf_to_worktree.exit, label %177
 
-172:                                              ; preds = %gather_stats.exit.i
+172:                                              ; preds = %._crit_edge.i.i
   %173 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !16
   %.not4.i.i.i.i = icmp eq i32 %173, 0
   br i1 %.not4.i.i.i.i, label %output_eol.exit.i.i, label %174
@@ -2811,7 +2811,7 @@ output_eol.exit.i.i:                              ; preds = %174, %172
   %or.cond.i65 = select i1 %.not.i46.i, i1 true, i1 %.not11.i.i
   br i1 %or.cond.i65, label %crlf_to_worktree.exit, label %177
 
-output_eol.exit.thread.i.i:                       ; preds = %169, %gather_stats.exit.i, %gather_stats.exit.i, %gather_stats.exit.i
+output_eol.exit.thread.i.i:                       ; preds = %169, %._crit_edge.i.i, %._crit_edge.i.i, %._crit_edge.i.i
   %.not11.i.old.old.i = icmp eq i32 %.sroa.7.1.i, 0
   br i1 %.not11.i.old.old.i, label %crlf_to_worktree.exit, label %177
 
@@ -2896,7 +2896,7 @@ crlf_to_worktree.exit.thread:                     ; preds = %205, %186
   call void @free(ptr noundef %.035.i) #22
   br label %210
 
-crlf_to_worktree.exit:                            ; preds = %108, %111, %111, %111, %112, %text_eol_is_crlf.exit.i.i, %output_eol.exit.i, %gather_stats.exit.i, %gather_stats.exit.i, %gather_stats.exit.i, %169, %text_eol_is_crlf.exit.i.i.i, %output_eol.exit.i.i, %output_eol.exit.thread.i.i, %179
+crlf_to_worktree.exit:                            ; preds = %108, %111, %111, %111, %112, %text_eol_is_crlf.exit.i.i, %output_eol.exit.i, %._crit_edge.i.i, %._crit_edge.i.i, %._crit_edge.i.i, %169, %text_eol_is_crlf.exit.i.i.i, %output_eol.exit.i.i, %output_eol.exit.thread.i.i, %179
   br i1 %.not54, label %215, label %210
 
 210:                                              ; preds = %crlf_to_worktree.exit.thread, %crlf_to_worktree.exit
@@ -3160,8 +3160,8 @@ output_eol.exit.thread23:                         ; preds = %31, %text_eol_is_cr
   %spec.select = select i1 %.not.i14, ptr @null_filter_singleton, ptr %.0
   br label %cascade_filter.exit
 
-cascade_filter.exit:                              ; preds = %output_eol.exit.thread23, %16, %13, %7, %10, %4, %42, %41, %output_eol.exit.thread
-  %.08 = phi ptr [ %43, %42 ], [ %40, %output_eol.exit.thread ], [ %.0, %41 ], [ null, %4 ], [ null, %10 ], [ null, %7 ], [ null, %13 ], [ null, %16 ], [ %spec.select, %output_eol.exit.thread23 ]
+cascade_filter.exit:                              ; preds = %output_eol.exit.thread23, %16, %10, %13, %7, %4, %42, %41, %output_eol.exit.thread
+  %.08 = phi ptr [ %spec.select, %output_eol.exit.thread23 ], [ %.0, %41 ], [ %43, %42 ], [ %40, %output_eol.exit.thread ], [ null, %16 ], [ null, %4 ], [ null, %7 ], [ null, %13 ], [ null, %10 ]
   ret ptr %.08
 }
 
@@ -3205,7 +3205,7 @@ define dso_local range(i32 0, 4) i32 @classify_conv_attrs(ptr noundef readonly c
   br label %20
 
 20:                                               ; preds = %15, %12, %6, %9, %3
-  %.0 = phi i32 [ 2, %3 ], [ 1, %9 ], [ 1, %6 ], [ 0, %12 ], [ %19, %15 ]
+  %.0 = phi i32 [ %19, %15 ], [ 2, %3 ], [ 1, %6 ], [ 0, %12 ], [ 1, %9 ]
   ret i32 %.0
 }
 
@@ -3745,7 +3745,7 @@ define internal fastcc range(i32 0, 2) i32 @check_roundtrip(ptr noundef nonnull 
   br label %33
 
 33:                                               ; preds = %22, %30, %24, %18, %10, %1
-  %.0 = phi i32 [ 0, %1 ], [ 1, %18 ], [ 0, %22 ], [ 1, %24 ], [ %32, %30 ], [ 0, %10 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %10 ], [ %32, %30 ], [ 1, %18 ], [ 0, %22 ], [ 1, %24 ]
   ret i32 %.0
 }
 
@@ -3876,15 +3876,15 @@ define internal fastcc range(i32 0, 2) i32 @has_crlf_in_index(ptr noundef %0, pt
   %.sroa.11.1.fr.i = freeze i32 %.sroa.11.1.i
   %46 = add nuw i64 %.2.i.i, 1
   %47 = icmp ult i64 %46, %6
-  br i1 %47, label %.lr.ph.i.i, label %gather_stats.exit.i, !llvm.loop !9
+  br i1 %47, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !9
 
-gather_stats.exit.i:                              ; preds = %40
+._crit_edge.i.i:                                  ; preds = %40
   %.not.i.i = icmp eq i32 %.sroa.5.1.i, 0
   %.not4.i.i = icmp eq i32 %.sroa.0.1.i, 0
   %or.cond17.i = select i1 %.not.i.i, i1 %.not4.i.i, i1 false
   br i1 %or.cond17.i, label %convert_is_binary.exit.i, label %convert_is_binary.exit.thread.i
 
-convert_is_binary.exit.i:                         ; preds = %gather_stats.exit.i
+convert_is_binary.exit.i:                         ; preds = %._crit_edge.i.i
   %48 = getelementptr i8, ptr %4, i64 %6
   %49 = getelementptr i8, ptr %48, i64 -1
   %50 = load i8, ptr %49, align 1, !tbaa !8
@@ -3896,8 +3896,8 @@ convert_is_binary.exit.i:                         ; preds = %gather_stats.exit.i
   %.not.i = icmp uge i32 %53, %spec.select.i
   br label %convert_is_binary.exit.thread.i
 
-convert_is_binary.exit.thread.i:                  ; preds = %convert_is_binary.exit.i, %gather_stats.exit.i
-  %54 = phi i1 [ false, %gather_stats.exit.i ], [ %.not.i, %convert_is_binary.exit.i ]
+convert_is_binary.exit.thread.i:                  ; preds = %convert_is_binary.exit.i, %._crit_edge.i.i
+  %54 = phi i1 [ false, %._crit_edge.i.i ], [ %.not.i, %convert_is_binary.exit.i ]
   %.not12.i = icmp ne i32 %.sroa.9.1.i, 0
   %55 = select i1 %.not12.i, i1 %54, i1 false
   %56 = zext i1 %55 to i32
@@ -4313,7 +4313,7 @@ strbuf_addch.exit100:                             ; preds = %strbuf_avail.exit.i
   br label %.sink.split
 
 .sink.split:                                      ; preds = %72, %strbuf_addch.exit90, %117, %strbuf_setlen.exit, %strbuf_addch.exit, %92, %strbuf_addch.exit80, %strbuf_addch.exit100
-  %.sink = phi i32 [ -1, %strbuf_addch.exit100 ], [ 0, %strbuf_addch.exit80 ], [ %93, %92 ], [ -1, %strbuf_addch.exit ], [ -1, %strbuf_setlen.exit ], [ -1, %117 ], [ -2, %strbuf_addch.exit90 ], [ -1, %72 ]
+  %.sink = phi i32 [ -1, %strbuf_addch.exit100 ], [ -1, %strbuf_setlen.exit ], [ 0, %strbuf_addch.exit80 ], [ %93, %92 ], [ -2, %strbuf_addch.exit90 ], [ -1, %strbuf_addch.exit ], [ -1, %117 ], [ -1, %72 ]
   store i32 %.sink, ptr %6, align 8, !tbaa !114
   br label %.backedge
 
@@ -4462,7 +4462,7 @@ define internal range(i32 -1, 1) i32 @cascade_filter_fn(ptr noundef %0, ptr noun
   br i1 %59, label %.loopexit66, label %.outer.backedge
 
 .loopexit66:                                      ; preds = %57, %.outer.backedge, %18, %5
-  %.047.ph89 = phi i64 [ 0, %5 ], [ %.047.ph122, %18 ], [ %.047.ph122, %57 ], [ %.047.ph.be, %.outer.backedge ]
+  %.047.ph89 = phi i64 [ 0, %5 ], [ %.047.ph122, %18 ], [ %.047.ph.be, %.outer.backedge ], [ %.047.ph122, %57 ]
   %60 = load i64, ptr %4, align 8, !tbaa !4
   %61 = sub i64 %60, %.047.ph89
   store i64 %61, ptr %4, align 8, !tbaa !4
@@ -4517,8 +4517,8 @@ define internal noundef i32 @lf_to_crlf_filter_fn(ptr noundef captures(none) %0,
   br label %17
 
 17:                                               ; preds = %14, %5
-  %18 = phi i8 [ %16, %14 ], [ %7, %5 ]
-  %.051 = phi i64 [ 1, %14 ], [ 0, %5 ]
+  %18 = phi i8 [ %7, %5 ], [ %16, %14 ]
+  %.051 = phi i64 [ 0, %5 ], [ 1, %14 ]
   %.not54 = icmp eq ptr %1, null
   br i1 %.not54, label %19, label %.thread
 
@@ -4582,8 +4582,8 @@ define internal noundef i32 @lf_to_crlf_filter_fn(ptr noundef captures(none) %0,
   br label %43
 
 43:                                               ; preds = %39, %40
-  %44 = phi i64 [ %.pre, %40 ], [ %35, %39 ]
-  %.253 = phi i64 [ %41, %40 ], [ %.15271, %39 ]
+  %44 = phi i64 [ %35, %39 ], [ %.pre, %40 ]
+  %.253 = phi i64 [ %.15271, %39 ], [ %41, %40 ]
   %.not59 = icmp ugt i64 %44, %.253
   br i1 %.not59, label %51, label %48
 

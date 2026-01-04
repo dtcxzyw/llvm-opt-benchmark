@@ -326,7 +326,7 @@ define internal i32 @dissect_flip(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %117
 
 117:                                              ; preds = %.thread, %70, %42, %43, %40, %115, %._crit_edge, %4
-  %.098 = phi i32 [ 0, %4 ], [ 8, %40 ], [ 8, %43 ], [ 8, %42 ], [ 8, %70 ], [ %116, %115 ], [ %.0103.lcssa, %._crit_edge ], [ %.us-phi133, %.thread ]
+  %.098 = phi i32 [ 0, %4 ], [ 8, %40 ], [ 8, %43 ], [ 8, %42 ], [ 8, %70 ], [ %.us-phi133, %.thread ], [ %116, %115 ], [ %.0103.lcssa, %._crit_edge ]
   ret i32 %.098
 }
 

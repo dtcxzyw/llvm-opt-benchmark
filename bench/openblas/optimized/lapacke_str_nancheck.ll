@@ -130,7 +130,7 @@ define range(i32 0, 2) i32 @LAPACKE_str_nancheck(i32 noundef %0, i8 noundef sign
   br i1 %exitcond94.not, label %.loopexit71, label %39, !llvm.loop !11
 
 .loopexit71:                                      ; preds = %._crit_edge, %43, %.loopexit, %36, %.preheader75, %.preheader72, %15, %18, %8, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %8 ], [ 0, %18 ], [ 0, %15 ], [ 0, %.preheader72 ], [ 0, %.preheader75 ], [ 1, %36 ], [ 0, %.loopexit ], [ 1, %43 ], [ 0, %._crit_edge ]
+  %.0 = phi i32 [ 0, %15 ], [ 0, %6 ], [ 1, %36 ], [ 0, %.preheader75 ], [ 0, %8 ], [ 0, %18 ], [ 0, %.preheader72 ], [ 1, %43 ], [ 0, %.loopexit ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 

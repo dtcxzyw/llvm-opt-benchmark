@@ -594,8 +594,8 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit27:      ; preds = %33, %47
   br label %80
 
 80:                                               ; preds = %76, %65, %_ZN12methodHandleC2EP6ThreadP6Method.exit27, %73
-  %.019 = phi i32 [ 1, %73 ], [ 0, %_ZN12methodHandleC2EP6ThreadP6Method.exit27 ], [ 1, %65 ], [ %spec.select29, %76 ]
-  %.0 = phi i32 [ %75, %73 ], [ %63, %_ZN12methodHandleC2EP6ThreadP6Method.exit27 ], [ %63, %65 ], [ %spec.select30, %76 ]
+  %.019 = phi i32 [ 0, %_ZN12methodHandleC2EP6ThreadP6Method.exit27 ], [ 1, %65 ], [ %spec.select29, %76 ], [ 1, %73 ]
+  %.0 = phi i32 [ %63, %_ZN12methodHandleC2EP6ThreadP6Method.exit27 ], [ %63, %65 ], [ %spec.select30, %76 ], [ %75, %73 ]
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %.019, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1047,8 +1047,8 @@ define hidden noundef ptr @_ZN12LinkResolver24lookup_method_in_klassesERK8LinkIn
   %42 = tail call noundef ptr @_ZN13InstanceKlass11find_methodEPK5ArrayIP6MethodEPK6SymbolS8_(ptr noundef nonnull %40, ptr noundef %6, ptr noundef %8) #11
   br label %.thread41
 
-.thread41:                                        ; preds = %22, %25, %18, %34, %41, %.thread38
-  %.2 = phi ptr [ %42, %41 ], [ %36, %.thread38 ], [ %12, %34 ], [ %12, %18 ], [ %12, %25 ], [ %12, %22 ]
+.thread41:                                        ; preds = %22, %18, %25, %34, %41, %.thread38
+  %.2 = phi ptr [ %42, %41 ], [ %36, %.thread38 ], [ %12, %34 ], [ %12, %25 ], [ %12, %22 ], [ %12, %18 ]
   %43 = icmp ne ptr %.2, null
   %or.cond3 = and i1 %1, %43
   br i1 %or.cond3, label %44, label %.thread43
@@ -1062,7 +1062,7 @@ define hidden noundef ptr @_ZN12LinkResolver24lookup_method_in_klassesERK8LinkIn
   br label %.thread43
 
 .thread43:                                        ; preds = %44, %38, %.thread41, %3
-  %.0 = phi ptr [ %12, %3 ], [ %.2, %.thread41 ], [ null, %38 ], [ %spec.select, %44 ]
+  %.0 = phi ptr [ %spec.select, %44 ], [ %12, %3 ], [ null, %38 ], [ %.2, %.thread41 ]
   ret ptr %.0
 }
 
@@ -1351,7 +1351,7 @@ _ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit:      ; preds = %39, %43, %47
   br label %_ZN16SymbolHandleBaseILb1EED2Ev.exit
 
 _ZN16SymbolHandleBaseILb1EED2Ev.exit:             ; preds = %37, %67, %66, %33, %68, %106, %107, %89, %84
-  %.1 = phi ptr [ null, %84 ], [ null, %89 ], [ %92, %107 ], [ null, %106 ], [ null, %68 ], [ null, %37 ], [ null, %33 ], [ %.0, %66 ], [ %.0, %67 ]
+  %.1 = phi ptr [ null, %33 ], [ null, %84 ], [ null, %89 ], [ null, %106 ], [ %92, %107 ], [ null, %68 ], [ %.0, %67 ], [ null, %37 ], [ %.0, %66 ]
   %109 = load ptr, ptr %11, align 8
   %.not.i.i.i.i = icmp eq ptr %109, null
   br i1 %.not.i.i.i.i, label %111, label %110
@@ -1835,7 +1835,7 @@ _ZN12LinkResolver24lookup_method_in_klassesERK8LinkInfobb.exit.thread89: ; preds
   store ptr %2, ptr %82, align 8
   br label %85
 
-_ZN12LinkResolver24lookup_method_in_klassesERK8LinkInfobb.exit.thread: ; preds = %.thread41.i, %74, %.thread41.i.thread
+_ZN12LinkResolver24lookup_method_in_klassesERK8LinkInfobb.exit.thread: ; preds = %74, %.thread41.i, %.thread41.i.thread
   store ptr null, ptr %6, align 8
   %83 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %2, ptr %83, align 8
@@ -2107,12 +2107,12 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %176, %178
   br label %_ZN12ResourceMarkD2Ev.exit61
 
 _ZN12ResourceMarkD2Ev.exit61:                     ; preds = %201, %199, %221, %206, %224
-  %.1 = phi ptr [ %225, %224 ], [ null, %206 ], [ null, %221 ], [ null, %199 ], [ null, %201 ]
+  %.1 = phi ptr [ null, %221 ], [ %225, %224 ], [ null, %206 ], [ null, %199 ], [ null, %201 ]
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #11
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %59, %57, %35, %33, %_ZN12ResourceMarkD2Ev.exit61
-  %.0 = phi ptr [ %.1, %_ZN12ResourceMarkD2Ev.exit61 ], [ null, %33 ], [ null, %35 ], [ null, %57 ], [ null, %59 ]
+  %.0 = phi ptr [ null, %35 ], [ %.1, %_ZN12ResourceMarkD2Ev.exit61 ], [ null, %33 ], [ null, %57 ], [ null, %59 ]
   ret ptr %.0
 }
 
@@ -2226,7 +2226,7 @@ define hidden noundef ptr @_ZN12LinkResolver25resolve_method_staticallyEN9Byteco
   br label %65
 
 65:                                               ; preds = %50, %31, %63, %61, %55, %53
-  %.1 = phi ptr [ %54, %53 ], [ %56, %55 ], [ %64, %63 ], [ %62, %61 ], [ null, %31 ], [ %51, %50 ]
+  %.1 = phi ptr [ %62, %61 ], [ null, %31 ], [ %54, %53 ], [ %56, %55 ], [ %64, %63 ], [ %51, %50 ]
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 32
   br label %67
 
@@ -2411,7 +2411,7 @@ _ZN12LinkResolver24lookup_method_in_klassesERK8LinkInfobb.exit.thread: ; preds =
   br label %94
 
 _ZN12LinkResolver24lookup_method_in_klassesERK8LinkInfobb.exit: ; preds = %90, %.critedge
-  %.0.i = phi ptr [ %64, %.critedge ], [ %91, %90 ]
+  %.0.i = phi ptr [ %91, %90 ], [ %64, %.critedge ]
   store ptr %.0.i, ptr %6, align 8
   %93 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %2, ptr %93, align 8
@@ -2656,12 +2656,12 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   br label %_ZN12ResourceMarkD2Ev.exit49
 
 _ZN12ResourceMarkD2Ev.exit49:                     ; preds = %189, %190, %226, %224, %166, %164, %186, %171
-  %.1 = phi ptr [ null, %171 ], [ null, %186 ], [ null, %164 ], [ null, %166 ], [ null, %224 ], [ null, %226 ], [ %.pre, %190 ], [ %.pre, %189 ]
+  %.1 = phi ptr [ null, %186 ], [ null, %226 ], [ null, %171 ], [ null, %166 ], [ null, %164 ], [ null, %224 ], [ %.pre, %190 ], [ %.pre, %189 ]
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #11
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %57, %55, %33, %31, %_ZN12ResourceMarkD2Ev.exit49
-  %.0 = phi ptr [ %.1, %_ZN12ResourceMarkD2Ev.exit49 ], [ null, %31 ], [ null, %33 ], [ null, %55 ], [ null, %57 ]
+  %.0 = phi ptr [ %.1, %_ZN12ResourceMarkD2Ev.exit49 ], [ null, %33 ], [ null, %31 ], [ null, %55 ], [ null, %57 ]
   ret ptr %.0
 }
 
@@ -3443,7 +3443,7 @@ switch.edge:
   call void @_ZN12ResourceMarkD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #11
   br label %_ZN12ResourceMarkD2Ev.exit
 
-.critedge:                                        ; preds = %129, %126, %87, %119, %.thread
+.critedge:                                        ; preds = %126, %129, %87, %119, %.thread
   %or.cond7 = and i1 %3, %12
   br i1 %or.cond7, label %174, label %.critedge.thread
 
@@ -4003,7 +4003,7 @@ define hidden noundef ptr @_ZN12LinkResolver31linktime_resolve_special_methodERK
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %131, %129, %110, %108, %80, %78, %111, %15, %12
-  %.0 = phi ptr [ null, %12 ], [ null, %15 ], [ %.034, %111 ], [ null, %78 ], [ null, %80 ], [ null, %108 ], [ null, %110 ], [ null, %129 ], [ null, %131 ]
+  %.0 = phi ptr [ null, %12 ], [ %.034, %111 ], [ null, %110 ], [ null, %15 ], [ null, %80 ], [ null, %78 ], [ null, %108 ], [ null, %129 ], [ null, %131 ]
   ret ptr %.0
 }
 
@@ -4698,7 +4698,7 @@ define hidden noundef ptr @_ZN12LinkResolver31linktime_resolve_virtual_methodERK
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %61, %59, %42, %40, %._crit_edge, %2
-  %.0 = phi ptr [ null, %2 ], [ %5, %._crit_edge ], [ null, %40 ], [ null, %42 ], [ null, %59 ], [ null, %61 ]
+  %.0 = phi ptr [ null, %2 ], [ %5, %._crit_edge ], [ null, %42 ], [ null, %40 ], [ null, %59 ], [ null, %61 ]
   ret ptr %.0
 }
 
@@ -4847,7 +4847,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit41:      ; preds = %62, %_ZN26GrowableA
   br label %87
 
 87:                                               ; preds = %_ZN12methodHandleC2EP6ThreadP6Method.exit, %_ZN12methodHandleC2EP6ThreadP6Method.exit41, %59
-  %.0 = phi i32 [ %28, %_ZN12methodHandleC2EP6ThreadP6Method.exit ], [ -2, %59 ], [ %56, %_ZN12methodHandleC2EP6ThreadP6Method.exit41 ]
+  %.0 = phi i32 [ -2, %59 ], [ %28, %_ZN12methodHandleC2EP6ThreadP6Method.exit ], [ %56, %_ZN12methodHandleC2EP6ThreadP6Method.exit41 ]
   %88 = load ptr, ptr %10, align 8
   %89 = icmp eq ptr %88, null
   br i1 %89, label %90, label %93
@@ -4882,7 +4882,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit41:      ; preds = %62, %_ZN26GrowableA
   br i1 %.not50, label %.thread, label %_ZN8CallInfo11set_virtualEP5KlassRK12methodHandleS4_iP10JavaThread.exit.thread
 
 .thread:                                          ; preds = %27, %61, %93, %94, %98
-  %.043 = phi i32 [ %.0, %93 ], [ %.0, %94 ], [ %.0, %98 ], [ %56, %61 ], [ %28, %27 ]
+  %.043 = phi i32 [ %.0, %98 ], [ %.0, %93 ], [ %.0, %94 ], [ %56, %61 ], [ %28, %27 ]
   %101 = icmp sgt i32 %.043, -1
   br i1 %101, label %102, label %.thread.thread
 
@@ -7381,7 +7381,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
-  %.0.i.i = phi ptr [ null, %1 ], [ %6, %7 ], [ %6, %4 ]
+  %.0.i.i = phi ptr [ null, %1 ], [ %6, %4 ], [ %6, %7 ]
   ret ptr %.0.i.i
 }
 
@@ -7539,7 +7539,7 @@ _ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit:      ; preds = %44, %45, %49, %54
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 _ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %61, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, %5, %11, %24, %31, %2
-  %.0 = phi ptr [ %1, %2 ], [ %.0.i.i.i, %31 ], [ %.0.i.i.i, %24 ], [ %1, %11 ], [ %1, %5 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
+  %.0 = phi ptr [ %1, %5 ], [ %1, %2 ], [ %.0.i.i.i, %24 ], [ %.0.i.i.i, %31 ], [ %1, %11 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
   ret ptr %.0
 }
 
@@ -7717,7 +7717,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
-  %.0.i.i = phi ptr [ null, %1 ], [ %6, %7 ], [ %6, %4 ]
+  %.0.i.i = phi ptr [ null, %1 ], [ %6, %4 ], [ %6, %7 ]
   ret ptr %.0.i.i
 }
 

@@ -626,7 +626,7 @@ define internal range(i32 -2, 2) i32 @CmdCommandQuit(ptr noundef readonly captur
   br label %15
 
 15:                                               ; preds = %5, %3, %7
-  %.0 = phi i32 [ 1, %7 ], [ -2, %3 ], [ -1, %5 ]
+  %.0 = phi i32 [ -2, %3 ], [ 1, %7 ], [ -1, %5 ]
   ret i32 %.0
 }
 
@@ -702,7 +702,7 @@ define internal range(i32 0, 2) i32 @CmdCommandHistory(ptr noundef readonly capt
   br label %.thread
 
 .thread:                                          ; preds = %9, %23, %11
-  %.0.ph = phi i32 [ 20, %11 ], [ %25, %23 ], [ 20, %9 ]
+  %.0.ph = phi i32 [ %25, %23 ], [ 20, %11 ], [ 20, %9 ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load ptr, ptr %26, align 8, !tbaa !29
   %28 = getelementptr i8, ptr %27, i64 4
@@ -1170,7 +1170,7 @@ define internal i32 @CmdCommandSource(ptr noundef %0, i32 noundef %1, ptr nounde
   br i1 %81, label %38, label %82, !llvm.loop !59
 
 82:                                               ; preds = %44, %45, %80
-  %.4 = phi i32 [ %.3, %80 ], [ -1, %45 ], [ 0, %44 ]
+  %.4 = phi i32 [ %.3, %80 ], [ 0, %44 ], [ -1, %45 ]
   %83 = load ptr, ptr @stdin, align 8, !tbaa !46
   %.not100 = icmp eq ptr %30, %83
   br i1 %.not100, label %92, label %85
@@ -1415,7 +1415,7 @@ define internal range(i32 0, 2) i32 @CmdCommandSetVariable(ptr noundef %0, i32 n
   br label %91
 
 91:                                               ; preds = %81, %69, %80, %83, %12
-  %.0 = phi i32 [ 1, %83 ], [ 0, %12 ], [ 0, %80 ], [ 0, %81 ], [ 0, %69 ]
+  %.0 = phi i32 [ 1, %83 ], [ 0, %12 ], [ 0, %69 ], [ 0, %80 ], [ 0, %81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -1708,7 +1708,7 @@ define internal range(i32 0, 2) i32 @CmdCommandRecall(ptr noundef %0, i32 nounde
   br label %79
 
 79:                                               ; preds = %44, %42, %54, %63, %65, %67, %48, %24, %28, %69, %9
-  %.0 = phi i32 [ 1, %69 ], [ 0, %9 ], [ 0, %28 ], [ 0, %24 ], [ 0, %48 ], [ 0, %67 ], [ 0, %65 ], [ 0, %63 ], [ 0, %54 ], [ 0, %42 ], [ 0, %44 ]
+  %.0 = phi i32 [ 1, %69 ], [ 0, %9 ], [ 0, %24 ], [ 0, %28 ], [ 0, %48 ], [ 0, %67 ], [ 0, %65 ], [ 0, %63 ], [ 0, %54 ], [ 0, %42 ], [ 0, %44 ]
   ret i32 %.0
 }
 
@@ -2124,7 +2124,7 @@ Vec_PtrFreeFree.exit:                             ; preds = %Vec_PtrFreeData.exi
   br label %Vec_PtrFreeP.exit
 
 .loopexit.sink.split:                             ; preds = %14, %28, %7, %35, %21
-  %.str.126.sink = phi ptr [ @.str.122, %7 ], [ @.str.126, %35 ], [ @.str.125, %28 ], [ @.str.124, %21 ], [ @.str.123, %14 ]
+  %.str.126.sink = phi ptr [ @.str.124, %21 ], [ @.str.125, %28 ], [ @.str.126, %35 ], [ @.str.122, %7 ], [ @.str.123, %14 ]
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %140 = load ptr, ptr %139, align 8, !tbaa !36
   %141 = tail call i64 @fwrite(ptr nonnull %.str.126.sink, i64 57, i64 1, ptr %140)
@@ -3312,7 +3312,7 @@ define internal range(i32 0, 2) i32 @CmdCommandAutoTuner(ptr readnone captures(n
   br label %56
 
 .loopexit.sink.split:                             ; preds = %16, %6, %23
-  %.str.233.sink = phi ptr [ @.str.47, %6 ], [ @.str.233, %23 ], [ @.str.217, %16 ]
+  %.str.233.sink = phi ptr [ @.str.233, %23 ], [ @.str.47, %6 ], [ @.str.217, %16 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.233.sink)
   br label %.loopexit
 

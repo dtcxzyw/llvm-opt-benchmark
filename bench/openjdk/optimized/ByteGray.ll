@@ -1582,8 +1582,8 @@ define hidden void @ByteGraySrcMaskFill(ptr noundef %0, ptr noundef %1, i32 noun
   br label %34
 
 34:                                               ; preds = %10, %.fold.split, %27
-  %.066 = phi i8 [ %26, %27 ], [ %trunc, %10 ], [ %26, %.fold.split ]
-  %.065 = phi i32 [ %33, %27 ], [ 0, %10 ], [ %25, %.fold.split ]
+  %.066 = phi i8 [ %trunc, %10 ], [ %26, %27 ], [ %26, %.fold.split ]
+  %.065 = phi i32 [ 0, %10 ], [ %33, %27 ], [ %25, %.fold.split ]
   %35 = sub nsw i32 %12, %4
   %.not76 = icmp eq ptr %1, null
   br i1 %.not76, label %.preheader, label %37
@@ -2041,8 +2041,8 @@ define hidden void @ByteGrayAlphaMaskFill(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %101, label %133, label %102
 
 102:                                              ; preds = %100, %90, %91
-  %.090 = phi i32 [ %96, %91 ], [ %18, %90 ], [ 0, %100 ]
-  %.089 = phi i32 [ %99, %91 ], [ %.0101, %90 ], [ 0, %100 ]
+  %.090 = phi i32 [ %18, %90 ], [ %96, %91 ], [ 0, %100 ]
+  %.089 = phi i32 [ %.0101, %90 ], [ %99, %91 ], [ 0, %100 ]
   %.not131 = icmp eq i32 %.4111, 0
   br i1 %.not131, label %121, label %103
 

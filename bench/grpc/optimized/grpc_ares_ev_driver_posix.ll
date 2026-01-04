@@ -251,12 +251,12 @@ define linkonce_odr noundef i32 @_ZN9grpc_core24GrpcPolledFdFactoryPosix5CloseEi
 ..loopexit_crit_edge21.i.i.i.i:                   ; preds = %29
   br label %.loopexit, !llvm.loop !38
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %7, %12, %..loopexit_crit_edge21.i.i.i.i
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %7, %..loopexit_crit_edge21.i.i.i.i, %12
   %34 = tail call i32 @close(i32 noundef %0)
   br label %_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE4findERKi.exit
 
 _ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE4findERKi.exit: ; preds = %26, %8, %21, %.loopexit
-  %.0 = phi i32 [ %34, %.loopexit ], [ 0, %21 ], [ 0, %8 ], [ 0, %26 ]
+  %.0 = phi i32 [ %34, %.loopexit ], [ 0, %8 ], [ 0, %21 ], [ 0, %26 ]
   ret i32 %.0
 }
 
@@ -622,8 +622,8 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
   resume { ptr, i32 } %47
 
 _ZNKSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIiEEPNS1_10_Hash_nodeIiLb0EEEmRKT_m.exit: ; preds = %33, %19, %.critedge, %28
-  %.sroa.031.1 = phi ptr [ %29, %28 ], [ %46, %.critedge ], [ %.sroa.028.0, %19 ], [ %35, %33 ]
-  %.sroa.432.1 = phi i8 [ 0, %28 ], [ 1, %.critedge ], [ 0, %19 ], [ 0, %33 ]
+  %.sroa.031.1 = phi ptr [ %.sroa.028.0, %19 ], [ %46, %.critedge ], [ %29, %28 ], [ %35, %33 ]
+  %.sroa.432.1 = phi i8 [ 0, %19 ], [ 1, %.critedge ], [ 0, %28 ], [ 0, %33 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -1130,7 +1130,7 @@ define linkonce_odr noundef i32 @_ZN9grpc_core24GrpcPolledFdFactoryPosix15Config
   br label %31
 
 _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %20, %13, %8
-  %24 = phi i64 [ %9, %8 ], [ %14, %13 ], [ %21, %20 ]
+  %24 = phi i64 [ %14, %13 ], [ %9, %8 ], [ %21, %20 ]
   %25 = and i64 %24, 1
   %.not.i.i20 = icmp eq i64 %25, 0
   br i1 %.not.i.i20, label %26, label %_ZN4absl12lts_202407226StatusD2Ev.exit21
@@ -1148,7 +1148,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %20, %13, %8
   unreachable
 
 _ZN4absl12lts_202407226StatusD2Ev.exit21:         ; preds = %20, %17, %_ZN4absl12lts_202407226StatusD2Ev.exit, %26
-  %.0730 = phi i32 [ -1, %_ZN4absl12lts_202407226StatusD2Ev.exit ], [ -1, %26 ], [ 0, %17 ], [ 0, %20 ]
+  %.0730 = phi i32 [ -1, %26 ], [ -1, %_ZN4absl12lts_202407226StatusD2Ev.exit ], [ 0, %17 ], [ 0, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0730
 

@@ -183,7 +183,7 @@ do.end54:                                         ; preds = %do.end39
   br label %return
 
 return:                                           ; preds = %do.end16, %entry, %do.end54, %if.then4
-  %retval.0 = phi i64 [ %mul, %if.then4 ], [ %mul56, %do.end54 ], [ 0, %entry ], [ 0, %do.end16 ]
+  %retval.0 = phi i64 [ %mul56, %do.end54 ], [ %mul, %if.then4 ], [ 0, %entry ], [ 0, %do.end16 ]
   ret i64 %retval.0
 }
 
@@ -467,7 +467,7 @@ do.body99:                                        ; preds = %do.end9
   unreachable
 
 sw.epilog:                                        ; preds = %if.end.i54, %for.body.i51, %land.rhs.i, %if.then73, %sw.bb34, %_ZN4nodeL10hex_decodeItEEmPcmPKT_m.exit, %_ZN4node13base64_decodeIcEEmPcmPKT_m.exit, %_ZN4node13base64_decodeItEEmPcmPKT_m.exit, %if.then16, %if.else, %sw.bb29
-  %nbytes.0 = phi i64 [ %.sroa.speculated, %if.then16 ], [ %conv27, %if.else ], [ %conv33, %sw.bb29 ], [ %call38, %sw.bb34 ], [ %call1.i, %_ZN4node13base64_decodeIcEEmPcmPKT_m.exit ], [ %call1.i43, %_ZN4node13base64_decodeItEEmPcmPKT_m.exit ], [ %i.0.lcssa.i63, %_ZN4nodeL10hex_decodeItEEmPcmPKT_m.exit ], [ 0, %if.then73 ], [ %i.015.i, %for.body.i51 ], [ %buflen, %if.end.i54 ], [ %i.015.i, %land.rhs.i ]
+  %nbytes.0 = phi i64 [ %.sroa.speculated, %if.then16 ], [ %conv27, %if.else ], [ %conv33, %sw.bb29 ], [ %i.0.lcssa.i63, %_ZN4nodeL10hex_decodeItEEmPcmPKT_m.exit ], [ %call38, %sw.bb34 ], [ %call1.i, %_ZN4node13base64_decodeIcEEmPcmPKT_m.exit ], [ %call1.i43, %_ZN4node13base64_decodeItEEmPcmPKT_m.exit ], [ 0, %if.then73 ], [ %i.015.i, %for.body.i51 ], [ %buflen, %if.end.i54 ], [ %i.015.i, %land.rhs.i ]
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope) #18
   ret i64 %nbytes.0
 }
@@ -705,7 +705,7 @@ do.body:                                          ; preds = %if.end31
   unreachable
 
 cleanup:                                          ; preds = %if.end, %sw.bb63, %_ZN4node19base64_decoded_sizeItEEmPKT_m.exit, %sw.bb42, %sw.bb36, %sw.bb, %if.then
-  %call12.pn = phi { i8, i64 } [ %.fca.1.insert.i, %if.then ], [ %.fca.1.insert.i11, %sw.bb ], [ %.fca.1.insert.i12, %sw.bb36 ], [ %.fca.1.insert.i13, %sw.bb42 ], [ %.fca.1.insert.i15, %_ZN4node19base64_decoded_sizeItEEmPKT_m.exit ], [ %.fca.1.insert.i16, %sw.bb63 ], [ { i8 0, i64 undef }, %if.end ]
+  %call12.pn = phi { i8, i64 } [ %.fca.1.insert.i, %if.then ], [ %.fca.1.insert.i16, %sw.bb63 ], [ %.fca.1.insert.i11, %sw.bb ], [ %.fca.1.insert.i12, %sw.bb36 ], [ %.fca.1.insert.i13, %sw.bb42 ], [ %.fca.1.insert.i15, %_ZN4node19base64_decoded_sizeItEEmPKT_m.exit ], [ { i8 0, i64 undef }, %if.end ]
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope) #18
   ret { i8, i64 } %call12.pn
 }
@@ -1051,7 +1051,7 @@ do.body223:                                       ; preds = %if.end12
   unreachable
 
 return:                                           ; preds = %sw.bb56, %if.then64, %sw.bb, %if.then20, %if.end217, %if.end211, %if.then205, %do.end163, %if.then144, %do.end133, %if.then114, %do.end102, %if.then85, %sw.bb75, %if.else, %if.end45, %if.then39, %if.then4, %if.then
-  %retval.sroa.0.0 = phi ptr [ null, %if.then ], [ %1, %if.then4 ], [ null, %if.then39 ], [ %call46, %if.end45 ], [ %call51, %if.else ], [ %call76, %sw.bb75 ], [ null, %if.then85 ], [ %call103, %do.end102 ], [ null, %if.then114 ], [ %call134, %do.end133 ], [ null, %if.then144 ], [ %call164, %do.end163 ], [ null, %if.then205 ], [ %call212, %if.end211 ], [ %call218, %if.end217 ], [ null, %if.then20 ], [ %call13, %sw.bb ], [ null, %if.then64 ], [ %call58, %sw.bb56 ]
+  %retval.sroa.0.0 = phi ptr [ null, %if.then ], [ %1, %if.then4 ], [ %call218, %if.end217 ], [ null, %if.then39 ], [ %call46, %if.end45 ], [ %call51, %if.else ], [ %call13, %sw.bb ], [ %call76, %sw.bb75 ], [ null, %if.then85 ], [ %call103, %do.end102 ], [ null, %if.then114 ], [ %call134, %do.end133 ], [ null, %if.then144 ], [ %call164, %do.end163 ], [ %call58, %sw.bb56 ], [ null, %if.then64 ], [ null, %if.then205 ], [ %call212, %if.end211 ], [ null, %if.then20 ]
   ret ptr %retval.sroa.0.0
 }
 
@@ -1077,7 +1077,7 @@ if.then4.i.i:                                     ; preds = %if.end.i.i
   br label %_ZN4node15UncheckedMallocIcEEPT_m.exit
 
 _ZN4node15UncheckedMallocIcEEPT_m.exit:           ; preds = %entry, %if.end.i.i, %if.then4.i.i
-  %retval.0.i.i = phi ptr [ %malloc1.i, %if.then4.i.i ], [ %malloc.i, %if.end.i.i ], [ null, %entry ]
+  %retval.0.i.i = phi ptr [ %malloc.i, %if.end.i.i ], [ %malloc1.i, %if.then4.i.i ], [ null, %entry ]
   ret ptr %retval.0.i.i
 }
 
@@ -1321,7 +1321,7 @@ if.end21:                                         ; preds = %if.end.i.i, %_ZN4no
   br label %return
 
 return:                                           ; preds = %if.then.i, %if.then7, %if.end21, %if.then16, %if.then
-  %retval.sroa.0.0 = phi ptr [ %1, %if.then ], [ null, %if.then16 ], [ %call22, %if.end21 ], [ %call.i, %if.then7 ], [ null, %if.then.i ]
+  %retval.sroa.0.0 = phi ptr [ %1, %if.then ], [ %call22, %if.end21 ], [ null, %if.then16 ], [ %call.i, %if.then7 ], [ null, %if.then.i ]
   ret ptr %retval.sroa.0.0
 }
 
@@ -1642,7 +1642,7 @@ if.end21:                                         ; preds = %if.end.i.i, %_ZN4no
   br label %return
 
 return:                                           ; preds = %if.then.i, %if.then7, %if.end21, %if.then16, %if.then
-  %retval.sroa.0.0 = phi ptr [ %1, %if.then ], [ null, %if.then16 ], [ %call22, %if.end21 ], [ %call.i, %if.then7 ], [ null, %if.then.i ]
+  %retval.sroa.0.0 = phi ptr [ %1, %if.then ], [ %call22, %if.end21 ], [ null, %if.then16 ], [ %call.i, %if.then7 ], [ null, %if.then.i ]
   ret ptr %retval.sroa.0.0
 }
 
@@ -2297,7 +2297,7 @@ if.end99:                                         ; preds = %for.end86
   br label %return
 
 return:                                           ; preds = %if.end, %if.end20, %if.end47, %if.end79, %if.end99, %for.end86, %if.end67, %for.end54, %if.end35, %for.end27, %if.end8, %for.end
-  %retval.0 = phi i1 [ false, %for.end ], [ false, %if.end8 ], [ false, %for.end27 ], [ false, %if.end35 ], [ false, %for.end54 ], [ false, %if.end67 ], [ false, %for.end86 ], [ %cmp100.not, %if.end99 ], [ false, %if.end79 ], [ false, %if.end47 ], [ false, %if.end20 ], [ false, %if.end ]
+  %retval.0 = phi i1 [ false, %if.end20 ], [ false, %for.end ], [ false, %if.end47 ], [ false, %for.end27 ], [ false, %if.end79 ], [ false, %for.end54 ], [ false, %if.end8 ], [ %cmp100.not, %if.end99 ], [ false, %for.end86 ], [ false, %if.end67 ], [ false, %if.end35 ], [ false, %if.end ]
   ret i1 %retval.0
 }
 
@@ -2566,7 +2566,7 @@ if.end103:                                        ; preds = %for.end90
   br label %return
 
 return:                                           ; preds = %if.end, %if.end22, %if.end50, %if.end83, %if.end103, %for.end90, %if.end70, %for.end57, %if.end37, %for.end29, %if.end9, %for.end
-  %retval.0 = phi i1 [ false, %for.end ], [ false, %if.end9 ], [ false, %for.end29 ], [ false, %if.end37 ], [ false, %for.end57 ], [ false, %if.end70 ], [ false, %for.end90 ], [ %cmp104.not, %if.end103 ], [ false, %if.end83 ], [ false, %if.end50 ], [ false, %if.end22 ], [ false, %if.end ]
+  %retval.0 = phi i1 [ false, %if.end22 ], [ false, %for.end ], [ false, %if.end50 ], [ false, %for.end29 ], [ false, %if.end83 ], [ false, %for.end57 ], [ false, %if.end9 ], [ %cmp104.not, %if.end103 ], [ false, %for.end90 ], [ false, %if.end70 ], [ false, %if.end37 ], [ false, %if.end ]
   ret i1 %retval.0
 }
 

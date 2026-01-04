@@ -1554,7 +1554,7 @@ land.rhs:                                         ; preds = %lor.rhs
   br label %lor.end
 
 lor.end:                                          ; preds = %entry, %lor.rhs, %land.rhs
-  %3 = phi i1 [ false, %lor.rhs ], [ %lnot, %land.rhs ], [ true, %entry ]
+  %3 = phi i1 [ true, %entry ], [ %lnot, %land.rhs ], [ false, %lor.rhs ]
   ret i1 %3
 }
 
@@ -1582,7 +1582,7 @@ land.rhs.i:                                       ; preds = %lor.rhs.i
   br label %_ZNK8proxygen2hq14HQControlCodec16isWaitingToDrainEv.exit
 
 _ZNK8proxygen2hq14HQControlCodec16isWaitingToDrainEv.exit: ; preds = %entry, %lor.rhs.i, %land.rhs.i
-  %3 = phi i1 [ false, %lor.rhs.i ], [ %lnot.i, %land.rhs.i ], [ true, %entry ]
+  %3 = phi i1 [ true, %entry ], [ %lnot.i, %land.rhs.i ], [ false, %lor.rhs.i ]
   ret i1 %3
 }
 
@@ -4915,7 +4915,7 @@ _ZSt4copyIPPSt4pairIN8proxygen2hq9SettingIdEmES6_ET0_T_S8_S7_.exit30: ; preds = 
   br label %if.end65
 
 if.end65:                                         ; preds = %if.then.i.i.i.i.i19, %if.else, %if.then.i.i.i.i.i, %if.then14, %_ZSt4copyIPPSt4pairIN8proxygen2hq9SettingIdEmES6_ET0_T_S8_S7_.exit30
-  %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPSt4pairIN8proxygen2hq9SettingIdEmES6_ET0_T_S8_S7_.exit30 ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i19 ]
+  %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPSt4pairIN8proxygen2hq9SettingIdEmES6_ET0_T_S8_S7_.exit30 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i19 ]
   store ptr %__new_nstart.0, ptr %_M_node3, align 8
   %5 = load ptr, ptr %__new_nstart.0, align 8
   %_M_first.i = getelementptr inbounds nuw i8, ptr %this, i64 24

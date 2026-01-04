@@ -166,7 +166,7 @@ define range(i32 -1, 1) i32 @H5__init_package() local_unnamed_addr #0 {
   br label %15
 
 15:                                               ; preds = %11, %8, %0
-  %.0 = phi i32 [ -1, %11 ], [ 0, %8 ], [ 0, %0 ]
+  %.0 = phi i32 [ 0, %0 ], [ -1, %11 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -370,7 +370,7 @@ define range(i32 -1, 1) i32 @H5_init_library() local_unnamed_addr #0 {
   br label %101
 
 101:                                              ; preds = %9, %25, %32, %39, %46, %53, %60, %67, %74, %81, %88, %95, %99, %13
-  %.0 = phi i32 [ -1, %9 ], [ -1, %25 ], [ -1, %32 ], [ -1, %39 ], [ -1, %46 ], [ -1, %53 ], [ -1, %60 ], [ -1, %67 ], [ -1, %74 ], [ -1, %81 ], [ -1, %88 ], [ -1, %95 ], [ 0, %99 ], [ 0, %13 ]
+  %.0 = phi i32 [ -1, %9 ], [ 0, %13 ], [ -1, %25 ], [ -1, %32 ], [ -1, %39 ], [ -1, %46 ], [ -1, %53 ], [ -1, %60 ], [ -1, %67 ], [ -1, %74 ], [ -1, %81 ], [ -1, %88 ], [ -1, %95 ], [ 0, %99 ]
   ret i32 %.0
 }
 
@@ -490,7 +490,7 @@ thread-pre-split:                                 ; preds = %13, %15
   br label %.loopexit
 
 .loopexit:                                        ; preds = %52, %44
-  %57 = phi i32 [ %.pre, %52 ], [ %.pre35, %44 ]
+  %57 = phi i32 [ %.pre35, %44 ], [ %.pre, %52 ]
   store i1 true, ptr @H5_check_version.checked, align 1
   %.not32 = icmp eq i32 %57, 0
   br i1 %.not32, label %58, label %66
@@ -1512,8 +1512,8 @@ H5_user_cb_restore.exit:                          ; preds = %44, %48, %51, %54
   br label %.thread591
 
 .thread591:                                       ; preds = %.thread591.sink.split, %387, %404, %416, %428, %440, %76, %191, %208, %220, %460, %318, %452
-  %.36 = phi i64 [ %.24, %452 ], [ %.20, %318 ], [ %.24, %460 ], [ %.9396, %220 ], [ %.9396, %208 ], [ %.9396, %191 ], [ %.0387, %76 ], [ %.24, %440 ], [ %.24, %428 ], [ %.24, %416 ], [ %.24, %404 ], [ %.24, %387 ], [ %465, %.thread591.sink.split ]
-  %.9 = phi i1 [ true, %452 ], [ true, %318 ], [ %.not454, %460 ], [ true, %220 ], [ true, %208 ], [ true, %191 ], [ true, %76 ], [ true, %440 ], [ true, %428 ], [ true, %416 ], [ true, %404 ], [ true, %387 ], [ true, %.thread591.sink.split ]
+  %.36 = phi i64 [ %.0387, %76 ], [ %.24, %452 ], [ %.20, %318 ], [ %.24, %460 ], [ %.24, %387 ], [ %.24, %428 ], [ %.24, %404 ], [ %.24, %416 ], [ %.9396, %220 ], [ %.24, %440 ], [ %.9396, %208 ], [ %.9396, %191 ], [ %465, %.thread591.sink.split ]
+  %.9 = phi i1 [ true, %76 ], [ true, %452 ], [ true, %318 ], [ %.not454, %460 ], [ true, %387 ], [ true, %428 ], [ true, %404 ], [ true, %416 ], [ true, %220 ], [ true, %440 ], [ true, %208 ], [ true, %191 ], [ true, %.thread591.sink.split ]
   %466 = add nuw nsw i32 %.0385, 1
   %467 = icmp samesign ult i32 %.0385, 100
   %or.cond562 = select i1 %.9, i1 %467, i1 false
@@ -1780,8 +1780,8 @@ switch.early.test:                                ; preds = %6
   br label %.loopexit
 
 .loopexit:                                        ; preds = %49, %.thread70, %58, %80, %39, %45, %61, %42
-  %.147 = phi ptr [ %.04682, %61 ], [ %.04682, %58 ], [ %.04682, %45 ], [ %.04682, %42 ], [ %.04682, %39 ], [ %.04682, %80 ], [ %69, %.thread70 ], [ %.04682, %49 ]
-  %.3 = phi ptr [ %.2.lcssa, %61 ], [ %.2.lcssa, %58 ], [ %.2.lcssa, %45 ], [ %.2.lcssa, %42 ], [ %.2.lcssa, %39 ], [ %81, %80 ], [ %77, %.thread70 ], [ %.2.lcssa, %49 ]
+  %.147 = phi ptr [ %.04682, %61 ], [ %.04682, %58 ], [ %.04682, %80 ], [ %.04682, %45 ], [ %.04682, %42 ], [ %.04682, %39 ], [ %69, %.thread70 ], [ %.04682, %49 ]
+  %.3 = phi ptr [ %.2.lcssa, %61 ], [ %.2.lcssa, %58 ], [ %81, %80 ], [ %.2.lcssa, %45 ], [ %.2.lcssa, %42 ], [ %.2.lcssa, %39 ], [ %77, %.thread70 ], [ %.2.lcssa, %49 ]
   %.not = icmp eq ptr %.3, null
   br i1 %.not, label %.critedge, label %.lr.ph85, !llvm.loop !50
 
@@ -2539,7 +2539,7 @@ define noalias noundef ptr @H5allocate_memory(i64 noundef %0, i1 noundef zeroext
   br label %9
 
 9:                                                ; preds = %7, %5, %2
-  %.0 = phi ptr [ %6, %5 ], [ %8, %7 ], [ null, %2 ]
+  %.0 = phi ptr [ %8, %7 ], [ %6, %5 ], [ null, %2 ]
   ret ptr %.0
 }
 

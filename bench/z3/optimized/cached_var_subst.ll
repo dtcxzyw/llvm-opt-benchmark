@@ -128,7 +128,7 @@ define hidden noundef zeroext i1 @_ZNK16cached_var_subst11key_eq_procclEPNS_3key
   br i1 %or.cond.not, label %14, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %14, %.preheader, %6, %3
-  %.013 = phi i1 [ false, %3 ], [ false, %6 ], [ true, %.preheader ], [ %.not15, %14 ]
+  %.013 = phi i1 [ false, %6 ], [ false, %3 ], [ true, %.preheader ], [ %.not15, %14 ]
   ret i1 %.013
 }
 
@@ -513,7 +513,7 @@ _ZNK6vectorIPN16cached_var_subst3keyELb0EjE8capacityEv.exit.thread.i.i: ; preds 
   br label %_ZN6vectorIPN16cached_var_subst3keyELb0EjE7reserveEjRKS2_.exit
 
 _ZN6vectorIPN16cached_var_subst3keyELb0EjE7reserveEjRKS2_.exit: ; preds = %.lr.ph.preheader.i.i, %_ZNK6vectorIPN16cached_var_subst3keyELb0EjE4sizeEv.exit.thread.i, %16
-  %23 = phi ptr [ %11, %.lr.ph.preheader.i.i ], [ %6, %_ZNK6vectorIPN16cached_var_subst3keyELb0EjE4sizeEv.exit.thread.i ], [ %11, %16 ]
+  %23 = phi ptr [ %11, %.lr.ph.preheader.i.i ], [ %11, %16 ], [ %6, %_ZNK6vectorIPN16cached_var_subst3keyELb0EjE4sizeEv.exit.thread.i ]
   %24 = zext i32 %2 to i64
   %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !95
@@ -1620,8 +1620,8 @@ _ZNK14core_hashtableI17default_map_entryIPN16cached_var_subst3keyEP4exprEN9table
   store ptr %.048, ptr %2, align 8, !tbaa !97
   br label %104
 
-_ZNK14core_hashtableI17default_map_entryIPN16cached_var_subst3keyEP4exprEN9table2mapIS6_NS1_13key_hash_procENS1_11key_eq_procEE15entry_hash_procENSA_13entry_eq_procEE6equalsERK9_key_dataIS3_S5_ESH_.exit.thread: ; preds = %56, %38, %49, %44, %41
-  %.1 = phi ptr [ %.04987, %41 ], [ %.04987, %44 ], [ %.04987, %49 ], [ %.05086, %38 ], [ %.04987, %56 ]
+_ZNK14core_hashtableI17default_map_entryIPN16cached_var_subst3keyEP4exprEN9table2mapIS6_NS1_13key_hash_procENS1_11key_eq_procEE15entry_hash_procENSA_13entry_eq_procEE6equalsERK9_key_dataIS3_S5_ESH_.exit.thread: ; preds = %56, %38, %44, %49, %41
+  %.1 = phi ptr [ %.05086, %38 ], [ %.04987, %41 ], [ %.04987, %49 ], [ %.04987, %44 ], [ %.04987, %56 ]
   %70 = getelementptr inbounds nuw i8, ptr %.05086, i64 24
   %.not = icmp eq ptr %70, %31
   br i1 %.not, label %.preheader, label %38, !llvm.loop !127
@@ -1706,8 +1706,8 @@ _ZNK14core_hashtableI17default_map_entryIPN16cached_var_subst3keyEP4exprEN9table
   store ptr %.0, ptr %2, align 8, !tbaa !97
   br label %104
 
-_ZNK14core_hashtableI17default_map_entryIPN16cached_var_subst3keyEP4exprEN9table2mapIS6_NS1_13key_hash_procENS1_11key_eq_procEE15entry_hash_procENSA_13entry_eq_procEE6equalsERK9_key_dataIS3_S5_ESH_.exit66.thread: ; preds = %89, %71, %82, %77, %74
-  %.3 = phi ptr [ %.290, %74 ], [ %.290, %77 ], [ %.290, %82 ], [ %.15189, %71 ], [ %.290, %89 ]
+_ZNK14core_hashtableI17default_map_entryIPN16cached_var_subst3keyEP4exprEN9table2mapIS6_NS1_13key_hash_procENS1_11key_eq_procEE15entry_hash_procENSA_13entry_eq_procEE6equalsERK9_key_dataIS3_S5_ESH_.exit66.thread: ; preds = %89, %71, %77, %82, %74
+  %.3 = phi ptr [ %.15189, %71 ], [ %.290, %74 ], [ %.290, %82 ], [ %.290, %77 ], [ %.290, %89 ]
   %103 = getelementptr inbounds nuw i8, ptr %.15189, i64 24
   %.not53 = icmp eq ptr %103, %29
   br i1 %.not53, label %._crit_edge, label %71, !llvm.loop !128
@@ -1935,7 +1935,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryIPN16cac
   %.not15.i.i.i = icmp eq ptr %46, %48
   br i1 %.not15.i.i.i, label %43, label %_ZNK14core_hashtableI17default_map_entryIPN16cached_var_subst3keyEP4exprEN9table2mapIS6_NS1_13key_hash_procENS1_11key_eq_procEE15entry_hash_procENSA_13entry_eq_procEE6equalsERK9_key_dataIS3_S5_ESH_.exit.thread
 
-_ZNK14core_hashtableI17default_map_entryIPN16cached_var_subst3keyEP4exprEN9table2mapIS6_NS1_13key_hash_procENS1_11key_eq_procEE15entry_hash_procENSA_13entry_eq_procEE6equalsERK9_key_dataIS3_S5_ESH_.exit.thread: ; preds = %44, %26, %37, %32, %29
+_ZNK14core_hashtableI17default_map_entryIPN16cached_var_subst3keyEP4exprEN9table2mapIS6_NS1_13key_hash_procENS1_11key_eq_procEE15entry_hash_procENSA_13entry_eq_procEE6equalsERK9_key_dataIS3_S5_ESH_.exit.thread: ; preds = %44, %26, %32, %37, %29
   %49 = getelementptr inbounds nuw i8, ptr %.02956, i64 24
   %.not = icmp eq ptr %49, %19
   br i1 %.not, label %.preheader, label %26, !llvm.loop !132
@@ -1992,13 +1992,13 @@ _ZNK14core_hashtableI17default_map_entryIPN16cached_var_subst3keyEP4exprEN9table
   %.not15.i.i.i40 = icmp eq ptr %70, %72
   br i1 %.not15.i.i.i40, label %67, label %_ZNK14core_hashtableI17default_map_entryIPN16cached_var_subst3keyEP4exprEN9table2mapIS6_NS1_13key_hash_procENS1_11key_eq_procEE15entry_hash_procENSA_13entry_eq_procEE6equalsERK9_key_dataIS3_S5_ESH_.exit43.thread
 
-_ZNK14core_hashtableI17default_map_entryIPN16cached_var_subst3keyEP4exprEN9table2mapIS6_NS1_13key_hash_procENS1_11key_eq_procEE15entry_hash_procENSA_13entry_eq_procEE6equalsERK9_key_dataIS3_S5_ESH_.exit43.thread: ; preds = %68, %50, %61, %56, %53
+_ZNK14core_hashtableI17default_map_entryIPN16cached_var_subst3keyEP4exprEN9table2mapIS6_NS1_13key_hash_procENS1_11key_eq_procEE15entry_hash_procENSA_13entry_eq_procEE6equalsERK9_key_dataIS3_S5_ESH_.exit43.thread: ; preds = %68, %50, %56, %61, %53
   %73 = getelementptr inbounds nuw i8, ptr %.258, i64 24
   %.not32 = icmp eq ptr %73, %17
   br i1 %.not32, label %.loopexit, label %50, !llvm.loop !133
 
 _ZNK14core_hashtableI17default_map_entryIPN16cached_var_subst3keyEP4exprEN9table2mapIS6_NS1_13key_hash_procENS1_11key_eq_procEE15entry_hash_procENSA_13entry_eq_procEE6equalsERK9_key_dataIS3_S5_ESH_.exit: ; preds = %.preheader.i.i.i, %43, %.preheader.i.i.i36, %67
-  %.1 = phi ptr [ %.258, %67 ], [ %.258, %.preheader.i.i.i36 ], [ %.02956, %43 ], [ %.02956, %.preheader.i.i.i ]
+  %.1 = phi ptr [ %.258, %.preheader.i.i.i36 ], [ %.02956, %43 ], [ %.258, %67 ], [ %.02956, %.preheader.i.i.i ]
   %74 = getelementptr inbounds nuw i8, ptr %.1, i64 24
   %75 = icmp eq ptr %74, %19
   %spec.select = select i1 %75, ptr %15, ptr %74

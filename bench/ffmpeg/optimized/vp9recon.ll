@@ -235,17 +235,17 @@ define void @ff_vp9_intra_recon_8bpp(ptr noundef readonly captures(none) %0, i64
   br i1 %or.cond3.not.i.us, label %.thread.us, label %161
 
 161:                                              ; preds = %160
-  %162 = sub nsw i64 0, %124
-  %163 = getelementptr inbounds i8, ptr %.0179.i105.us, i64 %162
-  %164 = sub nsw i64 0, %125
-  %165 = getelementptr inbounds i8, ptr %.0180.i102.us, i64 %164
-  %166 = select i1 %85, ptr %163, ptr %165
+  %162 = sub nsw i64 0, %125
+  %163 = getelementptr inbounds i8, ptr %.0180.i102.us, i64 %162
+  %164 = sub nsw i64 0, %124
+  %165 = getelementptr inbounds i8, ptr %.0179.i105.us, i64 %164
+  %166 = select i1 %85, ptr %165, ptr %163
   br i1 %130, label %167, label %.thread61.us
 
 167:                                              ; preds = %161
   %168 = icmp eq i64 %indvars.iv176, 0
   %or.cond7.i.us = or i1 %85, %168
-  %spec.select = select i1 %or.cond7.i.us, ptr %163, ptr %165
+  %spec.select = select i1 %or.cond7.i.us, ptr %165, ptr %163
   br label %.thread61.us
 
 .thread.us:                                       ; preds = %160
@@ -257,8 +257,8 @@ define void @ff_vp9_intra_recon_8bpp(ptr noundef readonly captures(none) %0, i64
   br label %.thread61.us
 
 .thread61.us:                                     ; preds = %167, %.thread.us, %161
-  %.0275.i.ph.us = phi ptr [ undef, %161 ], [ %173, %.thread.us ], [ %spec.select, %167 ]
-  %.0273.i.ph.us = phi ptr [ %166, %161 ], [ %173, %.thread.us ], [ %166, %167 ]
+  %.0275.i.ph.us = phi ptr [ %173, %.thread.us ], [ undef, %161 ], [ %spec.select, %167 ]
+  %.0273.i.ph.us = phi ptr [ %173, %.thread.us ], [ %166, %161 ], [ %166, %167 ]
   %174 = and i64 %141, 2189
   %.not289.not.i.us = icmp ne i64 %174, 0
   %175 = icmp eq ptr %.0273.i.ph.us, %.0275.i.ph.us
@@ -706,17 +706,17 @@ check_intra_mode.exit.us:                         ; preds = %.lr.ph.us, %.lr.ph9
   br i1 %or.cond3.not.i40.us.us.us, label %.thread71.us.us.us, label %407
 
 407:                                              ; preds = %406
-  %408 = sub nsw i64 0, %366
-  %409 = getelementptr inbounds i8, ptr %.0.i134.us.us.us, i64 %408
-  %410 = sub nsw i64 0, %367
-  %411 = getelementptr inbounds i8, ptr %.0175.i131.us.us.us, i64 %410
-  %412 = select i1 %345, ptr %409, ptr %411
+  %408 = sub nsw i64 0, %367
+  %409 = getelementptr inbounds i8, ptr %.0175.i131.us.us.us, i64 %408
+  %410 = sub nsw i64 0, %366
+  %411 = getelementptr inbounds i8, ptr %.0.i134.us.us.us, i64 %410
+  %412 = select i1 %345, ptr %411, ptr %409
   br i1 %375, label %413, label %.thread72.us.us.us
 
 413:                                              ; preds = %407
   %414 = icmp eq i32 %.1178.i127.us.us.us, 0
   %or.cond7.i41.us.us.us = or i1 %345, %414
-  %spec.select247 = select i1 %or.cond7.i41.us.us.us, ptr %409, ptr %411
+  %spec.select247 = select i1 %or.cond7.i41.us.us.us, ptr %411, ptr %409
   br label %.thread72.us.us.us
 
 .thread71.us.us.us:                               ; preds = %406
@@ -732,8 +732,8 @@ check_intra_mode.exit.us:                         ; preds = %.lr.ph.us, %.lr.ph9
   br label %.thread72.us.us.us
 
 .thread72.us.us.us:                               ; preds = %413, %.thread71.us.us.us, %407
-  %.0275.i18.ph.us.us.us = phi ptr [ undef, %407 ], [ %423, %.thread71.us.us.us ], [ %spec.select247, %413 ]
-  %.0273.i19.ph.us.us.us = phi ptr [ %412, %407 ], [ %423, %.thread71.us.us.us ], [ %412, %413 ]
+  %.0275.i18.ph.us.us.us = phi ptr [ %423, %.thread71.us.us.us ], [ undef, %407 ], [ %spec.select247, %413 ]
+  %.0273.i19.ph.us.us.us = phi ptr [ %423, %.thread71.us.us.us ], [ %412, %407 ], [ %412, %413 ]
   %424 = and i64 %387, 2189
   %.not289.not.i29.us.us.us = icmp ne i64 %424, 0
   %425 = icmp eq ptr %.0273.i19.ph.us.us.us, %.0275.i18.ph.us.us.us
@@ -1249,17 +1249,17 @@ define void @ff_vp9_intra_recon_16bpp(ptr noundef readonly captures(none) %0, i6
   br i1 %or.cond3.not.i.us, label %.thread.us, label %158
 
 158:                                              ; preds = %157
-  %159 = sub nsw i64 0, %124
-  %160 = getelementptr inbounds i8, ptr %.0179.i143.us, i64 %159
-  %161 = sub nsw i64 0, %125
-  %162 = getelementptr inbounds i8, ptr %.0180.i140.us, i64 %161
-  %163 = select i1 %86, ptr %160, ptr %162
+  %159 = sub nsw i64 0, %125
+  %160 = getelementptr inbounds i8, ptr %.0180.i140.us, i64 %159
+  %161 = sub nsw i64 0, %124
+  %162 = getelementptr inbounds i8, ptr %.0179.i143.us, i64 %161
+  %163 = select i1 %86, ptr %162, ptr %160
   br i1 %130, label %164, label %.thread72.us
 
 164:                                              ; preds = %158
   %165 = icmp eq i64 %indvars.iv258, 0
   %or.cond7.i.us = or i1 %86, %165
-  %spec.select = select i1 %or.cond7.i.us, ptr %160, ptr %162
+  %spec.select = select i1 %or.cond7.i.us, ptr %162, ptr %160
   br label %.thread72.us
 
 .thread.us:                                       ; preds = %157
@@ -1272,8 +1272,8 @@ define void @ff_vp9_intra_recon_16bpp(ptr noundef readonly captures(none) %0, i6
   br label %.thread72.us
 
 .thread72.us:                                     ; preds = %164, %.thread.us, %158
-  %.0275.i.ph.us = phi ptr [ undef, %158 ], [ %171, %.thread.us ], [ %spec.select, %164 ]
-  %.0273.i.ph.us = phi ptr [ %163, %158 ], [ %171, %.thread.us ], [ %163, %164 ]
+  %.0275.i.ph.us = phi ptr [ %171, %.thread.us ], [ undef, %158 ], [ %spec.select, %164 ]
+  %.0273.i.ph.us = phi ptr [ %171, %.thread.us ], [ %163, %158 ], [ %163, %164 ]
   %172 = and i64 %141, 2189
   %.not289.not.i.us = icmp ne i64 %172, 0
   %173 = icmp eq ptr %.0273.i.ph.us, %.0275.i.ph.us
@@ -1324,8 +1324,8 @@ define void @ff_vp9_intra_recon_16bpp(ptr noundef readonly captures(none) %0, i6
   br label %.lr.ph121.us
 
 .loopexit116.us:                                  ; preds = %.critedge.i.us, %.lr.ph121.us, %.critedge.i.preheader.us, %183, %180
-  %.0273.i79.us = phi ptr [ %.0273.i.ph.us, %180 ], [ %.0273.i.ph.us, %183 ], [ undef, %.critedge.i.preheader.us ], [ %.0273.i.ph.us, %.lr.ph121.us ], [ undef, %.critedge.i.us ]
-  %.0275.i76.us = phi ptr [ %.0275.i.ph.us, %180 ], [ %.0275.i.ph.us, %183 ], [ undef, %.critedge.i.preheader.us ], [ %.0275.i.ph.us, %.lr.ph121.us ], [ undef, %.critedge.i.us ]
+  %.0273.i79.us = phi ptr [ %.0273.i.ph.us, %183 ], [ %.0273.i.ph.us, %180 ], [ %.0273.i.ph.us, %.lr.ph121.us ], [ undef, %.critedge.i.preheader.us ], [ undef, %.critedge.i.us ]
+  %.0275.i76.us = phi ptr [ %.0275.i.ph.us, %183 ], [ %.0275.i.ph.us, %180 ], [ %.0275.i.ph.us, %.lr.ph121.us ], [ undef, %.critedge.i.preheader.us ], [ undef, %.critedge.i.us ]
   %194 = and i64 %141, 2189
   %.not293.not.i.us = icmp eq i64 %194, 0
   br i1 %.not293.not.i.us, label %195, label %204
@@ -1393,7 +1393,7 @@ define void @ff_vp9_intra_recon_16bpp(ptr noundef readonly captures(none) %0, i6
   br i1 %219, label %.lr.ph121.us, label %.loopexit116.us, !llvm.loop !79
 
 .loopexit115.us:                                  ; preds = %209, %213, %204, %176, %175, %117
-  %.071.us = phi ptr [ %53, %213 ], [ %53, %204 ], [ %53, %117 ], [ %.0273.i.ph.us, %175 ], [ %.0273.i.ph.us, %176 ], [ %53, %209 ]
+  %.071.us = phi ptr [ %.0273.i.ph.us, %176 ], [ %53, %213 ], [ %53, %204 ], [ %53, %117 ], [ %.0273.i.ph.us, %175 ], [ %53, %209 ]
   %220 = and i64 %141, 30857
   %.not296.not.i.us = icmp eq i64 %220, 0
   br i1 %.not296.not.i.us, label %221, label %check_intra_mode.exit.us
@@ -1802,17 +1802,17 @@ check_intra_mode.exit.us:                         ; preds = %223, %.lr.ph126.us,
   br i1 %or.cond3.not.i47.us.us.us, label %.thread82.us.us.us, label %442
 
 442:                                              ; preds = %441
-  %443 = sub nsw i64 0, %404
-  %444 = getelementptr inbounds i8, ptr %.0.i185.us.us.us, i64 %443
-  %445 = sub nsw i64 0, %405
-  %446 = getelementptr inbounds i8, ptr %.0175.i182.us.us.us, i64 %445
-  %447 = select i1 %383, ptr %444, ptr %446
+  %443 = sub nsw i64 0, %405
+  %444 = getelementptr inbounds i8, ptr %.0175.i182.us.us.us, i64 %443
+  %445 = sub nsw i64 0, %404
+  %446 = getelementptr inbounds i8, ptr %.0.i185.us.us.us, i64 %445
+  %447 = select i1 %383, ptr %446, ptr %444
   br i1 %413, label %448, label %.thread83.us.us.us
 
 448:                                              ; preds = %442
   %449 = icmp eq i32 %.1178.i178.us.us.us, 0
   %or.cond7.i48.us.us.us = or i1 %383, %449
-  %spec.select357 = select i1 %or.cond7.i48.us.us.us, ptr %444, ptr %446
+  %spec.select357 = select i1 %or.cond7.i48.us.us.us, ptr %446, ptr %444
   br label %.thread83.us.us.us
 
 .thread82.us.us.us:                               ; preds = %441
@@ -1828,8 +1828,8 @@ check_intra_mode.exit.us:                         ; preds = %223, %.lr.ph126.us,
   br label %.thread83.us.us.us
 
 .thread83.us.us.us:                               ; preds = %448, %.thread82.us.us.us, %442
-  %.0275.i22.ph.us.us.us = phi ptr [ undef, %442 ], [ %458, %.thread82.us.us.us ], [ %spec.select357, %448 ]
-  %.0273.i23.ph.us.us.us = phi ptr [ %447, %442 ], [ %458, %.thread82.us.us.us ], [ %447, %448 ]
+  %.0275.i22.ph.us.us.us = phi ptr [ %458, %.thread82.us.us.us ], [ undef, %442 ], [ %spec.select357, %448 ]
+  %.0273.i23.ph.us.us.us = phi ptr [ %458, %.thread82.us.us.us ], [ %447, %442 ], [ %447, %448 ]
   %459 = and i64 %425, 2189
   %.not289.not.i35.us.us.us = icmp ne i64 %459, 0
   %460 = icmp eq ptr %.0273.i23.ph.us.us.us, %.0275.i22.ph.us.us.us
@@ -1880,8 +1880,8 @@ check_intra_mode.exit.us:                         ; preds = %223, %.lr.ph126.us,
   br label %.lr.ph159.us.us.us
 
 .loopexit102.us.us.us:                            ; preds = %.critedge.i24.us.us.us, %.lr.ph159.us.us.us, %.critedge.i24.preheader.us.us.us, %470, %467
-  %.0273.i2391.us.us.us = phi ptr [ %.0273.i23.ph.us.us.us, %467 ], [ %.0273.i23.ph.us.us.us, %470 ], [ undef, %.critedge.i24.preheader.us.us.us ], [ %.0273.i23.ph.us.us.us, %.lr.ph159.us.us.us ], [ undef, %.critedge.i24.us.us.us ]
-  %.0275.i2288.us.us.us = phi ptr [ %.0275.i22.ph.us.us.us, %467 ], [ %.0275.i22.ph.us.us.us, %470 ], [ undef, %.critedge.i24.preheader.us.us.us ], [ %.0275.i22.ph.us.us.us, %.lr.ph159.us.us.us ], [ undef, %.critedge.i24.us.us.us ]
+  %.0273.i2391.us.us.us = phi ptr [ %.0273.i23.ph.us.us.us, %470 ], [ %.0273.i23.ph.us.us.us, %467 ], [ %.0273.i23.ph.us.us.us, %.lr.ph159.us.us.us ], [ undef, %.critedge.i24.preheader.us.us.us ], [ undef, %.critedge.i24.us.us.us ]
+  %.0275.i2288.us.us.us = phi ptr [ %.0275.i22.ph.us.us.us, %470 ], [ %.0275.i22.ph.us.us.us, %467 ], [ %.0275.i22.ph.us.us.us, %.lr.ph159.us.us.us ], [ undef, %.critedge.i24.preheader.us.us.us ], [ undef, %.critedge.i24.us.us.us ]
   %481 = and i64 %425, 2189
   %.not293.not.i26.us.us.us = icmp eq i64 %481, 0
   br i1 %.not293.not.i26.us.us.us, label %482, label %491
@@ -1949,7 +1949,7 @@ check_intra_mode.exit.us:                         ; preds = %223, %.lr.ph126.us,
   br i1 %506, label %.lr.ph159.us.us.us, label %.loopexit102.us.us.us, !llvm.loop !79
 
 .loopexit.us.us.us:                               ; preds = %496, %500, %491, %463, %462, %399
-  %.0.us.us.us = phi ptr [ %347, %500 ], [ %347, %491 ], [ %347, %399 ], [ %.0273.i23.ph.us.us.us, %462 ], [ %.0273.i23.ph.us.us.us, %463 ], [ %347, %496 ]
+  %.0.us.us.us = phi ptr [ %.0273.i23.ph.us.us.us, %463 ], [ %347, %500 ], [ %347, %491 ], [ %347, %399 ], [ %.0273.i23.ph.us.us.us, %462 ], [ %347, %496 ]
   %507 = and i64 %425, 30857
   %.not296.not.i7.us.us.us = icmp eq i64 %507, 0
   br i1 %.not296.not.i7.us.us.us, label %508, label %check_intra_mode.exit49.us.us.us

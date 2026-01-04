@@ -204,7 +204,7 @@ define hidden { ptr, ptr } @"_ZN3std6thread18JoinInner$LT$T$GT$4join17he0df60fed
   br i1 %18, label %.invoke, label %20
 
 .invoke:                                          ; preds = %15, %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9is_unique17hf62c432b7ccf64ebE.exit", %.noexc
-  %19 = phi ptr [ @anon.8e1c7397de9a49defed4f04e7ab77c7a.9.llvm.14517926847443944930, %.noexc ], [ @anon.8e1c7397de9a49defed4f04e7ab77c7a.9.llvm.14517926847443944930, %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9is_unique17hf62c432b7ccf64ebE.exit" ], [ @anon.8e1c7397de9a49defed4f04e7ab77c7a.10.llvm.14517926847443944930, %15 ]
+  %19 = phi ptr [ @anon.8e1c7397de9a49defed4f04e7ab77c7a.9.llvm.14517926847443944930, %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9is_unique17hf62c432b7ccf64ebE.exit" ], [ @anon.8e1c7397de9a49defed4f04e7ab77c7a.9.llvm.14517926847443944930, %.noexc ], [ @anon.8e1c7397de9a49defed4f04e7ab77c7a.10.llvm.14517926847443944930, %15 ]
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) %19) #14
           to label %.cont unwind label %4
 
@@ -269,7 +269,7 @@ define hidden { ptr, ptr } @"_ZN3std6thread18JoinInner$LT$T$GT$4join17he0df60fed
   unreachable
 
 "_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Packet$LT$$LP$$RP$$GT$$GT$$GT$17hc0b6eb0adc541736E.llvm.14517926847443944930.exit": ; preds = %39, %44, %25, %30
-  %.pn = phi { ptr, i32 } [ %26, %30 ], [ %26, %25 ], [ %5, %44 ], [ %5, %39 ]
+  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %26, %30 ], [ %5, %44 ], [ %5, %39 ]
   resume { ptr, i32 } %.pn
 
 39:                                               ; preds = %4
@@ -1070,7 +1070,7 @@ default.unreachable161:                           ; preds = %2
   br label %"_ZN60_$LT$std..ffi..os_str..OsStr$u20$as$u20$core..hash..Hash$GT$4hash17h4401197e0cde1609E.exit"
 
 "_ZN60_$LT$std..ffi..os_str..OsStr$u20$as$u20$core..hash..Hash$GT$4hash17h4401197e0cde1609E.exit": ; preds = %230, %229, %157, %156, %113, %112, %40, %39, %236, %119
-  %.sink = phi i64 [ %242, %236 ], [ %125, %119 ], [ %45, %40 ], [ %.2.i.i, %39 ], [ %118, %113 ], [ %.2.i.i30, %112 ], [ %162, %157 ], [ %.2.i.i52, %156 ], [ %235, %230 ], [ %.2.i.i96, %229 ]
+  %.sink = phi i64 [ %242, %236 ], [ %.2.i.i52, %156 ], [ %.2.i.i30, %112 ], [ %125, %119 ], [ %.2.i.i, %39 ], [ %45, %40 ], [ %118, %113 ], [ %162, %157 ], [ %235, %230 ], [ %.2.i.i96, %229 ]
   store i64 %.sink, ptr %1, align 8
   ret void
 }

@@ -381,7 +381,7 @@ ps_table_realloc.exit:                            ; preds = %ps_table_realloc.ex
   br label %67
 
 67:                                               ; preds = %.thread, %4, %7, %64
-  %.043 = phi i32 [ 0, %64 ], [ 6, %7 ], [ 6, %4 ], [ %31, %.thread ]
+  %.043 = phi i32 [ %31, %.thread ], [ 0, %64 ], [ 6, %7 ], [ 6, %4 ]
   ret i32 %.043
 }
 
@@ -483,7 +483,7 @@ define internal void @ps_parser_skip_spaces(ptr noundef captures(none) %0) #3 {
   br i1 %exitcond.not.i.i, label %skip_comment.exit.i, label %.lr.ph.ithread-pre-split.i, !llvm.loop !38
 
 skip_comment.exit.i:                              ; preds = %12, %.lr.ph.i.i, %.lr.ph.i.i, %7, %7, %7, %7, %7, %7
-  %.0.i = phi ptr [ %storemerge8.i, %7 ], [ %storemerge8.i, %7 ], [ %storemerge8.i, %7 ], [ %storemerge8.i, %7 ], [ %storemerge8.i, %7 ], [ %storemerge8.i, %7 ], [ %.09.i.i, %.lr.ph.i.i ], [ %.09.i.i, %.lr.ph.i.i ], [ %scevgep.i.i, %12 ]
+  %.0.i = phi ptr [ %storemerge8.i, %7 ], [ %storemerge8.i, %7 ], [ %storemerge8.i, %7 ], [ %storemerge8.i, %7 ], [ %storemerge8.i, %7 ], [ %storemerge8.i, %7 ], [ %scevgep.i.i, %12 ], [ %.09.i.i, %.lr.ph.i.i ], [ %.09.i.i, %.lr.ph.i.i ]
   %14 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   %15 = icmp ult ptr %14, %3
   br i1 %15, label %7, label %skip_spaces.exit, !llvm.loop !39
@@ -543,7 +543,7 @@ define internal void @ps_parser_skip_PS_token(ptr noundef captures(none) %0) #4 
   br i1 %exitcond.not.i.i, label %skip_comment.exit.i, label %.lr.ph.ithread-pre-split.i, !llvm.loop !38
 
 skip_comment.exit.i:                              ; preds = %12, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
-  %.0.i = phi ptr [ %storemerge8.i, %.lr.ph.i ], [ %storemerge8.i, %.lr.ph.i ], [ %storemerge8.i, %.lr.ph.i ], [ %storemerge8.i, %.lr.ph.i ], [ %storemerge8.i, %.lr.ph.i ], [ %storemerge8.i, %.lr.ph.i ], [ %.09.i.i, %.lr.ph.i.i ], [ %.09.i.i, %.lr.ph.i.i ], [ %scevgep.i.i, %12 ]
+  %.0.i = phi ptr [ %storemerge8.i, %.lr.ph.i ], [ %storemerge8.i, %.lr.ph.i ], [ %storemerge8.i, %.lr.ph.i ], [ %storemerge8.i, %.lr.ph.i ], [ %storemerge8.i, %.lr.ph.i ], [ %storemerge8.i, %.lr.ph.i ], [ %scevgep.i.i, %12 ], [ %.09.i.i, %.lr.ph.i.i ], [ %.09.i.i, %.lr.ph.i.i ]
   %14 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   %15 = icmp ult ptr %14, %5
   br i1 %15, label %.lr.ph.i, label %skip_spaces.exit, !llvm.loop !39
@@ -631,7 +631,7 @@ skip_spaces.exit:                                 ; preds = %.lr.ph.i, %skip_com
   br i1 %exitcond.not.i.i.i, label %skip_comment.exit.i.i, label %.lr.ph.ithread-pre-split.i.i, !llvm.loop !38
 
 skip_comment.exit.i.i:                            ; preds = %36, %.lr.ph.i.i.i, %.lr.ph.i.i.i, %.lr.ph.i.i28, %.lr.ph.i.i28, %.lr.ph.i.i28, %.lr.ph.i.i28, %.lr.ph.i.i28, %.lr.ph.i.i28
-  %.0.i.i = phi ptr [ %storemerge8.i.i, %.lr.ph.i.i28 ], [ %storemerge8.i.i, %.lr.ph.i.i28 ], [ %storemerge8.i.i, %.lr.ph.i.i28 ], [ %storemerge8.i.i, %.lr.ph.i.i28 ], [ %storemerge8.i.i, %.lr.ph.i.i28 ], [ %storemerge8.i.i, %.lr.ph.i.i28 ], [ %scevgep.i.i.i, %36 ], [ %.09.i.i.i, %.lr.ph.i.i.i ], [ %.09.i.i.i, %.lr.ph.i.i.i ]
+  %.0.i.i = phi ptr [ %storemerge8.i.i, %.lr.ph.i.i28 ], [ %storemerge8.i.i, %.lr.ph.i.i28 ], [ %storemerge8.i.i, %.lr.ph.i.i28 ], [ %storemerge8.i.i, %.lr.ph.i.i28 ], [ %storemerge8.i.i, %.lr.ph.i.i28 ], [ %storemerge8.i.i, %.lr.ph.i.i28 ], [ %.09.i.i.i, %.lr.ph.i.i.i ], [ %.09.i.i.i, %.lr.ph.i.i.i ], [ %scevgep.i.i.i, %36 ]
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
   %39 = icmp ult ptr %38, %5
   br i1 %39, label %.lr.ph.i.i28.backedge, label %skip_spaces.exit.i
@@ -641,7 +641,7 @@ skip_comment.exit.i.i:                            ; preds = %36, %.lr.ph.i.i.i, 
   br label %.lr.ph.i.i28, !llvm.loop !39
 
 skip_spaces.exit.i:                               ; preds = %skip_comment.exit.i.i, %.lr.ph.i.i28
-  %storemerge.lcssa.i.i = phi ptr [ %storemerge8.i.i, %.lr.ph.i.i28 ], [ %38, %skip_comment.exit.i.i ]
+  %storemerge.lcssa.i.i = phi ptr [ %38, %skip_comment.exit.i.i ], [ %storemerge8.i.i, %.lr.ph.i.i28 ]
   %.not.i = icmp ult ptr %storemerge.lcssa.i.i, %5
   br i1 %.not.i, label %40, label %switch.early.test._crit_edge.i
 
@@ -674,7 +674,7 @@ switch.early.test.i:                              ; preds = %40
   ]
 
 switch.early.test._crit_edge.i:                   ; preds = %switch.early.test.i, %.backedge.i, %skip_spaces.exit.i, %24
-  %.1.i = phi ptr [ %25, %24 ], [ %43, %.backedge.i ], [ %storemerge.lcssa.i.i, %skip_spaces.exit.i ], [ %storemerge.lcssa.i.i, %switch.early.test.i ]
+  %.1.i = phi ptr [ %25, %24 ], [ %storemerge.lcssa.i.i, %skip_spaces.exit.i ], [ %storemerge.lcssa.i.i, %switch.early.test.i ], [ %43, %.backedge.i ]
   %45 = icmp ult ptr %.1.i, %5
   br i1 %45, label %46, label %48
 
@@ -758,7 +758,7 @@ skip_string.exit:                                 ; preds = %46, %48
   br label %65
 
 65:                                               ; preds = %.loopexit, %52, %50, %30, %skip_string.exit, %skip_spaces.exit, %54, %22, %20, %18
-  %.0 = phi i32 [ 0, %skip_spaces.exit ], [ 0, %18 ], [ %21, %20 ], [ %23, %22 ], [ 0, %30 ], [ %.0.i27, %skip_string.exit ], [ 0, %54 ], [ 3, %50 ], [ 3, %52 ], [ 0, %.loopexit ]
+  %.0 = phi i32 [ 0, %skip_spaces.exit ], [ 0, %18 ], [ %21, %20 ], [ %23, %22 ], [ 0, %30 ], [ %.0.i27, %skip_string.exit ], [ 3, %52 ], [ 0, %54 ], [ 3, %50 ], [ 0, %.loopexit ]
   %66 = load ptr, ptr %2, align 8, !tbaa !25
   %67 = icmp ult ptr %66, %5
   br i1 %67, label %68, label %71
@@ -829,7 +829,7 @@ define internal i64 @ps_parser_to_int(ptr noundef captures(none) %0) #4 {
   br i1 %exitcond.not.i.i.i, label %skip_comment.exit.i.i, label %.lr.ph.ithread-pre-split.i.i, !llvm.loop !38
 
 skip_comment.exit.i.i:                            ; preds = %12, %.lr.ph.i.i.i, %.lr.ph.i.i.i, %7, %7, %7, %7, %7, %7
-  %.0.i.i = phi ptr [ %storemerge8.i.i, %7 ], [ %storemerge8.i.i, %7 ], [ %storemerge8.i.i, %7 ], [ %storemerge8.i.i, %7 ], [ %storemerge8.i.i, %7 ], [ %storemerge8.i.i, %7 ], [ %scevgep.i.i.i, %12 ], [ %.09.i.i.i, %.lr.ph.i.i.i ], [ %.09.i.i.i, %.lr.ph.i.i.i ]
+  %.0.i.i = phi ptr [ %storemerge8.i.i, %7 ], [ %storemerge8.i.i, %7 ], [ %storemerge8.i.i, %7 ], [ %storemerge8.i.i, %7 ], [ %storemerge8.i.i, %7 ], [ %storemerge8.i.i, %7 ], [ %.09.i.i.i, %.lr.ph.i.i.i ], [ %.09.i.i.i, %.lr.ph.i.i.i ], [ %scevgep.i.i.i, %12 ]
   %14 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
   %15 = icmp ult ptr %14, %3
   br i1 %15, label %7, label %ps_parser_skip_spaces.exit, !llvm.loop !39
@@ -890,7 +890,7 @@ define internal i64 @ps_parser_to_fixed(ptr noundef captures(none) %0, i32 nound
   br i1 %exitcond.not.i.i.i, label %skip_comment.exit.i.i, label %.lr.ph.ithread-pre-split.i.i, !llvm.loop !38
 
 skip_comment.exit.i.i:                            ; preds = %13, %.lr.ph.i.i.i, %.lr.ph.i.i.i, %8, %8, %8, %8, %8, %8
-  %.0.i.i = phi ptr [ %storemerge8.i.i, %8 ], [ %storemerge8.i.i, %8 ], [ %storemerge8.i.i, %8 ], [ %storemerge8.i.i, %8 ], [ %storemerge8.i.i, %8 ], [ %storemerge8.i.i, %8 ], [ %scevgep.i.i.i, %13 ], [ %.09.i.i.i, %.lr.ph.i.i.i ], [ %.09.i.i.i, %.lr.ph.i.i.i ]
+  %.0.i.i = phi ptr [ %storemerge8.i.i, %8 ], [ %storemerge8.i.i, %8 ], [ %storemerge8.i.i, %8 ], [ %storemerge8.i.i, %8 ], [ %storemerge8.i.i, %8 ], [ %storemerge8.i.i, %8 ], [ %.09.i.i.i, %.lr.ph.i.i.i ], [ %.09.i.i.i, %.lr.ph.i.i.i ], [ %scevgep.i.i.i, %13 ]
   %15 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
   %16 = icmp ult ptr %15, %4
   br i1 %16, label %8, label %ps_parser_skip_spaces.exit, !llvm.loop !39
@@ -952,7 +952,7 @@ define internal range(i32 0, 4) i32 @ps_parser_to_bytes(ptr noundef captures(non
   br i1 %exitcond.not.i.i.i, label %skip_comment.exit.i.i, label %.lr.ph.ithread-pre-split.i.i, !llvm.loop !38
 
 skip_comment.exit.i.i:                            ; preds = %16, %.lr.ph.i.i.i, %.lr.ph.i.i.i, %11, %11, %11, %11, %11, %11
-  %.0.i.i = phi ptr [ %storemerge8.i.i, %11 ], [ %storemerge8.i.i, %11 ], [ %storemerge8.i.i, %11 ], [ %storemerge8.i.i, %11 ], [ %storemerge8.i.i, %11 ], [ %storemerge8.i.i, %11 ], [ %scevgep.i.i.i, %16 ], [ %.09.i.i.i, %.lr.ph.i.i.i ], [ %.09.i.i.i, %.lr.ph.i.i.i ]
+  %.0.i.i = phi ptr [ %storemerge8.i.i, %11 ], [ %storemerge8.i.i, %11 ], [ %storemerge8.i.i, %11 ], [ %storemerge8.i.i, %11 ], [ %storemerge8.i.i, %11 ], [ %storemerge8.i.i, %11 ], [ %.09.i.i.i, %.lr.ph.i.i.i ], [ %.09.i.i.i, %.lr.ph.i.i.i ], [ %scevgep.i.i.i, %16 ]
   %18 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
   %19 = icmp ult ptr %18, %7
   br i1 %19, label %11, label %ps_parser_skip_spaces.exit, !llvm.loop !39
@@ -1041,9 +1041,9 @@ ps_parser_skip_spaces.exit:                       ; preds = %11, %skip_comment.e
   br i1 %exitcond.not, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !42
 
 ._crit_edge.i:                                    ; preds = %50, %35, %33
-  %.048.lcssa.i = phi i32 [ %.250.ph.i, %50 ], [ %.04870.i, %35 ], [ %.04870.i, %33 ]
-  %.047.lcssa.i = phi i32 [ %.2.ph.i, %50 ], [ %.04771.i, %35 ], [ %.04771.i, %33 ]
-  %.lcssa.i = phi i64 [ %spec.select.i, %50 ], [ %indvars.iv, %35 ], [ %indvars.iv, %33 ]
+  %.048.lcssa.i = phi i32 [ %.04870.i, %33 ], [ %.250.ph.i, %50 ], [ %.04870.i, %35 ]
+  %.047.lcssa.i = phi i32 [ %.04771.i, %33 ], [ %.2.ph.i, %50 ], [ %.04771.i, %35 ]
+  %.lcssa.i = phi i64 [ %indvars.iv, %33 ], [ %spec.select.i, %50 ], [ %indvars.iv, %35 ]
   %.not63.i = icmp eq i32 %.047.lcssa.i, 1
   br i1 %.not63.i, label %56, label %51
 
@@ -1137,9 +1137,9 @@ ps_parser_skip_spaces.exit:                       ; preds = %11, %skip_comment.e
   br i1 %exitcond49.not, label %._crit_edge.i28, label %.lr.ph.i22, !llvm.loop !42
 
 ._crit_edge.i28:                                  ; preds = %88, %73, %71
-  %.048.lcssa.i29 = phi i32 [ %.250.ph.i26, %88 ], [ %.04870.i24, %73 ], [ %.04870.i24, %71 ]
-  %.047.lcssa.i30 = phi i32 [ %.2.ph.i27, %88 ], [ %.04771.i23, %73 ], [ %.04771.i23, %71 ]
-  %.lcssa.i31 = phi i64 [ %spec.select.i19, %88 ], [ %indvars.iv45, %73 ], [ %indvars.iv45, %71 ]
+  %.048.lcssa.i29 = phi i32 [ %.04870.i24, %71 ], [ %.250.ph.i26, %88 ], [ %.04870.i24, %73 ]
+  %.047.lcssa.i30 = phi i32 [ %.04771.i23, %71 ], [ %.2.ph.i27, %88 ], [ %.04771.i23, %73 ]
+  %.lcssa.i31 = phi i64 [ %indvars.iv45, %71 ], [ %spec.select.i19, %88 ], [ %indvars.iv45, %73 ]
   %.not63.i32 = icmp eq i32 %.047.lcssa.i30, 1
   br i1 %.not63.i32, label %PS_Conv_ASCIIHexDecode.exit38, label %89
 
@@ -1166,7 +1166,7 @@ PS_Conv_ASCIIHexDecode.exit38:                    ; preds = %.critedge, %._crit_
   br label %96
 
 96:                                               ; preds = %.sink.split, %60, %21, %ps_parser_skip_spaces.exit
-  %.0 = phi i32 [ 0, %ps_parser_skip_spaces.exit ], [ 3, %21 ], [ 3, %60 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 0, %ps_parser_skip_spaces.exit ], [ 3, %60 ], [ 3, %21 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -1220,7 +1220,7 @@ define internal i32 @ps_parser_to_coord_array(ptr noundef captures(none) %0, i32
   br i1 %exitcond.not.i.i.i, label %skip_comment.exit.i.i, label %.lr.ph.ithread-pre-split.i.i, !llvm.loop !38
 
 skip_comment.exit.i.i:                            ; preds = %15, %.lr.ph.i.i.i, %.lr.ph.i.i.i, %10, %10, %10, %10, %10, %10
-  %.0.i.i = phi ptr [ %storemerge8.i.i, %10 ], [ %storemerge8.i.i, %10 ], [ %storemerge8.i.i, %10 ], [ %storemerge8.i.i, %10 ], [ %storemerge8.i.i, %10 ], [ %storemerge8.i.i, %10 ], [ %scevgep.i.i.i, %15 ], [ %.09.i.i.i, %.lr.ph.i.i.i ], [ %.09.i.i.i, %.lr.ph.i.i.i ]
+  %.0.i.i = phi ptr [ %storemerge8.i.i, %10 ], [ %storemerge8.i.i, %10 ], [ %storemerge8.i.i, %10 ], [ %storemerge8.i.i, %10 ], [ %storemerge8.i.i, %10 ], [ %storemerge8.i.i, %10 ], [ %.09.i.i.i, %.lr.ph.i.i.i ], [ %.09.i.i.i, %.lr.ph.i.i.i ], [ %scevgep.i.i.i, %15 ]
   %17 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
   %18 = icmp ult ptr %17, %6
   br i1 %18, label %10, label %ps_parser_skip_spaces.exit, !llvm.loop !39
@@ -1249,7 +1249,7 @@ ps_parser_skip_spaces.exit:                       ; preds = %10, %skip_comment.e
   br i1 %.not31.i, label %.lr.ph.i.us.us.i, label %.lr.ph.i.us50.i
 
 .thread.i:                                        ; preds = %21, %19
-  %.024.ph.i = phi i32 [ 93, %19 ], [ 125, %21 ]
+  %.024.ph.i = phi i32 [ 125, %21 ], [ 93, %19 ]
   %24 = getelementptr inbounds nuw i8, ptr %storemerge.lcssa.i.i, i64 1
   store ptr %24, ptr %4, align 8, !tbaa !25
   %25 = ptrtoint ptr %6 to i64
@@ -1298,13 +1298,13 @@ ps_parser_skip_spaces.exit:                       ; preds = %10, %skip_comment.e
   br label %.lr.ph.i.i.us.us.i
 
 skip_comment.exit.i.us.us.i:                      ; preds = %31, %.lr.ph.i.i.us.us.i, %.lr.ph.i.i.us.us.i, %.lr.ph.i.us.us.i, %.lr.ph.i.us.us.i, %.lr.ph.i.us.us.i, %.lr.ph.i.us.us.i, %.lr.ph.i.us.us.i, %.lr.ph.i.us.us.i
-  %.0.i.us.us.i = phi ptr [ %storemerge8.i.us.us.i, %.lr.ph.i.us.us.i ], [ %storemerge8.i.us.us.i, %.lr.ph.i.us.us.i ], [ %storemerge8.i.us.us.i, %.lr.ph.i.us.us.i ], [ %storemerge8.i.us.us.i, %.lr.ph.i.us.us.i ], [ %storemerge8.i.us.us.i, %.lr.ph.i.us.us.i ], [ %storemerge8.i.us.us.i, %.lr.ph.i.us.us.i ], [ %scevgep.i.i.us.us.i, %31 ], [ %.09.i.i.us.us.i, %.lr.ph.i.i.us.us.i ], [ %.09.i.i.us.us.i, %.lr.ph.i.i.us.us.i ]
+  %.0.i.us.us.i = phi ptr [ %storemerge8.i.us.us.i, %.lr.ph.i.us.us.i ], [ %storemerge8.i.us.us.i, %.lr.ph.i.us.us.i ], [ %storemerge8.i.us.us.i, %.lr.ph.i.us.us.i ], [ %storemerge8.i.us.us.i, %.lr.ph.i.us.us.i ], [ %storemerge8.i.us.us.i, %.lr.ph.i.us.us.i ], [ %storemerge8.i.us.us.i, %.lr.ph.i.us.us.i ], [ %.09.i.i.us.us.i, %.lr.ph.i.i.us.us.i ], [ %.09.i.i.us.us.i, %.lr.ph.i.i.us.us.i ], [ %scevgep.i.i.us.us.i, %31 ]
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.us.us.i, i64 1
   %34 = icmp ult ptr %33, %6
   br i1 %34, label %.lr.ph.i.us.us.ithread-pre-split, label %skip_spaces.exit.us.us.i, !llvm.loop !39
 
 skip_spaces.exit.us.us.i:                         ; preds = %skip_comment.exit.i.us.us.i, %.lr.ph.i.us.us.i
-  %storemerge.lcssa.i.us.us.i = phi ptr [ %storemerge8.i.us.us.i, %.lr.ph.i.us.us.i ], [ %33, %skip_comment.exit.i.us.us.i ]
+  %storemerge.lcssa.i.us.us.i = phi ptr [ %33, %skip_comment.exit.i.us.us.i ], [ %storemerge8.i.us.us.i, %.lr.ph.i.us.us.i ]
   store ptr %storemerge.lcssa.i.us.us.i, ptr %4, align 8, !tbaa !25
   %.not30.us.us.i = icmp ult ptr %storemerge.lcssa.i.us.us.i, %6
   br i1 %.not30.us.us.i, label %35, label %ps_tocoordarray.exit
@@ -1366,13 +1366,13 @@ skip_spaces.exit.us.us.i:                         ; preds = %skip_comment.exit.i
   br label %.lr.ph.i.i.us.i
 
 skip_comment.exit.i.us.i:                         ; preds = %47, %.lr.ph.i.i.us.i, %.lr.ph.i.i.us.i, %42, %42, %42, %42, %42, %42
-  %.0.i.us.i = phi ptr [ %storemerge8.i.us.i, %42 ], [ %storemerge8.i.us.i, %42 ], [ %storemerge8.i.us.i, %42 ], [ %storemerge8.i.us.i, %42 ], [ %storemerge8.i.us.i, %42 ], [ %storemerge8.i.us.i, %42 ], [ %scevgep.i.i.us.i, %47 ], [ %.09.i.i.us.i, %.lr.ph.i.i.us.i ], [ %.09.i.i.us.i, %.lr.ph.i.i.us.i ]
+  %.0.i.us.i = phi ptr [ %storemerge8.i.us.i, %42 ], [ %storemerge8.i.us.i, %42 ], [ %storemerge8.i.us.i, %42 ], [ %storemerge8.i.us.i, %42 ], [ %storemerge8.i.us.i, %42 ], [ %storemerge8.i.us.i, %42 ], [ %.09.i.i.us.i, %.lr.ph.i.i.us.i ], [ %.09.i.i.us.i, %.lr.ph.i.i.us.i ], [ %scevgep.i.i.us.i, %47 ]
   %49 = getelementptr inbounds nuw i8, ptr %.0.i.us.i, i64 1
   %50 = icmp ult ptr %49, %6
   br i1 %50, label %42, label %skip_spaces.exit.us.i, !llvm.loop !39
 
 skip_spaces.exit.us.i:                            ; preds = %skip_comment.exit.i.us.i, %42
-  %storemerge.lcssa.i.us.i = phi ptr [ %storemerge8.i.us.i, %42 ], [ %49, %skip_comment.exit.i.us.i ]
+  %storemerge.lcssa.i.us.i = phi ptr [ %49, %skip_comment.exit.i.us.i ], [ %storemerge8.i.us.i, %42 ]
   store ptr %storemerge.lcssa.i.us.i, ptr %4, align 8, !tbaa !25
   %.not30.us.i = icmp ult ptr %storemerge.lcssa.i.us.i, %6
   br i1 %.not30.us.i, label %51, label %ps_tocoordarray.exit
@@ -1435,13 +1435,13 @@ skip_spaces.exit.us.i:                            ; preds = %skip_comment.exit.i
   br label %.lr.ph.i.i.us54.i
 
 skip_comment.exit.i.us59.i:                       ; preds = %65, %.lr.ph.i.i.us54.i, %.lr.ph.i.i.us54.i, %.lr.ph.i.us50.i, %.lr.ph.i.us50.i, %.lr.ph.i.us50.i, %.lr.ph.i.us50.i, %.lr.ph.i.us50.i, %.lr.ph.i.us50.i
-  %.0.i.us60.i = phi ptr [ %storemerge8.i.us51.i, %.lr.ph.i.us50.i ], [ %storemerge8.i.us51.i, %.lr.ph.i.us50.i ], [ %storemerge8.i.us51.i, %.lr.ph.i.us50.i ], [ %storemerge8.i.us51.i, %.lr.ph.i.us50.i ], [ %storemerge8.i.us51.i, %.lr.ph.i.us50.i ], [ %storemerge8.i.us51.i, %.lr.ph.i.us50.i ], [ %scevgep.i.i.us53.i, %65 ], [ %.09.i.i.us55.i, %.lr.ph.i.i.us54.i ], [ %.09.i.i.us55.i, %.lr.ph.i.i.us54.i ]
+  %.0.i.us60.i = phi ptr [ %storemerge8.i.us51.i, %.lr.ph.i.us50.i ], [ %storemerge8.i.us51.i, %.lr.ph.i.us50.i ], [ %storemerge8.i.us51.i, %.lr.ph.i.us50.i ], [ %storemerge8.i.us51.i, %.lr.ph.i.us50.i ], [ %storemerge8.i.us51.i, %.lr.ph.i.us50.i ], [ %storemerge8.i.us51.i, %.lr.ph.i.us50.i ], [ %.09.i.i.us55.i, %.lr.ph.i.i.us54.i ], [ %.09.i.i.us55.i, %.lr.ph.i.i.us54.i ], [ %scevgep.i.i.us53.i, %65 ]
   %67 = getelementptr inbounds nuw i8, ptr %.0.i.us60.i, i64 1
   %68 = icmp ult ptr %67, %6
   br i1 %68, label %.lr.ph.i.us50.ithread-pre-split, label %skip_spaces.exit.us61.i, !llvm.loop !39
 
 skip_spaces.exit.us61.i:                          ; preds = %skip_comment.exit.i.us59.i, %.lr.ph.i.us50.i
-  %storemerge.lcssa.i.us62.i = phi ptr [ %storemerge8.i.us51.i, %.lr.ph.i.us50.i ], [ %67, %skip_comment.exit.i.us59.i ]
+  %storemerge.lcssa.i.us62.i = phi ptr [ %67, %skip_comment.exit.i.us59.i ], [ %storemerge8.i.us51.i, %.lr.ph.i.us50.i ]
   store ptr %storemerge.lcssa.i.us62.i, ptr %4, align 8, !tbaa !25
   %.not30.us63.i = icmp ult ptr %storemerge.lcssa.i.us62.i, %6
   br i1 %.not30.us63.i, label %69, label %ps_tocoordarray.exit
@@ -1515,13 +1515,13 @@ skip_spaces.exit.us61.i:                          ; preds = %skip_comment.exit.i
   br i1 %exitcond.not.i.i.i13, label %skip_comment.exit.i.i10, label %.lr.ph.ithread-pre-split.i.i14, !llvm.loop !38
 
 skip_comment.exit.i.i10:                          ; preds = %84, %.lr.ph.i.i.i8, %.lr.ph.i.i.i8, %79, %79, %79, %79, %79, %79
-  %.0.i.i11 = phi ptr [ %storemerge8.i.i5, %79 ], [ %storemerge8.i.i5, %79 ], [ %storemerge8.i.i5, %79 ], [ %storemerge8.i.i5, %79 ], [ %storemerge8.i.i5, %79 ], [ %storemerge8.i.i5, %79 ], [ %scevgep.i.i.i7, %84 ], [ %.09.i.i.i9, %.lr.ph.i.i.i8 ], [ %.09.i.i.i9, %.lr.ph.i.i.i8 ]
+  %.0.i.i11 = phi ptr [ %storemerge8.i.i5, %79 ], [ %storemerge8.i.i5, %79 ], [ %storemerge8.i.i5, %79 ], [ %storemerge8.i.i5, %79 ], [ %storemerge8.i.i5, %79 ], [ %storemerge8.i.i5, %79 ], [ %.09.i.i.i9, %.lr.ph.i.i.i8 ], [ %.09.i.i.i9, %.lr.ph.i.i.i8 ], [ %scevgep.i.i.i7, %84 ]
   %86 = getelementptr inbounds nuw i8, ptr %.0.i.i11, i64 1
   %87 = icmp ult ptr %86, %6
   br i1 %87, label %79, label %skip_spaces.exit.i, !llvm.loop !39
 
 skip_spaces.exit.i:                               ; preds = %skip_comment.exit.i.i10, %79
-  %storemerge.lcssa.i.i12 = phi ptr [ %storemerge8.i.i5, %79 ], [ %86, %skip_comment.exit.i.i10 ]
+  %storemerge.lcssa.i.i12 = phi ptr [ %86, %skip_comment.exit.i.i10 ], [ %storemerge8.i.i5, %79 ]
   store ptr %storemerge.lcssa.i.i12, ptr %4, align 8, !tbaa !25
   %.not30.i = icmp ult ptr %storemerge.lcssa.i.i12, %6
   br i1 %.not30.i, label %88, label %.thread41.loopexit129.split.loop.exit140.i
@@ -1537,8 +1537,8 @@ skip_spaces.exit.i:                               ; preds = %skip_comment.exit.i
   br label %.split46.us.i
 
 .split46.us.i:                                    ; preds = %51, %.split46.us.loopexit132.i, %69, %35
-  %.us-phi47.i = phi i32 [ 0, %35 ], [ 0, %69 ], [ %92, %.split46.us.loopexit132.i ], [ %.1.us81.i, %51 ]
-  %.us-phi48.i = phi ptr [ %storemerge.lcssa.i.us.us.i, %35 ], [ %storemerge.lcssa.i.us62.i, %69 ], [ %storemerge.lcssa.i.i12, %.split46.us.loopexit132.i ], [ %storemerge.lcssa.i.us.i, %51 ]
+  %.us-phi47.i = phi i32 [ %92, %.split46.us.loopexit132.i ], [ 0, %35 ], [ 0, %69 ], [ %.1.us81.i, %51 ]
+  %.us-phi48.i = phi ptr [ %storemerge.lcssa.i.i12, %.split46.us.loopexit132.i ], [ %storemerge.lcssa.i.us.us.i, %35 ], [ %storemerge.lcssa.i.us62.i, %69 ], [ %storemerge.lcssa.i.us.i, %51 ]
   %93 = getelementptr inbounds nuw i8, ptr %.us-phi48.i, i64 1
   br label %ps_tocoordarray.exit
 
@@ -1570,8 +1570,8 @@ skip_spaces.exit.i:                               ; preds = %skip_comment.exit.i
   br label %ps_tocoordarray.exit
 
 ps_tocoordarray.exit:                             ; preds = %94, %.then.i, %skip_spaces.exit.us.i, %.cont.us.i, %58, %ps_parser_skip_spaces.exit, %skip_spaces.exit.us.us.i, %.cont.us.us.i, %.split.us.split.i, %skip_spaces.exit.us61.i, %72, %.then.us.i, %.split.split.i, %.split46.us.i, %.thread41.loopexit129.split.loop.exit140.i, %.thread41.loopexit129.split.loop.exit143.i
-  %104 = phi ptr [ %storemerge.lcssa.i.i, %ps_parser_skip_spaces.exit ], [ %93, %.split46.us.i ], [ %storemerge.lcssa.i.us.us.i, %skip_spaces.exit.us.us.i ], [ %39, %.cont.us.us.i ], [ %24, %.split.us.split.i ], [ %storemerge.lcssa.i.us62.i, %skip_spaces.exit.us61.i ], [ %storemerge.lcssa.i.us62.i, %72 ], [ %76, %.then.us.i ], [ %24, %.split.split.i ], [ %storemerge.lcssa.i.i12, %.thread41.loopexit129.split.loop.exit140.i ], [ %99, %.thread41.loopexit129.split.loop.exit143.i ], [ %56, %58 ], [ %storemerge.lcssa.i.us.i, %skip_spaces.exit.us.i ], [ %56, %.cont.us.i ], [ %storemerge.lcssa.i.i12, %94 ], [ %99, %.then.i ]
-  %.023.i = phi i32 [ 0, %ps_parser_skip_spaces.exit ], [ %.us-phi47.i, %.split46.us.i ], [ 0, %skip_spaces.exit.us.us.i ], [ %spec.select.i, %.cont.us.us.i ], [ 0, %.split.us.split.i ], [ 0, %skip_spaces.exit.us61.i ], [ 0, %72 ], [ %spec.select87.i, %.then.us.i ], [ 0, %.split.split.i ], [ %103, %.thread41.loopexit129.split.loop.exit140.i ], [ %indvars.le.i, %.thread41.loopexit129.split.loop.exit143.i ], [ %59, %58 ], [ %.1.us81.i, %skip_spaces.exit.us.i ], [ -1, %.cont.us.i ], [ %smax.i, %94 ], [ -1, %.then.i ]
+  %104 = phi ptr [ %storemerge.lcssa.i.i, %ps_parser_skip_spaces.exit ], [ %93, %.split46.us.i ], [ %24, %.split.split.i ], [ %storemerge.lcssa.i.us62.i, %skip_spaces.exit.us61.i ], [ %39, %.cont.us.us.i ], [ %storemerge.lcssa.i.us.us.i, %skip_spaces.exit.us.us.i ], [ %99, %.thread41.loopexit129.split.loop.exit143.i ], [ %storemerge.lcssa.i.us62.i, %72 ], [ %76, %.then.us.i ], [ %24, %.split.us.split.i ], [ %56, %58 ], [ %storemerge.lcssa.i.i12, %.thread41.loopexit129.split.loop.exit140.i ], [ %56, %.cont.us.i ], [ %storemerge.lcssa.i.us.i, %skip_spaces.exit.us.i ], [ %99, %.then.i ], [ %storemerge.lcssa.i.i12, %94 ]
+  %.023.i = phi i32 [ 0, %ps_parser_skip_spaces.exit ], [ %.us-phi47.i, %.split46.us.i ], [ 0, %.split.split.i ], [ 0, %skip_spaces.exit.us61.i ], [ %spec.select.i, %.cont.us.us.i ], [ 0, %skip_spaces.exit.us.us.i ], [ %indvars.le.i, %.thread41.loopexit129.split.loop.exit143.i ], [ 0, %72 ], [ %spec.select87.i, %.then.us.i ], [ 0, %.split.us.split.i ], [ %59, %58 ], [ %103, %.thread41.loopexit129.split.loop.exit140.i ], [ -1, %.cont.us.i ], [ %.1.us81.i, %skip_spaces.exit.us.i ], [ -1, %.then.i ], [ %smax.i, %94 ]
   store ptr %104, ptr %0, align 8, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.023.i
@@ -1626,7 +1626,7 @@ define internal i32 @ps_parser_to_fixed_array(ptr noundef captures(none) %0, i32
   br i1 %exitcond.not.i.i.i, label %skip_comment.exit.i.i, label %.lr.ph.ithread-pre-split.i.i, !llvm.loop !38
 
 skip_comment.exit.i.i:                            ; preds = %15, %.lr.ph.i.i.i, %.lr.ph.i.i.i, %10, %10, %10, %10, %10, %10
-  %.0.i.i = phi ptr [ %storemerge8.i.i, %10 ], [ %storemerge8.i.i, %10 ], [ %storemerge8.i.i, %10 ], [ %storemerge8.i.i, %10 ], [ %storemerge8.i.i, %10 ], [ %storemerge8.i.i, %10 ], [ %scevgep.i.i.i, %15 ], [ %.09.i.i.i, %.lr.ph.i.i.i ], [ %.09.i.i.i, %.lr.ph.i.i.i ]
+  %.0.i.i = phi ptr [ %storemerge8.i.i, %10 ], [ %storemerge8.i.i, %10 ], [ %storemerge8.i.i, %10 ], [ %storemerge8.i.i, %10 ], [ %storemerge8.i.i, %10 ], [ %storemerge8.i.i, %10 ], [ %.09.i.i.i, %.lr.ph.i.i.i ], [ %.09.i.i.i, %.lr.ph.i.i.i ], [ %scevgep.i.i.i, %15 ]
   %17 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
   %18 = icmp ult ptr %17, %6
   br i1 %18, label %10, label %ps_parser_skip_spaces.exit, !llvm.loop !39
@@ -1692,7 +1692,7 @@ define internal void @ps_parser_to_token(ptr noundef captures(none) %0, ptr noun
   br i1 %exitcond.not.i.i.i, label %skip_comment.exit.i.i, label %.lr.ph.ithread-pre-split.i.i, !llvm.loop !38
 
 skip_comment.exit.i.i:                            ; preds = %16, %.lr.ph.i.i.i, %.lr.ph.i.i.i, %11, %11, %11, %11, %11, %11
-  %.0.i.i = phi ptr [ %storemerge8.i.i, %11 ], [ %storemerge8.i.i, %11 ], [ %storemerge8.i.i, %11 ], [ %storemerge8.i.i, %11 ], [ %storemerge8.i.i, %11 ], [ %storemerge8.i.i, %11 ], [ %scevgep.i.i.i, %16 ], [ %.09.i.i.i, %.lr.ph.i.i.i ], [ %.09.i.i.i, %.lr.ph.i.i.i ]
+  %.0.i.i = phi ptr [ %storemerge8.i.i, %11 ], [ %storemerge8.i.i, %11 ], [ %storemerge8.i.i, %11 ], [ %storemerge8.i.i, %11 ], [ %storemerge8.i.i, %11 ], [ %storemerge8.i.i, %11 ], [ %.09.i.i.i, %.lr.ph.i.i.i ], [ %.09.i.i.i, %.lr.ph.i.i.i ], [ %scevgep.i.i.i, %16 ]
   %18 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
   %19 = icmp ult ptr %18, %7
   br i1 %19, label %11, label %ps_parser_skip_spaces.exit, !llvm.loop !39
@@ -1786,7 +1786,7 @@ ps_parser_skip_spaces.exit:                       ; preds = %11, %skip_comment.e
   br i1 %exitcond.not.i.i.i56, label %skip_comment.exit.i.i54, label %.lr.ph.ithread-pre-split.i.i57, !llvm.loop !38
 
 skip_comment.exit.i.i54:                          ; preds = %41, %.lr.ph.i.i.i52, %.lr.ph.i.i.i52, %36, %36, %36, %36, %36, %36
-  %.0.i.i55 = phi ptr [ %storemerge8.i.i49, %36 ], [ %storemerge8.i.i49, %36 ], [ %storemerge8.i.i49, %36 ], [ %storemerge8.i.i49, %36 ], [ %storemerge8.i.i49, %36 ], [ %storemerge8.i.i49, %36 ], [ %scevgep.i.i.i51, %41 ], [ %.09.i.i.i53, %.lr.ph.i.i.i52 ], [ %.09.i.i.i53, %.lr.ph.i.i.i52 ]
+  %.0.i.i55 = phi ptr [ %storemerge8.i.i49, %36 ], [ %storemerge8.i.i49, %36 ], [ %storemerge8.i.i49, %36 ], [ %storemerge8.i.i49, %36 ], [ %storemerge8.i.i49, %36 ], [ %storemerge8.i.i49, %36 ], [ %.09.i.i.i53, %.lr.ph.i.i.i52 ], [ %.09.i.i.i53, %.lr.ph.i.i.i52 ], [ %scevgep.i.i.i51, %41 ]
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i55, i64 1
   %44 = icmp ult ptr %43, %7
   br i1 %44, label %36, label %ps_parser_skip_spaces.exit59, !llvm.loop !39
@@ -1880,7 +1880,7 @@ ps_parser_skip_spaces.exit59:                     ; preds = %36, %skip_comment.e
   br i1 %exitcond.not.i.i.i69, label %skip_comment.exit.i.i67, label %.lr.ph.ithread-pre-split.i.i70, !llvm.loop !38
 
 skip_comment.exit.i.i67:                          ; preds = %67, %.lr.ph.i.i.i65, %.lr.ph.i.i.i65, %62, %62, %62, %62, %62, %62
-  %.0.i.i68 = phi ptr [ %storemerge8.i.i62, %62 ], [ %storemerge8.i.i62, %62 ], [ %storemerge8.i.i62, %62 ], [ %storemerge8.i.i62, %62 ], [ %storemerge8.i.i62, %62 ], [ %storemerge8.i.i62, %62 ], [ %scevgep.i.i.i64, %67 ], [ %.09.i.i.i66, %.lr.ph.i.i.i65 ], [ %.09.i.i.i66, %.lr.ph.i.i.i65 ]
+  %.0.i.i68 = phi ptr [ %storemerge8.i.i62, %62 ], [ %storemerge8.i.i62, %62 ], [ %storemerge8.i.i62, %62 ], [ %storemerge8.i.i62, %62 ], [ %storemerge8.i.i62, %62 ], [ %storemerge8.i.i62, %62 ], [ %.09.i.i.i66, %.lr.ph.i.i.i65 ], [ %.09.i.i.i66, %.lr.ph.i.i.i65 ], [ %scevgep.i.i.i64, %67 ]
   %69 = getelementptr inbounds nuw i8, ptr %.0.i.i68, i64 1
   %70 = icmp ult ptr %69, %58
   br i1 %70, label %62, label %ps_parser_skip_spaces.exit72, !llvm.loop !39
@@ -1915,7 +1915,7 @@ ps_parser_skip_spaces.exit72:                     ; preds = %62, %skip_comment.e
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedgethread-pre-split, %79, %30, %25
-  %80 = phi ptr [ %.pr, %.critedgethread-pre-split ], [ %76, %79 ], [ %31, %30 ], [ %26, %25 ]
+  %80 = phi ptr [ %.pr, %.critedgethread-pre-split ], [ %76, %79 ], [ %26, %25 ], [ %31, %30 ]
   %.not46 = icmp eq ptr %80, null
   br i1 %.not46, label %81, label %82
 
@@ -2162,7 +2162,7 @@ define internal i32 @ps_parser_load_field(ptr noundef captures(none) %0, ptr nou
   br i1 %exitcond.not.i.i, label %skip_comment.exit.i, label %.lr.ph.ithread-pre-split.i, !llvm.loop !38
 
 skip_comment.exit.i:                              ; preds = %59, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
-  %.0.i = phi ptr [ %storemerge8.i, %.lr.ph.i ], [ %storemerge8.i, %.lr.ph.i ], [ %storemerge8.i, %.lr.ph.i ], [ %storemerge8.i, %.lr.ph.i ], [ %storemerge8.i, %.lr.ph.i ], [ %storemerge8.i, %.lr.ph.i ], [ %.09.i.i, %.lr.ph.i.i ], [ %.09.i.i, %.lr.ph.i.i ], [ %scevgep.i.i, %59 ]
+  %.0.i = phi ptr [ %storemerge8.i, %.lr.ph.i ], [ %storemerge8.i, %.lr.ph.i ], [ %storemerge8.i, %.lr.ph.i ], [ %storemerge8.i, %.lr.ph.i ], [ %storemerge8.i, %.lr.ph.i ], [ %storemerge8.i, %.lr.ph.i ], [ %scevgep.i.i, %59 ], [ %.09.i.i, %.lr.ph.i.i ], [ %.09.i.i, %.lr.ph.i.i ]
   %61 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   %62 = icmp ult ptr %61, %.0106204
   br i1 %62, label %.lr.ph.i, label %skip_spaces.exit, !llvm.loop !39
@@ -2247,8 +2247,8 @@ skip_spaces.exit:                                 ; preds = %.lr.ph.i, %skip_com
   br label %ps_tobool.exit
 
 ps_tobool.exit:                                   ; preds = %80, %82, %85, %88, %92, %96, %99
-  %.018.i = phi ptr [ %81, %80 ], [ %storemerge.lcssa.i, %96 ], [ %storemerge.lcssa.i, %92 ], [ %storemerge.lcssa.i, %88 ], [ %storemerge.lcssa.i, %85 ], [ %storemerge.lcssa.i, %82 ], [ %spec.select.i, %99 ]
-  %.0.i132 = phi i64 [ 1, %80 ], [ 0, %96 ], [ 0, %92 ], [ 0, %88 ], [ 0, %85 ], [ 0, %82 ], [ 0, %99 ]
+  %.018.i = phi ptr [ %81, %80 ], [ %storemerge.lcssa.i, %82 ], [ %spec.select.i, %99 ], [ %storemerge.lcssa.i, %96 ], [ %storemerge.lcssa.i, %92 ], [ %storemerge.lcssa.i, %88 ], [ %storemerge.lcssa.i, %85 ]
+  %.0.i132 = phi i64 [ 1, %80 ], [ 0, %82 ], [ 0, %99 ], [ 0, %96 ], [ 0, %92 ], [ 0, %88 ], [ 0, %85 ]
   store ptr %.018.i, ptr %7, align 8, !tbaa !25
   br label %108
 
@@ -2445,7 +2445,7 @@ ps_tobool.exit:                                   ; preds = %80, %82, %85, %88, 
   br i1 %exitcond.not.i.i142, label %skip_comment.exit.i140, label %.lr.ph.ithread-pre-split.i143, !llvm.loop !38
 
 skip_comment.exit.i140:                           ; preds = %175, %.lr.ph.i.i138, %.lr.ph.i.i138, %.lr.ph.i134, %.lr.ph.i134, %.lr.ph.i134, %.lr.ph.i134, %.lr.ph.i134, %.lr.ph.i134
-  %.0.i141 = phi ptr [ %storemerge8.i135, %.lr.ph.i134 ], [ %storemerge8.i135, %.lr.ph.i134 ], [ %storemerge8.i135, %.lr.ph.i134 ], [ %storemerge8.i135, %.lr.ph.i134 ], [ %storemerge8.i135, %.lr.ph.i134 ], [ %storemerge8.i135, %.lr.ph.i134 ], [ %.09.i.i139, %.lr.ph.i.i138 ], [ %.09.i.i139, %.lr.ph.i.i138 ], [ %scevgep.i.i137, %175 ]
+  %.0.i141 = phi ptr [ %storemerge8.i135, %.lr.ph.i134 ], [ %storemerge8.i135, %.lr.ph.i134 ], [ %storemerge8.i135, %.lr.ph.i134 ], [ %storemerge8.i135, %.lr.ph.i134 ], [ %storemerge8.i135, %.lr.ph.i134 ], [ %storemerge8.i135, %.lr.ph.i134 ], [ %scevgep.i.i137, %175 ], [ %.09.i.i139, %.lr.ph.i.i138 ], [ %.09.i.i139, %.lr.ph.i.i138 ]
   %177 = getelementptr inbounds nuw i8, ptr %.0.i141, i64 1
   %178 = icmp ult ptr %177, %.0106204
   br i1 %178, label %.lr.ph.i134, label %skip_spaces.exit145, !llvm.loop !39
@@ -2502,7 +2502,7 @@ skip_spaces.exit145:                              ; preds = %.lr.ph.i134, %skip_
   br i1 %.not126, label %.thread157, label %47, !llvm.loop !62
 
 .thread157:                                       ; preds = %156, %133, %skip_spaces.exit, %203, %122, %5, %31, %.thread205, %167, %155
-  %205 = phi i32 [ %.pre, %167 ], [ 3, %155 ], [ 3, %.thread205 ], [ 3, %31 ], [ 3, %5 ], [ 3, %122 ], [ 0, %203 ], [ 3, %skip_spaces.exit ], [ %159, %156 ], [ %137, %133 ]
+  %205 = phi i32 [ 3, %31 ], [ %.pre, %167 ], [ 3, %5 ], [ 3, %155 ], [ 3, %.thread205 ], [ 0, %203 ], [ 3, %122 ], [ 3, %skip_spaces.exit ], [ %159, %156 ], [ %137, %133 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -3156,7 +3156,7 @@ t1_builder_add_point.exit.i:                      ; preds = %55, %t1_builder_che
   br label %t1_builder_add_point1.exit
 
 t1_builder_add_point1.exit:                       ; preds = %25, %7, %t1_builder_add_point.exit.i, %t1_builder_check_points.exit.i, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %t1_builder_add_point.exit.i ], [ %52, %t1_builder_check_points.exit.i ], [ %26, %25 ], [ 3, %7 ]
+  %.0 = phi i32 [ 0, %3 ], [ %52, %t1_builder_check_points.exit.i ], [ 0, %t1_builder_add_point.exit.i ], [ %26, %25 ], [ 3, %7 ]
   ret i32 %.0
 }
 
@@ -3562,15 +3562,15 @@ define internal range(i32 0, 162) i32 @t1_decoder_parse_metrics(ptr noundef %0, 
   br label %82
 
 80:                                               ; preds = %29, %22, %27, %26
-  %.2159 = phi ptr [ %24, %26 ], [ %24, %27 ], [ %24, %22 ], [ %30, %29 ]
-  %.0149 = phi i32 [ 24, %26 ], [ 2, %27 ], [ 22, %22 ], [ 4, %29 ]
+  %.2159 = phi ptr [ %24, %27 ], [ %24, %22 ], [ %30, %29 ], [ %24, %26 ]
+  %.0149 = phi i32 [ 2, %27 ], [ 22, %22 ], [ 4, %29 ], [ 24, %26 ]
   %81 = icmp eq i8 %.0151279, 0
   br i1 %81, label %.thread211, label %.thread239
 
-82:                                               ; preds = %78, %55, %54
-  %.2159.ph.ph = phi ptr [ %33, %54 ], [ %33, %55 ], [ %.3160, %78 ]
-  %.2153.ph.ph.shrunk = phi i1 [ true, %54 ], [ %.not, %55 ], [ %.not185, %78 ]
-  %.0147.ph.ph = phi i32 [ %52, %54 ], [ %spec.select195, %55 ], [ %spec.select197, %78 ]
+82:                                               ; preds = %54, %78, %55
+  %.2159.ph.ph = phi ptr [ %33, %55 ], [ %.3160, %78 ], [ %33, %54 ]
+  %.2153.ph.ph.shrunk = phi i1 [ %.not, %55 ], [ %.not185, %78 ], [ true, %54 ]
+  %.0147.ph.ph = phi i32 [ %spec.select195, %55 ], [ %spec.select197, %78 ], [ %52, %54 ]
   %83 = ptrtoint ptr %23 to i64
   %84 = sub i64 %83, %12
   %85 = icmp sgt i64 %84, 2040
@@ -3750,8 +3750,8 @@ define internal range(i32 0, 162) i32 @t1_decoder_parse_metrics(ptr noundef %0, 
   store i64 %.sink, ptr %21, align 8, !tbaa !195
   br label %.thread239
 
-.thread239:                                       ; preds = %.thread211, %82, %80, %57, %64, %54, %32, %29, %28, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %.thread232, %163, %97, %136, %138, %158, %131, %3, %.thread239.sink.split
-  %.4 = phi i32 [ 0, %.thread239.sink.split ], [ 160, %3 ], [ 160, %131 ], [ 160, %158 ], [ 160, %138 ], [ 160, %136 ], [ 160, %97 ], [ 160, %163 ], [ 160, %.thread232 ], [ 160, %22 ], [ 160, %22 ], [ 160, %22 ], [ 160, %22 ], [ 160, %22 ], [ 160, %22 ], [ 160, %22 ], [ 160, %22 ], [ 160, %22 ], [ 160, %22 ], [ 160, %22 ], [ 160, %22 ], [ 160, %22 ], [ 160, %22 ], [ 160, %28 ], [ 160, %29 ], [ 160, %32 ], [ 160, %54 ], [ 160, %64 ], [ 160, %57 ], [ 160, %80 ], [ 160, %82 ], [ 161, %.thread211 ]
+.thread239:                                       ; preds = %.thread211, %29, %28, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %32, %64, %54, %57, %82, %80, %.thread232, %163, %97, %158, %138, %136, %131, %3, %.thread239.sink.split
+  %.4 = phi i32 [ 0, %.thread239.sink.split ], [ 160, %3 ], [ 160, %131 ], [ 160, %80 ], [ 160, %136 ], [ 160, %138 ], [ 160, %158 ], [ 160, %97 ], [ 160, %163 ], [ 160, %.thread232 ], [ 160, %82 ], [ 160, %57 ], [ 160, %54 ], [ 160, %64 ], [ 160, %32 ], [ 160, %22 ], [ 160, %22 ], [ 160, %22 ], [ 160, %22 ], [ 160, %22 ], [ 160, %22 ], [ 160, %22 ], [ 160, %22 ], [ 160, %22 ], [ 160, %22 ], [ 160, %22 ], [ 160, %22 ], [ 160, %22 ], [ 160, %22 ], [ 160, %28 ], [ 160, %29 ], [ 161, %.thread211 ]
   ret i32 %.4
 }
 
@@ -4890,8 +4890,8 @@ cf2_getGlyphOutline.exit:                         ; preds = %542, %563, %596, %6
   store i64 %623, ptr %625, align 8, !tbaa !41
   br label %cf2_setGlyphWidth.exit
 
-cf2_setGlyphWidth.exit:                           ; preds = %125, %123, %120, %619, %616, %cf2_getGlyphOutline.exit.thread, %cf2_getGlyphOutline.exit
-  %.1 = phi i32 [ 3, %cf2_getGlyphOutline.exit ], [ 3, %cf2_getGlyphOutline.exit.thread ], [ 0, %616 ], [ 0, %619 ], [ 164, %125 ], [ 164, %123 ], [ 36, %120 ]
+cf2_setGlyphWidth.exit:                           ; preds = %123, %120, %125, %619, %616, %cf2_getGlyphOutline.exit.thread, %cf2_getGlyphOutline.exit
+  %.1 = phi i32 [ 3, %cf2_getGlyphOutline.exit.thread ], [ 0, %619 ], [ 3, %cf2_getGlyphOutline.exit ], [ 0, %616 ], [ 164, %125 ], [ 36, %120 ], [ 164, %123 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %626
@@ -5308,7 +5308,7 @@ afm_stream_skip_spaces.exit.i:                    ; preds = %.lr.ph.i.i, %137
   ]
 
 .preheader.i34.i:                                 ; preds = %.backedge.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %148, %148, %148, %145, %afm_stream_skip_spaces.exit.i, %.preheader.i25.i, %134
-  %151 = phi ptr [ %135, %134 ], [ %143, %afm_stream_skip_spaces.exit.i ], [ %135, %.preheader.i25.i ], [ %146, %145 ], [ %149, %148 ], [ %149, %148 ], [ %149, %148 ], [ %141, %.lr.ph.i.i ], [ %141, %.lr.ph.i.i ], [ %141, %.lr.ph.i.i ], [ %141, %.backedge.i.i ]
+  %151 = phi ptr [ %143, %afm_stream_skip_spaces.exit.i ], [ %149, %148 ], [ %135, %.preheader.i25.i ], [ %135, %134 ], [ %146, %145 ], [ %149, %148 ], [ %149, %148 ], [ %141, %.lr.ph.i.i ], [ %141, %.lr.ph.i.i ], [ %141, %.lr.ph.i.i ], [ %141, %.backedge.i.i ]
   store i32 0, ptr %128, align 8, !tbaa !374
   %152 = icmp ult ptr %151, %130
   br i1 %152, label %.lr.ph.i38.i, label %.thread.i36.i
@@ -5364,8 +5364,8 @@ afm_stream_skip_spaces.exit42.i:                  ; preds = %.lr.ph.i38.i, %158
   br label %.thread26.sink.split.i.i
 
 .thread26.sink.split.i.i:                         ; preds = %afm_stream_skip_spaces.exit42.i, %158, %.thread26.sink.split.i.i.loopexit702, %.thread26.sink.split.i.i.loopexit
-  %.val16.promoted91.i = phi ptr [ %159, %.thread26.sink.split.i.i.loopexit ], [ %159, %158 ], [ %.val16.promoted93.i, %afm_stream_skip_spaces.exit42.i ], [ %159, %.thread26.sink.split.i.i.loopexit702 ]
-  %.sink.i.i = phi i32 [ 2, %.thread26.sink.split.i.i.loopexit ], [ 3, %158 ], [ 3, %afm_stream_skip_spaces.exit42.i ], [ 1, %.thread26.sink.split.i.i.loopexit702 ]
+  %.val16.promoted91.i = phi ptr [ %159, %158 ], [ %159, %.thread26.sink.split.i.i.loopexit ], [ %.val16.promoted93.i, %afm_stream_skip_spaces.exit42.i ], [ %159, %.thread26.sink.split.i.i.loopexit702 ]
+  %.sink.i.i = phi i32 [ 3, %158 ], [ 2, %.thread26.sink.split.i.i.loopexit ], [ 3, %afm_stream_skip_spaces.exit42.i ], [ 1, %.thread26.sink.split.i.i.loopexit702 ]
   store i32 %.sink.i.i, ptr %128, align 8, !tbaa !374
   br label %afm_parser_next_key.exit.i
 
@@ -5531,7 +5531,7 @@ afm_stream_skip_spaces.exit51.thread.i:           ; preds = %.lr.ph.i47.i, %.lr.
   br label %afm_tokenize.exit.i
 
 afm_tokenize.exit.i:                              ; preds = %.loopexit17.i.i, %202, %.preheader.i.i, %.loopexit.loopexit.split.loop.exit25.i.i
-  %.014.i.i = phi i32 [ %204, %.loopexit.loopexit.split.loop.exit25.i.i ], [ 75, %.preheader.i.i ], [ 75, %202 ], [ 75, %.loopexit17.i.i ]
+  %.014.i.i = phi i32 [ 75, %202 ], [ %204, %.loopexit.loopexit.split.loop.exit25.i.i ], [ 75, %.preheader.i.i ], [ 75, %.loopexit17.i.i ]
   switch i32 %.014.i.i, label %.preheader.i76 [
     i32 20, label %afm_parse_kern_data.exit
     i32 17, label %afm_parse_kern_data.exit
@@ -5631,7 +5631,7 @@ afm_stream_skip_spaces.exit.i97:                  ; preds = %.lr.ph.i.i95, %232
   ]
 
 .preheader.i51.i:                                 ; preds = %.backedge.i.i96, %.lr.ph.i.i95, %.lr.ph.i.i95, %.lr.ph.i.i95, %243, %243, %243, %240, %afm_stream_skip_spaces.exit.i97, %.preheader.i47.i, %229
-  %246 = phi ptr [ %230, %229 ], [ %238, %afm_stream_skip_spaces.exit.i97 ], [ %230, %.preheader.i47.i ], [ %241, %240 ], [ %244, %243 ], [ %244, %243 ], [ %244, %243 ], [ %236, %.lr.ph.i.i95 ], [ %236, %.lr.ph.i.i95 ], [ %236, %.lr.ph.i.i95 ], [ %236, %.backedge.i.i96 ]
+  %246 = phi ptr [ %238, %afm_stream_skip_spaces.exit.i97 ], [ %244, %243 ], [ %230, %.preheader.i47.i ], [ %230, %229 ], [ %241, %240 ], [ %244, %243 ], [ %244, %243 ], [ %236, %.lr.ph.i.i95 ], [ %236, %.lr.ph.i.i95 ], [ %236, %.lr.ph.i.i95 ], [ %236, %.backedge.i.i96 ]
   store i32 0, ptr %225, align 8, !tbaa !374
   %247 = icmp ult ptr %246, %228
   br i1 %247, label %.lr.ph.i55.i, label %.thread.i53.i
@@ -5954,7 +5954,7 @@ afm_tokenize.exit.i.i:                            ; preds = %338
   br label %afm_parse_kern_data.exit.thread128
 
 afm_tokenize.exit.thread.i.i:                     ; preds = %.loopexit17.i.i.i, %341, %.preheader.i.i.i, %350, %afm_tokenize.exit.i.i
-  %.235.i.i = phi i32 [ %345, %350 ], [ %.033.i.i, %afm_tokenize.exit.i.i ], [ %.033.i.i, %.preheader.i.i.i ], [ %.033.i.i, %341 ], [ %.033.i.i, %.loopexit17.i.i.i ]
+  %.235.i.i = phi i32 [ %345, %350 ], [ %.033.i.i, %341 ], [ %.033.i.i, %afm_tokenize.exit.i.i ], [ %.033.i.i, %.preheader.i.i.i ], [ %.033.i.i, %.loopexit17.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %303
 
@@ -6192,22 +6192,22 @@ afm_parse_kern_pairs.exit.i:                      ; preds = %457, %454
   br label %afm_tokenize.exit.thread.i
 
 afm_tokenize.exit.thread.i:                       ; preds = %.loopexit17.i.i86, %275, %.preheader.i.i89, %afm_parse_kern_pairs.exit.i, %afm_parse_track_kern.exit.i, %afm_tokenize.exit.i93
-  %.111.i = phi i32 [ %.010.i, %afm_tokenize.exit.i93 ], [ 1, %afm_parse_track_kern.exit.i ], [ %.010.i, %afm_parse_kern_pairs.exit.i ], [ %.010.i, %.preheader.i.i89 ], [ %.010.i, %275 ], [ %.010.i, %.loopexit17.i.i86 ]
-  %.1.i = phi i32 [ %.0.i81, %afm_tokenize.exit.i93 ], [ %.0.i81, %afm_parse_track_kern.exit.i ], [ 1, %afm_parse_kern_pairs.exit.i ], [ %.0.i81, %.preheader.i.i89 ], [ %.0.i81, %275 ], [ %.0.i81, %.loopexit17.i.i86 ]
+  %.111.i = phi i32 [ %.010.i, %afm_tokenize.exit.i93 ], [ 1, %afm_parse_track_kern.exit.i ], [ %.010.i, %afm_parse_kern_pairs.exit.i ], [ %.010.i, %275 ], [ %.010.i, %.preheader.i.i89 ], [ %.010.i, %.loopexit17.i.i86 ]
+  %.1.i = phi i32 [ %.0.i81, %afm_tokenize.exit.i93 ], [ %.0.i81, %afm_parse_track_kern.exit.i ], [ 1, %afm_parse_kern_pairs.exit.i ], [ %.0.i81, %275 ], [ %.0.i81, %.preheader.i.i89 ], [ %.0.i81, %.loopexit17.i.i86 ]
   br label %224, !llvm.loop !410
 
-afm_parse_kern_data.exit.thread128:               ; preds = %100, %103, %107, %114, %118, %afm_parser_read_int.exit.i.i, %285, %296, %afm_parser_read_int.exit.i28.i, %373, %384, %278, %366, %afm_tokenize.exit.i93, %afm_tokenize.exit.i43.i, %407, %320, %afm_parser_read_int.exit, %.thread, %afm_parser_read_int.exit.thread.i.i, %.thread.i25.i, %453, %afm_parser_read_int.exit.thread.i26.i, %251, %.thread.i53.i
-  %.2.ph = phi i32 [ %.041, %.thread ], [ %.041, %afm_parser_read_int.exit ], [ 160, %.thread.i53.i ], [ 160, %251 ], [ 160, %afm_parser_read_int.exit.thread.i26.i ], [ 160, %453 ], [ 160, %.thread.i25.i ], [ 160, %afm_parser_read_int.exit.thread.i.i ], [ 160, %320 ], [ 160, %407 ], [ 160, %afm_tokenize.exit.i43.i ], [ 160, %afm_parser_read_int.exit.i.i ], [ 160, %285 ], [ %300, %296 ], [ 160, %afm_parser_read_int.exit.i28.i ], [ 160, %373 ], [ %388, %384 ], [ 160, %278 ], [ 160, %366 ], [ 160, %afm_tokenize.exit.i93 ], [ 7, %100 ], [ %.041, %103 ], [ %.041, %107 ], [ %.041, %114 ], [ %.041, %118 ]
+afm_parse_kern_data.exit.thread128:               ; preds = %100, %103, %107, %114, %118, %afm_tokenize.exit.i93, %296, %384, %285, %afm_parser_read_int.exit.i.i, %373, %afm_parser_read_int.exit.i28.i, %278, %366, %afm_tokenize.exit.i43.i, %407, %320, %afm_parser_read_int.exit, %.thread, %.thread.i53.i, %.thread.i25.i, %453, %afm_parser_read_int.exit.thread.i26.i, %afm_parser_read_int.exit.thread.i.i, %251
+  %.2.ph = phi i32 [ %.041, %.thread ], [ 160, %afm_parser_read_int.exit.thread.i26.i ], [ 160, %453 ], [ 160, %407 ], [ 160, %.thread.i25.i ], [ 160, %afm_tokenize.exit.i43.i ], [ %.041, %afm_parser_read_int.exit ], [ 160, %366 ], [ 160, %320 ], [ 160, %.thread.i53.i ], [ 160, %251 ], [ 160, %afm_parser_read_int.exit.thread.i.i ], [ 160, %afm_tokenize.exit.i93 ], [ %300, %296 ], [ %388, %384 ], [ 160, %285 ], [ 160, %afm_parser_read_int.exit.i.i ], [ 160, %373 ], [ 160, %afm_parser_read_int.exit.i28.i ], [ 160, %278 ], [ 7, %100 ], [ %.041, %114 ], [ %.041, %107 ], [ %.041, %103 ], [ %.041, %118 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %afm_parser_next_key.exit72.thread
 
-afm_parse_kern_data.exit.thread135:               ; preds = %afm_tokenize.exit, %afm_tokenize.exit.i93, %afm_tokenize.exit.i93, %178, %.thread.i45.i, %156, %.thread.i36.i
-  %.245.ph = phi i32 [ 160, %178 ], [ 160, %.thread.i45.i ], [ 160, %156 ], [ 160, %.thread.i36.i ], [ 0, %afm_tokenize.exit.i93 ], [ 0, %afm_tokenize.exit.i93 ], [ 0, %afm_tokenize.exit ]
+afm_parse_kern_data.exit.thread135:               ; preds = %afm_tokenize.exit, %afm_tokenize.exit.i93, %afm_tokenize.exit.i93, %156, %.thread.i45.i, %178, %.thread.i36.i
+  %.245.ph = phi i32 [ 160, %178 ], [ 0, %afm_tokenize.exit.i93 ], [ 160, %.thread.i36.i ], [ 160, %156 ], [ 160, %.thread.i45.i ], [ 0, %afm_tokenize.exit.i93 ], [ 0, %afm_tokenize.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %afm_parser_next_key.exit.thread
 
-afm_parse_kern_data.exit:                         ; preds = %.loopexit17.i, %94, %.preheader.i, %afm_tokenize.exit.i, %afm_tokenize.exit.i, %105, %109, %116, %120, %100, %afm_tokenize.exit
-  %.3 = phi i32 [ %.041, %afm_tokenize.exit ], [ %.041, %100 ], [ %.041, %105 ], [ %.041, %109 ], [ %.041, %116 ], [ %.041, %120 ], [ 0, %afm_tokenize.exit.i ], [ 0, %afm_tokenize.exit.i ], [ %.041, %.preheader.i ], [ %.041, %94 ], [ %.041, %.loopexit17.i ]
+afm_parse_kern_data.exit:                         ; preds = %.loopexit17.i, %.preheader.i, %94, %afm_tokenize.exit.i, %afm_tokenize.exit.i, %105, %109, %116, %120, %100, %afm_tokenize.exit
+  %.3 = phi i32 [ %.041, %afm_tokenize.exit ], [ %.041, %100 ], [ %.041, %105 ], [ %.041, %109 ], [ %.041, %116 ], [ %.041, %120 ], [ 0, %afm_tokenize.exit.i ], [ %.041, %.preheader.i ], [ 0, %afm_tokenize.exit.i ], [ %.041, %94 ], [ %.041, %.loopexit17.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %56
 
@@ -6229,7 +6229,7 @@ afm_parser_next_key.exit72.thread:                ; preds = %73, %afm_parse_kern
   br label %afm_parser_next_key.exit.thread
 
 afm_parser_next_key.exit.thread:                  ; preds = %32, %afm_parse_kern_data.exit.thread135, %afm_parser_next_key.exit, %39, %1, %afm_parser_next_key.exit72.thread
-  %.043 = phi i32 [ %.5, %afm_parser_next_key.exit72.thread ], [ 6, %1 ], [ 2, %39 ], [ 2, %afm_parser_next_key.exit ], [ %.245.ph, %afm_parse_kern_data.exit.thread135 ], [ 2, %32 ]
+  %.043 = phi i32 [ 6, %1 ], [ %.245.ph, %afm_parse_kern_data.exit.thread135 ], [ %.5, %afm_parser_next_key.exit72.thread ], [ 2, %39 ], [ 2, %afm_parser_next_key.exit ], [ 2, %32 ]
   ret i32 %.043
 }
 
@@ -6824,7 +6824,7 @@ cff_builder_init.exit:                            ; preds = %8, %16, %29, %33
   br label %cff_compute_bias.exit
 
 cff_compute_bias.exit:                            ; preds = %cff_builder_init.exit, %50, %52
-  %.0.i = phi i32 [ 0, %cff_builder_init.exit ], [ 107, %50 ], [ %..i, %52 ]
+  %.0.i = phi i32 [ 107, %50 ], [ 0, %cff_builder_init.exit ], [ %..i, %52 ]
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 1452
   store i32 %.0.i, ptr %54, align 4, !tbaa !434
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 1484
@@ -6910,7 +6910,7 @@ define internal range(i32 0, 4) i32 @cff_decoder_prepare(ptr noundef captures(no
   br label %cff_compute_bias.exit
 
 cff_compute_bias.exit:                            ; preds = %.thread, %48, %50
-  %.0.i = phi i32 [ 0, %.thread ], [ 107, %48 ], [ %..i, %50 ]
+  %.0.i = phi i32 [ 107, %48 ], [ 0, %.thread ], [ %..i, %50 ]
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   store i32 %.0.i, ptr %52, align 8, !tbaa !446
   %53 = getelementptr inbounds nuw i8, ptr %.036, i64 1024
@@ -7081,7 +7081,7 @@ define internal i32 @t1_cmap_std_char_next(ptr noundef readonly captures(none) %
   br label %t1_cmap_std_char_index.exit
 
 t1_cmap_std_char_index.exit:                      ; preds = %30, %10, %.loopexit.loopexit.split.loop.exit.i
-  %.018.i = phi i32 [ 0, %10 ], [ %31, %.loopexit.loopexit.split.loop.exit.i ], [ 0, %30 ]
+  %.018.i = phi i32 [ %31, %.loopexit.loopexit.split.loop.exit.i ], [ 0, %10 ], [ 0, %30 ]
   %.not = icmp eq i32 %.018.i, 0
   br i1 %.not, label %8, label %32, !llvm.loop !473
 
@@ -7339,7 +7339,7 @@ afm_stream_read_string.exit.thread44.loopexit:    ; preds = %27, %27
   br label %afm_stream_read_string.exit.thread44
 
 afm_stream_read_string.exit.thread44:             ; preds = %24, %27, %afm_stream_read_string.exit.thread44.loopexit
-  %30 = phi ptr [ %28, %afm_stream_read_string.exit.thread44.loopexit ], [ %25, %24 ], [ %28, %27 ]
+  %30 = phi ptr [ %28, %afm_stream_read_string.exit.thread44.loopexit ], [ %28, %27 ], [ %25, %24 ]
   %.sink.i = phi i32 [ 2, %afm_stream_read_string.exit.thread44.loopexit ], [ 3, %27 ], [ 3, %24 ]
   store i32 %.sink.i, ptr %8, align 8, !tbaa !374
   store ptr %22, ptr %4, align 8, !tbaa !25
@@ -7496,7 +7496,7 @@ define internal fastcc ptr @afm_stream_read_one(ptr noundef captures(none) %0) u
   br label %.thread26.sink.split
 
 .thread26.sink.split:                             ; preds = %10, %13, %.thread26.sink.split.loopexit29, %.thread26.sink.split.loopexit
-  %.sink = phi i32 [ 2, %.thread26.sink.split.loopexit ], [ 1, %.thread26.sink.split.loopexit29 ], [ 3, %13 ], [ 3, %10 ]
+  %.sink = phi i32 [ 1, %.thread26.sink.split.loopexit29 ], [ 2, %.thread26.sink.split.loopexit ], [ 3, %13 ], [ 3, %10 ]
   store i32 %.sink, ptr %2, align 8, !tbaa !374
   br label %.thread26
 
@@ -7544,7 +7544,7 @@ define internal fastcc void @afm_stream_skip_spaces(ptr noundef captures(none) %
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %.lr.ph, %.loopexit.sink.split.loopexit, %.thread
-  %.sink = phi i32 [ 3, %.thread ], [ 2, %.loopexit.sink.split.loopexit ], [ 1, %.lr.ph ]
+  %.sink = phi i32 [ 2, %.loopexit.sink.split.loopexit ], [ 3, %.thread ], [ 1, %.lr.ph ]
   store i32 %.sink, ptr %2, align 8, !tbaa !374
   br label %.loopexit
 
@@ -7589,9 +7589,9 @@ define internal fastcc i64 @PS_Conv_ToFixed(ptr noundef captures(none) %0, ptr n
   ]
 
 15:                                               ; preds = %12, %7
-  %16 = phi i8 [ %8, %7 ], [ %14, %12 ]
-  %17 = phi ptr [ %6, %7 ], [ %10, %12 ]
-  %.078 = phi i1 [ true, %7 ], [ %13, %12 ]
+  %16 = phi i8 [ %14, %12 ], [ %8, %7 ]
+  %17 = phi ptr [ %10, %12 ], [ %6, %7 ]
+  %.078 = phi i1 [ %13, %12 ], [ true, %7 ]
   %.not111 = icmp eq i8 %16, 46
   br i1 %.not111, label %27, label %18
 
@@ -7611,9 +7611,9 @@ define internal fastcc i64 @PS_Conv_ToFixed(ptr noundef captures(none) %0, ptr n
   br label %27
 
 27:                                               ; preds = %22, %24, %15
-  %28 = phi ptr [ %20, %24 ], [ %17, %15 ], [ %20, %22 ]
-  %.095 = phi i64 [ %26, %24 ], [ 0, %15 ], [ %19, %22 ]
-  %.074 = phi i8 [ 0, %24 ], [ 0, %15 ], [ 1, %22 ]
+  %28 = phi ptr [ %17, %15 ], [ %20, %24 ], [ %20, %22 ]
+  %.095 = phi i64 [ 0, %15 ], [ %26, %24 ], [ %19, %22 ]
+  %.074 = phi i8 [ 0, %15 ], [ 0, %24 ], [ 1, %22 ]
   %.095.fr = freeze i64 %.095
   %29 = ptrtoint ptr %28 to i64
   %30 = icmp ult ptr %28, %1
@@ -7738,18 +7738,18 @@ define internal fastcc i64 @PS_Conv_ToFixed(ptr noundef captures(none) %0, ptr n
   br i1 %exitcond245.not, label %.loopexit128, label %.lr.ph.split, !llvm.loop !492
 
 .loopexit128:                                     ; preds = %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %38, %40, %53, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %55, %57, %74, %.preheader127
-  %storemerge.lcssa = phi ptr [ %storemerge136, %.preheader127 ], [ %scevgep244, %74 ], [ %storemerge140, %57 ], [ %storemerge140, %55 ], [ %storemerge140, %.lr.ph.split ], [ %storemerge140, %.lr.ph.split ], [ %storemerge140, %.lr.ph.split ], [ %storemerge140, %.lr.ph.split ], [ %storemerge140, %.lr.ph.split ], [ %storemerge140, %.lr.ph.split ], [ %scevgep244, %53 ], [ %storemerge140.us, %40 ], [ %storemerge140.us, %38 ], [ %storemerge140.us, %.lr.ph.split.us ], [ %storemerge140.us, %.lr.ph.split.us ], [ %storemerge140.us, %.lr.ph.split.us ], [ %storemerge140.us, %.lr.ph.split.us ], [ %storemerge140.us, %.lr.ph.split.us ], [ %storemerge140.us, %.lr.ph.split.us ]
-  %.188.lcssa = phi i64 [ 0, %.preheader127 ], [ %.289.ph, %74 ], [ %.188137, %57 ], [ %.188137, %55 ], [ %.188137, %.lr.ph.split ], [ %.188137, %.lr.ph.split ], [ %.188137, %.lr.ph.split ], [ %.188137, %.lr.ph.split ], [ %.188137, %.lr.ph.split ], [ %.188137, %.lr.ph.split ], [ %.289.ph.us, %53 ], [ %.188137.us, %40 ], [ %.188137.us, %38 ], [ %.188137.us, %.lr.ph.split.us ], [ %.188137.us, %.lr.ph.split.us ], [ %.188137.us, %.lr.ph.split.us ], [ %.188137.us, %.lr.ph.split.us ], [ %.188137.us, %.lr.ph.split.us ], [ %.188137.us, %.lr.ph.split.us ]
-  %.180.lcssa = phi i64 [ 1, %.preheader127 ], [ %.281.ph, %74 ], [ %.180138, %57 ], [ %.180138, %55 ], [ %.180138, %.lr.ph.split ], [ %.180138, %.lr.ph.split ], [ %.180138, %.lr.ph.split ], [ %.180138, %.lr.ph.split ], [ %.180138, %.lr.ph.split ], [ %.180138, %.lr.ph.split ], [ %.281.ph.us, %53 ], [ %.180138.us, %40 ], [ %.180138.us, %38 ], [ %.180138.us, %.lr.ph.split.us ], [ %.180138.us, %.lr.ph.split.us ], [ %.180138.us, %.lr.ph.split.us ], [ %.180138.us, %.lr.ph.split.us ], [ %.180138.us, %.lr.ph.split.us ], [ %.180138.us, %.lr.ph.split.us ]
+  %storemerge.lcssa = phi ptr [ %storemerge136, %.preheader127 ], [ %scevgep244, %74 ], [ %storemerge140, %57 ], [ %storemerge140, %55 ], [ %storemerge140, %.lr.ph.split ], [ %storemerge140, %.lr.ph.split ], [ %storemerge140, %.lr.ph.split ], [ %storemerge140, %.lr.ph.split ], [ %storemerge140, %.lr.ph.split ], [ %storemerge140, %.lr.ph.split ], [ %storemerge140.us, %40 ], [ %storemerge140.us, %38 ], [ %storemerge140.us, %.lr.ph.split.us ], [ %storemerge140.us, %.lr.ph.split.us ], [ %storemerge140.us, %.lr.ph.split.us ], [ %storemerge140.us, %.lr.ph.split.us ], [ %storemerge140.us, %.lr.ph.split.us ], [ %storemerge140.us, %.lr.ph.split.us ], [ %scevgep244, %53 ]
+  %.188.lcssa = phi i64 [ 0, %.preheader127 ], [ %.289.ph, %74 ], [ %.188137, %57 ], [ %.188137, %55 ], [ %.188137, %.lr.ph.split ], [ %.188137, %.lr.ph.split ], [ %.188137, %.lr.ph.split ], [ %.188137, %.lr.ph.split ], [ %.188137, %.lr.ph.split ], [ %.188137, %.lr.ph.split ], [ %.188137.us, %40 ], [ %.188137.us, %38 ], [ %.188137.us, %.lr.ph.split.us ], [ %.188137.us, %.lr.ph.split.us ], [ %.188137.us, %.lr.ph.split.us ], [ %.188137.us, %.lr.ph.split.us ], [ %.188137.us, %.lr.ph.split.us ], [ %.188137.us, %.lr.ph.split.us ], [ %.289.ph.us, %53 ]
+  %.180.lcssa = phi i64 [ 1, %.preheader127 ], [ %.281.ph, %74 ], [ %.180138, %57 ], [ %.180138, %55 ], [ %.180138, %.lr.ph.split ], [ %.180138, %.lr.ph.split ], [ %.180138, %.lr.ph.split ], [ %.180138, %.lr.ph.split ], [ %.180138, %.lr.ph.split ], [ %.180138, %.lr.ph.split ], [ %.180138.us, %40 ], [ %.180138.us, %38 ], [ %.180138.us, %.lr.ph.split.us ], [ %.180138.us, %.lr.ph.split.us ], [ %.180138.us, %.lr.ph.split.us ], [ %.180138.us, %.lr.ph.split.us ], [ %.180138.us, %.lr.ph.split.us ], [ %.180138.us, %.lr.ph.split.us ], [ %.281.ph.us, %53 ]
   %.168.lcssa = phi i64 [ %2, %.preheader127 ], [ %.2.ph, %74 ], [ %.168139, %57 ], [ %.168139, %55 ], [ %.168139, %.lr.ph.split ], [ %.168139, %.lr.ph.split ], [ %.168139, %.lr.ph.split ], [ %.168139, %.lr.ph.split ], [ %.168139, %.lr.ph.split ], [ %.168139, %.lr.ph.split ], [ %2, %53 ], [ %2, %40 ], [ %2, %38 ], [ %2, %.lr.ph.split.us ], [ %2, %.lr.ph.split.us ], [ %2, %.lr.ph.split.us ], [ %2, %.lr.ph.split.us ], [ %2, %.lr.ph.split.us ], [ %2, %.lr.ph.split.us ]
   store ptr %storemerge.lcssa, ptr %5, align 8, !tbaa !25
   br label %75
 
 75:                                               ; preds = %.loopexit128, %31, %27
-  %76 = phi ptr [ %28, %31 ], [ %28, %27 ], [ %storemerge.lcssa, %.loopexit128 ]
-  %.087 = phi i64 [ 0, %31 ], [ 0, %27 ], [ %.188.lcssa, %.loopexit128 ]
-  %.079 = phi i64 [ 1, %31 ], [ 1, %27 ], [ %.180.lcssa, %.loopexit128 ]
-  %.067 = phi i64 [ %2, %31 ], [ %2, %27 ], [ %.168.lcssa, %.loopexit128 ]
+  %76 = phi ptr [ %28, %27 ], [ %28, %31 ], [ %storemerge.lcssa, %.loopexit128 ]
+  %.087 = phi i64 [ 0, %27 ], [ 0, %31 ], [ %.188.lcssa, %.loopexit128 ]
+  %.079 = phi i64 [ 1, %27 ], [ 1, %31 ], [ %.180.lcssa, %.loopexit128 ]
+  %.067 = phi i64 [ %2, %27 ], [ %2, %31 ], [ %.168.lcssa, %.loopexit128 ]
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 1
   %78 = icmp ult ptr %77, %1
   br i1 %78, label %79, label %89
@@ -7779,10 +7779,10 @@ define internal fastcc i64 @PS_Conv_ToFixed(ptr noundef captures(none) %0, ptr n
   br label %89
 
 89:                                               ; preds = %84, %79, %75
-  %90 = phi ptr [ %83, %84 ], [ %76, %75 ], [ %76, %79 ]
-  %.175 = phi i8 [ %.276, %84 ], [ %.074, %75 ], [ %.074, %79 ]
-  %.071 = phi i1 [ %86, %84 ], [ true, %75 ], [ true, %79 ]
-  %.4 = phi i64 [ %.5, %84 ], [ %.067, %75 ], [ %.067, %79 ]
+  %90 = phi ptr [ %83, %84 ], [ %76, %79 ], [ %76, %75 ]
+  %.175 = phi i8 [ %.276, %84 ], [ %.074, %79 ], [ %.074, %75 ]
+  %.071 = phi i1 [ %86, %84 ], [ true, %79 ], [ true, %75 ]
+  %.4 = phi i64 [ %.5, %84 ], [ %.067, %79 ], [ %.067, %75 ]
   store ptr %90, ptr %0, align 8, !tbaa !25
   %91 = icmp ne i64 %.095.fr, 0
   %92 = icmp ne i64 %.087, 0
@@ -7879,13 +7879,13 @@ define internal fastcc i64 @PS_Conv_ToFixed(ptr noundef captures(none) %0, ptr n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph223, %101, %93, %._crit_edge, %121
-  %.398 = phi i64 [ %123, %121 ], [ %.297.lcssa, %._crit_edge ], [ 2147483647, %93 ], [ 2147483647, %101 ], [ 2147483647, %.lr.ph223 ]
+  %.398 = phi i64 [ %.297.lcssa, %._crit_edge ], [ %123, %121 ], [ 2147483647, %93 ], [ 2147483647, %101 ], [ 2147483647, %.lr.ph223 ]
   %124 = sub nsw i64 0, %.398
   %spec.select = select i1 %.078, i64 %.398, i64 %124
   br label %.critedge
 
 .critedge:                                        ; preds = %118, %81, %94, %9, %3, %89, %18, %12, %12, %.loopexit
-  %.0 = phi i64 [ %spec.select, %.loopexit ], [ 0, %12 ], [ 0, %12 ], [ 0, %18 ], [ 0, %89 ], [ 0, %3 ], [ 0, %9 ], [ 0, %94 ], [ 0, %81 ], [ 0, %118 ]
+  %.0 = phi i64 [ 0, %89 ], [ 0, %81 ], [ 0, %12 ], [ %spec.select, %.loopexit ], [ 0, %9 ], [ 0, %94 ], [ 0, %12 ], [ 0, %18 ], [ 0, %3 ], [ 0, %118 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.0
 }
@@ -7918,8 +7918,8 @@ define internal fastcc i64 @PS_Conv_ToInt(ptr noundef captures(none) %0, ptr nou
   ]
 
 13:                                               ; preds = %10, %5
-  %.054.i = phi i1 [ true, %5 ], [ %11, %10 ]
-  %.047.i = phi ptr [ %3, %5 ], [ %8, %10 ]
+  %.054.i = phi i1 [ %11, %10 ], [ true, %5 ]
+  %.047.i = phi ptr [ %8, %10 ], [ %3, %5 ]
   %14 = icmp ult ptr %.047.i, %1
   br i1 %14, label %.lr.ph.preheader.i, label %PS_Conv_Strtol.exit
 
@@ -7984,9 +7984,9 @@ define internal fastcc i64 @PS_Conv_ToInt(ptr noundef captures(none) %0, ptr nou
   br i1 %exitcond.not.i, label %.thread.loopexit.i, label %.lr.ph.i, !llvm.loop !495
 
 .thread.loopexit.i:                               ; preds = %36, %24, %19, %17, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
-  %.050.lcssa.ph.i = phi i8 [ %.252.i, %36 ], [ %.05076.i, %.lr.ph.i ], [ %.05076.i, %.lr.ph.i ], [ %.05076.i, %.lr.ph.i ], [ %.05076.i, %.lr.ph.i ], [ %.05076.i, %.lr.ph.i ], [ %.05076.i, %.lr.ph.i ], [ %.05076.i, %17 ], [ %.05076.i, %24 ], [ %.05076.i, %19 ]
-  %.048.lcssa.ph.i = phi i64 [ %.2.i, %36 ], [ %.04877.i, %.lr.ph.i ], [ %.04877.i, %.lr.ph.i ], [ %.04877.i, %.lr.ph.i ], [ %.04877.i, %.lr.ph.i ], [ %.04877.i, %.lr.ph.i ], [ %.04877.i, %.lr.ph.i ], [ %.04877.i, %17 ], [ %.04877.i, %24 ], [ %.04877.i, %19 ]
-  %.1.lcssa.ph.i = phi ptr [ %scevgep.i, %36 ], [ %.178.i, %.lr.ph.i ], [ %.178.i, %.lr.ph.i ], [ %.178.i, %.lr.ph.i ], [ %.178.i, %.lr.ph.i ], [ %.178.i, %.lr.ph.i ], [ %.178.i, %.lr.ph.i ], [ %.178.i, %17 ], [ %.178.i, %24 ], [ %.178.i, %19 ]
+  %.050.lcssa.ph.i = phi i8 [ %.252.i, %36 ], [ %.05076.i, %19 ], [ %.05076.i, %17 ], [ %.05076.i, %.lr.ph.i ], [ %.05076.i, %.lr.ph.i ], [ %.05076.i, %.lr.ph.i ], [ %.05076.i, %.lr.ph.i ], [ %.05076.i, %.lr.ph.i ], [ %.05076.i, %.lr.ph.i ], [ %.05076.i, %24 ]
+  %.048.lcssa.ph.i = phi i64 [ %.2.i, %36 ], [ %.04877.i, %19 ], [ %.04877.i, %17 ], [ %.04877.i, %.lr.ph.i ], [ %.04877.i, %.lr.ph.i ], [ %.04877.i, %.lr.ph.i ], [ %.04877.i, %.lr.ph.i ], [ %.04877.i, %.lr.ph.i ], [ %.04877.i, %.lr.ph.i ], [ %.04877.i, %24 ]
+  %.1.lcssa.ph.i = phi ptr [ %scevgep.i, %36 ], [ %.178.i, %19 ], [ %.178.i, %17 ], [ %.178.i, %.lr.ph.i ], [ %.178.i, %.lr.ph.i ], [ %.178.i, %.lr.ph.i ], [ %.178.i, %.lr.ph.i ], [ %.178.i, %.lr.ph.i ], [ %.178.i, %.lr.ph.i ], [ %.178.i, %24 ]
   %38 = icmp eq i8 %.050.lcssa.ph.i, 0
   %39 = select i1 %38, i64 %.048.lcssa.ph.i, i64 2147483647
   br label %PS_Conv_Strtol.exit
@@ -8037,8 +8037,8 @@ PS_Conv_Strtol.exit:                              ; preds = %13, %.thread.loopex
   ]
 
 58:                                               ; preds = %55, %50
-  %.054.i14 = phi i1 [ true, %50 ], [ %56, %55 ]
-  %.047.i15 = phi ptr [ %48, %50 ], [ %53, %55 ]
+  %.054.i14 = phi i1 [ %56, %55 ], [ true, %50 ]
+  %.047.i15 = phi ptr [ %53, %55 ], [ %48, %50 ]
   %.rhs.trunc.i = trunc nuw nsw i64 %.5.i to i32
   %59 = udiv i32 2147483647, %.rhs.trunc.i
   %.zext.i = zext nneg i32 %59 to i64
@@ -8106,9 +8106,9 @@ PS_Conv_Strtol.exit:                              ; preds = %13, %.thread.loopex
   br i1 %exitcond.not.i35, label %.thread.loopexit.i27, label %.lr.ph.i23, !llvm.loop !495
 
 .thread.loopexit.i27:                             ; preds = %82, %71, %66, %64, %.lr.ph.i23, %.lr.ph.i23, %.lr.ph.i23, %.lr.ph.i23, %.lr.ph.i23, %.lr.ph.i23
-  %.050.lcssa.ph.i28 = phi i8 [ %.252.i33, %82 ], [ %.05076.i26, %.lr.ph.i23 ], [ %.05076.i26, %.lr.ph.i23 ], [ %.05076.i26, %.lr.ph.i23 ], [ %.05076.i26, %.lr.ph.i23 ], [ %.05076.i26, %.lr.ph.i23 ], [ %.05076.i26, %.lr.ph.i23 ], [ %.05076.i26, %64 ], [ %.05076.i26, %71 ], [ %.05076.i26, %66 ]
-  %.048.lcssa.ph.i29 = phi i64 [ %.2.i34, %82 ], [ %.04877.i25, %.lr.ph.i23 ], [ %.04877.i25, %.lr.ph.i23 ], [ %.04877.i25, %.lr.ph.i23 ], [ %.04877.i25, %.lr.ph.i23 ], [ %.04877.i25, %.lr.ph.i23 ], [ %.04877.i25, %.lr.ph.i23 ], [ %.04877.i25, %64 ], [ %.04877.i25, %71 ], [ %.04877.i25, %66 ]
-  %.1.lcssa.ph.i30 = phi ptr [ %scevgep.i22, %82 ], [ %.178.i24, %.lr.ph.i23 ], [ %.178.i24, %.lr.ph.i23 ], [ %.178.i24, %.lr.ph.i23 ], [ %.178.i24, %.lr.ph.i23 ], [ %.178.i24, %.lr.ph.i23 ], [ %.178.i24, %.lr.ph.i23 ], [ %.178.i24, %64 ], [ %.178.i24, %71 ], [ %.178.i24, %66 ]
+  %.050.lcssa.ph.i28 = phi i8 [ %.252.i33, %82 ], [ %.05076.i26, %66 ], [ %.05076.i26, %64 ], [ %.05076.i26, %.lr.ph.i23 ], [ %.05076.i26, %.lr.ph.i23 ], [ %.05076.i26, %.lr.ph.i23 ], [ %.05076.i26, %.lr.ph.i23 ], [ %.05076.i26, %.lr.ph.i23 ], [ %.05076.i26, %.lr.ph.i23 ], [ %.05076.i26, %71 ]
+  %.048.lcssa.ph.i29 = phi i64 [ %.2.i34, %82 ], [ %.04877.i25, %66 ], [ %.04877.i25, %64 ], [ %.04877.i25, %.lr.ph.i23 ], [ %.04877.i25, %.lr.ph.i23 ], [ %.04877.i25, %.lr.ph.i23 ], [ %.04877.i25, %.lr.ph.i23 ], [ %.04877.i25, %.lr.ph.i23 ], [ %.04877.i25, %.lr.ph.i23 ], [ %.04877.i25, %71 ]
+  %.1.lcssa.ph.i30 = phi ptr [ %scevgep.i22, %82 ], [ %.178.i24, %66 ], [ %.178.i24, %64 ], [ %.178.i24, %.lr.ph.i23 ], [ %.178.i24, %.lr.ph.i23 ], [ %.178.i24, %.lr.ph.i23 ], [ %.178.i24, %.lr.ph.i23 ], [ %.178.i24, %.lr.ph.i23 ], [ %.178.i24, %.lr.ph.i23 ], [ %.178.i24, %71 ]
   %84 = icmp eq i8 %.050.lcssa.ph.i28, 0
   %85 = select i1 %84, i64 %.048.lcssa.ph.i29, i64 2147483647
   br label %PS_Conv_Strtol.exit36
@@ -8128,7 +8128,7 @@ PS_Conv_Strtol.exit36:                            ; preds = %58, %.thread.loopex
   br label %PS_Conv_Strtol.exit.thread
 
 PS_Conv_Strtol.exit.thread:                       ; preds = %55, %55, %52, %47, %10, %10, %7, %2, %PS_Conv_Strtol.exit36, %PS_Conv_Strtol.exit, %88
-  %.09 = phi i64 [ %.0, %88 ], [ 0, %PS_Conv_Strtol.exit ], [ 0, %PS_Conv_Strtol.exit36 ], [ 0, %2 ], [ 0, %7 ], [ 0, %10 ], [ 0, %10 ], [ 0, %47 ], [ 0, %52 ], [ 0, %55 ], [ 0, %55 ]
+  %.09 = phi i64 [ %.0, %88 ], [ 0, %PS_Conv_Strtol.exit ], [ 0, %PS_Conv_Strtol.exit36 ], [ 0, %10 ], [ 0, %2 ], [ 0, %7 ], [ 0, %10 ], [ 0, %47 ], [ 0, %52 ], [ 0, %55 ], [ 0, %55 ]
   ret i64 %.09
 }
 
@@ -8755,7 +8755,7 @@ define internal fastcc range(i32 0, 4) i32 @skip_procedure(ptr noundef nonnull c
   br i1 %exitcond.not.i.i.i, label %skip_comment.exit.i.i, label %.lr.ph.ithread-pre-split.i.i, !llvm.loop !38
 
 skip_comment.exit.i.i:                            ; preds = %24, %.lr.ph.i.i.i, %.lr.ph.i.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i
-  %.0.i.i = phi ptr [ %storemerge8.i.i, %.lr.ph.i.i ], [ %storemerge8.i.i, %.lr.ph.i.i ], [ %storemerge8.i.i, %.lr.ph.i.i ], [ %storemerge8.i.i, %.lr.ph.i.i ], [ %storemerge8.i.i, %.lr.ph.i.i ], [ %storemerge8.i.i, %.lr.ph.i.i ], [ %scevgep.i.i.i, %24 ], [ %.09.i.i.i, %.lr.ph.i.i.i ], [ %.09.i.i.i, %.lr.ph.i.i.i ]
+  %.0.i.i = phi ptr [ %storemerge8.i.i, %.lr.ph.i.i ], [ %storemerge8.i.i, %.lr.ph.i.i ], [ %storemerge8.i.i, %.lr.ph.i.i ], [ %storemerge8.i.i, %.lr.ph.i.i ], [ %storemerge8.i.i, %.lr.ph.i.i ], [ %storemerge8.i.i, %.lr.ph.i.i ], [ %.09.i.i.i, %.lr.ph.i.i.i ], [ %.09.i.i.i, %.lr.ph.i.i.i ], [ %scevgep.i.i.i, %24 ]
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
   %27 = icmp ult ptr %26, %1
   br i1 %27, label %.lr.ph.i.i.backedge, label %skip_spaces.exit.i
@@ -8765,7 +8765,7 @@ skip_comment.exit.i.i:                            ; preds = %24, %.lr.ph.i.i.i, 
   br label %.lr.ph.i.i, !llvm.loop !39
 
 skip_spaces.exit.i:                               ; preds = %skip_comment.exit.i.i, %.lr.ph.i.i
-  %storemerge.lcssa.i.i = phi ptr [ %storemerge8.i.i, %.lr.ph.i.i ], [ %26, %skip_comment.exit.i.i ]
+  %storemerge.lcssa.i.i = phi ptr [ %26, %skip_comment.exit.i.i ], [ %storemerge8.i.i, %.lr.ph.i.i ]
   %.not.i = icmp ult ptr %storemerge.lcssa.i.i, %1
   br i1 %.not.i, label %28, label %switch.early.test._crit_edge.i
 
@@ -8835,9 +8835,9 @@ switch.early.test._crit_edge.i:                   ; preds = %switch.early.test.i
   br i1 %exitcond.not.i, label %skip_string.exit, label %.lr.ph.ithread-pre-split, !llvm.loop !38
 
 skip_string.exit:                                 ; preds = %41, %.lr.ph.i, %.lr.ph.i, %36, %34, %7, %9, %15, %11
-  %43 = phi ptr [ %storemerge25, %7 ], [ %storemerge25, %9 ], [ %storemerge25, %11 ], [ %.pre, %15 ], [ %37, %36 ], [ %.1.i, %34 ], [ %.09.i, %.lr.ph.i ], [ %.09.i, %.lr.ph.i ], [ %scevgep.i, %41 ]
-  %.213 = phi i32 [ %.01126, %7 ], [ %10, %9 ], [ %12, %11 ], [ %.01126, %15 ], [ %.01126, %36 ], [ %.01126, %34 ], [ %.01126, %.lr.ph.i ], [ %.01126, %.lr.ph.i ], [ %.01126, %41 ]
-  %.1 = phi i32 [ 0, %7 ], [ 0, %9 ], [ 0, %11 ], [ %16, %15 ], [ 0, %36 ], [ 3, %34 ], [ 0, %.lr.ph.i ], [ 0, %.lr.ph.i ], [ 0, %41 ]
+  %43 = phi ptr [ %storemerge25, %7 ], [ %storemerge25, %9 ], [ %storemerge25, %11 ], [ %.pre, %15 ], [ %.1.i, %34 ], [ %37, %36 ], [ %scevgep.i, %41 ], [ %.09.i, %.lr.ph.i ], [ %.09.i, %.lr.ph.i ]
+  %.213 = phi i32 [ %.01126, %7 ], [ %10, %9 ], [ %12, %11 ], [ %.01126, %15 ], [ %.01126, %34 ], [ %.01126, %36 ], [ %.01126, %.lr.ph.i ], [ %.01126, %.lr.ph.i ], [ %.01126, %41 ]
+  %.1 = phi i32 [ 0, %7 ], [ 0, %9 ], [ 0, %11 ], [ %16, %15 ], [ 3, %34 ], [ 0, %36 ], [ 0, %.lr.ph.i ], [ 0, %.lr.ph.i ], [ 0, %41 ]
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 1
   store ptr %44, ptr %3, align 8, !tbaa !25
   %45 = icmp ult ptr %44, %1
@@ -8926,14 +8926,14 @@ define internal fastcc range(i32 0, 4) i32 @skip_literal_string(ptr noundef nonn
   br i1 %26, label %.thread, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %16, %.preheader, %24, %12, %22, %.lr.ph50
-  %.131 = phi i32 [ %.03048, %12 ], [ %23, %22 ], [ %.03048, %.lr.ph50 ], [ %25, %24 ], [ %.03048, %.preheader ], [ %.03048, %16 ], [ %.03048, %.lr.ph ]
-  %.2 = phi ptr [ %13, %12 ], [ %6, %22 ], [ %6, %.lr.ph50 ], [ %6, %24 ], [ %6, %.preheader ], [ %.345, %.lr.ph ], [ %17, %16 ]
+  %.131 = phi i32 [ %23, %22 ], [ %.03048, %12 ], [ %.03048, %.lr.ph50 ], [ %25, %24 ], [ %.03048, %.preheader ], [ %.03048, %16 ], [ %.03048, %.lr.ph ]
+  %.2 = phi ptr [ %6, %22 ], [ %13, %12 ], [ %6, %.lr.ph50 ], [ %6, %24 ], [ %6, %.preheader ], [ %.345, %.lr.ph ], [ %17, %16 ]
   %27 = icmp ult ptr %.2, %1
   br i1 %27, label %.lr.ph50, label %.thread
 
 .thread:                                          ; preds = %.loopexit, %7, %24, %2
-  %.128 = phi i32 [ 3, %2 ], [ 0, %24 ], [ 3, %7 ], [ 3, %.loopexit ]
-  %.1 = phi ptr [ %3, %2 ], [ %6, %24 ], [ %6, %7 ], [ %.2, %.loopexit ]
+  %.128 = phi i32 [ 3, %2 ], [ 3, %7 ], [ 0, %24 ], [ 3, %.loopexit ]
+  %.1 = phi ptr [ %3, %2 ], [ %6, %7 ], [ %6, %24 ], [ %.2, %.loopexit ]
   store ptr %.1, ptr %0, align 8, !tbaa !25
   ret i32 %.128
 }
@@ -8964,8 +8964,8 @@ define internal fastcc i32 @ps_tofixedarray(ptr noundef captures(none) %0, ptr n
   %14 = icmp ult ptr %7, %1
   br i1 %.not32, label %.split.us.split.us, label %.split.split.us
 
-.thread:                                          ; preds = %8, %10
-  %.025.ph = phi i32 [ 93, %8 ], [ 125, %10 ]
+.thread:                                          ; preds = %10, %8
+  %.025.ph = phi i32 [ 125, %10 ], [ 93, %8 ]
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %15, ptr %6, align 8, !tbaa !25
   %16 = ptrtoint ptr %1 to i64
@@ -9014,13 +9014,13 @@ define internal fastcc i32 @ps_tofixedarray(ptr noundef captures(none) %0, ptr n
   br label %.lr.ph.i.i.us.us
 
 skip_comment.exit.i.us.us:                        ; preds = %.lr.ph.i.i.us.us, %.lr.ph.i.i.us.us, %23, %.lr.ph.i.us.us, %.lr.ph.i.us.us, %.lr.ph.i.us.us, %.lr.ph.i.us.us, %.lr.ph.i.us.us, %.lr.ph.i.us.us
-  %.0.i.us.us = phi ptr [ %storemerge8.i.us.us, %.lr.ph.i.us.us ], [ %storemerge8.i.us.us, %.lr.ph.i.us.us ], [ %storemerge8.i.us.us, %.lr.ph.i.us.us ], [ %storemerge8.i.us.us, %.lr.ph.i.us.us ], [ %storemerge8.i.us.us, %.lr.ph.i.us.us ], [ %storemerge8.i.us.us, %.lr.ph.i.us.us ], [ %.09.i.i.us.us, %.lr.ph.i.i.us.us ], [ %.09.i.i.us.us, %.lr.ph.i.i.us.us ], [ %scevgep.i.i.us.us, %23 ]
+  %.0.i.us.us = phi ptr [ %storemerge8.i.us.us, %.lr.ph.i.us.us ], [ %storemerge8.i.us.us, %.lr.ph.i.us.us ], [ %storemerge8.i.us.us, %.lr.ph.i.us.us ], [ %storemerge8.i.us.us, %.lr.ph.i.us.us ], [ %storemerge8.i.us.us, %.lr.ph.i.us.us ], [ %storemerge8.i.us.us, %.lr.ph.i.us.us ], [ %scevgep.i.i.us.us, %23 ], [ %.09.i.i.us.us, %.lr.ph.i.i.us.us ], [ %.09.i.i.us.us, %.lr.ph.i.i.us.us ]
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.us.us, i64 1
   %26 = icmp ult ptr %25, %1
   br i1 %26, label %.lr.ph.i.us.us, label %skip_spaces.exit.us.us, !llvm.loop !39
 
 skip_spaces.exit.us.us:                           ; preds = %skip_comment.exit.i.us.us, %.lr.ph.i.us.us
-  %storemerge.lcssa.i.us.us = phi ptr [ %storemerge8.i.us.us, %.lr.ph.i.us.us ], [ %25, %skip_comment.exit.i.us.us ]
+  %storemerge.lcssa.i.us.us = phi ptr [ %25, %skip_comment.exit.i.us.us ], [ %storemerge8.i.us.us, %.lr.ph.i.us.us ]
   store ptr %storemerge.lcssa.i.us.us, ptr %6, align 8, !tbaa !25
   %.not31.us.us = icmp ult ptr %storemerge.lcssa.i.us.us, %1
   br i1 %.not31.us.us, label %27, label %.thread42
@@ -9082,13 +9082,13 @@ skip_spaces.exit.us.us:                           ; preds = %skip_comment.exit.i
   br label %.lr.ph.i.i.us
 
 skip_comment.exit.i.us:                           ; preds = %.lr.ph.i.i.us, %.lr.ph.i.i.us, %39, %34, %34, %34, %34, %34, %34
-  %.0.i.us = phi ptr [ %storemerge8.i.us, %34 ], [ %storemerge8.i.us, %34 ], [ %storemerge8.i.us, %34 ], [ %storemerge8.i.us, %34 ], [ %storemerge8.i.us, %34 ], [ %storemerge8.i.us, %34 ], [ %.09.i.i.us, %.lr.ph.i.i.us ], [ %.09.i.i.us, %.lr.ph.i.i.us ], [ %scevgep.i.i.us, %39 ]
+  %.0.i.us = phi ptr [ %storemerge8.i.us, %34 ], [ %storemerge8.i.us, %34 ], [ %storemerge8.i.us, %34 ], [ %storemerge8.i.us, %34 ], [ %storemerge8.i.us, %34 ], [ %storemerge8.i.us, %34 ], [ %scevgep.i.i.us, %39 ], [ %.09.i.i.us, %.lr.ph.i.i.us ], [ %.09.i.i.us, %.lr.ph.i.i.us ]
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.us, i64 1
   %42 = icmp ult ptr %41, %1
   br i1 %42, label %34, label %skip_spaces.exit.us, !llvm.loop !39
 
 skip_spaces.exit.us:                              ; preds = %skip_comment.exit.i.us, %34
-  %storemerge.lcssa.i.us = phi ptr [ %storemerge8.i.us, %34 ], [ %41, %skip_comment.exit.i.us ]
+  %storemerge.lcssa.i.us = phi ptr [ %41, %skip_comment.exit.i.us ], [ %storemerge8.i.us, %34 ]
   store ptr %storemerge.lcssa.i.us, ptr %6, align 8, !tbaa !25
   %.not31.us = icmp ult ptr %storemerge.lcssa.i.us, %1
   br i1 %.not31.us, label %43, label %.thread42
@@ -9150,13 +9150,13 @@ skip_spaces.exit.us:                              ; preds = %skip_comment.exit.i
   br label %.lr.ph.i.i.us55
 
 skip_comment.exit.i.us60:                         ; preds = %.lr.ph.i.i.us55, %.lr.ph.i.i.us55, %57, %.lr.ph.i.us51, %.lr.ph.i.us51, %.lr.ph.i.us51, %.lr.ph.i.us51, %.lr.ph.i.us51, %.lr.ph.i.us51
-  %.0.i.us61 = phi ptr [ %storemerge8.i.us52, %.lr.ph.i.us51 ], [ %storemerge8.i.us52, %.lr.ph.i.us51 ], [ %storemerge8.i.us52, %.lr.ph.i.us51 ], [ %storemerge8.i.us52, %.lr.ph.i.us51 ], [ %storemerge8.i.us52, %.lr.ph.i.us51 ], [ %storemerge8.i.us52, %.lr.ph.i.us51 ], [ %.09.i.i.us56, %.lr.ph.i.i.us55 ], [ %.09.i.i.us56, %.lr.ph.i.i.us55 ], [ %scevgep.i.i.us54, %57 ]
+  %.0.i.us61 = phi ptr [ %storemerge8.i.us52, %.lr.ph.i.us51 ], [ %storemerge8.i.us52, %.lr.ph.i.us51 ], [ %storemerge8.i.us52, %.lr.ph.i.us51 ], [ %storemerge8.i.us52, %.lr.ph.i.us51 ], [ %storemerge8.i.us52, %.lr.ph.i.us51 ], [ %storemerge8.i.us52, %.lr.ph.i.us51 ], [ %scevgep.i.i.us54, %57 ], [ %.09.i.i.us56, %.lr.ph.i.i.us55 ], [ %.09.i.i.us56, %.lr.ph.i.i.us55 ]
   %59 = getelementptr inbounds nuw i8, ptr %.0.i.us61, i64 1
   %60 = icmp ult ptr %59, %1
   br i1 %60, label %.lr.ph.i.us51, label %skip_spaces.exit.us62, !llvm.loop !39
 
 skip_spaces.exit.us62:                            ; preds = %skip_comment.exit.i.us60, %.lr.ph.i.us51
-  %storemerge.lcssa.i.us63 = phi ptr [ %storemerge8.i.us52, %.lr.ph.i.us51 ], [ %59, %skip_comment.exit.i.us60 ]
+  %storemerge.lcssa.i.us63 = phi ptr [ %59, %skip_comment.exit.i.us60 ], [ %storemerge8.i.us52, %.lr.ph.i.us51 ]
   store ptr %storemerge.lcssa.i.us63, ptr %6, align 8, !tbaa !25
   %.not31.us64 = icmp ult ptr %storemerge.lcssa.i.us63, %1
   br i1 %.not31.us64, label %61, label %.thread42
@@ -9228,13 +9228,13 @@ skip_spaces.exit.us62:                            ; preds = %skip_comment.exit.i
   br i1 %exitcond.not.i.i, label %skip_comment.exit.i, label %.lr.ph.ithread-pre-split.i, !llvm.loop !38
 
 skip_comment.exit.i:                              ; preds = %74, %.lr.ph.i.i, %.lr.ph.i.i, %69, %69, %69, %69, %69, %69
-  %.0.i = phi ptr [ %storemerge8.i, %69 ], [ %storemerge8.i, %69 ], [ %storemerge8.i, %69 ], [ %storemerge8.i, %69 ], [ %storemerge8.i, %69 ], [ %storemerge8.i, %69 ], [ %.09.i.i, %.lr.ph.i.i ], [ %.09.i.i, %.lr.ph.i.i ], [ %scevgep.i.i, %74 ]
+  %.0.i = phi ptr [ %storemerge8.i, %69 ], [ %storemerge8.i, %69 ], [ %storemerge8.i, %69 ], [ %storemerge8.i, %69 ], [ %storemerge8.i, %69 ], [ %storemerge8.i, %69 ], [ %scevgep.i.i, %74 ], [ %.09.i.i, %.lr.ph.i.i ], [ %.09.i.i, %.lr.ph.i.i ]
   %76 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   %77 = icmp ult ptr %76, %1
   br i1 %77, label %69, label %skip_spaces.exit, !llvm.loop !39
 
 skip_spaces.exit:                                 ; preds = %69, %skip_comment.exit.i
-  %storemerge.lcssa.i = phi ptr [ %storemerge8.i, %69 ], [ %76, %skip_comment.exit.i ]
+  %storemerge.lcssa.i = phi ptr [ %76, %skip_comment.exit.i ], [ %storemerge8.i, %69 ]
   store ptr %storemerge.lcssa.i, ptr %6, align 8, !tbaa !25
   %.not31 = icmp ult ptr %storemerge.lcssa.i, %1
   br i1 %.not31, label %78, label %.thread42.loopexit130.split.loop.exit141
@@ -9250,8 +9250,8 @@ skip_spaces.exit:                                 ; preds = %69, %skip_comment.e
   br label %.split47.us
 
 .split47.us:                                      ; preds = %43, %.split47.us.loopexit133, %61, %27
-  %.us-phi48 = phi i32 [ 0, %27 ], [ 0, %61 ], [ %82, %.split47.us.loopexit133 ], [ %.1.us82, %43 ]
-  %.us-phi49 = phi ptr [ %storemerge.lcssa.i.us.us, %27 ], [ %storemerge.lcssa.i.us63, %61 ], [ %storemerge.lcssa.i, %.split47.us.loopexit133 ], [ %storemerge.lcssa.i.us, %43 ]
+  %.us-phi48 = phi i32 [ %82, %.split47.us.loopexit133 ], [ 0, %27 ], [ 0, %61 ], [ %.1.us82, %43 ]
+  %.us-phi49 = phi ptr [ %storemerge.lcssa.i, %.split47.us.loopexit133 ], [ %storemerge.lcssa.i.us.us, %27 ], [ %storemerge.lcssa.i.us63, %61 ], [ %storemerge.lcssa.i.us, %43 ]
   %83 = getelementptr inbounds nuw i8, ptr %.us-phi49, i64 1
   br label %.thread42
 
@@ -9281,8 +9281,8 @@ skip_spaces.exit:                                 ; preds = %69, %skip_comment.e
   br label %.thread42
 
 .thread42:                                        ; preds = %.then, %84, %.cont.us, %skip_spaces.exit.us, %50, %.thread42.loopexit130.split.loop.exit141, %.thread42.loopexit130.split.loop.exit144, %.then.us, %.cont.us.us, %.split.us.split, %.split.us.split.us, %skip_spaces.exit.us.us, %.split.split, %.split.split.us, %skip_spaces.exit.us62, %64, %.split47.us, %5
-  %92 = phi ptr [ %7, %5 ], [ %83, %.split47.us ], [ %storemerge.lcssa.i.us.us, %skip_spaces.exit.us.us ], [ %7, %.split.us.split.us ], [ %31, %.cont.us.us ], [ %15, %.split.us.split ], [ %storemerge.lcssa.i.us63, %skip_spaces.exit.us62 ], [ %storemerge.lcssa.i.us63, %64 ], [ %7, %.split.split.us ], [ %66, %.then.us ], [ %15, %.split.split ], [ %storemerge.lcssa.i, %.thread42.loopexit130.split.loop.exit141 ], [ %87, %.thread42.loopexit130.split.loop.exit144 ], [ %48, %.cont.us ], [ %storemerge.lcssa.i.us, %skip_spaces.exit.us ], [ %48, %50 ], [ %87, %.then ], [ %storemerge.lcssa.i, %84 ]
-  %.024 = phi i32 [ 0, %5 ], [ %.us-phi48, %.split47.us ], [ 0, %skip_spaces.exit.us.us ], [ 0, %.split.us.split.us ], [ %spec.select, %.cont.us.us ], [ 0, %.split.us.split ], [ 0, %skip_spaces.exit.us62 ], [ 0, %64 ], [ 0, %.split.split.us ], [ %spec.select88, %.then.us ], [ 0, %.split.split ], [ %91, %.thread42.loopexit130.split.loop.exit141 ], [ %indvars.le, %.thread42.loopexit130.split.loop.exit144 ], [ -1, %.cont.us ], [ %.1.us82, %skip_spaces.exit.us ], [ %51, %50 ], [ -1, %.then ], [ %smax, %84 ]
+  %92 = phi ptr [ %7, %5 ], [ %83, %.split47.us ], [ %15, %.split.split ], [ %storemerge.lcssa.i.us63, %skip_spaces.exit.us62 ], [ %31, %.cont.us.us ], [ %storemerge.lcssa.i.us.us, %skip_spaces.exit.us.us ], [ %7, %.split.us.split.us ], [ %storemerge.lcssa.i.us63, %64 ], [ %66, %.then.us ], [ %15, %.split.us.split ], [ %87, %.thread42.loopexit130.split.loop.exit144 ], [ %7, %.split.split.us ], [ %storemerge.lcssa.i, %.thread42.loopexit130.split.loop.exit141 ], [ %48, %50 ], [ %storemerge.lcssa.i.us, %skip_spaces.exit.us ], [ %48, %.cont.us ], [ %storemerge.lcssa.i, %84 ], [ %87, %.then ]
+  %.024 = phi i32 [ 0, %5 ], [ %.us-phi48, %.split47.us ], [ 0, %.split.split ], [ 0, %skip_spaces.exit.us62 ], [ %spec.select, %.cont.us.us ], [ 0, %skip_spaces.exit.us.us ], [ 0, %.split.us.split.us ], [ 0, %64 ], [ %spec.select88, %.then.us ], [ 0, %.split.us.split ], [ %indvars.le, %.thread42.loopexit130.split.loop.exit144 ], [ 0, %.split.split.us ], [ %91, %.thread42.loopexit130.split.loop.exit141 ], [ %51, %50 ], [ %.1.us82, %skip_spaces.exit.us ], [ -1, %.cont.us ], [ %smax, %84 ], [ -1, %.then ]
   store ptr %92, ptr %0, align 8, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.024
@@ -9851,7 +9851,7 @@ ps_builder_add_point.exit.i:                      ; preds = %51, %ps_builder_che
   br label %ps_builder_add_point1.exit
 
 ps_builder_add_point1.exit:                       ; preds = %24, %6, %ps_builder_add_point.exit.i, %ps_builder_check_points.exit.i, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %ps_builder_add_point.exit.i ], [ %50, %ps_builder_check_points.exit.i ], [ %25, %24 ], [ 3, %6 ]
+  %.0 = phi i32 [ 0, %3 ], [ %50, %ps_builder_check_points.exit.i ], [ 0, %ps_builder_add_point.exit.i ], [ %25, %24 ], [ 3, %6 ]
   ret i32 %.0
 }
 
@@ -10186,8 +10186,8 @@ cf2_buf_readByte.exit:                            ; preds = %.backedge
   br label %cf2_buf_readByte.exit.thread
 
 cf2_buf_readByte.exit.thread:                     ; preds = %192, %cf2_buf_readByte.exit, %189
-  %194 = phi ptr [ %190, %cf2_buf_readByte.exit ], [ %.01030.val1273, %189 ], [ %190, %192 ]
-  %.01028 = phi i8 [ %191, %cf2_buf_readByte.exit ], [ %., %189 ], [ %spec.select, %192 ]
+  %194 = phi ptr [ %.01030.val1273, %189 ], [ %190, %cf2_buf_readByte.exit ], [ %190, %192 ]
+  %.01028 = phi i8 [ %., %189 ], [ %191, %cf2_buf_readByte.exit ], [ %spec.select, %192 ]
   %195 = load i8, ptr %133, align 4, !tbaa !286
   %.not1141 = icmp eq i8 %195, 0
   br i1 %.not1141, label %219, label %196
@@ -10229,8 +10229,8 @@ cf2_buf_readByte.exit.thread:                     ; preds = %192, %cf2_buf_readB
   br label %219
 
 219:                                              ; preds = %212, %cf2_buf_readByte.exit.thread
-  %.11019 = phi i32 [ %.01018, %cf2_buf_readByte.exit.thread ], [ %spec.select1237, %212 ]
-  %.11010 = phi i8 [ %.01009, %cf2_buf_readByte.exit.thread ], [ %spec.select1266, %212 ]
+  %.11019 = phi i32 [ %spec.select1237, %212 ], [ %.01018, %cf2_buf_readByte.exit.thread ]
+  %.11010 = phi i8 [ %spec.select1266, %212 ], [ %.01009, %cf2_buf_readByte.exit.thread ]
   %220 = load i32, ptr %33, align 4, !tbaa !16
   %.not1142 = icmp eq i32 %220, 0
   br i1 %.not1142, label %221, label %cf2_setError.exit
@@ -10334,8 +10334,8 @@ cf2_stack_popInt.exit:                            ; preds = %239
   %249 = icmp sgt i32 %248, -1
   br i1 %249, label %cf2_stack_popInt.exit.thread, label %cf2_hintmask_read.exit
 
-cf2_stack_popInt.exit.thread:                     ; preds = %246, %244, %242, %238, %236, %234, %cf2_stack_popInt.exit
-  %.0.i13281939 = phi i32 [ %248, %cf2_stack_popInt.exit ], [ 0, %234 ], [ 0, %236 ], [ 0, %238 ], [ 0, %242 ], [ 0, %244 ], [ 0, %246 ]
+cf2_stack_popInt.exit.thread:                     ; preds = %246, %244, %242, %236, %234, %238, %cf2_stack_popInt.exit
+  %.0.i13281939 = phi i32 [ %248, %cf2_stack_popInt.exit ], [ 0, %238 ], [ 0, %234 ], [ 0, %236 ], [ 0, %242 ], [ 0, %244 ], [ 0, %246 ]
   store i32 %.0.i13281939, ptr %182, align 8, !tbaa !307
   br label %cf2_hintmask_read.exit
 
@@ -10418,8 +10418,8 @@ cf2_stack_popInt.exit1337:                        ; preds = %279
   %289 = icmp ugt i32 %288, %116
   br i1 %289, label %cf2_arrstack_setCount.exit.thread, label %cf2_stack_popInt.exit1337.thread
 
-cf2_stack_popInt.exit1337.thread:                 ; preds = %286, %284, %282, %278, %276, %274, %cf2_stack_popInt.exit1337
-  %.0.i13341941 = phi i32 [ %288, %cf2_stack_popInt.exit1337 ], [ 0, %274 ], [ 0, %276 ], [ 0, %278 ], [ 0, %282 ], [ 0, %284 ], [ 0, %286 ]
+cf2_stack_popInt.exit1337.thread:                 ; preds = %286, %284, %282, %276, %274, %278, %cf2_stack_popInt.exit1337
+  %.0.i13341941 = phi i32 [ %288, %cf2_stack_popInt.exit1337 ], [ 0, %278 ], [ 0, %274 ], [ 0, %276 ], [ 0, %282 ], [ 0, %284 ], [ 0, %286 ]
   call fastcc void @cf2_doBlend(ptr noundef nonnull %179, ptr noundef %117, i32 noundef %.0.i13341941)
   store i8 1, ptr %185, align 1, !tbaa !306
   br label %.backedge.backedge
@@ -10501,7 +10501,7 @@ cf2_stack_popInt.exit1337.thread:                 ; preds = %286, %284, %282, %2
   br label %cf2_stack_getReal.exit
 
 cf2_stack_getReal.exit:                           ; preds = %315, %319, %321
-  %.0.i1341 = phi i32 [ %320, %319 ], [ %324, %321 ], [ %318, %315 ]
+  %.0.i1341 = phi i32 [ %324, %321 ], [ %318, %315 ], [ %320, %319 ]
   %325 = add i32 %.0.i1341, %40
   store i32 %325, ptr %7, align 4, !tbaa !16
   br label %326
@@ -10554,7 +10554,7 @@ cf2_stack_getReal.exit:                           ; preds = %315, %319, %321
   br label %cf2_stack_popFixed.exit
 
 cf2_stack_popFixed.exit:                          ; preds = %331, %333, %335, %336, %341, %343
-  %.0.i1343 = phi i32 [ %342, %341 ], [ %346, %343 ], [ 0, %331 ], [ 0, %333 ], [ 0, %335 ], [ %340, %336 ]
+  %.0.i1343 = phi i32 [ %346, %343 ], [ 0, %335 ], [ %342, %341 ], [ 0, %331 ], [ 0, %333 ], [ %340, %336 ]
   %347 = add i32 %.0.i1343, %329
   store i32 %347, ptr %14, align 4, !tbaa !16
   %348 = load i32, ptr %135, align 8, !tbaa !625
@@ -10630,7 +10630,7 @@ cf2_stack_popFixed.exit:                          ; preds = %331, %333, %335, %3
   br label %cf2_stack_getReal.exit1353
 
 cf2_stack_getReal.exit1353:                       ; preds = %364, %366, %368, %369, %375, %377
-  %.0.i1351 = phi i32 [ %376, %375 ], [ %380, %377 ], [ 0, %364 ], [ 0, %366 ], [ 0, %368 ], [ %374, %369 ]
+  %.0.i1351 = phi i32 [ %380, %377 ], [ 0, %368 ], [ %376, %375 ], [ 0, %364 ], [ 0, %366 ], [ %374, %369 ]
   %381 = add i32 %.0.i1351, %357
   %382 = or disjoint i32 %.010672165, 1
   %.not.i1356 = icmp ult i32 %382, %363
@@ -10673,7 +10673,7 @@ cf2_stack_getReal.exit1353:                       ; preds = %364, %366, %368, %3
   br label %cf2_stack_getReal.exit1361
 
 cf2_stack_getReal.exit1361:                       ; preds = %383, %385, %387, %388, %394, %396
-  %.0.i1359 = phi i32 [ %395, %394 ], [ %399, %396 ], [ 0, %383 ], [ 0, %385 ], [ 0, %387 ], [ %393, %388 ]
+  %.0.i1359 = phi i32 [ %399, %396 ], [ 0, %387 ], [ %395, %394 ], [ 0, %383 ], [ 0, %385 ], [ %393, %388 ]
   %400 = add i32 %.0.i1359, %358
   call fastcc void @cf2_glyphpath_lineTo(ptr noundef %22, i32 noundef %381, i32 noundef %400)
   %401 = add i32 %.010672165, 2
@@ -10762,7 +10762,7 @@ cf2_stack_getReal.exit1361:                       ; preds = %383, %385, %387, %3
   br label %cf2_stack_getReal.exit1369
 
 cf2_stack_getReal.exit1369:                       ; preds = %418, %420, %422, %423, %428, %430
-  %.0.i1367 = phi i32 [ %429, %428 ], [ %433, %430 ], [ 0, %418 ], [ 0, %420 ], [ 0, %422 ], [ %427, %423 ]
+  %.0.i1367 = phi i32 [ %433, %430 ], [ 0, %422 ], [ %429, %428 ], [ 0, %418 ], [ 0, %420 ], [ %427, %423 ]
   %434 = select i1 %.010692154, i32 %.0.i1367, i32 0
   %435 = add i32 %412, %434
   %436 = select i1 %.010692154, i32 0, i32 %.0.i1367
@@ -10851,7 +10851,7 @@ cf2_stack_getReal.exit1369:                       ; preds = %418, %420, %422, %4
   br label %cf2_stack_getReal.exit1377
 
 cf2_stack_getReal.exit1377:                       ; preds = %454, %456, %458, %459, %465, %467
-  %.0.i1375 = phi i32 [ %466, %465 ], [ %470, %467 ], [ 0, %454 ], [ 0, %456 ], [ 0, %458 ], [ %464, %459 ]
+  %.0.i1375 = phi i32 [ %470, %467 ], [ 0, %458 ], [ %466, %465 ], [ 0, %454 ], [ 0, %456 ], [ %464, %459 ]
   %471 = add i32 %447, %.0.i1375
   %472 = or disjoint i32 %.010702143, 1
   %.not.i1380 = icmp ult i32 %472, %453
@@ -10894,7 +10894,7 @@ cf2_stack_getReal.exit1377:                       ; preds = %454, %456, %458, %4
   br label %cf2_stack_getReal.exit1385
 
 cf2_stack_getReal.exit1385:                       ; preds = %473, %475, %477, %478, %484, %486
-  %.0.i1383 = phi i32 [ %485, %484 ], [ %489, %486 ], [ 0, %473 ], [ 0, %475 ], [ 0, %477 ], [ %483, %478 ]
+  %.0.i1383 = phi i32 [ %489, %486 ], [ 0, %477 ], [ %485, %484 ], [ 0, %473 ], [ 0, %475 ], [ %483, %478 ]
   %490 = add i32 %448, %.0.i1383
   %491 = add i32 %.010702143, 2
   %.not.i1388 = icmp ult i32 %491, %453
@@ -10937,7 +10937,7 @@ cf2_stack_getReal.exit1385:                       ; preds = %473, %475, %477, %4
   br label %cf2_stack_getReal.exit1393
 
 cf2_stack_getReal.exit1393:                       ; preds = %492, %494, %496, %497, %503, %505
-  %.0.i1391 = phi i32 [ %504, %503 ], [ %508, %505 ], [ 0, %492 ], [ 0, %494 ], [ 0, %496 ], [ %502, %497 ]
+  %.0.i1391 = phi i32 [ %508, %505 ], [ 0, %496 ], [ %504, %503 ], [ 0, %492 ], [ 0, %494 ], [ %502, %497 ]
   %509 = add i32 %.0.i1391, %471
   %510 = add i32 %.010702143, 3
   %.not.i1396 = icmp ult i32 %510, %453
@@ -10980,7 +10980,7 @@ cf2_stack_getReal.exit1393:                       ; preds = %492, %494, %496, %4
   br label %cf2_stack_getReal.exit1401
 
 cf2_stack_getReal.exit1401:                       ; preds = %511, %513, %515, %516, %522, %524
-  %.0.i1399 = phi i32 [ %523, %522 ], [ %527, %524 ], [ 0, %511 ], [ 0, %513 ], [ 0, %515 ], [ %521, %516 ]
+  %.0.i1399 = phi i32 [ %527, %524 ], [ 0, %515 ], [ %523, %522 ], [ 0, %511 ], [ 0, %513 ], [ %521, %516 ]
   %528 = add i32 %.0.i1399, %490
   %529 = add i32 %.010702143, 4
   %.not.i1404 = icmp ult i32 %529, %453
@@ -11023,7 +11023,7 @@ cf2_stack_getReal.exit1401:                       ; preds = %511, %513, %515, %5
   br label %cf2_stack_getReal.exit1409
 
 cf2_stack_getReal.exit1409:                       ; preds = %530, %532, %534, %535, %541, %543
-  %.0.i1407 = phi i32 [ %542, %541 ], [ %546, %543 ], [ 0, %530 ], [ 0, %532 ], [ 0, %534 ], [ %540, %535 ]
+  %.0.i1407 = phi i32 [ %546, %543 ], [ 0, %534 ], [ %542, %541 ], [ 0, %530 ], [ 0, %532 ], [ %540, %535 ]
   %547 = add i32 %.0.i1407, %509
   %548 = add i32 %.010702143, 5
   %.not.i1412 = icmp ult i32 %548, %453
@@ -11066,7 +11066,7 @@ cf2_stack_getReal.exit1409:                       ; preds = %530, %532, %534, %5
   br label %cf2_stack_getReal.exit1417
 
 cf2_stack_getReal.exit1417:                       ; preds = %549, %551, %553, %554, %560, %562
-  %.0.i1415 = phi i32 [ %561, %560 ], [ %565, %562 ], [ 0, %549 ], [ 0, %551 ], [ 0, %553 ], [ %559, %554 ]
+  %.0.i1415 = phi i32 [ %565, %562 ], [ 0, %553 ], [ %561, %560 ], [ 0, %549 ], [ 0, %551 ], [ %559, %554 ]
   %566 = add i32 %.0.i1415, %528
   call fastcc void @cf2_glyphpath_curveTo(ptr noundef %22, i32 noundef %471, i32 noundef %490, i32 noundef %509, i32 noundef %528, i32 noundef %547, i32 noundef %566)
   %567 = add i32 %446, 6
@@ -11134,7 +11134,7 @@ cf2_stack_getReal.exit1417:                       ; preds = %549, %551, %553, %5
   br label %cf2_stack_getReal.exit1425
 
 cf2_stack_getReal.exit1425:                       ; preds = %577, %579, %581, %582, %588, %590
-  %.0.i1423 = phi i32 [ %589, %588 ], [ %593, %590 ], [ 0, %577 ], [ 0, %579 ], [ 0, %581 ], [ %587, %582 ]
+  %.0.i1423 = phi i32 [ %593, %590 ], [ 0, %581 ], [ %589, %588 ], [ 0, %577 ], [ 0, %579 ], [ %587, %582 ]
   %594 = add i32 %.0.i1423, %569
   store i32 %594, ptr %13, align 4, !tbaa !16
   %595 = or disjoint i32 %.01070.lcssa, 1
@@ -11178,7 +11178,7 @@ cf2_stack_getReal.exit1425:                       ; preds = %577, %579, %581, %5
   br label %cf2_stack_getReal.exit1433
 
 cf2_stack_getReal.exit1433:                       ; preds = %596, %598, %600, %601, %607, %609
-  %.0.i1431 = phi i32 [ %608, %607 ], [ %612, %609 ], [ 0, %596 ], [ 0, %598 ], [ 0, %600 ], [ %606, %601 ]
+  %.0.i1431 = phi i32 [ %612, %609 ], [ 0, %600 ], [ %608, %607 ], [ 0, %596 ], [ 0, %598 ], [ %606, %601 ]
   %613 = add i32 %.0.i1431, %568
   store i32 %613, ptr %14, align 4, !tbaa !16
   call fastcc void @cf2_glyphpath_lineTo(ptr noundef %22, i32 noundef %594, i32 noundef %613)
@@ -11290,7 +11290,7 @@ cf2_arrstack_getPointer.exit:                     ; preds = %631, %634
   br label %cf2_stack_popInt.exit1445
 
 cf2_stack_popInt.exit1445:                        ; preds = %640, %642, %644, %648, %650, %652, %653
-  %.0.i1442 = phi i32 [ %655, %653 ], [ 0, %640 ], [ 0, %642 ], [ 0, %644 ], [ 0, %648 ], [ 0, %650 ], [ 0, %652 ]
+  %.0.i1442 = phi i32 [ %655, %653 ], [ 0, %644 ], [ 0, %640 ], [ 0, %642 ], [ 0, %648 ], [ 0, %650 ], [ 0, %652 ]
   br i1 %.not1141, label %663, label %656
 
 656:                                              ; preds = %cf2_stack_popInt.exit1445
@@ -11309,7 +11309,7 @@ cf2_stack_popInt.exit1445:                        ; preds = %640, %642, %644, %6
   br label %663
 
 663:                                              ; preds = %660, %658, %656, %cf2_stack_popInt.exit1445
-  %.01071 = phi i32 [ %.0.i1442, %656 ], [ %.0.i1442, %cf2_stack_popInt.exit1445 ], [ %662, %660 ], [ -1, %658 ]
+  %.01071 = phi i32 [ %.0.i1442, %cf2_stack_popInt.exit1445 ], [ %.0.i1442, %656 ], [ %662, %660 ], [ -1, %658 ]
   %cond4 = icmp eq i8 %.01028, 29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %636, i8 0, i64 32, i1 false)
   br i1 %cond4, label %664, label %678
@@ -11390,8 +11390,8 @@ cf2_initGlobalRegionBuffer.exit.thread:           ; preds = %664
   br label %cf2_initLocalRegionBuffer.exit.thread
 
 cf2_initLocalRegionBuffer.exit.thread:            ; preds = %691, %692, %697, %704
-  %.sink.i = phi ptr [ %703, %697 ], [ %708, %704 ], [ %696, %692 ], [ null, %691 ]
-  %709 = phi ptr [ %699, %697 ], [ %686, %704 ], [ %686, %692 ], [ null, %691 ]
+  %.sink.i = phi ptr [ %708, %704 ], [ %703, %697 ], [ %696, %692 ], [ null, %691 ]
+  %709 = phi ptr [ %686, %704 ], [ %699, %697 ], [ %686, %692 ], [ null, %691 ]
   %710 = getelementptr inbounds nuw i8, ptr %636, i64 16
   store ptr %.sink.i, ptr %710, align 8, !tbaa !255
   br label %cf2_initGlobalRegionBuffer.exit
@@ -11944,7 +11944,7 @@ cf2_freeT1SeacComponent.exit1478:                 ; preds = %944, %954
   br label %962
 
 962:                                              ; preds = %942, %918, %895, %888, %881, %872, %862, %851, %cf2_freeT1SeacComponent.exit1478
-  %.7 = phi i32 [ 0, %cf2_freeT1SeacComponent.exit1478 ], [ 18, %851 ], [ 18, %862 ], [ 18, %872 ], [ 18, %881 ], [ 0, %895 ], [ %894, %888 ], [ %920, %918 ], [ %943, %942 ]
+  %.7 = phi i32 [ 18, %862 ], [ 18, %851 ], [ 18, %872 ], [ 18, %881 ], [ %894, %888 ], [ %920, %918 ], [ 0, %cf2_freeT1SeacComponent.exit1478 ], [ 0, %895 ], [ %943, %942 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
@@ -13037,14 +13037,14 @@ cf2_stack_setReal.exit1515:                       ; preds = %1280, %1282, %1284,
   %.not11922134 = icmp eq i32 %1140, 0
   br i1 %.not11922134, label %.backedge.backedge, label %.lr.ph2137.preheader
 
-.backedge.backedge:                               ; preds = %.lr.ph2137, %1508, %1499, %1498, %1496, %1494, %1474, %1473, %1471, %1469, %1448, %1447, %1445, %1443, %1411, %1410, %1408, %1406, %1379, %1378, %1376, %1374, %1359, %1358, %1356, %1354, %1339, %1338, %1336, %1334, %1314, %1316, %1319, %1299, %1298, %1296, %1294, %1204, %1230, %ps_builder_check_points.exit1510.thread, %1201, %1761, %1760, %1758, %1756, %1729, %1728, %1726, %1724, %1696, %1695, %1693, %1691, %1664, %1663, %1661, %1659, %1635, %1634, %1632, %1630, %1615, %1614, %1612, %1610, %1589, %1588, %1586, %1584, %1566, %1565, %1563, %1561, %1535, %1534, %1532, %1530, %ps_builder_check_points.exit.thread, %1240, %1187, %1239, %1238, %1176, %1178, %1180, %1181, %1423, %1131, %1130, %1128, %1126, %1112, %1111, %1109, %1107, %1102, %1101, %1099, %1097, %1082, %1081, %1079, %1077, %1054, %1053, %1051, %1049, %1035, %1034, %1032, %1030, %1016, %1015, %1013, %1011, %1006, %1005, %1003, %1001, %845, %844, %842, %840, %824, %823, %821, %819, %802, %801, %799, %797, %1733, %1551, %1544, %1548, %1515, %1137, %734, %733, %731, %1765, %1542, %1518, %2722, %2724, %2726, %2727, %2752, %2754, %2756, %2757, %2780, %2782, %2784, %2785, %2850, %2852, %2854, %2855, %2866, %2868, %2870, %2871, %2708, %2707, %2705, %2703, %210, %._crit_edge2168, %._crit_edge2158, %614, %cf2_arrstack_getPointer.exit1455, %._crit_edge2110, %._crit_edge2091, %._crit_edge2081, %._crit_edge, %cf2_hintmask_read.exit, %cf2_stack_popInt.exit1337.thread, %cf2_initGlobalRegionBuffer.exit
-  %.01034.be = phi i32 [ %.11035, %cf2_hintmask_read.exit ], [ %.01034, %cf2_stack_popInt.exit1337.thread ], [ %.01034, %._crit_edge2168 ], [ %.01034, %._crit_edge2158 ], [ %.01034, %614 ], [ %712, %cf2_initGlobalRegionBuffer.exit ], [ %716, %cf2_arrstack_getPointer.exit1455 ], [ %.01034, %._crit_edge2110 ], [ %.01034, %._crit_edge2091 ], [ %.01034, %._crit_edge2081 ], [ %.01034, %._crit_edge ], [ %.01034, %210 ], [ %.01034, %2703 ], [ %.01034, %2705 ], [ %.01034, %2707 ], [ %.01034, %2708 ], [ %.01034, %2871 ], [ %.01034, %2870 ], [ %.01034, %2868 ], [ %.01034, %2866 ], [ %.01034, %2855 ], [ %.01034, %2854 ], [ %.01034, %2852 ], [ %.01034, %2850 ], [ %.01034, %2785 ], [ %.01034, %2784 ], [ %.01034, %2782 ], [ %.01034, %2780 ], [ %.01034, %2757 ], [ %.01034, %2756 ], [ %.01034, %2754 ], [ %.01034, %2752 ], [ %.01034, %2727 ], [ %.01034, %2726 ], [ %.01034, %2724 ], [ %.01034, %2722 ], [ %.01034, %1518 ], [ %.01034, %1542 ], [ %.01034, %1765 ], [ %.01034, %731 ], [ %.01034, %733 ], [ %.01034, %734 ], [ %.01034, %1137 ], [ %.01034, %1515 ], [ %.01034, %1548 ], [ %.01034, %1544 ], [ %.01034, %1551 ], [ %.01034, %1733 ], [ %.01034, %797 ], [ %.01034, %799 ], [ %.01034, %801 ], [ %.01034, %802 ], [ %.01034, %819 ], [ %.01034, %821 ], [ %.01034, %823 ], [ %.01034, %824 ], [ %.01034, %840 ], [ %.01034, %842 ], [ %.01034, %844 ], [ %.01034, %845 ], [ %.01034, %1001 ], [ %.01034, %1003 ], [ %.01034, %1005 ], [ %.01034, %1006 ], [ %.01034, %1011 ], [ %.01034, %1013 ], [ %.01034, %1015 ], [ %.01034, %1016 ], [ %.01034, %1030 ], [ %.01034, %1032 ], [ %.01034, %1034 ], [ %.01034, %1035 ], [ %.01034, %1049 ], [ %.01034, %1051 ], [ %.01034, %1053 ], [ %.01034, %1054 ], [ %.01034, %1077 ], [ %.01034, %1079 ], [ %.01034, %1081 ], [ %.01034, %1082 ], [ %.01034, %1097 ], [ %.01034, %1099 ], [ %.01034, %1101 ], [ %.01034, %1102 ], [ %.01034, %1107 ], [ %.01034, %1109 ], [ %.01034, %1111 ], [ %.01034, %1112 ], [ %.01034, %1126 ], [ %.01034, %1128 ], [ %.01034, %1130 ], [ %.01034, %1131 ], [ %.01034, %1423 ], [ %.01034, %1181 ], [ %.01034, %1180 ], [ %.01034, %1178 ], [ %.01034, %1176 ], [ %.01034, %1238 ], [ %.01034, %1239 ], [ %.01034, %1187 ], [ %.01034, %1240 ], [ %.01034, %ps_builder_check_points.exit.thread ], [ %.01034, %1530 ], [ %.01034, %1532 ], [ %.01034, %1534 ], [ %.01034, %1535 ], [ %.01034, %1561 ], [ %.01034, %1563 ], [ %.01034, %1565 ], [ %.01034, %1566 ], [ %.01034, %1584 ], [ %.01034, %1586 ], [ %.01034, %1588 ], [ %.01034, %1589 ], [ %.01034, %1610 ], [ %.01034, %1612 ], [ %.01034, %1614 ], [ %.01034, %1615 ], [ %.01034, %1630 ], [ %.01034, %1632 ], [ %.01034, %1634 ], [ %.01034, %1635 ], [ %.01034, %1659 ], [ %.01034, %1661 ], [ %.01034, %1663 ], [ %.01034, %1664 ], [ %.01034, %1691 ], [ %.01034, %1693 ], [ %.01034, %1695 ], [ %.01034, %1696 ], [ %.01034, %1724 ], [ %.01034, %1726 ], [ %.01034, %1728 ], [ %.01034, %1729 ], [ %.01034, %1756 ], [ %.01034, %1758 ], [ %.01034, %1760 ], [ %.01034, %1761 ], [ %.01034, %1201 ], [ %.01034, %ps_builder_check_points.exit1510.thread ], [ %.01034, %1230 ], [ %.01034, %1204 ], [ %.01034, %1294 ], [ %.01034, %1296 ], [ %.01034, %1298 ], [ %.01034, %1299 ], [ %.01034, %1319 ], [ %.01034, %1316 ], [ %.01034, %1314 ], [ %.01034, %1334 ], [ %.01034, %1336 ], [ %.01034, %1338 ], [ %.01034, %1339 ], [ %.01034, %1354 ], [ %.01034, %1356 ], [ %.01034, %1358 ], [ %.01034, %1359 ], [ %.01034, %1374 ], [ %.01034, %1376 ], [ %.01034, %1378 ], [ %.01034, %1379 ], [ %.01034, %1406 ], [ %.01034, %1408 ], [ %.01034, %1410 ], [ %.01034, %1411 ], [ %.01034, %1443 ], [ %.01034, %1445 ], [ %.01034, %1447 ], [ %.01034, %1448 ], [ %.01034, %1469 ], [ %.01034, %1471 ], [ %.01034, %1473 ], [ %.01034, %1474 ], [ %.01034, %1494 ], [ %.01034, %1496 ], [ %.01034, %1498 ], [ %.01034, %1499 ], [ %.01034, %1508 ], [ %.01034, %.lr.ph2137 ]
-  %.01030.be = phi ptr [ %.11031, %cf2_hintmask_read.exit ], [ %.01030, %cf2_stack_popInt.exit1337.thread ], [ %.01030, %._crit_edge2168 ], [ %.01030, %._crit_edge2158 ], [ %.01030, %614 ], [ %636, %cf2_initGlobalRegionBuffer.exit ], [ %720, %cf2_arrstack_getPointer.exit1455 ], [ %.01030, %._crit_edge2110 ], [ %.01030, %._crit_edge2091 ], [ %.01030, %._crit_edge2081 ], [ %.01030, %._crit_edge ], [ %.01030, %210 ], [ %.01030, %2703 ], [ %.01030, %2705 ], [ %.01030, %2707 ], [ %.01030, %2708 ], [ %.01030, %2871 ], [ %.01030, %2870 ], [ %.01030, %2868 ], [ %.01030, %2866 ], [ %.01030, %2855 ], [ %.01030, %2854 ], [ %.01030, %2852 ], [ %.01030, %2850 ], [ %.01030, %2785 ], [ %.01030, %2784 ], [ %.01030, %2782 ], [ %.01030, %2780 ], [ %.01030, %2757 ], [ %.01030, %2756 ], [ %.01030, %2754 ], [ %.01030, %2752 ], [ %.01030, %2727 ], [ %.01030, %2726 ], [ %.01030, %2724 ], [ %.01030, %2722 ], [ %.01030, %1518 ], [ %.01030, %1542 ], [ %.01030, %1765 ], [ %.01030, %731 ], [ %.01030, %733 ], [ %.01030, %734 ], [ %.01030, %1137 ], [ %.01030, %1515 ], [ %.01030, %1548 ], [ %.01030, %1544 ], [ %.01030, %1551 ], [ %.01030, %1733 ], [ %.01030, %797 ], [ %.01030, %799 ], [ %.01030, %801 ], [ %.01030, %802 ], [ %.01030, %819 ], [ %.01030, %821 ], [ %.01030, %823 ], [ %.01030, %824 ], [ %.01030, %840 ], [ %.01030, %842 ], [ %.01030, %844 ], [ %.01030, %845 ], [ %.01030, %1001 ], [ %.01030, %1003 ], [ %.01030, %1005 ], [ %.01030, %1006 ], [ %.01030, %1011 ], [ %.01030, %1013 ], [ %.01030, %1015 ], [ %.01030, %1016 ], [ %.01030, %1030 ], [ %.01030, %1032 ], [ %.01030, %1034 ], [ %.01030, %1035 ], [ %.01030, %1049 ], [ %.01030, %1051 ], [ %.01030, %1053 ], [ %.01030, %1054 ], [ %.01030, %1077 ], [ %.01030, %1079 ], [ %.01030, %1081 ], [ %.01030, %1082 ], [ %.01030, %1097 ], [ %.01030, %1099 ], [ %.01030, %1101 ], [ %.01030, %1102 ], [ %.01030, %1107 ], [ %.01030, %1109 ], [ %.01030, %1111 ], [ %.01030, %1112 ], [ %.01030, %1126 ], [ %.01030, %1128 ], [ %.01030, %1130 ], [ %.01030, %1131 ], [ %.01030, %1423 ], [ %.01030, %1181 ], [ %.01030, %1180 ], [ %.01030, %1178 ], [ %.01030, %1176 ], [ %.01030, %1238 ], [ %.01030, %1239 ], [ %.01030, %1187 ], [ %.01030, %1240 ], [ %.01030, %ps_builder_check_points.exit.thread ], [ %.01030, %1530 ], [ %.01030, %1532 ], [ %.01030, %1534 ], [ %.01030, %1535 ], [ %.01030, %1561 ], [ %.01030, %1563 ], [ %.01030, %1565 ], [ %.01030, %1566 ], [ %.01030, %1584 ], [ %.01030, %1586 ], [ %.01030, %1588 ], [ %.01030, %1589 ], [ %.01030, %1610 ], [ %.01030, %1612 ], [ %.01030, %1614 ], [ %.01030, %1615 ], [ %.01030, %1630 ], [ %.01030, %1632 ], [ %.01030, %1634 ], [ %.01030, %1635 ], [ %.01030, %1659 ], [ %.01030, %1661 ], [ %.01030, %1663 ], [ %.01030, %1664 ], [ %.01030, %1691 ], [ %.01030, %1693 ], [ %.01030, %1695 ], [ %.01030, %1696 ], [ %.01030, %1724 ], [ %.01030, %1726 ], [ %.01030, %1728 ], [ %.01030, %1729 ], [ %.01030, %1756 ], [ %.01030, %1758 ], [ %.01030, %1760 ], [ %.01030, %1761 ], [ %.01030, %1201 ], [ %.01030, %ps_builder_check_points.exit1510.thread ], [ %.01030, %1230 ], [ %.01030, %1204 ], [ %.01030, %1294 ], [ %.01030, %1296 ], [ %.01030, %1298 ], [ %.01030, %1299 ], [ %.01030, %1319 ], [ %.01030, %1316 ], [ %.01030, %1314 ], [ %.01030, %1334 ], [ %.01030, %1336 ], [ %.01030, %1338 ], [ %.01030, %1339 ], [ %.01030, %1354 ], [ %.01030, %1356 ], [ %.01030, %1358 ], [ %.01030, %1359 ], [ %.01030, %1374 ], [ %.01030, %1376 ], [ %.01030, %1378 ], [ %.01030, %1379 ], [ %.01030, %1406 ], [ %.01030, %1408 ], [ %.01030, %1410 ], [ %.01030, %1411 ], [ %.01030, %1443 ], [ %.01030, %1445 ], [ %.01030, %1447 ], [ %.01030, %1448 ], [ %.01030, %1469 ], [ %.01030, %1471 ], [ %.01030, %1473 ], [ %.01030, %1474 ], [ %.01030, %1494 ], [ %.01030, %1496 ], [ %.01030, %1498 ], [ %.01030, %1499 ], [ %.01030, %1508 ], [ %.01030, %.lr.ph2137 ]
-  %.01029.be = phi i32 [ %222, %cf2_hintmask_read.exit ], [ %222, %cf2_stack_popInt.exit1337.thread ], [ %222, %._crit_edge2168 ], [ %222, %._crit_edge2158 ], [ %222, %614 ], [ %222, %cf2_initGlobalRegionBuffer.exit ], [ %222, %cf2_arrstack_getPointer.exit1455 ], [ %222, %._crit_edge2110 ], [ %222, %._crit_edge2091 ], [ %222, %._crit_edge2081 ], [ %222, %._crit_edge ], [ %.01029, %210 ], [ %222, %2703 ], [ %222, %2705 ], [ %222, %2707 ], [ %222, %2708 ], [ %222, %2871 ], [ %222, %2870 ], [ %222, %2868 ], [ %222, %2866 ], [ %222, %2855 ], [ %222, %2854 ], [ %222, %2852 ], [ %222, %2850 ], [ %222, %2785 ], [ %222, %2784 ], [ %222, %2782 ], [ %222, %2780 ], [ %222, %2757 ], [ %222, %2756 ], [ %222, %2754 ], [ %222, %2752 ], [ %222, %2727 ], [ %222, %2726 ], [ %222, %2724 ], [ %222, %2722 ], [ %222, %1518 ], [ %222, %1542 ], [ %222, %1765 ], [ %222, %731 ], [ %222, %733 ], [ %222, %734 ], [ %222, %1137 ], [ %222, %1515 ], [ %222, %1548 ], [ %222, %1544 ], [ %222, %1551 ], [ %222, %1733 ], [ %222, %797 ], [ %222, %799 ], [ %222, %801 ], [ %222, %802 ], [ %222, %819 ], [ %222, %821 ], [ %222, %823 ], [ %222, %824 ], [ %222, %840 ], [ %222, %842 ], [ %222, %844 ], [ %222, %845 ], [ %222, %1001 ], [ %222, %1003 ], [ %222, %1005 ], [ %222, %1006 ], [ %222, %1011 ], [ %222, %1013 ], [ %222, %1015 ], [ %222, %1016 ], [ %222, %1030 ], [ %222, %1032 ], [ %222, %1034 ], [ %222, %1035 ], [ %222, %1049 ], [ %222, %1051 ], [ %222, %1053 ], [ %222, %1054 ], [ %222, %1077 ], [ %222, %1079 ], [ %222, %1081 ], [ %222, %1082 ], [ %222, %1097 ], [ %222, %1099 ], [ %222, %1101 ], [ %222, %1102 ], [ %222, %1107 ], [ %222, %1109 ], [ %222, %1111 ], [ %222, %1112 ], [ %222, %1126 ], [ %222, %1128 ], [ %222, %1130 ], [ %222, %1131 ], [ %222, %1423 ], [ %222, %1181 ], [ %222, %1180 ], [ %222, %1178 ], [ %222, %1176 ], [ %222, %1238 ], [ %222, %1239 ], [ %222, %1187 ], [ %222, %1240 ], [ %222, %ps_builder_check_points.exit.thread ], [ %222, %1530 ], [ %222, %1532 ], [ %222, %1534 ], [ %222, %1535 ], [ %222, %1561 ], [ %222, %1563 ], [ %222, %1565 ], [ %222, %1566 ], [ %222, %1584 ], [ %222, %1586 ], [ %222, %1588 ], [ %222, %1589 ], [ %222, %1610 ], [ %222, %1612 ], [ %222, %1614 ], [ %222, %1615 ], [ %222, %1630 ], [ %222, %1632 ], [ %222, %1634 ], [ %222, %1635 ], [ %222, %1659 ], [ %222, %1661 ], [ %222, %1663 ], [ %222, %1664 ], [ %222, %1691 ], [ %222, %1693 ], [ %222, %1695 ], [ %222, %1696 ], [ %222, %1724 ], [ %222, %1726 ], [ %222, %1728 ], [ %222, %1729 ], [ %222, %1756 ], [ %222, %1758 ], [ %222, %1760 ], [ %222, %1761 ], [ %222, %1201 ], [ %222, %ps_builder_check_points.exit1510.thread ], [ %222, %1230 ], [ %222, %1204 ], [ %222, %1294 ], [ %222, %1296 ], [ %222, %1298 ], [ %222, %1299 ], [ %222, %1319 ], [ %222, %1316 ], [ %222, %1314 ], [ %222, %1334 ], [ %222, %1336 ], [ %222, %1338 ], [ %222, %1339 ], [ %222, %1354 ], [ %222, %1356 ], [ %222, %1358 ], [ %222, %1359 ], [ %222, %1374 ], [ %222, %1376 ], [ %222, %1378 ], [ %222, %1379 ], [ %222, %1406 ], [ %222, %1408 ], [ %222, %1410 ], [ %222, %1411 ], [ %222, %1443 ], [ %222, %1445 ], [ %222, %1447 ], [ %222, %1448 ], [ %222, %1469 ], [ %222, %1471 ], [ %222, %1473 ], [ %222, %1474 ], [ %222, %1494 ], [ %222, %1496 ], [ %222, %1498 ], [ %222, %1499 ], [ %222, %1508 ], [ %222, %.lr.ph2137 ]
-  %.01018.be = phi i32 [ %.31021, %cf2_hintmask_read.exit ], [ %.11019, %cf2_stack_popInt.exit1337.thread ], [ %.11019, %._crit_edge2168 ], [ %.11019, %._crit_edge2158 ], [ %.11019, %614 ], [ %.11019, %cf2_initGlobalRegionBuffer.exit ], [ %.11019, %cf2_arrstack_getPointer.exit1455 ], [ %.11019, %._crit_edge2110 ], [ %.11019, %._crit_edge2091 ], [ %.11019, %._crit_edge2081 ], [ %.11019, %._crit_edge ], [ %.01018, %210 ], [ %.11019, %2703 ], [ %.11019, %2705 ], [ %.11019, %2707 ], [ %.11019, %2708 ], [ %.11019, %2871 ], [ %.11019, %2870 ], [ %.11019, %2868 ], [ %.11019, %2866 ], [ %.11019, %2855 ], [ %.11019, %2854 ], [ %.11019, %2852 ], [ %.11019, %2850 ], [ %.11019, %2785 ], [ %.11019, %2784 ], [ %.11019, %2782 ], [ %.11019, %2780 ], [ %.11019, %2757 ], [ %.11019, %2756 ], [ %.11019, %2754 ], [ %.11019, %2752 ], [ %.11019, %2727 ], [ %.11019, %2726 ], [ %.11019, %2724 ], [ %.11019, %2722 ], [ %.11019, %1518 ], [ %.11019, %1542 ], [ %.11019, %1765 ], [ %.11019, %731 ], [ %.11019, %733 ], [ %.11019, %734 ], [ %.11019, %1137 ], [ %.11019, %1515 ], [ %.11019, %1548 ], [ %.11019, %1544 ], [ %.11019, %1551 ], [ %.11019, %1733 ], [ %.11019, %797 ], [ %.11019, %799 ], [ %.11019, %801 ], [ %.11019, %802 ], [ %.11019, %819 ], [ %.11019, %821 ], [ %.11019, %823 ], [ %.11019, %824 ], [ %.11019, %840 ], [ %.11019, %842 ], [ %.11019, %844 ], [ %.11019, %845 ], [ %.11019, %1001 ], [ %.11019, %1003 ], [ %.11019, %1005 ], [ %.11019, %1006 ], [ %.11019, %1011 ], [ %.11019, %1013 ], [ %.11019, %1015 ], [ %.11019, %1016 ], [ %.11019, %1030 ], [ %.11019, %1032 ], [ %.11019, %1034 ], [ %.11019, %1035 ], [ %.11019, %1049 ], [ %.11019, %1051 ], [ %.11019, %1053 ], [ %.11019, %1054 ], [ %.11019, %1077 ], [ %.11019, %1079 ], [ %.11019, %1081 ], [ %.11019, %1082 ], [ %.11019, %1097 ], [ %.11019, %1099 ], [ %.11019, %1101 ], [ %.11019, %1102 ], [ %.11019, %1107 ], [ %.11019, %1109 ], [ %.11019, %1111 ], [ %.11019, %1112 ], [ %.11019, %1126 ], [ %.11019, %1128 ], [ %.11019, %1130 ], [ %.11019, %1131 ], [ 0, %1423 ], [ 0, %1181 ], [ 0, %1180 ], [ 0, %1178 ], [ 0, %1176 ], [ 0, %1238 ], [ 0, %1239 ], [ 0, %1187 ], [ 0, %1240 ], [ 0, %ps_builder_check_points.exit.thread ], [ %1523, %1530 ], [ %1523, %1532 ], [ %1523, %1534 ], [ %1523, %1535 ], [ %.11019, %1561 ], [ %.11019, %1563 ], [ %.11019, %1565 ], [ %.11019, %1566 ], [ %.11019, %1584 ], [ %.11019, %1586 ], [ %.11019, %1588 ], [ %.11019, %1589 ], [ %.11019, %1610 ], [ %.11019, %1612 ], [ %.11019, %1614 ], [ %.11019, %1615 ], [ %.11019, %1630 ], [ %.11019, %1632 ], [ %.11019, %1634 ], [ %.11019, %1635 ], [ %.11019, %1659 ], [ %.11019, %1661 ], [ %.11019, %1663 ], [ %.11019, %1664 ], [ %.11019, %1691 ], [ %.11019, %1693 ], [ %.11019, %1695 ], [ %.11019, %1696 ], [ %.11019, %1724 ], [ %.11019, %1726 ], [ %.11019, %1728 ], [ %.11019, %1729 ], [ %.11019, %1756 ], [ %.11019, %1758 ], [ %.11019, %1760 ], [ %.11019, %1761 ], [ 0, %1201 ], [ 0, %ps_builder_check_points.exit1510.thread ], [ 0, %1230 ], [ 0, %1204 ], [ 0, %1294 ], [ 0, %1296 ], [ 0, %1298 ], [ 0, %1299 ], [ 0, %1319 ], [ 0, %1316 ], [ 0, %1314 ], [ 0, %1334 ], [ 0, %1336 ], [ 0, %1338 ], [ 0, %1339 ], [ 0, %1354 ], [ 0, %1356 ], [ 0, %1358 ], [ 0, %1359 ], [ 0, %1374 ], [ 0, %1376 ], [ 0, %1378 ], [ 0, %1379 ], [ 0, %1406 ], [ 0, %1408 ], [ 0, %1410 ], [ 0, %1411 ], [ 0, %1443 ], [ 0, %1445 ], [ 0, %1447 ], [ 0, %1448 ], [ 0, %1469 ], [ 0, %1471 ], [ 0, %1473 ], [ 0, %1474 ], [ 0, %1494 ], [ 0, %1496 ], [ 0, %1498 ], [ 0, %1499 ], [ %1509, %1508 ], [ %1509, %.lr.ph2137 ]
-  %.01016.be = phi i8 [ %.11017, %cf2_hintmask_read.exit ], [ %.01016, %cf2_stack_popInt.exit1337.thread ], [ %.01016, %._crit_edge2168 ], [ %.01016, %._crit_edge2158 ], [ %.01016, %614 ], [ %.01016, %cf2_initGlobalRegionBuffer.exit ], [ %.01016, %cf2_arrstack_getPointer.exit1455 ], [ %.01016, %._crit_edge2110 ], [ %.01016, %._crit_edge2091 ], [ %.01016, %._crit_edge2081 ], [ %.01016, %._crit_edge ], [ 0, %210 ], [ %.01016, %2703 ], [ %.01016, %2705 ], [ %.01016, %2707 ], [ %.01016, %2708 ], [ %.01016, %2871 ], [ %.01016, %2870 ], [ %.01016, %2868 ], [ %.01016, %2866 ], [ %.01016, %2855 ], [ %.01016, %2854 ], [ %.01016, %2852 ], [ %.01016, %2850 ], [ %.01016, %2785 ], [ %.01016, %2784 ], [ %.01016, %2782 ], [ %.01016, %2780 ], [ %.01016, %2757 ], [ %.01016, %2756 ], [ %.01016, %2754 ], [ %.01016, %2752 ], [ %.01016, %2727 ], [ %.01016, %2726 ], [ %.01016, %2724 ], [ %.01016, %2722 ], [ %.01016, %1518 ], [ %.01016, %1542 ], [ %.01016, %1765 ], [ %.01016, %731 ], [ %.01016, %733 ], [ %.01016, %734 ], [ %.01016, %1137 ], [ %.01016, %1515 ], [ %.01016, %1548 ], [ %.01016, %1544 ], [ %.01016, %1551 ], [ %.01016, %1733 ], [ %.01016, %797 ], [ %.01016, %799 ], [ %.01016, %801 ], [ %.01016, %802 ], [ %.01016, %819 ], [ %.01016, %821 ], [ %.01016, %823 ], [ %.01016, %824 ], [ %.01016, %840 ], [ %.01016, %842 ], [ %.01016, %844 ], [ %.01016, %845 ], [ %.01016, %1001 ], [ %.01016, %1003 ], [ %.01016, %1005 ], [ %.01016, %1006 ], [ %.01016, %1011 ], [ %.01016, %1013 ], [ %.01016, %1015 ], [ %.01016, %1016 ], [ %.01016, %1030 ], [ %.01016, %1032 ], [ %.01016, %1034 ], [ %.01016, %1035 ], [ %.01016, %1049 ], [ %.01016, %1051 ], [ %.01016, %1053 ], [ %.01016, %1054 ], [ %.01016, %1077 ], [ %.01016, %1079 ], [ %.01016, %1081 ], [ %.01016, %1082 ], [ %.01016, %1097 ], [ %.01016, %1099 ], [ %.01016, %1101 ], [ %.01016, %1102 ], [ %.01016, %1107 ], [ %.01016, %1109 ], [ %.01016, %1111 ], [ %.01016, %1112 ], [ %.01016, %1126 ], [ %.01016, %1128 ], [ %.01016, %1130 ], [ %.01016, %1131 ], [ %.01016, %1423 ], [ %.01016, %1181 ], [ %.01016, %1180 ], [ %.01016, %1178 ], [ %.01016, %1176 ], [ 0, %1238 ], [ %.01016, %1239 ], [ 0, %1187 ], [ %.01016, %1240 ], [ %.01016, %ps_builder_check_points.exit.thread ], [ %.01016, %1530 ], [ %.01016, %1532 ], [ %.01016, %1534 ], [ %.01016, %1535 ], [ %.01016, %1561 ], [ %.01016, %1563 ], [ %.01016, %1565 ], [ %.01016, %1566 ], [ %.01016, %1584 ], [ %.01016, %1586 ], [ %.01016, %1588 ], [ %.01016, %1589 ], [ %.01016, %1610 ], [ %.01016, %1612 ], [ %.01016, %1614 ], [ %.01016, %1615 ], [ %.01016, %1630 ], [ %.01016, %1632 ], [ %.01016, %1634 ], [ %.01016, %1635 ], [ %.01016, %1659 ], [ %.01016, %1661 ], [ %.01016, %1663 ], [ %.01016, %1664 ], [ %.01016, %1691 ], [ %.01016, %1693 ], [ %.01016, %1695 ], [ %.01016, %1696 ], [ %.01016, %1724 ], [ %.01016, %1726 ], [ %.01016, %1728 ], [ %.01016, %1729 ], [ %.01016, %1756 ], [ %.01016, %1758 ], [ %.01016, %1760 ], [ %.01016, %1761 ], [ 0, %1201 ], [ %.01016, %ps_builder_check_points.exit1510.thread ], [ %.01016, %1230 ], [ %.01016, %1204 ], [ %.01016, %1294 ], [ %.01016, %1296 ], [ %.01016, %1298 ], [ %.01016, %1299 ], [ %.01016, %1319 ], [ %.01016, %1316 ], [ %.01016, %1314 ], [ %.01016, %1334 ], [ %.01016, %1336 ], [ %.01016, %1338 ], [ %.01016, %1339 ], [ %.01016, %1354 ], [ %.01016, %1356 ], [ %.01016, %1358 ], [ %.01016, %1359 ], [ %.01016, %1374 ], [ %.01016, %1376 ], [ %.01016, %1378 ], [ %.01016, %1379 ], [ %.01016, %1406 ], [ %.01016, %1408 ], [ %.01016, %1410 ], [ %.01016, %1411 ], [ %.01016, %1443 ], [ %.01016, %1445 ], [ %.01016, %1447 ], [ %.01016, %1448 ], [ %.01016, %1469 ], [ %.01016, %1471 ], [ %.01016, %1473 ], [ %.01016, %1474 ], [ %.01016, %1494 ], [ %.01016, %1496 ], [ %.01016, %1498 ], [ %.01016, %1499 ], [ %.01016, %1508 ], [ %.01016, %.lr.ph2137 ]
-  %.01009.be = phi i8 [ %.11010, %cf2_hintmask_read.exit ], [ %.11010, %cf2_stack_popInt.exit1337.thread ], [ %.11010, %._crit_edge2168 ], [ %.11010, %._crit_edge2158 ], [ %.11010, %614 ], [ %.11010, %cf2_initGlobalRegionBuffer.exit ], [ %.11010, %cf2_arrstack_getPointer.exit1455 ], [ %.11010, %._crit_edge2110 ], [ %.11010, %._crit_edge2091 ], [ %.11010, %._crit_edge2081 ], [ %.11010, %._crit_edge ], [ %.01009, %210 ], [ %.11010, %2703 ], [ %.11010, %2705 ], [ %.11010, %2707 ], [ %.11010, %2708 ], [ %.11010, %2871 ], [ %.11010, %2870 ], [ %.11010, %2868 ], [ %.11010, %2866 ], [ %spec.store.select101, %2855 ], [ %spec.store.select101, %2854 ], [ %spec.store.select101, %2852 ], [ %spec.store.select101, %2850 ], [ %.11010, %2785 ], [ %.11010, %2784 ], [ %.11010, %2782 ], [ %.11010, %2780 ], [ %.11010, %2757 ], [ %.11010, %2756 ], [ %.11010, %2754 ], [ %.11010, %2752 ], [ %.11010, %2727 ], [ %.11010, %2726 ], [ %.11010, %2724 ], [ %.11010, %2722 ], [ %.11010, %1518 ], [ %.11010, %1542 ], [ %.11010, %1765 ], [ %.11010, %731 ], [ %.11010, %733 ], [ %.11010, %734 ], [ %.11010, %1137 ], [ %.11010, %1515 ], [ %.11010, %1548 ], [ %.11010, %1544 ], [ %.11010, %1551 ], [ %.11010, %1733 ], [ %.11010, %797 ], [ %.11010, %799 ], [ %.11010, %801 ], [ %.11010, %802 ], [ %.11010, %819 ], [ %.11010, %821 ], [ %.11010, %823 ], [ %.11010, %824 ], [ %.11010, %840 ], [ %.11010, %842 ], [ %.11010, %844 ], [ %.11010, %845 ], [ %.11010, %1001 ], [ %.11010, %1003 ], [ %.11010, %1005 ], [ %.11010, %1006 ], [ %.11010, %1011 ], [ %.11010, %1013 ], [ %.11010, %1015 ], [ %.11010, %1016 ], [ %.11010, %1030 ], [ %.11010, %1032 ], [ %.11010, %1034 ], [ %.11010, %1035 ], [ %.11010, %1049 ], [ %.11010, %1051 ], [ %.11010, %1053 ], [ %.11010, %1054 ], [ %.41013, %1077 ], [ %.41013, %1079 ], [ %.41013, %1081 ], [ %.41013, %1082 ], [ %.11010, %1097 ], [ %.11010, %1099 ], [ %.11010, %1101 ], [ %.11010, %1102 ], [ %.11010, %1107 ], [ %.11010, %1109 ], [ %.11010, %1111 ], [ %.11010, %1112 ], [ %.11010, %1126 ], [ %.11010, %1128 ], [ %.11010, %1130 ], [ %.11010, %1131 ], [ %.11010, %1423 ], [ %.11010, %1181 ], [ %.11010, %1180 ], [ %.11010, %1178 ], [ %.11010, %1176 ], [ %.11010, %1238 ], [ %.11010, %1239 ], [ %.11010, %1187 ], [ %.11010, %1240 ], [ %.11010, %ps_builder_check_points.exit.thread ], [ %.11010, %1530 ], [ %.11010, %1532 ], [ %.11010, %1534 ], [ %.11010, %1535 ], [ %.11010, %1561 ], [ %.11010, %1563 ], [ %.11010, %1565 ], [ %.11010, %1566 ], [ %.11010, %1584 ], [ %.11010, %1586 ], [ %.11010, %1588 ], [ %.11010, %1589 ], [ %.11010, %1610 ], [ %.11010, %1612 ], [ %.11010, %1614 ], [ %.11010, %1615 ], [ %.11010, %1630 ], [ %.11010, %1632 ], [ %.11010, %1634 ], [ %.11010, %1635 ], [ %.11010, %1659 ], [ %.11010, %1661 ], [ %.11010, %1663 ], [ %.11010, %1664 ], [ %.11010, %1691 ], [ %.11010, %1693 ], [ %.11010, %1695 ], [ %.11010, %1696 ], [ %.11010, %1724 ], [ %.11010, %1726 ], [ %.11010, %1728 ], [ %.11010, %1729 ], [ %.11010, %1756 ], [ %.11010, %1758 ], [ %.11010, %1760 ], [ %.11010, %1761 ], [ %.11010, %1201 ], [ %.11010, %ps_builder_check_points.exit1510.thread ], [ %.11010, %1230 ], [ %.11010, %1204 ], [ %.11010, %1294 ], [ %.11010, %1296 ], [ %.11010, %1298 ], [ %.11010, %1299 ], [ %.11010, %1319 ], [ %.11010, %1316 ], [ %.11010, %1314 ], [ %.11010, %1334 ], [ %.11010, %1336 ], [ %.11010, %1338 ], [ %.11010, %1339 ], [ %.11010, %1354 ], [ %.11010, %1356 ], [ %.11010, %1358 ], [ %.11010, %1359 ], [ %.11010, %1374 ], [ %.11010, %1376 ], [ %.11010, %1378 ], [ %.11010, %1379 ], [ %.11010, %1406 ], [ %.11010, %1408 ], [ %.11010, %1410 ], [ %.11010, %1411 ], [ %.11010, %1443 ], [ %.11010, %1445 ], [ %.11010, %1447 ], [ %.11010, %1448 ], [ %.11010, %1469 ], [ %.11010, %1471 ], [ %.11010, %1473 ], [ %.11010, %1474 ], [ %.11010, %1494 ], [ %.11010, %1496 ], [ %.11010, %1498 ], [ %.11010, %1499 ], [ %.11010, %1508 ], [ %.11010, %.lr.ph2137 ]
-  %.0994.be = phi i32 [ %.0994, %cf2_hintmask_read.exit ], [ %.0994, %cf2_stack_popInt.exit1337.thread ], [ %.0994, %._crit_edge2168 ], [ %.0994, %._crit_edge2158 ], [ %.0994, %614 ], [ %.0994, %cf2_initGlobalRegionBuffer.exit ], [ %.0994, %cf2_arrstack_getPointer.exit1455 ], [ %.0994, %._crit_edge2110 ], [ %.0994, %._crit_edge2091 ], [ %.0994, %._crit_edge2081 ], [ %.0994, %._crit_edge ], [ %.0994, %210 ], [ %.0994, %2703 ], [ %.0994, %2705 ], [ %.0994, %2707 ], [ %.0994, %2708 ], [ %.0994, %2871 ], [ %.0994, %2870 ], [ %.0994, %2868 ], [ %.0994, %2866 ], [ %.0994, %2855 ], [ %.0994, %2854 ], [ %.0994, %2852 ], [ %.0994, %2850 ], [ %.0994, %2785 ], [ %.0994, %2784 ], [ %.0994, %2782 ], [ %.0994, %2780 ], [ %.0994, %2757 ], [ %.0994, %2756 ], [ %.0994, %2754 ], [ %.0994, %2752 ], [ %.0994, %2727 ], [ %.0994, %2726 ], [ %.0994, %2724 ], [ %.0994, %2722 ], [ %1519, %1518 ], [ %.0994, %1542 ], [ %.0994, %1765 ], [ %.0994, %731 ], [ %.0994, %733 ], [ %.0994, %734 ], [ %.0994, %1137 ], [ %.0994, %1515 ], [ %.0994, %1548 ], [ %.0994, %1544 ], [ %.0994, %1551 ], [ %.0994, %1733 ], [ %.0994, %797 ], [ %.0994, %799 ], [ %.0994, %801 ], [ %.0994, %802 ], [ %.0994, %819 ], [ %.0994, %821 ], [ %.0994, %823 ], [ %.0994, %824 ], [ %.0994, %840 ], [ %.0994, %842 ], [ %.0994, %844 ], [ %.0994, %845 ], [ %.0994, %1001 ], [ %.0994, %1003 ], [ %.0994, %1005 ], [ %.0994, %1006 ], [ %.0994, %1011 ], [ %.0994, %1013 ], [ %.0994, %1015 ], [ %.0994, %1016 ], [ %.0994, %1030 ], [ %.0994, %1032 ], [ %.0994, %1034 ], [ %.0994, %1035 ], [ %.0994, %1049 ], [ %.0994, %1051 ], [ %.0994, %1053 ], [ %.0994, %1054 ], [ %.0994, %1077 ], [ %.0994, %1079 ], [ %.0994, %1081 ], [ %.0994, %1082 ], [ %.0994, %1097 ], [ %.0994, %1099 ], [ %.0994, %1101 ], [ %.0994, %1102 ], [ %.0994, %1107 ], [ %.0994, %1109 ], [ %.0994, %1111 ], [ %.0994, %1112 ], [ %.0994, %1126 ], [ %.0994, %1128 ], [ %.0994, %1130 ], [ %.0994, %1131 ], [ 0, %1423 ], [ 2, %1181 ], [ 2, %1180 ], [ 2, %1178 ], [ 2, %1176 ], [ 1, %1238 ], [ 1, %1239 ], [ 0, %1187 ], [ 0, %1240 ], [ 0, %ps_builder_check_points.exit.thread ], [ %.0994, %1530 ], [ %.0994, %1532 ], [ %.0994, %1534 ], [ %.0994, %1535 ], [ %.0994, %1561 ], [ %.0994, %1563 ], [ %.0994, %1565 ], [ %.0994, %1566 ], [ %.0994, %1584 ], [ %.0994, %1586 ], [ %.0994, %1588 ], [ %.0994, %1589 ], [ %.0994, %1610 ], [ %.0994, %1612 ], [ %.0994, %1614 ], [ %.0994, %1615 ], [ %.0994, %1630 ], [ %.0994, %1632 ], [ %.0994, %1634 ], [ %.0994, %1635 ], [ %.0994, %1659 ], [ %.0994, %1661 ], [ %.0994, %1663 ], [ %.0994, %1664 ], [ %.0994, %1691 ], [ %.0994, %1693 ], [ %.0994, %1695 ], [ %.0994, %1696 ], [ %.0994, %1724 ], [ %.0994, %1726 ], [ %.0994, %1728 ], [ %.0994, %1729 ], [ %.0994, %1756 ], [ %.0994, %1758 ], [ %.0994, %1760 ], [ %.0994, %1761 ], [ 0, %1201 ], [ 0, %ps_builder_check_points.exit1510.thread ], [ 0, %1230 ], [ 0, %1204 ], [ %1247, %1294 ], [ %1247, %1296 ], [ %1247, %1298 ], [ %1247, %1299 ], [ 0, %1319 ], [ 0, %1316 ], [ 0, %1314 ], [ 1, %1334 ], [ 1, %1336 ], [ 1, %1338 ], [ 1, %1339 ], [ 1, %1354 ], [ 1, %1356 ], [ 1, %1358 ], [ 1, %1359 ], [ 1, %1374 ], [ 1, %1376 ], [ 1, %1378 ], [ 1, %1379 ], [ 1, %1406 ], [ 1, %1408 ], [ 1, %1410 ], [ 1, %1411 ], [ 1, %1443 ], [ 1, %1445 ], [ 1, %1447 ], [ 1, %1448 ], [ 1, %1469 ], [ 1, %1471 ], [ 1, %1473 ], [ 1, %1474 ], [ 1, %1494 ], [ 1, %1496 ], [ 1, %1498 ], [ 1, %1499 ], [ 0, %1508 ], [ 0, %.lr.ph2137 ]
+.backedge.backedge:                               ; preds = %.lr.ph2137, %1508, %1498, %1496, %1494, %1473, %1471, %1469, %1447, %1445, %1443, %1410, %1408, %1406, %1378, %1376, %1374, %1358, %1356, %1354, %1338, %1336, %1334, %1316, %1319, %1298, %1296, %1294, %1230, %ps_builder_check_points.exit1510.thread, %1201, %1724, %1695, %1693, %1691, %1663, %1661, %1659, %1634, %1632, %1630, %1614, %1612, %1610, %1588, %1586, %1584, %1565, %1563, %1561, %1534, %1532, %1530, %1240, %1187, %1239, %1238, %1499, %1176, %1178, %1180, %1181, %1726, %1204, %1299, %1314, %1339, %1359, %1379, %1423, %1411, %1448, %1474, %1760, %1130, %1128, %1126, %1111, %1109, %1107, %1101, %1099, %1097, %1081, %1079, %1077, %1053, %1051, %1049, %1034, %1032, %1030, %1015, %1013, %1011, %1005, %1003, %1001, %844, %842, %840, %823, %821, %819, %801, %799, %797, %1535, %1548, %1515, %1137, %1102, %1006, %733, %731, %1765, %1551, %1696, %1664, %1635, %1615, %1589, %1566, %1544, %ps_builder_check_points.exit.thread, %1542, %1758, %1733, %1518, %1131, %1082, %1112, %1756, %1054, %1035, %1016, %734, %845, %1728, %824, %802, %1729, %1761, %2722, %2724, %2726, %2727, %2752, %2754, %2756, %2757, %2780, %2782, %2784, %2785, %2850, %2852, %2854, %2855, %2866, %2868, %2870, %2871, %2708, %2707, %2705, %2703, %210, %._crit_edge2168, %._crit_edge2158, %614, %cf2_arrstack_getPointer.exit1455, %._crit_edge2110, %._crit_edge2091, %._crit_edge2081, %._crit_edge, %cf2_hintmask_read.exit, %cf2_stack_popInt.exit1337.thread, %cf2_initGlobalRegionBuffer.exit
+  %.01034.be = phi i32 [ %.01034, %2708 ], [ %.11035, %cf2_hintmask_read.exit ], [ %.01034, %cf2_stack_popInt.exit1337.thread ], [ %.01034, %._crit_edge2168 ], [ %.01034, %._crit_edge2158 ], [ %.01034, %614 ], [ %712, %cf2_initGlobalRegionBuffer.exit ], [ %716, %cf2_arrstack_getPointer.exit1455 ], [ %.01034, %2722 ], [ %.01034, %._crit_edge2110 ], [ %.01034, %._crit_edge2091 ], [ %.01034, %._crit_edge2081 ], [ %.01034, %._crit_edge ], [ %.01034, %210 ], [ %.01034, %2703 ], [ %.01034, %2705 ], [ %.01034, %2707 ], [ %.01034, %2871 ], [ %.01034, %2870 ], [ %.01034, %2868 ], [ %.01034, %2866 ], [ %.01034, %2855 ], [ %.01034, %2854 ], [ %.01034, %2852 ], [ %.01034, %2850 ], [ %.01034, %2785 ], [ %.01034, %2784 ], [ %.01034, %2782 ], [ %.01034, %2780 ], [ %.01034, %2757 ], [ %.01034, %2756 ], [ %.01034, %2754 ], [ %.01034, %2752 ], [ %.01034, %2727 ], [ %.01034, %2726 ], [ %.01034, %2724 ], [ %.01034, %1761 ], [ %.01034, %1729 ], [ %.01034, %802 ], [ %.01034, %824 ], [ %.01034, %1728 ], [ %.01034, %845 ], [ %.01034, %734 ], [ %.01034, %1016 ], [ %.01034, %1035 ], [ %.01034, %1054 ], [ %.01034, %1756 ], [ %.01034, %1112 ], [ %.01034, %1082 ], [ %.01034, %1131 ], [ %.01034, %1518 ], [ %.01034, %1733 ], [ %.01034, %1758 ], [ %.01034, %1542 ], [ %.01034, %ps_builder_check_points.exit.thread ], [ %.01034, %1544 ], [ %.01034, %1566 ], [ %.01034, %1589 ], [ %.01034, %1615 ], [ %.01034, %1635 ], [ %.01034, %1664 ], [ %.01034, %1696 ], [ %.01034, %1551 ], [ %.01034, %1765 ], [ %.01034, %731 ], [ %.01034, %733 ], [ %.01034, %1006 ], [ %.01034, %1102 ], [ %.01034, %1137 ], [ %.01034, %1515 ], [ %.01034, %1548 ], [ %.01034, %1535 ], [ %.01034, %797 ], [ %.01034, %799 ], [ %.01034, %801 ], [ %.01034, %819 ], [ %.01034, %821 ], [ %.01034, %823 ], [ %.01034, %840 ], [ %.01034, %842 ], [ %.01034, %844 ], [ %.01034, %1001 ], [ %.01034, %1003 ], [ %.01034, %1005 ], [ %.01034, %1011 ], [ %.01034, %1013 ], [ %.01034, %1015 ], [ %.01034, %1030 ], [ %.01034, %1032 ], [ %.01034, %1034 ], [ %.01034, %1049 ], [ %.01034, %1051 ], [ %.01034, %1053 ], [ %.01034, %1077 ], [ %.01034, %1079 ], [ %.01034, %1081 ], [ %.01034, %1097 ], [ %.01034, %1099 ], [ %.01034, %1101 ], [ %.01034, %1107 ], [ %.01034, %1109 ], [ %.01034, %1111 ], [ %.01034, %1126 ], [ %.01034, %1128 ], [ %.01034, %1130 ], [ %.01034, %1760 ], [ %.01034, %1474 ], [ %.01034, %1448 ], [ %.01034, %1411 ], [ %.01034, %1423 ], [ %.01034, %1379 ], [ %.01034, %1359 ], [ %.01034, %1339 ], [ %.01034, %1314 ], [ %.01034, %1299 ], [ %.01034, %1204 ], [ %.01034, %1726 ], [ %.01034, %1181 ], [ %.01034, %1180 ], [ %.01034, %1178 ], [ %.01034, %1176 ], [ %.01034, %1499 ], [ %.01034, %1238 ], [ %.01034, %1239 ], [ %.01034, %1187 ], [ %.01034, %1240 ], [ %.01034, %1530 ], [ %.01034, %1532 ], [ %.01034, %1534 ], [ %.01034, %1561 ], [ %.01034, %1563 ], [ %.01034, %1565 ], [ %.01034, %1584 ], [ %.01034, %1586 ], [ %.01034, %1588 ], [ %.01034, %1610 ], [ %.01034, %1612 ], [ %.01034, %1614 ], [ %.01034, %1630 ], [ %.01034, %1632 ], [ %.01034, %1634 ], [ %.01034, %1659 ], [ %.01034, %1661 ], [ %.01034, %1663 ], [ %.01034, %1691 ], [ %.01034, %1693 ], [ %.01034, %1695 ], [ %.01034, %1724 ], [ %.01034, %1201 ], [ %.01034, %ps_builder_check_points.exit1510.thread ], [ %.01034, %1230 ], [ %.01034, %1294 ], [ %.01034, %1296 ], [ %.01034, %1298 ], [ %.01034, %1319 ], [ %.01034, %1316 ], [ %.01034, %1334 ], [ %.01034, %1336 ], [ %.01034, %1338 ], [ %.01034, %1354 ], [ %.01034, %1356 ], [ %.01034, %1358 ], [ %.01034, %1374 ], [ %.01034, %1376 ], [ %.01034, %1378 ], [ %.01034, %1406 ], [ %.01034, %1408 ], [ %.01034, %1410 ], [ %.01034, %1443 ], [ %.01034, %1445 ], [ %.01034, %1447 ], [ %.01034, %1469 ], [ %.01034, %1471 ], [ %.01034, %1473 ], [ %.01034, %1494 ], [ %.01034, %1496 ], [ %.01034, %1498 ], [ %.01034, %1508 ], [ %.01034, %.lr.ph2137 ]
+  %.01030.be = phi ptr [ %.01030, %2708 ], [ %.11031, %cf2_hintmask_read.exit ], [ %.01030, %cf2_stack_popInt.exit1337.thread ], [ %.01030, %._crit_edge2168 ], [ %.01030, %._crit_edge2158 ], [ %.01030, %614 ], [ %636, %cf2_initGlobalRegionBuffer.exit ], [ %720, %cf2_arrstack_getPointer.exit1455 ], [ %.01030, %2722 ], [ %.01030, %._crit_edge2110 ], [ %.01030, %._crit_edge2091 ], [ %.01030, %._crit_edge2081 ], [ %.01030, %._crit_edge ], [ %.01030, %210 ], [ %.01030, %2703 ], [ %.01030, %2705 ], [ %.01030, %2707 ], [ %.01030, %2871 ], [ %.01030, %2870 ], [ %.01030, %2868 ], [ %.01030, %2866 ], [ %.01030, %2855 ], [ %.01030, %2854 ], [ %.01030, %2852 ], [ %.01030, %2850 ], [ %.01030, %2785 ], [ %.01030, %2784 ], [ %.01030, %2782 ], [ %.01030, %2780 ], [ %.01030, %2757 ], [ %.01030, %2756 ], [ %.01030, %2754 ], [ %.01030, %2752 ], [ %.01030, %2727 ], [ %.01030, %2726 ], [ %.01030, %2724 ], [ %.01030, %1761 ], [ %.01030, %1729 ], [ %.01030, %802 ], [ %.01030, %824 ], [ %.01030, %1728 ], [ %.01030, %845 ], [ %.01030, %734 ], [ %.01030, %1016 ], [ %.01030, %1035 ], [ %.01030, %1054 ], [ %.01030, %1756 ], [ %.01030, %1112 ], [ %.01030, %1082 ], [ %.01030, %1131 ], [ %.01030, %1518 ], [ %.01030, %1733 ], [ %.01030, %1758 ], [ %.01030, %1542 ], [ %.01030, %ps_builder_check_points.exit.thread ], [ %.01030, %1544 ], [ %.01030, %1566 ], [ %.01030, %1589 ], [ %.01030, %1615 ], [ %.01030, %1635 ], [ %.01030, %1664 ], [ %.01030, %1696 ], [ %.01030, %1551 ], [ %.01030, %1765 ], [ %.01030, %731 ], [ %.01030, %733 ], [ %.01030, %1006 ], [ %.01030, %1102 ], [ %.01030, %1137 ], [ %.01030, %1515 ], [ %.01030, %1548 ], [ %.01030, %1535 ], [ %.01030, %797 ], [ %.01030, %799 ], [ %.01030, %801 ], [ %.01030, %819 ], [ %.01030, %821 ], [ %.01030, %823 ], [ %.01030, %840 ], [ %.01030, %842 ], [ %.01030, %844 ], [ %.01030, %1001 ], [ %.01030, %1003 ], [ %.01030, %1005 ], [ %.01030, %1011 ], [ %.01030, %1013 ], [ %.01030, %1015 ], [ %.01030, %1030 ], [ %.01030, %1032 ], [ %.01030, %1034 ], [ %.01030, %1049 ], [ %.01030, %1051 ], [ %.01030, %1053 ], [ %.01030, %1077 ], [ %.01030, %1079 ], [ %.01030, %1081 ], [ %.01030, %1097 ], [ %.01030, %1099 ], [ %.01030, %1101 ], [ %.01030, %1107 ], [ %.01030, %1109 ], [ %.01030, %1111 ], [ %.01030, %1126 ], [ %.01030, %1128 ], [ %.01030, %1130 ], [ %.01030, %1760 ], [ %.01030, %1474 ], [ %.01030, %1448 ], [ %.01030, %1411 ], [ %.01030, %1423 ], [ %.01030, %1379 ], [ %.01030, %1359 ], [ %.01030, %1339 ], [ %.01030, %1314 ], [ %.01030, %1299 ], [ %.01030, %1204 ], [ %.01030, %1726 ], [ %.01030, %1181 ], [ %.01030, %1180 ], [ %.01030, %1178 ], [ %.01030, %1176 ], [ %.01030, %1499 ], [ %.01030, %1238 ], [ %.01030, %1239 ], [ %.01030, %1187 ], [ %.01030, %1240 ], [ %.01030, %1530 ], [ %.01030, %1532 ], [ %.01030, %1534 ], [ %.01030, %1561 ], [ %.01030, %1563 ], [ %.01030, %1565 ], [ %.01030, %1584 ], [ %.01030, %1586 ], [ %.01030, %1588 ], [ %.01030, %1610 ], [ %.01030, %1612 ], [ %.01030, %1614 ], [ %.01030, %1630 ], [ %.01030, %1632 ], [ %.01030, %1634 ], [ %.01030, %1659 ], [ %.01030, %1661 ], [ %.01030, %1663 ], [ %.01030, %1691 ], [ %.01030, %1693 ], [ %.01030, %1695 ], [ %.01030, %1724 ], [ %.01030, %1201 ], [ %.01030, %ps_builder_check_points.exit1510.thread ], [ %.01030, %1230 ], [ %.01030, %1294 ], [ %.01030, %1296 ], [ %.01030, %1298 ], [ %.01030, %1319 ], [ %.01030, %1316 ], [ %.01030, %1334 ], [ %.01030, %1336 ], [ %.01030, %1338 ], [ %.01030, %1354 ], [ %.01030, %1356 ], [ %.01030, %1358 ], [ %.01030, %1374 ], [ %.01030, %1376 ], [ %.01030, %1378 ], [ %.01030, %1406 ], [ %.01030, %1408 ], [ %.01030, %1410 ], [ %.01030, %1443 ], [ %.01030, %1445 ], [ %.01030, %1447 ], [ %.01030, %1469 ], [ %.01030, %1471 ], [ %.01030, %1473 ], [ %.01030, %1494 ], [ %.01030, %1496 ], [ %.01030, %1498 ], [ %.01030, %1508 ], [ %.01030, %.lr.ph2137 ]
+  %.01029.be = phi i32 [ %222, %2708 ], [ %222, %cf2_hintmask_read.exit ], [ %222, %cf2_stack_popInt.exit1337.thread ], [ %222, %._crit_edge2168 ], [ %222, %._crit_edge2158 ], [ %222, %614 ], [ %222, %cf2_initGlobalRegionBuffer.exit ], [ %222, %cf2_arrstack_getPointer.exit1455 ], [ %222, %2722 ], [ %222, %._crit_edge2110 ], [ %222, %._crit_edge2091 ], [ %222, %._crit_edge2081 ], [ %222, %._crit_edge ], [ %.01029, %210 ], [ %222, %2703 ], [ %222, %2705 ], [ %222, %2707 ], [ %222, %2871 ], [ %222, %2870 ], [ %222, %2868 ], [ %222, %2866 ], [ %222, %2855 ], [ %222, %2854 ], [ %222, %2852 ], [ %222, %2850 ], [ %222, %2785 ], [ %222, %2784 ], [ %222, %2782 ], [ %222, %2780 ], [ %222, %2757 ], [ %222, %2756 ], [ %222, %2754 ], [ %222, %2752 ], [ %222, %2727 ], [ %222, %2726 ], [ %222, %2724 ], [ %222, %1761 ], [ %222, %1729 ], [ %222, %802 ], [ %222, %824 ], [ %222, %1728 ], [ %222, %845 ], [ %222, %734 ], [ %222, %1016 ], [ %222, %1035 ], [ %222, %1054 ], [ %222, %1756 ], [ %222, %1112 ], [ %222, %1082 ], [ %222, %1131 ], [ %222, %1518 ], [ %222, %1733 ], [ %222, %1758 ], [ %222, %1542 ], [ %222, %ps_builder_check_points.exit.thread ], [ %222, %1544 ], [ %222, %1566 ], [ %222, %1589 ], [ %222, %1615 ], [ %222, %1635 ], [ %222, %1664 ], [ %222, %1696 ], [ %222, %1551 ], [ %222, %1765 ], [ %222, %731 ], [ %222, %733 ], [ %222, %1006 ], [ %222, %1102 ], [ %222, %1137 ], [ %222, %1515 ], [ %222, %1548 ], [ %222, %1535 ], [ %222, %797 ], [ %222, %799 ], [ %222, %801 ], [ %222, %819 ], [ %222, %821 ], [ %222, %823 ], [ %222, %840 ], [ %222, %842 ], [ %222, %844 ], [ %222, %1001 ], [ %222, %1003 ], [ %222, %1005 ], [ %222, %1011 ], [ %222, %1013 ], [ %222, %1015 ], [ %222, %1030 ], [ %222, %1032 ], [ %222, %1034 ], [ %222, %1049 ], [ %222, %1051 ], [ %222, %1053 ], [ %222, %1077 ], [ %222, %1079 ], [ %222, %1081 ], [ %222, %1097 ], [ %222, %1099 ], [ %222, %1101 ], [ %222, %1107 ], [ %222, %1109 ], [ %222, %1111 ], [ %222, %1126 ], [ %222, %1128 ], [ %222, %1130 ], [ %222, %1760 ], [ %222, %1474 ], [ %222, %1448 ], [ %222, %1411 ], [ %222, %1423 ], [ %222, %1379 ], [ %222, %1359 ], [ %222, %1339 ], [ %222, %1314 ], [ %222, %1299 ], [ %222, %1204 ], [ %222, %1726 ], [ %222, %1181 ], [ %222, %1180 ], [ %222, %1178 ], [ %222, %1176 ], [ %222, %1499 ], [ %222, %1238 ], [ %222, %1239 ], [ %222, %1187 ], [ %222, %1240 ], [ %222, %1530 ], [ %222, %1532 ], [ %222, %1534 ], [ %222, %1561 ], [ %222, %1563 ], [ %222, %1565 ], [ %222, %1584 ], [ %222, %1586 ], [ %222, %1588 ], [ %222, %1610 ], [ %222, %1612 ], [ %222, %1614 ], [ %222, %1630 ], [ %222, %1632 ], [ %222, %1634 ], [ %222, %1659 ], [ %222, %1661 ], [ %222, %1663 ], [ %222, %1691 ], [ %222, %1693 ], [ %222, %1695 ], [ %222, %1724 ], [ %222, %1201 ], [ %222, %ps_builder_check_points.exit1510.thread ], [ %222, %1230 ], [ %222, %1294 ], [ %222, %1296 ], [ %222, %1298 ], [ %222, %1319 ], [ %222, %1316 ], [ %222, %1334 ], [ %222, %1336 ], [ %222, %1338 ], [ %222, %1354 ], [ %222, %1356 ], [ %222, %1358 ], [ %222, %1374 ], [ %222, %1376 ], [ %222, %1378 ], [ %222, %1406 ], [ %222, %1408 ], [ %222, %1410 ], [ %222, %1443 ], [ %222, %1445 ], [ %222, %1447 ], [ %222, %1469 ], [ %222, %1471 ], [ %222, %1473 ], [ %222, %1494 ], [ %222, %1496 ], [ %222, %1498 ], [ %222, %1508 ], [ %222, %.lr.ph2137 ]
+  %.01018.be = phi i32 [ %.11019, %2708 ], [ %.31021, %cf2_hintmask_read.exit ], [ %.11019, %cf2_stack_popInt.exit1337.thread ], [ %.11019, %._crit_edge2168 ], [ %.11019, %._crit_edge2158 ], [ %.11019, %614 ], [ %.11019, %cf2_initGlobalRegionBuffer.exit ], [ %.11019, %cf2_arrstack_getPointer.exit1455 ], [ %.11019, %2722 ], [ %.11019, %._crit_edge2110 ], [ %.11019, %._crit_edge2091 ], [ %.11019, %._crit_edge2081 ], [ %.11019, %._crit_edge ], [ %.01018, %210 ], [ %.11019, %2703 ], [ %.11019, %2705 ], [ %.11019, %2707 ], [ %.11019, %2871 ], [ %.11019, %2870 ], [ %.11019, %2868 ], [ %.11019, %2866 ], [ %.11019, %2855 ], [ %.11019, %2854 ], [ %.11019, %2852 ], [ %.11019, %2850 ], [ %.11019, %2785 ], [ %.11019, %2784 ], [ %.11019, %2782 ], [ %.11019, %2780 ], [ %.11019, %2757 ], [ %.11019, %2756 ], [ %.11019, %2754 ], [ %.11019, %2752 ], [ %.11019, %2727 ], [ %.11019, %2726 ], [ %.11019, %2724 ], [ %.11019, %1761 ], [ %.11019, %1729 ], [ %.11019, %802 ], [ %.11019, %824 ], [ %.11019, %1728 ], [ %.11019, %845 ], [ %.11019, %734 ], [ %.11019, %1016 ], [ %.11019, %1035 ], [ %.11019, %1054 ], [ %.11019, %1756 ], [ %.11019, %1112 ], [ %.11019, %1082 ], [ %.11019, %1131 ], [ %.11019, %1518 ], [ %.11019, %1733 ], [ %.11019, %1758 ], [ %.11019, %1542 ], [ 0, %ps_builder_check_points.exit.thread ], [ %.11019, %1544 ], [ %.11019, %1566 ], [ %.11019, %1589 ], [ %.11019, %1615 ], [ %.11019, %1635 ], [ %.11019, %1664 ], [ %.11019, %1696 ], [ %.11019, %1551 ], [ %.11019, %1765 ], [ %.11019, %731 ], [ %.11019, %733 ], [ %.11019, %1006 ], [ %.11019, %1102 ], [ %.11019, %1137 ], [ %.11019, %1515 ], [ %.11019, %1548 ], [ %1523, %1535 ], [ %.11019, %797 ], [ %.11019, %799 ], [ %.11019, %801 ], [ %.11019, %819 ], [ %.11019, %821 ], [ %.11019, %823 ], [ %.11019, %840 ], [ %.11019, %842 ], [ %.11019, %844 ], [ %.11019, %1001 ], [ %.11019, %1003 ], [ %.11019, %1005 ], [ %.11019, %1011 ], [ %.11019, %1013 ], [ %.11019, %1015 ], [ %.11019, %1030 ], [ %.11019, %1032 ], [ %.11019, %1034 ], [ %.11019, %1049 ], [ %.11019, %1051 ], [ %.11019, %1053 ], [ %.11019, %1077 ], [ %.11019, %1079 ], [ %.11019, %1081 ], [ %.11019, %1097 ], [ %.11019, %1099 ], [ %.11019, %1101 ], [ %.11019, %1107 ], [ %.11019, %1109 ], [ %.11019, %1111 ], [ %.11019, %1126 ], [ %.11019, %1128 ], [ %.11019, %1130 ], [ %.11019, %1760 ], [ 0, %1474 ], [ 0, %1448 ], [ 0, %1411 ], [ 0, %1423 ], [ 0, %1379 ], [ 0, %1359 ], [ 0, %1339 ], [ 0, %1314 ], [ 0, %1299 ], [ 0, %1204 ], [ %.11019, %1726 ], [ 0, %1181 ], [ 0, %1180 ], [ 0, %1178 ], [ 0, %1176 ], [ 0, %1499 ], [ 0, %1238 ], [ 0, %1239 ], [ 0, %1187 ], [ 0, %1240 ], [ %1523, %1530 ], [ %1523, %1532 ], [ %1523, %1534 ], [ %.11019, %1561 ], [ %.11019, %1563 ], [ %.11019, %1565 ], [ %.11019, %1584 ], [ %.11019, %1586 ], [ %.11019, %1588 ], [ %.11019, %1610 ], [ %.11019, %1612 ], [ %.11019, %1614 ], [ %.11019, %1630 ], [ %.11019, %1632 ], [ %.11019, %1634 ], [ %.11019, %1659 ], [ %.11019, %1661 ], [ %.11019, %1663 ], [ %.11019, %1691 ], [ %.11019, %1693 ], [ %.11019, %1695 ], [ %.11019, %1724 ], [ 0, %1201 ], [ 0, %ps_builder_check_points.exit1510.thread ], [ 0, %1230 ], [ 0, %1294 ], [ 0, %1296 ], [ 0, %1298 ], [ 0, %1319 ], [ 0, %1316 ], [ 0, %1334 ], [ 0, %1336 ], [ 0, %1338 ], [ 0, %1354 ], [ 0, %1356 ], [ 0, %1358 ], [ 0, %1374 ], [ 0, %1376 ], [ 0, %1378 ], [ 0, %1406 ], [ 0, %1408 ], [ 0, %1410 ], [ 0, %1443 ], [ 0, %1445 ], [ 0, %1447 ], [ 0, %1469 ], [ 0, %1471 ], [ 0, %1473 ], [ 0, %1494 ], [ 0, %1496 ], [ 0, %1498 ], [ %1509, %1508 ], [ %1509, %.lr.ph2137 ]
+  %.01016.be = phi i8 [ %.01016, %2708 ], [ %.11017, %cf2_hintmask_read.exit ], [ %.01016, %cf2_stack_popInt.exit1337.thread ], [ %.01016, %._crit_edge2168 ], [ %.01016, %._crit_edge2158 ], [ %.01016, %614 ], [ %.01016, %cf2_initGlobalRegionBuffer.exit ], [ %.01016, %cf2_arrstack_getPointer.exit1455 ], [ %.01016, %2722 ], [ %.01016, %._crit_edge2110 ], [ %.01016, %._crit_edge2091 ], [ %.01016, %._crit_edge2081 ], [ %.01016, %._crit_edge ], [ 0, %210 ], [ %.01016, %2703 ], [ %.01016, %2705 ], [ %.01016, %2707 ], [ %.01016, %2871 ], [ %.01016, %2870 ], [ %.01016, %2868 ], [ %.01016, %2866 ], [ %.01016, %2855 ], [ %.01016, %2854 ], [ %.01016, %2852 ], [ %.01016, %2850 ], [ %.01016, %2785 ], [ %.01016, %2784 ], [ %.01016, %2782 ], [ %.01016, %2780 ], [ %.01016, %2757 ], [ %.01016, %2756 ], [ %.01016, %2754 ], [ %.01016, %2752 ], [ %.01016, %2727 ], [ %.01016, %2726 ], [ %.01016, %2724 ], [ %.01016, %1761 ], [ %.01016, %1729 ], [ %.01016, %802 ], [ %.01016, %824 ], [ %.01016, %1728 ], [ %.01016, %845 ], [ %.01016, %734 ], [ %.01016, %1016 ], [ %.01016, %1035 ], [ %.01016, %1054 ], [ %.01016, %1756 ], [ %.01016, %1112 ], [ %.01016, %1082 ], [ %.01016, %1131 ], [ %.01016, %1518 ], [ %.01016, %1733 ], [ %.01016, %1758 ], [ %.01016, %1542 ], [ %.01016, %ps_builder_check_points.exit.thread ], [ %.01016, %1544 ], [ %.01016, %1566 ], [ %.01016, %1589 ], [ %.01016, %1615 ], [ %.01016, %1635 ], [ %.01016, %1664 ], [ %.01016, %1696 ], [ %.01016, %1551 ], [ %.01016, %1765 ], [ %.01016, %731 ], [ %.01016, %733 ], [ %.01016, %1006 ], [ %.01016, %1102 ], [ %.01016, %1137 ], [ %.01016, %1515 ], [ %.01016, %1548 ], [ %.01016, %1535 ], [ %.01016, %797 ], [ %.01016, %799 ], [ %.01016, %801 ], [ %.01016, %819 ], [ %.01016, %821 ], [ %.01016, %823 ], [ %.01016, %840 ], [ %.01016, %842 ], [ %.01016, %844 ], [ %.01016, %1001 ], [ %.01016, %1003 ], [ %.01016, %1005 ], [ %.01016, %1011 ], [ %.01016, %1013 ], [ %.01016, %1015 ], [ %.01016, %1030 ], [ %.01016, %1032 ], [ %.01016, %1034 ], [ %.01016, %1049 ], [ %.01016, %1051 ], [ %.01016, %1053 ], [ %.01016, %1077 ], [ %.01016, %1079 ], [ %.01016, %1081 ], [ %.01016, %1097 ], [ %.01016, %1099 ], [ %.01016, %1101 ], [ %.01016, %1107 ], [ %.01016, %1109 ], [ %.01016, %1111 ], [ %.01016, %1126 ], [ %.01016, %1128 ], [ %.01016, %1130 ], [ %.01016, %1760 ], [ %.01016, %1474 ], [ %.01016, %1448 ], [ %.01016, %1411 ], [ %.01016, %1423 ], [ %.01016, %1379 ], [ %.01016, %1359 ], [ %.01016, %1339 ], [ %.01016, %1314 ], [ %.01016, %1299 ], [ %.01016, %1204 ], [ %.01016, %1726 ], [ %.01016, %1181 ], [ %.01016, %1180 ], [ %.01016, %1178 ], [ %.01016, %1176 ], [ %.01016, %1499 ], [ 0, %1238 ], [ %.01016, %1239 ], [ 0, %1187 ], [ %.01016, %1240 ], [ %.01016, %1530 ], [ %.01016, %1532 ], [ %.01016, %1534 ], [ %.01016, %1561 ], [ %.01016, %1563 ], [ %.01016, %1565 ], [ %.01016, %1584 ], [ %.01016, %1586 ], [ %.01016, %1588 ], [ %.01016, %1610 ], [ %.01016, %1612 ], [ %.01016, %1614 ], [ %.01016, %1630 ], [ %.01016, %1632 ], [ %.01016, %1634 ], [ %.01016, %1659 ], [ %.01016, %1661 ], [ %.01016, %1663 ], [ %.01016, %1691 ], [ %.01016, %1693 ], [ %.01016, %1695 ], [ %.01016, %1724 ], [ 0, %1201 ], [ %.01016, %ps_builder_check_points.exit1510.thread ], [ %.01016, %1230 ], [ %.01016, %1294 ], [ %.01016, %1296 ], [ %.01016, %1298 ], [ %.01016, %1319 ], [ %.01016, %1316 ], [ %.01016, %1334 ], [ %.01016, %1336 ], [ %.01016, %1338 ], [ %.01016, %1354 ], [ %.01016, %1356 ], [ %.01016, %1358 ], [ %.01016, %1374 ], [ %.01016, %1376 ], [ %.01016, %1378 ], [ %.01016, %1406 ], [ %.01016, %1408 ], [ %.01016, %1410 ], [ %.01016, %1443 ], [ %.01016, %1445 ], [ %.01016, %1447 ], [ %.01016, %1469 ], [ %.01016, %1471 ], [ %.01016, %1473 ], [ %.01016, %1494 ], [ %.01016, %1496 ], [ %.01016, %1498 ], [ %.01016, %1508 ], [ %.01016, %.lr.ph2137 ]
+  %.01009.be = phi i8 [ %.11010, %2708 ], [ %.11010, %cf2_hintmask_read.exit ], [ %.11010, %cf2_stack_popInt.exit1337.thread ], [ %.11010, %._crit_edge2168 ], [ %.11010, %._crit_edge2158 ], [ %.11010, %614 ], [ %.11010, %cf2_initGlobalRegionBuffer.exit ], [ %.11010, %cf2_arrstack_getPointer.exit1455 ], [ %.11010, %2722 ], [ %.11010, %._crit_edge2110 ], [ %.11010, %._crit_edge2091 ], [ %.11010, %._crit_edge2081 ], [ %.11010, %._crit_edge ], [ %.01009, %210 ], [ %.11010, %2703 ], [ %.11010, %2705 ], [ %.11010, %2707 ], [ %.11010, %2871 ], [ %.11010, %2870 ], [ %.11010, %2868 ], [ %.11010, %2866 ], [ %spec.store.select101, %2855 ], [ %spec.store.select101, %2854 ], [ %spec.store.select101, %2852 ], [ %spec.store.select101, %2850 ], [ %.11010, %2785 ], [ %.11010, %2784 ], [ %.11010, %2782 ], [ %.11010, %2780 ], [ %.11010, %2757 ], [ %.11010, %2756 ], [ %.11010, %2754 ], [ %.11010, %2752 ], [ %.11010, %2727 ], [ %.11010, %2726 ], [ %.11010, %2724 ], [ %.11010, %1761 ], [ %.11010, %1729 ], [ %.11010, %802 ], [ %.11010, %824 ], [ %.11010, %1728 ], [ %.11010, %845 ], [ %.11010, %734 ], [ %.11010, %1016 ], [ %.11010, %1035 ], [ %.11010, %1054 ], [ %.11010, %1756 ], [ %.11010, %1112 ], [ %.41013, %1082 ], [ %.11010, %1131 ], [ %.11010, %1518 ], [ %.11010, %1733 ], [ %.11010, %1758 ], [ %.11010, %1542 ], [ %.11010, %ps_builder_check_points.exit.thread ], [ %.11010, %1544 ], [ %.11010, %1566 ], [ %.11010, %1589 ], [ %.11010, %1615 ], [ %.11010, %1635 ], [ %.11010, %1664 ], [ %.11010, %1696 ], [ %.11010, %1551 ], [ %.11010, %1765 ], [ %.11010, %731 ], [ %.11010, %733 ], [ %.11010, %1006 ], [ %.11010, %1102 ], [ %.11010, %1137 ], [ %.11010, %1515 ], [ %.11010, %1548 ], [ %.11010, %1535 ], [ %.11010, %797 ], [ %.11010, %799 ], [ %.11010, %801 ], [ %.11010, %819 ], [ %.11010, %821 ], [ %.11010, %823 ], [ %.11010, %840 ], [ %.11010, %842 ], [ %.11010, %844 ], [ %.11010, %1001 ], [ %.11010, %1003 ], [ %.11010, %1005 ], [ %.11010, %1011 ], [ %.11010, %1013 ], [ %.11010, %1015 ], [ %.11010, %1030 ], [ %.11010, %1032 ], [ %.11010, %1034 ], [ %.11010, %1049 ], [ %.11010, %1051 ], [ %.11010, %1053 ], [ %.41013, %1077 ], [ %.41013, %1079 ], [ %.41013, %1081 ], [ %.11010, %1097 ], [ %.11010, %1099 ], [ %.11010, %1101 ], [ %.11010, %1107 ], [ %.11010, %1109 ], [ %.11010, %1111 ], [ %.11010, %1126 ], [ %.11010, %1128 ], [ %.11010, %1130 ], [ %.11010, %1760 ], [ %.11010, %1474 ], [ %.11010, %1448 ], [ %.11010, %1411 ], [ %.11010, %1423 ], [ %.11010, %1379 ], [ %.11010, %1359 ], [ %.11010, %1339 ], [ %.11010, %1314 ], [ %.11010, %1299 ], [ %.11010, %1204 ], [ %.11010, %1726 ], [ %.11010, %1181 ], [ %.11010, %1180 ], [ %.11010, %1178 ], [ %.11010, %1176 ], [ %.11010, %1499 ], [ %.11010, %1238 ], [ %.11010, %1239 ], [ %.11010, %1187 ], [ %.11010, %1240 ], [ %.11010, %1530 ], [ %.11010, %1532 ], [ %.11010, %1534 ], [ %.11010, %1561 ], [ %.11010, %1563 ], [ %.11010, %1565 ], [ %.11010, %1584 ], [ %.11010, %1586 ], [ %.11010, %1588 ], [ %.11010, %1610 ], [ %.11010, %1612 ], [ %.11010, %1614 ], [ %.11010, %1630 ], [ %.11010, %1632 ], [ %.11010, %1634 ], [ %.11010, %1659 ], [ %.11010, %1661 ], [ %.11010, %1663 ], [ %.11010, %1691 ], [ %.11010, %1693 ], [ %.11010, %1695 ], [ %.11010, %1724 ], [ %.11010, %1201 ], [ %.11010, %ps_builder_check_points.exit1510.thread ], [ %.11010, %1230 ], [ %.11010, %1294 ], [ %.11010, %1296 ], [ %.11010, %1298 ], [ %.11010, %1319 ], [ %.11010, %1316 ], [ %.11010, %1334 ], [ %.11010, %1336 ], [ %.11010, %1338 ], [ %.11010, %1354 ], [ %.11010, %1356 ], [ %.11010, %1358 ], [ %.11010, %1374 ], [ %.11010, %1376 ], [ %.11010, %1378 ], [ %.11010, %1406 ], [ %.11010, %1408 ], [ %.11010, %1410 ], [ %.11010, %1443 ], [ %.11010, %1445 ], [ %.11010, %1447 ], [ %.11010, %1469 ], [ %.11010, %1471 ], [ %.11010, %1473 ], [ %.11010, %1494 ], [ %.11010, %1496 ], [ %.11010, %1498 ], [ %.11010, %1508 ], [ %.11010, %.lr.ph2137 ]
+  %.0994.be = phi i32 [ %.0994, %2708 ], [ %.0994, %cf2_hintmask_read.exit ], [ %.0994, %cf2_stack_popInt.exit1337.thread ], [ %.0994, %._crit_edge2168 ], [ %.0994, %._crit_edge2158 ], [ %.0994, %614 ], [ %.0994, %cf2_initGlobalRegionBuffer.exit ], [ %.0994, %cf2_arrstack_getPointer.exit1455 ], [ %.0994, %2722 ], [ %.0994, %._crit_edge2110 ], [ %.0994, %._crit_edge2091 ], [ %.0994, %._crit_edge2081 ], [ %.0994, %._crit_edge ], [ %.0994, %210 ], [ %.0994, %2703 ], [ %.0994, %2705 ], [ %.0994, %2707 ], [ %.0994, %2871 ], [ %.0994, %2870 ], [ %.0994, %2868 ], [ %.0994, %2866 ], [ %.0994, %2855 ], [ %.0994, %2854 ], [ %.0994, %2852 ], [ %.0994, %2850 ], [ %.0994, %2785 ], [ %.0994, %2784 ], [ %.0994, %2782 ], [ %.0994, %2780 ], [ %.0994, %2757 ], [ %.0994, %2756 ], [ %.0994, %2754 ], [ %.0994, %2752 ], [ %.0994, %2727 ], [ %.0994, %2726 ], [ %.0994, %2724 ], [ %.0994, %1761 ], [ %.0994, %1729 ], [ %.0994, %802 ], [ %.0994, %824 ], [ %.0994, %1728 ], [ %.0994, %845 ], [ %.0994, %734 ], [ %.0994, %1016 ], [ %.0994, %1035 ], [ %.0994, %1054 ], [ %.0994, %1756 ], [ %.0994, %1112 ], [ %.0994, %1082 ], [ %.0994, %1131 ], [ %1519, %1518 ], [ %.0994, %1733 ], [ %.0994, %1758 ], [ %.0994, %1542 ], [ 0, %ps_builder_check_points.exit.thread ], [ %.0994, %1544 ], [ %.0994, %1566 ], [ %.0994, %1589 ], [ %.0994, %1615 ], [ %.0994, %1635 ], [ %.0994, %1664 ], [ %.0994, %1696 ], [ %.0994, %1551 ], [ %.0994, %1765 ], [ %.0994, %731 ], [ %.0994, %733 ], [ %.0994, %1006 ], [ %.0994, %1102 ], [ %.0994, %1137 ], [ %.0994, %1515 ], [ %.0994, %1548 ], [ %.0994, %1535 ], [ %.0994, %797 ], [ %.0994, %799 ], [ %.0994, %801 ], [ %.0994, %819 ], [ %.0994, %821 ], [ %.0994, %823 ], [ %.0994, %840 ], [ %.0994, %842 ], [ %.0994, %844 ], [ %.0994, %1001 ], [ %.0994, %1003 ], [ %.0994, %1005 ], [ %.0994, %1011 ], [ %.0994, %1013 ], [ %.0994, %1015 ], [ %.0994, %1030 ], [ %.0994, %1032 ], [ %.0994, %1034 ], [ %.0994, %1049 ], [ %.0994, %1051 ], [ %.0994, %1053 ], [ %.0994, %1077 ], [ %.0994, %1079 ], [ %.0994, %1081 ], [ %.0994, %1097 ], [ %.0994, %1099 ], [ %.0994, %1101 ], [ %.0994, %1107 ], [ %.0994, %1109 ], [ %.0994, %1111 ], [ %.0994, %1126 ], [ %.0994, %1128 ], [ %.0994, %1130 ], [ %.0994, %1760 ], [ 1, %1474 ], [ 1, %1448 ], [ 1, %1411 ], [ 0, %1423 ], [ 1, %1379 ], [ 1, %1359 ], [ 1, %1339 ], [ 0, %1314 ], [ %1247, %1299 ], [ 0, %1204 ], [ %.0994, %1726 ], [ 2, %1181 ], [ 2, %1180 ], [ 2, %1178 ], [ 2, %1176 ], [ 1, %1499 ], [ 1, %1238 ], [ 1, %1239 ], [ 0, %1187 ], [ 0, %1240 ], [ %.0994, %1530 ], [ %.0994, %1532 ], [ %.0994, %1534 ], [ %.0994, %1561 ], [ %.0994, %1563 ], [ %.0994, %1565 ], [ %.0994, %1584 ], [ %.0994, %1586 ], [ %.0994, %1588 ], [ %.0994, %1610 ], [ %.0994, %1612 ], [ %.0994, %1614 ], [ %.0994, %1630 ], [ %.0994, %1632 ], [ %.0994, %1634 ], [ %.0994, %1659 ], [ %.0994, %1661 ], [ %.0994, %1663 ], [ %.0994, %1691 ], [ %.0994, %1693 ], [ %.0994, %1695 ], [ %.0994, %1724 ], [ 0, %1201 ], [ 0, %ps_builder_check_points.exit1510.thread ], [ 0, %1230 ], [ %1247, %1294 ], [ %1247, %1296 ], [ %1247, %1298 ], [ 0, %1319 ], [ 0, %1316 ], [ 1, %1334 ], [ 1, %1336 ], [ 1, %1338 ], [ 1, %1354 ], [ 1, %1356 ], [ 1, %1358 ], [ 1, %1374 ], [ 1, %1376 ], [ 1, %1378 ], [ 1, %1406 ], [ 1, %1408 ], [ 1, %1410 ], [ 1, %1443 ], [ 1, %1445 ], [ 1, %1447 ], [ 1, %1469 ], [ 1, %1471 ], [ 1, %1473 ], [ 1, %1494 ], [ 1, %1496 ], [ 1, %1498 ], [ 0, %1508 ], [ 0, %.lr.ph2137 ]
   br label %.backedge
 
 .lr.ph2137.preheader:                             ; preds = %1508
@@ -13597,8 +13597,8 @@ cf2_stack_pushFixed.exit1566:                     ; preds = %1709, %1711, %1713,
   br label %cf2_stack_popFixed.exit1577
 
 cf2_stack_popFixed.exit1577:                      ; preds = %1778, %1780, %1782, %1783, %1788, %1790
-  %1794 = phi ptr [ %1784, %1788 ], [ %1784, %1790 ], [ %1775, %1778 ], [ %1775, %1780 ], [ %1775, %1782 ], [ %1784, %1783 ]
-  %.0.i1574 = phi i32 [ %1789, %1788 ], [ %1793, %1790 ], [ 0, %1778 ], [ 0, %1780 ], [ 0, %1782 ], [ %1787, %1783 ]
+  %1794 = phi ptr [ %1784, %1790 ], [ %1775, %1782 ], [ %1784, %1788 ], [ %1775, %1778 ], [ %1775, %1780 ], [ %1784, %1783 ]
+  %.0.i1574 = phi i32 [ %1793, %1790 ], [ 0, %1782 ], [ %1789, %1788 ], [ 0, %1778 ], [ 0, %1780 ], [ %1787, %1783 ]
   %1795 = sext i32 %.0.i1574 to i64
   %1796 = load ptr, ptr %151, align 8, !tbaa !88
   store i64 %1795, ptr %1796, align 8, !tbaa !157
@@ -13644,7 +13644,7 @@ cf2_stack_popFixed.exit1577:                      ; preds = %1778, %1780, %1782,
   br label %cf2_stack_popFixed.exit1582
 
 cf2_stack_popFixed.exit1582:                      ; preds = %1799, %1801, %1803, %1804, %1809, %1811
-  %.0.i1579 = phi i32 [ %1810, %1809 ], [ %1814, %1811 ], [ 0, %1799 ], [ 0, %1801 ], [ 0, %1803 ], [ %1808, %1804 ]
+  %.0.i1579 = phi i32 [ %1814, %1811 ], [ 0, %1803 ], [ %1810, %1809 ], [ 0, %1799 ], [ 0, %1801 ], [ %1808, %1804 ]
   %1815 = load ptr, ptr %152, align 8, !tbaa !87
   %1816 = load i64, ptr %1815, align 8, !tbaa !157
   %1817 = trunc i64 %1816 to i32
@@ -13703,7 +13703,7 @@ cf2_stack_popFixed.exit1582:                      ; preds = %1799, %1801, %1803,
   br label %cf2_arrstack_getPointer.exit1587
 
 cf2_arrstack_getPointer.exit1587:                 ; preds = %.lr.ph2115, %1832, %1834
-  %.0.i1586 = phi i64 [ %indvars.iv.next, %.lr.ph2115 ], [ 0, %1832 ], [ 0, %1834 ]
+  %.0.i1586 = phi i64 [ %indvars.iv.next, %.lr.ph2115 ], [ 0, %1834 ], [ 0, %1832 ]
   %1835 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %1835, label %.lr.ph2115, label %._crit_edge2116, !llvm.loop !669
 
@@ -14032,7 +14032,7 @@ cf2_hintmask_read.exit1602:                       ; preds = %cf2_buf_readByte.ex
   br label %cf2_stack_getReal.exit1610
 
 cf2_stack_getReal.exit1610:                       ; preds = %1957, %1961, %1963
-  %.0.i1608 = phi i32 [ %1962, %1961 ], [ %1966, %1963 ], [ %1960, %1957 ]
+  %.0.i1608 = phi i32 [ %1966, %1963 ], [ %1960, %1957 ], [ %1962, %1961 ]
   %1967 = add i32 %.0.i1608, %40
   store i32 %1967, ptr %7, align 4, !tbaa !16
   br label %1968
@@ -14085,8 +14085,8 @@ cf2_stack_getReal.exit1610:                       ; preds = %1957, %1961, %1963
   br label %cf2_stack_popFixed.exit1615
 
 cf2_stack_popFixed.exit1615:                      ; preds = %1973, %1975, %1977, %1978, %1983, %1985
-  %1989 = phi ptr [ %1979, %1983 ], [ %1979, %1985 ], [ %.val1295, %1973 ], [ %.val1295, %1975 ], [ %.val1295, %1977 ], [ %1979, %1978 ]
-  %.0.i1612 = phi i32 [ %1984, %1983 ], [ %1988, %1985 ], [ 0, %1973 ], [ 0, %1975 ], [ 0, %1977 ], [ %1982, %1978 ]
+  %1989 = phi ptr [ %1979, %1985 ], [ %.val1295, %1977 ], [ %1979, %1983 ], [ %.val1295, %1973 ], [ %.val1295, %1975 ], [ %1979, %1978 ]
+  %.0.i1612 = phi i32 [ %1988, %1985 ], [ 0, %1977 ], [ %1984, %1983 ], [ 0, %1973 ], [ 0, %1975 ], [ %1982, %1978 ]
   %1990 = add i32 %.0.i1612, %1971
   store i32 %1990, ptr %14, align 4, !tbaa !16
   %1991 = load i32, ptr %13, align 4, !tbaa !16
@@ -14130,7 +14130,7 @@ cf2_stack_popFixed.exit1615:                      ; preds = %1973, %1975, %1977,
   br label %cf2_stack_popFixed.exit1620
 
 cf2_stack_popFixed.exit1620:                      ; preds = %1993, %1995, %1997, %1998, %2003, %2005
-  %.0.i1617 = phi i32 [ %2004, %2003 ], [ %2008, %2005 ], [ 0, %1993 ], [ 0, %1995 ], [ 0, %1997 ], [ %2002, %1998 ]
+  %.0.i1617 = phi i32 [ %2008, %2005 ], [ 0, %1997 ], [ %2004, %2003 ], [ 0, %1993 ], [ 0, %1995 ], [ %2002, %1998 ]
   %2009 = add i32 %.0.i1617, %1991
   store i32 %2009, ptr %13, align 4, !tbaa !16
   %2010 = load i32, ptr %135, align 8, !tbaa !625
@@ -14175,7 +14175,7 @@ cf2_stack_popFixed.exit1620:                      ; preds = %1993, %1995, %1997,
   br label %cf2_stack_getReal.exit1628
 
 cf2_stack_getReal.exit1628:                       ; preds = %2020, %2024, %2026
-  %.0.i1626 = phi i32 [ %2025, %2024 ], [ %2029, %2026 ], [ %2023, %2020 ]
+  %.0.i1626 = phi i32 [ %2029, %2026 ], [ %2023, %2020 ], [ %2025, %2024 ]
   %2030 = add i32 %.0.i1626, %40
   store i32 %2030, ptr %7, align 4, !tbaa !16
   br label %2031
@@ -14228,7 +14228,7 @@ cf2_stack_getReal.exit1628:                       ; preds = %2020, %2024, %2026
   br label %cf2_stack_popFixed.exit1633
 
 cf2_stack_popFixed.exit1633:                      ; preds = %2036, %2038, %2040, %2041, %2046, %2048
-  %.0.i1630 = phi i32 [ %2047, %2046 ], [ %2051, %2048 ], [ 0, %2036 ], [ 0, %2038 ], [ 0, %2040 ], [ %2045, %2041 ]
+  %.0.i1630 = phi i32 [ %2051, %2048 ], [ 0, %2040 ], [ %2047, %2046 ], [ 0, %2036 ], [ 0, %2038 ], [ %2045, %2041 ]
   %2052 = add i32 %.0.i1630, %2034
   store i32 %2052, ptr %13, align 4, !tbaa !16
   %2053 = load i32, ptr %135, align 8, !tbaa !625
@@ -14311,7 +14311,7 @@ cf2_stack_popFixed.exit1633:                      ; preds = %2036, %2038, %2040,
   br label %cf2_stack_getReal.exit1641
 
 cf2_stack_getReal.exit1641:                       ; preds = %2071, %2073, %2075, %2076, %2082, %2084
-  %.0.i1639 = phi i32 [ %2083, %2082 ], [ %2087, %2084 ], [ 0, %2071 ], [ 0, %2073 ], [ 0, %2075 ], [ %2081, %2076 ]
+  %.0.i1639 = phi i32 [ %2087, %2084 ], [ 0, %2075 ], [ %2083, %2082 ], [ 0, %2071 ], [ 0, %2073 ], [ %2081, %2076 ]
   %2088 = add i32 %.0.i1639, %2064
   %2089 = or disjoint i32 %.010922098, 1
   %.not.i1644 = icmp ult i32 %2089, %2070
@@ -14354,7 +14354,7 @@ cf2_stack_getReal.exit1641:                       ; preds = %2071, %2073, %2075,
   br label %cf2_stack_getReal.exit1649
 
 cf2_stack_getReal.exit1649:                       ; preds = %2090, %2092, %2094, %2095, %2101, %2103
-  %.0.i1647 = phi i32 [ %2102, %2101 ], [ %2106, %2103 ], [ 0, %2090 ], [ 0, %2092 ], [ 0, %2094 ], [ %2100, %2095 ]
+  %.0.i1647 = phi i32 [ %2106, %2103 ], [ 0, %2094 ], [ %2102, %2101 ], [ 0, %2090 ], [ 0, %2092 ], [ %2100, %2095 ]
   %2107 = add i32 %.0.i1647, %2065
   call fastcc void @cf2_glyphpath_lineTo(ptr noundef %22, i32 noundef %2088, i32 noundef %2107)
   %2108 = add i32 %.010922098, 2
@@ -14413,7 +14413,7 @@ cf2_stack_getReal.exit1649:                       ; preds = %2090, %2092, %2094,
   br label %cf2_stack_getReal.exit1657
 
 cf2_stack_getReal.exit1657:                       ; preds = %2118, %2120, %2122, %2123, %2129, %2131
-  %.0.i1655 = phi i32 [ %2130, %2129 ], [ %2134, %2131 ], [ 0, %2118 ], [ 0, %2120 ], [ 0, %2122 ], [ %2128, %2123 ]
+  %.0.i1655 = phi i32 [ %2134, %2131 ], [ 0, %2122 ], [ %2130, %2129 ], [ 0, %2118 ], [ 0, %2120 ], [ %2128, %2123 ]
   %2135 = add i32 %2111, %.0.i1655
   %2136 = or disjoint i32 %.110932108, 1
   %.not.i1660 = icmp ult i32 %2136, %2117
@@ -14456,7 +14456,7 @@ cf2_stack_getReal.exit1657:                       ; preds = %2118, %2120, %2122,
   br label %cf2_stack_getReal.exit1665
 
 cf2_stack_getReal.exit1665:                       ; preds = %2137, %2139, %2141, %2142, %2148, %2150
-  %.0.i1663 = phi i32 [ %2149, %2148 ], [ %2153, %2150 ], [ 0, %2137 ], [ 0, %2139 ], [ 0, %2141 ], [ %2147, %2142 ]
+  %.0.i1663 = phi i32 [ %2153, %2150 ], [ 0, %2141 ], [ %2149, %2148 ], [ 0, %2137 ], [ 0, %2139 ], [ %2147, %2142 ]
   %2154 = add i32 %2112, %.0.i1663
   %2155 = add i32 %.110932108, 2
   %.not.i1668 = icmp ult i32 %2155, %2117
@@ -14499,7 +14499,7 @@ cf2_stack_getReal.exit1665:                       ; preds = %2137, %2139, %2141,
   br label %cf2_stack_getReal.exit1673
 
 cf2_stack_getReal.exit1673:                       ; preds = %2156, %2158, %2160, %2161, %2167, %2169
-  %.0.i1671 = phi i32 [ %2168, %2167 ], [ %2172, %2169 ], [ 0, %2156 ], [ 0, %2158 ], [ 0, %2160 ], [ %2166, %2161 ]
+  %.0.i1671 = phi i32 [ %2172, %2169 ], [ 0, %2160 ], [ %2168, %2167 ], [ 0, %2156 ], [ 0, %2158 ], [ %2166, %2161 ]
   %2173 = add i32 %.0.i1671, %2135
   %2174 = add i32 %.110932108, 3
   %.not.i1676 = icmp ult i32 %2174, %2117
@@ -14542,7 +14542,7 @@ cf2_stack_getReal.exit1673:                       ; preds = %2156, %2158, %2160,
   br label %cf2_stack_getReal.exit1681
 
 cf2_stack_getReal.exit1681:                       ; preds = %2175, %2177, %2179, %2180, %2186, %2188
-  %.0.i1679 = phi i32 [ %2187, %2186 ], [ %2191, %2188 ], [ 0, %2175 ], [ 0, %2177 ], [ 0, %2179 ], [ %2185, %2180 ]
+  %.0.i1679 = phi i32 [ %2191, %2188 ], [ 0, %2179 ], [ %2187, %2186 ], [ 0, %2175 ], [ 0, %2177 ], [ %2185, %2180 ]
   %2192 = add i32 %.0.i1679, %2154
   %2193 = add i32 %.110932108, 4
   %.not.i1684 = icmp ult i32 %2193, %2117
@@ -14585,7 +14585,7 @@ cf2_stack_getReal.exit1681:                       ; preds = %2175, %2177, %2179,
   br label %cf2_stack_getReal.exit1689
 
 cf2_stack_getReal.exit1689:                       ; preds = %2194, %2196, %2198, %2199, %2205, %2207
-  %.0.i1687 = phi i32 [ %2206, %2205 ], [ %2210, %2207 ], [ 0, %2194 ], [ 0, %2196 ], [ 0, %2198 ], [ %2204, %2199 ]
+  %.0.i1687 = phi i32 [ %2210, %2207 ], [ 0, %2198 ], [ %2206, %2205 ], [ 0, %2194 ], [ 0, %2196 ], [ %2204, %2199 ]
   %2211 = add i32 %.0.i1687, %2173
   %2212 = add i32 %.110932108, 5
   %.not.i1692 = icmp ult i32 %2212, %2117
@@ -14628,7 +14628,7 @@ cf2_stack_getReal.exit1689:                       ; preds = %2194, %2196, %2198,
   br label %cf2_stack_getReal.exit1697
 
 cf2_stack_getReal.exit1697:                       ; preds = %2213, %2215, %2217, %2218, %2224, %2226
-  %.0.i1695 = phi i32 [ %2225, %2224 ], [ %2229, %2226 ], [ 0, %2213 ], [ 0, %2215 ], [ 0, %2217 ], [ %2223, %2218 ]
+  %.0.i1695 = phi i32 [ %2229, %2226 ], [ 0, %2217 ], [ %2225, %2224 ], [ 0, %2213 ], [ 0, %2215 ], [ %2223, %2218 ]
   %2230 = add i32 %.0.i1695, %2192
   call fastcc void @cf2_glyphpath_curveTo(ptr noundef %22, i32 noundef %2135, i32 noundef %2154, i32 noundef %2173, i32 noundef %2192, i32 noundef %2211, i32 noundef %2230)
   %2231 = add i32 %.110932108, 6
@@ -14716,7 +14716,7 @@ cf2_stack_getReal.exit1697:                       ; preds = %2213, %2215, %2217,
   br label %cf2_stack_getReal.exit1705
 
 cf2_stack_getReal.exit1705:                       ; preds = %2248, %2250, %2252, %2253, %2259, %2261
-  %.0.i1703 = phi i32 [ %2260, %2259 ], [ %2264, %2261 ], [ 0, %2248 ], [ 0, %2250 ], [ 0, %2252 ], [ %2258, %2253 ]
+  %.0.i1703 = phi i32 [ %2264, %2261 ], [ 0, %2252 ], [ %2260, %2259 ], [ 0, %2248 ], [ 0, %2250 ], [ %2258, %2253 ]
   %2265 = add i32 %2243, %.0.i1703
   %2266 = add nuw i32 %.010822088, 1
   br label %.lr.ph2090._crit_edge
@@ -14764,7 +14764,7 @@ cf2_stack_getReal.exit1705:                       ; preds = %2248, %2250, %2252,
   br label %cf2_stack_getReal.exit1713
 
 cf2_stack_getReal.exit1713:                       ; preds = %2267, %2269, %2271, %2272, %2278, %2280
-  %.0.i1711 = phi i32 [ %2279, %2278 ], [ %2283, %2280 ], [ 0, %2267 ], [ 0, %2269 ], [ 0, %2271 ], [ %2277, %2272 ]
+  %.0.i1711 = phi i32 [ %2283, %2280 ], [ 0, %2271 ], [ %2279, %2278 ], [ 0, %2267 ], [ 0, %2269 ], [ %2277, %2272 ]
   %2284 = add i32 %2244, %.0.i1711
   %2285 = add nuw i32 %.11083, 1
   %.not.i1716 = icmp ult i32 %2285, %.pre2240
@@ -14807,7 +14807,7 @@ cf2_stack_getReal.exit1713:                       ; preds = %2267, %2269, %2271,
   br label %cf2_stack_getReal.exit1721
 
 cf2_stack_getReal.exit1721:                       ; preds = %2286, %2288, %2290, %2291, %2297, %2299
-  %.0.i1719 = phi i32 [ %2298, %2297 ], [ %2302, %2299 ], [ 0, %2286 ], [ 0, %2288 ], [ 0, %2290 ], [ %2296, %2291 ]
+  %.0.i1719 = phi i32 [ %2302, %2299 ], [ 0, %2290 ], [ %2298, %2297 ], [ 0, %2286 ], [ 0, %2288 ], [ %2296, %2291 ]
   %2303 = add i32 %.0.i1719, %.01081
   %2304 = add nuw i32 %.11083, 2
   %.not.i1724 = icmp ult i32 %2304, %.pre2240
@@ -14850,7 +14850,7 @@ cf2_stack_getReal.exit1721:                       ; preds = %2286, %2288, %2290,
   br label %cf2_stack_getReal.exit1729
 
 cf2_stack_getReal.exit1729:                       ; preds = %2305, %2307, %2309, %2310, %2316, %2318
-  %.0.i1727 = phi i32 [ %2317, %2316 ], [ %2321, %2318 ], [ 0, %2305 ], [ 0, %2307 ], [ 0, %2309 ], [ %2315, %2310 ]
+  %.0.i1727 = phi i32 [ %2321, %2318 ], [ 0, %2309 ], [ %2317, %2316 ], [ 0, %2305 ], [ 0, %2307 ], [ %2315, %2310 ]
   %2322 = add i32 %.0.i1727, %2284
   %2323 = add i32 %.11083, 3
   %.not.i1732 = icmp ult i32 %2323, %.pre2240
@@ -14893,7 +14893,7 @@ cf2_stack_getReal.exit1729:                       ; preds = %2305, %2307, %2309,
   br label %cf2_stack_getReal.exit1737
 
 cf2_stack_getReal.exit1737:                       ; preds = %2324, %2326, %2328, %2329, %2335, %2337
-  %.0.i1735 = phi i32 [ %2336, %2335 ], [ %2340, %2337 ], [ 0, %2324 ], [ 0, %2326 ], [ 0, %2328 ], [ %2334, %2329 ]
+  %.0.i1735 = phi i32 [ %2340, %2337 ], [ 0, %2328 ], [ %2336, %2335 ], [ 0, %2324 ], [ 0, %2326 ], [ %2334, %2329 ]
   %2341 = add i32 %.0.i1735, %2322
   call fastcc void @cf2_glyphpath_curveTo(ptr noundef %22, i32 noundef %.01081, i32 noundef %2284, i32 noundef %2303, i32 noundef %2322, i32 noundef %2303, i32 noundef %2341)
   %2342 = add i32 %.11083, 4
@@ -14985,7 +14985,7 @@ cf2_stack_getReal.exit1737:                       ; preds = %2324, %2326, %2328,
   br label %cf2_stack_getReal.exit1745
 
 cf2_stack_getReal.exit1745:                       ; preds = %2359, %2361, %2363, %2364, %2370, %2372
-  %.0.i1743 = phi i32 [ %2371, %2370 ], [ %2375, %2372 ], [ 0, %2359 ], [ 0, %2361 ], [ 0, %2363 ], [ %2369, %2364 ]
+  %.0.i1743 = phi i32 [ %2375, %2372 ], [ 0, %2363 ], [ %2371, %2370 ], [ 0, %2359 ], [ 0, %2361 ], [ %2369, %2364 ]
   %2376 = add i32 %2354, %.0.i1743
   %2377 = add nuw i32 %.010752078, 1
   br label %.lr.ph2080._crit_edge
@@ -15033,7 +15033,7 @@ cf2_stack_getReal.exit1745:                       ; preds = %2359, %2361, %2363,
   br label %cf2_stack_getReal.exit1753
 
 cf2_stack_getReal.exit1753:                       ; preds = %2378, %2380, %2382, %2383, %2389, %2391
-  %.0.i1751 = phi i32 [ %2390, %2389 ], [ %2394, %2391 ], [ 0, %2378 ], [ 0, %2380 ], [ 0, %2382 ], [ %2388, %2383 ]
+  %.0.i1751 = phi i32 [ %2394, %2391 ], [ 0, %2382 ], [ %2390, %2389 ], [ 0, %2378 ], [ 0, %2380 ], [ %2388, %2383 ]
   %2395 = add i32 %2355, %.0.i1751
   %2396 = add nuw i32 %.11076, 1
   %.not.i1756 = icmp ult i32 %2396, %.pre2250
@@ -15076,7 +15076,7 @@ cf2_stack_getReal.exit1753:                       ; preds = %2378, %2380, %2382,
   br label %cf2_stack_getReal.exit1761
 
 cf2_stack_getReal.exit1761:                       ; preds = %2397, %2399, %2401, %2402, %2408, %2410
-  %.0.i1759 = phi i32 [ %2409, %2408 ], [ %2413, %2410 ], [ 0, %2397 ], [ 0, %2399 ], [ 0, %2401 ], [ %2407, %2402 ]
+  %.0.i1759 = phi i32 [ %2413, %2410 ], [ 0, %2401 ], [ %2409, %2408 ], [ 0, %2397 ], [ 0, %2399 ], [ %2407, %2402 ]
   %2414 = add i32 %.0.i1759, %2395
   %2415 = add nuw i32 %.11076, 2
   %.not.i1764 = icmp ult i32 %2415, %.pre2250
@@ -15119,7 +15119,7 @@ cf2_stack_getReal.exit1761:                       ; preds = %2397, %2399, %2401,
   br label %cf2_stack_getReal.exit1769
 
 cf2_stack_getReal.exit1769:                       ; preds = %2416, %2418, %2420, %2421, %2427, %2429
-  %.0.i1767 = phi i32 [ %2428, %2427 ], [ %2432, %2429 ], [ 0, %2416 ], [ 0, %2418 ], [ 0, %2420 ], [ %2426, %2421 ]
+  %.0.i1767 = phi i32 [ %2432, %2429 ], [ 0, %2420 ], [ %2428, %2427 ], [ 0, %2416 ], [ 0, %2418 ], [ %2426, %2421 ]
   %2433 = add i32 %.0.i1767, %.01073
   %2434 = add i32 %.11076, 3
   %.not.i1772 = icmp ult i32 %2434, %.pre2250
@@ -15162,7 +15162,7 @@ cf2_stack_getReal.exit1769:                       ; preds = %2416, %2418, %2420,
   br label %cf2_stack_getReal.exit1777
 
 cf2_stack_getReal.exit1777:                       ; preds = %2435, %2437, %2439, %2440, %2446, %2448
-  %.0.i1775 = phi i32 [ %2447, %2446 ], [ %2451, %2448 ], [ 0, %2435 ], [ 0, %2437 ], [ 0, %2439 ], [ %2445, %2440 ]
+  %.0.i1775 = phi i32 [ %2451, %2448 ], [ 0, %2439 ], [ %2447, %2446 ], [ 0, %2435 ], [ 0, %2437 ], [ %2445, %2440 ]
   %2452 = add i32 %.0.i1775, %2414
   call fastcc void @cf2_glyphpath_curveTo(ptr noundef %22, i32 noundef %2395, i32 noundef %.01073, i32 noundef %2414, i32 noundef %2433, i32 noundef %2452, i32 noundef %2433)
   %2453 = add i32 %.11076, 4
@@ -15258,7 +15258,7 @@ cf2_stack_getReal.exit1777:                       ; preds = %2435, %2437, %2439,
   br label %cf2_stack_getReal.exit1785
 
 cf2_stack_getReal.exit1785:                       ; preds = %2473, %2475, %2477, %2478, %2484, %2486
-  %.0.i1783 = phi i32 [ %2485, %2484 ], [ %2489, %2486 ], [ 0, %2473 ], [ 0, %2475 ], [ 0, %2477 ], [ %2483, %2478 ]
+  %.0.i1783 = phi i32 [ %2489, %2486 ], [ 0, %2477 ], [ %2485, %2484 ], [ 0, %2473 ], [ 0, %2475 ], [ %2483, %2478 ]
   %2490 = add i32 %.1105820672071, %.0.i1783
   %2491 = add nuw i32 %.010632072, 1
   %.not.i1788 = icmp ult i32 %2491, %2471
@@ -15301,7 +15301,7 @@ cf2_stack_getReal.exit1785:                       ; preds = %2473, %2475, %2477,
   br label %cf2_stack_getReal.exit1793
 
 cf2_stack_getReal.exit1793:                       ; preds = %2492, %2494, %2496, %2497, %2503, %2505
-  %.0.i1791 = phi i32 [ %2504, %2503 ], [ %2508, %2505 ], [ 0, %2492 ], [ 0, %2494 ], [ 0, %2496 ], [ %2502, %2497 ]
+  %.0.i1791 = phi i32 [ %2508, %2505 ], [ 0, %2496 ], [ %2504, %2503 ], [ 0, %2492 ], [ 0, %2494 ], [ %2502, %2497 ]
   %2509 = add i32 %.0.i1791, %2490
   %2510 = add nuw i32 %.010632072, 2
   %.not.i1796 = icmp ult i32 %2510, %2471
@@ -15344,7 +15344,7 @@ cf2_stack_getReal.exit1793:                       ; preds = %2492, %2494, %2496,
   br label %cf2_stack_getReal.exit1801
 
 cf2_stack_getReal.exit1801:                       ; preds = %2511, %2513, %2515, %2516, %2522, %2524
-  %.0.i1799 = phi i32 [ %2523, %2522 ], [ %2527, %2524 ], [ 0, %2511 ], [ 0, %2513 ], [ 0, %2515 ], [ %2521, %2516 ]
+  %.0.i1799 = phi i32 [ %2527, %2524 ], [ 0, %2515 ], [ %2523, %2522 ], [ 0, %2511 ], [ 0, %2513 ], [ %2521, %2516 ]
   %2528 = add i32 %.0.i1799, %.0105320692070
   %2529 = add nuw i32 %.010632072, 3
   %.not.i1804 = icmp ult i32 %2529, %2471
@@ -15387,7 +15387,7 @@ cf2_stack_getReal.exit1801:                       ; preds = %2511, %2513, %2515,
   br label %cf2_stack_getReal.exit1809
 
 cf2_stack_getReal.exit1809:                       ; preds = %2530, %2532, %2534, %2535, %2541, %2543
-  %.0.i1807 = phi i32 [ %2542, %2541 ], [ %2546, %2543 ], [ 0, %2530 ], [ 0, %2532 ], [ 0, %2534 ], [ %2540, %2535 ]
+  %.0.i1807 = phi i32 [ %2546, %2543 ], [ 0, %2534 ], [ %2542, %2541 ], [ 0, %2530 ], [ 0, %2532 ], [ %2540, %2535 ]
   %2547 = add i32 %.0.i1807, %2528
   %2548 = sub i32 %2462, %.010632072
   %2549 = icmp eq i32 %2548, 5
@@ -15435,7 +15435,7 @@ cf2_stack_getReal.exit1809:                       ; preds = %2530, %2532, %2534,
   br label %cf2_stack_getReal.exit1817
 
 cf2_stack_getReal.exit1817:                       ; preds = %2552, %2554, %2556, %2557, %2563, %2565
-  %.0.i1815 = phi i32 [ %2564, %2563 ], [ %2568, %2565 ], [ 0, %2552 ], [ 0, %2554 ], [ 0, %2556 ], [ %2562, %2557 ]
+  %.0.i1815 = phi i32 [ %2568, %2565 ], [ 0, %2556 ], [ %2564, %2563 ], [ 0, %2552 ], [ 0, %2554 ], [ %2562, %2557 ]
   %2569 = add i32 %.0.i1815, %2509
   br label %2668
 
@@ -15479,7 +15479,7 @@ cf2_stack_getReal.exit1817:                       ; preds = %2552, %2554, %2556,
   br label %cf2_stack_getReal.exit1825
 
 cf2_stack_getReal.exit1825:                       ; preds = %2571, %2573, %2575, %2576, %2582, %2584
-  %.0.i1823 = phi i32 [ %2583, %2582 ], [ %2587, %2584 ], [ 0, %2571 ], [ 0, %2573 ], [ 0, %2575 ], [ %2581, %2576 ]
+  %.0.i1823 = phi i32 [ %2587, %2584 ], [ 0, %2575 ], [ %2583, %2582 ], [ 0, %2571 ], [ 0, %2573 ], [ %2581, %2576 ]
   %2588 = add i32 %.0105320692070, %.0.i1823
   %2589 = add nuw i32 %.010632072, 1
   %.not.i1828 = icmp ult i32 %2589, %2471
@@ -15522,7 +15522,7 @@ cf2_stack_getReal.exit1825:                       ; preds = %2571, %2573, %2575,
   br label %cf2_stack_getReal.exit1833
 
 cf2_stack_getReal.exit1833:                       ; preds = %2590, %2592, %2594, %2595, %2601, %2603
-  %.0.i1831 = phi i32 [ %2602, %2601 ], [ %2606, %2603 ], [ 0, %2590 ], [ 0, %2592 ], [ 0, %2594 ], [ %2600, %2595 ]
+  %.0.i1831 = phi i32 [ %2606, %2603 ], [ 0, %2594 ], [ %2602, %2601 ], [ 0, %2590 ], [ 0, %2592 ], [ %2600, %2595 ]
   %2607 = add i32 %.0.i1831, %.1105820672071
   %2608 = add nuw i32 %.010632072, 2
   %.not.i1836 = icmp ult i32 %2608, %2471
@@ -15565,7 +15565,7 @@ cf2_stack_getReal.exit1833:                       ; preds = %2590, %2592, %2594,
   br label %cf2_stack_getReal.exit1841
 
 cf2_stack_getReal.exit1841:                       ; preds = %2609, %2611, %2613, %2614, %2620, %2622
-  %.0.i1839 = phi i32 [ %2621, %2620 ], [ %2625, %2622 ], [ 0, %2609 ], [ 0, %2611 ], [ 0, %2613 ], [ %2619, %2614 ]
+  %.0.i1839 = phi i32 [ %2625, %2622 ], [ 0, %2613 ], [ %2621, %2620 ], [ 0, %2609 ], [ 0, %2611 ], [ %2619, %2614 ]
   %2626 = add i32 %.0.i1839, %2588
   %2627 = add nuw i32 %.010632072, 3
   %.not.i1844 = icmp ult i32 %2627, %2471
@@ -15608,7 +15608,7 @@ cf2_stack_getReal.exit1841:                       ; preds = %2609, %2611, %2613,
   br label %cf2_stack_getReal.exit1849
 
 cf2_stack_getReal.exit1849:                       ; preds = %2628, %2630, %2632, %2633, %2639, %2641
-  %.0.i1847 = phi i32 [ %2640, %2639 ], [ %2644, %2641 ], [ 0, %2628 ], [ 0, %2630 ], [ 0, %2632 ], [ %2638, %2633 ]
+  %.0.i1847 = phi i32 [ %2644, %2641 ], [ 0, %2632 ], [ %2640, %2639 ], [ 0, %2628 ], [ 0, %2630 ], [ %2638, %2633 ]
   %2645 = add i32 %.0.i1847, %2607
   %2646 = sub i32 %2462, %.010632072
   %2647 = icmp eq i32 %2646, 5
@@ -15656,19 +15656,19 @@ cf2_stack_getReal.exit1849:                       ; preds = %2628, %2630, %2632,
   br label %cf2_stack_getReal.exit1857
 
 cf2_stack_getReal.exit1857:                       ; preds = %2650, %2652, %2654, %2655, %2661, %2663
-  %.0.i1855 = phi i32 [ %2662, %2661 ], [ %2666, %2663 ], [ 0, %2650 ], [ 0, %2652 ], [ 0, %2654 ], [ %2660, %2655 ]
+  %.0.i1855 = phi i32 [ %2666, %2663 ], [ 0, %2654 ], [ %2662, %2661 ], [ 0, %2650 ], [ 0, %2652 ], [ %2660, %2655 ]
   %2667 = add i32 %.0.i1855, %2626
   br label %2668
 
 2668:                                             ; preds = %cf2_stack_getReal.exit1857, %cf2_stack_getReal.exit1849, %cf2_stack_getReal.exit1817, %cf2_stack_getReal.exit1809
-  %.21065 = phi i32 [ %2491, %cf2_stack_getReal.exit1817 ], [ %.010632072, %cf2_stack_getReal.exit1809 ], [ %2589, %cf2_stack_getReal.exit1857 ], [ %.010632072, %cf2_stack_getReal.exit1849 ]
-  %.11062 = phi i8 [ 0, %cf2_stack_getReal.exit1817 ], [ 0, %cf2_stack_getReal.exit1809 ], [ 1, %cf2_stack_getReal.exit1857 ], [ 1, %cf2_stack_getReal.exit1849 ]
-  %.01060 = phi i32 [ %2490, %cf2_stack_getReal.exit1817 ], [ %2490, %cf2_stack_getReal.exit1809 ], [ %.1105820672071, %cf2_stack_getReal.exit1857 ], [ %.1105820672071, %cf2_stack_getReal.exit1849 ]
-  %.01059 = phi i32 [ %2509, %cf2_stack_getReal.exit1817 ], [ %2509, %cf2_stack_getReal.exit1809 ], [ %2607, %cf2_stack_getReal.exit1857 ], [ %2607, %cf2_stack_getReal.exit1849 ]
-  %.11058 = phi i32 [ %2569, %cf2_stack_getReal.exit1817 ], [ %2509, %cf2_stack_getReal.exit1809 ], [ %2645, %cf2_stack_getReal.exit1857 ], [ %2645, %cf2_stack_getReal.exit1849 ]
-  %.01056 = phi i32 [ %.0105320692070, %cf2_stack_getReal.exit1817 ], [ %.0105320692070, %cf2_stack_getReal.exit1809 ], [ %2588, %cf2_stack_getReal.exit1857 ], [ %2588, %cf2_stack_getReal.exit1849 ]
-  %.01055 = phi i32 [ %2528, %cf2_stack_getReal.exit1817 ], [ %2528, %cf2_stack_getReal.exit1809 ], [ %2626, %cf2_stack_getReal.exit1857 ], [ %2626, %cf2_stack_getReal.exit1849 ]
-  %.01053 = phi i32 [ %2547, %cf2_stack_getReal.exit1817 ], [ %2547, %cf2_stack_getReal.exit1809 ], [ %2667, %cf2_stack_getReal.exit1857 ], [ %2626, %cf2_stack_getReal.exit1849 ]
+  %.21065 = phi i32 [ %.010632072, %cf2_stack_getReal.exit1809 ], [ %2491, %cf2_stack_getReal.exit1817 ], [ %2589, %cf2_stack_getReal.exit1857 ], [ %.010632072, %cf2_stack_getReal.exit1849 ]
+  %.11062 = phi i8 [ 0, %cf2_stack_getReal.exit1809 ], [ 0, %cf2_stack_getReal.exit1817 ], [ 1, %cf2_stack_getReal.exit1857 ], [ 1, %cf2_stack_getReal.exit1849 ]
+  %.01060 = phi i32 [ %2490, %cf2_stack_getReal.exit1809 ], [ %2490, %cf2_stack_getReal.exit1817 ], [ %.1105820672071, %cf2_stack_getReal.exit1857 ], [ %.1105820672071, %cf2_stack_getReal.exit1849 ]
+  %.01059 = phi i32 [ %2509, %cf2_stack_getReal.exit1809 ], [ %2509, %cf2_stack_getReal.exit1817 ], [ %2607, %cf2_stack_getReal.exit1857 ], [ %2607, %cf2_stack_getReal.exit1849 ]
+  %.11058 = phi i32 [ %2509, %cf2_stack_getReal.exit1809 ], [ %2569, %cf2_stack_getReal.exit1817 ], [ %2645, %cf2_stack_getReal.exit1857 ], [ %2645, %cf2_stack_getReal.exit1849 ]
+  %.01056 = phi i32 [ %.0105320692070, %cf2_stack_getReal.exit1809 ], [ %.0105320692070, %cf2_stack_getReal.exit1817 ], [ %2588, %cf2_stack_getReal.exit1857 ], [ %2588, %cf2_stack_getReal.exit1849 ]
+  %.01055 = phi i32 [ %2528, %cf2_stack_getReal.exit1809 ], [ %2528, %cf2_stack_getReal.exit1817 ], [ %2626, %cf2_stack_getReal.exit1857 ], [ %2626, %cf2_stack_getReal.exit1849 ]
+  %.01053 = phi i32 [ %2547, %cf2_stack_getReal.exit1809 ], [ %2547, %cf2_stack_getReal.exit1817 ], [ %2667, %cf2_stack_getReal.exit1857 ], [ %2626, %cf2_stack_getReal.exit1849 ]
   call fastcc void @cf2_glyphpath_curveTo(ptr noundef %22, i32 noundef %.01060, i32 noundef %.01056, i32 noundef %.01059, i32 noundef %.01055, i32 noundef %.11058, i32 noundef %.01053)
   %2669 = add i32 %.21065, 4
   %2670 = icmp ult i32 %2669, %2462
@@ -16127,19 +16127,19 @@ cf2_buf_readByte.exit1901:                        ; preds = %2830, %2834, %2836,
   br label %.backedge.backedge
 
 cf2_hintmask_read.exit:                           ; preds = %cf2_buf_readByte.exit.i, %1893, %1821, %1822, %cf2_stack_setReal.exit1467, %986, %985, %732, %cf2_buf_readByte.exit1459, %cf2_buf_readByte.exit1459, %cf2_buf_readByte.exit1459, %cf2_buf_readByte.exit1459, %cf2_buf_readByte.exit1459, %cf2_buf_readByte.exit1459, %1770, %1768, %963, %850, %743, %742, %cf2_buf_readByte.exit1459.thread, %738, %250, %cf2_hintmask_setCounts.exit.i, %1910, %1908, %1906, %cf2_stack_popInt.exit, %cf2_stack_popInt.exit.thread, %cf2_stack_popFixed.exit1633, %2054, %cf2_stack_popFixed.exit1620, %2011, %cf2_hintmask_read.exit1602, %1773, %cf2_glyphpath_closeOpenPath.exit, %616, %cf2_stack_popFixed.exit, %349, %.thread1948, %300, %.thread1947, %291, %226, %224, %224, %224, %1838
-  %.11035 = phi i32 [ %.01034, %224 ], [ %.01034, %224 ], [ %.01034, %224 ], [ %.01034, %226 ], [ %.01034, %.thread1947 ], [ %.01034, %291 ], [ %.01034, %.thread1948 ], [ %.01034, %300 ], [ %.01034, %cf2_stack_popFixed.exit ], [ %.01034, %349 ], [ %.01034, %cf2_glyphpath_closeOpenPath.exit ], [ %.01034, %616 ], [ %.01034, %1773 ], [ %.31037.lcssa, %1838 ], [ %.01034, %cf2_hintmask_read.exit1602 ], [ %.01034, %cf2_stack_popFixed.exit1620 ], [ %.01034, %2011 ], [ %.01034, %cf2_stack_popFixed.exit1633 ], [ %.01034, %2054 ], [ %.01034, %cf2_stack_popInt.exit.thread ], [ %.01034, %cf2_stack_popInt.exit ], [ %.01034, %1906 ], [ %.01034, %1908 ], [ %.01034, %1910 ], [ %.01034, %cf2_hintmask_setCounts.exit.i ], [ %.01034, %250 ], [ %.01034, %738 ], [ %.01034, %cf2_buf_readByte.exit1459.thread ], [ %.01034, %742 ], [ %.01034, %743 ], [ %.01034, %850 ], [ %.01034, %963 ], [ %.01034, %1768 ], [ %.01034, %1770 ], [ %.01034, %cf2_buf_readByte.exit1459 ], [ %.01034, %cf2_buf_readByte.exit1459 ], [ %.01034, %cf2_buf_readByte.exit1459 ], [ %.01034, %cf2_buf_readByte.exit1459 ], [ %.01034, %cf2_buf_readByte.exit1459 ], [ %.01034, %cf2_buf_readByte.exit1459 ], [ %.01034, %732 ], [ %.01034, %985 ], [ %.01034, %986 ], [ %.01034, %cf2_stack_setReal.exit1467 ], [ %.01034, %1822 ], [ %.01034, %1821 ], [ %.01034, %1893 ], [ %.01034, %cf2_buf_readByte.exit.i ]
-  %.11031 = phi ptr [ %.01030, %224 ], [ %.01030, %224 ], [ %.01030, %224 ], [ %.01030, %226 ], [ %.01030, %.thread1947 ], [ %.01030, %291 ], [ %.01030, %.thread1948 ], [ %.01030, %300 ], [ %.01030, %cf2_stack_popFixed.exit ], [ %.01030, %349 ], [ %.01030, %cf2_glyphpath_closeOpenPath.exit ], [ %.01030, %616 ], [ %.01030, %1773 ], [ %.31033.lcssa, %1838 ], [ %.01030, %cf2_hintmask_read.exit1602 ], [ %.01030, %cf2_stack_popFixed.exit1620 ], [ %.01030, %2011 ], [ %.01030, %cf2_stack_popFixed.exit1633 ], [ %.01030, %2054 ], [ %.01030, %cf2_stack_popInt.exit.thread ], [ %.01030, %cf2_stack_popInt.exit ], [ %.01030, %1906 ], [ %.01030, %1908 ], [ %.01030, %1910 ], [ %.01030, %cf2_hintmask_setCounts.exit.i ], [ %.01030, %250 ], [ %.01030, %738 ], [ %.01030, %cf2_buf_readByte.exit1459.thread ], [ %.01030, %742 ], [ %.01030, %743 ], [ %.01030, %850 ], [ %.01030, %963 ], [ %.01030, %1768 ], [ %.01030, %1770 ], [ %.01030, %cf2_buf_readByte.exit1459 ], [ %.01030, %cf2_buf_readByte.exit1459 ], [ %.01030, %cf2_buf_readByte.exit1459 ], [ %.01030, %cf2_buf_readByte.exit1459 ], [ %.01030, %cf2_buf_readByte.exit1459 ], [ %.01030, %cf2_buf_readByte.exit1459 ], [ %.01030, %732 ], [ %.01030, %985 ], [ %.01030, %986 ], [ %.01030, %cf2_stack_setReal.exit1467 ], [ %.01030, %1822 ], [ %.01030, %1821 ], [ %.01030, %1893 ], [ %.01030, %cf2_buf_readByte.exit.i ]
-  %.31021 = phi i32 [ %.11019, %224 ], [ %.11019, %224 ], [ %.11019, %224 ], [ %.11019, %226 ], [ %.11019, %.thread1947 ], [ %.11019, %291 ], [ %.11019, %.thread1948 ], [ %.11019, %300 ], [ %.11019, %cf2_stack_popFixed.exit ], [ %.11019, %349 ], [ %.11019, %cf2_glyphpath_closeOpenPath.exit ], [ %.11019, %616 ], [ %.11019, %1773 ], [ %.11019, %1838 ], [ %.11019, %cf2_hintmask_read.exit1602 ], [ %.11019, %cf2_stack_popFixed.exit1620 ], [ %.11019, %2011 ], [ %.11019, %cf2_stack_popFixed.exit1633 ], [ %.11019, %2054 ], [ %.11019, %cf2_stack_popInt.exit.thread ], [ %.11019, %cf2_stack_popInt.exit ], [ %.11019, %1906 ], [ %.11019, %1908 ], [ %.11019, %1910 ], [ %.11019, %cf2_hintmask_setCounts.exit.i ], [ %.11019, %250 ], [ 0, %738 ], [ %.11019, %cf2_buf_readByte.exit1459.thread ], [ %.11019, %742 ], [ %.11019, %743 ], [ %.11019, %850 ], [ %.11019, %963 ], [ %.11019, %1768 ], [ %.11019, %1770 ], [ %.11019, %cf2_buf_readByte.exit1459 ], [ %.11019, %cf2_buf_readByte.exit1459 ], [ %.11019, %cf2_buf_readByte.exit1459 ], [ %.11019, %cf2_buf_readByte.exit1459 ], [ %.11019, %cf2_buf_readByte.exit1459 ], [ %.11019, %cf2_buf_readByte.exit1459 ], [ %.11019, %732 ], [ %.11019, %985 ], [ %.11019, %986 ], [ %.11019, %cf2_stack_setReal.exit1467 ], [ %.11019, %1822 ], [ %.11019, %1821 ], [ %.11019, %1893 ], [ %.11019, %cf2_buf_readByte.exit.i ]
-  %.11017 = phi i8 [ %.01016, %224 ], [ %.01016, %224 ], [ %.01016, %224 ], [ %.01016, %226 ], [ %.01016, %.thread1947 ], [ %.01016, %291 ], [ %.01016, %.thread1948 ], [ %.01016, %300 ], [ %.01016, %cf2_stack_popFixed.exit ], [ %.01016, %349 ], [ %.01016, %cf2_glyphpath_closeOpenPath.exit ], [ %.01016, %616 ], [ %.01016, %1773 ], [ 1, %1838 ], [ %.01016, %cf2_hintmask_read.exit1602 ], [ %.01016, %cf2_stack_popFixed.exit1620 ], [ %.01016, %2011 ], [ %.01016, %cf2_stack_popFixed.exit1633 ], [ %.01016, %2054 ], [ %.01016, %cf2_stack_popInt.exit.thread ], [ %.01016, %cf2_stack_popInt.exit ], [ %.01016, %1906 ], [ %.01016, %1908 ], [ %.01016, %1910 ], [ %.01016, %cf2_hintmask_setCounts.exit.i ], [ %.01016, %250 ], [ %.01016, %738 ], [ %.01016, %cf2_buf_readByte.exit1459.thread ], [ %.01016, %742 ], [ %.01016, %743 ], [ %.01016, %850 ], [ %.01016, %963 ], [ %.01016, %1768 ], [ 1, %1770 ], [ %.01016, %cf2_buf_readByte.exit1459 ], [ %.01016, %cf2_buf_readByte.exit1459 ], [ %.01016, %cf2_buf_readByte.exit1459 ], [ %.01016, %cf2_buf_readByte.exit1459 ], [ %.01016, %cf2_buf_readByte.exit1459 ], [ %.01016, %cf2_buf_readByte.exit1459 ], [ %.01016, %732 ], [ 0, %985 ], [ 1, %986 ], [ %.01016, %cf2_stack_setReal.exit1467 ], [ 1, %1822 ], [ 0, %1821 ], [ %.01016, %1893 ], [ %.01016, %cf2_buf_readByte.exit.i ]
+  %.11035 = phi i32 [ %.01034, %224 ], [ %.01034, %224 ], [ %.01034, %224 ], [ %.01034, %2054 ], [ %.01034, %226 ], [ %.01034, %1822 ], [ %.01034, %.thread1947 ], [ %.01034, %291 ], [ %.01034, %.thread1948 ], [ %.01034, %300 ], [ %.01034, %cf2_stack_popFixed.exit ], [ %.01034, %349 ], [ %.01034, %cf2_glyphpath_closeOpenPath.exit ], [ %.01034, %616 ], [ %.01034, %1821 ], [ %.01034, %cf2_stack_setReal.exit1467 ], [ %.01034, %1773 ], [ %.31037.lcssa, %1838 ], [ %.01034, %1893 ], [ %.01034, %250 ], [ %.01034, %cf2_hintmask_read.exit1602 ], [ %.01034, %cf2_stack_popFixed.exit1620 ], [ %.01034, %2011 ], [ %.01034, %cf2_stack_popFixed.exit1633 ], [ %.01034, %cf2_stack_popInt.exit.thread ], [ %.01034, %cf2_stack_popInt.exit ], [ %.01034, %1906 ], [ %.01034, %1908 ], [ %.01034, %1910 ], [ %.01034, %cf2_hintmask_setCounts.exit.i ], [ %.01034, %738 ], [ %.01034, %cf2_buf_readByte.exit1459.thread ], [ %.01034, %742 ], [ %.01034, %743 ], [ %.01034, %850 ], [ %.01034, %963 ], [ %.01034, %1768 ], [ %.01034, %1770 ], [ %.01034, %cf2_buf_readByte.exit1459 ], [ %.01034, %cf2_buf_readByte.exit1459 ], [ %.01034, %cf2_buf_readByte.exit1459 ], [ %.01034, %cf2_buf_readByte.exit1459 ], [ %.01034, %cf2_buf_readByte.exit1459 ], [ %.01034, %cf2_buf_readByte.exit1459 ], [ %.01034, %732 ], [ %.01034, %985 ], [ %.01034, %986 ], [ %.01034, %cf2_buf_readByte.exit.i ]
+  %.11031 = phi ptr [ %.01030, %224 ], [ %.01030, %224 ], [ %.01030, %224 ], [ %.01030, %2054 ], [ %.01030, %226 ], [ %.01030, %1822 ], [ %.01030, %.thread1947 ], [ %.01030, %291 ], [ %.01030, %.thread1948 ], [ %.01030, %300 ], [ %.01030, %cf2_stack_popFixed.exit ], [ %.01030, %349 ], [ %.01030, %cf2_glyphpath_closeOpenPath.exit ], [ %.01030, %616 ], [ %.01030, %1821 ], [ %.01030, %cf2_stack_setReal.exit1467 ], [ %.01030, %1773 ], [ %.31033.lcssa, %1838 ], [ %.01030, %1893 ], [ %.01030, %250 ], [ %.01030, %cf2_hintmask_read.exit1602 ], [ %.01030, %cf2_stack_popFixed.exit1620 ], [ %.01030, %2011 ], [ %.01030, %cf2_stack_popFixed.exit1633 ], [ %.01030, %cf2_stack_popInt.exit.thread ], [ %.01030, %cf2_stack_popInt.exit ], [ %.01030, %1906 ], [ %.01030, %1908 ], [ %.01030, %1910 ], [ %.01030, %cf2_hintmask_setCounts.exit.i ], [ %.01030, %738 ], [ %.01030, %cf2_buf_readByte.exit1459.thread ], [ %.01030, %742 ], [ %.01030, %743 ], [ %.01030, %850 ], [ %.01030, %963 ], [ %.01030, %1768 ], [ %.01030, %1770 ], [ %.01030, %cf2_buf_readByte.exit1459 ], [ %.01030, %cf2_buf_readByte.exit1459 ], [ %.01030, %cf2_buf_readByte.exit1459 ], [ %.01030, %cf2_buf_readByte.exit1459 ], [ %.01030, %cf2_buf_readByte.exit1459 ], [ %.01030, %cf2_buf_readByte.exit1459 ], [ %.01030, %732 ], [ %.01030, %985 ], [ %.01030, %986 ], [ %.01030, %cf2_buf_readByte.exit.i ]
+  %.31021 = phi i32 [ %.11019, %224 ], [ %.11019, %224 ], [ %.11019, %224 ], [ %.11019, %2054 ], [ %.11019, %226 ], [ %.11019, %1822 ], [ %.11019, %.thread1947 ], [ %.11019, %291 ], [ %.11019, %.thread1948 ], [ %.11019, %300 ], [ %.11019, %cf2_stack_popFixed.exit ], [ %.11019, %349 ], [ %.11019, %cf2_glyphpath_closeOpenPath.exit ], [ %.11019, %616 ], [ %.11019, %1821 ], [ %.11019, %cf2_stack_setReal.exit1467 ], [ %.11019, %1773 ], [ %.11019, %1838 ], [ %.11019, %1893 ], [ %.11019, %250 ], [ %.11019, %cf2_hintmask_read.exit1602 ], [ %.11019, %cf2_stack_popFixed.exit1620 ], [ %.11019, %2011 ], [ %.11019, %cf2_stack_popFixed.exit1633 ], [ %.11019, %cf2_stack_popInt.exit.thread ], [ %.11019, %cf2_stack_popInt.exit ], [ %.11019, %1906 ], [ %.11019, %1908 ], [ %.11019, %1910 ], [ %.11019, %cf2_hintmask_setCounts.exit.i ], [ 0, %738 ], [ %.11019, %cf2_buf_readByte.exit1459.thread ], [ %.11019, %742 ], [ %.11019, %743 ], [ %.11019, %850 ], [ %.11019, %963 ], [ %.11019, %1768 ], [ %.11019, %1770 ], [ %.11019, %cf2_buf_readByte.exit1459 ], [ %.11019, %cf2_buf_readByte.exit1459 ], [ %.11019, %cf2_buf_readByte.exit1459 ], [ %.11019, %cf2_buf_readByte.exit1459 ], [ %.11019, %cf2_buf_readByte.exit1459 ], [ %.11019, %cf2_buf_readByte.exit1459 ], [ %.11019, %732 ], [ %.11019, %985 ], [ %.11019, %986 ], [ %.11019, %cf2_buf_readByte.exit.i ]
+  %.11017 = phi i8 [ %.01016, %224 ], [ %.01016, %224 ], [ %.01016, %224 ], [ %.01016, %2054 ], [ %.01016, %226 ], [ 1, %1822 ], [ %.01016, %.thread1947 ], [ %.01016, %291 ], [ %.01016, %.thread1948 ], [ %.01016, %300 ], [ %.01016, %cf2_stack_popFixed.exit ], [ %.01016, %349 ], [ %.01016, %cf2_glyphpath_closeOpenPath.exit ], [ %.01016, %616 ], [ 0, %1821 ], [ %.01016, %cf2_stack_setReal.exit1467 ], [ %.01016, %1773 ], [ 1, %1838 ], [ %.01016, %1893 ], [ %.01016, %250 ], [ %.01016, %cf2_hintmask_read.exit1602 ], [ %.01016, %cf2_stack_popFixed.exit1620 ], [ %.01016, %2011 ], [ %.01016, %cf2_stack_popFixed.exit1633 ], [ %.01016, %cf2_stack_popInt.exit.thread ], [ %.01016, %cf2_stack_popInt.exit ], [ %.01016, %1906 ], [ %.01016, %1908 ], [ %.01016, %1910 ], [ %.01016, %cf2_hintmask_setCounts.exit.i ], [ %.01016, %738 ], [ %.01016, %cf2_buf_readByte.exit1459.thread ], [ %.01016, %742 ], [ %.01016, %743 ], [ %.01016, %850 ], [ %.01016, %963 ], [ %.01016, %1768 ], [ 1, %1770 ], [ %.01016, %cf2_buf_readByte.exit1459 ], [ %.01016, %cf2_buf_readByte.exit1459 ], [ %.01016, %cf2_buf_readByte.exit1459 ], [ %.01016, %cf2_buf_readByte.exit1459 ], [ %.01016, %cf2_buf_readByte.exit1459 ], [ %.01016, %cf2_buf_readByte.exit1459 ], [ %.01016, %732 ], [ 0, %985 ], [ 1, %986 ], [ %.01016, %cf2_buf_readByte.exit.i ]
   %2875 = load ptr, ptr %123, align 8, !tbaa !615
   store ptr %2875, ptr %128, align 8, !tbaa !617
   br label %.backedge.backedge
 
-cf2_arrstack_setCount.exit.thread:                ; preds = %1420, %1416, %ps_builder_check_points.exit1510, %1202, %1200, %1479, %1457, %1429, %1433, %1391, %1392, %1364, %1344, %1324, %1303, %1307, %1243, %1241, %1505, %1237, %1186, %1149, %ps_builder_check_points.exit, %1153, %1151, %1138, %964, %1520, %678, %664, %629, %cf2_stack_popInt.exit1337, %262, %252, %cf2_stack_popFixed.exit1582, %713, %228, %2031, %1968, %1899, %326, %.thread1948, %.thread1947, %cf2_stack_setReal.exit1467, %962, %cf2_stack_init.exit.thread, %1892, %1859, %1861, %1863, %1857
-  %.not11361934.ph.ph = phi i1 [ false, %962 ], [ false, %1892 ], [ false, %1863 ], [ false, %1861 ], [ false, %1859 ], [ false, %1857 ], [ true, %cf2_stack_init.exit.thread ], [ false, %cf2_stack_setReal.exit1467 ], [ false, %.thread1947 ], [ false, %.thread1948 ], [ false, %326 ], [ false, %1899 ], [ false, %1968 ], [ false, %2031 ], [ false, %228 ], [ false, %713 ], [ false, %cf2_stack_popFixed.exit1582 ], [ false, %252 ], [ false, %262 ], [ false, %cf2_stack_popInt.exit1337 ], [ false, %629 ], [ false, %664 ], [ false, %678 ], [ false, %1520 ], [ false, %964 ], [ false, %1138 ], [ false, %1151 ], [ false, %1153 ], [ false, %ps_builder_check_points.exit ], [ false, %1149 ], [ false, %1186 ], [ false, %1237 ], [ false, %1505 ], [ false, %1241 ], [ false, %1243 ], [ false, %1307 ], [ false, %1303 ], [ false, %1324 ], [ false, %1344 ], [ false, %1364 ], [ false, %1392 ], [ false, %1391 ], [ false, %1433 ], [ false, %1429 ], [ false, %1457 ], [ false, %1479 ], [ false, %1200 ], [ false, %1202 ], [ false, %ps_builder_check_points.exit1510 ], [ false, %1416 ], [ false, %1420 ]
-  %.0.i1933.ph.ph = phi ptr [ %117, %962 ], [ %117, %1892 ], [ %117, %1863 ], [ %117, %1861 ], [ %117, %1859 ], [ %117, %1857 ], [ null, %cf2_stack_init.exit.thread ], [ %117, %cf2_stack_setReal.exit1467 ], [ %117, %.thread1947 ], [ %117, %.thread1948 ], [ %117, %326 ], [ %117, %1899 ], [ %117, %1968 ], [ %117, %2031 ], [ %117, %228 ], [ %117, %713 ], [ %117, %cf2_stack_popFixed.exit1582 ], [ %117, %252 ], [ %117, %262 ], [ %117, %cf2_stack_popInt.exit1337 ], [ %117, %629 ], [ %117, %664 ], [ %117, %678 ], [ %117, %1520 ], [ %117, %964 ], [ %117, %1138 ], [ %117, %1151 ], [ %117, %1153 ], [ %117, %ps_builder_check_points.exit ], [ %117, %1149 ], [ %117, %1186 ], [ %117, %1237 ], [ %117, %1505 ], [ %117, %1241 ], [ %117, %1243 ], [ %117, %1307 ], [ %117, %1303 ], [ %117, %1324 ], [ %117, %1344 ], [ %117, %1364 ], [ %117, %1392 ], [ %117, %1391 ], [ %117, %1433 ], [ %117, %1429 ], [ %117, %1457 ], [ %117, %1479 ], [ %117, %1200 ], [ %117, %1202 ], [ %117, %ps_builder_check_points.exit1510 ], [ %117, %1416 ], [ %117, %1420 ]
-  %.sroa.28.0.ph.ph = phi ptr [ %129, %962 ], [ %129, %1892 ], [ %129, %1863 ], [ %129, %1861 ], [ %129, %1859 ], [ %129, %1857 ], [ null, %cf2_stack_init.exit.thread ], [ %129, %cf2_stack_setReal.exit1467 ], [ %129, %.thread1947 ], [ %129, %.thread1948 ], [ %129, %326 ], [ %129, %1899 ], [ %129, %1968 ], [ %129, %2031 ], [ %129, %228 ], [ %129, %713 ], [ %129, %cf2_stack_popFixed.exit1582 ], [ %129, %252 ], [ %129, %262 ], [ %129, %cf2_stack_popInt.exit1337 ], [ %129, %629 ], [ %129, %664 ], [ %129, %678 ], [ %129, %1520 ], [ %129, %964 ], [ %129, %1138 ], [ %129, %1151 ], [ %129, %1153 ], [ %129, %ps_builder_check_points.exit ], [ %129, %1149 ], [ %129, %1186 ], [ %129, %1237 ], [ %129, %1505 ], [ %129, %1241 ], [ %129, %1243 ], [ %129, %1307 ], [ %129, %1303 ], [ %129, %1324 ], [ %129, %1344 ], [ %129, %1364 ], [ %129, %1392 ], [ %129, %1391 ], [ %129, %1433 ], [ %129, %1429 ], [ %129, %1457 ], [ %129, %1479 ], [ %129, %1200 ], [ %129, %1202 ], [ %129, %ps_builder_check_points.exit1510 ], [ %129, %1416 ], [ %129, %1420 ]
-  %.0.ph.ph = phi i32 [ %.7, %962 ], [ %.14, %1892 ], [ 0, %1863 ], [ 0, %1861 ], [ 0, %1859 ], [ 0, %1857 ], [ 64, %cf2_stack_init.exit.thread ], [ 18, %1420 ], [ 18, %1416 ], [ 18, %ps_builder_check_points.exit1510 ], [ 18, %1202 ], [ 18, %1200 ], [ 18, %1479 ], [ 18, %1457 ], [ 18, %1429 ], [ 18, %1433 ], [ 18, %1391 ], [ 18, %1392 ], [ 18, %1364 ], [ 18, %1344 ], [ 18, %1324 ], [ 18, %1303 ], [ 18, %1307 ], [ 18, %1243 ], [ 18, %1241 ], [ 18, %1505 ], [ 18, %1237 ], [ 18, %1186 ], [ 18, %1149 ], [ 0, %ps_builder_check_points.exit ], [ 18, %1153 ], [ 18, %1151 ], [ 18, %1138 ], [ 0, %964 ], [ 18, %1520 ], [ 18, %678 ], [ 18, %664 ], [ 18, %629 ], [ 18, %cf2_stack_popInt.exit1337 ], [ %269, %262 ], [ 18, %252 ], [ 0, %cf2_stack_popFixed.exit1582 ], [ 18, %713 ], [ 18, %228 ], [ 0, %2031 ], [ 0, %1968 ], [ 0, %1899 ], [ 0, %326 ], [ 0, %.thread1948 ], [ 0, %.thread1947 ], [ 0, %cf2_stack_setReal.exit1467 ]
+cf2_arrstack_setCount.exit.thread:                ; preds = %1420, %1416, %ps_builder_check_points.exit1510, %1202, %1433, %1392, %1307, %1241, %1505, %1237, %1186, %1149, %1243, %1303, %1324, %1344, %1364, %1391, %1429, %1457, %1479, %1153, %1138, %ps_builder_check_points.exit, %1200, %1151, %1520, %964, %678, %629, %664, %cf2_stack_popInt.exit1337, %262, %252, %cf2_stack_popFixed.exit1582, %713, %228, %2031, %1968, %1899, %326, %.thread1948, %.thread1947, %cf2_stack_setReal.exit1467, %962, %cf2_stack_init.exit.thread, %1892, %1859, %1861, %1863, %1857
+  %.not11361934.ph.ph = phi i1 [ false, %962 ], [ false, %1892 ], [ false, %1863 ], [ false, %1861 ], [ false, %1859 ], [ false, %1857 ], [ true, %cf2_stack_init.exit.thread ], [ false, %cf2_stack_setReal.exit1467 ], [ false, %.thread1947 ], [ false, %.thread1948 ], [ false, %326 ], [ false, %1899 ], [ false, %1968 ], [ false, %2031 ], [ false, %228 ], [ false, %713 ], [ false, %cf2_stack_popFixed.exit1582 ], [ false, %252 ], [ false, %262 ], [ false, %cf2_stack_popInt.exit1337 ], [ false, %664 ], [ false, %629 ], [ false, %678 ], [ false, %964 ], [ false, %1520 ], [ false, %1151 ], [ false, %1200 ], [ false, %ps_builder_check_points.exit ], [ false, %1138 ], [ false, %1153 ], [ false, %1479 ], [ false, %1457 ], [ false, %1429 ], [ false, %1391 ], [ false, %1364 ], [ false, %1344 ], [ false, %1324 ], [ false, %1303 ], [ false, %1243 ], [ false, %1149 ], [ false, %1186 ], [ false, %1237 ], [ false, %1505 ], [ false, %1241 ], [ false, %1307 ], [ false, %1392 ], [ false, %1433 ], [ false, %1202 ], [ false, %ps_builder_check_points.exit1510 ], [ false, %1416 ], [ false, %1420 ]
+  %.0.i1933.ph.ph = phi ptr [ %117, %962 ], [ %117, %1892 ], [ %117, %1863 ], [ %117, %1861 ], [ %117, %1859 ], [ %117, %1857 ], [ null, %cf2_stack_init.exit.thread ], [ %117, %cf2_stack_setReal.exit1467 ], [ %117, %.thread1947 ], [ %117, %.thread1948 ], [ %117, %326 ], [ %117, %1899 ], [ %117, %1968 ], [ %117, %2031 ], [ %117, %228 ], [ %117, %713 ], [ %117, %cf2_stack_popFixed.exit1582 ], [ %117, %252 ], [ %117, %262 ], [ %117, %cf2_stack_popInt.exit1337 ], [ %117, %664 ], [ %117, %629 ], [ %117, %678 ], [ %117, %964 ], [ %117, %1520 ], [ %117, %1151 ], [ %117, %1200 ], [ %117, %ps_builder_check_points.exit ], [ %117, %1138 ], [ %117, %1153 ], [ %117, %1479 ], [ %117, %1457 ], [ %117, %1429 ], [ %117, %1391 ], [ %117, %1364 ], [ %117, %1344 ], [ %117, %1324 ], [ %117, %1303 ], [ %117, %1243 ], [ %117, %1149 ], [ %117, %1186 ], [ %117, %1237 ], [ %117, %1505 ], [ %117, %1241 ], [ %117, %1307 ], [ %117, %1392 ], [ %117, %1433 ], [ %117, %1202 ], [ %117, %ps_builder_check_points.exit1510 ], [ %117, %1416 ], [ %117, %1420 ]
+  %.sroa.28.0.ph.ph = phi ptr [ %129, %962 ], [ %129, %1892 ], [ %129, %1863 ], [ %129, %1861 ], [ %129, %1859 ], [ %129, %1857 ], [ null, %cf2_stack_init.exit.thread ], [ %129, %cf2_stack_setReal.exit1467 ], [ %129, %.thread1947 ], [ %129, %.thread1948 ], [ %129, %326 ], [ %129, %1899 ], [ %129, %1968 ], [ %129, %2031 ], [ %129, %228 ], [ %129, %713 ], [ %129, %cf2_stack_popFixed.exit1582 ], [ %129, %252 ], [ %129, %262 ], [ %129, %cf2_stack_popInt.exit1337 ], [ %129, %664 ], [ %129, %629 ], [ %129, %678 ], [ %129, %964 ], [ %129, %1520 ], [ %129, %1151 ], [ %129, %1200 ], [ %129, %ps_builder_check_points.exit ], [ %129, %1138 ], [ %129, %1153 ], [ %129, %1479 ], [ %129, %1457 ], [ %129, %1429 ], [ %129, %1391 ], [ %129, %1364 ], [ %129, %1344 ], [ %129, %1324 ], [ %129, %1303 ], [ %129, %1243 ], [ %129, %1149 ], [ %129, %1186 ], [ %129, %1237 ], [ %129, %1505 ], [ %129, %1241 ], [ %129, %1307 ], [ %129, %1392 ], [ %129, %1433 ], [ %129, %1202 ], [ %129, %ps_builder_check_points.exit1510 ], [ %129, %1416 ], [ %129, %1420 ]
+  %.0.ph.ph = phi i32 [ %.7, %962 ], [ %.14, %1892 ], [ 0, %1863 ], [ 0, %1861 ], [ 0, %1859 ], [ 0, %1857 ], [ 64, %cf2_stack_init.exit.thread ], [ 18, %1420 ], [ 18, %1416 ], [ 18, %ps_builder_check_points.exit1510 ], [ 18, %1202 ], [ 18, %1433 ], [ 18, %1392 ], [ 18, %1307 ], [ 18, %1241 ], [ 18, %1505 ], [ 18, %1237 ], [ 18, %1186 ], [ 18, %1149 ], [ 18, %1243 ], [ 18, %1303 ], [ 18, %1324 ], [ 18, %1344 ], [ 18, %1364 ], [ 18, %1391 ], [ 18, %1429 ], [ 18, %1457 ], [ 18, %1479 ], [ 18, %1153 ], [ 18, %1138 ], [ 0, %ps_builder_check_points.exit ], [ 18, %1200 ], [ 18, %1151 ], [ 18, %1520 ], [ 0, %964 ], [ 18, %678 ], [ 18, %629 ], [ 18, %664 ], [ 18, %cf2_stack_popInt.exit1337 ], [ %269, %262 ], [ 18, %252 ], [ 0, %cf2_stack_popFixed.exit1582 ], [ 18, %713 ], [ 18, %228 ], [ 0, %2031 ], [ 0, %1968 ], [ 0, %1899 ], [ 0, %326 ], [ 0, %.thread1948 ], [ 0, %.thread1947 ], [ 0, %cf2_stack_setReal.exit1467 ]
   %.pr2024.pr = load i32, ptr %33, align 4, !tbaa !16
   %.not3.i = icmp eq i32 %.pr2024.pr, 0
   br i1 %.not3.i, label %cf2_setError.exit.sink.split, label %cf2_setError.exit
@@ -16153,9 +16153,9 @@ cf2_setError.exit.sink.split:                     ; preds = %221, %cf2_arrstack_
   br label %cf2_setError.exit
 
 cf2_setError.exit:                                ; preds = %219, %cf2_setError.exit.sink.split, %131, %cf2_arrstack_setCount.exit, %cf2_arrstack_setCount.exit.thread
-  %.sroa.28.02035 = phi ptr [ %.sroa.28.0.ph.ph, %cf2_arrstack_setCount.exit.thread ], [ %129, %cf2_arrstack_setCount.exit ], [ %129, %131 ], [ %.sroa.28.02035.ph, %cf2_setError.exit.sink.split ], [ %129, %219 ]
-  %.0.i19332034 = phi ptr [ %.0.i1933.ph.ph, %cf2_arrstack_setCount.exit.thread ], [ %117, %cf2_arrstack_setCount.exit ], [ %117, %131 ], [ %.0.i19332034.ph, %cf2_setError.exit.sink.split ], [ %117, %219 ]
-  %.not113619342033 = phi i1 [ %.not11361934.ph.ph, %cf2_arrstack_setCount.exit.thread ], [ false, %cf2_arrstack_setCount.exit ], [ false, %131 ], [ %.not113619342033.ph, %cf2_setError.exit.sink.split ], [ false, %219 ]
+  %.sroa.28.02035 = phi ptr [ %.sroa.28.02035.ph, %cf2_setError.exit.sink.split ], [ %.sroa.28.0.ph.ph, %cf2_arrstack_setCount.exit.thread ], [ %129, %131 ], [ %129, %cf2_arrstack_setCount.exit ], [ %129, %219 ]
+  %.0.i19332034 = phi ptr [ %.0.i19332034.ph, %cf2_setError.exit.sink.split ], [ %.0.i1933.ph.ph, %cf2_arrstack_setCount.exit.thread ], [ %117, %131 ], [ %117, %cf2_arrstack_setCount.exit ], [ %117, %219 ]
+  %.not113619342033 = phi i1 [ %.not113619342033.ph, %cf2_setError.exit.sink.split ], [ %.not11361934.ph.ph, %cf2_arrstack_setCount.exit.thread ], [ false, %131 ], [ false, %cf2_arrstack_setCount.exit ], [ false, %219 ]
   %2876 = load ptr, ptr %52, align 8, !tbaa !571
   %2877 = getelementptr inbounds nuw i8, ptr %22, i64 18616
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, i8 0, i64 24, i1 false)
@@ -16451,7 +16451,7 @@ define internal fastcc i32 @cf2_stack_popInt(ptr noundef nonnull captures(none) 
   br label %cf2_setError.exit
 
 cf2_setError.exit:                                ; preds = %21, %19, %16, %12, %10, %7, %22
-  %.0 = phi i32 [ %24, %22 ], [ 0, %7 ], [ 0, %10 ], [ 0, %12 ], [ 0, %16 ], [ 0, %19 ], [ 0, %21 ]
+  %.0 = phi i32 [ %24, %22 ], [ 0, %12 ], [ 0, %7 ], [ 0, %10 ], [ 0, %16 ], [ 0, %19 ], [ 0, %21 ]
   ret i32 %.0
 }
 
@@ -16533,7 +16533,7 @@ define internal fastcc void @cf2_doBlend(ptr noundef readonly captures(none) %0,
   br label %cf2_stack_getReal.exit
 
 cf2_stack_getReal.exit:                           ; preds = %27, %29, %31, %32, %38, %40
-  %.0.i = phi i32 [ %39, %38 ], [ %43, %40 ], [ 0, %27 ], [ 0, %29 ], [ 0, %31 ], [ %37, %32 ]
+  %.0.i = phi i32 [ %43, %40 ], [ 0, %31 ], [ %39, %38 ], [ 0, %27 ], [ 0, %29 ], [ %37, %32 ]
   %44 = load i32, ptr %4, align 8, !tbaa !679
   %45 = icmp ugt i32 %44, 1
   br i1 %45, label %.lr.ph, label %._crit_edge
@@ -16588,8 +16588,8 @@ cf2_stack_getReal.exit:                           ; preds = %27, %29, %31, %32, 
   br label %cf2_stack_getReal.exit39
 
 cf2_stack_getReal.exit39:                         ; preds = %49, %51, %53, %54, %60, %62
-  %66 = phi i32 [ %46, %60 ], [ %46, %62 ], [ %46, %49 ], [ %46, %51 ], [ %.pre, %53 ], [ %46, %54 ]
-  %.0.i37 = phi i32 [ %61, %60 ], [ %65, %62 ], [ 0, %49 ], [ 0, %51 ], [ 0, %53 ], [ %59, %54 ]
+  %66 = phi i32 [ %46, %62 ], [ %.pre, %53 ], [ %46, %60 ], [ %46, %49 ], [ %46, %51 ], [ %46, %54 ]
+  %.0.i37 = phi i32 [ %65, %62 ], [ 0, %53 ], [ %61, %60 ], [ 0, %49 ], [ 0, %51 ], [ %59, %54 ]
   %67 = sext i32 %47 to i64
   %68 = sext i32 %.0.i37 to i64
   %69 = mul nsw i64 %68, %67
@@ -16727,7 +16727,7 @@ define internal fastcc void @cf2_doStems(ptr noundef readonly captures(none) %0,
   br label %cf2_stack_getReal.exit
 
 cf2_stack_getReal.exit:                           ; preds = %22, %26, %28
-  %.0.i = phi i32 [ %27, %26 ], [ %31, %28 ], [ %25, %22 ]
+  %.0.i = phi i32 [ %31, %28 ], [ %25, %22 ], [ %27, %26 ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %33 = load ptr, ptr %32, align 8, !tbaa !239
   %34 = getelementptr i8, ptr %33, i64 1056
@@ -16811,7 +16811,7 @@ cf2_stack_getReal.exit:                           ; preds = %22, %26, %28
   br label %cf2_stack_getReal.exit36
 
 cf2_stack_getReal.exit36:                         ; preds = %55, %57, %59, %60, %66, %68
-  %.0.i34 = phi i32 [ %67, %66 ], [ %71, %68 ], [ 0, %55 ], [ 0, %57 ], [ 0, %59 ], [ %65, %60 ]
+  %.0.i34 = phi i32 [ %71, %68 ], [ 0, %59 ], [ %67, %66 ], [ 0, %55 ], [ 0, %57 ], [ %65, %60 ]
   %72 = add i32 %.0.i34, %.046
   store i32 %72, ptr %45, align 4, !tbaa !683
   %73 = add nuw i32 %.02545, 1
@@ -16855,7 +16855,7 @@ cf2_stack_getReal.exit36:                         ; preds = %55, %57, %59, %60, 
   br label %cf2_stack_getReal.exit44
 
 cf2_stack_getReal.exit44:                         ; preds = %74, %76, %78, %79, %85, %87
-  %.0.i42 = phi i32 [ %86, %85 ], [ %90, %87 ], [ 0, %74 ], [ 0, %76 ], [ 0, %78 ], [ %84, %79 ]
+  %.0.i42 = phi i32 [ %90, %87 ], [ 0, %78 ], [ %86, %85 ], [ 0, %74 ], [ 0, %76 ], [ %84, %79 ]
   %91 = add i32 %.0.i42, %72
   store i32 %91, ptr %46, align 4, !tbaa !685
   store i8 0, ptr %7, align 4, !tbaa !686
@@ -16933,7 +16933,7 @@ define internal fastcc i32 @cf2_stack_getReal(ptr noundef nonnull readonly captu
   br label %cf2_setError.exit
 
 cf2_setError.exit:                                ; preds = %16, %15, %13, %10, %24, %22
-  %.0 = phi i32 [ %23, %22 ], [ %27, %24 ], [ 0, %10 ], [ 0, %13 ], [ 0, %15 ], [ %21, %16 ]
+  %.0 = phi i32 [ %27, %24 ], [ 0, %15 ], [ %23, %22 ], [ 0, %10 ], [ 0, %13 ], [ %21, %16 ]
   ret i32 %.0
 }
 
@@ -16984,7 +16984,7 @@ define internal fastcc i32 @cf2_stack_popFixed(ptr noundef nonnull captures(none
   br label %cf2_setError.exit
 
 cf2_setError.exit:                                ; preds = %13, %12, %10, %7, %20, %18
-  %.0 = phi i32 [ %19, %18 ], [ %23, %20 ], [ 0, %7 ], [ 0, %10 ], [ 0, %12 ], [ %17, %13 ]
+  %.0 = phi i32 [ %23, %20 ], [ 0, %12 ], [ %19, %18 ], [ 0, %7 ], [ 0, %10 ], [ %17, %13 ]
   ret i32 %.0
 }
 
@@ -17657,7 +17657,7 @@ define internal fastcc void @cf2_doFlex(ptr noundef nonnull captures(none) %0, p
   br label %cf2_stack_getReal.exit
 
 cf2_stack_getReal.exit:                           ; preds = %30, %32, %34, %35, %41, %43
-  %.0.i = phi i32 [ %42, %41 ], [ %46, %43 ], [ 0, %30 ], [ 0, %32 ], [ 0, %34 ], [ %40, %35 ]
+  %.0.i = phi i32 [ %46, %43 ], [ 0, %34 ], [ %42, %41 ], [ 0, %30 ], [ 0, %32 ], [ %40, %35 ]
   %47 = add i32 %.0.i, %19
   store i32 %47, ptr %20, align 4, !tbaa !16
   br label %48
@@ -17740,7 +17740,7 @@ cf2_stack_getReal.exit:                           ; preds = %30, %32, %34, %35, 
   br label %cf2_stack_getReal.exit66
 
 cf2_stack_getReal.exit66:                         ; preds = %71, %73, %75, %76, %82, %84
-  %.0.i64 = phi i32 [ %83, %82 ], [ %87, %84 ], [ 0, %71 ], [ 0, %73 ], [ 0, %75 ], [ %81, %76 ]
+  %.0.i64 = phi i32 [ %87, %84 ], [ 0, %75 ], [ %83, %82 ], [ 0, %71 ], [ 0, %73 ], [ %81, %76 ]
   %88 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %89 = getelementptr inbounds nuw i8, ptr %7, i64 52
   br i1 %65, label %90, label %93
@@ -17816,7 +17816,7 @@ cf2_stack_getReal.exit66:                         ; preds = %71, %73, %75, %76, 
   br label %cf2_stack_getReal.exit74
 
 cf2_stack_getReal.exit74:                         ; preds = %108, %110, %112, %113, %119, %121
-  %.0.i72 = phi i32 [ %120, %119 ], [ %124, %121 ], [ 0, %108 ], [ 0, %110 ], [ 0, %112 ], [ %118, %113 ]
+  %.0.i72 = phi i32 [ %124, %121 ], [ 0, %112 ], [ %120, %119 ], [ 0, %108 ], [ 0, %110 ], [ %118, %113 ]
   %125 = add i32 %.0.i72, %101
   br label %128
 
@@ -17884,7 +17884,7 @@ cf2_stack_getReal.exit74:                         ; preds = %108, %110, %112, %1
   br label %cf2_stack_getReal.exit82
 
 cf2_stack_getReal.exit82:                         ; preds = %140, %142, %144, %145, %151, %153
-  %.0.i80 = phi i32 [ %152, %151 ], [ %156, %153 ], [ 0, %140 ], [ 0, %142 ], [ 0, %144 ], [ %150, %145 ]
+  %.0.i80 = phi i32 [ %156, %153 ], [ 0, %144 ], [ %152, %151 ], [ 0, %140 ], [ 0, %142 ], [ %150, %145 ]
   %157 = add i32 %.0.i80, %134
   %158 = getelementptr inbounds nuw i8, ptr %7, i64 52
   store i32 %157, ptr %158, align 4, !tbaa !16
@@ -18231,7 +18231,7 @@ cff_lookup_glyph_by_stdcharcode.exit._crit_edge:  ; preds = %cff_lookup_glyph_by
   br label %cff_lookup_glyph_by_stdcharcode.exit.thread
 
 cff_lookup_glyph_by_stdcharcode.exit.thread:      ; preds = %30, %17, %12, %33, %cff_lookup_glyph_by_stdcharcode.exit, %38
-  %.0 = phi i32 [ 0, %38 ], [ 18, %cff_lookup_glyph_by_stdcharcode.exit ], [ %37, %33 ], [ 18, %12 ], [ 18, %17 ], [ 18, %30 ]
+  %.0 = phi i32 [ 18, %cff_lookup_glyph_by_stdcharcode.exit ], [ 0, %38 ], [ %37, %33 ], [ 18, %12 ], [ 18, %17 ], [ 18, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -18567,8 +18567,8 @@ cf2_arrstack_getPointer.exit.i132:                ; preds = %137, %135, %133, %c
   br label %cf2_hint_init.exit136
 
 158:                                              ; preds = %.thread75.i, %145
-  %.val124244 = phi i32 [ 0, %145 ], [ %.sink87.i, %.thread75.i ]
-  %159 = phi i32 [ %4, %145 ], [ %152, %.thread75.i ]
+  %.val124244 = phi i32 [ %.sink87.i, %.thread75.i ], [ 0, %145 ]
+  %159 = phi i32 [ %152, %.thread75.i ], [ %4, %145 ]
   %160 = sext i32 %159 to i64
   %161 = sext i32 %132 to i64
   %162 = mul nsw i64 %160, %161
@@ -18777,7 +18777,7 @@ cf2_hint_init.exit136:                            ; preds = %154, %158
   br i1 %.not107.i, label %cf2_blues_capture.exit, label %.thread
 
 .thread:                                          ; preds = %238, %.thread177, %242
-  %.070.ph133.i176 = phi i32 [ %243, %242 ], [ %239, %.thread177 ], [ %239, %238 ]
+  %.070.ph133.i176 = phi i32 [ %239, %.thread177 ], [ %243, %242 ], [ %239, %238 ]
   %245 = add i32 %168, %.070.ph133.i176
   store i32 %245, ptr %82, align 4, !tbaa !723
   %246 = or disjoint i32 %.val124, 16
@@ -19030,7 +19030,7 @@ cf2_arrstack_getPointer.exit.i153:                ; preds = %335, %333, %331, %c
   br label %cf2_hint_init.exit160
 
 356:                                              ; preds = %.thread75.i155, %343
-  %357 = phi i32 [ %4, %343 ], [ %350, %.thread75.i155 ]
+  %357 = phi i32 [ %350, %.thread75.i155 ], [ %4, %343 ]
   %358 = sext i32 %357 to i64
   %359 = sext i32 %330 to i64
   %360 = mul nsw i64 %358, %359
@@ -19180,7 +19180,7 @@ cf2_hint_init.exit160:                            ; preds = %352, %356
   br label %.thread.i169
 
 .thread.i169:                                     ; preds = %433, %.thread162.i, %430, %421, %417
-  %.0132161.i = phi i32 [ %.0132165.i, %433 ], [ %.0132165.i, %.thread162.i ], [ %407, %430 ], [ %405, %417 ], [ %423, %421 ]
+  %.0132161.i = phi i32 [ %407, %430 ], [ %.0132165.i, %433 ], [ %.0132165.i, %.thread162.i ], [ %405, %417 ], [ %423, %421 ]
   %436 = add i32 %.0132161.i, %391
   store i32 %436, ptr %390, align 4, !tbaa !723
   br i1 %.not167.i, label %439, label %437
@@ -19931,10 +19931,10 @@ cf2_glyphpath_computeIntersection.exit:           ; preds = %143
   store i64 %.sroa.8.2, ptr %27, align 8, !tbaa !41
   br label %cf2_glyphpath_computeIntersection.exit.thread
 
-cf2_glyphpath_computeIntersection.exit.thread:    ; preds = %6, %143, %._crit_edge, %cf2_glyphpath_computeIntersection.exit, %166
-  %.sroa.0.0 = phi i64 [ %.sroa.0.2, %cf2_glyphpath_computeIntersection.exit ], [ %.sroa.0.2, %166 ], [ %.sroa.0.2, %143 ], [ 0, %._crit_edge ], [ 0, %6 ]
-  %.sroa.8.0 = phi i64 [ %.sroa.8.2, %cf2_glyphpath_computeIntersection.exit ], [ %.sroa.8.2, %166 ], [ %.sroa.8.2, %143 ], [ 0, %._crit_edge ], [ 0, %6 ]
-  %167 = phi i1 [ true, %cf2_glyphpath_computeIntersection.exit ], [ false, %166 ], [ true, %143 ], [ true, %._crit_edge ], [ true, %6 ]
+cf2_glyphpath_computeIntersection.exit.thread:    ; preds = %6, %._crit_edge, %143, %cf2_glyphpath_computeIntersection.exit, %166
+  %.sroa.0.0 = phi i64 [ 0, %6 ], [ %.sroa.0.2, %cf2_glyphpath_computeIntersection.exit ], [ %.sroa.0.2, %166 ], [ %.sroa.0.2, %143 ], [ 0, %._crit_edge ]
+  %.sroa.8.0 = phi i64 [ 0, %6 ], [ %.sroa.8.2, %cf2_glyphpath_computeIntersection.exit ], [ %.sroa.8.2, %166 ], [ %.sroa.8.2, %143 ], [ 0, %._crit_edge ]
+  %167 = phi i1 [ true, %6 ], [ true, %cf2_glyphpath_computeIntersection.exit ], [ false, %166 ], [ true, %143 ], [ true, %._crit_edge ]
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 18768
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %168, i64 16, i1 false), !tbaa.struct !597
   %169 = load i32, ptr %8, align 4, !tbaa !701
@@ -20547,8 +20547,8 @@ define internal fastcc void @cf2_hintmap_insertHint(ptr noundef captures(none) %
   br i1 %10, label %116, label %.thread
 
 .thread:                                          ; preds = %3, %5, %4
-  %.not88105 = phi i1 [ false, %5 ], [ true, %4 ], [ true, %3 ]
-  %.084104 = phi ptr [ %1, %5 ], [ %1, %4 ], [ %2, %3 ]
+  %.not88105 = phi i1 [ true, %4 ], [ false, %5 ], [ true, %3 ]
+  %.084104 = phi ptr [ %1, %4 ], [ %1, %5 ], [ %2, %3 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i32, ptr %11, align 8, !tbaa !715
   %.not117 = icmp eq i32 %12, 0

@@ -758,7 +758,7 @@ sub_1200.i:                                       ; preds = %sub_0191.i
   unreachable
 
 .tail207.thread.i:                                ; preds = %.tail203.i, %.tail207.i, %.tail198.i, %sub_1200.i, %.tail194.i, %.tail190.i, %sub_0191.i, %.thread410.i
-  %.not306419423425430.i = phi i1 [ true, %.tail207.i ], [ false, %.tail198.i ], [ false, %sub_1200.i ], [ false, %.tail194.i ], [ false, %.tail190.i ], [ false, %.thread410.i ], [ false, %sub_0191.i ], [ true, %.tail203.i ]
+  %.not306419423425430.i = phi i1 [ true, %.tail207.i ], [ false, %.tail198.i ], [ false, %.tail194.i ], [ true, %.tail203.i ], [ false, %sub_1200.i ], [ false, %sub_0191.i ], [ false, %.tail190.i ], [ false, %.thread410.i ]
   %193 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i, ptr noundef nonnull dereferenceable(5) @.str.88) #23
   %194 = icmp eq i32 %193, 0
   br i1 %194, label %195, label %sub_0213.i
@@ -861,7 +861,7 @@ sub_1214.i:                                       ; preds = %sub_0213.i
   br i1 %.not124.i, label %.invoke397, label %.invoke
 
 .invoke397:                                       ; preds = %220, %215, %179, %_ZL17validate_is_ulongPKc.exit147.i, %170, %_ZL17validate_is_ulongPKc.exit.i, %155, %266, %211, %275
-  %221 = phi ptr [ @.str.45, %275 ], [ @.str.92, %211 ], [ @.str.44, %266 ], [ @.str.76, %155 ], [ @.str.77, %_ZL17validate_is_ulongPKc.exit.i ], [ @.str.80, %170 ], [ @.str.81, %_ZL17validate_is_ulongPKc.exit147.i ], [ @.str.83, %179 ], [ @.str.94, %215 ], [ @.str.96, %220 ]
+  %221 = phi ptr [ @.str.45, %275 ], [ @.str.92, %211 ], [ @.str.44, %266 ], [ @.str.94, %215 ], [ @.str.83, %179 ], [ @.str.81, %_ZL17validate_is_ulongPKc.exit147.i ], [ @.str.80, %170 ], [ @.str.77, %_ZL17validate_is_ulongPKc.exit.i ], [ @.str.76, %155 ], [ @.str.96, %220 ]
   invoke fastcc void @_ZL5errorPKc(ptr noundef nonnull %221)
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -950,8 +950,8 @@ sub_1214.i:                                       ; preds = %sub_0213.i
   br label %.invoke
 
 .invoke:                                          ; preds = %220, %179, %145, %249
-  %251 = phi ptr [ %10, %249 ], [ @.str.71, %145 ], [ @.str.84, %179 ], [ @.str.97, %220 ]
-  %252 = phi ptr [ %250, %249 ], [ @.str.72, %145 ], [ %.0107.i, %179 ], [ %.0107.i, %220 ]
+  %251 = phi ptr [ %10, %249 ], [ @.str.84, %179 ], [ @.str.71, %145 ], [ @.str.97, %220 ]
+  %252 = phi ptr [ %250, %249 ], [ %.0107.i, %179 ], [ @.str.72, %145 ], [ %.0107.i, %220 ]
   invoke void @_ZN7gparams3setEPKcS1_(ptr noundef nonnull %251, ptr noundef nonnull %252)
           to label %.noexc47 unwind label %.loopexit.split-lp.loopexit
 
@@ -998,14 +998,14 @@ _Z13get_extensionPKc.exit157.i:                   ; preds = %.preheader.i152.i
   br label %.noexc47
 
 .noexc47:                                         ; preds = %.invoke396, %.invoke, %262, %240, %232, %231, %226, %216, %185, %159, %263, %259, %174, %166, %149, %148, %139, %132, %126, %122, %118, %115, %109, %103
-  %.4.i = phi i64 [ %.0288.i, %259 ], [ %.0288.i, %263 ], [ %.0288.i, %103 ], [ %.0288.i, %109 ], [ %.0288.i, %115 ], [ %.0288.i, %118 ], [ %.0288.i, %122 ], [ %.0288.i, %126 ], [ %.0288.i, %132 ], [ %.0288.i, %139 ], [ %.0288.i, %148 ], [ %.0288.i, %166 ], [ %175, %174 ], [ %.0288.i, %149 ], [ %.0288.i, %159 ], [ %.0288.i, %185 ], [ %.0288.i, %216 ], [ %.0288.i, %226 ], [ %.0288.i, %231 ], [ %.0288.i, %232 ], [ %.0288.i, %240 ], [ %.0288.i, %262 ], [ %.0288.i, %.invoke ], [ %.0288.i, %.invoke396 ]
+  %.4.i = phi i64 [ %.0288.i, %263 ], [ %.0288.i, %240 ], [ %.0288.i, %259 ], [ %.0288.i, %.invoke ], [ %.0288.i, %103 ], [ %.0288.i, %109 ], [ %.0288.i, %115 ], [ %.0288.i, %118 ], [ %.0288.i, %122 ], [ %.0288.i, %126 ], [ %.0288.i, %132 ], [ %.0288.i, %139 ], [ %.0288.i, %149 ], [ %.0288.i, %148 ], [ %.0288.i, %.invoke396 ], [ %.0288.i, %231 ], [ %.0288.i, %166 ], [ %175, %174 ], [ %.0288.i, %159 ], [ %.0288.i, %232 ], [ %.0288.i, %185 ], [ %.0288.i, %216 ], [ %.0288.i, %226 ], [ %.0288.i, %262 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   %indvars.iv.next379.i = add nuw nsw i64 %indvars.iv378.i, 1
   br i1 %exitcond.not.i, label %.thread159.i, label %.lr.ph.i
 
 .thread159.i:                                     ; preds = %.noexc47, %22, %._crit_edge.i
-  %.0239.i = phi i64 [ %.0288.i, %._crit_edge.i ], [ %.0288.i, %22 ], [ %.4.i, %.noexc47 ]
+  %.0239.i = phi i64 [ %.0288.i, %22 ], [ %.0288.i, %._crit_edge.i ], [ %.4.i, %.noexc47 ]
   %.not133.i = icmp eq i64 %.0239.i, 0
   br i1 %.not133.i, label %_ZL19parse_cmd_line_argsRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPPc.exit, label %264
 
@@ -1233,7 +1233,7 @@ sub_1121:                                         ; preds = %sub_0120
           to label %326 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 326:                                              ; preds = %.invoke400, %321, %312, %309, %325, %320, %318
-  %.023 = phi i32 [ 0, %325 ], [ 0, %318 ], [ 0, %320 ], [ %311, %309 ], [ %313, %312 ], [ %323, %321 ], [ %317, %.invoke400 ]
+  %.023 = phi i32 [ 0, %325 ], [ %317, %.invoke400 ], [ %311, %309 ], [ %313, %312 ], [ 0, %320 ], [ %323, %321 ], [ 0, %318 ]
   invoke void @_Z15disable_timeoutv()
           to label %327 unwind label %.loopexit.split-lp.loopexit.split-lp
 

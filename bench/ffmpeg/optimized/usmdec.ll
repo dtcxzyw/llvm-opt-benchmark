@@ -560,9 +560,9 @@ bytestream2_get_byte.exit136.i.i:                 ; preds = %.lr.ph.i.i
   br label %bytestream2_get_be64.exit.i.i
 
 bytestream2_get_be64.exit.i.i:                    ; preds = %.cont.i.i, %230, %.cont210.i.i, %219, %.cont192.i.i, %210, %.cont216.i.i, %200, %.cont204.i.i, %190, %.cont198.i.i, %181, %.loopexit.i.i
-  %.sroa.0169.1.i.i = phi ptr [ %.sroa.0169.0324.i.i, %.loopexit.i.i ], [ %spec.select305.i.i, %.cont192.i.i ], [ %spec.select303.i.i, %210 ], [ %spec.select293.i.i, %.cont198.i.i ], [ %spec.select291.i.i, %181 ], [ %spec.select297.i.i, %.cont204.i.i ], [ %spec.select295.i.i, %190 ], [ %spec.select301.i.i, %.cont216.i.i ], [ %spec.select299.i.i, %200 ], [ %spec.select309.i.i, %.cont210.i.i ], [ %spec.select307.i.i, %219 ], [ %spec.select313.i.i, %.cont.i.i ], [ %spec.select311.i.i, %230 ]
-  %.sroa.0258.1.i.i = phi ptr [ %.sroa.0258.7.i.i, %.loopexit.i.i ], [ %spec.select306.i.i, %.cont192.i.i ], [ %spec.select304.i.i, %210 ], [ %spec.select294.i.i, %.cont198.i.i ], [ %spec.select292.i.i, %181 ], [ %spec.select298.i.i, %.cont204.i.i ], [ %spec.select296.i.i, %190 ], [ %spec.select302.i.i, %.cont216.i.i ], [ %spec.select300.i.i, %200 ], [ %spec.select310.i.i, %.cont210.i.i ], [ %spec.select308.i.i, %219 ], [ %spec.select314.i.i, %.cont.i.i ], [ %spec.select312.i.i, %230 ]
-  %.082.i.i = phi i64 [ -1, %.loopexit.i.i ], [ %213, %.cont192.i.i ], [ 0, %210 ], [ %184, %.cont198.i.i ], [ 0, %181 ], [ %194, %.cont204.i.i ], [ 0, %190 ], [ %204, %.cont216.i.i ], [ 0, %200 ], [ %224, %.cont210.i.i ], [ 0, %219 ], [ %235, %.cont.i.i ], [ 0, %230 ]
+  %.sroa.0169.1.i.i = phi ptr [ %.sroa.0169.0324.i.i, %.loopexit.i.i ], [ %spec.select303.i.i, %210 ], [ %spec.select291.i.i, %181 ], [ %spec.select295.i.i, %190 ], [ %spec.select307.i.i, %219 ], [ %spec.select299.i.i, %200 ], [ %spec.select305.i.i, %.cont192.i.i ], [ %spec.select293.i.i, %.cont198.i.i ], [ %spec.select297.i.i, %.cont204.i.i ], [ %spec.select301.i.i, %.cont216.i.i ], [ %spec.select309.i.i, %.cont210.i.i ], [ %spec.select313.i.i, %.cont.i.i ], [ %spec.select311.i.i, %230 ]
+  %.sroa.0258.1.i.i = phi ptr [ %.sroa.0258.7.i.i, %.loopexit.i.i ], [ %spec.select304.i.i, %210 ], [ %spec.select292.i.i, %181 ], [ %spec.select296.i.i, %190 ], [ %spec.select308.i.i, %219 ], [ %spec.select300.i.i, %200 ], [ %spec.select306.i.i, %.cont192.i.i ], [ %spec.select294.i.i, %.cont198.i.i ], [ %spec.select298.i.i, %.cont204.i.i ], [ %spec.select302.i.i, %.cont216.i.i ], [ %spec.select310.i.i, %.cont210.i.i ], [ %spec.select314.i.i, %.cont.i.i ], [ %spec.select312.i.i, %230 ]
+  %.082.i.i = phi i64 [ -1, %.loopexit.i.i ], [ 0, %210 ], [ 0, %181 ], [ 0, %190 ], [ 0, %219 ], [ 0, %200 ], [ %213, %.cont192.i.i ], [ %184, %.cont198.i.i ], [ %194, %.cont204.i.i ], [ %204, %.cont216.i.i ], [ %224, %.cont210.i.i ], [ %235, %.cont.i.i ], [ 0, %230 ]
   br i1 %26, label %236, label %250
 
 236:                                              ; preds = %bytestream2_get_be64.exit.i.i
@@ -908,8 +908,8 @@ parse_utf.exit.i:                                 ; preds = %367, %276, %50, %27
   %382 = icmp slt i64 %.336, 0
   br i1 %382, label %.thread46, label %9
 
-.thread46:                                        ; preds = %9, %381, %22, %32, %44, %287, %361, %344, %335, %2, %372, %switch.lookup, %68, %69, %74, %bytestream2_get_be32.exit121.i.i, %bytestream2_get_be16.exit130.i.i, %parse_utf.exit.i, %379
-  %.128 = phi i64 [ %.0144..i, %379 ], [ -1094995529, %switch.lookup ], [ -1094995529, %68 ], [ -12, %69 ], [ -541478725, %74 ], [ -1094995529, %bytestream2_get_be32.exit121.i.i ], [ -1094995529, %bytestream2_get_be16.exit130.i.i ], [ %370, %parse_utf.exit.i ], [ %spec.select, %372 ], [ -541478725, %2 ], [ %.336, %9 ], [ %.336, %381 ], [ %30, %22 ], [ %42, %32 ], [ %48, %44 ], [ -12, %287 ], [ %363, %361 ], [ %348, %344 ], [ %336, %335 ]
+.thread46:                                        ; preds = %9, %381, %22, %32, %44, %287, %344, %361, %335, %2, %372, %switch.lookup, %69, %74, %bytestream2_get_be32.exit121.i.i, %bytestream2_get_be16.exit130.i.i, %parse_utf.exit.i, %68, %379
+  %.128 = phi i64 [ %spec.select, %372 ], [ %370, %parse_utf.exit.i ], [ %.0144..i, %379 ], [ -1094995529, %68 ], [ -1094995529, %switch.lookup ], [ -12, %69 ], [ -541478725, %74 ], [ -1094995529, %bytestream2_get_be32.exit121.i.i ], [ -1094995529, %bytestream2_get_be16.exit130.i.i ], [ -541478725, %2 ], [ %.336, %381 ], [ %30, %22 ], [ %42, %32 ], [ %48, %44 ], [ -12, %287 ], [ %348, %344 ], [ %363, %361 ], [ %.336, %9 ], [ %336, %335 ]
   %383 = trunc i64 %.128 to i32
   br label %.thread42
 

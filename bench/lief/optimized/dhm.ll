@@ -73,7 +73,7 @@ define hidden i32 @mbedtls_dhm_get_value(ptr noundef %0, i32 noundef %1, ptr nou
   br label %14
 
 14:                                               ; preds = %3, %12, %10, %8, %6, %4
-  %.0 = phi ptr [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %0, %3 ]
+  %.0 = phi ptr [ %13, %12 ], [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %0, %3 ]
   %15 = tail call i32 @mbedtls_mpi_copy(ptr noundef %2, ptr noundef %.0) #10
   br label %16
 
@@ -226,7 +226,7 @@ dhm_check_range.exit:                             ; preds = %58, %63, %66
   br label %dhm_read_bignum.exit.thread
 
 dhm_read_bignum.exit.thread:                      ; preds = %46, %40, %28, %22, %10, %3, %dhm_check_range.exit, %dhm_read_bignum.exit, %dhm_read_bignum.exit24, %dhm_read_bignum.exit28
-  %.013 = phi i32 [ %21, %dhm_read_bignum.exit ], [ %39, %dhm_read_bignum.exit24 ], [ %57, %dhm_read_bignum.exit28 ], [ %.0.i30, %dhm_check_range.exit ], [ -12416, %3 ], [ -12416, %10 ], [ -12416, %22 ], [ -12416, %28 ], [ -12416, %40 ], [ -12416, %46 ]
+  %.013 = phi i32 [ %57, %dhm_read_bignum.exit28 ], [ %.0.i30, %dhm_check_range.exit ], [ %21, %dhm_read_bignum.exit ], [ %39, %dhm_read_bignum.exit24 ], [ -12416, %28 ], [ -12416, %10 ], [ -12416, %3 ], [ -12416, %22 ], [ -12416, %40 ], [ -12416, %46 ]
   ret i32 %.013
 }
 
@@ -374,7 +374,7 @@ dhm_check_range.exit:                             ; preds = %27, %32, %35
   br label %36
 
 36:                                               ; preds = %dhm_check_range.exit, %14, %21, %dhm_random_below.exit, %4, %20
-  %.024 = phi i32 [ %.0.i, %20 ], [ -12416, %4 ], [ -12672, %dhm_random_below.exit ], [ %15, %14 ], [ %26, %21 ], [ %.0.i34, %dhm_check_range.exit ]
+  %.024 = phi i32 [ %.0.i, %20 ], [ -12416, %4 ], [ %.0.i34, %dhm_check_range.exit ], [ -12672, %dhm_random_below.exit ], [ %26, %21 ], [ %15, %14 ]
   ret i32 %.024
 }
 
@@ -421,7 +421,7 @@ define hidden range(i32 -2147483648, 2147470848) i32 @mbedtls_dhm_read_public(pt
   br label %12
 
 12:                                               ; preds = %8, %3, %5
-  %.0 = phi i32 [ -12416, %5 ], [ -12416, %3 ], [ %spec.select, %8 ]
+  %.0 = phi i32 [ -12416, %3 ], [ %spec.select, %8 ], [ -12416, %5 ]
   ret i32 %.0
 }
 
@@ -450,7 +450,7 @@ define hidden range(i32 -2147483648, 2147470720) i32 @mbedtls_dhm_make_public(pt
   br label %16
 
 16:                                               ; preds = %11, %13
-  %.0 = phi i32 [ %15, %13 ], [ %12, %11 ]
+  %.0 = phi i32 [ %12, %11 ], [ %15, %13 ]
   %17 = icmp ne i32 %.0, 0
   %18 = icmp sgt i32 %.0, -128
   %or.cond = and i1 %17, %18
@@ -459,7 +459,7 @@ define hidden range(i32 -2147483648, 2147470720) i32 @mbedtls_dhm_make_public(pt
   br label %20
 
 20:                                               ; preds = %16, %11, %6, %8
-  %.017 = phi i32 [ -12416, %8 ], [ -12416, %6 ], [ -12928, %11 ], [ %spec.select, %16 ]
+  %.017 = phi i32 [ -12928, %11 ], [ -12416, %6 ], [ -12416, %8 ], [ %spec.select, %16 ]
   ret i32 %.017
 }
 
@@ -669,7 +669,7 @@ dhm_update_blinding.exit:                         ; preds = %62
   br label %85
 
 85:                                               ; preds = %dhm_check_range.exit.thread, %80, %11, %6, %83
-  %.029 = phi i32 [ %84, %83 ], [ -12416, %6 ], [ -12416, %11 ], [ 0, %80 ], [ %.0.i.ph, %dhm_check_range.exit.thread ]
+  %.029 = phi i32 [ %.0.i.ph, %dhm_check_range.exit.thread ], [ -12416, %6 ], [ -12416, %11 ], [ %84, %83 ], [ 0, %80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.029
 }
@@ -763,8 +763,8 @@ define hidden i32 @mbedtls_dhm_parse_dhm(ptr noundef %0, ptr noundef %1, i64 nou
   br label %.thread46
 
 .thread46:                                        ; preds = %..thread46_crit_edge, %10, %3, %16
-  %20 = phi i64 [ %18, %16 ], [ 0, %3 ], [ %2, %10 ], [ %.pre, %..thread46_crit_edge ]
-  %21 = phi ptr [ %19, %16 ], [ %1, %3 ], [ %1, %10 ], [ %1, %..thread46_crit_edge ]
+  %20 = phi i64 [ %18, %16 ], [ %.pre, %..thread46_crit_edge ], [ 0, %3 ], [ %2, %10 ]
+  %21 = phi ptr [ %19, %16 ], [ %1, %..thread46_crit_edge ], [ %1, %3 ], [ %1, %10 ]
   store ptr %21, ptr %6, align 8, !tbaa !3
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %20
   %23 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %6, ptr noundef %22, ptr noundef nonnull %5, i32 noundef 48) #10
@@ -905,8 +905,8 @@ load_file.exit:                                   ; preds = %18
   tail call void @mbedtls_zeroize_and_free(ptr noundef nonnull %14, i64 noundef %spec.select) #10
   br label %load_file.exit.thread
 
-load_file.exit.thread:                            ; preds = %2, %21, %16, %9, %load_file.exit
-  %.0 = phi i32 [ %24, %load_file.exit ], [ -13440, %2 ], [ -13440, %21 ], [ -13312, %16 ], [ -13440, %9 ]
+load_file.exit.thread:                            ; preds = %21, %16, %9, %2, %load_file.exit
+  %.0 = phi i32 [ %24, %load_file.exit ], [ -13440, %21 ], [ -13312, %16 ], [ -13440, %9 ], [ -13440, %2 ]
   ret i32 %.0
 }
 
@@ -941,7 +941,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_dhm_self_test(i32 noundef %0) local_u
   br label %9
 
 9:                                                ; preds = %3, %7, %8
-  %.0 = phi i32 [ 0, %8 ], [ 1, %7 ], [ %spec.select, %3 ]
+  %.0 = phi i32 [ %spec.select, %3 ], [ 0, %8 ], [ 1, %7 ]
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 144
   call void @mbedtls_mpi_free(ptr noundef nonnull %10) #10
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 128

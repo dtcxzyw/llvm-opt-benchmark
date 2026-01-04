@@ -989,7 +989,7 @@ GIP_ReceivePacket.exit:                           ; preds = %33, %GIP_DecodeLeng
   %306 = call fastcc zeroext i1 @GIP_SendInitSequence(ptr noundef nonnull %254)
   br label %.thread
 
-.thread:                                          ; preds = %265, %269, %276, %293, %305
+.thread:                                          ; preds = %269, %265, %276, %293, %305
   %307 = call fastcc zeroext i1 @HIDAPI_DriverGIP_UpdateRumble(ptr noundef %254)
   br label %308
 
@@ -1352,7 +1352,7 @@ HIDAPI_DriverGIP_FindAttachment.exit:             ; preds = %8
   br label %21
 
 21:                                               ; preds = %17, %HIDAPI_DriverGIP_FindAttachment.exit
-  %.0 = phi i32 [ 0, %HIDAPI_DriverGIP_FindAttachment.exit ], [ %spec.select, %17 ]
+  %.0 = phi i32 [ %spec.select, %17 ], [ 0, %HIDAPI_DriverGIP_FindAttachment.exit ]
   %22 = lshr i32 %15, 5
   %23 = and i32 %22, 2
   %spec.select15 = or disjoint i32 %.0, %23
@@ -1448,7 +1448,7 @@ GIP_SendVendorMessage.exit:                       ; preds = %25
   br label %38
 
 38:                                               ; preds = %GIP_SendVendorMessage.exit, %36, %23, %18
-  %.0 = phi i1 [ %37, %36 ], [ %24, %23 ], [ %19, %18 ], [ true, %GIP_SendVendorMessage.exit ]
+  %.0 = phi i1 [ %19, %18 ], [ %37, %36 ], [ %24, %23 ], [ true, %GIP_SendVendorMessage.exit ]
   ret i1 %.0
 }
 
@@ -2099,7 +2099,7 @@ GIP_SupportsVendorMessage.exit42.thread:          ; preds = %134, %139, %106, %G
   br label %GIP_EnableEliteButtons.exit.thread
 
 GIP_EnableEliteButtons.exit.thread:               ; preds = %GIP_SendVendorMessage.exit.thread.i, %GIP_SendVendorMessage.exit.i, %162, %.thread, %166, %GIP_SendGuideButtonLED.exit, %GIP_EnableEliteButtons.exit, %12, %158
-  %.0 = phi i1 [ %161, %158 ], [ false, %12 ], [ false, %GIP_EnableEliteButtons.exit ], [ false, %GIP_SendGuideButtonLED.exit ], [ true, %166 ], [ true, %.thread ], [ true, %162 ], [ false, %GIP_SendVendorMessage.exit.i ], [ false, %GIP_SendVendorMessage.exit.thread.i ]
+  %.0 = phi i1 [ false, %GIP_SendGuideButtonLED.exit ], [ %161, %158 ], [ false, %GIP_EnableEliteButtons.exit ], [ true, %162 ], [ false, %12 ], [ true, %166 ], [ true, %.thread ], [ false, %GIP_SendVendorMessage.exit.i ], [ false, %GIP_SendVendorMessage.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -2211,7 +2211,7 @@ GIP_SendRawMessage.exit:                          ; preds = %23
   br label %44
 
 44:                                               ; preds = %41, %43, %21, %thread-pre-split.thread, %1
-  %.0 = phi i1 [ true, %1 ], [ true, %thread-pre-split.thread ], [ true, %21 ], [ true, %43 ], [ %42, %41 ]
+  %.0 = phi i1 [ true, %thread-pre-split.thread ], [ true, %21 ], [ true, %1 ], [ true, %43 ], [ %42, %41 ]
   ret i1 %.0
 }
 
@@ -2862,8 +2862,8 @@ thread-pre-split.i:                               ; preds = %14, %17, %30, %21
   br i1 %exitcond.not.i.i, label %.loopexit.i.i.i.i, label %.lr.ph182.i.i.i.i, !llvm.loop !17
 
 .loopexit.i.i.i.i:                                ; preds = %363, %346, %345
-  %371 = phi ptr [ %352, %346 ], [ null, %345 ], [ %352, %363 ]
-  %372 = phi i8 [ 0, %346 ], [ 0, %345 ], [ %349, %363 ]
+  %371 = phi ptr [ null, %345 ], [ %352, %346 ], [ %352, %363 ]
+  %372 = phi i8 [ 0, %345 ], [ 0, %346 ], [ %349, %363 ]
   %373 = getelementptr inbounds nuw i8, ptr %249, i64 12
   %374 = load i8, ptr %373, align 1
   %375 = zext i8 %374 to i32
@@ -3108,15 +3108,15 @@ GIP_ParseMetadata.exit.i.i:                       ; preds = %453, %429
   br i1 %511, label %.thread.sink.split.i.i, label %482
 
 .thread.sink.split.i.i:                           ; preds = %509, %506, %503, %500, %497, %494, %491, %488, %483
-  %.sink.i.i = phi i32 [ 0, %483 ], [ 1, %488 ], [ 1, %491 ], [ 3, %494 ], [ 3, %497 ], [ 2, %500 ], [ 2, %503 ], [ 4, %506 ], [ 5, %509 ]
-  %.not73.ph.i.i = phi i1 [ false, %483 ], [ false, %488 ], [ false, %491 ], [ false, %494 ], [ false, %497 ], [ false, %500 ], [ false, %503 ], [ false, %506 ], [ true, %509 ]
-  %.1.ph.i.i = phi ptr [ @GUID_IGamepad, %483 ], [ @GUID_ArcadeStick, %488 ], [ @GUID_ArcadeStick, %491 ], [ @GUID_FlightStick, %494 ], [ @GUID_FlightStick, %497 ], [ @GUID_Wheel, %500 ], [ @GUID_Wheel, %503 ], [ @GUID_NavigationController, %506 ], [ null, %509 ]
+  %.sink.i.i = phi i32 [ 4, %506 ], [ 2, %503 ], [ 2, %500 ], [ 3, %497 ], [ 3, %494 ], [ 1, %491 ], [ 1, %488 ], [ 0, %483 ], [ 5, %509 ]
+  %.not73.ph.i.i = phi i1 [ false, %506 ], [ false, %503 ], [ false, %500 ], [ false, %497 ], [ false, %494 ], [ false, %491 ], [ false, %488 ], [ false, %483 ], [ true, %509 ]
+  %.1.ph.i.i = phi ptr [ @GUID_NavigationController, %506 ], [ @GUID_Wheel, %503 ], [ @GUID_Wheel, %500 ], [ @GUID_FlightStick, %497 ], [ @GUID_FlightStick, %494 ], [ @GUID_ArcadeStick, %491 ], [ @GUID_ArcadeStick, %488 ], [ @GUID_IGamepad, %483 ], [ null, %509 ]
   store i32 %.sink.i.i, ptr %481, align 4
   br label %.thread.i69.i
 
 .thread.i69.i:                                    ; preds = %482, %.thread.sink.split.i.i, %478
-  %.not73.i.i = phi i1 [ true, %478 ], [ %.not73.ph.i.i, %.thread.sink.split.i.i ], [ true, %482 ]
-  %.1.i.i = phi ptr [ null, %478 ], [ %.1.ph.i.i, %.thread.sink.split.i.i ], [ null, %482 ]
+  %.not73.i.i = phi i1 [ %.not73.ph.i.i, %.thread.sink.split.i.i ], [ true, %478 ], [ true, %482 ]
+  %.1.i.i = phi ptr [ %.1.ph.i.i, %.thread.sink.split.i.i ], [ null, %478 ], [ null, %482 ]
   %.not23.i.i = icmp eq i8 %400, 0
   br i1 %.not23.i.i, label %.preheader.i.i, label %.lr.ph19.i.i
 
@@ -3178,7 +3178,7 @@ GIP_ParseMetadata.exit.i.i:                       ; preds = %453, %429
   br i1 %534, label %.sink.split.i.i, label %537
 
 .sink.split.i.i:                                  ; preds = %532, %529, %526, %523, %520
-  %.sink68.i.i = phi i32 [ 16, %520 ], [ 1, %523 ], [ 2, %526 ], [ 4, %529 ], [ 8, %532 ]
+  %.sink68.i.i = phi i32 [ 4, %529 ], [ 2, %526 ], [ 1, %523 ], [ 16, %520 ], [ 8, %532 ]
   %535 = load i32, ptr %480, align 4
   %536 = or i32 %535, %.sink68.i.i
   store i32 %536, ptr %480, align 4
@@ -3366,7 +3366,7 @@ GIP_HandleQuirks.exit.i.i:                        ; preds = %627, %618
   br label %GIP_HandleCommandMetadataRespose.exit.i
 
 GIP_HandleCommandMetadataRespose.exit.i:          ; preds = %GIP_HandleQuirks.exit.i.i, %GIP_ParseDeviceMetadata.exit.thread.i.i.i, %218, %208, %206
-  %.0.i66.i = phi i1 [ %629, %GIP_HandleQuirks.exit.i.i ], [ false, %GIP_ParseDeviceMetadata.exit.thread.i.i.i ], [ false, %206 ], [ false, %208 ], [ false, %218 ]
+  %.0.i66.i = phi i1 [ %629, %GIP_HandleQuirks.exit.i.i ], [ false, %218 ], [ false, %206 ], [ false, %208 ], [ false, %GIP_ParseDeviceMetadata.exit.thread.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %GIP_HandleSystemMessage.exit
 
@@ -3780,7 +3780,7 @@ GIP_SendVendorMessage.exit.i.i.i:                 ; preds = %.thread3.i.i
   br label %GIP_HandleCommandExtended.exit.i
 
 GIP_HandleCommandExtended.exit.i:                 ; preds = %835, %828, %823, %819
-  %.0.i83.i = phi i1 [ true, %828 ], [ false, %835 ], [ false, %819 ], [ true, %823 ]
+  %.0.i83.i = phi i1 [ false, %835 ], [ false, %819 ], [ true, %823 ], [ true, %828 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %GIP_HandleSystemMessage.exit
 
@@ -4423,7 +4423,7 @@ GIP_HandleArcadeStickReport.exit.i:               ; preds = %1132, %.lr.ph74.i.i
   br label %GIP_HandleSystemMessage.exit
 
 GIP_HandleSystemMessage.exit:                     ; preds = %1212, %945, %942, %935, %GIP_EnsureMetadata.exit.i, %868, %864, %861, %860, %851, %844, %838, %837, %GIP_HandleCommandExtended.exit.i, %818, %727, %717, %716, %GIP_SendVendorMessage.exit.i.i.i, %GIP_SendVendorMessage.exit.thread.i.i.i, %658, %651, %650, %646, %642, %638, %631, %630, %GIP_HandleCommandMetadataRespose.exit.i, %205, %187, %.loopexit.i.i, %176, %175, %168, %160, %159, %141, %133, %109, %45, %44, %42, %1218, %1217, %1216, %1215
-  %.0 = phi i1 [ false, %1218 ], [ false, %1215 ], [ false, %1216 ], [ false, %1217 ], [ false, %838 ], [ false, %44 ], [ %.0.i66.i, %GIP_HandleCommandMetadataRespose.exit.i ], [ false, %630 ], [ false, %650 ], [ %.0.i83.i, %GIP_HandleCommandExtended.exit.i ], [ false, %837 ], [ false, %42 ], [ %122, %109 ], [ false, %45 ], [ true, %141 ], [ true, %159 ], [ true, %133 ], [ false, %175 ], [ false, %160 ], [ false, %168 ], [ false, %176 ], [ true, %.loopexit.i.i ], [ true, %187 ], [ true, %205 ], [ true, %631 ], [ false, %638 ], [ true, %646 ], [ true, %642 ], [ false, %717 ], [ false, %651 ], [ false, %658 ], [ true, %716 ], [ false, %GIP_SendVendorMessage.exit.i.i.i ], [ false, %GIP_SendVendorMessage.exit.thread.i.i.i ], [ false, %727 ], [ true, %818 ], [ false, %860 ], [ true, %844 ], [ true, %851 ], [ true, %868 ], [ true, %864 ], [ true, %861 ], [ true, %942 ], [ false, %945 ], [ true, %1212 ], [ true, %GIP_EnsureMetadata.exit.i ], [ false, %935 ]
+  %.0 = phi i1 [ false, %1217 ], [ false, %1218 ], [ true, %818 ], [ true, %861 ], [ false, %1215 ], [ false, %1216 ], [ false, %838 ], [ false, %44 ], [ false, %42 ], [ true, %159 ], [ %.0.i66.i, %GIP_HandleCommandMetadataRespose.exit.i ], [ false, %630 ], [ true, %205 ], [ false, %650 ], [ true, %642 ], [ false, %GIP_SendVendorMessage.exit.thread.i.i.i ], [ %.0.i83.i, %GIP_HandleCommandExtended.exit.i ], [ false, %837 ], [ false, %45 ], [ %122, %109 ], [ true, %133 ], [ true, %141 ], [ false, %176 ], [ false, %160 ], [ false, %175 ], [ false, %168 ], [ true, %.loopexit.i.i ], [ true, %187 ], [ true, %631 ], [ false, %638 ], [ true, %646 ], [ false, %717 ], [ false, %651 ], [ false, %658 ], [ true, %716 ], [ false, %GIP_SendVendorMessage.exit.i.i.i ], [ false, %727 ], [ true, %844 ], [ false, %860 ], [ true, %851 ], [ true, %868 ], [ true, %864 ], [ true, %GIP_EnsureMetadata.exit.i ], [ true, %942 ], [ false, %945 ], [ true, %1212 ], [ false, %935 ]
   ret i1 %.0
 }
 

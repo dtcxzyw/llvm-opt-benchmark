@@ -220,7 +220,7 @@ define noundef range(i32 -100013, 1) i32 @_ZN6LibRaw23subtract_black_internalEv(
   br i1 %exitcond122.not, label %88, label %89, !llvm.loop !84
 
 .loopexit:                                        ; preds = %60, %88, %.preheader94, %84
-  %.3 = phi i32 [ 0, %84 ], [ 0, %.preheader94 ], [ %spec.select89, %88 ], [ %spec.select, %60 ]
+  %.3 = phi i32 [ %spec.select89, %88 ], [ 0, %84 ], [ 0, %.preheader94 ], [ %spec.select, %60 ]
   %99 = and i32 %.3, 65535
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 152996
   store i32 %99, ptr %100, align 4, !tbaa !85
@@ -307,7 +307,7 @@ define noundef range(i32 -100013, 1) i32 @_ZN6LibRaw23subtract_black_internalEv(
           to label %129 unwind label %121
 
 129:                                              ; preds = %.invoke, %48, %128, %127, %126, %125, %124, %123, %120
-  %.1 = phi i32 [ -100013, %120 ], [ -100007, %123 ], [ -100012, %124 ], [ -100009, %125 ], [ -100010, %126 ], [ -100011, %127 ], [ -2, %128 ], [ -1, %48 ], [ -100008, %.invoke ]
+  %.1 = phi i32 [ -2, %128 ], [ -100011, %127 ], [ -100013, %120 ], [ -100007, %123 ], [ -100012, %124 ], [ -1, %48 ], [ -100008, %.invoke ], [ -100009, %125 ], [ -100010, %126 ]
   tail call void @__cxa_end_catch() #7
   br label %130
 

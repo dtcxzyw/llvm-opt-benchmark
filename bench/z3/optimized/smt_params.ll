@@ -735,7 +735,7 @@ _ZNK13solver_params22instantiations2consoleEv.exit: ; preds = %_ZNK13solver_para
   br label %227
 
 227:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37.thread, %116, %80, %72, %226, %190, %188, %70
-  %.pn29.pn = phi { ptr, i32 } [ %81, %80 ], [ %117, %116 ], [ %.pn.pn, %226 ], [ %71, %70 ], [ %191, %190 ], [ %189, %188 ], [ %73, %72 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37.thread ], [ %111, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42.thread ]
+  %.pn29.pn = phi { ptr, i32 } [ %81, %80 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37.thread ], [ %117, %116 ], [ %111, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42.thread ], [ %.pn.pn, %226 ], [ %71, %70 ], [ %191, %190 ], [ %189, %188 ], [ %73, %72 ]
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn29.pn
@@ -3181,7 +3181,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %26
 
 26:                                               ; preds = %7, %2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %12
-  %.0 = phi i1 [ %.0.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %14, %12 ], [ true, %2 ], [ false, %7 ]
+  %.0 = phi i1 [ %14, %12 ], [ true, %2 ], [ %.0.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %7 ]
   ret i1 %.0
 }
 
@@ -3396,7 +3396,7 @@ _Z9numeratorRK8rational.exit:                     ; preds = %_ZN11mpq_managerILb
 _ZgtRK8rationalS1_.exit:                          ; preds = %66
   br i1 %67, label %68, label %.critedge26
 
-68:                                               ; preds = %.noexc, %59, %_ZgtRK8rationalS1_.exit
+68:                                               ; preds = %59, %.noexc, %_ZgtRK8rationalS1_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !169)
   store i32 0, ptr %5, align 8, !tbaa !163, !alias.scope !169
@@ -3511,7 +3511,7 @@ _ZN11mpq_managerILb1EE15get_denominatorERK3mpqR3mpz.exit.i.i: ; preds = %86, %84
           to label %.critedge unwind label %154
 
 .critedge:                                        ; preds = %127, %120, %.noexc31
-  %.ph = phi i1 [ %128, %127 ], [ %126, %.noexc31 ], [ %123, %120 ]
+  %.ph = phi i1 [ %128, %127 ], [ %123, %120 ], [ %126, %.noexc31 ]
   %129 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !167
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %129, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %.noexc.i unwind label %130
@@ -3548,8 +3548,8 @@ _ZN8rationalD2Ev.exit35:                          ; preds = %.noexc.i34
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge26
 
-.critedge26:                                      ; preds = %_ZgtRK8rationalS1_.exit, %59, %.noexc, %_ZN8rationalD2Ev.exit35
-  %137 = phi i1 [ %.ph, %_ZN8rationalD2Ev.exit35 ], [ false, %_ZgtRK8rationalS1_.exit ], [ false, %59 ], [ false, %.noexc ]
+.critedge26:                                      ; preds = %_ZgtRK8rationalS1_.exit, %.noexc, %59, %_ZN8rationalD2Ev.exit35
+  %137 = phi i1 [ %.ph, %_ZN8rationalD2Ev.exit35 ], [ false, %59 ], [ false, %_ZgtRK8rationalS1_.exit ], [ false, %.noexc ]
   %138 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !167
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %138, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %.noexc.i36 unwind label %139
@@ -3834,7 +3834,7 @@ define hidden void @_ZN10smt_params12setup_QF_LIAERK15static_features(ptr nounde
           to label %77 unwind label %85
 
 77:                                               ; preds = %75, %68, %.noexc
-  %.ph = phi i1 [ %76, %75 ], [ %74, %.noexc ], [ %71, %68 ]
+  %.ph = phi i1 [ %76, %75 ], [ %71, %68 ], [ %74, %.noexc ]
   %78 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !167
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %78, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %.noexc.i unwind label %79

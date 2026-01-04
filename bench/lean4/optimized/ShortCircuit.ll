@@ -2625,7 +2625,7 @@ lean_alloc_ctor.exit474:                          ; preds = %lean_dec.exit
   br label %662
 
 662:                                              ; preds = %lean_alloc_ctor.exit474, %lean_dec.exit272, %lean_alloc_ctor.exit460, %455, %lean_dec.exit293, %lean_dec.exit294, %lean_dec.exit291, %lean_dec.exit289, %452, %lean_dec.exit279, %lean_alloc_ctor.exit467
-  %.8 = phi ptr [ %238, %lean_dec.exit294 ], [ %314, %lean_dec.exit293 ], [ %.0240, %452 ], [ %238, %lean_dec.exit291 ], [ %390, %lean_dec.exit289 ], [ %485, %lean_alloc_ctor.exit460 ], [ %238, %455 ], [ %574, %lean_alloc_ctor.exit467 ], [ %199, %lean_dec.exit279 ], [ %656, %lean_alloc_ctor.exit474 ], [ %48, %lean_dec.exit272 ]
+  %.8 = phi ptr [ %199, %lean_dec.exit279 ], [ %238, %455 ], [ %390, %lean_dec.exit289 ], [ %314, %lean_dec.exit293 ], [ %238, %lean_dec.exit294 ], [ %.0240, %452 ], [ %238, %lean_dec.exit291 ], [ %485, %lean_alloc_ctor.exit460 ], [ %574, %lean_alloc_ctor.exit467 ], [ %656, %lean_alloc_ctor.exit474 ], [ %48, %lean_dec.exit272 ]
   ret ptr %.8
 }
 
@@ -3321,7 +3321,7 @@ _init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_shortCircuitPass___closed__
   br label %171
 
 171:                                              ; preds = %.sink.split, %lean_dec_ref.exit17, %lean_dec_ref.exit19, %lean_dec_ref.exit21, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit21 ], [ %28, %lean_dec_ref.exit19 ], [ %38, %lean_dec_ref.exit17 ], [ %.sink51, %.sink.split ]
+  %.0 = phi ptr [ %28, %lean_dec_ref.exit19 ], [ %38, %lean_dec_ref.exit17 ], [ %8, %7 ], [ %18, %lean_dec_ref.exit21 ], [ %.sink51, %.sink.split ]
   ret ptr %.0
 }
 

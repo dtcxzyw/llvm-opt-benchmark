@@ -101,8 +101,8 @@ define hidden range(i32 0, 2) i32 @SSL_add_dir_cert_subjects_to_stack(ptr nounde
   br label %35
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.split57
-  %34 = phi i32 [ %13, %.split57 ], [ %.pre, %.loopexit.loopexit ]
-  %.2.ph = phi ptr [ null, %.split57 ], [ %.1, %.loopexit.loopexit ]
+  %34 = phi i32 [ %.pre, %.loopexit.loopexit ], [ %13, %.split57 ]
+  %.2.ph = phi ptr [ %.1, %.loopexit.loopexit ], [ null, %.split57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not15 = icmp eq i32 %34, 0
   br i1 %.not15, label %36, label %35
@@ -114,8 +114,8 @@ define hidden range(i32 0, 2) i32 @SSL_add_dir_cert_subjects_to_stack(ptr nounde
   br label %36
 
 36:                                               ; preds = %.loopexit, %35
-  %.2.ph76 = phi ptr [ %.2.ph75, %35 ], [ %.2.ph, %.loopexit ]
-  %.013 = phi i32 [ 0, %35 ], [ 1, %.loopexit ]
+  %.2.ph76 = phi ptr [ %.2.ph, %.loopexit ], [ %.2.ph75, %35 ]
+  %.013 = phi i32 [ 1, %.loopexit ], [ 0, %35 ]
   %.not17 = icmp eq ptr %.2.ph76, null
   br i1 %.not17, label %39, label %OPENSSL_DIR_end.exit
 

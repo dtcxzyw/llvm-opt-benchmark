@@ -170,8 +170,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %71, %89, %109
-  %.tr116.be = phi ptr [ %75, %71 ], [ %93, %89 ], [ %65, %109 ]
-  %.tr117.be = phi i32 [ %78, %71 ], [ %95, %89 ], [ %67, %109 ]
+  %.tr116.be = phi ptr [ %93, %89 ], [ %75, %71 ], [ %65, %109 ]
+  %.tr117.be = phi i32 [ %95, %89 ], [ %78, %71 ], [ %67, %109 ]
   %79 = getelementptr i8, ptr %.tr116.be, i64 24
   %.val = load i64, ptr %79, align 8
   %80 = and i64 %.val, 7
@@ -251,7 +251,7 @@ tailrecurse.backedge:                             ; preds = %71, %89, %109
   br i1 %.not140, label %Aig_ObjSatValue.exit, label %.lr.ph
 
 Aig_ObjSatValue.exit:                             ; preds = %.thread105, %tailrecurse.backedge, %68, %83, %109, %.thread, %5, %25, %Vec_IntPush.exit, %13
-  %.0.shrunk = phi i1 [ %17, %13 ], [ true, %Vec_IntPush.exit ], [ true, %25 ], [ true, %5 ], [ %.not4.i96174, %.thread ], [ true, %tailrecurse.backedge ], [ false, %68 ], [ true, %83 ], [ true, %109 ], [ true, %.thread105 ]
+  %.0.shrunk = phi i1 [ true, %Vec_IntPush.exit ], [ %17, %13 ], [ true, %25 ], [ %.not4.i96174, %.thread ], [ true, %109 ], [ true, %5 ], [ false, %68 ], [ true, %83 ], [ true, %tailrecurse.backedge ], [ true, %.thread105 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -301,7 +301,7 @@ tailrecurse:                                      ; preds = %4, %tailrecurse
   br i1 %.not16, label %17, label %21
 
 21:                                               ; preds = %17, %19
-  %.015 = phi i32 [ 1, %19 ], [ 0, %17 ]
+  %.015 = phi i32 [ 0, %17 ], [ 1, %19 ]
   ret i32 %.015
 }
 
@@ -371,7 +371,7 @@ define range(i32 0, 4) i32 @Aig_ObjTerSimulate_rec(ptr noundef %0, ptr noundef c
   br label %common.ret43
 
 common.ret43:                                     ; preds = %2, %27, %13, %8, %32
-  %common.ret43.op = phi i32 [ %.0.i, %32 ], [ %11, %8 ], [ 3, %13 ], [ %23, %27 ], [ 2, %2 ]
+  %common.ret43.op = phi i32 [ %.0.i, %32 ], [ %23, %27 ], [ 2, %2 ], [ %11, %8 ], [ 3, %13 ]
   ret i32 %common.ret43.op
 
 32:                                               ; preds = %15

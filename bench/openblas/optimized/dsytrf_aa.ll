@@ -222,7 +222,7 @@ define void @dsytrf_aa_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %110, %._crit_edge.loopexit, %64
-  %114 = phi i32 [ %.pre433, %._crit_edge.loopexit ], [ %85, %64 ], [ %85, %110 ]
+  %114 = phi i32 [ %85, %64 ], [ %.pre433, %._crit_edge.loopexit ], [ %85, %110 ]
   %115 = add nsw i32 %114, %.0334381.fr
   %116 = load i32, ptr %1, align 4, !tbaa !3
   %117 = icmp slt i32 %115, %116
@@ -497,7 +497,7 @@ define void @dsytrf_aa_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   br label %._crit_edge389
 
 ._crit_edge389:                                   ; preds = %253, %._crit_edge389.loopexit, %211
-  %257 = phi i32 [ %.pre438, %._crit_edge389.loopexit ], [ %232, %211 ], [ %232, %253 ]
+  %257 = phi i32 [ %232, %211 ], [ %.pre438, %._crit_edge389.loopexit ], [ %232, %253 ]
   %258 = add nsw i32 %257, %.1335403.fr
   %259 = load i32, ptr %1, align 4, !tbaa !3
   %260 = icmp slt i32 %258, %259

@@ -47,7 +47,7 @@ define i32 @BN_GENCB_call(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_
   br label %16
 
 16:                                               ; preds = %4, %6, %3, %12, %9
-  %.0 = phi i32 [ 1, %9 ], [ %15, %12 ], [ 1, %3 ], [ 1, %6 ], [ 0, %4 ]
+  %.0 = phi i32 [ 1, %6 ], [ 1, %9 ], [ 1, %3 ], [ %15, %12 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -393,7 +393,7 @@ calc_trial_divisions.exit.i:                      ; preds = %.backedge
   br i1 %exitcond128.not.i, label %.split61.i, label %.split.split.i, !llvm.loop !15
 
 .split61.i:                                       ; preds = %123, %153, %141, %.split.split.us.i
-  %.047.i132 = phi i64 [ %.047.i, %.split.split.us.i ], [ %.047.i, %141 ], [ %.047.i, %153 ], [ %.047.i.us, %123 ]
+  %.047.i132 = phi i64 [ %.047.i, %141 ], [ %.047.i, %153 ], [ %.047.i, %.split.split.us.i ], [ %.047.i.us, %123 ]
   %154 = tail call i32 @BN_add_word(ptr noundef %0, i64 noundef %.047.i132) #5
   %.not53.i = icmp eq i32 %154, 0
   br i1 %.not53.i, label %probable_prime.exit.thread, label %155
@@ -613,7 +613,7 @@ probable_prime_dh.exit.thread:                    ; preds = %calc_trial_division
   br label %probable_prime.exit.thread
 
 probable_prime_dh.exit:                           ; preds = %252, %.split.split.us.i82, %239, %196, %.split.us.split.us.us.i, %214
-  %.us-phi.i = phi i64 [ %.070.us.i, %214 ], [ %.070.us.i, %.split.us.split.us.us.i ], [ %.070.us.i, %196 ], [ %.070.i, %239 ], [ %.070.i, %.split.split.us.i82 ], [ %.070.i, %252 ]
+  %.us-phi.i = phi i64 [ %.070.i, %.split.split.us.i82 ], [ %.070.us.i, %196 ], [ %.070.us.i, %.split.us.split.us.us.i ], [ %.070.us.i, %214 ], [ %.070.i, %239 ], [ %.070.i, %252 ]
   %253 = tail call i32 @BN_add_word(ptr noundef %0, i64 noundef %.us-phi.i) #5
   %.not86.i.not = icmp eq i32 %253, 0
   tail call void @BN_CTX_end(ptr noundef %6) #5
@@ -646,7 +646,7 @@ BN_GENCB_call.exit:                               ; preds = %255
   %.not67 = icmp eq i32 %262, 0
   br i1 %.not67, label %probable_prime.exit.thread.loopexit288, label %BN_GENCB_call.exit.thread
 
-BN_GENCB_call.exit.thread:                        ; preds = %257, %probable_prime.exit, %259, %BN_GENCB_call.exit
+BN_GENCB_call.exit.thread:                        ; preds = %probable_prime.exit, %259, %257, %BN_GENCB_call.exit
   br i1 %13, label %265, label %263
 
 263:                                              ; preds = %BN_GENCB_call.exit.thread
@@ -705,7 +705,7 @@ BN_GENCB_call.exit87:                             ; preds = %271
   %.not69 = icmp eq i32 %278, 0
   br i1 %.not69, label %probable_prime.exit.thread, label %BN_GENCB_call.exit87.thread
 
-BN_GENCB_call.exit87.thread:                      ; preds = %273, %270, %275, %BN_GENCB_call.exit87
+BN_GENCB_call.exit87.thread:                      ; preds = %270, %275, %273, %BN_GENCB_call.exit87
   %279 = add nuw nsw i32 %.058137, 1
   %exitcond.not = icmp eq i32 %279, %..i
   br i1 %exitcond.not, label %probable_prime.exit.thread, label %.preheader, !llvm.loop !18
@@ -713,8 +713,8 @@ BN_GENCB_call.exit87.thread:                      ; preds = %273, %270, %275, %B
 probable_prime.exit.thread.loopexit288:           ; preds = %probable_prime_dh.exit, %BN_GENCB_call.exit, %265, %263, %calc_trial_divisions.exit.i, %255
   br label %probable_prime.exit.thread
 
-probable_prime.exit.thread:                       ; preds = %.split61.i, %.lr.ph.split.i, %.backedge.i, %.split61.us.split.split.us.us.split.us.i, %.backedge.us.i, %.lr.ph.split.us.split.split.i, %.split61.us.us.us.i, %.backedge.us.us.i, %.lr.ph.split.us.split.split.us.i, %271, %268, %.preheader, %BN_GENCB_call.exit87, %BN_GENCB_call.exit87.thread, %.preheader.i, %263, %probable_prime.exit.thread.loopexit288, %probable_prime_dh.exit.thread, %22
-  %.059 = phi i32 [ 0, %22 ], [ 0, %probable_prime_dh.exit.thread ], [ 0, %probable_prime.exit.thread.loopexit288 ], [ 1, %263 ], [ 0, %.preheader.i ], [ 1, %BN_GENCB_call.exit87.thread ], [ 0, %BN_GENCB_call.exit87 ], [ 0, %.preheader ], [ 0, %268 ], [ 0, %271 ], [ 0, %.lr.ph.split.us.split.split.us.i ], [ 0, %.backedge.us.us.i ], [ 0, %.split61.us.us.us.i ], [ 0, %.lr.ph.split.us.split.split.i ], [ 0, %.backedge.us.i ], [ 0, %.split61.us.split.split.us.us.split.us.i ], [ 0, %.backedge.i ], [ 0, %.lr.ph.split.i ], [ 0, %.split61.i ]
+probable_prime.exit.thread:                       ; preds = %.lr.ph.split.i, %.split61.i, %.backedge.i, %.split61.us.split.split.us.us.split.us.i, %.backedge.us.i, %.lr.ph.split.us.split.split.i, %.split61.us.us.us.i, %.backedge.us.us.i, %.lr.ph.split.us.split.split.us.i, %271, %268, %.preheader, %BN_GENCB_call.exit87, %BN_GENCB_call.exit87.thread, %.preheader.i, %263, %probable_prime.exit.thread.loopexit288, %probable_prime_dh.exit.thread, %22
+  %.059 = phi i32 [ 0, %22 ], [ 1, %BN_GENCB_call.exit87.thread ], [ 0, %probable_prime_dh.exit.thread ], [ 0, %.split61.us.us.us.i ], [ 0, %probable_prime.exit.thread.loopexit288 ], [ 0, %.preheader.i ], [ 0, %.split61.us.split.split.us.us.split.us.i ], [ 1, %263 ], [ 0, %271 ], [ 0, %BN_GENCB_call.exit87 ], [ 0, %.preheader ], [ 0, %268 ], [ 0, %.lr.ph.split.us.split.split.us.i ], [ 0, %.backedge.us.us.i ], [ 0, %.lr.ph.split.us.split.split.i ], [ 0, %.backedge.us.i ], [ 0, %.backedge.i ], [ 0, %.split61.i ], [ 0, %.lr.ph.split.i ]
   tail call void @CRYPTO_free(ptr noundef nonnull %20, ptr noundef nonnull @.str, i32 noundef 204) #5
   tail call void @BN_CTX_end(ptr noundef %6) #5
   br label %280
@@ -782,7 +782,7 @@ define internal fastcc i32 @bn_is_prime_int(ptr noundef %0, i32 noundef %1, ptr 
   br label %calc_trial_divisions.exit
 
 calc_trial_divisions.exit:                        ; preds = %17, %20, %22, %24
-  %.0.i = phi i64 [ 64, %17 ], [ 128, %20 ], [ 384, %22 ], [ %..i, %24 ]
+  %.0.i = phi i64 [ 384, %22 ], [ 64, %17 ], [ 128, %20 ], [ %..i, %24 ]
   br label %26
 
 26:                                               ; preds = %calc_trial_divisions.exit, %33
@@ -835,7 +835,7 @@ calc_trial_divisions.exit:                        ; preds = %17, %20, %22, %24
   %.not39.not = icmp eq i32 %46, 0
   br i1 %.not39.not, label %.thread44, label %.thread48
 
-.thread48:                                        ; preds = %37, %34, %40, %43, %16
+.thread48:                                        ; preds = %34, %40, %37, %43, %16
   %47 = icmp eq ptr %2, null
   br i1 %47, label %48, label %51
 
@@ -864,7 +864,7 @@ calc_trial_divisions.exit:                        ; preds = %17, %20, %22, %24
   br label %.thread44
 
 .thread44:                                        ; preds = %26, %35, %31, %12, %5, %43, %57, %14
-  %.0 = phi i32 [ %.031, %57 ], [ -1, %43 ], [ %15, %14 ], [ 0, %5 ], [ 1, %12 ], [ %32, %31 ], [ -1, %35 ], [ -1, %26 ]
+  %.0 = phi i32 [ %15, %14 ], [ 0, %5 ], [ %.031, %57 ], [ -1, %43 ], [ 1, %12 ], [ %32, %31 ], [ -1, %35 ], [ -1, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -1150,13 +1150,13 @@ define range(i32 0, 2) i32 @ossl_bn_miller_rabin_is_prime(ptr noundef %0, i32 no
   br i1 %.not135, label %.loopexit, label %44
 
 .loopexit.sink.split:                             ; preds = %44, %53, %41, %.loopexit137, %83
-  %.sink = phi i32 [ %., %83 ], [ 0, %.loopexit137 ], [ 3, %41 ], [ 1, %53 ], [ 3, %44 ]
+  %.sink = phi i32 [ 0, %.loopexit137 ], [ 3, %41 ], [ %., %83 ], [ 1, %53 ], [ 3, %44 ]
   store i32 %.sink, ptr %5, align 4, !tbaa !20
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit136, %55, %51, %46, %48, %.lr.ph, %65, %.loopexit.sink.split, %79, %81, %77, %.preheader._crit_edge, %73, %32, %35, %30, %24, %26, %8, %16, %18, %20, %22
-  %.0104 = phi i32 [ 0, %24 ], [ 0, %26 ], [ 0, %32 ], [ 0, %81 ], [ 0, %79 ], [ 0, %77 ], [ 0, %73 ], [ 0, %.preheader._crit_edge ], [ 0, %35 ], [ 0, %30 ], [ 0, %22 ], [ 0, %20 ], [ 0, %18 ], [ 0, %16 ], [ 0, %8 ], [ 1, %.loopexit.sink.split ], [ 0, %65 ], [ 0, %.lr.ph ], [ 0, %48 ], [ 0, %46 ], [ 0, %51 ], [ 0, %55 ], [ 0, %.loopexit136 ]
-  %.0 = phi ptr [ null, %24 ], [ null, %26 ], [ null, %32 ], [ %33, %81 ], [ %33, %79 ], [ %33, %77 ], [ %33, %73 ], [ %33, %.preheader._crit_edge ], [ %33, %35 ], [ null, %30 ], [ null, %22 ], [ null, %20 ], [ null, %18 ], [ null, %16 ], [ null, %8 ], [ %33, %.loopexit.sink.split ], [ %33, %65 ], [ %33, %.lr.ph ], [ %33, %48 ], [ %33, %46 ], [ %33, %51 ], [ %33, %55 ], [ %33, %.loopexit136 ]
+  %.0104 = phi i32 [ 0, %24 ], [ 0, %26 ], [ 0, %32 ], [ 0, %20 ], [ 0, %8 ], [ 0, %81 ], [ 0, %79 ], [ 0, %.lr.ph ], [ 0, %35 ], [ 0, %77 ], [ 0, %73 ], [ 0, %.preheader._crit_edge ], [ 0, %18 ], [ 0, %30 ], [ 0, %16 ], [ 0, %22 ], [ 1, %.loopexit.sink.split ], [ 0, %65 ], [ 0, %48 ], [ 0, %46 ], [ 0, %51 ], [ 0, %55 ], [ 0, %.loopexit136 ]
+  %.0 = phi ptr [ null, %24 ], [ null, %26 ], [ null, %32 ], [ null, %20 ], [ null, %8 ], [ %33, %81 ], [ %33, %79 ], [ %33, %.lr.ph ], [ %33, %35 ], [ %33, %77 ], [ %33, %73 ], [ %33, %.preheader._crit_edge ], [ null, %18 ], [ null, %30 ], [ null, %16 ], [ null, %22 ], [ %33, %.loopexit.sink.split ], [ %33, %65 ], [ %33, %48 ], [ %33, %46 ], [ %33, %51 ], [ %33, %55 ], [ %33, %.loopexit136 ]
   tail call void @BN_clear(ptr noundef %9) #5
   tail call void @BN_clear(ptr noundef %10) #5
   tail call void @BN_clear(ptr noundef %11) #5

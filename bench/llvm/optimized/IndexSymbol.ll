@@ -132,7 +132,7 @@ define dso_local noundef zeroext i1 @_ZN5clang5index21isFunctionLocalSymbolEPKNS
   br label %15
 
 15:                                               ; preds = %12, %7, %1, %1, %.fold.split, %5
-  %.03 = phi i1 [ true, %1 ], [ false, %5 ], [ true, %1 ], [ false, %.fold.split ], [ true, %7 ], [ %switch, %12 ]
+  %.03 = phi i1 [ false, %.fold.split ], [ true, %1 ], [ true, %1 ], [ false, %5 ], [ true, %7 ], [ %switch, %12 ]
   ret i1 %.03
 }
 
@@ -995,7 +995,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %_ZNK5clang9NamedDec
   br i1 %.not11.i, label %_ZL14isUnitTestCasePKN5clang17ObjCInterfaceDeclE.exit, label %.lr.ph.i
 
 _ZL14isUnitTestCasePKN5clang17ObjCInterfaceDeclE.exit: ; preds = %.thread23.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %6, %.preheader.i, %27, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread10, %_ZNK4llvm9StringRef11starts_withES0_.exit, %_ZNK5clang4Type10isVoidTypeEv.exit, %1
-  %.0 = phi i1 [ false, %1 ], [ false, %_ZNK5clang4Type10isVoidTypeEv.exit ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread10 ], [ false, %27 ], [ false, %.preheader.i ], [ false, %6 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ false, %.thread23.i ]
+  %.0 = phi i1 [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread10 ], [ false, %1 ], [ false, %_ZNK5clang4Type10isVoidTypeEv.exit ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit ], [ false, %6 ], [ false, %27 ], [ false, %.preheader.i ], [ false, %.thread23.i ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
   ret i1 %.0
 }
 
@@ -1032,7 +1032,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Decl7hasAttrINS_12IBAc
   br i1 %.not.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_12IBActionAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i, label %.lr.ph.i.i.i.i, !llvm.loop !85
 
 _ZN5clangneENS_22specific_attr_iteratorINS_12IBActionAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i: ; preds = %16, %.lr.ph.i.i.i.i
-  %.sroa.07.0.i.i.ph.i = phi ptr [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ], [ %11, %16 ]
+  %.sroa.07.0.i.i.ph.i = phi ptr [ %11, %16 ], [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ]
   %18 = icmp ne ptr %.sroa.07.0.i.i.ph.i, %11
   br label %_ZN5clang15hasSpecificAttrINS_12IBActionAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEbRKT0_.exit
 
@@ -1175,7 +1175,7 @@ _ZN5clangneENS_22specific_attr_iteratorINS_12AnnotateAttrEN4llvm11SmallVectorIPN
   br i1 %28, label %_ZN5clang15getSpecificAttrINS_12AnnotateAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEPDaRKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !91
 
 _ZN5clang15getSpecificAttrINS_12AnnotateAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEPDaRKT0_.exit: ; preds = %16, %.lr.ph.i.i.i, %18, %_ZN5clangneENS_22specific_attr_iteratorINS_12AnnotateAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i, %5, %1
-  %29 = phi ptr [ null, %1 ], [ null, %_ZN5clangneENS_22specific_attr_iteratorINS_12AnnotateAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i ], [ %19, %18 ], [ null, %5 ], [ %25, %.lr.ph.i.i.i ], [ null, %16 ]
+  %29 = phi ptr [ null, %1 ], [ null, %5 ], [ null, %_ZN5clangneENS_22specific_attr_iteratorINS_12AnnotateAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i ], [ %19, %18 ], [ %25, %.lr.ph.i.i.i ], [ null, %16 ]
   ret ptr %29
 }
 
@@ -1387,7 +1387,7 @@ define dso_local noundef zeroext i1 @_ZN5clang5index35applyForEachSymbolRoleInte
   br label %88
 
 88:                                               ; preds = %85, %81, %77, %73, %69, %65, %61, %57, %53, %49, %45, %41, %37, %33, %29, %25, %21, %17, %13, %9, %5, %87
-  %.0 = phi i1 [ true, %87 ], [ false, %5 ], [ false, %9 ], [ false, %13 ], [ false, %17 ], [ false, %21 ], [ false, %25 ], [ false, %29 ], [ false, %33 ], [ false, %37 ], [ false, %41 ], [ false, %45 ], [ false, %49 ], [ false, %53 ], [ false, %57 ], [ false, %61 ], [ false, %65 ], [ false, %69 ], [ false, %73 ], [ false, %77 ], [ false, %81 ], [ false, %85 ]
+  %.0 = phi i1 [ true, %87 ], [ false, %81 ], [ false, %77 ], [ false, %73 ], [ false, %69 ], [ false, %65 ], [ false, %61 ], [ false, %57 ], [ false, %53 ], [ false, %49 ], [ false, %45 ], [ false, %41 ], [ false, %37 ], [ false, %33 ], [ false, %29 ], [ false, %25 ], [ false, %21 ], [ false, %17 ], [ false, %13 ], [ false, %9 ], [ false, %5 ], [ false, %85 ]
   ret i1 %.0
 }
 

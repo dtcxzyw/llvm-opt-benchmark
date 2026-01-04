@@ -102,7 +102,7 @@ define ptr @ucnv_openU_77(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br label %ucnv_open_77.exit
 
 ucnv_open_77.exit:                                ; preds = %20, %16, %10, %2, %5, %15
-  %.0 = phi ptr [ null, %15 ], [ null, %5 ], [ null, %2 ], [ %11, %10 ], [ %21, %20 ], [ null, %16 ]
+  %.0 = phi ptr [ null, %16 ], [ null, %2 ], [ null, %15 ], [ null, %5 ], [ %11, %10 ], [ %21, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -399,7 +399,7 @@ define noundef ptr @ucnv_safeClone_77(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %117
 
 117:                                              ; preds = %26, %4, %13, %107, %97, %77, %59, %37, %18
-  %.0 = phi ptr [ null, %18 ], [ null, %59 ], [ null, %97 ], [ %.17096, %107 ], [ null, %77 ], [ null, %37 ], [ null, %13 ], [ null, %4 ], [ null, %26 ]
+  %.0 = phi ptr [ null, %37 ], [ null, %18 ], [ null, %4 ], [ null, %59 ], [ null, %97 ], [ %.17096, %107 ], [ null, %77 ], [ null, %13 ], [ null, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -992,7 +992,7 @@ _Z11pinCapacityIcEiPT_i.exit:                     ; preds = %53, %57
   br label %85
 
 85:                                               ; preds = %6, %13, %83, %26
-  %.038 = phi i32 [ 0, %26 ], [ %84, %83 ], [ 0, %13 ], [ 0, %6 ]
+  %.038 = phi i32 [ %84, %83 ], [ 0, %26 ], [ 0, %13 ], [ 0, %6 ]
   ret i32 %.038
 }
 
@@ -1297,7 +1297,7 @@ define ptr @ucnv_getName_77(ptr noundef %0, ptr noundef readonly captures(none) 
   br label %19
 
 19:                                               ; preds = %12, %2, %14
-  %.08 = phi ptr [ %18, %14 ], [ %13, %12 ], [ null, %2 ]
+  %.08 = phi ptr [ %13, %12 ], [ %18, %14 ], [ null, %2 ]
   ret ptr %.08
 }
 
@@ -1342,7 +1342,7 @@ define i32 @ucnv_getCCSID_77(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br label %ucnv_getName_77.exit
 
 ucnv_getName_77.exit:                             ; preds = %18, %20
-  %.08.i = phi ptr [ %22, %20 ], [ %19, %18 ]
+  %.08.i = phi ptr [ %19, %18 ], [ %22, %20 ]
   %23 = tail call ptr @ucnv_getStandardName_77(ptr noundef nonnull %.08.i, ptr noundef nonnull @.str, ptr noundef nonnull %1)
   %24 = load i32, ptr %1, align 4, !tbaa !3
   %25 = icmp slt i32 %24, 1
@@ -1776,7 +1776,7 @@ define internal fastcc void @_ZL24_fromUnicodeWithCallbackP25UConverterFromUnico
   br label %60
 
 60:                                               ; preds = %.loopexit, %48, %51, %53, %57
-  %.0149 = phi i1 [ true, %53 ], [ true, %51 ], [ true, %48 ], [ %59, %57 ], [ true, %.loopexit ]
+  %.0149 = phi i1 [ %59, %57 ], [ true, %53 ], [ true, %51 ], [ true, %48 ], [ true, %.loopexit ]
   br label %61
 
 61:                                               ; preds = %166, %60
@@ -1944,8 +1944,8 @@ _ZL14_updateOffsetsPiiii.exit:                    ; preds = %88, %69, %.lr.ph.pr
   br i1 %.0149, label %.loopexit.backedge, label %134
 
 .loopexit.backedge:                               ; preds = %124, %133, %128
-  %.2154.be = phi i32 [ %.6, %133 ], [ %.3138, %128 ], [ %.6, %124 ]
-  %.1144.be = phi ptr [ null, %133 ], [ null, %128 ], [ %.3146, %124 ]
+  %.2154.be = phi i32 [ %.3138, %128 ], [ %.6, %133 ], [ %.6, %124 ]
+  %.1144.be = phi ptr [ null, %128 ], [ null, %133 ], [ %.3146, %124 ]
   br label %.loopexit, !llvm.loop !87
 
 134:                                              ; preds = %133
@@ -2023,7 +2023,7 @@ thread-pre-split:                                 ; preds = %135
   call void %168(ptr noundef %169, ptr noundef nonnull %0, ptr noundef nonnull %42, i32 noundef %.1151, i32 noundef %154, i32 noundef %155, ptr noundef nonnull %1)
   br label %61, !llvm.loop !89
 
-.critedge:                                        ; preds = %129, %150, %137, %134
+.critedge:                                        ; preds = %129, %137, %150, %134
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -2354,7 +2354,7 @@ define internal fastcc void @_ZL22_toUnicodeWithCallbackP23UConverterToUnicodeAr
   br label %61
 
 61:                                               ; preds = %.loopexit, %49, %52, %54, %58
-  %.0147 = phi i1 [ true, %54 ], [ true, %52 ], [ true, %49 ], [ %60, %58 ], [ true, %.loopexit ]
+  %.0147 = phi i1 [ %60, %58 ], [ true, %54 ], [ true, %52 ], [ true, %49 ], [ true, %.loopexit ]
   br label %62
 
 62:                                               ; preds = %178, %61
@@ -2522,8 +2522,8 @@ _ZL14_updateOffsetsPiiii.exit:                    ; preds = %90, %71, %.lr.ph.pr
   br i1 %.0147, label %.loopexit.backedge, label %136
 
 .loopexit.backedge:                               ; preds = %124, %135, %128
-  %.2151.be = phi i32 [ %.6, %135 ], [ %.3136, %128 ], [ %.6, %124 ]
-  %.1142.be = phi ptr [ null, %135 ], [ null, %128 ], [ %.3144, %124 ]
+  %.2151.be = phi i32 [ %.3136, %128 ], [ %.6, %135 ], [ %.6, %124 ]
+  %.1142.be = phi ptr [ null, %128 ], [ null, %135 ], [ %.3144, %124 ]
   br label %.loopexit, !llvm.loop !101
 
 136:                                              ; preds = %135
@@ -2627,7 +2627,7 @@ _ZL14_updateOffsetsPiiii.exit:                    ; preds = %90, %71, %.lr.ph.pr
   store i32 1, ptr %44, align 4, !tbaa !102
   br label %62, !llvm.loop !103
 
-.critedge:                                        ; preds = %129, %148, %136, %163, %151
+.critedge:                                        ; preds = %129, %148, %136, %151, %163
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -2803,7 +2803,7 @@ _Z11pinCapacityIDsEiPT_i.exit:                    ; preds = %57, %61
   br label %92
 
 92:                                               ; preds = %6, %13, %90, %26
-  %.038 = phi i32 [ 0, %26 ], [ %91, %90 ], [ 0, %13 ], [ 0, %6 ]
+  %.038 = phi i32 [ %91, %90 ], [ 0, %26 ], [ 0, %13 ], [ 0, %6 ]
   ret i32 %.038
 }
 
@@ -3096,9 +3096,9 @@ define range(i32 0, -2147483648) i32 @ucnv_getNextUChar_77(ptr noundef %0, ptr n
   br label %.thread151
 
 163:                                              ; preds = %121, %127, %132, %144, %136, %99, %.thread136
-  %.3110 = phi i32 [ 1, %.thread136 ], [ 0, %99 ], [ 1, %132 ], [ 1, %127 ], [ 1, %121 ], [ 1, %144 ], [ 1, %136 ]
-  %.1105 = phi i32 [ %.0104135138, %.thread136 ], [ %105, %99 ], [ %.0104135138, %132 ], [ %.0104135138, %127 ], [ %.0104135138, %121 ], [ %151, %144 ], [ %.0104135138, %136 ]
-  %.3 = phi i32 [ %115, %.thread136 ], [ 65535, %99 ], [ %130, %132 ], [ %130, %127 ], [ %115, %121 ], [ %115, %144 ], [ %115, %136 ]
+  %.3110 = phi i32 [ 1, %.thread136 ], [ 1, %136 ], [ 0, %99 ], [ 1, %132 ], [ 1, %127 ], [ 1, %121 ], [ 1, %144 ]
+  %.1105 = phi i32 [ %.0104135138, %.thread136 ], [ %.0104135138, %136 ], [ %105, %99 ], [ %.0104135138, %132 ], [ %.0104135138, %127 ], [ %.0104135138, %121 ], [ %151, %144 ]
+  %.3 = phi i32 [ %115, %.thread136 ], [ %115, %136 ], [ 65535, %99 ], [ %130, %132 ], [ %130, %127 ], [ %115, %121 ], [ %115, %144 ]
   %164 = icmp slt i32 %.3110, %.1105
   br i1 %164, label %.thread139, label %.thread151
 
@@ -3146,7 +3146,7 @@ define range(i32 0, -2147483648) i32 @ucnv_getNextUChar_77(ptr noundef %0, ptr n
   br label %187
 
 187:                                              ; preds = %87, %4, %8, %56, %.thread151, %86, %25, %18, %14
-  %.0 = phi i32 [ 65535, %14 ], [ 65535, %18 ], [ 65535, %25 ], [ 65535, %86 ], [ %.3145, %.thread151 ], [ %.2, %56 ], [ 65535, %8 ], [ 65535, %4 ], [ %82, %87 ]
+  %.0 = phi i32 [ %.2, %56 ], [ 65535, %14 ], [ 65535, %18 ], [ 65535, %25 ], [ 65535, %86 ], [ 65535, %4 ], [ %.3145, %.thread151 ], [ 65535, %8 ], [ %82, %87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -3734,7 +3734,7 @@ define i32 @ucnv_convert_77(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
   br label %42
 
 42:                                               ; preds = %31, %7, %11, %40, %39, %29, %21
-  %.0 = phi i32 [ 0, %21 ], [ %30, %29 ], [ 0, %39 ], [ %41, %40 ], [ 0, %11 ], [ 0, %7 ], [ 0, %31 ]
+  %.0 = phi i32 [ %41, %40 ], [ 0, %21 ], [ %30, %29 ], [ 0, %7 ], [ 0, %39 ], [ 0, %11 ], [ 0, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
@@ -3912,7 +3912,7 @@ define internal fastcc noundef i32 @_ZL23ucnv_convertAlgorithmica14UConverterTyp
   br label %41
 
 41:                                               ; preds = %32, %8, %11, %39, %30, %22
-  %.0 = phi i32 [ 0, %22 ], [ %31, %30 ], [ %40, %39 ], [ 0, %11 ], [ 0, %8 ], [ 0, %32 ]
+  %.0 = phi i32 [ %40, %39 ], [ 0, %22 ], [ %31, %30 ], [ 0, %8 ], [ 0, %11 ], [ 0, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
@@ -4027,7 +4027,7 @@ define void @ucnv_fixFileSeparator_77(ptr noundef %0, ptr noundef captures(addre
   br label %ucnv_getName_77.exit.i
 
 ucnv_getName_77.exit.i:                           ; preds = %16, %14
-  %.08.i.i = phi ptr [ %20, %16 ], [ %15, %14 ]
+  %.08.i.i = phi ptr [ %15, %14 ], [ %20, %16 ]
   br label %22
 
 21:                                               ; preds = %22
@@ -4101,7 +4101,7 @@ define signext range(i8 0, 2) i8 @ucnv_isAmbiguous_77(ptr noundef %0) local_unna
   br label %ucnv_getName_77.exit.i
 
 ucnv_getName_77.exit.i:                           ; preds = %12, %10
-  %.08.i.i = phi ptr [ %16, %12 ], [ %11, %10 ]
+  %.08.i.i = phi ptr [ %11, %10 ], [ %16, %12 ]
   br label %18
 
 17:                                               ; preds = %18
@@ -4458,7 +4458,7 @@ define noundef ptr @ucnv_detectUnicodeSignature_77(ptr noundef readonly captures
   br label %.cont143
 
 .cont143:                                         ; preds = %.else118, %72, %.else, %71, %.else121, %65, %.else124, %63, %.else127, %55, %.else130, %50, %.else133, %46, %.else136, %39, %.else139, %34, %.else142, %33, %.else145, %26, %4, %7, %13
-  %.0111 = phi ptr [ null, %13 ], [ null, %7 ], [ null, %4 ], [ @.str.1, %26 ], [ @.str.1, %.else145 ], [ @.str.2, %33 ], [ @.str.2, %.else142 ], [ @.str.3, %34 ], [ @.str.3, %.else139 ], [ @.str.4, %39 ], [ @.str.4, %.else136 ], [ @.str.5, %46 ], [ @.str.5, %.else133 ], [ @.str.6, %50 ], [ @.str.6, %.else130 ], [ @.str.7, %55 ], [ @.str.7, %.else127 ], [ @.str.8, %63 ], [ @.str.8, %.else124 ], [ @.str.8, %65 ], [ @.str.8, %.else121 ], [ @.str.9, %71 ], [ @.str.9, %.else ], [ null, %72 ], [ null, %.else118 ]
+  %.0111 = phi ptr [ @.str.8, %.else121 ], [ null, %13 ], [ null, %4 ], [ @.str.1, %.else145 ], [ @.str.2, %.else142 ], [ @.str.3, %.else139 ], [ @.str.4, %.else136 ], [ @.str.5, %.else133 ], [ @.str.6, %.else130 ], [ @.str.7, %.else127 ], [ @.str.8, %.else124 ], [ @.str.9, %.else ], [ null, %7 ], [ @.str.1, %26 ], [ @.str.2, %33 ], [ @.str.3, %34 ], [ @.str.4, %39 ], [ @.str.5, %46 ], [ @.str.6, %50 ], [ @.str.7, %55 ], [ @.str.8, %63 ], [ @.str.8, %65 ], [ @.str.9, %71 ], [ null, %72 ], [ null, %.else118 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0111
 }
@@ -4515,7 +4515,7 @@ define range(i32 -127, 130) i32 @ucnv_fromUCountPending_77(ptr noundef readonly 
   br label %32
 
 32:                                               ; preds = %28, %2, %4, %25, %14, %9
-  %.0 = phi i32 [ -1, %9 ], [ %20, %14 ], [ %27, %25 ], [ -1, %4 ], [ -1, %2 ], [ %., %28 ]
+  %.0 = phi i32 [ -1, %2 ], [ -1, %9 ], [ %20, %14 ], [ %27, %25 ], [ %., %28 ], [ -1, %4 ]
   ret i32 %.0
 }
 
@@ -4560,7 +4560,7 @@ define range(i32 -1, 129) i32 @ucnv_toUCountPending_77(ptr noundef readonly capt
   br label %22
 
 22:                                               ; preds = %19, %10, %2, %4, %17, %9
-  %.0 = phi i32 [ -1, %9 ], [ %18, %17 ], [ -1, %4 ], [ -1, %2 ], [ %13, %10 ], [ %spec.select, %19 ]
+  %.0 = phi i32 [ %13, %10 ], [ -1, %9 ], [ -1, %2 ], [ %18, %17 ], [ %spec.select, %19 ], [ -1, %4 ]
   ret i32 %.0
 }
 
@@ -4611,7 +4611,7 @@ ucnv_getType_77.exit:                             ; preds = %16, %18
   br label %21
 
 21:                                               ; preds = %ucnv_getType_77.exit, %ucnv_getType_77.exit, %ucnv_getType_77.exit, %ucnv_getType_77.exit, %ucnv_getType_77.exit, %ucnv_getType_77.exit, %2, %20, %7
-  %.0 = phi i8 [ 0, %7 ], [ 0, %20 ], [ 0, %2 ], [ 1, %ucnv_getType_77.exit ], [ 1, %ucnv_getType_77.exit ], [ 1, %ucnv_getType_77.exit ], [ 1, %ucnv_getType_77.exit ], [ 1, %ucnv_getType_77.exit ], [ 1, %ucnv_getType_77.exit ]
+  %.0 = phi i8 [ 0, %2 ], [ 0, %7 ], [ 0, %20 ], [ 1, %ucnv_getType_77.exit ], [ 1, %ucnv_getType_77.exit ], [ 1, %ucnv_getType_77.exit ], [ 1, %ucnv_getType_77.exit ], [ 1, %ucnv_getType_77.exit ], [ 1, %ucnv_getType_77.exit ]
   ret i8 %.0
 }
 

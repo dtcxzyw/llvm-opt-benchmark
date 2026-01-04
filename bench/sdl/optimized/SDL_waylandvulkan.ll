@@ -96,8 +96,8 @@ define hidden zeroext i1 @Wayland_Vulkan_LoadLibrary(ptr noundef %0, ptr noundef
   br label %31
 
 31:                                               ; preds = %28, %.lr.ph
-  %.129 = phi i1 [ true, %.lr.ph ], [ %.02844, %28 ]
-  %.1 = phi i1 [ %.045, %.lr.ph ], [ %spec.select, %28 ]
+  %.129 = phi i1 [ %.02844, %28 ], [ true, %.lr.ph ]
+  %.1 = phi i1 [ %spec.select, %28 ], [ %.045, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = load i32, ptr %3, align 4
   %33 = zext i32 %32 to i64
@@ -115,7 +115,7 @@ define hidden zeroext i1 @Wayland_Vulkan_LoadLibrary(ptr noundef %0, ptr noundef
   br label %.sink.split
 
 .sink.split:                                      ; preds = %._crit_edge, %.critedge
-  %.str.8.sink = phi ptr [ @.str.7, %.critedge ], [ %.str.7.mux, %._crit_edge ]
+  %.str.8.sink = phi ptr [ %.str.7.mux, %._crit_edge ], [ @.str.7, %.critedge ]
   %36 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull %.str.8.sink) #5
   br label %37
 
@@ -126,7 +126,7 @@ define hidden zeroext i1 @Wayland_Vulkan_LoadLibrary(ptr noundef %0, ptr noundef
   br label %39
 
 39:                                               ; preds = %._crit_edge, %12, %37, %7
-  %.032 = phi i1 [ %8, %7 ], [ false, %37 ], [ false, %12 ], [ true, %._crit_edge ]
+  %.032 = phi i1 [ %8, %7 ], [ false, %12 ], [ false, %37 ], [ true, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.032
 }
@@ -229,7 +229,7 @@ define hidden zeroext i1 @Wayland_Vulkan_CreateSurface(ptr noundef readonly capt
   br label %33
 
 33:                                               ; preds = %19, %30, %17, %14
-  %.0 = phi i1 [ %32, %30 ], [ %18, %17 ], [ %15, %14 ], [ true, %19 ]
+  %.0 = phi i1 [ %32, %30 ], [ %15, %14 ], [ %18, %17 ], [ true, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }

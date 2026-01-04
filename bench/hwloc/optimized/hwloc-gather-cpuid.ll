@@ -233,8 +233,8 @@ hwloc_utils_check_api_version.exit:               ; preds = %39, %24
   br i1 %70, label %.lr.ph, label %.critedge, !llvm.loop !14
 
 .critedge:                                        ; preds = %hwloc_utils_check_api_version.exit, %17, %.lr.ph, %hwloc_utils_check_api_version.exit.preheader
-  %.073150 = phi i32 [ -1, %hwloc_utils_check_api_version.exit.preheader ], [ %.174, %hwloc_utils_check_api_version.exit ], [ %.073155, %17 ], [ %.073155, %.lr.ph ]
-  %.078 = phi ptr [ @.str.18, %hwloc_utils_check_api_version.exit.preheader ], [ @.str.18, %hwloc_utils_check_api_version.exit ], [ %14, %17 ], [ %14, %.lr.ph ]
+  %.073150 = phi i32 [ -1, %hwloc_utils_check_api_version.exit.preheader ], [ %.174, %hwloc_utils_check_api_version.exit ], [ %.073155, %.lr.ph ], [ %.073155, %17 ]
+  %.078 = phi ptr [ @.str.18, %hwloc_utils_check_api_version.exit.preheader ], [ @.str.18, %hwloc_utils_check_api_version.exit ], [ %14, %.lr.ph ], [ %14, %17 ]
   %71 = tail call ptr @getenv(ptr noundef nonnull @.str.19) #16
   %.not92 = icmp eq ptr %71, null
   br i1 %.not92, label %72, label %74

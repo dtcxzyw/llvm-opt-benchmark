@@ -1992,13 +1992,13 @@ find_nearest_on_curve_t.exit:                     ; preds = %113
   br i1 %263, label %.sink.split, label %264
 
 .sink.split:                                      ; preds = %241, %222, %203, %192, %185
-  %.9.ph = phi float [ %190, %185 ], [ %201, %192 ], [ %220, %203 ], [ %239, %222 ], [ %262, %241 ]
+  %.9.ph = phi float [ %239, %222 ], [ %220, %203 ], [ %201, %192 ], [ %190, %185 ], [ %262, %241 ]
   store i32 %17, ptr %4, align 8, !tbaa !153
   store ptr %29, ptr %7, align 8, !tbaa !155
   br label %264
 
 264:                                              ; preds = %.sink.split, %241, %45, %222, %203, %192, %185
-  %.9 = phi nsz float [ %.2328, %185 ], [ %.2328, %192 ], [ %.2328, %203 ], [ %.2328, %222 ], [ %.2328, %45 ], [ %.2328, %241 ], [ %.9.ph, %.sink.split ]
+  %.9 = phi nsz float [ %.2328, %45 ], [ %.2328, %241 ], [ %.2328, %192 ], [ %.2328, %203 ], [ %.2328, %222 ], [ %.2328, %185 ], [ %.9.ph, %.sink.split ]
   %265 = icmp eq i32 %34, 3
   br i1 %265, label %266, label %.thread
 
@@ -2061,8 +2061,8 @@ find_nearest_on_curve_t.exit:                     ; preds = %113
   store ptr %29, ptr %7, align 8, !tbaa !155
   br label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %266, %find_nearest_on_curve_t.exit, %143, %268, %272, %78, %51, %50, %184, %37, %42, %41, %286, %283, %264
-  %.4.ph = phi float [ %.9, %286 ], [ %.9, %264 ], [ %.9, %283 ], [ %.2328, %41 ], [ %.2328, %42 ], [ %.2328, %37 ], [ %.2328, %184 ], [ %.2328, %50 ], [ %.2328, %78 ], [ %.2328, %51 ], [ %.9, %272 ], [ %.9, %268 ], [ %.2328, %143 ], [ %.2328, %find_nearest_on_curve_t.exit ], [ %.9, %266 ], [ %.4.ph.ph, %.thread.sink.split ]
+.thread:                                          ; preds = %.thread.sink.split, %266, %find_nearest_on_curve_t.exit, %143, %268, %272, %78, %51, %50, %184, %41, %37, %42, %286, %283, %264
+  %.4.ph = phi float [ %.2328, %50 ], [ %.2328, %41 ], [ %.9, %286 ], [ %.2328, %find_nearest_on_curve_t.exit ], [ %.9, %266 ], [ %.9, %283 ], [ %.9, %264 ], [ %.2328, %42 ], [ %.2328, %37 ], [ %.2328, %143 ], [ %.2328, %51 ], [ %.2328, %184 ], [ %.2328, %78 ], [ %.9, %268 ], [ %.9, %272 ], [ %.4.ph.ph, %.thread.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 100
   br i1 %exitcond.not, label %.loopexit, label %28
@@ -5855,7 +5855,7 @@ detect_drag.exit.thread:                          ; preds = %145, %167, %detect_
   store float %407, ptr %408, align 4, !tbaa !210
   br label %.thread232
 
-.thread241:                                       ; preds = %180, %177, %176
+.thread241:                                       ; preds = %176, %180, %177
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %409 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %85) #30
   br label %412
@@ -5870,7 +5870,7 @@ detect_drag.exit.thread:                          ; preds = %145, %167, %detect_
   br label %412
 
 412:                                              ; preds = %.thread232, %.thread237, %.thread241, %_layers_showing.exit
-  %.0 = phi i32 [ 0, %_layers_showing.exit ], [ 1, %.thread232 ], [ 0, %.thread237 ], [ 0, %.thread241 ]
+  %.0 = phi i32 [ 0, %_layers_showing.exit ], [ 0, %.thread241 ], [ 1, %.thread232 ], [ 0, %.thread237 ]
   ret i32 %.0
 }
 
@@ -6021,7 +6021,7 @@ define range(i32 0, 2) i32 @scrolled(ptr noundef readonly captures(none) %0, flo
   br label %.critedge
 
 .critedge:                                        ; preds = %29, %54, %71, %5, %66
-  %.1 = phi i32 [ 0, %66 ], [ 0, %5 ], [ 1, %71 ], [ 1, %54 ], [ 1, %29 ]
+  %.1 = phi i32 [ 0, %5 ], [ 0, %66 ], [ 1, %71 ], [ 1, %54 ], [ 1, %29 ]
   ret i32 %.1
 }
 
@@ -6335,7 +6335,7 @@ _hit_test_paths.exit:                             ; preds = %85
   br label %137
 
 137:                                              ; preds = %.critedge, %117, %95, %88, %131, %99
-  %.0 = phi i32 [ 0, %88 ], [ 1, %99 ], [ 0, %95 ], [ 1, %131 ], [ 0, %117 ], [ %spec.select, %.critedge ]
+  %.0 = phi i32 [ 0, %88 ], [ 1, %99 ], [ 0, %95 ], [ 1, %131 ], [ %spec.select, %.critedge ], [ 0, %117 ]
   %138 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %65) #30
   ret i32 %.0
 }
@@ -6672,7 +6672,7 @@ detect_drag.exit:                                 ; preds = %6, %75
   br label %222
 
 222:                                              ; preds = %.thread393, %.thread, %110, %111, %179
-  %.0277 = phi i32 [ 0, %179 ], [ 2, %111 ], [ 2, %110 ], [ 1, %.thread ], [ 1, %.thread393 ]
+  %.0277 = phi i32 [ 0, %179 ], [ 1, %.thread ], [ 1, %.thread393 ], [ 2, %111 ], [ 2, %110 ]
   %223 = load i32, ptr %99, align 8, !tbaa !201
   %224 = and i32 %223, -2
   store i32 %224, ptr %99, align 8, !tbaa !201
@@ -7313,7 +7313,7 @@ node_insert_before.exit:                          ; preds = %377, %415
   br label %.sink.split
 
 .critedge332.thread410:                           ; preds = %.thread396, %248, %240, %241, %255, %251
-  %.2.ph409 = phi i32 [ 0, %248 ], [ 2, %240 ], [ 2, %241 ], [ 2, %255 ], [ 1, %251 ], [ 0, %.thread396 ]
+  %.2.ph409 = phi i32 [ 2, %241 ], [ 2, %240 ], [ 0, %.thread396 ], [ 0, %248 ], [ 2, %255 ], [ 1, %251 ]
   %529 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %66) #30
   br label %533
 
@@ -7323,7 +7323,7 @@ node_insert_before.exit:                          ; preds = %377, %415
   br i1 %94, label %532, label %533
 
 .sink.split:                                      ; preds = %419, %227, %.critedge325.thread, %478, %351, %457, %482, %495, %491, %183, %node_insert_before.exit, %375, %467, %489, %.critedge.thread
-  %.2407.ph = phi i32 [ 0, %.critedge.thread ], [ 0, %375 ], [ 2, %node_insert_before.exit ], [ 0, %183 ], [ 0, %482 ], [ 2, %495 ], [ 2, %491 ], [ 1, %351 ], [ 2, %467 ], [ 2, %457 ], [ 0, %478 ], [ 0, %.critedge325.thread ], [ 2, %227 ], [ 0, %419 ], [ 0, %489 ]
+  %.2407.ph = phi i32 [ 0, %.critedge.thread ], [ 0, %375 ], [ 2, %227 ], [ 0, %183 ], [ 0, %489 ], [ 0, %482 ], [ 2, %495 ], [ 2, %491 ], [ 1, %351 ], [ 2, %467 ], [ 2, %457 ], [ 2, %node_insert_before.exit ], [ 0, %478 ], [ 0, %.critedge325.thread ], [ 0, %419 ]
   %531 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %66) #30
   br label %532
 
@@ -8554,7 +8554,7 @@ define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, pt
   br label %78
 
 78:                                               ; preds = %76, %74, %28, %2, %72, %68, %64, %60, %56, %52, %48, %44, %40, %36, %32, %26, %22, %18, %14, %10, %6
-  %.0 = phi ptr [ %73, %72 ], [ %69, %68 ], [ %65, %64 ], [ %61, %60 ], [ %57, %56 ], [ %53, %52 ], [ %49, %48 ], [ %45, %44 ], [ %41, %40 ], [ %37, %36 ], [ %33, %32 ], [ %27, %26 ], [ %23, %22 ], [ %19, %18 ], [ %15, %14 ], [ %11, %10 ], [ %7, %6 ], [ %0, %2 ], [ %0, %28 ], [ %0, %74 ], [ %., %76 ]
+  %.0 = phi ptr [ %0, %74 ], [ %., %76 ], [ %0, %28 ], [ %73, %72 ], [ %69, %68 ], [ %65, %64 ], [ %61, %60 ], [ %57, %56 ], [ %53, %52 ], [ %49, %48 ], [ %45, %44 ], [ %41, %40 ], [ %37, %36 ], [ %33, %32 ], [ %0, %2 ], [ %27, %26 ], [ %23, %22 ], [ %19, %18 ], [ %15, %14 ], [ %11, %10 ], [ %7, %6 ]
   ret ptr %.0
 }
 
@@ -8669,7 +8669,7 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #1 {
   br label %43
 
 43:                                               ; preds = %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %11, %9, %7, %5, %3, %1
-  %.0 = phi ptr [ @introspection_linear, %1 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %9 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 440), %11 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 528), %13 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 616), %15 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 704), %17 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 792), %19 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 880), %21 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 968), %23 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1056), %25 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1144), %27 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1232), %29 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1320), %31 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1408), %33 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1496), %35 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1584), %37 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1672), %39 ], [ %., %41 ]
+  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1672), %39 ], [ %., %41 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1584), %37 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1496), %35 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1408), %33 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1320), %31 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1232), %29 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1144), %27 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1056), %25 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 968), %23 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 880), %21 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 792), %19 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 704), %17 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 616), %15 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 528), %13 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 440), %11 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %9 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ @introspection_linear, %1 ]
   ret ptr %.0
 }
 
@@ -9189,7 +9189,7 @@ get_arc_length.exit._crit_edge:                   ; preds = %mix_warps.exit121, 
   tail call void @free(ptr noundef nonnull %138) #30
   br label %.loopexit
 
-.loopexit:                                        ; preds = %mix_warps.exit, %22, %13, %9, %get_arc_length.exit._crit_edge, %16
+.loopexit:                                        ; preds = %mix_warps.exit, %22, %9, %13, %get_arc_length.exit._crit_edge, %16
   %.2.ph = phi ptr [ %.0164, %16 ], [ %.7.lcssa, %get_arc_length.exit._crit_edge ], [ %.0164, %9 ], [ %15, %13 ], [ %.0164, %22 ], [ %135, %mix_warps.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 100

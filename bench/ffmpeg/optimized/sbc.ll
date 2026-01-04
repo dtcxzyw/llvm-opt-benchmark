@@ -140,7 +140,7 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
   br label %43
 
 43:                                               ; preds = %40, %36
-  %.sink = phi i32 [ -5, %36 ], [ %spec.select621, %40 ]
+  %.sink = phi i32 [ %spec.select621, %40 ], [ -5, %36 ]
   %44 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv538
   store i32 %.sink, ptr %44, align 4, !tbaa !19
   %spec.select357 = tail call i32 @llvm.smax.i32(i32 %.sink, i32 %.3326447)
@@ -370,7 +370,7 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
   br label %132
 
 132:                                              ; preds = %129, %125
-  %.sink616 = phi i32 [ -5, %125 ], [ %spec.select622, %129 ]
+  %.sink616 = phi i32 [ %spec.select622, %129 ], [ -5, %125 ]
   %133 = getelementptr inbounds nuw i32, ptr %indvars.iv512.sroa.phi, i64 %indvars.iv
   store i32 %.sink616, ptr %133, align 4, !tbaa !19
   %spec.select364.us = tail call i32 @llvm.smax.i32(i32 %.sink616, i32 %.5302400.us)
@@ -475,13 +475,13 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
   br i1 %163, label %.split.us.us, label %.split422.us, !llvm.loop !35
 
 .split422.us:                                     ; preds = %.split418.us.us, %.loopexit385, %.loopexit385.thread
-  %164 = phi i32 [ %145, %.loopexit385.thread ], [ %149, %.loopexit385 ], [ %149, %.split418.us.us ]
-  %165 = phi ptr [ %143, %.loopexit385.thread ], [ %147, %.loopexit385 ], [ %147, %.split418.us.us ]
-  %.not491605 = phi i1 [ true, %.loopexit385.thread ], [ true, %.loopexit385 ], [ false, %.split418.us.us ]
-  %.us-phi423 = phi i32 [ 0, %.loopexit385.thread ], [ 0, %.loopexit385 ], [ %162, %.split418.us.us ]
-  %.us-phi425 = phi i32 [ 1, %.loopexit385.thread ], [ %146, %.loopexit385 ], [ %.0284.us, %.split418.us.us ]
-  %.us-phi426 = phi i32 [ 0, %.loopexit385.thread ], [ %.3300, %.loopexit385 ], [ %160, %.split418.us.us ]
-  %.us-phi427 = phi i32 [ 0, %.loopexit385.thread ], [ 0, %.loopexit385 ], [ %161, %.split418.us.us ]
+  %164 = phi i32 [ %149, %.loopexit385 ], [ %145, %.loopexit385.thread ], [ %149, %.split418.us.us ]
+  %165 = phi ptr [ %147, %.loopexit385 ], [ %143, %.loopexit385.thread ], [ %147, %.split418.us.us ]
+  %.not491605 = phi i1 [ true, %.loopexit385 ], [ true, %.loopexit385.thread ], [ false, %.split418.us.us ]
+  %.us-phi423 = phi i32 [ 0, %.loopexit385 ], [ 0, %.loopexit385.thread ], [ %162, %.split418.us.us ]
+  %.us-phi425 = phi i32 [ %146, %.loopexit385 ], [ 1, %.loopexit385.thread ], [ %.0284.us, %.split418.us.us ]
+  %.us-phi426 = phi i32 [ %.3300, %.loopexit385 ], [ 0, %.loopexit385.thread ], [ %160, %.split418.us.us ]
+  %.us-phi427 = phi i32 [ 0, %.loopexit385 ], [ 0, %.loopexit385.thread ], [ %161, %.split418.us.us ]
   %166 = icmp eq i32 %.us-phi423, %164
   %167 = add nsw i32 %.us-phi425, -2
   %spec.select368 = select i1 %166, i32 %.us-phi423, i32 %.us-phi427

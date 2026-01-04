@@ -70,7 +70,7 @@ define dso_local range(i32 -1, 1) i32 @read_mailmap_file(ptr noundef %0, ptr nou
   br label %24
 
 24:                                               ; preds = %13, %3, %._crit_edge, %17
-  %.010 = phi i32 [ -1, %17 ], [ 0, %._crit_edge ], [ 0, %3 ], [ 0, %13 ]
+  %.010 = phi i32 [ 0, %3 ], [ -1, %17 ], [ 0, %._crit_edge ], [ 0, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.010
 }
@@ -340,7 +340,7 @@ read_mailmap_string.exit:                         ; preds = %25, %19
   br label %27
 
 27:                                               ; preds = %6, %2, %read_mailmap_string.exit, %17, %13
-  %.0 = phi i32 [ -1, %17 ], [ 0, %read_mailmap_string.exit ], [ -1, %13 ], [ 0, %2 ], [ 0, %6 ]
+  %.0 = phi i32 [ 0, %2 ], [ -1, %17 ], [ 0, %read_mailmap_string.exit ], [ -1, %13 ], [ 0, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -605,7 +605,7 @@ lookup_prefix.exit.thread50:                      ; preds = %30, %lookup_prefix.
   br i1 %75, label %63, label %.loopexit
 
 .loopexit:                                        ; preds = %74, %71, %64, %63, %59, %56, %52
-  %.0.i43 = phi ptr [ %55, %52 ], [ null, %56 ], [ null, %59 ], [ %66, %71 ], [ null, %64 ], [ null, %63 ], [ null, %74 ]
+  %.0.i43 = phi ptr [ %55, %52 ], [ null, %56 ], [ null, %59 ], [ %66, %71 ], [ null, %63 ], [ null, %74 ], [ null, %64 ]
   %.not33 = icmp eq ptr %.0.i43, null
   %spec.select = select i1 %.not33, ptr %.0.i53, ptr %.0.i43
   %.not34 = icmp eq ptr %spec.select, null
@@ -646,8 +646,8 @@ lookup_prefix.exit.thread50:                      ; preds = %30, %lookup_prefix.
   store i64 %86, ptr %4, align 8, !tbaa !36
   br label %.thread
 
-.thread:                                          ; preds = %23, %22, %33, %17, %14, %lookup_prefix.exit, %.loopexit, %82, %.thread74, %.thread72
-  %.1 = phi i32 [ 0, %82 ], [ 1, %.thread74 ], [ 1, %.thread72 ], [ 0, %.loopexit ], [ 0, %lookup_prefix.exit ], [ 0, %14 ], [ 0, %17 ], [ 0, %33 ], [ 0, %22 ], [ 0, %23 ]
+.thread:                                          ; preds = %22, %33, %23, %17, %14, %lookup_prefix.exit, %.loopexit, %82, %.thread74, %.thread72
+  %.1 = phi i32 [ 1, %.thread72 ], [ 0, %82 ], [ 1, %.thread74 ], [ 0, %.loopexit ], [ 0, %lookup_prefix.exit ], [ 0, %14 ], [ 0, %17 ], [ 0, %23 ], [ 0, %33 ], [ 0, %22 ]
   ret i32 %.1
 }
 

@@ -109,7 +109,7 @@ define hidden range(i32 -1, 2) i32 @peekclassic_open(ptr noundef %0, ptr noundef
   br i1 %cond, label %38, label %76
 
 38:                                               ; preds = %36, %35, %37
-  %.0117 = phi i32 [ 2, %36 ], [ 1, %35 ], [ 22, %37 ]
+  %.0117 = phi i32 [ 1, %35 ], [ 2, %36 ], [ 22, %37 ]
   %39 = load i32, ptr %14, align 4
   %40 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %39) #6, !srcloc !8
   store i32 %40, ptr %14, align 4
@@ -179,7 +179,7 @@ switch.lookup:                                    ; preds = %38
   br label %76
 
 76:                                               ; preds = %9, %28, %37, %35, %18, %16, %7, %switch.lookup
-  %.0 = phi i32 [ 1, %switch.lookup ], [ %., %7 ], [ %.128, %16 ], [ 0, %18 ], [ 0, %35 ], [ 0, %37 ], [ 0, %28 ], [ 0, %9 ]
+  %.0 = phi i32 [ 0, %28 ], [ %., %7 ], [ 0, %37 ], [ 0, %18 ], [ 1, %switch.lookup ], [ 0, %35 ], [ %.128, %16 ], [ 0, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -223,7 +223,7 @@ define internal noundef zeroext i1 @peekclassic_seek_read_v56(ptr noundef readon
   br label %17
 
 17:                                               ; preds = %10, %13, %16, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %16 ], [ false, %13 ], [ true, %10 ]
+  %.0 = phi i1 [ false, %5 ], [ false, %13 ], [ false, %16 ], [ true, %10 ]
   ret i1 %.0
 }
 
@@ -263,7 +263,7 @@ define internal noundef zeroext i1 @peekclassic_read_v7(ptr noundef readonly cap
   br label %25
 
 25:                                               ; preds = %21, %15, %5, %24
-  %.0 = phi i1 [ true, %24 ], [ false, %5 ], [ false, %15 ], [ false, %21 ]
+  %.0 = phi i1 [ false, %5 ], [ true, %24 ], [ false, %15 ], [ false, %21 ]
   ret i1 %.0
 }
 
@@ -291,7 +291,7 @@ define internal noundef zeroext i1 @peekclassic_seek_read_v7(ptr noundef readonl
   br label %18
 
 18:                                               ; preds = %10, %14, %17, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %17 ], [ false, %14 ], [ true, %10 ]
+  %.0 = phi i1 [ false, %14 ], [ false, %5 ], [ false, %17 ], [ true, %10 ]
   ret i1 %.0
 }
 
@@ -566,7 +566,7 @@ define internal fastcc range(i32 -1, 65536) i32 @peekclassic_read_packet_v7(ptr 
   br label %150
 
 150:                                              ; preds = %144, %97, %5, %148, %135, %95
-  %.085 = phi i32 [ %149, %148 ], [ -1, %95 ], [ -1, %135 ], [ -1, %5 ], [ -1, %97 ], [ -1, %144 ]
+  %.085 = phi i32 [ %149, %148 ], [ -1, %97 ], [ -1, %95 ], [ -1, %135 ], [ -1, %5 ], [ -1, %144 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.085

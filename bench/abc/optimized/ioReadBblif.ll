@@ -128,8 +128,8 @@ define ptr @Bbl_ManToAbc(ptr noundef %0) local_unnamed_addr #0 {
   br label %Vec_PtrGrow.exit.sink.split.i.i
 
 Vec_PtrGrow.exit.sink.split.i.i:                  ; preds = %44, %46, %36, %38
-  %storemerge = phi ptr [ %37, %36 ], [ %39, %38 ], [ %45, %44 ], [ %47, %46 ]
-  %.sink.i.i = phi i32 [ %27, %36 ], [ %27, %38 ], [ %31, %44 ], [ %31, %46 ]
+  %storemerge = phi ptr [ %39, %38 ], [ %37, %36 ], [ %45, %44 ], [ %47, %46 ]
+  %.sink.i.i = phi i32 [ %27, %38 ], [ %27, %36 ], [ %31, %44 ], [ %31, %46 ]
   store ptr %storemerge, ptr %8, align 8, !tbaa !26
   store i32 %.sink.i.i, ptr %6, align 8, !tbaa !24
   br label %Vec_PtrGrow.exit.i.i
@@ -492,8 +492,8 @@ Abc_Clock.exit:
   br label %Vec_PtrGrow.exit.sink.split.i.i
 
 Vec_PtrGrow.exit.sink.split.i.i:                  ; preds = %52, %54, %44, %46
-  %storemerge = phi ptr [ %45, %44 ], [ %47, %46 ], [ %53, %52 ], [ %55, %54 ]
-  %.sink.i.i = phi i32 [ %37, %44 ], [ %37, %46 ], [ %39, %52 ], [ %39, %54 ]
+  %storemerge = phi ptr [ %47, %46 ], [ %45, %44 ], [ %53, %52 ], [ %55, %54 ]
+  %.sink.i.i = phi i32 [ %37, %46 ], [ %37, %44 ], [ %39, %52 ], [ %39, %54 ]
   store ptr %storemerge, ptr %28, align 8, !tbaa !26
   store i32 %.sink.i.i, ptr %26, align 8, !tbaa !24
   br label %Vec_PtrGrow.exit.i.i
@@ -720,8 +720,8 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br label %Vec_PtrGrow.exit.sink.split.i.i95
 
 Vec_PtrGrow.exit.sink.split.i.i95:                ; preds = %147, %149, %139, %141
-  %storemerge117 = phi ptr [ %140, %139 ], [ %142, %141 ], [ %148, %147 ], [ %150, %149 ]
-  %.sink.i.i96 = phi i32 [ %132, %139 ], [ %132, %141 ], [ %134, %147 ], [ %134, %149 ]
+  %storemerge117 = phi ptr [ %142, %141 ], [ %140, %139 ], [ %148, %147 ], [ %150, %149 ]
+  %.sink.i.i96 = phi i32 [ %132, %141 ], [ %132, %139 ], [ %134, %147 ], [ %134, %149 ]
   store ptr %storemerge117, ptr %28, align 8, !tbaa !26
   store i32 %.sink.i.i96, ptr %26, align 8, !tbaa !24
   br label %Vec_PtrGrow.exit.i.i98

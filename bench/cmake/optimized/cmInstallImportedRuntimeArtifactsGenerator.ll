@@ -1093,7 +1093,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit142: ; preds = %_Z
   br label %.body
 
 .body:                                            ; preds = %156, %153, %221
-  %.pn114 = phi { ptr, i32 } [ %222, %221 ], [ %154, %156 ], [ %154, %153 ]
+  %.pn114 = phi { ptr, i32 } [ %222, %221 ], [ %154, %153 ], [ %154, %156 ]
   %223 = load ptr, ptr %29, align 8, !tbaa !15
   %224 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %225 = icmp eq ptr %223, %224
@@ -1356,7 +1356,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit186: ; preds = %_Z
   br label %.body165
 
 .body165:                                         ; preds = %276, %273, %318
-  %.pn110 = phi { ptr, i32 } [ %319, %318 ], [ %274, %276 ], [ %274, %273 ]
+  %.pn110 = phi { ptr, i32 } [ %319, %318 ], [ %274, %273 ], [ %274, %276 ]
   %320 = load ptr, ptr %32, align 8, !tbaa !15
   %321 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %322 = icmp eq ptr %320, %321
@@ -1806,7 +1806,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit244: ; preds = %_Z
   br label %.body214
 
 .body214:                                         ; preds = %423, %420, %488
-  %.pn102 = phi { ptr, i32 } [ %489, %488 ], [ %421, %423 ], [ %421, %420 ]
+  %.pn102 = phi { ptr, i32 } [ %489, %488 ], [ %421, %420 ], [ %421, %423 ]
   %490 = load ptr, ptr %39, align 8, !tbaa !15
   %491 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %492 = icmp eq ptr %490, %491
@@ -2722,7 +2722,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit368: ; preds = %_Z
   br label %.body338
 
 .body338:                                         ; preds = %764, %761, %829
-  %.pn83 = phi { ptr, i32 } [ %830, %829 ], [ %762, %764 ], [ %762, %761 ]
+  %.pn83 = phi { ptr, i32 } [ %830, %829 ], [ %762, %761 ], [ %762, %764 ]
   %831 = load ptr, ptr %52, align 8, !tbaa !15
   %832 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %833 = icmp eq ptr %831, %832
@@ -2985,7 +2985,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit412: ; preds = %_Z
   br label %.body391
 
 .body391:                                         ; preds = %884, %881, %926
-  %.pn = phi { ptr, i32 } [ %927, %926 ], [ %882, %884 ], [ %882, %881 ]
+  %.pn = phi { ptr, i32 } [ %927, %926 ], [ %882, %881 ], [ %882, %884 ]
   %928 = load ptr, ptr %55, align 8, !tbaa !15
   %929 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %930 = icmp eq ptr %928, %929

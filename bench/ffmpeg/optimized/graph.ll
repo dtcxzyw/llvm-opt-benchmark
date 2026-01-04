@@ -438,8 +438,8 @@ ff_sws_graph_add_pass.exit:                       ; preds = %125
   %.not15.i = icmp eq ptr %.pre.i19, null
   br i1 %.not15.i, label %init_passes.exit.thread, label %146
 
-init_passes.exit.thread:                          ; preds = %112, %ff_sws_graph_add_pass.exit, %adapt_colors.exit.thread.i, %ff_sws_graph_add_pass.exit.thread
-  %.0.i.ph = phi i32 [ -12, %ff_sws_graph_add_pass.exit.thread ], [ %.019.i.ph.i, %adapt_colors.exit.thread.i ], [ -12, %ff_sws_graph_add_pass.exit ], [ %113, %112 ]
+init_passes.exit.thread:                          ; preds = %adapt_colors.exit.thread.i, %112, %ff_sws_graph_add_pass.exit, %ff_sws_graph_add_pass.exit.thread
+  %.0.i.ph = phi i32 [ -12, %ff_sws_graph_add_pass.exit.thread ], [ -12, %ff_sws_graph_add_pass.exit ], [ %113, %112 ], [ %.019.i.ph.i, %adapt_colors.exit.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -453,7 +453,7 @@ init_passes.exit.thread:                          ; preds = %112, %ff_sws_graph_
   br label %148
 
 147:                                              ; preds = %init_passes.exit.thread, %34
-  %.0 = phi i32 [ %32, %34 ], [ %.0.i.ph, %init_passes.exit.thread ]
+  %.0 = phi i32 [ %.0.i.ph, %init_passes.exit.thread ], [ %32, %34 ]
   call void @ff_sws_graph_free(ptr noundef nonnull %16)
   br label %148
 
@@ -1077,7 +1077,7 @@ ff_q_equal.exit.thread17.i44.i.i.i:               ; preds = %181, %178, %ff_cie_
   br label %ff_props_equal.exit
 
 ff_props_equal.exit:                              ; preds = %198, %195, %192, %185, %ff_q_equal.exit.thread17.i44.i.i.i, %181, %171, %159, %149, %145, %135, %123, %113, %109, %99, %87, %77, %69, %59, %48, %42, %36, %30, %24, %18, %12, %6, %2
-  %201 = phi i32 [ 0, %6 ], [ 0, %2 ], [ 0, %36 ], [ 0, %30 ], [ 0, %24 ], [ 0, %18 ], [ 0, %12 ], [ 0, %48 ], [ 0, %42 ], [ 1, %ff_q_equal.exit.thread17.i44.i.i.i ], [ %200, %198 ], [ 1, %192 ], [ 0, %195 ], [ 0, %185 ], [ 0, %181 ], [ 0, %171 ], [ 0, %123 ], [ 0, %113 ], [ 0, %109 ], [ 0, %99 ], [ 0, %159 ], [ 0, %149 ], [ 0, %145 ], [ 0, %135 ], [ 0, %69 ], [ 0, %59 ], [ 0, %87 ], [ 0, %77 ]
+  %201 = phi i32 [ 0, %6 ], [ 0, %2 ], [ 0, %36 ], [ 0, %30 ], [ 0, %24 ], [ 0, %18 ], [ 0, %12 ], [ 0, %87 ], [ 0, %77 ], [ 0, %48 ], [ 0, %42 ], [ 0, %59 ], [ 0, %149 ], [ 0, %159 ], [ 0, %145 ], [ 0, %109 ], [ 0, %181 ], [ 0, %171 ], [ 0, %185 ], [ 1, %ff_q_equal.exit.thread17.i44.i.i.i ], [ 0, %195 ], [ 1, %192 ], [ %200, %198 ], [ 0, %99 ], [ 0, %113 ], [ 0, %123 ], [ 0, %135 ], [ 0, %69 ]
   ret i32 %201
 }
 
@@ -1923,7 +1923,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @init_legacy_subpass(ptr no
   br label %43
 
 43:                                               ; preds = %40, %36
-  %.0100 = phi i32 [ %19, %36 ], [ %spec.select, %40 ]
+  %.0100 = phi i32 [ %spec.select, %40 ], [ %19, %36 ]
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 40332
   %45 = load i32, ptr %44, align 4, !tbaa !138
   %.not119 = icmp eq i32 %45, 0
@@ -1964,7 +1964,7 @@ isALPHA.exit.thread:                              ; preds = %54, %isALPHA.exit
   br i1 %.not.i131, label %.thread145, label %pass_append.exit
 
 pass_append.exit:                                 ; preds = %isALPHA.exit.thread, %isALPHA.exit, %46, %43
-  %60 = phi ptr [ %2, %isALPHA.exit ], [ %2, %46 ], [ %2, %43 ], [ %59, %isALPHA.exit.thread ]
+  %60 = phi ptr [ %2, %43 ], [ %2, %isALPHA.exit ], [ %2, %46 ], [ %59, %isALPHA.exit.thread ]
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 40340
   %62 = load i32, ptr %61, align 4, !tbaa !140
   %.not122 = icmp eq i32 %62, 0
@@ -1983,7 +1983,7 @@ pass_append.exit:                                 ; preds = %isALPHA.exit.thread
   br i1 %.not.i133, label %.thread145, label %pass_append.exit135
 
 pass_append.exit135:                              ; preds = %67, %63, %pass_append.exit
-  %69 = phi ptr [ %60, %63 ], [ %60, %pass_append.exit ], [ %68, %67 ]
+  %69 = phi ptr [ %60, %pass_append.exit ], [ %60, %63 ], [ %68, %67 ]
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %71 = load i32, ptr %70, align 4, !tbaa !101
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 176
@@ -2107,7 +2107,7 @@ pass_append.exit138:                              ; preds = %132, %129, %.loopex
   br label %.thread145
 
 .thread145:                                       ; preds = %26, %93, %97, %103, %132, %67, %isALPHA.exit.thread, %82, %pass_append.exit135, %35, %pass_append.exit138
-  %.4 = phi i32 [ 0, %pass_append.exit138 ], [ 0, %35 ], [ -12, %pass_append.exit135 ], [ -12, %82 ], [ -12, %isALPHA.exit.thread ], [ -12, %67 ], [ -12, %132 ], [ -12, %93 ], [ %101, %97 ], [ %104, %103 ], [ %32, %26 ]
+  %.4 = phi i32 [ -12, %132 ], [ 0, %pass_append.exit138 ], [ -12, %82 ], [ -12, %67 ], [ -12, %pass_append.exit135 ], [ -12, %isALPHA.exit.thread ], [ -12, %93 ], [ 0, %35 ], [ %101, %97 ], [ %104, %103 ], [ %32, %26 ]
   ret i32 %.4
 }
 

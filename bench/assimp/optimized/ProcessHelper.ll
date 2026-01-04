@@ -326,7 +326,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12: ; preds = %102
   br label %common.resume
 
 108:                                              ; preds = %.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.3 = phi ptr [ %storemerge.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %55, %.thread ]
+  %.3 = phi ptr [ %55, %.thread ], [ %storemerge.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %109 = load i8, ptr %.3, align 1
   %.not = icmp eq i8 %109, 0
   br i1 %.not, label %.loopexit, label %15, !llvm.loop !10
@@ -1154,7 +1154,7 @@ _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread:
   br i1 %5, label %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.split, label %_ZNK6aiMesh15HasVertexColorsEj.exit.thread
 
 _ZNK6aiMesh16HasTextureCoordsEj.exit.preheader:   ; preds = %18, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.split
-  %.us-phi = phi i32 [ %.3, %18 ], [ %.226, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.split ]
+  %.us-phi = phi i32 [ %.226, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.split ], [ %.3, %18 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %_ZNK6aiMesh15HasVertexColorsEj.exit
 
@@ -1352,7 +1352,7 @@ _ZNSt6vectorISt4pairIjfESaIS1_EE12emplace_backIJRjRKfEEERS1_DpOT_.exit: ; preds 
   br i1 %71, label %31, label %._crit_edge.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %._crit_edge, %1, %2, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %2 ], [ null, %1 ], [ %12, %._crit_edge ]
+  %.0 = phi ptr [ null, %1 ], [ null, %5 ], [ null, %2 ], [ %12, %._crit_edge ]
   ret ptr %.0
 }
 
@@ -1681,10 +1681,10 @@ _ZNK6aiMesh15HasVertexColorsEj.exit:              ; preds = %_ZNK6aiMesh16HasTex
   br i1 %.not.i208.not, label %_ZNK6aiMesh15HasVertexColorsEj.exit.thread.split, label %160
 
 _ZNK6aiMesh15HasVertexColorsEj.exit.thread.split: ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit, %_ZNK6aiMesh16HasTextureCoordsEj.exit, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread, %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.split
-  %151 = phi ptr [ %121, %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.split ], [ null, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread ], [ %121, %_ZNK6aiMesh16HasTextureCoordsEj.exit ], [ %121, %_ZNK6aiMesh15HasVertexColorsEj.exit ]
-  %152 = phi ptr [ %120, %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.split ], [ null, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread ], [ %120, %_ZNK6aiMesh16HasTextureCoordsEj.exit ], [ %120, %_ZNK6aiMesh15HasVertexColorsEj.exit ]
-  %153 = phi ptr [ %119, %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.split ], [ %116, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread ], [ %119, %_ZNK6aiMesh16HasTextureCoordsEj.exit ], [ %119, %_ZNK6aiMesh15HasVertexColorsEj.exit ]
-  %154 = phi ptr [ %118, %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.split ], [ %117, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread ], [ %118, %_ZNK6aiMesh16HasTextureCoordsEj.exit ], [ %118, %_ZNK6aiMesh15HasVertexColorsEj.exit ]
+  %151 = phi ptr [ null, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread ], [ %121, %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.split ], [ %121, %_ZNK6aiMesh16HasTextureCoordsEj.exit ], [ %121, %_ZNK6aiMesh15HasVertexColorsEj.exit ]
+  %152 = phi ptr [ null, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread ], [ %120, %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.split ], [ %120, %_ZNK6aiMesh16HasTextureCoordsEj.exit ], [ %120, %_ZNK6aiMesh15HasVertexColorsEj.exit ]
+  %153 = phi ptr [ %116, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread ], [ %119, %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.split ], [ %119, %_ZNK6aiMesh16HasTextureCoordsEj.exit ], [ %119, %_ZNK6aiMesh15HasVertexColorsEj.exit ]
+  %154 = phi ptr [ %117, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread ], [ %118, %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.split ], [ %118, %_ZNK6aiMesh16HasTextureCoordsEj.exit ], [ %118, %_ZNK6aiMesh15HasVertexColorsEj.exit ]
   %155 = shl i64 %23, 2
   %156 = add nuw nsw i64 %155, 8
   %157 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %156) #18

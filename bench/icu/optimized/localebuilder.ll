@@ -187,7 +187,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1183,7 +1183,7 @@ _ZN6icu_7712_GLOBAL__N_19transformEPci.exit:      ; preds = %_ZN6icu_7712_GLOBAL
           to label %_ZN12_GLOBAL__N_119_isExtensionSubtagsEcPKci.exit unwind label %.loopexit.split-lp
 
 _ZN12_GLOBAL__N_119_isExtensionSubtagsEcPKci.exit: ; preds = %42, %44, %46, %48
-  %.0.i = phi i1 [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ]
+  %.0.i = phi i1 [ %47, %46 ], [ %45, %44 ], [ %43, %42 ], [ %49, %48 ]
   br i1 %.0.i, label %51, label %50
 
 50:                                               ; preds = %_ZN12_GLOBAL__N_119_isExtensionSubtagsEcPKci.exit
@@ -2267,7 +2267,7 @@ _ZN6icu_7710CharStringC2Ev.exit:                  ; preds = %._crit_edge
           to label %75 unwind label %70
 
 75:                                               ; preds = %.lr.ph, %.lr.ph, %73
-  %76 = phi i8 [ 0, %.lr.ph ], [ %74, %73 ], [ 0, %.lr.ph ]
+  %76 = phi i8 [ 0, %.lr.ph ], [ 0, %.lr.ph ], [ %74, %73 ]
   store i8 %76, ptr %.02350, align 1, !tbaa !24
   %77 = add nuw nsw i32 %.02251, 1
   %78 = getelementptr inbounds nuw i8, ptr %.02350, i64 1
@@ -2778,7 +2778,7 @@ _ZN6icu_7712_GLOBAL__N_19transformEPci.exit:      ; preds = %.noexc36, %59, %56
   br i1 %116, label %117, label %_ZN6icu_7712_GLOBAL__N_115_isKeywordValueEPKcS2_i.exit.thread
 
 _ZN6icu_7712_GLOBAL__N_115_isKeywordValueEPKcS2_i.exit: ; preds = %86, %88, %90, %92, %97
-  %.0.i = phi i1 [ %87, %86 ], [ %89, %88 ], [ %91, %90 ], [ %93, %92 ], [ %98, %97 ]
+  %.0.i = phi i1 [ %87, %86 ], [ %93, %92 ], [ %98, %97 ], [ %91, %90 ], [ %89, %88 ]
   br i1 %.0.i, label %117, label %_ZN6icu_7712_GLOBAL__N_115_isKeywordValueEPKcS2_i.exit.thread
 
 _ZN6icu_7712_GLOBAL__N_115_isKeywordValueEPKcS2_i.exit.thread: ; preds = %.noexc38, %.noexc48, %_ZN6icu_7712_GLOBAL__N_115_isKeywordValueEPKcS2_i.exit, %.noexc48.thread
@@ -2839,7 +2839,7 @@ _ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit: ; preds = %127, %.lo
   ret void
 
 131:                                              ; preds = %52, %.body
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %53, %52 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %53, %52 ], [ %.pn, %.body ]
   %132 = icmp eq ptr %.sroa.0.0, null
   br i1 %132, label %_ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit52, label %133
 

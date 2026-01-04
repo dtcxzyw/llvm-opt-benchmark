@@ -587,7 +587,7 @@ define linkonce_odr void @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS
   %31 = icmp slt i32 %30, %29
   br i1 %31, label %select.unfold, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE17_M_insert_unique_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_ESt23_Rb_tree_const_iteratorIS9_EOT_RT0_.exit.i
 
-select.unfold:                                    ; preds = %28, %12, %._crit_edge.thread.i.i
+select.unfold:                                    ; preds = %28, %._crit_edge.thread.i.i, %12
   %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa29.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa28.i.i, %28 ]
   %32 = icmp eq ptr %.sroa.12.0.i.ph, %6
   br i1 %32, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i, label %33
@@ -600,7 +600,7 @@ select.unfold:                                    ; preds = %28, %12, %._crit_ed
   br label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i: ; preds = %33, %select.unfold
-  %38 = phi i1 [ true, %select.unfold ], [ %37, %33 ]
+  %38 = phi i1 [ %37, %33 ], [ true, %select.unfold ]
   %39 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #25
           to label %.noexc6 unwind label %43
 
@@ -3041,7 +3041,7 @@ _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i237: ; preds = %_ZN7
   unreachable
 
 .body164:                                         ; preds = %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i237, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i243, %384, %.body664
-  %.pn123.pn.pn.pn = phi { ptr, i32 } [ %eh.lpad-body665, %.body664 ], [ %.pn123.pn.pn, %384 ], [ %.pn123.pn.pn, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i243 ], [ %.pn123.pn.pn, %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i237 ]
+  %.pn123.pn.pn.pn = phi { ptr, i32 } [ %eh.lpad-body665, %.body664 ], [ %.pn123.pn.pn, %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i237 ], [ %.pn123.pn.pn, %384 ], [ %.pn123.pn.pn, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i243 ]
   %406 = load ptr, ptr %24, align 8
   %407 = load atomic i32, ptr %406 monotonic, align 4
   switch i32 %407, label %_ZN9QtPrivate8RefCount5derefEv.exit.i249 [
@@ -3064,7 +3064,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i248: ; preds = %_ZN9QtPrivate8RefCo
   br label %.body161
 
 .body161:                                         ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i248, %_ZN9QtPrivate8RefCount5derefEv.exit.i249, %.body164, %287, %152
-  %.pn123.pn.pn.pn.pn = phi { ptr, i32 } [ %288, %287 ], [ %153, %152 ], [ %.pn123.pn.pn.pn, %.body164 ], [ %.pn123.pn.pn.pn, %_ZN9QtPrivate8RefCount5derefEv.exit.i249 ], [ %.pn123.pn.pn.pn, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i248 ]
+  %.pn123.pn.pn.pn.pn = phi { ptr, i32 } [ %153, %152 ], [ %288, %287 ], [ %.pn123.pn.pn.pn, %.body164 ], [ %.pn123.pn.pn.pn, %_ZN9QtPrivate8RefCount5derefEv.exit.i249 ], [ %.pn123.pn.pn.pn, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i248 ]
   call void @_ZN17RichParameterListD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #22
   br label %410
 
@@ -4092,7 +4092,7 @@ _ZN7QStringD2Ev.exit457:                          ; preds = %_ZN7QStringD2Ev.exi
   br i1 %.not784, label %.loopexit797, label %.lr.ph836
 
 .body392:                                         ; preds = %.loopexit789, %.loopexit.split-lp790.loopexit.split-lp, %.loopexit.split-lp790.loopexit, %632, %603, %609, %582
-  %.pn108 = phi { ptr, i32 } [ %583, %582 ], [ %.pn.i385, %609 ], [ %604, %603 ], [ %633, %632 ], [ %lpad.loopexit791, %.loopexit789 ], [ %lpad.loopexit794, %.loopexit.split-lp790.loopexit ], [ %lpad.loopexit.split-lp795, %.loopexit.split-lp790.loopexit.split-lp ]
+  %.pn108 = phi { ptr, i32 } [ %583, %582 ], [ %604, %603 ], [ %633, %632 ], [ %.pn.i385, %609 ], [ %lpad.loopexit791, %.loopexit789 ], [ %lpad.loopexit794, %.loopexit.split-lp790.loopexit ], [ %lpad.loopexit.split-lp795, %.loopexit.split-lp790.loopexit.split-lp ]
   call void @_ZN9pymeshlab17FunctionParameterD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %50) #22
   br label %671
 
@@ -4125,7 +4125,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i458: ; preds = %_ZN9QtPrivate8RefCo
   br label %.body350
 
 .body350:                                         ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i458, %_ZN9QtPrivate8RefCount5derefEv.exit.i459, %672, %528, %535, %532, %530
-  %.pn108.pn.pn.pn = phi { ptr, i32 } [ %533, %532 ], [ %531, %530 ], [ %529, %528 ], [ %536, %535 ], [ %.pn108.pn.pn, %672 ], [ %.pn108.pn.pn, %_ZN9QtPrivate8RefCount5derefEv.exit.i459 ], [ %.pn108.pn.pn, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i458 ]
+  %.pn108.pn.pn.pn = phi { ptr, i32 } [ %536, %535 ], [ %531, %530 ], [ %533, %532 ], [ %529, %528 ], [ %.pn108.pn.pn, %672 ], [ %.pn108.pn.pn, %_ZN9QtPrivate8RefCount5derefEv.exit.i459 ], [ %.pn108.pn.pn, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i458 ]
   call void @_ZN17RichParameterListD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #22
   br label %677
 
@@ -5250,7 +5250,7 @@ _ZN7QStringD2Ev.exit662:                          ; preds = %_ZN7QStringD2Ev.exi
   br label %_ZNSt7__cxx114listI10FileFormatSaIS1_EED2Ev.exit270
 
 _ZNSt7__cxx114listI10FileFormatSaIS1_EED2Ev.exit270: ; preds = %.lr.ph.i.i.i267, %.lr.ph.i.i.i477, %_ZN7QStringD2Ev.exit475, %_ZN7QStringD2Ev.exit265, %972
-  %.pn123.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn94.pn.pn.pn.pn.pn, %972 ], [ %.pn123.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN7QStringD2Ev.exit265 ], [ %.pn108.pn.pn.pn.pn.pn.pn.pn, %_ZN7QStringD2Ev.exit475 ], [ %.pn108.pn.pn.pn.pn.pn.pn.pn, %.lr.ph.i.i.i477 ], [ %.pn123.pn.pn.pn.pn.pn.pn.pn.pn, %.lr.ph.i.i.i267 ]
+  %.pn123.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn94.pn.pn.pn.pn.pn, %972 ], [ %.pn108.pn.pn.pn.pn.pn.pn.pn, %.lr.ph.i.i.i477 ], [ %.pn123.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN7QStringD2Ev.exit265 ], [ %.pn108.pn.pn.pn.pn.pn.pn.pn, %_ZN7QStringD2Ev.exit475 ], [ %.pn123.pn.pn.pn.pn.pn.pn.pn.pn, %.lr.ph.i.i.i267 ]
   resume { ptr, i32 } %.pn123.pn.pn.pn.pn.pn.pn.pn.pn.pn
 }
 
@@ -5896,7 +5896,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_
   br label %11
 
 11:                                               ; preds = %8, %5
-  %12 = phi i1 [ true, %5 ], [ %10, %8 ]
+  %12 = phi i1 [ %10, %8 ], [ true, %5 ]
   %13 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #25
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   invoke void @_ZN9pymeshlab8FunctionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %14, ptr noundef nonnull align 8 dereferenceable(80) %3)
@@ -6656,7 +6656,7 @@ _ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_
   br label %_ZNKSt3setIN9pymeshlab8FunctionESt4lessIS1_ESaIS1_EE4findERKS1_.exit
 
 _ZNKSt3setIN9pymeshlab8FunctionESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; preds = %.noexc19, %_ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i, %16
-  %.sroa.0.0.i.i = phi ptr [ %19, %_ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i ], [ %19, %16 ], [ %spec.select.i.i, %.noexc19 ]
+  %.sroa.0.0.i.i = phi ptr [ %19, %16 ], [ %19, %_ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i ], [ %spec.select.i.i, %.noexc19 ]
   call void @_ZN9pymeshlab8FunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %3) #22
   %26 = load ptr, ptr %6, align 8
   %27 = load atomic i32, ptr %26 monotonic, align 4
@@ -7089,7 +7089,7 @@ _ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_
   br label %_ZNKSt3setIN9pymeshlab8FunctionESt4lessIS1_ESaIS1_EE4findERKS1_.exit
 
 _ZNKSt3setIN9pymeshlab8FunctionESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; preds = %.noexc10, %_ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i, %15
-  %.sroa.0.0.i.i = phi i1 [ false, %_ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i ], [ false, %15 ], [ %not., %.noexc10 ]
+  %.sroa.0.0.i.i = phi i1 [ false, %15 ], [ false, %_ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i ], [ %not., %.noexc10 ]
   call void @_ZN9pymeshlab8FunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %3) #22
   %25 = load ptr, ptr %6, align 8
   %26 = load atomic i32, ptr %25 monotonic, align 4
@@ -7273,7 +7273,7 @@ _ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_
   br label %_ZNKSt3setIN9pymeshlab8FunctionESt4lessIS1_ESaIS1_EE4findERKS1_.exit
 
 _ZNKSt3setIN9pymeshlab8FunctionESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; preds = %.noexc19, %_ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i, %16
-  %.sroa.0.0.i.i = phi ptr [ %19, %_ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i ], [ %19, %16 ], [ %spec.select.i.i, %.noexc19 ]
+  %.sroa.0.0.i.i = phi ptr [ %19, %16 ], [ %19, %_ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i ], [ %spec.select.i.i, %.noexc19 ]
   call void @_ZN9pymeshlab8FunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %3) #22
   %26 = load ptr, ptr %6, align 8
   %27 = load atomic i32, ptr %26 monotonic, align 4
@@ -7503,7 +7503,7 @@ _ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_
   br label %_ZNKSt3setIN9pymeshlab8FunctionESt4lessIS1_ESaIS1_EE4findERKS1_.exit
 
 _ZNKSt3setIN9pymeshlab8FunctionESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; preds = %.noexc10, %_ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i, %15
-  %.sroa.0.0.i.i = phi i1 [ false, %_ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i ], [ false, %15 ], [ %not., %.noexc10 ]
+  %.sroa.0.0.i.i = phi i1 [ false, %15 ], [ false, %_ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i ], [ %not., %.noexc10 ]
   call void @_ZN9pymeshlab8FunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %3) #22
   %25 = load ptr, ptr %6, align 8
   %26 = load atomic i32, ptr %25 monotonic, align 4
@@ -7687,7 +7687,7 @@ _ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_
   br label %_ZNKSt3setIN9pymeshlab8FunctionESt4lessIS1_ESaIS1_EE4findERKS1_.exit
 
 _ZNKSt3setIN9pymeshlab8FunctionESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; preds = %.noexc19, %_ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i, %16
-  %.sroa.0.0.i.i = phi ptr [ %19, %_ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i ], [ %19, %16 ], [ %spec.select.i.i, %.noexc19 ]
+  %.sroa.0.0.i.i = phi ptr [ %19, %16 ], [ %19, %_ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i ], [ %spec.select.i.i, %.noexc19 ]
   call void @_ZN9pymeshlab8FunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %3) #22
   %26 = load ptr, ptr %6, align 8
   %27 = load atomic i32, ptr %26 monotonic, align 4
@@ -7917,7 +7917,7 @@ _ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_
   br label %_ZNKSt3setIN9pymeshlab8FunctionESt4lessIS1_ESaIS1_EE4findERKS1_.exit
 
 _ZNKSt3setIN9pymeshlab8FunctionESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; preds = %.noexc10, %_ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i, %15
-  %.sroa.0.0.i.i = phi i1 [ false, %_ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i ], [ false, %15 ], [ %not., %.noexc10 ]
+  %.sroa.0.0.i.i = phi i1 [ false, %15 ], [ false, %_ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i ], [ %not., %.noexc10 ]
   call void @_ZN9pymeshlab8FunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %3) #22
   %25 = load ptr, ptr %6, align 8
   %26 = load atomic i32, ptr %25 monotonic, align 4
@@ -8101,7 +8101,7 @@ _ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_
   br label %_ZNKSt3setIN9pymeshlab8FunctionESt4lessIS1_ESaIS1_EE4findERKS1_.exit
 
 _ZNKSt3setIN9pymeshlab8FunctionESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; preds = %.noexc19, %_ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i, %16
-  %.sroa.0.0.i.i = phi ptr [ %19, %_ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i ], [ %19, %16 ], [ %spec.select.i.i, %.noexc19 ]
+  %.sroa.0.0.i.i = phi ptr [ %19, %16 ], [ %19, %_ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i ], [ %spec.select.i.i, %.noexc19 ]
   call void @_ZN9pymeshlab8FunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %3) #22
   %26 = load ptr, ptr %6, align 8
   %27 = load atomic i32, ptr %26 monotonic, align 4
@@ -8331,7 +8331,7 @@ _ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_
   br label %_ZNKSt3setIN9pymeshlab8FunctionESt4lessIS1_ESaIS1_EE4findERKS1_.exit
 
 _ZNKSt3setIN9pymeshlab8FunctionESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; preds = %.noexc10, %_ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i, %15
-  %.sroa.0.0.i.i = phi i1 [ false, %_ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i ], [ false, %15 ], [ %not., %.noexc10 ]
+  %.sroa.0.0.i.i = phi i1 [ false, %15 ], [ false, %_ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i ], [ %not., %.noexc10 ]
   call void @_ZN9pymeshlab8FunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %3) #22
   %25 = load ptr, ptr %6, align 8
   %26 = load atomic i32, ptr %25 monotonic, align 4
@@ -8520,13 +8520,13 @@ define linkonce_odr void @_ZN3vcg3tri3BoxI6CMeshOEEvRT_RKNS3_7BoxTypeE(ptr nound
   br i1 %.not.i.i.i.i3.i, label %common.resume, label %common.resume.sink.split
 
 common.resume.sink.split:                         ; preds = %21, %211, %199, %187, %175, %163, %151, %139, %127, %115, %103, %91, %79
-  %.sink = phi ptr [ %82, %79 ], [ %94, %91 ], [ %106, %103 ], [ %118, %115 ], [ %130, %127 ], [ %142, %139 ], [ %154, %151 ], [ %166, %163 ], [ %178, %175 ], [ %190, %187 ], [ %202, %199 ], [ %214, %211 ], [ %24, %21 ]
-  %common.resume.op.ph = phi { ptr, i32 } [ %80, %79 ], [ %92, %91 ], [ %104, %103 ], [ %116, %115 ], [ %128, %127 ], [ %140, %139 ], [ %152, %151 ], [ %164, %163 ], [ %176, %175 ], [ %188, %187 ], [ %200, %199 ], [ %212, %211 ], [ %22, %21 ]
+  %.sink = phi ptr [ %202, %199 ], [ %190, %187 ], [ %178, %175 ], [ %166, %163 ], [ %154, %151 ], [ %142, %139 ], [ %130, %127 ], [ %118, %115 ], [ %106, %103 ], [ %94, %91 ], [ %82, %79 ], [ %214, %211 ], [ %24, %21 ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %200, %199 ], [ %188, %187 ], [ %176, %175 ], [ %164, %163 ], [ %152, %151 ], [ %140, %139 ], [ %128, %127 ], [ %116, %115 ], [ %104, %103 ], [ %92, %91 ], [ %80, %79 ], [ %212, %211 ], [ %22, %21 ]
   call void @_ZdlPv(ptr noundef nonnull %.sink) #21
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %211, %199, %187, %175, %163, %151, %139, %127, %115, %103, %91, %79, %21
-  %common.resume.op = phi { ptr, i32 } [ %22, %21 ], [ %80, %79 ], [ %92, %91 ], [ %104, %103 ], [ %116, %115 ], [ %128, %127 ], [ %140, %139 ], [ %152, %151 ], [ %164, %163 ], [ %176, %175 ], [ %188, %187 ], [ %200, %199 ], [ %212, %211 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %200, %199 ], [ %22, %21 ], [ %80, %79 ], [ %92, %91 ], [ %104, %103 ], [ %116, %115 ], [ %128, %127 ], [ %140, %139 ], [ %152, %151 ], [ %164, %163 ], [ %176, %175 ], [ %188, %187 ], [ %212, %211 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %17, %20
@@ -9547,8 +9547,8 @@ _ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit59: ;
   br label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit63.us120.us
 
 _ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit63.us120.us: ; preds = %187, %182
-  %191 = phi ptr [ %190, %187 ], [ %183, %182 ]
-  %192 = phi ptr [ %190, %187 ], [ %184, %182 ]
+  %191 = phi ptr [ %183, %182 ], [ %190, %187 ]
+  %192 = phi ptr [ %184, %182 ], [ %190, %187 ]
   %193 = add nuw nsw i32 %.052118.us119.us, 1
   %exitcond136.not = icmp eq i32 %193, 4
   br i1 %exitcond136.not, label %.split.split.us.us, label %182, !llvm.loop !69
@@ -10667,7 +10667,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8
   br label %40
 
@@ -10984,7 +10984,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8
   br label %40
 
@@ -11450,7 +11450,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit66: ; p
   br i1 %.not123, label %.loopexit, label %188, !llvm.loop !115
 
 .loopexit:                                        ; preds = %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit66, %._crit_edge145, %.loopexit130, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE10NeedUpdateEv.exit, %11
-  %.sroa.0106.0 = phi ptr [ %13, %11 ], [ %42, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE10NeedUpdateEv.exit ], [ %42, %.loopexit130 ], [ %42, %._crit_edge145 ], [ %42, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit66 ]
+  %.sroa.0106.0 = phi ptr [ %13, %11 ], [ %42, %.loopexit130 ], [ %42, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE10NeedUpdateEv.exit ], [ %42, %._crit_edge145 ], [ %42, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit66 ]
   ret ptr %.sroa.0106.0
 }
 
@@ -13995,9 +13995,9 @@ _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i: ; preds = %_ZNSt6vectorIN3v
   br label %.body.i
 
 .body.i:                                          ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ %17, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
-  %.620.i = phi ptr [ %.822.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ %15, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
-  %.2.i = phi i1 [ %.4.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %17, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ], [ %.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ]
+  %.620.i = phi ptr [ %15, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ], [ %.822.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ]
+  %.2.i = phi i1 [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ], [ %.4.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ]
   call void @_ZdlPv(ptr noundef nonnull %9) #21
   %76 = icmp eq ptr %2, %.620.i
   %or.cond.i = select i1 %.2.i, i1 true, i1 %76
@@ -14020,7 +14020,7 @@ _ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i: ; p
   br i1 %82, label %common.resume, label %.preheader.i
 
 common.resume:                                    ; preds = %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i, %112, %239, %243, %.body.thread724.i, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body.i ], [ %56, %.body.thread724.i ], [ %lpad.phi.i.i.i.i, %243 ], [ %238, %239 ], [ %111, %112 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i ]
+  %common.resume.op = phi { ptr, i32 } [ %238, %239 ], [ %111, %112 ], [ %56, %.body.thread724.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body.i ], [ %lpad.phi.i.i.i.i, %243 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i ]
   resume { ptr, i32 } %common.resume.op
 
 __cxx_global_var_init.5.exit:                     ; preds = %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit.i
@@ -14099,7 +14099,7 @@ __cxx_global_var_init.5.exit:                     ; preds = %_ZNSt4pairIKN3vcg8C
           to label %__cxx_global_var_init.6.exit unwind label %110
 
 110:                                              ; preds = %108, %106, %104, %102, %100, %98, %96, %94, %92, %90, %88, %86, %__cxx_global_var_init.5.exit
-  %.0.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 8), %__cxx_global_var_init.5.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 16), %86 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 24), %88 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 32), %90 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 40), %92 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 48), %94 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 56), %96 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 64), %98 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 72), %100 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 80), %102 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 88), %104 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 96), %106 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 104), %108 ]
+  %.0.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 104), %108 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 96), %106 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 88), %104 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 80), %102 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 72), %100 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 64), %98 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 56), %96 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 48), %94 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 40), %92 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 32), %90 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 24), %88 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 16), %86 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 8), %__cxx_global_var_init.5.exit ]
   %111 = landingpad { ptr, i32 }
           cleanup
   br label %112
@@ -14397,7 +14397,7 @@ _ZN7QStringD2Ev.exit.i:                           ; preds = %_ZN9QtPrivate8RefCo
   br i1 %236, label %__cxx_global_var_init.21.exit, label %229
 
 237:                                              ; preds = %213, %210, %207, %204, %201, %198, %195, %192, %189, %186, %183, %180, %177, %174, %171, %168, %165, %162, %159, %156, %153, %150, %147, %144, %141, %138, %135, %132, %129, %126, %123, %120, %__cxx_global_var_init.6.exit
-  %.03.i = phi ptr [ %118, %__cxx_global_var_init.6.exit ], [ %121, %120 ], [ %124, %123 ], [ %127, %126 ], [ %130, %129 ], [ %133, %132 ], [ %136, %135 ], [ %139, %138 ], [ %142, %141 ], [ %145, %144 ], [ %148, %147 ], [ %151, %150 ], [ %154, %153 ], [ %157, %156 ], [ %160, %159 ], [ %163, %162 ], [ %166, %165 ], [ %169, %168 ], [ %172, %171 ], [ %175, %174 ], [ %178, %177 ], [ %181, %180 ], [ %184, %183 ], [ %187, %186 ], [ %190, %189 ], [ %193, %192 ], [ %196, %195 ], [ %199, %198 ], [ %202, %201 ], [ %205, %204 ], [ %208, %207 ], [ %211, %210 ], [ %214, %213 ]
+  %.03.i = phi ptr [ %214, %213 ], [ %211, %210 ], [ %208, %207 ], [ %205, %204 ], [ %202, %201 ], [ %199, %198 ], [ %196, %195 ], [ %193, %192 ], [ %190, %189 ], [ %187, %186 ], [ %184, %183 ], [ %181, %180 ], [ %178, %177 ], [ %175, %174 ], [ %172, %171 ], [ %169, %168 ], [ %166, %165 ], [ %163, %162 ], [ %160, %159 ], [ %157, %156 ], [ %154, %153 ], [ %151, %150 ], [ %148, %147 ], [ %145, %144 ], [ %142, %141 ], [ %139, %138 ], [ %136, %135 ], [ %133, %132 ], [ %130, %129 ], [ %127, %126 ], [ %124, %123 ], [ %121, %120 ], [ %118, %__cxx_global_var_init.6.exit ]
   %238 = landingpad { ptr, i32 }
           cleanup
   br label %239

@@ -501,7 +501,7 @@ decode_fill_block.exit.us:                        ; preds = %211, %180, %167, %1
   br label %240
 
 240:                                              ; preds = %._crit_edge207, %78, %63, %.critedge, %239, %.split.us, %81, %60, %bytestream2_get_byte.exit.thread, %49, %19, %14
-  %.0 = phi i32 [ -1094995529, %14 ], [ -1094995529, %19 ], [ -1094995529, %49 ], [ -1094995529, %bytestream2_get_byte.exit.thread ], [ -1094995529, %.split.us ], [ %9, %239 ], [ %9, %81 ], [ -1094995529, %60 ], [ %9, %.critedge ], [ %67, %63 ], [ %79, %78 ], [ %237, %._crit_edge207 ]
+  %.0 = phi i32 [ -1094995529, %14 ], [ -1094995529, %19 ], [ -1094995529, %49 ], [ -1094995529, %bytestream2_get_byte.exit.thread ], [ %9, %.critedge ], [ -1094995529, %.split.us ], [ %79, %78 ], [ %9, %239 ], [ %67, %63 ], [ %9, %81 ], [ -1094995529, %60 ], [ %237, %._crit_edge207 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -761,7 +761,7 @@ define internal fastcc void @model_reset(ptr noundef captures(none) initializes(
   br i1 %54, label %45, label %model_update.exit, !llvm.loop !89
 
 model_update.exit:                                ; preds = %45, %28, %.loopexit.i, %._crit_edge.model_update.exit_crit_edge
-  %55 = phi i32 [ %.pre, %._crit_edge.model_update.exit_crit_edge ], [ %40, %.loopexit.i ], [ %29, %28 ], [ %52, %45 ]
+  %55 = phi i32 [ %.pre, %._crit_edge.model_update.exit_crit_edge ], [ %29, %28 ], [ %40, %.loopexit.i ], [ %52, %45 ]
   %56 = add nsw i32 %55, 6
   %57 = ashr i32 %56, 1
   store i32 %57, ptr %14, align 4, !tbaa !86
@@ -1032,7 +1032,7 @@ define internal fastcc void @reset_coders(ptr noundef %0, i32 noundef range(i32 
   br i1 %68, label %59, label %model_reset.exit, !llvm.loop !89
 
 model_reset.exit:                                 ; preds = %59, %._crit_edge.model_update.exit_crit_edge.i, %42, %.loopexit.i.i
-  %69 = phi i32 [ %.pre.i, %._crit_edge.model_update.exit_crit_edge.i ], [ %54, %.loopexit.i.i ], [ %43, %42 ], [ %66, %59 ]
+  %69 = phi i32 [ %.pre.i, %._crit_edge.model_update.exit_crit_edge.i ], [ %43, %42 ], [ %54, %.loopexit.i.i ], [ %66, %59 ]
   %70 = add nsw i32 %69, 6
   %71 = ashr i32 %70, 1
   store i32 %71, ptr %28, align 4, !tbaa !86
@@ -1210,7 +1210,7 @@ model256_reset.exit68:                            ; preds = %83
   br i1 %145, label %136, label %model_reset.exit89, !llvm.loop !89
 
 model_reset.exit89:                               ; preds = %136, %._crit_edge.model_update.exit_crit_edge.i74, %119, %.loopexit.i.i78
-  %146 = phi i32 [ %.pre.i75, %._crit_edge.model_update.exit_crit_edge.i74 ], [ %131, %.loopexit.i.i78 ], [ %120, %119 ], [ %143, %136 ]
+  %146 = phi i32 [ %.pre.i75, %._crit_edge.model_update.exit_crit_edge.i74 ], [ %120, %119 ], [ %131, %.loopexit.i.i78 ], [ %143, %136 ]
   %147 = add nsw i32 %146, 6
   %148 = ashr i32 %147, 1
   store i32 %148, ptr %105, align 4, !tbaa !86
@@ -3044,7 +3044,7 @@ rac_get_bits.exit.i:                              ; preds = %280, %252
   br label %model256_update.exit
 
 model256_update.exit:                             ; preds = %284, %rac_get_model_sym.exit, %._crit_edge59.i, %rac_get_model256_sym.exit
-  %.0.i95.sink = phi i32 [ %.0.lcssa.i, %rac_get_model256_sym.exit ], [ %.0.lcssa.i, %._crit_edge59.i ], [ 0, %rac_get_model_sym.exit ], [ %spec.select.i, %284 ]
+  %.0.i95.sink = phi i32 [ %.0.lcssa.i, %._crit_edge59.i ], [ %.0.lcssa.i, %rac_get_model256_sym.exit ], [ %spec.select.i, %284 ], [ 0, %rac_get_model_sym.exit ]
   %286 = getelementptr inbounds nuw i32, ptr %.079113, i64 %indvars.iv
   store i32 %.0.i95.sink, ptr %286, align 4, !tbaa !56
   %287 = load i32, ptr %8, align 4, !tbaa !105
@@ -3501,7 +3501,7 @@ rac_get_bits.exit:                                ; preds = %73, %43
   br label %79
 
 79:                                               ; preds = %77, %2
-  %.0 = phi i32 [ 0, %2 ], [ %spec.select, %77 ]
+  %.0 = phi i32 [ %spec.select, %77 ], [ 0, %2 ]
   ret i32 %.0
 }
 

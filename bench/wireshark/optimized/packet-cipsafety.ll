@@ -2523,8 +2523,8 @@ default.unreachable41:                            ; preds = %25
   %39 = tail call i32 @call_dissector(ptr noundef %38, ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %18, %21, %25, %33, %4, %36, %9, %13
-  %.0 = phi i1 [ false, %13 ], [ false, %9 ], [ false, %36 ], [ false, %4 ], [ false, %33 ], [ false, %25 ], [ false, %21 ], [ false, %18 ], [ true, %.thread.sink.split ]
+.thread:                                          ; preds = %.thread.sink.split, %21, %25, %33, %18, %4, %36, %9, %13
+  %.0 = phi i1 [ false, %25 ], [ false, %21 ], [ false, %13 ], [ false, %9 ], [ false, %36 ], [ false, %4 ], [ false, %18 ], [ false, %33 ], [ true, %.thread.sink.split ]
   ret i1 %.0
 }
 

@@ -1237,7 +1237,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN2c
   br label %.body
 
 .body:                                            ; preds = %386, %441, %438
-  %.pn144 = phi { ptr, i32 } [ %387, %386 ], [ %439, %438 ], [ %439, %441 ]
+  %.pn144 = phi { ptr, i32 } [ %387, %386 ], [ %439, %441 ], [ %439, %438 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   %442 = load ptr, ptr %50, align 8, !tbaa !42
   %.not.i.i.i342 = icmp eq ptr %442, null
@@ -1571,7 +1571,7 @@ _ZN2cv3Mat2atINS_3VecIhLi3EEEEERT_i.exit350:      ; preds = %562, %556, %549
   br label %589
 
 589:                                              ; preds = %588, %498
-  %.pn183 = phi { ptr, i32 } [ %.pn179.pn.pn, %588 ], [ %499, %498 ]
+  %.pn183 = phi { ptr, i32 } [ %499, %498 ], [ %.pn179.pn.pn, %588 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %55) #20
   br label %590
 
@@ -1800,10 +1800,10 @@ _ZSt8_DestroyIPN2cv4UMatES1_EvT_S3_RSaIT0_E.exit.i374: ; preds = %_ZSt8_DestroyI
   br label %658
 
 658:                                              ; preds = %640, %657, %._crit_edge.i.i378, %648, %636, %622
-  %.sroa.0.sroa.0.0.i = phi i32 [ 0, %657 ], [ %643, %._crit_edge.i.i378 ], [ 0, %636 ], [ 0, %622 ], [ 0, %648 ], [ 0, %640 ]
-  %.sroa.0.sroa.9.0.i = phi i32 [ 0, %657 ], [ %651, %._crit_edge.i.i378 ], [ 0, %636 ], [ 0, %622 ], [ 0, %648 ], [ 0, %640 ]
-  %.sroa.14.sroa.0.0.i = phi i32 [ 0, %657 ], [ %.sroa.speculated53.i.i, %._crit_edge.i.i378 ], [ 0, %636 ], [ 0, %622 ], [ 0, %648 ], [ 0, %640 ]
-  %.sroa.14.sroa.12.0.i = phi i32 [ 0, %657 ], [ %.sroa.speculated.i.i, %._crit_edge.i.i378 ], [ 0, %636 ], [ 0, %622 ], [ 0, %648 ], [ 0, %640 ]
+  %.sroa.0.sroa.0.0.i = phi i32 [ %643, %._crit_edge.i.i378 ], [ 0, %622 ], [ 0, %657 ], [ 0, %636 ], [ 0, %648 ], [ 0, %640 ]
+  %.sroa.0.sroa.9.0.i = phi i32 [ %651, %._crit_edge.i.i378 ], [ 0, %622 ], [ 0, %657 ], [ 0, %636 ], [ 0, %648 ], [ 0, %640 ]
+  %.sroa.14.sroa.0.0.i = phi i32 [ %.sroa.speculated53.i.i, %._crit_edge.i.i378 ], [ 0, %622 ], [ 0, %657 ], [ 0, %636 ], [ 0, %648 ], [ 0, %640 ]
+  %.sroa.14.sroa.12.0.i = phi i32 [ %.sroa.speculated.i.i, %._crit_edge.i.i378 ], [ 0, %622 ], [ 0, %657 ], [ 0, %636 ], [ 0, %648 ], [ 0, %640 ]
   %.sroa.0.sroa.9.0.insert.ext.i = zext nneg i32 %.sroa.0.sroa.9.0.i to i64
   %.sroa.0.sroa.9.0.insert.shift.i = shl nuw nsw i64 %.sroa.0.sroa.9.0.insert.ext.i, 32
   %.sroa.0.sroa.0.0.insert.ext.i = zext nneg i32 %.sroa.0.sroa.0.0.i to i64
@@ -1838,7 +1838,7 @@ _ZSt8_DestroyIPN2cv4UMatES1_EvT_S3_RSaIT0_E.exit.i374: ; preds = %_ZSt8_DestroyI
   br label %.body360
 
 .body360:                                         ; preds = %599, %666, %663
-  %.pn159 = phi { ptr, i32 } [ %600, %599 ], [ %664, %663 ], [ %664, %666 ]
+  %.pn159 = phi { ptr, i32 } [ %600, %599 ], [ %664, %666 ], [ %664, %663 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %67)
   call void @llvm.lifetime.end.p0(ptr nonnull %66)
   call void @llvm.lifetime.end.p0(ptr nonnull %65)
@@ -1967,7 +1967,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit383:                 ; preds = %668, %.body360, %66
   br label %694
 
 694:                                              ; preds = %691, %344, %683
-  %.1107 = phi i1 [ false, %683 ], [ false, %344 ], [ %693, %691 ]
+  %.1107 = phi i1 [ false, %344 ], [ %693, %691 ], [ false, %683 ]
   %.b = load i1, ptr @_ZL12selectObject, align 1
   %695 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL9selection, i64 8), align 4
   %696 = icmp sgt i32 %695, 0
@@ -2145,7 +2145,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit403: ; preds = %72
   br label %.backedge
 
 .backedge:                                        ; preds = %733, %738, %759, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit420, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit410, %763, %731
-  %.0106.be = phi i1 [ %.1107, %731 ], [ %.1107, %733 ], [ %.1107, %738 ], [ %.1107, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit420 ], [ %.1107, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit410 ], [ %760, %759 ], [ %.1107, %763 ]
+  %.0106.be = phi i1 [ %.1107, %763 ], [ %.1107, %731 ], [ %.1107, %733 ], [ %.1107, %738 ], [ %.1107, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit420 ], [ %.1107, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit410 ], [ %760, %759 ]
   br label %301
 
 736:                                              ; preds = %731
@@ -2277,7 +2277,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit423: ; preds = %75
   br label %767
 
 765:                                              ; preds = %414, %690, %729, %739, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit413, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit423, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit403, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit400, %708, %412, %410, %339
-  %.pn205.pn = phi { ptr, i32 } [ %722, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit403 ], [ %718, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit400 ], [ %.pn191.pn.pn, %708 ], [ %413, %412 ], [ %411, %410 ], [ %340, %339 ], [ %740, %739 ], [ %756, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit423 ], [ %749, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit413 ], [ %730, %729 ], [ %.pn183.pn.pn.pn.pn.pn, %690 ], [ %415, %414 ]
+  %.pn205.pn = phi { ptr, i32 } [ %340, %339 ], [ %722, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit403 ], [ %718, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit400 ], [ %.pn191.pn.pn, %708 ], [ %730, %729 ], [ %413, %412 ], [ %411, %410 ], [ %740, %739 ], [ %756, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit423 ], [ %749, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit413 ], [ %.pn183.pn.pn.pn.pn.pn, %690 ], [ %415, %414 ]
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %24) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %23) #20

@@ -140,7 +140,7 @@ define noundef i32 @ff_hw_base_encode_set_output_property(ptr noundef readonly c
   br label %66
 
 66:                                               ; preds = %48, %37, %36, %56
-  %.sink = phi i64 [ %65, %56 ], [ %15, %36 ], [ %15, %37 ], [ %spec.select, %48 ]
+  %.sink = phi i64 [ %15, %36 ], [ %15, %37 ], [ %spec.select, %48 ], [ %65, %56 ]
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %.sink, ptr %67, align 8, !tbaa !59
   ret i32 0
@@ -500,7 +500,7 @@ hw_base_encode_check_frame.exit.i:                ; preds = %100, %98, %96, %94
   br label %201
 
 193:                                              ; preds = %179, %136, %115, %111, %108, %103
-  %.0.i = phi i32 [ %140, %136 ], [ %183, %179 ], [ -12, %103 ], [ -12, %108 ], [ -12, %111 ], [ -12, %115 ]
+  %.0.i = phi i32 [ -12, %108 ], [ %140, %136 ], [ %183, %179 ], [ -12, %111 ], [ -12, %103 ], [ -12, %115 ]
   %194 = load ptr, ptr %9, align 8, !tbaa !62
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 32
   %196 = load ptr, ptr %195, align 8, !tbaa !67
@@ -827,7 +827,7 @@ hw_base_encode_clear_old.exit:                    ; preds = %329, %.preheader.i,
   br label %hw_base_encode_send_frame.exit
 
 hw_base_encode_send_frame.exit:                   ; preds = %hw_base_encode_check_frame.exit.i, %249, %240, %234, %69, %193, %.loopexit, %.loopexit.thread, %203, %276, %264, %227
-  %.080 = phi i32 [ %274, %276 ], [ %225, %227 ], [ %262, %264 ], [ %., %203 ], [ 0, %.loopexit.thread ], [ 0, %.loopexit ], [ %.0.i, %193 ], [ -12, %hw_base_encode_check_frame.exit.i ], [ %250, %249 ], [ -11, %240 ], [ %.078, %234 ], [ %67, %69 ]
+  %.080 = phi i32 [ 0, %.loopexit ], [ %.0.i, %193 ], [ %274, %276 ], [ %262, %264 ], [ 0, %.loopexit.thread ], [ %., %203 ], [ %225, %227 ], [ -12, %hw_base_encode_check_frame.exit.i ], [ -11, %240 ], [ %.078, %234 ], [ %250, %249 ], [ %67, %69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.080
 }
@@ -1350,7 +1350,7 @@ hw_base_encode_add_ref.exit148:                   ; preds = %.loopexit
   br label %hw_base_encode_add_next_prev.exit
 
 hw_base_encode_add_next_prev.exit:                ; preds = %._crit_edge.i, %213, %._crit_edge35.i, %186, %81, %76, %92, %84, %._crit_edge174.thread
-  %.0 = phi i32 [ 0, %._crit_edge174.thread ], [ -11, %92 ], [ -11, %84 ], [ -541478725, %76 ], [ -11, %81 ], [ 0, %186 ], [ 0, %._crit_edge35.i ], [ 0, %213 ], [ 0, %._crit_edge.i ]
+  %.0 = phi i32 [ 0, %._crit_edge174.thread ], [ -11, %81 ], [ -11, %92 ], [ -11, %84 ], [ -541478725, %76 ], [ 0, %186 ], [ 0, %._crit_edge35.i ], [ 0, %213 ], [ 0, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -1552,7 +1552,7 @@ define range(i32 -22, 1) i32 @ff_hw_base_get_recon_format(ptr noundef readonly c
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %16, %.preheader, %22
-  %.1 = phi i32 [ %26, %22 ], [ -1, %.preheader ], [ %15, %19 ], [ %11, %16 ]
+  %.1 = phi i32 [ -1, %.preheader ], [ %26, %22 ], [ %15, %19 ], [ %11, %16 ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !86
   %29 = tail call ptr @av_get_pix_fmt_name(i32 noundef %.1) #8
@@ -1661,7 +1661,7 @@ define range(i32 -22, 1) i32 @ff_hw_base_encode_init(ptr noundef %0, ptr noundef
   br label %27
 
 27:                                               ; preds = %21, %13, %10, %2, %9
-  %.0 = phi i32 [ -22, %9 ], [ -12, %2 ], [ -12, %10 ], [ -12, %13 ], [ %., %21 ]
+  %.0 = phi i32 [ -12, %13 ], [ %., %21 ], [ -12, %10 ], [ -12, %2 ], [ -22, %9 ]
   ret i32 %.0
 }
 

@@ -63,7 +63,7 @@ define void @ff_draw_horiz_band(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br i1 %.not44, label %51, label %34
 
 34:                                               ; preds = %33, %24, %29
-  %.037 = phi ptr [ %1, %29 ], [ %1, %24 ], [ %2, %33 ]
+  %.037 = phi ptr [ %1, %24 ], [ %1, %29 ], [ %2, %33 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %36 = load i32, ptr %35, align 8, !tbaa !34
   %37 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %36) #6
@@ -282,7 +282,7 @@ define void @ff_print_debug_info2(ptr noundef %0, ptr noundef %1, ptr noundef re
   br i1 %72, label %.split.us284, label %.split268.us278, !llvm.loop !59
 
 .split268.us278:                                  ; preds = %.loopexit249.us, %.loopexit247.us.us, %.loopexit.us.us.us, %221
-  %.us-phi.us = phi i32 [ %.3.us.us.us.us, %221 ], [ %.3.us.us.us295, %.loopexit.us.us.us ], [ %.3.us.us288, %.loopexit247.us.us ], [ %.3.us283, %.loopexit249.us ]
+  %.us-phi.us = phi i32 [ %.3.us.us.us295, %.loopexit.us.us.us ], [ %.3.us.us.us.us, %221 ], [ %.3.us.us288, %.loopexit247.us.us ], [ %.3.us283, %.loopexit249.us ]
   %indvars.iv.next344 = add nuw nsw i64 %indvars.iv343, 1
   %exitcond348.not = icmp eq i64 %indvars.iv.next344, %wide.trip.count
   br i1 %exitcond348.not, label %._crit_edge.us, label %53, !llvm.loop !60
@@ -708,7 +708,7 @@ define void @ff_print_debug_info2(ptr noundef %0, ptr noundef %1, ptr noundef re
   br label %get_type_mv_char.exit.us
 
 get_type_mv_char.exit.us:                         ; preds = %298, %296, %293, %290, %288, %286, %284, %281
-  %.0.i.us = phi i32 [ 80, %281 ], [ 65, %284 ], [ 105, %286 ], [ 73, %288 ], [ %.mux.i.us, %290 ], [ %.mux27.mux.i.us, %293 ], [ 62, %296 ], [ %..i.us, %298 ]
+  %.0.i.us = phi i32 [ 62, %296 ], [ 80, %281 ], [ 65, %284 ], [ 105, %286 ], [ 73, %288 ], [ %.mux.i.us, %290 ], [ %..i.us, %298 ], [ %.mux27.mux.i.us, %293 ]
   %300 = and i32 %282, 64
   %.not.i242.us = icmp eq i32 %300, 0
   br i1 %.not.i242.us, label %301, label %get_segmentation_char.exit.us
@@ -730,7 +730,7 @@ get_type_mv_char.exit.us:                         ; preds = %298, %296, %293, %2
   br label %get_segmentation_char.exit.us
 
 get_segmentation_char.exit.us:                    ; preds = %305, %303, %301, %get_type_mv_char.exit.us
-  %.0.i243.us = phi i32 [ 43, %get_type_mv_char.exit.us ], [ 45, %301 ], [ 124, %303 ], [ %307, %305 ]
+  %.0.i243.us = phi i32 [ %307, %305 ], [ 43, %get_type_mv_char.exit.us ], [ 45, %301 ], [ 124, %303 ]
   %308 = and i32 %282, 128
   %.not.i244.us = icmp eq i32 %308, 0
   %309 = select i1 %.not.i244.us, i32 32, i32 61

@@ -154,7 +154,7 @@ define internal noundef zeroext i1 @unserialize(ptr noundef writeonly captures(n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %11, %8, %.preheader, %15, %2, %.critedge
-  %.0 = phi i1 [ true, %.critedge ], [ false, %2 ], [ false, %15 ], [ false, %.preheader ], [ false, %8 ], [ false, %11 ]
+  %.0 = phi i1 [ false, %2 ], [ true, %.critedge ], [ false, %15 ], [ false, %.preheader ], [ false, %8 ], [ false, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }

@@ -150,7 +150,7 @@ define internal range(i32 -1, 1) i32 @H5P__ocrt_reg_prop(ptr noundef %0) #0 {
   br i1 %19, label %.sink.split, label %23
 
 .sink.split:                                      ; preds = %17, %14, %11, %8
-  %.sink = phi i32 [ 156, %8 ], [ 162, %11 ], [ 168, %14 ], [ 175, %17 ]
+  %.sink = phi i32 [ 168, %14 ], [ 156, %8 ], [ 162, %11 ], [ 175, %17 ]
   %20 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !10
   %21 = load i64, ptr @H5E_CANTINSERT_g, align 8, !tbaa !10
   %22 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5P__ocrt_reg_prop, i32 noundef %.sink, i64 noundef %20, i64 noundef %21, ptr noundef nonnull @.str.41) #10
@@ -1790,7 +1790,7 @@ define range(i32 -1, 1) i32 @H5P_get_filter_by_id(ptr noundef %0, i32 noundef %1
   br label %41
 
 41:                                               ; preds = %39, %18, %28, %35, %22
-  %.0 = phi i32 [ -1, %18 ], [ -1, %28 ], [ -1, %35 ], [ 0, %39 ], [ 0, %22 ]
+  %.0 = phi i32 [ -1, %18 ], [ -1, %28 ], [ -1, %35 ], [ 0, %22 ], [ 0, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
@@ -3004,7 +3004,7 @@ define internal noundef i32 @H5P__ocrt_pipeline_enc(ptr noundef readonly capture
   br label %H5VM_limit_enc_size.exit
 
 H5VM_limit_enc_size.exit:                         ; preds = %21, %26, %33, %38, %47, %52, %59, %64
-  %.0.i.i = phi i32 [ %25, %21 ], [ %30, %26 ], [ %37, %33 ], [ %42, %38 ], [ %51, %47 ], [ %56, %52 ], [ %63, %59 ], [ %67, %64 ]
+  %.0.i.i = phi i32 [ %56, %52 ], [ %30, %26 ], [ %42, %38 ], [ %25, %21 ], [ %37, %33 ], [ %51, %47 ], [ %63, %59 ], [ %67, %64 ]
   %68 = lshr i32 %.0.i.i, 3
   %69 = add nuw nsw i32 %68, 1
   %70 = trunc nuw nsw i32 %69 to i8
@@ -3239,7 +3239,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %21, %26, %33, %38, 
   br label %H5VM_limit_enc_size.exit138
 
 H5VM_limit_enc_size.exit138:                      ; preds = %169, %174, %181, %186, %195, %200, %207, %212
-  %.0.i.i133 = phi i32 [ %173, %169 ], [ %178, %174 ], [ %185, %181 ], [ %190, %186 ], [ %199, %195 ], [ %204, %200 ], [ %211, %207 ], [ %215, %212 ]
+  %.0.i.i133 = phi i32 [ %204, %200 ], [ %178, %174 ], [ %190, %186 ], [ %173, %169 ], [ %185, %181 ], [ %199, %195 ], [ %211, %207 ], [ %215, %212 ]
   %216 = lshr i32 %.0.i.i133, 3
   %217 = add nuw nsw i32 %216, 1
   %218 = trunc nuw nsw i32 %217 to i8
@@ -3438,7 +3438,7 @@ H5VM_limit_enc_size.exit138:                      ; preds = %169, %174, %181, %1
   br label %H5VM_limit_enc_size.exit147
 
 H5VM_limit_enc_size.exit147:                      ; preds = %297, %302, %309, %314, %323, %328, %335, %340
-  %.0.i.i142 = phi i32 [ %301, %297 ], [ %306, %302 ], [ %313, %309 ], [ %318, %314 ], [ %327, %323 ], [ %332, %328 ], [ %339, %335 ], [ %343, %340 ]
+  %.0.i.i142 = phi i32 [ %332, %328 ], [ %306, %302 ], [ %318, %314 ], [ %301, %297 ], [ %313, %309 ], [ %327, %323 ], [ %339, %335 ], [ %343, %340 ]
   %344 = lshr i32 %.0.i.i142, 3
   %345 = add nuw nsw i32 %344, 2
   %346 = zext nneg i32 %345 to i64
@@ -3563,7 +3563,7 @@ H5VM_limit_enc_size.exit147:                      ; preds = %297, %302, %309, %3
   br label %H5VM_limit_enc_size.exit156
 
 H5VM_limit_enc_size.exit156:                      ; preds = %368, %373, %380, %385, %394, %399, %406, %411
-  %.0.i.i151 = phi i32 [ %372, %368 ], [ %377, %373 ], [ %384, %380 ], [ %389, %385 ], [ %398, %394 ], [ %403, %399 ], [ %410, %406 ], [ %414, %411 ]
+  %.0.i.i151 = phi i32 [ %403, %399 ], [ %377, %373 ], [ %389, %385 ], [ %372, %368 ], [ %384, %380 ], [ %398, %394 ], [ %410, %406 ], [ %414, %411 ]
   %415 = lshr i32 %.0.i.i151, 3
   %416 = add nuw nsw i32 %415, 2
   %417 = zext nneg i32 %416 to i64
@@ -3784,8 +3784,8 @@ define internal range(i32 -1, 1) i32 @H5P__ocrt_pipeline_dec(ptr noundef capture
   br i1 %120, label %.lr.ph117, label %._crit_edge118, !llvm.loop !51
 
 ._crit_edge118:                                   ; preds = %.lr.ph117, %._crit_edge112.thread, %._crit_edge112
-  %.sroa.2520.0142 = phi ptr [ null, %._crit_edge112 ], [ null, %._crit_edge112.thread ], [ %91, %.lr.ph117 ]
-  %.1.lcssa135141 = phi i64 [ 0, %._crit_edge112 ], [ 0, %._crit_edge112.thread ], [ %86, %.lr.ph117 ]
+  %.sroa.2520.0142 = phi ptr [ null, %._crit_edge112.thread ], [ null, %._crit_edge112 ], [ %91, %.lr.ph117 ]
+  %.1.lcssa135141 = phi i64 [ 0, %._crit_edge112.thread ], [ 0, %._crit_edge112 ], [ %86, %.lr.ph117 ]
   %121 = tail call i32 @H5Z_append(ptr noundef nonnull %1, i32 noundef %48, i32 noundef %66, i64 noundef %.1.lcssa135141, ptr noundef %.sroa.2520.0142) #10
   %122 = icmp slt i32 %121, 0
   br i1 %122, label %123, label %127
@@ -3803,7 +3803,7 @@ define internal range(i32 -1, 1) i32 @H5P__ocrt_pipeline_dec(ptr noundef capture
   br i1 %exitcond129.not, label %.thread, label %.lr.ph122, !llvm.loop !52
 
 .thread:                                          ; preds = %127, %._crit_edge.thread, %._crit_edge, %123, %93, %2, %13
-  %.094 = phi i32 [ -1, %13 ], [ 0, %2 ], [ -1, %93 ], [ -1, %123 ], [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ 0, %127 ]
+  %.094 = phi i32 [ -1, %13 ], [ 0, %2 ], [ -1, %123 ], [ -1, %93 ], [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ 0, %127 ]
   ret i32 %.094
 }
 
@@ -4009,7 +4009,7 @@ define internal i32 @H5P__ocrt_pipeline_cmp(ptr noundef readonly captures(none) 
   br i1 %exitcond128.not, label %.thread119, label %.preheader121, !llvm.loop !54
 
 .thread119:                                       ; preds = %.thread118, %67, %66, %58, %.thread116, %51, %50, %49, %41, %35, %33, %.preheader121, %.preheader, %76, %24, %3, %27, %10, %16, %25
-  %.087 = phi i32 [ 0, %27 ], [ 0, %3 ], [ -1, %10 ], [ 1, %16 ], [ 1, %25 ], [ %spec.select, %24 ], [ -1, %.preheader ], [ 1, %76 ], [ 0, %.thread118 ], [ 1, %67 ], [ -1, %66 ], [ 1, %58 ], [ -1, %.thread116 ], [ %52, %51 ], [ 1, %50 ], [ -1, %49 ], [ 1, %41 ], [ -1, %35 ], [ 1, %33 ], [ -1, %.preheader121 ]
+  %.087 = phi i32 [ 0, %3 ], [ -1, %10 ], [ 1, %16 ], [ %spec.select, %24 ], [ 1, %25 ], [ 1, %76 ], [ 0, %27 ], [ -1, %.preheader ], [ -1, %66 ], [ 1, %58 ], [ -1, %.thread116 ], [ %52, %51 ], [ 1, %50 ], [ -1, %49 ], [ 1, %41 ], [ -1, %35 ], [ 1, %33 ], [ -1, %.preheader121 ], [ 1, %67 ], [ 0, %.thread118 ]
   ret i32 %.087
 }
 

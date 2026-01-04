@@ -402,7 +402,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   br label %.thread
 
 .thread:                                          ; preds = %49, %45
-  %.sroa.4.0.ph = phi i64 [ %54, %49 ], [ %.sroa.6.1.i.i, %45 ]
+  %.sroa.4.0.ph = phi i64 [ %.sroa.6.1.i.i, %45 ], [ %54, %49 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.07)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.07, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !80)

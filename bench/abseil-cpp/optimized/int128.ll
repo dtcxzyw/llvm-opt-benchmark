@@ -217,9 +217,9 @@ _ZN4absl12_GLOBAL__N_16Fls128ENS_7uint128E.exit.i: ; preds = %20
   br i1 %exitcond.not.i, label %_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit, label %.lr.ph.i, !llvm.loop !23
 
 _ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit: ; preds = %.lr.ph.i, %9, %20, %_ZN4absl12_GLOBAL__N_16Fls128ENS_7uint128E.exit.i
-  %.sroa.0127.0 = phi i64 [ 0, %9 ], [ 1, %20 ], [ 0, %_ZN4absl12_GLOBAL__N_16Fls128ENS_7uint128E.exit.i ], [ %.sroa.070.1.i, %.lr.ph.i ]
-  %.sroa.13.0 = phi i64 [ 0, %9 ], [ 0, %20 ], [ 0, %_ZN4absl12_GLOBAL__N_16Fls128ENS_7uint128E.exit.i ], [ %.sroa.2.0.extract.trunc.i.i46.i, %.lr.ph.i ]
-  %.sroa.0126.0 = phi i64 [ %1, %9 ], [ 0, %20 ], [ %1, %_ZN4absl12_GLOBAL__N_16Fls128ENS_7uint128E.exit.i ], [ %.sroa.083.1.i, %.lr.ph.i ]
+  %.sroa.0127.0 = phi i64 [ 1, %20 ], [ 0, %9 ], [ 0, %_ZN4absl12_GLOBAL__N_16Fls128ENS_7uint128E.exit.i ], [ %.sroa.070.1.i, %.lr.ph.i ]
+  %.sroa.13.0 = phi i64 [ 0, %20 ], [ 0, %9 ], [ 0, %_ZN4absl12_GLOBAL__N_16Fls128ENS_7uint128E.exit.i ], [ %.sroa.2.0.extract.trunc.i.i46.i, %.lr.ph.i ]
+  %.sroa.0126.0 = phi i64 [ 0, %20 ], [ %1, %9 ], [ %1, %_ZN4absl12_GLOBAL__N_16Fls128ENS_7uint128E.exit.i ], [ %.sroa.083.1.i, %.lr.ph.i ]
   %.sroa.22.0.insert.ext.i.i.i41 = zext i64 %.sroa.13.0 to i128
   %.sroa.22.0.insert.shift.i.i.i42 = shl nuw i128 %.sroa.22.0.insert.ext.i.i.i41, 64
   %.sroa.01.0.insert.ext.i.i.i43 = zext i64 %.sroa.0127.0 to i128
@@ -757,8 +757,8 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i47: ; preds = %.noexc53, %86
   br label %_ZNKSt9basic_iosIcSt11char_traitsIcEE4fillEv.exit55.invoke
 
 _ZNKSt9basic_iosIcSt11char_traitsIcEE4fillEv.exit55.invoke: ; preds = %._crit_edge.i, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i, %._crit_edge.i49, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i47, %_ZNKSt9basic_iosIcSt11char_traitsIcEE4fillEv.exit41
-  %95 = phi i64 [ 2, %_ZNKSt9basic_iosIcSt11char_traitsIcEE4fillEv.exit41 ], [ 0, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i47 ], [ 0, %._crit_edge.i49 ], [ %18, %._crit_edge.i ], [ %.pre64, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i ]
-  %96 = phi i8 [ %72, %_ZNKSt9basic_iosIcSt11char_traitsIcEE4fillEv.exit41 ], [ %.0.i.i.i48, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i47 ], [ %.pre.i51, %._crit_edge.i49 ], [ %.pre.i, %._crit_edge.i ], [ %.0.i.i.i, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i ]
+  %95 = phi i64 [ 2, %_ZNKSt9basic_iosIcSt11char_traitsIcEE4fillEv.exit41 ], [ 0, %._crit_edge.i49 ], [ 0, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i47 ], [ %18, %._crit_edge.i ], [ %.pre64, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i ]
+  %96 = phi i8 [ %72, %_ZNKSt9basic_iosIcSt11char_traitsIcEE4fillEv.exit41 ], [ %.pre.i51, %._crit_edge.i49 ], [ %.0.i.i.i48, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i47 ], [ %.pre.i, %._crit_edge.i ], [ %.0.i.i.i, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i ]
   %97 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef %95, i64 noundef 0, i64 noundef %21, i8 noundef signext %96)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc.exit unwind label %45
 
@@ -1352,8 +1352,8 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i89: ; preds = %.noexc95, %15
   br label %_ZNKSt9basic_iosIcSt11char_traitsIcEE4fillEv.exit97.invoke
 
 _ZNKSt9basic_iosIcSt11char_traitsIcEE4fillEv.exit97.invoke: ; preds = %._crit_edge.i91, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i89, %._crit_edge.i76, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i74, %_ZNKSt9basic_iosIcSt11char_traitsIcEE4fillEv.exit68, %._crit_edge.i, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i
-  %168 = phi i64 [ %54, %._crit_edge.i ], [ %.pre111, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i ], [ 1, %_ZNKSt9basic_iosIcSt11char_traitsIcEE4fillEv.exit68 ], [ 0, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i74 ], [ 0, %._crit_edge.i76 ], [ 0, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i89 ], [ 0, %._crit_edge.i91 ]
-  %169 = phi i8 [ %.pre.i, %._crit_edge.i ], [ %.0.i.i.i, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i ], [ %117, %_ZNKSt9basic_iosIcSt11char_traitsIcEE4fillEv.exit68 ], [ %.0.i.i.i75, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i74 ], [ %.pre.i78, %._crit_edge.i76 ], [ %.0.i.i.i90, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i89 ], [ %.pre.i93, %._crit_edge.i91 ]
+  %168 = phi i64 [ 0, %._crit_edge.i76 ], [ 1, %_ZNKSt9basic_iosIcSt11char_traitsIcEE4fillEv.exit68 ], [ %.pre111, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i ], [ %54, %._crit_edge.i ], [ 0, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i74 ], [ 0, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i89 ], [ 0, %._crit_edge.i91 ]
+  %169 = phi i8 [ %.pre.i78, %._crit_edge.i76 ], [ %117, %_ZNKSt9basic_iosIcSt11char_traitsIcEE4fillEv.exit68 ], [ %.0.i.i.i, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i ], [ %.pre.i, %._crit_edge.i ], [ %.0.i.i.i75, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i74 ], [ %.0.i.i.i90, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i89 ], [ %.pre.i93, %._crit_edge.i91 ]
   %170 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef %168, i64 noundef 0, i64 noundef %57, i8 noundef signext %169)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc.exit unwind label %70
 
@@ -1379,7 +1379,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit104: ; preds = %_Z
   ret ptr %173
 
 178:                                              ; preds = %68, %70, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52, %18
-  %.pn45.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52 ], [ %19, %18 ], [ %69, %68 ], [ %71, %70 ]
+  %.pn45.pn = phi { ptr, i32 } [ %19, %18 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52 ], [ %69, %68 ], [ %71, %70 ]
   %179 = load ptr, ptr %4, align 8, !tbaa !60
   %180 = icmp eq ptr %179, %12
   br i1 %180, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit107, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i105

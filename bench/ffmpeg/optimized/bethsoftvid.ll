@@ -343,7 +343,7 @@ tailrecurse:                                      ; preds = %18
   br label %137
 
 137:                                              ; preds = %131, %129, %124
-  %.395.us.i = phi i32 [ %134, %131 ], [ %130, %129 ], [ %120, %124 ]
+  %.395.us.i = phi i32 [ %134, %131 ], [ %120, %124 ], [ %130, %129 ]
   %138 = and i32 %118, 127
   %139 = add nuw nsw i32 %138, %.098.us.i
   %140 = icmp eq i32 %139, %103
@@ -391,7 +391,7 @@ tailrecurse:                                      ; preds = %18
   br label %160
 
 160:                                              ; preds = %158, %147
-  %.395.i = phi i32 [ %159, %158 ], [ %150, %147 ]
+  %.395.i = phi i32 [ %150, %147 ], [ %159, %158 ]
   %161 = and i32 %148, 127
   %162 = add nuw nsw i32 %161, %.098.i
   %163 = icmp eq i32 %162, %103
@@ -417,9 +417,9 @@ tailrecurse:                                      ; preds = %18
   br i1 %.not113.i, label %.thread128.i, label %.split.i, !llvm.loop !65
 
 .thread128.i:                                     ; preds = %143, %170, %166, %.split146.us.i
-  %171 = phi i1 [ %164, %.split146.us.i ], [ %164, %166 ], [ false, %170 ], [ true, %143 ]
-  %.395143.i = phi i32 [ %.us-phi147.i, %.split146.us.i ], [ %.us-phi147.i, %166 ], [ %.395.i, %170 ], [ %.395.us.i, %143 ]
-  %172 = phi ptr [ %.us-phi148.i, %.split146.us.i ], [ %.us-phi148.i, %166 ], [ %146, %170 ], [ %116, %143 ]
+  %171 = phi i1 [ %164, %166 ], [ %164, %.split146.us.i ], [ false, %170 ], [ true, %143 ]
+  %.395143.i = phi i32 [ %.us-phi147.i, %166 ], [ %.us-phi147.i, %.split146.us.i ], [ %.395.i, %170 ], [ %.395.us.i, %143 ]
+  %172 = phi ptr [ %.us-phi148.i, %166 ], [ %.us-phi148.i, %.split146.us.i ], [ %146, %170 ], [ %116, %143 ]
   %173 = call i32 @av_new_packet(ptr noundef %1, i32 noundef %.395143.i) #5
   %174 = icmp slt i32 %173, 0
   br i1 %174, label %.thread.i, label %175
@@ -477,13 +477,13 @@ tailrecurse:                                      ; preds = %18
   br label %.thread.i
 
 .thread.i:                                        ; preds = %141, %125, %.split.us.i, %168, %154, %.split.i, %197, %196, %.thread128.i, %111
-  %.089.i = phi i32 [ %173, %.thread128.i ], [ %173, %197 ], [ -12, %196 ], [ -5, %111 ], [ -5, %154 ], [ -12, %.split.i ], [ -1094995529, %168 ], [ -5, %125 ], [ -12, %.split.us.i ], [ -1094995529, %141 ]
-  %.086.i = phi ptr [ %172, %.thread128.i ], [ %172, %197 ], [ %172, %196 ], [ %104, %111 ], [ %146, %154 ], [ %.1.i, %.split.i ], [ %146, %168 ], [ %116, %125 ], [ %.1.us.i, %.split.us.i ], [ %116, %141 ]
+  %.089.i = phi i32 [ -5, %111 ], [ %173, %.thread128.i ], [ %173, %197 ], [ -12, %196 ], [ -5, %154 ], [ -12, %.split.i ], [ -1094995529, %168 ], [ -5, %125 ], [ -12, %.split.us.i ], [ -1094995529, %141 ]
+  %.086.i = phi ptr [ %104, %111 ], [ %172, %.thread128.i ], [ %172, %197 ], [ %172, %196 ], [ %146, %154 ], [ %.1.i, %.split.i ], [ %146, %168 ], [ %116, %125 ], [ %.1.us.i, %.split.us.i ], [ %116, %141 ]
   call void @av_free(ptr noundef nonnull %.086.i) #5
   br label %read_frame.exit
 
 read_frame.exit:                                  ; preds = %69, %90, %.thread.i
-  %.0.i = phi i32 [ %.089.i, %.thread.i ], [ -12, %69 ], [ -12, %90 ]
+  %.0.i = phi i32 [ %.089.i, %.thread.i ], [ -12, %90 ], [ -12, %69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge
 
@@ -507,7 +507,7 @@ read_frame.exit:                                  ; preds = %69, %90, %.thread.i
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %tailrecurse, %18, %2, %33, %54, %205, %204, %read_frame.exit, %57, %56
-  %.0 = phi i32 [ -1094995529, %205 ], [ -5, %56 ], [ 0, %57 ], [ %.0.i, %read_frame.exit ], [ -5, %204 ], [ %53, %54 ], [ -12, %33 ], [ -541478725, %2 ], [ -541478725, %.lr.ph ], [ -541478725, %tailrecurse ], [ -5, %18 ]
+  %.0 = phi i32 [ -5, %204 ], [ -1094995529, %205 ], [ -12, %33 ], [ %.0.i, %read_frame.exit ], [ %53, %54 ], [ -5, %56 ], [ 0, %57 ], [ -541478725, %2 ], [ -541478725, %tailrecurse ], [ -541478725, %.lr.ph ], [ -5, %18 ]
   ret i32 %.0
 }
 

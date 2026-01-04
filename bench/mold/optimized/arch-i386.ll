@@ -259,7 +259,7 @@ define dso_local noundef range(i64 0, 4294967296) i64 @_ZN4mold10get_addendINS_4
   br label %14
 
 14:                                               ; preds = %2, %11, %8, %5
-  %.0 = phi i64 [ %7, %5 ], [ %10, %8 ], [ %13, %11 ], [ 0, %2 ]
+  %.0 = phi i64 [ %13, %11 ], [ %7, %5 ], [ %10, %8 ], [ 0, %2 ]
   ret i64 %.0
 }
 
@@ -910,7 +910,7 @@ _ZNK4mold12InputSectionINS_4I386EE8get_relsERNS_7ContextIS1_EE.exit: ; preds = %
   br label %_ZN4mold10get_addendINS_4I386EEElRNS_12InputSectionIT_EERKNS_6ElfRelIS3_EE.exit
 
 _ZN4mold10get_addendINS_4I386EEElRNS_12InputSectionIT_EERKNS_6ElfRelIS3_EE.exit: ; preds = %34, %56, %59, %62
-  %.0.i.i = phi i64 [ %58, %56 ], [ %61, %59 ], [ %64, %62 ], [ 0, %34 ]
+  %.0.i.i = phi i64 [ %64, %62 ], [ %58, %56 ], [ %61, %59 ], [ 0, %34 ]
   %65 = load ptr, ptr %22, align 8, !tbaa !355
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 36
   %67 = load i32, ptr %66, align 1
@@ -1738,7 +1738,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i51: ; preds = %183
   br label %_ZNK4mold6SymbolINS_4I386EE12get_plt_addrERNS_7ContextIS1_EE.exit
 
 _ZNK4mold6SymbolINS_4I386EE12get_plt_addrERNS_7ContextIS1_EE.exit: ; preds = %107, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZNK4mold12InputSectionINS_4I386EE4nameEv.exit, %21, %17, %_ZNK4mold6SymbolINS_4I386EE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i, %_ZNK4mold6SymbolINS_4I386EE11get_plt_idxERNS_7ContextIS1_EE.exit.i35, %84, %95, %156, %174, %.critedge4, %203, %40, %47
-  %.1 = phi i64 [ %46, %40 ], [ %53, %47 ], [ %214, %203 ], [ %106, %95 ], [ %161, %156 ], [ %182, %174 ], [ %196, %.critedge4 ], [ %86, %84 ], [ %82, %_ZNK4mold6SymbolINS_4I386EE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i ], [ %76, %_ZNK4mold6SymbolINS_4I386EE11get_plt_idxERNS_7ContextIS1_EE.exit.i35 ], [ 0, %17 ], [ %31, %21 ], [ 0, %_ZNK4mold12InputSectionINS_4I386EE4nameEv.exit ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 0, %107 ]
+  %.1 = phi i64 [ %76, %_ZNK4mold6SymbolINS_4I386EE11get_plt_idxERNS_7ContextIS1_EE.exit.i35 ], [ %53, %47 ], [ %31, %21 ], [ %46, %40 ], [ %214, %203 ], [ %106, %95 ], [ %161, %156 ], [ %182, %174 ], [ %196, %.critedge4 ], [ %86, %84 ], [ %82, %_ZNK4mold6SymbolINS_4I386EE14get_pltgot_idxERNS_7ContextIS1_EE.exit.i ], [ 0, %17 ], [ 0, %_ZNK4mold12InputSectionINS_4I386EE4nameEv.exit ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 0, %107 ]
   ret i64 %.1
 }
 
@@ -2225,7 +2225,7 @@ _ZN4mold10ObjectFileINS_4I386EE9get_shndxERKNS_6ElfSymIS1_EE.exit: ; preds = %17
   br label %_ZN4mold10get_addendINS_4I386EEElRNS_12InputSectionIT_EERKNS_6ElfRelIS3_EE.exit
 
 _ZN4mold10get_addendINS_4I386EEElRNS_12InputSectionIT_EERKNS_6ElfRelIS3_EE.exit: ; preds = %39, %47, %50, %53
-  %.0.i.i = phi i64 [ %49, %47 ], [ %52, %50 ], [ %55, %53 ], [ 0, %39 ]
+  %.0.i.i = phi i64 [ %55, %53 ], [ %49, %47 ], [ %52, %50 ], [ 0, %39 ]
   %56 = add nuw nsw i64 %.0.i.i, %38
   %57 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %58 = load ptr, ptr %57, align 8, !tbaa !399
@@ -2356,13 +2356,13 @@ _ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24: ; preds = %_ZSt7ad
   br label %_ZN4mold10get_addendINS_4I386EEElRNS_12InputSectionIT_EERKNS_6ElfRelIS3_EE.exit26
 
 _ZN4mold10get_addendINS_4I386EEElRNS_12InputSectionIT_EERKNS_6ElfRelIS3_EE.exit26: ; preds = %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24, %124, %127, %130
-  %.0.i.i25 = phi i64 [ %126, %124 ], [ %129, %127 ], [ %132, %130 ], [ 0, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24 ]
+  %.0.i.i25 = phi i64 [ %132, %130 ], [ %126, %124 ], [ %129, %127 ], [ 0, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24 ]
   %133 = add nsw i64 %115, %.0.i.i25
   br label %134
 
 134:                                              ; preds = %3, %3, %3, %_ZN4mold10ObjectFileINS_4I386EE9get_shndxERKNS_6ElfSymIS1_EE.exit, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit, %_ZN4mold10get_addendINS_4I386EEElRNS_12InputSectionIT_EERKNS_6ElfRelIS3_EE.exit26
-  %.sroa.029.0 = phi ptr [ %86, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit ], [ %116, %_ZN4mold10get_addendINS_4I386EEElRNS_12InputSectionIT_EERKNS_6ElfRelIS3_EE.exit26 ], [ null, %3 ], [ null, %_ZN4mold10ObjectFileINS_4I386EE9get_shndxERKNS_6ElfSymIS1_EE.exit ], [ null, %3 ], [ null, %3 ]
-  %.sroa.5.0 = phi i64 [ %85, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit ], [ %133, %_ZN4mold10get_addendINS_4I386EEElRNS_12InputSectionIT_EERKNS_6ElfRelIS3_EE.exit26 ], [ 0, %3 ], [ 0, %_ZN4mold10ObjectFileINS_4I386EE9get_shndxERKNS_6ElfSymIS1_EE.exit ], [ 0, %3 ], [ 0, %3 ]
+  %.sroa.029.0 = phi ptr [ null, %3 ], [ %86, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit ], [ %116, %_ZN4mold10get_addendINS_4I386EEElRNS_12InputSectionIT_EERKNS_6ElfRelIS3_EE.exit26 ], [ null, %3 ], [ null, %3 ], [ null, %_ZN4mold10ObjectFileINS_4I386EE9get_shndxERKNS_6ElfSymIS1_EE.exit ]
+  %.sroa.5.0 = phi i64 [ 0, %3 ], [ %85, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit ], [ %133, %_ZN4mold10get_addendINS_4I386EEElRNS_12InputSectionIT_EERKNS_6ElfRelIS3_EE.exit26 ], [ 0, %3 ], [ 0, %3 ], [ 0, %_ZN4mold10ObjectFileINS_4I386EE9get_shndxERKNS_6ElfSymIS1_EE.exit ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.029.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.5.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -2568,8 +2568,8 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i16: ; preds = %_ZSteqIcSt11char_tr
   br label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
 
 _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i12, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i16, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread, %_ZNK4mold12InputSectionINS_4I386EE4nameEv.exit, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %4, %11, %3
-  %.sroa.028.0 = phi i64 [ undef, %3 ], [ undef, %11 ], [ undef, %4 ], [ undef, %_ZNK4mold12InputSectionINS_4I386EE4nameEv.exit ], [ undef, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ 0, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread ], [ %spec.select, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i16 ], [ %spec.select31, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i12 ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ]
-  %.sroa.229.0 = phi i8 [ 0, %3 ], [ 0, %11 ], [ 0, %4 ], [ 0, %_ZNK4mold12InputSectionINS_4I386EE4nameEv.exit ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ 1, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i16 ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i12 ], [ %spec.select39, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ]
+  %.sroa.028.0 = phi i64 [ undef, %3 ], [ undef, %4 ], [ undef, %11 ], [ undef, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ undef, %_ZNK4mold12InputSectionINS_4I386EE4nameEv.exit ], [ %spec.select31, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i12 ], [ %spec.select, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i16 ], [ 0, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread ]
+  %.sroa.229.0 = phi i8 [ 0, %3 ], [ 0, %4 ], [ 0, %11 ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ %spec.select39, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 0, %_ZNK4mold12InputSectionINS_4I386EE4nameEv.exit ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i12 ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i16 ], [ 1, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.028.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.229.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -2806,7 +2806,7 @@ _ZNK4mold6SymbolINS_4I386EE23is_pcrel_linktime_constERNS_7ContextIS1_EE.exit.thr
   %133 = icmp eq i8 %132, -117
   br i1 %133, label %_ZN4moldL12relax_got32xEPh.exit, label %_ZNK4mold6SymbolINS_4I386EE23is_pcrel_linktime_constERNS_7ContextIS1_EE.exit.thread74
 
-_ZNK4mold6SymbolINS_4I386EE23is_pcrel_linktime_constERNS_7ContextIS1_EE.exit.thread74: ; preds = %_ZNK4mold6SymbolINS_4I386EE11is_relativeEv.exit.i, %_ZNK4mold6SymbolINS_4I386EE23is_pcrel_linktime_constERNS_7ContextIS1_EE.exit.thread, %119, %108
+_ZNK4mold6SymbolINS_4I386EE23is_pcrel_linktime_constERNS_7ContextIS1_EE.exit.thread74: ; preds = %_ZNK4mold6SymbolINS_4I386EE11is_relativeEv.exit.i, %_ZNK4mold6SymbolINS_4I386EE23is_pcrel_linktime_constERNS_7ContextIS1_EE.exit.thread, %108, %119
   %134 = getelementptr inbounds nuw i8, ptr %60, i64 46
   %135 = atomicrmw or ptr %134, i8 1 monotonic, align 1
   br label %_ZN4moldL12relax_got32xEPh.exit
@@ -2941,7 +2941,7 @@ _ZN4mold5ErrorINS_7ContextINS_4I386EEEED2Ev.exit: ; preds = %_ZN4mold5ErrorINS_7
   br label %_ZN4moldL12relax_got32xEPh.exit
 
 _ZN4moldL12relax_got32xEPh.exit:                  ; preds = %_ZNK4mold6SymbolINS_4I386EE23is_pcrel_linktime_constERNS_7ContextIS1_EE.exit.thread, %103, %104, %105, %143, %174, %175, %_ZN4mold5ErrorINS_7ContextINS_4I386EEEED2Ev.exit, %_ZNK4mold6SymbolINS_4I386EE23is_pcrel_linktime_constERNS_7ContextIS1_EE.exit.thread74, %140, %136, %160, %158, %173, %171, %102, %102, %102, %102, %102, %41, %46
-  %.1 = phi i64 [ %.083, %46 ], [ %.083, %41 ], [ %.083, %_ZN4mold5ErrorINS_7ContextINS_4I386EEEED2Ev.exit ], [ %.083, %103 ], [ %.083, %104 ], [ %.083, %105 ], [ %.083, %_ZNK4mold6SymbolINS_4I386EE23is_pcrel_linktime_constERNS_7ContextIS1_EE.exit.thread74 ], [ %.083, %140 ], [ %.083, %136 ], [ %.083, %143 ], [ %159, %158 ], [ %.083, %160 ], [ %172, %171 ], [ %.083, %173 ], [ %.083, %174 ], [ %.083, %175 ], [ %.083, %102 ], [ %.083, %102 ], [ %.083, %102 ], [ %.083, %102 ], [ %.083, %102 ], [ %.083, %_ZNK4mold6SymbolINS_4I386EE23is_pcrel_linktime_constERNS_7ContextIS1_EE.exit.thread ]
+  %.1 = phi i64 [ %.083, %41 ], [ %.083, %46 ], [ %.083, %_ZN4mold5ErrorINS_7ContextINS_4I386EEEED2Ev.exit ], [ %.083, %103 ], [ %.083, %104 ], [ %.083, %105 ], [ %.083, %102 ], [ %.083, %_ZNK4mold6SymbolINS_4I386EE23is_pcrel_linktime_constERNS_7ContextIS1_EE.exit.thread74 ], [ %.083, %140 ], [ %.083, %136 ], [ %.083, %143 ], [ %159, %158 ], [ %.083, %160 ], [ %172, %171 ], [ %.083, %173 ], [ %.083, %174 ], [ %.083, %175 ], [ %.083, %102 ], [ %.083, %102 ], [ %.083, %102 ], [ %.083, %102 ], [ %.083, %_ZNK4mold6SymbolINS_4I386EE23is_pcrel_linktime_constERNS_7ContextIS1_EE.exit.thread ]
   %196 = add nsw i64 %.1, 1
   %197 = icmp ult i64 %196, %17
   br i1 %197, label %41, label %._crit_edge, !llvm.loop !417

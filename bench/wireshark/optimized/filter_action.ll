@@ -1726,7 +1726,7 @@ _ZN7QStringD2Ev.exit95:                           ; preds = %149, %_ZN17QArrayDa
   ret ptr %41
 
 158:                                              ; preds = %103, %105, %107, %155, %_ZN7QStringD2Ev.exit95, %147, %_ZN7QStringD2Ev.exit91, %139, %_ZN7QStringD2Ev.exit87, %131, %_ZN7QStringD2Ev.exit83, %123, %_ZN7QStringD2Ev.exit79, %115, %_ZN7QStringD2Ev.exit75, %101
-  %.pn.pn.pn = phi { ptr, i32 } [ %102, %101 ], [ %108, %107 ], [ %106, %105 ], [ %104, %103 ], [ %156, %155 ], [ %150, %_ZN7QStringD2Ev.exit95 ], [ %148, %147 ], [ %142, %_ZN7QStringD2Ev.exit91 ], [ %140, %139 ], [ %134, %_ZN7QStringD2Ev.exit87 ], [ %132, %131 ], [ %126, %_ZN7QStringD2Ev.exit83 ], [ %124, %123 ], [ %118, %_ZN7QStringD2Ev.exit79 ], [ %116, %115 ], [ %110, %_ZN7QStringD2Ev.exit75 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %102, %101 ], [ %104, %103 ], [ %108, %107 ], [ %106, %105 ], [ %156, %155 ], [ %150, %_ZN7QStringD2Ev.exit95 ], [ %148, %147 ], [ %142, %_ZN7QStringD2Ev.exit91 ], [ %140, %139 ], [ %134, %_ZN7QStringD2Ev.exit87 ], [ %132, %131 ], [ %126, %_ZN7QStringD2Ev.exit83 ], [ %124, %123 ], [ %118, %_ZN7QStringD2Ev.exit79 ], [ %116, %115 ], [ %110, %_ZN7QStringD2Ev.exit75 ]
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -2638,7 +2638,7 @@ _ZN5QListIP7QActionED2Ev.exit86:                  ; preds = %135, %_ZN17QArrayDa
   br label %_ZN7QStringD2Ev.exit82
 
 _ZN7QStringD2Ev.exit82:                           ; preds = %127, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i80, %123, %_ZN5QListIP7QActionED2Ev.exit86, %73, %_ZN7QStringD2Ev.exit67, %67, %65
-  %.pn34.pn.pn = phi { ptr, i32 } [ %68, %67 ], [ %66, %65 ], [ %.pn30.pn, %_ZN7QStringD2Ev.exit67 ], [ %.pn, %73 ], [ %.pn34, %_ZN5QListIP7QActionED2Ev.exit86 ], [ %124, %123 ], [ %124, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i80 ], [ %124, %127 ]
+  %.pn34.pn.pn = phi { ptr, i32 } [ %.pn, %73 ], [ %66, %65 ], [ %68, %67 ], [ %.pn30.pn, %_ZN7QStringD2Ev.exit67 ], [ %.pn34, %_ZN5QListIP7QActionED2Ev.exit86 ], [ %124, %123 ], [ %124, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i80 ], [ %124, %127 ]
   %137 = load ptr, ptr %5, align 8
   %.not.i.i.i87 = icmp eq ptr %137, null
   br i1 %.not.i.i.i87, label %_ZN7QStringD2Ev.exit90, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i88

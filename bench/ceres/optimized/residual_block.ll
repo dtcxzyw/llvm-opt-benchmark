@@ -432,7 +432,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit141: ; preds = %10
   br label %_ZNK5Eigen10MatrixBaseINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE11squaredNormEv.exit
 
 _ZNK5Eigen10MatrixBaseINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE11squaredNormEv.exit: ; preds = %.lr.ph85.i.i.i.i, %155, %147, %113
-  %.0.i.i = phi double [ 0.000000e+00, %113 ], [ %157, %155 ], [ %148, %147 ], [ %153, %.lr.ph85.i.i.i.i ]
+  %.0.i.i = phi double [ 0.000000e+00, %113 ], [ %148, %147 ], [ %157, %155 ], [ %153, %.lr.ph85.i.i.i.i ]
   %or.cond174 = and i1 %48, %34
   br i1 %or.cond174, label %.lr.ph171, label %.loopexit161
 
@@ -633,7 +633,7 @@ _ZNK5ceres8internal14ParameterBlock11TangentSizeEv.exit147: ; preds = %._ZNK5cer
   br label %252
 
 241:                                              ; preds = %197, %239, %80, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.0 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %80 ], [ true, %239 ], [ true, %197 ]
+  %.0 = phi i1 [ false, %80 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ true, %239 ], [ true, %197 ]
   %242 = load i64, ptr %37, align 8, !tbaa !84
   %243 = icmp ult i64 %242, 33
   br i1 %243, label %_ZN4absl12lts_2024011610FixedArrayIPdLm18446744073709551615ESaIS2_EED2Ev.exit, label %244
@@ -661,7 +661,7 @@ _ZN4absl12lts_2024011610FixedArrayIPKdLm18446744073709551615ESaIS3_EED2Ev.exit: 
   ret i1 %.0
 
 252:                                              ; preds = %81, %112, %240, %192
-  %.pn124 = phi { ptr, i32 } [ %.pn.pn.pn, %112 ], [ %82, %81 ], [ %193, %192 ], [ %.pn114.pn, %240 ]
+  %.pn124 = phi { ptr, i32 } [ %.pn114.pn, %240 ], [ %82, %81 ], [ %.pn.pn.pn, %112 ], [ %193, %192 ]
   %253 = load i64, ptr %37, align 8, !tbaa !84
   %254 = icmp ult i64 %253, 33
   br i1 %254, label %_ZN4absl12lts_2024011610FixedArrayIPdLm18446744073709551615ESaIS2_EED2Ev.exit148, label %255

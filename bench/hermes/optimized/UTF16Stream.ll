@@ -260,8 +260,8 @@ if.then.i.i18:                                    ; preds = %if.then5.i
   br label %if.end9
 
 if.end9:                                          ; preds = %if.else, %if.then5.i, %if.then.i.i18, %_ZSt4copyIPKDsN9__gnu_cxx17__normal_iteratorIPDsSt6vectorIDsSaIDsEEEEET0_T_SA_S9_.exit.i, %_ZNSt6vectorIDsSaIDsEE6resizeEm.exit.i
-  %12 = phi ptr [ %.pre, %_ZSt4copyIPKDsN9__gnu_cxx17__normal_iteratorIPDsSt6vectorIDsSaIDsEEEEET0_T_SA_S9_.exit.i ], [ %7, %_ZNSt6vectorIDsSaIDsEE6resizeEm.exit.i ], [ %add.ptr.i17, %if.then.i.i18 ], [ %10, %if.then5.i ], [ %10, %if.else ]
-  %13 = phi ptr [ %add.ptr40.i, %_ZSt4copyIPKDsN9__gnu_cxx17__normal_iteratorIPDsSt6vectorIDsSaIDsEEEEET0_T_SA_S9_.exit.i ], [ %add.ptr20.i, %_ZNSt6vectorIDsSaIDsEE6resizeEm.exit.i ], [ %11, %if.then.i.i18 ], [ %11, %if.then5.i ], [ %11, %if.else ]
+  %12 = phi ptr [ %7, %_ZNSt6vectorIDsSaIDsEE6resizeEm.exit.i ], [ %.pre, %_ZSt4copyIPKDsN9__gnu_cxx17__normal_iteratorIPDsSt6vectorIDsSaIDsEEEEET0_T_SA_S9_.exit.i ], [ %add.ptr.i17, %if.then.i.i18 ], [ %10, %if.then5.i ], [ %10, %if.else ]
+  %13 = phi ptr [ %add.ptr20.i, %_ZNSt6vectorIDsSaIDsEE6resizeEm.exit.i ], [ %add.ptr40.i, %_ZSt4copyIPKDsN9__gnu_cxx17__normal_iteratorIPDsSt6vectorIDsSaIDsEEEEET0_T_SA_S9_.exit.i ], [ %11, %if.then.i.i18 ], [ %11, %if.then5.i ], [ %11, %if.else ]
   store ptr %13, ptr %this, align 8
   %add.ptr.i.i21 = getelementptr inbounds i8, ptr %12, i64 -2
   %end_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -391,7 +391,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPDsmDsET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPDsmDsET_S1_T0_RSaIT1_E.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i.i.i
-  %__first.addr.0.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.then.i.i.i ], [ %add.ptr.i.i.i.i.i, %if.end.i.i.i.i.i ]
+  %__first.addr.0.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i, %if.end.i.i.i.i.i ], [ %incdec.ptr.i.i.i, %if.then.i.i.i ]
   store ptr %__first.addr.0.i.i.i, ptr %_M_finish.i, align 8
   br label %if.end41
 

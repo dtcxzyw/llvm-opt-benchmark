@@ -860,8 +860,8 @@ define internal noundef i32 @dissect_bitcoin_msg_addr(ptr noundef %0, ptr readno
   br label %add_varint_item.exit
 
 add_varint_item.exit:                             ; preds = %12, %16, %21, %26
-  %.sink.i31 = phi i64 [ %13, %12 ], [ %18, %16 ], [ %23, %21 ], [ %27, %26 ]
-  %.02529 = phi i32 [ 1, %12 ], [ 3, %16 ], [ 5, %21 ], [ 9, %26 ]
+  %.sink.i31 = phi i64 [ %27, %26 ], [ %13, %12 ], [ %18, %16 ], [ %23, %21 ]
+  %.02529 = phi i32 [ 9, %26 ], [ 1, %12 ], [ 3, %16 ], [ 5, %21 ]
   %.not42 = icmp eq i64 %.sink.i31, 0
   br i1 %.not42, label %._crit_edge, label %.lr.ph
 
@@ -937,8 +937,8 @@ define internal noundef i32 @dissect_bitcoin_msg_addrv2(ptr noundef %0, ptr noun
   br label %add_varint_item.exit
 
 add_varint_item.exit:                             ; preds = %12, %16, %21, %26
-  %.sink.i88 = phi i64 [ %13, %12 ], [ %18, %16 ], [ %23, %21 ], [ %27, %26 ]
-  %.08186 = phi i32 [ 1, %12 ], [ 3, %16 ], [ 5, %21 ], [ 9, %26 ]
+  %.sink.i88 = phi i64 [ %27, %26 ], [ %13, %12 ], [ %18, %16 ], [ %23, %21 ]
+  %.08186 = phi i32 [ 9, %26 ], [ 1, %12 ], [ 3, %16 ], [ 5, %21 ]
   %.not99 = icmp eq i64 %.sink.i88, 0
   br i1 %.not99, label %._crit_edge, label %.lr.ph
 
@@ -1116,8 +1116,8 @@ define internal noundef i32 @dissect_bitcoin_msg_inv(ptr noundef %0, ptr readnon
   br label %add_varint_item.exit
 
 add_varint_item.exit:                             ; preds = %12, %16, %21, %26
-  %.sink.i31 = phi i64 [ %13, %12 ], [ %18, %16 ], [ %23, %21 ], [ %27, %26 ]
-  %.02529 = phi i32 [ 1, %12 ], [ 3, %16 ], [ 5, %21 ], [ 9, %26 ]
+  %.sink.i31 = phi i64 [ %27, %26 ], [ %13, %12 ], [ %18, %16 ], [ %23, %21 ]
+  %.02529 = phi i32 [ 9, %26 ], [ 1, %12 ], [ 3, %16 ], [ 5, %21 ]
   %.not42 = icmp eq i64 %.sink.i31, 0
   br i1 %.not42, label %._crit_edge, label %.lr.ph
 
@@ -1184,8 +1184,8 @@ define internal noundef i32 @dissect_bitcoin_msg_getdata(ptr noundef %0, ptr rea
   br label %add_varint_item.exit
 
 add_varint_item.exit:                             ; preds = %12, %16, %21, %26
-  %.sink.i31 = phi i64 [ %13, %12 ], [ %18, %16 ], [ %23, %21 ], [ %27, %26 ]
-  %.02529 = phi i32 [ 1, %12 ], [ 3, %16 ], [ 5, %21 ], [ 9, %26 ]
+  %.sink.i31 = phi i64 [ %27, %26 ], [ %13, %12 ], [ %18, %16 ], [ %23, %21 ]
+  %.02529 = phi i32 [ 9, %26 ], [ 1, %12 ], [ 3, %16 ], [ 5, %21 ]
   %.not42 = icmp eq i64 %.sink.i31, 0
   br i1 %.not42, label %._crit_edge, label %.lr.ph
 
@@ -1254,8 +1254,8 @@ define internal noundef i32 @dissect_bitcoin_msg_getblocks(ptr noundef %0, ptr r
   br label %add_varint_item.exit
 
 add_varint_item.exit:                             ; preds = %14, %18, %23, %28
-  %.sink.i32 = phi i64 [ %15, %14 ], [ %20, %18 ], [ %25, %23 ], [ %29, %28 ]
-  %.02630 = phi i32 [ 5, %14 ], [ 7, %18 ], [ 9, %23 ], [ 13, %28 ]
+  %.sink.i32 = phi i64 [ %29, %28 ], [ %15, %14 ], [ %20, %18 ], [ %25, %23 ]
+  %.02630 = phi i32 [ 13, %28 ], [ 5, %14 ], [ 7, %18 ], [ 9, %23 ]
   %.not43 = icmp eq i64 %.sink.i32, 0
   br i1 %.not43, label %._crit_edge, label %.lr.ph
 
@@ -1322,8 +1322,8 @@ define internal noundef i32 @dissect_bitcoin_msg_getheaders(ptr noundef %0, ptr 
   br label %add_varint_item.exit
 
 add_varint_item.exit:                             ; preds = %14, %18, %23, %28
-  %.sink.i32 = phi i64 [ %15, %14 ], [ %20, %18 ], [ %25, %23 ], [ %29, %28 ]
-  %.02630 = phi i32 [ 5, %14 ], [ 7, %18 ], [ 9, %23 ], [ 13, %28 ]
+  %.sink.i32 = phi i64 [ %29, %28 ], [ %15, %14 ], [ %20, %18 ], [ %25, %23 ]
+  %.02630 = phi i32 [ 13, %28 ], [ 5, %14 ], [ 7, %18 ], [ 9, %23 ]
   %.not43 = icmp eq i64 %.sink.i32, 0
   br i1 %.not43, label %._crit_edge, label %.lr.ph
 
@@ -1406,8 +1406,8 @@ define internal noundef i32 @dissect_bitcoin_msg_block(ptr noundef %0, ptr nound
   br label %add_varint_item.exit
 
 add_varint_item.exit:                             ; preds = %24, %28, %33, %38
-  %.sink.i52 = phi i64 [ %25, %24 ], [ %30, %28 ], [ %35, %33 ], [ %39, %38 ]
-  %.04650 = phi i32 [ 81, %24 ], [ 83, %28 ], [ 85, %33 ], [ 89, %38 ]
+  %.sink.i52 = phi i64 [ %39, %38 ], [ %25, %24 ], [ %30, %28 ], [ %35, %33 ]
+  %.04650 = phi i32 [ 89, %38 ], [ 81, %24 ], [ 83, %28 ], [ 85, %33 ]
   %.not = icmp eq i64 %.sink.i52, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1493,8 +1493,8 @@ define internal noundef i32 @dissect_bitcoin_msg_notfound(ptr noundef %0, ptr re
   br label %add_varint_item.exit
 
 add_varint_item.exit:                             ; preds = %12, %16, %21, %26
-  %.sink.i31 = phi i64 [ %13, %12 ], [ %18, %16 ], [ %23, %21 ], [ %27, %26 ]
-  %.02529 = phi i32 [ 1, %12 ], [ 3, %16 ], [ 5, %21 ], [ 9, %26 ]
+  %.sink.i31 = phi i64 [ %27, %26 ], [ %13, %12 ], [ %18, %16 ], [ %23, %21 ]
+  %.02529 = phi i32 [ 9, %26 ], [ 1, %12 ], [ 3, %16 ], [ 5, %21 ]
   %.not42 = icmp eq i64 %.sink.i31, 0
   br i1 %.not42, label %._crit_edge, label %.lr.ph
 
@@ -1596,8 +1596,8 @@ define internal noundef i32 @dissect_bitcoin_msg_headers(ptr noundef %0, ptr rea
   br label %add_varint_item.exit
 
 add_varint_item.exit:                             ; preds = %12, %16, %21, %26
-  %.sink.i58 = phi i64 [ %13, %12 ], [ %18, %16 ], [ %23, %21 ], [ %27, %26 ]
-  %.05156 = phi i32 [ 1, %12 ], [ 3, %16 ], [ 5, %21 ], [ 9, %26 ]
+  %.sink.i58 = phi i64 [ %27, %26 ], [ %13, %12 ], [ %18, %16 ], [ %23, %21 ]
+  %.05156 = phi i32 [ 9, %26 ], [ 1, %12 ], [ 3, %16 ], [ 5, %21 ]
   %.not69 = icmp eq i64 %.sink.i58, 0
   br i1 %.not69, label %._crit_edge, label %.lr.ph
 
@@ -1648,7 +1648,7 @@ add_varint_item.exit:                             ; preds = %12, %16, %21, %26
   br label %get_varint.exit45
 
 get_varint.exit45:                                ; preds = %.lr.ph, %54, %56, %58
-  %.1 = phi i32 [ 9, %58 ], [ 3, %54 ], [ 5, %56 ], [ 1, %.lr.ph ]
+  %.1 = phi i32 [ 5, %56 ], [ 9, %58 ], [ 3, %54 ], [ 1, %.lr.ph ]
   %60 = load i32, ptr @hf_msg_headers_count8, align 4
   %61 = load i32, ptr @hf_msg_headers_count16, align 4
   %62 = load i32, ptr @hf_msg_headers_count32, align 4
@@ -1783,9 +1783,9 @@ define internal noundef i32 @dissect_bitcoin_msg_merkleblock(ptr noundef %0, ptr
   br label %add_varint_item.exit
 
 add_varint_item.exit:                             ; preds = %26, %32, %39, %46
-  %52 = phi ptr [ %29, %26 ], [ %36, %32 ], [ %43, %39 ], [ %49, %46 ]
-  %.sink.i74 = phi i64 [ %27, %26 ], [ %34, %32 ], [ %41, %39 ], [ %47, %46 ]
-  %.06872 = phi i32 [ 85, %26 ], [ 87, %32 ], [ 89, %39 ], [ 93, %46 ]
+  %52 = phi ptr [ %49, %46 ], [ %29, %26 ], [ %36, %32 ], [ %43, %39 ]
+  %.sink.i74 = phi i64 [ %47, %46 ], [ %27, %26 ], [ %34, %32 ], [ %41, %39 ]
+  %.06872 = phi i32 [ 93, %46 ], [ 85, %26 ], [ 87, %32 ], [ 89, %39 ]
   %.not85 = icmp eq i64 %.sink.i74, 0
   br i1 %.not85, label %._crit_edge, label %.lr.ph
 

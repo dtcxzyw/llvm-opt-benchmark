@@ -424,8 +424,8 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17ha2
   br label %.thread
 
 .thread:                                          ; preds = %61, %57
-  %68 = phi i8 [ %.pre22, %61 ], [ %59, %57 ]
-  %.sroa.4.0.ph = phi i64 [ %67, %61 ], [ %.sroa.6.1.i.i, %57 ]
+  %68 = phi i8 [ %59, %57 ], [ %.pre22, %61 ]
+  %.sroa.4.0.ph = phi i64 [ %.sroa.6.1.i.i, %57 ], [ %67, %61 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %69 = getelementptr inbounds nuw i8, ptr %7, i64 24

@@ -68,7 +68,7 @@ define dso_local range(i32 -21, -22) i32 @xfrm6_rcv_encap(ptr noundef initialize
   br label %.loopexit4
 
 12:                                               ; preds = %8, %7, %4
-  %13 = phi ptr [ @ipcomp6_handlers, %8 ], [ @ah6_handlers, %7 ], [ @esp6_handlers, %4 ]
+  %13 = phi ptr [ @esp6_handlers, %4 ], [ @ipcomp6_handlers, %8 ], [ @ah6_handlers, %7 ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr null, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 76
@@ -213,7 +213,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xfrm6_protocol_register(ptr noun
   br label %.thread
 
 .thread:                                          ; preds = %5, %6, %.thread6, %.thread5
-  %.in = phi ptr [ @ipcomp6_handlers, %.thread6 ], [ @ah6_handlers, %.thread5 ], [ null, %6 ], [ @esp6_handlers, %5 ]
+  %.in = phi ptr [ null, %6 ], [ @ipcomp6_handlers, %.thread6 ], [ @ah6_handlers, %.thread5 ], [ @esp6_handlers, %5 ]
   %7 = load ptr, ptr %.in, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit7, label %9

@@ -286,7 +286,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   resume { ptr, i32 } %15
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h21d58ec3196a47e9E.llvm.3870958398981085830.exit.loopexit: ; preds = %21, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7dad0b9635b0728E.llvm.3870958398981085830.exit.i"
-  %.ph = phi i64 [ %23, %21 ], [ %17, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7dad0b9635b0728E.llvm.3870958398981085830.exit.i" ]
+  %.ph = phi i64 [ %17, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7dad0b9635b0728E.llvm.3870958398981085830.exit.i" ], [ %23, %21 ]
   store ptr %19, ptr %10, align 8, !alias.scope !96, !noalias !98
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17h21d58ec3196a47e9E.llvm.3870958398981085830.exit
 
@@ -570,7 +570,7 @@ define hidden void @"_ZN10jod_thread19JoinHandle$LT$T$GT$6detach17h9e67f10c56986
   unreachable
 
 common.resume:                                    ; preds = %17, %6, %10
-  %common.resume.op = phi { ptr, i32 } [ %7, %10 ], [ %7, %6 ], [ %18, %17 ]
+  %common.resume.op = phi { ptr, i32 } [ %7, %6 ], [ %7, %10 ], [ %18, %17 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr43drop_in_place$LT$jod_thread..JoinHandle$GT$17he7f6d015dba729cdE.exit": ; preds = %11, %14
@@ -1379,7 +1379,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h6a629af9ebac73
   br label %.body
 
 .body:                                            ; preds = %63, %80, %101, %39
-  %eh.lpad-body = phi { ptr, i32 } [ %40, %39 ], [ %.pn.i.i.i.i, %63 ], [ %81, %80 ], [ %102, %101 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %102, %101 ], [ %40, %39 ], [ %81, %80 ], [ %.pn.i.i.i.i, %63 ]
   invoke void @"_ZN82_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8f6e085360398961E.llvm.499084329766792615"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0)
           to label %"_ZN4core3ptr242drop_in_place$LT$hashbrown..raw..RawIntoIter$LT$$LP$la_arena..Idx$LT$base_db..input..CrateData$GT$$C$core..result..Result$LT$$LP$core..option..Option$LT$alloc..string..String$GT$$C$paths..AbsPathBuf$RP$$C$alloc..string..String$GT$$RP$$GT$$GT$17hf942b95f8fe0f8b3E.exit" unwind label %121
 

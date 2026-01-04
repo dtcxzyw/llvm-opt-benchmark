@@ -74,7 +74,7 @@ define noundef i32 @dgemm_thread_tt(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %39, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph, %30, %32
-  %.056 = phi i64 [ %34, %32 ], [ 1, %30 ], [ %37, %.lr.ph ]
+  %.056 = phi i64 [ 1, %30 ], [ %34, %32 ], [ %37, %.lr.ph ]
   %40 = shl nsw i64 %.056, 3
   %41 = icmp slt i64 %.059, %40
   br i1 %41, label %.critedge, label %42
@@ -655,7 +655,7 @@ blas_quickdivide.exit:                            ; preds = %6, %33
   br label %108
 
 108:                                              ; preds = %100, %103, %105
-  %.0294 = phi i64 [ %107, %105 ], [ %101, %103 ], [ 384, %100 ]
+  %.0294 = phi i64 [ %101, %103 ], [ %107, %105 ], [ 384, %100 ]
   br i1 %86, label %112, label %109
 
 109:                                              ; preds = %108
@@ -665,8 +665,8 @@ blas_quickdivide.exit:                            ; preds = %6, %33
   br label %112
 
 112:                                              ; preds = %108, %109
-  %.0295 = phi i64 [ %.mux, %108 ], [ %84, %109 ]
-  %.0287 = phi i64 [ %.0294, %108 ], [ %111, %109 ]
+  %.0295 = phi i64 [ %84, %109 ], [ %.mux, %108 ]
+  %.0287 = phi i64 [ %111, %109 ], [ %.0294, %108 ]
   %113 = getelementptr double, ptr %13, i64 %.0301401
   %114 = getelementptr double, ptr %113, i64 %90
   %115 = tail call i32 @dgemm_incopy(i64 noundef %.0294, i64 noundef %.0295, ptr noundef %114, i64 noundef %19, ptr noundef %3) #6
@@ -876,7 +876,7 @@ blas_quickdivide.exit:                            ; preds = %6, %33
   br label %199
 
 199:                                              ; preds = %.lr.ph399, %192, %194
-  %.1296 = phi i64 [ %198, %194 ], [ %190, %192 ], [ 192, %.lr.ph399 ]
+  %.1296 = phi i64 [ %190, %192 ], [ %198, %194 ], [ 192, %.lr.ph399 ]
   %200 = mul nsw i64 %.0306397, %19
   %201 = getelementptr double, ptr %113, i64 %200
   %202 = tail call i32 @dgemm_incopy(i64 noundef %.0294, i64 noundef %.1296, ptr noundef %201, i64 noundef %19, ptr noundef %3) #6

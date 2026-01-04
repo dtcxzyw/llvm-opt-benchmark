@@ -251,7 +251,7 @@ rtkit_setpriority_realtime.exit:                  ; preds = %rtkit_initialize_re
   br label %59
 
 59:                                               ; preds = %55, %rtkit_setpriority_realtime.exit, %23, %57
-  %.019 = phi i1 [ %58, %57 ], [ true, %23 ], [ true, %rtkit_setpriority_realtime.exit ], [ true, %55 ]
+  %.019 = phi i1 [ true, %23 ], [ %58, %57 ], [ true, %rtkit_setpriority_realtime.exit ], [ true, %55 ]
   ret i1 %.019
 }
 

@@ -37,8 +37,8 @@ define ptr @ether_aton_r(ptr noundef readonly captures(none) %0, ptr noundef wri
   %or.cond = or i1 %17, %15
   br i1 %or.cond, label %xdigit.exit.thread28, label %xdigit.exit.thread
 
-xdigit.exit.thread:                               ; preds = %13, %3, %11
-  %.0.i27 = phi i32 [ %6, %3 ], [ %12, %11 ], [ %16, %13 ]
+xdigit.exit.thread:                               ; preds = %13, %11, %3
+  %.0.i27 = phi i32 [ %16, %13 ], [ %12, %11 ], [ %6, %3 ]
   %18 = getelementptr inbounds nuw i8, ptr %.01739, i64 1
   %19 = load i8, ptr %18, align 1
   %20 = sext i8 %19 to i32
@@ -63,8 +63,8 @@ xdigit.exit.thread:                               ; preds = %13, %3, %11
   %or.cond36 = or i1 %32, %30
   br i1 %or.cond36, label %xdigit.exit.thread28, label %xdigit.exit25.thread
 
-xdigit.exit25.thread:                             ; preds = %xdigit.exit.thread, %26, %28
-  %.0.i2432 = phi i32 [ %31, %28 ], [ %21, %xdigit.exit.thread ], [ %27, %26 ]
+xdigit.exit25.thread:                             ; preds = %26, %xdigit.exit.thread, %28
+  %.0.i2432 = phi i32 [ %31, %28 ], [ %27, %26 ], [ %21, %xdigit.exit.thread ]
   %33 = getelementptr inbounds nuw i8, ptr %.01739, i64 2
   %34 = shl nuw nsw i32 %.0.i27, 4
   %35 = add nuw nsw i32 %.0.i2432, %34
@@ -126,7 +126,7 @@ define ptr @ether_aton(ptr noundef readonly captures(none) %0) local_unnamed_add
   br i1 %or.cond.i, label %ether_aton_r.exit, label %xdigit.exit.thread.i
 
 xdigit.exit.thread.i:                             ; preds = %12, %10, %2
-  %.0.i27.i = phi i32 [ %5, %2 ], [ %11, %10 ], [ %15, %12 ]
+  %.0.i27.i = phi i32 [ %15, %12 ], [ %11, %10 ], [ %5, %2 ]
   %17 = getelementptr inbounds nuw i8, ptr %.01739.i, i64 1
   %18 = load i8, ptr %17, align 1
   %19 = sext i8 %18 to i32
@@ -152,7 +152,7 @@ xdigit.exit.thread.i:                             ; preds = %12, %10, %2
   br i1 %or.cond36.i, label %ether_aton_r.exit, label %xdigit.exit25.thread.i
 
 xdigit.exit25.thread.i:                           ; preds = %27, %25, %xdigit.exit.thread.i
-  %.0.i2432.i = phi i32 [ %30, %27 ], [ %20, %xdigit.exit.thread.i ], [ %26, %25 ]
+  %.0.i2432.i = phi i32 [ %30, %27 ], [ %26, %25 ], [ %20, %xdigit.exit.thread.i ]
   %32 = shl nuw nsw i32 %.0.i27.i, 4
   %33 = add nuw nsw i32 %.0.i2432.i, %32
   %34 = trunc i32 %33 to i8

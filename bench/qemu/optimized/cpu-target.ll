@@ -467,8 +467,8 @@ define dso_local range(i32 -1, 1) i32 @cpu_memory_rw_debug(ptr noundef readnone 
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %36, %48, %.lr.ph.split.us, %12, %26
-  %.0.lcssa = phi i32 [ %.3.us, %26 ], [ %.086.us, %12 ], [ %.086.us, %.lr.ph.split.us ], [ %.3, %48 ], [ %.086, %36 ], [ %.086, %.lr.ph.split ]
-  %.056 = phi i32 [ 0, %26 ], [ -1, %12 ], [ -1, %.lr.ph.split.us ], [ 0, %48 ], [ -1, %36 ], [ -1, %.lr.ph.split ]
+  %.0.lcssa = phi i32 [ %.086.us, %12 ], [ %.3.us, %26 ], [ %.086.us, %.lr.ph.split.us ], [ %.086, %.lr.ph.split ], [ %.086, %36 ], [ %.3, %48 ]
+  %.056 = phi i32 [ -1, %12 ], [ 0, %26 ], [ -1, %.lr.ph.split.us ], [ -1, %.lr.ph.split ], [ -1, %36 ], [ 0, %48 ]
   %.not74 = icmp eq i32 %.0.lcssa, -1
   br i1 %.not74, label %.loopexit, label %.thread
 
@@ -479,7 +479,7 @@ define dso_local range(i32 -1, 1) i32 @cpu_memory_rw_debug(ptr noundef readnone 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %41, %17, %5, %._crit_edge, %.thread
-  %.157 = phi i32 [ %.05678, %.thread ], [ %.056, %._crit_edge ], [ 0, %5 ], [ -1, %17 ], [ -1, %41 ]
+  %.157 = phi i32 [ %.05678, %.thread ], [ %.056, %._crit_edge ], [ -1, %17 ], [ 0, %5 ], [ -1, %41 ]
   ret i32 %.157
 }
 

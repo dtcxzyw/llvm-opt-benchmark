@@ -1339,7 +1339,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   resume { ptr, i32 } %50
 
 .thread22:                                        ; preds = %19, %17, %10, %.preheader, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
-  %51 = phi i64 [ 0, %.preheader ], [ %.pre, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ %23, %19 ], [ %11, %17 ], [ %11, %10 ]
+  %51 = phi i64 [ %.pre, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ 0, %.preheader ], [ %23, %19 ], [ %11, %17 ], [ %11, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %51
 }

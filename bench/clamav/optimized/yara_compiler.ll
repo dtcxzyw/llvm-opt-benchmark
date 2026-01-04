@@ -126,7 +126,7 @@ define range(i32 0, 24) i32 @_yr_compiler_push_file_name(ptr noundef captures(no
   br label %26
 
 26:                                               ; preds = %._crit_edge.thread, %24, %18, %13
-  %.015 = phi i32 [ 22, %13 ], [ 0, %18 ], [ 23, %24 ], [ 1, %._crit_edge.thread ]
+  %.015 = phi i32 [ 22, %13 ], [ 23, %24 ], [ 0, %18 ], [ 1, %._crit_edge.thread ]
   ret i32 %.015
 }
 

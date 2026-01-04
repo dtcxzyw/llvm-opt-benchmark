@@ -387,11 +387,11 @@ define internal i32 @test_kdf_pbkdf1() #0 {
   br label %31
 
 31:                                               ; preds = %29, %14, %17, %21, %26, %11, %0
-  %.018 = phi i32 [ 0, %26 ], [ 0, %21 ], [ 0, %17 ], [ 0, %14 ], [ 0, %11 ], [ 0, %0 ], [ %spec.select, %29 ]
-  %.017 = phi ptr [ %19, %26 ], [ %19, %21 ], [ %19, %17 ], [ null, %14 ], [ null, %11 ], [ null, %0 ], [ %19, %29 ]
-  %.016 = phi ptr [ %15, %26 ], [ %15, %21 ], [ %15, %17 ], [ %15, %14 ], [ null, %11 ], [ null, %0 ], [ %15, %29 ]
-  %.015 = phi ptr [ %7, %26 ], [ %7, %21 ], [ %7, %17 ], [ %7, %14 ], [ %7, %11 ], [ null, %0 ], [ %7, %29 ]
-  %.0 = phi ptr [ %12, %26 ], [ %12, %21 ], [ %12, %17 ], [ %12, %14 ], [ %12, %11 ], [ null, %0 ], [ %12, %29 ]
+  %.018 = phi i32 [ 0, %0 ], [ %spec.select, %29 ], [ 0, %26 ], [ 0, %21 ], [ 0, %17 ], [ 0, %14 ], [ 0, %11 ]
+  %.017 = phi ptr [ null, %0 ], [ %19, %29 ], [ %19, %26 ], [ %19, %21 ], [ %19, %17 ], [ null, %14 ], [ null, %11 ]
+  %.016 = phi ptr [ null, %0 ], [ %15, %29 ], [ %15, %26 ], [ %15, %21 ], [ %15, %17 ], [ %15, %14 ], [ null, %11 ]
+  %.015 = phi ptr [ null, %0 ], [ %7, %29 ], [ %7, %26 ], [ %7, %21 ], [ %7, %17 ], [ %7, %14 ], [ %7, %11 ]
+  %.0 = phi ptr [ null, %0 ], [ %12, %29 ], [ %12, %26 ], [ %12, %21 ], [ %12, %17 ], [ %12, %14 ], [ %12, %11 ]
   call void @EVP_KDF_CTX_free(ptr noundef %.017) #6
   call void @CRYPTO_free(ptr noundef %.016, ptr noundef nonnull @.str.53, i32 noundef 540) #6
   %32 = call i32 @OSSL_PROVIDER_unload(ptr noundef %.0) #6
@@ -465,11 +465,11 @@ define internal i32 @test_kdf_pbkdf1_key_too_long() #0 {
   br label %28
 
 28:                                               ; preds = %25, %13, %16, %20, %10, %0
-  %.018 = phi i32 [ 0, %20 ], [ 0, %16 ], [ 0, %13 ], [ 0, %10 ], [ 0, %0 ], [ %spec.select, %25 ]
-  %.017 = phi ptr [ %18, %20 ], [ %18, %16 ], [ null, %13 ], [ null, %10 ], [ null, %0 ], [ %18, %25 ]
-  %.016 = phi ptr [ %14, %20 ], [ %14, %16 ], [ %14, %13 ], [ null, %10 ], [ null, %0 ], [ %14, %25 ]
-  %.015 = phi ptr [ %6, %20 ], [ %6, %16 ], [ %6, %13 ], [ %6, %10 ], [ null, %0 ], [ %6, %25 ]
-  %.0 = phi ptr [ %11, %20 ], [ %11, %16 ], [ %11, %13 ], [ %11, %10 ], [ null, %0 ], [ %11, %25 ]
+  %.018 = phi i32 [ 0, %0 ], [ %spec.select, %25 ], [ 0, %20 ], [ 0, %16 ], [ 0, %13 ], [ 0, %10 ]
+  %.017 = phi ptr [ null, %0 ], [ %18, %25 ], [ %18, %20 ], [ %18, %16 ], [ null, %13 ], [ null, %10 ]
+  %.016 = phi ptr [ null, %0 ], [ %14, %25 ], [ %14, %20 ], [ %14, %16 ], [ %14, %13 ], [ null, %10 ]
+  %.015 = phi ptr [ null, %0 ], [ %6, %25 ], [ %6, %20 ], [ %6, %16 ], [ %6, %13 ], [ %6, %10 ]
+  %.0 = phi ptr [ null, %0 ], [ %11, %25 ], [ %11, %20 ], [ %11, %16 ], [ %11, %13 ], [ %11, %10 ]
   call void @EVP_KDF_CTX_free(ptr noundef %.017) #6
   call void @CRYPTO_free(ptr noundef %.016, ptr noundef nonnull @.str.53, i32 noundef 589) #6
   %29 = call i32 @OSSL_PROVIDER_unload(ptr noundef %.0) #6
@@ -1226,9 +1226,9 @@ define internal range(i32 0, 2) i32 @test_kdf_get_kdf() #0 {
   br label %13
 
 13:                                               ; preds = %11, %0, %3, %6
-  %.115 = phi ptr [ %9, %6 ], [ null, %3 ], [ null, %0 ], [ %9, %11 ]
-  %.113 = phi ptr [ %4, %6 ], [ %4, %3 ], [ null, %0 ], [ %4, %11 ]
-  %.0 = phi i32 [ 0, %6 ], [ 0, %3 ], [ 0, %0 ], [ %12, %11 ]
+  %.115 = phi ptr [ %9, %11 ], [ %9, %6 ], [ null, %3 ], [ null, %0 ]
+  %.113 = phi ptr [ %4, %11 ], [ %4, %6 ], [ %4, %3 ], [ null, %0 ]
+  %.0 = phi i32 [ %12, %11 ], [ 0, %6 ], [ 0, %3 ], [ 0, %0 ]
   tail call void @EVP_KDF_free(ptr noundef %.113) #6
   tail call void @EVP_KDF_free(ptr noundef %.115) #6
   %14 = tail call ptr @EVP_KDF_fetch(ptr noundef null, ptr noundef nonnull @.str.110, ptr noundef null) #6
@@ -1249,8 +1249,8 @@ define internal range(i32 0, 2) i32 @test_kdf_get_kdf() #0 {
   br label %21
 
 21:                                               ; preds = %19, %13, %16
-  %.3 = phi ptr [ %17, %16 ], [ null, %13 ], [ %17, %19 ]
-  %.1 = phi i32 [ 0, %16 ], [ 0, %13 ], [ %spec.select25, %19 ]
+  %.3 = phi ptr [ %17, %19 ], [ %17, %16 ], [ null, %13 ]
+  %.1 = phi i32 [ %spec.select25, %19 ], [ 0, %16 ], [ 0, %13 ]
   tail call void @EVP_KDF_free(ptr noundef %.3) #6
   %22 = tail call ptr @OBJ_nid2sn(i32 noundef 1021) #6
   %23 = tail call ptr @EVP_KDF_fetch(ptr noundef null, ptr noundef %22, ptr noundef null) #6
@@ -1831,7 +1831,7 @@ define internal range(i32 0, 2) i32 @test_kdf_hkdf_set_invalid_mode() #0 {
   br label %15
 
 15:                                               ; preds = %12, %8, %0
-  %.0 = phi i32 [ 0, %8 ], [ 0, %0 ], [ %spec.select, %12 ]
+  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %12 ], [ 0, %8 ]
   call void @EVP_KDF_CTX_free(ptr noundef %6) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -1902,8 +1902,8 @@ define internal range(i32 0, 2) i32 @test_kdf_pbkdf2() #0 {
   br label %16
 
 16:                                               ; preds = %14, %0, %7, %11
-  %.05 = phi ptr [ %9, %11 ], [ %9, %7 ], [ null, %0 ], [ %9, %14 ]
-  %.0 = phi i32 [ 0, %11 ], [ 0, %7 ], [ 0, %0 ], [ %spec.select, %14 ]
+  %.05 = phi ptr [ null, %0 ], [ %9, %14 ], [ %9, %11 ], [ %9, %7 ]
+  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %14 ], [ 0, %11 ], [ 0, %7 ]
   call void @EVP_KDF_CTX_free(ptr noundef %.05) #6
   call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str.53, i32 noundef 646) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1952,8 +1952,8 @@ define internal range(i32 0, 2) i32 @test_kdf_pbkdf2_small_output() #0 {
   br label %18
 
 18:                                               ; preds = %15, %0, %6, %10
-  %.06 = phi ptr [ %8, %10 ], [ %8, %6 ], [ null, %0 ], [ %8, %15 ]
-  %.0 = phi i32 [ 0, %10 ], [ 0, %6 ], [ 0, %0 ], [ %spec.select, %15 ]
+  %.06 = phi ptr [ null, %0 ], [ %8, %15 ], [ %8, %10 ], [ %8, %6 ]
+  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %15 ], [ 0, %10 ], [ 0, %6 ]
   call void @EVP_KDF_CTX_free(ptr noundef %.06) #6
   call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str.53, i32 noundef 673) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2033,8 +2033,8 @@ define internal range(i32 0, 2) i32 @test_kdf_pbkdf2_small_salt() #0 {
   br label %14
 
 14:                                               ; preds = %9, %0, %5
-  %.05 = phi ptr [ %7, %5 ], [ null, %0 ], [ %7, %9 ]
-  %.0 = phi i32 [ 0, %5 ], [ 0, %0 ], [ %spec.select, %9 ]
+  %.05 = phi ptr [ null, %0 ], [ %7, %9 ], [ %7, %5 ]
+  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %9 ], [ 0, %5 ]
   call void @EVP_KDF_CTX_free(ptr noundef %.05) #6
   call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str.53, i32 noundef 729) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -2073,8 +2073,8 @@ define internal range(i32 0, 2) i32 @test_kdf_pbkdf2_small_iterations() #0 {
   br label %14
 
 14:                                               ; preds = %9, %0, %5
-  %.05 = phi ptr [ %7, %5 ], [ null, %0 ], [ %7, %9 ]
-  %.0 = phi i32 [ 0, %5 ], [ 0, %0 ], [ %spec.select, %9 ]
+  %.05 = phi ptr [ null, %0 ], [ %7, %9 ], [ %7, %5 ]
+  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %9 ], [ 0, %5 ]
   call void @EVP_KDF_CTX_free(ptr noundef %.05) #6
   call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str.53, i32 noundef 754) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -2145,8 +2145,8 @@ define internal range(i32 0, 2) i32 @test_kdf_pbkdf2_small_salt_pkcs5() #0 {
   br label %29
 
 29:                                               ; preds = %26, %20, %0, %8, %12, %17
-  %.08 = phi ptr [ %10, %20 ], [ %10, %17 ], [ %10, %12 ], [ %10, %8 ], [ null, %0 ], [ %10, %26 ]
-  %.0 = phi i32 [ 0, %20 ], [ 0, %17 ], [ 0, %12 ], [ 0, %8 ], [ 0, %0 ], [ %spec.select, %26 ]
+  %.08 = phi ptr [ null, %0 ], [ %10, %26 ], [ %10, %20 ], [ %10, %17 ], [ %10, %12 ], [ %10, %8 ]
+  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %26 ], [ 0, %20 ], [ 0, %17 ], [ 0, %12 ], [ 0, %8 ]
   call void @EVP_KDF_CTX_free(ptr noundef %.08) #6
   call void @CRYPTO_free(ptr noundef %6, ptr noundef nonnull @.str.53, i32 noundef 791) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2219,8 +2219,8 @@ define internal range(i32 0, 2) i32 @test_kdf_pbkdf2_small_iterations_pkcs5() #0
   br label %29
 
 29:                                               ; preds = %26, %20, %0, %8, %12, %17
-  %.08 = phi ptr [ %10, %20 ], [ %10, %17 ], [ %10, %12 ], [ %10, %8 ], [ null, %0 ], [ %10, %26 ]
-  %.0 = phi i32 [ 0, %20 ], [ 0, %17 ], [ 0, %12 ], [ 0, %8 ], [ 0, %0 ], [ %spec.select, %26 ]
+  %.08 = phi ptr [ null, %0 ], [ %10, %26 ], [ %10, %20 ], [ %10, %17 ], [ %10, %12 ], [ %10, %8 ]
+  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %26 ], [ 0, %20 ], [ 0, %17 ], [ 0, %12 ], [ 0, %8 ]
   call void @EVP_KDF_CTX_free(ptr noundef %.08) #6
   call void @CRYPTO_free(ptr noundef %6, ptr noundef nonnull @.str.53, i32 noundef 828) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2261,8 +2261,8 @@ define internal range(i32 0, 2) i32 @test_kdf_pbkdf2_invalid_digest() #0 {
   br label %14
 
 14:                                               ; preds = %9, %0, %5
-  %.05 = phi ptr [ %7, %5 ], [ null, %0 ], [ %7, %9 ]
-  %.0 = phi i32 [ 0, %5 ], [ 0, %0 ], [ %spec.select, %9 ]
+  %.05 = phi ptr [ null, %0 ], [ %7, %9 ], [ %7, %5 ]
+  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %9 ], [ 0, %5 ]
   call void @EVP_KDF_CTX_free(ptr noundef %.05) #6
   call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str.53, i32 noundef 853) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -3008,7 +3008,7 @@ define internal range(i32 0, 2) i32 @test_kdf_hmac_drbg_settables() #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %31, %62, %59, %48, %51, %55, %45, %._crit_edge, %23, %0, %20
-  %.0 = phi i32 [ 0, %59 ], [ 0, %55 ], [ 0, %51 ], [ 0, %48 ], [ 0, %45 ], [ 0, %._crit_edge ], [ 0, %23 ], [ 0, %20 ], [ 0, %0 ], [ %spec.select, %62 ], [ 0, %31 ]
+  %.0 = phi i32 [ 0, %20 ], [ 0, %0 ], [ %spec.select, %62 ], [ 0, %59 ], [ 0, %55 ], [ 0, %51 ], [ 0, %48 ], [ 0, %45 ], [ 0, %._crit_edge ], [ 0, %23 ], [ 0, %31 ]
   call void @EVP_MD_free(ptr noundef null) #6
   call void @EVP_KDF_CTX_free(ptr noundef %18) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3094,7 +3094,7 @@ define internal range(i32 0, 2) i32 @test_kdf_hmac_drbg_gettables() #0 {
   br i1 %.not18, label %.loopexit, label %21
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph25, %21, %12, %.preheader, %0, %9
-  %.0 = phi i32 [ 0, %9 ], [ 0, %0 ], [ 1, %.preheader ], [ 1, %12 ], [ 0, %.lr.ph25 ], [ 1, %21 ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ 1, %.preheader ], [ 0, %9 ], [ 0, %0 ], [ 1, %21 ], [ 1, %12 ], [ 0, %.lr.ph25 ], [ 0, %.lr.ph ]
   call void @EVP_KDF_CTX_free(ptr noundef %7) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -3206,7 +3206,7 @@ define internal range(i32 0, 2) i32 @test_kbkdf_mac_change() #0 {
   br label %39
 
 39:                                               ; preds = %37, %25, %0, %20
-  %.0 = phi i32 [ 0, %25 ], [ 0, %20 ], [ 0, %0 ], [ %spec.select, %37 ]
+  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %37 ], [ 0, %25 ], [ 0, %20 ]
   call void @EVP_KDF_CTX_free(ptr noundef %18) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -3608,8 +3608,8 @@ define internal fastcc range(i32 0, 2) i32 @do_kdf_hkdf_gettables(i32 noundef ra
   br label %40
 
 40:                                               ; preds = %37, %35, %29, %31, %20, %23, %2, %11, %15
-  %.013 = phi i32 [ 0, %31 ], [ 0, %29 ], [ 0, %35 ], [ 0, %23 ], [ 0, %20 ], [ 0, %15 ], [ 0, %11 ], [ 0, %2 ], [ %spec.select, %37 ]
-  %.0 = phi ptr [ %13, %31 ], [ %13, %29 ], [ %13, %35 ], [ %13, %23 ], [ %13, %20 ], [ %13, %15 ], [ %13, %11 ], [ null, %2 ], [ %13, %37 ]
+  %.013 = phi i32 [ 0, %2 ], [ %spec.select, %37 ], [ 0, %31 ], [ 0, %29 ], [ 0, %35 ], [ 0, %23 ], [ 0, %20 ], [ 0, %15 ], [ 0, %11 ]
+  %.0 = phi ptr [ null, %2 ], [ %13, %37 ], [ %13, %31 ], [ %13, %29 ], [ %13, %35 ], [ %13, %23 ], [ %13, %20 ], [ %13, %15 ], [ %13, %11 ]
   call void @EVP_KDF_CTX_free(ptr noundef %.0) #6
   call void @CRYPTO_free(ptr noundef %9, ptr noundef nonnull @.str.53, i32 noundef 283) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

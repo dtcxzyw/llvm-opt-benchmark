@@ -683,13 +683,13 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit84:       ; preds = %_ZN7obj_refI4expr11
   br label %229
 
 229:                                              ; preds = %216, %227, %147, %132
-  %.pn47.pn.pn.pn = phi { ptr, i32 } [ %133, %132 ], [ %148, %147 ], [ %217, %216 ], [ %228, %227 ]
+  %.pn47.pn.pn.pn = phi { ptr, i32 } [ %133, %132 ], [ %228, %227 ], [ %217, %216 ], [ %148, %147 ]
   call void @_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %230
 
 230:                                              ; preds = %.loopexit, %.loopexit.split-lp, %44, %91, %99, %93, %229
-  %.pn58.pn.pn.pn = phi { ptr, i32 } [ %.pn47.pn.pn.pn, %229 ], [ %45, %44 ], [ %92, %91 ], [ %.pn54, %99 ], [ %94, %93 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn58.pn.pn.pn = phi { ptr, i32 } [ %.pn47.pn.pn.pn, %229 ], [ %94, %93 ], [ %45, %44 ], [ %.pn54, %99 ], [ %92, %91 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN7obj_refI3app11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #18
@@ -1362,7 +1362,7 @@ _ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10depe
   br i1 %42, label %.preheader, label %_ZN18dependency_managerIN11ast_manager22expr_dependency_configEE7dec_refERKP4expr.exit, !llvm.loop !124
 
 _ZN18dependency_managerIN11ast_manager22expr_dependency_configEE7dec_refERKP4expr.exit: ; preds = %111, %41, %36, %33
-  %.sink34 = phi i64 [ 16, %33 ], [ 16, %36 ], [ 16, %41 ], [ 24, %111 ]
+  %.sink34 = phi i64 [ 16, %41 ], [ 16, %33 ], [ 16, %36 ], [ 24, %111 ]
   %112 = load ptr, ptr %21, align 8, !tbaa !125
   tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %112, i64 noundef %.sink34, ptr noundef nonnull %29)
   %113 = load ptr, ptr %5, align 8, !tbaa !110

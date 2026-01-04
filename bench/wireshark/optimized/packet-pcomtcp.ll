@@ -377,9 +377,9 @@ define internal i32 @dissect_pcomascii(ptr noundef %0, ptr noundef %1, ptr nound
   br label %40
 
 40:                                               ; preds = %.thread, %.thread, %.thread, %.thread, %39, %38, %37, %36, %35, %34
-  %41 = phi i1 [ false, %39 ], [ true, %34 ], [ true, %35 ], [ false, %36 ], [ false, %37 ], [ false, %38 ], [ true, %.thread ], [ true, %.thread ], [ true, %.thread ], [ true, %.thread ]
-  %42 = phi i1 [ false, %39 ], [ false, %34 ], [ false, %35 ], [ true, %36 ], [ true, %37 ], [ true, %38 ], [ false, %.thread ], [ false, %.thread ], [ false, %.thread ], [ false, %.thread ]
-  %.0 = phi i32 [ 0, %39 ], [ 4, %34 ], [ 8, %35 ], [ 1, %36 ], [ 4, %37 ], [ 8, %38 ], [ 1, %.thread ], [ 1, %.thread ], [ 1, %.thread ], [ 1, %.thread ]
+  %41 = phi i1 [ false, %39 ], [ false, %38 ], [ true, %34 ], [ true, %35 ], [ false, %36 ], [ false, %37 ], [ true, %.thread ], [ true, %.thread ], [ true, %.thread ], [ true, %.thread ]
+  %42 = phi i1 [ false, %39 ], [ true, %38 ], [ false, %34 ], [ false, %35 ], [ true, %36 ], [ true, %37 ], [ false, %.thread ], [ false, %.thread ], [ false, %.thread ], [ false, %.thread ]
+  %.0 = phi i32 [ 0, %39 ], [ 8, %38 ], [ 4, %34 ], [ 8, %35 ], [ 1, %36 ], [ 4, %37 ], [ 1, %.thread ], [ 1, %.thread ], [ 1, %.thread ], [ 1, %.thread ]
   %43 = load ptr, ptr @global_pcomtcp_tcp_ports, align 8
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %45 = load i32, ptr %44, align 8
@@ -449,8 +449,8 @@ define internal i32 @dissect_pcomascii(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %80, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph127, %69, %56, %55, %68, %24
-  %81 = phi i1 [ false, %55 ], [ false, %68 ], [ true, %24 ], [ false, %56 ], [ false, %69 ], [ false, %.lr.ph127 ], [ false, %.lr.ph ]
-  %.1106 = phi i32 [ %.2, %55 ], [ %33, %68 ], [ %17, %24 ], [ %.2, %56 ], [ %33, %69 ], [ %64, %.lr.ph127 ], [ %77, %.lr.ph ]
+  %81 = phi i1 [ true, %24 ], [ false, %55 ], [ false, %56 ], [ false, %68 ], [ false, %69 ], [ false, %.lr.ph127 ], [ false, %.lr.ph ]
+  %.1106 = phi i32 [ %17, %24 ], [ %.2, %55 ], [ %.2, %56 ], [ %33, %68 ], [ %33, %69 ], [ %64, %.lr.ph127 ], [ %77, %.lr.ph ]
   %82 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %83 = sub i32 %82, %.1106
   %.not112 = icmp eq i32 %83, 3

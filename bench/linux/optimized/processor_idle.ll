@@ -836,7 +836,7 @@ define internal fastcc noundef i32 @acpi_processor_get_power_info(ptr noundef %0
   br label %.thread25
 
 .thread25:                                        ; preds = %270, %396, %394
-  %400 = phi i32 [ %384, %396 ], [ %384, %394 ], [ 0, %270 ]
+  %400 = phi i32 [ %384, %394 ], [ %384, %396 ], [ 0, %270 ]
   %401 = load i32, ptr %5, align 8
   %402 = tail call i32 @smp_call_function_single(i32 noundef %401, ptr noundef nonnull @__lapic_timer_propagate_broadcast, ptr noundef %0, i32 noundef 1) #17
   store i32 %400, ptr %219, align 8
@@ -864,7 +864,7 @@ define internal fastcc noundef i32 @acpi_processor_get_power_info(ptr noundef %0
   br i1 %415, label %.thread19, label %404, !llvm.loop !16
 
 .thread19:                                        ; preds = %413, %223, %.thread16, %227, %.loopexit
-  %416 = phi i32 [ 0, %.loopexit ], [ -14, %227 ], [ -19, %.thread16 ], [ %226, %223 ], [ 0, %413 ]
+  %416 = phi i32 [ -14, %227 ], [ 0, %.loopexit ], [ %226, %223 ], [ -19, %.thread16 ], [ 0, %413 ]
   ret i32 %416
 }
 
@@ -2006,8 +2006,8 @@ define internal i32 @acpi_idle_enter(ptr noundef readonly captures(none) %0, ptr
   br label %.thread
 
 .thread:                                          ; preds = %18, %49, %48, %48, %43
-  %50 = phi i32 [ %46, %49 ], [ %46, %48 ], [ %46, %48 ], [ %46, %43 ], [ %2, %18 ]
-  %51 = phi ptr [ %45, %49 ], [ %45, %48 ], [ %45, %48 ], [ %45, %43 ], [ %14, %18 ]
+  %50 = phi i32 [ %46, %43 ], [ %46, %49 ], [ %46, %48 ], [ %46, %48 ], [ %2, %18 ]
+  %51 = phi ptr [ %45, %43 ], [ %45, %49 ], [ %45, %48 ], [ %45, %48 ], [ %14, %18 ]
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load i8, ptr %52, align 4
   switch i8 %53, label %64 [

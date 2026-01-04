@@ -81,7 +81,7 @@ define internal range(i32 -1, 1) i32 @be_socket_disable(ptr noundef %0, i16 noun
   br label %19
 
 19:                                               ; preds = %14, %4, %18
-  %.0 = phi i32 [ 0, %18 ], [ -1, %4 ], [ -1, %14 ]
+  %.0 = phi i32 [ -1, %4 ], [ 0, %18 ], [ -1, %14 ]
   ret i32 %.0
 }
 
@@ -255,7 +255,7 @@ define ptr @bufferevent_socket_new(ptr noundef %0, i32 noundef %1, i32 noundef %
   br label %27
 
 27:                                               ; preds = %3, %10, %9
-  %.0 = phi ptr [ null, %9 ], [ %4, %10 ], [ null, %3 ]
+  %.0 = phi ptr [ %4, %10 ], [ null, %9 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -522,7 +522,7 @@ bufferevent_socket_set_conn_address_fd_.exit:     ; preds = %25, %28
   call void @bufferevent_run_eventcb_(ptr noundef %2, i16 noundef signext %.057, i32 noundef 0) #10
   br label %bufferevent_trigger_nolock_.exit
 
-bufferevent_trigger_nolock_.exit:                 ; preds = %15, %36, %20, %75, %70, %76, %80, %69, %39, %.thread78
+bufferevent_trigger_nolock_.exit:                 ; preds = %36, %20, %15, %75, %70, %76, %80, %69, %39, %.thread78
   %84 = call i32 @bufferevent_decref_and_unlock_(ptr noundef %2) #10
   ret void
 }
@@ -656,7 +656,7 @@ define range(i32 -1, 1) i32 @bufferevent_socket_connect(ptr noundef %0, ptr noun
   br label %be_socket_enable.exit
 
 be_socket_enable.exit:                            ; preds = %15, %41, %32, %23, %44, %42, %8, %7, %28
-  %.020 = phi i32 [ -1, %8 ], [ -1, %44 ], [ 0, %28 ], [ 0, %42 ], [ -1, %7 ], [ -1, %23 ], [ 0, %32 ], [ 0, %41 ], [ -1, %15 ]
+  %.020 = phi i32 [ -1, %8 ], [ -1, %44 ], [ 0, %41 ], [ -1, %7 ], [ 0, %28 ], [ -1, %23 ], [ 0, %42 ], [ 0, %32 ], [ -1, %15 ]
   %47 = call i32 @bufferevent_decref_and_unlock_(ptr noundef %0) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.020
@@ -747,7 +747,7 @@ define range(i32 -1, 1) i32 @bufferevent_socket_connect_hostname_hints(ptr nound
   br label %26
 
 26:                                               ; preds = %17, %23, %9, %5
-  %.0 = phi i32 [ -1, %5 ], [ -1, %9 ], [ 0, %23 ], [ 0, %17 ]
+  %.0 = phi i32 [ -1, %9 ], [ -1, %5 ], [ 0, %23 ], [ 0, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -915,7 +915,7 @@ define range(i32 -1, 1) i32 @bufferevent_priority_set(ptr noundef %0, i32 nounde
   br label %24
 
 24:                                               ; preds = %21, %8, %13, %17
-  %.0 = phi i32 [ -1, %8 ], [ -1, %13 ], [ -1, %17 ], [ 0, %21 ]
+  %.0 = phi i32 [ -1, %8 ], [ 0, %21 ], [ -1, %13 ], [ -1, %17 ]
   %25 = load ptr, ptr %3, align 8
   %.not18 = icmp eq ptr %25, null
   br i1 %.not18, label %29, label %26

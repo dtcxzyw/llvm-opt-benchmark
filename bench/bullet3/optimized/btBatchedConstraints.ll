@@ -172,7 +172,7 @@ define dso_local noundef zeroext i1 @_ZNK20btBatchedConstraints8validateEP20btAl
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %3, %._crit_edge76, %19
-  %.0.lcssa98 = phi i1 [ %18, %._crit_edge76 ], [ %18, %19 ], [ true, %3 ]
+  %.0.lcssa98 = phi i1 [ %18, %19 ], [ %18, %._crit_edge76 ], [ true, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0.lcssa98
 
@@ -904,8 +904,8 @@ _Z8btSetMaxIfEvRT_RKS0_.exit.i.i.i:               ; preds = %191
   br label %_ZN9btVector36setMaxERKS_.exit.i.i
 
 _ZN9btVector36setMaxERKS_.exit.i.i:               ; preds = %220, %_Z8btSetMaxIfEvRT_RKS0_.exit.i.i.i, %191, %.lr.ph.i168.i
-  %.sroa.037.1.i.i = phi <2 x float> [ %.sroa.037.045.i.i, %191 ], [ %.sroa.037.045.i.i, %.lr.ph.i168.i ], [ %.sroa.037.3.i.i, %220 ], [ %.sroa.037.3.i.i, %_Z8btSetMaxIfEvRT_RKS0_.exit.i.i.i ]
-  %.sroa.641.1.i.i = phi <2 x float> [ %.sroa.641.046.i.i, %191 ], [ %.sroa.641.046.i.i, %.lr.ph.i168.i ], [ %.sroa.641.12.vec.insert.i.i, %220 ], [ %.sroa.641.2.i.i, %_Z8btSetMaxIfEvRT_RKS0_.exit.i.i.i ]
+  %.sroa.037.1.i.i = phi <2 x float> [ %.sroa.037.045.i.i, %.lr.ph.i168.i ], [ %.sroa.037.045.i.i, %191 ], [ %.sroa.037.3.i.i, %220 ], [ %.sroa.037.3.i.i, %_Z8btSetMaxIfEvRT_RKS0_.exit.i.i.i ]
+  %.sroa.641.1.i.i = phi <2 x float> [ %.sroa.641.046.i.i, %.lr.ph.i168.i ], [ %.sroa.641.046.i.i, %191 ], [ %.sroa.641.12.vec.insert.i.i, %220 ], [ %.sroa.641.2.i.i, %_Z8btSetMaxIfEvRT_RKS0_.exit.i.i.i ]
   %indvars.iv.next.i170.i = add nuw nsw i64 %indvars.iv.i169.i, 1
   %exitcond.not.i171.i = icmp eq i64 %indvars.iv.next.i170.i, %wide.trip.count.i167.i
   br i1 %exitcond.not.i171.i, label %.loopexit319.i, label %.lr.ph.i168.i, !llvm.loop !88
@@ -2242,13 +2242,13 @@ _ZN20btAlignedObjectArrayIcE18resizeNoInitializeEi.exit.i.i.i: ; preds = %_ZN20b
   br i1 %750, label %745, label %._crit_edge170.i.i, !llvm.loop !140
 
 .body.i.i:                                        ; preds = %743, %687, %675, %641, %633, %598, %555
-  %.pn.pn.pn.i.i = phi { ptr, i32 } [ %688, %687 ], [ %556, %555 ], [ %744, %743 ], [ %599, %598 ], [ %634, %633 ], [ %676, %675 ], [ %642, %641 ]
+  %.pn.pn.pn.i.i = phi { ptr, i32 } [ %744, %743 ], [ %688, %687 ], [ %556, %555 ], [ %634, %633 ], [ %599, %598 ], [ %676, %675 ], [ %642, %641 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.body198.i
 
 .body198.i:                                       ; preds = %.body.i.i, %471, %469, %456, %410, %391
-  %.pn.i = phi { ptr, i32 } [ %457, %456 ], [ %392, %391 ], [ %411, %410 ], [ %470, %469 ], [ %472, %471 ], [ %.pn.pn.pn.i.i, %.body.i.i ]
+  %.pn.i = phi { ptr, i32 } [ %472, %471 ], [ %457, %456 ], [ %.pn.pn.pn.i.i, %.body.i.i ], [ %392, %391 ], [ %411, %410 ], [ %470, %469 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
@@ -2259,7 +2259,7 @@ common.resume:                                    ; preds = %1133, %.body.i14, %
   resume { ptr, i32 } %common.resume.op
 
 .body.i:                                          ; preds = %.body198.i, %287, %221, %175, %103
-  %.pn140.pn.i = phi { ptr, i32 } [ %104, %103 ], [ %222, %221 ], [ %.pn.i.i, %175 ], [ %.pn.i, %.body198.i ], [ %288, %287 ]
+  %.pn140.pn.i = phi { ptr, i32 } [ %.pn.i.i, %175 ], [ %104, %103 ], [ %222, %221 ], [ %.pn.i, %.body198.i ], [ %288, %287 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void @llvm.lifetime.end.p0(ptr nonnull %32)

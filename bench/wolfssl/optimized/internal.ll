@@ -1841,12 +1841,12 @@ define range(i32 -173, 1) i32 @ConvertHashPss(i32 noundef %0, ptr noundef writeo
   br i1 %.not, label %7, label %.sink.split
 
 .sink.split:                                      ; preds = %6, %5, %4
-  %.sink = phi i32 [ 3, %4 ], [ 2, %5 ], [ 1, %6 ]
+  %.sink = phi i32 [ 2, %5 ], [ 3, %4 ], [ 1, %6 ]
   store i32 %.sink, ptr %2, align 4, !tbaa !49
   br label %7
 
 7:                                                ; preds = %.sink.split, %4, %5, %6, %3
-  %.0 = phi i32 [ -173, %3 ], [ 0, %6 ], [ 0, %5 ], [ 0, %4 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ -173, %3 ], [ 0, %6 ], [ 0, %4 ], [ 0, %5 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -1982,7 +1982,7 @@ switch.lookup:                                    ; preds = %17
   br label %.critedge
 
 .critedge:                                        ; preds = %17, %21, %switch.lookup, %32, %25, %28, %13, %9
-  %.030 = phi i32 [ -173, %9 ], [ -132, %13 ], [ %26, %25 ], [ -403, %28 ], [ %spec.select44, %32 ], [ %spec.store.select, %21 ], [ %19, %switch.lookup ], [ -173, %17 ]
+  %.030 = phi i32 [ -403, %28 ], [ -173, %9 ], [ %spec.store.select, %21 ], [ -132, %13 ], [ %26, %25 ], [ %spec.select44, %32 ], [ %19, %switch.lookup ], [ -173, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.030
 }
@@ -2087,7 +2087,7 @@ define i32 @EccVerify(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nounde
   br label %13
 
 13:                                               ; preds = %10, %7
-  %.0 = phi i32 [ %9, %7 ], [ %spec.select, %10 ]
+  %.0 = phi i32 [ %spec.select, %10 ], [ %9, %7 ]
   ret i32 %.0
 }
 
@@ -2329,7 +2329,7 @@ InitSuites_EitherSide.exit:                       ; preds = %24, %20, %2
   br label %39
 
 39:                                               ; preds = %36, %33, %31, %28, %1, %38
-  %.0 = phi i32 [ 1, %38 ], [ -173, %1 ], [ -317, %28 ], [ -317, %31 ], [ -317, %33 ], [ -317, %36 ]
+  %.0 = phi i32 [ 1, %38 ], [ -317, %31 ], [ -173, %1 ], [ -317, %28 ], [ -317, %33 ], [ -317, %36 ]
   ret i32 %.0
 }
 
@@ -2688,7 +2688,7 @@ define i32 @SetSSL_CTX(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unn
   br label %254
 
 254:                                              ; preds = %241, %10, %3, %244
-  %.0 = phi i32 [ %.0117, %244 ], [ -173, %3 ], [ %11, %10 ], [ -173, %241 ]
+  %.0 = phi i32 [ -173, %3 ], [ %11, %10 ], [ %.0117, %244 ], [ -173, %241 ]
   ret i32 %.0
 }
 
@@ -2786,7 +2786,7 @@ FreeHandshakeHashes.exit:                         ; preds = %4, %15
   br label %51
 
 51:                                               ; preds = %45, %39, %33, %27, %19, %16
-  %.0 = phi i32 [ -125, %16 ], [ %26, %19 ], [ %32, %27 ], [ %38, %33 ], [ %44, %39 ], [ %50, %45 ]
+  %.0 = phi i32 [ %44, %39 ], [ -125, %16 ], [ %26, %19 ], [ %32, %27 ], [ %38, %33 ], [ %50, %45 ]
   ret i32 %.0
 }
 
@@ -2904,7 +2904,7 @@ define i32 @InitHandshakeHashesAndCopy(ptr noundef captures(none) %0, ptr nounde
   br label %.thread33
 
 .thread33:                                        ; preds = %9, %16, %22, %28, %34, %5, %3
-  %.0 = phi i32 [ -173, %3 ], [ %8, %5 ], [ %38, %34 ], [ %32, %28 ], [ %26, %22 ], [ %20, %16 ], [ %14, %9 ]
+  %.0 = phi i32 [ %8, %5 ], [ -173, %3 ], [ %38, %34 ], [ %32, %28 ], [ %26, %22 ], [ %20, %16 ], [ %14, %9 ]
   ret i32 %.0
 }
 
@@ -2997,7 +2997,7 @@ define i32 @ReinitSSL(ptr noundef captures(none) %0, ptr readnone captures(none)
   br label %47
 
 47:                                               ; preds = %36, %40, %26, %23, %11, %8
-  %.023 = phi i32 [ -125, %8 ], [ -125, %11 ], [ -125, %23 ], [ %35, %26 ], [ 0, %40 ], [ 0, %36 ]
+  %.023 = phi i32 [ -125, %11 ], [ -125, %23 ], [ %35, %26 ], [ -125, %8 ], [ 0, %40 ], [ 0, %36 ]
   ret i32 %.023
 }
 
@@ -3174,7 +3174,7 @@ define i32 @InitSSL(ptr noundef initializes((0, 1232)) %0, ptr noundef %1, i32 n
   br label %AllocateCtxSuites.exit
 
 AllocateCtxSuites.exit:                           ; preds = %85, %100, %91, %89, %54
-  %.0 = phi i32 [ %79, %54 ], [ %90, %89 ], [ %99, %91 ], [ %., %100 ], [ -303, %85 ]
+  %.0 = phi i32 [ %79, %54 ], [ %99, %91 ], [ %90, %89 ], [ %., %100 ], [ -303, %85 ]
   ret i32 %.0
 }
 
@@ -3370,7 +3370,7 @@ WriteSEQ.exit:                                    ; preds = %8, %31, %38, %40, %
   br label %123
 
 123:                                              ; preds = %99, %122, %120, %114, %112, %102, %100, %97, %91, %89, %79, %77
-  %.0 = phi i32 [ %78, %77 ], [ -305, %79 ], [ -305, %89 ], [ -305, %91 ], [ -305, %97 ], [ %101, %100 ], [ -305, %102 ], [ -305, %112 ], [ -305, %114 ], [ -305, %120 ], [ 0, %122 ], [ 0, %99 ]
+  %.0 = phi i32 [ -305, %114 ], [ %78, %77 ], [ -305, %79 ], [ -305, %89 ], [ -305, %91 ], [ -305, %120 ], [ -305, %97 ], [ %101, %100 ], [ -305, %102 ], [ -305, %112 ], [ 0, %122 ], [ 0, %99 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -3636,7 +3636,7 @@ define i32 @AllocKey(ptr noundef readonly captures(address_is_null) %0, i32 noun
   br label %11
 
 11:                                               ; preds = %8, %10, %9
-  %.025 = phi i64 [ 4208, %9 ], [ 3136, %10 ], [ 8368, %8 ]
+  %.025 = phi i64 [ 3136, %10 ], [ 4208, %9 ], [ 8368, %8 ]
   %12 = tail call ptr @wolfSSL_Malloc(i64 noundef %.025) #28
   store ptr %12, ptr %2, align 8, !tbaa !196
   %13 = icmp eq ptr %12, null
@@ -3717,7 +3717,7 @@ define i32 @AllocKey(ptr noundef readonly captures(address_is_null) %0, i32 noun
   br label %FreeKey.exit
 
 FreeKey.exit:                                     ; preds = %45, %34, %33, %14, %11, %8, %6, %3
-  %.0 = phi i32 [ -173, %3 ], [ -192, %6 ], [ -173, %8 ], [ -125, %11 ], [ -173, %14 ], [ 0, %33 ], [ %.026, %34 ], [ %.026, %45 ]
+  %.0 = phi i32 [ -173, %14 ], [ -173, %3 ], [ -192, %6 ], [ -173, %8 ], [ -125, %11 ], [ 0, %33 ], [ %.026, %34 ], [ %.026, %45 ]
   ret i32 %.0
 }
 
@@ -4702,7 +4702,7 @@ define void @FreeHandshakeResources(ptr noundef %0) local_unnamed_addr #4 {
   br label %.thread.i
 
 .thread.i:                                        ; preds = %17, %15
-  %23 = phi i32 [ %.pre.i, %17 ], [ %7, %15 ]
+  %23 = phi i32 [ %7, %15 ], [ %.pre.i, %17 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %25 = load ptr, ptr %24, align 8, !tbaa !171
   %26 = ptrtoint ptr %25 to i64
@@ -5485,8 +5485,8 @@ ShrinkOutputBuffer.exit:                          ; preds = %61, %65
   store i8 0, ptr %64, align 1, !tbaa !219
   br label %.thread
 
-.thread:                                          ; preds = %._crit_edge, %.lr.ph, %22, %24, %29, %31, %45, %48, %._crit_edge58, %ShrinkOutputBuffer.exit, %1
-  %.028 = phi i32 [ -308, %1 ], [ 0, %ShrinkOutputBuffer.exit ], [ 0, %._crit_edge58 ], [ -308, %45 ], [ -308, %48 ], [ -308, %.lr.ph ], [ -327, %31 ], [ -327, %29 ], [ -327, %24 ], [ -327, %22 ], [ -387, %._crit_edge ]
+.thread:                                          ; preds = %._crit_edge, %.lr.ph, %24, %29, %31, %22, %48, %45, %._crit_edge58, %ShrinkOutputBuffer.exit, %1
+  %.028 = phi i32 [ -308, %1 ], [ 0, %._crit_edge58 ], [ 0, %ShrinkOutputBuffer.exit ], [ -327, %24 ], [ -308, %48 ], [ -308, %45 ], [ -308, %.lr.ph ], [ -327, %22 ], [ -327, %31 ], [ -327, %29 ], [ -387, %._crit_edge ]
   ret i32 %.028
 }
 
@@ -5714,7 +5714,7 @@ GrowOutputBuffer.exit:                            ; preds = %30, %33, %36
   br label %GrowOutputBuffer.exit.thread
 
 GrowOutputBuffer.exit.thread:                     ; preds = %17, %14, %4, %GrowOutputBuffer.exit, %2
-  %.0 = phi i32 [ -173, %2 ], [ 0, %GrowOutputBuffer.exit ], [ 0, %4 ], [ -125, %14 ], [ -125, %17 ]
+  %.0 = phi i32 [ 0, %4 ], [ -173, %2 ], [ 0, %GrowOutputBuffer.exit ], [ -125, %17 ], [ -125, %14 ]
   ret i32 %.0
 }
 
@@ -5797,7 +5797,7 @@ define range(i32 -394, 1) i32 @MsgCheckEncryption(ptr noundef readonly captures(
   br label %21
 
 21:                                               ; preds = %12, %19, %18, %13, %9, %11, %10, %20
-  %.0 = phi i32 [ 0, %20 ], [ -373, %10 ], [ -373, %11 ], [ -394, %9 ], [ -373, %13 ], [ -373, %18 ], [ -373, %19 ], [ -394, %12 ]
+  %.0 = phi i32 [ -373, %11 ], [ -373, %13 ], [ 0, %20 ], [ -373, %10 ], [ -373, %19 ], [ -394, %9 ], [ -373, %18 ], [ -394, %12 ]
   ret i32 %.0
 }
 
@@ -6043,8 +6043,8 @@ isLastMsg.exit28.i:                               ; preds = %62, %IsEncryptionOn
   %.not34.i = icmp eq i32 %71, %74
   br i1 %.not34.i, label %MsgCheckBoundary.exit, label %MsgCheckEncryption.exit.thread
 
-MsgCheckEncryption.exit.thread:                   ; preds = %19, %25, %24, %20, %16, %18, %17, %58, %isLastMsg.exit28.i, %42, %isLastMsg.exit21.i, %MsgCheckEncryption.exit, %isLastMsg.exit.i
-  %.1.ph = phi i32 [ -394, %58 ], [ -373, %isLastMsg.exit28.i ], [ -394, %42 ], [ -373, %isLastMsg.exit21.i ], [ -394, %MsgCheckEncryption.exit ], [ -373, %isLastMsg.exit.i ], [ -394, %19 ], [ -373, %25 ], [ -373, %24 ], [ -373, %20 ], [ -394, %16 ], [ -373, %18 ], [ -373, %17 ]
+MsgCheckEncryption.exit.thread:                   ; preds = %19, %24, %16, %25, %17, %20, %18, %58, %isLastMsg.exit28.i, %MsgCheckEncryption.exit, %isLastMsg.exit21.i, %42, %isLastMsg.exit.i
+  %.1.ph = phi i32 [ -394, %58 ], [ -373, %isLastMsg.exit28.i ], [ -394, %MsgCheckEncryption.exit ], [ -373, %isLastMsg.exit21.i ], [ -394, %42 ], [ -373, %isLastMsg.exit.i ], [ -394, %19 ], [ -373, %24 ], [ -394, %16 ], [ -373, %25 ], [ -373, %17 ], [ -373, %20 ], [ -373, %18 ]
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 660
   %77 = load i32, ptr %76, align 4, !tbaa !235
@@ -6074,7 +6074,7 @@ RetrySendAlert.exit.i:                            ; preds = %MsgCheckEncryption.
   br label %MsgCheckBoundary.exit
 
 MsgCheckBoundary.exit:                            ; preds = %80, %83, %82, %isLastMsg.exit28.i, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %isLastMsg.exit21.i, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %isLastMsg.exit.i, %MsgCheckEncryption.exit, %MsgCheckEncryption.exit, %MsgCheckEncryption.exit, %MsgCheckEncryption.exit, %MsgCheckEncryption.exit, %MsgCheckEncryption.exit, %MsgCheckEncryption.exit, %MsgCheckEncryption.exit, %MsgCheckEncryption.exit, %MsgCheckEncryption.exit
-  %.124 = phi i32 [ 0, %MsgCheckEncryption.exit ], [ 0, %MsgCheckEncryption.exit ], [ 0, %MsgCheckEncryption.exit ], [ 0, %MsgCheckEncryption.exit ], [ 0, %MsgCheckEncryption.exit ], [ 0, %MsgCheckEncryption.exit ], [ 0, %MsgCheckEncryption.exit ], [ 0, %MsgCheckEncryption.exit ], [ 0, %MsgCheckEncryption.exit ], [ 0, %MsgCheckEncryption.exit ], [ 0, %isLastMsg.exit.i ], [ 0, %42 ], [ 0, %42 ], [ 0, %42 ], [ 0, %42 ], [ 0, %42 ], [ 0, %42 ], [ 0, %42 ], [ 0, %42 ], [ 0, %42 ], [ 0, %42 ], [ 0, %42 ], [ 0, %42 ], [ 0, %isLastMsg.exit21.i ], [ 0, %58 ], [ 0, %58 ], [ 0, %58 ], [ 0, %58 ], [ 0, %58 ], [ 0, %58 ], [ 0, %58 ], [ 0, %58 ], [ 0, %58 ], [ 0, %58 ], [ 0, %58 ], [ 0, %58 ], [ 0, %58 ], [ 0, %58 ], [ 0, %58 ], [ 0, %isLastMsg.exit28.i ], [ %.1.ph, %82 ], [ %.1.ph, %83 ], [ %.1.ph, %80 ]
+  %.124 = phi i32 [ 0, %isLastMsg.exit28.i ], [ 0, %MsgCheckEncryption.exit ], [ 0, %MsgCheckEncryption.exit ], [ 0, %MsgCheckEncryption.exit ], [ 0, %MsgCheckEncryption.exit ], [ 0, %MsgCheckEncryption.exit ], [ 0, %MsgCheckEncryption.exit ], [ 0, %MsgCheckEncryption.exit ], [ 0, %MsgCheckEncryption.exit ], [ 0, %MsgCheckEncryption.exit ], [ 0, %MsgCheckEncryption.exit ], [ 0, %isLastMsg.exit.i ], [ 0, %42 ], [ 0, %42 ], [ 0, %42 ], [ 0, %42 ], [ 0, %42 ], [ 0, %42 ], [ 0, %42 ], [ 0, %42 ], [ 0, %42 ], [ 0, %42 ], [ 0, %42 ], [ 0, %42 ], [ 0, %isLastMsg.exit21.i ], [ 0, %58 ], [ 0, %58 ], [ 0, %58 ], [ 0, %58 ], [ 0, %58 ], [ 0, %58 ], [ 0, %58 ], [ 0, %58 ], [ 0, %58 ], [ 0, %58 ], [ 0, %58 ], [ 0, %58 ], [ 0, %58 ], [ 0, %58 ], [ 0, %58 ], [ %.1.ph, %80 ], [ %.1.ph, %82 ], [ %.1.ph, %83 ]
   ret i32 %.124
 }
 
@@ -6479,7 +6479,7 @@ switch.lookup157:                                 ; preds = %91
   br label %94
 
 94:                                               ; preds = %switch.lookup157, %switch.lookup152, %switch.lookup147, %switch.lookup142, %switch.lookup137, %switch.lookup132, %switch.lookup, %69, %54, %52, %45, %44, %43, %42, %40, %38, %28, %24, %17, %15, %11, %10, %6, %5, %88, %87, %86, %85, %84, %58, %71, %82, %80, %78, %76, %74, %72, %66, %67, %21, %64, %62, %60, %56, %50, %36, %34, %32, %30, %26, %22, %4, %93
-  %.0.shrunk = phi i1 [ false, %93 ], [ false, %4 ], [ true, %22 ], [ true, %26 ], [ true, %30 ], [ true, %32 ], [ true, %34 ], [ true, %36 ], [ true, %50 ], [ true, %56 ], [ true, %58 ], [ true, %60 ], [ true, %62 ], [ true, %64 ], [ false, %21 ], [ true, %67 ], [ false, %66 ], [ true, %72 ], [ true, %74 ], [ true, %76 ], [ true, %78 ], [ true, %80 ], [ true, %82 ], [ true, %84 ], [ true, %85 ], [ true, %86 ], [ true, %87 ], [ false, %71 ], [ %switch.selectcmp, %88 ], [ %switch.selectcmp97, %5 ], [ %switch.selectcmp98, %6 ], [ %switch.selectcmp101, %10 ], [ %switch.selectcmp103, %11 ], [ %switch.selectcmp105, %15 ], [ %switch.selectcmp107, %17 ], [ %switch.selectcmp109, %24 ], [ %switch.selectcmp111, %28 ], [ %switch.selectcmp113, %38 ], [ %switch.selectcmp115, %40 ], [ %switch.selectcmp118, %42 ], [ %switch.selectcmp121, %43 ], [ %switch.selectcmp124, %44 ], [ %switch.selectcmp127, %45 ], [ %switch.selectcmp129, %52 ], [ %switch.selectcmp131, %54 ], [ %spec.select, %69 ], [ %switch.masked, %switch.lookup ], [ %switch.masked136, %switch.lookup132 ], [ %switch.masked141, %switch.lookup137 ], [ %switch.masked146, %switch.lookup142 ], [ %switch.masked151, %switch.lookup147 ], [ %switch.masked156, %switch.lookup152 ], [ %switch.masked161, %switch.lookup157 ]
+  %.0.shrunk = phi i1 [ %switch.masked141, %switch.lookup137 ], [ true, %50 ], [ false, %4 ], [ true, %64 ], [ %switch.masked151, %switch.lookup147 ], [ false, %21 ], [ %switch.selectcmp101, %10 ], [ %switch.selectcmp131, %54 ], [ false, %66 ], [ %switch.masked161, %switch.lookup157 ], [ %spec.select, %69 ], [ false, %93 ], [ true, %72 ], [ true, %74 ], [ true, %76 ], [ true, %78 ], [ true, %80 ], [ true, %82 ], [ %switch.masked136, %switch.lookup132 ], [ true, %84 ], [ %switch.selectcmp127, %45 ], [ true, %85 ], [ %switch.selectcmp103, %11 ], [ true, %86 ], [ %switch.selectcmp105, %15 ], [ true, %87 ], [ false, %71 ], [ %switch.masked, %switch.lookup ], [ %switch.masked156, %switch.lookup152 ], [ %switch.masked146, %switch.lookup142 ], [ %switch.selectcmp124, %44 ], [ true, %58 ], [ %switch.selectcmp121, %43 ], [ true, %67 ], [ true, %22 ], [ %switch.selectcmp98, %6 ], [ %switch.selectcmp107, %17 ], [ true, %26 ], [ %switch.selectcmp129, %52 ], [ %switch.selectcmp109, %24 ], [ true, %30 ], [ true, %32 ], [ true, %34 ], [ true, %36 ], [ true, %56 ], [ %switch.selectcmp111, %28 ], [ %switch.selectcmp97, %5 ], [ %switch.selectcmp113, %38 ], [ %switch.selectcmp, %88 ], [ %switch.selectcmp115, %40 ], [ true, %62 ], [ %switch.selectcmp118, %42 ], [ true, %60 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -6661,11 +6661,11 @@ define range(i32 0, 2) i32 @MatchDomainName(ptr noundef readonly captures(addres
   br label %.loopexit
 
 .loopexit:                                        ; preds = %44, %.split.us, %.split, %64, %62, %73
-  %.198 = phi i8 [ %spec.store.select, %73 ], [ %spec.select, %62 ], [ %spec.select, %64 ], [ %spec.select, %.split ], [ %spec.select, %.split.us ], [ %spec.select, %44 ]
-  %.291 = phi i32 [ %75, %73 ], [ %60, %62 ], [ 0, %64 ], [ 0, %.split ], [ 0, %.split.us ], [ 0, %44 ]
-  %.184 = phi ptr [ %74, %73 ], [ %59, %62 ], [ %scevgep219, %.split ], [ %scevgep221, %64 ], [ %scevgep217, %44 ], [ %scevgep218, %.split.us ]
-  %.279 = phi i32 [ %76, %73 ], [ %63, %62 ], [ %.380.lcssa.ph, %64 ], [ %.380.lcssa.ph, %.split ], [ %.380.lcssa, %.split.us ], [ %.380.lcssa, %44 ]
-  %.173 = phi ptr [ %19, %73 ], [ %.375.ph, %62 ], [ %.375.ph, %64 ], [ %.375.ph, %.split ], [ %.375, %.split.us ], [ %.375, %44 ]
+  %.198 = phi i8 [ %spec.select, %62 ], [ %spec.store.select, %73 ], [ %spec.select, %.split ], [ %spec.select, %64 ], [ %spec.select, %.split.us ], [ %spec.select, %44 ]
+  %.291 = phi i32 [ %60, %62 ], [ %75, %73 ], [ 0, %.split ], [ 0, %64 ], [ 0, %.split.us ], [ 0, %44 ]
+  %.184 = phi ptr [ %59, %62 ], [ %74, %73 ], [ %scevgep219, %.split ], [ %scevgep221, %64 ], [ %scevgep217, %44 ], [ %scevgep218, %.split.us ]
+  %.279 = phi i32 [ %63, %62 ], [ %76, %73 ], [ %.380.lcssa.ph, %.split ], [ %.380.lcssa.ph, %64 ], [ %.380.lcssa, %.split.us ], [ %.380.lcssa, %44 ]
+  %.173 = phi ptr [ %.375.ph, %62 ], [ %19, %73 ], [ %.375.ph, %.split ], [ %.375.ph, %64 ], [ %.375, %.split.us ], [ %.375, %44 ]
   %77 = icmp slt i32 %.279, 1
   br i1 %77, label %.thread145, label %13
 
@@ -6677,7 +6677,7 @@ define range(i32 0, 2) i32 @MatchDomainName(ptr noundef readonly captures(addres
   br label %.thread138
 
 .thread138:                                       ; preds = %68, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split.us, %47, %66, %5, %.thread145
-  %.0 = phi i32 [ %spec.select122, %.thread145 ], [ 0, %5 ], [ 0, %66 ], [ 0, %47 ], [ 0, %.lr.ph.split.us ], [ 0, %.lr.ph.split ], [ 0, %.lr.ph.split ], [ 0, %68 ]
+  %.0 = phi i32 [ %spec.select122, %.thread145 ], [ 0, %5 ], [ 0, %.lr.ph.split.us ], [ 0, %66 ], [ 0, %47 ], [ 0, %.lr.ph.split ], [ 0, %.lr.ph.split ], [ 0, %68 ]
   ret i32 %.0
 }
 
@@ -6870,7 +6870,7 @@ define void @DoCertFatalAlert(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   br label %12
 
 12:                                               ; preds = %5, %.fold.split, %7, %7, %7, %8
-  %.0 = phi i32 [ 45, %5 ], [ 48, %7 ], [ 48, %7 ], [ 48, %7 ], [ 42, %.fold.split ], [ %., %8 ]
+  %.0 = phi i32 [ 48, %7 ], [ 45, %5 ], [ %., %8 ], [ 42, %.fold.split ], [ 48, %7 ], [ 48, %7 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 660
   %15 = load i32, ptr %14, align 4, !tbaa !235
@@ -6983,7 +6983,7 @@ define range(i32 -125, 1) i32 @SetupStoreCtxCallback(ptr noundef writeonly captu
   br label %44
 
 44:                                               ; preds = %30, %37, %40
-  %.sink = phi ptr [ %43, %40 ], [ %39, %37 ], [ %2, %30 ]
+  %.sink = phi ptr [ %39, %37 ], [ %43, %40 ], [ %2, %30 ]
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %.sink, ptr %45, align 8, !tbaa !266
   %46 = load ptr, ptr %3, align 8, !tbaa !267
@@ -7133,7 +7133,7 @@ define i32 @DoVerifyCallback(ptr noundef %0, ptr noundef readonly captures(addre
   br label %59
 
 59:                                               ; preds = %55, %52, %45
-  %.sink.i = phi ptr [ %58, %55 ], [ %54, %52 ], [ %0, %45 ]
+  %.sink.i = phi ptr [ %54, %52 ], [ %58, %55 ], [ %0, %45 ]
   %60 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr %.sink.i, ptr %60, align 8, !tbaa !266
   %61 = load ptr, ptr %3, align 8, !tbaa !267
@@ -7173,7 +7173,7 @@ define i32 @DoVerifyCallback(ptr noundef %0, ptr noundef readonly captures(addre
   br i1 %.not59, label %.thread, label %76
 
 76:                                               ; preds = %74, %71, %70
-  %.3 = phi i32 [ %.2, %71 ], [ %.2, %70 ], [ %spec.select61, %74 ]
+  %.3 = phi i32 [ %.2, %70 ], [ %spec.select61, %74 ], [ %.2, %71 ]
   br i1 %.040, label %79, label %.thread
 
 .thread:                                          ; preds = %74, %76
@@ -7204,7 +7204,7 @@ CleanupStoreCtxCallback.exit:                     ; preds = %79, %81
   br label %.critedge64
 
 .critedge64:                                      ; preds = %.critedge64.sink.split, %22, %.critedge, %4
-  %.0 = phi i32 [ -173, %4 ], [ %2, %.critedge ], [ -125, %22 ], [ %.0.ph, %.critedge64.sink.split ]
+  %.0 = phi i32 [ -125, %22 ], [ %2, %.critedge ], [ -173, %4 ], [ %.0.ph, %.critedge64.sink.split ]
   ret i32 %.0
 }
 
@@ -7564,10 +7564,10 @@ define i32 @ProcessPeerCerts(ptr noundef initializes((1050, 1051)) %0, ptr nound
   br label %.thread384
 
 .thread384:                                       ; preds = %.split.us.thread546, %178, %185, %187, %193, %200, %194, %.split.us
-  %202 = phi ptr [ %179, %193 ], [ %179, %200 ], [ %179, %194 ], [ %176, %.split.us ], [ %179, %187 ], [ %179, %185 ], [ %179, %178 ], [ %110, %.split.us.thread546 ]
-  %203 = phi ptr [ %180, %193 ], [ %180, %200 ], [ %180, %194 ], [ %175, %.split.us ], [ %180, %187 ], [ %180, %185 ], [ %180, %178 ], [ %109, %.split.us.thread546 ]
-  %204 = phi i32 [ 0, %193 ], [ 0, %200 ], [ 0, %194 ], [ %.lcssa577, %.split.us ], [ 0, %187 ], [ 0, %185 ], [ 0, %178 ], [ %108, %.split.us.thread546 ]
-  %.12 = phi i32 [ -345, %193 ], [ -345, %200 ], [ %.us-phi545, %194 ], [ %.8.lcssa, %.split.us ], [ %.us-phi545, %187 ], [ %.us-phi545, %185 ], [ %.us-phi545, %178 ], [ 0, %.split.us.thread546 ]
+  %202 = phi ptr [ %179, %193 ], [ %179, %200 ], [ %179, %194 ], [ %179, %178 ], [ %176, %.split.us ], [ %179, %187 ], [ %179, %185 ], [ %110, %.split.us.thread546 ]
+  %203 = phi ptr [ %180, %193 ], [ %180, %200 ], [ %180, %194 ], [ %180, %178 ], [ %175, %.split.us ], [ %180, %187 ], [ %180, %185 ], [ %109, %.split.us.thread546 ]
+  %204 = phi i32 [ 0, %193 ], [ 0, %200 ], [ 0, %194 ], [ 0, %178 ], [ %.lcssa577, %.split.us ], [ 0, %187 ], [ 0, %185 ], [ %108, %.split.us.thread546 ]
+  %.12 = phi i32 [ -345, %193 ], [ -345, %200 ], [ %.us-phi545, %194 ], [ %.us-phi545, %178 ], [ %.8.lcssa, %.split.us ], [ %.us-phi545, %187 ], [ %.us-phi545, %185 ], [ 0, %.split.us.thread546 ]
   %205 = getelementptr inbounds nuw i8, ptr %5, i64 49
   %206 = load i8, ptr %205, align 1
   %207 = and i8 %206, -5
@@ -7660,7 +7660,7 @@ define i32 @ProcessPeerCerts(ptr noundef initializes((1050, 1051)) %0, ptr nound
   br label %ProcessPeerCertParse.exit
 
 ProcessPeerCertParse.exit:                        ; preds = %229, %249
-  %.1 = phi i32 [ %257, %249 ], [ 0, %229 ]
+  %.1 = phi i32 [ 0, %229 ], [ %257, %249 ]
   switch i32 %248, label %.critedge [
     i32 0, label %258
     i32 -125, label %.thread386
@@ -7715,8 +7715,8 @@ ProcessPeerCertParse.exit:                        ; preds = %229, %249
   br label %.critedge
 
 .critedge:                                        ; preds = %224, %281, %276, %272, %267, %261, %258, %ProcessPeerCertParse.exit
-  %.1396 = phi i32 [ %.1, %ProcessPeerCertParse.exit ], [ %.1, %258 ], [ %.1, %261 ], [ %.1, %267 ], [ %.1, %272 ], [ %.1, %276 ], [ %.1, %281 ], [ %.0363, %224 ]
-  %.14 = phi i32 [ %248, %ProcessPeerCertParse.exit ], [ 0, %258 ], [ 0, %261 ], [ 0, %267 ], [ -409, %272 ], [ 0, %276 ], [ -410, %281 ], [ -173, %224 ]
+  %.1396 = phi i32 [ %.1, %281 ], [ %.1, %ProcessPeerCertParse.exit ], [ %.1, %258 ], [ %.1, %261 ], [ %.1, %267 ], [ %.1, %272 ], [ %.1, %276 ], [ %.0363, %224 ]
+  %.14 = phi i32 [ -410, %281 ], [ %248, %ProcessPeerCertParse.exit ], [ 0, %258 ], [ 0, %261 ], [ 0, %267 ], [ -409, %272 ], [ 0, %276 ], [ -173, %224 ]
   %282 = load ptr, ptr %0, align 16, !tbaa !99
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 144
   %284 = load ptr, ptr %283, align 8, !tbaa !69
@@ -7830,7 +7830,7 @@ select.unfold:                                    ; preds = %301
   br label %325
 
 325:                                              ; preds = %.fold.split.i, %323, %322, %322, %322, %320
-  %.0.i332 = phi i32 [ 45, %320 ], [ 48, %322 ], [ 48, %322 ], [ 48, %322 ], [ 42, %.fold.split.i ], [ %..i, %323 ]
+  %.0.i332 = phi i32 [ 48, %322 ], [ 45, %320 ], [ %..i, %323 ], [ 42, %.fold.split.i ], [ 48, %322 ], [ 48, %322 ]
   %326 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %327 = getelementptr inbounds nuw i8, ptr %0, i64 660
   %328 = load i32, ptr %327, align 4, !tbaa !235
@@ -7996,7 +7996,7 @@ ProcessPeerCertParse.exit340:                     ; preds = %368, %368, %368
   br label %.thread433
 
 ProcessPeerCertParse.exit340.thread:              ; preds = %368, %368, %368, %368, %346, %ProcessPeerCertParse.exit340, %ProcessPeerCertParse.exit340, %ProcessPeerCertParse.exit340
-  %.0.i339431 = phi i32 [ %373, %ProcessPeerCertParse.exit340 ], [ %373, %ProcessPeerCertParse.exit340 ], [ %373, %ProcessPeerCertParse.exit340 ], [ -173, %346 ], [ %373, %368 ], [ %373, %368 ], [ %373, %368 ], [ %373, %368 ]
+  %.0.i339431 = phi i32 [ %373, %368 ], [ %373, %ProcessPeerCertParse.exit340 ], [ %373, %ProcessPeerCertParse.exit340 ], [ %373, %ProcessPeerCertParse.exit340 ], [ -173, %346 ], [ %373, %368 ], [ %373, %368 ], [ %373, %368 ]
   %401 = load i8, ptr %205, align 1
   %402 = or i8 %401, 1
   store i8 %402, ptr %205, align 1
@@ -8029,7 +8029,7 @@ ProcessPeerCertParse.exit340.thread:              ; preds = %368, %368, %368, %3
   br label %414
 
 414:                                              ; preds = %395, %412, %411, %407, %ProcessPeerCertParse.exit340.thread
-  %.22 = phi i32 [ %398, %395 ], [ %.0.i339431, %ProcessPeerCertParse.exit340.thread ], [ %373, %411 ], [ %373, %407 ], [ %373, %412 ]
+  %.22 = phi i32 [ %398, %395 ], [ %373, %412 ], [ %.0.i339431, %ProcessPeerCertParse.exit340.thread ], [ %373, %411 ], [ %373, %407 ]
   %415 = load i8, ptr %205, align 1
   %416 = and i8 %415, 1
   %417 = icmp ne i8 %416, 0
@@ -8089,7 +8089,7 @@ ProcessPeerCertParse.exit340.thread:              ; preds = %368, %368, %368, %3
   br label %.thread438
 
 .thread438:                                       ; preds = %.thread438.sink.split, %429, %433, %436, %420
-  %.24 = phi i32 [ %.22436.ph, %436 ], [ %.22436.ph, %420 ], [ %.22436.ph, %433 ], [ %.22436.ph, %429 ], [ %spec.select, %.thread438.sink.split ]
+  %.24 = phi i32 [ %.22436.ph, %420 ], [ %.22436.ph, %429 ], [ %.22436.ph, %436 ], [ %.22436.ph, %433 ], [ %spec.select, %.thread438.sink.split ]
   %443 = and i32 %423, 256
   %.not290 = icmp eq i32 %443, 0
   br i1 %.not290, label %456, label %444
@@ -8115,7 +8115,7 @@ ProcessPeerCertParse.exit340.thread:              ; preds = %368, %368, %368, %3
   br label %456
 
 456:                                              ; preds = %453, %450, %.thread438
-  %.26 = phi i32 [ %.24, %.thread438 ], [ %spec.select318, %450 ], [ %spec.select319, %453 ]
+  %.26 = phi i32 [ %.24, %.thread438 ], [ %spec.select319, %453 ], [ %spec.select318, %450 ]
   %457 = load i8, ptr %205, align 1
   %458 = and i8 %457, 1
   %.not291 = icmp eq i8 %458, 0
@@ -8276,7 +8276,7 @@ ProcessPeerCertParse.exit340.thread:              ; preds = %368, %368, %368, %3
   br label %.thread444
 
 .thread444:                                       ; preds = %517, %.thread440, %530, %527, %524
-  %.29 = phi i32 [ 0, %527 ], [ %.27, %524 ], [ %spec.select321, %530 ], [ -342, %.thread440 ], [ -342, %517 ]
+  %.29 = phi i32 [ 0, %527 ], [ %.27, %524 ], [ %spec.select321, %530 ], [ -342, %517 ], [ -342, %.thread440 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %580
 
@@ -8346,7 +8346,7 @@ ProcessPeerCertParse.exit340.thread:              ; preds = %368, %368, %368, %3
   br label %.thread450
 
 .thread450:                                       ; preds = %548, %.thread446, %561, %558, %555
-  %.31 = phi i32 [ 0, %558 ], [ %.27, %555 ], [ %spec.select322, %561 ], [ -342, %.thread446 ], [ -342, %548 ]
+  %.31 = phi i32 [ 0, %558 ], [ %.27, %555 ], [ %spec.select322, %561 ], [ -342, %548 ], [ -342, %.thread446 ]
   %568 = load i64, ptr %13, align 8
   %569 = and i64 %568, 48
   %570 = icmp eq i64 %569, 16
@@ -8436,7 +8436,7 @@ ProcessPeerCertParse.exit340.thread:              ; preds = %368, %368, %368, %3
   br label %603
 
 603:                                              ; preds = %.fold.split.i351, %601, %600, %600, %600, %598
-  %.0.i345 = phi i32 [ 45, %598 ], [ 48, %600 ], [ 48, %600 ], [ 48, %600 ], [ 42, %.fold.split.i351 ], [ %..i344, %601 ]
+  %.0.i345 = phi i32 [ 48, %600 ], [ 45, %598 ], [ %..i344, %601 ], [ 42, %.fold.split.i351 ], [ 48, %600 ], [ 48, %600 ]
   %604 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %605 = getelementptr inbounds nuw i8, ptr %0, i64 660
   %606 = load i32, ptr %605, align 4, !tbaa !235
@@ -8517,8 +8517,8 @@ IsEncryptionOn.exit.thread:                       ; preds = %.IsEncryptionOn.exi
   store i32 %629, ptr %2, align 4, !tbaa !49
   br label %.thread386
 
-.thread386:                                       ; preds = %164, %.lr.ph582, %117, %119, %148, %151, %79, %77, %73, %98, %ProcessPeerCertParse.exit, %ProcessPeerCertParse.exit, %ProcessPeerCertParse.exit, %36, %342, %32, %24, %18, %16, %.thread384, %49, %45, %459, %.loopexit, %414, %580, %IsEncryptionOn.exit.thread
-  %.34.ph = phi i32 [ -328, %16 ], [ -328, %18 ], [ -420, %24 ], [ -420, %32 ], [ -328, %45 ], [ -328, %49 ], [ -125, %.thread384 ], [ %305, %342 ], [ %.33455, %IsEncryptionOn.exit.thread ], [ %.23, %580 ], [ %.26, %459 ], [ %.22, %414 ], [ %.13, %.loopexit ], [ -125, %36 ], [ %248, %ProcessPeerCertParse.exit ], [ %248, %ProcessPeerCertParse.exit ], [ %248, %ProcessPeerCertParse.exit ], [ -328, %98 ], [ -368, %73 ], [ -328, %77 ], [ -328, %79 ], [ %171, %164 ], [ -328, %119 ], [ -328, %117 ], [ -368, %.lr.ph582 ], [ -328, %148 ], [ -328, %151 ]
+.thread386:                                       ; preds = %164, %.lr.ph582, %117, %119, %151, %148, %79, %77, %73, %98, %ProcessPeerCertParse.exit, %ProcessPeerCertParse.exit, %ProcessPeerCertParse.exit, %36, %342, %32, %24, %18, %16, %.thread384, %49, %45, %459, %.loopexit, %414, %580, %IsEncryptionOn.exit.thread
+  %.34.ph = phi i32 [ %.22, %414 ], [ %.13, %.loopexit ], [ -125, %36 ], [ -328, %16 ], [ -368, %73 ], [ %305, %342 ], [ %.33455, %IsEncryptionOn.exit.thread ], [ %.23, %580 ], [ -328, %18 ], [ -420, %24 ], [ -420, %32 ], [ -328, %45 ], [ -328, %49 ], [ %.26, %459 ], [ %248, %ProcessPeerCertParse.exit ], [ -125, %.thread384 ], [ %248, %ProcessPeerCertParse.exit ], [ %248, %ProcessPeerCertParse.exit ], [ -328, %98 ], [ -328, %77 ], [ -328, %79 ], [ -368, %.lr.ph582 ], [ -328, %119 ], [ -328, %117 ], [ -328, %148 ], [ -328, %151 ], [ %171, %164 ]
   %.pr = load ptr, ptr %5, align 16, !tbaa !267
   %.not.i354 = icmp eq ptr %.pr, null
   br i1 %.not.i354, label %.thread386.thread, label %630
@@ -8528,7 +8528,7 @@ IsEncryptionOn.exit.thread:                       ; preds = %.IsEncryptionOn.exi
   br label %.thread386.thread
 
 .thread386.thread:                                ; preds = %40, %630, %.thread386
-  %.34472 = phi i32 [ %.34.ph, %630 ], [ %.34.ph, %.thread386 ], [ -125, %40 ]
+  %.34472 = phi i32 [ %.34.ph, %.thread386 ], [ %.34.ph, %630 ], [ -125, %40 ]
   store ptr null, ptr %5, align 16, !tbaa !267
   %631 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %632 = load ptr, ptr %631, align 8, !tbaa !281
@@ -8701,7 +8701,7 @@ define range(i32 -328, 1) i32 @DoFinished(ptr noundef captures(none) %0, ptr nou
   br label %41
 
 41:                                               ; preds = %.sink.split, %35, %37, %20, %12, %6
-  %.0 = phi i32 [ -328, %6 ], [ -132, %12 ], [ -304, %20 ], [ 0, %37 ], [ 0, %35 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ -304, %20 ], [ -328, %6 ], [ -132, %12 ], [ 0, %37 ], [ 0, %35 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -9014,7 +9014,7 @@ IsEncryptionOn.exit165:                           ; preds = %124
   br label %IsEncryptionOn.exit.thread
 
 IsEncryptionOn.exit.thread:                       ; preds = %124, %94, %IsEncryptionOn.exit165, %134, %IsEncryptionOn.exit, %103, %137, %135, %122, %110, %108, %106, %104, %.thread176
-  %.1 = phi i32 [ %93, %.thread176 ], [ %95, %103 ], [ %95, %IsEncryptionOn.exit ], [ %105, %104 ], [ %107, %106 ], [ %109, %108 ], [ %111, %110 ], [ %123, %122 ], [ %125, %134 ], [ %125, %IsEncryptionOn.exit165 ], [ %136, %135 ], [ %138, %137 ], [ %95, %94 ], [ %125, %124 ]
+  %.1 = phi i32 [ %138, %137 ], [ %93, %.thread176 ], [ %95, %103 ], [ %95, %IsEncryptionOn.exit ], [ %105, %104 ], [ %107, %106 ], [ %109, %108 ], [ %111, %110 ], [ %136, %135 ], [ %125, %IsEncryptionOn.exit165 ], [ %95, %94 ], [ %123, %122 ], [ %125, %134 ], [ %125, %124 ]
   %139 = icmp eq i32 %.1, 0
   br i1 %139, label %.thread181, label %SendAlert.exit
 
@@ -9034,7 +9034,7 @@ IsEncryptionOn.exit.thread:                       ; preds = %124, %94, %IsEncryp
   br label %SendAlert.exit
 
 SendAlert.exit:                                   ; preds = %35, %92, %112, %.thread169.thread, %38, %37, %.thread181, %IsEncryptionOn.exit.thread, %144, %141, %128, %97, %HashInput.exit, %20, %10, %88, %67, %60, %49, %8
-  %.0 = phi i32 [ %9, %8 ], [ -373, %49 ], [ -373, %60 ], [ -373, %67 ], [ -373, %88 ], [ -310, %10 ], [ %23, %20 ], [ %77, %HashInput.exit ], [ -132, %97 ], [ -132, %128 ], [ 0, %.thread181 ], [ %.1, %IsEncryptionOn.exit.thread ], [ -416, %144 ], [ -416, %141 ], [ -373, %37 ], [ -373, %38 ], [ -173, %.thread169.thread ], [ -307, %92 ], [ %113, %112 ], [ -373, %35 ]
+  %.0 = phi i32 [ %9, %8 ], [ -373, %88 ], [ -310, %10 ], [ -416, %141 ], [ -373, %49 ], [ -373, %60 ], [ -373, %67 ], [ %23, %20 ], [ -132, %128 ], [ %77, %HashInput.exit ], [ -132, %97 ], [ %.1, %IsEncryptionOn.exit.thread ], [ 0, %.thread181 ], [ -416, %144 ], [ -373, %35 ], [ -373, %37 ], [ -373, %38 ], [ -173, %.thread169.thread ], [ -307, %92 ], [ %113, %112 ]
   ret i32 %.0
 }
 
@@ -9425,7 +9425,7 @@ define internal fastcc range(i32 -395, 1) i32 @SanityCheckMsgReceived(ptr nounde
   br label %207
 
 207:                                              ; preds = %196, %125, %72, %137, %2, %202, %193, %190, %175, %171, %167, %163, %159, %154, %150, %146, %141, %117, %112, %106, %101, %97, %93, %88, %85, %81, %76, %64, %60, %54, %49, %45, %41, %36, %30, %25, %19, %14, %8, %3, %.thread
-  %.076 = phi i32 [ 0, %.thread ], [ -344, %3 ], [ -395, %8 ], [ -344, %14 ], [ -395, %19 ], [ -344, %25 ], [ -395, %30 ], [ -344, %36 ], [ -395, %41 ], [ -326, %45 ], [ -344, %49 ], [ -395, %54 ], [ -395, %60 ], [ -373, %64 ], [ -344, %76 ], [ -395, %81 ], [ -373, %85 ], [ -344, %88 ], [ -395, %93 ], [ -373, %97 ], [ -344, %101 ], [ -395, %106 ], [ -344, %112 ], [ -395, %117 ], [ -344, %141 ], [ -395, %146 ], [ -373, %150 ], [ -344, %154 ], [ -395, %159 ], [ -373, %163 ], [ -395, %167 ], [ -393, %171 ], [ -395, %175 ], [ -373, %190 ], [ -373, %193 ], [ -378, %202 ], [ -394, %2 ], [ -373, %137 ], [ -373, %72 ], [ -373, %125 ], [ -373, %196 ]
+  %.076 = phi i32 [ -378, %202 ], [ -395, %175 ], [ -344, %3 ], [ 0, %.thread ], [ -395, %8 ], [ -344, %14 ], [ -395, %19 ], [ -344, %25 ], [ -395, %30 ], [ -344, %36 ], [ -395, %41 ], [ -326, %45 ], [ -344, %49 ], [ -395, %54 ], [ -395, %60 ], [ -373, %64 ], [ -373, %72 ], [ -344, %76 ], [ -395, %81 ], [ -373, %85 ], [ -394, %2 ], [ -344, %88 ], [ -395, %93 ], [ -373, %97 ], [ -344, %101 ], [ -395, %106 ], [ -344, %112 ], [ -373, %137 ], [ -395, %117 ], [ -373, %125 ], [ -344, %141 ], [ -395, %146 ], [ -373, %150 ], [ -344, %154 ], [ -395, %159 ], [ -373, %163 ], [ -395, %167 ], [ -393, %171 ], [ -373, %190 ], [ -373, %196 ], [ -373, %193 ]
   ret i32 %.076
 }
 
@@ -9532,7 +9532,7 @@ RetrySendAlert.exit.i18:                          ; preds = %31
   br label %SendAlert.exit
 
 SendAlert.exit:                                   ; preds = %26, %38, %37, %34, %29, %28, %9, %4
-  %.0 = phi i32 [ -328, %4 ], [ -132, %9 ], [ -313, %28 ], [ -313, %29 ], [ %39, %38 ], [ %33, %37 ], [ %33, %34 ], [ -313, %26 ]
+  %.0 = phi i32 [ -313, %29 ], [ -328, %4 ], [ -132, %9 ], [ -313, %26 ], [ -313, %28 ], [ %39, %38 ], [ %33, %37 ], [ %33, %34 ]
   ret i32 %.0
 }
 
@@ -9870,7 +9870,7 @@ IsEncryptionOn.exit.thread:                       ; preds = %142, %146, %IsEncry
   br label %.critedge
 
 .critedge:                                        ; preds = %95, %82, %21, %130, %117, %114, %24, %23, %13, %104, %64, %48, %4, %IsEncryptionOn.exit.thread, %46, %30
-  %.0 = phi i32 [ %31, %30 ], [ -328, %46 ], [ %151, %IsEncryptionOn.exit.thread ], [ -328, %4 ], [ -328, %48 ], [ -328, %64 ], [ -502, %104 ], [ %12, %13 ], [ %12, %23 ], [ %12, %24 ], [ %133, %130 ], [ -328, %117 ], [ -328, %114 ], [ %12, %21 ], [ -501, %82 ], [ -501, %95 ]
+  %.0 = phi i32 [ %12, %24 ], [ -328, %114 ], [ %31, %30 ], [ -328, %46 ], [ -328, %4 ], [ -328, %48 ], [ %151, %IsEncryptionOn.exit.thread ], [ %12, %23 ], [ -502, %104 ], [ -328, %64 ], [ %12, %13 ], [ %12, %21 ], [ %133, %130 ], [ -328, %117 ], [ -501, %82 ], [ -501, %95 ]
   ret i32 %.0
 }
 
@@ -10124,7 +10124,7 @@ IsEncryptionOn.exit:                              ; preds = %127
   br label %IsEncryptionOn.exit.thread
 
 IsEncryptionOn.exit.thread:                       ; preds = %.lr.ph, %84, %127, %IsEncryptionOn.exit, %130, %68, %IsAtLeastTLSv1_2.exit.thread, %50, %24, %34, %IsAtLeastTLSv1_2.exit, %7, %4
-  %.062 = phi i32 [ -328, %4 ], [ -328, %7 ], [ -328, %IsAtLeastTLSv1_2.exit ], [ -328, %34 ], [ -328, %24 ], [ -425, %50 ], [ -328, %IsAtLeastTLSv1_2.exit.thread ], [ -328, %68 ], [ 0, %130 ], [ 0, %IsEncryptionOn.exit ], [ 0, %127 ], [ -328, %84 ], [ -328, %.lr.ph ]
+  %.062 = phi i32 [ -328, %68 ], [ -328, %4 ], [ -328, %7 ], [ -328, %IsAtLeastTLSv1_2.exit ], [ -328, %24 ], [ -425, %50 ], [ -328, %IsAtLeastTLSv1_2.exit.thread ], [ 0, %IsEncryptionOn.exit ], [ -328, %34 ], [ 0, %130 ], [ 0, %127 ], [ -328, %84 ], [ -328, %.lr.ph ]
   ret i32 %.062
 }
 
@@ -10755,9 +10755,9 @@ DecodeSigAlg.exit..thread233_crit_edge:           ; preds = %DecodeSigAlg.exit
   br i1 %290, label %.sink.split, label %.thread233
 
 .thread233:                                       ; preds = %DecodeSigAlg.exit..thread233_crit_edge, %283, %287
-  %291 = phi i8 [ %288, %287 ], [ %284, %283 ], [ %275, %DecodeSigAlg.exit..thread233_crit_edge ]
-  %292 = phi i8 [ %289, %287 ], [ %285, %283 ], [ %.pre, %DecodeSigAlg.exit..thread233_crit_edge ]
-  %.0226232 = phi i8 [ 10, %287 ], [ 8, %283 ], [ %282, %DecodeSigAlg.exit..thread233_crit_edge ]
+  %291 = phi i8 [ %288, %287 ], [ %275, %DecodeSigAlg.exit..thread233_crit_edge ], [ %284, %283 ]
+  %292 = phi i8 [ %289, %287 ], [ %.pre, %DecodeSigAlg.exit..thread233_crit_edge ], [ %285, %283 ]
+  %.0226232 = phi i8 [ 10, %287 ], [ %282, %DecodeSigAlg.exit..thread233_crit_edge ], [ 8, %283 ]
   %.not178 = icmp eq i8 %.0226232, %292
   br i1 %.not178, label %293, label %GetDhPublicKey.exit.thread
 
@@ -10849,9 +10849,9 @@ DecodeSigAlg.exit..thread233_crit_edge:           ; preds = %DecodeSigAlg.exit
   %.not180 = icmp eq i8 %334, 0
   br i1 %.not180, label %GetDhPublicKey.exit.thread, label %.thread239thread-pre-split
 
-.thread239thread-pre-split:                       ; preds = %253, %329, %332
-  %.ph = phi i32 [ %251, %253 ], [ %314, %329 ], [ %314, %332 ]
-  %.ph318 = phi i16 [ 0, %253 ], [ %313, %329 ], [ %313, %332 ]
+.thread239thread-pre-split:                       ; preds = %253, %332, %329
+  %.ph = phi i32 [ %251, %253 ], [ %314, %332 ], [ %314, %329 ]
+  %.ph318 = phi i16 [ 0, %253 ], [ %313, %332 ], [ %313, %329 ]
   %.pr = load i8, ptr %15, align 1, !tbaa !293
   br label %.thread239
 
@@ -10943,7 +10943,7 @@ DecodeSigAlg.exit..thread233_crit_edge:           ; preds = %DecodeSigAlg.exit
   br label %EccVerify.exit
 
 EccVerify.exit:                                   ; preds = %368, %378
-  %.0.i201 = phi i32 [ %377, %368 ], [ %spec.select.i, %378 ]
+  %.0.i201 = phi i32 [ %spec.select.i, %378 ], [ %377, %368 ]
   tail call void @FreeKey(ptr noundef nonnull %0, i32 noundef 37, ptr noundef nonnull %374)
   %381 = getelementptr inbounds nuw i8, ptr %0, i64 1194
   store i8 0, ptr %381, align 2, !tbaa !221
@@ -10959,7 +10959,7 @@ EccVerify.exit:                                   ; preds = %368, %378
   br label %390
 
 390:                                              ; preds = %366, %EccVerify.exit
-  %.12 = phi i32 [ %.13, %366 ], [ %.0.i201, %EccVerify.exit ]
+  %.12 = phi i32 [ %.0.i201, %EccVerify.exit ], [ %.13, %366 ]
   %.not184 = icmp eq i32 %.12, 0
   br i1 %.not184, label %..thread250_crit_edge, label %GetDhPublicKey.exit.thread
 
@@ -11138,8 +11138,8 @@ IsEncryptionOn.exit.thread:                       ; preds = %.IsEncryptionOn.exi
   store i8 7, ptr %466, align 1, !tbaa !230
   br label %GetDhPublicKey.exit.thread
 
-GetDhPublicKey.exit.thread:                       ; preds = %214, %.thread250, %396, %.thread239, %347, %250, %332, %325, %329, %319, %305, %301, %293, %.thread233, %270, %IsAtLeastTLSv1_2.exit, %257, %242, %240, %235, %switch.lookup, %209, %207, %71, %56, %74, %73, %59, %58, %76, %35, %32, %131, %183, %167, %156, %138, %115, %107, %92, %444, %323, %4, %445, %451, %342, %IsEncryptionOn.exit.thread, %403, %390
-  %.18 = phi i32 [ %.12, %390 ], [ 0, %IsEncryptionOn.exit.thread ], [ %418, %403 ], [ -330, %444 ], [ -125, %342 ], [ -330, %451 ], [ -330, %445 ], [ -374, %4 ], [ -133, %323 ], [ -401, %71 ], [ -401, %56 ], [ -401, %74 ], [ -401, %73 ], [ -401, %59 ], [ -401, %58 ], [ -303, %76 ], [ -328, %35 ], [ -328, %32 ], [ -303, %131 ], [ -303, %183 ], [ -401, %167 ], [ -328, %156 ], [ -328, %138 ], [ -401, %115 ], [ -328, %107 ], [ -328, %92 ], [ -351, %214 ], [ -352, %242 ], [ %241, %240 ], [ %236, %235 ], [ -328, %switch.lookup ], [ -350, %209 ], [ -328, %207 ], [ -316, %332 ], [ -316, %325 ], [ -316, %329 ], [ %322, %319 ], [ -328, %305 ], [ -328, %301 ], [ -133, %293 ], [ -133, %.thread233 ], [ -501, %270 ], [ -328, %IsAtLeastTLSv1_2.exit ], [ -328, %257 ], [ -374, %250 ], [ -133, %347 ], [ -374, %.thread239 ], [ -133, %396 ], [ -374, %.thread250 ]
+GetDhPublicKey.exit.thread:                       ; preds = %214, %.thread250, %396, %.thread239, %347, %250, %332, %329, %270, %325, %319, %305, %301, %293, %.thread233, %257, %IsAtLeastTLSv1_2.exit, %240, %switch.lookup, %242, %209, %207, %235, %74, %73, %71, %58, %56, %131, %183, %167, %156, %138, %115, %107, %92, %59, %76, %32, %35, %444, %323, %4, %445, %451, %342, %IsEncryptionOn.exit.thread, %403, %390
+  %.18 = phi i32 [ -330, %445 ], [ -330, %451 ], [ -328, %IsAtLeastTLSv1_2.exit ], [ %.12, %390 ], [ -374, %250 ], [ 0, %IsEncryptionOn.exit.thread ], [ %418, %403 ], [ -330, %444 ], [ -125, %342 ], [ -328, %35 ], [ %236, %235 ], [ -374, %.thread239 ], [ -374, %4 ], [ -133, %323 ], [ -133, %396 ], [ -401, %74 ], [ -401, %73 ], [ -401, %71 ], [ -401, %58 ], [ -401, %56 ], [ -303, %131 ], [ -303, %183 ], [ -401, %167 ], [ -328, %156 ], [ -328, %138 ], [ -401, %115 ], [ -328, %107 ], [ -328, %92 ], [ -401, %59 ], [ -303, %76 ], [ -328, %32 ], [ -351, %214 ], [ %241, %240 ], [ -328, %switch.lookup ], [ -352, %242 ], [ -350, %209 ], [ -328, %207 ], [ -316, %332 ], [ -316, %329 ], [ -501, %270 ], [ -316, %325 ], [ %322, %319 ], [ -328, %305 ], [ -328, %301 ], [ -133, %293 ], [ -133, %.thread233 ], [ -328, %257 ], [ -133, %347 ], [ -374, %.thread250 ]
   %467 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %468 = load ptr, ptr %467, align 8, !tbaa !324
   %.not.i209 = icmp eq ptr %468, null
@@ -11243,7 +11243,7 @@ IsEncryptionOn.exit:                              ; preds = %SendAlert.exit
   br label %IsEncryptionOn.exit.thread
 
 IsEncryptionOn.exit.thread:                       ; preds = %SendAlert.exit, %IsEncryptionOn.exit, %46, %40, %6, %4
-  %.0 = phi i32 [ -328, %4 ], [ -328, %6 ], [ -132, %40 ], [ -406, %46 ], [ -406, %IsEncryptionOn.exit ], [ -406, %SendAlert.exit ]
+  %.0 = phi i32 [ -132, %40 ], [ -328, %4 ], [ -328, %6 ], [ -406, %46 ], [ -406, %IsEncryptionOn.exit ], [ -406, %SendAlert.exit ]
   ret i32 %.0
 }
 
@@ -11260,7 +11260,7 @@ define i32 @DoClientHello(ptr noundef %0, ptr noundef %1, ptr noundef captures(n
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 124
   store i8 0, ptr %12, align 4, !tbaa !193
   %13 = icmp ult i32 %3, 35
-  br i1 %13, label %305, label %14
+  br i1 %13, label %304, label %14
 
 14:                                               ; preds = %4
   %15 = zext i32 %5 to i64
@@ -11281,566 +11281,566 @@ define i32 @DoClientHello(ptr noundef %0, ptr noundef %1, ptr noundef captures(n
   %.not = icmp eq i64 %22, 0
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 711
   %24 = load i8, ptr %23, align 1, !tbaa !43
-  br i1 %.not, label %27, label %25
+  br i1 %.not, label %.thread, label %26
 
-25:                                               ; preds = %14
-  %26 = icmp ult i8 %24, %spec.select
-  br i1 %26, label %29, label %72
+.thread:                                          ; preds = %14
+  %25 = icmp ugt i8 %24, %spec.select
+  br i1 %25, label %28, label %71
 
-27:                                               ; preds = %14
-  %28 = icmp ugt i8 %24, %spec.select
-  br i1 %28, label %29, label %72
+26:                                               ; preds = %14
+  %27 = icmp ult i8 %24, %spec.select
+  br i1 %27, label %28, label %71
 
-29:                                               ; preds = %25, %27
-  %30 = and i64 %21, 1024
-  %.not273 = icmp eq i64 %30, 0
-  br i1 %.not273, label %AllocateSuites.exit.thread326, label %31
+28:                                               ; preds = %.thread, %26
+  %29 = and i64 %21, 1024
+  %.not273 = icmp eq i64 %29, 0
+  br i1 %.not273, label %AllocateSuites.exit.thread326, label %30
 
-31:                                               ; preds = %29
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 1047
-  %33 = load i8, ptr %32, align 1, !tbaa !139
-  %34 = icmp ult i8 %spec.select, %33
-  %35 = icmp ugt i8 %spec.select, %33
-  %.0243.in = select i1 %.not, i1 %34, i1 %35
-  br i1 %.0243.in, label %AllocateSuites.exit.thread326, label %36
+30:                                               ; preds = %28
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1047
+  %32 = load i8, ptr %31, align 1, !tbaa !139
+  %33 = icmp ult i8 %spec.select, %32
+  %34 = icmp ugt i8 %spec.select, %32
+  %.0243.in = select i1 %.not, i1 %33, i1 %34
+  br i1 %.0243.in, label %AllocateSuites.exit.thread326, label %35
 
-36:                                               ; preds = %31
-  br i1 %.not, label %37, label %39
+35:                                               ; preds = %30
+  br i1 %.not, label %36, label %38
 
-37:                                               ; preds = %36
-  switch i8 %spec.select, label %42 [
+36:                                               ; preds = %35
+  switch i8 %spec.select, label %41 [
     i8 0, label %.sink.split.sink.split
-    i8 1, label %38
+    i8 1, label %37
     i8 2, label %.sink.split
     i8 3, label %.sink.split
   ]
 
-38:                                               ; preds = %37
+37:                                               ; preds = %36
   br label %.sink.split.sink.split
 
-39:                                               ; preds = %36
-  switch i8 %spec.select, label %42 [
+38:                                               ; preds = %35
+  switch i8 %spec.select, label %41 [
     i8 -3, label %.sink.split.sink.split
     i8 -1, label %.sink.split.sink.split
   ]
 
-.sink.split.sink.split:                           ; preds = %39, %39, %37, %38
-  %.sink410 = phi i64 [ -163841, %38 ], [ -180225, %37 ], [ -65537, %39 ], [ -65537, %39 ]
-  %40 = and i64 %21, %.sink410
-  store i64 %40, ptr %7, align 8
+.sink.split.sink.split:                           ; preds = %38, %38, %36, %37
+  %.sink410 = phi i64 [ -163841, %37 ], [ -180225, %36 ], [ -65537, %38 ], [ -65537, %38 ]
+  %39 = and i64 %21, %.sink410
+  store i64 %39, ptr %7, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.sink.split.sink.split, %37, %37
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 711
-  store i8 %spec.select, ptr %41, align 1, !tbaa !43
-  br label %42
+.sink.split:                                      ; preds = %.sink.split.sink.split, %36, %36
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 711
+  store i8 %spec.select, ptr %40, align 1, !tbaa !43
+  br label %41
 
-42:                                               ; preds = %.sink.split, %39, %37
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %44 = load ptr, ptr %43, align 8, !tbaa !98
-  %45 = icmp eq ptr %44, null
-  br i1 %45, label %46, label %AllocateSuites.exit
+41:                                               ; preds = %.sink.split, %38, %36
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %43 = load ptr, ptr %42, align 8, !tbaa !98
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %45, label %AllocateSuites.exit
 
-46:                                               ; preds = %42
-  %47 = tail call ptr @wolfSSL_Malloc(i64 noundef 344) #28
-  store ptr %47, ptr %43, align 8, !tbaa !98
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %AllocateSuites.exit.thread326, label %49
+45:                                               ; preds = %41
+  %46 = tail call ptr @wolfSSL_Malloc(i64 noundef 344) #28
+  store ptr %46, ptr %42, align 8, !tbaa !98
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %AllocateSuites.exit.thread326, label %48
 
-49:                                               ; preds = %46
-  %50 = load ptr, ptr %0, align 16, !tbaa !99
-  %.not.i = icmp eq ptr %50, null
-  br i1 %.not.i, label %55, label %51
+48:                                               ; preds = %45
+  %49 = load ptr, ptr %0, align 16, !tbaa !99
+  %.not.i = icmp eq ptr %49, null
+  br i1 %.not.i, label %54, label %50
 
-51:                                               ; preds = %49
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 152
-  %53 = load ptr, ptr %52, align 8, !tbaa !72
-  %.not11.i = icmp eq ptr %53, null
-  br i1 %.not11.i, label %55, label %54
+50:                                               ; preds = %48
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 152
+  %52 = load ptr, ptr %51, align 8, !tbaa !72
+  %.not11.i = icmp eq ptr %52, null
+  br i1 %.not11.i, label %54, label %53
 
-54:                                               ; preds = %51
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(344) %47, ptr noundef nonnull align 2 dereferenceable(344) %53, i64 344, i1 false)
+53:                                               ; preds = %50
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(344) %46, ptr noundef nonnull align 2 dereferenceable(344) %52, i64 344, i1 false)
   br label %AllocateSuites.exit
 
-55:                                               ; preds = %51, %49
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(344) %47, i8 0, i64 344, i1 false)
+54:                                               ; preds = %50, %48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(344) %46, i8 0, i64 344, i1 false)
   br label %AllocateSuites.exit
 
-AllocateSuites.exit:                              ; preds = %42, %55, %54
-  %56 = load ptr, ptr %43, align 8, !tbaa !98
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 710
-  %58 = load i64, ptr %7, align 8
-  %59 = lshr i64 %58, 25
-  %60 = trunc i64 %59 to i16
-  %61 = and i16 %60, 1
-  %62 = lshr i64 %58, 24
-  %63 = trunc i64 %62 to i16
-  %64 = and i16 %63, 1
-  %65 = lshr i64 %58, 27
-  %66 = trunc i64 %65 to i16
-  %67 = and i16 %66, 1
-  %68 = trunc i64 %58 to i32
-  %69 = lshr i32 %68, 4
-  %70 = and i32 %69, 3
-  %71 = load i16, ptr %57, align 2
-  tail call void @InitSuites(ptr noundef %56, i16 %71, i32 poison, i16 noundef zeroext 1, i16 zeroext poison, i16 noundef zeroext %61, i16 zeroext poison, i16 noundef zeroext %64, i16 zeroext poison, i16 noundef zeroext %67, i16 zeroext poison, i16 zeroext poison, i16 noundef zeroext 1, i16 noundef zeroext 1, i16 zeroext poison, i32 noundef %70)
+AllocateSuites.exit:                              ; preds = %41, %54, %53
+  %55 = load ptr, ptr %42, align 8, !tbaa !98
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 710
+  %57 = load i64, ptr %7, align 8
+  %58 = lshr i64 %57, 25
+  %59 = trunc i64 %58 to i16
+  %60 = and i16 %59, 1
+  %61 = lshr i64 %57, 24
+  %62 = trunc i64 %61 to i16
+  %63 = and i16 %62, 1
+  %64 = lshr i64 %57, 27
+  %65 = trunc i64 %64 to i16
+  %66 = and i16 %65, 1
+  %67 = trunc i64 %57 to i32
+  %68 = lshr i32 %67, 4
+  %69 = and i32 %68, 3
+  %70 = load i16, ptr %56, align 2
+  tail call void @InitSuites(ptr noundef %55, i16 %70, i32 poison, i16 noundef zeroext 1, i16 zeroext poison, i16 noundef zeroext %60, i16 zeroext poison, i16 noundef zeroext %63, i16 zeroext poison, i16 noundef zeroext %66, i16 zeroext poison, i16 zeroext poison, i16 noundef zeroext 1, i16 noundef zeroext 1, i16 zeroext poison, i32 noundef %69)
   %.pre = load i64, ptr %7, align 8
-  br label %72
+  br label %71
 
-72:                                               ; preds = %25, %AllocateSuites.exit, %27
-  %73 = phi i64 [ %.pre, %AllocateSuites.exit ], [ %21, %27 ], [ %21, %25 ]
-  %74 = and i64 %73, 132096
-  %or.cond304.not = icmp eq i64 %74, 1024
-  br i1 %or.cond304.not, label %75, label %AllocateSuites.exit321
+71:                                               ; preds = %.thread, %AllocateSuites.exit, %26
+  %72 = phi i64 [ %.pre, %AllocateSuites.exit ], [ %21, %26 ], [ %21, %.thread ]
+  %73 = and i64 %72, 132096
+  %or.cond304.not = icmp eq i64 %73, 1024
+  br i1 %or.cond304.not, label %74, label %AllocateSuites.exit321
 
-75:                                               ; preds = %72
-  %76 = load i64, ptr %6, align 8, !tbaa !329
-  %.not279 = icmp eq i64 %76, 0
-  br i1 %.not279, label %AllocateSuites.exit321, label %77
+74:                                               ; preds = %71
+  %75 = load i64, ptr %6, align 8, !tbaa !329
+  %.not279 = icmp eq i64 %75, 0
+  br i1 %.not279, label %AllocateSuites.exit321, label %76
 
-77:                                               ; preds = %75
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 710
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 711
-  %80 = load i8, ptr %79, align 1, !tbaa !43
-  %81 = icmp ne i8 %80, 3
-  %82 = and i64 %76, 134217728
-  %.not280 = icmp eq i64 %82, 0
-  %or.cond305 = or i1 %.not280, %81
-  br i1 %or.cond305, label %83, label %.thread329
+76:                                               ; preds = %74
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 710
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 711
+  %79 = load i8, ptr %78, align 1, !tbaa !43
+  %80 = icmp ne i8 %79, 3
+  %81 = and i64 %75, 134217728
+  %.not280 = icmp eq i64 %81, 0
+  %or.cond305 = or i1 %.not280, %80
+  br i1 %or.cond305, label %82, label %.thread329
 
-.thread329:                                       ; preds = %77
-  store i8 2, ptr %79, align 1, !tbaa !43
-  br label %84
+.thread329:                                       ; preds = %76
+  store i8 2, ptr %78, align 1, !tbaa !43
+  br label %83
 
-83:                                               ; preds = %77
-  switch i8 %80, label %thread-pre-split335.thread [
-    i8 2, label %84
-    i8 1, label %87
-    i8 0, label %91
+82:                                               ; preds = %76
+  switch i8 %79, label %thread-pre-split335.thread [
+    i8 2, label %83
+    i8 1, label %86
+    i8 0, label %90
   ]
 
-84:                                               ; preds = %83, %.thread329
-  %.0238331 = phi i32 [ 1, %.thread329 ], [ 0, %83 ]
-  %85 = and i64 %76, 67108864
-  %.not281 = icmp eq i64 %85, 0
+83:                                               ; preds = %82, %.thread329
+  %.0238331 = phi i32 [ 1, %.thread329 ], [ 0, %82 ]
+  %84 = and i64 %75, 67108864
+  %.not281 = icmp eq i64 %84, 0
   br i1 %.not281, label %thread-pre-split335.thread, label %.thread332
 
-.thread332:                                       ; preds = %84
-  %86 = and i64 %73, -163841
-  store i64 %86, ptr %7, align 8
-  store i8 1, ptr %79, align 1, !tbaa !43
-  br label %87
+.thread332:                                       ; preds = %83
+  %85 = and i64 %72, -163841
+  store i64 %85, ptr %7, align 8
+  store i8 1, ptr %78, align 1, !tbaa !43
+  br label %86
 
-87:                                               ; preds = %83, %.thread332
-  %88 = phi i64 [ %86, %.thread332 ], [ %73, %83 ]
-  %.1239334 = phi i32 [ 1, %.thread332 ], [ 0, %83 ]
-  %89 = and i64 %76, 8192
-  %.not282 = icmp eq i64 %89, 0
+86:                                               ; preds = %82, %.thread332
+  %87 = phi i64 [ %85, %.thread332 ], [ %72, %82 ]
+  %.1239334 = phi i32 [ 1, %.thread332 ], [ 0, %82 ]
+  %88 = and i64 %75, 8192
+  %.not282 = icmp eq i64 %88, 0
   br i1 %.not282, label %thread-pre-split335.thread, label %.thread337
 
-.thread337:                                       ; preds = %87
-  %90 = and i64 %88, -180225
-  store i64 %90, ptr %7, align 8
-  store i8 0, ptr %79, align 1, !tbaa !43
-  br label %91
+.thread337:                                       ; preds = %86
+  %89 = and i64 %87, -180225
+  store i64 %89, ptr %7, align 8
+  store i8 0, ptr %78, align 1, !tbaa !43
+  br label %90
 
-91:                                               ; preds = %83, %.thread337
-  %.2340 = phi i32 [ 1, %.thread337 ], [ 0, %83 ]
-  %92 = and i64 %76, 4096
-  %.not283 = icmp eq i64 %92, 0
+90:                                               ; preds = %82, %.thread337
+  %.2340 = phi i32 [ 1, %.thread337 ], [ 0, %82 ]
+  %91 = and i64 %75, 4096
+  %.not283 = icmp eq i64 %91, 0
   br i1 %.not283, label %thread-pre-split335.thread, label %AllocateSuites.exit.thread326
 
-thread-pre-split335.thread:                       ; preds = %83, %84, %87, %91
-  %.2339 = phi i32 [ %.2340, %91 ], [ %.1239334, %87 ], [ %.0238331, %84 ], [ 0, %83 ]
-  %93 = phi i8 [ 0, %91 ], [ 1, %87 ], [ 2, %84 ], [ %80, %83 ]
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 1047
-  %95 = load i8, ptr %94, align 1, !tbaa !139
-  %96 = icmp ult i8 %93, %95
-  br i1 %96, label %AllocateSuites.exit.thread326, label %97
+thread-pre-split335.thread:                       ; preds = %82, %83, %86, %90
+  %.2339 = phi i32 [ %.2340, %90 ], [ 0, %82 ], [ %.1239334, %86 ], [ %.0238331, %83 ]
+  %92 = phi i8 [ 0, %90 ], [ %79, %82 ], [ 1, %86 ], [ 2, %83 ]
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 1047
+  %94 = load i8, ptr %93, align 1, !tbaa !139
+  %95 = icmp ult i8 %92, %94
+  br i1 %95, label %AllocateSuites.exit.thread326, label %96
 
-97:                                               ; preds = %thread-pre-split335.thread
+96:                                               ; preds = %thread-pre-split335.thread
   %.not284 = icmp eq i32 %.2339, 0
-  br i1 %.not284, label %AllocateSuites.exit321, label %98
+  br i1 %.not284, label %AllocateSuites.exit321, label %97
 
-98:                                               ; preds = %97
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %100 = load ptr, ptr %99, align 8, !tbaa !98
-  %101 = icmp eq ptr %100, null
-  br i1 %101, label %102, label %112
+97:                                               ; preds = %96
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %99 = load ptr, ptr %98, align 8, !tbaa !98
+  %100 = icmp eq ptr %99, null
+  br i1 %100, label %101, label %111
 
-102:                                              ; preds = %98
-  %103 = tail call ptr @wolfSSL_Malloc(i64 noundef 344) #28
-  store ptr %103, ptr %99, align 8, !tbaa !98
-  %104 = icmp eq ptr %103, null
-  br i1 %104, label %AllocateSuites.exit.thread326, label %105
+101:                                              ; preds = %97
+  %102 = tail call ptr @wolfSSL_Malloc(i64 noundef 344) #28
+  store ptr %102, ptr %98, align 8, !tbaa !98
+  %103 = icmp eq ptr %102, null
+  br i1 %103, label %AllocateSuites.exit.thread326, label %104
 
-105:                                              ; preds = %102
-  %106 = load ptr, ptr %0, align 16, !tbaa !99
-  %.not.i319 = icmp eq ptr %106, null
-  br i1 %.not.i319, label %111, label %107
+104:                                              ; preds = %101
+  %105 = load ptr, ptr %0, align 16, !tbaa !99
+  %.not.i319 = icmp eq ptr %105, null
+  br i1 %.not.i319, label %110, label %106
 
-107:                                              ; preds = %105
-  %108 = getelementptr inbounds nuw i8, ptr %106, i64 152
-  %109 = load ptr, ptr %108, align 8, !tbaa !72
-  %.not11.i320 = icmp eq ptr %109, null
-  br i1 %.not11.i320, label %111, label %110
+106:                                              ; preds = %104
+  %107 = getelementptr inbounds nuw i8, ptr %105, i64 152
+  %108 = load ptr, ptr %107, align 8, !tbaa !72
+  %.not11.i320 = icmp eq ptr %108, null
+  br i1 %.not11.i320, label %110, label %109
 
-110:                                              ; preds = %107
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(344) %103, ptr noundef nonnull align 2 dereferenceable(344) %109, i64 344, i1 false)
-  br label %112
+109:                                              ; preds = %106
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(344) %102, ptr noundef nonnull align 2 dereferenceable(344) %108, i64 344, i1 false)
+  br label %111
 
-111:                                              ; preds = %107, %105
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(344) %103, i8 0, i64 344, i1 false)
-  br label %112
+110:                                              ; preds = %106, %104
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(344) %102, i8 0, i64 344, i1 false)
+  br label %111
 
-112:                                              ; preds = %98, %111, %110
-  %113 = load ptr, ptr %99, align 8, !tbaa !98
-  %114 = load i64, ptr %7, align 8
-  %115 = lshr i64 %114, 25
-  %116 = trunc i64 %115 to i16
-  %117 = and i16 %116, 1
-  %118 = lshr i64 %114, 24
-  %119 = trunc i64 %118 to i16
-  %120 = and i16 %119, 1
-  %121 = lshr i64 %114, 27
-  %122 = trunc i64 %121 to i16
-  %123 = and i16 %122, 1
-  %124 = trunc i64 %114 to i32
-  %125 = lshr i32 %124, 4
-  %126 = and i32 %125, 3
-  %127 = load i16, ptr %78, align 2
-  tail call void @InitSuites(ptr noundef %113, i16 %127, i32 poison, i16 noundef zeroext 1, i16 zeroext poison, i16 noundef zeroext %117, i16 zeroext poison, i16 noundef zeroext %120, i16 zeroext poison, i16 noundef zeroext %123, i16 zeroext poison, i16 zeroext poison, i16 noundef zeroext 1, i16 noundef zeroext 1, i16 zeroext poison, i32 noundef %126)
+111:                                              ; preds = %97, %110, %109
+  %112 = load ptr, ptr %98, align 8, !tbaa !98
+  %113 = load i64, ptr %7, align 8
+  %114 = lshr i64 %113, 25
+  %115 = trunc i64 %114 to i16
+  %116 = and i16 %115, 1
+  %117 = lshr i64 %113, 24
+  %118 = trunc i64 %117 to i16
+  %119 = and i16 %118, 1
+  %120 = lshr i64 %113, 27
+  %121 = trunc i64 %120 to i16
+  %122 = and i16 %121, 1
+  %123 = trunc i64 %113 to i32
+  %124 = lshr i32 %123, 4
+  %125 = and i32 %124, 3
+  %126 = load i16, ptr %77, align 2
+  tail call void @InitSuites(ptr noundef %112, i16 %126, i32 poison, i16 noundef zeroext 1, i16 zeroext poison, i16 noundef zeroext %116, i16 zeroext poison, i16 noundef zeroext %119, i16 zeroext poison, i16 noundef zeroext %122, i16 zeroext poison, i16 zeroext poison, i16 noundef zeroext 1, i16 noundef zeroext 1, i16 zeroext poison, i32 noundef %125)
   br label %AllocateSuites.exit321
 
-AllocateSuites.exit321:                           ; preds = %97, %112, %75, %72
-  %128 = load ptr, ptr %10, align 8, !tbaa !163
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 28
-  %130 = zext i32 %18 to i64
-  %131 = getelementptr inbounds nuw i8, ptr %1, i64 %130
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %129, ptr noundef nonnull align 1 dereferenceable(32) %131, i64 32, i1 false)
-  %132 = add i32 %5, 34
-  %133 = add i32 %5, 35
-  %134 = zext i32 %132 to i64
-  %135 = getelementptr inbounds nuw i8, ptr %1, i64 %134
-  %136 = load i8, ptr %135, align 1, !tbaa !45
-  %137 = zext i8 %136 to i32
-  %138 = icmp ugt i8 %136, 32
-  br i1 %138, label %AllocateSuites.exit.thread326, label %139
+AllocateSuites.exit321:                           ; preds = %96, %111, %74, %71
+  %127 = load ptr, ptr %10, align 8, !tbaa !163
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 28
+  %129 = zext i32 %18 to i64
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 %129
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %128, ptr noundef nonnull align 1 dereferenceable(32) %130, i64 32, i1 false)
+  %131 = add i32 %5, 34
+  %132 = add i32 %5, 35
+  %133 = zext i32 %131 to i64
+  %134 = getelementptr inbounds nuw i8, ptr %1, i64 %133
+  %135 = load i8, ptr %134, align 1, !tbaa !45
+  %136 = zext i8 %135 to i32
+  %137 = icmp ugt i8 %135, 32
+  br i1 %137, label %AllocateSuites.exit.thread326, label %138
 
-139:                                              ; preds = %AllocateSuites.exit321
-  %.not286 = icmp eq i8 %136, 0
-  br i1 %.not286, label %155, label %140
+138:                                              ; preds = %AllocateSuites.exit321
+  %.not286 = icmp eq i8 %135, 0
+  br i1 %.not286, label %154, label %139
 
-140:                                              ; preds = %139
-  %141 = add nuw nsw i32 %137, 35
-  %142 = icmp ugt i32 %141, %3
-  br i1 %142, label %AllocateSuites.exit.thread326, label %143
+139:                                              ; preds = %138
+  %140 = add nuw nsw i32 %136, 35
+  %141 = icmp ugt i32 %140, %3
+  br i1 %141, label %AllocateSuites.exit.thread326, label %142
 
-143:                                              ; preds = %140
-  %144 = load ptr, ptr %10, align 8, !tbaa !163
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 92
-  %146 = zext i32 %133 to i64
-  %147 = getelementptr inbounds nuw i8, ptr %1, i64 %146
-  %148 = zext nneg i8 %136 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %145, ptr align 1 %147, i64 %148, i1 false)
-  %149 = load ptr, ptr %10, align 8, !tbaa !163
-  %150 = getelementptr inbounds nuw i8, ptr %149, i64 124
-  store i8 %136, ptr %150, align 4, !tbaa !193
-  %151 = icmp eq i8 %136, 32
-  br i1 %151, label %152, label %155
+142:                                              ; preds = %139
+  %143 = load ptr, ptr %10, align 8, !tbaa !163
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 92
+  %145 = zext i32 %132 to i64
+  %146 = getelementptr inbounds nuw i8, ptr %1, i64 %145
+  %147 = zext nneg i8 %135 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %144, ptr align 1 %146, i64 %147, i1 false)
+  %148 = load ptr, ptr %10, align 8, !tbaa !163
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 124
+  store i8 %135, ptr %149, align 4, !tbaa !193
+  %150 = icmp eq i8 %135, 32
+  br i1 %150, label %151, label %154
 
-152:                                              ; preds = %143
-  %153 = load i64, ptr %7, align 8
-  %154 = or i64 %153, 2048
-  store i64 %154, ptr %7, align 8
-  br label %155
+151:                                              ; preds = %142
+  %152 = load i64, ptr %7, align 8
+  %153 = or i64 %152, 2048
+  store i64 %153, ptr %7, align 8
+  br label %154
 
-155:                                              ; preds = %139, %143, %152
-  %156 = add i32 %133, %137
-  %157 = add nuw nsw i32 %137, 37
-  %158 = icmp ugt i32 %157, %3
-  br i1 %158, label %AllocateSuites.exit.thread326, label %159
+154:                                              ; preds = %138, %142, %151
+  %155 = add i32 %132, %136
+  %156 = add nuw nsw i32 %136, 37
+  %157 = icmp ugt i32 %156, %3
+  br i1 %157, label %AllocateSuites.exit.thread326, label %158
 
-159:                                              ; preds = %155
-  %160 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %161 = load ptr, ptr %160, align 16, !tbaa !330
-  %.not287 = icmp eq ptr %161, null
-  br i1 %.not287, label %163, label %162
+158:                                              ; preds = %154
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %160 = load ptr, ptr %159, align 16, !tbaa !330
+  %.not287 = icmp eq ptr %160, null
+  br i1 %.not287, label %162, label %161
 
-162:                                              ; preds = %159
-  tail call void @wolfSSL_Free(ptr noundef nonnull %161) #28
-  br label %163
+161:                                              ; preds = %158
+  tail call void @wolfSSL_Free(ptr noundef nonnull %160) #28
+  br label %162
 
-163:                                              ; preds = %162, %159
-  %164 = tail call ptr @wolfSSL_Malloc(i64 noundef 344) #28
-  store ptr %164, ptr %160, align 16, !tbaa !330
-  %165 = icmp eq ptr %164, null
-  br i1 %165, label %AllocateSuites.exit.thread326, label %166
+162:                                              ; preds = %161, %158
+  %163 = tail call ptr @wolfSSL_Malloc(i64 noundef 344) #28
+  store ptr %163, ptr %159, align 16, !tbaa !330
+  %164 = icmp eq ptr %163, null
+  br i1 %164, label %AllocateSuites.exit.thread326, label %165
 
-166:                                              ; preds = %163
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(344) %164, i8 0, i64 344, i1 false)
-  %167 = zext i32 %156 to i64
-  %168 = getelementptr inbounds nuw i8, ptr %1, i64 %167
-  %169 = load ptr, ptr %160, align 16, !tbaa !330
-  %.val316 = load i8, ptr %168, align 1, !tbaa !45
-  %170 = getelementptr i8, ptr %168, i64 1
-  %.val317 = load i8, ptr %170, align 1, !tbaa !45
-  %171 = zext i8 %.val316 to i16
-  %172 = shl nuw i16 %171, 8
-  %173 = zext i8 %.val317 to i16
-  %174 = or disjoint i16 %172, %173
-  store i16 %174, ptr %169, align 2, !tbaa !97
-  %175 = add i32 %156, 2
-  %176 = zext i16 %174 to i32
-  %177 = and i32 %176, 1
-  %.not288 = icmp eq i32 %177, 0
-  br i1 %.not288, label %178, label %AllocateSuites.exit.thread326
+165:                                              ; preds = %162
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(344) %163, i8 0, i64 344, i1 false)
+  %166 = zext i32 %155 to i64
+  %167 = getelementptr inbounds nuw i8, ptr %1, i64 %166
+  %168 = load ptr, ptr %159, align 16, !tbaa !330
+  %.val316 = load i8, ptr %167, align 1, !tbaa !45
+  %169 = getelementptr i8, ptr %167, i64 1
+  %.val317 = load i8, ptr %169, align 1, !tbaa !45
+  %170 = zext i8 %.val316 to i16
+  %171 = shl nuw i16 %170, 8
+  %172 = zext i8 %.val317 to i16
+  %173 = or disjoint i16 %171, %172
+  store i16 %173, ptr %168, align 2, !tbaa !97
+  %174 = add i32 %155, 2
+  %175 = zext i16 %173 to i32
+  %176 = and i32 %175, 1
+  %.not288 = icmp eq i32 %176, 0
+  br i1 %.not288, label %177, label %AllocateSuites.exit.thread326
 
-178:                                              ; preds = %166
-  %179 = sub i32 %156, %5
-  %180 = add i32 %179, 3
-  %181 = add i32 %180, %176
-  %182 = icmp ugt i32 %181, %3
-  %183 = icmp ugt i16 %174, 300
-  %or.cond314 = or i1 %183, %182
-  br i1 %or.cond314, label %AllocateSuites.exit.thread326, label %184
+177:                                              ; preds = %165
+  %178 = sub i32 %155, %5
+  %179 = add i32 %178, 3
+  %180 = add i32 %179, %175
+  %181 = icmp ugt i32 %180, %3
+  %182 = icmp ugt i16 %173, 300
+  %or.cond314 = or i1 %182, %181
+  br i1 %or.cond314, label %AllocateSuites.exit.thread326, label %183
 
-184:                                              ; preds = %178
-  %185 = getelementptr inbounds nuw i8, ptr %169, i64 4
-  %186 = zext i32 %175 to i64
-  %187 = getelementptr inbounds nuw i8, ptr %1, i64 %186
-  %188 = zext nneg i16 %174 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %185, ptr align 1 %187, i64 %188, i1 false)
-  %189 = load ptr, ptr %160, align 16, !tbaa !330
-  %190 = load i16, ptr %189, align 2, !tbaa !100
-  %191 = zext i16 %190 to i32
-  %192 = add i32 %175, %191
-  %193 = getelementptr inbounds nuw i8, ptr %189, i64 2
-  store i16 0, ptr %193, align 2, !tbaa !102
-  %194 = add i32 %192, 1
-  %195 = zext i32 %192 to i64
-  %196 = getelementptr inbounds nuw i8, ptr %1, i64 %195
-  %197 = load i8, ptr %196, align 1, !tbaa !45
-  %198 = sub i32 %194, %5
-  %199 = zext i8 %197 to i32
-  %200 = add i32 %198, %199
-  %201 = icmp ugt i32 %200, %3
-  br i1 %201, label %AllocateSuites.exit.thread326, label %202
+183:                                              ; preds = %177
+  %184 = getelementptr inbounds nuw i8, ptr %168, i64 4
+  %185 = zext i32 %174 to i64
+  %186 = getelementptr inbounds nuw i8, ptr %1, i64 %185
+  %187 = zext nneg i16 %173 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %184, ptr align 1 %186, i64 %187, i1 false)
+  %188 = load ptr, ptr %159, align 16, !tbaa !330
+  %189 = load i16, ptr %188, align 2, !tbaa !100
+  %190 = zext i16 %189 to i32
+  %191 = add i32 %174, %190
+  %192 = getelementptr inbounds nuw i8, ptr %188, i64 2
+  store i16 0, ptr %192, align 2, !tbaa !102
+  %193 = add i32 %191, 1
+  %194 = zext i32 %191 to i64
+  %195 = getelementptr inbounds nuw i8, ptr %1, i64 %194
+  %196 = load i8, ptr %195, align 1, !tbaa !45
+  %197 = sub i32 %193, %5
+  %198 = zext i8 %196 to i32
+  %199 = add i32 %197, %198
+  %200 = icmp ugt i32 %199, %3
+  br i1 %200, label %AllocateSuites.exit.thread326, label %201
 
-202:                                              ; preds = %184
-  %203 = icmp eq i8 %197, 0
-  br i1 %203, label %AllocateSuites.exit.thread326, label %.preheader
+201:                                              ; preds = %183
+  %202 = icmp eq i8 %196, 0
+  br i1 %202, label %AllocateSuites.exit.thread326, label %.preheader
 
-.preheader:                                       ; preds = %202, %.preheader
-  %.0233373 = phi i8 [ %204, %.preheader ], [ %197, %202 ]
-  %.0234372 = phi i32 [ %.1, %.preheader ], [ 0, %202 ]
-  %.0235371 = phi i32 [ %spec.select308, %.preheader ], [ 0, %202 ]
-  %.0237370 = phi i32 [ %205, %.preheader ], [ %194, %202 ]
-  %204 = add i8 %.0233373, -1
-  %205 = add i32 %.0237370, 1
-  %206 = zext i32 %.0237370 to i64
-  %207 = getelementptr inbounds nuw i8, ptr %1, i64 %206
-  %208 = load i8, ptr %207, align 1, !tbaa !45
-  %209 = icmp eq i8 %208, 0
-  %spec.select308 = select i1 %209, i32 1, i32 %.0235371
-  %210 = icmp eq i8 %208, -35
-  %.1 = select i1 %210, i32 1, i32 %.0234372
-  %.not289 = icmp eq i8 %204, 0
-  br i1 %.not289, label %211, label %.preheader, !llvm.loop !331
+.preheader:                                       ; preds = %201, %.preheader
+  %.0233373 = phi i8 [ %203, %.preheader ], [ %196, %201 ]
+  %.0234372 = phi i32 [ %.1, %.preheader ], [ 0, %201 ]
+  %.0235371 = phi i32 [ %spec.select308, %.preheader ], [ 0, %201 ]
+  %.0237370 = phi i32 [ %204, %.preheader ], [ %193, %201 ]
+  %203 = add i8 %.0233373, -1
+  %204 = add i32 %.0237370, 1
+  %205 = zext i32 %.0237370 to i64
+  %206 = getelementptr inbounds nuw i8, ptr %1, i64 %205
+  %207 = load i8, ptr %206, align 1, !tbaa !45
+  %208 = icmp eq i8 %207, 0
+  %spec.select308 = select i1 %208, i32 1, i32 %.0235371
+  %209 = icmp eq i8 %207, -35
+  %.1 = select i1 %209, i32 1, i32 %.0234372
+  %.not289 = icmp eq i8 %203, 0
+  br i1 %.not289, label %210, label %.preheader, !llvm.loop !331
 
-211:                                              ; preds = %.preheader
-  %212 = load i64, ptr %7, align 8
-  %213 = trunc i64 %212 to i32
-  %214 = lshr i32 %213, 22
-  %215 = and i32 %214, 1
-  %216 = icmp eq i32 %215, 0
-  %217 = icmp ne i32 %spec.select308, 0
-  %or.cond5 = select i1 %216, i1 %217, i1 false
-  br i1 %or.cond5, label %224, label %218
+210:                                              ; preds = %.preheader
+  %211 = load i64, ptr %7, align 8
+  %212 = trunc i64 %211 to i32
+  %213 = lshr i32 %212, 22
+  %214 = and i32 %213, 1
+  %215 = icmp eq i32 %214, 0
+  %216 = icmp ne i32 %spec.select308, 0
+  %or.cond5 = select i1 %215, i1 %216, i1 false
+  br i1 %or.cond5, label %223, label %217
 
-218:                                              ; preds = %211
-  %219 = icmp ne i32 %215, 0
-  %220 = icmp ne i32 %.1, 0
-  %or.cond7 = select i1 %219, i1 %220, i1 false
-  br i1 %or.cond7, label %224, label %221
+217:                                              ; preds = %210
+  %218 = icmp ne i32 %214, 0
+  %219 = icmp ne i32 %.1, 0
+  %or.cond7 = select i1 %218, i1 %219, i1 false
+  br i1 %or.cond7, label %223, label %220
 
-221:                                              ; preds = %218
-  %or.cond9 = select i1 %219, i1 %217, i1 false
-  br i1 %or.cond9, label %222, label %AllocateSuites.exit.thread326
+220:                                              ; preds = %217
+  %or.cond9 = select i1 %218, i1 %216, i1 false
+  br i1 %or.cond9, label %221, label %AllocateSuites.exit.thread326
 
-222:                                              ; preds = %221
-  %223 = and i64 %212, -4194305
-  store i64 %223, ptr %7, align 8
-  br label %224
+221:                                              ; preds = %220
+  %222 = and i64 %211, -4194305
+  store i64 %222, ptr %7, align 8
+  br label %223
 
-224:                                              ; preds = %222, %218, %211
-  store i32 %205, ptr %2, align 4, !tbaa !49
-  %225 = sub i32 %205, %5
-  %226 = icmp ult i32 %225, %3
-  br i1 %226, label %227, label %262
+223:                                              ; preds = %221, %217, %210
+  store i32 %204, ptr %2, align 4, !tbaa !49
+  %224 = sub i32 %204, %5
+  %225 = icmp ult i32 %224, %3
+  br i1 %225, label %226, label %261
 
-227:                                              ; preds = %224
-  %228 = tail call i32 @TLSX_SupportExtensions(ptr noundef nonnull %0) #28
-  %.not290 = icmp eq i32 %228, 0
-  br i1 %.not290, label %260, label %229
+226:                                              ; preds = %223
+  %227 = tail call i32 @TLSX_SupportExtensions(ptr noundef nonnull %0) #28
+  %.not290 = icmp eq i32 %227, 0
+  br i1 %.not290, label %259, label %228
 
-229:                                              ; preds = %227
-  %230 = tail call i32 @TLSX_PopulateExtensions(ptr noundef nonnull %0, i8 noundef zeroext 1) #28
-  %.not291 = icmp eq i32 %230, 0
-  br i1 %.not291, label %231, label %AllocateSuites.exit.thread326
+228:                                              ; preds = %226
+  %229 = tail call i32 @TLSX_PopulateExtensions(ptr noundef nonnull %0, i8 noundef zeroext 1) #28
+  %.not291 = icmp eq i32 %229, 0
+  br i1 %.not291, label %230, label %AllocateSuites.exit.thread326
 
-231:                                              ; preds = %229
-  %232 = add i32 %225, 2
-  %233 = icmp ugt i32 %232, %3
-  br i1 %233, label %AllocateSuites.exit.thread326, label %234
+230:                                              ; preds = %228
+  %231 = add i32 %224, 2
+  %232 = icmp ugt i32 %231, %3
+  br i1 %232, label %AllocateSuites.exit.thread326, label %233
 
-234:                                              ; preds = %231
-  %235 = zext i32 %205 to i64
-  %236 = getelementptr inbounds nuw i8, ptr %1, i64 %235
-  %.val = load i8, ptr %236, align 1, !tbaa !45
-  %237 = getelementptr i8, ptr %236, i64 1
-  %.val315 = load i8, ptr %237, align 1, !tbaa !45
-  %238 = zext i8 %.val to i16
-  %239 = shl nuw i16 %238, 8
-  %240 = zext i8 %.val315 to i16
-  %241 = or disjoint i16 %239, %240
-  %242 = add i32 %.0237370, 3
-  %243 = sub i32 %242, %5
-  %244 = zext i16 %241 to i32
-  %245 = add i32 %243, %244
-  %246 = icmp ugt i32 %245, %3
-  br i1 %246, label %AllocateSuites.exit.thread326, label %247
+233:                                              ; preds = %230
+  %234 = zext i32 %204 to i64
+  %235 = getelementptr inbounds nuw i8, ptr %1, i64 %234
+  %.val = load i8, ptr %235, align 1, !tbaa !45
+  %236 = getelementptr i8, ptr %235, i64 1
+  %.val315 = load i8, ptr %236, align 1, !tbaa !45
+  %237 = zext i8 %.val to i16
+  %238 = shl nuw i16 %237, 8
+  %239 = zext i8 %.val315 to i16
+  %240 = or disjoint i16 %238, %239
+  %241 = add i32 %.0237370, 3
+  %242 = sub i32 %241, %5
+  %243 = zext i16 %240 to i32
+  %244 = add i32 %242, %243
+  %245 = icmp ugt i32 %244, %3
+  br i1 %245, label %AllocateSuites.exit.thread326, label %246
 
-247:                                              ; preds = %234
-  %248 = zext i32 %242 to i64
-  %249 = getelementptr inbounds nuw i8, ptr %1, i64 %248
-  %250 = load ptr, ptr %160, align 16, !tbaa !330
-  %251 = tail call i32 @TLSX_Parse(ptr noundef nonnull %0, ptr noundef %249, i16 noundef zeroext %241, i8 noundef zeroext 1, ptr noundef %250) #28
-  %.not292 = icmp eq i32 %251, 0
-  br i1 %.not292, label %252, label %AllocateSuites.exit.thread326
+246:                                              ; preds = %233
+  %247 = zext i32 %241 to i64
+  %248 = getelementptr inbounds nuw i8, ptr %1, i64 %247
+  %249 = load ptr, ptr %159, align 16, !tbaa !330
+  %250 = tail call i32 @TLSX_Parse(ptr noundef nonnull %0, ptr noundef %248, i16 noundef zeroext %240, i8 noundef zeroext 1, ptr noundef %249) #28
+  %.not292 = icmp eq i32 %250, 0
+  br i1 %.not292, label %251, label %AllocateSuites.exit.thread326
 
-252:                                              ; preds = %247
-  %253 = getelementptr inbounds nuw i8, ptr %0, i64 1224
-  %254 = load ptr, ptr %253, align 8, !tbaa !223
-  %255 = tail call ptr @TLSX_Find(ptr noundef %254, i32 noundef 43) #28
-  %.not293 = icmp eq ptr %255, null
-  br i1 %.not293, label %256, label %AllocateSuites.exit.thread326
+251:                                              ; preds = %246
+  %252 = getelementptr inbounds nuw i8, ptr %0, i64 1224
+  %253 = load ptr, ptr %252, align 8, !tbaa !223
+  %254 = tail call ptr @TLSX_Find(ptr noundef %253, i32 noundef 43) #28
+  %.not293 = icmp eq ptr %254, null
+  br i1 %.not293, label %255, label %AllocateSuites.exit.thread326
 
-256:                                              ; preds = %252
-  %257 = tail call i32 @SNI_Callback(ptr noundef nonnull %0)
-  %.not294 = icmp eq i32 %257, 0
-  br i1 %.not294, label %258, label %AllocateSuites.exit.thread326
+255:                                              ; preds = %251
+  %256 = tail call i32 @SNI_Callback(ptr noundef nonnull %0)
+  %.not294 = icmp eq i32 %256, 0
+  br i1 %.not294, label %257, label %AllocateSuites.exit.thread326
 
-258:                                              ; preds = %256
-  %259 = add i32 %242, %244
+257:                                              ; preds = %255
+  %258 = add i32 %241, %243
   br label %.sink.split407
 
-260:                                              ; preds = %227
-  %261 = add i32 %5, %3
+259:                                              ; preds = %226
+  %260 = add i32 %5, %3
   br label %.sink.split407
 
-.sink.split407:                                   ; preds = %260, %258
-  %.sink408 = phi i32 [ %259, %258 ], [ %261, %260 ]
+.sink.split407:                                   ; preds = %259, %257
+  %.sink408 = phi i32 [ %258, %257 ], [ %260, %259 ]
   store i32 %.sink408, ptr %2, align 4, !tbaa !49
-  br label %262
+  br label %261
 
-262:                                              ; preds = %.sink.split407, %224
-  %263 = getelementptr inbounds nuw i8, ptr %0, i64 1044
-  store i8 12, ptr %263, align 4, !tbaa !177
-  %264 = load i64, ptr %7, align 8
-  %265 = or i64 %264, 8192
-  store i64 %265, ptr %7, align 8
-  %266 = and i64 %264, 2048
-  %.not295 = icmp eq i64 %266, 0
-  br i1 %.not295, label %284, label %267
+261:                                              ; preds = %.sink.split407, %223
+  %262 = getelementptr inbounds nuw i8, ptr %0, i64 1044
+  store i8 12, ptr %262, align 4, !tbaa !177
+  %263 = load i64, ptr %7, align 8
+  %264 = or i64 %263, 8192
+  store i64 %264, ptr %7, align 8
+  %265 = and i64 %263, 2048
+  %.not295 = icmp eq i64 %265, 0
+  br i1 %.not295, label %283, label %266
 
-267:                                              ; preds = %262
-  %268 = load ptr, ptr %160, align 16, !tbaa !330
-  %269 = tail call i32 @HandleTlsResumption(ptr noundef nonnull %0, ptr noundef %268)
-  %.not296 = icmp eq i32 %269, 0
-  br i1 %.not296, label %270, label %AllocateSuites.exit.thread326
+266:                                              ; preds = %261
+  %267 = load ptr, ptr %159, align 16, !tbaa !330
+  %268 = tail call i32 @HandleTlsResumption(ptr noundef nonnull %0, ptr noundef %267)
+  %.not296 = icmp eq i32 %268, 0
+  br i1 %.not296, label %269, label %AllocateSuites.exit.thread326
 
-270:                                              ; preds = %267
-  %271 = load i64, ptr %7, align 8
-  %272 = and i64 %271, 9007199254740992
-  %.not297 = icmp eq i64 %272, 0
-  br i1 %.not297, label %279, label %273
+269:                                              ; preds = %266
+  %270 = load i64, ptr %7, align 8
+  %271 = and i64 %270, 9007199254740992
+  %.not297 = icmp eq i64 %271, 0
+  br i1 %.not297, label %278, label %272
 
-273:                                              ; preds = %270
-  %274 = getelementptr inbounds nuw i8, ptr %0, i64 723
-  %275 = load i8, ptr %274, align 1, !tbaa !225
-  %276 = icmp eq i8 %275, 1
-  br i1 %276, label %277, label %279
+272:                                              ; preds = %269
+  %273 = getelementptr inbounds nuw i8, ptr %0, i64 723
+  %274 = load i8, ptr %273, align 1, !tbaa !225
+  %275 = icmp eq i8 %274, 1
+  br i1 %275, label %276, label %278
 
-277:                                              ; preds = %273
-  %278 = tail call i32 @TLSX_EncryptThenMac_Respond(ptr noundef nonnull %0) #28
-  %.not298 = icmp eq i32 %278, 0
-  br i1 %.not298, label %281, label %AllocateSuites.exit.thread326
+276:                                              ; preds = %272
+  %277 = tail call i32 @TLSX_EncryptThenMac_Respond(ptr noundef nonnull %0) #28
+  %.not298 = icmp eq i32 %277, 0
+  br i1 %.not298, label %280, label %AllocateSuites.exit.thread326
 
-279:                                              ; preds = %273, %270
-  %280 = and i64 %271, -9007199254740993
-  store i64 %280, ptr %7, align 8
-  br label %281
+278:                                              ; preds = %272, %269
+  %279 = and i64 %270, -9007199254740993
+  store i64 %279, ptr %7, align 8
+  br label %280
 
-281:                                              ; preds = %277, %279
-  %282 = load i8, ptr %263, align 4, !tbaa !177
-  %283 = icmp eq i8 %282, 13
-  br i1 %283, label %AllocateSuites.exit.thread326, label %284
+280:                                              ; preds = %276, %278
+  %281 = load i8, ptr %262, align 4, !tbaa !177
+  %282 = icmp eq i8 %281, 13
+  br i1 %282, label %AllocateSuites.exit.thread326, label %283
 
-284:                                              ; preds = %281, %262
-  %285 = getelementptr inbounds nuw i8, ptr %0, i64 1224
-  %286 = load ptr, ptr %285, align 8, !tbaa !223
-  %287 = tail call ptr @TLSX_Find(ptr noundef %286, i32 noundef 10) #28
-  %.not299 = icmp eq ptr %287, null
-  br i1 %.not299, label %.thread365, label %288
+283:                                              ; preds = %280, %261
+  %284 = getelementptr inbounds nuw i8, ptr %0, i64 1224
+  %285 = load ptr, ptr %284, align 8, !tbaa !223
+  %286 = tail call ptr @TLSX_Find(ptr noundef %285, i32 noundef 10) #28
+  %.not299 = icmp eq ptr %286, null
+  br i1 %.not299, label %.thread365, label %287
 
-288:                                              ; preds = %284
-  %289 = tail call i32 @TLSX_SupportedFFDHE_Set(ptr noundef nonnull %0) #28
-  %.not300 = icmp eq i32 %289, 0
+287:                                              ; preds = %283
+  %288 = tail call i32 @TLSX_SupportedFFDHE_Set(ptr noundef nonnull %0) #28
+  %.not300 = icmp eq i32 %288, 0
   br i1 %.not300, label %.thread365, label %AllocateSuites.exit.thread326
 
-.thread365:                                       ; preds = %284, %288
-  %290 = load ptr, ptr %160, align 16, !tbaa !330
-  %291 = tail call i32 @MatchSuite(ptr noundef nonnull %0, ptr noundef %290)
-  %292 = icmp ne i32 %291, 0
+.thread365:                                       ; preds = %283, %287
+  %289 = load ptr, ptr %159, align 16, !tbaa !330
+  %290 = tail call i32 @MatchSuite(ptr noundef nonnull %0, ptr noundef %289)
+  %291 = icmp ne i32 %290, 0
   %.pre377 = load i64, ptr %7, align 16
-  %293 = and i64 %.pre377, 9007199254740992
-  %.not301 = icmp eq i64 %293, 0
-  %or.cond = select i1 %292, i1 true, i1 %.not301
-  br i1 %or.cond, label %.thread367, label %294
+  %292 = and i64 %.pre377, 9007199254740992
+  %.not301 = icmp eq i64 %292, 0
+  %or.cond = select i1 %291, i1 true, i1 %.not301
+  br i1 %or.cond, label %.thread367, label %293
 
-294:                                              ; preds = %.thread365
-  %295 = getelementptr inbounds nuw i8, ptr %0, i64 723
-  %296 = load i8, ptr %295, align 1, !tbaa !225
-  %297 = icmp eq i8 %296, 1
-  br i1 %297, label %298, label %.thread367
+293:                                              ; preds = %.thread365
+  %294 = getelementptr inbounds nuw i8, ptr %0, i64 723
+  %295 = load i8, ptr %294, align 1, !tbaa !225
+  %296 = icmp eq i8 %295, 1
+  br i1 %296, label %297, label %.thread367
 
-298:                                              ; preds = %294
-  %299 = tail call i32 @TLSX_EncryptThenMac_Respond(ptr noundef nonnull %0) #28
+297:                                              ; preds = %293
+  %298 = tail call i32 @TLSX_EncryptThenMac_Respond(ptr noundef nonnull %0) #28
   br label %AllocateSuites.exit.thread326
 
-.thread367:                                       ; preds = %294, %.thread365
-  %300 = and i64 %.pre377, -9007199254740993
-  store i64 %300, ptr %7, align 8
+.thread367:                                       ; preds = %293, %.thread365
+  %299 = and i64 %.pre377, -9007199254740993
+  store i64 %299, ptr %7, align 8
   br label %AllocateSuites.exit.thread326
 
-AllocateSuites.exit.thread326:                    ; preds = %256, %252, %247, %234, %231, %229, %102, %thread-pre-split335.thread, %91, %46, %31, %29, %221, %202, %184, %178, %166, %163, %155, %140, %AllocateSuites.exit321, %267, %277, %281, %288, %.thread367, %298
-  %.12 = phi i32 [ %269, %267 ], [ %278, %277 ], [ 0, %281 ], [ %289, %288 ], [ %299, %298 ], [ %291, %.thread367 ], [ -328, %AllocateSuites.exit321 ], [ -328, %140 ], [ -328, %155 ], [ -125, %163 ], [ -328, %166 ], [ -328, %178 ], [ -328, %184 ], [ -502, %202 ], [ -502, %221 ], [ -303, %46 ], [ -326, %31 ], [ -326, %29 ], [ -303, %102 ], [ -326, %thread-pre-split335.thread ], [ -326, %91 ], [ %257, %256 ], [ -326, %252 ], [ %251, %247 ], [ -328, %234 ], [ -328, %231 ], [ %230, %229 ]
-  %301 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %302 = load ptr, ptr %301, align 16, !tbaa !330
-  %.not302 = icmp eq ptr %302, null
-  br i1 %.not302, label %304, label %303
+AllocateSuites.exit.thread326:                    ; preds = %255, %251, %246, %233, %230, %228, %101, %thread-pre-split335.thread, %90, %45, %30, %28, %220, %201, %183, %177, %165, %162, %154, %139, %AllocateSuites.exit321, %266, %276, %280, %287, %.thread367, %297
+  %.12 = phi i32 [ -502, %220 ], [ -328, %139 ], [ -328, %154 ], [ -125, %162 ], [ -328, %165 ], [ -328, %177 ], [ -502, %201 ], [ -328, %183 ], [ %268, %266 ], [ %277, %276 ], [ 0, %280 ], [ %288, %287 ], [ %298, %297 ], [ %290, %.thread367 ], [ -326, %90 ], [ -326, %28 ], [ -328, %AllocateSuites.exit321 ], [ -303, %45 ], [ -326, %30 ], [ -303, %101 ], [ -326, %thread-pre-split335.thread ], [ %256, %255 ], [ -326, %251 ], [ %250, %246 ], [ -328, %233 ], [ -328, %230 ], [ %229, %228 ]
+  %300 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %301 = load ptr, ptr %300, align 16, !tbaa !330
+  %.not302 = icmp eq ptr %301, null
+  br i1 %.not302, label %303, label %302
 
-303:                                              ; preds = %AllocateSuites.exit.thread326
-  tail call void @wolfSSL_Free(ptr noundef nonnull %302) #28
+302:                                              ; preds = %AllocateSuites.exit.thread326
+  tail call void @wolfSSL_Free(ptr noundef nonnull %301) #28
+  br label %303
+
+303:                                              ; preds = %302, %AllocateSuites.exit.thread326
+  store ptr null, ptr %300, align 16, !tbaa !330
   br label %304
 
-304:                                              ; preds = %303, %AllocateSuites.exit.thread326
-  store ptr null, ptr %301, align 16, !tbaa !330
-  br label %305
-
-305:                                              ; preds = %4, %304
-  %.0 = phi i32 [ %.12, %304 ], [ -328, %4 ]
+304:                                              ; preds = %4, %303
+  %.0 = phi i32 [ %.12, %303 ], [ -328, %4 ]
   ret i32 %.0
 }
 
@@ -12013,7 +12013,7 @@ RetrySendAlert.exit.i:                            ; preds = %17
   br label %.thread259
 
 .thread241:                                       ; preds = %53, %74, %79, %63
-  %.4.ph = phi i32 [ %85, %79 ], [ -328, %74 ], [ %55, %53 ], [ -328, %63 ]
+  %.4.ph = phi i32 [ %55, %53 ], [ %85, %79 ], [ -328, %74 ], [ -328, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %SendAlert.exit
 
@@ -12056,7 +12056,7 @@ RetrySendAlert.exit.i:                            ; preds = %17
   br label %SendAlert.exit
 
 101:                                              ; preds = %.thread247, %92, %92, %87
-  %.0160 = phi ptr [ %89, %92 ], [ %89, %87 ], [ %89, %92 ], [ %99, %.thread247 ]
+  %.0160 = phi ptr [ %99, %.thread247 ], [ %89, %92 ], [ %89, %92 ], [ %89, %87 ]
   %102 = icmp eq i32 %3, 0
   br i1 %102, label %SendAlert.exit, label %103
 
@@ -12341,7 +12341,7 @@ FreeKey.exit:                                     ; preds = %EccSharedSecret.exi
   br label %DhAgree.exit
 
 DhAgree.exit:                                     ; preds = %250, %FreeKey.exit
-  %.12 = phi i32 [ %.0.i226, %FreeKey.exit ], [ %251, %250 ]
+  %.12 = phi i32 [ %251, %250 ], [ %.0.i226, %FreeKey.exit ]
   %.not206 = icmp eq i32 %.12, 0
   br i1 %.not206, label %252, label %SendAlert.exit
 
@@ -12439,7 +12439,7 @@ ctMaskCopy.exit:                                  ; preds = %275
   store i32 %299, ptr %12, align 4, !tbaa !332
   br label %300
 
-300:                                              ; preds = %296, %291, %.loopexit
+300:                                              ; preds = %291, %.loopexit, %296
   store i8 4, ptr %10, align 2, !tbaa !277
   %301 = getelementptr inbounds nuw i8, ptr %0, i64 1012
   %302 = load i8, ptr %301, align 4, !tbaa !44
@@ -12482,8 +12482,8 @@ IsEncryptionOn.exit.thread:                       ; preds = %300, %303, %IsEncry
   %317 = call i32 @BuildCertHashes(ptr noundef nonnull %0, ptr noundef nonnull %316)
   br label %SendAlert.exit
 
-SendAlert.exit:                                   ; preds = %23, %32, %86, %249, %.thread259, %156, %145, %143, %127, %125, %120, %112, %103, %101, %100, %52, %252, %RsaDec.exit, %.thread241, %49, %26, %25, %42, %313, %309, %IsEncryptionOn.exit.thread, %DhAgree.exit, %160
-  %.14 = phi i32 [ %170, %160 ], [ %.12, %DhAgree.exit ], [ %308, %IsEncryptionOn.exit.thread ], [ %317, %313 ], [ 0, %309 ], [ -318, %86 ], [ -125, %42 ], [ -373, %25 ], [ -373, %26 ], [ -374, %49 ], [ %.4.ph, %.thread241 ], [ -173, %RsaDec.exit ], [ -374, %252 ], [ -374, %52 ], [ -352, %127 ], [ %126, %125 ], [ %121, %120 ], [ -353, %112 ], [ -328, %103 ], [ -328, %101 ], [ %97, %100 ], [ %159, %156 ], [ -328, %145 ], [ -328, %143 ], [ -342, %249 ], [ -374, %.thread259 ], [ -373, %23 ], [ -345, %32 ]
+SendAlert.exit:                                   ; preds = %23, %32, %86, %249, %.thread259, %156, %145, %143, %127, %103, %120, %125, %112, %101, %100, %52, %252, %RsaDec.exit, %.thread241, %49, %26, %25, %42, %313, %309, %IsEncryptionOn.exit.thread, %DhAgree.exit, %160
+  %.14 = phi i32 [ -125, %42 ], [ -345, %32 ], [ -374, %.thread259 ], [ -373, %26 ], [ %170, %160 ], [ %.12, %DhAgree.exit ], [ -328, %143 ], [ %308, %IsEncryptionOn.exit.thread ], [ %317, %313 ], [ 0, %309 ], [ -374, %252 ], [ -318, %86 ], [ -374, %52 ], [ %97, %100 ], [ -373, %23 ], [ -373, %25 ], [ -374, %49 ], [ %.4.ph, %.thread241 ], [ -173, %RsaDec.exit ], [ -352, %127 ], [ -328, %103 ], [ %121, %120 ], [ %126, %125 ], [ -353, %112 ], [ -328, %101 ], [ %159, %156 ], [ -328, %145 ], [ -342, %249 ]
   %318 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %319 = load ptr, ptr %318, align 8, !tbaa !163
   %320 = getelementptr inbounds nuw i8, ptr %319, i64 8
@@ -12787,7 +12787,7 @@ RsaVerify.exit.thread.sink.split:                 ; preds = %109, %112
   br label %RsaVerify.exit.thread
 
 RsaVerify.exit.thread:                            ; preds = %RsaVerify.exit.thread.sink.split, %102, %RsaVerify.exit, %95, %IsAtLeastTLSv1_2.exit133.thread
-  %.2 = phi i32 [ %.118.i, %RsaVerify.exit ], [ 0, %95 ], [ 0, %IsAtLeastTLSv1_2.exit133.thread ], [ -173, %102 ], [ 0, %RsaVerify.exit.thread.sink.split ]
+  %.2 = phi i32 [ 0, %IsAtLeastTLSv1_2.exit133.thread ], [ %.118.i, %RsaVerify.exit ], [ 0, %95 ], [ -173, %102 ], [ 0, %RsaVerify.exit.thread.sink.split ]
   %117 = load i8, ptr %74, align 2, !tbaa !221
   %.not118 = icmp eq i8 %117, 0
   br i1 %.not118, label %144, label %118
@@ -12816,7 +12816,7 @@ RsaVerify.exit.thread:                            ; preds = %RsaVerify.exit.thre
   br label %EccVerify.exit
 
 EccVerify.exit:                                   ; preds = %118, %132
-  %.0.i135 = phi i32 [ %131, %118 ], [ %spec.select.i, %132 ]
+  %.0.i135 = phi i32 [ %spec.select.i, %132 ], [ %131, %118 ]
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %136 = load i64, ptr %135, align 8
   %137 = and i64 %136, 1073741824
@@ -13057,7 +13057,7 @@ IsEncryptionOn.exit.thread:                       ; preds = %.IsEncryptionOn.exi
   br label %.thread159
 
 .thread159:                                       ; preds = %215, %209, %219, %SetDigest.exit141, %144, %58, %53, %IsAtLeastTLSv1_2.exit, %IsEncryptionOn.exit.thread
-  %.7 = phi i32 [ 0, %IsEncryptionOn.exit.thread ], [ -328, %IsAtLeastTLSv1_2.exit ], [ -328, %53 ], [ -328, %58 ], [ -229, %144 ], [ -229, %SetDigest.exit141 ], [ -329, %219 ], [ -329, %209 ], [ -329, %215 ]
+  %.7 = phi i32 [ -329, %219 ], [ -229, %SetDigest.exit141 ], [ -328, %IsAtLeastTLSv1_2.exit ], [ -328, %53 ], [ -328, %58 ], [ -229, %144 ], [ 0, %IsEncryptionOn.exit.thread ], [ -329, %209 ], [ -329, %215 ]
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %241 = load ptr, ptr %240, align 16, !tbaa !202
   %.not129 = icmp eq ptr %241, null
@@ -13539,12 +13539,12 @@ ForceZero.exit135:                                ; preds = %.lr.ph35.i128, %.pr
   br i1 %or.cond.i, label %ForceZero.exit, label %166, !llvm.loop !355
 
 ForceZero.exit.sink.split:                        ; preds = %159, %155, %153
-  %.0.ph = phi i32 [ %154, %153 ], [ %158, %155 ], [ %161, %159 ]
+  %.0.ph = phi i32 [ %158, %155 ], [ %154, %153 ], [ %161, %159 ]
   call fastcc void @ForceZero(ptr noundef nonnull %9, i32 noundef 32)
   br label %ForceZero.exit
 
 ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.lr.ph35.i71, %.lr.ph29.i113, %.lr.ph29.i151, %166, %ForceZero.exit.sink.split, %.preheader.i67, %.preheader.i59
-  %.0 = phi i32 [ %86, %.preheader.i59 ], [ %103, %.preheader.i67 ], [ %.0.ph, %ForceZero.exit.sink.split ], [ 0, %166 ], [ %147, %.lr.ph29.i151 ], [ %120, %.lr.ph29.i113 ], [ %103, %.lr.ph35.i71 ], [ %86, %.lr.ph35.i ]
+  %.0 = phi i32 [ %86, %.preheader.i59 ], [ %103, %.preheader.i67 ], [ %120, %.lr.ph29.i113 ], [ %147, %.lr.ph29.i151 ], [ %103, %.lr.ph35.i71 ], [ 0, %166 ], [ %.0.ph, %ForceZero.exit.sink.split ], [ %86, %.lr.ph35.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -13729,7 +13729,7 @@ define internal fastcc i32 @Poly1305TagOld(ptr noundef readonly captures(none) %
   br label %38
 
 38:                                               ; preds = %35, %29, %26, %22, %19, %15, %7
-  %.0 = phi i32 [ -301, %7 ], [ %18, %15 ], [ %21, %19 ], [ %25, %22 ], [ %28, %26 ], [ %34, %29 ], [ %37, %35 ]
+  %.0 = phi i32 [ %34, %29 ], [ -301, %7 ], [ %18, %15 ], [ %21, %19 ], [ %25, %22 ], [ %28, %26 ], [ %37, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -14208,7 +14208,7 @@ ConstantCompare.exit.thread:                      ; preds = %161, %ConstantCompa
   br label %ForceZero.exit
 
 ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.lr.ph35.i71, %.lr.ph29.i113, %.preheader.i67, %.preheader.i59, %ConstantCompare.exit.thread, %172, %175, %160, %156, %151
-  %.0 = phi i32 [ %150, %151 ], [ %155, %156 ], [ %159, %160 ], [ -305, %175 ], [ -305, %172 ], [ %178, %ConstantCompare.exit.thread ], [ %87, %.preheader.i59 ], [ %104, %.preheader.i67 ], [ %121, %.lr.ph29.i113 ], [ %104, %.lr.ph35.i71 ], [ %87, %.lr.ph35.i ]
+  %.0 = phi i32 [ %159, %160 ], [ -305, %175 ], [ %121, %.lr.ph29.i113 ], [ %104, %.lr.ph35.i71 ], [ %150, %151 ], [ %155, %156 ], [ %178, %ConstantCompare.exit.thread ], [ -305, %172 ], [ %87, %.preheader.i59 ], [ %104, %.preheader.i67 ], [ %87, %.lr.ph35.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -14421,7 +14421,7 @@ MaskPadding.exit:                                 ; preds = %.lr.ph.i, %6
   br i1 %exitcond121.not.i, label %MaskMac.exit, label %.preheader96.i, !llvm.loop !363
 
 MaskMac.exit:                                     ; preds = %.preheader96.i, %.preheader94.i, %.lr.ph.i25, %.preheader98.lr.ph.i, %.preheader.i, %93
-  %.1.i = phi i8 [ 0, %93 ], [ 0, %.preheader.i ], [ 0, %.preheader98.lr.ph.i ], [ %92, %.lr.ph.i25 ], [ %103, %.preheader94.i ], [ %113, %.preheader96.i ]
+  %.1.i = phi i8 [ 0, %93 ], [ %92, %.lr.ph.i25 ], [ %103, %.preheader94.i ], [ 0, %.preheader.i ], [ 0, %.preheader98.lr.ph.i ], [ %113, %.preheader96.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %114 = or i8 %.1.i, %.018.lcssa.i
   %115 = xor i8 %114, -1
@@ -14544,7 +14544,7 @@ RetrySendAlert.exit.i27:                          ; preds = %34
   br label %SendAlert.exit
 
 SendAlert.exit:                                   ; preds = %40, %19, %43, %42, %22, %21, %32, %11, %50
-  %.0 = phi i32 [ 0, %50 ], [ -373, %11 ], [ -328, %32 ], [ -373, %21 ], [ -373, %22 ], [ -328, %42 ], [ -328, %43 ], [ -373, %19 ], [ -328, %40 ]
+  %.0 = phi i32 [ 0, %50 ], [ -373, %11 ], [ -328, %32 ], [ -373, %22 ], [ -373, %19 ], [ -373, %21 ], [ -328, %40 ], [ -328, %42 ], [ -328, %43 ]
   ret i32 %.0
 }
 
@@ -14654,7 +14654,7 @@ define noundef ptr @AlertTypeToString(i32 noundef %0) local_unnamed_addr #1 {
   br label %27
 
 27:                                               ; preds = %1, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ null, %26 ], [ @AlertTypeToString.unexpected_message_str, %2 ], [ @AlertTypeToString.bad_record_mac_str, %3 ], [ @AlertTypeToString.record_overflow_str, %4 ], [ @AlertTypeToString.decompression_failure_str, %5 ], [ @AlertTypeToString.handshake_failure_str, %6 ], [ @AlertTypeToString.no_certificate_str, %7 ], [ @AlertTypeToString.bad_certificate_str, %8 ], [ @AlertTypeToString.unsupported_certificate_str, %9 ], [ @AlertTypeToString.certificate_revoked_str, %10 ], [ @AlertTypeToString.certificate_expired_str, %11 ], [ @AlertTypeToString.certificate_unknown_str, %12 ], [ @AlertTypeToString.illegal_parameter_str, %13 ], [ @AlertTypeToString.unknown_ca_str, %14 ], [ @AlertTypeToString.access_denied_str, %15 ], [ @AlertTypeToString.decode_error_str, %16 ], [ @AlertTypeToString.decrypt_error_str, %17 ], [ @AlertTypeToString.protocol_version_str, %18 ], [ @AlertTypeToString.insufficient_security_str, %19 ], [ @AlertTypeToString.internal_error_str, %20 ], [ @AlertTypeToString.user_canceled_str, %21 ], [ @AlertTypeToString.no_renegotiation_str, %22 ], [ @AlertTypeToString.unrecognized_name_str, %23 ], [ @AlertTypeToString.bad_certificate_status_response_str, %24 ], [ @AlertTypeToString.no_application_protocol_str, %25 ], [ @AlertTypeToString.close_notify_str, %1 ]
+  %.0 = phi ptr [ null, %26 ], [ @AlertTypeToString.no_application_protocol_str, %25 ], [ @AlertTypeToString.unexpected_message_str, %2 ], [ @AlertTypeToString.bad_record_mac_str, %3 ], [ @AlertTypeToString.record_overflow_str, %4 ], [ @AlertTypeToString.decompression_failure_str, %5 ], [ @AlertTypeToString.handshake_failure_str, %6 ], [ @AlertTypeToString.no_certificate_str, %7 ], [ @AlertTypeToString.bad_certificate_str, %8 ], [ @AlertTypeToString.unsupported_certificate_str, %9 ], [ @AlertTypeToString.certificate_revoked_str, %10 ], [ @AlertTypeToString.certificate_expired_str, %11 ], [ @AlertTypeToString.certificate_unknown_str, %12 ], [ @AlertTypeToString.illegal_parameter_str, %13 ], [ @AlertTypeToString.unknown_ca_str, %14 ], [ @AlertTypeToString.access_denied_str, %15 ], [ @AlertTypeToString.decode_error_str, %16 ], [ @AlertTypeToString.decrypt_error_str, %17 ], [ @AlertTypeToString.protocol_version_str, %18 ], [ @AlertTypeToString.insufficient_security_str, %19 ], [ @AlertTypeToString.internal_error_str, %20 ], [ @AlertTypeToString.user_canceled_str, %21 ], [ @AlertTypeToString.no_renegotiation_str, %22 ], [ @AlertTypeToString.unrecognized_name_str, %23 ], [ @AlertTypeToString.bad_certificate_status_response_str, %24 ], [ @AlertTypeToString.close_notify_str, %1 ]
   ret ptr %.0
 }
 
@@ -15206,7 +15206,7 @@ CipherHasExpIV.exit.thread.i.i:                   ; preds = %CipherHasExpIV.exit
   br label %262
 
 262:                                              ; preds = %CipherHasExpIV.exit.thread.i.i, %CipherHasExpIV.exit.i.i, %251, %234
-  %.1.i.i = phi i32 [ %238, %234 ], [ %257, %CipherHasExpIV.exit.thread.i.i ], [ %261, %CipherHasExpIV.exit.i.i ], [ %spec.select33.i.i, %251 ]
+  %.1.i.i = phi i32 [ %261, %CipherHasExpIV.exit.i.i ], [ %spec.select33.i.i, %251 ], [ %238, %234 ], [ %257, %CipherHasExpIV.exit.thread.i.i ]
   %263 = icmp samesign ugt i32 %.1.i.i, %236
   br i1 %263, label %DoProcessReplyEx.exit, label %SanityCheckCipherText.exit.i
 
@@ -15306,7 +15306,7 @@ SanityCheckCipherText.exit.i:                     ; preds = %262
   br label %320
 
 320:                                              ; preds = %314, %312, %272
-  %.11284.i = phi i32 [ %319, %314 ], [ %313, %312 ], [ %275, %272 ]
+  %.11284.i = phi i32 [ %313, %312 ], [ %319, %314 ], [ %275, %272 ]
   %321 = icmp sgt i32 %.11284.i, -1
   br i1 %321, label %.thread509.i, label %.thread512.i
 
@@ -15387,7 +15387,7 @@ RetrySendAlert.exit.i420.i:                       ; preds = %.thread512.i
   br label %DoProcessReplyEx.exit
 
 SendAlert.exit423.i:                              ; preds = %340, %CipherHasExpIV.exit.i, %336, %334, %232, %224, %IsEncryptionOn.exit412.i, %222
-  %.9282.i = phi i32 [ %.3276.i, %232 ], [ %.3276.i, %224 ], [ %.3276.i, %IsEncryptionOn.exit412.i ], [ %.11284511.i, %CipherHasExpIV.exit.i ], [ %.11284511.i, %340 ], [ %.3276.i, %222 ], [ %.11284511.i, %334 ], [ %.11284511.i, %336 ]
+  %.9282.i = phi i32 [ %.11284511.i, %CipherHasExpIV.exit.i ], [ %.3276.i, %232 ], [ %.3276.i, %224 ], [ %.3276.i, %IsEncryptionOn.exit412.i ], [ %.3276.i, %222 ], [ %.11284511.i, %340 ], [ %.11284511.i, %334 ], [ %.11284511.i, %336 ]
   store i8 6, ptr %16, align 4, !tbaa !178
   br label %354
 
@@ -15594,7 +15594,7 @@ IsEncryptionOn.exit438.i:                         ; preds = %438
   br i1 %441, label %IsEncryptionOn.exit438.thread.i, label %IsEncryptionOn.exit438.thread746.i.thread
 
 IsEncryptionOn.exit438.thread746.i.thread:        ; preds = %356, %IsEncryptionOn.exit438.thread746.i.thread90, %IsEncryptionOn.exit438.i
-  %.14287.ph738750.i89 = phi i32 [ 0, %IsEncryptionOn.exit438.i ], [ %.4277.i, %IsEncryptionOn.exit438.thread746.i.thread90 ], [ %.4277.i, %356 ]
+  %.14287.ph738750.i89 = phi i32 [ %.4277.i, %356 ], [ 0, %IsEncryptionOn.exit438.i ], [ %.4277.i, %IsEncryptionOn.exit438.thread746.i.thread90 ]
   %442 = load i64, ptr %17, align 8
   %443 = and i64 %442, 65536
   %.not362.i = icmp eq i64 %443, 0
@@ -15635,7 +15635,7 @@ IsEncryptionOn.exit438.thread746.i.thread:        ; preds = %356, %IsEncryptionO
   br label %463
 
 463:                                              ; preds = %463, %.preheader.i.i
-  %.1.in.i.i = phi i32 [ %.0.i439.i, %.preheader.i.i ], [ %.1.i441.i, %463 ]
+  %.1.in.i.i = phi i32 [ %.1.i441.i, %463 ], [ %.0.i439.i, %.preheader.i.i ]
   %.1.i441.i = add i32 %.1.in.i.i, -1
   %464 = icmp ugt i32 %.1.i441.i, %445
   %465 = zext i32 %.1.i441.i to i64
@@ -15663,13 +15663,13 @@ IsEncryptionOn.exit438.thread746.i.thread:        ; preds = %356, %IsEncryptionO
   br label %IsEncryptionOn.exit438.thread.sink.split.i
 
 IsEncryptionOn.exit438.thread.sink.split.i:       ; preds = %.loopexit.i, %470
-  %.sink.i = phi i32 [ %475, %.loopexit.i ], [ %474, %470 ]
-  %.16.ph.i = phi i32 [ 0, %.loopexit.i ], [ %.14287.ph738750.i89, %470 ]
+  %.sink.i = phi i32 [ %474, %470 ], [ %475, %.loopexit.i ]
+  %.16.ph.i = phi i32 [ %.14287.ph738750.i89, %470 ], [ 0, %.loopexit.i ]
   store i32 %.sink.i, ptr %32, align 4, !tbaa !232
   br label %IsEncryptionOn.exit438.thread.i
 
 IsEncryptionOn.exit438.thread.i:                  ; preds = %356, %363, %IsEncryptionOn.exit438.thread.sink.split.i, %468, %IsEncryptionOn.exit438.i, %438, %IsEncryptionOn.exit427.i, %354
-  %.16.i = phi i32 [ 0, %IsEncryptionOn.exit438.i ], [ 0, %438 ], [ %.4277.i, %354 ], [ %.14287.ph738750.i89, %468 ], [ %.4277.i, %IsEncryptionOn.exit427.i ], [ %.16.ph.i, %IsEncryptionOn.exit438.thread.sink.split.i ], [ %.4277.i, %363 ], [ %.4277.i, %356 ]
+  %.16.i = phi i32 [ %.4277.i, %354 ], [ %.4277.i, %356 ], [ 0, %IsEncryptionOn.exit438.i ], [ 0, %438 ], [ %.14287.ph738750.i89, %468 ], [ %.4277.i, %IsEncryptionOn.exit427.i ], [ %.16.ph.i, %IsEncryptionOn.exit438.thread.sink.split.i ], [ %.4277.i, %363 ]
   %476 = load i32, ptr %20, align 4, !tbaa !216
   store i32 %476, ptr %40, align 8, !tbaa !233
   br label %477
@@ -16002,7 +16002,7 @@ DoHandShakeMsg.exit.i:                            ; preds = %651, %GetHandShakeH
   br i1 %.not389.i, label %.thread542.i, label %.thread546.i
 
 .thread546.i:                                     ; preds = %658, %DoHandShakeMsg.exit.i, %614, %570, %540
-  %.19549.i = phi i32 [ %.19.i, %658 ], [ %589, %570 ], [ %557, %540 ], [ %620, %614 ], [ %.1.i452.i, %DoHandShakeMsg.exit.i ]
+  %.19549.i = phi i32 [ %.19.i, %658 ], [ %620, %614 ], [ %.1.i452.i, %DoHandShakeMsg.exit.i ], [ %589, %570 ], [ %557, %540 ]
   %659 = load i64, ptr %17, align 8
   %660 = and i64 %659, 131072
   %661 = icmp eq i64 %660, 0
@@ -16222,7 +16222,7 @@ thread-pre-split553.i:                            ; preds = %716, %714, %IsEncry
   br label %SanityCheckMsgReceived.exit.i
 
 ._crit_edge685.i:                                 ; preds = %748, %742, %739, %736, %723
-  %.076.i.ph.i = phi i32 [ -373, %736 ], [ -373, %739 ], [ -378, %748 ], [ -373, %742 ], [ -395, %723 ]
+  %.076.i.ph.i = phi i32 [ -373, %739 ], [ -378, %748 ], [ -373, %736 ], [ -373, %742 ], [ -395, %723 ]
   %.not379.i = icmp eq i64 %727, 0
   br i1 %.not379.i, label %DoProcessReplyEx.exit, label %SanityCheckMsgReceived.exit.i
 
@@ -16350,7 +16350,7 @@ DoAlert.exit.i:                                   ; preds = %802, %IsEncryptionO
   br label %DoProcessReplyEx.exit
 
 .thread542.i:                                     ; preds = %805, %767, %754, %SendAlert.exit459.i, %658, %DoHandShakeMsg.exit.i, %621, %603
-  %.20.i = phi i32 [ 0, %658 ], [ %.6279.i, %SendAlert.exit459.i ], [ 0, %754 ], [ 0, %767 ], [ 0, %805 ], [ 0, %DoHandShakeMsg.exit.i ], [ 0, %621 ], [ 0, %603 ]
+  %.20.i = phi i32 [ 0, %805 ], [ 0, %658 ], [ %.6279.i, %SendAlert.exit459.i ], [ 0, %754 ], [ 0, %767 ], [ 0, %DoHandShakeMsg.exit.i ], [ 0, %603 ], [ 0, %621 ]
   store i8 0, ptr %16, align 4, !tbaa !178
   %807 = load i32, ptr %20, align 4, !tbaa !216
   %808 = load i32, ptr %39, align 16, !tbaa !215
@@ -16444,8 +16444,8 @@ IsEncryptionOn.exit481.thread.i:                  ; preds = %828, %IsEncryptionO
   br label %.thread.i483.i
 
 .thread.i483.i:                                   ; preds = %841, %839
-  %845 = phi ptr [ %.pre682.i, %841 ], [ %.pre683.i, %839 ]
-  %846 = phi i32 [ %.pre.i487.i, %841 ], [ %817, %839 ]
+  %845 = phi ptr [ %.pre683.i, %839 ], [ %.pre682.i, %841 ]
+  %846 = phi i32 [ %817, %839 ], [ %.pre.i487.i, %841 ]
   %847 = ptrtoint ptr %845 to i64
   %848 = trunc i64 %847 to i32
   %849 = sub i32 0, %848
@@ -16519,7 +16519,7 @@ ShrinkInputBuffer.exit.i.backedge:                ; preds = %866, %837, %834, %8
   br label %ShrinkInputBuffer.exit.i
 
 DoProcessReplyEx.exit:                            ; preds = %ShrinkInputBuffer.exit.i, %59, %118, %130, %135, %136, %153, %243, %248, %262, %459, %478, %486, %512, %537, %558, %567, %590, %594, %.thread546.i, %705, %708, %thread-pre-split553.i, %._crit_edge685.i, %SanityCheckMsgReceived.exit.i, %754, %765, %767, %IsEncryptionOn.exit.thread.i.i, %792, %DoAlert.exit.i, %805, %.thread565.i, %826, %507, %510, %509, %8, %RetrySendAlert.exit.i, %138, %148, %178, %180, %181, %VerifyMacEnc.exit.thread.i, %349, %351, %352, %VerifyMac.exit.thread.i, %676, %678, %679, %693, %695, %696, %702, %806, %811, %813, %815
-  %.0.i = phi i32 [ -306, %148 ], [ -343, %806 ], [ %15, %RetrySendAlert.exit.i ], [ -326, %138 ], [ 0, %815 ], [ 0, %813 ], [ %.20.i, %811 ], [ %7, %8 ], [ -312, %VerifyMacEnc.exit.thread.i ], [ -312, %VerifyMac.exit.thread.i ], [ -328, %180 ], [ -328, %181 ], [ %.11284514.i, %352 ], [ %.11284514.i, %351 ], [ -311, %702 ], [ -311, %678 ], [ -311, %679 ], [ -311, %695 ], [ -311, %696 ], [ -328, %178 ], [ %.11284514.i, %349 ], [ -311, %676 ], [ -311, %693 ], [ -328, %509 ], [ -328, %510 ], [ -328, %507 ], [ -326, %118 ], [ %60, %59 ], [ %156, %153 ], [ -328, %478 ], [ -328, %486 ], [ %.19549.i, %.thread546.i ], [ -341, %705 ], [ -341, %708 ], [ -341, %thread-pre-split553.i ], [ %.076.i.ph.i, %._crit_edge685.i ], [ %753, %SanityCheckMsgReceived.exit.i ], [ %764, %754 ], [ -394, %765 ], [ %769, %767 ], [ -313, %DoAlert.exit.i ], [ -313, %805 ], [ -311, %512 ], [ -313, %826 ], [ -301, %ShrinkInputBuffer.exit.i ], [ -328, %459 ], [ -311, %136 ], [ -341, %135 ], [ -341, %130 ], [ -375, %243 ], [ -375, %248 ], [ -375, %262 ], [ -427, %792 ], [ -132, %IsEncryptionOn.exit.thread.i.i ], [ -327, %.thread565.i ], [ -404, %558 ], [ -306, %537 ], [ -306, %567 ], [ -125, %594 ], [ -404, %590 ]
+  %.0.i = phi i32 [ %7, %8 ], [ %15, %RetrySendAlert.exit.i ], [ -312, %VerifyMacEnc.exit.thread.i ], [ -328, %181 ], [ -306, %148 ], [ -312, %VerifyMac.exit.thread.i ], [ -311, %678 ], [ -311, %693 ], [ -326, %138 ], [ -311, %695 ], [ %.20.i, %811 ], [ -328, %510 ], [ -311, %679 ], [ 0, %815 ], [ 0, %813 ], [ -311, %702 ], [ -311, %676 ], [ -328, %178 ], [ -328, %180 ], [ %.11284514.i, %352 ], [ %.11284514.i, %351 ], [ %.11284514.i, %349 ], [ -343, %806 ], [ -311, %696 ], [ -328, %507 ], [ -328, %509 ], [ -301, %ShrinkInputBuffer.exit.i ], [ -313, %826 ], [ %60, %59 ], [ -328, %478 ], [ -313, %805 ], [ -328, %486 ], [ -311, %512 ], [ -327, %.thread565.i ], [ %.19549.i, %.thread546.i ], [ -341, %705 ], [ -341, %708 ], [ %.076.i.ph.i, %._crit_edge685.i ], [ %753, %SanityCheckMsgReceived.exit.i ], [ -341, %thread-pre-split553.i ], [ %764, %754 ], [ -394, %765 ], [ %769, %767 ], [ -313, %DoAlert.exit.i ], [ %156, %153 ], [ -311, %136 ], [ -427, %792 ], [ -328, %459 ], [ -341, %135 ], [ -341, %130 ], [ -375, %243 ], [ -375, %248 ], [ -375, %262 ], [ -132, %IsEncryptionOn.exit.thread.i.i ], [ -306, %537 ], [ -404, %558 ], [ -306, %567 ], [ -404, %590 ], [ -125, %594 ], [ -326, %118 ]
   ret i32 %.0.i
 }
 
@@ -16729,7 +16729,7 @@ IsEncryptionOn.exit46.thread:                     ; preds = %AddRecordHeader.exi
   br label %CheckAvailableSize.exit
 
 CheckAvailableSize.exit:                          ; preds = %21, %18, %98, %90, %82, %101
-  %.0 = phi i32 [ %102, %101 ], [ %83, %82 ], [ %91, %90 ], [ 0, %98 ], [ -125, %18 ], [ -125, %21 ]
+  %.0 = phi i32 [ %83, %82 ], [ %91, %90 ], [ %102, %101 ], [ 0, %98 ], [ -125, %21 ], [ -125, %18 ]
   ret i32 %.0
 }
 
@@ -17125,8 +17125,8 @@ HashOutput.exit:                                  ; preds = %109
   %spec.select = select i1 %202, i32 %203, i32 %.10.fr
   br label %205
 
-.thread235:                                       ; preds = %.thread235.sink.split, %78, %HashOutput.exit, %142, %74, %39, %46, %109
-  %.10.ph = phi i32 [ -132, %74 ], [ %156, %142 ], [ %118, %HashOutput.exit ], [ %83, %78 ], [ -132, %46 ], [ -192, %39 ], [ -173, %109 ], [ %167, %.thread235.sink.split ]
+.thread235:                                       ; preds = %.thread235.sink.split, %74, %78, %HashOutput.exit, %142, %39, %46, %109
+  %.10.ph = phi i32 [ -173, %109 ], [ -132, %46 ], [ -192, %39 ], [ %156, %142 ], [ %118, %HashOutput.exit ], [ %83, %78 ], [ -132, %74 ], [ %167, %.thread235.sink.split ]
   store i8 0, ptr %26, align 1, !tbaa !389
   br label %205
 
@@ -17136,7 +17136,7 @@ HashOutput.exit:                                  ; preds = %109
   br label %205
 
 205:                                              ; preds = %181, %.thread240, %.thread235
-  %206 = phi i32 [ %.10.ph, %.thread235 ], [ %204, %.thread240 ], [ %spec.select, %181 ]
+  %206 = phi i32 [ %.10.ph, %.thread235 ], [ %spec.select, %181 ], [ %204, %.thread240 ]
   %207 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %208 = load ptr, ptr %207, align 16, !tbaa !394
   %.not8.i = icmp eq ptr %208, null
@@ -17150,7 +17150,7 @@ HashOutput.exit:                                  ; preds = %109
   br label %FreeBuildMsgArgs.exit
 
 FreeBuildMsgArgs.exit:                            ; preds = %210, %205, %.critedge, %14, %10, %23
-  %.0192 = phi i32 [ %24, %23 ], [ -173, %10 ], [ -173, %14 ], [ -173, %.critedge ], [ %206, %205 ], [ %206, %210 ]
+  %.0192 = phi i32 [ -173, %10 ], [ -173, %14 ], [ %24, %23 ], [ -173, %.critedge ], [ %206, %205 ], [ %206, %210 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0192
 }
@@ -17372,7 +17372,7 @@ IsAtLeastTLSv1_2.exit.thread:                     ; preds = %24, %20, %BuildSHA_
   br label %113
 
 113:                                              ; preds = %BuildSHA_CertVerify.exit.thread63, %BuildSHA_CertVerify.exit.thread, %BuildMD5_CertVerify.exit.thread57, %BuildMD5_CertVerify.exit.thread, %BuildSHA_CertVerify.exit, %BuildMD5_CertVerify.exit, %37, %32, %IsAtLeastTLSv1_2.exit, %15, %10, %IsAtLeastTLSv1_2.exit.thread
-  %.031 = phi i32 [ 0, %IsAtLeastTLSv1_2.exit.thread ], [ %14, %10 ], [ %19, %15 ], [ %31, %IsAtLeastTLSv1_2.exit ], [ %36, %32 ], [ %41, %37 ], [ %78, %BuildMD5_CertVerify.exit ], [ %112, %BuildSHA_CertVerify.exit ], [ %.3.i.ph, %BuildMD5_CertVerify.exit.thread ], [ %.6.i.ph, %BuildMD5_CertVerify.exit.thread57 ], [ %.3.i49.ph, %BuildSHA_CertVerify.exit.thread ], [ %.6.i51.ph, %BuildSHA_CertVerify.exit.thread63 ]
+  %.031 = phi i32 [ %78, %BuildMD5_CertVerify.exit ], [ %14, %10 ], [ %19, %15 ], [ %31, %IsAtLeastTLSv1_2.exit ], [ %36, %32 ], [ 0, %IsAtLeastTLSv1_2.exit.thread ], [ %41, %37 ], [ %112, %BuildSHA_CertVerify.exit ], [ %.3.i.ph, %BuildMD5_CertVerify.exit.thread ], [ %.6.i.ph, %BuildMD5_CertVerify.exit.thread57 ], [ %.3.i49.ph, %BuildSHA_CertVerify.exit.thread ], [ %.6.i51.ph, %BuildSHA_CertVerify.exit.thread63 ]
   ret i32 %.031
 }
 
@@ -17599,7 +17599,7 @@ writeAeadAuthData.exit.i:                         ; preds = %60, %53, %41
   br label %EncryptDo.exit
 
 EncryptDo.exit:                                   ; preds = %111, %writeAeadAuthData.exit.i, %36, %33, %31, %5
-  %.0 = phi i32 [ 0, %5 ], [ -173, %31 ], [ %40, %36 ], [ %107, %writeAeadAuthData.exit.i ], [ %112, %111 ], [ -314, %33 ]
+  %.0 = phi i32 [ 0, %5 ], [ -173, %31 ], [ %112, %111 ], [ %40, %36 ], [ %107, %writeAeadAuthData.exit.i ], [ -314, %33 ]
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 722
   %114 = load i8, ptr %113, align 2, !tbaa !372
   switch i8 %114, label %ForceZero.exit [
@@ -17668,12 +17668,12 @@ EncryptDo.exit:                                   ; preds = %111, %writeAeadAuth
   br i1 %.not22.i, label %ForceZero.exit, label %.lr.ph35.i, !llvm.loop !83
 
 ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.preheader.i, %EncryptDo.exit, %5, %115
-  %.1 = phi i32 [ 0, %5 ], [ %.0, %115 ], [ %.0, %EncryptDo.exit ], [ %.0, %.preheader.i ], [ %.0, %.lr.ph35.i ]
+  %.1 = phi i32 [ 0, %5 ], [ %.0, %EncryptDo.exit ], [ %.0, %115 ], [ %.0, %.preheader.i ], [ %.0, %.lr.ph35.i ]
   store i8 0, ptr %6, align 8, !tbaa !397
   br label %132
 
 132:                                              ; preds = %27, %.thread, %8, %ForceZero.exit
-  %.026 = phi i32 [ %.1, %ForceZero.exit ], [ -314, %8 ], [ -125, %27 ], [ -125, %.thread ]
+  %.026 = phi i32 [ %.1, %ForceZero.exit ], [ -314, %8 ], [ -125, %.thread ], [ -125, %27 ]
   ret i32 %.026
 }
 
@@ -17833,7 +17833,7 @@ GrowOutputBuffer.exit.i:                          ; preds = %38, %35, %32
   br label %CheckAvailableSize.exit
 
 CheckAvailableSize.exit:                          ; preds = %19, %17, %60, %46, %81
-  %.0 = phi i32 [ %84, %81 ], [ %59, %46 ], [ -320, %60 ], [ -125, %17 ], [ -125, %19 ]
+  %.0 = phi i32 [ %84, %81 ], [ -320, %60 ], [ %59, %46 ], [ -125, %19 ], [ -125, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -18104,11 +18104,11 @@ define range(i32 -2147483648, 1) i32 @SendCertificate(ptr noundef %0) local_unna
   br label %24
 
 24:                                               ; preds = %11, %16, %5, %19
-  %.0202 = phi i32 [ 6, %19 ], [ 3, %5 ], [ 6, %16 ], [ 6, %11 ]
-  %.0201 = phi i32 [ %23, %19 ], [ 0, %5 ], [ %14, %16 ], [ 3, %11 ]
-  %.0200 = phi i32 [ %21, %19 ], [ 0, %5 ], [ 0, %16 ], [ 0, %11 ]
-  %.0195 = phi i32 [ %22, %19 ], [ 3, %5 ], [ %15, %16 ], [ 6, %11 ]
-  %.0177 = phi i32 [ %13, %19 ], [ 0, %5 ], [ %13, %16 ], [ 0, %11 ]
+  %.0202 = phi i32 [ 3, %5 ], [ 6, %19 ], [ 6, %16 ], [ 6, %11 ]
+  %.0201 = phi i32 [ 0, %5 ], [ %23, %19 ], [ %14, %16 ], [ 3, %11 ]
+  %.0200 = phi i32 [ 0, %5 ], [ %21, %19 ], [ 0, %16 ], [ 0, %11 ]
+  %.0195 = phi i32 [ 3, %5 ], [ %22, %19 ], [ %15, %16 ], [ 6, %11 ]
+  %.0177 = phi i32 [ 0, %5 ], [ %13, %19 ], [ %13, %16 ], [ 0, %11 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %26 = load i32, ptr %25, align 16, !tbaa !403
   %.not220 = icmp eq i32 %26, 0
@@ -18659,8 +18659,8 @@ CheckAvailableSize.exit:                          ; preds = %IsEncryptionOn.exit
   store i8 5, ptr %292, align 1, !tbaa !230
   br label %CheckAvailableSize.exit.thread302
 
-CheckAvailableSize.exit.thread302:                ; preds = %267, %260, %104, %101, %275, %._crit_edge, %291, %._crit_edge.thread, %8, %1
-  %.0 = phi i32 [ 0, %1 ], [ -328, %8 ], [ %.0174.lcssa344, %._crit_edge.thread ], [ %.0174.lcssa344, %291 ], [ -327, %._crit_edge ], [ -132, %260 ], [ -125, %267 ], [ %276, %275 ], [ -125, %101 ], [ -125, %104 ]
+CheckAvailableSize.exit.thread302:                ; preds = %260, %267, %104, %101, %275, %._crit_edge, %291, %._crit_edge.thread, %8, %1
+  %.0 = phi i32 [ 0, %1 ], [ -327, %._crit_edge ], [ -328, %8 ], [ %.0174.lcssa344, %._crit_edge.thread ], [ %.0174.lcssa344, %291 ], [ -125, %267 ], [ -132, %260 ], [ -125, %104 ], [ -125, %101 ], [ %276, %275 ]
   ret i32 %.0
 }
 
@@ -18743,8 +18743,8 @@ IsEncryptionOn.exit.thread:                       ; preds = %24
   br i1 %.not.i116, label %IsEncryptionOn.exit119.thread, label %IsEncryptionOn.exit119
 
 IsEncryptionOn.exit119:                           ; preds = %IsEncryptionOn.exit, %IsEncryptionOn.exit.thread
-  %34 = phi ptr [ %33, %IsEncryptionOn.exit.thread ], [ %32, %IsEncryptionOn.exit ]
-  %.089162 = phi i32 [ %25, %IsEncryptionOn.exit.thread ], [ %., %IsEncryptionOn.exit ]
+  %34 = phi ptr [ %32, %IsEncryptionOn.exit ], [ %33, %IsEncryptionOn.exit.thread ]
+  %.089162 = phi i32 [ %., %IsEncryptionOn.exit ], [ %25, %IsEncryptionOn.exit.thread ]
   %.in.in.i117 = getelementptr inbounds nuw i8, ptr %0, i64 297
   %.in.i118 = load i8, ptr %.in.in.i117, align 1, !tbaa !45
   %.not146 = icmp eq i8 %.in.i118, 0
@@ -19050,7 +19050,7 @@ HashOutput.exit:                                  ; preds = %IsEncryptionOn.exit
   br label %CheckAvailableSize.exit
 
 CheckAvailableSize.exit:                          ; preds = %IsEncryptionOn.exit128.thread, %180, %175, %73, %70, %HashOutput.exit, %IsAtLeastTLSv1_2.exit.thread, %184, %201
-  %.0 = phi i32 [ %.088, %201 ], [ %187, %184 ], [ 0, %IsAtLeastTLSv1_2.exit.thread ], [ %193, %HashOutput.exit ], [ -125, %70 ], [ -125, %73 ], [ -125, %180 ], [ -132, %175 ], [ -173, %IsEncryptionOn.exit128.thread ]
+  %.0 = phi i32 [ %193, %HashOutput.exit ], [ 0, %IsAtLeastTLSv1_2.exit.thread ], [ %.088, %201 ], [ %187, %184 ], [ -125, %73 ], [ -125, %70 ], [ -132, %175 ], [ -125, %180 ], [ -173, %IsEncryptionOn.exit128.thread ]
   ret i32 %.0
 }
 
@@ -19175,356 +19175,356 @@ define i32 @SendData(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnam
   %36 = and i32 %35, 3
   switch i32 %36, label %ssl_in_handshake.exit.thread [
     i32 0, label %37
-    i32 1, label %49
+    i32 1, label %45
   ]
 
 37:                                               ; preds = %31
   %38 = icmp ne i16 %15, 3
   %39 = icmp ult i16 %14, 1024
   %.not30.i = or i1 %39, %38
-  br i1 %.not30.i, label %44, label %40
+  br i1 %.not30.i, label %40, label %ssl_in_handshake.exit
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 1049
-  %42 = load i8, ptr %41, align 1, !tbaa !368
-  %43 = icmp ult i8 %42, 15
-  br i1 %43, label %ssl_in_handshake.exit.thread132, label %ssl_in_handshake.exit.thread
-
-44:                                               ; preds = %37
-  %45 = icmp ugt i16 %14, 767
-  %or.cond.i = and i1 %45, %16
+  %41 = icmp ugt i16 %14, 767
+  %or.cond.i = and i1 %41, %16
   br i1 %or.cond.i, label %IsAtLeastTLSv1_2.exit.i, label %ssl_in_handshake.exit.thread
 
-IsAtLeastTLSv1_2.exit.i:                          ; preds = %44
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 1049
-  %47 = load i8, ptr %46, align 1, !tbaa !368
-  %48 = icmp ult i8 %47, 16
-  br i1 %48, label %ssl_in_handshake.exit.thread132, label %ssl_in_handshake.exit.thread
+IsAtLeastTLSv1_2.exit.i:                          ; preds = %40
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 1049
+  %43 = load i8, ptr %42, align 1, !tbaa !368
+  %44 = icmp ult i8 %43, 16
+  br i1 %44, label %ssl_in_handshake.exit.thread132, label %ssl_in_handshake.exit.thread
 
-49:                                               ; preds = %31
-  %50 = icmp ne i16 %15, 3
-  %51 = icmp ult i16 %14, 1024
-  %.not27.i = or i1 %51, %50
-  br i1 %.not27.i, label %56, label %52
+45:                                               ; preds = %31
+  %46 = icmp ne i16 %15, 3
+  %47 = icmp ult i16 %14, 1024
+  %.not27.i = or i1 %47, %46
+  br i1 %.not27.i, label %52, label %48
 
-52:                                               ; preds = %49
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 1048
-  %54 = load i8, ptr %53, align 8, !tbaa !369
-  %55 = icmp ult i8 %54, 9
-  br i1 %55, label %ssl_in_handshake.exit.thread132, label %ssl_in_handshake.exit.thread
+48:                                               ; preds = %45
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 1048
+  %50 = load i8, ptr %49, align 8, !tbaa !369
+  %51 = icmp ult i8 %50, 9
+  br i1 %51, label %ssl_in_handshake.exit.thread132, label %ssl_in_handshake.exit.thread
 
-56:                                               ; preds = %49
-  %57 = icmp ugt i16 %14, 767
-  %or.cond31.i = and i1 %57, %16
-  br i1 %or.cond31.i, label %ssl_in_handshake.exit, label %ssl_in_handshake.exit.thread
+52:                                               ; preds = %45
+  %53 = icmp ugt i16 %14, 767
+  %or.cond31.i = and i1 %53, %16
+  br i1 %or.cond31.i, label %IsAtLeastTLSv1_2.exit20.i, label %ssl_in_handshake.exit.thread
 
-ssl_in_handshake.exit:                            ; preds = %56
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 1048
-  %59 = load i8, ptr %58, align 8, !tbaa !369
-  %60 = icmp ult i8 %59, 10
-  br i1 %60, label %ssl_in_handshake.exit.thread132, label %ssl_in_handshake.exit.thread
+IsAtLeastTLSv1_2.exit20.i:                        ; preds = %52
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 1048
+  %55 = load i8, ptr %54, align 8, !tbaa !369
+  %56 = icmp ult i8 %55, 10
+  br i1 %56, label %ssl_in_handshake.exit.thread132, label %ssl_in_handshake.exit.thread
 
-ssl_in_handshake.exit.thread132:                  ; preds = %52, %IsAtLeastTLSv1_2.exit.i, %40, %28, %ssl_in_handshake.exit
-  %61 = tail call i32 @wolfSSL_negotiate(ptr noundef nonnull %0) #28
-  %.not106 = icmp eq i32 %61, 1
+ssl_in_handshake.exit:                            ; preds = %37
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 1049
+  %58 = load i8, ptr %57, align 1, !tbaa !368
+  %59 = icmp ult i8 %58, 15
+  br i1 %59, label %ssl_in_handshake.exit.thread132, label %ssl_in_handshake.exit.thread
+
+ssl_in_handshake.exit.thread132:                  ; preds = %IsAtLeastTLSv1_2.exit20.i, %48, %IsAtLeastTLSv1_2.exit.i, %28, %ssl_in_handshake.exit
+  %60 = tail call i32 @wolfSSL_negotiate(ptr noundef nonnull %0) #28
+  %.not106 = icmp eq i32 %60, 1
   br i1 %.not106, label %ssl_in_handshake.exit.thread, label %.thread146
 
-ssl_in_handshake.exit.thread:                     ; preds = %52, %IsAtLeastTLSv1_2.exit.i, %40, %56, %44, %31, %ssl_in_handshake.exit, %ssl_in_handshake.exit.thread132, %24
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %63 = load i32, ptr %62, align 16, !tbaa !226
-  %.not107 = icmp eq i32 %63, 0
-  br i1 %.not107, label %82, label %64
+ssl_in_handshake.exit.thread:                     ; preds = %IsAtLeastTLSv1_2.exit20.i, %48, %IsAtLeastTLSv1_2.exit.i, %40, %31, %52, %ssl_in_handshake.exit, %ssl_in_handshake.exit.thread132, %24
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %62 = load i32, ptr %61, align 16, !tbaa !226
+  %.not107 = icmp eq i32 %62, 0
+  br i1 %.not107, label %81, label %63
 
-64:                                               ; preds = %ssl_in_handshake.exit.thread
-  %65 = tail call i32 @SendBuffered(ptr noundef nonnull %0)
-  %66 = icmp slt i32 %65, 0
-  br i1 %66, label %67, label %74
+63:                                               ; preds = %ssl_in_handshake.exit.thread
+  %64 = tail call i32 @SendBuffered(ptr noundef nonnull %0)
+  %65 = icmp slt i32 %64, 0
+  br i1 %65, label %66, label %73
 
-67:                                               ; preds = %64
-  %68 = icmp eq i32 %65, -308
-  br i1 %68, label %69, label %73
+66:                                               ; preds = %63
+  %67 = icmp eq i32 %64, -308
+  br i1 %67, label %68, label %72
 
-69:                                               ; preds = %67
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 1024
-  %71 = load i64, ptr %70, align 8
-  %72 = and i64 %71, 786432
-  %or.cond = icmp eq i64 %72, 0
-  br i1 %or.cond, label %73, label %.thread146.sink.split
+68:                                               ; preds = %66
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 1024
+  %70 = load i64, ptr %69, align 8
+  %71 = and i64 %70, 786432
+  %or.cond = icmp eq i64 %71, 0
+  br i1 %or.cond, label %72, label %.thread146.sink.split
 
-73:                                               ; preds = %69, %67
+72:                                               ; preds = %68, %66
   br label %.thread146.sink.split
 
-74:                                               ; preds = %64
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  %76 = load i32, ptr %75, align 16, !tbaa !405
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 484
-  %78 = load i32, ptr %77, align 4, !tbaa !406
-  %79 = add i32 %78, %76
-  %80 = trunc nuw nsw i64 %2 to i32
-  %81 = icmp ugt i32 %79, %80
-  br i1 %81, label %.thread146.sink.split, label %82
+73:                                               ; preds = %63
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  %75 = load i32, ptr %74, align 16, !tbaa !405
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 484
+  %77 = load i32, ptr %76, align 4, !tbaa !406
+  %78 = add i32 %77, %75
+  %79 = trunc nuw nsw i64 %2 to i32
+  %80 = icmp ugt i32 %78, %79
+  br i1 %80, label %.thread146.sink.split, label %81
 
-82:                                               ; preds = %ssl_in_handshake.exit.thread, %74
-  %.089 = phi i32 [ %79, %74 ], [ 0, %ssl_in_handshake.exit.thread ]
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 660
-  %84 = load i32, ptr %83, align 4, !tbaa !235
-  %85 = icmp eq i32 %84, 0
-  br i1 %85, label %.preheader, label %RetrySendAlert.exit
+81:                                               ; preds = %ssl_in_handshake.exit.thread, %73
+  %.089 = phi i32 [ %78, %73 ], [ 0, %ssl_in_handshake.exit.thread ]
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 660
+  %83 = load i32, ptr %82, align 4, !tbaa !235
+  %84 = icmp eq i32 %83, 0
+  br i1 %84, label %.preheader, label %RetrySendAlert.exit
 
-RetrySendAlert.exit:                              ; preds = %82
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 656
-  %87 = load i32, ptr %86, align 16, !tbaa !236
-  store i32 0, ptr %86, align 16, !tbaa !236
-  store i32 0, ptr %83, align 4, !tbaa !235
-  %88 = tail call fastcc i32 @SendAlert_ex(ptr noundef %0, i32 noundef %84, i32 noundef %87)
-  %.not108 = icmp eq i32 %88, 0
+RetrySendAlert.exit:                              ; preds = %81
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 656
+  %86 = load i32, ptr %85, align 16, !tbaa !236
+  store i32 0, ptr %85, align 16, !tbaa !236
+  store i32 0, ptr %82, align 4, !tbaa !235
+  %87 = tail call fastcc i32 @SendAlert_ex(ptr noundef %0, i32 noundef %83, i32 noundef %86)
+  %.not108 = icmp eq i32 %87, 0
   br i1 %.not108, label %.preheader, label %.thread146.sink.split
 
-.preheader:                                       ; preds = %82, %RetrySendAlert.exit
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 722
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 996
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 1000
-  %92 = trunc nuw nsw i64 %2 to i32
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 1012
+.preheader:                                       ; preds = %81, %RetrySendAlert.exit
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 722
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 996
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 1000
+  %91 = trunc nuw nsw i64 %2 to i32
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 1012
   %.in.in.i = getelementptr inbounds nuw i8, ptr %0, i64 297
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 1024
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 723
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 716
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 718
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 727
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 404
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 412
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 413
-  br label %105
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 1024
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 723
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 716
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 718
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 727
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 720
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 404
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 412
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 413
+  br label %104
 
-105:                                              ; preds = %.preheader, %208
-  %.190 = phi i32 [ %209, %208 ], [ %.089, %.preheader ]
-  %106 = zext i32 %.190 to i64
-  %107 = getelementptr inbounds nuw i8, ptr %1, i64 %106
-  %108 = load i16, ptr %13, align 2
-  %109 = and i16 %108, 255
-  %110 = icmp ne i16 %109, 3
-  %111 = icmp ult i16 %108, 1024
-  %.not158 = or i1 %111, %110
-  br i1 %.not158, label %CheckTLS13AEADSendLimit.exit.thread, label %112
+104:                                              ; preds = %.preheader, %207
+  %.190 = phi i32 [ %208, %207 ], [ %.089, %.preheader ]
+  %105 = zext i32 %.190 to i64
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 %105
+  %107 = load i16, ptr %13, align 2
+  %108 = and i16 %107, 255
+  %109 = icmp ne i16 %108, 3
+  %110 = icmp ult i16 %107, 1024
+  %.not158 = or i1 %110, %109
+  br i1 %.not158, label %CheckTLS13AEADSendLimit.exit.thread, label %111
 
-112:                                              ; preds = %105
-  %113 = load i8, ptr %89, align 2, !tbaa !372
-  switch i8 %113, label %.thread146.sink.split [
-    i8 7, label %114
+111:                                              ; preds = %104
+  %112 = load i8, ptr %88, align 2, !tbaa !372
+  switch i8 %112, label %.thread146.sink.split [
+    i8 7, label %113
     i8 9, label %CheckTLS13AEADSendLimit.exit.thread
     i8 0, label %CheckTLS13AEADSendLimit.exit.thread
   ]
 
-114:                                              ; preds = %112
-  %115 = load i32, ptr %90, align 4, !tbaa !190
-  %116 = load i32, ptr %91, align 4, !tbaa !191
-  %117 = zext i32 %115 to i64
-  %118 = shl nuw i64 %117, 32
-  %119 = zext i32 %116 to i64
-  %120 = or disjoint i64 %118, %119
-  %121 = icmp ult i64 %120, 1554778163686
-  br i1 %121, label %CheckTLS13AEADSendLimit.exit.thread, label %CheckTLS13AEADSendLimit.exit
+113:                                              ; preds = %111
+  %114 = load i32, ptr %89, align 4, !tbaa !190
+  %115 = load i32, ptr %90, align 4, !tbaa !191
+  %116 = zext i32 %114 to i64
+  %117 = shl nuw i64 %116, 32
+  %118 = zext i32 %115 to i64
+  %119 = or disjoint i64 %117, %118
+  %120 = icmp ult i64 %119, 1554778163686
+  br i1 %120, label %CheckTLS13AEADSendLimit.exit.thread, label %CheckTLS13AEADSendLimit.exit
 
-CheckTLS13AEADSendLimit.exit:                     ; preds = %114
-  %122 = tail call i32 @Tls13UpdateKeys(ptr noundef nonnull %0) #28
-  %.not110 = icmp eq i32 %122, 0
+CheckTLS13AEADSendLimit.exit:                     ; preds = %113
+  %121 = tail call i32 @Tls13UpdateKeys(ptr noundef nonnull %0) #28
+  %.not110 = icmp eq i32 %121, 0
   br i1 %.not110, label %CheckTLS13AEADSendLimit.exit.thread, label %.thread146.sink.split
 
-CheckTLS13AEADSendLimit.exit.thread:              ; preds = %114, %112, %112, %CheckTLS13AEADSendLimit.exit, %105
-  %123 = sub i32 %92, %.190
-  %spec.store.select.i = tail call noundef range(i32 -2147483648, 16385) i32 @llvm.smin.i32(i32 %123, i32 16384)
-  %124 = icmp eq i32 %.190, %92
-  br i1 %124, label %.thread146, label %125
+CheckTLS13AEADSendLimit.exit.thread:              ; preds = %113, %111, %111, %CheckTLS13AEADSendLimit.exit, %104
+  %122 = sub i32 %91, %.190
+  %spec.store.select.i = tail call noundef range(i32 -2147483648, 16385) i32 @llvm.smin.i32(i32 %122, i32 16384)
+  %123 = icmp eq i32 %.190, %91
+  br i1 %123, label %.thread146, label %124
 
-125:                                              ; preds = %CheckTLS13AEADSendLimit.exit.thread
-  %126 = add nsw i32 %spec.store.select.i, 13
-  %127 = load i8, ptr %93, align 4, !tbaa !44
-  %.not.i123 = icmp eq i8 %127, 0
+124:                                              ; preds = %CheckTLS13AEADSendLimit.exit.thread
+  %125 = add nsw i32 %spec.store.select.i, 13
+  %126 = load i8, ptr %92, align 4, !tbaa !44
+  %.not.i123 = icmp eq i8 %126, 0
   br i1 %.not.i123, label %IsEncryptionOn.exit.thread, label %IsEncryptionOn.exit
 
-IsEncryptionOn.exit:                              ; preds = %125
+IsEncryptionOn.exit:                              ; preds = %124
   %.in.i = load i8, ptr %.in.in.i, align 1, !tbaa !45
   %.not159 = icmp eq i8 %.in.i, 0
-  br i1 %.not159, label %IsEncryptionOn.exit.thread, label %130
+  br i1 %.not159, label %IsEncryptionOn.exit.thread, label %129
 
-IsEncryptionOn.exit.thread:                       ; preds = %125, %IsEncryptionOn.exit
-  %128 = load i64, ptr %94, align 8
-  %129 = and i64 %128, 65536
-  %.not112 = icmp eq i64 %129, 0
-  br i1 %.not112, label %148, label %130
+IsEncryptionOn.exit.thread:                       ; preds = %124, %IsEncryptionOn.exit
+  %127 = load i64, ptr %93, align 8
+  %128 = and i64 %127, 65536
+  %.not112 = icmp eq i64 %128, 0
+  br i1 %.not112, label %147, label %129
 
-130:                                              ; preds = %IsEncryptionOn.exit.thread, %IsEncryptionOn.exit
-  %131 = load i8, ptr %95, align 1, !tbaa !225
-  %132 = icmp eq i8 %131, 2
-  br i1 %132, label %133, label %138
+129:                                              ; preds = %IsEncryptionOn.exit.thread, %IsEncryptionOn.exit
+  %130 = load i8, ptr %94, align 1, !tbaa !225
+  %131 = icmp eq i8 %130, 2
+  br i1 %131, label %132, label %137
 
-133:                                              ; preds = %130
-  %134 = load i16, ptr %99, align 2, !tbaa !352
-  %135 = zext i16 %134 to i32
-  %136 = load i8, ptr %89, align 2, !tbaa !372
-  %.not.i125 = icmp eq i8 %136, 9
-  %137 = add nuw nsw i32 %135, 8
-  %spec.select.i = select i1 %.not.i125, i32 %135, i32 %137
+132:                                              ; preds = %129
+  %133 = load i16, ptr %98, align 2, !tbaa !352
+  %134 = zext i16 %133 to i32
+  %135 = load i8, ptr %88, align 2, !tbaa !372
+  %.not.i125 = icmp eq i8 %135, 9
+  %136 = add nuw nsw i32 %134, 8
+  %spec.select.i = select i1 %.not.i125, i32 %134, i32 %136
   br label %cipherExtraData.exit
 
-138:                                              ; preds = %130
-  %139 = load i16, ptr %96, align 2, !tbaa !402
-  %140 = zext i16 %139 to i32
-  %141 = load i16, ptr %97, align 2, !tbaa !371
-  %142 = zext i16 %141 to i32
-  %143 = add nuw nsw i32 %142, %140
-  %144 = load i8, ptr %98, align 1, !tbaa !115
-  %145 = zext i8 %144 to i32
-  %146 = add nuw nsw i32 %143, %145
+137:                                              ; preds = %129
+  %138 = load i16, ptr %95, align 2, !tbaa !402
+  %139 = zext i16 %138 to i32
+  %140 = load i16, ptr %96, align 2, !tbaa !371
+  %141 = zext i16 %140 to i32
+  %142 = add nuw nsw i32 %141, %139
+  %143 = load i8, ptr %97, align 1, !tbaa !115
+  %144 = zext i8 %143 to i32
+  %145 = add nuw nsw i32 %142, %144
   br label %cipherExtraData.exit
 
-cipherExtraData.exit:                             ; preds = %133, %138
-  %.0.i124 = phi i32 [ %146, %138 ], [ %spec.select.i, %133 ]
-  %147 = add nsw i32 %.0.i124, %126
-  br label %148
+cipherExtraData.exit:                             ; preds = %132, %137
+  %.0.i124 = phi i32 [ %145, %137 ], [ %spec.select.i, %132 ]
+  %146 = add nsw i32 %.0.i124, %125
+  br label %147
 
-148:                                              ; preds = %cipherExtraData.exit, %IsEncryptionOn.exit.thread
-  %.0 = phi i32 [ %147, %cipherExtraData.exit ], [ %126, %IsEncryptionOn.exit.thread ]
-  %149 = icmp slt i32 %.0, 0
-  br i1 %149, label %.thread146.sink.split, label %150
+147:                                              ; preds = %cipherExtraData.exit, %IsEncryptionOn.exit.thread
+  %.0 = phi i32 [ %146, %cipherExtraData.exit ], [ %125, %IsEncryptionOn.exit.thread ]
+  %148 = icmp slt i32 %.0, 0
+  br i1 %148, label %.thread146.sink.split, label %149
 
-150:                                              ; preds = %148
-  %151 = load i32, ptr %100, align 8, !tbaa !174
-  %152 = load i32, ptr %62, align 16, !tbaa !226
-  %153 = load i32, ptr %101, align 4, !tbaa !227
-  %154 = add i32 %153, %152
-  %155 = sub i32 %151, %154
-  %156 = icmp ult i32 %155, %.0
-  br i1 %156, label %157, label %.CheckAvailableSize.exit_crit_edge
+149:                                              ; preds = %147
+  %150 = load i32, ptr %99, align 8, !tbaa !174
+  %151 = load i32, ptr %61, align 16, !tbaa !226
+  %152 = load i32, ptr %100, align 4, !tbaa !227
+  %153 = add i32 %152, %151
+  %154 = sub i32 %150, %153
+  %155 = icmp ult i32 %154, %.0
+  br i1 %155, label %156, label %.CheckAvailableSize.exit_crit_edge
 
-.CheckAvailableSize.exit_crit_edge:               ; preds = %150
-  %.pre = load ptr, ptr %102, align 8, !tbaa !173
+.CheckAvailableSize.exit_crit_edge:               ; preds = %149
+  %.pre = load ptr, ptr %101, align 8, !tbaa !173
   br label %CheckAvailableSize.exit
 
-157:                                              ; preds = %150
+156:                                              ; preds = %149
+  %157 = xor i32 %152, -1
+  %.not.i.i = icmp ugt i32 %151, %157
   %158 = xor i32 %153, -1
-  %.not.i.i = icmp ugt i32 %152, %158
-  %159 = xor i32 %154, -1
-  %.not34.i.i = icmp ugt i32 %.0, %159
+  %.not34.i.i = icmp ugt i32 %.0, %158
   %or.cond.i127 = or i1 %.not.i.i, %.not34.i.i
-  br i1 %or.cond.i127, label %.thread146.sink.split, label %160
+  br i1 %or.cond.i127, label %.thread146.sink.split, label %159
 
-160:                                              ; preds = %157
-  %161 = add i32 %154, %.0
-  %162 = zext i32 %161 to i64
-  %163 = tail call ptr @wolfSSL_Malloc(i64 noundef %162) #28
-  %164 = icmp eq ptr %163, null
-  br i1 %164, label %.thread146.sink.split, label %165
+159:                                              ; preds = %156
+  %160 = add i32 %153, %.0
+  %161 = zext i32 %160 to i64
+  %162 = tail call ptr @wolfSSL_Malloc(i64 noundef %161) #28
+  %163 = icmp eq ptr %162, null
+  br i1 %163, label %.thread146.sink.split, label %164
 
-165:                                              ; preds = %160
-  %166 = load i32, ptr %62, align 16, !tbaa !226
-  %.not35.i.i = icmp eq i32 %166, 0
-  br i1 %.not35.i.i, label %172, label %167
+164:                                              ; preds = %159
+  %165 = load i32, ptr %61, align 16, !tbaa !226
+  %.not35.i.i = icmp eq i32 %165, 0
+  br i1 %.not35.i.i, label %171, label %166
 
-167:                                              ; preds = %165
-  %168 = load ptr, ptr %102, align 8, !tbaa !173
-  %169 = load i32, ptr %101, align 4, !tbaa !227
-  %170 = add i32 %169, %166
-  %171 = zext i32 %170 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %163, ptr align 1 %168, i64 %171, i1 false)
-  br label %172
+166:                                              ; preds = %164
+  %167 = load ptr, ptr %101, align 8, !tbaa !173
+  %168 = load i32, ptr %100, align 4, !tbaa !227
+  %169 = add i32 %168, %165
+  %170 = zext i32 %169 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %162, ptr align 1 %167, i64 %170, i1 false)
+  br label %171
 
-172:                                              ; preds = %167, %165
-  %173 = load i8, ptr %103, align 4, !tbaa !218
-  %.not36.i.i = icmp eq i8 %173, 0
-  br i1 %.not36.i.i, label %GrowOutputBuffer.exit.i, label %174
+171:                                              ; preds = %166, %164
+  %172 = load i8, ptr %102, align 4, !tbaa !218
+  %.not36.i.i = icmp eq i8 %172, 0
+  br i1 %.not36.i.i, label %GrowOutputBuffer.exit.i, label %173
 
-174:                                              ; preds = %172
-  %175 = load ptr, ptr %102, align 8, !tbaa !173
-  %.not37.i.i = icmp eq ptr %175, null
-  br i1 %.not37.i.i, label %GrowOutputBuffer.exit.i, label %176
+173:                                              ; preds = %171
+  %174 = load ptr, ptr %101, align 8, !tbaa !173
+  %.not37.i.i = icmp eq ptr %174, null
+  br i1 %.not37.i.i, label %GrowOutputBuffer.exit.i, label %175
 
-176:                                              ; preds = %174
-  %177 = load i8, ptr %104, align 1, !tbaa !219
-  %178 = zext i8 %177 to i64
-  %179 = sub nsw i64 0, %178
-  %180 = getelementptr inbounds i8, ptr %175, i64 %179
-  tail call void @wolfSSL_Free(ptr noundef nonnull %180) #28
+175:                                              ; preds = %173
+  %176 = load i8, ptr %103, align 1, !tbaa !219
+  %177 = zext i8 %176 to i64
+  %178 = sub nsw i64 0, %177
+  %179 = getelementptr inbounds i8, ptr %174, i64 %178
+  tail call void @wolfSSL_Free(ptr noundef nonnull %179) #28
   br label %GrowOutputBuffer.exit.i
 
-GrowOutputBuffer.exit.i:                          ; preds = %176, %174, %172
-  store i8 1, ptr %103, align 4, !tbaa !218
-  store i8 0, ptr %104, align 1, !tbaa !219
-  store ptr %163, ptr %102, align 8, !tbaa !173
-  store i32 %161, ptr %100, align 8, !tbaa !174
-  %.pre171 = load i32, ptr %101, align 4, !tbaa !227
-  %.pre172 = load i32, ptr %62, align 16, !tbaa !226
+GrowOutputBuffer.exit.i:                          ; preds = %175, %173, %171
+  store i8 1, ptr %102, align 4, !tbaa !218
+  store i8 0, ptr %103, align 1, !tbaa !219
+  store ptr %162, ptr %101, align 8, !tbaa !173
+  store i32 %160, ptr %99, align 8, !tbaa !174
+  %.pre171 = load i32, ptr %100, align 4, !tbaa !227
+  %.pre172 = load i32, ptr %61, align 16, !tbaa !226
   br label %CheckAvailableSize.exit
 
 CheckAvailableSize.exit:                          ; preds = %.CheckAvailableSize.exit_crit_edge, %GrowOutputBuffer.exit.i
-  %181 = phi i32 [ %152, %.CheckAvailableSize.exit_crit_edge ], [ %.pre172, %GrowOutputBuffer.exit.i ]
-  %182 = phi i32 [ %153, %.CheckAvailableSize.exit_crit_edge ], [ %.pre171, %GrowOutputBuffer.exit.i ]
-  %183 = phi ptr [ %.pre, %.CheckAvailableSize.exit_crit_edge ], [ %163, %GrowOutputBuffer.exit.i ]
-  %184 = zext i32 %182 to i64
-  %185 = getelementptr inbounds nuw i8, ptr %183, i64 %184
-  %186 = zext i32 %181 to i64
-  %187 = getelementptr inbounds nuw i8, ptr %185, i64 %186
-  %188 = load i64, ptr %94, align 8
-  %189 = and i64 %188, 65536
-  %.not114 = icmp eq i64 %189, 0
-  br i1 %.not114, label %190, label %192
+  %180 = phi i32 [ %151, %.CheckAvailableSize.exit_crit_edge ], [ %.pre172, %GrowOutputBuffer.exit.i ]
+  %181 = phi i32 [ %152, %.CheckAvailableSize.exit_crit_edge ], [ %.pre171, %GrowOutputBuffer.exit.i ]
+  %182 = phi ptr [ %.pre, %.CheckAvailableSize.exit_crit_edge ], [ %162, %GrowOutputBuffer.exit.i ]
+  %183 = zext i32 %181 to i64
+  %184 = getelementptr inbounds nuw i8, ptr %182, i64 %183
+  %185 = zext i32 %180 to i64
+  %186 = getelementptr inbounds nuw i8, ptr %184, i64 %185
+  %187 = load i64, ptr %93, align 8
+  %188 = and i64 %187, 65536
+  %.not114 = icmp eq i64 %188, 0
+  br i1 %.not114, label %189, label %191
 
-190:                                              ; preds = %CheckAvailableSize.exit
-  %191 = tail call i32 @BuildMessage(ptr noundef nonnull %0, ptr noundef %187, i32 noundef %.0, ptr noundef %107, i32 noundef %spec.store.select.i, i32 noundef 23, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
-  br label %194
+189:                                              ; preds = %CheckAvailableSize.exit
+  %190 = tail call i32 @BuildMessage(ptr noundef nonnull %0, ptr noundef %186, i32 noundef %.0, ptr noundef %106, i32 noundef %spec.store.select.i, i32 noundef 23, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  br label %193
 
-192:                                              ; preds = %CheckAvailableSize.exit
-  %193 = tail call i32 @BuildTls13Message(ptr noundef nonnull %0, ptr noundef %187, i32 noundef %.0, ptr noundef %107, i32 noundef %spec.store.select.i, i32 noundef 23, i32 noundef 0, i32 noundef 0, i32 noundef 1) #28
-  br label %194
+191:                                              ; preds = %CheckAvailableSize.exit
+  %192 = tail call i32 @BuildTls13Message(ptr noundef nonnull %0, ptr noundef %186, i32 noundef %.0, ptr noundef %106, i32 noundef %spec.store.select.i, i32 noundef 23, i32 noundef 0, i32 noundef 0, i32 noundef 1) #28
+  br label %193
 
-194:                                              ; preds = %192, %190
-  %.092 = phi i32 [ %193, %192 ], [ %191, %190 ]
-  %195 = icmp slt i32 %.092, 0
-  br i1 %195, label %.thread146, label %196
+193:                                              ; preds = %191, %189
+  %.092 = phi i32 [ %192, %191 ], [ %190, %189 ]
+  %194 = icmp slt i32 %.092, 0
+  br i1 %194, label %.thread146, label %195
 
-196:                                              ; preds = %194
-  %197 = load i32, ptr %62, align 16, !tbaa !226
-  %198 = add i32 %197, %.092
-  store i32 %198, ptr %62, align 16, !tbaa !226
-  %199 = tail call i32 @SendBuffered(ptr noundef nonnull %0)
-  %200 = icmp slt i32 %199, 0
-  br i1 %200, label %201, label %208
+195:                                              ; preds = %193
+  %196 = load i32, ptr %61, align 16, !tbaa !226
+  %197 = add i32 %196, %.092
+  store i32 %197, ptr %61, align 16, !tbaa !226
+  %198 = tail call i32 @SendBuffered(ptr noundef nonnull %0)
+  %199 = icmp slt i32 %198, 0
+  br i1 %199, label %200, label %207
 
-201:                                              ; preds = %196
-  store i32 %199, ptr %4, align 8, !tbaa !289
-  %202 = getelementptr inbounds nuw i8, ptr %0, i64 484
-  store i32 %spec.store.select.i, ptr %202, align 4, !tbaa !406
-  %203 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  store i32 %.190, ptr %203, align 16, !tbaa !405
-  %204 = icmp eq i32 %199, -308
-  br i1 %204, label %205, label %.thread146
+200:                                              ; preds = %195
+  store i32 %198, ptr %4, align 8, !tbaa !289
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 484
+  store i32 %spec.store.select.i, ptr %201, align 4, !tbaa !406
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  store i32 %.190, ptr %202, align 16, !tbaa !405
+  %203 = icmp eq i32 %198, -308
+  br i1 %203, label %204, label %.thread146
 
-205:                                              ; preds = %201
-  %206 = load i64, ptr %94, align 8
-  %207 = and i64 %206, 786432
-  %or.cond120 = icmp eq i64 %207, 0
+204:                                              ; preds = %200
+  %205 = load i64, ptr %93, align 8
+  %206 = and i64 %205, 786432
+  %or.cond120 = icmp eq i64 %206, 0
   br i1 %or.cond120, label %.thread146, label %.thread146.sink.split
 
-208:                                              ; preds = %196
+207:                                              ; preds = %195
   store i32 0, ptr %4, align 8, !tbaa !289
-  %209 = add i32 %spec.store.select.i, %.190
-  %210 = load i64, ptr %94, align 8
-  %211 = and i64 %210, 17179869184
-  %.not115 = icmp eq i64 %211, 0
-  br i1 %.not115, label %105, label %.thread146
+  %208 = add i32 %spec.store.select.i, %.190
+  %209 = load i64, ptr %93, align 8
+  %210 = and i64 %209, 17179869184
+  %.not115 = icmp eq i64 %210, 0
+  br i1 %.not115, label %104, label %.thread146
 
-.thread146.sink.split:                            ; preds = %160, %157, %148, %CheckTLS13AEADSendLimit.exit, %112, %205, %RetrySendAlert.exit, %74, %69, %73
-  %.sink = phi i32 [ %65, %73 ], [ -397, %69 ], [ -173, %74 ], [ %88, %RetrySendAlert.exit ], [ -397, %205 ], [ %122, %CheckTLS13AEADSendLimit.exit ], [ -192, %112 ], [ -125, %160 ], [ -125, %157 ], [ -173, %148 ]
-  %.088.ph = phi i32 [ %65, %73 ], [ 0, %69 ], [ -173, %74 ], [ -1, %RetrySendAlert.exit ], [ 0, %205 ], [ -1, %CheckTLS13AEADSendLimit.exit ], [ -1, %112 ], [ -125, %160 ], [ -125, %157 ], [ -173, %148 ]
+.thread146.sink.split:                            ; preds = %156, %159, %147, %CheckTLS13AEADSendLimit.exit, %111, %204, %RetrySendAlert.exit, %73, %68, %72
+  %.sink = phi i32 [ %64, %72 ], [ -397, %204 ], [ %87, %RetrySendAlert.exit ], [ -173, %73 ], [ -397, %68 ], [ -173, %147 ], [ -192, %111 ], [ %121, %CheckTLS13AEADSendLimit.exit ], [ -125, %156 ], [ -125, %159 ]
+  %.088.ph = phi i32 [ %64, %72 ], [ 0, %204 ], [ -1, %RetrySendAlert.exit ], [ -173, %73 ], [ 0, %68 ], [ -173, %147 ], [ -1, %111 ], [ -1, %CheckTLS13AEADSendLimit.exit ], [ -125, %156 ], [ -125, %159 ]
   store i32 %.sink, ptr %4, align 8, !tbaa !289
   br label %.thread146
 
-.thread146:                                       ; preds = %194, %208, %CheckTLS13AEADSendLimit.exit.thread, %.thread146.sink.split, %201, %205, %8, %3, %ssl_in_handshake.exit.thread132
-  %.088 = phi i32 [ %61, %ssl_in_handshake.exit.thread132 ], [ -1, %3 ], [ -1, %8 ], [ %199, %201 ], [ -308, %205 ], [ %.088.ph, %.thread146.sink.split ], [ -320, %194 ], [ %92, %CheckTLS13AEADSendLimit.exit.thread ], [ %209, %208 ]
+.thread146:                                       ; preds = %193, %207, %CheckTLS13AEADSendLimit.exit.thread, %.thread146.sink.split, %204, %200, %8, %3, %ssl_in_handshake.exit.thread132
+  %.088 = phi i32 [ -1, %3 ], [ %198, %200 ], [ -308, %204 ], [ -1, %8 ], [ %60, %ssl_in_handshake.exit.thread132 ], [ %.088.ph, %.thread146.sink.split ], [ %208, %207 ], [ %91, %CheckTLS13AEADSendLimit.exit.thread ], [ -320, %193 ]
   ret i32 %.088
 }
 
@@ -19587,7 +19587,7 @@ define i32 @ReceiveData(ptr noundef %0, ptr noundef writeonly captures(none) %1,
   %17 = and i32 %16, 3
   switch i32 %17, label %ssl_in_handshake.exit.thread [
     i32 0, label %18
-    i32 1, label %34
+    i32 1, label %30
   ]
 
 18:                                               ; preds = %12
@@ -19597,277 +19597,277 @@ define i32 @ReceiveData(ptr noundef %0, ptr noundef writeonly captures(none) %1,
   %22 = icmp ne i16 %21, 3
   %23 = icmp ult i16 %20, 1024
   %.not30.i = or i1 %23, %22
-  br i1 %.not30.i, label %28, label %24
+  br i1 %.not30.i, label %24, label %ssl_in_handshake.exit
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1049
-  %26 = load i8, ptr %25, align 1, !tbaa !368
-  %27 = icmp ult i8 %26, 15
-  br i1 %27, label %ssl_in_handshake.exit.thread68, label %ssl_in_handshake.exit.thread
-
-28:                                               ; preds = %18
-  %29 = icmp eq i16 %21, 3
-  %30 = icmp ugt i16 %20, 767
-  %or.cond.i = and i1 %30, %29
+  %25 = icmp eq i16 %21, 3
+  %26 = icmp ugt i16 %20, 767
+  %or.cond.i = and i1 %26, %25
   br i1 %or.cond.i, label %IsAtLeastTLSv1_2.exit.i, label %ssl_in_handshake.exit.thread
 
-IsAtLeastTLSv1_2.exit.i:                          ; preds = %28
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1049
-  %32 = load i8, ptr %31, align 1, !tbaa !368
-  %33 = icmp ult i8 %32, 16
-  br i1 %33, label %ssl_in_handshake.exit.thread68, label %ssl_in_handshake.exit.thread
+IsAtLeastTLSv1_2.exit.i:                          ; preds = %24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 1049
+  %28 = load i8, ptr %27, align 1, !tbaa !368
+  %29 = icmp ult i8 %28, 16
+  br i1 %29, label %ssl_in_handshake.exit.thread68, label %ssl_in_handshake.exit.thread
 
-34:                                               ; preds = %12
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 710
-  %36 = load i16, ptr %35, align 2
-  %37 = and i16 %36, 255
-  %38 = icmp ne i16 %37, 3
-  %39 = icmp ult i16 %36, 1024
-  %.not27.i = or i1 %39, %38
-  br i1 %.not27.i, label %44, label %40
+30:                                               ; preds = %12
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 710
+  %32 = load i16, ptr %31, align 2
+  %33 = and i16 %32, 255
+  %34 = icmp ne i16 %33, 3
+  %35 = icmp ult i16 %32, 1024
+  %.not27.i = or i1 %35, %34
+  br i1 %.not27.i, label %40, label %36
 
-40:                                               ; preds = %34
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 1048
-  %42 = load i8, ptr %41, align 8, !tbaa !369
-  %43 = icmp ult i8 %42, 9
-  br i1 %43, label %ssl_in_handshake.exit.thread68, label %ssl_in_handshake.exit.thread
+36:                                               ; preds = %30
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 1048
+  %38 = load i8, ptr %37, align 8, !tbaa !369
+  %39 = icmp ult i8 %38, 9
+  br i1 %39, label %ssl_in_handshake.exit.thread68, label %ssl_in_handshake.exit.thread
 
-44:                                               ; preds = %34
-  %45 = icmp eq i16 %37, 3
-  %46 = icmp ugt i16 %36, 767
-  %or.cond31.i = and i1 %46, %45
-  br i1 %or.cond31.i, label %ssl_in_handshake.exit, label %ssl_in_handshake.exit.thread
+40:                                               ; preds = %30
+  %41 = icmp eq i16 %33, 3
+  %42 = icmp ugt i16 %32, 767
+  %or.cond31.i = and i1 %42, %41
+  br i1 %or.cond31.i, label %IsAtLeastTLSv1_2.exit20.i, label %ssl_in_handshake.exit.thread
 
-ssl_in_handshake.exit:                            ; preds = %44
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 1048
-  %48 = load i8, ptr %47, align 8, !tbaa !369
-  %49 = icmp ult i8 %48, 10
-  br i1 %49, label %ssl_in_handshake.exit.thread68, label %ssl_in_handshake.exit.thread
+IsAtLeastTLSv1_2.exit20.i:                        ; preds = %40
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 1048
+  %44 = load i8, ptr %43, align 8, !tbaa !369
+  %45 = icmp ult i8 %44, 10
+  br i1 %45, label %ssl_in_handshake.exit.thread68, label %ssl_in_handshake.exit.thread
 
-ssl_in_handshake.exit.thread68:                   ; preds = %40, %IsAtLeastTLSv1_2.exit.i, %24, %9, %ssl_in_handshake.exit
-  %50 = tail call i32 @wolfSSL_negotiate(ptr noundef nonnull %0) #28
-  %.not57 = icmp eq i32 %50, 1
+ssl_in_handshake.exit:                            ; preds = %18
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 1049
+  %47 = load i8, ptr %46, align 1, !tbaa !368
+  %48 = icmp ult i8 %47, 15
+  br i1 %48, label %ssl_in_handshake.exit.thread68, label %ssl_in_handshake.exit.thread
+
+ssl_in_handshake.exit.thread68:                   ; preds = %IsAtLeastTLSv1_2.exit20.i, %36, %IsAtLeastTLSv1_2.exit.i, %9, %ssl_in_handshake.exit
+  %49 = tail call i32 @wolfSSL_negotiate(ptr noundef nonnull %0) #28
+  %.not57 = icmp eq i32 %49, 1
   br i1 %.not57, label %ssl_in_handshake.exit.thread, label %ShrinkInputBuffer.exit
 
-ssl_in_handshake.exit.thread:                     ; preds = %40, %IsAtLeastTLSv1_2.exit.i, %24, %44, %28, %12, %ssl_in_handshake.exit.thread68, %ssl_in_handshake.exit
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %52 = load i32, ptr %51, align 8, !tbaa !224
-  %53 = icmp eq i32 %52, 0
-  br i1 %53, label %.lr.ph, label %._crit_edge
+ssl_in_handshake.exit.thread:                     ; preds = %IsAtLeastTLSv1_2.exit20.i, %36, %IsAtLeastTLSv1_2.exit.i, %24, %12, %40, %ssl_in_handshake.exit.thread68, %ssl_in_handshake.exit
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  %51 = load i32, ptr %50, align 8, !tbaa !224
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %ssl_in_handshake.exit.thread
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 710
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 1046
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 701
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 710
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 1046
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 701
   %.not = icmp eq i32 %3, 0
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 368
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %60
-  %58 = tail call i32 @ProcessReplyEx(ptr noundef nonnull %0, i32 noundef 0)
-  %59 = icmp slt i32 %58, 0
-  br i1 %59, label %.split.us, label %60
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %59
+  %57 = tail call i32 @ProcessReplyEx(ptr noundef nonnull %0, i32 noundef 0)
+  %58 = icmp slt i32 %57, 0
+  br i1 %58, label %.split.us, label %59
 
-60:                                               ; preds = %.lr.ph.split.us
-  %61 = load i32, ptr %51, align 8, !tbaa !224
-  %62 = icmp eq i32 %61, 0
-  br i1 %62, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !407
+59:                                               ; preds = %.lr.ph.split.us
+  %60 = load i32, ptr %50, align 8, !tbaa !224
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !407
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %86
-  %63 = tail call i32 @ProcessReplyEx(ptr noundef nonnull %0, i32 noundef 0)
-  %64 = icmp slt i32 %63, 0
-  br i1 %64, label %.split.us, label %72
+.lr.ph.split:                                     ; preds = %.lr.ph, %85
+  %62 = tail call i32 @ProcessReplyEx(ptr noundef nonnull %0, i32 noundef 0)
+  %63 = icmp slt i32 %62, 0
+  br i1 %63, label %.split.us, label %71
 
 .split.us:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us
-  %.us-phi = phi i32 [ %58, %.lr.ph.split.us ], [ %63, %.lr.ph.split ]
-  switch i32 %.us-phi, label %71 [
-    i32 -343, label %65
-    i32 -308, label %66
+  %.us-phi = phi i32 [ %57, %.lr.ph.split.us ], [ %62, %.lr.ph.split ]
+  switch i32 %.us-phi, label %70 [
+    i32 -343, label %64
+    i32 -308, label %65
   ]
 
-65:                                               ; preds = %.split.us
+64:                                               ; preds = %.split.us
   store i32 -343, ptr %5, align 8, !tbaa !289
   br label %ShrinkInputBuffer.exit
 
-66:                                               ; preds = %.split.us
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 1024
-  %68 = load i64, ptr %67, align 8
-  %69 = and i64 %68, 786432
-  %or.cond = icmp eq i64 %69, 0
-  br i1 %or.cond, label %71, label %70
+65:                                               ; preds = %.split.us
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 1024
+  %67 = load i64, ptr %66, align 8
+  %68 = and i64 %67, 786432
+  %or.cond = icmp eq i64 %68, 0
+  br i1 %or.cond, label %70, label %69
 
-70:                                               ; preds = %66
+69:                                               ; preds = %65
   store i32 -397, ptr %5, align 8, !tbaa !289
   br label %ShrinkInputBuffer.exit
 
-71:                                               ; preds = %66, %.split.us
+70:                                               ; preds = %65, %.split.us
   store i32 %.us-phi, ptr %5, align 8, !tbaa !289
   br label %ShrinkInputBuffer.exit
 
-72:                                               ; preds = %.lr.ph.split
-  %73 = load i16, ptr %54, align 2
-  %74 = and i16 %73, 255
-  %75 = icmp ne i16 %74, 3
-  %76 = icmp ult i16 %73, 1024
-  %.not73 = or i1 %76, %75
-  br i1 %.not73, label %86, label %77
+71:                                               ; preds = %.lr.ph.split
+  %72 = load i16, ptr %53, align 2
+  %73 = and i16 %72, 255
+  %74 = icmp ne i16 %73, 3
+  %75 = icmp ult i16 %72, 1024
+  %.not73 = or i1 %75, %74
+  br i1 %.not73, label %85, label %76
 
-77:                                               ; preds = %72
-  %78 = load i8, ptr %55, align 2, !tbaa !229
-  %.not60 = icmp eq i8 %78, 0
-  br i1 %.not60, label %86, label %79
+76:                                               ; preds = %71
+  %77 = load i8, ptr %54, align 2, !tbaa !229
+  %.not60 = icmp eq i8 %77, 0
+  br i1 %.not60, label %85, label %78
 
-79:                                               ; preds = %77
-  %80 = load i8, ptr %56, align 1, !tbaa !356
-  %81 = icmp eq i8 %80, 22
-  br i1 %81, label %82, label %86
+78:                                               ; preds = %76
+  %79 = load i8, ptr %55, align 1, !tbaa !356
+  %80 = icmp eq i8 %79, 22
+  br i1 %80, label %81, label %85
 
-82:                                               ; preds = %79
-  %83 = load i32, ptr %57, align 16, !tbaa !215
-  %84 = icmp eq i32 %83, 0
-  br i1 %84, label %85, label %86
+81:                                               ; preds = %78
+  %82 = load i32, ptr %56, align 16, !tbaa !215
+  %83 = icmp eq i32 %82, 0
+  br i1 %83, label %84, label %85
 
-85:                                               ; preds = %82
+84:                                               ; preds = %81
   store i32 2, ptr %5, align 8, !tbaa !289
   br label %ShrinkInputBuffer.exit
 
-86:                                               ; preds = %82, %79, %77, %72
-  %87 = load i32, ptr %51, align 8, !tbaa !224
-  %88 = icmp eq i32 %87, 0
-  br i1 %88, label %.lr.ph.split, label %._crit_edge, !llvm.loop !407
+85:                                               ; preds = %81, %78, %76, %71
+  %86 = load i32, ptr %50, align 8, !tbaa !224
+  %87 = icmp eq i32 %86, 0
+  br i1 %87, label %.lr.ph.split, label %._crit_edge, !llvm.loop !407
 
-._crit_edge:                                      ; preds = %86, %60, %ssl_in_handshake.exit.thread
-  %.lcssa76 = phi i32 [ %52, %ssl_in_handshake.exit.thread ], [ %61, %60 ], [ %87, %86 ]
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %90 = zext i32 %.lcssa76 to i64
-  %91 = tail call i64 @llvm.umin.i64(i64 %2, i64 %90)
-  %92 = trunc nuw nsw i64 %91 to i32
-  %93 = load ptr, ptr %89, align 16, !tbaa !364
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %93, i64 %91, i1 false)
-  %94 = icmp eq i32 %3, 0
-  br i1 %94, label %95, label %100
+._crit_edge:                                      ; preds = %85, %59, %ssl_in_handshake.exit.thread
+  %.lcssa76 = phi i32 [ %51, %ssl_in_handshake.exit.thread ], [ %60, %59 ], [ %86, %85 ]
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 432
+  %89 = zext i32 %.lcssa76 to i64
+  %90 = tail call i64 @llvm.umin.i64(i64 %2, i64 %89)
+  %91 = trunc nuw nsw i64 %90 to i32
+  %92 = load ptr, ptr %88, align 16, !tbaa !364
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %92, i64 %90, i1 false)
+  %93 = icmp eq i32 %3, 0
+  br i1 %93, label %94, label %99
 
-95:                                               ; preds = %._crit_edge
-  %96 = load i32, ptr %51, align 8, !tbaa !224
-  %97 = sub i32 %96, %92
-  store i32 %97, ptr %51, align 8, !tbaa !224
-  %98 = load ptr, ptr %89, align 16, !tbaa !364
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 %91
-  store ptr %99, ptr %89, align 16, !tbaa !364
-  br label %100
+94:                                               ; preds = %._crit_edge
+  %95 = load i32, ptr %50, align 8, !tbaa !224
+  %96 = sub i32 %95, %91
+  store i32 %96, ptr %50, align 8, !tbaa !224
+  %97 = load ptr, ptr %88, align 16, !tbaa !364
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 %90
+  store ptr %98, ptr %88, align 16, !tbaa !364
+  br label %99
 
-100:                                              ; preds = %95, %._crit_edge
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 380
-  %102 = load i8, ptr %101, align 4, !tbaa !214
-  %.not58 = icmp eq i8 %102, 0
-  br i1 %.not58, label %ShrinkInputBuffer.exit, label %103
+99:                                               ; preds = %94, %._crit_edge
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 380
+  %101 = load i8, ptr %100, align 4, !tbaa !214
+  %.not58 = icmp eq i8 %101, 0
+  br i1 %.not58, label %ShrinkInputBuffer.exit, label %102
 
-103:                                              ; preds = %100
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %106 = load i32, ptr %105, align 16, !tbaa !215
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 372
-  %108 = load i32, ptr %107, align 4, !tbaa !216
-  %109 = sub i32 %106, %108
-  %110 = icmp sgt i32 %109, 5
-  br i1 %110, label %ShrinkInputBuffer.exit, label %111
+102:                                              ; preds = %99
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  %105 = load i32, ptr %104, align 16, !tbaa !215
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 372
+  %107 = load i32, ptr %106, align 4, !tbaa !216
+  %108 = sub i32 %105, %107
+  %109 = icmp sgt i32 %108, 5
+  br i1 %109, label %ShrinkInputBuffer.exit, label %110
 
-111:                                              ; preds = %103
-  %112 = load i32, ptr %51, align 8, !tbaa !224
-  %.not26.i = icmp eq i32 %112, 0
-  br i1 %.not26.i, label %113, label %ShrinkInputBuffer.exit
+110:                                              ; preds = %102
+  %111 = load i32, ptr %50, align 8, !tbaa !224
+  %.not26.i = icmp eq i32 %111, 0
+  br i1 %.not26.i, label %112, label %ShrinkInputBuffer.exit
 
-113:                                              ; preds = %111
-  %114 = icmp sgt i32 %109, 0
-  br i1 %114, label %115, label %.thread.i
+112:                                              ; preds = %110
+  %113 = icmp sgt i32 %108, 0
+  br i1 %113, label %114, label %.thread.i
 
-115:                                              ; preds = %113
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %117 = load ptr, ptr %116, align 8, !tbaa !171
-  %118 = zext i32 %108 to i64
-  %119 = getelementptr inbounds nuw i8, ptr %117, i64 %118
-  %120 = zext nneg i32 %109 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %104, ptr align 1 %119, i64 %120, i1 false)
-  %.pre.i = load i32, ptr %105, align 16, !tbaa !215
+114:                                              ; preds = %112
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %116 = load ptr, ptr %115, align 8, !tbaa !171
+  %117 = zext i32 %107 to i64
+  %118 = getelementptr inbounds nuw i8, ptr %116, i64 %117
+  %119 = zext nneg i32 %108 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %103, ptr align 1 %118, i64 %119, i1 false)
+  %.pre.i = load i32, ptr %104, align 16, !tbaa !215
   br label %.thread.i
 
-.thread.i:                                        ; preds = %115, %113
-  %121 = phi i32 [ %.pre.i, %115 ], [ %106, %113 ]
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %123 = load ptr, ptr %122, align 8, !tbaa !171
-  %124 = ptrtoint ptr %123 to i64
-  %125 = trunc i64 %124 to i32
-  %126 = sub i32 0, %125
-  %127 = and i32 %126, 7
-  %spec.select.i.i = tail call i32 @llvm.umin.i32(i32 %121, i32 %127)
-  %128 = sub i32 %121, %spec.select.i.i
+.thread.i:                                        ; preds = %114, %112
+  %120 = phi i32 [ %105, %112 ], [ %.pre.i, %114 ]
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %122 = load ptr, ptr %121, align 8, !tbaa !171
+  %123 = ptrtoint ptr %122 to i64
+  %124 = trunc i64 %123 to i32
+  %125 = sub i32 0, %124
+  %126 = and i32 %125, 7
+  %spec.select.i.i = tail call i32 @llvm.umin.i32(i32 %120, i32 %126)
+  %127 = sub i32 %120, %spec.select.i.i
   %.not24.i.i = icmp eq i32 %spec.select.i.i, 0
   br i1 %.not24.i.i, label %.preheader23.i.i, label %.lr.ph.i.i
 
 .preheader23.i.i:                                 ; preds = %.lr.ph.i.i, %.thread.i
-  %.016.lcssa.i.i = phi ptr [ %123, %.thread.i ], [ %131, %.lr.ph.i.i ]
-  %129 = icmp ugt i32 %128, 7
-  br i1 %129, label %.lr.ph29.i.i, label %.preheader.i.i
+  %.016.lcssa.i.i = phi ptr [ %122, %.thread.i ], [ %130, %.lr.ph.i.i ]
+  %128 = icmp ugt i32 %127, 7
+  br i1 %128, label %.lr.ph29.i.i, label %.preheader.i.i
 
 .lr.ph.i.i:                                       ; preds = %.thread.i, %.lr.ph.i.i
-  %.126.i.i = phi i32 [ %130, %.lr.ph.i.i ], [ %spec.select.i.i, %.thread.i ]
-  %.01625.i.i = phi ptr [ %131, %.lr.ph.i.i ], [ %123, %.thread.i ]
-  %130 = add nsw i32 %.126.i.i, -1
-  %131 = getelementptr inbounds nuw i8, ptr %.01625.i.i, i64 1
+  %.126.i.i = phi i32 [ %129, %.lr.ph.i.i ], [ %spec.select.i.i, %.thread.i ]
+  %.01625.i.i = phi ptr [ %130, %.lr.ph.i.i ], [ %122, %.thread.i ]
+  %129 = add nsw i32 %.126.i.i, -1
+  %130 = getelementptr inbounds nuw i8, ptr %.01625.i.i, i64 1
   store volatile i8 0, ptr %.01625.i.i, align 1, !tbaa !45
-  %.not.i.i = icmp eq i32 %130, 0
+  %.not.i.i = icmp eq i32 %129, 0
   br i1 %.not.i.i, label %.preheader23.i.i, label %.lr.ph.i.i, !llvm.loop !79
 
 .preheader.i.i:                                   ; preds = %.lr.ph29.i.i, %.preheader23.i.i
-  %.018.lcssa.i.i = phi i32 [ %128, %.preheader23.i.i ], [ %133, %.lr.ph29.i.i ]
-  %.015.lcssa.i.i = phi ptr [ %.016.lcssa.i.i, %.preheader23.i.i ], [ %132, %.lr.ph29.i.i ]
+  %.018.lcssa.i.i = phi i32 [ %127, %.preheader23.i.i ], [ %132, %.lr.ph29.i.i ]
+  %.015.lcssa.i.i = phi ptr [ %.016.lcssa.i.i, %.preheader23.i.i ], [ %131, %.lr.ph29.i.i ]
   %.not2232.i.i = icmp eq i32 %.018.lcssa.i.i, 0
   br i1 %.not2232.i.i, label %ForceZero.exit.i, label %.lr.ph35.i.i
 
 .lr.ph29.i.i:                                     ; preds = %.preheader23.i.i, %.lr.ph29.i.i
-  %.01528.i.i = phi ptr [ %132, %.lr.ph29.i.i ], [ %.016.lcssa.i.i, %.preheader23.i.i ]
-  %.01827.i.i = phi i32 [ %133, %.lr.ph29.i.i ], [ %128, %.preheader23.i.i ]
-  %132 = getelementptr inbounds nuw i8, ptr %.01528.i.i, i64 8
+  %.01528.i.i = phi ptr [ %131, %.lr.ph29.i.i ], [ %.016.lcssa.i.i, %.preheader23.i.i ]
+  %.01827.i.i = phi i32 [ %132, %.lr.ph29.i.i ], [ %127, %.preheader23.i.i ]
+  %131 = getelementptr inbounds nuw i8, ptr %.01528.i.i, i64 8
   store volatile i64 0, ptr %.01528.i.i, align 8, !tbaa !81
-  %133 = add i32 %.01827.i.i, -8
-  %134 = icmp ugt i32 %133, 7
-  br i1 %134, label %.lr.ph29.i.i, label %.preheader.i.i, !llvm.loop !82
+  %132 = add i32 %.01827.i.i, -8
+  %133 = icmp ugt i32 %132, 7
+  br i1 %133, label %.lr.ph29.i.i, label %.preheader.i.i, !llvm.loop !82
 
 .lr.ph35.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph35.i.i
-  %.11734.i.i = phi ptr [ %136, %.lr.ph35.i.i ], [ %.015.lcssa.i.i, %.preheader.i.i ]
-  %.11933.i.i = phi i32 [ %135, %.lr.ph35.i.i ], [ %.018.lcssa.i.i, %.preheader.i.i ]
-  %135 = add i32 %.11933.i.i, -1
-  %136 = getelementptr inbounds nuw i8, ptr %.11734.i.i, i64 1
+  %.11734.i.i = phi ptr [ %135, %.lr.ph35.i.i ], [ %.015.lcssa.i.i, %.preheader.i.i ]
+  %.11933.i.i = phi i32 [ %134, %.lr.ph35.i.i ], [ %.018.lcssa.i.i, %.preheader.i.i ]
+  %134 = add i32 %.11933.i.i, -1
+  %135 = getelementptr inbounds nuw i8, ptr %.11734.i.i, i64 1
   store volatile i8 0, ptr %.11734.i.i, align 1, !tbaa !45
-  %.not22.i.i = icmp eq i32 %135, 0
+  %.not22.i.i = icmp eq i32 %134, 0
   br i1 %.not22.i.i, label %ForceZero.exit.i, label %.lr.ph35.i.i, !llvm.loop !83
 
 ForceZero.exit.i:                                 ; preds = %.lr.ph35.i.i, %.preheader.i.i
-  %137 = load ptr, ptr %122, align 8, !tbaa !171
-  %138 = getelementptr inbounds nuw i8, ptr %0, i64 381
-  %.not27.i63 = icmp eq ptr %137, null
-  br i1 %.not27.i63, label %144, label %139
+  %136 = load ptr, ptr %121, align 8, !tbaa !171
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 381
+  %.not27.i63 = icmp eq ptr %136, null
+  br i1 %.not27.i63, label %143, label %138
 
-139:                                              ; preds = %ForceZero.exit.i
-  %140 = load i8, ptr %138, align 1, !tbaa !217
-  %141 = zext i8 %140 to i64
-  %142 = sub nsw i64 0, %141
-  %143 = getelementptr inbounds i8, ptr %137, i64 %142
-  tail call void @wolfSSL_Free(ptr noundef nonnull %143) #28
-  br label %144
+138:                                              ; preds = %ForceZero.exit.i
+  %139 = load i8, ptr %137, align 1, !tbaa !217
+  %140 = zext i8 %139 to i64
+  %141 = sub nsw i64 0, %140
+  %142 = getelementptr inbounds i8, ptr %136, i64 %141
+  tail call void @wolfSSL_Free(ptr noundef nonnull %142) #28
+  br label %143
 
-144:                                              ; preds = %139, %ForceZero.exit.i
-  store ptr %104, ptr %122, align 8, !tbaa !171
-  %145 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  store i32 5, ptr %145, align 8, !tbaa !172
-  store i8 0, ptr %101, align 4, !tbaa !214
-  store i8 0, ptr %138, align 1, !tbaa !217
-  store i32 0, ptr %107, align 4, !tbaa !216
-  store i32 %109, ptr %105, align 16, !tbaa !215
+143:                                              ; preds = %138, %ForceZero.exit.i
+  store ptr %103, ptr %121, align 8, !tbaa !171
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  store i32 5, ptr %144, align 8, !tbaa !172
+  store i8 0, ptr %100, align 4, !tbaa !214
+  store i8 0, ptr %137, align 1, !tbaa !217
+  store i32 0, ptr %106, align 4, !tbaa !216
+  store i32 %108, ptr %104, align 16, !tbaa !215
   br label %ShrinkInputBuffer.exit
 
-ShrinkInputBuffer.exit:                           ; preds = %7, %144, %111, %103, %100, %4, %ssl_in_handshake.exit.thread68, %85, %71, %70, %65
-  %.0 = phi i32 [ 0, %65 ], [ 0, %70 ], [ %.us-phi, %71 ], [ 0, %85 ], [ %50, %ssl_in_handshake.exit.thread68 ], [ -1, %4 ], [ %92, %100 ], [ %92, %103 ], [ %92, %111 ], [ %92, %144 ], [ %8, %7 ]
+ShrinkInputBuffer.exit:                           ; preds = %7, %143, %110, %102, %99, %4, %ssl_in_handshake.exit.thread68, %84, %70, %69, %64
+  %.0 = phi i32 [ %49, %ssl_in_handshake.exit.thread68 ], [ -1, %4 ], [ 0, %64 ], [ 0, %69 ], [ %.us-phi, %70 ], [ 0, %84 ], [ %8, %7 ], [ %91, %99 ], [ %91, %102 ], [ %91, %110 ], [ %91, %143 ]
   ret i32 %.0
 }
 
@@ -20060,7 +20060,7 @@ IsEncryptionOn.exit.thread:                       ; preds = %65, %IsEncryptionOn
   br label %CheckAvailableSize.exit
 
 CheckAvailableSize.exit:                          ; preds = %18, %16, %91, %86, %45, %97
-  %.0 = phi i32 [ %100, %97 ], [ -132, %45 ], [ -320, %86 ], [ 0, %91 ], [ -125, %16 ], [ -125, %18 ]
+  %.0 = phi i32 [ %100, %97 ], [ 0, %91 ], [ -132, %45 ], [ -320, %86 ], [ -125, %18 ], [ -125, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -20798,7 +20798,7 @@ define ptr @wolfSSL_ERR_reason_error_string(i64 noundef %0) local_unnamed_addr #
   br label %187
 
 187:                                              ; preds = %10, %8, %186, %185, %184, %183, %182, %181, %180, %179, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %146, %145, %144, %143, %142, %141, %140, %139, %138, %137, %136, %135, %134, %133, %132, %131, %130, %129, %128, %127, %126, %125, %124, %123, %122, %121, %120, %119, %118, %117, %116, %115, %114, %113, %112, %111, %110, %109, %108, %107, %106, %105, %104, %103, %102, %101, %100, %99, %98, %97, %96, %95, %94, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %6
-  %.013 = phi ptr [ %7, %6 ], [ @.str, %186 ], [ @.str.2, %11 ], [ @.str.3, %12 ], [ @.str.4, %13 ], [ @.str.5, %14 ], [ @.str.6, %15 ], [ @.str.7, %16 ], [ @.str.8, %17 ], [ @.str.9, %18 ], [ @.str.10, %19 ], [ @.str.11, %20 ], [ @.str.12, %21 ], [ @.str.13, %22 ], [ @.str.14, %23 ], [ @.str.15, %24 ], [ @.str.16, %25 ], [ @.str.17, %26 ], [ @.str.18, %27 ], [ @.str.19, %28 ], [ @.str.20, %29 ], [ @.str.21, %30 ], [ @.str.22, %31 ], [ @.str.23, %32 ], [ @.str.24, %33 ], [ @.str.25, %34 ], [ @.str.26, %35 ], [ @.str.27, %36 ], [ @.str.28, %37 ], [ @.str.29, %38 ], [ @.str.30, %39 ], [ @.str.31, %40 ], [ @.str.32, %41 ], [ @.str.33, %42 ], [ @.str.34, %43 ], [ @.str.35, %44 ], [ @.str.36, %45 ], [ @.str.37, %46 ], [ @.str.38, %47 ], [ @.str.39, %48 ], [ @.str.40, %49 ], [ @.str.41, %50 ], [ @.str.42, %51 ], [ @.str.43, %52 ], [ @.str.44, %53 ], [ @.str.45, %54 ], [ @.str.46, %55 ], [ @.str.47, %56 ], [ @.str.48, %57 ], [ @.str.49, %58 ], [ @.str.50, %59 ], [ @.str.51, %60 ], [ @.str.52, %61 ], [ @.str.53, %62 ], [ @.str.54, %63 ], [ @.str.55, %64 ], [ @.str.56, %65 ], [ @.str.57, %66 ], [ @.str.58, %67 ], [ @.str.59, %68 ], [ @.str.60, %69 ], [ @.str.61, %70 ], [ @.str.62, %71 ], [ @.str.63, %72 ], [ @.str.64, %73 ], [ @.str.65, %74 ], [ @.str.66, %75 ], [ @.str.67, %76 ], [ @.str.68, %77 ], [ @.str.69, %78 ], [ @.str.70, %79 ], [ @.str.71, %80 ], [ @.str.72, %81 ], [ @.str.73, %82 ], [ @.str.74, %83 ], [ @.str.75, %84 ], [ @.str.76, %85 ], [ @.str.77, %86 ], [ @.str.78, %87 ], [ @.str.79, %88 ], [ @.str.80, %89 ], [ @.str.81, %90 ], [ @.str.82, %91 ], [ @.str.83, %92 ], [ @.str.84, %93 ], [ @.str.85, %94 ], [ @.str.86, %95 ], [ @.str.87, %96 ], [ @.str.88, %97 ], [ @.str.89, %98 ], [ @.str.90, %99 ], [ @.str.91, %100 ], [ @.str.92, %101 ], [ @.str.93, %102 ], [ @.str.94, %103 ], [ @.str.95, %104 ], [ @.str.96, %105 ], [ @.str.97, %106 ], [ @.str.98, %107 ], [ @.str.99, %108 ], [ @.str.100, %109 ], [ @.str.101, %110 ], [ @.str.102, %111 ], [ @.str.103, %112 ], [ @.str.104, %113 ], [ @.str.105, %114 ], [ @.str.106, %115 ], [ @.str.107, %116 ], [ @.str.108, %117 ], [ @.str.109, %118 ], [ @.str.110, %119 ], [ @.str.111, %120 ], [ @.str.112, %121 ], [ @.str.113, %122 ], [ @.str.114, %123 ], [ @.str.115, %124 ], [ @.str.116, %125 ], [ @.str.117, %126 ], [ @.str.118, %127 ], [ @.str.119, %128 ], [ @.str.120, %129 ], [ @.str.121, %130 ], [ @.str.122, %131 ], [ @.str.123, %132 ], [ @.str.124, %133 ], [ @.str.125, %134 ], [ @.str.126, %135 ], [ @.str.127, %136 ], [ @.str.128, %137 ], [ @.str.129, %138 ], [ @.str.130, %139 ], [ @.str.131, %140 ], [ @.str.132, %141 ], [ @.str.133, %142 ], [ @.str.134, %143 ], [ @.str.135, %144 ], [ @.str.136, %145 ], [ @.str.137, %146 ], [ @.str.138, %147 ], [ @.str.139, %148 ], [ @.str.140, %149 ], [ @.str.141, %150 ], [ @.str.142, %151 ], [ @.str.143, %152 ], [ @.str.144, %153 ], [ @.str.145, %154 ], [ @.str.146, %155 ], [ @.str.147, %156 ], [ @.str.148, %157 ], [ @.str.149, %158 ], [ @.str.150, %159 ], [ @.str.151, %160 ], [ @.str.152, %161 ], [ @.str.153, %162 ], [ @.str.154, %163 ], [ @.str.155, %164 ], [ @.str.156, %165 ], [ @.str.157, %166 ], [ @.str.158, %167 ], [ @.str.159, %168 ], [ @.str.160, %169 ], [ @.str.161, %170 ], [ @.str.162, %171 ], [ @.str.163, %172 ], [ @.str.164, %173 ], [ @.str.165, %174 ], [ @.str.166, %175 ], [ @.str.167, %176 ], [ @.str.168, %177 ], [ @.str.169, %178 ], [ @.str.170, %179 ], [ @.str.171, %180 ], [ @.str.172, %181 ], [ @.str.173, %182 ], [ @.str.174, %183 ], [ @.str.175, %184 ], [ @.str.176, %185 ], [ @.str, %8 ], [ @.str.1, %10 ]
+  %.013 = phi ptr [ %7, %6 ], [ @.str.176, %185 ], [ @.str, %186 ], [ @.str, %8 ], [ @.str.2, %11 ], [ @.str.3, %12 ], [ @.str.4, %13 ], [ @.str.5, %14 ], [ @.str.6, %15 ], [ @.str.7, %16 ], [ @.str.8, %17 ], [ @.str.9, %18 ], [ @.str.10, %19 ], [ @.str.11, %20 ], [ @.str.12, %21 ], [ @.str.13, %22 ], [ @.str.14, %23 ], [ @.str.15, %24 ], [ @.str.16, %25 ], [ @.str.17, %26 ], [ @.str.18, %27 ], [ @.str.19, %28 ], [ @.str.20, %29 ], [ @.str.21, %30 ], [ @.str.22, %31 ], [ @.str.23, %32 ], [ @.str.24, %33 ], [ @.str.25, %34 ], [ @.str.26, %35 ], [ @.str.27, %36 ], [ @.str.28, %37 ], [ @.str.29, %38 ], [ @.str.30, %39 ], [ @.str.31, %40 ], [ @.str.32, %41 ], [ @.str.33, %42 ], [ @.str.34, %43 ], [ @.str.35, %44 ], [ @.str.36, %45 ], [ @.str.37, %46 ], [ @.str.38, %47 ], [ @.str.39, %48 ], [ @.str.40, %49 ], [ @.str.41, %50 ], [ @.str.42, %51 ], [ @.str.43, %52 ], [ @.str.44, %53 ], [ @.str.45, %54 ], [ @.str.46, %55 ], [ @.str.47, %56 ], [ @.str.48, %57 ], [ @.str.49, %58 ], [ @.str.50, %59 ], [ @.str.51, %60 ], [ @.str.52, %61 ], [ @.str.53, %62 ], [ @.str.54, %63 ], [ @.str.55, %64 ], [ @.str.56, %65 ], [ @.str.57, %66 ], [ @.str.58, %67 ], [ @.str.59, %68 ], [ @.str.60, %69 ], [ @.str.61, %70 ], [ @.str.62, %71 ], [ @.str.63, %72 ], [ @.str.64, %73 ], [ @.str.65, %74 ], [ @.str.66, %75 ], [ @.str.67, %76 ], [ @.str.68, %77 ], [ @.str.69, %78 ], [ @.str.70, %79 ], [ @.str.71, %80 ], [ @.str.72, %81 ], [ @.str.73, %82 ], [ @.str.74, %83 ], [ @.str.75, %84 ], [ @.str.76, %85 ], [ @.str.77, %86 ], [ @.str.78, %87 ], [ @.str.79, %88 ], [ @.str.80, %89 ], [ @.str.81, %90 ], [ @.str.82, %91 ], [ @.str.83, %92 ], [ @.str.84, %93 ], [ @.str.85, %94 ], [ @.str.86, %95 ], [ @.str.87, %96 ], [ @.str.88, %97 ], [ @.str.89, %98 ], [ @.str.90, %99 ], [ @.str.91, %100 ], [ @.str.92, %101 ], [ @.str.93, %102 ], [ @.str.94, %103 ], [ @.str.95, %104 ], [ @.str.96, %105 ], [ @.str.97, %106 ], [ @.str.98, %107 ], [ @.str.99, %108 ], [ @.str.100, %109 ], [ @.str.101, %110 ], [ @.str.102, %111 ], [ @.str.103, %112 ], [ @.str.104, %113 ], [ @.str.105, %114 ], [ @.str.106, %115 ], [ @.str.107, %116 ], [ @.str.108, %117 ], [ @.str.109, %118 ], [ @.str.110, %119 ], [ @.str.111, %120 ], [ @.str.112, %121 ], [ @.str.113, %122 ], [ @.str.114, %123 ], [ @.str.115, %124 ], [ @.str.116, %125 ], [ @.str.117, %126 ], [ @.str.118, %127 ], [ @.str.119, %128 ], [ @.str.120, %129 ], [ @.str.121, %130 ], [ @.str.122, %131 ], [ @.str.123, %132 ], [ @.str.124, %133 ], [ @.str.125, %134 ], [ @.str.126, %135 ], [ @.str.127, %136 ], [ @.str.128, %137 ], [ @.str.129, %138 ], [ @.str.130, %139 ], [ @.str.131, %140 ], [ @.str.132, %141 ], [ @.str.133, %142 ], [ @.str.134, %143 ], [ @.str.135, %144 ], [ @.str.136, %145 ], [ @.str.137, %146 ], [ @.str.138, %147 ], [ @.str.139, %148 ], [ @.str.140, %149 ], [ @.str.141, %150 ], [ @.str.142, %151 ], [ @.str.143, %152 ], [ @.str.144, %153 ], [ @.str.145, %154 ], [ @.str.146, %155 ], [ @.str.147, %156 ], [ @.str.148, %157 ], [ @.str.149, %158 ], [ @.str.150, %159 ], [ @.str.151, %160 ], [ @.str.152, %161 ], [ @.str.153, %162 ], [ @.str.154, %163 ], [ @.str.155, %164 ], [ @.str.156, %165 ], [ @.str.157, %166 ], [ @.str.158, %167 ], [ @.str.159, %168 ], [ @.str.160, %169 ], [ @.str.161, %170 ], [ @.str.162, %171 ], [ @.str.163, %172 ], [ @.str.164, %173 ], [ @.str.165, %174 ], [ @.str.166, %175 ], [ @.str.167, %176 ], [ @.str.168, %177 ], [ @.str.169, %178 ], [ @.str.170, %179 ], [ @.str.171, %180 ], [ @.str.172, %181 ], [ @.str.173, %182 ], [ @.str.174, %183 ], [ @.str.175, %184 ], [ @.str.1, %10 ]
   ret ptr %.013
 }
 
@@ -21262,9 +21262,9 @@ define range(i32 0, 2) i32 @SetCipherList_ex(ptr noundef readonly captures(addre
   br i1 %exitcond.not.i, label %.thread127.i, label %48, !llvm.loop !419
 
 .thread127.i:                                     ; preds = %93, %91, %89, %77, %._crit_edge.i
-  %.196.ph.i = phi i32 [ %.095.i, %._crit_edge.i ], [ %90, %89 ], [ %92, %91 ], [ 3, %77 ], [ %.095.i, %93 ]
-  %.185.ph.i = phi i32 [ %.084.i, %._crit_edge.i ], [ %84, %89 ], [ %84, %91 ], [ %84, %77 ], [ %.084.i, %93 ]
-  %.178.ph.i = phi i32 [ %.077.i, %._crit_edge.i ], [ 1, %89 ], [ 1, %91 ], [ 1, %77 ], [ %.077.i, %93 ]
+  %.196.ph.i = phi i32 [ %.095.i, %._crit_edge.i ], [ %92, %91 ], [ %90, %89 ], [ 3, %77 ], [ %.095.i, %93 ]
+  %.185.ph.i = phi i32 [ %.084.i, %._crit_edge.i ], [ %84, %91 ], [ %84, %89 ], [ %84, %77 ], [ %.084.i, %93 ]
+  %.178.ph.i = phi i32 [ %.077.i, %._crit_edge.i ], [ 1, %91 ], [ 1, %89 ], [ 1, %77 ], [ %.077.i, %93 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not112.i = icmp eq ptr %.192.i, null
   br i1 %.not112.i, label %.loopexit.i, label %36, !llvm.loop !420
@@ -21372,7 +21372,7 @@ InitSuitesHashSigAlgo.exit.i:                     ; preds = %109, %AddSuiteHashS
   br label %ParseCipherList.exit
 
 ParseCipherList.exit:                             ; preds = %InitSuitesHashSigAlgo.exit.i, %.loopexit.i, %.thread140.i, %34, %18, %10
-  %.014 = phi i32 [ 0, %10 ], [ 1, %34 ], [ 0, %18 ], [ 1, %InitSuitesHashSigAlgo.exit.i ], [ 0, %.loopexit.i ], [ 0, %.thread140.i ]
+  %.014 = phi i32 [ 0, %10 ], [ 0, %18 ], [ 1, %34 ], [ 0, %.thread140.i ], [ 1, %InitSuitesHashSigAlgo.exit.i ], [ 0, %.loopexit.i ]
   ret i32 %.014
 }
 
@@ -21573,7 +21573,7 @@ switch.lookup:                                    ; preds = %66
   ]
 
 IsAtLeastTLSv1_2.exit.thread:                     ; preds = %75, %81, %81, %81, %81, %77
-  %82 = phi i8 [ %.mux.mux, %75 ], [ %11, %81 ], [ %11, %81 ], [ %11, %81 ], [ %11, %81 ], [ %11, %77 ]
+  %82 = phi i8 [ %11, %77 ], [ %.mux.mux, %75 ], [ %11, %81 ], [ %11, %81 ], [ %11, %81 ], [ %11, %81 ]
   store i8 %.069, ptr %22, align 1, !tbaa !307
   store i8 %.068, ptr %13, align 8, !tbaa !306
   br label %SupportedHashSigAlgo.exit.thread
@@ -21583,11 +21583,11 @@ IsAtLeastTLSv1_2.exit.thread:                     ; preds = %75, %81, %81, %81, 
   store i8 3, ptr %13, align 8, !tbaa !306
   br label %.loopexit
 
-SupportedHashSigAlgo.exit.thread:                 ; preds = %60, %66, %72, %44, %.preheader.i, %49, %.thread.i, %DecodeSigAlg.exit, %MatchSigAlgo.exit, %switch.lookup, %81, %71, %IsAtLeastTLSv1_2.exit.thread
-  %84 = phi i8 [ %11, %81 ], [ %82, %IsAtLeastTLSv1_2.exit.thread ], [ %28, %71 ], [ %28, %switch.lookup ], [ %28, %MatchSigAlgo.exit ], [ %28, %DecodeSigAlg.exit ], [ %28, %.thread.i ], [ %28, %49 ], [ %28, %.preheader.i ], [ %28, %66 ], [ %28, %44 ], [ %28, %72 ], [ %28, %60 ]
-  %85 = phi i8 [ %29, %81 ], [ %.069, %IsAtLeastTLSv1_2.exit.thread ], [ %29, %71 ], [ %29, %switch.lookup ], [ %29, %MatchSigAlgo.exit ], [ %29, %DecodeSigAlg.exit ], [ %29, %.thread.i ], [ %29, %49 ], [ %29, %.preheader.i ], [ %29, %66 ], [ %29, %44 ], [ %29, %72 ], [ %29, %60 ]
-  %86 = phi i8 [ %30, %81 ], [ %.068, %IsAtLeastTLSv1_2.exit.thread ], [ %30, %71 ], [ %30, %switch.lookup ], [ 1, %MatchSigAlgo.exit ], [ %30, %DecodeSigAlg.exit ], [ %30, %.thread.i ], [ %30, %49 ], [ %30, %.preheader.i ], [ %30, %66 ], [ %30, %44 ], [ %30, %72 ], [ %30, %60 ]
-  %.2.ph = phi i32 [ %.04485, %81 ], [ 0, %IsAtLeastTLSv1_2.exit.thread ], [ %.04485, %71 ], [ %.04485, %switch.lookup ], [ %.04485, %MatchSigAlgo.exit ], [ %.04485, %DecodeSigAlg.exit ], [ %.04485, %.thread.i ], [ %.04485, %49 ], [ %.04485, %.preheader.i ], [ %.04485, %66 ], [ %.04485, %44 ], [ 0, %72 ], [ %.04485, %60 ]
+SupportedHashSigAlgo.exit.thread:                 ; preds = %60, %66, %72, %44, %.preheader.i, %49, %.thread.i, %DecodeSigAlg.exit, %switch.lookup, %MatchSigAlgo.exit, %81, %71, %IsAtLeastTLSv1_2.exit.thread
+  %84 = phi i8 [ %28, %.preheader.i ], [ %11, %81 ], [ %82, %IsAtLeastTLSv1_2.exit.thread ], [ %28, %72 ], [ %28, %71 ], [ %28, %MatchSigAlgo.exit ], [ %28, %switch.lookup ], [ %28, %DecodeSigAlg.exit ], [ %28, %.thread.i ], [ %28, %66 ], [ %28, %49 ], [ %28, %44 ], [ %28, %60 ]
+  %85 = phi i8 [ %29, %.preheader.i ], [ %29, %81 ], [ %.069, %IsAtLeastTLSv1_2.exit.thread ], [ %29, %72 ], [ %29, %71 ], [ %29, %MatchSigAlgo.exit ], [ %29, %switch.lookup ], [ %29, %DecodeSigAlg.exit ], [ %29, %.thread.i ], [ %29, %66 ], [ %29, %49 ], [ %29, %44 ], [ %29, %60 ]
+  %86 = phi i8 [ %30, %.preheader.i ], [ %30, %81 ], [ %.068, %IsAtLeastTLSv1_2.exit.thread ], [ %30, %72 ], [ %30, %71 ], [ %30, %MatchSigAlgo.exit ], [ %30, %switch.lookup ], [ %30, %DecodeSigAlg.exit ], [ %30, %.thread.i ], [ %30, %66 ], [ %30, %49 ], [ %30, %44 ], [ %30, %60 ]
+  %.2.ph = phi i32 [ %.04485, %.preheader.i ], [ %.04485, %81 ], [ 0, %IsAtLeastTLSv1_2.exit.thread ], [ 0, %72 ], [ %.04485, %71 ], [ %.04485, %MatchSigAlgo.exit ], [ %.04485, %switch.lookup ], [ %.04485, %DecodeSigAlg.exit ], [ %.04485, %.thread.i ], [ %.04485, %66 ], [ %.04485, %49 ], [ %.04485, %44 ], [ %.04485, %60 ]
   %87 = add i32 %.04584, 2
   %88 = or disjoint i32 %87, 1
   %89 = icmp ult i32 %88, %2
@@ -21651,7 +21651,7 @@ define internal fastcc range(i32 0, 2) i32 @SupportedHashSigAlgo(ptr noundef rea
   br i1 %23, label %.loopexit, label %19
 
 .loopexit:                                        ; preds = %.lr.ph, %19, %.preheader, %8, %.thread, %2
-  %.014 = phi i32 [ 0, %2 ], [ 0, %.thread ], [ 0, %8 ], [ 0, %.preheader ], [ 1, %.lr.ph ], [ 0, %19 ]
+  %.014 = phi i32 [ 0, %.thread ], [ 0, %2 ], [ 0, %8 ], [ 0, %.preheader ], [ 1, %.lr.ph ], [ 0, %19 ]
   ret i32 %.014
 }
 
@@ -21855,8 +21855,8 @@ AllocKey.exit60:                                  ; preds = %67
   store i32 %94, ptr %1, align 4, !tbaa !49
   br label %AllocKey.exit.thread
 
-AllocKey.exit.thread:                             ; preds = %77, %73, %64, %30, %26, %17, %13, %85, %FreeKey.exit, %42, %38, %7, %2, %AllocKey.exit60, %92, %47
-  %.0 = phi i32 [ 0, %47 ], [ 0, %92 ], [ %83, %AllocKey.exit60 ], [ -317, %2 ], [ -317, %7 ], [ %40, %38 ], [ -409, %42 ], [ %.1, %FreeKey.exit ], [ -410, %85 ], [ %25, %30 ], [ %25, %26 ], [ -125, %17 ], [ -192, %13 ], [ %72, %77 ], [ %72, %73 ], [ -125, %64 ]
+AllocKey.exit.thread:                             ; preds = %64, %77, %73, %17, %30, %13, %26, %85, %FreeKey.exit, %42, %38, %7, %2, %AllocKey.exit60, %92, %47
+  %.0 = phi i32 [ %.1, %FreeKey.exit ], [ -410, %85 ], [ -317, %7 ], [ %40, %38 ], [ 0, %47 ], [ %25, %26 ], [ -409, %42 ], [ 0, %92 ], [ %83, %AllocKey.exit60 ], [ -317, %2 ], [ -125, %17 ], [ %25, %30 ], [ -192, %13 ], [ -125, %64 ], [ %72, %77 ], [ %72, %73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -22175,7 +22175,7 @@ HashOutput.exit:                                  ; preds = %IsEncryptionOn.exit
   br label %.thread170
 
 .thread170:                                       ; preds = %IsEncryptionOn.exit166.thread, %130, %HashOutput.exit, %99, %75, %50, %39, %37, %.thread, %26, %1, %137, %148, %10
-  %.0 = phi i32 [ %11, %10 ], [ %152, %148 ], [ %140, %137 ], [ -173, %1 ], [ -371, %26 ], [ %36, %.thread ], [ %38, %37 ], [ -173, %39 ], [ %53, %50 ], [ %79, %75 ], [ %125, %99 ], [ %147, %HashOutput.exit ], [ -125, %130 ], [ -173, %IsEncryptionOn.exit166.thread ]
+  %.0 = phi i32 [ %125, %99 ], [ %11, %10 ], [ -173, %1 ], [ -371, %26 ], [ %36, %.thread ], [ %38, %37 ], [ -173, %39 ], [ %53, %50 ], [ %79, %75 ], [ %152, %148 ], [ %140, %137 ], [ %147, %HashOutput.exit ], [ -125, %130 ], [ -173, %IsEncryptionOn.exit166.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -22274,8 +22274,8 @@ define range(i32 -326, 1) i32 @CheckVersion(ptr noundef captures(none) %0, i16 %
   br label %40
 
 40:                                               ; preds = %.sink.split, %.thread, %.thread, %.thread, %.thread, %25
-  %41 = phi i8 [ %.sroa.3.0.extract.trunc, %.thread ], [ %.sroa.3.0.extract.trunc, %.thread ], [ %.sroa.3.0.extract.trunc, %.thread ], [ %.sroa.3.0.extract.trunc, %.thread ], [ %26, %25 ], [ %.sroa.3.0.extract.trunc, %.sink.split ]
-  %42 = phi i64 [ %5, %.thread ], [ %5, %.thread ], [ %5, %.thread ], [ %5, %.thread ], [ %5, %25 ], [ %39, %.sink.split ]
+  %41 = phi i8 [ %.sroa.3.0.extract.trunc, %.thread ], [ %26, %25 ], [ %.sroa.3.0.extract.trunc, %.thread ], [ %.sroa.3.0.extract.trunc, %.thread ], [ %.sroa.3.0.extract.trunc, %.thread ], [ %.sroa.3.0.extract.trunc, %.sink.split ]
+  %42 = phi i64 [ %5, %.thread ], [ %5, %25 ], [ %5, %.thread ], [ %5, %.thread ], [ %5, %.thread ], [ %39, %.sink.split ]
   %43 = and i64 %42, 132096
   %or.cond62.not = icmp eq i64 %43, 1024
   br i1 %or.cond62.not, label %44, label %65
@@ -22334,7 +22334,7 @@ define range(i32 -326, 1) i32 @CheckVersion(ptr noundef captures(none) %0, i16 %
   br i1 %.not61, label %thread-pre-split67.thread, label %66
 
 thread-pre-split67.thread:                        ; preds = %54, %.thread65, %55, %59
-  %61 = phi i8 [ 0, %59 ], [ 1, %55 ], [ 2, %.thread65 ], [ %41, %54 ]
+  %61 = phi i8 [ 0, %59 ], [ %41, %54 ], [ 1, %55 ], [ 2, %.thread65 ]
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 1047
   %63 = load i8, ptr %62, align 1, !tbaa !139
   %64 = icmp ult i8 %61, %63
@@ -22344,7 +22344,7 @@ thread-pre-split67.thread:                        ; preds = %54, %.thread65, %55
   br label %66
 
 66:                                               ; preds = %10, %thread-pre-split67.thread, %59, %.thread, %35, %33, %27, %18, %17, %7, %65
-  %.048 = phi i32 [ 0, %65 ], [ -326, %7 ], [ -326, %17 ], [ -326, %18 ], [ -326, %27 ], [ -326, %33 ], [ -326, %35 ], [ -326, %.thread ], [ -326, %59 ], [ -326, %thread-pre-split67.thread ], [ -326, %10 ]
+  %.048 = phi i32 [ -326, %7 ], [ -326, %17 ], [ -326, %27 ], [ -326, %35 ], [ 0, %65 ], [ -326, %.thread ], [ -326, %59 ], [ -326, %18 ], [ -326, %33 ], [ -326, %thread-pre-split67.thread ], [ -326, %10 ]
   ret i32 %.048
 }
 
@@ -22547,7 +22547,7 @@ DSH_CheckSessionId.exit.thread:                   ; preds = %50, %52, %58, %DSH_
   br label %.critedge
 
 .critedge:                                        ; preds = %27, %74, %30, %29, %48, %66, %101, %93
-  %.1 = phi i32 [ %.137, %93 ], [ %102, %101 ], [ -500, %66 ], [ -326, %48 ], [ -326, %29 ], [ -326, %30 ], [ -303, %74 ], [ -326, %27 ]
+  %.1 = phi i32 [ %.137, %93 ], [ -500, %66 ], [ -326, %30 ], [ %102, %101 ], [ -326, %48 ], [ -326, %27 ], [ -326, %29 ], [ -303, %74 ]
   ret i32 %.1
 }
 
@@ -22843,7 +22843,7 @@ define noundef i32 @SendClientKeyExchange(ptr noundef %0) local_unnamed_addr #4 
   %.not262 = icmp eq i32 %152, 0
   br i1 %.not262, label %.thread314, label %.thread
 
-.thread314:                                       ; preds = %138, %94, %146
+.thread314:                                       ; preds = %94, %138, %146
   store i8 2, ptr %18, align 2, !tbaa !277
   br label %155
 
@@ -22968,7 +22968,7 @@ EccSharedSecret.exit:                             ; preds = %203, %219
   br label %RsaEnc.exit
 
 RsaEnc.exit:                                      ; preds = %201, %158, %EccSharedSecret.exit, %223, %227
-  %.5 = phi i32 [ %.0.i289, %227 ], [ %.0.i289, %223 ], [ %.0.i289, %EccSharedSecret.exit ], [ %171, %158 ], [ %202, %201 ]
+  %.5 = phi i32 [ %.0.i289, %EccSharedSecret.exit ], [ %202, %201 ], [ %171, %158 ], [ %.0.i289, %227 ], [ %.0.i289, %223 ]
   %.not266 = icmp eq i32 %.5, 0
   br i1 %.not266, label %229, label %.thread
 
@@ -23041,7 +23041,7 @@ IsEncryptionOn.exit:                              ; preds = %._crit_edge
   br label %IsEncryptionOn.exit.thread
 
 IsEncryptionOn.exit.thread:                       ; preds = %IsEncryptionOn.exit, %._crit_edge, %257
-  %259 = phi i32 [ %258, %257 ], [ %253, %._crit_edge ], [ %253, %IsEncryptionOn.exit ]
+  %259 = phi i32 [ %253, %._crit_edge ], [ %258, %257 ], [ %253, %IsEncryptionOn.exit ]
   %260 = icmp slt i32 %259, 0
   br i1 %260, label %.thread350, label %261
 
@@ -23339,7 +23339,7 @@ HashOutput.exit._crit_edge:                       ; preds = %HashOutput.exit
   br label %.thread
 
 .thread:                                          ; preds = %.thread346, %388, %58, %407, %HashOutput.exit, %RsaEnc.exit, %146, %136, %129, %113, %86, %62
-  %.13 = phi i32 [ %64, %62 ], [ %152, %146 ], [ %.5, %RsaEnc.exit ], [ %398, %HashOutput.exit ], [ %408, %407 ], [ %93, %86 ], [ %115, %113 ], [ %137, %136 ], [ %132, %129 ], [ %61, %58 ], [ %385, %388 ], [ %spec.select411, %.thread346 ]
+  %.13 = phi i32 [ %385, %388 ], [ %115, %113 ], [ %64, %62 ], [ %137, %136 ], [ %132, %129 ], [ %152, %146 ], [ %.5, %RsaEnc.exit ], [ %93, %86 ], [ %398, %HashOutput.exit ], [ %spec.select411, %.thread346 ], [ %408, %407 ], [ %61, %58 ]
   switch i32 %.13, label %.thread350 [
     i32 -108, label %411
     i32 -327, label %411
@@ -23350,8 +23350,8 @@ HashOutput.exit._crit_edge:                       ; preds = %HashOutput.exit
   %.not280 = icmp eq i8 %412, 0
   br i1 %.not280, label %.thread350, label %441
 
-.thread350:                                       ; preds = %IsEncryptionOn.exit300.thread, %360, %IsEncryptionOn.exit.thread, %271, %274, %155, %200, %49, %46, %55, %52, %83, %20, %230, %17, %233, %138, %108, %76, %65, %31, %35, %39, %23, %27, %5, %.thread, %411
-  %.13353 = phi i32 [ %.13, %.thread ], [ %.13, %411 ], [ -374, %230 ], [ -301, %17 ], [ -192, %233 ], [ -354, %138 ], [ -125, %108 ], [ -125, %76 ], [ -125, %65 ], [ -316, %31 ], [ -316, %35 ], [ -316, %39 ], [ -316, %23 ], [ -316, %27 ], [ -125, %5 ], [ -374, %20 ], [ -374, %83 ], [ -173, %IsEncryptionOn.exit300.thread ], [ -125, %360 ], [ -173, %IsEncryptionOn.exit.thread ], [ -125, %271 ], [ -125, %274 ], [ -374, %155 ], [ -342, %200 ], [ -316, %49 ], [ -316, %46 ], [ -316, %55 ], [ -316, %52 ]
+.thread350:                                       ; preds = %IsEncryptionOn.exit300.thread, %274, %271, %IsEncryptionOn.exit.thread, %200, %52, %49, %55, %360, %155, %46, %83, %20, %230, %17, %35, %39, %27, %23, %5, %108, %76, %138, %65, %31, %233, %.thread, %411
+  %.13353 = phi i32 [ %.13, %411 ], [ %.13, %.thread ], [ -374, %230 ], [ -374, %20 ], [ -192, %233 ], [ -301, %17 ], [ -316, %35 ], [ -316, %39 ], [ -316, %27 ], [ -316, %23 ], [ -125, %5 ], [ -125, %108 ], [ -125, %76 ], [ -354, %138 ], [ -125, %65 ], [ -316, %31 ], [ -374, %83 ], [ -173, %IsEncryptionOn.exit300.thread ], [ -125, %274 ], [ -125, %271 ], [ -173, %IsEncryptionOn.exit.thread ], [ -342, %200 ], [ -316, %52 ], [ -316, %49 ], [ -316, %55 ], [ -125, %360 ], [ -374, %155 ], [ -316, %46 ]
   %413 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %414 = load ptr, ptr %413, align 8, !tbaa !163
   %415 = getelementptr inbounds nuw i8, ptr %414, i64 8
@@ -23633,8 +23633,8 @@ switch.lookup:                                    ; preds = %IsAtLeastTLSv1_2.ex
   br label %SetDigest.exit.sink.split
 
 SetDigest.exit.sink.split:                        ; preds = %switch.lookup, %64, %60
-  %.sink20.i.sink = phi i64 [ 196, %60 ], [ 196, %64 ], [ %switch.load, %switch.lookup ]
-  %.sink.i.sink = phi i32 [ 20, %60 ], [ 20, %64 ], [ %switch.load285, %switch.lookup ]
+  %.sink20.i.sink = phi i64 [ 196, %64 ], [ 196, %60 ], [ %switch.load, %switch.lookup ]
+  %.sink.i.sink = phi i32 [ 20, %64 ], [ 20, %60 ], [ %switch.load285, %switch.lookup ]
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %74 = load i64, ptr %73, align 8
   %75 = or i64 %74, 1099511627776
@@ -23690,7 +23690,7 @@ IsAtLeastTLSv1_2.exit202:                         ; preds = %83
   br label %.sink.split
 
 .sink.split:                                      ; preds = %SetDigest.exit, %IsAtLeastTLSv1_2.exit202, %82, %83, %96, %97
-  %.sink = phi i8 [ 11, %97 ], [ 9, %96 ], [ 1, %83 ], [ 1, %82 ], [ 1, %IsAtLeastTLSv1_2.exit202 ], [ 3, %SetDigest.exit ]
+  %.sink = phi i8 [ 1, %IsAtLeastTLSv1_2.exit202 ], [ 11, %97 ], [ 9, %96 ], [ 1, %83 ], [ 1, %82 ], [ 3, %SetDigest.exit ]
   %98 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store i8 %.sink, ptr %98, align 8, !tbaa !440
   br label %99
@@ -24119,12 +24119,12 @@ AddHeaders.exit:                                  ; preds = %296, %316
   br label %340
 
 340:                                              ; preds = %.thread264, %292, %RsaSign.exit, %44, %35
-  %.7 = phi i32 [ %39, %35 ], [ %46, %44 ], [ %.4, %RsaSign.exit ], [ %288, %292 ], [ %339, %.thread264 ]
+  %.7 = phi i32 [ %.4, %RsaSign.exit ], [ %46, %44 ], [ %288, %292 ], [ %339, %.thread264 ], [ %39, %35 ]
   %341 = icmp eq i32 %.7, -327
   br i1 %341, label %360, label %.thread240
 
-.thread240:                                       ; preds = %274, %207, %259, %17, %293, %50, %47, %40, %IsEncryptionOn.exit.thread, %15, %5, %340
-  %.7242 = phi i32 [ %.7, %340 ], [ -125, %259 ], [ -301, %17 ], [ -328, %293 ], [ -125, %50 ], [ -317, %47 ], [ -317, %40 ], [ -125, %IsEncryptionOn.exit.thread ], [ -192, %15 ], [ -125, %5 ], [ -173, %207 ], [ -108, %274 ]
+.thread240:                                       ; preds = %274, %207, %259, %17, %50, %47, %40, %IsEncryptionOn.exit.thread, %15, %293, %5, %340
+  %.7242 = phi i32 [ %.7, %340 ], [ -173, %207 ], [ -125, %259 ], [ -301, %17 ], [ -125, %50 ], [ -317, %47 ], [ -317, %40 ], [ -125, %IsEncryptionOn.exit.thread ], [ -192, %15 ], [ -328, %293 ], [ -125, %5 ], [ -108, %274 ]
   %342 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %343 = load ptr, ptr %342, align 16, !tbaa !202
   %.not198 = icmp eq ptr %343, null
@@ -24170,7 +24170,7 @@ FreeAsyncCtx.exit:                                ; preds = %355, %357, %349
   br label %360
 
 360:                                              ; preds = %340, %20, %FreeAsyncCtx.exit
-  %.0 = phi i32 [ %.7242, %FreeAsyncCtx.exit ], [ 0, %20 ], [ -327, %340 ]
+  %.0 = phi i32 [ 0, %20 ], [ %.7242, %FreeAsyncCtx.exit ], [ -327, %340 ]
   ret i32 %.0
 }
 
@@ -24469,8 +24469,8 @@ AddRecordHeader.exit:                             ; preds = %IsEncryptionOn.exit
   store i8 0, ptr %17, align 8, !tbaa !384
   br label %.thread
 
-.thread:                                          ; preds = %77, %74, %IsEncryptionOn.exit.thread, %CheckAvailableSize.exit, %108, %139, %19, %10, %3, %140
-  %.0 = phi i32 [ 0, %140 ], [ -173, %3 ], [ -173, %10 ], [ %21, %19 ], [ -173, %IsEncryptionOn.exit.thread ], [ -125, %74 ], [ -125, %77 ], [ %109, %108 ], [ -125, %CheckAvailableSize.exit ], [ %.5, %139 ]
+.thread:                                          ; preds = %74, %77, %IsEncryptionOn.exit.thread, %CheckAvailableSize.exit, %108, %139, %19, %10, %3, %140
+  %.0 = phi i32 [ -173, %10 ], [ -173, %3 ], [ %21, %19 ], [ 0, %140 ], [ -173, %IsEncryptionOn.exit.thread ], [ -125, %77 ], [ -125, %74 ], [ %109, %108 ], [ -125, %CheckAvailableSize.exit ], [ %.5, %139 ]
   ret i32 %.0
 }
 
@@ -24496,7 +24496,7 @@ define zeroext range(i16 0, 26) i16 @GetCurveByOID(i32 noundef %0) local_unnamed
   br label %6
 
 6:                                                ; preds = %1, %5, %4, %3, %2
-  %.0 = phi i16 [ 0, %5 ], [ 23, %2 ], [ 24, %3 ], [ 25, %4 ], [ 21, %1 ]
+  %.0 = phi i16 [ 0, %5 ], [ 25, %4 ], [ 23, %2 ], [ 24, %3 ], [ 21, %1 ]
   ret i16 %.0
 }
 
@@ -24534,7 +24534,7 @@ define range(i32 -1, 110) i32 @TranslateErrorToAlert(i32 noundef %0) local_unnam
   br label %7
 
 7:                                                ; preds = %1, %6, %5, %4, %3, %2
-  %.0 = phi i32 [ -1, %6 ], [ 47, %2 ], [ 109, %3 ], [ 40, %4 ], [ 70, %5 ], [ 50, %1 ]
+  %.0 = phi i32 [ -1, %6 ], [ 70, %5 ], [ 47, %2 ], [ 109, %3 ], [ 40, %4 ], [ 50, %1 ]
   ret i32 %.0
 }
 
@@ -24848,7 +24848,7 @@ IsAtLeastTLSv1_2.exit177.sink.split:              ; preds = %124, %121, %144
   br label %IsAtLeastTLSv1_2.exit177
 
 IsAtLeastTLSv1_2.exit177:                         ; preds = %IsAtLeastTLSv1_2.exit177.sink.split, %141, %125, %130, %134
-  %.0136 = phi i32 [ 32, %134 ], [ 32, %130 ], [ 32, %125 ], [ 32, %141 ], [ 24, %IsAtLeastTLSv1_2.exit177.sink.split ]
+  %.0136 = phi i32 [ 32, %130 ], [ 32, %125 ], [ 32, %141 ], [ 32, %134 ], [ 24, %IsAtLeastTLSv1_2.exit177.sink.split ]
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %148 = load ptr, ptr %147, align 8, !tbaa !116
   %149 = getelementptr inbounds nuw i8, ptr %91, i64 11
@@ -24987,7 +24987,7 @@ HashOutput.exit:                                  ; preds = %IsEncryptionOn.exit
   br label %CheckAvailableSize.exit
 
 CheckAvailableSize.exit:                          ; preds = %IsEncryptionOn.exit181.thread, %197, %151, %IsAtLeastTLSv1_2.exit177, %32, %29, %220, %214, %HashOutput.exit, %1, %204, %175
-  %.0 = phi i32 [ %207, %204 ], [ %191, %175 ], [ %9, %1 ], [ %213, %HashOutput.exit ], [ %221, %220 ], [ 0, %214 ], [ -125, %29 ], [ -125, %32 ], [ %158, %151 ], [ %150, %IsAtLeastTLSv1_2.exit177 ], [ -125, %197 ], [ -173, %IsEncryptionOn.exit181.thread ]
+  %.0 = phi i32 [ -125, %197 ], [ %191, %175 ], [ %9, %1 ], [ %213, %HashOutput.exit ], [ %207, %204 ], [ 0, %214 ], [ %221, %220 ], [ -125, %32 ], [ -125, %29 ], [ %150, %IsAtLeastTLSv1_2.exit177 ], [ %158, %151 ], [ -173, %IsEncryptionOn.exit181.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -25634,8 +25634,8 @@ IsAtLeastTLSv1_2.exit495:                         ; preds = %328
   store i32 %332, ptr %290, align 8, !tbaa !447
   br label %IsAtLeastTLSv1_2.exit495.thread
 
-.thread540:                                       ; preds = %306, %316, %318
-  %.12.ph = phi i32 [ 0, %318 ], [ %317, %316 ], [ -317, %306 ]
+.thread540:                                       ; preds = %318, %306, %316
+  %.12.ph = phi i32 [ %317, %316 ], [ -317, %306 ], [ 0, %318 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread517
 
@@ -25904,7 +25904,7 @@ TypeHash.exit512:                                 ; preds = %465, %switch.lookup
   store ptr %464, ptr %466, align 16, !tbaa !202
   br label %.thread559
 
-.thread559:                                       ; preds = %347, %452, %457, %460, %480, %277, %IsAtLeastTLSv1_2.exit492.thread, %235, %111
+.thread559:                                       ; preds = %347, %452, %457, %460, %480, %IsAtLeastTLSv1_2.exit492.thread, %235, %277, %111
   store i8 2, ptr %22, align 2, !tbaa !277
   br label %483
 
@@ -26000,7 +26000,7 @@ TypeHash.exit512:                                 ; preds = %465, %switch.lookup
   br label %549
 
 549:                                              ; preds = %531, %489, %507
-  %.16 = phi i32 [ %506, %489 ], [ %523, %507 ], [ %548, %531 ]
+  %.16 = phi i32 [ %548, %531 ], [ %506, %489 ], [ %523, %507 ]
   %.not475 = icmp eq i32 %.16, 0
   br i1 %.not475, label %.thread563, label %.thread517
 
@@ -26255,13 +26255,13 @@ AddHeaders.exit:                                  ; preds = %661, %677
   store i8 7, ptr %699, align 1, !tbaa !230
   br label %.thread584
 
-.thread517:                                       ; preds = %.thread540, %436, %230, %147, %141, %106, %.thread658, %.thread571, %549, %110, %100, %86, %79, %._crit_edge
-  %.21 = phi i32 [ %67, %._crit_edge ], [ %87, %86 ], [ %.4, %110 ], [ %.16, %549 ], [ %.19, %.thread571 ], [ %697, %.thread658 ], [ %82, %79 ], [ %101, %100 ], [ %108, %106 ], [ %234, %230 ], [ %144, %147 ], [ %138, %141 ], [ %.12.ph, %.thread540 ], [ %451, %436 ]
+.thread517:                                       ; preds = %436, %.thread540, %141, %230, %147, %106, %.thread658, %.thread571, %549, %110, %100, %86, %79, %._crit_edge
+  %.21 = phi i32 [ %101, %100 ], [ %.4, %110 ], [ %.16, %549 ], [ %.19, %.thread571 ], [ %697, %.thread658 ], [ %.12.ph, %.thread540 ], [ %82, %79 ], [ %108, %106 ], [ %67, %._crit_edge ], [ %87, %86 ], [ %138, %141 ], [ %144, %147 ], [ %234, %230 ], [ %451, %436 ]
   %700 = icmp eq i32 %.21, -327
   br i1 %700, label %710, label %.thread584
 
-.thread584:                                       ; preds = %23, %IsEncryptionOn.exit499.thread, %EncodeSigAlg.exit505, %IsAtLeastTLSv1_2.exit492, %114, %121, %125, %133, %IsEncryptionOn.exit.thread, %EncodeSigAlg.exit, %566, %562, %IsAtLeastTLSv1_2.exit510, %698, %18, %26, %33, %29, %41, %56, %486, %553, %659, %20, %630, %626, %.thread517
-  %.21583588 = phi i32 [ %.21, %.thread517 ], [ 0, %698 ], [ -192, %18 ], [ 0, %26 ], [ -319, %33 ], [ -319, %29 ], [ -125, %41 ], [ -125, %56 ], [ -133, %486 ], [ -133, %553 ], [ -328, %659 ], [ -301, %20 ], [ -230, %626 ], [ -125, %630 ], [ -125, %IsAtLeastTLSv1_2.exit510 ], [ -125, %566 ], [ -230, %562 ], [ -125, %IsEncryptionOn.exit499.thread ], [ -133, %EncodeSigAlg.exit505 ], [ -125, %IsAtLeastTLSv1_2.exit492 ], [ -125, %114 ], [ -354, %121 ], [ -317, %125 ], [ -133, %133 ], [ -125, %IsEncryptionOn.exit.thread ], [ -133, %EncodeSigAlg.exit ], [ 0, %23 ]
+.thread584:                                       ; preds = %23, %IsEncryptionOn.exit499.thread, %EncodeSigAlg.exit505, %114, %121, %125, %133, %IsEncryptionOn.exit.thread, %EncodeSigAlg.exit, %IsAtLeastTLSv1_2.exit492, %566, %562, %IsAtLeastTLSv1_2.exit510, %659, %18, %26, %29, %41, %698, %553, %486, %56, %33, %20, %630, %626, %.thread517
+  %.21583588 = phi i32 [ %.21, %.thread517 ], [ -230, %562 ], [ -328, %659 ], [ -192, %18 ], [ 0, %23 ], [ 0, %26 ], [ -319, %29 ], [ -125, %41 ], [ -125, %IsAtLeastTLSv1_2.exit510 ], [ 0, %698 ], [ -133, %553 ], [ -133, %486 ], [ -230, %626 ], [ -125, %56 ], [ -125, %630 ], [ -319, %33 ], [ -301, %20 ], [ -125, %566 ], [ -125, %IsEncryptionOn.exit499.thread ], [ -133, %EncodeSigAlg.exit505 ], [ -125, %114 ], [ -354, %121 ], [ -317, %125 ], [ -133, %133 ], [ -125, %IsEncryptionOn.exit.thread ], [ -133, %EncodeSigAlg.exit ], [ -125, %IsAtLeastTLSv1_2.exit492 ]
   %701 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %702 = load ptr, ptr %701, align 8, !tbaa !452
   %.not483 = icmp eq ptr %702, null
@@ -26290,12 +26290,12 @@ AddHeaders.exit:                                  ; preds = %661, %677
   br label %FreeAsyncCtx.exit
 
 FreeAsyncCtx.exit:                                ; preds = %8, %705, %707, %704
-  %.21583589599 = phi i32 [ %.21583588, %704 ], [ %.21583588, %707 ], [ %.21583588, %705 ], [ -125, %8 ]
+  %.21583589599 = phi i32 [ %.21583588, %705 ], [ %.21583588, %704 ], [ %.21583588, %707 ], [ -125, %8 ]
   tail call void @FreeKeyExchange(ptr noundef nonnull %0)
   br label %710
 
 710:                                              ; preds = %.thread517, %FreeAsyncCtx.exit
-  %.0 = phi i32 [ %.21583589599, %FreeAsyncCtx.exit ], [ -327, %.thread517 ]
+  %.0 = phi i32 [ -327, %.thread517 ], [ %.21583589599, %FreeAsyncCtx.exit ]
   ret i32 %.0
 }
 
@@ -26360,7 +26360,7 @@ define internal fastcc zeroext range(i8 0, 26) i8 @SetCurveId(ptr noundef readon
   br label %GetCurveByOID.exit
 
 GetCurveByOID.exit:                               ; preds = %13, %12, %11, %10, %7, %1, %3
-  %.0 = phi i8 [ 0, %3 ], [ 0, %1 ], [ 0, %13 ], [ 23, %10 ], [ 24, %11 ], [ 25, %12 ], [ 21, %7 ]
+  %.0 = phi i8 [ 0, %1 ], [ 0, %3 ], [ 0, %13 ], [ 25, %12 ], [ 23, %10 ], [ 24, %11 ], [ 21, %7 ]
   ret i8 %.0
 }
 
@@ -26448,7 +26448,7 @@ define internal fastcc i32 @HashSkeData(ptr noundef captures(none) %0, i32 nound
   br label %.critedge
 
 .critedge:                                        ; preds = %4, %34, %9, %7, %48
-  %.4 = phi i32 [ %45, %48 ], [ -125, %7 ], [ -125, %9 ], [ -125, %34 ], [ -328, %4 ]
+  %.4 = phi i32 [ -125, %34 ], [ %45, %48 ], [ -125, %7 ], [ -125, %9 ], [ -328, %4 ]
   ret i32 %.4
 }
 
@@ -26554,7 +26554,7 @@ define range(i32 -501, 1) i32 @MatchSuite_ex(ptr noundef %0, ptr noundef readonl
   br i1 %44, label %.preheader55, label %.loopexit, !llvm.loop !460
 
 .loopexit:                                        ; preds = %._crit_edge, %.lr.ph, %._crit_edge64, %.lr.ph63, %.preheader55.lr.ph, %.preheader53, %16, %11
-  %.0 = phi i32 [ -328, %11 ], [ -371, %16 ], [ -501, %.preheader53 ], [ -501, %.preheader55.lr.ph ], [ %29, %.lr.ph63 ], [ -501, %._crit_edge64 ], [ %40, %.lr.ph ], [ -501, %._crit_edge ]
+  %.0 = phi i32 [ -371, %16 ], [ -328, %11 ], [ %29, %.lr.ph63 ], [ -501, %._crit_edge64 ], [ -501, %.preheader53 ], [ %40, %.lr.ph ], [ -501, %.preheader55.lr.ph ], [ -501, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -26743,8 +26743,8 @@ define internal fastcc range(i32 -501, 1) i32 @CompareSuites(ptr noundef %0, ptr
   store i8 %103, ptr %104, align 1, !tbaa !466
   br label %.thread
 
-.thread:                                          ; preds = %94, %26, %33, %40, %47, %52, %56, %66, %70, %.critedge.i, %97, %100, %98, %7, %18, %101
-  %.1 = phi i32 [ 0, %101 ], [ -501, %18 ], [ -501, %7 ], [ -501, %98 ], [ -501, %100 ], [ -501, %97 ], [ -501, %.critedge.i ], [ -501, %70 ], [ -501, %66 ], [ -501, %56 ], [ -501, %52 ], [ -501, %47 ], [ -501, %40 ], [ -501, %33 ], [ -501, %26 ], [ -501, %94 ]
+.thread:                                          ; preds = %66, %.critedge.i, %26, %33, %40, %47, %52, %56, %94, %70, %98, %97, %100, %7, %18, %101
+  %.1 = phi i32 [ 0, %101 ], [ -501, %7 ], [ -501, %18 ], [ -501, %100 ], [ -501, %97 ], [ -501, %98 ], [ -501, %70 ], [ -501, %94 ], [ -501, %56 ], [ -501, %52 ], [ -501, %47 ], [ -501, %40 ], [ -501, %33 ], [ -501, %26 ], [ -501, %.critedge.i ], [ -501, %66 ]
   ret i32 %.1
 }
 
@@ -26828,7 +26828,7 @@ define i32 @MatchSuite(ptr noundef %0, ptr noundef readonly captures(none) %1) l
   br label %48
 
 48:                                               ; preds = %43, %26, %17, %7, %2, %47, %30
-  %.026 = phi i32 [ %31, %30 ], [ 0, %47 ], [ %6, %2 ], [ %16, %7 ], [ %22, %17 ], [ -425, %26 ], [ %46, %43 ]
+  %.026 = phi i32 [ 0, %47 ], [ %6, %2 ], [ %16, %7 ], [ %22, %17 ], [ %31, %30 ], [ -425, %26 ], [ %46, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.026
 }
@@ -27026,7 +27026,7 @@ define i32 @HandleTlsResumption(ptr noundef %0, ptr noundef readonly captures(no
   br label %.thread
 
 .thread:                                          ; preds = %._crit_edge, %72, %63, %.critedge, %47, %20, %44, %46, %97, %.critedge.thread69, %7
-  %.052 = phi i32 [ 0, %7 ], [ 0, %20 ], [ 0, %46 ], [ 0, %44 ], [ %spec.select, %47 ], [ %.6, %97 ], [ %85, %.critedge.thread69 ], [ %79, %.critedge ], [ %70, %63 ], [ -500, %72 ], [ -500, %._crit_edge ]
+  %.052 = phi i32 [ 0, %7 ], [ 0, %20 ], [ %85, %.critedge.thread69 ], [ %spec.select, %47 ], [ 0, %46 ], [ 0, %44 ], [ %.6, %97 ], [ %79, %.critedge ], [ %70, %63 ], [ -500, %72 ], [ -500, %._crit_edge ]
   ret i32 %.052
 }
 
@@ -27123,7 +27123,7 @@ RetrySendAlert.exit.i17:                          ; preds = %25
   br label %SendAlert.exit
 
 SendAlert.exit:                                   ; preds = %32, %35, %34, %23, %22, %19, %1, %3, %5, %8
-  %.010 = phi i32 [ 0, %8 ], [ 0, %5 ], [ 0, %3 ], [ 0, %1 ], [ %24, %23 ], [ %18, %22 ], [ %18, %19 ], [ -313, %34 ], [ -313, %35 ], [ -313, %32 ]
+  %.010 = phi i32 [ %18, %19 ], [ 0, %8 ], [ 0, %1 ], [ 0, %5 ], [ 0, %3 ], [ %24, %23 ], [ %18, %22 ], [ -313, %32 ], [ -313, %34 ], [ -313, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.010
 }
@@ -27333,7 +27333,7 @@ HashOutput.exit:                                  ; preds = %IsEncryptionOn.exit
   br label %CheckAvailableSize.exit
 
 CheckAvailableSize.exit:                          ; preds = %IsEncryptionOn.exit62.thread, %80, %19, %16, %HashOutput.exit, %87, %96
-  %.0 = phi i32 [ %100, %96 ], [ %89, %87 ], [ %95, %HashOutput.exit ], [ -125, %16 ], [ -125, %19 ], [ -125, %80 ], [ -173, %IsEncryptionOn.exit62.thread ]
+  %.0 = phi i32 [ %95, %HashOutput.exit ], [ %100, %96 ], [ %89, %87 ], [ -125, %19 ], [ -125, %16 ], [ -125, %80 ], [ -173, %IsEncryptionOn.exit62.thread ]
   ret i32 %.0
 }
 
@@ -27497,8 +27497,8 @@ define internal fastcc range(i32 -376, 1) i32 @GetInputData(ptr noundef %0, i32 
 .thread61.loopexit:                               ; preds = %.lr.ph.i
   br label %.thread61
 
-.thread61:                                        ; preds = %38, %.loopexit, %73, %63, %61, %56, %55, %.lr.ph.i, %.thread61.loopexit, %66, %69, %21, %17, %6, %2
-  %.0 = phi i32 [ -323, %2 ], [ -328, %6 ], [ 0, %17 ], [ -125, %21 ], [ -308, %69 ], [ -308, %66 ], [ -308, %.thread61.loopexit ], [ -323, %.lr.ph.i ], [ -323, %55 ], [ -323, %56 ], [ -323, %61 ], [ -323, %63 ], [ -308, %38 ], [ -376, %.loopexit ], [ 0, %73 ]
+.thread61:                                        ; preds = %38, %.loopexit, %73, %55, %61, %56, %63, %.lr.ph.i, %.thread61.loopexit, %66, %69, %21, %17, %6, %2
+  %.0 = phi i32 [ -308, %66 ], [ -323, %2 ], [ -328, %6 ], [ 0, %17 ], [ -125, %21 ], [ -308, %.thread61.loopexit ], [ -308, %69 ], [ -323, %55 ], [ -323, %.lr.ph.i ], [ -323, %63 ], [ -323, %56 ], [ -323, %61 ], [ -308, %38 ], [ 0, %73 ], [ -376, %.loopexit ]
   ret i32 %.0
 }
 
@@ -27684,7 +27684,7 @@ writeAeadAuthData.exit.i:                         ; preds = %54, %47, %35
   br label %DecryptDo.exit
 
 DecryptDo.exit:                                   ; preds = %28, %30, %writeAeadAuthData.exit.i, %110
-  %.0.i = phi i32 [ %34, %30 ], [ %109, %writeAeadAuthData.exit.i ], [ %111, %110 ], [ -312, %28 ]
+  %.0.i = phi i32 [ %111, %110 ], [ %34, %30 ], [ %109, %writeAeadAuthData.exit.i ], [ -312, %28 ]
   %112 = load i8, ptr %10, align 2, !tbaa !372
   %.off = add i8 %112, -7
   %switch = icmp ult i8 %.off, 2
@@ -27755,12 +27755,12 @@ ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.prehe
   br label %131
 
 131:                                              ; preds = %DecryptDo.exit, %ForceZero.exit
-  %.1 = phi i32 [ %spec.store.select, %ForceZero.exit ], [ %.0.i, %DecryptDo.exit ]
+  %.1 = phi i32 [ %.0.i, %DecryptDo.exit ], [ %spec.store.select, %ForceZero.exit ]
   store i8 0, ptr %5, align 16, !tbaa !179
   br label %132
 
 132:                                              ; preds = %24, %.thread, %4, %131
-  %.025 = phi i32 [ %.1, %131 ], [ -312, %4 ], [ -125, %24 ], [ -125, %.thread ]
+  %.025 = phi i32 [ %.1, %131 ], [ -312, %4 ], [ -125, %.thread ], [ -125, %24 ]
   ret i32 %.025
 }
 

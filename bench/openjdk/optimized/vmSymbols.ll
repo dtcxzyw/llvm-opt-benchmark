@@ -314,7 +314,7 @@ define hidden noundef i32 @_ZN9vmSymbols8find_sidEPK6Symbol(ptr noundef readnone
   br i1 %.not, label %.loopexit, label %16, !llvm.loop !10
 
 .loopexit:                                        ; preds = %25, %13, %6, %24
-  %.027 = phi i32 [ %19, %24 ], [ %spec.select, %6 ], [ %spec.select34, %13 ], [ 0, %25 ]
+  %.027 = phi i32 [ %spec.select34, %13 ], [ %19, %24 ], [ %spec.select, %6 ], [ 0, %25 ]
   ret i32 %.027
 }
 
@@ -388,7 +388,7 @@ define hidden noundef i32 @_ZN9vmSymbols8find_sidEPKc(ptr noundef %0) local_unna
   br i1 %.not.i, label %_ZN9vmSymbols8find_sidEPK6Symbol.exit, label %22, !llvm.loop !10
 
 _ZN9vmSymbols8find_sidEPK6Symbol.exit:            ; preds = %31, %30, %19, %12, %1
-  %.0 = phi i32 [ 0, %1 ], [ %25, %30 ], [ %spec.select.i, %12 ], [ %spec.select34.i, %19 ], [ 0, %31 ]
+  %.0 = phi i32 [ 0, %1 ], [ %spec.select34.i, %19 ], [ %25, %30 ], [ %spec.select.i, %12 ], [ 0, %31 ]
   ret i32 %.0
 }
 

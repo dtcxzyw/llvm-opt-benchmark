@@ -58,8 +58,8 @@ define ptr @Inter_ManUnrollFrames(ptr noundef readonly captures(none) %0, i32 no
   %31 = icmp slt i32 %30, %.val66
   br i1 %31, label %21, label %.critedge.preheader, !llvm.loop !29
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %.critedge8
-  %.0103 = phi i32 [ 0, %.preheader.lr.ph ], [ %124, %.critedge8 ]
+.preheader:                                       ; preds = %.preheader.lr.ph, %.critedge
+  %.0102 = phi i32 [ 0, %.preheader.lr.ph ], [ %124, %.critedge ]
   %.val7091 = load i32, ptr %16, align 4, !tbaa !25
   %32 = icmp sgt i32 %.val7091, 0
   br i1 %32, label %.lr.ph93, label %.critedge2.preheader
@@ -90,14 +90,14 @@ define ptr @Inter_ManUnrollFrames(ptr noundef readonly captures(none) %0, i32 no
 .critedge4.preheader:                             ; preds = %.critedge2, %.critedge2.preheader
   %.val6797 = load i32, ptr %11, align 8, !tbaa !23
   %44 = icmp sgt i32 %.val6797, 0
-  br i1 %44, label %.lr.ph99, label %.critedge8
+  br i1 %44, label %.lr.ph99, label %.critedge
 
 .lr.ph96:                                         ; preds = %.critedge2.preheader, %.critedge2
   %45 = phi ptr [ %82, %.critedge2 ], [ %33, %.critedge2.preheader ]
-  %indvars.iv106 = phi i64 [ %indvars.iv.next107, %.critedge2 ], [ 0, %.critedge2.preheader ]
+  %indvars.iv104 = phi i64 [ %indvars.iv.next105, %.critedge2 ], [ 0, %.critedge2.preheader ]
   %46 = getelementptr i8, ptr %45, i64 8
   %.val73 = load ptr, ptr %46, align 8, !tbaa !26
-  %47 = getelementptr inbounds nuw ptr, ptr %.val73, i64 %indvars.iv106
+  %47 = getelementptr inbounds nuw ptr, ptr %.val73, i64 %indvars.iv104
   %48 = load ptr, ptr %47, align 8, !tbaa !28
   %49 = icmp eq ptr %48, null
   br i1 %49, label %.critedge2, label %50
@@ -158,16 +158,16 @@ Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.e
 
 .critedge2:                                       ; preds = %Aig_ObjChild1Copy.exit, %50, %.lr.ph96
   %82 = phi ptr [ %.pre, %Aig_ObjChild1Copy.exit ], [ %45, %50 ], [ %45, %.lr.ph96 ]
-  %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
+  %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %83 = getelementptr i8, ptr %82, i64 4
   %.val75 = load i32, ptr %83, align 4, !tbaa !32
   %84 = sext i32 %.val75 to i64
-  %85 = icmp slt i64 %indvars.iv.next107, %84
+  %85 = icmp slt i64 %indvars.iv.next105, %84
   br i1 %85, label %.lr.ph96, label %.critedge4.preheader, !llvm.loop !36
 
 .critedge6.preheader:                             ; preds = %Aig_ObjChild0Copy.exit87
   %86 = icmp sgt i32 %.val67, 0
-  br i1 %86, label %.critedge6, label %.critedge8
+  br i1 %86, label %.critedge8, label %.critedge
 
 .lr.ph99:                                         ; preds = %.critedge4.preheader, %Aig_ObjChild0Copy.exit87
   %.398 = phi i32 [ %106, %Aig_ObjChild0Copy.exit87 ], [ 0, %.critedge4.preheader ]
@@ -205,8 +205,8 @@ Aig_ObjChild0Copy.exit87:                         ; preds = %.lr.ph99, %96
   %107 = icmp slt i32 %106, %.val67
   br i1 %107, label %.lr.ph99, label %.critedge6.preheader, !llvm.loop !39
 
-.critedge6:                                       ; preds = %.critedge6.preheader, %.critedge6
-  %.4101 = phi i32 [ %122, %.critedge6 ], [ 0, %.critedge6.preheader ]
+.critedge8:                                       ; preds = %.critedge6.preheader, %.critedge8
+  %.4101 = phi i32 [ %122, %.critedge8 ], [ 0, %.critedge6.preheader ]
   %.val81 = load ptr, ptr %19, align 8, !tbaa !37
   %.val82 = load i32, ptr %20, align 8, !tbaa !38
   %108 = getelementptr i8, ptr %.val81, i64 8
@@ -231,14 +231,14 @@ Aig_ObjChild0Copy.exit87:                         ; preds = %.lr.ph99, %96
   %122 = add nuw nsw i32 %.4101, 1
   %.val68 = load i32, ptr %11, align 8, !tbaa !23
   %123 = icmp slt i32 %122, %.val68
-  br i1 %123, label %.critedge6, label %.critedge8, !llvm.loop !40
+  br i1 %123, label %.critedge8, label %.critedge, !llvm.loop !40
 
-.critedge8:                                       ; preds = %.critedge6, %.critedge4.preheader, %.critedge6.preheader
-  %124 = add nuw nsw i32 %.0103, 1
+.critedge:                                        ; preds = %.critedge8, %.critedge4.preheader, %.critedge6.preheader
+  %124 = add nuw nsw i32 %.0102, 1
   %exitcond.not = icmp eq i32 %124, %1
   br i1 %exitcond.not, label %.critedge._crit_edge, label %.preheader, !llvm.loop !41
 
-.critedge._crit_edge:                             ; preds = %.critedge8, %.critedge.preheader
+.critedge._crit_edge:                             ; preds = %.critedge, %.critedge.preheader
   %125 = tail call i32 @Aig_ManCleanup(ptr noundef %7) #7
   ret ptr %7
 }

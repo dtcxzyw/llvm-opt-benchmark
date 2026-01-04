@@ -796,7 +796,7 @@ define hidden void @zif_opcache_get_status(ptr noundef readonly captures(none) %
   store i32 2, ptr %25, align 8, !tbaa !40
   br label %336
 
-26:                                               ; preds = %15, %13, %23
+26:                                               ; preds = %13, %15, %23
   %27 = load i8, ptr @accel_startup_ok, align 1, !tbaa !22, !range !20, !noundef !21
   %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %31, label %29
@@ -1419,7 +1419,7 @@ define hidden void @zif_opcache_get_configuration(ptr noundef readonly captures(
   store i32 2, ptr %20, align 8, !tbaa !40
   br label %115
 
-21:                                               ; preds = %10, %.critedge, %18
+21:                                               ; preds = %.critedge, %10, %18
   %22 = tail call ptr @_zend_new_array_0() #12
   store ptr %22, ptr %1, align 8, !tbaa !40
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1648,7 +1648,7 @@ define hidden void @zif_opcache_reset(ptr noundef readonly captures(none) %0, pt
   store i32 2, ptr %17, align 8, !tbaa !40
   br label %32
 
-18:                                               ; preds = %7, %.critedge, %15
+18:                                               ; preds = %.critedge, %7, %15
   %19 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 1), align 1, !tbaa !4, !range !20, !noundef !21
   %20 = trunc nuw i8 %19 to i1
   %21 = load i8, ptr @accel_startup_ok, align 1, !range !20
@@ -1731,7 +1731,7 @@ define hidden void @zif_opcache_invalidate(ptr noundef readonly captures(none) %
   store i32 2, ptr %21, align 8, !tbaa !40
   br label %31
 
-22:                                               ; preds = %11, %9, %19
+22:                                               ; preds = %9, %11, %19
   %23 = load ptr, ptr %3, align 8, !tbaa !123
   %24 = load i8, ptr %4, align 1, !tbaa !22, !range !20, !noundef !21
   %25 = trunc nuw i8 %24 to i1
@@ -1964,7 +1964,7 @@ zend_parse_arg_str_ex.exit:                       ; preds = %7
   store i32 2, ptr %26, align 8, !tbaa !40
   br label %49
 
-27:                                               ; preds = %16, %.critedge, %24
+27:                                               ; preds = %.critedge, %16, %24
   %28 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 3), align 1, !tbaa !42, !range !20, !noundef !21
   %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %32, label %30
@@ -2084,7 +2084,7 @@ define internal fastcc range(i32 0, 2) i32 @accel_file_in_cache(ptr noundef read
   br label %filename_is_in_cache.exit
 
 filename_is_in_cache.exit:                        ; preds = %28, %25, %21, %17, %15, %1, %6, %10
-  %.1 = phi i32 [ 0, %10 ], [ 0, %6 ], [ 0, %1 ], [ 0, %17 ], [ 0, %21 ], [ 0, %15 ], [ 1, %25 ], [ %31, %28 ]
+  %.1 = phi i32 [ 0, %1 ], [ 0, %10 ], [ 0, %6 ], [ 0, %17 ], [ 0, %21 ], [ 0, %15 ], [ 1, %25 ], [ %31, %28 ]
   ret i32 %.1
 }
 

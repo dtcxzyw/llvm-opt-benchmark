@@ -2072,7 +2072,7 @@ _Z16btNormalizeAnglef.exit33:                     ; preds = %47, %49, %51
   br label %57
 
 57:                                               ; preds = %31, %3, %_Z16btNormalizeAnglef.exit33, %_Z16btNormalizeAnglef.exit29
-  %.0 = phi float [ %30, %_Z16btNormalizeAnglef.exit29 ], [ %56, %_Z16btNormalizeAnglef.exit33 ], [ %0, %3 ], [ %0, %31 ]
+  %.0 = phi float [ %0, %3 ], [ %30, %_Z16btNormalizeAnglef.exit29 ], [ %56, %_Z16btNormalizeAnglef.exit33 ], [ %0, %31 ]
   ret float %.0
 }
 
@@ -2509,7 +2509,7 @@ define dso_local noundef i32 @_ZN30btGeneric6DofSpring2Constraint15setLinearLimi
   br label %184
 
 ._crit_edge:                                      ; preds = %64, %71, %69
-  %75 = phi i8 [ 0, %71 ], [ 1, %69 ], [ %68, %64 ]
+  %75 = phi i8 [ 1, %69 ], [ 0, %71 ], [ %68, %64 ]
   %76 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv
   %77 = load float, ptr %76, align 4, !tbaa !10
   store float %77, ptr %13, align 4, !tbaa !18
@@ -2662,7 +2662,7 @@ define dso_local noundef i32 @_ZN30btGeneric6DofSpring2Constraint15setLinearLimi
   br label %.thread
 
 .thread:                                          ; preds = %144, %132, %132, %.thread.fold.split, %154, %149
-  %159 = phi i1 [ true, %132 ], [ true, %149 ], [ %158, %154 ], [ true, %132 ], [ %or.cond83, %144 ], [ false, %.thread.fold.split ]
+  %159 = phi i1 [ %158, %154 ], [ false, %.thread.fold.split ], [ true, %132 ], [ true, %132 ], [ %or.cond83, %144 ], [ true, %149 ]
   %160 = and i64 %138, 4294967295
   %161 = select i1 %.cmp90, i64 2, i64 %160
   %162 = getelementptr inbounds nuw %class.btRotationalLimitMotor2, ptr %62, i64 %161
@@ -2698,14 +2698,14 @@ define dso_local noundef i32 @_ZN30btGeneric6DofSpring2Constraint15setLinearLimi
   br label %180
 
 180:                                              ; preds = %.thread, %.thread, %175, %170, %165
-  %181 = phi i1 [ true, %165 ], [ true, %.thread ], [ true, %170 ], [ %179, %175 ], [ true, %.thread ]
+  %181 = phi i1 [ %179, %175 ], [ true, %165 ], [ true, %.thread ], [ true, %.thread ], [ true, %170 ]
   %or.cond = select i1 %159, i1 %181, i1 false
   %not.or.cond = xor i1 %or.cond, true
   %spec.select = zext i1 %not.or.cond to i32
   br label %.split71
 
 .split71:                                         ; preds = %180, %165, %.thread
-  %.sink = phi i32 [ 1, %.thread ], [ 1, %165 ], [ %spec.select, %180 ]
+  %.sink = phi i32 [ %spec.select, %180 ], [ 1, %.thread ], [ 1, %165 ]
   %182 = call noundef i32 @_ZN30btGeneric6DofSpring2Constraint21get_limit_motor_info2EP23btRotationalLimitMotor2RK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_ii(ptr noundef nonnull align 8 dereferenceable(1484) %0, ptr noundef nonnull %10, ptr noundef nonnull align 4 dereferenceable(64) %3, ptr noundef nonnull align 4 dereferenceable(64) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef %1, i32 noundef %.092, ptr noundef nonnull align 4 dereferenceable(16) %11, i32 noundef 0, i32 noundef %.sink)
   %183 = add nsw i32 %182, %.092
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -2808,8 +2808,8 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN30btGeneric6DofSpring2Constrain
   br label %73
 
 73:                                               ; preds = %.sink.split, %67, %59, %65, %57
-  %74 = phi float [ 0.000000e+00, %65 ], [ 0x47EFFFFFE0000000, %57 ], [ 0x47EFFFFFE0000000, %59 ], [ 0.000000e+00, %67 ], [ %.ph, %.sink.split ]
-  %75 = phi float [ 0xC7EFFFFFE0000000, %65 ], [ 0.000000e+00, %57 ], [ 0.000000e+00, %59 ], [ 0xC7EFFFFFE0000000, %67 ], [ %.ph493, %.sink.split ]
+  %74 = phi float [ 0.000000e+00, %65 ], [ 0x47EFFFFFE0000000, %59 ], [ 0x47EFFFFFE0000000, %57 ], [ 0.000000e+00, %67 ], [ %.ph, %.sink.split ]
+  %75 = phi float [ 0xC7EFFFFFE0000000, %65 ], [ 0.000000e+00, %59 ], [ 0.000000e+00, %57 ], [ 0xC7EFFFFFE0000000, %67 ], [ %.ph493, %.sink.split ]
   %76 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %77 = load ptr, ptr %76, align 8, !tbaa !114
   %78 = getelementptr inbounds float, ptr %77, i64 %52
@@ -2875,8 +2875,8 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN30btGeneric6DofSpring2Constrain
   br label %118
 
 118:                                              ; preds = %.sink.split495, %112, %104, %110, %102
-  %119 = phi float [ 0x47EFFFFFE0000000, %110 ], [ 0.000000e+00, %102 ], [ 0.000000e+00, %104 ], [ 0x47EFFFFFE0000000, %112 ], [ %.ph496, %.sink.split495 ]
-  %120 = phi float [ 0.000000e+00, %110 ], [ 0xC7EFFFFFE0000000, %102 ], [ 0xC7EFFFFFE0000000, %104 ], [ 0.000000e+00, %112 ], [ %.ph497, %.sink.split495 ]
+  %119 = phi float [ 0x47EFFFFFE0000000, %110 ], [ 0.000000e+00, %104 ], [ 0.000000e+00, %102 ], [ 0x47EFFFFFE0000000, %112 ], [ %.ph496, %.sink.split495 ]
+  %120 = phi float [ 0.000000e+00, %110 ], [ 0xC7EFFFFFE0000000, %104 ], [ 0xC7EFFFFFE0000000, %102 ], [ 0.000000e+00, %112 ], [ %.ph497, %.sink.split495 ]
   %121 = load ptr, ptr %76, align 8, !tbaa !114
   %122 = getelementptr inbounds float, ptr %121, i64 %97
   store float %120, ptr %122, align 4, !tbaa !10
@@ -3388,11 +3388,11 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN30btGeneric6DofSpring2Constrain
   br label %535
 
 535:                                              ; preds = %.thread, %500, %502
-  %536 = phi float [ %428, %502 ], [ %428, %500 ], [ %395, %.thread ]
-  %537 = phi float [ %423, %502 ], [ %423, %500 ], [ %390, %.thread ]
-  %.0366452 = phi float [ %419, %502 ], [ %419, %500 ], [ %386, %.thread ]
-  %.0363 = phi float [ %.1364, %502 ], [ %.1364, %500 ], [ %391, %.thread ]
-  %.0361 = phi float [ %534, %502 ], [ %429, %500 ], [ %396, %.thread ]
+  %536 = phi float [ %395, %.thread ], [ %428, %502 ], [ %428, %500 ]
+  %537 = phi float [ %390, %.thread ], [ %423, %502 ], [ %423, %500 ]
+  %.0366452 = phi float [ %386, %.thread ], [ %419, %502 ], [ %419, %500 ]
+  %.0363 = phi float [ %391, %.thread ], [ %.1364, %502 ], [ %.1364, %500 ]
+  %.0361 = phi float [ %396, %.thread ], [ %534, %502 ], [ %429, %500 ]
   %538 = fcmp oeq float %537, 0.000000e+00
   br i1 %538, label %545, label %539
 

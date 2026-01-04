@@ -369,7 +369,7 @@ define internal fastcc ptr @_build_license_list(ptr noundef %0, ptr noundef capt
   br label %55
 
 55:                                               ; preds = %.critedge, %54, %53, %2, %7
-  %.044 = phi ptr [ null, %7 ], [ null, %2 ], [ %11, %.critedge ], [ null, %54 ], [ null, %53 ]
+  %.044 = phi ptr [ null, %2 ], [ null, %7 ], [ %11, %.critedge ], [ null, %54 ], [ null, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -543,8 +543,8 @@ define dso_local noundef i32 @license_update(ptr noundef %0) local_unnamed_addr 
   br label %.outer
 
 .outer:                                           ; preds = %.split.us.thread, %.split.us
-  %.us-phi70 = phi ptr [ %21, %.split.us ], [ %32, %.split.us.thread ]
-  %.1 = phi ptr [ %37, %.split.us ], [ %.028.ph50, %.split.us.thread ]
+  %.us-phi70 = phi ptr [ %32, %.split.us.thread ], [ %21, %.split.us ]
+  %.1 = phi ptr [ %.028.ph50, %.split.us.thread ], [ %37, %.split.us ]
   %38 = getelementptr inbounds nuw i8, ptr %.us-phi70, i64 12
   store i32 0, ptr %38, align 4
   tail call void @list_append(ptr noundef %.1, ptr noundef nonnull %.us-phi70) #11
@@ -594,7 +594,7 @@ define dso_local noundef i32 @license_update(ptr noundef %0) local_unnamed_addr 
   br i1 %.not36, label %.outer._crit_edge, label %.lr.ph.split, !llvm.loop !15
 
 .outer._crit_edge:                                ; preds = %.outer, %60, %30, %17
-  %.028.ph.lcssa = phi ptr [ %.fr, %17 ], [ null, %30 ], [ %.028.ph50, %60 ], [ %.1, %.outer ]
+  %.028.ph.lcssa = phi ptr [ null, %30 ], [ %.fr, %17 ], [ %.028.ph50, %60 ], [ %.1, %.outer ]
   tail call void @list_iterator_destroy(ptr noundef %18) #11
   %62 = load ptr, ptr @cluster_license_list, align 8
   %.not37 = icmp eq ptr %62, null
@@ -1892,8 +1892,8 @@ define internal range(i32 -1, 1) i32 @_foreach_license_job_test(ptr noundef %0, 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %64, %67, %70, %46, %49, %52, %34, %37, %13, %20
-  %.sink = phi i32 [ -1, %20 ], [ -1, %13 ], [ -1, %37 ], [ -1, %34 ], [ 11, %52 ], [ 11, %49 ], [ 11, %46 ], [ 11, %70 ], [ 11, %67 ], [ 11, %64 ]
-  %.0.ph = phi i32 [ -1, %20 ], [ -1, %13 ], [ -1, %37 ], [ -1, %34 ], [ 0, %52 ], [ 0, %49 ], [ 0, %46 ], [ 0, %70 ], [ 0, %67 ], [ 0, %64 ]
+  %.sink = phi i32 [ -1, %34 ], [ 11, %46 ], [ -1, %13 ], [ -1, %20 ], [ -1, %37 ], [ 11, %52 ], [ 11, %49 ], [ 11, %70 ], [ 11, %67 ], [ 11, %64 ]
+  %.0.ph = phi i32 [ -1, %34 ], [ 0, %46 ], [ -1, %13 ], [ -1, %20 ], [ -1, %37 ], [ 0, %52 ], [ 0, %49 ], [ 0, %70 ], [ 0, %67 ], [ 0, %64 ]
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %.sink, ptr %71, align 8
   br label %72
@@ -2802,7 +2802,7 @@ define dso_local void @slurm_bf_licenses_deduct(ptr noundef %0, ptr noundef read
   br label %40
 
 25:                                               ; preds = %.critedge.thread, %11
-  %.0 = phi i32 [ %14, %11 ], [ %.1.ph, %.critedge.thread ]
+  %.0 = phi i32 [ %.1.ph, %.critedge.thread ], [ %14, %11 ]
   %26 = load ptr, ptr %12, align 8
   %27 = call ptr @list_find_first(ptr noundef %0, ptr noundef nonnull @_bf_licenses_find_rec, ptr noundef %26) #11
   %.not41 = icmp eq ptr %27, null
@@ -2880,7 +2880,7 @@ define internal range(i32 0, 2) i32 @_bf_licenses_find_rec(ptr noundef readonly 
   br label %8
 
 8:                                                ; preds = %5, %2
-  %.0 = phi i32 [ 0, %2 ], [ %., %5 ]
+  %.0 = phi i32 [ %., %5 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -3013,7 +3013,7 @@ define dso_local noundef zeroext i1 @slurm_bf_licenses_avail(ptr noundef %0, ptr
   br label %31
 
 24:                                               ; preds = %.critedge.thread, %11
-  %.0 = phi i32 [ %14, %11 ], [ %.1.ph, %.critedge.thread ]
+  %.0 = phi i32 [ %.1.ph, %.critedge.thread ], [ %14, %11 ]
   %25 = load ptr, ptr %12, align 8
   %26 = call ptr @list_find_first(ptr noundef %0, ptr noundef nonnull @_bf_licenses_find_rec, ptr noundef %25) #11
   %.not39 = icmp eq ptr %26, null

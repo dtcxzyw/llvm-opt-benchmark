@@ -2935,7 +2935,7 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
   br label %93
 
 93:                                               ; preds = %85, %._crit_edge.i.i.i.i.us
-  %.072.i.i.i.i.us = phi <2 x double> [ %92, %85 ], [ %84, %._crit_edge.i.i.i.i.us ]
+  %.072.i.i.i.i.us = phi <2 x double> [ %84, %._crit_edge.i.i.i.i.us ], [ %92, %85 ]
   %shift = shufflevector <2 x double> %.072.i.i.i.i.us, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %foldExtExtBinop = fadd <2 x double> %.072.i.i.i.i.us, %shift
   %94 = extractelement <2 x double> %foldExtExtBinop, i64 0
@@ -3217,7 +3217,7 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
   br label %93
 
 93:                                               ; preds = %85, %._crit_edge.i.i.i.i.us
-  %.072.i.i.i.i.us = phi <2 x double> [ %92, %85 ], [ %84, %._crit_edge.i.i.i.i.us ]
+  %.072.i.i.i.i.us = phi <2 x double> [ %84, %._crit_edge.i.i.i.i.us ], [ %92, %85 ]
   %shift = shufflevector <2 x double> %.072.i.i.i.i.us, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %foldExtExtBinop = fadd <2 x double> %.072.i.i.i.i.us, %shift
   %94 = extractelement <2 x double> %foldExtExtBinop, i64 0
@@ -18522,9 +18522,9 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
   br label %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEESA_EEE11squaredNormEv.exit54
 
 _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEESA_EEE11squaredNormEv.exit54: ; preds = %.lr.ph85.i.i.i.i41, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEESA_EEE11squaredNormEv.exit31, %188, %199
-  %223 = phi i64 [ %145, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEESA_EEE11squaredNormEv.exit31 ], [ %217, %199 ], [ %147, %188 ], [ %147, %.lr.ph85.i.i.i.i41 ]
-  %224 = phi ptr [ %144, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEESA_EEE11squaredNormEv.exit31 ], [ %208, %199 ], [ %85, %188 ], [ %85, %.lr.ph85.i.i.i.i41 ]
-  %.0.i.i40 = phi double [ 0.000000e+00, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEESA_EEE11squaredNormEv.exit31 ], [ %222, %199 ], [ %189, %188 ], [ %197, %.lr.ph85.i.i.i.i41 ]
+  %223 = phi i64 [ %145, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEESA_EEE11squaredNormEv.exit31 ], [ %147, %188 ], [ %217, %199 ], [ %147, %.lr.ph85.i.i.i.i41 ]
+  %224 = phi ptr [ %144, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEESA_EEE11squaredNormEv.exit31 ], [ %85, %188 ], [ %208, %199 ], [ %85, %.lr.ph85.i.i.i.i41 ]
+  %.0.i.i40 = phi double [ 0.000000e+00, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEESA_EEE11squaredNormEv.exit31 ], [ %189, %188 ], [ %222, %199 ], [ %197, %.lr.ph85.i.i.i.i41 ]
   %.idx129 = shl i64 %223, 4
   %225 = getelementptr i8, ptr %224, i64 %.idx129
   store double %.0.i.i40, ptr %225, align 8, !tbaa !61
@@ -19891,9 +19891,9 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
   br label %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEESA_EEE11squaredNormEv.exit132
 
 _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEESA_EEE11squaredNormEv.exit132: ; preds = %.lr.ph85.i.i.i.i119, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEESA_EEE11squaredNormEv.exit109, %349, %360
-  %405 = phi ptr [ %303, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEESA_EEE11squaredNormEv.exit109 ], [ %369, %360 ], [ %84, %349 ], [ %84, %.lr.ph85.i.i.i.i119 ]
-  %406 = phi i64 [ %304, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEESA_EEE11squaredNormEv.exit109 ], [ %379, %360 ], [ %140, %349 ], [ %140, %.lr.ph85.i.i.i.i119 ]
-  %.0.i.i118 = phi double [ 0.000000e+00, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEESA_EEE11squaredNormEv.exit109 ], [ %404, %360 ], [ %350, %349 ], [ %358, %.lr.ph85.i.i.i.i119 ]
+  %405 = phi ptr [ %303, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEESA_EEE11squaredNormEv.exit109 ], [ %84, %349 ], [ %369, %360 ], [ %84, %.lr.ph85.i.i.i.i119 ]
+  %406 = phi i64 [ %304, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEESA_EEE11squaredNormEv.exit109 ], [ %140, %349 ], [ %379, %360 ], [ %140, %.lr.ph85.i.i.i.i119 ]
+  %.0.i.i118 = phi double [ 0.000000e+00, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEESA_EEE11squaredNormEv.exit109 ], [ %350, %349 ], [ %404, %360 ], [ %358, %.lr.ph85.i.i.i.i119 ]
   %.idx304 = mul i64 %406, 40
   %407 = getelementptr i8, ptr %405, i64 %.idx304
   store double %.0.i.i118, ptr %407, align 8, !tbaa !61
@@ -20962,9 +20962,9 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
   br label %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEESA_EEE11squaredNormEv.exit54
 
 _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEESA_EEE11squaredNormEv.exit54: ; preds = %.lr.ph85.i.i.i.i41, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEESA_EEE11squaredNormEv.exit31, %188, %199
-  %223 = phi i64 [ %145, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEESA_EEE11squaredNormEv.exit31 ], [ %217, %199 ], [ %147, %188 ], [ %147, %.lr.ph85.i.i.i.i41 ]
-  %224 = phi ptr [ %144, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEESA_EEE11squaredNormEv.exit31 ], [ %208, %199 ], [ %85, %188 ], [ %85, %.lr.ph85.i.i.i.i41 ]
-  %.0.i.i40 = phi double [ 0.000000e+00, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEESA_EEE11squaredNormEv.exit31 ], [ %222, %199 ], [ %189, %188 ], [ %197, %.lr.ph85.i.i.i.i41 ]
+  %223 = phi i64 [ %145, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEESA_EEE11squaredNormEv.exit31 ], [ %147, %188 ], [ %217, %199 ], [ %147, %.lr.ph85.i.i.i.i41 ]
+  %224 = phi ptr [ %144, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEESA_EEE11squaredNormEv.exit31 ], [ %85, %188 ], [ %208, %199 ], [ %85, %.lr.ph85.i.i.i.i41 ]
+  %.0.i.i40 = phi double [ 0.000000e+00, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEESA_EEE11squaredNormEv.exit31 ], [ %189, %188 ], [ %222, %199 ], [ %197, %.lr.ph85.i.i.i.i41 ]
   %.idx129 = shl i64 %223, 4
   %225 = getelementptr i8, ptr %224, i64 %.idx129
   store double %.0.i.i40, ptr %225, align 8, !tbaa !61
@@ -22331,9 +22331,9 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
   br label %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEESA_EEE11squaredNormEv.exit132
 
 _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEESA_EEE11squaredNormEv.exit132: ; preds = %.lr.ph85.i.i.i.i119, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEESA_EEE11squaredNormEv.exit109, %349, %360
-  %405 = phi ptr [ %303, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEESA_EEE11squaredNormEv.exit109 ], [ %369, %360 ], [ %84, %349 ], [ %84, %.lr.ph85.i.i.i.i119 ]
-  %406 = phi i64 [ %304, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEESA_EEE11squaredNormEv.exit109 ], [ %379, %360 ], [ %140, %349 ], [ %140, %.lr.ph85.i.i.i.i119 ]
-  %.0.i.i118 = phi double [ 0.000000e+00, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEESA_EEE11squaredNormEv.exit109 ], [ %404, %360 ], [ %350, %349 ], [ %358, %.lr.ph85.i.i.i.i119 ]
+  %405 = phi ptr [ %303, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEESA_EEE11squaredNormEv.exit109 ], [ %84, %349 ], [ %369, %360 ], [ %84, %.lr.ph85.i.i.i.i119 ]
+  %406 = phi i64 [ %304, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEESA_EEE11squaredNormEv.exit109 ], [ %140, %349 ], [ %379, %360 ], [ %140, %.lr.ph85.i.i.i.i119 ]
+  %.0.i.i118 = phi double [ 0.000000e+00, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEESA_EEE11squaredNormEv.exit109 ], [ %350, %349 ], [ %404, %360 ], [ %358, %.lr.ph85.i.i.i.i119 ]
   %.idx304 = mul i64 %406, 40
   %407 = getelementptr i8, ptr %405, i64 %.idx304
   store double %.0.i.i118, ptr %407, align 8, !tbaa !61

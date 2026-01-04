@@ -163,7 +163,7 @@ checkbuffer.exit:                                 ; preds = %6
   br label %26
 
 26:                                               ; preds = %checkbuffer.exit, %18, %21
-  %.0 = phi ptr [ %23, %21 ], [ null, %checkbuffer.exit ], [ null, %18 ]
+  %.0 = phi ptr [ null, %checkbuffer.exit ], [ %23, %21 ], [ null, %18 ]
   ret ptr %.0
 }
 

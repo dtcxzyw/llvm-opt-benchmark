@@ -630,7 +630,7 @@ addquoted.exit:                                   ; preds = %._crit_edge.i, %173
   br label %190
 
 190:                                              ; preds = %.thread52, %._crit_edge
-  %.3 = phi i32 [ 1, %._crit_edge ], [ %186, %.thread52 ]
+  %.3 = phi i32 [ %186, %.thread52 ], [ 1, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.3
@@ -696,7 +696,7 @@ define internal noundef i32 @str_gsub(ptr noundef %0) #0 {
   br label %26
 
 26:                                               ; preds = %138, %17
-  %.040 = phi i32 [ 0, %17 ], [ %.24253, %138 ]
+  %.040 = phi i32 [ 0, %17 ], [ %.24252, %138 ]
   %.039 = phi ptr [ %6, %17 ], [ %.2, %138 ]
   %27 = icmp slt i32 %.040, %12
   br i1 %27, label %28, label %.thread
@@ -918,7 +918,7 @@ add_value.exit:                                   ; preds = %124, %add_s.exit.i
   br i1 %125, label %138, label %add_value.exit.thread
 
 add_value.exit.thread:                            ; preds = %28, %add_value.exit
-  %.24252 = phi i32 [ %31, %add_value.exit ], [ %.040, %28 ]
+  %.24253 = phi i32 [ %31, %add_value.exit ], [ %.040, %28 ]
   %126 = load ptr, ptr %21, align 8, !tbaa !28
   %127 = icmp ult ptr %.039, %126
   br i1 %127, label %128, label %.thread
@@ -943,12 +943,12 @@ add_value.exit.thread:                            ; preds = %28, %add_value.exit
   br label %138
 
 138:                                              ; preds = %add_value.exit, %133
-  %.24253 = phi i32 [ %.24252, %133 ], [ %31, %add_value.exit ]
+  %.24252 = phi i32 [ %.24253, %133 ], [ %31, %add_value.exit ]
   %.2 = phi ptr [ %135, %133 ], [ %29, %add_value.exit ]
   br i1 %.not47, label %.thread, label %26
 
 .thread:                                          ; preds = %138, %add_value.exit.thread, %26
-  %.141 = phi i32 [ %.040, %26 ], [ %.24252, %add_value.exit.thread ], [ %.24253, %138 ]
+  %.141 = phi i32 [ %.040, %26 ], [ %.24253, %add_value.exit.thread ], [ %.24252, %138 ]
   %.1 = phi ptr [ %.039, %26 ], [ %.039, %add_value.exit.thread ], [ %.2, %138 ]
   %139 = load ptr, ptr %21, align 8, !tbaa !28
   %140 = ptrtoint ptr %139 to i64
@@ -1491,7 +1491,7 @@ push_captures.exit66.thread76:                    ; preds = %.split
   br label %108
 
 .critedge60:                                      ; preds = %.lr.ph.i63, %push_captures.exit66, %97, %push_captures.exit66.thread79
-  %.375 = phi i32 [ %104, %push_captures.exit66 ], [ %70, %push_captures.exit66.thread79 ], [ %98, %97 ], [ %spec.select.i, %.lr.ph.i63 ]
+  %.375 = phi i32 [ %70, %push_captures.exit66.thread79 ], [ %104, %push_captures.exit66 ], [ %98, %97 ], [ %spec.select.i, %.lr.ph.i63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %108
 
@@ -1801,8 +1801,8 @@ capture_to_close.exit:                            ; preds = %62, %.loopexit.loop
   br label %classend.exit
 
 classend.exit:                                    ; preds = %116, %126, %148
-  %150 = phi ptr [ %119, %126 ], [ %129, %148 ], [ %119, %116 ]
-  %.015.i = phi ptr [ %127, %126 ], [ %149, %148 ], [ %119, %116 ]
+  %150 = phi ptr [ %129, %148 ], [ %119, %126 ], [ %119, %116 ]
+  %.015.i = phi ptr [ %149, %148 ], [ %127, %126 ], [ %119, %116 ]
   %151 = load ptr, ptr %0, align 8, !tbaa !27
   %152 = icmp eq ptr %.075.ph.ph, %151
   br i1 %152, label %156, label %153
@@ -1873,7 +1873,7 @@ classend.exit:                                    ; preds = %116, %126, %148
   br i1 %186, label %.lr.ph.i98, label %matchbracketclass.exit, !llvm.loop !47
 
 matchbracketclass.exit:                           ; preds = %169, %179, %181, %184
-  %.022.in.i = phi i1 [ %160, %184 ], [ %not..i, %181 ], [ %not..i, %179 ], [ %not..i, %169 ]
+  %.022.in.i = phi i1 [ %not..i, %169 ], [ %160, %184 ], [ %not..i, %179 ], [ %not..i, %181 ]
   br i1 %.022.in.i, label %start_capture.exit, label %187
 
 187:                                              ; preds = %matchbracketclass.exit
@@ -1925,7 +1925,7 @@ matchbracketclass.exit:                           ; preds = %169, %179, %181, %1
   br i1 %210, label %.lr.ph.i106, label %matchbracketclass.exit112, !llvm.loop !47
 
 matchbracketclass.exit112:                        ; preds = %195, %204, %206, %208
-  %.022.in.i103 = phi i1 [ %160, %208 ], [ %not..i, %206 ], [ %not..i, %204 ], [ %not..i, %195 ]
+  %.022.in.i103 = phi i1 [ %not..i, %195 ], [ %160, %208 ], [ %not..i, %204 ], [ %not..i, %206 ]
   br i1 %.022.in.i103, label %10, label %start_capture.exit
 
 211:                                              ; preds = %76
@@ -2063,8 +2063,8 @@ check_capture.exit.i:                             ; preds = %232, %226
   br label %classend.exit124
 
 classend.exit124:                                 ; preds = %250, %258, %263, %284
-  %286 = phi ptr [ %212, %263 ], [ %259, %284 ], [ %259, %258 ], [ %251, %250 ]
-  %.015.i120 = phi ptr [ %264, %263 ], [ %285, %284 ], [ %259, %258 ], [ %251, %250 ]
+  %286 = phi ptr [ %259, %284 ], [ %212, %263 ], [ %259, %258 ], [ %251, %250 ]
+  %.015.i120 = phi ptr [ %285, %284 ], [ %264, %263 ], [ %259, %258 ], [ %251, %250 ]
   %287 = load ptr, ptr %5, align 8, !tbaa !28
   %288 = icmp ult ptr %.075.ph.ph, %287
   br i1 %288, label %289, label %singlematch.exit
@@ -2144,7 +2144,7 @@ classend.exit124:                                 ; preds = %250, %258, %263, %2
   br label %singlematch.exit
 
 singlematch.exit:                                 ; preds = %322, %320, %318, %309, %325, %293, %289, %298, %classend.exit124
-  %327 = phi i1 [ false, %classend.exit124 ], [ %326, %325 ], [ %297, %293 ], [ true, %289 ], [ %301, %298 ], [ %301, %322 ], [ %not..i.i, %320 ], [ %not..i.i, %318 ], [ %not..i.i, %309 ]
+  %327 = phi i1 [ false, %classend.exit124 ], [ %326, %325 ], [ true, %289 ], [ %297, %293 ], [ %301, %298 ], [ %301, %322 ], [ %not..i.i, %318 ], [ %not..i.i, %320 ], [ %not..i.i, %309 ]
   %328 = load i8, ptr %.015.i120, align 1, !tbaa !8
   switch i8 %328, label %478 [
     i8 63, label %335
@@ -2258,7 +2258,7 @@ singlematch.exit:                                 ; preds = %322, %320, %318, %3
   br i1 %375, label %.lr.ph.i.i152, label %matchbracketclass.exit.i147.loopexit, !llvm.loop !47
 
 matchbracketclass.exit.i147.loopexit:             ; preds = %360, %369, %371, %373
-  %.022.in.i.i148.ph = phi i1 [ %not..i.i146, %360 ], [ %not..i.i146, %369 ], [ %not..i.i146, %371 ], [ %352, %373 ]
+  %.022.in.i.i148.ph = phi i1 [ %not..i.i146, %360 ], [ %not..i.i146, %371 ], [ %not..i.i146, %369 ], [ %352, %373 ]
   br i1 %.022.in.i.i148.ph, label %singlematch.exit158.thread, label %.critedge.i
 
 376:                                              ; preds = %341
@@ -2378,7 +2378,7 @@ singlematch.exit158.thread:                       ; preds = %matchbracketclass.e
   br i1 %427, label %.lr.ph.i.i166, label %matchbracketclass.exit.i161.loopexit, !llvm.loop !47
 
 matchbracketclass.exit.i161.loopexit:             ; preds = %412, %421, %423, %425
-  %.022.in.i.i162.ph = phi i1 [ %not..i.i160, %412 ], [ %not..i.i160, %421 ], [ %not..i.i160, %423 ], [ %404, %425 ]
+  %.022.in.i.i162.ph = phi i1 [ %not..i.i160, %412 ], [ %not..i.i160, %423 ], [ %not..i.i160, %421 ], [ %404, %425 ]
   br i1 %.022.in.i.i162.ph, label %singlematch.exit172.thread, label %.critedge.i132
 
 428:                                              ; preds = %393
@@ -2486,7 +2486,7 @@ singlematch.exit172.thread:                       ; preds = %matchbracketclass.e
   br i1 %474, label %.lr.ph.i.i180, label %matchbracketclass.exit.i175.loopexit, !llvm.loop !47
 
 matchbracketclass.exit.i175.loopexit:             ; preds = %459, %468, %470, %472
-  %.022.in.i.i176.ph = phi i1 [ %not..i.i174, %459 ], [ %not..i.i174, %468 ], [ %not..i.i174, %470 ], [ %451, %472 ]
+  %.022.in.i.i176.ph = phi i1 [ %not..i.i174, %459 ], [ %not..i.i174, %470 ], [ %not..i.i174, %468 ], [ %451, %472 ]
   br i1 %.022.in.i.i176.ph, label %singlematch.exit186.thread, label %start_capture.exit
 
 475:                                              ; preds = %440
@@ -2509,8 +2509,8 @@ singlematch.exit186.thread:                       ; preds = %matchbracketclass.e
   %480 = getelementptr inbounds nuw i8, ptr %.075.ph.ph, i64 1
   br label %.outer.outer.backedge
 
-start_capture.exit:                               ; preds = %336, %478, %243, %check_capture.exit.i, %93, %90, %156, %matchbracketclass.exit, %matchbracketclass.exit112, %10, %107, %singlematch.exit186.thread, %singlematch.exit186, %437, %475, %444, %matchbracketclass.exit.i175.loopexit, %433, %431, %381, %379, %.preheader217, %385, %75, %capture_to_close.exit, %46, %39, %30, %23, %254
-  %.1 = phi ptr [ %257, %254 ], [ %28, %23 ], [ null, %30 ], [ %44, %39 ], [ null, %46 ], [ %73, %capture_to_close.exit ], [ null, %75 ], [ null, %385 ], [ %330, %.preheader217 ], [ %383, %381 ], [ null, %379 ], [ %435, %433 ], [ null, %431 ], [ null, %matchbracketclass.exit.i175.loopexit ], [ null, %444 ], [ null, %475 ], [ %477, %singlematch.exit186.thread ], [ null, %singlematch.exit186 ], [ null, %437 ], [ null, %107 ], [ %.075.ph.ph, %10 ], [ null, %matchbracketclass.exit112 ], [ null, %matchbracketclass.exit ], [ null, %156 ], [ %338, %336 ], [ null, %478 ], [ null, %243 ], [ null, %check_capture.exit.i ], [ null, %93 ], [ null, %90 ]
+start_capture.exit:                               ; preds = %336, %478, %243, %check_capture.exit.i, %93, %90, %156, %matchbracketclass.exit, %matchbracketclass.exit112, %10, %107, %singlematch.exit186.thread, %singlematch.exit186, %437, %475, %444, %matchbracketclass.exit.i175.loopexit, %431, %433, %379, %381, %.preheader217, %385, %75, %capture_to_close.exit, %46, %39, %30, %23, %254
+  %.1 = phi ptr [ null, %107 ], [ null, %431 ], [ null, %30 ], [ null, %46 ], [ null, %matchbracketclass.exit112 ], [ %257, %254 ], [ %330, %.preheader217 ], [ null, %385 ], [ %28, %23 ], [ %44, %39 ], [ %73, %capture_to_close.exit ], [ null, %75 ], [ null, %matchbracketclass.exit.i175.loopexit ], [ %383, %381 ], [ null, %379 ], [ %435, %433 ], [ null, %444 ], [ null, %475 ], [ null, %437 ], [ null, %singlematch.exit186 ], [ %477, %singlematch.exit186.thread ], [ null, %matchbracketclass.exit ], [ %.075.ph.ph, %10 ], [ null, %156 ], [ %338, %336 ], [ null, %478 ], [ null, %243 ], [ null, %check_capture.exit.i ], [ null, %93 ], [ null, %90 ]
   ret ptr %.1
 }
 

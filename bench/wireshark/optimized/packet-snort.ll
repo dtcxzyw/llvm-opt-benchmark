@@ -1500,7 +1500,7 @@ get_content_match.exit.i:                         ; preds = %559, %532
   br i1 %.not.i.i373.not.i, label %.thread456.i, label %606
 
 .thread456.i:                                     ; preds = %content_compare_case_insensitive.exit.i.i.i, %get_content_match.exit.i, %566, %get_content_match.exit.thread429.i, %522, %switch.lookup
-  %.3295439452.ph.i = phi i32 [ %.1293480.i, %switch.lookup ], [ %.4296.i, %get_content_match.exit.thread429.i ], [ %.4296.i, %get_content_match.exit.i ], [ %.4296.i, %522 ], [ %.4296.i, %566 ], [ %.4296.i, %content_compare_case_insensitive.exit.i.i.i ]
+  %.3295439452.ph.i = phi i32 [ %.4296.i, %get_content_match.exit.thread429.i ], [ %.1293480.i, %switch.lookup ], [ %.4296.i, %get_content_match.exit.i ], [ %.4296.i, %522 ], [ %.4296.i, %566 ], [ %.4296.i, %content_compare_case_insensitive.exit.i.i.i ]
   %603 = getelementptr inbounds nuw i8, ptr %497, i64 8
   %604 = load ptr, ptr %603, align 8
   %605 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %253, i32 noundef %.0283.i, ptr noundef %.1.i, i32 noundef 0, i32 noundef 0, ptr noundef %604, ptr noundef nonnull %switch.load187, ptr noundef %604)
@@ -1915,7 +1915,7 @@ snort_show_alert.exit:                            ; preds = %264, %267, %270, %.
   br label %809
 
 809:                                              ; preds = %.critedge43, %4, %.loopexit
-  %.030 = phi i32 [ %808, %.loopexit ], [ %22, %4 ], [ 0, %.critedge43 ]
+  %.030 = phi i32 [ 0, %.critedge43 ], [ %808, %.loopexit ], [ %22, %4 ]
   ret i32 %.030
 }
 
@@ -2633,7 +2633,7 @@ fill_alert_config.exit:                           ; preds = %snort_parse_fast_li
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(72) %110, ptr noundef nonnull readonly align 8 dereferenceable(72) %10, i64 72, i1 false)
   br label %add_alert_to_session_tree.exit
 
-111:                                              ; preds = %snort_parse_ts.exit.i, %46, %49, %52, %54, %76, %79, %64, %snort_parse_ts.exit.thread.i
+111:                                              ; preds = %46, %79, %76, %64, %52, %49, %snort_parse_ts.exit.i, %54, %snort_parse_ts.exit.thread.i
   call void (ptr, ...) @g_print(ptr noundef nonnull @.str.159, ptr noundef %.13150)
   br label %add_alert_to_session_tree.exit
 
@@ -2673,7 +2673,7 @@ add_alert_to_session_tree.exit:                   ; preds = %107, %103, %99, %11
   br label %119
 
 119:                                              ; preds = %.thread, %.loopexit, %.loopexit, %.loopexit, %118
-  %.2 = phi i32 [ 1, %118 ], [ 0, %.loopexit ], [ 0, %.loopexit ], [ 0, %.loopexit ], [ 0, %.thread ]
+  %.2 = phi i32 [ 0, %.thread ], [ 1, %118 ], [ 0, %.loopexit ], [ 0, %.loopexit ], [ 0, %.loopexit ]
   ret i32 %.2
 }
 

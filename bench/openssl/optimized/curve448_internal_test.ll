@@ -259,7 +259,7 @@ define internal range(i32 0, 2) i32 @test_x448() #1 {
   br i1 %.not19.not, label %20, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %39, %26, %0, %8, %11, %16, %38
-  %.014 = phi i32 [ 0, %38 ], [ 0, %16 ], [ 0, %11 ], [ 0, %8 ], [ 0, %0 ], [ 1, %39 ], [ 0, %26 ]
+  %.014 = phi i32 [ 0, %38 ], [ 0, %0 ], [ 0, %8 ], [ 0, %16 ], [ 0, %11 ], [ 1, %39 ], [ 0, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -433,7 +433,7 @@ define internal range(i32 0, 2) i32 @test_ed448() #1 {
   br label %94
 
 94:                                               ; preds = %91, %0, %4, %9, %12, %17, %20, %25, %28, %33, %36, %41, %44, %49, %52, %57, %60, %65, %68, %73, %76, %82, %85
-  %.0 = phi i32 [ 0, %85 ], [ 0, %82 ], [ 0, %76 ], [ 0, %73 ], [ 0, %68 ], [ 0, %65 ], [ 0, %60 ], [ 0, %57 ], [ 0, %52 ], [ 0, %49 ], [ 0, %44 ], [ 0, %41 ], [ 0, %36 ], [ 0, %33 ], [ 0, %28 ], [ 0, %25 ], [ 0, %20 ], [ 0, %17 ], [ 0, %12 ], [ 0, %9 ], [ 0, %4 ], [ 0, %0 ], [ %spec.select, %91 ]
+  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %91 ], [ 0, %85 ], [ 0, %82 ], [ 0, %76 ], [ 0, %73 ], [ 0, %68 ], [ 0, %65 ], [ 0, %60 ], [ 0, %57 ], [ 0, %52 ], [ 0, %49 ], [ 0, %44 ], [ 0, %41 ], [ 0, %36 ], [ 0, %33 ], [ 0, %28 ], [ 0, %25 ], [ 0, %20 ], [ 0, %17 ], [ 0, %12 ], [ 0, %9 ], [ 0, %4 ]
   call void @EVP_MD_CTX_free(ptr noundef %2) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
@@ -481,7 +481,7 @@ define internal fastcc ptr @dohash(ptr noundef %0, ptr noundef %1) unnamed_addr 
   br label %9
 
 9:                                                ; preds = %7, %2, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %2 ], [ %spec.select, %7 ]
+  %.0 = phi ptr [ null, %2 ], [ %spec.select, %7 ], [ null, %5 ]
   ret ptr %.0
 }
 

@@ -4199,7 +4199,7 @@ for.end:                                          ; preds = %_ZN5eastl18hashtabl
   br label %return
 
 return:                                           ; preds = %for.end, %if.else, %if.then9, %if.end4, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end4 ], [ false, %if.then9 ], [ false, %if.else ], [ %cmp26.not, %for.end ]
+  %retval.0 = phi i1 [ %cmp26.not, %for.end ], [ false, %entry ], [ false, %if.else ], [ false, %if.end4 ], [ false, %if.then9 ]
   ret i1 %retval.0
 }
 
@@ -7342,7 +7342,7 @@ for.end:                                          ; preds = %_ZN5eastl18hashtabl
   br label %return
 
 return:                                           ; preds = %for.end, %if.else, %if.then9, %if.end4, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end4 ], [ false, %if.then9 ], [ false, %if.else ], [ %cmp26.not, %for.end ]
+  %retval.0 = phi i1 [ %cmp26.not, %for.end ], [ false, %entry ], [ false, %if.else ], [ false, %if.end4 ], [ false, %if.then9 ]
   ret i1 %retval.0
 }
 
@@ -12370,7 +12370,7 @@ _ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i: ; preds = %while.body.i.i.i
   br i1 %cmp.i.not.i, label %invoke.cont14, label %for.body.i, !llvm.loop !328
 
 invoke.cont14:                                    ; preds = %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i, %_ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE4findERKi.exit.i, %for.body.i, %for.inc.i.i.i, %_ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i, %invoke.cont12
-  %retval.0.i = phi i1 [ false, %invoke.cont12 ], [ true, %_ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i ], [ false, %for.inc.i.i.i ], [ false, %_ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE4findERKi.exit.i ], [ true, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i ], [ false, %for.body.i ]
+  %retval.0.i = phi i1 [ false, %for.inc.i.i.i ], [ false, %invoke.cont12 ], [ true, %_ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i ], [ false, %for.body.i ], [ true, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i ], [ false, %_ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE4findERKi.exit.i ]
   %call17 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 192, ptr noundef nonnull @.str.6)
           to label %invoke.cont16 unwind label %lpad11
 
@@ -12503,7 +12503,7 @@ _ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit.i: ; preds = %whi
   br i1 %cmp.i.not.i197, label %invoke.cont36, label %for.body.i180, !llvm.loop !329
 
 invoke.cont36:                                    ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit.i, %lor.lhs.false.i, %_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_9allocatorENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit.i, %for.body.i180, %for.inc.i.i.i188, %_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_9allocatorENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i, %invoke.cont34
-  %retval.0.i167 = phi i1 [ false, %invoke.cont34 ], [ true, %_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_9allocatorENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i ], [ false, %for.inc.i.i.i188 ], [ false, %for.body.i180 ], [ true, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit.i ], [ false, %_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_9allocatorENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit.i ], [ false, %lor.lhs.false.i ]
+  %retval.0.i167 = phi i1 [ false, %for.inc.i.i.i188 ], [ false, %invoke.cont34 ], [ true, %_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_9allocatorENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i ], [ false, %lor.lhs.false.i ], [ false, %_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_9allocatorENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit.i ], [ true, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit.i ], [ false, %for.body.i180 ]
   %call39 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i167, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 200, ptr noundef nonnull @.str.10)
           to label %invoke.cont38 unwind label %lpad33
 
@@ -13358,7 +13358,7 @@ for.end.i479:                                     ; preds = %_ZN5eastl18hashtabl
   br label %invoke.cont89
 
 invoke.cont89:                                    ; preds = %for.end.i479, %if.else.i458, %if.then9.i491, %if.end4.i452, %for.end
-  %retval.0.i451 = phi i1 [ false, %for.end ], [ false, %if.end4.i452 ], [ false, %if.then9.i491 ], [ false, %if.else.i458 ], [ %cmp26.not.i482, %for.end.i479 ]
+  %retval.0.i451 = phi i1 [ %cmp26.not.i482, %for.end.i479 ], [ false, %for.end ], [ false, %if.else.i458 ], [ false, %if.end4.i452 ], [ false, %if.then9.i491 ]
   %call92 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i451, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 245, ptr noundef nonnull @.str.13)
           to label %invoke.cont91 unwind label %lpad73.loopexit.split-lp.loopexit.split-lp
 
@@ -13615,7 +13615,7 @@ for.end.i625:                                     ; preds = %_ZN5eastl18hashtabl
   br label %invoke.cont119
 
 invoke.cont119:                                   ; preds = %for.end.i625, %if.else.i604, %if.then9.i637, %if.end4.i598, %for.end118
-  %retval.0.i597 = phi i1 [ false, %for.end118 ], [ false, %if.end4.i598 ], [ false, %if.then9.i637 ], [ false, %if.else.i604 ], [ %cmp26.not.i628, %for.end.i625 ]
+  %retval.0.i597 = phi i1 [ %cmp26.not.i628, %for.end.i625 ], [ false, %for.end118 ], [ false, %if.else.i604 ], [ false, %if.end4.i598 ], [ false, %if.then9.i637 ]
   %call122 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i597, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 255, ptr noundef nonnull @.str.13)
           to label %invoke.cont121 unwind label %lpad73.loopexit.split-lp.loopexit.split-lp
 
@@ -14315,7 +14315,7 @@ land.rhs:                                         ; preds = %for.body258
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %for.body258
-  %248 = phi i1 [ false, %for.body258 ], [ %cmp264, %land.rhs ]
+  %248 = phi i1 [ %cmp264, %land.rhs ], [ false, %for.body258 ]
   %call266 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %248, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 332, ptr noundef nonnull @.str.27)
           to label %invoke.cont265 unwind label %lpad143.loopexit
 
@@ -14776,7 +14776,7 @@ for.end.i1012:                                    ; preds = %_ZN5eastl18hashtabl
   br label %invoke.cont318
 
 invoke.cont318:                                   ; preds = %for.end.i1012, %if.else.i991, %if.then9.i1024, %if.end4.i985, %invoke.cont316
-  %retval.0.i984 = phi i1 [ false, %invoke.cont316 ], [ false, %if.end4.i985 ], [ false, %if.then9.i1024 ], [ false, %if.else.i991 ], [ %cmp26.not.i1015, %for.end.i1012 ]
+  %retval.0.i984 = phi i1 [ %cmp26.not.i1015, %for.end.i1012 ], [ false, %invoke.cont316 ], [ false, %if.else.i991 ], [ false, %if.end4.i985 ], [ false, %if.then9.i1024 ]
   %call321 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i984, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 374, ptr noundef nonnull @.str.13)
           to label %invoke.cont320 unwind label %lpad281.loopexit.split-lp.loopexit.split-lp
 
@@ -14943,7 +14943,7 @@ for.end.i1096:                                    ; preds = %_ZN5eastl18hashtabl
   br label %invoke.cont324
 
 invoke.cont324:                                   ; preds = %for.end.i1096, %if.else.i1075, %if.then9.i1108, %invoke.cont323
-  %retval.0.i1068 = phi i1 [ false, %invoke.cont323 ], [ false, %if.then9.i1108 ], [ false, %if.else.i1075 ], [ %cmp26.not.i1099, %for.end.i1096 ]
+  %retval.0.i1068 = phi i1 [ %cmp26.not.i1099, %for.end.i1096 ], [ false, %invoke.cont323 ], [ false, %if.else.i1075 ], [ false, %if.then9.i1108 ]
   %call327 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i1068, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 379, ptr noundef nonnull @.str.13)
           to label %invoke.cont326 unwind label %lpad281.loopexit.split-lp.loopexit.split-lp
 
@@ -15078,7 +15078,7 @@ for.end.i1168.loopexit:                           ; preds = %_ZN5eastl18hashtabl
   br label %invoke.cont347
 
 invoke.cont347:                                   ; preds = %_ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i1151, %for.end.i1168.loopexit, %if.else.i1147, %if.then9.i1180, %if.end4.i1141, %invoke.cont346
-  %retval.0.i1140 = phi i1 [ false, %invoke.cont346 ], [ false, %if.end4.i1141 ], [ false, %if.then9.i1180 ], [ false, %if.else.i1147 ], [ true, %_ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i1151 ], [ %355, %for.end.i1168.loopexit ]
+  %retval.0.i1140 = phi i1 [ false, %if.then9.i1180 ], [ false, %invoke.cont346 ], [ false, %if.else.i1147 ], [ false, %if.end4.i1141 ], [ true, %_ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i1151 ], [ %355, %for.end.i1168.loopexit ]
   %call350 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i1140, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 399, ptr noundef nonnull @.str.13)
           to label %invoke.cont349 unwind label %lpad281.loopexit.split-lp.loopexit.split-lp
 
@@ -16196,7 +16196,7 @@ for.end.i1633:                                    ; preds = %_ZN5eastl18hashtabl
   br label %invoke.cont472
 
 invoke.cont472:                                   ; preds = %for.end.i1633, %if.else.i1612, %if.then9.i1645, %if.end4.i1606, %invoke.cont470
-  %retval.0.i1605 = phi i1 [ false, %invoke.cont470 ], [ false, %if.end4.i1606 ], [ false, %if.then9.i1645 ], [ false, %if.else.i1612 ], [ %cmp26.not.i1636, %for.end.i1633 ]
+  %retval.0.i1605 = phi i1 [ %cmp26.not.i1636, %for.end.i1633 ], [ false, %invoke.cont470 ], [ false, %if.else.i1612 ], [ false, %if.end4.i1606 ], [ false, %if.then9.i1645 ]
   %call475 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i1605, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 509, ptr noundef nonnull @.str.37)
           to label %invoke.cont474 unwind label %lpad463.loopexit.split-lp
 
@@ -16281,7 +16281,7 @@ for.end.i1682:                                    ; preds = %_ZN5eastl18hashtabl
   br label %invoke.cont476
 
 invoke.cont476:                                   ; preds = %for.end.i1682, %if.else.i1661, %if.then9.i1694, %if.end4.i1655, %invoke.cont474
-  %retval.0.i1654 = phi i1 [ false, %invoke.cont474 ], [ false, %if.end4.i1655 ], [ false, %if.then9.i1694 ], [ false, %if.else.i1661 ], [ %cmp26.not.i1685, %for.end.i1682 ]
+  %retval.0.i1654 = phi i1 [ %cmp26.not.i1685, %for.end.i1682 ], [ false, %invoke.cont474 ], [ false, %if.else.i1661 ], [ false, %if.end4.i1655 ], [ false, %if.then9.i1694 ]
   %call479 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i1654, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 510, ptr noundef nonnull @.str.38)
           to label %invoke.cont478 unwind label %lpad463.loopexit.split-lp
 
@@ -17094,7 +17094,7 @@ for.end.i2063:                                    ; preds = %_ZN5eastl18hashtabl
   br label %invoke.cont539
 
 invoke.cont539:                                   ; preds = %for.end.i2063, %if.else.i2042, %if.then9.i2075, %if.end4.i2036, %invoke.cont537
-  %retval.0.i2035 = phi i1 [ false, %invoke.cont537 ], [ false, %if.end4.i2036 ], [ false, %if.then9.i2075 ], [ false, %if.else.i2042 ], [ %cmp26.not.i2066, %for.end.i2063 ]
+  %retval.0.i2035 = phi i1 [ %cmp26.not.i2066, %for.end.i2063 ], [ false, %invoke.cont537 ], [ false, %if.else.i2042 ], [ false, %if.end4.i2036 ], [ false, %if.then9.i2075 ]
   %call542 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i2035, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 544, ptr noundef nonnull @.str.39)
           to label %invoke.cont541 unwind label %lpad509.loopexit.split-lp
 
@@ -17177,7 +17177,7 @@ for.end.i2112:                                    ; preds = %_ZN5eastl18hashtabl
   br label %invoke.cont543
 
 invoke.cont543:                                   ; preds = %for.end.i2112, %if.else.i2091, %if.then9.i2124, %if.end4.i2085, %invoke.cont541
-  %retval.0.i2084 = phi i1 [ false, %invoke.cont541 ], [ false, %if.end4.i2085 ], [ false, %if.then9.i2124 ], [ false, %if.else.i2091 ], [ %cmp26.not.i2115, %for.end.i2112 ]
+  %retval.0.i2084 = phi i1 [ %cmp26.not.i2115, %for.end.i2112 ], [ false, %invoke.cont541 ], [ false, %if.else.i2091 ], [ false, %if.end4.i2085 ], [ false, %if.then9.i2124 ]
   %call546 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i2084, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 545, ptr noundef nonnull @.str.40)
           to label %invoke.cont545 unwind label %lpad509.loopexit.split-lp
 
@@ -17262,7 +17262,7 @@ for.end.i2161:                                    ; preds = %_ZN5eastl18hashtabl
   br label %invoke.cont547
 
 invoke.cont547:                                   ; preds = %for.end.i2161, %if.else.i2140, %if.then9.i2173, %if.end4.i2134, %invoke.cont545
-  %retval.0.i2133 = phi i1 [ false, %invoke.cont545 ], [ false, %if.end4.i2134 ], [ false, %if.then9.i2173 ], [ false, %if.else.i2140 ], [ %cmp26.not.i2164, %for.end.i2161 ]
+  %retval.0.i2133 = phi i1 [ %cmp26.not.i2164, %for.end.i2161 ], [ false, %invoke.cont545 ], [ false, %if.else.i2140 ], [ false, %if.end4.i2134 ], [ false, %if.then9.i2173 ]
   %call550 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i2133, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 546, ptr noundef nonnull @.str.41)
           to label %invoke.cont549 unwind label %lpad509.loopexit.split-lp
 
@@ -17345,7 +17345,7 @@ for.end.i2210:                                    ; preds = %_ZN5eastl18hashtabl
   br label %invoke.cont551
 
 invoke.cont551:                                   ; preds = %for.end.i2210, %if.else.i2189, %if.then9.i2222, %if.end4.i2183, %invoke.cont549
-  %retval.0.i2182 = phi i1 [ false, %invoke.cont549 ], [ false, %if.end4.i2183 ], [ false, %if.then9.i2222 ], [ false, %if.else.i2189 ], [ %cmp26.not.i2213, %for.end.i2210 ]
+  %retval.0.i2182 = phi i1 [ %cmp26.not.i2213, %for.end.i2210 ], [ false, %invoke.cont549 ], [ false, %if.else.i2189 ], [ false, %if.end4.i2183 ], [ false, %if.then9.i2222 ]
   %call554 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i2182, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 547, ptr noundef nonnull @.str.42)
           to label %invoke.cont553 unwind label %lpad509.loopexit.split-lp
 
@@ -17430,7 +17430,7 @@ for.end.i2259:                                    ; preds = %_ZN5eastl18hashtabl
   br label %invoke.cont555
 
 invoke.cont555:                                   ; preds = %for.end.i2259, %if.else.i2238, %if.then9.i2271, %if.end4.i2232, %invoke.cont553
-  %retval.0.i2231 = phi i1 [ false, %invoke.cont553 ], [ false, %if.end4.i2232 ], [ false, %if.then9.i2271 ], [ false, %if.else.i2238 ], [ %cmp26.not.i2262, %for.end.i2259 ]
+  %retval.0.i2231 = phi i1 [ %cmp26.not.i2262, %for.end.i2259 ], [ false, %invoke.cont553 ], [ false, %if.else.i2238 ], [ false, %if.end4.i2232 ], [ false, %if.then9.i2271 ]
   %call558 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i2231, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 548, ptr noundef nonnull @.str.43)
           to label %invoke.cont557 unwind label %lpad509.loopexit.split-lp
 
@@ -17525,7 +17525,7 @@ for.end.i2308:                                    ; preds = %_ZN5eastl18hashtabl
   br label %invoke.cont562
 
 invoke.cont562:                                   ; preds = %for.end.i2308, %if.else.i2287, %if.then9.i2320, %if.end4.i2281, %invoke.cont561
-  %retval.0.i2280 = phi i1 [ false, %invoke.cont561 ], [ false, %if.end4.i2281 ], [ false, %if.then9.i2320 ], [ false, %if.else.i2287 ], [ %cmp26.not.i2311, %for.end.i2308 ]
+  %retval.0.i2280 = phi i1 [ %cmp26.not.i2311, %for.end.i2308 ], [ false, %invoke.cont561 ], [ false, %if.else.i2287 ], [ false, %if.end4.i2281 ], [ false, %if.then9.i2320 ]
   %call565 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i2280, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 554, ptr noundef nonnull @.str.39)
           to label %invoke.cont564 unwind label %lpad509.loopexit.split-lp
 
@@ -17608,7 +17608,7 @@ for.end.i2357:                                    ; preds = %_ZN5eastl18hashtabl
   br label %invoke.cont566
 
 invoke.cont566:                                   ; preds = %for.end.i2357, %if.else.i2336, %if.then9.i2369, %if.end4.i2330, %invoke.cont564
-  %retval.0.i2329 = phi i1 [ false, %invoke.cont564 ], [ false, %if.end4.i2330 ], [ false, %if.then9.i2369 ], [ false, %if.else.i2336 ], [ %cmp26.not.i2360, %for.end.i2357 ]
+  %retval.0.i2329 = phi i1 [ %cmp26.not.i2360, %for.end.i2357 ], [ false, %invoke.cont564 ], [ false, %if.else.i2336 ], [ false, %if.end4.i2330 ], [ false, %if.then9.i2369 ]
   %call569 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i2329, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 555, ptr noundef nonnull @.str.40)
           to label %invoke.cont568 unwind label %lpad509.loopexit.split-lp
 
@@ -17693,7 +17693,7 @@ for.end.i2406:                                    ; preds = %_ZN5eastl18hashtabl
   br label %invoke.cont570
 
 invoke.cont570:                                   ; preds = %for.end.i2406, %if.else.i2385, %if.then9.i2418, %if.end4.i2379, %invoke.cont568
-  %retval.0.i2378 = phi i1 [ false, %invoke.cont568 ], [ false, %if.end4.i2379 ], [ false, %if.then9.i2418 ], [ false, %if.else.i2385 ], [ %cmp26.not.i2409, %for.end.i2406 ]
+  %retval.0.i2378 = phi i1 [ %cmp26.not.i2409, %for.end.i2406 ], [ false, %invoke.cont568 ], [ false, %if.else.i2385 ], [ false, %if.end4.i2379 ], [ false, %if.then9.i2418 ]
   %call573 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i2378, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 556, ptr noundef nonnull @.str.41)
           to label %invoke.cont572 unwind label %lpad509.loopexit.split-lp
 
@@ -17776,7 +17776,7 @@ for.end.i2455:                                    ; preds = %_ZN5eastl18hashtabl
   br label %invoke.cont574
 
 invoke.cont574:                                   ; preds = %for.end.i2455, %if.else.i2434, %if.then9.i2467, %if.end4.i2428, %invoke.cont572
-  %retval.0.i2427 = phi i1 [ false, %invoke.cont572 ], [ false, %if.end4.i2428 ], [ false, %if.then9.i2467 ], [ false, %if.else.i2434 ], [ %cmp26.not.i2458, %for.end.i2455 ]
+  %retval.0.i2427 = phi i1 [ %cmp26.not.i2458, %for.end.i2455 ], [ false, %invoke.cont572 ], [ false, %if.else.i2434 ], [ false, %if.end4.i2428 ], [ false, %if.then9.i2467 ]
   %call577 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i2427, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 557, ptr noundef nonnull @.str.42)
           to label %invoke.cont576 unwind label %lpad509.loopexit.split-lp
 
@@ -17861,7 +17861,7 @@ for.end.i2504:                                    ; preds = %_ZN5eastl18hashtabl
   br label %invoke.cont578
 
 invoke.cont578:                                   ; preds = %for.end.i2504, %if.else.i2483, %if.then9.i2516, %if.end4.i2477, %invoke.cont576
-  %retval.0.i2476 = phi i1 [ false, %invoke.cont576 ], [ false, %if.end4.i2477 ], [ false, %if.then9.i2516 ], [ false, %if.else.i2483 ], [ %cmp26.not.i2507, %for.end.i2504 ]
+  %retval.0.i2476 = phi i1 [ %cmp26.not.i2507, %for.end.i2504 ], [ false, %invoke.cont576 ], [ false, %if.else.i2483 ], [ false, %if.end4.i2477 ], [ false, %if.then9.i2516 ]
   %call581 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i2476, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 558, ptr noundef nonnull @.str.43)
           to label %invoke.cont580 unwind label %lpad509.loopexit.split-lp
 
@@ -17960,7 +17960,7 @@ for.end.i2553:                                    ; preds = %_ZN5eastl18hashtabl
   br label %invoke.cont588
 
 invoke.cont588:                                   ; preds = %for.end.i2553, %if.else.i2532, %if.then9.i2565, %if.end4.i2526, %invoke.cont586
-  %retval.0.i2525 = phi i1 [ false, %invoke.cont586 ], [ false, %if.end4.i2526 ], [ false, %if.then9.i2565 ], [ false, %if.else.i2532 ], [ %cmp26.not.i2556, %for.end.i2553 ]
+  %retval.0.i2525 = phi i1 [ %cmp26.not.i2556, %for.end.i2553 ], [ false, %invoke.cont586 ], [ false, %if.else.i2532 ], [ false, %if.end4.i2526 ], [ false, %if.then9.i2565 ]
   %call591 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i2525, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 564, ptr noundef nonnull @.str.44)
           to label %invoke.cont590 unwind label %lpad587
 
@@ -18047,7 +18047,7 @@ for.end.i2602:                                    ; preds = %_ZN5eastl18hashtabl
   br label %invoke.cont592
 
 invoke.cont592:                                   ; preds = %for.end.i2602, %if.else.i2581, %if.then9.i2614, %if.end4.i2575, %invoke.cont590
-  %retval.0.i2574 = phi i1 [ false, %invoke.cont590 ], [ false, %if.end4.i2575 ], [ false, %if.then9.i2614 ], [ false, %if.else.i2581 ], [ %cmp26.not.i2605, %for.end.i2602 ]
+  %retval.0.i2574 = phi i1 [ %cmp26.not.i2605, %for.end.i2602 ], [ false, %invoke.cont590 ], [ false, %if.else.i2581 ], [ false, %if.end4.i2575 ], [ false, %if.then9.i2614 ]
   %call595 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i2574, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 565, ptr noundef nonnull @.str.45)
           to label %invoke.cont594 unwind label %lpad587
 
@@ -18134,7 +18134,7 @@ for.end.i2651:                                    ; preds = %_ZN5eastl18hashtabl
   br label %invoke.cont596
 
 invoke.cont596:                                   ; preds = %for.end.i2651, %if.else.i2630, %if.then9.i2663, %if.end4.i2624, %invoke.cont594
-  %retval.0.i2623 = phi i1 [ false, %invoke.cont594 ], [ false, %if.end4.i2624 ], [ false, %if.then9.i2663 ], [ false, %if.else.i2630 ], [ %cmp26.not.i2654, %for.end.i2651 ]
+  %retval.0.i2623 = phi i1 [ %cmp26.not.i2654, %for.end.i2651 ], [ false, %invoke.cont594 ], [ false, %if.else.i2630 ], [ false, %if.end4.i2624 ], [ false, %if.then9.i2663 ]
   %call599 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i2623, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 566, ptr noundef nonnull @.str.46)
           to label %invoke.cont598 unwind label %lpad587
 
@@ -19028,7 +19028,7 @@ for.end.i2912:                                    ; preds = %_ZN5eastl18hashtabl
   br label %invoke.cont630
 
 invoke.cont630:                                   ; preds = %for.end.i2912, %if.else.i2892, %if.then9.i2924, %invoke.cont629
-  %retval.0.i2885 = phi i1 [ false, %invoke.cont629 ], [ false, %if.then9.i2924 ], [ false, %if.else.i2892 ], [ %cmp26.not.i2915, %for.end.i2912 ]
+  %retval.0.i2885 = phi i1 [ %cmp26.not.i2915, %for.end.i2912 ], [ false, %invoke.cont629 ], [ false, %if.else.i2892 ], [ false, %if.then9.i2924 ]
   %call633 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i2885, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 583, ptr noundef nonnull @.str.37)
           to label %invoke.cont632 unwind label %lpad620.loopexit.split-lp
 
@@ -19111,7 +19111,7 @@ for.end.i2960:                                    ; preds = %_ZN5eastl18hashtabl
   br label %invoke.cont634
 
 invoke.cont634:                                   ; preds = %for.end.i2960, %if.else.i2939, %if.then9.i2972, %if.end4.i2933, %invoke.cont632
-  %retval.0.i2932 = phi i1 [ false, %invoke.cont632 ], [ false, %if.end4.i2933 ], [ false, %if.then9.i2972 ], [ false, %if.else.i2939 ], [ %cmp26.not.i2963, %for.end.i2960 ]
+  %retval.0.i2932 = phi i1 [ %cmp26.not.i2963, %for.end.i2960 ], [ false, %invoke.cont632 ], [ false, %if.else.i2939 ], [ false, %if.end4.i2933 ], [ false, %if.then9.i2972 ]
   %call637 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i2932, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 584, ptr noundef nonnull @.str.38)
           to label %invoke.cont636 unwind label %lpad620.loopexit.split-lp
 
@@ -19582,7 +19582,7 @@ for.end.i3166:                                    ; preds = %_ZN5eastl18hashtabl
   br label %invoke.cont721
 
 invoke.cont721:                                   ; preds = %for.end.i3166, %if.else.i3145, %if.then9.i3178, %if.end4.i3139, %invoke.cont719
-  %retval.0.i3138 = phi i1 [ false, %invoke.cont719 ], [ false, %if.end4.i3139 ], [ false, %if.then9.i3178 ], [ false, %if.else.i3145 ], [ %cmp26.not.i3169, %for.end.i3166 ]
+  %retval.0.i3138 = phi i1 [ %cmp26.not.i3169, %for.end.i3166 ], [ false, %invoke.cont719 ], [ false, %if.else.i3145 ], [ false, %if.end4.i3139 ], [ false, %if.then9.i3178 ]
   %call724 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i3138, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 608, ptr noundef nonnull @.str.37)
           to label %invoke.cont723 unwind label %lpad720
 
@@ -19669,7 +19669,7 @@ for.end.i3215:                                    ; preds = %_ZN5eastl18hashtabl
   br label %invoke.cont725
 
 invoke.cont725:                                   ; preds = %for.end.i3215, %if.else.i3194, %if.then9.i3227, %if.end4.i3188, %invoke.cont723
-  %retval.0.i3187 = phi i1 [ false, %invoke.cont723 ], [ false, %if.end4.i3188 ], [ false, %if.then9.i3227 ], [ false, %if.else.i3194 ], [ %cmp26.not.i3218, %for.end.i3215 ]
+  %retval.0.i3187 = phi i1 [ %cmp26.not.i3218, %for.end.i3215 ], [ false, %invoke.cont723 ], [ false, %if.else.i3194 ], [ false, %if.end4.i3188 ], [ false, %if.then9.i3227 ]
   %call728 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i3187, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 609, ptr noundef nonnull @.str.38)
           to label %invoke.cont727 unwind label %lpad720
 
@@ -19756,7 +19756,7 @@ for.end.i3264:                                    ; preds = %_ZN5eastl18hashtabl
   br label %invoke.cont729
 
 invoke.cont729:                                   ; preds = %for.end.i3264, %if.else.i3243, %if.then9.i3276, %if.end4.i3237, %invoke.cont727
-  %retval.0.i3236 = phi i1 [ false, %invoke.cont727 ], [ false, %if.end4.i3237 ], [ false, %if.then9.i3276 ], [ false, %if.else.i3243 ], [ %cmp26.not.i3267, %for.end.i3264 ]
+  %retval.0.i3236 = phi i1 [ %cmp26.not.i3267, %for.end.i3264 ], [ false, %invoke.cont727 ], [ false, %if.else.i3243 ], [ false, %if.end4.i3237 ], [ false, %if.then9.i3276 ]
   %call732 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i3236, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 610, ptr noundef nonnull @.str.39)
           to label %invoke.cont731 unwind label %lpad720
 
@@ -19843,7 +19843,7 @@ for.end.i3313:                                    ; preds = %_ZN5eastl18hashtabl
   br label %invoke.cont733
 
 invoke.cont733:                                   ; preds = %for.end.i3313, %if.else.i3292, %if.then9.i3325, %if.end4.i3286, %invoke.cont731
-  %retval.0.i3285 = phi i1 [ false, %invoke.cont731 ], [ false, %if.end4.i3286 ], [ false, %if.then9.i3325 ], [ false, %if.else.i3292 ], [ %cmp26.not.i3316, %for.end.i3313 ]
+  %retval.0.i3285 = phi i1 [ %cmp26.not.i3316, %for.end.i3313 ], [ false, %invoke.cont731 ], [ false, %if.else.i3292 ], [ false, %if.end4.i3286 ], [ false, %if.then9.i3325 ]
   %call736 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i3285, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 611, ptr noundef nonnull @.str.40)
           to label %invoke.cont735 unwind label %lpad720
 
@@ -20156,7 +20156,7 @@ for.end.i3534:                                    ; preds = %_ZN5eastl18hashtabl
   br label %invoke.cont771
 
 invoke.cont771:                                   ; preds = %for.end.i3534, %if.else.i3513, %if.then9.i3546, %if.end4.i3507, %invoke.cont769
-  %retval.0.i3506 = phi i1 [ false, %invoke.cont769 ], [ false, %if.end4.i3507 ], [ false, %if.then9.i3546 ], [ false, %if.else.i3513 ], [ %cmp26.not.i3537, %for.end.i3534 ]
+  %retval.0.i3506 = phi i1 [ %cmp26.not.i3537, %for.end.i3534 ], [ false, %invoke.cont769 ], [ false, %if.else.i3513 ], [ false, %if.end4.i3507 ], [ false, %if.then9.i3546 ]
   %call774 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i3506, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 634, ptr noundef nonnull @.str.37)
           to label %invoke.cont773 unwind label %lpad720
 
@@ -20241,7 +20241,7 @@ for.end.i3583:                                    ; preds = %_ZN5eastl18hashtabl
   br label %invoke.cont775
 
 invoke.cont775:                                   ; preds = %for.end.i3583, %if.else.i3562, %if.then9.i3595, %if.end4.i3556, %invoke.cont773
-  %retval.0.i3555 = phi i1 [ false, %invoke.cont773 ], [ false, %if.end4.i3556 ], [ false, %if.then9.i3595 ], [ false, %if.else.i3562 ], [ %cmp26.not.i3586, %for.end.i3583 ]
+  %retval.0.i3555 = phi i1 [ %cmp26.not.i3586, %for.end.i3583 ], [ false, %invoke.cont773 ], [ false, %if.else.i3562 ], [ false, %if.end4.i3556 ], [ false, %if.then9.i3595 ]
   %call778 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i3555, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 635, ptr noundef nonnull @.str.38)
           to label %invoke.cont777 unwind label %lpad720
 
@@ -20389,7 +20389,7 @@ for.end.i3665:                                    ; preds = %_ZN5eastl18hashtabl
   br label %invoke.cont781
 
 invoke.cont781:                                   ; preds = %for.end.i3665, %if.else.i3644, %if.then9.i3677, %if.end4.i3638, %invoke.cont779
-  %retval.0.i3637 = phi i1 [ false, %invoke.cont779 ], [ false, %if.end4.i3638 ], [ false, %if.then9.i3677 ], [ false, %if.else.i3644 ], [ %cmp26.not.i3668, %for.end.i3665 ]
+  %retval.0.i3637 = phi i1 [ %cmp26.not.i3668, %for.end.i3665 ], [ false, %invoke.cont779 ], [ false, %if.else.i3644 ], [ false, %if.end4.i3638 ], [ false, %if.then9.i3677 ]
   %call784 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i3637, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 640, ptr noundef nonnull @.str.39)
           to label %invoke.cont783 unwind label %lpad720
 
@@ -20472,7 +20472,7 @@ for.end.i3714:                                    ; preds = %_ZN5eastl18hashtabl
   br label %invoke.cont785
 
 invoke.cont785:                                   ; preds = %for.end.i3714, %if.else.i3693, %if.then9.i3726, %if.end4.i3687, %invoke.cont783
-  %retval.0.i3686 = phi i1 [ false, %invoke.cont783 ], [ false, %if.end4.i3687 ], [ false, %if.then9.i3726 ], [ false, %if.else.i3693 ], [ %cmp26.not.i3717, %for.end.i3714 ]
+  %retval.0.i3686 = phi i1 [ %cmp26.not.i3717, %for.end.i3714 ], [ false, %invoke.cont783 ], [ false, %if.else.i3693 ], [ false, %if.end4.i3687 ], [ false, %if.then9.i3726 ]
   %call788 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i3686, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 641, ptr noundef nonnull @.str.40)
           to label %invoke.cont787 unwind label %lpad720
 
@@ -20569,7 +20569,7 @@ for.end.i3771:                                    ; preds = %_ZN5eastl18hashtabl
   br label %invoke.cont790
 
 invoke.cont790:                                   ; preds = %for.end.i3771, %if.else.i3750, %if.then9.i3783, %if.end4.i3744, %invoke.cont789
-  %retval.0.i3743 = phi i1 [ false, %invoke.cont789 ], [ false, %if.end4.i3744 ], [ false, %if.then9.i3783 ], [ false, %if.else.i3750 ], [ %cmp26.not.i3774, %for.end.i3771 ]
+  %retval.0.i3743 = phi i1 [ %cmp26.not.i3774, %for.end.i3771 ], [ false, %invoke.cont789 ], [ false, %if.else.i3750 ], [ false, %if.end4.i3744 ], [ false, %if.then9.i3783 ]
   %call793 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i3743, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 647, ptr noundef nonnull @.str.39)
           to label %invoke.cont792 unwind label %lpad720
 
@@ -20652,7 +20652,7 @@ for.end.i3820:                                    ; preds = %_ZN5eastl18hashtabl
   br label %invoke.cont794
 
 invoke.cont794:                                   ; preds = %for.end.i3820, %if.else.i3799, %if.then9.i3832, %if.end4.i3793, %invoke.cont792
-  %retval.0.i3792 = phi i1 [ false, %invoke.cont792 ], [ false, %if.end4.i3793 ], [ false, %if.then9.i3832 ], [ false, %if.else.i3799 ], [ %cmp26.not.i3823, %for.end.i3820 ]
+  %retval.0.i3792 = phi i1 [ %cmp26.not.i3823, %for.end.i3820 ], [ false, %invoke.cont792 ], [ false, %if.else.i3799 ], [ false, %if.end4.i3793 ], [ false, %if.then9.i3832 ]
   %call797 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i3792, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 648, ptr noundef nonnull @.str.40)
           to label %invoke.cont796 unwind label %lpad720
 
@@ -20785,7 +20785,7 @@ for.end.i3898:                                    ; preds = %_ZN5eastl18hashtabl
   br label %invoke.cont800
 
 invoke.cont800:                                   ; preds = %for.end.i3898, %if.else.i3877, %if.then9.i3910, %if.end4.i3871, %invoke.cont798
-  %retval.0.i3870 = phi i1 [ false, %invoke.cont798 ], [ false, %if.end4.i3871 ], [ false, %if.then9.i3910 ], [ false, %if.else.i3877 ], [ %cmp26.not.i3901, %for.end.i3898 ]
+  %retval.0.i3870 = phi i1 [ %cmp26.not.i3901, %for.end.i3898 ], [ false, %invoke.cont798 ], [ false, %if.else.i3877 ], [ false, %if.end4.i3871 ], [ false, %if.then9.i3910 ]
   %call803 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i3870, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 651, ptr noundef nonnull @.str.38)
           to label %invoke.cont802 unwind label %lpad720
 
@@ -21243,7 +21243,7 @@ for.end.i4120:                                    ; preds = %_ZN5eastl18hashtabl
   br label %invoke.cont837
 
 invoke.cont837:                                   ; preds = %for.end.i4120, %if.else.i4099, %if.then9.i4132, %if.end4.i4093, %invoke.cont836
-  %retval.0.i4092 = phi i1 [ false, %invoke.cont836 ], [ false, %if.end4.i4093 ], [ false, %if.then9.i4132 ], [ false, %if.else.i4099 ], [ %cmp26.not.i4123, %for.end.i4120 ]
+  %retval.0.i4092 = phi i1 [ %cmp26.not.i4123, %for.end.i4120 ], [ false, %invoke.cont836 ], [ false, %if.else.i4099 ], [ false, %if.end4.i4093 ], [ false, %if.then9.i4132 ]
   %call840 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i4092, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 668, ptr noundef nonnull @.str.37)
           to label %invoke.cont839 unwind label %lpad835
 
@@ -21342,7 +21342,7 @@ for.end.i4171:                                    ; preds = %_ZN5eastl18hashtabl
   br label %invoke.cont850
 
 invoke.cont850:                                   ; preds = %for.end.i4171, %if.else.i4150, %if.then9.i4183, %if.end4.i4144, %invoke.cont849
-  %retval.0.i4143 = phi i1 [ false, %invoke.cont849 ], [ false, %if.end4.i4144 ], [ false, %if.then9.i4183 ], [ false, %if.else.i4150 ], [ %cmp26.not.i4174, %for.end.i4171 ]
+  %retval.0.i4143 = phi i1 [ %cmp26.not.i4174, %for.end.i4171 ], [ false, %invoke.cont849 ], [ false, %if.else.i4150 ], [ false, %if.end4.i4144 ], [ false, %if.then9.i4183 ]
   %call853 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i4143, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 673, ptr noundef nonnull @.str.38)
           to label %invoke.cont852 unwind label %lpad845.loopexit.split-lp.loopexit.split-lp
 
@@ -21435,7 +21435,7 @@ _ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i4226: ; preds = %while.body.i
   br i1 %cmp.i.not.i4229, label %invoke.cont854, label %for.body.i4207, !llvm.loop !328
 
 invoke.cont854:                                   ; preds = %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i4226, %_ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE4findERKi.exit.i4220, %for.body.i4207, %for.inc.i.i.i4217, %_ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i4196, %invoke.cont852
-  %retval.0.i4192 = phi i1 [ false, %invoke.cont852 ], [ true, %_ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i4196 ], [ false, %for.inc.i.i.i4217 ], [ false, %_ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE4findERKi.exit.i4220 ], [ true, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i4226 ], [ false, %for.body.i4207 ]
+  %retval.0.i4192 = phi i1 [ false, %for.inc.i.i.i4217 ], [ false, %invoke.cont852 ], [ true, %_ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i4196 ], [ false, %for.body.i4207 ], [ true, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i4226 ], [ false, %_ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE4findERKi.exit.i4220 ]
   %call857 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i4192, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 675, ptr noundef nonnull @.str.56)
           to label %for.cond858.preheader unwind label %lpad845.loopexit.split-lp.loopexit.split-lp
 
@@ -22343,7 +22343,7 @@ _ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i4708: ; preds = %while.body.i
   br i1 %cmp.i.not.i4711, label %invoke.cont1089, label %for.body.i4689, !llvm.loop !328
 
 invoke.cont1089:                                  ; preds = %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i4708, %_ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE4findERKi.exit.i4702, %for.body.i4689, %for.inc.i.i.i4699, %_ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i4678, %invoke.cont1087
-  %retval.0.i4674 = phi i1 [ false, %invoke.cont1087 ], [ true, %_ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i4678 ], [ false, %for.inc.i.i.i4699 ], [ false, %_ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE4findERKi.exit.i4702 ], [ true, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i4708 ], [ false, %for.body.i4689 ]
+  %retval.0.i4674 = phi i1 [ false, %for.inc.i.i.i4699 ], [ false, %invoke.cont1087 ], [ true, %_ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i4678 ], [ false, %for.body.i4689 ], [ true, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i4708 ], [ false, %_ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE4findERKi.exit.i4702 ]
   %call1092 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i4674, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 750, ptr noundef nonnull @.str.68)
           to label %invoke.cont1091 unwind label %lpad1088
 
@@ -24454,7 +24454,7 @@ _ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit.i5563: ; preds = 
   br i1 %cmp.i.not.i5566, label %invoke.cont1532, label %for.body.i5540, !llvm.loop !329
 
 invoke.cont1532:                                  ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit.i5563, %lor.lhs.false.i5555, %_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_9allocatorENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit.i5553, %for.body.i5540, %for.inc.i.i.i5550, %_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_9allocatorENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i5529, %invoke.cont1530
-  %retval.0.i5525 = phi i1 [ false, %invoke.cont1530 ], [ true, %_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_9allocatorENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i5529 ], [ false, %for.inc.i.i.i5550 ], [ false, %for.body.i5540 ], [ true, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit.i5563 ], [ false, %_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_9allocatorENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit.i5553 ], [ false, %lor.lhs.false.i5555 ]
+  %retval.0.i5525 = phi i1 [ false, %for.inc.i.i.i5550 ], [ false, %invoke.cont1530 ], [ true, %_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_9allocatorENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i5529 ], [ false, %lor.lhs.false.i5555 ], [ false, %_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_9allocatorENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit.i5553 ], [ true, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit.i5563 ], [ false, %for.body.i5540 ]
   %call1535 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i5525, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 949, ptr noundef nonnull @.str.94)
           to label %invoke.cont1534 unwind label %lpad1531
 
@@ -25317,7 +25317,7 @@ _ZN5eastl18hashtable_iteratorI14HashtableValueLb1ELb0EEppEv.exit.i: ; preds = %w
   br i1 %cmp.i.not.i5945, label %invoke.cont1693, label %for.body.i5924, !llvm.loop !762
 
 invoke.cont1693:                                  ; preds = %_ZN5eastl18hashtable_iteratorI14HashtableValueLb1ELb0EEppEv.exit.i, %lor.lhs.false.i5937, %_ZNK5eastl9hashtableI14HashtableValueS1_NS_9allocatorENS_8use_selfIS1_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE4findERKS1_.exit.i, %for.body.i5924, %for.inc.i.i.i5933, %_ZNK5eastl9hashtableI14HashtableValueS1_NS_9allocatorENS_8use_selfIS1_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i
-  %retval.0.i5910 = phi i1 [ true, %_ZNK5eastl9hashtableI14HashtableValueS1_NS_9allocatorENS_8use_selfIS1_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i ], [ false, %for.inc.i.i.i5933 ], [ false, %for.body.i5924 ], [ true, %_ZN5eastl18hashtable_iteratorI14HashtableValueLb1ELb0EEppEv.exit.i ], [ false, %_ZNK5eastl9hashtableI14HashtableValueS1_NS_9allocatorENS_8use_selfIS1_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE4findERKS1_.exit.i ], [ false, %lor.lhs.false.i5937 ]
+  %retval.0.i5910 = phi i1 [ true, %_ZNK5eastl9hashtableI14HashtableValueS1_NS_9allocatorENS_8use_selfIS1_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i ], [ false, %for.inc.i.i.i5933 ], [ false, %lor.lhs.false.i5937 ], [ false, %_ZNK5eastl9hashtableI14HashtableValueS1_NS_9allocatorENS_8use_selfIS1_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE4findERKS1_.exit.i ], [ true, %_ZN5eastl18hashtable_iteratorI14HashtableValueLb1ELb0EEppEv.exit.i ], [ false, %for.body.i5924 ]
   %call1696 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i5910, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 1042, ptr noundef nonnull @.str.101)
           to label %for.cond1698.preheader unwind label %lpad1692.loopexit.split-lp.loopexit.split-lp
 
@@ -25389,7 +25389,7 @@ for.inc1705:                                      ; preds = %if.end.i.i.i.i5971,
   br i1 %exitcond10576.not, label %for.end1707, label %invoke.cont1701, !llvm.loop !776
 
 ehcleanup1676:                                    ; preds = %lpad1585.loopexit, %lpad1585.loopexit.split-lp, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i5822, %if.then.i.i5820, %lpad1650, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i5739, %if.then.i.i5737, %lpad1588
-  %.pn132 = phi { ptr, i32 } [ %1610, %lpad1588 ], [ %1610, %if.then.i.i5737 ], [ %1610, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i5739 ], [ %1654, %lpad1650 ], [ %1654, %if.then.i.i5820 ], [ %1654, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i5822 ], [ %lpad.loopexit9826, %lpad1585.loopexit ], [ %lpad.loopexit.split-lp9827, %lpad1585.loopexit.split-lp ]
+  %.pn132 = phi { ptr, i32 } [ %1610, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i5739 ], [ %1654, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i5822 ], [ %1610, %lpad1588 ], [ %1610, %if.then.i.i5737 ], [ %1654, %lpad1650 ], [ %1654, %if.then.i.i5820 ], [ %lpad.loopexit9826, %lpad1585.loopexit ], [ %lpad.loopexit.split-lp9827, %lpad1585.loopexit.split-lp ]
   call void @_ZN5eastl8hash_setINS_12basic_stringIcNS_9allocatorEEENS_4hashIS3_EENS_8equal_toIS3_EES2_Lb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(45) %hashSet1578) #21
   br label %eh.resume
 
@@ -25504,7 +25504,7 @@ _ZN5eastl18hashtable_iteratorI14HashtableValueLb1ELb0EEppEv.exit.i.i: ; preds = 
   br i1 %cmp.i.not.i.i, label %invoke.cont1708, label %for.body.i.i5988, !llvm.loop !762
 
 invoke.cont1708:                                  ; preds = %_ZN5eastl18hashtable_iteratorI14HashtableValueLb1ELb0EEppEv.exit.i.i, %lor.lhs.false.i.i, %_ZNK5eastl9hashtableI14HashtableValueS1_NS_9allocatorENS_8use_selfIS1_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE4findERKS1_.exit.i.i, %for.body.i.i5988, %for.inc.i.i.i.i5995, %_ZNK5eastl9hashtableI14HashtableValueS1_NS_9allocatorENS_8use_selfIS1_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i.i, %for.end1707
-  %lnot.i = phi i1 [ true, %for.end1707 ], [ false, %_ZNK5eastl9hashtableI14HashtableValueS1_NS_9allocatorENS_8use_selfIS1_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i.i ], [ true, %for.inc.i.i.i.i5995 ], [ true, %lor.lhs.false.i.i ], [ true, %_ZNK5eastl9hashtableI14HashtableValueS1_NS_9allocatorENS_8use_selfIS1_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE4findERKS1_.exit.i.i ], [ false, %_ZN5eastl18hashtable_iteratorI14HashtableValueLb1ELb0EEppEv.exit.i.i ], [ true, %for.body.i.i5988 ]
+  %lnot.i = phi i1 [ true, %for.inc.i.i.i.i5995 ], [ true, %for.end1707 ], [ false, %_ZNK5eastl9hashtableI14HashtableValueS1_NS_9allocatorENS_8use_selfIS1_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i.i ], [ false, %_ZN5eastl18hashtable_iteratorI14HashtableValueLb1ELb0EEppEv.exit.i.i ], [ true, %_ZNK5eastl9hashtableI14HashtableValueS1_NS_9allocatorENS_8use_selfIS1_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE4findERKS1_.exit.i.i ], [ true, %lor.lhs.false.i.i ], [ true, %for.body.i.i5988 ]
   %call1711 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %lnot.i, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 1050, ptr noundef nonnull @.str.102)
           to label %invoke.cont1710 unwind label %lpad1692.loopexit.split-lp.loopexit.split-lp
 
@@ -25648,7 +25648,7 @@ _ZN5eastl18hashtable_iteratorI14HashtableValueLb1ELb0EEppEv.exit.i6075: ; preds 
   br i1 %cmp.i.not.i6078, label %invoke.cont1714, label %for.body.i6053, !llvm.loop !762
 
 invoke.cont1714:                                  ; preds = %_ZN5eastl18hashtable_iteratorI14HashtableValueLb1ELb0EEppEv.exit.i6075, %lor.lhs.false.i6067, %_ZNK5eastl9hashtableI14HashtableValueS1_NS_9allocatorENS_8use_selfIS1_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE4findERKS1_.exit.i6065, %for.body.i6053, %for.inc.i.i.i6062, %_ZNK5eastl9hashtableI14HashtableValueS1_NS_9allocatorENS_8use_selfIS1_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i6042, %invoke.cont1712
-  %retval.0.i6038 = phi i1 [ false, %invoke.cont1712 ], [ true, %_ZNK5eastl9hashtableI14HashtableValueS1_NS_9allocatorENS_8use_selfIS1_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i6042 ], [ false, %for.inc.i.i.i6062 ], [ false, %for.body.i6053 ], [ true, %_ZN5eastl18hashtable_iteratorI14HashtableValueLb1ELb0EEppEv.exit.i6075 ], [ false, %_ZNK5eastl9hashtableI14HashtableValueS1_NS_9allocatorENS_8use_selfIS1_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE4findERKS1_.exit.i6065 ], [ false, %lor.lhs.false.i6067 ]
+  %retval.0.i6038 = phi i1 [ false, %for.inc.i.i.i6062 ], [ false, %invoke.cont1712 ], [ true, %_ZNK5eastl9hashtableI14HashtableValueS1_NS_9allocatorENS_8use_selfIS1_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i6042 ], [ false, %lor.lhs.false.i6067 ], [ false, %_ZNK5eastl9hashtableI14HashtableValueS1_NS_9allocatorENS_8use_selfIS1_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE4findERKS1_.exit.i6065 ], [ true, %_ZN5eastl18hashtable_iteratorI14HashtableValueLb1ELb0EEppEv.exit.i6075 ], [ false, %for.body.i6053 ]
   %call1717 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i6038, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 1052, ptr noundef nonnull @.str.101)
           to label %invoke.cont1716 unwind label %lpad1692.loopexit.split-lp.loopexit.split-lp
 
@@ -25732,7 +25732,7 @@ if.else.i9429:                                    ; preds = %invoke.cont1716
   br label %invoke.cont1718
 
 invoke.cont1718:                                  ; preds = %for.inc.i9425, %call.i.i.i.noexc9432, %if.else.i9429
-  %1741 = phi i64 [ 0, %call.i.i.i.noexc9432 ], [ %1734, %if.else.i9429 ], [ %1740, %for.inc.i9425 ]
+  %1741 = phi i64 [ %1734, %if.else.i9429 ], [ 0, %call.i.i.i.noexc9432 ], [ %1740, %for.inc.i9425 ]
   %1742 = load i64, ptr %value1689, align 8
   %conv.i.i.i6090 = and i64 %1741, 4294967295
   %rem.i.i.i6091 = urem i64 %1742, %conv.i.i.i6090
@@ -25933,7 +25933,7 @@ _ZN5eastl18hashtable_iteratorI14HashtableValueLb1ELb0EEppEv.exit.i.i6193: ; pred
   br i1 %cmp.i.not.i.i6196, label %invoke.cont1733, label %for.body.i.i6171, !llvm.loop !762
 
 invoke.cont1733:                                  ; preds = %_ZN5eastl18hashtable_iteratorI14HashtableValueLb1ELb0EEppEv.exit.i.i6193, %lor.lhs.false.i.i6185, %_ZNK5eastl9hashtableI14HashtableValueS1_NS_9allocatorENS_8use_selfIS1_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE4findERKS1_.exit.i.i6183, %for.body.i.i6171, %for.inc.i.i.i.i6180, %_ZNK5eastl9hashtableI14HashtableValueS1_NS_9allocatorENS_8use_selfIS1_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i.i6160, %invoke.cont1732
-  %lnot.i6156 = phi i1 [ true, %invoke.cont1732 ], [ false, %_ZNK5eastl9hashtableI14HashtableValueS1_NS_9allocatorENS_8use_selfIS1_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i.i6160 ], [ true, %for.inc.i.i.i.i6180 ], [ true, %lor.lhs.false.i.i6185 ], [ true, %_ZNK5eastl9hashtableI14HashtableValueS1_NS_9allocatorENS_8use_selfIS1_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE4findERKS1_.exit.i.i6183 ], [ false, %_ZN5eastl18hashtable_iteratorI14HashtableValueLb1ELb0EEppEv.exit.i.i6193 ], [ true, %for.body.i.i6171 ]
+  %lnot.i6156 = phi i1 [ true, %for.inc.i.i.i.i6180 ], [ true, %invoke.cont1732 ], [ false, %_ZNK5eastl9hashtableI14HashtableValueS1_NS_9allocatorENS_8use_selfIS1_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i.i6160 ], [ false, %_ZN5eastl18hashtable_iteratorI14HashtableValueLb1ELb0EEppEv.exit.i.i6193 ], [ true, %_ZNK5eastl9hashtableI14HashtableValueS1_NS_9allocatorENS_8use_selfIS1_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE4findERKS1_.exit.i.i6183 ], [ true, %lor.lhs.false.i.i6185 ], [ true, %for.body.i.i6171 ]
   %call1736 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %lnot.i6156, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 1060, ptr noundef nonnull @.str.102)
           to label %invoke.cont1735 unwind label %lpad1720
 
@@ -26240,7 +26240,7 @@ _ZN5eastl18hashtable_iteratorI14HashtableValueLb1ELb0EEppEv.exit.i.i6374: ; pred
   br i1 %cmp.i.not.i.i6377, label %invoke.cont1753, label %for.body.i.i6352, !llvm.loop !762
 
 invoke.cont1753:                                  ; preds = %_ZN5eastl18hashtable_iteratorI14HashtableValueLb1ELb0EEppEv.exit.i.i6374, %lor.lhs.false.i.i6366, %_ZNK5eastl9hashtableI14HashtableValueS1_NS_9allocatorENS_8use_selfIS1_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE4findERKS1_.exit.i.i6364, %for.body.i.i6352, %for.inc.i.i.i.i6361, %_ZNK5eastl9hashtableI14HashtableValueS1_NS_9allocatorENS_8use_selfIS1_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i.i6341, %invoke.cont1752
-  %lnot.i6337 = phi i1 [ true, %invoke.cont1752 ], [ false, %_ZNK5eastl9hashtableI14HashtableValueS1_NS_9allocatorENS_8use_selfIS1_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i.i6341 ], [ true, %for.inc.i.i.i.i6361 ], [ true, %lor.lhs.false.i.i6366 ], [ true, %_ZNK5eastl9hashtableI14HashtableValueS1_NS_9allocatorENS_8use_selfIS1_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE4findERKS1_.exit.i.i6364 ], [ false, %_ZN5eastl18hashtable_iteratorI14HashtableValueLb1ELb0EEppEv.exit.i.i6374 ], [ true, %for.body.i.i6352 ]
+  %lnot.i6337 = phi i1 [ true, %for.inc.i.i.i.i6361 ], [ true, %invoke.cont1752 ], [ false, %_ZNK5eastl9hashtableI14HashtableValueS1_NS_9allocatorENS_8use_selfIS1_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i.i6341 ], [ false, %_ZN5eastl18hashtable_iteratorI14HashtableValueLb1ELb0EEppEv.exit.i.i6374 ], [ true, %_ZNK5eastl9hashtableI14HashtableValueS1_NS_9allocatorENS_8use_selfIS1_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE4findERKS1_.exit.i.i6364 ], [ true, %lor.lhs.false.i.i6366 ], [ true, %for.body.i.i6352 ]
   %call1756 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %lnot.i6337, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 1067, ptr noundef nonnull @.str.102)
           to label %invoke.cont1755 unwind label %lpad1720
 
@@ -26442,7 +26442,7 @@ _ZN5eastl18hashtable_iteratorI14HashtableValueLb1ELb0EEppEv.exit.i.i6503: ; pred
   br i1 %cmp.i.not.i.i6506, label %invoke.cont1767, label %for.body.i.i6481, !llvm.loop !762
 
 invoke.cont1767:                                  ; preds = %_ZN5eastl18hashtable_iteratorI14HashtableValueLb1ELb0EEppEv.exit.i.i6503, %lor.lhs.false.i.i6495, %_ZNK5eastl9hashtableI14HashtableValueS1_NS_9allocatorENS_8use_selfIS1_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE4findERKS1_.exit.i.i6493, %for.body.i.i6481, %for.inc.i.i.i.i6490, %_ZNK5eastl9hashtableI14HashtableValueS1_NS_9allocatorENS_8use_selfIS1_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i.i6470, %invoke.cont1763
-  %lnot.i6466 = phi i1 [ true, %invoke.cont1763 ], [ false, %_ZNK5eastl9hashtableI14HashtableValueS1_NS_9allocatorENS_8use_selfIS1_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i.i6470 ], [ true, %for.inc.i.i.i.i6490 ], [ true, %lor.lhs.false.i.i6495 ], [ true, %_ZNK5eastl9hashtableI14HashtableValueS1_NS_9allocatorENS_8use_selfIS1_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE4findERKS1_.exit.i.i6493 ], [ false, %_ZN5eastl18hashtable_iteratorI14HashtableValueLb1ELb0EEppEv.exit.i.i6503 ], [ true, %for.body.i.i6481 ]
+  %lnot.i6466 = phi i1 [ true, %for.inc.i.i.i.i6490 ], [ true, %invoke.cont1763 ], [ false, %_ZNK5eastl9hashtableI14HashtableValueS1_NS_9allocatorENS_8use_selfIS1_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i.i6470 ], [ false, %_ZN5eastl18hashtable_iteratorI14HashtableValueLb1ELb0EEppEv.exit.i.i6503 ], [ true, %_ZNK5eastl9hashtableI14HashtableValueS1_NS_9allocatorENS_8use_selfIS1_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE4findERKS1_.exit.i.i6493 ], [ true, %lor.lhs.false.i.i6495 ], [ true, %for.body.i.i6481 ]
   %call1770 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %lnot.i6466, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 1071, ptr noundef nonnull @.str.102)
           to label %invoke.cont1769 unwind label %lpad1720
 
@@ -26806,7 +26806,7 @@ if.else.i9471:                                    ; preds = %invoke.cont1809
   br label %invoke.cont1812
 
 invoke.cont1812:                                  ; preds = %for.inc.i9467, %call.i.i.i.noexc9474, %if.else.i9471
-  %1899 = phi i64 [ 0, %call.i.i.i.noexc9474 ], [ %1892, %if.else.i9471 ], [ %1898, %for.inc.i9467 ]
+  %1899 = phi i64 [ %1892, %if.else.i9471 ], [ 0, %call.i.i.i.noexc9474 ], [ %1898, %for.inc.i9467 ]
   %1900 = load i64, ptr %value1774, align 8
   %conv.i.i.i6638 = and i64 %1899, 4294967295
   %rem.i.i.i6639 = urem i64 %1900, %conv.i.i.i6638
@@ -27406,7 +27406,7 @@ _ZN5eastl18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEppEv.exit.i:
   br i1 %cmp.i.not.i6999, label %invoke.cont1879, label %for.body.i6978, !llvm.loop !819
 
 invoke.cont1879:                                  ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEppEv.exit.i, %_ZN5eastleqIKm14HashtableValueEEbRKNS_4pairIT_T0_EES8_.exit.i, %_ZNK5eastl9hashtableImNS_4pairIKm14HashtableValueEENS_9allocatorENS_9use_firstIS4_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit.i, %for.body.i6978, %for.inc.i.i.i6985, %_ZNK5eastl9hashtableImNS_4pairIKm14HashtableValueEENS_9allocatorENS_9use_firstIS4_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i
-  %retval.0.i6965 = phi i1 [ true, %_ZNK5eastl9hashtableImNS_4pairIKm14HashtableValueEENS_9allocatorENS_9use_firstIS4_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i ], [ false, %for.inc.i.i.i6985 ], [ false, %_ZN5eastleqIKm14HashtableValueEEbRKNS_4pairIT_T0_EES8_.exit.i ], [ false, %_ZNK5eastl9hashtableImNS_4pairIKm14HashtableValueEENS_9allocatorENS_9use_firstIS4_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit.i ], [ true, %_ZN5eastl18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEppEv.exit.i ], [ false, %for.body.i6978 ]
+  %retval.0.i6965 = phi i1 [ true, %_ZNK5eastl9hashtableImNS_4pairIKm14HashtableValueEENS_9allocatorENS_9use_firstIS4_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i ], [ false, %for.inc.i.i.i6985 ], [ false, %for.body.i6978 ], [ true, %_ZN5eastl18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEppEv.exit.i ], [ false, %_ZNK5eastl9hashtableImNS_4pairIKm14HashtableValueEENS_9allocatorENS_9use_firstIS4_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit.i ], [ false, %_ZN5eastleqIKm14HashtableValueEEbRKNS_4pairIT_T0_EES8_.exit.i ]
   %call1882 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i6965, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 1119, ptr noundef nonnull @.str.101)
           to label %for.cond1884.preheader unwind label %lpad1878.loopexit.split-lp.loopexit.split-lp
 
@@ -27604,7 +27604,7 @@ _ZN5eastl18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEppEv.exit.i.
   br i1 %cmp.i.not.i.i7066, label %invoke.cont1898, label %for.body.i.i7050, !llvm.loop !819
 
 invoke.cont1898:                                  ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEppEv.exit.i.i, %_ZN5eastleqIKm14HashtableValueEEbRKNS_4pairIT_T0_EES8_.exit.i.i, %_ZNK5eastl9hashtableImNS_4pairIKm14HashtableValueEENS_9allocatorENS_9use_firstIS4_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit.i.i, %for.body.i.i7050, %for.inc.i.i.i.i7057, %_ZNK5eastl9hashtableImNS_4pairIKm14HashtableValueEENS_9allocatorENS_9use_firstIS4_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i.i, %for.end1897
-  %lnot.i7037 = phi i1 [ true, %for.end1897 ], [ false, %_ZNK5eastl9hashtableImNS_4pairIKm14HashtableValueEENS_9allocatorENS_9use_firstIS4_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i.i ], [ true, %for.inc.i.i.i.i7057 ], [ true, %for.body.i.i7050 ], [ false, %_ZN5eastl18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEppEv.exit.i.i ], [ true, %_ZNK5eastl9hashtableImNS_4pairIKm14HashtableValueEENS_9allocatorENS_9use_firstIS4_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit.i.i ], [ true, %_ZN5eastleqIKm14HashtableValueEEbRKNS_4pairIT_T0_EES8_.exit.i.i ]
+  %lnot.i7037 = phi i1 [ false, %_ZNK5eastl9hashtableImNS_4pairIKm14HashtableValueEENS_9allocatorENS_9use_firstIS4_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i.i ], [ true, %for.end1897 ], [ true, %for.inc.i.i.i.i7057 ], [ true, %_ZNK5eastl9hashtableImNS_4pairIKm14HashtableValueEENS_9allocatorENS_9use_firstIS4_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit.i.i ], [ false, %_ZN5eastl18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEppEv.exit.i.i ], [ true, %for.body.i.i7050 ], [ true, %_ZN5eastleqIKm14HashtableValueEEbRKNS_4pairIT_T0_EES8_.exit.i.i ]
   %call1901 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %lnot.i7037, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 1127, ptr noundef nonnull @.str.102)
           to label %invoke.cont1900 unwind label %lpad1878.loopexit.split-lp.loopexit.split-lp
 
@@ -27754,7 +27754,7 @@ _ZN5eastl18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEppEv.exit.i7
   br i1 %cmp.i.not.i7147, label %invoke.cont1904, label %for.body.i7119, !llvm.loop !819
 
 invoke.cont1904:                                  ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEppEv.exit.i7144, %_ZN5eastleqIKm14HashtableValueEEbRKNS_4pairIT_T0_EES8_.exit.i7133, %_ZNK5eastl9hashtableImNS_4pairIKm14HashtableValueEENS_9allocatorENS_9use_firstIS4_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit.i7131, %for.body.i7119, %for.inc.i.i.i7128, %_ZNK5eastl9hashtableImNS_4pairIKm14HashtableValueEENS_9allocatorENS_9use_firstIS4_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i7108, %invoke.cont1902
-  %retval.0.i7104 = phi i1 [ false, %invoke.cont1902 ], [ true, %_ZNK5eastl9hashtableImNS_4pairIKm14HashtableValueEENS_9allocatorENS_9use_firstIS4_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i7108 ], [ false, %for.inc.i.i.i7128 ], [ false, %_ZN5eastleqIKm14HashtableValueEEbRKNS_4pairIT_T0_EES8_.exit.i7133 ], [ false, %_ZNK5eastl9hashtableImNS_4pairIKm14HashtableValueEENS_9allocatorENS_9use_firstIS4_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit.i7131 ], [ true, %_ZN5eastl18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEppEv.exit.i7144 ], [ false, %for.body.i7119 ]
+  %retval.0.i7104 = phi i1 [ true, %_ZNK5eastl9hashtableImNS_4pairIKm14HashtableValueEENS_9allocatorENS_9use_firstIS4_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i7108 ], [ false, %invoke.cont1902 ], [ false, %for.inc.i.i.i7128 ], [ false, %for.body.i7119 ], [ true, %_ZN5eastl18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEppEv.exit.i7144 ], [ false, %_ZNK5eastl9hashtableImNS_4pairIKm14HashtableValueEENS_9allocatorENS_9use_firstIS4_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit.i7131 ], [ false, %_ZN5eastleqIKm14HashtableValueEEbRKNS_4pairIT_T0_EES8_.exit.i7133 ]
   %call1907 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i7104, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 1129, ptr noundef nonnull @.str.101)
           to label %invoke.cont1906 unwind label %lpad1878.loopexit.split-lp.loopexit.split-lp
 
@@ -27838,7 +27838,7 @@ if.else.i9513:                                    ; preds = %invoke.cont1906
   br label %invoke.cont1909
 
 invoke.cont1909:                                  ; preds = %for.inc.i9509, %call.i.i.i.noexc9516, %if.else.i9513
-  %2054 = phi i64 [ 0, %call.i.i.i.noexc9516 ], [ %2047, %if.else.i9513 ], [ %2053, %for.inc.i9509 ]
+  %2054 = phi i64 [ %2047, %if.else.i9513 ], [ 0, %call.i.i.i.noexc9516 ], [ %2053, %for.inc.i9509 ]
   %conv.i.i.i7159 = and i64 %2054, 4294967295
   %rem.i.i.i7160 = urem i64 %rem.i7012, %conv.i.i.i7159
   %2055 = load ptr, ptr %1976, align 8, !noalias !838
@@ -28045,7 +28045,7 @@ _ZN5eastl18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEppEv.exit.i.
   br i1 %cmp.i.not.i.i7266, label %invoke.cont1926, label %for.body.i.i7238, !llvm.loop !819
 
 invoke.cont1926:                                  ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEppEv.exit.i.i7263, %_ZN5eastleqIKm14HashtableValueEEbRKNS_4pairIT_T0_EES8_.exit.i.i7252, %_ZNK5eastl9hashtableImNS_4pairIKm14HashtableValueEENS_9allocatorENS_9use_firstIS4_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit.i.i7250, %for.body.i.i7238, %for.inc.i.i.i.i7247, %_ZNK5eastl9hashtableImNS_4pairIKm14HashtableValueEENS_9allocatorENS_9use_firstIS4_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i.i7227, %invoke.cont1925
-  %lnot.i7223 = phi i1 [ true, %invoke.cont1925 ], [ false, %_ZNK5eastl9hashtableImNS_4pairIKm14HashtableValueEENS_9allocatorENS_9use_firstIS4_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i.i7227 ], [ true, %for.inc.i.i.i.i7247 ], [ true, %for.body.i.i7238 ], [ false, %_ZN5eastl18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEppEv.exit.i.i7263 ], [ true, %_ZNK5eastl9hashtableImNS_4pairIKm14HashtableValueEENS_9allocatorENS_9use_firstIS4_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit.i.i7250 ], [ true, %_ZN5eastleqIKm14HashtableValueEEbRKNS_4pairIT_T0_EES8_.exit.i.i7252 ]
+  %lnot.i7223 = phi i1 [ false, %_ZNK5eastl9hashtableImNS_4pairIKm14HashtableValueEENS_9allocatorENS_9use_firstIS4_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i.i7227 ], [ true, %invoke.cont1925 ], [ true, %for.inc.i.i.i.i7247 ], [ true, %_ZNK5eastl9hashtableImNS_4pairIKm14HashtableValueEENS_9allocatorENS_9use_firstIS4_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit.i.i7250 ], [ false, %_ZN5eastl18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEppEv.exit.i.i7263 ], [ true, %for.body.i.i7238 ], [ true, %_ZN5eastleqIKm14HashtableValueEEbRKNS_4pairIT_T0_EES8_.exit.i.i7252 ]
   %call1929 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %lnot.i7223, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 1137, ptr noundef nonnull @.str.102)
           to label %invoke.cont1928 unwind label %lpad1912
 
@@ -28359,7 +28359,7 @@ _ZN5eastl18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEppEv.exit.i.
   br i1 %cmp.i.not.i.i7451, label %invoke.cont1947, label %for.body.i.i7423, !llvm.loop !819
 
 invoke.cont1947:                                  ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEppEv.exit.i.i7448, %_ZN5eastleqIKm14HashtableValueEEbRKNS_4pairIT_T0_EES8_.exit.i.i7437, %_ZNK5eastl9hashtableImNS_4pairIKm14HashtableValueEENS_9allocatorENS_9use_firstIS4_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit.i.i7435, %for.body.i.i7423, %for.inc.i.i.i.i7432, %_ZNK5eastl9hashtableImNS_4pairIKm14HashtableValueEENS_9allocatorENS_9use_firstIS4_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i.i7412, %invoke.cont1946
-  %lnot.i7408 = phi i1 [ true, %invoke.cont1946 ], [ false, %_ZNK5eastl9hashtableImNS_4pairIKm14HashtableValueEENS_9allocatorENS_9use_firstIS4_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i.i7412 ], [ true, %for.inc.i.i.i.i7432 ], [ true, %for.body.i.i7423 ], [ false, %_ZN5eastl18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEppEv.exit.i.i7448 ], [ true, %_ZNK5eastl9hashtableImNS_4pairIKm14HashtableValueEENS_9allocatorENS_9use_firstIS4_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit.i.i7435 ], [ true, %_ZN5eastleqIKm14HashtableValueEEbRKNS_4pairIT_T0_EES8_.exit.i.i7437 ]
+  %lnot.i7408 = phi i1 [ false, %_ZNK5eastl9hashtableImNS_4pairIKm14HashtableValueEENS_9allocatorENS_9use_firstIS4_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i.i7412 ], [ true, %invoke.cont1946 ], [ true, %for.inc.i.i.i.i7432 ], [ true, %_ZNK5eastl9hashtableImNS_4pairIKm14HashtableValueEENS_9allocatorENS_9use_firstIS4_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit.i.i7435 ], [ false, %_ZN5eastl18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEppEv.exit.i.i7448 ], [ true, %for.body.i.i7423 ], [ true, %_ZN5eastleqIKm14HashtableValueEEbRKNS_4pairIT_T0_EES8_.exit.i.i7437 ]
   %call1950 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %lnot.i7408, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 1144, ptr noundef nonnull @.str.102)
           to label %invoke.cont1949 unwind label %lpad1912
 
@@ -28566,7 +28566,7 @@ _ZN5eastl18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEppEv.exit.i.
   br i1 %cmp.i.not.i.i7582, label %invoke.cont1960, label %for.body.i.i7554, !llvm.loop !819
 
 invoke.cont1960:                                  ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEppEv.exit.i.i7579, %_ZN5eastleqIKm14HashtableValueEEbRKNS_4pairIT_T0_EES8_.exit.i.i7568, %_ZNK5eastl9hashtableImNS_4pairIKm14HashtableValueEENS_9allocatorENS_9use_firstIS4_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit.i.i7566, %for.body.i.i7554, %for.inc.i.i.i.i7563, %_ZNK5eastl9hashtableImNS_4pairIKm14HashtableValueEENS_9allocatorENS_9use_firstIS4_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i.i7543, %invoke.cont1959
-  %lnot.i7539 = phi i1 [ true, %invoke.cont1959 ], [ false, %_ZNK5eastl9hashtableImNS_4pairIKm14HashtableValueEENS_9allocatorENS_9use_firstIS4_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i.i7543 ], [ true, %for.inc.i.i.i.i7563 ], [ true, %for.body.i.i7554 ], [ false, %_ZN5eastl18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEppEv.exit.i.i7579 ], [ true, %_ZNK5eastl9hashtableImNS_4pairIKm14HashtableValueEENS_9allocatorENS_9use_firstIS4_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit.i.i7566 ], [ true, %_ZN5eastleqIKm14HashtableValueEEbRKNS_4pairIT_T0_EES8_.exit.i.i7568 ]
+  %lnot.i7539 = phi i1 [ false, %_ZNK5eastl9hashtableImNS_4pairIKm14HashtableValueEENS_9allocatorENS_9use_firstIS4_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit.i.i7543 ], [ true, %invoke.cont1959 ], [ true, %for.inc.i.i.i.i7563 ], [ true, %_ZNK5eastl9hashtableImNS_4pairIKm14HashtableValueEENS_9allocatorENS_9use_firstIS4_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit.i.i7566 ], [ false, %_ZN5eastl18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEppEv.exit.i.i7579 ], [ true, %for.body.i.i7554 ], [ true, %_ZN5eastleqIKm14HashtableValueEEbRKNS_4pairIT_T0_EES8_.exit.i.i7568 ]
   %call1963 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %lnot.i7539, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 1148, ptr noundef nonnull @.str.102)
           to label %invoke.cont1962 unwind label %lpad1912
 
@@ -28936,7 +28936,7 @@ if.else.i9555:                                    ; preds = %invoke.cont2003
   br label %invoke.cont2006
 
 invoke.cont2006:                                  ; preds = %for.inc.i9551, %call.i.i.i.noexc9558, %if.else.i9555
-  %2217 = phi i64 [ 0, %call.i.i.i.noexc9558 ], [ %2210, %if.else.i9555 ], [ %2216, %for.inc.i9551 ]
+  %2217 = phi i64 [ %2210, %if.else.i9555 ], [ 0, %call.i.i.i.noexc9558 ], [ %2216, %for.inc.i9551 ]
   %conv.i.i.i7715 = and i64 %2217, 4294967295
   %rem.i.i.i7716 = urem i64 %rem.i7680, %conv.i.i.i7715
   %2218 = load ptr, ptr %2196, align 8, !noalias !888
@@ -31932,7 +31932,7 @@ lpad2513:                                         ; preds = %if.then9.i.i.i, %ca
   br label %eh.resume
 
 eh.resume:                                        ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i4891, %ehcleanup890, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i4080, %ehcleanup808, %lpad2513, %ehcleanup2510, %ehcleanup2477, %ehcleanup2440, %ehcleanup2405, %lpad2359, %lpad2259, %lpad2245, %lpad2157, %lpad2142, %lpad2067, %ehcleanup2062, %ehcleanup1965, %ehcleanup1871, %ehcleanup1772, %lpad1680, %ehcleanup1676, %ehcleanup1577, %ehcleanup1540, %lpad1425, %ehcleanup1418, %ehcleanup1137, %ehcleanup1097, %lpad923, %lpad620, %ehcleanup607, %ehcleanup481, %ehcleanup453, %lpad391, %lpad281, %lpad143, %lpad73, %ehcleanup71
-  %.pn153 = phi { ptr, i32 } [ %lpad.phi9911, %lpad73 ], [ %lpad.phi9898, %lpad143 ], [ %lpad.phi9892, %lpad281 ], [ %lpad.phi9886, %lpad391 ], [ %.pn151, %ehcleanup481 ], [ %.pn145.pn.pn.pn.pn, %ehcleanup607 ], [ %lpad.phi9868, %lpad620 ], [ %.pn134, %ehcleanup1418 ], [ %lpad.phi9832, %lpad1425 ], [ %.pn132, %ehcleanup1676 ], [ %.pn129, %ehcleanup1772 ], [ %.pn126, %ehcleanup1871 ], [ %.pn123, %ehcleanup1965 ], [ %.pn120, %ehcleanup2062 ], [ %lpad.phi, %lpad2157 ], [ %2646, %lpad2513 ], [ %.pn117.pn, %ehcleanup2510 ], [ %.pn113.pn.pn, %ehcleanup2477 ], [ %.pn110.pn, %ehcleanup2440 ], [ %.pn106.pn.pn, %ehcleanup2405 ], [ %2631, %lpad2359 ], [ %2630, %lpad2259 ], [ %2629, %lpad2245 ], [ %2332, %lpad2142 ], [ %2319, %lpad2067 ], [ %1689, %lpad1680 ], [ %.pn99, %ehcleanup1577 ], [ %.pn97, %ehcleanup1540 ], [ %.pn91, %ehcleanup1137 ], [ %.pn89, %ehcleanup1097 ], [ %1318, %lpad923 ], [ %.pn74, %ehcleanup453 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup71 ], [ %.pn141, %ehcleanup808 ], [ %.pn141, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i4080 ], [ %.pn138, %ehcleanup890 ], [ %.pn138, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i4891 ]
+  %.pn153 = phi { ptr, i32 } [ %lpad.phi9911, %lpad73 ], [ %lpad.phi9898, %lpad143 ], [ %lpad.phi9892, %lpad281 ], [ %lpad.phi9886, %lpad391 ], [ %.pn151, %ehcleanup481 ], [ %.pn145.pn.pn.pn.pn, %ehcleanup607 ], [ %lpad.phi9868, %lpad620 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup71 ], [ %.pn141, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i4080 ], [ %.pn134, %ehcleanup1418 ], [ %lpad.phi9832, %lpad1425 ], [ %.pn132, %ehcleanup1676 ], [ %.pn129, %ehcleanup1772 ], [ %.pn126, %ehcleanup1871 ], [ %.pn123, %ehcleanup1965 ], [ %.pn120, %ehcleanup2062 ], [ %.pn141, %ehcleanup808 ], [ %lpad.phi, %lpad2157 ], [ %2646, %lpad2513 ], [ %.pn117.pn, %ehcleanup2510 ], [ %.pn89, %ehcleanup1097 ], [ %.pn113.pn.pn, %ehcleanup2477 ], [ %1318, %lpad923 ], [ %.pn110.pn, %ehcleanup2440 ], [ %.pn91, %ehcleanup1137 ], [ %.pn106.pn.pn, %ehcleanup2405 ], [ %.pn97, %ehcleanup1540 ], [ %2631, %lpad2359 ], [ %2630, %lpad2259 ], [ %2629, %lpad2245 ], [ %.pn74, %ehcleanup453 ], [ %2332, %lpad2142 ], [ %.pn138, %ehcleanup890 ], [ %.pn138, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i4891 ], [ %2319, %lpad2067 ], [ %1689, %lpad1680 ], [ %.pn99, %ehcleanup1577 ]
   resume { ptr, i32 } %.pn153
 }
 
@@ -32157,7 +32157,7 @@ for.inc:                                          ; preds = %if.then20, %if.else
   br i1 %cmp.i.not, label %return, label %for.body, !llvm.loop !1043
 
 return:                                           ; preds = %_ZN5eastl8distanceINS_18hashtable_iteratorIiLb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES4_S4_.exit71, %if.then20, %if.else, %for.inc, %_ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE5beginEv.exit, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ true, %_ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE5beginEv.exit ], [ false, %_ZN5eastl8distanceINS_18hashtable_iteratorIiLb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES4_S4_.exit71 ], [ false, %if.then20 ], [ false, %if.else ], [ true, %for.inc ]
+  %retval.0 = phi i1 [ false, %entry ], [ true, %_ZNK5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE5beginEv.exit ], [ false, %if.else ], [ false, %_ZN5eastl8distanceINS_18hashtable_iteratorIiLb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES4_S4_.exit71 ], [ false, %if.then20 ], [ true, %for.inc ]
   ret i1 %retval.0
 }
 
@@ -32386,7 +32386,7 @@ for.inc:                                          ; preds = %if.then22, %if.else
   br i1 %cmp.i.not, label %return, label %for.body, !llvm.loop !1052
 
 return:                                           ; preds = %_ZN5eastl8distanceINS_18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES7_S7_.exit71, %if.then22, %if.else, %for.inc, %_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_9allocatorENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ true, %_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_9allocatorENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit ], [ false, %_ZN5eastl8distanceINS_18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES7_S7_.exit71 ], [ false, %if.then22 ], [ false, %if.else ], [ true, %for.inc ]
+  %retval.0 = phi i1 [ false, %entry ], [ true, %_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_9allocatorENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit ], [ false, %if.else ], [ false, %_ZN5eastl8distanceINS_18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES7_S7_.exit71 ], [ false, %if.then22 ], [ true, %for.inc ]
   ret i1 %retval.0
 }
 
@@ -48841,8 +48841,8 @@ _ZN10TestObjectD2Ev.exit551:                      ; preds = %_ZN10TestObjectD2Ev
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad156, %_ZN10TestObjectD2Ev.exit495, %_ZN10TestObjectD2Ev.exit502, %_ZN10TestObjectD2Ev.exit509, %_ZN10TestObjectD2Ev.exit516, %_ZN10TestObjectD2Ev.exit551, %lpad, %_ZN10TestObjectD2Ev.exit432, %_ZN10TestObjectD2Ev.exit439, %_ZN10TestObjectD2Ev.exit446, %_ZN10TestObjectD2Ev.exit453, %_ZN10TestObjectD2Ev.exit460, %_ZN10TestObjectD2Ev.exit467, %_ZN10TestObjectD2Ev.exit474, %_ZN10TestObjectD2Ev.exit481, %_ZN10TestObjectD2Ev.exit488
-  %toMap152.sink = phi ptr [ %toMap, %_ZN10TestObjectD2Ev.exit488 ], [ %toMap, %_ZN10TestObjectD2Ev.exit481 ], [ %toMap, %_ZN10TestObjectD2Ev.exit474 ], [ %toMap, %_ZN10TestObjectD2Ev.exit467 ], [ %toMap, %_ZN10TestObjectD2Ev.exit460 ], [ %toMap, %_ZN10TestObjectD2Ev.exit453 ], [ %toMap, %_ZN10TestObjectD2Ev.exit446 ], [ %toMap, %_ZN10TestObjectD2Ev.exit439 ], [ %toMap, %_ZN10TestObjectD2Ev.exit432 ], [ %toMap, %lpad ], [ %toMap152, %_ZN10TestObjectD2Ev.exit551 ], [ %toMap152, %_ZN10TestObjectD2Ev.exit516 ], [ %toMap152, %_ZN10TestObjectD2Ev.exit509 ], [ %toMap152, %_ZN10TestObjectD2Ev.exit502 ], [ %toMap152, %_ZN10TestObjectD2Ev.exit495 ], [ %toMap152, %lpad156 ]
-  %.pn12.pn.pn = phi { ptr, i32 } [ %255, %_ZN10TestObjectD2Ev.exit488 ], [ %252, %_ZN10TestObjectD2Ev.exit481 ], [ %249, %_ZN10TestObjectD2Ev.exit474 ], [ %246, %_ZN10TestObjectD2Ev.exit467 ], [ %243, %_ZN10TestObjectD2Ev.exit460 ], [ %240, %_ZN10TestObjectD2Ev.exit453 ], [ %237, %_ZN10TestObjectD2Ev.exit446 ], [ %234, %_ZN10TestObjectD2Ev.exit439 ], [ %231, %_ZN10TestObjectD2Ev.exit432 ], [ %230, %lpad ], [ %.pn12, %_ZN10TestObjectD2Ev.exit551 ], [ %272, %_ZN10TestObjectD2Ev.exit516 ], [ %267, %_ZN10TestObjectD2Ev.exit509 ], [ %264, %_ZN10TestObjectD2Ev.exit502 ], [ %259, %_ZN10TestObjectD2Ev.exit495 ], [ %258, %lpad156 ]
+  %toMap152.sink = phi ptr [ %toMap, %lpad ], [ %toMap, %_ZN10TestObjectD2Ev.exit488 ], [ %toMap, %_ZN10TestObjectD2Ev.exit481 ], [ %toMap, %_ZN10TestObjectD2Ev.exit474 ], [ %toMap, %_ZN10TestObjectD2Ev.exit467 ], [ %toMap, %_ZN10TestObjectD2Ev.exit460 ], [ %toMap, %_ZN10TestObjectD2Ev.exit453 ], [ %toMap, %_ZN10TestObjectD2Ev.exit446 ], [ %toMap, %_ZN10TestObjectD2Ev.exit439 ], [ %toMap, %_ZN10TestObjectD2Ev.exit432 ], [ %toMap152, %_ZN10TestObjectD2Ev.exit551 ], [ %toMap152, %_ZN10TestObjectD2Ev.exit516 ], [ %toMap152, %_ZN10TestObjectD2Ev.exit509 ], [ %toMap152, %_ZN10TestObjectD2Ev.exit502 ], [ %toMap152, %_ZN10TestObjectD2Ev.exit495 ], [ %toMap152, %lpad156 ]
+  %.pn12.pn.pn = phi { ptr, i32 } [ %230, %lpad ], [ %255, %_ZN10TestObjectD2Ev.exit488 ], [ %252, %_ZN10TestObjectD2Ev.exit481 ], [ %249, %_ZN10TestObjectD2Ev.exit474 ], [ %246, %_ZN10TestObjectD2Ev.exit467 ], [ %243, %_ZN10TestObjectD2Ev.exit460 ], [ %240, %_ZN10TestObjectD2Ev.exit453 ], [ %237, %_ZN10TestObjectD2Ev.exit446 ], [ %234, %_ZN10TestObjectD2Ev.exit439 ], [ %231, %_ZN10TestObjectD2Ev.exit432 ], [ %.pn12, %_ZN10TestObjectD2Ev.exit551 ], [ %272, %_ZN10TestObjectD2Ev.exit516 ], [ %267, %_ZN10TestObjectD2Ev.exit509 ], [ %264, %_ZN10TestObjectD2Ev.exit502 ], [ %259, %_ZN10TestObjectD2Ev.exit495 ], [ %258, %lpad156 ]
   call void @_ZN5eastl8hash_mapIi10TestObjectNS_4hashIiEENS_8equal_toIiEENS_9allocatorELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(45) %toMap152.sink) #21
   resume { ptr, i32 } %.pn12.pn.pn
 }
@@ -49451,7 +49451,7 @@ for.inc:                                          ; preds = %if.then20, %if.else
   br i1 %cmp.i.not, label %return, label %for.body, !llvm.loop !1996
 
 return:                                           ; preds = %_ZN5eastl8distanceINS_18hashtable_iteratorI14HashtableValueLb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES5_S5_.exit70, %if.then20, %if.else, %for.inc, %_ZNK5eastl9hashtableI14HashtableValueS1_NS_9allocatorENS_8use_selfIS1_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE5beginEv.exit, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ true, %_ZNK5eastl9hashtableI14HashtableValueS1_NS_9allocatorENS_8use_selfIS1_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE5beginEv.exit ], [ false, %_ZN5eastl8distanceINS_18hashtable_iteratorI14HashtableValueLb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES5_S5_.exit70 ], [ false, %if.then20 ], [ false, %if.else ], [ true, %for.inc ]
+  %retval.0 = phi i1 [ false, %entry ], [ true, %_ZNK5eastl9hashtableI14HashtableValueS1_NS_9allocatorENS_8use_selfIS1_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE5beginEv.exit ], [ false, %if.else ], [ false, %_ZN5eastl8distanceINS_18hashtable_iteratorI14HashtableValueLb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES5_S5_.exit70 ], [ false, %if.then20 ], [ true, %for.inc ]
   ret i1 %retval.0
 }
 
@@ -49795,7 +49795,7 @@ for.inc:                                          ; preds = %_ZN5eastleqIKm14Has
   br i1 %cmp.i.not, label %return, label %for.body, !llvm.loop !2005
 
 return:                                           ; preds = %_ZN5eastl8distanceINS_18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES8_S8_.exit70, %_ZN5eastleqIKm14HashtableValueEEbRKNS_4pairIT_T0_EES8_.exit, %if.else, %for.inc, %if.then22, %_ZNK5eastl9hashtableImNS_4pairIKm14HashtableValueEENS_9allocatorENS_9use_firstIS4_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ true, %_ZNK5eastl9hashtableImNS_4pairIKm14HashtableValueEENS_9allocatorENS_9use_firstIS4_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit ], [ false, %_ZN5eastl8distanceINS_18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES8_S8_.exit70 ], [ false, %_ZN5eastleqIKm14HashtableValueEEbRKNS_4pairIT_T0_EES8_.exit ], [ false, %if.else ], [ true, %for.inc ], [ false, %if.then22 ]
+  %retval.0 = phi i1 [ false, %entry ], [ true, %_ZNK5eastl9hashtableImNS_4pairIKm14HashtableValueEENS_9allocatorENS_9use_firstIS4_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit ], [ true, %for.inc ], [ false, %if.else ], [ false, %_ZN5eastl8distanceINS_18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES8_S8_.exit70 ], [ false, %_ZN5eastleqIKm14HashtableValueEEbRKNS_4pairIT_T0_EES8_.exit ], [ false, %if.then22 ]
   ret i1 %retval.0
 }
 
@@ -51085,14 +51085,14 @@ _ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit: ; preds = %if.th
   br label %6
 
 6:                                                ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit.thread
-  %7 = phi ptr [ %add.ptr.i.i79, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit.thread ], [ %spec.select, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit ]
+  %7 = phi ptr [ %spec.select, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit ], [ %add.ptr.i.i79, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit.thread ]
   store i8 0, ptr %7, align 1
   %.pre = load i8, ptr %mRemainingSizeField.i.i, align 1
   br label %if.end10
 
 if.end10:                                         ; preds = %entry, %if.else, %6
-  %8 = phi i8 [ %.pre, %6 ], [ %0, %if.else ], [ %0, %entry ]
-  %n.addr.0 = phi i64 [ %n, %6 ], [ %n, %if.else ], [ %cond.i, %entry ]
+  %8 = phi i8 [ %0, %if.else ], [ %.pre, %6 ], [ %0, %entry ]
+  %n.addr.0 = phi i64 [ %n, %if.else ], [ %n, %6 ], [ %cond.i, %entry ]
   %mRemainingSizeField.i.i28 = getelementptr inbounds nuw i8, ptr %this, i64 23
   %tobool.i.i29 = icmp sgt i8 %8, -1
   %mnCapacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -55510,7 +55510,7 @@ _ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit70: ; preds = %while.body.i.i66
   br i1 %cmp.i25.not, label %return, label %for.body, !llvm.loop !2126
 
 return:                                           ; preds = %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit12, %_ZN5eastl5countINS_18hashtable_iteratorIiLb1ELb0EEEiEENS_15iterator_traitsIT_E15difference_typeES4_S4_RKT0_.exit59, %_ZN5eastl5countINS_18hashtable_iteratorIiLb1ELb0EEEiEENS_15iterator_traitsIT_E15difference_typeES4_S4_RKT0_.exit, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit70, %if.then14, %entry, %for.cond.preheader
-  %retval.0 = phi i1 [ true, %for.cond.preheader ], [ true, %entry ], [ false, %_ZN5eastl5countINS_18hashtable_iteratorIiLb1ELb0EEEiEENS_15iterator_traitsIT_E15difference_typeES4_S4_RKT0_.exit59 ], [ false, %_ZN5eastl5countINS_18hashtable_iteratorIiLb1ELb0EEEiEENS_15iterator_traitsIT_E15difference_typeES4_S4_RKT0_.exit ], [ true, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit70 ], [ false, %if.then14 ], [ true, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit12 ]
+  %retval.0 = phi i1 [ true, %for.cond.preheader ], [ true, %entry ], [ false, %if.then14 ], [ true, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit70 ], [ false, %_ZN5eastl5countINS_18hashtable_iteratorIiLb1ELb0EEEiEENS_15iterator_traitsIT_E15difference_typeES4_S4_RKT0_.exit ], [ false, %_ZN5eastl5countINS_18hashtable_iteratorIiLb1ELb0EEEiEENS_15iterator_traitsIT_E15difference_typeES4_S4_RKT0_.exit59 ], [ true, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit12 ]
   ret i1 %retval.0
 }
 
@@ -55768,7 +55768,7 @@ _ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit76: ; preds = %whi
   br i1 %cmp.i26.not, label %return, label %for.body, !llvm.loop !2131
 
 return:                                           ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit13, %_ZN5eastl5countINS_18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEES4_EENS_15iterator_traitsIT_E15difference_typeES7_S7_RKT0_.exit65, %_ZN5eastl5countINS_18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEES4_EENS_15iterator_traitsIT_E15difference_typeES7_S7_RKT0_.exit, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit76, %if.then15, %entry, %for.cond.preheader
-  %retval.0 = phi i1 [ true, %for.cond.preheader ], [ true, %entry ], [ false, %_ZN5eastl5countINS_18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEES4_EENS_15iterator_traitsIT_E15difference_typeES7_S7_RKT0_.exit65 ], [ false, %_ZN5eastl5countINS_18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEES4_EENS_15iterator_traitsIT_E15difference_typeES7_S7_RKT0_.exit ], [ true, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit76 ], [ false, %if.then15 ], [ true, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit13 ]
+  %retval.0 = phi i1 [ true, %for.cond.preheader ], [ true, %entry ], [ false, %if.then15 ], [ true, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit76 ], [ false, %_ZN5eastl5countINS_18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEES4_EENS_15iterator_traitsIT_E15difference_typeES7_S7_RKT0_.exit ], [ false, %_ZN5eastl5countINS_18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEES4_EENS_15iterator_traitsIT_E15difference_typeES7_S7_RKT0_.exit65 ], [ true, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit13 ]
   ret i1 %retval.0
 }
 
@@ -59963,9 +59963,9 @@ _ZN5eastl9hashtableINS_12basic_stringIcNS_9allocatorEEES3_S2_NS_8use_selfIS3_EEN
   br label %return
 
 return:                                           ; preds = %_ZNK5eastl14hash_code_baseINS_12basic_stringIcNS_9allocatorEEES3_NS_8use_selfIS3_EENS_8equal_toIS3_EENS_4hashIS3_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERKS3_mPNS_9hash_nodeIS3_Lb0EEE.exit.i, %_ZN5eastl9hashtableINS_12basic_stringIcNS_9allocatorEEES3_S2_NS_8use_selfIS3_EENS_8equal_toIS3_EENS_4hashIS3_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS3_Lb1ELb0EEEbEERKS3_mmPNS_9hash_nodeIS3_Lb0EEE.exit, %_ZN5eastl9hashtableINS_12basic_stringIcNS_9allocatorEEES3_S2_NS_8use_selfIS3_EENS_8equal_toIS3_EENS_4hashIS3_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS3_Lb1ELb0EEEbEERKS3_mmPNS_9hash_nodeIS3_Lb0EEE.exit
-  %pNode.addr.05.i.lcssa.sink = phi ptr [ %call.i.i.i, %_ZN5eastl9hashtableINS_12basic_stringIcNS_9allocatorEEES3_S2_NS_8use_selfIS3_EENS_8equal_toIS3_EENS_4hashIS3_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS3_Lb1ELb0EEEbEERKS3_mmPNS_9hash_nodeIS3_Lb0EEE.exit ], [ %pNodeNew, %_ZN5eastl9hashtableINS_12basic_stringIcNS_9allocatorEEES3_S2_NS_8use_selfIS3_EENS_8equal_toIS3_EENS_4hashIS3_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS3_Lb1ELb0EEEbEERKS3_mmPNS_9hash_nodeIS3_Lb0EEE.exit ], [ %pNode.addr.05.i, %_ZNK5eastl14hash_code_baseINS_12basic_stringIcNS_9allocatorEEES3_NS_8use_selfIS3_EENS_8equal_toIS3_EENS_4hashIS3_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERKS3_mPNS_9hash_nodeIS3_Lb0EEE.exit.i ]
-  %arrayidx.sink = phi ptr [ %add.ptr.i39, %_ZN5eastl9hashtableINS_12basic_stringIcNS_9allocatorEEES3_S2_NS_8use_selfIS3_EENS_8equal_toIS3_EENS_4hashIS3_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS3_Lb1ELb0EEEbEERKS3_mmPNS_9hash_nodeIS3_Lb0EEE.exit ], [ %add.ptr.i, %_ZN5eastl9hashtableINS_12basic_stringIcNS_9allocatorEEES3_S2_NS_8use_selfIS3_EENS_8equal_toIS3_EENS_4hashIS3_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS3_Lb1ELb0EEEbEERKS3_mmPNS_9hash_nodeIS3_Lb0EEE.exit ], [ %arrayidx, %_ZNK5eastl14hash_code_baseINS_12basic_stringIcNS_9allocatorEEES3_NS_8use_selfIS3_EENS_8equal_toIS3_EENS_4hashIS3_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERKS3_mPNS_9hash_nodeIS3_Lb0EEE.exit.i ]
-  %.sink = phi i8 [ 1, %_ZN5eastl9hashtableINS_12basic_stringIcNS_9allocatorEEES3_S2_NS_8use_selfIS3_EENS_8equal_toIS3_EENS_4hashIS3_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS3_Lb1ELb0EEEbEERKS3_mmPNS_9hash_nodeIS3_Lb0EEE.exit ], [ 1, %_ZN5eastl9hashtableINS_12basic_stringIcNS_9allocatorEEES3_S2_NS_8use_selfIS3_EENS_8equal_toIS3_EENS_4hashIS3_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS3_Lb1ELb0EEEbEERKS3_mmPNS_9hash_nodeIS3_Lb0EEE.exit ], [ 0, %_ZNK5eastl14hash_code_baseINS_12basic_stringIcNS_9allocatorEEES3_NS_8use_selfIS3_EENS_8equal_toIS3_EENS_4hashIS3_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERKS3_mPNS_9hash_nodeIS3_Lb0EEE.exit.i ]
+  %pNode.addr.05.i.lcssa.sink = phi ptr [ %pNodeNew, %_ZN5eastl9hashtableINS_12basic_stringIcNS_9allocatorEEES3_S2_NS_8use_selfIS3_EENS_8equal_toIS3_EENS_4hashIS3_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS3_Lb1ELb0EEEbEERKS3_mmPNS_9hash_nodeIS3_Lb0EEE.exit ], [ %call.i.i.i, %_ZN5eastl9hashtableINS_12basic_stringIcNS_9allocatorEEES3_S2_NS_8use_selfIS3_EENS_8equal_toIS3_EENS_4hashIS3_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS3_Lb1ELb0EEEbEERKS3_mmPNS_9hash_nodeIS3_Lb0EEE.exit ], [ %pNode.addr.05.i, %_ZNK5eastl14hash_code_baseINS_12basic_stringIcNS_9allocatorEEES3_NS_8use_selfIS3_EENS_8equal_toIS3_EENS_4hashIS3_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERKS3_mPNS_9hash_nodeIS3_Lb0EEE.exit.i ]
+  %arrayidx.sink = phi ptr [ %add.ptr.i, %_ZN5eastl9hashtableINS_12basic_stringIcNS_9allocatorEEES3_S2_NS_8use_selfIS3_EENS_8equal_toIS3_EENS_4hashIS3_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS3_Lb1ELb0EEEbEERKS3_mmPNS_9hash_nodeIS3_Lb0EEE.exit ], [ %add.ptr.i39, %_ZN5eastl9hashtableINS_12basic_stringIcNS_9allocatorEEES3_S2_NS_8use_selfIS3_EENS_8equal_toIS3_EENS_4hashIS3_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS3_Lb1ELb0EEEbEERKS3_mmPNS_9hash_nodeIS3_Lb0EEE.exit ], [ %arrayidx, %_ZNK5eastl14hash_code_baseINS_12basic_stringIcNS_9allocatorEEES3_NS_8use_selfIS3_EENS_8equal_toIS3_EENS_4hashIS3_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERKS3_mPNS_9hash_nodeIS3_Lb0EEE.exit.i ]
+  %.sink = phi i8 [ 1, %_ZN5eastl9hashtableINS_12basic_stringIcNS_9allocatorEEES3_S2_NS_8use_selfIS3_EENS_8equal_toIS3_EENS_4hashIS3_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS3_Lb1ELb0EEEbEERKS3_mmPNS_9hash_nodeIS3_Lb0EEE.exit ], [ 1, %_ZN5eastl9hashtableINS_12basic_stringIcNS_9allocatorEEES3_S2_NS_8use_selfIS3_EENS_8equal_toIS3_EENS_4hashIS3_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS3_Lb1ELb0EEEbEERKS3_mmPNS_9hash_nodeIS3_Lb0EEE.exit ], [ 0, %_ZNK5eastl14hash_code_baseINS_12basic_stringIcNS_9allocatorEEES3_NS_8use_selfIS3_EENS_8equal_toIS3_EENS_4hashIS3_EENS_17mod_range_hashingENS_19default_ranged_hashELb0EE7compareERKS3_mPNS_9hash_nodeIS3_Lb0EEE.exit.i ]
   store ptr %pNode.addr.05.i.lcssa.sink, ptr %agg.result, align 8
   %ref.tmp.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %arrayidx.sink, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx, align 8
@@ -60623,7 +60623,7 @@ _ZN5eastl18hashtable_iteratorI14HashtableValueLb1ELb0EEppEv.exit76: ; preds = %w
   br i1 %cmp.i26.not, label %return, label %for.body, !llvm.loop !2211
 
 return:                                           ; preds = %_ZN5eastl18hashtable_iteratorI14HashtableValueLb1ELb0EEppEv.exit13, %_ZN5eastl5countINS_18hashtable_iteratorI14HashtableValueLb1ELb0EEES2_EENS_15iterator_traitsIT_E15difference_typeES5_S5_RKT0_.exit65, %_ZN5eastl5countINS_18hashtable_iteratorI14HashtableValueLb1ELb0EEES2_EENS_15iterator_traitsIT_E15difference_typeES5_S5_RKT0_.exit, %_ZN5eastl18hashtable_iteratorI14HashtableValueLb1ELb0EEppEv.exit76, %if.then15, %entry, %for.cond.preheader
-  %retval.0 = phi i1 [ true, %for.cond.preheader ], [ true, %entry ], [ false, %_ZN5eastl5countINS_18hashtable_iteratorI14HashtableValueLb1ELb0EEES2_EENS_15iterator_traitsIT_E15difference_typeES5_S5_RKT0_.exit65 ], [ false, %_ZN5eastl5countINS_18hashtable_iteratorI14HashtableValueLb1ELb0EEES2_EENS_15iterator_traitsIT_E15difference_typeES5_S5_RKT0_.exit ], [ true, %_ZN5eastl18hashtable_iteratorI14HashtableValueLb1ELb0EEppEv.exit76 ], [ false, %if.then15 ], [ true, %_ZN5eastl18hashtable_iteratorI14HashtableValueLb1ELb0EEppEv.exit13 ]
+  %retval.0 = phi i1 [ true, %for.cond.preheader ], [ true, %entry ], [ false, %if.then15 ], [ true, %_ZN5eastl18hashtable_iteratorI14HashtableValueLb1ELb0EEppEv.exit76 ], [ false, %_ZN5eastl5countINS_18hashtable_iteratorI14HashtableValueLb1ELb0EEES2_EENS_15iterator_traitsIT_E15difference_typeES5_S5_RKT0_.exit ], [ false, %_ZN5eastl5countINS_18hashtable_iteratorI14HashtableValueLb1ELb0EEES2_EENS_15iterator_traitsIT_E15difference_typeES5_S5_RKT0_.exit65 ], [ true, %_ZN5eastl18hashtable_iteratorI14HashtableValueLb1ELb0EEppEv.exit13 ]
   ret i1 %retval.0
 }
 
@@ -61680,7 +61680,7 @@ _ZN5eastl18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEppEv.exit90:
   br i1 %cmp.i27.not, label %return, label %for.body, !llvm.loop !2232
 
 return:                                           ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEppEv.exit14, %_ZN5eastl5countINS_18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEES5_EENS_15iterator_traitsIT_E15difference_typeES8_S8_RKT0_.exit79, %_ZN5eastl5countINS_18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEES5_EENS_15iterator_traitsIT_E15difference_typeES8_S8_RKT0_.exit, %_ZN5eastl18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEppEv.exit90, %if.then15, %entry, %for.cond.preheader
-  %retval.0 = phi i1 [ true, %for.cond.preheader ], [ true, %entry ], [ false, %_ZN5eastl5countINS_18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEES5_EENS_15iterator_traitsIT_E15difference_typeES8_S8_RKT0_.exit79 ], [ false, %_ZN5eastl5countINS_18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEES5_EENS_15iterator_traitsIT_E15difference_typeES8_S8_RKT0_.exit ], [ true, %_ZN5eastl18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEppEv.exit90 ], [ false, %if.then15 ], [ true, %_ZN5eastl18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEppEv.exit14 ]
+  %retval.0 = phi i1 [ true, %for.cond.preheader ], [ true, %entry ], [ false, %if.then15 ], [ true, %_ZN5eastl18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEppEv.exit90 ], [ false, %_ZN5eastl5countINS_18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEES5_EENS_15iterator_traitsIT_E15difference_typeES8_S8_RKT0_.exit ], [ false, %_ZN5eastl5countINS_18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEES5_EENS_15iterator_traitsIT_E15difference_typeES8_S8_RKT0_.exit79 ], [ true, %_ZN5eastl18hashtable_iteratorINS_4pairIKm14HashtableValueEELb1ELb0EEppEv.exit14 ]
   ret i1 %retval.0
 }
 

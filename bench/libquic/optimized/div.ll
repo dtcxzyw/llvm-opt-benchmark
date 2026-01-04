@@ -423,7 +423,7 @@ thread-pre-split:                                 ; preds = %151, %155
   br label %225
 
 225:                                              ; preds = %48, %49, %45, %224, %223, %40, %28
-  %.0 = phi i32 [ 0, %28 ], [ 0, %40 ], [ 0, %224 ], [ 1, %223 ], [ 0, %45 ], [ 1, %49 ], [ 1, %48 ]
+  %.0 = phi i32 [ 0, %28 ], [ 0, %40 ], [ 0, %224 ], [ 1, %48 ], [ 1, %223 ], [ 0, %45 ], [ 1, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -640,7 +640,7 @@ BN_nnmod.exit.thread:                             ; preds = %14, %BN_nnmod.exit
   br label %BN_nnmod.exit.thread25
 
 BN_nnmod.exit.thread25:                           ; preds = %16, %BN_nnmod.exit.thread, %BN_nnmod.exit, %12, %10, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %10 ], [ 0, %12 ], [ 0, %BN_nnmod.exit.thread ], [ 1, %BN_nnmod.exit ], [ 1, %16 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %12 ], [ 0, %10 ], [ 0, %BN_nnmod.exit.thread ], [ 1, %BN_nnmod.exit ], [ 1, %16 ]
   tail call void @BN_CTX_end(ptr noundef %4) #6
   ret i32 %.0
 }
@@ -710,7 +710,7 @@ BN_nnmod.exit.thread22:                           ; preds = %7, %BN_nnmod.exit
   br label %BN_nnmod.exit.thread
 
 BN_nnmod.exit.thread:                             ; preds = %5, %16, %BN_nnmod.exit, %21
-  %.0 = phi i32 [ %23, %21 ], [ 0, %BN_nnmod.exit ], [ 0, %16 ], [ 0, %5 ]
+  %.0 = phi i32 [ 0, %BN_nnmod.exit ], [ %23, %21 ], [ 0, %16 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -780,8 +780,8 @@ define hidden range(i32 0, 2) i32 @BN_mod_lshift_quick(ptr noundef %0, ptr nound
   %30 = icmp sgt i32 %.230, 0
   br i1 %30, label %.lr.ph, label %.thread
 
-.thread:                                          ; preds = %29, %16, %20, %27, %8, %14, %5
-  %.027 = phi i32 [ 0, %5 ], [ 0, %14 ], [ 1, %8 ], [ 1, %29 ], [ 0, %16 ], [ 0, %20 ], [ 0, %27 ]
+.thread:                                          ; preds = %29, %20, %16, %27, %8, %14, %5
+  %.027 = phi i32 [ 0, %5 ], [ 0, %14 ], [ 1, %8 ], [ 0, %16 ], [ 0, %20 ], [ 1, %29 ], [ 0, %27 ]
   ret i32 %.027
 }
 
@@ -908,12 +908,12 @@ define hidden i64 @BN_div_word(ptr noundef %0, i64 noundef %1) local_unnamed_add
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %13, %35, %28, %._crit_edge
-  %.029.lcssa41 = phi i64 [ %23, %35 ], [ %23, %28 ], [ %23, %._crit_edge ], [ 0, %13 ]
+  %.029.lcssa41 = phi i64 [ %23, %._crit_edge ], [ %23, %35 ], [ %23, %28 ], [ 0, %13 ]
   %37 = lshr i64 %.029.lcssa41, %10
   br label %38
 
 38:                                               ; preds = %7, %3, %2, %._crit_edge.thread
-  %.0 = phi i64 [ %37, %._crit_edge.thread ], [ -1, %2 ], [ 0, %3 ], [ -1, %7 ]
+  %.0 = phi i64 [ -1, %2 ], [ %37, %._crit_edge.thread ], [ 0, %3 ], [ -1, %7 ]
   ret i64 %.0
 }
 

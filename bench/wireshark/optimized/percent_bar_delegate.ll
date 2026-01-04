@@ -601,7 +601,7 @@ _ZN20QStyleOptionViewItemD2Ev.exit:               ; preds = %.critedge78.thread,
   br label %197
 
 197:                                              ; preds = %190, %196, %146, %129
-  %.pn67.pn = phi { ptr, i32 } [ %130, %129 ], [ %147, %146 ], [ %191, %190 ], [ %.pn65, %196 ]
+  %.pn67.pn = phi { ptr, i32 } [ %147, %146 ], [ %130, %129 ], [ %191, %190 ], [ %.pn65, %196 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %198
 

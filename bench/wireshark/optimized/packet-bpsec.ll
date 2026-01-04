@@ -167,7 +167,7 @@ define range(i32 0, 2) i32 @bpsec_id_equal(ptr noundef readonly captures(address
   br label %16
 
 16:                                               ; preds = %9, %5, %2
-  %17 = phi i32 [ 0, %5 ], [ 0, %2 ], [ %15, %9 ]
+  %17 = phi i32 [ 0, %5 ], [ %15, %9 ], [ 0, %2 ]
   ret i32 %17
 }
 
@@ -795,7 +795,7 @@ dissect_value.exit331:                            ; preds = %278, %.thread.i330
   br label %.critedge314
 
 .critedge314:                                     ; preds = %147, %242, %297
-  %.8 = phi i32 [ %299, %297 ], [ 0, %242 ], [ 0, %147 ]
+  %.8 = phi i32 [ 0, %242 ], [ %299, %297 ], [ 0, %147 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.8
 }

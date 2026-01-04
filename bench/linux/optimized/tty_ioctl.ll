@@ -274,7 +274,7 @@ define dso_local void @tty_wait_until_sent(ptr noundef %0, i64 noundef %1) #0 al
   br i1 %41, label %.thread.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %15, %.thread.loopexit
-  %.ph = phi i64 [ %5, %15 ], [ %22, %.thread.loopexit ], [ %30, %.lr.ph ]
+  %.ph = phi i64 [ %22, %.thread.loopexit ], [ %5, %15 ], [ %30, %.lr.ph ]
   call void @finish_wait(ptr noundef nonnull %16, ptr noundef nonnull %3) #12
   br label %.thread7
 

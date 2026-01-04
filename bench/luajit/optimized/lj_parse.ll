@@ -2532,7 +2532,7 @@ bcreg_bump.exit:                                  ; preds = %expr_list.exit, %10
   br label %parse_for_iter.exit.i
 
 parse_for_iter.exit.i:                            ; preds = %1076, %1073, %1063, %1062, %1058, %1045, %1031, %1025, %1022, %bcreg_bump.exit
-  %1079 = phi i1 [ false, %1022 ], [ false, %bcreg_bump.exit ], [ false, %1062 ], [ false, %1031 ], [ true, %1045 ], [ true, %1058 ], [ false, %1025 ], [ %.not34.i, %1076 ], [ %.not33.i, %1073 ], [ false, %1063 ]
+  %1079 = phi i1 [ false, %1022 ], [ false, %bcreg_bump.exit ], [ true, %1058 ], [ false, %1062 ], [ false, %1025 ], [ false, %1031 ], [ true, %1045 ], [ %.not33.i, %1073 ], [ false, %1063 ], [ %.not34.i, %1076 ]
   %1080 = load ptr, ptr %0, align 8, !tbaa !19
   %1081 = getelementptr inbounds nuw i8, ptr %1080, i64 56
   %1082 = load i32, ptr %1081, align 8, !tbaa !59
@@ -3613,7 +3613,7 @@ expr_tonextreg.exit.i:                            ; preds = %1613, %expr_free.ex
   br label %1621
 
 1621:                                             ; preds = %.thread, %expr_tonextreg.exit.i, %1578, %1571
-  %.2.i = phi i32 [ %1589, %1578 ], [ %1574, %1571 ], [ %1620, %expr_tonextreg.exit.i ], [ %1570, %.thread ]
+  %.2.i = phi i32 [ %1570, %.thread ], [ %1589, %1578 ], [ %1574, %1571 ], [ %1620, %expr_tonextreg.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %.pre1035 = load i8, ptr %1514, align 8, !tbaa !56
   br label %parse_isend.exit.i
@@ -3871,7 +3871,7 @@ parse_call_assign.exit:                           ; preds = %1741, %1748
   br label %parse_stmt.exit
 
 parse_stmt.exit:                                  ; preds = %var_add.exit50.i, %expr_free.exit.i, %parse_if.exit, %parse_while.exit, %lex_match.exit, %parse_for.exit, %parse_repeat.exit, %parse_func.exit, %parse_return.exit, %1627, %1628, %parse_goto.exit, %parse_call_assign.exit
-  %.not = phi i1 [ false, %parse_return.exit ], [ false, %1627 ], [ true, %parse_call_assign.exit ], [ true, %parse_goto.exit ], [ true, %1628 ], [ true, %parse_func.exit ], [ true, %parse_repeat.exit ], [ true, %parse_for.exit ], [ true, %lex_match.exit ], [ true, %parse_while.exit ], [ true, %parse_if.exit ], [ true, %expr_free.exit.i ], [ true, %var_add.exit50.i ]
+  %.not = phi i1 [ false, %1627 ], [ false, %parse_return.exit ], [ true, %parse_call_assign.exit ], [ true, %parse_goto.exit ], [ true, %1628 ], [ true, %parse_if.exit ], [ true, %parse_func.exit ], [ true, %parse_repeat.exit ], [ true, %parse_for.exit ], [ true, %lex_match.exit ], [ true, %parse_while.exit ], [ true, %expr_free.exit.i ], [ true, %var_add.exit50.i ]
   %1749 = load i32, ptr %33, align 4, !tbaa !65
   %1750 = icmp eq i32 %1749, 59
   br i1 %1750, label %1751, label %lex_opt.exit
@@ -5293,7 +5293,7 @@ jmp_patchins.exit.i.i:                            ; preds = %53
   br label %bcemit_jmp.exit
 
 bcemit_jmp.exit:                                  ; preds = %38, %5, %62
-  %.0 = phi i32 [ %13, %5 ], [ %63, %62 ], [ %.0.i, %38 ]
+  %.0 = phi i32 [ %63, %62 ], [ %13, %5 ], [ %.0.i, %38 ]
   %64 = icmp eq i32 %.0, -1
   br i1 %64, label %jmp_append.exit, label %bcemit_jmp.exit.thread
 
@@ -5968,8 +5968,8 @@ expr_unop.exit:                                   ; preds = %expr_free.exit.i33,
 255:                                              ; preds = %expr_unop.exit
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %242, %243, %244, %245, %246, %247, %248, %249, %250, %251, %252, %253, %254, %255, %expr_unop.exit
-  %.0.i18.ph = phi i32 [ 0, %expr_unop.exit ], [ 14, %255 ], [ 13, %254 ], [ 10, %253 ], [ 12, %252 ], [ 11, %251 ], [ 9, %250 ], [ 8, %249 ], [ 7, %248 ], [ 6, %247 ], [ 5, %246 ], [ 4, %245 ], [ 3, %244 ], [ 2, %243 ], [ 1, %242 ]
+.lr.ph:                                           ; preds = %255, %242, %243, %244, %245, %246, %247, %248, %249, %250, %251, %252, %253, %254, %expr_unop.exit
+  %.0.i18.ph = phi i32 [ 0, %expr_unop.exit ], [ 13, %254 ], [ 10, %253 ], [ 12, %252 ], [ 11, %251 ], [ 9, %250 ], [ 8, %249 ], [ 7, %248 ], [ 6, %247 ], [ 5, %246 ], [ 4, %245 ], [ 3, %244 ], [ 2, %243 ], [ 1, %242 ], [ 14, %255 ]
   %256 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %257 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %258 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -6107,7 +6107,7 @@ jmp_patchins.exit.i.i.i.i:                        ; preds = %314
   br label %bcemit_jmp.exit.i.i
 
 bcemit_jmp.exit.i.i:                              ; preds = %323, %299, %273
-  %.0.i.i = phi i32 [ %274, %273 ], [ %324, %323 ], [ %.0.i.i.i, %299 ]
+  %.0.i.i = phi i32 [ %324, %323 ], [ %274, %273 ], [ %.0.i.i.i, %299 ]
   %325 = icmp eq i32 %.0.i.i, -1
   br i1 %325, label %jmp_append.exit.i.i, label %bcemit_jmp.exit.thread.i.i
 
@@ -7630,9 +7630,9 @@ expr_index.exit176:                               ; preds = %194, %213, %.thread
   br label %218
 
 218:                                              ; preds = %.thread, %216
-  %.5128 = phi i32 [ %.4127, %216 ], [ %.0123240, %.thread ]
-  %.5117 = phi i1 [ %217, %216 ], [ true, %.thread ]
-  %.5 = phi ptr [ %.4, %216 ], [ %.2, %.thread ]
+  %.5128 = phi i32 [ %.0123240, %.thread ], [ %.4127, %216 ]
+  %.5117 = phi i1 [ true, %.thread ], [ %217, %216 ]
+  %.5 = phi ptr [ %.2, %.thread ], [ %.4, %216 ]
   store i32 %33, ptr %12, align 4, !tbaa !83
   %219 = load i32, ptr %34, align 4, !tbaa !65
   switch i32 %219, label %221 [
@@ -7780,7 +7780,7 @@ const_num.exit:                                   ; preds = %256, %258
   br label %285
 
 285:                                              ; preds = %282, %277, %284
-  %.3135 = phi i32 [ %spec.store.select, %284 ], [ 0, %277 ], [ 3, %282 ]
+  %.3135 = phi i32 [ 0, %277 ], [ %spec.store.select, %284 ], [ 3, %282 ]
   switch i32 %.1137200278, label %286 [
     i32 0, label %291
     i32 1, label %.fold.split162
@@ -7797,7 +7797,7 @@ const_num.exit:                                   ; preds = %256, %258
   br label %291
 
 291:                                              ; preds = %285, %.fold.split162, %286
-  %292 = phi i32 [ %290, %286 ], [ %.1137200278, %285 ], [ 2048, %.fold.split162 ]
+  %292 = phi i32 [ %.1137200278, %285 ], [ %290, %286 ], [ 2048, %.fold.split162 ]
   %293 = or i32 %292, %.3135
   %294 = trunc i32 %293 to i16
   %295 = getelementptr inbounds nuw i8, ptr %281, i64 2
@@ -8166,7 +8166,7 @@ var_new.exit33.i:                                 ; preds = %128, %._crit_edge.i
   unreachable
 
 lex_opt.exit.thread.i:                            ; preds = %var_new.exit33.i, %142, %104
-  %.1.i = phi i32 [ %.2.i, %142 ], [ %.0.i, %104 ], [ %112, %var_new.exit33.i ]
+  %.1.i = phi i32 [ %.0.i, %104 ], [ %.2.i, %142 ], [ %112, %var_new.exit33.i ]
   %147 = load ptr, ptr %0, align 8, !tbaa !19
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 56
   %149 = load i32, ptr %148, align 8, !tbaa !59
@@ -9722,8 +9722,8 @@ jmp_patchins.exit.i.i63:                          ; preds = %161
   br label %jmp_tohere.exit
 
 jmp_tohere.exit:                                  ; preds = %select.unfold.i51, %.loopexit, %jmp_patchins.exit.i.i63, %149, %bcemit_jmp.exit
-  %.040 = phi i32 [ %139, %bcemit_jmp.exit ], [ %139, %149 ], [ %139, %jmp_patchins.exit.i.i63 ], [ -1, %.loopexit ], [ -1, %select.unfold.i51 ]
-  %.0 = phi i32 [ %132, %bcemit_jmp.exit ], [ %132, %149 ], [ %132, %jmp_patchins.exit.i.i63 ], [ -1, %.loopexit ], [ -1, %select.unfold.i51 ]
+  %.040 = phi i32 [ %139, %jmp_patchins.exit.i.i63 ], [ %139, %bcemit_jmp.exit ], [ %139, %149 ], [ -1, %.loopexit ], [ -1, %select.unfold.i51 ]
+  %.0 = phi i32 [ %132, %jmp_patchins.exit.i.i63 ], [ %132, %bcemit_jmp.exit ], [ %132, %149 ], [ -1, %.loopexit ], [ -1, %select.unfold.i51 ]
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %171 = load i32, ptr %170, align 8, !tbaa !51
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -9954,8 +9954,8 @@ const_gc.exit:                                    ; preds = %63, %65
   br i1 %121, label %const_num.exit, label %126
 
 const_num.exit:                                   ; preds = %120, %79, %43, %41, %26, %const_gc.exit, %const_str.exit
-  %.sink = phi i32 [ %.0.i47, %const_gc.exit ], [ %.0.i.i, %const_str.exit ], [ %28, %26 ], [ %42, %41 ], [ %47, %43 ], [ %80, %79 ], [ %7, %120 ]
-  %.sink54 = phi i32 [ 40, %const_gc.exit ], [ 39, %const_str.exit ], [ 41, %26 ], [ 42, %41 ], [ 42, %43 ], [ 18, %79 ], [ 43, %120 ]
+  %.sink = phi i32 [ %.0.i.i, %const_str.exit ], [ %28, %26 ], [ %80, %79 ], [ %47, %43 ], [ %.0.i47, %const_gc.exit ], [ %42, %41 ], [ %7, %120 ]
+  %.sink54 = phi i32 [ 39, %const_str.exit ], [ 41, %26 ], [ 18, %79 ], [ 42, %43 ], [ 40, %const_gc.exit ], [ 42, %41 ], [ 43, %120 ]
   %.sink55 = shl i32 %2, 8
   %122 = shl i32 %.sink, 16
   %123 = or i32 %.sink55, %122
@@ -10138,7 +10138,7 @@ var_lookup_uv.exit:                               ; preds = %70, %.loopexit.loop
   br label %.thread
 
 .thread:                                          ; preds = %var_lookup_uv.exit, %fscope_uvmark.exit, %77, %var_lookup_local.exit
-  %.2 = phi i32 [ -1, %var_lookup_local.exit ], [ -1, %77 ], [ %46, %var_lookup_uv.exit ], [ %42, %fscope_uvmark.exit ]
+  %.2 = phi i32 [ -1, %77 ], [ -1, %var_lookup_local.exit ], [ %46, %var_lookup_uv.exit ], [ %42, %fscope_uvmark.exit ]
   ret i32 %.2
 }
 
@@ -10750,7 +10750,7 @@ bcemit_jmp.exit35:                                ; preds = %106, %108, %jmp_pat
   br label %expr_free.exit
 
 expr_free.exit:                                   ; preds = %39, %41, %jmp_patchins.exit.i.i, %136, %132, %bcemit_jmp.exit35
-  %.1 = phi i32 [ %.1.i34, %bcemit_jmp.exit35 ], [ %.1.i34, %132 ], [ %.1.i34, %136 ], [ %19, %41 ], [ %.0.i, %jmp_patchins.exit.i.i ], [ %.0.i, %39 ]
+  %.1 = phi i32 [ %.1.i34, %136 ], [ %.1.i34, %bcemit_jmp.exit35 ], [ %.1.i34, %132 ], [ %19, %41 ], [ %.0.i, %jmp_patchins.exit.i.i ], [ %.0.i, %39 ]
   ret i32 %.1
 }
 
@@ -11821,7 +11821,7 @@ define internal fastcc void @parse_assignment(ptr noundef %0, ptr noundef nonnul
   br i1 %31, label %.thread.i, label %32
 
 32:                                               ; preds = %28, %.backedge.i
-  %.2.i = phi i32 [ %.1.i, %28 ], [ %.04.i, %.backedge.i ]
+  %.2.i = phi i32 [ %.04.i, %.backedge.i ], [ %.1.i, %28 ]
   %33 = getelementptr inbounds nuw i8, ptr %.0183.i, i64 24
   %34 = load ptr, ptr %33, align 8, !tbaa !103
   %.not.i = icmp eq ptr %34, null

@@ -130,7 +130,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br label %.body
 
 .loopexit:                                        ; preds = %54, %.noexc, %48
-  %.pn.i.i = phi ptr [ %49, %48 ], [ %67, %.noexc ], [ %57, %54 ]
+  %.pn.i.i = phi ptr [ %67, %.noexc ], [ %49, %48 ], [ %57, %54 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   %69 = trunc i64 %42 to i32
   store i32 %69, ptr %.1.i.i, align 4, !tbaa !12

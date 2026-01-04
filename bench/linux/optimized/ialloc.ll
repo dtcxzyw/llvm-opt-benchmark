@@ -421,7 +421,7 @@ define dso_local void @ext4_free_inode(ptr noundef %0, ptr noundef %1) local_unn
   br label %167
 
 167:                                              ; preds = %166, %161, %89, %85, %82
-  %168 = phi i32 [ %90, %89 ], [ %99, %166 ], [ -117, %85 ], [ -117, %82 ], [ %165, %161 ]
+  %168 = phi i32 [ -117, %82 ], [ %165, %161 ], [ %90, %89 ], [ %99, %166 ], [ -117, %85 ]
   %169 = icmp eq ptr %72, null
   br i1 %169, label %.thread9, label %170
 
@@ -430,7 +430,7 @@ define dso_local void @ext4_free_inode(ptr noundef %0, ptr noundef %1) local_unn
   br label %.thread9
 
 .thread9:                                         ; preds = %74, %170, %167
-  %171 = phi i32 [ %168, %170 ], [ %168, %167 ], [ %76, %74 ]
+  %171 = phi i32 [ %168, %167 ], [ %168, %170 ], [ %76, %74 ]
   %172 = icmp eq i32 %171, 0
   br i1 %172, label %174, label %173
 
@@ -897,7 +897,7 @@ define internal fastcc ptr @ext4_read_inode_bitmap(ptr noundef %0, i32 noundef %
   br label %.thread19
 
 256:                                              ; preds = %190, %192, %246, %128
-  %257 = phi i64 [ -117, %128 ], [ -74, %246 ], [ -117, %192 ], [ -117, %190 ]
+  %257 = phi i64 [ -117, %128 ], [ -117, %190 ], [ -74, %246 ], [ -117, %192 ]
   %258 = getelementptr inbounds nuw i8, ptr %47, i64 96
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %258, ptr nonnull elementtype(i32) %258) #10, !srcloc !11
   %259 = inttoptr i64 %257 to ptr
@@ -1220,7 +1220,7 @@ define dso_local i32 @ext4_mark_inode_used(ptr noundef %0, i32 noundef %1) local
   br label %.thread
 
 .thread:                                          ; preds = %89, %64, %127, %52, %48, %38, %30, %27, %2
-  %137 = phi i32 [ %29, %27 ], [ -117, %2 ], [ %46, %48 ], [ %50, %52 ], [ %134, %127 ], [ 0, %30 ], [ -22, %38 ], [ %68, %89 ], [ %66, %64 ]
+  %137 = phi i32 [ %29, %27 ], [ -117, %2 ], [ %46, %48 ], [ %50, %52 ], [ -22, %38 ], [ %134, %127 ], [ 0, %30 ], [ %68, %89 ], [ %66, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %137
 }
@@ -2498,8 +2498,8 @@ define dso_local ptr @__ext4_new_inode(ptr noundef %0, ptr noundef %1, ptr nound
   br label %.thread55
 
 .thread55:                                        ; preds = %.loopexit, %258, %469, %445, %436, %477, %.thread51, %715, %633, %555, %423, %418, %341, %336, %332, %248, %127, %117, %112
-  %717 = phi i32 [ %118, %117 ], [ -28, %248 ], [ %339, %341 ], [ %416, %418 ], [ %421, %423 ], [ %553, %555 ], [ -5, %633 ], [ %716, %715 ], [ %334, %336 ], [ 0, %332 ], [ -95, %112 ], [ %128, %127 ], [ -28, %.thread51 ], [ -117, %477 ], [ %447, %469 ], [ %440, %445 ], [ %438, %436 ], [ -5, %258 ], [ -28, %.loopexit ]
-  %718 = phi ptr [ null, %117 ], [ null, %248 ], [ %286, %341 ], [ %286, %418 ], [ %286, %423 ], [ %286, %555 ], [ %286, %633 ], [ %286, %715 ], [ %286, %336 ], [ %286, %332 ], [ null, %112 ], [ null, %127 ], [ null, %.thread51 ], [ %286, %477 ], [ %286, %469 ], [ %286, %445 ], [ %286, %436 ], [ %261, %258 ], [ %403, %.loopexit ]
+  %717 = phi i32 [ %118, %117 ], [ -28, %248 ], [ %339, %341 ], [ %416, %418 ], [ %421, %423 ], [ -117, %477 ], [ -28, %.thread51 ], [ %553, %555 ], [ -5, %633 ], [ %716, %715 ], [ %334, %336 ], [ 0, %332 ], [ -95, %112 ], [ %128, %127 ], [ %440, %445 ], [ %438, %436 ], [ %447, %469 ], [ -5, %258 ], [ -28, %.loopexit ]
+  %718 = phi ptr [ null, %117 ], [ null, %248 ], [ %286, %341 ], [ %286, %418 ], [ %286, %423 ], [ %286, %477 ], [ null, %.thread51 ], [ %286, %555 ], [ %286, %633 ], [ %286, %715 ], [ %286, %336 ], [ %286, %332 ], [ null, %112 ], [ null, %127 ], [ %286, %445 ], [ %286, %436 ], [ %286, %469 ], [ %261, %258 ], [ %403, %.loopexit ]
   call void @dquot_drop(ptr noundef %56) #10
   %719 = getelementptr inbounds nuw i8, ptr %56, i64 12
   %720 = load i32, ptr %719, align 4
@@ -2768,7 +2768,7 @@ get_orlov_stats.exit.thread:                      ; preds = %96, %106, %get_orlo
   br i1 %117, label %.thread27, label %.loopexit32
 
 .thread27:                                        ; preds = %get_orlov_stats.exit12, %get_orlov_stats.exit12.us, %.thread.split, %.thread.split.us.us, %.split54.us
-  %118 = phi i32 [ %.us-phi56, %.split54.us ], [ %73, %.thread.split.us.us ], [ %99, %.thread.split ], [ %159, %get_orlov_stats.exit12.us ], [ %180, %get_orlov_stats.exit12 ]
+  %118 = phi i32 [ %.us-phi56, %.split54.us ], [ %159, %get_orlov_stats.exit12.us ], [ %73, %.thread.split.us.us ], [ %99, %.thread.split ], [ %180, %get_orlov_stats.exit12 ]
   %119 = icmp eq i32 %18, 0
   br i1 %119, label %.loopexit, label %120
 
@@ -3356,7 +3356,7 @@ define dso_local ptr @ext4_orphan_get(ptr noundef %0, i64 noundef %1) local_unna
   br label %.thread16
 
 .thread16:                                        ; preds = %.thread15, %59, %87, %.thread8, %.thread14, %54, %36, %15
-  %89 = phi ptr [ %23, %15 ], [ %34, %36 ], [ %34, %54 ], [ %88, %.thread14 ], [ inttoptr (i64 -117 to ptr), %.thread8 ], [ inttoptr (i64 -117 to ptr), %87 ], [ inttoptr (i64 -117 to ptr), %59 ], [ inttoptr (i64 -117 to ptr), %.thread15 ]
+  %89 = phi ptr [ %23, %15 ], [ %34, %36 ], [ %34, %54 ], [ inttoptr (i64 -117 to ptr), %87 ], [ %88, %.thread14 ], [ inttoptr (i64 -117 to ptr), %.thread8 ], [ inttoptr (i64 -117 to ptr), %59 ], [ inttoptr (i64 -117 to ptr), %.thread15 ]
   ret ptr %89
 }
 
@@ -3532,7 +3532,7 @@ define dso_local i32 @ext4_init_inode_table(ptr noundef %0, i32 noundef %1, i32 
   br label %111
 
 ._crit_edge:                                      ; preds = %27, %61, %53
-  %68 = phi i64 [ %43, %61 ], [ %43, %53 ], [ 0, %27 ]
+  %68 = phi i64 [ %43, %53 ], [ %43, %61 ], [ 0, %27 ]
   %69 = call i64 @ext4_inode_table(ptr noundef %0, ptr noundef nonnull %8) #10
   %70 = and i64 %68, 2147483647
   %71 = add i64 %69, %70

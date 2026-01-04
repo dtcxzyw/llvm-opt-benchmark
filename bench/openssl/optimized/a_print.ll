@@ -47,7 +47,7 @@ define range(i32 19, 23) i32 @ASN1_PRINTABLE_type(ptr noundef readonly captures(
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge, %9, %2
-  %.011 = phi i32 [ 19, %2 ], [ 19, %9 ], [ %spec.select28, %._crit_edge ]
+  %.011 = phi i32 [ %spec.select28, %._crit_edge ], [ 19, %2 ], [ 19, %9 ]
   ret i32 %.011
 }
 
@@ -167,7 +167,7 @@ define range(i32 0, 2) i32 @ASN1_UNIVERSALSTRING_to_string(ptr noundef captures(
   br label %ASN1_PRINTABLE_type.exit
 
 ASN1_PRINTABLE_type.exit:                         ; preds = %._crit_edge, %39, %._crit_edge.i
-  %.011.i = phi i32 [ 19, %._crit_edge ], [ 19, %39 ], [ %spec.select28.i, %._crit_edge.i ]
+  %.011.i = phi i32 [ %spec.select28.i, %._crit_edge.i ], [ 19, %._crit_edge ], [ 19, %39 ]
   store i32 %.011.i, ptr %2, align 4, !tbaa !8
   br label %.thread
 
@@ -212,7 +212,7 @@ switch.early.test:                                ; preds = %14
   br label %16
 
 16:                                               ; preds = %14, %.lr.ph, %switch.early.test
-  %.fr.sink = phi i8 [ %switch.select42, %switch.early.test ], [ 46, %.lr.ph ], [ %.fr, %14 ]
+  %.fr.sink = phi i8 [ 46, %.lr.ph ], [ %switch.select42, %switch.early.test ], [ %.fr, %14 ]
   %17 = sext i32 %.02434 to i64
   %18 = getelementptr inbounds i8, ptr %3, i64 %17
   store i8 %.fr.sink, ptr %18, align 1, !tbaa !3

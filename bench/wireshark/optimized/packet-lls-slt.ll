@@ -160,7 +160,7 @@ xml_value_to_gchar.exit:                          ; preds = %.lr.ph90
   br label %xml_value_to_gchar.exit.thread
 
 xml_value_to_gchar.exit.thread:                   ; preds = %.lr.ph90, %62, %70, %74, %68, %xml_value_to_gchar.exit
-  %.0.i75 = phi ptr [ %50, %62 ], [ %50, %70 ], [ %50, %74 ], [ %50, %68 ], [ %50, %xml_value_to_gchar.exit ], [ null, %.lr.ph90 ]
+  %.0.i75 = phi ptr [ %50, %xml_value_to_gchar.exit ], [ %50, %62 ], [ %50, %70 ], [ %50, %74 ], [ %50, %68 ], [ null, %.lr.ph90 ]
   %76 = load ptr, ptr %6, align 8
   call void @wmem_free(ptr noundef %76, ptr noundef %.0.i75)
   %77 = load i32, ptr %.05989, align 8
@@ -244,7 +244,7 @@ xml_value_to_gchar.exit71:                        ; preds = %.lr.ph87
   br label %xml_value_to_gchar.exit71.thread
 
 xml_value_to_gchar.exit71.thread:                 ; preds = %.lr.ph87, %104, %116, %122, %118, %110, %xml_value_to_gchar.exit71
-  %.0.i7078 = phi ptr [ %92, %104 ], [ %92, %116 ], [ %92, %122 ], [ %92, %118 ], [ %92, %110 ], [ %92, %xml_value_to_gchar.exit71 ], [ null, %.lr.ph87 ]
+  %.0.i7078 = phi ptr [ %92, %xml_value_to_gchar.exit71 ], [ %92, %104 ], [ %92, %116 ], [ %92, %122 ], [ %92, %118 ], [ %92, %110 ], [ null, %.lr.ph87 ]
   %124 = load ptr, ptr %6, align 8
   call void @wmem_free(ptr noundef %124, ptr noundef %.0.i7078)
   %125 = getelementptr inbounds nuw i8, ptr %.05886, i64 40

@@ -3162,7 +3162,7 @@ _ZNSt14_Function_baseD2Ev.exit76:                 ; preds = %78, %75, %411, %_ZN
   br label %.body
 
 .body:                                            ; preds = %50, %46, %_ZNSt14_Function_baseD2Ev.exit76
-  %.pn58.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn58.pn.pn.pn, %_ZNSt14_Function_baseD2Ev.exit76 ], [ %47, %50 ], [ %47, %46 ]
+  %.pn58.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn58.pn.pn.pn, %_ZNSt14_Function_baseD2Ev.exit76 ], [ %47, %46 ], [ %47, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN4entt7emitterIN4test7emitterESaIvEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -6725,7 +6725,7 @@ _ZN4entt7emitterIN4test7emitterESaIvEED2Ev.exit:  ; preds = %_ZN4entt8internal23
   ret void
 
 _ZNSt14_Function_baseD2Ev.exit280:                ; preds = %869, %866, %861, %858, %182, %179, %174, %171, %_ZN7testing7MessageD2Ev.exit733, %_ZN7testing7MessageD2Ev.exit713, %_ZN7testing7MessageD2Ev.exit693, %_ZN7testing7MessageD2Ev.exit681, %_ZN7testing7MessageD2Ev.exit661, %_ZN7testing7MessageD2Ev.exit641, %_ZN7testing7MessageD2Ev.exit621, %_ZN7testing7MessageD2Ev.exit601, %_ZN7testing7MessageD2Ev.exit576, %_ZN7testing7MessageD2Ev.exit546, %_ZN7testing7MessageD2Ev.exit516, %_ZN7testing7MessageD2Ev.exit492, %_ZN7testing7MessageD2Ev.exit462, %_ZN7testing7MessageD2Ev.exit432, %_ZN7testing7MessageD2Ev.exit402, %_ZN7testing7MessageD2Ev.exit379, %_ZN7testing7MessageD2Ev.exit350, %_ZN7testing7MessageD2Ev.exit321, %_ZN7testing7MessageD2Ev.exit299, %_ZN7testing7MessageD2Ev.exit271
-  %.pn223.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn223.pn.pn, %_ZN7testing7MessageD2Ev.exit733 ], [ %.pn218.pn.pn, %_ZN7testing7MessageD2Ev.exit713 ], [ %.pn214.pn.pn, %_ZN7testing7MessageD2Ev.exit693 ], [ %.pn209.pn.pn, %_ZN7testing7MessageD2Ev.exit681 ], [ %.pn204.pn.pn, %_ZN7testing7MessageD2Ev.exit661 ], [ %.pn199.pn.pn, %_ZN7testing7MessageD2Ev.exit641 ], [ %.pn195.pn.pn, %_ZN7testing7MessageD2Ev.exit621 ], [ %.pn190.pn.pn, %_ZN7testing7MessageD2Ev.exit601 ], [ %.pn185.pn.pn, %_ZN7testing7MessageD2Ev.exit576 ], [ %.pn180.pn.pn, %_ZN7testing7MessageD2Ev.exit546 ], [ %.pn176.pn.pn, %_ZN7testing7MessageD2Ev.exit516 ], [ %.pn171.pn.pn, %_ZN7testing7MessageD2Ev.exit492 ], [ %.pn166.pn.pn, %_ZN7testing7MessageD2Ev.exit462 ], [ %.pn161.pn.pn, %_ZN7testing7MessageD2Ev.exit432 ], [ %.pn157.pn.pn, %_ZN7testing7MessageD2Ev.exit402 ], [ %.pn152.pn.pn, %_ZN7testing7MessageD2Ev.exit379 ], [ %.pn147.pn.pn, %_ZN7testing7MessageD2Ev.exit350 ], [ %.pn142.pn.pn, %_ZN7testing7MessageD2Ev.exit321 ], [ %.pn138.pn.pn, %_ZN7testing7MessageD2Ev.exit299 ], [ %.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit271 ], [ %172, %171 ], [ %172, %174 ], [ %180, %179 ], [ %180, %182 ], [ %859, %858 ], [ %859, %861 ], [ %867, %866 ], [ %867, %869 ]
+  %.pn223.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn223.pn.pn, %_ZN7testing7MessageD2Ev.exit733 ], [ %.pn218.pn.pn, %_ZN7testing7MessageD2Ev.exit713 ], [ %.pn214.pn.pn, %_ZN7testing7MessageD2Ev.exit693 ], [ %.pn209.pn.pn, %_ZN7testing7MessageD2Ev.exit681 ], [ %.pn204.pn.pn, %_ZN7testing7MessageD2Ev.exit661 ], [ %.pn199.pn.pn, %_ZN7testing7MessageD2Ev.exit641 ], [ %.pn195.pn.pn, %_ZN7testing7MessageD2Ev.exit621 ], [ %859, %861 ], [ %180, %182 ], [ %.pn190.pn.pn, %_ZN7testing7MessageD2Ev.exit601 ], [ %.pn185.pn.pn, %_ZN7testing7MessageD2Ev.exit576 ], [ %.pn180.pn.pn, %_ZN7testing7MessageD2Ev.exit546 ], [ %.pn176.pn.pn, %_ZN7testing7MessageD2Ev.exit516 ], [ %867, %869 ], [ %.pn171.pn.pn, %_ZN7testing7MessageD2Ev.exit492 ], [ %.pn166.pn.pn, %_ZN7testing7MessageD2Ev.exit462 ], [ %.pn161.pn.pn, %_ZN7testing7MessageD2Ev.exit432 ], [ %.pn157.pn.pn, %_ZN7testing7MessageD2Ev.exit402 ], [ %.pn152.pn.pn, %_ZN7testing7MessageD2Ev.exit379 ], [ %.pn147.pn.pn, %_ZN7testing7MessageD2Ev.exit350 ], [ %.pn142.pn.pn, %_ZN7testing7MessageD2Ev.exit321 ], [ %.pn138.pn.pn, %_ZN7testing7MessageD2Ev.exit299 ], [ %172, %174 ], [ %.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit271 ], [ %172, %171 ], [ %180, %179 ], [ %859, %858 ], [ %867, %866 ]
   call void @_ZN4entt7emitterIN4test7emitterESaIvEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %common.resume
@@ -7627,7 +7627,7 @@ _ZN4entt7emitterIN4test7emitterESaIvEED2Ev.exit:  ; preds = %_ZN4entt8internal23
   ret void
 
 _ZNSt14_Function_baseD2Ev.exit48:                 ; preds = %112, %109, %104, %101, %_ZN7testing7MessageD2Ev.exit84, %165, %_ZN7testing7MessageD2Ev.exit67, %_ZN7testing7MessageD2Ev.exit39
-  %.pn26.pn.pn.pn = phi { ptr, i32 } [ %.pn26.pn.pn, %_ZN7testing7MessageD2Ev.exit84 ], [ %166, %165 ], [ %.pn22.pn.pn, %_ZN7testing7MessageD2Ev.exit67 ], [ %.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit39 ], [ %102, %101 ], [ %102, %104 ], [ %110, %109 ], [ %110, %112 ]
+  %.pn26.pn.pn.pn = phi { ptr, i32 } [ %.pn26.pn.pn, %_ZN7testing7MessageD2Ev.exit84 ], [ %166, %165 ], [ %.pn22.pn.pn, %_ZN7testing7MessageD2Ev.exit67 ], [ %102, %104 ], [ %.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit39 ], [ %102, %101 ], [ %110, %109 ], [ %110, %112 ]
   call void @_ZN4entt7emitterIN4test7emitterESaIvEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %common.resume
@@ -9261,7 +9261,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %_ZN7testing15AssertionResultD2Ev.exit133
 
 _ZN7testing15AssertionResultD2Ev.exit133:         ; preds = %_ZNK4entt7emitterIN4test7emitterESaIvEE8containsINS1_5emptyEEEbv.exit116, %_ZNK4entt7emitterIN4test7emitterESaIvEE8containsINS1_5emptyEEEbv.exit116.thread, %266, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i131
-  %273 = phi ptr [ %232, %266 ], [ %232, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i131 ], [ %232, %_ZNK4entt7emitterIN4test7emitterESaIvEE8containsINS1_5emptyEEEbv.exit116 ], [ %225, %_ZNK4entt7emitterIN4test7emitterESaIvEE8containsINS1_5emptyEEEbv.exit116.thread ]
+  %273 = phi ptr [ %232, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i131 ], [ %232, %266 ], [ %232, %_ZNK4entt7emitterIN4test7emitterESaIvEE8containsINS1_5emptyEEEbv.exit116 ], [ %225, %_ZNK4entt7emitterIN4test7emitterESaIvEE8containsINS1_5emptyEEEbv.exit116.thread ]
   store ptr null, ptr %273, align 8, !tbaa !62
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %274
@@ -9351,7 +9351,7 @@ _ZN4entt7emitterIN4test7emitterESaIvEED2Ev.exit:  ; preds = %_ZN4entt8internal23
   ret void
 
 .body:                                            ; preds = %53, %50, %_ZN7testing7MessageD2Ev.exit128, %_ZN7testing7MessageD2Ev.exit103, %_ZN7testing7MessageD2Ev.exit80, %_ZN7testing7MessageD2Ev.exit58
-  %.pn39.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn39.pn.pn, %_ZN7testing7MessageD2Ev.exit128 ], [ %.pn35.pn.pn, %_ZN7testing7MessageD2Ev.exit103 ], [ %.pn30.pn.pn, %_ZN7testing7MessageD2Ev.exit80 ], [ %.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit58 ], [ %51, %50 ], [ %51, %53 ]
+  %.pn39.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn39.pn.pn, %_ZN7testing7MessageD2Ev.exit128 ], [ %.pn35.pn.pn, %_ZN7testing7MessageD2Ev.exit103 ], [ %51, %50 ], [ %.pn30.pn.pn, %_ZN7testing7MessageD2Ev.exit80 ], [ %.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit58 ], [ %51, %53 ]
   %306 = load ptr, ptr %35, align 8, !tbaa !42
   %.not.i136 = icmp eq ptr %306, null
   br i1 %.not.i136, label %_ZNSt14_Function_baseD2Ev.exit137, label %307
@@ -10362,7 +10362,7 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !63
   br label %41
 

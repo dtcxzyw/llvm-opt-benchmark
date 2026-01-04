@@ -4284,7 +4284,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44: ; preds = %72,
   ret void
 
 78:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn30.pn = phi { ptr, i32 } [ %.pn30, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44 ], [ %.pn27, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41 ], [ %.pn25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38 ], [ %.pn22, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %.pn30.pn = phi { ptr, i32 } [ %.pn30, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44 ], [ %.pn27, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38 ], [ %.pn22, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35 ]
   resume { ptr, i32 } %.pn30.pn
 }
 
@@ -6686,9 +6686,9 @@ _ZN2cv11dispDescaleIiEET_iii.exit.i:              ; preds = %842, %.critedge464.
   br label %.critedge.i146
 
 .critedge.i146:                                   ; preds = %821, %_ZN2cv11dispDescaleIiEET_iii.exit.i, %._crit_edge107.i141
-  %.sink286.i = phi i64 [ %701, %_ZN2cv11dispDescaleIiEET_iii.exit.i ], [ %698, %._crit_edge107.i141 ], [ %698, %821 ]
-  %.0428123.sink.i = phi ptr [ %708, %_ZN2cv11dispDescaleIiEET_iii.exit.i ], [ %.0428123.i119, %._crit_edge107.i141 ], [ %.0428123.i119, %821 ]
-  %.sink.i = phi i32 [ %850, %_ZN2cv11dispDescaleIiEET_iii.exit.i ], [ %532, %._crit_edge107.i141 ], [ %532, %821 ]
+  %.sink286.i = phi i64 [ %698, %._crit_edge107.i141 ], [ %701, %_ZN2cv11dispDescaleIiEET_iii.exit.i ], [ %698, %821 ]
+  %.0428123.sink.i = phi ptr [ %.0428123.i119, %._crit_edge107.i141 ], [ %708, %_ZN2cv11dispDescaleIiEET_iii.exit.i ], [ %.0428123.i119, %821 ]
+  %.sink.i = phi i32 [ %532, %._crit_edge107.i141 ], [ %850, %_ZN2cv11dispDescaleIiEET_iii.exit.i ], [ %532, %821 ]
   %851 = mul nsw i64 %.sink286.i, %indvars.iv237.i139
   %852 = getelementptr inbounds i32, ptr %.0428123.sink.i, i64 %851
   store i32 %.sink.i, ptr %852, align 4, !tbaa !3
@@ -6885,7 +6885,7 @@ _ZN2cvL26findStereoCorrespondenceBMIiEEvRKNS_3MatES3_RS1_S4_RKNS_14StereoBMParam
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %_ZN2cvanIiEENS_5Rect_IT_EERKS3_S5_.exit.thread
 
-_ZN2cvanIiEENS_5Rect_IT_EERKS3_S5_.exit.thread:   ; preds = %84, %72, %81, %2, %68, %912
+_ZN2cvanIiEENS_5Rect_IT_EERKS3_S5_.exit.thread:   ; preds = %84, %72, %81, %68, %2, %912
   ret void
 
 913:                                              ; preds = %910, %909, %889, %888, %870

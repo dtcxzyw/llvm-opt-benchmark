@@ -20313,7 +20313,7 @@ _ZN5clang10ColorScopeD2Ev.exit116:                ; preds = %159, %161
   br i1 %.not.i9.i15.i7.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12FunctionDeclESt10unique_ptrINS2_6interp8FunctionESt14default_deleteIS8_EENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SB_EEEES5_SB_SD_SG_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i, !llvm.loop !118
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12FunctionDeclESt10unique_ptrINS2_6interp8FunctionESt14default_deleteIS8_EENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SB_EEEES5_SB_SD_SG_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i, %.critedge2.i8.i14.i6.i, %174, %176
-  %.pn14.i = phi ptr [ %175, %174 ], [ %170, %176 ], [ %177, %.critedge2.i8.i14.i6.i ], [ %.sroa.0.3.i4.i, %.lr.ph.i6.i12.i3.i ]
+  %.pn14.i = phi ptr [ %175, %174 ], [ %170, %176 ], [ %.sroa.0.3.i4.i, %.lr.ph.i6.i12.i3.i ], [ %177, %.critedge2.i8.i14.i6.i ]
   %.pn12.i = phi ptr [ %175, %174 ], [ %177, %176 ], [ %177, %.critedge2.i8.i14.i6.i ], [ %177, %.lr.ph.i6.i12.i3.i ]
   %180 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %170, i64 %173
   %.not385399 = icmp eq ptr %.pn14.i, %180
@@ -20729,8 +20729,8 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i.i:     ; preds = %368
   br label %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb1EEEEERT_v.exit
 
 _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb1EEEEERT_v.exit: ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i
-  %.sink468 = phi i64 [ 40, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i ], [ %spec.select, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i ]
-  %.sink467 = phi i64 [ %.pre4.i, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i ], [ %spec.select499, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i ]
+  %.sink468 = phi i64 [ %spec.select, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i ], [ 40, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i ]
+  %.sink467 = phi i64 [ %spec.select499, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i ], [ %.pre4.i, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i ]
   %383 = getelementptr inbounds nuw i8, ptr %371, i64 %.sink468
   %384 = getelementptr inbounds nuw i8, ptr %383, i64 %.sink467
   %385 = load i8, ptr %384, align 1, !tbaa !217
@@ -20783,8 +20783,8 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i.i159:  ; preds = %392
   br label %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb0EEEEERT_v.exit
 
 _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb0EEEEERT_v.exit: ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i159, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i155
-  %.sink470 = phi i64 [ 40, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i155 ], [ %spec.select500, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i159 ]
-  %.sink469 = phi i64 [ %.pre4.i156, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i155 ], [ %spec.select501, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i159 ]
+  %.sink470 = phi i64 [ %spec.select500, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i159 ], [ 40, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i155 ]
+  %.sink469 = phi i64 [ %spec.select501, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i159 ], [ %.pre4.i156, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i155 ]
   %407 = getelementptr inbounds nuw i8, ptr %395, i64 %.sink470
   %408 = getelementptr inbounds nuw i8, ptr %407, i64 %.sink469
   %409 = load i8, ptr %408, align 1, !tbaa !219
@@ -20837,8 +20837,8 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i.i173:  ; preds = %416
   br label %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj16ELb1EEEEERT_v.exit
 
 _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj16ELb1EEEEERT_v.exit: ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i173, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i169
-  %.sink472 = phi i64 [ 40, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i169 ], [ %spec.select502, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i173 ]
-  %.sink471 = phi i64 [ %.pre4.i170, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i169 ], [ %spec.select503, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i173 ]
+  %.sink472 = phi i64 [ %spec.select502, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i173 ], [ 40, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i169 ]
+  %.sink471 = phi i64 [ %spec.select503, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i173 ], [ %.pre4.i170, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i169 ]
   %431 = getelementptr inbounds nuw i8, ptr %419, i64 %.sink472
   %432 = getelementptr inbounds nuw i8, ptr %431, i64 %.sink471
   %433 = load i16, ptr %432, align 2, !tbaa !221
@@ -20880,8 +20880,8 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i.i186:  ; preds = %436
   br label %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj16ELb0EEEEERT_v.exit
 
 _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj16ELb0EEEEERT_v.exit: ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i186, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i182
-  %.sink474 = phi i64 [ 40, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i182 ], [ %spec.select504, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i186 ]
-  %.sink473 = phi i64 [ %.pre4.i183, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i182 ], [ %spec.select505, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i186 ]
+  %.sink474 = phi i64 [ %spec.select504, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i186 ], [ 40, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i182 ]
+  %.sink473 = phi i64 [ %spec.select505, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i186 ], [ %.pre4.i183, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i182 ]
   %451 = getelementptr inbounds nuw i8, ptr %439, i64 %.sink474
   %452 = getelementptr inbounds nuw i8, ptr %451, i64 %.sink473
   %453 = load i16, ptr %452, align 2, !tbaa !224
@@ -20923,8 +20923,8 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i.i199:  ; preds = %456
   br label %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj32ELb1EEEEERT_v.exit
 
 _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj32ELb1EEEEERT_v.exit: ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i199, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i195
-  %.sink476 = phi i64 [ 40, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i195 ], [ %spec.select506, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i199 ]
-  %.sink475 = phi i64 [ %.pre4.i196, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i195 ], [ %spec.select507, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i199 ]
+  %.sink476 = phi i64 [ %spec.select506, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i199 ], [ 40, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i195 ]
+  %.sink475 = phi i64 [ %spec.select507, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i199 ], [ %.pre4.i196, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i195 ]
   %471 = getelementptr inbounds nuw i8, ptr %459, i64 %.sink476
   %472 = getelementptr inbounds nuw i8, ptr %471, i64 %.sink475
   %473 = load i32, ptr %472, align 4, !tbaa !226
@@ -20966,8 +20966,8 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i.i212:  ; preds = %476
   br label %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj32ELb0EEEEERT_v.exit
 
 _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj32ELb0EEEEERT_v.exit: ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i212, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i208
-  %.sink478 = phi i64 [ 40, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i208 ], [ %spec.select508, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i212 ]
-  %.sink477 = phi i64 [ %.pre4.i209, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i208 ], [ %spec.select509, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i212 ]
+  %.sink478 = phi i64 [ %spec.select508, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i212 ], [ 40, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i208 ]
+  %.sink477 = phi i64 [ %spec.select509, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i212 ], [ %.pre4.i209, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i208 ]
   %491 = getelementptr inbounds nuw i8, ptr %479, i64 %.sink478
   %492 = getelementptr inbounds nuw i8, ptr %491, i64 %.sink477
   %493 = load i32, ptr %492, align 4, !tbaa !228
@@ -21009,8 +21009,8 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i.i225:  ; preds = %496
   br label %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj64ELb1EEEEERT_v.exit
 
 _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj64ELb1EEEEERT_v.exit: ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i225, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i221
-  %.sink480 = phi i64 [ 40, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i221 ], [ %spec.select510, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i225 ]
-  %.sink479 = phi i64 [ %.pre4.i222, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i221 ], [ %spec.select511, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i225 ]
+  %.sink480 = phi i64 [ %spec.select510, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i225 ], [ 40, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i221 ]
+  %.sink479 = phi i64 [ %spec.select511, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i225 ], [ %.pre4.i222, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i221 ]
   %511 = getelementptr inbounds nuw i8, ptr %499, i64 %.sink480
   %512 = getelementptr inbounds nuw i8, ptr %511, i64 %.sink479
   %513 = load i64, ptr %512, align 8, !tbaa !230
@@ -21051,8 +21051,8 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i.i238:  ; preds = %515
   br label %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj64ELb0EEEEERT_v.exit
 
 _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj64ELb0EEEEERT_v.exit: ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i238, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i234
-  %.sink482 = phi i64 [ 40, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i234 ], [ %spec.select512, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i238 ]
-  %.sink481 = phi i64 [ %.pre4.i235, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i234 ], [ %spec.select513, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i238 ]
+  %.sink482 = phi i64 [ %spec.select512, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i238 ], [ 40, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i234 ]
+  %.sink481 = phi i64 [ %spec.select513, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i238 ], [ %.pre4.i235, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i234 ]
   %530 = getelementptr inbounds nuw i8, ptr %518, i64 %.sink482
   %531 = getelementptr inbounds nuw i8, ptr %530, i64 %.sink481
   %532 = load i64, ptr %531, align 8, !tbaa !232
@@ -21093,8 +21093,8 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i.i251:  ; preds = %534
   br label %_ZNK5clang6interp7Pointer5derefINS0_10IntegralAPILb0EEEEERT_v.exit
 
 _ZNK5clang6interp7Pointer5derefINS0_10IntegralAPILb0EEEEERT_v.exit: ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i251, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i247
-  %.sink484 = phi i64 [ 40, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i247 ], [ %spec.select514, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i251 ]
-  %.sink483 = phi i64 [ %.pre4.i248, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i247 ], [ %spec.select515, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i251 ]
+  %.sink484 = phi i64 [ %spec.select514, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i251 ], [ 40, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i247 ]
+  %.sink483 = phi i64 [ %spec.select515, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i251 ], [ %.pre4.i248, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i247 ]
   %549 = getelementptr inbounds nuw i8, ptr %537, i64 %.sink484
   %550 = getelementptr inbounds nuw i8, ptr %549, i64 %.sink483
   call void @_ZNK4llvm5APInt5printERNS_11raw_ostreamEb(ptr noundef nonnull align 8 dereferenceable(16) %550, ptr noundef nonnull align 8 dereferenceable(48) %1, i1 noundef zeroext false) #17
@@ -21134,8 +21134,8 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i.i264:  ; preds = %551
   br label %_ZNK5clang6interp7Pointer5derefINS0_10IntegralAPILb1EEEEERT_v.exit
 
 _ZNK5clang6interp7Pointer5derefINS0_10IntegralAPILb1EEEEERT_v.exit: ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i264, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i260
-  %.sink486 = phi i64 [ 40, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i260 ], [ %spec.select516, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i264 ]
-  %.sink485 = phi i64 [ %.pre4.i261, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i260 ], [ %spec.select517, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i264 ]
+  %.sink486 = phi i64 [ %spec.select516, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i264 ], [ 40, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i260 ]
+  %.sink485 = phi i64 [ %spec.select517, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i264 ], [ %.pre4.i261, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i260 ]
   %566 = getelementptr inbounds nuw i8, ptr %554, i64 %.sink486
   %567 = getelementptr inbounds nuw i8, ptr %566, i64 %.sink485
   call void @_ZNK4llvm5APInt5printERNS_11raw_ostreamEb(ptr noundef nonnull align 8 dereferenceable(16) %567, ptr noundef nonnull align 8 dereferenceable(48) %1, i1 noundef zeroext true) #17
@@ -21175,8 +21175,8 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i.i277:  ; preds = %568
   br label %_ZNK5clang6interp7Pointer5derefINS0_8FloatingEEERT_v.exit
 
 _ZNK5clang6interp7Pointer5derefINS0_8FloatingEEERT_v.exit: ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i277, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i273
-  %.sink488 = phi i64 [ 40, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i273 ], [ %spec.select518, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i277 ]
-  %.sink487 = phi i64 [ %.pre4.i274, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i273 ], [ %spec.select519, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i277 ]
+  %.sink488 = phi i64 [ %spec.select518, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i277 ], [ 40, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i273 ]
+  %.sink487 = phi i64 [ %spec.select519, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i277 ], [ %.pre4.i274, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i273 ]
   %583 = getelementptr inbounds nuw i8, ptr %571, i64 %.sink488
   %584 = getelementptr inbounds nuw i8, ptr %583, i64 %.sink487
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -21246,8 +21246,8 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i.i291:  ; preds = %595
   br label %_ZNK5clang6interp7Pointer5derefINS0_7BooleanEEERT_v.exit
 
 _ZNK5clang6interp7Pointer5derefINS0_7BooleanEEERT_v.exit: ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i291, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i287
-  %.sink490 = phi i64 [ 40, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i287 ], [ %spec.select520, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i291 ]
-  %.sink489 = phi i64 [ %.pre4.i288, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i287 ], [ %spec.select521, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i291 ]
+  %.sink490 = phi i64 [ %spec.select520, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i291 ], [ 40, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i287 ]
+  %.sink489 = phi i64 [ %spec.select521, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i291 ], [ %.pre4.i288, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i287 ]
   %610 = getelementptr inbounds nuw i8, ptr %598, i64 %.sink490
   %611 = getelementptr inbounds nuw i8, ptr %610, i64 %.sink489
   %612 = load i8, ptr %611, align 1, !tbaa !238, !range !65, !noundef !66
@@ -21307,8 +21307,8 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i.i304:  ; preds = %627
   br label %_ZNK5clang6interp7Pointer5derefIS1_EERT_v.exit
 
 _ZNK5clang6interp7Pointer5derefIS1_EERT_v.exit:   ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i304, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i300
-  %.sink492 = phi i64 [ 40, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i300 ], [ %spec.select522, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i304 ]
-  %.sink491 = phi i64 [ %.pre4.i301, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i300 ], [ %spec.select523, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i304 ]
+  %.sink492 = phi i64 [ %spec.select522, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i304 ], [ 40, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i300 ]
+  %.sink491 = phi i64 [ %spec.select523, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i304 ], [ %.pre4.i301, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i300 ]
   %642 = getelementptr inbounds nuw i8, ptr %630, i64 %.sink492
   %643 = getelementptr inbounds nuw i8, ptr %642, i64 %.sink491
   call void @_ZNK5clang6interp7Pointer5printERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(52) %643, ptr noundef nonnull align 8 dereferenceable(48) %1) #17
@@ -21348,8 +21348,8 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i.i317:  ; preds = %644
   br label %_ZNK5clang6interp7Pointer5derefINS0_15FunctionPointerEEERT_v.exit
 
 _ZNK5clang6interp7Pointer5derefINS0_15FunctionPointerEEERT_v.exit: ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i317, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i313
-  %.sink494 = phi i64 [ 40, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i313 ], [ %spec.select524, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i317 ]
-  %.sink493 = phi i64 [ %.pre4.i314, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i313 ], [ %spec.select525, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i317 ]
+  %.sink494 = phi i64 [ %spec.select524, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i317 ], [ 40, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i313 ]
+  %.sink493 = phi i64 [ %spec.select525, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i317 ], [ %.pre4.i314, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i313 ]
   %659 = getelementptr inbounds nuw i8, ptr %647, i64 %.sink494
   %660 = getelementptr inbounds nuw i8, ptr %659, i64 %.sink493
   call void @_ZNK5clang6interp15FunctionPointer5printERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(24) %660, ptr noundef nonnull align 8 dereferenceable(48) %1) #17
@@ -21389,8 +21389,8 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i.i330:  ; preds = %661
   br label %_ZNK5clang6interp7Pointer5derefINS0_13MemberPointerEEERT_v.exit
 
 _ZNK5clang6interp7Pointer5derefINS0_13MemberPointerEEERT_v.exit: ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i330, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i326
-  %.sink496 = phi i64 [ 40, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i326 ], [ %spec.select526, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i330 ]
-  %.sink495 = phi i64 [ %.pre4.i327, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i326 ], [ %spec.select527, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i330 ]
+  %.sink496 = phi i64 [ %spec.select526, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i330 ], [ 40, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i326 ]
+  %.sink495 = phi i64 [ %spec.select527, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i330 ], [ %.pre4.i327, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i326 ]
   %676 = getelementptr inbounds nuw i8, ptr %664, i64 %.sink496
   %677 = getelementptr inbounds nuw i8, ptr %676, i64 %.sink495
   call void @_ZNK5clang6interp13MemberPointer5printERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(72) %677, ptr noundef nonnull align 8 dereferenceable(48) %1)
@@ -21430,8 +21430,8 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i.i343:  ; preds = %678
   br label %_ZNK5clang6interp7Pointer5derefINS0_10FixedPointEEERT_v.exit
 
 _ZNK5clang6interp7Pointer5derefINS0_10FixedPointEEERT_v.exit: ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i343, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i339
-  %.sink498 = phi i64 [ 40, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i339 ], [ %spec.select528, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i343 ]
-  %.sink497 = phi i64 [ %.pre4.i340, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i339 ], [ %spec.select529, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i343 ]
+  %.sink498 = phi i64 [ %spec.select528, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i343 ], [ 40, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i339 ]
+  %.sink497 = phi i64 [ %spec.select529, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i343 ], [ %.pre4.i340, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i339 ]
   %693 = getelementptr inbounds nuw i8, ptr %681, i64 %.sink498
   %694 = getelementptr inbounds nuw i8, ptr %693, i64 %.sink497
   call void @llvm.lifetime.start.p0(ptr nonnull %3)

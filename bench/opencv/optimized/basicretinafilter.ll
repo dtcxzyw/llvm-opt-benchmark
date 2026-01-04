@@ -678,7 +678,7 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %7
   br label %31
 
 31:                                               ; preds = %28, %.thread
-  %.023 = phi float [ %30, %28 ], [ 0x3EBAD7F2E0000000, %.thread ]
+  %.023 = phi float [ 0x3EBAD7F2E0000000, %.thread ], [ %30, %28 ]
   %32 = mul i32 %4, 3
   %33 = fadd float %1, %2
   %34 = fadd float %33, 1.000000e+00
@@ -1944,8 +1944,8 @@ _ZN2cv11bioinspired17BasicRetinaFilter23_horizontalCausalFilterEPfjj.exit.loopex
   br label %_ZN2cv11bioinspired17BasicRetinaFilter23_horizontalCausalFilterEPfjj.exit
 
 _ZN2cv11bioinspired17BasicRetinaFilter23_horizontalCausalFilterEPfjj.exit: ; preds = %3, %_ZN2cv11bioinspired17BasicRetinaFilter23_horizontalCausalFilterEPfjj.exit.loopexit, %.lr.ph21.i
-  %.pre-phi = phi i32 [ %.pre9, %_ZN2cv11bioinspired17BasicRetinaFilter23_horizontalCausalFilterEPfjj.exit.loopexit ], [ 0, %.lr.ph21.i ], [ %.pre9, %3 ]
-  %41 = phi float [ %.pre8, %_ZN2cv11bioinspired17BasicRetinaFilter23_horizontalCausalFilterEPfjj.exit.loopexit ], [ %15, %.lr.ph21.i ], [ %15, %3 ]
+  %.pre-phi = phi i32 [ 0, %.lr.ph21.i ], [ %.pre9, %_ZN2cv11bioinspired17BasicRetinaFilter23_horizontalCausalFilterEPfjj.exit.loopexit ], [ %.pre9, %3 ]
+  %41 = phi float [ %15, %.lr.ph21.i ], [ %.pre8, %_ZN2cv11bioinspired17BasicRetinaFilter23_horizontalCausalFilterEPfjj.exit.loopexit ], [ %15, %3 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !71
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 4

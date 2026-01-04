@@ -141,8 +141,8 @@ define hidden ptr @SDL_SYS_GetBasePath() local_unnamed_addr #0 {
   %spec.select = select i1 %.not23, ptr %.040, ptr %38
   br label %.thread45
 
-.thread45:                                        ; preds = %0, %.thread41, %33, %34
-  %.4 = phi ptr [ %spec.select, %34 ], [ null, %33 ], [ null, %.thread41 ], [ null, %0 ]
+.thread45:                                        ; preds = %0, %33, %.thread41, %34
+  %.4 = phi ptr [ %spec.select, %34 ], [ null, %.thread41 ], [ null, %33 ], [ null, %0 ]
   ret ptr %.4
 }
 
@@ -273,7 +273,7 @@ define hidden ptr @SDL_SYS_GetPrefPath(ptr noundef %0, ptr noundef %1) local_unn
   br label %47
 
 47:                                               ; preds = %39, %41, %11, %.loopexit, %9, %4
-  %.039 = phi ptr [ null, %.loopexit ], [ null, %9 ], [ null, %4 ], [ null, %11 ], [ %24, %41 ], [ %24, %39 ]
+  %.039 = phi ptr [ null, %.loopexit ], [ null, %11 ], [ null, %4 ], [ null, %9 ], [ %24, %41 ], [ %24, %39 ]
   ret ptr %.039
 }
 
@@ -356,7 +356,7 @@ define hidden ptr @SDL_SYS_GetUserFolder(i32 noundef %0) local_unnamed_addr #0 {
   br label %142
 
 22:                                               ; preds = %9, %10, %11, %12, %13, %18, %19, %1
-  %.016 = phi ptr [ @.str.16, %9 ], [ @.str.17, %10 ], [ @.str.18, %11 ], [ @.str.19, %12 ], [ @.str.20, %13 ], [ @.str.23, %18 ], [ @.str.24, %19 ], [ @.str.15, %1 ]
+  %.016 = phi ptr [ @.str.24, %19 ], [ @.str.16, %9 ], [ @.str.17, %10 ], [ @.str.18, %11 ], [ @.str.19, %12 ], [ @.str.20, %13 ], [ @.str.23, %18 ], [ @.str.15, %1 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %23 = tail call ptr @SDL_getenv_REAL(ptr noundef nonnull @.str.7) #7
   %.not.i.i = icmp eq ptr %23, null
@@ -647,7 +647,7 @@ xdg_user_dir_lookup.exit:                         ; preds = %.outer._crit_edge.t
   br label %142
 
 142:                                              ; preds = %138, %137, %131, %20, %16, %14, %5
-  %.0 = phi ptr [ null, %20 ], [ %136, %138 ], [ null, %137 ], [ null, %5 ], [ null, %131 ], [ null, %14 ], [ null, %16 ]
+  %.0 = phi ptr [ null, %20 ], [ %136, %138 ], [ null, %137 ], [ null, %5 ], [ null, %131 ], [ null, %16 ], [ null, %14 ]
   ret ptr %.0
 }
 

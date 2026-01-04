@@ -588,8 +588,8 @@ define range(i32 -2147483648, 1) i32 @ff_h264_decode_mb_cabac(ptr noundef %0, pt
   br label %314
 
 314:                                              ; preds = %308, %307, %299, %298, %269, %265, %264, %258, %257, %249, %248, %226
-  %.0114.i.i = phi i32 [ %234, %248 ], [ %250, %249 ], [ %259, %258 ], [ %234, %257 ], [ %234, %226 ], [ %281, %298 ], [ %300, %299 ], [ %309, %308 ], [ %281, %307 ], [ %281, %269 ], [ -1, %264 ], [ -1, %265 ]
-  %.0105.i.i = phi ptr [ %243, %248 ], [ %252, %249 ], [ %261, %258 ], [ %243, %257 ], [ %243, %226 ], [ %293, %298 ], [ %302, %299 ], [ %311, %308 ], [ %293, %307 ], [ %293, %269 ], [ @pred_pskip_motion.zeromv, %264 ], [ @pred_pskip_motion.zeromv, %265 ]
+  %.0114.i.i = phi i32 [ %234, %248 ], [ %250, %249 ], [ %259, %258 ], [ %234, %257 ], [ %234, %226 ], [ -1, %264 ], [ %281, %298 ], [ %300, %299 ], [ %309, %308 ], [ %281, %307 ], [ %281, %269 ], [ -1, %265 ]
+  %.0105.i.i = phi ptr [ %243, %248 ], [ %252, %249 ], [ %261, %258 ], [ %243, %257 ], [ %243, %226 ], [ @pred_pskip_motion.zeromv, %264 ], [ %293, %298 ], [ %302, %299 ], [ %311, %308 ], [ %293, %307 ], [ %293, %269 ], [ @pred_pskip_motion.zeromv, %265 ]
   %.not141.i.i = icmp eq i32 %.0114.i.i, 0
   %315 = zext i1 %.not141.i.i to i32
   %.not142.i.i = icmp eq i32 %.1.i.i, 0
@@ -628,7 +628,7 @@ define range(i32 -2147483648, 1) i32 @ff_h264_decode_mb_cabac(ptr noundef %0, pt
   br label %mid_pred.exit.i
 
 mid_pred.exit.i:                                  ; preds = %334, %332, %331, %329
-  %.0.i31.i = phi i32 [ %325, %329 ], [ %325, %332 ], [ %..i.i, %331 ], [ %.20.i.i, %334 ]
+  %.0.i31.i = phi i32 [ %..i.i, %331 ], [ %325, %332 ], [ %325, %329 ], [ %.20.i.i, %334 ]
   %335 = getelementptr inbounds nuw i8, ptr %.1109.i.i, i64 2
   %336 = load i16, ptr %335, align 2, !tbaa !96
   %337 = sext i16 %336 to i32
@@ -718,7 +718,7 @@ mid_pred.exit.i:                                  ; preds = %334, %332, %331, %3
   br label %mid_pred.exit39.i
 
 mid_pred.exit39.i:                                ; preds = %386, %384, %383, %381
-  %.0.i36.i = phi i32 [ %377, %381 ], [ %377, %384 ], [ %..i38.i, %383 ], [ %.20.i37.i, %386 ]
+  %.0.i36.i = phi i32 [ %..i38.i, %383 ], [ %377, %384 ], [ %377, %381 ], [ %.20.i37.i, %386 ]
   %387 = getelementptr inbounds nuw i8, ptr %.1109.i.i, i64 2
   %388 = load i16, ptr %387, align 2, !tbaa !96
   %389 = sext i16 %388 to i32
@@ -748,8 +748,8 @@ mid_pred.exit39.i:                                ; preds = %386, %384, %383, %3
   br label %mid_pred.exit35.i
 
 mid_pred.exit35.i:                                ; preds = %402, %400, %399, %397, %367, %361, %354, %350, %348, %347, %345
-  %.0111.i.i = phi i32 [ %369, %367 ], [ %363, %361 ], [ %356, %354 ], [ %.0.i31.i, %345 ], [ %.0.i31.i, %347 ], [ %.0.i31.i, %348 ], [ %.0.i31.i, %350 ], [ %.0.i36.i, %397 ], [ %.0.i36.i, %399 ], [ %.0.i36.i, %400 ], [ %.0.i36.i, %402 ]
-  %.0110.i.i = phi i32 [ %372, %367 ], [ %366, %361 ], [ %359, %354 ], [ %340, %345 ], [ %..i34.i, %347 ], [ %340, %348 ], [ %.20.i33.i, %350 ], [ %392, %397 ], [ %..i42.i, %399 ], [ %392, %400 ], [ %.20.i41.i, %402 ]
+  %.0111.i.i = phi i32 [ %.0.i31.i, %350 ], [ %369, %367 ], [ %363, %361 ], [ %356, %354 ], [ %.0.i31.i, %345 ], [ %.0.i31.i, %347 ], [ %.0.i31.i, %348 ], [ %.0.i36.i, %397 ], [ %.0.i36.i, %399 ], [ %.0.i36.i, %400 ], [ %.0.i36.i, %402 ]
+  %.0110.i.i = phi i32 [ %.20.i33.i, %350 ], [ %372, %367 ], [ %366, %361 ], [ %359, %354 ], [ %340, %345 ], [ %..i34.i, %347 ], [ %340, %348 ], [ %392, %397 ], [ %..i42.i, %399 ], [ %392, %400 ], [ %.20.i41.i, %402 ]
   %403 = getelementptr inbounds nuw i8, ptr %1, i64 28800
   %404 = and i32 %.0111.i.i, 65535
   %405 = shl nsw i32 %.0110.i.i, 16
@@ -1184,7 +1184,7 @@ decode_mb_skip.exit:                              ; preds = %554, %558
   br label %.thread1399
 
 .thread1399:                                      ; preds = %685, %649, %666, %686, %687, %683
-  %692 = phi i32 [ %669, %666 ], [ 22, %686 ], [ %691, %687 ], [ %684, %683 ], [ 0, %649 ], [ 11, %685 ]
+  %692 = phi i32 [ %684, %683 ], [ %669, %666 ], [ 22, %686 ], [ %691, %687 ], [ 0, %649 ], [ 11, %685 ]
   %693 = sext i32 %692 to i64
   %694 = getelementptr inbounds %struct.PMbInfo, ptr @ff_h264_b_mb_type_info, i64 %693
   %695 = getelementptr inbounds nuw i8, ptr %694, i64 2
@@ -1241,7 +1241,7 @@ decode_mb_skip.exit:                              ; preds = %554, %558
   br label %727
 
 727:                                              ; preds = %719, %.sink.split
-  %728 = phi i32 [ %spec.select, %719 ], [ %726, %.sink.split ]
+  %728 = phi i32 [ %726, %.sink.split ], [ %spec.select, %719 ]
   %729 = zext nneg i32 %728 to i64
   %730 = getelementptr inbounds nuw %struct.IMbInfo, ptr @ff_h264_i_mb_type_info, i64 %729
   %731 = getelementptr inbounds nuw i8, ptr %730, i64 3
@@ -1551,7 +1551,7 @@ decode_mb_skip.exit:                              ; preds = %554, %558
   br label %decode_cabac_mb_chroma_pre_mode.exit
 
 decode_cabac_mb_chroma_pre_mode.exit:             ; preds = %917, %923, %927
-  %.017.i = phi i32 [ 0, %917 ], [ 1, %923 ], [ %..i, %927 ]
+  %.017.i = phi i32 [ 1, %923 ], [ 0, %917 ], [ %..i, %927 ]
   %930 = trunc nuw nsw i32 %.017.i to i8
   %931 = getelementptr inbounds nuw i8, ptr %0, i64 731800
   %932 = load ptr, ptr %931, align 8, !tbaa !117
@@ -2400,9 +2400,9 @@ get_cabac.exit11.i:                               ; preds = %1554, %1526
   br label %decode_cabac_p_mb_sub_type.exit
 
 decode_cabac_p_mb_sub_type.exit:                  ; preds = %get_cabac.exit.i1216, %get_cabac.exit9.i, %get_cabac.exit11.i
-  %1579 = phi i32 [ %1472, %get_cabac.exit.i1216 ], [ %1524, %get_cabac.exit9.i ], [ %1576, %get_cabac.exit11.i ]
-  %1580 = phi i32 [ %1447, %get_cabac.exit.i1216 ], [ %1499, %get_cabac.exit9.i ], [ %1551, %get_cabac.exit11.i ]
-  %.0.i1218 = phi i64 [ 0, %get_cabac.exit.i1216 ], [ 1, %get_cabac.exit9.i ], [ %1578, %get_cabac.exit11.i ]
+  %1579 = phi i32 [ %1472, %get_cabac.exit.i1216 ], [ %1576, %get_cabac.exit11.i ], [ %1524, %get_cabac.exit9.i ]
+  %1580 = phi i32 [ %1447, %get_cabac.exit.i1216 ], [ %1551, %get_cabac.exit11.i ], [ %1499, %get_cabac.exit9.i ]
+  %.0.i1218 = phi i64 [ 0, %get_cabac.exit.i1216 ], [ %1578, %get_cabac.exit11.i ], [ 1, %get_cabac.exit9.i ]
   %1581 = getelementptr inbounds nuw i16, ptr %953, i64 %indvars.iv1710
   %1582 = getelementptr inbounds nuw %struct.PMbInfo, ptr @ff_h264_p_sub_mb_type_info, i64 %.0.i1218
   %1583 = getelementptr inbounds nuw i8, ptr %1582, i64 2
@@ -2475,7 +2475,7 @@ decode_cabac_p_mb_sub_type.exit:                  ; preds = %get_cabac.exit.i121
   br label %.thread1427
 
 .thread1407:                                      ; preds = %1605, %1607, %1612
-  %1618 = phi i32 [ %1614, %1612 ], [ 0, %1607 ], [ -1, %1605 ]
+  %1618 = phi i32 [ 0, %1607 ], [ %1614, %1612 ], [ -1, %1605 ]
   %1619 = trunc nsw i32 %1618 to i8
   %1620 = shl nuw nsw i64 %indvars.iv1722, 2
   %1621 = getelementptr inbounds nuw i8, ptr @scan8, i64 %1620
@@ -2782,9 +2782,9 @@ get_dct8x8_allowed.exit:                          ; preds = %._crit_edge
   %1827 = sext i8 %1826 to i32
   br label %fetch_diagonal_mv.exit1166
 
-fetch_diagonal_mv.exit1166:                       ; preds = %1787, %1778, %1746, %1730, %1820, %.thread1416
-  %.01392 = phi ptr [ %1824, %.thread1416 ], [ %1821, %1820 ], [ %1657, %1730 ], [ %1657, %1746 ], [ %1657, %1778 ], [ %1657, %1787 ]
-  %.3.i1156 = phi i32 [ %1827, %.thread1416 ], [ %1711, %1820 ], [ -1, %1730 ], [ %1776, %1746 ], [ -1, %1778 ], [ %1818, %1787 ]
+fetch_diagonal_mv.exit1166:                       ; preds = %1778, %1730, %1746, %1787, %1820, %.thread1416
+  %.01392 = phi ptr [ %1824, %.thread1416 ], [ %1821, %1820 ], [ %1657, %1787 ], [ %1657, %1746 ], [ %1657, %1730 ], [ %1657, %1778 ]
+  %.3.i1156 = phi i32 [ %1827, %.thread1416 ], [ %1711, %1820 ], [ %1818, %1787 ], [ %1776, %1746 ], [ -1, %1730 ], [ -1, %1778 ]
   %1828 = icmp eq i32 %.3.i1156, %1695
   %1829 = zext i1 %1828 to i32
   %1830 = icmp eq i8 %1694, %1700
@@ -2823,7 +2823,7 @@ fetch_diagonal_mv.exit1166:                       ; preds = %1787, %1778, %1746,
   br label %mid_pred.exit
 
 mid_pred.exit:                                    ; preds = %1845, %1847, %1848, %1850
-  %.0.i1220 = phi i32 [ %1841, %1845 ], [ %1841, %1848 ], [ %..i1221, %1847 ], [ %.20.i, %1850 ]
+  %.0.i1220 = phi i32 [ %..i1221, %1847 ], [ %1841, %1848 ], [ %1841, %1845 ], [ %.20.i, %1850 ]
   %1851 = getelementptr inbounds nuw i8, ptr %1705, i64 2
   %1852 = load i16, ptr %1851, align 2, !tbaa !96
   %1853 = sext i16 %1852 to i32
@@ -2928,7 +2928,7 @@ mid_pred.exit:                                    ; preds = %1845, %1847, %1848,
   br label %mid_pred.exit1229
 
 mid_pred.exit1229:                                ; preds = %1906, %1908, %1909, %1911
-  %.0.i1226 = phi i32 [ %1902, %1906 ], [ %1902, %1909 ], [ %..i1228, %1908 ], [ %.20.i1227, %1911 ]
+  %.0.i1226 = phi i32 [ %..i1228, %1908 ], [ %1902, %1909 ], [ %1902, %1906 ], [ %.20.i1227, %1911 ]
   %1912 = getelementptr inbounds nuw i8, ptr %1705, i64 2
   %1913 = load i16, ptr %1912, align 2, !tbaa !96
   %1914 = sext i16 %1913 to i32
@@ -2958,8 +2958,8 @@ mid_pred.exit1229:                                ; preds = %1906, %1908, %1909,
   br label %pred_motion.exit
 
 pred_motion.exit:                                 ; preds = %1927, %1925, %1924, %1922, %1866, %1864, %1863, %1861, %1870, %1877, %1883, %1894
-  %.11391 = phi i32 [ %1872, %1870 ], [ %1879, %1877 ], [ %1885, %1883 ], [ %1895, %1894 ], [ %.0.i1220, %1861 ], [ %.0.i1220, %1863 ], [ %.0.i1220, %1864 ], [ %.0.i1220, %1866 ], [ %.0.i1226, %1922 ], [ %.0.i1226, %1924 ], [ %.0.i1226, %1925 ], [ %.0.i1226, %1927 ]
-  %.11389 = phi i32 [ %1875, %1870 ], [ %1882, %1877 ], [ %1888, %1883 ], [ %1898, %1894 ], [ %1856, %1861 ], [ %..i1224, %1863 ], [ %1856, %1864 ], [ %.20.i1223, %1866 ], [ %1917, %1922 ], [ %..i1232, %1924 ], [ %1917, %1925 ], [ %.20.i1231, %1927 ]
+  %.11391 = phi i32 [ %.0.i1220, %1866 ], [ %1872, %1870 ], [ %1879, %1877 ], [ %1885, %1883 ], [ %1895, %1894 ], [ %.0.i1220, %1861 ], [ %.0.i1220, %1863 ], [ %.0.i1220, %1864 ], [ %.0.i1226, %1922 ], [ %.0.i1226, %1924 ], [ %.0.i1226, %1925 ], [ %.0.i1226, %1927 ]
+  %.11389 = phi i32 [ %.20.i1223, %1866 ], [ %1875, %1870 ], [ %1882, %1877 ], [ %1888, %1883 ], [ %1898, %1894 ], [ %1856, %1861 ], [ %..i1224, %1863 ], [ %1856, %1864 ], [ %1917, %1922 ], [ %..i1232, %1924 ], [ %1917, %1925 ], [ %.20.i1231, %1927 ]
   %1928 = getelementptr i8, ptr %1692, i64 -2
   %1929 = load i8, ptr %1928, align 2, !tbaa !77
   %1930 = zext i8 %1929 to i32
@@ -3335,7 +3335,7 @@ fetch_diagonal_mv.exit1151:                       ; preds = %2083, %2085
   br label %mid_pred.exit1237
 
 mid_pred.exit1237:                                ; preds = %2106, %2108, %2109, %2111
-  %.0.i1234 = phi i32 [ %2102, %2106 ], [ %2102, %2109 ], [ %..i1236, %2108 ], [ %.20.i1235, %2111 ]
+  %.0.i1234 = phi i32 [ %..i1236, %2108 ], [ %2102, %2109 ], [ %2102, %2106 ], [ %.20.i1235, %2111 ]
   %2112 = getelementptr inbounds nuw i8, ptr %2077, i64 46
   %2113 = load i16, ptr %2112, align 2, !tbaa !96
   %2114 = sext i16 %2113 to i32
@@ -3440,7 +3440,7 @@ mid_pred.exit1237:                                ; preds = %2106, %2108, %2109,
   br label %mid_pred.exit1245
 
 mid_pred.exit1245:                                ; preds = %2167, %2169, %2170, %2172
-  %.0.i1242 = phi i32 [ %2163, %2167 ], [ %2163, %2170 ], [ %..i1244, %2169 ], [ %.20.i1243, %2172 ]
+  %.0.i1242 = phi i32 [ %..i1244, %2169 ], [ %2163, %2170 ], [ %2163, %2167 ], [ %.20.i1243, %2172 ]
   %2173 = getelementptr inbounds nuw i8, ptr %2077, i64 46
   %2174 = load i16, ptr %2173, align 2, !tbaa !96
   %2175 = sext i16 %2174 to i32
@@ -3470,8 +3470,8 @@ mid_pred.exit1245:                                ; preds = %2167, %2169, %2170,
   br label %pred_motion.exit1052
 
 pred_motion.exit1052:                             ; preds = %2188, %2186, %2185, %2183, %2127, %2125, %2124, %2122, %2131, %2138, %2144, %2155
-  %.11387 = phi i32 [ %2133, %2131 ], [ %2140, %2138 ], [ %2146, %2144 ], [ %2156, %2155 ], [ %.0.i1234, %2122 ], [ %.0.i1234, %2124 ], [ %.0.i1234, %2125 ], [ %.0.i1234, %2127 ], [ %.0.i1242, %2183 ], [ %.0.i1242, %2185 ], [ %.0.i1242, %2186 ], [ %.0.i1242, %2188 ]
-  %.11385 = phi i32 [ %2136, %2131 ], [ %2143, %2138 ], [ %2149, %2144 ], [ %2159, %2155 ], [ %2117, %2122 ], [ %..i1240, %2124 ], [ %2117, %2125 ], [ %.20.i1239, %2127 ], [ %2178, %2183 ], [ %..i1248, %2185 ], [ %2178, %2186 ], [ %.20.i1247, %2188 ]
+  %.11387 = phi i32 [ %.0.i1234, %2127 ], [ %2133, %2131 ], [ %2140, %2138 ], [ %2146, %2144 ], [ %2156, %2155 ], [ %.0.i1234, %2122 ], [ %.0.i1234, %2124 ], [ %.0.i1234, %2125 ], [ %.0.i1242, %2183 ], [ %.0.i1242, %2185 ], [ %.0.i1242, %2186 ], [ %.0.i1242, %2188 ]
+  %.11385 = phi i32 [ %.20.i1239, %2127 ], [ %2136, %2131 ], [ %2143, %2138 ], [ %2149, %2144 ], [ %2159, %2155 ], [ %2117, %2122 ], [ %..i1240, %2124 ], [ %2117, %2125 ], [ %2178, %2183 ], [ %..i1248, %2185 ], [ %2178, %2186 ], [ %.20.i1247, %2188 ]
   %2189 = getelementptr inbounds nuw [40 x [2 x i8]], ptr %2034, i64 %indvars.iv1683
   %2190 = getelementptr inbounds nuw i8, ptr %2189, i64 22
   %2191 = load i8, ptr %2190, align 2, !tbaa !77
@@ -3911,9 +3911,9 @@ pred_motion.exit1052:                             ; preds = %2188, %2186, %2185,
   %2478 = sext i8 %2477 to i32
   br label %fetch_diagonal_mv.exit1136
 
-fetch_diagonal_mv.exit1136:                       ; preds = %2438, %2432, %2400, %2384, %2471, %.thread1456
-  %.01394 = phi ptr [ %2475, %.thread1456 ], [ %2472, %2471 ], [ %2313, %2384 ], [ %2313, %2400 ], [ %2313, %2432 ], [ %2313, %2438 ]
-  %.3.i1126 = phi i32 [ %2478, %.thread1456 ], [ %2368, %2471 ], [ -1, %2384 ], [ %2430, %2400 ], [ -1, %2432 ], [ %2469, %2438 ]
+fetch_diagonal_mv.exit1136:                       ; preds = %2432, %2384, %2400, %2438, %2471, %.thread1456
+  %.01394 = phi ptr [ %2475, %.thread1456 ], [ %2472, %2471 ], [ %2313, %2438 ], [ %2313, %2400 ], [ %2313, %2384 ], [ %2313, %2432 ]
+  %.3.i1126 = phi i32 [ %2478, %.thread1456 ], [ %2368, %2471 ], [ %2469, %2438 ], [ %2430, %2400 ], [ -1, %2384 ], [ -1, %2432 ]
   %2479 = icmp eq i32 %.3.i1126, %2334
   %2480 = zext i1 %2479 to i32
   %2481 = icmp eq i8 %2333, %2357
@@ -3952,7 +3952,7 @@ fetch_diagonal_mv.exit1136:                       ; preds = %2438, %2432, %2400,
   br label %mid_pred.exit1253
 
 mid_pred.exit1253:                                ; preds = %2496, %2498, %2499, %2501
-  %.0.i1250 = phi i32 [ %2492, %2496 ], [ %2492, %2499 ], [ %..i1252, %2498 ], [ %.20.i1251, %2501 ]
+  %.0.i1250 = phi i32 [ %..i1252, %2498 ], [ %2492, %2499 ], [ %2492, %2496 ], [ %.20.i1251, %2501 ]
   %2502 = getelementptr inbounds nuw i8, ptr %2362, i64 2
   %2503 = load i16, ptr %2502, align 2, !tbaa !96
   %2504 = sext i16 %2503 to i32
@@ -4057,7 +4057,7 @@ mid_pred.exit1253:                                ; preds = %2496, %2498, %2499,
   br label %mid_pred.exit1261
 
 mid_pred.exit1261:                                ; preds = %2557, %2559, %2560, %2562
-  %.0.i1258 = phi i32 [ %2553, %2557 ], [ %2553, %2560 ], [ %..i1260, %2559 ], [ %.20.i1259, %2562 ]
+  %.0.i1258 = phi i32 [ %..i1260, %2559 ], [ %2553, %2560 ], [ %2553, %2557 ], [ %.20.i1259, %2562 ]
   %2563 = getelementptr inbounds nuw i8, ptr %2362, i64 2
   %2564 = load i16, ptr %2563, align 2, !tbaa !96
   %2565 = sext i16 %2564 to i32
@@ -4087,8 +4087,8 @@ mid_pred.exit1261:                                ; preds = %2557, %2559, %2560,
   br label %pred_16x8_motion.exit
 
 pred_16x8_motion.exit:                            ; preds = %2521, %2528, %2534, %2545, %2512, %2514, %2515, %2517, %2573, %2575, %2576, %2578, %2346, %2338
-  %.71383 = phi i32 [ %2340, %2338 ], [ %2348, %2346 ], [ %2523, %2521 ], [ %2530, %2528 ], [ %2536, %2534 ], [ %2546, %2545 ], [ %.0.i1250, %2512 ], [ %.0.i1250, %2514 ], [ %.0.i1250, %2515 ], [ %.0.i1250, %2517 ], [ %.0.i1258, %2573 ], [ %.0.i1258, %2575 ], [ %.0.i1258, %2576 ], [ %.0.i1258, %2578 ]
-  %.71375 = phi i32 [ %2342, %2338 ], [ %2350, %2346 ], [ %2526, %2521 ], [ %2533, %2528 ], [ %2539, %2534 ], [ %2549, %2545 ], [ %2507, %2512 ], [ %..i1256, %2514 ], [ %2507, %2515 ], [ %.20.i1255, %2517 ], [ %2568, %2573 ], [ %..i1264, %2575 ], [ %2568, %2576 ], [ %.20.i1263, %2578 ]
+  %.71383 = phi i32 [ %2348, %2346 ], [ %2340, %2338 ], [ %.0.i1250, %2517 ], [ %2523, %2521 ], [ %2530, %2528 ], [ %2536, %2534 ], [ %2546, %2545 ], [ %.0.i1250, %2512 ], [ %.0.i1250, %2514 ], [ %.0.i1250, %2515 ], [ %.0.i1258, %2573 ], [ %.0.i1258, %2575 ], [ %.0.i1258, %2576 ], [ %.0.i1258, %2578 ]
+  %.71375 = phi i32 [ %2350, %2346 ], [ %2342, %2338 ], [ %.20.i1255, %2517 ], [ %2526, %2521 ], [ %2533, %2528 ], [ %2539, %2534 ], [ %2549, %2545 ], [ %2507, %2512 ], [ %..i1256, %2514 ], [ %2507, %2515 ], [ %2568, %2573 ], [ %..i1264, %2575 ], [ %2568, %2576 ], [ %.20.i1263, %2578 ]
   %2579 = getelementptr inbounds nuw i8, ptr @scan8, i64 %2329
   %2580 = load i8, ptr %2579, align 8, !tbaa !77
   %2581 = zext i8 %2580 to i64
@@ -4408,7 +4408,7 @@ fetch_diagonal_mv.exit:                           ; preds = %.thread1467, %.thre
   br label %mid_pred.exit1269
 
 mid_pred.exit1269:                                ; preds = %2766, %2768, %2769, %2771
-  %.0.i1266 = phi i32 [ %2762, %2766 ], [ %2762, %2769 ], [ %..i1268, %2768 ], [ %.20.i1267, %2771 ]
+  %.0.i1266 = phi i32 [ %..i1268, %2768 ], [ %2762, %2769 ], [ %2762, %2766 ], [ %.20.i1267, %2771 ]
   %2772 = getelementptr inbounds nuw i8, ptr %2738, i64 2
   %2773 = load i16, ptr %2772, align 2, !tbaa !96
   %2774 = sext i16 %2773 to i32
@@ -4513,7 +4513,7 @@ mid_pred.exit1269:                                ; preds = %2766, %2768, %2769,
   br label %mid_pred.exit1277
 
 mid_pred.exit1277:                                ; preds = %2827, %2829, %2830, %2832
-  %.0.i1274 = phi i32 [ %2823, %2827 ], [ %2823, %2830 ], [ %..i1276, %2829 ], [ %.20.i1275, %2832 ]
+  %.0.i1274 = phi i32 [ %..i1276, %2829 ], [ %2823, %2830 ], [ %2823, %2827 ], [ %.20.i1275, %2832 ]
   %2833 = getelementptr inbounds nuw i8, ptr %2738, i64 2
   %2834 = load i16, ptr %2833, align 2, !tbaa !96
   %2835 = sext i16 %2834 to i32
@@ -4543,8 +4543,8 @@ mid_pred.exit1277:                                ; preds = %2827, %2829, %2830,
   br label %pred_8x16_motion.exit
 
 pred_8x16_motion.exit:                            ; preds = %2791, %2798, %2804, %2815, %2782, %2784, %2785, %2787, %2843, %2845, %2846, %2848, %2721, %2710
-  %.71367 = phi i32 [ %2712, %2710 ], [ %2723, %2721 ], [ %2793, %2791 ], [ %2800, %2798 ], [ %2806, %2804 ], [ %2816, %2815 ], [ %.0.i1266, %2782 ], [ %.0.i1266, %2784 ], [ %.0.i1266, %2785 ], [ %.0.i1266, %2787 ], [ %.0.i1274, %2843 ], [ %.0.i1274, %2845 ], [ %.0.i1274, %2846 ], [ %.0.i1274, %2848 ]
-  %.71359 = phi i32 [ %2714, %2710 ], [ %2726, %2721 ], [ %2796, %2791 ], [ %2803, %2798 ], [ %2809, %2804 ], [ %2819, %2815 ], [ %2777, %2782 ], [ %..i1272, %2784 ], [ %2777, %2785 ], [ %.20.i1271, %2787 ], [ %2838, %2843 ], [ %..i1280, %2845 ], [ %2838, %2846 ], [ %.20.i1279, %2848 ]
+  %.71367 = phi i32 [ %2723, %2721 ], [ %2712, %2710 ], [ %.0.i1266, %2787 ], [ %2793, %2791 ], [ %2800, %2798 ], [ %2806, %2804 ], [ %2816, %2815 ], [ %.0.i1266, %2782 ], [ %.0.i1266, %2784 ], [ %.0.i1266, %2785 ], [ %.0.i1274, %2843 ], [ %.0.i1274, %2845 ], [ %.0.i1274, %2846 ], [ %.0.i1274, %2848 ]
+  %.71359 = phi i32 [ %2726, %2721 ], [ %2714, %2710 ], [ %.20.i1271, %2787 ], [ %2796, %2791 ], [ %2803, %2798 ], [ %2809, %2804 ], [ %2819, %2815 ], [ %2777, %2782 ], [ %..i1272, %2784 ], [ %2777, %2785 ], [ %2838, %2843 ], [ %..i1280, %2845 ], [ %2838, %2846 ], [ %.20.i1279, %2848 ]
   %2849 = getelementptr inbounds nuw i8, ptr @scan8, i64 %2702
   %2850 = load i8, ptr %2849, align 4, !tbaa !77
   %2851 = zext i8 %2850 to i64
@@ -4666,7 +4666,7 @@ pred_8x16_motion.exit:                            ; preds = %2791, %2798, %2804,
   br label %write_back_non_zero_count.exit
 
 .loopexit1569:                                    ; preds = %2245, %2635, %2911, %.preheader1571, %.preheader1576, %.preheader1579, %.preheader1577, %.preheader1573, %.preheader1568, %._crit_edge1627, %944, %942, %2006
-  %.0852 = phi i32 [ %.2854, %._crit_edge1627 ], [ %2025, %2006 ], [ %20, %942 ], [ %20, %944 ], [ %20, %.preheader1568 ], [ %20, %.preheader1573 ], [ %20, %.preheader1577 ], [ %20, %.preheader1579 ], [ %20, %.preheader1576 ], [ %20, %.preheader1571 ], [ %20, %2911 ], [ %20, %2635 ], [ %20, %2245 ]
+  %.0852 = phi i32 [ %20, %944 ], [ %.2854, %._crit_edge1627 ], [ %2025, %2006 ], [ %20, %942 ], [ %20, %.preheader1568 ], [ %20, %.preheader1573 ], [ %20, %.preheader1577 ], [ %20, %.preheader1576 ], [ %20, %.preheader1571 ], [ %20, %2635 ], [ %20, %2911 ], [ %20, %.preheader1579 ], [ %20, %2245 ]
   %2915 = load i32, ptr %5, align 4, !tbaa !93
   %2916 = and i32 %2915, 120
   %.not990 = icmp eq i32 %2916, 0
@@ -5038,7 +5038,7 @@ write_back_motion.exit:                           ; preds = %3089, %3085, %.loop
   br label %write_back_non_zero_count.exit
 
 decode_cabac_mb_cbp_chroma.exit:                  ; preds = %3167, %3155, %3177, %3113
-  %.1846 = phi i32 [ %3152, %3113 ], [ %.0845, %3177 ], [ %3176, %3167 ], [ %3152, %3155 ]
+  %.1846 = phi i32 [ %.0845, %3177 ], [ %3152, %3113 ], [ %3176, %3167 ], [ %3152, %3155 ]
   %3184 = getelementptr inbounds nuw i8, ptr %1, i64 21100
   store i32 %.1846, ptr %3184, align 4, !tbaa !166
   %3185 = trunc nuw nsw i32 %.1846 to i16
@@ -7351,8 +7351,8 @@ decode_cabac_luma_residual.exit1079.thread:       ; preds = %.loopexit1552, %dec
   store i32 %4704, ptr %4705, align 4, !tbaa !77
   br label %write_back_non_zero_count.exit
 
-write_back_non_zero_count.exit:                   ; preds = %.critedge1040, %.critedge1038, %.critedge1036, %2666, %2288, %2055, %decode_cabac_mb_chroma_pre_mode.exit, %880, %.loopexit1580, %4693, %decode_cabac_luma_residual.exit1079.thread, %decode_cabac_luma_residual.exit1079, %.thread1427, %decode_mb_skip.exit, %785, %753, %776, %3181
-  %.2 = phi i32 [ -1094995529, %3181 ], [ -1, %decode_cabac_luma_residual.exit1079 ], [ 0, %decode_mb_skip.exit ], [ 0, %785 ], [ -1, %753 ], [ %783, %776 ], [ %.10.ph, %.thread1427 ], [ 0, %decode_cabac_luma_residual.exit1079.thread ], [ 0, %4693 ], [ -1, %.loopexit1580 ], [ -1, %880 ], [ -1, %decode_cabac_mb_chroma_pre_mode.exit ], [ -1094995529, %.critedge1040 ], [ -1094995529, %.critedge1038 ], [ -1094995529, %.critedge1036 ], [ -1, %2666 ], [ -1, %2288 ], [ -1, %2055 ]
+write_back_non_zero_count.exit:                   ; preds = %.critedge1038, %.critedge1036, %2666, %2288, %.critedge1040, %2055, %decode_cabac_mb_chroma_pre_mode.exit, %880, %.loopexit1580, %4693, %decode_cabac_luma_residual.exit1079.thread, %decode_cabac_luma_residual.exit1079, %.thread1427, %decode_mb_skip.exit, %785, %753, %776, %3181
+  %.2 = phi i32 [ 0, %decode_mb_skip.exit ], [ -1, %decode_cabac_mb_chroma_pre_mode.exit ], [ -1094995529, %3181 ], [ %783, %776 ], [ -1, %decode_cabac_luma_residual.exit1079 ], [ 0, %4693 ], [ %.10.ph, %.thread1427 ], [ 0, %785 ], [ -1, %753 ], [ 0, %decode_cabac_luma_residual.exit1079.thread ], [ -1, %.loopexit1580 ], [ -1, %880 ], [ -1094995529, %.critedge1038 ], [ -1094995529, %.critedge1036 ], [ -1, %2666 ], [ -1, %2288 ], [ -1094995529, %.critedge1040 ], [ -1, %2055 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.2
 }
@@ -7462,8 +7462,8 @@ define internal fastcc range(i32 0, 2) i32 @decode_cabac_mb_skip(ptr noundef rea
   br label %72
 
 72:                                               ; preds = %47, %49, %56, %.thread66, %60
-  %.150 = phi i32 [ %71, %60 ], [ %48, %47 ], [ %37, %.thread66 ], [ %59, %56 ], [ %spec.select58, %49 ]
-  %.1 = phi i32 [ %63, %60 ], [ %.0, %47 ], [ %13, %.thread66 ], [ %.065, %56 ], [ %13, %49 ]
+  %.150 = phi i32 [ %71, %60 ], [ %48, %47 ], [ %59, %56 ], [ %spec.select58, %49 ], [ %37, %.thread66 ]
+  %.1 = phi i32 [ %63, %60 ], [ %.0, %47 ], [ %.065, %56 ], [ %13, %49 ], [ %13, %.thread66 ]
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 731760
   %74 = load ptr, ptr %73, align 8, !tbaa !95
   %75 = sext i32 %.1 to i64
@@ -7486,7 +7486,7 @@ define internal fastcc range(i32 0, 2) i32 @decode_cabac_mb_skip(ptr noundef rea
   br label %88
 
 88:                                               ; preds = %82, %72
-  %.051 = phi i64 [ 0, %72 ], [ %spec.select59, %82 ]
+  %.051 = phi i64 [ %spec.select59, %82 ], [ 0, %72 ]
   %89 = sext i32 %.150 to i64
   %90 = getelementptr inbounds i16, ptr %74, i64 %89
   %91 = load i16, ptr %90, align 2, !tbaa !96
@@ -7506,7 +7506,7 @@ define internal fastcc range(i32 0, 2) i32 @decode_cabac_mb_skip(ptr noundef rea
   br label %101
 
 101:                                              ; preds = %94, %88
-  %.152 = phi i64 [ %.051, %88 ], [ %spec.select60, %94 ]
+  %.152 = phi i64 [ %spec.select60, %94 ], [ %.051, %88 ]
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %103 = load i32, ptr %102, align 8, !tbaa !75
   %104 = icmp eq i32 %103, 3
@@ -7608,21 +7608,21 @@ define internal fastcc void @fill_decode_neighbors(ptr noundef readonly captures
   br label %._crit_edge.sink.split
 
 ._crit_edge.sink.split:                           ; preds = %35, %29, %57, %32
-  %.sink = phi ptr [ getelementptr inbounds nuw (i8, ptr @fill_decode_neighbors.left_block_options, i64 32), %32 ], [ getelementptr inbounds nuw (i8, ptr @fill_decode_neighbors.left_block_options, i64 96), %57 ], [ getelementptr inbounds nuw (i8, ptr @fill_decode_neighbors.left_block_options, i64 96), %29 ], [ getelementptr inbounds nuw (i8, ptr @fill_decode_neighbors.left_block_options, i64 64), %35 ]
-  %.088.ph = phi i32 [ %14, %32 ], [ %49, %57 ], [ %14, %29 ], [ %14, %35 ]
-  %.sroa.7.0.ph = phi i32 [ %31, %32 ], [ %58, %57 ], [ %15, %29 ], [ %15, %35 ]
-  %.sroa.0.0.ph = phi i32 [ %31, %32 ], [ %15, %57 ], [ %31, %29 ], [ %15, %35 ]
-  %.085.ph = phi i32 [ %12, %32 ], [ %56, %57 ], [ %12, %29 ], [ %12, %35 ]
-  %.0.ph = phi i32 [ %33, %32 ], [ %42, %57 ], [ %13, %29 ], [ %13, %35 ]
+  %.sink = phi ptr [ getelementptr inbounds nuw (i8, ptr @fill_decode_neighbors.left_block_options, i64 96), %29 ], [ getelementptr inbounds nuw (i8, ptr @fill_decode_neighbors.left_block_options, i64 32), %32 ], [ getelementptr inbounds nuw (i8, ptr @fill_decode_neighbors.left_block_options, i64 96), %57 ], [ getelementptr inbounds nuw (i8, ptr @fill_decode_neighbors.left_block_options, i64 64), %35 ]
+  %.088.ph = phi i32 [ %14, %29 ], [ %14, %32 ], [ %49, %57 ], [ %14, %35 ]
+  %.sroa.7.0.ph = phi i32 [ %15, %29 ], [ %31, %32 ], [ %58, %57 ], [ %15, %35 ]
+  %.sroa.0.0.ph = phi i32 [ %31, %29 ], [ %31, %32 ], [ %15, %57 ], [ %15, %35 ]
+  %.085.ph = phi i32 [ %12, %29 ], [ %12, %32 ], [ %56, %57 ], [ %12, %35 ]
+  %.0.ph = phi i32 [ %13, %29 ], [ %33, %32 ], [ %42, %57 ], [ %13, %35 ]
   store ptr %.sink, ptr %16, align 8, !tbaa !104
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.sink.split, %3, %.thread, %28, %35
-  %.088 = phi i32 [ %14, %28 ], [ %14, %35 ], [ %49, %.thread ], [ %14, %3 ], [ %.088.ph, %._crit_edge.sink.split ]
-  %.sroa.7.0 = phi i32 [ %15, %28 ], [ %15, %35 ], [ %15, %.thread ], [ %15, %3 ], [ %.sroa.7.0.ph, %._crit_edge.sink.split ]
-  %.sroa.0.0 = phi i32 [ %15, %28 ], [ %15, %35 ], [ %15, %.thread ], [ %15, %3 ], [ %.sroa.0.0.ph, %._crit_edge.sink.split ]
-  %.085 = phi i32 [ %12, %28 ], [ %12, %35 ], [ %56, %.thread ], [ %12, %3 ], [ %.085.ph, %._crit_edge.sink.split ]
-  %.0 = phi i32 [ %13, %28 ], [ %13, %35 ], [ %42, %.thread ], [ %13, %3 ], [ %.0.ph, %._crit_edge.sink.split ]
+  %.088 = phi i32 [ %49, %.thread ], [ %14, %35 ], [ %14, %3 ], [ %14, %28 ], [ %.088.ph, %._crit_edge.sink.split ]
+  %.sroa.7.0 = phi i32 [ %15, %.thread ], [ %15, %35 ], [ %15, %3 ], [ %15, %28 ], [ %.sroa.7.0.ph, %._crit_edge.sink.split ]
+  %.sroa.0.0 = phi i32 [ %15, %.thread ], [ %15, %35 ], [ %15, %3 ], [ %15, %28 ], [ %.sroa.0.0.ph, %._crit_edge.sink.split ]
+  %.085 = phi i32 [ %56, %.thread ], [ %12, %35 ], [ %12, %3 ], [ %12, %28 ], [ %.085.ph, %._crit_edge.sink.split ]
+  %.0 = phi i32 [ %42, %.thread ], [ %13, %35 ], [ %13, %3 ], [ %13, %28 ], [ %.0.ph, %._crit_edge.sink.split ]
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 20928
   store i32 %.0, ptr %59, align 16, !tbaa !111
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 20932
@@ -7908,7 +7908,7 @@ get_cabac_terminate.exit.thread._crit_edge:       ; preds = %get_cabac_terminate
   br label %85
 
 85:                                               ; preds = %get_cabac_terminate.exit, %19, %7, %73
-  %.138 = phi i32 [ %84, %73 ], [ 0, %7 ], [ 0, %19 ], [ 25, %get_cabac_terminate.exit ]
+  %.138 = phi i32 [ 0, %19 ], [ %84, %73 ], [ 0, %7 ], [ 25, %get_cabac_terminate.exit ]
   ret i32 %.138
 }
 
@@ -8052,7 +8052,7 @@ define internal fastcc void @fill_decode_caches(ptr noundef readonly captures(no
   br label %74
 
 74:                                               ; preds = %.sink.split, %57, %70, %51
-  %75 = phi i32 [ %43, %57 ], [ %43, %70 ], [ %53, %51 ], [ %.sink716, %.sink.split ]
+  %75 = phi i32 [ %53, %51 ], [ %43, %57 ], [ %43, %70 ], [ %.sink716, %.sink.split ]
   %76 = and i32 %34, %17
   %.not608 = icmp eq i32 %76, 0
   br i1 %.not608, label %77, label %79
@@ -9716,7 +9716,7 @@ define internal fastcc range(i32 -1, 32) i32 @decode_cabac_mb_ref(ptr noundef ca
   br label %26
 
 26:                                               ; preds = %22, %21
-  %.0 = phi i32 [ 0, %21 ], [ %spec.select, %22 ]
+  %.0 = phi i32 [ %spec.select, %22 ], [ 0, %21 ]
   %27 = icmp sgt i8 %16, 0
   br i1 %27, label %28, label %36
 
@@ -9737,7 +9737,7 @@ define internal fastcc range(i32 -1, 32) i32 @decode_cabac_mb_ref(ptr noundef ca
   br label %36
 
 36:                                               ; preds = %33, %28, %26
-  %.1 = phi i32 [ %.0, %26 ], [ %spec.select31, %28 ], [ %spec.select33, %33 ]
+  %.1 = phi i32 [ %spec.select31, %28 ], [ %spec.select33, %33 ], [ %.0, %26 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 33664
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 33668
   %.promoted = load i32, ptr %38, align 4, !tbaa !138
@@ -10687,9 +10687,9 @@ get_cabac_bypass.exit15:                          ; preds = %307, %.lr.ph
   br label %.critedge.i.thread
 
 .critedge.i.thread:                               ; preds = %get_cabac.exit11, %.preheader91, %._crit_edge.loopexit
-  %.sroa.10849.15 = phi ptr [ %.sroa.10849.12, %.preheader91 ], [ %.sroa.10849.14, %._crit_edge.loopexit ], [ %.sroa.10849.9, %get_cabac.exit11 ]
-  %.sroa.0.17 = phi i32 [ %spec.select, %.preheader91 ], [ %spec.select84, %._crit_edge.loopexit ], [ %.sroa.0.9, %get_cabac.exit11 ]
-  %.1181.i = phi i32 [ 15, %.preheader91 ], [ %322, %._crit_edge.loopexit ], [ %.0180.i113, %get_cabac.exit11 ]
+  %.sroa.10849.15 = phi ptr [ %.sroa.10849.14, %._crit_edge.loopexit ], [ %.sroa.10849.12, %.preheader91 ], [ %.sroa.10849.9, %get_cabac.exit11 ]
+  %.sroa.0.17 = phi i32 [ %spec.select84, %._crit_edge.loopexit ], [ %spec.select, %.preheader91 ], [ %.sroa.0.9, %get_cabac.exit11 ]
+  %.1181.i = phi i32 [ %322, %._crit_edge.loopexit ], [ 15, %.preheader91 ], [ %.0180.i113, %get_cabac.exit11 ]
   %323 = sub i32 0, %.1181.i
   %324 = shl nsw i32 %.sroa.0.17, 1
   %325 = and i32 %.sroa.0.17, 32767
@@ -10985,9 +10985,9 @@ get_cabac_bypass.exit25:                          ; preds = %492, %.lr.ph131
   br label %.critedge7.i.thread
 
 .critedge7.i.thread:                              ; preds = %get_cabac.exit19, %.preheader, %._crit_edge132.loopexit
-  %.sroa.10849.28 = phi ptr [ %.sroa.10849.25, %.preheader ], [ %.sroa.10849.27, %._crit_edge132.loopexit ], [ %.sroa.10849.22, %get_cabac.exit19 ]
-  %.sroa.0.32 = phi i32 [ %spec.select86, %.preheader ], [ %spec.select88, %._crit_edge132.loopexit ], [ %.sroa.0.24, %get_cabac.exit19 ]
-  %.1174.i = phi i32 [ 15, %.preheader ], [ %507, %._crit_edge132.loopexit ], [ %.0173.i125, %get_cabac.exit19 ]
+  %.sroa.10849.28 = phi ptr [ %.sroa.10849.27, %._crit_edge132.loopexit ], [ %.sroa.10849.25, %.preheader ], [ %.sroa.10849.22, %get_cabac.exit19 ]
+  %.sroa.0.32 = phi i32 [ %spec.select88, %._crit_edge132.loopexit ], [ %spec.select86, %.preheader ], [ %.sroa.0.24, %get_cabac.exit19 ]
+  %.1174.i = phi i32 [ %507, %._crit_edge132.loopexit ], [ 15, %.preheader ], [ %.0173.i125, %get_cabac.exit19 ]
   %508 = sub i32 0, %.1174.i
   %509 = shl nsw i32 %.sroa.0.32, 1
   %510 = and i32 %.sroa.0.32, 32767
@@ -11395,10 +11395,10 @@ get_cabac.exit13._crit_edge.sink.split:           ; preds = %select.unfold117, %
   br label %get_cabac.exit13._crit_edge
 
 get_cabac.exit13._crit_edge:                      ; preds = %get_cabac.exit13, %get_cabac.exit9, %get_cabac.exit13._crit_edge.sink.split
-  %.sroa.12689.2 = phi ptr [ %.sroa.12689.2.ph, %get_cabac.exit13._crit_edge.sink.split ], [ %.sroa.12689.27, %get_cabac.exit9 ], [ %.sroa.12689.29, %get_cabac.exit13 ]
-  %.sroa.84.2 = phi i32 [ %.sroa.84.2.ph, %get_cabac.exit13._crit_edge.sink.split ], [ %126, %get_cabac.exit9 ], [ %231, %get_cabac.exit13 ]
-  %.sroa.0.2 = phi i32 [ %.sroa.0.2.ph, %get_cabac.exit13._crit_edge.sink.split ], [ %.sroa.0.27, %get_cabac.exit9 ], [ %.sroa.0.29, %get_cabac.exit13 ]
-  %.5188.i = phi i32 [ %256, %get_cabac.exit13._crit_edge.sink.split ], [ %98, %get_cabac.exit9 ], [ %203, %get_cabac.exit13 ]
+  %.sroa.12689.2 = phi ptr [ %.sroa.12689.27, %get_cabac.exit9 ], [ %.sroa.12689.2.ph, %get_cabac.exit13._crit_edge.sink.split ], [ %.sroa.12689.29, %get_cabac.exit13 ]
+  %.sroa.84.2 = phi i32 [ %126, %get_cabac.exit9 ], [ %.sroa.84.2.ph, %get_cabac.exit13._crit_edge.sink.split ], [ %231, %get_cabac.exit13 ]
+  %.sroa.0.2 = phi i32 [ %.sroa.0.27, %get_cabac.exit9 ], [ %.sroa.0.2.ph, %get_cabac.exit13._crit_edge.sink.split ], [ %.sroa.0.29, %get_cabac.exit13 ]
+  %.5188.i = phi i32 [ %98, %get_cabac.exit9 ], [ %256, %get_cabac.exit13._crit_edge.sink.split ], [ %203, %get_cabac.exit13 ]
   br i1 %35, label %259, label %269
 
 259:                                              ; preds = %get_cabac.exit13._crit_edge
@@ -11715,9 +11715,9 @@ get_cabac_bypass.exit22:                          ; preds = %451, %.lr.ph194
   br label %.critedge.i.thread
 
 .critedge.i.thread:                               ; preds = %get_cabac.exit17, %.preheader148, %._crit_edge195.loopexit
-  %.sroa.12689.6 = phi ptr [ %.sroa.12689.32, %.preheader148 ], [ %.sroa.12689.33, %._crit_edge195.loopexit ], [ %.sroa.12689.31, %get_cabac.exit17 ]
-  %.sroa.0.6 = phi i32 [ %spec.select, %.preheader148 ], [ %spec.select140, %._crit_edge195.loopexit ], [ %.sroa.0.31, %get_cabac.exit17 ]
-  %.1181.i = phi i32 [ 15, %.preheader148 ], [ %466, %._crit_edge195.loopexit ], [ %.0180.i188, %get_cabac.exit17 ]
+  %.sroa.12689.6 = phi ptr [ %.sroa.12689.33, %._crit_edge195.loopexit ], [ %.sroa.12689.32, %.preheader148 ], [ %.sroa.12689.31, %get_cabac.exit17 ]
+  %.sroa.0.6 = phi i32 [ %spec.select140, %._crit_edge195.loopexit ], [ %spec.select, %.preheader148 ], [ %.sroa.0.31, %get_cabac.exit17 ]
+  %.1181.i = phi i32 [ %466, %._crit_edge195.loopexit ], [ 15, %.preheader148 ], [ %.0180.i188, %get_cabac.exit17 ]
   %467 = sub i32 0, %.1181.i
   %468 = shl nsw i32 %.sroa.0.6, 1
   %469 = and i32 %.sroa.0.6, 32767
@@ -12051,9 +12051,9 @@ get_cabac_bypass.exit32:                          ; preds = %667, %.lr.ph209
   br label %.critedge7.i.thread
 
 .critedge7.i.thread:                              ; preds = %get_cabac.exit26, %.preheader, %._crit_edge210.loopexit
-  %.sroa.12689.15 = phi ptr [ %.sroa.12689.36, %.preheader ], [ %.sroa.12689.37, %._crit_edge210.loopexit ], [ %.sroa.12689.35, %get_cabac.exit26 ]
-  %.sroa.0.15 = phi i32 [ %spec.select142, %.preheader ], [ %spec.select144, %._crit_edge210.loopexit ], [ %.sroa.0.37, %get_cabac.exit26 ]
-  %.1174.i = phi i32 [ 15, %.preheader ], [ %682, %._crit_edge210.loopexit ], [ %.0173.i203, %get_cabac.exit26 ]
+  %.sroa.12689.15 = phi ptr [ %.sroa.12689.37, %._crit_edge210.loopexit ], [ %.sroa.12689.36, %.preheader ], [ %.sroa.12689.35, %get_cabac.exit26 ]
+  %.sroa.0.15 = phi i32 [ %spec.select144, %._crit_edge210.loopexit ], [ %spec.select142, %.preheader ], [ %.sroa.0.37, %get_cabac.exit26 ]
+  %.1174.i = phi i32 [ %682, %._crit_edge210.loopexit ], [ 15, %.preheader ], [ %.0173.i203, %get_cabac.exit26 ]
   %683 = sub i32 0, %.1174.i
   %684 = shl nsw i32 %.sroa.0.15, 1
   %685 = and i32 %.sroa.0.15, 32767
@@ -12587,9 +12587,9 @@ get_cabac_bypass.exit16:                          ; preds = %311, %.lr.ph157
   br label %.critedge.i.thread
 
 .critedge.i.thread:                               ; preds = %get_cabac.exit11, %.preheader117, %._crit_edge158.loopexit
-  %.sroa.10875.5 = phi ptr [ %.sroa.10875.26, %.preheader117 ], [ %.sroa.10875.27, %._crit_edge158.loopexit ], [ %.sroa.10875.25, %get_cabac.exit11 ]
-  %.sroa.0.5 = phi i32 [ %spec.select, %.preheader117 ], [ %spec.select110, %._crit_edge158.loopexit ], [ %.sroa.0.25, %get_cabac.exit11 ]
-  %.1181.i = phi i32 [ 15, %.preheader117 ], [ %326, %._crit_edge158.loopexit ], [ %.0180.i151, %get_cabac.exit11 ]
+  %.sroa.10875.5 = phi ptr [ %.sroa.10875.27, %._crit_edge158.loopexit ], [ %.sroa.10875.26, %.preheader117 ], [ %.sroa.10875.25, %get_cabac.exit11 ]
+  %.sroa.0.5 = phi i32 [ %spec.select110, %._crit_edge158.loopexit ], [ %spec.select, %.preheader117 ], [ %.sroa.0.25, %get_cabac.exit11 ]
+  %.1181.i = phi i32 [ %326, %._crit_edge158.loopexit ], [ 15, %.preheader117 ], [ %.0180.i151, %get_cabac.exit11 ]
   %327 = sub i32 0, %.1181.i
   %328 = shl nsw i32 %.sroa.0.5, 1
   %329 = and i32 %.sroa.0.5, 32767
@@ -12885,9 +12885,9 @@ get_cabac_bypass.exit26:                          ; preds = %496, %.lr.ph172
   br label %.critedge7.i.thread
 
 .critedge7.i.thread:                              ; preds = %get_cabac.exit20, %.preheader, %._crit_edge173.loopexit
-  %.sroa.10875.14 = phi ptr [ %.sroa.10875.30, %.preheader ], [ %.sroa.10875.31, %._crit_edge173.loopexit ], [ %.sroa.10875.29, %get_cabac.exit20 ]
-  %.sroa.0.14 = phi i32 [ %spec.select112, %.preheader ], [ %spec.select114, %._crit_edge173.loopexit ], [ %.sroa.0.31, %get_cabac.exit20 ]
-  %.1174.i = phi i32 [ 15, %.preheader ], [ %511, %._crit_edge173.loopexit ], [ %.0173.i166, %get_cabac.exit20 ]
+  %.sroa.10875.14 = phi ptr [ %.sroa.10875.31, %._crit_edge173.loopexit ], [ %.sroa.10875.30, %.preheader ], [ %.sroa.10875.29, %get_cabac.exit20 ]
+  %.sroa.0.14 = phi i32 [ %spec.select114, %._crit_edge173.loopexit ], [ %spec.select112, %.preheader ], [ %.sroa.0.31, %get_cabac.exit20 ]
+  %.1174.i = phi i32 [ %511, %._crit_edge173.loopexit ], [ 15, %.preheader ], [ %.0173.i166, %get_cabac.exit20 ]
   %512 = sub i32 0, %.1174.i
   %513 = shl nsw i32 %.sroa.0.14, 1
   %514 = and i32 %.sroa.0.14, 32767

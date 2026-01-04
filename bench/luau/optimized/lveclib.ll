@@ -77,7 +77,7 @@ define internal noundef i32 @_ZL13vector_createP9lua_State(ptr noundef %0) #0 {
   br label %10
 
 10:                                               ; preds = %1, %.sink.split
-  %11 = phi float [ %9, %.sink.split ], [ 0.000000e+00, %1 ]
+  %11 = phi float [ 0.000000e+00, %1 ], [ %9, %.sink.split ]
   %12 = fptrunc double %3 to float
   %13 = fptrunc double %4 to float
   tail call void @_Z14lua_pushvectorP9lua_Statefff(ptr noundef %0, float noundef %12, float noundef %13, float noundef %11)

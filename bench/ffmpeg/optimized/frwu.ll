@@ -64,7 +64,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
 
 21:                                               ; preds = %4
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.8) #4
-  br label %.critedge
+  br label %.loopexit
 
 22:                                               ; preds = %4
   %23 = load i32, ptr %8, align 1, !tbaa !33
@@ -73,12 +73,12 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
 
 24:                                               ; preds = %22
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.9) #4
-  br label %.critedge
+  br label %.loopexit
 
 25:                                               ; preds = %22
   %26 = tail call i32 @ff_get_buffer(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0) #4
   %27 = icmp slt i32 %26, 0
-  br i1 %27, label %.critedge, label %.preheader
+  br i1 %27, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -88,11 +88,11 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %.pre = load i32, ptr %13, align 8, !tbaa !4
   br label %32
 
-32:                                               ; preds = %.preheader, %._crit_edge
-  %33 = phi i32 [ %.pre, %.preheader ], [ %100, %._crit_edge ]
-  %.not90 = phi i1 [ true, %.preheader ], [ false, %._crit_edge ]
-  %.05889 = phi i32 [ 0, %.preheader ], [ 1, %._crit_edge ]
-  %.07888 = phi ptr [ %28, %.preheader ], [ %103, %._crit_edge ]
+32:                                               ; preds = %.preheader, %.critedge
+  %33 = phi i32 [ %.pre, %.preheader ], [ %100, %.critedge ]
+  %.not90 = phi i1 [ true, %.preheader ], [ false, %.critedge ]
+  %.05889 = phi i32 [ 0, %.preheader ], [ 1, %.critedge ]
+  %.07888 = phi ptr [ %28, %.preheader ], [ %103, %.critedge ]
   %34 = load i32, ptr %16, align 4, !tbaa !32
   %35 = zext i1 %.not90 to i32
   %36 = add nsw i32 %34, %35
@@ -103,7 +103,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %41 = ptrtoint ptr %.07888 to i64
   %42 = sub i64 %29, %41
   %43 = icmp slt i64 %42, 8
-  br i1 %43, label %.critedge, label %44
+  br i1 %43, label %.loopexit, label %44
 
 44:                                               ; preds = %32
   %45 = getelementptr inbounds nuw i8, ptr %.07888, i64 4
@@ -114,7 +114,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
 
 49:                                               ; preds = %44
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.10, i32 noundef %47, i32 noundef %39) #4
-  br label %.critedge
+  br label %.loopexit
 
 50:                                               ; preds = %44
   %51 = ptrtoint ptr %46 to i64
@@ -126,7 +126,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
 55:                                               ; preds = %50
   %56 = trunc i64 %52 to i32
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.11, i32 noundef %47, i32 noundef %56) #4
-  br label %.critedge
+  br label %.loopexit
 
 57:                                               ; preds = %50
   %58 = load i32, ptr %30, align 8, !tbaa !35
@@ -138,13 +138,13 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   br i1 %.not90, label %.thread114, label %.thread
 
 61:                                               ; preds = %57
-  br i1 %59, label %.lr.ph, label %._crit_edge
+  br i1 %59, label %.lr.ph, label %.critedge
 
 .thread114:                                       ; preds = %60
-  br i1 %59, label %.lr.ph.split.us.preheader, label %._crit_edge
+  br i1 %59, label %.lr.ph.split.us.preheader, label %.critedge
 
 .thread:                                          ; preds = %60
-  br i1 %59, label %.lr.ph.thread, label %._crit_edge.thread
+  br i1 %59, label %.lr.ph.thread, label %.critedge.thread
 
 .lr.ph.thread:                                    ; preds = %.thread
   %62 = load i32, ptr %31, align 8, !tbaa !37
@@ -186,7 +186,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %80 = getelementptr inbounds i8, ptr %.187.us, i64 %79
   %81 = add nuw nsw i32 %.06086.us, 1
   %exitcond102.not = icmp eq i32 %81, %37
-  br i1 %exitcond102.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !38
+  br i1 %exitcond102.not, label %.critedge, label %.lr.ph.split.us, !llvm.loop !38
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %88
   %82 = phi i32 [ %91, %88 ], [ %33, %.lr.ph.split.preheader ]
@@ -218,23 +218,23 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %98 = getelementptr inbounds i8, ptr %.2, i64 %97
   %99 = add nuw nsw i32 %.06086, 1
   %exitcond.not = icmp eq i32 %99, %37
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !38
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !38
 
-._crit_edge:                                      ; preds = %88, %.lr.ph.split.us, %.thread114, %61
+.critedge:                                        ; preds = %88, %.lr.ph.split.us, %.thread114, %61
   %100 = phi i32 [ %33, %61 ], [ %33, %.thread114 ], [ %73, %.lr.ph.split.us ], [ %91, %88 ]
   %.179.lcssa = phi ptr [ %46, %61 ], [ %46, %.thread114 ], [ %76, %.lr.ph.split.us ], [ %94, %88 ]
   %101 = sub nsw i32 %47, %39
   %102 = sext i32 %101 to i64
   %103 = getelementptr inbounds i8, ptr %.179.lcssa, i64 %102
-  br i1 %.not90, label %32, label %._crit_edge.thread, !llvm.loop !40
+  br i1 %.not90, label %32, label %.critedge.thread, !llvm.loop !40
 
-._crit_edge.thread:                               ; preds = %.thread, %._crit_edge
+.critedge.thread:                                 ; preds = %.thread, %.critedge
   store i32 1, ptr %2, align 4, !tbaa !37
   %104 = load i32, ptr %9, align 8, !tbaa !31
-  br label %.critedge
+  br label %.loopexit
 
-.critedge:                                        ; preds = %32, %49, %55, %25, %._crit_edge.thread, %24, %21
-  %.055 = phi i32 [ -1094995529, %21 ], [ -1094995529, %24 ], [ %104, %._crit_edge.thread ], [ %26, %25 ], [ -1094995529, %55 ], [ -1094995529, %49 ], [ -1094995529, %32 ]
+.loopexit:                                        ; preds = %32, %49, %55, %25, %.critedge.thread, %24, %21
+  %.055 = phi i32 [ -1094995529, %21 ], [ -1094995529, %24 ], [ %104, %.critedge.thread ], [ %26, %25 ], [ -1094995529, %49 ], [ -1094995529, %55 ], [ -1094995529, %32 ]
   ret i32 %.055
 }
 

@@ -20934,7 +20934,7 @@ _ZNSt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_deleteIS2_EED2Ev
   br label %1585
 
 1585:                                             ; preds = %1329, %1400, %1471, %1539, %1540, %1584, %.body, %1220, %1138
-  %.pn270.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn229.pn.pn.pn, %1138 ], [ %.pn261.pn.pn, %1584 ], [ %1541, %1540 ], [ %.pn257.pn.pn, %1539 ], [ %.pn250.pn.pn, %1471 ], [ %.pn243.pn.pn, %1400 ], [ %.pn236.pn.pn, %1329 ], [ %.pn270.pn.pn, %.body ], [ %.pn265.pn.pn.pn, %1220 ]
+  %.pn270.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn229.pn.pn.pn, %1138 ], [ %.pn236.pn.pn, %1329 ], [ %.pn261.pn.pn, %1584 ], [ %1541, %1540 ], [ %.pn257.pn.pn, %1539 ], [ %.pn250.pn.pn, %1471 ], [ %.pn243.pn.pn, %1400 ], [ %.pn270.pn.pn, %.body ], [ %.pn265.pn.pn.pn, %1220 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %92)
   call void @llvm.lifetime.end.p0(ptr nonnull %91)
   br label %1586
@@ -25034,7 +25034,7 @@ _ZN7testing15AssertionResultD2Ev.exit618:         ; preds = %1176, %_ZNKSt14defa
   br i1 %exitcond.not, label %1059, label %1060, !llvm.loop !415
 
 .body:                                            ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i611, %_ZN7testing7MessageD2Ev.exit608, %1144, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17.i
-  %.pn246.pn.pn = phi { ptr, i32 } [ %1145, %1144 ], [ %.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17.i ], [ %.pn246.pn, %_ZN7testing7MessageD2Ev.exit608 ], [ %.pn246.pn, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i611 ]
+  %.pn246.pn.pn = phi { ptr, i32 } [ %.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17.i ], [ %1145, %1144 ], [ %.pn246.pn, %_ZN7testing7MessageD2Ev.exit608 ], [ %.pn246.pn, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i611 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %97)
   br label %1360
 
@@ -25596,7 +25596,7 @@ _ZNSt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_deleteIS2_EED2Ev
   ret void
 
 1360:                                             ; preds = %1237, %.body688, %1320, %_ZN7testing15AssertionResultD2Ev.exit592, %.body, %1055
-  %.pn246.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn220.pn.pn.pn, %1055 ], [ %.pn246.pn.pn, %.body ], [ %.pn241.pn.pn.pn, %_ZN7testing15AssertionResultD2Ev.exit592 ], [ %.pn225.pn.pn.pn, %1237 ], [ %.pn235.pn.pn, %.body688 ], [ %.pn230.pn.pn.pn, %1320 ]
+  %.pn246.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn220.pn.pn.pn, %1055 ], [ %.pn241.pn.pn.pn, %_ZN7testing15AssertionResultD2Ev.exit592 ], [ %.pn246.pn.pn, %.body ], [ %.pn225.pn.pn.pn, %1237 ], [ %.pn235.pn.pn, %.body688 ], [ %.pn230.pn.pn.pn, %1320 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %88)
   call void @llvm.lifetime.end.p0(ptr nonnull %87)
   br label %1361

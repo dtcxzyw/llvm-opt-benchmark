@@ -758,7 +758,7 @@ compute_contrast_function.exit:                   ; preds = %.preheader.i, %.pre
   br label %.thread222
 
 .thread222:                                       ; preds = %83, %111, %._crit_edge252, %193, %28, %191, %35, %.loopexit
-  %.2 = phi i32 [ %373, %.loopexit ], [ -12, %191 ], [ -12, %35 ], [ -541478725, %28 ], [ -12, %193 ], [ 0, %._crit_edge252 ], [ -12, %111 ], [ -12, %83 ]
+  %.2 = phi i32 [ -12, %35 ], [ 0, %._crit_edge252 ], [ %373, %.loopexit ], [ -12, %191 ], [ -541478725, %28 ], [ -12, %111 ], [ -12, %193 ], [ -12, %83 ]
   ret i32 %.2
 }
 

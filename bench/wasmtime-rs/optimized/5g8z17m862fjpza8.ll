@@ -218,8 +218,8 @@ define { i64, i64 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$
   br label %27
 
 27:                                               ; preds = %7, %22, %16
-  %.sroa.4.0 = phi i64 [ %26, %22 ], [ %21, %16 ], [ undef, %7 ]
-  %.sroa.0.0 = phi i64 [ %25, %22 ], [ %20, %16 ], [ 2, %7 ]
+  %.sroa.4.0 = phi i64 [ %21, %16 ], [ %26, %22 ], [ undef, %7 ]
+  %.sroa.0.0 = phi i64 [ %20, %16 ], [ %25, %22 ], [ 2, %7 ]
   %28 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %29 = insertvalue { i64, i64 } %28, i64 %.sroa.4.0, 1
   ret { i64, i64 } %29

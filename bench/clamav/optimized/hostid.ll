@@ -46,7 +46,7 @@ define range(i32 0, 2) i32 @is_valid_hostid() local_unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %7, %6, %0
-  %.015 = phi i32 [ 0, %0 ], [ 0, %6 ], [ %., %7 ]
+  %.015 = phi i32 [ 0, %6 ], [ 0, %0 ], [ %., %7 ]
   ret i32 %.015
 }
 
@@ -98,8 +98,8 @@ is_valid_hostid.exit:                             ; preds = %8
   %18 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull @hostid) #7
   br label %.sink.split
 
-.sink.split:                                      ; preds = %is_valid_hostid.exit, %2, %8, %17
-  %hostid.sink = phi ptr [ @hostid, %17 ], [ @.str.1, %8 ], [ @.str.1, %2 ], [ @.str.1, %is_valid_hostid.exit ]
+.sink.split:                                      ; preds = %is_valid_hostid.exit, %8, %2, %17
+  %hostid.sink = phi ptr [ @hostid, %17 ], [ @.str.1, %2 ], [ @.str.1, %8 ], [ @.str.1, %is_valid_hostid.exit ]
   %19 = tail call noalias ptr @strdup(ptr noundef nonnull %hostid.sink) #7
   br label %20
 

@@ -2808,7 +2808,7 @@ define internal fastcc noundef ptr @engine_coredump_add_context(ptr noundef %0, 
   br label %.thread12
 
 .thread12:                                        ; preds = %70, %72, %.thread10, %73
-  %74 = phi i1 [ %67, %73 ], [ true, %.thread10 ], [ %67, %72 ], [ %67, %70 ]
+  %74 = phi i1 [ %67, %70 ], [ true, %.thread10 ], [ %67, %73 ], [ %67, %72 ]
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %76 = load i8, ptr %75, align 1, !range !9, !noundef !10
   %77 = zext i1 %74 to i8
@@ -3213,7 +3213,7 @@ define internal fastcc noundef ptr @i915_vma_coredump_create(ptr noundef readonl
   br label %103
 
 103:                                              ; preds = %100, %95
-  %104 = phi ptr [ %102, %100 ], [ %96, %95 ]
+  %104 = phi ptr [ %96, %95 ], [ %102, %100 ]
   %105 = icmp eq ptr %104, null
   br i1 %105, label %.thread68, label %106
 
@@ -3318,7 +3318,7 @@ define internal fastcc noundef ptr @i915_vma_coredump_create(ptr noundef readonl
   br label %178
 
 178:                                              ; preds = %175, %170
-  %179 = phi ptr [ %177, %175 ], [ %171, %170 ]
+  %179 = phi ptr [ %171, %170 ], [ %177, %175 ]
   %180 = icmp eq ptr %179, null
   br i1 %180, label %.thread68, label %181
 
@@ -3429,7 +3429,7 @@ define internal fastcc noundef ptr @i915_vma_coredump_create(ptr noundef readonl
   br label %255
 
 255:                                              ; preds = %252, %247
-  %256 = phi ptr [ %254, %252 ], [ %248, %247 ]
+  %256 = phi ptr [ %248, %247 ], [ %254, %252 ]
   %257 = icmp eq ptr %256, null
   br i1 %257, label %.loopexit79, label %258
 
@@ -5363,7 +5363,7 @@ capture_vma_snapshot.exit24:                      ; preds = %.preheader, %294, %
   br label %.thread25
 
 .thread25:                                        ; preds = %337, %339, %343, %340, %329
-  %345 = phi ptr [ %344, %343 ], [ %330, %329 ], [ %330, %340 ], [ %330, %339 ], [ %330, %337 ]
+  %345 = phi ptr [ %344, %343 ], [ %330, %340 ], [ %330, %329 ], [ %330, %339 ], [ %330, %337 ]
   %346 = icmp eq ptr %345, null
   br i1 %346, label %.thread26, label %347
 
@@ -5447,7 +5447,7 @@ capture_vma_snapshot.exit24:                      ; preds = %.preheader, %294, %
   br label %384
 
 384:                                              ; preds = %.thread29, %381, %18, %13
-  %385 = phi ptr [ %19, %381 ], [ %16, %13 ], [ inttoptr (i64 -12 to ptr), %18 ], [ inttoptr (i64 -12 to ptr), %.thread29 ]
+  %385 = phi ptr [ %19, %381 ], [ inttoptr (i64 -12 to ptr), %.thread29 ], [ %16, %13 ], [ inttoptr (i64 -12 to ptr), %18 ]
   call void @mutex_unlock(ptr noundef nonnull @i915_gpu_coredump.capture_mutex) #15
   br label %386
 
@@ -5706,7 +5706,7 @@ define internal fastcc noundef zeroext i1 @__i915_error_grow(ptr noundef capture
   br label %.thread4
 
 .thread4:                                         ; preds = %.thread4.sink.split, %65, %71, %4, %2
-  %77 = phi i1 [ false, %2 ], [ true, %4 ], [ true, %71 ], [ true, %65 ], [ false, %.thread4.sink.split ]
+  %77 = phi i1 [ true, %71 ], [ true, %65 ], [ false, %2 ], [ true, %4 ], [ false, %.thread4.sink.split ]
   ret i1 %77
 }
 
@@ -6333,7 +6333,7 @@ define internal fastcc range(i32 -4095, 1) i32 @compress_page(ptr noundef nonnul
   br i1 %66, label %.loopexit10, label %21, !llvm.loop !102
 
 .loopexit10:                                      ; preds = %63, %60, %.thread9, %.loopexit.loopexit
-  %67 = phi i32 [ -12, %.thread9 ], [ %58, %.loopexit.loopexit ], [ 0, %63 ], [ -5, %60 ]
+  %67 = phi i32 [ %58, %.loopexit.loopexit ], [ -12, %.thread9 ], [ 0, %63 ], [ -5, %60 ]
   ret i32 %67
 }
 

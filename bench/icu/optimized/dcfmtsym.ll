@@ -221,7 +221,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1250,7 +1250,7 @@ _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %217, %225
-  %eh.lpad-body = phi { ptr, i32 } [ %218, %217 ], [ %226, %225 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit169, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp170, %.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %226, %225 ], [ %218, %217 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit169, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp170, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN6icu_7712ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(18) %21) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #18
@@ -1322,7 +1322,7 @@ _ZN6icu_7712LocalPointerINS_15NumberingSystemEED2Ev.exit: ; preds = %244, %_ZN6i
   br label %250
 
 250:                                              ; preds = %249, %188, %183, %160, %151
-  %.pn113.pn.pn.pn.pn = phi { ptr, i32 } [ %161, %160 ], [ %.pn104, %151 ], [ %.pn113.pn, %249 ], [ %189, %188 ], [ %184, %183 ]
+  %.pn113.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn104, %151 ], [ %161, %160 ], [ %.pn113.pn, %249 ], [ %189, %188 ], [ %184, %183 ]
   call void @_ZN6icu_7712ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(45) %12) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %251
@@ -1349,7 +1349,7 @@ _ZN6icu_7712LocalPointerINS_15NumberingSystemEED2Ev.exit: ; preds = %244, %_ZN6i
   br label %255
 
 255:                                              ; preds = %58, %82, %254
-  %.pn123.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn123.pn.pn, %254 ], [ %.pn.pn, %82 ], [ %59, %58 ]
+  %.pn123.pn.pn.pn.pn = phi { ptr, i32 } [ %59, %58 ], [ %.pn123.pn.pn, %254 ], [ %.pn.pn, %82 ]
   %256 = icmp eq ptr %.sroa.0.0, null
   br i1 %256, label %_ZN6icu_7712LocalPointerINS_15NumberingSystemEED2Ev.exit154, label %257
 
@@ -2622,7 +2622,7 @@ _ZNK6icu_7713UnicodeStringneERKS0_.exit41:        ; preds = %98
   br label %.thread
 
 .thread:                                          ; preds = %31, %_ZNK6icu_7713UnicodeStringneERKS0_.exit, %27, %98, %65, %_ZNK6icu_7713UnicodeStringneERKS0_.exit41, %_ZNK6icu_7713UnicodeStringneERKS0_.exit35, %61, %94, %121, %125, %131, %9, %4, %2
-  %.024 = phi i1 [ true, %2 ], [ false, %4 ], [ false, %9 ], [ false, %125 ], [ false, %121 ], [ %136, %131 ], [ false, %94 ], [ false, %61 ], [ false, %_ZNK6icu_7713UnicodeStringneERKS0_.exit35 ], [ false, %_ZNK6icu_7713UnicodeStringneERKS0_.exit41 ], [ false, %65 ], [ false, %98 ], [ false, %27 ], [ false, %_ZNK6icu_7713UnicodeStringneERKS0_.exit ], [ false, %31 ]
+  %.024 = phi i1 [ %136, %131 ], [ true, %2 ], [ false, %4 ], [ false, %9 ], [ false, %98 ], [ false, %125 ], [ false, %121 ], [ false, %94 ], [ false, %61 ], [ false, %_ZNK6icu_7713UnicodeStringneERKS0_.exit35 ], [ false, %_ZNK6icu_7713UnicodeStringneERKS0_.exit41 ], [ false, %65 ], [ false, %27 ], [ false, %_ZNK6icu_7713UnicodeStringneERKS0_.exit ], [ false, %31 ]
   ret i1 %.024
 }
 
@@ -3446,7 +3446,7 @@ define internal void @_ZN6icu_7712_GLOBAL__N_119CurrencySpacingSink3putEPKcRNS_1
   br i1 %41, label %42, label %73
 
 42:                                               ; preds = %39, %36, %32
-  %.021 = phi i64 [ 0, %32 ], [ 1, %36 ], [ 2, %39 ]
+  %.021 = phi i64 [ 1, %36 ], [ 0, %32 ], [ 2, %39 ]
   %43 = load ptr, ptr %18, align 8, !tbaa !47
   %44 = load i32, ptr %4, align 4, !tbaa !13
   %45 = icmp slt i32 %44, 1

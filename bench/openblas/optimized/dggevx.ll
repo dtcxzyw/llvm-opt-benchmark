@@ -145,15 +145,18 @@ define void @dggevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %93 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str.4) #6
   %.not648 = icmp eq i32 %93, 0
   %brmerge = select i1 %.not648, i1 true, i1 %68
-  %brmerge899 = select i1 %brmerge, i1 true, i1 %74
+  %brmerge900 = select i1 %brmerge, i1 true, i1 %74
   %.mux = select i1 %68, i32 -2, i32 -3
   %.mux.mux = select i1 %.not648, i32 -1, i32 %.mux
-  br i1 %brmerge899, label %.thread690.sink.split, label %95
+  %.mux899 = select i1 %68, i32 -2, i32 -3
+  %.mux899.mux = select i1 %.not648, i32 -1, i32 %.mux899
+  br i1 %brmerge900, label %.thread690.sink.split, label %95
 
 94:                                               ; preds = %90, %88, %80
-  %brmerge900 = select i1 %68, i1 true, i1 %74
-  %.mux901 = select i1 %68, i32 -2, i32 -3
-  br i1 %brmerge900, label %.thread690.sink.split, label %95
+  %brmerge901 = select i1 %68, i1 true, i1 %74
+  %.mux902 = select i1 %68, i32 -2, i32 -3
+  %.mux903 = select i1 %68, i32 -2, i32 -3
+  br i1 %brmerge901, label %.thread690.sink.split, label %95
 
 95:                                               ; preds = %94, %92
   %96 = icmp ne i32 %81, 0
@@ -249,8 +252,8 @@ define void @dggevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %146
 
 146:                                              ; preds = %119, %130, %140
-  %.0597 = phi i32 [ %.3, %140 ], [ %.3, %130 ], [ 1, %119 ]
-  %.1 = phi i32 [ %145, %140 ], [ %139, %130 ], [ 1, %119 ]
+  %.0597 = phi i32 [ %.3, %130 ], [ %.3, %140 ], [ 1, %119 ]
+  %.1 = phi i32 [ %139, %130 ], [ %145, %140 ], [ 1, %119 ]
   %147 = sitofp i32 %.1 to double
   store double %147, ptr %24, align 8, !tbaa !7
   %148 = load i32, ptr %25, align 4, !tbaa !3
@@ -264,12 +267,13 @@ define void @dggevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not654, label %153, label %.thread690
 
 .thread690.sink.split:                            ; preds = %94, %92, %146, %113, %109, %106, %103, %100, %95
-  %.sink = phi i32 [ %.mux.mux, %92 ], [ %.mux901, %94 ], [ -4, %95 ], [ -5, %100 ], [ -7, %103 ], [ -9, %106 ], [ -14, %109 ], [ -16, %113 ], [ -26, %146 ]
+  %.sink = phi i32 [ %.mux.mux, %92 ], [ -26, %146 ], [ -5, %100 ], [ -9, %106 ], [ -14, %109 ], [ -7, %103 ], [ -4, %95 ], [ %.mux902, %94 ], [ -16, %113 ]
+  %.ph = phi i32 [ %.mux899.mux, %92 ], [ -26, %146 ], [ -5, %100 ], [ -9, %106 ], [ -14, %109 ], [ -7, %103 ], [ -4, %95 ], [ %.mux903, %94 ], [ -16, %113 ]
   store i32 %.sink, ptr %28, align 4, !tbaa !3
   br label %.thread690
 
 .thread690:                                       ; preds = %.thread690.sink.split, %117, %.thread
-  %150 = phi i32 [ %.pr687.pr, %.thread ], [ %.pr, %117 ], [ %.sink, %.thread690.sink.split ]
+  %150 = phi i32 [ %.pr687.pr, %.thread ], [ %.pr, %117 ], [ %.ph, %.thread690.sink.split ]
   %151 = sub nsw i32 0, %150
   store i32 %151, ptr %30, align 4, !tbaa !3
   %152 = call i32 @xerbla_(ptr noundef nonnull @.str.10, ptr noundef nonnull %30, i32 noundef 6) #6
@@ -310,7 +314,7 @@ define void @dggevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %171, label %172, label %173
 
 172:                                              ; preds = %157, %169
-  %storemerge711 = phi double [ %170, %169 ], [ %167, %157 ]
+  %storemerge711 = phi double [ %167, %157 ], [ %170, %169 ]
   store double %storemerge711, ptr %43, align 8, !tbaa !7
   call void @dlascl_(ptr noundef nonnull @.str.12, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %32, ptr noundef nonnull %43, ptr noundef nonnull %4, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull %6, ptr noundef nonnull %34) #6
   br label %173
@@ -331,7 +335,7 @@ define void @dggevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %180, label %181, label %182
 
 181:                                              ; preds = %173, %178
-  %storemerge712 = phi double [ %179, %178 ], [ %176, %173 ]
+  %storemerge712 = phi double [ %176, %173 ], [ %179, %178 ]
   store double %storemerge712, ptr %44, align 8, !tbaa !7
   call void @dlascl_(ptr noundef nonnull @.str.12, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %33, ptr noundef nonnull %44, ptr noundef nonnull %4, ptr noundef nonnull %4, ptr noundef %7, ptr noundef nonnull %8, ptr noundef nonnull %34) #6
   br label %182
@@ -886,7 +890,7 @@ define void @dggevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %exitcond839.not, label %.loopexit721, label %376, !llvm.loop !21
 
 .loopexit721.sink.split:                          ; preds = %256, %269, %309, %261, %263
-  %.sink898 = phi i32 [ %264, %263 ], [ %262, %261 ], [ %311, %309 ], [ %271, %269 ], [ %255, %256 ]
+  %.sink898 = phi i32 [ %271, %269 ], [ %264, %263 ], [ %262, %261 ], [ %311, %309 ], [ %255, %256 ]
   store i32 %.sink898, ptr %28, align 4, !tbaa !3
   br label %.loopexit721
 

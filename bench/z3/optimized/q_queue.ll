@@ -1482,7 +1482,7 @@ _ZN6vectorIN1q5queue5entryELb0EjE9push_backERKS2_.exit: ; preds = %47, %53
   br label %_ZN6vectorIN1q5queue5entryELb0EjE5resetEv.exit
 
 _ZN6vectorIN1q5queue5entryELb0EjE5resetEv.exit:   ; preds = %1, %84, %.critedge, %_ZNK6vectorIN1q5queue5entryELb0EjE5emptyEv.exit
-  %.0 = phi i1 [ false, %_ZNK6vectorIN1q5queue5entryELb0EjE5emptyEv.exit ], [ true, %.critedge ], [ true, %84 ], [ false, %1 ]
+  %.0 = phi i1 [ true, %84 ], [ false, %_ZNK6vectorIN1q5queue5entryELb0EjE5emptyEv.exit ], [ true, %.critedge ], [ false, %1 ]
   ret i1 %.0
 }
 
@@ -1540,8 +1540,8 @@ _ZNK6vectorIN1q5queue5entryELb0EjE5emptyEv.exit:  ; preds = %1
   br label %29
 
 29:                                               ; preds = %26, %28, %21, %.lr.ph
-  %.126 = phi i1 [ %.02537, %.lr.ph ], [ true, %28 ], [ %.02537, %21 ], [ true, %26 ]
-  %.2 = phi double [ %.138, %.lr.ph ], [ %24, %28 ], [ %.138, %21 ], [ %.138, %26 ]
+  %.126 = phi i1 [ %.02537, %.lr.ph ], [ true, %28 ], [ true, %26 ], [ %.02537, %21 ]
+  %.2 = phi double [ %.138, %.lr.ph ], [ %24, %28 ], [ %.138, %26 ], [ %.138, %21 ]
   %30 = getelementptr inbounds nuw i8, ptr %.03036, i64 16
   %.not = icmp eq ptr %30, %17
   br i1 %.not, label %_ZNK6vectorIN1q5queue5entryELb0EjE4sizeEv.exit.lr.ph, label %.lr.ph
@@ -1630,7 +1630,7 @@ _ZNK6vectorIN1q5queue5entryELb0EjE4sizeEv.exit:   ; preds = %_ZNK6vectorIN1q5que
   br i1 %73, label %_ZNK6vectorIN1q5queue5entryELb0EjE5emptyEv.exit.thread, label %_ZNK6vectorIN1q5queue5entryELb0EjE4sizeEv.exit, !llvm.loop !605
 
 _ZNK6vectorIN1q5queue5entryELb0EjE5emptyEv.exit.thread: ; preds = %_ZNK6vectorIN1q5queue5entryELb0EjE4sizeEv.exit, %71, %1, %_ZNK6vectorIN1q5queue5entryELb0EjE5emptyEv.exit
-  %.0 = phi i1 [ false, %_ZNK6vectorIN1q5queue5entryELb0EjE5emptyEv.exit ], [ false, %1 ], [ %.02839, %_ZNK6vectorIN1q5queue5entryELb0EjE4sizeEv.exit ], [ %.129, %71 ]
+  %.0 = phi i1 [ false, %1 ], [ false, %_ZNK6vectorIN1q5queue5entryELb0EjE5emptyEv.exit ], [ %.02839, %_ZNK6vectorIN1q5queue5entryELb0EjE4sizeEv.exit ], [ %.129, %71 ]
   ret i1 %.0
 }
 

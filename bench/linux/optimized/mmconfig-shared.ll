@@ -949,7 +949,7 @@ is_mmconf_reserved.specialized.2.exit:            ; preds = %.loopexit.i
   br label %is_mmconf_reserved.specialized.1.exit
 
 is_mmconf_reserved.specialized.1.exit:            ; preds = %67, %66, %41, %172, %171, %146, %136, %119, %.critedge, %116, %112
-  %180 = phi i1 [ true, %116 ], [ true, %112 ], [ true, %.critedge ], [ false, %119 ], [ false, %136 ], [ true, %146 ], [ true, %171 ], [ true, %172 ], [ true, %41 ], [ true, %66 ], [ true, %67 ]
+  %180 = phi i1 [ false, %119 ], [ true, %172 ], [ true, %116 ], [ true, %112 ], [ true, %.critedge ], [ false, %136 ], [ true, %146 ], [ true, %171 ], [ true, %41 ], [ true, %66 ], [ true, %67 ]
   ret i1 %180
 }
 
@@ -1550,7 +1550,7 @@ define internal range(i32 0, 16388) i32 @check_mcfg_resource(ptr noundef %0, ptr
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %12, %6, %38, %33, %23, %20
-  %44 = phi i32 [ 0, %20 ], [ 0, %23 ], [ 0, %38 ], [ 0, %33 ], [ 0, %6 ], [ 0, %12 ], [ 16387, %.thread.sink.split ]
+  %44 = phi i32 [ 0, %6 ], [ 0, %12 ], [ 0, %20 ], [ 0, %23 ], [ 0, %38 ], [ 0, %33 ], [ 16387, %.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %44
 }

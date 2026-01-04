@@ -131,7 +131,7 @@ includes_nul.exit:                                ; preds = %7
   br label %52
 
 52:                                               ; preds = %28, %18, %.thread, %12, %includes_nul.exit, %4, %51, %47
-  %.0 = phi i32 [ %.036, %51 ], [ 0, %47 ], [ -22, %4 ], [ -22, %includes_nul.exit ], [ -22, %12 ], [ -22, %.thread ], [ -22, %18 ], [ -12, %28 ]
+  %.0 = phi i32 [ -22, %18 ], [ -22, %4 ], [ -12, %28 ], [ -22, %includes_nul.exit ], [ -22, %12 ], [ -22, %.thread ], [ %.036, %51 ], [ 0, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -194,7 +194,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @uv__pipe_listen(ptr nound
   br label %21
 
 21:                                               ; preds = %8, %3, %17, %13
-  %.0 = phi i32 [ %16, %13 ], [ 0, %17 ], [ -22, %3 ], [ -22, %8 ]
+  %.0 = phi i32 [ 0, %17 ], [ -22, %3 ], [ %16, %13 ], [ -22, %8 ]
   ret i32 %.0
 }
 
@@ -267,7 +267,7 @@ define dso_local i32 @uv_pipe_open(ptr noundef %0, i32 noundef %1) local_unnamed
   br label %18
 
 18:                                               ; preds = %.critedge22, %2, %14, %.critedge
-  %.0 = phi i32 [ %12, %.critedge ], [ %17, %14 ], [ -17, %2 ], [ %13, %.critedge22 ]
+  %.0 = phi i32 [ %17, %14 ], [ %12, %.critedge ], [ -17, %2 ], [ %13, %.critedge22 ]
   ret i32 %.0
 }
 
@@ -434,7 +434,7 @@ includes_nul.exit:                                ; preds = %6
   br label %62
 
 62:                                               ; preds = %47, %60, %13, %includes_nul.exit, %6
-  %.0 = phi i32 [ -22, %6 ], [ -22, %includes_nul.exit ], [ -22, %13 ], [ 0, %60 ], [ 0, %47 ]
+  %.0 = phi i32 [ -22, %13 ], [ -22, %6 ], [ 0, %47 ], [ 0, %60 ], [ -22, %includes_nul.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -518,7 +518,7 @@ define dso_local range(i32 -2147483648, 1) i32 @uv_pipe_getsockname(ptr noundef 
   br label %uv__pipe_getsockpeername.exit
 
 uv__pipe_getsockpeername.exit:                    ; preds = %3, %8, %14, %35, %36, %38
-  %.0.i = phi i32 [ %12, %14 ], [ -105, %35 ], [ -22, %8 ], [ -22, %3 ], [ 0, %38 ], [ 0, %36 ]
+  %.0.i = phi i32 [ -22, %3 ], [ %12, %14 ], [ -105, %35 ], [ -22, %8 ], [ 0, %38 ], [ 0, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0.i
@@ -602,7 +602,7 @@ define dso_local range(i32 -2147483648, 1) i32 @uv_pipe_getpeername(ptr noundef 
   br label %uv__pipe_getsockpeername.exit
 
 uv__pipe_getsockpeername.exit:                    ; preds = %3, %8, %14, %35, %36, %38
-  %.0.i = phi i32 [ %12, %14 ], [ -105, %35 ], [ -22, %8 ], [ -22, %3 ], [ 0, %38 ], [ 0, %36 ]
+  %.0.i = phi i32 [ -22, %3 ], [ %12, %14 ], [ -105, %35 ], [ -22, %8 ], [ 0, %38 ], [ 0, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0.i
@@ -642,7 +642,7 @@ define dso_local i32 @uv_pipe_pending_count(ptr noundef readonly captures(none) 
   br label %16
 
 16:                                               ; preds = %8, %4, %1, %12
-  %.0 = phi i32 [ %15, %12 ], [ 0, %1 ], [ 0, %4 ], [ 1, %8 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %4 ], [ %15, %12 ], [ 1, %8 ]
   ret i32 %.0
 }
 
@@ -664,7 +664,7 @@ define dso_local i32 @uv_pipe_pending_type(ptr noundef readonly captures(none) %
   br label %10
 
 10:                                               ; preds = %4, %1, %8
-  %.0 = phi i32 [ %9, %8 ], [ 0, %1 ], [ 0, %4 ]
+  %.0 = phi i32 [ 0, %1 ], [ %9, %8 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -748,7 +748,7 @@ uv_pipe_getsockname.exit:                         ; preds = %32, %14
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %61
 
-40:                                               ; preds = %38, %36
+40:                                               ; preds = %36, %38
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %41 = call noundef i32 @stat64(ptr noundef nonnull readonly %6, ptr noundef nonnull %5) #12
@@ -787,7 +787,7 @@ uv_pipe_getsockname.exit:                         ; preds = %32, %14
   br label %61
 
 61:                                               ; preds = %uv_pipe_getsockname.exit, %57, %54, %47, %12, %2, %8, %43
-  %.019 = phi i32 [ %46, %43 ], [ -9, %8 ], [ -9, %2 ], [ -22, %12 ], [ %.0.i.i, %uv_pipe_getsockname.exit ], [ 0, %47 ], [ %60, %57 ], [ 0, %54 ]
+  %.019 = phi i32 [ 0, %47 ], [ -9, %2 ], [ -22, %12 ], [ %46, %43 ], [ %.0.i.i, %uv_pipe_getsockname.exit ], [ -9, %8 ], [ %60, %57 ], [ 0, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.019

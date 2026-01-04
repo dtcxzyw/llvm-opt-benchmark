@@ -21303,7 +21303,7 @@ define linkonce_odr void @_ZN5arrow8internal15BinaryMemoTableINS_13BinaryBuilder
   br label %_ZN5arrow8internal17ComputeStringHashILm0EEEmPKvl.exit
 
 _ZN5arrow8internal17ComputeStringHashILm0EEEmPKvl.exit: ; preds = %18, %36, %46, %55
-  %.1.i = phi i64 [ %56, %55 ], [ %35, %18 ], [ %45, %36 ], [ %54, %46 ]
+  %.1.i = phi i64 [ %56, %55 ], [ %54, %46 ], [ %35, %18 ], [ %45, %36 ]
   %.1.i.fr = freeze i64 %.1.i
   %57 = icmp eq i64 %.1.i.fr, 0
   %spec.select = select i1 %57, i64 42, i64 %.1.i.fr
@@ -21419,8 +21419,8 @@ _ZN5arrow6StatusD2Ev.exit31:                      ; preds = %_ZN5arrow6StatusD2E
   %110 = icmp eq ptr %.pr, null
   br i1 %110, label %_ZN5arrow6StatusD2Ev.exit33, label %.critedge
 
-_ZN5arrow6StatusD2Ev.exit33:                      ; preds = %89, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit31.thread, %_ZN5arrow6StatusD2Ev.exit31
-  %.024 = phi i32 [ %98, %_ZN5arrow6StatusD2Ev.exit31 ], [ %98, %_ZN5arrow6StatusD2Ev.exit31.thread ], [ %77, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ], [ %77, %89 ]
+_ZN5arrow6StatusD2Ev.exit33:                      ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i, %89, %_ZN5arrow6StatusD2Ev.exit31.thread, %_ZN5arrow6StatusD2Ev.exit31
+  %.024 = phi i32 [ %98, %_ZN5arrow6StatusD2Ev.exit31.thread ], [ %98, %_ZN5arrow6StatusD2Ev.exit31 ], [ %77, %89 ], [ %77, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ]
   store i32 %.024, ptr %6, align 4, !tbaa !40
   store ptr null, ptr %0, align 8, !tbaa !65, !alias.scope !2180
   br label %.critedge
@@ -21778,7 +21778,7 @@ _ZL14XXH3_mergeAccsPKmPKhm.exit:                  ; preds = %207
   br label %_ZL20XXH3_64bits_internalPKvmmS0_mPFmS0_mmPKhmE.exit
 
 _ZL20XXH3_64bits_internalPKvmmS0_mPFmS0_mmPKhmE.exit: ; preds = %_ZL20XXH3_len_17to128_64bPKhmS0_mm.exit, %113, %_ZL14XXH3_mergeAccsPKmPKhm.exit
-  %.0.i = phi i64 [ %110, %_ZL20XXH3_len_17to128_64bPKhmS0_mm.exit ], [ %114, %113 ], [ %228, %_ZL14XXH3_mergeAccsPKmPKhm.exit ]
+  %.0.i = phi i64 [ %228, %_ZL14XXH3_mergeAccsPKmPKhm.exit ], [ %110, %_ZL20XXH3_len_17to128_64bPKhmS0_mm.exit ], [ %114, %113 ]
   ret i64 %.0.i
 }
 
@@ -22367,7 +22367,7 @@ define linkonce_odr void @_ZN5arrow8internal15BinaryMemoTableINS_18LargeBinaryBu
   br label %_ZN5arrow8internal17ComputeStringHashILm0EEEmPKvl.exit
 
 _ZN5arrow8internal17ComputeStringHashILm0EEEmPKvl.exit: ; preds = %18, %37, %48, %57
-  %.1.i = phi i64 [ %58, %57 ], [ %36, %18 ], [ %47, %37 ], [ %56, %48 ]
+  %.1.i = phi i64 [ %58, %57 ], [ %56, %48 ], [ %36, %18 ], [ %47, %37 ]
   %.1.i.fr = freeze i64 %.1.i
   %59 = icmp eq i64 %.1.i.fr, 0
   %spec.select = select i1 %59, i64 42, i64 %.1.i.fr
@@ -22473,8 +22473,8 @@ _ZN5arrow6StatusD2Ev.exit31:                      ; preds = %_ZN5arrow6StatusD2E
   %106 = icmp eq ptr %.pr, null
   br i1 %106, label %_ZN5arrow6StatusD2Ev.exit33, label %.critedge
 
-_ZN5arrow6StatusD2Ev.exit33:                      ; preds = %85, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit31.thread, %_ZN5arrow6StatusD2Ev.exit31
-  %.024 = phi i32 [ %94, %_ZN5arrow6StatusD2Ev.exit31 ], [ %94, %_ZN5arrow6StatusD2Ev.exit31.thread ], [ %77, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ], [ %77, %85 ]
+_ZN5arrow6StatusD2Ev.exit33:                      ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i, %85, %_ZN5arrow6StatusD2Ev.exit31.thread, %_ZN5arrow6StatusD2Ev.exit31
+  %.024 = phi i32 [ %94, %_ZN5arrow6StatusD2Ev.exit31.thread ], [ %94, %_ZN5arrow6StatusD2Ev.exit31 ], [ %77, %85 ], [ %77, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ]
   store i32 %.024, ptr %6, align 4, !tbaa !40
   store ptr null, ptr %0, align 8, !tbaa !65, !alias.scope !2287
   br label %.critedge
@@ -41153,7 +41153,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   br label %263
 
 248:                                              ; preds = %_ZNSt10shared_ptrIN5arrow6BufferEEC2IS1_St14default_deleteIS1_EvEEOSt10unique_ptrIT_T0_E.exit, %_ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit
-  %.0 = phi ptr [ %140, %_ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit ], [ %141, %_ZNSt10shared_ptrIN5arrow6BufferEEC2IS1_St14default_deleteIS1_EvEEOSt10unique_ptrIT_T0_E.exit ]
+  %.0 = phi ptr [ %141, %_ZNSt10shared_ptrIN5arrow6BufferEEC2IS1_St14default_deleteIS1_EvEEOSt10unique_ptrIT_T0_E.exit ], [ %140, %_ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit ]
   %249 = landingpad { ptr, i32 }
           cleanup
   br label %250
@@ -42864,7 +42864,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   br label %263
 
 248:                                              ; preds = %_ZNSt10shared_ptrIN5arrow6BufferEEC2IS1_St14default_deleteIS1_EvEEOSt10unique_ptrIT_T0_E.exit, %_ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit
-  %.0 = phi ptr [ %140, %_ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit ], [ %141, %_ZNSt10shared_ptrIN5arrow6BufferEEC2IS1_St14default_deleteIS1_EvEEOSt10unique_ptrIT_T0_E.exit ]
+  %.0 = phi ptr [ %141, %_ZNSt10shared_ptrIN5arrow6BufferEEC2IS1_St14default_deleteIS1_EvEEOSt10unique_ptrIT_T0_E.exit ], [ %140, %_ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit ]
   %249 = landingpad { ptr, i32 }
           cleanup
   br label %250
@@ -44141,7 +44141,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   br label %262
 
 247:                                              ; preds = %_ZNSt10shared_ptrIN5arrow6BufferEEC2IS1_St14default_deleteIS1_EvEEOSt10unique_ptrIT_T0_E.exit, %_ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit
-  %.0 = phi ptr [ %139, %_ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit ], [ %140, %_ZNSt10shared_ptrIN5arrow6BufferEEC2IS1_St14default_deleteIS1_EvEEOSt10unique_ptrIT_T0_E.exit ]
+  %.0 = phi ptr [ %140, %_ZNSt10shared_ptrIN5arrow6BufferEEC2IS1_St14default_deleteIS1_EvEEOSt10unique_ptrIT_T0_E.exit ], [ %139, %_ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit ]
   %248 = landingpad { ptr, i32 }
           cleanup
   br label %249
@@ -45142,7 +45142,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   br label %262
 
 247:                                              ; preds = %_ZNSt10shared_ptrIN5arrow6BufferEEC2IS1_St14default_deleteIS1_EvEEOSt10unique_ptrIT_T0_E.exit, %_ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit
-  %.0 = phi ptr [ %139, %_ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit ], [ %140, %_ZNSt10shared_ptrIN5arrow6BufferEEC2IS1_St14default_deleteIS1_EvEEOSt10unique_ptrIT_T0_E.exit ]
+  %.0 = phi ptr [ %140, %_ZNSt10shared_ptrIN5arrow6BufferEEC2IS1_St14default_deleteIS1_EvEEOSt10unique_ptrIT_T0_E.exit ], [ %139, %_ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit ]
   %248 = landingpad { ptr, i32 }
           cleanup
   br label %249

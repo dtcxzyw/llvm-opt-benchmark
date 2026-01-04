@@ -921,7 +921,7 @@ define internal range(i32 -2147483648, 2) i32 @activate(ptr noundef %0) #1 {
   br label %flush.exit
 
 flush.exit:                                       ; preds = %._crit_edge39.i.i, %.critedge.i, %25, %.thread64, %34, %28, %1, %146, %142, %43
-  %.0 = phi i32 [ 0, %146 ], [ 0, %142 ], [ 0, %43 ], [ 0, %25 ], [ %15, %1 ], [ %31, %28 ], [ %37, %34 ], [ -1497649742, %.thread64 ], [ %141, %._crit_edge39.i.i ], [ -12, %.critedge.i ]
+  %.0 = phi i32 [ 0, %25 ], [ -12, %.critedge.i ], [ %37, %34 ], [ 0, %146 ], [ 0, %142 ], [ %15, %1 ], [ %31, %28 ], [ 0, %43 ], [ -1497649742, %.thread64 ], [ %141, %._crit_edge39.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -1019,7 +1019,7 @@ define internal i32 @config_input(ptr noundef readonly captures(none) %0) #2 {
   br label %cqueue_create.exit
 
 cqueue_create.exit:                               ; preds = %1, %55, %57, %62
-  %.0.i = phi ptr [ null, %62 ], [ null, %1 ], [ null, %55 ], [ %56, %57 ]
+  %.0.i = phi ptr [ null, %1 ], [ null, %55 ], [ null, %62 ], [ %56, %57 ]
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 2632
   store ptr %.0.i, ptr %63, align 8, !tbaa !32
   %64 = load ptr, ptr %25, align 8, !tbaa !96
@@ -1115,7 +1115,7 @@ cqueue_create.exit108.thread135:                  ; preds = %.lr.ph
   br label %cqueue_create.exit104
 
 cqueue_create.exit104:                            ; preds = %91, %93, %98
-  %.0.i103.ph = phi ptr [ %92, %93 ], [ null, %91 ], [ null, %98 ]
+  %.0.i103.ph = phi ptr [ %92, %93 ], [ null, %98 ], [ null, %91 ]
   %.pr = load i32, ptr %52, align 8, !tbaa !20
   %99 = load ptr, ptr %37, align 8, !tbaa !39
   %100 = getelementptr inbounds nuw ptr, ptr %99, i64 %indvars.iv
@@ -1151,7 +1151,7 @@ cqueue_create.exit108.thread:                     ; preds = %cqueue_create.exit1
   br label %cqueue_create.exit108
 
 cqueue_create.exit108:                            ; preds = %104, %106, %111
-  %.0.i107.ph.ph = phi ptr [ null, %111 ], [ null, %104 ], [ %105, %106 ]
+  %.0.i107.ph.ph = phi ptr [ null, %104 ], [ null, %111 ], [ %105, %106 ]
   %.pr118.pr = load i32, ptr %52, align 8, !tbaa !20
   %112 = load ptr, ptr %41, align 8, !tbaa !41
   %113 = getelementptr inbounds nuw ptr, ptr %112, i64 %indvars.iv
@@ -1187,7 +1187,7 @@ cqueue_create.exit112.thread:                     ; preds = %cqueue_create.exit1
   br label %cqueue_create.exit112
 
 cqueue_create.exit112:                            ; preds = %cqueue_create.exit108.thread, %117, %119, %124
-  %.0.i111.ph = phi ptr [ null, %cqueue_create.exit108.thread ], [ %118, %119 ], [ null, %117 ], [ null, %124 ]
+  %.0.i111.ph = phi ptr [ null, %cqueue_create.exit108.thread ], [ %118, %119 ], [ null, %124 ], [ null, %117 ]
   %.pr120 = load i32, ptr %52, align 8, !tbaa !20
   %125 = load ptr, ptr %45, align 8, !tbaa !42
   %126 = getelementptr inbounds nuw ptr, ptr %125, i64 %indvars.iv
@@ -1217,7 +1217,7 @@ cqueue_create.exit112:                            ; preds = %cqueue_create.exit1
   br label %cqueue_create.exit116
 
 cqueue_create.exit116:                            ; preds = %cqueue_create.exit112.thread, %cqueue_create.exit112, %128, %130, %135
-  %.0.i115 = phi ptr [ null, %135 ], [ null, %cqueue_create.exit112 ], [ null, %128 ], [ %129, %130 ], [ null, %cqueue_create.exit112.thread ]
+  %.0.i115 = phi ptr [ null, %cqueue_create.exit112 ], [ null, %128 ], [ null, %135 ], [ %129, %130 ], [ null, %cqueue_create.exit112.thread ]
   %136 = load ptr, ptr %49, align 8, !tbaa !43
   %137 = getelementptr inbounds nuw ptr, ptr %136, i64 %indvars.iv
   store ptr %.0.i115, ptr %137, align 8, !tbaa !40
@@ -1287,7 +1287,7 @@ cqueue_create.exit116:                            ; preds = %cqueue_create.exit1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %145, %141, %cqueue_create.exit116, %156, %173, %.critedge, %cqueue_create.exit, %65, %67, %69, %71, %73, %75, %77
-  %.083 = phi i32 [ -12, %77 ], [ -12, %75 ], [ -12, %73 ], [ -12, %71 ], [ -12, %69 ], [ -12, %67 ], [ -12, %65 ], [ -12, %cqueue_create.exit ], [ -12, %.critedge ], [ %175, %173 ], [ 0, %156 ], [ -12, %cqueue_create.exit116 ], [ -12, %141 ], [ -12, %145 ]
+  %.083 = phi i32 [ -12, %.critedge ], [ -12, %cqueue_create.exit ], [ 0, %156 ], [ -12, %77 ], [ -12, %75 ], [ -12, %73 ], [ -12, %71 ], [ -12, %69 ], [ -12, %67 ], [ -12, %65 ], [ %175, %173 ], [ -12, %cqueue_create.exit116 ], [ -12, %141 ], [ -12, %145 ]
   ret i32 %.083
 }
 
@@ -2283,8 +2283,8 @@ perform_compression.exit.i:                       ; preds = %.loopexit144.i.i, %
   br label %.loopexit
 
 analyze_frame.exit:                               ; preds = %108, %98, %107
-  %.sink = phi ptr [ %2, %107 ], [ %3, %98 ], [ %2, %108 ]
-  %.1.ph.i = phi i32 [ %105, %107 ], [ -12, %98 ], [ %110, %108 ]
+  %.sink = phi ptr [ %3, %98 ], [ %2, %107 ], [ %2, %108 ]
+  %.1.ph.i = phi i32 [ -12, %98 ], [ %105, %107 ], [ %110, %108 ]
   call void @av_frame_free(ptr noundef nonnull %.sink) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit5
@@ -2348,7 +2348,7 @@ ff_bufqueue_add.exit:                             ; preds = %474, %476
   br label %.loopexit5
 
 .loopexit5:                                       ; preds = %85, %analyze_frame.exit, %.thread, %ff_bufqueue_add.exit, %505
-  %.2 = phi i32 [ %.1.ph.i, %analyze_frame.exit ], [ 1, %505 ], [ 1, %ff_bufqueue_add.exit ], [ -12, %.thread ], [ %86, %85 ]
+  %.2 = phi i32 [ -12, %.thread ], [ %.1.ph.i, %analyze_frame.exit ], [ 1, %505 ], [ 1, %ff_bufqueue_add.exit ], [ %86, %85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.2
 }
@@ -2600,7 +2600,7 @@ define internal fastcc { double, double } @get_max_local_gain(ptr noundef %0, pt
   br i1 %exitcond.not.i, label %find_peak_magnitude.exit, label %.lr.ph.i, !llvm.loop !132
 
 find_peak_magnitude.exit:                         ; preds = %.lr.ph.i, %._crit_edge.us.i, %.preheader.i, %.lr.ph33.i, %21
-  %.2.i = phi nsz double [ 0x3CB0000000000000, %.preheader.i ], [ 0x3CB0000000000000, %21 ], [ 0x3CB0000000000000, %.lr.ph33.i ], [ %20, %._crit_edge.us.i ], [ %33, %.lr.ph.i ]
+  %.2.i = phi nsz double [ 0x3CB0000000000000, %.lr.ph33.i ], [ 0x3CB0000000000000, %.preheader.i ], [ %20, %._crit_edge.us.i ], [ 0x3CB0000000000000, %21 ], [ %33, %.lr.ph.i ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 2472
   %35 = load double, ptr %34, align 8, !tbaa !90
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 2488

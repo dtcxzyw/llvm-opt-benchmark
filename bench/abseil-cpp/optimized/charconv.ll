@@ -136,7 +136,7 @@ _ZN4absl12_GLOBAL__N_114HandleEdgeCaseIdEEbRKNS_16strings_internal11ParsedFloatE
   br label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit.i
 
 _ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit.i: ; preds = %66, %64, %63, %52, %48
-  %.0.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i.i.i, %48 ], [ %.sroa.0.0.extract.trunc.i99.i.i.i, %63 ], [ 0, %52 ], [ %spec.select.i.i.i, %66 ], [ %.sroa.0.0.extract.trunc.i.i.i.i.i, %64 ]
+  %.0.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i.i.i, %48 ], [ %spec.select.i.i.i, %66 ], [ %.sroa.0.0.extract.trunc.i99.i.i.i, %63 ], [ 0, %52 ], [ %.sroa.0.0.extract.trunc.i.i.i.i.i, %64 ]
   %67 = add nsw i32 %.sroa.speculated.i.i.i, %.val60.i
   %68 = icmp eq i64 %.0.i.i.i, 9007199254740992
   %spec.select.i12.i.i = select i1 %68, i64 4503599627370496, i64 %.0.i.i.i
@@ -177,8 +177,8 @@ _ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatE
   br label %_ZN4absl12_GLOBAL__N_112EncodeResultIdEEvRKNS0_15CalculatedFloatEbPNS_17from_chars_resultEPT_.exit.i
 
 _ZN4absl12_GLOBAL__N_112EncodeResultIdEEvRKNS0_15CalculatedFloatEbPNS_17from_chars_resultEPT_.exit.i: ; preds = %80, %78, %74, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIdEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit.thread.i, %36, %34
-  %.sroa.0137.0.i = phi ptr [ %24, %36 ], [ %0, %34 ], [ %29, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIdEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit.thread.i ], [ %29, %74 ], [ %29, %78 ], [ %29, %80 ]
-  %.sroa.6138.0.i = phi i32 [ 0, %36 ], [ 22, %34 ], [ 0, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIdEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit.thread.i ], [ 34, %74 ], [ 34, %78 ], [ 0, %80 ]
+  %.sroa.0137.0.i = phi ptr [ %0, %34 ], [ %24, %36 ], [ %29, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIdEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit.thread.i ], [ %29, %74 ], [ %29, %78 ], [ %29, %80 ]
+  %.sroa.6138.0.i = phi i32 [ 22, %34 ], [ 0, %36 ], [ 0, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIdEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit.thread.i ], [ 34, %74 ], [ 34, %78 ], [ 0, %80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN4absl12_GLOBAL__N_113FromCharsImplIdEENS_17from_chars_resultEPKcS4_RT_NS_12chars_formatE.exit
 
@@ -307,7 +307,7 @@ _ZN4absl12_GLOBAL__N_114HandleEdgeCaseIdEEbRKNS_16strings_internal11ParsedFloatE
   br label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit95.i
 
 _ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit95.i: ; preds = %145, %143, %142, %131, %127
-  %.0.i.i82.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i.i94.i, %127 ], [ %.sroa.0.0.extract.trunc.i99.i.i92.i, %142 ], [ 0, %131 ], [ %spec.select.i.i91.i, %145 ], [ %.sroa.0.0.extract.trunc.i.i.i.i80.i, %143 ]
+  %.0.i.i82.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i.i94.i, %127 ], [ %spec.select.i.i91.i, %145 ], [ %.sroa.0.0.extract.trunc.i99.i.i92.i, %142 ], [ 0, %131 ], [ %.sroa.0.0.extract.trunc.i.i.i.i80.i, %143 ]
   %146 = add nsw i32 %.sroa.speculated.i.i76.i, %.val62.i
   %147 = icmp eq i64 %.0.i.i82.i, 9007199254740992
   %spec.select.i12.i83.i = select i1 %147, i64 4503599627370496, i64 %.0.i.i82.i
@@ -348,8 +348,8 @@ _ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatE
   br label %_ZN4absl12_GLOBAL__N_112EncodeResultIdEEvRKNS0_15CalculatedFloatEbPNS_17from_chars_resultEPT_.exit98.i
 
 _ZN4absl12_GLOBAL__N_112EncodeResultIdEEvRKNS0_15CalculatedFloatEbPNS_17from_chars_resultEPT_.exit98.i: ; preds = %159, %157, %153, %119, %114, %110, %90
-  %.sroa.0137.2.i = phi ptr [ %0, %90 ], [ %92, %153 ], [ %92, %157 ], [ %92, %159 ], [ %92, %110 ], [ %92, %114 ], [ %92, %119 ]
-  %.sroa.6138.2.i = phi i32 [ 22, %90 ], [ 34, %153 ], [ 34, %157 ], [ 0, %159 ], [ 0, %110 ], [ 0, %114 ], [ 0, %119 ]
+  %.sroa.0137.2.i = phi ptr [ %0, %90 ], [ %92, %159 ], [ %92, %153 ], [ %92, %157 ], [ %92, %110 ], [ %92, %114 ], [ %92, %119 ]
+  %.sroa.6138.2.i = phi i32 [ 22, %90 ], [ 0, %159 ], [ 34, %153 ], [ 34, %157 ], [ 0, %110 ], [ 0, %114 ], [ 0, %119 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN4absl12_GLOBAL__N_113FromCharsImplIdEENS_17from_chars_resultEPKcS4_RT_NS_12chars_formatE.exit
 
@@ -503,8 +503,8 @@ _ZN4absl12_GLOBAL__N_114HandleEdgeCaseIdEEbRKNS_16strings_internal11ParsedFloatE
   br label %250
 
 .critedge.i.i:                                    ; preds = %227, %210
-  %.sroa.09.0.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i.i106.i, %227 ], [ %.sroa.0.0.extract.trunc.i.i.i, %210 ]
-  %.sroa.12.0.i.i = phi i64 [ %.tr.i.i.i.i, %227 ], [ %.sroa.2.0.extract.trunc.i.i.i, %210 ]
+  %.sroa.09.0.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i.i, %210 ], [ %.sroa.0.0.extract.trunc.i.i.i106.i, %227 ]
+  %.sroa.12.0.i.i = phi i64 [ %.sroa.2.0.extract.trunc.i.i.i, %210 ], [ %.tr.i.i.i.i, %227 ]
   %241 = lshr i64 %.sroa.12.0.i.i, 63
   %242 = add nuw nsw i64 %241, 9
   %243 = lshr i64 %.sroa.12.0.i.i, %242
@@ -725,7 +725,7 @@ _ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread67.i.i: ;
   br label %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread.i.i
 
 _ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread.i.i: ; preds = %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread67.i.i, %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i, %327, %326, %323, %313
-  %.0.i118.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i51.i.i, %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i ], [ %spec.select.i117.i, %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread67.i.i ], [ %spec.select.i.i126.i, %326 ], [ 0, %313 ], [ %.sroa.0.0.extract.trunc.i.i.i49.i.i, %327 ], [ %.sroa.0.0.extract.trunc.i99.i.i127.i, %323 ]
+  %.0.i118.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i51.i.i, %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i ], [ %spec.select.i117.i, %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread67.i.i ], [ %spec.select.i.i126.i, %326 ], [ 0, %313 ], [ %.sroa.0.0.extract.trunc.i99.i.i127.i, %323 ], [ %.sroa.0.0.extract.trunc.i.i.i49.i.i, %327 ]
   %334 = icmp eq i64 %.0.i118.i, 9007199254740992
   %spec.select.i52.i.i = select i1 %334, i64 4503599627370496, i64 %.0.i118.i
   %335 = zext i1 %334 to i32
@@ -776,8 +776,8 @@ _ZN4absl12_GLOBAL__N_126CalculateFromParsedDecimalIdEENS0_15CalculatedFloatERKNS
   br label %_ZN4absl12_GLOBAL__N_112EncodeResultIdEEvRKNS0_15CalculatedFloatEbPNS_17from_chars_resultEPT_.exit130.i
 
 _ZN4absl12_GLOBAL__N_112EncodeResultIdEEvRKNS0_15CalculatedFloatEbPNS_17from_chars_resultEPT_.exit130.i: ; preds = %346, %344, %339, %258, %208, %204, %196, %191, %187, %.thread.i
-  %.sroa.0137.3.i = phi ptr [ %0, %.thread.i ], [ %169, %339 ], [ %169, %344 ], [ %169, %346 ], [ %169, %187 ], [ %169, %191 ], [ %169, %196 ], [ %169, %204 ], [ %169, %208 ], [ %169, %258 ]
-  %.sroa.6138.3.i = phi i32 [ 22, %.thread.i ], [ 34, %339 ], [ 34, %344 ], [ 0, %346 ], [ 0, %187 ], [ 0, %191 ], [ 0, %196 ], [ 34, %204 ], [ 34, %208 ], [ 0, %258 ]
+  %.sroa.0137.3.i = phi ptr [ %0, %.thread.i ], [ %169, %346 ], [ %169, %196 ], [ %169, %339 ], [ %169, %344 ], [ %169, %187 ], [ %169, %191 ], [ %169, %204 ], [ %169, %208 ], [ %169, %258 ]
+  %.sroa.6138.3.i = phi i32 [ 22, %.thread.i ], [ 0, %346 ], [ 0, %196 ], [ 34, %339 ], [ 34, %344 ], [ 0, %187 ], [ 0, %191 ], [ 34, %204 ], [ 34, %208 ], [ 0, %258 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN4absl12_GLOBAL__N_113FromCharsImplIdEENS_17from_chars_resultEPKcS4_RT_NS_12chars_formatE.exit
 
@@ -916,7 +916,7 @@ _ZN4absl12_GLOBAL__N_114HandleEdgeCaseIfEEbRKNS_16strings_internal11ParsedFloatE
   br label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit.i
 
 _ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit.i: ; preds = %66, %64, %63, %52, %48
-  %.0.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i.i.i, %48 ], [ %.sroa.0.0.extract.trunc.i99.i.i.i, %63 ], [ 0, %52 ], [ %spec.select.i.i.i, %66 ], [ %.sroa.0.0.extract.trunc.i.i.i.i.i, %64 ]
+  %.0.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i.i.i, %48 ], [ %spec.select.i.i.i, %66 ], [ %.sroa.0.0.extract.trunc.i99.i.i.i, %63 ], [ 0, %52 ], [ %.sroa.0.0.extract.trunc.i.i.i.i.i, %64 ]
   %67 = add nsw i32 %.sroa.speculated.i.i.i, %.val60.i
   %68 = icmp eq i64 %.0.i.i.i, 16777216
   %spec.select.i12.i.i = select i1 %68, i64 8388608, i64 %.0.i.i.i
@@ -957,8 +957,8 @@ _ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatE
   br label %_ZN4absl12_GLOBAL__N_112EncodeResultIfEEvRKNS0_15CalculatedFloatEbPNS_17from_chars_resultEPT_.exit.i
 
 _ZN4absl12_GLOBAL__N_112EncodeResultIfEEvRKNS0_15CalculatedFloatEbPNS_17from_chars_resultEPT_.exit.i: ; preds = %80, %78, %74, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIfEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit.thread.i, %36, %34
-  %.sroa.0137.0.i = phi ptr [ %24, %36 ], [ %0, %34 ], [ %29, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIfEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit.thread.i ], [ %29, %74 ], [ %29, %78 ], [ %29, %80 ]
-  %.sroa.6138.0.i = phi i32 [ 0, %36 ], [ 22, %34 ], [ 0, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIfEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit.thread.i ], [ 34, %74 ], [ 34, %78 ], [ 0, %80 ]
+  %.sroa.0137.0.i = phi ptr [ %0, %34 ], [ %24, %36 ], [ %29, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIfEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit.thread.i ], [ %29, %74 ], [ %29, %78 ], [ %29, %80 ]
+  %.sroa.6138.0.i = phi i32 [ 22, %34 ], [ 0, %36 ], [ 0, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIfEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit.thread.i ], [ 34, %74 ], [ 34, %78 ], [ 0, %80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN4absl12_GLOBAL__N_113FromCharsImplIfEENS_17from_chars_resultEPKcS4_RT_NS_12chars_formatE.exit
 
@@ -1087,7 +1087,7 @@ _ZN4absl12_GLOBAL__N_114HandleEdgeCaseIfEEbRKNS_16strings_internal11ParsedFloatE
   br label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit95.i
 
 _ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit95.i: ; preds = %145, %143, %142, %131, %127
-  %.0.i.i82.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i.i94.i, %127 ], [ %.sroa.0.0.extract.trunc.i99.i.i92.i, %142 ], [ 0, %131 ], [ %spec.select.i.i91.i, %145 ], [ %.sroa.0.0.extract.trunc.i.i.i.i80.i, %143 ]
+  %.0.i.i82.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i.i94.i, %127 ], [ %spec.select.i.i91.i, %145 ], [ %.sroa.0.0.extract.trunc.i99.i.i92.i, %142 ], [ 0, %131 ], [ %.sroa.0.0.extract.trunc.i.i.i.i80.i, %143 ]
   %146 = add nsw i32 %.sroa.speculated.i.i76.i, %.val62.i
   %147 = icmp eq i64 %.0.i.i82.i, 16777216
   %spec.select.i12.i83.i = select i1 %147, i64 8388608, i64 %.0.i.i82.i
@@ -1128,8 +1128,8 @@ _ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatE
   br label %_ZN4absl12_GLOBAL__N_112EncodeResultIfEEvRKNS0_15CalculatedFloatEbPNS_17from_chars_resultEPT_.exit98.i
 
 _ZN4absl12_GLOBAL__N_112EncodeResultIfEEvRKNS0_15CalculatedFloatEbPNS_17from_chars_resultEPT_.exit98.i: ; preds = %159, %157, %153, %119, %114, %110, %90
-  %.sroa.0137.2.i = phi ptr [ %0, %90 ], [ %92, %153 ], [ %92, %157 ], [ %92, %159 ], [ %92, %110 ], [ %92, %114 ], [ %92, %119 ]
-  %.sroa.6138.2.i = phi i32 [ 22, %90 ], [ 34, %153 ], [ 34, %157 ], [ 0, %159 ], [ 0, %110 ], [ 0, %114 ], [ 0, %119 ]
+  %.sroa.0137.2.i = phi ptr [ %0, %90 ], [ %92, %159 ], [ %92, %153 ], [ %92, %157 ], [ %92, %110 ], [ %92, %114 ], [ %92, %119 ]
+  %.sroa.6138.2.i = phi i32 [ 22, %90 ], [ 0, %159 ], [ 34, %153 ], [ 34, %157 ], [ 0, %110 ], [ 0, %114 ], [ 0, %119 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN4absl12_GLOBAL__N_113FromCharsImplIfEENS_17from_chars_resultEPKcS4_RT_NS_12chars_formatE.exit
 
@@ -1283,8 +1283,8 @@ _ZN4absl12_GLOBAL__N_114HandleEdgeCaseIfEEbRKNS_16strings_internal11ParsedFloatE
   br label %250
 
 .critedge.i.i:                                    ; preds = %227, %210
-  %.sroa.09.0.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i.i106.i, %227 ], [ %.sroa.0.0.extract.trunc.i.i.i, %210 ]
-  %.sroa.12.0.i.i = phi i64 [ %.tr.i.i.i.i, %227 ], [ %.sroa.2.0.extract.trunc.i.i.i, %210 ]
+  %.sroa.09.0.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i.i, %210 ], [ %.sroa.0.0.extract.trunc.i.i.i106.i, %227 ]
+  %.sroa.12.0.i.i = phi i64 [ %.sroa.2.0.extract.trunc.i.i.i, %210 ], [ %.tr.i.i.i.i, %227 ]
   %241 = lshr i64 %.sroa.12.0.i.i, 63
   %242 = or disjoint i64 %241, 38
   %243 = lshr i64 %.sroa.12.0.i.i, %242
@@ -1508,7 +1508,7 @@ _ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread67.i.i: ;
   br label %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread.i.i
 
 _ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread.i.i: ; preds = %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread67.i.i, %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i, %330, %329, %326, %316
-  %.0.i118.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i51.i.i, %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i ], [ %spec.select.i117.i, %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread67.i.i ], [ %spec.select.i.i126.i, %329 ], [ 0, %316 ], [ %.sroa.0.0.extract.trunc.i.i.i49.i.i, %330 ], [ %.sroa.0.0.extract.trunc.i99.i.i127.i, %326 ]
+  %.0.i118.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i51.i.i, %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i ], [ %spec.select.i117.i, %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread67.i.i ], [ %spec.select.i.i126.i, %329 ], [ 0, %316 ], [ %.sroa.0.0.extract.trunc.i99.i.i127.i, %326 ], [ %.sroa.0.0.extract.trunc.i.i.i49.i.i, %330 ]
   %337 = icmp eq i64 %.0.i118.i, 16777216
   %spec.select.i52.i.i = select i1 %337, i64 8388608, i64 %.0.i118.i
   %338 = zext i1 %337 to i32
@@ -1559,8 +1559,8 @@ _ZN4absl12_GLOBAL__N_126CalculateFromParsedDecimalIfEENS0_15CalculatedFloatERKNS
   br label %_ZN4absl12_GLOBAL__N_112EncodeResultIfEEvRKNS0_15CalculatedFloatEbPNS_17from_chars_resultEPT_.exit130.i
 
 _ZN4absl12_GLOBAL__N_112EncodeResultIfEEvRKNS0_15CalculatedFloatEbPNS_17from_chars_resultEPT_.exit130.i: ; preds = %349, %347, %342, %258, %208, %204, %196, %191, %187, %.thread.i
-  %.sroa.0137.3.i = phi ptr [ %0, %.thread.i ], [ %169, %342 ], [ %169, %347 ], [ %169, %349 ], [ %169, %187 ], [ %169, %191 ], [ %169, %196 ], [ %169, %204 ], [ %169, %208 ], [ %169, %258 ]
-  %.sroa.6138.3.i = phi i32 [ 22, %.thread.i ], [ 34, %342 ], [ 34, %347 ], [ 0, %349 ], [ 0, %187 ], [ 0, %191 ], [ 0, %196 ], [ 34, %204 ], [ 34, %208 ], [ 0, %258 ]
+  %.sroa.0137.3.i = phi ptr [ %0, %.thread.i ], [ %169, %349 ], [ %169, %196 ], [ %169, %342 ], [ %169, %347 ], [ %169, %187 ], [ %169, %191 ], [ %169, %204 ], [ %169, %208 ], [ %169, %258 ]
+  %.sroa.6138.3.i = phi i32 [ 22, %.thread.i ], [ 0, %349 ], [ 0, %196 ], [ 34, %342 ], [ 34, %347 ], [ 0, %187 ], [ 0, %191 ], [ 34, %204 ], [ 34, %208 ], [ 0, %258 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN4absl12_GLOBAL__N_113FromCharsImplIfEENS_17from_chars_resultEPKcS4_RT_NS_12chars_formatE.exit
 

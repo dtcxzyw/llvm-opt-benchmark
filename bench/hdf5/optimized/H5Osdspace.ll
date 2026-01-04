@@ -581,7 +581,7 @@ H5O__sdspace_decode.exit.thread.loopexit:         ; preds = %.lr.ph23.i
   br label %H5O__sdspace_decode.exit.thread
 
 H5O__sdspace_decode.exit.thread:                  ; preds = %H5O__sdspace_decode.exit.thread.loopexit, %.thread51.i, %272, %270, %18, %H5O__sdspace_decode.exit, %22, %6
-  %.0 = phi ptr [ null, %18 ], [ %16, %22 ], [ null, %H5O__sdspace_decode.exit ], [ null, %6 ], [ %28, %270 ], [ %28, %272 ], [ %28, %.thread51.i ], [ %28, %H5O__sdspace_decode.exit.thread.loopexit ]
+  %.0 = phi ptr [ null, %18 ], [ %16, %22 ], [ null, %H5O__sdspace_decode.exit ], [ null, %6 ], [ %28, %.thread51.i ], [ %28, %270 ], [ %28, %272 ], [ %28, %H5O__sdspace_decode.exit.thread.loopexit ]
   ret ptr %.0
 }
 
@@ -849,7 +849,7 @@ define internal range(i32 -1, 1) i32 @H5O__sdspace_shared_encode(ptr noundef %0,
   br i1 %158, label %.lr.ph125.i, label %H5O__sdspace_encode.exit, !llvm.loop !36
 
 H5O__sdspace_encode.exit:                         ; preds = %155, %._crit_edge.i, %51, %47, %21, %18, %5
-  %.0 = phi i32 [ -1, %21 ], [ 0, %18 ], [ 0, %5 ], [ 0, %47 ], [ 0, %51 ], [ 0, %._crit_edge.i ], [ 0, %155 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %18 ], [ -1, %21 ], [ 0, %47 ], [ 0, %51 ], [ 0, %._crit_edge.i ], [ 0, %155 ]
   ret i32 %.0
 }
 
@@ -964,7 +964,7 @@ H5O__sdspace_size.exit:                           ; preds = %23, %37
   br label %45
 
 45:                                               ; preds = %H5O__sdspace_size.exit, %19, %16, %3
-  %.0 = phi i64 [ %44, %H5O__sdspace_size.exit ], [ 0, %19 ], [ %17, %16 ], [ 0, %3 ]
+  %.0 = phi i64 [ 0, %3 ], [ %44, %H5O__sdspace_size.exit ], [ 0, %19 ], [ %17, %16 ]
   ret i64 %.0
 }
 
@@ -1162,7 +1162,7 @@ define internal noundef ptr @H5O__sdspace_shared_copy_file(ptr noundef %0, ptr n
   br label %.thread
 
 .thread:                                          ; preds = %17, %21, %24, %7
-  %.0 = phi ptr [ null, %24 ], [ null, %7 ], [ %15, %21 ], [ null, %17 ]
+  %.0 = phi ptr [ null, %24 ], [ null, %17 ], [ null, %7 ], [ %15, %21 ]
   ret ptr %.0
 }
 

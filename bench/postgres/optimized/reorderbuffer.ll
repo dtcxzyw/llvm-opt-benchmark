@@ -358,7 +358,7 @@ define dso_local void @ReorderBufferReturnChange(ptr noundef captures(none) %0, 
   br label %ReorderBufferChangeSize.exit
 
 ReorderBufferChangeSize.exit:                     ; preds = %48, %36, %30, %22, %17, %16, %4
-  %.0.i = phi i64 [ 80, %4 ], [ %29, %22 ], [ %35, %30 ], [ %47, %36 ], [ %52, %48 ], [ %21, %17 ], [ %.1.i, %16 ]
+  %.0.i = phi i64 [ 80, %4 ], [ %52, %48 ], [ %29, %22 ], [ %35, %30 ], [ %47, %36 ], [ %21, %17 ], [ %.1.i, %16 ]
   %53 = icmp eq i32 %6, 7
   %54 = icmp eq i64 %.0.i, 0
   %or.cond.i = or i1 %53, %54
@@ -691,7 +691,7 @@ dlist_push_tail.exit:                             ; preds = %18, %25
   br label %ReorderBufferChangeSize.exit
 
 ReorderBufferChangeSize.exit:                     ; preds = %77, %65, %59, %51, %46, %45, %dlist_push_tail.exit
-  %.0.i = phi i64 [ 80, %dlist_push_tail.exit ], [ %58, %51 ], [ %64, %59 ], [ %76, %65 ], [ %81, %77 ], [ %50, %46 ], [ %.1.i, %45 ]
+  %.0.i = phi i64 [ 80, %dlist_push_tail.exit ], [ %81, %77 ], [ %58, %51 ], [ %64, %59 ], [ %76, %65 ], [ %50, %46 ], [ %.1.i, %45 ]
   %82 = icmp eq i32 %35, 7
   %83 = icmp eq i64 %.0.i, 0
   %or.cond.i = or i1 %82, %83
@@ -941,8 +941,8 @@ ReorderBufferCanStartStreaming.exit.i42:          ; preds = %183
   br label %196
 
 196:                                              ; preds = %._crit_edge32.i.i, %193, %.lr.ph.i.i
-  %.116.i.i = phi ptr [ %.01529.i.i, %.lr.ph.i.i ], [ %spec.select.i.i, %._crit_edge32.i.i ], [ %.01529.i.i, %193 ]
-  %.1.i.i = phi i64 [ %.030.i.i, %.lr.ph.i.i ], [ %spec.select26.i.i, %._crit_edge32.i.i ], [ %.030.i.i, %193 ]
+  %.116.i.i = phi ptr [ %.01529.i.i, %.lr.ph.i.i ], [ %.01529.i.i, %193 ], [ %spec.select.i.i, %._crit_edge32.i.i ]
+  %.1.i.i = phi i64 [ %.030.i.i, %.lr.ph.i.i ], [ %.030.i.i, %193 ], [ %spec.select26.i.i, %._crit_edge32.i.i ]
   %197 = getelementptr inbounds nuw i8, ptr %.sroa.0.031.i.i, i64 8
   %198 = load ptr, ptr %197, align 8
   %.not20.i.i = icmp eq ptr %198, %165
@@ -2173,7 +2173,7 @@ define internal fastcc void @ReorderBufferCleanupTXN(ptr noundef captures(none) 
   br label %ReorderBufferChangeSize.exit
 
 ReorderBufferChangeSize.exit:                     ; preds = %.lr.ph78, %23, %24, %29, %37, %43, %55
-  %.0.i = phi i64 [ 80, %.lr.ph78 ], [ %36, %29 ], [ %42, %37 ], [ %54, %43 ], [ %59, %55 ], [ %28, %24 ], [ %.1.i, %23 ]
+  %.0.i = phi i64 [ 80, %.lr.ph78 ], [ %59, %55 ], [ %36, %29 ], [ %42, %37 ], [ %54, %43 ], [ %28, %24 ], [ %.1.i, %23 ]
   %60 = add i64 %.0.i, %.075
   tail call void @ReorderBufferReturnChange(ptr noundef %0, ptr noundef nonnull %11, i1 noundef zeroext false)
   %.not61 = icmp eq ptr %.sroa.20.1, %8
@@ -3560,7 +3560,7 @@ TransactionIdInArray.exit.thread.i:               ; preds = %79, %65
   br label %86
 
 86:                                               ; preds = %.tail.i, %81, %TransactionIdInArray.exit.thread.i, %62, %53, %.tail39.thread.i, %.tail39.i
-  %.1.i = phi ptr [ %85, %81 ], [ %.048.i, %.tail39.i ], [ %.048.i, %.tail.i ], [ %.048.i, %.tail39.thread.i ], [ %.048.i, %53 ], [ %.048.i, %62 ], [ %.048.i, %TransactionIdInArray.exit.thread.i ]
+  %.1.i = phi ptr [ %.048.i, %TransactionIdInArray.exit.thread.i ], [ %.048.i, %.tail.i ], [ %.048.i, %.tail39.thread.i ], [ %.048.i, %53 ], [ %85, %81 ], [ %.048.i, %62 ], [ %.048.i, %.tail39.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -3751,7 +3751,7 @@ ApplyLogicalMappingFile.exit.i:                   ; preds = %150
   br label %168
 
 168:                                              ; preds = %164, %165, %._crit_edge, %6
-  %.017 = phi i1 [ false, %6 ], [ false, %._crit_edge ], [ true, %165 ], [ true, %164 ]
+  %.017 = phi i1 [ false, %._crit_edge ], [ false, %6 ], [ true, %165 ], [ true, %164 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
@@ -4541,7 +4541,7 @@ dlist_push_tail.exit.i:                           ; preds = %211, %205
   %242 = call i64 @binaryheap_remove_first(ptr noundef %241) #19
   br label %243
 
-243:                                              ; preds = %196, %237, %240
+243:                                              ; preds = %240, %196, %237
   %244 = load volatile i32, ptr @InterruptPending, align 4
   %.not249 = icmp eq i32 %244, 0
   br i1 %.not249, label %246, label %245, !prof !26
@@ -4803,7 +4803,7 @@ SetupCheckXidLive.exit:                           ; preds = %.sink.split.i, %._c
   br label %ReorderBufferChangeSize.exit.i
 
 ReorderBufferChangeSize.exit.i:                   ; preds = %374, %363, %358, %352, %347, %346, %334
-  %.0.i.i = phi i64 [ 80, %334 ], [ %357, %352 ], [ %362, %358 ], [ %373, %363 ], [ %377, %374 ], [ %351, %347 ], [ %.1.i.i, %346 ]
+  %.0.i.i = phi i64 [ 80, %334 ], [ %377, %374 ], [ %357, %352 ], [ %362, %358 ], [ %373, %363 ], [ %351, %347 ], [ %.1.i.i, %346 ]
   %378 = load ptr, ptr %87, align 8
   %379 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %378, ptr @CurrentMemoryContext, align 8
@@ -5139,7 +5139,7 @@ ReorderBufferChangeMemoryUpdate.exit.i:           ; preds = %ReorderBufferChange
   br label %ReorderBufferChangeSize.exit104.i
 
 ReorderBufferChangeSize.exit104.i:                ; preds = %566, %555, %550, %544, %539, %538, %ReorderBufferChangeMemoryUpdate.exit.i
-  %.0.i100.i = phi i64 [ 80, %ReorderBufferChangeMemoryUpdate.exit.i ], [ %549, %544 ], [ %554, %550 ], [ %565, %555 ], [ %569, %566 ], [ %543, %539 ], [ %.1.i102.i, %538 ]
+  %.0.i100.i = phi i64 [ 80, %ReorderBufferChangeMemoryUpdate.exit.i ], [ %569, %566 ], [ %549, %544 ], [ %554, %550 ], [ %565, %555 ], [ %543, %539 ], [ %.1.i102.i, %538 ]
   %570 = icmp eq i32 %529, 7
   %571 = icmp eq i64 %.0.i100.i, 0
   %or.cond.i106.i = or i1 %570, %571
@@ -5684,7 +5684,7 @@ ReorderBufferCopySnap.exit310:                    ; preds = %786, %._crit_edge.l
   unreachable
 
 ReorderBufferExecuteInvalidations.exit:           ; preds = %.lr.ph.i282, %.lr.ph376, %._crit_edge.thread, %._crit_edge, %670, %778, %827, %619, %620, %610, %611, %776, %661, %614, %SetupCheckXidLive.exit
-  %.0 = phi ptr [ %190, %SetupCheckXidLive.exit ], [ %.1, %611 ], [ %.1, %610 ], [ %190, %614 ], [ %190, %620 ], [ %190, %619 ], [ %190, %661 ], [ %190, %776 ], [ %190, %827 ], [ %190, %778 ], [ %190, %670 ], [ %190, %._crit_edge ], [ %190, %._crit_edge.thread ], [ %190, %.lr.ph376 ], [ %190, %.lr.ph.i282 ]
+  %.0 = phi ptr [ %190, %SetupCheckXidLive.exit ], [ %.1, %611 ], [ %.1, %610 ], [ %190, %614 ], [ %190, %620 ], [ %190, %619 ], [ %190, %778 ], [ %190, %661 ], [ %190, %._crit_edge ], [ %190, %776 ], [ %190, %827 ], [ %190, %670 ], [ %190, %._crit_edge.thread ], [ %190, %.lr.ph376 ], [ %190, %.lr.ph.i282 ]
   %833 = add i32 %.0227378, 1
   %834 = icmp sgt i32 %833, 99
   br i1 %834, label %835, label %838
@@ -6657,7 +6657,7 @@ ReorderBufferMaybeMarkTXNStreamed.exit:           ; preds = %11, %14
   br label %ReorderBufferChangeSize.exit
 
 ReorderBufferChangeSize.exit:                     ; preds = %.lr.ph74, %35, %36, %41, %49, %55, %67
-  %.0.i = phi i64 [ 80, %.lr.ph74 ], [ %48, %41 ], [ %54, %49 ], [ %66, %55 ], [ %71, %67 ], [ %40, %36 ], [ %.1.i, %35 ]
+  %.0.i = phi i64 [ 80, %.lr.ph74 ], [ %71, %67 ], [ %48, %41 ], [ %54, %49 ], [ %66, %55 ], [ %40, %36 ], [ %.1.i, %35 ]
   %72 = add i64 %.0.i, %.071
   tail call void @ReorderBufferReturnChange(ptr noundef %0, ptr noundef nonnull %20, i1 noundef zeroext false)
   %.not59 = icmp eq ptr %.sroa.20.1, %17
@@ -7218,8 +7218,8 @@ ReorderBufferSerializeReserve.exit154.i:          ; preds = %.sink.split.i153.i,
   br label %213
 
 213:                                              ; preds = %ReorderBufferSerializeReserve.exit154.i, %191, %189, %ReorderBufferSerializeReserve.exit148.i, %ReorderBufferSerializeReserve.exit145.i, %107, %106, %ReorderBufferSerializeReserve.exit.i
-  %.0123.i = phi i64 [ 88, %ReorderBufferSerializeReserve.exit.i ], [ %119, %ReorderBufferSerializeReserve.exit145.i ], [ %143, %ReorderBufferSerializeReserve.exit148.i ], [ %200, %ReorderBufferSerializeReserve.exit154.i ], [ %.2.i, %107 ], [ %.2.i, %106 ], [ %167, %191 ], [ %167, %189 ]
-  %.0.i = phi ptr [ %71, %ReorderBufferSerializeReserve.exit.i ], [ %128, %ReorderBufferSerializeReserve.exit145.i ], [ %152, %ReorderBufferSerializeReserve.exit148.i ], [ %209, %ReorderBufferSerializeReserve.exit154.i ], [ %99, %107 ], [ %99, %106 ], [ %176, %191 ], [ %176, %189 ]
+  %.0123.i = phi i64 [ 88, %ReorderBufferSerializeReserve.exit.i ], [ %200, %ReorderBufferSerializeReserve.exit154.i ], [ %119, %ReorderBufferSerializeReserve.exit145.i ], [ %143, %ReorderBufferSerializeReserve.exit148.i ], [ %.2.i, %106 ], [ %.2.i, %107 ], [ %167, %191 ], [ %167, %189 ]
+  %.0.i = phi ptr [ %71, %ReorderBufferSerializeReserve.exit.i ], [ %209, %ReorderBufferSerializeReserve.exit154.i ], [ %128, %ReorderBufferSerializeReserve.exit145.i ], [ %152, %ReorderBufferSerializeReserve.exit148.i ], [ %99, %106 ], [ %99, %107 ], [ %176, %191 ], [ %176, %189 ]
   store i64 %.0123.i, ptr %.0.i, align 8
   %214 = tail call ptr @__errno_location() #24
   store i32 0, ptr %214, align 4
@@ -7882,7 +7882,7 @@ dlist_push_tail.exit.i:                           ; preds = %245, %241
   br label %ReorderBufferChangeSize.exit.i
 
 ReorderBufferChangeSize.exit.i:                   ; preds = %293, %281, %275, %267, %262, %261, %dlist_push_tail.exit.i
-  %.0.i.i = phi i64 [ 80, %dlist_push_tail.exit.i ], [ %274, %267 ], [ %280, %275 ], [ %292, %281 ], [ %297, %293 ], [ %266, %262 ], [ %.1.i.i, %261 ]
+  %.0.i.i = phi i64 [ 80, %dlist_push_tail.exit.i ], [ %297, %293 ], [ %274, %267 ], [ %280, %275 ], [ %292, %281 ], [ %266, %262 ], [ %.1.i.i, %261 ]
   %298 = icmp eq i32 %251, 7
   %299 = icmp eq i64 %.0.i.i, 0
   %or.cond.i.i = or i1 %298, %299
@@ -8074,7 +8074,7 @@ define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef range(i32 1,
   br label %fetch_att.exit
 
 fetch_att.exit:                                   ; preds = %45, %40, %37, %34, %31, %47, %56, %55
-  %.1 = phi i64 [ 0, %55 ], [ %57, %56 ], [ %48, %47 ], [ %33, %31 ], [ %36, %34 ], [ %39, %37 ], [ %41, %40 ], [ %46, %45 ]
+  %.1 = phi i64 [ %57, %56 ], [ 0, %55 ], [ %48, %47 ], [ %33, %31 ], [ %36, %34 ], [ %39, %37 ], [ %41, %40 ], [ %46, %45 ]
   ret i64 %.1
 }
 

@@ -105,7 +105,7 @@ define void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$8get_slow17h
   ret void
 
 common.resume:                                    ; preds = %42, %26, %79, %70
-  %common.resume.op = phi { ptr, i32 } [ %27, %26 ], [ %lpad.thr_comm, %79 ], [ %71, %70 ], [ %43, %42 ]
+  %common.resume.op = phi { ptr, i32 } [ %71, %70 ], [ %27, %26 ], [ %lpad.thr_comm, %79 ], [ %43, %42 ]
   resume { ptr, i32 } %common.resume.op
 
 32:                                               ; preds = %19
@@ -232,7 +232,7 @@ common.resume:                                    ; preds = %42, %26, %79, %70
   call void @"_ZN4core3ptr139drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$17hf1a93795d009f861E"(ptr nonnull align 8 %10)
   br label %31
 
-79:                                               ; preds = %63, %54
+79:                                               ; preds = %54, %63
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr139drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$17hf1a93795d009f861E"(ptr nonnull align 8 %10) #8
@@ -353,7 +353,7 @@ define void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$9put_value17
           to label %20 unwind label %.loopexit
 
 49:                                               ; preds = %43, %50
-  %.pn13 = phi { ptr, i32 } [ %lpad.phi, %50 ], [ %44, %43 ]
+  %.pn13 = phi { ptr, i32 } [ %44, %43 ], [ %lpad.phi, %50 ]
   resume { ptr, i32 } %.pn13
 
 .loopexit:                                        ; preds = %48, %28, %22

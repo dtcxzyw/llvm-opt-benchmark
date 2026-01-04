@@ -163,7 +163,7 @@ define ptr @H5EA__sblock_alloc(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
   br label %.thread
 
 .thread:                                          ; preds = %13, %45, %63, %74, %71, %3
-  %.0 = phi ptr [ null, %74 ], [ null, %71 ], [ null, %3 ], [ %11, %45 ], [ %11, %63 ], [ null, %13 ]
+  %.0 = phi ptr [ null, %74 ], [ null, %71 ], [ null, %13 ], [ null, %3 ], [ %11, %45 ], [ %11, %63 ]
   ret ptr %.0
 }
 
@@ -397,7 +397,7 @@ define i64 @H5EA__sblock_create(ptr noundef %0, ptr noundef %1, ptr noundef writ
   br label %.thread
 
 .thread:                                          ; preds = %15, %73, %103, %106, %4
-  %.0 = phi i64 [ -1, %106 ], [ -1, %103 ], [ -1, %4 ], [ %44, %73 ], [ -1, %15 ]
+  %.0 = phi i64 [ -1, %106 ], [ -1, %103 ], [ -1, %15 ], [ -1, %4 ], [ %44, %73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.0
 }
@@ -488,7 +488,7 @@ define ptr @H5EA__sblock_protect(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   br label %.thread
 
 .thread:                                          ; preds = %21, %25, %28, %36, %47, %38, %5
-  %.0 = phi ptr [ null, %47 ], [ null, %38 ], [ null, %5 ], [ %19, %25 ], [ %19, %28 ], [ %19, %36 ], [ null, %21 ]
+  %.0 = phi ptr [ null, %47 ], [ null, %38 ], [ null, %21 ], [ null, %5 ], [ %19, %25 ], [ %19, %28 ], [ %19, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
@@ -630,7 +630,7 @@ define range(i32 -1, 1) i32 @H5EA__sblock_delete(ptr noundef %0, ptr noundef %1,
   br label %H5EA__sblock_unprotect.exit.thread
 
 H5EA__sblock_unprotect.exit.thread:               ; preds = %.loopexit, %49, %39, %58, %4
-  %.0 = phi i32 [ -1, %58 ], [ -1, %39 ], [ 0, %4 ], [ %.1.ph, %49 ], [ %.1.ph, %.loopexit ]
+  %.0 = phi i32 [ -1, %58 ], [ 0, %4 ], [ -1, %39 ], [ %.1.ph, %49 ], [ %.1.ph, %.loopexit ]
   ret i32 %.0
 }
 

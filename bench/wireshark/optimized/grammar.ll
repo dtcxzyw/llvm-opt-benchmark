@@ -159,7 +159,7 @@ define hidden void @Dfilter(ptr noundef captures(address) initializes((16, 24)) 
   br label %yy_find_shift_action.exit
 
 yy_find_shift_action.exit:                        ; preds = %17, %27, %30
-  %.0.i = phi i8 [ %29, %27 ], [ %32, %30 ], [ %.037, %17 ]
+  %.0.i = phi i8 [ %32, %30 ], [ %29, %27 ], [ %.037, %17 ]
   %33 = icmp ugt i8 %.0.i, -74
   br i1 %33, label %34, label %588
 

@@ -263,10 +263,10 @@ define internal fastcc range(i32 0, 4) i32 @prepend_path(ptr noundef readonly ca
   br label %42, !llvm.loop !13
 
 .thread25:                                        ; preds = %77, %105, %79, %49, %72, %76, %87, %96, %104
-  %115 = phi ptr [ %101, %104 ], [ %93, %96 ], [ %93, %87 ], [ %43, %76 ], [ %43, %72 ], [ %43, %77 ], [ %101, %105 ], [ %43, %79 ], [ %43, %49 ]
-  %116 = phi i32 [ %98, %104 ], [ -1, %96 ], [ -1, %87 ], [ %44, %76 ], [ %44, %72 ], [ %44, %77 ], [ -1, %105 ], [ %44, %79 ], [ %44, %49 ]
-  %117 = phi i1 [ false, %104 ], [ false, %96 ], [ false, %87 ], [ false, %76 ], [ false, %72 ], [ true, %77 ], [ false, %105 ], [ false, %79 ], [ false, %49 ]
-  %118 = phi i32 [ 0, %104 ], [ 0, %96 ], [ 0, %87 ], [ 2, %76 ], [ 1, %72 ], [ 3, %77 ], [ 0, %105 ], [ 0, %79 ], [ 0, %49 ]
+  %115 = phi ptr [ %93, %87 ], [ %43, %76 ], [ %43, %72 ], [ %101, %104 ], [ %93, %96 ], [ %43, %77 ], [ %43, %79 ], [ %43, %49 ], [ %101, %105 ]
+  %116 = phi i32 [ -1, %87 ], [ %44, %76 ], [ %44, %72 ], [ %98, %104 ], [ -1, %96 ], [ %44, %77 ], [ %44, %79 ], [ %44, %49 ], [ -1, %105 ]
+  %117 = phi i1 [ false, %87 ], [ false, %76 ], [ false, %72 ], [ false, %104 ], [ false, %96 ], [ true, %77 ], [ false, %79 ], [ false, %49 ], [ false, %105 ]
+  %118 = phi i32 [ 0, %87 ], [ 2, %76 ], [ 1, %72 ], [ 0, %104 ], [ 0, %96 ], [ 3, %77 ], [ 0, %79 ], [ 0, %49 ], [ 0, %105 ]
   %119 = and i32 %38, 1
   %120 = icmp eq i32 %119, 0
   br i1 %120, label %121, label %.critedge16
@@ -790,8 +790,8 @@ define internal fastcc ptr @__dentry_path(ptr noundef %0, ptr %.0.val, i32 %.8.v
   br i1 %55, label %.thread2, label %.lr.ph
 
 .thread2:                                         ; preds = %50, %48, %.lr.ph, %15, %47, %39, %30
-  %56 = phi ptr [ %36, %30 ], [ %36, %39 ], [ %44, %47 ], [ %.0.val, %15 ], [ %52, %50 ], [ %44, %48 ], [ %22, %.lr.ph ]
-  %57 = phi i32 [ -1, %30 ], [ -1, %39 ], [ %41, %47 ], [ %.8.val, %15 ], [ %51, %50 ], [ -1, %48 ], [ %21, %.lr.ph ]
+  %56 = phi ptr [ %36, %39 ], [ %44, %47 ], [ %36, %30 ], [ %.0.val, %15 ], [ %44, %48 ], [ %52, %50 ], [ %22, %.lr.ph ]
+  %57 = phi i32 [ -1, %39 ], [ %41, %47 ], [ -1, %30 ], [ %.8.val, %15 ], [ -1, %48 ], [ %51, %50 ], [ %21, %.lr.ph ]
   %58 = and i32 %16, 1
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %60, label %.critedge8
@@ -832,7 +832,7 @@ define internal fastcc ptr @__dentry_path(ptr noundef %0, ptr %.0.val, i32 %.8.v
   br label %.thread5
 
 .thread5:                                         ; preds = %66, %63, %.thread3
-  %68 = phi ptr [ %65, %.thread3 ], [ inttoptr (i64 -36 to ptr), %63 ], [ %spec.select, %66 ]
+  %68 = phi ptr [ inttoptr (i64 -36 to ptr), %63 ], [ %spec.select, %66 ], [ %65, %.thread3 ]
   ret ptr %68
 }
 
@@ -875,8 +875,8 @@ define dso_local ptr @dentry_path(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br label %22
 
 22:                                               ; preds = %17, %19, %16
-  %.val1 = phi i32 [ %20, %19 ], [ %.val1.pre, %16 ], [ -1, %17 ]
-  %.val = phi ptr [ %21, %19 ], [ %.val.pre, %16 ], [ %7, %17 ]
+  %.val1 = phi i32 [ %.val1.pre, %16 ], [ %20, %19 ], [ -1, %17 ]
+  %.val = phi ptr [ %.val.pre, %16 ], [ %21, %19 ], [ %7, %17 ]
   %23 = tail call fastcc ptr @__dentry_path(ptr noundef %0, ptr %.val, i32 %.val1)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %23

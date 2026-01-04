@@ -698,7 +698,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl16HalfEdgeIteratorIN5Eigen6
   br i1 %exitcond32.not.i.i35, label %_ZNK5Eigen10MatrixBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEEeqIS2_EEbRKNS0_IT_EE.exit, label %.preheader.us.i.i26, !llvm.loop !46
 
 _ZNK5Eigen10MatrixBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEEeqIS2_EEbRKNS0_IT_EE.exit: ; preds = %35, %56, %..critedge_crit_edge.us.i.i34, %77, %.loopexit, %12, %6, %2
-  %82 = phi i1 [ false, %12 ], [ false, %6 ], [ false, %2 ], [ true, %.loopexit ], [ false, %77 ], [ true, %..critedge_crit_edge.us.i.i34 ], [ false, %56 ], [ false, %35 ]
+  %82 = phi i1 [ false, %56 ], [ true, %..critedge_crit_edge.us.i.i34 ], [ false, %12 ], [ false, %6 ], [ false, %2 ], [ false, %77 ], [ true, %.loopexit ], [ false, %35 ]
   ret i1 %82
 }
 

@@ -1088,11 +1088,11 @@ dissect_lbtru_ncf.exit:                           ; preds = %232, %._crit_edge.i
   br label %268
 
 268:                                              ; preds = %259, %250, %236, %dissect_lbtru_ncf.exit, %dissect_lbtru_nak.exit, %107, %.critedge
-  %.0439688 = phi i32 [ 4, %.critedge ], [ 4, %107 ], [ 4, %dissect_lbtru_nak.exit ], [ 4, %dissect_lbtru_ncf.exit ], [ 4, %236 ], [ 4, %250 ], [ 2, %259 ]
-  %.0462646686 = phi i1 [ true, %.critedge ], [ true, %107 ], [ false, %dissect_lbtru_nak.exit ], [ true, %dissect_lbtru_ncf.exit ], [ false, %236 ], [ false, %250 ], [ true, %259 ]
-  %.0453648684 = phi i32 [ %103, %.critedge ], [ %108, %107 ], [ 0, %dissect_lbtru_nak.exit ], [ 0, %dissect_lbtru_ncf.exit ], [ %237, %236 ], [ 0, %250 ], [ 0, %259 ]
-  %.1452652682 = phi i1 [ %.not494.not, %.critedge ], [ false, %107 ], [ false, %dissect_lbtru_nak.exit ], [ false, %dissect_lbtru_ncf.exit ], [ false, %236 ], [ false, %250 ], [ false, %259 ]
-  %.0447 = phi i32 [ 8, %.critedge ], [ 12, %107 ], [ %184, %dissect_lbtru_nak.exit ], [ %235, %dissect_lbtru_ncf.exit ], [ 4, %236 ], [ 0, %250 ], [ 0, %259 ]
+  %.0439688 = phi i32 [ 2, %259 ], [ 4, %.critedge ], [ 4, %107 ], [ 4, %dissect_lbtru_nak.exit ], [ 4, %dissect_lbtru_ncf.exit ], [ 4, %236 ], [ 4, %250 ]
+  %.0462646686 = phi i1 [ true, %259 ], [ true, %.critedge ], [ true, %107 ], [ false, %dissect_lbtru_nak.exit ], [ true, %dissect_lbtru_ncf.exit ], [ false, %236 ], [ false, %250 ]
+  %.0453648684 = phi i32 [ 0, %259 ], [ %103, %.critedge ], [ %108, %107 ], [ 0, %dissect_lbtru_nak.exit ], [ 0, %dissect_lbtru_ncf.exit ], [ %237, %236 ], [ 0, %250 ]
+  %.1452652682 = phi i1 [ false, %259 ], [ %.not494.not, %.critedge ], [ false, %107 ], [ false, %dissect_lbtru_nak.exit ], [ false, %dissect_lbtru_ncf.exit ], [ false, %236 ], [ false, %250 ]
+  %.0447 = phi i32 [ 0, %259 ], [ 8, %.critedge ], [ 12, %107 ], [ %184, %dissect_lbtru_nak.exit ], [ %235, %dissect_lbtru_ncf.exit ], [ 4, %236 ], [ 0, %250 ]
   %269 = add i32 %.0447, %.0439688
   %270 = load i8, ptr @lbtru_sequence_analysis, align 1, !range !6, !noundef !7
   %271 = trunc nuw i8 %270 to i1
@@ -1789,7 +1789,7 @@ lbtru_client_transport_sqn_find.exit154.i:        ; preds = %533
   br label %lbtru_client_transport_frame_add.exit
 
 lbtru_client_transport_frame_add.exit:            ; preds = %621, %618, %617, %614, %610, %466, %lbtru_client_transport_add.exit
-  %.1458 = phi ptr [ %.051.i, %lbtru_client_transport_add.exit ], [ %.051.i, %466 ], [ %.051.i, %610 ], [ %.051.i, %614 ], [ null, %617 ], [ %624, %621 ], [ null, %618 ]
+  %.1458 = phi ptr [ %.051.i, %614 ], [ %.051.i, %lbtru_client_transport_add.exit ], [ %.051.i, %466 ], [ %.051.i, %610 ], [ null, %617 ], [ %624, %621 ], [ null, %618 ]
   %625 = load ptr, ptr %88, align 8
   %626 = getelementptr inbounds nuw i8, ptr %.0459, i64 24
   %627 = load i16, ptr %626, align 8
@@ -1857,9 +1857,9 @@ proto_item_set_generated.exit549:                 ; preds = %lbtru_transport_sou
   br label %proto_item_set_generated.exit552
 
 proto_item_set_generated.exit552:                 ; preds = %371, %387, %656, %653, %648, %proto_item_set_generated.exit549, %lbtru_transport_find.exit
-  %660 = phi i1 [ true, %proto_item_set_generated.exit549 ], [ false, %lbtru_transport_find.exit ], [ true, %648 ], [ true, %653 ], [ true, %656 ], [ false, %387 ], [ false, %371 ]
-  %.0457 = phi ptr [ null, %proto_item_set_generated.exit549 ], [ null, %lbtru_transport_find.exit ], [ %.1458, %648 ], [ %.1458, %653 ], [ %.1458, %656 ], [ null, %387 ], [ null, %371 ]
-  %.0456 = phi i64 [ %638, %proto_item_set_generated.exit549 ], [ -1, %lbtru_transport_find.exit ], [ %638, %648 ], [ %638, %653 ], [ %638, %656 ], [ -1, %387 ], [ -1, %371 ]
+  %660 = phi i1 [ true, %656 ], [ true, %proto_item_set_generated.exit549 ], [ false, %lbtru_transport_find.exit ], [ true, %648 ], [ true, %653 ], [ false, %387 ], [ false, %371 ]
+  %.0457 = phi ptr [ %.1458, %656 ], [ null, %proto_item_set_generated.exit549 ], [ null, %lbtru_transport_find.exit ], [ %.1458, %648 ], [ %.1458, %653 ], [ null, %387 ], [ null, %371 ]
+  %.0456 = phi i64 [ %638, %656 ], [ %638, %proto_item_set_generated.exit549 ], [ -1, %lbtru_transport_find.exit ], [ %638, %648 ], [ %638, %653 ], [ -1, %387 ], [ -1, %371 ]
   call void @proto_item_set_len(ptr noundef %.0438640, i32 noundef %.1465.lcssa)
   %661 = icmp eq i32 %55, 0
   br i1 %661, label %662, label %666
@@ -2613,7 +2613,7 @@ proto_item_set_generated.exit610:                 ; preds = %1027, %1024, %1021,
   br label %.thread727
 
 .thread727:                                       ; preds = %320, %299, %342, %proto_item_set_generated.exit610, %1032, %126
-  %.0 = phi i32 [ 2, %126 ], [ %.3, %1032 ], [ %.3, %proto_item_set_generated.exit610 ], [ %.1465753, %342 ], [ %.1465753, %299 ], [ %.1465753, %320 ]
+  %.0 = phi i32 [ 2, %126 ], [ %.3, %proto_item_set_generated.exit610 ], [ %.3, %1032 ], [ %.1465753, %342 ], [ %.1465753, %299 ], [ %.1465753, %320 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -2758,19 +2758,19 @@ define internal noundef zeroext i1 @test_lbtru_packet(ptr noundef %0, ptr nounde
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, 3
-  br i1 %.not, label %7, label %.critedge37
+  br i1 %.not, label %7, label %.critedge
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %9 = load i32, ptr %8, align 8
   %.not22 = icmp eq i32 %9, 2
-  br i1 %.not22, label %10, label %.critedge37
+  br i1 %.not22, label %10, label %.critedge
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %12 = load i32, ptr %11, align 4
   %.not23 = icmp eq i32 %12, 4
-  br i1 %.not23, label %13, label %.critedge37
+  br i1 %.not23, label %13, label %.critedge
 
 13:                                               ; preds = %10
   %14 = load i8, ptr @lbtru_use_tag, align 1, !range !6, !noundef !7
@@ -2780,7 +2780,7 @@ define internal noundef zeroext i1 @test_lbtru_packet(ptr noundef %0, ptr nounde
 .preheader.i:                                     ; preds = %13
   %16 = load i32, ptr @lbtru_tag_count, align 4
   %.not33.i = icmp eq i32 %16, 0
-  br i1 %.not33.i, label %.critedge37, label %.lr.ph.i
+  br i1 %.not33.i, label %.critedge, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %17 = load ptr, ptr @lbtru_tag_entry, align 8
@@ -2843,12 +2843,12 @@ define internal noundef zeroext i1 @test_lbtru_packet(ptr noundef %0, ptr nounde
 46:                                               ; preds = %43, %41, %38, %35
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge37, label %21, !llvm.loop !8
+  br i1 %exitcond.not.i, label %.critedge, label %21, !llvm.loop !8
 
 lbtru_tag_find.exit:                              ; preds = %32, %43
   %47 = load ptr, ptr %22, align 8
   %.not32.not = icmp eq ptr %47, null
-  br i1 %.not32.not, label %.critedge37, label %.critedge
+  br i1 %.not32.not, label %.critedge, label %.critedge37
 
 48:                                               ; preds = %13
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 288
@@ -2868,13 +2868,13 @@ lbtru_tag_find.exit:                              ; preds = %32, %43
   %.not26 = icmp ult i32 %55, %.pre
   %.not27 = icmp ugt i32 %55, %.pre43
   %or.cond33 = select i1 %.not26, i1 true, i1 %.not27
-  br i1 %or.cond33, label %56, label %.critedge
+  br i1 %or.cond33, label %56, label %.critedge37
 
 56:                                               ; preds = %53, %48
   %.not28 = icmp ult i32 %50, %.pre
   %.not29 = icmp ugt i32 %50, %.pre43
   %or.cond34 = select i1 %.not28, i1 true, i1 %.not29
-  br i1 %or.cond34, label %.critedge37, label %57
+  br i1 %or.cond34, label %.critedge, label %57
 
 57:                                               ; preds = %56
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 284
@@ -2882,14 +2882,14 @@ lbtru_tag_find.exit:                              ; preds = %32, %43
   %.not30 = icmp ult i32 %59, %51
   %.not31 = icmp ugt i32 %59, %52
   %or.cond35 = select i1 %.not30, i1 true, i1 %.not31
-  br i1 %or.cond35, label %.critedge37, label %.critedge
+  br i1 %or.cond35, label %.critedge, label %.critedge37
 
-.critedge:                                        ; preds = %53, %57, %lbtru_tag_find.exit
+.critedge37:                                      ; preds = %53, %57, %lbtru_tag_find.exit
   %60 = tail call i32 @dissect_lbtru(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
-  br label %.critedge37
+  br label %.critedge
 
-.critedge37:                                      ; preds = %46, %.preheader.i, %lbtru_tag_find.exit, %56, %57, %7, %10, %4, %.critedge
-  %.017 = phi i1 [ true, %.critedge ], [ false, %4 ], [ false, %10 ], [ false, %7 ], [ false, %57 ], [ false, %56 ], [ false, %lbtru_tag_find.exit ], [ false, %.preheader.i ], [ false, %46 ]
+.critedge:                                        ; preds = %46, %.preheader.i, %lbtru_tag_find.exit, %57, %56, %7, %10, %4, %.critedge37
+  %.017 = phi i1 [ false, %7 ], [ false, %4 ], [ true, %.critedge37 ], [ false, %10 ], [ false, %56 ], [ false, %57 ], [ false, %lbtru_tag_find.exit ], [ false, %.preheader.i ], [ false, %46 ]
   ret i1 %.017
 }
 

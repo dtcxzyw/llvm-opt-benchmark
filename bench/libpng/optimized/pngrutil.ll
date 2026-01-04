@@ -634,8 +634,8 @@ define range(i32 1, 4) i32 @png_handle_unknown(ptr noalias noundef %0, ptr noali
   br label %.thread
 
 .thread:                                          ; preds = %34, %7, %15, %39, %43, %46, %49, %.thread54
-  %51 = phi i1 [ false, %49 ], [ true, %46 ], [ true, %43 ], [ true, %.thread54 ], [ true, %39 ], [ true, %7 ], [ false, %15 ], [ true, %34 ]
-  %.241 = phi i32 [ 2, %49 ], [ 1, %46 ], [ %45, %43 ], [ 1, %.thread54 ], [ 1, %39 ], [ 1, %7 ], [ 3, %15 ], [ 1, %34 ]
+  %51 = phi i1 [ false, %49 ], [ true, %46 ], [ true, %43 ], [ true, %.thread54 ], [ true, %39 ], [ false, %15 ], [ true, %7 ], [ true, %34 ]
+  %.241 = phi i32 [ 2, %49 ], [ 1, %46 ], [ %45, %43 ], [ 1, %.thread54 ], [ 1, %39 ], [ 3, %15 ], [ 1, %7 ], [ 1, %34 ]
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   %53 = load ptr, ptr %52, align 8, !tbaa !45
   %.not49 = icmp eq ptr %53, null
@@ -879,7 +879,7 @@ define i32 @png_handle_chunk(ptr noalias noundef %0, ptr noalias noundef %1, i32
 31:                                               ; preds = %3
   br label %32
 
-32:                                               ; preds = %3, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %31
+32:                                               ; preds = %3, %31, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30
   %.0.i.ph = phi i32 [ 27, %31 ], [ 26, %30 ], [ 25, %29 ], [ 24, %28 ], [ 23, %27 ], [ 22, %26 ], [ 21, %25 ], [ 20, %24 ], [ 19, %23 ], [ 18, %22 ], [ 17, %21 ], [ 16, %20 ], [ 15, %19 ], [ 14, %18 ], [ 13, %17 ], [ 12, %16 ], [ 11, %15 ], [ 10, %14 ], [ 9, %13 ], [ 8, %12 ], [ 7, %11 ], [ 6, %10 ], [ 5, %9 ], [ 4, %8 ], [ 3, %7 ], [ 2, %6 ], [ 1, %3 ]
   %33 = zext nneg i32 %.0.i.ph to i64
   %34 = shl nuw nsw i64 1, %33
@@ -967,8 +967,8 @@ png_chunk_index_from_name.exit:                   ; preds = %3, %32
   %77 = tail call i32 %76(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) #13
   br label %83
 
-78:                                               ; preds = %52, %.thread64, %58, %64, %70, %74
-  %.043.ph = phi ptr [ @.str.16, %74 ], [ @.str.15, %70 ], [ @.str.14, %64 ], [ @.str.13, %58 ], [ @.str.12, %.thread64 ], [ @.str.12, %52 ]
+78:                                               ; preds = %64, %.thread64, %58, %52, %70, %74
+  %.043.ph = phi ptr [ @.str.16, %74 ], [ @.str.15, %70 ], [ @.str.12, %52 ], [ @.str.13, %58 ], [ @.str.12, %.thread64 ], [ @.str.14, %64 ]
   %79 = and i32 %5, 536870912
   %.not56 = icmp eq i32 %79, 0
   br i1 %.not56, label %80, label %81
@@ -1197,7 +1197,7 @@ define void @png_combine_row(ptr noalias noundef %0, ptr noundef %1, i32 noundef
   br label %110
 
 110:                                              ; preds = %101, %106, %91, %96
-  %.0258.in = phi ptr [ %95, %91 ], [ %99, %96 ], [ %105, %101 ], [ %109, %106 ]
+  %.0258.in = phi ptr [ %99, %96 ], [ %95, %91 ], [ %105, %101 ], [ %109, %106 ]
   %.0258 = load i32, ptr %.0258.in, align 4, !tbaa !59
   %111 = zext nneg i8 %84 to i64
   br label %112
@@ -2201,7 +2201,7 @@ png_read_chunk_header.exit:                       ; preds = %97
   unreachable
 
 png_crc_read.exit:                                ; preds = %129, %123
-  %.021.i = phi ptr [ %128, %129 ], [ %122, %123 ]
+  %.021.i = phi ptr [ %122, %123 ], [ %128, %129 ]
   call void @png_read_data(ptr noundef nonnull %0, ptr noundef nonnull %.021.i, i64 noundef %121) #13
   call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %.021.i, i64 noundef %121) #13
   %131 = load i32, ptr %12, align 8, !tbaa !87
@@ -2309,7 +2309,7 @@ png_zlib_inflate.exit:                            ; preds = %144, %146
   %cond = icmp eq i64 %.3, 0
   br i1 %cond, label %.loopexit, label %33
 
-167:                                              ; preds = %161, %159
+167:                                              ; preds = %159, %161
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not80 = icmp eq i64 %.3, 0
   br i1 %.not80, label %.loopexit, label %168
@@ -2667,7 +2667,7 @@ define void @png_read_start_row(ptr noalias noundef %0) local_unnamed_addr #0 {
   br label %65
 
 65:                                               ; preds = %56, %50, %53, %63, %60
-  %.1 = phi i32 [ %.zext, %63 ], [ %.0, %60 ], [ %., %53 ], [ %spec.select130, %56 ], [ %.0, %50 ]
+  %.1 = phi i32 [ %., %53 ], [ %.0, %60 ], [ %.0, %50 ], [ %spec.select130, %56 ], [ %.zext, %63 ]
   %66 = and i32 %39, 512
   %.not119 = icmp eq i32 %66, 0
   br i1 %.not119, label %74, label %68
@@ -2691,7 +2691,7 @@ define void @png_read_start_row(ptr noalias noundef %0) local_unnamed_addr #0 {
   br label %74
 
 74:                                               ; preds = %.thread, %68, %.thread141, %65
-  %.2 = phi i32 [ %.0, %.thread141 ], [ %.1, %65 ], [ %spec.select131, %68 ], [ %.0, %.thread ]
+  %.2 = phi i32 [ %.1, %65 ], [ %spec.select131, %68 ], [ %.0, %.thread141 ], [ %.0, %.thread ]
   %75 = load i32, ptr %42, align 4, !tbaa !57
   %76 = and i32 %75, 32768
   %.not121 = icmp ne i32 %76, 0
@@ -2717,7 +2717,7 @@ define void @png_read_start_row(ptr noalias noundef %0) local_unnamed_addr #0 {
   br label %83
 
 83:                                               ; preds = %82, %77, %80, %74
-  %.3 = phi i32 [ %.2, %74 ], [ %.132, %80 ], [ %.2, %77 ], [ %.133, %82 ]
+  %.3 = phi i32 [ %.132, %80 ], [ %.2, %74 ], [ %.133, %82 ], [ %.2, %77 ]
   %84 = and i32 %75, 16384
   %.not122 = icmp eq i32 %84, 0
   br i1 %.not122, label %100, label %85
@@ -2757,7 +2757,7 @@ define void @png_read_start_row(ptr noalias noundef %0) local_unnamed_addr #0 {
   br label %100
 
 100:                                              ; preds = %99, %98, %93, %83
-  %.4 = phi i32 [ %.3, %83 ], [ %.134, %93 ], [ %.135, %98 ], [ %.136, %99 ]
+  %.4 = phi i32 [ %.134, %93 ], [ %.3, %83 ], [ %.135, %98 ], [ %.136, %99 ]
   %101 = and i32 %75, 1048576
   %.not126 = icmp eq i32 %101, 0
   br i1 %.not126, label %110, label %102
@@ -3224,7 +3224,7 @@ png_crc_read.exit:                                ; preds = %20, %24
   br label %66
 
 58:                                               ; preds = %20, %16, %11, %9, %3
-  %.045 = phi ptr [ @.str.13, %3 ], [ @.str.12, %9 ], [ @.str.29, %11 ], [ @.str.30, %16 ], [ @.str.12, %20 ]
+  %.045 = phi ptr [ @.str.30, %16 ], [ @.str.13, %3 ], [ @.str.12, %9 ], [ @.str.29, %11 ], [ @.str.12, %20 ]
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 623
   %60 = load i8, ptr %59, align 1, !tbaa !124
   %61 = icmp eq i8 %60, 3
@@ -3485,7 +3485,7 @@ png_crc_read.exit:                                ; preds = %18
   br label %109
 
 109:                                              ; preds = %png_crc_read.exit, %108, %88, %65, %33, %19, %14
-  %.037 = phi i32 [ 0, %14 ], [ 0, %19 ], [ 0, %33 ], [ 3, %108 ], [ 0, %65 ], [ 0, %88 ], [ 0, %png_crc_read.exit ]
+  %.037 = phi i32 [ 0, %14 ], [ 0, %19 ], [ 0, %88 ], [ 0, %33 ], [ 3, %108 ], [ 0, %65 ], [ 0, %png_crc_read.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.037
@@ -3732,7 +3732,7 @@ png_get_int_32_checked.exit36.thread:             ; preds = %png_get_int_32_chec
   br label %179
 
 179:                                              ; preds = %173, %177, %png_crc_read.exit, %png_get_int_32_checked.exit36.thread
-  %.0 = phi i32 [ 0, %png_get_int_32_checked.exit36.thread ], [ 0, %png_crc_read.exit ], [ 3, %177 ], [ 3, %173 ]
+  %.0 = phi i32 [ 0, %png_crc_read.exit ], [ 0, %png_get_int_32_checked.exit36.thread ], [ 3, %177 ], [ 3, %173 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -3876,7 +3876,7 @@ define internal range(i32 0, 4) i32 @png_handle_eXIf(ptr noalias noundef %0, ptr
   br label %43
 
 png_crc_read.exit:                                ; preds = %18, %11
-  %.021.i = phi ptr [ %17, %18 ], [ %6, %11 ]
+  %.021.i = phi ptr [ %6, %11 ], [ %17, %18 ]
   tail call void @png_read_data(ptr noundef nonnull %0, ptr noundef nonnull %.021.i, i64 noundef %4) #13
   tail call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %.021.i, i64 noundef %4) #13
   %22 = tail call fastcc range(i32 0, 2) i32 @png_crc_finish_critical(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0)
@@ -3915,7 +3915,7 @@ png_crc_read.exit:                                ; preds = %18, %11
   br label %43
 
 43:                                               ; preds = %41, %png_crc_read.exit, %42, %20
-  %.0 = phi i32 [ 0, %20 ], [ 3, %42 ], [ 0, %41 ], [ 0, %png_crc_read.exit ]
+  %.0 = phi i32 [ 0, %20 ], [ 0, %41 ], [ 3, %42 ], [ 0, %png_crc_read.exit ]
   ret i32 %.0
 }
 
@@ -3973,7 +3973,7 @@ png_crc_read.exit:                                ; preds = %3, %6
   br label %33
 
 33:                                               ; preds = %28, %32, %png_crc_read.exit, %27
-  %.0 = phi i32 [ 0, %27 ], [ 0, %png_crc_read.exit ], [ 3, %32 ], [ 3, %28 ]
+  %.0 = phi i32 [ 0, %png_crc_read.exit ], [ 0, %27 ], [ 3, %32 ], [ 3, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -4302,8 +4302,8 @@ png_crc_read.exit:                                ; preds = %3, %10
   %132 = load ptr, ptr %131, align 8, !tbaa !41
   br label %.thread164
 
-.thread164:                                       ; preds = %.thread164.sink.split, %98, %64, %91, %40, %59
-  %.690.ph.ph = phi ptr [ null, %59 ], [ null, %40 ], [ null, %91 ], [ @.str.22, %64 ], [ @.str.34, %98 ], [ %132, %.thread164.sink.split ]
+.thread164:                                       ; preds = %.thread164.sink.split, %98, %91, %64, %59, %40
+  %.690.ph.ph = phi ptr [ null, %40 ], [ null, %59 ], [ @.str.34, %98 ], [ @.str.22, %64 ], [ null, %91 ], [ %132, %.thread164.sink.split ]
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store i32 0, ptr %133, align 8, !tbaa !112
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -4321,7 +4321,7 @@ png_crc_read.exit:                                ; preds = %3, %10
   br label %137
 
 .thread155:                                       ; preds = %.critedge, %20, %23, %126, %.preheader, %.thread160, %.thread164
-  %.084145159 = phi ptr [ %124, %.thread160 ], [ %.690.ph.ph, %.thread164 ], [ @.str.36, %.critedge ], [ @.str.35, %20 ], [ @.str.35, %23 ], [ %128, %126 ], [ @.str.36, %.preheader ]
+  %.084145159 = phi ptr [ %124, %.thread160 ], [ %.690.ph.ph, %.thread164 ], [ @.str.36, %.critedge ], [ @.str.35, %23 ], [ @.str.35, %20 ], [ %128, %126 ], [ @.str.36, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %135 = load i32, ptr %4, align 4, !tbaa !59
   %136 = call fastcc range(i32 0, 2) i32 @png_crc_finish_critical(ptr noundef %0, i32 noundef %135, i32 noundef 0)
@@ -4419,7 +4419,7 @@ define internal range(i32 0, 4) i32 @png_handle_iTXt(ptr noalias noundef %0, ptr
   br label %.critedge116
 
 png_crc_read.exit:                                ; preds = %37, %30
-  %.021.i = phi ptr [ %36, %37 ], [ %25, %30 ]
+  %.021.i = phi ptr [ %25, %30 ], [ %36, %37 ]
   %41 = zext i32 %2 to i64
   tail call void @png_read_data(ptr noundef nonnull %0, ptr noundef nonnull %.021.i, i64 noundef %41) #13
   tail call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %.021.i, i64 noundef %41) #13
@@ -4602,13 +4602,13 @@ png_crc_read.exit:                                ; preds = %37, %30
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread125
 
-.thread125:                                       ; preds = %.thread, %.preheader, %56, %51, %48, %.critedge, %.thread130
-  %.088128 = phi ptr [ %.4.ph, %.thread130 ], [ @.str.39, %56 ], [ @.str.39, %51 ], [ @.str.38, %48 ], [ @.str.36, %.critedge ], [ @.str.36, %.preheader ], [ @.str.22, %.thread ]
+.thread125:                                       ; preds = %.thread, %.preheader, %56, %51, %.critedge, %48, %.thread130
+  %.088128 = phi ptr [ %.4.ph, %.thread130 ], [ @.str.36, %.preheader ], [ @.str.39, %56 ], [ @.str.39, %51 ], [ @.str.36, %.critedge ], [ @.str.38, %48 ], [ @.str.22, %.thread ]
   call void @png_chunk_benign_error(ptr noundef nonnull %0, ptr noundef nonnull %.088128) #13
   br label %.critedge116
 
 .critedge116:                                     ; preds = %.thread, %.thread125, %png_crc_read.exit, %39, %13, %8
-  %.0 = phi i32 [ 0, %8 ], [ 0, %13 ], [ 0, %39 ], [ 0, %png_crc_read.exit ], [ 0, %.thread125 ], [ 3, %.thread ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %13 ], [ 0, %39 ], [ 0, %.thread125 ], [ 0, %png_crc_read.exit ], [ 3, %.thread ]
   ret i32 %.0
 }
 
@@ -4927,7 +4927,7 @@ define internal range(i32 0, 4) i32 @png_handle_pCAL(ptr noalias noundef %0, ptr
   br label %137
 
 png_crc_read.exit:                                ; preds = %19, %12
-  %.021.i = phi ptr [ %18, %19 ], [ %7, %12 ]
+  %.021.i = phi ptr [ %7, %12 ], [ %18, %19 ]
   %23 = zext i32 %2 to i64
   tail call void @png_read_data(ptr noundef nonnull %0, ptr noundef nonnull %.021.i, i64 noundef %23) #13
   tail call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %.021.i, i64 noundef %23) #13
@@ -5137,7 +5137,7 @@ png_crc_read.exit:                                ; preds = %19, %12
   br label %137
 
 137:                                              ; preds = %png_crc_read.exit, %._crit_edge127, %._crit_edge, %131, %120, %28, %21
-  %.097 = phi i32 [ 0, %21 ], [ 0, %28 ], [ 0, %120 ], [ 0, %131 ], [ 0, %._crit_edge ], [ 3, %._crit_edge127 ], [ 0, %png_crc_read.exit ]
+  %.097 = phi i32 [ 0, %21 ], [ 3, %._crit_edge127 ], [ 0, %28 ], [ 0, %120 ], [ 0, %131 ], [ 0, %._crit_edge ], [ 0, %png_crc_read.exit ]
   ret i32 %.097
 }
 
@@ -5303,7 +5303,7 @@ png_crc_read.exit:                                ; preds = %15
   br label %43
 
 43:                                               ; preds = %png_crc_read.exit, %38, %27, %16
-  %.034 = phi i32 [ 0, %16 ], [ 0, %27 ], [ 3, %38 ], [ 0, %png_crc_read.exit ]
+  %.034 = phi i32 [ 0, %16 ], [ 3, %38 ], [ 0, %27 ], [ 0, %png_crc_read.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.034
 }
@@ -5356,7 +5356,7 @@ define internal range(i32 0, 4) i32 @png_handle_sCAL(ptr noalias noundef %0, ptr
   br label %58
 
 png_crc_read.exit:                                ; preds = %21, %14
-  %.021.i = phi ptr [ %20, %21 ], [ %9, %14 ]
+  %.021.i = phi ptr [ %9, %14 ], [ %20, %21 ]
   %25 = zext i32 %2 to i64
   tail call void @png_read_data(ptr noundef nonnull %0, ptr noundef nonnull %.021.i, i64 noundef %25) #13
   tail call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %.021.i, i64 noundef %25) #13
@@ -5442,7 +5442,7 @@ png_crc_read.exit:                                ; preds = %21, %14
   br label %58
 
 58:                                               ; preds = %40, %44, %49, %53, %.critedge, %png_crc_read.exit, %30, %23
-  %.0 = phi i32 [ 0, %23 ], [ 0, %30 ], [ 0, %png_crc_read.exit ], [ 3, %.critedge ], [ 0, %53 ], [ 0, %49 ], [ 0, %44 ], [ 0, %40 ]
+  %.0 = phi i32 [ 0, %23 ], [ 3, %.critedge ], [ 0, %30 ], [ 0, %png_crc_read.exit ], [ 0, %53 ], [ 0, %49 ], [ 0, %44 ], [ 0, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -5517,7 +5517,7 @@ define internal range(i32 0, 4) i32 @png_handle_sPLT(ptr noalias noundef %0, ptr
   br label %135
 
 png_crc_read.exit:                                ; preds = %30, %23
-  %.021.i = phi ptr [ %29, %30 ], [ %18, %23 ]
+  %.021.i = phi ptr [ %18, %23 ], [ %29, %30 ]
   %34 = zext i32 %2 to i64
   tail call void @png_read_data(ptr noundef nonnull %0, ptr noundef nonnull %.021.i, i64 noundef %34) #13
   tail call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %.021.i, i64 noundef %34) #13
@@ -5686,7 +5686,7 @@ png_crc_read.exit:                                ; preds = %30, %23
   br label %135
 
 135:                                              ; preds = %png_crc_read.exit, %._crit_edge, %88, %55, %44, %32, %12, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %12 ], [ 0, %32 ], [ 0, %44 ], [ 0, %55 ], [ 0, %88 ], [ 3, %._crit_edge ], [ 0, %png_crc_read.exit ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %12 ], [ 0, %32 ], [ 0, %88 ], [ 0, %44 ], [ 0, %55 ], [ 3, %._crit_edge ], [ 0, %png_crc_read.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -5738,7 +5738,7 @@ png_crc_read.exit:                                ; preds = %3, %6
   br label %23
 
 23:                                               ; preds = %17, %21, %png_crc_read.exit, %11
-  %.0 = phi i32 [ 0, %11 ], [ 0, %png_crc_read.exit ], [ 3, %21 ], [ 3, %17 ]
+  %.0 = phi i32 [ 0, %png_crc_read.exit ], [ 0, %11 ], [ 3, %21 ], [ 3, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -5824,7 +5824,7 @@ define internal range(i32 0, 4) i32 @png_handle_tEXt(ptr noalias noundef %0, ptr
   br label %52
 
 png_crc_read.exit:                                ; preds = %36, %29
-  %.021.i = phi ptr [ %35, %36 ], [ %24, %29 ]
+  %.021.i = phi ptr [ %24, %29 ], [ %35, %36 ]
   %40 = zext i32 %2 to i64
   tail call void @png_read_data(ptr noundef nonnull %0, ptr noundef nonnull %.021.i, i64 noundef %40) #13
   tail call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %.021.i, i64 noundef %40) #13
@@ -6161,7 +6161,7 @@ define internal range(i32 0, 4) i32 @png_handle_zTXt(ptr noalias noundef %0, ptr
   br label %77
 
 png_crc_read.exit:                                ; preds = %36, %29
-  %.021.i = phi ptr [ %35, %36 ], [ %24, %29 ]
+  %.021.i = phi ptr [ %24, %29 ], [ %35, %36 ]
   tail call void @png_read_data(ptr noundef nonnull %0, ptr noundef nonnull %.021.i, i64 noundef %22) #13
   tail call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %.021.i, i64 noundef %22) #13
   %40 = tail call fastcc range(i32 0, 2) i32 @png_crc_finish_critical(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0)
@@ -6267,7 +6267,7 @@ png_crc_read.exit:                                ; preds = %36, %29
   br label %77
 
 77:                                               ; preds = %.critedge66, %png_crc_read.exit, %.critedge.thread, %38, %13, %8
-  %.053 = phi i32 [ 0, %8 ], [ 0, %13 ], [ 0, %38 ], [ 0, %.critedge.thread ], [ 0, %png_crc_read.exit ], [ 3, %.critedge66 ]
+  %.053 = phi i32 [ 0, %8 ], [ 0, %13 ], [ 0, %38 ], [ 3, %.critedge66 ], [ 0, %.critedge.thread ], [ 0, %png_crc_read.exit ]
   ret i32 %.053
 }
 
@@ -6708,7 +6708,7 @@ png_inflate.exit104.thread:                       ; preds = %71
   br label %117
 
 117:                                              ; preds = %.thread, %png_inflate.exit.thread, %png_inflate.exit, %115, %114, %112, %116
-  %.2 = phi i32 [ -7, %116 ], [ 1, %114 ], [ 1, %112 ], [ -4, %115 ], [ %.0.i67.i, %png_inflate.exit ], [ -2, %png_inflate.exit.thread ], [ %.074.ph, %.thread ]
+  %.2 = phi i32 [ -4, %115 ], [ -7, %116 ], [ 1, %114 ], [ 1, %112 ], [ %.074.ph, %.thread ], [ %.0.i67.i, %png_inflate.exit ], [ -2, %png_inflate.exit.thread ]
   store i32 0, ptr %26, align 8, !tbaa !112
   br label %121
 

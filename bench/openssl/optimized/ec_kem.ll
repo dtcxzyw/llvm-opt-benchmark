@@ -145,7 +145,7 @@ define range(i32 -2, 2) i32 @ossl_ec_dhkem_derive_private(ptr noundef %0, ptr no
   br i1 %.not35, label %.loopexit, label %45, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.critedge.backedge, %45, %60, %38, %29, %56, %27
-  %.030 = phi i32 [ 0, %27 ], [ 0, %56 ], [ 0, %29 ], [ 0, %38 ], [ 0, %.critedge.backedge ], [ 0, %45 ], [ 1, %60 ]
+  %.030 = phi i32 [ 0, %27 ], [ 0, %29 ], [ 0, %56 ], [ 0, %38 ], [ 0, %45 ], [ 0, %.critedge.backedge ], [ 1, %60 ]
   call void @OPENSSL_cleanse(ptr noundef nonnull %6, i64 noundef 64) #5
   call void @OPENSSL_cleanse(ptr noundef nonnull %7, i64 noundef 66) #5
   call void @EVP_KDF_CTX_free(ptr noundef nonnull %21) #5
@@ -397,7 +397,7 @@ derivekey.exit.i:                                 ; preds = %71, %70, %63, %58, 
   br label %dhkem_encap.exit
 
 dhkem_encap.exit:                                 ; preds = %15, %22, %23, %31, %37, %92
-  %.0.i = phi i32 [ 0, %31 ], [ 0, %37 ], [ %.034.i, %92 ], [ 0, %15 ], [ 1, %23 ], [ 1, %22 ]
+  %.0.i = phi i32 [ %.034.i, %92 ], [ 0, %15 ], [ 0, %31 ], [ 0, %37 ], [ 1, %23 ], [ 1, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %94
@@ -520,8 +520,8 @@ eckey_frompub.exit.i:                             ; preds = %35
   br label %50
 
 50:                                               ; preds = %48, %43, %42, %eckey_frompub.exit.i, %eckey_frompub.exit.thread.i
-  %.0.i35.i = phi ptr [ %30, %42 ], [ %30, %48 ], [ %30, %43 ], [ %30, %eckey_frompub.exit.i ], [ null, %eckey_frompub.exit.thread.i ]
-  %.026.i = phi i32 [ 0, %42 ], [ 1, %48 ], [ 0, %43 ], [ 0, %eckey_frompub.exit.i ], [ 0, %eckey_frompub.exit.thread.i ]
+  %.0.i35.i = phi ptr [ null, %eckey_frompub.exit.thread.i ], [ %30, %42 ], [ %30, %48 ], [ %30, %43 ], [ %30, %eckey_frompub.exit.i ]
+  %.026.i = phi i32 [ 0, %eckey_frompub.exit.thread.i ], [ 0, %42 ], [ 1, %48 ], [ 0, %43 ], [ 0, %eckey_frompub.exit.i ]
   call void @EC_KEY_free(ptr noundef %.0.i35.i) #5
   br label %dhkem_decap.exit
 
@@ -771,8 +771,8 @@ sender_authkey_set.exit:                          ; preds = %42
   %48 = tail call i32 @eckem_set_ctx_params(ptr noundef nonnull %0, ptr noundef %4)
   br label %recipient_key_set.exit.thread
 
-recipient_key_set.exit.thread:                    ; preds = %42, %26, %13, %18, %22, %ossl_ec_match_params.exit.thread32, %38, %7, %5, %46
-  %.0 = phi i32 [ %48, %46 ], [ 0, %5 ], [ 0, %7 ], [ 0, %38 ], [ 0, %ossl_ec_match_params.exit.thread32 ], [ -2, %13 ], [ -2, %18 ], [ 0, %22 ], [ 0, %26 ], [ 0, %42 ]
+recipient_key_set.exit.thread:                    ; preds = %42, %26, %18, %13, %22, %ossl_ec_match_params.exit.thread32, %38, %7, %5, %46
+  %.0 = phi i32 [ 0, %7 ], [ %48, %46 ], [ 0, %22 ], [ 0, %5 ], [ 0, %26 ], [ 0, %38 ], [ 0, %ossl_ec_match_params.exit.thread32 ], [ -2, %18 ], [ -2, %13 ], [ 0, %42 ]
   ret i32 %.0
 }
 
@@ -990,9 +990,9 @@ dhkem_extract_and_expand.exit:                    ; preds = %65
   br label %73
 
 73:                                               ; preds = %.thread, %72, %dhkem_extract_and_expand.exit, %49, %37, %33, %26, %8, %32
-  %.045 = phi i64 [ %19, %32 ], [ %19, %37 ], [ %.16876, %49 ], [ %19, %33 ], [ %19, %26 ], [ 0, %8 ], [ %.16876, %dhkem_extract_and_expand.exit ], [ %.16876, %72 ], [ %39, %.thread ]
-  %.043 = phi ptr [ null, %32 ], [ null, %37 ], [ null, %49 ], [ null, %33 ], [ null, %26 ], [ null, %8 ], [ %58, %dhkem_extract_and_expand.exit ], [ %58, %72 ], [ null, %.thread ]
-  %.0 = phi i32 [ 0, %32 ], [ 0, %37 ], [ 0, %49 ], [ 0, %33 ], [ 0, %26 ], [ 0, %8 ], [ 1, %dhkem_extract_and_expand.exit ], [ 0, %72 ], [ 0, %.thread ]
+  %.045 = phi i64 [ %19, %32 ], [ %19, %37 ], [ %.16876, %49 ], [ 0, %8 ], [ %19, %26 ], [ %19, %33 ], [ %.16876, %dhkem_extract_and_expand.exit ], [ %.16876, %72 ], [ %39, %.thread ]
+  %.043 = phi ptr [ null, %32 ], [ null, %37 ], [ null, %49 ], [ null, %8 ], [ null, %26 ], [ null, %33 ], [ %58, %dhkem_extract_and_expand.exit ], [ %58, %72 ], [ null, %.thread ]
+  %.0 = phi i32 [ 0, %32 ], [ 0, %37 ], [ 0, %49 ], [ 0, %8 ], [ 0, %26 ], [ 0, %33 ], [ 1, %dhkem_extract_and_expand.exit ], [ 0, %72 ], [ 0, %.thread ]
   call void @OPENSSL_cleanse(ptr noundef nonnull %12, i64 noundef %.045) #5
   call void @EVP_KDF_CTX_free(ptr noundef %.043) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %13)

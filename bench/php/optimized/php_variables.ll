@@ -997,7 +997,7 @@ zval_ptr_dtor_nogc.exit268:                       ; preds = %246, %249, %254
   br label %zend_gc_try_delref.exit
 
 zend_gc_try_delref.exit:                          ; preds = %266, %261, %257, %zend_symtable_str_update_ind.exit, %zval_ptr_dtor_nogc.exit268, %166
-  %.0201 = phi ptr [ %.1202, %zval_ptr_dtor_nogc.exit268 ], [ %.0.i279, %zend_symtable_str_update_ind.exit ], [ %168, %166 ], [ %.1202, %257 ], [ %.1202, %261 ], [ %.1202, %266 ]
+  %.0201 = phi ptr [ %.1202, %zval_ptr_dtor_nogc.exit268 ], [ %168, %166 ], [ %.0.i279, %zend_symtable_str_update_ind.exit ], [ %.1202, %257 ], [ %.1202, %261 ], [ %.1202, %266 ]
   %269 = load ptr, ptr %.0201, align 8, !tbaa !11
   %270 = getelementptr inbounds nuw i8, ptr %.4, i64 1
   %271 = load i8, ptr %270, align 1, !tbaa !11
@@ -1235,7 +1235,7 @@ zval_ptr_dtor_nogc.exit271:                       ; preds = %285, %280, %277, %.
   call void @_efree(ptr noundef nonnull %38) #18
   br label %.critedge
 
-.critedge:                                        ; preds = %141, %140, %181, %zval_ptr_dtor_nogc.exit262, %206, %zval_ptr_dtor_nogc.exit265, %24, %19, %.thread, %89, %zval_ptr_dtor_nogc.exit253, %zval_ptr_dtor_nogc.exit271, %366, %zval_ptr_dtor_nogc.exit274, %311, %zval_ptr_dtor_nogc.exit256, %106, %zval_ptr_dtor_nogc.exit250, %60
+.critedge:                                        ; preds = %140, %zval_ptr_dtor_nogc.exit262, %zval_ptr_dtor_nogc.exit265, %141, %181, %206, %24, %19, %.thread, %zval_ptr_dtor_nogc.exit253, %89, %zval_ptr_dtor_nogc.exit271, %366, %zval_ptr_dtor_nogc.exit274, %311, %zval_ptr_dtor_nogc.exit256, %106, %zval_ptr_dtor_nogc.exit250, %60
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
@@ -1356,9 +1356,9 @@ define dso_local void @php_std_post_handler(ptr noundef readnone captures(none) 
   br label %smart_str_alloc.exit
 
 smart_str_alloc.exit:                             ; preds = %17, %22
-  %23 = phi i64 [ %.pre25, %22 ], [ %19, %17 ]
-  %24 = phi ptr [ %.pre, %22 ], [ %16, %17 ]
-  %.1.i = phi i64 [ %.0.i, %22 ], [ %20, %17 ]
+  %23 = phi i64 [ %19, %17 ], [ %.pre25, %22 ]
+  %24 = phi ptr [ %16, %17 ], [ %.pre, %22 ]
+  %.1.i = phi i64 [ %20, %17 ], [ %.0.i, %22 ]
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 %23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %26, ptr noundef nonnull align 16 dereferenceable(1) %4, i64 range(i64 1, -9223372036854775808) %13, i1 false)
@@ -1837,7 +1837,7 @@ define dso_local void @php_default_treat_data(i32 noundef %0, ptr noundef %1, pt
   br i1 %or.cond, label %123, label %70
 
 70:                                               ; preds = %67, %56
-  %.1 = phi ptr [ %.069120, %56 ], [ %.2, %67 ]
+  %.1 = phi ptr [ %.2, %67 ], [ %.069120, %56 ]
   %71 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 584), align 8, !tbaa !65, !range !67, !noundef !68
   %72 = trunc nuw i8 %71 to i1
   %73 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 592), align 8
@@ -1968,7 +1968,7 @@ php_register_variable_safe.exit:                  ; preds = %zend_string_alloc.e
 default.unreachable133:                           ; preds = %10
   unreachable
 
-.thread102:                                       ; preds = %41, %.thread101, %47, %.thread100, %45, %.loopexit, %50, %.thread
+.thread102:                                       ; preds = %41, %.thread101, %47, %45, %.thread100, %.loopexit, %50, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2701,7 +2701,7 @@ zend_string_release_ex.exit43.i:                  ; preds = %104, %99, %zend_str
   br label %zend_dval_to_lval.exit.i
 
 zend_dval_to_lval.exit.i:                         ; preds = %113, %111, %zend_string_release_ex.exit43.i
-  %.0.i.i = phi i64 [ %112, %111 ], [ %114, %113 ], [ 0, %zend_string_release_ex.exit43.i ]
+  %.0.i.i = phi i64 [ %114, %113 ], [ %112, %111 ], [ 0, %zend_string_release_ex.exit43.i ]
   store i64 %.0.i.i, ptr %2, align 8, !tbaa !11
   store i32 4, ptr %92, align 8, !tbaa !11
   %115 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !23
@@ -2941,18 +2941,18 @@ define internal noundef zeroext i1 @php_auto_globals_create_request(ptr noundef 
   br i1 %.not12, label %.sink.split, label %11
 
 .sink.split:                                      ; preds = %10, %9, %8
-  %.sink.in = phi ptr [ getelementptr inbounds nuw (i8, ptr @core_globals, i64 360), %8 ], [ getelementptr inbounds nuw (i8, ptr @core_globals, i64 344), %9 ], [ getelementptr inbounds nuw (i8, ptr @core_globals, i64 376), %10 ]
-  %.sroa.7.1.ph = phi i8 [ %.sroa.7.016, %8 ], [ %.sroa.7.016, %9 ], [ 1, %10 ]
-  %.sroa.5.1.ph = phi i8 [ %.sroa.5.018, %8 ], [ 1, %9 ], [ %.sroa.5.018, %10 ]
-  %.sroa.0.1.ph = phi i8 [ 1, %8 ], [ %.sroa.0.019, %9 ], [ %.sroa.0.019, %10 ]
+  %.sink.in = phi ptr [ getelementptr inbounds nuw (i8, ptr @core_globals, i64 344), %9 ], [ getelementptr inbounds nuw (i8, ptr @core_globals, i64 360), %8 ], [ getelementptr inbounds nuw (i8, ptr @core_globals, i64 376), %10 ]
+  %.sroa.7.1.ph = phi i8 [ %.sroa.7.016, %9 ], [ %.sroa.7.016, %8 ], [ 1, %10 ]
+  %.sroa.5.1.ph = phi i8 [ 1, %9 ], [ %.sroa.5.018, %8 ], [ %.sroa.5.018, %10 ]
+  %.sroa.0.1.ph = phi i8 [ %.sroa.0.019, %9 ], [ 1, %8 ], [ %.sroa.0.019, %10 ]
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !11
   tail call fastcc void @php_autoglobal_merge(ptr noundef %3, ptr noundef %.sink)
   br label %11
 
 11:                                               ; preds = %.sink.split, %.lr.ph, %8, %9, %10
-  %.sroa.7.1 = phi i8 [ %.sroa.7.016, %8 ], [ %.sroa.7.016, %9 ], [ 1, %10 ], [ %.sroa.7.016, %.lr.ph ], [ %.sroa.7.1.ph, %.sink.split ]
-  %.sroa.5.1 = phi i8 [ %.sroa.5.018, %8 ], [ 1, %9 ], [ %.sroa.5.018, %10 ], [ %.sroa.5.018, %.lr.ph ], [ %.sroa.5.1.ph, %.sink.split ]
-  %.sroa.0.1 = phi i8 [ 1, %8 ], [ %.sroa.0.019, %9 ], [ %.sroa.0.019, %10 ], [ %.sroa.0.019, %.lr.ph ], [ %.sroa.0.1.ph, %.sink.split ]
+  %.sroa.7.1 = phi i8 [ %.sroa.7.016, %.lr.ph ], [ %.sroa.7.016, %8 ], [ 1, %10 ], [ %.sroa.7.016, %9 ], [ %.sroa.7.1.ph, %.sink.split ]
+  %.sroa.5.1 = phi i8 [ %.sroa.5.018, %.lr.ph ], [ %.sroa.5.018, %8 ], [ %.sroa.5.018, %10 ], [ 1, %9 ], [ %.sroa.5.1.ph, %.sink.split ]
+  %.sroa.0.1 = phi i8 [ %.sroa.0.019, %.lr.ph ], [ 1, %8 ], [ %.sroa.0.019, %10 ], [ %.sroa.0.019, %9 ], [ %.sroa.0.1.ph, %.sink.split ]
   %12 = getelementptr inbounds nuw i8, ptr %.117, i64 1
   br label %.lr.ph
 

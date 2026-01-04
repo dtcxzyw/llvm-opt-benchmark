@@ -405,7 +405,7 @@ _remove_ecores.exit:                              ; preds = %_check_full_access.
   br label %139
 
 139:                                              ; preds = %51, %54, %_remove_ecores.exit, %137, %134
-  %.030 = phi i32 [ 0, %_remove_ecores.exit ], [ 0, %137 ], [ 0, %134 ], [ -1, %54 ], [ -1, %51 ]
+  %.030 = phi i32 [ 0, %134 ], [ 0, %_remove_ecores.exit ], [ 0, %137 ], [ -1, %54 ], [ -1, %51 ]
   br i1 %.not, label %140, label %142
 
 140:                                              ; preds = %139
@@ -701,7 +701,7 @@ hwloc_get_next_child.exit:                        ; preds = %hwloc_get_next_obj_
   br label %hwloc_get_nbobjs_by_type.exit
 
 hwloc_get_nbobjs_by_type.exit:                    ; preds = %._crit_edge, %127, %128
-  %.0.i135 = phi i32 [ -1, %127 ], [ %129, %128 ], [ 0, %._crit_edge ]
+  %.0.i135 = phi i32 [ %129, %128 ], [ -1, %127 ], [ 0, %._crit_edge ]
   %130 = icmp eq i32 %.sroa.0.0.lcssa, 0
   br i1 %130, label %131, label %144
 
@@ -735,7 +735,7 @@ hwloc_get_nbobjs_by_type.exit137.thread:          ; preds = %131, %hwloc_get_nbo
   unreachable
 
 .thread:                                          ; preds = %131, %hwloc_get_nbobjs_by_type.exit137.thread, %137, %138
-  %.sroa.0.4146 = phi i32 [ %133, %138 ], [ 1, %hwloc_get_nbobjs_by_type.exit137.thread ], [ 1, %137 ], [ -1, %131 ]
+  %.sroa.0.4146 = phi i32 [ %133, %138 ], [ 1, %137 ], [ 1, %hwloc_get_nbobjs_by_type.exit137.thread ], [ -1, %131 ]
   %141 = load ptr, ptr %12, align 8
   %142 = add nsw i32 %.sroa.0.4146, -1
   %143 = sext i32 %142 to i64
@@ -791,7 +791,7 @@ hwloc_get_nbobjs_by_type.exit137.thread:          ; preds = %131, %hwloc_get_nbo
   br label %hwloc_get_nbobjs_by_type.exit139
 
 hwloc_get_nbobjs_by_type.exit139:                 ; preds = %156, %159, %160
-  %.0.i138 = phi i32 [ -1, %159 ], [ %162, %160 ], [ 0, %156 ]
+  %.0.i138 = phi i32 [ %162, %160 ], [ -1, %159 ], [ 0, %156 ]
   %163 = srem i32 %.0.i138, %.sroa.18.0.fr
   %164 = sdiv i32 %.0.i138, %.sroa.18.0.fr
   %.not124 = icmp eq i32 %163, 0
@@ -1062,7 +1062,7 @@ hwloc_get_obj_below_array_by_type.exit.thread.us.us: ; preds = %205, %236, %228,
   br label %269
 
 269:                                              ; preds = %20, %23, %262, %35
-  %.0 = phi i32 [ 2, %35 ], [ 0, %262 ], [ 1, %23 ], [ 1, %20 ]
+  %.0 = phi i32 [ 0, %262 ], [ 2, %35 ], [ 1, %23 ], [ 1, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -1526,7 +1526,7 @@ define dso_local range(i32 -1, 1) i32 @xcpuinfo_mac_to_abs(ptr noundef %0, ptr n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %82, %.preheader, %99
-  %100 = phi ptr [ %72, %.preheader ], [ %.pre55, %99 ], [ %84, %82 ]
+  %100 = phi ptr [ %.pre55, %99 ], [ %72, %.preheader ], [ %84, %82 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %101 = load i32, ptr @xcpuinfo_mac_to_abs.total_cores, align 4
   %102 = sext i32 %101 to i64

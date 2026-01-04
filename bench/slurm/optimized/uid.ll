@@ -102,7 +102,7 @@ define dso_local void @slurm_getpwuid_r(i32 noundef %0, ptr noundef %1, ptr noun
   store ptr null, ptr %5, align 8
   br label %29
 
-29:                                               ; preds = %28, %16
+29:                                               ; preds = %16, %28
   %30 = call i32 @gettimeofday(ptr noundef nonnull %8, ptr noundef null) #10
   call void @slurm_diff_tv_str(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef 20, ptr noundef nonnull @.str.3, i64 noundef 0, ptr noundef nonnull %10) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -280,7 +280,7 @@ define dso_local range(i32 -1, 1) i32 @uid_from_string(ptr noundef %0, ptr nound
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %60, %53, %56, %47
-  %.0.ph = phi i32 [ -1, %47 ], [ -1, %56 ], [ -1, %53 ], [ -1, %60 ], [ 0, %.sink.split.sink.split ]
+  %.0.ph = phi i32 [ -1, %53 ], [ -1, %56 ], [ -1, %60 ], [ -1, %47 ], [ 0, %.sink.split.sink.split ]
   call void @slurm_xfree(ptr noundef nonnull %10) #10
   br label %63
 

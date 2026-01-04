@@ -391,7 +391,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %31, %
   br label %85
 
 85:                                               ; preds = %78, %59, %63, %66
-  %.1202 = phi i32 [ %.0201358, %66 ], [ %.0201358, %63 ], [ %.0201358, %59 ], [ %84, %78 ]
+  %.1202 = phi i32 [ %84, %78 ], [ %.0201358, %66 ], [ %.0201358, %63 ], [ %.0201358, %59 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %52
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !45
@@ -685,8 +685,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %31, %
   %242 = fneg double %238
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %66, %65, %61, %67, %142, %132, %136, %139, %._crit_edge, %241, %._crit_edge373, %.critedge, %42
-  %.0 = phi double [ %43, %42 ], [ %89, %.critedge ], [ %165, %._crit_edge ], [ %238, %._crit_edge373 ], [ %242, %241 ], [ 0.000000e+00, %139 ], [ 0.000000e+00, %136 ], [ 0.000000e+00, %132 ], [ 0.000000e+00, %142 ], [ 0.000000e+00, %67 ], [ 0.000000e+00, %61 ], [ 0.000000e+00, %65 ], [ 0.000000e+00, %66 ]
+.critedge.thread:                                 ; preds = %66, %65, %61, %67, %142, %136, %139, %132, %._crit_edge, %241, %._crit_edge373, %.critedge, %42
+  %.0 = phi double [ %43, %42 ], [ 0.000000e+00, %142 ], [ %89, %.critedge ], [ %165, %._crit_edge ], [ %238, %._crit_edge373 ], [ %242, %241 ], [ 0.000000e+00, %132 ], [ 0.000000e+00, %139 ], [ 0.000000e+00, %136 ], [ 0.000000e+00, %67 ], [ 0.000000e+00, %61 ], [ 0.000000e+00, %65 ], [ 0.000000e+00, %66 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %243 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1623,8 +1623,8 @@ _ZN2cvL5inOutENS_6Point_IfEENS_7tInFlagEiiRPS1_.exit.i: ; preds = %393, %387
   br label %.thread.i
 
 397:                                              ; preds = %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit208.i.i.i, %352, %348, %345, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit188.i.i.i, %327, %323, %320, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit168.i.i.i, %302, %298, %295, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit148.i.i.i, %277, %273, %270, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit128.i.i.i, %.thread215.i.i.i, %247, %.thread216.i.i.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit108.i.i.i, %.thread210.i.i.i, %221, %.thread211.i.i.i
-  %.sink233.i.i.i = phi <2 x float> [ %.sroa.057.0.copyload.i, %.thread210.i.i.i ], [ %.sroa.057.0.copyload.i, %.thread211.i.i.i ], [ %.sroa.057.0.copyload.i, %221 ], [ %.sroa.057.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit108.i.i.i ], [ %.sroa.050.0.copyload.i, %.thread215.i.i.i ], [ %.sroa.050.0.copyload.i, %.thread216.i.i.i ], [ %.sroa.050.0.copyload.i, %247 ], [ %.sroa.050.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit128.i.i.i ], [ %.sroa.057.0.copyload.i, %277 ], [ %.sroa.057.0.copyload.i, %270 ], [ %.sroa.057.0.copyload.i, %273 ], [ %.sroa.057.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit148.i.i.i ], [ %.sroa.057.0.copyload.i, %302 ], [ %.sroa.057.0.copyload.i, %295 ], [ %.sroa.057.0.copyload.i, %298 ], [ %.sroa.057.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit168.i.i.i ], [ %.sroa.056.0.copyload.i, %327 ], [ %.sroa.056.0.copyload.i, %320 ], [ %.sroa.056.0.copyload.i, %323 ], [ %.sroa.056.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit188.i.i.i ], [ %.sroa.056.0.copyload.i, %352 ], [ %.sroa.056.0.copyload.i, %345 ], [ %.sroa.056.0.copyload.i, %348 ], [ %.sroa.056.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit208.i.i.i ]
-  %.sink.i.i.i = phi <2 x float> [ %.sroa.056.0.copyload.i, %.thread210.i.i.i ], [ %.sroa.056.0.copyload.i, %.thread211.i.i.i ], [ %.sroa.056.0.copyload.i, %221 ], [ %.sroa.056.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit108.i.i.i ], [ %.sroa.055.0.copyload.i, %.thread215.i.i.i ], [ %.sroa.055.0.copyload.i, %.thread216.i.i.i ], [ %.sroa.055.0.copyload.i, %247 ], [ %.sroa.055.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit128.i.i.i ], [ %.sroa.055.0.copyload.i, %277 ], [ %.sroa.055.0.copyload.i, %270 ], [ %.sroa.055.0.copyload.i, %273 ], [ %.sroa.055.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit148.i.i.i ], [ %.sroa.050.0.copyload.i, %302 ], [ %.sroa.050.0.copyload.i, %295 ], [ %.sroa.050.0.copyload.i, %298 ], [ %.sroa.050.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit168.i.i.i ], [ %.sroa.055.0.copyload.i, %327 ], [ %.sroa.055.0.copyload.i, %320 ], [ %.sroa.055.0.copyload.i, %323 ], [ %.sroa.055.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit188.i.i.i ], [ %.sroa.050.0.copyload.i, %352 ], [ %.sroa.050.0.copyload.i, %345 ], [ %.sroa.050.0.copyload.i, %348 ], [ %.sroa.050.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit208.i.i.i ]
+  %.sink233.i.i.i = phi <2 x float> [ %.sroa.057.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit108.i.i.i ], [ %.sroa.050.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit128.i.i.i ], [ %.sroa.057.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit168.i.i.i ], [ %.sroa.056.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit188.i.i.i ], [ %.sroa.057.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit148.i.i.i ], [ %.sroa.057.0.copyload.i, %.thread210.i.i.i ], [ %.sroa.057.0.copyload.i, %.thread211.i.i.i ], [ %.sroa.057.0.copyload.i, %221 ], [ %.sroa.050.0.copyload.i, %.thread215.i.i.i ], [ %.sroa.050.0.copyload.i, %.thread216.i.i.i ], [ %.sroa.050.0.copyload.i, %247 ], [ %.sroa.057.0.copyload.i, %277 ], [ %.sroa.057.0.copyload.i, %270 ], [ %.sroa.057.0.copyload.i, %273 ], [ %.sroa.057.0.copyload.i, %302 ], [ %.sroa.057.0.copyload.i, %295 ], [ %.sroa.057.0.copyload.i, %298 ], [ %.sroa.056.0.copyload.i, %327 ], [ %.sroa.056.0.copyload.i, %320 ], [ %.sroa.056.0.copyload.i, %323 ], [ %.sroa.056.0.copyload.i, %352 ], [ %.sroa.056.0.copyload.i, %345 ], [ %.sroa.056.0.copyload.i, %348 ], [ %.sroa.056.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit208.i.i.i ]
+  %.sink.i.i.i = phi <2 x float> [ %.sroa.056.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit108.i.i.i ], [ %.sroa.055.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit128.i.i.i ], [ %.sroa.050.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit168.i.i.i ], [ %.sroa.055.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit188.i.i.i ], [ %.sroa.055.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit148.i.i.i ], [ %.sroa.056.0.copyload.i, %.thread210.i.i.i ], [ %.sroa.056.0.copyload.i, %.thread211.i.i.i ], [ %.sroa.056.0.copyload.i, %221 ], [ %.sroa.055.0.copyload.i, %.thread215.i.i.i ], [ %.sroa.055.0.copyload.i, %.thread216.i.i.i ], [ %.sroa.055.0.copyload.i, %247 ], [ %.sroa.055.0.copyload.i, %277 ], [ %.sroa.055.0.copyload.i, %270 ], [ %.sroa.055.0.copyload.i, %273 ], [ %.sroa.050.0.copyload.i, %302 ], [ %.sroa.050.0.copyload.i, %295 ], [ %.sroa.050.0.copyload.i, %298 ], [ %.sroa.055.0.copyload.i, %327 ], [ %.sroa.055.0.copyload.i, %320 ], [ %.sroa.055.0.copyload.i, %323 ], [ %.sroa.050.0.copyload.i, %352 ], [ %.sroa.050.0.copyload.i, %345 ], [ %.sroa.050.0.copyload.i, %348 ], [ %.sroa.050.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit208.i.i.i ]
   %398 = fmul double %150, %148
   %399 = call noundef double @llvm.fmuladd.f64(double %147, double %149, double %398)
   %400 = fcmp olt double %399, 0.000000e+00
@@ -1672,11 +1672,11 @@ _ZN2cvL12addSharedSegENS_6Point_IfEES1_RPS1_.exit.i: ; preds = %413, %409
   br label %_ZN2cvL22intersectConvexConvex_EPKNS_6Point_IfEEiS3_iPS1_iPf.exit
 
 .thread.i:                                        ; preds = %397, %_ZN2cvL5inOutENS_6Point_IfEENS_7tInFlagEiiRPS1_.exit.i, %358, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit208.i.i.i, %348, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit198.i.i.i, %336, %196
-  %.1168300.i = phi i32 [ %.0167.i, %397 ], [ %396, %_ZN2cvL5inOutENS_6Point_IfEENS_7tInFlagEiiRPS1_.exit.i ], [ %.0167.i, %348 ], [ %.0167.i, %336 ], [ %.0167.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit198.i.i.i ], [ %.0167.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit208.i.i.i ], [ %.0167.i, %196 ], [ %.0167.i, %358 ]
-  %.1170298.i = phi i1 [ %.0169.i, %397 ], [ %.2171.i, %_ZN2cvL5inOutENS_6Point_IfEENS_7tInFlagEiiRPS1_.exit.i ], [ %.0169.i, %348 ], [ %.0169.i, %336 ], [ %.0169.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit198.i.i.i ], [ %.0169.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit208.i.i.i ], [ %.0169.i, %196 ], [ %.0169.i, %358 ]
-  %.1265296.i = phi ptr [ %.0264.i, %397 ], [ %.4.i, %_ZN2cvL5inOutENS_6Point_IfEENS_7tInFlagEiiRPS1_.exit.i ], [ %.0264.i, %348 ], [ %.0264.i, %336 ], [ %.0264.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit198.i.i.i ], [ %.0264.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit208.i.i.i ], [ %.0264.i, %196 ], [ %.0264.i, %358 ]
-  %.1268295.i = phi i32 [ %.0267.i, %397 ], [ %.2269.i, %_ZN2cvL5inOutENS_6Point_IfEENS_7tInFlagEiiRPS1_.exit.i ], [ %.0267.i, %348 ], [ %.0267.i, %336 ], [ %.0267.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit198.i.i.i ], [ %.0267.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit208.i.i.i ], [ %.0267.i, %196 ], [ %.0267.i, %358 ]
-  %.1272294.i = phi i32 [ %.0271.i, %397 ], [ %.2273.i, %_ZN2cvL5inOutENS_6Point_IfEENS_7tInFlagEiiRPS1_.exit.i ], [ %.0271.i, %348 ], [ %.0271.i, %336 ], [ %.0271.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit198.i.i.i ], [ %.0271.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit208.i.i.i ], [ %.0271.i, %196 ], [ %.0271.i, %358 ]
+  %.1168300.i = phi i32 [ %396, %_ZN2cvL5inOutENS_6Point_IfEENS_7tInFlagEiiRPS1_.exit.i ], [ %.0167.i, %397 ], [ %.0167.i, %358 ], [ %.0167.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit198.i.i.i ], [ %.0167.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit208.i.i.i ], [ %.0167.i, %348 ], [ %.0167.i, %336 ], [ %.0167.i, %196 ]
+  %.1170298.i = phi i1 [ %.2171.i, %_ZN2cvL5inOutENS_6Point_IfEENS_7tInFlagEiiRPS1_.exit.i ], [ %.0169.i, %397 ], [ %.0169.i, %358 ], [ %.0169.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit198.i.i.i ], [ %.0169.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit208.i.i.i ], [ %.0169.i, %348 ], [ %.0169.i, %336 ], [ %.0169.i, %196 ]
+  %.1265296.i = phi ptr [ %.4.i, %_ZN2cvL5inOutENS_6Point_IfEENS_7tInFlagEiiRPS1_.exit.i ], [ %.0264.i, %397 ], [ %.0264.i, %358 ], [ %.0264.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit198.i.i.i ], [ %.0264.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit208.i.i.i ], [ %.0264.i, %348 ], [ %.0264.i, %336 ], [ %.0264.i, %196 ]
+  %.1268295.i = phi i32 [ %.2269.i, %_ZN2cvL5inOutENS_6Point_IfEENS_7tInFlagEiiRPS1_.exit.i ], [ %.0267.i, %397 ], [ %.0267.i, %358 ], [ %.0267.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit198.i.i.i ], [ %.0267.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit208.i.i.i ], [ %.0267.i, %348 ], [ %.0267.i, %336 ], [ %.0267.i, %196 ]
+  %.1272294.i = phi i32 [ %.2273.i, %_ZN2cvL5inOutENS_6Point_IfEENS_7tInFlagEiiRPS1_.exit.i ], [ %.0271.i, %397 ], [ %.0271.i, %358 ], [ %.0271.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit198.i.i.i ], [ %.0271.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit208.i.i.i ], [ %.0271.i, %348 ], [ %.0271.i, %336 ], [ %.0271.i, %196 ]
   %419 = icmp eq i32 %157, 0
   %420 = and i32 %187, %172
   %421 = icmp slt i32 %420, 0
@@ -2088,7 +2088,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit212: ; preds = %56
   br label %601
 
 599:                                              ; preds = %577, %595
-  %.4143 = phi i32 [ %596, %595 ], [ %.1140262, %577 ]
+  %.4143 = phi i32 [ %.1140262, %577 ], [ %596, %595 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %600 = icmp samesign ult i64 %indvars.iv.next, %576
   %or.cond278 = select i1 %589, i1 %600, i1 false
@@ -2100,7 +2100,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit212: ; preds = %56
   br i1 %exitcond.not, label %118, label %539, !llvm.loop !80
 
 601:                                              ; preds = %597, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit212, %556
-  %.pn174.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn172, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit212 ], [ %557, %556 ], [ %598, %597 ]
+  %.pn174.pn.pn.pn.pn = phi { ptr, i32 } [ %557, %556 ], [ %.pn172, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit212 ], [ %598, %597 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #21
   br label %602
 
@@ -2248,9 +2248,9 @@ _ZN2cvL22intersectConvexConvex_EPKNS_6Point_IfEEiS3_iPS1_iPf.exit.thread: ; pred
   br label %673
 
 644:                                              ; preds = %.thread240, %606
-  %.0227 = phi float [ %.2, %606 ], [ %641, %.thread240 ]
-  %.0137 = phi ptr [ %108, %606 ], [ %.1138.ph, %.thread240 ]
-  %.0105 = phi i32 [ %.2.i, %606 ], [ %.1106.ph, %.thread240 ]
+  %.0227 = phi float [ %641, %.thread240 ], [ %.2, %606 ]
+  %.0137 = phi ptr [ %.1138.ph, %.thread240 ], [ %108, %606 ]
+  %.0105 = phi i32 [ %.1106.ph, %.thread240 ], [ %.2.i, %606 ]
   %645 = invoke noundef zeroext i1 @_ZNK2cv12_OutputArray6neededEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %646 unwind label %604
 
@@ -2330,7 +2330,7 @@ _ZN2cvL22intersectConvexConvex_EPKNS_6Point_IfEEiS3_iPS1_iPf.exit.thread: ; pred
   br label %669
 
 669:                                              ; preds = %634, %611, %_ZN2cvL22intersectConvexConvex_EPKNS_6Point_IfEEiS3_iPS1_iPf.exit.thread, %667
-  %.1 = phi float [ %668, %667 ], [ -1.000000e+00, %_ZN2cvL22intersectConvexConvex_EPKNS_6Point_IfEEiS3_iPS1_iPf.exit.thread ], [ 0.000000e+00, %611 ], [ 0.000000e+00, %634 ]
+  %.1 = phi float [ -1.000000e+00, %_ZN2cvL22intersectConvexConvex_EPKNS_6Point_IfEEiS3_iPS1_iPf.exit.thread ], [ %668, %667 ], [ 0.000000e+00, %611 ], [ 0.000000e+00, %634 ]
   %670 = load ptr, ptr %14, align 8, !tbaa !69
   %.not.i.i221 = icmp eq ptr %670, %scevgep.i
   %671 = icmp eq ptr %670, null
@@ -2389,7 +2389,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %677, %680
   ret float %.0
 
 684:                                              ; preds = %77, %_ZN2cv10AutoBufferINS_6Point_IfEELm136EED2Ev.exit223, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit208, %79, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit205, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn183.pn.pn = phi { ptr, i32 } [ %.pn151, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit205 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %78, %77 ], [ %80, %79 ], [ %.pn174.pn.pn.pn.pn.pn.pn.pn, %_ZN2cv10AutoBufferINS_6Point_IfEELm136EED2Ev.exit223 ], [ %.pn153, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit208 ]
+  %.pn183.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn151, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit205 ], [ %78, %77 ], [ %80, %79 ], [ %.pn174.pn.pn.pn.pn.pn.pn.pn, %_ZN2cv10AutoBufferINS_6Point_IfEELm136EED2Ev.exit223 ], [ %.pn153, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit208 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #21
   br label %685
 
@@ -2737,7 +2737,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %8, %_
   br i1 %96, label %.lr.ph199, label %.thread.loopexit, !llvm.loop !93
 
 .thread.loopexit:                                 ; preds = %95, %.lr.ph199
-  %.1106.ph.in = phi i64 [ %indvars.iv.next262, %95 ], [ %indvars.iv261, %.lr.ph199 ]
+  %.1106.ph.in = phi i64 [ %indvars.iv261, %.lr.ph199 ], [ %indvars.iv.next262, %95 ]
   %.1106.ph = trunc i64 %.1106.ph.in to i32
   br label %.thread
 
@@ -2746,7 +2746,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %8, %_
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit236, %.thread.loopexit, %.preheader, %._crit_edge194
-  %.1106 = phi i32 [ %.0105.lcssa, %._crit_edge194 ], [ %.0105.lcssa, %.preheader ], [ %.1106.ph, %.thread.loopexit ], [ %97, %.thread.loopexit236 ]
+  %.1106 = phi i32 [ %.0105.lcssa, %._crit_edge194 ], [ %.1106.ph, %.thread.loopexit ], [ %.0105.lcssa, %.preheader ], [ %97, %.thread.loopexit236 ]
   %98 = icmp sgt i32 %.1106, %71
   br i1 %98, label %.lr.ph204.preheader, label %._crit_edge205
 

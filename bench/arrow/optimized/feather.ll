@@ -2115,7 +2115,7 @@ _ZN5arrow6ResultISt10shared_ptrINS_6BufferEEED2Ev.exit.i: ; preds = %647, %_ZN5a
   br label %_ZN5arrow6Status7InvalidIJRA31_KcEEES0_DpOT_.exit.i
 
 .body.i:                                          ; preds = %616, %171
-  %.pn.i = phi { ptr, i32 } [ %172, %171 ], [ %.pn31.i.i, %616 ]
+  %.pn.i = phi { ptr, i32 } [ %.pn31.i.i, %616 ], [ %172, %171 ]
   call void @_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !78
   br label %670
@@ -2276,7 +2276,7 @@ _ZN5arrow6StatusC2ERKS0_.exit.i:                  ; preds = %_ZN5arrow6ResultISt
   br label %_ZN5arrow6StatusD2Ev.exit48
 
 709:                                              ; preds = %702, %134, %120
-  %.pn48.i = phi { ptr, i32 } [ %121, %120 ], [ %.pn44.i, %702 ], [ %135, %134 ]
+  %.pn48.i = phi { ptr, i32 } [ %121, %120 ], [ %135, %134 ], [ %.pn44.i, %702 ]
   %710 = load ptr, ptr %18, align 8, !tbaa !44, !noalias !78
   %.not.i.i83.i = icmp eq ptr %710, null
   br i1 %.not.i.i83.i, label %_ZN5arrow6ResultIlED2Ev.exit85.i, label %711, !prof !47
@@ -3016,7 +3016,7 @@ _ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; pr
   br label %999
 
 .body55:                                          ; preds = %.body78, %.body.i.i.i.i.i.i.i.i, %943, %725, %.body, %975
-  %.pn28.pn = phi { ptr, i32 } [ %976, %975 ], [ %eh.lpad-body, %.body ], [ %726, %725 ], [ %eh.lpad-body79, %.body78 ], [ %944, %943 ], [ %eh.lpad-body.i.i.i.i.i.i.i.i, %.body.i.i.i.i.i.i.i.i ]
+  %.pn28.pn = phi { ptr, i32 } [ %976, %975 ], [ %726, %725 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body79, %.body78 ], [ %944, %943 ], [ %eh.lpad-body.i.i.i.i.i.i.i.i, %.body.i.i.i.i.i.i.i.i ]
   call void @_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %25) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #26
@@ -3118,7 +3118,7 @@ _ZN5arrow6ResultIlED2Ev.exit:                     ; preds = %1031, %1033, %1037
   ret void
 
 1038:                                             ; preds = %49, %.body55, %60
-  %.pn34.pn = phi { ptr, i32 } [ %50, %49 ], [ %.pn28.pn, %.body55 ], [ %61, %60 ]
+  %.pn34.pn = phi { ptr, i32 } [ %61, %60 ], [ %50, %49 ], [ %.pn28.pn, %.body55 ]
   %1039 = load ptr, ptr %22, align 8, !tbaa !44
   %.not.i.i103 = icmp eq ptr %1039, null
   br i1 %.not.i.i103, label %_ZN5arrow6ResultIlED2Ev.exit104, label %1040, !prof !47
@@ -4286,7 +4286,7 @@ _ZN5arrow3ipc7feather3fbs18CreateTimeMetadataERN22arrow_vendored_private11flatbu
           to label %_ZN5arrow3ipc7feather12_GLOBAL__N_114ColumnMetadata13WriteMetadataERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEE.exit.i unwind label %437, !noalias !199
 
 _ZN5arrow3ipc7feather12_GLOBAL__N_114ColumnMetadata13WriteMetadataERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEE.exit.i: ; preds = %_ZN5arrow3ipc7feather3fbs18CreateTimeMetadataERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEENS2_8TimeUnitE.exit.i.invoke.i, %255, %.noexc96.i, %_ZN5arrow3ipc7feather12_GLOBAL__N_117GetPrimitiveArrayERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKNS2_13ArrayMetadataE.exit.i
-  %.sroa.013.0.i.i = phi i32 [ 0, %_ZN5arrow3ipc7feather12_GLOBAL__N_117GetPrimitiveArrayERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKNS2_13ArrayMetadataE.exit.i ], [ %248, %.noexc96.i ], [ %258, %255 ], [ %385, %_ZN5arrow3ipc7feather3fbs18CreateTimeMetadataERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEENS2_8TimeUnitE.exit.i.invoke.i ]
+  %.sroa.013.0.i.i = phi i32 [ 0, %_ZN5arrow3ipc7feather12_GLOBAL__N_117GetPrimitiveArrayERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKNS2_13ArrayMetadataE.exit.i ], [ %385, %_ZN5arrow3ipc7feather3fbs18CreateTimeMetadataERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEENS2_8TimeUnitE.exit.i.invoke.i ], [ %258, %255 ], [ %248, %.noexc96.i ]
   %386 = invoke i32 @_ZN5arrow3ipc7feather3fbs12CreateColumnERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEENS4_6OffsetINS4_6StringEEENS8_INS2_14PrimitiveArrayEEENS2_12TypeMetadataENS8_IvEESA_(ptr noundef nonnull align 8 dereferenceable(128) %13, i32 %228, i32 %234, i8 noundef zeroext %238, i32 %.sroa.013.0.i.i, i32 0)
           to label %387 unwind label %437, !noalias !199
 
@@ -4694,7 +4694,7 @@ _ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i: ; 
   br label %.body122.i
 
 .body122.i:                                       ; preds = %530, %494, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i
-  %.pn65.pn.pn.i = phi { ptr, i32 } [ %.pn65.pn.i, %530 ], [ %495, %494 ], [ %467, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i ]
+  %.pn65.pn.pn.i = phi { ptr, i32 } [ %.pn65.pn.i, %530 ], [ %467, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i ], [ %495, %494 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !199
   br label %536
 
@@ -4715,7 +4715,7 @@ _ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN5arrow3ipc7feather3f
   br label %_ZN5arrow3ipc7feather12_GLOBAL__N_114WriteFeatherV1ERKNS_5TableEPNS_2io12OutputStreamE.exit
 
 536:                                              ; preds = %.body122.i, %492, %_ZN5arrow3ipc7feather12_GLOBAL__N_114ColumnMetadataD2Ev.exit115.i, %80
-  %.pn65.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn59.pn.i, %_ZN5arrow3ipc7feather12_GLOBAL__N_114ColumnMetadataD2Ev.exit115.i ], [ %81, %80 ], [ %.pn65.pn.pn.i, %.body122.i ], [ %493, %492 ]
+  %.pn65.pn.pn.pn.pn.i = phi { ptr, i32 } [ %81, %80 ], [ %.pn59.pn.i, %_ZN5arrow3ipc7feather12_GLOBAL__N_114ColumnMetadataD2Ev.exit115.i ], [ %.pn65.pn.pn.i, %.body122.i ], [ %493, %492 ]
   %.not.i.i.i142.i = icmp eq ptr %.sroa.0167.0.i, null
   br i1 %.not.i.i.i142.i, label %_ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN5arrow3ipc7feather3fbs6ColumnEEESaIS8_EED2Ev.exit143.i, label %537
 
@@ -6387,8 +6387,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   br label %285
 
 _ZNK5arrow3ipc7feather3fbs17TimestampMetadata8timezoneEv.exit.thread: ; preds = %_ZNK5arrow3ipc7feather3fbs17TimestampMetadata4unitEv.exit.thread, %_ZNK5arrow3ipc7feather3fbs17TimestampMetadata4unitEv.exit, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i74
-  %225 = phi i32 [ 0, %_ZNK5arrow3ipc7feather3fbs17TimestampMetadata4unitEv.exit.thread ], [ %169, %_ZNK5arrow3ipc7feather3fbs17TimestampMetadata4unitEv.exit ], [ %169, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i74 ]
-  %226 = phi ptr [ %160, %_ZNK5arrow3ipc7feather3fbs17TimestampMetadata4unitEv.exit.thread ], [ %170, %_ZNK5arrow3ipc7feather3fbs17TimestampMetadata4unitEv.exit ], [ %170, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i74 ]
+  %225 = phi i32 [ %169, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i74 ], [ 0, %_ZNK5arrow3ipc7feather3fbs17TimestampMetadata4unitEv.exit.thread ], [ %169, %_ZNK5arrow3ipc7feather3fbs17TimestampMetadata4unitEv.exit ]
+  %226 = phi ptr [ %170, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i74 ], [ %160, %_ZNK5arrow3ipc7feather3fbs17TimestampMetadata4unitEv.exit.thread ], [ %170, %_ZNK5arrow3ipc7feather3fbs17TimestampMetadata4unitEv.exit ]
   %227 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.6, i64 noundef 0)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %221
 
@@ -9863,8 +9863,8 @@ _ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i: 
   br label %_ZN5arrow6StatusD2Ev.exit.i.i
 
 _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %835, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i, %834, %819, %_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE13value_offsetsEv.exit.i.i
-  %.013.i.i = phi ptr [ %837, %835 ], [ null, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i ], [ null, %_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE13value_offsetsEv.exit.i.i ], [ null, %819 ], [ null, %834 ]
-  %.012.i.i = phi i64 [ %843, %835 ], [ 0, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i ], [ 0, %_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE13value_offsetsEv.exit.i.i ], [ 0, %819 ], [ 0, %834 ]
+  %.013.i.i = phi ptr [ %837, %835 ], [ null, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i ], [ null, %_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE13value_offsetsEv.exit.i.i ], [ null, %834 ], [ null, %819 ]
+  %.012.i.i = phi i64 [ %843, %835 ], [ 0, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i ], [ 0, %_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE13value_offsetsEv.exit.i.i ], [ 0, %834 ], [ 0, %819 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %36), !noalias !578
   %844 = load ptr, ptr %81, align 8, !tbaa !255, !noalias !578
   %845 = getelementptr inbounds nuw i8, ptr %844, i64 16
@@ -10181,8 +10181,8 @@ _ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i115.
   br label %_ZN5arrow6StatusD2Ev.exit.i116.i
 
 _ZN5arrow6StatusD2Ev.exit.i116.i:                 ; preds = %985, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i115.i, %984, %969, %_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE13value_offsetsEv.exit.i137.i
-  %.013.i117.i = phi ptr [ %987, %985 ], [ null, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i115.i ], [ null, %_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE13value_offsetsEv.exit.i137.i ], [ null, %969 ], [ null, %984 ]
-  %.012.i118.i = phi i64 [ %993, %985 ], [ 0, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i115.i ], [ 0, %_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE13value_offsetsEv.exit.i137.i ], [ 0, %969 ], [ 0, %984 ]
+  %.013.i117.i = phi ptr [ %987, %985 ], [ null, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i115.i ], [ null, %_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE13value_offsetsEv.exit.i137.i ], [ null, %984 ], [ null, %969 ]
+  %.012.i118.i = phi i64 [ %993, %985 ], [ 0, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i115.i ], [ 0, %_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE13value_offsetsEv.exit.i137.i ], [ 0, %984 ], [ 0, %969 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %34), !noalias !601
   %994 = load ptr, ptr %81, align 8, !tbaa !255, !noalias !601
   %995 = getelementptr inbounds nuw i8, ptr %994, i64 16
@@ -10498,8 +10498,8 @@ _ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i151.
   br label %_ZN5arrow6StatusD2Ev.exit.i152.i
 
 _ZN5arrow6StatusD2Ev.exit.i152.i:                 ; preds = %1135, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i151.i, %1134, %1119, %_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE13value_offsetsEv.exit.i.i
-  %.013.i153.i = phi ptr [ %1137, %1135 ], [ null, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i151.i ], [ null, %_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE13value_offsetsEv.exit.i.i ], [ null, %1119 ], [ null, %1134 ]
-  %.012.i154.i = phi i64 [ %1142, %1135 ], [ 0, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i151.i ], [ 0, %_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE13value_offsetsEv.exit.i.i ], [ 0, %1119 ], [ 0, %1134 ]
+  %.013.i153.i = phi ptr [ %1137, %1135 ], [ null, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i151.i ], [ null, %_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE13value_offsetsEv.exit.i.i ], [ null, %1134 ], [ null, %1119 ]
+  %.012.i154.i = phi i64 [ %1142, %1135 ], [ 0, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i151.i ], [ 0, %_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE13value_offsetsEv.exit.i.i ], [ 0, %1134 ], [ 0, %1119 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %32), !noalias !621
   %1143 = load ptr, ptr %81, align 8, !tbaa !255, !noalias !621
   %1144 = getelementptr inbounds nuw i8, ptr %1143, i64 16
@@ -10769,8 +10769,8 @@ _ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i178.
   br label %_ZN5arrow6StatusD2Ev.exit.i179.i
 
 _ZN5arrow6StatusD2Ev.exit.i179.i:                 ; preds = %1268, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i178.i, %1267, %1252, %_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE13value_offsetsEv.exit.i200.i
-  %.013.i180.i = phi ptr [ %1270, %1268 ], [ null, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i178.i ], [ null, %_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE13value_offsetsEv.exit.i200.i ], [ null, %1252 ], [ null, %1267 ]
-  %.012.i181.i = phi i64 [ %1275, %1268 ], [ 0, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i178.i ], [ 0, %_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE13value_offsetsEv.exit.i200.i ], [ 0, %1252 ], [ 0, %1267 ]
+  %.013.i180.i = phi ptr [ %1270, %1268 ], [ null, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i178.i ], [ null, %_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE13value_offsetsEv.exit.i200.i ], [ null, %1267 ], [ null, %1252 ]
+  %.012.i181.i = phi i64 [ %1275, %1268 ], [ 0, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i178.i ], [ 0, %_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE13value_offsetsEv.exit.i200.i ], [ 0, %1267 ], [ 0, %1252 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %31), !noalias !641
   %1276 = load ptr, ptr %81, align 8, !tbaa !255, !noalias !641
   %1277 = getelementptr inbounds nuw i8, ptr %1276, i64 16
@@ -11281,9 +11281,9 @@ _ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV15VisitINS_10Date64TypeEEENSt9e
   br label %.noexc112.invoke
 
 .noexc112.invoke:                                 ; preds = %_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE10value_dataEv.exit.i198.i, %1302, %1317, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit22.i189.i, %_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE10value_dataEv.exit25.i197.i, %1350, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i193.i, %1365, %_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE10value_dataEv.exit.i.i, %1169, %1184, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit22.i162.i, %_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE10value_dataEv.exit25.i.i, %1217, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i166.i, %1232, %_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE10value_dataEv.exit.i135.i, %1020, %1035, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit22.i126.i, %_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE10value_dataEv.exit25.i134.i, %1068, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i130.i, %1083, %_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE10value_dataEv.exit.i.i, %870, %885, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit22.i.i, %_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE10value_dataEv.exit25.i.i, %918, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i.i, %933, %.noexc43, %.noexc47, %.noexc51, %.noexc55, %.noexc59, %.noexc63, %.noexc67, %.noexc71, %.noexc75, %.noexc79, %.noexc83, %.noexc87, %.noexc103, %.noexc108, %.noexc112
-  %1554 = phi ptr [ %1529, %.noexc112 ], [ %1482, %.noexc108 ], [ %1419, %.noexc103 ], [ %774, %.noexc87 ], [ %727, %.noexc83 ], [ %680, %.noexc79 ], [ %633, %.noexc75 ], [ %586, %.noexc71 ], [ %539, %.noexc67 ], [ %492, %.noexc63 ], [ %445, %.noexc59 ], [ %398, %.noexc55 ], [ %351, %.noexc51 ], [ %304, %.noexc47 ], [ %257, %.noexc43 ], [ null, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit22.i.i ], [ null, %_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE10value_dataEv.exit.i.i ], [ null, %870 ], [ null, %885 ], [ %907, %_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE10value_dataEv.exit25.i.i ], [ %914, %918 ], [ %914, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i.i ], [ %914, %933 ], [ null, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit22.i126.i ], [ null, %_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE10value_dataEv.exit.i135.i ], [ null, %1020 ], [ null, %1035 ], [ %1057, %_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE10value_dataEv.exit25.i134.i ], [ %1064, %1068 ], [ %1064, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i130.i ], [ %1064, %1083 ], [ null, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit22.i162.i ], [ null, %_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE10value_dataEv.exit.i.i ], [ null, %1169 ], [ null, %1184 ], [ %1206, %_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE10value_dataEv.exit25.i.i ], [ %1213, %1217 ], [ %1213, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i166.i ], [ %1213, %1232 ], [ null, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit22.i189.i ], [ null, %_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE10value_dataEv.exit.i198.i ], [ null, %1302 ], [ null, %1317 ], [ %1339, %_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE10value_dataEv.exit25.i197.i ], [ %1346, %1350 ], [ %1346, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i193.i ], [ %1346, %1365 ]
-  %1555 = phi i64 [ %1553, %.noexc112 ], [ %1506, %.noexc108 ], [ %1443, %.noexc103 ], [ %798, %.noexc87 ], [ %751, %.noexc83 ], [ %704, %.noexc79 ], [ %657, %.noexc75 ], [ %610, %.noexc71 ], [ %563, %.noexc67 ], [ %516, %.noexc63 ], [ %469, %.noexc59 ], [ %422, %.noexc55 ], [ %375, %.noexc51 ], [ %328, %.noexc47 ], [ %281, %.noexc43 ], [ %.012.i.i, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit22.i.i ], [ %.012.i.i, %_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE10value_dataEv.exit.i.i ], [ %.012.i.i, %870 ], [ %.012.i.i, %885 ], [ %.012.i.i, %_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE10value_dataEv.exit25.i.i ], [ %.012.i.i, %918 ], [ %.012.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i.i ], [ %.012.i.i, %933 ], [ %.012.i118.i, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit22.i126.i ], [ %.012.i118.i, %_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE10value_dataEv.exit.i135.i ], [ %.012.i118.i, %1020 ], [ %.012.i118.i, %1035 ], [ %.012.i118.i, %_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE10value_dataEv.exit25.i134.i ], [ %.012.i118.i, %1068 ], [ %.012.i118.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i130.i ], [ %.012.i118.i, %1083 ], [ %.012.i154.i, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit22.i162.i ], [ %.012.i154.i, %_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE10value_dataEv.exit.i.i ], [ %.012.i154.i, %1169 ], [ %.012.i154.i, %1184 ], [ %.012.i154.i, %_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE10value_dataEv.exit25.i.i ], [ %.012.i154.i, %1217 ], [ %.012.i154.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i166.i ], [ %.012.i154.i, %1232 ], [ %.012.i181.i, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit22.i189.i ], [ %.012.i181.i, %_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE10value_dataEv.exit.i198.i ], [ %.012.i181.i, %1302 ], [ %.012.i181.i, %1317 ], [ %.012.i181.i, %_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE10value_dataEv.exit25.i197.i ], [ %.012.i181.i, %1350 ], [ %.012.i181.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i193.i ], [ %.012.i181.i, %1365 ]
-  %1556 = phi i64 [ %1546, %.noexc112 ], [ %1499, %.noexc108 ], [ %1436, %.noexc103 ], [ %791, %.noexc87 ], [ %744, %.noexc83 ], [ %697, %.noexc79 ], [ %650, %.noexc75 ], [ %603, %.noexc71 ], [ %556, %.noexc67 ], [ %509, %.noexc63 ], [ %462, %.noexc59 ], [ %415, %.noexc55 ], [ %368, %.noexc51 ], [ %321, %.noexc47 ], [ %274, %.noexc43 ], [ 0, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit22.i.i ], [ 0, %_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE10value_dataEv.exit.i.i ], [ 0, %870 ], [ 0, %885 ], [ 0, %_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE10value_dataEv.exit25.i.i ], [ 0, %918 ], [ 0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i.i ], [ 0, %933 ], [ 0, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit22.i126.i ], [ 0, %_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE10value_dataEv.exit.i135.i ], [ 0, %1020 ], [ 0, %1035 ], [ 0, %_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE10value_dataEv.exit25.i134.i ], [ 0, %1068 ], [ 0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i130.i ], [ 0, %1083 ], [ 0, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit22.i162.i ], [ 0, %_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE10value_dataEv.exit.i.i ], [ 0, %1169 ], [ 0, %1184 ], [ 0, %_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE10value_dataEv.exit25.i.i ], [ 0, %1217 ], [ 0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i166.i ], [ 0, %1232 ], [ 0, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit22.i189.i ], [ 0, %_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE10value_dataEv.exit.i198.i ], [ 0, %1302 ], [ 0, %1317 ], [ 0, %_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE10value_dataEv.exit25.i197.i ], [ 0, %1350 ], [ 0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i193.i ], [ 0, %1365 ]
+  %1554 = phi ptr [ %1529, %.noexc112 ], [ %1482, %.noexc108 ], [ %1419, %.noexc103 ], [ %1213, %1232 ], [ %1064, %1083 ], [ %914, %933 ], [ %257, %.noexc43 ], [ %774, %.noexc87 ], [ %727, %.noexc83 ], [ %680, %.noexc79 ], [ %633, %.noexc75 ], [ %586, %.noexc71 ], [ %539, %.noexc67 ], [ %492, %.noexc63 ], [ %445, %.noexc59 ], [ %398, %.noexc55 ], [ %351, %.noexc51 ], [ %304, %.noexc47 ], [ null, %870 ], [ null, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit22.i.i ], [ null, %_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE10value_dataEv.exit.i.i ], [ null, %885 ], [ %907, %_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE10value_dataEv.exit25.i.i ], [ %914, %918 ], [ %914, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i.i ], [ null, %1020 ], [ null, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit22.i126.i ], [ null, %_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE10value_dataEv.exit.i135.i ], [ null, %1035 ], [ %1057, %_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE10value_dataEv.exit25.i134.i ], [ %1064, %1068 ], [ %1064, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i130.i ], [ null, %1169 ], [ null, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit22.i162.i ], [ null, %_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE10value_dataEv.exit.i.i ], [ null, %1184 ], [ %1206, %_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE10value_dataEv.exit25.i.i ], [ %1213, %1217 ], [ %1213, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i166.i ], [ null, %1302 ], [ null, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit22.i189.i ], [ null, %_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE10value_dataEv.exit.i198.i ], [ null, %1317 ], [ %1339, %_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE10value_dataEv.exit25.i197.i ], [ %1346, %1350 ], [ %1346, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i193.i ], [ %1346, %1365 ]
+  %1555 = phi i64 [ %1553, %.noexc112 ], [ %1506, %.noexc108 ], [ %1443, %.noexc103 ], [ %.012.i154.i, %1232 ], [ %.012.i118.i, %1083 ], [ %.012.i.i, %933 ], [ %281, %.noexc43 ], [ %798, %.noexc87 ], [ %751, %.noexc83 ], [ %704, %.noexc79 ], [ %657, %.noexc75 ], [ %610, %.noexc71 ], [ %563, %.noexc67 ], [ %516, %.noexc63 ], [ %469, %.noexc59 ], [ %422, %.noexc55 ], [ %375, %.noexc51 ], [ %328, %.noexc47 ], [ %.012.i.i, %870 ], [ %.012.i.i, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit22.i.i ], [ %.012.i.i, %_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE10value_dataEv.exit.i.i ], [ %.012.i.i, %885 ], [ %.012.i.i, %_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE10value_dataEv.exit25.i.i ], [ %.012.i.i, %918 ], [ %.012.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i.i ], [ %.012.i118.i, %1020 ], [ %.012.i118.i, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit22.i126.i ], [ %.012.i118.i, %_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE10value_dataEv.exit.i135.i ], [ %.012.i118.i, %1035 ], [ %.012.i118.i, %_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE10value_dataEv.exit25.i134.i ], [ %.012.i118.i, %1068 ], [ %.012.i118.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i130.i ], [ %.012.i154.i, %1169 ], [ %.012.i154.i, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit22.i162.i ], [ %.012.i154.i, %_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE10value_dataEv.exit.i.i ], [ %.012.i154.i, %1184 ], [ %.012.i154.i, %_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE10value_dataEv.exit25.i.i ], [ %.012.i154.i, %1217 ], [ %.012.i154.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i166.i ], [ %.012.i181.i, %1302 ], [ %.012.i181.i, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit22.i189.i ], [ %.012.i181.i, %_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE10value_dataEv.exit.i198.i ], [ %.012.i181.i, %1317 ], [ %.012.i181.i, %_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE10value_dataEv.exit25.i197.i ], [ %.012.i181.i, %1350 ], [ %.012.i181.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i193.i ], [ %.012.i181.i, %1365 ]
+  %1556 = phi i64 [ %1546, %.noexc112 ], [ %1499, %.noexc108 ], [ %1436, %.noexc103 ], [ 0, %1232 ], [ 0, %1083 ], [ 0, %933 ], [ %274, %.noexc43 ], [ %791, %.noexc87 ], [ %744, %.noexc83 ], [ %697, %.noexc79 ], [ %650, %.noexc75 ], [ %603, %.noexc71 ], [ %556, %.noexc67 ], [ %509, %.noexc63 ], [ %462, %.noexc59 ], [ %415, %.noexc55 ], [ %368, %.noexc51 ], [ %321, %.noexc47 ], [ 0, %870 ], [ 0, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit22.i.i ], [ 0, %_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE10value_dataEv.exit.i.i ], [ 0, %885 ], [ 0, %_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE10value_dataEv.exit25.i.i ], [ 0, %918 ], [ 0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i.i ], [ 0, %1020 ], [ 0, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit22.i126.i ], [ 0, %_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE10value_dataEv.exit.i135.i ], [ 0, %1035 ], [ 0, %_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE10value_dataEv.exit25.i134.i ], [ 0, %1068 ], [ 0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i130.i ], [ 0, %1169 ], [ 0, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit22.i162.i ], [ 0, %_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE10value_dataEv.exit.i.i ], [ 0, %1184 ], [ 0, %_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE10value_dataEv.exit25.i.i ], [ 0, %1217 ], [ 0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i166.i ], [ 0, %1302 ], [ 0, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit22.i189.i ], [ 0, %_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE10value_dataEv.exit.i198.i ], [ 0, %1317 ], [ 0, %_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE10value_dataEv.exit25.i197.i ], [ 0, %1350 ], [ 0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28.i193.i ], [ 0, %1365 ]
   invoke fastcc void @_ZN5arrow3ipc7feather12_GLOBAL__N_113ArrayWriterV111WriteBufferEPKhll(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %47, ptr noundef %1554, i64 noundef %1555, i64 noundef %1556)
           to label %.critedge.i unwind label %182
 
@@ -13532,7 +13532,7 @@ _ZN22arrow_vendored_private11flatbuffers16DefaultAllocator8allocateEm.exit.i: ; 
   br label %_ZN22arrow_vendored_private11flatbuffers18ReallocateDownwardEPNS0_9AllocatorEPhmmmm.exit
 
 _ZN22arrow_vendored_private11flatbuffers18ReallocateDownwardEPNS0_9AllocatorEPhmmmm.exit: ; preds = %_ZN22arrow_vendored_private11flatbuffers16DefaultAllocator8allocateEm.exit.i, %41, %_ZN22arrow_vendored_private11flatbuffers9Allocator19reallocate_downwardEPhmmmm.exit.i, %29
-  %storemerge = phi ptr [ %39, %_ZN22arrow_vendored_private11flatbuffers9Allocator19reallocate_downwardEPhmmmm.exit.i ], [ %30, %29 ], [ %46, %_ZN22arrow_vendored_private11flatbuffers16DefaultAllocator8allocateEm.exit.i ], [ %42, %41 ]
+  %storemerge = phi ptr [ %30, %29 ], [ %39, %_ZN22arrow_vendored_private11flatbuffers9Allocator19reallocate_downwardEPhmmmm.exit.i ], [ %46, %_ZN22arrow_vendored_private11flatbuffers16DefaultAllocator8allocateEm.exit.i ], [ %42, %41 ]
   store ptr %storemerge, ptr %9, align 8, !tbaa !313
   %47 = load i64, ptr %3, align 8, !tbaa !225
   %48 = getelementptr inbounds nuw i8, ptr %storemerge, i64 %47
@@ -14916,7 +14916,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE7ReferToEj.
   br label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i1
 
 _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i1: ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i, %30, %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE7ReferToEj.exit
-  %31 = phi i32 [ %.pre.i, %30 ], [ %.pre.i, %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE7ReferToEj.exit ], [ %8, %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i ]
+  %31 = phi i32 [ %.pre.i, %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE7ReferToEj.exit ], [ %.pre.i, %30 ], [ %8, %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i ]
   %32 = sub i32 0, %31
   %33 = and i32 %32, 3
   %34 = zext nneg i32 %33 to i64
@@ -15279,7 +15279,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE7ReferToEj.
   br label %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i13
 
 _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i13: ; preds = %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i, %73, %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE7ReferToEj.exit
-  %74 = phi i32 [ %.pre.i12, %73 ], [ %.pre.i12, %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE7ReferToEj.exit ], [ %52, %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i ]
+  %74 = phi i32 [ %.pre.i12, %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE7ReferToEj.exit ], [ %.pre.i12, %73 ], [ %52, %_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i ]
   %.in = sub i32 %74, %1
   %75 = add i32 %.in, 4
   %76 = sub i32 0, %74
@@ -18917,7 +18917,7 @@ _ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i
   br label %_ZNK5arrow3ipc7feather3fbs6Column11metadata_asINS2_16CategoryMetadataEEEPKT_v.exit.i
 
 _ZNK5arrow3ipc7feather3fbs6Column11metadata_asINS2_16CategoryMetadataEEEPKT_v.exit.i: ; preds = %150, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i.i.i.i, %_ZNK5arrow3ipc7feather3fbs6Column13metadata_typeEv.exit.i.i.i, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i.i.i, %_ZNK5arrow3ipc7feather3fbs6CTable7columnsEv.exit.i
-  %156 = phi ptr [ null, %_ZNK5arrow3ipc7feather3fbs6Column13metadata_typeEv.exit.i.i.i ], [ %155, %150 ], [ null, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i.i.i.i ], [ null, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i.i.i ], [ null, %_ZNK5arrow3ipc7feather3fbs6CTable7columnsEv.exit.i ]
+  %156 = phi ptr [ null, %_ZNK5arrow3ipc7feather3fbs6CTable7columnsEv.exit.i ], [ null, %_ZNK5arrow3ipc7feather3fbs6Column13metadata_typeEv.exit.i.i.i ], [ %155, %150 ], [ null, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i.i.i.i ], [ null, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i.i.i ]
   %157 = load ptr, ptr %36, align 8, !tbaa !147, !noalias !847
   %158 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow6Schema5fieldEi(ptr noundef nonnull align 8 dereferenceable(32) %157, i32 noundef %2)
           to label %.noexc unwind label %217
@@ -20888,7 +20888,7 @@ _ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit153: ;
   br label %570
 
 570:                                              ; preds = %352, %.body106, %280, %.body86, %171, %.body, %568, %.body119, %210
-  %.pn52.pn = phi { ptr, i32 } [ %569, %568 ], [ %.pn50, %.body119 ], [ %211, %210 ], [ %.pn, %.body ], [ %172, %171 ], [ %.pn47, %.body86 ], [ %281, %280 ], [ %.pn44, %.body106 ], [ %353, %352 ]
+  %.pn52.pn = phi { ptr, i32 } [ %569, %568 ], [ %.pn50, %.body119 ], [ %172, %171 ], [ %281, %280 ], [ %353, %352 ], [ %211, %210 ], [ %.pn, %.body ], [ %.pn47, %.body86 ], [ %.pn44, %.body106 ]
   call void @_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %636
@@ -22789,7 +22789,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i: ; preds = %48, %_ZNSt6vec
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T_SB_SA_.exit.i
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T_SB_SA_.exit.i: ; preds = %51, %50, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i
-  %52 = phi ptr [ %28, %51 ], [ %28, %50 ], [ %46, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i ]
+  %52 = phi ptr [ %46, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i ], [ %28, %50 ], [ %28, %51 ]
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 %37
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %53, ptr %54, align 8, !tbaa !426

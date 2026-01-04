@@ -169,7 +169,7 @@ switch.lookup:                                    ; preds = %24
   br label %37
 
 37:                                               ; preds = %24, %switch.lookup, %29, %9, %35, %34, %33, %28, %23, %22, %21, %20, %19, %18
-  %.0120 = phi ptr [ @.str, %35 ], [ @.str.4, %18 ], [ @.str.5, %19 ], [ @.str.6, %20 ], [ @.str.7, %21 ], [ @.str.8, %22 ], [ @.str.9, %23 ], [ @.str.16, %28 ], [ @.str.18, %33 ], [ @.str.19, %34 ], [ @.str.3, %9 ], [ %.str.6..str.17, %29 ], [ %switch.load, %switch.lookup ], [ @.str.15, %24 ]
+  %.0120 = phi ptr [ @.str, %35 ], [ @.str.19, %34 ], [ @.str.4, %18 ], [ @.str.5, %19 ], [ @.str.6, %20 ], [ @.str.7, %21 ], [ @.str.8, %22 ], [ @.str.9, %23 ], [ @.str.16, %28 ], [ @.str.3, %9 ], [ @.str.18, %33 ], [ %switch.load, %switch.lookup ], [ %.str.6..str.17, %29 ], [ @.str.15, %24 ]
   %38 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %39 = load i32, ptr %38, align 8, !tbaa !27
   %40 = icmp ult i32 %39, 5
@@ -223,7 +223,7 @@ switch.lookup168:                                 ; preds = %37
   br label %60
 
 60:                                               ; preds = %49, %59, %58, %57, %56
-  %.1 = phi ptr [ @.str.31, %59 ], [ @.str.28, %56 ], [ @.str.29, %57 ], [ @.str.30, %58 ], [ @.str.27, %49 ]
+  %.1 = phi ptr [ @.str.31, %59 ], [ @.str.30, %58 ], [ @.str.28, %56 ], [ @.str.29, %57 ], [ @.str.27, %49 ]
   %61 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.32, ptr noundef nonnull %.1) #5
   %62 = load ptr, ptr %10, align 8, !tbaa !10
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 64
@@ -316,7 +316,7 @@ switch.lookup168:                                 ; preds = %37
   br label %104
 
 104:                                              ; preds = %94, %103, %102, %101
-  %.3 = phi ptr [ @.str.42, %103 ], [ @.str.40, %101 ], [ @.str.41, %102 ], [ @.str.39, %94 ]
+  %.3 = phi ptr [ @.str.42, %103 ], [ @.str.41, %102 ], [ @.str.40, %101 ], [ @.str.39, %94 ]
   %105 = getelementptr inbounds nuw i8, ptr %77, i64 80
   %106 = load i64, ptr %105, align 8, !tbaa !26
   %107 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.43, i64 noundef %106) #5
@@ -560,12 +560,12 @@ switch.lookup168:                                 ; preds = %37
   %247 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.65, i32 noundef %48) #5
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %84, %92, %127, %124, %76, %._crit_edge, %._crit_edge149, %246, %244, %242, %240, %238, %229, %174, %176
+.critedge.thread:                                 ; preds = %84, %127, %124, %76, %92, %._crit_edge, %._crit_edge149, %246, %244, %242, %240, %238, %229, %174, %176
   %fputc140 = tail call i32 @fputc(i32 125, ptr %1)
   br label %.critedge
 
 .critedge:                                        ; preds = %52, %80, %87, %97, %2, %.critedge.thread, %155, %14
-  %.0124 = phi i32 [ 0, %.critedge.thread ], [ -1, %155 ], [ -1, %14 ], [ 0, %2 ], [ -1, %80 ], [ -1, %87 ], [ -1, %97 ], [ -1, %52 ]
+  %.0124 = phi i32 [ 0, %.critedge.thread ], [ -1, %155 ], [ 0, %2 ], [ -1, %14 ], [ -1, %52 ], [ -1, %80 ], [ -1, %87 ], [ -1, %97 ]
   ret i32 %.0124
 }
 

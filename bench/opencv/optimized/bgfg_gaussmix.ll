@@ -725,8 +725,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %95,
   br label %..loopexit29_crit_edge.us.us.us.us.us.i
 
 ..loopexit29_crit_edge.us.us.us.us.us.i:          ; preds = %264, %250, %271, %272
-  %.1134.us.us.us.us.us220.i = phi i32 [ %265, %272 ], [ %265, %271 ], [ -1, %250 ], [ -1, %264 ]
-  %.0131.us.us.us.us.us.i = phi i32 [ %274, %272 ], [ -1, %271 ], [ -1, %250 ], [ -1, %264 ]
+  %.1134.us.us.us.us.us220.i = phi i32 [ %265, %271 ], [ %265, %272 ], [ -1, %250 ], [ -1, %264 ]
+  %.0131.us.us.us.us.us.i = phi i32 [ -1, %271 ], [ %274, %272 ], [ -1, %250 ], [ -1, %264 ]
   %275 = icmp slt i32 %.1134.us.us.us.us.us220.i, 0
   %276 = icmp sge i32 %.1134.us.us.us.us.us220.i, %.0131.us.us.us.us.us.i
   %277 = select i1 %275, i1 true, i1 %276
@@ -1295,9 +1295,9 @@ _ZNK2cv4MatxIfLi3ELi1EE3dotERKS1_.exit184._crit_edge.us.us.us.i: ; preds = %_ZNK
   br label %.loopexit50.us.us.us.i
 
 .loopexit50.us.us.us.i:                           ; preds = %518, %485, %525, %526
-  %529 = phi i1 [ false, %526 ], [ false, %525 ], [ true, %485 ], [ true, %518 ]
-  %.1123.us.us.us213.i = phi i32 [ %519, %526 ], [ %519, %525 ], [ -1, %485 ], [ -1, %518 ]
-  %.0120.us.us.us.i = phi i32 [ %528, %526 ], [ -1, %525 ], [ -1, %485 ], [ -1, %518 ]
+  %529 = phi i1 [ false, %525 ], [ false, %526 ], [ true, %485 ], [ true, %518 ]
+  %.1123.us.us.us213.i = phi i32 [ %519, %525 ], [ %519, %526 ], [ -1, %485 ], [ -1, %518 ]
+  %.0120.us.us.us.i = phi i32 [ -1, %525 ], [ %528, %526 ], [ -1, %485 ], [ -1, %518 ]
   %530 = icmp sge i32 %.1123.us.us.us213.i, %.0120.us.us.us.i
   %531 = select i1 %529, i1 true, i1 %530
   %532 = sext i1 %531 to i8
@@ -1370,7 +1370,7 @@ _ZN2cv6bgsegmL11process8uC1ERKNS_3MatERS1_dS4_iddd.exit: ; preds = %.preheader53
   ret void
 
 550:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50
-  %.pn27 = phi { ptr, i32 } [ %.pn25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57 ], [ %.pn23, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50 ]
+  %.pn27 = phi { ptr, i32 } [ %.pn23, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50 ], [ %.pn25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %19) #20
   br label %551
 

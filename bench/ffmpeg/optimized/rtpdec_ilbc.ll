@@ -46,7 +46,7 @@ define internal range(i32 -2147483648, 1) i32 @ilbc_parse_sdp_line(ptr noundef %
   br label %.thread
 
 .thread:                                          ; preds = %14, %23, %7, %18, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %18 ], [ 0, %7 ], [ %16, %14 ], [ -22, %23 ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %4 ], [ 0, %18 ], [ %16, %14 ], [ -22, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

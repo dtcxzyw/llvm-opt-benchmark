@@ -178,7 +178,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -989,7 +989,7 @@ define internal noundef ptr @_ZN6icu_77L11_createEscCERKNS_13UnicodeStringENS_14
   br label %.critedge102.thread126
 
 .critedge102.thread126:                           ; preds = %28, %.critedge102, %33
-  %.pn.pn.pn122129 = phi { ptr, i32 } [ %.pn.pn.ph, %.critedge102 ], [ %.pn.pn.ph, %33 ], [ %29, %28 ]
+  %.pn.pn.pn122129 = phi { ptr, i32 } [ %.pn.pn.ph, %33 ], [ %.pn.pn.ph, %.critedge102 ], [ %29, %28 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #13
@@ -1295,7 +1295,7 @@ define void @_ZN6icu_7720EscapeTransliteratorC2ERKS0_(ptr noundef nonnull align 
           to label %25 unwind label %32
 
 25:                                               ; preds = %8, %20, %23
-  %26 = phi ptr [ null, %20 ], [ %21, %23 ], [ null, %8 ]
+  %26 = phi ptr [ %21, %23 ], [ null, %20 ], [ null, %8 ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr %26, ptr %27, align 8, !tbaa !32
   ret void
@@ -1667,7 +1667,7 @@ _ZN6icu_7713UnicodeString6appendERKS0_.exit44:    ; preds = %136, %79
   ret void
 
 165:                                              ; preds = %91, %93
-  %.pn.pn = phi { ptr, i32 } [ %94, %93 ], [ %92, %91 ]
+  %.pn.pn = phi { ptr, i32 } [ %92, %91 ], [ %94, %93 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn

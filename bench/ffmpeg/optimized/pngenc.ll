@@ -235,8 +235,8 @@ define internal range(i32 -2147483648, 1) i32 @encode_png(ptr noundef %0, ptr no
   %40 = icmp ult i64 %39, %27
   br i1 %40, label %add_icc_profile_size.exit, label %41
 
-41:                                               ; preds = %37, %4, %30, %28
-  %.042.ph = phi i64 [ %27, %30 ], [ %27, %28 ], [ %27, %4 ], [ %39, %37 ]
+41:                                               ; preds = %37, %4, %28, %30
+  %.042.ph = phi i64 [ %27, %4 ], [ %27, %30 ], [ %27, %28 ], [ %39, %37 ]
   %42 = tail call i32 @ff_alloc_packet(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %.042.ph) #13
   %43 = icmp slt i32 %42, 0
   br i1 %43, label %add_icc_profile_size.exit, label %44
@@ -302,7 +302,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_png(ptr noundef %0, ptr no
   br label %add_icc_profile_size.exit
 
 add_icc_profile_size.exit:                        ; preds = %37, %33, %58, %44, %41, %61
-  %.0 = phi i32 [ 0, %61 ], [ %42, %41 ], [ %56, %44 ], [ %59, %58 ], [ -1094995529, %33 ], [ -1094995529, %37 ]
+  %.0 = phi i32 [ 0, %61 ], [ %59, %58 ], [ %42, %41 ], [ %56, %44 ], [ -1094995529, %33 ], [ -1094995529, %37 ]
   ret i32 %.0
 }
 
@@ -416,8 +416,8 @@ define internal range(i32 -2147483648, 1) i32 @encode_apng(ptr noundef %0, ptr n
   %61 = icmp ult i64 %60, %48
   br i1 %61, label %add_icc_profile_size.exit, label %62
 
-62:                                               ; preds = %58, %28, %51, %49
-  %.0.ph = phi i64 [ %48, %51 ], [ %48, %49 ], [ %48, %28 ], [ %60, %58 ]
+62:                                               ; preds = %58, %28, %49, %51
+  %.0.ph = phi i64 [ %48, %28 ], [ %48, %51 ], [ %48, %49 ], [ %60, %58 ]
   %63 = icmp ugt i64 %.0.ph, 2147483647
   br i1 %63, label %add_icc_profile_size.exit, label %64
 
@@ -980,10 +980,10 @@ apng_encode_frame.exit.thread:                    ; preds = %134
   br i1 %exitcond224.not.i.i, label %.loopexit.i, label %.lr.ph.us.i.i, !llvm.loop !90
 
 .loopexit.i:                                      ; preds = %..critedge_crit_edge.us.i.i, %229, %.lr.ph209.i.i, %.loopexit175.i.i, %.preheader.i.i
-  %.3148247.i.i = phi i32 [ %.3148248.i.i, %.loopexit175.i.i ], [ %.0145.lcssa.i.i, %.preheader.i.i ], [ %.3148248.i.i, %.lr.ph209.i.i ], [ %.3148249254.i.i, %229 ], [ %.3148248.i.i, %..critedge_crit_edge.us.i.i ]
-  %.4244.i.i = phi i32 [ %.4245.i.i, %.loopexit175.i.i ], [ %.0149.lcssa.i.i, %.preheader.i.i ], [ %.4245.i.i, %.lr.ph209.i.i ], [ %.4246255.i.i, %229 ], [ %.4245.i.i, %..critedge_crit_edge.us.i.i ]
-  %.4157242.i.i = phi i32 [ %.4157243.i.i, %.loopexit175.i.i ], [ %.0153.lcssa.i.i, %.preheader.i.i ], [ %.4157243.i.i, %.lr.ph209.i.i ], [ %.4157241256.i.i, %229 ], [ %.4157243.i.i, %..critedge_crit_edge.us.i.i ]
-  %.4162239.i.i = phi i32 [ %.4162240.i.i, %.loopexit175.i.i ], [ %.0158.lcssa.i.i, %.preheader.i.i ], [ %.4162240.i.i, %.lr.ph209.i.i ], [ %.4162238257.i.i, %229 ], [ %.4162240.i.i, %..critedge_crit_edge.us.i.i ]
+  %.3148247.i.i = phi i32 [ %.0145.lcssa.i.i, %.preheader.i.i ], [ %.3148249254.i.i, %229 ], [ %.3148248.i.i, %.lr.ph209.i.i ], [ %.3148248.i.i, %.loopexit175.i.i ], [ %.3148248.i.i, %..critedge_crit_edge.us.i.i ]
+  %.4244.i.i = phi i32 [ %.0149.lcssa.i.i, %.preheader.i.i ], [ %.4246255.i.i, %229 ], [ %.4245.i.i, %.lr.ph209.i.i ], [ %.4245.i.i, %.loopexit175.i.i ], [ %.4245.i.i, %..critedge_crit_edge.us.i.i ]
+  %.4157242.i.i = phi i32 [ %.0153.lcssa.i.i, %.preheader.i.i ], [ %.4157241256.i.i, %229 ], [ %.4157243.i.i, %.lr.ph209.i.i ], [ %.4157243.i.i, %.loopexit175.i.i ], [ %.4157243.i.i, %..critedge_crit_edge.us.i.i ]
+  %.4162239.i.i = phi i32 [ %.0158.lcssa.i.i, %.preheader.i.i ], [ %.4162238257.i.i, %229 ], [ %.4162240.i.i, %.lr.ph209.i.i ], [ %.4162240.i.i, %.loopexit175.i.i ], [ %.4162240.i.i, %..critedge_crit_edge.us.i.i ]
   %320 = sub i32 %.4157242.i.i, %.4162239.i.i
   store i32 %320, ptr %142, align 8, !tbaa !77
   %321 = sub i32 %.3148247.i.i, %.4244.i.i
@@ -1342,7 +1342,7 @@ apng_encode_frame.exit:                           ; preds = %128, %.loopexit186.
   br label %add_icc_profile_size.exit
 
 add_icc_profile_size.exit:                        ; preds = %401, %apng_encode_frame.exit.thread, %58, %54, %468, %478, %.loopexit, %415, %413, %405, %apng_encode_frame.exit, %94, %89, %76, %73, %69, %68, %62, %.critedge
-  %.2 = phi i32 [ -12, %401 ], [ -1, %.critedge ], [ -12, %62 ], [ -22, %68 ], [ -12, %69 ], [ %74, %73 ], [ -12, %76 ], [ %92, %89 ], [ %107, %94 ], [ %.0.i162, %apng_encode_frame.exit ], [ -12, %405 ], [ -12, %413 ], [ %425, %415 ], [ %466, %.loopexit ], [ 0, %478 ], [ 0, %468 ], [ -1094995529, %54 ], [ -1094995529, %58 ], [ -12, %apng_encode_frame.exit.thread ]
+  %.2 = phi i32 [ -1, %.critedge ], [ 0, %468 ], [ -12, %69 ], [ %107, %94 ], [ %425, %415 ], [ %466, %.loopexit ], [ -12, %413 ], [ -12, %405 ], [ %.0.i162, %apng_encode_frame.exit ], [ -12, %401 ], [ %74, %73 ], [ -22, %68 ], [ -12, %62 ], [ -12, %76 ], [ %92, %89 ], [ 0, %478 ], [ -1094995529, %54 ], [ -1094995529, %58 ], [ -12, %apng_encode_frame.exit.thread ]
   ret i32 %.2
 }
 
@@ -1689,7 +1689,7 @@ png_write_chunk.exit.i:                           ; preds = %171, %152
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %179
 
-179:                                              ; preds = %png_write_chunk.exit.i, %114, %111
+179:                                              ; preds = %111, %png_write_chunk.exit.i, %114
   %180 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %181 = load i32, ptr %180, align 4, !tbaa !117
   %182 = icmp eq i32 %181, 1
@@ -2619,7 +2619,7 @@ png_get_interlaced_row.exit.loopexit210:          ; preds = %131
   br label %png_get_interlaced_row.exit
 
 png_get_interlaced_row.exit:                      ; preds = %119, %png_get_interlaced_row.exit.loopexit210, %95, %121
-  %134 = phi ptr [ %.pre, %png_get_interlaced_row.exit.loopexit210 ], [ %91, %95 ], [ %91, %121 ], [ %91, %119 ]
+  %134 = phi ptr [ %.pre, %png_get_interlaced_row.exit.loopexit210 ], [ %91, %121 ], [ %91, %95 ], [ %91, %119 ]
   %135 = load i32, ptr %12, align 4, !tbaa !44
   %136 = ashr i32 %135, 3
   %137 = load i32, ptr %18, align 8, !tbaa !29
@@ -2989,7 +2989,7 @@ png_write_row.exit:                               ; preds = %241, %301
   br i1 %307, label %79, label %.loopexit194, !llvm.loop !141
 
 .loopexit194:                                     ; preds = %303, %.preheader193, %62
-  %308 = phi ptr [ %63, %.preheader193 ], [ %63, %62 ], [ %305, %303 ]
+  %308 = phi ptr [ %63, %62 ], [ %63, %.preheader193 ], [ %305, %303 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
   br i1 %exitcond.not, label %.loopexit190, label %62, !llvm.loop !142
@@ -3135,9 +3135,9 @@ png_write_row.exit130:                            ; preds = %349, %363, %png_cho
   br i1 %366, label %309, label %.loopexit190, !llvm.loop !143
 
 .loopexit190:                                     ; preds = %.loopexit194, %png_write_row.exit130, %.preheader
-  %367 = phi ptr [ %50, %.preheader ], [ %50, %png_write_row.exit130 ], [ %43, %.loopexit194 ]
-  %368 = phi ptr [ %51, %.preheader ], [ %51, %png_write_row.exit130 ], [ %42, %.loopexit194 ]
-  %369 = phi ptr [ %52, %.preheader ], [ %52, %png_write_row.exit130 ], [ %41, %.loopexit194 ]
+  %367 = phi ptr [ %50, %png_write_row.exit130 ], [ %50, %.preheader ], [ %43, %.loopexit194 ]
+  %368 = phi ptr [ %51, %png_write_row.exit130 ], [ %51, %.preheader ], [ %42, %.loopexit194 ]
+  %369 = phi ptr [ %52, %png_write_row.exit130 ], [ %52, %.preheader ], [ %41, %.loopexit194 ]
   %370 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %371 = getelementptr inbounds nuw i8, ptr %8, i64 32
   br label %372

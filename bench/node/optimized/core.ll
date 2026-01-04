@@ -80,7 +80,7 @@ if.end5:                                          ; preds = %sw.epilog
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end5, %if.then3
-  %retval.0 = phi i32 [ %sub, %if.then3 ], [ 0, %if.end5 ], [ -14, %entry ], [ -22, %if.end ]
+  %retval.0 = phi i32 [ 0, %if.end5 ], [ -14, %entry ], [ %sub, %if.then3 ], [ -22, %if.end ]
   ret i32 %retval.0
 }
 
@@ -288,7 +288,7 @@ if.then22:                                        ; preds = %if.end20
   br label %return
 
 return:                                           ; preds = %if.end20, %if.end, %entry, %if.then22
-  %retval.0 = phi i32 [ %sub, %if.then22 ], [ -22, %entry ], [ -95, %if.end ], [ 0, %if.end20 ]
+  %retval.0 = phi i32 [ -22, %entry ], [ %sub, %if.then22 ], [ -95, %if.end ], [ 0, %if.end20 ]
   ret i32 %retval.0
 }
 
@@ -910,7 +910,7 @@ if.then.i.i:                                      ; preds = %if.then18
   br label %return
 
 return:                                           ; preds = %do.body.i12, %if.then.i.i, %if.then18, %if.end17, %entry, %if.then9, %if.then4
-  %retval.0 = phi i32 [ %sub, %if.then4 ], [ %sub11, %if.then9 ], [ %call, %entry ], [ %call7, %if.end17 ], [ %err.031, %if.then18 ], [ %err.031, %if.then.i.i ], [ %call7, %do.body.i12 ]
+  %retval.0 = phi i32 [ %call, %entry ], [ %sub, %if.then4 ], [ %sub11, %if.then9 ], [ %err.031, %if.then.i.i ], [ %call7, %if.end17 ], [ %err.031, %if.then18 ], [ %call7, %do.body.i12 ]
   ret i32 %retval.0
 }
 
@@ -1197,7 +1197,7 @@ if.then28:                                        ; preds = %land.rhs22, %do.bod
   br label %return
 
 return:                                           ; preds = %do.body18, %if.end, %if.then28, %if.then
-  %retval.0 = phi i32 [ %sub, %if.then ], [ %sub30, %if.then28 ], [ 0, %if.end ], [ %call19, %do.body18 ]
+  %retval.0 = phi i32 [ %sub, %if.then ], [ 0, %if.end ], [ %sub30, %if.then28 ], [ %call19, %do.body18 ]
   ret i32 %retval.0
 }
 
@@ -1290,7 +1290,7 @@ if.then29:                                        ; preds = %if.end25
   br label %return
 
 return:                                           ; preds = %if.end25, %entry, %if.then29, %if.then12, %if.then7
-  %retval.0 = phi i32 [ -105, %if.then29 ], [ %sub, %if.then7 ], [ %sub14, %if.then12 ], [ -22, %entry ], [ 0, %if.end25 ]
+  %retval.0 = phi i32 [ %sub14, %if.then12 ], [ -105, %if.then29 ], [ -22, %entry ], [ %sub, %if.then7 ], [ 0, %if.end25 ]
   ret i32 %retval.0
 }
 
@@ -1942,7 +1942,7 @@ if.end12:                                         ; preds = %if.end7
   br label %return
 
 return:                                           ; preds = %uv__open_cloexec.exit, %if.end12, %if.then9
-  %retval.0 = phi i32 [ %sub11, %if.then9 ], [ 0, %if.end12 ], [ %retval.0.i, %uv__open_cloexec.exit ]
+  %retval.0 = phi i32 [ 0, %if.end12 ], [ %sub11, %if.then9 ], [ %retval.0.i, %uv__open_cloexec.exit ]
   ret i32 %retval.0
 }
 
@@ -2035,7 +2035,7 @@ if.end8:                                          ; preds = %if.end4
   br label %return
 
 return:                                           ; preds = %return.sink.split.i, %entry, %lor.lhs.false4.i, %if.end, %if.end8, %if.then7
-  %retval.0 = phi i32 [ -105, %if.then7 ], [ 0, %if.end8 ], [ %call1.i, %if.end ], [ %retval.0.ph.i, %return.sink.split.i ], [ -22, %entry ], [ -22, %lor.lhs.false4.i ]
+  %retval.0 = phi i32 [ 0, %if.end8 ], [ %call1.i, %if.end ], [ -105, %if.then7 ], [ %retval.0.ph.i, %return.sink.split.i ], [ -22, %entry ], [ -22, %lor.lhs.false4.i ]
   ret i32 %retval.0
 }
 
@@ -2302,7 +2302,7 @@ for.end59:                                        ; preds = %for.body47, %if.end
   br label %return
 
 return:                                           ; preds = %for.cond, %for.cond.preheader, %if.end15, %entry, %for.end59, %if.then36, %if.then14
-  %retval.0 = phi i32 [ %sub, %if.then14 ], [ -12, %if.then36 ], [ 0, %for.end59 ], [ -22, %entry ], [ -2, %if.end15 ], [ -12, %for.cond.preheader ], [ -12, %for.cond ]
+  %retval.0 = phi i32 [ 0, %for.end59 ], [ -22, %entry ], [ %sub, %if.then14 ], [ -2, %if.end15 ], [ -12, %if.then36 ], [ -12, %for.cond.preheader ], [ -12, %for.cond ]
   ret i32 %retval.0
 }
 
@@ -2420,7 +2420,7 @@ if.end30:                                         ; preds = %if.end18
   br label %return
 
 return:                                           ; preds = %for.cond, %for.cond.preheader, %if.end15, %entry, %if.end30, %if.then29, %if.then14
-  %retval.0 = phi i32 [ %sub, %if.then14 ], [ -12, %if.then29 ], [ 0, %if.end30 ], [ -22, %entry ], [ -2, %if.end15 ], [ -12, %for.cond.preheader ], [ -12, %for.cond ]
+  %retval.0 = phi i32 [ 0, %if.end30 ], [ -22, %entry ], [ %sub, %if.then14 ], [ -2, %if.end15 ], [ -12, %if.then29 ], [ -12, %for.cond.preheader ], [ -12, %for.cond ]
   ret i32 %retval.0
 }
 
@@ -2577,7 +2577,7 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.then3
-  %retval.0 = phi i32 [ %sub, %if.then3 ], [ -22, %entry ], [ 0, %if.end ]
+  %retval.0 = phi i32 [ -22, %entry ], [ %sub, %if.then3 ], [ 0, %if.end ]
   ret i32 %retval.0
 }
 
@@ -2602,7 +2602,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.then2
-  %retval.0 = phi i32 [ %sub, %if.then2 ], [ -22, %entry ], [ 0, %if.end ]
+  %retval.0 = phi i32 [ -22, %entry ], [ %sub, %if.then2 ], [ 0, %if.end ]
   ret i32 %retval.0
 }
 
@@ -2653,7 +2653,7 @@ if.end12:                                         ; preds = %if.end7
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false2, %if.end12, %if.then11, %if.then5
-  %retval.0 = phi i32 [ %sub, %if.then5 ], [ -105, %if.then11 ], [ 0, %if.end12 ], [ -22, %lor.lhs.false2 ], [ -22, %entry ]
+  %retval.0 = phi i32 [ 0, %if.end12 ], [ %sub, %if.then5 ], [ -105, %if.then11 ], [ -22, %lor.lhs.false2 ], [ -22, %entry ]
   ret i32 %retval.0
 }
 
@@ -2725,7 +2725,7 @@ if.end7:                                          ; preds = %land.lhs.true, %if.
   br label %return
 
 return:                                           ; preds = %entry, %if.end7, %if.then5
-  %retval.0 = phi i32 [ %sub, %if.then5 ], [ 0, %if.end7 ], [ -22, %entry ]
+  %retval.0 = phi i32 [ 0, %if.end7 ], [ %sub, %if.then5 ], [ -22, %entry ]
   ret i32 %retval.0
 }
 
@@ -2751,7 +2751,7 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.then3
-  %retval.0 = phi i32 [ %sub, %if.then3 ], [ -22, %entry ], [ 0, %if.end ]
+  %retval.0 = phi i32 [ -22, %entry ], [ %sub, %if.then3 ], [ 0, %if.end ]
   ret i32 %retval.0
 }
 
@@ -2818,7 +2818,7 @@ error:                                            ; preds = %if.end29, %if.end20
   br label %return
 
 return:                                           ; preds = %if.end29, %entry, %error
-  %retval.0 = phi i32 [ %r.0, %error ], [ -22, %entry ], [ 0, %if.end29 ]
+  %retval.0 = phi i32 [ -22, %entry ], [ %r.0, %error ], [ 0, %if.end29 ]
   ret i32 %retval.0
 }
 
@@ -2874,7 +2874,7 @@ if.end4:                                          ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %entry, %switch.lookup, %if.end4, %if.then2
-  %retval.0 = phi i32 [ %sub, %if.then2 ], [ 0, %if.end4 ], [ -9, %switch.lookup ], [ -22, %entry ]
+  %retval.0 = phi i32 [ 0, %if.end4 ], [ %sub, %if.then2 ], [ -9, %switch.lookup ], [ -22, %entry ]
   ret i32 %retval.0
 }
 
@@ -2907,7 +2907,7 @@ if.end4:                                          ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %entry, %if.end4, %if.then2
-  %retval.0 = phi i32 [ %sub, %if.then2 ], [ 0, %if.end4 ], [ -22, %entry ]
+  %retval.0 = phi i32 [ 0, %if.end4 ], [ %sub, %if.then2 ], [ -22, %entry ]
   ret i32 %retval.0
 }
 
@@ -3039,7 +3039,7 @@ while.end:                                        ; preds = %if.end51, %if.end27
   br label %return
 
 return:                                           ; preds = %if.end23, %if.end19, %entry, %lor.lhs.false2, %while.end, %if.then41, %if.end11, %if.then9
-  %retval.0 = phi i32 [ %sub, %if.then9 ], [ 0, %if.end11 ], [ 0, %if.then41 ], [ -22, %while.end ], [ -22, %lor.lhs.false2 ], [ -22, %entry ], [ -22, %if.end19 ], [ -12, %if.end23 ]
+  %retval.0 = phi i32 [ -22, %while.end ], [ %sub, %if.then9 ], [ 0, %if.end11 ], [ -22, %entry ], [ -22, %if.end19 ], [ 0, %if.then41 ], [ -22, %lor.lhs.false2 ], [ -12, %if.end23 ]
   ret i32 %retval.0
 }
 

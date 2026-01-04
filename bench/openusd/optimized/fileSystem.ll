@@ -103,7 +103,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__18ArchStatIsWrit
   br label %23
 
 23:                                               ; preds = %1, %2, %11, %19, %14
-  %.0 = phi i1 [ true, %11 ], [ true, %2 ], [ false, %14 ], [ %22, %19 ], [ false, %1 ]
+  %.0 = phi i1 [ %22, %19 ], [ true, %11 ], [ true, %2 ], [ false, %14 ], [ false, %1 ]
   ret i1 %.0
 }
 
@@ -439,7 +439,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_NextTokenISt16reverse_iter
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_GetTokenTypeIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_9TokenTypeESt4pairIT_SF_E.exit.thread.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_GetTokenTypeIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_9TokenTypeESt4pairIT_SF_E.exit.thread.i: ; preds = %104, %103, %101, %97, %54, %._crit_edge.i, %42, %28
-  %.2.i = phi i64 [ %55, %54 ], [ %.1.lcssa.i, %._crit_edge.i ], [ %102, %101 ], [ %95, %97 ], [ %.0129.i, %103 ], [ %spec.select.i, %42 ], [ %107, %104 ], [ %.0129.i, %28 ]
+  %.2.i = phi i64 [ %spec.select.i, %42 ], [ %.0129.i, %103 ], [ %107, %104 ], [ %55, %54 ], [ %.1.lcssa.i, %._crit_edge.i ], [ %102, %101 ], [ %95, %97 ], [ %.0129.i, %28 ]
   %108 = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #23
   %109 = ptrtoint ptr %108 to i64
   %.not1012.i60.i = icmp eq ptr %.sroa.11.0127.i, %108
@@ -1554,7 +1554,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__9ArchPReadEP8_IO_FILEPv
   br label %.critedge2
 
 .critedge2:                                       ; preds = %12, %6, %4, %26
-  %.036 = phi i64 [ %27, %26 ], [ 0, %4 ], [ %8, %6 ], [ -1, %12 ]
+  %.036 = phi i64 [ %8, %6 ], [ 0, %4 ], [ %27, %26 ], [ -1, %12 ]
   ret i64 %.036
 }
 
@@ -1595,7 +1595,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__10ArchPWriteEP8_IO_FILE
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %6, %4, %17
-  %.029 = phi i64 [ %18, %17 ], [ -1, %4 ], [ %2, %6 ], [ -1, %.preheader ]
+  %.029 = phi i64 [ %2, %6 ], [ -1, %4 ], [ %18, %17 ], [ -1, %.preheader ]
   ret i64 %.029
 }
 

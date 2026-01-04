@@ -124,8 +124,8 @@ define hidden range(i32 -2147483648, 2) i32 @indonesian_UTF_8_stem(ptr noundef %
   store i32 %46, ptr %44, align 4
   br label %47
 
-47:                                               ; preds = %35, %22, %29, %42
-  %.016.i.ph = phi i32 [ 0, %35 ], [ 0, %22 ], [ 0, %29 ], [ 1, %42 ]
+47:                                               ; preds = %35, %29, %42, %22
+  %.016.i.ph = phi i32 [ 0, %35 ], [ 0, %29 ], [ 1, %42 ], [ 0, %22 ]
   %48 = load i32, ptr %25, align 4
   store i32 %48, ptr %5, align 8
   %49 = load ptr, ptr %2, align 8
@@ -172,7 +172,7 @@ define hidden range(i32 -2147483648, 2) i32 @indonesian_UTF_8_stem(ptr noundef %
   store i32 %72, ptr %70, align 4
   br label %73
 
-73:                                               ; preds = %61, %53, %56, %68
+73:                                               ; preds = %61, %56, %68, %53
   %74 = load i32, ptr %24, align 8
   store i32 %74, ptr %5, align 8
   %75 = load ptr, ptr %2, align 8
@@ -262,7 +262,7 @@ r_remove_particle.exit.sink.split:                ; preds = %106, %111, %90, %84
   br label %r_remove_particle.exit
 
 r_remove_particle.exit:                           ; preds = %.critedge, %r_remove_particle.exit.sink.split, %82, %100, %94, %63, %.thread194, %37, %73, %47, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %47 ], [ 0, %73 ], [ %40, %37 ], [ %104, %.thread194 ], [ %66, %63 ], [ %.9, %100 ], [ %80, %82 ], [ %92, %94 ], [ %spec.select, %.critedge ], [ 1, %r_remove_particle.exit.sink.split ]
+  %.0 = phi i32 [ %40, %37 ], [ 0, %73 ], [ 0, %47 ], [ %80, %82 ], [ 0, %._crit_edge ], [ %104, %.thread194 ], [ 1, %r_remove_particle.exit.sink.split ], [ %66, %63 ], [ %92, %94 ], [ %spec.select, %.critedge ], [ %.9, %100 ]
   ret i32 %.0
 }
 
@@ -431,7 +431,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_first_order_prefi
   br label %88
 
 88:                                               ; preds = %15, %21, %31, %43, %53, %70, %67, %85, %82, %.thread130, %.thread117, %13, %1, %8, %18, %28, %38, %48
-  %.0 = phi i32 [ %19, %18 ], [ %29, %28 ], [ %41, %38 ], [ %51, %48 ], [ 0, %8 ], [ 0, %1 ], [ 0, %13 ], [ %.7.ph, %.thread117 ], [ %.11.ph, %.thread130 ], [ 1, %82 ], [ 1, %85 ], [ 1, %67 ], [ 1, %70 ], [ 1, %53 ], [ 1, %43 ], [ 1, %31 ], [ 1, %21 ], [ 1, %15 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %13 ], [ %19, %18 ], [ %29, %28 ], [ %41, %38 ], [ %51, %48 ], [ %.7.ph, %.thread117 ], [ %.11.ph, %.thread130 ], [ 0, %8 ], [ 1, %82 ], [ 1, %85 ], [ 1, %67 ], [ 1, %70 ], [ 1, %53 ], [ 1, %43 ], [ 1, %31 ], [ 1, %21 ], [ 1, %15 ]
   ret i32 %.0
 }
 
@@ -480,7 +480,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_suffix(ptr nounde
   br label %26
 
 26:                                               ; preds = %15, %13, %1, %7, %20
-  %.016 = phi i32 [ 1, %20 ], [ %18, %15 ], [ 0, %7 ], [ 0, %1 ], [ 0, %13 ]
+  %.016 = phi i32 [ 0, %1 ], [ 1, %20 ], [ %18, %15 ], [ 0, %7 ], [ 0, %13 ]
   ret i32 %.016
 }
 
@@ -572,7 +572,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_second_order_pref
   br label %44
 
 44:                                               ; preds = %.sink.split, %15, %13, %1, %8, %18, %24, %29, %35
-  %.0 = phi i32 [ %19, %18 ], [ %25, %24 ], [ %30, %29 ], [ %36, %35 ], [ 0, %8 ], [ 0, %1 ], [ 0, %13 ], [ 1, %15 ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %13 ], [ %19, %18 ], [ %25, %24 ], [ %30, %29 ], [ %36, %35 ], [ 0, %8 ], [ 1, %15 ], [ 1, %.sink.split ]
   ret i32 %.0
 }
 
@@ -678,7 +678,7 @@ define internal range(i32 0, 2) i32 @r_KER(ptr noundef %0) #0 {
   br label %5
 
 5:                                                ; preds = %3, %1
-  %.0 = phi i32 [ 0, %1 ], [ %., %3 ]
+  %.0 = phi i32 [ %., %3 ], [ 0, %1 ]
   ret i32 %.0
 }
 

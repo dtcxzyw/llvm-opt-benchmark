@@ -78,7 +78,7 @@ define range(i32 0, 2) i32 @SSL_use_certificate(ptr noundef %0, ptr noundef %1) 
   br label %.thread
 
 .thread:                                          ; preds = %7, %2, %9, %18, %17, %14
-  %.0 = phi i32 [ 0, %14 ], [ 0, %17 ], [ %23, %18 ], [ 0, %9 ], [ 0, %2 ], [ 0, %7 ]
+  %.0 = phi i32 [ %23, %18 ], [ 0, %14 ], [ 0, %17 ], [ 0, %9 ], [ 0, %2 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -424,7 +424,7 @@ define range(i32 0, 2) i32 @SSL_use_PrivateKey(ptr noundef %0, ptr noundef %1) l
   br label %.thread
 
 .thread:                                          ; preds = %7, %2, %9, %15, %14
-  %.0 = phi i32 [ 0, %14 ], [ %20, %15 ], [ 0, %9 ], [ 0, %2 ], [ 0, %7 ]
+  %.0 = phi i32 [ %20, %15 ], [ 0, %14 ], [ 0, %9 ], [ 0, %2 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -609,7 +609,7 @@ define range(i32 0, 2) i32 @SSL_use_PrivateKey_file(ptr noundef %0, ptr noundef 
   br label %SSL_use_PrivateKey.exit
 
 SSL_use_PrivateKey.exit:                          ; preds = %52, %54, %.thread15.i
-  %.0.i = phi i32 [ %62, %.thread15.i ], [ 0, %54 ], [ 0, %52 ]
+  %.0.i = phi i32 [ %62, %.thread15.i ], [ 0, %52 ], [ 0, %54 ]
   tail call void @EVP_PKEY_free(ptr noundef nonnull %.1) #6
   br label %.thread44
 
@@ -671,7 +671,7 @@ define range(i32 0, 2) i32 @SSL_use_PrivateKey_ASN1(i32 noundef %0, ptr noundef 
   br label %SSL_use_PrivateKey.exit
 
 SSL_use_PrivateKey.exit:                          ; preds = %17, %19, %.thread15.i
-  %.0.i = phi i32 [ %27, %.thread15.i ], [ 0, %19 ], [ 0, %17 ]
+  %.0.i = phi i32 [ %27, %.thread15.i ], [ 0, %17 ], [ 0, %19 ]
   call void @EVP_PKEY_free(ptr noundef nonnull %11) #6
   br label %28
 
@@ -1233,20 +1233,20 @@ define internal fastcc range(i32 0, 2) i32 @use_certificate_chain_file(ptr nound
   br label %94
 
 94:                                               ; preds = %.thread99, %93, %.split87.us, %62, %.split89.us, %.split.us
-  %.3 = phi i32 [ 1, %.split.us ], [ 0, %.split89.us ], [ 0, %62 ], [ 1, %93 ], [ 0, %.split87.us ], [ 0, %.thread99 ]
+  %.3 = phi i32 [ 0, %62 ], [ 1, %.split.us ], [ 0, %.split89.us ], [ 1, %93 ], [ 0, %.split87.us ], [ 0, %.thread99 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %95
 
 95:                                               ; preds = %94, %59, %52, %48, %41, %36, %31
-  %.054 = phi i32 [ 0, %31 ], [ 0, %36 ], [ 0, %41 ], [ 0, %48 ], [ 0, %52 ], [ %.3, %94 ], [ 0, %59 ]
-  %.051 = phi ptr [ null, %31 ], [ null, %36 ], [ %34, %41 ], [ %34, %48 ], [ %34, %52 ], [ %34, %94 ], [ %34, %59 ]
+  %.054 = phi i32 [ 0, %31 ], [ 0, %36 ], [ 0, %41 ], [ 0, %48 ], [ 0, %52 ], [ 0, %59 ], [ %.3, %94 ]
+  %.051 = phi ptr [ null, %31 ], [ null, %36 ], [ %34, %41 ], [ %34, %48 ], [ %34, %52 ], [ %34, %59 ], [ %34, %94 ]
   %96 = load ptr, ptr %4, align 8, !tbaa !80
   call void @X509_free(ptr noundef %96) #6
   %97 = call i32 @BIO_free(ptr noundef %.051) #6
   br label %.critedge
 
 .critedge:                                        ; preds = %20, %22, %10, %95
-  %.0 = phi i32 [ %.054, %95 ], [ 0, %10 ], [ 0, %22 ], [ 0, %20 ]
+  %.0 = phi i32 [ 0, %22 ], [ %.054, %95 ], [ 0, %10 ], [ 0, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -1283,7 +1283,7 @@ define range(i32 0, 2) i32 @SSL_CTX_use_serverinfo_ex(ptr noundef %0, i32 nounde
   br i1 %14, label %common.ret72, label %15
 
 common.ret72:                                     ; preds = %43, %11, %107, %42, %.loopexit, %8, %PACKET_buf_init.exit.i, %15
-  %common.ret72.op = phi i32 [ %20, %15 ], [ 0, %8 ], [ 0, %42 ], [ 0, %107 ], [ 0, %.loopexit ], [ 0, %11 ], [ 0, %43 ], [ 1, %PACKET_buf_init.exit.i ]
+  %common.ret72.op = phi i32 [ %20, %15 ], [ 0, %107 ], [ 0, %8 ], [ 0, %.loopexit ], [ 0, %42 ], [ 0, %11 ], [ 0, %43 ], [ 1, %PACKET_buf_init.exit.i ]
   ret i32 %common.ret72.op
 
 15:                                               ; preds = %11
@@ -1332,7 +1332,7 @@ PACKET_buf_init.exit.us.i:                        ; preds = %24
   %.not23.us.i = icmp eq i64 %37, 0
   br i1 %.not23.us.i, label %serverinfo_process_buffer.exit, label %PACKET_buf_init.exit.preheader.split.us.i
 
-.loopexit:                                        ; preds = %24, %PACKET_buf_init.exit.preheader.split.us.i, %21
+.loopexit:                                        ; preds = %PACKET_buf_init.exit.preheader.split.us.i, %24, %21
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 824, ptr noundef nonnull @__func__.SSL_CTX_use_serverinfo_ex) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 388, ptr noundef null) #6
@@ -1445,7 +1445,7 @@ PACKET_buf_init.exit.i:                           ; preds = %104, %102
   %.not23.i = icmp eq i64 %100, 0
   br i1 %.not23.i, label %common.ret72, label %PACKET_buf_init.exit.preheader.split.i
 
-107:                                              ; preds = %86, %76, %56, %PACKET_buf_init.exit.preheader.split.i, %104, %102
+107:                                              ; preds = %102, %86, %76, %56, %PACKET_buf_init.exit.preheader.split.i, %104
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 845, ptr noundef nonnull @__func__.SSL_CTX_use_serverinfo_ex) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 388, ptr noundef null) #6
@@ -1673,10 +1673,10 @@ define range(i32 0, 2) i32 @SSL_CTX_use_serverinfo_file(ptr noundef %0, ptr noun
   %90 = call i32 @SSL_CTX_use_serverinfo_ex(ptr noundef %0, i32 noundef 2, ptr noundef nonnull %70, i64 noundef %69)
   br label %.thread51
 
-.thread51:                                        ; preds = %.split38, %37, %33, %68, %53, %27, %._crit_edge.thread, %89, %21, %14, %9
-  %.035 = phi ptr [ null, %9 ], [ null, %14 ], [ null, %21 ], [ %70, %89 ], [ %.1.lcssa103, %._crit_edge.thread ], [ %.180, %27 ], [ %.180, %53 ], [ %.180, %68 ], [ %.180, %33 ], [ %.180, %37 ], [ %.180, %.split38 ]
-  %.034 = phi i32 [ 0, %9 ], [ 0, %14 ], [ 0, %21 ], [ %90, %89 ], [ 0, %._crit_edge.thread ], [ 0, %27 ], [ 0, %53 ], [ 0, %68 ], [ 0, %33 ], [ 0, %37 ], [ 0, %.split38 ]
-  %.033 = phi ptr [ null, %9 ], [ null, %14 ], [ %12, %21 ], [ %12, %89 ], [ %12, %._crit_edge.thread ], [ %12, %27 ], [ %12, %53 ], [ %12, %68 ], [ %12, %33 ], [ %12, %37 ], [ %12, %.split38 ]
+.thread51:                                        ; preds = %.split38, %33, %68, %53, %27, %37, %._crit_edge.thread, %89, %21, %14, %9
+  %.035 = phi ptr [ null, %9 ], [ null, %14 ], [ null, %21 ], [ %70, %89 ], [ %.1.lcssa103, %._crit_edge.thread ], [ %.180, %37 ], [ %.180, %27 ], [ %.180, %53 ], [ %.180, %68 ], [ %.180, %33 ], [ %.180, %.split38 ]
+  %.034 = phi i32 [ 0, %9 ], [ 0, %14 ], [ 0, %21 ], [ %90, %89 ], [ 0, %._crit_edge.thread ], [ 0, %37 ], [ 0, %27 ], [ 0, %53 ], [ 0, %68 ], [ 0, %33 ], [ 0, %.split38 ]
+  %.033 = phi ptr [ null, %9 ], [ null, %14 ], [ %12, %21 ], [ %12, %89 ], [ %12, %._crit_edge.thread ], [ %12, %37 ], [ %12, %27 ], [ %12, %53 ], [ %12, %68 ], [ %12, %33 ], [ %12, %.split38 ]
   %91 = load ptr, ptr %5, align 8, !tbaa !99
   call void @CRYPTO_free(ptr noundef %91, ptr noundef nonnull @.str, i32 noundef 963) #6
   %92 = load ptr, ptr %6, align 8, !tbaa !99
@@ -2089,7 +2089,7 @@ PACKET_buf_init.exit.i:                           ; preds = %27, %57
   %61 = icmp eq i32 %43, %1
   br i1 %61, label %62, label %PACKET_buf_init.exit.i
 
-.loopexit:                                        ; preds = %46, %35, %33, %27
+.loopexit:                                        ; preds = %35, %33, %46, %27
   store i32 80, ptr %7, align 4, !tbaa !112
   br label %serverinfo_find_extension.exit
 
@@ -2099,7 +2099,7 @@ PACKET_buf_init.exit.i:                           ; preds = %27, %57
   br label %serverinfo_find_extension.exit
 
 serverinfo_find_extension.exit:                   ; preds = %PACKET_buf_init.exit.i, %25, %.loopexit, %62, %.thread22, %.thread
-  %.0 = phi i32 [ -1, %.thread ], [ 0, %.thread22 ], [ -1, %.loopexit ], [ 1, %62 ], [ 0, %25 ], [ 0, %PACKET_buf_init.exit.i ]
+  %.0 = phi i32 [ -1, %.thread ], [ 0, %25 ], [ 0, %.thread22 ], [ -1, %.loopexit ], [ 1, %62 ], [ 0, %PACKET_buf_init.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0

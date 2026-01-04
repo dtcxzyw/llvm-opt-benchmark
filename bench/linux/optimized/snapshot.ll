@@ -499,7 +499,7 @@ define dso_local noundef range(i32 -12, 1) i32 @create_basic_memory_bitmaps() lo
   br label %97
 
 97:                                               ; preds = %94, %86
-  %98 = phi i32 [ %87, %86 ], [ %96, %94 ]
+  %98 = phi i32 [ %96, %94 ], [ %87, %86 ]
   %99 = icmp eq i32 %98, 0
   br i1 %99, label %.thread, label %100
 
@@ -1095,7 +1095,7 @@ define internal fastcc range(i32 -12, 1) i32 @memory_bm_create(ptr noundef %0, i
   br i1 %270, label %.thread109, label %134, !llvm.loop !42
 
 .thread91:                                        ; preds = %193, %206, %198, %157, %170, %162, %244, %257, %249
-  %271 = phi ptr [ %231, %244 ], [ %251, %249 ], [ %251, %257 ], [ %148, %157 ], [ %164, %162 ], [ %164, %170 ], [ %185, %193 ], [ %200, %198 ], [ %200, %206 ]
+  %271 = phi ptr [ %148, %157 ], [ %251, %249 ], [ %231, %244 ], [ %251, %257 ], [ %164, %170 ], [ %164, %162 ], [ %200, %206 ], [ %185, %193 ], [ %200, %198 ]
   %272 = load ptr, ptr %120, align 8
   %273 = icmp eq ptr %272, %120
   br i1 %273, label %.loopexit143, label %.preheader142
@@ -1176,7 +1176,7 @@ define internal fastcc range(i32 -12, 1) i32 @memory_bm_create(ptr noundef %0, i
   br i1 %310, label %.loopexit, label %.preheader, !llvm.loop !36
 
 .thread108:                                       ; preds = %106, %111, %.preheader141, %.loopexit143
-  %.ph111 = phi ptr [ %271, %.loopexit143 ], [ %271, %.preheader141 ], [ %93, %106 ], [ %113, %111 ]
+  %.ph111 = phi ptr [ %271, %.loopexit143 ], [ %271, %.preheader141 ], [ %113, %111 ], [ %93, %106 ]
   %311 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.ph111, ptr %311, align 8
   %312 = load ptr, ptr %0, align 8
@@ -1845,7 +1845,7 @@ thread-pre-split:                                 ; preds = %.loopexit135
   br label %301
 
 .loopexit:                                        ; preds = %.preheader153, %.preheader, %47, %301
-  %717 = phi i32 [ %302, %301 ], [ -12, %47 ], [ %302, %.preheader ], [ -12, %.preheader153 ]
+  %717 = phi i32 [ -12, %47 ], [ %302, %301 ], [ %302, %.preheader ], [ -12, %.preheader153 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %717
 }
@@ -3409,7 +3409,7 @@ define dso_local void @clear_or_poison_free_pages() local_unnamed_addr #3 align 
   br label %120
 
 120:                                              ; preds = %117, %109
-  %121 = phi i32 [ %110, %109 ], [ %119, %117 ]
+  %121 = phi i32 [ %119, %117 ], [ %110, %109 ]
   %122 = icmp eq i32 %121, 0
   br i1 %122, label %.thread15, label %123
 
@@ -4113,7 +4113,7 @@ define dso_local void @swsusp_free() local_unnamed_addr #3 align 16 {
   br label %341
 
 341:                                              ; preds = %338, %330
-  %342 = phi i32 [ %331, %330 ], [ %340, %338 ]
+  %342 = phi i32 [ %340, %338 ], [ %331, %330 ]
   %343 = icmp eq i32 %342, 0
   br i1 %343, label %.thread, label %344
 
@@ -6180,7 +6180,7 @@ define internal fastcc ptr @get_image_page(i32 noundef %0, i32 noundef range(i32
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %56, %97, %84, %.critedge
-  %101 = phi ptr [ %62, %97 ], [ %62, %84 ], [ null, %.critedge ], [ null, %56 ]
+  %101 = phi ptr [ null, %.critedge ], [ %62, %97 ], [ %62, %84 ], [ null, %56 ]
   ret ptr %101
 }
 
@@ -6468,7 +6468,7 @@ define dso_local i32 @snapshot_write_next(ptr noundef captures(none) %0) local_u
   br label %177
 
 177:                                              ; preds = %174, %166
-  %178 = phi i32 [ %167, %166 ], [ %176, %174 ]
+  %178 = phi i32 [ %176, %174 ], [ %167, %166 ]
   %179 = icmp eq i32 %178, 0
   br i1 %179, label %.thread79, label %180
 
@@ -6635,7 +6635,7 @@ define dso_local i32 @snapshot_write_next(ptr noundef captures(none) %0) local_u
   br label %258
 
 258:                                              ; preds = %255, %247
-  %259 = phi i32 [ %248, %247 ], [ %257, %255 ]
+  %259 = phi i32 [ %257, %255 ], [ %248, %247 ]
   %260 = icmp eq i32 %259, 0
   br i1 %260, label %.thread83, label %.loopexit127
 
@@ -7630,7 +7630,7 @@ define dso_local i32 @snapshot_write_next(ptr noundef captures(none) %0) local_u
   br label %33
 
 .loopexit127:                                     ; preds = %785, %770, %97, %.thread72, %47, %36, %.loopexit107, %258, %.thread83, %.thread73, %767, %754
-  %794 = phi i32 [ %756, %754 ], [ %769, %767 ], [ %745, %.loopexit107 ], [ -1, %.thread73 ], [ -14, %.thread83 ], [ -14, %258 ], [ 4096, %770 ], [ 4096, %785 ], [ %98, %97 ], [ %95, %.thread72 ], [ -12, %47 ], [ 0, %36 ]
+  %794 = phi i32 [ %756, %754 ], [ %769, %767 ], [ -1, %.thread73 ], [ %745, %.loopexit107 ], [ -14, %.thread83 ], [ -14, %258 ], [ 4096, %770 ], [ 4096, %785 ], [ %98, %97 ], [ %95, %.thread72 ], [ -12, %47 ], [ 0, %36 ]
   ret i32 %794
 }
 
@@ -8421,7 +8421,7 @@ define internal fastcc void @mark_free_pages(ptr noundef nonnull %0) unnamed_add
   br label %79
 
 79:                                               ; preds = %76, %68
-  %80 = phi i32 [ %69, %68 ], [ %78, %76 ]
+  %80 = phi i32 [ %78, %76 ], [ %69, %68 ]
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %.thread, label %82
 
@@ -8829,7 +8829,7 @@ define internal fastcc ptr @saveable_page(ptr noundef nonnull readnone captures(
   br label %67
 
 67:                                               ; preds = %64, %56
-  %68 = phi i32 [ %57, %56 ], [ %66, %64 ]
+  %68 = phi i32 [ %66, %64 ], [ %57, %56 ]
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %.thread, label %70
 
@@ -8933,7 +8933,7 @@ define internal fastcc ptr @saveable_page(ptr noundef nonnull readnone captures(
   br label %124
 
 124:                                              ; preds = %121, %113
-  %125 = phi i32 [ %114, %113 ], [ %123, %121 ]
+  %125 = phi i32 [ %123, %121 ], [ %114, %113 ]
   %.fr = freeze i32 %125
   %126 = icmp eq i32 %.fr, 0
   %127 = load i64, ptr @vmemmap_base, align 8
@@ -9049,7 +9049,7 @@ define internal fastcc ptr @saveable_page(ptr noundef nonnull readnone captures(
   br label %.thread
 
 .thread:                                          ; preds = %124, %94, %71, %37, %11, %2, %189, %186, %184, %175, %168, %150, %131, %67
-  %190 = phi ptr [ %129, %189 ], [ null, %67 ], [ null, %131 ], [ null, %168 ], [ null, %150 ], [ null, %175 ], [ null, %186 ], [ null, %184 ], [ null, %2 ], [ null, %11 ], [ null, %37 ], [ null, %71 ], [ null, %94 ], [ null, %124 ]
+  %190 = phi ptr [ %129, %189 ], [ null, %67 ], [ null, %131 ], [ null, %124 ], [ null, %168 ], [ null, %150 ], [ null, %175 ], [ null, %186 ], [ null, %184 ], [ null, %37 ], [ null, %2 ], [ null, %11 ], [ null, %71 ], [ null, %94 ]
   ret ptr %190
 }
 

@@ -672,8 +672,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %167, %165, %163
   br label %323
 
 259:                                              ; preds = %88, %_ZNSt6vectorIdSaIdEED2Ev.exit88, %150, %_ZNSt6vectorIiSaIiEED2Ev.exit107
-  %.148 = phi i8 [ %.047136, %_ZNSt6vectorIdSaIdEED2Ev.exit88 ], [ 1, %_ZNSt6vectorIiSaIiEED2Ev.exit107 ], [ 0, %150 ], [ %.045137, %88 ]
-  %.146 = phi i8 [ 1, %_ZNSt6vectorIdSaIdEED2Ev.exit88 ], [ 0, %_ZNSt6vectorIiSaIiEED2Ev.exit107 ], [ 0, %150 ], [ 0, %88 ]
+  %.148 = phi i8 [ 1, %_ZNSt6vectorIiSaIiEED2Ev.exit107 ], [ 0, %150 ], [ %.047136, %_ZNSt6vectorIdSaIdEED2Ev.exit88 ], [ %.045137, %88 ]
+  %.146 = phi i8 [ 0, %_ZNSt6vectorIiSaIiEED2Ev.exit107 ], [ 0, %150 ], [ 1, %_ZNSt6vectorIdSaIdEED2Ev.exit88 ], [ 0, %88 ]
   %260 = call ptr @fgets(ptr noundef nonnull %8, i32 noundef 500, ptr noundef nonnull %74)
   %.not = icmp eq ptr %260, null
   br i1 %.not, label %._crit_edge, label %88, !llvm.loop !46
@@ -798,10 +798,10 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %286, %.lr.ph140, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, %292
-  %.pre145150 = phi ptr [ %.pre145, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %.pre145149, %292 ], [ %.pre145149, %.lr.ph140 ], [ %.pre145149, %286 ]
-  %.pre147 = phi ptr [ %.pre, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %.pre146, %292 ], [ %.pre146, %.lr.ph140 ], [ %.pre146, %286 ]
-  %314 = phi ptr [ %.pre145, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %271, %292 ], [ %271, %.lr.ph140 ], [ %271, %286 ]
-  %315 = phi ptr [ %.pre, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %272, %292 ], [ %272, %.lr.ph140 ], [ %272, %286 ]
+  %.pre145150 = phi ptr [ %.pre145149, %292 ], [ %.pre145, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %.pre145149, %.lr.ph140 ], [ %.pre145149, %286 ]
+  %.pre147 = phi ptr [ %.pre146, %292 ], [ %.pre, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %.pre146, %.lr.ph140 ], [ %.pre146, %286 ]
+  %314 = phi ptr [ %271, %292 ], [ %.pre145, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %271, %.lr.ph140 ], [ %271, %286 ]
+  %315 = phi ptr [ %272, %292 ], [ %.pre, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %272, %.lr.ph140 ], [ %272, %286 ]
   %316 = add nuw nsw i32 %storemerge141, 1
   %317 = ptrtoint ptr %315 to i64
   %318 = ptrtoint ptr %314 to i64
@@ -984,7 +984,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
           to label %63 unwind label %38
 
 63:                                               ; preds = %61, %60, %57, %54, %51, %48, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.010 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %48 ], [ false, %51 ], [ false, %54 ], [ false, %57 ], [ false, %60 ], [ %62, %61 ]
+  %.010 = phi i1 [ false, %60 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %57 ], [ false, %54 ], [ false, %51 ], [ false, %48 ], [ %62, %61 ]
   %64 = load ptr, ptr %14, align 8, !tbaa !17
   %65 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %66 = load ptr, ptr %65, align 8, !tbaa !20

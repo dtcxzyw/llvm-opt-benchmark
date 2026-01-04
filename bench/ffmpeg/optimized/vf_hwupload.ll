@@ -62,7 +62,7 @@ define internal range(i32 -2147483648, 1) i32 @hwupload_init(ptr noundef readonl
   br label %20
 
 20:                                               ; preds = %16, %10, %19, %6
-  %.0 = phi i32 [ 0, %19 ], [ -22, %6 ], [ %14, %10 ], [ -12, %16 ]
+  %.0 = phi i32 [ -22, %6 ], [ 0, %19 ], [ %14, %10 ], [ -12, %16 ]
   ret i32 %.0
 }
 
@@ -145,7 +145,7 @@ define internal range(i32 -2147483648, 1) i32 @hwupload_query_formats(ptr nounde
   br label %.loopexit25
 
 .loopexit25:                                      ; preds = %.lr.ph, %29, %.loopexit, %3, %11
-  %.015 = phi i32 [ %27, %.loopexit ], [ -22, %3 ], [ -12, %11 ], [ %spec.select, %29 ], [ %23, %.lr.ph ]
+  %.015 = phi i32 [ %spec.select, %29 ], [ -12, %11 ], [ %27, %.loopexit ], [ -22, %3 ], [ %23, %.lr.ph ]
   call void @av_hwframe_constraints_free(ptr noundef nonnull %4) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -351,7 +351,7 @@ define internal range(i32 -2147483648, 1) i32 @hwupload_config_output(ptr nounde
   br label %63
 
 63:                                               ; preds = %58, %21, %18, %62, %17
-  %.0 = phi i32 [ -22, %17 ], [ %.042, %62 ], [ %., %18 ], [ -12, %21 ], [ 0, %58 ]
+  %.0 = phi i32 [ -12, %21 ], [ %., %18 ], [ -22, %17 ], [ %.042, %62 ], [ 0, %58 ]
   ret i32 %.0
 }
 

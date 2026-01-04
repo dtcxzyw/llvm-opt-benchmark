@@ -1057,7 +1057,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit116:              ; preds = %270
   ret i1 true
 
 281:                                              ; preds = %84, %86, %279, %264
-  %.pn111.pn = phi { ptr, i32 } [ %.pn105.pn.pn, %264 ], [ %280, %279 ], [ %87, %86 ], [ %85, %84 ]
+  %.pn111.pn = phi { ptr, i32 } [ %280, %279 ], [ %.pn105.pn.pn, %264 ], [ %85, %84 ], [ %87, %86 ]
   resume { ptr, i32 } %.pn111.pn
 }
 
@@ -1463,7 +1463,7 @@ define void @_ZN2cv16structured_light34SinusoidalPatternProfilometry_Impl15compu
   br label %184
 
 184:                                              ; preds = %180, %182, %178, %176, %174, %172, %170, %168, %166, %164
-  %.pn267.pn.pn.pn = phi { ptr, i32 } [ %183, %182 ], [ %179, %178 ], [ %177, %176 ], [ %175, %174 ], [ %173, %172 ], [ %171, %170 ], [ %169, %168 ], [ %167, %166 ], [ %165, %164 ], [ %181, %180 ]
+  %.pn267.pn.pn.pn = phi { ptr, i32 } [ %183, %182 ], [ %165, %164 ], [ %179, %178 ], [ %177, %176 ], [ %175, %174 ], [ %173, %172 ], [ %171, %170 ], [ %169, %168 ], [ %167, %166 ], [ %181, %180 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %16) #32
@@ -1944,7 +1944,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit318:       ; preds = %_ZSt8_DestroyIPN2cv
   br label %324
 
 324:                                              ; preds = %301, %287, %289, %291, %293, %295, %297, %299, %322, %265
-  %.pn237.pn.pn.pn = phi { ptr, i32 } [ %323, %322 ], [ %266, %265 ], [ %300, %299 ], [ %298, %297 ], [ %296, %295 ], [ %294, %293 ], [ %292, %291 ], [ %290, %289 ], [ %288, %287 ], [ %302, %301 ]
+  %.pn237.pn.pn.pn = phi { ptr, i32 } [ %266, %265 ], [ %323, %322 ], [ %288, %287 ], [ %300, %299 ], [ %298, %297 ], [ %296, %295 ], [ %294, %293 ], [ %292, %291 ], [ %290, %289 ], [ %302, %301 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #32
@@ -2427,7 +2427,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i321: ; preds = %_ZNSt6vecto
   br label %472
 
 472:                                              ; preds = %470, %464, %468, %466, %462, %460, %458, %456, %454, %452, %450, %448
-  %.pn207.pn.pn = phi { ptr, i32 } [ %449, %448 ], [ %469, %468 ], [ %467, %466 ], [ %463, %462 ], [ %461, %460 ], [ %459, %458 ], [ %457, %456 ], [ %455, %454 ], [ %453, %452 ], [ %451, %450 ], [ %465, %464 ], [ %471, %470 ]
+  %.pn207.pn.pn = phi { ptr, i32 } [ %471, %470 ], [ %449, %448 ], [ %469, %468 ], [ %467, %466 ], [ %451, %450 ], [ %463, %462 ], [ %461, %460 ], [ %459, %458 ], [ %457, %456 ], [ %455, %454 ], [ %453, %452 ], [ %465, %464 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
   call void @llvm.lifetime.end.p0(ptr nonnull %67)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %66) #32
@@ -3136,7 +3136,7 @@ define void @_ZN2cv16structured_light34SinusoidalPatternProfilometry_Impl10compu
   br i1 %90, label %.loopexit, label %87
 
 .loopexit:                                        ; preds = %87, %.body, %.body.thread
-  %.pn35.pn.pn.pn = phi { ptr, i32 } [ %40, %.body.thread ], [ %.pn30, %.body ], [ %.pn35.pn.pn, %87 ]
+  %.pn35.pn.pn.pn = phi { ptr, i32 } [ %.pn30, %.body ], [ %40, %.body.thread ], [ %.pn35.pn.pn, %87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %91
 
@@ -5314,7 +5314,7 @@ define void @_ZN2cv16structured_light34SinusoidalPatternProfilometry_Impl25compu
   br label %75
 
 75:                                               ; preds = %74, %73, %72
-  %.086.us = phi i32 [ -1, %73 ], [ %63, %72 ], [ %..us, %74 ]
+  %.086.us = phi i32 [ %63, %72 ], [ -1, %73 ], [ %..us, %74 ]
   %76 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %76, label %78 [
     i32 0, label %81
@@ -5331,7 +5331,7 @@ define void @_ZN2cv16structured_light34SinusoidalPatternProfilometry_Impl25compu
   br label %81
 
 81:                                               ; preds = %78, %77, %75
-  %.085.us = phi i32 [ -1, %77 ], [ %76, %75 ], [ %.105.us, %78 ]
+  %.085.us = phi i32 [ %76, %75 ], [ -1, %77 ], [ %.105.us, %78 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %82 = add nsw i32 %.085.us, %76
@@ -5737,7 +5737,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17_
   br label %60
 
 60:                                               ; preds = %57, %51, %.lr.ph.us
-  %.1.us = phi i1 [ %.03454.us, %51 ], [ %.03454.us, %.lr.ph.us ], [ %spec.select.us, %57 ]
+  %.1.us = phi i1 [ %.03454.us, %.lr.ph.us ], [ %spec.select.us, %57 ], [ %.03454.us, %51 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !172

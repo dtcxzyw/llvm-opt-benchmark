@@ -1428,7 +1428,7 @@ define void @lv_dropdown_get_selected_str(ptr noundef readonly captures(address_
   br i1 %46, label %.lr.ph48.split, label %.critedge2.loopexit56, !llvm.loop !38
 
 .critedge2.loopexit56:                            ; preds = %42, %.lr.ph48.split
-  %.0.lcssa.ph57.in = phi i64 [ %indvars.iv, %.lr.ph48.split ], [ %indvars.iv.next, %42 ]
+  %.0.lcssa.ph57.in = phi i64 [ %indvars.iv.next, %42 ], [ %indvars.iv, %.lr.ph48.split ]
   %.0.lcssa.ph57 = trunc i64 %.0.lcssa.ph57.in to i32
   br label %.critedge2
 
@@ -2059,7 +2059,7 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
   br i1 %52, label %.lr.ph48.split.i, label %.critedge2.loopexit56.i, !llvm.loop !38
 
 .critedge2.loopexit56.i:                          ; preds = %48, %.lr.ph48.split.i
-  %.0.lcssa.ph57.in.i = phi i64 [ %indvars.iv.i, %.lr.ph48.split.i ], [ %indvars.iv.next.i, %48 ]
+  %.0.lcssa.ph57.in.i = phi i64 [ %indvars.iv.next.i, %48 ], [ %indvars.iv.i, %.lr.ph48.split.i ]
   %53 = and i64 %.0.lcssa.ph57.in.i, 4294967295
   br label %.critedge2.i
 

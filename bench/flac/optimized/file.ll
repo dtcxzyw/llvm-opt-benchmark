@@ -140,7 +140,7 @@ define dso_local range(i32 0, 2) i32 @grabbag__file_are_same(ptr noundef readonl
   br label %24
 
 24:                                               ; preds = %19, %13, %10, %7, %2
-  %25 = phi i32 [ 0, %13 ], [ 0, %10 ], [ 0, %7 ], [ 0, %2 ], [ %23, %19 ]
+  %25 = phi i32 [ 0, %13 ], [ 0, %10 ], [ 0, %7 ], [ %23, %19 ], [ 0, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %25

@@ -119,7 +119,7 @@ _Z18pj_get_default_ctxv.exit.sink.split:          ; preds = %19, %8
   br label %_Z18pj_get_default_ctxv.exit
 
 _Z18pj_get_default_ctxv.exit:                     ; preds = %_Z18pj_get_default_ctxv.exit.sink.split, %17, %14, %6, %3, %11
-  %.0 = phi ptr [ %12, %11 ], [ @_ZZ18pj_get_default_ctxvE15default_context, %3 ], [ @_ZZ18pj_get_default_ctxvE15default_context, %6 ], [ @_ZZ18pj_get_default_ctxvE15default_context, %14 ], [ @_ZZ18pj_get_default_ctxvE15default_context, %17 ], [ @_ZZ18pj_get_default_ctxvE15default_context, %_Z18pj_get_default_ctxv.exit.sink.split ]
+  %.0 = phi ptr [ %12, %11 ], [ @_ZZ18pj_get_default_ctxvE15default_context, %17 ], [ @_ZZ18pj_get_default_ctxvE15default_context, %3 ], [ @_ZZ18pj_get_default_ctxvE15default_context, %6 ], [ @_ZZ18pj_get_default_ctxvE15default_context, %14 ], [ @_ZZ18pj_get_default_ctxvE15default_context, %_Z18pj_get_default_ctxv.exit.sink.split ]
   ret ptr %.0
 }
 
@@ -1821,7 +1821,7 @@ _Z18pj_get_default_ctxv.exit:                     ; preds = %11, %8, %5, %2
   br label %32
 
 32:                                               ; preds = %28, %21, %23, %25, %15, %17, %19
-  %.0 = phi i32 [ 1, %19 ], [ 1, %17 ], [ 1, %15 ], [ 0, %25 ], [ 0, %23 ], [ 0, %21 ], [ %., %28 ]
+  %.0 = phi i32 [ 0, %21 ], [ 1, %15 ], [ %., %28 ], [ 1, %19 ], [ 1, %17 ], [ 0, %25 ], [ 0, %23 ]
   ret i32 %.0
 }
 

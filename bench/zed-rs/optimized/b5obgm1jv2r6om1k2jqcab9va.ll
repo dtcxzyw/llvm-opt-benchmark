@@ -1073,7 +1073,7 @@ split:                                            ; preds = %68, %"_ZN71_$LT$htt
   unreachable
 
 "_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hbddde224c61e7ae1E.exit": ; preds = %171, %170, %.thread65, %177, %197, %"_ZN4core3ptr53drop_in_place$LT$http..header..value..HeaderValue$GT$17haad71d427ef1f9bcE.exit.thread", %186, %183
-  %.sroa.0.3 = phi i8 [ 1, %183 ], [ 1, %186 ], [ 2, %"_ZN4core3ptr53drop_in_place$LT$http..header..value..HeaderValue$GT$17haad71d427ef1f9bcE.exit.thread" ], [ 2, %197 ], [ 0, %177 ], [ 0, %.thread65 ], [ 2, %170 ], [ 2, %171 ]
+  %.sroa.0.3 = phi i8 [ 0, %.thread65 ], [ 2, %197 ], [ 1, %186 ], [ 1, %183 ], [ 2, %"_ZN4core3ptr53drop_in_place$LT$http..header..value..HeaderValue$GT$17haad71d427ef1f9bcE.exit.thread" ], [ 0, %177 ], [ 2, %170 ], [ 2, %171 ]
   ret i8 %.sroa.0.3
 
 183:                                              ; preds = %139, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf2f8995f79be2d7eE.exit.i"
@@ -1647,7 +1647,7 @@ define hidden noundef align 8 ptr @_ZN5prost8encoding10merge_loop17h0924b8adce09
   br label %.loopexit
 
 .loopexit:                                        ; preds = %"_ZN5prost8encoding7message5merge28_$u7b$$u7b$closure$u7d$$u7d$17hc005e3a918bd08f9E.exit", %"_ZN5prost8encoding7message5merge28_$u7b$$u7b$closure$u7d$$u7d$17hc005e3a918bd08f9E.exit.thread", %3, %29, %53, %23
-  %.sroa.0.0 = phi ptr [ %24, %23 ], [ %54, %53 ], [ %14, %3 ], [ null, %29 ], [ %.sroa.11.0.i, %"_ZN5prost8encoding7message5merge28_$u7b$$u7b$closure$u7d$$u7d$17hc005e3a918bd08f9E.exit.thread" ], [ %51, %"_ZN5prost8encoding7message5merge28_$u7b$$u7b$closure$u7d$$u7d$17hc005e3a918bd08f9E.exit" ]
+  %.sroa.0.0 = phi ptr [ %24, %23 ], [ null, %29 ], [ %54, %53 ], [ %14, %3 ], [ %.sroa.11.0.i, %"_ZN5prost8encoding7message5merge28_$u7b$$u7b$closure$u7d$$u7d$17hc005e3a918bd08f9E.exit.thread" ], [ %51, %"_ZN5prost8encoding7message5merge28_$u7b$$u7b$closure$u7d$$u7d$17hc005e3a918bd08f9E.exit" ]
   ret ptr %.sroa.0.0
 }
 
@@ -1794,7 +1794,7 @@ define hidden noundef align 8 ptr @_ZN5prost8encoding10merge_loop17h0bcc39700b29
   br label %.loopexit
 
 .loopexit:                                        ; preds = %"_ZN5prost8encoding7message5merge28_$u7b$$u7b$closure$u7d$$u7d$17h64d36321288d78a1E.exit", %"_ZN5prost8encoding7message5merge28_$u7b$$u7b$closure$u7d$$u7d$17h64d36321288d78a1E.exit.thread", %3, %29, %53, %23
-  %.sroa.0.0 = phi ptr [ %24, %23 ], [ %54, %53 ], [ %14, %3 ], [ null, %29 ], [ %.sroa.11.0.i, %"_ZN5prost8encoding7message5merge28_$u7b$$u7b$closure$u7d$$u7d$17h64d36321288d78a1E.exit.thread" ], [ %51, %"_ZN5prost8encoding7message5merge28_$u7b$$u7b$closure$u7d$$u7d$17h64d36321288d78a1E.exit" ]
+  %.sroa.0.0 = phi ptr [ %24, %23 ], [ null, %29 ], [ %54, %53 ], [ %14, %3 ], [ %.sroa.11.0.i, %"_ZN5prost8encoding7message5merge28_$u7b$$u7b$closure$u7d$$u7d$17h64d36321288d78a1E.exit.thread" ], [ %51, %"_ZN5prost8encoding7message5merge28_$u7b$$u7b$closure$u7d$$u7d$17h64d36321288d78a1E.exit" ]
   ret ptr %.sroa.0.0
 }
 
@@ -1941,7 +1941,7 @@ define hidden noundef align 8 ptr @_ZN5prost8encoding10merge_loop17h3d513a267d5a
   br label %.loopexit
 
 .loopexit:                                        ; preds = %"_ZN5prost8encoding7message5merge28_$u7b$$u7b$closure$u7d$$u7d$17h8a0b8d49afaf1bfbE.exit", %"_ZN5prost8encoding7message5merge28_$u7b$$u7b$closure$u7d$$u7d$17h8a0b8d49afaf1bfbE.exit.thread", %3, %29, %53, %23
-  %.sroa.0.0 = phi ptr [ %24, %23 ], [ %54, %53 ], [ %14, %3 ], [ null, %29 ], [ %.sroa.11.0.i, %"_ZN5prost8encoding7message5merge28_$u7b$$u7b$closure$u7d$$u7d$17h8a0b8d49afaf1bfbE.exit.thread" ], [ %51, %"_ZN5prost8encoding7message5merge28_$u7b$$u7b$closure$u7d$$u7d$17h8a0b8d49afaf1bfbE.exit" ]
+  %.sroa.0.0 = phi ptr [ %24, %23 ], [ null, %29 ], [ %54, %53 ], [ %14, %3 ], [ %.sroa.11.0.i, %"_ZN5prost8encoding7message5merge28_$u7b$$u7b$closure$u7d$$u7d$17h8a0b8d49afaf1bfbE.exit.thread" ], [ %51, %"_ZN5prost8encoding7message5merge28_$u7b$$u7b$closure$u7d$$u7d$17h8a0b8d49afaf1bfbE.exit" ]
   ret ptr %.sroa.0.0
 }
 
@@ -2088,7 +2088,7 @@ define hidden noundef align 8 ptr @_ZN5prost8encoding10merge_loop17h8ca56ad3778b
   br label %.loopexit
 
 .loopexit:                                        ; preds = %"_ZN5prost8encoding7message5merge28_$u7b$$u7b$closure$u7d$$u7d$17h96b8c1256a6099feE.exit", %"_ZN5prost8encoding7message5merge28_$u7b$$u7b$closure$u7d$$u7d$17h96b8c1256a6099feE.exit.thread", %3, %29, %53, %23
-  %.sroa.0.0 = phi ptr [ %24, %23 ], [ %54, %53 ], [ %14, %3 ], [ null, %29 ], [ %.sroa.11.0.i, %"_ZN5prost8encoding7message5merge28_$u7b$$u7b$closure$u7d$$u7d$17h96b8c1256a6099feE.exit.thread" ], [ %51, %"_ZN5prost8encoding7message5merge28_$u7b$$u7b$closure$u7d$$u7d$17h96b8c1256a6099feE.exit" ]
+  %.sroa.0.0 = phi ptr [ %24, %23 ], [ null, %29 ], [ %54, %53 ], [ %14, %3 ], [ %.sroa.11.0.i, %"_ZN5prost8encoding7message5merge28_$u7b$$u7b$closure$u7d$$u7d$17h96b8c1256a6099feE.exit.thread" ], [ %51, %"_ZN5prost8encoding7message5merge28_$u7b$$u7b$closure$u7d$$u7d$17h96b8c1256a6099feE.exit" ]
   ret ptr %.sroa.0.0
 }
 
@@ -2235,7 +2235,7 @@ define hidden noundef align 8 ptr @_ZN5prost8encoding10merge_loop17hbc3f8243f901
   br label %.loopexit
 
 .loopexit:                                        ; preds = %"_ZN5prost8encoding7message5merge28_$u7b$$u7b$closure$u7d$$u7d$17h5c2c06cd123f77feE.exit", %"_ZN5prost8encoding7message5merge28_$u7b$$u7b$closure$u7d$$u7d$17h5c2c06cd123f77feE.exit.thread", %3, %29, %53, %23
-  %.sroa.0.0 = phi ptr [ %24, %23 ], [ %54, %53 ], [ %14, %3 ], [ null, %29 ], [ %.sroa.11.0.i, %"_ZN5prost8encoding7message5merge28_$u7b$$u7b$closure$u7d$$u7d$17h5c2c06cd123f77feE.exit.thread" ], [ %51, %"_ZN5prost8encoding7message5merge28_$u7b$$u7b$closure$u7d$$u7d$17h5c2c06cd123f77feE.exit" ]
+  %.sroa.0.0 = phi ptr [ %24, %23 ], [ null, %29 ], [ %54, %53 ], [ %14, %3 ], [ %.sroa.11.0.i, %"_ZN5prost8encoding7message5merge28_$u7b$$u7b$closure$u7d$$u7d$17h5c2c06cd123f77feE.exit.thread" ], [ %51, %"_ZN5prost8encoding7message5merge28_$u7b$$u7b$closure$u7d$$u7d$17h5c2c06cd123f77feE.exit" ]
   ret ptr %.sroa.0.0
 }
 
@@ -2385,7 +2385,7 @@ define hidden noundef align 8 ptr @_ZN5prost8encoding10skip_field17hbe2132079cf6
   br label %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h47f43ab90ca0173aE.exit"
 
 56:                                               ; preds = %17, %60, %50
-  %.sroa.023.0 = phi i64 [ %61, %60 ], [ 4, %50 ], [ 8, %17 ]
+  %.sroa.023.0 = phi i64 [ 8, %17 ], [ 4, %50 ], [ %61, %60 ]
   %.val37 = load ptr, ptr %2, align 8, !nonnull !7, !align !19, !noundef !7
   %57 = getelementptr inbounds nuw i8, ptr %.val37, i64 16
   %58 = load i64, ptr %57, align 8, !noundef !7
@@ -2393,7 +2393,7 @@ define hidden noundef align 8 ptr @_ZN5prost8encoding10skip_field17hbe2132079cf6
   br i1 %59, label %77, label %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h47f43ab90ca0173aE.exit"
 
 .loopexit86:                                      ; preds = %66, %14, %23, %77, %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h47f43ab90ca0173aE.exit", %69, %.loopexit, %51, %48
-  %.sroa.01.0 = phi ptr [ %78, %77 ], [ null, %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h47f43ab90ca0173aE.exit" ], [ %52, %51 ], [ %70, %69 ], [ %.sroa.10.1, %.loopexit ], [ %49, %48 ], [ %15, %14 ], [ %26, %23 ], [ %67, %66 ]
+  %.sroa.01.0 = phi ptr [ %78, %77 ], [ null, %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h47f43ab90ca0173aE.exit" ], [ %52, %51 ], [ %15, %14 ], [ %70, %69 ], [ %26, %23 ], [ %.sroa.10.1, %.loopexit ], [ %49, %48 ], [ %67, %66 ]
   ret ptr %.sroa.01.0
 
 60:                                               ; preds = %23
@@ -4063,7 +4063,7 @@ define hidden void @_ZN7reqwest10async_impl7request14RequestBuilder16header_sens
   br label %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hbddde224c61e7ae1E.exit51"
 
 "_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hbddde224c61e7ae1E.exit42": ; preds = %49, %52, %21, %18
-  %.pn28 = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm.split-lp, %21 ], [ %.pn67, %52 ], [ %.pn67, %49 ]
+  %.pn28 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %21 ], [ %19, %18 ], [ %.pn67, %52 ], [ %.pn67, %49 ]
   %17 = load ptr, ptr %13, align 8, !noundef !7
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %85, label %68
@@ -4330,7 +4330,7 @@ define hidden void @_ZN7reqwest10async_impl7request14RequestBuilder16header_sens
   br i1 %15, label %73, label %67
 
 "_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hbddde224c61e7ae1E.exit37": ; preds = %54, %57, %30, %17
-  %.pn27 = phi { ptr, i32 } [ %18, %17 ], [ %lpad.thr_comm.split-lp, %30 ], [ %.pn59, %57 ], [ %.pn59, %54 ]
+  %.pn27 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %30 ], [ %18, %17 ], [ %.pn59, %57 ], [ %.pn59, %54 ]
   %16 = load ptr, ptr %12, align 8, !noundef !7
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %86, label %74
@@ -4419,7 +4419,7 @@ define hidden void @_ZN7reqwest10async_impl7request14RequestBuilder16header_sens
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hbddde224c61e7ae1E.exit"
 
-37:                                               ; preds = %25, %27
+37:                                               ; preds = %27, %25
   %.sroa.4.0..sroa_idx.i.i66 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i8 2, ptr %.sroa.4.0..sroa_idx.i.i66, align 8, !alias.scope !1125, !noalias !1124
   %38 = invoke noundef nonnull align 8 ptr @_ZN7reqwest5error5Error3new17h5e1b7092ade0105dE(i16 noundef 0, i16 undef, i8 noundef 5, i8 undef)
@@ -4560,7 +4560,7 @@ define hidden void @_ZN7reqwest10async_impl7request14RequestBuilder16header_sens
   br label %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hbddde224c61e7ae1E.exit44"
 
 86:                                               ; preds = %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hbddde224c61e7ae1E.exit37", %.thread51, %74
-  %.pn29 = phi { ptr, i32 } [ %.pn27, %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hbddde224c61e7ae1E.exit37" ], [ %72, %.thread51 ], [ %.pn27, %74 ]
+  %.pn29 = phi { ptr, i32 } [ %.pn27, %74 ], [ %72, %.thread51 ], [ %.pn27, %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hbddde224c61e7ae1E.exit37" ]
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 296
   call void @llvm.experimental.noalias.scope.decl(metadata !1192)
   call void @llvm.experimental.noalias.scope.decl(metadata !1195)
@@ -4752,8 +4752,8 @@ define hidden void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$ser
   br label %"_ZN12jsonwebtoken10validation1_100_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$jsonwebtoken..validation..BorrowedCowIfPossible$GT$11deserialize17h3b0beed529b3bcdcE.exit"
 
 "_ZN12jsonwebtoken10validation1_100_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$jsonwebtoken..validation..BorrowedCowIfPossible$GT$11deserialize17h3b0beed529b3bcdcE.exit": ; preds = %14, %15, %21, %22
-  %.sink.i.i = phi ptr [ %13, %14 ], [ %13, %15 ], [ %20, %21 ], [ %20, %22 ]
-  %storemerge.i.i = phi i64 [ %10, %14 ], [ -9223372036854775807, %15 ], [ %17, %21 ], [ -9223372036854775807, %22 ]
+  %.sink.i.i = phi ptr [ %13, %15 ], [ %13, %14 ], [ %20, %21 ], [ %20, %22 ]
+  %storemerge.i.i = phi i64 [ -9223372036854775807, %15 ], [ %10, %14 ], [ %17, %21 ], [ -9223372036854775807, %22 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink.i.i, ptr %23, align 8, !alias.scope !1246, !noalias !1245
   store i64 %storemerge.i.i, ptr %0, align 8, !alias.scope !1246, !noalias !1245
@@ -4846,9 +4846,9 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   br label %34
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h79c5bc8ee8021d2bE.llvm.8801228890571076355.exit": ; preds = %32, %25
-  %.sroa.8.0 = phi i64 [ %.sroa.9.0.copyload.i.i.i.i, %25 ], [ %.sroa.9.0.copyload.i2.i.i.i, %32 ]
-  %.sink.i.i.i = phi ptr [ %24, %25 ], [ %31, %32 ]
-  %storemerge.i.i.i = phi i64 [ %21, %25 ], [ %28, %32 ]
+  %.sroa.8.0 = phi i64 [ %.sroa.9.0.copyload.i2.i.i.i, %32 ], [ %.sroa.9.0.copyload.i.i.i.i, %25 ]
+  %.sink.i.i.i = phi ptr [ %31, %32 ], [ %24, %25 ]
+  %storemerge.i.i.i = phi i64 [ %28, %32 ], [ %21, %25 ]
   store i64 %storemerge.i.i.i, ptr %0, align 8
   %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink.i.i.i, ptr %.sroa.412.0..sroa_idx, align 8

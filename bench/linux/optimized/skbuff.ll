@@ -1107,7 +1107,7 @@ define dso_local ptr @napi_build_skb(ptr noundef %0, i32 noundef %1) #0 align 16
   br label %.thread2
 
 .thread2:                                         ; preds = %8, %13, %71, %64, %23
-  %74 = phi ptr [ %19, %71 ], [ %19, %64 ], [ %19, %23 ], [ null, %13 ], [ null, %8 ]
+  %74 = phi ptr [ %19, %23 ], [ %19, %71 ], [ %19, %64 ], [ null, %13 ], [ null, %8 ]
   ret ptr %74
 }
 
@@ -5436,7 +5436,7 @@ define dso_local noundef range(i32 -22, 1) i32 @skb_copy_ubufs(ptr noundef %0, i
   br label %.thread
 
 .thread:                                          ; preds = %122, %377, %379, %397, %387, %85, %.critedge, %2
-  %402 = phi i32 [ -22, %.critedge ], [ -22, %2 ], [ 0, %387 ], [ 0, %397 ], [ -12, %85 ], [ 0, %379 ], [ 0, %377 ], [ -12, %122 ]
+  %402 = phi i32 [ -22, %.critedge ], [ -22, %2 ], [ 0, %387 ], [ 0, %397 ], [ -12, %85 ], [ 0, %377 ], [ 0, %379 ], [ -12, %122 ]
   ret i32 %402
 }
 
@@ -8044,8 +8044,8 @@ define dso_local ptr @__pskb_pull_tail(ptr noundef %0, i32 noundef %1) #0 align 
   br label %.loopexit27
 
 .loopexit27:                                      ; preds = %56, %150, %.loopexit24, %.loopexit28, %41
-  %156 = phi i32 [ %.pre54, %150 ], [ %146, %.loopexit24 ], [ %43, %.loopexit28 ], [ %43, %41 ], [ %43, %56 ]
-  %157 = phi ptr [ %.pre53, %150 ], [ %147, %.loopexit24 ], [ %42, %.loopexit28 ], [ %42, %41 ], [ %42, %56 ]
+  %156 = phi i32 [ %43, %41 ], [ %.pre54, %150 ], [ %146, %.loopexit24 ], [ %43, %.loopexit28 ], [ %43, %56 ]
+  %157 = phi ptr [ %42, %41 ], [ %.pre53, %150 ], [ %147, %.loopexit24 ], [ %42, %.loopexit28 ], [ %42, %56 ]
   %158 = zext i32 %156 to i64
   %159 = getelementptr i8, ptr %157, i64 %158
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 2
@@ -8468,7 +8468,7 @@ define internal fastcc noundef zeroext i1 @__skb_splice_bits(ptr noundef readonl
   br i1 %93, label %.loopexit, label %.preheader, !llvm.loop !162
 
 .loopexit:                                        ; preds = %.preheader5, %91, %89, %.loopexit7, %45
-  %94 = phi i1 [ true, %45 ], [ false, %.loopexit7 ], [ true, %89 ], [ false, %91 ], [ true, %.preheader5 ]
+  %94 = phi i1 [ true, %45 ], [ false, %.loopexit7 ], [ false, %91 ], [ true, %89 ], [ true, %.preheader5 ]
   ret i1 %94
 }
 
@@ -8723,7 +8723,7 @@ define internal fastcc i32 @__skb_send_sock(ptr noundef %0, ptr noundef readonly
   br label %156
 
 156:                                              ; preds = %154, %152
-  %157 = phi i32 [ %153, %152 ], [ %155, %154 ]
+  %157 = phi i32 [ %155, %154 ], [ %153, %152 ]
   %158 = icmp sgt i32 %157, 0
   br i1 %158, label %159, label %.thread29
 
@@ -8805,8 +8805,8 @@ define internal fastcc i32 @__skb_send_sock(ptr noundef %0, ptr noundef readonly
   br i1 %194, label %181, label %.thread29
 
 .thread29:                                        ; preds = %.split.split, %173, %.split.split.us, %.split.us, %156
-  %.us-phi = phi i32 [ %137, %156 ], [ %137, %.split.us ], [ %165, %.split.split.us ], [ %165, %173 ], [ %187, %.split.split ]
-  %.us-phi64 = phi i32 [ -22, %.split.us ], [ %157, %156 ], [ %174, %173 ], [ -22, %.split.split.us ], [ %193, %.split.split ]
+  %.us-phi = phi i32 [ %137, %.split.us ], [ %165, %173 ], [ %137, %156 ], [ %165, %.split.split.us ], [ %187, %.split.split ]
+  %.us-phi64 = phi i32 [ -22, %.split.us ], [ -22, %.split.split.us ], [ %157, %156 ], [ %174, %173 ], [ %193, %.split.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit38
@@ -8837,7 +8837,7 @@ define internal fastcc i32 @__skb_send_sock(ptr noundef %0, ptr noundef readonly
   br label %22
 
 .loopexit36:                                      ; preds = %203, %199, %.loopexit37, %.loopexit39, %.loopexit
-  %206 = phi i32 [ 0, %.loopexit ], [ 0, %.loopexit37 ], [ 0, %.loopexit39 ], [ %114, %203 ], [ %114, %199 ]
+  %206 = phi i32 [ 0, %.loopexit ], [ 0, %.loopexit39 ], [ %114, %203 ], [ %114, %199 ], [ 0, %.loopexit37 ]
   %207 = sub i32 %3, %206
   br label %213
 
@@ -9669,11 +9669,11 @@ define dso_local i32 @skb_copy_and_csum_bits(ptr noundef readonly captures(none)
   br label %169
 
 169:                                              ; preds = %164, %147
-  %170 = phi i32 [ %161, %164 ], [ %143, %147 ]
-  %171 = phi i32 [ %168, %164 ], [ %142, %147 ]
-  %172 = phi i32 [ %162, %164 ], [ %140, %147 ]
-  %173 = phi ptr [ %167, %164 ], [ %139, %147 ]
-  %174 = phi i32 [ %165, %164 ], [ %138, %147 ]
+  %170 = phi i32 [ %143, %147 ], [ %161, %164 ]
+  %171 = phi i32 [ %142, %147 ], [ %168, %164 ]
+  %172 = phi i32 [ %140, %147 ], [ %162, %164 ]
+  %173 = phi ptr [ %139, %147 ], [ %167, %164 ]
+  %174 = phi i32 [ %138, %147 ], [ %165, %164 ]
   %175 = load ptr, ptr %137, align 8
   %176 = icmp eq ptr %175, null
   br i1 %176, label %._crit_edge, label %.lr.ph, !llvm.loop !191
@@ -12904,9 +12904,9 @@ define dso_local ptr @skb_segment(ptr noundef %0, i64 noundef %1) #0 align 16 {
   br label %.thread
 
 .thread:                                          ; preds = %124, %117, %.loopexit70, %93, %95, %79, %135, %86
-  %143 = phi i1 [ %87, %86 ], [ true, %135 ], [ false, %79 ], [ true, %95 ], [ true, %93 ], [ true, %.loopexit70 ], [ true, %117 ], [ true, %124 ]
-  %144 = phi i32 [ 0, %86 ], [ %140, %135 ], [ 0, %79 ], [ 0, %95 ], [ 0, %93 ], [ 0, %.loopexit70 ], [ 0, %117 ], [ 0, %124 ]
-  %145 = phi i32 [ %14, %86 ], [ %142, %135 ], [ %14, %79 ], [ %14, %95 ], [ %14, %93 ], [ %14, %.loopexit70 ], [ %14, %117 ], [ %14, %124 ]
+  %143 = phi i1 [ false, %79 ], [ %87, %86 ], [ true, %135 ], [ true, %95 ], [ true, %93 ], [ true, %.loopexit70 ], [ true, %117 ], [ true, %124 ]
+  %144 = phi i32 [ 0, %79 ], [ 0, %86 ], [ %140, %135 ], [ 0, %95 ], [ 0, %93 ], [ 0, %.loopexit70 ], [ 0, %117 ], [ 0, %124 ]
+  %145 = phi i32 [ %14, %79 ], [ %14, %86 ], [ %142, %135 ], [ %14, %95 ], [ %14, %93 ], [ %14, %.loopexit70 ], [ %14, %117 ], [ %14, %124 ]
   %146 = load ptr, ptr %15, align 8
   %147 = load ptr, ptr %4, align 8
   %148 = ptrtoint ptr %146 to i64
@@ -13992,14 +13992,14 @@ define dso_local ptr @skb_segment(ptr noundef %0, i64 noundef %1) #0 align 16 {
   br label %875
 
 .loopexit:                                        ; preds = %233, %332, %469, %493, %750, %.critedge45, %544, %292, %324, %596, %593
-  %.ph50 = phi i64 [ -22, %593 ], [ -22, %596 ], [ -12, %324 ], [ -12, %292 ], [ -12, %544 ], [ -12, %.critedge45 ], [ -12, %750 ], [ -12, %493 ], [ -12, %469 ], [ -12, %332 ], [ -12, %233 ]
-  %.ph56 = phi ptr [ %372, %593 ], [ %372, %596 ], [ %203, %324 ], [ %203, %292 ], [ %372, %544 ], [ %372, %.critedge45 ], [ %203, %233 ], [ %203, %332 ], [ %372, %469 ], [ %372, %493 ], [ %372, %750 ]
+  %.ph50 = phi i64 [ -12, %324 ], [ -12, %292 ], [ -12, %.critedge45 ], [ -22, %593 ], [ -22, %596 ], [ -12, %544 ], [ -12, %750 ], [ -12, %493 ], [ -12, %469 ], [ -12, %332 ], [ -12, %233 ]
+  %.ph56 = phi ptr [ %203, %324 ], [ %203, %292 ], [ %372, %.critedge45 ], [ %372, %593 ], [ %372, %596 ], [ %372, %544 ], [ %372, %469 ], [ %372, %493 ], [ %372, %750 ], [ %203, %233 ], [ %203, %332 ]
   tail call void @kfree_skb_list_reason(ptr noundef %.ph56, i32 noundef 2)
   %874 = inttoptr i64 %.ph50 to ptr
   br label %875
 
 875:                                              ; preds = %.loopexit, %862, %858, %170, %.loopexit72
-  %876 = phi ptr [ %874, %.loopexit ], [ %372, %862 ], [ %372, %858 ], [ inttoptr (i64 -22 to ptr), %.loopexit72 ], [ inttoptr (i64 -12 to ptr), %170 ]
+  %876 = phi ptr [ %874, %.loopexit ], [ inttoptr (i64 -12 to ptr), %170 ], [ %372, %862 ], [ %372, %858 ], [ inttoptr (i64 -22 to ptr), %.loopexit72 ]
   ret ptr %876
 }
 
@@ -14298,9 +14298,9 @@ define internal fastcc i32 @__skb_to_sgvec(ptr noundef readonly captures(none) %
   br label %169
 
 169:                                              ; preds = %167, %141
-  %170 = phi i32 [ %164, %167 ], [ %137, %141 ]
-  %171 = phi i32 [ %165, %167 ], [ %135, %141 ]
-  %172 = phi i32 [ %168, %167 ], [ %134, %141 ]
+  %170 = phi i32 [ %137, %141 ], [ %164, %167 ]
+  %171 = phi i32 [ %135, %141 ], [ %165, %167 ]
+  %172 = phi i32 [ %134, %141 ], [ %168, %167 ]
   %173 = load ptr, ptr %133, align 8
   %174 = icmp eq ptr %173, null
   br i1 %174, label %._crit_edge, label %.lr.ph, !llvm.loop !242
@@ -14317,7 +14317,7 @@ define internal fastcc i32 @__skb_to_sgvec(ptr noundef readonly captures(none) %
   unreachable
 
 .thread22:                                        ; preds = %107, %93, %163, %156, %149, %._crit_edge, %21, %5
-  %177 = phi i32 [ -90, %5 ], [ 1, %21 ], [ %.lcssa26, %._crit_edge ], [ -90, %149 ], [ %161, %156 ], [ %164, %163 ], [ -90, %93 ], [ %119, %107 ]
+  %177 = phi i32 [ -90, %5 ], [ 1, %21 ], [ %.lcssa26, %._crit_edge ], [ %164, %163 ], [ -90, %149 ], [ %161, %156 ], [ %119, %107 ], [ -90, %93 ]
   ret i32 %177
 }
 
@@ -15844,7 +15844,7 @@ define dso_local i32 @skb_checksum_setup(ptr noundef %0, i1 noundef zeroext %1) 
   br label %.critedge
 
 .critedge:                                        ; preds = %217, %190, %157, %128, %185, %152, %123, %83, %78, %17, %12, %240, %239, %236, %.thread34, %47, %46, %43, %22, %2
-  %251 = phi i32 [ -71, %2 ], [ %45, %43 ], [ -71, %22 ], [ 0, %47 ], [ 0, %46 ], [ %238, %236 ], [ -71, %.thread34 ], [ 0, %240 ], [ 0, %239 ], [ -12, %12 ], [ -71, %17 ], [ -12, %78 ], [ -71, %83 ], [ -71, %217 ], [ -71, %190 ], [ -71, %157 ], [ -71, %128 ], [ -12, %185 ], [ -12, %152 ], [ -12, %123 ]
+  %251 = phi i32 [ -71, %2 ], [ %45, %43 ], [ -71, %83 ], [ -71, %22 ], [ 0, %47 ], [ 0, %46 ], [ %238, %236 ], [ -71, %17 ], [ -71, %.thread34 ], [ 0, %240 ], [ 0, %239 ], [ -12, %12 ], [ -12, %78 ], [ -71, %217 ], [ -71, %157 ], [ -71, %128 ], [ -12, %152 ], [ -12, %123 ], [ -12, %185 ], [ -71, %190 ]
   ret i32 %251
 }
 
@@ -15897,8 +15897,8 @@ define dso_local noundef ptr @skb_checksum_trimmed(ptr noundef %0, i32 noundef %
   br i1 %33, label %.thread, label %.thread8
 
 .thread8:                                         ; preds = %..thread8_crit_edge, %25, %32
-  %34 = phi i32 [ %16, %32 ], [ %.pre, %..thread8_crit_edge ], [ %27, %25 ]
-  %35 = phi ptr [ %0, %32 ], [ %23, %..thread8_crit_edge ], [ %23, %25 ]
+  %34 = phi i32 [ %16, %32 ], [ %27, %25 ], [ %.pre, %..thread8_crit_edge ]
+  %35 = phi ptr [ %0, %32 ], [ %23, %25 ], [ %23, %..thread8_crit_edge ]
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 112
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 116
   %38 = load i32, ptr %37, align 4
@@ -16032,7 +16032,7 @@ skb_pull_rcsum.exit:                              ; preds = %58, %65, %71, %83
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %22, %3, %107, %105, %32
-  %109 = phi ptr [ %35, %105 ], [ null, %32 ], [ null, %107 ], [ null, %3 ], [ null, %22 ], [ null, %.thread.sink.split ]
+  %109 = phi ptr [ %35, %105 ], [ null, %32 ], [ null, %3 ], [ null, %107 ], [ null, %22 ], [ null, %.thread.sink.split ]
   ret ptr %109
 }
 
@@ -16471,7 +16471,7 @@ define dso_local noundef zeroext i1 @skb_try_coalesce(ptr noundef captures(addre
   br label %.critedge
 
 .critedge:                                        ; preds = %114, %122, %231, %148, %98, %88, %78, %62, %.critedge3, %11
-  %233 = phi i1 [ false, %11 ], [ false, %.critedge3 ], [ false, %78 ], [ false, %62 ], [ false, %98 ], [ false, %88 ], [ false, %148 ], [ true, %231 ], [ false, %122 ], [ false, %114 ]
+  %233 = phi i1 [ true, %231 ], [ false, %11 ], [ false, %.critedge3 ], [ false, %78 ], [ false, %62 ], [ false, %98 ], [ false, %88 ], [ false, %148 ], [ false, %122 ], [ false, %114 ]
   ret i1 %233
 }
 
@@ -20004,8 +20004,8 @@ define dso_local i64 @skb_splice_from_iter(ptr noundef captures(address_is_null)
   br i1 %149, label %.thread10, label %19
 
 .thread10:                                        ; preds = %22, %148, %41, %118, %112
-  %.ph7 = phi i64 [ %43, %41 ], [ -5, %112 ], [ %119, %118 ], [ 0, %148 ], [ -90, %22 ]
-  %.ph8 = phi i64 [ %24, %41 ], [ %47, %112 ], [ %47, %118 ], [ %144, %148 ], [ %24, %22 ]
+  %.ph7 = phi i64 [ %119, %118 ], [ %43, %41 ], [ -5, %112 ], [ 0, %148 ], [ -90, %22 ]
+  %.ph8 = phi i64 [ %47, %118 ], [ %24, %41 ], [ %47, %112 ], [ %144, %148 ], [ %24, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
@@ -20445,14 +20445,14 @@ define dso_local noundef zeroext i1 @csum_and_copy_from_iter_full(ptr noundef %0
   br i1 %289, label %.loopexit18, label %261, !llvm.loop !307
 
 .loopexit:                                        ; preds = %261, %.preheader, %220
-  %.ph15 = phi i64 [ %218, %220 ], [ %218, %.preheader ], [ %264, %261 ]
-  %.ph16 = phi i64 [ %216, %220 ], [ %216, %.preheader ], [ %265, %261 ]
+  %.ph15 = phi i64 [ %218, %.preheader ], [ %218, %220 ], [ %264, %261 ]
+  %.ph16 = phi i64 [ %216, %.preheader ], [ %216, %220 ], [ %265, %261 ]
   %293 = call fastcc ptr @xas_next_entry(ptr noundef nonnull %5)
   %294 = icmp eq ptr %293, null
   br i1 %294, label %.loopexit18, label %.preheader, !llvm.loop !308
 
 .loopexit18:                                      ; preds = %.loopexit, %267, %224, %234, %201
-  %295 = phi i64 [ 0, %201 ], [ %218, %224 ], [ %218, %234 ], [ %287, %267 ], [ %.ph15, %.loopexit ]
+  %295 = phi i64 [ 0, %201 ], [ %287, %267 ], [ %218, %224 ], [ %218, %234 ], [ %.ph15, %.loopexit ]
   call void @__rcu_read_unlock() #23
   %296 = load i64, ptr %204, align 8
   %297 = add i64 %296, %295
@@ -20932,7 +20932,7 @@ define internal fastcc nonnull ptr @skb_checksum_setup_ip(ptr noundef %0, i32 no
   br label %select.unfold
 
 select.unfold:                                    ; preds = %18, %41, %44, %12
-  %.ph = phi i64 [ -12, %12 ], [ -71, %44 ], [ -71, %41 ], [ -71, %18 ]
+  %.ph = phi i64 [ -12, %12 ], [ -71, %41 ], [ -71, %44 ], [ -71, %18 ]
   %55 = inttoptr i64 %.ph to ptr
   br label %129
 
@@ -21018,7 +21018,7 @@ select.unfold:                                    ; preds = %18, %41, %44, %12
   br label %select.unfold12
 
 select.unfold12:                                  ; preds = %80, %103, %106, %75
-  %.ph16 = phi i64 [ -12, %75 ], [ -71, %106 ], [ -71, %103 ], [ -71, %80 ]
+  %.ph16 = phi i64 [ -12, %75 ], [ -71, %103 ], [ -71, %106 ], [ -71, %80 ]
   %117 = inttoptr i64 %.ph16 to ptr
   br label %129
 

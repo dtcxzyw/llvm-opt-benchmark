@@ -1100,7 +1100,7 @@ _ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit.thread: ; pred
   br label %_Z17is_reference_type9BasicTypeb.exit
 
 _Z17is_reference_type9BasicTypeb.exit:            ; preds = %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit.thread, %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit, %44
-  %.09 = phi i32 [ %.010, %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit ], [ %.010, %44 ], [ %71, %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit.thread ]
+  %.09 = phi i32 [ %.010, %44 ], [ %71, %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit.thread ], [ %.010, %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit ]
   %72 = icmp sgt i32 %.09, 0
   %spec.select16 = zext i1 %72 to i32
   %73 = add i32 %.09, %spec.select16
@@ -1171,12 +1171,12 @@ _ZNK15Bytecode_invoke16is_invokedynamicEv.exit.i: ; preds = %_ZN15Bytecode_invok
   br label %_ZN10MethodData14profile_jsr292ERK12methodHandlei.exit
 
 _ZN10MethodData14profile_jsr292ERK12methodHandlei.exit: ; preds = %14, %_ZN15Bytecode_invokeC2ERK12methodHandlei.exit.i, %_ZNK15Bytecode_invoke16is_invokedynamicEv.exit.i
-  %.0.i = phi i1 [ true, %14 ], [ true, %_ZN15Bytecode_invokeC2ERK12methodHandlei.exit.i ], [ %spec.select.i, %_ZNK15Bytecode_invoke16is_invokedynamicEv.exit.i ]
+  %.0.i = phi i1 [ true, %14 ], [ %spec.select.i, %_ZNK15Bytecode_invoke16is_invokedynamicEv.exit.i ], [ true, %_ZN15Bytecode_invokeC2ERK12methodHandlei.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %35
 
 35:                                               ; preds = %12, %10, %2, %_ZN10MethodData14profile_jsr292ERK12methodHandlei.exit
-  %.0 = phi i1 [ %.0.i, %_ZN10MethodData14profile_jsr292ERK12methodHandlei.exit ], [ false, %2 ], [ true, %10 ], [ true, %12 ]
+  %.0 = phi i1 [ false, %2 ], [ true, %10 ], [ %.0.i, %_ZN10MethodData14profile_jsr292ERK12methodHandlei.exit ], [ true, %12 ]
   ret i1 %.0
 }
 
@@ -1238,12 +1238,12 @@ _ZNK15Bytecode_invoke16is_invokedynamicEv.exit.i: ; preds = %_ZN15Bytecode_invok
   br label %_ZN10MethodData14profile_jsr292ERK12methodHandlei.exit
 
 _ZN10MethodData14profile_jsr292ERK12methodHandlei.exit: ; preds = %9, %_ZN15Bytecode_invokeC2ERK12methodHandlei.exit.i, %_ZNK15Bytecode_invoke16is_invokedynamicEv.exit.i
-  %.0.i = phi i1 [ true, %9 ], [ true, %_ZN15Bytecode_invokeC2ERK12methodHandlei.exit.i ], [ %spec.select.i2, %_ZNK15Bytecode_invoke16is_invokedynamicEv.exit.i ]
+  %.0.i = phi i1 [ true, %9 ], [ %spec.select.i2, %_ZNK15Bytecode_invoke16is_invokedynamicEv.exit.i ], [ true, %_ZN15Bytecode_invokeC2ERK12methodHandlei.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %30
 
 30:                                               ; preds = %7, %2, %_ZN10MethodData14profile_jsr292ERK12methodHandlei.exit
-  %.0 = phi i1 [ %.0.i, %_ZN10MethodData14profile_jsr292ERK12methodHandlei.exit ], [ false, %2 ], [ true, %7 ]
+  %.0 = phi i1 [ false, %2 ], [ %.0.i, %_ZN10MethodData14profile_jsr292ERK12methodHandlei.exit ], [ true, %7 ]
   ret i1 %.0
 }
 
@@ -1469,7 +1469,7 @@ _ZNK15Bytecode_invoke15is_invokestaticEv.exit.i:  ; preds = %24
   br label %_ZNK15Bytecode_invoke12has_receiverEv.exit
 
 _ZNK15Bytecode_invoke12has_receiverEv.exit:       ; preds = %24, %_ZNK15Bytecode_invoke15is_invokestaticEv.exit.i
-  %33 = phi i1 [ true, %24 ], [ %spec.select.i, %_ZNK15Bytecode_invoke15is_invokestaticEv.exit.i ]
+  %33 = phi i1 [ %spec.select.i, %_ZNK15Bytecode_invoke15is_invokestaticEv.exit.i ], [ true, %24 ]
   call void @_ZN20TypeStackSlotEntries15post_initializeEP6Symbolbb(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef %26, i1 noundef zeroext %33, i1 noundef zeroext false)
   %.pre = load ptr, ptr %18, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
@@ -1554,7 +1554,7 @@ _ZNK15Bytecode_invoke15is_invokestaticEv.exit.i:  ; preds = %29
   br label %_ZNK15Bytecode_invoke12has_receiverEv.exit
 
 _ZNK15Bytecode_invoke12has_receiverEv.exit:       ; preds = %29, %_ZNK15Bytecode_invoke15is_invokestaticEv.exit.i
-  %38 = phi i1 [ true, %29 ], [ %spec.select.i, %_ZNK15Bytecode_invoke15is_invokestaticEv.exit.i ]
+  %38 = phi i1 [ %spec.select.i, %_ZNK15Bytecode_invoke15is_invokestaticEv.exit.i ], [ true, %29 ]
   call void @_ZN20TypeStackSlotEntries15post_initializeEP6Symbolbb(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef %31, i1 noundef zeroext %38, i1 noundef zeroext false)
   %.pre = load i64, ptr @TypeProfileWidth, align 8
   %.pre3 = load ptr, ptr %21, align 8
@@ -3167,7 +3167,7 @@ define hidden noundef zeroext i1 @_ZN10MethodData29profile_parameters_for_method
   br label %9
 
 9:                                                ; preds = %4, %1, %6
-  %.0 = phi i1 [ %8, %6 ], [ false, %1 ], [ true, %4 ]
+  %.0 = phi i1 [ false, %1 ], [ %8, %6 ], [ true, %4 ]
   ret i1 %.0
 }
 
@@ -3392,7 +3392,7 @@ define hidden noundef range(i32 1, 0) i32 @_ZN10MethodData19bytecode_cell_countE
   br label %46
 
 46:                                               ; preds = %40, %14, %1, %1, %33, %18, %25, %7, %45, %44, %43, %28, %17, %2
-  %.0 = phi i32 [ -1, %45 ], [ %6, %2 ], [ 2, %17 ], [ %32, %28 ], [ 7, %43 ], [ 3, %44 ], [ -2, %7 ], [ -2, %25 ], [ -2, %18 ], [ -2, %33 ], [ -2, %1 ], [ -2, %1 ], [ %spec.select, %14 ], [ %spec.select6, %40 ]
+  %.0 = phi i32 [ -1, %45 ], [ %6, %2 ], [ -2, %33 ], [ -2, %1 ], [ 2, %17 ], [ -2, %7 ], [ %32, %28 ], [ -2, %18 ], [ -2, %1 ], [ 7, %43 ], [ 3, %44 ], [ %spec.select, %14 ], [ -2, %25 ], [ %spec.select6, %40 ]
   ret i32 %.0
 }
 
@@ -3643,7 +3643,7 @@ _ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit29.thread36: ; 
   unreachable
 
 _ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit.thread31: ; preds = %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit, %51, %1, %_ZN15MultiBranchData18compute_cell_countEP14BytecodeStream.exit, %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit.thread, %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit29.thread36, %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit29.thread
-  %.0 = phi i32 [ %.0.i, %_ZN15MultiBranchData18compute_cell_countEP14BytecodeStream.exit ], [ %78, %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit.thread ], [ %115, %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit29.thread ], [ %119, %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit29.thread36 ], [ %6, %1 ], [ 1, %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit ], [ 1, %51 ]
+  %.0 = phi i32 [ %.0.i, %_ZN15MultiBranchData18compute_cell_countEP14BytecodeStream.exit ], [ %78, %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit.thread ], [ %6, %1 ], [ %115, %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit29.thread ], [ %119, %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit29.thread36 ], [ 1, %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit ], [ 1, %51 ]
   %122 = shl nsw i32 %.0, 3
   %123 = add nsw i32 %122, 8
   br label %124
@@ -3695,7 +3695,7 @@ _ZN14CompilerConfig10is_c1_onlyEv.exit.i:         ; preds = %2
   br label %_ZN14CompilerConfig13is_c2_enabledEv.exit.thread
 
 _ZN14CompilerConfig13is_c2_enabledEv.exit.thread: ; preds = %2, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i, %1, %17
-  %.0 = phi i1 [ %19, %17 ], [ false, %1 ], [ false, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i ], [ false, %2 ]
+  %.0 = phi i1 [ %19, %17 ], [ false, %2 ], [ false, %1 ], [ false, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i ]
   ret i1 %.0
 }
 
@@ -3966,7 +3966,7 @@ _ZN14CompilerConfig10is_c1_onlyEv.exit.i.i:       ; preds = %17
   br label %_ZN10MethodData28is_speculative_trap_bytecodeEN9Bytecodes4CodeE.exit
 
 _ZN10MethodData28is_speculative_trap_bytecodeEN9Bytecodes4CodeE.exit: ; preds = %32, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i, %17, %16, %15
-  %35 = phi i1 [ true, %15 ], [ %34, %32 ], [ false, %16 ], [ false, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i ], [ false, %17 ]
+  %35 = phi i1 [ true, %15 ], [ %34, %32 ], [ false, %17 ], [ false, %16 ], [ false, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i ]
   %36 = call noundef i32 @_ZN14BytecodeStream4nextEv(ptr noundef nonnull align 8 dereferenceable(48) %2)
   %37 = icmp sgt i32 %36, -1
   br i1 %37, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !26
@@ -4135,8 +4135,8 @@ _ZN9Bytecodes9length_atEP6MethodPh.exit.thread:   ; preds = %_ZN9Bytecodes10leng
   br label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread22
 
 _ZN9Bytecodes9length_atEP6MethodPh.exit.thread22: ; preds = %_ZN9Bytecodes7code_atEPK6MethodPh.exit, %_ZN9Bytecodes9length_atEP6MethodPh.exit, %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread, %49, %1, %56, %52
-  %.015 = phi i32 [ %59, %56 ], [ %22, %52 ], [ -1, %1 ], [ -1, %49 ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit ], [ -1, %_ZN9Bytecodes7code_atEPK6MethodPh.exit ]
-  %.014 = phi i32 [ %59, %56 ], [ %19, %52 ], [ -1, %1 ], [ -1, %49 ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit ], [ -1, %_ZN9Bytecodes7code_atEPK6MethodPh.exit ]
+  %.015 = phi i32 [ %22, %52 ], [ -1, %1 ], [ %59, %56 ], [ -1, %49 ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit ], [ -1, %_ZN9Bytecodes7code_atEPK6MethodPh.exit ]
+  %.014 = phi i32 [ %19, %52 ], [ -1, %1 ], [ %59, %56 ], [ -1, %49 ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit ], [ -1, %_ZN9Bytecodes7code_atEPK6MethodPh.exit ]
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %.014, ptr %60, align 4
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -4442,8 +4442,8 @@ _ZN15MultiBranchData18compute_cell_countEP14BytecodeStream.exit: ; preds = %_ZN2
   br label %148
 
 .thread79:                                        ; preds = %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit, %97, %3, %3, %3, %3, %21, %105, %104
-  %.036.ph = phi i8 [ 7, %105 ], [ 6, %104 ], [ 2, %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit ], [ 2, %21 ], [ 3, %3 ], [ 3, %3 ], [ 3, %3 ], [ 3, %3 ], [ 2, %97 ]
-  %.035.ph = phi i32 [ 3, %105 ], [ 7, %104 ], [ 1, %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit ], [ 1, %21 ], [ 2, %3 ], [ 2, %3 ], [ 2, %3 ], [ 2, %3 ], [ 1, %97 ]
+  %.036.ph = phi i8 [ 3, %3 ], [ 6, %104 ], [ 7, %105 ], [ 2, %21 ], [ 2, %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit ], [ 3, %3 ], [ 3, %3 ], [ 3, %3 ], [ 2, %97 ]
+  %.035.ph = phi i32 [ 2, %3 ], [ 7, %104 ], [ 3, %105 ], [ 1, %21 ], [ 1, %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit ], [ 2, %3 ], [ 2, %3 ], [ 2, %3 ], [ 1, %97 ]
   %144 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %145 = load i32, ptr %144, align 8
   %146 = trunc i32 %145 to i16
@@ -4454,8 +4454,8 @@ _ZN15MultiBranchData18compute_cell_countEP14BytecodeStream.exit: ; preds = %_ZN2
   br label %.lr.ph.i
 
 148:                                              ; preds = %100, %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit.thread, %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit49.thread60, %_ZN15MultiBranchData18compute_cell_countEP14BytecodeStream.exit, %11
-  %.036 = phi i8 [ 4, %11 ], [ 8, %_ZN15MultiBranchData18compute_cell_countEP14BytecodeStream.exit ], [ %.37, %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit49.thread60 ], [ %spec.select, %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit.thread ], [ %spec.select86, %100 ]
-  %.035 = phi i32 [ %15, %11 ], [ %.0.i50, %_ZN15MultiBranchData18compute_cell_countEP14BytecodeStream.exit ], [ %.2, %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit49.thread60 ], [ %48, %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit.thread ], [ %102, %100 ]
+  %.036 = phi i8 [ %.37, %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit49.thread60 ], [ 4, %11 ], [ %spec.select86, %100 ], [ 8, %_ZN15MultiBranchData18compute_cell_countEP14BytecodeStream.exit ], [ %spec.select, %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit.thread ]
+  %.035 = phi i32 [ %.2, %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit49.thread60 ], [ %15, %11 ], [ %102, %100 ], [ %.0.i50, %_ZN15MultiBranchData18compute_cell_countEP14BytecodeStream.exit ], [ %48, %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit.thread ]
   %149 = icmp sgt i32 %.035, -1
   br i1 %149, label %150, label %.thread76
 
@@ -4704,7 +4704,7 @@ define hidden noundef i32 @_ZN10DataLayout10cell_countEv(ptr noundef nonnull ali
   br label %89
 
 89:                                               ; preds = %1, %88, %75, %50, %32, %25, %18, %17, %16, %11, %6, %5
-  %.0 = phi i32 [ 1, %88 ], [ 2, %5 ], [ %10, %6 ], [ %15, %11 ], [ 7, %16 ], [ 3, %17 ], [ %24, %18 ], [ %31, %25 ], [ %49, %32 ], [ %74, %50 ], [ %87, %75 ], [ 0, %1 ]
+  %.0 = phi i32 [ 1, %88 ], [ %87, %75 ], [ 0, %1 ], [ 2, %5 ], [ %10, %6 ], [ %15, %11 ], [ 7, %16 ], [ 3, %17 ], [ %24, %18 ], [ %31, %25 ], [ %49, %32 ], [ %74, %50 ]
   ret i32 %.0
 }
 
@@ -5045,7 +5045,7 @@ _ZN14CompilerConfig10is_c1_onlyEv.exit.i.i:       ; preds = %60
   br label %_ZN10MethodData28is_speculative_trap_bytecodeEN9Bytecodes4CodeE.exit
 
 _ZN10MethodData28is_speculative_trap_bytecodeEN9Bytecodes4CodeE.exit: ; preds = %75, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i, %60, %59, %58
-  %78 = phi i1 [ true, %58 ], [ %77, %75 ], [ false, %59 ], [ false, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i ], [ false, %60 ]
+  %78 = phi i1 [ true, %58 ], [ %77, %75 ], [ false, %60 ], [ false, %59 ], [ false, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i ]
   %79 = call noundef i32 @_ZN14BytecodeStream4nextEv(ptr noundef nonnull align 8 dereferenceable(48) %2)
   %80 = icmp sgt i32 %79, -1
   br i1 %80, label %.lr.ph, label %._crit_edge, !llvm.loop !28
@@ -5182,7 +5182,7 @@ _ZN10DataLayout10initializeEhti.exit:             ; preds = %95
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph74, !llvm.loop !29
 
 .loopexit:                                        ; preds = %.lr.ph74, %142, %135, %130
-  %.157 = phi i32 [ %.056, %135 ], [ %.056, %130 ], [ %146, %142 ], [ %146, %.lr.ph74 ]
+  %.157 = phi i32 [ %.056, %130 ], [ %.056, %135 ], [ %146, %142 ], [ %146, %.lr.ph74 ]
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %160, align 4
   call void @_ZN10MethodData15post_initializeEP14BytecodeStream(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull %2)
@@ -5421,7 +5421,7 @@ select.unfold:                                    ; preds = %28
   br i1 %.not.i13.not, label %16, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %28, %select.unfold
-  %.ph = phi i32 [ %17, %28 ], [ %37, %select.unfold ]
+  %.ph = phi i32 [ %37, %select.unfold ], [ %17, %28 ]
   %40 = sext i32 %.ph to i64
   br label %._crit_edge
 
@@ -5566,7 +5566,7 @@ _ZN10DataLayout10initializeEhti.exit:             ; preds = %_ZN10MethodData10ne
   br label %42
 
 42:                                               ; preds = %21, %_ZN10MethodData10next_extraEP10DataLayout.exit, %10, %6, %_ZN10DataLayout10initializeEhti.exit, %.critedge
-  %.0 = phi ptr [ %40, %.critedge ], [ %35, %_ZN10DataLayout10initializeEhti.exit ], [ null, %6 ], [ null, %21 ], [ %20, %10 ], [ null, %_ZN10MethodData10next_extraEP10DataLayout.exit ]
+  %.0 = phi ptr [ null, %_ZN10MethodData10next_extraEP10DataLayout.exit ], [ null, %6 ], [ %20, %10 ], [ %40, %.critedge ], [ %35, %_ZN10DataLayout10initializeEhti.exit ], [ null, %21 ]
   ret ptr %.0
 }
 
@@ -5817,7 +5817,7 @@ _ZN10MethodData10next_extraEP10DataLayout.exit:   ; preds = %.split.split, %42, 
   br label %.split.split, !llvm.loop !30
 
 .loopexit:                                        ; preds = %33, %.split.split, %.split.us, %.split24.us, %.split22.us
-  %.0 = phi ptr [ null, %.split22.us ], [ %21, %.split24.us ], [ null, %.split.us ], [ %25, %33 ], [ null, %.split.split ]
+  %.0 = phi ptr [ %21, %.split24.us ], [ null, %.split22.us ], [ null, %.split.us ], [ %25, %33 ], [ null, %.split.split ]
   ret ptr %.0
 }
 
@@ -6171,7 +6171,7 @@ _ZNK15Bytecode_invoke16is_invokedynamicEv.exit:   ; preds = %_ZN15Bytecode_invok
   br label %_ZNK15Bytecode_invoke15is_invokehandleEv.exit
 
 _ZNK15Bytecode_invoke15is_invokehandleEv.exit:    ; preds = %_ZNK15Bytecode_invoke16is_invokedynamicEv.exit, %_ZN15Bytecode_invokeC2ERK12methodHandlei.exit, %2
-  %.0 = phi i1 [ true, %2 ], [ true, %_ZN15Bytecode_invokeC2ERK12methodHandlei.exit ], [ %spec.select, %_ZNK15Bytecode_invoke16is_invokedynamicEv.exit ]
+  %.0 = phi i1 [ true, %2 ], [ %spec.select, %_ZNK15Bytecode_invoke16is_invokedynamicEv.exit ], [ true, %_ZN15Bytecode_invokeC2ERK12methodHandlei.exit ]
   ret i1 %.0
 }
 
@@ -6590,8 +6590,8 @@ _ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit.loopexit: ; preds 
   br label %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit
 
 _ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit: ; preds = %.lr.ph.i19, %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit.loopexit, %32, %_ZN10MethodData10next_extraEP10DataLayout.exit
-  %.pr = phi i8 [ %.pr.pre52, %32 ], [ %25, %_ZN10MethodData10next_extraEP10DataLayout.exit ], [ %.pr.pre, %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit.loopexit ], [ %54, %.lr.ph.i19 ]
-  %.1.ph = phi i32 [ 0, %32 ], [ %31, %_ZN10MethodData10next_extraEP10DataLayout.exit ], [ %.01839, %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit.loopexit ], [ %.01839, %.lr.ph.i19 ]
+  %.pr = phi i8 [ %.pr.pre, %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit.loopexit ], [ %.pr.pre52, %32 ], [ %25, %_ZN10MethodData10next_extraEP10DataLayout.exit ], [ %54, %.lr.ph.i19 ]
+  %.1.ph = phi i32 [ %.01839, %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit.loopexit ], [ 0, %32 ], [ %31, %_ZN10MethodData10next_extraEP10DataLayout.exit ], [ %.01839, %.lr.ph.i19 ]
   switch i8 %.pr, label %73 [
     i8 1, label %_ZN10MethodData10next_extraEP10DataLayout.exit25
     i8 0, label %_ZN10MethodData10next_extraEP10DataLayout.exit25

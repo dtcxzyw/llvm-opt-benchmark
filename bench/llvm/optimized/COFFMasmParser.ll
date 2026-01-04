@@ -1896,10 +1896,10 @@ _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit.i: ; preds = %_ZNK4l
   br label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread80.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread80.i: ; preds = %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread78.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread78.thread.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i
-  %.sroa.6.0.i = phi i64 [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread78.i ], [ 4, %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread78.thread.i ], [ 4, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
-  %.sroa.070.0.i = phi ptr [ null, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit.thread78.i ], [ @.str.77, %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit.i ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit.thread78.thread.i ], [ @.str.77, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
-  %.sroa.042.0.i = phi ptr [ %.sroa.0.0.copyload.i.pn.i.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ %.sroa.0.0.copyload.i.pn.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread78.i ], [ %71, %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit.i ], [ %.sroa.0.0.copyload.i.pn.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread78.thread.i ], [ @.str.75, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
-  %.sroa.7.0.i = phi i64 [ %.sroa.2.0.copyload.i.pn.i.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ %.sroa.2.0.copyload.i.pn.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread78.i ], [ %72, %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit.i ], [ 5, %_ZN4llvmeqENS_9StringRefES0_.exit.thread78.thread.i ], [ 5, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
+  %.sroa.6.0.i = phi i64 [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread78.i ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread78.thread.i ], [ 4, %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit.i ], [ 4, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
+  %.sroa.070.0.i = phi ptr [ null, %_ZN4llvmeqENS_9StringRefES0_.exit.thread78.i ], [ null, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit.thread78.thread.i ], [ @.str.77, %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit.i ], [ @.str.77, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
+  %.sroa.042.0.i = phi ptr [ %.sroa.0.0.copyload.i.pn.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread78.i ], [ %.sroa.0.0.copyload.i.pn.i.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ %.sroa.0.0.copyload.i.pn.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread78.thread.i ], [ %71, %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit.i ], [ @.str.75, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
+  %.sroa.7.0.i = phi i64 [ %.sroa.2.0.copyload.i.pn.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread78.i ], [ %.sroa.2.0.copyload.i.pn.i.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ 5, %_ZN4llvmeqENS_9StringRefES0_.exit.thread78.thread.i ], [ %72, %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit.i ], [ 5, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 16, ptr %8, align 8, !tbaa !27
   %73 = load ptr, ptr %24, align 8, !tbaa !18
@@ -2420,7 +2420,7 @@ _ZN4llvm12StringSwitchIjjE9CaseLowerENS_13StringLiteralEj.exit117.i: ; preds = %
   br label %284
 
 .thread82.sink.split.i:                           ; preds = %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit87.i, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit86.i, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit85.i, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit84.i, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit.i
-  %.sink.i = phi i64 [ 1, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit.i ], [ 2, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit84.i ], [ 4, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit85.i ], [ 16, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit86.i ], [ 256, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit87.i ]
+  %.sink.i = phi i64 [ 1, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit.i ], [ 4, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit85.i ], [ 16, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit86.i ], [ 2, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit84.i ], [ 256, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit87.i ]
   store i64 %.sink.i, ptr %8, align 8, !tbaa !27
   br label %.thread82.i
 
@@ -2467,13 +2467,13 @@ _ZN4llvm12StringSwitchIjjE9CaseLowerENS_13StringLiteralEj.exit117.i: ; preds = %
   br label %346
 
 284:                                              ; preds = %.thread82.i, %.thread121.i, %98, %94
-  %.sroa.6.2.i = phi i64 [ %.sroa.6.1196.i, %94 ], [ %109, %98 ], [ %.sroa.6.1196.i, %.thread82.i ], [ %.sroa.6.1196.i, %.thread121.i ]
-  %.sroa.070.2.i = phi ptr [ %.sroa.070.1197.i, %94 ], [ %108, %98 ], [ %.sroa.070.1197.i, %.thread82.i ], [ %.sroa.070.1197.i, %.thread121.i ]
-  %.169.i = phi i1 [ %.068198.i, %94 ], [ %.068198.i, %98 ], [ %.371.ph.i, %.thread82.i ], [ %.068198.i, %.thread121.i ]
-  %.162.i = phi i32 [ %.061199.i, %94 ], [ %.061199.i, %98 ], [ %.061199.i, %.thread82.i ], [ %272, %.thread121.i ]
-  %.157.i = phi i1 [ %.056200.i, %94 ], [ %.056200.i, %98 ], [ %.056200.i, %.thread82.i ], [ false, %.thread121.i ]
-  %.sroa.042.3.i = phi ptr [ %.sroa.042.2201.i, %94 ], [ %.sroa.042.2201.i, %98 ], [ %.sroa.042.5.ph.i, %.thread82.i ], [ %.sroa.042.2201.i, %.thread121.i ]
-  %.sroa.7.3.i = phi i64 [ %.sroa.7.2202.i, %94 ], [ %.sroa.7.2202.i, %98 ], [ %.sroa.7.5.ph.i, %.thread82.i ], [ %.sroa.7.2202.i, %.thread121.i ]
+  %.sroa.6.2.i = phi i64 [ %.sroa.6.1196.i, %94 ], [ %109, %98 ], [ %.sroa.6.1196.i, %.thread121.i ], [ %.sroa.6.1196.i, %.thread82.i ]
+  %.sroa.070.2.i = phi ptr [ %.sroa.070.1197.i, %94 ], [ %108, %98 ], [ %.sroa.070.1197.i, %.thread121.i ], [ %.sroa.070.1197.i, %.thread82.i ]
+  %.169.i = phi i1 [ %.068198.i, %94 ], [ %.068198.i, %98 ], [ %.068198.i, %.thread121.i ], [ %.371.ph.i, %.thread82.i ]
+  %.162.i = phi i32 [ %.061199.i, %94 ], [ %.061199.i, %98 ], [ %272, %.thread121.i ], [ %.061199.i, %.thread82.i ]
+  %.157.i = phi i1 [ %.056200.i, %94 ], [ %.056200.i, %98 ], [ false, %.thread121.i ], [ %.056200.i, %.thread82.i ]
+  %.sroa.042.3.i = phi ptr [ %.sroa.042.2201.i, %94 ], [ %.sroa.042.2201.i, %98 ], [ %.sroa.042.2201.i, %.thread121.i ], [ %.sroa.042.5.ph.i, %.thread82.i ]
+  %.sroa.7.3.i = phi i64 [ %.sroa.7.2202.i, %94 ], [ %.sroa.7.2202.i, %98 ], [ %.sroa.7.2202.i, %.thread121.i ], [ %.sroa.7.5.ph.i, %.thread82.i ]
   %285 = load ptr, ptr %24, align 8, !tbaa !18
   %286 = load ptr, ptr %285, align 8, !tbaa !3
   %287 = getelementptr inbounds nuw i8, ptr %286, i64 40

@@ -616,7 +616,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit243.sink.split: ; preds = %276, %272
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit243
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit243:       ; preds = %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit243.sink.split, %276, %272
-  %.sroa.026.0 = phi i64 [ 0, %272 ], [ 0, %276 ], [ %287, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit243.sink.split ]
+  %.sroa.026.0 = phi i64 [ 0, %276 ], [ 0, %272 ], [ %287, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit243.sink.split ]
   %sext = shl i64 %.sroa.026.0, 32
   %288 = ashr exact i64 %sext, 32
   %289 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -1675,7 +1675,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit260.sink.split: ; preds = %291, %287
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit260
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit260:       ; preds = %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit260.sink.split, %291, %287
-  %.sroa.031.0 = phi i64 [ 0, %287 ], [ 0, %291 ], [ %302, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit260.sink.split ]
+  %.sroa.031.0 = phi i64 [ 0, %291 ], [ 0, %287 ], [ %302, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit260.sink.split ]
   %sext = shl i64 %.sroa.031.0, 32
   %303 = ashr exact i64 %sext, 32
   %304 = getelementptr inbounds nuw i8, ptr %0, i64 3840
@@ -1867,7 +1867,7 @@ _ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEE11lower_boundERS4_.exit: ; p
   br label %.thread.i
 
 .thread.i:                                        ; preds = %23, %21
-  %28 = phi i1 [ true, %21 ], [ %27, %23 ]
+  %28 = phi i1 [ %27, %23 ], [ true, %21 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %28, ptr noundef nonnull %14, ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(32) %5) #16
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load i64, ptr %29, align 8, !tbaa !44
@@ -3035,7 +3035,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %325
   br label %383
 
 383:                                              ; preds = %.sink.split, %363, %351
-  %.sroa.046.0 = phi i64 [ 0, %351 ], [ 0, %363 ], [ %382, %.sink.split ]
+  %.sroa.046.0 = phi i64 [ 0, %363 ], [ 0, %351 ], [ %382, %.sink.split ]
   %384 = icmp samesign ugt i64 %342, 15
   br i1 %384, label %385, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit314, !prof !7
 
@@ -4319,7 +4319,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %331
   br label %398
 
 398:                                              ; preds = %.sink.split, %378, %366
-  %.sroa.051.0 = phi i64 [ 0, %366 ], [ 0, %378 ], [ %397, %.sink.split ]
+  %.sroa.051.0 = phi i64 [ 0, %378 ], [ 0, %366 ], [ %397, %.sink.split ]
   %399 = icmp samesign ugt i64 %357, 15
   br i1 %399, label %400, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit331, !prof !7
 
@@ -5167,8 +5167,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   br label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
-  %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
+  %.sroa.070.0 = phi ptr [ null, %63 ], [ %spec.select, %46 ], [ null, %9 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %39, %37 ], [ %1, %61 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i, %28 ], [ %spec.select.i21, %58 ], [ %spec.select.i41, %86 ], [ null, %._crit_edge.thread.i47 ]
+  %.sroa.12.0 = phi ptr [ %65, %63 ], [ %spec.select71, %46 ], [ %11, %9 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %39, %37 ], [ null, %61 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i, %28 ], [ %spec.select21.i22, %58 ], [ %spec.select21.i42, %86 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

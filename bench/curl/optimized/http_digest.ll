@@ -150,7 +150,7 @@ define hidden i32 @Curl_output_digest(ptr noundef %0, i1 noundef zeroext %1, ptr
   br label %46
 
 46:                                               ; preds = %.sink.split, %36, %33, %32
-  %.0 = phi i32 [ 27, %32 ], [ %34, %33 ], [ 27, %36 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 27, %32 ], [ 27, %36 ], [ %34, %33 ], [ 0, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

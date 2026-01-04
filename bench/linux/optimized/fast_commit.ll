@@ -907,7 +907,7 @@ define internal fastcc noundef range(i32 -95, 1) i32 @__track_dentry_update(ptr 
   br label %ext4_fc_mark_ineligible.exit
 
 ext4_fc_mark_ineligible.exit:                     ; preds = %138, %113, %106, %85, %60, %54, %46, %21, %15, %180
-  %181 = phi i32 [ 0, %180 ], [ -95, %15 ], [ -95, %21 ], [ -95, %46 ], [ -12, %54 ], [ -12, %60 ], [ -12, %85 ], [ -12, %106 ], [ -12, %113 ], [ -12, %138 ]
+  %181 = phi i32 [ -95, %46 ], [ 0, %180 ], [ -12, %85 ], [ -95, %15 ], [ -95, %21 ], [ -12, %54 ], [ -12, %60 ], [ -12, %106 ], [ -12, %113 ], [ -12, %138 ]
   tail call void @mutex_lock(ptr noundef %10) #14
   ret i32 %181
 }
@@ -2187,7 +2187,7 @@ ext4_fc_write_inode.exit:                         ; preds = %276, %280
   br label %ext4_fc_update_stats.exit
 
 ext4_fc_update_stats.exit:                        ; preds = %414, %410, %397, %390, %378, %374, %361, %343, %106, %75, %71, %58, %53, %19
-  %417 = phi i32 [ %107, %106 ], [ %20, %19 ], [ 0, %53 ], [ 0, %58 ], [ 0, %71 ], [ 0, %75 ], [ %344, %343 ], [ %344, %361 ], [ %344, %374 ], [ %344, %378 ], [ %392, %390 ], [ %392, %397 ], [ %392, %410 ], [ %392, %414 ]
+  %417 = phi i32 [ %107, %106 ], [ %344, %378 ], [ 0, %75 ], [ %20, %19 ], [ 0, %53 ], [ 0, %58 ], [ 0, %71 ], [ %344, %343 ], [ %344, %361 ], [ %344, %374 ], [ %392, %390 ], [ %392, %397 ], [ %392, %410 ], [ %392, %414 ]
   ret i32 %417
 }
 
@@ -2229,7 +2229,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ext4_fc_record_regions(ptr nound
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %6, %14, %10
-  %15 = phi i32 [ %12, %14 ], [ %.pre, %10 ], [ %.pre, %6 ]
+  %15 = phi i32 [ %.pre, %10 ], [ %12, %14 ], [ %.pre, %6 ]
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 2156
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 2152
   %18 = load i32, ptr %17, align 8
@@ -2468,8 +2468,8 @@ define internal range(i32 -2147483648, 2) i32 @ext4_fc_replay(ptr noundef readon
     i16 4, label %77
     i16 5, label %77
     i16 6, label %80
-    i16 9, label %84
-    i16 8, label %82
+    i16 9, label %85
+    i16 8, label %87
     i16 7, label %.thread
   ]
 
@@ -2488,23 +2488,23 @@ define internal range(i32 -2147483648, 2) i32 @ext4_fc_replay(ptr noundef readon
 
 80:                                               ; preds = %70
   %81 = icmp ugt i16 %64, 131
-  br i1 %81, label %86, label %89
+  br i1 %81, label %82, label %89
 
-82:                                               ; preds = %70
-  %83 = icmp ugt i16 %64, 7
-  br i1 %83, label %.thread58, label %89
-
-84:                                               ; preds = %70
-  %85 = icmp eq i16 %64, 8
-  br i1 %85, label %.thread59, label %89
-
-86:                                               ; preds = %80
-  %87 = add nsw i32 %72, -4
-  %88 = load i32, ptr %52, align 4
-  %.not = icmp sgt i32 %87, %88
+82:                                               ; preds = %80
+  %83 = add nsw i32 %72, -4
+  %84 = load i32, ptr %52, align 4
+  %.not = icmp sgt i32 %83, %84
   br i1 %.not, label %89, label %.thread
 
-89:                                               ; preds = %73, %75, %77, %82, %84, %86, %80, %70, %61
+85:                                               ; preds = %70
+  %86 = icmp eq i16 %64, 8
+  br i1 %86, label %.thread59, label %89
+
+87:                                               ; preds = %70
+  %88 = icmp ugt i16 %64, 7
+  br i1 %88, label %.thread58, label %89
+
+89:                                               ; preds = %77, %75, %73, %82, %85, %87, %80, %70, %61
   %90 = load i32, ptr %28, align 8
   %91 = icmp eq i32 %90, 0
   %92 = select i1 %91, i32 -125, i32 0
@@ -2570,7 +2570,7 @@ define internal range(i32 -2147483648, 2) i32 @ext4_fc_replay(ptr noundef readon
   store i32 %109, ptr %134, align 4
   br label %.thread
 
-.thread:                                          ; preds = %77, %86, %75, %.thread57._crit_edge, %70
+.thread:                                          ; preds = %77, %82, %75, %.thread57._crit_edge, %70
   %135 = load i32, ptr %53, align 4
   %136 = add i32 %135, 1
   store i32 %136, ptr %53, align 4
@@ -2605,7 +2605,7 @@ define internal range(i32 -2147483648, 2) i32 @ext4_fc_replay(ptr noundef readon
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.thread64
 
-.thread58:                                        ; preds = %82
+.thread58:                                        ; preds = %87
   %149 = load i32, ptr %53, align 4
   %150 = add i32 %149, 1
   store i32 %150, ptr %53, align 4
@@ -2653,7 +2653,7 @@ define internal range(i32 -2147483648, 2) i32 @ext4_fc_replay(ptr noundef readon
   store i32 0, ptr %54, align 8
   br label %.thread62
 
-.thread59:                                        ; preds = %84
+.thread59:                                        ; preds = %85
   %171 = load i32, ptr %65, align 1
   %172 = icmp eq i32 %171, 0
   br i1 %172, label %173, label %.thread62
@@ -2705,8 +2705,8 @@ define internal range(i32 -2147483648, 2) i32 @ext4_fc_replay(ptr noundef readon
   store i32 %193, ptr %59, align 8
   br label %.thread64
 
-.thread64:                                        ; preds = %147, %189, %191
-  %.sink = phi i32 [ %148, %147 ], [ %190, %189 ], [ 0, %191 ]
+.thread64:                                        ; preds = %189, %147, %191
+  %.sink = phi i32 [ %190, %189 ], [ %148, %147 ], [ 0, %191 ]
   store i32 %.sink, ptr %54, align 8
   %194 = getelementptr i8, ptr %65, i64 %66
   %195 = icmp ugt ptr %194, %48
@@ -3902,7 +3902,7 @@ define internal range(i32 -2147483648, 2) i32 @ext4_fc_replay(ptr noundef readon
   br label %.thread70
 
 864:                                              ; preds = %791, %542, %345, %302
-  %865 = phi i32 [ %792, %791 ], [ %544, %542 ], [ %346, %345 ], [ %303, %302 ]
+  %865 = phi i32 [ %303, %302 ], [ %792, %791 ], [ %346, %345 ], [ %544, %542 ]
   %866 = icmp slt i32 %865, 0
   br i1 %866, label %.thread70, label %.thread68
 
@@ -3912,8 +3912,8 @@ define internal range(i32 -2147483648, 2) i32 @ext4_fc_replay(ptr noundef readon
   %869 = icmp ugt ptr %868, %235
   br i1 %869, label %.thread70, label %258, !llvm.loop !94
 
-.thread70:                                        ; preds = %.thread68, %864, %861, %857, %844, %841, %265, %228, %227, %214, %210, %197, %.thread62, %38
-  %870 = phi i32 [ 0, %227 ], [ 0, %265 ], [ 0, %38 ], [ %196, %.thread62 ], [ %196, %197 ], [ %196, %210 ], [ %196, %214 ], [ 1, %228 ], [ -125, %841 ], [ -125, %844 ], [ -125, %857 ], [ -125, %861 ], [ %865, %864 ], [ 1, %.thread68 ]
+.thread70:                                        ; preds = %.thread68, %864, %857, %844, %841, %861, %265, %228, %227, %214, %210, %197, %.thread62, %38
+  %870 = phi i32 [ 0, %227 ], [ 0, %265 ], [ 0, %38 ], [ %196, %.thread62 ], [ %196, %197 ], [ %196, %210 ], [ %196, %214 ], [ 1, %228 ], [ -125, %844 ], [ -125, %857 ], [ -125, %861 ], [ -125, %841 ], [ %865, %864 ], [ 1, %.thread68 ]
   ret i32 %870
 }
 
@@ -5103,7 +5103,7 @@ define internal fastcc noundef i32 @ext4_fc_replay_link_internal(ptr noundef %0,
   br label %.thread6
 
 .thread6:                                         ; preds = %3, %36, %32
-  %37 = phi i32 [ %34, %36 ], [ %34, %32 ], [ 0, %3 ]
+  %37 = phi i32 [ %34, %32 ], [ %34, %36 ], [ 0, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %37
 }

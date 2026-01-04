@@ -891,7 +891,7 @@ if.then81:                                        ; preds = %land.rhs
   store i8 1, ptr %reusePort, align 4
   br label %nrvo.skipdtor
 
-nrvo.skipdtor:                                    ; preds = %invoke.cont67, %_ZNKSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i, %if.end59, %invoke.cont74, %if.then81, %land.rhs
+nrvo.skipdtor:                                    ; preds = %_ZNKSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i, %invoke.cont67, %if.end59, %invoke.cont74, %if.then81, %land.rhs
   ret void
 
 ehcleanup:                                        ; preds = %lpad24, %lpad21, %lpad
@@ -1347,8 +1347,8 @@ while.body.i.i:                                   ; preds = %for.end, %while.bod
   br i1 %cmp.i1.i.i, label %while.body.i.i, label %invoke.cont15, !llvm.loop !18
 
 invoke.cont15:                                    ; preds = %while.body.i.i, %entry, %for.end
-  %handlerFactories.sroa.0.0.lcssa75 = phi ptr [ %handlerFactories.sroa.0.1, %for.end ], [ null, %entry ], [ %handlerFactories.sroa.0.1, %while.body.i.i ]
-  %handlerFactories.sroa.8.0.lcssa74 = phi ptr [ %handlerFactories.sroa.8.1, %for.end ], [ null, %entry ], [ %handlerFactories.sroa.8.1, %while.body.i.i ]
+  %handlerFactories.sroa.0.0.lcssa75 = phi ptr [ null, %entry ], [ %handlerFactories.sroa.0.1, %for.end ], [ %handlerFactories.sroa.0.1, %while.body.i.i ]
+  %handlerFactories.sroa.8.0.lcssa74 = phi ptr [ null, %entry ], [ %handlerFactories.sroa.8.1, %for.end ], [ %handlerFactories.sroa.8.1, %while.body.i.i ]
   %call17 = invoke noalias noundef nonnull dereferenceable(1992) ptr @_Znwm(i64 noundef 1992) #24
           to label %invoke.cont16 unwind label %lpad.loopexit.split-lp
 
@@ -2581,7 +2581,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 common.resume:                                    ; preds = %if.then.i38, %lpad36, %lpad, %ehcleanup17, %lpad31, %if.then.i.i31, %lpad.i, %if.then.i.i
-  %common.resume.op = phi { ptr, i32 } [ %28, %if.then.i.i ], [ %28, %lpad.i ], [ %.pn.pn, %ehcleanup17 ], [ %4, %lpad ], [ %36, %lpad31 ], [ %36, %if.then.i.i31 ], [ %45, %lpad36 ], [ %45, %if.then.i38 ]
+  %common.resume.op = phi { ptr, i32 } [ %28, %lpad.i ], [ %28, %if.then.i.i ], [ %36, %if.then.i.i31 ], [ %4, %lpad ], [ %.pn.pn, %ehcleanup17 ], [ %36, %lpad31 ], [ %45, %lpad36 ], [ %45, %if.then.i38 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIFbRKSt10unique_ptrIN5folly5IOBufESt14default_deleteIS2_EEEEC2ERKS9_.exit: ; preds = %if.then22, %invoke.cont.i
@@ -6680,7 +6680,7 @@ if.then.i.i.i46:                                  ; preds = %ehcleanup42
   br label %ehcleanup43
 
 ehcleanup43:                                      ; preds = %if.then.i.i.i46, %ehcleanup42, %if.then.i.i8.i, %lpad.i
-  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %8, %if.then.i.i8.i ], [ %8, %lpad.i ], [ %.pn.pn.pn.pn.pn.pn, %ehcleanup42 ], [ %.pn.pn.pn.pn.pn.pn, %if.then.i.i.i46 ]
+  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %8, %lpad.i ], [ %.pn.pn.pn.pn.pn.pn, %if.then.i.i.i46 ], [ %8, %if.then.i.i8.i ], [ %.pn.pn.pn.pn.pn.pn, %ehcleanup42 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %sslCiphersuites) #23
   br label %ehcleanup44
 
@@ -7764,7 +7764,7 @@ _ZNSt16allocator_traitsISaISt10_List_nodeIN5folly10SSLContext17NextProtocolsItem
   br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listIN5folly10SSLContext17NextProtocolsItemESaIS3_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !29
 
 _ZNSt7__cxx114listIN5folly10SSLContext17NextProtocolsItemESaIS3_EED2Ev.exit: ; preds = %_ZNSt16allocator_traitsISaISt10_List_nodeIN5folly10SSLContext17NextProtocolsItemEEEE7destroyIS3_EEvRS5_PT_.exit.i.i.i, %entry, %cleanup
-  %retval.sroa.0.09 = phi ptr [ %retval.sroa.0.0, %cleanup ], [ %__position.coerce, %entry ], [ %retval.sroa.0.0, %_ZNSt16allocator_traitsISaISt10_List_nodeIN5folly10SSLContext17NextProtocolsItemEEEE7destroyIS3_EEvRS5_PT_.exit.i.i.i ]
+  %retval.sroa.0.09 = phi ptr [ %__position.coerce, %entry ], [ %retval.sroa.0.0, %cleanup ], [ %retval.sroa.0.0, %_ZNSt16allocator_traitsISaISt10_List_nodeIN5folly10SSLContext17NextProtocolsItemEEEE7destroyIS3_EEvRS5_PT_.exit.i.i.i ]
   ret ptr %retval.sroa.0.09
 }
 
@@ -7905,7 +7905,7 @@ while.body.i.i.i:                                 ; preds = %cleanup, %while.bod
   br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !17
 
 _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %while.body.i.i.i, %entry, %cleanup
-  %retval.sroa.0.010 = phi ptr [ %retval.sroa.0.0, %cleanup ], [ %__position.coerce, %entry ], [ %retval.sroa.0.0, %while.body.i.i.i ]
+  %retval.sroa.0.010 = phi ptr [ %__position.coerce, %entry ], [ %retval.sroa.0.0, %cleanup ], [ %retval.sroa.0.0, %while.body.i.i.i ]
   ret ptr %retval.sroa.0.010
 }
 
@@ -8353,7 +8353,7 @@ while.body.i.i.i:                                 ; preds = %cleanup, %while.bod
   br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !17
 
 _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %while.body.i.i.i, %entry, %cleanup
-  %retval.sroa.0.08 = phi ptr [ %retval.sroa.0.0, %cleanup ], [ %__position.coerce, %entry ], [ %retval.sroa.0.0, %while.body.i.i.i ]
+  %retval.sroa.0.08 = phi ptr [ %__position.coerce, %entry ], [ %retval.sroa.0.0, %cleanup ], [ %retval.sroa.0.0, %while.body.i.i.i ]
   ret ptr %retval.sroa.0.08
 }
 

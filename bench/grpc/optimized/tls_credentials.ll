@@ -437,7 +437,7 @@ _ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit23.sink.split: 
   br label %_ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit23
 
 _ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit23: ; preds = %_ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit23.sink.split, %92, %89, %81, %_ZN9grpc_core13RefCountedPtrI28grpc_tls_credentials_optionsED2Ev.exit21
-  %.pn14 = phi { ptr, i32 } [ %70, %_ZN9grpc_core13RefCountedPtrI28grpc_tls_credentials_optionsED2Ev.exit21 ], [ %70, %81 ], [ %90, %89 ], [ %90, %92 ], [ %.pn14.ph, %_ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit23.sink.split ]
+  %.pn14 = phi { ptr, i32 } [ %90, %89 ], [ %90, %92 ], [ %70, %_ZN9grpc_core13RefCountedPtrI28grpc_tls_credentials_optionsED2Ev.exit21 ], [ %70, %81 ], [ %.pn14.ph, %_ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit23.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %107
 
@@ -786,7 +786,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK28grpc_tls_credentials_optionseqERKS
   br label %96
 
 96:                                               ; preds = %90, %84, %80, %76, %72, %66, %62, %56, %53, %50, %38, %35, %32, %20, %14, %8, %2
-  %97 = phi i1 [ false, %84 ], [ false, %80 ], [ false, %76 ], [ false, %72 ], [ false, %66 ], [ false, %62 ], [ false, %56 ], [ false, %53 ], [ false, %50 ], [ false, %38 ], [ false, %35 ], [ false, %32 ], [ false, %20 ], [ false, %14 ], [ false, %8 ], [ false, %2 ], [ %95, %90 ]
+  %97 = phi i1 [ false, %84 ], [ false, %80 ], [ false, %76 ], [ false, %72 ], [ false, %66 ], [ false, %62 ], [ false, %56 ], [ false, %53 ], [ false, %2 ], [ false, %50 ], [ false, %38 ], [ false, %35 ], [ %95, %90 ], [ false, %32 ], [ false, %20 ], [ false, %14 ], [ false, %8 ]
   ret i1 %97
 }
 
@@ -1247,7 +1247,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %68, %66
 .critedge:                                        ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   br i1 %.not60, label %.critedge.thread, label %72
 
-72:                                               ; preds = %71, %56, %51, %.critedge
+72:                                               ; preds = %56, %51, %71, %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull @.str.10, i32 noundef 64) #32
   invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 77, ptr nonnull @.str.15)
@@ -1265,7 +1265,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi78EEERS2_RAT__Kc.exit: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %110
 
-.critedge.thread:                                 ; preds = %34, %71, %56, %51, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi78EEERS2_RAT__Kc.exit, %.critedge
+.critedge.thread:                                 ; preds = %34, %56, %51, %71, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi78EEERS2_RAT__Kc.exit, %.critedge
   br i1 %1, label %75, label %.critedge34
 
 75:                                               ; preds = %.critedge.thread
@@ -1377,7 +1377,7 @@ _ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit: ; preds = %90
   br label %110
 
 _ZN9grpc_core13RefCountedPtrINS_27HostNameCertificateVerifierEED2Ev.exit: ; preds = %104, %100, %.critedge39, %.critedge34, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi64EEERS2_RAT__Kc.exit, %.critedge36, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi45EEERS2_RAT__Kc.exit, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi46EEERS2_RAT__Kc.exit, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi53EEERS2_RAT__Kc.exit, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi36EEERS2_RAT__Kc.exit
-  %.026 = phi i1 [ false, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi36EEERS2_RAT__Kc.exit ], [ false, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi53EEERS2_RAT__Kc.exit ], [ false, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi46EEERS2_RAT__Kc.exit ], [ false, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi45EEERS2_RAT__Kc.exit ], [ true, %.critedge36 ], [ true, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi64EEERS2_RAT__Kc.exit ], [ true, %.critedge34 ], [ true, %.critedge39 ], [ true, %100 ], [ true, %104 ]
+  %.026 = phi i1 [ false, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi36EEERS2_RAT__Kc.exit ], [ false, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi53EEERS2_RAT__Kc.exit ], [ false, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi46EEERS2_RAT__Kc.exit ], [ false, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi45EEERS2_RAT__Kc.exit ], [ true, %.critedge34 ], [ true, %.critedge36 ], [ true, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi64EEERS2_RAT__Kc.exit ], [ true, %.critedge39 ], [ true, %100 ], [ true, %104 ]
   ret i1 %.026
 
 110:                                              ; preds = %108, %85, %79, %73, %32, %27, %22, %13

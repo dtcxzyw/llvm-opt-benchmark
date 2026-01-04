@@ -2154,7 +2154,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %209
   br label %265
 
 265:                                              ; preds = %260, %264
-  %.pn94.pn.pn = phi { ptr, i32 } [ %.pn94, %264 ], [ %261, %260 ]
+  %.pn94.pn.pn = phi { ptr, i32 } [ %261, %260 ], [ %.pn94, %264 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %.body131
@@ -2195,7 +2195,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %209
   br label %274
 
 274:                                              ; preds = %270, %272
-  %.pn102.pn = phi { ptr, i32 } [ %273, %272 ], [ %271, %270 ]
+  %.pn102.pn = phi { ptr, i32 } [ %271, %270 ], [ %273, %272 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %432
@@ -2455,10 +2455,10 @@ _ZNSt6vectorIN2cv7Point3_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17
   call void @_ZN8TriangleD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %34) #23
   br label %403
 
-_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EE9push_backERKS2_.exit: ; preds = %350, %332, %320, %299, %370, %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
-  %.sroa.15.1 = phi ptr [ %390, %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.15.0216, %370 ], [ %.sroa.15.0216, %299 ], [ %.sroa.15.0216, %320 ], [ %.sroa.15.0216, %332 ], [ %.sroa.15.0216, %350 ]
-  %.sroa.10.1 = phi ptr [ %388, %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %371, %370 ], [ %.sroa.10.0217, %299 ], [ %.sroa.10.0217, %320 ], [ %.sroa.10.0217, %332 ], [ %.sroa.10.0217, %350 ]
-  %.sroa.0190.1 = phi ptr [ %384, %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.0190.0218, %370 ], [ %.sroa.0190.0218, %299 ], [ %.sroa.0190.0218, %320 ], [ %.sroa.0190.0218, %332 ], [ %.sroa.0190.0218, %350 ]
+_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EE9push_backERKS2_.exit: ; preds = %350, %320, %299, %332, %370, %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
+  %.sroa.15.1 = phi ptr [ %.sroa.15.0216, %370 ], [ %390, %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.15.0216, %332 ], [ %.sroa.15.0216, %299 ], [ %.sroa.15.0216, %320 ], [ %.sroa.15.0216, %350 ]
+  %.sroa.10.1 = phi ptr [ %371, %370 ], [ %388, %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.10.0217, %332 ], [ %.sroa.10.0217, %299 ], [ %.sroa.10.0217, %320 ], [ %.sroa.10.0217, %350 ]
+  %.sroa.0190.1 = phi ptr [ %.sroa.0190.0218, %370 ], [ %384, %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.0190.0218, %332 ], [ %.sroa.0190.0218, %299 ], [ %.sroa.0190.0218, %320 ], [ %.sroa.0190.0218, %350 ]
   call void @_ZN8TriangleD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %34) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
@@ -2887,7 +2887,7 @@ define hidden noundef zeroext i1 @_ZN10PnPProblem24intersect_MollerTrumboreER3Ra
   br label %68
 
 68:                                               ; preds = %60, %42, %29, %4, %67
-  %.0 = phi i1 [ true, %67 ], [ false, %4 ], [ false, %29 ], [ false, %42 ], [ false, %60 ]
+  %.0 = phi i1 [ false, %42 ], [ false, %4 ], [ false, %29 ], [ true, %67 ], [ false, %60 ]
   ret i1 %.0
 }
 

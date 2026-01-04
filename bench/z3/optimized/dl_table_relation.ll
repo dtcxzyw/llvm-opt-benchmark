@@ -1080,8 +1080,8 @@ _ZNK6vectorIP4sortLb0EjE3endEv.exit.i.i.i.i.i.i.i.i12: ; preds = %_ZNK6vectorIP4
   br label %_ZN7datalog14table_relationC2ERNS_21table_relation_pluginERKNS_18relation_signatureEPNS_10table_baseE.exit
 
 _ZN7datalog14table_relationC2ERNS_21table_relation_pluginERKNS_18relation_signatureEPNS_10table_baseE.exit: ; preds = %53, %_ZNK6vectorIP4sortLb0EjE3endEv.exit.i.i.i.i.i.i.i.i12, %_ZNK6vectorIP4sortLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i11, %31, %28, %_ZNK6vectorIP4sortLb0EjE3endEv.exit.i.i.i.i.i.i.i.i, %_ZNK6vectorIP4sortLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i, %9
-  %.sink27 = phi ptr [ %10, %9 ], [ %10, %_ZNK6vectorIP4sortLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i ], [ %10, %_ZNK6vectorIP4sortLb0EjE3endEv.exit.i.i.i.i.i.i.i.i ], [ %10, %28 ], [ %35, %31 ], [ %35, %_ZNK6vectorIP4sortLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i11 ], [ %35, %_ZNK6vectorIP4sortLb0EjE3endEv.exit.i.i.i.i.i.i.i.i12 ], [ %35, %53 ]
-  %.sink26 = phi ptr [ %0, %9 ], [ %0, %_ZNK6vectorIP4sortLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i ], [ %0, %_ZNK6vectorIP4sortLb0EjE3endEv.exit.i.i.i.i.i.i.i.i ], [ %0, %28 ], [ %34, %31 ], [ %34, %_ZNK6vectorIP4sortLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i11 ], [ %34, %_ZNK6vectorIP4sortLb0EjE3endEv.exit.i.i.i.i.i.i.i.i12 ], [ %34, %53 ]
+  %.sink27 = phi ptr [ %10, %28 ], [ %10, %9 ], [ %10, %_ZNK6vectorIP4sortLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i ], [ %10, %_ZNK6vectorIP4sortLb0EjE3endEv.exit.i.i.i.i.i.i.i.i ], [ %35, %31 ], [ %35, %_ZNK6vectorIP4sortLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i11 ], [ %35, %_ZNK6vectorIP4sortLb0EjE3endEv.exit.i.i.i.i.i.i.i.i12 ], [ %35, %53 ]
+  %.sink26 = phi ptr [ %0, %28 ], [ %0, %9 ], [ %0, %_ZNK6vectorIP4sortLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i ], [ %0, %_ZNK6vectorIP4sortLb0EjE3endEv.exit.i.i.i.i.i.i.i.i ], [ %34, %31 ], [ %34, %_ZNK6vectorIP4sortLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i11 ], [ %34, %_ZNK6vectorIP4sortLb0EjE3endEv.exit.i.i.i.i.i.i.i.i12 ], [ %34, %53 ]
   %56 = getelementptr inbounds nuw i8, ptr %.sink27, i64 24
   %57 = getelementptr inbounds nuw i8, ptr %.sink26, i64 8
   %58 = load i32, ptr %57, align 8, !tbaa !41
@@ -1133,7 +1133,7 @@ define hidden noundef ptr @_ZN7datalog21table_relation_plugin10mk_join_fnERKNS_1
   br label %31
 
 31:                                               ; preds = %26, %18, %6, %12
-  %.0 = phi ptr [ null, %12 ], [ null, %6 ], [ %27, %26 ], [ null, %18 ]
+  %.0 = phi ptr [ null, %6 ], [ null, %12 ], [ %27, %26 ], [ null, %18 ]
   ret ptr %.0
 }
 
@@ -1544,7 +1544,7 @@ _ZNK6vectorIP4sortLb0EjE3endEv.exit.i.i.i.i.i.i:  ; preds = %.noexc12
   br label %_ZN7datalog18relation_signatureaSERKS0_.exit.i
 
 _ZN7datalog18relation_signatureaSERKS0_.exit.i:   ; preds = %_ZN6vectorIP4sortLb0EjE7destroyEv.exit.i.i.i.i.i, %34, %_ZNK6vectorIP4sortLb0EjE3endEv.exit.i.i.i.i.i.i, %.noexc12, %11
-  %.pr = phi ptr [ %29, %34 ], [ %29, %_ZNK6vectorIP4sortLb0EjE3endEv.exit.i.i.i.i.i.i ], [ %29, %.noexc12 ], [ null, %11 ], [ null, %_ZN6vectorIP4sortLb0EjE7destroyEv.exit.i.i.i.i.i ]
+  %.pr = phi ptr [ null, %11 ], [ %29, %34 ], [ %29, %_ZNK6vectorIP4sortLb0EjE3endEv.exit.i.i.i.i.i.i ], [ %29, %.noexc12 ], [ null, %_ZN6vectorIP4sortLb0EjE7destroyEv.exit.i.i.i.i.i ]
   %37 = icmp ult i32 %2, 2
   br i1 %37, label %_ZN7datalog17tr_infrastructureINS_15relation_traitsEE14signature_base11from_renameERKNS_18relation_signatureEjPKjRS4_.exit, label %38
 
@@ -2272,7 +2272,7 @@ define hidden noalias noundef ptr @_ZN7datalog21table_relation_plugin28mk_filter
   br label %29
 
 29:                                               ; preds = %26, %18, %6, %12
-  %.0 = phi ptr [ null, %12 ], [ null, %6 ], [ %27, %26 ], [ null, %18 ]
+  %.0 = phi ptr [ null, %6 ], [ null, %12 ], [ %27, %26 ], [ null, %18 ]
   ret ptr %.0
 }
 
@@ -2898,7 +2898,7 @@ _ZN7datalog10table_base8iteratorD2Ev.exit63:      ; preds = %_ZN7datalog10table_
   ret void
 
 196:                                              ; preds = %.split67, %.split67.us, %.split71.us, %.split74.us
-  %.pn.pn = phi { ptr, i32 } [ %139, %.split74.us ], [ %138, %.split71.us ], [ %161, %.split67 ], [ %137, %.split67.us ]
+  %.pn.pn = phi { ptr, i32 } [ %138, %.split71.us ], [ %139, %.split74.us ], [ %161, %.split67 ], [ %137, %.split67.us ]
   call void @_ZN6vectorImLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN7datalog10table_base8iteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #23
@@ -4361,7 +4361,7 @@ _ZNK6vectorIP4sortLb0EjE4sizeEv.exit:             ; preds = %_ZN6vectorIP4sortLb
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit, %_ZN6vectorIP4sortLb0EjE5resetEv.exit, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit
-  %14 = phi ptr [ %7, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit ], [ %7, %_ZN6vectorIP4sortLb0EjE5resetEv.exit ], [ %30, %_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit ]
+  %14 = phi ptr [ %7, %_ZN6vectorIP4sortLb0EjE5resetEv.exit ], [ %7, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit ], [ %30, %_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit ]
   %15 = load ptr, ptr %1, align 8, !tbaa !36
   %16 = icmp eq ptr %15, null
   br i1 %16, label %._crit_edge24, label %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit16

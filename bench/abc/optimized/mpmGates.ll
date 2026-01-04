@@ -399,8 +399,8 @@ define noalias noundef ptr @Mpm_ManFindMappedNodes(ptr noundef readonly captures
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %44, %46, %36, %38
-  %.sink39 = phi ptr [ %37, %36 ], [ %39, %38 ], [ %45, %44 ], [ %47, %46 ]
-  %.sink = phi i32 [ 16, %36 ], [ 16, %38 ], [ %41, %44 ], [ %41, %46 ]
+  %.sink39 = phi ptr [ %39, %38 ], [ %37, %36 ], [ %45, %44 ], [ %47, %46 ]
+  %.sink = phi i32 [ 16, %38 ], [ 16, %36 ], [ %41, %44 ], [ %41, %46 ]
   store ptr %.sink39, ptr %5, align 8, !tbaa !48
   store i32 %.sink, ptr %2, align 8, !tbaa !47
   br label %Vec_IntPush.exit
@@ -530,7 +530,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %12
   br label %Vec_IntStartFull.exit
 
 Vec_IntStartFull.exit:                            ; preds = %12, %Vec_IntAlloc.exit.i, %20
-  %23 = phi ptr [ null, %Vec_IntAlloc.exit.i ], [ %19, %20 ], [ null, %12 ]
+  %23 = phi ptr [ %19, %20 ], [ null, %Vec_IntAlloc.exit.i ], [ null, %12 ]
   %24 = tail call ptr @Mpm_ManFindMappedNodes(ptr noundef nonnull %0)
   %25 = tail call ptr @Abc_NtkAlloc(i32 noundef 2, i32 noundef 4, i32 noundef 1) #13
   %26 = load ptr, ptr %0, align 8, !tbaa !56

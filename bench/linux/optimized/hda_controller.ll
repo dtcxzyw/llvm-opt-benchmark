@@ -2329,7 +2329,7 @@ define internal i32 @azx_pcm_prepare(ptr noundef %0) #1 align 16 {
   br label %.thread
 
 .thread:                                          ; preds = %59, %67, %92, %85
-  %96 = phi i32 [ 0, %92 ], [ %90, %85 ], [ -22, %59 ], [ %68, %67 ]
+  %96 = phi i32 [ %90, %85 ], [ 0, %92 ], [ -22, %59 ], [ %68, %67 ]
   ret i32 %96
 }
 

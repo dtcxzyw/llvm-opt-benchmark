@@ -76,7 +76,7 @@ define i32 @i2d_ASN1_OBJECT(ptr noundef readonly captures(address_is_null) %0, p
   br label %36
 
 36:                                               ; preds = %18, %9, %2, %5, %34
-  %.0 = phi i32 [ %12, %34 ], [ 0, %5 ], [ 0, %2 ], [ %12, %9 ], [ 0, %18 ]
+  %.0 = phi i32 [ %12, %34 ], [ 0, %2 ], [ %12, %9 ], [ 0, %5 ], [ 0, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -332,9 +332,9 @@ define i32 @a2d_ASN1_OBJECT(ptr noundef writeonly captures(address_is_null) %0, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit273, %.loopexit.loopexit, %76
-  %.3129 = phi i32 [ 0, %76 ], [ %87, %.loopexit.loopexit ], [ %88, %.loopexit.loopexit273 ]
-  %.4113 = phi ptr [ %.2111, %76 ], [ %.1110263, %.loopexit.loopexit ], [ %.2111, %.loopexit.loopexit273 ]
-  %.3108 = phi i32 [ %.1106, %76 ], [ %.0105264, %.loopexit.loopexit ], [ %.1106, %.loopexit.loopexit273 ]
+  %.3129 = phi i32 [ %87, %.loopexit.loopexit ], [ 0, %76 ], [ %88, %.loopexit.loopexit273 ]
+  %.4113 = phi ptr [ %.1110263, %.loopexit.loopexit ], [ %.2111, %76 ], [ %.2111, %.loopexit.loopexit273 ]
+  %.3108 = phi i32 [ %.0105264, %.loopexit.loopexit ], [ %.1106, %76 ], [ %.1106, %.loopexit.loopexit273 ]
   %89 = add nsw i32 %.3129, %.0119261
   br i1 %.not151, label %105, label %90
 
@@ -391,18 +391,18 @@ define i32 @a2d_ASN1_OBJECT(ptr noundef writeonly captures(address_is_null) %0, 
   br label %.sink.split
 
 .thread171.sink.split:                            ; preds = %90, %58, %28, %33
-  %.sink366 = phi i32 [ 98, %33 ], [ 85, %28 ], [ 117, %58 ], [ 157, %90 ]
-  %.sink = phi i32 [ 130, %33 ], [ 131, %28 ], [ 147, %58 ], [ 107, %90 ]
-  %.0109.ph = phi ptr [ %.1110263, %33 ], [ %.1110263, %28 ], [ %.1110263, %58 ], [ %.4113, %90 ]
-  %.096.ph = phi ptr [ %.2230, %33 ], [ %.197266, %28 ], [ %.2.lcssa.ph, %58 ], [ %.2.lcssa.ph, %90 ]
+  %.sink366 = phi i32 [ 98, %33 ], [ 157, %90 ], [ 85, %28 ], [ 117, %58 ]
+  %.sink = phi i32 [ 130, %33 ], [ 107, %90 ], [ 131, %28 ], [ 147, %58 ]
+  %.0109.ph = phi ptr [ %.1110263, %33 ], [ %.4113, %90 ], [ %.1110263, %28 ], [ %.1110263, %58 ]
+  %.096.ph = phi ptr [ %.2230, %33 ], [ %.2.lcssa.ph, %90 ], [ %.197266, %28 ], [ %.2.lcssa.ph, %58 ]
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink366, ptr noundef nonnull @__func__.a2d_ASN1_OBJECT) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef %.sink, ptr noundef null) #6
   br label %.thread171
 
 .thread171:                                       ; preds = %61, %.thread157, %46, %40, %.thread, %.lr.ph253, %.thread171.sink.split
-  %.0109 = phi ptr [ %.0109.ph, %.thread171.sink.split ], [ %.2111, %.lr.ph253 ], [ %.1110263, %.thread ], [ %.1110263, %40 ], [ %.1110263, %46 ], [ %.1110263, %.thread157 ], [ %.1110263, %61 ]
-  %.096 = phi ptr [ %.096.ph, %.thread171.sink.split ], [ %.2.lcssa.ph, %.lr.ph253 ], [ %.3163, %.thread157 ], [ %.3163, %46 ], [ null, %40 ], [ %.4156, %.thread ], [ %.2.lcssa.ph, %61 ]
+  %.0109 = phi ptr [ %.2111, %.lr.ph253 ], [ %.1110263, %.thread157 ], [ %.0109.ph, %.thread171.sink.split ], [ %.1110263, %.thread ], [ %.1110263, %40 ], [ %.1110263, %46 ], [ %.1110263, %61 ]
+  %.096 = phi ptr [ %.2.lcssa.ph, %.lr.ph253 ], [ %.3163, %.thread157 ], [ %.096.ph, %.thread171.sink.split ], [ %.3163, %46 ], [ null, %40 ], [ %.4156, %.thread ], [ %.2.lcssa.ph, %61 ]
   %.not153 = icmp eq ptr %.0109, %5
   br i1 %.not153, label %.sink.split, label %.thread171.thread
 
@@ -413,8 +413,8 @@ define i32 @a2d_ASN1_OBJECT(ptr noundef writeonly captures(address_is_null) %0, 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.thread171, %.thread171.thread, %17, %16, %._crit_edge269, %107, %18
-  %.096181.sink = phi ptr [ %.2.lcssa.ph, %107 ], [ %.2.lcssa.ph, %._crit_edge269 ], [ null, %18 ], [ %.096186, %.thread171.thread ], [ %.096, %.thread171 ], [ null, %17 ], [ null, %16 ]
-  %.0.ph = phi i32 [ %.2121, %107 ], [ %.2121, %._crit_edge269 ], [ 0, %18 ], [ 0, %.thread171.thread ], [ 0, %.thread171 ], [ 0, %17 ], [ 0, %16 ]
+  %.096181.sink = phi ptr [ null, %18 ], [ %.2.lcssa.ph, %._crit_edge269 ], [ %.2.lcssa.ph, %107 ], [ %.096, %.thread171 ], [ %.096186, %.thread171.thread ], [ null, %17 ], [ null, %16 ]
+  %.0.ph = phi i32 [ 0, %18 ], [ %.2121, %._crit_edge269 ], [ %.2121, %107 ], [ 0, %.thread171 ], [ 0, %.thread171.thread ], [ 0, %17 ], [ 0, %16 ]
   call void @BN_free(ptr noundef %.096181.sink) #6
   br label %108
 
@@ -526,7 +526,7 @@ define i32 @i2a_ASN1_OBJECT(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   br label %37
 
 37:                                               ; preds = %.thread32, %34, %25, %28, %17, %16, %9
-  %.025 = phi i32 [ %10, %9 ], [ -1, %16 ], [ -1, %17 ], [ %33, %28 ], [ %26, %25 ], [ %12, %34 ], [ %12, %.thread32 ]
+  %.025 = phi i32 [ %10, %9 ], [ -1, %16 ], [ %26, %25 ], [ -1, %17 ], [ %33, %28 ], [ %12, %34 ], [ %12, %.thread32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.025
 }
@@ -828,7 +828,7 @@ ASN1_OBJECT_new.exit:                             ; preds = %67
   br label %ASN1_OBJECT_new.exit.thread
 
 ASN1_OBJECT_new.exit.thread:                      ; preds = %67, %104, %106, %102, %55, %46, %14
-  %.0 = phi ptr [ null, %14 ], [ %23, %46 ], [ null, %55 ], [ %.072, %102 ], [ null, %106 ], [ null, %104 ], [ null, %67 ]
+  %.0 = phi ptr [ null, %14 ], [ %23, %46 ], [ null, %55 ], [ %.072, %102 ], [ null, %104 ], [ null, %106 ], [ null, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }

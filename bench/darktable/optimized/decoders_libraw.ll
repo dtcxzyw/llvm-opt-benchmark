@@ -2093,8 +2093,8 @@ _ZN21pana_cs6_page_decoder11nextpixel12Ev.exit.us.us: ; preds = %193, %191
   br label %.thread.us.us
 
 .thread.us.us:                                    ; preds = %197, %193, %191
-  %200 = phi i8 [ %187, %191 ], [ %187, %193 ], [ %198, %197 ]
-  %201 = phi i32 [ 0, %191 ], [ 0, %193 ], [ %spec.select119.us.us, %197 ]
+  %200 = phi i8 [ %187, %193 ], [ %198, %197 ], [ %187, %191 ]
+  %201 = phi i32 [ 0, %193 ], [ %spec.select119.us.us, %197 ], [ 0, %191 ]
   %202 = shl nuw nsw i32 %15, %201
   %203 = shl nuw nsw i32 1, %201
   br label %204
@@ -2304,7 +2304,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %.split, %_ZNSt6vect
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit105
 
 _ZNSt6vectorIhSaIhEED2Ev.exit105:                 ; preds = %256, %.loopexit122, %.loopexit122.thread
-  %.pn97.pn118 = phi { ptr, i32 } [ %lpad.loopexit.split-lp125, %.loopexit122 ], [ %.pn97.pn197, %.loopexit122.thread ], [ %257, %256 ]
+  %.pn97.pn118 = phi { ptr, i32 } [ %.pn97.pn197, %.loopexit122.thread ], [ %lpad.loopexit.split-lp125, %.loopexit122 ], [ %257, %256 ]
   resume { ptr, i32 } %.pn97.pn118
 
 276:                                              ; preds = %256
@@ -3239,10 +3239,10 @@ _ZN15iiq_bitstream_t4peekEh.exit:                 ; preds = %23
   br label %_ZN15iiq_bitstream_t7consumeEh.exit
 
 _ZN15iiq_bitstream_t7consumeEh.exit:              ; preds = %_ZN15iiq_bitstream_t4peekEh.exit, %_ZN15iiq_bitstream_t4peekEh.exit.thread
-  %.in = phi i64 [ %38, %_ZN15iiq_bitstream_t4peekEh.exit ], [ %34, %_ZN15iiq_bitstream_t4peekEh.exit.thread ]
-  %.sroa.33.10 = phi ptr [ %.sroa.33.1174, %_ZN15iiq_bitstream_t4peekEh.exit ], [ %26, %_ZN15iiq_bitstream_t4peekEh.exit.thread ]
-  %.sroa.0.10 = phi i64 [ %.sroa.0.1175, %_ZN15iiq_bitstream_t4peekEh.exit ], [ %30, %_ZN15iiq_bitstream_t4peekEh.exit.thread ]
-  %39 = phi i8 [ %.sroa.68.1173, %_ZN15iiq_bitstream_t4peekEh.exit ], [ %31, %_ZN15iiq_bitstream_t4peekEh.exit.thread ]
+  %.in = phi i64 [ %34, %_ZN15iiq_bitstream_t4peekEh.exit.thread ], [ %38, %_ZN15iiq_bitstream_t4peekEh.exit ]
+  %.sroa.33.10 = phi ptr [ %26, %_ZN15iiq_bitstream_t4peekEh.exit.thread ], [ %.sroa.33.1174, %_ZN15iiq_bitstream_t4peekEh.exit ]
+  %.sroa.0.10 = phi i64 [ %30, %_ZN15iiq_bitstream_t4peekEh.exit.thread ], [ %.sroa.0.1175, %_ZN15iiq_bitstream_t4peekEh.exit ]
+  %39 = phi i8 [ %31, %_ZN15iiq_bitstream_t4peekEh.exit.thread ], [ %.sroa.68.1173, %_ZN15iiq_bitstream_t4peekEh.exit ]
   %40 = and i64 %.in, 127
   %41 = add i8 %39, -2
   %42 = icmp samesign ugt i64 %40, 31
@@ -3313,10 +3313,10 @@ _ZN15iiq_bitstream_t4peekEh.exit62:               ; preds = %65
   br label %_ZN15iiq_bitstream_t7consumeEh.exit67
 
 _ZN15iiq_bitstream_t7consumeEh.exit67:            ; preds = %_ZN15iiq_bitstream_t4peekEh.exit62, %_ZN15iiq_bitstream_t4peekEh.exit62.thread
-  %.in166 = phi i64 [ %79, %_ZN15iiq_bitstream_t4peekEh.exit62 ], [ %75, %_ZN15iiq_bitstream_t4peekEh.exit62.thread ]
-  %.sroa.33.13 = phi ptr [ %.sroa.33.2, %_ZN15iiq_bitstream_t4peekEh.exit62 ], [ %67, %_ZN15iiq_bitstream_t4peekEh.exit62.thread ]
-  %.sroa.0.13 = phi i64 [ %.sroa.0.2, %_ZN15iiq_bitstream_t4peekEh.exit62 ], [ %71, %_ZN15iiq_bitstream_t4peekEh.exit62.thread ]
-  %80 = phi i8 [ %.sroa.68.2, %_ZN15iiq_bitstream_t4peekEh.exit62 ], [ %72, %_ZN15iiq_bitstream_t4peekEh.exit62.thread ]
+  %.in166 = phi i64 [ %75, %_ZN15iiq_bitstream_t4peekEh.exit62.thread ], [ %79, %_ZN15iiq_bitstream_t4peekEh.exit62 ]
+  %.sroa.33.13 = phi ptr [ %67, %_ZN15iiq_bitstream_t4peekEh.exit62.thread ], [ %.sroa.33.2, %_ZN15iiq_bitstream_t4peekEh.exit62 ]
+  %.sroa.0.13 = phi i64 [ %71, %_ZN15iiq_bitstream_t4peekEh.exit62.thread ], [ %.sroa.0.2, %_ZN15iiq_bitstream_t4peekEh.exit62 ]
+  %80 = phi i8 [ %72, %_ZN15iiq_bitstream_t4peekEh.exit62.thread ], [ %.sroa.68.2, %_ZN15iiq_bitstream_t4peekEh.exit62 ]
   %81 = and i64 %.in166, 127
   %82 = add i8 %80, -2
   %83 = icmp samesign ugt i64 %81, 31

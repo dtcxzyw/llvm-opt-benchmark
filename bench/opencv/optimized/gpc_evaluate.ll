@@ -1919,7 +1919,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %655, %657
   br label %.body331
 
 .body331:                                         ; preds = %664, %561
-  %.pn108 = phi { ptr, i32 } [ %665, %664 ], [ %.pn23.pn.pn.i, %561 ]
+  %.pn108 = phi { ptr, i32 } [ %.pn23.pn.pn.i, %561 ], [ %665, %664 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   br label %789
@@ -2363,7 +2363,7 @@ _ZNSt12__shared_ptrIN2cv7optflow9GPCForestILi5EEELN9__gnu_cxx12_Lock_policyE2EED
   br label %790
 
 790:                                              ; preds = %450, %414, %789, %662, %660, %658, %356
-  %.pn146.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn136.pn.pn, %789 ], [ %663, %662 ], [ %661, %660 ], [ %659, %658 ], [ %357, %356 ], [ %451, %450 ], [ %415, %414 ]
+  %.pn146.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %357, %356 ], [ %.pn136.pn.pn, %789 ], [ %663, %662 ], [ %661, %660 ], [ %659, %658 ], [ %415, %414 ], [ %451, %450 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %36) #26
   br label %791
 
@@ -3736,7 +3736,7 @@ _ZNSt6vectorIN2cv7optflow18GPCPatchDescriptorESaIS2_EED2Ev.exit: ; preds = %_ZNS
   ret void
 
 338:                                              ; preds = %.loopexit, %.loopexit.split-lp, %240, %203, %183, %181, %167
-  %.pn87 = phi { ptr, i32 } [ %168, %167 ], [ %204, %203 ], [ %184, %183 ], [ %241, %240 ], [ %182, %181 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn87 = phi { ptr, i32 } [ %168, %167 ], [ %204, %203 ], [ %182, %181 ], [ %184, %183 ], [ %241, %240 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %339 = load ptr, ptr %24, align 8, !tbaa !168
   %.not.i.i.i137 = icmp eq ptr %339, null
   br i1 %.not.i.i.i137, label %_ZNSt6vectorIN2cv7optflow9GPCForestILi5EE5TrailESaIS4_EED2Ev.exit138, label %340

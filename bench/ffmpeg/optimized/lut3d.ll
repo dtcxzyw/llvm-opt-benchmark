@@ -93,7 +93,7 @@ define i32 @ff_sws_lut3d_generate(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br label %ff_sws_lut3d_update.exit
 
 ff_sws_lut3d_update.exit:                         ; preds = %21, %18, %14, %4, %28
-  %.0 = phi i32 [ %29, %28 ], [ -22, %4 ], [ %16, %14 ], [ 0, %18 ], [ 0, %21 ]
+  %.0 = phi i32 [ -22, %4 ], [ %16, %14 ], [ %29, %28 ], [ 0, %21 ], [ 0, %18 ]
   ret i32 %.0
 }
 

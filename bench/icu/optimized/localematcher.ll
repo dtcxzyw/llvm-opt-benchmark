@@ -511,7 +511,7 @@ _ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit: ; preds = %10
   br label %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit
 
 _ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit:  ; preds = %11, %14, %18, %.thread10, %4, %1
-  %.0 = phi i1 [ false, %1 ], [ true, %4 ], [ true, %.thread10 ], [ false, %18 ], [ false, %14 ], [ false, %11 ]
+  %.0 = phi i1 [ true, %4 ], [ false, %1 ], [ true, %.thread10 ], [ false, %18 ], [ false, %14 ], [ false, %11 ]
   ret i1 %.0
 }
 
@@ -638,7 +638,7 @@ select.unfold:                                    ; preds = %33
   br i1 %.old22, label %.lr.ph.backedge, label %_ZN6icu_7713LocaleMatcher7Builder27ensureSupportedLocaleVectorEv.exit.thread
 
 .lr.ph.backedge:                                  ; preds = %select.unfold, %39
-  %.01220.be = phi i32 [ %.old, %select.unfold ], [ %42, %39 ]
+  %.01220.be = phi i32 [ %42, %39 ], [ %.old, %select.unfold ]
   br label %.lr.ph, !llvm.loop !45
 
 _ZN6icu_7713LocaleMatcher7Builder27ensureSupportedLocaleVectorEv.exit.thread: ; preds = %select.unfold, %39, %_ZN6icu_7713LocaleMatcher7Builder27ensureSupportedLocaleVectorEv.exit, %18, %21, %25, %_ZN6icu_7713LocaleMatcher7Builder21clearSupportedLocalesEv.exit, %3
@@ -1618,10 +1618,10 @@ _ZN6icu_773LSRD2Ev.exit186:                       ; preds = %_ZN6icu_7712_GLOBAL
   br label %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit
 
 _ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit: ; preds = %226, %.noexc187, %239, %252, %250
-  %.2124.ph = phi i32 [ %231, %226 ], [ %.0122223, %.noexc187 ], [ %243, %239 ], [ %.0122223, %252 ], [ %.0122223, %250 ]
-  %.2121.ph = phi i32 [ %.0119224, %226 ], [ %.0119224, %.noexc187 ], [ %.0119224, %239 ], [ %.0119224, %252 ], [ %251, %250 ]
-  %.2103.ph = phi ptr [ %209, %226 ], [ %209, %.noexc187 ], [ %.1102226, %239 ], [ %.1102226, %252 ], [ %.1102226, %250 ]
-  %.5.ph = phi ptr [ %207, %226 ], [ %207, %.noexc187 ], [ %.3227, %239 ], [ %.3227, %252 ], [ %.3227, %250 ]
+  %.2124.ph = phi i32 [ %231, %226 ], [ %.0122223, %.noexc187 ], [ %.0122223, %250 ], [ %243, %239 ], [ %.0122223, %252 ]
+  %.2121.ph = phi i32 [ %.0119224, %226 ], [ %.0119224, %.noexc187 ], [ %251, %250 ], [ %.0119224, %239 ], [ %.0119224, %252 ]
+  %.2103.ph = phi ptr [ %209, %226 ], [ %209, %.noexc187 ], [ %.1102226, %250 ], [ %.1102226, %239 ], [ %.1102226, %252 ]
+  %.5.ph = phi ptr [ %207, %226 ], [ %207, %.noexc187 ], [ %.3227, %250 ], [ %.3227, %239 ], [ %.3227, %252 ]
   %.pr = load i32, ptr %2, align 4, !tbaa !16
   %253 = icmp slt i32 %.pr, 1
   br i1 %253, label %201, label %.critedge178
@@ -2742,7 +2742,7 @@ _ZN6icu_773LSRD2Ev.exit:                          ; preds = %_ZN6icu_7717LocaleL
   %137 = add nuw nsw i32 %.0, 1
   br label %31, !llvm.loop !127
 
-138:                                              ; preds = %103, %98
+138:                                              ; preds = %98, %103
   %139 = icmp slt i32 %.235, 0
   br i1 %139, label %.loopexit, label %140
 
@@ -2755,8 +2755,8 @@ _ZN6icu_773LSRD2Ev.exit:                          ; preds = %_ZN6icu_7717LocaleL
   br label %.loopexit
 
 .loopexit:                                        ; preds = %72, %_ZN6icu_773LSRD2Ev.exit, %_ZN6icu_7717LocaleLsrIterator15rememberCurrentEiR10UErrorCode.exit48, %92, %138, %.thread55, %4, %140
-  %.sroa.0.0 = phi i32 [ %145, %140 ], [ undef, %4 ], [ %36, %.thread55 ], [ undef, %138 ], [ undef, %92 ], [ undef, %_ZN6icu_7717LocaleLsrIterator15rememberCurrentEiR10UErrorCode.exit48 ], [ undef, %_ZN6icu_773LSRD2Ev.exit ], [ undef, %72 ]
-  %.sroa.3.0 = phi i64 [ 4294967296, %140 ], [ 0, %4 ], [ 4294967296, %.thread55 ], [ 0, %138 ], [ 0, %92 ], [ 0, %_ZN6icu_7717LocaleLsrIterator15rememberCurrentEiR10UErrorCode.exit48 ], [ 0, %_ZN6icu_773LSRD2Ev.exit ], [ 0, %72 ]
+  %.sroa.0.0 = phi i32 [ undef, %138 ], [ %145, %140 ], [ %36, %.thread55 ], [ undef, %4 ], [ undef, %92 ], [ undef, %_ZN6icu_7717LocaleLsrIterator15rememberCurrentEiR10UErrorCode.exit48 ], [ undef, %_ZN6icu_773LSRD2Ev.exit ], [ undef, %72 ]
+  %.sroa.3.0 = phi i64 [ 0, %138 ], [ 4294967296, %140 ], [ 4294967296, %.thread55 ], [ 0, %4 ], [ 0, %92 ], [ 0, %_ZN6icu_7717LocaleLsrIterator15rememberCurrentEiR10UErrorCode.exit48 ], [ 0, %_ZN6icu_773LSRD2Ev.exit ], [ 0, %72 ]
   %.sroa.0.0.insert.ext = zext i32 %.sroa.0.0 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.3.0, %.sroa.0.0.insert.ext
   ret i64 %.sroa.0.0.insert.insert
@@ -2932,7 +2932,7 @@ _ZN6icu_7717LocaleLsrIteratorD2Ev.exit16:         ; preds = %72, %75, %79
   resume { ptr, i32 } %.pn19
 
 83:                                               ; preds = %3, %_ZN6icu_7717LocaleLsrIteratorD2Ev.exit, %13
-  %.010 = phi ptr [ %60, %_ZN6icu_7717LocaleLsrIteratorD2Ev.exit ], [ %15, %13 ], [ null, %3 ]
+  %.010 = phi ptr [ %15, %13 ], [ %60, %_ZN6icu_7717LocaleLsrIteratorD2Ev.exit ], [ null, %3 ]
   ret ptr %.010
 }
 
@@ -3770,7 +3770,7 @@ _ZN6icu_776Locale18ConvertingIteratorIPPKcN12_GLOBAL__N_113LocaleFromTagEEC2ES4_
   resume { ptr, i32 } %.pn
 
 39:                                               ; preds = %7, %33, %23
-  %.020 = phi i32 [ 0, %23 ], [ %32, %33 ], [ 0, %7 ]
+  %.020 = phi i32 [ %32, %33 ], [ 0, %23 ], [ 0, %7 ]
   ret i32 %.020
 }
 
@@ -3963,7 +3963,7 @@ _ZNK6icu_7713LocaleMatcher7Builder5buildER10UErrorCode.exit: ; preds = %46
           to label %85 unwind label %66
 
 85:                                               ; preds = %83, %77, %47
-  %.4 = phi i32 [ 0, %47 ], [ %78, %77 ], [ %84, %83 ]
+  %.4 = phi i32 [ %78, %77 ], [ 0, %47 ], [ %84, %83 ]
   call void @_ZN6icu_7713LocaleMatcher6ResultD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %10) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN6icu_7713LocaleMatcherD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %9) #17
@@ -3987,7 +3987,7 @@ _ZNK6icu_7713LocaleMatcher7Builder5buildER10UErrorCode.exit: ; preds = %46
   br label %90
 
 89:                                               ; preds = %.thread, %85
-  %.3 = phi i32 [ %.4, %85 ], [ 0, %.thread ]
+  %.3 = phi i32 [ 0, %.thread ], [ %.4, %85 ]
   call void @_ZN6icu_7713LocaleMatcher7BuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %91
@@ -4086,7 +4086,7 @@ define noundef i32 @uloc_acceptLanguageFromHTTP_77(ptr noundef %0, i32 noundef %
   resume { ptr, i32 } %37
 
 38:                                               ; preds = %6, %35, %20
-  %.018 = phi i32 [ 0, %20 ], [ %34, %35 ], [ 0, %6 ]
+  %.018 = phi i32 [ %34, %35 ], [ 0, %20 ], [ 0, %6 ]
   ret i32 %.018
 }
 

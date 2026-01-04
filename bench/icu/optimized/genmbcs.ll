@@ -164,7 +164,7 @@ define dso_local signext range(i8 0, 2) i8 @MBCSOkForBaseFromUnicode(ptr noundef
   br label %35
 
 35:                                               ; preds = %30, %27, %10, %16, %5
-  %.0 = phi i8 [ 0, %5 ], [ 0, %16 ], [ 0, %10 ], [ 0, %27 ], [ %., %30 ]
+  %.0 = phi i8 [ 0, %27 ], [ 0, %10 ], [ %., %30 ], [ 0, %5 ], [ 0, %16 ]
   ret i8 %.0
 }
 
@@ -477,7 +477,7 @@ MBCSOkForBaseFromUnicode.exit:                    ; preds = %129, %132, %135
   %143 = and i8 %142, %118
   br label %188
 
-MBCSOkForBaseFromUnicode.exit.thread:             ; preds = %135, %126, %MBCSOkForBaseFromUnicode.exit
+MBCSOkForBaseFromUnicode.exit.thread:             ; preds = %126, %135, %MBCSOkForBaseFromUnicode.exit
   %144 = load i8, ptr %99, align 2, !tbaa !55
   %145 = or i8 %144, 16
   store i8 %145, ptr %99, align 2, !tbaa !55
@@ -863,8 +863,8 @@ _ZL12transformEUCP8MBCSData.exit.thread.i:        ; preds = %270, %237, %.prehea
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i24.i, %318, %327, %.critedge.thread.i.i, %.critedge.thread.thread.i.i
-  %.258.i.i = phi i16 [ %328, %327 ], [ %305, %.critedge.thread.i.i ], [ %299, %.critedge.thread.thread.i.i ], [ %319, %318 ], [ %307, %.lr.ph.i24.i ]
-  %.2.i.i = phi i16 [ %328, %327 ], [ %.084.i.i, %.critedge.thread.i.i ], [ %.084.i.i, %.critedge.thread.thread.i.i ], [ %323, %318 ], [ %311, %.lr.ph.i24.i ]
+  %.258.i.i = phi i16 [ %299, %.critedge.thread.thread.i.i ], [ %328, %327 ], [ %305, %.critedge.thread.i.i ], [ %319, %318 ], [ %307, %.lr.ph.i24.i ]
+  %.2.i.i = phi i16 [ %.084.i.i, %.critedge.thread.thread.i.i ], [ %328, %327 ], [ %.084.i.i, %.critedge.thread.i.i ], [ %323, %318 ], [ %311, %.lr.ph.i24.i ]
   %329 = zext i16 %.258.i.i to i32
   %330 = icmp ugt i32 %280, %329
   br i1 %330, label %.lr.ph85.i.i, label %._crit_edge.i22.i, !llvm.loop !68
@@ -1028,8 +1028,8 @@ _ZL19singleCompactStage3P8MBCSData.exit.i:        ; preds = %342
   br label %.loopexit.i37.i
 
 .loopexit.i37.i:                                  ; preds = %.lr.ph.i35.i, %390, %399, %.critedge.thread.i33.i, %.critedge.thread.thread.i41.i
-  %.256.i.i = phi i16 [ %400, %399 ], [ %377, %.critedge.thread.i33.i ], [ %371, %.critedge.thread.thread.i41.i ], [ %391, %390 ], [ %379, %.lr.ph.i35.i ]
-  %.2.i38.i = phi i16 [ %400, %399 ], [ %.082.i.i, %.critedge.thread.i33.i ], [ %.082.i.i, %.critedge.thread.thread.i41.i ], [ %395, %390 ], [ %383, %.lr.ph.i35.i ]
+  %.256.i.i = phi i16 [ %371, %.critedge.thread.thread.i41.i ], [ %400, %399 ], [ %377, %.critedge.thread.i33.i ], [ %391, %390 ], [ %379, %.lr.ph.i35.i ]
+  %.2.i38.i = phi i16 [ %.082.i.i, %.critedge.thread.thread.i41.i ], [ %400, %399 ], [ %.082.i.i, %.critedge.thread.i33.i ], [ %395, %390 ], [ %383, %.lr.ph.i35.i ]
   %401 = zext i16 %.256.i.i to i32
   %402 = icmp ugt i32 %340, %401
   br i1 %402, label %.lr.ph83.i.i, label %._crit_edge.i25.i, !llvm.loop !73
@@ -1187,8 +1187,8 @@ _ZL19singleCompactStage2P8MBCSData.exit.i:        ; preds = %412
   br label %.loopexit.i62.i
 
 .loopexit.i62.i:                                  ; preds = %.lr.ph.i57.i, %460, %469, %.critedge.thread.i54.i, %.critedge.thread.thread.i71.i
-  %.256.i63.i = phi i16 [ %470, %469 ], [ %447, %.critedge.thread.i54.i ], [ %441, %.critedge.thread.thread.i71.i ], [ %461, %460 ], [ %449, %.lr.ph.i57.i ]
-  %.2.i64.i = phi i16 [ %470, %469 ], [ %.082.i49.i, %.critedge.thread.i54.i ], [ %.082.i49.i, %.critedge.thread.thread.i71.i ], [ %465, %460 ], [ %453, %.lr.ph.i57.i ]
+  %.256.i63.i = phi i16 [ %441, %.critedge.thread.thread.i71.i ], [ %470, %469 ], [ %447, %.critedge.thread.i54.i ], [ %461, %460 ], [ %449, %.lr.ph.i57.i ]
+  %.2.i64.i = phi i16 [ %.082.i49.i, %.critedge.thread.thread.i71.i ], [ %470, %469 ], [ %.082.i49.i, %.critedge.thread.i54.i ], [ %465, %460 ], [ %453, %.lr.ph.i57.i ]
   %471 = zext i16 %.256.i63.i to i32
   %472 = load i32, ptr %70, align 8, !tbaa !43
   %473 = icmp ugt i32 %472, %471
@@ -1253,7 +1253,7 @@ _ZL13compactStage2P8MBCSData.exit.i:              ; preds = %483
   br label %_ZL15MBCSPostprocessP8MBCSDataPK20UConverterStaticData.exit
 
 _ZL15MBCSPostprocessP8MBCSDataPK20UConverterStaticData.exit: ; preds = %65, %53, %492, %490, %184, %11
-  %.0 = phi i8 [ 0, %11 ], [ 0, %184 ], [ %.0105.lcssa, %490 ], [ %.0105.lcssa, %492 ], [ 0, %53 ], [ 0, %65 ]
+  %.0 = phi i8 [ 0, %11 ], [ 0, %184 ], [ %.0105.lcssa, %492 ], [ %.0105.lcssa, %490 ], [ 0, %53 ], [ 0, %65 ]
   ret i8 %.0
 }
 
@@ -1431,8 +1431,8 @@ define internal noundef i32 @_ZL9MBCSWriteP12NewConverterPK20UConverterStaticDat
   br label %96
 
 96:                                               ; preds = %.sink.split, %83, %72
-  %.1102 = phi i32 [ %73, %72 ], [ %84, %83 ], [ %.1102.ph, %.sink.split ]
-  %.099 = phi i32 [ 0, %72 ], [ 0, %83 ], [ %.099.ph, %.sink.split ]
+  %.1102 = phi i32 [ %84, %83 ], [ %73, %72 ], [ %.1102.ph, %.sink.split ]
+  %.099 = phi i32 [ 0, %83 ], [ 0, %72 ], [ %.099.ph, %.sink.split ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 454468
   %98 = load i32, ptr %97, align 4, !tbaa !48
   %99 = add i32 %98, 3
@@ -1995,7 +1995,7 @@ _ZL14removeFallbackP8MBCSDataj.exit.thread:       ; preds = %156, %181, %179, %_
   br label %253
 
 253:                                              ; preds = %232, %236, %247
-  %.0 = phi i32 [ %246, %236 ], [ %252, %247 ], [ %230, %232 ]
+  %.0 = phi i32 [ %252, %247 ], [ %246, %236 ], [ %230, %232 ]
   %254 = icmp slt i8 %4, 0
   br i1 %254, label %255, label %261
 
@@ -2096,7 +2096,7 @@ _ZL14removeFallbackP8MBCSDataj.exit.thread:       ; preds = %156, %181, %179, %_
   br label %_ZL11setFallbackP8MBCSDataji.exit
 
 _ZL11setFallbackP8MBCSDataji.exit:                ; preds = %261, %213, %210, %203, %129, %192, %218, %285, %298, %291, %274, %269, %310, %186, %175, %119, %107, %103, %99, %_ZL10printBytesPcmPKhi.exit184, %_ZL10printBytesPcmPKhi.exit, %12
-  %.0156 = phi i8 [ 0, %12 ], [ 0, %_ZL10printBytesPcmPKhi.exit ], [ 0, %_ZL10printBytesPcmPKhi.exit184 ], [ 0, %310 ], [ 0, %99 ], [ 0, %103 ], [ 0, %107 ], [ 0, %119 ], [ 0, %175 ], [ 0, %186 ], [ 0, %261 ], [ 1, %269 ], [ 1, %274 ], [ 1, %291 ], [ 1, %298 ], [ 1, %285 ], [ 1, %218 ], [ 1, %192 ], [ 1, %129 ], [ 1, %203 ], [ 0, %210 ], [ 1, %213 ]
+  %.0156 = phi i8 [ 0, %12 ], [ 0, %_ZL10printBytesPcmPKhi.exit ], [ 0, %_ZL10printBytesPcmPKhi.exit184 ], [ 0, %310 ], [ 0, %99 ], [ 0, %103 ], [ 0, %107 ], [ 0, %119 ], [ 0, %261 ], [ 0, %175 ], [ 0, %186 ], [ 1, %129 ], [ 1, %269 ], [ 1, %274 ], [ 1, %213 ], [ 1, %291 ], [ 1, %298 ], [ 1, %285 ], [ 1, %218 ], [ 1, %192 ], [ 1, %203 ], [ 0, %210 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i8 %.0156
 }
@@ -2322,7 +2322,7 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL24MBCSSingleAddFrom
   br label %121
 
 121:                                              ; preds = %104, %114, %116, %4, %109, %75, %39
-  %.091 = phi i8 [ 0, %39 ], [ 0, %75 ], [ 0, %109 ], [ 1, %4 ], [ 1, %116 ], [ 1, %114 ], [ 1, %104 ]
+  %.091 = phi i8 [ 1, %4 ], [ 0, %39 ], [ 0, %75 ], [ 0, %109 ], [ 1, %116 ], [ 1, %114 ], [ 1, %104 ]
   ret i8 %.091
 }
 
@@ -2575,9 +2575,9 @@ _ZL10printBytesPcmPKhi.exit197:                   ; preds = %.lr.ph.i190, %109
   br label %135
 
 135:                                              ; preds = %133, %131, %.thread293
-  %.sink301 = phi i32 [ 4, %.thread293 ], [ 4, %131 ], [ %spec.select, %133 ]
-  %.sink = phi i32 [ 15, %.thread293 ], [ 15, %131 ], [ %spec.select302, %133 ]
-  %136 = phi i32 [ %75, %.thread293 ], [ %132, %131 ], [ %134, %133 ]
+  %.sink301 = phi i32 [ %spec.select, %133 ], [ 4, %.thread293 ], [ 4, %131 ]
+  %.sink = phi i32 [ %spec.select302, %133 ], [ 15, %.thread293 ], [ 15, %131 ]
+  %136 = phi i32 [ %134, %133 ], [ %75, %.thread293 ], [ %132, %131 ]
   %137 = shl nsw i32 %10, %.sink301
   %138 = and i32 %3, %.sink
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 196664

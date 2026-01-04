@@ -410,7 +410,7 @@ AddVirtualGamepadInfo.exit75:                     ; preds = %SDL_FreeSteamVirtua
   br label %135
 
 135:                                              ; preds = %19, %10, %5, %0, %AddVirtualGamepadInfo.exit75
-  %.046 = phi i1 [ true, %AddVirtualGamepadInfo.exit75 ], [ false, %0 ], [ false, %5 ], [ false, %10 ], [ false, %19 ]
+  %.046 = phi i1 [ false, %0 ], [ false, %5 ], [ true, %AddVirtualGamepadInfo.exit75 ], [ false, %10 ], [ false, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.046

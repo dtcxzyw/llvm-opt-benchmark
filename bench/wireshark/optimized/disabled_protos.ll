@@ -82,7 +82,7 @@ define noundef zeroext i1 @proto_disable_proto_by_name(ptr noundef %0) local_unn
   br label %13
 
 13:                                               ; preds = %10, %4, %9, %7, %12
-  %.0 = phi i1 [ true, %12 ], [ true, %7 ], [ true, %9 ], [ true, %4 ], [ false, %10 ]
+  %.0 = phi i1 [ true, %12 ], [ true, %4 ], [ true, %7 ], [ true, %9 ], [ false, %10 ]
   ret i1 %.0
 }
 
@@ -138,7 +138,7 @@ define noundef zeroext i1 @proto_enable_proto_by_name(ptr noundef %0) local_unna
   br label %13
 
 13:                                               ; preds = %10, %4, %9, %7, %12
-  %.0 = phi i1 [ true, %12 ], [ true, %7 ], [ true, %9 ], [ true, %4 ], [ false, %10 ]
+  %.0 = phi i1 [ true, %12 ], [ true, %4 ], [ true, %7 ], [ true, %9 ], [ false, %10 ]
   ret i1 %.0
 }
 
@@ -1295,7 +1295,7 @@ getc_unlocked.exit107:                            ; preds = %64, %66
   br label %.loopexit114
 
 .loopexit114:                                     ; preds = %getc_unlocked.exit107, %getc_unlocked.exit107, %.critedge5, %.critedge5, %77, %53
-  %.079 = phi i32 [ %70, %77 ], [ %54, %53 ], [ %70, %.critedge5 ], [ %70, %.critedge5 ], [ %70, %getc_unlocked.exit107 ], [ %70, %getc_unlocked.exit107 ]
+  %.079 = phi i32 [ %70, %77 ], [ %70, %.critedge5 ], [ %54, %53 ], [ %70, %.critedge5 ], [ %70, %getc_unlocked.exit107 ], [ %70, %getc_unlocked.exit107 ]
   switch i32 %.079, label %78 [
     i32 -1, label %.loopexit
     i32 10, label %.loopexit
@@ -1609,7 +1609,7 @@ getc_unlocked.exit108:                            ; preds = %64, %66
   br label %.loopexit113
 
 .loopexit113:                                     ; preds = %getc_unlocked.exit108, %getc_unlocked.exit108, %.critedge5, %.critedge5, %77, %.loopexit114
-  %.082 = phi i32 [ %70, %77 ], [ %56, %.loopexit114 ], [ %70, %.critedge5 ], [ %70, %.critedge5 ], [ %70, %getc_unlocked.exit108 ], [ %70, %getc_unlocked.exit108 ]
+  %.082 = phi i32 [ %70, %77 ], [ %70, %.critedge5 ], [ %56, %.loopexit114 ], [ %70, %.critedge5 ], [ %70, %getc_unlocked.exit108 ], [ %70, %getc_unlocked.exit108 ]
   switch i32 %.082, label %.preheader [
     i32 -1, label %.loopexit
     i32 10, label %.loopexit

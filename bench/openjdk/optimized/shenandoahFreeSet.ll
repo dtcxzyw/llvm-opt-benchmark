@@ -949,7 +949,7 @@ _ZNK26ShenandoahRegionPartitions35find_index_of_next_available_regionE28Shenando
   br label %105
 
 105:                                              ; preds = %2, %._crit_edge, %.split.us
-  %.014 = phi i64 [ %.us-phi, %.split.us ], [ %3, %._crit_edge ], [ %3, %2 ]
+  %.014 = phi i64 [ %3, %._crit_edge ], [ %.us-phi, %.split.us ], [ %3, %2 ]
   ret i64 %.014
 }
 
@@ -1850,7 +1850,7 @@ _ZNK26ShenandoahRegionPartitions39find_index_of_previous_available_regionE28Shen
   unreachable
 
 .loopexit:                                        ; preds = %_ZNK14ShenandoahHeap10get_regionEm.exit86, %_ZNK26ShenandoahRegionPartitions39find_index_of_previous_available_regionE28ShenandoahFreeSetPartitionIdl.exit114, %_ZNK26ShenandoahRegionPartitions35find_index_of_next_available_regionE28ShenandoahFreeSetPartitionIdl.exit, %136, %_ZNK26ShenandoahRegionPartitions39find_index_of_previous_available_regionE28ShenandoahFreeSetPartitionIdl.exit, %68, %210, %95, %28, %250, %248, %._crit_edge
-  %.0 = phi ptr [ null, %._crit_edge ], [ %247, %248 ], [ %247, %250 ], [ null, %28 ], [ null, %95 ], [ null, %210 ], [ null, %_ZNK26ShenandoahRegionPartitions39find_index_of_previous_available_regionE28ShenandoahFreeSetPartitionIdl.exit ], [ %69, %68 ], [ null, %_ZNK26ShenandoahRegionPartitions35find_index_of_next_available_regionE28ShenandoahFreeSetPartitionIdl.exit ], [ %137, %136 ], [ null, %_ZNK26ShenandoahRegionPartitions39find_index_of_previous_available_regionE28ShenandoahFreeSetPartitionIdl.exit114 ], [ %182, %_ZNK14ShenandoahHeap10get_regionEm.exit86 ]
+  %.0 = phi ptr [ %247, %250 ], [ null, %_ZNK26ShenandoahRegionPartitions35find_index_of_next_available_regionE28ShenandoahFreeSetPartitionIdl.exit ], [ null, %28 ], [ null, %210 ], [ null, %._crit_edge ], [ %247, %248 ], [ %69, %68 ], [ null, %95 ], [ null, %_ZNK26ShenandoahRegionPartitions39find_index_of_previous_available_regionE28ShenandoahFreeSetPartitionIdl.exit114 ], [ null, %_ZNK26ShenandoahRegionPartitions39find_index_of_previous_available_regionE28ShenandoahFreeSetPartitionIdl.exit ], [ %137, %136 ], [ %182, %_ZNK14ShenandoahHeap10get_regionEm.exit86 ]
   ret ptr %.0
 }
 
@@ -2153,8 +2153,8 @@ _ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit: ; preds = %134
   br label %.thread
 
 .thread:                                          ; preds = %_ZN22ShenandoahAllocRequest12is_lab_allocEv.exit, %_ZN20ShenandoahHeapRegion8allocateEmN22ShenandoahAllocRequest4TypeE.exit78, %90, %92, %140, %145, %132
-  %.not66101 = phi i1 [ false, %140 ], [ false, %145 ], [ true, %132 ], [ true, %92 ], [ true, %90 ], [ true, %_ZN20ShenandoahHeapRegion8allocateEmN22ShenandoahAllocRequest4TypeE.exit78 ], [ true, %_ZN22ShenandoahAllocRequest12is_lab_allocEv.exit ]
-  %.060100 = phi ptr [ %.060105, %140 ], [ %.060105, %145 ], [ null, %132 ], [ null, %92 ], [ null, %90 ], [ null, %_ZN20ShenandoahHeapRegion8allocateEmN22ShenandoahAllocRequest4TypeE.exit78 ], [ null, %_ZN22ShenandoahAllocRequest12is_lab_allocEv.exit ]
+  %.not66101 = phi i1 [ true, %132 ], [ false, %140 ], [ false, %145 ], [ true, %92 ], [ true, %90 ], [ true, %_ZN20ShenandoahHeapRegion8allocateEmN22ShenandoahAllocRequest4TypeE.exit78 ], [ true, %_ZN22ShenandoahAllocRequest12is_lab_allocEv.exit ]
+  %.060100 = phi ptr [ null, %132 ], [ %.060105, %140 ], [ %.060105, %145 ], [ null, %92 ], [ null, %90 ], [ null, %_ZN20ShenandoahHeapRegion8allocateEmN22ShenandoahAllocRequest4TypeE.exit78 ], [ null, %_ZN22ShenandoahAllocRequest12is_lab_allocEv.exit ]
   %149 = load atomic i8, ptr @_ZGVZN17ShenandoahFreeSet15try_allocate_inEP20ShenandoahHeapRegionR22ShenandoahAllocRequestRbE12min_capacity acquire, align 8
   %150 = icmp eq i8 %149, 0
   br i1 %150, label %151, label %161, !prof !20
@@ -2495,7 +2495,7 @@ _ZNK17ShenandoahFreeSet17can_allocate_fromEP20ShenandoahHeapRegion.exit.thread84
   br i1 %78, label %56, label %_ZNK26ShenandoahRegionPartitions47find_index_of_next_available_cluster_of_regionsE28ShenandoahFreeSetPartitionIdlm.exit79, !llvm.loop !21
 
 _ZNK26ShenandoahRegionPartitions47find_index_of_next_available_cluster_of_regionsE28ShenandoahFreeSetPartitionIdlm.exit79: ; preds = %75, %50, %69, %63
-  %.3 = phi i64 [ %spec.select.i77, %69 ], [ %66, %63 ], [ %.1.ph, %50 ], [ %51, %75 ]
+  %.3 = phi i64 [ %66, %63 ], [ %spec.select.i77, %69 ], [ %.1.ph, %50 ], [ %51, %75 ]
   %79 = icmp sgt i64 %.3, %18
   br i1 %79, label %.loopexit, label %_ZNK14ShenandoahHeap10get_regionEm.exit.outer, !llvm.loop !22
 
@@ -3034,8 +3034,8 @@ _Z24byte_size_in_proper_unitImET_S0_.exit:        ; preds = %76
   br label %_Z25proper_unit_for_byte_sizem.exit
 
 _Z25proper_unit_for_byte_sizem.exit:              ; preds = %.thread71, %_Z24byte_size_in_proper_unitImET_S0_.exit, %89
-  %.0.i6070 = phi i64 [ %88, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %spec.select.i, %89 ], [ %87, %.thread71 ]
-  %.0.i61 = phi ptr [ @.str.38, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %.str.40..str.41.i, %89 ], [ @.str.39, %.thread71 ]
+  %.0.i6070 = phi i64 [ %87, %.thread71 ], [ %88, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %spec.select.i, %89 ]
+  %.0.i61 = phi ptr [ @.str.39, %.thread71 ], [ @.str.38, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %.str.40..str.41.i, %89 ]
   %92 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %93 = load ptr, ptr %92, align 8
   %94 = ptrtoint ptr %93 to i64
@@ -3063,8 +3063,8 @@ _Z24byte_size_in_proper_unitImET_S0_.exit64:      ; preds = %_Z25proper_unit_for
   br label %_Z25proper_unit_for_byte_sizem.exit67
 
 _Z25proper_unit_for_byte_sizem.exit67:            ; preds = %.thread76, %_Z24byte_size_in_proper_unitImET_S0_.exit64, %101
-  %.0.i6375 = phi i64 [ %100, %_Z24byte_size_in_proper_unitImET_S0_.exit64 ], [ %spec.select.i62, %101 ], [ %99, %.thread76 ]
-  %.0.i66 = phi ptr [ @.str.38, %_Z24byte_size_in_proper_unitImET_S0_.exit64 ], [ %.str.40..str.41.i65, %101 ], [ @.str.39, %.thread76 ]
+  %.0.i6375 = phi i64 [ %99, %.thread76 ], [ %100, %_Z24byte_size_in_proper_unitImET_S0_.exit64 ], [ %spec.select.i62, %101 ]
+  %.0.i66 = phi ptr [ @.str.39, %.thread76 ], [ @.str.38, %_Z24byte_size_in_proper_unitImET_S0_.exit64 ], [ %.str.40..str.41.i65, %101 ]
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.9, i64 noundef %.04582, i64 noundef %.0.i6070, ptr noundef nonnull %.0.i61, i64 noundef %.0.i6375, ptr noundef nonnull %.0.i66)
   br label %104
 
@@ -3445,8 +3445,8 @@ _Z24byte_size_in_proper_unitImET_S0_.exit:        ; preds = %135
   br label %_Z25proper_unit_for_byte_sizem.exit
 
 _Z25proper_unit_for_byte_sizem.exit:              ; preds = %.thread82, %_Z24byte_size_in_proper_unitImET_S0_.exit, %142
-  %.0.i6581 = phi i64 [ %141, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %spec.select.i64, %142 ], [ %140, %.thread82 ]
-  %.0.i66 = phi ptr [ @.str.38, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %.str.40..str.41.i, %142 ], [ @.str.39, %.thread82 ]
+  %.0.i6581 = phi i64 [ %140, %.thread82 ], [ %141, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %spec.select.i64, %142 ]
+  %.0.i66 = phi ptr [ @.str.39, %.thread82 ], [ @.str.38, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %.str.40..str.41.i, %142 ]
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.10, i64 noundef %.0.i6581, ptr noundef nonnull %.0.i66)
   br label %145
 
@@ -3618,8 +3618,8 @@ _Z24byte_size_in_proper_unitImET_S0_.exit:        ; preds = %57
   br label %_Z25proper_unit_for_byte_sizem.exit
 
 _Z25proper_unit_for_byte_sizem.exit:              ; preds = %.thread, %_Z24byte_size_in_proper_unitImET_S0_.exit, %63
-  %.0.i2232 = phi i64 [ %62, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %spec.select.i, %63 ], [ %61, %.thread ]
-  %.0.i23 = phi ptr [ @.str.38, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %.str.40..str.41.i, %63 ], [ @.str.39, %.thread ]
+  %.0.i2232 = phi i64 [ %61, %.thread ], [ %62, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %spec.select.i, %63 ]
+  %.0.i23 = phi ptr [ @.str.39, %.thread ], [ @.str.38, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %.str.40..str.41.i, %63 ]
   %66 = icmp ugt i64 %53, 107374182399
   br i1 %66, label %_Z24byte_size_in_proper_unitImET_S0_.exit26, label %67
 
@@ -3643,8 +3643,8 @@ _Z24byte_size_in_proper_unitImET_S0_.exit26:      ; preds = %_Z25proper_unit_for
   br label %_Z25proper_unit_for_byte_sizem.exit29
 
 _Z25proper_unit_for_byte_sizem.exit29:            ; preds = %.thread37, %_Z24byte_size_in_proper_unitImET_S0_.exit26, %71
-  %.0.i2536 = phi i64 [ %70, %_Z24byte_size_in_proper_unitImET_S0_.exit26 ], [ %spec.select.i24, %71 ], [ %69, %.thread37 ]
-  %.0.i28 = phi ptr [ @.str.38, %_Z24byte_size_in_proper_unitImET_S0_.exit26 ], [ %.str.40..str.41.i27, %71 ], [ @.str.39, %.thread37 ]
+  %.0.i2536 = phi i64 [ %69, %.thread37 ], [ %70, %_Z24byte_size_in_proper_unitImET_S0_.exit26 ], [ %spec.select.i24, %71 ]
+  %.0.i28 = phi ptr [ @.str.39, %.thread37 ], [ @.str.38, %_Z24byte_size_in_proper_unitImET_S0_.exit26 ], [ %.str.40..str.41.i27, %71 ]
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.13, i64 noundef %.0.i2232, ptr noundef nonnull %.0.i23, i64 noundef %.0.i2536, ptr noundef nonnull %.0.i28)
   br label %74
 
@@ -3820,8 +3820,8 @@ _Z24byte_size_in_proper_unitImET_S0_.exit:        ; preds = %._crit_edge
   br label %_Z25proper_unit_for_byte_sizem.exit
 
 _Z25proper_unit_for_byte_sizem.exit:              ; preds = %.thread, %_Z24byte_size_in_proper_unitImET_S0_.exit, %82
-  %.0.i80131 = phi i64 [ %81, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %spec.select.i79, %82 ], [ %80, %.thread ]
-  %.0.i81 = phi ptr [ @.str.38, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %.str.40..str.41.i, %82 ], [ @.str.39, %.thread ]
+  %.0.i80131 = phi i64 [ %80, %.thread ], [ %81, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %spec.select.i79, %82 ]
+  %.0.i81 = phi ptr [ @.str.39, %.thread ], [ @.str.38, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %.str.40..str.41.i, %82 ]
   %85 = icmp ugt i64 %.052.lcssa, 107374182399
   br i1 %85, label %_Z24byte_size_in_proper_unitImET_S0_.exit84, label %86
 
@@ -3845,8 +3845,8 @@ _Z24byte_size_in_proper_unitImET_S0_.exit84:      ; preds = %_Z25proper_unit_for
   br label %_Z25proper_unit_for_byte_sizem.exit87
 
 _Z25proper_unit_for_byte_sizem.exit87:            ; preds = %.thread136, %_Z24byte_size_in_proper_unitImET_S0_.exit84, %90
-  %.0.i83135 = phi i64 [ %89, %_Z24byte_size_in_proper_unitImET_S0_.exit84 ], [ %spec.select.i82, %90 ], [ %88, %.thread136 ]
-  %.0.i86 = phi ptr [ @.str.38, %_Z24byte_size_in_proper_unitImET_S0_.exit84 ], [ %.str.40..str.41.i85, %90 ], [ @.str.39, %.thread136 ]
+  %.0.i83135 = phi i64 [ %88, %.thread136 ], [ %89, %_Z24byte_size_in_proper_unitImET_S0_.exit84 ], [ %spec.select.i82, %90 ]
+  %.0.i86 = phi ptr [ @.str.39, %.thread136 ], [ @.str.38, %_Z24byte_size_in_proper_unitImET_S0_.exit84 ], [ %.str.40..str.41.i85, %90 ]
   %93 = icmp ugt i64 %71, 107374182399
   br i1 %93, label %_Z24byte_size_in_proper_unitImET_S0_.exit90, label %94
 
@@ -3870,8 +3870,8 @@ _Z24byte_size_in_proper_unitImET_S0_.exit90:      ; preds = %_Z25proper_unit_for
   br label %_Z25proper_unit_for_byte_sizem.exit93
 
 _Z25proper_unit_for_byte_sizem.exit93:            ; preds = %.thread141, %_Z24byte_size_in_proper_unitImET_S0_.exit90, %98
-  %.0.i89140 = phi i64 [ %97, %_Z24byte_size_in_proper_unitImET_S0_.exit90 ], [ %spec.select.i88, %98 ], [ %96, %.thread141 ]
-  %.0.i92 = phi ptr [ @.str.38, %_Z24byte_size_in_proper_unitImET_S0_.exit90 ], [ %.str.40..str.41.i91, %98 ], [ @.str.39, %.thread141 ]
+  %.0.i89140 = phi i64 [ %96, %.thread141 ], [ %97, %_Z24byte_size_in_proper_unitImET_S0_.exit90 ], [ %spec.select.i88, %98 ]
+  %.0.i92 = phi ptr [ @.str.39, %.thread141 ], [ @.str.38, %_Z24byte_size_in_proper_unitImET_S0_.exit90 ], [ %.str.40..str.41.i91, %98 ]
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.14, i64 noundef %.0.i80131, ptr noundef nonnull %.0.i81, i64 noundef %.0.i83135, ptr noundef nonnull %.0.i86, i64 noundef %.0.i89140, ptr noundef nonnull %.0.i92) #18
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.15) #18
   %.not75 = icmp eq i64 %.072.lcssa, 0
@@ -3924,8 +3924,8 @@ _Z24byte_size_in_proper_unitImET_S0_.exit96:      ; preds = %113
   br label %_Z25proper_unit_for_byte_sizem.exit99
 
 _Z25proper_unit_for_byte_sizem.exit99:            ; preds = %.thread146, %_Z24byte_size_in_proper_unitImET_S0_.exit96, %119
-  %.0.i95145 = phi i64 [ %118, %_Z24byte_size_in_proper_unitImET_S0_.exit96 ], [ %spec.select.i94, %119 ], [ %117, %.thread146 ]
-  %.0.i98 = phi ptr [ @.str.38, %_Z24byte_size_in_proper_unitImET_S0_.exit96 ], [ %.str.40..str.41.i97, %119 ], [ @.str.39, %.thread146 ]
+  %.0.i95145 = phi i64 [ %117, %.thread146 ], [ %118, %_Z24byte_size_in_proper_unitImET_S0_.exit96 ], [ %spec.select.i94, %119 ]
+  %.0.i98 = phi ptr [ @.str.39, %.thread146 ], [ @.str.38, %_Z24byte_size_in_proper_unitImET_S0_.exit96 ], [ %.str.40..str.41.i97, %119 ]
   %122 = load i64, ptr %106, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.18, i64 noundef %.0.i95145, ptr noundef nonnull %.0.i98, i64 noundef %122) #18
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -4033,10 +4033,10 @@ _Z24byte_size_in_proper_unitImET_S0_.exit107:     ; preds = %._crit_edge186
   br label %_Z25proper_unit_for_byte_sizem.exit110
 
 _Z25proper_unit_for_byte_sizem.exit110:           ; preds = %.thread151, %_Z24byte_size_in_proper_unitImET_S0_.exit107, %.thread215
-  %.055.lcssa213 = phi i64 [ %.156, %_Z24byte_size_in_proper_unitImET_S0_.exit107 ], [ %.055.lcssa214219, %.thread215 ], [ %.156, %.thread151 ]
-  %.059.lcssa210 = phi i64 [ %.160, %_Z24byte_size_in_proper_unitImET_S0_.exit107 ], [ %.059.lcssa211221, %.thread215 ], [ %.160, %.thread151 ]
-  %.0.i106150 = phi i64 [ %168, %_Z24byte_size_in_proper_unitImET_S0_.exit107 ], [ %spec.select.i105, %.thread215 ], [ %167, %.thread151 ]
-  %.0.i109 = phi ptr [ @.str.38, %_Z24byte_size_in_proper_unitImET_S0_.exit107 ], [ %.str.40..str.41.i108, %.thread215 ], [ @.str.39, %.thread151 ]
+  %.055.lcssa213 = phi i64 [ %.156, %.thread151 ], [ %.156, %_Z24byte_size_in_proper_unitImET_S0_.exit107 ], [ %.055.lcssa214219, %.thread215 ]
+  %.059.lcssa210 = phi i64 [ %.160, %.thread151 ], [ %.160, %_Z24byte_size_in_proper_unitImET_S0_.exit107 ], [ %.059.lcssa211221, %.thread215 ]
+  %.0.i106150 = phi i64 [ %167, %.thread151 ], [ %168, %_Z24byte_size_in_proper_unitImET_S0_.exit107 ], [ %spec.select.i105, %.thread215 ]
+  %.0.i109 = phi ptr [ @.str.39, %.thread151 ], [ @.str.38, %_Z24byte_size_in_proper_unitImET_S0_.exit107 ], [ %.str.40..str.41.i108, %.thread215 ]
   %171 = icmp ugt i64 %.059.lcssa210, 107374182399
   br i1 %171, label %_Z24byte_size_in_proper_unitImET_S0_.exit113, label %172
 
@@ -4060,8 +4060,8 @@ _Z24byte_size_in_proper_unitImET_S0_.exit113:     ; preds = %_Z25proper_unit_for
   br label %_Z25proper_unit_for_byte_sizem.exit116
 
 _Z25proper_unit_for_byte_sizem.exit116:           ; preds = %.thread156, %_Z24byte_size_in_proper_unitImET_S0_.exit113, %176
-  %.0.i112155 = phi i64 [ %175, %_Z24byte_size_in_proper_unitImET_S0_.exit113 ], [ %spec.select.i111, %176 ], [ %174, %.thread156 ]
-  %.0.i115 = phi ptr [ @.str.38, %_Z24byte_size_in_proper_unitImET_S0_.exit113 ], [ %.str.40..str.41.i114, %176 ], [ @.str.39, %.thread156 ]
+  %.0.i112155 = phi i64 [ %174, %.thread156 ], [ %175, %_Z24byte_size_in_proper_unitImET_S0_.exit113 ], [ %spec.select.i111, %176 ]
+  %.0.i115 = phi ptr [ @.str.39, %.thread156 ], [ @.str.38, %_Z24byte_size_in_proper_unitImET_S0_.exit113 ], [ %.str.40..str.41.i114, %176 ]
   %179 = icmp ugt i64 %.055.lcssa213, 107374182399
   br i1 %179, label %_Z24byte_size_in_proper_unitImET_S0_.exit119, label %180
 
@@ -4085,8 +4085,8 @@ _Z24byte_size_in_proper_unitImET_S0_.exit119:     ; preds = %_Z25proper_unit_for
   br label %_Z25proper_unit_for_byte_sizem.exit122
 
 _Z25proper_unit_for_byte_sizem.exit122:           ; preds = %.thread161, %_Z24byte_size_in_proper_unitImET_S0_.exit119, %184
-  %.0.i118160 = phi i64 [ %183, %_Z24byte_size_in_proper_unitImET_S0_.exit119 ], [ %spec.select.i117, %184 ], [ %182, %.thread161 ]
-  %.0.i121 = phi ptr [ @.str.38, %_Z24byte_size_in_proper_unitImET_S0_.exit119 ], [ %.str.40..str.41.i120, %184 ], [ @.str.39, %.thread161 ]
+  %.0.i118160 = phi i64 [ %182, %.thread161 ], [ %183, %_Z24byte_size_in_proper_unitImET_S0_.exit119 ], [ %spec.select.i117, %184 ]
+  %.0.i121 = phi ptr [ @.str.39, %.thread161 ], [ @.str.38, %_Z24byte_size_in_proper_unitImET_S0_.exit119 ], [ %.str.40..str.41.i120, %184 ]
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.19, i64 noundef %.0.i106150, ptr noundef nonnull %.0.i109, i64 noundef %.0.i112155, ptr noundef nonnull %.0.i115, i64 noundef %.0.i118160, ptr noundef nonnull %.0.i121) #18
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %2) #18
   %187 = load ptr, ptr %10, align 8

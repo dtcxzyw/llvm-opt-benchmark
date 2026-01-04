@@ -476,7 +476,7 @@ upb_Arena_Malloc.exit.i.i44:                      ; preds = %131, %129
   br label %grpc_lb_v1_ClientStats_add_calls_finished_with_drop.exit
 
 grpc_lb_v1_ClientStats_add_calls_finished_with_drop.exit: ; preds = %upb_Message_GetOrCreateMutableArray.exit.i, %upb_Array_Reserve.exit.i.i, %upb_Arena_Malloc.exit.i.i44, %133
-  %.0.i46 = phi ptr [ null, %upb_Message_GetOrCreateMutableArray.exit.i ], [ null, %upb_Array_Reserve.exit.i.i ], [ %.0.i.i.i45, %133 ], [ null, %upb_Arena_Malloc.exit.i.i44 ]
+  %.0.i46 = phi ptr [ null, %upb_Array_Reserve.exit.i.i ], [ null, %upb_Message_GetOrCreateMutableArray.exit.i ], [ %.0.i.i.i45, %133 ], [ null, %upb_Arena_Malloc.exit.i.i44 ]
   %141 = load ptr, ptr %90, align 8, !tbaa !28
   %142 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %141) #18
   %143 = add i64 %142, 7
@@ -813,7 +813,7 @@ grpc_lb_v1_LoadBalanceResponse_initial_response.exit: ; preds = %_ZN9grpc_core12
   br label %_ZN9grpc_core12_GLOBAL__N_113ParseDurationEPK24google_protobuf_Duration.exit
 
 _ZN9grpc_core12_GLOBAL__N_113ParseDurationEPK24google_protobuf_Duration.exit: ; preds = %110, %119, %122, %125
-  %.0.i.i.i.i26 = phi i64 [ %126, %125 ], [ 9223372036854775807, %119 ], [ -9223372036854775808, %122 ], [ %115, %110 ]
+  %.0.i.i.i.i26 = phi i64 [ 9223372036854775807, %119 ], [ %115, %110 ], [ -9223372036854775808, %122 ], [ %126, %125 ]
   %127 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %.0.i.i.i.i26, ptr %127, align 8, !tbaa !29
   br label %.thread
@@ -823,7 +823,7 @@ _ZN9grpc_core12_GLOBAL__N_113ParseDurationEPK24google_protobuf_Duration.exit: ; 
   br label %.thread
 
 .thread:                                          ; preds = %_ZN9grpc_core12_GLOBAL__N_115ParseServerListERK30grpc_lb_v1_LoadBalanceResponsePSt6vectorINS_12GrpcLbServerESaIS5_EE.exit, %grpc_lb_v1_LoadBalanceResponse_initial_response.exit, %128, %_ZN9grpc_core12_GLOBAL__N_113ParseDurationEPK24google_protobuf_Duration.exit, %106, %.loopexit
-  %.0 = phi i1 [ true, %.loopexit ], [ true, %128 ], [ true, %_ZN9grpc_core12_GLOBAL__N_113ParseDurationEPK24google_protobuf_Duration.exit ], [ true, %106 ], [ false, %grpc_lb_v1_LoadBalanceResponse_initial_response.exit ], [ false, %_ZN9grpc_core12_GLOBAL__N_115ParseServerListERK30grpc_lb_v1_LoadBalanceResponsePSt6vectorINS_12GrpcLbServerESaIS5_EE.exit ]
+  %.0 = phi i1 [ true, %.loopexit ], [ true, %106 ], [ true, %128 ], [ true, %_ZN9grpc_core12_GLOBAL__N_113ParseDurationEPK24google_protobuf_Duration.exit ], [ false, %_ZN9grpc_core12_GLOBAL__N_115ParseServerListERK30grpc_lb_v1_LoadBalanceResponsePSt6vectorINS_12GrpcLbServerESaIS5_EE.exit ], [ false, %grpc_lb_v1_LoadBalanceResponse_initial_response.exit ]
   ret i1 %.0
 }
 

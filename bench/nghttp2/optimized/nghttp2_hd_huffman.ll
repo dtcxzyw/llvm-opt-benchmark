@@ -180,7 +180,7 @@ define hidden i32 @nghttp2_hd_huff_encode(ptr noundef %0, ptr noundef readonly c
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph74, %64, %73
-  %.043 = phi i32 [ 0, %73 ], [ %72, %64 ], [ %59, %.lr.ph74 ], [ %49, %.lr.ph ]
+  %.043 = phi i32 [ 0, %73 ], [ %59, %.lr.ph74 ], [ %72, %64 ], [ %49, %.lr.ph ]
   ret i32 %.043
 }
 

@@ -530,7 +530,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L13_IsSearchPathERKNSt7__cxx1112basic_strin
   resume { ptr, i32 } %23
 
 .thread11.invoke:                                 ; preds = %20, %15, %12, %.noexc, %_ZN32pxrInternal_v0_24__pxrReserved__L13_IsSearchPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %24 = phi ptr [ %5, %_ZN32pxrInternal_v0_24__pxrReserved__L13_IsSearchPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %5, %.noexc ], [ %5, %12 ], [ %5, %15 ], [ %spec.select, %20 ]
+  %24 = phi ptr [ %spec.select, %20 ], [ %5, %_ZN32pxrInternal_v0_24__pxrReserved__L13_IsSearchPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %5, %.noexc ], [ %5, %12 ], [ %5, %15 ]
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__10TfNormPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %24, i1 noundef zeroext false)
           to label %25 unwind label %22
 

@@ -408,8 +408,8 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit6
   br label %_ZN4llvmplERKNS_5TwineES2_.exit
 
 _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %139, %146, %147
-  %.sink147 = phi i8 [ 5, %146 ], [ %.014.i.i, %147 ], [ %145, %139 ]
-  %.sink = phi i8 [ 1, %146 ], [ 5, %147 ], [ 1, %139 ]
+  %.sink147 = phi i8 [ %.014.i.i, %147 ], [ 5, %146 ], [ %145, %139 ]
+  %.sink = phi i8 [ 5, %147 ], [ 1, %146 ], [ 1, %139 ]
   store i8 %.sink147, ptr %96, align 8, !tbaa !70
   store i8 %.sink, ptr %97, align 1, !tbaa !70
   %150 = load ptr, ptr %140, align 8, !tbaa !6
@@ -662,7 +662,7 @@ _ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0
   br label %_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit
 
 _ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit: ; preds = %20, %_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit.loopexit.split.loop.exit33, %_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit.loopexit.split.loop.exit35, %._crit_edge.i.i.i.i, %40, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %40 ], [ %.sroa.032.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %15, %._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %51, %_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit.loopexit.split.loop.exit ], [ %52, %_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit.loopexit.split.loop.exit33 ], [ %53, %_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit.loopexit.split.loop.exit35 ], [ %.sroa.032.051.i.i.i.i, %20 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %15, %._crit_edge.i.i.i.i ], [ %.sroa.032.0.lcssa.i.i.i.i, %40 ], [ %53, %_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit.loopexit.split.loop.exit35 ], [ %51, %_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit.loopexit.split.loop.exit ], [ %52, %_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit.loopexit.split.loop.exit33 ], [ %.sroa.032.051.i.i.i.i, %20 ]
   %54 = ptrtoint ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i to i64
   %55 = ptrtoint ptr %12 to i64
   %56 = sub i64 %54, %55

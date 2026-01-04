@@ -427,7 +427,7 @@ define range(i32 -1, 1) i32 @H5G__obj_create_real(ptr noundef %0, ptr noundef %1
   br label %129
 
 129:                                              ; preds = %6, %108, %105, %104, %111, %100, %93, %86, %43, %21, %128
-  %.067 = phi i32 [ -1, %21 ], [ -1, %86 ], [ -1, %93 ], [ -1, %100 ], [ -1, %111 ], [ 0, %108 ], [ 0, %105 ], [ 0, %104 ], [ %.168, %128 ], [ -1, %43 ], [ 0, %6 ]
+  %.067 = phi i32 [ -1, %21 ], [ -1, %86 ], [ -1, %93 ], [ -1, %100 ], [ -1, %111 ], [ 0, %108 ], [ 0, %105 ], [ 0, %104 ], [ 0, %6 ], [ %.168, %128 ], [ -1, %43 ]
   ret i32 %.067
 }
 
@@ -536,7 +536,7 @@ define range(i32 -1, -2147483648) i32 @H5G__obj_get_linfo(ptr noundef %0, ptr no
   br label %.thread
 
 58:                                               ; preds = %47, %44
-  %.1 = phi i32 [ -1, %47 ], [ %13, %44 ]
+  %.1 = phi i32 [ %13, %44 ], [ -1, %47 ]
   %59 = call i32 @H5B2_close(ptr noundef nonnull %38) #5
   %60 = icmp slt i32 %59, 0
   br i1 %60, label %61, label %.thread
@@ -953,8 +953,8 @@ define range(i32 -1, 1) i32 @H5G_obj_insert(ptr noundef %0, ptr noundef %1, i1 n
   br label %213
 
 213:                                              ; preds = %119, %212, %196, %197, %192, %175
-  %.079 = phi i32 [ %.7, %212 ], [ 0, %197 ], [ 0, %196 ], [ -1, %192 ], [ -1, %175 ], [ -1, %119 ]
-  %.075 = phi ptr [ %.5119132, %212 ], [ %.5119132, %197 ], [ %.5119132, %196 ], [ %.5119.ph, %192 ], [ %.176.ph.ph, %175 ], [ %.176, %119 ]
+  %.079 = phi i32 [ 0, %196 ], [ -1, %192 ], [ -1, %175 ], [ -1, %119 ], [ %.7, %212 ], [ 0, %197 ]
+  %.075 = phi ptr [ %.5119132, %196 ], [ %.5119.ph, %192 ], [ %.176.ph.ph, %175 ], [ %.176, %119 ], [ %.5119132, %212 ], [ %.5119132, %197 ]
   %.not96 = icmp eq ptr %.075, null
   br i1 %.not96, label %.thread136, label %214
 
@@ -969,8 +969,8 @@ define range(i32 -1, 1) i32 @H5G_obj_insert(ptr noundef %0, ptr noundef %1, i1 n
   %220 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5G_obj_insert, i32 noundef 599, i64 noundef %218, i64 noundef %219, ptr noundef nonnull @.str.33) #5
   br label %.thread136
 
-.thread136:                                       ; preds = %163, %182, %167, %36, %26, %213, %214, %217, %30
-  %.180 = phi i32 [ -1, %217 ], [ %.079, %214 ], [ %.079, %213 ], [ 0, %30 ], [ %.6, %163 ], [ -1, %182 ], [ -1, %167 ], [ -1, %36 ], [ -1, %26 ]
+.thread136:                                       ; preds = %182, %163, %167, %36, %26, %213, %214, %217, %30
+  %.180 = phi i32 [ -1, %217 ], [ %.079, %214 ], [ %.079, %213 ], [ 0, %30 ], [ -1, %182 ], [ %.6, %163 ], [ -1, %167 ], [ -1, %36 ], [ -1, %26 ]
   %221 = load i64, ptr %8, align 8, !tbaa !14
   call void @H5AC_tag(i64 noundef %221, ptr noundef null) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1573,7 +1573,7 @@ define range(i32 -1, 1) i32 @H5G_obj_remove(ptr noundef %0, ptr noundef %1, ptr 
   br label %63
 
 63:                                               ; preds = %49, %16, %26, %38, %45, %52, %59, %56, %20
-  %.0 = phi i32 [ -1, %16 ], [ -1, %26 ], [ -1, %38 ], [ -1, %59 ], [ 0, %56 ], [ -1, %45 ], [ -1, %52 ], [ 0, %20 ], [ 0, %49 ]
+  %.0 = phi i32 [ -1, %16 ], [ -1, %26 ], [ -1, %38 ], [ 0, %20 ], [ -1, %59 ], [ 0, %56 ], [ -1, %45 ], [ -1, %52 ], [ 0, %49 ]
   %64 = load i64, ptr %5, align 8, !tbaa !14
   call void @H5AC_tag(i64 noundef %64, ptr noundef null) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1935,7 +1935,7 @@ define range(i32 -1, 1) i32 @H5G_obj_remove_by_idx(ptr noundef %0, ptr noundef %
   br label %75
 
 75:                                               ; preds = %61, %15, %25, %34, %45, %52, %57, %64, %71, %68, %19
-  %.0 = phi i32 [ -1, %15 ], [ -1, %25 ], [ -1, %45 ], [ -1, %71 ], [ 0, %68 ], [ -1, %52 ], [ -1, %34 ], [ -1, %57 ], [ -1, %64 ], [ 0, %19 ], [ 0, %61 ]
+  %.0 = phi i32 [ -1, %15 ], [ -1, %25 ], [ -1, %45 ], [ 0, %19 ], [ -1, %71 ], [ 0, %68 ], [ -1, %52 ], [ -1, %34 ], [ -1, %57 ], [ -1, %64 ], [ 0, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

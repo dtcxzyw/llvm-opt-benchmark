@@ -186,7 +186,7 @@ skip_whitespace.exit:                             ; preds = %32
   ]
 
 getc_crlf.exit:                                   ; preds = %.preheader194, %43, %43
-  %.0.i = phi i32 [ %44, %43 ], [ %41, %.preheader194 ], [ %44, %43 ]
+  %.0.i = phi i32 [ %44, %43 ], [ %44, %43 ], [ %41, %.preheader194 ]
   switch i32 %.0.i, label %59 [
     i32 -1, label %70
     i32 10, label %70
@@ -226,7 +226,7 @@ getc_crlf.exit:                                   ; preds = %.preheader194, %43,
   ]
 
 getc_crlf.exit178:                                ; preds = %53, %56, %56
-  %.0.i177 = phi i32 [ %57, %56 ], [ %54, %53 ], [ %57, %56 ]
+  %.0.i177 = phi i32 [ %57, %56 ], [ %57, %56 ], [ %54, %53 ]
   switch i32 %.0.i177, label %59 [
     i32 -1, label %70
     i32 10, label %70
@@ -260,7 +260,7 @@ getc_crlf.exit178:                                ; preds = %53, %56, %56
   br label %.preheader194
 
 70:                                               ; preds = %getc_crlf.exit178, %getc_crlf.exit178, %getc_crlf.exit, %getc_crlf.exit
-  %.2150 = phi i32 [ %.0.i, %getc_crlf.exit ], [ %.0.i177, %getc_crlf.exit178 ], [ %.0.i, %getc_crlf.exit ], [ %.0.i177, %getc_crlf.exit178 ]
+  %.2150 = phi i32 [ %.0.i, %getc_crlf.exit ], [ %.0.i177, %getc_crlf.exit178 ], [ %.0.i177, %getc_crlf.exit178 ], [ %.0.i, %getc_crlf.exit ]
   %cond = icmp eq i32 %.2150, -1
   br i1 %cond, label %71, label %73
 
@@ -379,24 +379,24 @@ getc_crlf.exit182:                                ; preds = %88, %95, %95, %97
   br label %.loopexit
 
 .loopexit:                                        ; preds = %30, %.preheader, %39, %skip_whitespace.exit, %107, %.loopexit193, %73
-  %.1154 = phi ptr [ %.0153, %73 ], [ %.0153, %.loopexit193 ], [ %114, %107 ], [ %.0153, %skip_whitespace.exit ], [ %.0153, %39 ], [ %.0153, %.preheader ], [ %.0153, %30 ]
-  %.2144 = phi ptr [ %.3145, %73 ], [ %.5147, %.loopexit193 ], [ %.5147, %107 ], [ %.0142, %skip_whitespace.exit ], [ %.0142, %39 ], [ %.0142, %.preheader ], [ %.0142, %30 ]
-  %.2138 = phi ptr [ %.0136, %73 ], [ %.0136, %.loopexit193 ], [ %.5141, %107 ], [ %.0136, %skip_whitespace.exit ], [ %.0136, %39 ], [ %.0136, %.preheader ], [ %.0136, %30 ]
-  %.1132 = phi i32 [ %.2133, %73 ], [ %.4135, %.loopexit193 ], [ %.4135, %107 ], [ %.0131, %skip_whitespace.exit ], [ %.0131, %39 ], [ %.0131, %.preheader ], [ %.0131, %30 ]
-  %.1 = phi i32 [ %.0130, %73 ], [ %.0130, %.loopexit193 ], [ %.4, %107 ], [ %.0130, %skip_whitespace.exit ], [ %.0130, %39 ], [ %.0130, %.preheader ], [ %.0130, %30 ]
+  %.1154 = phi ptr [ %.0153, %skip_whitespace.exit ], [ %.0153, %.preheader ], [ %.0153, %39 ], [ %.0153, %73 ], [ %.0153, %.loopexit193 ], [ %114, %107 ], [ %.0153, %30 ]
+  %.2144 = phi ptr [ %.0142, %skip_whitespace.exit ], [ %.0142, %.preheader ], [ %.0142, %39 ], [ %.3145, %73 ], [ %.5147, %.loopexit193 ], [ %.5147, %107 ], [ %.0142, %30 ]
+  %.2138 = phi ptr [ %.0136, %skip_whitespace.exit ], [ %.0136, %.preheader ], [ %.0136, %39 ], [ %.0136, %73 ], [ %.0136, %.loopexit193 ], [ %.5141, %107 ], [ %.0136, %30 ]
+  %.1132 = phi i32 [ %.0131, %skip_whitespace.exit ], [ %.0131, %.preheader ], [ %.0131, %39 ], [ %.2133, %73 ], [ %.4135, %.loopexit193 ], [ %.4135, %107 ], [ %.0131, %30 ]
+  %.1 = phi i32 [ %.0130, %skip_whitespace.exit ], [ %.0130, %.preheader ], [ %.0130, %39 ], [ %.0130, %73 ], [ %.0130, %.loopexit193 ], [ %.4, %107 ], [ %.0130, %30 ]
   %115 = add i32 %.0127, 1
   br label %29
 
 .loopexit195.sink.split:                          ; preds = %99, %.loopexit192, %71
-  %.sink339 = phi i64 [ 250, %71 ], [ 269, %.loopexit192 ], [ 304, %99 ]
-  %.1143.ph = phi ptr [ %.3145, %71 ], [ %.5147, %.loopexit192 ], [ %.5147, %99 ]
-  %.1137.ph = phi ptr [ %.0136, %71 ], [ %.0136, %.loopexit192 ], [ %.4140, %99 ]
+  %.sink339 = phi i64 [ 269, %.loopexit192 ], [ 250, %71 ], [ 304, %99 ]
+  %.1143.ph = phi ptr [ %.5147, %.loopexit192 ], [ %.3145, %71 ], [ %.5147, %99 ]
+  %.1137.ph = phi ptr [ %.0136, %.loopexit192 ], [ %.0136, %71 ], [ %.4140, %99 ]
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.6, i32 noundef 5, ptr noundef nonnull @.str.7, i64 noundef %.sink339, ptr noundef nonnull @__func__.ws_filter_list_read, ptr noundef nonnull @.str.12, ptr noundef %.0126, i32 noundef %.0127)
   br label %.loopexit195
 
 .loopexit195:                                     ; preds = %30, %.loopexit195.sink.split, %99, %.loopexit192, %71
-  %.1143 = phi ptr [ %.3145, %71 ], [ %.5147, %.loopexit192 ], [ %.5147, %99 ], [ %.1143.ph, %.loopexit195.sink.split ], [ %.0142, %30 ]
-  %.1137 = phi ptr [ %.0136, %71 ], [ %.0136, %.loopexit192 ], [ %.4140, %99 ], [ %.1137.ph, %.loopexit195.sink.split ], [ %.0136, %30 ]
+  %.1143 = phi ptr [ %.1143.ph, %.loopexit195.sink.split ], [ %.3145, %71 ], [ %.5147, %99 ], [ %.5147, %.loopexit192 ], [ %.0142, %30 ]
+  %.1137 = phi ptr [ %.1137.ph, %.loopexit195.sink.split ], [ %.0136, %71 ], [ %.4140, %99 ], [ %.0136, %.loopexit192 ], [ %.0136, %30 ]
   %116 = tail call i32 @ferror(ptr noundef nonnull %.0155) #11
   %.not175 = icmp eq i32 %116, 0
   br i1 %.not175, label %121, label %117

@@ -203,7 +203,7 @@ define hidden noundef ptr @save_ps_args(i32 noundef %0, ptr noundef %1) local_un
   %exitcond130.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count129
   br i1 %exitcond130.not, label %.loopexit, label %62
 
-.thread:                                          ; preds = %.lr.ph103, %._crit_edge104, %58, %._crit_edge97, %._crit_edge
+.thread:                                          ; preds = %.lr.ph103, %._crit_edge104, %58, %._crit_edge, %._crit_edge97
   store ptr null, ptr @save_argv, align 8, !tbaa !4
   store ptr null, ptr @ps_buffer, align 8, !tbaa !9
   store i64 0, ptr @ps_buffer_size, align 8, !tbaa !11

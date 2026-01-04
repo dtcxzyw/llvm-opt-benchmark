@@ -926,9 +926,9 @@ dynamic_lib_name.exit:                            ; preds = %build_base_name.exi
   unreachable
 
 exe_name.exit:                                    ; preds = %.sink.split.i251, %123, %.sink.split.i237, %90, %.sink.split.i, %84, %static_lib_name.exit, %dynamic_lib_name.exit, %99, %80, %71
-  %.0196 = phi ptr [ null, %71 ], [ null, %99 ], [ null, %static_lib_name.exit ], [ %165, %dynamic_lib_name.exit ], [ null, %80 ], [ null, %84 ], [ null, %.sink.split.i ], [ null, %90 ], [ null, %.sink.split.i237 ], [ null, %123 ], [ null, %.sink.split.i251 ]
-  %.0194 = phi ptr [ null, %71 ], [ null, %99 ], [ %145, %static_lib_name.exit ], [ null, %dynamic_lib_name.exit ], [ null, %80 ], [ null, %84 ], [ null, %.sink.split.i ], [ null, %90 ], [ null, %.sink.split.i237 ], [ null, %123 ], [ null, %.sink.split.i251 ]
-  %.0190 = phi ptr [ null, %71 ], [ null, %99 ], [ null, %static_lib_name.exit ], [ null, %dynamic_lib_name.exit ], [ null, %80 ], [ @.str.17, %84 ], [ %87, %.sink.split.i ], [ @.str.18, %90 ], [ %93, %.sink.split.i237 ], [ %.015.i250, %123 ], [ %126, %.sink.split.i251 ]
+  %.0196 = phi ptr [ null, %71 ], [ null, %80 ], [ null, %.sink.split.i ], [ null, %.sink.split.i237 ], [ null, %99 ], [ null, %static_lib_name.exit ], [ %165, %dynamic_lib_name.exit ], [ null, %84 ], [ null, %90 ], [ null, %123 ], [ null, %.sink.split.i251 ]
+  %.0194 = phi ptr [ null, %71 ], [ null, %80 ], [ null, %.sink.split.i ], [ null, %.sink.split.i237 ], [ null, %99 ], [ %145, %static_lib_name.exit ], [ null, %dynamic_lib_name.exit ], [ null, %84 ], [ null, %90 ], [ null, %123 ], [ null, %.sink.split.i251 ]
+  %.0190 = phi ptr [ null, %71 ], [ null, %80 ], [ %87, %.sink.split.i ], [ %93, %.sink.split.i237 ], [ null, %99 ], [ null, %static_lib_name.exit ], [ null, %dynamic_lib_name.exit ], [ @.str.17, %84 ], [ @.str.18, %90 ], [ %.015.i250, %123 ], [ %126, %.sink.split.i251 ]
   tail call fastcc void @free_arenas()
   %.not213 = icmp eq ptr %72, null
   br i1 %.not213, label %170, label %167
@@ -1302,7 +1302,7 @@ delete_object_files.exit:                         ; preds = %.lr.ph.i275, %.lr.p
   br i1 %336, label %337, label %.sink.split
 
 .sink.split:                                      ; preds = %.lr.ph312, %325, %331
-  %.sink = phi i8 [ 92, %331 ], [ 92, %325 ], [ %323, %.lr.ph312 ]
+  %.sink = phi i8 [ 92, %325 ], [ 92, %331 ], [ %323, %.lr.ph312 ]
   tail call void @scratch_buffer_append_char(i8 noundef signext %.sink) #20
   br label %337
 
@@ -1835,7 +1835,7 @@ define dso_local void @print_syntax(ptr noundef readonly captures(none) %0) loca
   br label %15
 
 15:                                               ; preds = %.preheader89, %9, %9, %12
-  %.1 = phi i32 [ %.07192, %9 ], [ %13, %12 ], [ %.07192, %9 ], [ %.07192, %.preheader89 ]
+  %.1 = phi i32 [ %.07192, %9 ], [ %.07192, %9 ], [ %13, %12 ], [ %.07192, %.preheader89 ]
   %16 = add nuw nsw i32 %.07291, 1
   %exitcond.not = icmp eq i32 %16, 189
   br i1 %exitcond.not, label %.loopexit90, label %.preheader89, !llvm.loop !18
@@ -1873,7 +1873,7 @@ define dso_local void @print_syntax(ptr noundef readonly captures(none) %0) loca
   br label %30
 
 30:                                               ; preds = %21, %21, %24, %.preheader87, %27
-  %.175 = phi i32 [ %.07493, %.preheader87 ], [ %.07493, %21 ], [ %.07493, %24 ], [ %28, %27 ], [ %.07493, %21 ]
+  %.175 = phi i32 [ %.07493, %.preheader87 ], [ %.07493, %21 ], [ %.07493, %24 ], [ %.07493, %21 ], [ %28, %27 ]
   %31 = add nuw nsw i32 %.07394, 1
   %exitcond104.not = icmp eq i32 %31, 189
   br i1 %exitcond104.not, label %.loopexit88, label %.preheader87, !llvm.loop !19
@@ -2129,7 +2129,7 @@ define dso_local void @compile() local_unnamed_addr #0 {
   br i1 %exitcond.not.i, label %._crit_edge.i, label %43, !llvm.loop !26
 
 ._crit_edge.i:                                    ; preds = %43, %.thread.i, %39
-  %.0264449.i = phi ptr [ %34, %.thread.i ], [ %34, %39 ], [ %.02643.i173, %43 ]
+  %.0264449.i = phi ptr [ %34, %39 ], [ %34, %.thread.i ], [ %.02643.i173, %43 ]
   %49 = call zeroext i1 @dir_change(ptr noundef %.0264449.i) #20
   call void @free(ptr noundef %.0264449.i) #20
   br label %execute_scripts.exit

@@ -235,15 +235,15 @@ mpeg4video_split.exit:                            ; preds = %58, %63
   br label %.critedge.i, !llvm.loop !32
 
 .critedge.i:                                      ; preds = %.lr.ph43.i, %.lr.ph43.preheader.i, %..critedge.i.loopexit_crit_edge, %.preheader.i
-  %.lcssa.i = phi ptr [ %91, %.preheader.i ], [ %scevgep51.i, %..critedge.i.loopexit_crit_edge ], [ %91, %.lr.ph43.preheader.i ], [ %97, %.lr.ph43.i ]
+  %.lcssa.i = phi ptr [ %91, %.preheader.i ], [ %91, %.lr.ph43.preheader.i ], [ %scevgep51.i, %..critedge.i.loopexit_crit_edge ], [ %97, %.lr.ph43.i ]
   %103 = ptrtoint ptr %.lcssa.i to i64
   %104 = sub i64 %103, %74
   %105 = trunc i64 %104 to i32
   br label %h264_split.exit
 
 106:                                              ; preds = %84, %83, %81
-  %.132.i = phi i32 [ %.03139.i, %83 ], [ %.03139.i, %84 ], [ 1, %81 ]
-  %.1.i = phi i32 [ 1, %83 ], [ %.03040.i, %84 ], [ %.03040.i, %81 ]
+  %.132.i = phi i32 [ %.03139.i, %84 ], [ %.03139.i, %83 ], [ 1, %81 ]
+  %.1.i = phi i32 [ %.03040.i, %84 ], [ 1, %83 ], [ %.03040.i, %81 ]
   %107 = icmp ult ptr %78, %76
   br i1 %107, label %.lr.ph.i33, label %h264_split.exit, !llvm.loop !34
 
@@ -337,16 +337,16 @@ h264_split.exit:                                  ; preds = %.lr.ph.i33, %106, %
   br label %.critedge.i41, !llvm.loop !35
 
 .critedge.i41:                                    ; preds = %.lr.ph42.i, %.lr.ph42.preheader.i, %..critedge.i41.loopexit_crit_edge, %.preheader.i40
-  %.lcssa.i42 = phi ptr [ %131, %.preheader.i40 ], [ %scevgep50.i, %..critedge.i41.loopexit_crit_edge ], [ %131, %.lr.ph42.preheader.i ], [ %137, %.lr.ph42.i ]
+  %.lcssa.i42 = phi ptr [ %131, %.preheader.i40 ], [ %131, %.lr.ph42.preheader.i ], [ %scevgep50.i, %..critedge.i41.loopexit_crit_edge ], [ %137, %.lr.ph42.i ]
   %143 = ptrtoint ptr %.lcssa.i42 to i64
   %144 = sub i64 %143, %113
   %145 = trunc i64 %144 to i32
   br label %hevc_split.exit
 
 146:                                              ; preds = %128, %124, %123, %122, %119
-  %.130.i = phi i32 [ %.02937.i, %122 ], [ %.02937.i, %123 ], [ %.02937.i, %128 ], [ %.02937.i, %124 ], [ 1, %119 ]
-  %.128.i = phi i32 [ 1, %122 ], [ %.02738.i, %123 ], [ %.02738.i, %128 ], [ %.02738.i, %124 ], [ %.02738.i, %119 ]
-  %.1.i37 = phi i32 [ %.02639.i, %122 ], [ 1, %123 ], [ %.02639.i, %128 ], [ %.02639.i, %124 ], [ %.02639.i, %119 ]
+  %.130.i = phi i32 [ %.02937.i, %124 ], [ %.02937.i, %122 ], [ %.02937.i, %123 ], [ %.02937.i, %128 ], [ 1, %119 ]
+  %.128.i = phi i32 [ %.02738.i, %124 ], [ 1, %122 ], [ %.02738.i, %123 ], [ %.02738.i, %128 ], [ %.02738.i, %119 ]
+  %.1.i37 = phi i32 [ %.02639.i, %124 ], [ %.02639.i, %122 ], [ 1, %123 ], [ %.02639.i, %128 ], [ %.02639.i, %119 ]
   %147 = icmp ult ptr %117, %115
   br i1 %147, label %.lr.ph.i35, label %hevc_split.exit, !llvm.loop !36
 
@@ -438,7 +438,7 @@ hevc_split.exit:                                  ; preds = %.lr.ph.i35, %146, %
   br label %vc1_split.exit
 
 189:                                              ; preds = %180, %179, %.lr.ph.i48
-  %.1.i51 = phi i32 [ 1, %180 ], [ 0, %179 ], [ 1, %.lr.ph.i48 ]
+  %.1.i51 = phi i32 [ 0, %179 ], [ 1, %180 ], [ 1, %.lr.ph.i48 ]
   %190 = icmp ult ptr %176, %174
   br i1 %190, label %.lr.ph.i48, label %vc1_split.exit, !llvm.loop !38
 
@@ -448,7 +448,7 @@ vc1_split.exit:                                   ; preds = %189, %168, %183
   br label %mpegvideo_split.exit
 
 mpegvideo_split.exit:                             ; preds = %167, %164, %148, %23, %vc1_split.exit, %hevc_split.exit, %h264_split.exit, %mpeg4video_split.exit, %av1_split.exit
-  %.0 = phi i32 [ %.2.i, %av1_split.exit ], [ %.0.i, %mpeg4video_split.exit ], [ %.0.i32, %h264_split.exit ], [ %.0.i34, %hevc_split.exit ], [ %.011.i, %vc1_split.exit ], [ 0, %23 ], [ %166, %164 ], [ 0, %148 ], [ 0, %167 ]
+  %.0 = phi i32 [ %.011.i, %vc1_split.exit ], [ %.2.i, %av1_split.exit ], [ %.0.i, %mpeg4video_split.exit ], [ %.0.i32, %h264_split.exit ], [ %.0.i34, %hevc_split.exit ], [ 0, %23 ], [ %166, %164 ], [ 0, %148 ], [ 0, %167 ]
   %191 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %192 = load ptr, ptr %191, align 8, !tbaa !26
   %193 = sext i32 %.0 to i64
@@ -461,7 +461,7 @@ mpegvideo_split.exit:                             ; preds = %167, %164, %148, %2
   br label %.thread
 
 .thread:                                          ; preds = %12, %15, %19, %mpegvideo_split.exit, %2
-  %.028 = phi i32 [ %10, %2 ], [ 0, %mpegvideo_split.exit ], [ 0, %19 ], [ 0, %15 ], [ 0, %12 ]
+  %.028 = phi i32 [ %10, %2 ], [ 0, %mpegvideo_split.exit ], [ 0, %19 ], [ 0, %12 ], [ 0, %15 ]
   ret i32 %.028
 }
 

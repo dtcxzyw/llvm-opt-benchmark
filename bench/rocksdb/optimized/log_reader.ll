@@ -2561,8 +2561,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit291: ; preds = %67
   br label %_ZN7rocksdb3log6Reader18ReportOldLogRecordEm.exit
 
 _ZN7rocksdb3log6Reader18ReportOldLogRecordEm.exit: ; preds = %241, %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKcm.exit136, %_ZN7rocksdb6StatusD2Ev.exit167, %_ZN7rocksdb6StatusD2Ev.exit185, %_ZN7rocksdb30UserDefinedTimestampSizeRecordD2Ev.exit, %685, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit, %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKcm.exit128, %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKcm.exit248, %532, %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKcm.exit280, %594
-  %.198 = phi i64 [ %.097, %685 ], [ %187, %241 ], [ %.097, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit ], [ %.097, %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKcm.exit128 ], [ %.097, %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKcm.exit136 ], [ %187, %_ZN7rocksdb6StatusD2Ev.exit167 ], [ %187, %_ZN7rocksdb6StatusD2Ev.exit185 ], [ %187, %_ZN7rocksdb30UserDefinedTimestampSizeRecordD2Ev.exit ], [ %.097, %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKcm.exit248 ], [ %.097, %532 ], [ %.097, %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKcm.exit280 ], [ %.097, %594 ]
-  %.188 = phi i8 [ 0, %685 ], [ 1, %241 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit ], [ 0, %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKcm.exit128 ], [ 0, %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKcm.exit136 ], [ %.087, %_ZN7rocksdb6StatusD2Ev.exit167 ], [ %.087, %_ZN7rocksdb6StatusD2Ev.exit185 ], [ %.087, %_ZN7rocksdb30UserDefinedTimestampSizeRecordD2Ev.exit ], [ 0, %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKcm.exit248 ], [ 0, %532 ], [ 0, %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKcm.exit280 ], [ 0, %594 ]
+  %.198 = phi i64 [ %.097, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit ], [ %.097, %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKcm.exit128 ], [ %.097, %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKcm.exit136 ], [ %187, %_ZN7rocksdb6StatusD2Ev.exit167 ], [ %187, %_ZN7rocksdb6StatusD2Ev.exit185 ], [ %187, %_ZN7rocksdb30UserDefinedTimestampSizeRecordD2Ev.exit ], [ %.097, %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKcm.exit248 ], [ %.097, %532 ], [ %.097, %594 ], [ %.097, %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKcm.exit280 ], [ %.097, %685 ], [ %187, %241 ]
+  %.188 = phi i8 [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit ], [ 0, %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKcm.exit128 ], [ 0, %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKcm.exit136 ], [ %.087, %_ZN7rocksdb6StatusD2Ev.exit167 ], [ %.087, %_ZN7rocksdb6StatusD2Ev.exit185 ], [ %.087, %_ZN7rocksdb30UserDefinedTimestampSizeRecordD2Ev.exit ], [ 0, %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKcm.exit248 ], [ 0, %532 ], [ 0, %594 ], [ 0, %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKcm.exit280 ], [ 0, %685 ], [ 1, %241 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %72)
   br label %184, !llvm.loop !137
 
@@ -2572,8 +2572,8 @@ _ZN7rocksdb3log6Reader18ReportOldLogRecordEm.exit: ; preds = %241, %_ZN7rocksdb3
   call void @llvm.lifetime.end.p0(ptr nonnull %71)
   br label %common.resume
 
-688:                                              ; preds = %216, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit137, %571, %499, %.loopexit, %523, %521, %549, %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKcm.exit256, %525, %527
-  %.1.ph = phi i1 [ false, %527 ], [ false, %525 ], [ false, %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKcm.exit256 ], [ false, %549 ], [ false, %521 ], [ false, %523 ], [ false, %.loopexit ], [ false, %499 ], [ false, %571 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit137 ], [ true, %216 ]
+688:                                              ; preds = %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKcm.exit256, %216, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit137, %571, %.loopexit, %521, %499, %523, %549, %525, %527
+  %.1.ph = phi i1 [ false, %527 ], [ false, %525 ], [ false, %549 ], [ false, %523 ], [ false, %499 ], [ false, %521 ], [ false, %.loopexit ], [ false, %571 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit137 ], [ true, %216 ], [ false, %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKcm.exit256 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %72)
   call void @llvm.lifetime.end.p0(ptr nonnull %71)
   ret i1 %.1.ph
@@ -2919,7 +2919,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds 
   br label %.thread123
 
 .thread123:                                       ; preds = %25, %32, %14, %55, %75, %159, %84, %61, %49
-  %.2 = phi i8 [ -121, %55 ], [ -119, %75 ], [ %.9, %159 ], [ %24, %84 ], [ -123, %61 ], [ -120, %49 ], [ %34, %32 ], [ -123, %25 ], [ %16, %14 ]
+  %.2 = phi i8 [ -123, %61 ], [ -120, %49 ], [ -121, %55 ], [ -119, %75 ], [ %.9, %159 ], [ %24, %84 ], [ %34, %32 ], [ -123, %25 ], [ %16, %14 ]
   ret i8 %.2
 }
 
@@ -3119,7 +3119,7 @@ define void @_ZN7rocksdb3log6Reader29MaybeVerifyPredecessorWALInfoENS_15WALRecov
   br i1 %59, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !145
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %56, %54, %50, %46, %43
-  %.0.i.i = phi i32 [ %47, %46 ], [ %51, %50 ], [ %55, %54 ], [ 1, %43 ], [ %58, %56 ]
+  %.0.i.i = phi i32 [ %55, %54 ], [ %47, %46 ], [ %51, %50 ], [ 1, %43 ], [ %58, %56 ]
   %60 = zext i32 %.0.i.i to i64
   %61 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %61, ptr %7, align 8, !tbaa !67, !alias.scope !142
@@ -3329,7 +3329,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit80: ; preds = %125
   br i1 %150, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i84, label %.lr.ph.i.i81, !llvm.loop !145
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i84:  ; preds = %147, %145, %141, %137, %134
-  %.0.i.i85 = phi i32 [ %138, %137 ], [ %142, %141 ], [ %146, %145 ], [ 1, %134 ], [ %149, %147 ]
+  %.0.i.i85 = phi i32 [ %146, %145 ], [ %138, %137 ], [ %142, %141 ], [ 1, %134 ], [ %149, %147 ]
   %151 = zext i32 %.0.i.i85 to i64
   %152 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %152, ptr %9, align 8, !tbaa !67, !alias.scope !150
@@ -3546,7 +3546,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110: ; preds = %21
   br i1 %243, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i114, label %.lr.ph.i.i111, !llvm.loop !145
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i114: ; preds = %240, %238, %234, %230, %227
-  %.0.i.i115 = phi i32 [ %231, %230 ], [ %235, %234 ], [ %239, %238 ], [ 1, %227 ], [ %242, %240 ]
+  %.0.i.i115 = phi i32 [ %239, %238 ], [ %231, %230 ], [ %235, %234 ], [ 1, %227 ], [ %242, %240 ]
   %244 = zext i32 %.0.i.i115 to i64
   %245 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %245, ptr %16, align 8, !tbaa !67, !alias.scope !157
@@ -3731,7 +3731,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
   br i1 %327, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i137, label %.lr.ph.i.i134, !llvm.loop !145
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i137: ; preds = %324, %322, %318, %314, %307
-  %.0.i.i138 = phi i32 [ %315, %314 ], [ %319, %318 ], [ %323, %322 ], [ 1, %307 ], [ %326, %324 ]
+  %.0.i.i138 = phi i32 [ %323, %322 ], [ %315, %314 ], [ %319, %318 ], [ 1, %307 ], [ %326, %324 ]
   %328 = zext i32 %.0.i.i138 to i64
   %329 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %329, ptr %17, align 8, !tbaa !67, !alias.scope !166
@@ -4008,7 +4008,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
   br i1 %449, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i163, label %.lr.ph.i.i160, !llvm.loop !145
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i163: ; preds = %446, %444, %440, %436, %429
-  %.0.i.i164 = phi i32 [ %437, %436 ], [ %441, %440 ], [ %445, %444 ], [ 1, %429 ], [ %448, %446 ]
+  %.0.i.i164 = phi i32 [ %445, %444 ], [ %437, %436 ], [ %441, %440 ], [ 1, %429 ], [ %448, %446 ]
   %450 = zext i32 %.0.i.i164 to i64
   %451 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %451, ptr %18, align 8, !tbaa !67, !alias.scope !175
@@ -4579,7 +4579,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit248: ; preds = %64
   br i1 %672, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i252, label %.lr.ph.i.i249, !llvm.loop !145
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i252: ; preds = %669, %667, %663, %659, %656
-  %.0.i.i253 = phi i32 [ %660, %659 ], [ %664, %663 ], [ %668, %667 ], [ 1, %656 ], [ %671, %669 ]
+  %.0.i.i253 = phi i32 [ %668, %667 ], [ %660, %659 ], [ %664, %663 ], [ 1, %656 ], [ %671, %669 ]
   %673 = zext i32 %.0.i.i253 to i64
   %674 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store ptr %674, ptr %25, align 8, !tbaa !67, !alias.scope !185
@@ -4764,7 +4764,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i26
   br i1 %756, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i279, label %.lr.ph.i.i276, !llvm.loop !145
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i279: ; preds = %753, %751, %747, %743, %736
-  %.0.i.i280 = phi i32 [ %744, %743 ], [ %748, %747 ], [ %752, %751 ], [ 1, %736 ], [ %755, %753 ]
+  %.0.i.i280 = phi i32 [ %752, %751 ], [ %744, %743 ], [ %748, %747 ], [ 1, %736 ], [ %755, %753 ]
   %757 = zext i32 %.0.i.i280 to i64
   %758 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store ptr %758, ptr %26, align 8, !tbaa !67, !alias.scope !194
@@ -5041,7 +5041,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i30
   br i1 %878, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i314, label %.lr.ph.i.i311, !llvm.loop !145
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i314: ; preds = %875, %873, %869, %865, %858
-  %.0.i.i315 = phi i32 [ %866, %865 ], [ %870, %869 ], [ %874, %873 ], [ 1, %858 ], [ %877, %875 ]
+  %.0.i.i315 = phi i32 [ %874, %873 ], [ %866, %865 ], [ %870, %869 ], [ 1, %858 ], [ %877, %875 ]
   %879 = zext i32 %.0.i.i315 to i64
   %880 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr %880, ptr %27, align 8, !tbaa !67, !alias.scope !203
@@ -6024,7 +6024,7 @@ define void @_ZN7rocksdb3log6Reader27UpdateRecordedTimestampSizeERKSt6vectorISt4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge.thread
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %.preheader, %31, %..loopexit_crit_edge21.i.i.i.i.i
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %.preheader, %..loopexit_crit_edge21.i.i.i.i.i, %31
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %26, ptr %8, align 8
   store i64 %19, ptr %16, align 8
@@ -8360,7 +8360,7 @@ switch.early.test:                                ; preds = %.critedge112
   br label %.loopexit
 
 .loopexit:                                        ; preds = %15, %45, %62, %.thread, %78, %52, %37, %67, %86, %120, %.critedge, %.critedge110
-  %.2 = phi i1 [ true, %67 ], [ true, %86 ], [ true, %120 ], [ true, %78 ], [ true, %52 ], [ true, %37 ], [ false, %.critedge ], [ false, %.critedge110 ], [ false, %.thread ], [ false, %62 ], [ false, %45 ], [ false, %15 ]
+  %.2 = phi i1 [ false, %62 ], [ false, %45 ], [ false, %.thread ], [ true, %67 ], [ true, %86 ], [ true, %120 ], [ true, %78 ], [ true, %52 ], [ true, %37 ], [ false, %.critedge ], [ false, %.critedge110 ], [ false, %15 ]
   ret i1 %.2
 }
 
@@ -9144,7 +9144,7 @@ _ZNSt10_HashtableIjSt4pairIKjmESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4
   resume { ptr, i32 } %46
 
 _ZNKSt10_HashtableIjSt4pairIKjmESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit: ; preds = %35, %21, %30
-  %.sroa.042.0.ph = phi ptr [ %31, %30 ], [ %.sroa.034.0, %21 ], [ %37, %35 ]
+  %.sroa.042.0.ph = phi ptr [ %.sroa.034.0, %21 ], [ %31, %30 ], [ %37, %35 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 24) #27
   br label %_ZNSt10_HashtableIjSt4pairIKjmESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 

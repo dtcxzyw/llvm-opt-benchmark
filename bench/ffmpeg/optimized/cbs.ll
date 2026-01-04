@@ -437,7 +437,7 @@ cbs_fill_fragment_data.exit:                      ; preds = %18
   br i1 %81, label %40, label %cbs_read_fragment_content.exit, !llvm.loop !63
 
 cbs_read_fragment_content.exit:                   ; preds = %.loopexit.i, %18, %75, %33, %26, %7
-  %.0 = phi i32 [ -12, %7 ], [ %31, %26 ], [ %64, %75 ], [ 0, %33 ], [ -12, %18 ], [ 0, %.loopexit.i ]
+  %.0 = phi i32 [ -12, %18 ], [ %31, %26 ], [ -12, %7 ], [ %64, %75 ], [ 0, %33 ], [ 0, %.loopexit.i ]
   ret i32 %.0
 }
 
@@ -805,7 +805,7 @@ define range(i32 -2147483648, 1) i32 @ff_cbs_write_extradata(ptr noundef %0, ptr
   br label %19
 
 19:                                               ; preds = %11, %6, %3, %14
-  %.0 = phi i32 [ 0, %14 ], [ %4, %3 ], [ 0, %6 ], [ -12, %11 ]
+  %.0 = phi i32 [ %4, %3 ], [ 0, %14 ], [ 0, %6 ], [ -12, %11 ]
   ret i32 %.0
 }
 
@@ -844,7 +844,7 @@ define range(i32 -2147483648, 1) i32 @ff_cbs_write_packet(ptr noundef %0, ptr no
   br label %17
 
 17:                                               ; preds = %6, %3, %10
-  %.0 = phi i32 [ 0, %10 ], [ %4, %3 ], [ -12, %6 ]
+  %.0 = phi i32 [ %4, %3 ], [ 0, %10 ], [ -12, %6 ]
   ret i32 %.0
 }
 
@@ -1055,8 +1055,8 @@ define void @ff_cbs_trace_read_log(ptr noundef readonly captures(none) %0, ptr n
   br label %.loopexit.backedge
 
 .loopexit.backedge:                               ; preds = %.loopexit.loopexit100, %70
-  %.069.be = phi i32 [ %67, %70 ], [ %76, %.loopexit.loopexit100 ]
-  %.168.be = phi i32 [ %71, %70 ], [ %75, %.loopexit.loopexit100 ]
+  %.069.be = phi i32 [ %76, %.loopexit.loopexit100 ], [ %67, %70 ]
+  %.168.be = phi i32 [ %75, %.loopexit.loopexit100 ], [ %71, %70 ]
   br label %.loopexit, !llvm.loop !102
 
 77:                                               ; preds = %.loopexit
@@ -1568,8 +1568,8 @@ define range(i32 -1094995529, 1) i32 @ff_cbs_write_unsigned(ptr noundef readonly
   br label %put_bits63.exit
 
 put_bits63.exit:                                  ; preds = %70, %82, %51, %66
-  %storemerge42 = phi i32 [ %53, %51 ], [ %5, %66 ], [ %5, %82 ], [ %5, %70 ]
-  %83 = phi i32 [ %54, %51 ], [ %67, %66 ], [ %40, %82 ], [ %40, %70 ]
+  %storemerge42 = phi i32 [ %5, %66 ], [ %53, %51 ], [ %5, %82 ], [ %5, %70 ]
+  %83 = phi i32 [ %67, %66 ], [ %54, %51 ], [ %40, %82 ], [ %40, %70 ]
   store i32 %storemerge42, ptr %1, align 8, !tbaa !88
   store i32 %83, ptr %39, align 4, !tbaa !87
   %84 = load i32, ptr %9, align 4, !tbaa !29
@@ -1880,8 +1880,8 @@ define range(i32 -1094995529, 1) i32 @ff_cbs_write_signed(ptr noundef readonly c
   br label %put_bits63.exit
 
 put_bits63.exit:                                  ; preds = %71, %83, %52, %67
-  %storemerge43 = phi i32 [ %54, %52 ], [ %47, %67 ], [ %47, %83 ], [ %47, %71 ]
-  %84 = phi i32 [ %55, %52 ], [ %68, %67 ], [ %40, %83 ], [ %40, %71 ]
+  %storemerge43 = phi i32 [ %47, %67 ], [ %54, %52 ], [ %47, %83 ], [ %47, %71 ]
+  %84 = phi i32 [ %68, %67 ], [ %55, %52 ], [ %40, %83 ], [ %40, %71 ]
   store i32 %storemerge43, ptr %1, align 8, !tbaa !88
   store i32 %84, ptr %39, align 4, !tbaa !87
   %85 = load i32, ptr %9, align 4, !tbaa !29
@@ -2542,7 +2542,7 @@ select.unfold.i:                                  ; preds = %56, %55
   br label %cbs_clone_noncomplex_unit_content.exit
 
 cbs_clone_noncomplex_unit_content.exit:           ; preds = %cbs_alloc_content.exit.i, %._crit_edge.i, %select.unfold.i
-  %.0.i = phi i32 [ %.1.ph.i, %select.unfold.i ], [ 0, %._crit_edge.i ], [ -12, %cbs_alloc_content.exit.i ]
+  %.0.i = phi i32 [ -12, %cbs_alloc_content.exit.i ], [ %.1.ph.i, %select.unfold.i ], [ 0, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %68
 
@@ -2575,7 +2575,7 @@ cbs_clone_noncomplex_unit_content.exit:           ; preds = %cbs_alloc_content.e
   br label %cbs_find_unit_type_desc.exit.thread
 
 cbs_find_unit_type_desc.exit.thread:              ; preds = %.preheader2.i, %1, %68, %62, %70
-  %.013 = phi i32 [ 0, %70 ], [ -1163346256, %62 ], [ %.0, %68 ], [ -38, %1 ], [ -38, %.preheader2.i ]
+  %.013 = phi i32 [ -1163346256, %62 ], [ 0, %70 ], [ %.0, %68 ], [ -38, %1 ], [ -38, %.preheader2.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.013
 }

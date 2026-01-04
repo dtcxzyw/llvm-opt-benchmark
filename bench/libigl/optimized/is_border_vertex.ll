@@ -146,7 +146,7 @@ define weak_odr dso_local void @_ZN3igl16is_border_vertexIN5Eigen6MatrixIiLin1EL
   br i1 %exitcond92.not.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit, label %.lr.ph85.i.i.i.i, !llvm.loop !21
 
 _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit: ; preds = %.lr.ph80.i.i.i.i, %.lr.ph85.i.i.i.i, %57, %50
-  %.2.i.i.i.i = phi i32 [ %58, %57 ], [ %51, %50 ], [ %62, %.lr.ph85.i.i.i.i ], [ %55, %.lr.ph80.i.i.i.i ]
+  %.2.i.i.i.i = phi i32 [ %62, %.lr.ph85.i.i.i.i ], [ %58, %57 ], [ %51, %50 ], [ %55, %.lr.ph80.i.i.i.i ]
   %64 = add nsw i32 %.2.i.i.i.i, 1
   %65 = sext i32 %64 to i64
   store ptr null, ptr %0, align 8, !tbaa !22
@@ -318,7 +318,7 @@ _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit:               ; preds = %75, %_ZNK5Eigen9Den
   ret void
 
 .body:                                            ; preds = %85, %97
-  %.pn32.pn = phi { ptr, i32 } [ %98, %97 ], [ %86, %85 ]
+  %.pn32.pn = phi { ptr, i32 } [ %86, %85 ], [ %98, %97 ]
   %152 = load ptr, ptr %4, align 8, !tbaa !4
   call void @free(ptr noundef %152) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -482,7 +482,7 @@ define weak_odr dso_local void @_ZN3igl16is_border_vertexIN5Eigen6MatrixIiLin1EL
   br i1 %exitcond92.not.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE8maxCoeffEv.exit, label %.lr.ph85.i.i.i.i, !llvm.loop !39
 
 _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE8maxCoeffEv.exit: ; preds = %.lr.ph80.i.i.i.i, %.lr.ph85.i.i.i.i, %55, %48
-  %.2.i.i.i.i = phi i32 [ %56, %55 ], [ %49, %48 ], [ %60, %.lr.ph85.i.i.i.i ], [ %53, %.lr.ph80.i.i.i.i ]
+  %.2.i.i.i.i = phi i32 [ %60, %.lr.ph85.i.i.i.i ], [ %56, %55 ], [ %49, %48 ], [ %53, %.lr.ph80.i.i.i.i ]
   %62 = add nsw i32 %.2.i.i.i.i, 1
   %63 = sext i32 %62 to i64
   store ptr null, ptr %0, align 8, !tbaa !22
@@ -650,7 +650,7 @@ _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit:               ; preds = %73, %_ZNK5Eigen9Den
   ret void
 
 .body:                                            ; preds = %83, %94
-  %.pn32.pn = phi { ptr, i32 } [ %95, %94 ], [ %84, %83 ]
+  %.pn32.pn = phi { ptr, i32 } [ %84, %83 ], [ %95, %94 ]
   %148 = load ptr, ptr %4, align 8, !tbaa !4
   call void @free(ptr noundef %148) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

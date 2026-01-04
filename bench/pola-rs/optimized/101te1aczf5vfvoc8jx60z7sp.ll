@@ -1987,7 +1987,7 @@ default.unreachable25:                            ; preds = %_ZN3std4sync6poison
   br label %47
 
 .thread:                                          ; preds = %25, %28, %16, %20, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h0fe87a3c6339abbcE.exit19", %49
-  %.pn1224 = phi { ptr, i32 } [ %50, %49 ], [ %.pn10, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h0fe87a3c6339abbcE.exit19" ], [ %17, %20 ], [ %17, %16 ], [ %.pn, %28 ], [ %.pn, %25 ]
+  %.pn1224 = phi { ptr, i32 } [ %50, %49 ], [ %17, %16 ], [ %.pn10, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h0fe87a3c6339abbcE.exit19" ], [ %17, %20 ], [ %.pn, %28 ], [ %.pn, %25 ]
   resume { ptr, i32 } %.pn1224
 
 49:                                               ; preds = %13
@@ -3304,7 +3304,7 @@ define internal { ptr, ptr } @"_ZN88_$LT$polars_arrow..array..struct_..StructArr
   unreachable
 
 .body.i:                                          ; preds = %45, %42
-  %eh.lpad-body.i = phi { ptr, i32 } [ %43, %42 ], [ %46, %45 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %46, %45 ], [ %43, %42 ]
   invoke void @"_ZN4core3ptr62drop_in_place$LT$polars_arrow..array..struct_..StructArray$GT$17he8d19136d6331ca8E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %8) #23
           to label %.body unwind label %49, !noalias !260
 
@@ -3351,7 +3351,7 @@ define internal { ptr, ptr } @"_ZN88_$LT$polars_arrow..array..struct_..StructArr
   ret { ptr, ptr } %62
 
 .body:                                            ; preds = %63, %66, %56, %.body.i
-  %eh.lpad-body12 = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %57, %56 ], [ %eh.lpad-body.ph, %66 ], [ %eh.lpad-body.ph, %63 ]
+  %eh.lpad-body12 = phi { ptr, i32 } [ %57, %56 ], [ %eh.lpad-body.i, %.body.i ], [ %eh.lpad-body.ph, %66 ], [ %eh.lpad-body.ph, %63 ]
   resume { ptr, i32 } %eh.lpad-body12
 
 63:                                               ; preds = %11, %25
@@ -4175,8 +4175,8 @@ switch.lookup:                                    ; preds = %2
   br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17hb3a027330886b1b5E.exit.i.i.i.i
 
 _ZN9hashbrown3raw11TableLayout20calculate_layout_for17hb3a027330886b1b5E.exit.i.i.i.i: ; preds = %47, %43, %39
-  %.sroa.7.0.i.i.i.i = phi i64 [ undef, %39 ], [ undef, %43 ], [ %48, %47 ]
-  %.sroa.0.0.i.i.i.i = phi i64 [ 0, %39 ], [ 0, %43 ], [ %spec.select3.i.i.i.i, %47 ]
+  %.sroa.7.0.i.i.i.i = phi i64 [ undef, %43 ], [ undef, %39 ], [ %48, %47 ]
+  %.sroa.0.0.i.i.i.i = phi i64 [ 0, %43 ], [ 0, %39 ], [ %spec.select3.i.i.i.i, %47 ]
   %50 = icmp ne i64 %.sroa.0.0.i.i.i.i, 0
   tail call void @llvm.assume(i1 %50)
   %51 = sub nsw i64 0, %41
@@ -4293,7 +4293,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17hb3a027330886b1b5E.exit.i.
   unreachable
 
 .thread.i:                                        ; preds = %82, %63, %53
-  %.pn51.i = phi { ptr, i32 } [ %eh.lpad-body.i, %82 ], [ %eh.lpad-body.i, %53 ], [ %64, %63 ]
+  %.pn51.i = phi { ptr, i32 } [ %eh.lpad-body.i, %53 ], [ %eh.lpad-body.i, %82 ], [ %64, %63 ]
   resume { ptr, i32 } %.pn51.i
 
 82:                                               ; preds = %53
@@ -4314,10 +4314,10 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17hb3a027330886b1b5E.exit.i.
   br i1 %.not.i49, label %94, label %93
 
 88:                                               ; preds = %switch.lookup, %2, %94, %91
-  %.sroa.817.sroa.4.sroa.0.0 = phi i64 [ undef, %2 ], [ undef, %91 ], [ %96, %94 ], [ undef, %switch.lookup ]
-  %.sroa.817.sroa.4.sroa.3.0 = phi i64 [ undef, %2 ], [ undef, %91 ], [ %.sroa.6.i48.sroa.9.0.copyload80, %94 ], [ undef, %switch.lookup ]
-  %.sroa.817.sroa.3.0 = phi ptr [ undef, %2 ], [ %71, %91 ], [ %95, %94 ], [ undef, %switch.lookup ]
-  %.sroa.014.0 = phi i8 [ 25, %2 ], [ 28, %91 ], [ 29, %94 ], [ %switch.masked, %switch.lookup ]
+  %.sroa.817.sroa.4.sroa.0.0 = phi i64 [ undef, %switch.lookup ], [ %96, %94 ], [ undef, %91 ], [ undef, %2 ]
+  %.sroa.817.sroa.4.sroa.3.0 = phi i64 [ undef, %switch.lookup ], [ %.sroa.6.i48.sroa.9.0.copyload80, %94 ], [ undef, %91 ], [ undef, %2 ]
+  %.sroa.817.sroa.3.0 = phi ptr [ undef, %switch.lookup ], [ %95, %94 ], [ %71, %91 ], [ undef, %2 ]
+  %.sroa.014.0 = phi i8 [ %switch.masked, %switch.lookup ], [ 29, %94 ], [ 28, %91 ], [ 25, %2 ]
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sroa.014.0, ptr %89, align 8
   %.sroa.817.sroa.3.0..sroa.817.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4417,7 +4417,7 @@ define void @_ZN11polars_json6ndjson11deserialize16deserialize_iter13_deserializ
           to label %16 unwind label %14
 
 .body:                                            ; preds = %.body26, %.body26.thread, %20, %14, %.thread, %66
-  %.pn22 = phi { ptr, i32 } [ %47, %.thread ], [ %.pn34, %66 ], [ %15, %14 ], [ %21, %20 ], [ %39, %.body26.thread ], [ %42, %.body26 ]
+  %.pn22 = phi { ptr, i32 } [ %.pn33, %66 ], [ %47, %.thread ], [ %39, %.body26.thread ], [ %15, %14 ], [ %21, %20 ], [ %42, %.body26 ]
   invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$polars_arrow..datatypes..ArrowDataType$GT$17h61b2a97016a457ecE"(ptr noalias noundef align 8 dereferenceable(32) %3) #23
           to label %69 unwind label %63
 
@@ -4580,7 +4580,7 @@ define void @_ZN11polars_json6ndjson11deserialize16deserialize_iter13_deserializ
   unreachable
 
 66:                                               ; preds = %.body26.thread39, %.body26.thread, %.body26
-  %.pn34 = phi { ptr, i32 } [ %39, %.body26.thread ], [ %42, %.body26 ], [ %47, %.body26.thread39 ]
+  %.pn33 = phi { ptr, i32 } [ %39, %.body26.thread ], [ %42, %.body26 ], [ %47, %.body26.thread39 ]
   invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$simd_json..value..borrowed..Value$GT$17hcac45ac85684d53aE"(ptr noalias noundef align 8 dereferenceable(24) %13) #23
           to label %.body unwind label %63
 

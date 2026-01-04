@@ -77,7 +77,7 @@ define dso_local range(i32 -30, 1) i32 @archive_write_set_format_cpio_pwb(ptr no
   br label %archive_write_set_format_cpio_binary.exit
 
 archive_write_set_format_cpio_binary.exit:        ; preds = %1, %11, %12
-  %.1.i = phi i32 [ -30, %11 ], [ -30, %1 ], [ 0, %12 ]
+  %.1.i = phi i32 [ -30, %11 ], [ 0, %12 ], [ -30, %1 ]
   ret i32 %.1.i
 }
 
@@ -129,7 +129,7 @@ define dso_local range(i32 -30, 1) i32 @archive_write_set_format_cpio_bin(ptr no
   br label %archive_write_set_format_cpio_binary.exit
 
 archive_write_set_format_cpio_binary.exit:        ; preds = %1, %11, %12
-  %.1.i = phi i32 [ -30, %11 ], [ -30, %1 ], [ 0, %12 ]
+  %.1.i = phi i32 [ -30, %11 ], [ 0, %12 ], [ -30, %1 ]
   ret i32 %.1.i
 }
 
@@ -172,7 +172,7 @@ define internal range(i32 -30, 1) i32 @archive_write_binary_options(ptr noundef 
   br label %19
 
 19:                                               ; preds = %3, %13, %16
-  %.011 = phi i32 [ -25, %13 ], [ %., %16 ], [ -20, %3 ]
+  %.011 = phi i32 [ %., %16 ], [ -25, %13 ], [ -20, %3 ]
   ret i32 %.011
 }
 
@@ -510,7 +510,7 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
   br label %synthesize_ino_value.exit
 
 synthesize_ino_value.exit:                        ; preds = %43, %54, %71
-  %.0.i91 = phi i32 [ %47, %43 ], [ %56, %54 ], [ %60, %71 ]
+  %.0.i91 = phi i32 [ %60, %71 ], [ %47, %43 ], [ %56, %54 ]
   %77 = icmp slt i32 %.0.i91, 0
   br i1 %77, label %synthesize_ino_value.exit.thread, label %78
 
@@ -744,7 +744,7 @@ synthesize_ino_value.exit.thread:                 ; preds = %63, %synthesize_ino
   br label %.critedge87
 
 .critedge87:                                      ; preds = %176, %.thread102, %184, %161, %168, %157, %.critedge, %174, %154, %150, %141, %127, %93, %87, %80, %synthesize_ino_value.exit.thread, %23
-  %.165 = phi i32 [ -30, %23 ], [ -30, %synthesize_ino_value.exit.thread ], [ -30, %80 ], [ -30, %87 ], [ -30, %93 ], [ -30, %127 ], [ -30, %141 ], [ %.2, %174 ], [ %.2, %.critedge ], [ -25, %150 ], [ -25, %154 ], [ -30, %157 ], [ -30, %168 ], [ -30, %161 ], [ %.2, %.thread102 ], [ -30, %184 ], [ -30, %176 ]
+  %.165 = phi i32 [ -30, %23 ], [ -30, %synthesize_ino_value.exit.thread ], [ -30, %80 ], [ -30, %87 ], [ -30, %93 ], [ -30, %127 ], [ -30, %141 ], [ -25, %154 ], [ -30, %157 ], [ -30, %168 ], [ -30, %161 ], [ %.2, %174 ], [ %.2, %.critedge ], [ -25, %150 ], [ %.2, %.thread102 ], [ -30, %184 ], [ -30, %176 ]
   call void @archive_entry_free(ptr noundef null) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

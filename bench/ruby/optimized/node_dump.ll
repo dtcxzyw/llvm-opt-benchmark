@@ -532,7 +532,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %6, %6, %6
   br label %.thread
 
 .thread:                                          ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i, %14, %16
-  %.1 = phi i64 [ %17, %16 ], [ %15, %14 ], [ %11, %rbimpl_RB_TYPE_P_fastpath.exit.i ]
+  %.1 = phi i64 [ %17, %16 ], [ %11, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %15, %14 ]
   ret i64 %.1
 }
 
@@ -3700,7 +3700,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i:               ; preds = %2078, %2078, %2078
   br label %rb_dump_literal.exit
 
 rb_dump_literal.exit:                             ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i, %2086, %2088
-  %.1.i = phi i64 [ %2089, %2088 ], [ %2087, %2086 ], [ %2083, %rbimpl_RB_TYPE_P_fastpath.exit.i.i ]
+  %.1.i = phi i64 [ %2089, %2088 ], [ %2083, %rbimpl_RB_TYPE_P_fastpath.exit.i.i ], [ %2087, %2086 ]
   %2090 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %.1.i) #5
   %2091 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   br label %common.ret
@@ -3864,7 +3864,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i4957:           ; preds = %2175, %2175, %2175
   br label %rb_dump_literal.exit4960
 
 rb_dump_literal.exit4960:                         ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i4957, %2183, %2185
-  %.1.i4959 = phi i64 [ %2186, %2185 ], [ %2184, %2183 ], [ %2180, %rbimpl_RB_TYPE_P_fastpath.exit.i.i4957 ]
+  %.1.i4959 = phi i64 [ %2186, %2185 ], [ %2180, %rbimpl_RB_TYPE_P_fastpath.exit.i.i4957 ], [ %2184, %2183 ]
   %2187 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %.1.i4959) #5
   %2188 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   br label %common.ret
@@ -3920,7 +3920,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i4961:           ; preds = %2204, %2204, %2204
   br label %rb_dump_literal.exit4964
 
 rb_dump_literal.exit4964:                         ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i4961, %2212, %2214
-  %.1.i4963 = phi i64 [ %2215, %2214 ], [ %2213, %2212 ], [ %2209, %rbimpl_RB_TYPE_P_fastpath.exit.i.i4961 ]
+  %.1.i4963 = phi i64 [ %2215, %2214 ], [ %2209, %rbimpl_RB_TYPE_P_fastpath.exit.i.i4961 ], [ %2213, %2212 ]
   %2216 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %.1.i4963) #5
   %2217 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   br label %common.ret
@@ -3976,7 +3976,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i4965:           ; preds = %2233, %2233, %2233
   br label %rb_dump_literal.exit4968
 
 rb_dump_literal.exit4968:                         ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i4965, %2241, %2243
-  %.1.i4967 = phi i64 [ %2244, %2243 ], [ %2242, %2241 ], [ %2238, %rbimpl_RB_TYPE_P_fastpath.exit.i.i4965 ]
+  %.1.i4967 = phi i64 [ %2244, %2243 ], [ %2238, %rbimpl_RB_TYPE_P_fastpath.exit.i.i4965 ], [ %2242, %2241 ]
   %2245 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %.1.i4967) #5
   %2246 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   br label %common.ret
@@ -4032,7 +4032,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i4969:           ; preds = %2262, %2262, %2262
   br label %rb_dump_literal.exit4972
 
 rb_dump_literal.exit4972:                         ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i4969, %2270, %2272
-  %.1.i4971 = phi i64 [ %2273, %2272 ], [ %2271, %2270 ], [ %2267, %rbimpl_RB_TYPE_P_fastpath.exit.i.i4969 ]
+  %.1.i4971 = phi i64 [ %2273, %2272 ], [ %2267, %rbimpl_RB_TYPE_P_fastpath.exit.i.i4969 ], [ %2271, %2270 ]
   %2274 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %.1.i4971) #5
   %2275 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   br label %common.ret
@@ -4088,7 +4088,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i4973:           ; preds = %2291, %2291, %2291
   br label %rb_dump_literal.exit4976
 
 rb_dump_literal.exit4976:                         ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i4973, %2299, %2301
-  %.1.i4975 = phi i64 [ %2302, %2301 ], [ %2300, %2299 ], [ %2296, %rbimpl_RB_TYPE_P_fastpath.exit.i.i4973 ]
+  %.1.i4975 = phi i64 [ %2302, %2301 ], [ %2296, %rbimpl_RB_TYPE_P_fastpath.exit.i.i4973 ], [ %2300, %2299 ]
   %2303 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %.1.i4975) #5
   %2304 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   br label %common.ret
@@ -4144,7 +4144,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i4977:           ; preds = %2320, %2320, %2320
   br label %rb_dump_literal.exit4980
 
 rb_dump_literal.exit4980:                         ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i4977, %2328, %2330
-  %.1.i4979 = phi i64 [ %2331, %2330 ], [ %2329, %2328 ], [ %2325, %rbimpl_RB_TYPE_P_fastpath.exit.i.i4977 ]
+  %.1.i4979 = phi i64 [ %2331, %2330 ], [ %2325, %rbimpl_RB_TYPE_P_fastpath.exit.i.i4977 ], [ %2329, %2328 ]
   %2332 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %.1.i4979) #5
   %2333 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   %2334 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
@@ -4305,7 +4305,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i4981:           ; preds = %2425, %2425, %2425
   br label %rb_dump_literal.exit4984
 
 rb_dump_literal.exit4984:                         ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i4981, %2433, %2435
-  %.1.i4983 = phi i64 [ %2436, %2435 ], [ %2434, %2433 ], [ %2430, %rbimpl_RB_TYPE_P_fastpath.exit.i.i4981 ]
+  %.1.i4983 = phi i64 [ %2436, %2435 ], [ %2430, %rbimpl_RB_TYPE_P_fastpath.exit.i.i4981 ], [ %2434, %2433 ]
   %2437 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %.1.i4983) #5
   %2438 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   %2439 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -4391,7 +4391,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i4985:           ; preds = %2478, %2478, %2478
   br label %rb_dump_literal.exit4988
 
 rb_dump_literal.exit4988:                         ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i4985, %2486, %2488
-  %.1.i4987 = phi i64 [ %2489, %2488 ], [ %2487, %2486 ], [ %2483, %rbimpl_RB_TYPE_P_fastpath.exit.i.i4985 ]
+  %.1.i4987 = phi i64 [ %2489, %2488 ], [ %2483, %rbimpl_RB_TYPE_P_fastpath.exit.i.i4985 ], [ %2487, %2486 ]
   %2490 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %.1.i4987) #5
   %2491 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   br label %common.ret
@@ -6252,7 +6252,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i5012:           ; preds = %3715, %3715, %3715
   br label %rb_dump_literal.exit5015
 
 rb_dump_literal.exit5015:                         ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i5012, %3723, %3725
-  %.1.i5014 = phi i64 [ %3726, %3725 ], [ %3724, %3723 ], [ %3720, %rbimpl_RB_TYPE_P_fastpath.exit.i.i5012 ]
+  %.1.i5014 = phi i64 [ %3726, %3725 ], [ %3720, %rbimpl_RB_TYPE_P_fastpath.exit.i.i5012 ], [ %3724, %3723 ]
   %3727 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %.1.i5014) #5
   %3728 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   br label %common.ret
@@ -6308,7 +6308,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i5016:           ; preds = %3744, %3744, %3744
   br label %rb_dump_literal.exit5019
 
 rb_dump_literal.exit5019:                         ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i5016, %3752, %3754
-  %.1.i5018 = phi i64 [ %3755, %3754 ], [ %3753, %3752 ], [ %3749, %rbimpl_RB_TYPE_P_fastpath.exit.i.i5016 ]
+  %.1.i5018 = phi i64 [ %3755, %3754 ], [ %3749, %rbimpl_RB_TYPE_P_fastpath.exit.i.i5016 ], [ %3753, %3752 ]
   %3756 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %.1.i5018) #5
   %3757 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   br label %common.ret
@@ -6398,7 +6398,7 @@ define internal fastcc void @dump_array(i64 noundef %0, i64 noundef %1, i32 noun
   br label %.critedge, !llvm.loop !504
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %.loopexit..critedge.loopexit_crit_edge, %.preheader
-  %.049.lcssa = phi ptr [ %3, %.preheader ], [ %28, %.loopexit..critedge.loopexit_crit_edge ], [ %3, %.lr.ph.preheader ], [ %28, %.lr.ph ]
+  %.049.lcssa = phi ptr [ %3, %.preheader ], [ %3, %.lr.ph.preheader ], [ %28, %.loopexit..critedge.loopexit_crit_edge ], [ %28, %.lr.ph ]
   %39 = getelementptr inbounds nuw i8, ptr %.049.lcssa, i64 48
   %40 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %41 = select i1 %.not, i32 7, i32 22

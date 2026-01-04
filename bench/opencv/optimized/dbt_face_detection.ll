@@ -380,7 +380,7 @@ _ZN2cvL7makePtrINS_17CascadeClassifierEJNSt7__cxx1112basic_stringIcSt11char_trai
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i: ; preds = %79, %76
-  %81 = phi ptr [ %73, %76 ], [ %.pr.pre.i.i.i.i, %79 ]
+  %81 = phi ptr [ %.pr.pre.i.i.i.i, %79 ], [ %73, %76 ]
   %.not8.i.i.i.i = icmp eq ptr %81, null
   br i1 %.not8.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i, label %82
 
@@ -876,7 +876,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit:     ; preds = %258, %260
   br label %263
 
 263:                                              ; preds = %.loopexit, %.loopexit.split-lp, %261, %251, %238
-  %.pn33.pn = phi { ptr, i32 } [ %252, %251 ], [ %262, %261 ], [ %239, %238 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn33.pn = phi { ptr, i32 } [ %252, %251 ], [ %239, %238 ], [ %262, %261 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %264 = load ptr, ptr %18, align 8, !tbaa !63
   %.not.i.i.i87 = icmp eq ptr %264, null
   br i1 %.not.i.i.i87, label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit88, label %265

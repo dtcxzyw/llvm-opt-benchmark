@@ -1504,11 +1504,11 @@ lpad158:                                          ; preds = %invoke.cont161, %in
   br label %eh.resume
 
 return:                                           ; preds = %_ZNKSt14default_deleteIN8proxygen9HTTPCodecEEclEPS1_.exit.i32, %cleanup, %cond.true145, %cleanup.action168, %cond.end149
-  %retval.1 = phi i1 [ false, %cond.end149 ], [ false, %cleanup.action168 ], [ false, %cond.true145 ], [ %retval.0, %cleanup ], [ %retval.0, %_ZNKSt14default_deleteIN8proxygen9HTTPCodecEEclEPS1_.exit.i32 ]
+  %retval.1 = phi i1 [ false, %cond.true145 ], [ false, %cond.end149 ], [ false, %cleanup.action168 ], [ %retval.0, %cleanup ], [ %retval.0, %_ZNKSt14default_deleteIN8proxygen9HTTPCodecEEclEPS1_.exit.i32 ]
   ret i1 %retval.1
 
 eh.resume:                                        ; preds = %_ZNKSt14default_deleteIN8proxygen9HTTPCodecEEclEPS1_.exit.i37, %ehcleanup141, %lpad158, %lpad
-  %.pn14.pn.pn = phi { ptr, i32 } [ %31, %lpad158 ], [ %2, %lpad ], [ %.pn14.pn, %ehcleanup141 ], [ %.pn14.pn, %_ZNKSt14default_deleteIN8proxygen9HTTPCodecEEclEPS1_.exit.i37 ]
+  %.pn14.pn.pn = phi { ptr, i32 } [ %2, %lpad ], [ %31, %lpad158 ], [ %.pn14.pn, %ehcleanup141 ], [ %.pn14.pn, %_ZNKSt14default_deleteIN8proxygen9HTTPCodecEEclEPS1_.exit.i37 ]
   resume { ptr, i32 } %.pn14.pn.pn
 }
 
@@ -3633,8 +3633,8 @@ if.end21.loopexit.i.i:                            ; preds = %for.body.i.i
   br label %if.end21.i.i
 
 if.end21.i.i:                                     ; preds = %if.end21.loopexit.i.i, %if.end.i.i
-  %.pre9 = phi i64 [ %3, %if.end21.loopexit.i.i ], [ 0, %if.end.i.i ]
-  %4 = phi ptr [ %.pre.i.i, %if.end21.loopexit.i.i ], [ %.pre24.i.i, %if.end.i.i ]
+  %.pre9 = phi i64 [ 0, %if.end.i.i ], [ %3, %if.end21.loopexit.i.i ]
+  %4 = phi ptr [ %.pre24.i.i, %if.end.i.i ], [ %.pre.i.i, %if.end21.loopexit.i.i ]
   store ptr %call.i.i.i, ptr %this, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16.i.i, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i
@@ -3768,8 +3768,8 @@ if.end21.loopexit.i.i:                            ; preds = %for.body.i.i
   br label %if.end21.i.i
 
 if.end21.i.i:                                     ; preds = %if.end21.loopexit.i.i, %if.end.i.i
-  %.pre9 = phi i64 [ %3, %if.end21.loopexit.i.i ], [ 0, %if.end.i.i ]
-  %4 = phi ptr [ %.pre.i.i, %if.end21.loopexit.i.i ], [ %.pre24.i.i, %if.end.i.i ]
+  %.pre9 = phi i64 [ 0, %if.end.i.i ], [ %3, %if.end21.loopexit.i.i ]
+  %4 = phi ptr [ %.pre24.i.i, %if.end.i.i ], [ %.pre.i.i, %if.end21.loopexit.i.i ]
   store ptr %call.i.i.i, ptr %this, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16.i.i, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i

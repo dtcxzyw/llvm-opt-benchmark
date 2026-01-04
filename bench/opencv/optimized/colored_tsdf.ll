@@ -927,7 +927,7 @@ define hidden i64 @_ZNK2cv5kinfu20ColoredTSDFVolumeCPU2atERKNS_3VecIiLi3EEE(ptr 
   br label %36
 
 36:                                               ; preds = %2, %7, %13, %19
-  %.sroa.6.0 = phi i64 [ %35, %19 ], [ 45036683478958208, %13 ], [ 45036683478958208, %7 ], [ 45036683478958208, %2 ]
+  %.sroa.6.0 = phi i64 [ %35, %19 ], [ 45036683478958208, %7 ], [ 45036683478958208, %13 ], [ 45036683478958208, %2 ]
   ret i64 %.sroa.6.0
 }
 
@@ -2022,7 +2022,7 @@ _ZNK2cv4MatxIfLi1ELi3EE3dotERKS1_.exit.i.i:       ; preds = %71
   br label %107
 
 107:                                              ; preds = %105, %103
-  %.pn12 = phi { ptr, i32 } [ %106, %105 ], [ %104, %103 ]
+  %.pn12 = phi { ptr, i32 } [ %104, %103 ], [ %106, %105 ]
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #30
   resume { ptr, i32 } %.pn12
 }
@@ -2661,7 +2661,7 @@ _ZNSt6vectorIS_IN2cv3VecIfLi4EEESaIS2_EESaIS4_EED2Ev.exit99: ; preds = %_ZSt8_De
   br label %269
 
 260:                                              ; preds = %110, %112, %114, %229, %188, %147, %138
-  %.pn55.pn = phi { ptr, i32 } [ %.pn51.pn.pn, %229 ], [ %139, %138 ], [ %.pn47.pn.pn, %188 ], [ %.pn.pn.pn, %147 ], [ %115, %114 ], [ %113, %112 ], [ %111, %110 ]
+  %.pn55.pn = phi { ptr, i32 } [ %.pn.pn.pn, %147 ], [ %.pn51.pn.pn, %229 ], [ %139, %138 ], [ %.pn47.pn.pn, %188 ], [ %115, %114 ], [ %113, %112 ], [ %111, %110 ]
   %261 = load ptr, ptr %13, align 8, !tbaa !157
   %.not.i.i.i100 = icmp eq ptr %261, null
   br i1 %.not.i.i.i100, label %_ZNSt6vectorIN2cv3VecIfLi4EEESaIS2_EED2Ev.exit101, label %262
@@ -5223,10 +5223,10 @@ define linkonce_odr hidden void @_ZNK2cv5kinfu30ColorFetchPointsNormalsInvokercl
   br label %._crit_edge119
 
 ._crit_edge119:                                   ; preds = %.lr.ph118, %._crit_edge119.loopexit, %.lr.ph123.split
-  %37 = phi i32 [ %.pre130, %._crit_edge119.loopexit ], [ %19, %.lr.ph123.split ], [ %19, %.lr.ph118 ]
-  %38 = phi ptr [ %56, %._crit_edge119.loopexit ], [ %20, %.lr.ph123.split ], [ %20, %.lr.ph118 ]
-  %39 = phi ptr [ %56, %._crit_edge119.loopexit ], [ %21, %.lr.ph123.split ], [ %21, %.lr.ph118 ]
-  %40 = phi ptr [ %56, %._crit_edge119.loopexit ], [ %22, %.lr.ph123.split ], [ %21, %.lr.ph118 ]
+  %37 = phi i32 [ %19, %.lr.ph123.split ], [ %.pre130, %._crit_edge119.loopexit ], [ %19, %.lr.ph118 ]
+  %38 = phi ptr [ %20, %.lr.ph123.split ], [ %56, %._crit_edge119.loopexit ], [ %20, %.lr.ph118 ]
+  %39 = phi ptr [ %21, %.lr.ph123.split ], [ %56, %._crit_edge119.loopexit ], [ %21, %.lr.ph118 ]
+  %40 = phi ptr [ %22, %.lr.ph123.split ], [ %56, %._crit_edge119.loopexit ], [ %21, %.lr.ph118 ]
   %41 = add nsw i32 %.0120, 1
   %42 = icmp slt i32 %41, %37
   br i1 %42, label %.lr.ph123.split, label %._crit_edge124, !llvm.loop !306
@@ -5595,7 +5595,7 @@ _ZNSt6vectorIN2cv3VecIfLi4EEESaIS2_EED2Ev.exit104: ; preds = %_ZNSt6vectorIN2cv3
   br label %200
 
 200:                                              ; preds = %195, %197, %86
-  %.pn57.pn = phi { ptr, i32 } [ %87, %86 ], [ %198, %197 ], [ %196, %195 ]
+  %.pn57.pn = phi { ptr, i32 } [ %196, %195 ], [ %87, %86 ], [ %198, %197 ]
   %201 = load ptr, ptr %5, align 8, !tbaa !157
   %.not.i.i.i105 = icmp eq ptr %201, null
   br i1 %.not.i.i.i105, label %_ZNSt6vectorIN2cv3VecIfLi4EEESaIS2_EED2Ev.exit106, label %202

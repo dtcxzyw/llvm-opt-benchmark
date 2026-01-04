@@ -218,7 +218,7 @@ define range(i32 0, 2) i32 @bn_mod_add_fixed_top(ptr noundef %0, ptr noundef rea
   br label %77
 
 77:                                               ; preds = %._crit_edge86, %76, %13, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %13 ], [ 1, %76 ], [ 1, %._crit_edge86 ]
+  %.0 = phi i32 [ 0, %13 ], [ 0, %4 ], [ 1, %76 ], [ 1, %._crit_edge86 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -504,7 +504,7 @@ BN_nnmod.exit.thread:                             ; preds = %17, %16, %BN_nnmod.
   br label %BN_nnmod.exit.thread24
 
 BN_nnmod.exit.thread24:                           ; preds = %19, %BN_nnmod.exit.thread, %BN_nnmod.exit, %12, %10, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %10 ], [ 0, %12 ], [ 0, %BN_nnmod.exit.thread ], [ 1, %BN_nnmod.exit ], [ 1, %19 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %12 ], [ 0, %10 ], [ 0, %BN_nnmod.exit.thread ], [ 1, %BN_nnmod.exit ], [ 1, %19 ]
   tail call void @BN_CTX_end(ptr noundef %4) #4
   ret i32 %.0
 }
@@ -654,7 +654,7 @@ BN_nnmod.exit.thread22:                           ; preds = %10, %BN_nnmod.exit
   br label %BN_nnmod.exit.thread
 
 BN_nnmod.exit.thread:                             ; preds = %8, %7, %19, %BN_nnmod.exit, %24
-  %.0 = phi i32 [ %26, %24 ], [ 0, %BN_nnmod.exit ], [ 0, %19 ], [ 0, %7 ], [ 0, %8 ]
+  %.0 = phi i32 [ 0, %BN_nnmod.exit ], [ %26, %24 ], [ 0, %19 ], [ 0, %7 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -726,8 +726,8 @@ define range(i32 0, 2) i32 @BN_mod_lshift_quick(ptr noundef %0, ptr noundef %1, 
   %30 = icmp sgt i32 %.230, 0
   br i1 %30, label %.lr.ph, label %.thread
 
-.thread:                                          ; preds = %29, %16, %20, %27, %8, %14, %5
-  %.027 = phi i32 [ 0, %5 ], [ 0, %14 ], [ 1, %8 ], [ 1, %29 ], [ 0, %16 ], [ 0, %20 ], [ 0, %27 ]
+.thread:                                          ; preds = %29, %20, %16, %27, %8, %14, %5
+  %.027 = phi i32 [ 0, %5 ], [ 0, %14 ], [ 1, %8 ], [ 0, %16 ], [ 0, %20 ], [ 1, %29 ], [ 0, %27 ]
   ret i32 %.027
 }
 

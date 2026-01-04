@@ -546,7 +546,7 @@ if.end12.i.i:                                     ; preds = %if.else.i.i, %while
   %cmp.i5.i.i = icmp ult i8 %9, %8
   br i1 %cmp.i5.i.i, label %if.then.i.i, label %_ZNSt8_Rb_treeIN8proxygen17StructuredHeaders11DecodeErrorESt4pairIKS2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISB_ESt4lessIS2_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i
 
-if.then.i.i:                                      ; preds = %if.end12.i.i, %land.lhs.true.i, %if.then.i.i6
+if.then.i.i:                                      ; preds = %if.end12.i.i, %if.then.i.i6, %land.lhs.true.i
   %retval.sroa.12.0.i.ph = phi ptr [ %__y.0.lcssa26.i.i, %if.then.i.i6 ], [ %2, %land.lhs.true.i ], [ %__y.0.lcssa25.i.i, %if.end12.i.i ]
   %call5.i.i3 = invoke ptr @_ZNSt8_Rb_treeIN8proxygen17StructuredHeaders11DecodeErrorESt4pairIKS2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISB_ESt4lessIS2_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef null, ptr noundef nonnull %retval.sroa.12.0.i.ph, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.04.i, ptr noundef nonnull align 8 dereferenceable(8) %__an.i)
           to label %_ZNSt8_Rb_treeIN8proxygen17StructuredHeaders11DecodeErrorESt4pairIKS2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISB_ESt4lessIS2_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i unwind label %lpad4
@@ -919,7 +919,7 @@ if.end12.i.i:                                     ; preds = %if.else.i.i, %while
   %cmp.i5.i.i = icmp ult i8 %9, %8
   br i1 %cmp.i5.i.i, label %if.then.i.i, label %_ZNSt8_Rb_treeIN8proxygen17StructuredHeaders11EncodeErrorESt4pairIKS2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISB_ESt4lessIS2_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i
 
-if.then.i.i:                                      ; preds = %if.end12.i.i, %land.lhs.true.i, %if.then.i.i6
+if.then.i.i:                                      ; preds = %if.end12.i.i, %if.then.i.i6, %land.lhs.true.i
   %retval.sroa.12.0.i.ph = phi ptr [ %__y.0.lcssa26.i.i, %if.then.i.i6 ], [ %2, %land.lhs.true.i ], [ %__y.0.lcssa25.i.i, %if.end12.i.i ]
   %call5.i.i3 = invoke ptr @_ZNSt8_Rb_treeIN8proxygen17StructuredHeaders11EncodeErrorESt4pairIKS2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISB_ESt4lessIS2_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef null, ptr noundef nonnull %retval.sroa.12.0.i.ph, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.04.i, ptr noundef nonnull align 8 dereferenceable(8) %__an.i)
           to label %_ZNSt8_Rb_treeIN8proxygen17StructuredHeaders11EncodeErrorESt4pairIKS2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISB_ESt4lessIS2_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i unwind label %lpad4
@@ -1142,8 +1142,8 @@ catch.i:                                          ; preds = %lpad.i.i.i.i.i
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %_ZNK8proxygen17StructuredHeaders20StructuredHeaderItem3getIlEET_v.exit.i, %call.i.i18.noexc, %catch.i
-  %malformed.0 = phi i1 [ false, %_ZNK8proxygen17StructuredHeaders20StructuredHeaderItem3getIlEET_v.exit.i ], [ false, %call.i.i18.noexc ], [ true, %catch.i ]
-  %retval.0.i = phi i64 [ %7, %_ZNK8proxygen17StructuredHeaders20StructuredHeaderItem3getIlEET_v.exit.i ], [ 3, %call.i.i18.noexc ], [ 3, %catch.i ]
+  %malformed.0 = phi i1 [ false, %call.i.i18.noexc ], [ false, %_ZNK8proxygen17StructuredHeaders20StructuredHeaderItem3getIlEET_v.exit.i ], [ true, %catch.i ]
+  %retval.0.i = phi i64 [ 3, %call.i.i18.noexc ], [ %7, %_ZNK8proxygen17StructuredHeaders20StructuredHeaderItem3getIlEET_v.exit.i ], [ 3, %catch.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7) #21
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #21
@@ -1214,8 +1214,8 @@ catch.i42:                                        ; preds = %lpad.i.i.i.i.i39
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %_ZNK8proxygen17StructuredHeaders20StructuredHeaderItem3getIbEET_v.exit.i, %call.i.i32.noexc, %catch.i42
-  %malformed.1 = phi i1 [ %malformed.0, %_ZNK8proxygen17StructuredHeaders20StructuredHeaderItem3getIbEET_v.exit.i ], [ %malformed.0, %call.i.i32.noexc ], [ true, %catch.i42 ]
-  %retval.0.i43 = phi i64 [ %17, %_ZNK8proxygen17StructuredHeaders20StructuredHeaderItem3getIbEET_v.exit.i ], [ %retval.0.i, %call.i.i32.noexc ], [ %retval.0.i, %catch.i42 ]
+  %malformed.1 = phi i1 [ %malformed.0, %call.i.i32.noexc ], [ %malformed.0, %_ZNK8proxygen17StructuredHeaders20StructuredHeaderItem3getIbEET_v.exit.i ], [ true, %catch.i42 ]
+  %retval.0.i43 = phi i64 [ %retval.0.i, %call.i.i32.noexc ], [ %17, %_ZNK8proxygen17StructuredHeaders20StructuredHeaderItem3getIbEET_v.exit.i ], [ %retval.0.i, %catch.i42 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #21
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp23) #21
@@ -1284,8 +1284,8 @@ catch.i71:                                        ; preds = %lpad.i.i.i.i.i68
           to label %invoke.cont27 unwind label %lpad26
 
 invoke.cont27:                                    ; preds = %_ZNK8proxygen17StructuredHeaders20StructuredHeaderItem3getIlEET_v.exit.i74, %call.i.i60.noexc, %catch.i71
-  %malformed.2 = phi i1 [ %malformed.1, %_ZNK8proxygen17StructuredHeaders20StructuredHeaderItem3getIlEET_v.exit.i74 ], [ %malformed.1, %call.i.i60.noexc ], [ true, %catch.i71 ]
-  %retval.0.i72 = phi i64 [ %25, %_ZNK8proxygen17StructuredHeaders20StructuredHeaderItem3getIlEET_v.exit.i74 ], [ 0, %call.i.i60.noexc ], [ 0, %catch.i71 ]
+  %malformed.2 = phi i1 [ %malformed.1, %call.i.i60.noexc ], [ %malformed.1, %_ZNK8proxygen17StructuredHeaders20StructuredHeaderItem3getIlEET_v.exit.i74 ], [ true, %catch.i71 ]
+  %retval.0.i72 = phi i64 [ 0, %call.i.i60.noexc ], [ %25, %_ZNK8proxygen17StructuredHeaders20StructuredHeaderItem3getIlEET_v.exit.i74 ], [ 0, %catch.i71 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp23) #21
   %or.cond = icmp ugt i64 %retval.0.i, 7
@@ -1819,8 +1819,8 @@ lor.rhs:                                          ; preds = %entry
   br label %lor.end
 
 lor.end:                                          ; preds = %entry.lor.end_crit_edge, %lor.rhs
-  %2 = phi i8 [ %.pre, %entry.lor.end_crit_edge ], [ %0, %lor.rhs ]
-  %3 = phi i1 [ true, %entry.lor.end_crit_edge ], [ %cmp.i, %lor.rhs ]
+  %2 = phi i8 [ %0, %lor.rhs ], [ %.pre, %entry.lor.end_crit_edge ]
+  %3 = phi i1 [ %cmp.i, %lor.rhs ], [ true, %entry.lor.end_crit_edge ]
   %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
   %_M_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 32
   store i8 %2, ptr %_M_storage.i.i.i.i, align 8
@@ -1902,8 +1902,8 @@ lor.rhs:                                          ; preds = %entry
   br label %lor.end
 
 lor.end:                                          ; preds = %entry.lor.end_crit_edge, %lor.rhs
-  %2 = phi i8 [ %.pre, %entry.lor.end_crit_edge ], [ %0, %lor.rhs ]
-  %3 = phi i1 [ true, %entry.lor.end_crit_edge ], [ %cmp.i, %lor.rhs ]
+  %2 = phi i8 [ %0, %lor.rhs ], [ %.pre, %entry.lor.end_crit_edge ]
+  %3 = phi i1 [ %cmp.i, %lor.rhs ], [ true, %entry.lor.end_crit_edge ]
   %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
   %_M_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 32
   store i8 %2, ptr %_M_storage.i.i.i.i, align 8
@@ -2033,7 +2033,7 @@ if.then.i:                                        ; preds = %_ZNKSt8__detail15_H
   br label %return
 
 return:                                           ; preds = %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N8proxygen17StructuredHeaders20StructuredHeaderItemEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISC_Lb1EEE.exit, %for.inc, %land.rhs.i.i.i, %if.then, %if.then.i, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N8proxygen17StructuredHeaders20StructuredHeaderItemEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit
-  %retval.sroa.0.1 = phi ptr [ %5, %if.then.i ], [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N8proxygen17StructuredHeaders20StructuredHeaderItemEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ null, %if.then ], [ %retval.sroa.0.010, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N8proxygen17StructuredHeaders20StructuredHeaderItemEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISC_Lb1EEE.exit ], [ null, %for.inc ], [ %retval.sroa.0.010, %land.rhs.i.i.i ]
+  %retval.sroa.0.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N8proxygen17StructuredHeaders20StructuredHeaderItemEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ %5, %if.then.i ], [ null, %if.then ], [ null, %for.inc ], [ %retval.sroa.0.010, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N8proxygen17StructuredHeaders20StructuredHeaderItemEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISC_Lb1EEE.exit ], [ %retval.sroa.0.010, %land.rhs.i.i.i ]
   ret ptr %retval.sroa.0.1
 }
 
@@ -2584,7 +2584,7 @@ terminate.lpad.i17:                               ; preds = %land.lhs.true.i.i13
   unreachable
 
 if.end:                                           ; preds = %if.then, %if.then.i.i, %call.i.noexc.i, %invoke.cont3, %entry
-  %data.sroa.0.1 = phi ptr [ null, %entry ], [ %2, %invoke.cont3 ], [ %2, %call.i.noexc.i ], [ %2, %if.then.i.i ], [ null, %if.then ]
+  %data.sroa.0.1 = phi ptr [ null, %entry ], [ %2, %if.then.i.i ], [ %2, %invoke.cont3 ], [ %2, %call.i.noexc.i ], [ null, %if.then ]
   %throw_file_ = getelementptr inbounds nuw i8, ptr %b, i64 24
   %12 = load ptr, ptr %throw_file_, align 8
   %throw_file_5 = getelementptr inbounds nuw i8, ptr %a, i64 24
@@ -2654,8 +2654,8 @@ ehcleanup:                                        ; preds = %land.lhs.true.i.i.i
   br i1 %tobool.not.i.i43, label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit51, label %land.lhs.true.i.i44
 
 land.lhs.true.i.i44:                              ; preds = %if.then.i.i19, %call.i.noexc.i18, %lpad2, %ehcleanup.thread65, %ehcleanup
-  %.pn60 = phi { ptr, i32 } [ %23, %ehcleanup ], [ %19, %ehcleanup.thread65 ], [ %7, %lpad2 ], [ %7, %call.i.noexc.i18 ], [ %7, %if.then.i.i19 ]
-  %data.sroa.0.359 = phi ptr [ %data.sroa.0.1, %ehcleanup ], [ %data.sroa.0.1, %ehcleanup.thread65 ], [ %2, %lpad2 ], [ %2, %call.i.noexc.i18 ], [ %2, %if.then.i.i19 ]
+  %.pn60 = phi { ptr, i32 } [ %19, %ehcleanup.thread65 ], [ %23, %ehcleanup ], [ %7, %lpad2 ], [ %7, %call.i.noexc.i18 ], [ %7, %if.then.i.i19 ]
+  %data.sroa.0.359 = phi ptr [ %data.sroa.0.1, %ehcleanup.thread65 ], [ %data.sroa.0.1, %ehcleanup ], [ %2, %lpad2 ], [ %2, %call.i.noexc.i18 ], [ %2, %if.then.i.i19 ]
   %vtable.i.i45 = load ptr, ptr %data.sroa.0.359, align 8
   %vfn.i.i46 = getelementptr inbounds nuw i8, ptr %vtable.i.i45, i64 32
   %24 = load ptr, ptr %vfn.i.i46, align 8
@@ -2788,7 +2788,7 @@ arraydestroy.body30.i:                            ; preds = %arraydestroy.body30
   br i1 %arraydestroy.done33.i, label %common.resume, label %arraydestroy.body30.i
 
 common.resume:                                    ; preds = %arraydestroy.body.i, %arraydestroy.body30.i, %arraydestroy.body.i12, %arraydestroy.body27.i
-  %common.resume.op = phi { ptr, i32 } [ %7, %arraydestroy.body27.i ], [ %6, %arraydestroy.body.i12 ], [ %2, %arraydestroy.body30.i ], [ %1, %arraydestroy.body.i ]
+  %common.resume.op = phi { ptr, i32 } [ %2, %arraydestroy.body30.i ], [ %6, %arraydestroy.body.i12 ], [ %7, %arraydestroy.body27.i ], [ %1, %arraydestroy.body.i ]
   resume { ptr, i32 } %common.resume.op
 
 __cxx_global_var_init.exit:                       ; preds = %arraydestroy.body24.i

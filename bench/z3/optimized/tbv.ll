@@ -877,7 +877,7 @@ _ZN8rationalD2Ev.exit20:                          ; preds = %.noexc.i19
   br i1 %.not, label %_ZN11tbv_manager8allocateEm.exit, label %63, !llvm.loop !39
 
 _ZN11tbv_manager8allocateEm.exit:                 ; preds = %105, %select.unfold.i, %_ZNK8rational9is_uint64Ev.exit.thread, %15
-  %.016 = phi ptr [ %18, %15 ], [ %49, %_ZNK8rational9is_uint64Ev.exit.thread ], [ %18, %select.unfold.i ], [ %49, %105 ]
+  %.016 = phi ptr [ %49, %_ZNK8rational9is_uint64Ev.exit.thread ], [ %18, %15 ], [ %18, %select.unfold.i ], [ %49, %105 ]
   ret ptr %.016
 }
 
@@ -974,7 +974,7 @@ define hidden noundef zeroext i1 @_ZNK11tbv_manager7set_andER3tbvRKS0_(ptr nound
   br label %_ZNK11tbv_manager14is_well_formedERK3tbv.exit
 
 _ZNK11tbv_manager14is_well_formedERK3tbv.exit:    ; preds = %9, %15, %24
-  %.1.i = phi i1 [ true, %24 ], [ false, %15 ], [ false, %9 ]
+  %.1.i = phi i1 [ false, %15 ], [ true, %24 ], [ false, %9 ]
   ret i1 %.1.i
 }
 
@@ -1023,7 +1023,7 @@ define hidden noundef zeroext i1 @_ZNK11tbv_manager14is_well_formedERK3tbv(ptr n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %7, %13, %22
-  %.1 = phi i1 [ true, %22 ], [ false, %13 ], [ false, %7 ]
+  %.1 = phi i1 [ false, %13 ], [ true, %22 ], [ false, %7 ]
   ret i1 %.1
 }
 
@@ -1111,7 +1111,7 @@ define hidden void @_ZN11tbv_manager10complementERK3tbvR10ptr_vectorIS0_E(ptr no
   br i1 %56, label %.sink.split.sink.split, label %.sink.split
 
 .sink.split.sink.split:                           ; preds = %39, %51, %21, %33
-  %.sink.ph = phi ptr [ %22, %33 ], [ %22, %21 ], [ %40, %51 ], [ %40, %39 ]
+  %.sink.ph = phi ptr [ %22, %21 ], [ %22, %33 ], [ %40, %51 ], [ %40, %39 ]
   tail call void @_ZN6vectorIP3tbvLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
   %.pre.i11 = load ptr, ptr %2, align 8, !tbaa !3
   %.phi.trans.insert.i12 = getelementptr inbounds i8, ptr %.pre.i11, i64 -4
@@ -1275,7 +1275,7 @@ define hidden noundef zeroext i1 @_ZN11tbv_manager9intersectERK3tbvS2_RS0_(ptr n
   br label %_ZNK11tbv_manager7set_andER3tbvRKS0_.exit
 
 _ZNK11tbv_manager7set_andER3tbvRKS0_.exit:        ; preds = %10, %16, %25
-  %.1.i.i = phi i1 [ true, %25 ], [ false, %16 ], [ false, %10 ]
+  %.1.i.i = phi i1 [ false, %16 ], [ true, %25 ], [ false, %10 ]
   ret i1 %.1.i.i
 }
 

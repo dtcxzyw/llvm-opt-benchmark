@@ -213,7 +213,7 @@ define range(i32 -1, -2147483648) i32 @connect_host(ptr noundef %0, ptr noundef 
   br label %93
 
 93:                                               ; preds = %.thread.thread, %.thread69, %88, %.thread, %85, %4, %91
-  %.0 = phi i32 [ -1, %91 ], [ -1, %4 ], [ -1, %85 ], [ -1, %.thread ], [ %.us-phi83, %88 ], [ %.us-phi83, %.thread69 ], [ -1, %.thread.thread ]
+  %.0 = phi i32 [ -1, %4 ], [ -1, %91 ], [ -1, %.thread ], [ -1, %85 ], [ %.us-phi83, %88 ], [ %.us-phi83, %.thread69 ], [ -1, %.thread.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

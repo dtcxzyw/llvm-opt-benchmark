@@ -272,7 +272,7 @@ define i32 @recvln(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr 
   br label %.backedge
 
 68:                                               ; preds = %23, %28, %30, %58, %45
-  %.0 = phi i32 [ %49, %45 ], [ -1, %58 ], [ -1, %30 ], [ -1, %28 ], [ 0, %23 ]
+  %.0 = phi i32 [ %49, %45 ], [ -1, %58 ], [ -1, %28 ], [ -1, %30 ], [ 0, %23 ]
   ret i32 %.0
 }
 
@@ -320,7 +320,7 @@ define range(i32 0, 2) i32 @chkpath(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %.old1.not, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %15, %13, %3, %2
-  %.0 = phi i32 [ 1, %13 ], [ 0, %3 ], [ 1, %2 ], [ 0, %15 ]
+  %.0 = phi i32 [ 1, %13 ], [ 1, %2 ], [ 0, %3 ], [ 0, %15 ]
   ret i32 %.0
 }
 
@@ -791,7 +791,7 @@ define range(i32 -1, -2147483648) i32 @dconnect(ptr noundef %0) local_unnamed_ad
   br label %.backedge
 
 .loopexit:                                        ; preds = %.backedge, %22, %11, %70
-  %.0 = phi i32 [ %49, %70 ], [ %9, %11 ], [ -1, %22 ], [ -1, %.backedge ]
+  %.0 = phi i32 [ %9, %11 ], [ %49, %70 ], [ -1, %22 ], [ -1, %.backedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -959,7 +959,7 @@ chkpath.exit.thread:                              ; preds = %21, %11, %6
   br label %70
 
 70:                                               ; preds = %68, %66, %.loopexit140
-  %.071 = phi i32 [ %40, %.loopexit140 ], [ %67, %66 ], [ %69, %68 ]
+  %.071 = phi i32 [ %69, %68 ], [ %40, %.loopexit140 ], [ %67, %66 ]
   %71 = icmp slt i32 %.071, 1
   br i1 %71, label %.thread, label %.preheader
 
@@ -1196,7 +1196,7 @@ chkpath.exit.thread:                              ; preds = %21, %11, %6
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread137, %105, %102, %chkpath.exit, %30, %43, %61, %143, %148, %158, %153, %141, %75, %74
-  %.068 = phi i32 [ 0, %chkpath.exit ], [ %.1, %141 ], [ -1, %148 ], [ %.1, %153 ], [ -1, %158 ], [ -1, %143 ], [ -1, %61 ], [ -1, %43 ], [ -1, %30 ], [ %.071120, %75 ], [ %.071120, %74 ], [ -1, %105 ], [ -1, %102 ], [ %78, %.thread137 ]
+  %.068 = phi i32 [ 0, %chkpath.exit ], [ -1, %30 ], [ %.071120, %74 ], [ -1, %105 ], [ %.1, %141 ], [ -1, %148 ], [ %.1, %153 ], [ -1, %158 ], [ -1, %143 ], [ -1, %61 ], [ -1, %43 ], [ %.071120, %75 ], [ -1, %102 ], [ %78, %.thread137 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

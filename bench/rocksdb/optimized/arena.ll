@@ -721,7 +721,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33: ; preds = %27,
   br label %_ZN7rocksdb5Arena16AllocateFallbackEmb.exit
 
 _ZN7rocksdb5Arena16AllocateFallbackEmb.exit:      ; preds = %65, %54, %11, %45
-  %.1 = phi ptr [ %46, %45 ], [ %16, %11 ], [ %58, %54 ], [ %.1.i, %65 ]
+  %.1 = phi ptr [ %16, %11 ], [ %46, %45 ], [ %58, %54 ], [ %.1.i, %65 ]
   ret ptr %.1
 }
 
@@ -1372,7 +1372,7 @@ _ZSt4copyIPPN7rocksdb10MemMappingES3_ET0_T_S5_S4_.exit26: ; preds = %_ZNSt11_Deq
   br label %_ZSt4copyIPPN7rocksdb10MemMappingES3_ET0_T_S5_S4_.exit
 
 _ZSt4copyIPPN7rocksdb10MemMappingES3_ET0_T_S5_S4_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPN7rocksdb10MemMappingES3_ET0_T_S5_S4_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPN7rocksdb10MemMappingES3_ET0_T_S5_S4_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPN7rocksdb10MemMappingES3_ET0_T_S5_S4_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !41
   %58 = load ptr, ptr %.0, align 8, !tbaa !46
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1569,7 +1569,7 @@ _ZSt4copyIPPSt10unique_ptrIA_cSt14default_deleteIS1_EES6_ET0_T_S8_S7_.exit26: ; 
   br label %_ZSt4copyIPPSt10unique_ptrIA_cSt14default_deleteIS1_EES6_ET0_T_S8_S7_.exit
 
 _ZSt4copyIPPSt10unique_ptrIA_cSt14default_deleteIS1_EES6_ET0_T_S8_S7_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPSt10unique_ptrIA_cSt14default_deleteIS1_EES6_ET0_T_S8_S7_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPSt10unique_ptrIA_cSt14default_deleteIS1_EES6_ET0_T_S8_S7_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPSt10unique_ptrIA_cSt14default_deleteIS1_EES6_ET0_T_S8_S7_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !61
   %58 = load ptr, ptr %.0, align 8, !tbaa !68
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24

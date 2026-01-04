@@ -537,8 +537,8 @@ define hidden void @_ZN4ncnn31transpose_pack_A_tile_int8_avx2ERKNS_3MatERS0_iiii
   br label %.preheader159.i
 
 .preheader159.i:                                  ; preds = %.preheader159.loopexit237.i, %.preheader159.loopexit.i, %.preheader160.preheader.i, %12
-  %.0147.lcssa.i = phi i32 [ 0, %12 ], [ %97, %.preheader159.loopexit.i ], [ %98, %.preheader159.loopexit237.i ], [ %81, %.preheader160.preheader.i ]
-  %.0145.lcssa.i = phi ptr [ %15, %12 ], [ %.us-phi, %.preheader159.loopexit.i ], [ %84, %.preheader159.loopexit237.i ], [ %15, %.preheader160.preheader.i ]
+  %.0147.lcssa.i = phi i32 [ 0, %12 ], [ %98, %.preheader159.loopexit237.i ], [ %97, %.preheader159.loopexit.i ], [ %81, %.preheader160.preheader.i ]
+  %.0145.lcssa.i = phi ptr [ %15, %12 ], [ %84, %.preheader159.loopexit237.i ], [ %.us-phi, %.preheader159.loopexit.i ], [ %15, %.preheader160.preheader.i ]
   %99 = or disjoint i32 %.0147.lcssa.i, 3
   %100 = icmp slt i32 %99, %3
   br i1 %100, label %.lr.ph204.i, label %.preheader157.i
@@ -1328,8 +1328,8 @@ define hidden void @_ZN4ncnn31transpose_pack_B_tile_int8_avx2ERKNS_3MatERS0_iiii
   br label %.preheader159.i
 
 .preheader159.i:                                  ; preds = %.preheader159.loopexit237.i, %.preheader159.loopexit.i, %.preheader160.preheader.i, %12
-  %.0147.lcssa.i = phi i32 [ 0, %12 ], [ %97, %.preheader159.loopexit.i ], [ %98, %.preheader159.loopexit237.i ], [ %81, %.preheader160.preheader.i ]
-  %.0145.lcssa.i = phi ptr [ %15, %12 ], [ %.us-phi, %.preheader159.loopexit.i ], [ %84, %.preheader159.loopexit237.i ], [ %15, %.preheader160.preheader.i ]
+  %.0147.lcssa.i = phi i32 [ 0, %12 ], [ %98, %.preheader159.loopexit237.i ], [ %97, %.preheader159.loopexit.i ], [ %81, %.preheader160.preheader.i ]
+  %.0145.lcssa.i = phi ptr [ %15, %12 ], [ %84, %.preheader159.loopexit237.i ], [ %.us-phi, %.preheader159.loopexit.i ], [ %15, %.preheader160.preheader.i ]
   %99 = or disjoint i32 %.0147.lcssa.i, 3
   %100 = icmp slt i32 %99, %3
   br i1 %100, label %.lr.ph204.i, label %.preheader157.i
@@ -2072,7 +2072,7 @@ define hidden void @_ZN4ncnn29pack_A_tile_fp32_to_int8_avx2ERKNS_3MatERS0_iiiiS2
   br i1 %exitcond537.not.i, label %.loopexit380.i, label %.lr.ph422.i, !llvm.loop !75
 
 .loopexit380.i:                                   ; preds = %.lr.ph422.i, %.lr.ph409.i, %.lr.ph396.i, %.preheader379.i, %.preheader382.i, %.preheader385.i, %152
-  %.7.i = phi ptr [ %.8.lcssa.i, %.preheader379.i ], [ %.5.lcssa.i, %.preheader382.i ], [ %.2.lcssa.i, %.preheader385.i ], [ %.0425.i, %152 ], [ %204, %.lr.ph396.i ], [ %254, %.lr.ph409.i ], [ %299, %.lr.ph422.i ]
+  %.7.i = phi ptr [ %.0425.i, %152 ], [ %.8.lcssa.i, %.preheader379.i ], [ %204, %.lr.ph396.i ], [ %254, %.lr.ph409.i ], [ %.5.lcssa.i, %.preheader382.i ], [ %.2.lcssa.i, %.preheader385.i ], [ %299, %.lr.ph422.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 8
   %302 = or disjoint i64 %indvars.iv.next.i, 7
   %303 = icmp samesign ult i64 %302, %37
@@ -2608,8 +2608,8 @@ define hidden void @_ZN4ncnn39transpose_pack_A_tile_fp32_to_int8_avx2ERKNS_3MatE
   br i1 %166, label %.loopexit629.i.us.us40, label %.preheader623.loopexit.i, !llvm.loop !87
 
 .preheader623.loopexit.i:                         ; preds = %.loopexit625.i.loopexit13, %.loopexit625.i.us.us43, %.loopexit625.i.us.us, %.loopexit629.i.us.preheader
-  %.us-phi = phi ptr [ %25, %.loopexit629.i.us.preheader ], [ %.5.i.us.us, %.loopexit625.i.us.us ], [ %.5.i.us.us44, %.loopexit625.i.us.us43 ], [ %315, %.loopexit625.i.loopexit13 ]
-  %.us-phi36 = phi i64 [ %44, %.loopexit629.i.us.preheader ], [ %indvars.iv.next.i.us.us, %.loopexit625.i.us.us ], [ %indvars.iv.next.i.us.us45, %.loopexit625.i.us.us43 ], [ %indvars.iv.next.i, %.loopexit625.i.loopexit13 ]
+  %.us-phi = phi ptr [ %.5.i.us.us, %.loopexit625.i.us.us ], [ %25, %.loopexit629.i.us.preheader ], [ %.5.i.us.us44, %.loopexit625.i.us.us43 ], [ %315, %.loopexit625.i.loopexit13 ]
+  %.us-phi36 = phi i64 [ %indvars.iv.next.i.us.us, %.loopexit625.i.us.us ], [ %44, %.loopexit629.i.us.preheader ], [ %indvars.iv.next.i.us.us45, %.loopexit625.i.us.us43 ], [ %indvars.iv.next.i, %.loopexit625.i.loopexit13 ]
   %167 = trunc nuw nsw i64 %.us-phi36 to i32
   br label %.preheader623.i
 
@@ -3055,7 +3055,7 @@ define hidden void @_ZN4ncnn39transpose_pack_A_tile_fp32_to_int8_avx2ERKNS_3MatE
   br i1 %exitcond789.not.i, label %.loopexit620.i, label %.lr.ph679.i, !llvm.loop !94
 
 .loopexit620.i:                                   ; preds = %.lr.ph679.i, %.lr.ph666.i, %.lr.ph660.i, %.preheader619.i, %422, %349, %343
-  %.13.i = phi ptr [ %.14.lcssa.i, %.preheader619.i ], [ %.8682.i, %422 ], [ %.8682.i, %349 ], [ %.8682.i, %343 ], [ %417, %.lr.ph660.i ], [ %474, %.lr.ph666.i ], [ %520, %.lr.ph679.i ]
+  %.13.i = phi ptr [ %.8682.i, %343 ], [ %.14.lcssa.i, %.preheader619.i ], [ %417, %.lr.ph660.i ], [ %474, %.lr.ph666.i ], [ %.8682.i, %422 ], [ %.8682.i, %349 ], [ %520, %.lr.ph679.i ]
   %indvars.iv.next791.i = add nuw nsw i64 %indvars.iv790.i, 4
   %523 = or disjoint i64 %indvars.iv.next791.i, 3
   %524 = icmp slt i64 %523, %185
@@ -3328,7 +3328,7 @@ define hidden void @_ZN4ncnn39transpose_pack_A_tile_fp32_to_int8_avx2ERKNS_3MatE
   br i1 %exitcond793.not.i, label %.loopexit614.i, label %.lr.ph715.i, !llvm.loop !100
 
 .loopexit614.i:                                   ; preds = %.lr.ph715.i, %.lr.ph695.i, %.lr.ph689.i, %.preheader613.i, %586, %549, %543
-  %.21.i = phi ptr [ %.23.lcssa.i, %.preheader613.i ], [ %.16718.i, %586 ], [ %.16718.i, %549 ], [ %.16718.i, %543 ], [ %581, %.lr.ph689.i ], [ %615, %.lr.ph695.i ], [ %707, %.lr.ph715.i ]
+  %.21.i = phi ptr [ %.16718.i, %543 ], [ %.23.lcssa.i, %.preheader613.i ], [ %581, %.lr.ph689.i ], [ %615, %.lr.ph695.i ], [ %.16718.i, %586 ], [ %.16718.i, %549 ], [ %707, %.lr.ph715.i ]
   %indvars.iv.next795.i = add nuw nsw i64 %indvars.iv794.i, 2
   %710 = or disjoint i64 %indvars.iv.next795.i, 1
   %711 = icmp slt i64 %710, %340
@@ -3464,7 +3464,7 @@ define hidden void @_ZN4ncnn39transpose_pack_A_tile_fp32_to_int8_avx2ERKNS_3MatE
   br i1 %exitcond797.not.i, label %.loopexit.i, label %.lr.ph744.i, !llvm.loop !105
 
 .loopexit.i:                                      ; preds = %.lr.ph744.i, %.lr.ph731.i, %.lr.ph725.i, %.preheader.i, %743, %721, %712
-  %.30.i = phi ptr [ %.31.lcssa.i, %.preheader.i ], [ %.25747.i, %743 ], [ %.25747.i, %721 ], [ %.25747.i, %712 ], [ %738, %.lr.ph725.i ], [ %757, %.lr.ph731.i ], [ %786, %.lr.ph744.i ]
+  %.30.i = phi ptr [ %.25747.i, %712 ], [ %.31.lcssa.i, %.preheader.i ], [ %738, %.lr.ph725.i ], [ %757, %.lr.ph731.i ], [ %.25747.i, %743 ], [ %.25747.i, %721 ], [ %786, %.lr.ph744.i ]
   %indvars.iv.next799.i = add nsw i64 %indvars.iv798.i, 1
   %exitcond801.not.i = icmp eq i64 %indvars.iv.next799.i, %wide.trip.count.i
   br i1 %exitcond801.not.i, label %_ZN4ncnnL34transpose_pack_A_tile_fp32_to_int8ERKNS_3MatERS0_iiiiS2_.exit, label %712, !llvm.loop !106
@@ -3946,7 +3946,7 @@ define hidden void @_ZN4ncnn29pack_B_tile_fp32_to_int8_avx2ERKNS_3MatERS0_iiiif(
   br i1 %exitcond518.not.i, label %.loopexit361.i, label %.lr.ph403.i, !llvm.loop !117
 
 .loopexit361.i:                                   ; preds = %.lr.ph403.i, %.lr.ph390.i, %.lr.ph377.i, %.preheader360.i, %.preheader363.i, %.preheader366.i, %150
-  %.7.i = phi ptr [ %.8.lcssa.i, %.preheader360.i ], [ %.5.lcssa.i, %.preheader363.i ], [ %.2.lcssa.i, %.preheader366.i ], [ %.0406.i, %150 ], [ %198, %.lr.ph377.i ], [ %246, %.lr.ph390.i ], [ %291, %.lr.ph403.i ]
+  %.7.i = phi ptr [ %.0406.i, %150 ], [ %.8.lcssa.i, %.preheader360.i ], [ %198, %.lr.ph377.i ], [ %246, %.lr.ph390.i ], [ %.5.lcssa.i, %.preheader363.i ], [ %.2.lcssa.i, %.preheader366.i ], [ %291, %.lr.ph403.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 8
   %294 = or disjoint i64 %indvars.iv.next.i, 7
   %295 = icmp samesign ult i64 %294, %38
@@ -4421,8 +4421,8 @@ define hidden void @_ZN4ncnn39transpose_pack_B_tile_fp32_to_int8_avx2ERKNS_3MatE
   br i1 %158, label %.loopexit547.i.us, label %.preheader543.loopexit.i, !llvm.loop !128
 
 .preheader543.loopexit.i:                         ; preds = %.loopexit545.i.loopexit13, %.loopexit545.i.loopexit12.us, %.loopexit545.i.us.us.us, %.loopexit547.i.us.us.preheader
-  %.us-phi = phi ptr [ %25, %.loopexit547.i.us.us.preheader ], [ %.5.i.us.us.us, %.loopexit545.i.us.us.us ], [ %152, %.loopexit545.i.loopexit12.us ], [ %379, %.loopexit545.i.loopexit13 ]
-  %.us-phi36 = phi i64 [ %48, %.loopexit547.i.us.us.preheader ], [ %indvars.iv.next.i.us.us.us, %.loopexit545.i.us.us.us ], [ %indvars.iv.next.i.us, %.loopexit545.i.loopexit12.us ], [ %indvars.iv.next.i, %.loopexit545.i.loopexit13 ]
+  %.us-phi = phi ptr [ %25, %.loopexit547.i.us.us.preheader ], [ %152, %.loopexit545.i.loopexit12.us ], [ %.5.i.us.us.us, %.loopexit545.i.us.us.us ], [ %379, %.loopexit545.i.loopexit13 ]
+  %.us-phi36 = phi i64 [ %48, %.loopexit547.i.us.us.preheader ], [ %indvars.iv.next.i.us, %.loopexit545.i.loopexit12.us ], [ %indvars.iv.next.i.us.us.us, %.loopexit545.i.us.us.us ], [ %indvars.iv.next.i, %.loopexit545.i.loopexit13 ]
   %159 = trunc nuw nsw i64 %.us-phi36 to i32
   br label %.preheader543.i
 
@@ -4737,8 +4737,8 @@ define hidden void @_ZN4ncnn39transpose_pack_B_tile_fp32_to_int8_avx2ERKNS_3MatE
   br i1 %385, label %.lr.ph.i.preheader, label %.preheader543.loopexit.i, !llvm.loop !128
 
 .preheader538.loopexit.i:                         ; preds = %.loopexit540.i.loopexit11, %.loopexit540.i.loopexit10.us, %.loopexit540.i.us.us.us, %.loopexit542.i.us.us.preheader
-  %.us-phi41 = phi ptr [ %.0.lcssa.i, %.loopexit542.i.us.us.preheader ], [ %.13.i.us.us.us, %.loopexit540.i.us.us.us ], [ %277, %.loopexit540.i.loopexit10.us ], [ %587, %.loopexit540.i.loopexit11 ]
-  %.us-phi42 = phi i64 [ %193, %.loopexit542.i.us.us.preheader ], [ %indvars.iv.next730.i.us.us.us, %.loopexit540.i.us.us.us ], [ %indvars.iv.next730.i.us, %.loopexit540.i.loopexit10.us ], [ %indvars.iv.next730.i, %.loopexit540.i.loopexit11 ]
+  %.us-phi41 = phi ptr [ %.0.lcssa.i, %.loopexit542.i.us.us.preheader ], [ %277, %.loopexit540.i.loopexit10.us ], [ %.13.i.us.us.us, %.loopexit540.i.us.us.us ], [ %587, %.loopexit540.i.loopexit11 ]
+  %.us-phi42 = phi i64 [ %193, %.loopexit542.i.us.us.preheader ], [ %indvars.iv.next730.i.us, %.loopexit540.i.loopexit10.us ], [ %indvars.iv.next730.i.us.us.us, %.loopexit540.i.us.us.us ], [ %indvars.iv.next730.i, %.loopexit540.i.loopexit11 ]
   %386 = trunc nuw nsw i64 %.us-phi42 to i32
   br label %.preheader538.i
 
@@ -5053,8 +5053,8 @@ define hidden void @_ZN4ncnn39transpose_pack_B_tile_fp32_to_int8_avx2ERKNS_3MatE
   br i1 %593, label %.lr.ph578.i.preheader, label %.preheader538.loopexit.i, !llvm.loop !132
 
 .preheader531.loopexit.i:                         ; preds = %.loopexit534.i.loopexit9, %.loopexit534.i.loopexit8.us, %.loopexit534.i.us.us
-  %.us-phi47 = phi ptr [ %.21.i.us.us, %.loopexit534.i.us.us ], [ %525, %.loopexit534.i.loopexit8.us ], [ %698, %.loopexit534.i.loopexit9 ]
-  %.us-phi48 = phi i64 [ %indvars.iv.next734.i.us.us, %.loopexit534.i.us.us ], [ %indvars.iv.next734.i.us, %.loopexit534.i.loopexit8.us ], [ %indvars.iv.next734.i, %.loopexit534.i.loopexit9 ]
+  %.us-phi47 = phi ptr [ %525, %.loopexit534.i.loopexit8.us ], [ %.21.i.us.us, %.loopexit534.i.us.us ], [ %698, %.loopexit534.i.loopexit9 ]
+  %.us-phi48 = phi i64 [ %indvars.iv.next734.i.us, %.loopexit534.i.loopexit8.us ], [ %indvars.iv.next734.i.us.us, %.loopexit534.i.us.us ], [ %indvars.iv.next734.i, %.loopexit534.i.loopexit9 ]
   %594 = trunc nsw i64 %.us-phi48 to i32
   br label %.preheader531.i
 
@@ -5524,8 +5524,8 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   br label %.thread1204.i
 
 .thread1204.i:                                    ; preds = %171, %165, %164, %158, %.thread.i, %147
-  %.2896.i = phi nsz <8 x float> [ zeroinitializer, %147 ], [ zeroinitializer, %171 ], [ zeroinitializer, %165 ], [ %156, %.thread.i ], [ %163, %158 ], [ zeroinitializer, %164 ]
-  %.11747.i = phi ptr [ null, %147 ], [ %173, %171 ], [ %170, %165 ], [ %.017461560.i, %.thread.i ], [ %161, %158 ], [ %.017461560.i, %164 ]
+  %.2896.i = phi nsz <8 x float> [ zeroinitializer, %147 ], [ zeroinitializer, %171 ], [ zeroinitializer, %164 ], [ zeroinitializer, %165 ], [ %156, %.thread.i ], [ %163, %158 ]
+  %.11747.i = phi ptr [ null, %147 ], [ %173, %171 ], [ %.017461560.i, %164 ], [ %170, %165 ], [ %.017461560.i, %.thread.i ], [ %161, %158 ]
   br i1 %49, label %.lr.ph.i, label %.preheader1518.i
 
 .preheader1518.i:                                 ; preds = %.thread1242.i, %.thread1204.i
@@ -5822,16 +5822,16 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   br label %.thread1228.i
 
 .thread1228.i:                                    ; preds = %359, %350, %341, %259, %250, %.thread1207.i, %.lr.ph.i
-  %.4974.i = phi nsz <8 x float> [ %239, %.lr.ph.i ], [ %406, %359 ], [ %358, %350 ], [ %349, %341 ], [ %248, %.thread1207.i ], [ %258, %250 ], [ %239, %259 ]
-  %.4968.i = phi nsz <8 x float> [ %238, %.lr.ph.i ], [ %405, %359 ], [ %357, %350 ], [ %348, %341 ], [ %247, %.thread1207.i ], [ %257, %250 ], [ %238, %259 ]
-  %.4949.i = phi nsz <8 x float> [ %237, %.lr.ph.i ], [ %404, %359 ], [ %356, %350 ], [ %347, %341 ], [ %246, %.thread1207.i ], [ %256, %250 ], [ %237, %259 ]
-  %.4943.i = phi nsz <8 x float> [ %236, %.lr.ph.i ], [ %403, %359 ], [ %355, %350 ], [ %346, %341 ], [ %245, %.thread1207.i ], [ %255, %250 ], [ %236, %259 ]
-  %.4937.i = phi nsz <8 x float> [ %235, %.lr.ph.i ], [ %382, %359 ], [ %354, %350 ], [ %345, %341 ], [ %244, %.thread1207.i ], [ %254, %250 ], [ %235, %259 ]
-  %.4931.i = phi nsz <8 x float> [ %234, %.lr.ph.i ], [ %381, %359 ], [ %353, %350 ], [ %344, %341 ], [ %243, %.thread1207.i ], [ %253, %250 ], [ %234, %259 ]
-  %.4925.i = phi nsz <8 x float> [ %233, %.lr.ph.i ], [ %380, %359 ], [ %352, %350 ], [ %343, %341 ], [ %242, %.thread1207.i ], [ %252, %250 ], [ %233, %259 ]
-  %.4917.i = phi nsz <8 x float> [ %232, %.lr.ph.i ], [ %379, %359 ], [ %351, %350 ], [ %342, %341 ], [ %241, %.thread1207.i ], [ %251, %250 ], [ %232, %259 ]
-  %.6900.i = phi nsz <8 x float> [ %.38971519.i, %.lr.ph.i ], [ %387, %359 ], [ %.4898.i, %350 ], [ %.4898.i, %341 ], [ %.38971519.i, %.thread1207.i ], [ %.38971519.i, %250 ], [ %.38971519.i, %259 ]
-  %.5.i = phi ptr [ null, %.lr.ph.i ], [ %407, %359 ], [ %340, %350 ], [ %340, %341 ], [ %.41523.i, %.thread1207.i ], [ %.41523.i, %250 ], [ %.41523.i, %259 ]
+  %.4974.i = phi nsz <8 x float> [ %239, %.lr.ph.i ], [ %406, %359 ], [ %239, %259 ], [ %358, %350 ], [ %349, %341 ], [ %248, %.thread1207.i ], [ %258, %250 ]
+  %.4968.i = phi nsz <8 x float> [ %238, %.lr.ph.i ], [ %405, %359 ], [ %238, %259 ], [ %357, %350 ], [ %348, %341 ], [ %247, %.thread1207.i ], [ %257, %250 ]
+  %.4949.i = phi nsz <8 x float> [ %237, %.lr.ph.i ], [ %404, %359 ], [ %237, %259 ], [ %356, %350 ], [ %347, %341 ], [ %246, %.thread1207.i ], [ %256, %250 ]
+  %.4943.i = phi nsz <8 x float> [ %236, %.lr.ph.i ], [ %403, %359 ], [ %236, %259 ], [ %355, %350 ], [ %346, %341 ], [ %245, %.thread1207.i ], [ %255, %250 ]
+  %.4937.i = phi nsz <8 x float> [ %235, %.lr.ph.i ], [ %382, %359 ], [ %235, %259 ], [ %354, %350 ], [ %345, %341 ], [ %244, %.thread1207.i ], [ %254, %250 ]
+  %.4931.i = phi nsz <8 x float> [ %234, %.lr.ph.i ], [ %381, %359 ], [ %234, %259 ], [ %353, %350 ], [ %344, %341 ], [ %243, %.thread1207.i ], [ %253, %250 ]
+  %.4925.i = phi nsz <8 x float> [ %233, %.lr.ph.i ], [ %380, %359 ], [ %233, %259 ], [ %352, %350 ], [ %343, %341 ], [ %242, %.thread1207.i ], [ %252, %250 ]
+  %.4917.i = phi nsz <8 x float> [ %232, %.lr.ph.i ], [ %379, %359 ], [ %232, %259 ], [ %351, %350 ], [ %342, %341 ], [ %241, %.thread1207.i ], [ %251, %250 ]
+  %.6900.i = phi nsz <8 x float> [ %.38971519.i, %.lr.ph.i ], [ %387, %359 ], [ %.38971519.i, %259 ], [ %.4898.i, %350 ], [ %.4898.i, %341 ], [ %.38971519.i, %.thread1207.i ], [ %.38971519.i, %250 ]
+  %.5.i = phi ptr [ null, %.lr.ph.i ], [ %407, %359 ], [ %.41523.i, %259 ], [ %340, %350 ], [ %340, %341 ], [ %.41523.i, %.thread1207.i ], [ %.41523.i, %250 ]
   br i1 %64, label %408, label %417
 
 408:                                              ; preds = %.thread1228.i
@@ -6058,7 +6058,7 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   br label %.thread1242.i
 
 .thread1242.i:                                    ; preds = %511, %494, %.thread1239.i, %485, %483
-  %.21814.i = phi ptr [ %484, %483 ], [ %543, %511 ], [ %493, %.thread1239.i ], [ %510, %494 ], [ %.118131521.i, %485 ]
+  %.21814.i = phi ptr [ %484, %483 ], [ %543, %511 ], [ %.118131521.i, %485 ], [ %493, %.thread1239.i ], [ %510, %494 ]
   %544 = add nuw nsw i32 %.018291520.i, 8
   %545 = or disjoint i32 %544, 7
   %546 = icmp slt i32 %545, %7
@@ -6256,12 +6256,12 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   br label %.thread1257.i
 
 .thread1257.i:                                    ; preds = %658, %653, %648, %588, %583, %.thread1244.i, %.lr.ph1533.i
-  %.41062.i = phi nsz <8 x float> [ %576, %.lr.ph1533.i ], [ %681, %658 ], [ %657, %653 ], [ %652, %648 ], [ %581, %.thread1244.i ], [ %587, %583 ], [ %576, %588 ]
-  %.41052.i = phi nsz <8 x float> [ %575, %.lr.ph1533.i ], [ %680, %658 ], [ %656, %653 ], [ %651, %648 ], [ %580, %.thread1244.i ], [ %586, %583 ], [ %575, %588 ]
-  %.41046.i = phi nsz <8 x float> [ %574, %.lr.ph1533.i ], [ %679, %658 ], [ %655, %653 ], [ %650, %648 ], [ %579, %.thread1244.i ], [ %585, %583 ], [ %574, %588 ]
-  %.4999.i = phi nsz <8 x float> [ %573, %.lr.ph1533.i ], [ %678, %658 ], [ %654, %653 ], [ %649, %648 ], [ %578, %.thread1244.i ], [ %584, %583 ], [ %573, %588 ]
-  %.10904.i = phi nsz <8 x float> [ %.79011528.i, %.lr.ph1533.i ], [ %662, %658 ], [ %.8902.i, %653 ], [ %.8902.i, %648 ], [ %.79011528.i, %.thread1244.i ], [ %.79011528.i, %583 ], [ %.79011528.i, %588 ]
-  %.9.i = phi ptr [ null, %.lr.ph1533.i ], [ %682, %658 ], [ %647, %653 ], [ %647, %648 ], [ %.81532.i, %.thread1244.i ], [ %.81532.i, %583 ], [ %.81532.i, %588 ]
+  %.41062.i = phi nsz <8 x float> [ %576, %.lr.ph1533.i ], [ %681, %658 ], [ %576, %588 ], [ %657, %653 ], [ %652, %648 ], [ %581, %.thread1244.i ], [ %587, %583 ]
+  %.41052.i = phi nsz <8 x float> [ %575, %.lr.ph1533.i ], [ %680, %658 ], [ %575, %588 ], [ %656, %653 ], [ %651, %648 ], [ %580, %.thread1244.i ], [ %586, %583 ]
+  %.41046.i = phi nsz <8 x float> [ %574, %.lr.ph1533.i ], [ %679, %658 ], [ %574, %588 ], [ %655, %653 ], [ %650, %648 ], [ %579, %.thread1244.i ], [ %585, %583 ]
+  %.4999.i = phi nsz <8 x float> [ %573, %.lr.ph1533.i ], [ %678, %658 ], [ %573, %588 ], [ %654, %653 ], [ %649, %648 ], [ %578, %.thread1244.i ], [ %584, %583 ]
+  %.10904.i = phi nsz <8 x float> [ %.79011528.i, %.lr.ph1533.i ], [ %662, %658 ], [ %.79011528.i, %588 ], [ %.8902.i, %653 ], [ %.8902.i, %648 ], [ %.79011528.i, %.thread1244.i ], [ %.79011528.i, %583 ]
+  %.9.i = phi ptr [ null, %.lr.ph1533.i ], [ %682, %658 ], [ %.81532.i, %588 ], [ %647, %653 ], [ %647, %648 ], [ %.81532.i, %.thread1244.i ], [ %.81532.i, %583 ]
   br i1 %64, label %683, label %688
 
 683:                                              ; preds = %.thread1257.i
@@ -6383,7 +6383,7 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   br label %.thread1267.i
 
 .thread1267.i:                                    ; preds = %722, %713, %.thread1264.i, %708, %706
-  %.61818.i = phi ptr [ %707, %706 ], [ %744, %722 ], [ %712, %.thread1264.i ], [ %721, %713 ], [ %.518171530.i, %708 ]
+  %.61818.i = phi ptr [ %707, %706 ], [ %744, %722 ], [ %.518171530.i, %708 ], [ %712, %.thread1264.i ], [ %721, %713 ]
   %745 = add nuw nsw i32 %.118301529.i, 4
   %746 = or disjoint i32 %745, 3
   %747 = icmp slt i32 %746, %7
@@ -6500,10 +6500,10 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   br label %.thread1278.i
 
 .thread1278.i:                                    ; preds = %792, %789, %786, %768, %765, %.thread1269.i, %.lr.ph1544.i
-  %.41117.i = phi nsz <8 x float> [ %760, %.lr.ph1544.i ], [ %803, %792 ], [ %791, %789 ], [ %788, %786 ], [ %763, %.thread1269.i ], [ %767, %765 ], [ %760, %768 ]
-  %.41111.i = phi nsz <8 x float> [ %759, %.lr.ph1544.i ], [ %802, %792 ], [ %790, %789 ], [ %787, %786 ], [ %762, %.thread1269.i ], [ %766, %765 ], [ %759, %768 ]
-  %.14908.i = phi nsz <8 x float> [ %.119051539.i, %.lr.ph1544.i ], [ %796, %792 ], [ %.12906.i, %789 ], [ %.12906.i, %786 ], [ %.119051539.i, %.thread1269.i ], [ %.119051539.i, %765 ], [ %.119051539.i, %768 ]
-  %.13.i = phi ptr [ null, %.lr.ph1544.i ], [ %804, %792 ], [ %785, %789 ], [ %785, %786 ], [ %.121543.i, %.thread1269.i ], [ %.121543.i, %765 ], [ %.121543.i, %768 ]
+  %.41117.i = phi nsz <8 x float> [ %760, %.lr.ph1544.i ], [ %803, %792 ], [ %760, %768 ], [ %791, %789 ], [ %788, %786 ], [ %763, %.thread1269.i ], [ %767, %765 ]
+  %.41111.i = phi nsz <8 x float> [ %759, %.lr.ph1544.i ], [ %802, %792 ], [ %759, %768 ], [ %790, %789 ], [ %787, %786 ], [ %762, %.thread1269.i ], [ %766, %765 ]
+  %.14908.i = phi nsz <8 x float> [ %.119051539.i, %.lr.ph1544.i ], [ %796, %792 ], [ %.119051539.i, %768 ], [ %.12906.i, %789 ], [ %.12906.i, %786 ], [ %.119051539.i, %.thread1269.i ], [ %.119051539.i, %765 ]
+  %.13.i = phi ptr [ null, %.lr.ph1544.i ], [ %804, %792 ], [ %.121543.i, %768 ], [ %785, %789 ], [ %785, %786 ], [ %.121543.i, %.thread1269.i ], [ %.121543.i, %765 ]
   %.51118.i = fmul reassoc nsz arcp contract afn <8 x float> %.41117.i, %88
   %.51112.i = fmul reassoc nsz arcp contract afn <8 x float> %.41111.i, %88
   br i1 %.not1909.i, label %808, label %805
@@ -6590,7 +6590,7 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   br label %.thread1286.i
 
 .thread1286.i:                                    ; preds = %816, %811, %.thread1283.i, %808, %805
-  %.101822.i = phi ptr [ %807, %805 ], [ %832, %816 ], [ %810, %.thread1283.i ], [ %815, %811 ], [ %.918211541.i, %808 ]
+  %.101822.i = phi ptr [ %807, %805 ], [ %832, %816 ], [ %.918211541.i, %808 ], [ %810, %.thread1283.i ], [ %815, %811 ]
   %833 = add nuw nsw i32 %.218311540.i, 2
   %834 = or disjoint i32 %833, 1
   %835 = icmp slt i32 %834, %7
@@ -6667,9 +6667,9 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   br label %.thread1295.i
 
 .thread1295.i:                                    ; preds = %859, %856, %845, %843, %.thread1288.i, %.lr.ph1555.i
-  %.31196.i = phi nsz <8 x float> [ %839, %.lr.ph1555.i ], [ %864, %859 ], [ %858, %856 ], [ %841, %.thread1288.i ], [ %844, %843 ], [ %839, %845 ]
-  %.18912.i = phi nsz <8 x float> [ %.159091550.i, %.lr.ph1555.i ], [ %863, %859 ], [ %.16910.i, %856 ], [ %.159091550.i, %.thread1288.i ], [ %.159091550.i, %843 ], [ %.159091550.i, %845 ]
-  %.17.i = phi ptr [ null, %.lr.ph1555.i ], [ %865, %859 ], [ %857, %856 ], [ %.161554.i, %.thread1288.i ], [ %.161554.i, %843 ], [ %.161554.i, %845 ]
+  %.31196.i = phi nsz <8 x float> [ %839, %.lr.ph1555.i ], [ %864, %859 ], [ %839, %845 ], [ %858, %856 ], [ %841, %.thread1288.i ], [ %844, %843 ]
+  %.18912.i = phi nsz <8 x float> [ %.159091550.i, %.lr.ph1555.i ], [ %863, %859 ], [ %.159091550.i, %845 ], [ %.16910.i, %856 ], [ %.159091550.i, %.thread1288.i ], [ %.159091550.i, %843 ]
+  %.17.i = phi ptr [ null, %.lr.ph1555.i ], [ %865, %859 ], [ %.161554.i, %845 ], [ %857, %856 ], [ %.161554.i, %.thread1288.i ], [ %.161554.i, %843 ]
   %866 = fmul fast <8 x float> %.31196.i, %66
   br i1 %.not1909.i, label %869, label %867
 
@@ -6727,7 +6727,7 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   br label %.thread1302.i
 
 .thread1302.i:                                    ; preds = %876, %871, %.thread1299.i, %869, %867
-  %.141826.i = phi ptr [ %868, %867 ], [ %884, %876 ], [ %870, %.thread1299.i ], [ %875, %871 ], [ %.1318251552.i, %869 ]
+  %.141826.i = phi ptr [ %868, %867 ], [ %884, %876 ], [ %.1318251552.i, %869 ], [ %870, %.thread1299.i ], [ %875, %871 ]
   %885 = add nuw nsw i32 %.318321551.i, 1
   %exitcond.not.i = icmp eq i32 %885, %7
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph1555.i, !llvm.loop !150
@@ -6863,8 +6863,8 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   br label %.thread1313.i
 
 .thread1313.i:                                    ; preds = %961, %955, %954, %948, %.thread1304.i, %937
-  %.21174.i = phi nsz <4 x float> [ zeroinitializer, %937 ], [ zeroinitializer, %961 ], [ zeroinitializer, %955 ], [ %946, %.thread1304.i ], [ %953, %948 ], [ zeroinitializer, %954 ]
-  %.21.i = phi ptr [ null, %937 ], [ %963, %961 ], [ %960, %955 ], [ %.201610.i, %.thread1304.i ], [ %951, %948 ], [ %.201610.i, %954 ]
+  %.21174.i = phi nsz <4 x float> [ zeroinitializer, %937 ], [ zeroinitializer, %961 ], [ zeroinitializer, %954 ], [ zeroinitializer, %955 ], [ %946, %.thread1304.i ], [ %953, %948 ]
+  %.21.i = phi ptr [ null, %937 ], [ %963, %961 ], [ %.201610.i, %954 ], [ %960, %955 ], [ %.201610.i, %.thread1304.i ], [ %951, %948 ]
   br i1 %104, label %.lr.ph1571.i, label %.preheader1514.i
 
 .preheader1514.i:                                 ; preds = %1270, %.thread1313.i
@@ -7141,16 +7141,16 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   br label %.thread1337.i
 
 .thread1337.i:                                    ; preds = %1118, %1113, %1108, %1040, %1031, %.thread1316.i, %.lr.ph1571.i
-  %.71179.i = phi nsz <4 x float> [ %.311751566.i, %.lr.ph1571.i ], [ %1146, %1118 ], [ %.51177.i, %1108 ], [ %.51177.i, %1113 ], [ %.311751566.i, %.thread1316.i ], [ %.311751566.i, %1031 ], [ %.311751566.i, %1040 ]
-  %.41170.i = phi nsz <4 x float> [ %1013, %.lr.ph1571.i ], [ %1138, %1118 ], [ %.21168.i, %1108 ], [ %.21168.i, %1113 ], [ %1022, %.thread1316.i ], [ %1032, %1031 ], [ %1013, %1040 ]
-  %.41164.i = phi nsz <4 x float> [ %1014, %.lr.ph1571.i ], [ %1139, %1118 ], [ %.21162.i, %1108 ], [ %.21162.i, %1113 ], [ %1023, %.thread1316.i ], [ %1033, %1031 ], [ %1014, %1040 ]
-  %.41158.i = phi nsz <4 x float> [ %1015, %.lr.ph1571.i ], [ %1140, %1118 ], [ %.21156.i, %1108 ], [ %.21156.i, %1113 ], [ %1024, %.thread1316.i ], [ %1034, %1031 ], [ %1015, %1040 ]
-  %.41152.i = phi nsz <4 x float> [ %1016, %.lr.ph1571.i ], [ %1141, %1118 ], [ %.21150.i, %1108 ], [ %.21150.i, %1113 ], [ %1025, %.thread1316.i ], [ %1035, %1031 ], [ %1016, %1040 ]
-  %.41146.i = phi nsz <4 x float> [ %1017, %.lr.ph1571.i ], [ %1162, %1118 ], [ %1109, %1108 ], [ %1114, %1113 ], [ %1026, %.thread1316.i ], [ %1036, %1031 ], [ %1017, %1040 ]
-  %.41140.i = phi nsz <4 x float> [ %1018, %.lr.ph1571.i ], [ %1163, %1118 ], [ %1110, %1108 ], [ %1115, %1113 ], [ %1027, %.thread1316.i ], [ %1037, %1031 ], [ %1018, %1040 ]
-  %.41134.i = phi nsz <4 x float> [ %1019, %.lr.ph1571.i ], [ %1164, %1118 ], [ %1111, %1108 ], [ %1116, %1113 ], [ %1028, %.thread1316.i ], [ %1038, %1031 ], [ %1019, %1040 ]
-  %.41128.i = phi nsz <4 x float> [ %1020, %.lr.ph1571.i ], [ %1165, %1118 ], [ %1112, %1108 ], [ %1117, %1113 ], [ %1029, %.thread1316.i ], [ %1039, %1031 ], [ %1020, %1040 ]
-  %.25.i = phi ptr [ null, %.lr.ph1571.i ], [ %1166, %1118 ], [ %1107, %1108 ], [ %1107, %1113 ], [ %.241570.i, %.thread1316.i ], [ %.241570.i, %1031 ], [ %.241570.i, %1040 ]
+  %.71179.i = phi nsz <4 x float> [ %.311751566.i, %.lr.ph1571.i ], [ %1146, %1118 ], [ %.311751566.i, %1040 ], [ %.51177.i, %1108 ], [ %.51177.i, %1113 ], [ %.311751566.i, %.thread1316.i ], [ %.311751566.i, %1031 ]
+  %.41170.i = phi nsz <4 x float> [ %1013, %.lr.ph1571.i ], [ %1138, %1118 ], [ %1013, %1040 ], [ %.21168.i, %1108 ], [ %.21168.i, %1113 ], [ %1022, %.thread1316.i ], [ %1032, %1031 ]
+  %.41164.i = phi nsz <4 x float> [ %1014, %.lr.ph1571.i ], [ %1139, %1118 ], [ %1014, %1040 ], [ %.21162.i, %1108 ], [ %.21162.i, %1113 ], [ %1023, %.thread1316.i ], [ %1033, %1031 ]
+  %.41158.i = phi nsz <4 x float> [ %1015, %.lr.ph1571.i ], [ %1140, %1118 ], [ %1015, %1040 ], [ %.21156.i, %1108 ], [ %.21156.i, %1113 ], [ %1024, %.thread1316.i ], [ %1034, %1031 ]
+  %.41152.i = phi nsz <4 x float> [ %1016, %.lr.ph1571.i ], [ %1141, %1118 ], [ %1016, %1040 ], [ %.21150.i, %1108 ], [ %.21150.i, %1113 ], [ %1025, %.thread1316.i ], [ %1035, %1031 ]
+  %.41146.i = phi nsz <4 x float> [ %1017, %.lr.ph1571.i ], [ %1162, %1118 ], [ %1017, %1040 ], [ %1109, %1108 ], [ %1114, %1113 ], [ %1026, %.thread1316.i ], [ %1036, %1031 ]
+  %.41140.i = phi nsz <4 x float> [ %1018, %.lr.ph1571.i ], [ %1163, %1118 ], [ %1018, %1040 ], [ %1110, %1108 ], [ %1115, %1113 ], [ %1027, %.thread1316.i ], [ %1037, %1031 ]
+  %.41134.i = phi nsz <4 x float> [ %1019, %.lr.ph1571.i ], [ %1164, %1118 ], [ %1019, %1040 ], [ %1111, %1108 ], [ %1116, %1113 ], [ %1028, %.thread1316.i ], [ %1038, %1031 ]
+  %.41128.i = phi nsz <4 x float> [ %1020, %.lr.ph1571.i ], [ %1165, %1118 ], [ %1020, %1040 ], [ %1112, %1108 ], [ %1117, %1113 ], [ %1029, %.thread1316.i ], [ %1039, %1031 ]
+  %.25.i = phi ptr [ null, %.lr.ph1571.i ], [ %1166, %1118 ], [ %.241570.i, %1040 ], [ %1107, %1108 ], [ %1107, %1113 ], [ %.241570.i, %.thread1316.i ], [ %.241570.i, %1031 ]
   br i1 %112, label %1167, label %1176
 
 1167:                                             ; preds = %.thread1337.i
@@ -7333,7 +7333,7 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   br label %1270
 
 1270:                                             ; preds = %1245, %.thread1348.i, %1236, %1234
-  %.21835.i = phi ptr [ %1235, %1234 ], [ %1269, %1245 ], [ %1244, %.thread1348.i ], [ %.118341568.i, %1236 ]
+  %.21835.i = phi ptr [ %1235, %1234 ], [ %1269, %1245 ], [ %.118341568.i, %1236 ], [ %1244, %.thread1348.i ]
   %1271 = getelementptr inbounds nuw i8, ptr %.617611569.i, i64 128
   %1272 = add nuw nsw i32 %.018461567.i, 8
   %1273 = or disjoint i32 %1272, 7
@@ -7493,12 +7493,12 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   br label %.thread1363.i
 
 .thread1363.i:                                    ; preds = %1352, %1347, %1342, %1315, %1310, %.thread1350.i, %.lr.ph1582.i
-  %.111183.i = phi nsz <4 x float> [ %.811801577.i, %.lr.ph1582.i ], [ %1356, %1352 ], [ %.91181.i, %1342 ], [ %.91181.i, %1347 ], [ %.811801577.i, %.thread1350.i ], [ %.811801577.i, %1310 ], [ %.811801577.i, %1315 ]
-  %.41105.i = phi nsz <4 x float> [ %1300, %.lr.ph1582.i ], [ %1372, %1352 ], [ %1343, %1342 ], [ %1348, %1347 ], [ %1305, %.thread1350.i ], [ %1311, %1310 ], [ %1300, %1315 ]
-  %.41099.i = phi nsz <4 x float> [ %1301, %.lr.ph1582.i ], [ %1373, %1352 ], [ %1344, %1342 ], [ %1349, %1347 ], [ %1306, %.thread1350.i ], [ %1312, %1310 ], [ %1301, %1315 ]
-  %.41093.i = phi nsz <4 x float> [ %1302, %.lr.ph1582.i ], [ %1374, %1352 ], [ %1345, %1342 ], [ %1350, %1347 ], [ %1307, %.thread1350.i ], [ %1313, %1310 ], [ %1302, %1315 ]
-  %.41087.i = phi nsz <4 x float> [ %1303, %.lr.ph1582.i ], [ %1375, %1352 ], [ %1346, %1342 ], [ %1351, %1347 ], [ %1308, %.thread1350.i ], [ %1314, %1310 ], [ %1303, %1315 ]
-  %.29.i = phi ptr [ null, %.lr.ph1582.i ], [ %1376, %1352 ], [ %1341, %1342 ], [ %1341, %1347 ], [ %.281581.i, %.thread1350.i ], [ %.281581.i, %1310 ], [ %.281581.i, %1315 ]
+  %.111183.i = phi nsz <4 x float> [ %.811801577.i, %.lr.ph1582.i ], [ %1356, %1352 ], [ %.811801577.i, %1315 ], [ %.91181.i, %1342 ], [ %.91181.i, %1347 ], [ %.811801577.i, %.thread1350.i ], [ %.811801577.i, %1310 ]
+  %.41105.i = phi nsz <4 x float> [ %1300, %.lr.ph1582.i ], [ %1372, %1352 ], [ %1300, %1315 ], [ %1343, %1342 ], [ %1348, %1347 ], [ %1305, %.thread1350.i ], [ %1311, %1310 ]
+  %.41099.i = phi nsz <4 x float> [ %1301, %.lr.ph1582.i ], [ %1373, %1352 ], [ %1301, %1315 ], [ %1344, %1342 ], [ %1349, %1347 ], [ %1306, %.thread1350.i ], [ %1312, %1310 ]
+  %.41093.i = phi nsz <4 x float> [ %1302, %.lr.ph1582.i ], [ %1374, %1352 ], [ %1302, %1315 ], [ %1345, %1342 ], [ %1350, %1347 ], [ %1307, %.thread1350.i ], [ %1313, %1310 ]
+  %.41087.i = phi nsz <4 x float> [ %1303, %.lr.ph1582.i ], [ %1375, %1352 ], [ %1303, %1315 ], [ %1346, %1342 ], [ %1351, %1347 ], [ %1308, %.thread1350.i ], [ %1314, %1310 ]
+  %.29.i = phi ptr [ null, %.lr.ph1582.i ], [ %1376, %1352 ], [ %.281581.i, %1315 ], [ %1341, %1342 ], [ %1341, %1347 ], [ %.281581.i, %.thread1350.i ], [ %.281581.i, %1310 ]
   br i1 %112, label %1377, label %1382
 
 1377:                                             ; preds = %.thread1363.i
@@ -7590,7 +7590,7 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   br label %1420
 
 1420:                                             ; preds = %1407, %.thread1370.i, %1402, %1400
-  %.51838.i = phi ptr [ %1401, %1400 ], [ %1419, %1407 ], [ %1406, %.thread1370.i ], [ %.418371579.i, %1402 ]
+  %.51838.i = phi ptr [ %1401, %1400 ], [ %1419, %1407 ], [ %.418371579.i, %1402 ], [ %1406, %.thread1370.i ]
   %1421 = getelementptr inbounds nuw i8, ptr %.717621580.i, i64 64
   %1422 = add nuw nsw i32 %.118471578.i, 4
   %1423 = or disjoint i32 %1422, 3
@@ -7716,10 +7716,10 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   br label %.thread1381.i
 
 .thread1381.i:                                    ; preds = %1482, %1479, %1476, %1444, %1441, %.thread1372.i, %.lr.ph1593.i
-  %.151187.i = phi nsz <4 x float> [ %.1211841588.i, %.lr.ph1593.i ], [ %1486, %1482 ], [ %.131185.i, %1476 ], [ %.131185.i, %1479 ], [ %.1211841588.i, %.thread1372.i ], [ %.1211841588.i, %1441 ], [ %.1211841588.i, %1444 ]
-  %.41077.i = phi nsz <4 x float> [ %1435, %.lr.ph1593.i ], [ %1492, %1482 ], [ %1477, %1476 ], [ %1480, %1479 ], [ %1438, %.thread1372.i ], [ %1442, %1441 ], [ %1435, %1444 ]
-  %.41071.i = phi nsz <4 x float> [ %1436, %.lr.ph1593.i ], [ %1493, %1482 ], [ %1478, %1476 ], [ %1481, %1479 ], [ %1439, %.thread1372.i ], [ %1443, %1441 ], [ %1436, %1444 ]
-  %.33.i = phi ptr [ null, %.lr.ph1593.i ], [ %1494, %1482 ], [ %1475, %1476 ], [ %1475, %1479 ], [ %.321592.i, %.thread1372.i ], [ %.321592.i, %1441 ], [ %.321592.i, %1444 ]
+  %.151187.i = phi nsz <4 x float> [ %.1211841588.i, %.lr.ph1593.i ], [ %1486, %1482 ], [ %.1211841588.i, %1444 ], [ %.131185.i, %1476 ], [ %.131185.i, %1479 ], [ %.1211841588.i, %.thread1372.i ], [ %.1211841588.i, %1441 ]
+  %.41077.i = phi nsz <4 x float> [ %1435, %.lr.ph1593.i ], [ %1492, %1482 ], [ %1435, %1444 ], [ %1477, %1476 ], [ %1480, %1479 ], [ %1438, %.thread1372.i ], [ %1442, %1441 ]
+  %.41071.i = phi nsz <4 x float> [ %1436, %.lr.ph1593.i ], [ %1493, %1482 ], [ %1436, %1444 ], [ %1478, %1476 ], [ %1481, %1479 ], [ %1439, %.thread1372.i ], [ %1443, %1441 ]
+  %.33.i = phi ptr [ null, %.lr.ph1593.i ], [ %1494, %1482 ], [ %.321592.i, %1444 ], [ %1475, %1476 ], [ %1475, %1479 ], [ %.321592.i, %.thread1372.i ], [ %.321592.i, %1441 ]
   %.51078.i = fmul reassoc nsz arcp contract afn <4 x float> %.41077.i, %130
   %.51072.i = fmul reassoc nsz arcp contract afn <4 x float> %.41071.i, %130
   br i1 %.not1903.i, label %1498, label %1495
@@ -7772,7 +7772,7 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   br label %1510
 
 1510:                                             ; preds = %1501, %.thread1386.i, %1498, %1495
-  %.81841.i = phi ptr [ %1497, %1495 ], [ %1509, %1501 ], [ %1500, %.thread1386.i ], [ %.718401590.i, %1498 ]
+  %.81841.i = phi ptr [ %1497, %1495 ], [ %1509, %1501 ], [ %.718401590.i, %1498 ], [ %1500, %.thread1386.i ]
   %1511 = getelementptr inbounds nuw i8, ptr %.817631591.i, i64 32
   %1512 = add nuw nsw i32 %.218481589.i, 2
   %1513 = or disjoint i32 %1512, 1
@@ -7849,9 +7849,9 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   br label %.thread1395.i
 
 .thread1395.i:                                    ; preds = %1542, %1539, %1523, %1521, %.thread1388.i, %.lr.ph1604.i
-  %.191191.i = phi nsz <4 x float> [ %.1611881599.i, %.lr.ph1604.i ], [ %1546, %1542 ], [ %.171189.i, %1539 ], [ %.1611881599.i, %.thread1388.i ], [ %.1611881599.i, %1521 ], [ %.1611881599.i, %1523 ]
-  %.31057.i = phi nsz <4 x float> [ %1517, %.lr.ph1604.i ], [ %1547, %1542 ], [ %1541, %1539 ], [ %1519, %.thread1388.i ], [ %1522, %1521 ], [ %1517, %1523 ]
-  %.37.i = phi ptr [ null, %.lr.ph1604.i ], [ %1548, %1542 ], [ %1540, %1539 ], [ %.361603.i, %.thread1388.i ], [ %.361603.i, %1521 ], [ %.361603.i, %1523 ]
+  %.191191.i = phi nsz <4 x float> [ %.1611881599.i, %.lr.ph1604.i ], [ %1546, %1542 ], [ %.1611881599.i, %1523 ], [ %.171189.i, %1539 ], [ %.1611881599.i, %.thread1388.i ], [ %.1611881599.i, %1521 ]
+  %.31057.i = phi nsz <4 x float> [ %1517, %.lr.ph1604.i ], [ %1547, %1542 ], [ %1517, %1523 ], [ %1541, %1539 ], [ %1519, %.thread1388.i ], [ %1522, %1521 ]
+  %.37.i = phi ptr [ null, %.lr.ph1604.i ], [ %1548, %1542 ], [ %.361603.i, %1523 ], [ %1540, %1539 ], [ %.361603.i, %.thread1388.i ], [ %.361603.i, %1521 ]
   %1549 = fmul fast <4 x float> %.31057.i, %114
   br i1 %.not1903.i, label %1552, label %1550
 
@@ -7887,7 +7887,7 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   br label %1559
 
 1559:                                             ; preds = %1554, %.thread1399.i, %1552, %1550
-  %.111844.i = phi ptr [ %1551, %1550 ], [ %1558, %1554 ], [ %1553, %.thread1399.i ], [ %.1018431601.i, %1552 ]
+  %.111844.i = phi ptr [ %1551, %1550 ], [ %1558, %1554 ], [ %.1018431601.i, %1552 ], [ %1553, %.thread1399.i ]
   %1560 = getelementptr inbounds nuw i8, ptr %.917641602.i, i64 16
   %1561 = add nuw nsw i32 %.318491600.i, 1
   %exitcond1738.not.i = icmp eq i32 %1561, %7
@@ -8035,11 +8035,11 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   br label %.thread1417.i
 
 .thread1417.i:                                    ; preds = %1646, %1641, %1640, %1627, %.thread1401.i, %1611
-  %.21035.i = phi nsz <4 x float> [ zeroinitializer, %1611 ], [ zeroinitializer, %1646 ], [ zeroinitializer, %1641 ], [ %1625, %.thread1401.i ], [ %1637, %1627 ], [ zeroinitializer, %1640 ]
-  %.11026.i = phi nsz <4 x float> [ zeroinitializer, %1611 ], [ zeroinitializer, %1646 ], [ zeroinitializer, %1641 ], [ zeroinitializer, %.thread1401.i ], [ %1639, %1627 ], [ zeroinitializer, %1640 ]
-  %.01862.i = phi nsz float [ 0.000000e+00, %1611 ], [ 0.000000e+00, %1646 ], [ 0.000000e+00, %1641 ], [ 0.000000e+00, %.thread1401.i ], [ %1635, %1627 ], [ 0.000000e+00, %1640 ]
-  %.01859.i = phi nsz float [ 0.000000e+00, %1611 ], [ 0.000000e+00, %1646 ], [ 0.000000e+00, %1641 ], [ %1623, %.thread1401.i ], [ %1632, %1627 ], [ 0.000000e+00, %1640 ]
-  %.41.i = phi ptr [ null, %1611 ], [ %1648, %1646 ], [ %1645, %1641 ], [ %.401659.i, %.thread1401.i ], [ %1630, %1627 ], [ %.401659.i, %1640 ]
+  %.21035.i = phi nsz <4 x float> [ zeroinitializer, %1611 ], [ zeroinitializer, %1646 ], [ zeroinitializer, %1640 ], [ zeroinitializer, %1641 ], [ %1625, %.thread1401.i ], [ %1637, %1627 ]
+  %.11026.i = phi nsz <4 x float> [ zeroinitializer, %1611 ], [ zeroinitializer, %1646 ], [ zeroinitializer, %1640 ], [ zeroinitializer, %1641 ], [ zeroinitializer, %.thread1401.i ], [ %1639, %1627 ]
+  %.01862.i = phi nsz float [ 0.000000e+00, %1611 ], [ 0.000000e+00, %1646 ], [ 0.000000e+00, %1640 ], [ 0.000000e+00, %1641 ], [ 0.000000e+00, %.thread1401.i ], [ %1635, %1627 ]
+  %.01859.i = phi nsz float [ 0.000000e+00, %1611 ], [ 0.000000e+00, %1646 ], [ 0.000000e+00, %1640 ], [ 0.000000e+00, %1641 ], [ %1623, %.thread1401.i ], [ %1632, %1627 ]
+  %.41.i = phi ptr [ null, %1611 ], [ %1648, %1646 ], [ %.401659.i, %1640 ], [ %1645, %1641 ], [ %.401659.i, %.thread1401.i ], [ %1630, %1627 ]
   br i1 %897, label %.lr.ph1621.i, label %.preheader1510.i
 
 .preheader1510.i:                                 ; preds = %1759, %.thread1417.i
@@ -8162,13 +8162,13 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   br label %.thread1436.i
 
 .thread1436.i:                                    ; preds = %1710, %1708, %1689, %1684, %.thread1423.i, %.lr.ph1621.i
-  %.51038.i = phi nsz <4 x float> [ %.310361615.i, %.lr.ph1621.i ], [ %1714, %1710 ], [ %1691, %1708 ], [ %.310361615.i, %.thread1423.i ], [ %.310361615.i, %1684 ], [ %.310361615.i, %1689 ]
-  %.41029.i = phi nsz <4 x float> [ %.210271616.i, %.lr.ph1621.i ], [ %1715, %1710 ], [ %1693, %1708 ], [ %.210271616.i, %.thread1423.i ], [ %.210271616.i, %1684 ], [ %.210271616.i, %1689 ]
-  %.41023.i = phi nsz <4 x float> [ %1674, %.lr.ph1621.i ], [ %1716, %1710 ], [ %.21021.i, %1708 ], [ %1679, %.thread1423.i ], [ %1685, %1684 ], [ %1674, %1689 ]
-  %.41017.i = phi nsz <4 x float> [ %1675, %.lr.ph1621.i ], [ %1717, %1710 ], [ %.21015.i, %1708 ], [ %1680, %.thread1423.i ], [ %1686, %1684 ], [ %1675, %1689 ]
-  %.41011.i = phi nsz <4 x float> [ %1676, %.lr.ph1621.i ], [ %1718, %1710 ], [ %.21009.i, %1708 ], [ %1681, %.thread1423.i ], [ %1687, %1684 ], [ %1676, %1689 ]
-  %.41005.i = phi nsz <4 x float> [ %1677, %.lr.ph1621.i ], [ %1719, %1710 ], [ %.21003.i, %1708 ], [ %1682, %.thread1423.i ], [ %1688, %1684 ], [ %1677, %1689 ]
-  %.45.i = phi ptr [ null, %.lr.ph1621.i ], [ %1720, %1710 ], [ %1709, %1708 ], [ %.441620.i, %.thread1423.i ], [ %.441620.i, %1684 ], [ %.441620.i, %1689 ]
+  %.51038.i = phi nsz <4 x float> [ %.310361615.i, %.lr.ph1621.i ], [ %1714, %1710 ], [ %.310361615.i, %1689 ], [ %1691, %1708 ], [ %.310361615.i, %.thread1423.i ], [ %.310361615.i, %1684 ]
+  %.41029.i = phi nsz <4 x float> [ %.210271616.i, %.lr.ph1621.i ], [ %1715, %1710 ], [ %.210271616.i, %1689 ], [ %1693, %1708 ], [ %.210271616.i, %.thread1423.i ], [ %.210271616.i, %1684 ]
+  %.41023.i = phi nsz <4 x float> [ %1674, %.lr.ph1621.i ], [ %1716, %1710 ], [ %1674, %1689 ], [ %.21021.i, %1708 ], [ %1679, %.thread1423.i ], [ %1685, %1684 ]
+  %.41017.i = phi nsz <4 x float> [ %1675, %.lr.ph1621.i ], [ %1717, %1710 ], [ %1675, %1689 ], [ %.21015.i, %1708 ], [ %1680, %.thread1423.i ], [ %1686, %1684 ]
+  %.41011.i = phi nsz <4 x float> [ %1676, %.lr.ph1621.i ], [ %1718, %1710 ], [ %1676, %1689 ], [ %.21009.i, %1708 ], [ %1681, %.thread1423.i ], [ %1687, %1684 ]
+  %.41005.i = phi nsz <4 x float> [ %1677, %.lr.ph1621.i ], [ %1719, %1710 ], [ %1677, %1689 ], [ %.21003.i, %1708 ], [ %1682, %.thread1423.i ], [ %1688, %1684 ]
+  %.45.i = phi ptr [ null, %.lr.ph1621.i ], [ %1720, %1710 ], [ %.441620.i, %1689 ], [ %1709, %1708 ], [ %.441620.i, %.thread1423.i ], [ %.441620.i, %1684 ]
   br i1 %902, label %1721, label %1726
 
 1721:                                             ; preds = %.thread1436.i
@@ -8360,11 +8360,11 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   br label %.thread1453.i
 
 .thread1453.i:                                    ; preds = %1795, %1786, %1785, %1782, %.thread1444.i, %.lr.ph1634.i
-  %.81041.i = phi nsz <4 x float> [ %.610391628.i, %.lr.ph1634.i ], [ %1797, %1795 ], [ %1787, %1786 ], [ %.610391628.i, %.thread1444.i ], [ %.610391628.i, %1782 ], [ %.610391628.i, %1785 ]
-  %.71032.i = phi nsz <4 x float> [ %.510301629.i, %.lr.ph1634.i ], [ %.510301629.i, %1795 ], [ %1789, %1786 ], [ %.510301629.i, %.thread1444.i ], [ %.510301629.i, %1782 ], [ %.510301629.i, %1785 ]
-  %.4987.i = phi nsz <4 x float> [ %1776, %.lr.ph1634.i ], [ %1798, %1795 ], [ %.2985.i, %1786 ], [ %1779, %.thread1444.i ], [ %1783, %1782 ], [ %1776, %1785 ]
-  %.4981.i = phi nsz <4 x float> [ %1777, %.lr.ph1634.i ], [ %1799, %1795 ], [ %.2979.i, %1786 ], [ %1780, %.thread1444.i ], [ %1784, %1782 ], [ %1777, %1785 ]
-  %.48.i = phi ptr [ null, %.lr.ph1634.i ], [ %1800, %1795 ], [ %1794, %1786 ], [ %.471633.i, %.thread1444.i ], [ %.471633.i, %1782 ], [ %.471633.i, %1785 ]
+  %.81041.i = phi nsz <4 x float> [ %.610391628.i, %.lr.ph1634.i ], [ %1797, %1795 ], [ %.610391628.i, %1785 ], [ %1787, %1786 ], [ %.610391628.i, %.thread1444.i ], [ %.610391628.i, %1782 ]
+  %.71032.i = phi nsz <4 x float> [ %.510301629.i, %.lr.ph1634.i ], [ %.510301629.i, %1795 ], [ %.510301629.i, %1785 ], [ %1789, %1786 ], [ %.510301629.i, %.thread1444.i ], [ %.510301629.i, %1782 ]
+  %.4987.i = phi nsz <4 x float> [ %1776, %.lr.ph1634.i ], [ %1798, %1795 ], [ %1776, %1785 ], [ %.2985.i, %1786 ], [ %1779, %.thread1444.i ], [ %1783, %1782 ]
+  %.4981.i = phi nsz <4 x float> [ %1777, %.lr.ph1634.i ], [ %1799, %1795 ], [ %1777, %1785 ], [ %.2979.i, %1786 ], [ %1780, %.thread1444.i ], [ %1784, %1782 ]
+  %.48.i = phi ptr [ null, %.lr.ph1634.i ], [ %1800, %1795 ], [ %.471633.i, %1785 ], [ %1794, %1786 ], [ %.471633.i, %.thread1444.i ], [ %.471633.i, %1782 ]
   %.5988.i = fmul reassoc nsz arcp contract afn <4 x float> %.4987.i, %924
   %.5982.i = fmul reassoc nsz arcp contract afn <4 x float> %.4981.i, %924
   br i1 %.not1897.i, label %1814, label %1801
@@ -8524,11 +8524,11 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   br label %.thread1472.i
 
 .thread1472.i:                                    ; preds = %1870, %1853, %1852, %1847, %.thread1459.i, %.lr.ph1643.i
-  %.01808.i = phi nsz float [ %1873, %1870 ], [ %1828, %.lr.ph1643.i ], [ %1856, %1853 ], [ %1842, %.thread1459.i ], [ %1848, %1847 ], [ %1828, %1852 ]
-  %.01804.i = phi nsz float [ %1877, %1870 ], [ %1832, %.lr.ph1643.i ], [ %1860, %1853 ], [ %1843, %.thread1459.i ], [ %1849, %1847 ], [ %1832, %1852 ]
-  %.01800.i = phi nsz float [ %1878, %1870 ], [ %1836, %.lr.ph1643.i ], [ %1864, %1853 ], [ %1844, %.thread1459.i ], [ %1850, %1847 ], [ %1836, %1852 ]
-  %.01796.i = phi nsz float [ %1879, %1870 ], [ %1840, %.lr.ph1643.i ], [ %1868, %1853 ], [ %1845, %.thread1459.i ], [ %1851, %1847 ], [ %1840, %1852 ]
-  %.51.i = phi ptr [ %1880, %1870 ], [ null, %.lr.ph1643.i ], [ %1869, %1853 ], [ %.501642.i, %.thread1459.i ], [ %.501642.i, %1847 ], [ %.501642.i, %1852 ]
+  %.01808.i = phi nsz float [ %1873, %1870 ], [ %1828, %1852 ], [ %1828, %.lr.ph1643.i ], [ %1856, %1853 ], [ %1842, %.thread1459.i ], [ %1848, %1847 ]
+  %.01804.i = phi nsz float [ %1877, %1870 ], [ %1832, %1852 ], [ %1832, %.lr.ph1643.i ], [ %1860, %1853 ], [ %1843, %.thread1459.i ], [ %1849, %1847 ]
+  %.01800.i = phi nsz float [ %1878, %1870 ], [ %1836, %1852 ], [ %1836, %.lr.ph1643.i ], [ %1864, %1853 ], [ %1844, %.thread1459.i ], [ %1850, %1847 ]
+  %.01796.i = phi nsz float [ %1879, %1870 ], [ %1840, %1852 ], [ %1840, %.lr.ph1643.i ], [ %1868, %1853 ], [ %1845, %.thread1459.i ], [ %1851, %1847 ]
+  %.51.i = phi ptr [ %1880, %1870 ], [ %.501642.i, %1852 ], [ null, %.lr.ph1643.i ], [ %1869, %1853 ], [ %.501642.i, %.thread1459.i ], [ %.501642.i, %1847 ]
   %1881 = fmul fast float %.01808.i, %9
   %1882 = fmul fast float %.01804.i, %9
   %1883 = fmul fast float %.01800.i, %9
@@ -8594,9 +8594,9 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   br label %1917
 
 1917:                                             ; preds = %1911, %.thread1478.i, %1902, %1894
-  %.01792.i = phi nsz float [ %1914, %1911 ], [ %1897, %1894 ], [ %1905, %.thread1478.i ], [ %.21794.reass.i, %1902 ]
-  %.01788.i = phi nsz float [ %1915, %1911 ], [ %1901, %1894 ], [ %1909, %.thread1478.i ], [ %.21790.reass.i, %1902 ]
-  %.54.i = phi ptr [ %1916, %1911 ], [ null, %1894 ], [ %1910, %.thread1478.i ], [ %.531651.i, %1902 ]
+  %.01792.i = phi nsz float [ %1914, %1911 ], [ %.21794.reass.i, %1902 ], [ %1897, %1894 ], [ %1905, %.thread1478.i ]
+  %.01788.i = phi nsz float [ %1915, %1911 ], [ %.21790.reass.i, %1902 ], [ %1901, %1894 ], [ %1909, %.thread1478.i ]
+  %.54.i = phi ptr [ %1916, %1911 ], [ %.531651.i, %1902 ], [ null, %1894 ], [ %1910, %.thread1478.i ]
   %1918 = fmul fast float %.01792.i, %9
   %1919 = fmul fast float %.01788.i, %9
   store float %1918, ptr %.718571649.i, align 4, !tbaa !77
@@ -8703,9 +8703,9 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   br label %.thread1494.i
 
 .thread1494.i:                                    ; preds = %1969, %1964, %1963, %1955, %.thread1482.i, %1943
-  %.2959.i = phi nsz <4 x float> [ zeroinitializer, %1943 ], [ zeroinitializer, %1969 ], [ zeroinitializer, %1964 ], [ %1953, %.thread1482.i ], [ %1962, %1955 ], [ zeroinitializer, %1963 ]
-  %.01752.i = phi nsz float [ 0.000000e+00, %1943 ], [ 0.000000e+00, %1969 ], [ 0.000000e+00, %1964 ], [ %1951, %.thread1482.i ], [ %1960, %1955 ], [ 0.000000e+00, %1963 ]
-  %.57.i = phi ptr [ null, %1943 ], [ %1971, %1969 ], [ %1968, %1964 ], [ %.561704.i, %.thread1482.i ], [ %1958, %1955 ], [ %.561704.i, %1963 ]
+  %.2959.i = phi nsz <4 x float> [ zeroinitializer, %1943 ], [ zeroinitializer, %1969 ], [ zeroinitializer, %1963 ], [ zeroinitializer, %1964 ], [ %1953, %.thread1482.i ], [ %1962, %1955 ]
+  %.01752.i = phi nsz float [ 0.000000e+00, %1943 ], [ 0.000000e+00, %1969 ], [ 0.000000e+00, %1963 ], [ 0.000000e+00, %1964 ], [ %1951, %.thread1482.i ], [ %1960, %1955 ]
+  %.57.i = phi ptr [ null, %1943 ], [ %1971, %1969 ], [ %.561704.i, %1963 ], [ %1968, %1964 ], [ %.561704.i, %.thread1482.i ], [ %1958, %1955 ]
   br i1 %1571, label %.lr.ph1669.i, label %.preheader1506.i
 
 .preheader1506.i:                                 ; preds = %2014, %.thread1494.i

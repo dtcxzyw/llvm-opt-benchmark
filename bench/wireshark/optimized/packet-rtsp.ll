@@ -725,7 +725,7 @@ dissect_rtspinterleaved.exit.thread24:            ; preds = %108, %116
   br i1 %245, label %.lr.ph80.i.i, label %.critedge2.i.i, !llvm.loop !12
 
 .critedge2.i.i:                                   ; preds = %243, %.lr.ph80.i.i, %.critedge.i.i
-  %.1.lcssa.i.i = phi ptr [ %.062.lcssa.i.i, %.critedge.i.i ], [ %244, %243 ], [ %.179.i.i, %.lr.ph80.i.i ]
+  %.1.lcssa.i.i = phi ptr [ %.062.lcssa.i.i, %.critedge.i.i ], [ %.179.i.i, %.lr.ph80.i.i ], [ %244, %243 ]
   %246 = icmp ult ptr %.1.lcssa.i.i, %175
   br i1 %246, label %.lr.ph85.i.i, label %process_rtsp_request.exit.i
 
@@ -745,7 +745,7 @@ dissect_rtspinterleaved.exit.thread24:            ; preds = %108, %116
   br i1 %254, label %.lr.ph85.i.i, label %process_rtsp_request.exit.i, !llvm.loop !13
 
 process_rtsp_request.exit.i:                      ; preds = %235, %252, %.lr.ph85.i.i, %.critedge2.i.i
-  %.1.lcssa104.i.i = phi ptr [ %.1.lcssa.i.i, %.critedge2.i.i ], [ %.1.lcssa.i.i, %.lr.ph85.i.i ], [ %.1.lcssa.i.i, %252 ], [ %175, %235 ]
+  %.1.lcssa104.i.i = phi ptr [ %.1.lcssa.i.i, %.critedge2.i.i ], [ %.1.lcssa.i.i, %252 ], [ %.1.lcssa.i.i, %.lr.ph85.i.i ], [ %175, %235 ]
   %.2.lcssa.i.i = phi ptr [ %.1.lcssa.i.i, %.critedge2.i.i ], [ %253, %252 ], [ %.284.i.i, %.lr.ph85.i.i ], [ %175, %235 ]
   %255 = load ptr, ptr %31, align 8
   %256 = ptrtoint ptr %.2.lcssa.i.i to i64
@@ -809,7 +809,7 @@ process_rtsp_request.exit.i:                      ; preds = %235, %252, %.lr.ph8
   br i1 %291, label %.lr.ph5.i.i, label %.critedge2.i304.i, !llvm.loop !15
 
 .critedge2.i304.i:                                ; preds = %289, %.lr.ph5.i.i, %.critedge.i303.i
-  %.1.lcssa.i305.i = phi ptr [ %.039.lcssa.i.i, %.critedge.i303.i ], [ %290, %289 ], [ %.14.i.i, %.lr.ph5.i.i ]
+  %.1.lcssa.i305.i = phi ptr [ %.039.lcssa.i.i, %.critedge.i303.i ], [ %.14.i.i, %.lr.ph5.i.i ], [ %290, %289 ]
   %292 = icmp ult ptr %.1.lcssa.i305.i, %175
   br i1 %292, label %.lr.ph11.i.i, label %process_rtsp_reply.exit.i
 
@@ -834,7 +834,7 @@ process_rtsp_request.exit.i:                      ; preds = %235, %252, %.lr.ph8
   br i1 %304, label %.lr.ph11.i.i, label %process_rtsp_reply.exit.i, !llvm.loop !16
 
 process_rtsp_reply.exit.i:                        ; preds = %281, %298, %.lr.ph11.i.i, %.critedge2.i304.i
-  %.1.lcssa25.i.i = phi ptr [ %.1.lcssa.i305.i, %.critedge2.i304.i ], [ %.1.lcssa.i305.i, %.lr.ph11.i.i ], [ %.1.lcssa.i305.i, %298 ], [ %175, %281 ]
+  %.1.lcssa25.i.i = phi ptr [ %.1.lcssa.i305.i, %.critedge2.i304.i ], [ %.1.lcssa.i305.i, %298 ], [ %.1.lcssa.i305.i, %.lr.ph11.i.i ], [ %175, %281 ]
   %.2.lcssa.i306.i = phi ptr [ %.1.lcssa.i305.i, %.critedge2.i304.i ], [ %300, %298 ], [ %.29.i.i, %.lr.ph11.i.i ], [ %175, %281 ]
   %.0.lcssa.i.i = phi i32 [ 0, %.critedge2.i304.i ], [ %303, %298 ], [ %.010.i.i, %.lr.ph11.i.i ], [ 0, %281 ]
   %305 = load i32, ptr @hf_rtsp_status, align 4
@@ -961,9 +961,9 @@ process_rtsp_reply.exit.i:                        ; preds = %281, %298, %.lr.ph1
   br label %rtsp_create_conversation.exit.i
 
 359:                                              ; preds = %354, %351, %348, %345, %.critedge.i312.i
-  %.0108.i.i = phi i1 [ false, %.critedge.i312.i ], [ false, %345 ], [ false, %348 ], [ true, %354 ], [ true, %351 ]
-  %.0107.i.i = phi i1 [ false, %.critedge.i312.i ], [ true, %345 ], [ false, %348 ], [ false, %354 ], [ false, %351 ]
-  %.0106.i.i = phi i1 [ true, %.critedge.i312.i ], [ false, %345 ], [ true, %348 ], [ false, %354 ], [ false, %351 ]
+  %.0108.i.i = phi i1 [ false, %348 ], [ false, %.critedge.i312.i ], [ false, %345 ], [ true, %354 ], [ true, %351 ]
+  %.0107.i.i = phi i1 [ false, %348 ], [ false, %.critedge.i312.i ], [ true, %345 ], [ false, %354 ], [ false, %351 ]
+  %.0106.i.i = phi i1 [ true, %348 ], [ true, %.critedge.i312.i ], [ false, %345 ], [ false, %354 ], [ false, %351 ]
   store i32 0, ptr %10, align 4
   store i32 0, ptr %9, align 4
   store i32 0, ptr %12, align 4
@@ -1377,7 +1377,7 @@ rtsp_get_content_length.exit.i:                   ; preds = %544, %539, %.crited
   br i1 %547, label %.thread330.i, label %.thread331.i
 
 .thread330.i:                                     ; preds = %546, %510, %508, %487
-  %548 = phi i1 [ false, %546 ], [ false, %487 ], [ true, %510 ], [ false, %508 ]
+  %548 = phi i1 [ false, %487 ], [ false, %546 ], [ true, %510 ], [ false, %508 ]
   %549 = call i32 @g_ascii_strncasecmp(ptr noundef %173, ptr noundef nonnull @rtsp_Session, i64 noundef 8)
   %550 = icmp eq i32 %549, 0
   br i1 %550, label %551, label %556
@@ -1457,18 +1457,18 @@ rtsp_get_content_length.exit.i:                   ; preds = %544, %539, %.crited
   br label %594
 
 594:                                              ; preds = %590, %587, %.thread331.i, %582, %575, %562, %561, %551, %rtsp_get_content_length.exit.i, %504, %rtsp_create_conversation.exit.i
-  %.1278.i = phi i32 [ %.0277382.i, %rtsp_create_conversation.exit.i ], [ %.0277382.i, %504 ], [ %.0.i317.i, %rtsp_get_content_length.exit.i ], [ %.0277382.i, %551 ], [ %.0277382.i, %562 ], [ %.0277382.i, %561 ], [ %.0277382.i, %.thread331.i ], [ %.0277382.i, %590 ], [ %.0277382.i, %587 ], [ %.0277382.i, %582 ], [ %.0277382.i, %575 ]
-  %.1273.i = phi ptr [ %.0272383.i, %rtsp_create_conversation.exit.i ], [ %507, %504 ], [ %.0272383.i, %rtsp_get_content_length.exit.i ], [ %.0272383.i, %551 ], [ %.0272383.i, %562 ], [ %.0272383.i, %561 ], [ %.0272383.i, %.thread331.i ], [ %.0272383.i, %590 ], [ %.0272383.i, %587 ], [ %.0272383.i, %582 ], [ %.0272383.i, %575 ]
-  %.1270.i = phi ptr [ %.0269384.i, %rtsp_create_conversation.exit.i ], [ %.0269384.i, %504 ], [ %.0269384.i, %rtsp_get_content_length.exit.i ], [ %553, %551 ], [ %.0269384.i, %562 ], [ %.0269384.i, %561 ], [ %.0269384.i, %.thread331.i ], [ %.0269384.i, %590 ], [ %.0269384.i, %587 ], [ %.0269384.i, %582 ], [ %.0269384.i, %575 ]
+  %.1278.i = phi i32 [ %.0277382.i, %rtsp_create_conversation.exit.i ], [ %.0277382.i, %504 ], [ %.0.i317.i, %rtsp_get_content_length.exit.i ], [ %.0277382.i, %551 ], [ %.0277382.i, %562 ], [ %.0277382.i, %561 ], [ %.0277382.i, %587 ], [ %.0277382.i, %.thread331.i ], [ %.0277382.i, %590 ], [ %.0277382.i, %582 ], [ %.0277382.i, %575 ]
+  %.1273.i = phi ptr [ %.0272383.i, %rtsp_create_conversation.exit.i ], [ %507, %504 ], [ %.0272383.i, %rtsp_get_content_length.exit.i ], [ %.0272383.i, %551 ], [ %.0272383.i, %562 ], [ %.0272383.i, %561 ], [ %.0272383.i, %587 ], [ %.0272383.i, %.thread331.i ], [ %.0272383.i, %590 ], [ %.0272383.i, %582 ], [ %.0272383.i, %575 ]
+  %.1270.i = phi ptr [ %.0269384.i, %rtsp_create_conversation.exit.i ], [ %.0269384.i, %504 ], [ %.0269384.i, %rtsp_get_content_length.exit.i ], [ %553, %551 ], [ %.0269384.i, %562 ], [ %.0269384.i, %561 ], [ %.0269384.i, %587 ], [ %.0269384.i, %.thread331.i ], [ %.0269384.i, %590 ], [ %.0269384.i, %582 ], [ %.0269384.i, %575 ]
   %595 = load i32, ptr %22, align 4
   %596 = call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %595)
   br i1 %596, label %167, label %.loopexit.i, !llvm.loop !28
 
 .loopexit.i:                                      ; preds = %594, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %185, %190, %188, %187
-  %.0277366.i = phi i32 [ %.0277382.i, %190 ], [ %.0277382.i, %188 ], [ %.0277382.i, %187 ], [ %.0277382.i, %185 ], [ %.0277382.i, %185 ], [ %.0277382.i, %185 ], [ %.0277382.i, %185 ], [ %.0277382.i, %185 ], [ %.0277382.i, %185 ], [ %.0277382.i, %185 ], [ %.0277382.i, %185 ], [ %.0277382.i, %185 ], [ %.0277382.i, %185 ], [ %.0277382.i, %185 ], [ %.0277382.i, %185 ], [ %.0277382.i, %185 ], [ %.0277382.i, %185 ], [ %.0277382.i, %185 ], [ %.0277382.i, %185 ], [ %.1278.i, %594 ]
-  %.0272360.i = phi ptr [ %.0272383.i, %190 ], [ %.0272383.i, %188 ], [ %.0272383.i, %187 ], [ %.0272383.i, %185 ], [ %.0272383.i, %185 ], [ %.0272383.i, %185 ], [ %.0272383.i, %185 ], [ %.0272383.i, %185 ], [ %.0272383.i, %185 ], [ %.0272383.i, %185 ], [ %.0272383.i, %185 ], [ %.0272383.i, %185 ], [ %.0272383.i, %185 ], [ %.0272383.i, %185 ], [ %.0272383.i, %185 ], [ %.0272383.i, %185 ], [ %.0272383.i, %185 ], [ %.0272383.i, %185 ], [ %.0272383.i, %185 ], [ %.1273.i, %594 ]
-  %.0269354.i = phi ptr [ %.0269384.i, %190 ], [ %.0269384.i, %188 ], [ %.0269384.i, %187 ], [ %.0269384.i, %185 ], [ %.0269384.i, %185 ], [ %.0269384.i, %185 ], [ %.0269384.i, %185 ], [ %.0269384.i, %185 ], [ %.0269384.i, %185 ], [ %.0269384.i, %185 ], [ %.0269384.i, %185 ], [ %.0269384.i, %185 ], [ %.0269384.i, %185 ], [ %.0269384.i, %185 ], [ %.0269384.i, %185 ], [ %.0269384.i, %185 ], [ %.0269384.i, %185 ], [ %.0269384.i, %185 ], [ %.0269384.i, %185 ], [ %.1270.i, %594 ]
-  %.1.i = phi i32 [ %194, %190 ], [ %.0265385.i, %188 ], [ %.0265385.i, %187 ], [ %.0265385.i, %185 ], [ %.0265385.i, %185 ], [ %.0265385.i, %185 ], [ %.0265385.i, %185 ], [ %.0265385.i, %185 ], [ %.0265385.i, %185 ], [ %.0265385.i, %185 ], [ %.0265385.i, %185 ], [ %.0265385.i, %185 ], [ %.0265385.i, %185 ], [ %.0265385.i, %185 ], [ %.0265385.i, %185 ], [ %.0265385.i, %185 ], [ %.0265385.i, %185 ], [ %.0265385.i, %185 ], [ %.0265385.i, %185 ], [ %595, %594 ]
+  %.0277366.i = phi i32 [ %.0277382.i, %190 ], [ %.0277382.i, %185 ], [ %.0277382.i, %188 ], [ %.0277382.i, %187 ], [ %.0277382.i, %185 ], [ %.0277382.i, %185 ], [ %.0277382.i, %185 ], [ %.0277382.i, %185 ], [ %.0277382.i, %185 ], [ %.0277382.i, %185 ], [ %.0277382.i, %185 ], [ %.0277382.i, %185 ], [ %.0277382.i, %185 ], [ %.0277382.i, %185 ], [ %.0277382.i, %185 ], [ %.0277382.i, %185 ], [ %.0277382.i, %185 ], [ %.0277382.i, %185 ], [ %.0277382.i, %185 ], [ %.1278.i, %594 ]
+  %.0272360.i = phi ptr [ %.0272383.i, %190 ], [ %.0272383.i, %185 ], [ %.0272383.i, %188 ], [ %.0272383.i, %187 ], [ %.0272383.i, %185 ], [ %.0272383.i, %185 ], [ %.0272383.i, %185 ], [ %.0272383.i, %185 ], [ %.0272383.i, %185 ], [ %.0272383.i, %185 ], [ %.0272383.i, %185 ], [ %.0272383.i, %185 ], [ %.0272383.i, %185 ], [ %.0272383.i, %185 ], [ %.0272383.i, %185 ], [ %.0272383.i, %185 ], [ %.0272383.i, %185 ], [ %.0272383.i, %185 ], [ %.0272383.i, %185 ], [ %.1273.i, %594 ]
+  %.0269354.i = phi ptr [ %.0269384.i, %190 ], [ %.0269384.i, %185 ], [ %.0269384.i, %188 ], [ %.0269384.i, %187 ], [ %.0269384.i, %185 ], [ %.0269384.i, %185 ], [ %.0269384.i, %185 ], [ %.0269384.i, %185 ], [ %.0269384.i, %185 ], [ %.0269384.i, %185 ], [ %.0269384.i, %185 ], [ %.0269384.i, %185 ], [ %.0269384.i, %185 ], [ %.0269384.i, %185 ], [ %.0269384.i, %185 ], [ %.0269384.i, %185 ], [ %.0269384.i, %185 ], [ %.0269384.i, %185 ], [ %.0269384.i, %185 ], [ %.1270.i, %594 ]
+  %.1.i = phi i32 [ %194, %190 ], [ %.0265385.i, %185 ], [ %.0265385.i, %188 ], [ %.0265385.i, %187 ], [ %.0265385.i, %185 ], [ %.0265385.i, %185 ], [ %.0265385.i, %185 ], [ %.0265385.i, %185 ], [ %.0265385.i, %185 ], [ %.0265385.i, %185 ], [ %.0265385.i, %185 ], [ %.0265385.i, %185 ], [ %.0265385.i, %185 ], [ %.0265385.i, %185 ], [ %.0265385.i, %185 ], [ %.0265385.i, %185 ], [ %.0265385.i, %185 ], [ %.0265385.i, %185 ], [ %.0265385.i, %185 ], [ %595, %594 ]
   %.not296.i = icmp eq ptr %.0269354.i, null
   br i1 %.not296.i, label %.loopexit.thread.i, label %597
 
@@ -1493,9 +1493,9 @@ rtsp_get_content_length.exit.i:                   ; preds = %544, %539, %.crited
   br label %.loopexit.thread.i
 
 .loopexit.thread.i:                               ; preds = %597, %.loopexit.i, %165
-  %.1479.i = phi i32 [ %.1.i, %597 ], [ %.1.i, %.loopexit.i ], [ %.076, %165 ]
-  %.0272360478.i = phi ptr [ %.0272360.i, %597 ], [ %.0272360.i, %.loopexit.i ], [ null, %165 ]
-  %.0277366477.i = phi i32 [ %.0277366.i, %597 ], [ %.0277366.i, %.loopexit.i ], [ -1, %165 ]
+  %.1479.i = phi i32 [ %.1.i, %.loopexit.i ], [ %.1.i, %597 ], [ %.076, %165 ]
+  %.0272360478.i = phi ptr [ %.0272360.i, %.loopexit.i ], [ %.0272360.i, %597 ], [ null, %165 ]
+  %.0277366477.i = phi i32 [ %.0277366.i, %.loopexit.i ], [ %.0277366.i, %597 ], [ -1, %165 ]
   %608 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1479.i)
   %609 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1479.i)
   %.not297.i = icmp eq i32 %.0277366477.i, -1
@@ -1680,8 +1680,8 @@ define internal noundef i32 @rtsp_stats_tree_packet(ptr noundef %0, ptr readnone
   br label %21
 
 21:                                               ; preds = %19, %17, %15, %13, %9
-  %.021.in = phi ptr [ @st_node_resp_broken, %9 ], [ @st_node_resp_100, %13 ], [ @st_node_resp_200, %15 ], [ @st_node_resp_300, %17 ], [ %st_node_resp_400.st_node_resp_500, %19 ]
-  %.0 = phi ptr [ @.str.145, %9 ], [ @.str.146, %13 ], [ @.str.147, %15 ], [ @.str.148, %17 ], [ %.str.149..str.150, %19 ]
+  %.021.in = phi ptr [ @st_node_resp_300, %17 ], [ @st_node_resp_broken, %9 ], [ @st_node_resp_100, %13 ], [ @st_node_resp_200, %15 ], [ %st_node_resp_400.st_node_resp_500, %19 ]
+  %.0 = phi ptr [ @.str.148, %17 ], [ @.str.145, %9 ], [ @.str.146, %13 ], [ @.str.147, %15 ], [ %.str.149..str.150, %19 ]
   %.021 = load i32, ptr %.021.in, align 4
   %22 = load i32, ptr @st_node_responses, align 4
   %23 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull %.0, i32 noundef %22, i1 noundef zeroext false, i32 noundef 1)
@@ -1889,7 +1889,7 @@ define internal fastcc noundef zeroext i1 @is_rtsp_request_or_reply(ptr noundef 
   br label %49
 
 49:                                               ; preds = %.critedge, %11, %18, %14, %48
-  %.0 = phi i1 [ false, %48 ], [ true, %14 ], [ true, %18 ], [ true, %11 ], [ true, %.critedge ]
+  %.0 = phi i1 [ false, %48 ], [ true, %.critedge ], [ true, %14 ], [ true, %18 ], [ true, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

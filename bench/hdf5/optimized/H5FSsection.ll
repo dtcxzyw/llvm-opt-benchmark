@@ -231,7 +231,7 @@ define ptr @H5FS__sinfo_new(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   br label %H5VM_log2_gen.exit
 
 H5VM_log2_gen.exit:                               ; preds = %24, %29, %36, %41, %50, %55, %62, %67
-  %71 = phi i32 [ %28, %24 ], [ %33, %29 ], [ %40, %36 ], [ %45, %41 ], [ %54, %50 ], [ %59, %55 ], [ %66, %62 ], [ %70, %67 ]
+  %71 = phi i32 [ %59, %55 ], [ %33, %29 ], [ %45, %41 ], [ %28, %24 ], [ %40, %36 ], [ %54, %50 ], [ %66, %62 ], [ %70, %67 ]
   %72 = getelementptr inbounds nuw i8, ptr %10, i64 260
   store i32 %71, ptr %72, align 4, !tbaa !27
   %73 = tail call zeroext i8 @H5F_sizeof_addr(ptr noundef %0) #5
@@ -336,7 +336,7 @@ H5VM_log2_gen.exit:                               ; preds = %24, %29, %36, %41, 
   br label %H5VM_limit_enc_size.exit
 
 H5VM_limit_enc_size.exit:                         ; preds = %88, %93, %100, %105, %114, %119, %126, %131
-  %.0.i.i = phi i32 [ %92, %88 ], [ %97, %93 ], [ %104, %100 ], [ %109, %105 ], [ %118, %114 ], [ %123, %119 ], [ %130, %126 ], [ %134, %131 ]
+  %.0.i.i = phi i32 [ %123, %119 ], [ %97, %93 ], [ %109, %105 ], [ %92, %88 ], [ %104, %100 ], [ %118, %114 ], [ %130, %126 ], [ %134, %131 ]
   %135 = lshr i32 %.0.i.i, 3
   %136 = add nuw nsw i32 %135, 1
   %137 = getelementptr inbounds nuw i8, ptr %10, i64 304
@@ -387,7 +387,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %88, %93, %100, %105
   br label %.thread
 
 .thread:                                          ; preds = %12, %153, %160, %2
-  %.0 = phi ptr [ null, %160 ], [ null, %2 ], [ %10, %153 ], [ null, %12 ]
+  %.0 = phi ptr [ null, %160 ], [ null, %12 ], [ null, %2 ], [ %10, %153 ]
   ret ptr %.0
 }
 
@@ -689,7 +689,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5FS__sect_remove_real(ptr noundef 
   br label %H5VM_log2_gen.exit.i
 
 H5VM_log2_gen.exit.i:                             ; preds = %68, %63, %56, %51, %42, %37, %30, %25
-  %.0.i.i = phi i32 [ %29, %25 ], [ %34, %30 ], [ %41, %37 ], [ %46, %42 ], [ %55, %51 ], [ %60, %56 ], [ %67, %63 ], [ %71, %68 ]
+  %.0.i.i = phi i32 [ %60, %56 ], [ %34, %30 ], [ %46, %42 ], [ %29, %25 ], [ %41, %37 ], [ %55, %51 ], [ %67, %63 ], [ %71, %68 ]
   %72 = getelementptr inbounds nuw i8, ptr %17, i64 248
   %73 = load ptr, ptr %72, align 8, !tbaa !36
   %74 = zext nneg i32 %.0.i.i to i64
@@ -878,8 +878,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5FS__sinfo_unlock(ptr noundef %0, 
   br label %74
 
 74:                                               ; preds = %73, %70, %72, %62
-  %.not70 = phi i1 [ true, %72 ], [ true, %62 ], [ false, %70 ], [ %.not69, %73 ]
-  %.062 = phi i32 [ 2, %72 ], [ 0, %62 ], [ 515, %70 ], [ %spec.select71, %73 ]
+  %.not70 = phi i1 [ true, %62 ], [ true, %72 ], [ false, %70 ], [ %.not69, %73 ]
+  %.062 = phi i32 [ 0, %62 ], [ 2, %72 ], [ 515, %70 ], [ %spec.select71, %73 ]
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 312
   %76 = load i64, ptr %75, align 8, !tbaa !41
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 360
@@ -929,7 +929,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5FS__sinfo_unlock(ptr noundef %0, 
   store i64 %97, ptr %94, align 8, !tbaa !82
   br label %.thread74
 
-.thread74:                                        ; preds = %99, %87, %86
+.thread74:                                        ; preds = %86, %99, %87
   store i8 0, ptr %59, align 1, !tbaa !56
   br label %122
 
@@ -978,12 +978,12 @@ define internal fastcc range(i32 -1, 1) i32 @H5FS__sinfo_unlock(ptr noundef %0, 
   br label %122
 
 122:                                              ; preds = %100, %.thread74, %82, %109, %118, %115, %113, %51
-  %.1 = phi i32 [ -1, %82 ], [ -1, %51 ], [ 0, %100 ], [ -1, %118 ], [ -1, %109 ], [ 0, %115 ], [ 0, %113 ], [ 0, %.thread74 ]
+  %.1 = phi i32 [ -1, %51 ], [ 0, %100 ], [ -1, %82 ], [ -1, %109 ], [ -1, %118 ], [ 0, %115 ], [ 0, %113 ], [ 0, %.thread74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %123
 
 123:                                              ; preds = %3, %35, %31, %20, %122
-  %.058 = phi i32 [ -1, %20 ], [ -1, %31 ], [ %.1, %122 ], [ 0, %35 ], [ 0, %3 ]
+  %.058 = phi i32 [ -1, %20 ], [ -1, %31 ], [ 0, %3 ], [ %.1, %122 ], [ 0, %35 ]
   ret i32 %.058
 }
 
@@ -1312,7 +1312,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5FS__sect_merge(ptr noundef captur
   br i1 %122, label %.thread121, label %.critedge132
 
 .thread121:                                       ; preds = %67, %120, %44, %53, %63, %97, %106, %116
-  %.3.ph = phi i32 [ -1, %116 ], [ -1, %106 ], [ -1, %97 ], [ -1, %63 ], [ -1, %53 ], [ -1, %44 ], [ 0, %120 ], [ 0, %67 ]
+  %.3.ph = phi i32 [ -1, %44 ], [ -1, %53 ], [ -1, %116 ], [ -1, %106 ], [ -1, %97 ], [ -1, %63 ], [ 0, %120 ], [ 0, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge.thread
 
@@ -1415,13 +1415,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5FS__sect_merge(ptr noundef captur
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %.thread-pre-split_crit_edge, %170, %161
-  %172 = phi ptr [ %171, %170 ], [ %162, %161 ], [ %.pr.pre, %.thread-pre-split_crit_edge ]
-  %.4.ph = phi i8 [ 1, %170 ], [ 0, %161 ], [ 0, %.thread-pre-split_crit_edge ]
+  %172 = phi ptr [ %162, %161 ], [ %171, %170 ], [ %.pr.pre, %.thread-pre-split_crit_edge ]
+  %.4.ph = phi i8 [ 0, %161 ], [ 1, %170 ], [ 0, %.thread-pre-split_crit_edge ]
   %.not113 = icmp eq ptr %172, null
   br i1 %.not113, label %.critedge, label %125, !llvm.loop !98
 
 .critedge:                                        ; preds = %141, %125, %thread-pre-split
-  %.4130 = phi i8 [ %.4.ph, %thread-pre-split ], [ %.084, %141 ], [ %.084, %125 ]
+  %.4130 = phi i8 [ %.4.ph, %thread-pre-split ], [ %.084, %125 ], [ %.084, %141 ]
   %173 = trunc nuw i8 %.4130 to i1
   br i1 %173, label %174, label %.critedge.thread
 
@@ -1435,7 +1435,7 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %164, %.thread121, %3, %.critedge, %174, %176, %157, %148, %137
-  %.082 = phi i32 [ -1, %137 ], [ -1, %148 ], [ -1, %157 ], [ 0, %176 ], [ 0, %174 ], [ 0, %.critedge ], [ 0, %3 ], [ %.3.ph, %.thread121 ], [ 0, %164 ]
+  %.082 = phi i32 [ -1, %137 ], [ -1, %148 ], [ -1, %157 ], [ 0, %176 ], [ 0, %174 ], [ 0, %.critedge ], [ %.3.ph, %.thread121 ], [ 0, %3 ], [ 0, %164 ]
   ret i32 %.082
 }
 
@@ -1550,7 +1550,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5FS__sect_link(ptr noundef capture
   br label %H5VM_log2_gen.exit.i
 
 H5VM_log2_gen.exit.i:                             ; preds = %69, %64, %57, %52, %43, %38, %31, %26
-  %.0.i.i = phi i64 [ %30, %26 ], [ %35, %31 ], [ %42, %38 ], [ %47, %43 ], [ %56, %52 ], [ %61, %57 ], [ %68, %64 ], [ %72, %69 ]
+  %.0.i.i = phi i64 [ %61, %57 ], [ %35, %31 ], [ %47, %43 ], [ %30, %26 ], [ %42, %38 ], [ %56, %52 ], [ %68, %64 ], [ %72, %69 ]
   %73 = getelementptr inbounds nuw i8, ptr %18, i64 248
   %74 = load ptr, ptr %73, align 8, !tbaa !36
   %75 = getelementptr inbounds nuw %struct.H5FS_bin_t, ptr %74, i64 %.0.i.i
@@ -1707,7 +1707,7 @@ H5VM_log2_gen.exit.i:                             ; preds = %69, %64, %57, %52, 
   %169 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5FS_node_t_reg_free_list, ptr noundef nonnull %92) #5
   br label %170
 
-170:                                              ; preds = %168, %85, %94, %155
+170:                                              ; preds = %168, %155, %94, %85
   %171 = load i64, ptr @H5E_FSPACE_g, align 8, !tbaa !10
   %172 = load i64, ptr @H5E_CANTINSERT_g, align 8, !tbaa !10
   %173 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5FS__sect_link, i32 noundef 1075, i64 noundef %171, i64 noundef %172, ptr noundef nonnull @.str.47) #5
@@ -1971,8 +1971,8 @@ define range(i32 -1, 2) i32 @H5FS_sect_try_extend(ptr noundef %0, ptr noundef %1
   br label %.thread46
 
 89:                                               ; preds = %.thread59, %68, %76, %81, %72, %64, %42, %31, %34, %25
-  %.032.ph = phi i1 [ false, %25 ], [ false, %34 ], [ false, %31 ], [ true, %.thread59 ], [ true, %68 ], [ true, %76 ], [ false, %81 ], [ false, %72 ], [ false, %64 ], [ false, %42 ]
-  %.131.ph = phi i32 [ 0, %25 ], [ 0, %34 ], [ 0, %31 ], [ 1, %.thread59 ], [ 1, %68 ], [ 1, %76 ], [ -1, %81 ], [ -1, %72 ], [ -1, %64 ], [ -1, %42 ]
+  %.032.ph = phi i1 [ false, %25 ], [ false, %34 ], [ false, %31 ], [ true, %68 ], [ true, %76 ], [ false, %81 ], [ false, %72 ], [ false, %64 ], [ false, %42 ], [ true, %.thread59 ]
+  %.131.ph = phi i32 [ 0, %25 ], [ 0, %34 ], [ 0, %31 ], [ 1, %68 ], [ 1, %76 ], [ -1, %81 ], [ -1, %72 ], [ -1, %64 ], [ -1, %42 ], [ 1, %.thread59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %90 = call fastcc i32 @H5FS__sinfo_unlock(ptr noundef %0, ptr noundef nonnull %1, i1 noundef zeroext %.032.ph)
   %91 = icmp slt i32 %90, 0
@@ -2058,8 +2058,8 @@ define range(i32 -1, 2) i32 @H5FS_sect_try_merge(ptr noundef %0, ptr noundef %1,
   br label %50
 
 43:                                               ; preds = %32, %27, %29, %35, %23
-  %.016.ph = phi i1 [ true, %32 ], [ true, %27 ], [ false, %29 ], [ false, %35 ], [ false, %23 ]
-  %.1.ph = phi i32 [ 1, %32 ], [ 1, %27 ], [ 0, %29 ], [ -1, %35 ], [ -1, %23 ]
+  %.016.ph = phi i1 [ true, %32 ], [ false, %29 ], [ true, %27 ], [ false, %35 ], [ false, %23 ]
+  %.1.ph = phi i32 [ 1, %32 ], [ 0, %29 ], [ 1, %27 ], [ -1, %35 ], [ -1, %23 ]
   %44 = call fastcc i32 @H5FS__sinfo_unlock(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %.016.ph)
   %45 = icmp slt i32 %44, 0
   br i1 %45, label %46, label %50
@@ -2213,7 +2213,7 @@ define range(i32 -1, 2) i32 @H5FS_sect_find(ptr noundef %0, ptr noundef %1, i64 
   br label %H5VM_log2_gen.exit.i
 
 H5VM_log2_gen.exit.i:                             ; preds = %80, %75, %68, %63, %54, %49, %42, %37
-  %.0.i.i = phi i32 [ %41, %37 ], [ %46, %42 ], [ %53, %49 ], [ %58, %54 ], [ %67, %63 ], [ %72, %68 ], [ %79, %75 ], [ %83, %80 ]
+  %.0.i.i = phi i32 [ %72, %68 ], [ %46, %42 ], [ %58, %54 ], [ %41, %37 ], [ %53, %49 ], [ %67, %63 ], [ %79, %75 ], [ %83, %80 ]
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 392
   %85 = load i64, ptr %84, align 8, !tbaa !115
   %.069.fr.i = freeze i64 %85
@@ -2528,7 +2528,7 @@ H5FS__size_node_decr.exit.i:                      ; preds = %232, %224
   %270 = icmp samesign ult i64 %indvars.iv.next.i, %269
   br i1 %270, label %.split.i, label %.loopexit, !llvm.loop !117
 
-271:                                              ; preds = %123, %137, %145, %259, %248, %H5FS__size_node_decr.exit.i, %174
+271:                                              ; preds = %174, %123, %137, %145, %259, %248, %H5FS__size_node_decr.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %272 = load i64, ptr @H5E_FSPACE_g, align 8, !tbaa !10
   %273 = load i64, ptr @H5E_CANTFREE_g, align 8, !tbaa !10
@@ -2651,7 +2651,7 @@ define range(i32 -1, 1) i32 @H5FS_sect_iterate(ptr noundef %0, ptr noundef %1, p
   br label %.thread
 
 .thread:                                          ; preds = %24, %12, %4, %49, %.loopexit
-  %.022 = phi i32 [ -1, %49 ], [ %.230, %.loopexit ], [ 0, %4 ], [ -1, %24 ], [ 0, %12 ]
+  %.022 = phi i32 [ -1, %49 ], [ %.230, %.loopexit ], [ 0, %12 ], [ 0, %4 ], [ -1, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.022
 }
@@ -2847,7 +2847,7 @@ define range(i32 -1, 1) i32 @H5FS_sect_change_class(ptr noundef %0, ptr noundef 
   br label %H5VM_log2_gen.exit
 
 H5VM_log2_gen.exit:                               ; preds = %37, %42, %49, %54, %63, %68, %75, %80
-  %.0.i = phi i64 [ %41, %37 ], [ %46, %42 ], [ %53, %49 ], [ %58, %54 ], [ %67, %63 ], [ %72, %68 ], [ %79, %75 ], [ %83, %80 ]
+  %.0.i = phi i64 [ %72, %68 ], [ %46, %42 ], [ %58, %54 ], [ %41, %37 ], [ %53, %49 ], [ %67, %63 ], [ %79, %75 ], [ %83, %80 ]
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %85 = load ptr, ptr %84, align 8, !tbaa !38
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 248
@@ -3170,7 +3170,7 @@ define internal fastcc void @H5FS__sect_serialize_size(ptr noundef captures(none
   br label %H5VM_limit_enc_size.exit
 
 H5VM_limit_enc_size.exit:                         ; preds = %24, %29, %36, %41, %50, %55, %62, %67
-  %.0.i.i = phi i32 [ %28, %24 ], [ %33, %29 ], [ %40, %36 ], [ %45, %41 ], [ %54, %50 ], [ %59, %55 ], [ %66, %62 ], [ %70, %67 ]
+  %.0.i.i = phi i32 [ %59, %55 ], [ %33, %29 ], [ %45, %41 ], [ %28, %24 ], [ %40, %36 ], [ %54, %50 ], [ %66, %62 ], [ %70, %67 ]
   %71 = lshr i32 %.0.i.i, 3
   %72 = add nuw nsw i32 %71, 1
   %73 = zext nneg i32 %72 to i64
@@ -3309,8 +3309,8 @@ define range(i32 -1, -2147483648) i32 @H5FS_sect_try_shrink_eoa(ptr noundef %0, 
   br label %70
 
 63:                                               ; preds = %58, %22, %16, %19
-  %.030.ph = phi i1 [ %.333, %58 ], [ false, %22 ], [ false, %16 ], [ false, %19 ]
-  %.129.ph = phi i32 [ %.4, %58 ], [ 0, %22 ], [ 0, %16 ], [ 0, %19 ]
+  %.030.ph = phi i1 [ false, %22 ], [ %.333, %58 ], [ false, %19 ], [ false, %16 ]
+  %.129.ph = phi i32 [ 0, %22 ], [ %.4, %58 ], [ 0, %19 ], [ 0, %16 ]
   %64 = call fastcc i32 @H5FS__sinfo_unlock(ptr noundef %0, ptr noundef nonnull %1, i1 noundef zeroext %.030.ph)
   %65 = icmp slt i32 %64, 0
   br i1 %65, label %66, label %70
@@ -3528,7 +3528,7 @@ define range(i32 -1, 1) i32 @H5FS_vfd_alloc_hdr_and_section_info_if_needed(ptr n
   br label %130
 
 130:                                              ; preds = %3, %10, %13, %129, %75, %125, %118, %98, %90, %81, %69, %62, %31, %22, %112, %108
-  %.065 = phi i32 [ 0, %75 ], [ -1, %81 ], [ -1, %90 ], [ -1, %98 ], [ -1, %118 ], [ -1, %125 ], [ 0, %129 ], [ -1, %22 ], [ -1, %31 ], [ -1, %62 ], [ -1, %69 ], [ 0, %13 ], [ 0, %10 ], [ 0, %3 ], [ -1, %108 ], [ 0, %112 ]
+  %.065 = phi i32 [ 0, %75 ], [ -1, %81 ], [ -1, %90 ], [ -1, %98 ], [ 0, %3 ], [ 0, %10 ], [ -1, %118 ], [ -1, %125 ], [ 0, %129 ], [ -1, %22 ], [ -1, %31 ], [ -1, %62 ], [ -1, %69 ], [ 0, %13 ], [ -1, %108 ], [ 0, %112 ]
   ret i32 %.065
 }
 
@@ -3641,7 +3641,7 @@ H5FS__sect_decrease.exit:                         ; preds = %.thread, %32, %36
   br label %52
 
 52:                                               ; preds = %21, %3, %H5FS__sect_decrease.exit
-  %.015 = phi i32 [ 0, %H5FS__sect_decrease.exit ], [ -1, %21 ], [ 0, %3 ]
+  %.015 = phi i32 [ 0, %3 ], [ 0, %H5FS__sect_decrease.exit ], [ -1, %21 ]
   ret i32 %.015
 }
 
@@ -3744,7 +3744,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5FS__size_node_decr(ptr noundef ca
   br label %68
 
 68:                                               ; preds = %4, %40, %63, %59, %51
-  %.028 = phi i32 [ 0, %40 ], [ 0, %4 ], [ -1, %51 ], [ -1, %59 ], [ 0, %63 ]
+  %.028 = phi i32 [ 0, %4 ], [ 0, %40 ], [ -1, %51 ], [ -1, %59 ], [ 0, %63 ]
   ret i32 %.028
 }
 

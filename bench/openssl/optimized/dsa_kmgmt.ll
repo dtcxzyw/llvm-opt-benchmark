@@ -316,7 +316,7 @@ dsa_gen_type_name2id.exit:                        ; preds = %17
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %4, %78, %75, %66, %63, %58, %53, %42, %45, %37, %32, %27, %ossl_param_is_empty.exit, %2, %85, %dsa_gen_type_name2id.exit.thread
-  %.0 = phi i32 [ 0, %dsa_gen_type_name2id.exit.thread ], [ 1, %85 ], [ 0, %2 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %27 ], [ 0, %32 ], [ 0, %37 ], [ 0, %45 ], [ 0, %42 ], [ 0, %53 ], [ 0, %58 ], [ 0, %63 ], [ 0, %66 ], [ 0, %75 ], [ 0, %78 ], [ 1, %4 ]
+  %.0 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ 0, %2 ], [ 0, %dsa_gen_type_name2id.exit.thread ], [ 0, %37 ], [ 0, %58 ], [ 0, %63 ], [ 0, %66 ], [ 0, %75 ], [ 1, %85 ], [ 0, %53 ], [ 0, %42 ], [ 0, %32 ], [ 0, %27 ], [ 0, %45 ], [ 0, %78 ], [ 1, %4 ]
   ret i32 %.0
 }
 
@@ -654,13 +654,13 @@ define internal range(i32 0, 2) i32 @dsa_get_params(ptr noundef %0, ptr noundef 
   br label %dsa_key_todata.exit
 
 dsa_key_todata.exit:                              ; preds = %26, %30, %34, %36
-  %.0.i = phi i32 [ 1, %36 ], [ 0, %26 ], [ 0, %30 ], [ 0, %34 ]
+  %.0.i = phi i32 [ 0, %26 ], [ 1, %36 ], [ 0, %30 ], [ 0, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %37
 
 37:                                               ; preds = %23, %dsa_key_todata.exit, %21, %16, %11, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %11 ], [ 0, %16 ], [ 0, %21 ], [ 0, %23 ], [ %.0.i, %dsa_key_todata.exit ]
+  %.0 = phi i32 [ 0, %21 ], [ 0, %16 ], [ 0, %11 ], [ 0, %6 ], [ 0, %23 ], [ %.0.i, %dsa_key_todata.exit ]
   ret i32 %.0
 }
 
@@ -732,7 +732,7 @@ define internal range(i32 0, 2) i32 @dsa_has(ptr noundef %0, i32 noundef %1) #0 
   br label %25
 
 25:                                               ; preds = %18, %.thread28, %.thread32, %22, %6, %2
-  %.015.shrunk = phi i1 [ false, %2 ], [ true, %6 ], [ %.1.shrunk.mux, %18 ], [ false, %.thread32 ], [ %24, %22 ], [ true, %.thread28 ]
+  %.015.shrunk = phi i1 [ true, %6 ], [ false, %2 ], [ %.1.shrunk.mux, %18 ], [ true, %.thread28 ], [ false, %.thread32 ], [ %24, %22 ]
   %.015 = zext i1 %.015.shrunk to i32
   ret i32 %.015
 }
@@ -785,7 +785,7 @@ define internal range(i32 0, 2) i32 @dsa_match(ptr noundef %0, ptr noundef %1, i
   br label %27
 
 27:                                               ; preds = %14, %19, %24, %17
-  %28 = phi i1 [ %16, %14 ], [ false, %17 ], [ %26, %24 ], [ false, %19 ]
+  %28 = phi i1 [ %16, %14 ], [ false, %17 ], [ false, %19 ], [ %26, %24 ]
   %29 = zext i1 %28 to i32
   br label %30
 
@@ -960,7 +960,7 @@ define internal range(i32 0, 2) i32 @dsa_import(ptr noundef %0, i32 noundef %1, 
   br label %17
 
 17:                                               ; preds = %9, %13, %3
-  %.0.shrunk = phi i1 [ false, %3 ], [ %narrow, %9 ], [ %16, %13 ]
+  %.0.shrunk = phi i1 [ %16, %13 ], [ false, %3 ], [ %narrow, %9 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -1047,7 +1047,7 @@ define internal i32 @dsa_export(ptr noundef %0, i32 noundef %1, ptr noundef read
   %.not12.i = icmp eq i32 %32, 0
   br i1 %.not12.i, label %dsa_key_todata.exit.thread, label %dsa_key_todata.exit
 
-dsa_key_todata.exit.thread:                       ; preds = %27, %31
+dsa_key_todata.exit.thread:                       ; preds = %31, %27
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread39

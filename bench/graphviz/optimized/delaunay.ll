@@ -901,7 +901,7 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %18
   br label %29
 
 29:                                               ; preds = %7, %3, %gv_calloc.exit
-  %.0 = phi ptr [ %28, %gv_calloc.exit ], [ null, %3 ], [ null, %7 ]
+  %.0 = phi ptr [ null, %3 ], [ %28, %gv_calloc.exit ], [ null, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0

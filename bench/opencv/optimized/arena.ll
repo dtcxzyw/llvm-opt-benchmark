@@ -837,7 +837,7 @@ _ZN6google8protobuf8internal14GetDeallocatorC2EPKNS1_16AllocationPolicyEPm.exit.
   br label %45
 
 45:                                               ; preds = %43, %_ZN6google8protobuf8internal14GetDeallocatorC2EPKNS1_16AllocationPolicyEPm.exit.thread, %.thread
-  %46 = phi ptr [ %39, %.thread ], [ %44, %_ZN6google8protobuf8internal14GetDeallocatorC2EPKNS1_16AllocationPolicyEPm.exit.thread ], [ %39, %43 ]
+  %46 = phi ptr [ %39, %43 ], [ %39, %.thread ], [ %44, %_ZN6google8protobuf8internal14GetDeallocatorC2EPKNS1_16AllocationPolicyEPm.exit.thread ]
   %.pn = load i64, ptr %2, align 8, !tbaa !24
   %storemerge = add i64 %.pn, %31
   store i64 %storemerge, ptr %2, align 8, !tbaa !24
@@ -1477,7 +1477,7 @@ _ZN6google8protobuf8internal15ThreadSafeArena18GetSerialArenaFastEPPNS1_11Serial
   br label %_ZN6google8protobuf8internal15ThreadSafeArena18GetSerialArenaFastEPPNS1_11SerialArenaE.exit
 
 _ZN6google8protobuf8internal15ThreadSafeArena18GetSerialArenaFastEPPNS1_11SerialArenaE.exit: ; preds = %58, %53, %36, %41
-  %.pn.i9.pn = phi { ptr, ptr } [ %40, %36 ], [ %.fca.1.insert.i.i.i, %41 ], [ %57, %53 ], [ %.fca.1.insert.i.i.i8, %58 ]
+  %.pn.i9.pn = phi { ptr, ptr } [ %.fca.1.insert.i.i.i, %41 ], [ %40, %36 ], [ %57, %53 ], [ %.fca.1.insert.i.i.i8, %58 ]
   ret { ptr, ptr } %.pn.i9.pn
 }
 
@@ -1747,7 +1747,7 @@ _ZN6google8protobuf8internal15ThreadSafeArena18GetSerialArenaFastEPPNS1_11Serial
   br label %_ZN6google8protobuf8internal15ThreadSafeArena18GetSerialArenaFastEPPNS1_11SerialArenaE.exit
 
 _ZN6google8protobuf8internal15ThreadSafeArena18GetSerialArenaFastEPPNS1_11SerialArenaE.exit: ; preds = %55, %50, %35, %40
-  %.1 = phi ptr [ %39, %35 ], [ %31, %40 ], [ %54, %50 ], [ %46, %55 ]
+  %.1 = phi ptr [ %31, %40 ], [ %39, %35 ], [ %54, %50 ], [ %46, %55 ]
   ret ptr %.1
 }
 

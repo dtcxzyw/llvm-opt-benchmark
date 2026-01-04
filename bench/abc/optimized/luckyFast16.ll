@@ -126,7 +126,7 @@ define range(i32 0, 2) i32 @luckyCheck(ptr noundef %0, ptr noundef readonly capt
   br i1 %exitcond.not, label %swapAndFlip.exit, label %10, !llvm.loop !8
 
 swapAndFlip.exit:                                 ; preds = %33, %32, %30
-  %.1 = phi i32 [ %.2, %30 ], [ %.2, %32 ], [ %.029, %33 ]
+  %.1 = phi i32 [ %.2, %32 ], [ %.2, %30 ], [ %.029, %33 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next, %wide.trip.count37
   br i1 %exitcond38.not, label %._crit_edge, label %.preheader, !llvm.loop !10
@@ -229,7 +229,7 @@ define range(i32 0, 17) i32 @firstShiftWithOneBit(i64 noundef %0, i32 noundef %1
   br label %32
 
 32:                                               ; preds = %2, %26, %23, %15, %7
-  %.021 = phi i32 [ %9, %7 ], [ %17, %15 ], [ %25, %23 ], [ %31, %26 ], [ 0, %2 ]
+  %.021 = phi i32 [ %31, %26 ], [ %9, %7 ], [ %17, %15 ], [ %25, %23 ], [ 0, %2 ]
   ret i32 %.021
 }
 
@@ -391,7 +391,7 @@ define range(i32 0, 4) i32 @minTemp0_fast(ptr noundef readonly captures(none) %0
   br label %firstShiftWithOneBit.exit
 
 firstShiftWithOneBit.exit:                        ; preds = %24, %33, %41, %49, %52
-  %.021.i = phi i32 [ %35, %33 ], [ %43, %41 ], [ %51, %49 ], [ %57, %52 ], [ 0, %24 ]
+  %.021.i = phi i32 [ %57, %52 ], [ %35, %33 ], [ %43, %41 ], [ %51, %49 ], [ 0, %24 ]
   %58 = sub nuw i32 %28, %.021.i
   store i32 %58, ptr %3, align 4, !tbaa !6
   %59 = icmp ult i64 %19, %22
@@ -403,7 +403,7 @@ firstShiftWithOneBit.exit:                        ; preds = %24, %33, %41, %49, 
   br label %61
 
 61:                                               ; preds = %firstShiftWithOneBit.exit, %60
-  %.0 = phi i32 [ 0, %60 ], [ %., %firstShiftWithOneBit.exit ]
+  %.0 = phi i32 [ %., %firstShiftWithOneBit.exit ], [ 0, %60 ]
   ret i32 %.0
 }
 
@@ -497,7 +497,7 @@ define range(i32 1, 3) i32 @minTemp1_fast(ptr noundef readonly captures(none) %0
   br label %firstShiftWithOneBit.exit
 
 firstShiftWithOneBit.exit:                        ; preds = %28, %37, %45, %53, %56
-  %.021.i = phi i32 [ %39, %37 ], [ %47, %45 ], [ %55, %53 ], [ %61, %56 ], [ 0, %28 ]
+  %.021.i = phi i32 [ %61, %56 ], [ %39, %37 ], [ %47, %45 ], [ %55, %53 ], [ 0, %28 ]
   %62 = sub nuw i32 %32, %.021.i
   store i32 %62, ptr %3, align 4, !tbaa !6
   %63 = icmp ult i64 %23, %26
@@ -509,7 +509,7 @@ firstShiftWithOneBit.exit:                        ; preds = %28, %37, %45, %53, 
   br label %65
 
 65:                                               ; preds = %firstShiftWithOneBit.exit, %64
-  %.0 = phi i32 [ 1, %64 ], [ %., %firstShiftWithOneBit.exit ]
+  %.0 = phi i32 [ %., %firstShiftWithOneBit.exit ], [ 1, %64 ]
   ret i32 %.0
 }
 
@@ -605,7 +605,7 @@ define range(i32 0, 2) i32 @minTemp2_fast(ptr noundef readonly captures(none) %0
   br label %firstShiftWithOneBit.exit
 
 firstShiftWithOneBit.exit:                        ; preds = %32, %41, %49, %57, %60
-  %.021.i = phi i32 [ %43, %41 ], [ %51, %49 ], [ %59, %57 ], [ %65, %60 ], [ 0, %32 ]
+  %.021.i = phi i32 [ %65, %60 ], [ %43, %41 ], [ %51, %49 ], [ %59, %57 ], [ 0, %32 ]
   %66 = sub nuw i32 %36, %.021.i
   store i32 %66, ptr %5, align 4, !tbaa !6
   %.not = icmp ugt i64 %27, %30
@@ -617,7 +617,7 @@ firstShiftWithOneBit.exit:                        ; preds = %32, %41, %49, %57, 
   br label %68
 
 68:                                               ; preds = %firstShiftWithOneBit.exit, %67
-  %.0 = phi i32 [ 0, %67 ], [ %., %firstShiftWithOneBit.exit ]
+  %.0 = phi i32 [ %., %firstShiftWithOneBit.exit ], [ 0, %67 ]
   ret i32 %.0
 }
 
@@ -712,7 +712,7 @@ define range(i32 0, 2) i32 @minTemp3_fast(ptr noundef readonly captures(none) %0
   br label %firstShiftWithOneBit.exit
 
 firstShiftWithOneBit.exit:                        ; preds = %30, %39, %47, %55, %58
-  %.021.i = phi i32 [ %41, %39 ], [ %49, %47 ], [ %57, %55 ], [ %63, %58 ], [ 0, %30 ]
+  %.021.i = phi i32 [ %63, %58 ], [ %41, %39 ], [ %49, %47 ], [ %57, %55 ], [ 0, %30 ]
   %64 = sub nsw i32 %34, %.021.i
   store i32 %64, ptr %6, align 4, !tbaa !6
   %.not37 = icmp ugt i64 %26, %28
@@ -729,7 +729,7 @@ firstShiftWithOneBit.exit:                        ; preds = %30, %39, %47, %55, 
   br label %66
 
 66:                                               ; preds = %firstShiftWithOneBit.exit, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ %., %firstShiftWithOneBit.exit ]
+  %.0 = phi i32 [ %., %firstShiftWithOneBit.exit ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -821,7 +821,7 @@ define void @minimalSwapAndFlipIVar_superFast_lessThen5(ptr noundef captures(non
   br label %firstShiftWithOneBit.exit.i
 
 firstShiftWithOneBit.exit.i:                      ; preds = %54, %51, %43, %35, %26
-  %.021.i.i = phi i32 [ %37, %35 ], [ %45, %43 ], [ %53, %51 ], [ %59, %54 ], [ 0, %26 ]
+  %.021.i.i = phi i32 [ %59, %54 ], [ %37, %35 ], [ %45, %43 ], [ %53, %51 ], [ 0, %26 ]
   %60 = sub nuw i32 %30, %.021.i.i
   %61 = icmp ult i64 %21, %24
   %..i = select i1 %61, i32 0, i32 3
@@ -916,7 +916,7 @@ minTemp0_fast.exit:                               ; preds = %13, %firstShiftWith
   br label %firstShiftWithOneBit.exit.i74
 
 firstShiftWithOneBit.exit.i74:                    ; preds = %110, %107, %99, %91, %82
-  %.021.i.i75 = phi i32 [ %93, %91 ], [ %101, %99 ], [ %109, %107 ], [ %115, %110 ], [ 0, %82 ]
+  %.021.i.i75 = phi i32 [ %115, %110 ], [ %93, %91 ], [ %101, %99 ], [ %109, %107 ], [ 0, %82 ]
   %116 = sub nuw i32 %86, %.021.i.i75
   %117 = icmp ult i64 %77, %80
   %..i76 = select i1 %117, i32 1, i32 2
@@ -1015,7 +1015,7 @@ minTemp1_fast.exit:                               ; preds = %68, %firstShiftWith
   br label %firstShiftWithOneBit.exit.i86
 
 firstShiftWithOneBit.exit.i86:                    ; preds = %167, %164, %156, %148, %139
-  %.021.i.i87 = phi i32 [ %150, %148 ], [ %158, %156 ], [ %166, %164 ], [ %172, %167 ], [ 0, %139 ]
+  %.021.i.i87 = phi i32 [ %172, %167 ], [ %150, %148 ], [ %158, %156 ], [ %166, %164 ], [ 0, %139 ]
   %173 = sub nuw i32 %143, %.021.i.i87
   %.not.i = icmp ugt i64 %134, %137
   %..i88 = zext i1 %.not.i to i32
@@ -1390,7 +1390,7 @@ arrangeQuoters_superFast_lessThen5.exit105:       ; preds = %355, %322
   br label %firstShiftWithOneBit.exit.i115
 
 firstShiftWithOneBit.exit.i115:                   ; preds = %432, %429, %421, %413, %404
-  %.021.i.i116 = phi i32 [ %415, %413 ], [ %423, %421 ], [ %431, %429 ], [ %437, %432 ], [ 0, %404 ]
+  %.021.i.i116 = phi i32 [ %437, %432 ], [ %415, %413 ], [ %423, %421 ], [ %431, %429 ], [ 0, %404 ]
   %438 = sub nsw i32 %408, %.021.i.i116
   %.not37.i = icmp ugt i64 %400, %402
   %..i117 = zext i1 %.not37.i to i32
@@ -1643,7 +1643,7 @@ define void @minimalSwapAndFlipIVar_superFast_lessThen5_noEBFC(ptr noundef captu
   br label %firstShiftWithOneBit.exit.i
 
 firstShiftWithOneBit.exit.i:                      ; preds = %57, %54, %46, %38, %29
-  %.021.i.i = phi i32 [ %40, %38 ], [ %48, %46 ], [ %56, %54 ], [ %62, %57 ], [ 0, %29 ]
+  %.021.i.i = phi i32 [ %62, %57 ], [ %40, %38 ], [ %48, %46 ], [ %56, %54 ], [ 0, %29 ]
   %63 = icmp ult i64 %24, %27
   br i1 %63, label %minTemp1_fast.exit.thread, label %minTemp1_fast.exit
 
@@ -1805,8 +1805,8 @@ define range(i32 0, 4) i32 @minTemp0_fast_iVar5(ptr noundef readonly captures(no
   br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %20, %3, %17, %14
-  %.sink = phi i32 [ %19, %17 ], [ %16, %14 ], [ 0, %3 ], [ 0, %20 ]
-  %.0 = phi i32 [ 3, %17 ], [ 0, %14 ], [ 0, %3 ], [ 0, %20 ]
+  %.sink = phi i32 [ %16, %14 ], [ %19, %17 ], [ 0, %3 ], [ 0, %20 ]
+  %.0 = phi i32 [ 0, %14 ], [ 3, %17 ], [ 0, %3 ], [ 0, %20 ]
   store i32 %.sink, ptr %2, align 4, !tbaa !6
   ret i32 %.0
 }
@@ -1853,8 +1853,8 @@ define range(i32 1, 3) i32 @minTemp1_fast_iVar5(ptr noundef readonly captures(no
   br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %20, %3, %17, %14
-  %.sink = phi i32 [ %19, %17 ], [ %16, %14 ], [ 0, %3 ], [ 0, %20 ]
-  %.0 = phi i32 [ 2, %17 ], [ 1, %14 ], [ 1, %3 ], [ 1, %20 ]
+  %.sink = phi i32 [ %16, %14 ], [ %19, %17 ], [ 0, %3 ], [ 0, %20 ]
+  %.0 = phi i32 [ 1, %14 ], [ 2, %17 ], [ 1, %3 ], [ 1, %20 ]
   store i32 %.sink, ptr %2, align 4, !tbaa !6
   ret i32 %.0
 }
@@ -1904,8 +1904,8 @@ define range(i32 0, 2) i32 @minTemp2_fast_iVar5(ptr noundef readonly captures(no
   br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %26, %5, %23, %20
-  %.sink = phi i32 [ %25, %23 ], [ %22, %20 ], [ 0, %5 ], [ 0, %26 ]
-  %.0 = phi i32 [ 1, %23 ], [ 0, %20 ], [ 0, %5 ], [ 0, %26 ]
+  %.sink = phi i32 [ %22, %20 ], [ %25, %23 ], [ 0, %5 ], [ 0, %26 ]
+  %.0 = phi i32 [ 0, %20 ], [ 1, %23 ], [ 0, %5 ], [ 0, %26 ]
   store i32 %.sink, ptr %4, align 4, !tbaa !6
   ret i32 %.0
 }
@@ -1955,8 +1955,8 @@ define range(i32 0, 2) i32 @minTemp3_fast_iVar5(ptr noundef readonly captures(no
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %26, %6, %23, %20
-  %.sink = phi i32 [ %25, %23 ], [ %22, %20 ], [ 0, %6 ], [ 0, %26 ]
-  %.0 = phi i32 [ 1, %23 ], [ 0, %20 ], [ 0, %6 ], [ 0, %26 ]
+  %.sink = phi i32 [ %22, %20 ], [ %25, %23 ], [ 0, %6 ], [ 0, %26 ]
+  %.0 = phi i32 [ 0, %20 ], [ 1, %23 ], [ 0, %6 ], [ 0, %26 ]
   store i32 %.sink, ptr %5, align 4, !tbaa !6
   ret i32 %.0
 }
@@ -2013,9 +2013,9 @@ define void @minimalSwapAndFlipIVar_superFast_iVar5(ptr noundef captures(none) %
   br i1 %26, label %.lr.ph.i, label %minTemp0_fast_iVar5.exit, !llvm.loop !19
 
 minTemp0_fast_iVar5.exit:                         ; preds = %24, %18, %21
-  %.sink.i = phi i32 [ %23, %21 ], [ %20, %18 ], [ 0, %24 ]
-  %27 = phi i1 [ false, %21 ], [ true, %18 ], [ true, %24 ]
-  %.0.i = phi i32 [ 3, %21 ], [ 0, %18 ], [ 0, %24 ]
+  %.sink.i = phi i32 [ %20, %18 ], [ %23, %21 ], [ 0, %24 ]
+  %27 = phi i1 [ true, %18 ], [ false, %21 ], [ true, %24 ]
+  %.0.i = phi i32 [ 0, %18 ], [ 3, %21 ], [ 0, %24 ]
   store i32 %.0.i, ptr %5, align 4, !tbaa !6
   %28 = add i32 %9, -2
   %29 = zext i32 %28 to i64
@@ -2052,9 +2052,9 @@ minTemp0_fast_iVar5.exit:                         ; preds = %24, %18, %21
   br i1 %44, label %.lr.ph.i52, label %minTemp1_fast_iVar5.exit, !llvm.loop !20
 
 minTemp1_fast_iVar5.exit:                         ; preds = %42, %36, %39
-  %.sink.i49 = phi i32 [ %41, %39 ], [ %38, %36 ], [ 0, %42 ]
-  %or.cond.i66 = phi i1 [ false, %39 ], [ %27, %36 ], [ %27, %42 ]
-  %.0.i50 = phi i32 [ 2, %39 ], [ 1, %36 ], [ 1, %42 ]
+  %.sink.i49 = phi i32 [ %38, %36 ], [ %41, %39 ], [ 0, %42 ]
+  %or.cond.i66 = phi i1 [ %27, %36 ], [ false, %39 ], [ %27, %42 ]
+  %.0.i50 = phi i32 [ 1, %36 ], [ 2, %39 ], [ 1, %42 ]
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %.0.i50, ptr %45, align 4, !tbaa !6
   %46 = sext i32 %10 to i64
@@ -2094,8 +2094,8 @@ minTemp1_fast_iVar5.exit:                         ; preds = %42, %36, %39
   br i1 %64, label %.lr.ph.i59, label %minTemp2_fast_iVar5.exit, !llvm.loop !21
 
 minTemp2_fast_iVar5.exit:                         ; preds = %63, %57, %60
-  %.sink.i56 = phi i32 [ %62, %60 ], [ %59, %57 ], [ 0, %63 ]
-  %.0.i57 = phi i32 [ 1, %60 ], [ 0, %57 ], [ 0, %63 ]
+  %.sink.i56 = phi i32 [ %59, %57 ], [ %62, %60 ], [ 0, %63 ]
+  %.0.i57 = phi i32 [ 0, %57 ], [ 1, %60 ], [ 0, %63 ]
   %.not = icmp eq i32 %.sink.i, %.sink.i49
   %.not46 = icmp slt i32 %.sink.i56, %.sink.i49
   br i1 %.not, label %168, label %65
@@ -2379,8 +2379,8 @@ arrangeQuoters_superFast_iVar5.exit79:            ; preds = %149, %138
   br i1 %.not.i, label %minTemp3_fast_iVar5.exit, label %.lr.ph.i91, !llvm.loop !22
 
 minTemp3_fast_iVar5.exit:                         ; preds = %229, %223, %226
-  %.sink.i88 = phi i32 [ %228, %226 ], [ %225, %223 ], [ 0, %229 ]
-  %.0.i89 = phi i32 [ 1, %226 ], [ 0, %223 ], [ 0, %229 ]
+  %.sink.i88 = phi i32 [ %225, %223 ], [ %228, %226 ], [ 0, %229 ]
+  %.0.i89 = phi i32 [ 0, %223 ], [ 1, %226 ], [ 0, %229 ]
   %230 = icmp sgt i32 %.sink.i88, %.sink.i56
   %231 = sext i32 %.sink.i49 to i64
   br i1 %230, label %232, label %269
@@ -2736,8 +2736,8 @@ define range(i32 0, 4) i32 @minTemp0_fast_moreThen5(ptr noundef readonly capture
   br label %._crit_edge32
 
 ._crit_edge32:                                    ; preds = %._crit_edge.us, %4, %.split.us, %.split34.us
-  %.sink = phi i32 [ %23, %.split.us ], [ %22, %.split34.us ], [ 0, %4 ], [ 0, %._crit_edge.us ]
-  %.0 = phi i32 [ 3, %.split.us ], [ 0, %.split34.us ], [ 0, %4 ], [ 0, %._crit_edge.us ]
+  %.sink = phi i32 [ %22, %.split34.us ], [ %23, %.split.us ], [ 0, %4 ], [ 0, %._crit_edge.us ]
+  %.0 = phi i32 [ 0, %.split34.us ], [ 3, %.split.us ], [ 0, %4 ], [ 0, %._crit_edge.us ]
   store i32 %.sink, ptr %3, align 4, !tbaa !6
   ret i32 %.0
 }
@@ -2800,8 +2800,8 @@ define range(i32 1, 3) i32 @minTemp1_fast_moreThen5(ptr noundef readonly capture
   br label %._crit_edge34
 
 ._crit_edge34:                                    ; preds = %._crit_edge.us, %4, %.split.us, %.split36.us
-  %.sink = phi i32 [ %25, %.split.us ], [ %23, %.split36.us ], [ 0, %4 ], [ 0, %._crit_edge.us ]
-  %.0 = phi i32 [ 2, %.split.us ], [ 1, %.split36.us ], [ 1, %4 ], [ 1, %._crit_edge.us ]
+  %.sink = phi i32 [ %23, %.split36.us ], [ %25, %.split.us ], [ 0, %4 ], [ 0, %._crit_edge.us ]
+  %.0 = phi i32 [ 1, %.split36.us ], [ 2, %.split.us ], [ 1, %4 ], [ 1, %._crit_edge.us ]
   store i32 %.sink, ptr %3, align 4, !tbaa !6
   ret i32 %.0
 }
@@ -2865,8 +2865,8 @@ define range(i32 0, 2) i32 @minTemp2_fast_moreThen5(ptr noundef readonly capture
   br label %._crit_edge34
 
 ._crit_edge34:                                    ; preds = %._crit_edge.us, %6, %.split.us, %.split36.us
-  %.sink = phi i32 [ %28, %.split.us ], [ %27, %.split36.us ], [ 0, %6 ], [ 0, %._crit_edge.us ]
-  %.0 = phi i32 [ 1, %.split.us ], [ 0, %.split36.us ], [ 0, %6 ], [ 0, %._crit_edge.us ]
+  %.sink = phi i32 [ %27, %.split36.us ], [ %28, %.split.us ], [ 0, %6 ], [ 0, %._crit_edge.us ]
+  %.0 = phi i32 [ 0, %.split36.us ], [ 1, %.split.us ], [ 0, %6 ], [ 0, %._crit_edge.us ]
   store i32 %.sink, ptr %5, align 4, !tbaa !6
   ret i32 %.0
 }
@@ -2930,8 +2930,8 @@ define range(i32 0, 2) i32 @minTemp3_fast_moreThen5(ptr noundef readonly capture
   br label %._crit_edge36
 
 ._crit_edge36:                                    ; preds = %._crit_edge.us, %7, %.split.us, %.split38.us
-  %.sink = phi i32 [ %27, %.split.us ], [ %26, %.split38.us ], [ 0, %7 ], [ 0, %._crit_edge.us ]
-  %.0 = phi i32 [ 1, %.split.us ], [ 0, %.split38.us ], [ 0, %7 ], [ 0, %._crit_edge.us ]
+  %.sink = phi i32 [ %26, %.split38.us ], [ %27, %.split.us ], [ 0, %7 ], [ 0, %._crit_edge.us ]
+  %.0 = phi i32 [ 0, %.split38.us ], [ 1, %.split.us ], [ 0, %7 ], [ 0, %._crit_edge.us ]
   store i32 %.sink, ptr %6, align 4, !tbaa !6
   ret i32 %.0
 }
@@ -2997,9 +2997,9 @@ define void @minimalSwapAndFlipIVar_superFast_moreThen5(ptr noundef captures(non
   br label %minTemp0_fast_moreThen5.exit
 
 minTemp0_fast_moreThen5.exit:                     ; preds = %._crit_edge.us.i, %5, %.split34.us.i, %.split.us.i
-  %.sink.i = phi i32 [ %24, %.split34.us.i ], [ %25, %.split.us.i ], [ 0, %5 ], [ 0, %._crit_edge.us.i ]
-  %26 = phi i1 [ true, %.split34.us.i ], [ false, %.split.us.i ], [ true, %5 ], [ true, %._crit_edge.us.i ]
-  %.0.i = phi i32 [ 0, %.split34.us.i ], [ 3, %.split.us.i ], [ 0, %5 ], [ 0, %._crit_edge.us.i ]
+  %.sink.i = phi i32 [ 0, %5 ], [ %25, %.split.us.i ], [ %24, %.split34.us.i ], [ 0, %._crit_edge.us.i ]
+  %26 = phi i1 [ true, %5 ], [ false, %.split.us.i ], [ true, %.split34.us.i ], [ true, %._crit_edge.us.i ]
+  %.0.i = phi i32 [ 0, %5 ], [ 3, %.split.us.i ], [ 0, %.split34.us.i ], [ 0, %._crit_edge.us.i ]
   store i32 %.0.i, ptr %6, align 4, !tbaa !6
   %27 = xor i32 %.pre, -1
   %28 = add i32 %2, %27
@@ -3053,9 +3053,9 @@ minTemp0_fast_moreThen5.exit:                     ; preds = %._crit_edge.us.i, %
   br label %minTemp1_fast_moreThen5.exit
 
 minTemp1_fast_moreThen5.exit:                     ; preds = %._crit_edge.us.i72, %minTemp0_fast_moreThen5.exit, %.split36.us.i, %.split.us.i73
-  %.sink.i68 = phi i32 [ %45, %.split.us.i73 ], [ %43, %.split36.us.i ], [ 0, %minTemp0_fast_moreThen5.exit ], [ 0, %._crit_edge.us.i72 ]
-  %46 = phi i1 [ false, %.split.us.i73 ], [ true, %.split36.us.i ], [ true, %minTemp0_fast_moreThen5.exit ], [ true, %._crit_edge.us.i72 ]
-  %.0.i69 = phi i32 [ 2, %.split.us.i73 ], [ 1, %.split36.us.i ], [ 1, %minTemp0_fast_moreThen5.exit ], [ 1, %._crit_edge.us.i72 ]
+  %.sink.i68 = phi i32 [ %43, %.split36.us.i ], [ %45, %.split.us.i73 ], [ 0, %minTemp0_fast_moreThen5.exit ], [ 0, %._crit_edge.us.i72 ]
+  %46 = phi i1 [ true, %.split36.us.i ], [ false, %.split.us.i73 ], [ true, %minTemp0_fast_moreThen5.exit ], [ true, %._crit_edge.us.i72 ]
+  %.0.i69 = phi i32 [ 1, %.split36.us.i ], [ 2, %.split.us.i73 ], [ 1, %minTemp0_fast_moreThen5.exit ], [ 1, %._crit_edge.us.i72 ]
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %.0.i69, ptr %47, align 4, !tbaa !6
   br i1 %or.cond.i, label %minTemp2_fast_moreThen5.exit, label %.preheader.us.preheader.i77
@@ -3109,8 +3109,8 @@ minTemp1_fast_moreThen5.exit:                     ; preds = %._crit_edge.us.i72,
   br label %minTemp2_fast_moreThen5.exit
 
 minTemp2_fast_moreThen5.exit:                     ; preds = %._crit_edge.us.i89, %minTemp1_fast_moreThen5.exit, %.split36.us.i84, %.split.us.i90
-  %.sink.i85 = phi i32 [ %66, %.split.us.i90 ], [ %65, %.split36.us.i84 ], [ 0, %minTemp1_fast_moreThen5.exit ], [ 0, %._crit_edge.us.i89 ]
-  %.0.i86 = phi i32 [ 1, %.split.us.i90 ], [ 0, %.split36.us.i84 ], [ 0, %minTemp1_fast_moreThen5.exit ], [ 0, %._crit_edge.us.i89 ]
+  %.sink.i85 = phi i32 [ %65, %.split36.us.i84 ], [ %66, %.split.us.i90 ], [ 0, %minTemp1_fast_moreThen5.exit ], [ 0, %._crit_edge.us.i89 ]
+  %.0.i86 = phi i32 [ 0, %.split36.us.i84 ], [ 1, %.split.us.i90 ], [ 0, %minTemp1_fast_moreThen5.exit ], [ 0, %._crit_edge.us.i89 ]
   %.not = icmp eq i32 %.sink.i, %.sink.i68
   br i1 %.not, label %215, label %67
 
@@ -3458,8 +3458,8 @@ arrangeQuoters_superFast_moreThen5.exit106:       ; preds = %194, %170
   br label %minTemp3_fast_moreThen5.exit
 
 minTemp3_fast_moreThen5.exit:                     ; preds = %._crit_edge.us.i126, %270, %.split38.us.i, %.split.us.i127
-  %.sink.i122 = phi i32 [ %290, %.split.us.i127 ], [ %289, %.split38.us.i ], [ 0, %270 ], [ 0, %._crit_edge.us.i126 ]
-  %.0.i123 = phi i32 [ 1, %.split.us.i127 ], [ 0, %.split38.us.i ], [ 0, %270 ], [ 0, %._crit_edge.us.i126 ]
+  %.sink.i122 = phi i32 [ %289, %.split38.us.i ], [ %290, %.split.us.i127 ], [ 0, %270 ], [ 0, %._crit_edge.us.i126 ]
+  %.0.i123 = phi i32 [ 0, %.split38.us.i ], [ 1, %.split.us.i127 ], [ 0, %270 ], [ 0, %._crit_edge.us.i126 ]
   %291 = icmp sgt i32 %.sink.i122, %.sink.i85
   %292 = zext nneg i32 %.sink.i to i64
   br i1 %291, label %293, label %346

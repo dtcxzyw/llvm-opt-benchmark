@@ -357,7 +357,7 @@ define internal i64 @allocation_sourcefile(i64 %0, i64 noundef %1) #0 {
   br label %lookup_allocation_info.exit.thread
 
 lookup_allocation_info.exit.thread:               ; preds = %5, %2, %10, %14
-  %.0 = phi i64 [ %15, %14 ], [ 4, %10 ], [ 4, %2 ], [ 4, %5 ]
+  %.0 = phi i64 [ %15, %14 ], [ 4, %10 ], [ 4, %5 ], [ 4, %2 ]
   ret i64 %.0
 }
 
@@ -389,7 +389,7 @@ define internal range(i64 1, 0) i64 @allocation_sourceline(i64 %0, i64 noundef %
   br label %lookup_allocation_info.exit.thread
 
 lookup_allocation_info.exit.thread:               ; preds = %5, %2, %10
-  %.0 = phi i64 [ %15, %10 ], [ 4, %2 ], [ 4, %5 ]
+  %.0 = phi i64 [ %15, %10 ], [ 4, %5 ], [ 4, %2 ]
   ret i64 %.0
 }
 
@@ -424,7 +424,7 @@ define internal i64 @allocation_class_path(i64 %0, i64 noundef %1) #0 {
   br label %lookup_allocation_info.exit.thread
 
 lookup_allocation_info.exit.thread:               ; preds = %5, %2, %10, %14
-  %.0 = phi i64 [ %15, %14 ], [ 4, %10 ], [ 4, %2 ], [ 4, %5 ]
+  %.0 = phi i64 [ %15, %14 ], [ 4, %10 ], [ 4, %5 ], [ 4, %2 ]
   ret i64 %.0
 }
 
@@ -454,7 +454,7 @@ define internal i64 @allocation_method_id(i64 %0, i64 noundef %1) #0 {
   br label %lookup_allocation_info.exit.thread
 
 lookup_allocation_info.exit.thread:               ; preds = %5, %2, %10
-  %.0 = phi i64 [ %13, %10 ], [ 4, %2 ], [ 4, %5 ]
+  %.0 = phi i64 [ %13, %10 ], [ 4, %5 ], [ 4, %2 ]
   ret i64 %.0
 }
 
@@ -494,7 +494,7 @@ define internal i64 @allocation_generation(i64 %0, i64 noundef %1) #0 {
   br label %rb_ull2num_inline.exit
 
 rb_ull2num_inline.exit:                           ; preds = %5, %2, %18, %15
-  %.0 = phi i64 [ %17, %15 ], [ %19, %18 ], [ 4, %2 ], [ 4, %5 ]
+  %.0 = phi i64 [ %19, %18 ], [ 4, %5 ], [ %17, %15 ], [ 4, %2 ]
   ret i64 %.0
 }
 
@@ -589,7 +589,7 @@ RSTRING_PTR.exit46:                               ; preds = %36, %43
   br label %.thread
 
 .thread:                                          ; preds = %RB_FL_ABLE.exit.i, %24, %33, %RSTRING_PTR.exit46
-  %47 = phi ptr [ %46, %RSTRING_PTR.exit46 ], [ null, %33 ], [ null, %24 ], [ null, %RB_FL_ABLE.exit.i ]
+  %47 = phi ptr [ %46, %RSTRING_PTR.exit46 ], [ null, %33 ], [ null, %RB_FL_ABLE.exit.i ], [ null, %24 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %49 = load ptr, ptr %48, align 8, !tbaa !11
@@ -955,7 +955,7 @@ define internal range(i32 0, 3) i32 @allocation_info_tracer_compact_update_objec
   br label %15
 
 15:                                               ; preds = %6, %8, %13, %3
-  %.0 = phi i32 [ 2, %3 ], [ 2, %13 ], [ 2, %8 ], [ 0, %6 ]
+  %.0 = phi i32 [ 2, %3 ], [ 2, %8 ], [ 2, %13 ], [ 0, %6 ]
   ret i32 %.0
 }
 

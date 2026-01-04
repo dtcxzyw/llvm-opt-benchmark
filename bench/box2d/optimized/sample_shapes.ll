@@ -4287,7 +4287,7 @@ define linkonce_odr dso_local void @_ZN9ChainLinkC2ER8Settings(ptr noundef nonnu
   br label %70
 
 70:                                               ; preds = %66, %68, %62, %64, %58, %60, %56
-  %.pn42.pn = phi { ptr, i32 } [ %57, %56 ], [ %61, %60 ], [ %59, %58 ], [ %65, %64 ], [ %63, %62 ], [ %69, %68 ], [ %67, %66 ]
+  %.pn42.pn = phi { ptr, i32 } [ %63, %62 ], [ %59, %58 ], [ %57, %56 ], [ %61, %60 ], [ %65, %64 ], [ %69, %68 ], [ %67, %66 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %71
 

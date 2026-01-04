@@ -421,7 +421,7 @@ bloom_contains_value.exit:                        ; preds = %69, %bloom_get_proc
   unreachable
 
 bloom_contains_value.exit.thread:                 ; preds = %bloom_contains_value.exit, %70, %1
-  %88 = phi i64 [ 1, %1 ], [ 0, %70 ], [ 1, %bloom_contains_value.exit ]
+  %88 = phi i64 [ 0, %70 ], [ 1, %1 ], [ 1, %bloom_contains_value.exit ]
   ret i64 %88
 }
 

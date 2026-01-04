@@ -188,7 +188,7 @@ define hidden range(i32 -151, 1) i32 @mbedtls_to_psa_error(i32 noundef %0) local
   br label %19
 
 19:                                               ; preds = %1, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6
-  %.0 = phi i32 [ -132, %18 ], [ -134, %6 ], [ -135, %7 ], [ -141, %8 ], [ -138, %9 ], [ -149, %10 ], [ -137, %11 ], [ -150, %12 ], [ -151, %13 ], [ -148, %14 ], [ -146, %15 ], [ -133, %16 ], [ -147, %17 ], [ %5, %1 ]
+  %.0 = phi i32 [ -132, %18 ], [ -148, %14 ], [ -134, %6 ], [ -135, %7 ], [ %5, %1 ], [ -141, %8 ], [ -138, %9 ], [ -147, %17 ], [ -150, %12 ], [ -149, %10 ], [ -133, %16 ], [ -137, %11 ], [ -146, %15 ], [ -151, %13 ]
   ret i32 %.0
 }
 
@@ -246,7 +246,7 @@ define hidden range(i32 -135, 1) i32 @psa_validate_unstructured_key_bit_size(i16
   br label %10
 
 10:                                               ; preds = %8, %2, %7, %6, %5, %4, %3
-  %.0 = phi i32 [ -135, %3 ], [ -135, %4 ], [ -135, %5 ], [ -135, %6 ], [ -135, %7 ], [ -134, %2 ], [ %., %8 ]
+  %.0 = phi i32 [ -135, %7 ], [ %., %8 ], [ -134, %2 ], [ -135, %6 ], [ -135, %3 ], [ -135, %4 ], [ -135, %5 ]
   ret i32 %.0
 }
 
@@ -371,7 +371,7 @@ psa_is_dh_key_size_valid.exit:                    ; preds = %20, %20, %20, %20, 
   br label %psa_is_dh_key_size_valid.exit.thread
 
 psa_is_dh_key_size_valid.exit.thread:             ; preds = %20, %27, %16, %12, %7, %30, %25, %psa_is_dh_key_size_valid.exit, %15
-  %.0 = phi i32 [ 0, %15 ], [ %24, %psa_is_dh_key_size_valid.exit ], [ %26, %25 ], [ %31, %30 ], [ -134, %7 ], [ %14, %12 ], [ -134, %16 ], [ -134, %27 ], [ -134, %20 ]
+  %.0 = phi i32 [ -134, %27 ], [ -134, %7 ], [ 0, %15 ], [ %14, %12 ], [ %24, %psa_is_dh_key_size_valid.exit ], [ %26, %25 ], [ %31, %30 ], [ -134, %16 ], [ -134, %20 ]
   ret i32 %.0
 }
 
@@ -501,8 +501,8 @@ define hidden i32 @psa_destroy_key(i32 noundef %0) local_unnamed_addr #6 {
   br label %psa_key_slot_state_transition.exit
 
 psa_key_slot_state_transition.exit:               ; preds = %5, %9, %.fold.split, %12
-  %16 = phi ptr [ %.pre, %12 ], [ %6, %9 ], [ %6, %.fold.split ], [ %6, %5 ]
-  %.0 = phi i32 [ %15, %12 ], [ -133, %9 ], [ 0, %.fold.split ], [ -151, %5 ]
+  %16 = phi ptr [ %6, %.fold.split ], [ %.pre, %12 ], [ %6, %9 ], [ %6, %5 ]
+  %.0 = phi i32 [ 0, %.fold.split ], [ %15, %12 ], [ -133, %9 ], [ -151, %5 ]
   %17 = call i32 @psa_unregister_read(ptr noundef %16) #22
   %.not19 = icmp eq i32 %17, 0
   %spec.select = select i1 %.not19, i32 %.0, i32 %17
@@ -641,14 +641,14 @@ switch.early.test44.i:                            ; preds = %21
   %.not36.i = icmp eq i32 %39, 0
   br i1 %.not36.i, label %psa_key_policy_permits.exit.thread, label %psa_key_policy_permits.exit
 
-psa_key_policy_permits.exit.thread:               ; preds = %36, %23, %27, %29, %31, %6
+psa_key_policy_permits.exit.thread:               ; preds = %36, %27, %29, %31, %23, %6
   %.0 = phi i32 [ -133, %6 ], [ -135, %23 ], [ -135, %27 ], [ -135, %29 ], [ -135, %31 ], [ -133, %36 ]
   store ptr null, ptr %1, align 8, !tbaa !29
   %40 = tail call i32 @psa_unregister_read_under_mutex(ptr noundef nonnull %7) #22
   br label %psa_key_policy_permits.exit
 
 psa_key_policy_permits.exit:                      ; preds = %.critedge.i, %36, %15, %4, %psa_key_policy_permits.exit.thread
-  %.018 = phi i32 [ %.0, %psa_key_policy_permits.exit.thread ], [ %5, %4 ], [ 0, %15 ], [ 0, %36 ], [ 0, %.critedge.i ]
+  %.018 = phi i32 [ %5, %4 ], [ %.0, %psa_key_policy_permits.exit.thread ], [ 0, %15 ], [ 0, %36 ], [ 0, %.critedge.i ]
   ret i32 %.018
 }
 
@@ -787,8 +787,8 @@ psa_crypto_local_output_free.exit:                ; preds = %39
   %spec.select = select i1 %40, i32 %41, i32 %.016.ph
   br label %psa_get_and_lock_key_slot_with_policy.exit.thread
 
-psa_get_and_lock_key_slot_with_policy.exit.thread: ; preds = %psa_crypto_local_output_free.exit, %37, %39, %7, %psa_key_policy_permits.exit.thread.i, %4
-  %.0 = phi i32 [ -138, %4 ], [ %8, %7 ], [ -133, %psa_key_policy_permits.exit.thread.i ], [ -141, %37 ], [ -151, %39 ], [ %spec.select, %psa_crypto_local_output_free.exit ]
+psa_get_and_lock_key_slot_with_policy.exit.thread: ; preds = %psa_crypto_local_output_free.exit, %37, %39, %psa_key_policy_permits.exit.thread.i, %7, %4
+  %.0 = phi i32 [ %8, %7 ], [ -138, %4 ], [ -151, %39 ], [ %spec.select, %psa_crypto_local_output_free.exit ], [ -133, %psa_key_policy_permits.exit.thread.i ], [ -141, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -912,7 +912,7 @@ define hidden i32 @psa_export_public_key_internal(ptr noundef %0, ptr noundef %1
   br label %psa_export_key_buffer_internal.exit
 
 psa_export_key_buffer_internal.exit:              ; preds = %16, %14, %24, %27, %25, %22
-  %.0 = phi i32 [ %23, %22 ], [ %26, %25 ], [ %28, %27 ], [ -134, %24 ], [ 0, %16 ], [ -138, %14 ]
+  %.0 = phi i32 [ -134, %24 ], [ %23, %22 ], [ %26, %25 ], [ %28, %27 ], [ 0, %16 ], [ -138, %14 ]
   ret i32 %.0
 }
 
@@ -962,8 +962,8 @@ define hidden i32 @psa_export_public_key(i32 noundef %0, ptr noundef writeonly c
   br label %psa_get_and_lock_key_slot_with_policy.exit
 
 25:                                               ; preds = %13, %16
-  %26 = phi ptr [ %12, %13 ], [ %.pre, %16 ]
-  %.016.ph = phi i32 [ -135, %13 ], [ %22, %16 ]
+  %26 = phi ptr [ %.pre, %16 ], [ %12, %13 ]
+  %.016.ph = phi i32 [ %22, %16 ], [ -135, %13 ]
   %27 = call i32 @psa_unregister_read_under_mutex(ptr noundef %26) #22
   %28 = icmp eq ptr %1, null
   br i1 %28, label %psa_get_and_lock_key_slot_with_policy.exit, label %psa_crypto_local_output_free.exit
@@ -976,7 +976,7 @@ psa_crypto_local_output_free.exit:                ; preds = %25
   br label %psa_get_and_lock_key_slot_with_policy.exit
 
 psa_get_and_lock_key_slot_with_policy.exit:       ; preds = %psa_crypto_local_output_free.exit, %23, %25, %7, %4
-  %.0 = phi i32 [ -138, %4 ], [ %8, %7 ], [ -141, %23 ], [ -151, %25 ], [ %spec.select, %psa_crypto_local_output_free.exit ]
+  %.0 = phi i32 [ %8, %7 ], [ -138, %4 ], [ -151, %25 ], [ %spec.select, %psa_crypto_local_output_free.exit ], [ -141, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1097,8 +1097,8 @@ psa_driver_wrapper_import_key.exit:               ; preds = %.thread, %32
   %or.cond = select i1 %.not9.i, i1 true, i1 %.not10.i
   br i1 %or.cond, label %psa_crypto_local_input_alloc.exit, label %psa_crypto_local_input_alloc.exit.thread57
 
-psa_crypto_local_input_alloc.exit.thread57:       ; preds = %57, %14, %psa_driver_wrapper_import_key.exit, %48, %50, %11, %23, %25, %32, %55
-  %.0.ph = phi i32 [ -141, %25 ], [ -135, %23 ], [ -141, %11 ], [ -134, %50 ], [ -135, %48 ], [ %39, %psa_driver_wrapper_import_key.exit ], [ %15, %14 ], [ -135, %32 ], [ -135, %55 ], [ -135, %57 ]
+psa_crypto_local_input_alloc.exit.thread57:       ; preds = %57, %50, %14, %11, %23, %psa_driver_wrapper_import_key.exit, %48, %25, %32, %55
+  %.0.ph = phi i32 [ -134, %50 ], [ -141, %25 ], [ -135, %32 ], [ -135, %48 ], [ %39, %psa_driver_wrapper_import_key.exit ], [ -135, %23 ], [ -141, %11 ], [ %15, %14 ], [ -135, %55 ], [ -135, %57 ]
   call void @free(ptr noundef %12) #22
   br label %61
 
@@ -1164,7 +1164,7 @@ psa_remove_key_data_from_memory.exit.i.i:         ; preds = %67, %64
   br label %psa_fail_key_creation.exit
 
 psa_fail_key_creation.exit:                       ; preds = %82, %77, %72, %.thread.i.i, %61, %psa_crypto_local_input_alloc.exit, %9, %4
-  %.024 = phi i32 [ -135, %4 ], [ -134, %9 ], [ 0, %psa_crypto_local_input_alloc.exit ], [ %.060, %61 ], [ %.060, %.thread.i.i ], [ %.060, %72 ], [ %.060, %77 ], [ %.060, %82 ]
+  %.024 = phi i32 [ -134, %9 ], [ -135, %4 ], [ 0, %psa_crypto_local_input_alloc.exit ], [ %.060, %61 ], [ %.060, %.thread.i.i ], [ %.060, %72 ], [ %.060, %77 ], [ %.060, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1190,7 +1190,7 @@ define hidden range(i32 -141, 1) i32 @psa_crypto_local_input_alloc(ptr noundef r
   br label %9
 
 9:                                                ; preds = %8, %5, %3
-  %.0 = phi i32 [ 0, %3 ], [ -141, %5 ], [ 0, %8 ]
+  %.0 = phi i32 [ -141, %5 ], [ 0, %3 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -1264,8 +1264,8 @@ psa_validate_key_attributes.exit:                 ; preds = %19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %psa_validate_key_attributes.exit.thread
 
-psa_validate_key_attributes.exit.thread:          ; preds = %19, %16, %14, %13, %8, %3, %31
-  %.0 = phi i32 [ %25, %31 ], [ -135, %16 ], [ -135, %14 ], [ -135, %13 ], [ %9, %8 ], [ %7, %3 ], [ -134, %19 ]
+psa_validate_key_attributes.exit.thread:          ; preds = %19, %16, %14, %8, %3, %13, %31
+  %.0 = phi i32 [ %25, %31 ], [ -135, %13 ], [ -135, %16 ], [ -135, %14 ], [ %9, %8 ], [ %7, %3 ], [ -134, %19 ]
   ret i32 %.0
 }
 
@@ -1304,7 +1304,7 @@ psa_key_slot_state_transition.exit:               ; preds = %.thread
   br label %18
 
 18:                                               ; preds = %psa_key_slot_state_transition.exit.thread, %psa_key_slot_state_transition.exit, %7
-  %.1 = phi i32 [ -151, %psa_key_slot_state_transition.exit ], [ %12, %7 ], [ 0, %psa_key_slot_state_transition.exit.thread ]
+  %.1 = phi i32 [ -151, %psa_key_slot_state_transition.exit ], [ 0, %psa_key_slot_state_transition.exit.thread ], [ %12, %7 ]
   ret i32 %.1
 }
 
@@ -1534,8 +1534,8 @@ psa_start_key_creation.exit:                      ; preds = %psa_validate_key_at
   %.not32 = icmp eq i32 %96, 0
   br i1 %.not32, label %123, label %.threadthread-pre-split
 
-.threadthread-pre-split:                          ; preds = %94, %psa_start_key_creation.exit, %72, %82, %64, %psa_key_policy_permits.exit.thread.i, %3, %18, %23, %psa_validate_optional_attributes.exit, %38, %54, %52, %51, %46, %40, %56, %79, %91, %84
-  %.060.ph = phi i32 [ -141, %91 ], [ -139, %84 ], [ -141, %79 ], [ -135, %54 ], [ -135, %52 ], [ -135, %51 ], [ %47, %46 ], [ %45, %40 ], [ -134, %56 ], [ -135, %38 ], [ -135, %psa_validate_optional_attributes.exit ], [ -135, %23 ], [ -135, %18 ], [ -133, %psa_key_policy_permits.exit.thread.i ], [ %10, %3 ], [ %58, %psa_start_key_creation.exit ], [ %73, %72 ], [ -135, %82 ], [ -134, %64 ], [ %96, %94 ]
+.threadthread-pre-split:                          ; preds = %94, %psa_start_key_creation.exit, %72, %82, %64, %3, %psa_key_policy_permits.exit.thread.i, %18, %23, %psa_validate_optional_attributes.exit, %38, %51, %54, %52, %46, %40, %56, %79, %91, %84
+  %.060.ph = phi i32 [ -141, %91 ], [ -139, %84 ], [ -141, %79 ], [ -135, %54 ], [ -135, %52 ], [ %47, %46 ], [ %45, %40 ], [ -134, %56 ], [ -135, %psa_validate_optional_attributes.exit ], [ -135, %18 ], [ -133, %psa_key_policy_permits.exit.thread.i ], [ %10, %3 ], [ -135, %23 ], [ %58, %psa_start_key_creation.exit ], [ %73, %72 ], [ -135, %51 ], [ -135, %82 ], [ -134, %64 ], [ -135, %38 ], [ %96, %94 ]
   %.pr = load ptr, ptr %6, align 8, !tbaa !29
   br label %.thread
 
@@ -1770,8 +1770,8 @@ define hidden i32 @psa_hash_finish(ptr noundef %0, ptr noundef writeonly capture
   br label %psa_driver_wrapper_hash_finish.exit.i
 
 psa_driver_wrapper_hash_finish.exit.i:            ; preds = %11, %9
-  %14 = phi i32 [ %.pr.i, %11 ], [ %10, %9 ]
-  %.0.i.i = phi i32 [ %13, %11 ], [ -137, %9 ]
+  %14 = phi i32 [ %10, %9 ], [ %.pr.i, %11 ]
+  %.0.i.i = phi i32 [ -137, %9 ], [ %13, %11 ]
   switch i32 %14, label %psa_driver_wrapper_hash_abort.exit.i.i [
     i32 0, label %psa_crypto_local_output_alloc.exit
     i32 1, label %15
@@ -1787,7 +1787,7 @@ psa_driver_wrapper_hash_abort.exit.i.i:           ; preds = %15, %psa_driver_wra
   br label %psa_crypto_local_output_alloc.exit
 
 psa_crypto_local_output_alloc.exit:               ; preds = %psa_driver_wrapper_hash_abort.exit.i.i, %psa_driver_wrapper_hash_finish.exit.i, %9
-  %.0 = phi i32 [ -137, %9 ], [ %.0.i.i, %psa_driver_wrapper_hash_finish.exit.i ], [ %.0.i.i, %psa_driver_wrapper_hash_abort.exit.i.i ]
+  %.0 = phi i32 [ %.0.i.i, %psa_driver_wrapper_hash_abort.exit.i.i ], [ -137, %9 ], [ %.0.i.i, %psa_driver_wrapper_hash_finish.exit.i ]
   %18 = icmp eq ptr %.sroa.6.0.ph, null
   br i1 %18, label %psa_crypto_local_output_free.exit, label %19
 
@@ -1831,8 +1831,8 @@ define hidden i32 @psa_hash_verify(ptr noundef %0, ptr noundef readonly captures
   br label %psa_driver_wrapper_hash_finish.exit.i
 
 psa_driver_wrapper_hash_finish.exit.i:            ; preds = %7, %3
-  %10 = phi i32 [ %.pr.i, %7 ], [ %6, %3 ]
-  %.0.i.i = phi i32 [ %9, %7 ], [ -137, %3 ]
+  %10 = phi i32 [ %6, %3 ], [ %.pr.i, %7 ]
+  %.0.i.i = phi i32 [ -137, %3 ], [ %9, %7 ]
   switch i32 %10, label %psa_driver_wrapper_hash_abort.exit.i.i [
     i32 0, label %psa_hash_finish_internal.exit
     i32 1, label %11
@@ -1879,7 +1879,7 @@ psa_crypto_local_input_alloc.exit:                ; preds = %22
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 64) #22
   br label %psa_hash_abort.exit
 
-psa_hash_finish_internal.exit.thread:             ; preds = %3, %psa_hash_finish_internal.exit, %14, %22, %18
+psa_hash_finish_internal.exit.thread:             ; preds = %3, %psa_hash_finish_internal.exit, %22, %14, %18
   %.sroa.0.0.ph = phi ptr [ null, %18 ], [ null, %psa_hash_finish_internal.exit ], [ null, %14 ], [ %.sroa.0.1.ph, %22 ], [ null, %3 ]
   %.0.ph = phi i32 [ -141, %18 ], [ %.0.i.i, %psa_hash_finish_internal.exit ], [ -149, %14 ], [ -149, %22 ], [ -137, %3 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 64) #22
@@ -1961,8 +1961,8 @@ psa_crypto_local_input_alloc.exit:                ; preds = %17, %15
   br label %psa_crypto_local_output_free.exit.sink.split
 
 psa_crypto_local_output_free.exit.sink.split:     ; preds = %24, %25, %17, %11
-  %.sroa.6.1.ph.sink = phi ptr [ %.sroa.030.0.ph, %17 ], [ null, %11 ], [ %.sroa.6.1.ph, %25 ], [ %.sroa.6.1.ph, %24 ]
-  %.0.ph = phi i32 [ -141, %17 ], [ -141, %11 ], [ %20, %25 ], [ %20, %24 ]
+  %.sroa.6.1.ph.sink = phi ptr [ null, %11 ], [ %.sroa.030.0.ph, %17 ], [ %.sroa.6.1.ph, %25 ], [ %.sroa.6.1.ph, %24 ]
+  %.0.ph = phi i32 [ -141, %11 ], [ -141, %17 ], [ %20, %25 ], [ %20, %24 ]
   tail call void @free(ptr noundef %.sroa.6.1.ph.sink) #22
   br label %psa_crypto_local_output_free.exit
 
@@ -2026,9 +2026,9 @@ define hidden i32 @psa_hash_compare(i32 noundef %0, ptr noundef readonly capture
   br label %psa_crypto_local_input_alloc.exit
 
 psa_crypto_local_input_alloc.exit:                ; preds = %22, %12, %26, %18, %16
-  %.sroa.032.043 = phi ptr [ %.sroa.032.0.ph, %26 ], [ %.sroa.032.0.ph, %18 ], [ %.sroa.032.0.ph, %16 ], [ null, %12 ], [ %.sroa.032.0.ph, %22 ]
-  %.sroa.0.0 = phi ptr [ %.sroa.0.1.ph, %26 ], [ null, %18 ], [ null, %16 ], [ null, %12 ], [ null, %22 ]
-  %.0 = phi i32 [ %spec.select, %26 ], [ -149, %18 ], [ %17, %16 ], [ -141, %12 ], [ -141, %22 ]
+  %.sroa.032.043 = phi ptr [ %.sroa.032.0.ph, %26 ], [ null, %12 ], [ %.sroa.032.0.ph, %18 ], [ %.sroa.032.0.ph, %16 ], [ %.sroa.032.0.ph, %22 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.1.ph, %26 ], [ null, %12 ], [ null, %18 ], [ null, %16 ], [ null, %22 ]
+  %.0 = phi i32 [ %spec.select, %26 ], [ -141, %12 ], [ -149, %18 ], [ %17, %16 ], [ -141, %22 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %6, i64 noundef 64) #22
   call void @free(ptr noundef %.sroa.032.043) #22
   call void @free(ptr noundef %.sroa.0.0) #22
@@ -2078,7 +2078,7 @@ psa_driver_wrapper_hash_abort.exit.i:             ; preds = %11, %10
   br label %psa_hash_abort.exit
 
 psa_hash_abort.exit:                              ; preds = %psa_driver_wrapper_hash_abort.exit.i, %10, %psa_driver_wrapper_hash_clone.exit, %2, %5
-  %.0 = phi i32 [ -137, %5 ], [ -137, %2 ], [ 0, %psa_driver_wrapper_hash_clone.exit ], [ %9, %10 ], [ %9, %psa_driver_wrapper_hash_abort.exit.i ]
+  %.0 = phi i32 [ -137, %2 ], [ -137, %5 ], [ 0, %psa_driver_wrapper_hash_clone.exit ], [ %9, %psa_driver_wrapper_hash_abort.exit.i ], [ %9, %10 ]
   ret i32 %.0
 }
 
@@ -2186,7 +2186,7 @@ psa_driver_wrapper_mac_sign_setup.exit:           ; preds = %22, %29
   br i1 %.not24, label %45, label %psa_driver_wrapper_mac_sign_setup.exit.threadthread-pre-split
 
 psa_driver_wrapper_mac_sign_setup.exit.threadthread-pre-split: ; preds = %psa_driver_wrapper_mac_sign_setup.exit, %7, %10, %20, %22
-  %.029.ph = phi i32 [ %28, %22 ], [ %9, %7 ], [ %13, %10 ], [ -135, %20 ], [ %.0, %psa_driver_wrapper_mac_sign_setup.exit ]
+  %.029.ph = phi i32 [ %28, %22 ], [ %13, %10 ], [ %9, %7 ], [ -135, %20 ], [ %.0, %psa_driver_wrapper_mac_sign_setup.exit ]
   %.pr = load i32, ptr %0, align 8, !tbaa !55
   br label %psa_driver_wrapper_mac_sign_setup.exit.thread
 
@@ -2218,7 +2218,7 @@ psa_mac_abort.exit:                               ; preds = %psa_driver_wrapper_
   %44 = call i32 @psa_unregister_read_under_mutex(ptr noundef %43) #22
   br label %48
 
-45:                                               ; preds = %psa_driver_wrapper_mac_sign_setup.exit, %psa_driver_wrapper_mac_sign_setup.exit.thread33
+45:                                               ; preds = %psa_driver_wrapper_mac_sign_setup.exit.thread33, %psa_driver_wrapper_mac_sign_setup.exit
   %46 = load ptr, ptr %5, align 8, !tbaa !29
   %47 = call i32 @psa_unregister_read_under_mutex(ptr noundef %46) #22
   br label %48
@@ -2343,11 +2343,11 @@ psa_crypto_local_output_alloc.exit:               ; preds = %23
   %.not31 = icmp eq i32 %25, 0
   br i1 %.not31, label %28, label %psa_crypto_local_output_alloc.exit.thread54
 
-psa_crypto_local_output_alloc.exit.thread54:      ; preds = %23, %6, %20, %16, %12, %9, %psa_crypto_local_output_alloc.exit
-  %.069 = phi i32 [ %25, %psa_crypto_local_output_alloc.exit ], [ -135, %23 ], [ -141, %6 ], [ -138, %20 ], [ -137, %16 ], [ -137, %12 ], [ -137, %9 ]
-  %.02667 = phi ptr [ %.sroa.6.0.ph, %psa_crypto_local_output_alloc.exit ], [ %.sroa.6.0.ph, %23 ], [ null, %6 ], [ %.sroa.6.0.ph, %20 ], [ %.sroa.6.0.ph, %16 ], [ %.sroa.6.0.ph, %12 ], [ %.sroa.6.0.ph, %9 ]
-  %.sroa.0.04765 = phi ptr [ %.sroa.0.0.ph, %psa_crypto_local_output_alloc.exit ], [ %.sroa.0.0.ph, %23 ], [ null, %6 ], [ %.sroa.0.0.ph, %20 ], [ %.sroa.0.0.ph, %16 ], [ %.sroa.0.0.ph, %12 ], [ %.sroa.0.0.ph, %9 ]
-  %.sroa.11.05161 = phi i64 [ %2, %psa_crypto_local_output_alloc.exit ], [ %2, %23 ], [ 0, %6 ], [ %2, %20 ], [ %2, %16 ], [ %2, %12 ], [ %2, %9 ]
+psa_crypto_local_output_alloc.exit.thread54:      ; preds = %23, %6, %16, %12, %9, %20, %psa_crypto_local_output_alloc.exit
+  %.069 = phi i32 [ %25, %psa_crypto_local_output_alloc.exit ], [ -135, %23 ], [ -141, %6 ], [ -137, %16 ], [ -137, %12 ], [ -137, %9 ], [ -138, %20 ]
+  %.02667 = phi ptr [ %.sroa.6.0.ph, %psa_crypto_local_output_alloc.exit ], [ %.sroa.6.0.ph, %23 ], [ null, %6 ], [ %.sroa.6.0.ph, %16 ], [ %.sroa.6.0.ph, %12 ], [ %.sroa.6.0.ph, %9 ], [ %.sroa.6.0.ph, %20 ]
+  %.sroa.0.04765 = phi ptr [ %.sroa.0.0.ph, %psa_crypto_local_output_alloc.exit ], [ %.sroa.0.0.ph, %23 ], [ null, %6 ], [ %.sroa.0.0.ph, %16 ], [ %.sroa.0.0.ph, %12 ], [ %.sroa.0.0.ph, %9 ], [ %.sroa.0.0.ph, %20 ]
+  %.sroa.11.05161 = phi i64 [ %2, %psa_crypto_local_output_alloc.exit ], [ %2, %23 ], [ 0, %6 ], [ %2, %16 ], [ %2, %12 ], [ %2, %9 ], [ %2, %20 ]
   store i64 %2, ptr %3, align 8, !tbaa !25
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 0, ptr %26, align 4, !tbaa !57
@@ -2471,9 +2471,9 @@ define hidden i32 @psa_mac_verify_finish(ptr noundef %0, ptr noundef readonly ca
   br label %psa_crypto_local_input_alloc.exit
 
 psa_crypto_local_input_alloc.exit:                ; preds = %21, %20, %16, %10, %6
-  %.pr = phi i32 [ %.pr.pre, %21 ], [ %4, %20 ], [ %4, %16 ], [ %4, %6 ], [ %4, %10 ]
-  %.sroa.0.0.ph = phi ptr [ %.sroa.0.1.ph, %21 ], [ %.sroa.0.1.ph, %20 ], [ null, %16 ], [ null, %6 ], [ null, %10 ]
-  %.0.ph = phi i32 [ %24, %21 ], [ -135, %20 ], [ -141, %16 ], [ -137, %6 ], [ -149, %10 ]
+  %.pr = phi i32 [ %.pr.pre, %21 ], [ %4, %20 ], [ %4, %10 ], [ %4, %6 ], [ %4, %16 ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.1.ph, %21 ], [ %.sroa.0.1.ph, %20 ], [ null, %10 ], [ null, %6 ], [ null, %16 ]
+  %.0.ph = phi i32 [ %24, %21 ], [ -135, %20 ], [ -149, %10 ], [ -137, %6 ], [ -141, %16 ]
   switch i32 %.pr, label %psa_driver_wrapper_mac_abort.exit.i [
     i32 0, label %psa_mac_abort.exit
     i32 1, label %25
@@ -2550,8 +2550,8 @@ psa_crypto_local_input_alloc.exit:                ; preds = %15, %13
   br label %psa_crypto_local_output_free.exit.sink.split
 
 psa_crypto_local_output_free.exit.sink.split:     ; preds = %22, %23, %15, %9
-  %.sroa.027.037.ph.sink = phi ptr [ %.sroa.027.0.ph, %15 ], [ null, %9 ], [ %.sroa.6.1.ph, %23 ], [ %.sroa.6.1.ph, %22 ]
-  %.ph = phi i32 [ -141, %15 ], [ -141, %9 ], [ %18, %23 ], [ %18, %22 ]
+  %.sroa.027.037.ph.sink = phi ptr [ null, %9 ], [ %.sroa.027.0.ph, %15 ], [ %.sroa.6.1.ph, %23 ], [ %.sroa.6.1.ph, %22 ]
+  %.ph = phi i32 [ -141, %9 ], [ -141, %15 ], [ %18, %23 ], [ %18, %22 ]
   tail call void @free(ptr noundef %.sroa.027.037.ph.sink) #22
   br label %psa_crypto_local_output_free.exit
 
@@ -2627,7 +2627,7 @@ psa_wipe_tag_output_buffer.exit:                  ; preds = %33, %.split22
   %35 = call i32 @psa_unregister_read_under_mutex(ptr noundef %34) #22
   br label %39
 
-36:                                               ; preds = %.split, %28
+36:                                               ; preds = %28, %.split
   %37 = load ptr, ptr %9, align 8, !tbaa !29
   %38 = call i32 @psa_unregister_read_under_mutex(ptr noundef %37) #22
   br label %39
@@ -2689,9 +2689,9 @@ define hidden i32 @psa_mac_verify(i32 noundef %0, i32 noundef %1, ptr noundef re
   br label %psa_crypto_local_input_alloc.exit
 
 psa_crypto_local_input_alloc.exit:                ; preds = %20, %10, %24, %16, %14
-  %.sroa.029.040 = phi ptr [ %.sroa.029.0.ph, %24 ], [ %.sroa.029.0.ph, %16 ], [ %.sroa.029.0.ph, %14 ], [ null, %10 ], [ %.sroa.029.0.ph, %20 ]
-  %.sroa.0.0 = phi ptr [ %.sroa.0.1.ph, %24 ], [ null, %16 ], [ null, %14 ], [ null, %10 ], [ null, %20 ]
-  %.0 = phi i32 [ %spec.select, %24 ], [ -149, %16 ], [ %15, %14 ], [ -141, %10 ], [ -141, %20 ]
+  %.sroa.029.040 = phi ptr [ %.sroa.029.0.ph, %24 ], [ null, %10 ], [ %.sroa.029.0.ph, %16 ], [ %.sroa.029.0.ph, %14 ], [ %.sroa.029.0.ph, %20 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.1.ph, %24 ], [ null, %10 ], [ null, %16 ], [ null, %14 ], [ null, %20 ]
+  %.0 = phi i32 [ %spec.select, %24 ], [ -141, %10 ], [ -149, %16 ], [ %15, %14 ], [ -141, %20 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %7, i64 noundef 64) #22
   call void @free(ptr noundef %.sroa.029.040) #22
   call void @free(ptr noundef %.sroa.0.0) #22
@@ -2792,7 +2792,7 @@ switch.early.test38:                              ; preds = %14
   br label %psa_driver_wrapper_sign_hash.exit
 
 psa_driver_wrapper_sign_hash.exit:                ; preds = %37, %34, %31, %29, %28, %22, %19
-  %.0 = phi i32 [ %21, %19 ], [ -135, %22 ], [ %30, %29 ], [ %38, %37 ], [ -135, %28 ], [ -135, %34 ], [ -134, %31 ]
+  %.0 = phi i32 [ %21, %19 ], [ -135, %22 ], [ %30, %29 ], [ -135, %34 ], [ %38, %37 ], [ -135, %28 ], [ -134, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %39
@@ -2841,7 +2841,7 @@ define internal fastcc i32 @psa_driver_wrapper_sign_hash(ptr noundef %0, ptr nou
   br label %psa_sign_hash_builtin.exit
 
 psa_sign_hash_builtin.exit:                       ; preds = %24, %21, %18, %16, %14, %9
-  %.0 = phi i32 [ -135, %9 ], [ %17, %16 ], [ %25, %24 ], [ -135, %14 ], [ -135, %21 ], [ -134, %18 ]
+  %.0 = phi i32 [ -135, %9 ], [ %17, %16 ], [ -135, %21 ], [ %25, %24 ], [ -135, %14 ], [ -134, %18 ]
   ret i32 %.0
 }
 
@@ -2965,9 +2965,9 @@ psa_sign_verify_check_alg.exit:                   ; preds = %switch.early.test.i
   br label %psa_wipe_tag_output_buffer.exit.i
 
 psa_wipe_tag_output_buffer.exit.i:                ; preds = %41, %37, %35
-  %49 = phi ptr [ %.pre41.i, %37 ], [ %.pre41.i, %35 ], [ %.pre.i, %41 ]
-  %.038.i = phi i32 [ -135, %37 ], [ %36, %35 ], [ %.0.fr.i, %41 ]
-  %50 = phi i64 [ 0, %37 ], [ 0, %35 ], [ %spec.select.i, %41 ]
+  %49 = phi ptr [ %.pre41.i, %35 ], [ %.pre.i, %41 ], [ %.pre41.i, %37 ]
+  %.038.i = phi i32 [ %36, %35 ], [ %.0.fr.i, %41 ], [ -135, %37 ]
+  %50 = phi i64 [ 0, %35 ], [ %spec.select.i, %41 ], [ 0, %37 ]
   %.038.fr.i = freeze i32 %.038.i
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.6.1.ph, i64 %50
   %52 = sub i64 %5, %50
@@ -2983,7 +2983,7 @@ psa_crypto_local_input_alloc.exit.thread53:       ; preds = %10, %16
   br label %psa_crypto_local_output_free.exit
 
 psa_crypto_local_input_alloc.exit:                ; preds = %31, %34, %25, %psa_wipe_tag_output_buffer.exit.i, %psa_sign_verify_check_alg.exit
-  %.030.i = phi i32 [ -138, %psa_sign_verify_check_alg.exit ], [ %spec.select40.i, %psa_wipe_tag_output_buffer.exit.i ], [ -135, %25 ], [ %.mux, %34 ], [ %.mux66, %31 ]
+  %.030.i = phi i32 [ -138, %psa_sign_verify_check_alg.exit ], [ %spec.select40.i, %psa_wipe_tag_output_buffer.exit.i ], [ -135, %25 ], [ %.mux66, %31 ], [ %.mux, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @free(ptr noundef %.sroa.030.0.ph) #22
   %55 = icmp eq ptr %.sroa.6.1.ph, null
@@ -3102,7 +3102,7 @@ switch.early.test37:                              ; preds = %13
   br label %psa_driver_wrapper_verify_hash.exit
 
 psa_driver_wrapper_verify_hash.exit:              ; preds = %37, %34, %31, %29, %28, %21, %18
-  %.0 = phi i32 [ %20, %18 ], [ -135, %21 ], [ %30, %29 ], [ %38, %37 ], [ -135, %28 ], [ -135, %34 ], [ -134, %31 ]
+  %.0 = phi i32 [ %20, %18 ], [ -135, %21 ], [ %30, %29 ], [ -135, %34 ], [ %38, %37 ], [ -135, %28 ], [ -134, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %39
@@ -3219,8 +3219,8 @@ psa_sign_verify_check_alg.exit:                   ; preds = %34, %31, %switch.ea
   %spec.select.i = select i1 %45, i32 %44, i32 %.0.fr.i
   br label %psa_verify_internal.exit
 
-psa_verify_internal.exit:                         ; preds = %31, %34, %25, %psa_sign_verify_check_alg.exit, %36
-  %.023.i = phi i32 [ %35, %psa_sign_verify_check_alg.exit ], [ %spec.select.i, %36 ], [ -135, %25 ], [ -135, %34 ], [ -135, %31 ]
+psa_verify_internal.exit:                         ; preds = %34, %31, %25, %psa_sign_verify_check_alg.exit, %36
+  %.023.i = phi i32 [ %35, %psa_sign_verify_check_alg.exit ], [ %spec.select.i, %36 ], [ -135, %25 ], [ -135, %31 ], [ -135, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %psa_crypto_local_input_alloc.exit
 
@@ -3266,7 +3266,7 @@ define hidden i32 @psa_sign_hash_builtin(ptr noundef %0, ptr noundef %1, i64 nou
   br label %24
 
 24:                                               ; preds = %16, %19, %12, %22, %14
-  %.0 = phi i32 [ %15, %14 ], [ %23, %22 ], [ -135, %12 ], [ -135, %19 ], [ -134, %16 ]
+  %.0 = phi i32 [ %15, %14 ], [ -135, %19 ], [ %23, %22 ], [ -135, %12 ], [ -134, %16 ]
   ret i32 %.0
 }
 
@@ -3348,9 +3348,9 @@ select.unfold:                                    ; preds = %19, %19, %19, %19
   br label %psa_wipe_tag_output_buffer.exit.i
 
 psa_wipe_tag_output_buffer.exit.i:                ; preds = %28, %24, %22
-  %36 = phi ptr [ %.pre41.i, %24 ], [ %.pre41.i, %22 ], [ %.pre.i, %28 ]
-  %.038.i = phi i32 [ -135, %24 ], [ %23, %22 ], [ %.0.fr.i, %28 ]
-  %37 = phi i64 [ 0, %24 ], [ 0, %22 ], [ %spec.select.i, %28 ]
+  %36 = phi ptr [ %.pre41.i, %22 ], [ %.pre.i, %28 ], [ %.pre41.i, %24 ]
+  %.038.i = phi i32 [ %23, %22 ], [ %.0.fr.i, %28 ], [ -135, %24 ]
+  %37 = phi i64 [ 0, %22 ], [ %spec.select.i, %28 ], [ 0, %24 ]
   %.038.fr.i = freeze i32 %.038.i
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.6.1.ph, i64 %37
   %39 = sub i64 %5, %37
@@ -3426,7 +3426,7 @@ define hidden i32 @psa_verify_hash_builtin(ptr noundef %0, ptr noundef %1, i64 n
   br label %24
 
 24:                                               ; preds = %16, %19, %12, %22, %14
-  %.0 = phi i32 [ %15, %14 ], [ %23, %22 ], [ -135, %12 ], [ -135, %19 ], [ -134, %16 ]
+  %.0 = phi i32 [ %15, %14 ], [ -135, %19 ], [ %23, %22 ], [ -135, %12 ], [ -134, %16 ]
   ret i32 %.0
 }
 
@@ -3527,7 +3527,7 @@ select.unfold:                                    ; preds = %switch.early.test54
   br label %psa_driver_wrapper_verify_hash.exit.i
 
 psa_driver_wrapper_verify_hash.exit.thread.i:     ; preds = %40, %37, %34, %23
-  %.0.ph.i = phi i32 [ -134, %37 ], [ -135, %40 ], [ -135, %34 ], [ -135, %23 ]
+  %.0.ph.i = phi i32 [ -134, %37 ], [ -135, %34 ], [ -135, %40 ], [ -135, %23 ]
   %45 = call i32 @psa_unregister_read_under_mutex(ptr noundef nonnull %24) #22
   br label %psa_verify_internal.exit
 
@@ -3541,7 +3541,7 @@ psa_driver_wrapper_verify_hash.exit.i:            ; preds = %43, %35
   br label %psa_verify_internal.exit
 
 psa_verify_internal.exit:                         ; preds = %switch.early.test54.i, %select.unfold, %psa_driver_wrapper_verify_hash.exit.thread.i, %psa_driver_wrapper_verify_hash.exit.i
-  %.023.i = phi i32 [ %22, %select.unfold ], [ %.0.ph.i, %psa_driver_wrapper_verify_hash.exit.thread.i ], [ %spec.select.i, %psa_driver_wrapper_verify_hash.exit.i ], [ -135, %switch.early.test54.i ]
+  %.023.i = phi i32 [ %22, %select.unfold ], [ %spec.select.i, %psa_driver_wrapper_verify_hash.exit.i ], [ %.0.ph.i, %psa_driver_wrapper_verify_hash.exit.thread.i ], [ -135, %switch.early.test54.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %psa_crypto_local_input_alloc.exit
 
@@ -3635,13 +3635,13 @@ define hidden i32 @psa_asymmetric_encrypt(i32 noundef %0, i32 noundef %1, ptr no
   br label %psa_crypto_local_input_alloc.exit
 
 psa_crypto_local_input_alloc.exit:                ; preds = %39, %37, %34, %28, %22, %16
-  %46 = phi ptr [ %17, %16 ], [ %17, %22 ], [ %17, %28 ], [ %17, %34 ], [ %17, %37 ], [ %.pre, %39 ]
-  %.sroa.058.0 = phi ptr [ null, %16 ], [ null, %22 ], [ %.sroa.058.1.ph, %28 ], [ %.sroa.058.1.ph, %34 ], [ %.sroa.058.1.ph, %37 ], [ %.sroa.058.1.ph, %39 ]
-  %.sroa.052.0 = phi ptr [ null, %16 ], [ null, %22 ], [ null, %28 ], [ %.sroa.052.1.ph, %34 ], [ %.sroa.052.1.ph, %37 ], [ %.sroa.052.1.ph, %39 ]
-  %.sroa.0.0 = phi ptr [ null, %16 ], [ null, %22 ], [ null, %28 ], [ null, %34 ], [ %.sroa.0.1.ph, %37 ], [ %.sroa.0.1.ph, %39 ]
-  %.sroa.6.0 = phi ptr [ null, %16 ], [ null, %22 ], [ null, %28 ], [ null, %34 ], [ %.sroa.6.1.ph, %37 ], [ %.sroa.6.1.ph, %39 ]
-  %.sroa.11.0 = phi i64 [ 0, %16 ], [ 0, %22 ], [ 0, %28 ], [ 0, %34 ], [ %7, %37 ], [ %7, %39 ]
-  %.030 = phi i32 [ -135, %16 ], [ -141, %22 ], [ -141, %28 ], [ -141, %34 ], [ -135, %37 ], [ %45, %39 ]
+  %46 = phi ptr [ %17, %16 ], [ %17, %34 ], [ %17, %28 ], [ %17, %22 ], [ %17, %37 ], [ %.pre, %39 ]
+  %.sroa.058.0 = phi ptr [ null, %16 ], [ %.sroa.058.1.ph, %34 ], [ %.sroa.058.1.ph, %28 ], [ null, %22 ], [ %.sroa.058.1.ph, %37 ], [ %.sroa.058.1.ph, %39 ]
+  %.sroa.052.0 = phi ptr [ null, %16 ], [ %.sroa.052.1.ph, %34 ], [ null, %28 ], [ null, %22 ], [ %.sroa.052.1.ph, %37 ], [ %.sroa.052.1.ph, %39 ]
+  %.sroa.0.0 = phi ptr [ null, %16 ], [ null, %34 ], [ null, %28 ], [ null, %22 ], [ %.sroa.0.1.ph, %37 ], [ %.sroa.0.1.ph, %39 ]
+  %.sroa.6.0 = phi ptr [ null, %16 ], [ null, %34 ], [ null, %28 ], [ null, %22 ], [ %.sroa.6.1.ph, %37 ], [ %.sroa.6.1.ph, %39 ]
+  %.sroa.11.0 = phi i64 [ 0, %16 ], [ 0, %34 ], [ 0, %28 ], [ 0, %22 ], [ %7, %37 ], [ %7, %39 ]
+  %.030 = phi i32 [ -135, %16 ], [ -141, %34 ], [ -141, %28 ], [ -141, %22 ], [ -135, %37 ], [ %45, %39 ]
   %47 = call i32 @psa_unregister_read_under_mutex(ptr noundef %46) #22
   call void @free(ptr noundef %.sroa.058.0) #22
   call void @free(ptr noundef %.sroa.052.0) #22
@@ -3670,7 +3670,7 @@ psa_crypto_local_output_free.exit:                ; preds = %psa_crypto_local_in
   br label %psa_crypto_local_output_free.exit.thread83
 
 psa_crypto_local_output_free.exit.thread83:       ; preds = %psa_crypto_local_output_free.exit, %49, %14, %9
-  %.0 = phi i32 [ -135, %9 ], [ %15, %14 ], [ -151, %49 ], [ %spec.select, %psa_crypto_local_output_free.exit ]
+  %.0 = phi i32 [ %15, %14 ], [ -135, %9 ], [ -151, %49 ], [ %spec.select, %psa_crypto_local_output_free.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
 }
@@ -3754,13 +3754,13 @@ define hidden i32 @psa_asymmetric_decrypt(i32 noundef %0, i32 noundef %1, ptr no
   br label %psa_crypto_local_input_alloc.exit
 
 psa_crypto_local_input_alloc.exit:                ; preds = %40, %38, %35, %29, %23, %16
-  %47 = phi ptr [ %17, %16 ], [ %17, %23 ], [ %17, %29 ], [ %17, %35 ], [ %17, %38 ], [ %.pre, %40 ]
-  %.sroa.057.0 = phi ptr [ null, %16 ], [ null, %23 ], [ %.sroa.057.1.ph, %29 ], [ %.sroa.057.1.ph, %35 ], [ %.sroa.057.1.ph, %38 ], [ %.sroa.057.1.ph, %40 ]
-  %.sroa.051.0 = phi ptr [ null, %16 ], [ null, %23 ], [ null, %29 ], [ %.sroa.051.1.ph, %35 ], [ %.sroa.051.1.ph, %38 ], [ %.sroa.051.1.ph, %40 ]
-  %.sroa.0.0 = phi ptr [ null, %16 ], [ null, %23 ], [ null, %29 ], [ null, %35 ], [ %.sroa.0.1.ph, %38 ], [ %.sroa.0.1.ph, %40 ]
-  %.sroa.6.0 = phi ptr [ null, %16 ], [ null, %23 ], [ null, %29 ], [ null, %35 ], [ %.sroa.6.1.ph, %38 ], [ %.sroa.6.1.ph, %40 ]
-  %.sroa.11.0 = phi i64 [ 0, %16 ], [ 0, %23 ], [ 0, %29 ], [ 0, %35 ], [ %7, %38 ], [ %7, %40 ]
-  %.030 = phi i32 [ -135, %16 ], [ -141, %23 ], [ -141, %29 ], [ -141, %35 ], [ -135, %38 ], [ %46, %40 ]
+  %47 = phi ptr [ %17, %35 ], [ %17, %29 ], [ %17, %23 ], [ %17, %16 ], [ %17, %38 ], [ %.pre, %40 ]
+  %.sroa.057.0 = phi ptr [ %.sroa.057.1.ph, %35 ], [ %.sroa.057.1.ph, %29 ], [ null, %23 ], [ null, %16 ], [ %.sroa.057.1.ph, %38 ], [ %.sroa.057.1.ph, %40 ]
+  %.sroa.051.0 = phi ptr [ %.sroa.051.1.ph, %35 ], [ null, %29 ], [ null, %23 ], [ null, %16 ], [ %.sroa.051.1.ph, %38 ], [ %.sroa.051.1.ph, %40 ]
+  %.sroa.0.0 = phi ptr [ null, %35 ], [ null, %29 ], [ null, %23 ], [ null, %16 ], [ %.sroa.0.1.ph, %38 ], [ %.sroa.0.1.ph, %40 ]
+  %.sroa.6.0 = phi ptr [ null, %35 ], [ null, %29 ], [ null, %23 ], [ null, %16 ], [ %.sroa.6.1.ph, %38 ], [ %.sroa.6.1.ph, %40 ]
+  %.sroa.11.0 = phi i64 [ 0, %35 ], [ 0, %29 ], [ 0, %23 ], [ 0, %16 ], [ %7, %38 ], [ %7, %40 ]
+  %.030 = phi i32 [ -141, %35 ], [ -141, %29 ], [ -141, %23 ], [ -135, %16 ], [ -135, %38 ], [ %46, %40 ]
   %48 = call i32 @psa_unregister_read_under_mutex(ptr noundef %47) #22
   call void @free(ptr noundef %.sroa.057.0) #22
   call void @free(ptr noundef %.sroa.051.0) #22
@@ -3789,7 +3789,7 @@ psa_crypto_local_output_free.exit:                ; preds = %psa_crypto_local_in
   br label %psa_crypto_local_output_free.exit.thread84
 
 psa_crypto_local_output_free.exit.thread84:       ; preds = %psa_crypto_local_output_free.exit, %50, %14, %9
-  %.0 = phi i32 [ -135, %9 ], [ %15, %14 ], [ -151, %50 ], [ %spec.select, %psa_crypto_local_output_free.exit ]
+  %.0 = phi i32 [ %15, %14 ], [ -135, %9 ], [ -151, %50 ], [ %spec.select, %psa_crypto_local_output_free.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
 }
@@ -3895,8 +3895,8 @@ psa_crypto_local_input_alloc.exit.thread48:       ; preds = %28
   br label %36
 
 psa_crypto_local_input_alloc.exit:                ; preds = %28, %24, %select.unfold, %17
-  %.sroa.0.0.ph = phi ptr [ %.sroa.0.1.ph, %28 ], [ null, %24 ], [ null, %select.unfold ], [ null, %17 ]
-  %.0.ph = phi i32 [ -135, %28 ], [ -141, %24 ], [ %16, %select.unfold ], [ -135, %17 ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.1.ph, %28 ], [ null, %17 ], [ null, %select.unfold ], [ null, %24 ]
+  %.0.ph = phi i32 [ -135, %28 ], [ -135, %17 ], [ %16, %select.unfold ], [ -141, %24 ]
   %.pr = load i32, ptr %0, align 4, !tbaa !62
   %33 = load i8, ptr %9, align 4
   %34 = or i8 %33, 1
@@ -3929,7 +3929,7 @@ psa_sign_hash_abort_internal.exit:                ; preds = %psa_crypto_local_in
   br label %43
 
 43:                                               ; preds = %5, %8, %42, %psa_sign_verify_check_alg.exit
-  %.025 = phi i32 [ -135, %psa_sign_verify_check_alg.exit ], [ %.054, %42 ], [ -137, %8 ], [ -137, %5 ]
+  %.025 = phi i32 [ %.054, %42 ], [ -135, %psa_sign_verify_check_alg.exit ], [ -137, %8 ], [ -137, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.025
 }
@@ -3958,7 +3958,7 @@ psa_sign_hash_abort_internal.exit.thread:         ; preds = %4
   store i8 %12, ptr %11, align 4
   br label %psa_crypto_local_output_free.exit
 
-psa_sign_hash_abort_internal.exit.thread77:       ; preds = %7, %9
+psa_sign_hash_abort_internal.exit.thread77:       ; preds = %9, %7
   %.056.ph.ph = phi i32 [ -138, %9 ], [ -137, %7 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = or i8 %.pre, 1
@@ -3983,7 +3983,7 @@ psa_crypto_copy_output.exit.i:                    ; preds = %15
   br label %psa_crypto_local_output_free.exit
 
 psa_crypto_local_output_free.exit:                ; preds = %psa_sign_hash_abort_internal.exit.thread77, %psa_sign_hash_abort_internal.exit.thread, %psa_crypto_copy_output.exit.i, %15
-  %20 = phi i32 [ -151, %15 ], [ %spec.select.i, %psa_crypto_copy_output.exit.i ], [ -137, %psa_sign_hash_abort_internal.exit.thread ], [ %.056.ph.ph, %psa_sign_hash_abort_internal.exit.thread77 ]
+  %20 = phi i32 [ -151, %15 ], [ %spec.select.i, %psa_crypto_copy_output.exit.i ], [ %.056.ph.ph, %psa_sign_hash_abort_internal.exit.thread77 ], [ -137, %psa_sign_hash_abort_internal.exit.thread ]
   ret i32 %20
 }
 
@@ -4099,9 +4099,9 @@ psa_crypto_local_input_alloc.exit.thread71:       ; preds = %34
   br label %43
 
 psa_crypto_local_input_alloc.exit:                ; preds = %34, %30, %24
-  %.sroa.053.064.ph = phi ptr [ %.sroa.053.0.ph, %34 ], [ %.sroa.053.0.ph, %30 ], [ null, %24 ]
-  %.sroa.0.0.ph = phi ptr [ %.sroa.0.1.ph, %34 ], [ null, %30 ], [ null, %24 ]
-  %.0.ph = phi i32 [ -135, %34 ], [ -141, %30 ], [ -141, %24 ]
+  %.sroa.053.064.ph = phi ptr [ %.sroa.053.0.ph, %34 ], [ null, %24 ], [ %.sroa.053.0.ph, %30 ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.1.ph, %34 ], [ null, %24 ], [ null, %30 ]
+  %.0.ph = phi i32 [ -135, %34 ], [ -141, %24 ], [ -141, %30 ]
   %.pr = load i32, ptr %0, align 4, !tbaa !63
   %40 = load i8, ptr %11, align 4
   %41 = or i8 %40, 1
@@ -4137,7 +4137,7 @@ psa_verify_hash_abort_internal.exit:              ; preds = %psa_crypto_local_in
   br label %50
 
 50:                                               ; preds = %7, %10, %49, %19, %psa_sign_verify_check_alg.exit
-  %.032 = phi i32 [ -135, %psa_sign_verify_check_alg.exit ], [ %18, %19 ], [ %.080, %49 ], [ -137, %10 ], [ -137, %7 ]
+  %.032 = phi i32 [ %.080, %49 ], [ -135, %psa_sign_verify_check_alg.exit ], [ %18, %19 ], [ -137, %10 ], [ -137, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.032
 }
@@ -4360,7 +4360,7 @@ define internal fastcc i32 @psa_cipher_setup(ptr noundef %0, i32 noundef %1, i32
   br i1 %66, label %psa_driver_wrapper_cipher_encrypt_setup.exit.thread54, label %psa_driver_wrapper_cipher_encrypt_setup.exit.threadthread-pre-split
 
 psa_driver_wrapper_cipher_encrypt_setup.exit.threadthread-pre-split: ; preds = %51, %11, %50, %59, %58
-  %.049.ph = phi i32 [ %12, %11 ], [ -135, %50 ], [ %65, %59 ], [ -135, %58 ], [ %57, %51 ]
+  %.049.ph = phi i32 [ %57, %51 ], [ %12, %11 ], [ -135, %50 ], [ %65, %59 ], [ -135, %58 ]
   %.pr = load i32, ptr %0, align 8, !tbaa !64
   br label %psa_driver_wrapper_cipher_encrypt_setup.exit.thread
 
@@ -4482,8 +4482,8 @@ psa_generate_random_internal.exit:                ; preds = %.lr.ph.i
   br i1 %.not36, label %psa_generate_random_internal.exit.thread, label %psa_crypto_local_output_alloc.exit.thread60thread-pre-split
 
 psa_generate_random_internal.exit.thread:         ; preds = %34, %23, %psa_generate_random_internal.exit
-  %.sroa.0.1.ph9097 = phi ptr [ %1, %psa_generate_random_internal.exit ], [ null, %23 ], [ %1, %34 ]
-  %.sroa.6.1.ph9195 = phi ptr [ %21, %psa_generate_random_internal.exit ], [ null, %23 ], [ %21, %34 ]
+  %.sroa.0.1.ph9097 = phi ptr [ null, %23 ], [ %1, %psa_generate_random_internal.exit ], [ %1, %34 ]
+  %.sroa.6.1.ph9195 = phi ptr [ null, %23 ], [ %21, %psa_generate_random_internal.exit ], [ %21, %34 ]
   %38 = load i32, ptr %0, align 8, !tbaa !64
   %cond.i = icmp eq i32 %38, 1
   br i1 %cond.i, label %psa_crypto_local_output_alloc.exit, label %psa_crypto_local_output_alloc.exit.thread60
@@ -4494,12 +4494,12 @@ psa_crypto_local_output_alloc.exit:               ; preds = %psa_generate_random
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %49, label %psa_crypto_local_output_alloc.exit.thread60thread-pre-split
 
-psa_crypto_local_output_alloc.exit.thread60thread-pre-split: ; preds = %psa_crypto_local_output_alloc.exit, %psa_generate_random_internal.exit, %7, %11, %16, %20, %23, %.thread
-  %.076.ph = phi i32 [ -137, %.thread ], [ -137, %23 ], [ %37, %psa_generate_random_internal.exit ], [ -137, %7 ], [ -138, %11 ], [ -132, %16 ], [ -141, %20 ], [ %40, %psa_crypto_local_output_alloc.exit ]
-  %.02774.ph = phi ptr [ %21, %.thread ], [ null, %23 ], [ %21, %psa_generate_random_internal.exit ], [ null, %7 ], [ null, %11 ], [ null, %16 ], [ null, %20 ], [ %.sroa.6.1.ph9195, %psa_crypto_local_output_alloc.exit ]
-  %.02873.ph = phi i64 [ %14, %.thread ], [ 0, %23 ], [ %14, %psa_generate_random_internal.exit ], [ 0, %7 ], [ %14, %11 ], [ %14, %16 ], [ %14, %20 ], [ %14, %psa_crypto_local_output_alloc.exit ]
-  %.sroa.11.072.ph = phi i64 [ %14, %.thread ], [ 0, %23 ], [ %14, %psa_generate_random_internal.exit ], [ 0, %7 ], [ 0, %11 ], [ 0, %16 ], [ 0, %20 ], [ %14, %psa_crypto_local_output_alloc.exit ]
-  %.sroa.0.068.ph = phi ptr [ %1, %.thread ], [ null, %23 ], [ %1, %psa_generate_random_internal.exit ], [ null, %7 ], [ null, %11 ], [ null, %16 ], [ null, %20 ], [ %.sroa.0.1.ph9097, %psa_crypto_local_output_alloc.exit ]
+psa_crypto_local_output_alloc.exit.thread60thread-pre-split: ; preds = %psa_crypto_local_output_alloc.exit, %7, %11, %16, %psa_generate_random_internal.exit, %20, %23, %.thread
+  %.076.ph = phi i32 [ -137, %.thread ], [ -137, %23 ], [ -137, %7 ], [ -138, %11 ], [ -132, %16 ], [ %37, %psa_generate_random_internal.exit ], [ -141, %20 ], [ %40, %psa_crypto_local_output_alloc.exit ]
+  %.02774.ph = phi ptr [ %21, %.thread ], [ null, %23 ], [ null, %7 ], [ null, %11 ], [ null, %16 ], [ %21, %psa_generate_random_internal.exit ], [ null, %20 ], [ %.sroa.6.1.ph9195, %psa_crypto_local_output_alloc.exit ]
+  %.02873.ph = phi i64 [ %14, %.thread ], [ 0, %23 ], [ 0, %7 ], [ %14, %11 ], [ %14, %16 ], [ %14, %psa_generate_random_internal.exit ], [ %14, %20 ], [ %14, %psa_crypto_local_output_alloc.exit ]
+  %.sroa.11.072.ph = phi i64 [ %14, %.thread ], [ 0, %23 ], [ 0, %7 ], [ 0, %11 ], [ 0, %16 ], [ %14, %psa_generate_random_internal.exit ], [ 0, %20 ], [ %14, %psa_crypto_local_output_alloc.exit ]
+  %.sroa.0.068.ph = phi ptr [ %1, %.thread ], [ null, %23 ], [ null, %7 ], [ null, %11 ], [ null, %16 ], [ %1, %psa_generate_random_internal.exit ], [ null, %20 ], [ %.sroa.0.1.ph9097, %psa_crypto_local_output_alloc.exit ]
   %.pr = load i32, ptr %0, align 8, !tbaa !64
   br label %psa_crypto_local_output_alloc.exit.thread60
 
@@ -4645,10 +4645,10 @@ psa_crypto_local_input_alloc.exit.psa_crypto_local_input_alloc.exit.thread28_cri
   %24 = or i8 %23, 2
   br label %psa_cipher_abort.exit.sink.split
 
-psa_crypto_local_input_alloc.exit.thread28:       ; preds = %psa_crypto_local_input_alloc.exit.psa_crypto_local_input_alloc.exit.thread28_crit_edge, %18, %14, %10, %6
-  %.pr = phi i32 [ %4, %6 ], [ %4, %10 ], [ %4, %14 ], [ %4, %18 ], [ %.pr.pre, %psa_crypto_local_input_alloc.exit.psa_crypto_local_input_alloc.exit.thread28_crit_edge ]
-  %.034.ph = phi i32 [ -137, %6 ], [ -135, %10 ], [ -141, %14 ], [ -135, %18 ], [ %20, %psa_crypto_local_input_alloc.exit.psa_crypto_local_input_alloc.exit.thread28_crit_edge ]
-  %.sroa.0.032.ph = phi ptr [ null, %6 ], [ null, %10 ], [ null, %14 ], [ %.sroa.0.1.ph, %18 ], [ %.sroa.0.1.ph, %psa_crypto_local_input_alloc.exit.psa_crypto_local_input_alloc.exit.thread28_crit_edge ]
+psa_crypto_local_input_alloc.exit.thread28:       ; preds = %psa_crypto_local_input_alloc.exit.psa_crypto_local_input_alloc.exit.thread28_crit_edge, %18, %10, %6, %14
+  %.pr = phi i32 [ %4, %14 ], [ %4, %6 ], [ %4, %10 ], [ %4, %18 ], [ %.pr.pre, %psa_crypto_local_input_alloc.exit.psa_crypto_local_input_alloc.exit.thread28_crit_edge ]
+  %.034.ph = phi i32 [ -141, %14 ], [ -137, %6 ], [ -135, %10 ], [ -135, %18 ], [ %20, %psa_crypto_local_input_alloc.exit.psa_crypto_local_input_alloc.exit.thread28_crit_edge ]
+  %.sroa.0.032.ph = phi ptr [ null, %14 ], [ null, %6 ], [ null, %10 ], [ %.sroa.0.1.ph, %18 ], [ %.sroa.0.1.ph, %psa_crypto_local_input_alloc.exit.psa_crypto_local_input_alloc.exit.thread28_crit_edge ]
   switch i32 %.pr, label %psa_driver_wrapper_cipher_abort.exit.i [
     i32 0, label %psa_cipher_abort.exit
     i32 1, label %25
@@ -4673,8 +4673,8 @@ psa_cipher_abort.exit.sink.split:                 ; preds = %22, %psa_driver_wra
   br label %psa_cipher_abort.exit
 
 psa_cipher_abort.exit:                            ; preds = %psa_cipher_abort.exit.sink.split, %3, %psa_crypto_local_input_alloc.exit.thread28
-  %.033 = phi i32 [ %.034.ph, %psa_crypto_local_input_alloc.exit.thread28 ], [ -137, %3 ], [ %.033.ph, %psa_cipher_abort.exit.sink.split ]
-  %.sroa.0.031 = phi ptr [ %.sroa.0.032.ph, %psa_crypto_local_input_alloc.exit.thread28 ], [ null, %3 ], [ %.sroa.0.031.ph, %psa_cipher_abort.exit.sink.split ]
+  %.033 = phi i32 [ -137, %3 ], [ %.034.ph, %psa_crypto_local_input_alloc.exit.thread28 ], [ %.033.ph, %psa_cipher_abort.exit.sink.split ]
+  %.sroa.0.031 = phi ptr [ null, %3 ], [ %.sroa.0.032.ph, %psa_crypto_local_input_alloc.exit.thread28 ], [ %.sroa.0.031.ph, %psa_cipher_abort.exit.sink.split ]
   tail call void @free(ptr noundef %.sroa.0.031) #22
   ret i32 %.033
 }
@@ -4868,10 +4868,10 @@ psa_cipher_abort.exit.sink.split:                 ; preds = %psa_cipher_abort.ex
   br label %psa_cipher_abort.exit
 
 psa_cipher_abort.exit:                            ; preds = %psa_cipher_abort.exit.sink.split, %psa_crypto_local_output_alloc.exit.thread39, %20
-  %.sroa.11.048 = phi i64 [ %2, %20 ], [ %.sroa.11.049.ph, %psa_crypto_local_output_alloc.exit.thread39 ], [ %.sroa.11.048.ph, %psa_cipher_abort.exit.sink.split ]
-  %.sroa.6.046 = phi ptr [ %.sroa.6.1.ph, %20 ], [ %.sroa.6.047.ph, %psa_crypto_local_output_alloc.exit.thread39 ], [ %.sroa.6.046.ph, %psa_cipher_abort.exit.sink.split ]
-  %.sroa.0.044 = phi ptr [ %.sroa.0.1.ph, %20 ], [ %.sroa.0.045.ph, %psa_crypto_local_output_alloc.exit.thread39 ], [ %.sroa.0.044.ph, %psa_cipher_abort.exit.sink.split ]
-  %.1 = phi i32 [ %.pr.pre, %20 ], [ %.050.ph, %psa_crypto_local_output_alloc.exit.thread39 ], [ %.1.ph, %psa_cipher_abort.exit.sink.split ]
+  %.sroa.11.048 = phi i64 [ %.sroa.11.049.ph, %psa_crypto_local_output_alloc.exit.thread39 ], [ %2, %20 ], [ %.sroa.11.048.ph, %psa_cipher_abort.exit.sink.split ]
+  %.sroa.6.046 = phi ptr [ %.sroa.6.047.ph, %psa_crypto_local_output_alloc.exit.thread39 ], [ %.sroa.6.1.ph, %20 ], [ %.sroa.6.046.ph, %psa_cipher_abort.exit.sink.split ]
+  %.sroa.0.044 = phi ptr [ %.sroa.0.045.ph, %psa_crypto_local_output_alloc.exit.thread39 ], [ %.sroa.0.1.ph, %20 ], [ %.sroa.0.044.ph, %psa_cipher_abort.exit.sink.split ]
+  %.1 = phi i32 [ %.050.ph, %psa_crypto_local_output_alloc.exit.thread39 ], [ %.pr.pre, %20 ], [ %.1.ph, %psa_cipher_abort.exit.sink.split ]
   %26 = icmp eq ptr %.sroa.6.046, null
   br i1 %26, label %psa_crypto_local_output_free.exit, label %27
 
@@ -5017,12 +5017,12 @@ psa_generate_random_internal.exit.thread:         ; preds = %48, %psa_generate_r
   %cond.i = icmp ult i32 %.val.i, 256
   br i1 %cond.i, label %psa_crypto_local_input_alloc.exit, label %.thread121
 
-.thread121:                                       ; preds = %41, %63, %60, %54, %.thread85, %28, %7, %psa_generate_random_internal.exit, %12
-  %.sroa.079.0.ph = phi ptr [ %.sroa.079.1.ph, %63 ], [ %.sroa.079.1.ph, %60 ], [ null, %54 ], [ null, %7 ], [ null, %12 ], [ null, %psa_generate_random_internal.exit ], [ null, %.thread85 ], [ null, %28 ], [ null, %41 ]
-  %.sroa.0.0.ph = phi ptr [ %.sroa.0.1.ph, %63 ], [ null, %60 ], [ null, %54 ], [ null, %7 ], [ null, %12 ], [ null, %psa_generate_random_internal.exit ], [ null, %.thread85 ], [ null, %28 ], [ null, %41 ]
-  %.sroa.6.0.ph = phi ptr [ %.sroa.6.1.ph, %63 ], [ null, %60 ], [ null, %54 ], [ null, %7 ], [ null, %12 ], [ null, %psa_generate_random_internal.exit ], [ null, %.thread85 ], [ null, %28 ], [ null, %41 ]
-  %.sroa.11.0.ph = phi i64 [ %5, %63 ], [ 0, %60 ], [ 0, %54 ], [ 0, %7 ], [ 0, %12 ], [ 0, %psa_generate_random_internal.exit ], [ 0, %.thread85 ], [ 0, %28 ], [ 0, %41 ]
-  %.0.ph = phi i32 [ -135, %63 ], [ -141, %60 ], [ -141, %54 ], [ -135, %7 ], [ %13, %12 ], [ %51, %psa_generate_random_internal.exit ], [ -138, %.thread85 ], [ -132, %28 ], [ -137, %41 ]
+.thread121:                                       ; preds = %41, %63, %.thread85, %60, %54, %psa_generate_random_internal.exit, %28, %7, %12
+  %.sroa.079.0.ph = phi ptr [ %.sroa.079.1.ph, %63 ], [ null, %7 ], [ null, %12 ], [ null, %psa_generate_random_internal.exit ], [ null, %.thread85 ], [ null, %28 ], [ null, %54 ], [ %.sroa.079.1.ph, %60 ], [ null, %41 ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.1.ph, %63 ], [ null, %7 ], [ null, %12 ], [ null, %psa_generate_random_internal.exit ], [ null, %.thread85 ], [ null, %28 ], [ null, %54 ], [ null, %60 ], [ null, %41 ]
+  %.sroa.6.0.ph = phi ptr [ %.sroa.6.1.ph, %63 ], [ null, %7 ], [ null, %12 ], [ null, %psa_generate_random_internal.exit ], [ null, %.thread85 ], [ null, %28 ], [ null, %54 ], [ null, %60 ], [ null, %41 ]
+  %.sroa.11.0.ph = phi i64 [ %5, %63 ], [ 0, %7 ], [ 0, %12 ], [ 0, %psa_generate_random_internal.exit ], [ 0, %.thread85 ], [ 0, %28 ], [ 0, %54 ], [ 0, %60 ], [ 0, %41 ]
+  %.0.ph = phi i32 [ -135, %63 ], [ -135, %7 ], [ %13, %12 ], [ %51, %psa_generate_random_internal.exit ], [ -138, %.thread85 ], [ -132, %28 ], [ -141, %54 ], [ -141, %60 ], [ -137, %41 ]
   %66 = load ptr, ptr %8, align 8, !tbaa !29
   %67 = call i32 @psa_unregister_read_under_mutex(ptr noundef %66) #22
   br label %86
@@ -5182,12 +5182,12 @@ define hidden i32 @psa_cipher_decrypt(i32 noundef %0, i32 noundef %1, ptr nounde
   br i1 %cond.i, label %psa_crypto_local_input_alloc.exit, label %.thread
 
 .thread:                                          ; preds = %51, %48, %42, %36, %7, %11
-  %53 = phi ptr [ %.pre, %51 ], [ %.pre, %48 ], [ %.pre, %42 ], [ null, %7 ], [ %.pre, %11 ], [ %.pre, %36 ]
-  %.sroa.060.0.ph = phi ptr [ %.sroa.060.1.ph, %51 ], [ %.sroa.060.1.ph, %48 ], [ null, %42 ], [ null, %7 ], [ null, %11 ], [ null, %36 ]
-  %.sroa.0.0.ph = phi ptr [ %.sroa.0.1.ph, %51 ], [ null, %48 ], [ null, %42 ], [ null, %7 ], [ null, %11 ], [ null, %36 ]
-  %.sroa.6.0.ph = phi ptr [ %.sroa.6.1.ph, %51 ], [ null, %48 ], [ null, %42 ], [ null, %7 ], [ null, %11 ], [ null, %36 ]
-  %.sroa.11.0.ph = phi i64 [ %5, %51 ], [ 0, %48 ], [ 0, %42 ], [ 0, %7 ], [ 0, %11 ], [ 0, %36 ]
-  %.0.ph = phi i32 [ -135, %51 ], [ -141, %48 ], [ -141, %42 ], [ -135, %7 ], [ %12, %11 ], [ -135, %36 ]
+  %53 = phi ptr [ %.pre, %51 ], [ %.pre, %11 ], [ null, %7 ], [ %.pre, %42 ], [ %.pre, %48 ], [ %.pre, %36 ]
+  %.sroa.060.0.ph = phi ptr [ %.sroa.060.1.ph, %51 ], [ null, %11 ], [ null, %7 ], [ null, %42 ], [ %.sroa.060.1.ph, %48 ], [ null, %36 ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.1.ph, %51 ], [ null, %11 ], [ null, %7 ], [ null, %42 ], [ null, %48 ], [ null, %36 ]
+  %.sroa.6.0.ph = phi ptr [ %.sroa.6.1.ph, %51 ], [ null, %11 ], [ null, %7 ], [ null, %42 ], [ null, %48 ], [ null, %36 ]
+  %.sroa.11.0.ph = phi i64 [ %5, %51 ], [ 0, %11 ], [ 0, %7 ], [ 0, %42 ], [ 0, %48 ], [ 0, %36 ]
+  %.0.ph = phi i32 [ -135, %51 ], [ %12, %11 ], [ -135, %7 ], [ -141, %42 ], [ -141, %48 ], [ -135, %36 ]
   %54 = call i32 @psa_unregister_read_under_mutex(ptr noundef %53) #22
   br label %63
 
@@ -5345,13 +5345,13 @@ psa_driver_wrapper_aead_encrypt.exit:             ; preds = %41, %44
   br label %psa_crypto_local_input_alloc.exit
 
 psa_crypto_local_input_alloc.exit:                ; preds = %36, %30, %24, %18, %psa_driver_wrapper_aead_encrypt.exit, %52, %39
-  %.sroa.087.098 = phi ptr [ %.sroa.087.0.ph, %52 ], [ %.sroa.087.0.ph, %psa_driver_wrapper_aead_encrypt.exit ], [ %.sroa.087.0.ph, %39 ], [ null, %18 ], [ %.sroa.087.0.ph, %24 ], [ %.sroa.087.0.ph, %30 ], [ %.sroa.087.0.ph, %36 ]
-  %.sroa.080.0 = phi ptr [ %.sroa.080.1.ph, %52 ], [ %.sroa.080.1.ph, %psa_driver_wrapper_aead_encrypt.exit ], [ %.sroa.080.1.ph, %39 ], [ null, %18 ], [ null, %24 ], [ %.sroa.080.1.ph, %30 ], [ %.sroa.080.1.ph, %36 ]
-  %.sroa.074.0 = phi ptr [ %.sroa.074.1.ph, %52 ], [ %.sroa.074.1.ph, %psa_driver_wrapper_aead_encrypt.exit ], [ %.sroa.074.1.ph, %39 ], [ null, %18 ], [ null, %24 ], [ null, %30 ], [ %.sroa.074.1.ph, %36 ]
-  %.sroa.0.0 = phi ptr [ %.sroa.0.1.ph, %52 ], [ %.sroa.0.1.ph, %psa_driver_wrapper_aead_encrypt.exit ], [ %.sroa.0.1.ph, %39 ], [ null, %18 ], [ null, %24 ], [ null, %30 ], [ null, %36 ]
-  %.sroa.6.0 = phi ptr [ %.sroa.6.1.ph, %52 ], [ %.sroa.6.1.ph, %psa_driver_wrapper_aead_encrypt.exit ], [ %.sroa.6.1.ph, %39 ], [ null, %18 ], [ null, %24 ], [ null, %30 ], [ null, %36 ]
-  %.sroa.11.0 = phi i64 [ %9, %52 ], [ %9, %psa_driver_wrapper_aead_encrypt.exit ], [ %9, %39 ], [ 0, %18 ], [ 0, %24 ], [ 0, %30 ], [ 0, %36 ]
-  %.041 = phi i32 [ %.0.i67, %52 ], [ %.0.i67, %psa_driver_wrapper_aead_encrypt.exit ], [ %40, %39 ], [ -141, %18 ], [ -141, %24 ], [ -141, %30 ], [ -141, %36 ]
+  %.sroa.087.098 = phi ptr [ %.sroa.087.0.ph, %52 ], [ %.sroa.087.0.ph, %psa_driver_wrapper_aead_encrypt.exit ], [ %.sroa.087.0.ph, %39 ], [ %.sroa.087.0.ph, %30 ], [ %.sroa.087.0.ph, %24 ], [ null, %18 ], [ %.sroa.087.0.ph, %36 ]
+  %.sroa.080.0 = phi ptr [ %.sroa.080.1.ph, %52 ], [ %.sroa.080.1.ph, %psa_driver_wrapper_aead_encrypt.exit ], [ %.sroa.080.1.ph, %39 ], [ %.sroa.080.1.ph, %30 ], [ null, %24 ], [ null, %18 ], [ %.sroa.080.1.ph, %36 ]
+  %.sroa.074.0 = phi ptr [ %.sroa.074.1.ph, %52 ], [ %.sroa.074.1.ph, %psa_driver_wrapper_aead_encrypt.exit ], [ %.sroa.074.1.ph, %39 ], [ null, %30 ], [ null, %24 ], [ null, %18 ], [ %.sroa.074.1.ph, %36 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.1.ph, %52 ], [ %.sroa.0.1.ph, %psa_driver_wrapper_aead_encrypt.exit ], [ %.sroa.0.1.ph, %39 ], [ null, %30 ], [ null, %24 ], [ null, %18 ], [ null, %36 ]
+  %.sroa.6.0 = phi ptr [ %.sroa.6.1.ph, %52 ], [ %.sroa.6.1.ph, %psa_driver_wrapper_aead_encrypt.exit ], [ %.sroa.6.1.ph, %39 ], [ null, %30 ], [ null, %24 ], [ null, %18 ], [ null, %36 ]
+  %.sroa.11.0 = phi i64 [ %9, %52 ], [ %9, %psa_driver_wrapper_aead_encrypt.exit ], [ %9, %39 ], [ 0, %30 ], [ 0, %24 ], [ 0, %18 ], [ 0, %36 ]
+  %.041 = phi i32 [ %.0.i67, %52 ], [ %.0.i67, %psa_driver_wrapper_aead_encrypt.exit ], [ %40, %39 ], [ -141, %30 ], [ -141, %24 ], [ -141, %18 ], [ -141, %36 ]
   call void @free(ptr noundef %.sroa.087.098) #22
   call void @free(ptr noundef %.sroa.080.0) #22
   call void @free(ptr noundef %.sroa.074.0) #22
@@ -5415,7 +5415,7 @@ psa_aead_get_base_algorithm.exit:                 ; preds = %2
   br label %psa_aead_get_base_algorithm.exit.thread
 
 psa_aead_get_base_algorithm.exit.thread:          ; preds = %2, %psa_aead_get_base_algorithm.exit, %5, %4, %7
-  %.0 = phi i32 [ -135, %7 ], [ 0, %4 ], [ 0, %5 ], [ %switch.select11, %psa_aead_get_base_algorithm.exit ], [ -134, %2 ]
+  %.0 = phi i32 [ 0, %5 ], [ %switch.select11, %psa_aead_get_base_algorithm.exit ], [ -135, %7 ], [ 0, %4 ], [ -134, %2 ]
   ret i32 %.0
 }
 
@@ -5518,13 +5518,13 @@ psa_driver_wrapper_aead_decrypt.exit:             ; preds = %41, %44
   br label %psa_crypto_local_input_alloc.exit
 
 psa_crypto_local_input_alloc.exit:                ; preds = %36, %30, %24, %18, %psa_driver_wrapper_aead_decrypt.exit, %52, %39
-  %.sroa.087.098 = phi ptr [ %.sroa.087.0.ph, %52 ], [ %.sroa.087.0.ph, %psa_driver_wrapper_aead_decrypt.exit ], [ %.sroa.087.0.ph, %39 ], [ null, %18 ], [ %.sroa.087.0.ph, %24 ], [ %.sroa.087.0.ph, %30 ], [ %.sroa.087.0.ph, %36 ]
-  %.sroa.080.0 = phi ptr [ %.sroa.080.1.ph, %52 ], [ %.sroa.080.1.ph, %psa_driver_wrapper_aead_decrypt.exit ], [ %.sroa.080.1.ph, %39 ], [ null, %18 ], [ null, %24 ], [ %.sroa.080.1.ph, %30 ], [ %.sroa.080.1.ph, %36 ]
-  %.sroa.074.0 = phi ptr [ %.sroa.074.1.ph, %52 ], [ %.sroa.074.1.ph, %psa_driver_wrapper_aead_decrypt.exit ], [ %.sroa.074.1.ph, %39 ], [ null, %18 ], [ null, %24 ], [ null, %30 ], [ %.sroa.074.1.ph, %36 ]
-  %.sroa.0.0 = phi ptr [ %.sroa.0.1.ph, %52 ], [ %.sroa.0.1.ph, %psa_driver_wrapper_aead_decrypt.exit ], [ %.sroa.0.1.ph, %39 ], [ null, %18 ], [ null, %24 ], [ null, %30 ], [ null, %36 ]
-  %.sroa.6.0 = phi ptr [ %.sroa.6.1.ph, %52 ], [ %.sroa.6.1.ph, %psa_driver_wrapper_aead_decrypt.exit ], [ %.sroa.6.1.ph, %39 ], [ null, %18 ], [ null, %24 ], [ null, %30 ], [ null, %36 ]
-  %.sroa.11.0 = phi i64 [ %9, %52 ], [ %9, %psa_driver_wrapper_aead_decrypt.exit ], [ %9, %39 ], [ 0, %18 ], [ 0, %24 ], [ 0, %30 ], [ 0, %36 ]
-  %.041 = phi i32 [ %.0.i67, %52 ], [ %.0.i67, %psa_driver_wrapper_aead_decrypt.exit ], [ %40, %39 ], [ -141, %18 ], [ -141, %24 ], [ -141, %30 ], [ -141, %36 ]
+  %.sroa.087.098 = phi ptr [ %.sroa.087.0.ph, %52 ], [ %.sroa.087.0.ph, %psa_driver_wrapper_aead_decrypt.exit ], [ %.sroa.087.0.ph, %39 ], [ %.sroa.087.0.ph, %30 ], [ %.sroa.087.0.ph, %24 ], [ null, %18 ], [ %.sroa.087.0.ph, %36 ]
+  %.sroa.080.0 = phi ptr [ %.sroa.080.1.ph, %52 ], [ %.sroa.080.1.ph, %psa_driver_wrapper_aead_decrypt.exit ], [ %.sroa.080.1.ph, %39 ], [ %.sroa.080.1.ph, %30 ], [ null, %24 ], [ null, %18 ], [ %.sroa.080.1.ph, %36 ]
+  %.sroa.074.0 = phi ptr [ %.sroa.074.1.ph, %52 ], [ %.sroa.074.1.ph, %psa_driver_wrapper_aead_decrypt.exit ], [ %.sroa.074.1.ph, %39 ], [ null, %30 ], [ null, %24 ], [ null, %18 ], [ %.sroa.074.1.ph, %36 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.1.ph, %52 ], [ %.sroa.0.1.ph, %psa_driver_wrapper_aead_decrypt.exit ], [ %.sroa.0.1.ph, %39 ], [ null, %30 ], [ null, %24 ], [ null, %18 ], [ null, %36 ]
+  %.sroa.6.0 = phi ptr [ %.sroa.6.1.ph, %52 ], [ %.sroa.6.1.ph, %psa_driver_wrapper_aead_decrypt.exit ], [ %.sroa.6.1.ph, %39 ], [ null, %30 ], [ null, %24 ], [ null, %18 ], [ null, %36 ]
+  %.sroa.11.0 = phi i64 [ %9, %52 ], [ %9, %psa_driver_wrapper_aead_decrypt.exit ], [ %9, %39 ], [ 0, %30 ], [ 0, %24 ], [ 0, %18 ], [ 0, %36 ]
+  %.041 = phi i32 [ %.0.i67, %52 ], [ %.0.i67, %psa_driver_wrapper_aead_decrypt.exit ], [ %40, %39 ], [ -141, %30 ], [ -141, %24 ], [ -141, %18 ], [ -141, %36 ]
   call void @free(ptr noundef %.sroa.087.098) #22
   call void @free(ptr noundef %.sroa.080.0) #22
   call void @free(ptr noundef %.sroa.074.0) #22
@@ -5662,7 +5662,7 @@ psa_validate_tag_length.exit:                     ; preds = %26, %24, %22, %22, 
   br label %psa_driver_wrapper_aead_encrypt_setup.exit
 
 psa_driver_wrapper_aead_encrypt_setup.exit:       ; preds = %39, %31
-  %.1 = phi i32 [ %37, %31 ], [ %45, %39 ]
+  %.1 = phi i32 [ %45, %39 ], [ %37, %31 ]
   %.not39 = icmp eq i32 %.1, 0
   br i1 %.not39, label %.thread55, label %.thread
 
@@ -5678,8 +5678,8 @@ psa_driver_wrapper_aead_encrypt_setup.exit:       ; preds = %39, %31
     i32 83887360, label %switch.edge.i
   ]
 
-.thread:                                          ; preds = %13, %psa_driver_wrapper_aead_encrypt_setup.exit, %7, %9, %18, %24, %26, %15, %30, %38
-  %.027.ph = phi i32 [ -137, %9 ], [ -137, %7 ], [ %.1, %psa_driver_wrapper_aead_encrypt_setup.exit ], [ %14, %13 ], [ -134, %15 ], [ -135, %26 ], [ -135, %24 ], [ -135, %18 ], [ -135, %30 ], [ -135, %38 ]
+.thread:                                          ; preds = %7, %13, %psa_driver_wrapper_aead_encrypt_setup.exit, %9, %26, %24, %18, %15, %30, %38
+  %.027.ph = phi i32 [ -135, %26 ], [ -137, %9 ], [ %.1, %psa_driver_wrapper_aead_encrypt_setup.exit ], [ -137, %7 ], [ %14, %13 ], [ -134, %15 ], [ -135, %18 ], [ -135, %24 ], [ -135, %30 ], [ -135, %38 ]
   %49 = load ptr, ptr %5, align 8, !tbaa !29
   %50 = call i32 @psa_unregister_read_under_mutex(ptr noundef %49) #22
   br label %61
@@ -5797,7 +5797,7 @@ define hidden i32 @psa_aead_generate_nonce(ptr noundef %0, ptr noundef writeonly
   br label %35
 
 35:                                               ; preds = %30, %26, %22
-  %36 = phi i64 [ %27, %26 ], [ 13, %22 ], [ %34, %30 ]
+  %36 = phi i64 [ 13, %22 ], [ %27, %26 ], [ %34, %30 ]
   %37 = icmp ult i64 %2, %36
   br i1 %37, label %psa_generate_random_internal.exit.thread68, label %38
 
@@ -5864,15 +5864,15 @@ psa_generate_random_internal.exit.thread:         ; preds = %49, %.thread61, %.p
 
 63:                                               ; preds = %59
   %.not.i.i = icmp ne i64 %53, 0
-  %cond.i.old.i = icmp eq i32 %54, 1
-  %or.cond22.i = and i1 %.not.i.i, %cond.i.old.i
-  br i1 %or.cond22.i, label %psa_aead_check_nonce_length.exit.i, label %psa_aead_check_nonce_length.exit.thread17.i
+  %cond.i.old.old.i = icmp eq i32 %54, 1
+  %or.cond23.i = and i1 %.not.i.i, %cond.i.old.old.i
+  br i1 %or.cond23.i, label %psa_aead_check_nonce_length.exit.i, label %psa_aead_check_nonce_length.exit.thread17.i
 
 64:                                               ; preds = %59
   %65 = icmp ugt i64 %53, 6
-  %cond.i.old.old.i = icmp eq i32 %54, 1
-  %or.cond23.i = and i1 %65, %cond.i.old.old.i
-  br i1 %or.cond23.i, label %psa_aead_check_nonce_length.exit.i, label %psa_aead_check_nonce_length.exit.thread17.i
+  %cond.i.old.i = icmp eq i32 %54, 1
+  %or.cond22.i = and i1 %65, %cond.i.old.i
+  br i1 %or.cond22.i, label %psa_aead_check_nonce_length.exit.i, label %psa_aead_check_nonce_length.exit.thread17.i
 
 psa_aead_get_base_algorithm.exit.i.i:             ; preds = %59
   %switch.selectcmp10.i.i = icmp eq i64 %53, 12
@@ -5915,11 +5915,11 @@ psa_driver_wrapper_aead_abort.exit.i.i:           ; preds = %69, %psa_aead_check
   store i64 %53, ptr %3, align 8, !tbaa !25
   br label %psa_aead_abort.exit
 
-psa_generate_random_internal.exit.thread68:       ; preds = %.thread61, %38, %psa_generate_random_internal.exit, %13, %35, %7, %psa_aead_check_nonce_length.exit.thread17.i
-  %.sroa.11.059.ph.ph = phi i64 [ %2, %psa_generate_random_internal.exit ], [ %2, %13 ], [ %2, %35 ], [ 0, %7 ], [ %2, %psa_aead_check_nonce_length.exit.thread17.i ], [ %2, %38 ], [ %2, %.thread61 ]
-  %.sroa.6.058.ph.ph = phi ptr [ %.sroa.6.0.ph, %psa_generate_random_internal.exit ], [ %.sroa.6.0.ph, %13 ], [ %.sroa.6.0.ph, %35 ], [ null, %7 ], [ %.sroa.6.0.ph, %psa_aead_check_nonce_length.exit.thread17.i ], [ %.sroa.6.0.ph, %38 ], [ %.sroa.6.0.ph, %.thread61 ]
-  %.sroa.0.055.ph.ph = phi ptr [ %.sroa.0.0.ph, %psa_generate_random_internal.exit ], [ %.sroa.0.0.ph, %13 ], [ %.sroa.0.0.ph, %35 ], [ null, %7 ], [ %.sroa.0.0.ph, %psa_aead_check_nonce_length.exit.thread17.i ], [ %.sroa.0.0.ph, %38 ], [ %.sroa.0.0.ph, %.thread61 ]
-  %.0.ph.ph = phi i32 [ %52, %psa_generate_random_internal.exit ], [ -137, %13 ], [ -138, %35 ], [ -141, %7 ], [ %.020.ph.i, %psa_aead_check_nonce_length.exit.thread17.i ], [ -137, %38 ], [ -137, %.thread61 ]
+psa_generate_random_internal.exit.thread68:       ; preds = %.thread61, %38, %35, %13, %psa_generate_random_internal.exit, %7, %psa_aead_check_nonce_length.exit.thread17.i
+  %.sroa.11.059.ph.ph = phi i64 [ %2, %35 ], [ %2, %psa_aead_check_nonce_length.exit.thread17.i ], [ %2, %13 ], [ %2, %psa_generate_random_internal.exit ], [ 0, %7 ], [ %2, %38 ], [ %2, %.thread61 ]
+  %.sroa.6.058.ph.ph = phi ptr [ %.sroa.6.0.ph, %35 ], [ %.sroa.6.0.ph, %psa_aead_check_nonce_length.exit.thread17.i ], [ %.sroa.6.0.ph, %13 ], [ %.sroa.6.0.ph, %psa_generate_random_internal.exit ], [ null, %7 ], [ %.sroa.6.0.ph, %38 ], [ %.sroa.6.0.ph, %.thread61 ]
+  %.sroa.0.055.ph.ph = phi ptr [ %.sroa.0.0.ph, %35 ], [ %.sroa.0.0.ph, %psa_aead_check_nonce_length.exit.thread17.i ], [ %.sroa.0.0.ph, %13 ], [ %.sroa.0.0.ph, %psa_generate_random_internal.exit ], [ null, %7 ], [ %.sroa.0.0.ph, %38 ], [ %.sroa.0.0.ph, %.thread61 ]
+  %.0.ph.ph = phi i32 [ -138, %35 ], [ %.020.ph.i, %psa_aead_check_nonce_length.exit.thread17.i ], [ -137, %13 ], [ %52, %psa_generate_random_internal.exit ], [ -141, %7 ], [ -137, %38 ], [ -137, %.thread61 ]
   %.pr = load i32, ptr %0, align 8, !tbaa !68
   switch i32 %.pr, label %psa_driver_wrapper_aead_abort.exit.i [
     i32 0, label %psa_aead_abort.exit
@@ -5936,10 +5936,10 @@ psa_driver_wrapper_aead_abort.exit.i:             ; preds = %75, %psa_generate_r
   br label %psa_aead_abort.exit
 
 psa_aead_abort.exit:                              ; preds = %psa_generate_random_internal.exit.thread, %psa_driver_wrapper_aead_abort.exit.i.i, %10, %psa_driver_wrapper_aead_abort.exit.i, %psa_generate_random_internal.exit.thread68, %72
-  %.085 = phi i32 [ 0, %72 ], [ %.0.ph.ph, %psa_generate_random_internal.exit.thread68 ], [ %.0.ph.ph, %psa_driver_wrapper_aead_abort.exit.i ], [ -137, %10 ], [ %.020.ph.i, %psa_driver_wrapper_aead_abort.exit.i.i ], [ -137, %psa_generate_random_internal.exit.thread ]
-  %.sroa.0.05583 = phi ptr [ %.sroa.0.0.ph, %72 ], [ %.sroa.0.055.ph.ph, %psa_generate_random_internal.exit.thread68 ], [ %.sroa.0.055.ph.ph, %psa_driver_wrapper_aead_abort.exit.i ], [ %.sroa.0.0.ph, %10 ], [ %.sroa.0.0.ph, %psa_driver_wrapper_aead_abort.exit.i.i ], [ %.sroa.0.0.ph, %psa_generate_random_internal.exit.thread ]
-  %.sroa.6.05881 = phi ptr [ %.sroa.6.0.ph, %72 ], [ %.sroa.6.058.ph.ph, %psa_generate_random_internal.exit.thread68 ], [ %.sroa.6.058.ph.ph, %psa_driver_wrapper_aead_abort.exit.i ], [ %.sroa.6.0.ph, %10 ], [ %.sroa.6.0.ph, %psa_driver_wrapper_aead_abort.exit.i.i ], [ %.sroa.6.0.ph, %psa_generate_random_internal.exit.thread ]
-  %.sroa.11.05979 = phi i64 [ %2, %72 ], [ %.sroa.11.059.ph.ph, %psa_generate_random_internal.exit.thread68 ], [ %.sroa.11.059.ph.ph, %psa_driver_wrapper_aead_abort.exit.i ], [ %2, %10 ], [ %2, %psa_driver_wrapper_aead_abort.exit.i.i ], [ %2, %psa_generate_random_internal.exit.thread ]
+  %.085 = phi i32 [ 0, %72 ], [ %.0.ph.ph, %psa_driver_wrapper_aead_abort.exit.i ], [ %.0.ph.ph, %psa_generate_random_internal.exit.thread68 ], [ -137, %10 ], [ %.020.ph.i, %psa_driver_wrapper_aead_abort.exit.i.i ], [ -137, %psa_generate_random_internal.exit.thread ]
+  %.sroa.0.05583 = phi ptr [ %.sroa.0.0.ph, %72 ], [ %.sroa.0.055.ph.ph, %psa_driver_wrapper_aead_abort.exit.i ], [ %.sroa.0.055.ph.ph, %psa_generate_random_internal.exit.thread68 ], [ %.sroa.0.0.ph, %10 ], [ %.sroa.0.0.ph, %psa_driver_wrapper_aead_abort.exit.i.i ], [ %.sroa.0.0.ph, %psa_generate_random_internal.exit.thread ]
+  %.sroa.6.05881 = phi ptr [ %.sroa.6.0.ph, %72 ], [ %.sroa.6.058.ph.ph, %psa_driver_wrapper_aead_abort.exit.i ], [ %.sroa.6.058.ph.ph, %psa_generate_random_internal.exit.thread68 ], [ %.sroa.6.0.ph, %10 ], [ %.sroa.6.0.ph, %psa_driver_wrapper_aead_abort.exit.i.i ], [ %.sroa.6.0.ph, %psa_generate_random_internal.exit.thread ]
+  %.sroa.11.05979 = phi i64 [ %2, %72 ], [ %.sroa.11.059.ph.ph, %psa_driver_wrapper_aead_abort.exit.i ], [ %.sroa.11.059.ph.ph, %psa_generate_random_internal.exit.thread68 ], [ %2, %10 ], [ %2, %psa_driver_wrapper_aead_abort.exit.i.i ], [ %2, %psa_generate_random_internal.exit.thread ]
   %78 = icmp eq ptr %.sroa.6.05881, null
   br i1 %78, label %psa_crypto_local_output_free.exit, label %79
 
@@ -6027,16 +6027,16 @@ define hidden i32 @psa_aead_set_nonce(ptr noundef %0, ptr noundef readonly captu
 
 20:                                               ; preds = %16
   %.not.i.i = icmp ne i64 %2, 0
-  %cond.i.old.i = icmp eq i32 %10, 1
-  %or.cond22.i = and i1 %.not.i.i, %cond.i.old.i
-  br i1 %or.cond22.i, label %psa_aead_check_nonce_length.exit.i, label %psa_aead_check_nonce_length.exit.thread17.i
+  %cond.i.old.old.i = icmp eq i32 %10, 1
+  %or.cond23.i = and i1 %.not.i.i, %cond.i.old.old.i
+  br i1 %or.cond23.i, label %psa_aead_check_nonce_length.exit.i, label %psa_aead_check_nonce_length.exit.thread17.i
 
 21:                                               ; preds = %16
   %22 = add i64 %2, -7
   %or.cond.i.i = icmp ult i64 %22, 7
-  %cond.i.old.old.i = icmp eq i32 %10, 1
-  %or.cond23.i = and i1 %or.cond.i.i, %cond.i.old.old.i
-  br i1 %or.cond23.i, label %psa_aead_check_nonce_length.exit.i, label %psa_aead_check_nonce_length.exit.thread17.i
+  %cond.i.old.i = icmp eq i32 %10, 1
+  %or.cond22.i = and i1 %or.cond.i.i, %cond.i.old.i
+  br i1 %or.cond22.i, label %psa_aead_check_nonce_length.exit.i, label %psa_aead_check_nonce_length.exit.thread17.i
 
 psa_aead_get_base_algorithm.exit.i.i:             ; preds = %16
   %switch.selectcmp10.i.i = icmp eq i64 %2, 12
@@ -6143,9 +6143,9 @@ psa_driver_wrapper_aead_set_lengths.exit.psa_driver_wrapper_aead_set_lengths.exi
   store i8 %26, ptr %7, align 8
   br label %psa_aead_abort.exit
 
-psa_driver_wrapper_aead_set_lengths.exit.thread:  ; preds = %psa_driver_wrapper_aead_set_lengths.exit.psa_driver_wrapper_aead_set_lengths.exit.thread_crit_edge, %18, %16, %13, %6
-  %.pr = phi i32 [ %4, %6 ], [ %4, %13 ], [ %4, %16 ], [ %4, %18 ], [ %.pr.pre, %psa_driver_wrapper_aead_set_lengths.exit.psa_driver_wrapper_aead_set_lengths.exit.thread_crit_edge ]
-  %.026.ph = phi i32 [ -137, %6 ], [ -135, %13 ], [ -135, %16 ], [ -135, %18 ], [ %20, %psa_driver_wrapper_aead_set_lengths.exit.psa_driver_wrapper_aead_set_lengths.exit.thread_crit_edge ]
+psa_driver_wrapper_aead_set_lengths.exit.thread:  ; preds = %psa_driver_wrapper_aead_set_lengths.exit.psa_driver_wrapper_aead_set_lengths.exit.thread_crit_edge, %18, %6, %16, %13
+  %.pr = phi i32 [ %4, %13 ], [ %4, %16 ], [ %4, %6 ], [ %4, %18 ], [ %.pr.pre, %psa_driver_wrapper_aead_set_lengths.exit.psa_driver_wrapper_aead_set_lengths.exit.thread_crit_edge ]
+  %.026.ph = phi i32 [ -135, %13 ], [ -135, %16 ], [ -137, %6 ], [ -135, %18 ], [ %20, %psa_driver_wrapper_aead_set_lengths.exit.psa_driver_wrapper_aead_set_lengths.exit.thread_crit_edge ]
   switch i32 %.pr, label %psa_driver_wrapper_aead_abort.exit.i [
     i32 0, label %psa_aead_abort.exit
     i32 1, label %27
@@ -6237,9 +6237,9 @@ psa_crypto_local_input_alloc.exit.thread45:       ; preds = %psa_crypto_local_in
   store i8 %34, ptr %13, align 8
   br label %psa_aead_abort.exit
 
-psa_crypto_local_input_alloc.exit.thread38:       ; preds = %29, %5, %25, %19, %12, %psa_crypto_local_input_alloc.exit
-  %.044.ph = phi i32 [ -137, %12 ], [ -135, %19 ], [ -137, %25 ], [ -141, %5 ], [ -135, %29 ], [ %31, %psa_crypto_local_input_alloc.exit ]
-  %.sroa.0.03642.ph = phi ptr [ %.sroa.0.0.ph, %12 ], [ %.sroa.0.0.ph, %19 ], [ %.sroa.0.0.ph, %25 ], [ null, %5 ], [ %.sroa.0.0.ph, %29 ], [ %.sroa.0.0.ph, %psa_crypto_local_input_alloc.exit ]
+psa_crypto_local_input_alloc.exit.thread38:       ; preds = %29, %5, %12, %19, %25, %psa_crypto_local_input_alloc.exit
+  %.044.ph = phi i32 [ -137, %25 ], [ -135, %19 ], [ -137, %12 ], [ -141, %5 ], [ -135, %29 ], [ %31, %psa_crypto_local_input_alloc.exit ]
+  %.sroa.0.03642.ph = phi ptr [ %.sroa.0.0.ph, %25 ], [ %.sroa.0.0.ph, %19 ], [ %.sroa.0.0.ph, %12 ], [ null, %5 ], [ %.sroa.0.0.ph, %29 ], [ %.sroa.0.0.ph, %psa_crypto_local_input_alloc.exit ]
   %.pr = load i32, ptr %0, align 8, !tbaa !68
   switch i32 %.pr, label %psa_driver_wrapper_aead_abort.exit.i [
     i32 0, label %psa_aead_abort.exit
@@ -6345,12 +6345,12 @@ psa_crypto_local_input_alloc.exit:                ; preds = %39
   store i8 %45, ptr %21, align 8
   br label %psa_aead_abort.exit
 
-psa_crypto_local_input_alloc.exit.thread66:       ; preds = %39, %14, %8, %35, %29, %26, %20, %psa_crypto_local_input_alloc.exit
-  %.081.ph = phi i32 [ -137, %20 ], [ -135, %26 ], [ -135, %29 ], [ -137, %35 ], [ -141, %8 ], [ -141, %14 ], [ -135, %39 ], [ %41, %psa_crypto_local_input_alloc.exit ]
-  %.sroa.11.079.ph = phi i64 [ %4, %20 ], [ %4, %26 ], [ %4, %29 ], [ %4, %35 ], [ 0, %8 ], [ 0, %14 ], [ %4, %39 ], [ %4, %psa_crypto_local_input_alloc.exit ]
-  %.sroa.6.077.ph = phi ptr [ %.sroa.6.1.ph, %20 ], [ %.sroa.6.1.ph, %26 ], [ %.sroa.6.1.ph, %29 ], [ %.sroa.6.1.ph, %35 ], [ null, %8 ], [ null, %14 ], [ %.sroa.6.1.ph, %39 ], [ %.sroa.6.1.ph, %psa_crypto_local_input_alloc.exit ]
-  %.sroa.0.075.ph = phi ptr [ %.sroa.0.1.ph, %20 ], [ %.sroa.0.1.ph, %26 ], [ %.sroa.0.1.ph, %29 ], [ %.sroa.0.1.ph, %35 ], [ null, %8 ], [ null, %14 ], [ %.sroa.0.1.ph, %39 ], [ %.sroa.0.1.ph, %psa_crypto_local_input_alloc.exit ]
-  %.sroa.046.05673.ph = phi ptr [ %.sroa.046.0.ph, %20 ], [ %.sroa.046.0.ph, %26 ], [ %.sroa.046.0.ph, %29 ], [ %.sroa.046.0.ph, %35 ], [ null, %8 ], [ %.sroa.046.0.ph, %14 ], [ %.sroa.046.0.ph, %39 ], [ %.sroa.046.0.ph, %psa_crypto_local_input_alloc.exit ]
+psa_crypto_local_input_alloc.exit.thread66:       ; preds = %39, %29, %14, %26, %20, %8, %35, %psa_crypto_local_input_alloc.exit
+  %.081.ph = phi i32 [ -137, %35 ], [ -141, %8 ], [ -137, %20 ], [ -135, %26 ], [ -141, %14 ], [ -135, %29 ], [ -135, %39 ], [ %41, %psa_crypto_local_input_alloc.exit ]
+  %.sroa.11.079.ph = phi i64 [ %4, %35 ], [ 0, %8 ], [ %4, %20 ], [ %4, %26 ], [ 0, %14 ], [ %4, %29 ], [ %4, %39 ], [ %4, %psa_crypto_local_input_alloc.exit ]
+  %.sroa.6.077.ph = phi ptr [ %.sroa.6.1.ph, %35 ], [ null, %8 ], [ %.sroa.6.1.ph, %20 ], [ %.sroa.6.1.ph, %26 ], [ null, %14 ], [ %.sroa.6.1.ph, %29 ], [ %.sroa.6.1.ph, %39 ], [ %.sroa.6.1.ph, %psa_crypto_local_input_alloc.exit ]
+  %.sroa.0.075.ph = phi ptr [ %.sroa.0.1.ph, %35 ], [ null, %8 ], [ %.sroa.0.1.ph, %20 ], [ %.sroa.0.1.ph, %26 ], [ null, %14 ], [ %.sroa.0.1.ph, %29 ], [ %.sroa.0.1.ph, %39 ], [ %.sroa.0.1.ph, %psa_crypto_local_input_alloc.exit ]
+  %.sroa.046.05673.ph = phi ptr [ %.sroa.046.0.ph, %35 ], [ null, %8 ], [ %.sroa.046.0.ph, %20 ], [ %.sroa.046.0.ph, %26 ], [ %.sroa.046.0.ph, %14 ], [ %.sroa.046.0.ph, %29 ], [ %.sroa.046.0.ph, %39 ], [ %.sroa.046.0.ph, %psa_crypto_local_input_alloc.exit ]
   %.pr = load i32, ptr %0, align 8, !tbaa !68
   switch i32 %.pr, label %psa_driver_wrapper_aead_abort.exit.i [
     i32 0, label %psa_aead_abort.exit
@@ -6466,14 +6466,14 @@ psa_aead_final_checks.exit:                       ; preds = %29, %24
   %37 = freeze i32 %36
   br label %psa_crypto_local_output_alloc.exit
 
-psa_crypto_local_output_alloc.exit:               ; preds = %26, %29, %17, %20, %34, %33, %9, %psa_aead_final_checks.exit
-  %.sroa.1158.072 = phi i64 [ %2, %psa_aead_final_checks.exit ], [ 0, %9 ], [ %2, %33 ], [ %2, %34 ], [ %2, %20 ], [ %2, %17 ], [ %2, %29 ], [ %2, %26 ]
-  %.sroa.656.071 = phi ptr [ %.sroa.656.0.ph, %psa_aead_final_checks.exit ], [ null, %9 ], [ %.sroa.656.0.ph, %33 ], [ %.sroa.656.0.ph, %34 ], [ %.sroa.656.0.ph, %20 ], [ %.sroa.656.0.ph, %17 ], [ %.sroa.656.0.ph, %29 ], [ %.sroa.656.0.ph, %26 ]
-  %.sroa.055.068 = phi ptr [ %.sroa.055.0.ph, %psa_aead_final_checks.exit ], [ null, %9 ], [ %.sroa.055.0.ph, %33 ], [ %.sroa.055.0.ph, %34 ], [ %.sroa.055.0.ph, %20 ], [ %.sroa.055.0.ph, %17 ], [ %.sroa.055.0.ph, %29 ], [ %.sroa.055.0.ph, %26 ]
-  %.sroa.0.0 = phi ptr [ %.sroa.0.1.ph, %psa_aead_final_checks.exit ], [ null, %9 ], [ %.sroa.0.1.ph, %33 ], [ %.sroa.0.1.ph, %34 ], [ %.sroa.0.1.ph, %20 ], [ %.sroa.0.1.ph, %17 ], [ %.sroa.0.1.ph, %29 ], [ %.sroa.0.1.ph, %26 ]
-  %.sroa.6.0 = phi ptr [ %.sroa.6.1.ph, %psa_aead_final_checks.exit ], [ null, %9 ], [ %.sroa.6.1.ph, %33 ], [ %.sroa.6.1.ph, %34 ], [ %.sroa.6.1.ph, %20 ], [ %.sroa.6.1.ph, %17 ], [ %.sroa.6.1.ph, %29 ], [ %.sroa.6.1.ph, %26 ]
-  %.sroa.11.0 = phi i64 [ %5, %psa_aead_final_checks.exit ], [ 0, %9 ], [ %5, %33 ], [ %5, %34 ], [ %5, %20 ], [ %5, %17 ], [ %5, %29 ], [ %5, %26 ]
-  %.0 = phi i32 [ -137, %psa_aead_final_checks.exit ], [ -141, %9 ], [ -135, %33 ], [ %37, %34 ], [ -137, %20 ], [ -137, %17 ], [ -135, %29 ], [ -135, %26 ]
+psa_crypto_local_output_alloc.exit:               ; preds = %26, %29, %20, %17, %34, %33, %9, %psa_aead_final_checks.exit
+  %.sroa.1158.072 = phi i64 [ %2, %psa_aead_final_checks.exit ], [ %2, %34 ], [ %2, %33 ], [ 0, %9 ], [ %2, %17 ], [ %2, %20 ], [ %2, %29 ], [ %2, %26 ]
+  %.sroa.656.071 = phi ptr [ %.sroa.656.0.ph, %psa_aead_final_checks.exit ], [ %.sroa.656.0.ph, %34 ], [ %.sroa.656.0.ph, %33 ], [ null, %9 ], [ %.sroa.656.0.ph, %17 ], [ %.sroa.656.0.ph, %20 ], [ %.sroa.656.0.ph, %29 ], [ %.sroa.656.0.ph, %26 ]
+  %.sroa.055.068 = phi ptr [ %.sroa.055.0.ph, %psa_aead_final_checks.exit ], [ %.sroa.055.0.ph, %34 ], [ %.sroa.055.0.ph, %33 ], [ null, %9 ], [ %.sroa.055.0.ph, %17 ], [ %.sroa.055.0.ph, %20 ], [ %.sroa.055.0.ph, %29 ], [ %.sroa.055.0.ph, %26 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.1.ph, %psa_aead_final_checks.exit ], [ %.sroa.0.1.ph, %34 ], [ %.sroa.0.1.ph, %33 ], [ null, %9 ], [ %.sroa.0.1.ph, %17 ], [ %.sroa.0.1.ph, %20 ], [ %.sroa.0.1.ph, %29 ], [ %.sroa.0.1.ph, %26 ]
+  %.sroa.6.0 = phi ptr [ %.sroa.6.1.ph, %psa_aead_final_checks.exit ], [ %.sroa.6.1.ph, %34 ], [ %.sroa.6.1.ph, %33 ], [ null, %9 ], [ %.sroa.6.1.ph, %17 ], [ %.sroa.6.1.ph, %20 ], [ %.sroa.6.1.ph, %29 ], [ %.sroa.6.1.ph, %26 ]
+  %.sroa.11.0 = phi i64 [ %5, %psa_aead_final_checks.exit ], [ %5, %34 ], [ %5, %33 ], [ 0, %9 ], [ %5, %17 ], [ %5, %20 ], [ %5, %29 ], [ %5, %26 ]
+  %.0 = phi i32 [ -137, %psa_aead_final_checks.exit ], [ %37, %34 ], [ -135, %33 ], [ -141, %9 ], [ -137, %17 ], [ -137, %20 ], [ -135, %29 ], [ -135, %26 ]
   %38 = icmp eq i64 %5, 0
   br i1 %38, label %psa_wipe_tag_output_buffer.exit, label %39
 
@@ -6488,11 +6488,11 @@ psa_crypto_local_output_alloc.exit:               ; preds = %26, %29, %17, %20, 
   %.sroa.656.07195123 = phi ptr [ %.sroa.656.0.ph, %14 ], [ %.sroa.656.071, %39 ]
   %.sroa.055.06897122 = phi ptr [ %.sroa.055.0.ph, %14 ], [ %.sroa.055.068, %39 ]
   %.sroa.0.099121 = phi ptr [ null, %14 ], [ %.sroa.0.0, %39 ]
-  %.sroa.6.0101120 = phi ptr [ null, %14 ], [ %.sroa.6.0, %39 ]
   %.sroa.11.0103119 = phi i64 [ 0, %14 ], [ %.sroa.11.0, %39 ]
+  %.028105118 = phi ptr [ null, %14 ], [ %.sroa.6.0, %39 ]
   %.0106117 = phi i32 [ -141, %14 ], [ %.0, %39 ]
   %42 = phi i64 [ 0, %14 ], [ %spec.select, %39 ]
-  %43 = getelementptr inbounds nuw i8, ptr %.sroa.6.0101120, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr %.028105118, i64 %42
   %44 = sub i64 %5, %42
   tail call void @llvm.memset.p0.i64(ptr align 1 %43, i8 33, i64 %44, i1 false)
   br label %psa_wipe_tag_output_buffer.exit
@@ -6500,7 +6500,7 @@ psa_crypto_local_output_alloc.exit:               ; preds = %26, %29, %17, %20, 
 psa_wipe_tag_output_buffer.exit:                  ; preds = %psa_crypto_local_output_alloc.exit, %.thread
   %.0107 = phi i32 [ %.0, %psa_crypto_local_output_alloc.exit ], [ %.0106117, %.thread ]
   %.sroa.11.0104 = phi i64 [ %.sroa.11.0, %psa_crypto_local_output_alloc.exit ], [ %.sroa.11.0103119, %.thread ]
-  %.sroa.6.0102 = phi ptr [ %.sroa.6.0, %psa_crypto_local_output_alloc.exit ], [ %.sroa.6.0101120, %.thread ]
+  %.sroa.6.0102 = phi ptr [ %.sroa.6.0, %psa_crypto_local_output_alloc.exit ], [ %.028105118, %.thread ]
   %.sroa.0.0100 = phi ptr [ %.sroa.0.0, %psa_crypto_local_output_alloc.exit ], [ %.sroa.0.099121, %.thread ]
   %.sroa.055.06898 = phi ptr [ %.sroa.055.068, %psa_crypto_local_output_alloc.exit ], [ %.sroa.055.06897122, %.thread ]
   %.sroa.656.07196 = phi ptr [ %.sroa.656.071, %psa_crypto_local_output_alloc.exit ], [ %.sroa.656.07195123, %.thread ]
@@ -6662,11 +6662,11 @@ psa_aead_final_checks.exit:                       ; preds = %31, %26
   br label %psa_crypto_local_output_alloc.exit
 
 psa_crypto_local_output_alloc.exit:               ; preds = %28, %31, %22, %45, %35, %15, %10, %psa_aead_final_checks.exit
-  %.sroa.11.053.ph = phi i64 [ %2, %28 ], [ %2, %31 ], [ %2, %22 ], [ %2, %45 ], [ %2, %35 ], [ %2, %15 ], [ 0, %10 ], [ %2, %psa_aead_final_checks.exit ]
-  %.sroa.6.052.ph = phi ptr [ %.sroa.6.0.ph, %28 ], [ %.sroa.6.0.ph, %31 ], [ %.sroa.6.0.ph, %22 ], [ %.sroa.6.0.ph, %45 ], [ %.sroa.6.0.ph, %35 ], [ %.sroa.6.0.ph, %15 ], [ null, %10 ], [ %.sroa.6.0.ph, %psa_aead_final_checks.exit ]
-  %.sroa.038.049.ph = phi ptr [ %.sroa.038.0.ph, %28 ], [ %.sroa.038.0.ph, %31 ], [ %.sroa.038.0.ph, %22 ], [ %.sroa.038.0.ph, %45 ], [ %.sroa.038.0.ph, %35 ], [ %.sroa.038.0.ph, %15 ], [ null, %10 ], [ %.sroa.038.0.ph, %psa_aead_final_checks.exit ]
-  %.sroa.0.0.ph = phi ptr [ %.sroa.0.1.ph, %28 ], [ %.sroa.0.1.ph, %31 ], [ %.sroa.0.1.ph, %22 ], [ %.sroa.0.1.ph, %45 ], [ %.sroa.0.1.ph, %35 ], [ null, %15 ], [ null, %10 ], [ %.sroa.0.1.ph, %psa_aead_final_checks.exit ]
-  %.0.ph = phi i32 [ -135, %28 ], [ -135, %31 ], [ -137, %22 ], [ %.0.i29, %45 ], [ -135, %35 ], [ -141, %15 ], [ -141, %10 ], [ -137, %psa_aead_final_checks.exit ]
+  %.sroa.11.053.ph = phi i64 [ %2, %28 ], [ %2, %31 ], [ %2, %22 ], [ %2, %35 ], [ 0, %10 ], [ %2, %45 ], [ %2, %psa_aead_final_checks.exit ], [ %2, %15 ]
+  %.sroa.6.052.ph = phi ptr [ %.sroa.6.0.ph, %28 ], [ %.sroa.6.0.ph, %31 ], [ %.sroa.6.0.ph, %22 ], [ %.sroa.6.0.ph, %35 ], [ null, %10 ], [ %.sroa.6.0.ph, %45 ], [ %.sroa.6.0.ph, %psa_aead_final_checks.exit ], [ %.sroa.6.0.ph, %15 ]
+  %.sroa.038.049.ph = phi ptr [ %.sroa.038.0.ph, %28 ], [ %.sroa.038.0.ph, %31 ], [ %.sroa.038.0.ph, %22 ], [ %.sroa.038.0.ph, %35 ], [ null, %10 ], [ %.sroa.038.0.ph, %45 ], [ %.sroa.038.0.ph, %psa_aead_final_checks.exit ], [ %.sroa.038.0.ph, %15 ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.1.ph, %28 ], [ %.sroa.0.1.ph, %31 ], [ %.sroa.0.1.ph, %22 ], [ %.sroa.0.1.ph, %35 ], [ null, %10 ], [ %.sroa.0.1.ph, %45 ], [ %.sroa.0.1.ph, %psa_aead_final_checks.exit ], [ null, %15 ]
+  %.0.ph = phi i32 [ -135, %28 ], [ -135, %31 ], [ -137, %22 ], [ -135, %35 ], [ -141, %10 ], [ %.0.i29, %45 ], [ -137, %psa_aead_final_checks.exit ], [ -141, %15 ]
   %.pr = load i32, ptr %0, align 8, !tbaa !68
   switch i32 %.pr, label %psa_driver_wrapper_aead_abort.exit.i [
     i32 0, label %psa_aead_abort.exit
@@ -6683,11 +6683,11 @@ psa_driver_wrapper_aead_abort.exit.i:             ; preds = %46, %psa_crypto_loc
   br label %psa_aead_abort.exit
 
 psa_aead_abort.exit:                              ; preds = %19, %psa_crypto_local_output_alloc.exit, %psa_driver_wrapper_aead_abort.exit.i
-  %.075 = phi i32 [ %.0.ph, %psa_crypto_local_output_alloc.exit ], [ %.0.ph, %psa_driver_wrapper_aead_abort.exit.i ], [ -137, %19 ]
-  %.sroa.0.074 = phi ptr [ %.sroa.0.0.ph, %psa_crypto_local_output_alloc.exit ], [ %.sroa.0.0.ph, %psa_driver_wrapper_aead_abort.exit.i ], [ %.sroa.0.1.ph, %19 ]
-  %.sroa.038.04973 = phi ptr [ %.sroa.038.049.ph, %psa_crypto_local_output_alloc.exit ], [ %.sroa.038.049.ph, %psa_driver_wrapper_aead_abort.exit.i ], [ %.sroa.038.0.ph, %19 ]
-  %.sroa.6.05272 = phi ptr [ %.sroa.6.052.ph, %psa_crypto_local_output_alloc.exit ], [ %.sroa.6.052.ph, %psa_driver_wrapper_aead_abort.exit.i ], [ %.sroa.6.0.ph, %19 ]
-  %.sroa.11.05371 = phi i64 [ %.sroa.11.053.ph, %psa_crypto_local_output_alloc.exit ], [ %.sroa.11.053.ph, %psa_driver_wrapper_aead_abort.exit.i ], [ %2, %19 ]
+  %.075 = phi i32 [ %.0.ph, %psa_driver_wrapper_aead_abort.exit.i ], [ %.0.ph, %psa_crypto_local_output_alloc.exit ], [ -137, %19 ]
+  %.sroa.0.074 = phi ptr [ %.sroa.0.0.ph, %psa_driver_wrapper_aead_abort.exit.i ], [ %.sroa.0.0.ph, %psa_crypto_local_output_alloc.exit ], [ %.sroa.0.1.ph, %19 ]
+  %.sroa.038.04973 = phi ptr [ %.sroa.038.049.ph, %psa_driver_wrapper_aead_abort.exit.i ], [ %.sroa.038.049.ph, %psa_crypto_local_output_alloc.exit ], [ %.sroa.038.0.ph, %19 ]
+  %.sroa.6.05272 = phi ptr [ %.sroa.6.052.ph, %psa_driver_wrapper_aead_abort.exit.i ], [ %.sroa.6.052.ph, %psa_crypto_local_output_alloc.exit ], [ %.sroa.6.0.ph, %19 ]
+  %.sroa.11.05371 = phi i64 [ %.sroa.11.053.ph, %psa_driver_wrapper_aead_abort.exit.i ], [ %.sroa.11.053.ph, %psa_crypto_local_output_alloc.exit ], [ %2, %19 ]
   %49 = icmp eq ptr %.sroa.6.05272, null
   br i1 %49, label %psa_crypto_local_output_free.exit, label %50
 
@@ -6819,7 +6819,7 @@ psa_driver_wrapper_mac_abort.exit.i:              ; preds = %14, %9
   br label %psa_mac_abort.exit
 
 psa_mac_abort.exit:                               ; preds = %psa_driver_wrapper_mac_abort.exit.i, %9, %45, %39, %42, %47, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %47 ], [ 0, %42 ], [ 0, %39 ], [ -137, %45 ], [ %.0.i.i, %psa_driver_wrapper_mac_abort.exit.i ], [ %13, %9 ]
+  %.0 = phi i32 [ 0, %1 ], [ -137, %45 ], [ 0, %39 ], [ 0, %47 ], [ 0, %42 ], [ %.0.i.i, %psa_driver_wrapper_mac_abort.exit.i ], [ %13, %9 ]
   tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %0, i64 noundef 568) #22
   ret i32 %.0
 }
@@ -6966,8 +6966,8 @@ define hidden i32 @psa_key_derivation_output_bytes(ptr noundef %0, ptr noundef w
   br label %36
 
 36:                                               ; preds = %.fold.split88.i, %.fold.split87.i, %.fold.split86.i, %.fold.split85.i, %.fold.split.i, %35, %32
-  %37 = phi i1 [ false, %32 ], [ true, %35 ], [ false, %.fold.split.i ], [ false, %.fold.split85.i ], [ false, %.fold.split86.i ], [ false, %.fold.split87.i ], [ false, %.fold.split88.i ]
-  %38 = phi i8 [ 16, %32 ], [ 0, %35 ], [ 20, %.fold.split.i ], [ 28, %.fold.split85.i ], [ 32, %.fold.split86.i ], [ 48, %.fold.split87.i ], [ 64, %.fold.split88.i ]
+  %37 = phi i1 [ false, %32 ], [ true, %35 ], [ false, %.fold.split.i ], [ false, %.fold.split88.i ], [ false, %.fold.split85.i ], [ false, %.fold.split86.i ], [ false, %.fold.split87.i ]
+  %38 = phi i8 [ 16, %32 ], [ 0, %35 ], [ 20, %.fold.split.i ], [ 64, %.fold.split88.i ], [ 28, %.fold.split85.i ], [ 32, %.fold.split86.i ], [ 48, %.fold.split87.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.not77.i = icmp eq i32 %29, 134218752
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 34
@@ -7245,7 +7245,7 @@ psa_mac_update.exit118.thread137.i:               ; preds = %psa_mac_update.exit
   br i1 %.not83.i, label %63, label %psa_key_derivation_hkdf_read.exit
 
 psa_key_derivation_hkdf_read.exit:                ; preds = %63, %64, %74, %87, %101, %psa_mac_update.exit106.thread.i, %129, %36, %42, %psa_key_derivation_start_hmac.exit.i, %psa_mac_update.exit.thread124.i, %psa_mac_update.exit106.thread132.i, %psa_mac_update.exit118.thread137.i
-  %.067.i = phi i32 [ -137, %42 ], [ -137, %36 ], [ %.0.i112.ph.i, %psa_mac_update.exit118.thread137.i ], [ %.0.i100.ph.i, %psa_mac_update.exit106.thread132.i ], [ %.0.i.ph.i, %psa_mac_update.exit.thread124.i ], [ %84, %psa_key_derivation_start_hmac.exit.i ], [ 0, %63 ], [ 0, %64 ], [ %130, %129 ], [ -137, %74 ], [ -137, %87 ], [ -137, %101 ], [ -137, %psa_mac_update.exit106.thread.i ]
+  %.067.i = phi i32 [ -137, %36 ], [ %.0.i112.ph.i, %psa_mac_update.exit118.thread137.i ], [ -137, %42 ], [ %84, %psa_key_derivation_start_hmac.exit.i ], [ %.0.i100.ph.i, %psa_mac_update.exit106.thread132.i ], [ %.0.i.ph.i, %psa_mac_update.exit.thread124.i ], [ 0, %64 ], [ 0, %63 ], [ -137, %101 ], [ -137, %87 ], [ %130, %129 ], [ -137, %74 ], [ -137, %psa_mac_update.exit106.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %psa_crypto_local_output_alloc.exit
 
@@ -7355,8 +7355,8 @@ switch.lookup328:                                 ; preds = %131
   br label %167
 
 167:                                              ; preds = %.fold.split80.i.i, %.fold.split79.i.i, %.fold.split78.i.i, %.fold.split77.i.i, %.fold.split.i.i72, %166, %165
-  %168 = phi i1 [ false, %165 ], [ true, %166 ], [ false, %.fold.split.i.i72 ], [ false, %.fold.split77.i.i ], [ false, %.fold.split78.i.i ], [ false, %.fold.split79.i.i ], [ false, %.fold.split80.i.i ]
-  %169 = phi i8 [ 16, %165 ], [ 0, %166 ], [ 20, %.fold.split.i.i72 ], [ 28, %.fold.split77.i.i ], [ 32, %.fold.split78.i.i ], [ 48, %.fold.split79.i.i ], [ 64, %.fold.split80.i.i ]
+  %168 = phi i1 [ false, %165 ], [ true, %166 ], [ false, %.fold.split.i.i72 ], [ false, %.fold.split80.i.i ], [ false, %.fold.split77.i.i ], [ false, %.fold.split78.i.i ], [ false, %.fold.split79.i.i ]
+  %169 = phi i8 [ 16, %165 ], [ 0, %166 ], [ 20, %.fold.split.i.i72 ], [ 64, %.fold.split80.i.i ], [ 28, %.fold.split77.i.i ], [ 32, %.fold.split78.i.i ], [ 48, %.fold.split79.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %6, i8 0, i64 400, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -7701,7 +7701,7 @@ psa_mac_update.exit.thread.i:                     ; preds = %psa_mac_update.exit
   br label %psa_mac_update.exit97.thread129.i.i
 
 psa_mac_update.exit97.thread129.i.i:              ; preds = %268, %264, %psa_mac_update.exit.thread.i, %psa_mac_update.exit.thread62.i, %psa_key_derivation_start_hmac.exit117.i.i, %psa_mac_update.exit97.thread.i.i, %psa_mac_update.exit109.thread140.i.i, %psa_mac_update.exit97.thread132.i.i, %psa_mac_update.exit.thread124.i.i, %psa_key_derivation_start_hmac.exit.i.i
-  %.056.ph.ph.i.ph.i = phi i32 [ %.0.i56.ph.i, %psa_mac_update.exit.thread62.i ], [ %.0.i103.ph.i.i, %psa_mac_update.exit109.thread140.i.i ], [ %.0.i91.ph.i.i, %psa_mac_update.exit97.thread132.i.i ], [ %.0.i.ph.i.i, %psa_mac_update.exit.thread124.i.i ], [ %269, %268 ], [ %267, %264 ], [ %263, %psa_mac_update.exit.thread.i ], [ %246, %psa_key_derivation_start_hmac.exit117.i.i ], [ %spec.store.select.i.i, %psa_mac_update.exit97.thread.i.i ], [ %181, %psa_key_derivation_start_hmac.exit.i.i ]
+  %.056.ph.ph.i.ph.i = phi i32 [ %181, %psa_key_derivation_start_hmac.exit.i.i ], [ %.0.i103.ph.i.i, %psa_mac_update.exit109.thread140.i.i ], [ %269, %268 ], [ %267, %264 ], [ %263, %psa_mac_update.exit.thread.i ], [ %.0.i56.ph.i, %psa_mac_update.exit.thread62.i ], [ %246, %psa_key_derivation_start_hmac.exit117.i.i ], [ %spec.store.select.i.i, %psa_mac_update.exit97.thread.i.i ], [ %.0.i91.ph.i.i, %psa_mac_update.exit97.thread132.i.i ], [ %.0.i.ph.i.i, %psa_mac_update.exit.thread124.i.i ]
   %.pr143.pr.i.pr.i = load i32, ptr %6, align 8, !tbaa !55
   switch i32 %.pr143.pr.i.pr.i, label %psa_driver_wrapper_mac_abort.exit.i.i.i64 [
     i32 0, label %psa_key_derivation_tls12_prf_generate_next_block.exit.i
@@ -7716,8 +7716,8 @@ psa_driver_wrapper_mac_abort.exit.i.i.i64:        ; preds = %psa_mac_update.exit
   br label %psa_key_derivation_tls12_prf_generate_next_block.exit.i
 
 psa_key_derivation_tls12_prf_generate_next_block.exit.i: ; preds = %psa_driver_wrapper_mac_abort.exit.i.i.i64, %270, %psa_mac_update.exit97.thread129.i.i, %247, %218, %202, %185
-  %.056146.i.i = phi i32 [ %.056.ph.ph.i.ph.i, %psa_mac_update.exit97.thread129.i.i ], [ -137, %185 ], [ -137, %218 ], [ -137, %202 ], [ %.056.ph.ph.i.ph.i, %270 ], [ %.056.ph.ph.i.ph.i, %psa_driver_wrapper_mac_abort.exit.i.i.i64 ], [ -137, %247 ]
-  %.0.i118.i.i = phi i32 [ %.pr143.pr.i.pr.i, %psa_mac_update.exit97.thread129.i.i ], [ 0, %185 ], [ 0, %218 ], [ 0, %202 ], [ %271, %270 ], [ -135, %psa_driver_wrapper_mac_abort.exit.i.i.i64 ], [ 0, %247 ]
+  %.056146.i.i = phi i32 [ -137, %202 ], [ %.056.ph.ph.i.ph.i, %psa_mac_update.exit97.thread129.i.i ], [ -137, %185 ], [ -137, %218 ], [ %.056.ph.ph.i.ph.i, %270 ], [ %.056.ph.ph.i.ph.i, %psa_driver_wrapper_mac_abort.exit.i.i.i64 ], [ -137, %247 ]
+  %.0.i118.i.i = phi i32 [ 0, %202 ], [ %.pr143.pr.i.pr.i, %psa_mac_update.exit97.thread129.i.i ], [ 0, %185 ], [ 0, %218 ], [ %271, %270 ], [ -135, %psa_driver_wrapper_mac_abort.exit.i.i.i64 ], [ 0, %247 ]
   %272 = icmp eq i32 %.056146.i.i, 0
   %273 = icmp ne i32 %.0.i118.i.i, 0
   %or.cond.i.i = select i1 %272, i1 %273, i1 false
@@ -7771,15 +7771,15 @@ psa_crypto_copy_output.exit.i:                    ; preds = %291, %290
   br label %psa_crypto_local_output_free.exit
 
 psa_crypto_local_output_alloc.exit:               ; preds = %psa_key_derivation_hkdf_read.exit, %283
-  %.043 = phi i32 [ %.067.i, %psa_key_derivation_hkdf_read.exit ], [ %285, %283 ]
+  %.043 = phi i32 [ %285, %283 ], [ %.067.i, %psa_key_derivation_hkdf_read.exit ]
   %.not53 = icmp eq i32 %.043, 0
   br i1 %.not53, label %psa_crypto_local_output_alloc.exit.thread124, label %psa_crypto_local_output_alloc.exit.thread108
 
-psa_crypto_local_output_alloc.exit.thread108:     ; preds = %psa_key_derivation_tls12_prf_generate_next_block.exit.i, %psa_key_derivation_tls12_prf_generate_next_block.exit.thread.i, %136, %.split, %26, %psa_crypto_local_output_alloc.exit
-  %.043122 = phi i32 [ %.043, %psa_crypto_local_output_alloc.exit ], [ -151, %psa_key_derivation_tls12_prf_generate_next_block.exit.thread.i ], [ -137, %136 ], [ -141, %.split ], [ -143, %26 ], [ %spec.select.i.i, %psa_key_derivation_tls12_prf_generate_next_block.exit.i ]
-  %.044121 = phi ptr [ %.sroa.8.0.ph, %psa_crypto_local_output_alloc.exit ], [ %.sroa.8.0.ph, %psa_key_derivation_tls12_prf_generate_next_block.exit.thread.i ], [ %.sroa.8.0.ph, %136 ], [ null, %.split ], [ %.sroa.8.0.ph, %26 ], [ %.sroa.8.0.ph, %psa_key_derivation_tls12_prf_generate_next_block.exit.i ]
-  %.sroa.0.099119 = phi ptr [ %.sroa.0.0.ph, %psa_crypto_local_output_alloc.exit ], [ %.sroa.0.0.ph, %psa_key_derivation_tls12_prf_generate_next_block.exit.thread.i ], [ %.sroa.0.0.ph, %136 ], [ null, %.split ], [ %.sroa.0.0.ph, %26 ], [ %.sroa.0.0.ph, %psa_key_derivation_tls12_prf_generate_next_block.exit.i ]
-  %.sroa.16.0103115 = phi i64 [ %2, %psa_crypto_local_output_alloc.exit ], [ %2, %psa_key_derivation_tls12_prf_generate_next_block.exit.thread.i ], [ %2, %136 ], [ 0, %.split ], [ %2, %26 ], [ %2, %psa_key_derivation_tls12_prf_generate_next_block.exit.i ]
+psa_crypto_local_output_alloc.exit.thread108:     ; preds = %psa_key_derivation_tls12_prf_generate_next_block.exit.i, %136, %psa_key_derivation_tls12_prf_generate_next_block.exit.thread.i, %.split, %26, %psa_crypto_local_output_alloc.exit
+  %.043122 = phi i32 [ %.043, %psa_crypto_local_output_alloc.exit ], [ -143, %26 ], [ -137, %136 ], [ -151, %psa_key_derivation_tls12_prf_generate_next_block.exit.thread.i ], [ -141, %.split ], [ %spec.select.i.i, %psa_key_derivation_tls12_prf_generate_next_block.exit.i ]
+  %.044121 = phi ptr [ %.sroa.8.0.ph, %psa_crypto_local_output_alloc.exit ], [ %.sroa.8.0.ph, %26 ], [ %.sroa.8.0.ph, %136 ], [ %.sroa.8.0.ph, %psa_key_derivation_tls12_prf_generate_next_block.exit.thread.i ], [ null, %.split ], [ %.sroa.8.0.ph, %psa_key_derivation_tls12_prf_generate_next_block.exit.i ]
+  %.sroa.0.099119 = phi ptr [ %.sroa.0.0.ph, %psa_crypto_local_output_alloc.exit ], [ %.sroa.0.0.ph, %26 ], [ %.sroa.0.0.ph, %136 ], [ %.sroa.0.0.ph, %psa_key_derivation_tls12_prf_generate_next_block.exit.thread.i ], [ null, %.split ], [ %.sroa.0.0.ph, %psa_key_derivation_tls12_prf_generate_next_block.exit.i ]
+  %.sroa.16.0103115 = phi i64 [ %2, %psa_crypto_local_output_alloc.exit ], [ %2, %26 ], [ %2, %136 ], [ %2, %psa_key_derivation_tls12_prf_generate_next_block.exit.thread.i ], [ 0, %.split ], [ %2, %psa_key_derivation_tls12_prf_generate_next_block.exit.i ]
   %292 = load i32, ptr %0, align 8, !tbaa !74
   %293 = call i32 @psa_key_derivation_abort(ptr noundef nonnull %0)
   store i32 %292, ptr %0, align 8, !tbaa !74
@@ -7815,7 +7815,7 @@ psa_crypto_copy_output.exit.i78:                  ; preds = %298, %297
   br label %psa_crypto_local_output_free.exit
 
 psa_crypto_local_output_free.exit:                ; preds = %psa_crypto_local_output_alloc.exit.thread108, %295, %psa_crypto_copy_output.exit.i78, %psa_crypto_local_output_alloc.exit.thread124, %288, %psa_crypto_copy_output.exit.i, %286, %18, %3
-  %.0 = phi i32 [ -137, %3 ], [ -143, %18 ], [ -151, %288 ], [ -137, %psa_crypto_copy_output.exit.i ], [ -137, %286 ], [ -151, %295 ], [ %.043123253, %psa_crypto_copy_output.exit.i78 ], [ 0, %psa_crypto_local_output_alloc.exit.thread124 ], [ %.043122, %psa_crypto_local_output_alloc.exit.thread108 ]
+  %.0 = phi i32 [ -143, %18 ], [ -137, %3 ], [ -137, %286 ], [ -151, %288 ], [ -137, %psa_crypto_copy_output.exit.i ], [ -151, %295 ], [ %.043123253, %psa_crypto_copy_output.exit.i78 ], [ 0, %psa_crypto_local_output_alloc.exit.thread124 ], [ %.043122, %psa_crypto_local_output_alloc.exit.thread108 ]
   ret i32 %.0
 }
 
@@ -7844,7 +7844,7 @@ psa_crypto_local_input_alloc.exit.i:              ; preds = %8
   %12 = icmp eq ptr %1, null
   br i1 %12, label %psa_hash_compute.exit.thread, label %psa_hash_compute.exit
 
-psa_hash_compute.exit.thread13:                   ; preds = %8, %5
+psa_hash_compute.exit.thread13:                   ; preds = %5, %8
   tail call void @free(ptr noundef %6) #22
   br label %psa_hash_compute.exit.thread
 
@@ -7861,7 +7861,7 @@ psa_hash_compute.exit:                            ; preds = %psa_crypto_local_in
   br label %psa_hash_compute.exit.thread
 
 psa_hash_compute.exit.thread:                     ; preds = %psa_crypto_local_input_alloc.exit.i, %psa_hash_compute.exit.thread13, %13, %psa_hash_compute.exit, %3
-  %.0 = phi i32 [ -135, %3 ], [ %11, %psa_hash_compute.exit ], [ %., %13 ], [ -141, %psa_hash_compute.exit.thread13 ], [ -151, %psa_crypto_local_input_alloc.exit.i ]
+  %.0 = phi i32 [ %11, %psa_hash_compute.exit ], [ -135, %3 ], [ %., %13 ], [ -141, %psa_hash_compute.exit.thread13 ], [ -151, %psa_crypto_local_input_alloc.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -8047,7 +8047,7 @@ define hidden i32 @psa_key_derivation_output_key_custom(ptr noundef readonly cap
   br i1 %.not46.i.i, label %psa_generate_derived_ecc_key_weierstrass_helper.exit.i, label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %81, %77, %72, %70, %84, %._crit_edge.i.i, %61, %54, %52, %45
-  %.4.i = phi ptr [ null, %45 ], [ null, %61 ], [ %62, %84 ], [ %62, %._crit_edge.i.i ], [ null, %54 ], [ null, %52 ], [ %62, %70 ], [ %62, %72 ], [ %62, %77 ], [ %62, %81 ]
+  %.4.i = phi ptr [ null, %45 ], [ null, %61 ], [ %62, %84 ], [ %62, %._crit_edge.i.i ], [ null, %54 ], [ null, %52 ], [ %62, %72 ], [ %62, %70 ], [ %62, %77 ], [ %62, %81 ]
   %.051.i.i = phi i32 [ -104, %45 ], [ -106, %61 ], [ %85, %84 ], [ %83, %._crit_edge.i.i ], [ %60, %54 ], [ %53, %52 ], [ %73, %72 ], [ %71, %70 ], [ %82, %81 ], [ %80, %77 ]
   %86 = call i32 @mbedtls_to_psa_error(i32 noundef %.051.i.i)
   %.not47.i.i = icmp eq i32 %86, 0
@@ -8160,8 +8160,8 @@ psa_generate_derived_ecc_key_montgomery_helper.exit.i: ; preds = %101, %95
   br label %.thread.i
 
 .thread.i:                                        ; preds = %119, %116, %psa_generate_derived_ecc_key_montgomery_helper.exit.i, %psa_generate_derived_ecc_key_weierstrass_helper.exit..thread_crit_edge.i
-  %120 = phi i64 [ %32, %119 ], [ %32, %116 ], [ %32, %psa_generate_derived_ecc_key_montgomery_helper.exit.i ], [ %.pre100.i, %psa_generate_derived_ecc_key_weierstrass_helper.exit..thread_crit_edge.i ]
-  %.3.i = phi ptr [ %112, %119 ], [ %112, %116 ], [ %90, %psa_generate_derived_ecc_key_montgomery_helper.exit.i ], [ %.6.i, %psa_generate_derived_ecc_key_weierstrass_helper.exit..thread_crit_edge.i ]
+  %120 = phi i64 [ %32, %116 ], [ %32, %119 ], [ %32, %psa_generate_derived_ecc_key_montgomery_helper.exit.i ], [ %.pre100.i, %psa_generate_derived_ecc_key_weierstrass_helper.exit..thread_crit_edge.i ]
+  %.3.i = phi ptr [ %112, %116 ], [ %112, %119 ], [ %90, %psa_generate_derived_ecc_key_montgomery_helper.exit.i ], [ %.6.i, %psa_generate_derived_ecc_key_weierstrass_helper.exit..thread_crit_edge.i ]
   %121 = trunc i64 %120 to i16
   %122 = getelementptr inbounds nuw i8, ptr %30, i64 2
   store i16 %121, ptr %122, align 2, !tbaa !46
@@ -8208,15 +8208,15 @@ psa_driver_wrapper_import_key.exit.i:             ; preds = %137, %135
   %.not49.i = icmp eq i64 %139, %141
   br i1 %.not49.i, label %142, label %.thread26
 
-.thread23:                                        ; preds = %29, %109, %111, %107
-  %.0.i18.ph = phi i32 [ -134, %107 ], [ -141, %111 ], [ -135, %109 ], [ -135, %29 ]
+.thread23:                                        ; preds = %111, %29, %109, %107
+  %.0.i18.ph = phi i32 [ -134, %107 ], [ -135, %109 ], [ -135, %29 ], [ -141, %111 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.thread
 
-.thread26:                                        ; preds = %psa_driver_wrapper_import_key.exit.i, %126, %114, %psa_generate_derived_ecc_key_weierstrass_helper.exit.i, %92, %94, %89, %87, %128, %132
-  %.269.i.ph = phi ptr [ %.3.i, %132 ], [ %.3.i, %128 ], [ null, %87 ], [ null, %89 ], [ %90, %94 ], [ %90, %92 ], [ %.6.i, %psa_generate_derived_ecc_key_weierstrass_helper.exit.i ], [ %112, %114 ], [ %.3.i, %126 ], [ %.3.i, %psa_driver_wrapper_import_key.exit.i ]
-  %.2.i.ph = phi i32 [ -141, %132 ], [ -139, %128 ], [ -135, %87 ], [ -141, %89 ], [ -151, %94 ], [ %93, %92 ], [ %.260.i.i, %psa_generate_derived_ecc_key_weierstrass_helper.exit.i ], [ %115, %114 ], [ %127, %126 ], [ -135, %psa_driver_wrapper_import_key.exit.i ]
+.thread26:                                        ; preds = %psa_driver_wrapper_import_key.exit.i, %87, %126, %114, %psa_generate_derived_ecc_key_weierstrass_helper.exit.i, %92, %94, %89, %128, %132
+  %.269.i.ph = phi ptr [ %.3.i, %132 ], [ %.3.i, %128 ], [ null, %89 ], [ %90, %94 ], [ %90, %92 ], [ %.6.i, %psa_generate_derived_ecc_key_weierstrass_helper.exit.i ], [ %112, %114 ], [ %.3.i, %126 ], [ null, %87 ], [ %.3.i, %psa_driver_wrapper_import_key.exit.i ]
+  %.2.i.ph = phi i32 [ -141, %132 ], [ -139, %128 ], [ -141, %89 ], [ -151, %94 ], [ %93, %92 ], [ %.260.i.i, %psa_generate_derived_ecc_key_weierstrass_helper.exit.i ], [ %115, %114 ], [ %127, %126 ], [ -135, %87 ], [ -135, %psa_driver_wrapper_import_key.exit.i ]
   call void @free(ptr noundef %.269.i.ph) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -8263,8 +8263,8 @@ psa_finish_key_creation.exit:                     ; preds = %.thread.i19
   store i32 2, ptr %159, align 8, !tbaa !26
   br label %psa_fail_key_creation.exit
 
-.thread:                                          ; preds = %26, %142, %.thread23, %.thread26, %psa_key_slot_state_transition.exit.i, %150
-  %.1.ph = phi i32 [ %155, %150 ], [ -151, %psa_key_slot_state_transition.exit.i ], [ %.2.i.ph, %.thread26 ], [ %.0.i18.ph, %.thread23 ], [ %.0.i54.i, %142 ], [ %27, %26 ]
+.thread:                                          ; preds = %26, %.thread26, %142, %.thread23, %psa_key_slot_state_transition.exit.i, %150
+  %.1.ph = phi i32 [ %155, %150 ], [ -151, %psa_key_slot_state_transition.exit.i ], [ %.0.i18.ph, %.thread23 ], [ %.2.i.ph, %.thread26 ], [ %.0.i54.i, %142 ], [ %27, %26 ]
   %161 = load ptr, ptr %13, align 8, !tbaa !29
   %162 = icmp eq ptr %161, null
   br i1 %162, label %psa_fail_key_creation.exit, label %163
@@ -8319,7 +8319,7 @@ psa_remove_key_data_from_memory.exit.i.i:         ; preds = %166, %163
   br label %psa_fail_key_creation.exit
 
 psa_fail_key_creation.exit:                       ; preds = %181, %176, %171, %.thread.i.i, %.thread, %psa_finish_key_creation.exit, %22, %19, %17, %6
-  %.014 = phi i32 [ -135, %6 ], [ -135, %17 ], [ -137, %19 ], [ -133, %22 ], [ 0, %psa_finish_key_creation.exit ], [ %.1.ph, %.thread ], [ %.1.ph, %.thread.i.i ], [ %.1.ph, %171 ], [ %.1.ph, %176 ], [ %.1.ph, %181 ]
+  %.014 = phi i32 [ -135, %6 ], [ -135, %17 ], [ -133, %22 ], [ -137, %19 ], [ 0, %psa_finish_key_creation.exit ], [ %.1.ph, %.thread ], [ %.1.ph, %.thread.i.i ], [ %.1.ph, %171 ], [ %.1.ph, %176 ], [ %.1.ph, %181 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i32 %.014
@@ -8376,7 +8376,7 @@ define hidden i32 @psa_key_derivation_setup(ptr noundef captures(none) %0, i32 n
   br label %.thread
 
 .thread:                                          ; preds = %7, %11, %9, %12, %15, %4, %2
-  %.0 = phi i32 [ -137, %2 ], [ -135, %4 ], [ 0, %15 ], [ %13, %12 ], [ -135, %11 ], [ -134, %9 ], [ -135, %7 ]
+  %.0 = phi i32 [ -135, %4 ], [ -137, %2 ], [ -135, %7 ], [ %13, %12 ], [ 0, %15 ], [ -135, %11 ], [ -134, %9 ]
   ret i32 %.0
 }
 
@@ -8431,7 +8431,7 @@ thread-pre-split.i.i.i:                           ; preds = %16
   br i1 %cond.i.i, label %psa_hash_try_support.exit.i, label %psa_hash_try_support.exit.thread.i
 
 psa_hash_try_support.exit.thread.i:               ; preds = %thread-pre-split.i.i.i, %switch.lookup
-  %.011.i3.i.ph.i = phi i32 [ %18, %thread-pre-split.i.i.i ], [ -135, %switch.lookup ]
+  %.011.i3.i.ph.i = phi i32 [ -135, %switch.lookup ], [ %18, %thread-pre-split.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %psa_key_derivation_set_maximum_capacity.exit
 
@@ -8491,7 +8491,7 @@ psa_hash_try_support.exit.i:                      ; preds = %thread-pre-split.i.
   br label %psa_key_derivation_set_maximum_capacity.exit
 
 psa_key_derivation_set_maximum_capacity.exit:     ; preds = %10, %36, %35, %33, %31, %28, %26, %23, %20, %psa_hash_try_support.exit.i, %psa_hash_try_support.exit.thread.i, %8, %2
-  %.0 = phi i32 [ -134, %2 ], [ 0, %8 ], [ %18, %psa_hash_try_support.exit.i ], [ 0, %23 ], [ 0, %26 ], [ 0, %28 ], [ 0, %33 ], [ 0, %36 ], [ -134, %20 ], [ -134, %35 ], [ -134, %10 ], [ %.011.i3.i.ph.i, %psa_hash_try_support.exit.thread.i ], [ -134, %31 ]
+  %.0 = phi i32 [ -134, %2 ], [ 0, %8 ], [ %.011.i3.i.ph.i, %psa_hash_try_support.exit.thread.i ], [ %18, %psa_hash_try_support.exit.i ], [ 0, %23 ], [ 0, %26 ], [ 0, %28 ], [ 0, %33 ], [ 0, %36 ], [ -134, %20 ], [ -134, %35 ], [ -134, %10 ], [ -134, %31 ]
   ret i32 %.0
 }
 
@@ -8923,7 +8923,7 @@ switch.lookup82:                                  ; preds = %126
   br label %psa_hkdf_input.exit
 
 psa_hkdf_input.exit:                              ; preds = %19, %22, %24, %psa_key_derivation_start_hmac.exit.i, %47, %56, %60, %66, %psa_key_derivation_start_hmac.exit145.i, %88, %91, %psa_mac_update.exit.thread151.i, %psa_mac_update.exit.thread.i, %123, %129, %132, %133, %138, %145, %149
-  %.0.i35 = phi i32 [ 0, %47 ], [ 0, %149 ], [ -135, %22 ], [ -137, %24 ], [ %46, %psa_key_derivation_start_hmac.exit.i ], [ -137, %56 ], [ -135, %60 ], [ -137, %66 ], [ %83, %psa_key_derivation_start_hmac.exit145.i ], [ -137, %88 ], [ %112, %psa_mac_update.exit.thread.i ], [ 0, %129 ], [ 0, %123 ], [ -135, %132 ], [ -137, %133 ], [ -137, %138 ], [ -141, %145 ], [ -135, %19 ], [ %.0.i.ph.i, %psa_mac_update.exit.thread151.i ], [ -137, %91 ]
+  %.0.i35 = phi i32 [ -141, %145 ], [ 0, %149 ], [ -135, %22 ], [ -137, %24 ], [ 0, %47 ], [ %46, %psa_key_derivation_start_hmac.exit.i ], [ -137, %56 ], [ %112, %psa_mac_update.exit.thread.i ], [ -135, %60 ], [ -137, %66 ], [ %83, %psa_key_derivation_start_hmac.exit145.i ], [ -137, %88 ], [ %.0.i.ph.i, %psa_mac_update.exit.thread151.i ], [ 0, %123 ], [ -135, %132 ], [ -137, %133 ], [ -137, %138 ], [ -135, %19 ], [ 0, %129 ], [ -137, %91 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %psa_key_derivation_check_input_type.exit
 
@@ -9097,12 +9097,12 @@ psa_tls12_prf_set_key.exit.i.i:                   ; preds = %208, %202, %192
   br label %psa_key_derivation_check_input_type.exit.thread51
 
 psa_key_derivation_check_input_type.exit:         ; preds = %220, %psa_tls12_prf_set_key.exit.i.i, %psa_hkdf_input.exit, %151
-  %.030 = phi i32 [ %.0.i35, %psa_hkdf_input.exit ], [ %153, %151 ], [ %222, %220 ], [ %.0.i.i.i, %psa_tls12_prf_set_key.exit.i.i ]
+  %.030 = phi i32 [ %.0.i.i.i, %psa_tls12_prf_set_key.exit.i.i ], [ %.0.i35, %psa_hkdf_input.exit ], [ %153, %151 ], [ %222, %220 ]
   %.not33 = icmp eq i32 %.030, 0
   br i1 %.not33, label %psa_key_derivation_check_input_type.exit.thread51, label %psa_key_derivation_check_input_type.exit.thread46
 
-psa_key_derivation_check_input_type.exit.thread46: ; preds = %14, %13, %12, %5, %15, %229, %225, %213, %209, %170, %167, %psa_key_derivation_check_input_type.exit
-  %.03049 = phi i32 [ %.030, %psa_key_derivation_check_input_type.exit ], [ -135, %229 ], [ -135, %225 ], [ -141, %213 ], [ -137, %209 ], [ -141, %170 ], [ -135, %167 ], [ -135, %14 ], [ -135, %13 ], [ -135, %12 ], [ -135, %15 ], [ -135, %5 ]
+psa_key_derivation_check_input_type.exit.thread46: ; preds = %14, %13, %12, %5, %15, %229, %225, %209, %167, %170, %213, %psa_key_derivation_check_input_type.exit
+  %.03049 = phi i32 [ %.030, %psa_key_derivation_check_input_type.exit ], [ -135, %229 ], [ -135, %225 ], [ -137, %209 ], [ -135, %167 ], [ -141, %170 ], [ -135, %12 ], [ -135, %13 ], [ -141, %213 ], [ -135, %14 ], [ -135, %15 ], [ -135, %5 ]
   %233 = call i32 @psa_key_derivation_abort(ptr noundef nonnull %0)
   br label %psa_key_derivation_check_input_type.exit.thread51
 
@@ -9138,8 +9138,8 @@ define hidden i32 @psa_key_derivation_input_key(ptr noundef %0, i16 noundef zero
   store ptr null, ptr %4, align 8, !tbaa !29
   br label %14
 
-14:                                               ; preds = %12, %3
-  %.0.i.ph = phi i32 [ %6, %3 ], [ -134, %12 ]
+14:                                               ; preds = %3, %12
+  %.0.i.ph = phi i32 [ -134, %12 ], [ %6, %3 ]
   %15 = call i32 @psa_key_derivation_abort(ptr noundef nonnull %0)
   br label %32
 
@@ -9190,7 +9190,7 @@ define hidden i32 @psa_key_agreement_raw_builtin(ptr noundef %0, ptr noundef %1,
   br label %14
 
 14:                                               ; preds = %9, %12, %10
-  %.0 = phi i32 [ %11, %10 ], [ %13, %12 ], [ -134, %9 ]
+  %.0 = phi i32 [ %13, %12 ], [ %11, %10 ], [ -134, %9 ]
   ret i32 %.0
 }
 
@@ -9269,14 +9269,14 @@ psa_get_and_lock_transparent_key_slot_with_policy.exit: ; preds = %14
   br label %psa_key_agreement_raw_internal.exit.i
 
 psa_key_agreement_raw_internal.exit.i:            ; preds = %38, %36
-  %.0.i.i = phi i32 [ %37, %36 ], [ %39, %38 ]
+  %.0.i.i = phi i32 [ %39, %38 ], [ %37, %36 ]
   %.not.i26 = icmp eq i32 %.0.i.i, 0
   %.pre11.i = load i64, ptr %7, align 8, !tbaa !25
   br i1 %.not.i26, label %psa_crypto_local_input_alloc.exit, label %psa_crypto_local_input_alloc.exit.thread51
 
 psa_crypto_local_input_alloc.exit.thread51:       ; preds = %psa_key_agreement_raw_internal.exit.i, %26, %31
-  %.ph = phi i64 [ 0, %31 ], [ 0, %26 ], [ %.pre11.i, %psa_key_agreement_raw_internal.exit.i ]
-  %.0.i25.ph = phi i32 [ -134, %31 ], [ -134, %26 ], [ %.0.i.i, %psa_key_agreement_raw_internal.exit.i ]
+  %.ph = phi i64 [ 0, %31 ], [ %.pre11.i, %psa_key_agreement_raw_internal.exit.i ], [ 0, %26 ]
+  %.0.i25.ph = phi i32 [ -134, %31 ], [ %.0.i.i, %psa_key_agreement_raw_internal.exit.i ], [ -134, %26 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %6, i64 noundef %.ph) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -9292,8 +9292,8 @@ psa_crypto_local_input_alloc.exit:                ; preds = %psa_key_agreement_r
   br i1 %.not23, label %42, label %psa_crypto_local_input_alloc.exit.thread40
 
 psa_crypto_local_input_alloc.exit.thread40:       ; preds = %22, %psa_crypto_local_input_alloc.exit.thread51, %psa_crypto_local_input_alloc.exit
-  %.047 = phi i32 [ %40, %psa_crypto_local_input_alloc.exit ], [ %.0.i25.ph, %psa_crypto_local_input_alloc.exit.thread51 ], [ -141, %22 ]
-  %.sroa.0.03845 = phi ptr [ %.sroa.0.0.ph, %psa_crypto_local_input_alloc.exit ], [ %.sroa.0.0.ph, %psa_crypto_local_input_alloc.exit.thread51 ], [ null, %22 ]
+  %.047 = phi i32 [ %.0.i25.ph, %psa_crypto_local_input_alloc.exit.thread51 ], [ %40, %psa_crypto_local_input_alloc.exit ], [ -141, %22 ]
+  %.sroa.0.03845 = phi ptr [ %.sroa.0.0.ph, %psa_crypto_local_input_alloc.exit.thread51 ], [ %.sroa.0.0.ph, %psa_crypto_local_input_alloc.exit ], [ null, %22 ]
   %41 = call i32 @psa_key_derivation_abort(ptr noundef nonnull %0)
   br label %48
 
@@ -9318,7 +9318,7 @@ psa_crypto_local_input_alloc.exit.thread40:       ; preds = %22, %psa_crypto_loc
   %spec.select = select i1 %.not2348, i32 %50, i32 %.046
   br label %psa_get_and_lock_transparent_key_slot_with_policy.exit.thread
 
-psa_get_and_lock_transparent_key_slot_with_policy.exit.thread: ; preds = %48, %12, %19, %5
+psa_get_and_lock_transparent_key_slot_with_policy.exit.thread: ; preds = %48, %19, %12, %5
   %.019 = phi i32 [ -135, %5 ], [ %13, %12 ], [ -134, %19 ], [ %spec.select, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.019
@@ -9396,9 +9396,9 @@ psa_get_and_lock_transparent_key_slot_with_policy.exit: ; preds = %18
   %40 = call fastcc i32 @psa_key_agreement_raw_internal(i32 noundef %0, ptr noundef nonnull %19, ptr noundef %.sroa.050.1.ph, i64 noundef %3, ptr noundef %.sroa.6.0.ph, i64 noundef %5, ptr noundef %6)
   br label %psa_crypto_local_output_alloc.exit
 
-psa_crypto_local_output_alloc.exit:               ; preds = %16, %23, %35, %27, %13, %39
-  %.sroa.050.0 = phi ptr [ %.sroa.050.1.ph, %39 ], [ null, %27 ], [ null, %13 ], [ null, %35 ], [ null, %23 ], [ null, %16 ]
-  %.0 = phi i32 [ %40, %39 ], [ -138, %27 ], [ -135, %13 ], [ -141, %35 ], [ -134, %23 ], [ %17, %16 ]
+psa_crypto_local_output_alloc.exit:               ; preds = %23, %16, %35, %27, %13, %39
+  %.sroa.050.0 = phi ptr [ %.sroa.050.1.ph, %39 ], [ null, %35 ], [ null, %27 ], [ null, %13 ], [ null, %16 ], [ null, %23 ]
+  %.0 = phi i32 [ %40, %39 ], [ -141, %35 ], [ -138, %27 ], [ -135, %13 ], [ %17, %16 ], [ -134, %23 ]
   %41 = icmp ne ptr %.sroa.6.0.ph, null
   %42 = icmp ne i32 %.0, 0
   %or.cond = select i1 %41, i1 %42, i1 false
@@ -9430,12 +9430,12 @@ psa_crypto_local_output_alloc.exit:               ; preds = %16, %23, %35, %27, 
   br i1 %53, label %.sink.split, label %54
 
 .sink.split:                                      ; preds = %.lr.ph.i, %52, %10, %43
-  %.sink = phi i64 [ %5, %43 ], [ 0, %10 ], [ 0, %52 ], [ %5, %.lr.ph.i ]
-  %.sroa.11.06582102.ph = phi i64 [ %5, %43 ], [ 0, %10 ], [ %5, %52 ], [ %5, %.lr.ph.i ]
-  %.sroa.6.06483100.ph = phi ptr [ %.sroa.6.0.ph, %43 ], [ null, %10 ], [ null, %52 ], [ %.sroa.6.0.ph, %.lr.ph.i ]
-  %.sroa.0.0618498.ph = phi ptr [ %.sroa.0.0.ph, %43 ], [ null, %10 ], [ %.sroa.0.0.ph, %52 ], [ %.sroa.0.0.ph, %.lr.ph.i ]
-  %.sroa.050.08596.ph = phi ptr [ %.sroa.050.0, %43 ], [ null, %10 ], [ %.sroa.050.0, %52 ], [ %.sroa.050.0, %.lr.ph.i ]
-  %.08794.ph = phi i32 [ %.0, %43 ], [ -141, %10 ], [ %.0, %52 ], [ %.0, %.lr.ph.i ]
+  %.sink = phi i64 [ %5, %43 ], [ 0, %52 ], [ 0, %10 ], [ %5, %.lr.ph.i ]
+  %.sroa.11.06582102.ph = phi i64 [ %5, %43 ], [ %5, %52 ], [ 0, %10 ], [ %5, %.lr.ph.i ]
+  %.sroa.6.06483100.ph = phi ptr [ %.sroa.6.0.ph, %43 ], [ null, %52 ], [ null, %10 ], [ %.sroa.6.0.ph, %.lr.ph.i ]
+  %.sroa.0.0618498.ph = phi ptr [ %.sroa.0.0.ph, %43 ], [ %.sroa.0.0.ph, %52 ], [ null, %10 ], [ %.sroa.0.0.ph, %.lr.ph.i ]
+  %.sroa.050.08596.ph = phi ptr [ %.sroa.050.0, %43 ], [ %.sroa.050.0, %52 ], [ null, %10 ], [ %.sroa.050.0, %.lr.ph.i ]
+  %.08794.ph = phi i32 [ %.0, %43 ], [ %.0, %52 ], [ -141, %10 ], [ %.0, %.lr.ph.i ]
   store i64 %.sink, ptr %6, align 8, !tbaa !25
   br label %54
 
@@ -9510,7 +9510,7 @@ define internal fastcc i32 @psa_key_agreement_raw_internal(i32 noundef %0, ptr n
   br label %psa_driver_wrapper_key_agreement.exit
 
 psa_driver_wrapper_key_agreement.exit:            ; preds = %18, %16, %15, %9, %7
-  %.0 = phi i32 [ -134, %7 ], [ -134, %9 ], [ %17, %16 ], [ %19, %18 ], [ -134, %15 ]
+  %.0 = phi i32 [ -134, %7 ], [ -134, %9 ], [ %19, %18 ], [ %17, %16 ], [ -134, %15 ]
   ret i32 %.0
 }
 
@@ -9556,8 +9556,8 @@ define hidden range(i32 -151, 1) i32 @psa_generate_random(ptr noundef writeonly 
   br i1 %.not.i, label %psa_crypto_local_output_alloc.exit, label %.lr.ph.i
 
 psa_crypto_local_output_alloc.exit:               ; preds = %15, %7, %.thread.i
-  %.sroa.11.025 = phi i64 [ %.mux, %7 ], [ %1, %.thread.i ], [ %1, %15 ]
-  %.0 = phi i32 [ %.mux38, %7 ], [ %14, %.thread.i ], [ 0, %15 ]
+  %.sroa.11.025 = phi i64 [ %1, %.thread.i ], [ %.mux, %7 ], [ %1, %15 ]
+  %.0 = phi i32 [ %14, %.thread.i ], [ %.mux38, %7 ], [ 0, %15 ]
   %18 = icmp eq ptr %.sroa.6.0.ph, null
   br i1 %18, label %psa_crypto_local_output_free.exit, label %19
 
@@ -9668,7 +9668,7 @@ psa_generate_random_internal.exit.thread:         ; preds = %17, %psa_generate_r
   br label %psa_des_set_key_parity.exit
 
 psa_des_set_key_parity.exit:                      ; preds = %34, %.preheader.i, %10, %28, %25, %23, %psa_generate_random_internal.exit.thread, %psa_generate_random_internal.exit, %38, %36, %32
-  %.0 = phi i32 [ %33, %32 ], [ %37, %36 ], [ %39, %38 ], [ %20, %psa_generate_random_internal.exit ], [ 0, %psa_generate_random_internal.exit.thread ], [ 0, %23 ], [ 0, %25 ], [ 0, %28 ], [ -137, %10 ], [ 0, %.preheader.i ], [ -134, %34 ]
+  %.0 = phi i32 [ %20, %psa_generate_random_internal.exit ], [ -134, %34 ], [ %33, %32 ], [ %37, %36 ], [ %39, %38 ], [ 0, %psa_generate_random_internal.exit.thread ], [ 0, %28 ], [ 0, %.preheader.i ], [ 0, %23 ], [ 0, %25 ], [ -137, %10 ]
   ret i32 %.0
 }
 
@@ -9956,7 +9956,7 @@ psa_finish_key_creation.exit:                     ; preds = %.thread.i
   br label %psa_fail_key_creation.exit
 
 .thread:                                          ; preds = %84, %80, %psa_remove_key_data_from_memory.exit, %31, %20, %psa_key_slot_state_transition.exit.i, %111
-  %.1.ph.ph = phi i32 [ -141, %84 ], [ %21, %20 ], [ %35, %31 ], [ %.0.i6977, %psa_remove_key_data_from_memory.exit ], [ %81, %80 ], [ -151, %psa_key_slot_state_transition.exit.i ], [ %116, %111 ]
+  %.1.ph.ph = phi i32 [ -141, %84 ], [ %35, %31 ], [ %21, %20 ], [ %.0.i6977, %psa_remove_key_data_from_memory.exit ], [ %81, %80 ], [ -151, %psa_key_slot_state_transition.exit.i ], [ %116, %111 ]
   %.pr = load ptr, ptr %6, align 8, !tbaa !29
   %122 = icmp eq ptr %.pr, null
   br i1 %122, label %psa_fail_key_creation.exit, label %.thread.thread
@@ -10013,7 +10013,7 @@ psa_remove_key_data_from_memory.exit.i.i:         ; preds = %126, %.thread.threa
   br label %psa_fail_key_creation.exit
 
 psa_fail_key_creation.exit:                       ; preds = %141, %136, %131, %.thread.i.i, %.thread, %psa_finish_key_creation.exit, %19, %18, %11, %5
-  %.042 = phi i32 [ -135, %5 ], [ -135, %11 ], [ -135, %18 ], [ -135, %19 ], [ 0, %psa_finish_key_creation.exit ], [ %.1.ph.ph, %.thread ], [ %.1.ph97, %.thread.i.i ], [ %.1.ph97, %131 ], [ %.1.ph97, %136 ], [ %.1.ph97, %141 ]
+  %.042 = phi i32 [ -135, %18 ], [ -135, %5 ], [ -135, %11 ], [ -135, %19 ], [ 0, %psa_finish_key_creation.exit ], [ %.1.ph.ph, %.thread ], [ %.1.ph97, %.thread.i.i ], [ %.1.ph97, %131 ], [ %.1.ph97, %136 ], [ %.1.ph97, %141 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -10070,7 +10070,7 @@ switch.lookup:                                    ; preds = %12
   br label %psa_is_dh_key_size_valid.exit.thread
 
 psa_is_dh_key_size_valid.exit.thread:             ; preds = %switch.lookup, %12, %10, %psa_is_dh_key_size_valid.exit.thread.fold.split, %7, %4, %psa_is_dh_key_size_valid.exit
-  %.0 = phi i32 [ 0, %psa_is_dh_key_size_valid.exit ], [ %5, %4 ], [ -134, %7 ], [ 0, %10 ], [ -134, %12 ], [ -134, %psa_is_dh_key_size_valid.exit.thread.fold.split ], [ %switch.load, %switch.lookup ]
+  %.0 = phi i32 [ 0, %10 ], [ 0, %psa_is_dh_key_size_valid.exit ], [ %5, %4 ], [ -134, %7 ], [ -134, %12 ], [ -134, %psa_is_dh_key_size_valid.exit.thread.fold.split ], [ %switch.load, %switch.lookup ]
   ret i32 %.0
 }
 
@@ -10245,8 +10245,8 @@ mbedtls_psa_random_init.exit.i.mbedtls_psa_crypto_init_subsystem.exit16_crit_edg
   %.pre32 = load i8, ptr @global_data, align 8, !tbaa !3
   br label %33
 
-33:                                               ; preds = %32, %mbedtls_psa_crypto_init_subsystem.exit14.thread
-  %34 = phi i8 [ %.pre32, %32 ], [ %16, %mbedtls_psa_crypto_init_subsystem.exit14.thread ]
+33:                                               ; preds = %mbedtls_psa_crypto_init_subsystem.exit14.thread, %32
+  %34 = phi i8 [ %16, %mbedtls_psa_crypto_init_subsystem.exit14.thread ], [ %.pre32, %32 ]
   %35 = and i8 %34, 4
   %.not.i = icmp eq i8 %35, 0
   br i1 %.not.i, label %36, label %mbedtls_psa_crypto_free.exit
@@ -10256,8 +10256,8 @@ mbedtls_psa_random_init.exit.i.mbedtls_psa_crypto_init_subsystem.exit16_crit_edg
   br label %mbedtls_psa_crypto_free.exit.sink.split
 
 mbedtls_psa_crypto_init_subsystem.exit16:         ; preds = %mbedtls_psa_random_init.exit.i.mbedtls_psa_crypto_init_subsystem.exit16_crit_edge, %mbedtls_psa_crypto_init_subsystem.exit14
-  %38 = phi i8 [ %14, %mbedtls_psa_crypto_init_subsystem.exit14 ], [ %.pre31, %mbedtls_psa_random_init.exit.i.mbedtls_psa_crypto_init_subsystem.exit16_crit_edge ]
-  %.0 = phi i32 [ %12, %mbedtls_psa_crypto_init_subsystem.exit14 ], [ %30, %mbedtls_psa_random_init.exit.i.mbedtls_psa_crypto_init_subsystem.exit16_crit_edge ]
+  %38 = phi i8 [ %.pre31, %mbedtls_psa_random_init.exit.i.mbedtls_psa_crypto_init_subsystem.exit16_crit_edge ], [ %14, %mbedtls_psa_crypto_init_subsystem.exit14 ]
+  %.0 = phi i32 [ %30, %mbedtls_psa_random_init.exit.i.mbedtls_psa_crypto_init_subsystem.exit16_crit_edge ], [ %12, %mbedtls_psa_crypto_init_subsystem.exit14 ]
   %39 = and i8 %38, 4
   %.not.i19 = icmp eq i8 %39, 0
   br i1 %.not.i19, label %42, label %40
@@ -10310,7 +10310,7 @@ mbedtls_psa_crypto_free.exit.sink.split:          ; preds = %55, %36
   br label %mbedtls_psa_crypto_free.exit
 
 mbedtls_psa_crypto_free.exit:                     ; preds = %mbedtls_psa_crypto_free.exit.sink.split, %33, %52, %0
-  %.06 = phi i32 [ 0, %0 ], [ %.0, %52 ], [ 0, %33 ], [ %.06.ph, %mbedtls_psa_crypto_free.exit.sink.split ]
+  %.06 = phi i32 [ 0, %0 ], [ 0, %33 ], [ %.0, %52 ], [ %.06.ph, %mbedtls_psa_crypto_free.exit.sink.split ]
   ret i32 %.06
 }
 
@@ -10554,7 +10554,7 @@ psa_driver_wrapper_pake_abort.exit.i:             ; preds = %2, %37
   br label %psa_pake_abort.exit
 
 psa_pake_abort.exit:                              ; preds = %12, %5, %8, %35, %psa_driver_wrapper_pake_abort.exit.i, %52, %55
-  %.02126 = phi i32 [ -137, %35 ], [ -137, %psa_driver_wrapper_pake_abort.exit.i ], [ -137, %52 ], [ -137, %55 ], [ -134, %12 ], [ -135, %5 ], [ -135, %8 ]
+  %.02126 = phi i32 [ -137, %35 ], [ -137, %psa_driver_wrapper_pake_abort.exit.i ], [ -137, %52 ], [ -137, %55 ], [ -134, %12 ], [ -135, %8 ], [ -135, %5 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(912) %0, i8 0, i64 912, i1 false)
   br label %56
 
@@ -10620,7 +10620,7 @@ psa_driver_wrapper_pake_abort.exit:               ; preds = %7, %1
   br label %psa_driver_wrapper_pake_abort.exit.thread
 
 psa_driver_wrapper_pake_abort.exit.thread:        ; preds = %5, %22, %25, %psa_driver_wrapper_pake_abort.exit
-  %.017 = phi i32 [ %.0, %22 ], [ %.0, %25 ], [ %.0, %psa_driver_wrapper_pake_abort.exit ], [ -135, %5 ]
+  %.017 = phi i32 [ %.0, %psa_driver_wrapper_pake_abort.exit ], [ %.0, %22 ], [ %.0, %25 ], [ -135, %5 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(912) %0, i8 0, i64 912, i1 false)
   ret i32 %.017
 }
@@ -10786,7 +10786,7 @@ psa_driver_wrapper_pake_abort.exit.i:             ; preds = %15
   br i1 %19, label %psa_driver_wrapper_pake_abort.exit.i.thread, label %psa_pake_abort.exit
 
 psa_driver_wrapper_pake_abort.exit.i.thread:      ; preds = %8, %11, %6, %psa_driver_wrapper_pake_abort.exit.i
-  %.0.ph3942 = phi i32 [ -137, %psa_driver_wrapper_pake_abort.exit.i ], [ -135, %6 ], [ -141, %11 ], [ -137, %8 ]
+  %.0.ph3942 = phi i32 [ -137, %psa_driver_wrapper_pake_abort.exit.i ], [ -135, %6 ], [ -137, %8 ], [ -141, %11 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load ptr, ptr %20, align 8, !tbaa !27
   %.not.i = icmp eq ptr %21, null
@@ -10872,7 +10872,7 @@ psa_driver_wrapper_pake_abort.exit.i:             ; preds = %15
   br i1 %19, label %psa_driver_wrapper_pake_abort.exit.i.thread, label %psa_pake_abort.exit
 
 psa_driver_wrapper_pake_abort.exit.i.thread:      ; preds = %8, %11, %6, %psa_driver_wrapper_pake_abort.exit.i
-  %.0.ph3942 = phi i32 [ -137, %psa_driver_wrapper_pake_abort.exit.i ], [ -135, %6 ], [ -141, %11 ], [ -137, %8 ]
+  %.0.ph3942 = phi i32 [ -137, %psa_driver_wrapper_pake_abort.exit.i ], [ -135, %6 ], [ -137, %8 ], [ -141, %11 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load ptr, ptr %20, align 8, !tbaa !27
   %.not.i = icmp eq ptr %21, null
@@ -11104,7 +11104,7 @@ psa_driver_wrapper_pake_output.exit:              ; preds = %47
   br label %psa_crypto_local_output_alloc.exit
 
 psa_crypto_local_output_alloc.exit:               ; preds = %47, %psa_driver_wrapper_pake_output.exit, %53, %51
-  %.0 = phi i32 [ %50, %psa_driver_wrapper_pake_output.exit ], [ 0, %53 ], [ -134, %51 ], [ -135, %47 ]
+  %.0 = phi i32 [ -134, %51 ], [ %50, %psa_driver_wrapper_pake_output.exit ], [ 0, %53 ], [ -135, %47 ]
   %54 = icmp eq ptr %2, null
   br i1 %54, label %psa_crypto_local_output_free.exit.thread70, label %psa_crypto_local_output_free.exit
 
@@ -11114,8 +11114,8 @@ psa_crypto_local_output_free.exit:                ; preds = %psa_crypto_local_ou
   %.not38 = icmp eq i32 %.0, 0
   br i1 %.not38, label %79, label %psa_crypto_local_output_free.exit.thread70
 
-psa_crypto_local_output_free.exit.thread70:       ; preds = %38, %23, %20, %18, %convert_jpake_computation_stage_to_driver_step.exit, %15, %13, %11, %9, %psa_crypto_local_output_alloc.exit, %psa_crypto_local_output_free.exit
-  %55 = phi i32 [ %.0, %psa_crypto_local_output_free.exit ], [ -141, %convert_jpake_computation_stage_to_driver_step.exit ], [ -134, %15 ], [ -135, %13 ], [ -137, %11 ], [ %10, %9 ], [ -151, %psa_crypto_local_output_alloc.exit ], [ -137, %38 ], [ -137, %23 ], [ -137, %20 ], [ -135, %18 ]
+psa_crypto_local_output_free.exit.thread70:       ; preds = %38, %20, %23, %18, %convert_jpake_computation_stage_to_driver_step.exit, %15, %11, %13, %9, %psa_crypto_local_output_alloc.exit, %psa_crypto_local_output_free.exit
+  %55 = phi i32 [ %.0, %psa_crypto_local_output_free.exit ], [ -141, %convert_jpake_computation_stage_to_driver_step.exit ], [ -134, %15 ], [ -151, %psa_crypto_local_output_alloc.exit ], [ -137, %11 ], [ -135, %13 ], [ %10, %9 ], [ -137, %38 ], [ -137, %20 ], [ -137, %23 ], [ -135, %18 ]
   %56 = load i8, ptr %6, align 4, !tbaa !120
   %57 = icmp eq i8 %56, 2
   br i1 %57, label %58, label %psa_driver_wrapper_pake_abort.exit.i
@@ -11221,7 +11221,7 @@ define internal fastcc i32 @psa_pake_complete_inputs(ptr noundef %0) unnamed_add
   br label %psa_driver_wrapper_pake_setup.exit
 
 psa_driver_wrapper_pake_setup.exit:               ; preds = %18, %20, %23
-  %.0.i = phi i32 [ 0, %23 ], [ %21, %20 ], [ -135, %18 ]
+  %.0.i = phi i32 [ %21, %20 ], [ 0, %23 ], [ -135, %18 ]
   %24 = load ptr, ptr %2, align 8, !tbaa !113
   %25 = load i64, ptr %4, align 8, !tbaa !110
   call void @mbedtls_zeroize_and_free(ptr noundef %24, i64 noundef %25) #22
@@ -11245,7 +11245,7 @@ psa_driver_wrapper_pake_setup.exit:               ; preds = %18, %20, %23
   br label %36
 
 36:                                               ; preds = %psa_driver_wrapper_pake_setup.exit, %34, %31, %11, %1
-  %.010 = phi i32 [ -137, %1 ], [ -137, %11 ], [ 0, %34 ], [ %.0.i, %psa_driver_wrapper_pake_setup.exit ], [ -134, %31 ]
+  %.010 = phi i32 [ -137, %11 ], [ -137, %1 ], [ 0, %34 ], [ %.0.i, %psa_driver_wrapper_pake_setup.exit ], [ -134, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.010
 }
@@ -11299,8 +11299,8 @@ define internal fastcc void @psa_jpake_epilogue(ptr noundef captures(none) %0, i
   br label %31
 
 31:                                               ; preds = %.sink.split, %8, %19
-  %.pre-phi27 = phi i32 [ %17, %8 ], [ %28, %19 ], [ %.pre-phi27.ph, %.sink.split ]
-  %32 = phi i32 [ %13, %8 ], [ %24, %19 ], [ %.ph, %.sink.split ]
+  %.pre-phi27 = phi i32 [ %28, %19 ], [ %17, %8 ], [ %.pre-phi27.ph, %.sink.split ]
+  %32 = phi i32 [ %24, %19 ], [ %13, %8 ], [ %.ph, %.sink.split ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = load i8, ptr %33, align 4, !tbaa !133
   %35 = zext i8 %34 to i32
@@ -11465,9 +11465,9 @@ psa_crypto_local_input_alloc.exit:                ; preds = %62
   tail call void @free(ptr noundef nonnull %56) #22
   br label %87
 
-psa_jpake_prologue.exit.thread:                   ; preds = %58, %49, %34, %31, %29, %21, %psa_driver_wrapper_pake_input.exit, %23, %25, %27, %62, %convert_jpake_computation_stage_to_driver_step.exit
-  %.sroa.0.0.ph = phi ptr [ null, %convert_jpake_computation_stage_to_driver_step.exit ], [ null, %21 ], [ null, %23 ], [ null, %27 ], [ %56, %psa_driver_wrapper_pake_input.exit ], [ %56, %62 ], [ null, %25 ], [ null, %29 ], [ null, %31 ], [ null, %34 ], [ null, %49 ], [ %56, %58 ]
-  %.0.ph = phi i32 [ -141, %convert_jpake_computation_stage_to_driver_step.exit ], [ %22, %21 ], [ -137, %23 ], [ -134, %27 ], [ %61, %psa_driver_wrapper_pake_input.exit ], [ -134, %62 ], [ -135, %25 ], [ -135, %29 ], [ -137, %31 ], [ -137, %34 ], [ -137, %49 ], [ -135, %58 ]
+psa_jpake_prologue.exit.thread:                   ; preds = %58, %49, %31, %34, %29, %21, %25, %23, %62, %psa_driver_wrapper_pake_input.exit, %27, %convert_jpake_computation_stage_to_driver_step.exit
+  %.sroa.0.0.ph = phi ptr [ null, %49 ], [ null, %convert_jpake_computation_stage_to_driver_step.exit ], [ null, %23 ], [ null, %27 ], [ null, %25 ], [ null, %21 ], [ %56, %psa_driver_wrapper_pake_input.exit ], [ %56, %62 ], [ null, %29 ], [ null, %34 ], [ null, %31 ], [ %56, %58 ]
+  %.0.ph = phi i32 [ -137, %49 ], [ -141, %convert_jpake_computation_stage_to_driver_step.exit ], [ -137, %23 ], [ -134, %27 ], [ -135, %25 ], [ %22, %21 ], [ %61, %psa_driver_wrapper_pake_input.exit ], [ -134, %62 ], [ -135, %29 ], [ -137, %34 ], [ -137, %31 ], [ -135, %58 ]
   tail call void @free(ptr noundef %.sroa.0.0.ph) #22
   %64 = load i8, ptr %18, align 4, !tbaa !120
   %65 = icmp eq i8 %64, 2
@@ -11592,7 +11592,7 @@ psa_key_derivation_input_bytes.exit:              ; preds = %21, %25
   br label %psa_driver_wrapper_pake_get_implicit_key.exit.thread
 
 psa_driver_wrapper_pake_get_implicit_key.exit.thread: ; preds = %14, %11, %7, %psa_driver_wrapper_pake_get_implicit_key.exit, %psa_key_derivation_input_bytes.exit
-  %.013.ph = phi i32 [ -134, %7 ], [ -137, %11 ], [ %.0.i18, %psa_key_derivation_input_bytes.exit ], [ %17, %psa_driver_wrapper_pake_get_implicit_key.exit ], [ -135, %14 ]
+  %.013.ph = phi i32 [ %17, %psa_driver_wrapper_pake_get_implicit_key.exit ], [ -134, %7 ], [ -137, %11 ], [ %.0.i18, %psa_key_derivation_input_bytes.exit ], [ -135, %14 ]
   %.pr = load i8, ptr %5, align 4, !tbaa !120
   %27 = icmp eq i8 %.pr, 2
   br i1 %27, label %28, label %psa_driver_wrapper_pake_abort.exit.i
@@ -11648,8 +11648,8 @@ psa_driver_wrapper_pake_abort.exit.i:             ; preds = %2, %30, %psa_driver
   br label %psa_pake_abort.exit
 
 psa_pake_abort.exit:                              ; preds = %28, %psa_driver_wrapper_pake_abort.exit.i, %45, %48
-  %.01323 = phi i32 [ %.01324, %45 ], [ %.01324, %48 ], [ %.01324, %psa_driver_wrapper_pake_abort.exit.i ], [ %.013.ph, %28 ]
-  %.017.i = phi i32 [ %.0.i19, %45 ], [ %.0.i19, %48 ], [ %.0.i19, %psa_driver_wrapper_pake_abort.exit.i ], [ -135, %28 ]
+  %.01323 = phi i32 [ %.01324, %psa_driver_wrapper_pake_abort.exit.i ], [ %.01324, %45 ], [ %.01324, %48 ], [ %.013.ph, %28 ]
+  %.017.i = phi i32 [ %.0.i19, %psa_driver_wrapper_pake_abort.exit.i ], [ %.0.i19, %45 ], [ %.0.i19, %48 ], [ -135, %28 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(912) %0, i8 0, i64 912, i1 false)
   %49 = icmp eq i32 %.01323, 0
   %50 = select i1 %49, i32 %.017.i, i32 %.01323
@@ -11759,7 +11759,7 @@ switch.early.test139:                             ; preds = %8
   %or.cond11.i = or i1 %.not.i, %or.cond10.not14.i
   br i1 %or.cond11.i, label %psa_mac_key_can_do.exit, label %48
 
-48:                                               ; preds = %38, %42
+48:                                               ; preds = %42, %38
   %49 = and i32 %2, 4128768
   %.not102 = icmp eq i32 %49, 0
   br i1 %.not102, label %52, label %50
@@ -11855,8 +11855,8 @@ switch.lookup:                                    ; preds = %54
   br label %79
 
 79:                                               ; preds = %64, %.thread, %.fold.split127, %.fold.split126, %.fold.split125, %.fold.split124, %.fold.split122, %69, %70
-  %80 = phi i32 [ %67, %.thread ], [ %67, %69 ], [ %71, %70 ], [ %67, %.fold.split122 ], [ %67, %.fold.split124 ], [ %67, %.fold.split125 ], [ %67, %.fold.split126 ], [ %67, %.fold.split127 ], [ %65, %64 ]
-  %81 = phi i32 [ 16, %.thread ], [ 0, %69 ], [ %78, %70 ], [ 20, %.fold.split122 ], [ 28, %.fold.split124 ], [ 32, %.fold.split125 ], [ 48, %.fold.split126 ], [ 64, %.fold.split127 ], [ 0, %64 ]
+  %80 = phi i32 [ %65, %64 ], [ %67, %69 ], [ %67, %.thread ], [ %71, %70 ], [ %67, %.fold.split122 ], [ %67, %.fold.split127 ], [ %67, %.fold.split124 ], [ %67, %.fold.split125 ], [ %67, %.fold.split126 ]
+  %81 = phi i32 [ 0, %64 ], [ 0, %69 ], [ 16, %.thread ], [ %78, %70 ], [ 20, %.fold.split122 ], [ 64, %.fold.split127 ], [ 28, %.fold.split124 ], [ 32, %.fold.split125 ], [ 48, %.fold.split126 ]
   %82 = lshr i32 %1, 16
   %83 = and i32 %82, 63
   %84 = icmp eq i32 %83, 0
@@ -11891,7 +11891,7 @@ switch.lookup:                                    ; preds = %54
   br label %psa_mac_key_can_do.exit
 
 psa_mac_key_can_do.exit:                          ; preds = %89, %20, %34, %87, %85, %42, %92, %3, %95, %25, %14
-  %.085.shrunk = phi i1 [ %15, %14 ], [ %30, %25 ], [ %97, %95 ], [ true, %3 ], [ false, %92 ], [ false, %42 ], [ true, %87 ], [ %86, %85 ], [ false, %34 ], [ false, %20 ], [ %spec.select, %89 ]
+  %.085.shrunk = phi i1 [ %86, %85 ], [ %15, %14 ], [ %30, %25 ], [ true, %3 ], [ %97, %95 ], [ false, %92 ], [ false, %42 ], [ false, %20 ], [ true, %87 ], [ %spec.select, %89 ], [ false, %34 ]
   %.085 = zext i1 %.085.shrunk to i32
   ret i32 %.085
 }
@@ -12065,7 +12065,7 @@ switch.early.test224:                             ; preds = %.critedge
   %or.cond11.i = or i1 %.not.i, %or.cond10.not14.i
   br i1 %or.cond11.i, label %psa_mac_key_can_do.exit, label %65
 
-65:                                               ; preds = %55, %59
+65:                                               ; preds = %59, %55
   %66 = and i32 %1, 4128768
   %.not154 = icmp eq i32 %66, 0
   br i1 %.not154, label %69, label %67
@@ -12103,7 +12103,7 @@ switch.lookup:                                    ; preds = %70
   br label %82
 
 82:                                               ; preds = %70, %switch.lookup, %69, %73, %67
-  %83 = phi i32 [ %68, %67 ], [ %80, %73 ], [ 0, %69 ], [ %switch.load, %switch.lookup ], [ 0, %70 ]
+  %83 = phi i32 [ %68, %67 ], [ %80, %73 ], [ %switch.load, %switch.lookup ], [ 0, %69 ], [ 0, %70 ]
   %84 = and i32 %2, 4128768
   %.not155 = icmp eq i32 %84, 0
   br i1 %.not155, label %87, label %85
@@ -12142,7 +12142,7 @@ switch.lookup248:                                 ; preds = %89
   br label %101
 
 101:                                              ; preds = %89, %switch.lookup248, %87, %92, %85
-  %102 = phi i32 [ %86, %85 ], [ %99, %92 ], [ 0, %87 ], [ %switch.load250, %switch.lookup248 ], [ 0, %89 ]
+  %102 = phi i32 [ %86, %85 ], [ %99, %92 ], [ %switch.load250, %switch.lookup248 ], [ 0, %87 ], [ 0, %89 ]
   %103 = and i32 %2, 32768
   %.not157 = icmp eq i32 %103, 0
   %104 = and i32 %1, 32768
@@ -12185,8 +12185,8 @@ switch.lookup248:                                 ; preds = %89
   %123 = or disjoint i32 %122, %52
   br label %psa_mac_key_can_do.exit
 
-psa_mac_key_can_do.exit:                          ; preds = %120, %116, %113, %106, %47, %46, %41, %48, %51, %.thread230, %118, %59, %22, %18, %3
-  %.0 = phi i32 [ %1, %3 ], [ %2, %18 ], [ %1, %22 ], [ 0, %59 ], [ 0, %118 ], [ 0, %.thread230 ], [ 0, %51 ], [ 0, %48 ], [ %1, %47 ], [ %2, %46 ], [ %45, %41 ], [ %123, %120 ], [ %117, %116 ], [ %114, %113 ], [ %111, %106 ]
+psa_mac_key_can_do.exit:                          ; preds = %120, %116, %113, %106, %46, %47, %41, %48, %51, %.thread230, %118, %59, %22, %18, %3
+  %.0 = phi i32 [ 0, %48 ], [ %1, %3 ], [ %2, %18 ], [ %1, %22 ], [ 0, %59 ], [ %45, %41 ], [ 0, %118 ], [ 0, %.thread230 ], [ 0, %51 ], [ %2, %46 ], [ %1, %47 ], [ %123, %120 ], [ %117, %116 ], [ %114, %113 ], [ %111, %106 ]
   ret i32 %.0
 }
 
@@ -12228,7 +12228,7 @@ define internal fastcc range(i32 -135, 1) i32 @psa_mac_finalize_alg_and_key_vali
   %or.cond11.i = or i1 %.not.i, %or.cond10.not14.i
   br i1 %or.cond11.i, label %psa_mac_key_can_do.exit, label %15
 
-15:                                               ; preds = %5, %9
+15:                                               ; preds = %9, %5
   %16 = and i32 %0, 4128768
   %.not56 = icmp eq i32 %16, 0
   br i1 %.not56, label %19, label %17
@@ -12336,9 +12336,9 @@ select.unfold:                                    ; preds = %23, %17
   br label %48
 
 48:                                               ; preds = %36, %.fold.split72, %.fold.split71, %.fold.split70, %.fold.split69, %.fold.split67, %40
-  %49 = phi i8 [ %37, %36 ], [ %33, %40 ], [ %37, %.fold.split67 ], [ %37, %.fold.split69 ], [ %37, %.fold.split70 ], [ %37, %.fold.split71 ], [ %37, %.fold.split72 ]
-  %50 = phi i32 [ %38, %36 ], [ %32, %40 ], [ %38, %.fold.split67 ], [ %38, %.fold.split69 ], [ %38, %.fold.split70 ], [ %38, %.fold.split71 ], [ %38, %.fold.split72 ]
-  %51 = phi i32 [ 16, %36 ], [ %47, %40 ], [ 20, %.fold.split67 ], [ 28, %.fold.split69 ], [ 32, %.fold.split70 ], [ 48, %.fold.split71 ], [ 64, %.fold.split72 ]
+  %49 = phi i8 [ %37, %.fold.split70 ], [ %37, %.fold.split71 ], [ %37, %36 ], [ %33, %40 ], [ %37, %.fold.split67 ], [ %37, %.fold.split72 ], [ %37, %.fold.split69 ]
+  %50 = phi i32 [ %38, %.fold.split70 ], [ %38, %.fold.split71 ], [ %38, %36 ], [ %32, %40 ], [ %38, %.fold.split67 ], [ %38, %.fold.split72 ], [ %38, %.fold.split69 ]
+  %51 = phi i32 [ 32, %.fold.split70 ], [ 48, %.fold.split71 ], [ 16, %36 ], [ %47, %40 ], [ 20, %.fold.split67 ], [ 64, %.fold.split72 ], [ 28, %.fold.split69 ]
   %52 = icmp samesign ugt i32 %50, %51
   br i1 %52, label %psa_mac_key_can_do.exit, label %53
 
@@ -12348,7 +12348,7 @@ select.unfold:                                    ; preds = %23, %17
   br label %psa_mac_key_can_do.exit
 
 psa_mac_key_can_do.exit:                          ; preds = %36, %35, %.thread7, %.thread4, %9, %53, %48, %select.unfold, %2
-  %.0 = phi i32 [ -135, %2 ], [ -134, %select.unfold ], [ -135, %48 ], [ %., %53 ], [ -135, %9 ], [ -134, %.thread4 ], [ -134, %.thread7 ], [ -135, %35 ], [ -135, %36 ]
+  %.0 = phi i32 [ -135, %2 ], [ -135, %48 ], [ -134, %select.unfold ], [ %., %53 ], [ -135, %9 ], [ -134, %.thread4 ], [ -134, %.thread7 ], [ -135, %35 ], [ -135, %36 ]
   ret i32 %.0
 }
 
@@ -12539,7 +12539,7 @@ define internal fastcc range(i32 -141, 1) i32 @psa_tls12_prf_input(ptr noundef c
   br label %psa_tls12_prf_set_seed.exit
 
 psa_tls12_prf_set_seed.exit:                      ; preds = %37, %31, %27, %26, %20, %16, %15, %9, %5, %4
-  %.0 = phi i32 [ -135, %4 ], [ 0, %15 ], [ -137, %5 ], [ -141, %9 ], [ 0, %26 ], [ -137, %16 ], [ -141, %20 ], [ 0, %37 ], [ -137, %27 ], [ -141, %31 ]
+  %.0 = phi i32 [ -141, %20 ], [ -135, %4 ], [ -141, %9 ], [ 0, %15 ], [ -137, %5 ], [ 0, %26 ], [ -137, %16 ], [ 0, %37 ], [ -137, %27 ], [ -141, %31 ]
   ret i32 %.0
 }
 

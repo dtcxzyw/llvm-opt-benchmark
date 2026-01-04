@@ -159,15 +159,15 @@ define hidden void @"_ZN66_$LT$breadcrumbs..Breadcrumbs$u20$as$u20$gpui..element
           to label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$gpui..text_system..font_fallbacks..FontFallbacks$GT$$GT$17h0ede3d25883c69e4E.exit" unwind label %52
 
 .body:                                            ; preds = %79, %59, %"_ZN4core3ptr67drop_in_place$LT$gpui..text_system..font_features..FontFeatures$GT$17h83374abdb9110903E.exit27", %62, %52
-  %.pn15 = phi { ptr, i32 } [ %53, %52 ], [ %.pn31, %62 ], [ %.pn31, %"_ZN4core3ptr67drop_in_place$LT$gpui..text_system..font_features..FontFeatures$GT$17h83374abdb9110903E.exit27" ], [ %.pn31, %59 ], [ %.pn.i, %79 ]
-  %.sroa.012.3 = phi i1 [ %.sroa.012.2, %52 ], [ true, %62 ], [ true, %"_ZN4core3ptr67drop_in_place$LT$gpui..text_system..font_features..FontFeatures$GT$17h83374abdb9110903E.exit27" ], [ true, %59 ], [ true, %79 ]
-  %.sroa.08.4 = phi i8 [ %.sroa.08.3, %52 ], [ 0, %62 ], [ 0, %"_ZN4core3ptr67drop_in_place$LT$gpui..text_system..font_features..FontFeatures$GT$17h83374abdb9110903E.exit27" ], [ 0, %59 ], [ %.sroa.08.2, %79 ]
+  %.pn15 = phi { ptr, i32 } [ %.pn31, %59 ], [ %53, %52 ], [ %.pn31, %62 ], [ %.pn31, %"_ZN4core3ptr67drop_in_place$LT$gpui..text_system..font_features..FontFeatures$GT$17h83374abdb9110903E.exit27" ], [ %.pn.i, %79 ]
+  %.sroa.012.3 = phi i1 [ true, %59 ], [ %.sroa.012.2, %52 ], [ true, %62 ], [ true, %"_ZN4core3ptr67drop_in_place$LT$gpui..text_system..font_features..FontFeatures$GT$17h83374abdb9110903E.exit27" ], [ true, %79 ]
+  %.sroa.08.4 = phi i8 [ 0, %59 ], [ %.sroa.08.3, %52 ], [ 0, %62 ], [ 0, %"_ZN4core3ptr67drop_in_place$LT$gpui..text_system..font_features..FontFeatures$GT$17h83374abdb9110903E.exit27" ], [ %.sroa.08.2, %79 ]
   invoke void @"_ZN4core3ptr43drop_in_place$LT$gpui..style..TextStyle$GT$17hb13c96102991fcfaE"(ptr noalias noundef nonnull align 8 dereferenceable(152) %13) #9
           to label %15 unwind label %70
 
 52:                                               ; preds = %51, %145, %144, %130, %31
-  %.sroa.012.2 = phi i1 [ false, %145 ], [ false, %144 ], [ true, %130 ], [ true, %31 ], [ true, %51 ]
-  %.sroa.08.3 = phi i8 [ %.sroa.08.2, %145 ], [ %.sroa.08.2, %144 ], [ %.sroa.08.2, %130 ], [ %.sroa.08.2, %31 ], [ 0, %51 ]
+  %.sroa.012.2 = phi i1 [ false, %145 ], [ false, %144 ], [ true, %130 ], [ true, %51 ], [ true, %31 ]
+  %.sroa.08.3 = phi i8 [ %.sroa.08.2, %145 ], [ %.sroa.08.2, %144 ], [ %.sroa.08.2, %130 ], [ 0, %51 ], [ %.sroa.08.2, %31 ]
   %53 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -321,7 +321,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread19.i.i: ; preds = %.
   br label %79
 
 "_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i": ; preds = %122, %98, %.noexc9.i, %.preheader.i.i.i, %89
-  %.promoted.i1962.i = phi i64 [ %.promoted.i1978.i, %89 ], [ %.promoted.i1978.i, %.preheader.i.i.i ], [ %.promoted.i1978.i, %.noexc9.i ], [ %.promoted.i1978.i, %98 ], [ %96, %122 ]
+  %.promoted.i1962.i = phi i64 [ %.promoted.i1978.i, %89 ], [ %.promoted.i1978.i, %98 ], [ %.promoted.i1978.i, %.preheader.i.i.i ], [ %.promoted.i1978.i, %.noexc9.i ], [ %96, %122 ]
   %gepdiff50.i = sub nsw i64 %78, %.promoted.i1962.i
   %101 = load i64, ptr %.sroa.55.0..sroa_idx.i, align 8, !alias.scope !84, !noalias !74, !noundef !12
   %102 = load i64, ptr %5, align 8, !alias.scope !84, !noalias !74, !noundef !12

@@ -191,7 +191,7 @@ default.unreachable:                              ; preds = %20
   br label %48
 
 30:                                               ; preds = %20, %22, %23
-  %.018 = phi i32 [ 72, %22 ], [ 84, %23 ], [ 77, %20 ]
+  %.018 = phi i32 [ 84, %23 ], [ 72, %22 ], [ 77, %20 ]
   %31 = call i32 @H5HF_get_obj_len(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %7) #9
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %33, label %37
@@ -654,7 +654,7 @@ define void @H5HF_iblock_print(ptr noundef readonly captures(none) %0, i1 nounde
   br label %H5VM_log2_gen.exit
 
 H5VM_log2_gen.exit:                               ; preds = %125, %130, %137, %142, %151, %156, %163, %168
-  %.0.i = phi i32 [ %129, %125 ], [ %134, %130 ], [ %141, %137 ], [ %146, %142 ], [ %155, %151 ], [ %160, %156 ], [ %167, %163 ], [ %171, %168 ]
+  %.0.i = phi i32 [ %160, %156 ], [ %134, %130 ], [ %146, %142 ], [ %129, %125 ], [ %141, %137 ], [ %155, %151 ], [ %167, %163 ], [ %171, %168 ]
   %reass.sub = sub i32 %.0.i, %108
   %172 = add i32 %reass.sub, 1
   %173 = trunc nuw i64 %.1139 to i32
@@ -769,7 +769,7 @@ define range(i32 -1, 1) i32 @H5HF_hdr_debug(ptr noundef %0, i64 noundef %1, ptr 
   br label %27
 
 27:                                               ; preds = %.thread14, %20, %23, %11
-  %.0 = phi i32 [ -1, %23 ], [ 0, %20 ], [ 0, %11 ], [ -1, %.thread14 ]
+  %.0 = phi i32 [ -1, %23 ], [ 0, %20 ], [ -1, %.thread14 ], [ 0, %11 ]
   ret i32 %.0
 }
 
@@ -922,7 +922,7 @@ define range(i32 -1, 1) i32 @H5HF_dblock_debug(ptr noundef %0, i64 noundef %1, p
   br label %110
 
 97:                                               ; preds = %.thread86, %63
-  %.174 = phi i64 [ 0, %63 ], [ %91, %.thread86 ]
+  %.174 = phi i64 [ %91, %.thread86 ], [ 0, %63 ]
   %98 = load i64, ptr %48, align 8, !tbaa !107
   %99 = sub i64 %98, %46
   %100 = sub i64 %99, %.174
@@ -1166,7 +1166,7 @@ define range(i32 -1, 1) i32 @H5HF_iblock_debug(ptr noundef %0, i64 noundef %1, p
   br label %45
 
 45:                                               ; preds = %.thread33, %.thread30, %41, %14
-  %.0 = phi i32 [ -1, %41 ], [ %.232, %.thread30 ], [ 0, %14 ], [ -1, %.thread33 ]
+  %.0 = phi i32 [ -1, %41 ], [ %.232, %.thread30 ], [ -1, %.thread33 ], [ 0, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -1258,7 +1258,7 @@ define range(i32 -1, 1) i32 @H5HF_sects_debug(ptr noundef %0, i64 noundef %1, pt
   br label %57
 
 50:                                               ; preds = %45, %25, %21
-  %.1.ph = phi i32 [ 0, %25 ], [ %.2, %45 ], [ -1, %21 ]
+  %.1.ph = phi i32 [ %.2, %45 ], [ 0, %25 ], [ -1, %21 ]
   %51 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_FHEAP_HDR, i64 noundef %1, ptr noundef nonnull %16, i32 noundef 0) #9
   %52 = icmp slt i32 %51, 0
   br i1 %52, label %53, label %57

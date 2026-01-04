@@ -153,7 +153,7 @@ define dso_local range(i32 -65535, 1) i32 @vp_modern_admin_cmd_exec(ptr noundef 
   br i1 %69, label %select.unfold, label %71
 
 select.unfold:                                    ; preds = %.loopexit, %41, %50, %57, %60
-  %.ph = phi i32 [ -5, %60 ], [ -5, %57 ], [ -95, %50 ], [ -5, %41 ], [ -5, %.loopexit ]
+  %.ph = phi i32 [ -5, %41 ], [ -5, %60 ], [ -5, %57 ], [ -95, %50 ], [ -5, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @mutex_unlock(ptr noundef nonnull %44) #11
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 16

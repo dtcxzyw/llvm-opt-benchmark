@@ -790,7 +790,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.16791777274191314885.exit
   br label %.body.i
 
 .body.i:                                          ; preds = %208, %205, %.body.thread.sink.split.i.i, %199, %.body.i.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %209, %208 ], [ %lpad.thr_comm.split-lp.i.i, %205 ], [ %lpad.phi.i.i.i, %199 ], [ %164, %.body.i.i.i ], [ %eh.lpad-body17.ph.i.i, %.body.thread.sink.split.i.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %209, %208 ], [ %lpad.phi.i.i.i, %199 ], [ %lpad.thr_comm.split-lp.i.i, %205 ], [ %164, %.body.i.i.i ], [ %eh.lpad-body17.ph.i.i, %.body.thread.sink.split.i.i ]
   invoke void @"_ZN4core3ptr61drop_in_place$LT$regex_automata..util..captures..Captures$GT$17hcce0d39dfcb2b7d8E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %12) #15
           to label %common.resume unwind label %245, !noalias !66
 
@@ -864,7 +864,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.16791777274191314885.exit
   unreachable
 
 common.resume:                                    ; preds = %252, %260, %.body.i, %228
-  %common.resume.op = phi { ptr, i32 } [ %229, %228 ], [ %eh.lpad-body.i, %.body.i ], [ %261, %260 ], [ %253, %252 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %229, %228 ], [ %261, %260 ], [ %253, %252 ]
   resume { ptr, i32 } %common.resume.op
 
 241:                                              ; preds = %215
@@ -1369,7 +1369,7 @@ define void @_ZN4util5paths11PathMatcher3new17ha03709037c26ef9fE(ptr dead_on_unw
           to label %.thread unwind label %93
 
 .thread:                                          ; preds = %"_ZN4core3ptr44drop_in_place$LT$globset..GlobSetBuilder$GT$17ha8355887ae0c938dE.exit", %"_ZN4core3ptr44drop_in_place$LT$globset..GlobSetBuilder$GT$17ha8355887ae0c938dE.exit.thread", %95
-  %.pn39.pn64 = phi { ptr, i32 } [ %96, %95 ], [ %eh.lpad-body, %"_ZN4core3ptr44drop_in_place$LT$globset..GlobSetBuilder$GT$17ha8355887ae0c938dE.exit" ], [ %.pn3971, %"_ZN4core3ptr44drop_in_place$LT$globset..GlobSetBuilder$GT$17ha8355887ae0c938dE.exit.thread" ]
+  %.pn39.pn64 = phi { ptr, i32 } [ %.pn3971, %"_ZN4core3ptr44drop_in_place$LT$globset..GlobSetBuilder$GT$17ha8355887ae0c938dE.exit.thread" ], [ %96, %95 ], [ %eh.lpad-body, %"_ZN4core3ptr44drop_in_place$LT$globset..GlobSetBuilder$GT$17ha8355887ae0c938dE.exit" ]
   resume { ptr, i32 } %.pn39.pn64
 
 95:                                               ; preds = %16
@@ -1708,7 +1708,7 @@ define noundef range(i8 -1, 2) i8 @_ZN4util5paths13compare_paths17hb855281c7e984
   br i1 %81, label %82, label %.thread
 
 .thread:                                          ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h95d8e27c981656faE.exit20", %67, %143, %65
-  %.sroa.0.1 = phi i8 [ %., %65 ], [ %80, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h95d8e27c981656faE.exit20" ], [ %150, %143 ], [ 1, %67 ]
+  %.sroa.0.1 = phi i8 [ %., %65 ], [ %150, %143 ], [ 1, %67 ], [ %80, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h95d8e27c981656faE.exit20" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   ret i8 %.sroa.0.1
@@ -1746,8 +1746,8 @@ define noundef range(i8 -1, 2) i8 @_ZN4util5paths13compare_paths17hb855281c7e984
   br label %_ZN3std4path9Component9as_os_str17hfcd77d4cc9ae67d6E.exit.i
 
 _ZN3std4path9Component9as_os_str17hfcd77d4cc9ae67d6E.exit.i: ; preds = %92, %91, %90, %88, %82
-  %.sroa.8.0.i.i = phi i64 [ %.sroa.833.0.copyload, %88 ], [ 1, %90 ], [ 2, %91 ], [ %.sroa.630.0.copyload, %92 ], [ %86, %82 ]
-  %.sroa.0.0.i.i = phi ptr [ %.sroa.732.0.copyload, %88 ], [ @anon.bbebbb17acd3bc265a0bc9f5eefc6579.17, %90 ], [ @anon.bbebbb17acd3bc265a0bc9f5eefc6579.18, %91 ], [ %.sroa.529.0.copyload, %92 ], [ @anon.bbebbb17acd3bc265a0bc9f5eefc6579.16, %82 ]
+  %.sroa.8.0.i.i = phi i64 [ %.sroa.833.0.copyload, %88 ], [ %.sroa.630.0.copyload, %92 ], [ 1, %90 ], [ 2, %91 ], [ %86, %82 ]
+  %.sroa.0.0.i.i = phi ptr [ %.sroa.732.0.copyload, %88 ], [ %.sroa.529.0.copyload, %92 ], [ @anon.bbebbb17acd3bc265a0bc9f5eefc6579.17, %90 ], [ @anon.bbebbb17acd3bc265a0bc9f5eefc6579.18, %91 ], [ @anon.bbebbb17acd3bc265a0bc9f5eefc6579.16, %82 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !279
   %94 = trunc nuw i8 %.18 to i1
   br i1 %94, label %97, label %95
@@ -1850,8 +1850,8 @@ _ZN4util23NumericPrefixWithSuffix25from_numeric_prefixed_str17h7f83b052b10d2137E
   br label %_ZN3std4path9Component9as_os_str17hfcd77d4cc9ae67d6E.exit23.i
 
 _ZN3std4path9Component9as_os_str17hfcd77d4cc9ae67d6E.exit23.i: ; preds = %125, %124, %123, %121, %_ZN4util23NumericPrefixWithSuffix25from_numeric_prefixed_str17h7f83b052b10d2137E.exit.i
-  %.sroa.8.0.i17.i = phi i64 [ %.sroa.8.0.copyload, %121 ], [ 1, %123 ], [ 2, %124 ], [ %.sroa.6.0.copyload, %125 ], [ %119, %_ZN4util23NumericPrefixWithSuffix25from_numeric_prefixed_str17h7f83b052b10d2137E.exit.i ]
-  %.sroa.0.0.i18.i = phi ptr [ %.sroa.724.0.copyload, %121 ], [ @anon.bbebbb17acd3bc265a0bc9f5eefc6579.17, %123 ], [ @anon.bbebbb17acd3bc265a0bc9f5eefc6579.18, %124 ], [ %.sroa.523.0.copyload, %125 ], [ @anon.bbebbb17acd3bc265a0bc9f5eefc6579.16, %_ZN4util23NumericPrefixWithSuffix25from_numeric_prefixed_str17h7f83b052b10d2137E.exit.i ]
+  %.sroa.8.0.i17.i = phi i64 [ %.sroa.8.0.copyload, %121 ], [ %.sroa.6.0.copyload, %125 ], [ 1, %123 ], [ 2, %124 ], [ %119, %_ZN4util23NumericPrefixWithSuffix25from_numeric_prefixed_str17h7f83b052b10d2137E.exit.i ]
+  %.sroa.0.0.i18.i = phi ptr [ %.sroa.724.0.copyload, %121 ], [ %.sroa.523.0.copyload, %125 ], [ @anon.bbebbb17acd3bc265a0bc9f5eefc6579.17, %123 ], [ @anon.bbebbb17acd3bc265a0bc9f5eefc6579.18, %124 ], [ @anon.bbebbb17acd3bc265a0bc9f5eefc6579.16, %_ZN4util23NumericPrefixWithSuffix25from_numeric_prefixed_str17h7f83b052b10d2137E.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !279
   %127 = trunc nuw i8 %storemerge17 to i1
   br i1 %127, label %130, label %128

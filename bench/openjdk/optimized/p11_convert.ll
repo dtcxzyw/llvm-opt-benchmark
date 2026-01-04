@@ -442,7 +442,7 @@ define hidden ptr @ckAttributeValueToJObject(ptr noundef %0, ptr noundef readonl
   br label %38
 
 38:                                               ; preds = %13, %15, %18, %20, %23, %25, %28, %30, %33, %35, %2, %7
-  %.030 = phi ptr [ null, %7 ], [ null, %2 ], [ %37, %35 ], [ %14, %13 ], [ %17, %15 ], [ %19, %18 ], [ %22, %20 ], [ %24, %23 ], [ %27, %25 ], [ %29, %28 ], [ %32, %30 ], [ %34, %33 ]
+  %.030 = phi ptr [ null, %2 ], [ null, %7 ], [ %37, %35 ], [ %14, %13 ], [ %17, %15 ], [ %19, %18 ], [ %22, %20 ], [ %24, %23 ], [ %27, %25 ], [ %29, %28 ], [ %32, %30 ], [ %34, %33 ]
   ret ptr %.030
 }
 
@@ -499,7 +499,7 @@ define hidden noalias noundef ptr @jVersionToCKVersionPtr(ptr noundef %0, ptr no
   br label %36
 
 36:                                               ; preds = %16, %10, %4, %2, %34, %33
-  %.0 = phi ptr [ null, %33 ], [ %31, %34 ], [ null, %2 ], [ null, %4 ], [ null, %10 ], [ null, %16 ]
+  %.0 = phi ptr [ %31, %34 ], [ null, %2 ], [ null, %4 ], [ null, %10 ], [ null, %33 ], [ null, %16 ]
   ret ptr %.0
 }
 
@@ -731,13 +731,13 @@ define hidden noalias noundef ptr @jDateObjectToCKDatePtr(ptr noundef %0, ptr no
   br label %123
 
 123:                                              ; preds = %.sink.split, %108, %80, %54
-  %.0110 = phi ptr [ %106, %108 ], [ %78, %80 ], [ %52, %54 ], [ null, %.sink.split ]
+  %.0110 = phi ptr [ %78, %80 ], [ %106, %108 ], [ %52, %54 ], [ null, %.sink.split ]
   tail call void @free(ptr noundef %.0110) #8
   tail call void @free(ptr noundef nonnull %41) #8
   br label %124
 
 124:                                              ; preds = %97, %._crit_edge141, %26, %16, %10, %4, %2, %123, %43
-  %.0111 = phi ptr [ null, %43 ], [ null, %123 ], [ null, %2 ], [ null, %4 ], [ null, %10 ], [ null, %16 ], [ null, %26 ], [ %41, %._crit_edge141 ], [ %41, %97 ]
+  %.0111 = phi ptr [ null, %123 ], [ null, %2 ], [ null, %4 ], [ null, %10 ], [ null, %16 ], [ null, %43 ], [ null, %26 ], [ %41, %._crit_edge141 ], [ %41, %97 ]
   ret ptr %.0111
 }
 
@@ -1019,7 +1019,7 @@ define hidden noundef ptr @jTls12MasterKeyDeriveParamToCKTls12MasterKeyDerivePar
   br label %35
 
 35:                                               ; preds = %31, %33, %11, %5, %34, %24
-  %.0 = phi ptr [ null, %24 ], [ null, %34 ], [ null, %5 ], [ null, %11 ], [ %22, %33 ], [ %22, %31 ]
+  %.0 = phi ptr [ null, %11 ], [ null, %5 ], [ null, %24 ], [ null, %34 ], [ %22, %33 ], [ %22, %31 ]
   ret ptr %.0
 }
 
@@ -1146,7 +1146,7 @@ define hidden noundef ptr @jTlsPrfParamsToCKTlsPrfParamPtr(ptr noundef %0, ptr n
   br label %78
 
 78:                                               ; preds = %68, %69, %27, %17, %11, %5, %70, %44
-  %.0 = phi ptr [ null, %44 ], [ null, %70 ], [ null, %5 ], [ null, %11 ], [ null, %17 ], [ null, %27 ], [ %42, %69 ], [ %42, %68 ]
+  %.0 = phi ptr [ null, %27 ], [ null, %5 ], [ null, %11 ], [ null, %17 ], [ null, %44 ], [ null, %70 ], [ %42, %69 ], [ %42, %68 ]
   ret ptr %.0
 }
 
@@ -1225,7 +1225,7 @@ define hidden noalias noundef ptr @jTlsMacParamsToCKTlsMacParamPtr(ptr noundef %
   br label %49
 
 49:                                               ; preds = %45, %48, %27, %17, %11, %5, %44
-  %.0 = phi ptr [ null, %44 ], [ null, %5 ], [ null, %11 ], [ null, %17 ], [ null, %27 ], [ %42, %48 ], [ %42, %45 ]
+  %.0 = phi ptr [ null, %27 ], [ null, %5 ], [ null, %11 ], [ null, %17 ], [ null, %44 ], [ %42, %48 ], [ %42, %45 ]
   ret ptr %.0
 }
 
@@ -1574,7 +1574,7 @@ define hidden noundef ptr @jTls12KeyMatParamToCKTls12KeyMatParamPtr(ptr noundef 
   br label %39
 
 39:                                               ; preds = %35, %37, %11, %5, %38, %24
-  %.0 = phi ptr [ null, %24 ], [ null, %38 ], [ null, %5 ], [ null, %11 ], [ %22, %37 ], [ %22, %35 ]
+  %.0 = phi ptr [ null, %11 ], [ null, %5 ], [ null, %24 ], [ null, %38 ], [ %22, %37 ], [ %22, %35 ]
   ret ptr %.0
 }
 
@@ -1670,7 +1670,7 @@ define hidden noalias noundef ptr @jAesCtrParamsToCKAesCtrParamPtr(ptr noundef %
   br label %56
 
 56:                                               ; preds = %50, %53, %24, %18, %13, %7, %54, %41
-  %.0 = phi ptr [ null, %41 ], [ null, %54 ], [ null, %7 ], [ null, %13 ], [ null, %18 ], [ null, %24 ], [ %39, %53 ], [ %39, %50 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %13 ], [ null, %18 ], [ null, %41 ], [ null, %54 ], [ null, %24 ], [ %39, %53 ], [ %39, %50 ]
   ret ptr %.0
 }
 
@@ -1791,7 +1791,7 @@ define hidden noundef ptr @jGCMParamsToCKGCMParamPtr(ptr noundef %0, ptr noundef
   br label %73
 
 73:                                               ; preds = %66, %68, %32, %22, %16, %11, %5, %69, %49
-  %.0 = phi ptr [ null, %49 ], [ null, %69 ], [ null, %5 ], [ null, %11 ], [ null, %16 ], [ null, %22 ], [ null, %32 ], [ %47, %68 ], [ %47, %66 ]
+  %.0 = phi ptr [ null, %5 ], [ null, %11 ], [ null, %16 ], [ null, %22 ], [ null, %49 ], [ null, %69 ], [ null, %32 ], [ %47, %68 ], [ %47, %66 ]
   ret ptr %.0
 }
 
@@ -1919,7 +1919,7 @@ define hidden noundef ptr @jCCMParamsToCKCCMParamPtr(ptr noundef %0, ptr noundef
   br label %81
 
 81:                                               ; preds = %74, %76, %42, %32, %22, %16, %11, %5, %77, %59
-  %.0 = phi ptr [ null, %59 ], [ null, %77 ], [ null, %5 ], [ null, %11 ], [ null, %16 ], [ null, %22 ], [ null, %32 ], [ null, %42 ], [ %57, %76 ], [ %57, %74 ]
+  %.0 = phi ptr [ null, %5 ], [ null, %11 ], [ null, %16 ], [ null, %22 ], [ null, %32 ], [ null, %59 ], [ null, %77 ], [ null, %42 ], [ %57, %76 ], [ %57, %74 ]
   ret ptr %.0
 }
 
@@ -2019,7 +2019,7 @@ define hidden noundef ptr @jSalsaChaChaPolyParamsToCKSalsaChaChaPolyParamPtr(ptr
   br label %59
 
 59:                                               ; preds = %53, %54, %22, %16, %11, %5, %55, %39
-  %.0 = phi ptr [ null, %39 ], [ null, %55 ], [ null, %5 ], [ null, %11 ], [ null, %16 ], [ null, %22 ], [ %37, %54 ], [ %37, %53 ]
+  %.0 = phi ptr [ null, %5 ], [ null, %11 ], [ null, %16 ], [ null, %39 ], [ null, %55 ], [ null, %22 ], [ %37, %54 ], [ %37, %53 ]
   ret ptr %.0
 }
 
@@ -2385,7 +2385,7 @@ define hidden ptr @jMechParamToCKMechParamPtrSlow(ptr noundef %0, ptr noundef %1
   br label %jSsl3MasterKeyDeriveParamToCKSsl3MasterKeyDeriveParamPtr.exit
 
 jSsl3MasterKeyDeriveParamToCKSsl3MasterKeyDeriveParamPtr.exit: ; preds = %54, %53, %52, %35, %29, %28, %27, %14, %7, %8, %88, %87, %85, %83, %81, %79, %77, %75, %73, %71, %69, %67, %65, %63, %61, %59, %57, %55
-  %.0 = phi ptr [ %89, %88 ], [ %6, %7 ], [ null, %8 ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ %64, %63 ], [ %66, %65 ], [ %68, %67 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %80, %79 ], [ %82, %81 ], [ %84, %83 ], [ %86, %85 ], [ null, %87 ], [ null, %14 ], [ null, %29 ], [ %12, %28 ], [ %12, %27 ], [ null, %35 ], [ null, %54 ], [ %33, %53 ], [ %33, %52 ]
+  %.0 = phi ptr [ %89, %88 ], [ %6, %7 ], [ null, %8 ], [ null, %87 ], [ %12, %27 ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ %64, %63 ], [ %66, %65 ], [ %68, %67 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %80, %79 ], [ %82, %81 ], [ %84, %83 ], [ %86, %85 ], [ null, %14 ], [ null, %29 ], [ %12, %28 ], [ null, %35 ], [ null, %54 ], [ %33, %53 ], [ %33, %52 ]
   %90 = load ptr, ptr %0, align 8
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 1824
   %92 = load ptr, ptr %91, align 8
@@ -2497,7 +2497,7 @@ define hidden noundef ptr @jRsaPkcsOaepParamToCKRsaPkcsOaepParamPtr(ptr noundef 
   br label %67
 
 67:                                               ; preds = %65, %66, %37, %27, %17, %11, %5, %64, %54
-  %.0 = phi ptr [ null, %54 ], [ null, %64 ], [ null, %5 ], [ null, %11 ], [ null, %17 ], [ null, %27 ], [ null, %37 ], [ %52, %66 ], [ %52, %65 ]
+  %.0 = phi ptr [ null, %37 ], [ null, %5 ], [ null, %11 ], [ null, %17 ], [ null, %27 ], [ null, %54 ], [ null, %64 ], [ %52, %66 ], [ %52, %65 ]
   ret ptr %.0
 }
 
@@ -2641,7 +2641,7 @@ define hidden noundef ptr @jPbeParamToCKPbeParamPtr(ptr noundef %0, ptr noundef 
   br label %89
 
 89:                                               ; preds = %76, %77, %38, %28, %18, %12, %6, %85, %55
-  %.0 = phi ptr [ null, %55 ], [ null, %85 ], [ null, %6 ], [ null, %12 ], [ null, %18 ], [ null, %28 ], [ null, %38 ], [ %53, %77 ], [ %53, %76 ]
+  %.0 = phi ptr [ null, %38 ], [ null, %6 ], [ null, %12 ], [ null, %18 ], [ null, %28 ], [ null, %55 ], [ null, %85 ], [ %53, %77 ], [ %53, %76 ]
   ret ptr %.0
 }
 
@@ -2895,7 +2895,7 @@ define hidden noundef ptr @jPkcs5Pbkd2ParamToCKPkcs5Pbkd2ParamPtr(ptr noundef %0
   br label %149
 
 149:                                              ; preds = %124, %125, %72, %62, %52, %42, %32, %26, %148, %89, %25
-  %.0 = phi ptr [ null, %89 ], [ null, %148 ], [ null, %25 ], [ null, %26 ], [ null, %32 ], [ null, %42 ], [ null, %52 ], [ null, %62 ], [ null, %72 ], [ %87, %125 ], [ %87, %124 ]
+  %.0 = phi ptr [ null, %25 ], [ null, %26 ], [ null, %32 ], [ null, %42 ], [ null, %52 ], [ null, %62 ], [ null, %89 ], [ null, %148 ], [ null, %72 ], [ %87, %125 ], [ %87, %124 ]
   ret ptr %.0
 }
 
@@ -2974,7 +2974,7 @@ define hidden noalias noundef ptr @jRsaPkcsPssParamToCKRsaPkcsPssParamPtr(ptr no
   br label %49
 
 49:                                               ; preds = %45, %48, %27, %17, %11, %5, %44
-  %.0 = phi ptr [ null, %44 ], [ null, %5 ], [ null, %11 ], [ null, %17 ], [ null, %27 ], [ %42, %48 ], [ %42, %45 ]
+  %.0 = phi ptr [ null, %27 ], [ null, %5 ], [ null, %11 ], [ null, %17 ], [ null, %44 ], [ %42, %48 ], [ %42, %45 ]
   ret ptr %.0
 }
 
@@ -3080,7 +3080,7 @@ define hidden noundef ptr @jEcdh1DeriveParamToCKEcdh1DeriveParamPtr(ptr noundef 
   br label %65
 
 65:                                               ; preds = %59, %60, %27, %17, %11, %5, %61, %44
-  %.0 = phi ptr [ null, %44 ], [ null, %61 ], [ null, %5 ], [ null, %11 ], [ null, %17 ], [ null, %27 ], [ %42, %60 ], [ %42, %59 ]
+  %.0 = phi ptr [ null, %27 ], [ null, %5 ], [ null, %11 ], [ null, %17 ], [ null, %44 ], [ null, %61 ], [ %42, %60 ], [ %42, %59 ]
   ret ptr %.0
 }
 
@@ -3233,7 +3233,7 @@ define hidden noundef ptr @jEcdh2DeriveParamToCKEcdh2DeriveParamPtr(ptr noundef 
   br label %104
 
 104:                                              ; preds = %96, %97, %55, %45, %35, %25, %15, %9, %3, %98, %72
-  %.0 = phi ptr [ null, %72 ], [ null, %98 ], [ null, %3 ], [ null, %9 ], [ null, %15 ], [ null, %25 ], [ null, %35 ], [ null, %45 ], [ null, %55 ], [ %70, %97 ], [ %70, %96 ]
+  %.0 = phi ptr [ null, %55 ], [ null, %3 ], [ null, %9 ], [ null, %15 ], [ null, %25 ], [ null, %35 ], [ null, %45 ], [ null, %72 ], [ null, %98 ], [ %70, %97 ], [ %70, %96 ]
   ret ptr %.0
 }
 
@@ -3339,7 +3339,7 @@ define hidden noundef ptr @jX942Dh1DeriveParamToCKX942Dh1DeriveParamPtr(ptr noun
   br label %65
 
 65:                                               ; preds = %59, %60, %27, %17, %11, %5, %61, %44
-  %.0 = phi ptr [ null, %44 ], [ null, %61 ], [ null, %5 ], [ null, %11 ], [ null, %17 ], [ null, %27 ], [ %42, %60 ], [ %42, %59 ]
+  %.0 = phi ptr [ null, %27 ], [ null, %5 ], [ null, %11 ], [ null, %17 ], [ null, %44 ], [ null, %61 ], [ %42, %60 ], [ %42, %59 ]
   ret ptr %.0
 }
 
@@ -3499,7 +3499,7 @@ define hidden noundef ptr @jX942Dh2DeriveParamToCKX942Dh2DeriveParamPtr(ptr noun
   br label %106
 
 106:                                              ; preds = %98, %99, %57, %47, %37, %27, %17, %11, %5, %100, %74
-  %.0 = phi ptr [ null, %74 ], [ null, %100 ], [ null, %5 ], [ null, %11 ], [ null, %17 ], [ null, %27 ], [ null, %37 ], [ null, %47 ], [ null, %57 ], [ %72, %99 ], [ %72, %98 ]
+  %.0 = phi ptr [ null, %57 ], [ null, %5 ], [ null, %11 ], [ null, %17 ], [ null, %27 ], [ null, %37 ], [ null, %47 ], [ null, %74 ], [ null, %100 ], [ %72, %99 ], [ %72, %98 ]
   ret ptr %.0
 }
 

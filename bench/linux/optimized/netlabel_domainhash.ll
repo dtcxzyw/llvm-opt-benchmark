@@ -578,8 +578,8 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
   tail call fastcc void @netlbl_domhsh_audit_add(ptr noundef %0, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef %1)
   br label %.loopexit111
 
-.thread108:                                       ; preds = %164, %156, %168
-  %273 = phi ptr [ %134, %168 ], [ %162, %164 ], [ %154, %156 ]
+.thread108:                                       ; preds = %156, %164, %168
+  %273 = phi ptr [ %134, %168 ], [ %154, %156 ], [ %162, %164 ]
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 8
   %275 = load i32, ptr %274, align 8
   %276 = icmp eq i32 %275, 6
@@ -866,13 +866,13 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
   br label %.loopexit111
 
 .loopexit111:                                     ; preds = %.preheader159, %.preheader150, %.preheader138, %.preheader126, %.loopexit, %.loopexit128, %277, %.thread108, %272, %.loopexit113, %205, %202, %.thread106.thread
-  %434 = phi i32 [ 0, %272 ], [ -22, %202 ], [ -12, %205 ], [ -22, %.thread106.thread ], [ -22, %277 ], [ -22, %.thread108 ], [ 0, %.loopexit113 ], [ 0, %.loopexit128 ], [ 0, %.loopexit ], [ %417, %.preheader126 ], [ %375, %.preheader138 ], [ -17, %.preheader150 ], [ -17, %.preheader159 ]
+  %434 = phi i32 [ 0, %272 ], [ %375, %.preheader138 ], [ 0, %.loopexit113 ], [ -22, %202 ], [ -12, %205 ], [ -22, %.thread106.thread ], [ -22, %277 ], [ -22, %.thread108 ], [ 0, %.loopexit128 ], [ -17, %.preheader150 ], [ 0, %.loopexit ], [ %417, %.preheader126 ], [ -17, %.preheader159 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull @netlbl_domhsh_lock) #10
   tail call void @__rcu_read_unlock() #10
   br label %.thread
 
 .thread:                                          ; preds = %.preheader180, %47, %51, %.preheader172, %82, %86, %11, %24, %26, %18, %20, %14, %7, %4, %2, %.loopexit111
-  %435 = phi i32 [ %434, %.loopexit111 ], [ -22, %2 ], [ -22, %4 ], [ -22, %7 ], [ -22, %14 ], [ -22, %20 ], [ -22, %18 ], [ -22, %26 ], [ -22, %24 ], [ -22, %11 ], [ -22, %86 ], [ -22, %82 ], [ -22, %.preheader172 ], [ -22, %51 ], [ -22, %47 ], [ -22, %.preheader180 ]
+  %435 = phi i32 [ %434, %.loopexit111 ], [ -22, %2 ], [ -22, %4 ], [ -22, %7 ], [ -22, %14 ], [ -22, %20 ], [ -22, %18 ], [ -22, %26 ], [ -22, %24 ], [ -22, %11 ], [ -22, %.preheader172 ], [ -22, %86 ], [ -22, %82 ], [ -22, %51 ], [ -22, %47 ], [ -22, %.preheader180 ]
   ret i32 %435
 }
 
@@ -2034,7 +2034,7 @@ define dso_local noundef range(i32 -22, 1) i32 @netlbl_domhsh_remove_default(i16
   br label %.loopexit10.i
 
 .loopexit10.i:                                    ; preds = %10, %6
-  %11 = phi ptr [ null, %10 ], [ %4, %6 ]
+  %11 = phi ptr [ %4, %6 ], [ null, %10 ]
   %12 = tail call i32 @netlbl_domhsh_remove_entry(ptr noundef %11, ptr noundef %1), !range !37
   switch i32 %12, label %netlbl_domhsh_remove.exit [
     i32 -2, label %13
@@ -2063,7 +2063,7 @@ define dso_local noundef range(i32 -22, 1) i32 @netlbl_domhsh_remove_default(i16
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %22, %18
-  %23 = phi ptr [ null, %22 ], [ %16, %18 ]
+  %23 = phi ptr [ %16, %18 ], [ null, %22 ]
   %24 = tail call i32 @netlbl_domhsh_remove_entry(ptr noundef %23, ptr noundef %1), !range !37
   %25 = icmp eq i32 %24, -2
   %26 = select i1 %25, i32 %14, i32 %24

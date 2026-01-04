@@ -149,7 +149,7 @@ trivial.exit.thread6:                             ; preds = %21, %19, %17, %15, 
   %.not38.i = icmp slt i32 %57, %58
   br i1 %.not38.i, label %.preheader.i, label %fixed_random.exit.thread
 
-fixed_random.exit.thread:                         ; preds = %34, %28, %41, %.preheader46.i, %52, %23, %44, %46
+fixed_random.exit.thread:                         ; preds = %34, %28, %.preheader46.i, %41, %52, %23, %44, %46
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -164,7 +164,7 @@ fixed_random.exit.thread:                         ; preds = %34, %28, %41, %.pre
   br label %trivial.exit.thread
 
 trivial.exit.thread:                              ; preds = %0, %fixed_random.exit.thread, %trivial.exit.thread6, %59
-  %.0 = phi i32 [ 0, %59 ], [ 1, %trivial.exit.thread6 ], [ 1, %fixed_random.exit.thread ], [ 1, %0 ]
+  %.0 = phi i32 [ 0, %59 ], [ 1, %fixed_random.exit.thread ], [ 1, %trivial.exit.thread6 ], [ 1, %0 ]
   ret i32 %.0
 }
 

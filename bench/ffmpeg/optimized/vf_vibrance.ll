@@ -100,7 +100,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br label %35
 
 35:                                               ; preds = %22, %33, %19
-  %.0 = phi i32 [ %34, %33 ], [ -12, %19 ], [ %29, %22 ]
+  %.0 = phi i32 [ -12, %19 ], [ %34, %33 ], [ %29, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

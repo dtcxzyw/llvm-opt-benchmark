@@ -526,7 +526,7 @@ _ZN6Thread20current_or_null_safeEv.exit:          ; preds = %4, %17
   br label %29
 
 29:                                               ; preds = %_ZN6Thread20current_or_null_safeEv.exit, %27, %22
-  %.0 = phi i1 [ %28, %27 ], [ false, %22 ], [ false, %_ZN6Thread20current_or_null_safeEv.exit ]
+  %.0 = phi i1 [ false, %_ZN6Thread20current_or_null_safeEv.exit ], [ %28, %27 ], [ false, %22 ]
   %.not74 = icmp eq ptr %2, null
   br i1 %.not74, label %32, label %30
 
@@ -624,7 +624,7 @@ _ZN22NativeDeoptInstruction11is_deopt_atEPh.exit.thread: ; preds = %42, %50, %48
   unreachable
 
 .thread89:                                        ; preds = %32, %36, %33, %54, %63, %66
-  %.592 = phi i32 [ %68, %66 ], [ 1, %63 ], [ 1, %54 ], [ 1, %36 ], [ 1, %33 ], [ 1, %32 ]
+  %.592 = phi i32 [ %68, %66 ], [ 1, %63 ], [ 1, %54 ], [ 1, %33 ], [ 1, %36 ], [ 1, %32 ]
   store i32 %8, ptr %7, align 4
   ret i32 %.592
 }
@@ -936,7 +936,7 @@ _ZN2os14exception_nameEiPcm.exit16:               ; preds = %_ZL15is_valid_signa
   br label %65
 
 65:                                               ; preds = %22, %_ZN2os14exception_nameEiPcm.exit, %48, %_ZN2os14exception_nameEiPcm.exit16, %19, %1
-  %.0 = phi i1 [ false, %1 ], [ false, %19 ], [ true, %_ZN2os14exception_nameEiPcm.exit16 ], [ true, %48 ], [ true, %_ZN2os14exception_nameEiPcm.exit ], [ false, %22 ]
+  %.0 = phi i1 [ false, %1 ], [ true, %_ZN2os14exception_nameEiPcm.exit ], [ false, %19 ], [ true, %_ZN2os14exception_nameEiPcm.exit16 ], [ true, %48 ], [ false, %22 ]
   ret i1 %.0
 }
 
@@ -1048,8 +1048,8 @@ define hidden void @_ZN2os13print_siginfoEP12outputStreamPKv(ptr noundef nonnull
   br label %_ZL27get_signal_code_descriptionPK9siginfo_tP19enum_sigcode_desc_t.exit
 
 _ZL27get_signal_code_descriptionPK9siginfo_tP19enum_sigcode_desc_t.exit: ; preds = %32, %.loopexit.i
-  %33 = phi i32 [ %16, %.loopexit.i ], [ %23, %32 ]
-  %.12534.sink.i = phi ptr [ %21, %.loopexit.i ], [ %spec.select, %32 ]
+  %33 = phi i32 [ %23, %32 ], [ %16, %.loopexit.i ]
+  %.12534.sink.i = phi ptr [ %spec.select, %32 ], [ %21, %.loopexit.i ]
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.10, i32 noundef %33, ptr noundef %.12534.sink.i) #20
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %35 = load i32, ptr %34, align 4
@@ -1159,7 +1159,7 @@ define internal fastcc noundef ptr @_ZL15get_signal_nameiPcm(i32 noundef %0, ptr
   br label %43
 
 18:                                               ; preds = %11, %8, %6, %3
-  %.025 = phi ptr [ null, %6 ], [ null, %3 ], [ @.str.44, %8 ], [ @.str.45, %11 ]
+  %.025 = phi ptr [ null, %3 ], [ @.str.44, %8 ], [ null, %6 ], [ @.str.45, %11 ]
   %19 = icmp sgt i32 %0, 0
   br i1 %19, label %.preheader, label %.loopexit
 
@@ -1901,7 +1901,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN12PosixSignals4initEv() local_unn
   br label %33
 
 33:                                               ; preds = %28, %24, %20, %19, %14
-  %34 = phi i32 [ 10, %20 ], [ 10, %19 ], [ 16, %24 ], [ %32, %28 ], [ %18, %14 ]
+  %34 = phi i32 [ %32, %28 ], [ %18, %14 ], [ 10, %20 ], [ 10, %19 ], [ 16, %24 ]
   %35 = tail call ptr @__errno_location() #21
   store i32 0, ptr %35, align 4
   %36 = call i64 @strtoll(ptr noundef nonnull %8, ptr noundef nonnull %6, i32 noundef %34) #20
@@ -1941,7 +1941,7 @@ _Z14multiply_by_1kIiEbRT_.exit.thread.i.i.i:      ; preds = %47
   br label %50
 
 50:                                               ; preds = %_Z14multiply_by_1kIiEbRT_.exit.thread.i.i.i, %45, %45
-  %.026.i.i.i = phi i32 [ %42, %45 ], [ %42, %45 ], [ %49, %_Z14multiply_by_1kIiEbRT_.exit.thread.i.i.i ]
+  %.026.i.i.i = phi i32 [ %49, %_Z14multiply_by_1kIiEbRT_.exit.thread.i.i.i ], [ %42, %45 ], [ %42, %45 ]
   %51 = add i32 %.026.i.i.i, 2097152
   %or.cond.i16.i.i.i = icmp ult i32 %51, 4194304
   br i1 %or.cond.i16.i.i.i, label %_Z14multiply_by_1kIiEbRT_.exit17.thread.i.i.i, label %_ZL13parse_integerIiEbPKcPT_.exit.thread.i
@@ -1951,7 +1951,7 @@ _Z14multiply_by_1kIiEbRT_.exit17.thread.i.i.i:    ; preds = %50
   br label %53
 
 53:                                               ; preds = %_Z14multiply_by_1kIiEbRT_.exit17.thread.i.i.i, %45, %45
-  %.1.i.i.i = phi i32 [ %42, %45 ], [ %42, %45 ], [ %52, %_Z14multiply_by_1kIiEbRT_.exit17.thread.i.i.i ]
+  %.1.i.i.i = phi i32 [ %52, %_Z14multiply_by_1kIiEbRT_.exit17.thread.i.i.i ], [ %42, %45 ], [ %42, %45 ]
   %54 = add i32 %.1.i.i.i, 2097152
   %or.cond.i18.i.i.i = icmp ult i32 %54, 4194304
   br i1 %or.cond.i18.i.i.i, label %_Z14multiply_by_1kIiEbRT_.exit19.thread.i.i.i, label %_ZL13parse_integerIiEbPKcPT_.exit.thread.i
@@ -1961,7 +1961,7 @@ _Z14multiply_by_1kIiEbRT_.exit19.thread.i.i.i:    ; preds = %53
   br label %56
 
 56:                                               ; preds = %_Z14multiply_by_1kIiEbRT_.exit19.thread.i.i.i, %45, %45
-  %.2.i.i.i = phi i32 [ %42, %45 ], [ %42, %45 ], [ %55, %_Z14multiply_by_1kIiEbRT_.exit19.thread.i.i.i ]
+  %.2.i.i.i = phi i32 [ %55, %_Z14multiply_by_1kIiEbRT_.exit19.thread.i.i.i ], [ %42, %45 ], [ %42, %45 ]
   %57 = add i32 %.2.i.i.i, 2097152
   %or.cond.i20.i.i.i = icmp ult i32 %57, 4194304
   br i1 %or.cond.i20.i.i.i, label %58, label %_ZL13parse_integerIiEbPKcPT_.exit.thread.i

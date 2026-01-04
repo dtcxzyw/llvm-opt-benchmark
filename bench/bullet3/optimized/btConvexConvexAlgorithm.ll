@@ -1248,7 +1248,7 @@ _ZN16btManifoldResult20refreshContactPointsEv.exit295: ; preds = %332, %.sink.sp
   br label %534
 
 534:                                              ; preds = %532, %494, %492, %490
-  %.pn.pn = phi { ptr, i32 } [ %495, %494 ], [ %493, %492 ], [ %491, %490 ], [ %533, %532 ]
+  %.pn.pn = phi { ptr, i32 } [ %491, %490 ], [ %495, %494 ], [ %493, %492 ], [ %533, %532 ]
   call void @_ZN6btFaceD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %20) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %573
@@ -1335,7 +1335,7 @@ _ZN16btManifoldResult20refreshContactPointsEv.exit295: ; preds = %332, %.sink.sp
   br label %572
 
 572:                                              ; preds = %570, %539, %537, %535
-  %.pn240.pn = phi { ptr, i32 } [ %540, %539 ], [ %538, %537 ], [ %536, %535 ], [ %571, %570 ]
+  %.pn240.pn = phi { ptr, i32 } [ %536, %535 ], [ %540, %539 ], [ %538, %537 ], [ %571, %570 ]
   call void @_ZN6btFaceD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %24) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %573
@@ -1401,7 +1401,7 @@ _ZN16btManifoldResult20refreshContactPointsEv.exit295: ; preds = %332, %.sink.sp
   br label %593
 
 593:                                              ; preds = %484, %592, %482, %480, %478
-  %.pn248.pn.pn = phi { ptr, i32 } [ %483, %482 ], [ %481, %480 ], [ %479, %478 ], [ %.pn248, %592 ], [ %485, %484 ]
+  %.pn248.pn.pn = phi { ptr, i32 } [ %479, %478 ], [ %483, %482 ], [ %481, %480 ], [ %.pn248, %592 ], [ %485, %484 ]
   call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %13) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %595
@@ -1411,7 +1411,7 @@ _ZN16btManifoldResult20refreshContactPointsEv.exit295: ; preds = %332, %.sink.sp
   br label %596
 
 595:                                              ; preds = %593, %347
-  %.pn253.pn.pn.pn = phi { ptr, i32 } [ %.pn248.pn.pn, %593 ], [ %.pn253, %347 ]
+  %.pn253.pn.pn.pn = phi { ptr, i32 } [ %.pn253, %347 ], [ %.pn248.pn.pn, %593 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -2003,7 +2003,7 @@ define internal fastcc noundef float @_ZL22capsuleCapsuleDistanceR9btVector3S0_f
   br label %55
 
 55:                                               ; preds = %11, %47, %54, %52
-  %.0 = phi float [ %2, %54 ], [ %49, %52 ], [ %50, %47 ], [ 0.000000e+00, %11 ]
+  %.0 = phi float [ %50, %47 ], [ %49, %52 ], [ %2, %54 ], [ 0.000000e+00, %11 ]
   %56 = tail call float @llvm.fmuladd.f32(float %.0, float %37, float %.pre98.i)
   %57 = fneg float %4
   %58 = fcmp olt float %56, %57
@@ -2040,8 +2040,8 @@ define internal fastcc noundef float @_ZL22capsuleCapsuleDistanceR9btVector3S0_f
   br label %_ZL21segmentsClosestPointsR9btVector3S0_S0_RfS1_RKS_S3_fS3_f.exit
 
 _ZL21segmentsClosestPointsR9btVector3S0_S0_RfS1_RKS_S3_fS3_f.exit: ; preds = %68, %66, %59, %63, %65, %72, %74
-  %.0129 = phi float [ %57, %65 ], [ %57, %63 ], [ %4, %74 ], [ %4, %72 ], [ %57, %59 ], [ %56, %66 ], [ %4, %68 ]
-  %75 = phi float [ %2, %65 ], [ %60, %63 ], [ %2, %74 ], [ %69, %72 ], [ %61, %59 ], [ %.0, %66 ], [ %70, %68 ]
+  %.0129 = phi float [ %57, %59 ], [ %57, %65 ], [ %57, %63 ], [ %56, %66 ], [ %4, %74 ], [ %4, %72 ], [ %4, %68 ]
+  %75 = phi float [ %61, %59 ], [ %2, %65 ], [ %60, %63 ], [ %.0, %66 ], [ %2, %74 ], [ %69, %72 ], [ %70, %68 ]
   %76 = fmul float %18, %75
   %77 = fmul float %19, %75
   %78 = fmul float %20, %75

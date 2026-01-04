@@ -533,7 +533,7 @@ define hidden range(i32 -2147483648, 2) i32 @basque_ISO_8859_1_stem(ptr noundef 
   br label %46
 
 46:                                               ; preds = %44, %.thread98.i, %27, %.thread.i
-  %47 = phi i32 [ %21, %.thread.i ], [ %29, %27 ], [ %45, %44 ], [ %38, %.thread98.i ]
+  %47 = phi i32 [ %29, %27 ], [ %21, %.thread.i ], [ %45, %44 ], [ %38, %.thread98.i ]
   %48 = load ptr, ptr %4, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store i32 %47, ptr %49, align 4
@@ -675,9 +675,9 @@ r_aditzak.exit:                                   ; preds = %110, %107, %104, %1
   %.not.i54 = icmp sgt i32 %115, %116
   br i1 %.not.i54, label %.lr.ph, label %.preheader
 
-.preheader:                                       ; preds = %91, %r_aditzak.exit, %.lr.ph, %87, %100, %95, %r_mark_regions.exit
-  %.lcssa170 = phi i32 [ %74, %r_mark_regions.exit ], [ %81, %91 ], [ %113, %r_aditzak.exit ], [ %81, %.lr.ph ], [ %81, %87 ], [ %81, %100 ], [ %81, %95 ]
-  %.lcssa168 = phi i32 [ %74, %r_mark_regions.exit ], [ %80, %91 ], [ %114, %r_aditzak.exit ], [ %80, %.lr.ph ], [ %80, %87 ], [ %80, %100 ], [ %80, %95 ]
+.preheader:                                       ; preds = %91, %.lr.ph, %87, %100, %95, %r_aditzak.exit, %r_mark_regions.exit
+  %.lcssa170 = phi i32 [ %74, %r_mark_regions.exit ], [ %81, %91 ], [ %81, %.lr.ph ], [ %81, %87 ], [ %81, %100 ], [ %81, %95 ], [ %113, %r_aditzak.exit ]
+  %.lcssa168 = phi i32 [ %74, %r_mark_regions.exit ], [ %80, %91 ], [ %80, %.lr.ph ], [ %80, %87 ], [ %80, %100 ], [ %80, %95 ], [ %114, %r_aditzak.exit ]
   %.neg.le = sub i32 %.lcssa168, %.lcssa170
   %117 = load i32, ptr %2, align 4
   %118 = add i32 %.neg.le, %117
@@ -806,9 +806,9 @@ r_izenak.exit:                                    ; preds = %134, %138, %142, %1
   %.not.i55 = icmp sgt i32 %172, %173
   br i1 %.not.i55, label %.lr.ph190, label %.thread
 
-.thread:                                          ; preds = %132, %r_izenak.exit, %.lr.ph190, %128, %148, %141, %136, %.preheader
-  %.lcssa166 = phi i32 [ %117, %.preheader ], [ %121, %132 ], [ %171, %r_izenak.exit ], [ %121, %.lr.ph190 ], [ %121, %128 ], [ %121, %148 ], [ %121, %141 ], [ %121, %136 ]
-  %.lcssa = phi i32 [ %118, %.preheader ], [ %120, %132 ], [ %172, %r_izenak.exit ], [ %120, %.lr.ph190 ], [ %120, %128 ], [ %120, %148 ], [ %120, %141 ], [ %120, %136 ]
+.thread:                                          ; preds = %132, %.lr.ph190, %128, %148, %141, %136, %r_izenak.exit, %.preheader
+  %.lcssa166 = phi i32 [ %117, %.preheader ], [ %121, %132 ], [ %121, %.lr.ph190 ], [ %121, %128 ], [ %121, %148 ], [ %121, %141 ], [ %121, %136 ], [ %171, %r_izenak.exit ]
+  %.lcssa = phi i32 [ %118, %.preheader ], [ %120, %132 ], [ %120, %.lr.ph190 ], [ %120, %128 ], [ %120, %148 ], [ %120, %141 ], [ %120, %136 ], [ %172, %r_izenak.exit ]
   %.neg51.le = sub i32 %.lcssa, %.lcssa166
   %174 = load i32, ptr %2, align 4
   %175 = add i32 %174, %.neg51.le
@@ -866,13 +866,13 @@ r_izenak.exit:                                    ; preds = %134, %138, %142, %1
   %199 = icmp sgt i32 %198, -1
   br i1 %199, label %200, label %.loopexit
 
-200:                                              ; preds = %190, %194, %197, %188, %.thread, %178, %184, %192
+200:                                              ; preds = %190, %194, %197, %188, %178, %184, %192, %.thread
   %201 = load i32, ptr %73, align 8
   store i32 %201, ptr %11, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %97, %101, %104, %107, %110, %168, %165, %162, %159, %156, %153, %150, %145, %142, %138, %194, %197, %200
-  %.1 = phi i32 [ 1, %200 ], [ %195, %194 ], [ %198, %197 ], [ %139, %138 ], [ %143, %142 ], [ %146, %145 ], [ %151, %150 ], [ %154, %153 ], [ %157, %156 ], [ %160, %159 ], [ %163, %162 ], [ %166, %165 ], [ %169, %168 ], [ %111, %110 ], [ %108, %107 ], [ %105, %104 ], [ %102, %101 ], [ %98, %97 ]
+.loopexit:                                        ; preds = %104, %97, %107, %101, %110, %156, %153, %168, %150, %145, %165, %142, %162, %138, %159, %194, %197, %200
+  %.1 = phi i32 [ %160, %159 ], [ %198, %197 ], [ 1, %200 ], [ %195, %194 ], [ %139, %138 ], [ %163, %162 ], [ %143, %142 ], [ %166, %165 ], [ %146, %145 ], [ %151, %150 ], [ %169, %168 ], [ %154, %153 ], [ %157, %156 ], [ %111, %110 ], [ %102, %101 ], [ %108, %107 ], [ %98, %97 ], [ %105, %104 ]
   ret i32 %.1
 }
 

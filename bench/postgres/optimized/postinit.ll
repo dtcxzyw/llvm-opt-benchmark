@@ -512,7 +512,7 @@ PerformAuthentication.exit:                       ; preds = %70, %95
   br label %103
 
 103:                                              ; preds = %66, %101
-  %.070.shrunk = phi i1 [ %69, %66 ], [ %102, %101 ]
+  %.070.shrunk = phi i1 [ %102, %101 ], [ %69, %66 ]
   %104 = load i8, ptr @IsBinaryUpgrade, align 1, !range !8, !noundef !9
   %105 = trunc nuw i8 %104 to i1
   %.not = xor i1 %105, true
@@ -569,7 +569,7 @@ PerformAuthentication.exit:                       ; preds = %70, %95
   unreachable
 
 .thread114:                                       ; preds = %.thread, %65, %44, %55, %53, %128, %118, %113, %110
-  %.070.shrunk113117 = phi i1 [ false, %128 ], [ false, %118 ], [ false, %113 ], [ %.070.shrunk, %110 ], [ true, %53 ], [ true, %55 ], [ true, %44 ], [ true, %65 ], [ true, %.thread ]
+  %.070.shrunk113117 = phi i1 [ %.070.shrunk, %110 ], [ false, %128 ], [ false, %118 ], [ false, %113 ], [ true, %53 ], [ true, %55 ], [ true, %44 ], [ true, %65 ], [ true, %.thread ]
   %135 = load i8, ptr @am_walsender, align 1, !range !8, !noundef !9
   %136 = trunc nuw i8 %135 to i1
   br i1 %136, label %137, label %.thread138

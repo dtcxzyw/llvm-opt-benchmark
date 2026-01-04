@@ -98,7 +98,7 @@ define internal noalias noundef ptr @scram_init(ptr noundef %0, ptr noundef %1, 
   br label %22
 
 22:                                               ; preds = %12, %19, %3, %18, %15, %11
-  %.0 = phi ptr [ null, %15 ], [ null, %18 ], [ null, %11 ], [ null, %3 ], [ %calloc, %19 ], [ %calloc, %12 ]
+  %.0 = phi ptr [ null, %15 ], [ null, %3 ], [ null, %18 ], [ null, %11 ], [ %calloc, %19 ], [ %calloc, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -231,7 +231,7 @@ define internal range(i32 0, 3) i32 @scram_exchange(ptr noundef %0, i1 zeroext %
   br label %build_client_first_message.exit.thread
 
 build_client_first_message.exit.thread:           ; preds = %40, %33, %.thread, %73
-  %.str.sink = phi ptr [ @.str, %73 ], [ @.str.8, %.thread ], [ @.str, %33 ], [ @.str.9, %40 ]
+  %.str.sink = phi ptr [ @.str.8, %.thread ], [ @.str, %33 ], [ @.str, %73 ], [ @.str.9, %40 ]
   call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef %31, ptr noundef nonnull %.str.sink) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
@@ -435,7 +435,7 @@ build_client_first_message.exit.thread:           ; preds = %40, %33, %.thread, 
   tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %78, ptr noundef nonnull @.str.15) #13
   br label %157
 
-read_server_first_message.exit.thread:            ; preds = %82, %106, %111, %134, %141, %152, %142, %86, %90, %114, %118
+read_server_first_message.exit.thread:            ; preds = %82, %142, %106, %111, %134, %141, %90, %152, %86, %114, %118
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %read_server_final_message.exit.thread
@@ -946,8 +946,8 @@ read_attr_value.exit40.thread49.i:                ; preds = %313, %318, %read_at
   tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef %21, ptr noundef nonnull @.str.7) #13
   br label %read_server_final_message.exit.thread
 
-read_server_final_message.exit.thread:            ; preds = %310, %306, %.loopexit.i47, %read_attr_value.exit.i, %289, %324, %331, %389, %395, %build_client_final_message.exit.thread, %read_server_first_message.exit.thread, %build_client_first_message.exit.thread, %398, %282, %74, %29, %25
-  %.0 = phi i32 [ 1, %25 ], [ 1, %29 ], [ 1, %398 ], [ 2, %74 ], [ 2, %282 ], [ 1, %build_client_first_message.exit.thread ], [ 1, %read_server_first_message.exit.thread ], [ 1, %build_client_final_message.exit.thread ], [ %not., %395 ], [ 1, %389 ], [ 1, %331 ], [ 1, %324 ], [ 1, %289 ], [ 1, %read_attr_value.exit.i ], [ 1, %.loopexit.i47 ], [ 1, %306 ], [ 1, %310 ]
+read_server_final_message.exit.thread:            ; preds = %310, %306, %read_attr_value.exit.i, %324, %331, %.loopexit.i47, %289, %389, %395, %build_client_final_message.exit.thread, %read_server_first_message.exit.thread, %build_client_first_message.exit.thread, %398, %282, %74, %29, %25
+  %.0 = phi i32 [ 1, %25 ], [ 1, %29 ], [ 1, %398 ], [ 1, %build_client_final_message.exit.thread ], [ 2, %74 ], [ 1, %read_server_first_message.exit.thread ], [ 2, %282 ], [ 1, %build_client_first_message.exit.thread ], [ %not., %395 ], [ 1, %389 ], [ 1, %289 ], [ 1, %.loopexit.i47 ], [ 1, %331 ], [ 1, %324 ], [ 1, %read_attr_value.exit.i ], [ 1, %306 ], [ 1, %310 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   ret i32 %.0
 }
@@ -970,7 +970,7 @@ define internal zeroext i1 @scram_channel_bound(ptr noundef readonly captures(ad
   br label %9
 
 9:                                                ; preds = %5, %3, %1
-  %.0 = phi i1 [ false, %1 ], [ false, %3 ], [ %.not6, %5 ]
+  %.0 = phi i1 [ false, %3 ], [ false, %1 ], [ %.not6, %5 ]
   ret i1 %.0
 }
 

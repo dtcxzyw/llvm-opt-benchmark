@@ -128,7 +128,7 @@ define hidden void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
 "_ZN4core3ptr35drop_in_place$LT$std..env..Vars$GT$17h3ea70d5595a97249E.exit": ; preds = %25
   resume { ptr, i32 } %lpad.thr_comm
 
-25:                                               ; preds = %10, %11, %18
+25:                                               ; preds = %18, %10, %11
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9a9ec7931e3d37b0E.llvm.14011817705576975213"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
@@ -653,7 +653,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h6793203773dd59
   br label %.body
 
 .body:                                            ; preds = %136, %34
-  %eh.lpad-body = phi { ptr, i32 } [ %35, %34 ], [ %133, %136 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %133, %136 ], [ %35, %34 ]
   invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9a9ec7931e3d37b0E.llvm.14011817705576975213"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
           to label %"_ZN4core3ptr35drop_in_place$LT$std..env..Vars$GT$17h3ea70d5595a97249E.exit" unwind label %145
 
@@ -841,8 +841,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h6793203773dd59
   br label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h8a2f3bd02c820290E.exit.thread.i.i"
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h8a2f3bd02c820290E.exit.thread.i.i": ; preds = %104, %100
-  %111 = phi i8 [ %.pre.i.i.i, %104 ], [ %102, %100 ]
-  %.sroa.4.0.ph.i.i.i = phi i64 [ %110, %104 ], [ %.sroa.6.1.i.i.i.i.i, %100 ]
+  %111 = phi i8 [ %102, %100 ], [ %.pre.i.i.i, %104 ]
+  %.sroa.4.0.ph.i.i.i = phi i64 [ %.sroa.6.1.i.i.i.i.i, %100 ], [ %110, %104 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !noalias !140
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false)

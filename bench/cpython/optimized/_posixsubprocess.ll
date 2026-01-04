@@ -250,7 +250,7 @@ define internal ptr @subprocess_fork_exec(ptr readnone captures(none) %0, ptr no
   br label %117
 
 117:                                              ; preds = %.split, %.split64, %112, %96, %86, %81, %79, %72, %65, %58, %51, %44, %37, %30, %6, %4, %20
-  %.0 = phi ptr [ null, %6 ], [ null, %30 ], [ null, %37 ], [ null, %44 ], [ null, %51 ], [ null, %58 ], [ null, %65 ], [ null, %72 ], [ null, %79 ], [ null, %81 ], [ null, %86 ], [ null, %96 ], [ null, %112 ], [ null, %20 ], [ null, %4 ], [ %111, %.split ], [ %116, %.split64 ]
+  %.0 = phi ptr [ null, %6 ], [ null, %30 ], [ null, %37 ], [ null, %44 ], [ null, %51 ], [ null, %58 ], [ null, %65 ], [ null, %72 ], [ null, %79 ], [ null, %81 ], [ null, %86 ], [ null, %96 ], [ null, %112 ], [ null, %4 ], [ null, %20 ], [ %111, %.split ], [ %116, %.split64 ]
   ret ptr %.0
 }
 
@@ -351,7 +351,7 @@ define internal fastcc ptr @subprocess_fork_exec_impl(ptr noundef %0, ptr nounde
   %or.cond.i = or i1 %62, %63
   br i1 %or.cond.i, label %64, label %50
 
-64:                                               ; preds = %.lr.ph.i, %61, %58
+64:                                               ; preds = %58, %61, %.lr.ph.i
   %65 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !3
   tail call void @PyErr_SetString(ptr noundef %65, ptr noundef nonnull @.str.8) #12
   br label %269
@@ -762,7 +762,7 @@ Py_DECREF.exit240:                                ; preds = %161, %165, %168
   br label %215
 
 215:                                              ; preds = %211, %210
-  %.01384055 = phi i32 [ %.013888, %211 ], [ %200, %210 ]
+  %.01384055 = phi i32 [ %200, %210 ], [ %.013888, %211 ]
   %.not.i264 = icmp eq ptr %.1134, null
   br i1 %.not.i264, label %Py_XDECREF.exit, label %216
 
@@ -781,13 +781,13 @@ Py_DECREF.exit240:                                ; preds = %161, %165, %168
   call void @_Py_Dealloc(ptr noundef nonnull %.1134) #12
   br label %Py_XDECREF.exit
 
-Py_XDECREF.exit:                                  ; preds = %.lr.ph113, %113, %126, %131, %138, %179, %173, %170, %124, %110, %69, %145, %148, %151, %.thread17, %.loopexit, %72, %75, %Py_DECREF.exit238, %.thread61, %215, %216, %218, %221
-  %.01354154106 = phi ptr [ %.1136, %215 ], [ %.1136, %216 ], [ %.1136, %218 ], [ %.1136, %221 ], [ %.1136, %.thread61 ], [ %136, %.thread17 ], [ %136, %151 ], [ %136, %148 ], [ %136, %145 ], [ null, %69 ], [ null, %110 ], [ null, %124 ], [ %.1136, %170 ], [ %.1136, %173 ], [ %.1136, %179 ], [ null, %138 ], [ null, %131 ], [ null, %126 ], [ null, %113 ], [ null, %.loopexit ], [ null, %72 ], [ null, %75 ], [ null, %Py_DECREF.exit238 ], [ %136, %.lr.ph113 ]
-  %.01384055105 = phi i32 [ %.01384055, %215 ], [ %.01384055, %216 ], [ %.01384055, %218 ], [ %.01384055, %221 ], [ -1, %.thread61 ], [ -1, %.thread17 ], [ -1, %151 ], [ -1, %148 ], [ -1, %145 ], [ -1, %69 ], [ -1, %110 ], [ -1, %124 ], [ -1, %170 ], [ -1, %173 ], [ -1, %179 ], [ -1, %138 ], [ -1, %131 ], [ -1, %126 ], [ -1, %113 ], [ -1, %.loopexit ], [ -1, %72 ], [ -1, %75 ], [ -1, %Py_DECREF.exit238 ], [ -1, %.lr.ph113 ]
-  %.01413956104 = phi ptr [ %.1142, %215 ], [ %.1142, %216 ], [ %.1142, %218 ], [ %.1142, %221 ], [ %.1142, %.thread61 ], [ %.1142, %.thread17 ], [ %.1142, %151 ], [ %.1142, %148 ], [ %.1142, %145 ], [ null, %69 ], [ %.1142, %110 ], [ %.1142, %124 ], [ %.1142, %170 ], [ %.1142, %173 ], [ %.1142, %179 ], [ %.1142, %138 ], [ %.1142, %131 ], [ %.1142, %126 ], [ %.1142, %113 ], [ null, %.loopexit ], [ null, %72 ], [ null, %75 ], [ null, %Py_DECREF.exit238 ], [ %.1142, %.lr.ph113 ]
-  %.01443857103 = phi ptr [ %.1145, %215 ], [ %.1145, %216 ], [ %.1145, %218 ], [ %.1145, %221 ], [ %.1145, %.thread61 ], [ %.1145, %.thread17 ], [ %.1145, %151 ], [ %.1145, %148 ], [ %.1145, %145 ], [ null, %69 ], [ null, %110 ], [ %.1145, %124 ], [ %.1145, %170 ], [ %.1145, %173 ], [ %.1145, %179 ], [ %.1145, %138 ], [ %.1145, %131 ], [ %.1145, %126 ], [ %.1145, %113 ], [ null, %.loopexit ], [ null, %72 ], [ null, %75 ], [ null, %Py_DECREF.exit238 ], [ %.1145, %.lr.ph113 ]
-  %.01703658102 = phi ptr [ null, %215 ], [ null, %216 ], [ null, %218 ], [ null, %221 ], [ null, %.thread61 ], [ null, %.thread17 ], [ null, %151 ], [ null, %148 ], [ null, %145 ], [ null, %69 ], [ null, %110 ], [ null, %124 ], [ null, %170 ], [ null, %173 ], [ null, %179 ], [ null, %138 ], [ null, %131 ], [ null, %126 ], [ null, %113 ], [ %78, %.loopexit ], [ null, %72 ], [ null, %75 ], [ null, %Py_DECREF.exit238 ], [ null, %.lr.ph113 ]
-  %.01743559101 = phi ptr [ null, %215 ], [ null, %216 ], [ null, %218 ], [ null, %221 ], [ null, %.thread61 ], [ null, %.thread17 ], [ null, %151 ], [ null, %148 ], [ null, %145 ], [ null, %69 ], [ null, %110 ], [ null, %124 ], [ null, %170 ], [ null, %173 ], [ null, %179 ], [ null, %138 ], [ null, %131 ], [ null, %126 ], [ null, %113 ], [ %73, %.loopexit ], [ null, %72 ], [ %73, %75 ], [ null, %Py_DECREF.exit238 ], [ null, %.lr.ph113 ]
+Py_XDECREF.exit:                                  ; preds = %.lr.ph113, %113, %126, %131, %138, %179, %173, %170, %69, %124, %110, %151, %.thread17, %145, %148, %.loopexit, %72, %75, %Py_DECREF.exit238, %.thread61, %215, %216, %218, %221
+  %.01354154106 = phi ptr [ %.1136, %221 ], [ %.1136, %215 ], [ %.1136, %216 ], [ %.1136, %218 ], [ %.1136, %.thread61 ], [ %136, %148 ], [ %136, %145 ], [ null, %Py_DECREF.exit238 ], [ %136, %.thread17 ], [ %136, %151 ], [ null, %113 ], [ null, %110 ], [ null, %124 ], [ null, %69 ], [ %.1136, %170 ], [ %.1136, %173 ], [ %.1136, %179 ], [ null, %138 ], [ null, %131 ], [ null, %126 ], [ null, %.loopexit ], [ null, %72 ], [ null, %75 ], [ %136, %.lr.ph113 ]
+  %.01384055105 = phi i32 [ %.01384055, %221 ], [ %.01384055, %215 ], [ %.01384055, %216 ], [ %.01384055, %218 ], [ -1, %.thread61 ], [ -1, %148 ], [ -1, %145 ], [ -1, %Py_DECREF.exit238 ], [ -1, %.thread17 ], [ -1, %151 ], [ -1, %113 ], [ -1, %110 ], [ -1, %124 ], [ -1, %69 ], [ -1, %170 ], [ -1, %173 ], [ -1, %179 ], [ -1, %138 ], [ -1, %131 ], [ -1, %126 ], [ -1, %.loopexit ], [ -1, %72 ], [ -1, %75 ], [ -1, %.lr.ph113 ]
+  %.01413956104 = phi ptr [ %.1142, %221 ], [ %.1142, %215 ], [ %.1142, %216 ], [ %.1142, %218 ], [ %.1142, %.thread61 ], [ %.1142, %148 ], [ %.1142, %145 ], [ null, %Py_DECREF.exit238 ], [ %.1142, %.thread17 ], [ %.1142, %151 ], [ %.1142, %113 ], [ %.1142, %110 ], [ %.1142, %124 ], [ null, %69 ], [ %.1142, %170 ], [ %.1142, %173 ], [ %.1142, %179 ], [ %.1142, %138 ], [ %.1142, %131 ], [ %.1142, %126 ], [ null, %.loopexit ], [ null, %72 ], [ null, %75 ], [ %.1142, %.lr.ph113 ]
+  %.01443857103 = phi ptr [ %.1145, %221 ], [ %.1145, %215 ], [ %.1145, %216 ], [ %.1145, %218 ], [ %.1145, %.thread61 ], [ %.1145, %148 ], [ %.1145, %145 ], [ null, %Py_DECREF.exit238 ], [ %.1145, %.thread17 ], [ %.1145, %151 ], [ %.1145, %113 ], [ null, %110 ], [ %.1145, %124 ], [ null, %69 ], [ %.1145, %170 ], [ %.1145, %173 ], [ %.1145, %179 ], [ %.1145, %138 ], [ %.1145, %131 ], [ %.1145, %126 ], [ null, %.loopexit ], [ null, %72 ], [ null, %75 ], [ %.1145, %.lr.ph113 ]
+  %.01703658102 = phi ptr [ null, %221 ], [ null, %215 ], [ null, %216 ], [ null, %218 ], [ null, %.thread61 ], [ null, %148 ], [ null, %145 ], [ null, %Py_DECREF.exit238 ], [ null, %.thread17 ], [ null, %151 ], [ null, %113 ], [ null, %110 ], [ null, %124 ], [ null, %69 ], [ null, %170 ], [ null, %173 ], [ null, %179 ], [ null, %138 ], [ null, %131 ], [ null, %126 ], [ %78, %.loopexit ], [ null, %72 ], [ null, %75 ], [ null, %.lr.ph113 ]
+  %.01743559101 = phi ptr [ null, %221 ], [ null, %215 ], [ null, %216 ], [ null, %218 ], [ null, %.thread61 ], [ null, %148 ], [ null, %145 ], [ null, %Py_DECREF.exit238 ], [ null, %.thread17 ], [ null, %151 ], [ null, %113 ], [ null, %110 ], [ null, %124 ], [ null, %69 ], [ null, %170 ], [ null, %173 ], [ null, %179 ], [ null, %138 ], [ null, %131 ], [ null, %126 ], [ %73, %.loopexit ], [ null, %72 ], [ %73, %75 ], [ null, %.lr.ph113 ]
   call void @PyMem_RawFree(ptr noundef %.01354154106) #12
   %222 = load ptr, ptr %23, align 8, !tbaa !3
   %.not.i265 = icmp eq ptr %222, null
@@ -1073,7 +1073,7 @@ _Py_FreeCharPArray.exit:                          ; preds = %.lr.ph.i, %Py_XDECR
   br label %53
 
 53:                                               ; preds = %1, %_Py_FreeCharPArray.exit, %._crit_edge, %14, %7
-  %.032 = phi ptr [ null, %7 ], [ null, %14 ], [ null, %_Py_FreeCharPArray.exit ], [ %12, %._crit_edge ], [ null, %1 ]
+  %.032 = phi ptr [ %12, %._crit_edge ], [ null, %7 ], [ null, %14 ], [ null, %1 ], [ null, %_Py_FreeCharPArray.exit ]
   ret ptr %.032
 }
 
@@ -1102,14 +1102,14 @@ define internal fastcc range(i32 -1, 1) i32 @convert_fds_to_keep_to_c(ptr nounde
   %3 = getelementptr i8, ptr %0, i64 16
   %.val = load i64, ptr %3, align 8, !tbaa !21
   %4 = icmp sgt i64 %.val, 0
-  br i1 %4, label %.lr.ph, label %.critedge
+  br i1 %4, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %6
 
-6:                                                ; preds = %.lr.ph, %15
-  %.01619 = phi i64 [ 0, %.lr.ph ], [ %18, %15 ]
+6:                                                ; preds = %.lr.ph, %.critedge
+  %.01619 = phi i64 [ 0, %.lr.ph ], [ %17, %.critedge ]
   %7 = getelementptr ptr, ptr %5, i64 %.01619
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = tail call i64 @PyLong_AsLong(ptr noundef %8) #12
@@ -1119,27 +1119,27 @@ define internal fastcc range(i32 -1, 1) i32 @convert_fds_to_keep_to_c(ptr nounde
 11:                                               ; preds = %6
   %12 = tail call ptr @PyErr_Occurred() #12
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %.thread, label %.critedge
+  br i1 %.not, label %.thread, label %.loopexit
 
 13:                                               ; preds = %6
   %or.cond = icmp ugt i64 %9, 2147483647
-  br i1 %or.cond, label %.thread, label %15
+  br i1 %or.cond, label %.thread, label %.critedge
 
 .thread:                                          ; preds = %13, %11
   %14 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !3
   tail call void @PyErr_SetString(ptr noundef %14, ptr noundef nonnull @.str.17) #12
-  br label %.critedge
+  br label %.loopexit
 
-15:                                               ; preds = %13
-  %16 = trunc nuw nsw i64 %9 to i32
-  %17 = getelementptr i32, ptr %1, i64 %.01619
-  store i32 %16, ptr %17, align 4, !tbaa !38
-  %18 = add nuw nsw i64 %.01619, 1
-  %exitcond.not = icmp eq i64 %18, %.val
-  br i1 %exitcond.not, label %.critedge, label %6, !llvm.loop !43
+.critedge:                                        ; preds = %13
+  %15 = trunc nuw nsw i64 %9 to i32
+  %16 = getelementptr i32, ptr %1, i64 %.01619
+  store i32 %15, ptr %16, align 4, !tbaa !38
+  %17 = add nuw nsw i64 %.01619, 1
+  %exitcond.not = icmp eq i64 %17, %.val
+  br i1 %exitcond.not, label %.loopexit, label %6, !llvm.loop !43
 
-.critedge:                                        ; preds = %15, %2, %.thread, %11
-  %.2 = phi i32 [ -1, %11 ], [ -1, %.thread ], [ 0, %2 ], [ 0, %15 ]
+.loopexit:                                        ; preds = %.critedge, %2, %.thread, %11
+  %.2 = phi i32 [ -1, %.thread ], [ -1, %11 ], [ 0, %2 ], [ 0, %.critedge ]
   ret i32 %.2
 }
 
@@ -1531,7 +1531,7 @@ make_inheritable.exit.sink.split:                 ; preds = %._crit_edge, %128
   br label %make_inheritable.exit
 
 make_inheritable.exit:                            ; preds = %32, %65, %62, %make_inheritable.exit.sink.split, %133, %90, %._crit_edge, %122, %118, %114, %109, %104, %100, %86, %83, %79, %76, %72, %69, %56, %53, %48, %45, %41, %37
-  %.089 = phi ptr [ @.str.18, %37 ], [ @.str.18, %41 ], [ @.str.18, %45 ], [ @.str.18, %48 ], [ @.str.18, %53 ], [ @.str.18, %56 ], [ @.str.18, %69 ], [ @.str.18, %76 ], [ @.str.18, %83 ], [ @.str.18, %100 ], [ @.str.18, %104 ], [ @.str.18, %109 ], [ @.str.18, %114 ], [ @.str.18, %118 ], [ @.str.18, %122 ], [ @.str.20, %._crit_edge ], [ @.str.18, %86 ], [ @.str.18, %79 ], [ @.str.18, %72 ], [ @.str.19, %90 ], [ @.str.20, %133 ], [ %.089.ph, %make_inheritable.exit.sink.split ], [ @.str.18, %62 ], [ @.str.18, %65 ], [ @.str.18, %32 ]
+  %.089 = phi ptr [ @.str.19, %90 ], [ @.str.18, %37 ], [ @.str.18, %41 ], [ @.str.18, %45 ], [ @.str.18, %48 ], [ @.str.18, %53 ], [ @.str.18, %56 ], [ @.str.18, %79 ], [ @.str.20, %133 ], [ @.str.18, %69 ], [ @.str.18, %76 ], [ @.str.18, %83 ], [ @.str.18, %72 ], [ @.str.18, %100 ], [ @.str.18, %104 ], [ @.str.18, %109 ], [ @.str.18, %114 ], [ @.str.18, %118 ], [ @.str.18, %122 ], [ %.089.ph, %make_inheritable.exit.sink.split ], [ @.str.18, %65 ], [ @.str.20, %._crit_edge ], [ @.str.18, %86 ], [ @.str.18, %62 ], [ @.str.18, %32 ]
   %156 = tail call ptr @__errno_location() #13
   %157 = load i32, ptr %156, align 4, !tbaa !38
   %.not132 = icmp eq i32 %157, 0
@@ -1714,7 +1714,7 @@ select.unfold.i:                                  ; preds = %8, %.lr.ph.i
   br label %24
 
 24:                                               ; preds = %19, %16
-  %.022.i.i = phi i32 [ %23, %19 ], [ 2147483647, %16 ]
+  %.022.i.i = phi i32 [ 2147483647, %16 ], [ %23, %19 ]
   br i1 %4, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %24, %select.unfold.i.i

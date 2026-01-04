@@ -346,7 +346,7 @@ lpad7:                                            ; preds = %for.inc.i.i.i.i.i
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad.i.body.thread, %if.then.i.i.i, %lpad7
-  %.pn = phi { ptr, i32 } [ %15, %lpad7 ], [ %4, %if.then.i.i.i ], [ %7, %lpad.i.body.thread ]
+  %.pn = phi { ptr, i32 } [ %15, %lpad7 ], [ %7, %lpad.i.body.thread ], [ %4, %if.then.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #20
   resume { ptr, i32 } %.pn
 }
@@ -761,7 +761,7 @@ lpad10:                                           ; preds = %invoke.cont9
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad.i.body.thread, %if.then.i.i.i, %lpad10
-  %.pn = phi { ptr, i32 } [ %16, %lpad10 ], [ %4, %if.then.i.i.i ], [ %7, %lpad.i.body.thread ]
+  %.pn = phi { ptr, i32 } [ %16, %lpad10 ], [ %7, %lpad.i.body.thread ], [ %4, %if.then.i.i.i ]
   br label %arraydestroy.body19
 
 arraydestroy.body19:                              ; preds = %arraydestroy.body19, %ehcleanup
@@ -1546,8 +1546,8 @@ arraydestroy.done17:                              ; preds = %_ZNSt4pairIKNSt7__c
   ret void
 
 lpad.body:                                        ; preds = %lpad2.i9, %lpad.i4, %lpad.i14, %lpad2.i19
-  %arrayinit.endOfInit.0.lpad-body = phi ptr [ %arrayinit.element, %lpad2.i9 ], [ %arrayinit.element, %lpad.i4 ], [ %arrayinit.element4, %lpad.i14 ], [ %arrayinit.element4, %lpad2.i19 ]
-  %eh.lpad-body = phi { ptr, i32 } [ %3, %lpad2.i9 ], [ %2, %lpad.i4 ], [ %4, %lpad.i14 ], [ %5, %lpad2.i19 ]
+  %arrayinit.endOfInit.0.lpad-body = phi ptr [ %arrayinit.element4, %lpad2.i19 ], [ %arrayinit.element4, %lpad.i14 ], [ %arrayinit.element, %lpad.i4 ], [ %arrayinit.element, %lpad2.i9 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %5, %lpad2.i19 ], [ %4, %lpad.i14 ], [ %2, %lpad.i4 ], [ %3, %lpad2.i9 ]
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %lpad.body, %arraydestroy.body
@@ -1574,8 +1574,8 @@ arraydestroy.body20:                              ; preds = %arraydestroy.body20
   %arraydestroy.done23 = icmp eq ptr %arraydestroy.element22, %ref.tmp2
   br i1 %arraydestroy.done23, label %eh.resume, label %arraydestroy.body20
 
-eh.resume:                                        ; preds = %arraydestroy.body, %arraydestroy.body20, %lpad.i, %lpad2.i
-  %.pn.pn = phi { ptr, i32 } [ %0, %lpad.i ], [ %1, %lpad2.i ], [ %.pn, %arraydestroy.body20 ], [ %eh.lpad-body, %arraydestroy.body ]
+eh.resume:                                        ; preds = %arraydestroy.body, %arraydestroy.body20, %lpad2.i, %lpad.i
+  %.pn.pn = phi { ptr, i32 } [ %0, %lpad.i ], [ %.pn, %arraydestroy.body20 ], [ %1, %lpad2.i ], [ %eh.lpad-body, %arraydestroy.body ]
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -2046,7 +2046,7 @@ _ZN9struct_pb8compiler9FormatterD2Ev.exit:        ; preds = %invoke.cont42
   ret void
 
 ehcleanup43:                                      ; preds = %lpad.i, %lpad, %lpad.i76, %lpad.i51, %ehcleanup39, %ehcleanup24, %lpad2
-  %.pn11 = phi { ptr, i32 } [ %.pn8.pn, %ehcleanup24 ], [ %.pn.pn, %ehcleanup39 ], [ %21, %lpad2 ], [ %13, %lpad.i ], [ %38, %lpad.i51 ], [ %20, %lpad ], [ %46, %lpad.i76 ]
+  %.pn11 = phi { ptr, i32 } [ %21, %lpad2 ], [ %.pn8.pn, %ehcleanup24 ], [ %.pn.pn, %ehcleanup39 ], [ %13, %lpad.i ], [ %38, %lpad.i51 ], [ %20, %lpad ], [ %46, %lpad.i76 ]
   call void @_ZN9struct_pb8compiler9FormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %format) #20
   resume { ptr, i32 } %.pn11
 }
@@ -2485,9 +2485,9 @@ arraydestroy.body18:                              ; preds = %arraydestroy.body18
   %arraydestroy.done21 = icmp eq ptr %arraydestroy.element20, %ref.tmp2
   br i1 %arraydestroy.done21, label %ehcleanup24, label %arraydestroy.body18
 
-ehcleanup24.thread41:                             ; preds = %lpad.i5, %lpad.i10, %lpad2.i15
-  %arrayinit.endOfInit.3.ph = phi ptr [ %arrayinit.element7, %lpad2.i15 ], [ %arrayinit.element7, %lpad.i10 ], [ %arrayinit.element, %lpad.i5 ]
-  %.pn.pn.ph = phi { ptr, i32 } [ %11, %lpad2.i15 ], [ %10, %lpad.i10 ], [ %8, %lpad.i5 ]
+ehcleanup24.thread41:                             ; preds = %lpad2.i15, %lpad.i5, %lpad.i10
+  %arrayinit.endOfInit.3.ph = phi ptr [ %arrayinit.element7, %lpad.i10 ], [ %arrayinit.element, %lpad.i5 ], [ %arrayinit.element7, %lpad2.i15 ]
+  %.pn.pn.ph = phi { ptr, i32 } [ %10, %lpad.i10 ], [ %8, %lpad.i5 ], [ %11, %lpad2.i15 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #20
   br label %arraydestroy.body25.preheader
 
@@ -2508,7 +2508,7 @@ arraydestroy.body25:                              ; preds = %arraydestroy.body25
   br i1 %arraydestroy.done28, label %eh.resume, label %arraydestroy.body25
 
 eh.resume:                                        ; preds = %arraydestroy.body25, %ehcleanup24, %lpad.i, %lpad2.i
-  %.pn.pn.pn31 = phi { ptr, i32 } [ %.pn, %ehcleanup24 ], [ %0, %lpad.i ], [ %1, %lpad2.i ], [ %.pn.pn.pn40, %arraydestroy.body25 ]
+  %.pn.pn.pn31 = phi { ptr, i32 } [ %1, %lpad2.i ], [ %.pn, %ehcleanup24 ], [ %0, %lpad.i ], [ %.pn.pn.pn40, %arraydestroy.body25 ]
   resume { ptr, i32 } %.pn.pn.pn31
 }
 
@@ -3267,7 +3267,7 @@ ehcleanup26:                                      ; preds = %ehcleanup24, %lpad1
   br label %ehcleanup31
 
 ehcleanup31:                                      ; preds = %lpad.i, %lpad3, %lpad.i55, %lpad.i31, %ehcleanup26, %lpad5
-  %.pn5 = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup26 ], [ %48, %lpad5 ], [ %20, %lpad.i ], [ %33, %lpad.i31 ], [ %47, %lpad3 ], [ %41, %lpad.i55 ]
+  %.pn5 = phi { ptr, i32 } [ %48, %lpad5 ], [ %.pn.pn.pn, %ehcleanup26 ], [ %20, %lpad.i ], [ %33, %lpad.i31 ], [ %47, %lpad3 ], [ %41, %lpad.i55 ]
   call void @_ZN9struct_pb8compiler9FormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %format) #20
   call void @_ZN9struct_pb8compiler20StringFieldGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %g) #20
   br label %common.resume
@@ -3763,7 +3763,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit: ; preds = %if.then, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i
-  %6 = phi i1 [ true, %if.then ], [ %cmp.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ]
+  %6 = phi i1 [ %cmp.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ], [ true, %if.then ]
   %7 = load ptr, ptr %__node_gen, align 8
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #22
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE17_M_construct_nodeIJRKS8_EEEvPSt13_Rb_tree_nodeIS8_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull %call5.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %__v)
@@ -3974,8 +3974,8 @@ if.else74:                                        ; preds = %_ZNKSt4lessINSt7__c
   br label %return
 
 return:                                           ; preds = %if.then64, %if.then32, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit63, %if.then50, %if.then18, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit, %if.else74, %if.else42, %if.else
-  %retval.sroa.0.0 = phi ptr [ %6, %if.else ], [ %17, %if.else42 ], [ %24, %if.else74 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %12, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit63 ], [ %spec.select, %if.then32 ], [ %spec.select111, %if.then64 ]
-  %retval.sroa.12.0 = phi ptr [ %7, %if.else ], [ %18, %if.else42 ], [ %25, %if.else74 ], [ %1, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %12, %if.then18 ], [ %19, %if.then50 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit63 ], [ %spec.select110, %if.then32 ], [ %spec.select112, %if.then64 ]
+  %retval.sroa.0.0 = phi ptr [ %6, %if.else ], [ %24, %if.else74 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %12, %if.then18 ], [ %__position.coerce, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit63 ], [ %17, %if.else42 ], [ %spec.select111, %if.then64 ], [ null, %if.then50 ], [ %spec.select, %if.then32 ]
+  %retval.sroa.12.0 = phi ptr [ %7, %if.else ], [ %25, %if.else74 ], [ %1, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %12, %if.then18 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit63 ], [ %18, %if.else42 ], [ %spec.select112, %if.then64 ], [ %19, %if.then50 ], [ %spec.select110, %if.then32 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -4075,8 +4075,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %return
 
 return:                                           ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit18, %if.then
-  %retval.sroa.0.0 = phi ptr [ null, %if.then ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit18 ]
-  %retval.sroa.4.0 = phi ptr [ %__y.0.lcssa39, %if.then ], [ %spec.select31, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit18 ]
+  %retval.sroa.0.0 = phi ptr [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit18 ], [ null, %if.then ]
+  %retval.sroa.4.0 = phi ptr [ %spec.select31, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit18 ], [ %__y.0.lcssa39, %if.then ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert

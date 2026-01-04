@@ -2380,7 +2380,7 @@ define noundef i64 @test_support_func(ptr noundef readonly captures(none) %0) lo
   br label %70
 
 70:                                               ; preds = %.sink.split, %29, %34, %37, %56, %53, %49, %40
-  %.2 = phi ptr [ %.0, %37 ], [ %.0, %34 ], [ %.0, %49 ], [ %.0, %56 ], [ %.0, %53 ], [ %.0, %40 ], [ %.0, %29 ], [ %4, %.sink.split ]
+  %.2 = phi ptr [ %.0, %29 ], [ %.0, %34 ], [ %.0, %37 ], [ %.0, %49 ], [ %.0, %56 ], [ %.0, %40 ], [ %.0, %53 ], [ %4, %.sink.split ]
   %71 = ptrtoint ptr %.2 to i64
   ret i64 %71
 }

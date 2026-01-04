@@ -1513,7 +1513,7 @@ dissect_usb_midi_event.exit:                      ; preds = %69, %51, %72, %76
   br label %.loopexit
 
 .loopexit:                                        ; preds = %dissect_usb_midi_event.exit, %17, %81, %4, %6
-  %.021 = phi i32 [ 0, %6 ], [ 0, %4 ], [ %13, %81 ], [ %13, %17 ], [ %13, %dissect_usb_midi_event.exit ]
+  %.021 = phi i32 [ 0, %4 ], [ 0, %6 ], [ %13, %81 ], [ %13, %17 ], [ %13, %dissect_usb_midi_event.exit ]
   ret i32 %.021
 }
 
@@ -1783,7 +1783,7 @@ define internal range(i32 0, 256) i32 @dissect_usb_audio_descriptor(ptr noundef 
   br label %.thread244
 
 .thread244:                                       ; preds = %91, %15, %12, %136, %138, %4, %6, %9
-  %.0 = phi i32 [ 0, %9 ], [ 0, %6 ], [ 0, %4 ], [ %.pre-phi, %138 ], [ %.pre-phi, %136 ], [ 0, %12 ], [ 0, %15 ], [ 0, %91 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %12 ], [ 0, %9 ], [ 0, %6 ], [ 0, %91 ], [ %.pre-phi, %138 ], [ %.pre-phi, %136 ], [ 0, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1881,7 +1881,7 @@ define internal i32 @dissect_usb_audio_control(ptr noundef %0, ptr noundef %1, p
   br label %58
 
 58:                                               ; preds = %54, %45, %49
-  %.sink50 = phi ptr [ @.str.816, %49 ], [ @.str.817, %45 ], [ %spec.select, %54 ]
+  %.sink50 = phi ptr [ @.str.816, %49 ], [ %spec.select, %54 ], [ @.str.817, %45 ]
   %59 = load ptr, ptr %22, align 8
   tail call void @col_append_str(ptr noundef %59, i32 noundef 25, ptr noundef nonnull %.sink50)
   %60 = icmp slt i32 %.041, %29
@@ -1893,7 +1893,7 @@ define internal i32 @dissect_usb_audio_control(ptr noundef %0, ptr noundef %1, p
   br label %64
 
 64:                                               ; preds = %19, %58, %61, %10, %14, %4, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %4 ], [ 0, %19 ], [ 0, %14 ], [ 0, %10 ], [ %29, %61 ], [ %29, %58 ]
+  %.0 = phi i32 [ 0, %10 ], [ 0, %4 ], [ 0, %6 ], [ 0, %19 ], [ 0, %14 ], [ %29, %61 ], [ %29, %58 ]
   ret i32 %.0
 }
 
@@ -2046,7 +2046,7 @@ define internal fastcc range(i32 -2147483648, 2147483646) i32 @dissect_ac_if_hdr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %26, %3, %36
-  %.1 = phi i32 [ 6, %36 ], [ 2, %3 ], [ 5, %26 ], [ %44, %.loopexit.loopexit ]
+  %.1 = phi i32 [ 2, %3 ], [ 6, %36 ], [ 5, %26 ], [ %44, %.loopexit.loopexit ]
   ret i32 %.1
 }
 
@@ -2534,7 +2534,7 @@ set_entity_type.exit:                             ; preds = %32, %31, %28, %10
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph, %.split, %.split.us, %set_entity_type.exit
-  %.1110 = phi i32 [ 5, %set_entity_type.exit ], [ %78, %.split.us ], [ %85, %.split ], [ %108, %.lr.ph ]
+  %.1110 = phi i32 [ 5, %set_entity_type.exit ], [ %85, %.split ], [ %78, %.split.us ], [ %108, %.lr.ph ]
   %110 = load i32, ptr @hf_ac_if_fu_ifeature, align 4
   %111 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %110, ptr noundef %0, i32 noundef %.1110, i32 noundef 1, i32 noundef -2147483648)
   %112 = add i32 %.1110, -2
@@ -2969,7 +2969,7 @@ define internal fastcc noundef i32 @dissect_as_if_format_type_body(ptr noundef %
   br i1 %.not115.i, label %dissect_as_if_format_type_ver1_body.exit, label %.preheader3.i, !llvm.loop !19
 
 dissect_as_if_format_type_ver1_body.exit:         ; preds = %.preheader3.i, %.preheader1.i, %.preheader.i, %7, %22, %40, %72
-  %.1.i = phi i32 [ 1, %7 ], [ 11, %22 ], [ 12, %40 ], [ 11, %72 ], [ %.010.i, %.preheader.i ], [ %.28.i, %.preheader1.i ], [ %.36.i, %.preheader3.i ]
+  %.1.i = phi i32 [ 1, %7 ], [ 11, %22 ], [ %.010.i, %.preheader.i ], [ 12, %40 ], [ %.28.i, %.preheader1.i ], [ 11, %72 ], [ %.36.i, %.preheader3.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -3235,11 +3235,11 @@ get_addressed_entity_type.exit:                   ; preds = %4, %13, %21, %24
 .fold.split:                                      ; preds = %43
   br label %46
 
-46:                                               ; preds = %.fold.split, %43, %45
-  %.061.ph = phi ptr [ @.str.819, %.fold.split ], [ @.str.822, %43 ], [ @.str.823, %45 ]
-  %.not70.ph = phi i1 [ true, %.fold.split ], [ false, %43 ], [ false, %45 ]
-  %.060.ph = phi ptr [ null, %.fold.split ], [ @hf_parameter_bmute, %43 ], [ @hf_parameter_wvolume, %45 ]
-  %.059.ph = phi i32 [ undef, %.fold.split ], [ 1, %43 ], [ 2, %45 ]
+46:                                               ; preds = %.fold.split, %45, %43
+  %.061.ph = phi ptr [ @.str.819, %.fold.split ], [ @.str.823, %45 ], [ @.str.822, %43 ]
+  %.not70.ph = phi i1 [ true, %.fold.split ], [ false, %45 ], [ false, %43 ]
+  %.060.ph = phi ptr [ null, %.fold.split ], [ @hf_parameter_wvolume, %45 ], [ @hf_parameter_bmute, %43 ]
+  %.059.ph = phi i32 [ undef, %.fold.split ], [ 2, %45 ], [ 1, %43 ]
   %47 = tail call ptr @try_val_to_str(i32 noundef %39, ptr noundef nonnull @v1_fu_cs_vals)
   %.not67 = icmp eq ptr %47, null
   br i1 %.not67, label %.thread88, label %48
@@ -3251,11 +3251,11 @@ get_addressed_entity_type.exit:                   ; preds = %4, %13, %21, %24
   br label %.thread88
 
 .thread88:                                        ; preds = %40, %34, %48, %46
-  %.not68 = phi i1 [ false, %48 ], [ false, %46 ], [ true, %40 ], [ true, %34 ]
-  %.0618097 = phi ptr [ %.061.ph, %48 ], [ %.061.ph, %46 ], [ @.str.821, %40 ], [ @.str.819, %34 ]
-  %.not708296 = phi i1 [ %.not70.ph, %48 ], [ %.not70.ph, %46 ], [ false, %40 ], [ true, %34 ]
-  %.0608495 = phi ptr [ %.060.ph, %48 ], [ %.060.ph, %46 ], [ @hf_parameter_bselector, %40 ], [ null, %34 ]
-  %.0598694 = phi i32 [ %.059.ph, %48 ], [ %.059.ph, %46 ], [ 1, %40 ], [ undef, %34 ]
+  %.not68 = phi i1 [ false, %46 ], [ false, %48 ], [ true, %40 ], [ true, %34 ]
+  %.0618097 = phi ptr [ %.061.ph, %46 ], [ %.061.ph, %48 ], [ @.str.821, %40 ], [ @.str.819, %34 ]
+  %.not708296 = phi i1 [ %.not70.ph, %46 ], [ %.not70.ph, %48 ], [ false, %40 ], [ true, %34 ]
+  %.0608495 = phi ptr [ %.060.ph, %46 ], [ %.060.ph, %48 ], [ @hf_parameter_bselector, %40 ], [ null, %34 ]
+  %.0598694 = phi i32 [ %.059.ph, %46 ], [ %.059.ph, %48 ], [ 1, %40 ], [ undef, %34 ]
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %52 = load i8, ptr %51, align 4, !range !6, !noundef !7
   %53 = trunc nuw i8 %52 to i1
@@ -3472,10 +3472,10 @@ get_addressed_entity_type.exit.i:                 ; preds = %40
   br label %62
 
 62:                                               ; preds = %61, %57, %56, %54, %49
-  %.0100.ph.i = phi i32 [ 3, %49 ], [ 0, %57 ], [ 1, %61 ], [ 0, %54 ], [ 1, %56 ]
-  %.not105.ph.i = phi i1 [ false, %49 ], [ true, %57 ], [ false, %61 ], [ true, %54 ], [ false, %56 ]
-  %.099.ph.i = phi ptr [ @.str.825, %49 ], [ null, %57 ], [ @.str.827, %61 ], [ null, %54 ], [ @.str.826, %56 ]
-  %.098.ph.i = phi ptr [ @v2_clksrc_cs_vals, %49 ], [ @v2_clksel_cs_vals, %57 ], [ @v2_clksel_cs_vals, %61 ], [ @v2_clksrc_cs_vals, %54 ], [ @v2_clksrc_cs_vals, %56 ]
+  %.0100.ph.i = phi i32 [ 3, %49 ], [ 1, %61 ], [ 0, %54 ], [ 1, %56 ], [ 0, %57 ]
+  %.not105.ph.i = phi i1 [ false, %49 ], [ false, %61 ], [ true, %54 ], [ false, %56 ], [ true, %57 ]
+  %.099.ph.i = phi ptr [ @.str.825, %49 ], [ @.str.827, %61 ], [ null, %54 ], [ @.str.826, %56 ], [ null, %57 ]
+  %.098.ph.i = phi ptr [ @v2_clksrc_cs_vals, %49 ], [ @v2_clksel_cs_vals, %61 ], [ @v2_clksrc_cs_vals, %54 ], [ @v2_clksrc_cs_vals, %56 ], [ @v2_clksel_cs_vals, %57 ]
   %63 = tail call ptr @try_val_to_str(i32 noundef %48, ptr noundef nonnull %.098.ph.i)
   %.not104.i = icmp eq ptr %63, null
   br i1 %.not104.i, label %.thread122.i, label %64
@@ -3487,9 +3487,9 @@ get_addressed_entity_type.exit.i:                 ; preds = %40
   br label %.thread122.i
 
 .thread122.i:                                     ; preds = %64, %62, %get_addressed_entity_type.exit.i, %get_addressed_entity_type.exit.thread.i
-  %.0100115129.i = phi i32 [ %.0100.ph.i, %64 ], [ %.0100.ph.i, %62 ], [ 0, %get_addressed_entity_type.exit.thread.i ], [ 0, %get_addressed_entity_type.exit.i ]
-  %.not105117128.i = phi i1 [ %.not105.ph.i, %64 ], [ %.not105.ph.i, %62 ], [ true, %get_addressed_entity_type.exit.thread.i ], [ true, %get_addressed_entity_type.exit.i ]
-  %.099119127.i = phi ptr [ %.099.ph.i, %64 ], [ %.099.ph.i, %62 ], [ null, %get_addressed_entity_type.exit.thread.i ], [ null, %get_addressed_entity_type.exit.i ]
+  %.0100115129.i = phi i32 [ %.0100.ph.i, %62 ], [ %.0100.ph.i, %64 ], [ 0, %get_addressed_entity_type.exit.thread.i ], [ 0, %get_addressed_entity_type.exit.i ]
+  %.not105117128.i = phi i1 [ %.not105.ph.i, %62 ], [ %.not105.ph.i, %64 ], [ true, %get_addressed_entity_type.exit.thread.i ], [ true, %get_addressed_entity_type.exit.i ]
+  %.099119127.i = phi ptr [ %.099.ph.i, %62 ], [ %.099.ph.i, %64 ], [ null, %get_addressed_entity_type.exit.thread.i ], [ null, %get_addressed_entity_type.exit.i ]
   %67 = load i8, ptr %18, align 4, !range !6, !noundef !7
   %68 = trunc nuw i8 %67 to i1
   br i1 %68, label %69, label %90
@@ -3577,13 +3577,13 @@ has_data_stage.exit.i:                            ; preds = %90
   br label %113
 
 113:                                              ; preds = %108, %103, %102
-  %.096.i = phi ptr [ @.str.828, %103 ], [ @.str.830, %108 ], [ @.str.831, %102 ]
-  %.not106.i = phi i1 [ false, %103 ], [ false, %108 ], [ true, %102 ]
-  %.095.i = phi i32 [ 1, %103 ], [ 4, %108 ], [ 0, %102 ]
-  %.094.i = phi i32 [ %104, %103 ], [ %109, %108 ], [ 0, %102 ]
-  %.093.i = phi i32 [ %105, %103 ], [ %110, %108 ], [ 0, %102 ]
-  %.092.i = phi i32 [ %106, %103 ], [ %111, %108 ], [ 0, %102 ]
-  %.091.i = phi i32 [ %107, %103 ], [ %112, %108 ], [ 0, %102 ]
+  %.096.i = phi ptr [ @.str.830, %108 ], [ @.str.828, %103 ], [ @.str.831, %102 ]
+  %.not106.i = phi i1 [ false, %108 ], [ false, %103 ], [ true, %102 ]
+  %.095.i = phi i32 [ 4, %108 ], [ 1, %103 ], [ 0, %102 ]
+  %.094.i = phi i32 [ %109, %108 ], [ %104, %103 ], [ 0, %102 ]
+  %.093.i = phi i32 [ %110, %108 ], [ %105, %103 ], [ 0, %102 ]
+  %.092.i = phi i32 [ %111, %108 ], [ %106, %103 ], [ 0, %102 ]
+  %.091.i = phi i32 [ %112, %108 ], [ %107, %103 ], [ 0, %102 ]
   %114 = load i32, ptr @ett_parameter_block, align 4
   %115 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.097.i, i32 noundef -1, i32 noundef %114, ptr noundef nonnull %6, ptr noundef nonnull %.096.i)
   br i1 %.not105117128.i, label %118, label %116
@@ -3630,7 +3630,7 @@ has_data_stage.exit.i:                            ; preds = %90
   br label %140
 
 140:                                              ; preds = %137, %127
-  %.090.i = phi i32 [ %.zext.i, %137 ], [ %132, %127 ]
+  %.090.i = phi i32 [ %132, %127 ], [ %.zext.i, %137 ]
   %.not.i = icmp eq i32 %.090.i, 0
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i
 
@@ -3663,7 +3663,7 @@ has_data_stage.exit.i:                            ; preds = %90
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %152, %149, %140, %135, %123
-  %.3.i = phi i32 [ %151, %149 ], [ %156, %152 ], [ %126, %140 ], [ %126, %123 ], [ %126, %135 ], [ %146, %.lr.ph.i ]
+  %.3.i = phi i32 [ %156, %152 ], [ %151, %149 ], [ %126, %140 ], [ %126, %135 ], [ %126, %123 ], [ %146, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %dissect_v2_control_cur_range.exit

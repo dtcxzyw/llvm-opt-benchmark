@@ -640,7 +640,7 @@ thread-pre-split:                                 ; preds = %6, %10, %13
   br label %29
 
 29:                                               ; preds = %27, %17
-  %30 = phi i8 [ %.pre, %27 ], [ %18, %17 ]
+  %30 = phi i8 [ %18, %17 ], [ %.pre, %27 ]
   %31 = icmp ugt i8 %30, 5
   br i1 %31, label %.thread20, label %46
 
@@ -858,7 +858,7 @@ thread-pre-split:                                 ; preds = %6, %10, %13
   br label %.thread8
 
 .thread8:                                         ; preds = %148, %137, %143
-  %149 = phi i8 [ %.pr6, %143 ], [ %138, %137 ], [ %.pr10.pre, %148 ]
+  %149 = phi i8 [ %138, %137 ], [ %.pr6, %143 ], [ %.pr10.pre, %148 ]
   %150 = icmp ugt i8 %149, 6
   br i1 %150, label %156, label %151
 
@@ -1075,7 +1075,7 @@ define internal void @init_intel(ptr noundef %0) #2 align 16 {
   br label %.thread
 
 .thread:                                          ; preds = %64, %44, %54
-  %66 = phi i8 [ %.pr.pre, %54 ], [ %45, %44 ], [ %.pr4.pre, %64 ]
+  %66 = phi i8 [ %45, %44 ], [ %.pr.pre, %54 ], [ %.pr4.pre, %64 ]
   switch i8 %66, label %74 [
     i8 15, label %67
     i8 6, label %.thread.thread

@@ -103,7 +103,7 @@ define i64 @file_sendfile(ptr noundef %0, ptr noundef %1, ptr noundef captures(a
   br i1 %.not113.i, label %.preheader.i, label %.critedge.thread.thread.i, !llvm.loop !9
 
 .critedge.thread.thread.i:                        ; preds = %.critedge.thread.i, %24, %.preheader.split.us.i, %30, %.preheader.split.i, %37
-  %.260107.i = phi i64 [ %31, %37 ], [ %.05886.fr.i, %.preheader.split.i ], [ %26, %30 ], [ %.4.i, %.critedge.thread.i ], [ %22, %24 ], [ 0, %.preheader.split.us.i ]
+  %.260107.i = phi i64 [ %.05886.fr.i, %.preheader.split.i ], [ %31, %37 ], [ %26, %30 ], [ 0, %.preheader.split.us.i ], [ %.4.i, %.critedge.thread.i ], [ %22, %24 ]
   tail call void @free(ptr noundef %19)
   br i1 %.not.i, label %copyfile.exit, label %42
 
@@ -125,7 +125,7 @@ define i64 @file_sendfile(ptr noundef %0, ptr noundef %1, ptr noundef captures(a
   br label %copyfile.exit
 
 copyfile.exit:                                    ; preds = %47, %45, %.critedge.thread.thread.i, %18, %16, %10, %4
-  %.0 = phi i64 [ 0, %4 ], [ %11, %10 ], [ %17, %16 ], [ %46, %45 ], [ -12, %18 ], [ %.260107.i, %.critedge.thread.thread.i ], [ %spec.select.i, %47 ]
+  %.0 = phi i64 [ 0, %4 ], [ %11, %10 ], [ %17, %16 ], [ %46, %45 ], [ %.260107.i, %.critedge.thread.thread.i ], [ -12, %18 ], [ %spec.select.i, %47 ]
   ret i64 %.0
 }
 

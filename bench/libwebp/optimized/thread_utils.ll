@@ -153,7 +153,7 @@ define internal range(i32 0, 2) i32 @Reset(ptr noundef initializes((40, 44)) %0)
   %36 = zext i1 %35 to i32
   br label %.critedge32
 
-.critedge32:                                      ; preds = %._crit_edge.i.i, %25, %19, %24, %5, %1
+.critedge32:                                      ; preds = %._crit_edge.i.i, %25, %19, %5, %24, %1
   %.1 = phi i32 [ 1, %19 ], [ %4, %1 ], [ 0, %5 ], [ 0, %24 ], [ 1, %25 ], [ %36, %._crit_edge.i.i ]
   ret i32 %.1
 }

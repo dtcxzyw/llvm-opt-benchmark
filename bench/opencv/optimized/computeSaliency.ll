@@ -644,7 +644,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8saliency30StaticSalie
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i: ; preds = %198, %195
-  %200 = phi ptr [ %192, %195 ], [ %.pr.pre.i.i.i.i, %198 ]
+  %200 = phi ptr [ %.pr.pre.i.i.i.i, %198 ], [ %192, %195 ]
   %.not8.i.i.i.i = icmp eq ptr %200, null
   br i1 %.not8.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i, label %201
 
@@ -1491,7 +1491,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit252: ; preds = %43
   br label %482
 
 482:                                              ; preds = %476, %478, %480
-  %.pn119.pn.pn = phi { ptr, i32 } [ %481, %480 ], [ %479, %478 ], [ %477, %476 ]
+  %.pn119.pn.pn = phi { ptr, i32 } [ %477, %476 ], [ %481, %480 ], [ %479, %478 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br label %502
 
@@ -1601,7 +1601,7 @@ _ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EED2Ev.exit:   ; preds = %_ZNSolsEPFRSoS_E.ex
   br label %.critedge
 
 514:                                              ; preds = %437, %503, %510, %435, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit252, %426
-  %.pn119.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %511, %510 ], [ %436, %435 ], [ %.pn109, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit252 ], [ %427, %426 ], [ %.pn119.pn.pn.pn.pn.pn, %503 ], [ %438, %437 ]
+  %.pn119.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %427, %426 ], [ %511, %510 ], [ %436, %435 ], [ %.pn109, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit252 ], [ %.pn119.pn.pn.pn.pn.pn, %503 ], [ %438, %437 ]
   %515 = load ptr, ptr %41, align 8, !tbaa !80
   %.not.i.i.i265 = icmp eq ptr %515, null
   br i1 %.not.i.i.i265, label %_ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EED2Ev.exit266, label %516
@@ -1907,7 +1907,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit286: ; preds = %59
   br label %.outer
 
 .critedge:                                        ; preds = %601, %559, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit241, %319, %_ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EED2Ev.exit, %517, %372, %171
-  %.2 = phi i32 [ 0, %171 ], [ 0, %372 ], [ 0, %517 ], [ 0, %_ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EED2Ev.exit ], [ 0, %319 ], [ -1, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit241 ], [ 0, %559 ], [ 0, %601 ]
+  %.2 = phi i32 [ 0, %319 ], [ 0, %_ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EED2Ev.exit ], [ 0, %171 ], [ -1, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit241 ], [ 0, %372 ], [ 0, %517 ], [ 0, %559 ], [ 0, %601 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #22
@@ -1968,7 +1968,7 @@ _ZNSt12__shared_ptrIN2cv8saliency8SaliencyELN9__gnu_cxx12_Lock_policyE2EED2Ev.ex
   br label %630
 
 629:                                              ; preds = %566, %580, %598, %602, %564, %562, %560, %_ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EED2Ev.exit266, %424, %373, %.body206, %284, %172
-  %.pn154.pn.pn.pn = phi { ptr, i32 } [ %.pn154.pn.pn, %.body206 ], [ %.pn137, %373 ], [ %173, %172 ], [ %.pn119.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EED2Ev.exit266 ], [ %425, %424 ], [ %565, %564 ], [ %563, %562 ], [ %561, %560 ], [ %285, %284 ], [ %603, %602 ], [ %.pn102.pn.pn.pn, %598 ], [ %581, %580 ], [ %567, %566 ]
+  %.pn154.pn.pn.pn = phi { ptr, i32 } [ %.pn154.pn.pn, %.body206 ], [ %.pn137, %373 ], [ %173, %172 ], [ %.pn119.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EED2Ev.exit266 ], [ %425, %424 ], [ %285, %284 ], [ %565, %564 ], [ %563, %562 ], [ %561, %560 ], [ %603, %602 ], [ %.pn102.pn.pn.pn, %598 ], [ %581, %580 ], [ %567, %566 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #22
@@ -2528,8 +2528,8 @@ define linkonce_odr hidden void @_ZNK2cv3PtrINS_8saliency8SaliencyEE11dynamicCas
   br label %_ZNSt12__shared_ptrIN2cv8saliency14ObjectnessBINGELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN2cv8saliency14ObjectnessBINGELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %16, %13, %7, %5, %2
-  %.sroa.0.0 = phi ptr [ %6, %7 ], [ %6, %16 ], [ %6, %13 ], [ null, %5 ], [ null, %2 ]
-  %.sroa.6.0 = phi ptr [ null, %7 ], [ %9, %16 ], [ %9, %13 ], [ null, %5 ], [ null, %2 ]
+  %.sroa.0.0 = phi ptr [ %6, %13 ], [ %6, %7 ], [ %6, %16 ], [ null, %5 ], [ null, %2 ]
+  %.sroa.6.0 = phi ptr [ %9, %13 ], [ null, %7 ], [ %9, %16 ], [ null, %5 ], [ null, %2 ]
   store ptr %.sroa.0.0, ptr %0, align 8, !tbaa !74
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.6.0, ptr %18, align 8, !tbaa !70
@@ -2766,8 +2766,8 @@ define linkonce_odr hidden void @_ZNK2cv3PtrINS_8saliency8SaliencyEE11dynamicCas
   br label %_ZNSt12__shared_ptrIN2cv8saliency28MotionSaliencyBinWangApr2014ELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN2cv8saliency28MotionSaliencyBinWangApr2014ELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %16, %13, %7, %5, %2
-  %.sroa.0.0 = phi ptr [ %6, %7 ], [ %6, %16 ], [ %6, %13 ], [ null, %5 ], [ null, %2 ]
-  %.sroa.6.0 = phi ptr [ null, %7 ], [ %9, %16 ], [ %9, %13 ], [ null, %5 ], [ null, %2 ]
+  %.sroa.0.0 = phi ptr [ %6, %13 ], [ %6, %7 ], [ %6, %16 ], [ null, %5 ], [ null, %2 ]
+  %.sroa.6.0 = phi ptr [ %9, %13 ], [ null, %7 ], [ %9, %16 ], [ null, %5 ], [ null, %2 ]
   store ptr %.sroa.0.0, ptr %0, align 8, !tbaa !87
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.6.0, ptr %18, align 8, !tbaa !70

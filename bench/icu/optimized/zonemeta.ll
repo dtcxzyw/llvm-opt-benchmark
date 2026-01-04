@@ -296,13 +296,13 @@ _ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit: ; preds = %2
   br label %115
 
 115:                                              ; preds = %41, %114, %37
-  %.1 = phi ptr [ %.163, %114 ], [ null, %37 ], [ %43, %41 ]
+  %.1 = phi ptr [ null, %37 ], [ %.163, %114 ], [ %43, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %116
 
 116:                                              ; preds = %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit.thread, %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit, %2, %115, %21
-  %.0 = phi ptr [ null, %21 ], [ %.1, %115 ], [ null, %2 ], [ null, %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit ], [ null, %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit.thread ]
+  %.0 = phi ptr [ %.1, %115 ], [ null, %21 ], [ null, %2 ], [ null, %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit ], [ null, %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit.thread ]
   ret ptr %.0
 }
 
@@ -1295,7 +1295,7 @@ _ZN6icu_77L15olsonToMetaInitER10UErrorCode.exit:  ; preds = %23, %24
   br label %72
 
 .sink.split:                                      ; preds = %39, %59, %43
-  %.125.ph = phi ptr [ null, %43 ], [ null, %59 ], [ %41, %39 ]
+  %.125.ph = phi ptr [ null, %59 ], [ null, %43 ], [ %41, %39 ]
   %68 = load ptr, ptr %37, align 8, !tbaa !42
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load ptr, ptr %69, align 8
@@ -1308,7 +1308,7 @@ _ZN6icu_77L15olsonToMetaInitER10UErrorCode.exit:  ; preds = %23, %24
   br label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit.thread
 
 _ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit.thread: ; preds = %29, %33, %36, %71, %_ZN6icu_77L15olsonToMetaInitER10UErrorCode.exit, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %_ZN6icu_77L15olsonToMetaInitER10UErrorCode.exit ], [ %35, %33 ], [ %.125, %71 ], [ null, %36 ], [ null, %29 ]
+  %.0 = phi ptr [ null, %_ZN6icu_77L15olsonToMetaInitER10UErrorCode.exit ], [ null, %7 ], [ %35, %33 ], [ %.125, %71 ], [ null, %36 ], [ null, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
@@ -1604,7 +1604,7 @@ _ZN6icu_7712LocalPointerINS_7UVectorEE29adoptInsteadAndCheckErrorCodeEPS1_R10UEr
   %111 = icmp eq ptr %86, null
   br i1 %111, label %_ZN6icu_7712LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit.thread, label %.thread95
 
-.thread95:                                        ; preds = %_ZN6icu_7712LocalPointerINS_7UVectorEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit, %.thread, %104, %110
+.thread95:                                        ; preds = %_ZN6icu_7712LocalPointerINS_7UVectorEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit, %104, %.thread, %110
   %.sroa.082.999 = phi ptr [ %.sroa.082.5.ph, %110 ], [ null, %104 ], [ null, %.thread ], [ null, %_ZN6icu_7712LocalPointerINS_7UVectorEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit ]
   call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %86) #13
   br label %_ZN6icu_7712LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit.thread
@@ -1632,8 +1632,8 @@ _ZN6icu_7712LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit.thread: ; preds
   br label %115
 
 _ZN6icu_7712LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit75: ; preds = %.loopexit, %.loopexit.split-lp, %.thread104, %112, %65, %67, %81, %83, %69, %42
-  %.sroa.082.3 = phi ptr [ %.sroa.082.5.ph, %83 ], [ %.sroa.082.5.ph, %81 ], [ %.sroa.082.5.ph, %69 ], [ %.sroa.082.5.ph, %67 ], [ null, %65 ], [ null, %42 ], [ %.sroa.082.11, %.thread104 ], [ null, %112 ], [ %.sroa.082.5.ph, %.loopexit ], [ %.sroa.082.7, %.loopexit.split-lp ]
-  %.pn65.pn.pn = phi { ptr, i32 } [ %84, %83 ], [ %82, %81 ], [ %70, %69 ], [ %68, %67 ], [ %66, %65 ], [ %43, %42 ], [ %91, %.thread104 ], [ %113, %112 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.082.3 = phi ptr [ %.sroa.082.11, %.thread104 ], [ null, %42 ], [ %.sroa.082.5.ph, %83 ], [ %.sroa.082.5.ph, %81 ], [ %.sroa.082.5.ph, %69 ], [ %.sroa.082.5.ph, %67 ], [ null, %65 ], [ null, %112 ], [ %.sroa.082.5.ph, %.loopexit ], [ %.sroa.082.7, %.loopexit.split-lp ]
+  %.pn65.pn.pn = phi { ptr, i32 } [ %91, %.thread104 ], [ %43, %42 ], [ %84, %83 ], [ %82, %81 ], [ %70, %69 ], [ %68, %67 ], [ %66, %65 ], [ %113, %112 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.body
 
@@ -1662,7 +1662,7 @@ _ZN6icu_7712LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit75: ; preds = %.
   br label %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit
 
 _ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit:  ; preds = %116, %119, %121
-  %125 = phi ptr [ null, %119 ], [ null, %121 ], [ %.sroa.082.1, %116 ]
+  %125 = phi ptr [ null, %121 ], [ null, %119 ], [ %.sroa.082.1, %116 ]
   ret ptr %125
 
 .body:                                            ; preds = %40, %_ZN6icu_7712LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit75
@@ -1797,10 +1797,10 @@ define internal fastcc noundef double @_ZN6icu_77L9parseDateEPKDsR10UErrorCode(p
   br i1 %42, label %.critedge5, label %.lr.ph142, !llvm.loop !62
 
 .critedge5:                                       ; preds = %.critedge3, %.critedge.preheader.thread214, %8, %.critedge3.thread, %.critedge3.preheader.thread196
-  %.098.lcssa191 = phi i32 [ %32, %.critedge3.preheader.thread196 ], [ %21, %.critedge3.thread ], [ -1, %8 ], [ -1, %.critedge.preheader.thread214 ], [ %21, %.critedge3 ]
-  %.0100.lcssa183190 = phi i32 [ %19, %.critedge3.preheader.thread196 ], [ %19, %.critedge3.thread ], [ 0, %8 ], [ %.0100132, %.critedge.preheader.thread214 ], [ %19, %.critedge3 ]
-  %.promoted144 = phi i32 [ 3, %.critedge3.preheader.thread196 ], [ 3, %.critedge3.thread ], [ %.promoted, %8 ], [ 3, %.critedge.preheader.thread214 ], [ %.promoted, %.critedge3 ]
-  %.096.lcssa = phi i32 [ 0, %.critedge3.preheader.thread196 ], [ %.096140, %.critedge3.thread ], [ 0, %8 ], [ 0, %.critedge.preheader.thread214 ], [ %41, %.critedge3 ]
+  %.098.lcssa191 = phi i32 [ %32, %.critedge3.preheader.thread196 ], [ -1, %.critedge.preheader.thread214 ], [ %21, %.critedge3.thread ], [ -1, %8 ], [ %21, %.critedge3 ]
+  %.0100.lcssa183190 = phi i32 [ %19, %.critedge3.preheader.thread196 ], [ %.0100132, %.critedge.preheader.thread214 ], [ %19, %.critedge3.thread ], [ 0, %8 ], [ %19, %.critedge3 ]
+  %.promoted144 = phi i32 [ 3, %.critedge3.preheader.thread196 ], [ 3, %.critedge.preheader.thread214 ], [ 3, %.critedge3.thread ], [ %.promoted, %8 ], [ %.promoted, %.critedge3 ]
+  %.096.lcssa = phi i32 [ 0, %.critedge3.preheader.thread196 ], [ 0, %.critedge.preheader.thread214 ], [ %.096140, %.critedge3.thread ], [ 0, %8 ], [ %41, %.critedge3 ]
   %43 = icmp eq i32 %6, 16
   br i1 %43, label %.preheader, label %.critedge9
 
@@ -2289,8 +2289,8 @@ _ZN6icu_7711LocalMemoryIDsED2Ev.exit:             ; preds = %_ZN6icu_7712LocalPo
   br i1 %or.cond87, label %.critedge, label %.preheader
 
 .body:                                            ; preds = %68, %.thread74, %80, %49
-  %.sroa.056.1 = phi ptr [ %42, %49 ], [ %42, %68 ], [ %.sroa.056.4.ph, %.thread74 ], [ %42, %80 ]
-  %.pn.pn = phi { ptr, i32 } [ %50, %49 ], [ %69, %68 ], [ %lpad.thr_comm, %.thread74 ], [ %lpad.thr_comm.split-lp, %80 ]
+  %.sroa.056.1 = phi ptr [ %42, %49 ], [ %42, %80 ], [ %42, %68 ], [ %.sroa.056.4.ph, %.thread74 ]
+  %.pn.pn = phi { ptr, i32 } [ %50, %49 ], [ %lpad.thr_comm.split-lp, %80 ], [ %69, %68 ], [ %lpad.thr_comm, %.thread74 ]
   invoke void @uprv_free_77(ptr noundef %.sroa.056.1)
           to label %_ZN6icu_7711LocalMemoryIDsED2Ev.exit52 unwind label %93
 
@@ -2346,7 +2346,7 @@ _ZN6icu_7711LocalMemoryIDsED2Ev.exit:             ; preds = %_ZN6icu_7712LocalPo
   ret void
 
 _ZN6icu_7711LocalMemoryIDsED2Ev.exit52:           ; preds = %.loopexit, %.loopexit.split-lp, %47, %.body, %45
-  %.pn48 = phi { ptr, i32 } [ %46, %45 ], [ %48, %47 ], [ %.pn.pn, %.body ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn48 = phi { ptr, i32 } [ %.pn.pn, %.body ], [ %46, %45 ], [ %48, %47 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6icu_7720StackUResourceBundleD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %2) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %112

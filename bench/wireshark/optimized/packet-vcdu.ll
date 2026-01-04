@@ -327,7 +327,7 @@ define internal i32 @dissect_vcdu(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %69
 
 69:                                               ; preds = %65, %.preheader19.i
-  %70 = phi i32 [ %68, %65 ], [ 31622400, %.preheader19.i ]
+  %70 = phi i32 [ 31622400, %.preheader19.i ], [ %68, %65 ]
   %71 = add i32 %70, %61
   %72 = add nuw nsw i32 %.01620.i, 1
   %exitcond.not.i = icmp eq i32 %72, 1995
@@ -428,7 +428,7 @@ smex_time_to_string.exit:                         ; preds = %4, %.preheader.i
   br label %.critedge164
 
 .critedge164.sink.split:                          ; preds = %108, %102, %107, %106, %112
-  %hf_vcdu_ccsds_continuation_packet.sink = phi ptr [ @hf_vcdu_ccsds_continuation_packet, %112 ], [ @hf_vcdu_bitream_all_data_anomaly, %106 ], [ @hf_vcdu_bitream_all_fill, %107 ], [ @hf_vcdu_bitream_all_data, %102 ], [ @hf_vcdu_ccsds_all_fill, %108 ]
+  %hf_vcdu_ccsds_continuation_packet.sink = phi ptr [ @hf_vcdu_ccsds_continuation_packet, %112 ], [ @hf_vcdu_bitream_all_data, %102 ], [ @hf_vcdu_bitream_all_data_anomaly, %106 ], [ @hf_vcdu_bitream_all_fill, %107 ], [ @hf_vcdu_ccsds_all_fill, %108 ]
   %131 = load i32, ptr %hf_vcdu_ccsds_continuation_packet.sink, align 4
   %132 = call ptr @proto_tree_add_item(ptr noundef %85, i32 noundef %131, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   br label %.critedge164

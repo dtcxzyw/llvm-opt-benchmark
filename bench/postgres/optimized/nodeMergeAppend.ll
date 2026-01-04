@@ -515,11 +515,11 @@ slot_getattr.exit29:                              ; preds = %slot_getattr.exit, 
   %67 = sub nsw i32 0, %61
   br i1 %66, label %ApplySortComparator.exit.thread.thread, label %ApplySortComparator.exit
 
-ApplySortComparator.exit.thread.thread:           ; preds = %65, %49, %54
+ApplySortComparator.exit.thread.thread:           ; preds = %65, %54, %49
   br label %.thread46
 
 ApplySortComparator.exit:                         ; preds = %65, %58
-  %.0.i = phi i32 [ %67, %65 ], [ %61, %58 ]
+  %.0.i = phi i32 [ %61, %58 ], [ %67, %65 ]
   %.0.i.fr = freeze i32 %.0.i
   %.not = icmp eq i32 %.0.i.fr, 0
   br i1 %.not, label %ApplySortComparator.exit.thread, label %.thread46.loopexit.split.loop.exit53
@@ -538,7 +538,7 @@ ApplySortComparator.exit.thread:                  ; preds = %48, %ApplySortCompa
   br label %.thread46
 
 .thread46:                                        ; preds = %ApplySortComparator.exit.thread, %.thread46.loopexit.split.loop.exit53, %3, %54, %49, %ApplySortComparator.exit.thread.thread
-  %.2 = phi i32 [ -1, %ApplySortComparator.exit.thread.thread ], [ 1, %49 ], [ 1, %54 ], [ %..le, %.thread46.loopexit.split.loop.exit53 ], [ 0, %3 ], [ 0, %ApplySortComparator.exit.thread ]
+  %.2 = phi i32 [ 1, %54 ], [ 1, %49 ], [ -1, %ApplySortComparator.exit.thread.thread ], [ %..le, %.thread46.loopexit.split.loop.exit53 ], [ 0, %3 ], [ 0, %ApplySortComparator.exit.thread ]
   ret i32 %.2
 }
 

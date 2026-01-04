@@ -273,7 +273,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -803,7 +803,7 @@ define dso_local void @_ZN6icu_7722Normalizer2DataBuilder16setOneWayMappingEiRKN
   br label %_ZN6icu_77L12isWellFormedERKNS_13UnicodeStringE.exit
 
 _ZN6icu_77L12isWellFormedERKNS_13UnicodeStringE.exit: ; preds = %3, %10, %12
-  %.0.i.i = phi ptr [ %11, %10 ], [ %14, %12 ], [ null, %3 ]
+  %.0.i.i = phi ptr [ %14, %12 ], [ %11, %10 ], [ null, %3 ]
   tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.0.i.i) #20, !srcloc !54
   %15 = load i16, ptr %5, align 8, !tbaa !42
   %16 = icmp slt i16 %15, 0
@@ -992,7 +992,7 @@ define dso_local void @_ZN6icu_7722Normalizer2DataBuilder19setRoundTripMappingEi
   br label %_ZN6icu_77L12isWellFormedERKNS_13UnicodeStringE.exit
 
 _ZN6icu_77L12isWellFormedERKNS_13UnicodeStringE.exit: ; preds = %13, %19, %21
-  %.0.i.i = phi ptr [ %20, %19 ], [ %23, %21 ], [ null, %13 ]
+  %.0.i.i = phi ptr [ %23, %21 ], [ %20, %19 ], [ null, %13 ]
   tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.0.i.i) #20, !srcloc !54
   %24 = load i16, ptr %14, align 8, !tbaa !42
   %25 = icmp slt i16 %24, 0
@@ -1039,7 +1039,7 @@ _ZN6icu_77L12isWellFormedERKNS_13UnicodeStringE.exit: ; preds = %13, %19, %21
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %41, %46, %48
-  %.0.i = phi ptr [ %47, %46 ], [ %50, %48 ], [ null, %41 ]
+  %.0.i = phi ptr [ %50, %48 ], [ %47, %46 ], [ null, %41 ]
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.0.i) #20, !srcloc !54
   %51 = load i16, ptr %14, align 8, !tbaa !42
   %52 = icmp slt i16 %51, 0
@@ -1348,8 +1348,8 @@ _ZN6icu_776Hangul6isJamoEi.exit.thread:           ; preds = %57, %54
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZN6icu_776Hangul6isJamoEi.exit.thread, %.critedge.loopexit.split.loop.exit, %.critedge.loopexit.split.loop.exit155, %48
-  %.083.lcssa = phi i32 [ 0, %48 ], [ %62, %.critedge.loopexit.split.loop.exit ], [ %63, %.critedge.loopexit.split.loop.exit155 ], [ 0, %_ZN6icu_776Hangul6isJamoEi.exit.thread ]
-  %.082.lcssa = phi i32 [ %23, %48 ], [ %.082123, %.critedge.loopexit.split.loop.exit ], [ %.082123, %.critedge.loopexit.split.loop.exit155 ], [ %55, %_ZN6icu_776Hangul6isJamoEi.exit.thread ]
+  %.083.lcssa = phi i32 [ 0, %48 ], [ %63, %.critedge.loopexit.split.loop.exit155 ], [ %62, %.critedge.loopexit.split.loop.exit ], [ 0, %_ZN6icu_776Hangul6isJamoEi.exit.thread ]
+  %.082.lcssa = phi i32 [ %23, %48 ], [ %.082123, %.critedge.loopexit.split.loop.exit155 ], [ %.082123, %.critedge.loopexit.split.loop.exit ], [ %55, %_ZN6icu_776Hangul6isJamoEi.exit.thread ]
   %64 = tail call noundef ptr @_ZNK6icu_775Norms7getNormEi(ptr noundef nonnull align 8 dereferenceable(424) %0, i32 noundef %.082.lcssa)
   %65 = icmp eq i32 %.083.lcssa, %8
   br i1 %65, label %66, label %71
@@ -1457,8 +1457,8 @@ _ZN6icu_776Hangul6isJamoEi.exit.thread:           ; preds = %57, %54
   br i1 %.not118, label %_ZNK6icu_775Norms12combinesBackEi.exit.thread, label %116
 
 116:                                              ; preds = %102, %98, %113, %108, %105
-  %.381 = phi ptr [ %99, %102 ], [ %99, %98 ], [ %109, %113 ], [ %109, %108 ], [ %.078132, %105 ]
-  %.377 = phi i8 [ %.074133, %102 ], [ %.074133, %98 ], [ 0, %113 ], [ 0, %108 ], [ %79, %105 ]
+  %.381 = phi ptr [ %99, %102 ], [ %99, %98 ], [ %109, %108 ], [ %109, %113 ], [ %.078132, %105 ]
+  %.377 = phi i8 [ %.074133, %102 ], [ %.074133, %98 ], [ 0, %108 ], [ 0, %113 ], [ %79, %105 ]
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %117 = load i32, ptr %4, align 4, !tbaa !56
   %118 = sext i32 %117 to i64
@@ -1475,8 +1475,8 @@ _ZN6icu_776Hangul6isJamoEi.exit.thread:           ; preds = %57, %54
   %.not96 = icmp eq i8 %123, 0
   br label %_ZNK6icu_775Norms12combinesBackEi.exit.thread
 
-_ZNK6icu_775Norms12combinesBackEi.exit.thread:    ; preds = %111, %113, %100, %102, %80, %71, %25, %6, %46, %_ZNK6icu_775Norms12combinesBackEi.exit, %._crit_edge, %122, %66, %68, %14, %3
-  %.0.shrunk = phi i1 [ false, %3 ], [ false, %6 ], [ false, %14 ], [ %47, %46 ], [ false, %_ZNK6icu_775Norms12combinesBackEi.exit ], [ true, %68 ], [ true, %66 ], [ false, %._crit_edge ], [ %.not96, %122 ], [ false, %25 ], [ false, %71 ], [ false, %80 ], [ true, %102 ], [ true, %100 ], [ true, %113 ], [ true, %111 ]
+_ZNK6icu_775Norms12combinesBackEi.exit.thread:    ; preds = %111, %113, %102, %100, %80, %71, %25, %6, %46, %_ZNK6icu_775Norms12combinesBackEi.exit, %._crit_edge, %122, %66, %68, %14, %3
+  %.0.shrunk = phi i1 [ false, %3 ], [ false, %6 ], [ false, %14 ], [ false, %_ZNK6icu_775Norms12combinesBackEi.exit ], [ %47, %46 ], [ true, %66 ], [ true, %68 ], [ false, %25 ], [ false, %._crit_edge ], [ %.not96, %122 ], [ false, %71 ], [ true, %100 ], [ true, %102 ], [ true, %113 ], [ true, %111 ], [ false, %80 ]
   %.0 = zext i1 %.0.shrunk to i8
   ret i8 %.0
 }
@@ -1560,15 +1560,15 @@ define dso_local noundef signext range(i8 0, 2) i8 @_ZNK6icu_7722Normalizer2Data
   br label %40
 
 40:                                               ; preds = %32, %27, %22, %38
-  %.130 = phi ptr [ %39, %38 ], [ %.02945, %22 ], [ null, %27 ], [ null, %32 ]
+  %.130 = phi ptr [ null, %27 ], [ %39, %38 ], [ %.02945, %22 ], [ null, %32 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %41 = load i32, ptr %6, align 4, !tbaa !56
   %42 = sext i32 %41 to i64
   %.not41 = icmp slt i64 %indvars.iv.next, %42
   br i1 %.not41, label %.lr.ph, label %.critedge, !llvm.loop !64
 
-.critedge:                                        ; preds = %19, %32, %40, %.preheader, %2
-  %.0 = phi i8 [ 0, %2 ], [ 0, %.preheader ], [ 1, %19 ], [ 1, %32 ], [ 0, %40 ]
+.critedge:                                        ; preds = %32, %19, %40, %.preheader, %2
+  %.0 = phi i8 [ 0, %2 ], [ 0, %.preheader ], [ 1, %32 ], [ 1, %19 ], [ 0, %40 ]
   ret i8 %.0
 }
 
@@ -1666,7 +1666,7 @@ define dso_local void @_ZN6icu_7722Normalizer2DataBuilder11postProcessERNS_4Norm
   br label %_ZNK6icu_775Norms12combinesBackEi.exit
 
 _ZNK6icu_775Norms12combinesBackEi.exit:           ; preds = %49, %43, %.thread, %32
-  %54 = phi i8 [ 0, %32 ], [ 0, %.thread ], [ 0, %43 ], [ %53, %49 ]
+  %54 = phi i8 [ 0, %.thread ], [ 0, %32 ], [ %53, %49 ], [ 0, %43 ]
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 44
   store i8 %54, ptr %55, align 4, !tbaa !70
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 43
@@ -2088,7 +2088,7 @@ define dso_local void @_ZN6icu_7722Normalizer2DataBuilder11writeNorm16EP14UMutab
   unreachable
 
 126:                                              ; preds = %.loopexit, %119, %113, %106, %99, %92, %87, %70, %63, %56, %49, %42, %35, %31
-  %.047 = phi i32 [ %34, %31 ], [ %41, %35 ], [ %48, %42 ], [ %55, %49 ], [ %62, %56 ], [ %69, %63 ], [ %76, %70 ], [ %91, %87 ], [ %98, %92 ], [ %105, %99 ], [ %112, %106 ], [ %118, %113 ], [ %124, %119 ], [ %30, %.loopexit ]
+  %.047 = phi i32 [ %124, %119 ], [ %34, %31 ], [ %41, %35 ], [ %48, %42 ], [ %55, %49 ], [ %62, %56 ], [ %69, %63 ], [ %76, %70 ], [ %91, %87 ], [ %98, %92 ], [ %105, %99 ], [ %112, %106 ], [ %118, %113 ], [ %30, %.loopexit ]
   %127 = getelementptr inbounds nuw i8, ptr %4, i64 45
   %128 = load i8, ptr %127, align 1, !tbaa !71
   %.not54 = icmp ne i8 %128, 0
@@ -2827,8 +2827,8 @@ _ZN6icu_7713UnicodeString6appendEDs.exit:         ; preds = %246
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %321, %324, %326
-  %.086.be = phi i32 [ %311, %321 ], [ %311, %324 ], [ %.187, %326 ]
-  %.082.be = phi i32 [ %323, %321 ], [ %325, %324 ], [ %327, %326 ]
+  %.086.be = phi i32 [ %.187, %326 ], [ %311, %321 ], [ %311, %324 ]
+  %.082.be = phi i32 [ %327, %326 ], [ %323, %321 ], [ %325, %324 ]
   br label %.preheader, !llvm.loop !100
 
 324:                                              ; preds = %318
@@ -3061,7 +3061,7 @@ _ZN6icu_7713UnicodeString6appendEDs.exit:         ; preds = %246
   unreachable
 
 _ZN6icu_778internal16LocalOpenPointerI7UCPTrieXadL_Z16ucptrie_close_77EEED2Ev.exit: ; preds = %446, %445, %316, %299, %360, %289
-  %.pn113.pn.pn.pn = phi { ptr, i32 } [ %290, %289 ], [ %317, %316 ], [ %300, %299 ], [ %361, %360 ], [ %.pn113, %445 ], [ %.pn113, %446 ]
+  %.pn113.pn.pn.pn = phi { ptr, i32 } [ %290, %289 ], [ %300, %299 ], [ %317, %316 ], [ %361, %360 ], [ %.pn113, %445 ], [ %.pn113, %446 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %450
 
@@ -3078,7 +3078,7 @@ _ZN6icu_778internal16LocalOpenPointerI7UCPTrieXadL_Z16ucptrie_close_77EEED2Ev.ex
   br label %452
 
 452:                                              ; preds = %451, %252, %250
-  %.pn113.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %251, %250 ], [ %.pn113.pn.pn.pn.pn.pn, %451 ], [ %253, %252 ]
+  %.pn113.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %251, %250 ], [ %253, %252 ], [ %.pn113.pn.pn.pn.pn.pn, %451 ]
   call void @_ZN6icu_779ExtraDataD2Ev(ptr noundef nonnull align 8 dereferenceable(1016) %6) #20
   br label %453
 
@@ -3337,7 +3337,7 @@ _ZN6icu_778internal16LocalOpenPointerI7UCPTrieXadL_Z16ucptrie_close_77EEED2Ev.ex
   br label %45
 
 45:                                               ; preds = %42, %40, %34
-  %.0.i = phi ptr [ %41, %40 ], [ %44, %42 ], [ null, %34 ]
+  %.0.i = phi ptr [ %44, %42 ], [ %41, %40 ], [ null, %34 ]
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.0.i) #20, !srcloc !54
   %46 = load i16, ptr %35, align 8, !tbaa !42
   %47 = icmp slt i16 %46, 0
@@ -3592,7 +3592,7 @@ _ZN6icu_7710CharStringC2ENS_11StringPieceER10UErrorCode.exit: ; preds = %.noexc4
   br label %81
 
 81:                                               ; preds = %78, %76, %69
-  %.0.i = phi ptr [ %77, %76 ], [ %80, %78 ], [ null, %69 ]
+  %.0.i = phi ptr [ %80, %78 ], [ %77, %76 ], [ null, %69 ]
   %82 = icmp slt i16 %72, 0
   %83 = ashr i16 %72, 5
   %84 = sext i16 %83 to i32
@@ -3927,7 +3927,7 @@ _ZNK6icu_775Norms5getCCEi.exit:                   ; preds = %30
   br label %_ZN6icu_7712_GLOBAL__N_112equalStringsEPKNS_13UnicodeStringES3_.exit
 
 _ZN6icu_7712_GLOBAL__N_112equalStringsEPKNS_13UnicodeStringES3_.exit: ; preds = %.noexc, %83, %76
-  %.0.i = phi i1 [ %87, %83 ], [ %112, %.noexc ], [ %.mux.i, %76 ]
+  %.0.i = phi i1 [ %112, %.noexc ], [ %.mux.i, %76 ], [ %87, %83 ]
   %113 = add nsw i32 %.281, 1
   %114 = icmp eq i32 %.060119, %113
   %or.cond111 = select i1 %.0.i, i1 %114, i1 false
@@ -4302,6 +4302,9 @@ _ZN6icu_7722Normalizer2DataBuilder5setCCEih.exit.backedge: ; preds = %.noexc, %2
   %.not = icmp eq i16 %100, 0
   br i1 %.not, label %_ZN6icu_7712_GLOBAL__N_112equalStringsEPKNS_13UnicodeStringES3_.exit.thread, label %.backedge
 
+.backedge:                                        ; preds = %97, %.noexc84, %_ZN6icu_7712_GLOBAL__N_112equalStringsEPKNS_13UnicodeStringES3_.exit.thread, %125, %127, %126, %_ZN6icu_7712_GLOBAL__N_112equalStringsEPKNS_13UnicodeStringES3_.exit
+  br label %49, !llvm.loop !120
+
 101:                                              ; preds = %93
   %102 = icmp slt i16 %95, 0
   %103 = ashr i16 %95, 5
@@ -4337,14 +4340,11 @@ _ZN6icu_7722Normalizer2DataBuilder5setCCEih.exit.backedge: ; preds = %.noexc, %2
   %.not87 = icmp eq i8 %124, 0
   br i1 %.not87, label %_ZN6icu_7712_GLOBAL__N_112equalStringsEPKNS_13UnicodeStringES3_.exit.thread, label %.backedge
 
-.backedge:                                        ; preds = %.noexc84, %97, %_ZN6icu_7712_GLOBAL__N_112equalStringsEPKNS_13UnicodeStringES3_.exit.thread, %125, %127, %126, %_ZN6icu_7712_GLOBAL__N_112equalStringsEPKNS_13UnicodeStringES3_.exit
-  br label %49, !llvm.loop !120
-
 _ZN6icu_7712_GLOBAL__N_112equalStringsEPKNS_13UnicodeStringES3_.exit: ; preds = %90
   %.mux.i = and i1 %91, %92
   br i1 %.mux.i, label %.backedge, label %_ZN6icu_7712_GLOBAL__N_112equalStringsEPKNS_13UnicodeStringES3_.exit.thread
 
-_ZN6icu_7712_GLOBAL__N_112equalStringsEPKNS_13UnicodeStringES3_.exit.thread: ; preds = %101, %.noexc84, %97, %_ZN6icu_7712_GLOBAL__N_112equalStringsEPKNS_13UnicodeStringES3_.exit, %88
+_ZN6icu_7712_GLOBAL__N_112equalStringsEPKNS_13UnicodeStringES3_.exit.thread: ; preds = %101, %97, %.noexc84, %_ZN6icu_7712_GLOBAL__N_112equalStringsEPKNS_13UnicodeStringES3_.exit, %88
   switch i32 %.048, label %.backedge [
     i32 0, label %125
     i32 2, label %126
@@ -4395,7 +4395,7 @@ _ZN6icu_7712_GLOBAL__N_112equalStringsEPKNS_13UnicodeStringES3_.exit.thread: ; p
   br label %132
 
 132:                                              ; preds = %39, %41, %131, %37
-  %.pn76.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %131 ], [ %38, %37 ], [ %42, %41 ], [ %40, %39 ]
+  %.pn76.pn = phi { ptr, i32 } [ %38, %37 ], [ %.pn.pn.pn.pn.pn.pn, %131 ], [ %42, %41 ], [ %40, %39 ]
   call void @_ZN6icu_7718UnicodeSetIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #20
   br label %133
 

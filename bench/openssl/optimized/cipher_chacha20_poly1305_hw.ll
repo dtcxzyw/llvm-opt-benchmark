@@ -462,19 +462,19 @@ chacha20_poly1305_tls_cipher.exit:                ; preds = %78, %80, %86
   br label %188
 
 188:                                              ; preds = %184, %.sink.split
-  %.0181 = phi i1 [ %.not147, %184 ], [ %.0181.ph, %.sink.split ]
-  %189 = phi i64 [ %spec.select, %184 ], [ %.ph, %.sink.split ]
+  %.0181 = phi i1 [ %.0181.ph, %.sink.split ], [ %.not147, %184 ]
+  %189 = phi i64 [ %.ph, %.sink.split ], [ %spec.select, %184 ]
   %spec.select154 = zext i1 %.0181 to i32
   br label %190
 
 190:                                              ; preds = %188, %103, %143, %122
-  %.0115 = phi i64 [ 0, %122 ], [ %4, %103 ], [ %4, %143 ], [ %189, %188 ]
-  %.0114 = phi i32 [ 0, %122 ], [ 1, %103 ], [ 1, %143 ], [ %spec.select154, %188 ]
+  %.0115 = phi i64 [ 0, %122 ], [ %189, %188 ], [ %4, %103 ], [ %4, %143 ]
+  %.0114 = phi i32 [ 0, %122 ], [ %spec.select154, %188 ], [ 1, %103 ], [ 1, %143 ]
   store i64 %.0115, ptr %2, align 8, !tbaa !26
   br label %191
 
 191:                                              ; preds = %17, %190, %chacha20_poly1305_tls_cipher.exit
-  %.0113 = phi i32 [ %.0114, %190 ], [ %.0.i, %chacha20_poly1305_tls_cipher.exit ], [ 0, %17 ]
+  %.0113 = phi i32 [ %.0114, %190 ], [ 0, %17 ], [ %.0.i, %chacha20_poly1305_tls_cipher.exit ]
   ret i32 %.0113
 }
 
@@ -595,7 +595,7 @@ define internal range(i32 0, 17) i32 @chacha_poly1305_tls_init(ptr noundef captu
   br label %46
 
 46:                                               ; preds = %17, %3, %26
-  %.0 = phi i32 [ 16, %26 ], [ 0, %3 ], [ 0, %17 ]
+  %.0 = phi i32 [ 0, %3 ], [ 16, %26 ], [ 0, %17 ]
   ret i32 %.0
 }
 

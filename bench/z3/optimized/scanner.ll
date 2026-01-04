@@ -895,7 +895,7 @@ _ZN6vectorIcLb1EjE9push_backEOc.exit47:           ; preds = %219, %225
   br label %_ZN7scanner11unread_charEv.exit
 
 _ZN7scanner11unread_charEv.exit:                  ; preds = %_ZN7scanner9read_charEv.exit43, %.preheader, %_ZN6vectorIcLb1EjE9push_backEOc.exit39, %243, %240, %114, %102
-  %.0 = phi i32 [ %115, %114 ], [ %104, %102 ], [ 4, %240 ], [ 4, %243 ], [ %spec.select, %_ZN6vectorIcLb1EjE9push_backEOc.exit39 ], [ %.pre61, %.preheader ], [ %214, %_ZN7scanner9read_charEv.exit43 ]
+  %.0 = phi i32 [ %115, %114 ], [ 4, %240 ], [ %104, %102 ], [ 4, %243 ], [ %spec.select, %_ZN6vectorIcLb1EjE9push_backEOc.exit39 ], [ %.pre61, %.preheader ], [ %214, %_ZN7scanner9read_charEv.exit43 ]
   ret i32 %.0
 }
 
@@ -1941,7 +1941,7 @@ _ZN6vectorIcLb1EjE9push_backEOc.exit51:           ; preds = %249, %255
   br label %137, !llvm.loop !64
 
 _ZN7scanner11unread_charEv.exit:                  ; preds = %234, %231, %70, %118, %.loopexit
-  %.2 = phi i32 [ %.02065, %.loopexit ], [ %73, %70 ], [ 0, %118 ], [ 0, %231 ], [ 0, %234 ]
+  %.2 = phi i32 [ %73, %70 ], [ 0, %118 ], [ %.02065, %.loopexit ], [ 0, %231 ], [ 0, %234 ]
   %260 = load i32, ptr %6, align 4, !tbaa !3
   %261 = add i32 %260, -12
   %spec.select.i = icmp ult i32 %261, -2
@@ -4355,7 +4355,7 @@ _ZN6vectorIcLb1EjE9push_backEOc.exit160:          ; preds = %871, %877
   br label %889
 
 889:                                              ; preds = %770, %_ZN6vectorIcLb1EjE9push_backEOc.exit160, %_ZN7scanner11unread_charEv.exit, %_ZN7scanner11unread_charEv.exit112, %609
-  %.1 = phi i32 [ %341, %_ZN7scanner11unread_charEv.exit ], [ %607, %_ZN7scanner11unread_charEv.exit112 ], [ 11, %609 ], [ %888, %_ZN6vectorIcLb1EjE9push_backEOc.exit160 ], [ 11, %770 ]
+  %.1 = phi i32 [ 11, %609 ], [ %341, %_ZN7scanner11unread_charEv.exit ], [ %607, %_ZN7scanner11unread_charEv.exit112 ], [ %888, %_ZN6vectorIcLb1EjE9push_backEOc.exit160 ], [ 11, %770 ]
   ret i32 %.1
 }
 
@@ -4867,8 +4867,8 @@ _ZN7scanner9read_charEv.exit:                     ; preds = %18, %50, %58
 .thread.loopexit42:                               ; preds = %_ZN7scanner9read_charEv.exit
   br label %.thread
 
-.thread:                                          ; preds = %86, %_ZN7scanner9read_charEv.exit, %.thread.loopexit42, %.thread.loopexit, %1, %76, %73, %71, %69, %66
-  %.2 = phi i32 [ %77, %76 ], [ %75, %73 ], [ %72, %71 ], [ %70, %69 ], [ %68, %66 ], [ %3, %1 ], [ 3, %.thread.loopexit ], [ 2, %_ZN7scanner9read_charEv.exit ], [ %87, %86 ], [ 1, %.thread.loopexit42 ]
+.thread:                                          ; preds = %86, %_ZN7scanner9read_charEv.exit, %.thread.loopexit42, %.thread.loopexit, %1, %73, %71, %69, %66, %76
+  %.2 = phi i32 [ %3, %1 ], [ %77, %76 ], [ %75, %73 ], [ %72, %71 ], [ %70, %69 ], [ %68, %66 ], [ 3, %.thread.loopexit ], [ 2, %_ZN7scanner9read_charEv.exit ], [ %87, %86 ], [ 1, %.thread.loopexit42 ]
   ret i32 %.2
 }
 

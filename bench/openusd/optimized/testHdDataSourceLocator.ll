@@ -1679,7 +1679,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit426: ; preds 
           to label %553 unwind label %551
 
 .loopexit773:                                     ; preds = %.preheader772, %.body242.thread, %.body242, %221, %.body225, %.body
-  %.pn138 = phi { ptr, i32 } [ %222, %221 ], [ %.pn133.pn.pn, %.body242 ], [ %.pn130.pn, %.body225 ], [ %.pn.pn, %.body ], [ %.pn133.pn.pn.pn.ph, %.body242.thread ], [ %.pn133.pn.pn, %.preheader772 ]
+  %.pn138 = phi { ptr, i32 } [ %222, %221 ], [ %.pn133.pn.pn, %.body242 ], [ %.pn133.pn.pn.pn.ph, %.body242.thread ], [ %.pn130.pn, %.body225 ], [ %.pn.pn, %.body ], [ %.pn133.pn.pn, %.preheader772 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev(ptr noundef nonnull align 8 dereferenceable(456) %1) #21
   br label %.loopexit770
 
@@ -2559,7 +2559,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit570: ; preds 
   br label %776
 
 776:                                              ; preds = %775, %.body361, %.body344, %.body327, %.body310, %.body293
-  %.pn164.pn = phi { ptr, i32 } [ %.pn164, %775 ], [ %.pn152.pn, %.body361 ], [ %.pn149.pn, %.body344 ], [ %.pn146.pn, %.body327 ], [ %.pn143.pn, %.body310 ], [ %.pn140.pn, %.body293 ]
+  %.pn164.pn = phi { ptr, i32 } [ %.pn164, %775 ], [ %.pn140.pn, %.body293 ], [ %.pn152.pn, %.body361 ], [ %.pn149.pn, %.body344 ], [ %.pn146.pn, %.body327 ], [ %.pn143.pn, %.body310 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev(ptr noundef nonnull align 8 dereferenceable(456) %15) #21
   br label %.loopexit770
 
@@ -3876,18 +3876,18 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit755: ; pre
   br label %1221
 
 1221:                                             ; preds = %1205, %1220, %1198, %1204, %1191, %1197
-  %.sink = phi ptr [ %83, %1197 ], [ %83, %1191 ], [ %86, %1204 ], [ %86, %1198 ], [ %90, %1220 ], [ %90, %1205 ]
-  %.pn210.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn204, %1197 ], [ %1192, %1191 ], [ %.pn207, %1204 ], [ %1199, %1198 ], [ %.pn210.pn.pn.pn, %1220 ], [ %1206, %1205 ]
+  %.sink = phi ptr [ %86, %1198 ], [ %83, %1191 ], [ %83, %1197 ], [ %86, %1204 ], [ %90, %1220 ], [ %90, %1205 ]
+  %.pn210.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1199, %1198 ], [ %1192, %1191 ], [ %.pn204, %1197 ], [ %.pn207, %1204 ], [ %.pn210.pn.pn.pn, %1220 ], [ %1206, %1205 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #21
   call void @_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev(ptr noundef nonnull align 8 dereferenceable(456) %80) #21
   br label %.loopexit770
 
 1222:                                             ; preds = %.critedge221, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit755, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit636, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit470, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit290
-  %.1 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit755 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit636 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit470 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit290 ], [ %1188, %.critedge221 ]
+  %.1 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit290 ], [ %1188, %.critedge221 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit755 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit636 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit470 ]
   ret i1 %.1
 
 .loopexit770:                                     ; preds = %.preheader769, %.body473.thread, %.body473, %1221, %1190, %.loopexit, %776, %.loopexit773
-  %.pn210.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn210.pn.pn.pn.pn.pn, %1221 ], [ %.pn201.pn, %1190 ], [ %.pn188.pn.pn, %.loopexit ], [ %.pn167.pn.pn.pn.pn, %.body473 ], [ %.pn164.pn, %776 ], [ %.pn138, %.loopexit773 ], [ %.pn167.pn.pn.pn.pn.pn.ph, %.body473.thread ], [ %.pn167.pn.pn.pn.pn, %.preheader769 ]
+  %.pn210.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn210.pn.pn.pn.pn.pn, %1221 ], [ %.pn201.pn, %1190 ], [ %.pn188.pn.pn, %.loopexit ], [ %.pn167.pn.pn.pn.pn, %.body473 ], [ %.pn167.pn.pn.pn.pn.pn.ph, %.body473.thread ], [ %.pn164.pn, %776 ], [ %.pn138, %.loopexit773 ], [ %.pn167.pn.pn.pn.pn, %.preheader769 ]
   resume { ptr, i32 } %.pn210.pn.pn.pn.pn.pn.pn
 }
 
@@ -6755,7 +6755,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
   br label %common.resume
 
 common.resume:                                    ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit447.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit449.i, %2784, %2788, %.body.i57, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit296.i, %.body.i44, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit96.i, %.body.i11, %.body85.i, %.body121.i, %1596, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit429.i, %1038, %.body451.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn198.pn.pn.pn.pn.i, %.body451.i ], [ %.pn196.i, %1038 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit429.i ], [ %.pn62.i, %1596 ], [ %.pn42.pn.pn.pn.i, %.body121.i ], [ %.pn37.pn.pn.pn.i, %.body85.i ], [ %.pn.pn.pn.pn.i12, %.body.i11 ], [ %.pn52.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit96.i ], [ %.pn.i45, %.body.i44 ], [ %.pn86.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit296.i ], [ %.pn.i58, %.body.i57 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i75, %2788 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i75, %2784 ], [ %956, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit449.i ], [ %944, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit447.i ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i58, %.body.i57 ], [ %956, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit449.i ], [ %.pn.pn.pn.pn.i12, %.body.i11 ], [ %.pn.i45, %.body.i44 ], [ %.pn198.pn.pn.pn.pn.i, %.body451.i ], [ %.pn196.i, %1038 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i75, %2784 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit429.i ], [ %.pn62.i, %1596 ], [ %.pn42.pn.pn.pn.i, %.body121.i ], [ %.pn37.pn.pn.pn.i, %.body85.i ], [ %.pn52.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit96.i ], [ %.pn86.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit296.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i75, %2788 ], [ %944, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit447.i ]
   resume { ptr, i32 } %common.resume.op
 
 _ZL16TestConstructorsv.exit.thread:               ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit.i, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit375.i
@@ -7016,8 +7016,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit70.i: 
   br label %.lr.ph.i.i.i.i.i.i.i30
 
 .lr.ph.i.i.i.i.i.i.i30:                           ; preds = %.lr.ph.i.i.i.i.i.i.i30, %.lr.ph.i.i.i.i.preheader.i.i.i
-  %.011.i.i.i.i.i.i.i31 = phi ptr [ %spec.select.i.i4.i.i.i, %.lr.ph.i.i.i.i.preheader.i.i.i ], [ %1104, %.lr.ph.i.i.i.i.i.i.i30 ]
-  %.0810.i.i.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i.i.i ], [ %1103, %.lr.ph.i.i.i.i.i.i.i30 ]
+  %.011.i.i.i.i.i.i.i31 = phi ptr [ %1104, %.lr.ph.i.i.i.i.i.i.i30 ], [ %spec.select.i.i4.i.i.i, %.lr.ph.i.i.i.i.preheader.i.i.i ]
+  %.0810.i.i.i.i.i.i.i = phi ptr [ %1103, %.lr.ph.i.i.i.i.i.i.i30 ], [ %spec.select.i.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i.i.i ]
   %1097 = load ptr, ptr %.0810.i.i.i.i.i.i.i, align 8
   %1098 = ptrtoint ptr %1097 to i64
   %1099 = load ptr, ptr %.011.i.i.i.i.i.i.i31, align 8
@@ -7287,8 +7287,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit92.i: 
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i.i.i.i
-  %.011.i.i.i.i.i.i.i.i = phi ptr [ %spec.select.i.i4.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i.i.i.i ], [ %1195, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.0810.i.i.i.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i93.i, %.lr.ph.i.i.i.i.preheader.i.i.i.i ], [ %1194, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = phi ptr [ %1195, %.lr.ph.i.i.i.i.i.i.i.i ], [ %spec.select.i.i4.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i.i.i.i ]
+  %.0810.i.i.i.i.i.i.i.i = phi ptr [ %1194, %.lr.ph.i.i.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i93.i, %.lr.ph.i.i.i.i.preheader.i.i.i.i ]
   %1188 = load ptr, ptr %.0810.i.i.i.i.i.i.i.i, align 8
   %1189 = ptrtoint ptr %1188 to i64
   %1190 = load ptr, ptr %.011.i.i.i.i.i.i.i.i, align 8
@@ -7558,8 +7558,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit128.i:
   br label %.lr.ph.i.i.i.i.i.i134.i
 
 .lr.ph.i.i.i.i.i.i134.i:                          ; preds = %.lr.ph.i.i.i.i.i.i134.i, %.lr.ph.i.i.i.i.preheader.i.i132.i
-  %.011.i.i.i.i.i.i135.i = phi ptr [ %spec.select.i.i4.i.i133.i, %.lr.ph.i.i.i.i.preheader.i.i132.i ], [ %1286, %.lr.ph.i.i.i.i.i.i134.i ]
-  %.0810.i.i.i.i.i.i136.i = phi ptr [ %spec.select.i.i.i.i129.i, %.lr.ph.i.i.i.i.preheader.i.i132.i ], [ %1285, %.lr.ph.i.i.i.i.i.i134.i ]
+  %.011.i.i.i.i.i.i135.i = phi ptr [ %1286, %.lr.ph.i.i.i.i.i.i134.i ], [ %spec.select.i.i4.i.i133.i, %.lr.ph.i.i.i.i.preheader.i.i132.i ]
+  %.0810.i.i.i.i.i.i136.i = phi ptr [ %1285, %.lr.ph.i.i.i.i.i.i134.i ], [ %spec.select.i.i.i.i129.i, %.lr.ph.i.i.i.i.preheader.i.i132.i ]
   %1279 = load ptr, ptr %.0810.i.i.i.i.i.i136.i, align 8
   %1280 = ptrtoint ptr %1279 to i64
   %1281 = load ptr, ptr %.011.i.i.i.i.i.i135.i, align 8
@@ -8098,8 +8098,8 @@ _ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS
   br i1 %.not12.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetINS_19HdDataSourceLocatorENS_6TfHashESt8equal_toIS1_ELj128EE4findERKS1_.exit.i, label %1455, !llvm.loop !19
 
 _ZNK32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetINS_19HdDataSourceLocatorENS_6TfHashESt8equal_toIS1_ELj128EE4findERKS1_.exit.i: ; preds = %_ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS1_S4_.exit.i.i, %1459, %1471, %1445, %1440, %1438
-  %1475 = phi ptr [ %1439, %1438 ], [ %.pre272.i, %1440 ], [ %1446, %1445 ], [ %1446, %1471 ], [ %1446, %1459 ], [ %1446, %_ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS1_S4_.exit.i.i ]
-  %.sroa.08.0.i.i = phi ptr [ %1439, %1438 ], [ %1444, %1440 ], [ %1446, %1445 ], [ %.sroa.08.116.i.i, %1471 ], [ %1446, %_ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS1_S4_.exit.i.i ], [ %.sroa.08.116.i.i, %1459 ]
+  %1475 = phi ptr [ %1439, %1438 ], [ %.pre272.i, %1440 ], [ %1446, %1471 ], [ %1446, %1445 ], [ %1446, %1459 ], [ %1446, %_ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS1_S4_.exit.i.i ]
+  %.sroa.08.0.i.i = phi ptr [ %1439, %1438 ], [ %1444, %1440 ], [ %.sroa.08.116.i.i, %1471 ], [ %1446, %1445 ], [ %.sroa.08.116.i.i, %1459 ], [ %1446, %_ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS1_S4_.exit.i.i ]
   %1476 = icmp eq ptr %.sroa.08.0.i.i, %1475
   %1477 = getelementptr inbounds nuw i8, ptr %118, i64 52
   %1478 = load i32, ptr %1477, align 4
@@ -8284,8 +8284,8 @@ _ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS
   br i1 %.not12.i229.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetINS_19HdDataSourceLocatorENS_6TfHashESt8equal_toIS1_ELj128EE4findERKS1_.exit236.i, label %1530, !llvm.loop !19
 
 _ZNK32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetINS_19HdDataSourceLocatorENS_6TfHashESt8equal_toIS1_ELj128EE4findERKS1_.exit236.i: ; preds = %_ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS1_S4_.exit.i228.i, %1534, %1546, %1520, %1515, %1513
-  %1550 = phi ptr [ %1514, %1513 ], [ %.pre273.i, %1515 ], [ %1521, %1520 ], [ %1521, %1546 ], [ %1521, %1534 ], [ %1521, %_ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS1_S4_.exit.i228.i ]
-  %.sroa.08.0.i221.i = phi ptr [ %1514, %1513 ], [ %1519, %1515 ], [ %1521, %1520 ], [ %.sroa.08.116.i227.i, %1546 ], [ %1521, %_ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS1_S4_.exit.i228.i ], [ %.sroa.08.116.i227.i, %1534 ]
+  %1550 = phi ptr [ %1514, %1513 ], [ %.pre273.i, %1515 ], [ %1521, %1546 ], [ %1521, %1520 ], [ %1521, %1534 ], [ %1521, %_ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS1_S4_.exit.i228.i ]
+  %.sroa.08.0.i221.i = phi ptr [ %1514, %1513 ], [ %1519, %1515 ], [ %.sroa.08.116.i227.i, %1546 ], [ %1521, %1520 ], [ %.sroa.08.116.i227.i, %1534 ], [ %1521, %_ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS1_S4_.exit.i228.i ]
   %1551 = icmp eq ptr %.sroa.08.0.i221.i, %1550
   %1552 = getelementptr inbounds nuw i8, ptr %121, i64 52
   %1553 = load i32, ptr %1552, align 4
@@ -8386,7 +8386,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit248.i: ; pred
   br i1 %.not254.i, label %1600, label %.invoke310.i
 
 .invoke310.i:                                     ; preds = %1583, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit248.i, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit214.i, %1399
-  %1585 = phi ptr [ @.str.61, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit214.i ], [ @.str.62, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit248.i ], [ @.str.63, %1583 ], [ @.str.60, %1399 ]
+  %1585 = phi ptr [ @.str.62, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit248.i ], [ @.str.61, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit214.i ], [ @.str.63, %1583 ], [ @.str.60, %1399 ]
   %1586 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull %1585)
           to label %.invoke.i unwind label %1420
 
@@ -8426,7 +8426,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit248.i: ; pred
   br label %common.resume
 
 _ZL22TestEqualityAndHashingv.exit.thread:         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit162.i, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit118.i, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit82.i
-  %.str.56.sink = phi ptr [ @.str.56, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit82.i ], [ @.str.57, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit118.i ], [ @.str.59, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit162.i ]
+  %.str.56.sink = phi ptr [ @.str.57, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit118.i ], [ @.str.56, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit82.i ], [ @.str.59, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit162.i ]
   %1597 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull %.str.56.sink)
   %1598 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %1597, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   br label %1599
@@ -9408,7 +9408,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit140.i: ; preds = %1934, %1
   br i1 %1946, label %.invoke167.i, label %1965
 
 .invoke167.i:                                     ; preds = %1947, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit138.i, %1894, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit134.i, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit132.i, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit120.i, %1654, %1642
-  %1948 = phi ptr [ @.str.66, %1654 ], [ @.str.72, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit120.i ], [ @.str.73, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit132.i ], [ @.str.74, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit134.i ], [ @.str.76, %1894 ], [ @.str.77, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit138.i ], [ @.str.78, %1947 ], [ @.str.65, %1642 ]
+  %1948 = phi ptr [ @.str.77, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit138.i ], [ @.str.76, %1894 ], [ @.str.74, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit134.i ], [ @.str.73, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit132.i ], [ @.str.72, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit120.i ], [ @.str.66, %1654 ], [ @.str.78, %1947 ], [ @.str.65, %1642 ]
   %1949 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull %1948)
           to label %.invoke.i49 unwind label %1650
 
@@ -9463,7 +9463,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit140.i: ; preds = %1934, %1
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit96.i
 
 1965:                                             ; preds = %.invoke.i49, %1947, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit108.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit88.i
-  %.011.i = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit88.i ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit108.i ], [ true, %1947 ], [ false, %.invoke.i49 ]
+  %.011.i = phi i1 [ false, %.invoke.i49 ], [ true, %1947 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit88.i ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit108.i ]
   %1966 = getelementptr inbounds nuw i8, ptr %67, i64 52
   %1967 = load i32, ptr %1966, align 4
   %1968 = icmp ult i32 %1967, 7
@@ -9510,7 +9510,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
   br label %_ZL13TestAccessorsv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit96.i: ; preds = %1964, %1940, %1902, %1886, %1882, %1864, %1838, %1812, %1784, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit94.i, %1650
-  %.pn52.i = phi { ptr, i32 } [ %1651, %1650 ], [ %.pn47.pn.pn.pn.i, %1964 ], [ %.pn41.pn.pn.pn.pn.i, %1940 ], [ %.pn38.pn.i, %1902 ], [ %1865, %1864 ], [ %1839, %1838 ], [ %1813, %1812 ], [ %.pn32.pn.pn.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit94.i ], [ %.pn32.pn.pn.i, %1784 ], [ %.pn36.i, %1882 ], [ %.pn36.i, %1886 ]
+  %.pn52.i = phi { ptr, i32 } [ %1651, %1650 ], [ %.pn47.pn.pn.pn.i, %1964 ], [ %.pn41.pn.pn.pn.pn.i, %1940 ], [ %.pn38.pn.i, %1902 ], [ %.pn32.pn.pn.i, %1784 ], [ %1865, %1864 ], [ %1839, %1838 ], [ %1813, %1812 ], [ %.pn32.pn.pn.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit94.i ], [ %.pn36.i, %1882 ], [ %.pn36.i, %1886 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %67) #21
   br label %common.resume
 
@@ -11951,8 +11951,8 @@ _ZL16TestIntersectionv.exit:                      ; preds = %_ZN32pxrInternal_v0
   br label %2840
 
 2840:                                             ; preds = %2828, %2819, %2810, %2801, %2792, %_ZL16TestIntersectionv.exit, %_ZL22TestAppendsAndReplacesv.exit, %_ZL13TestAccessorsv.exit, %_ZL16TestConstructorsv.exit, %_ZL16TestConstructorsv.exit.thread, %2837, %1599
-  %.str.29.sink = phi ptr [ @.str.29, %2837 ], [ @.str.18, %1599 ], [ @.str.18, %_ZL16TestConstructorsv.exit.thread ], [ @.str.18, %_ZL16TestConstructorsv.exit ], [ @.str.18, %_ZL13TestAccessorsv.exit ], [ @.str.18, %_ZL22TestAppendsAndReplacesv.exit ], [ @.str.18, %_ZL16TestIntersectionv.exit ], [ @.str.18, %2792 ], [ @.str.18, %2801 ], [ @.str.18, %2810 ], [ @.str.18, %2819 ], [ @.str.18, %2828 ]
-  %.0 = phi i32 [ 0, %2837 ], [ -1, %1599 ], [ -1, %_ZL16TestConstructorsv.exit.thread ], [ -1, %_ZL16TestConstructorsv.exit ], [ -1, %_ZL13TestAccessorsv.exit ], [ -1, %_ZL22TestAppendsAndReplacesv.exit ], [ -1, %_ZL16TestIntersectionv.exit ], [ -1, %2792 ], [ -1, %2801 ], [ -1, %2810 ], [ -1, %2819 ], [ -1, %2828 ]
+  %.str.29.sink = phi ptr [ @.str.29, %2837 ], [ @.str.18, %2819 ], [ @.str.18, %2810 ], [ @.str.18, %2801 ], [ @.str.18, %2792 ], [ @.str.18, %_ZL16TestIntersectionv.exit ], [ @.str.18, %_ZL22TestAppendsAndReplacesv.exit ], [ @.str.18, %_ZL13TestAccessorsv.exit ], [ @.str.18, %_ZL16TestConstructorsv.exit ], [ @.str.18, %1599 ], [ @.str.18, %_ZL16TestConstructorsv.exit.thread ], [ @.str.18, %2828 ]
+  %.0 = phi i32 [ 0, %2837 ], [ -1, %2819 ], [ -1, %2810 ], [ -1, %2801 ], [ -1, %2792 ], [ -1, %_ZL16TestIntersectionv.exit ], [ -1, %_ZL22TestAppendsAndReplacesv.exit ], [ -1, %_ZL13TestAccessorsv.exit ], [ -1, %_ZL16TestConstructorsv.exit ], [ -1, %1599 ], [ -1, %_ZL16TestConstructorsv.exit.thread ], [ -1, %2828 ]
   %2841 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull %.str.29.sink)
   %2842 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %2841, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   ret i32 %.0
@@ -12922,7 +12922,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit799: ; preds 
   br label %.critedge633
 
 .critedge633:                                     ; preds = %.noexc678, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit799
-  %434 = phi i1 [ %413, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit799 ], [ false, %.noexc678 ]
+  %434 = phi i1 [ false, %.noexc678 ], [ %413, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit799 ]
   %435 = getelementptr inbounds nuw i8, ptr %14, i64 52
   %436 = load i32, ptr %435, align 4
   %437 = icmp ult i32 %436, 7
@@ -14219,7 +14219,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1005: ; preds
   br label %.critedge645
 
 .critedge645:                                     ; preds = %.noexc891, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1005
-  %822 = phi i1 [ %801, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1005 ], [ false, %.noexc891 ]
+  %822 = phi i1 [ false, %.noexc891 ], [ %801, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1005 ]
   %823 = getelementptr inbounds nuw i8, ptr %53, i64 52
   %824 = load i32, ptr %823, align 4
   %825 = icmp ult i32 %824, 7
@@ -15587,7 +15587,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1176: ; preds
           to label %_Z13_ValueCompareIbEbPKcRKT_S4_.exit1184 unwind label %1591
 
 _Z13_ValueCompareIbEbPKcRKT_S4_.exit1184:         ; preds = %.noexc1198.invoke, %1240, %1237, %1231
-  %1243 = phi i1 [ false, %1237 ], [ false, %1231 ], [ %1242, %1240 ], [ false, %.noexc1198.invoke ]
+  %1243 = phi i1 [ false, %1237 ], [ false, %1231 ], [ false, %.noexc1198.invoke ], [ %1242, %1240 ]
   %1244 = getelementptr inbounds nuw i8, ptr %109, i64 452
   %1245 = load i32, ptr %1244, align 4
   %1246 = icmp ult i32 %1245, 9
@@ -17560,7 +17560,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1526: ; preds
           to label %_Z13_ValueCompareIbEbPKcRKT_S4_.exit1534 unwind label %2238
 
 _Z13_ValueCompareIbEbPKcRKT_S4_.exit1534:         ; preds = %.noexc1540.invoke, %1883, %1880, %1874
-  %1886 = phi i1 [ false, %1880 ], [ false, %1874 ], [ %1885, %1883 ], [ false, %.noexc1540.invoke ]
+  %1886 = phi i1 [ false, %1880 ], [ false, %1874 ], [ false, %.noexc1540.invoke ], [ %1885, %1883 ]
   %1887 = getelementptr inbounds nuw i8, ptr %173, i64 452
   %1888 = load i32, ptr %1887, align 4
   %1889 = icmp ult i32 %1888, 9
@@ -18836,11 +18836,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1686: ; preds
   br label %.loopexit1853
 
 2295:                                             ; preds = %2288, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1674, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1354, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1039, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit
-  %.1 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1674 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1354 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1039 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit ], [ %2289, %2288 ]
+  %.1 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit ], [ %2289, %2288 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1674 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1354 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1039 ]
   ret i1 %.1
 
 .loopexit1853:                                    ; preds = %.preheader1874, %.preheader1871, %.preheader1868, %.preheader1852, %.body1357.thread, %.body1042.thread, %.body821.thread, %.body.thread, %.body1357, %.body1042, %.body821, %.body, %.loopexit, %.loopexit1851, %.loopexit1867, %.body883, %.body671
-  %.pn621.pn = phi { ptr, i32 } [ %.pn621, %.loopexit ], [ %.pn615.pn.pn.pn.pn, %.loopexit1851 ], [ %.pn570.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body1357 ], [ %.pn563.pn.pn.pn.pn, %.loopexit1867 ], [ %.pn532.pn.pn.pn.pn.pn.pn.pn.pn, %.body1042 ], [ %.pn516.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body883 ], [ %.pn495.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body821 ], [ %.pn479.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body671 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.body.thread ], [ %.pn495.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.body821.thread ], [ %.pn532.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.body1042.thread ], [ %.pn570.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.body1357.thread ], [ %.pn570.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader1852 ], [ %.pn532.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader1868 ], [ %.pn495.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader1871 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader1874 ]
+  %.pn621.pn = phi { ptr, i32 } [ %.pn621, %.loopexit ], [ %.pn615.pn.pn.pn.pn, %.loopexit1851 ], [ %.pn570.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body1357 ], [ %.pn570.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.body1357.thread ], [ %.pn563.pn.pn.pn.pn, %.loopexit1867 ], [ %.pn532.pn.pn.pn.pn.pn.pn.pn.pn, %.body1042 ], [ %.pn570.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader1852 ], [ %.pn516.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body883 ], [ %.pn495.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body821 ], [ %.pn532.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader1868 ], [ %.pn479.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body671 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body ], [ %.pn495.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader1871 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.body.thread ], [ %.pn495.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.body821.thread ], [ %.pn532.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.body1042.thread ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader1874 ]
   resume { ptr, i32 } %.pn621.pn
 }
 
@@ -19270,7 +19270,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit624: ; preds 
   br label %.critedge519
 
 .critedge519:                                     ; preds = %.noexc585, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit624
-  %237 = phi i1 [ %216, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit624 ], [ false, %.noexc585 ]
+  %237 = phi i1 [ false, %.noexc585 ], [ %216, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit624 ]
   %238 = getelementptr inbounds nuw i8, ptr %2, i64 52
   %239 = load i32, ptr %238, align 4
   %240 = icmp ult i32 %239, 7
@@ -19835,7 +19835,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit723: ; preds 
   br label %.critedge525
 
 .critedge525:                                     ; preds = %.noexc671, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit723
-  %421 = phi i1 [ %400, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit723 ], [ false, %.noexc671 ]
+  %421 = phi i1 [ false, %.noexc671 ], [ %400, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit723 ]
   %422 = getelementptr inbounds nuw i8, ptr %16, i64 52
   %423 = load i32, ptr %422, align 4
   %424 = icmp ult i32 %423, 7
@@ -20993,7 +20993,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit926: ; preds 
   br label %.critedge552
 
 .critedge552:                                     ; preds = %.noexc790, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit926
-  %825 = phi i1 [ %804, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit926 ], [ false, %.noexc790 ]
+  %825 = phi i1 [ false, %.noexc790 ], [ %804, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit926 ]
   %826 = getelementptr inbounds nuw i8, ptr %32, i64 52
   %827 = load i32, ptr %826, align 4
   %828 = icmp ult i32 %827, 7
@@ -22683,7 +22683,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1176: ; preds
   br label %.critedge579
 
 .critedge579:                                     ; preds = %.noexc1053, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1176
-  %1361 = phi i1 [ %1340, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1176 ], [ false, %.noexc1053 ]
+  %1361 = phi i1 [ false, %.noexc1053 ], [ %1340, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1176 ]
   %1362 = getelementptr inbounds nuw i8, ptr %107, i64 52
   %1363 = load i32, ptr %1362, align 4
   %1364 = icmp ult i32 %1363, 7
@@ -23466,11 +23466,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj
   br label %.loopexit
 
 _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1210: ; preds = %1413, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.i.i1209, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit960, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit757, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit
-  %.1 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit960 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit757 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit ], [ %1361, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.i.i1209 ], [ %1361, %1413 ]
+  %.1 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit757 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit960 ], [ %1361, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.i.i1209 ], [ %1361, %1413 ]
   ret i1 %.1
 
 .loopexit:                                        ; preds = %.preheader1443, %.preheader, %.body963.thread, %.body760.thread, %.body646, %.body963, %.body760, %.body1045, %.body782, %.body663, %.body
-  %.pn485.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn485.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body1045 ], [ %.pn456.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body963 ], [ %.pn426.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body782 ], [ %.pn421.pn.pn, %.body760 ], [ %.pn412.pn.pn.pn.pn.pn.pn.pn, %.body663 ], [ %.pn409.pn, %.body646 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %.body ], [ %.pn421.pn.pn.pn.ph, %.body760.thread ], [ %.pn456.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.body963.thread ], [ %.pn456.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader ], [ %.pn421.pn.pn, %.preheader1443 ]
+  %.pn485.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn485.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body1045 ], [ %.pn456.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body963 ], [ %.pn456.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.body963.thread ], [ %.pn426.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body782 ], [ %.pn421.pn.pn, %.body760 ], [ %.pn456.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader ], [ %.pn412.pn.pn.pn.pn.pn.pn.pn, %.body663 ], [ %.pn409.pn, %.body646 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %.body ], [ %.pn421.pn.pn.pn.ph, %.body760.thread ], [ %.pn421.pn.pn, %.preheader1443 ]
   resume { ptr, i32 } %.pn485.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
 }
 
@@ -27484,7 +27484,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1895: ; preds
   br label %.critedge1132
 
 .critedge1132:                                    ; preds = %1126, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1895
-  %1543 = phi i1 [ %1469, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1895 ], [ false, %1126 ]
+  %1543 = phi i1 [ false, %1126 ], [ %1469, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1895 ]
   %1544 = getelementptr inbounds nuw i8, ptr %99, i64 452
   %1545 = load i32, ptr %1544, align 4
   %1546 = icmp ult i32 %1545, 9
@@ -31855,7 +31855,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit2615: ; preds
   br label %.critedge1167
 
 .critedge1167:                                    ; preds = %2486, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit2615
-  %2899 = phi i1 [ %2825, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit2615 ], [ false, %2486 ]
+  %2899 = phi i1 [ false, %2486 ], [ %2825, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit2615 ]
   %2900 = getelementptr inbounds nuw i8, ptr %247, i64 452
   %2901 = load i32, ptr %2900, align 4
   %2902 = icmp ult i32 %2901, 9
@@ -34104,11 +34104,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj
   br label %.loopexit2900
 
 _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit2793: ; preds = %3169, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.i.i2792, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit2073, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1448, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1275
-  %.1 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit2073 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1448 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1275 ], [ %2899, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.i.i2792 ], [ %2899, %3169 ]
+  %.1 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1275 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1448 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit2073 ], [ %2899, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.i.i2792 ], [ %2899, %3169 ]
   ret i1 %.1
 
 .loopexit2900:                                    ; preds = %.preheader2917, %.preheader2899, %.body2076.thread, %.body1451.thread, %.body1278, %.body2076, %.body1451, %.loopexit2897, %.loopexit2915, %1816, %799
-  %.pn1044.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1044.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.loopexit2897 ], [ %.pn950.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body2076 ], [ %.pn909.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.loopexit2915 ], [ %.pn857.pn.pn.pn.pn.pn.pn, %.body1451 ], [ %.pn845.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1816 ], [ %.pn839.pn, %.body1278 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %799 ], [ %.pn857.pn.pn.pn.pn.pn.pn.pn.ph, %.body1451.thread ], [ %.pn950.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.body2076.thread ], [ %.pn950.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader2899 ], [ %.pn857.pn.pn.pn.pn.pn.pn, %.preheader2917 ]
+  %.pn1044.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1044.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.loopexit2897 ], [ %.pn950.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body2076 ], [ %.pn950.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.body2076.thread ], [ %.pn909.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.loopexit2915 ], [ %.pn857.pn.pn.pn.pn.pn.pn, %.body1451 ], [ %.pn950.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader2899 ], [ %.pn845.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1816 ], [ %.pn839.pn, %.body1278 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %799 ], [ %.pn857.pn.pn.pn.pn.pn.pn.pn.ph, %.body1451.thread ], [ %.pn857.pn.pn.pn.pn.pn.pn, %.preheader2917 ]
   resume { ptr, i32 } %.pn1044.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
 }
 
@@ -35854,7 +35854,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
   br label %.critedge371
 
 .critedge371:                                     ; preds = %589, %789, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i11.i625
-  %791 = phi i1 [ %666, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i11.i625 ], [ %666, %789 ], [ false, %589 ]
+  %791 = phi i1 [ %666, %789 ], [ false, %589 ], [ %666, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i11.i625 ]
   %792 = load ptr, ptr %24, align 8
   %793 = load ptr, ptr %585, align 8
   %.not4.i.i.i.i627 = icmp eq ptr %792, %793
@@ -37909,7 +37909,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
   br label %.critedge383
 
 .critedge383:                                     ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i11.i1010, %1655, %1255
-  %1657 = phi i1 [ %1534, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i11.i1010 ], [ %1534, %1655 ], [ false, %1255 ]
+  %1657 = phi i1 [ %1534, %1655 ], [ %1534, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i11.i1010 ], [ false, %1255 ]
   %1658 = load ptr, ptr %39, align 8
   %1659 = load ptr, ptr %1251, align 8
   %.not4.i.i.i.i1012 = icmp eq ptr %1658, %1659
@@ -38207,7 +38207,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
   br label %.critedge386
 
 .critedge386:                                     ; preds = %1178, %1778, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i11.i1090
-  %1780 = phi i1 [ %1657, %1778 ], [ %1657, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i11.i1090 ], [ false, %1178 ]
+  %1780 = phi i1 [ false, %1178 ], [ %1657, %1778 ], [ %1657, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i11.i1090 ]
   %1781 = load ptr, ptr %35, align 8
   %1782 = load ptr, ptr %1176, align 8
   %.not4.i.i.i.i1092 = icmp eq ptr %1781, %1782
@@ -39757,7 +39757,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_Destruct
   br label %.critedge391
 
 .critedge391:                                     ; preds = %2227, %2424, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i11.i1372
-  %2426 = phi i1 [ %2301, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i11.i1372 ], [ %2301, %2424 ], [ false, %2227 ]
+  %2426 = phi i1 [ %2301, %2424 ], [ false, %2227 ], [ %2301, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i.i.i11.i1372 ]
   %2427 = load ptr, ptr %54, align 8
   %2428 = load ptr, ptr %2225, align 8
   %.not4.i.i.i.i1374 = icmp eq ptr %2427, %2428
@@ -43002,7 +43002,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj
   br label %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1907
 
 .loopexit:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1849, %3689, %3686, %.thread2209, %3571
-  %.pn357 = phi { ptr, i32 } [ %3572, %3571 ], [ %3560, %.thread2209 ], [ %3687, %3686 ], [ %3687, %3689 ], [ %.pn355, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1849 ]
+  %.pn357 = phi { ptr, i32 } [ %3572, %3571 ], [ %3687, %3689 ], [ %3560, %.thread2209 ], [ %3687, %3686 ], [ %.pn355, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1849 ]
   call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %85) #21
   call void @_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet16IntersectionViewD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %84) #21
   br label %3797
@@ -43013,7 +43013,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj
   br label %.loopexit2213
 
 _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1907: ; preds = %3795, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.i.i1906, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1731, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1475, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1193, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit728, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit
-  %.1 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1731 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1475 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1193 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit728 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit ], [ %3658, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.i.i1906 ], [ %3658, %3795 ]
+  %.1 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit728 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1731 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1475 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit1193 ], [ %3658, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE9_DestructEv.exit.i.i1906 ], [ %3658, %3795 ]
   %3798 = getelementptr inbounds nuw i8, ptr %10, i64 52
   %3799 = load i32, ptr %3798, align 4
   %3800 = icmp ult i32 %3799, 7
@@ -43299,7 +43299,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit1979: ; preds
   ret i1 %.1
 
 .loopexit2213:                                    ; preds = %1944, %2590, %.preheader, %3565, %.loopexit2213.loopexit2234, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1751, %3797, %3561, %3237, %2586, %1940, %947
-  %.pn357.pn.pn = phi { ptr, i32 } [ %.pn357.pn, %3797 ], [ %.pn346.pn.pn.pn.pn.pn.pn.pn, %3561 ], [ %.pn334.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1751 ], [ %.pn325.pn.pn.pn.pn.pn.pn.pn, %3237 ], [ %.pn308.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2586 ], [ %.pn299.pn.pn.pn.pn.pn.pn.pn, %1940 ], [ %.pn.pn.pn.pn, %947 ], [ %948, %.loopexit2213.loopexit2234 ], [ %3563, %3565 ], [ %.pn334.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader ], [ %2588, %2590 ], [ %1942, %1944 ]
+  %.pn357.pn.pn = phi { ptr, i32 } [ %.pn357.pn, %3797 ], [ %.pn308.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2586 ], [ %.pn.pn.pn.pn, %947 ], [ %948, %.loopexit2213.loopexit2234 ], [ %.pn346.pn.pn.pn.pn.pn.pn.pn, %3561 ], [ %.pn334.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1751 ], [ %.pn334.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader ], [ %.pn325.pn.pn.pn.pn.pn.pn.pn, %3237 ], [ %2588, %2590 ], [ %.pn299.pn.pn.pn.pn.pn.pn.pn, %1940 ], [ %3563, %3565 ], [ %1942, %1944 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #21
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit503
 
@@ -43559,8 +43559,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrRe
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i.i
-  %.011.i.i.i.i.i.i = phi ptr [ %spec.select.i.i4.i.i, %.lr.ph.i.i.i.i.preheader.i.i ], [ %26, %.lr.ph.i.i.i.i.i.i ]
-  %.0810.i.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i.i ], [ %25, %.lr.ph.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i.i.i.i ], [ %spec.select.i.i4.i.i, %.lr.ph.i.i.i.i.preheader.i.i ]
+  %.0810.i.i.i.i.i.i = phi ptr [ %25, %.lr.ph.i.i.i.i.i.i ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i.i ]
   %19 = load ptr, ptr %.0810.i.i.i.i.i.i, align 8
   %20 = ptrtoint ptr %19 to i64
   %21 = load ptr, ptr %.011.i.i.i.i.i.i, align 8
@@ -43956,7 +43956,7 @@ _ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS
   br i1 %.not12.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetINS_19HdDataSourceLocatorENS_6TfHashESt8equal_toIS1_ELj128EE4findERKS1_.exit, label %.lr.ph.i.split, !llvm.loop !19
 
 _ZNK32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetINS_19HdDataSourceLocatorENS_6TfHashESt8equal_toIS1_ELj128EE4findERKS1_.exit: ; preds = %_ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS1_S4_.exit.i, %169, %_ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS1_S4_.exit.i.us, %.lr.ph.i.split.us, %143
-  %.sroa.08.0.i = phi ptr [ %10, %143 ], [ %154, %_ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS1_S4_.exit.i.us ], [ %.sroa.08.116.i.us, %.lr.ph.i.split.us ], [ %.sroa.08.116.i, %169 ], [ %172, %_ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS1_S4_.exit.i ]
+  %.sroa.08.0.i = phi ptr [ %10, %143 ], [ %.sroa.08.116.i, %169 ], [ %.sroa.08.116.i.us, %.lr.ph.i.split.us ], [ %154, %_ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS1_S4_.exit.i.us ], [ %172, %_ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS1_S4_.exit.i ]
   %.not38 = icmp eq ptr %.sroa.08.0.i, %9
   br i1 %.not38, label %173, label %222
 
@@ -44153,7 +44153,7 @@ _ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS
   br i1 %.not12, label %_ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS1_S4_.exit.thread, label %27, !llvm.loop !19
 
 _ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS1_S4_.exit.thread: ; preds = %_ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS1_S4_.exit, %31, %43, %16, %11, %8
-  %.sroa.08.0 = phi ptr [ %10, %8 ], [ %15, %11 ], [ %19, %16 ], [ %.sroa.08.116, %43 ], [ %46, %_ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS1_S4_.exit ], [ %.sroa.08.116, %31 ]
+  %.sroa.08.0 = phi ptr [ %10, %8 ], [ %15, %11 ], [ %.sroa.08.116, %43 ], [ %19, %16 ], [ %46, %_ZNKSt8equal_toIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorEEclERKS1_S4_.exit ], [ %.sroa.08.116, %31 ]
   ret ptr %.sroa.08.0
 }
 
@@ -44912,8 +44912,8 @@ _ZNSt8__detail12_NodeBuilderINS_10_Select1stEE8_S_buildIRKN32pxrInternal_v0_24__
   resume { ptr, i32 } %154
 
 _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %35, %.lr.ph.split.us, %78, %_ZNSt8__detail12_NodeBuilderINS_10_Select1stEE8_S_buildIRKN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorERKSt4pairIS6_mENS_10_AllocNodeISaINS_10_Hash_nodeIS9_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSH_.exit, %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS1_EEPNS6_10_Hash_nodeIS4_Lb1EEEmRKT_m.exit
-  %.sroa.032.0 = phi ptr [ %.0.i.i, %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS1_EEPNS6_10_Hash_nodeIS4_Lb1EEEmRKT_m.exit ], [ %152, %_ZNSt8__detail12_NodeBuilderINS_10_Select1stEE8_S_buildIRKN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorERKSt4pairIS6_mENS_10_AllocNodeISaINS_10_Hash_nodeIS9_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSH_.exit ], [ %.0.us.i.i, %78 ], [ %.sroa.029.048.us, %.lr.ph.split.us ], [ %.sroa.029.048, %35 ]
-  %.sroa.4.0 = phi i8 [ 0, %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS1_EEPNS6_10_Hash_nodeIS4_Lb1EEEmRKT_m.exit ], [ 1, %_ZNSt8__detail12_NodeBuilderINS_10_Select1stEE8_S_buildIRKN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorERKSt4pairIS6_mENS_10_AllocNodeISaINS_10_Hash_nodeIS9_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSH_.exit ], [ 0, %78 ], [ 0, %.lr.ph.split.us ], [ 0, %35 ]
+  %.sroa.032.0 = phi ptr [ %.sroa.029.048.us, %.lr.ph.split.us ], [ %.0.us.i.i, %78 ], [ %152, %_ZNSt8__detail12_NodeBuilderINS_10_Select1stEE8_S_buildIRKN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorERKSt4pairIS6_mENS_10_AllocNodeISaINS_10_Hash_nodeIS9_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSH_.exit ], [ %.0.i.i, %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS1_EEPNS6_10_Hash_nodeIS4_Lb1EEEmRKT_m.exit ], [ %.sroa.029.048, %35 ]
+  %.sroa.4.0 = phi i8 [ 0, %.lr.ph.split.us ], [ 0, %78 ], [ 1, %_ZNSt8__detail12_NodeBuilderINS_10_Select1stEE8_S_buildIRKN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorERKSt4pairIS6_mENS_10_AllocNodeISaINS_10_Hash_nodeIS9_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSH_.exit ], [ 0, %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS1_EEPNS6_10_Hash_nodeIS4_Lb1EEEmRKT_m.exit ], [ 0, %35 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.032.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.4.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -45901,7 +45901,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pa
   resume { ptr, i32 } %117
 
 _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %43, %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS3_EESM_IJEEEEEPNS6_16_Hashtable_allocISaINS6_10_Hash_nodeIS4_Lb1EEEEEEDpOT_.exit, %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit
-  %.0.i31.pn = phi ptr [ %.0.i.i, %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit ], [ %115, %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS3_EESM_IJEEEEEPNS6_16_Hashtable_allocISaINS6_10_Hash_nodeIS4_Lb1EEEEEEDpOT_.exit ], [ %.0.us.i.i, %43 ]
+  %.0.i31.pn = phi ptr [ %115, %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS3_EESM_IJEEEEEPNS6_16_Hashtable_allocISaINS6_10_Hash_nodeIS4_Lb1EEEEEEDpOT_.exit ], [ %.0.i.i, %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit ], [ %.0.us.i.i, %43 ]
   %.0 = getelementptr inbounds nuw i8, ptr %.0.i31.pn, i64 64
   ret ptr %.0
 }
@@ -46130,7 +46130,7 @@ _ZNKSt8__detail15_Hash_code_baseIN32pxrInternal_v0_24__pxrReserved__19HdDataSour
   br i1 %.not17.i.i, label %.split.i.i, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, !llvm.loop !32
 
 _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit: ; preds = %106, %.loopexit.i.i, %102, %81, %79, %75, %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS2_mENS_10_Select1stESt8equal_toIS2_ENS1_6TfHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS4_RKNS_16_Hash_node_valueIS5_Lb1EEE.exit, %32, %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS2_mENS_10_Select1stESt8equal_toIS2_ENS1_6TfHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS4_RKNS_16_Hash_node_valueIS5_Lb1EEE.exit.us, %.lr.ph.split.us, %5, %_ZNKSt8__detail15_Hash_code_baseIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS2_mENS_10_Select1stENS1_6TfHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS4_.exit
-  %.sroa.07.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS2_mENS_10_Select1stENS1_6TfHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS4_.exit ], [ null, %5 ], [ null, %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS2_mENS_10_Select1stESt8equal_toIS2_ENS1_6TfHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS4_RKNS_16_Hash_node_valueIS5_Lb1EEE.exit.us ], [ %.sroa.07.020.us, %.lr.ph.split.us ], [ %.sroa.07.020, %32 ], [ null, %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS2_mENS_10_Select1stESt8equal_toIS2_ENS1_6TfHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS4_RKNS_16_Hash_node_valueIS5_Lb1EEE.exit ], [ %.0.us.i.i, %75 ], [ null, %79 ], [ null, %81 ], [ %.0.i.i, %102 ], [ null, %.loopexit.i.i ], [ null, %106 ]
+  %.sroa.07.1 = phi ptr [ %.sroa.07.020, %32 ], [ %.sroa.07.020.us, %.lr.ph.split.us ], [ null, %81 ], [ null, %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS2_mENS_10_Select1stESt8equal_toIS2_ENS1_6TfHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS4_RKNS_16_Hash_node_valueIS5_Lb1EEE.exit ], [ null, %_ZNKSt8__detail15_Hash_code_baseIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS2_mENS_10_Select1stENS1_6TfHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS4_.exit ], [ %.0.i.i, %102 ], [ null, %5 ], [ null, %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESt4pairIKS2_mENS_10_Select1stESt8equal_toIS2_ENS1_6TfHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS4_RKNS_16_Hash_node_valueIS5_Lb1EEE.exit.us ], [ %.0.us.i.i, %75 ], [ null, %79 ], [ null, %.loopexit.i.i ], [ null, %106 ]
   ret ptr %.sroa.07.1
 }
 

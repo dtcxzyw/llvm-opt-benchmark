@@ -1001,7 +1001,7 @@ define internal fastcc void @uv__drain(ptr noundef %0) unnamed_addr #0 {
   br label %34
 
 34:                                               ; preds = %15, %27, %31
-  %.0 = phi i32 [ %30, %27 ], [ 0, %31 ], [ -125, %15 ]
+  %.0 = phi i32 [ 0, %31 ], [ %30, %27 ], [ -125, %15 ]
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %36 = load ptr, ptr %35, align 8
   %.not23 = icmp eq ptr %36, null
@@ -1224,7 +1224,7 @@ uv__stream_open.exit.thread38:                    ; preds = %uv__stream_open.exi
   br label %58
 
 58:                                               ; preds = %53, %54, %49, %48, %6, %2
-  %.0 = phi i32 [ -11, %2 ], [ -22, %6 ], [ %.02645, %48 ], [ %.02645, %49 ], [ %.026, %53 ], [ 0, %54 ]
+  %.0 = phi i32 [ -22, %6 ], [ -11, %2 ], [ %.02645, %48 ], [ %.02645, %49 ], [ %.026, %53 ], [ 0, %54 ]
   ret i32 %.0
 }
 
@@ -1264,7 +1264,7 @@ define dso_local i32 @uv_listen(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   br label %14
 
 14:                                               ; preds = %12, %10
-  %.0 = phi i32 [ %11, %10 ], [ %13, %12 ]
+  %.0 = phi i32 [ %13, %12 ], [ %11, %10 ]
   %15 = icmp eq i32 %.0, 0
   br i1 %15, label %16, label %.thread
 
@@ -1345,7 +1345,7 @@ define dso_local range(i32 -107, 1) i32 @uv_shutdown(ptr noundef %0, ptr noundef
   br label %27
 
 27:                                               ; preds = %11, %24, %3, %7
-  %.0 = phi i32 [ -107, %7 ], [ -107, %3 ], [ 0, %24 ], [ 0, %11 ]
+  %.0 = phi i32 [ -107, %3 ], [ -107, %7 ], [ 0, %24 ], [ 0, %11 ]
   ret i32 %.0
 }
 
@@ -1474,8 +1474,8 @@ uv__check_before_write.exit:                      ; preds = %uv__handle_fd.exit.
   tail call void @uv__io_start(ptr noundef %65, ptr noundef nonnull %66, i32 noundef 4) #12
   br label %uv__check_before_write.exit.thread
 
-uv__check_before_write.exit.thread:               ; preds = %21, %uv__handle_fd.exit.i, %15, %18, %10, %6, %.thread, %64, %63, %48
-  %.0 = phi i32 [ -12, %48 ], [ 0, %63 ], [ 0, %64 ], [ 0, %.thread ], [ -9, %21 ], [ -9, %uv__handle_fd.exit.i ], [ -22, %15 ], [ -22, %18 ], [ -32, %10 ], [ -9, %6 ]
+uv__check_before_write.exit.thread:               ; preds = %21, %uv__handle_fd.exit.i, %18, %15, %10, %6, %.thread, %64, %63, %48
+  %.0 = phi i32 [ -12, %48 ], [ 0, %.thread ], [ 0, %63 ], [ 0, %64 ], [ -9, %21 ], [ -9, %uv__handle_fd.exit.i ], [ -22, %18 ], [ -22, %15 ], [ -32, %10 ], [ -9, %6 ]
   ret i32 %.0
 }
 
@@ -1718,7 +1718,7 @@ uv__check_before_write.exit.i:                    ; preds = %13
   br label %uv_try_write2.exit
 
 uv_try_write2.exit:                               ; preds = %3, %6, %9, %13, %uv__check_before_write.exit.i
-  %.0.i = phi i32 [ %17, %uv__check_before_write.exit.i ], [ -11, %6 ], [ -11, %3 ], [ -32, %13 ], [ -9, %9 ]
+  %.0.i = phi i32 [ %17, %uv__check_before_write.exit.i ], [ -11, %3 ], [ -11, %6 ], [ -32, %13 ], [ -9, %9 ]
   ret i32 %.0.i
 }
 
@@ -1753,7 +1753,7 @@ uv__check_before_write.exit:                      ; preds = %14
   br label %uv__check_before_write.exit.thread
 
 uv__check_before_write.exit.thread:               ; preds = %14, %10, %4, %7, %uv__check_before_write.exit
-  %.0 = phi i32 [ %18, %uv__check_before_write.exit ], [ -11, %7 ], [ -11, %4 ], [ -32, %14 ], [ -9, %10 ]
+  %.0 = phi i32 [ %18, %uv__check_before_write.exit ], [ -11, %4 ], [ -11, %7 ], [ -32, %14 ], [ -9, %10 ]
   ret i32 %.0
 }
 
@@ -1885,7 +1885,7 @@ uv__writev.exit:                                  ; preds = %.preheader, %53
   br label %63
 
 .critedge2.thread:                                ; preds = %53, %16, %.critedge2..critedge2.thread_crit_edge
-  %60 = phi i32 [ %.pr, %.critedge2..critedge2.thread_crit_edge ], [ %18, %16 ], [ %55, %53 ]
+  %60 = phi i32 [ %18, %16 ], [ %.pr, %.critedge2..critedge2.thread_crit_edge ], [ %55, %53 ]
   switch i32 %60, label %61 [
     i32 11, label %63
     i32 105, label %63
@@ -1901,7 +1901,7 @@ uv__writev.exit:                                  ; preds = %.preheader, %53
   br label %63
 
 63:                                               ; preds = %.critedge2.thread, %.critedge2.thread, %.critedge32, %61, %58
-  %.1 = phi i32 [ %59, %58 ], [ %62, %61 ], [ -9, %.critedge32 ], [ -11, %.critedge2.thread ], [ -11, %.critedge2.thread ]
+  %.1 = phi i32 [ %59, %58 ], [ -9, %.critedge32 ], [ %62, %61 ], [ -11, %.critedge2.thread ], [ -11, %.critedge2.thread ]
   ret i32 %.1
 }
 

@@ -512,15 +512,15 @@ _ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.e
   br label %.loopexit
 
 _ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exitthread-pre-split: ; preds = %.critedge102, %119, %134, %154, %143, %101
-  %.ph = phi i1 [ false, %101 ], [ false, %143 ], [ true, %154 ], [ false, %134 ], [ false, %119 ], [ false, %.critedge102 ]
-  %.030.ph = phi i32 [ 1, %101 ], [ 1, %143 ], [ 0, %154 ], [ 5, %134 ], [ 3, %119 ], [ 5, %.critedge102 ]
+  %.ph = phi i1 [ false, %101 ], [ true, %154 ], [ false, %134 ], [ false, %119 ], [ false, %143 ], [ false, %.critedge102 ]
+  %.030.ph = phi i32 [ 1, %101 ], [ 0, %154 ], [ 5, %134 ], [ 3, %119 ], [ 1, %143 ], [ 5, %.critedge102 ]
   %.pr = load i32, ptr %15, align 4, !tbaa !29
   br label %_ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exit
 
 _ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exit: ; preds = %_ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exitthread-pre-split, %_ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.exit.i73, %_ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.exit.i68, %_ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.exit.i
-  %156 = phi i32 [ %.pr, %_ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exitthread-pre-split ], [ %.pre.i75, %_ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.exit.i73 ], [ %.pre.i70, %_ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.exit.i68 ], [ %.pre.i, %_ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.exit.i ]
-  %157 = phi i1 [ %.ph, %_ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exitthread-pre-split ], [ false, %_ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.exit.i73 ], [ false, %_ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.exit.i68 ], [ false, %_ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.exit.i ]
-  %.030 = phi i32 [ %.030.ph, %_ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exitthread-pre-split ], [ 4, %_ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.exit.i73 ], [ 2, %_ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.exit.i68 ], [ 1, %_ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.exit.i ]
+  %156 = phi i32 [ %.pr, %_ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exitthread-pre-split ], [ %.pre.i70, %_ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.exit.i68 ], [ %.pre.i75, %_ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.exit.i73 ], [ %.pre.i, %_ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.exit.i ]
+  %157 = phi i1 [ %.ph, %_ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exitthread-pre-split ], [ false, %_ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.exit.i68 ], [ false, %_ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.exit.i73 ], [ false, %_ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.exit.i ]
+  %.030 = phi i32 [ %.030.ph, %_ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exitthread-pre-split ], [ 2, %_ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.exit.i68 ], [ 4, %_ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.exit.i73 ], [ 1, %_ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.exit.i ]
   switch i32 %156, label %.loopexit [
     i32 0, label %158
     i32 1, label %_ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exit.thread
@@ -567,8 +567,8 @@ _ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReader
 .critedge102.backedge:                            ; preds = %._ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exit.thread90_crit_edge, %158
   br label %.critedge102
 
-.loopexit:                                        ; preds = %_ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exit, %._ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exit.thread90_crit_edge, %127, %114, %100, %155, %.thread92, %75
-  %169 = phi i1 [ true, %.thread92 ], [ false, %75 ], [ false, %155 ], [ false, %100 ], [ false, %114 ], [ false, %127 ], [ false, %._ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exit.thread90_crit_edge ], [ false, %_ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exit ]
+.loopexit:                                        ; preds = %_ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exit, %._ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exit.thread90_crit_edge, %127, %114, %155, %100, %.thread92, %75
+  %169 = phi i1 [ false, %75 ], [ true, %.thread92 ], [ false, %127 ], [ false, %100 ], [ false, %155 ], [ false, %114 ], [ false, %._ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exit.thread90_crit_edge ], [ false, %_ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @_ZN3net23SpdyPinnableBufferPieceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -602,7 +602,7 @@ _ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReader
   br label %174
 
 .critedge52:                                      ; preds = %.critedge, %17, %.loopexit, %.critedge58, %.critedge55
-  %.026 = phi i1 [ false, %.critedge55 ], [ false, %.critedge58 ], [ %169, %.loopexit ], [ false, %17 ], [ false, %.critedge ]
+  %.026 = phi i1 [ %169, %.loopexit ], [ false, %.critedge55 ], [ false, %.critedge58 ], [ false, %17 ], [ false, %.critedge ]
   ret i1 %.026
 
 174:                                              ; preds = %173, %60, %47, %24

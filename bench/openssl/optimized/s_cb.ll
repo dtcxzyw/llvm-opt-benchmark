@@ -646,7 +646,7 @@ define range(i32 0, 2) i32 @set_cert_key_stuff(ptr noundef %0, ptr noundef %1, p
   br label %41
 
 41:                                               ; preds = %33, %34, %5, %37, %29, %23, %17, %10
-  %.0 = phi i32 [ 0, %10 ], [ 0, %17 ], [ 0, %37 ], [ 0, %29 ], [ 0, %23 ], [ 1, %5 ], [ 1, %34 ], [ 1, %33 ]
+  %.0 = phi i32 [ 0, %23 ], [ 0, %10 ], [ 0, %17 ], [ 1, %5 ], [ 0, %37 ], [ 0, %29 ], [ 1, %34 ], [ 1, %33 ]
   ret i32 %.0
 }
 
@@ -803,7 +803,7 @@ ssl_print_client_cert_types.exit:                 ; preds = %6, %._crit_edge.i
   br label %get_sigtype.exit
 
 get_sigtype.exit:                                 ; preds = %41, %43, %44, %45, %46, %47, %48, %49, %50, %51
-  %.0.i = phi ptr [ %52, %51 ], [ @.str.146, %43 ], [ @.str.147, %44 ], [ @.str.148, %45 ], [ @.str.149, %46 ], [ @.str.150, %47 ], [ @.str.151, %48 ], [ @.str.152, %49 ], [ @.str.153, %50 ], [ @.str.145, %41 ]
+  %.0.i = phi ptr [ %52, %51 ], [ @.str.153, %50 ], [ @.str.146, %43 ], [ @.str.147, %44 ], [ @.str.148, %45 ], [ @.str.149, %46 ], [ @.str.150, %47 ], [ @.str.151, %48 ], [ @.str.152, %49 ], [ @.str.145, %41 ]
   %53 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.16, ptr noundef %.0.i) #6
   br label %54
 
@@ -967,8 +967,8 @@ get_sigtype.exit:                                 ; preds = %46
   %.not40 = icmp eq i32 %61, 0
   br i1 %.not40, label %68, label %64
 
-.thread57:                                        ; preds = %get_sigtype.exit, %48, %49, %50, %51, %52, %53, %54, %55, %46
-  %.0.i49 = phi ptr [ %56, %get_sigtype.exit ], [ @.str.145, %46 ], [ @.str.153, %55 ], [ @.str.152, %54 ], [ @.str.151, %53 ], [ @.str.150, %52 ], [ @.str.149, %51 ], [ @.str.148, %50 ], [ @.str.147, %49 ], [ @.str.146, %48 ]
+.thread57:                                        ; preds = %get_sigtype.exit, %55, %48, %49, %50, %51, %52, %53, %54, %46
+  %.0.i49 = phi ptr [ %56, %get_sigtype.exit ], [ @.str.145, %46 ], [ @.str.152, %54 ], [ @.str.151, %53 ], [ @.str.150, %52 ], [ @.str.149, %51 ], [ @.str.148, %50 ], [ @.str.147, %49 ], [ @.str.146, %48 ], [ @.str.153, %55 ]
   %62 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.25, ptr noundef nonnull %.0.i49) #6
   %63 = load i32, ptr %4, align 4, !tbaa !22
   %.not4059 = icmp eq i32 %63, 0
@@ -1626,10 +1626,10 @@ lookup.exit71.thread122:                          ; preds = %.lr.ph.i73.preheade
   br label %.lr.ph103.preheader
 
 lookup.exit71:                                    ; preds = %.lr.ph.i73, %.lr.ph.i67, %.lookup.exit71.loopexit90_crit_edge, %.lookup.exit71.loopexit_crit_edge, %lookup.exit, %37, %38, %39, %40, %15, %42
-  %.1 = phi ptr [ @.str.53, %40 ], [ @.str.57, %15 ], [ @.str.53, %37 ], [ @.str.53, %38 ], [ @.str.53, %39 ], [ @.str.53, %42 ], [ @.str.53, %lookup.exit ], [ %switch.select65, %.lookup.exit71.loopexit_crit_edge ], [ @.str.54, %.lookup.exit71.loopexit90_crit_edge ], [ %switch.select65, %.lr.ph.i67 ], [ %33, %.lr.ph.i73 ]
-  %.058 = phi ptr [ @.str.53, %40 ], [ @.str.53, %15 ], [ @.str.53, %37 ], [ @.str.53, %38 ], [ @.str.53, %39 ], [ @.str.53, %42 ], [ @.str.53, %lookup.exit ], [ @.str.60, %.lookup.exit71.loopexit_crit_edge ], [ @.str.53, %.lookup.exit71.loopexit90_crit_edge ], [ %23, %.lr.ph.i67 ], [ @.str.53, %.lr.ph.i73 ]
-  %.057 = phi ptr [ %8, %40 ], [ @.str.56, %15 ], [ @.str.62, %37 ], [ @.str.63, %38 ], [ @.str.64, %39 ], [ @.str.53, %42 ], [ @.str.55, %lookup.exit ], [ @.str.56, %.lookup.exit71.loopexit_crit_edge ], [ @.str.61, %.lookup.exit71.loopexit90_crit_edge ], [ @.str.56, %.lr.ph.i67 ], [ @.str.61, %.lr.ph.i73 ]
-  %.056 = phi ptr [ %.0.i, %40 ], [ %.0.i, %15 ], [ %.0.i, %37 ], [ %.0.i, %38 ], [ %.0.i, %39 ], [ %8, %42 ], [ %.0.i, %lookup.exit ], [ %.0.i, %.lookup.exit71.loopexit_crit_edge ], [ %.0.i, %.lookup.exit71.loopexit90_crit_edge ], [ %.0.i, %.lr.ph.i67 ], [ %.0.i, %.lr.ph.i73 ]
+  %.1 = phi ptr [ @.str.53, %40 ], [ @.str.53, %42 ], [ @.str.53, %lookup.exit ], [ @.str.57, %15 ], [ @.str.53, %39 ], [ @.str.54, %.lookup.exit71.loopexit90_crit_edge ], [ @.str.53, %37 ], [ @.str.53, %38 ], [ %switch.select65, %.lr.ph.i67 ], [ %switch.select65, %.lookup.exit71.loopexit_crit_edge ], [ %33, %.lr.ph.i73 ]
+  %.058 = phi ptr [ @.str.53, %40 ], [ @.str.53, %42 ], [ @.str.53, %lookup.exit ], [ @.str.53, %15 ], [ @.str.53, %39 ], [ @.str.53, %.lookup.exit71.loopexit90_crit_edge ], [ @.str.53, %37 ], [ @.str.53, %38 ], [ %23, %.lr.ph.i67 ], [ @.str.60, %.lookup.exit71.loopexit_crit_edge ], [ @.str.53, %.lr.ph.i73 ]
+  %.057 = phi ptr [ %8, %40 ], [ @.str.53, %42 ], [ @.str.55, %lookup.exit ], [ @.str.56, %15 ], [ @.str.64, %39 ], [ @.str.61, %.lookup.exit71.loopexit90_crit_edge ], [ @.str.62, %37 ], [ @.str.63, %38 ], [ @.str.56, %.lr.ph.i67 ], [ @.str.56, %.lookup.exit71.loopexit_crit_edge ], [ @.str.61, %.lr.ph.i73 ]
+  %.056 = phi ptr [ %.0.i, %40 ], [ %8, %42 ], [ %.0.i, %lookup.exit ], [ %.0.i, %15 ], [ %.0.i, %39 ], [ %.0.i, %.lookup.exit71.loopexit90_crit_edge ], [ %.0.i, %37 ], [ %.0.i, %38 ], [ %.0.i, %.lr.ph.i67 ], [ %.0.i, %.lookup.exit71.loopexit_crit_edge ], [ %.0.i, %.lr.ph.i73 ]
   %45 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.67, ptr noundef nonnull %9, ptr noundef %.056, ptr noundef nonnull %.057, i64 noundef %4, ptr noundef %.1, ptr noundef nonnull %.058) #6
   %.not63 = icmp eq i64 %4, 0
   br i1 %.not63, label %59, label %.lr.ph103.preheader
@@ -1695,7 +1695,7 @@ define void @tlsext_cb(ptr noundef readnone captures(none) %0, i32 noundef %1, i
   br label %lookup.exit, !llvm.loop !18
 
 lookup.exit:                                      ; preds = %.lr.ph.i, %.lookup.exit_crit_edge, %6
-  %.0.i = phi ptr [ @.str.72, %.lookup.exit_crit_edge ], [ @.str.218, %6 ], [ %9, %.lr.ph.i ]
+  %.0.i = phi ptr [ @.str.218, %6 ], [ @.str.72, %.lookup.exit_crit_edge ], [ %9, %.lr.ph.i ]
   %.not = icmp eq i32 %1, 0
   %13 = select i1 %.not, ptr @.str.75, ptr @.str.74
   %14 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %5, ptr noundef nonnull @.str.73, ptr noundef nonnull %13, ptr noundef nonnull %.0.i, i32 noundef %2, i32 noundef %4) #6
@@ -2030,7 +2030,7 @@ print_chain_flags.exit:                           ; preds = %39, %43
   br i1 %.not31, label %.loopexit, label %.preheader, !llvm.loop !58
 
 .loopexit:                                        ; preds = %61, %59, %55, %46, %49, %2
-  %.026 = phi i32 [ 1, %2 ], [ 1, %61 ], [ 0, %59 ], [ 0, %55 ], [ 0, %46 ], [ 0, %49 ]
+  %.026 = phi i32 [ 1, %2 ], [ 1, %61 ], [ 0, %49 ], [ 0, %55 ], [ 0, %46 ], [ 0, %59 ]
   ret i32 %.026
 }
 
@@ -2170,7 +2170,7 @@ ssl_excert_free.exit:                             ; preds = %.preheader.i
   br i1 %.not, label %.loopexit, label %20, !llvm.loop !66
 
 .loopexit:                                        ; preds = %52, %49, %43, %27, %1, %24, %ssl_excert_free.exit
-  %.024 = phi i32 [ 1, %ssl_excert_free.exit ], [ 0, %24 ], [ 1, %1 ], [ 1, %52 ], [ 0, %49 ], [ 0, %43 ], [ 0, %27 ]
+  %.024 = phi i32 [ 1, %1 ], [ 1, %ssl_excert_free.exit ], [ 0, %24 ], [ 1, %52 ], [ 0, %43 ], [ 0, %27 ], [ 0, %49 ]
   ret i32 %.024
 }
 
@@ -2311,7 +2311,7 @@ ssl_excert_free.exit:                             ; preds = %.preheader.i
   br label %54
 
 54:                                               ; preds = %36, %33, %7, %7, %ssl_excert_free.exit, %40
-  %.0 = phi i32 [ 1, %40 ], [ 0, %ssl_excert_free.exit ], [ 0, %7 ], [ 0, %7 ], [ 0, %33 ], [ 0, %36 ]
+  %.0 = phi i32 [ 1, %40 ], [ 0, %33 ], [ 0, %ssl_excert_free.exit ], [ 0, %7 ], [ 0, %7 ], [ 0, %36 ]
   ret i32 %.0
 }
 
@@ -2429,8 +2429,8 @@ define void @print_verify_detail(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br i1 %.not.i28, label %hexencode.exit, label %.lr.ph.i24, !llvm.loop !67
 
 hexencode.exit:                                   ; preds = %.lr.ph.i24, %.lr.ph.i, %45
-  %.017.lcssa.i.sink = phi ptr [ %48, %45 ], [ %44, %.lr.ph.i ], [ %62, %.lr.ph.i24 ]
-  %.0 = phi ptr [ %48, %45 ], [ %30, %.lr.ph.i ], [ %48, %.lr.ph.i24 ]
+  %.017.lcssa.i.sink = phi ptr [ %44, %.lr.ph.i ], [ %48, %45 ], [ %62, %.lr.ph.i24 ]
+  %.0 = phi ptr [ %30, %.lr.ph.i ], [ %48, %45 ], [ %48, %.lr.ph.i24 ]
   store i8 0, ptr %.017.lcssa.i.sink, align 1, !tbaa !15
   %63 = load i8, ptr %4, align 1, !tbaa !15
   %64 = zext i8 %63 to i32
@@ -2883,9 +2883,9 @@ add_crls_store.exit:                              ; preds = %.lr.ph.i, %25
   br label %56
 
 56:                                               ; preds = %53, %37, %51, %48, %45, %41, %add_crls_store.exit, %23, %20, %17, %13
-  %.145 = phi ptr [ null, %13 ], [ %14, %add_crls_store.exit ], [ %.044, %41 ], [ %.044, %51 ], [ %.044, %48 ], [ %.044, %45 ], [ %14, %23 ], [ %14, %20 ], [ %14, %17 ], [ %.044, %37 ], [ %.044, %53 ]
-  %.043 = phi ptr [ null, %13 ], [ null, %add_crls_store.exit ], [ null, %41 ], [ %42, %51 ], [ %42, %48 ], [ %42, %45 ], [ null, %23 ], [ null, %20 ], [ null, %17 ], [ null, %37 ], [ %42, %53 ]
-  %.0 = phi i32 [ 0, %13 ], [ 0, %add_crls_store.exit ], [ 0, %41 ], [ 0, %51 ], [ 0, %48 ], [ 0, %45 ], [ 0, %23 ], [ 0, %20 ], [ 0, %17 ], [ 1, %37 ], [ %spec.select, %53 ]
+  %.145 = phi ptr [ null, %13 ], [ %14, %add_crls_store.exit ], [ %.044, %41 ], [ %.044, %53 ], [ %14, %17 ], [ %.044, %51 ], [ %.044, %48 ], [ %.044, %45 ], [ %14, %23 ], [ %14, %20 ], [ %.044, %37 ]
+  %.043 = phi ptr [ null, %13 ], [ null, %add_crls_store.exit ], [ null, %41 ], [ %42, %53 ], [ null, %17 ], [ %42, %51 ], [ %42, %48 ], [ %42, %45 ], [ null, %23 ], [ null, %20 ], [ null, %37 ]
+  %.0 = phi i32 [ 0, %13 ], [ 0, %add_crls_store.exit ], [ 0, %41 ], [ %spec.select, %53 ], [ 0, %17 ], [ 0, %51 ], [ 0, %48 ], [ 0, %45 ], [ 0, %23 ], [ 0, %20 ], [ 1, %37 ]
   tail call void @X509_STORE_free(ptr noundef %.145) #6
   tail call void @X509_STORE_free(ptr noundef %.043) #6
   ret i32 %.0
@@ -3011,8 +3011,8 @@ lookup.exit86:                                    ; preds = %.lr.ph.i82, %.lr.ph
   br label %.thread
 
 .thread:                                          ; preds = %lookup.exit, %lookup.exit, %34, %lookup.exit86, %33, %36, %35
-  %.not79109 = phi i1 [ false, %36 ], [ false, %35 ], [ false, %33 ], [ false, %34 ], [ true, %lookup.exit86 ], [ true, %lookup.exit ], [ true, %lookup.exit ]
-  %.not78108 = phi i1 [ %.not78110, %36 ], [ true, %35 ], [ false, %33 ], [ true, %34 ], [ true, %lookup.exit86 ], [ true, %lookup.exit ], [ true, %lookup.exit ]
+  %.not79109 = phi i1 [ false, %33 ], [ false, %36 ], [ false, %35 ], [ false, %34 ], [ true, %lookup.exit86 ], [ true, %lookup.exit ], [ true, %lookup.exit ]
+  %.not78108 = phi i1 [ false, %33 ], [ %.not78110, %36 ], [ true, %35 ], [ true, %34 ], [ true, %lookup.exit86 ], [ true, %lookup.exit ], [ true, %lookup.exit ]
   %39 = add i32 %2, -65536
   %40 = lshr i32 %39, 16
   %trunc = trunc nuw i32 %40 to i16
@@ -3235,7 +3235,7 @@ define range(i32 0, 2) i32 @set_keylog_file(ptr noundef %0, ptr noundef %1) loca
   br label %22
 
 22:                                               ; preds = %2, %21, %9
-  %.0 = phi i32 [ 1, %9 ], [ 0, %21 ], [ 0, %2 ]
+  %.0 = phi i32 [ 0, %21 ], [ 1, %9 ], [ 0, %2 ]
   ret i32 %.0
 }
 

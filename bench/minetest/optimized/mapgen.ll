@@ -2401,7 +2401,7 @@ cond.end.i.i.us:                                  ; preds = %_ZNKSt4lessIN3irr4c
   br i1 %cmp.not.i.i.us, label %if.then.i.i273.us, label %while.body.i.i.us.backedge
 
 while.body.i.i.us.backedge:                       ; preds = %cond.end.i.i.us, %cond.end.i.thread.i.us
-  %__x.059.i.i.us.be = phi ptr [ %__x.0.i.i.us, %cond.end.i.i.us ], [ %__x.0.i31.i.us, %cond.end.i.thread.i.us ]
+  %__x.059.i.i.us.be = phi ptr [ %__x.0.i31.i.us, %cond.end.i.thread.i.us ], [ %__x.0.i.i.us, %cond.end.i.i.us ]
   br label %while.body.i.i.us, !llvm.loop !149
 
 if.then.i.i273.us:                                ; preds = %cond.end.i.i.us, %if.then50.us
@@ -2884,7 +2884,7 @@ cond.end.i.i387.us:                               ; preds = %_ZNKSt4lessIN3irr4c
   br i1 %cmp.not.i.i390.us, label %if.then.i.i391.us, label %while.body.i.i324.us.backedge
 
 while.body.i.i324.us.backedge:                    ; preds = %cond.end.i.i387.us, %cond.end.i.thread.i330.us
-  %__x.059.i.i325.us.be = phi ptr [ %__x.0.i.i389.us, %cond.end.i.i387.us ], [ %__x.0.i31.i332.us, %cond.end.i.thread.i330.us ]
+  %__x.059.i.i325.us.be = phi ptr [ %__x.0.i31.i332.us, %cond.end.i.thread.i330.us ], [ %__x.0.i.i389.us, %cond.end.i.i387.us ]
   br label %while.body.i.i324.us, !llvm.loop !149
 
 if.then.i.i391.us:                                ; preds = %cond.end.i.i387.us, %if.then69.us
@@ -3133,8 +3133,8 @@ if.end77.us.sink.split:                           ; preds = %_ZNSt5dequeIN3irr4c
   br label %if.end77.us
 
 if.end77.us:                                      ; preds = %if.end77.us.sink.split, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i.i352.us, %land.lhs.true18.i.i34.i.i350.us, %lor.lhs.false.i.i28.i.i340.us, %land.lhs.true74.i218.us, %_ZNK14NodeDefManager3getERK7MapNode.exit154.i214.us, %if.end57.i198.us, %lor.lhs.false64.us, %if.else55.us, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i.i.us, %land.lhs.true18.i.i34.i.i.us, %lor.lhs.false.i.i28.i.i.us, %land.lhs.true74.i.us, %_ZNK14NodeDefManager3getERK7MapNode.exit154.i.us, %if.end57.i.us, %if.end.us
-  %waspushed.1.us = phi i8 [ 0, %if.end.us ], [ 0, %if.end57.i198.us ], [ 0, %lor.lhs.false64.us ], [ 1, %if.else55.us ], [ 0, %land.lhs.true74.i218.us ], [ 0, %_ZNK14NodeDefManager3getERK7MapNode.exit154.i214.us ], [ 0, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i.i352.us ], [ 0, %land.lhs.true18.i.i34.i.i350.us ], [ 0, %lor.lhs.false.i.i28.i.i340.us ], [ 0, %if.end57.i.us ], [ 0, %land.lhs.true74.i.us ], [ 0, %_ZNK14NodeDefManager3getERK7MapNode.exit154.i.us ], [ 1, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i.i.us ], [ 1, %land.lhs.true18.i.i34.i.i.us ], [ 1, %lor.lhs.false.i.i28.i.i.us ], [ %waspushed.1.us.ph, %if.end77.us.sink.split ]
-  %waschecked.1.us = phi i8 [ 0, %if.end.us ], [ 0, %if.end57.i198.us ], [ 1, %lor.lhs.false64.us ], [ %waschecked.0551.us, %if.else55.us ], [ 0, %land.lhs.true74.i218.us ], [ 0, %_ZNK14NodeDefManager3getERK7MapNode.exit154.i214.us ], [ %waschecked.0551.us, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i.i352.us ], [ %waschecked.0551.us, %land.lhs.true18.i.i34.i.i350.us ], [ %waschecked.0551.us, %lor.lhs.false.i.i28.i.i340.us ], [ 1, %if.end57.i.us ], [ 1, %land.lhs.true74.i.us ], [ 1, %_ZNK14NodeDefManager3getERK7MapNode.exit154.i.us ], [ 1, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i.i.us ], [ 1, %land.lhs.true18.i.i34.i.i.us ], [ 1, %lor.lhs.false.i.i28.i.i.us ], [ %waschecked.1.us.ph, %if.end77.us.sink.split ]
+  %waspushed.1.us = phi i8 [ 0, %if.end.us ], [ %waspushed.1.us.ph, %if.end77.us.sink.split ], [ 0, %if.end57.i198.us ], [ 0, %lor.lhs.false64.us ], [ 1, %if.else55.us ], [ 0, %land.lhs.true74.i218.us ], [ 0, %_ZNK14NodeDefManager3getERK7MapNode.exit154.i214.us ], [ 0, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i.i352.us ], [ 0, %land.lhs.true18.i.i34.i.i350.us ], [ 0, %lor.lhs.false.i.i28.i.i340.us ], [ 0, %if.end57.i.us ], [ 0, %land.lhs.true74.i.us ], [ 0, %_ZNK14NodeDefManager3getERK7MapNode.exit154.i.us ], [ 1, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i.i.us ], [ 1, %land.lhs.true18.i.i34.i.i.us ], [ 1, %lor.lhs.false.i.i28.i.i.us ]
+  %waschecked.1.us = phi i8 [ 0, %if.end.us ], [ %waschecked.1.us.ph, %if.end77.us.sink.split ], [ 0, %if.end57.i198.us ], [ 1, %lor.lhs.false64.us ], [ %waschecked.0551.us, %if.else55.us ], [ 0, %land.lhs.true74.i218.us ], [ 0, %_ZNK14NodeDefManager3getERK7MapNode.exit154.i214.us ], [ %waschecked.0551.us, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i.i352.us ], [ %waschecked.0551.us, %land.lhs.true18.i.i34.i.i350.us ], [ %waschecked.0551.us, %lor.lhs.false.i.i28.i.i340.us ], [ 1, %if.end57.i.us ], [ 1, %land.lhs.true74.i.us ], [ 1, %_ZNK14NodeDefManager3getERK7MapNode.exit154.i.us ], [ 1, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i.i.us ], [ 1, %land.lhs.true18.i.i34.i.i.us ], [ 1, %lor.lhs.false.i.i28.i.i.us ]
   %122 = load i16, ptr %m_cache_extent.i, align 2, !tbaa !83
   %conv1.i254.us = sext i16 %122 to i32
   %add.i256.us = sub i32 %vi.0547.us, %conv1.i254.us

@@ -551,7 +551,7 @@ define hidden noundef zeroext i1 @_ZNK2pb3pbc14is_cardinalityEv(ptr noundef nonn
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
-  %.01318 = phi ptr [ %5, %.lr.ph.preheader ], [ %8, %.lr.ph ]
+  %.01318 = phi ptr [ %8, %.lr.ph ], [ %5, %.lr.ph.preheader ]
   %.sroa.0.0.copyload = load i32, ptr %.01318, align 4
   %.not16 = icmp eq i32 %.sroa.0.0.copyload, %.sroa.08.0.extract.trunc
   %8 = getelementptr inbounds nuw i8, ptr %.01318, i64 8
@@ -681,7 +681,7 @@ define hidden noundef double @_ZNK2pb3pbc10get_rewardERKNS_16solver_interfaceERN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %33, %23, %3, %._crit_edge, %45
-  %.3 = phi double [ %51, %45 ], [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %3 ], [ 0.000000e+00, %23 ], [ 0.000000e+00, %33 ]
+  %.3 = phi double [ 0.000000e+00, %._crit_edge ], [ %51, %45 ], [ 0.000000e+00, %23 ], [ 0.000000e+00, %3 ], [ 0.000000e+00, %33 ]
   ret double %.3
 }
 
@@ -948,7 +948,7 @@ define hidden noundef zeroext i1 @_ZN2pb3pbc10init_watchERNS_16solver_interfaceE
   br i1 %exitcond139.not, label %.loopexit, label %.lr.ph122, !llvm.loop !67
 
 .loopexit:                                        ; preds = %.lr.ph122, %._crit_edge120.thread, %._crit_edge120, %._crit_edge116
-  %96 = phi i1 [ true, %._crit_edge120 ], [ false, %._crit_edge116 ], [ true, %._crit_edge120.thread ], [ true, %.lr.ph122 ]
+  %96 = phi i1 [ true, %._crit_edge120.thread ], [ true, %._crit_edge120 ], [ false, %._crit_edge116 ], [ true, %.lr.ph122 ]
   ret i1 %96
 }
 

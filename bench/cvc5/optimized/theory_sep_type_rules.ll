@@ -446,7 +446,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit44:            ; preds = %_ZN4cvc58internal8T
   ret void
 
 165:                                              ; preds = %28, %59, %132, %150
-  %.pn28 = phi { ptr, i32 } [ %151, %150 ], [ %29, %28 ], [ %.pn23, %132 ], [ %60, %59 ]
+  %.pn28 = phi { ptr, i32 } [ %151, %150 ], [ %29, %28 ], [ %60, %59 ], [ %.pn23, %132 ]
   call void @_ZN4cvc58internal8TypeNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn28
@@ -881,7 +881,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit44:            ; preds = %_ZN4cvc58internal8T
   ret void
 
 165:                                              ; preds = %28, %59, %132, %150
-  %.pn28 = phi { ptr, i32 } [ %151, %150 ], [ %29, %28 ], [ %.pn23, %132 ], [ %60, %59 ]
+  %.pn28 = phi { ptr, i32 } [ %151, %150 ], [ %29, %28 ], [ %60, %59 ], [ %.pn23, %132 ]
   call void @_ZN4cvc58internal8TypeNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn28

@@ -2058,7 +2058,7 @@ define internal fastcc range(i32 -5, -2147483648) i32 @drm_dp_mst_wait_tx_reply(
   br label %select.unfold
 
 select.unfold:                                    ; preds = %61, %79, %72
-  %.ph = phi ptr [ %65, %72 ], [ %65, %79 ], [ %59, %61 ]
+  %.ph = phi ptr [ %65, %79 ], [ %65, %72 ], [ %59, %61 ]
   %85 = load i64, ptr @__drm_debug, align 8
   %86 = and i64 %85, 256
   %87 = icmp eq i64 %86, 0
@@ -2790,12 +2790,12 @@ define dso_local range(i32 -2147483648, 1) i32 @drm_dp_mst_topology_mgr_set_mst(
   br label %.thread11
 
 .thread8:                                         ; preds = %2, %33, %37
-  %.ph = phi i32 [ %24, %33 ], [ 0, %2 ], [ -12, %37 ]
+  %.ph = phi i32 [ 0, %2 ], [ %24, %33 ], [ -12, %37 ]
   tail call void @mutex_unlock(ptr noundef nonnull %5) #21
   br label %90
 
-.thread11:                                        ; preds = %67, %74
-  %.ph10 = phi i32 [ 0, %74 ], [ %72, %67 ]
+.thread11:                                        ; preds = %74, %67
+  %.ph10 = phi i32 [ %72, %67 ], [ 0, %74 ]
   call void @mutex_unlock(ptr noundef nonnull %5) #21
   br label %87
 
@@ -4861,7 +4861,7 @@ define dso_local i32 @drm_dp_atomic_release_time_slots(ptr noundef %0, ptr nound
   br label %.critedge
 
 .critedge:                                        ; preds = %.thread, %37, %.thread11.thread, %101, %93, %83, %81, %54, %51, %11
-  %115 = phi i32 [ %53, %51 ], [ -22, %81 ], [ 0, %11 ], [ 0, %54 ], [ 0, %83 ], [ 0, %101 ], [ 0, %93 ], [ 0, %.thread11.thread ], [ 0, %37 ], [ 0, %.thread ]
+  %115 = phi i32 [ %53, %51 ], [ -22, %81 ], [ 0, %93 ], [ 0, %11 ], [ 0, %54 ], [ 0, %83 ], [ 0, %101 ], [ 0, %.thread11.thread ], [ 0, %37 ], [ 0, %.thread ]
   ret i32 %115
 }
 
@@ -6442,7 +6442,7 @@ drm_dp_mst_is_virtual_dpcd.exit9.thread19:        ; preds = %.split.thread15, %d
   br label %.loopexit
 
 .loopexit:                                        ; preds = %drm_dp_mst_is_virtual_dpcd.exit.thread10, %.thread, %253, %249, %242, %238, %213, %drm_dp_mst_is_virtual_dpcd.exit9.thread, %151, %1
-  %254 = phi ptr [ %152, %151 ], [ %205, %drm_dp_mst_is_virtual_dpcd.exit9.thread ], [ null, %253 ], [ null, %1 ], [ null, %213 ], [ null, %238 ], [ null, %242 ], [ %239, %249 ], [ %.ph, %.thread ], [ null, %drm_dp_mst_is_virtual_dpcd.exit.thread10 ]
+  %254 = phi ptr [ %152, %151 ], [ %205, %drm_dp_mst_is_virtual_dpcd.exit9.thread ], [ null, %253 ], [ %.ph, %.thread ], [ null, %1 ], [ null, %213 ], [ null, %238 ], [ null, %242 ], [ %239, %249 ], [ null, %drm_dp_mst_is_virtual_dpcd.exit.thread10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -6974,7 +6974,7 @@ define internal fastcc i32 @drm_dp_mst_atomic_check_mstb_bw_limit(ptr noundef %0
   br label %127
 
 127:                                              ; preds = %123, %96
-  %128 = phi i32 [ %103, %123 ], [ %99, %96 ]
+  %128 = phi i32 [ %99, %96 ], [ %103, %123 ]
   %129 = icmp slt i32 %128, 0
   br i1 %129, label %.thread25, label %.thread23
 
@@ -11002,7 +11002,7 @@ define internal fastcc range(i32 17, 16) i32 @drm_dp_send_link_address(ptr nound
   br label %.loopexit59
 
 .loopexit59:                                      ; preds = %445, %447, %398
-  %449 = phi i32 [ %389, %447 ], [ %389, %398 ], [ %443, %445 ]
+  %449 = phi i32 [ %389, %398 ], [ %389, %447 ], [ %443, %445 ]
   call fastcc void @drm_dp_mst_topology_put_port(ptr noundef nonnull %321)
   br label %.thread54
 
@@ -11092,8 +11092,8 @@ define internal fastcc range(i32 17, 16) i32 @drm_dp_send_link_address(ptr nound
   br i1 %499, label %.thread54, label %502
 
 .thread54:                                        ; preds = %.thread40, %244, %.loopexit59, %55, %42, %496
-  %500 = phi i8 [ %498, %496 ], [ 0, %55 ], [ 0, %42 ], [ %179, %.loopexit59 ], [ %179, %244 ], [ %179, %.thread40 ]
-  %501 = phi i32 [ %497, %496 ], [ -5, %55 ], [ %33, %42 ], [ %449, %.loopexit59 ], [ -12, %244 ], [ -12, %.thread40 ]
+  %500 = phi i8 [ %498, %496 ], [ 0, %42 ], [ 0, %55 ], [ %179, %.loopexit59 ], [ %179, %244 ], [ %179, %.thread40 ]
+  %501 = phi i32 [ %497, %496 ], [ %33, %42 ], [ -5, %55 ], [ %449, %.loopexit59 ], [ -12, %244 ], [ -12, %.thread40 ]
   store i8 0, ptr %12, align 8
   br label %502
 
@@ -11324,8 +11324,8 @@ define internal fastcc range(i32 -12, 2) i32 @drm_dp_send_enum_path_resources(pt
   br label %83
 
 83:                                               ; preds = %77, %._crit_edge
-  %84 = phi i8 [ %.pre.pre, %._crit_edge ], [ %81, %77 ]
-  %85 = phi i32 [ 1, %._crit_edge ], [ %spec.select12, %77 ]
+  %84 = phi i8 [ %81, %77 ], [ %.pre.pre, %._crit_edge ]
+  %85 = phi i32 [ %spec.select12, %77 ], [ 1, %._crit_edge ]
   store i16 %75, ptr %73, align 2
   %86 = getelementptr inbounds nuw i8, ptr %2, i64 1384
   store i8 %84, ptr %86, align 8

@@ -333,8 +333,8 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i: ; preds = %32
   br i1 %.not120, label %._crit_edge.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %.thread118, %.thread, %39
-  %41 = phi i64 [ 0, %.thread ], [ %40, %39 ], [ %31, %.thread118 ], [ %40, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.pre.i.i117 = phi ptr [ null, %.thread ], [ %36, %39 ], [ null, %.thread118 ], [ %36, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %41 = phi i64 [ 0, %.thread ], [ %31, %.thread118 ], [ %40, %39 ], [ %40, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.pre.i.i117 = phi ptr [ null, %.thread ], [ null, %.thread118 ], [ %36, %39 ], [ %36, %.lr.ph.i.i.i.i.i.i.i.i ]
   %42 = icmp slt i64 %41, %27
   br i1 %42, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEE4evalEv.exit
 
@@ -759,8 +759,8 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i: ; preds = %30
   br i1 %.not142, label %._crit_edge.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %.thread140, %.thread, %37
-  %39 = phi i64 [ 0, %.thread ], [ %38, %37 ], [ %29, %.thread140 ], [ %38, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.pre.i.i139 = phi ptr [ null, %.thread ], [ %34, %37 ], [ null, %.thread140 ], [ %34, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %39 = phi i64 [ 0, %.thread ], [ %29, %.thread140 ], [ %38, %37 ], [ %38, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.pre.i.i139 = phi ptr [ null, %.thread ], [ null, %.thread140 ], [ %34, %37 ], [ %34, %.lr.ph.i.i.i.i.i.i.i.i ]
   %40 = icmp slt i64 %39, %25
   br i1 %40, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEEEE4evalEv.exit
 
@@ -2011,8 +2011,8 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i: ; preds = %31
   br i1 %.not128, label %._crit_edge.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %.thread126, %.thread, %38
-  %40 = phi i64 [ 0, %.thread ], [ %39, %38 ], [ %30, %.thread126 ], [ %39, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.pre.i.i125 = phi ptr [ null, %.thread ], [ %35, %38 ], [ null, %.thread126 ], [ %35, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %40 = phi i64 [ 0, %.thread ], [ %30, %.thread126 ], [ %39, %38 ], [ %39, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.pre.i.i125 = phi ptr [ null, %.thread ], [ null, %.thread126 ], [ %35, %38 ], [ %35, %.lr.ph.i.i.i.i.i.i.i.i ]
   %41 = icmp slt i64 %40, %26
   br i1 %41, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEE4evalEv.exit
 

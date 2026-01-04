@@ -357,7 +357,7 @@ rm_read_extradata.exit120:                        ; preds = %97
   br label %.thread124
 
 .thread124:                                       ; preds = %rm_read_extradata.exit120.thread, %rm_read_extradata.exit120, %129, %rm_read_extradata.exit.thread, %133, %137, %rm_read_extradata.exit, %19, %12, %10, %6
-  %.0 = phi i32 [ -1094995529, %6 ], [ 0, %10 ], [ -1094995529, %12 ], [ -1, %19 ], [ %25, %rm_read_extradata.exit ], [ 0, %137 ], [ 0, %133 ], [ -1, %rm_read_extradata.exit.thread ], [ -1, %rm_read_extradata.exit120.thread ], [ %114, %rm_read_extradata.exit120 ], [ -1094995529, %129 ]
+  %.0 = phi i32 [ %25, %rm_read_extradata.exit ], [ -1094995529, %6 ], [ 0, %10 ], [ -1094995529, %12 ], [ -1, %rm_read_extradata.exit.thread ], [ -1, %19 ], [ 0, %137 ], [ 0, %133 ], [ -1, %rm_read_extradata.exit120.thread ], [ %114, %rm_read_extradata.exit120 ], [ -1094995529, %129 ]
   ret i32 %.0
 }
 
@@ -848,8 +848,8 @@ rm_read_extradata.exit:                           ; preds = %186
   call fastcc void @rm_read_metadata(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   br label %.thread199
 
-.thread199:                                       ; preds = %rm_read_extradata.exit.thread, %252, %.thread, %242, %249, %235, %228, %231, %209, %215, %200, %rm_read_extradata.exit, %100, %65, %198, %164, %183, %174, %227, %237, %57, %255, %256
-  %.1 = phi i32 [ 0, %256 ], [ 0, %255 ], [ 0, %57 ], [ -1, %rm_read_extradata.exit.thread ], [ -12, %252 ], [ -1094995529, %.thread ], [ -1094995529, %242 ], [ -1094995529, %249 ], [ -1094995529, %235 ], [ -1094995529, %228 ], [ -1094995529, %231 ], [ -1094995529, %209 ], [ -1094995529, %215 ], [ %204, %200 ], [ %188, %rm_read_extradata.exit ], [ %112, %100 ], [ -1094995529, %65 ], [ -1, %198 ], [ -1, %164 ], [ -1, %183 ], [ -1, %174 ], [ -1094995529, %227 ], [ -1094995529, %237 ]
+.thread199:                                       ; preds = %rm_read_extradata.exit.thread, %242, %249, %231, %215, %198, %164, %183, %100, %174, %228, %209, %252, %.thread, %235, %227, %200, %237, %65, %rm_read_extradata.exit, %57, %255, %256
+  %.1 = phi i32 [ 0, %57 ], [ 0, %256 ], [ 0, %255 ], [ -1, %rm_read_extradata.exit.thread ], [ -1094995529, %242 ], [ -1094995529, %249 ], [ -1094995529, %231 ], [ -1094995529, %215 ], [ -1, %198 ], [ -1, %164 ], [ -1, %183 ], [ %112, %100 ], [ -1, %174 ], [ -1094995529, %228 ], [ -1094995529, %209 ], [ -12, %252 ], [ -1094995529, %.thread ], [ -1094995529, %235 ], [ -1094995529, %227 ], [ %204, %200 ], [ -1094995529, %237 ], [ -1094995529, %65 ], [ %188, %rm_read_extradata.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1
 }
@@ -1206,8 +1206,8 @@ get_num.exit123.i:                                ; preds = %42, %39
   store i32 0, ptr %113, align 8, !tbaa !77
   br label %rm_assemble_video_frame.exit
 
-187:                                              ; preds = %51, %58, %75, %85, %115, %141, %59, %86, %116, %142, %153
-  %.0.i.ph = phi i32 [ 1, %153 ], [ %146, %142 ], [ -12, %116 ], [ %96, %86 ], [ %62, %59 ], [ 1, %141 ], [ 1, %115 ], [ -1094995529, %85 ], [ %73, %75 ], [ -1, %58 ], [ -1, %51 ]
+187:                                              ; preds = %51, %58, %86, %75, %59, %85, %115, %141, %116, %142, %153
+  %.0.i.ph = phi i32 [ 1, %153 ], [ %146, %142 ], [ -12, %116 ], [ 1, %141 ], [ 1, %115 ], [ -1094995529, %85 ], [ %62, %59 ], [ %73, %75 ], [ %96, %86 ], [ -1, %58 ], [ -1, %51 ]
   %188 = tail call i32 @llvm.smin.i32(i32 %.0.i.ph, i32 -1)
   br label %.critedge
 
@@ -1481,7 +1481,7 @@ readfull.exit143:                                 ; preds = %readfull.exit137, %
   br i1 %316, label %.critedge, label %rm_assemble_video_frame.exit
 
 rm_assemble_video_frame.exit:                     ; preds = %.lr.ph.i, %._crit_edge, %301, %298, %274, %177, %64, %314
-  %.0147 = phi i64 [ %8, %314 ], [ %8, %274 ], [ %8, %._crit_edge ], [ %8, %177 ], [ %spec.select, %64 ], [ %8, %298 ], [ %8, %301 ], [ %8, %.lr.ph.i ]
+  %.0147 = phi i64 [ %8, %314 ], [ %8, %._crit_edge ], [ %spec.select, %64 ], [ %8, %274 ], [ %8, %177 ], [ %8, %298 ], [ %8, %301 ], [ %8, %.lr.ph.i ]
   %317 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %318 = load i32, ptr %317, align 8, !tbaa !88
   %319 = getelementptr inbounds nuw i8, ptr %5, i64 36
@@ -1511,7 +1511,7 @@ rm_assemble_video_frame.exit:                     ; preds = %.lr.ph.i, %._crit_e
   br label %.critedge
 
 .critedge:                                        ; preds = %readfull.exit143, %273, %278, %330, %326, %314, %295, %187
-  %.0113 = phi i32 [ %188, %187 ], [ %296, %295 ], [ %315, %314 ], [ %332, %330 ], [ 0, %326 ], [ -1, %278 ], [ -1, %readfull.exit143 ], [ -1094995529, %273 ]
+  %.0113 = phi i32 [ %188, %187 ], [ %315, %314 ], [ -1, %278 ], [ -1094995529, %273 ], [ 0, %326 ], [ %296, %295 ], [ %332, %330 ], [ -1, %readfull.exit143 ]
   ret i32 %.0113
 }
 
@@ -1611,7 +1611,7 @@ define range(i32 -2147483648, 2147483647) i32 @ff_rm_retrieve_cache(ptr noundef 
   br label %64
 
 64:                                               ; preds = %25, %15, %59
-  %.0 = phi i32 [ %54, %59 ], [ %23, %15 ], [ %30, %25 ]
+  %.0 = phi i32 [ %23, %15 ], [ %54, %59 ], [ %30, %25 ]
   ret i32 %.0
 }
 
@@ -2016,7 +2016,7 @@ ff_rm_alloc_rmstream.exit.thread:                 ; preds = %get_str8.exit133
   br label %rm_read_header_old.exit
 
 rm_read_header_old.exit:                          ; preds = %142, %33, %77, %124, %132, %26, %ff_rm_alloc_rmstream.exit.thread, %18, %ff_rm_alloc_rmstream.exit.thread.i, %11, %1, %157, %158, %162, %166, %169, %23
-  %.0 = phi i32 [ -1094995529, %23 ], [ 0, %169 ], [ 0, %166 ], [ 0, %162 ], [ 0, %158 ], [ 0, %157 ], [ -5, %1 ], [ %22, %18 ], [ -1, %11 ], [ -12, %ff_rm_alloc_rmstream.exit.thread.i ], [ -12, %ff_rm_alloc_rmstream.exit.thread ], [ -1094995529, %26 ], [ -1094995529, %142 ], [ -1094995529, %33 ], [ -12, %77 ], [ %126, %124 ], [ %136, %132 ]
+  %.0 = phi i32 [ 0, %157 ], [ 0, %162 ], [ -5, %1 ], [ -1094995529, %23 ], [ 0, %158 ], [ -12, %ff_rm_alloc_rmstream.exit.thread ], [ %22, %18 ], [ -1, %11 ], [ -12, %ff_rm_alloc_rmstream.exit.thread.i ], [ 0, %169 ], [ 0, %166 ], [ -1094995529, %26 ], [ -1094995529, %142 ], [ -1094995529, %33 ], [ -12, %77 ], [ %126, %124 ], [ %136, %132 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -2189,7 +2189,7 @@ define internal range(i32 -2147483648, 1) i32 @rm_read_packet(ptr noundef %0, pt
   br label %.backedge
 
 .critedge:                                        ; preds = %93, %88, %37, %69, %67, %64, %16
-  %.1 = phi i32 [ %25, %16 ], [ -541478725, %64 ], [ -5, %67 ], [ %76, %69 ], [ -1094995529, %37 ], [ 0, %88 ], [ 0, %93 ]
+  %.1 = phi i32 [ -1094995529, %37 ], [ %76, %69 ], [ 0, %93 ], [ -541478725, %64 ], [ -5, %67 ], [ %25, %16 ], [ 0, %88 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2712,7 +2712,7 @@ ff_rm_alloc_rmstream.exit.thread:                 ; preds = %74
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph203, %.lr.ph198, %77, %.lr.ph215, %111, %105, %97, %85, %.lr.ph208, %13, %ff_rm_alloc_rmstream.exit.thread, %133, %._crit_edge216, %42, %41, %32, %27, %._crit_edge, %11, %9, %139
-  %.0143 = phi i32 [ 0, %139 ], [ -1094995529, %9 ], [ -1094995529, %11 ], [ -1094995529, %._crit_edge ], [ -1094995529, %27 ], [ -1094995529, %32 ], [ -1094995529, %41 ], [ -1094995529, %42 ], [ -1094995529, %._crit_edge216 ], [ -1094995529, %133 ], [ -12, %ff_rm_alloc_rmstream.exit.thread ], [ -1094995529, %13 ], [ -1094995529, %.lr.ph208 ], [ %.0145, %111 ], [ -1094995529, %105 ], [ %98, %97 ], [ -1094995529, %85 ], [ -1094995529, %77 ], [ -12, %.lr.ph215 ], [ -1094995529, %.lr.ph198 ], [ -1094995529, %.lr.ph203 ]
+  %.0143 = phi i32 [ 0, %139 ], [ -1094995529, %9 ], [ -1094995529, %11 ], [ -1094995529, %._crit_edge ], [ -1094995529, %27 ], [ -1094995529, %32 ], [ -1094995529, %41 ], [ -1094995529, %42 ], [ -1094995529, %85 ], [ -1094995529, %13 ], [ -1094995529, %.lr.ph198 ], [ -1094995529, %133 ], [ -1094995529, %.lr.ph208 ], [ -1094995529, %._crit_edge216 ], [ -12, %ff_rm_alloc_rmstream.exit.thread ], [ -1094995529, %77 ], [ %.0145, %111 ], [ %98, %97 ], [ -1094995529, %105 ], [ -12, %.lr.ph215 ], [ -1094995529, %.lr.ph203 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0143
@@ -2858,7 +2858,7 @@ define internal i32 @ivr_read_packet(ptr noundef %0, ptr noundef %1) #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %34, %._crit_edge, %64, %.thread84, %.thread, %2, %9, %67, %66
-  %.0 = phi i32 [ -541478725, %66 ], [ -5, %67 ], [ -541478725, %9 ], [ -541478725, %2 ], [ %.3.ph, %.thread ], [ %.062107, %64 ], [ 0, %.thread84 ], [ %28, %._crit_edge ], [ -541478725, %34 ]
+  %.0 = phi i32 [ -5, %67 ], [ %.062107, %64 ], [ %28, %._crit_edge ], [ -541478725, %2 ], [ %.3.ph, %.thread ], [ -541478725, %66 ], [ -541478725, %9 ], [ 0, %.thread84 ], [ -541478725, %34 ]
   ret i32 %.0
 }
 
@@ -3063,7 +3063,7 @@ ff_rm_alloc_rmstream.exit:                        ; preds = %21
   br i1 %46, label %16, label %.thread
 
 .thread:                                          ; preds = %40, %16, %19, %9, %ff_rm_alloc_rmstream.exit.thread
-  %.2 = phi i32 [ -12, %ff_rm_alloc_rmstream.exit.thread ], [ 0, %9 ], [ %45, %40 ], [ 0, %16 ], [ -12, %19 ]
+  %.2 = phi i32 [ -12, %ff_rm_alloc_rmstream.exit.thread ], [ 0, %9 ], [ 0, %16 ], [ %45, %40 ], [ -12, %19 ]
   ret i32 %.2
 }
 
@@ -3404,8 +3404,8 @@ define internal fastcc i32 @rm_sync(ptr noundef %0, ptr noundef nonnull writeonl
   br label %.thread.thread
 
 .thread:                                          ; preds = %48, %.thread98, %52, %._crit_edge.thread
-  %.279 = phi i32 [ %.380, %._crit_edge.thread ], [ %25, %52 ], [ 1145132097, %.thread98 ], [ 1229866072, %48 ]
-  %.3 = phi i64 [ %.4, %._crit_edge.thread ], [ %.070118, %52 ], [ %.070118, %.thread98 ], [ %.2, %48 ]
+  %.279 = phi i32 [ %.380, %._crit_edge.thread ], [ 1145132097, %.thread98 ], [ %25, %52 ], [ 1229866072, %48 ]
+  %.3 = phi i64 [ %.4, %._crit_edge.thread ], [ %.070118, %.thread98 ], [ %.070118, %52 ], [ %.2, %48 ]
   %80 = tail call i32 @avio_feof(ptr noundef %9) #12
   %.not = icmp eq i32 %80, 0
   br i1 %.not, label %15, label %.thread.thread

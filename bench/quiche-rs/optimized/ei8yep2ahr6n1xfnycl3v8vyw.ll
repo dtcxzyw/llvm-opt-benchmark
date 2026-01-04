@@ -1174,7 +1174,7 @@ define hidden void @_ZN3nix3sys6socket7sendmsg17hf221102925232424E(ptr dead_on_u
   br label %_ZN4libc4unix10linux_like5linux11CMSG_NXTHDR17ha4be1defbf442157E.exit.i
 
 _ZN4libc4unix10linux_like5linux11CMSG_NXTHDR17ha4be1defbf442157E.exit.i: ; preds = %57, %51, %.noexc1
-  %.sroa.0.0.i.i = phi ptr [ null, %57 ], [ %47, %51 ], [ null, %.noexc1 ]
+  %.sroa.0.0.i.i = phi ptr [ %47, %51 ], [ null, %57 ], [ null, %.noexc1 ]
   store ptr %.sroa.0.0.i.i, ptr %10, align 8, !noalias !206
   %58 = icmp eq ptr %37, %33
   br i1 %58, label %.loopexit8, label %36

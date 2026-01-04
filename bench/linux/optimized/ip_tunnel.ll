@@ -373,7 +373,7 @@ define dso_local ptr @ip_tunnel_lookup(ptr noundef %0, i32 noundef %1, i16 nound
   br label %164
 
 164:                                              ; preds = %128, %152, %161, %156, %151, %139
-  %165 = phi ptr [ %130, %156 ], [ %130, %139 ], [ %163, %161 ], [ %130, %151 ], [ %130, %152 ], [ %130, %128 ]
+  %165 = phi ptr [ %130, %128 ], [ %130, %156 ], [ %130, %139 ], [ %163, %161 ], [ %130, %151 ], [ %130, %152 ]
   %166 = getelementptr inbounds nuw i8, ptr %129, i64 8
   %167 = load volatile ptr, ptr %166, align 8
   %168 = icmp eq ptr %167, null
@@ -524,7 +524,7 @@ define dso_local ptr @ip_tunnel_lookup(ptr noundef %0, i32 noundef %1, i16 nound
   br label %.loopexit
 
 .loopexit:                                        ; preds = %49, %98, %157, %231, %200, %262, %259, %252, %.loopexit11
-  %269 = phi ptr [ %246, %.loopexit11 ], [ %250, %252 ], [ null, %259 ], [ %268, %262 ], [ %180, %200 ], [ %215, %231 ], [ %129, %157 ], [ %71, %98 ], [ %22, %49 ]
+  %269 = phi ptr [ %246, %.loopexit11 ], [ %250, %252 ], [ null, %259 ], [ %268, %262 ], [ %129, %157 ], [ %71, %98 ], [ %215, %231 ], [ %180, %200 ], [ %22, %49 ]
   ret ptr %269
 }
 
@@ -2650,7 +2650,7 @@ define dso_local void @ip_tunnel_xmit(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %125, label %.thread45, label %180
 
 .thread45:                                        ; preds = %108, %112, %122, %116
-  %126 = phi ptr [ %117, %122 ], [ %117, %116 ], [ null, %112 ], [ null, %108 ]
+  %126 = phi ptr [ %117, %116 ], [ %117, %122 ], [ null, %112 ], [ null, %108 ]
   switch i16 %83, label %.critedge36 [
     i16 8, label %127
     i16 -8826, label %136
@@ -2909,8 +2909,8 @@ define dso_local void @ip_tunnel_xmit(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %.critedge38
 
 .critedge38:                                      ; preds = %270, %285, %276
-  %288 = phi ptr [ %216, %276 ], [ %287, %285 ], [ %216, %270 ]
-  %289 = phi i1 [ false, %276 ], [ %269, %285 ], [ false, %270 ]
+  %288 = phi ptr [ %216, %276 ], [ %216, %270 ], [ %287, %285 ]
+  %289 = phi i1 [ false, %276 ], [ false, %270 ], [ %269, %285 ]
   %290 = icmp eq ptr %288, null
   br i1 %290, label %291, label %.thread55
 
@@ -3406,7 +3406,7 @@ define dso_local i32 @ip_tunnel_ctl(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %113, label %.loopexit, label %.split32, !llvm.loop !35
 
 .loopexit:                                        ; preds = %107, %103, %68, %73, %17
-  %114 = phi ptr [ null, %17 ], [ null, %73 ], [ %50, %68 ], [ %80, %103 ], [ null, %107 ]
+  %114 = phi ptr [ null, %17 ], [ %50, %68 ], [ null, %73 ], [ %80, %103 ], [ null, %107 ]
   %115 = icmp eq ptr %114, null
   %116 = select i1 %115, ptr %4, ptr %114
   br label %117
@@ -3597,7 +3597,7 @@ define dso_local i32 @ip_tunnel_ctl(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %246, label %.loopexit24, label %.split29, !llvm.loop !35
 
 .loopexit24:                                      ; preds = %240, %236, %200, %205, %150
-  %247 = phi ptr [ null, %150 ], [ null, %205 ], [ %181, %200 ], [ %212, %236 ], [ null, %240 ]
+  %247 = phi ptr [ null, %150 ], [ %181, %200 ], [ null, %205 ], [ %212, %236 ], [ null, %240 ]
   %248 = icmp eq i32 %2, 35313
   br i1 %248, label %249, label %314
 
@@ -3727,7 +3727,7 @@ define dso_local i32 @ip_tunnel_ctl(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %332, label %333, label %.thread23
 
 333:                                              ; preds = %325, %314
-  %334 = phi ptr [ %4, %325 ], [ %247, %314 ]
+  %334 = phi ptr [ %247, %314 ], [ %4, %325 ]
   %335 = icmp eq ptr %334, null
   br i1 %335, label %.thread23, label %.thread
 
@@ -3890,7 +3890,7 @@ define dso_local i32 @ip_tunnel_ctl(ptr noundef %0, ptr noundef %1, i32 noundef 
   br label %.thread23
 
 .thread23:                                        ; preds = %434, %400, %344, %444, %.split28.us, %337, %.thread, %333, %325, %321, %308, %249, %120, %117, %3
-  %446 = phi i32 [ -1, %.split28.us ], [ 0, %444 ], [ -1, %337 ], [ %313, %308 ], [ 0, %.thread ], [ -22, %325 ], [ -1, %120 ], [ 0, %117 ], [ -17, %249 ], [ -17, %321 ], [ -2, %333 ], [ -22, %3 ], [ -2, %344 ], [ -2, %400 ], [ -2, %434 ]
+  %446 = phi i32 [ -1, %.split28.us ], [ 0, %444 ], [ -22, %3 ], [ -1, %337 ], [ %313, %308 ], [ 0, %.thread ], [ -22, %325 ], [ -1, %120 ], [ 0, %117 ], [ -17, %249 ], [ -17, %321 ], [ -2, %333 ], [ -2, %344 ], [ -2, %400 ], [ -2, %434 ]
   ret i32 %446
 }
 
@@ -5264,7 +5264,7 @@ define dso_local i32 @ip_tunnel_init(ptr noundef initializes((1308, 1309), (1312
   br label %49
 
 49:                                               ; preds = %.critedge, %45, %35, %33, %27
-  %50 = phi i32 [ %25, %27 ], [ %31, %33 ], [ 0, %45 ], [ 0, %35 ], [ -12, %.critedge ]
+  %50 = phi i32 [ %25, %27 ], [ %31, %33 ], [ -12, %.critedge ], [ 0, %45 ], [ 0, %35 ]
   ret i32 %50
 }
 

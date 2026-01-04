@@ -924,7 +924,7 @@ default.unreachable.i:                            ; preds = %113
   unreachable
 
 116:                                              ; preds = %113, %115, %114
-  %.str.178.sink.i = phi ptr [ @.str.180, %115 ], [ @.str.179, %114 ], [ @.str.178, %113 ]
+  %.str.178.sink.i = phi ptr [ @.str.179, %114 ], [ @.str.180, %115 ], [ @.str.178, %113 ]
   call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %5, ptr noundef nonnull %.str.178.sink.i) #16
   %.04247.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 16), align 8, !tbaa !19
   %.not48.i = icmp eq ptr %.04247.i, null
@@ -1367,7 +1367,7 @@ switch.lookup:                                    ; preds = %11
   br label %62
 
 62:                                               ; preds = %55, %58
-  %.1 = phi i1 [ %61, %58 ], [ false, %55 ]
+  %.1 = phi i1 [ false, %55 ], [ %61, %58 ]
   br i1 %9, label %.thread, label %65
 
 .thread:                                          ; preds = %62
@@ -3262,7 +3262,7 @@ _lib_modulegroups_test_internal.exit:             ; preds = %208
   %brmerge.not = icmp eq i32 %227, 0
   br i1 %brmerge.not, label %_is_module_in_history.exit.thread, label %_is_module_in_history.exit.thread158
 
-_is_module_in_history.exit.thread158:             ; preds = %.lr.ph.i140, %.lr.ph.i137, %225, %_lib_modulegroups_test_visible.exit.thread, %174, %220
+_is_module_in_history.exit.thread158:             ; preds = %.lr.ph.i140, %.lr.ph.i137, %225, %174, %_lib_modulegroups_test_visible.exit.thread, %220
   %228 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !129
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 88
   %230 = load ptr, ptr %229, align 8, !tbaa !187
@@ -3287,7 +3287,7 @@ _is_module_in_history.exit.thread158:             ; preds = %.lr.ph.i140, %.lr.p
   tail call void @gtk_widget_show(ptr noundef nonnull %93) #16
   br label %245
 
-_is_module_in_history.exit.thread:                ; preds = %170, %225, %_lib_modulegroups_test_visible.exit.thread, %174, %205, %208, %167, %_lib_modulegroups_test_internal.exit, %161
+_is_module_in_history.exit.thread:                ; preds = %170, %225, %174, %_lib_modulegroups_test_visible.exit.thread, %205, %208, %167, %_lib_modulegroups_test_internal.exit, %161
   %238 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !129
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 88
   %240 = load ptr, ptr %239, align 8, !tbaa !187
@@ -3729,7 +3729,7 @@ define internal range(i32 0, 3) i32 @_lib_modulegroups_basics_module_toggle(ptr 
   br label %.critedge31
 
 .critedge31:                                      ; preds = %16, %.critedge28, %7, %19, %.critedge, %10
-  %.019 = phi i32 [ 0, %10 ], [ %20, %19 ], [ 0, %.critedge ], [ 0, %7 ], [ 0, %.critedge28 ], [ 0, %16 ]
+  %.019 = phi i32 [ 0, %10 ], [ 0, %7 ], [ %20, %19 ], [ 0, %.critedge ], [ 0, %.critedge28 ], [ 0, %16 ]
   ret i32 %.019
 }
 
@@ -4943,7 +4943,7 @@ define internal fastcc ptr @_build_menu_from_actions(ptr noundef %0, ptr noundef
   br i1 %.not126161, label %.outer._crit_edge, label %.lr.ph
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %6
-  %.0108.ph.lcssa = phi ptr [ null, %6 ], [ %.0108.ph165, %.backedge ], [ %.1109, %.outer ]
+  %.0108.ph.lcssa = phi ptr [ %.0108.ph165, %.backedge ], [ null, %6 ], [ %.1109, %.outer ]
   ret ptr %.0108.ph.lcssa
 }
 
@@ -6207,7 +6207,7 @@ thread-pre-split113:                              ; preds = %43, %47
   br i1 %.not74, label %._crit_edge104, label %.lr.ph103
 
 .critedge83:                                      ; preds = %.critedge, %._crit_edge104, %59, %4
-  %.059 = phi i32 [ %3, %4 ], [ %.161.lcssa, %._crit_edge104 ], [ %3, %59 ], [ 0, %.critedge ]
+  %.059 = phi i32 [ %3, %4 ], [ 0, %.critedge ], [ %3, %59 ], [ %.161.lcssa, %._crit_edge104 ]
   ret i32 %.059
 }
 
@@ -6734,7 +6734,7 @@ define internal fastcc nonnull ptr @_buttons_get_icon_fct(ptr noundef %0) unname
   br label %25
 
 25:                                               ; preds = %22, %19, %16, %13, %10, %7, %4, %1
-  %.0 = phi ptr [ @dtgtk_cairo_paint_modulegroup_active, %1 ], [ @dtgtk_cairo_paint_modulegroup_favorites, %4 ], [ @dtgtk_cairo_paint_modulegroup_tone, %7 ], [ @dtgtk_cairo_paint_modulegroup_color, %10 ], [ @dtgtk_cairo_paint_modulegroup_correct, %13 ], [ @dtgtk_cairo_paint_modulegroup_effect, %16 ], [ @dtgtk_cairo_paint_modulegroup_grading, %19 ], [ %dtgtk_cairo_paint_modulegroup_technical.dtgtk_cairo_paint_modulegroup_basic, %22 ]
+  %.0 = phi ptr [ @dtgtk_cairo_paint_modulegroup_grading, %19 ], [ @dtgtk_cairo_paint_modulegroup_active, %1 ], [ @dtgtk_cairo_paint_modulegroup_favorites, %4 ], [ @dtgtk_cairo_paint_modulegroup_tone, %7 ], [ @dtgtk_cairo_paint_modulegroup_color, %10 ], [ @dtgtk_cairo_paint_modulegroup_correct, %13 ], [ @dtgtk_cairo_paint_modulegroup_effect, %16 ], [ %dtgtk_cairo_paint_modulegroup_technical.dtgtk_cairo_paint_modulegroup_basic, %22 ]
   ret ptr %.0
 }
 
@@ -6764,7 +6764,7 @@ define internal range(i32 0, 2) i32 @_manage_direct_popup(ptr noundef %0, ptr no
   br label %17
 
 17:                                               ; preds = %3, %6, %16, %10
-  %.1 = phi i32 [ 1, %16 ], [ 0, %10 ], [ 0, %6 ], [ 0, %3 ]
+  %.1 = phi i32 [ 0, %10 ], [ 1, %16 ], [ 0, %6 ], [ 0, %3 ]
   ret i32 %.1
 }
 

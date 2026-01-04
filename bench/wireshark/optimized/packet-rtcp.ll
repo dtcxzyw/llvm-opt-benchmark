@@ -1947,7 +1947,7 @@ define internal noundef zeroext i1 @dissect_rtcp_heur(ptr noundef %0, ptr nounde
   br label %17
 
 17:                                               ; preds = %.sink.split, %11, %9, %7, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %7 ], [ false, %9 ], [ false, %11 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %7 ], [ false, %4 ], [ false, %9 ], [ false, %11 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 
@@ -2039,11 +2039,11 @@ define internal fastcc i32 @dissect_rtcp_common(ptr noundef %0, ptr noundef %1, 
   br label %70
 
 70:                                               ; preds = %68, %44, %47, %62
-  %.1361 = phi i32 [ %58, %62 ], [ 0, %47 ], [ 0, %44 ], [ 0, %68 ]
-  %.1359 = phi i32 [ %65, %62 ], [ 0, %47 ], [ 0, %44 ], [ 0, %68 ]
-  %.1357 = phi i32 [ %51, %62 ], [ %30, %47 ], [ %30, %44 ], [ %spec.select, %68 ]
-  %.1355 = phi ptr [ %49, %62 ], [ null, %47 ], [ null, %44 ], [ null, %68 ]
-  %.2348 = phi i1 [ %or.cond3, %62 ], [ false, %47 ], [ false, %44 ], [ %3, %68 ]
+  %.1361 = phi i32 [ 0, %68 ], [ 0, %44 ], [ %58, %62 ], [ 0, %47 ]
+  %.1359 = phi i32 [ 0, %68 ], [ 0, %44 ], [ %65, %62 ], [ 0, %47 ]
+  %.1357 = phi i32 [ %spec.select, %68 ], [ %30, %44 ], [ %51, %62 ], [ %30, %47 ]
+  %.1355 = phi ptr [ null, %68 ], [ null, %44 ], [ %49, %62 ], [ null, %47 ]
+  %.2348 = phi i1 [ %3, %68 ], [ false, %44 ], [ %or.cond3, %62 ], [ false, %47 ]
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %72 = load ptr, ptr %71, align 8
   %73 = load i32, ptr @proto_srtcp, align 4
@@ -3165,7 +3165,7 @@ dissect_rtcp_sdes.exit:                           ; preds = %353, %285
   br label %.thread353.i.i
 
 .thread353.i.i:                                   ; preds = %689, %647, %636, %620, %601, %598, %582, %520, %.thread357.i.i, %481, %453
-  %.0310.i.i = phi i32 [ %450, %453 ], [ %521, %520 ], [ %584, %582 ], [ %600, %598 ], [ %610, %601 ], [ %.9.i.i, %689 ], [ %623, %620 ], [ %637, %636 ], [ %649, %647 ], [ %489, %.thread357.i.i ], [ %.2312.i.i, %481 ]
+  %.0310.i.i = phi i32 [ %450, %453 ], [ %489, %.thread357.i.i ], [ %521, %520 ], [ %584, %582 ], [ %600, %598 ], [ %610, %601 ], [ %.9.i.i, %689 ], [ %623, %620 ], [ %637, %636 ], [ %649, %647 ], [ %.2312.i.i, %481 ]
   %690 = srem i32 %.0310.i.i, 4
   %.not346.i.i = icmp eq i32 %690, 0
   br i1 %.not346.i.i, label %1132, label %691
@@ -3703,7 +3703,7 @@ dissect_rtcp_sdes.exit:                           ; preds = %353, %285
   br i1 %981, label %.lr.ph303.i.i, label %dissect_rtcp_app_mcpt.exit.i, !llvm.loop !22
 
 dissect_rtcp_app_mcpt.exit.i:                     ; preds = %980, %753, %.preheader276.i.i, %740
-  %.0.i173.i = phi i32 [ %757, %753 ], [ %746, %740 ], [ %746, %.preheader276.i.i ], [ %.11.i.i, %980 ]
+  %.0.i173.i = phi i32 [ %746, %740 ], [ %757, %753 ], [ %746, %.preheader276.i.i ], [ %.11.i.i, %980 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %1132
@@ -3966,12 +3966,12 @@ dissect_rtcp_app_mccp.exit.i:                     ; preds = %1079, %994
   br label %.thread3
 
 .thread3:                                         ; preds = %1127, %1111, %1097, %734, %573, %570, %567, %548, %531, %523, %511, %508, %499, %496, %493, %492, %468, %465, %458, %446
-  %.0.i391.ph = phi i32 [ %spec.select170.i, %1111 ], [ %spec.select169.i, %1097 ], [ %530, %523 ], [ %541, %531 ], [ %560, %548 ], [ %.7.i.i, %567 ], [ %572, %570 ], [ %575, %573 ], [ %495, %493 ], [ %498, %496 ], [ %504, %499 ], [ %510, %508 ], [ %513, %511 ], [ %450, %458 ], [ %467, %465 ], [ %472, %468 ], [ %450, %446 ], [ %485, %492 ], [ %spec.select171.i, %1127 ], [ %spec.select.i, %734 ]
+  %.0.i391.ph = phi i32 [ %spec.select170.i, %1111 ], [ %spec.select169.i, %1097 ], [ %541, %531 ], [ %560, %548 ], [ %.7.i.i, %567 ], [ %572, %570 ], [ %575, %573 ], [ %498, %496 ], [ %504, %499 ], [ %510, %508 ], [ %513, %511 ], [ %467, %465 ], [ %472, %468 ], [ %450, %458 ], [ %485, %492 ], [ %450, %446 ], [ %495, %493 ], [ %spec.select171.i, %1127 ], [ %spec.select.i, %734 ], [ %530, %523 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %.loopexit
 
 1132:                                             ; preds = %dissect_rtcp_app_mccp.exit.i, %dissect_rtcp_app_mcpt.exit.i, %691, %.thread353.i.i
-  %.0.i391 = phi i32 [ %.0.i173.i, %dissect_rtcp_app_mcpt.exit.i ], [ %.0.i176.i, %dissect_rtcp_app_mccp.exit.i ], [ %695, %691 ], [ %.0310.i.i, %.thread353.i.i ]
+  %.0.i391 = phi i32 [ %.0.i176.i, %dissect_rtcp_app_mccp.exit.i ], [ %695, %691 ], [ %.0310.i.i, %.thread353.i.i ], [ %.0.i173.i, %dissect_rtcp_app_mcpt.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %.loopexit
 
@@ -4095,7 +4095,7 @@ parse_xr_type_specific_field.exit.i:              ; preds = %1174, %1173, %1167
   br i1 %.not.i.i401, label %validate_xr_block_length.exit.i, label %.sink.split.i.i402
 
 .sink.split.i.i402:                               ; preds = %1188, %1187, %1186, %1185
-  %.str.981.sink.i.i = phi ptr [ @.str.609, %1185 ], [ @.str.979, %1186 ], [ @.str.980, %1187 ], [ @.str.981, %1188 ]
+  %.str.981.sink.i.i = phi ptr [ @.str.980, %1187 ], [ @.str.979, %1186 ], [ @.str.609, %1185 ], [ @.str.981, %1188 ]
   %1189 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %1183, ptr noundef nonnull @ei_rtcp_xr_block_length_bad, ptr noundef nonnull %.str.981.sink.i.i)
   br label %validate_xr_block_length.exit.i
 
@@ -4617,7 +4617,7 @@ proto_item_set_generated.exit.i396:               ; preds = %1530, %1527, %1511
   br label %.thread500.i
 
 .thread500.i:                                     ; preds = %1446, %1405, %1548, %proto_item_set_generated.exit.i396, %1505, %1414, %1386, %._crit_edge.i400, %1366, %1326, %1308
-  %.2469502.i = phi i32 [ %1547, %proto_item_set_generated.exit.i396 ], [ %1510, %1505 ], [ %1369, %1366 ], [ %1365, %1326 ], [ %1325, %1308 ], [ %1549, %1548 ], [ %1385, %._crit_edge.i400 ], [ %1396, %1386 ], [ %1423, %1414 ], [ %1412, %1405 ], [ %1447, %1446 ]
+  %.2469502.i = phi i32 [ %1549, %1548 ], [ %1510, %1505 ], [ %1547, %proto_item_set_generated.exit.i396 ], [ %1369, %1366 ], [ %1365, %1326 ], [ %1325, %1308 ], [ %1412, %1405 ], [ %1385, %._crit_edge.i400 ], [ %1396, %1386 ], [ %1423, %1414 ], [ %1447, %1446 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %1550 = sub nsw i32 %1201, %.0475.i
   %1551 = add i32 %.0473518.i, 1
@@ -5135,7 +5135,7 @@ dissect_rtcp_rtpfb.exit:                          ; preds = %1668, %1679
   br label %.thread.i411
 
 .thread.i411:                                     ; preds = %1794, %.lr.ph.i124.us.i, %1914, %.lr.ph222.i.us.i, %1918, %1801, %1787
-  %.3.i.us.i = phi i32 [ %1921, %1918 ], [ %1827, %1801 ], [ %1786, %1787 ], [ %1917, %1914 ], [ %.0221.i.us.i, %.lr.ph222.i.us.i ], [ %.4210.i.us.i, %.lr.ph.i124.us.i ], [ %1799, %1794 ]
+  %.3.i.us.i = phi i32 [ %1917, %1914 ], [ %1921, %1918 ], [ %1827, %1801 ], [ %1786, %1787 ], [ %.0221.i.us.i, %.lr.ph222.i.us.i ], [ %1799, %1794 ], [ %.4210.i.us.i, %.lr.ph.i124.us.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %._crit_edge.i412
 
@@ -5191,7 +5191,7 @@ dissect_rtcp_rtpfb.exit:                          ; preds = %1668, %1679
   br i1 %1954, label %.lr.ph.split.us159.i, label %._crit_edge.i412, !llvm.loop !28
 
 ._crit_edge.i412:                                 ; preds = %1952, %.lr.ph.split.us150.i, %.lr.ph.split.us141.i, %1740, %.thread.i411, %.lr.ph.i409, %1734
-  %.0116.lcssa.i = phi i32 [ %1727, %1734 ], [ %1727, %.lr.ph.i409 ], [ %.3.i.us.i, %.thread.i411 ], [ %1750, %1740 ], [ %1760, %.lr.ph.split.us141.i ], [ %1772, %.lr.ph.split.us150.i ], [ %.0.lcssa.i.us.i, %1952 ]
+  %.0116.lcssa.i = phi i32 [ %1727, %1734 ], [ %1727, %.lr.ph.i409 ], [ %1772, %.lr.ph.split.us150.i ], [ %1750, %1740 ], [ %1760, %.lr.ph.split.us141.i ], [ %.3.i.us.i, %.thread.i411 ], [ %.0.lcssa.i.us.i, %1952 ]
   %.neg.i413 = sub i32 %.033563248, %.0116.lcssa.i
   %1955 = add i32 %.neg.i413, %102
   %1956 = icmp sgt i32 %1955, 0
@@ -5203,7 +5203,7 @@ dissect_rtcp_rtpfb.exit:                          ; preds = %1668, %1679
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread500.i, %1132, %dissect_rtcp_sdes.exit, %1553, %dissect_rtcp_rsi.exit, %1617, %1632, %1647, %dissect_rtcp_rtpfb.exit, %282, %170, %274, %277, %279, %384, %._crit_edge55.i, %.thread3, %1144, %1154, %.thread.i403, %1729, %._crit_edge.i412, %1957
-  %.3338 = phi i32 [ %284, %282 ], [ %357, %dissect_rtcp_sdes.exit ], [ %.0.i391, %1132 ], [ %1585, %1553 ], [ %1616, %dissect_rtcp_rsi.exit ], [ %1631, %1617 ], [ %1646, %1632 ], [ %1667, %1647 ], [ %.0.i408, %dissect_rtcp_rtpfb.exit ], [ %91, %170 ], [ %276, %274 ], [ %226, %277 ], [ %281, %279 ], [ %.1.i, %384 ], [ %395, %._crit_edge55.i ], [ %.0.i391.ph, %.thread3 ], [ %1142, %1144 ], [ %1157, %1154 ], [ %1192, %.thread.i403 ], [ %176, %1729 ], [ %.0116.lcssa.i, %._crit_edge.i412 ], [ %176, %1957 ], [ %.2469502.i, %.thread500.i ]
+  %.3338 = phi i32 [ %.0116.lcssa.i, %._crit_edge.i412 ], [ %176, %1957 ], [ %91, %170 ], [ %284, %282 ], [ %357, %dissect_rtcp_sdes.exit ], [ %281, %279 ], [ %.0.i391, %1132 ], [ %.0.i391.ph, %.thread3 ], [ %1585, %1553 ], [ %1616, %dissect_rtcp_rsi.exit ], [ %1631, %1617 ], [ %1646, %1632 ], [ %1667, %1647 ], [ %.0.i408, %dissect_rtcp_rtpfb.exit ], [ %276, %274 ], [ %226, %277 ], [ %.1.i, %384 ], [ %395, %._crit_edge55.i ], [ %1142, %1144 ], [ %1157, %1154 ], [ %1192, %.thread.i403 ], [ %176, %1729 ], [ %.2469502.i, %.thread500.i ]
   %1960 = load ptr, ptr %71, align 8
   call void @col_set_fence(ptr noundef %1960, i32 noundef 25)
   %1961 = call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.3338, i32 noundef 4)
@@ -6238,7 +6238,7 @@ dissect_rtcp_rtpfb_ccfb_fci.exit.thread:          ; preds = %proto_item_set_gene
   br label %dissect_rtcp_rtpfb_ccfb_fci.exit
 
 dissect_rtcp_rtpfb_ccfb_fci.exit:                 ; preds = %._crit_edge.thread.i, %._crit_edge.i, %84
-  %.0.i = phi i32 [ %87, %84 ], [ %61, %._crit_edge.i ], [ %59, %._crit_edge.thread.i ]
+  %.0.i = phi i32 [ %59, %._crit_edge.thread.i ], [ %87, %84 ], [ %61, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %88 = icmp slt i32 %.0.i, %9
   br i1 %88, label %.lr.ph, label %._crit_edge, !llvm.loop !42
@@ -6568,9 +6568,9 @@ define internal range(i32 4, -2147483648) i32 @dissect_rtcp_rtpfb_transport_cc(p
   br label %dissect_rtcp_rtpfb_transport_cc_fci.exit
 
 .thread.i:                                        ; preds = %.thread295.i, %.thread286.i, %99, %89, %76, %71
-  %.4252.i = phi i32 [ %.6254.i, %.thread286.i ], [ %.10258.i, %.thread295.i ], [ %77, %76 ], [ %90, %89 ], [ %.0248337.i, %99 ], [ %.0248337.i, %71 ]
-  %.6243.i = phi i32 [ %.8245.i, %.thread286.i ], [ %.12.i, %.thread295.i ], [ %83, %76 ], [ %96, %89 ], [ %100, %99 ], [ %72, %71 ]
-  %.pn.i = phi i32 [ 14, %.thread286.i ], [ 7, %.thread295.i ], [ %63, %76 ], [ %63, %89 ], [ %63, %99 ], [ %63, %71 ]
+  %.4252.i = phi i32 [ %.10258.i, %.thread295.i ], [ %.6254.i, %.thread286.i ], [ %77, %76 ], [ %90, %89 ], [ %.0248337.i, %99 ], [ %.0248337.i, %71 ]
+  %.6243.i = phi i32 [ %.12.i, %.thread295.i ], [ %.8245.i, %.thread286.i ], [ %83, %76 ], [ %96, %89 ], [ %100, %99 ], [ %72, %71 ]
+  %.pn.i = phi i32 [ 7, %.thread295.i ], [ 14, %.thread286.i ], [ %63, %76 ], [ %63, %89 ], [ %63, %99 ], [ %63, %71 ]
   %.3222.i = add i32 %.pn.i, %.0219339.i
   %164 = add i32 %.0209340.i, 2
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -6667,7 +6667,7 @@ define internal range(i32 4, -2147483648) i32 @dissect_rtcp_rtpfb_transport_cc(p
   br label %dissect_rtcp_rtpfb_transport_cc_fci.exit
 
 dissect_rtcp_rtpfb_transport_cc_fci.exit:         ; preds = %.thread308.i, %._crit_edge345.i, %211
-  %.8.i = phi i32 [ %214, %211 ], [ %.8217.lcssa.i, %._crit_edge345.i ], [ %.2.ph.i, %.thread308.i ]
+  %.8.i = phi i32 [ %.2.ph.i, %.thread308.i ], [ %214, %211 ], [ %.8217.lcssa.i, %._crit_edge345.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %215 = icmp slt i32 %.8.i, %12

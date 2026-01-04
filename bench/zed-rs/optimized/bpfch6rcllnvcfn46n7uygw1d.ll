@@ -3611,7 +3611,7 @@ define hidden void @_ZN4gpui3app10entity_map9EntityMap5lease17h136dcffba92cc582E
   %32 = icmp eq i32 %21, 0
   br i1 %32, label %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h1bc92112eadc019eE.llvm.9485743902246897451.exit", label %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h1bc92112eadc019eE.llvm.9485743902246897451.exit.thread"
 
-"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h1bc92112eadc019eE.llvm.9485743902246897451.exit.thread": ; preds = %4, %25, %28
+"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h1bc92112eadc019eE.llvm.9485743902246897451.exit.thread": ; preds = %25, %4, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %34
 
@@ -3689,7 +3689,7 @@ define hidden void @_ZN4gpui3app10entity_map9EntityMap5lease17h4389ec9346c736f3E
   %32 = icmp eq i32 %21, 0
   br i1 %32, label %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h1bc92112eadc019eE.llvm.9485743902246897451.exit", label %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h1bc92112eadc019eE.llvm.9485743902246897451.exit.thread"
 
-"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h1bc92112eadc019eE.llvm.9485743902246897451.exit.thread": ; preds = %4, %25, %28
+"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h1bc92112eadc019eE.llvm.9485743902246897451.exit.thread": ; preds = %25, %4, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %34
 
@@ -3767,7 +3767,7 @@ define hidden void @_ZN4gpui3app10entity_map9EntityMap5lease17h49b1a2ca4ac1e7f5E
   %32 = icmp eq i32 %21, 0
   br i1 %32, label %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h1bc92112eadc019eE.llvm.9485743902246897451.exit", label %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h1bc92112eadc019eE.llvm.9485743902246897451.exit.thread"
 
-"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h1bc92112eadc019eE.llvm.9485743902246897451.exit.thread": ; preds = %4, %25, %28
+"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h1bc92112eadc019eE.llvm.9485743902246897451.exit.thread": ; preds = %25, %4, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %34
 
@@ -3845,7 +3845,7 @@ define hidden void @_ZN4gpui3app10entity_map9EntityMap5lease17h5019a7d4ef4ad7e9E
   %32 = icmp eq i32 %21, 0
   br i1 %32, label %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h1bc92112eadc019eE.llvm.9485743902246897451.exit", label %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h1bc92112eadc019eE.llvm.9485743902246897451.exit.thread"
 
-"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h1bc92112eadc019eE.llvm.9485743902246897451.exit.thread": ; preds = %4, %25, %28
+"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h1bc92112eadc019eE.llvm.9485743902246897451.exit.thread": ; preds = %25, %4, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %34
 
@@ -3923,7 +3923,7 @@ define hidden void @_ZN4gpui3app10entity_map9EntityMap5lease17h6a044eacb7f5e747E
   %32 = icmp eq i32 %21, 0
   br i1 %32, label %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h1bc92112eadc019eE.llvm.9485743902246897451.exit", label %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h1bc92112eadc019eE.llvm.9485743902246897451.exit.thread"
 
-"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h1bc92112eadc019eE.llvm.9485743902246897451.exit.thread": ; preds = %4, %25, %28
+"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h1bc92112eadc019eE.llvm.9485743902246897451.exit.thread": ; preds = %25, %4, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %34
 
@@ -4001,7 +4001,7 @@ define hidden void @_ZN4gpui3app10entity_map9EntityMap5lease17ha8237729ed31ff02E
   %32 = icmp eq i32 %21, 0
   br i1 %32, label %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h1bc92112eadc019eE.llvm.9485743902246897451.exit", label %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h1bc92112eadc019eE.llvm.9485743902246897451.exit.thread"
 
-"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h1bc92112eadc019eE.llvm.9485743902246897451.exit.thread": ; preds = %4, %25, %28
+"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h1bc92112eadc019eE.llvm.9485743902246897451.exit.thread": ; preds = %25, %4, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %34
 
@@ -4079,7 +4079,7 @@ define hidden void @_ZN4gpui3app10entity_map9EntityMap5lease17hadba4eaa5ec9913dE
   %32 = icmp eq i32 %21, 0
   br i1 %32, label %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h1bc92112eadc019eE.llvm.9485743902246897451.exit", label %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h1bc92112eadc019eE.llvm.9485743902246897451.exit.thread"
 
-"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h1bc92112eadc019eE.llvm.9485743902246897451.exit.thread": ; preds = %4, %25, %28
+"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h1bc92112eadc019eE.llvm.9485743902246897451.exit.thread": ; preds = %25, %4, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %34
 
@@ -4157,7 +4157,7 @@ define hidden void @_ZN4gpui3app10entity_map9EntityMap5lease17hbeee4e484fe11851E
   %32 = icmp eq i32 %21, 0
   br i1 %32, label %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h1bc92112eadc019eE.llvm.9485743902246897451.exit", label %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h1bc92112eadc019eE.llvm.9485743902246897451.exit.thread"
 
-"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h1bc92112eadc019eE.llvm.9485743902246897451.exit.thread": ; preds = %4, %25, %28
+"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h1bc92112eadc019eE.llvm.9485743902246897451.exit.thread": ; preds = %25, %4, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %34
 
@@ -4235,7 +4235,7 @@ define hidden void @_ZN4gpui3app10entity_map9EntityMap5lease17hdf6ee141b09b2da2E
   %32 = icmp eq i32 %21, 0
   br i1 %32, label %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h1bc92112eadc019eE.llvm.9485743902246897451.exit", label %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h1bc92112eadc019eE.llvm.9485743902246897451.exit.thread"
 
-"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h1bc92112eadc019eE.llvm.9485743902246897451.exit.thread": ; preds = %4, %25, %28
+"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h1bc92112eadc019eE.llvm.9485743902246897451.exit.thread": ; preds = %25, %4, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %34
 
@@ -4313,7 +4313,7 @@ define hidden void @_ZN4gpui3app10entity_map9EntityMap5lease17he4f654acd51a6356E
   %32 = icmp eq i32 %21, 0
   br i1 %32, label %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h1bc92112eadc019eE.llvm.9485743902246897451.exit", label %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h1bc92112eadc019eE.llvm.9485743902246897451.exit.thread"
 
-"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h1bc92112eadc019eE.llvm.9485743902246897451.exit.thread": ; preds = %4, %25, %28
+"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h1bc92112eadc019eE.llvm.9485743902246897451.exit.thread": ; preds = %25, %4, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %34
 
@@ -6185,7 +6185,7 @@ define hidden noundef ptr @"_ZN4gpui4view17WeakView$LT$V$GT$6update17h031288e3ce
   br label %"_ZN4core3ptr110drop_in_place$LT$gpui..view..View$LT$picker..Picker$LT$language_selector..LanguageSelectorDelegate$GT$$GT$$GT$17h0dd8300b57769dc2E.exit"
 
 common.resume:                                    ; preds = %13, %16, %20, %24
-  %common.resume.op = phi { ptr, i32 } [ %17, %24 ], [ %17, %20 ], [ %17, %16 ], [ %14, %13 ]
+  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %17, %24 ], [ %17, %20 ], [ %14, %13 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr110drop_in_place$LT$gpui..view..View$LT$picker..Picker$LT$language_selector..LanguageSelectorDelegate$GT$$GT$$GT$17h0dd8300b57769dc2E.exit": ; preds = %33, %29, %26, %11
@@ -6288,7 +6288,7 @@ define hidden noundef ptr @"_ZN4gpui4view17WeakView$LT$V$GT$6update17h16e6a8dd14
   br label %"_ZN4core3ptr110drop_in_place$LT$gpui..view..View$LT$picker..Picker$LT$language_selector..LanguageSelectorDelegate$GT$$GT$$GT$17h0dd8300b57769dc2E.exit"
 
 common.resume:                                    ; preds = %13, %16, %20, %24
-  %common.resume.op = phi { ptr, i32 } [ %17, %24 ], [ %17, %20 ], [ %17, %16 ], [ %14, %13 ]
+  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %17, %24 ], [ %17, %20 ], [ %14, %13 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr110drop_in_place$LT$gpui..view..View$LT$picker..Picker$LT$language_selector..LanguageSelectorDelegate$GT$$GT$$GT$17h0dd8300b57769dc2E.exit": ; preds = %33, %29, %26, %11
@@ -6391,7 +6391,7 @@ define hidden noundef ptr @"_ZN4gpui4view17WeakView$LT$V$GT$6update17h228f84a110
   br label %"_ZN4core3ptr110drop_in_place$LT$gpui..view..View$LT$picker..Picker$LT$language_selector..LanguageSelectorDelegate$GT$$GT$$GT$17h0dd8300b57769dc2E.exit"
 
 common.resume:                                    ; preds = %13, %16, %20, %24
-  %common.resume.op = phi { ptr, i32 } [ %17, %24 ], [ %17, %20 ], [ %17, %16 ], [ %14, %13 ]
+  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %17, %24 ], [ %17, %20 ], [ %14, %13 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr110drop_in_place$LT$gpui..view..View$LT$picker..Picker$LT$language_selector..LanguageSelectorDelegate$GT$$GT$$GT$17h0dd8300b57769dc2E.exit": ; preds = %33, %29, %26, %11
@@ -6494,7 +6494,7 @@ define hidden noundef ptr @"_ZN4gpui4view17WeakView$LT$V$GT$6update17h33e0db225c
   br label %"_ZN4core3ptr110drop_in_place$LT$gpui..view..View$LT$picker..Picker$LT$language_selector..LanguageSelectorDelegate$GT$$GT$$GT$17h0dd8300b57769dc2E.exit"
 
 common.resume:                                    ; preds = %13, %16, %20, %24
-  %common.resume.op = phi { ptr, i32 } [ %17, %24 ], [ %17, %20 ], [ %17, %16 ], [ %14, %13 ]
+  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %17, %24 ], [ %17, %20 ], [ %14, %13 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr110drop_in_place$LT$gpui..view..View$LT$picker..Picker$LT$language_selector..LanguageSelectorDelegate$GT$$GT$$GT$17h0dd8300b57769dc2E.exit": ; preds = %33, %29, %26, %11
@@ -6594,7 +6594,7 @@ define hidden noundef ptr @"_ZN4gpui4view17WeakView$LT$V$GT$6update17h3908fa63ca
   unreachable
 
 common.resume:                                    ; preds = %53, %40, %36, %32, %29, %14
-  %common.resume.op = phi { ptr, i32 } [ %15, %14 ], [ %54, %53 ], [ %33, %40 ], [ %33, %36 ], [ %33, %32 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %15, %14 ], [ %33, %32 ], [ %54, %53 ], [ %33, %40 ], [ %33, %36 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 29:                                               ; preds = %12
@@ -6761,7 +6761,7 @@ define hidden noundef ptr @"_ZN4gpui4view17WeakView$LT$V$GT$6update17h3d492b85a1
   br label %"_ZN4core3ptr79drop_in_place$LT$gpui..view..View$LT$workspace..modal_layer..ModalLayer$GT$$GT$17ha8d62fe18f80decbE.exit"
 
 common.resume:                                    ; preds = %13, %16, %20, %24
-  %common.resume.op = phi { ptr, i32 } [ %17, %24 ], [ %17, %20 ], [ %17, %16 ], [ %14, %13 ]
+  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %17, %24 ], [ %17, %20 ], [ %14, %13 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr79drop_in_place$LT$gpui..view..View$LT$workspace..modal_layer..ModalLayer$GT$$GT$17ha8d62fe18f80decbE.exit": ; preds = %33, %29, %26, %11
@@ -6864,7 +6864,7 @@ define hidden noundef ptr @"_ZN4gpui4view17WeakView$LT$V$GT$6update17h4a0b0243d3
   br label %"_ZN4core3ptr110drop_in_place$LT$gpui..view..View$LT$picker..Picker$LT$language_selector..LanguageSelectorDelegate$GT$$GT$$GT$17h0dd8300b57769dc2E.exit"
 
 common.resume:                                    ; preds = %13, %16, %20, %24
-  %common.resume.op = phi { ptr, i32 } [ %17, %24 ], [ %17, %20 ], [ %17, %16 ], [ %14, %13 ]
+  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %17, %24 ], [ %17, %20 ], [ %14, %13 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr110drop_in_place$LT$gpui..view..View$LT$picker..Picker$LT$language_selector..LanguageSelectorDelegate$GT$$GT$$GT$17h0dd8300b57769dc2E.exit": ; preds = %33, %29, %26, %11
@@ -6967,7 +6967,7 @@ define hidden noundef ptr @"_ZN4gpui4view17WeakView$LT$V$GT$6update17h53cdf69e7e
   br label %"_ZN4core3ptr110drop_in_place$LT$gpui..view..View$LT$picker..Picker$LT$language_selector..LanguageSelectorDelegate$GT$$GT$$GT$17h0dd8300b57769dc2E.exit"
 
 common.resume:                                    ; preds = %13, %16, %20, %24
-  %common.resume.op = phi { ptr, i32 } [ %17, %24 ], [ %17, %20 ], [ %17, %16 ], [ %14, %13 ]
+  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %17, %24 ], [ %17, %20 ], [ %14, %13 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr110drop_in_place$LT$gpui..view..View$LT$picker..Picker$LT$language_selector..LanguageSelectorDelegate$GT$$GT$$GT$17h0dd8300b57769dc2E.exit": ; preds = %33, %29, %26, %11
@@ -7103,7 +7103,7 @@ define hidden void @"_ZN4gpui4view17WeakView$LT$V$GT$6update17h5a992493de3d64a5E
   br label %"_ZN4core3ptr110drop_in_place$LT$gpui..view..View$LT$picker..Picker$LT$language_selector..LanguageSelectorDelegate$GT$$GT$$GT$17h0dd8300b57769dc2E.exit"
 
 common.resume:                                    ; preds = %16, %23, %27, %31
-  %common.resume.op = phi { ptr, i32 } [ %24, %31 ], [ %24, %27 ], [ %24, %23 ], [ %17, %16 ]
+  %common.resume.op = phi { ptr, i32 } [ %24, %23 ], [ %24, %31 ], [ %24, %27 ], [ %17, %16 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr110drop_in_place$LT$gpui..view..View$LT$picker..Picker$LT$language_selector..LanguageSelectorDelegate$GT$$GT$$GT$17h0dd8300b57769dc2E.exit": ; preds = %40, %36, %33, %13
@@ -7203,7 +7203,7 @@ define hidden noundef ptr @"_ZN4gpui4view17WeakView$LT$V$GT$6update17h6fa2ba92a2
   unreachable
 
 common.resume:                                    ; preds = %54, %41, %37, %33, %30, %15
-  %common.resume.op = phi { ptr, i32 } [ %16, %15 ], [ %55, %54 ], [ %34, %41 ], [ %34, %37 ], [ %34, %33 ], [ %31, %30 ]
+  %common.resume.op = phi { ptr, i32 } [ %16, %15 ], [ %34, %33 ], [ %55, %54 ], [ %34, %41 ], [ %34, %37 ], [ %31, %30 ]
   resume { ptr, i32 } %common.resume.op
 
 30:                                               ; preds = %12
@@ -7366,7 +7366,7 @@ define hidden noundef ptr @"_ZN4gpui4view17WeakView$LT$V$GT$6update17h7d1ddb2573
   br label %"_ZN4core3ptr110drop_in_place$LT$gpui..view..View$LT$picker..Picker$LT$language_selector..LanguageSelectorDelegate$GT$$GT$$GT$17h0dd8300b57769dc2E.exit"
 
 common.resume:                                    ; preds = %13, %16, %20, %24
-  %common.resume.op = phi { ptr, i32 } [ %17, %24 ], [ %17, %20 ], [ %17, %16 ], [ %14, %13 ]
+  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %17, %24 ], [ %17, %20 ], [ %14, %13 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr110drop_in_place$LT$gpui..view..View$LT$picker..Picker$LT$language_selector..LanguageSelectorDelegate$GT$$GT$$GT$17h0dd8300b57769dc2E.exit": ; preds = %33, %29, %26, %11
@@ -7469,7 +7469,7 @@ define hidden noundef ptr @"_ZN4gpui4view17WeakView$LT$V$GT$6update17h7e6157f67b
   br label %"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17h2c7632a8ed22f5a4E.exit"
 
 common.resume:                                    ; preds = %13, %16, %20, %24
-  %common.resume.op = phi { ptr, i32 } [ %17, %24 ], [ %17, %20 ], [ %17, %16 ], [ %14, %13 ]
+  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %17, %24 ], [ %17, %20 ], [ %14, %13 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17h2c7632a8ed22f5a4E.exit": ; preds = %33, %29, %26, %11
@@ -7608,7 +7608,7 @@ define hidden noundef ptr @"_ZN4gpui4view17WeakView$LT$V$GT$6update17h83947d83a5
   unreachable
 
 .thread:                                          ; preds = %43, %18, %21, %25, %29
-  %.pn34 = phi { ptr, i32 } [ %22, %29 ], [ %22, %25 ], [ %22, %21 ], [ %19, %18 ], [ %44, %43 ]
+  %.pn34 = phi { ptr, i32 } [ %22, %21 ], [ %19, %18 ], [ %22, %29 ], [ %22, %25 ], [ %44, %43 ]
   resume { ptr, i32 } %.pn34
 
 43:                                               ; preds = %.noexc22, %11, %3
@@ -7706,7 +7706,7 @@ define hidden noundef ptr @"_ZN4gpui4view17WeakView$LT$V$GT$6update17h860f240a0e
   br label %"_ZN4core3ptr110drop_in_place$LT$gpui..view..View$LT$picker..Picker$LT$language_selector..LanguageSelectorDelegate$GT$$GT$$GT$17h0dd8300b57769dc2E.exit"
 
 common.resume:                                    ; preds = %13, %16, %20, %24
-  %common.resume.op = phi { ptr, i32 } [ %17, %24 ], [ %17, %20 ], [ %17, %16 ], [ %14, %13 ]
+  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %17, %24 ], [ %17, %20 ], [ %14, %13 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr110drop_in_place$LT$gpui..view..View$LT$picker..Picker$LT$language_selector..LanguageSelectorDelegate$GT$$GT$$GT$17h0dd8300b57769dc2E.exit": ; preds = %33, %29, %26, %11
@@ -7809,7 +7809,7 @@ define hidden noundef ptr @"_ZN4gpui4view17WeakView$LT$V$GT$6update17h8fdddaee22
   br label %"_ZN4core3ptr108drop_in_place$LT$gpui..view..View$LT$language_selector..active_buffer_language..ActiveBufferLanguage$GT$$GT$17hafd2311191f876a0E.exit"
 
 common.resume:                                    ; preds = %13, %16, %20, %24
-  %common.resume.op = phi { ptr, i32 } [ %17, %24 ], [ %17, %20 ], [ %17, %16 ], [ %14, %13 ]
+  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %17, %24 ], [ %17, %20 ], [ %14, %13 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr108drop_in_place$LT$gpui..view..View$LT$language_selector..active_buffer_language..ActiveBufferLanguage$GT$$GT$17hafd2311191f876a0E.exit": ; preds = %33, %29, %26, %11
@@ -7917,7 +7917,7 @@ define hidden noundef ptr @"_ZN4gpui4view17WeakView$LT$V$GT$6update17h9ac611bb60
   br label %"_ZN4core3ptr110drop_in_place$LT$gpui..view..View$LT$picker..Picker$LT$language_selector..LanguageSelectorDelegate$GT$$GT$$GT$17h0dd8300b57769dc2E.exit"
 
 common.resume:                                    ; preds = %14, %17, %21, %25
-  %common.resume.op = phi { ptr, i32 } [ %18, %25 ], [ %18, %21 ], [ %18, %17 ], [ %15, %14 ]
+  %common.resume.op = phi { ptr, i32 } [ %18, %17 ], [ %18, %25 ], [ %18, %21 ], [ %15, %14 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr110drop_in_place$LT$gpui..view..View$LT$picker..Picker$LT$language_selector..LanguageSelectorDelegate$GT$$GT$$GT$17h0dd8300b57769dc2E.exit": ; preds = %34, %30, %27, %12
@@ -8020,7 +8020,7 @@ define hidden noundef ptr @"_ZN4gpui4view17WeakView$LT$V$GT$6update17had14aff6d7
   br label %"_ZN4core3ptr110drop_in_place$LT$gpui..view..View$LT$picker..Picker$LT$language_selector..LanguageSelectorDelegate$GT$$GT$$GT$17h0dd8300b57769dc2E.exit"
 
 common.resume:                                    ; preds = %13, %16, %20, %24
-  %common.resume.op = phi { ptr, i32 } [ %17, %24 ], [ %17, %20 ], [ %17, %16 ], [ %14, %13 ]
+  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %17, %24 ], [ %17, %20 ], [ %14, %13 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr110drop_in_place$LT$gpui..view..View$LT$picker..Picker$LT$language_selector..LanguageSelectorDelegate$GT$$GT$$GT$17h0dd8300b57769dc2E.exit": ; preds = %33, %29, %26, %11
@@ -8121,7 +8121,7 @@ define hidden noundef ptr @"_ZN4gpui4view17WeakView$LT$V$GT$6update17hb23c58ee94
   unreachable
 
 common.resume:                                    ; preds = %54, %41, %37, %33, %30, %15
-  %common.resume.op = phi { ptr, i32 } [ %16, %15 ], [ %55, %54 ], [ %34, %41 ], [ %34, %37 ], [ %34, %33 ], [ %31, %30 ]
+  %common.resume.op = phi { ptr, i32 } [ %16, %15 ], [ %34, %33 ], [ %55, %54 ], [ %34, %41 ], [ %34, %37 ], [ %31, %30 ]
   resume { ptr, i32 } %common.resume.op
 
 30:                                               ; preds = %12
@@ -8284,7 +8284,7 @@ define hidden noundef ptr @"_ZN4gpui4view17WeakView$LT$V$GT$6update17hbef1c3ff91
   br label %"_ZN4core3ptr110drop_in_place$LT$gpui..view..View$LT$picker..Picker$LT$language_selector..LanguageSelectorDelegate$GT$$GT$$GT$17h0dd8300b57769dc2E.exit"
 
 common.resume:                                    ; preds = %13, %16, %20, %24
-  %common.resume.op = phi { ptr, i32 } [ %17, %24 ], [ %17, %20 ], [ %17, %16 ], [ %14, %13 ]
+  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %17, %24 ], [ %17, %20 ], [ %14, %13 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr110drop_in_place$LT$gpui..view..View$LT$picker..Picker$LT$language_selector..LanguageSelectorDelegate$GT$$GT$$GT$17h0dd8300b57769dc2E.exit": ; preds = %33, %29, %26, %11
@@ -8387,7 +8387,7 @@ define hidden noundef ptr @"_ZN4gpui4view17WeakView$LT$V$GT$6update17he8b4e011de
   br label %"_ZN4core3ptr110drop_in_place$LT$gpui..view..View$LT$picker..Picker$LT$language_selector..LanguageSelectorDelegate$GT$$GT$$GT$17h0dd8300b57769dc2E.exit"
 
 common.resume:                                    ; preds = %13, %16, %20, %24
-  %common.resume.op = phi { ptr, i32 } [ %17, %24 ], [ %17, %20 ], [ %17, %16 ], [ %14, %13 ]
+  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %17, %24 ], [ %17, %20 ], [ %14, %13 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr110drop_in_place$LT$gpui..view..View$LT$picker..Picker$LT$language_selector..LanguageSelectorDelegate$GT$$GT$$GT$17h0dd8300b57769dc2E.exit": ; preds = %33, %29, %26, %11
@@ -8488,7 +8488,7 @@ define hidden noundef ptr @"_ZN4gpui4view17WeakView$LT$V$GT$6update17hf167ff0bbd
   unreachable
 
 common.resume:                                    ; preds = %54, %41, %37, %33, %30, %15
-  %common.resume.op = phi { ptr, i32 } [ %16, %15 ], [ %55, %54 ], [ %34, %41 ], [ %34, %37 ], [ %34, %33 ], [ %31, %30 ]
+  %common.resume.op = phi { ptr, i32 } [ %16, %15 ], [ %34, %33 ], [ %55, %54 ], [ %34, %41 ], [ %34, %37 ], [ %31, %30 ]
   resume { ptr, i32 } %common.resume.op
 
 30:                                               ; preds = %12
@@ -8651,7 +8651,7 @@ define hidden noundef ptr @"_ZN4gpui4view17WeakView$LT$V$GT$6update17hf26774fed8
   br label %"_ZN4core3ptr80drop_in_place$LT$gpui..view..View$LT$language_selector..LanguageSelector$GT$$GT$17hdc2fc4c15dd84826E.exit"
 
 common.resume:                                    ; preds = %11, %13, %17, %21
-  %common.resume.op = phi { ptr, i32 } [ %14, %21 ], [ %14, %17 ], [ %14, %13 ], [ %12, %11 ]
+  %common.resume.op = phi { ptr, i32 } [ %14, %13 ], [ %14, %21 ], [ %14, %17 ], [ %12, %11 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr80drop_in_place$LT$gpui..view..View$LT$language_selector..LanguageSelector$GT$$GT$17hdc2fc4c15dd84826E.exit": ; preds = %30, %26, %23, %9
@@ -9556,7 +9556,7 @@ define hidden void @_ZN4gpui8elements12uniform_list12uniform_list17h314676660559
   br label %.thread66
 
 .thread66:                                        ; preds = %61, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$gpui..window..ElementId$GT$$GT$17h011e1223d634bdb8E.exit", %62
-  %.pn1169 = phi { ptr, i32 } [ %.pn1170, %62 ], [ %23, %61 ], [ %.pn, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$gpui..window..ElementId$GT$$GT$17h011e1223d634bdb8E.exit" ]
+  %.pn1169 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$gpui..window..ElementId$GT$$GT$17h011e1223d634bdb8E.exit" ], [ %.pn1170, %62 ], [ %23, %61 ]
   resume { ptr, i32 } %.pn1169
 
 62:                                               ; preds = %.thread, %.thread71
@@ -11416,7 +11416,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h5b764ddf5022d0
   unreachable
 
 "_ZN4core3ptr107drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$sum_tree..SumTree$LT$text..Fragment$GT$$C$12_usize$GT$$GT$17h1bc10f5337874befE.exit.i": ; preds = %51, %"_ZN4core3ptr82drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$text..Fragment$C$12_usize$GT$$GT$17h642ac5d46345b87aE.exit.i", %24, %"_ZN4core3ptr89drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$text..FragmentSummary$C$12_usize$GT$$GT$17h3c33fedf96cdfb3fE.exit.i"
-  %.pn2.pn.i = phi { ptr, i32 } [ %.pn2.i, %24 ], [ %.pn2.i, %"_ZN4core3ptr89drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$text..FragmentSummary$C$12_usize$GT$$GT$17h3c33fedf96cdfb3fE.exit.i" ], [ %.pn.i, %51 ], [ %.pn.i, %"_ZN4core3ptr82drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$text..Fragment$C$12_usize$GT$$GT$17h642ac5d46345b87aE.exit.i" ]
+  %.pn2.pn.i = phi { ptr, i32 } [ %.pn2.i, %"_ZN4core3ptr89drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$text..FragmentSummary$C$12_usize$GT$$GT$17h3c33fedf96cdfb3fE.exit.i" ], [ %.pn2.i, %24 ], [ %.pn.i, %51 ], [ %.pn.i, %"_ZN4core3ptr82drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$text..Fragment$C$12_usize$GT$$GT$17h642ac5d46345b87aE.exit.i" ]
   resume { ptr, i32 } %.pn2.pn.i
 
 36:                                               ; preds = %8
@@ -11793,7 +11793,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h5e8141d23cfbf7
   unreachable
 
 "_ZN4core3ptr114drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$sum_tree..SumTree$LT$multi_buffer..Excerpt$GT$$C$12_usize$GT$$GT$17h4c10708defb696eaE.exit.i": ; preds = %49, %"_ZN4core3ptr89drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$multi_buffer..Excerpt$C$12_usize$GT$$GT$17h5f8a8189785dfb15E.exit.i", %23, %"_ZN4core3ptr96drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$multi_buffer..ExcerptSummary$C$12_usize$GT$$GT$17h7f2759ce8bfc865fE.exit.i"
-  %.pn2.pn.i = phi { ptr, i32 } [ %.pn2.i, %23 ], [ %.pn2.i, %"_ZN4core3ptr96drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$multi_buffer..ExcerptSummary$C$12_usize$GT$$GT$17h7f2759ce8bfc865fE.exit.i" ], [ %.pn.i, %49 ], [ %.pn.i, %"_ZN4core3ptr89drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$multi_buffer..Excerpt$C$12_usize$GT$$GT$17h5f8a8189785dfb15E.exit.i" ]
+  %.pn2.pn.i = phi { ptr, i32 } [ %.pn2.i, %"_ZN4core3ptr96drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$multi_buffer..ExcerptSummary$C$12_usize$GT$$GT$17h7f2759ce8bfc865fE.exit.i" ], [ %.pn2.i, %23 ], [ %.pn.i, %49 ], [ %.pn.i, %"_ZN4core3ptr89drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$multi_buffer..Excerpt$C$12_usize$GT$$GT$17h5f8a8189785dfb15E.exit.i" ]
   resume { ptr, i32 } %.pn2.pn.i
 
 35:                                               ; preds = %8
@@ -16789,7 +16789,7 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN7slotmap9seco
   br label %"_ZN4core6option15Option$LT$T$GT$6filter17he25c9470f68461c8E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6filter17he25c9470f68461c8E.exit": ; preds = %3, %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$3get28_$u7b$$u7b$closure$u7d$$u7d$17h1bc13f68598a1b32E.exit.i"
-  %.sroa.05.0.i = phi ptr [ null, %3 ], [ %spec.select.i, %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$3get28_$u7b$$u7b$closure$u7d$$u7d$17h1bc13f68598a1b32E.exit.i" ]
+  %.sroa.05.0.i = phi ptr [ %spec.select.i, %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$3get28_$u7b$$u7b$closure$u7d$$u7d$17h1bc13f68598a1b32E.exit.i" ], [ null, %3 ]
   %21 = icmp eq ptr %.sroa.05.0.i, null
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i, i64 8
   %spec.select = select i1 %21, ptr null, ptr %22
@@ -16947,8 +16947,8 @@ define hidden { ptr, ptr } @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6in
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8403e49c20cef83eE.llvm.9485743902246897451.exit1.i.i"
 
 "_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$GT$$GT$17haf645adb96f25d93E.llvm.9485743902246897451.exit": ; preds = %89, %82, %"_ZN4core3ptr100drop_in_place$LT$slotmap..secondary..Slot$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$GT$$GT$$GT$17ha1b08d44810b6528E.exit", %37
-  %.sroa.5.0 = phi ptr [ %41, %37 ], [ undef, %"_ZN4core3ptr100drop_in_place$LT$slotmap..secondary..Slot$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$GT$$GT$$GT$17ha1b08d44810b6528E.exit" ], [ undef, %82 ], [ undef, %89 ]
-  %.sroa.0.1 = phi ptr [ %39, %37 ], [ null, %"_ZN4core3ptr100drop_in_place$LT$slotmap..secondary..Slot$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$GT$$GT$$GT$17ha1b08d44810b6528E.exit" ], [ null, %82 ], [ null, %89 ]
+  %.sroa.5.0 = phi ptr [ undef, %"_ZN4core3ptr100drop_in_place$LT$slotmap..secondary..Slot$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$GT$$GT$$GT$17ha1b08d44810b6528E.exit" ], [ %41, %37 ], [ undef, %82 ], [ undef, %89 ]
+  %.sroa.0.1 = phi ptr [ null, %"_ZN4core3ptr100drop_in_place$LT$slotmap..secondary..Slot$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$GT$$GT$$GT$17ha1b08d44810b6528E.exit" ], [ %39, %37 ], [ null, %82 ], [ null, %89 ]
   %77 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
   %78 = insertvalue { ptr, ptr } %77, ptr %.sroa.5.0, 1
   ret { ptr, ptr } %78
@@ -16993,7 +16993,7 @@ define hidden { ptr, ptr } @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6in
   br label %common.resume
 
 common.resume:                                    ; preds = %100, %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8403e49c20cef83eE.llvm.9485743902246897451.exit1.i.i", %90, %98
-  %common.resume.op = phi { ptr, i32 } [ %91, %98 ], [ %91, %90 ], [ %101, %100 ], [ %69, %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8403e49c20cef83eE.llvm.9485743902246897451.exit1.i.i" ]
+  %common.resume.op = phi { ptr, i32 } [ %91, %90 ], [ %91, %98 ], [ %101, %100 ], [ %69, %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8403e49c20cef83eE.llvm.9485743902246897451.exit1.i.i" ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr100drop_in_place$LT$slotmap..secondary..Slot$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$GT$$GT$$GT$17ha1b08d44810b6528E.exit": ; preds = %67, %60, %46
@@ -17071,8 +17071,8 @@ define hidden { ptr, ptr } @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6re
   br label %29
 
 29:                                               ; preds = %24, %21, %3
-  %.sroa.4.0 = phi ptr [ undef, %3 ], [ undef, %21 ], [ %spec.select, %24 ]
-  %.sroa.0.0 = phi ptr [ null, %3 ], [ null, %21 ], [ %spec.select7, %24 ]
+  %.sroa.4.0 = phi ptr [ undef, %21 ], [ undef, %3 ], [ %spec.select, %24 ]
+  %.sroa.0.0 = phi ptr [ null, %21 ], [ null, %3 ], [ %spec.select7, %24 ]
   %30 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %31 = insertvalue { ptr, ptr } %30, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %31
@@ -17623,7 +17623,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN98_$LT$slotma
   %21 = icmp eq i32 %.sroa.0.0.i.i.i, %8
   br i1 %21, label %23, label %22
 
-22:                                               ; preds = %4, %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$3get28_$u7b$$u7b$closure$u7d$$u7d$17h1bc13f68598a1b32E.exit.i.i"
+22:                                               ; preds = %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$3get28_$u7b$$u7b$closure$u7d$$u7d$17h1bc13f68598a1b32E.exit.i.i", %4
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN3std9panicking11begin_panic17hb8901936e57afc60E(ptr noalias noundef nonnull readonly align 1 @anon.134a1a5364a213345c6692ed6648dcdf.84.llvm.9485743902246897451, i64 noundef 29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #26
   unreachable

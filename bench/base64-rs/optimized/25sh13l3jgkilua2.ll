@@ -39,8 +39,8 @@ define { i64, i64 } @_ZN6base646encode11encoded_len17h07374af11e56c9c4E(i64 noun
   br label %16
 
 16:                                               ; preds = %12, %7, %2, %9
-  %.sroa.7.0 = phi i64 [ %11, %9 ], [ undef, %2 ], [ %5, %7 ], [ %15, %12 ]
-  %.sroa.0.0 = phi i64 [ 1, %9 ], [ 0, %2 ], [ 1, %7 ], [ %spec.select6, %12 ]
+  %.sroa.7.0 = phi i64 [ %5, %7 ], [ %15, %12 ], [ undef, %2 ], [ %11, %9 ]
+  %.sroa.0.0 = phi i64 [ 1, %7 ], [ %spec.select6, %12 ], [ 0, %2 ], [ 1, %9 ]
   %17 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %18 = insertvalue { i64, i64 } %17, i64 %.sroa.7.0, 1
   ret { i64, i64 } %18

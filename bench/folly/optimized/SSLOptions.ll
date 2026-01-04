@@ -498,7 +498,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %.body
 
 .body:                                            ; preds = %.thread, %12, %31
-  %.pn = phi { ptr, i32 } [ %32, %31 ], [ %13, %12 ], [ %7, %.thread ]
+  %.pn = phi { ptr, i32 } [ %32, %31 ], [ %7, %.thread ], [ %13, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.07 = extractvalue { ptr, i32 } %.pn, 1

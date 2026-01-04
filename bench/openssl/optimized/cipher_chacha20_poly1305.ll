@@ -121,7 +121,7 @@ define internal i32 @chacha20_poly1305_einit(ptr noundef %0, ptr noundef %1, i64
   br label %18
 
 18:                                               ; preds = %16, %15
-  %.0 = phi i32 [ 0, %15 ], [ %spec.select, %16 ]
+  %.0 = phi i32 [ %spec.select, %16 ], [ 0, %15 ]
   ret i32 %.0
 }
 
@@ -151,7 +151,7 @@ define internal i32 @chacha20_poly1305_dinit(ptr noundef %0, ptr noundef %1, i64
   br label %18
 
 18:                                               ; preds = %16, %15
-  %.0 = phi i32 [ 0, %15 ], [ %spec.select, %16 ]
+  %.0 = phi i32 [ %spec.select, %16 ], [ 0, %15 ]
   ret i32 %.0
 }
 
@@ -214,7 +214,7 @@ define internal range(i32 0, 2) i32 @chacha20_poly1305_final(ptr noundef %0, ptr
   br label %14
 
 14:                                               ; preds = %8, %4, %13
-  %.0 = phi i32 [ 1, %13 ], [ 0, %4 ], [ 0, %8 ]
+  %.0 = phi i32 [ 0, %4 ], [ 1, %13 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -346,7 +346,7 @@ define internal range(i32 0, 2) i32 @chacha20_poly1305_get_ctx_params(ptr nounde
   br label %46
 
 46:                                               ; preds = %26, %42, %41, %36, %31, %25, %18, %11, %6
-  %.0 = phi i32 [ 0, %31 ], [ 0, %41 ], [ 0, %36 ], [ 0, %25 ], [ 0, %18 ], [ 0, %11 ], [ 0, %6 ], [ 1, %42 ], [ 1, %26 ]
+  %.0 = phi i32 [ 0, %31 ], [ 0, %41 ], [ 0, %6 ], [ 0, %36 ], [ 0, %25 ], [ 0, %18 ], [ 0, %11 ], [ 1, %42 ], [ 1, %26 ]
   ret i32 %.0
 }
 
@@ -494,15 +494,15 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br i1 %71, label %ossl_param_is_empty.exit.thread.sink.split, label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread.sink.split:       ; preds = %63, %60, %46, %43, %32, %25, %22, %18, %16, %12, %10
-  %.sink66 = phi i32 [ 176, %10 ], [ 180, %12 ], [ 187, %16 ], [ 191, %18 ], [ 199, %22 ], [ 203, %25 ], [ 208, %32 ], [ 219, %43 ], [ 224, %46 ], [ 233, %60 ], [ 237, %63 ]
-  %.sink = phi i32 [ 103, %10 ], [ 105, %12 ], [ 103, %16 ], [ 109, %18 ], [ 103, %22 ], [ 118, %25 ], [ 120, %32 ], [ 103, %43 ], [ 115, %46 ], [ 103, %60 ], [ 109, %63 ]
+  %.sink66 = phi i32 [ 233, %60 ], [ 224, %46 ], [ 219, %43 ], [ 208, %32 ], [ 203, %25 ], [ 199, %22 ], [ 191, %18 ], [ 187, %16 ], [ 180, %12 ], [ 176, %10 ], [ 237, %63 ]
+  %.sink = phi i32 [ 103, %60 ], [ 115, %46 ], [ 103, %43 ], [ 120, %32 ], [ 118, %25 ], [ 103, %22 ], [ 109, %18 ], [ 103, %16 ], [ 105, %12 ], [ 103, %10 ], [ 109, %63 ]
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink66, ptr noundef nonnull @__func__.chacha20_poly1305_set_ctx_params) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef %.sink, ptr noundef null) #5
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %ossl_param_is_empty.exit.thread.sink.split, %2, %58, %63, %ossl_param_is_empty.exit
-  %.0 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ 1, %63 ], [ 1, %58 ], [ 1, %2 ], [ 0, %ossl_param_is_empty.exit.thread.sink.split ]
+  %.0 = phi i32 [ 1, %63 ], [ 1, %58 ], [ 1, %ossl_param_is_empty.exit ], [ 1, %2 ], [ 0, %ossl_param_is_empty.exit.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

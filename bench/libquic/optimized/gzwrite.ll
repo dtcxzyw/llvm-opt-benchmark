@@ -202,7 +202,7 @@ gz_zero.exit:                                     ; preds = %38, %35, %24
   br label %gz_zero.exit.thread
 
 gz_zero.exit.thread:                              ; preds = %48, %82, %32, %91, %88, %21, %15, %5, %9, %3, %.critedge66, %14
-  %.054 = phi i32 [ 0, %14 ], [ %2, %.critedge66 ], [ 0, %3 ], [ 0, %9 ], [ 0, %5 ], [ 0, %15 ], [ 0, %21 ], [ 0, %88 ], [ 0, %91 ], [ 0, %32 ], [ 0, %82 ], [ 0, %48 ]
+  %.054 = phi i32 [ 0, %88 ], [ 0, %3 ], [ 0, %14 ], [ 0, %5 ], [ 0, %15 ], [ 0, %21 ], [ %2, %.critedge66 ], [ 0, %91 ], [ 0, %82 ], [ 0, %9 ], [ 0, %32 ], [ 0, %48 ]
   ret i32 %.054
 }
 
@@ -285,7 +285,7 @@ define internal fastcc range(i32 -1, 1) i32 @gz_init(ptr noundef nonnull initial
   br label %37
 
 37:                                               ; preds = %.thread, %29, %32, %26, %18, %9
-  %.0 = phi i32 [ -1, %9 ], [ -1, %18 ], [ -1, %26 ], [ 0, %32 ], [ 0, %29 ], [ 0, %.thread ]
+  %.0 = phi i32 [ -1, %9 ], [ -1, %26 ], [ -1, %18 ], [ 0, %32 ], [ 0, %29 ], [ 0, %.thread ]
   ret i32 %.0
 }
 
@@ -550,7 +550,7 @@ define internal fastcc range(i32 -1, 1) i32 @gz_comp(ptr noundef nonnull %0, i32
   br label %125
 
 125:                                              ; preds = %.split58.us, %123, %7, %.split56.us, %.split.us, %87, %83
-  %.0 = phi i32 [ -1, %83 ], [ 0, %87 ], [ -1, %.split.us ], [ -1, %.split56.us ], [ -1, %7 ], [ 0, %123 ], [ 0, %.split58.us ]
+  %.0 = phi i32 [ -1, %7 ], [ -1, %83 ], [ 0, %87 ], [ -1, %.split.us ], [ -1, %.split56.us ], [ 0, %123 ], [ 0, %.split58.us ]
   ret i32 %.0
 }
 
@@ -701,7 +701,7 @@ gz_zero.exit:                                     ; preds = %27, %23, %12
   br label %gz_zero.exit.thread
 
 gz_zero.exit.thread:                              ; preds = %37, %20, %72, %5, %9, %2, %62
-  %.0 = phi i32 [ %71, %62 ], [ -1, %2 ], [ -1, %9 ], [ -1, %5 ], [ %spec.select, %72 ], [ -1, %20 ], [ -1, %37 ]
+  %.0 = phi i32 [ %spec.select, %72 ], [ -1, %2 ], [ -1, %5 ], [ %71, %62 ], [ -1, %9 ], [ -1, %20 ], [ -1, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -860,7 +860,7 @@ gz_zero.exit:                                     ; preds = %33, %30, %19
   br label %gz_zero.exit.thread
 
 gz_zero.exit.thread:                              ; preds = %43, %27, %54, %65, %51, %16, %5, %9, %3, %69
-  %.0 = phi i32 [ %63, %69 ], [ -1, %3 ], [ 0, %9 ], [ 0, %5 ], [ 0, %16 ], [ 0, %51 ], [ 0, %65 ], [ 0, %54 ], [ 0, %27 ], [ 0, %43 ]
+  %.0 = phi i32 [ %63, %69 ], [ -1, %3 ], [ 0, %5 ], [ 0, %16 ], [ 0, %54 ], [ 0, %51 ], [ 0, %9 ], [ 0, %65 ], [ 0, %27 ], [ 0, %43 ]
   ret i32 %.0
 }
 
@@ -976,7 +976,7 @@ gz_zero.exit:                                     ; preds = %26, %22, %10
   br label %gz_zero.exit.thread
 
 gz_zero.exit.thread:                              ; preds = %36, %19, %4, %7, %2, %gz_zero.exit
-  %.0 = phi i32 [ %43, %gz_zero.exit ], [ -1, %2 ], [ -2, %7 ], [ -2, %4 ], [ -1, %19 ], [ -1, %36 ]
+  %.0 = phi i32 [ %43, %gz_zero.exit ], [ -1, %2 ], [ -2, %4 ], [ -2, %7 ], [ -1, %19 ], [ -1, %36 ]
   ret i32 %.0
 }
 
@@ -1108,7 +1108,7 @@ gz_zero.exit:                                     ; preds = %35, %31, %20
   br label %gz_zero.exit.thread
 
 gz_zero.exit.thread:                              ; preds = %45, %28, %16, %5, %9, %3, %63, %59
-  %.0 = phi i32 [ %60, %59 ], [ 0, %63 ], [ -2, %3 ], [ -2, %9 ], [ -2, %5 ], [ 0, %16 ], [ -1, %28 ], [ -1, %45 ]
+  %.0 = phi i32 [ 0, %63 ], [ -2, %3 ], [ -2, %5 ], [ 0, %16 ], [ %60, %59 ], [ -2, %9 ], [ -1, %28 ], [ -1, %45 ]
   ret i32 %.0
 }
 

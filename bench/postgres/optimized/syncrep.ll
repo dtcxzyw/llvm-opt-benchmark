@@ -249,8 +249,8 @@ SyncRepQueueInsert.exit:                          ; preds = %39, %dlist_push_hea
   br i1 %107, label %.loopexit.sink.split, label %.loopexit.sink.split.sink.split
 
 .loopexit.sink.split.sink.split:                  ; preds = %101, %90, %76
-  %.sink39 = phi ptr [ %80, %76 ], [ %94, %90 ], [ %105, %101 ]
-  %.val.i19.sink35 = phi ptr [ %.val.i, %76 ], [ %.val.i16, %90 ], [ %.val.i19, %101 ]
+  %.sink39 = phi ptr [ %94, %90 ], [ %80, %76 ], [ %105, %101 ]
+  %.val.i19.sink35 = phi ptr [ %.val.i16, %90 ], [ %.val.i, %76 ], [ %.val.i19, %101 ]
   %108 = getelementptr inbounds nuw i8, ptr %.sink39, i64 168
   %109 = load ptr, ptr %108, align 8
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
@@ -262,7 +262,7 @@ SyncRepQueueInsert.exit:                          ; preds = %39, %dlist_push_hea
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %.loopexit.sink.split.sink.split, %101, %90, %76
-  %.sink32 = phi ptr [ %80, %76 ], [ %94, %90 ], [ %105, %101 ], [ %.pre.i20, %.loopexit.sink.split.sink.split ]
+  %.sink32 = phi ptr [ %94, %90 ], [ %80, %76 ], [ %105, %101 ], [ %.pre.i20, %.loopexit.sink.split.sink.split ]
   %112 = getelementptr inbounds nuw i8, ptr %.sink32, i64 160
   store i32 0, ptr %112, align 8
   %113 = load ptr, ptr @MainLWLockArray, align 8
@@ -419,7 +419,7 @@ sub_0.i:                                          ; preds = %.lr.ph.i
   br label %SyncRepGetStandbyPriority.exit
 
 SyncRepGetStandbyPriority.exit:                   ; preds = %.tail.thread.i, %0, %3, %5, %10, %28
-  %.011.i = phi i32 [ %33, %28 ], [ 0, %0 ], [ 0, %5 ], [ 0, %3 ], [ 0, %10 ], [ 0, %.tail.thread.i ]
+  %.011.i = phi i32 [ 0, %3 ], [ 0, %0 ], [ %33, %28 ], [ 0, %5 ], [ 0, %10 ], [ 0, %.tail.thread.i ]
   %34 = load ptr, ptr @MyWalSnd, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 72
   %36 = load i32, ptr %35, align 8
@@ -612,11 +612,11 @@ SyncRepGetNthLatestSyncRecPtr.exit.i:             ; preds = %.lr.ph.i24.i
   br label %SyncRepGetSyncRecPtr.exit
 
 SyncRepGetSyncRecPtr.exit:                        ; preds = %24, %.lr.ph.i.i, %.loopexit.i, %21, %SyncRepGetNthLatestSyncRecPtr.exit.i
-  %.06274 = phi i8 [ 1, %SyncRepGetNthLatestSyncRecPtr.exit.i ], [ 1, %.loopexit.i ], [ 0, %21 ], [ 1, %.lr.ph.i.i ], [ 0, %24 ]
-  %.069 = phi i64 [ %69, %SyncRepGetNthLatestSyncRecPtr.exit.i ], [ 0, %.loopexit.i ], [ 0, %21 ], [ %spec.select, %.lr.ph.i.i ], [ 0, %24 ]
-  %.065 = phi i64 [ %71, %SyncRepGetNthLatestSyncRecPtr.exit.i ], [ 0, %.loopexit.i ], [ 0, %21 ], [ %.267, %.lr.ph.i.i ], [ 0, %24 ]
-  %.063 = phi i64 [ %73, %SyncRepGetNthLatestSyncRecPtr.exit.i ], [ 0, %.loopexit.i ], [ 0, %21 ], [ %.2, %.lr.ph.i.i ], [ 0, %24 ]
-  %.019.ph.i = phi i1 [ true, %SyncRepGetNthLatestSyncRecPtr.exit.i ], [ false, %.loopexit.i ], [ false, %21 ], [ true, %.lr.ph.i.i ], [ false, %24 ]
+  %.06274 = phi i8 [ 1, %.lr.ph.i.i ], [ 1, %SyncRepGetNthLatestSyncRecPtr.exit.i ], [ 1, %.loopexit.i ], [ 0, %21 ], [ 0, %24 ]
+  %.069 = phi i64 [ %spec.select, %.lr.ph.i.i ], [ %69, %SyncRepGetNthLatestSyncRecPtr.exit.i ], [ 0, %.loopexit.i ], [ 0, %21 ], [ 0, %24 ]
+  %.065 = phi i64 [ %.267, %.lr.ph.i.i ], [ %71, %SyncRepGetNthLatestSyncRecPtr.exit.i ], [ 0, %.loopexit.i ], [ 0, %21 ], [ 0, %24 ]
+  %.063 = phi i64 [ %.2, %.lr.ph.i.i ], [ %73, %SyncRepGetNthLatestSyncRecPtr.exit.i ], [ 0, %.loopexit.i ], [ 0, %21 ], [ 0, %24 ]
+  %.019.ph.i = phi i1 [ true, %.lr.ph.i.i ], [ true, %SyncRepGetNthLatestSyncRecPtr.exit.i ], [ false, %.loopexit.i ], [ false, %21 ], [ false, %24 ]
   tail call void @pfree(ptr noundef %.pre) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %74 = load i8, ptr @announce_next_takeover, align 1, !range !4, !noundef !5
@@ -659,8 +659,8 @@ SyncRepGetSyncRecPtr.exit:                        ; preds = %24, %.lr.ph.i.i, %.
   br label %94
 
 94:                                               ; preds = %.sink.split, %83, %90, %SyncRepGetSyncRecPtr.exit
-  %95 = phi i1 [ true, %83 ], [ true, %90 ], [ %75, %SyncRepGetSyncRecPtr.exit ], [ true, %.sink.split ]
-  %.185 = phi i8 [ 1, %83 ], [ 1, %90 ], [ %.06274, %SyncRepGetSyncRecPtr.exit ], [ 1, %.sink.split ]
+  %95 = phi i1 [ %75, %SyncRepGetSyncRecPtr.exit ], [ true, %90 ], [ true, %83 ], [ true, %.sink.split ]
+  %.185 = phi i8 [ %.06274, %SyncRepGetSyncRecPtr.exit ], [ 1, %90 ], [ 1, %83 ], [ 1, %.sink.split ]
   %or.cond3 = select i1 %.019.ph.i, i1 %95, i1 false
   br i1 %or.cond3, label %100, label %96
 
@@ -922,7 +922,7 @@ define dso_local i32 @SyncRepGetCandidateStandbys(ptr noundef captures(none) ini
   br label %53
 
 53:                                               ; preds = %42, %39, %20, %45
-  %.1 = phi i32 [ %52, %45 ], [ %.03638, %20 ], [ %.03638, %39 ], [ %.03638, %42 ]
+  %.1 = phi i32 [ %52, %45 ], [ %.03638, %20 ], [ %.03638, %42 ], [ %.03638, %39 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %54 = load i32, ptr @max_wal_senders, align 4
   %55 = sext i32 %54 to i64

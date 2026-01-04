@@ -172,8 +172,8 @@ _ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_
   br label %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i
 
 _ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i: ; preds = %land.rhs.i.i.i.i.i, %while.cond24.i.i.i.i.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.loopexit17.split.loop.exit18.i.i, %land.lhs.true.i.i.i.i
-  %it.sroa.9.2.i.i = phi i32 [ %inc.i.i.i.i, %land.lhs.true.i.i.i.i ], [ %conv8.i.i.i.le.i.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.loopexit17.split.loop.exit18.i.i ], [ 0, %while.cond24.i.i.i.i.i ], [ %inc.i.i.i.i, %land.rhs.i.i.i.i.i ]
-  %it.sroa.0.2.i.i = phi ptr [ %it.sroa.0.025.i.i, %land.lhs.true.i.i.i.i ], [ %11, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.loopexit17.split.loop.exit18.i.i ], [ %storemerge.i.i.i.i.i, %while.cond24.i.i.i.i.i ], [ %it.sroa.0.025.i.i, %land.rhs.i.i.i.i.i ]
+  %it.sroa.9.2.i.i = phi i32 [ %inc.i.i.i.i, %land.lhs.true.i.i.i.i ], [ 0, %while.cond24.i.i.i.i.i ], [ %conv8.i.i.i.le.i.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.loopexit17.split.loop.exit18.i.i ], [ %inc.i.i.i.i, %land.rhs.i.i.i.i.i ]
+  %it.sroa.0.2.i.i = phi ptr [ %it.sroa.0.025.i.i, %land.lhs.true.i.i.i.i ], [ %storemerge.i.i.i.i.i, %while.cond24.i.i.i.i.i ], [ %11, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.loopexit17.split.loop.exit18.i.i ], [ %it.sroa.0.025.i.i, %land.rhs.i.i.i.i.i ]
   %cmp.i.i.i.i = icmp ne ptr %it.sroa.0.2.i.i, %4
   %cmp6.i.i.i.i = icmp ne i32 %it.sroa.9.2.i.i, %conv.i.i.i
   %.not.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp6.i.i.i.i
@@ -656,7 +656,7 @@ if.else:                                          ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then4, %if.else
-  %prototype.0 = phi ptr [ %14, %if.else ], [ %call6, %if.then4 ]
+  %prototype.0 = phi ptr [ %call6, %if.then4 ], [ %14, %if.else ]
   %15 = load ptr, ptr %this, align 8
   %vtable15 = load ptr, ptr %prototype.0, align 8
   %vfn16 = getelementptr inbounds nuw i8, ptr %vtable15, i64 16
@@ -1016,7 +1016,7 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %return
 
 if.end:                                           ; preds = %if.end.i.i, %if.end.i13.i, %_ZNK6google8protobuf8internal12ExtensionSet32FindExtensionInfoFromFieldNumberINS1_29DescriptorPoolExtensionFinderEEEbiiPT_PNS1_13ExtensionInfoEPb.exit.i, %_ZNK6google8protobuf8internal12ExtensionSet32FindExtensionInfoFromFieldNumberINS1_24GeneratedExtensionFinderEEEbiiPT_PNS1_13ExtensionInfoEPb.exit.i
-  %was_packed_on_wire.0 = phi i1 [ false, %_ZNK6google8protobuf8internal12ExtensionSet32FindExtensionInfoFromFieldNumberINS1_24GeneratedExtensionFinderEEEbiiPT_PNS1_13ExtensionInfoEPb.exit.i ], [ false, %_ZNK6google8protobuf8internal12ExtensionSet32FindExtensionInfoFromFieldNumberINS1_29DescriptorPoolExtensionFinderEEEbiiPT_PNS1_13ExtensionInfoEPb.exit.i ], [ true, %if.end.i13.i ], [ true, %if.end.i.i ]
+  %was_packed_on_wire.0 = phi i1 [ false, %_ZNK6google8protobuf8internal12ExtensionSet32FindExtensionInfoFromFieldNumberINS1_29DescriptorPoolExtensionFinderEEEbiiPT_PNS1_13ExtensionInfoEPb.exit.i ], [ false, %_ZNK6google8protobuf8internal12ExtensionSet32FindExtensionInfoFromFieldNumberINS1_24GeneratedExtensionFinderEEEbiiPT_PNS1_13ExtensionInfoEPb.exit.i ], [ true, %if.end.i13.i ], [ true, %if.end.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %finder.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %finder4.i)
   %call5 = call noundef ptr @_ZN6google8protobuf8internal12ExtensionSet27ParseFieldWithExtensionInfoINS0_15UnknownFieldSetEEEPKcibRKNS1_13ExtensionInfoEPNS1_16InternalMetadataES6_PNS1_12ParseContextE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %conv, i1 noundef zeroext %was_packed_on_wire.0, ptr noundef nonnull align 8 dereferenceable(48) %extension, ptr noundef %metadata, ptr noundef %ptr, ptr noundef nonnull %ctx)
@@ -1898,7 +1898,7 @@ cond.end354:                                      ; preds = %cond.false350, %con
   br label %return
 
 return:                                           ; preds = %if.then, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %if.else311, %if.then307, %if.then284, %if.else288, %if.then271, %if.else275, %if.then258, %if.else262, %if.then245, %if.else249, %if.then232, %if.else236, %if.then219, %if.else223, %if.then207, %if.else211, %if.then190, %if.else194, %if.then171, %if.else176, %if.then156, %if.else160, %if.then139, %if.else144, %if.then124, %if.else128, %if.then107, %if.else112, %if.else, %if.end.i293, %if.then.i290, %cond.end339, %if.end.i, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit279, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit261, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit250, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit240, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit230, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit220, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit210, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit, %cond.end354, %sw.bb89, %sw.bb82, %sw.bb75, %sw.bb68, %sw.bb61, %sw.bb54, %sw.bb47, %sw.bb40, %sw.bb33, %sw.bb26, %sw.bb19, %sw.bb12, %sw.bb5, %sw.bb
-  %retval.0 = phi ptr [ %call4, %sw.bb ], [ %call11, %sw.bb5 ], [ %call18, %sw.bb12 ], [ %call25, %sw.bb19 ], [ %call32, %sw.bb26 ], [ %call39, %sw.bb33 ], [ %call46, %sw.bb40 ], [ %call53, %sw.bb47 ], [ %call60, %sw.bb54 ], [ %call67, %sw.bb61 ], [ %call74, %sw.bb68 ], [ %call81, %sw.bb75 ], [ %call88, %sw.bb82 ], [ %call.i.i, %sw.bb89 ], [ %call356, %cond.end354 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit210 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit220 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit230 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit240 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit250 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit261 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit279 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit ], [ null, %cond.end339 ], [ %call.i., %if.end.i ], [ %add.ptr4.i, %if.then.i290 ], [ %call5.i, %if.end.i293 ], [ %ptr, %if.then ], [ %ptr, %if.else ], [ %retval.0.i328, %if.then107 ], [ %retval.0.i328, %if.else112 ], [ %retval.0.i206333, %if.then124 ], [ %retval.0.i206333, %if.else128 ], [ %retval.0.i216338, %if.then139 ], [ %retval.0.i216338, %if.else144 ], [ %retval.0.i226343, %if.then156 ], [ %retval.0.i226343, %if.else160 ], [ %retval.0.i236348, %if.then171 ], [ %retval.0.i236348, %if.else176 ], [ %retval.0.i246353, %if.then190 ], [ %retval.0.i246353, %if.else194 ], [ %retval.0.i257358, %if.then207 ], [ %retval.0.i257358, %if.else211 ], [ %add.ptr, %if.then219 ], [ %add.ptr, %if.else223 ], [ %add.ptr229, %if.then232 ], [ %add.ptr229, %if.else236 ], [ %add.ptr242, %if.then245 ], [ %add.ptr242, %if.else249 ], [ %add.ptr255, %if.then258 ], [ %add.ptr255, %if.else262 ], [ %add.ptr268, %if.then271 ], [ %add.ptr268, %if.else275 ], [ %add.ptr281, %if.then284 ], [ %add.ptr281, %if.else288 ], [ %retval.0.i275363, %if.then307 ], [ %retval.0.i275363, %if.else311 ], [ %retval.0.i275363, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ]
+  %retval.0 = phi ptr [ %call5.i, %if.end.i293 ], [ %call4, %sw.bb ], [ %call11, %sw.bb5 ], [ %call18, %sw.bb12 ], [ %call25, %sw.bb19 ], [ %call32, %sw.bb26 ], [ %call39, %sw.bb33 ], [ %call46, %sw.bb40 ], [ %call53, %sw.bb47 ], [ %call60, %sw.bb54 ], [ %call67, %sw.bb61 ], [ %call74, %sw.bb68 ], [ %call81, %sw.bb75 ], [ %call88, %sw.bb82 ], [ %call.i.i, %sw.bb89 ], [ %call356, %cond.end354 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit210 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit220 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit230 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit240 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit250 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit261 ], [ %call.i., %if.end.i ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit279 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit ], [ null, %cond.end339 ], [ %add.ptr4.i, %if.then.i290 ], [ %ptr, %if.then ], [ %ptr, %if.else ], [ %retval.0.i328, %if.then107 ], [ %retval.0.i328, %if.else112 ], [ %retval.0.i206333, %if.then124 ], [ %retval.0.i206333, %if.else128 ], [ %retval.0.i216338, %if.then139 ], [ %retval.0.i216338, %if.else144 ], [ %retval.0.i226343, %if.then156 ], [ %retval.0.i226343, %if.else160 ], [ %retval.0.i236348, %if.then171 ], [ %retval.0.i236348, %if.else176 ], [ %retval.0.i246353, %if.then190 ], [ %retval.0.i246353, %if.else194 ], [ %retval.0.i257358, %if.then207 ], [ %retval.0.i257358, %if.else211 ], [ %add.ptr, %if.then219 ], [ %add.ptr, %if.else223 ], [ %add.ptr229, %if.then232 ], [ %add.ptr229, %if.else236 ], [ %add.ptr242, %if.then245 ], [ %add.ptr242, %if.else249 ], [ %add.ptr255, %if.then258 ], [ %add.ptr255, %if.else262 ], [ %add.ptr268, %if.then271 ], [ %add.ptr268, %if.else275 ], [ %add.ptr281, %if.then284 ], [ %add.ptr281, %if.else288 ], [ %retval.0.i275363, %if.then307 ], [ %retval.0.i275363, %if.else311 ], [ %retval.0.i275363, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ]
   ret ptr %retval.0
 }
 
@@ -2186,6 +2186,10 @@ call.i.noexc:                                     ; preds = %_ZN6google8protobuf
   %call3.i38 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %call.i37, ptr noundef %27, i64 noundef %26)
           to label %while.cond.outer.outer.backedge unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
+while.cond.outer.outer.backedge:                  ; preds = %if.end, %call.i.noexc, %invoke.cont31
+  %state.0.ph.ph.be = phi i32 [ 3, %call.i.noexc ], [ 3, %invoke.cont31 ], [ 1, %if.end ]
+  br label %while.cond.outer.outer, !llvm.loop !19
+
 if.else22:                                        ; preds = %if.end.i.i30, %if.end.i13.i
   %30 = phi i8 [ %17, %if.end.i.i30 ], [ %24, %if.end.i13.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %finder.i)
@@ -2273,10 +2277,6 @@ invoke.cont31:                                    ; preds = %invoke.cont30
   %or.cond113 = select i1 %tobool33.not, i1 %cmp.i46, i1 false
   br i1 %or.cond113, label %while.cond.outer.outer.backedge, label %cleanup87
 
-while.cond.outer.outer.backedge:                  ; preds = %if.end, %invoke.cont31, %call.i.noexc
-  %state.0.ph.ph.be = phi i32 [ 3, %call.i.noexc ], [ 3, %invoke.cont31 ], [ 1, %if.end ]
-  br label %while.cond.outer.outer, !llvm.loop !19
-
 if.then44:                                        ; preds = %while.body
   %cmp45 = icmp eq i32 %state.0.ph, 1
   br i1 %cmp45, label %if.then46, label %if.else53
@@ -2288,11 +2288,6 @@ if.then46:                                        ; preds = %if.then44
 invoke.cont48:                                    ; preds = %if.then46
   %cmp50.not = icmp eq ptr %call.i4748, null
   br i1 %cmp50.not, label %cleanup87, label %while.cond.outer.backedge
-
-while.cond.outer.backedge:                        ; preds = %invoke.cont48, %cleanup.thread
-  %ptr.addr.0.ph.be = phi ptr [ %retval.0.i60107, %cleanup.thread ], [ %call.i4748, %invoke.cont48 ]
-  %state.0.ph.be = phi i32 [ %state.2.ph, %cleanup.thread ], [ 3, %invoke.cont48 ]
-  br label %while.cond.outer, !llvm.loop !19
 
 if.else53:                                        ; preds = %if.then44
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %tmp54) #18
@@ -2368,6 +2363,11 @@ cleanup.thread:                                   ; preds = %if.then67, %if.end6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %tmp54) #18
   br label %while.cond.outer.backedge
 
+while.cond.outer.backedge:                        ; preds = %cleanup.thread, %invoke.cont48
+  %ptr.addr.0.ph.be = phi ptr [ %retval.0.i60107, %cleanup.thread ], [ %call.i4748, %invoke.cont48 ]
+  %state.0.ph.be = phi i32 [ %state.2.ph, %cleanup.thread ], [ 3, %invoke.cont48 ]
+  br label %while.cond.outer, !llvm.loop !19
+
 cleanup:                                          ; preds = %invoke.cont61, %invoke.cont56
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %tmp54) #18
   br label %cleanup87
@@ -2400,8 +2400,8 @@ call.i70.noexc:                                   ; preds = %if.end6.i
   br label %invoke.cont72
 
 invoke.cont72:                                    ; preds = %if.else71, %call.i70.noexc, %if.then4.i
-  %tag.0 = phi i32 [ %add.i69, %if.then4.i ], [ %48, %call.i70.noexc ], [ %conv.i64, %if.else71 ]
-  %retval.0.i71 = phi ptr [ %add.ptr5.i, %if.then4.i ], [ %47, %call.i70.noexc ], [ %incdec.ptr, %if.else71 ]
+  %tag.0 = phi i32 [ %48, %call.i70.noexc ], [ %add.i69, %if.then4.i ], [ %conv.i64, %if.else71 ]
+  %retval.0.i71 = phi ptr [ %47, %call.i70.noexc ], [ %add.ptr5.i, %if.then4.i ], [ %incdec.ptr, %if.else71 ]
   %cmp74 = icmp eq i32 %tag.0, 0
   %and = and i32 %tag.0, 7
   %cmp75 = icmp eq i32 %and, 4
@@ -2428,7 +2428,7 @@ while.cond.backedge:                              ; preds = %if.end, %invoke.con
   br label %while.cond, !llvm.loop !19
 
 cleanup87:                                        ; preds = %invoke.cont, %invoke.cont80, %invoke.cont2, %invoke.cont31, %invoke.cont48, %for.cond.i, %if.then3.i.i, %cleanup, %if.then76
-  %retval.1 = phi ptr [ null, %cleanup ], [ %retval.0.i71, %if.then76 ], [ %spec.select, %if.then3.i.i ], [ null, %for.cond.i ], [ null, %invoke.cont2 ], [ null, %invoke.cont80 ], [ %7, %invoke.cont ], [ null, %invoke.cont31 ], [ null, %invoke.cont48 ]
+  %retval.1 = phi ptr [ %retval.0.i71, %if.then76 ], [ null, %for.cond.i ], [ %spec.select, %if.then3.i.i ], [ null, %cleanup ], [ null, %invoke.cont80 ], [ null, %invoke.cont2 ], [ %7, %invoke.cont ], [ null, %invoke.cont31 ], [ null, %invoke.cont48 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %payload) #18
   ret ptr %retval.1
 
@@ -2533,8 +2533,8 @@ _ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_
   br label %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i
 
 _ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i: ; preds = %land.rhs.i.i.i.i.i, %while.cond24.i.i.i.i.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.loopexit17.split.loop.exit18.i.i, %land.lhs.true.i.i.i.i
-  %it.sroa.9.2.i.i = phi i32 [ %inc.i.i.i.i, %land.lhs.true.i.i.i.i ], [ %conv8.i.i.i.le.i.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.loopexit17.split.loop.exit18.i.i ], [ 0, %while.cond24.i.i.i.i.i ], [ %inc.i.i.i.i, %land.rhs.i.i.i.i.i ]
-  %it.sroa.0.2.i.i = phi ptr [ %it.sroa.0.025.i.i, %land.lhs.true.i.i.i.i ], [ %11, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.loopexit17.split.loop.exit18.i.i ], [ %storemerge.i.i.i.i.i, %while.cond24.i.i.i.i.i ], [ %it.sroa.0.025.i.i, %land.rhs.i.i.i.i.i ]
+  %it.sroa.9.2.i.i = phi i32 [ %inc.i.i.i.i, %land.lhs.true.i.i.i.i ], [ 0, %while.cond24.i.i.i.i.i ], [ %conv8.i.i.i.le.i.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.loopexit17.split.loop.exit18.i.i ], [ %inc.i.i.i.i, %land.rhs.i.i.i.i.i ]
+  %it.sroa.0.2.i.i = phi ptr [ %it.sroa.0.025.i.i, %land.lhs.true.i.i.i.i ], [ %storemerge.i.i.i.i.i, %while.cond24.i.i.i.i.i ], [ %11, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.loopexit17.split.loop.exit18.i.i ], [ %it.sroa.0.025.i.i, %land.rhs.i.i.i.i.i ]
   %cmp.i.i.i.i = icmp ne ptr %it.sroa.0.2.i.i, %5
   %cmp6.i.i.i.i = icmp ne i32 %it.sroa.9.2.i.i, %conv.i.i.i
   %.not.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp6.i.i.i.i
@@ -2564,7 +2564,7 @@ for.body.i5.i:                                    ; preds = %if.end.i, %for.body
   br i1 %cmp.not.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_26SpaceUsedExcludingSelfLongEvE3$_0EET_S5_.exit", label %for.body.i5.i, !llvm.loop !21
 
 "_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_26SpaceUsedExcludingSelfLongEvE3$_0EET_S5_.exit": ; preds = %for.body.i5.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i, %if.then.i, %if.end.i
-  %total_size.2 = phi i64 [ %mul5, %if.then.i ], [ %mul, %if.end.i ], [ %add.i.i.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i ], [ %add.i.i8.i, %for.body.i5.i ]
+  %total_size.2 = phi i64 [ %add.i.i.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i ], [ %mul5, %if.then.i ], [ %mul, %if.end.i ], [ %add.i.i8.i, %for.body.i5.i ]
   ret i64 %total_size.2
 }
 
@@ -3132,7 +3132,7 @@ if.end.i.i:                                       ; preds = %if.then4.i
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase24AddAllocatedSlowWithCopyINS1_18GenericTypeHandlerINS0_11MessageLiteEEEEEvPNT_4TypeEPNS0_5ArenaESB_.exit
 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase24AddAllocatedSlowWithCopyINS1_18GenericTypeHandlerINS0_11MessageLiteEEEEEvPNT_4TypeEPNS0_5ArenaESB_.exit: ; preds = %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase23AllocatedSizeAtCapacityEv.exit, %cond.true.i, %if.then.i.i, %if.then4.i, %if.end.i.i
-  %value.addr.0.i = phi ptr [ %value, %if.then.i.i ], [ %call.i.i, %if.then4.i ], [ %call.i.i, %if.end.i.i ], [ %value, %cond.true.i ], [ %value, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase23AllocatedSizeAtCapacityEv.exit ]
+  %value.addr.0.i = phi ptr [ %value, %if.then.i.i ], [ %call.i.i, %if.end.i.i ], [ %call.i.i, %if.then4.i ], [ %value, %cond.true.i ], [ %value, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase23AllocatedSizeAtCapacityEv.exit ]
   tail call void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase23UnsafeArenaAddAllocatedINS1_18GenericTypeHandlerINS0_11MessageLiteEEEEEvPNT_4TypeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %value.addr.0.i)
   br label %if.end21
 
@@ -3819,7 +3819,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_19PackedEnumParserArgIN
   br label %return
 
 return:                                           ; preds = %if.end54, %if.end44, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i33, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_19PackedEnumParserArgINS0_15UnknownFieldSetEEEPKcPvS6_PNS1_12ParseContextEPFbPKviESB_PNS1_16InternalMetadataEiEUliE_EES6_S6_S6_T_.exit75, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_19PackedEnumParserArgINS0_15UnknownFieldSetEEEPKcPvS6_PNS1_12ParseContextEPFbPKviESB_PNS1_16InternalMetadataEiEUliE_EES6_S6_S6_T_.exit125, %if.end37
-  %retval.0 = phi ptr [ %add.ptr43, %if.end37 ], [ %cond, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_19PackedEnumParserArgINS0_15UnknownFieldSetEEEPKcPvS6_PNS1_12ParseContextEPFbPKviESB_PNS1_16InternalMetadataEiEUliE_EES6_S6_S6_T_.exit125 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit ], [ null, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_19PackedEnumParserArgINS0_15UnknownFieldSetEEEPKcPvS6_PNS1_12ParseContextEPFbPKviESB_PNS1_16InternalMetadataEiEUliE_EES6_S6_S6_T_.exit75 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i33 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i ], [ null, %if.end44 ], [ null, %if.end54 ]
+  %retval.0 = phi ptr [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i ], [ %add.ptr43, %if.end37 ], [ null, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_19PackedEnumParserArgINS0_15UnknownFieldSetEEEPKcPvS6_PNS1_12ParseContextEPFbPKviESB_PNS1_16InternalMetadataEiEUliE_EES6_S6_S6_T_.exit75 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i33 ], [ %cond, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_19PackedEnumParserArgINS0_15UnknownFieldSetEEEPKcPvS6_PNS1_12ParseContextEPFbPKviESB_PNS1_16InternalMetadataEiEUliE_EES6_S6_S6_T_.exit125 ], [ null, %if.end44 ], [ null, %if.end54 ]
   ret ptr %retval.0
 }
 

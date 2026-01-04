@@ -664,7 +664,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i191, %353
   br i1 %.not189, label %.backedge.sink.split614.backedge, label %375
 
 .backedge.sink.split614.backedge:                 ; preds = %yy_try_NUL_trans.exit, %150
-  %.1171.ph.be = phi ptr [ %.1171, %150 ], [ %299, %yy_try_NUL_trans.exit ]
+  %.1171.ph.be = phi ptr [ %299, %yy_try_NUL_trans.exit ], [ %.1171, %150 ]
   br label %.backedge.sink.split614
 
 375:                                              ; preds = %yy_try_NUL_trans.exit
@@ -676,9 +676,9 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i191, %353
   br label %.loopexit235.backedge
 
 .loopexit235.backedge:                            ; preds = %._crit_edge.i211, %375, %536
-  %.0170.be = phi ptr [ %534, %536 ], [ %299, %375 ], [ %534, %._crit_edge.i211 ]
-  %.0162.be = phi ptr [ %542, %536 ], [ %379, %375 ], [ %542, %._crit_edge.i211 ]
-  %.0156.be = phi i32 [ %543, %536 ], [ %378, %375 ], [ %587, %._crit_edge.i211 ]
+  %.0170.be = phi ptr [ %299, %375 ], [ %534, %536 ], [ %534, %._crit_edge.i211 ]
+  %.0162.be = phi ptr [ %379, %375 ], [ %542, %536 ], [ %542, %._crit_edge.i211 ]
+  %.0156.be = phi i32 [ %378, %375 ], [ %543, %536 ], [ %587, %._crit_edge.i211 ]
   br label %.loopexit235
 
 380:                                              ; preds = %284
@@ -1760,7 +1760,7 @@ define hidden void @candump_push_buffer_state(ptr noundef %0, ptr noundef captur
   br label %.thread
 
 .thread:                                          ; preds = %4, %12, %33, %.thread31
-  %35 = phi ptr [ null, %12 ], [ %.pr34, %33 ], [ %.pr34, %.thread31 ], [ null, %4 ]
+  %35 = phi ptr [ %.pr34, %.thread31 ], [ null, %12 ], [ %.pr34, %33 ], [ null, %4 ]
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load i64, ptr %36, align 8
   %38 = getelementptr ptr, ptr %35, i64 %37
@@ -2211,7 +2211,7 @@ candump__delete_buffer.exit.i:                    ; preds = %32, %.critedge.i.i
   br label %candump_pop_buffer_state.exit
 
 candump_pop_buffer_state.exit:                    ; preds = %26, %44, %47
-  %56 = phi ptr [ %25, %26 ], [ %43, %44 ], [ %43, %47 ]
+  %56 = phi ptr [ %43, %44 ], [ %25, %26 ], [ %43, %47 ]
   %57 = load i64, ptr %2, align 8
   %58 = getelementptr ptr, ptr %56, i64 %57
   %59 = load ptr, ptr %58, align 8

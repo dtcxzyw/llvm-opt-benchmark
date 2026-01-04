@@ -559,7 +559,7 @@ bytestream2_put_buffer.exit500.i:                 ; preds = %163
   br label %bytestream2_put_buffer.exit504.i
 
 bytestream2_put_buffer.exit504.i:                 ; preds = %173, %bytestream2_put_buffer.exit500.i, %153, %bytestream2_put_buffer.exit.i, %141
-  %.sroa.0511.4.i = phi ptr [ %183, %173 ], [ %172, %bytestream2_put_buffer.exit500.i ], [ %143, %bytestream2_put_buffer.exit.i ], [ %137, %141 ], [ %162, %153 ]
+  %.sroa.0511.4.i = phi ptr [ %183, %173 ], [ %172, %bytestream2_put_buffer.exit500.i ], [ %137, %141 ], [ %143, %bytestream2_put_buffer.exit.i ], [ %162, %153 ]
   %184 = ptrtoint ptr %.sroa.0511.4.i to i64
   %185 = ptrtoint ptr %137 to i64
   %186 = sub i64 %184, %185
@@ -573,13 +573,13 @@ bytestream2_put_buffer.exit504.i:                 ; preds = %173, %bytestream2_p
   unreachable
 
 .thread589.i:                                     ; preds = %bytestream2_put_buffer.exit504.i, %131, %h26x_prefix_aud.exit.i, %.thread551.i
-  %.0543.ph.i = phi i32 [ %.fr641.i, %131 ], [ %130, %h26x_prefix_aud.exit.i ], [ %.fr641.i, %.thread551.i ], [ %135, %bytestream2_put_buffer.exit504.i ]
-  %.0348.ph.i = phi ptr [ %.fr640.i, %131 ], [ %122, %h26x_prefix_aud.exit.i ], [ %.fr640.i, %.thread551.i ], [ %137, %bytestream2_put_buffer.exit504.i ]
+  %.0543.ph.i = phi i32 [ %130, %h26x_prefix_aud.exit.i ], [ %.fr641.i, %.thread551.i ], [ %.fr641.i, %131 ], [ %135, %bytestream2_put_buffer.exit504.i ]
+  %.0348.ph.i = phi ptr [ %122, %h26x_prefix_aud.exit.i ], [ %.fr640.i, %.thread551.i ], [ %.fr640.i, %131 ], [ %137, %bytestream2_put_buffer.exit504.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread595.i
 
 .thread586.i:                                     ; preds = %132, %114, %.thread.i, %76
-  %.1.i = phi i32 [ %79, %76 ], [ %81, %.thread.i ], [ -12, %132 ], [ -12, %114 ]
+  %.1.i = phi i32 [ -12, %132 ], [ %81, %.thread.i ], [ %79, %76 ], [ -12, %114 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %mpegts_write_packet_internal.exit
 
@@ -949,7 +949,7 @@ default.unreachable:                              ; preds = %365
   unreachable
 
 377:                                              ; preds = %374, %373, %365
-  %.011.i.i = phi i32 [ 2, %373 ], [ %376, %374 ], [ 1, %365 ]
+  %.011.i.i = phi i32 [ %376, %374 ], [ 2, %373 ], [ 1, %365 ]
   %378 = mul nsw i32 %.011.i.i, %371
   %379 = icmp sgt i32 %378, 5760
   br i1 %379, label %380, label %opus_get_packet_samples.exit.i
@@ -959,7 +959,7 @@ default.unreachable:                              ; preds = %365
   br label %opus_get_packet_samples.exit.i
 
 opus_get_packet_samples.exit.i:                   ; preds = %380, %377
-  %.0.i510.i = phi i32 [ 0, %380 ], [ %378, %377 ]
+  %.0.i510.i = phi i32 [ %378, %377 ], [ 0, %380 ]
   %381 = call ptr @av_packet_get_side_data(ptr noundef nonnull %1, i32 noundef 11, ptr noundef nonnull %8) #12
   %382 = icmp ne ptr %381, null
   %383 = load i64, ptr %8, align 8
@@ -1142,8 +1142,8 @@ opus_get_packet_samples.exit.i:                   ; preds = %380, %377
   br label %468
 
 468:                                              ; preds = %467, %466, %462, %461, %456
-  %469 = phi i1 [ true, %467 ], [ false, %461 ], [ true, %466 ], [ true, %456 ], [ true, %462 ]
-  %.0359.i = phi i8 [ 7, %467 ], [ 0, %461 ], [ 4, %466 ], [ 1, %456 ], [ %.484.i, %462 ]
+  %469 = phi i1 [ true, %467 ], [ true, %466 ], [ false, %461 ], [ true, %462 ], [ true, %456 ]
+  %.0359.i = phi i8 [ 7, %467 ], [ 4, %466 ], [ 0, %461 ], [ %.484.i, %462 ], [ 1, %456 ]
   switch i8 %458, label %470 [
     i8 4, label %472
     i8 1, label %472
@@ -1204,9 +1204,9 @@ opus_get_packet_samples.exit.i:                   ; preds = %380, %377
   br label %mpegts_write_packet_internal.exit
 
 .thread595.i:                                     ; preds = %487, %.critedge486.i, %444, %443, %438, %.thread631.i, %.thread626.i, %.thread614.i, %.thread609.i, %232, %203, %194, %.thread589.i, %65
-  %.3.i = phi i32 [ %.fr641.i, %487 ], [ %.fr641.i, %194 ], [ %.fr641.i, %443 ], [ %.1363.i, %438 ], [ %.fr641.i, %.critedge486.i ], [ %.0543.ph.i, %.thread589.i ], [ %.fr641.i, %.thread609.i ], [ %294, %.thread614.i ], [ %.fr641.i, %.thread626.i ], [ %354, %.thread631.i ], [ %234, %232 ], [ %.fr641.i, %203 ], [ %.fr641.i, %444 ], [ %.fr641.i, %65 ]
-  %.0375.i = phi i32 [ 0, %487 ], [ 0, %194 ], [ 0, %443 ], [ %.0.i510.i, %438 ], [ 0, %.critedge486.i ], [ 0, %.thread589.i ], [ 0, %.thread609.i ], [ 0, %.thread614.i ], [ 0, %.thread626.i ], [ 0, %.thread631.i ], [ 0, %232 ], [ 0, %203 ], [ 0, %444 ], [ 0, %65 ]
-  %.3351.i = phi ptr [ %.fr640.i, %487 ], [ %.fr640.i, %194 ], [ %.fr640.i, %443 ], [ %402, %438 ], [ %.fr640.i, %.critedge486.i ], [ %.0348.ph.i, %.thread589.i ], [ %.fr640.i, %.thread609.i ], [ %286, %.thread614.i ], [ %.fr640.i, %.thread626.i ], [ %344, %.thread631.i ], [ %237, %232 ], [ %.fr640.i, %203 ], [ %.fr640.i, %444 ], [ %.fr640.i, %65 ]
+  %.3.i = phi i32 [ %.fr641.i, %487 ], [ %.fr641.i, %65 ], [ %.0543.ph.i, %.thread589.i ], [ %.fr641.i, %194 ], [ %.fr641.i, %203 ], [ %294, %.thread614.i ], [ %354, %.thread631.i ], [ %.fr641.i, %443 ], [ %.1363.i, %438 ], [ %.fr641.i, %.critedge486.i ], [ %.fr641.i, %.thread609.i ], [ %.fr641.i, %.thread626.i ], [ %234, %232 ], [ %.fr641.i, %444 ]
+  %.0375.i = phi i32 [ 0, %487 ], [ 0, %65 ], [ 0, %.thread589.i ], [ 0, %194 ], [ 0, %203 ], [ 0, %.thread614.i ], [ 0, %.thread631.i ], [ 0, %443 ], [ %.0.i510.i, %438 ], [ 0, %.critedge486.i ], [ 0, %.thread609.i ], [ 0, %.thread626.i ], [ 0, %232 ], [ 0, %444 ]
+  %.3351.i = phi ptr [ %.fr640.i, %487 ], [ %.fr640.i, %65 ], [ %.0348.ph.i, %.thread589.i ], [ %.fr640.i, %194 ], [ %.fr640.i, %203 ], [ %286, %.thread614.i ], [ %344, %.thread631.i ], [ %.fr640.i, %443 ], [ %402, %438 ], [ %.fr640.i, %.critedge486.i ], [ %.fr640.i, %.thread609.i ], [ %.fr640.i, %.thread626.i ], [ %237, %232 ], [ %.fr640.i, %444 ]
   %494 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %495 = load i32, ptr %494, align 4, !tbaa !89
   %.not467.i = icmp eq i32 %495, 0
@@ -1322,7 +1322,7 @@ opus_get_packet_samples.exit.i:                   ; preds = %380, %377
   br label %mpegts_write_packet_internal.exit
 
 mpegts_write_packet_internal.exit:                ; preds = %64, %.thread586.i, %193, %211, %231, %.thread604.i, %295, %.thread621.i, %355, %359, %.thread634.i, %486, %490, %532, %545
-  %.0.i = phi i32 [ 0, %532 ], [ 0, %545 ], [ %.1.i, %.thread586.i ], [ -1094995529, %193 ], [ -12, %295 ], [ -12, %355 ], [ -1094995529, %359 ], [ 0, %490 ], [ -12, %486 ], [ -1094995529, %64 ], [ %227, %231 ], [ %223, %211 ], [ %.6.ph.i, %.thread604.i ], [ %.9.ph.i, %.thread621.i ], [ -12, %.thread634.i ]
+  %.0.i = phi i32 [ 0, %532 ], [ 0, %545 ], [ %.1.i, %.thread586.i ], [ -1094995529, %193 ], [ -1094995529, %64 ], [ -12, %295 ], [ -12, %355 ], [ -1094995529, %359 ], [ -12, %.thread634.i ], [ 0, %490 ], [ -12, %486 ], [ %223, %211 ], [ %227, %231 ], [ %.6.ph.i, %.thread604.i ], [ %.9.ph.i, %.thread621.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %557
@@ -2151,7 +2151,7 @@ select_pcr_streams.exit:                          ; preds = %._crit_edge.thread.
   store i8 %395, ptr %361, align 1, !tbaa !21
   br label %397
 
-396:                                              ; preds = %.thread82.i, %387
+396:                                              ; preds = %387, %.thread82.i
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.115) #12
   br label %.thread218
 
@@ -2193,8 +2193,8 @@ select_pcr_streams.exit:                          ; preds = %._crit_edge.thread.
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 40, ptr noundef nonnull @.str.8) #12
   br label %.thread218
 
-.thread218:                                       ; preds = %59, %204, %202, %195, %192, %99, %94, %209, %.thread, %169, %166, %158, %145, %49, %414, %396, %29
-  %.0 = phi i32 [ -22, %29 ], [ -22, %396 ], [ 0, %414 ], [ -12, %49 ], [ -22, %.thread ], [ -22, %169 ], [ -22, %166 ], [ -22, %158 ], [ -22, %145 ], [ -12, %192 ], [ -22, %195 ], [ -12, %202 ], [ %208, %204 ], [ %214, %209 ], [ -12, %94 ], [ -12, %99 ], [ -12, %59 ]
+.thread218:                                       ; preds = %59, %192, %195, %204, %202, %94, %209, %99, %.thread, %169, %166, %158, %145, %49, %414, %396, %29
+  %.0 = phi i32 [ -22, %29 ], [ -12, %94 ], [ -12, %49 ], [ -22, %396 ], [ 0, %414 ], [ -22, %145 ], [ -22, %169 ], [ -22, %166 ], [ -22, %158 ], [ -22, %.thread ], [ -12, %202 ], [ %208, %204 ], [ -22, %195 ], [ -12, %192 ], [ -12, %99 ], [ %214, %209 ], [ -12, %59 ]
   ret i32 %.0
 }
 
@@ -2516,7 +2516,7 @@ define internal fastcc void @mpegts_write_pes(ptr noundef %0, ptr noundef readon
   br label %41
 
 41:                                               ; preds = %37, %8
-  %42 = phi i32 [ 0, %8 ], [ %40, %37 ]
+  %42 = phi i32 [ %40, %37 ], [ 0, %8 ]
   %43 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %44 = load ptr, ptr %43, align 8, !tbaa !93
   %.not363 = icmp eq ptr %44, %19
@@ -3199,7 +3199,7 @@ mpegts_write_pat.exit.i:                          ; preds = %241, %235
   br label %get_m2ts_stream_type.exit.i.i
 
 get_m2ts_stream_type.exit.i.i:                    ; preds = %335, %394, %390, %389, %388, %387, %386, %381, %376, %375, %370, %366, %365, %364, %363, %362, %361, %360, %359, %358, %357, %355, %355, %349, %348, %347, %346, %345, %340, %339, %338, %337, %336, %335
-  %400 = phi i32 [ 6, %349 ], [ 234, %336 ], [ 36, %337 ], [ 128, %338 ], [ 129, %339 ], [ %344, %340 ], [ 131, %345 ], [ 132, %346 ], [ 144, %347 ], [ 146, %348 ], [ %316, %335 ], [ 6, %394 ], [ 16, %357 ], [ %316, %358 ], [ 36, %359 ], [ 51, %360 ], [ 66, %361 ], [ 210, %362 ], [ 212, %363 ], [ 209, %364 ], [ 234, %365 ], [ %374, %370 ], [ 17, %375 ], [ %380, %376 ], [ %385, %381 ], [ 130, %386 ], [ 131, %387 ], [ 6, %388 ], [ 21, %389 ], [ 2, %355 ], [ 2, %355 ], [ %..i.i.i, %390 ], [ %spec.select.i.i.i, %366 ], [ %316, %335 ]
+  %400 = phi i32 [ %316, %335 ], [ 6, %349 ], [ 146, %348 ], [ %spec.select.i.i.i, %366 ], [ 234, %336 ], [ 36, %337 ], [ 128, %338 ], [ 129, %339 ], [ %344, %340 ], [ 131, %345 ], [ 132, %346 ], [ 144, %347 ], [ 6, %394 ], [ %..i.i.i, %390 ], [ 16, %357 ], [ %316, %358 ], [ 36, %359 ], [ 51, %360 ], [ 66, %361 ], [ 210, %362 ], [ 212, %363 ], [ 209, %364 ], [ 234, %365 ], [ 2, %355 ], [ 2, %355 ], [ %374, %370 ], [ 17, %375 ], [ %380, %376 ], [ %385, %381 ], [ 130, %386 ], [ 131, %387 ], [ 6, %388 ], [ 21, %389 ], [ %316, %335 ]
   %401 = trunc nuw i32 %400 to i8
   %402 = getelementptr inbounds nuw i8, ptr %.1340412.i.i, i64 1
   store i8 %401, ptr %.1340412.i.i, align 1, !tbaa !21
@@ -3516,7 +3516,7 @@ get_m2ts_stream_type.exit.i.i:                    ; preds = %335, %394, %390, %3
   br label %.thread357.i.i
 
 .thread357.i.i:                                   ; preds = %574, %572, %566, %564, %560, %544, %518, %489, %485, %482, %478, %476, %.thread350.i.i, %414, %413
-  %.11.i.i = phi ptr [ %492, %489 ], [ %422, %.thread350.i.i ], [ %481, %478 ], [ %.10.i.i, %476 ], [ %484, %482 ], [ %565, %564 ], [ %563, %560 ], [ %546, %544 ], [ %568, %566 ], [ %520, %518 ], [ %571, %574 ], [ %571, %572 ], [ %488, %485 ], [ %417, %414 ], [ %410, %413 ]
+  %.11.i.i = phi ptr [ %410, %413 ], [ %492, %489 ], [ %484, %482 ], [ %422, %.thread350.i.i ], [ %481, %478 ], [ %.10.i.i, %476 ], [ %565, %564 ], [ %563, %560 ], [ %546, %544 ], [ %568, %566 ], [ %520, %518 ], [ %571, %574 ], [ %571, %572 ], [ %488, %485 ], [ %417, %414 ]
   %.not234.i.i = icmp eq ptr %312, %16
   br i1 %.not234.i.i, label %575, label %579
 
@@ -3944,8 +3944,8 @@ get_m2ts_stream_type.exit.i.i:                    ; preds = %335, %394, %390, %3
   br label %put_arib_caption_descriptor.exit.i.i
 
 put_arib_caption_descriptor.exit.i.i:             ; preds = %583, %772, %768, %764, %763, %759, %755, %752, %748, %744, %743, %734, %733, %._crit_edge.i.i, %._crit_edge404.i.i, %617, %.critedge.i.i, %575, %493, %get_m2ts_stream_type.exit.i.i
-  %.4343.i.i = phi ptr [ %410, %get_m2ts_stream_type.exit.i.i ], [ %.11.i.i, %575 ], [ %410, %617 ], [ %.16.lcssa.i.i, %._crit_edge404.i.i ], [ %.18.lcssa.i.i, %._crit_edge.i.i ], [ %410, %743 ], [ %747, %744 ], [ %751, %748 ], [ %758, %755 ], [ %762, %759 ], [ %410, %763 ], [ %767, %764 ], [ %771, %768 ], [ %781, %772 ], [ %410, %493 ], [ %410, %733 ], [ %742, %734 ], [ %410, %752 ], [ %spec.select379.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel, %.critedge.i.i ], [ %.13410.i.i, %583 ]
-  %.3.i.i = phi i32 [ %.0192413.i.i, %get_m2ts_stream_type.exit.i.i ], [ %.0192413.i.i, %575 ], [ %.0192413.i.i, %617 ], [ %.7.i.i, %._crit_edge404.i.i ], [ %.0192413.i.i, %._crit_edge.i.i ], [ %.0192413.i.i, %743 ], [ %.0192413.i.i, %744 ], [ %.0192413.i.i, %748 ], [ %.0192413.i.i, %755 ], [ %.0192413.i.i, %759 ], [ %.0192413.i.i, %763 ], [ %.0192413.i.i, %764 ], [ %.0192413.i.i, %768 ], [ %.0192413.i.i, %772 ], [ 1, %493 ], [ %.0192413.i.i, %733 ], [ %.0192413.i.i, %734 ], [ %.0192413.i.i, %752 ], [ %.6.ph.i.i, %.critedge.i.i ], [ %.0192413.i.i, %583 ]
+  %.4343.i.i = phi ptr [ %410, %get_m2ts_stream_type.exit.i.i ], [ %.11.i.i, %575 ], [ %410, %733 ], [ %spec.select379.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel, %.critedge.i.i ], [ %781, %772 ], [ %410, %617 ], [ %.16.lcssa.i.i, %._crit_edge404.i.i ], [ %.18.lcssa.i.i, %._crit_edge.i.i ], [ %410, %752 ], [ %410, %743 ], [ %747, %744 ], [ %751, %748 ], [ %758, %755 ], [ %742, %734 ], [ %762, %759 ], [ %410, %763 ], [ %767, %764 ], [ %771, %768 ], [ %410, %493 ], [ %.13410.i.i, %583 ]
+  %.3.i.i = phi i32 [ %.0192413.i.i, %get_m2ts_stream_type.exit.i.i ], [ %.0192413.i.i, %575 ], [ %.0192413.i.i, %733 ], [ %.6.ph.i.i, %.critedge.i.i ], [ %.0192413.i.i, %772 ], [ %.0192413.i.i, %617 ], [ %.7.i.i, %._crit_edge404.i.i ], [ %.0192413.i.i, %._crit_edge.i.i ], [ %.0192413.i.i, %752 ], [ %.0192413.i.i, %743 ], [ %.0192413.i.i, %744 ], [ %.0192413.i.i, %748 ], [ %.0192413.i.i, %755 ], [ %.0192413.i.i, %734 ], [ %.0192413.i.i, %759 ], [ %.0192413.i.i, %763 ], [ %.0192413.i.i, %764 ], [ %.0192413.i.i, %768 ], [ 1, %493 ], [ %.0192413.i.i, %583 ]
   %782 = ptrtoint ptr %.4343.i.i to i64
   %783 = ptrtoint ptr %409 to i64
   %784 = sub i64 %782, %783
@@ -4714,8 +4714,8 @@ get_ts_payload_start.exit427:                     ; preds = %1110
   %.not22.i = icmp eq i32 %.0313520, -1
   br i1 %.not22.i, label %get_pes_stream_id.exit.thread, label %get_pes_stream_id.exit
 
-get_pes_stream_id.exit.thread:                    ; preds = %1138, %1142, %1147, %1150, %1154, %1133, %1158
-  %.0.i429.ph = phi i32 [ 189, %1133 ], [ 189, %1154 ], [ 189, %1150 ], [ 253, %1147 ], [ 192, %1142 ], [ 252, %1158 ], [ %spec.select493, %1138 ]
+get_pes_stream_id.exit.thread:                    ; preds = %1138, %1150, %1154, %1147, %1142, %1133, %1158
+  %.0.i429.ph = phi i32 [ %spec.select493, %1138 ], [ 252, %1158 ], [ 189, %1133 ], [ 192, %1142 ], [ 253, %1147 ], [ 189, %1154 ], [ 189, %1150 ]
   %1159 = trunc nuw i32 %.0.i429.ph to i8
   br label %.sink.split
 
@@ -5650,7 +5650,7 @@ define internal fastcc ptr @mpegts_add_service(ptr noundef %0, i32 noundef %1, p
   store i8 %106, ptr %72, align 1, !tbaa !21
   br label %107
 
-encode_str8.exit.thread:                          ; preds = %98, %.thread82.i44, %61, %.thread82.i
+encode_str8.exit.thread:                          ; preds = %.thread82.i44, %98, %.thread82.i, %61
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.124) #12
   br label %121
 

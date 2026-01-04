@@ -1944,7 +1944,7 @@ define hidden void @"_ZN87_$LT$erased_serde..de..erase..Visitor$LT$T$GT$$u20$as$
   br label %11
 
 11:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit4.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit8.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit8.thread.i"
-  %.sink.i = phi i8 [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit8.thread.i" ], [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit.i" ], [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit4.i" ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit8.i" ]
+  %.sink.i = phi i8 [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit4.i" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit8.thread.i" ], [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit.i" ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit8.i" ]
   tail call void @_ZN12erased_serde3any3Any3new17h634de2ce3e16dd7aE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, i8 noundef range(i8 0, 4) %.sink.i)
   ret void
 }
@@ -2762,7 +2762,7 @@ define hidden void @"_ZN87_$LT$erased_serde..de..erase..Visitor$LT$T$GT$$u20$as$
   br label %28
 
 28:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit4.i.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit8.i.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit8.thread.i.i"
-  %.sink.i.i = phi i8 [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit8.thread.i.i" ], [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit4.i.i" ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit8.i.i" ]
+  %.sink.i.i = phi i8 [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit4.i.i" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit8.thread.i.i" ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit8.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !408
   tail call void @_ZN12erased_serde3any3Any3new17h634de2ce3e16dd7aE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, i8 noundef range(i8 0, 4) %.sink.i.i)
   ret void
@@ -4455,7 +4455,7 @@ define hidden void @"_ZN87_$LT$erased_serde..de..erase..Visitor$LT$T$GT$$u20$as$
   br i1 %57, label %58, label %15
 
 58:                                               ; preds = %15, %28, %46, %54
-  %.sink.i = phi i8 [ 3, %15 ], [ 1, %46 ], [ 2, %54 ], [ 0, %28 ]
+  %.sink.i = phi i8 [ 1, %46 ], [ 3, %15 ], [ 2, %54 ], [ 0, %28 ]
   tail call void @_ZN12erased_serde3any3Any3new17h634de2ce3e16dd7aE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, i8 noundef range(i8 0, 4) %.sink.i)
   ret void
 }
@@ -4723,7 +4723,7 @@ define hidden void @"_ZN87_$LT$erased_serde..de..erase..Visitor$LT$T$GT$$u20$as$
   br label %.noexc
 
 .noexc:                                           ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit8.thread.i.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit8.i.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit4.i.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit.i.i"
-  %.sink.i.i = phi i8 [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit8.thread.i.i" ], [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit.i.i" ], [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit4.i.i" ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit8.i.i" ]
+  %.sink.i.i = phi i8 [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit4.i.i" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit8.thread.i.i" ], [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit.i.i" ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit8.i.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !663
   call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17hd1fe6e7df7d6cdafE.llvm.9247416921288015072"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5, i64 noundef 1, i64 noundef 1)
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4899,7 +4899,7 @@ define hidden void @"_ZN87_$LT$erased_serde..de..erase..Visitor$LT$T$GT$$u20$as$
   ret void
 
 .body.thread:                                     ; preds = %18, %32
-  %eh.lpad-body10 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %32 ], [ %19, %18 ]
+  %eh.lpad-body10 = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm.split-lp, %32 ]
   resume { ptr, i32 } %eh.lpad-body10
 
 32:                                               ; preds = %9
@@ -4987,7 +4987,7 @@ define hidden void @"_ZN87_$LT$erased_serde..de..erase..Visitor$LT$T$GT$$u20$as$
   ret void
 
 .body.thread:                                     ; preds = %18, %32
-  %eh.lpad-body10 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %32 ], [ %19, %18 ]
+  %eh.lpad-body10 = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm.split-lp, %32 ]
   resume { ptr, i32 } %eh.lpad-body10
 
 32:                                               ; preds = %9
@@ -5075,7 +5075,7 @@ define hidden void @"_ZN87_$LT$erased_serde..de..erase..Visitor$LT$T$GT$$u20$as$
   ret void
 
 .body.thread:                                     ; preds = %18, %32
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %32 ], [ %19, %18 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm.split-lp, %32 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 32:                                               ; preds = %9
@@ -5525,7 +5525,7 @@ define hidden void @"_ZN87_$LT$erased_serde..de..erase..Visitor$LT$T$GT$$u20$as$
   br label %11
 
 11:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit.i.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit4.i.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit8.i.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit8.thread.i.i"
-  %.sink.i.i = phi i8 [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit8.thread.i.i" ], [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit.i.i" ], [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit4.i.i" ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit8.i.i" ]
+  %.sink.i.i = phi i8 [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit4.i.i" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit8.thread.i.i" ], [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit.i.i" ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit8.i.i" ]
   tail call void @_ZN12erased_serde3any3Any3new17h634de2ce3e16dd7aE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, i8 noundef range(i8 0, 4) %.sink.i.i)
   ret void
 }
@@ -5904,7 +5904,7 @@ define hidden void @"_ZN87_$LT$erased_serde..de..erase..Visitor$LT$T$GT$$u20$as$
   br i1 %57, label %58, label %15
 
 58:                                               ; preds = %15, %28, %46, %54
-  %.sink.i.i = phi i8 [ 3, %15 ], [ 1, %46 ], [ 2, %54 ], [ 0, %28 ]
+  %.sink.i.i = phi i8 [ 1, %46 ], [ 3, %15 ], [ 2, %54 ], [ 0, %28 ]
   tail call void @_ZN12erased_serde3any3Any3new17h634de2ce3e16dd7aE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, i8 noundef range(i8 0, 4) %.sink.i.i)
   ret void
 }
@@ -6396,7 +6396,7 @@ define hidden void @"_ZN93_$LT$erased_serde..de..erase..EnumAccess$LT$T$GT$$u20$
   br label %39
 
 common.resume:                                    ; preds = %35, %26, %30
-  %common.resume.op = phi { ptr, i32 } [ %27, %30 ], [ %27, %26 ], [ %36, %35 ]
+  %common.resume.op = phi { ptr, i32 } [ %27, %26 ], [ %27, %30 ], [ %36, %35 ]
   resume { ptr, i32 } %common.resume.op
 
 26:                                               ; preds = %15

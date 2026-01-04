@@ -461,7 +461,7 @@ _ZN6vectorIP4exprLb0EjE4backEv.exit:              ; preds = %_ZNK6vectorIP4exprL
   br i1 %.not27.old.i.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %59, %56
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %59 ], [ %58, %56 ]
+  %.137.i.i.i.i.be = phi ptr [ %58, %56 ], [ %.old.i.i.i.i, %59 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !105
 
 _ZNK12recurse_exprIP3appN9format_ns12flat_visitorELb1ELb1EE9is_cachedEP4expr.exit: ; preds = %40, %51
@@ -729,7 +729,7 @@ define hidden noundef ptr @_ZN9format_ns6mk_intER11ast_manageri(ptr noundef nonn
   br i1 %22, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !114
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %19, %17, %13, %9, %2
-  %.0.i.i = phi i32 [ %10, %9 ], [ %14, %13 ], [ %18, %17 ], [ 1, %2 ], [ %21, %19 ]
+  %.0.i.i = phi i32 [ %18, %17 ], [ %10, %9 ], [ %14, %13 ], [ 1, %2 ], [ %21, %19 ]
   %.lobit.i = lshr i32 %1, 31
   %23 = add i32 %.0.i.i, %.lobit.i
   %24 = zext i32 %23 to i64
@@ -950,7 +950,7 @@ define hidden noundef ptr @_ZN9format_ns11mk_unsignedER11ast_managerj(ptr nounde
   br i1 %22, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !114
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %19, %17, %13, %9
-  %.0.i.i = phi i32 [ %10, %9 ], [ %14, %13 ], [ %18, %17 ], [ %21, %19 ]
+  %.0.i.i = phi i32 [ %18, %17 ], [ %10, %9 ], [ %14, %13 ], [ %21, %19 ]
   %23 = zext i32 %.0.i.i to i64
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %24, ptr %5, align 8, !tbaa !115, !alias.scope !122
@@ -2012,7 +2012,7 @@ _ZN9decl_infoD2Ev.exit116:                        ; preds = %_ZN11ast_manager12m
   br label %219
 
 218:                                              ; preds = %7, %_ZN9decl_infoD2Ev.exit116, %_ZN9decl_infoD2Ev.exit101, %_ZN9decl_infoD2Ev.exit86, %_ZN9decl_infoD2Ev.exit71, %_ZN9decl_infoD2Ev.exit56, %_ZN9decl_infoD2Ev.exit41, %_ZN9decl_infoD2Ev.exit
-  %.025 = phi ptr [ %30, %_ZN9decl_infoD2Ev.exit ], [ %59, %_ZN9decl_infoD2Ev.exit41 ], [ %88, %_ZN9decl_infoD2Ev.exit56 ], [ %117, %_ZN9decl_infoD2Ev.exit71 ], [ %146, %_ZN9decl_infoD2Ev.exit86 ], [ %175, %_ZN9decl_infoD2Ev.exit101 ], [ %204, %_ZN9decl_infoD2Ev.exit116 ], [ null, %7 ]
+  %.025 = phi ptr [ %204, %_ZN9decl_infoD2Ev.exit116 ], [ %30, %_ZN9decl_infoD2Ev.exit ], [ %59, %_ZN9decl_infoD2Ev.exit41 ], [ %88, %_ZN9decl_infoD2Ev.exit56 ], [ %117, %_ZN9decl_infoD2Ev.exit71 ], [ %146, %_ZN9decl_infoD2Ev.exit86 ], [ %175, %_ZN9decl_infoD2Ev.exit101 ], [ null, %7 ]
   ret ptr %.025
 
 219:                                              ; preds = %216, %187, %158, %129, %100, %71, %42
@@ -2301,7 +2301,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN12recurse_exprIP3appN9format_n
   br i1 %.not27.old.i.i.i.i.i, label %.loopexit.i, label %.lr.ph38.i.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.i.backedge:                      ; preds = %45, %42
-  %.137.i.i.i.i.i.be = phi ptr [ %.old.i.i.i.i.i, %45 ], [ %44, %42 ]
+  %.137.i.i.i.i.i.be = phi ptr [ %44, %42 ], [ %.old.i.i.i.i.i, %45 ]
   br label %.lr.ph38.i.i.i.i.i, !llvm.loop !105
 
 .loopexit.i:                                      ; preds = %31, %45, %42, %.preheader.i.i.i.i.i
@@ -2414,7 +2414,7 @@ _ZN12recurse_exprIP3appN9format_ns12flat_visitorELb1ELb1EE5visitEP4exprRb.exit: 
   br i1 %.not27.old.i.i.i.i.i21, label %.loopexit.i24, label %.lr.ph38.i.i.i.i.i17.backedge
 
 .lr.ph38.i.i.i.i.i17.backedge:                    ; preds = %96, %93
-  %.137.i.i.i.i.i18.be = phi ptr [ %.old.i.i.i.i.i20, %96 ], [ %95, %93 ]
+  %.137.i.i.i.i.i18.be = phi ptr [ %95, %93 ], [ %.old.i.i.i.i.i20, %96 ]
   br label %.lr.ph38.i.i.i.i.i17, !llvm.loop !105
 
 .loopexit.i24:                                    ; preds = %82, %96, %93, %.preheader.i.i.i.i.i15
@@ -2450,7 +2450,7 @@ _ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit.i25: ; preds = %106, %100
   br label %_ZN12recurse_exprIP3appN9format_ns12flat_visitorELb1ELb1EE5visitEP4exprRb.exit31
 
 _ZN12recurse_exprIP3appN9format_ns12flat_visitorELb1ELb1EE5visitEP4exprRb.exit31: ; preds = %77, %88, %_ZN12recurse_exprIP3appN9format_ns12flat_visitorELb1ELb1EE5visitEP4exprRb.exit, %5, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit.i25, %2
-  %.1 = phi i1 [ true, %2 ], [ false, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit.i25 ], [ true, %5 ], [ %.2, %_ZN12recurse_exprIP3appN9format_ns12flat_visitorELb1ELb1EE5visitEP4exprRb.exit ], [ true, %88 ], [ true, %77 ]
+  %.1 = phi i1 [ true, %2 ], [ %.2, %_ZN12recurse_exprIP3appN9format_ns12flat_visitorELb1ELb1EE5visitEP4exprRb.exit ], [ false, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit.i25 ], [ true, %88 ], [ true, %5 ], [ true, %77 ]
   ret i1 %.1
 }
 
@@ -3227,7 +3227,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4exprP3appE13obj_
   br label %64
 
 43:                                               ; preds = %34, %28
-  %.1 = phi ptr [ %.04464, %28 ], [ %.04563, %34 ]
+  %.1 = phi ptr [ %.04563, %34 ], [ %.04464, %28 ]
   %44 = getelementptr inbounds nuw i8, ptr %.04563, i64 16
   %.not = icmp eq ptr %44, %25
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !162
@@ -3274,7 +3274,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4exprP3appE13obj_
   br label %64
 
 62:                                               ; preds = %53, %47
-  %.3 = phi ptr [ %.267, %47 ], [ %.14666, %53 ]
+  %.3 = phi ptr [ %.14666, %53 ], [ %.267, %47 ]
   %63 = getelementptr inbounds nuw i8, ptr %.14666, i64 16
   %.not47 = icmp eq ptr %63, %23
   br i1 %.not47, label %._crit_edge, label %.lr.ph68, !llvm.loop !163

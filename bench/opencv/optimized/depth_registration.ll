@@ -1810,9 +1810,9 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit:    ; preds = %._crit_edge264, %20
   br i1 %244, label %.lr.ph, label %.loopexit, !llvm.loop !117
 
 .loopexit:                                        ; preds = %.lr.ph, %225, %218
-  %.pre-phi = phi i64 [ %231, %225 ], [ %.pre296, %218 ], [ %231, %.lr.ph ]
-  %245 = phi i32 [ %210, %225 ], [ %.pre294, %218 ], [ %210, %.lr.ph ]
-  %246 = phi ptr [ %228, %225 ], [ %.pre, %218 ], [ %228, %.lr.ph ]
+  %.pre-phi = phi i64 [ %.pre296, %218 ], [ %231, %225 ], [ %231, %.lr.ph ]
+  %245 = phi i32 [ %.pre294, %218 ], [ %210, %225 ], [ %210, %.lr.ph ]
+  %246 = phi ptr [ %.pre, %218 ], [ %228, %225 ], [ %228, %.lr.ph ]
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 %.pre-phi
   %248 = sext i32 %245 to i64
   %.idx = mul nsw i64 %248, 12
@@ -2688,9 +2688,9 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit:    ; preds = %._crit_edge265, %20
   br i1 %244, label %.lr.ph, label %.loopexit, !llvm.loop !158
 
 .loopexit:                                        ; preds = %.lr.ph, %225, %218
-  %.pre-phi = phi i64 [ %231, %225 ], [ %.pre297, %218 ], [ %231, %.lr.ph ]
-  %245 = phi i32 [ %210, %225 ], [ %.pre295, %218 ], [ %210, %.lr.ph ]
-  %246 = phi ptr [ %228, %225 ], [ %.pre, %218 ], [ %228, %.lr.ph ]
+  %.pre-phi = phi i64 [ %.pre297, %218 ], [ %231, %225 ], [ %231, %.lr.ph ]
+  %245 = phi i32 [ %.pre295, %218 ], [ %210, %225 ], [ %210, %.lr.ph ]
+  %246 = phi ptr [ %.pre, %218 ], [ %228, %225 ], [ %228, %.lr.ph ]
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 %.pre-phi
   %248 = sext i32 %245 to i64
   %.idx = mul nsw i64 %248, 12
@@ -3562,9 +3562,9 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit:    ; preds = %._crit_edge269, %20
   br i1 %245, label %.lr.ph, label %.loopexit, !llvm.loop !196
 
 .loopexit:                                        ; preds = %.lr.ph, %226, %219
-  %.pre-phi = phi i64 [ %232, %226 ], [ %.pre301, %219 ], [ %232, %.lr.ph ]
-  %246 = phi i32 [ %211, %226 ], [ %.pre299, %219 ], [ %211, %.lr.ph ]
-  %247 = phi ptr [ %229, %226 ], [ %.pre, %219 ], [ %229, %.lr.ph ]
+  %.pre-phi = phi i64 [ %.pre301, %219 ], [ %232, %226 ], [ %232, %.lr.ph ]
+  %246 = phi i32 [ %.pre299, %219 ], [ %211, %226 ], [ %211, %.lr.ph ]
+  %247 = phi ptr [ %.pre, %219 ], [ %229, %226 ], [ %229, %.lr.ph ]
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 %.pre-phi
   %249 = sext i32 %246 to i64
   %.idx = mul nsw i64 %249, 12

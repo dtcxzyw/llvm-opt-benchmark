@@ -83,7 +83,7 @@ define ptr @dtview(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %15, %35, %31
-  %.026 = phi ptr [ %1, %35 ], [ %25, %31 ], [ null, %15 ], [ null, %.lr.ph ]
+  %.026 = phi ptr [ %25, %31 ], [ null, %15 ], [ %1, %35 ], [ null, %.lr.ph ]
   ret ptr %.026
 }
 
@@ -233,9 +233,9 @@ define internal ptr @dtvsearch(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   br label %66
 
 66:                                               ; preds = %61, %65, %31
-  %.1116 = phi ptr [ %35, %65 ], [ %.0115162, %31 ], [ %.0115162, %61 ]
-  %.1114 = phi ptr [ %50, %65 ], [ %.0113163, %31 ], [ %.0113163, %61 ]
-  %.1107 = phi ptr [ %.1103165, %65 ], [ %.0106164, %31 ], [ %.0106164, %61 ]
+  %.1116 = phi ptr [ %35, %65 ], [ %.0115162, %61 ], [ %.0115162, %31 ]
+  %.1114 = phi ptr [ %50, %65 ], [ %.0113163, %61 ], [ %.0113163, %31 ]
+  %.1107 = phi ptr [ %.1103165, %65 ], [ %.0106164, %61 ], [ %.0106164, %31 ]
   %67 = getelementptr inbounds nuw i8, ptr %.1103165, i64 72
   %68 = load ptr, ptr %67, align 8, !tbaa !14
   %.not143 = icmp eq ptr %68, null
@@ -373,7 +373,7 @@ define internal ptr @dtvsearch(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   br label %107
 
 .loopexit:                                        ; preds = %._crit_edge181, %.preheader.lr.ph, %115, %.thread, %70, %25, %._crit_edge167, %._crit_edge, %5
-  %.0 = phi ptr [ %9, %5 ], [ %.1110, %._crit_edge ], [ %.1116, %._crit_edge167 ], [ null, %25 ], [ null, %70 ], [ null, %.thread ], [ %.2180, %115 ], [ %.1, %.preheader.lr.ph ], [ null, %._crit_edge181 ]
+  %.0 = phi ptr [ %9, %5 ], [ %.1110, %._crit_edge ], [ %.1116, %._crit_edge167 ], [ null, %25 ], [ null, %.thread ], [ %.2180, %115 ], [ null, %70 ], [ %.1, %.preheader.lr.ph ], [ null, %._crit_edge181 ]
   ret ptr %.0
 }
 

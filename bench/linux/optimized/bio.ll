@@ -379,7 +379,7 @@ define dso_local noalias ptr @bvec_alloc(ptr noundef %0, ptr noundef captures(no
   br label %23
 
 23:                                               ; preds = %21, %17, %10
-  %24 = phi ptr [ %22, %21 ], [ %15, %10 ], [ null, %17 ]
+  %24 = phi ptr [ %22, %21 ], [ null, %17 ], [ %15, %10 ]
   ret ptr %24
 }
 
@@ -806,7 +806,7 @@ define dso_local ptr @bio_alloc_bioset(ptr noundef %0, i16 noundef zeroext %1, i
   br label %.thread
 
 .thread:                                          ; preds = %.thread42, %54, %90, %14
-  %92 = phi i32 [ %91, %90 ], [ %2, %14 ], [ %2, %54 ], [ %2, %.thread42 ]
+  %92 = phi i32 [ %2, %14 ], [ %91, %90 ], [ %2, %54 ], [ %2, %.thread42 ]
   %93 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #19, !srcloc !32
   %94 = inttoptr i64 %93 to ptr
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 2112
@@ -1065,7 +1065,7 @@ define dso_local ptr @bio_alloc_bioset(ptr noundef %0, i16 noundef zeroext %1, i
   br label %.thread18
 
 .thread18:                                        ; preds = %116, %81, %.thread27, %234, %118, %13
-  %236 = phi ptr [ null, %.thread27 ], [ %133, %234 ], [ null, %13 ], [ %58, %81 ], [ null, %118 ], [ null, %116 ]
+  %236 = phi ptr [ null, %118 ], [ null, %.thread27 ], [ %133, %234 ], [ null, %13 ], [ %58, %81 ], [ null, %116 ]
   ret ptr %236
 }
 
@@ -4423,7 +4423,7 @@ define dso_local ptr @bio_split(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   br label %.thread
 
 .thread:                                          ; preds = %19, %62, %57, %18
-  %65 = phi ptr [ null, %18 ], [ %22, %62 ], [ %22, %57 ], [ null, %19 ]
+  %65 = phi ptr [ null, %18 ], [ %22, %57 ], [ %22, %62 ], [ null, %19 ]
   ret ptr %65
 }
 

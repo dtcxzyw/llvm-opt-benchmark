@@ -1680,7 +1680,7 @@ _ZN4lean7sstreamlsIA2_cEERS0_RKT_.exit:           ; preds = %_ZN4lean7sstreamlsI
           cleanup
   br label %49
 
-.thread16:                                        ; preds = %_ZN4lean7sstreamlsIA2_cEERS0_RKT_.exit, %_ZN4lean7sstreamC2Ev.exit, %_ZN4lean7sstreamlsIA43_cEERS0_RKT_.exit, %_ZN4lean7sstreamlsIA38_cEERS0_RKT_.exit, %_ZN4lean7sstreamlsINS_4nameEEERS0_RKT_.exit
+.thread16:                                        ; preds = %_ZN4lean7sstreamlsIA2_cEERS0_RKT_.exit, %_ZN4lean7sstreamlsINS_4nameEEERS0_RKT_.exit, %_ZN4lean7sstreamlsIA38_cEERS0_RKT_.exit, %_ZN4lean7sstreamlsIA43_cEERS0_RKT_.exit, %_ZN4lean7sstreamC2Ev.exit
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4lean7sstreamD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %3) #22
@@ -5254,7 +5254,7 @@ _ZN4lean10object_refD2Ev.exit90:                  ; preds = %169, %176, %178, %1
   br label %186
 
 186:                                              ; preds = %185, %163
-  %.pn52.pn = phi { ptr, i32 } [ %.pn.pn, %185 ], [ %164, %163 ]
+  %.pn52.pn = phi { ptr, i32 } [ %164, %163 ], [ %.pn.pn, %185 ]
   call void @_ZN4lean12type_checkerD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #22
   br label %.body85
 
@@ -5351,7 +5351,7 @@ _ZN4lean18scoped_diagnosticsD2Ev.exit:            ; preds = %_ZN4lean10object_re
   br label %219
 
 219:                                              ; preds = %119, %217, %.body85
-  %.pn59.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn, %.body85 ], [ %218, %217 ], [ %.pn56, %119 ]
+  %.pn59.pn.pn = phi { ptr, i32 } [ %218, %217 ], [ %.pn52.pn.pn, %.body85 ], [ %.pn56, %119 ]
   call void @_ZN4lean10object_refD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #22
   br label %220
 
@@ -6599,7 +6599,7 @@ _ZN4lean10object_refD2Ev.exit154:                 ; preds = %_ZN4lean10object_re
   ret ptr %.0
 
 328:                                              ; preds = %326, %321, %316, %311, %306, %301, %296, %291, %286, %281, %276, %271, %266, %257, %255, %253, %251, %244
-  %.merged = phi { ptr, i32 } [ %.pn.pn, %244 ], [ %252, %251 ], [ %254, %253 ], [ %256, %255 ], [ %258, %257 ], [ %.pn106.pn.pn, %266 ], [ %.pn110.pn, %271 ], [ %.pn113.pn, %276 ], [ %.pn116.pn, %281 ], [ %.pn119.pn, %286 ], [ %.pn122.pn, %291 ], [ %.pn125.pn, %296 ], [ %.pn128.pn, %301 ], [ %.pn131.pn, %306 ], [ %.pn134.pn, %311 ], [ %.pn137.pn, %316 ], [ %.pn140.pn, %321 ], [ %.pn143.pn, %326 ]
+  %.merged = phi { ptr, i32 } [ %.pn140.pn, %321 ], [ %.pn137.pn, %316 ], [ %.pn134.pn, %311 ], [ %.pn131.pn, %306 ], [ %.pn128.pn, %301 ], [ %.pn125.pn, %296 ], [ %.pn122.pn, %291 ], [ %.pn119.pn, %286 ], [ %.pn116.pn, %281 ], [ %.pn113.pn, %276 ], [ %.pn110.pn, %271 ], [ %.pn106.pn.pn, %266 ], [ %258, %257 ], [ %256, %255 ], [ %254, %253 ], [ %252, %251 ], [ %.pn.pn, %244 ], [ %.pn143.pn, %326 ]
   resume { ptr, i32 } %.merged
 
 329:                                              ; preds = %326, %321, %316, %311, %306, %301, %296, %291, %286, %281, %276, %271, %266, %257, %255, %253, %251

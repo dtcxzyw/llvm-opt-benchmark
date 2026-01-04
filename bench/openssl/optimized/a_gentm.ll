@@ -90,7 +90,7 @@ define ptr @ASN1_GENERALIZEDTIME_set(ptr noundef %0, i64 noundef %1) local_unnam
   br label %ASN1_GENERALIZEDTIME_adj.exit
 
 ASN1_GENERALIZEDTIME_adj.exit:                    ; preds = %2, %7
-  %.0.i = phi ptr [ %8, %7 ], [ null, %2 ]
+  %.0.i = phi ptr [ null, %2 ], [ %8, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0.i
@@ -122,7 +122,7 @@ define ptr @ASN1_GENERALIZEDTIME_adj(ptr noundef %0, i64 noundef %1, i32 noundef
   br label %16
 
 16:                                               ; preds = %12, %4, %14
-  %.0 = phi ptr [ %15, %14 ], [ null, %4 ], [ null, %12 ]
+  %.0 = phi ptr [ null, %4 ], [ %15, %14 ], [ null, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }

@@ -1529,7 +1529,7 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit.i:        ; preds = %_ZL13gmx_snew_implI
   br i1 %538, label %.lr.ph805.i, label %.preheader783.i, !llvm.loop !58
 
 .loopexit779.i:                                   ; preds = %.critedge.thread.i, %.critedge.thread.us.i, %.critedge.thread.us.us.i, %.lr.ph859.i
-  %539 = phi i32 [ %542, %.lr.ph859.i ], [ %584, %.critedge.thread.us.us.i ], [ %542, %.critedge.thread.us.i ], [ %731, %.critedge.thread.i ]
+  %539 = phi i32 [ %542, %.critedge.thread.us.i ], [ %584, %.critedge.thread.us.us.i ], [ %542, %.lr.ph859.i ], [ %731, %.critedge.thread.i ]
   %540 = sext i32 %539 to i64
   %541 = icmp slt i64 %indvars.iv.next1013.i, %540
   %indvars.iv.next980.i = add nuw nsw i64 %indvars.iv979.i, 1
@@ -1617,8 +1617,8 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit.i:        ; preds = %_ZL13gmx_snew_implI
   br label %.critedge.thread.us.us.i
 
 .critedge.thread.us.us.i:                         ; preds = %.critedge2.split.us.us.i.loopexit.us, %.critedge767.us.us.i, %.lr.ph.split, %.preheader777.split.us836.split.us.preheader.i, %.critedge767.preheader.loopexit.us.us.i, %.critedge.thread.us.us.loopexit940.i, %.lr.ph827.split.us.split.us.i
-  %584 = phi i32 [ %.pre1086.i, %.critedge.thread.us.us.loopexit940.i ], [ %619, %.critedge767.preheader.loopexit.us.us.i ], [ %558, %.lr.ph827.split.us.split.us.i ], [ %558, %.preheader777.split.us836.split.us.preheader.i ], [ %558, %.lr.ph.split ], [ %579, %.critedge767.us.us.i ], [ %558, %.critedge2.split.us.us.i.loopexit.us ]
-  %585 = phi i32 [ %.pre1086.i, %.critedge.thread.us.us.loopexit940.i ], [ %620, %.critedge767.preheader.loopexit.us.us.i ], [ %559, %.lr.ph827.split.us.split.us.i ], [ %559, %.preheader777.split.us836.split.us.preheader.i ], [ %559, %.lr.ph.split ], [ %580, %.critedge767.us.us.i ], [ %559, %.critedge2.split.us.us.i.loopexit.us ]
+  %584 = phi i32 [ %579, %.critedge767.us.us.i ], [ %.pre1086.i, %.critedge.thread.us.us.loopexit940.i ], [ %558, %.lr.ph827.split.us.split.us.i ], [ %619, %.critedge767.preheader.loopexit.us.us.i ], [ %558, %.preheader777.split.us836.split.us.preheader.i ], [ %558, %.lr.ph.split ], [ %558, %.critedge2.split.us.us.i.loopexit.us ]
+  %585 = phi i32 [ %580, %.critedge767.us.us.i ], [ %.pre1086.i, %.critedge.thread.us.us.loopexit940.i ], [ %559, %.lr.ph827.split.us.split.us.i ], [ %620, %.critedge767.preheader.loopexit.us.us.i ], [ %559, %.preheader777.split.us836.split.us.preheader.i ], [ %559, %.lr.ph.split ], [ %559, %.critedge2.split.us.us.i.loopexit.us ]
   %indvars.iv.next1010.i = add nuw nsw i64 %indvars.iv1009.i, 1
   %586 = trunc nuw i64 %indvars.iv.next1010.i to i32
   %587 = icmp sgt i32 %585, %586
@@ -1986,8 +1986,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit24:        ; preds = %_ZNSt10filesystem7_
   br i1 %730, label %697, label %.critedge.thread.i, !llvm.loop !60
 
 .critedge.thread.i:                               ; preds = %.critedge767.i, %.critedge.i, %.lr.ph827.split.i
-  %731 = phi i32 [ %652, %.lr.ph827.split.i ], [ %685, %.critedge.i ], [ %726, %.critedge767.i ]
-  %732 = phi i32 [ %653, %.lr.ph827.split.i ], [ %686, %.critedge.i ], [ %727, %.critedge767.i ]
+  %731 = phi i32 [ %685, %.critedge.i ], [ %652, %.lr.ph827.split.i ], [ %726, %.critedge767.i ]
+  %732 = phi i32 [ %686, %.critedge.i ], [ %653, %.lr.ph827.split.i ], [ %727, %.critedge767.i ]
   %indvars.iv.next982.i = add nuw nsw i64 %indvars.iv981.i, 1
   %733 = trunc nuw i64 %indvars.iv.next982.i to i32
   %734 = icmp sgt i32 %732, %733
@@ -3163,16 +3163,16 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i61
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i616.i
 
 .loopexit.split-lp.i:                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit606.i, %1136, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit566.i, %1072, %992, %937, %936, %_ZNSt10filesystem7__cxx114pathD2Ev.exit24, %662, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.i, %445
-  %.sroa.22.1.i = phi ptr [ %.sroa.22.0.i, %445 ], [ %.sroa.22.2.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit606.i ], [ %.sroa.22.2.i, %1136 ], [ %.sroa.22.2.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit566.i ], [ %.sroa.22.2.i, %1072 ], [ %.sroa.22.2.i, %992 ], [ %.sroa.22.2.i, %937 ], [ %.sroa.22.2.i, %936 ], [ %.sroa.22.2.i, %_ZNSt10filesystem7__cxx114pathD2Ev.exit24 ], [ %.sroa.22.2.i, %662 ], [ %.sroa.22.2.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %.sroa.22.2.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ], [ %.sroa.22.2.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %.sroa.22.2.i, %.loopexit.i ]
-  %.sroa.0649.1.i = phi ptr [ %.sroa.0649.0.i, %445 ], [ %.sroa.0649.2.fr.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit606.i ], [ %.sroa.0649.2.fr.i, %1136 ], [ %.sroa.0649.2.fr.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit566.i ], [ %.sroa.0649.2.fr.i, %1072 ], [ %.sroa.0649.2.fr.i, %992 ], [ %.sroa.0649.2.fr.i, %937 ], [ %.sroa.0649.2.fr.i, %936 ], [ %.sroa.0649.2.fr.i, %_ZNSt10filesystem7__cxx114pathD2Ev.exit24 ], [ %.sroa.0649.2.fr.i, %662 ], [ %.sroa.0649.2.fr.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %.sroa.0649.2.fr.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ], [ %.sroa.0649.2.fr.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %.sroa.0649.2.fr.i, %.loopexit.i ]
-  %.pn379.pn.pn.i = phi { ptr, i32 } [ %446, %445 ], [ %.pn371.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit606.i ], [ %.pn369.i, %1136 ], [ %.pn365.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit566.i ], [ %.pn363.i, %1072 ], [ %.pn359.pn.pn.i, %992 ], [ %938, %937 ], [ %.pn357.i, %936 ], [ %.pn379.i, %_ZNSt10filesystem7__cxx114pathD2Ev.exit24 ], [ %663, %662 ], [ %lpad.loopexit785.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp786.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ], [ %lpad.loopexit780.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.i, %.loopexit.i ]
+  %.sroa.22.1.i = phi ptr [ %.sroa.22.2.i, %936 ], [ %.sroa.22.2.i, %_ZNSt10filesystem7__cxx114pathD2Ev.exit24 ], [ %.sroa.22.0.i, %445 ], [ %.sroa.22.2.i, %662 ], [ %.sroa.22.2.i, %992 ], [ %.sroa.22.2.i, %937 ], [ %.sroa.22.2.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit606.i ], [ %.sroa.22.2.i, %1136 ], [ %.sroa.22.2.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit566.i ], [ %.sroa.22.2.i, %1072 ], [ %.sroa.22.2.i, %.loopexit.i ], [ %.sroa.22.2.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %.sroa.22.2.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ], [ %.sroa.22.2.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ]
+  %.sroa.0649.1.i = phi ptr [ %.sroa.0649.2.fr.i, %936 ], [ %.sroa.0649.2.fr.i, %_ZNSt10filesystem7__cxx114pathD2Ev.exit24 ], [ %.sroa.0649.0.i, %445 ], [ %.sroa.0649.2.fr.i, %662 ], [ %.sroa.0649.2.fr.i, %992 ], [ %.sroa.0649.2.fr.i, %937 ], [ %.sroa.0649.2.fr.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit606.i ], [ %.sroa.0649.2.fr.i, %1136 ], [ %.sroa.0649.2.fr.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit566.i ], [ %.sroa.0649.2.fr.i, %1072 ], [ %.sroa.0649.2.fr.i, %.loopexit.i ], [ %.sroa.0649.2.fr.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %.sroa.0649.2.fr.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ], [ %.sroa.0649.2.fr.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ]
+  %.pn379.pn.pn.i = phi { ptr, i32 } [ %.pn357.i, %936 ], [ %.pn379.i, %_ZNSt10filesystem7__cxx114pathD2Ev.exit24 ], [ %446, %445 ], [ %663, %662 ], [ %.pn359.pn.pn.i, %992 ], [ %938, %937 ], [ %.pn371.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit606.i ], [ %.pn369.i, %1136 ], [ %.pn365.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit566.i ], [ %.pn363.i, %1072 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit785.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp786.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ], [ %lpad.loopexit780.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ]
   %.not.i.i.i.i618.i = icmp eq ptr %.sroa.0649.1.i, null
   br i1 %.not.i.i.i.i618.i, label %_ZN3gmx17RangePartitioningD2Ev.exit619.i, label %.thread.i
 
 .thread.i:                                        ; preds = %.loopexit.split-lp.i, %939, %670, %668, %666, %664, %.loopexit.split-lp.thread.i, %484, %479, %477
-  %.pn379.pn.pn763.i = phi { ptr, i32 } [ %.pn379.pn.pn.i, %.loopexit.split-lp.i ], [ %940, %939 ], [ %665, %664 ], [ %667, %666 ], [ %669, %668 ], [ %671, %670 ], [ %485, %484 ], [ %478, %477 ], [ %480, %479 ], [ %lpad.loopexit774.us.us.us.us.i, %.loopexit.split-lp.thread.i ]
-  %.sroa.0649.1762.i = phi ptr [ %.sroa.0649.1.i, %.loopexit.split-lp.i ], [ %.sroa.0649.2.fr.i, %939 ], [ %.sroa.0649.2.fr.i, %664 ], [ %.sroa.0649.2.fr.i, %666 ], [ %.sroa.0649.2.fr.i, %668 ], [ %.sroa.0649.2.fr.i, %670 ], [ %437, %484 ], [ %437, %477 ], [ %437, %479 ], [ %.sroa.0649.2.fr.i, %.loopexit.split-lp.thread.i ]
-  %.sroa.22.1761.i = phi ptr [ %.sroa.22.1.i, %.loopexit.split-lp.i ], [ %.sroa.22.2.i, %939 ], [ %.sroa.22.2.i, %664 ], [ %.sroa.22.2.i, %666 ], [ %.sroa.22.2.i, %668 ], [ %.sroa.22.2.i, %670 ], [ %439, %484 ], [ %439, %477 ], [ %439, %479 ], [ %.sroa.22.2.i, %.loopexit.split-lp.thread.i ]
+  %.pn379.pn.pn763.i = phi { ptr, i32 } [ %.pn379.pn.pn.i, %.loopexit.split-lp.i ], [ %940, %939 ], [ %665, %664 ], [ %667, %666 ], [ %669, %668 ], [ %671, %670 ], [ %478, %477 ], [ %480, %479 ], [ %485, %484 ], [ %lpad.loopexit774.us.us.us.us.i, %.loopexit.split-lp.thread.i ]
+  %.sroa.0649.1762.i = phi ptr [ %.sroa.0649.1.i, %.loopexit.split-lp.i ], [ %.sroa.0649.2.fr.i, %939 ], [ %.sroa.0649.2.fr.i, %664 ], [ %.sroa.0649.2.fr.i, %666 ], [ %.sroa.0649.2.fr.i, %668 ], [ %.sroa.0649.2.fr.i, %670 ], [ %437, %477 ], [ %437, %479 ], [ %437, %484 ], [ %.sroa.0649.2.fr.i, %.loopexit.split-lp.thread.i ]
+  %.sroa.22.1761.i = phi ptr [ %.sroa.22.1.i, %.loopexit.split-lp.i ], [ %.sroa.22.2.i, %939 ], [ %.sroa.22.2.i, %664 ], [ %.sroa.22.2.i, %666 ], [ %.sroa.22.2.i, %668 ], [ %.sroa.22.2.i, %670 ], [ %439, %477 ], [ %439, %479 ], [ %439, %484 ], [ %.sroa.22.2.i, %.loopexit.split-lp.thread.i ]
   %1162 = ptrtoint ptr %.sroa.22.1761.i to i64
   %1163 = ptrtoint ptr %.sroa.0649.1762.i to i64
   %1164 = sub i64 %1162, %1163
@@ -3180,7 +3180,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i61
   br label %_ZN3gmx17RangePartitioningD2Ev.exit619.i
 
 _ZN3gmx17RangePartitioningD2Ev.exit619.i:         ; preds = %.thread.i, %.loopexit.split-lp.i, %443, %424, %407, %402, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit449.i, %363, %358, %349, %340, %331, %321
-  %.pn386.pn.pn.i = phi { ptr, i32 } [ %.pn386.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit449.i ], [ %.pn384.i, %407 ], [ %.pn352.i, %424 ], [ %.pn349.i, %402 ], [ %.pn347.i, %363 ], [ %.pn344.pn.i, %358 ], [ %.pn341.pn.i, %349 ], [ %.pn338.pn.i, %340 ], [ %.pn.pn.i, %331 ], [ %322, %321 ], [ %444, %443 ], [ %.pn379.pn.pn.i, %.loopexit.split-lp.i ], [ %.pn379.pn.pn763.i, %.thread.i ]
+  %.pn386.pn.pn.i = phi { ptr, i32 } [ %.pn386.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit449.i ], [ %.pn384.i, %407 ], [ %322, %321 ], [ %.pn352.i, %424 ], [ %.pn349.i, %402 ], [ %.pn347.i, %363 ], [ %.pn344.pn.i, %358 ], [ %.pn341.pn.i, %349 ], [ %.pn338.pn.i, %340 ], [ %.pn.pn.i, %331 ], [ %444, %443 ], [ %.pn379.pn.pn.i, %.loopexit.split-lp.i ], [ %.pn379.pn.pn763.i, %.thread.i ]
   %1165 = load ptr, ptr %24, align 8, !tbaa !42
   %1166 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %1167 = icmp eq ptr %1165, %1166

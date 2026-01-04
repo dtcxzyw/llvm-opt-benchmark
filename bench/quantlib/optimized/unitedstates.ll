@@ -984,7 +984,7 @@ ehcleanup80:                                      ; preds = %ehcleanup, %if.then
   %109 = load ptr, ptr %ref.tmp, align 8, !tbaa !26
   %110 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i123 = icmp eq ptr %109, %110
-  br i1 %cmp.i.i.i123, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i126, label %ehcleanup84
+  br i1 %cmp.i.i.i123, label %ehcleanup84, label %if.then.i.i124
 
 ehcleanup80.thread:                               ; preds = %invoke.cont69
   %111 = landingpad { ptr, i32 }
@@ -994,20 +994,15 @@ ehcleanup80.thread:                               ; preds = %invoke.cont69
   %112 = load ptr, ptr %ref.tmp, align 8, !tbaa !26
   %113 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i123135 = icmp eq ptr %112, %113
-  br i1 %cmp.i.i.i123135, label %cleanup.action.sink.split, label %ehcleanup84.thread144
+  br i1 %cmp.i.i.i123135, label %cleanup.action.sink.split, label %if.then.i.i124.thread
 
-ehcleanup84.thread144:                            ; preds = %ehcleanup80.thread
+if.then.i.i124.thread:                            ; preds = %ehcleanup80.thread
   %114 = load i64, ptr %113, align 8, !tbaa !30
   %add.i.i.i125147 = add i64 %114, 1
   call void @_ZdlPvm(ptr noundef %112, i64 noundef %add.i.i.i125147) #21
   br label %cleanup.action.sink.split
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i126: ; preds = %ehcleanup80
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp67)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
-  br i1 %cleanup.isactive.3, label %cleanup.action, label %ehcleanup88
-
-ehcleanup84:                                      ; preds = %ehcleanup80
+if.then.i.i124:                                   ; preds = %ehcleanup80
   %115 = load i64, ptr %110, align 8, !tbaa !30
   %add.i.i.i125 = add i64 %115, 1
   call void @_ZdlPvm(ptr noundef %109, i64 noundef %add.i.i.i125) #21
@@ -1015,19 +1010,24 @@ ehcleanup84:                                      ; preds = %ehcleanup80
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   br i1 %cleanup.isactive.3, label %cleanup.action, label %ehcleanup88
 
-cleanup.action.sink.split:                        ; preds = %ehcleanup80.thread, %ehcleanup84.thread, %ehcleanup84.thread144
-  %.pn.pn.pn132.ph = phi { ptr, i32 } [ %111, %ehcleanup84.thread144 ], [ %100, %ehcleanup84.thread ], [ %111, %ehcleanup80.thread ]
+ehcleanup84:                                      ; preds = %ehcleanup80
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp67)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
+  br i1 %cleanup.isactive.3, label %cleanup.action, label %ehcleanup88
+
+cleanup.action.sink.split:                        ; preds = %ehcleanup80.thread, %ehcleanup84.thread, %if.then.i.i124.thread
+  %.pn.pn.pn132.ph = phi { ptr, i32 } [ %111, %if.then.i.i124.thread ], [ %100, %ehcleanup84.thread ], [ %111, %ehcleanup80.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp67)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   br label %cleanup.action
 
-cleanup.action:                                   ; preds = %cleanup.action.sink.split, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i126, %ehcleanup84
-  %.pn.pn.pn132 = phi { ptr, i32 } [ %.pn, %ehcleanup84 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i126 ], [ %.pn.pn.pn132.ph, %cleanup.action.sink.split ]
+cleanup.action:                                   ; preds = %cleanup.action.sink.split, %if.then.i.i124, %ehcleanup84
+  %.pn.pn.pn132 = phi { ptr, i32 } [ %.pn, %if.then.i.i124 ], [ %.pn, %ehcleanup84 ], [ %.pn.pn.pn132.ph, %cleanup.action.sink.split ]
   call void @__cxa_free_exception(ptr %exception) #18
   br label %ehcleanup88
 
-ehcleanup88:                                      ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i126, %ehcleanup84, %cleanup.action, %lpad64
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn132, %cleanup.action ], [ %.pn, %ehcleanup84 ], [ %99, %lpad64 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i126 ]
+ehcleanup88:                                      ; preds = %if.then.i.i124, %ehcleanup84, %cleanup.action, %lpad64
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn132, %cleanup.action ], [ %.pn, %ehcleanup84 ], [ %99, %lpad64 ], [ %.pn, %if.then.i.i124 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_ql_msg_stream) #18
   br label %ehcleanup89
 
@@ -2448,7 +2448,7 @@ if.end:                                           ; preds = %land.lhs.true69, %l
   br label %cleanup
 
 cleanup:                                          ; preds = %lor.lhs.false.i95, %lor.lhs.false8.i, %lor.lhs.false39.split, %if.then.i104, %if.then.i, %entry, %land.lhs.true9, %_ZN8QuantLib12_GLOBAL__N_120isWashingtonBirthdayEiNS_5MonthEiNS_7WeekdayE.exit, %_ZN8QuantLib12_GLOBAL__N_113isMemorialDayEiNS_5MonthEiNS_7WeekdayE.exit, %_ZN8QuantLib12_GLOBAL__N_112isJuneteenthEiNS_5MonthEiNS_7WeekdayEb.exit, %land.lhs.true43, %lor.lhs.false47, %lor.lhs.false49, %land.lhs.true69, %lor.lhs.false6, %lor.lhs.false11, %lor.lhs.false17, %lor.lhs.false39, %lor.lhs.false51, %lor.lhs.false65, %if.end
-  %retval.0 = phi i1 [ true, %if.end ], [ false, %lor.lhs.false65 ], [ false, %lor.lhs.false51 ], [ false, %lor.lhs.false39 ], [ false, %lor.lhs.false17 ], [ false, %lor.lhs.false11 ], [ false, %lor.lhs.false6 ], [ false, %land.lhs.true69 ], [ false, %lor.lhs.false49 ], [ false, %lor.lhs.false47 ], [ false, %land.lhs.true43 ], [ false, %_ZN8QuantLib12_GLOBAL__N_112isJuneteenthEiNS_5MonthEiNS_7WeekdayEb.exit ], [ false, %_ZN8QuantLib12_GLOBAL__N_113isMemorialDayEiNS_5MonthEiNS_7WeekdayE.exit ], [ false, %_ZN8QuantLib12_GLOBAL__N_120isWashingtonBirthdayEiNS_5MonthEiNS_7WeekdayE.exit ], [ false, %land.lhs.true9 ], [ false, %entry ], [ false, %if.then.i ], [ false, %if.then.i104 ], [ false, %lor.lhs.false39.split ], [ false, %lor.lhs.false8.i ], [ false, %lor.lhs.false.i95 ]
+  %retval.0 = phi i1 [ true, %if.end ], [ false, %lor.lhs.false65 ], [ false, %lor.lhs.false51 ], [ false, %lor.lhs.false39 ], [ false, %lor.lhs.false17 ], [ false, %lor.lhs.false11 ], [ false, %lor.lhs.false6 ], [ false, %land.lhs.true69 ], [ false, %lor.lhs.false49 ], [ false, %lor.lhs.false47 ], [ false, %lor.lhs.false8.i ], [ false, %land.lhs.true43 ], [ false, %_ZN8QuantLib12_GLOBAL__N_112isJuneteenthEiNS_5MonthEiNS_7WeekdayEb.exit ], [ false, %_ZN8QuantLib12_GLOBAL__N_113isMemorialDayEiNS_5MonthEiNS_7WeekdayE.exit ], [ false, %_ZN8QuantLib12_GLOBAL__N_120isWashingtonBirthdayEiNS_5MonthEiNS_7WeekdayE.exit ], [ false, %land.lhs.true9 ], [ false, %entry ], [ false, %if.then.i ], [ false, %if.then.i104 ], [ false, %lor.lhs.false39.split ], [ false, %lor.lhs.false.i95 ]
   ret i1 %retval.0
 }
 
@@ -2493,7 +2493,7 @@ if.else:                                          ; preds = %entry
   br label %return
 
 return:                                           ; preds = %lor.lhs.false6, %land.rhs, %if.else
-  %retval.0 = phi i1 [ %spec.select, %if.else ], [ false, %lor.lhs.false6 ], [ %cmp10, %land.rhs ]
+  %retval.0 = phi i1 [ %spec.select, %if.else ], [ %cmp10, %land.rhs ], [ false, %lor.lhs.false6 ]
   ret i1 %retval.0
 }
 
@@ -2620,7 +2620,7 @@ land.lhs.true11:                                  ; preds = %lor.lhs.false
   br i1 %cmp12.old, label %cleanup, label %lor.lhs.false13
 
 lor.lhs.false13:                                  ; preds = %land.lhs.true11, %land.rhs14.i, %lor.lhs.false10.i, %if.then.i
-  %phi.call = phi i1 [ %spec.select.i, %if.then.i ], [ false, %lor.lhs.false10.i ], [ %cmp15.i, %land.rhs14.i ], [ false, %land.lhs.true11 ]
+  %phi.call = phi i1 [ false, %lor.lhs.false10.i ], [ %spec.select.i, %if.then.i ], [ %cmp15.i, %land.rhs14.i ], [ false, %land.lhs.true11 ]
   %sub = add nsw i32 %call6, -3
   %cmp16 = icmp eq i32 %sub, %conv.i244
   %or.cond240 = select i1 %phi.call, i1 true, i1 %cmp16
@@ -2946,7 +2946,7 @@ lor.lhs.false196:                                 ; preds = %lor.lhs.false190
   br label %cleanup
 
 cleanup:                                          ; preds = %land.lhs.true8.i, %lor.lhs.false27.split, %if.then.i275, %lor.lhs.false196, %if.end78, %lor.lhs.false92, %lor.lhs.false98, %lor.lhs.false104, %lor.lhs.false112, %lor.lhs.false118, %lor.lhs.false124, %lor.lhs.false130, %lor.lhs.false136, %lor.lhs.false142, %lor.lhs.false148, %lor.lhs.false154, %lor.lhs.false160, %lor.lhs.false166, %lor.lhs.false172, %lor.lhs.false178, %lor.lhs.false184, %lor.lhs.false190, %lor.lhs.false84, %land.lhs.true73, %if.end, %entry, %land.lhs.true11, %lor.lhs.false13, %_ZN8QuantLib12_GLOBAL__N_113isMemorialDayEiNS_5MonthEiNS_7WeekdayE.exit, %_ZN8QuantLib12_GLOBAL__N_112isJuneteenthEiNS_5MonthEiNS_7WeekdayEb.exit, %land.lhs.true31, %land.lhs.true53, %lor.lhs.false8, %lor.lhs.false27, %lor.lhs.false35, %lor.lhs.false49
-  %retval.0 = phi i1 [ false, %lor.lhs.false49 ], [ false, %lor.lhs.false35 ], [ false, %lor.lhs.false27 ], [ false, %lor.lhs.false8 ], [ false, %land.lhs.true53 ], [ false, %land.lhs.true31 ], [ false, %_ZN8QuantLib12_GLOBAL__N_112isJuneteenthEiNS_5MonthEiNS_7WeekdayEb.exit ], [ false, %_ZN8QuantLib12_GLOBAL__N_113isMemorialDayEiNS_5MonthEiNS_7WeekdayE.exit ], [ false, %lor.lhs.false13 ], [ false, %land.lhs.true11 ], [ false, %entry ], [ false, %if.end ], [ false, %land.lhs.true73 ], [ false, %lor.lhs.false84 ], [ false, %lor.lhs.false190 ], [ false, %lor.lhs.false184 ], [ false, %lor.lhs.false178 ], [ false, %lor.lhs.false172 ], [ false, %lor.lhs.false166 ], [ false, %lor.lhs.false160 ], [ false, %lor.lhs.false154 ], [ false, %lor.lhs.false148 ], [ false, %lor.lhs.false142 ], [ false, %lor.lhs.false136 ], [ false, %lor.lhs.false130 ], [ false, %lor.lhs.false124 ], [ false, %lor.lhs.false118 ], [ false, %lor.lhs.false112 ], [ false, %lor.lhs.false104 ], [ false, %lor.lhs.false98 ], [ false, %lor.lhs.false92 ], [ false, %if.end78 ], [ %not.or.cond117, %lor.lhs.false196 ], [ false, %if.then.i275 ], [ false, %lor.lhs.false27.split ], [ false, %land.lhs.true8.i ]
+  %retval.0 = phi i1 [ false, %if.end78 ], [ false, %entry ], [ false, %if.end ], [ false, %land.lhs.true73 ], [ false, %lor.lhs.false49 ], [ false, %lor.lhs.false35 ], [ false, %lor.lhs.false27 ], [ false, %lor.lhs.false8 ], [ false, %land.lhs.true53 ], [ false, %land.lhs.true8.i ], [ false, %land.lhs.true31 ], [ false, %_ZN8QuantLib12_GLOBAL__N_112isJuneteenthEiNS_5MonthEiNS_7WeekdayEb.exit ], [ false, %_ZN8QuantLib12_GLOBAL__N_113isMemorialDayEiNS_5MonthEiNS_7WeekdayE.exit ], [ false, %lor.lhs.false13 ], [ false, %land.lhs.true11 ], [ false, %lor.lhs.false84 ], [ %not.or.cond117, %lor.lhs.false196 ], [ false, %lor.lhs.false190 ], [ false, %lor.lhs.false184 ], [ false, %lor.lhs.false178 ], [ false, %lor.lhs.false172 ], [ false, %lor.lhs.false166 ], [ false, %lor.lhs.false160 ], [ false, %lor.lhs.false154 ], [ false, %lor.lhs.false148 ], [ false, %lor.lhs.false142 ], [ false, %lor.lhs.false136 ], [ false, %lor.lhs.false130 ], [ false, %lor.lhs.false124 ], [ false, %lor.lhs.false118 ], [ false, %lor.lhs.false112 ], [ false, %lor.lhs.false104 ], [ false, %lor.lhs.false98 ], [ false, %lor.lhs.false92 ], [ false, %if.then.i275 ], [ false, %lor.lhs.false27.split ]
   ret i1 %retval.0
 }
 
@@ -3225,7 +3225,7 @@ lor.lhs.false84:                                  ; preds = %land.lhs.true71, %l
   br label %cleanup
 
 cleanup:                                          ; preds = %lor.lhs.false25, %lor.lhs.false10.i, %if.else.i159, %lor.lhs.false41.split, %if.then.i127, %if.then.i, %lor.lhs.false84, %if.end, %lor.lhs.false78, %entry, %land.lhs.true11, %_ZN8QuantLib12_GLOBAL__N_120isWashingtonBirthdayEiNS_5MonthEiNS_7WeekdayE.exit, %land.lhs.true27, %_ZN8QuantLib12_GLOBAL__N_113isMemorialDayEiNS_5MonthEiNS_7WeekdayE.exit, %_ZN8QuantLib12_GLOBAL__N_112isJuneteenthEiNS_5MonthEiNS_7WeekdayEb.exit, %land.lhs.true45, %lor.lhs.false49, %_ZN8QuantLib12_GLOBAL__N_123isVeteransDayNoSaturdayEiNS_5MonthEiNS_7WeekdayE.exit, %land.lhs.true71, %lor.lhs.false8, %lor.lhs.false13, %lor.lhs.false41, %lor.lhs.false53, %lor.lhs.false67
-  %retval.0 = phi i1 [ false, %lor.lhs.false67 ], [ false, %lor.lhs.false53 ], [ false, %lor.lhs.false41 ], [ false, %lor.lhs.false13 ], [ false, %lor.lhs.false8 ], [ false, %land.lhs.true71 ], [ false, %_ZN8QuantLib12_GLOBAL__N_123isVeteransDayNoSaturdayEiNS_5MonthEiNS_7WeekdayE.exit ], [ false, %lor.lhs.false49 ], [ false, %land.lhs.true45 ], [ false, %_ZN8QuantLib12_GLOBAL__N_112isJuneteenthEiNS_5MonthEiNS_7WeekdayEb.exit ], [ false, %_ZN8QuantLib12_GLOBAL__N_113isMemorialDayEiNS_5MonthEiNS_7WeekdayE.exit ], [ false, %land.lhs.true27 ], [ false, %_ZN8QuantLib12_GLOBAL__N_120isWashingtonBirthdayEiNS_5MonthEiNS_7WeekdayE.exit ], [ false, %land.lhs.true11 ], [ false, %entry ], [ false, %lor.lhs.false78 ], [ false, %if.end ], [ %or.cond41.not, %lor.lhs.false84 ], [ false, %if.then.i ], [ false, %if.then.i127 ], [ false, %lor.lhs.false41.split ], [ false, %if.else.i159 ], [ false, %lor.lhs.false10.i ], [ false, %lor.lhs.false25 ]
+  %retval.0 = phi i1 [ false, %if.end ], [ false, %entry ], [ false, %lor.lhs.false67 ], [ false, %lor.lhs.false53 ], [ false, %lor.lhs.false41 ], [ false, %lor.lhs.false13 ], [ false, %lor.lhs.false8 ], [ false, %land.lhs.true71 ], [ false, %_ZN8QuantLib12_GLOBAL__N_123isVeteransDayNoSaturdayEiNS_5MonthEiNS_7WeekdayE.exit ], [ false, %lor.lhs.false49 ], [ false, %lor.lhs.false10.i ], [ false, %land.lhs.true45 ], [ false, %_ZN8QuantLib12_GLOBAL__N_112isJuneteenthEiNS_5MonthEiNS_7WeekdayEb.exit ], [ false, %_ZN8QuantLib12_GLOBAL__N_113isMemorialDayEiNS_5MonthEiNS_7WeekdayE.exit ], [ false, %land.lhs.true27 ], [ false, %_ZN8QuantLib12_GLOBAL__N_120isWashingtonBirthdayEiNS_5MonthEiNS_7WeekdayE.exit ], [ false, %land.lhs.true11 ], [ %or.cond41.not, %lor.lhs.false84 ], [ false, %lor.lhs.false78 ], [ false, %if.then.i ], [ false, %if.then.i127 ], [ false, %lor.lhs.false41.split ], [ false, %if.else.i159 ], [ false, %lor.lhs.false25 ]
   ret i1 %retval.0
 }
 
@@ -3288,41 +3288,41 @@ lor.lhs.false6:                                   ; preds = %lor.lhs.false
 
 lor.lhs.false6.split:                             ; preds = %lor.lhs.false6
   %cmp.i48 = icmp sgt i32 %call4, 1970
-  br i1 %cmp.i48, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %lor.lhs.false6.split
-  %cmp1.i = icmp sgt i32 %sub.i, 24
-  %cmp3.i = icmp eq i32 %call3, 5
-  %2 = and i1 %cmp1.i, %cmp3.i
-  %spec.select.i = and i1 %cmp8, %2
-  br i1 %spec.select.i, label %cleanup, label %lor.lhs.false13
+  br i1 %cmp.i48, label %lor.lhs.false11, label %if.else.i
 
 if.else.i:                                        ; preds = %lor.lhs.false6.split
   %cmp4.i = icmp eq i32 %sub.i, 30
   %cmp5.i = icmp eq i32 %sub.i, 31
   %or.cond1.i = and i1 %cmp8, %cmp5.i
   %or.cond121 = or i1 %cmp4.i, %or.cond1.i
-  br i1 %or.cond121, label %lor.lhs.false11, label %lor.lhs.false8.i
+  br i1 %or.cond121, label %land.rhs12.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %if.else.i
   %cmp9.i = icmp eq i32 %sub.i, 29
   %cmp11.i = icmp eq i32 %cond.i, 6
   %or.cond2.i = and i1 %cmp11.i, %cmp9.i
-  br i1 %or.cond2.i, label %lor.lhs.false11, label %lor.lhs.false13
+  br i1 %or.cond2.i, label %land.rhs12.i, label %lor.lhs.false13
+
+land.rhs12.i:                                     ; preds = %lor.lhs.false8.i, %if.else.i
+  %cmp13.i = icmp eq i32 %call3, 5
+  br i1 %cmp13.i, label %cleanup, label %if.end
 
 land.lhs.true9:                                   ; preds = %lor.lhs.false
   %cmp10.old = icmp eq i32 %call3, 1
   br i1 %cmp10.old, label %cleanup, label %lor.lhs.false15.thread96
 
-lor.lhs.false11:                                  ; preds = %if.else.i, %lor.lhs.false8.i
-  %cmp13.i = icmp eq i32 %call3, 5
-  br i1 %cmp13.i, label %cleanup, label %if.end
+lor.lhs.false11:                                  ; preds = %lor.lhs.false6.split
+  %cmp1.i = icmp sgt i32 %sub.i, 24
+  %cmp3.i = icmp eq i32 %call3, 5
+  %2 = and i1 %cmp1.i, %cmp3.i
+  %spec.select.i = and i1 %cmp8, %2
+  br i1 %spec.select.i, label %cleanup, label %lor.lhs.false13
 
 lor.lhs.false15.thread96:                         ; preds = %land.lhs.true9
   %cmp1898 = icmp eq i32 %cond.i, 2
   br label %lor.lhs.false15.split
 
-lor.lhs.false13:                                  ; preds = %lor.lhs.false8.i, %if.then.i
+lor.lhs.false13:                                  ; preds = %lor.lhs.false8.i, %lor.lhs.false11
   %cmp14 = icmp eq i32 %sub.i, 4
   br i1 %cmp14, label %land.lhs.true19, label %lor.lhs.false15
 
@@ -3334,7 +3334,7 @@ lor.lhs.false15:                                  ; preds = %lor.lhs.false13
   br i1 %or.cond5, label %cleanup, label %lor.lhs.false15.split
 
 lor.lhs.false15.split:                            ; preds = %lor.lhs.false15.thread96, %lor.lhs.false15
-  %cmp1882 = phi i1 [ %cmp8, %lor.lhs.false15 ], [ %cmp1898, %lor.lhs.false15.thread96 ]
+  %cmp1882 = phi i1 [ %cmp1898, %lor.lhs.false15.thread96 ], [ %cmp8, %lor.lhs.false15 ]
   %cmp.i66 = icmp slt i32 %sub.i, 8
   %or.cond.i68 = and i1 %cmp.i66, %cmp1882
   %cmp2.i69 = icmp eq i32 %call3, 9
@@ -3373,11 +3373,11 @@ land.lhs.true37:                                  ; preds = %lor.lhs.false31
   %cmp38.old = icmp eq i32 %call3, 12
   br i1 %cmp38.old, label %cleanup, label %if.end
 
-if.end:                                           ; preds = %land.lhs.true19, %lor.lhs.false11, %land.lhs.true37, %lor.lhs.false33
+if.end:                                           ; preds = %land.lhs.true19, %land.rhs12.i, %land.lhs.true37, %lor.lhs.false33
   br label %cleanup
 
-cleanup:                                          ; preds = %lor.lhs.false15.split, %if.then.i, %entry, %land.lhs.true9, %lor.lhs.false11, %land.lhs.true19, %land.lhs.true37, %lor.lhs.false6, %lor.lhs.false15, %lor.lhs.false23, %lor.lhs.false33, %if.end
-  %retval.0 = phi i1 [ true, %if.end ], [ false, %lor.lhs.false33 ], [ false, %lor.lhs.false23 ], [ false, %lor.lhs.false15 ], [ false, %lor.lhs.false6 ], [ false, %land.lhs.true37 ], [ false, %land.lhs.true19 ], [ false, %lor.lhs.false11 ], [ false, %land.lhs.true9 ], [ false, %entry ], [ false, %if.then.i ], [ false, %lor.lhs.false15.split ]
+cleanup:                                          ; preds = %lor.lhs.false15.split, %land.rhs12.i, %entry, %land.lhs.true9, %lor.lhs.false11, %land.lhs.true19, %land.lhs.true37, %lor.lhs.false6, %lor.lhs.false15, %lor.lhs.false23, %lor.lhs.false33, %if.end
+  %retval.0 = phi i1 [ true, %if.end ], [ false, %lor.lhs.false33 ], [ false, %lor.lhs.false23 ], [ false, %lor.lhs.false15 ], [ false, %lor.lhs.false6 ], [ false, %land.lhs.true37 ], [ false, %lor.lhs.false15.split ], [ false, %land.lhs.true19 ], [ false, %lor.lhs.false11 ], [ false, %land.lhs.true9 ], [ false, %entry ], [ false, %land.rhs12.i ]
   ret i1 %retval.0
 }
 
@@ -3585,7 +3585,7 @@ if.end:                                           ; preds = %land.lhs.true33, %_
   br label %cleanup
 
 cleanup:                                          ; preds = %land.lhs.true8.i, %if.else.i118, %lor.lhs.false29.split, %if.then.i87, %if.then.i, %entry, %land.lhs.true9, %_ZN8QuantLib12_GLOBAL__N_120isWashingtonBirthdayEiNS_5MonthEiNS_7WeekdayE.exit, %_ZN8QuantLib12_GLOBAL__N_113isMemorialDayEiNS_5MonthEiNS_7WeekdayE.exit, %land.lhs.true33, %lor.lhs.false37, %_ZN8QuantLib12_GLOBAL__N_123isVeteransDayNoSaturdayEiNS_5MonthEiNS_7WeekdayE.exit, %land.lhs.true55, %lor.lhs.false6, %lor.lhs.false11, %lor.lhs.false29, %lor.lhs.false41, %lor.lhs.false51, %if.end
-  %retval.0 = phi i1 [ true, %if.end ], [ false, %lor.lhs.false51 ], [ false, %lor.lhs.false41 ], [ false, %lor.lhs.false29 ], [ false, %lor.lhs.false11 ], [ false, %lor.lhs.false6 ], [ false, %land.lhs.true55 ], [ false, %_ZN8QuantLib12_GLOBAL__N_123isVeteransDayNoSaturdayEiNS_5MonthEiNS_7WeekdayE.exit ], [ false, %lor.lhs.false37 ], [ false, %land.lhs.true33 ], [ false, %_ZN8QuantLib12_GLOBAL__N_113isMemorialDayEiNS_5MonthEiNS_7WeekdayE.exit ], [ false, %_ZN8QuantLib12_GLOBAL__N_120isWashingtonBirthdayEiNS_5MonthEiNS_7WeekdayE.exit ], [ false, %land.lhs.true9 ], [ false, %entry ], [ false, %if.then.i ], [ false, %if.then.i87 ], [ false, %lor.lhs.false29.split ], [ false, %if.else.i118 ], [ false, %land.lhs.true8.i ]
+  %retval.0 = phi i1 [ true, %if.end ], [ false, %lor.lhs.false51 ], [ false, %lor.lhs.false41 ], [ false, %lor.lhs.false29 ], [ false, %lor.lhs.false11 ], [ false, %lor.lhs.false6 ], [ false, %land.lhs.true55 ], [ false, %_ZN8QuantLib12_GLOBAL__N_123isVeteransDayNoSaturdayEiNS_5MonthEiNS_7WeekdayE.exit ], [ false, %lor.lhs.false37 ], [ false, %if.else.i118 ], [ false, %land.lhs.true33 ], [ false, %land.lhs.true8.i ], [ false, %_ZN8QuantLib12_GLOBAL__N_113isMemorialDayEiNS_5MonthEiNS_7WeekdayE.exit ], [ false, %_ZN8QuantLib12_GLOBAL__N_120isWashingtonBirthdayEiNS_5MonthEiNS_7WeekdayE.exit ], [ false, %land.lhs.true9 ], [ false, %entry ], [ false, %if.then.i ], [ false, %if.then.i87 ], [ false, %lor.lhs.false29.split ]
   ret i1 %retval.0
 }
 
@@ -4198,7 +4198,7 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   br label %_ZNKSt9type_infoeqERKS_.exit.thread5
 
 _ZNKSt9type_infoeqERKS_.exit.thread5:             ; preds = %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %_ZNKSt9type_infoeqERKS_.exit.thread
-  %2 = phi ptr [ %del2, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %if.end.i ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
+  %2 = phi ptr [ null, %if.end.i ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ], [ %del2, %_ZNKSt9type_infoeqERKS_.exit.thread ]
   ret ptr %2
 }
 
@@ -4381,7 +4381,7 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   br label %_ZNKSt9type_infoeqERKS_.exit.thread5
 
 _ZNKSt9type_infoeqERKS_.exit.thread5:             ; preds = %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %_ZNKSt9type_infoeqERKS_.exit.thread
-  %2 = phi ptr [ %del2, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %if.end.i ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
+  %2 = phi ptr [ null, %if.end.i ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ], [ %del2, %_ZNKSt9type_infoeqERKS_.exit.thread ]
   ret ptr %2
 }
 
@@ -4561,7 +4561,7 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   br label %_ZNKSt9type_infoeqERKS_.exit.thread5
 
 _ZNKSt9type_infoeqERKS_.exit.thread5:             ; preds = %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %_ZNKSt9type_infoeqERKS_.exit.thread
-  %2 = phi ptr [ %del2, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %if.end.i ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
+  %2 = phi ptr [ null, %if.end.i ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ], [ %del2, %_ZNKSt9type_infoeqERKS_.exit.thread ]
   ret ptr %2
 }
 
@@ -4666,7 +4666,7 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   br label %_ZNKSt9type_infoeqERKS_.exit.thread5
 
 _ZNKSt9type_infoeqERKS_.exit.thread5:             ; preds = %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %_ZNKSt9type_infoeqERKS_.exit.thread
-  %2 = phi ptr [ %del2, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %if.end.i ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
+  %2 = phi ptr [ null, %if.end.i ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ], [ %del2, %_ZNKSt9type_infoeqERKS_.exit.thread ]
   ret ptr %2
 }
 
@@ -4846,7 +4846,7 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   br label %_ZNKSt9type_infoeqERKS_.exit.thread5
 
 _ZNKSt9type_infoeqERKS_.exit.thread5:             ; preds = %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %_ZNKSt9type_infoeqERKS_.exit.thread
-  %2 = phi ptr [ %del2, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %if.end.i ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
+  %2 = phi ptr [ null, %if.end.i ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ], [ %del2, %_ZNKSt9type_infoeqERKS_.exit.thread ]
   ret ptr %2
 }
 
@@ -5026,7 +5026,7 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   br label %_ZNKSt9type_infoeqERKS_.exit.thread5
 
 _ZNKSt9type_infoeqERKS_.exit.thread5:             ; preds = %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %_ZNKSt9type_infoeqERKS_.exit.thread
-  %2 = phi ptr [ %del2, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %if.end.i ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
+  %2 = phi ptr [ null, %if.end.i ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ], [ %del2, %_ZNKSt9type_infoeqERKS_.exit.thread ]
   ret ptr %2
 }
 
@@ -5206,7 +5206,7 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   br label %_ZNKSt9type_infoeqERKS_.exit.thread5
 
 _ZNKSt9type_infoeqERKS_.exit.thread5:             ; preds = %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %_ZNKSt9type_infoeqERKS_.exit.thread
-  %2 = phi ptr [ %del2, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %if.end.i ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
+  %2 = phi ptr [ null, %if.end.i ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ], [ %del2, %_ZNKSt9type_infoeqERKS_.exit.thread ]
   ret ptr %2
 }
 

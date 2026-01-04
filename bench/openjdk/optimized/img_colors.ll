@@ -720,8 +720,8 @@ LUV_convert.exit.us.us.i:                         ; preds = %304, %303, %289
   br i1 %.not203.i, label %.lr.ph166.i, label %.lr.ph150.i, !llvm.loop !20
 
 init_virt_cmap.exit:                              ; preds = %._crit_edge162.split.us.us.i, %186, %._crit_edge144.i
-  %.pre247 = phi i32 [ %.pre247.pre, %186 ], [ %179, %._crit_edge144.i ], [ %.pre191192.i, %._crit_edge162.split.us.us.i ]
-  %.pre245 = phi ptr [ %.pre245.pre, %186 ], [ %182, %._crit_edge144.i ], [ %182, %._crit_edge162.split.us.us.i ]
+  %.pre247 = phi i32 [ %179, %._crit_edge144.i ], [ %.pre247.pre, %186 ], [ %.pre191192.i, %._crit_edge162.split.us.us.i ]
+  %.pre245 = phi ptr [ %182, %._crit_edge144.i ], [ %.pre245.pre, %186 ], [ %182, %._crit_edge162.split.us.us.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %366 = load i32, ptr @total, align 4
   %367 = icmp slt i32 %366, %0
@@ -903,7 +903,7 @@ handle_biggest_offenders.exit.us:                 ; preds = %handle_biggest_offe
   br i1 %exitcond.not.i156, label %find_nearest.exit167, label %440, !llvm.loop !22
 
 find_nearest.exit167:                             ; preds = %463, %426, %428, %398
-  %465 = phi float [ %383, %428 ], [ %383, %398 ], [ %427, %426 ], [ %464, %463 ]
+  %465 = phi float [ %427, %426 ], [ %383, %398 ], [ %383, %428 ], [ %464, %463 ]
   store i32 %369, ptr %376, align 4
   br label %.lr.ph.preheader.i.i
 
@@ -1454,11 +1454,11 @@ find_nearest.exit.i:                              ; preds = %._crit_edge.i42.i, 
   br i1 %exitcond61.not.i, label %.loopexit.i, label %681, !llvm.loop !25
 
 .loopexit.i:                                      ; preds = %774, %577, %..loopexit_crit_edge.i.loopexit, %.loopexit179, %.lr.ph55.i
-  %775 = phi i32 [ %674, %.loopexit179 ], [ %572, %.lr.ph55.i ], [ %647, %..loopexit_crit_edge.i.loopexit ], [ %572, %577 ], [ %674, %774 ]
-  %.pre.i134243 = phi i32 [ %674, %.loopexit179 ], [ %.pre.i134244, %.lr.ph55.i ], [ %647, %..loopexit_crit_edge.i.loopexit ], [ %.pre.i134244, %577 ], [ %674, %774 ]
-  %.pre66.i172240 = phi i32 [ %.pre66.i, %.loopexit179 ], [ %.pre66.i172239, %.lr.ph55.i ], [ %.pre66.i172.pre, %..loopexit_crit_edge.i.loopexit ], [ %.pre66.i172239, %577 ], [ %.pre66.i, %774 ]
-  %776 = phi i32 [ %.pre66.i, %.loopexit179 ], [ %573, %.lr.ph55.i ], [ %.pre66.i172.pre, %..loopexit_crit_edge.i.loopexit ], [ %.pre66.i172239, %577 ], [ %.pre66.i, %774 ]
-  %777 = phi i32 [ %674, %.loopexit179 ], [ %574, %.lr.ph55.i ], [ %647, %..loopexit_crit_edge.i.loopexit ], [ %.pre.i134244, %577 ], [ %674, %774 ]
+  %775 = phi i32 [ %572, %577 ], [ %572, %.lr.ph55.i ], [ %674, %.loopexit179 ], [ %647, %..loopexit_crit_edge.i.loopexit ], [ %674, %774 ]
+  %.pre.i134243 = phi i32 [ %.pre.i134244, %577 ], [ %.pre.i134244, %.lr.ph55.i ], [ %674, %.loopexit179 ], [ %647, %..loopexit_crit_edge.i.loopexit ], [ %674, %774 ]
+  %.pre66.i172240 = phi i32 [ %.pre66.i172239, %577 ], [ %.pre66.i172239, %.lr.ph55.i ], [ %.pre66.i, %.loopexit179 ], [ %.pre66.i172.pre, %..loopexit_crit_edge.i.loopexit ], [ %.pre66.i, %774 ]
+  %776 = phi i32 [ %.pre66.i172239, %577 ], [ %573, %.lr.ph55.i ], [ %.pre66.i, %.loopexit179 ], [ %.pre66.i172.pre, %..loopexit_crit_edge.i.loopexit ], [ %.pre66.i, %774 ]
+  %777 = phi i32 [ %.pre.i134244, %577 ], [ %574, %.lr.ph55.i ], [ %674, %.loopexit179 ], [ %647, %..loopexit_crit_edge.i.loopexit ], [ %674, %774 ]
   %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
   %778 = icmp slt i32 %777, %0
   %779 = sext i32 %776 to i64
@@ -1468,7 +1468,7 @@ find_nearest.exit.i:                              ; preds = %._crit_edge.i42.i, 
   br i1 %781, label %.lr.ph55.i, label %handle_biggest_offenders.exit, !llvm.loop !26
 
 handle_biggest_offenders.exit:                    ; preds = %.loopexit.i, %.lr.ph186.split, %._crit_edge.i128
-  %782 = phi i32 [ %369, %.lr.ph186.split ], [ %369, %._crit_edge.i128 ], [ %775, %.loopexit.i ]
+  %782 = phi i32 [ %369, %._crit_edge.i128 ], [ %369, %.lr.ph186.split ], [ %775, %.loopexit.i ]
   %783 = icmp slt i32 %782, %0
   br i1 %783, label %.lr.ph186.split, label %._crit_edge187.loopexit, !llvm.loop !27
 
@@ -1604,7 +1604,7 @@ handle_biggest_offenders.exit:                    ; preds = %.loopexit.i, %.lr.p
   br label %843
 
 843:                                              ; preds = %842, %836, %830, %809
-  %.198.us.us = phi float [ %840, %842 ], [ %.097194.us.us, %809 ], [ %.097194.us.us, %830 ], [ %.097194.us.us, %836 ]
+  %.198.us.us = phi float [ %.097194.us.us, %809 ], [ %.097194.us.us, %830 ], [ %.097194.us.us, %836 ], [ %840, %842 ]
   %844 = add nuw nsw i32 %.295195.us.us, 1
   %exitcond222.not = icmp eq i32 %844, 8
   br i1 %exitcond222.not, label %.loopexit.us.us, label %809, !llvm.loop !30

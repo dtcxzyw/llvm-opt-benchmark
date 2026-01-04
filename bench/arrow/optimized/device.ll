@@ -1159,7 +1159,7 @@ _ZNSt12__shared_ptrIN5arrow13MemoryManagerELN9__gnu_cxx12_Lock_policyE2EED2Ev.ex
   br label %225
 
 223:                                              ; preds = %197, %186, %184
-  %.pn = phi { ptr, i32 } [ %198, %197 ], [ %187, %186 ], [ %185, %184 ]
+  %.pn = phi { ptr, i32 } [ %185, %184 ], [ %198, %197 ], [ %187, %186 ]
   call void @_ZNSt12__shared_ptrIN5arrow13MemoryManagerELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #25
   br label %224
 
@@ -2954,7 +2954,7 @@ _ZN5arrow6StatusC2ERKS0_.exit:                    ; preds = %46, %85
   br label %88
 
 86:                                               ; preds = %47, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30, %41
-  %.pn23.pn = phi { ptr, i32 } [ %42, %41 ], [ %48, %47 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30 ]
+  %.pn23.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30 ], [ %42, %41 ], [ %48, %47 ]
   call void @_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #25
   br label %87
 
@@ -4553,7 +4553,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %68, %64, %_ZNKSt7__
   br label %common.resume
 
 _ZNSt13unordered_mapIN5arrow20DeviceAllocationTypeESt8functionIFNS0_6ResultISt10shared_ptrINS0_13MemoryManagerEEEElEESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S9_EEE4findERSF_.exit.i: ; preds = %41, %23, %36
-  %.sroa.06.1.i.i.i = phi ptr [ %37, %36 ], [ %.sroa.06.0.i.i.i, %23 ], [ %43, %41 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %23 ], [ %37, %36 ], [ %43, %41 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 32

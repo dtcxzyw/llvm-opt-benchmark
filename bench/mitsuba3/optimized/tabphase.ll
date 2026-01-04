@@ -326,7 +326,7 @@ _ZNSt3__114__split_bufferIfRNS_9allocatorIfEEE5clearB8ne190000Ev.exit.i.i: ; pre
   br label %_ZNSt3__16vectorIfNS_9allocatorIfEEE7reserveEm.exit
 
 _ZNSt3__16vectorIfNS_9allocatorIfEEE7reserveEm.exit: ; preds = %.noexc23, %23
-  %39 = phi ptr [ %36, %.noexc23 ], [ null, %23 ]
+  %39 = phi ptr [ null, %23 ], [ %36, %.noexc23 ]
   %.not4956 = icmp eq ptr %26, %25
   br i1 %.not4956, label %._crit_edge, label %.lr.ph
 
@@ -741,7 +741,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIjEEEENS_19__allocation_re
   br label %208
 
 .body:                                            ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit.i, %126, %129, %82, %96
-  %.pn16.pn = phi { ptr, i32 } [ %.pn16, %96 ], [ %83, %82 ], [ %117, %129 ], [ %117, %126 ], [ %117, %_ZN5drjit12DynamicArrayIfED2Ev.exit.i ]
+  %.pn16.pn = phi { ptr, i32 } [ %.pn16, %96 ], [ %117, %_ZN5drjit12DynamicArrayIfED2Ev.exit.i ], [ %83, %82 ], [ %117, %129 ], [ %117, %126 ]
   %199 = load ptr, ptr %7, align 8
   %.not.i.i39 = icmp eq ptr %199, null
   br i1 %.not.i.i39, label %_ZNSt3__16vectorIfNS_9allocatorIfEEED2B8ne190000Ev.exit40, label %200
@@ -2364,7 +2364,7 @@ _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit: ; p
   br label %47
 
 47:                                               ; preds = %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit, %41, %19, %6, %46
-  %.sroa.034.0 = phi ptr [ %0, %46 ], [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %19 ], [ null, %41 ]
+  %.sroa.034.0 = phi ptr [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %19 ], [ %0, %46 ], [ null, %41 ]
   ret ptr %.sroa.034.0
 }
 
@@ -3452,7 +3452,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94: ; preds = %.lr.ph.i98, %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %242, %239, %239, %.loopexit262, %.loopexit231
-  %.sink224 = phi i32 [ 2, %.loopexit231 ], [ 64, %.loopexit262 ], [ 8, %239 ], [ 8, %239 ], [ 8, %242 ]
+  %.sink224 = phi i32 [ 64, %.loopexit262 ], [ 2, %.loopexit231 ], [ 8, %239 ], [ 8, %239 ], [ 8, %242 ]
   %329 = load ptr, ptr %0, align 8
   %330 = getelementptr i8, ptr %329, i64 -24
   %331 = load i64, ptr %330, align 8
@@ -3527,7 +3527,7 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit105: ; preds = %
   br label %.loopexit123
 
 .loopexit123:                                     ; preds = %239, %7, %.thread116
-  %.069 = phi ptr [ %370, %.thread116 ], [ %3, %7 ], [ %.4, %239 ]
+  %.069 = phi ptr [ %3, %7 ], [ %370, %.thread116 ], [ %.4, %239 ]
   ret ptr %.069
 }
 
@@ -3779,7 +3779,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_re
   br label %common.resume
 
 common.resume:                                    ; preds = %13, %24, %111, %33, %36
-  %common.resume.op = phi { ptr, i32 } [ %34, %36 ], [ %34, %33 ], [ %14, %13 ], [ %25, %24 ], [ %.pn, %111 ]
+  %common.resume.op = phi { ptr, i32 } [ %34, %33 ], [ %34, %36 ], [ %14, %13 ], [ %25, %24 ], [ %.pn, %111 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt3__16vectorIfNS_9allocatorIfEEEC2Em.exit:    ; preds = %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS5_m.exit.i.i

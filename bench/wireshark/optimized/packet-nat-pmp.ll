@@ -866,7 +866,7 @@ dissect_portcontrol_pdu.exit:                     ; preds = %269, %277, %278
   br label %284
 
 284:                                              ; preds = %4, %dissect_portcontrol_pdu.exit, %13
-  %.0 = phi i32 [ %14, %13 ], [ %.5.i, %dissect_portcontrol_pdu.exit ], [ 0, %4 ]
+  %.0 = phi i32 [ %.5.i, %dissect_portcontrol_pdu.exit ], [ %14, %13 ], [ 0, %4 ]
   ret i32 %.0
 }
 

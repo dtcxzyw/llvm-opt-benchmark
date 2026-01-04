@@ -540,7 +540,7 @@ hwframe_pool_prealloc.exit:                       ; preds = %.lr.ph30.i, %._crit
   br label %70
 
 70:                                               ; preds = %hwframe_pool_prealloc.exit.thread, %hwframe_pool_prealloc.exit, %33, %22, %1, %69, %._crit_edge
-  %.030 = phi i32 [ -38, %._crit_edge ], [ 0, %69 ], [ 0, %1 ], [ %27, %22 ], [ %34, %33 ], [ %.1.ph.i, %hwframe_pool_prealloc.exit ], [ -12, %hwframe_pool_prealloc.exit.thread ]
+  %.030 = phi i32 [ 0, %69 ], [ -38, %._crit_edge ], [ 0, %1 ], [ %27, %22 ], [ %34, %33 ], [ %.1.ph.i, %hwframe_pool_prealloc.exit ], [ -12, %hwframe_pool_prealloc.exit.thread ]
   ret i32 %.030
 }
 
@@ -670,7 +670,7 @@ av_hwframe_transfer_get_formats.exit:             ; preds = %21
   br label %transfer_data_alloc.exit
 
 transfer_data_alloc.exit:                         ; preds = %8, %11, %52
-  %.018.i = phi i32 [ %.017.i, %52 ], [ -22, %8 ], [ -12, %11 ]
+  %.018.i = phi i32 [ %.017.i, %52 ], [ -12, %11 ], [ -22, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread66
 
@@ -809,12 +809,12 @@ define i32 @av_hwframe_get_buffer(ptr noundef %0, ptr noundef %1, i32 %2) local_
   br label %.sink.split
 
 .sink.split:                                      ; preds = %21, %17, %25
-  %.0.ph = phi i32 [ %24, %25 ], [ %19, %17 ], [ 0, %21 ]
+  %.0.ph = phi i32 [ %19, %17 ], [ %24, %25 ], [ 0, %21 ]
   call void @av_frame_free(ptr noundef nonnull %4) #11
   br label %26
 
 26:                                               ; preds = %.sink.split, %15, %9
-  %.0 = phi i32 [ -12, %9 ], [ -12, %15 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ -12, %15 ], [ -12, %9 ], [ %.0.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %47
 
@@ -857,7 +857,7 @@ define i32 @av_hwframe_get_buffer(ptr noundef %0, ptr noundef %1, i32 %2) local_
   br label %47
 
 47:                                               ; preds = %35, %32, %27, %45, %44, %26
-  %.1 = phi i32 [ %.0, %26 ], [ %42, %44 ], [ 0, %45 ], [ -38, %27 ], [ -22, %32 ], [ -12, %35 ]
+  %.1 = phi i32 [ %.0, %26 ], [ %42, %44 ], [ 0, %45 ], [ -22, %32 ], [ -38, %27 ], [ -12, %35 ]
   ret i32 %.1
 }
 
@@ -1016,7 +1016,7 @@ define i32 @av_hwframe_map(ptr noundef %0, ptr noundef %1, i32 noundef %2) local
   br label %.thread94
 
 .thread94:                                        ; preds = %74, %59, %66, %71, %54, %.thread98, %36, %37, %80
-  %.2 = phi i32 [ %.564, %80 ], [ %41, %37 ], [ -22, %36 ], [ -38, %.thread98 ], [ %55, %54 ], [ %72, %71 ], [ -38, %66 ], [ -38, %59 ], [ -38, %74 ]
+  %.2 = phi i32 [ -38, %.thread98 ], [ %55, %54 ], [ -22, %36 ], [ %.564, %80 ], [ %41, %37 ], [ %72, %71 ], [ -38, %66 ], [ -38, %59 ], [ -38, %74 ]
   ret i32 %.2
 }
 
@@ -1081,7 +1081,7 @@ av_hwframe_constraints_free.exit:                 ; preds = %12
   br label %21
 
 21:                                               ; preds = %12, %10, %2, %av_hwframe_constraints_free.exit
-  %.0 = phi ptr [ null, %av_hwframe_constraints_free.exit ], [ null, %2 ], [ null, %10 ], [ %11, %12 ]
+  %.0 = phi ptr [ null, %10 ], [ null, %av_hwframe_constraints_free.exit ], [ null, %2 ], [ %11, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -1257,7 +1257,7 @@ av_hwdevice_ctx_init.exit:                        ; preds = %40
   br i1 %.not42, label %.thread52, label %.lr.ph75.split, !llvm.loop !107
 
 .thread52:                                        ; preds = %48, %35, %.lr.ph75.split.us, %18, %av_hwdevice_ctx_init.exit, %37, %12, %._crit_edge
-  %.234 = phi i32 [ -12, %._crit_edge ], [ -12, %12 ], [ -12, %37 ], [ %.fr, %av_hwdevice_ctx_init.exit ], [ -38, %18 ], [ -38, %.lr.ph75.split.us ], [ -38, %48 ], [ %36, %35 ]
+  %.234 = phi i32 [ -12, %37 ], [ -12, %12 ], [ -12, %._crit_edge ], [ %.fr, %av_hwdevice_ctx_init.exit ], [ -38, %.lr.ph75.split.us ], [ -38, %18 ], [ %36, %35 ], [ -38, %48 ]
   call void @av_buffer_unref(ptr noundef nonnull %6) #11
   br label %.thread
 
@@ -1313,7 +1313,7 @@ define range(i32 -2147483648, 1) i32 @ff_hwframe_map_create(ptr noundef %0, ptr 
   br i1 %.not29, label %22, label %25
 
 22:                                               ; preds = %17, %14, %9, %11
-  %.0.ph = phi i32 [ -12, %17 ], [ -12, %14 ], [ -12, %9 ], [ %12, %11 ]
+  %.0.ph = phi i32 [ -12, %17 ], [ -12, %9 ], [ -12, %14 ], [ %12, %11 ]
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 8
   tail call void @av_buffer_unref(ptr noundef nonnull %23) #11
   tail call void @av_frame_free(ptr noundef nonnull %8) #11
@@ -1466,7 +1466,7 @@ define range(i32 -37, -38) i32 @av_hwframe_ctx_create_derived(ptr noundef writeo
   br label %.thread
 
 .thread:                                          ; preds = %19, %.thread71, %.thread69
-  %.1 = phi i32 [ %.14675, %.thread71 ], [ 0, %.thread69 ], [ 0, %19 ]
+  %.1 = phi i32 [ 0, %.thread69 ], [ %.14675, %.thread71 ], [ 0, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1
 }

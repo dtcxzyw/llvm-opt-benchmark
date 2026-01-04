@@ -5949,7 +5949,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1020: ; preds = %2
   br label %2807
 
 2644:                                             ; preds = %702, %685
-  %.0295 = phi ptr [ %670, %685 ], [ %687, %702 ]
+  %.0295 = phi ptr [ %687, %702 ], [ %670, %685 ]
   %2645 = landingpad { ptr, i32 }
           cleanup
   br label %2646
@@ -6021,7 +6021,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1020: ; preds = %2
   br label %.body
 
 .body:                                            ; preds = %712, %709, %.loopexit1086
-  %.pn389.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn389.pn.pn.pn.pn, %.loopexit1086 ], [ %710, %712 ], [ %710, %709 ]
+  %.pn389.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn389.pn.pn.pn.pn, %.loopexit1086 ], [ %710, %709 ], [ %710, %712 ]
   br label %2666
 
 2666:                                             ; preds = %2666, %.body
@@ -6032,12 +6032,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1020: ; preds = %2
   br i1 %2669, label %.loopexit1084, label %2666
 
 .loopexit1084:                                    ; preds = %2646, %2666, %.thread
-  %.pn389.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %669, %.thread ], [ %.pn389.pn.pn.pn.pn.pn, %2666 ], [ %2645, %2646 ]
+  %.pn389.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn389.pn.pn.pn.pn.pn, %2666 ], [ %669, %.thread ], [ %2645, %2646 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %73)
   br label %2806
 
 2670:                                             ; preds = %949, %932, %915
-  %.0298 = phi ptr [ %900, %915 ], [ %917, %932 ], [ %934, %949 ]
+  %.0298 = phi ptr [ %934, %949 ], [ %917, %932 ], [ %900, %915 ]
   %2671 = landingpad { ptr, i32 }
           cleanup
   br label %2672
@@ -6123,7 +6123,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1020: ; preds = %2
   br label %.body699
 
 .body699:                                         ; preds = %959, %956, %.loopexit1082
-  %.pn397.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn397.pn.pn.pn.pn.pn, %.loopexit1082 ], [ %957, %959 ], [ %957, %956 ]
+  %.pn397.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn397.pn.pn.pn.pn.pn, %.loopexit1082 ], [ %957, %956 ], [ %957, %959 ]
   br label %2695
 
 2695:                                             ; preds = %2695, %.body699
@@ -6134,12 +6134,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1020: ; preds = %2
   br i1 %2698, label %.loopexit1080, label %2695
 
 .loopexit1080:                                    ; preds = %2672, %2695, %.thread1050
-  %.pn397.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %899, %.thread1050 ], [ %.pn397.pn.pn.pn.pn.pn.pn, %2695 ], [ %2671, %2672 ]
+  %.pn397.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn397.pn.pn.pn.pn.pn.pn, %2695 ], [ %899, %.thread1050 ], [ %2671, %2672 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %82)
   br label %2806
 
 2699:                                             ; preds = %1187, %1170, %1153
-  %.0304 = phi ptr [ %1138, %1153 ], [ %1155, %1170 ], [ %1172, %1187 ]
+  %.0304 = phi ptr [ %1172, %1187 ], [ %1155, %1170 ], [ %1138, %1153 ]
   %2700 = landingpad { ptr, i32 }
           cleanup
   br label %2701
@@ -6212,7 +6212,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1020: ; preds = %2
   br label %.body741
 
 .body741:                                         ; preds = %1197, %1194, %.loopexit1078
-  %.pn406.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn406.pn.pn.pn.pn, %.loopexit1078 ], [ %1195, %1197 ], [ %1195, %1194 ]
+  %.pn406.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn406.pn.pn.pn.pn, %.loopexit1078 ], [ %1195, %1194 ], [ %1195, %1197 ]
   br label %2721
 
 2721:                                             ; preds = %2721, %.body741
@@ -6223,7 +6223,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1020: ; preds = %2
   br i1 %2724, label %.loopexit1076, label %2721
 
 .loopexit1076:                                    ; preds = %2701, %2721, %.thread1052
-  %.pn406.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1137, %.thread1052 ], [ %.pn406.pn.pn.pn.pn.pn, %2721 ], [ %2700, %2701 ]
+  %.pn406.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn406.pn.pn.pn.pn.pn, %2721 ], [ %1137, %.thread1052 ], [ %2700, %2701 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %95)
   br label %2806
 
@@ -6293,7 +6293,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1020: ; preds = %2
   br label %.body779
 
 .body779:                                         ; preds = %1402, %1399, %.loopexit1074
-  %.pn414.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn414.pn.pn.pn.pn1295, %.loopexit1074 ], [ %1400, %1402 ], [ %1400, %1399 ]
+  %.pn414.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn414.pn.pn.pn.pn1295, %.loopexit1074 ], [ %1400, %1399 ], [ %1400, %1402 ]
   br label %2740
 
 2740:                                             ; preds = %2740, %.body779
@@ -6304,12 +6304,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1020: ; preds = %2
   br i1 %2743, label %.loopexit1072, label %2740
 
 .loopexit1072:                                    ; preds = %2740, %.loopexit1072.loopexit1090, %.thread1054
-  %.pn414.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1376, %.thread1054 ], [ %2725, %.loopexit1072.loopexit1090 ], [ %.pn414.pn.pn.pn.pn.pn, %2740 ]
+  %.pn414.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %2725, %.loopexit1072.loopexit1090 ], [ %1376, %.thread1054 ], [ %.pn414.pn.pn.pn.pn.pn, %2740 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %105)
   br label %2806
 
 2744:                                             ; preds = %1637, %1620, %1603
-  %.0311 = phi ptr [ %1588, %1603 ], [ %1605, %1620 ], [ %1622, %1637 ]
+  %.0311 = phi ptr [ %1622, %1637 ], [ %1605, %1620 ], [ %1588, %1603 ]
   %2745 = landingpad { ptr, i32 }
           cleanup
   br label %2746
@@ -6388,7 +6388,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1020: ; preds = %2
   br label %.loopexit1068
 
 .loopexit1068:                                    ; preds = %2767, %.thread1300, %.thread1296
-  %.pn422.pn.pn.pn1299 = phi { ptr, i32 } [ %2758, %.thread1296 ], [ %2759, %.thread1300 ], [ %.pn422.pn, %2767 ]
+  %.pn422.pn.pn.pn1299 = phi { ptr, i32 } [ %2758, %.thread1296 ], [ %.pn422.pn, %2767 ], [ %2759, %.thread1300 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %125)
   call void @llvm.lifetime.end.p0(ptr nonnull %124)
   call void @llvm.lifetime.end.p0(ptr nonnull %123)
@@ -6420,7 +6420,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1020: ; preds = %2
   br label %.body823
 
 .body823:                                         ; preds = %1647, %1644, %.loopexit1066
-  %.pn422.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn422.pn.pn.pn.pn.pn.pn.pn, %.loopexit1066 ], [ %1645, %1647 ], [ %1645, %1644 ]
+  %.pn422.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn422.pn.pn.pn.pn.pn.pn.pn, %.loopexit1066 ], [ %1645, %1644 ], [ %1645, %1647 ]
   br label %2771
 
 2771:                                             ; preds = %2771, %.body823
@@ -6431,12 +6431,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1020: ; preds = %2
   br i1 %2774, label %.loopexit1064, label %2771
 
 .loopexit1064:                                    ; preds = %2746, %2771, %.thread1056
-  %.pn422.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1587, %.thread1056 ], [ %.pn422.pn.pn.pn.pn.pn.pn.pn.pn, %2771 ], [ %2745, %2746 ]
+  %.pn422.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn422.pn.pn.pn.pn.pn.pn.pn.pn, %2771 ], [ %1587, %.thread1056 ], [ %2745, %2746 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %114)
   br label %2806
 
 2775:                                             ; preds = %1928, %1911, %1894, %1877
-  %.0312 = phi ptr [ %1862, %1877 ], [ %1879, %1894 ], [ %1896, %1911 ], [ %1913, %1928 ]
+  %.0312 = phi ptr [ %1913, %1928 ], [ %1896, %1911 ], [ %1879, %1894 ], [ %1862, %1877 ]
   %2776 = landingpad { ptr, i32 }
           cleanup
   br label %2777
@@ -6534,7 +6534,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1020: ; preds = %2
   br label %.body871
 
 .body871:                                         ; preds = %1938, %1935, %.loopexit1060
-  %.pn433.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn433.pn.pn.pn.pn.pn.pn, %.loopexit1060 ], [ %1936, %1938 ], [ %1936, %1935 ]
+  %.pn433.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn433.pn.pn.pn.pn.pn.pn, %.loopexit1060 ], [ %1936, %1935 ], [ %1936, %1938 ]
   br label %2802
 
 2802:                                             ; preds = %2802, %.body871
@@ -6545,7 +6545,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1020: ; preds = %2
   br i1 %2805, label %.loopexit, label %2802
 
 .loopexit:                                        ; preds = %2777, %2802, %.thread1058
-  %.pn433.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1861, %.thread1058 ], [ %.pn433.pn.pn.pn.pn.pn.pn.pn, %2802 ], [ %2776, %2777 ]
+  %.pn433.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn433.pn.pn.pn.pn.pn.pn.pn, %2802 ], [ %1861, %.thread1058 ], [ %2776, %2777 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %131)
   br label %2806
 

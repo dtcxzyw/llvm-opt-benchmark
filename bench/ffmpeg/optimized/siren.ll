@@ -1073,8 +1073,8 @@ thread-pre-split:                                 ; preds = %decode_vector.exit.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %437, %456, %454
-  %461 = phi i32 [ %.promoted240, %454 ], [ %.promoted240, %456 ], [ %spec.select.i199, %437 ]
-  %.1145 = phi i32 [ 0, %454 ], [ %spec.select, %456 ], [ %451, %437 ]
+  %461 = phi i32 [ %.promoted240, %456 ], [ %.promoted240, %454 ], [ %spec.select.i199, %437 ]
+  %.1145 = phi i32 [ %spec.select, %456 ], [ 0, %454 ], [ %451, %437 ]
   br i1 %244, label %.lr.ph244.preheader, label %._crit_edge245
 
 .lr.ph244.preheader:                              ; preds = %.loopexit
@@ -1282,7 +1282,7 @@ thread-pre-split:                                 ; preds = %decode_vector.exit.
   br label %.critedge
 
 .critedge:                                        ; preds = %87, %categorize_regions.exit.thread, %522, %565, %567, %534, %decode_vector.exit.thread, %decode_envelope.exit, %36, %22, %17
-  %.0 = phi i32 [ -1094995529, %17 ], [ -1094995529, %22 ], [ -1094995529, %36 ], [ %spec.select.i.i, %decode_envelope.exit ], [ %430, %decode_vector.exit.thread ], [ %536, %534 ], [ %566, %565 ], [ %569, %567 ], [ -1094995529, %522 ], [ -1094995529, %categorize_regions.exit.thread ], [ -1094995529, %87 ]
+  %.0 = phi i32 [ -1094995529, %22 ], [ -1094995529, %17 ], [ -1094995529, %36 ], [ %spec.select.i.i, %decode_envelope.exit ], [ %430, %decode_vector.exit.thread ], [ %536, %534 ], [ %569, %567 ], [ -1094995529, %categorize_regions.exit.thread ], [ %566, %565 ], [ -1094995529, %522 ], [ -1094995529, %87 ]
   ret i32 %.0
 }
 

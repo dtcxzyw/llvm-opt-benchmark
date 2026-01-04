@@ -624,7 +624,7 @@ _ZNSt10lock_guardIN7rocksdb9SpinMutexEEC2ERS1_.exit: ; preds = %_ZN7rocksdb9Spin
   br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit82
 
 182:                                              ; preds = %.thread97, %_ZN7rocksdb9SpinMutex4lockEv.exit
-  %.040 = phi i64 [ %111, %_ZN7rocksdb9SpinMutex4lockEv.exit ], [ %160, %.thread97 ]
+  %.040 = phi i64 [ %160, %.thread97 ], [ %111, %_ZN7rocksdb9SpinMutex4lockEv.exit ]
   %183 = sub i64 %.040, %1
   store atomic i64 %183, ptr %110 monotonic, align 8
   %184 = and i64 %1, 7
@@ -969,7 +969,7 @@ _ZNSt10lock_guardIN7rocksdb9SpinMutexEEC2ERS1_.exit: ; preds = %_ZN7rocksdb9Spin
   br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit78
 
 172:                                              ; preds = %.thread93, %_ZN7rocksdb9SpinMutex4lockEv.exit
-  %.040 = phi i64 [ %106, %_ZN7rocksdb9SpinMutex4lockEv.exit ], [ %148, %.thread93 ]
+  %.040 = phi i64 [ %148, %.thread93 ], [ %106, %_ZN7rocksdb9SpinMutex4lockEv.exit ]
   %173 = sub i64 %.040, %1
   store atomic i64 %173, ptr %105 monotonic, align 8
   %174 = and i64 %1, 7

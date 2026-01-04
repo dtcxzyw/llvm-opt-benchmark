@@ -338,7 +338,7 @@ LFUDecrAndReturn.exit:                            ; preds = %46, %.thread.i
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %111, %114, %118, %122, %126
-  %.0.i94 = phi i64 [ %113, %111 ], [ %117, %114 ], [ %121, %118 ], [ %125, %122 ], [ %128, %126 ]
+  %.0.i94 = phi i64 [ %128, %126 ], [ %113, %111 ], [ %117, %114 ], [ %121, %118 ], [ %125, %122 ]
   %129 = trunc i64 %.0.i94 to i32
   %130 = icmp sgt i32 %129, 255
   br i1 %130, label %131, label %sdslen.exit.thread
@@ -672,7 +672,7 @@ freeMemoryGetNotCountedMemory.exit:               ; preds = %23, %25
   br label %40
 
 40:                                               ; preds = %34, %39, %38, %11, %9, %10
-  %.0 = phi i32 [ 0, %10 ], [ 0, %9 ], [ 0, %11 ], [ 0, %34 ], [ -1, %39 ], [ -1, %38 ]
+  %.0 = phi i32 [ 0, %11 ], [ 0, %9 ], [ 0, %10 ], [ -1, %38 ], [ 0, %34 ], [ -1, %39 ]
   ret i32 %.0
 }
 
@@ -1136,7 +1136,7 @@ evictionTimeLimitUs.exit:                         ; preds = %47, %49, %50
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %.thread229, %149, %152, %156, %160, %164
-  %.0.i176 = phi i64 [ %151, %149 ], [ %155, %152 ], [ %159, %156 ], [ %163, %160 ], [ %166, %164 ], [ 0, %.thread229 ]
+  %.0.i176 = phi i64 [ %166, %164 ], [ %151, %149 ], [ %155, %152 ], [ %159, %156 ], [ %163, %160 ], [ 0, %.thread229 ]
   %167 = call ptr @createStringObject(ptr noundef nonnull %.7123233, i64 noundef %.0.i176) #15
   call void @deleteEvictedKeyAndPropagate(ptr noundef %144, ptr noundef %167, ptr noundef nonnull %1) #15
   call void @decrRefCount(ptr noundef %167) #15
@@ -1314,7 +1314,7 @@ getMaxmemoryState.exit204:                        ; preds = %freeMemoryGetNotCou
   br i1 %.not154, label %.critedge, label %215, !llvm.loop !93
 
 .critedge:                                        ; preds = %215, %getMaxmemoryState.exit204, %freeMemoryGetNotCountedMemory.exit.i197, %220, %211
-  %.3132 = phi i32 [ 2, %211 ], [ 0, %220 ], [ 0, %freeMemoryGetNotCountedMemory.exit.i197 ], [ 2, %getMaxmemoryState.exit204 ], [ 2, %215 ]
+  %.3132 = phi i32 [ 2, %211 ], [ 0, %freeMemoryGetNotCountedMemory.exit.i197 ], [ 2, %getMaxmemoryState.exit204 ], [ 0, %220 ], [ 2, %215 ]
   %242 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8064), align 8, !tbaa !81
   %.not155 = icmp eq i64 %242, 0
   br i1 %.not155, label %.thread346, label %243
@@ -1357,7 +1357,7 @@ thread-pre-split:                                 ; preds = %.loopexit264, %246
   br label %.thread346
 
 .thread346:                                       ; preds = %.critedge, %247, %249, %252
-  %.2131345352 = phi i32 [ %.2131, %249 ], [ %.2131, %252 ], [ %.2131, %247 ], [ %.3132, %.critedge ]
+  %.2131345352 = phi i32 [ %.2131, %252 ], [ %.2131, %249 ], [ %.2131, %247 ], [ %.3132, %.critedge ]
   %.not335 = icmp eq i32 %.2131345352, 0
   br i1 %.not335, label %.thread253, label %.thread248
 
@@ -1392,8 +1392,8 @@ isSafeToPerformEvictions.exit.thread.sink.split:  ; preds = %255, %259
   store i64 %.sink, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2560), align 8, !tbaa !60
   br label %isSafeToPerformEvictions.exit.thread
 
-isSafeToPerformEvictions.exit.thread:             ; preds = %isSafeToPerformEvictions.exit.thread.sink.split, %5, %0, %3, %.thread253, %.thread248, %isSafeToPerformEvictions.exit
-  %.094 = phi i32 [ 0, %isSafeToPerformEvictions.exit ], [ %.0129252, %.thread248 ], [ 0, %.thread253 ], [ 0, %3 ], [ 0, %0 ], [ 0, %5 ], [ %.094.ph, %isSafeToPerformEvictions.exit.thread.sink.split ]
+isSafeToPerformEvictions.exit.thread:             ; preds = %isSafeToPerformEvictions.exit.thread.sink.split, %3, %0, %5, %.thread253, %.thread248, %isSafeToPerformEvictions.exit
+  %.094 = phi i32 [ 0, %.thread253 ], [ 0, %isSafeToPerformEvictions.exit ], [ 0, %0 ], [ %.0129252, %.thread248 ], [ 0, %3 ], [ 0, %5 ], [ %.094.ph, %isSafeToPerformEvictions.exit.thread.sink.split ]
   ret i32 %.094
 }
 

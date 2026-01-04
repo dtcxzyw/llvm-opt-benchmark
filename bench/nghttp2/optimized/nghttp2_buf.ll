@@ -234,7 +234,7 @@ nghttp2_buf_init2.exit.i.i.i:                     ; preds = %11
   br label %nghttp2_bufs_init2.exit
 
 nghttp2_bufs_init2.exit:                          ; preds = %4, %5, %nghttp2_buf_init2.exit.i.i.i, %33
-  %.0.i.i = phi i32 [ 0, %33 ], [ -501, %4 ], [ -901, %nghttp2_buf_init2.exit.i.i.i ], [ -901, %5 ]
+  %.0.i.i = phi i32 [ 0, %33 ], [ -501, %4 ], [ -901, %5 ], [ -901, %nghttp2_buf_init2.exit.i.i.i ]
   ret i32 %.0.i.i
 }
 
@@ -317,7 +317,7 @@ nghttp2_buf_init2.exit.i.i:                       ; preds = %13
   br label %nghttp2_bufs_init3.exit
 
 nghttp2_bufs_init3.exit:                          ; preds = %5, %7, %nghttp2_buf_init2.exit.i.i, %35
-  %.0.i = phi i32 [ 0, %35 ], [ -501, %5 ], [ -901, %nghttp2_buf_init2.exit.i.i ], [ -901, %7 ]
+  %.0.i = phi i32 [ 0, %35 ], [ -501, %5 ], [ -901, %7 ], [ -901, %nghttp2_buf_init2.exit.i.i ]
   ret i32 %.0.i
 }
 
@@ -401,7 +401,7 @@ nghttp2_buf_init2.exit.i:                         ; preds = %15
   br label %buf_chain_new.exit
 
 buf_chain_new.exit:                               ; preds = %nghttp2_buf_init2.exit.i, %9, %6, %37
-  %.0 = phi i32 [ 0, %37 ], [ -501, %6 ], [ -901, %nghttp2_buf_init2.exit.i ], [ -901, %9 ]
+  %.0 = phi i32 [ 0, %37 ], [ -501, %6 ], [ -901, %9 ], [ -901, %nghttp2_buf_init2.exit.i ]
   ret i32 %.0
 }
 
@@ -507,7 +507,7 @@ nghttp2_bufs_free.exit:                           ; preds = %nghttp2_bufs_free.e
   br label %buf_chain_new.exit
 
 buf_chain_new.exit:                               ; preds = %nghttp2_buf_init2.exit.i, %6, %2, %nghttp2_bufs_free.exit
-  %.0 = phi i32 [ 0, %nghttp2_bufs_free.exit ], [ -501, %2 ], [ -901, %nghttp2_buf_init2.exit.i ], [ -901, %6 ]
+  %.0 = phi i32 [ 0, %nghttp2_bufs_free.exit ], [ -501, %2 ], [ -901, %6 ], [ -901, %nghttp2_buf_init2.exit.i ]
   ret i32 %.0
 }
 
@@ -891,7 +891,7 @@ nghttp2_buf_init2.exit.i:                         ; preds = %22
   br label %buf_chain_new.exit
 
 buf_chain_new.exit:                               ; preds = %nghttp2_buf_init2.exit.i, %12, %6, %44, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %44 ], [ -502, %6 ], [ -901, %nghttp2_buf_init2.exit.i ], [ -901, %12 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %44 ], [ -502, %6 ], [ -901, %12 ], [ -901, %nghttp2_buf_init2.exit.i ]
   ret i32 %.0
 }
 

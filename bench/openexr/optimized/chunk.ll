@@ -275,7 +275,7 @@ define hidden i32 @extract_chunk_table(ptr noundef %0, ptr noundef %1, ptr nound
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %55, %52, %68, %66, %71, %._crit_edge, %49
-  %.2 = phi ptr [ inttoptr (i64 -1 to ptr), %49 ], [ %39, %._crit_edge ], [ inttoptr (i64 -1 to ptr), %71 ], [ %39, %66 ], [ %39, %68 ], [ %39, %52 ], [ %39, %55 ]
+  %.2 = phi ptr [ inttoptr (i64 -1 to ptr), %49 ], [ %39, %68 ], [ %39, %._crit_edge ], [ inttoptr (i64 -1 to ptr), %71 ], [ %39, %66 ], [ %39, %52 ], [ %39, %55 ]
   %77 = ptrtoint ptr %.2 to i64
   %78 = cmpxchg ptr %14, i64 0, i64 %77 seq_cst seq_cst, align 8
   %79 = extractvalue { i64, i1 } %78, 1
@@ -294,7 +294,7 @@ define hidden i32 @extract_chunk_table(ptr noundef %0, ptr noundef %1, ptr nound
   br label %86
 
 .thread:                                          ; preds = %21, %._crit_edge103, %41
-  %.0.ph = phi i32 [ %44, %41 ], [ %35, %._crit_edge103 ], [ %24, %21 ]
+  %.0.ph = phi i32 [ %24, %21 ], [ %44, %41 ], [ %35, %._crit_edge103 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %90
 
@@ -573,7 +573,7 @@ read_and_validate_chunk_leader.exit:              ; preds = %98, %102
   br label %127
 
 127:                                              ; preds = %49, %._crit_edge108, %._crit_edge, %124
-  %.064 = phi i32 [ %.069.lcssa145, %124 ], [ %37, %._crit_edge ], [ %43, %._crit_edge108 ], [ 1, %49 ]
+  %.064 = phi i32 [ %43, %._crit_edge108 ], [ %37, %._crit_edge ], [ %.069.lcssa145, %124 ], [ 1, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -909,7 +909,7 @@ define i32 @exr_chunk_default_initialize(ptr noundef %0, i32 noundef %1, ptr nou
   br label %.thread
 
 .thread:                                          ; preds = %155, %.thread204, %._crit_edge, %91, %97, %53, %57, %18, %8, %6, %14
-  %.0 = phi i32 [ %17, %14 ], [ 3, %6 ], [ 2, %8 ], [ 3, %18 ], [ 3, %57 ], [ 3, %53 ], [ 0, %91 ], [ 0, %97 ], [ 0, %._crit_edge ], [ 17, %155 ], [ %109, %.thread204 ]
+  %.0 = phi i32 [ %17, %14 ], [ 2, %8 ], [ 3, %18 ], [ 3, %53 ], [ 0, %91 ], [ 0, %97 ], [ 3, %6 ], [ 3, %57 ], [ 0, %._crit_edge ], [ 17, %155 ], [ %109, %.thread204 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -1053,7 +1053,7 @@ compute_sampled_height.exit.us:                   ; preds = %52, %compute_sample
   br label %compute_sampled_height.exit.us30
 
 compute_sampled_height.exit.us30:                 ; preds = %73, %65, %.lr.ph.split.split.us
-  %.028.i.us31 = phi i32 [ %2, %.lr.ph.split.split.us ], [ %76, %73 ], [ 0, %65 ]
+  %.028.i.us31 = phi i32 [ %2, %.lr.ph.split.split.us ], [ 0, %65 ], [ %76, %73 ]
   %77 = sext i32 %.028.i.us31 to i64
   %78 = select i1 %61, i64 1, i64 2
   %79 = shl nsw i64 %77, %78
@@ -1106,7 +1106,7 @@ compute_sampled_width.exit:                       ; preds = %.lr.ph.split.split,
   br label %compute_sampled_height.exit
 
 compute_sampled_height.exit:                      ; preds = %compute_sampled_width.exit, %96, %104
-  %.028.i = phi i32 [ %2, %compute_sampled_width.exit ], [ %107, %104 ], [ 0, %96 ]
+  %.028.i = phi i32 [ %2, %compute_sampled_width.exit ], [ 0, %96 ], [ %107, %104 ]
   %108 = sext i32 %.028.i to i64
   %109 = mul i64 %92, %108
   %110 = add i64 %109, %.025
@@ -1120,7 +1120,7 @@ compute_sampled_height.exit:                      ; preds = %compute_sampled_wid
   br label %.loopexit
 
 .loopexit:                                        ; preds = %compute_sampled_height.exit, %compute_sampled_height.exit.us30, %compute_sampled_height.exit.us, %compute_sampled_height.exit.us.us, %8, %111
-  %.1 = phi i64 [ %113, %111 ], [ 0, %8 ], [ %36, %compute_sampled_height.exit.us.us ], [ %57, %compute_sampled_height.exit.us ], [ %80, %compute_sampled_height.exit.us30 ], [ %110, %compute_sampled_height.exit ]
+  %.1 = phi i64 [ %113, %111 ], [ 0, %8 ], [ %80, %compute_sampled_height.exit.us30 ], [ %57, %compute_sampled_height.exit.us ], [ %36, %compute_sampled_height.exit.us.us ], [ %110, %compute_sampled_height.exit ]
   ret i64 %.1
 }
 
@@ -1775,7 +1775,7 @@ define i32 @exr_read_scanline_chunk_info(ptr noundef %0, i32 noundef %1, i32 nou
   br label %228
 
 228:                                              ; preds = %203, %217, %.thread, %138, %111, %93, %89, %4, %224, %187, %178, %158, %151, %144, %131, %125, %107, %._crit_edge250, %46, %38, %31, %21, %12
-  %.0 = phi i32 [ %15, %12 ], [ %24, %21 ], [ %41, %38 ], [ %49, %46 ], [ %64, %._crit_edge250 ], [ %110, %107 ], [ %128, %125 ], [ %134, %131 ], [ %147, %144 ], [ %154, %151 ], [ %161, %158 ], [ %181, %178 ], [ %190, %187 ], [ %227, %224 ], [ %34, %31 ], [ 2, %4 ], [ %92, %89 ], [ 24, %93 ], [ %120, %111 ], [ %140, %138 ], [ 0, %.thread ], [ %208, %203 ], [ %220, %217 ]
+  %.0 = phi i32 [ %15, %12 ], [ %24, %21 ], [ %41, %38 ], [ %49, %46 ], [ %64, %._crit_edge250 ], [ 2, %4 ], [ %92, %89 ], [ %110, %107 ], [ 24, %93 ], [ %128, %125 ], [ %134, %131 ], [ %120, %111 ], [ %147, %144 ], [ %154, %151 ], [ %161, %158 ], [ %181, %178 ], [ %190, %187 ], [ %227, %224 ], [ %140, %138 ], [ 0, %.thread ], [ %34, %31 ], [ %220, %217 ], [ %208, %203 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2225,8 +2225,8 @@ define i32 @exr_read_tile_chunk_info(ptr noundef %0, i32 noundef %1, i32 noundef
   %266 = call i32 (ptr, i32, ptr, ...) %265(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull @.str.28, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %93, i64 noundef %213, i64 noundef %233, i64 noundef %142) #8
   br label %.thread
 
-.thread:                                          ; preds = %228, %238, %247, %263, %209
-  %.1.ph = phi i32 [ %211, %209 ], [ %266, %263 ], [ %250, %247 ], [ %242, %238 ], [ %231, %228 ]
+.thread:                                          ; preds = %209, %228, %238, %247, %263
+  %.1.ph = phi i32 [ %266, %263 ], [ %250, %247 ], [ %242, %238 ], [ %231, %228 ], [ %211, %209 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %301
 
@@ -2297,7 +2297,7 @@ define i32 @exr_read_tile_chunk_info(ptr noundef %0, i32 noundef %1, i32 noundef
   br label %301
 
 301:                                              ; preds = %.thread333, %.thread, %293, %136, %._crit_edge, %47, %7, %297, %278, %202, %195, %188, %181, %173, %162, %154, %107, %43, %36, %26, %17
-  %.0 = phi i32 [ %20, %17 ], [ %29, %26 ], [ %46, %43 ], [ %110, %107 ], [ %157, %154 ], [ %167, %162 ], [ %176, %173 ], [ %184, %181 ], [ %191, %188 ], [ %198, %195 ], [ %205, %202 ], [ %300, %297 ], [ %281, %278 ], [ %39, %36 ], [ 2, %7 ], [ %48, %47 ], [ %127, %._crit_edge ], [ 24, %136 ], [ 0, %293 ], [ %.1.ph, %.thread ], [ %286, %.thread333 ]
+  %.0 = phi i32 [ %20, %17 ], [ %29, %26 ], [ %46, %43 ], [ 2, %7 ], [ %110, %107 ], [ %48, %47 ], [ %127, %._crit_edge ], [ %157, %154 ], [ %167, %162 ], [ %176, %173 ], [ %184, %181 ], [ %191, %188 ], [ %198, %195 ], [ %205, %202 ], [ %300, %297 ], [ 24, %136 ], [ %.1.ph, %.thread ], [ %281, %278 ], [ %286, %.thread333 ], [ %39, %36 ], [ 0, %293 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -2458,7 +2458,7 @@ define i32 @exr_read_chunk(ptr noundef %0, i32 noundef %1, ptr noundef readonly 
   br label %90
 
 90:                                               ; preds = %87, %84, %79, %78, %4, %74, %63, %53, %._crit_edge, %37, %28, %18, %9
-  %.0 = phi i32 [ %12, %9 ], [ %21, %18 ], [ %46, %._crit_edge ], [ %56, %53 ], [ %66, %63 ], [ %77, %74 ], [ %40, %37 ], [ %31, %28 ], [ 2, %4 ], [ %83, %87 ], [ %83, %84 ], [ %83, %79 ], [ 0, %78 ]
+  %.0 = phi i32 [ %12, %9 ], [ %21, %18 ], [ %46, %._crit_edge ], [ %56, %53 ], [ %66, %63 ], [ %77, %74 ], [ 2, %4 ], [ %40, %37 ], [ %31, %28 ], [ %83, %87 ], [ %83, %84 ], [ %83, %79 ], [ 0, %78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -2635,7 +2635,7 @@ define i32 @exr_read_deep_chunk(ptr noundef %0, i32 noundef %1, ptr noundef read
   br label %98
 
 98:                                               ; preds = %.thread87, %89, %92, %83, %5, %75, %67, %55, %45, %._crit_edge, %29, %19, %10
-  %.0 = phi i32 [ %13, %10 ], [ %22, %19 ], [ %38, %._crit_edge ], [ %48, %45 ], [ %58, %55 ], [ %70, %67 ], [ %78, %75 ], [ %32, %29 ], [ 2, %5 ], [ %88, %83 ], [ %97, %92 ], [ 0, %89 ], [ 0, %.thread87 ]
+  %.0 = phi i32 [ %13, %10 ], [ %22, %19 ], [ %38, %._crit_edge ], [ %48, %45 ], [ %58, %55 ], [ %70, %67 ], [ %78, %75 ], [ 2, %5 ], [ %88, %83 ], [ %32, %29 ], [ %97, %92 ], [ 0, %89 ], [ 0, %.thread87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -3312,7 +3312,7 @@ define internal fastcc i32 @write_scan_chunk(ptr noundef nonnull %0, i32 noundef
   br label %106
 
 106:                                              ; preds = %.sink.split, %105, %103
-  %.0 = phi i64 [ 8, %103 ], [ 4, %105 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i64 [ 4, %105 ], [ 8, %103 ], [ %.0.ph, %.sink.split ]
   %107 = call fastcc i32 @alloc_chunk_table(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %11)
   %.not164 = icmp eq i32 %107, 0
   br i1 %.not164, label %108, label %.thread167
@@ -3793,7 +3793,7 @@ define internal fastcc i32 @write_tile_chunk(ptr noundef nonnull %0, i32 noundef
   br label %.thread149
 
 .thread149:                                       ; preds = %102, %.thread147, %123, %.thread, %151, %145, %100, %65, %80, %._crit_edge, %61, %51, %44, %37, %30, %23, %19
-  %.0121 = phi i32 [ %22, %19 ], [ %26, %23 ], [ %33, %30 ], [ %40, %37 ], [ %47, %44 ], [ %54, %51 ], [ %64, %61 ], [ %72, %._crit_edge ], [ %83, %80 ], [ %66, %65 ], [ %101, %100 ], [ %150, %145 ], [ 0, %151 ], [ %128, %.thread ], [ %121, %.thread147 ], [ %125, %123 ], [ %112, %102 ]
+  %.0121 = phi i32 [ %22, %19 ], [ %26, %23 ], [ %33, %30 ], [ %40, %37 ], [ %47, %44 ], [ %54, %51 ], [ %64, %61 ], [ %101, %100 ], [ %72, %._crit_edge ], [ %83, %80 ], [ %66, %65 ], [ %150, %145 ], [ 0, %151 ], [ %128, %.thread ], [ %121, %.thread147 ], [ %125, %123 ], [ %112, %102 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -3998,7 +3998,7 @@ define internal fastcc i32 @extract_chunk_leader(ptr noundef %0, ptr noundef rea
   br label %22
 
 22:                                               ; preds = %17, %21, %20
-  %.071 = phi i64 [ %spec.select97, %17 ], [ %., %20 ], [ %.98, %21 ]
+  %.071 = phi i64 [ %.98, %21 ], [ %spec.select97, %17 ], [ %., %20 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = load ptr, ptr %23, align 8, !tbaa !33
   %25 = shl nuw nsw i64 %.071, 2
@@ -4159,7 +4159,7 @@ define internal fastcc i32 @extract_chunk_leader(ptr noundef %0, ptr noundef rea
   br label %110
 
 110:                                              ; preds = %.thread, %22, %106, %100, %32
-  %.074 = phi i32 [ %35, %32 ], [ 0, %106 ], [ %103, %100 ], [ %26, %22 ], [ %.175.ph, %.thread ]
+  %.074 = phi i32 [ %103, %100 ], [ %35, %32 ], [ 0, %106 ], [ %.175.ph, %.thread ], [ %26, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.074

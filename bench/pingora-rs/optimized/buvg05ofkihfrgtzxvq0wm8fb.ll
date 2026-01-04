@@ -2991,7 +2991,7 @@ define { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_re
   br label %"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$14prepare_resize17hdb068c07c4eedcecE.exit.thread"
 
 "_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$14prepare_resize17hdb068c07c4eedcecE.exit.thread": ; preds = %51, %53, %55
-  %.pn.i = phi { i64, i64 } [ %56, %55 ], [ %54, %53 ], [ %52, %51 ]
+  %.pn.i = phi { i64, i64 } [ %56, %55 ], [ %52, %51 ], [ %54, %53 ]
   %.sroa.8.06.i = extractvalue { i64, i64 } %.pn.i, 0
   %.sroa.14.07.i = extractvalue { i64, i64 } %.pn.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !260
@@ -3479,7 +3479,7 @@ define hidden void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$22fallible_wi
   br label %"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$22fallible_with_capacity17hec0dc2c3b4e4d7ecE.exit.thread30"
 
 "_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$22fallible_with_capacity17hec0dc2c3b4e4d7ecE.exit.thread": ; preds = %30, %32, %34
-  %.pn = phi { i64, i64 } [ %35, %34 ], [ %33, %32 ], [ %31, %30 ]
+  %.pn = phi { i64, i64 } [ %35, %34 ], [ %31, %30 ], [ %33, %32 ]
   %.sroa.8.028 = extractvalue { i64, i64 } %.pn, 0
   %.sroa.14.029 = extractvalue { i64, i64 } %.pn, 1
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8

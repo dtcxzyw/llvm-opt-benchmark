@@ -887,58 +887,58 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %84, %
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %99 = load i8, ptr %98, align 8, !tbaa !134, !range !21, !noundef !22
   %100 = trunc nuw i8 %99 to i1
-  br i1 %100, label %119, label %101
+  br i1 %100, label %101, label %105
 
 101:                                              ; preds = %97
-  %102 = mul nsw i32 %64, 3
-  %103 = sext i32 %102 to i64
-  %.not94 = icmp slt i64 %11, %103
-  br i1 %.not94, label %.thread217, label %104
+  %102 = load ptr, ptr %59, align 8, !tbaa !189
+  %103 = tail call noundef zeroext i1 @_Z12dd_dlb_is_onPK12gmx_domdec_t(ptr noundef %102)
+  %104 = zext i1 %103 to i8
+  store i8 %104, ptr %91, align 1, !tbaa !297
+  br i1 %103, label %.thread220, label %.thread217
 
-104:                                              ; preds = %101
-  %105 = load ptr, ptr %59, align 8, !tbaa !189
-  %106 = getelementptr i8, ptr %105, i64 28
-  %.val103 = load i32, ptr %106, align 4, !tbaa !190
-  %107 = getelementptr i8, ptr %105, i64 44
-  %.val104 = load i32, ptr %107, align 4, !tbaa !280
-  %108 = icmp eq i32 %.val103, %.val104
-  br i1 %108, label %109, label %116
+105:                                              ; preds = %97
+  %106 = mul nsw i32 %64, 3
+  %107 = sext i32 %106 to i64
+  %.not94 = icmp slt i64 %11, %107
+  br i1 %.not94, label %.thread217, label %108
 
-109:                                              ; preds = %104
-  br i1 %13, label %114, label %110
+108:                                              ; preds = %105
+  %109 = load ptr, ptr %59, align 8, !tbaa !189
+  %110 = getelementptr i8, ptr %109, i64 28
+  %.val103 = load i32, ptr %110, align 4, !tbaa !190
+  %111 = getelementptr i8, ptr %109, i64 44
+  %.val104 = load i32, ptr %111, align 4, !tbaa !280
+  %112 = icmp eq i32 %.val103, %.val104
+  br i1 %112, label %113, label %120
 
-110:                                              ; preds = %109
-  %111 = tail call noundef float @_Z14dd_pme_f_ratioPK12gmx_domdec_t(ptr noundef nonnull %105)
-  %112 = fcmp oge float %111, 0x3FF0CCCCC0000000
-  %113 = zext i1 %112 to i8
+113:                                              ; preds = %108
+  br i1 %13, label %118, label %114
+
+114:                                              ; preds = %113
+  %115 = tail call noundef float @_Z14dd_pme_f_ratioPK12gmx_domdec_t(ptr noundef nonnull %109)
+  %116 = fcmp oge float %115, 0x3FF0CCCCC0000000
+  %117 = zext i1 %116 to i8
   %.pre.pre = load ptr, ptr %59, align 8, !tbaa !189
-  br label %114
+  br label %118
 
-114:                                              ; preds = %109, %110
-  %.pre = phi ptr [ %.pre.pre, %110 ], [ %105, %109 ]
-  %115 = phi i8 [ %113, %110 ], [ 1, %109 ]
-  store i8 %115, ptr %91, align 1, !tbaa !297
-  br label %116
+118:                                              ; preds = %113, %114
+  %.pre = phi ptr [ %.pre.pre, %114 ], [ %109, %113 ]
+  %119 = phi i8 [ %117, %114 ], [ 1, %113 ]
+  store i8 %119, ptr %91, align 1, !tbaa !297
+  br label %120
 
-116:                                              ; preds = %114, %104
-  %117 = phi ptr [ %.pre, %114 ], [ %105, %104 ]
-  tail call void @_Z8dd_bcastPK12gmx_domdec_tiPv(ptr noundef %117, i32 noundef 1, ptr noundef nonnull %91)
+120:                                              ; preds = %108, %118
+  %121 = phi ptr [ %.pre, %118 ], [ %109, %108 ]
+  tail call void @_Z8dd_bcastPK12gmx_domdec_tiPv(ptr noundef %121, i32 noundef 1, ptr noundef nonnull %91)
   %.pre149 = load i8, ptr %91, align 1, !tbaa !297, !range !21
-  %118 = trunc nuw i8 %.pre149 to i1
-  br i1 %118, label %.thread220, label %.thread217
+  %122 = trunc nuw i8 %.pre149 to i1
+  br i1 %122, label %.thread220, label %.thread217
 
-119:                                              ; preds = %97
-  %120 = load ptr, ptr %59, align 8, !tbaa !189
-  %121 = tail call noundef zeroext i1 @_Z12dd_dlb_is_onPK12gmx_domdec_t(ptr noundef %120)
-  %122 = zext i1 %121 to i8
-  store i8 %122, ptr %91, align 1, !tbaa !297
-  br i1 %121, label %.thread220, label %.thread217
-
-.thread220:                                       ; preds = %119, %116
+.thread220:                                       ; preds = %120, %101
   store i8 1, ptr %27, align 1, !tbaa !4
   br label %.thread218
 
-.thread217:                                       ; preds = %101, %119, %116
+.thread217:                                       ; preds = %105, %120, %101
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %124 = load i64, ptr %123, align 8, !tbaa !299
   %125 = icmp sle i64 %11, %124
@@ -1562,8 +1562,8 @@ _ZL27pme_loadbal_increase_cutoffP20pme_load_balancing_tiPK12gmx_domdec_t.exit.th
   br label %.thread12.i
 
 477:                                              ; preds = %_ZL27pme_loadbal_increase_cutoffP20pme_load_balancing_tiPK12gmx_domdec_t.exit.thread.i, %.critedge233.i
-  %.pre5465.i = phi ptr [ %.pre5466.i, %.critedge233.i ], [ %.pre50.i, %_ZL27pme_loadbal_increase_cutoffP20pme_load_balancing_tiPK12gmx_domdec_t.exit.thread.i ]
-  %478 = phi i32 [ %349, %.critedge233.i ], [ %.pre49.i, %_ZL27pme_loadbal_increase_cutoffP20pme_load_balancing_tiPK12gmx_domdec_t.exit.thread.i ]
+  %.pre5465.i = phi ptr [ %.pre50.i, %_ZL27pme_loadbal_increase_cutoffP20pme_load_balancing_tiPK12gmx_domdec_t.exit.thread.i ], [ %.pre5466.i, %.critedge233.i ]
+  %478 = phi i32 [ %.pre49.i, %_ZL27pme_loadbal_increase_cutoffP20pme_load_balancing_tiPK12gmx_domdec_t.exit.thread.i ], [ %349, %.critedge233.i ]
   %479 = sext i32 %478 to i64
   %480 = getelementptr %struct.pme_setup_t, ptr %.pre5465.i, i64 %479
   %481 = getelementptr i8, ptr %480, i64 76
@@ -1775,7 +1775,7 @@ _ZNSt6vectorI11pme_setup_tSaIS0_EE6resizeEm.exit239.i: ; preds = %523, %521, %51
   br label %586
 
 586:                                              ; preds = %584, %.critedge2.i, %.critedge2.thread.i, %554, %549
-  %587 = phi i32 [ %.promoted40.i, %554 ], [ %569, %584 ], [ %569, %.critedge2.i ], [ %553, %549 ], [ %569, %.critedge2.thread.i ]
+  %587 = phi i32 [ %569, %.critedge2.thread.i ], [ %.promoted40.i, %554 ], [ %569, %584 ], [ %569, %.critedge2.i ], [ %553, %549 ]
   %.val234.i = load ptr, ptr %59, align 8, !tbaa !189
   %.not27.i = icmp ne ptr %.val234.i, null
   %588 = icmp sgt i32 %587, 0

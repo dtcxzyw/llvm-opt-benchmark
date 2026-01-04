@@ -1582,7 +1582,7 @@ define hidden void @_ZN15ruff_python_ast9generated9TypeParam18visit_source_order
   br i1 %.not, label %"_ZN15ruff_python_ast4node58_$LT$impl$u20$ruff_python_ast..nodes..TypeParamTypeVar$GT$18visit_source_order17h7737bf9d033fa005E.exit", label %"_ZN15ruff_python_ast4node58_$LT$impl$u20$ruff_python_ast..nodes..TypeParamTypeVar$GT$18visit_source_order17h7737bf9d033fa005E.exit.sink.split"
 
 "_ZN15ruff_python_ast4node58_$LT$impl$u20$ruff_python_ast..nodes..TypeParamTypeVar$GT$18visit_source_order17h7737bf9d033fa005E.exit.sink.split": ; preds = %13, %21, %16
-  %.sink = phi ptr [ %20, %16 ], [ %25, %21 ], [ %15, %13 ]
+  %.sink = phi ptr [ %25, %21 ], [ %20, %16 ], [ %15, %13 ]
   tail call void @"_ZN111_$LT$ruff_graph..collector..Collector$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10visit_expr17h88cae7ce78a0f73fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %.sink)
   br label %"_ZN15ruff_python_ast4node58_$LT$impl$u20$ruff_python_ast..nodes..TypeParamTypeVar$GT$18visit_source_order17h7737bf9d033fa005E.exit"
 

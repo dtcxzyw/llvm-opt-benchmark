@@ -74,7 +74,7 @@ define ptr @ff_iir_filter_init_coeffs(ptr noundef %0, i32 noundef %1, i32 nounde
   br label %33
 
 33:                                               ; preds = %31, %7, %32
-  %.020 = phi ptr [ null, %32 ], [ null, %7 ], [ %12, %31 ]
+  %.020 = phi ptr [ null, %7 ], [ null, %32 ], [ %12, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.020
 }

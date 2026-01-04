@@ -383,7 +383,7 @@ define hidden void @amaze_demosaic(ptr noundef readonly captures(none) %0, ptr n
   br label %_ZL9_clampnanfff.exit3732.us
 
 _ZL9_clampnanfff.exit3732.us:                     ; preds = %193, %191, %189
-  %.0.i3731.us = phi nsz float [ %195, %193 ], [ 0.000000e+00, %191 ], [ %..i3730.us, %189 ]
+  %.0.i3731.us = phi nsz float [ 0.000000e+00, %191 ], [ %..i3730.us, %189 ], [ %195, %193 ]
   %196 = add nsw i64 %183, %3102
   %.idx4551 = shl i64 %196, 4
   %197 = getelementptr i8, ptr %2, i64 %.idx4551
@@ -496,7 +496,7 @@ _ZL9_clampnanfff.exit3732.us:                     ; preds = %193, %191, %189
   br label %_ZL9_clampnanfff.exit3708.us
 
 _ZL9_clampnanfff.exit3708.us:                     ; preds = %272, %270, %268
-  %.0.i3707.us = phi nsz float [ %274, %272 ], [ 0.000000e+00, %270 ], [ %..i3706.us, %268 ]
+  %.0.i3707.us = phi nsz float [ 0.000000e+00, %270 ], [ %..i3706.us, %268 ], [ %274, %272 ]
   %275 = trunc i64 %204 to i32
   %276 = mul i32 %7, %275
   %277 = add nsw i32 %.03150.lcssa.us, %276
@@ -618,7 +618,7 @@ _ZL9_clampnanfff.exit3708.us:                     ; preds = %272, %270, %268
   br label %_ZL9_clampnanfff.exit.us
 
 _ZL9_clampnanfff.exit.us:                         ; preds = %367, %365, %363
-  %.0.i.us = phi nsz float [ %369, %367 ], [ 0.000000e+00, %365 ], [ %..i3696.us, %363 ]
+  %.0.i.us = phi nsz float [ 0.000000e+00, %365 ], [ %..i3696.us, %363 ], [ %369, %367 ]
   %370 = add nsw i64 %indvars.iv4324, %3090
   %.idx = shl nsw i64 %370, 4
   %371 = getelementptr inbounds i8, ptr %2, i64 %.idx
@@ -666,7 +666,7 @@ _ZL9_clampnanfff.exit.us:                         ; preds = %367, %365, %363
   br label %_ZL9_clampnanfff.exit3699.us
 
 _ZL9_clampnanfff.exit3699.us:                     ; preds = %402, %400, %398
-  %.0.i3698.us = phi nsz float [ %404, %402 ], [ 0.000000e+00, %400 ], [ %..i3697.us, %398 ]
+  %.0.i3698.us = phi nsz float [ 0.000000e+00, %400 ], [ %..i3697.us, %398 ], [ %404, %402 ]
   %405 = getelementptr i8, ptr %371, i64 8
   store float %.0.i3698.us, ptr %405, align 4, !tbaa !30
   br label %406
@@ -704,7 +704,7 @@ _ZL9_clampnanfff.exit3699.us:                     ; preds = %402, %400, %398
   br label %_ZL9_clampnanfff.exit3702.us
 
 _ZL9_clampnanfff.exit3702.us:                     ; preds = %423, %421, %419
-  %.0.i3701.us = phi nsz float [ %425, %423 ], [ 0.000000e+00, %421 ], [ %..i3700.us, %419 ]
+  %.0.i3701.us = phi nsz float [ 0.000000e+00, %421 ], [ %..i3700.us, %419 ], [ %425, %423 ]
   %426 = add nsw i64 %407, %3090
   %.idx4547 = shl nsw i64 %426, 4
   %427 = getelementptr inbounds i8, ptr %2, i64 %.idx4547
@@ -732,7 +732,7 @@ _ZL9_clampnanfff.exit3702.us:                     ; preds = %423, %421, %419
   br label %_ZL9_clampnanfff.exit3705.us
 
 _ZL9_clampnanfff.exit3705.us:                     ; preds = %438, %436, %434
-  %.0.i3704.us = phi nsz float [ %440, %438 ], [ 0.000000e+00, %436 ], [ %..i3703.us, %434 ]
+  %.0.i3704.us = phi nsz float [ 0.000000e+00, %436 ], [ %..i3703.us, %434 ], [ %440, %438 ]
   %441 = getelementptr i8, ptr %427, i64 8
   store float %.0.i3704.us, ptr %441, align 4, !tbaa !30
   br label %442
@@ -785,7 +785,7 @@ _ZL9_clampnanfff.exit3705.us:                     ; preds = %438, %436, %434
   br label %_ZL9_clampnanfff.exit3726.us
 
 _ZL9_clampnanfff.exit3726.us:                     ; preds = %463, %461, %459
-  %.0.i3725.us = phi nsz float [ %465, %463 ], [ 0.000000e+00, %461 ], [ %..i3724.us, %459 ]
+  %.0.i3725.us = phi nsz float [ 0.000000e+00, %461 ], [ %..i3724.us, %459 ], [ %465, %463 ]
   %466 = trunc i64 %204 to i32
   %467 = mul i32 %7, %466
   %468 = add nsw i32 %.13151.lcssa.us, %467
@@ -816,8 +816,8 @@ _ZL9_clampnanfff.exit3726.us:                     ; preds = %463, %461, %459
   br label %.sink.split
 
 .sink.split:                                      ; preds = %478, %480, %482, %307, %309, %311
-  %.sink4572 = phi ptr [ %280, %311 ], [ %280, %309 ], [ %280, %307 ], [ %471, %482 ], [ %471, %480 ], [ %471, %478 ]
-  %.0.i3728.us.sink = phi float [ %313, %311 ], [ 0.000000e+00, %309 ], [ %..i3709.us, %307 ], [ %484, %482 ], [ 0.000000e+00, %480 ], [ %..i3727.us, %478 ]
+  %.sink4572 = phi ptr [ %280, %307 ], [ %280, %311 ], [ %280, %309 ], [ %471, %482 ], [ %471, %480 ], [ %471, %478 ]
+  %.0.i3728.us.sink = phi float [ %..i3709.us, %307 ], [ %313, %311 ], [ 0.000000e+00, %309 ], [ %484, %482 ], [ 0.000000e+00, %480 ], [ %..i3727.us, %478 ]
   %485 = getelementptr i8, ptr %.sink4572, i64 8
   store float %.0.i3728.us.sink, ptr %485, align 4, !tbaa !30
   br label %486
@@ -861,7 +861,7 @@ _ZL9_clampnanfff.exit3726.us:                     ; preds = %463, %461, %459
   br label %_ZL9_clampnanfff.exit3714.us
 
 _ZL9_clampnanfff.exit3714.us:                     ; preds = %503, %501, %499
-  %.0.i3713.us = phi nsz float [ %505, %503 ], [ 0.000000e+00, %501 ], [ %..i3712.us, %499 ]
+  %.0.i3713.us = phi nsz float [ 0.000000e+00, %501 ], [ %..i3712.us, %499 ], [ %505, %503 ]
   %506 = add nsw i64 %indvars.iv4331, %3092
   %.idx4548 = shl nsw i64 %506, 4
   %507 = getelementptr inbounds i8, ptr %2, i64 %.idx4548
@@ -889,7 +889,7 @@ _ZL9_clampnanfff.exit3714.us:                     ; preds = %503, %501, %499
   br label %_ZL9_clampnanfff.exit3717.us
 
 _ZL9_clampnanfff.exit3717.us:                     ; preds = %518, %516, %514
-  %.0.i3716.us = phi nsz float [ %520, %518 ], [ 0.000000e+00, %516 ], [ %..i3715.us, %514 ]
+  %.0.i3716.us = phi nsz float [ 0.000000e+00, %516 ], [ %..i3715.us, %514 ], [ %520, %518 ]
   %521 = getelementptr i8, ptr %507, i64 8
   store float %.0.i3716.us, ptr %521, align 4, !tbaa !30
   br label %522
@@ -969,7 +969,7 @@ _ZL9_clampnanfff.exit3717.us:                     ; preds = %518, %516, %514
   br label %_ZL9_clampnanfff.exit3720.us
 
 _ZL9_clampnanfff.exit3720.us:                     ; preds = %576, %574, %572
-  %.0.i3719.us = phi nsz float [ %578, %576 ], [ 0.000000e+00, %574 ], [ %..i3718.us, %572 ]
+  %.0.i3719.us = phi nsz float [ 0.000000e+00, %574 ], [ %..i3718.us, %572 ], [ %578, %576 ]
   %579 = add nsw i64 %523, %3092
   %.idx4549 = shl nsw i64 %579, 4
   %580 = getelementptr inbounds i8, ptr %2, i64 %.idx4549
@@ -1017,7 +1017,7 @@ _ZL9_clampnanfff.exit3720.us:                     ; preds = %576, %574, %572
   br label %_ZL9_clampnanfff.exit3723.us
 
 _ZL9_clampnanfff.exit3723.us:                     ; preds = %611, %609, %607
-  %.0.i3722.us = phi nsz float [ %613, %611 ], [ 0.000000e+00, %609 ], [ %..i3721.us, %607 ]
+  %.0.i3722.us = phi nsz float [ 0.000000e+00, %609 ], [ %..i3721.us, %607 ], [ %613, %611 ]
   %614 = getelementptr i8, ptr %580, i64 8
   store float %.0.i3722.us, ptr %614, align 4, !tbaa !30
   br label %615
@@ -1466,7 +1466,7 @@ _ZL9_clampnanfff.exit3723.us:                     ; preds = %611, %609, %607
   br label %937
 
 937:                                              ; preds = %936, %933, %932, %929
-  %938 = phi reassoc nsz arcp contract afn float [ %.3597.us, %936 ], [ %.3599.us, %932 ], [ %805, %933 ], [ %819, %929 ]
+  %938 = phi reassoc nsz arcp contract afn float [ %.3599.us, %932 ], [ %805, %933 ], [ %.3597.us, %936 ], [ %819, %929 ]
   %939 = fsub reassoc nsz arcp contract afn float %906, %938
   %940 = fmul reassoc nsz arcp contract afn float %939, %927
   %941 = fadd reassoc nsz arcp contract afn float %940, %938
@@ -1495,7 +1495,7 @@ _ZL9_clampnanfff.exit3723.us:                     ; preds = %611, %609, %607
   br label %952
 
 952:                                              ; preds = %951, %948, %947, %944, %937, %897
-  %.03168.us = phi nsz float [ %941, %937 ], [ %906, %897 ], [ %.3593.us, %951 ], [ %.3595.us, %947 ], [ %805, %948 ], [ %819, %944 ]
+  %.03168.us = phi nsz float [ %906, %897 ], [ %941, %937 ], [ %.3595.us, %947 ], [ %805, %948 ], [ %.3593.us, %951 ], [ %819, %944 ]
   %953 = fcmp reassoc nsz arcp contract afn olt float %915, %809
   br i1 %953, label %954, label %989
 
@@ -1534,7 +1534,7 @@ _ZL9_clampnanfff.exit3723.us:                     ; preds = %611, %609, %607
   br label %974
 
 974:                                              ; preds = %973, %970, %969, %966
-  %975 = phi reassoc nsz arcp contract afn float [ %.3605.us, %973 ], [ %.3607.us, %969 ], [ %830, %970 ], [ %841, %966 ]
+  %975 = phi reassoc nsz arcp contract afn float [ %.3607.us, %969 ], [ %830, %970 ], [ %.3605.us, %973 ], [ %841, %966 ]
   %976 = fsub reassoc nsz arcp contract afn float %915, %975
   %977 = fmul reassoc nsz arcp contract afn float %976, %964
   %978 = fadd reassoc nsz arcp contract afn float %977, %975
@@ -1563,7 +1563,7 @@ _ZL9_clampnanfff.exit3723.us:                     ; preds = %611, %609, %607
   br label %989
 
 989:                                              ; preds = %988, %985, %984, %981, %974, %952
-  %.03166.us = phi nsz float [ %978, %974 ], [ %915, %952 ], [ %.3601.us, %988 ], [ %.3603.us, %984 ], [ %830, %985 ], [ %841, %981 ]
+  %.03166.us = phi nsz float [ %915, %952 ], [ %978, %974 ], [ %.3603.us, %984 ], [ %830, %985 ], [ %.3601.us, %988 ], [ %841, %981 ]
   %990 = fcmp reassoc nsz arcp contract afn ogt float %.03166.us, %19
   br i1 %990, label %991, label %1001
 
@@ -1590,7 +1590,7 @@ _ZL9_clampnanfff.exit3723.us:                     ; preds = %611, %609, %607
   br label %1001
 
 1001:                                             ; preds = %1000, %997, %996, %993, %989
-  %.13167.us = phi nsz float [ %.03166.us, %989 ], [ %.03166..us, %1000 ], [ %.03166.3610.us, %996 ], [ %830, %997 ], [ %841, %993 ]
+  %.13167.us = phi nsz float [ %.03166.us, %989 ], [ %.03166.3610.us, %996 ], [ %830, %997 ], [ %.03166..us, %1000 ], [ %841, %993 ]
   %1002 = fcmp reassoc nsz arcp contract afn ogt float %.03168.us, %19
   br i1 %1002, label %1003, label %1013
 
@@ -1617,7 +1617,7 @@ _ZL9_clampnanfff.exit3723.us:                     ; preds = %611, %609, %607
   br label %1013
 
 1013:                                             ; preds = %1012, %1009, %1008, %1005, %1001
-  %.13169.us = phi nsz float [ %.03168.us, %1001 ], [ %.03168..us, %1012 ], [ %.03168.3613.us, %1008 ], [ %805, %1009 ], [ %819, %1005 ]
+  %.13169.us = phi nsz float [ %.03168.us, %1001 ], [ %.03168.3613.us, %1008 ], [ %805, %1009 ], [ %.03168..us, %1012 ], [ %819, %1005 ]
   %1014 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv4301
   %1015 = load float, ptr %1014, align 4, !tbaa !30
   %1016 = fsub reassoc nsz arcp contract afn float %.13169.us, %.13167.us
@@ -2134,7 +2134,7 @@ _ZL9_clampnanfff.exit3723.us:                     ; preds = %611, %609, %607
   br label %1409
 
 1409:                                             ; preds = %1408, %1405, %1404, %1401
-  %1410 = phi reassoc nsz arcp contract afn float [ %.3573.us, %1408 ], [ %.3575.us, %1404 ], [ %1398, %1405 ], [ %1399, %1401 ]
+  %1410 = phi reassoc nsz arcp contract afn float [ %.3575.us, %1404 ], [ %1398, %1405 ], [ %.3573.us, %1408 ], [ %1399, %1401 ]
   %1411 = fsub reassoc nsz arcp contract afn float %1261, %1410
   %1412 = fmul reassoc nsz arcp contract afn float %1411, %.sroa.0.0.i3674.us
   %1413 = fdiv reassoc nsz arcp contract afn float %1412, %1397
@@ -2166,7 +2166,7 @@ _ZL9_clampnanfff.exit3723.us:                     ; preds = %611, %609, %607
   br label %.sink.split4573
 
 .sink.split4573:                                  ; preds = %1419, %1422, %1423, %1426, %1409
-  %.sink4574 = phi float [ %1414, %1409 ], [ %.3569.us, %1426 ], [ %.3571.us, %1422 ], [ %1416, %1423 ], [ %1417, %1419 ]
+  %.sink4574 = phi float [ %1414, %1409 ], [ %.3571.us, %1422 ], [ %1416, %1423 ], [ %.3569.us, %1426 ], [ %1417, %1419 ]
   store float %.sink4574, ptr %1262, align 4, !tbaa !30
   br label %1427
 
@@ -2218,7 +2218,7 @@ _ZL9_clampnanfff.exit3723.us:                     ; preds = %611, %609, %607
   br label %1454
 
 1454:                                             ; preds = %1453, %1450, %1449, %1446
-  %1455 = phi reassoc nsz arcp contract afn float [ %.3581.us, %1453 ], [ %.3583.us, %1449 ], [ %1443, %1450 ], [ %1444, %1446 ]
+  %1455 = phi reassoc nsz arcp contract afn float [ %.3583.us, %1449 ], [ %1443, %1450 ], [ %.3581.us, %1453 ], [ %1444, %1446 ]
   %1456 = fsub reassoc nsz arcp contract afn float %1428, %1455
   %1457 = fmul reassoc nsz arcp contract afn float %1456, %.sroa.0.0.i3678.us
   %1458 = fdiv reassoc nsz arcp contract afn float %1457, %1442
@@ -2250,7 +2250,7 @@ _ZL9_clampnanfff.exit3723.us:                     ; preds = %611, %609, %607
   br label %.sink.split4575
 
 .sink.split4575:                                  ; preds = %1464, %1467, %1468, %1471, %1454
-  %.sink4576 = phi float [ %1459, %1454 ], [ %.3577.us, %1471 ], [ %.3579.us, %1467 ], [ %1461, %1468 ], [ %1462, %1464 ]
+  %.sink4576 = phi float [ %1459, %1454 ], [ %.3579.us, %1467 ], [ %1461, %1468 ], [ %.3577.us, %1471 ], [ %1462, %1464 ]
   store float %.sink4576, ptr %1256, align 4, !tbaa !30
   br label %1472
 
@@ -2285,7 +2285,7 @@ _ZL9_clampnanfff.exit3723.us:                     ; preds = %611, %609, %607
   br label %1488
 
 1488:                                             ; preds = %1487, %1484, %1483, %1480
-  %1489 = phi reassoc nsz arcp contract afn float [ %.3585.us, %1487 ], [ %.3587.us, %1483 ], [ %1477, %1484 ], [ %1478, %1480 ]
+  %1489 = phi reassoc nsz arcp contract afn float [ %.3587.us, %1483 ], [ %1477, %1484 ], [ %.3585.us, %1487 ], [ %1478, %1480 ]
   store float %1489, ptr %1262, align 4, !tbaa !30
   br label %1490
 
@@ -2318,7 +2318,7 @@ _ZL9_clampnanfff.exit3723.us:                     ; preds = %611, %609, %607
   br label %1504
 
 1504:                                             ; preds = %1503, %1500, %1499, %1496
-  %1505 = phi reassoc nsz arcp contract afn float [ %.3589.us, %1503 ], [ %.3591.us, %1499 ], [ %1493, %1500 ], [ %1494, %1496 ]
+  %1505 = phi reassoc nsz arcp contract afn float [ %.3591.us, %1499 ], [ %1493, %1500 ], [ %.3589.us, %1503 ], [ %1494, %1496 ]
   store float %1505, ptr %1256, align 4, !tbaa !30
   br label %1506
 
@@ -3638,7 +3638,7 @@ _ZL9_clampnanfff.exit3723.us:                     ; preds = %611, %609, %607
   br label %2483
 
 2483:                                             ; preds = %2482, %2479, %2478, %2475
-  %2484 = phi reassoc nsz arcp contract afn float [ %.3524.us, %2482 ], [ %.3526.us, %2478 ], [ %2471, %2479 ], [ %2473, %2475 ]
+  %2484 = phi reassoc nsz arcp contract afn float [ %.3526.us, %2478 ], [ %2471, %2479 ], [ %.3524.us, %2482 ], [ %2473, %2475 ]
   %2485 = fadd reassoc nsz arcp contract afn float %2454, %2484
   %2486 = fsub reassoc nsz arcp contract afn float %2459, %2485
   %2487 = fmul reassoc nsz arcp contract afn float %2486, %2465
@@ -3673,7 +3673,7 @@ _ZL9_clampnanfff.exit3723.us:                     ; preds = %611, %609, %607
   br label %2504
 
 2504:                                             ; preds = %2503, %2500, %2499, %2496
-  %2505 = phi reassoc nsz arcp contract afn float [ %.3520.us, %2503 ], [ %.3522.us, %2499 ], [ %2492, %2500 ], [ %2494, %2496 ]
+  %2505 = phi reassoc nsz arcp contract afn float [ %.3522.us, %2499 ], [ %2492, %2500 ], [ %.3520.us, %2503 ], [ %2494, %2496 ]
   %2506 = fsub reassoc nsz arcp contract afn float %2459, %2505
   br label %thread-pre-split.us
 
@@ -3721,7 +3721,7 @@ thread-pre-split.us:                              ; preds = %2504, %2483
   br label %2529
 
 2529:                                             ; preds = %2528, %2525, %2524, %2521
-  %2530 = phi reassoc nsz arcp contract afn float [ %.3532.us, %2528 ], [ %.3534.us, %2524 ], [ %2517, %2525 ], [ %2519, %2521 ]
+  %2530 = phi reassoc nsz arcp contract afn float [ %.3534.us, %2524 ], [ %2517, %2525 ], [ %.3532.us, %2528 ], [ %2519, %2521 ]
   %2531 = fadd reassoc nsz arcp contract afn float %.pr3790.us, %2530
   %2532 = fsub reassoc nsz arcp contract afn float %2459, %2531
   %2533 = fmul reassoc nsz arcp contract afn float %2532, %2510
@@ -3756,7 +3756,7 @@ thread-pre-split.us:                              ; preds = %2504, %2483
   br label %2550
 
 2550:                                             ; preds = %2549, %2546, %2545, %2542
-  %2551 = phi reassoc nsz arcp contract afn float [ %.3528.us, %2549 ], [ %.3530.us, %2545 ], [ %2538, %2546 ], [ %2540, %2542 ]
+  %2551 = phi reassoc nsz arcp contract afn float [ %.3530.us, %2545 ], [ %2538, %2546 ], [ %.3528.us, %2549 ], [ %2540, %2542 ]
   %2552 = fsub reassoc nsz arcp contract afn float %2459, %2551
   br label %.sink.split4581
 
@@ -3796,7 +3796,7 @@ thread-pre-split.us:                              ; preds = %2504, %2483
   br label %2569
 
 2569:                                             ; preds = %2568, %2565, %2564, %2561
-  %2570 = phi reassoc nsz arcp contract afn float [ %.3536.us, %2568 ], [ %.3538.us, %2564 ], [ %2557, %2565 ], [ %2559, %2561 ]
+  %2570 = phi reassoc nsz arcp contract afn float [ %.3538.us, %2564 ], [ %2557, %2565 ], [ %.3536.us, %2568 ], [ %2559, %2561 ]
   %2571 = fsub reassoc nsz arcp contract afn float %2459, %2570
   store float %2571, ptr %2387, align 4, !tbaa !30
   br label %2572
@@ -3832,7 +3832,7 @@ thread-pre-split.us:                              ; preds = %2504, %2483
   br label %2588
 
 2588:                                             ; preds = %2587, %2584, %2583, %2580
-  %2589 = phi reassoc nsz arcp contract afn float [ %.3540.us, %2587 ], [ %.3542.us, %2583 ], [ %2576, %2584 ], [ %2578, %2580 ]
+  %2589 = phi reassoc nsz arcp contract afn float [ %.3542.us, %2583 ], [ %2576, %2584 ], [ %.3540.us, %2587 ], [ %2578, %2580 ]
   %2590 = fsub reassoc nsz arcp contract afn float %2459, %2589
   store float %2590, ptr %2421, align 4, !tbaa !30
   br label %2734
@@ -3881,7 +3881,7 @@ thread-pre-split.us:                              ; preds = %2504, %2483
   br label %2618
 
 2618:                                             ; preds = %2617, %2614, %2613, %2610
-  %2619 = phi reassoc nsz arcp contract afn float [ %.3548.us, %2617 ], [ %.3550.us, %2613 ], [ %2606, %2614 ], [ %2608, %2610 ]
+  %2619 = phi reassoc nsz arcp contract afn float [ %.3550.us, %2613 ], [ %2606, %2614 ], [ %.3548.us, %2617 ], [ %2608, %2610 ]
   %2620 = fsub reassoc nsz arcp contract afn float %2619, %2459
   %2621 = fmul reassoc nsz arcp contract afn float %2620, %2602
   %2622 = fsub reassoc nsz arcp contract afn float %2604, %2621
@@ -3914,7 +3914,7 @@ thread-pre-split.us:                              ; preds = %2504, %2483
   br label %2637
 
 2637:                                             ; preds = %2636, %2633, %2632, %2629
-  %2638 = phi reassoc nsz arcp contract afn float [ %.3544.us, %2636 ], [ %.3546.us, %2632 ], [ %2625, %2633 ], [ %2627, %2629 ]
+  %2638 = phi reassoc nsz arcp contract afn float [ %.3546.us, %2632 ], [ %2625, %2633 ], [ %.3544.us, %2636 ], [ %2627, %2629 ]
   %2639 = fsub reassoc nsz arcp contract afn float %2638, %2459
   br label %thread-pre-split3789.us
 
@@ -3967,7 +3967,7 @@ thread-pre-split3789.us:                          ; preds = %2637, %2618
   br label %2667
 
 2667:                                             ; preds = %2666, %2663, %2662, %2659
-  %2668 = phi reassoc nsz arcp contract afn float [ %.3556.us, %2666 ], [ %.3558.us, %2662 ], [ %2655, %2663 ], [ %2657, %2659 ]
+  %2668 = phi reassoc nsz arcp contract afn float [ %.3558.us, %2662 ], [ %2655, %2663 ], [ %.3556.us, %2666 ], [ %2657, %2659 ]
   %2669 = fsub reassoc nsz arcp contract afn float %2668, %2459
   %2670 = fmul reassoc nsz arcp contract afn float %2669, %2651
   %2671 = fsub reassoc nsz arcp contract afn float %2653, %2670
@@ -4000,7 +4000,7 @@ thread-pre-split3789.us:                          ; preds = %2637, %2618
   br label %2686
 
 2686:                                             ; preds = %2685, %2682, %2681, %2678
-  %2687 = phi reassoc nsz arcp contract afn float [ %.3552.us, %2685 ], [ %.3554.us, %2681 ], [ %2674, %2682 ], [ %2676, %2678 ]
+  %2687 = phi reassoc nsz arcp contract afn float [ %.3554.us, %2681 ], [ %2674, %2682 ], [ %.3552.us, %2685 ], [ %2676, %2678 ]
   %2688 = fsub reassoc nsz arcp contract afn float %2687, %2459
   br label %.sink.split4583
 
@@ -4041,7 +4041,7 @@ thread-pre-split3789.us:                          ; preds = %2637, %2618
   br label %2706
 
 2706:                                             ; preds = %2705, %2702, %2701, %2698
-  %2707 = phi reassoc nsz arcp contract afn float [ %.3560.us, %2705 ], [ %.3562.us, %2701 ], [ %2694, %2702 ], [ %2696, %2698 ]
+  %2707 = phi reassoc nsz arcp contract afn float [ %.3562.us, %2701 ], [ %2694, %2702 ], [ %.3560.us, %2705 ], [ %2696, %2698 ]
   %2708 = fsub reassoc nsz arcp contract afn float %2707, %2459
   store float %2708, ptr %2387, align 4, !tbaa !30
   br label %2709
@@ -4078,7 +4078,7 @@ thread-pre-split3789.us:                          ; preds = %2637, %2618
   br label %2726
 
 2726:                                             ; preds = %2725, %2722, %2721, %2718
-  %2727 = phi reassoc nsz arcp contract afn float [ %.3564.us, %2725 ], [ %.3566.us, %2721 ], [ %2714, %2722 ], [ %2716, %2718 ]
+  %2727 = phi reassoc nsz arcp contract afn float [ %.3566.us, %2721 ], [ %2714, %2722 ], [ %.3564.us, %2725 ], [ %2716, %2718 ]
   %2728 = fsub reassoc nsz arcp contract afn float %2727, %2459
   store float %2728, ptr %2421, align 4, !tbaa !30
   br label %2729

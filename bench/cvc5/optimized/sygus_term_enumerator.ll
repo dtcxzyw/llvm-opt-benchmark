@@ -539,7 +539,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit60: ; preds = %_ZN
   ret void
 
 212:                                              ; preds = %210, %209, %205, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit60, %190
-  %.pn25 = phi { ptr, i32 } [ %lpad.phi, %210 ], [ %191, %190 ], [ %.pn23, %209 ], [ %206, %205 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit60 ]
+  %.pn25 = phi { ptr, i32 } [ %lpad.phi, %210 ], [ %206, %205 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit60 ], [ %191, %190 ], [ %.pn23, %209 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #15
   br label %.body
 
@@ -755,7 +755,7 @@ _ZNSt8ios_base5iwordEi.exit:                      ; preds = %18, %23
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !63
 
 .loopexit:                                        ; preds = %.lr.ph, %_ZNSt8ios_base5iwordEi.exit, %5
-  %34 = phi ptr [ %.pre5, %_ZNSt8ios_base5iwordEi.exit ], [ %4, %5 ], [ %32, %.lr.ph ]
+  %34 = phi ptr [ %4, %5 ], [ %.pre5, %_ZNSt8ios_base5iwordEi.exit ], [ %32, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %35 = load ptr, ptr %34, align 8, !tbaa !23
   %36 = getelementptr i8, ptr %35, i64 -24
@@ -846,7 +846,7 @@ _ZNSt8ios_base5iwordEi.exit:                      ; preds = %17, %22
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !66
 
 .loopexit:                                        ; preds = %.lr.ph, %_ZNSt8ios_base5iwordEi.exit, %4
-  %33 = phi ptr [ %.pre5, %_ZNSt8ios_base5iwordEi.exit ], [ %3, %4 ], [ %31, %.lr.ph ]
+  %33 = phi ptr [ %3, %4 ], [ %.pre5, %_ZNSt8ios_base5iwordEi.exit ], [ %31, %.lr.ph ]
   %34 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #15
   %35 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull %1, i64 noundef %34)
   br label %36

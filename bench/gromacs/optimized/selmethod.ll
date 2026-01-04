@@ -241,8 +241,8 @@ _ZL14check_modifierP8_IO_FILEP19gmx_ana_selmethod_tRKN3gmx26SelectionParserSymbo
   br label %61
 
 61:                                               ; preds = %.sink.split.i, %.thread.i, %55
-  %62 = phi i32 [ %56, %55 ], [ %58, %.thread.i ], [ %.pre26, %.sink.split.i ]
-  %.2.i = phi i1 [ %.1.i20, %55 ], [ %.134.i, %.thread.i ], [ false, %.sink.split.i ]
+  %62 = phi i32 [ %58, %.thread.i ], [ %56, %55 ], [ %.pre26, %.sink.split.i ]
+  %.2.i = phi i1 [ %.134.i, %.thread.i ], [ %.1.i20, %55 ], [ false, %.sink.split.i ]
   %63 = and i32 %62, 64
   %.not29.i = icmp eq i32 %63, 0
   br i1 %.not29.i, label %_ZL12check_methodP8_IO_FILEP19gmx_ana_selmethod_tRKN3gmx26SelectionParserSymbolTableE.exit, label %64
@@ -885,7 +885,7 @@ _Z28gmx_ana_selmethod_find_paramPKcP19gmx_ana_selmethod_t.exit: ; preds = %191
   br label %215
 
 214:                                              ; preds = %207, %209, %206, %200
-  %.pn213.pn = phi { ptr, i32 } [ %.pn, %206 ], [ %201, %200 ], [ %210, %209 ], [ %208, %207 ]
+  %.pn213.pn = phi { ptr, i32 } [ %201, %200 ], [ %.pn, %206 ], [ %210, %209 ], [ %208, %207 ]
   call void @_ZN3gmx29SelectionParserSymbolIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %216

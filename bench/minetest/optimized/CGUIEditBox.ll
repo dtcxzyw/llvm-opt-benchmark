@@ -5886,8 +5886,8 @@ cleanup.loopexit.split.loop.exit25.i536:          ; preds = %while.body.i529
   br label %cond.true77
 
 cond.true77:                                      ; preds = %if.end7.i533, %while.cond.preheader.i, %cleanup.loopexit.split.loop.exit25.i536
-  %retval.0.i80137.in = phi i32 [ %conv.i.i.sink, %cleanup.loopexit.split.loop.exit25.i536 ], [ %conv.i.i, %while.cond.preheader.i ], [ %conv.i.i.sink, %if.end7.i533 ]
-  %.pn = phi i32 [ %55, %cleanup.loopexit.split.loop.exit25.i536 ], [ %conv.i.i, %while.cond.preheader.i ], [ %conv.i.i, %if.end7.i533 ]
+  %retval.0.i80137.in = phi i32 [ %conv.i.i, %while.cond.preheader.i ], [ %conv.i.i.sink, %cleanup.loopexit.split.loop.exit25.i536 ], [ %conv.i.i.sink, %if.end7.i533 ]
+  %.pn = phi i32 [ %conv.i.i, %while.cond.preheader.i ], [ %55, %cleanup.loopexit.split.loop.exit25.i536 ], [ %conv.i.i, %if.end7.i533 ]
   %retval.0.i80137 = add nsw i32 %retval.0.i80137.in, -1
   %add819 = sub i32 %.pn, %retval.0.i80137
   %BrokenText = getelementptr inbounds nuw i8, ptr %this, i64 424
@@ -8543,7 +8543,7 @@ if.end:                                           ; preds = %for.body
   br i1 %cmp.i.not, label %cleanup16, label %for.body
 
 cleanup16:                                        ; preds = %if.end, %for.body, %for.inc.us, %if.end.us, %for.body.us, %entry
-  %spec.select = phi ptr [ null, %entry ], [ %call10.us, %if.end.us ], [ null, %for.inc.us ], [ %0, %for.body.us ], [ null, %if.end ], [ %3, %for.body ]
+  %spec.select = phi ptr [ null, %entry ], [ %0, %for.body.us ], [ %call10.us, %if.end.us ], [ null, %for.inc.us ], [ %3, %for.body ], [ null, %if.end ]
   ret ptr %spec.select
 }
 

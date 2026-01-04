@@ -116,7 +116,7 @@ _ZNK12LogSelection7selectsERK9LogTagSet.exit.us:  ; preds = %.lr.ph16.split.us.s
   br label %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us
 
 _ZNK12LogSelection7selectsERK9LogTagSet.exit.thread.us: ; preds = %_ZNK12LogSelection7selectsERK9LogTagSet.exit.us, %.lr.ph16.split.us.split
-  %25 = phi i64 [ %21, %.lr.ph16.split.us.split ], [ %24, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.us ]
+  %25 = phi i64 [ %24, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.us ], [ %21, %.lr.ph16.split.us.split ]
   %.0.us = load ptr, ptr %.015.us, align 8
   %.not9.us = icmp eq ptr %.0.us, null
   br i1 %.not9.us, label %._crit_edge, label %.lr.ph16.split.us.split, !llvm.loop !8
@@ -212,8 +212,8 @@ _ZNK12LogSelection7selectsERK9LogTagSet.exit.loopexit: ; preds = %_ZNK9LogTagSet
   store i64 %56, ptr %7, align 8
   br label %_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread
 
-_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread: ; preds = %50, %48, %.lr.ph16.split.split, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.loopexit
-  %57 = phi i64 [ %41, %.lr.ph16.split.split ], [ %56, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.loopexit ], [ %41, %48 ], [ %41, %50 ]
+_ZNK12LogSelection7selectsERK9LogTagSet.exit.thread: ; preds = %48, %50, %.lr.ph16.split.split, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.loopexit
+  %57 = phi i64 [ %56, %_ZNK12LogSelection7selectsERK9LogTagSet.exit.loopexit ], [ %41, %.lr.ph16.split.split ], [ %41, %50 ], [ %41, %48 ]
   %.0 = load ptr, ptr %.015, align 8
   %.not9 = icmp eq ptr %.0, null
   br i1 %.not9, label %._crit_edge, label %.lr.ph16.split.split, !llvm.loop !8
@@ -271,7 +271,7 @@ _ZNK9LogTagSet8containsEN6LogTag4typeE.exit:      ; preds = %19
   br i1 %exitcond.not, label %_ZNK9LogTagSet8containsEN6LogTag4typeE.exit.thread, label %11, !llvm.loop !10
 
 _ZNK9LogTagSet8containsEN6LogTag4typeE.exit.thread: ; preds = %_ZNK9LogTagSet8containsEN6LogTag4typeE.exit, %16, %14, %2, %8
-  %.06 = phi i1 [ true, %8 ], [ false, %2 ], [ false, %14 ], [ false, %16 ], [ true, %_ZNK9LogTagSet8containsEN6LogTag4typeE.exit ]
+  %.06 = phi i1 [ false, %2 ], [ false, %16 ], [ true, %8 ], [ false, %14 ], [ true, %_ZNK9LogTagSet8containsEN6LogTag4typeE.exit ]
   ret i1 %.06
 }
 
@@ -330,7 +330,7 @@ define hidden noundef zeroext i1 @_ZNK12LogSelectioneqERKS_(ptr noundef nonnull 
   br i1 %or.cond.not, label %24, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %24, %.preheader, %2, %5, %12, %17
-  %.010 = phi i1 [ false, %17 ], [ false, %12 ], [ false, %5 ], [ false, %2 ], [ true, %.preheader ], [ %.not14, %24 ]
+  %.010 = phi i1 [ false, %5 ], [ false, %2 ], [ false, %17 ], [ false, %12 ], [ true, %.preheader ], [ %.not14, %24 ]
   ret i1 %.010
 }
 
@@ -389,7 +389,7 @@ define hidden noundef zeroext i1 @_ZNK12LogSelectionneERKS_(ptr noundef nonnull 
   br i1 %or.cond, label %_ZNK12LogSelectioneqERKS_.exit, label %24, !llvm.loop !11
 
 _ZNK12LogSelectioneqERKS_.exit:                   ; preds = %24, %2, %5, %12, %17, %.preheader.i
-  %30 = phi i1 [ true, %17 ], [ true, %12 ], [ true, %5 ], [ true, %2 ], [ false, %.preheader.i ], [ %.not14.i.not, %24 ]
+  %30 = phi i1 [ true, %5 ], [ true, %2 ], [ true, %17 ], [ true, %12 ], [ false, %.preheader.i ], [ %.not14.i.not, %24 ]
   ret i1 %30
 }
 
@@ -999,7 +999,7 @@ _ZNK12LogSelection10similarityERKS_.exit60.us:    ; preds = %.preheader, %_ZNK12
   br label %_ZNK12LogSelection10similarityERKS_.exit60
 
 _ZNK12LogSelection10similarityERKS_.exit60:       ; preds = %.preheader.lr.ph.i48, %._crit_edge.loopexit21.i58
-  %.012.lcssa.i59 = phi double [ %80, %._crit_edge.loopexit21.i58 ], [ 0.000000e+00, %.preheader.lr.ph.i48 ]
+  %.012.lcssa.i59 = phi double [ 0.000000e+00, %.preheader.lr.ph.i48 ], [ %80, %._crit_edge.loopexit21.i58 ]
   %81 = add i64 %.pre.i47, %27
   %82 = uitofp i64 %81 to double
   %83 = fdiv double %.012.lcssa.i59, %82
@@ -1269,7 +1269,7 @@ _ZNK12LogSelection10similarityERKS_.exit26.i:     ; preds = %._crit_edge.loopexi
   br label %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit
 
 _ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit: ; preds = %53, %56
-  %.0.i = phi i32 [ %62, %56 ], [ %55, %53 ]
+  %.0.i = phi i32 [ %55, %53 ], [ %62, %56 ]
   %63 = icmp sgt i32 %.0.i, 0
   br i1 %63, label %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.thread, label %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.thread90
 
@@ -1412,7 +1412,7 @@ _ZNK12LogSelection10similarityERKS_.exit26.i45:   ; preds = %._crit_edge.loopexi
   br label %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit52
 
 _ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit52: ; preds = %110, %113
-  %.0.i49 = phi i32 [ %119, %113 ], [ %112, %110 ]
+  %.0.i49 = phi i32 [ %112, %110 ], [ %119, %113 ]
   %120 = icmp sgt i32 %.0.i49, 0
   br i1 %120, label %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit52.thread, label %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit52.thread94
 
@@ -1554,7 +1554,7 @@ _ZNK12LogSelection10similarityERKS_.exit26.i79:   ; preds = %._crit_edge.loopexi
   br label %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit86
 
 _ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit86: ; preds = %165, %168
-  %.0.i83 = phi i32 [ %174, %168 ], [ %167, %165 ]
+  %.0.i83 = phi i32 [ %167, %165 ], [ %174, %168 ]
   %175 = icmp sgt i32 %.0.i83, 0
   br i1 %175, label %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit86.thread, label %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit86.thread98
 
@@ -1624,7 +1624,7 @@ _ZNK12LogSelection10similarityERKS_.exit.i.us:    ; preds = %14, %_ZNK20Similari
   br i1 %33, label %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.thread.us, label %.preheader
 
 _ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.us: ; preds = %27, %24
-  %.0.i.us = phi i32 [ %31, %27 ], [ %26, %24 ]
+  %.0.i.us = phi i32 [ %26, %24 ], [ %31, %27 ]
   %34 = icmp slt i32 %.0.i.us, 0
   br i1 %34, label %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.thread.us, label %.preheader
 
@@ -1714,7 +1714,7 @@ _ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.thread.us: ; preds = %_ZNK
   br label %_ZNK12LogSelection10similarityERKS_.exit26.i
 
 _ZNK12LogSelection10similarityERKS_.exit26.i:     ; preds = %._crit_edge.loopexit21.i24.i, %.preheader.lr.ph.i14.i
-  %.012.lcssa.i25.i = phi double [ %64, %._crit_edge.loopexit21.i24.i ], [ 0.000000e+00, %.preheader.lr.ph.i14.i ]
+  %.012.lcssa.i25.i = phi double [ 0.000000e+00, %.preheader.lr.ph.i14.i ], [ %64, %._crit_edge.loopexit21.i24.i ]
   %65 = add i64 %.pre.i1328.i, %15
   %66 = uitofp i64 %65 to double
   %67 = fdiv double %.012.lcssa.i25.i, %66
@@ -1741,13 +1741,13 @@ _ZNK12LogSelection10similarityERKS_.exit26.i:     ; preds = %._crit_edge.loopexi
   br label %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit
 
 _ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit: ; preds = %73, %76
-  %.0.i = phi i32 [ %80, %76 ], [ %75, %73 ]
+  %.0.i = phi i32 [ %75, %73 ], [ %80, %76 ]
   %81 = icmp slt i32 %.0.i, 0
   br i1 %81, label %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.thread, label %.preheader
 
 .preheader:                                       ; preds = %71, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit, %32, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.us
-  %.us-phi = phi i64 [ %.117.us, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.us ], [ %.117.us, %32 ], [ %.117, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit ], [ %.117, %71 ]
-  %.us-phi58 = phi ptr [ %18, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.us ], [ %18, %32 ], [ %36, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit ], [ %36, %71 ]
+  %.us-phi = phi i64 [ %.117.us, %32 ], [ %.117.us, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.us ], [ %.117, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit ], [ %.117, %71 ]
+  %.us-phi58 = phi ptr [ %18, %32 ], [ %18, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.us ], [ %36, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit ], [ %36, %71 ]
   br label %83
 
 _ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.thread: ; preds = %71, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit

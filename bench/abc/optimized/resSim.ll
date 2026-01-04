@@ -1815,9 +1815,9 @@ define void @Res_SimDeriveInfoReplicate(ptr noundef readonly captures(none) %0) 
   br label %._crit_edge27
 
 ._crit_edge27:                                    ; preds = %.preheader.lr.ph, %._crit_edge27.loopexit, %.lr.ph31.split
-  %.val.val = phi i32 [ %.val.val.pre, %._crit_edge27.loopexit ], [ %.val.val38, %.lr.ph31.split ], [ %.val.val38, %.preheader.lr.ph ]
-  %44 = phi i32 [ %40, %._crit_edge27.loopexit ], [ %17, %.lr.ph31.split ], [ %17, %.preheader.lr.ph ]
-  %45 = phi i32 [ %40, %._crit_edge27.loopexit ], [ %18, %.lr.ph31.split ], [ %18, %.preheader.lr.ph ]
+  %.val.val = phi i32 [ %.val.val38, %.lr.ph31.split ], [ %.val.val.pre, %._crit_edge27.loopexit ], [ %.val.val38, %.preheader.lr.ph ]
+  %44 = phi i32 [ %17, %.lr.ph31.split ], [ %40, %._crit_edge27.loopexit ], [ %17, %.preheader.lr.ph ]
+  %45 = phi i32 [ %18, %.lr.ph31.split ], [ %40, %._crit_edge27.loopexit ], [ %18, %.preheader.lr.ph ]
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %46 = sext i32 %.val.val to i64
   %47 = icmp slt i64 %indvars.iv.next36, %46
@@ -2046,7 +2046,7 @@ define void @Res_SimCountResults(ptr noundef readonly captures(none) %0, ptr nou
   br label %33
 
 33:                                               ; preds = %30, %.lr.ph
-  %.sink = phi ptr [ %1, %.lr.ph ], [ %., %30 ]
+  %.sink = phi ptr [ %., %30 ], [ %1, %.lr.ph ]
   %34 = load i32, ptr %.sink, align 4, !tbaa !59
   %35 = add nsw i32 %34, 1
   store i32 %35, ptr %.sink, align 4, !tbaa !59
@@ -2883,9 +2883,9 @@ Res_SimSetGiven.exit:                             ; preds = %122, %._crit_edge.i
   br label %._crit_edge27.i
 
 ._crit_edge27.i:                                  ; preds = %._crit_edge27.loopexit.i, %.preheader.lr.ph.i, %.lr.ph31.split.i
-  %.val.val.i = phi i32 [ %.val.val.pre.i, %._crit_edge27.loopexit.i ], [ %.val.val38.i, %.lr.ph31.split.i ], [ %.val.val38.i, %.preheader.lr.ph.i ]
-  %190 = phi i32 [ %186, %._crit_edge27.loopexit.i ], [ %163, %.lr.ph31.split.i ], [ %163, %.preheader.lr.ph.i ]
-  %191 = phi i32 [ %186, %._crit_edge27.loopexit.i ], [ %164, %.lr.ph31.split.i ], [ %164, %.preheader.lr.ph.i ]
+  %.val.val.i = phi i32 [ %.val.val38.i, %.lr.ph31.split.i ], [ %.val.val.pre.i, %._crit_edge27.loopexit.i ], [ %.val.val38.i, %.preheader.lr.ph.i ]
+  %190 = phi i32 [ %163, %.lr.ph31.split.i ], [ %186, %._crit_edge27.loopexit.i ], [ %163, %.preheader.lr.ph.i ]
+  %191 = phi i32 [ %164, %.lr.ph31.split.i ], [ %186, %._crit_edge27.loopexit.i ], [ %164, %.preheader.lr.ph.i ]
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %192 = sext i32 %.val.val.i to i64
   %193 = icmp slt i64 %indvars.iv.next36.i, %192
@@ -3071,7 +3071,7 @@ Res_SimDeriveInfoComplement.exit.sink.split:      ; preds = %26, %17
   br label %Res_SimDeriveInfoComplement.exit
 
 Res_SimDeriveInfoComplement.exit:                 ; preds = %._crit_edge.i124, %Res_SimDeriveInfoComplement.exit.sink.split, %.lr.ph35.i, %Res_SimSetGiven.exit119, %26, %17
-  %.053.shrunk = phi i32 [ 1, %17 ], [ 1, %26 ], [ 1, %Res_SimSetGiven.exit119 ], [ 1, %.lr.ph35.i ], [ %280, %Res_SimDeriveInfoComplement.exit.sink.split ], [ 1, %._crit_edge.i124 ]
+  %.053.shrunk = phi i32 [ 1, %.lr.ph35.i ], [ %280, %Res_SimDeriveInfoComplement.exit.sink.split ], [ 1, %17 ], [ 1, %26 ], [ 1, %Res_SimSetGiven.exit119 ], [ 1, %._crit_edge.i124 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

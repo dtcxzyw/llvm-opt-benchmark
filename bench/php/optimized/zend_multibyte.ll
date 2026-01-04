@@ -117,7 +117,7 @@ zend_multibyte_set_script_encoding_by_string.exit: ; preds = %19, %29, %zend_mul
   br label %33
 
 33:                                               ; preds = %16, %13, %10, %7, %1, %zend_multibyte_set_script_encoding_by_string.exit
-  %.0 = phi i32 [ 0, %zend_multibyte_set_script_encoding_by_string.exit ], [ -1, %1 ], [ -1, %7 ], [ -1, %10 ], [ -1, %13 ], [ -1, %16 ]
+  %.0 = phi i32 [ 0, %zend_multibyte_set_script_encoding_by_string.exit ], [ -1, %13 ], [ -1, %10 ], [ -1, %7 ], [ -1, %1 ], [ -1, %16 ]
   ret i32 %.0
 }
 
@@ -181,7 +181,7 @@ zend_multibyte_set_script_encoding.exit6:         ; preds = %17, %19
   br label %20
 
 20:                                               ; preds = %8, %zend_multibyte_set_script_encoding.exit6, %16, %zend_multibyte_set_script_encoding.exit
-  %.0 = phi i32 [ -1, %16 ], [ 0, %zend_multibyte_set_script_encoding.exit6 ], [ 0, %zend_multibyte_set_script_encoding.exit ], [ -1, %8 ]
+  %.0 = phi i32 [ 0, %zend_multibyte_set_script_encoding.exit6 ], [ -1, %16 ], [ 0, %zend_multibyte_set_script_encoding.exit ], [ -1, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

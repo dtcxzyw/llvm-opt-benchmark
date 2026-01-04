@@ -176,7 +176,7 @@ define internal i32 @srtp_write(ptr noundef readonly captures(none) %0, ptr noun
   br label %20
 
 20:                                               ; preds = %12, %16, %8
-  %.0 = phi i32 [ %19, %16 ], [ %11, %8 ], [ %14, %12 ]
+  %.0 = phi i32 [ %11, %8 ], [ %19, %16 ], [ %14, %12 ]
   ret i32 %.0
 }
 

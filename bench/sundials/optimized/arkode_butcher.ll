@@ -255,7 +255,7 @@ define noundef ptr @ARKodeButcherTable_Alloc(i32 noundef %0, i32 noundef %1) loc
   br label %37
 
 37:                                               ; preds = %4, %2, %35, %34, %29, %25, %22, %17
-  %.042 = phi ptr [ null, %17 ], [ null, %22 ], [ null, %25 ], [ null, %29 ], [ null, %34 ], [ %5, %35 ], [ null, %2 ], [ null, %4 ]
+  %.042 = phi ptr [ %5, %35 ], [ null, %2 ], [ null, %17 ], [ null, %22 ], [ null, %25 ], [ null, %29 ], [ null, %34 ], [ null, %4 ]
   ret ptr %.042
 }
 
@@ -429,7 +429,7 @@ define noundef ptr @ARKodeButcherTable_Create(i32 noundef %0, i32 noundef %1, i3
   br i1 %exitcond62.not, label %.loopexit, label %36
 
 .loopexit:                                        ; preds = %36, %._crit_edge50, %9, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %9 ], [ %11, %._crit_edge50 ], [ %11, %36 ]
+  %.0 = phi ptr [ null, %9 ], [ null, %7 ], [ %11, %._crit_edge50 ], [ %11, %36 ]
   ret ptr %.0
 }
 
@@ -530,7 +530,7 @@ define noundef ptr @ARKodeButcherTable_Copy(ptr noundef readonly captures(addres
   br i1 %exitcond63.not, label %.loopexit, label %48
 
 .loopexit:                                        ; preds = %48, %11, %._crit_edge51, %3, %1
-  %.0 = phi ptr [ null, %1 ], [ null, %3 ], [ %9, %._crit_edge51 ], [ %9, %11 ], [ %9, %48 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %1 ], [ %9, %._crit_edge51 ], [ %9, %11 ], [ %9, %48 ]
   ret ptr %.0
 }
 
@@ -2145,7 +2145,7 @@ thread-pre-split1078:                             ; preds = %arkode_butcher_rows
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.thread1087, %467, %463, %457, %451, %21, %._crit_edge, %10, %6, %4, %471
-  %.0702 = phi i32 [ 0, %471 ], [ -2, %4 ], [ -2, %6 ], [ -2, %10 ], [ -2, %._crit_edge ], [ -2, %21 ], [ -1, %451 ], [ -1, %457 ], [ 1, %463 ], [ 1, %467 ], [ 1, %.thread1087 ], [ -2, %.lr.ph ]
+  %.0702 = phi i32 [ 0, %471 ], [ -2, %4 ], [ -2, %6 ], [ -2, %10 ], [ 1, %.thread1087 ], [ -2, %._crit_edge ], [ -2, %21 ], [ -1, %451 ], [ -1, %457 ], [ 1, %463 ], [ 1, %467 ], [ -2, %.lr.ph ]
   ret i32 %.0702
 }
 
@@ -7311,7 +7311,7 @@ arkode_butcher_dot.exit:                          ; preds = %.preheader164
   br label %arkode_butcher_vp.exit
 
 arkode_butcher_vp.exit:                           ; preds = %35, %.loopexit, %.lr.ph.preheader, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %.loopexit ], [ %88, %.lr.ph.preheader ], [ 0, %35 ]
+  %.0 = phi i32 [ 0, %4 ], [ %88, %.lr.ph.preheader ], [ 0, %.loopexit ], [ 0, %35 ]
   tail call void @free(ptr noundef %6) #18
   ret i32 %.0
 }
@@ -7563,7 +7563,7 @@ arkode_butcher_order1.exit.thread:                ; preds = %arkode_butcher_orde
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %89, %76
-  %91 = phi i32 [ %.pr, %76 ], [ %.pr2561.pre, %89 ]
+  %91 = phi i32 [ %.pr2561.pre, %89 ], [ %.pr, %76 ]
   %92 = icmp eq i32 %91, 1
   br i1 %92, label %.preheader2940.preheader, label %thread-pre-split2563
 
@@ -10690,7 +10690,7 @@ arkode_butcher_order1.exit2396.thread:            ; preds = %arkode_butcher_orde
   br label %thread-pre-split2588
 
 thread-pre-split2588:                             ; preds = %1163, %1150
-  %1165 = phi i32 [ %.pr2583, %1150 ], [ %.pr2589.pre, %1163 ]
+  %1165 = phi i32 [ %.pr2589.pre, %1163 ], [ %.pr2583, %1150 ]
   %1166 = icmp eq i32 %1165, 1
   br i1 %1166, label %.preheader2780.preheader, label %thread-pre-split2591
 
@@ -13745,7 +13745,7 @@ thread-pre-split2603.thread:                      ; preds = %arkode_butcher_rows
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph2979, %.thread5026, %2226, %2220, %2213, %2209, %2204, %2200, %thread-pre-split2603.thread, %42, %._crit_edge2980, %31, %27, %22, %._crit_edge, %11, %7, %5, %2230
-  %.01701 = phi i32 [ 0, %2230 ], [ -1, %5 ], [ -1, %7 ], [ -1, %11 ], [ -1, %._crit_edge ], [ -1, %22 ], [ -1, %27 ], [ -1, %31 ], [ -1, %._crit_edge2980 ], [ -1, %42 ], [ 1, %thread-pre-split2603.thread ], [ 1, %2200 ], [ 1, %2204 ], [ 1, %2209 ], [ 1, %2213 ], [ 1, %2220 ], [ 1, %2226 ], [ 1, %.thread5026 ], [ -1, %.lr.ph2979 ], [ -1, %.lr.ph ]
+  %.01701 = phi i32 [ 0, %2230 ], [ -1, %5 ], [ -1, %7 ], [ -1, %11 ], [ 1, %.thread5026 ], [ -1, %._crit_edge ], [ -1, %22 ], [ 1, %2226 ], [ -1, %27 ], [ -1, %31 ], [ 1, %2213 ], [ -1, %._crit_edge2980 ], [ -1, %42 ], [ 1, %2220 ], [ 1, %thread-pre-split2603.thread ], [ 1, %2200 ], [ 1, %2204 ], [ 1, %2209 ], [ -1, %.lr.ph2979 ], [ -1, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.38)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.05555)

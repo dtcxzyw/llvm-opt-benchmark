@@ -281,7 +281,7 @@ define dso_local { i64, ptr } @_ZN4absl23FindLongestCommonPrefixESt17basic_strin
   br label %42
 
 42:                                               ; preds = %33, %24, %14, %15, %.thread, %37
-  %.sroa.071.2 = phi i64 [ %41, %37 ], [ %28, %24 ], [ %spec.select, %.thread ], [ %.sroa.speculated, %14 ], [ %spec.select60, %15 ], [ %.sroa.speculated, %33 ]
+  %.sroa.071.2 = phi i64 [ %28, %24 ], [ %spec.select, %.thread ], [ %spec.select60, %15 ], [ %41, %37 ], [ %.sroa.speculated, %14 ], [ %.sroa.speculated, %33 ]
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.071.2, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %1, 1
   ret { i64, ptr } %.fca.1.insert

@@ -552,8 +552,8 @@ _ZN10serde_json5error5Error8classify17h110cf38616d4c2e1E.exit: ; preds = %6
   br label %.critedge
 
 .critedge14:                                      ; preds = %19, %11
-  %eh.lpad-body.ph.pn = phi { ptr, i32 } [ %12, %11 ], [ %20, %19 ]
-  resume { ptr, i32 } %eh.lpad-body.ph.pn
+  %lpad.thr_comm.pn = phi { ptr, i32 } [ %20, %19 ], [ %12, %11 ]
+  resume { ptr, i32 } %lpad.thr_comm.pn
 }
 
 ; Function Attrs: nonlazybind uwtable

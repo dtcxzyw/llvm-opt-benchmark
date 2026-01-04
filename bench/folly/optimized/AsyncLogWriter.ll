@@ -576,13 +576,13 @@ _ZN5folly8FunctionIFvvEED2Ev.exit25:              ; preds = %_ZN5folly8FunctionI
   br label %.body
 
 .body:                                            ; preds = %70, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i, %46
-  %.pn = phi { ptr, i32 } [ %71, %70 ], [ %47, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i ], [ %47, %46 ]
+  %.pn = phi { ptr, i32 } [ %47, %46 ], [ %71, %70 ], [ %47, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %72 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %31) #23
   br label %_ZN5folly8FunctionIFbvEED2Ev.exit27
 
 _ZN5folly8FunctionIFbvEED2Ev.exit27:              ; preds = %68, %.body, %66, %_ZN5folly8FunctionIFvvEED2Ev.exit25
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %58, %_ZN5folly8FunctionIFvvEED2Ev.exit25 ], [ %58, %66 ], [ %.pn, %.body ], [ %69, %68 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %58, %66 ], [ %58, %_ZN5folly8FunctionIFvvEED2Ev.exit25 ], [ %.pn, %.body ], [ %69, %68 ]
   %73 = load i8, ptr %14, align 8, !tbaa !51, !range !54, !noundef !55
   %74 = trunc nuw i8 %73 to i1
   br i1 %74, label %75, label %_ZN5folly9LockedPtrINS_12SynchronizedINS_14AsyncLogWriter4DataESt5mutexEENS_6detail22SynchronizedLockPolicyILNS6_22SynchronizedMutexLevelE1ELNS6_23SynchronizedMutexMethodE0EEEED2Ev.exit34
@@ -2192,7 +2192,7 @@ _ZN5folly9LockedPtrINS_12SynchronizedINS_14AsyncLogWriter4DataESt5mutexEENS_6det
   br label %.body
 
 .body:                                            ; preds = %36, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i, %22
-  %.pn = phi { ptr, i32 } [ %37, %36 ], [ %23, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i ], [ %23, %22 ]
+  %.pn = phi { ptr, i32 } [ %23, %22 ], [ %37, %36 ], [ %23, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %38 = trunc nuw i8 %7 to i1
   br i1 %38, label %39, label %_ZN5folly9LockedPtrINS_12SynchronizedINS_14AsyncLogWriter4DataESt5mutexEENS_6detail22SynchronizedLockPolicyILNS6_22SynchronizedMutexLevelE1ELNS6_23SynchronizedMutexMethodE0EEEED2Ev.exit20

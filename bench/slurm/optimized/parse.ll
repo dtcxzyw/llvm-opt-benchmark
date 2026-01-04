@@ -681,7 +681,7 @@ _parse_range.exit.thread:                         ; preds = %195
   br label %_parse_range.exit
 
 313:                                              ; preds = %309, %307, %305, %303, %301, %299, %297, %295, %293, %291, %289, %287
-  %.sink276 = phi i64 [ 1, %287 ], [ 2, %289 ], [ 3, %291 ], [ 4, %293 ], [ 5, %295 ], [ 6, %297 ], [ 7, %299 ], [ 8, %301 ], [ 9, %303 ], [ 10, %305 ], [ 11, %307 ], [ 12, %309 ]
+  %.sink276 = phi i64 [ 1, %287 ], [ 3, %291 ], [ 5, %295 ], [ 7, %299 ], [ 9, %303 ], [ 11, %307 ], [ 10, %305 ], [ 8, %301 ], [ 6, %297 ], [ 4, %293 ], [ 2, %289 ], [ 12, %309 ]
   %314 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %315 = load ptr, ptr %314, align 8
   tail call void @bit_set(ptr noundef %315, i64 noundef %.sink276) #8
@@ -801,7 +801,7 @@ _parse_range.exit.thread:                         ; preds = %195
   br label %_parse_range.exit
 
 365:                                              ; preds = %361, %359, %357, %355, %353, %351, %349
-  %.sink278 = phi i64 [ 1, %349 ], [ 2, %351 ], [ 3, %353 ], [ 4, %355 ], [ 5, %357 ], [ 6, %359 ], [ 7, %361 ]
+  %.sink278 = phi i64 [ 1, %349 ], [ 3, %353 ], [ 5, %357 ], [ 6, %359 ], [ 4, %355 ], [ 2, %351 ], [ 7, %361 ]
   %366 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %367 = load ptr, ptr %366, align 8
   tail call void @bit_set(ptr noundef %367, i64 noundef %.sink278) #8
@@ -1002,7 +1002,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_step(ptr noundef %0, i32 no
   br label %33
 
 33:                                               ; preds = %._crit_edge, %32, %3, %17
-  %.016 = phi i32 [ -1, %17 ], [ 0, %3 ], [ 0, %32 ], [ 0, %._crit_edge ]
+  %.016 = phi i32 [ 0, %3 ], [ -1, %17 ], [ 0, %32 ], [ 0, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.016

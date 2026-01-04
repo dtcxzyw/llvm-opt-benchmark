@@ -233,7 +233,7 @@ define internal fastcc range(i32 0, 2) i32 @init_thread_deregister(ptr noundef r
   br label %.thread
 
 .thread:                                          ; preds = %23, %22, %53, %55, %11, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %11 ], [ 1, %55 ], [ 1, %53 ], [ 0, %22 ], [ 0, %23 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %23 ], [ 0, %11 ], [ 1, %55 ], [ 1, %53 ], [ 0, %22 ]
   ret i32 %.0
 }
 
@@ -548,7 +548,7 @@ init_thread_push_handlers.exit.thread.i:          ; preds = %init_thread_push_ha
   br label %init_get_thread_local.exit.thread
 
 init_get_thread_local.exit:                       ; preds = %init_thread_push_handlers.exit.i, %3
-  %.012.i = phi ptr [ %7, %init_thread_push_handlers.exit.i ], [ %4, %3 ]
+  %.012.i = phi ptr [ %4, %3 ], [ %7, %init_thread_push_handlers.exit.i ]
   %29 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 32, ptr noundef nonnull @.str, i32 noundef 408) #2
   %30 = icmp eq ptr %29, null
   br i1 %30, label %init_get_thread_local.exit.thread, label %31
@@ -565,8 +565,8 @@ init_get_thread_local.exit:                       ; preds = %init_thread_push_ha
   store ptr %29, ptr %.012.i, align 8, !tbaa !9
   br label %init_get_thread_local.exit.thread
 
-init_get_thread_local.exit.thread:                ; preds = %6, %11, %init_thread_push_handlers.exit.thread.i, %init_get_thread_local.exit, %31
-  %.0 = phi i32 [ 1, %31 ], [ 0, %init_get_thread_local.exit ], [ 0, %init_thread_push_handlers.exit.thread.i ], [ 0, %11 ], [ 0, %6 ]
+init_get_thread_local.exit.thread:                ; preds = %init_thread_push_handlers.exit.thread.i, %6, %11, %init_get_thread_local.exit, %31
+  %.0 = phi i32 [ 1, %31 ], [ 0, %init_get_thread_local.exit ], [ 0, %11 ], [ 0, %6 ], [ 0, %init_thread_push_handlers.exit.thread.i ]
   ret i32 %.0
 }
 
@@ -623,7 +623,7 @@ define internal void @create_global_tevent_register_ossl_() #0 {
   br label %create_global_tevent_register.exit
 
 create_global_tevent_register.exit:               ; preds = %0, %3, %12
-  %.0.i = phi i32 [ 0, %12 ], [ 0, %0 ], [ 1, %3 ]
+  %.0.i = phi i32 [ 0, %0 ], [ 0, %12 ], [ 1, %3 ]
   store i32 %.0.i, ptr @create_global_tevent_register_ossl_ret_, align 4, !tbaa !25
   ret void
 }

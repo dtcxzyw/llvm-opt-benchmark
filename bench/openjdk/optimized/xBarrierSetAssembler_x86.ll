@@ -725,8 +725,8 @@ define hidden void @_ZNK20XBarrierSetAssembler29generate_c1_load_barrier_stubEP1
   br label %_ZN7LIR_Opr19as_pointer_registerEv.exit
 
 _ZN7LIR_Opr19as_pointer_registerEv.exit:          ; preds = %36, %34, %23, %21
-  %.sroa.052.0 = phi i32 [ %22, %21 ], [ %24, %23 ], [ -1, %34 ], [ -1, %36 ]
-  %.sroa.022.0 = phi i32 [ %22, %21 ], [ %24, %23 ], [ %35, %34 ], [ %37, %36 ]
+  %.sroa.052.0 = phi i32 [ %24, %23 ], [ %22, %21 ], [ -1, %34 ], [ -1, %36 ]
+  %.sroa.022.0 = phi i32 [ %24, %23 ], [ %22, %21 ], [ %35, %34 ], [ %37, %36 ]
   %.not61 = icmp eq i32 %12, 0
   %.not = icmp eq i32 %.sroa.052.0, 0
   %or.cond = select i1 %.not61, i1 true, i1 %.not
@@ -2435,9 +2435,9 @@ _ZN15RegMaskIteratorC2ERK7RegMask.exit:           ; preds = %474
   br label %_ZN15RegMaskIterator4nextEv.exit
 
 _ZN15RegMaskIterator4nextEv.exit:                 ; preds = %.preheader.i, %496, %507
-  %.sroa.0119.4 = phi i64 [ %511, %507 ], [ %500, %496 ], [ 0, %.preheader.i ]
-  %.sroa.7.4 = phi i32 [ %503, %507 ], [ %.sroa.7.0143, %496 ], [ %.sroa.7.3, %.preheader.i ]
-  %.sink.i = phi i32 [ %514, %507 ], [ %501, %496 ], [ -1, %.preheader.i ]
+  %.sroa.0119.4 = phi i64 [ %500, %496 ], [ %511, %507 ], [ 0, %.preheader.i ]
+  %.sroa.7.4 = phi i32 [ %.sroa.7.0143, %496 ], [ %503, %507 ], [ %.sroa.7.3, %.preheader.i ]
+  %.sink.i = phi i32 [ %501, %496 ], [ %514, %507 ], [ -1, %.preheader.i ]
   %515 = icmp slt i32 %.sroa.11.0144, 616
   br i1 %515, label %516, label %_ZN7OptoReg8as_VMRegEi.exit
 
@@ -2676,9 +2676,9 @@ _ZNK17GrowableArrayViewIN18XSaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit
   unreachable
 
 _ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit: ; preds = %564, %_ZN26GrowableArrayWithAllocatorI9KRegister13GrowableArrayIS0_EE6appendERKS0_.exit, %_ZN26GrowableArrayWithAllocatorIN18XSaveLiveRegisters15XMMRegisterDataE13GrowableArrayIS1_EE6appendERKS1_.exit, %632, %_ZNK17GrowableArrayViewIN18XSaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit, %526, %_ZN26GrowableArrayWithAllocatorI8Register13GrowableArrayIS0_EE6appendERKS0_.exit
-  %.134 = phi i32 [ %.033145, %_ZN26GrowableArrayWithAllocatorI8Register13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %.033145, %526 ], [ %.033145, %_ZN26GrowableArrayWithAllocatorI9KRegister13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %626, %_ZN26GrowableArrayWithAllocatorIN18XSaveLiveRegisters15XMMRegisterDataE13GrowableArrayIS1_EE6appendERKS1_.exit ], [ %634, %632 ], [ %.033145, %_ZNK17GrowableArrayViewIN18XSaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit ], [ %.033145, %564 ]
-  %.132 = phi i32 [ %.031146, %_ZN26GrowableArrayWithAllocatorI8Register13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %.031146, %526 ], [ %583, %_ZN26GrowableArrayWithAllocatorI9KRegister13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %.031146, %_ZN26GrowableArrayWithAllocatorIN18XSaveLiveRegisters15XMMRegisterDataE13GrowableArrayIS1_EE6appendERKS1_.exit ], [ %.031146, %632 ], [ %.031146, %_ZNK17GrowableArrayViewIN18XSaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit ], [ %.031146, %564 ]
-  %.1 = phi i32 [ %553, %_ZN26GrowableArrayWithAllocatorI8Register13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %.0147, %526 ], [ %.0147, %_ZN26GrowableArrayWithAllocatorI9KRegister13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %.0147, %_ZN26GrowableArrayWithAllocatorIN18XSaveLiveRegisters15XMMRegisterDataE13GrowableArrayIS1_EE6appendERKS1_.exit ], [ %.0147, %632 ], [ %.0147, %_ZNK17GrowableArrayViewIN18XSaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit ], [ %.0147, %564 ]
+  %.134 = phi i32 [ %.033145, %_ZN26GrowableArrayWithAllocatorI8Register13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %.033145, %526 ], [ %.033145, %_ZN26GrowableArrayWithAllocatorI9KRegister13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %.033145, %_ZNK17GrowableArrayViewIN18XSaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit ], [ %626, %_ZN26GrowableArrayWithAllocatorIN18XSaveLiveRegisters15XMMRegisterDataE13GrowableArrayIS1_EE6appendERKS1_.exit ], [ %634, %632 ], [ %.033145, %564 ]
+  %.132 = phi i32 [ %.031146, %_ZN26GrowableArrayWithAllocatorI8Register13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %.031146, %526 ], [ %583, %_ZN26GrowableArrayWithAllocatorI9KRegister13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %.031146, %_ZNK17GrowableArrayViewIN18XSaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit ], [ %.031146, %_ZN26GrowableArrayWithAllocatorIN18XSaveLiveRegisters15XMMRegisterDataE13GrowableArrayIS1_EE6appendERKS1_.exit ], [ %.031146, %632 ], [ %.031146, %564 ]
+  %.1 = phi i32 [ %553, %_ZN26GrowableArrayWithAllocatorI8Register13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %.0147, %526 ], [ %.0147, %_ZN26GrowableArrayWithAllocatorI9KRegister13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %.0147, %_ZNK17GrowableArrayViewIN18XSaveLiveRegisters15XMMRegisterDataEE4findERKS1_.exit ], [ %.0147, %_ZN26GrowableArrayWithAllocatorIN18XSaveLiveRegisters15XMMRegisterDataE13GrowableArrayIS1_EE6appendERKS1_.exit ], [ %.0147, %632 ], [ %.0147, %564 ]
   %.not = icmp eq i32 %.sink.i, -1
   br i1 %.not, label %._crit_edge.loopexit, label %495, !llvm.loop !17
 

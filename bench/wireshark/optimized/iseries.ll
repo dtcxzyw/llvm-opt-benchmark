@@ -170,7 +170,7 @@ define hidden range(i32 -1, 2) i32 @iseries_open(ptr noundef %0, ptr noundef %1,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %33, %45, %42, %36, %21, %18, %12, %7, %56, %32
-  %.040 = phi i32 [ 1, %32 ], [ 1, %56 ], [ %., %7 ], [ -1, %12 ], [ %.42, %18 ], [ -1, %21 ], [ -1, %36 ], [ %.43, %42 ], [ -1, %45 ], [ 0, %33 ]
+  %.040 = phi i32 [ %., %7 ], [ -1, %45 ], [ 1, %32 ], [ %.42, %18 ], [ -1, %12 ], [ -1, %21 ], [ -1, %36 ], [ 1, %56 ], [ %.43, %42 ], [ 0, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.040
 }
@@ -911,7 +911,7 @@ iseries_UNICODE_to_ASCII.exit148:                 ; preds = %158, %.thread.i140
   br i1 %194, label %.loopexit1, label %.backedge
 
 .backedge:                                        ; preds = %190, %199, %204
-  %.0.be = phi i32 [ %193, %190 ], [ %202, %199 ], [ %208, %204 ]
+  %.0.be = phi i32 [ %208, %204 ], [ %193, %190 ], [ %202, %199 ]
   %195 = call ptr @file_gets(ptr noundef nonnull %15, i32 noundef 270, ptr noundef %0)
   %196 = icmp eq ptr %195, null
   br i1 %196, label %.lr.ph._crit_edge, label %.lr.ph60
@@ -1053,7 +1053,7 @@ define internal fastcc range(i32 1, 100000001) i32 @csec_multiplier(i32 noundef 
   br label %17
 
 17:                                               ; preds = %15, %13, %11, %9, %7, %5, %3, %1
-  %.0 = phi i32 [ 100000000, %1 ], [ 10000000, %3 ], [ 1000000, %5 ], [ 100000, %7 ], [ 10000, %9 ], [ 1000, %11 ], [ 100, %13 ], [ %., %15 ]
+  %.0 = phi i32 [ 100, %13 ], [ 100000000, %1 ], [ 10000000, %3 ], [ 1000000, %5 ], [ 100000, %7 ], [ 10000, %9 ], [ 1000, %11 ], [ %., %15 ]
   ret i32 %.0
 }
 
@@ -1133,7 +1133,7 @@ define internal fastcc i32 @append_hex_digits(ptr noundef writeonly captures(non
   br label %.loopexit49
 
 .loopexit49:                                      ; preds = %11, %29, %.loopexit49.sink.split
-  %.038 = phi i32 [ -1, %.loopexit49.sink.split ], [ %.14059, %29 ], [ %1, %11 ]
+  %.038 = phi i32 [ %.14059, %29 ], [ -1, %.loopexit49.sink.split ], [ %1, %11 ]
   ret i32 %.038
 }
 

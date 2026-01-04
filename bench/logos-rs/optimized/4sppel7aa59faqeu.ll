@@ -95,7 +95,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %8, %18, %19
-  %.sink = phi i64 [ 184, %8 ], [ 24, %18 ], [ 48, %19 ], [ 8, %tailrecurse ], [ 8, %tailrecurse ], [ 8, %tailrecurse ]
+  %.sink = phi i64 [ 184, %8 ], [ 8, %tailrecurse ], [ 8, %tailrecurse ], [ 24, %18 ], [ 48, %19 ], [ 8, %tailrecurse ]
   %9 = getelementptr inbounds nuw i8, ptr %.tr, i64 %.sink
   %.tr.be = load ptr, ptr %9, align 8
   br label %tailrecurse
@@ -212,7 +212,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %8, %18, %19
-  %.sink = phi i64 [ 184, %8 ], [ 24, %18 ], [ 48, %19 ], [ 8, %tailrecurse ], [ 8, %tailrecurse ], [ 8, %tailrecurse ]
+  %.sink = phi i64 [ 184, %8 ], [ 8, %tailrecurse ], [ 8, %tailrecurse ], [ 24, %18 ], [ 48, %19 ], [ 8, %tailrecurse ]
   %9 = getelementptr inbounds nuw i8, ptr %.tr, i64 %.sink
   %.tr.be = load ptr, ptr %9, align 8
   br label %tailrecurse

@@ -1953,7 +1953,7 @@ _ZN4core3cmp10PartialOrd2lt17hcd90cb87bc72222eE.exit: ; preds = %49, %.noexc45
   br label %_ZN4core3cmp10PartialOrd2lt17hcd90cb87bc72222eE.exit.thread
 
 _ZN4core3cmp10PartialOrd2lt17hcd90cb87bc72222eE.exit.thread: ; preds = %66, %.noexc50, %_ZN4core3cmp10PartialOrd2lt17hcd90cb87bc72222eE.exit, %._crit_edge, %.noexc45, %49
-  %.0.in.in89.lcssa105.sink = phi i64 [ %.0.lcssa, %_ZN4core3cmp10PartialOrd2lt17hcd90cb87bc72222eE.exit ], [ %.0.in.in.lcssa, %._crit_edge ], [ %.0.in.in.lcssa, %.noexc45 ], [ %.0.in.in.lcssa, %49 ], [ %.0.in.in89, %.noexc50 ], [ %.0.in.in89, %66 ]
+  %.0.in.in89.lcssa105.sink = phi i64 [ %.0.in.in.lcssa, %.noexc45 ], [ %.0.in.in.lcssa, %49 ], [ %.0.lcssa, %_ZN4core3cmp10PartialOrd2lt17hcd90cb87bc72222eE.exit ], [ %.0.in.in.lcssa, %._crit_edge ], [ %.0.in.in89, %.noexc50 ], [ %.0.in.in89, %66 ]
   %51 = getelementptr inbounds { ptr, i64 }, ptr %5, i64 %.0.in.in89.lcssa105.sink
   store ptr %10, ptr %51, align 8
   %.sroa.22.16..sroa_idx64 = getelementptr inbounds nuw i8, ptr %51, i64 8
@@ -2172,7 +2172,7 @@ _ZN4core3cmp10PartialOrd2lt17h6ca173b1ee1b1efeE.exit: ; preds = %64, %.noexc51
   br label %_ZN4core3cmp10PartialOrd2lt17h6ca173b1ee1b1efeE.exit.thread
 
 _ZN4core3cmp10PartialOrd2lt17h6ca173b1ee1b1efeE.exit.thread: ; preds = %87, %.noexc60, %_ZN4core3cmp10PartialOrd2lt17h6ca173b1ee1b1efeE.exit, %._crit_edge, %.noexc51, %64
-  %.0.in.in112.lcssa138.sink = phi i64 [ %.0.lcssa, %_ZN4core3cmp10PartialOrd2lt17h6ca173b1ee1b1efeE.exit ], [ %.0.in.in.lcssa, %._crit_edge ], [ %.0.in.in.lcssa, %.noexc51 ], [ %.0.in.in.lcssa, %64 ], [ %.0.in.in112, %.noexc60 ], [ %.0.in.in112, %87 ]
+  %.0.in.in112.lcssa138.sink = phi i64 [ %.0.in.in.lcssa, %.noexc51 ], [ %.0.in.in.lcssa, %64 ], [ %.0.lcssa, %_ZN4core3cmp10PartialOrd2lt17h6ca173b1ee1b1efeE.exit ], [ %.0.in.in.lcssa, %._crit_edge ], [ %.0.in.in112, %.noexc60 ], [ %.0.in.in112, %87 ]
   %66 = getelementptr inbounds { ptr, i64 }, ptr %5, i64 %.0.in.in112.lcssa138.sink
   store ptr %10, ptr %66, align 8
   %.sroa.22.16..sroa_idx74 = getelementptr inbounds nuw i8, ptr %66, i64 8
@@ -2247,7 +2247,7 @@ _ZN4core3cmp10PartialOrd2ge17hc6ad89e46fd5fc6cE.exit: ; preds = %87, %.noexc60
   br label %89
 
 .loopexit.split-lp:                               ; preds = %.invoke161, %.invoke, %"_ZN112_$LT$mini_lsm..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$3key17haccce7939794add4E.exit15.i.i44"
-  %.0.in.in108 = phi i64 [ %.0.in.in.lcssa, %"_ZN112_$LT$mini_lsm..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$3key17haccce7939794add4E.exit15.i.i44" ], [ %.0.in.in.lcssa, %.invoke ], [ %.0.in.in112, %.invoke161 ]
+  %.0.in.in108 = phi i64 [ %.0.in.in112, %.invoke161 ], [ %.0.in.in.lcssa, %.invoke ], [ %.0.in.in.lcssa, %"_ZN112_$LT$mini_lsm..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$3key17haccce7939794add4E.exit15.i.i44" ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %89
@@ -2376,7 +2376,7 @@ _ZN4core3cmp10PartialOrd2lt17h1457feddb87eeeadE.exit: ; preds = %49, %.noexc45
   br label %_ZN4core3cmp10PartialOrd2lt17h1457feddb87eeeadE.exit.thread
 
 _ZN4core3cmp10PartialOrd2lt17h1457feddb87eeeadE.exit.thread: ; preds = %66, %.noexc50, %_ZN4core3cmp10PartialOrd2lt17h1457feddb87eeeadE.exit, %._crit_edge, %.noexc45, %49
-  %.0.in.in89.lcssa105.sink = phi i64 [ %.0.lcssa, %_ZN4core3cmp10PartialOrd2lt17h1457feddb87eeeadE.exit ], [ %.0.in.in.lcssa, %._crit_edge ], [ %.0.in.in.lcssa, %.noexc45 ], [ %.0.in.in.lcssa, %49 ], [ %.0.in.in89, %.noexc50 ], [ %.0.in.in89, %66 ]
+  %.0.in.in89.lcssa105.sink = phi i64 [ %.0.in.in.lcssa, %.noexc45 ], [ %.0.in.in.lcssa, %49 ], [ %.0.lcssa, %_ZN4core3cmp10PartialOrd2lt17h1457feddb87eeeadE.exit ], [ %.0.in.in.lcssa, %._crit_edge ], [ %.0.in.in89, %.noexc50 ], [ %.0.in.in89, %66 ]
   %51 = getelementptr inbounds { ptr, i64 }, ptr %5, i64 %.0.in.in89.lcssa105.sink
   store ptr %10, ptr %51, align 8
   %.sroa.22.16..sroa_idx64 = getelementptr inbounds nuw i8, ptr %51, i64 8
@@ -4155,7 +4155,7 @@ define hidden void @"_ZN8mini_lsm9iterators14merge_iterator22MergeIterator$LT$I$
   br label %47
 
 .body47:                                          ; preds = %92, %60, %100
-  %.pn = phi { ptr, i32 } [ %101, %100 ], [ %93, %92 ], [ %61, %60 ]
+  %.pn = phi { ptr, i32 } [ %61, %60 ], [ %101, %100 ], [ %93, %92 ]
   invoke void @"_ZN4core3ptr207drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$alloc..vec..into_iter..IntoIter$LT$alloc..boxed..Box$LT$mini_lsm..mem_table..ouroboros_impl_mem_table_iterator..MemTableIterator$GT$$GT$$GT$$GT$17h3cf7e10f21cc606bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %7) #25
           to label %.thread61 unwind label %102
 
@@ -4454,7 +4454,7 @@ default.unreachable.i.i.i:                        ; preds = %.noexc.i.i
   unreachable
 
 common.resume:                                    ; preds = %137, %117, %.thread61, %127
-  %common.resume.op = phi { ptr, i32 } [ %128, %127 ], [ %.pn4065, %.thread61 ], [ %118, %117 ], [ %105, %137 ]
+  %common.resume.op = phi { ptr, i32 } [ %128, %127 ], [ %.pn4065, %.thread61 ], [ %105, %137 ], [ %118, %117 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr141drop_in_place$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$mini_lsm..mem_table..ouroboros_impl_mem_table_iterator..MemTableIterator$GT$$GT$$GT$17h9c39ec074584571eE.exit55": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he21387efbf9eacfcE.llvm.1597650999041595525.exit.i53", %131
@@ -4466,7 +4466,7 @@ common.resume:                                    ; preds = %137, %117, %.thread
           to label %common.resume unwind label %102
 
 .thread61:                                        ; preds = %32, %.body47, %.thread75
-  %.pn4065 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread75 ], [ %.pn, %.body47 ], [ %33, %32 ]
+  %.pn4065 = phi { ptr, i32 } [ %.pn, %.body47 ], [ %lpad.thr_comm, %.thread75 ], [ %33, %32 ]
   invoke void @"_ZN4core3ptr200drop_in_place$LT$alloc..collections..binary_heap..BinaryHeap$LT$mini_lsm..iterators..merge_iterator..HeapWrapper$LT$mini_lsm..mem_table..ouroboros_impl_mem_table_iterator..MemTableIterator$GT$$GT$$GT$17h94b81af03825a5a9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #25
           to label %common.resume unwind label %102
 }
@@ -4549,7 +4549,7 @@ define hidden void @"_ZN8mini_lsm9iterators14merge_iterator22MergeIterator$LT$I$
   br label %36
 
 .body46:                                          ; preds = %81, %49, %100
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body.i, %100 ], [ %82, %81 ], [ %50, %49 ]
+  %.pn = phi { ptr, i32 } [ %50, %49 ], [ %eh.lpad-body.i, %100 ], [ %82, %81 ]
   invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he18e7cda2e4b88d7E.llvm.1597650999041595525"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4)
           to label %.thread53 unwind label %101
 
@@ -4914,7 +4914,7 @@ define hidden void @"_ZN8mini_lsm9iterators14merge_iterator22MergeIterator$LT$I$
   br label %39
 
 .body49:                                          ; preds = %68, %.body46, %81, %83
-  %.pn = phi { ptr, i32 } [ %84, %83 ], [ %62, %.body46 ], [ %82, %81 ], [ %69, %68 ]
+  %.pn = phi { ptr, i32 } [ %62, %.body46 ], [ %84, %83 ], [ %69, %68 ], [ %82, %81 ]
   invoke void @"_ZN4core3ptr190drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$alloc..vec..into_iter..IntoIter$LT$alloc..boxed..Box$LT$mini_lsm..iterators..concat_iterator..SstConcatIterator$GT$$GT$$GT$$GT$17h15870b898bd6fa0bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %7) #25
           to label %.thread66 unwind label %85
 
@@ -5177,7 +5177,7 @@ define hidden void @"_ZN8mini_lsm9iterators14merge_iterator22MergeIterator$LT$I$
   unreachable
 
 common.resume:                                    ; preds = %.thread82, %121, %100, %120, %110
-  %common.resume.op = phi { ptr, i32 } [ %111, %110 ], [ %.pn4073, %121 ], [ %.pn4073, %.thread82 ], [ %88, %120 ], [ %101, %100 ]
+  %common.resume.op = phi { ptr, i32 } [ %111, %110 ], [ %.pn4073, %.thread82 ], [ %.pn4073, %121 ], [ %88, %120 ], [ %101, %100 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr124drop_in_place$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$mini_lsm..iterators..concat_iterator..SstConcatIterator$GT$$GT$$GT$17hf3a5651a0e4bdddcE.exit60": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb9d99020e6639e83E.llvm.1597650999041595525.exit.i58", %114
@@ -5192,8 +5192,8 @@ common.resume:                                    ; preds = %.thread82, %121, %1
   br i1 %.271, label %121, label %common.resume
 
 .thread66:                                        ; preds = %34, %.body49, %.thread86
-  %.pn4073 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread86 ], [ %.pn, %.body49 ], [ %35, %34 ]
-  %.271 = phi i1 [ %or.cond.i.i.i142, %.thread86 ], [ false, %.body49 ], [ false, %34 ]
+  %.pn4073 = phi { ptr, i32 } [ %.pn, %.body49 ], [ %lpad.thr_comm, %.thread86 ], [ %35, %34 ]
+  %.271 = phi i1 [ false, %.body49 ], [ %or.cond.i.i.i142, %.thread86 ], [ false, %34 ]
   invoke void @"_ZN4core3ptr183drop_in_place$LT$alloc..collections..binary_heap..BinaryHeap$LT$mini_lsm..iterators..merge_iterator..HeapWrapper$LT$mini_lsm..iterators..concat_iterator..SstConcatIterator$GT$$GT$$GT$17h5acf3516a0c55c03E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #25
           to label %.thread82 unwind label %85
 
@@ -5636,7 +5636,7 @@ define hidden noalias noundef ptr @"_ZN116_$LT$mini_lsm..iterators..merge_iterat
   br label %"_ZN4core3ptr197drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$mini_lsm..iterators..merge_iterator..HeapWrapper$LT$mini_lsm..mem_table..ouroboros_impl_mem_table_iterator..MemTableIterator$GT$$GT$$GT$17hecce0df2b025891dE.exit94"
 
 common.resume:                                    ; preds = %.body107, %73, %81, %80, %.body.i.i99
-  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i.i100, %.body.i.i99 ], [ %eh.lpad-body108, %.body107 ], [ %74, %73 ], [ %eh.lpad-body162, %81 ], [ %eh.lpad-body162, %80 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body162, %80 ], [ %eh.lpad-body.i.i100, %.body.i.i99 ], [ %74, %73 ], [ %eh.lpad-body108, %.body107 ], [ %eh.lpad-body162, %81 ]
   resume { ptr, i32 } %common.resume.op
 
 80:                                               ; preds = %.thread167, %.thread157
@@ -5995,7 +5995,7 @@ define hidden noundef ptr @"_ZN116_$LT$mini_lsm..iterators..merge_iterator..Merg
   br label %"_ZN112_$LT$mini_lsm..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$4next17h8dcb07b0e0f7269fE.exit103.thread"
 
 "_ZN112_$LT$mini_lsm..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$4next17h8dcb07b0e0f7269fE.exit103.thread": ; preds = %.thread189, %93, %"_ZN112_$LT$mini_lsm..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$3key17haccce7939794add4E.exit15.i", %122, %124, %128, %95, %83, %"_ZN112_$LT$mini_lsm..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$4next17h8dcb07b0e0f7269fE.exit103", %"_ZN4core3ptr132drop_in_place$LT$mini_lsm..iterators..merge_iterator..HeapWrapper$LT$mini_lsm..iterators..concat_iterator..SstConcatIterator$GT$$GT$17hf9604bec28533db6E.exit"
-  %.0 = phi ptr [ %43, %"_ZN4core3ptr132drop_in_place$LT$mini_lsm..iterators..merge_iterator..HeapWrapper$LT$mini_lsm..iterators..concat_iterator..SstConcatIterator$GT$$GT$17hf9604bec28533db6E.exit" ], [ %86, %"_ZN112_$LT$mini_lsm..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$4next17h8dcb07b0e0f7269fE.exit103" ], [ %84, %83 ], [ null, %95 ], [ null, %128 ], [ null, %124 ], [ null, %122 ], [ null, %"_ZN112_$LT$mini_lsm..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$3key17haccce7939794add4E.exit15.i" ], [ null, %93 ], [ null, %.thread189 ]
+  %.0 = phi ptr [ %43, %"_ZN4core3ptr132drop_in_place$LT$mini_lsm..iterators..merge_iterator..HeapWrapper$LT$mini_lsm..iterators..concat_iterator..SstConcatIterator$GT$$GT$17hf9604bec28533db6E.exit" ], [ %84, %83 ], [ null, %"_ZN112_$LT$mini_lsm..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$3key17haccce7939794add4E.exit15.i" ], [ %86, %"_ZN112_$LT$mini_lsm..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$4next17h8dcb07b0e0f7269fE.exit103" ], [ null, %95 ], [ null, %128 ], [ null, %124 ], [ null, %122 ], [ null, %93 ], [ null, %.thread189 ]
   ret ptr %.0
 
 55:                                               ; preds = %76, %.body
@@ -6088,10 +6088,10 @@ define hidden noundef ptr @"_ZN116_$LT$mini_lsm..iterators..merge_iterator..Merg
   br label %"_ZN4core3ptr180drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$mini_lsm..iterators..merge_iterator..HeapWrapper$LT$mini_lsm..iterators..concat_iterator..SstConcatIterator$GT$$GT$$GT$17h9cfcbc0542ae0045E.exit98"
 
 common.resume:                                    ; preds = %.body112, %.body, %68, %76, %75
-  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body113, %.body112 ], [ %eh.lpad-body, %.body ], [ %69, %68 ], [ %lpad.phi, %75 ], [ %lpad.phi, %76 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi, %76 ], [ %69, %68 ], [ %eh.lpad-body, %.body ], [ %lpad.phi, %75 ], [ %eh.lpad-body113, %.body112 ]
   resume { ptr, i32 } %common.resume.op
 
-.loopexit:                                        ; preds = %41, %38
+.loopexit:                                        ; preds = %38, %41
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %75
@@ -6381,7 +6381,7 @@ define hidden noundef ptr @"_ZN116_$LT$mini_lsm..iterators..merge_iterator..Merg
   br label %"_ZN4core3ptr167drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$mini_lsm..iterators..merge_iterator..HeapWrapper$LT$mini_lsm..table..iterator..SsTableIterator$GT$$GT$$GT$17hc5dec79a494cc3afE.exit99"
 
 "_ZN4core3ptr167drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$mini_lsm..iterators..merge_iterator..HeapWrapper$LT$mini_lsm..table..iterator..SsTableIterator$GT$$GT$$GT$17hc5dec79a494cc3afE.exit99": ; preds = %.thread138, %63, %.noexc93, %83, %85, %89, %65, %"_ZN4core3ptr167drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$mini_lsm..iterators..merge_iterator..HeapWrapper$LT$mini_lsm..table..iterator..SsTableIterator$GT$$GT$$GT$17hc5dec79a494cc3afE.exit", %"_ZN4core3ptr119drop_in_place$LT$mini_lsm..iterators..merge_iterator..HeapWrapper$LT$mini_lsm..table..iterator..SsTableIterator$GT$$GT$17hbe26d258aea4d578E.exit"
-  %.0 = phi ptr [ %31, %"_ZN4core3ptr119drop_in_place$LT$mini_lsm..iterators..merge_iterator..HeapWrapper$LT$mini_lsm..table..iterator..SsTableIterator$GT$$GT$17hbe26d258aea4d578E.exit" ], [ %58, %"_ZN4core3ptr167drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$mini_lsm..iterators..merge_iterator..HeapWrapper$LT$mini_lsm..table..iterator..SsTableIterator$GT$$GT$$GT$17hc5dec79a494cc3afE.exit" ], [ null, %65 ], [ null, %89 ], [ null, %85 ], [ null, %83 ], [ null, %.noexc93 ], [ null, %63 ], [ null, %.thread138 ]
+  %.0 = phi ptr [ %31, %"_ZN4core3ptr119drop_in_place$LT$mini_lsm..iterators..merge_iterator..HeapWrapper$LT$mini_lsm..table..iterator..SsTableIterator$GT$$GT$17hbe26d258aea4d578E.exit" ], [ %58, %"_ZN4core3ptr167drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$mini_lsm..iterators..merge_iterator..HeapWrapper$LT$mini_lsm..table..iterator..SsTableIterator$GT$$GT$$GT$17hc5dec79a494cc3afE.exit" ], [ null, %.noexc93 ], [ null, %65 ], [ null, %89 ], [ null, %85 ], [ null, %83 ], [ null, %63 ], [ null, %.thread138 ]
   ret ptr %.0
 
 41:                                               ; preds = %55, %39
@@ -6444,7 +6444,7 @@ define hidden noundef ptr @"_ZN116_$LT$mini_lsm..iterators..merge_iterator..Merg
   br label %"_ZN4core3ptr167drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$mini_lsm..iterators..merge_iterator..HeapWrapper$LT$mini_lsm..table..iterator..SsTableIterator$GT$$GT$$GT$17hc5dec79a494cc3afE.exit85"
 
 .thread130:                                       ; preds = %54, %55, %39, %68
-  %.pn.pn = phi { ptr, i32 } [ %69, %68 ], [ %40, %39 ], [ %lpad.thr_comm.split-lp, %55 ], [ %lpad.thr_comm.split-lp, %54 ]
+  %.pn.pn = phi { ptr, i32 } [ %40, %39 ], [ %lpad.thr_comm.split-lp, %54 ], [ %lpad.thr_comm.split-lp, %55 ], [ %69, %68 ]
   resume { ptr, i32 } %.pn.pn
 
 54:                                               ; preds = %30

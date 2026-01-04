@@ -46,7 +46,7 @@ define internal range(i32 0, 101) i32 @rsd_probe(ptr noundef readonly captures(n
   br label %16
 
 16:                                               ; preds = %12, %8, %1, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %1 ], [ 12, %8 ], [ %spec.select, %12 ]
+  %.0 = phi i32 [ %spec.select, %12 ], [ 0, %1 ], [ 12, %8 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -229,7 +229,7 @@ define internal range(i32 -2147483648, 1) i32 @rsd_read_header(ptr noundef %0) #
   br label %95
 
 95:                                               ; preds = %93, %58, %53
-  %.0101 = phi i32 [ %.1102, %53 ], [ %59, %58 ], [ %94, %93 ]
+  %.0101 = phi i32 [ %94, %93 ], [ %.1102, %53 ], [ %59, %58 ]
   %96 = icmp slt i32 %.0101, 0
   br i1 %96, label %.loopexit, label %.thread
 
@@ -324,7 +324,7 @@ define internal range(i32 -2147483648, 1) i32 @rsd_read_header(ptr noundef %0) #
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %95, %63, %58, %34, %27, %20, %21, %1, %139, %26
-  %.0 = phi i32 [ -1094995529, %26 ], [ 0, %139 ], [ -12, %1 ], [ -1163346256, %20 ], [ -1094995529, %21 ], [ -1094995529, %27 ], [ %36, %34 ], [ %61, %58 ], [ %74, %63 ], [ -1094995529, %95 ], [ -541478725, %.lr.ph ]
+  %.0 = phi i32 [ -1094995529, %26 ], [ -1094995529, %95 ], [ 0, %139 ], [ -1094995529, %27 ], [ %36, %34 ], [ %61, %58 ], [ %74, %63 ], [ -1094995529, %21 ], [ -12, %1 ], [ -1163346256, %20 ], [ -541478725, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -460,7 +460,7 @@ define internal i32 @rsd_read_packet(ptr noundef readonly captures(none) %0, ptr
   br label %.critedge
 
 .critedge:                                        ; preds = %29, %2, %75
-  %.043 = phi i32 [ %.044, %75 ], [ -541478725, %2 ], [ %32, %29 ]
+  %.043 = phi i32 [ %32, %29 ], [ %.044, %75 ], [ -541478725, %2 ]
   ret i32 %.043
 }
 

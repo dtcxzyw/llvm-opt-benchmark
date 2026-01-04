@@ -467,7 +467,7 @@ child_write.exit.thread:                          ; preds = %13, %.critedge46.i,
   br label %.loopexit23
 
 .loopexit23:                                      ; preds = %child_write.exit, %4, %child_write.exit.thread
-  %.016 = phi i32 [ -30, %child_write.exit.thread ], [ 0, %4 ], [ 0, %child_write.exit ]
+  %.016 = phi i32 [ 0, %4 ], [ -30, %child_write.exit.thread ], [ 0, %child_write.exit ]
   ret i32 %.016
 }
 
@@ -540,7 +540,7 @@ define dso_local range(i32 -30, 1) i32 @__archive_write_program_close(ptr nounde
   br label %17
 
 .loopexit:                                        ; preds = %.critedge42, %17, %25, %28
-  %.1 = phi i32 [ -30, %28 ], [ -30, %.critedge42 ], [ 0, %17 ], [ 0, %25 ]
+  %.1 = phi i32 [ -30, %28 ], [ -30, %.critedge42 ], [ 0, %25 ], [ 0, %17 ]
   %39 = load i32, ptr %7, align 4, !tbaa !18
   %.not38 = icmp eq i32 %39, -1
   br i1 %.not38, label %42, label %40

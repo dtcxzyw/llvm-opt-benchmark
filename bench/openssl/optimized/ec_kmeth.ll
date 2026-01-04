@@ -143,8 +143,8 @@ define ptr @ossl_ec_key_new_method_int(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %36, label %.sink.split, label %38
 
 .sink.split:                                      ; preds = %34, %25, %21, %15
-  %.sink45 = phi i32 [ 105, %15 ], [ 114, %21 ], [ 126, %25 ], [ 132, %34 ]
-  %.sink = phi i32 [ 524326, %15 ], [ 524326, %21 ], [ 524303, %25 ], [ 786693, %34 ]
+  %.sink45 = phi i32 [ 126, %25 ], [ 114, %21 ], [ 105, %15 ], [ 132, %34 ]
+  %.sink = phi i32 [ 524303, %25 ], [ 524326, %21 ], [ 524326, %15 ], [ 786693, %34 ]
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink45, ptr noundef nonnull @__func__.ossl_ec_key_new_method_int) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef %.sink, ptr noundef null) #10
@@ -155,7 +155,7 @@ define ptr @ossl_ec_key_new_method_int(ptr noundef %0, ptr noundef %1, ptr nound
   br label %38
 
 38:                                               ; preds = %30, %34, %3, %37
-  %.0 = phi ptr [ null, %37 ], [ null, %3 ], [ %4, %34 ], [ %4, %30 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %37 ], [ %4, %34 ], [ %4, %30 ]
   ret ptr %.0
 }
 

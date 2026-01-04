@@ -238,7 +238,7 @@ define hidden noundef i64 @_ZN6Assimp11Compression10decompressEPKvmRSt6vectorIcS
   br label %_ZN6AssimpL12getFlushModeENS_11Compression9FlushModeE.exit
 
 _ZN6AssimpL12getFlushModeENS_11Compression9FlushModeE.exit: ; preds = %8, %17, %18, %19
-  %.0.i = phi i32 [ 5, %17 ], [ 6, %18 ], [ 2, %19 ], [ 0, %8 ]
+  %.0.i = phi i32 [ 0, %8 ], [ 2, %19 ], [ 5, %17 ], [ 6, %18 ]
   br label %45
 
 20:                                               ; preds = %8
@@ -437,7 +437,7 @@ define linkonce_odr void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull alig
   br label %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i: ; preds = %23, %19
-  %.0.i.i.i.i = phi ptr [ %20, %19 ], [ %24, %23 ]
+  %.0.i.i.i.i = phi ptr [ %24, %23 ], [ %20, %19 ]
   store ptr %.0.i.i.i.i, ptr %3, align 8
   br label %_ZNSt6vectorIcSaIcEE17_M_default_appendEm.exit
 

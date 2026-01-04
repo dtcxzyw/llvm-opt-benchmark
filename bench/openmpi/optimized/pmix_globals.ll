@@ -4728,7 +4728,7 @@ sub_0.i:                                          ; preds = %.preheader.i, %66
   %.not11.i = icmp eq ptr %67, null
   br i1 %.not11.i, label %.loopexit, label %sub_0.i, !llvm.loop !249
 
-dirpath_is_empty.exit.thread48:                   ; preds = %.tail.i, %sub_0.i, %.tail14.i
+dirpath_is_empty.exit.thread48:                   ; preds = %.tail.i, %.tail14.i, %sub_0.i
   %68 = tail call i32 @closedir(ptr noundef nonnull %56)
   br label %dirpath_is_empty.exit.thread
 

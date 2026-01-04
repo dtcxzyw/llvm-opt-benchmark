@@ -146,7 +146,7 @@ define hidden range(i32 0, 2) i32 @_PyLexer_update_fstring_expr(ptr noundef capt
   br label %53
 
 53:                                               ; preds = %26, %40, %45, %11, %14, %51
-  %.0 = phi i32 [ 0, %51 ], [ 1, %14 ], [ 1, %11 ], [ 1, %45 ], [ 1, %40 ], [ 1, %26 ]
+  %.0 = phi i32 [ 1, %11 ], [ 0, %51 ], [ 1, %14 ], [ 1, %45 ], [ 1, %40 ], [ 1, %26 ]
   ret i32 %.0
 }
 
@@ -330,9 +330,9 @@ tok_nextc.exit283.i.i:                            ; preds = %55
   br label %tok_backup.exit.i.i
 
 tok_backup.exit.i.i:                              ; preds = %59, %85, %73, %64, %58
-  %.pre39.i291549.i.i = phi ptr [ %53, %85 ], [ %53, %58 ], [ %75, %73 ], [ %65, %64 ], [ %53, %59 ]
-  %87 = phi ptr [ %54, %85 ], [ %54, %58 ], [ %75, %73 ], [ %65, %64 ], [ %54, %59 ]
-  %.0.i279360.i.i = phi i1 [ %86, %85 ], [ false, %58 ], [ false, %73 ], [ false, %64 ], [ false, %59 ]
+  %.pre39.i291549.i.i = phi ptr [ %53, %85 ], [ %75, %73 ], [ %53, %58 ], [ %65, %64 ], [ %53, %59 ]
+  %87 = phi ptr [ %54, %85 ], [ %75, %73 ], [ %54, %58 ], [ %65, %64 ], [ %54, %59 ]
+  %.0.i279360.i.i = phi i1 [ %86, %85 ], [ false, %73 ], [ false, %58 ], [ false, %64 ], [ false, %59 ]
   %88 = getelementptr i8, ptr %87, i64 -1
   store ptr %88, ptr %13, align 8, !tbaa !4
   %89 = load ptr, ptr %0, align 8, !tbaa !30
@@ -403,8 +403,8 @@ tok_backup.exit286.i.i:                           ; preds = %92
   br label %tok_backup.exit289.i.i
 
 tok_backup.exit289.i.i:                           ; preds = %32, %117, %tok_backup.exit286.i.i, %46, %37, %31
-  %.pre39.i291548.i.i = phi ptr [ %.pre39.i277.i.i, %31 ], [ %48, %46 ], [ %38, %37 ], [ %.pre39.i277.i.i, %117 ], [ %.pre39.i291549.i.i, %tok_backup.exit286.i.i ], [ %.pre39.i277.i.i, %32 ]
-  %.pre.i290544.i.i = phi ptr [ %27, %31 ], [ %48, %46 ], [ %38, %37 ], [ %27, %117 ], [ %88, %tok_backup.exit286.i.i ], [ %27, %32 ]
+  %.pre39.i291548.i.i = phi ptr [ %.pre39.i291549.i.i, %tok_backup.exit286.i.i ], [ %.pre39.i277.i.i, %31 ], [ %38, %37 ], [ %48, %46 ], [ %.pre39.i277.i.i, %117 ], [ %.pre39.i277.i.i, %32 ]
+  %.pre.i290544.i.i = phi ptr [ %88, %tok_backup.exit286.i.i ], [ %27, %31 ], [ %38, %37 ], [ %48, %46 ], [ %27, %117 ], [ %27, %32 ]
   %118 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %119 = load i32, ptr %118, align 8, !tbaa !32
   %120 = icmp sgt i32 %119, 0
@@ -484,9 +484,9 @@ tok_backup.exit289.i.i:                           ; preds = %32, %117, %tok_back
   br label %tok_nextc.exit297.i.i
 
 tok_nextc.exit297.i.i:                            ; preds = %137, %151, %142, %132, %131
-  %.pre39.i291547.i.i = phi ptr [ %.pre39.i291545.i.i, %131 ], [ %.pre39.i291545.i.i, %132 ], [ %153, %151 ], [ %143, %142 ], [ %.pre39.i291545.i.i, %137 ]
-  %154 = phi ptr [ %.pre.i290541.i.i, %131 ], [ %134, %132 ], [ %153, %151 ], [ %143, %142 ], [ %.pre.i290541.i.i, %137 ]
-  %.0.i293.i.i = phi i32 [ -1, %131 ], [ %136, %132 ], [ -1, %151 ], [ -1, %142 ], [ -1, %137 ]
+  %.pre39.i291547.i.i = phi ptr [ %.pre39.i291545.i.i, %131 ], [ %.pre39.i291545.i.i, %132 ], [ %143, %142 ], [ %153, %151 ], [ %.pre39.i291545.i.i, %137 ]
+  %154 = phi ptr [ %.pre.i290541.i.i, %131 ], [ %134, %132 ], [ %143, %142 ], [ %153, %151 ], [ %.pre.i290541.i.i, %137 ]
+  %.0.i293.i.i = phi i32 [ -1, %131 ], [ %136, %132 ], [ -1, %142 ], [ -1, %151 ], [ -1, %137 ]
   %155 = load i8, ptr %121, align 4, !tbaa !35
   %156 = sext i8 %155 to i32
   %.not263.i.i = icmp eq i32 %.0.i293.i.i, %156
@@ -648,9 +648,9 @@ tok_nextc.exit308.thread.i.i:                     ; preds = %197
   br label %tok_nextc.exit308thread-pre-split.i.i
 
 tok_nextc.exit308thread-pre-split.i.i:            ; preds = %219, %210, %200
-  %.pre39.i335555.i.i = phi ptr [ %211, %210 ], [ %221, %219 ], [ %195, %200 ]
-  %.pre.i334552.i.i = phi ptr [ %211, %210 ], [ %221, %219 ], [ %202, %200 ]
-  %.0.i304.ph.i.i = phi i32 [ -1, %210 ], [ -1, %219 ], [ %204, %200 ]
+  %.pre39.i335555.i.i = phi ptr [ %221, %219 ], [ %211, %210 ], [ %195, %200 ]
+  %.pre.i334552.i.i = phi ptr [ %221, %219 ], [ %211, %210 ], [ %202, %200 ]
+  %.0.i304.ph.i.i = phi i32 [ -1, %219 ], [ -1, %210 ], [ %204, %200 ]
   %.pr.i.i = load i32, ptr %23, align 8, !tbaa !20
   br label %tok_nextc.exit308.i.i
 
@@ -909,7 +909,7 @@ tok_nextc.exit320.i.i:                            ; preds = %308
   br label %tok_backup.exit323.i.i
 
 tok_backup.exit323.i.i:                           ; preds = %312, %340, %326, %317, %311
-  %341 = phi ptr [ %307, %311 ], [ %328, %326 ], [ %318, %317 ], [ %307, %340 ], [ %307, %312 ]
+  %341 = phi ptr [ %307, %340 ], [ %307, %311 ], [ %318, %317 ], [ %328, %326 ], [ %307, %312 ]
   %342 = getelementptr i8, ptr %341, i64 -1
   store ptr %342, ptr %13, align 8, !tbaa !4
   %343 = load ptr, ptr %0, align 8, !tbaa !30
@@ -1031,7 +1031,7 @@ tok_nextc.exit333.i.i:                            ; preds = %369
   br i1 %or.cond11.not.i.i, label %tok_nextc.exit333.thread.i.i, label %402
 
 tok_nextc.exit333.thread.i.i:                     ; preds = %373, %tok_nextc.exit333.i.i, %387, %378, %372
-  %.0.i329381.i.i = phi i32 [ %393, %tok_nextc.exit333.i.i ], [ -1, %372 ], [ -1, %387 ], [ -1, %378 ], [ -1, %373 ]
+  %.0.i329381.i.i = phi i32 [ %393, %tok_nextc.exit333.i.i ], [ -1, %372 ], [ -1, %378 ], [ -1, %387 ], [ -1, %373 ]
   tail call fastcc void @tok_backup(ptr noundef nonnull %0, i32 noundef %.0.i329381.i.i)
   tail call fastcc void @tok_backup(ptr noundef nonnull %0, i32 noundef 125)
   %398 = load i32, ptr %4, align 8, !tbaa !13
@@ -1162,8 +1162,8 @@ tok_nextc.exit341.i.i:                            ; preds = %405
   br label %.backedge.i.i
 
 tok_nextc.exit349.i.i:                            ; preds = %436, %tok_nextc.exit341.i.i
-  %457 = phi ptr [ %427, %tok_nextc.exit341.i.i ], [ %438, %436 ]
-  %.0222.in.i.i = phi i8 [ %428, %tok_nextc.exit341.i.i ], [ %439, %436 ]
+  %457 = phi ptr [ %438, %436 ], [ %427, %tok_nextc.exit341.i.i ]
+  %.0222.in.i.i = phi i8 [ %439, %436 ], [ %428, %tok_nextc.exit341.i.i ]
   %.0222.i.i = zext i8 %.0222.in.i.i to i32
   %458 = load i32, ptr %189, align 4, !tbaa !44
   %459 = icmp eq i32 %458, 0
@@ -1244,15 +1244,15 @@ tok_backup.exit352.i.i:                           ; preds = %471
   ]
 
 .backedge.i.i:                                    ; preds = %409, %440, %483, %483, %482, %481, %478, %454, %445, %435, %423, %414, %408, %286, %284
-  %.4607.i.i = phi i32 [ %.8.i.i, %483 ], [ %.8.i.i, %483 ], [ %.3476.i.i, %284 ], [ %.8.i.i, %482 ], [ %.3476.i.i, %286 ], [ %.3476.i.i, %478 ], [ %.3476.i.i, %481 ], [ %.3476.i.i, %414 ], [ %.3476.i.i, %423 ], [ %.3476.i.i, %408 ], [ %.3476.i.i, %445 ], [ %.3476.i.i, %454 ], [ %.3476.i.i, %435 ], [ %.3476.i.i, %440 ], [ %.3476.i.i, %409 ]
-  %.1237606.i.i = phi i32 [ 0, %483 ], [ 0, %483 ], [ %285, %284 ], [ 0, %482 ], [ 0, %286 ], [ 0, %478 ], [ 0, %481 ], [ 0, %414 ], [ 0, %423 ], [ 0, %408 ], [ 0, %445 ], [ 0, %454 ], [ 0, %435 ], [ 0, %440 ], [ 0, %409 ]
-  %.1240605.i.i = phi i32 [ %.0239474.i.i, %483 ], [ %.0239474.i.i, %483 ], [ %.0239474.i.i, %284 ], [ %.0239474.i.i, %482 ], [ %.0239474.i.i, %286 ], [ 1, %478 ], [ %.0239474.i.i, %481 ], [ %.0239474.i.i, %414 ], [ %.0239474.i.i, %423 ], [ %.0239474.i.i, %408 ], [ %.0239474.i.i, %445 ], [ %.0239474.i.i, %454 ], [ %.0239474.i.i, %435 ], [ %.0239474.i.i, %440 ], [ %.0239474.i.i, %409 ]
+  %.4607.i.i = phi i32 [ %.8.i.i, %483 ], [ %.8.i.i, %483 ], [ %.3476.i.i, %284 ], [ %.8.i.i, %482 ], [ %.3476.i.i, %286 ], [ %.3476.i.i, %481 ], [ %.3476.i.i, %478 ], [ %.3476.i.i, %440 ], [ %.3476.i.i, %423 ], [ %.3476.i.i, %414 ], [ %.3476.i.i, %408 ], [ %.3476.i.i, %435 ], [ %.3476.i.i, %454 ], [ %.3476.i.i, %445 ], [ %.3476.i.i, %409 ]
+  %.1237606.i.i = phi i32 [ 0, %483 ], [ 0, %483 ], [ %285, %284 ], [ 0, %482 ], [ 0, %286 ], [ 0, %481 ], [ 0, %478 ], [ 0, %440 ], [ 0, %423 ], [ 0, %414 ], [ 0, %408 ], [ 0, %435 ], [ 0, %454 ], [ 0, %445 ], [ 0, %409 ]
+  %.1240605.i.i = phi i32 [ %.0239474.i.i, %483 ], [ %.0239474.i.i, %483 ], [ %.0239474.i.i, %284 ], [ %.0239474.i.i, %482 ], [ %.0239474.i.i, %286 ], [ %.0239474.i.i, %481 ], [ 1, %478 ], [ %.0239474.i.i, %440 ], [ %.0239474.i.i, %423 ], [ %.0239474.i.i, %414 ], [ %.0239474.i.i, %408 ], [ %.0239474.i.i, %435 ], [ %.0239474.i.i, %454 ], [ %.0239474.i.i, %445 ], [ %.0239474.i.i, %409 ]
   %484 = load i32, ptr %118, align 8, !tbaa !32
   %.not264.i.i = icmp eq i32 %.1237606.i.i, %484
   br i1 %.not264.i.i, label %.preheader.i.i, label %193, !llvm.loop !42
 
 ._crit_edge481.i.i:                               ; preds = %tok_backup.exit355.i.i, %.lr.ph480.i.i, %.preheader.i.._crit_edge481.i_crit_edge.i, %182
-  %485 = phi ptr [ %.pre.i, %.preheader.i.._crit_edge481.i_crit_edge.i ], [ %.pre186.i, %.lr.ph480.i.i ], [ %183, %182 ], [ %490, %tok_backup.exit355.i.i ]
+  %485 = phi ptr [ %.pre.i, %.preheader.i.._crit_edge481.i_crit_edge.i ], [ %183, %182 ], [ %.pre186.i, %.lr.ph480.i.i ], [ %490, %tok_backup.exit355.i.i ]
   %486 = load ptr, ptr %15, align 8, !tbaa !19
   %487 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 60, ptr noundef %486, ptr noundef %485) #9
   br label %tok_get.exit
@@ -1287,7 +1287,7 @@ tok_backup.exit355.i.i:                           ; preds = %493
   br i1 %exitcond.not.i.i, label %._crit_edge481.i.i, label %488, !llvm.loop !45
 
 tok_get.exit:                                     ; preds = %483, %10, %102, %105, %176, %223, %240, %tok_backup.exit310.i.i, %275, %277, %298, %354, %361, %364, %402, %._crit_edge481.i.i
-  %.0.i = phi i32 [ %11, %10 ], [ %181, %176 ], [ %487, %._crit_edge481.i.i ], [ %109, %105 ], [ %104, %102 ], [ %362, %361 ], [ %356, %354 ], [ %279, %277 ], [ %276, %275 ], [ %403, %402 ], [ %366, %364 ], [ %299, %298 ], [ %257, %tok_backup.exit310.i.i ], [ %241, %240 ], [ %224, %223 ], [ %.8.i.i, %483 ]
+  %.0.i = phi i32 [ %11, %10 ], [ %104, %102 ], [ %181, %176 ], [ %224, %223 ], [ %487, %._crit_edge481.i.i ], [ %109, %105 ], [ %362, %361 ], [ %356, %354 ], [ %276, %275 ], [ %403, %402 ], [ %366, %364 ], [ %299, %298 ], [ %279, %277 ], [ %257, %tok_backup.exit310.i.i ], [ %241, %240 ], [ %.8.i.i, %483 ]
   %499 = getelementptr inbounds nuw i8, ptr %0, i64 2748
   %500 = load i32, ptr %499, align 4, !tbaa !38
   %.not = icmp eq i32 %500, 0
@@ -1422,8 +1422,8 @@ tok_nextc.exit:                                   ; preds = %32
   ]
 
 .backedge:                                        ; preds = %tok_nextc.exit, %59, %56
-  %.01058.be = phi i32 [ %58, %56 ], [ %64, %59 ], [ 0, %tok_nextc.exit ]
-  %.01055.be = phi i32 [ %57, %56 ], [ %63, %59 ], [ 0, %tok_nextc.exit ]
+  %.01058.be = phi i32 [ 0, %tok_nextc.exit ], [ %58, %56 ], [ %64, %59 ]
+  %.01055.be = phi i32 [ 0, %tok_nextc.exit ], [ %57, %56 ], [ %63, %59 ]
   br label %28
 
 56:                                               ; preds = %tok_nextc.exit
@@ -1496,11 +1496,11 @@ tok_backup.exit:                                  ; preds = %75
   %85 = icmp eq i32 %84, 1
   br i1 %85, label %tok_backup.exit.thread, label %.thread1463
 
-tok_backup.exit.thread:                           ; preds = %36, %41, %50, %35, %tok_backup.exit, %81, %83
-  %86 = phi ptr [ %31, %83 ], [ %31, %81 ], [ %31, %tok_backup.exit ], [ %31, %35 ], [ %52, %50 ], [ %42, %41 ], [ %31, %36 ]
-  %87 = phi ptr [ %30, %83 ], [ %30, %81 ], [ %30, %tok_backup.exit ], [ %30, %35 ], [ %52, %50 ], [ %42, %41 ], [ %30, %36 ]
-  %.21060.ph = phi i32 [ 0, %83 ], [ %.01058, %81 ], [ %.01058, %tok_backup.exit ], [ %.01058, %35 ], [ %.01058, %50 ], [ %.01058, %41 ], [ %.01058, %36 ]
-  %.21057.ph = phi i32 [ 0, %83 ], [ 0, %81 ], [ %.01055, %tok_backup.exit ], [ %.01055, %35 ], [ %.01055, %50 ], [ %.01055, %41 ], [ %.01055, %36 ]
+tok_backup.exit.thread:                           ; preds = %36, %50, %41, %35, %tok_backup.exit, %81, %83
+  %86 = phi ptr [ %31, %tok_backup.exit ], [ %31, %83 ], [ %31, %81 ], [ %31, %35 ], [ %42, %41 ], [ %52, %50 ], [ %31, %36 ]
+  %87 = phi ptr [ %30, %tok_backup.exit ], [ %30, %83 ], [ %30, %81 ], [ %30, %35 ], [ %42, %41 ], [ %52, %50 ], [ %30, %36 ]
+  %.21060.ph = phi i32 [ %.01058, %tok_backup.exit ], [ 0, %83 ], [ %.01058, %81 ], [ %.01058, %35 ], [ %.01058, %41 ], [ %.01058, %50 ], [ %.01058, %36 ]
+  %.21057.ph = phi i32 [ %.01055, %tok_backup.exit ], [ 0, %83 ], [ 0, %81 ], [ %.01055, %35 ], [ %.01055, %41 ], [ %.01055, %50 ], [ %.01055, %36 ]
   %88 = load i32, ptr %16, align 8, !tbaa !49
   %89 = icmp eq i32 %88, 0
   br i1 %89, label %90, label %.thread1463
@@ -1732,9 +1732,9 @@ tok_nextc.exit1239:                               ; preds = %163
   store i32 %164, ptr %12, align 4, !tbaa !24
   br label %tok_backup.exit1242.preheader
 
-tok_backup.exit1242.preheader:                    ; preds = %167, %172, %181, %166, %193
-  %.pre39.i1244.pre.ph = phi ptr [ %161, %193 ], [ %161, %166 ], [ %183, %181 ], [ %173, %172 ], [ %161, %167 ]
-  %.pre.i1243.pre.ph = phi ptr [ %162, %193 ], [ %162, %166 ], [ %183, %181 ], [ %173, %172 ], [ %162, %167 ]
+tok_backup.exit1242.preheader:                    ; preds = %167, %181, %172, %166, %193
+  %.pre39.i1244.pre.ph = phi ptr [ %161, %193 ], [ %161, %166 ], [ %173, %172 ], [ %183, %181 ], [ %161, %167 ]
+  %.pre.i1243.pre.ph = phi ptr [ %162, %193 ], [ %162, %166 ], [ %173, %172 ], [ %183, %181 ], [ %162, %167 ]
   br label %tok_backup.exit1242
 
 tok_backup.exit1242:                              ; preds = %tok_backup.exit1242.preheader, %1392
@@ -1814,10 +1814,10 @@ tok_nextc.exit1250.thread.loopexit1582:           ; preds = %tok_nextc.exit1250
   %219 = zext i8 %218 to i32
   br label %tok_nextc.exit1250.thread
 
-tok_nextc.exit1250.thread:                        ; preds = %199, %tok_nextc.exit1250.thread.loopexit1582, %204, %213, %198
-  %.pre39.i12632249 = phi ptr [ %.pre39.i12442246.ph, %198 ], [ %215, %213 ], [ %205, %204 ], [ %.pre39.i12442246.ph, %tok_nextc.exit1250.thread.loopexit1582 ], [ %.pre39.i12442246.ph, %199 ]
-  %220 = phi ptr [ %194, %198 ], [ %215, %213 ], [ %205, %204 ], [ %217, %tok_nextc.exit1250.thread.loopexit1582 ], [ %194, %199 ]
-  %.0.i12461470 = phi i32 [ -1, %198 ], [ -1, %213 ], [ -1, %204 ], [ %219, %tok_nextc.exit1250.thread.loopexit1582 ], [ -1, %199 ]
+tok_nextc.exit1250.thread:                        ; preds = %199, %tok_nextc.exit1250.thread.loopexit1582, %213, %204, %198
+  %.pre39.i12632249 = phi ptr [ %.pre39.i12442246.ph, %tok_nextc.exit1250.thread.loopexit1582 ], [ %.pre39.i12442246.ph, %198 ], [ %205, %204 ], [ %215, %213 ], [ %.pre39.i12442246.ph, %199 ]
+  %220 = phi ptr [ %217, %tok_nextc.exit1250.thread.loopexit1582 ], [ %194, %198 ], [ %205, %204 ], [ %215, %213 ], [ %194, %199 ]
+  %.0.i12461470 = phi i32 [ %219, %tok_nextc.exit1250.thread.loopexit1582 ], [ -1, %198 ], [ -1, %204 ], [ -1, %213 ], [ -1, %199 ]
   %221 = icmp eq ptr %220, null
   %222 = getelementptr i8, ptr %220, i64 -1
   %spec.select = select i1 %221, ptr null, ptr %222
@@ -1854,9 +1854,9 @@ tok_nextc.exit1250.thread:                        ; preds = %199, %tok_nextc.exi
   br label %.preheader1581.backedge
 
 .preheader1581.backedge:                          ; preds = %235, %229, %230, %240, %249
-  %.pre39.i1252.be = phi ptr [ %.pre39.i12522336, %229 ], [ %.pre39.i12522336, %230 ], [ %251, %249 ], [ %241, %240 ], [ %.pre39.i12522336, %235 ]
-  %.pre.i1251.be = phi ptr [ %.pre.i12512333, %229 ], [ %232, %230 ], [ %251, %249 ], [ %241, %240 ], [ %.pre.i12512333, %235 ]
-  %.11002.be = phi i32 [ -1, %229 ], [ %234, %230 ], [ -1, %249 ], [ -1, %240 ], [ -1, %235 ]
+  %.pre39.i1252.be = phi ptr [ %251, %249 ], [ %.pre39.i12522336, %229 ], [ %.pre39.i12522336, %230 ], [ %241, %240 ], [ %.pre39.i12522336, %235 ]
+  %.pre.i1251.be = phi ptr [ %251, %249 ], [ %.pre.i12512333, %229 ], [ %232, %230 ], [ %241, %240 ], [ %.pre.i12512333, %235 ]
+  %.11002.be = phi i32 [ -1, %249 ], [ -1, %229 ], [ %234, %230 ], [ -1, %240 ], [ -1, %235 ]
   br label %.preheader1581, !llvm.loop !55
 
 230:                                              ; preds = %226
@@ -2227,10 +2227,10 @@ tok_backup.exit1272:                              ; preds = %335, %345
   br i1 %or.cond1220, label %382, label %.preheader
 
 382:                                              ; preds = %380, %378, %376, %372
-  %.11099 = phi i32 [ 0, %372 ], [ 0, %376 ], [ %.01098, %378 ], [ 1, %380 ]
-  %.11097 = phi i32 [ 0, %372 ], [ 1, %376 ], [ 0, %378 ], [ 0, %380 ]
-  %.11093 = phi i32 [ %.01092, %372 ], [ 0, %376 ], [ 1, %378 ], [ %.01092, %380 ]
-  %.11091 = phi i32 [ 1, %372 ], [ 0, %376 ], [ %.01090, %378 ], [ 0, %380 ]
+  %.11099 = phi i32 [ %.01098, %378 ], [ 0, %376 ], [ 0, %372 ], [ 1, %380 ]
+  %.11097 = phi i32 [ 0, %378 ], [ 1, %376 ], [ 0, %372 ], [ 0, %380 ]
+  %.11093 = phi i32 [ 1, %378 ], [ 0, %376 ], [ %.01092, %372 ], [ %.01092, %380 ]
+  %.11091 = phi i32 [ %.01090, %378 ], [ 0, %376 ], [ 1, %372 ], [ 0, %380 ]
   br label %383
 
 383:                                              ; preds = %400, %382
@@ -2291,9 +2291,9 @@ tok_backup.exit1272:                              ; preds = %335, %345
   br label %tok_nextc.exit1280
 
 tok_nextc.exit1280:                               ; preds = %393, %387, %388, %398, %407
-  %.pre39.i12742282 = phi ptr [ %.pre39.i12742280, %387 ], [ %.pre39.i12742280, %388 ], [ %409, %407 ], [ %399, %398 ], [ %.pre39.i12742280, %393 ]
-  %.pre.i12732279 = phi ptr [ %.pre.i12732277, %387 ], [ %390, %388 ], [ %409, %407 ], [ %399, %398 ], [ %.pre.i12732277, %393 ]
-  %.0.i1276 = phi i32 [ -1, %387 ], [ %392, %388 ], [ -1, %407 ], [ -1, %398 ], [ -1, %393 ]
+  %.pre39.i12742282 = phi ptr [ %.pre39.i12742280, %387 ], [ %.pre39.i12742280, %388 ], [ %399, %398 ], [ %409, %407 ], [ %.pre39.i12742280, %393 ]
+  %.pre.i12732279 = phi ptr [ %.pre.i12732277, %387 ], [ %390, %388 ], [ %399, %398 ], [ %409, %407 ], [ %.pre.i12732277, %393 ]
+  %.0.i1276 = phi i32 [ -1, %387 ], [ %392, %388 ], [ -1, %398 ], [ -1, %407 ], [ -1, %393 ]
   switch i32 %.0.i1276, label %372 [
     i32 39, label %410
     i32 34, label %410
@@ -2322,7 +2322,7 @@ tok_nextc.exit1280:                               ; preds = %393, %387, %388, %3
   %or.cond115 = or i1 %416, %or.cond65
   br i1 %or.cond115, label %.critedge67, label %445
 
-.critedge67:                                      ; preds = %.preheader, %413
+.critedge67:                                      ; preds = %413, %.preheader
   %417 = icmp samesign ugt i32 %.41005, 127
   %spec.select1222 = select i1 %417, i32 1, i32 %.01026
   br label %418
@@ -2343,9 +2343,9 @@ tok_nextc.exit1280:                               ; preds = %393, %387, %388, %3
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %428, %422, %423, %433, %442
-  %.pre39.i1282.be = phi ptr [ %.pre39.i12822273, %422 ], [ %.pre39.i12822273, %423 ], [ %444, %442 ], [ %434, %433 ], [ %.pre39.i12822273, %428 ]
-  %.pre.i1281.be = phi ptr [ %.pre.i12812270, %422 ], [ %425, %423 ], [ %444, %442 ], [ %434, %433 ], [ %.pre.i12812270, %428 ]
-  %.41005.be = phi i32 [ -1, %422 ], [ %427, %423 ], [ -1, %442 ], [ -1, %433 ], [ -1, %428 ]
+  %.pre39.i1282.be = phi ptr [ %444, %442 ], [ %.pre39.i12822273, %422 ], [ %.pre39.i12822273, %423 ], [ %434, %433 ], [ %.pre39.i12822273, %428 ]
+  %.pre.i1281.be = phi ptr [ %444, %442 ], [ %.pre.i12812270, %422 ], [ %425, %423 ], [ %434, %433 ], [ %.pre.i12812270, %428 ]
+  %.41005.be = phi i32 [ -1, %442 ], [ -1, %422 ], [ %427, %423 ], [ -1, %433 ], [ -1, %428 ]
   br label %.preheader, !llvm.loop !60
 
 423:                                              ; preds = %419
@@ -2645,7 +2645,7 @@ Py_DECREF.exit53.i:                               ; preds = %534, %531, %529
   tail call void @_Py_Dealloc(ptr noundef nonnull %469) #9
   br label %verify_identifier.exit
 
-546:                                              ; preds = %461, %475, %474, %536, %538, %Py_DECREF.exit51.thread.i
+546:                                              ; preds = %474, %461, %475, %Py_DECREF.exit51.thread.i, %536, %538
   %547 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 64, ptr noundef null, ptr noundef null) #9
   br label %.thread1472
 
@@ -2840,7 +2840,7 @@ tok_nextc.exit1301:                               ; preds = %559, %551
   br label %tok_nextc.exit1309
 
 tok_nextc.exit1309:                               ; preds = %617, %611, %612, %622, %631
-  %.0.i1305 = phi i32 [ -1, %611 ], [ %616, %612 ], [ -1, %631 ], [ -1, %622 ], [ -1, %617 ]
+  %.0.i1305 = phi i32 [ -1, %611 ], [ %616, %612 ], [ -1, %622 ], [ -1, %631 ], [ -1, %617 ]
   %634 = and i32 %.0.i1305, 255
   %635 = zext nneg i32 %634 to i64
   %636 = getelementptr i32, ptr @_Py_ctype_table, i64 %635
@@ -2884,9 +2884,9 @@ tok_nextc.exit1309:                               ; preds = %617, %611, %612, %6
   %.not1164 = icmp eq i32 %657, 0
   br i1 %.not1164, label %.thread1486, label %658
 
-.thread1494:                                      ; preds = %564, %569, %578, %558
-  %.pre39.i13592286 = phi ptr [ %570, %569 ], [ %580, %578 ], [ %553, %558 ], [ %553, %564 ]
-  %.pre.i13582284 = phi ptr [ %570, %569 ], [ %580, %578 ], [ %554, %558 ], [ %554, %564 ]
+.thread1494:                                      ; preds = %564, %578, %569, %558
+  %.pre39.i13592286 = phi ptr [ %553, %558 ], [ %580, %578 ], [ %570, %569 ], [ %553, %564 ]
+  %.pre.i13582284 = phi ptr [ %554, %558 ], [ %580, %578 ], [ %570, %569 ], [ %554, %564 ]
   br i1 %.not11641496, label %.thread1486, label %.thread1498
 
 658:                                              ; preds = %653
@@ -2974,7 +2974,7 @@ tok_nextc.exit1309:                               ; preds = %617, %611, %612, %6
   br label %tok_nextc.exit1317
 
 tok_nextc.exit1317:                               ; preds = %680, %694, %685, %675, %674, %665
-  %.101011 = phi i32 [ %.91010, %665 ], [ -1, %674 ], [ %679, %675 ], [ -1, %694 ], [ -1, %685 ], [ -1, %680 ]
+  %.101011 = phi i32 [ %.91010, %665 ], [ -1, %674 ], [ %679, %675 ], [ -1, %685 ], [ -1, %694 ], [ -1, %680 ]
   %697 = and i32 %.101011, 255
   %698 = zext nneg i32 %697 to i64
   %699 = getelementptr i32, ptr @_Py_ctype_table, i64 %698
@@ -3057,9 +3057,9 @@ tok_nextc.exit1317:                               ; preds = %680, %694, %685, %6
   br label %tok_nextc.exit1325
 
 tok_nextc.exit1325:                               ; preds = %714, %708, %709, %719, %728
-  %.pre39.i13192266 = phi ptr [ %.pre39.i13192267, %708 ], [ %.pre39.i13192267, %709 ], [ %730, %728 ], [ %720, %719 ], [ %.pre39.i13192267, %714 ]
-  %.pre.i13182263 = phi ptr [ %.pre.i13182264, %708 ], [ %711, %709 ], [ %730, %728 ], [ %720, %719 ], [ %.pre.i13182264, %714 ]
-  %.0.i1321 = phi i32 [ -1, %708 ], [ %713, %709 ], [ -1, %728 ], [ -1, %719 ], [ -1, %714 ]
+  %.pre39.i13192266 = phi ptr [ %.pre39.i13192267, %708 ], [ %.pre39.i13192267, %709 ], [ %720, %719 ], [ %730, %728 ], [ %.pre39.i13192267, %714 ]
+  %.pre.i13182263 = phi ptr [ %.pre.i13182264, %708 ], [ %711, %709 ], [ %720, %719 ], [ %730, %728 ], [ %.pre.i13182264, %714 ]
+  %.0.i1321 = phi i32 [ -1, %708 ], [ %713, %709 ], [ -1, %719 ], [ -1, %728 ], [ -1, %714 ]
   %731 = and i32 %.0.i1321, 255
   %732 = zext nneg i32 %731 to i64
   %733 = getelementptr i32, ptr @_Py_ctype_table, i64 %732
@@ -3163,8 +3163,8 @@ tok_nextc.exit1333:                               ; preds = %754, %744
   %.pre39.i1335.pre = load ptr, ptr %8, align 8, !tbaa !26
   br label %.preheader1574.outer
 
-tok_nextc.exit1333.thread:                        ; preds = %tok_nextc.exit1333, %759, %764, %773, %753
-  %.1210131502 = phi i32 [ -1, %753 ], [ -1, %773 ], [ -1, %764 ], [ -1, %759 ], [ %.121013, %tok_nextc.exit1333 ]
+tok_nextc.exit1333.thread:                        ; preds = %tok_nextc.exit1333, %759, %773, %764, %753
+  %.1210131502 = phi i32 [ -1, %759 ], [ -1, %753 ], [ -1, %764 ], [ -1, %773 ], [ %.121013, %tok_nextc.exit1333 ]
   %777 = and i32 %.1210131502, 255
   %778 = zext nneg i32 %777 to i64
   %779 = getelementptr i32, ptr @_Py_ctype_table, i64 %778
@@ -3251,8 +3251,8 @@ tok_nextc.exit1341:                               ; preds = %789
   %817 = icmp eq i8 %812, 95
   br i1 %817, label %744, label %.thread1505, !llvm.loop !75
 
-.thread1505:                                      ; preds = %816, %793, %792, %807, %798
-  %.0.i133715041507 = phi i32 [ -1, %798 ], [ -1, %807 ], [ -1, %792 ], [ -1, %793 ], [ %813, %816 ]
+.thread1505:                                      ; preds = %816, %793, %792, %798, %807
+  %.0.i133715041507 = phi i32 [ -1, %793 ], [ -1, %792 ], [ -1, %807 ], [ -1, %798 ], [ %813, %816 ]
   %818 = and i32 %.0.i133715041507, 255
   %819 = zext nneg i32 %818 to i64
   %820 = getelementptr i32, ptr @_Py_ctype_table, i64 %819
@@ -3386,8 +3386,8 @@ tok_nextc.exit1349:                               ; preds = %851
   %879 = icmp eq i8 %874, 95
   br i1 %879, label %832, label %.thread1510, !llvm.loop !77
 
-.thread1510:                                      ; preds = %878, %855, %854, %869, %860
-  %.0.i134515091512 = phi i32 [ -1, %860 ], [ -1, %869 ], [ -1, %854 ], [ -1, %855 ], [ %875, %878 ]
+.thread1510:                                      ; preds = %878, %855, %854, %860, %869
+  %.0.i134515091512 = phi i32 [ -1, %855 ], [ -1, %854 ], [ -1, %869 ], [ -1, %860 ], [ %875, %878 ]
   %880 = and i32 %.0.i134515091512, 255
   %881 = zext nneg i32 %880 to i64
   %882 = getelementptr i32, ptr @_Py_ctype_table, i64 %881
@@ -3457,7 +3457,7 @@ tok_nextc.exit1349:                               ; preds = %851
   br label %.preheader1572.backedge
 
 .preheader1572.backedge:                          ; preds = %917, %911, %912, %922, %931
-  %.151016.be = phi i32 [ -1, %911 ], [ %916, %912 ], [ -1, %931 ], [ -1, %922 ], [ -1, %917 ]
+  %.151016.be = phi i32 [ -1, %931 ], [ -1, %911 ], [ %916, %912 ], [ -1, %922 ], [ -1, %917 ]
   br label %.preheader1572
 
 912:                                              ; preds = %908
@@ -3702,9 +3702,9 @@ tok_nextc.exit1349:                               ; preds = %851
   br label %.thread1472
 
 .thread1486:                                      ; preds = %410, %.thread1494, %653
-  %.pre39.i1359 = phi ptr [ %.pre39.i1303, %653 ], [ %.pre39.i13592286, %.thread1494 ], [ %.pre39.i12742282, %410 ]
-  %.pre.i1358 = phi ptr [ %581, %653 ], [ %.pre.i13582284, %.thread1494 ], [ %.pre.i12732279, %410 ]
-  %.51006 = phi i32 [ %.71008, %653 ], [ -1, %.thread1494 ], [ %.0.i1276, %410 ]
+  %.pre39.i1359 = phi ptr [ %.pre39.i13592286, %.thread1494 ], [ %.pre39.i1303, %653 ], [ %.pre39.i12742282, %410 ]
+  %.pre.i1358 = phi ptr [ %.pre.i13582284, %.thread1494 ], [ %581, %653 ], [ %.pre.i12732279, %410 ]
+  %.51006 = phi i32 [ -1, %.thread1494 ], [ %.71008, %653 ], [ %.0.i1276, %410 ]
   %1029 = load ptr, ptr %4, align 8, !tbaa !19
   %1030 = load i8, ptr %1029, align 1, !tbaa !29
   %1031 = zext i8 %1030 to i64
@@ -3788,9 +3788,9 @@ tok_nextc.exit1349:                               ; preds = %851
   br label %tok_nextc.exit1365
 
 tok_nextc.exit1365:                               ; preds = %1052, %1046, %1047, %1057, %1066
-  %.pre39.i1367 = phi ptr [ %1041, %1046 ], [ %1041, %1047 ], [ %1068, %1066 ], [ %1058, %1057 ], [ %1041, %1052 ]
-  %.pre.i1366 = phi ptr [ %1042, %1046 ], [ %1049, %1047 ], [ %1068, %1066 ], [ %1058, %1057 ], [ %1042, %1052 ]
-  %.0.i1361 = phi i32 [ -1, %1046 ], [ %1051, %1047 ], [ -1, %1066 ], [ -1, %1057 ], [ -1, %1052 ]
+  %.pre39.i1367 = phi ptr [ %1041, %1046 ], [ %1041, %1047 ], [ %1058, %1057 ], [ %1068, %1066 ], [ %1041, %1052 ]
+  %.pre.i1366 = phi ptr [ %1042, %1046 ], [ %1049, %1047 ], [ %1058, %1057 ], [ %1068, %1066 ], [ %1042, %1052 ]
+  %.0.i1361 = phi i32 [ -1, %1046 ], [ %1051, %1047 ], [ -1, %1057 ], [ -1, %1066 ], [ -1, %1052 ]
   %1069 = icmp eq i32 %.0.i1361, %.51006
   br i1 %1069, label %.preheader2779, label %tok_backup.exit1379.thread
 
@@ -3852,8 +3852,8 @@ tok_nextc.exit1365:                               ; preds = %1052, %1046, %1047,
   br label %tok_nextc.exit1373
 
 tok_nextc.exit1373:                               ; preds = %1081, %1075, %1076, %1086, %1095
-  %1098 = phi ptr [ %1071, %1075 ], [ %1078, %1076 ], [ %1097, %1095 ], [ %1087, %1086 ], [ %1071, %1081 ]
-  %.0.i1369 = phi i32 [ -1, %1075 ], [ %1080, %1076 ], [ -1, %1095 ], [ -1, %1086 ], [ -1, %1081 ]
+  %1098 = phi ptr [ %1071, %1075 ], [ %1078, %1076 ], [ %1087, %1086 ], [ %1097, %1095 ], [ %1071, %1081 ]
+  %.0.i1369 = phi i32 [ -1, %1075 ], [ %1080, %1076 ], [ -1, %1086 ], [ -1, %1095 ], [ -1, %1081 ]
   %1099 = icmp eq i32 %.0.i1369, %.51006
   br i1 %1099, label %tok_backup.exit1382, label %1100
 
@@ -3947,8 +3947,8 @@ tok_backup.exit1382.sink.split:                   ; preds = %1128, %1119
   br label %tok_backup.exit1382
 
 tok_backup.exit1382:                              ; preds = %tok_backup.exit1382.sink.split, %tok_nextc.exit1373, %tok_backup.exit1376, %tok_backup.exit1379.thread
-  %1134 = phi ptr [ %.pre.i1366, %tok_backup.exit1379.thread ], [ %1098, %tok_nextc.exit1373 ], [ %1113, %tok_backup.exit1376 ], [ %.ph2771, %tok_backup.exit1382.sink.split ]
-  %.010941532 = phi i32 [ 1, %tok_backup.exit1379.thread ], [ 3, %tok_nextc.exit1373 ], [ 1, %tok_backup.exit1376 ], [ 1, %tok_backup.exit1382.sink.split ]
+  %1134 = phi ptr [ %1098, %tok_nextc.exit1373 ], [ %.pre.i1366, %tok_backup.exit1379.thread ], [ %1113, %tok_backup.exit1376 ], [ %.ph2771, %tok_backup.exit1382.sink.split ]
+  %.010941532 = phi i32 [ 3, %tok_nextc.exit1373 ], [ 1, %tok_backup.exit1379.thread ], [ 1, %tok_backup.exit1376 ], [ 1, %tok_backup.exit1382.sink.split ]
   %1135 = load ptr, ptr %4, align 8, !tbaa !19
   %1136 = getelementptr inbounds nuw i8, ptr %0, i64 17256
   %1137 = load i32, ptr %1136, align 8, !tbaa !13
@@ -4101,9 +4101,9 @@ tok_backup.exit1382:                              ; preds = %tok_backup.exit1382
   br label %tok_nextc.exit1390
 
 tok_nextc.exit1390:                               ; preds = %1194, %1188, %1189, %1199, %1208
-  %.pre39.i1392 = phi ptr [ %1183, %1188 ], [ %1183, %1189 ], [ %1210, %1208 ], [ %1200, %1199 ], [ %1183, %1194 ]
-  %.pre.i1391 = phi ptr [ %1184, %1188 ], [ %1191, %1189 ], [ %1210, %1208 ], [ %1200, %1199 ], [ %1184, %1194 ]
-  %.0.i1386 = phi i32 [ -1, %1188 ], [ %1193, %1189 ], [ -1, %1208 ], [ -1, %1199 ], [ -1, %1194 ]
+  %.pre39.i1392 = phi ptr [ %1183, %1188 ], [ %1183, %1189 ], [ %1200, %1199 ], [ %1210, %1208 ], [ %1183, %1194 ]
+  %.pre.i1391 = phi ptr [ %1184, %1188 ], [ %1191, %1189 ], [ %1200, %1199 ], [ %1210, %1208 ], [ %1184, %1194 ]
+  %.0.i1386 = phi i32 [ -1, %1188 ], [ %1193, %1189 ], [ -1, %1199 ], [ -1, %1208 ], [ -1, %1194 ]
   %1211 = icmp eq i32 %.0.i1386, %.61007
   br i1 %1211, label %.preheader2778, label %1242
 
@@ -4165,9 +4165,9 @@ tok_nextc.exit1390:                               ; preds = %1194, %1188, %1189,
   br label %tok_nextc.exit1398
 
 tok_nextc.exit1398:                               ; preds = %1223, %1217, %1218, %1228, %1237
-  %.pre39.i14032306 = phi ptr [ %1212, %1217 ], [ %1212, %1218 ], [ %1239, %1237 ], [ %1229, %1228 ], [ %1212, %1223 ]
-  %1240 = phi ptr [ %1213, %1217 ], [ %1220, %1218 ], [ %1239, %1237 ], [ %1229, %1228 ], [ %1213, %1223 ]
-  %.0.i1394 = phi i32 [ -1, %1217 ], [ %1222, %1218 ], [ -1, %1237 ], [ -1, %1228 ], [ -1, %1223 ]
+  %.pre39.i14032306 = phi ptr [ %1212, %1217 ], [ %1212, %1218 ], [ %1229, %1228 ], [ %1239, %1237 ], [ %1212, %1223 ]
+  %1240 = phi ptr [ %1213, %1217 ], [ %1220, %1218 ], [ %1229, %1228 ], [ %1239, %1237 ], [ %1213, %1223 ]
+  %.0.i1394 = phi i32 [ -1, %1217 ], [ %1222, %1218 ], [ -1, %1228 ], [ -1, %1237 ], [ -1, %1223 ]
   %1241 = icmp eq i32 %.0.i1394, %.61007
   %not. = xor i1 %1241, true
   %.1225 = select i1 %1241, i32 3, i32 1
@@ -4175,13 +4175,13 @@ tok_nextc.exit1398:                               ; preds = %1223, %1217, %1218,
   br label %1242
 
 1242:                                             ; preds = %tok_nextc.exit1398, %tok_nextc.exit1390
-  %.pre39.i14032305 = phi ptr [ %.pre39.i1392, %tok_nextc.exit1390 ], [ %.pre39.i14032306, %tok_nextc.exit1398 ]
-  %1243 = phi ptr [ %.pre.i1391, %tok_nextc.exit1390 ], [ %1240, %tok_nextc.exit1398 ]
-  %1244 = phi i1 [ true, %tok_nextc.exit1390 ], [ %not., %tok_nextc.exit1398 ]
-  %1245 = phi i1 [ false, %tok_nextc.exit1390 ], [ %1241, %tok_nextc.exit1398 ]
-  %.01086 = phi i32 [ 1, %tok_nextc.exit1390 ], [ %.1225, %tok_nextc.exit1398 ]
-  %.01083 = phi i32 [ 0, %tok_nextc.exit1390 ], [ %.1226, %tok_nextc.exit1398 ]
-  %.24 = phi i32 [ %.0.i1386, %tok_nextc.exit1390 ], [ %.0.i1394, %tok_nextc.exit1398 ]
+  %.pre39.i14032305 = phi ptr [ %.pre39.i14032306, %tok_nextc.exit1398 ], [ %.pre39.i1392, %tok_nextc.exit1390 ]
+  %1243 = phi ptr [ %1240, %tok_nextc.exit1398 ], [ %.pre.i1391, %tok_nextc.exit1390 ]
+  %1244 = phi i1 [ %not., %tok_nextc.exit1398 ], [ true, %tok_nextc.exit1390 ]
+  %1245 = phi i1 [ %1241, %tok_nextc.exit1398 ], [ false, %tok_nextc.exit1390 ]
+  %.01086 = phi i32 [ %.1225, %tok_nextc.exit1398 ], [ 1, %tok_nextc.exit1390 ]
+  %.01083 = phi i32 [ %.1226, %tok_nextc.exit1398 ], [ 0, %tok_nextc.exit1390 ]
+  %.24 = phi i32 [ %.0.i1394, %tok_nextc.exit1398 ], [ %.0.i1386, %tok_nextc.exit1390 ]
   %.not1205 = icmp eq i32 %.24, %.61007
   %.not.i1399 = icmp eq i32 %.24, -1
   %or.cond1570 = or i1 %.not1205, %.not.i1399
@@ -4294,20 +4294,20 @@ tok_backup.exit1401:                              ; preds = %1255, %1242
   br label %tok_nextc.exit1409thread-pre-split
 
 tok_nextc.exit1409thread-pre-split:               ; preds = %1283, %1274, %1264
-  %.pre39.i14192321 = phi ptr [ %1275, %1274 ], [ %1285, %1283 ], [ %.pre39.i14192322, %1264 ]
-  %.pre39.i14112318 = phi ptr [ %1275, %1274 ], [ %1285, %1283 ], [ %.pre39.i14112319, %1264 ]
-  %.pre39.i14032300 = phi ptr [ %1275, %1274 ], [ %1285, %1283 ], [ %.pre39.i14032301, %1264 ]
-  %.pre.i14022297 = phi ptr [ %1275, %1274 ], [ %1285, %1283 ], [ %1266, %1264 ]
-  %.0.i1405.ph = phi i32 [ -1, %1274 ], [ -1, %1283 ], [ %1268, %1264 ]
+  %.pre39.i14192321 = phi ptr [ %1285, %1283 ], [ %1275, %1274 ], [ %.pre39.i14192322, %1264 ]
+  %.pre39.i14112318 = phi ptr [ %1285, %1283 ], [ %1275, %1274 ], [ %.pre39.i14112319, %1264 ]
+  %.pre39.i14032300 = phi ptr [ %1285, %1283 ], [ %1275, %1274 ], [ %.pre39.i14032301, %1264 ]
+  %.pre.i14022296 = phi ptr [ %1285, %1283 ], [ %1275, %1274 ], [ %1266, %1264 ]
+  %.0.i1405.ph = phi i32 [ -1, %1283 ], [ -1, %1274 ], [ %1268, %1264 ]
   %.pr1533 = load i32, ptr %9, align 8, !tbaa !20
   br label %tok_nextc.exit1409
 
 tok_nextc.exit1409:                               ; preds = %1269, %tok_nextc.exit1409thread-pre-split
   %.pre39.i14192320 = phi ptr [ %.pre39.i14192321, %tok_nextc.exit1409thread-pre-split ], [ %.pre39.i14192322, %1269 ]
   %.pre39.i1411 = phi ptr [ %.pre39.i14112318, %tok_nextc.exit1409thread-pre-split ], [ %.pre39.i14112319, %1269 ]
-  %.pre.i1410 = phi ptr [ %.pre.i14022297, %tok_nextc.exit1409thread-pre-split ], [ %.pre.i14102312, %1269 ]
+  %.pre.i1410 = phi ptr [ %.pre.i14022296, %tok_nextc.exit1409thread-pre-split ], [ %.pre.i14102312, %1269 ]
   %.pre39.i14032299 = phi ptr [ %.pre39.i14032300, %tok_nextc.exit1409thread-pre-split ], [ %.pre39.i14032301, %1269 ]
-  %.pre.i14022292 = phi ptr [ %.pre.i14022297, %tok_nextc.exit1409thread-pre-split ], [ %.pre.i14022293, %1269 ]
+  %.pre.i14022292 = phi ptr [ %.pre.i14022296, %tok_nextc.exit1409thread-pre-split ], [ %.pre.i14022293, %1269 ]
   %1286 = phi i32 [ %.pr1533, %tok_nextc.exit1409thread-pre-split ], [ %1270, %1269 ]
   %.0.i1405 = phi i32 [ %.0.i1405.ph, %tok_nextc.exit1409thread-pre-split ], [ -1, %1269 ]
   switch i32 %1286, label %1289 [
@@ -4452,10 +4452,10 @@ tok_nextc.exit1409:                               ; preds = %1269, %tok_nextc.ex
   store ptr %1352, ptr %7, align 8, !tbaa !4
   br label %tok_nextc.exit1417.thread
 
-tok_nextc.exit1417.thread:                        ; preds = %1336, %1335, %1350, %1341
-  %.pre39.i14192326 = phi ptr [ %.pre39.i1419, %1335 ], [ %1352, %1350 ], [ %1342, %1341 ], [ %.pre39.i1419, %1336 ]
-  %.pre39.i14112315 = phi ptr [ %.pre39.i14112316, %1335 ], [ %1352, %1350 ], [ %1342, %1341 ], [ %.pre39.i14112316, %1336 ]
-  %.pre.i14102309 = phi ptr [ %.pre.i14102310, %1335 ], [ %1352, %1350 ], [ %1342, %1341 ], [ %.pre.i14102310, %1336 ]
+tok_nextc.exit1417.thread:                        ; preds = %1336, %1335, %1341, %1350
+  %.pre39.i14192326 = phi ptr [ %1352, %1350 ], [ %.pre39.i1419, %1335 ], [ %1342, %1341 ], [ %.pre39.i1419, %1336 ]
+  %.pre39.i14112315 = phi ptr [ %1352, %1350 ], [ %.pre39.i14112316, %1335 ], [ %1342, %1341 ], [ %.pre39.i14112316, %1336 ]
+  %.pre.i14102309 = phi ptr [ %1352, %1350 ], [ %.pre.i14102310, %1335 ], [ %1342, %1341 ], [ %.pre.i14102310, %1336 ]
   %spec.select12281545 = select i1 %1258, i32 1, i32 %.010802014
   br label %tok_nextc.exit1425
 
@@ -4527,13 +4527,13 @@ tok_nextc.exit1417:                               ; preds = %1332
   br label %tok_nextc.exit1425
 
 tok_nextc.exit1425:                               ; preds = %1367, %1381, %1372, %1364, %1363, %tok_nextc.exit1417.thread, %1330, %tok_nextc.exit1417, %1328
-  %.pre39.i14192324 = phi ptr [ %.pre39.i14192320, %1328 ], [ %.pre39.i1419, %tok_nextc.exit1417 ], [ %.pre39.i14192320, %1330 ], [ %.pre39.i14192326, %tok_nextc.exit1417.thread ], [ %.pre39.i14192325, %1363 ], [ %.pre39.i14192325, %1364 ], [ %1373, %1372 ], [ %1383, %1381 ], [ %.pre39.i14192325, %1367 ]
-  %.pre39.i14112314 = phi ptr [ %.pre39.i1411, %1328 ], [ %.pre39.i14112316, %tok_nextc.exit1417 ], [ %.pre39.i1411, %1330 ], [ %.pre39.i14112315, %tok_nextc.exit1417.thread ], [ %.pre39.i14192325, %1363 ], [ %.pre39.i14192325, %1364 ], [ %1373, %1372 ], [ %1383, %1381 ], [ %.pre39.i14192325, %1367 ]
-  %.pre.i14102308 = phi ptr [ %.pre.i1410, %1328 ], [ %1354, %tok_nextc.exit1417 ], [ %.pre.i1410, %1330 ], [ %.pre.i14102309, %tok_nextc.exit1417.thread ], [ %1359, %1363 ], [ %1366, %1364 ], [ %1373, %1372 ], [ %1383, %1381 ], [ %1359, %1367 ]
-  %.pre39.i14032303 = phi ptr [ %.pre39.i14032299, %1328 ], [ %.pre39.i14112316, %tok_nextc.exit1417 ], [ %.pre39.i14032299, %1330 ], [ %.pre39.i14112315, %tok_nextc.exit1417.thread ], [ %.pre39.i14192325, %1363 ], [ %.pre39.i14192325, %1364 ], [ %1373, %1372 ], [ %1383, %1381 ], [ %.pre39.i14192325, %1367 ]
-  %.pre.i14022295 = phi ptr [ %.pre.i14022292, %1328 ], [ %1354, %tok_nextc.exit1417 ], [ %.pre.i14022292, %1330 ], [ %.pre.i14102309, %tok_nextc.exit1417.thread ], [ %1359, %1363 ], [ %1366, %1364 ], [ %1373, %1372 ], [ %1383, %1381 ], [ %1359, %1367 ]
-  %.21085 = phi i32 [ %1329, %1328 ], [ 0, %tok_nextc.exit1417 ], [ 0, %1330 ], [ 0, %tok_nextc.exit1417.thread ], [ 0, %1363 ], [ 0, %1364 ], [ 0, %1372 ], [ 0, %1381 ], [ 0, %1367 ]
-  %.11081 = phi i32 [ %.010802014, %1328 ], [ %spec.select1228, %tok_nextc.exit1417 ], [ %.010802014, %1330 ], [ %spec.select12281545, %tok_nextc.exit1417.thread ], [ %spec.select1228, %1363 ], [ %spec.select1228, %1364 ], [ %spec.select1228, %1372 ], [ %spec.select1228, %1381 ], [ %spec.select1228, %1367 ]
+  %.pre39.i14192324 = phi ptr [ %.pre39.i14192320, %1328 ], [ %.pre39.i14192326, %tok_nextc.exit1417.thread ], [ %.pre39.i1419, %tok_nextc.exit1417 ], [ %.pre39.i14192320, %1330 ], [ %.pre39.i14192325, %1363 ], [ %.pre39.i14192325, %1364 ], [ %1383, %1381 ], [ %1373, %1372 ], [ %.pre39.i14192325, %1367 ]
+  %.pre39.i14112314 = phi ptr [ %.pre39.i1411, %1328 ], [ %.pre39.i14112315, %tok_nextc.exit1417.thread ], [ %.pre39.i14112316, %tok_nextc.exit1417 ], [ %.pre39.i1411, %1330 ], [ %.pre39.i14192325, %1363 ], [ %.pre39.i14192325, %1364 ], [ %1383, %1381 ], [ %1373, %1372 ], [ %.pre39.i14192325, %1367 ]
+  %.pre.i14102308 = phi ptr [ %.pre.i1410, %1328 ], [ %.pre.i14102309, %tok_nextc.exit1417.thread ], [ %1354, %tok_nextc.exit1417 ], [ %.pre.i1410, %1330 ], [ %1359, %1363 ], [ %1366, %1364 ], [ %1383, %1381 ], [ %1373, %1372 ], [ %1359, %1367 ]
+  %.pre39.i14032303 = phi ptr [ %.pre39.i14032299, %1328 ], [ %.pre39.i14112315, %tok_nextc.exit1417.thread ], [ %.pre39.i14112316, %tok_nextc.exit1417 ], [ %.pre39.i14032299, %1330 ], [ %.pre39.i14192325, %1363 ], [ %.pre39.i14192325, %1364 ], [ %1383, %1381 ], [ %1373, %1372 ], [ %.pre39.i14192325, %1367 ]
+  %.pre.i14022295 = phi ptr [ %.pre.i14022292, %1328 ], [ %.pre.i14102309, %tok_nextc.exit1417.thread ], [ %1354, %tok_nextc.exit1417 ], [ %.pre.i14022292, %1330 ], [ %1359, %1363 ], [ %1366, %1364 ], [ %1383, %1381 ], [ %1373, %1372 ], [ %1359, %1367 ]
+  %.21085 = phi i32 [ %1329, %1328 ], [ 0, %tok_nextc.exit1417.thread ], [ 0, %tok_nextc.exit1417 ], [ 0, %1330 ], [ 0, %1363 ], [ 0, %1364 ], [ 0, %1381 ], [ 0, %1372 ], [ 0, %1367 ]
+  %.11081 = phi i32 [ %.010802014, %1328 ], [ %spec.select12281545, %tok_nextc.exit1417.thread ], [ %spec.select1228, %tok_nextc.exit1417 ], [ %.010802014, %1330 ], [ %spec.select1228, %1363 ], [ %spec.select1228, %1364 ], [ %spec.select1228, %1381 ], [ %spec.select1228, %1372 ], [ %spec.select1228, %1367 ]
   %.not1206 = icmp eq i32 %.21085, %.01086
   br i1 %.not1206, label %tok_nextc.exit1409._crit_edge, label %1259, !llvm.loop !79
 
@@ -4711,7 +4711,7 @@ tok_nextc.exit1409._crit_edge:                    ; preds = %tok_nextc.exit1425,
   br label %tok_nextc.exit1433
 
 tok_nextc.exit1433:                               ; preds = %1451, %1445, %1446, %1456, %1465
-  %.0.i1429 = phi i32 [ -1, %1445 ], [ %1450, %1446 ], [ -1, %1465 ], [ -1, %1456 ], [ -1, %1451 ]
+  %.0.i1429 = phi i32 [ -1, %1445 ], [ %1450, %1446 ], [ -1, %1456 ], [ -1, %1465 ], [ -1, %1451 ]
   %1468 = tail call i32 @_PyToken_TwoChars(i32 noundef %.61007, i32 noundef %.0.i1429) #9
   %.not1197 = icmp eq i32 %1468, 55
   br i1 %.not1197, label %1513, label %1469
@@ -4779,7 +4779,7 @@ tok_nextc.exit1433:                               ; preds = %1451, %1445, %1446,
   br label %tok_nextc.exit1441
 
 tok_nextc.exit1441:                               ; preds = %1482, %1476, %1477, %1487, %1496
-  %.0.i1437 = phi i32 [ -1, %1476 ], [ %1481, %1477 ], [ -1, %1496 ], [ -1, %1487 ], [ -1, %1482 ]
+  %.0.i1437 = phi i32 [ -1, %1476 ], [ %1481, %1477 ], [ -1, %1487 ], [ -1, %1496 ], [ -1, %1482 ]
   %1499 = tail call i32 @_PyToken_ThreeChars(i32 noundef %.61007, i32 noundef %.0.i1429, i32 noundef %.0.i1437) #9
   %.not1198 = icmp eq i32 %1499, 55
   br i1 %.not1198, label %1500, label %tok_nextc.exit1441.tok_backup.exit1447_crit_edge
@@ -5091,8 +5091,8 @@ tok_backup.exit1447.thread:                       ; preds = %1513, %1524
   %1656 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1655, ptr noundef %1653, ptr noundef %1654) #9
   br label %.thread1472
 
-.thread1472:                                      ; preds = %tok_backup.exit1447, %1424, %1434, %1429, %952, %967, %943, %900, %546, %verify_identifier.exit, %330, %.critedge1215, %tok_backup.exit1272, %1616, %1619, %.thread1562, %1313, %69, %101, %109, %114, %.critedge.thread, %141, %1287, %tok_nextc.exit1409._crit_edge, %1324, %1319, %1140, %1171, %1652, %1641, %1627, %1580, %1573, %1533, %1390, %.thread1518, %1024, %1020, %1014, %1007, %1005, %994, %982, %970, %890, %885, %847, %844, %828, %823, %785, %782, %740, %702, %649, %644, %602, %600, %592, %362, %360, %354, %156, %150
-  %.3 = phi i32 [ %152, %150 ], [ %158, %156 ], [ %355, %354 ], [ %361, %360 ], [ %365, %362 ], [ %1391, %1390 ], [ %1656, %1652 ], [ %1643, %1641 ], [ %1535, %1533 ], [ %1575, %1573 ], [ %1629, %1627 ], [ %1582, %1580 ], [ %1529, %tok_backup.exit1447 ], [ %594, %592 ], [ %601, %600 ], [ %605, %602 ], [ %983, %982 ], [ %1015, %1014 ], [ %1028, %.thread1518 ], [ %1021, %1020 ], [ %1025, %1024 ], [ %996, %994 ], [ %1010, %1007 ], [ %1006, %1005 ], [ %647, %644 ], [ %652, %649 ], [ %741, %740 ], [ %704, %702 ], [ %784, %782 ], [ %787, %785 ], [ %825, %823 ], [ %829, %828 ], [ %846, %844 ], [ %849, %847 ], [ %887, %885 ], [ %891, %890 ], [ %971, %970 ], [ %1142, %1140 ], [ %1175, %1171 ], [ %1288, %1287 ], [ %1386, %tok_nextc.exit1409._crit_edge ], [ %1320, %1319 ], [ %1325, %1324 ], [ %1315, %1313 ], [ %70, %69 ], [ %103, %101 ], [ %110, %109 ], [ %116, %114 ], [ %137, %.critedge.thread ], [ %143, %141 ], [ %1618, %1616 ], [ %1621, %1619 ], [ %1609, %.thread1562 ], [ %334, %.critedge1215 ], [ %332, %330 ], [ %350, %tok_backup.exit1272 ], [ %547, %546 ], [ %550, %verify_identifier.exit ], [ %964, %952 ], [ %968, %967 ], [ %944, %943 ], [ %902, %900 ], [ %1425, %1424 ], [ %1437, %1434 ], [ %1430, %1429 ]
+.thread1472:                                      ; preds = %tok_backup.exit1447, %1424, %1434, %1429, %967, %952, %943, %900, %546, %verify_identifier.exit, %.critedge1215, %330, %tok_backup.exit1272, %1616, %1619, %.thread1562, %1313, %69, %101, %109, %114, %.critedge.thread, %141, %1287, %tok_nextc.exit1409._crit_edge, %1324, %1319, %1140, %1171, %1652, %1641, %1627, %1580, %1573, %1533, %1390, %.thread1518, %1024, %1020, %1014, %1007, %1005, %994, %982, %970, %890, %885, %847, %844, %828, %823, %785, %782, %740, %702, %649, %644, %602, %600, %592, %362, %360, %354, %156, %150
+  %.3 = phi i32 [ %152, %150 ], [ %158, %156 ], [ %355, %354 ], [ %361, %360 ], [ %365, %362 ], [ %350, %tok_backup.exit1272 ], [ %1315, %1313 ], [ %1175, %1171 ], [ %1391, %1390 ], [ %1656, %1652 ], [ %1643, %1641 ], [ %1535, %1533 ], [ %1575, %1573 ], [ %1629, %1627 ], [ %137, %.critedge.thread ], [ %1582, %1580 ], [ %1529, %tok_backup.exit1447 ], [ %902, %900 ], [ %594, %592 ], [ %601, %600 ], [ %605, %602 ], [ %983, %982 ], [ %1015, %1014 ], [ %1028, %.thread1518 ], [ %1021, %1020 ], [ %1025, %1024 ], [ %996, %994 ], [ %1010, %1007 ], [ %1006, %1005 ], [ %647, %644 ], [ %652, %649 ], [ %741, %740 ], [ %704, %702 ], [ %784, %782 ], [ %787, %785 ], [ %825, %823 ], [ %829, %828 ], [ %846, %844 ], [ %849, %847 ], [ %887, %885 ], [ %891, %890 ], [ %550, %verify_identifier.exit ], [ %971, %970 ], [ %1621, %1619 ], [ %1142, %1140 ], [ %1288, %1287 ], [ %1386, %tok_nextc.exit1409._crit_edge ], [ %1320, %1319 ], [ %1325, %1324 ], [ %70, %69 ], [ %143, %141 ], [ %103, %101 ], [ %110, %109 ], [ %116, %114 ], [ %1609, %.thread1562 ], [ %1618, %1616 ], [ %332, %330 ], [ %334, %.critedge1215 ], [ %547, %546 ], [ %968, %967 ], [ %964, %952 ], [ %944, %943 ], [ %1425, %1424 ], [ %1437, %1434 ], [ %1430, %1429 ]
   ret i32 %.3
 }
 
@@ -5166,7 +5166,7 @@ define internal fastcc range(i32 -1, 256) i32 @tok_nextc(ptr noundef %0) unnamed
   br label %.loopexit
 
 .loopexit:                                        ; preds = %20, %34, %25, %15, %14
-  %.0 = phi i32 [ -1, %14 ], [ %19, %15 ], [ -1, %34 ], [ -1, %25 ], [ -1, %20 ]
+  %.0 = phi i32 [ -1, %14 ], [ %19, %15 ], [ -1, %25 ], [ -1, %34 ], [ -1, %20 ]
   ret i32 %.0
 }
 
@@ -5266,9 +5266,9 @@ tok_nextc.exit:                                   ; preds = %9
   br i1 %.not24.i22, label %.preheader94, label %tok_nextc.exit23.thread.sink.split.sink.split
 
 tok_nextc.exit23:                                 ; preds = %34, %tok_nextc.exit
-  %.pre39.i25 = phi ptr [ %.pre39.i17, %tok_nextc.exit ], [ %29, %34 ]
-  %.pre.i24 = phi ptr [ %26, %tok_nextc.exit ], [ %36, %34 ]
-  %.0.in = phi i8 [ %27, %tok_nextc.exit ], [ %37, %34 ]
+  %.pre39.i25 = phi ptr [ %29, %34 ], [ %.pre39.i17, %tok_nextc.exit ]
+  %.pre.i24 = phi ptr [ %36, %34 ], [ %26, %tok_nextc.exit ]
+  %.0.in = phi i8 [ %37, %34 ], [ %27, %tok_nextc.exit ]
   %.not = icmp eq i8 %.0.in, 10
   br i1 %.not, label %.preheader, label %tok_nextc.exit23.thread
 
@@ -5549,7 +5549,7 @@ tok_nextc.exit:                                   ; preds = %22
   br label %tok_backup.exit
 
 tok_backup.exit:                                  ; preds = %55, %9, %58, %56, %11, %7
-  %.050 = phi i32 [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %57, %56 ], [ %59, %58 ], [ %.151.ph, %55 ]
+  %.050 = phi i32 [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %.151.ph, %55 ], [ %57, %56 ], [ %59, %58 ]
   %.not54 = icmp eq i32 %.050, 0
   br i1 %.not54, label %tok_backup.exit.thread, label %60
 
@@ -5659,7 +5659,7 @@ tok_backup.exit59:                                ; preds = %60, %72
   store ptr %111, ptr %79, align 8, !tbaa !4
   br label %tok_nextc.exit67
 
-tok_backup.exit.thread:                           ; preds = %27, %32, %41, %26, %6, %tok_backup.exit
+tok_backup.exit.thread:                           ; preds = %27, %41, %32, %26, %6, %tok_backup.exit
   %112 = icmp slt i32 %1, 128
   br i1 %112, label %113, label %tok_nextc.exit67
 
@@ -5708,7 +5708,7 @@ tok_backup.exit70:                                ; preds = %126
   br label %tok_nextc.exit67
 
 tok_nextc.exit67:                                 ; preds = %95, %109, %100, %92, %91, %tok_backup.exit70, %tok_backup.exit59, %tok_backup.exit.thread, %116, %3
-  %.0 = phi i32 [ 1, %3 ], [ 0, %tok_backup.exit70 ], [ 0, %tok_backup.exit59 ], [ 1, %tok_backup.exit.thread ], [ 1, %116 ], [ 1, %91 ], [ 1, %92 ], [ 1, %100 ], [ 1, %109 ], [ 1, %95 ]
+  %.0 = phi i32 [ 1, %3 ], [ 0, %tok_backup.exit70 ], [ 0, %tok_backup.exit59 ], [ 1, %tok_backup.exit.thread ], [ 1, %116 ], [ 1, %91 ], [ 1, %92 ], [ 1, %109 ], [ 1, %100 ], [ 1, %95 ]
   ret i32 %.0
 }
 
@@ -5791,11 +5791,11 @@ define internal fastcc range(i32 -1, 256) i32 @tok_decimal_tail(ptr noundef %0) 
   br label %tok_nextc.exit
 
 tok_nextc.exit:                                   ; preds = %18, %12, %13, %23, %32
-  %.pre39.i.pre57 = phi ptr [ %.pre39.i.pre58, %12 ], [ %.pre39.i.pre58, %13 ], [ %34, %32 ], [ %24, %23 ], [ %.pre39.i.pre58, %18 ]
-  %.pre.i.pre51 = phi ptr [ %.pre.i.pre52, %12 ], [ %15, %13 ], [ %34, %32 ], [ %24, %23 ], [ %.pre.i.pre52, %18 ]
-  %.pre39.i13 = phi ptr [ %.pre39.i47, %12 ], [ %.pre39.i47, %13 ], [ %34, %32 ], [ %24, %23 ], [ %.pre39.i47, %18 ]
-  %.pre.i12 = phi ptr [ %.pre.i44, %12 ], [ %15, %13 ], [ %34, %32 ], [ %24, %23 ], [ %.pre.i44, %18 ]
-  %.0.i = phi i32 [ -1, %12 ], [ %17, %13 ], [ -1, %32 ], [ -1, %23 ], [ -1, %18 ]
+  %.pre39.i.pre57 = phi ptr [ %.pre39.i.pre58, %12 ], [ %.pre39.i.pre58, %13 ], [ %24, %23 ], [ %34, %32 ], [ %.pre39.i.pre58, %18 ]
+  %.pre.i.pre51 = phi ptr [ %.pre.i.pre52, %12 ], [ %15, %13 ], [ %24, %23 ], [ %34, %32 ], [ %.pre.i.pre52, %18 ]
+  %.pre39.i13 = phi ptr [ %.pre39.i47, %12 ], [ %.pre39.i47, %13 ], [ %24, %23 ], [ %34, %32 ], [ %.pre39.i47, %18 ]
+  %.pre.i12 = phi ptr [ %.pre.i44, %12 ], [ %15, %13 ], [ %24, %23 ], [ %34, %32 ], [ %.pre.i44, %18 ]
+  %.0.i = phi i32 [ -1, %12 ], [ %17, %13 ], [ -1, %23 ], [ -1, %32 ], [ -1, %18 ]
   %35 = and i32 %.0.i, 255
   %36 = zext nneg i32 %35 to i64
   %37 = getelementptr i32, ptr @_Py_ctype_table, i64 %36
@@ -5868,10 +5868,10 @@ tok_nextc.exit:                                   ; preds = %18, %12, %13, %23, 
   br label %tok_nextc.exit19
 
 tok_nextc.exit19:                                 ; preds = %52, %46, %47, %57, %66
-  %.pre39.i.pre55 = phi ptr [ %.pre39.i.pre56, %46 ], [ %.pre39.i.pre56, %47 ], [ %68, %66 ], [ %58, %57 ], [ %.pre39.i.pre56, %52 ]
-  %.pre.i.pre49 = phi ptr [ %.pre.i.pre50, %46 ], [ %49, %47 ], [ %68, %66 ], [ %58, %57 ], [ %.pre.i.pre50, %52 ]
-  %69 = phi ptr [ %42, %46 ], [ %49, %47 ], [ %68, %66 ], [ %58, %57 ], [ %42, %52 ]
-  %.0.i15 = phi i32 [ -1, %46 ], [ %51, %47 ], [ -1, %66 ], [ -1, %57 ], [ -1, %52 ]
+  %.pre39.i.pre55 = phi ptr [ %.pre39.i.pre56, %46 ], [ %.pre39.i.pre56, %47 ], [ %58, %57 ], [ %68, %66 ], [ %.pre39.i.pre56, %52 ]
+  %.pre.i.pre49 = phi ptr [ %.pre.i.pre50, %46 ], [ %49, %47 ], [ %58, %57 ], [ %68, %66 ], [ %.pre.i.pre50, %52 ]
+  %69 = phi ptr [ %42, %46 ], [ %49, %47 ], [ %58, %57 ], [ %68, %66 ], [ %42, %52 ]
+  %.0.i15 = phi i32 [ -1, %46 ], [ %51, %47 ], [ -1, %57 ], [ -1, %66 ], [ -1, %52 ]
   %70 = and i32 %.0.i15, 255
   %71 = zext nneg i32 %70 to i64
   %72 = getelementptr i32, ptr @_Py_ctype_table, i64 %71
@@ -6033,7 +6033,7 @@ define internal fastcc range(i32 -1, 1) i32 @set_fstring_expr(ptr noundef readon
   br label %.critedge66
 
 .critedge66:                                      ; preds = %50, %49, %25, %2, %10
-  %.049 = phi i32 [ 0, %10 ], [ 0, %2 ], [ 0, %50 ], [ -1, %49 ], [ -1, %25 ]
+  %.049 = phi i32 [ 0, %2 ], [ 0, %10 ], [ 0, %50 ], [ -1, %49 ], [ -1, %25 ]
   ret i32 %.049
 }
 
@@ -6139,9 +6139,9 @@ define internal fastcc range(i32 0, 2) i32 @lookahead(ptr noundef %0, ptr nounde
   br label %tok_nextc.exit
 
 tok_nextc.exit:                                   ; preds = %20, %14, %15, %25, %34
-  %.pre39.i79 = phi ptr [ %.pre39.i80, %14 ], [ %.pre39.i80, %15 ], [ %36, %34 ], [ %26, %25 ], [ %.pre39.i80, %20 ]
-  %37 = phi ptr [ %.pre.i77, %14 ], [ %17, %15 ], [ %36, %34 ], [ %26, %25 ], [ %.pre.i77, %20 ]
-  %.0.i = phi i32 [ -1, %14 ], [ %19, %15 ], [ -1, %34 ], [ -1, %25 ], [ -1, %20 ]
+  %.pre39.i79 = phi ptr [ %.pre39.i80, %14 ], [ %.pre39.i80, %15 ], [ %26, %25 ], [ %36, %34 ], [ %.pre39.i80, %20 ]
+  %37 = phi ptr [ %.pre.i77, %14 ], [ %17, %15 ], [ %26, %25 ], [ %36, %34 ], [ %.pre.i77, %20 ]
+  %.0.i = phi i32 [ -1, %14 ], [ %19, %15 ], [ -1, %25 ], [ -1, %34 ], [ -1, %20 ]
   %38 = load i8, ptr %.032, align 1, !tbaa !29
   %39 = icmp eq i8 %38, 0
   br i1 %39, label %40, label %49

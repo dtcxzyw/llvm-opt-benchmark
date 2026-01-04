@@ -415,7 +415,7 @@ Gia_ManSwiSimInfoRandom.exit.i:                   ; preds = %.lr.ph.i.i
   br i1 %124, label %.lr.ph27.split.i, label %Gia_ManSwiSimInfoInit.exit, !llvm.loop !58
 
 Gia_ManSwiSimInfoInit.exit:                       ; preds = %.lr.ph27.split.i, %.lr.ph.i, %.preheader.i
-  %.val12.lcssa.i356 = phi ptr [ %.val12.lcssa.i, %.preheader.i ], [ %.val1220.i, %.lr.ph.i ], [ %.val12.lcssa.i, %.lr.ph27.split.i ]
+  %.val12.lcssa.i356 = phi ptr [ %.val1220.i, %.lr.ph.i ], [ %.val12.lcssa.i, %.preheader.i ], [ %.val12.lcssa.i, %.lr.ph27.split.i ]
   %125 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %126 = load i32, ptr %125, align 4, !tbaa !8
   %127 = icmp sgt i32 %126, 0
@@ -702,7 +702,7 @@ Gia_ManSwiSimulateNode.exit.i:                    ; preds = %.lr.ph.i59.i, %.lr.
   br i1 %280, label %.lr.ph.i75.i, label %.sink.split.i, !llvm.loop !68
 
 .sink.split.i:                                    ; preds = %.lr.ph.i70.i, %.lr.ph.i75.i, %257, %234
-  %.0.lcssa.i73.sink.i = phi i32 [ 0, %234 ], [ 0, %257 ], [ %279, %.lr.ph.i75.i ], [ %255, %.lr.ph.i70.i ]
+  %.0.lcssa.i73.sink.i = phi i32 [ %279, %.lr.ph.i75.i ], [ 0, %234 ], [ 0, %257 ], [ %255, %.lr.ph.i70.i ]
   %281 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv.i
   %282 = load i32, ptr %281, align 4, !tbaa !53
   %283 = add nsw i32 %282, %.0.lcssa.i73.sink.i
@@ -1032,9 +1032,9 @@ Gia_ManSwiSimInfoRandom.exit.us46.i:              ; preds = %.lr.ph32.i.us.i, %4
   br label %.preheader.i154
 
 .preheader.i154:                                  ; preds = %.preheader.i154.loopexit278, %.preheader.i154.loopexit277, %.preheader.i154.loopexit, %.lr.ph.split.split.split.us.i166, %372
-  %.val18.i152340 = phi ptr [ %.val18.i152, %372 ], [ %.val18.i152, %.lr.ph.split.split.split.us.i166 ], [ %.val20.us.i186, %.preheader.i154.loopexit ], [ %.val20.us48.i, %.preheader.i154.loopexit277 ], [ %.val20.i171, %.preheader.i154.loopexit278 ]
-  %.val.val76.i = phi i32 [ %.val18.val.i153, %372 ], [ %.val18.val.i153, %.lr.ph.split.split.split.us.i166 ], [ %.val20.val.us.i187, %.preheader.i154.loopexit ], [ %.val20.val.us49.i, %.preheader.i154.loopexit277 ], [ %.val20.val.i172, %.preheader.i154.loopexit278 ]
-  %.0.lcssa.i156 = phi i32 [ 0, %372 ], [ %413, %.lr.ph.split.split.split.us.i166 ], [ %414, %.preheader.i154.loopexit ], [ %415, %.preheader.i154.loopexit277 ], [ %416, %.preheader.i154.loopexit278 ]
+  %.val18.i152340 = phi ptr [ %.val18.i152, %372 ], [ %.val20.us.i186, %.preheader.i154.loopexit ], [ %.val18.i152, %.lr.ph.split.split.split.us.i166 ], [ %.val20.us48.i, %.preheader.i154.loopexit277 ], [ %.val20.i171, %.preheader.i154.loopexit278 ]
+  %.val.val76.i = phi i32 [ %.val18.val.i153, %372 ], [ %.val20.val.us.i187, %.preheader.i154.loopexit ], [ %.val18.val.i153, %.lr.ph.split.split.split.us.i166 ], [ %.val20.val.us49.i, %.preheader.i154.loopexit277 ], [ %.val20.val.i172, %.preheader.i154.loopexit278 ]
+  %.0.lcssa.i156 = phi i32 [ 0, %372 ], [ %414, %.preheader.i154.loopexit ], [ %413, %.lr.ph.split.split.split.us.i166 ], [ %415, %.preheader.i154.loopexit277 ], [ %416, %.preheader.i154.loopexit278 ]
   %417 = getelementptr i8, ptr %.val18.i152340, i64 4
   %418 = icmp sge i32 %.0.lcssa.i156, %.val.val76.i
   %brmerge210 = or i1 %129, %418
@@ -1092,8 +1092,8 @@ Gia_ManSwiSimInfoRandom.exit.i169:                ; preds = %.lr.ph.i.i175
   br i1 %439, label %.lr.ph78.split.i, label %Gia_ManSwiSimInfoTransferShift.exit, !llvm.loop !81
 
 Gia_ManSwiSimInfoTransferShift.exit:              ; preds = %Gia_ManSwiSimInfoCopyShift.exit.loopexit.i, %.lr.ph78.split.i, %.preheader.i154, %.lr.ph.split.split.split.i, %.preheader.i139, %.lr.ph.split.split.i
-  %.val18.i152342 = phi ptr [ %.val18.i152340, %.preheader.i154 ], [ %.val18.i152, %.lr.ph.split.split.split.i ], [ %.val18.i152343, %.preheader.i139 ], [ %.val18.i152, %.lr.ph.split.split.i ], [ %.val18.i152340, %.lr.ph78.split.i ], [ %.val18.i152343, %Gia_ManSwiSimInfoCopyShift.exit.loopexit.i ]
-  %.val18.i337 = phi ptr [ %.val18.i152340, %.preheader.i154 ], [ %.val18.i152, %.lr.ph.split.split.split.i ], [ %.val18.i338, %.preheader.i139 ], [ %.val18.i, %.lr.ph.split.split.i ], [ %.val18.i152340, %.lr.ph78.split.i ], [ %.val18.i338, %Gia_ManSwiSimInfoCopyShift.exit.loopexit.i ]
+  %.val18.i152342 = phi ptr [ %.val18.i152340, %.lr.ph78.split.i ], [ %.val18.i152, %.lr.ph.split.split.i ], [ %.val18.i152340, %.preheader.i154 ], [ %.val18.i152, %.lr.ph.split.split.split.i ], [ %.val18.i152343, %.preheader.i139 ], [ %.val18.i152343, %Gia_ManSwiSimInfoCopyShift.exit.loopexit.i ]
+  %.val18.i337 = phi ptr [ %.val18.i152340, %.lr.ph78.split.i ], [ %.val18.i, %.lr.ph.split.split.i ], [ %.val18.i152340, %.preheader.i154 ], [ %.val18.i152, %.lr.ph.split.split.split.i ], [ %.val18.i338, %.preheader.i139 ], [ %.val18.i338, %Gia_ManSwiSimInfoCopyShift.exit.loopexit.i ]
   %440 = add nuw nsw i32 %.0254, 1
   %441 = load i32, ptr %125, align 4, !tbaa !8
   %442 = icmp slt i32 %440, %441
@@ -1777,7 +1777,7 @@ Gia_ManComputeSwitchProbs.exit:                   ; preds = %4, %10
   br i1 %exitcond83.not, label %.critedge2, label %.lr.ph68.split, !llvm.loop !114
 
 .critedge2:                                       ; preds = %.critedge, %59, %.preheader58, %.preheader, %.lr.ph68
-  %.3 = phi float [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.lr.ph68 ], [ 0.000000e+00, %.preheader58 ], [ %.5, %59 ], [ %.2, %.critedge ]
+  %.3 = phi float [ 0.000000e+00, %.lr.ph68 ], [ 0.000000e+00, %.preheader ], [ %.5, %59 ], [ 0.000000e+00, %.preheader58 ], [ %.2, %.critedge ]
   %.not.i54 = icmp eq ptr %.val45, null
   br i1 %.not.i54, label %Vec_IntFree.exit, label %60
 

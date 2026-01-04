@@ -1360,10 +1360,10 @@ _ZN8GCLocker22is_active_and_needs_gcEv.exit.thread: ; preds = %_ZN10SerialHeap18
   br label %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread57
 
 _ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread57: ; preds = %77, %104, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit, %70, %_ZN10SerialHeap18attempt_allocationEmbb.exit, %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread, %_ZN13MutexUnlockerD2Ev.exit
-  %.140 = phi i32 [ %103, %_ZN13MutexUnlockerD2Ev.exit ], [ %.039, %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread ], [ %.039, %_ZN10SerialHeap18attempt_allocationEmbb.exit ], [ %.039, %70 ], [ %.039, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit ], [ %.039, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread ], [ %.039, %104 ], [ %.039, %77 ]
-  %.137 = phi i32 [ %.036, %_ZN13MutexUnlockerD2Ev.exit ], [ %109, %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread ], [ %.036, %_ZN10SerialHeap18attempt_allocationEmbb.exit ], [ %.036, %70 ], [ %.036, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit ], [ %.036, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread ], [ %.036, %104 ], [ %.036, %77 ]
-  %.034 = phi i32 [ 4, %_ZN13MutexUnlockerD2Ev.exit ], [ 0, %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread ], [ 1, %_ZN10SerialHeap18attempt_allocationEmbb.exit ], [ 1, %70 ], [ 1, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit ], [ 1, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread ], [ 1, %104 ], [ 1, %77 ]
-  %.2 = phi ptr [ %.0, %_ZN13MutexUnlockerD2Ev.exit ], [ %.0, %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread ], [ %.014.i, %_ZN10SerialHeap18attempt_allocationEmbb.exit ], [ null, %70 ], [ %93, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit ], [ null, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread ], [ null, %104 ], [ %82, %77 ]
+  %.140 = phi i32 [ %.039, %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread ], [ %.039, %_ZN10SerialHeap18attempt_allocationEmbb.exit ], [ %.039, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit ], [ %.039, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread ], [ %103, %_ZN13MutexUnlockerD2Ev.exit ], [ %.039, %70 ], [ %.039, %104 ], [ %.039, %77 ]
+  %.137 = phi i32 [ %109, %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread ], [ %.036, %_ZN10SerialHeap18attempt_allocationEmbb.exit ], [ %.036, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit ], [ %.036, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread ], [ %.036, %_ZN13MutexUnlockerD2Ev.exit ], [ %.036, %70 ], [ %.036, %104 ], [ %.036, %77 ]
+  %.034 = phi i32 [ 0, %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread ], [ 1, %_ZN10SerialHeap18attempt_allocationEmbb.exit ], [ 1, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit ], [ 1, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread ], [ 4, %_ZN13MutexUnlockerD2Ev.exit ], [ 1, %70 ], [ 1, %104 ], [ 1, %77 ]
+  %.2 = phi ptr [ %.0, %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread ], [ %.014.i, %_ZN10SerialHeap18attempt_allocationEmbb.exit ], [ %93, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit ], [ null, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread ], [ %.0, %_ZN13MutexUnlockerD2Ev.exit ], [ null, %70 ], [ null, %104 ], [ %82, %77 ]
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %110
 
 110:                                              ; preds = %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread57
@@ -1831,8 +1831,8 @@ _ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0EL
   br label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i
 
 _ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i: ; preds = %171, %167, %158
-  %.sroa.5.023.i.i.i = phi i64 [ %170, %167 ], [ %170, %171 ], [ 0, %158 ]
-  %.sroa.0.022.i.i.i = phi i64 [ %169, %167 ], [ %169, %171 ], [ 0, %158 ]
+  %.sroa.5.023.i.i.i = phi i64 [ %170, %171 ], [ %170, %167 ], [ 0, %158 ]
+  %.sroa.0.022.i.i.i = phi i64 [ %169, %171 ], [ %169, %167 ], [ 0, %158 ]
   %175 = load ptr, ptr %50, align 8
   %.not.i6.i.i.i = icmp eq ptr %175, null
   br i1 %.not.i6.i.i.i, label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i, label %176
@@ -2276,7 +2276,7 @@ _ZN10SerialHeap24expand_heap_and_allocateEmb.exit.sink.split: ; preds = %.thread
   br label %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit
 
 _ZN10SerialHeap24expand_heap_and_allocateEmb.exit: ; preds = %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.sink.split, %.thread.i45, %104, %92, %_ZN10SerialHeap18attempt_allocationEmbb.exit.thread, %54, %.thread.i, %17, %_ZN10SerialHeap18attempt_allocationEmbb.exit42, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit38, %_ZN10SerialHeap18attempt_allocationEmbb.exit, %9
-  %.0 = phi ptr [ null, %9 ], [ %67, %_ZN10SerialHeap18attempt_allocationEmbb.exit ], [ %84, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit38 ], [ %103, %_ZN10SerialHeap18attempt_allocationEmbb.exit42 ], [ null, %.thread.i ], [ %23, %17 ], [ %58, %54 ], [ %73, %_ZN10SerialHeap18attempt_allocationEmbb.exit.thread ], [ %96, %92 ], [ null, %.thread.i45 ], [ %109, %104 ], [ %120, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.sink.split ]
+  %.0 = phi ptr [ %103, %_ZN10SerialHeap18attempt_allocationEmbb.exit42 ], [ null, %9 ], [ %67, %_ZN10SerialHeap18attempt_allocationEmbb.exit ], [ %84, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit38 ], [ %96, %92 ], [ null, %.thread.i45 ], [ null, %.thread.i ], [ %23, %17 ], [ %73, %_ZN10SerialHeap18attempt_allocationEmbb.exit.thread ], [ %58, %54 ], [ %109, %104 ], [ %120, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.sink.split ]
   ret ptr %.0
 }
 
@@ -2608,8 +2608,8 @@ _ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0EL
   br label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i
 
 _ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i: ; preds = %170, %166, %161
-  %.sroa.5.023.i.i.i = phi i64 [ %169, %166 ], [ %169, %170 ], [ 0, %161 ]
-  %.sroa.0.022.i.i.i = phi i64 [ %168, %166 ], [ %168, %170 ], [ 0, %161 ]
+  %.sroa.5.023.i.i.i = phi i64 [ %169, %170 ], [ %169, %166 ], [ 0, %161 ]
+  %.sroa.0.022.i.i.i = phi i64 [ %168, %170 ], [ %168, %166 ], [ 0, %161 ]
   %174 = load ptr, ptr %37, align 8
   %.not.i6.i.i.i = icmp eq ptr %174, null
   br i1 %.not.i6.i.i.i, label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i, label %175
@@ -5173,7 +5173,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread: ; preds = %84,
   br label %129
 
 129:                                              ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread, %113, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit ], [ null, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit ], [ %2, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26 ], [ %112, %113 ], [ %112, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread ]
+  %.0 = phi ptr [ null, %4 ], [ %2, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26 ], [ null, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit ], [ %112, %113 ], [ %112, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread ]
   ret ptr %.0
 }
 
@@ -5280,7 +5280,7 @@ _ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit:      ; preds = %44, %45, %49, %54
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 _ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %61, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, %5, %11, %24, %31, %2
-  %.0 = phi ptr [ %1, %2 ], [ %.0.i.i.i, %31 ], [ %.0.i.i.i, %24 ], [ %1, %11 ], [ %1, %5 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
+  %.0 = phi ptr [ %1, %5 ], [ %1, %2 ], [ %.0.i.i.i, %24 ], [ %.0.i.i.i, %31 ], [ %1, %11 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
   ret ptr %.0
 }
 
@@ -5519,7 +5519,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread: ; preds = %84,
   br label %115
 
 115:                                              ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread, %113, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit ], [ null, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit ], [ %2, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26 ], [ %112, %113 ], [ %112, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread ]
+  %.0 = phi ptr [ null, %4 ], [ %2, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26 ], [ null, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit ], [ %112, %113 ], [ %112, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread ]
   ret ptr %.0
 }
 
@@ -5617,7 +5617,7 @@ _ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDe
   br label %_ZN8XBarrier7barrierIXadL_ZNS_25is_good_or_null_fast_pathEmEEXadL_ZNS_42weak_load_barrier_on_phantom_oop_slow_pathEmEEEEP7oopDescPVS2_S2_.exit
 
 _ZN8XBarrier7barrierIXadL_ZNS_25is_good_or_null_fast_pathEmEEXadL_ZNS_42weak_load_barrier_on_phantom_oop_slow_pathEmEEEEP7oopDescPVS2_S2_.exit: ; preds = %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, %22, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, %6
-  %.0 = phi ptr [ %18, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i ], [ %1, %6 ], [ %29, %22 ], [ %46, %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i ]
+  %.0 = phi ptr [ %1, %6 ], [ %18, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i ], [ %29, %22 ], [ %46, %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i ]
   ret ptr %.0
 }
 
@@ -6173,7 +6173,7 @@ _ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDe
   br label %_ZN8XBarrier7barrierIXadL_ZNS_25is_good_or_null_fast_pathEmEEXadL_ZNS_39weak_load_barrier_on_weak_oop_slow_pathEmEEEEP7oopDescPVS2_S2_.exit
 
 _ZN8XBarrier7barrierIXadL_ZNS_25is_good_or_null_fast_pathEmEEXadL_ZNS_39weak_load_barrier_on_weak_oop_slow_pathEmEEEEP7oopDescPVS2_S2_.exit: ; preds = %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, %22, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, %6
-  %.0 = phi ptr [ %18, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i ], [ %1, %6 ], [ %29, %22 ], [ %46, %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i ]
+  %.0 = phi ptr [ %1, %6 ], [ %18, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i ], [ %29, %22 ], [ %46, %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i ]
   ret ptr %.0
 }
 
@@ -7531,7 +7531,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6BitMap7iterateIZNKS_7iterate
   br i1 %28, label %_ZNK6BitMap18find_first_set_bitEmm.exit, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread
 
 _ZNK6BitMap18find_first_set_bitEmm.exit:          ; preds = %8, %25
-  %.0.i.i = phi i64 [ %.0917, %8 ], [ %27, %25 ]
+  %.0.i.i = phi i64 [ %27, %25 ], [ %.0917, %8 ]
   %.not.not = icmp ult i64 %.0.i.i, %3
   br i1 %.not.not, label %29, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread
 
@@ -7805,7 +7805,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br i1 %50, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc19YoungGenScanClosureEEEbPT_mm.exit
 
 _ZNK6BitMap18find_first_set_bitEmm.exit.i.i:      ; preds = %47, %31
-  %.0.i.i.i.i = phi i64 [ %.0917.i.i, %31 ], [ %49, %47 ]
+  %.0.i.i.i.i = phi i64 [ %49, %47 ], [ %.0917.i.i, %31 ]
   %.not.not.i.i = icmp ult i64 %.0.i.i.i.i, %25
   br i1 %.not.not.i.i, label %51, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc19YoungGenScanClosureEEEbPT_mm.exit
 
@@ -10274,7 +10274,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6BitMap7iterateIZNKS_7iterate
   br i1 %28, label %_ZNK6BitMap18find_first_set_bitEmm.exit, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread
 
 _ZNK6BitMap18find_first_set_bitEmm.exit:          ; preds = %8, %25
-  %.0.i.i = phi i64 [ %.0917, %8 ], [ %27, %25 ]
+  %.0.i.i = phi i64 [ %27, %25 ], [ %.0917, %8 ]
   %.not.not = icmp ult i64 %.0.i.i, %3
   br i1 %.not.not, label %29, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread
 
@@ -10682,7 +10682,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6BitMap7iterateIZNKS_7iterate
   br i1 %28, label %_ZNK6BitMap18find_first_set_bitEmm.exit, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread
 
 _ZNK6BitMap18find_first_set_bitEmm.exit:          ; preds = %8, %25
-  %.0.i.i = phi i64 [ %.0917, %8 ], [ %27, %25 ]
+  %.0.i.i = phi i64 [ %27, %25 ], [ %.0917, %8 ]
   %.not.not = icmp ult i64 %.0.i.i, %3
   br i1 %.not.not, label %29, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread
 
@@ -11080,7 +11080,7 @@ _ZNK10SerialHeap12block_is_objEPKP12HeapWordImpl.exit.thread: ; preds = %31, %44
   br label %78
 
 78:                                               ; preds = %_ZNK10SerialHeap12block_is_objEPKP12HeapWordImpl.exit.thread, %57, %1, %_ZNK10SerialHeap11block_startEPKv.exit, %_ZNK10SerialHeap12block_is_objEPKP12HeapWordImpl.exit
-  %.0 = phi ptr [ null, %_ZNK10SerialHeap12block_is_objEPKP12HeapWordImpl.exit ], [ null, %_ZNK10SerialHeap11block_startEPKv.exit ], [ %0, %1 ], [ null, %57 ], [ %spec.select, %_ZNK10SerialHeap12block_is_objEPKP12HeapWordImpl.exit.thread ]
+  %.0 = phi ptr [ null, %_ZNK10SerialHeap11block_startEPKv.exit ], [ null, %57 ], [ %spec.select, %_ZNK10SerialHeap12block_is_objEPKP12HeapWordImpl.exit.thread ], [ null, %_ZNK10SerialHeap12block_is_objEPKP12HeapWordImpl.exit ], [ %0, %1 ]
   ret ptr %.0
 }
 

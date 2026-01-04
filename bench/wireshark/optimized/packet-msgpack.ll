@@ -390,9 +390,9 @@ dissect_msgpack_float.exit:                       ; preds = %112, %120
   br label %.thread3.i
 
 .thread3.i:                                       ; preds = %144, %139, %.thread.i, %133
-  %148 = phi i1 [ false, %144 ], [ false, %.thread.i ], [ false, %139 ], [ true, %133 ]
-  %.361.i = phi i32 [ 4, %144 ], [ 1, %.thread.i ], [ 2, %139 ], [ 0, %133 ]
-  %.3.i = phi i32 [ %147, %144 ], [ %138, %.thread.i ], [ %143, %139 ], [ %spec.select.i, %133 ]
+  %148 = phi i1 [ false, %144 ], [ true, %133 ], [ false, %.thread.i ], [ false, %139 ]
+  %.361.i = phi i32 [ 4, %144 ], [ 0, %133 ], [ 1, %.thread.i ], [ 2, %139 ]
+  %.3.i = phi i32 [ %147, %144 ], [ %spec.select.i, %133 ], [ %138, %.thread.i ], [ %143, %139 ]
   %149 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %150 = load ptr, ptr %149, align 8
   %151 = load i32, ptr %4, align 4

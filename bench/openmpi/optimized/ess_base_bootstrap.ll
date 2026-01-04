@@ -604,7 +604,7 @@ define range(i32 -46, 1) i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
   br label %regex_parse_value_ranges.exit.i
 
 regex_parse_value_ranges.exit.i:                  ; preds = %198, %221, %219, %217, %200
-  %.0.i139.i = phi i32 [ 0, %221 ], [ %199, %200 ], [ %218, %217 ], [ %218, %219 ], [ %199, %198 ]
+  %.0.i139.i = phi i32 [ 0, %221 ], [ %199, %200 ], [ %218, %219 ], [ %218, %217 ], [ %199, %198 ]
   %.not135.i = icmp eq ptr %.0111.i, null
   br i1 %.not135.i, label %223, label %222
 
@@ -648,16 +648,16 @@ regex_parse_value_ranges.exit.i:                  ; preds = %198, %221, %219, %2
   br i1 %.1250251.i, label %.backedge.i.backedge, label %.thread153.i
 
 .backedge.i.backedge:                             ; preds = %237, %233
-  %.0113.i.be = phi ptr [ %241, %237 ], [ %236, %233 ]
-  %.0109.i.be = phi i1 [ false, %237 ], [ true, %233 ]
+  %.0113.i.be = phi ptr [ %236, %233 ], [ %241, %237 ]
+  %.0109.i.be = phi i1 [ true, %233 ], [ false, %237 ]
   br label %.backedge.i, !llvm.loop !38
 
 .thread153.i:                                     ; preds = %237, %228, %225
   call void @free(ptr noundef %96) #14
   br label %regex_extract_nodes.exit
 
-242:                                              ; preds = %98, %._crit_edge.i, %._crit_edge188.i, %224, %123, %85
-  %.0.i.ph = phi i32 [ -27, %85 ], [ -27, %123 ], [ %.0.i139.i, %224 ], [ -27, %._crit_edge188.i ], [ -27, %._crit_edge.i ], [ -29, %98 ]
+242:                                              ; preds = %123, %98, %._crit_edge.i, %._crit_edge188.i, %224, %85
+  %.0.i.ph = phi i32 [ -27, %85 ], [ %.0.i139.i, %224 ], [ -27, %._crit_edge188.i ], [ -27, %._crit_edge.i ], [ -29, %98 ], [ -27, %123 ]
   %243 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 800), align 8, !tbaa !11
   %244 = call ptr @PMIx_Error_string(i32 noundef %.0.i.ph) #14
   %245 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.17, i32 noundef 1, ptr noundef %243, ptr noundef %3, ptr noundef nonnull %.083.ph.lcssa151, ptr noundef %244) #14
@@ -979,7 +979,7 @@ define internal fastcc range(i32 -46, 1) i32 @regex_parse_value_range(ptr nounde
   br label %70
 
 70:                                               ; preds = %._crit_edge106, %58, %.critedge, %.critedge86
-  %.068 = phi i32 [ -29, %58 ], [ 0, %._crit_edge106 ], [ -46, %.critedge ], [ -46, %.critedge86 ]
+  %.068 = phi i32 [ -46, %.critedge86 ], [ -29, %58 ], [ 0, %._crit_edge106 ], [ -46, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.068
 }

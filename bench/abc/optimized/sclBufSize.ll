@@ -1428,7 +1428,7 @@ define range(i32 -1, 2) i32 @Bus_SclCompareFanouts(ptr noundef readonly captures
   br label %34
 
 34:                                               ; preds = %32, %22, %20, %2
-  %.0 = phi i32 [ -1, %2 ], [ 1, %20 ], [ -1, %22 ], [ %., %32 ]
+  %.0 = phi i32 [ -1, %22 ], [ -1, %2 ], [ 1, %20 ], [ %., %32 ]
   ret i32 %.0
 }
 
@@ -1614,7 +1614,7 @@ Bus_SclCompareFanouts.exit:                       ; preds = %72, %70
   %indvars.iv.next53 = add nsw i64 %indvars.iv52, -1
   br i1 %83, label %48, label %Bus_SclCompareFanouts.exit.thread, !llvm.loop !101
 
-Bus_SclCompareFanouts.exit.thread:                ; preds = %Bus_SclCompareFanouts.exit, %48, %72, %Vec_PtrPush.exit
+Bus_SclCompareFanouts.exit.thread:                ; preds = %Bus_SclCompareFanouts.exit, %72, %48, %Vec_PtrPush.exit
   ret void
 }
 

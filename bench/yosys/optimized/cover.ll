@@ -811,7 +811,7 @@ _ZN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pa
   br i1 %.not140, label %._crit_edge230.loopexit, label %233
 
 264:                                              ; preds = %247, %241
-  %.pn.pn.pn = phi { ptr, i32 } [ %242, %241 ], [ %248, %247 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %248, %247 ], [ %242, %241 ]
   call void @_ZN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIS7_iENS0_8hash_opsIS7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %8) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.body
@@ -883,9 +883,9 @@ _ZNSt6vectorIP8_IO_FILESaIS1_EED2Ev.exit:         ; preds = %_ZNSt6vectorINSt7__
   br i1 %.not141, label %._crit_edge234, label %.lr.ph233
 
 .body:                                            ; preds = %.loopexit147, %.loopexit.split-lp148, %.loopexit146, %.loopexit.split-lp, %162, %165, %59, %231, %264, %188
-  %.sroa.17.0181 = phi ptr [ %.sroa.17.0.lcssa, %188 ], [ %.sroa.17.0.lcssa, %264 ], [ %.sroa.17.0.lcssa, %231 ], [ %.sroa.17.0189, %59 ], [ %.sroa.17.0.lcssa, %165 ], [ %.sroa.17.0.lcssa, %162 ], [ %.sroa.17.0.lcssa, %.loopexit146 ], [ %.sroa.17.0.lcssa, %.loopexit.split-lp ], [ %.sroa.11131.0190, %.loopexit147 ], [ %.sroa.17.0189246, %.loopexit.split-lp148 ]
-  %.sroa.0125.0169 = phi ptr [ %.sroa.0125.0.lcssa, %188 ], [ %.sroa.0125.0.lcssa, %264 ], [ %.sroa.0125.0.lcssa, %231 ], [ %.sroa.0125.0191, %59 ], [ %.sroa.0125.0.lcssa, %165 ], [ %.sroa.0125.0.lcssa, %162 ], [ %.sroa.0125.0.lcssa, %.loopexit146 ], [ %.sroa.0125.0.lcssa, %.loopexit.split-lp ], [ %.sroa.0125.0191, %.loopexit147 ], [ %.sroa.0125.0191, %.loopexit.split-lp148 ]
-  %.pn71.pn = phi { ptr, i32 } [ %189, %188 ], [ %.pn.pn.pn, %264 ], [ %232, %231 ], [ %60, %59 ], [ %163, %165 ], [ %163, %162 ], [ %lpad.loopexit, %.loopexit146 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit149, %.loopexit147 ], [ %lpad.loopexit.split-lp150, %.loopexit.split-lp148 ]
+  %.sroa.17.0181 = phi ptr [ %.sroa.17.0189, %59 ], [ %.sroa.17.0.lcssa, %231 ], [ %.sroa.17.0.lcssa, %188 ], [ %.sroa.17.0.lcssa, %264 ], [ %.sroa.17.0.lcssa, %162 ], [ %.sroa.17.0.lcssa, %.loopexit.split-lp ], [ %.sroa.17.0.lcssa, %165 ], [ %.sroa.17.0.lcssa, %.loopexit146 ], [ %.sroa.11131.0190, %.loopexit147 ], [ %.sroa.17.0189246, %.loopexit.split-lp148 ]
+  %.sroa.0125.0169 = phi ptr [ %.sroa.0125.0191, %59 ], [ %.sroa.0125.0.lcssa, %231 ], [ %.sroa.0125.0.lcssa, %188 ], [ %.sroa.0125.0.lcssa, %264 ], [ %.sroa.0125.0.lcssa, %162 ], [ %.sroa.0125.0.lcssa, %.loopexit.split-lp ], [ %.sroa.0125.0.lcssa, %165 ], [ %.sroa.0125.0.lcssa, %.loopexit146 ], [ %.sroa.0125.0191, %.loopexit147 ], [ %.sroa.0125.0191, %.loopexit.split-lp148 ]
+  %.pn71.pn = phi { ptr, i32 } [ %60, %59 ], [ %232, %231 ], [ %189, %188 ], [ %.pn.pn.pn, %264 ], [ %163, %162 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %163, %165 ], [ %lpad.loopexit, %.loopexit146 ], [ %lpad.loopexit149, %.loopexit147 ], [ %lpad.loopexit.split-lp150, %.loopexit.split-lp148 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i.i.i101 = icmp eq ptr %.sroa.0125.0169, null

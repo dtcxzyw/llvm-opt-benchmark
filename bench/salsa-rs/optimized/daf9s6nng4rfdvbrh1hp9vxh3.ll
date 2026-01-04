@@ -1548,7 +1548,7 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit60: ; preds = %_ZN4core
   br i1 %61, label %.split.us, label %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit70
 
 .sink.split:                                      ; preds = %80, %47, %20, %.loopexit
-  %.sroa.0.0.ph = phi i1 [ true, %.loopexit ], [ false, %20 ], [ false, %47 ], [ false, %80 ]
+  %.sroa.0.0.ph = phi i1 [ true, %.loopexit ], [ false, %47 ], [ false, %20 ], [ false, %80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %62
 

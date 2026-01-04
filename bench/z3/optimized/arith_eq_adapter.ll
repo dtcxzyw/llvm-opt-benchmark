@@ -394,10 +394,10 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %55, %56, %63
   br i1 %.not27.old.i.i.i, label %.loopexit, label %.lr.ph37.i.i.i.backedge
 
 .lr.ph37.i.i.i.backedge:                          ; preds = %135, %132
-  %.136.i.i.i.be = phi ptr [ %.old.i.i.i, %135 ], [ %134, %132 ]
+  %.136.i.i.i.be = phi ptr [ %134, %132 ], [ %.old.i.i.i, %135 ]
   br label %.lr.ph37.i.i.i, !llvm.loop !69
 
-.loopexit:                                        ; preds = %116, %135, %132, %.preheader.i.i.i
+.loopexit:                                        ; preds = %116, %132, %135, %.preheader.i.i.i
   %136 = load i32, ptr %0, align 8, !tbaa !70
   %137 = add i32 %136, 1
   store i32 %137, ptr %0, align 8, !tbaa !70
@@ -466,8 +466,8 @@ _ZNK10arith_util10is_numeralEPK4expr.exit:        ; preds = %152
   br label %534
 
 _ZNK10arith_util10is_numeralEPK4expr.exit.thread: ; preds = %_ZNK10arith_util10is_numeralEPK4expr.exit, %152, %144
-  %.0242 = phi ptr [ %30, %144 ], [ %30, %152 ], [ %spec.select244, %_ZNK10arith_util10is_numeralEPK4expr.exit ]
-  %.0241 = phi ptr [ %31, %144 ], [ %31, %152 ], [ %spec.select245, %_ZNK10arith_util10is_numeralEPK4expr.exit ]
+  %.0242 = phi ptr [ %30, %152 ], [ %spec.select244, %_ZNK10arith_util10is_numeralEPK4expr.exit ], [ %30, %144 ]
+  %.0241 = phi ptr [ %31, %152 ], [ %spec.select245, %_ZNK10arith_util10is_numeralEPK4expr.exit ], [ %31, %144 ]
   %167 = getelementptr inbounds nuw i8, ptr %.0242, i64 4
   %168 = load i32, ptr %167, align 4
   %169 = and i32 %168, 65535
@@ -554,7 +554,7 @@ _ZNK4decl13get_family_idEv.exit.thread.i.i.i.i:   ; preds = %197
   br label %_ZNK17arith_recognizers6is_intEPK4sort.exit.i
 
 _ZNK17arith_recognizers6is_intEPK4sort.exit.i:    ; preds = %204, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i, %197
-  %208 = phi i1 [ %207, %204 ], [ false, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i ], [ false, %197 ]
+  %208 = phi i1 [ false, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i ], [ %207, %204 ], [ false, %197 ]
   %209 = getelementptr inbounds nuw i8, ptr %198, i64 8
   %210 = load ptr, ptr %209, align 8, !tbaa !90
   %.not.i.i.i114 = icmp eq ptr %210, null
@@ -606,7 +606,7 @@ _ZNK4decl13get_family_idEv.exit.thread.i.i.i.i119: ; preds = %_ZN7obj_refI3app11
   br label %_ZNK17arith_recognizers6is_intEPK4sort.exit.i120
 
 _ZNK17arith_recognizers6is_intEPK4sort.exit.i120: ; preds = %223, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i119, %_ZN7obj_refI3app11ast_managerEC2EPS0_RS1_.exit
-  %227 = phi i1 [ %226, %223 ], [ false, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i119 ], [ false, %_ZN7obj_refI3app11ast_managerEC2EPS0_RS1_.exit ]
+  %227 = phi i1 [ false, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i119 ], [ %226, %223 ], [ false, %_ZN7obj_refI3app11ast_managerEC2EPS0_RS1_.exit ]
   %228 = getelementptr inbounds nuw i8, ptr %218, i64 8
   %229 = load ptr, ptr %228, align 8, !tbaa !90
   %.not.i.i.i121 = icmp eq ptr %229, null
@@ -1340,7 +1340,7 @@ _ZNK12obj_pair_mapIN3smt5enodeES1_NS0_16arith_eq_adapter4dataEE4findEPS1_S5_RS3_
   ret void
 
 534:                                              ; preds = %389, %393, %477, %479, %504, %419, %413, %391, %301, %316, %387, %385, %165
-  %.pn87.pn.pn.pn.pn = phi { ptr, i32 } [ %166, %165 ], [ %388, %387 ], [ %386, %385 ], [ %.pn.pn.pn.pn, %316 ], [ %302, %301 ], [ %390, %389 ], [ %392, %391 ], [ %394, %393 ], [ %505, %504 ], [ %414, %413 ], [ %.pn82, %419 ], [ %480, %479 ], [ %478, %477 ]
+  %.pn87.pn.pn.pn.pn = phi { ptr, i32 } [ %302, %301 ], [ %166, %165 ], [ %388, %387 ], [ %386, %385 ], [ %.pn.pn.pn.pn, %316 ], [ %390, %389 ], [ %392, %391 ], [ %394, %393 ], [ %505, %504 ], [ %414, %413 ], [ %.pn82, %419 ], [ %480, %479 ], [ %478, %477 ]
   call void @_ZN7obj_refI3app11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN7obj_refI3app11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #20

@@ -564,7 +564,7 @@ parse_setup_header.exit.thread22.i:               ; preds = %125, %._crit_edge11
   call void @av_free(ptr noundef nonnull %54) #6
   br label %162
 
-162:                                              ; preds = %11, %parse_setup_header.exit.thread22.i, %16, %19, %22, %27, %56, %51, %48, %45
+162:                                              ; preds = %11, %27, %parse_setup_header.exit.thread22.i, %16, %19, %22, %56, %51, %48, %45
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @av_freep(ptr noundef nonnull %5) #6

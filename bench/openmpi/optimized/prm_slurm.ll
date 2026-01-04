@@ -93,7 +93,7 @@ define internal range(i32 -1366, 1) i32 @get_remaining_time(ptr noundef writeonl
   br label %49
 
 49:                                               ; preds = %15, %6, %1, %.thread32, %13
-  %.0 = phi i32 [ -67, %13 ], [ 0, %.thread32 ], [ -1366, %1 ], [ -29, %6 ], [ -68, %15 ]
+  %.0 = phi i32 [ 0, %.thread32 ], [ -1366, %1 ], [ -67, %13 ], [ -29, %6 ], [ -68, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0

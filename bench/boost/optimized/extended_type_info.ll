@@ -165,8 +165,8 @@ _ZNK5boost13serialization6detail11key_compareclEPKNS0_18extended_type_infoES5_.e
   br label %_ZNK5boost13serialization6detail11key_compareclEPKNS0_18extended_type_infoES5_.exit.thread.i.i.i
 
 _ZNK5boost13serialization6detail11key_compareclEPKNS0_18extended_type_infoES5_.exit.thread.i.i.i: ; preds = %_ZNK5boost13serialization6detail11key_compareclEPKNS0_18extended_type_infoES5_.exit.i.i.i, %19, %.lr.ph.i.i.i
-  %.sink.i.i.i = phi i64 [ 16, %19 ], [ 16, %.lr.ph.i.i.i ], [ %spec.select.i.i.i, %_ZNK5boost13serialization6detail11key_compareclEPKNS0_18extended_type_infoES5_.exit.i.i.i ]
-  %.19.i.i.i = phi ptr [ %.013.i.i.i, %19 ], [ %.013.i.i.i, %.lr.ph.i.i.i ], [ %spec.select17.i.i.i, %_ZNK5boost13serialization6detail11key_compareclEPKNS0_18extended_type_infoES5_.exit.i.i.i ]
+  %.sink.i.i.i = phi i64 [ %spec.select.i.i.i, %_ZNK5boost13serialization6detail11key_compareclEPKNS0_18extended_type_infoES5_.exit.i.i.i ], [ 16, %19 ], [ 16, %.lr.ph.i.i.i ]
+  %.19.i.i.i = phi ptr [ %spec.select17.i.i.i, %_ZNK5boost13serialization6detail11key_compareclEPKNS0_18extended_type_infoES5_.exit.i.i.i ], [ %.013.i.i.i, %19 ], [ %.013.i.i.i, %.lr.ph.i.i.i ]
   %25 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 %.sink.i.i.i
   %.1.i.i.i = load ptr, ptr %25, align 8, !tbaa !19
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
@@ -274,8 +274,8 @@ _ZNK5boost13serialization6detail11key_compareclEPKNS0_18extended_type_infoES5_.e
   br label %_ZNK5boost13serialization6detail11key_compareclEPKNS0_18extended_type_infoES5_.exit.thread.i.i.i
 
 _ZNK5boost13serialization6detail11key_compareclEPKNS0_18extended_type_infoES5_.exit.thread.i.i.i: ; preds = %_ZNK5boost13serialization6detail11key_compareclEPKNS0_18extended_type_infoES5_.exit.i.i.i, %.lr.ph.i.i.i
-  %.sink.i.i.i = phi i64 [ 16, %.lr.ph.i.i.i ], [ %spec.select.i.i.i, %_ZNK5boost13serialization6detail11key_compareclEPKNS0_18extended_type_infoES5_.exit.i.i.i ]
-  %.19.i.i.i = phi ptr [ %.013.i.i.i, %.lr.ph.i.i.i ], [ %spec.select17.i.i.i, %_ZNK5boost13serialization6detail11key_compareclEPKNS0_18extended_type_infoES5_.exit.i.i.i ]
+  %.sink.i.i.i = phi i64 [ %spec.select.i.i.i, %_ZNK5boost13serialization6detail11key_compareclEPKNS0_18extended_type_infoES5_.exit.i.i.i ], [ 16, %.lr.ph.i.i.i ]
+  %.19.i.i.i = phi ptr [ %spec.select17.i.i.i, %_ZNK5boost13serialization6detail11key_compareclEPKNS0_18extended_type_infoES5_.exit.i.i.i ], [ %.013.i.i.i, %.lr.ph.i.i.i ]
   %16 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 %.sink.i.i.i
   %.1.i.i.i = load ptr, ptr %16, align 8, !tbaa !19
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
@@ -301,8 +301,8 @@ _ZNK5boost13serialization6detail11key_compareclEPKNS0_18extended_type_infoES5_.e
 _ZNKSt8multisetIPKN5boost13serialization18extended_type_infoENS1_6detail11key_compareESaIS4_EE4findERKS4_.exit: ; preds = %_ZNK5boost13serialization6detail11key_compareclEPKNS0_18extended_type_infoES5_.exit.i.i, %18
   br label %_ZNKSt8multisetIPKN5boost13serialization18extended_type_infoENS1_6detail11key_compareESaIS4_EE4findERKS4_.exit.thread
 
-_ZNKSt8multisetIPKN5boost13serialization18extended_type_infoENS1_6detail11key_compareESaIS4_EE4findERKS4_.exit.thread: ; preds = %_ZN5boost13serialization9singletonISt8multisetIPKNS0_18extended_type_infoENS0_6detail11key_compareESaIS5_EEE18get_const_instanceEv.exit, %_ZNKSt8_Rb_treeIPKN5boost13serialization18extended_type_infoES4_St9_IdentityIS4_ENS1_6detail11key_compareESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRKS4_.exit.i.i, %_ZNK5boost13serialization6detail11key_compareclEPKNS0_18extended_type_infoES5_.exit.i.i, %_ZNKSt8multisetIPKN5boost13serialization18extended_type_infoENS1_6detail11key_compareESaIS4_EE4findERKS4_.exit
-  %.0 = phi ptr [ %20, %_ZNKSt8multisetIPKN5boost13serialization18extended_type_infoENS1_6detail11key_compareESaIS4_EE4findERKS4_.exit ], [ null, %_ZNK5boost13serialization6detail11key_compareclEPKNS0_18extended_type_infoES5_.exit.i.i ], [ null, %_ZNKSt8_Rb_treeIPKN5boost13serialization18extended_type_infoES4_St9_IdentityIS4_ENS1_6detail11key_compareESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRKS4_.exit.i.i ], [ null, %_ZN5boost13serialization9singletonISt8multisetIPKNS0_18extended_type_infoENS0_6detail11key_compareESaIS5_EEE18get_const_instanceEv.exit ]
+_ZNKSt8multisetIPKN5boost13serialization18extended_type_infoENS1_6detail11key_compareESaIS4_EE4findERKS4_.exit.thread: ; preds = %_ZN5boost13serialization9singletonISt8multisetIPKNS0_18extended_type_infoENS0_6detail11key_compareESaIS5_EEE18get_const_instanceEv.exit, %_ZNK5boost13serialization6detail11key_compareclEPKNS0_18extended_type_infoES5_.exit.i.i, %_ZNKSt8_Rb_treeIPKN5boost13serialization18extended_type_infoES4_St9_IdentityIS4_ENS1_6detail11key_compareESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRKS4_.exit.i.i, %_ZNKSt8multisetIPKN5boost13serialization18extended_type_infoENS1_6detail11key_compareESaIS4_EE4findERKS4_.exit
+  %.0 = phi ptr [ %20, %_ZNKSt8multisetIPKN5boost13serialization18extended_type_infoENS1_6detail11key_compareESaIS4_EE4findERKS4_.exit ], [ null, %_ZN5boost13serialization9singletonISt8multisetIPKNS0_18extended_type_infoENS0_6detail11key_compareESaIS5_EEE18get_const_instanceEv.exit ], [ null, %_ZNKSt8_Rb_treeIPKN5boost13serialization18extended_type_infoES4_St9_IdentityIS4_ENS1_6detail11key_compareESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRKS4_.exit.i.i ], [ null, %_ZNK5boost13serialization6detail11key_compareclEPKNS0_18extended_type_infoES5_.exit.i.i ]
   ret ptr %.0
 }
 
@@ -356,7 +356,7 @@ define noundef zeroext i1 @_ZNK5boost13serialization18extended_type_infoltERKS1_
   br label %16
 
 16:                                               ; preds = %14, %2, %10
-  %.0 = phi i1 [ %13, %10 ], [ false, %2 ], [ %15, %14 ]
+  %.0 = phi i1 [ false, %2 ], [ %13, %10 ], [ %15, %14 ]
   ret i1 %.0
 }
 
@@ -545,8 +545,8 @@ _ZNSt8_Rb_treeIPKN5boost13serialization18extended_type_infoES4_St9_IdentityIS4_E
   br label %_ZNSt8_Rb_treeIPKN5boost13serialization18extended_type_infoES4_St9_IdentityIS4_ENS1_6detail11key_compareESaIS4_EE10_M_insert_IS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit
 
 _ZNSt8_Rb_treeIPKN5boost13serialization18extended_type_infoES4_St9_IdentityIS4_ENS1_6detail11key_compareESaIS4_EE10_M_insert_IS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit: ; preds = %_ZNSt8_Rb_treeIPKN5boost13serialization18extended_type_infoES4_St9_IdentityIS4_ENS1_6detail11key_compareESaIS4_EE23_M_get_insert_equal_posERKS4_.exit, %2, %20, %25
-  %.0.lcssa.i12 = phi ptr [ %.0711.i, %_ZNSt8_Rb_treeIPKN5boost13serialization18extended_type_infoES4_St9_IdentityIS4_ENS1_6detail11key_compareESaIS4_EE23_M_get_insert_equal_posERKS4_.exit ], [ %.0711.i, %25 ], [ %.0711.i, %20 ], [ %4, %2 ]
-  %28 = phi i1 [ %19, %_ZNSt8_Rb_treeIPKN5boost13serialization18extended_type_infoES4_St9_IdentityIS4_ENS1_6detail11key_compareESaIS4_EE23_M_get_insert_equal_posERKS4_.exit ], [ %27, %25 ], [ false, %20 ], [ true, %2 ]
+  %.0.lcssa.i12 = phi ptr [ %.0711.i, %20 ], [ %.0711.i, %_ZNSt8_Rb_treeIPKN5boost13serialization18extended_type_infoES4_St9_IdentityIS4_ENS1_6detail11key_compareESaIS4_EE23_M_get_insert_equal_posERKS4_.exit ], [ %4, %2 ], [ %.0711.i, %25 ]
+  %28 = phi i1 [ false, %20 ], [ %19, %_ZNSt8_Rb_treeIPKN5boost13serialization18extended_type_infoES4_St9_IdentityIS4_ENS1_6detail11key_compareESaIS4_EE23_M_get_insert_equal_posERKS4_.exit ], [ true, %2 ], [ %27, %25 ]
   %29 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #21
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
   store ptr %.pre.i11, ptr %30, align 8, !tbaa !19

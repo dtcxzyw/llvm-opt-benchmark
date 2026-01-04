@@ -458,7 +458,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit105: ; preds = %176
   br label %216
 
 216:                                              ; preds = %_ZL12DllVolNotifyP11CommandDataPw.exit.thread, %198, %208, %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit
-  %.088 = phi i1 [ false, %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit ], [ true, %208 ], [ true, %198 ], [ false, %_ZL12DllVolNotifyP11CommandDataPw.exit.thread ]
+  %.088 = phi i1 [ false, %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit ], [ false, %_ZL12DllVolNotifyP11CommandDataPw.exit.thread ], [ true, %208 ], [ true, %198 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i1 %.088
 }

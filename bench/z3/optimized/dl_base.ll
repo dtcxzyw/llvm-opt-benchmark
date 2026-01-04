@@ -3443,7 +3443,7 @@ _ZN7datalog10table_base8iteratorD2Ev.exit:        ; preds = %._crit_edge, %91, %
   unreachable
 
 114:                                              ; preds = %.split58, %.split58.us, %.split, %.split.us
-  %.pn = phi { ptr, i32 } [ %70, %.split ], [ %57, %.split.us ], [ %84, %.split58 ], [ %58, %.split58.us ]
+  %.pn = phi { ptr, i32 } [ %57, %.split.us ], [ %70, %.split ], [ %84, %.split58 ], [ %58, %.split58.us ]
   call void @_ZN7datalog10table_base8iteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #24
   br label %115
 
@@ -3516,7 +3516,7 @@ _ZN7datalog10table_base8iteratorD2Ev.exit46:      ; preds = %.critedge42, %118, 
   unreachable
 
 _ZN7datalog10table_base8iteratorD2Ev.exit44:      ; preds = %135, %130, %_ZN7datalog10table_base8iteratorD2Ev.exit46, %108, %103, %_ZN7datalog10table_base8iteratorD2Ev.exit
-  %141 = phi i1 [ true, %_ZN7datalog10table_base8iteratorD2Ev.exit ], [ true, %103 ], [ true, %108 ], [ false, %_ZN7datalog10table_base8iteratorD2Ev.exit46 ], [ false, %130 ], [ false, %135 ]
+  %141 = phi i1 [ true, %108 ], [ true, %_ZN7datalog10table_base8iteratorD2Ev.exit ], [ true, %103 ], [ false, %_ZN7datalog10table_base8iteratorD2Ev.exit46 ], [ false, %130 ], [ false, %135 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %142 = load ptr, ptr %3, align 8, !tbaa !328
   %.not.i.i = icmp eq ptr %142, null
@@ -4240,7 +4240,7 @@ _ZN6vectorImLb0EjED2Ev.exit:                      ; preds = %.loopexit, %178
   ret ptr %13
 
 .loopexit.split-lp:                               ; preds = %.split, %.split.us, %.loopexit61, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %102, %155
-  %.pn36 = phi { ptr, i32 } [ %.pn.pn.pn, %155 ], [ %103, %102 ], [ %lpad.loopexit, %.loopexit61 ], [ %lpad.loopexit62, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp63, %.loopexit.split-lp.loopexit.split-lp ], [ %174, %.split ], [ %163, %.split.us ]
+  %.pn36 = phi { ptr, i32 } [ %103, %102 ], [ %lpad.loopexit.split-lp63, %.loopexit.split-lp.loopexit.split-lp ], [ %.pn.pn.pn, %155 ], [ %lpad.loopexit, %.loopexit61 ], [ %lpad.loopexit62, %.loopexit.split-lp.loopexit ], [ %174, %.split ], [ %163, %.split.us ]
   call void @_ZN6vectorImLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn36
@@ -4471,7 +4471,7 @@ define hidden void @_ZNK7datalog10table_base13row_interface3endEv(ptr dead_on_un
   br label %_ZN7datalog10table_base12row_iteratorC2EPNS0_17row_iterator_coreE.exit
 
 _ZN7datalog10table_base12row_iteratorC2EPNS0_17row_iterator_coreE.exit: ; preds = %2, %10
-  %13 = phi i32 [ %12, %10 ], [ 0, %2 ]
+  %13 = phi i32 [ 0, %2 ], [ %12, %10 ]
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %13, ptr %15, align 8, !tbaa !391
@@ -5211,7 +5211,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
           to label %_ZN7datalog10table_base8iteratorppEv.exit unwind label %102
 
 .body89:                                          ; preds = %.loopexit, %.loopexit.split-lp, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i, %208, %143, %102
-  %.pn.pn = phi { ptr, i32 } [ %103, %102 ], [ %144, %143 ], [ %203, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %209, %208 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn.pn = phi { ptr, i32 } [ %103, %102 ], [ %209, %208 ], [ %144, %143 ], [ %203, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN7datalog10table_base8iteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #24
   br label %251
 
@@ -5538,7 +5538,7 @@ _ZN13bool_rewriter11mk_and_coreEjPKP4exprR7obj_refIS0_11ast_managerE.exit.thread
   br label %_ZN13bool_rewriter11mk_and_coreEjPKP4exprR7obj_refIS0_11ast_managerE.exit
 
 _ZN13bool_rewriter11mk_and_coreEjPKP4exprR7obj_refIS0_11ast_managerE.exit: ; preds = %12, %14
-  %.0.i = phi i32 [ %13, %12 ], [ %15, %14 ]
+  %.0.i = phi i32 [ %15, %14 ], [ %13, %12 ]
   %16 = icmp eq i32 %.0.i, 5
   br i1 %16, label %17, label %33
 

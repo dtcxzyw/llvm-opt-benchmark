@@ -35,7 +35,7 @@ packetlogger_read_header.exit:                    ; preds = %9
   %13 = call zeroext i1 @wtap_read_bytes(ptr noundef %7, ptr noundef nonnull %12, i32 noundef 4, ptr noundef %1, ptr noundef %2)
   br i1 %13, label %16, label %packetlogger_read_header.exit.thread
 
-packetlogger_read_header.exit.thread:             ; preds = %9, %3, %packetlogger_read_header.exit
+packetlogger_read_header.exit.thread:             ; preds = %3, %9, %packetlogger_read_header.exit
   %14 = load i32, ptr %1, align 4
   %switch.selectcmp.case1 = icmp ne i32 %14, 0
   %switch.selectcmp.case2 = icmp ne i32 %14, -12
@@ -172,7 +172,7 @@ packetlogger_read_header.exit73._crit_edge:       ; preds = %packetlogger_read_h
   %.val69.pre = load i32, ptr %12, align 4
   br label %56
 
-packetlogger_read_header.exit73.thread:           ; preds = %44, %41, %packetlogger_read_header.exit73
+packetlogger_read_header.exit73.thread:           ; preds = %41, %44, %packetlogger_read_header.exit73
   %54 = load i32, ptr %1, align 4
   switch i32 %54, label %.thread [
     i32 0, label %.thread97
@@ -282,7 +282,7 @@ packetlogger_check_record.exit81:                 ; preds = %60
   br label %.thread
 
 .thread:                                          ; preds = %packetlogger_check_record.exit, %packetlogger_check_record.exit81, %packetlogger_read_header.exit73.thread, %packetlogger_check_record.exit81.thread, %55, %packetlogger_check_record.exit.thread, %packetlogger_read_header.exit.thread, %.thread97, %packetlogger_check_record.exit.thread84, %packetlogger_check_record.exit81.thread90, %76
-  %.0 = phi i32 [ 1, %76 ], [ -1, %packetlogger_check_record.exit81.thread90 ], [ -1, %packetlogger_check_record.exit.thread84 ], [ -1, %.thread97 ], [ %15, %packetlogger_read_header.exit.thread ], [ 0, %packetlogger_check_record.exit.thread ], [ 0, %packetlogger_check_record.exit81.thread ], [ 0, %55 ], [ -1, %packetlogger_read_header.exit73.thread ], [ %spec.select, %packetlogger_check_record.exit81 ], [ %spec.select111, %packetlogger_check_record.exit ]
+  %.0 = phi i32 [ -1, %.thread97 ], [ %spec.select111, %packetlogger_check_record.exit ], [ -1, %packetlogger_check_record.exit.thread84 ], [ 1, %76 ], [ -1, %packetlogger_check_record.exit81.thread90 ], [ %15, %packetlogger_read_header.exit.thread ], [ 0, %packetlogger_check_record.exit.thread ], [ 0, %packetlogger_check_record.exit81.thread ], [ 0, %55 ], [ %spec.select, %packetlogger_check_record.exit81 ], [ -1, %packetlogger_read_header.exit73.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -332,7 +332,7 @@ define internal noundef zeroext i1 @packetlogger_seek_read(ptr noundef readonly 
   br label %18
 
 18:                                               ; preds = %10, %14, %17, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %17 ], [ false, %14 ], [ true, %10 ]
+  %.0 = phi i1 [ false, %5 ], [ false, %14 ], [ false, %17 ], [ true, %10 ]
   ret i1 %.0
 }
 
@@ -441,8 +441,8 @@ packetlogger_read_header.exit._crit_edge:         ; preds = %packetlogger_read_h
   %45 = call zeroext i1 @wtap_read_bytes_buffer(ptr noundef %0, ptr noundef nonnull %44, i32 noundef %35, ptr noundef %2, ptr noundef %3)
   br label %packetlogger_read_header.exit.thread
 
-packetlogger_read_header.exit.thread:             ; preds = %8, %4, %packetlogger_read_header.exit, %30, %27, %23
-  %.0 = phi i1 [ false, %23 ], [ false, %27 ], [ %45, %30 ], [ false, %packetlogger_read_header.exit ], [ false, %4 ], [ false, %8 ]
+packetlogger_read_header.exit.thread:             ; preds = %4, %8, %packetlogger_read_header.exit, %30, %27, %23
+  %.0 = phi i1 [ false, %23 ], [ false, %27 ], [ %45, %30 ], [ false, %packetlogger_read_header.exit ], [ false, %8 ], [ false, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }

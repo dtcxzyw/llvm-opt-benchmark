@@ -280,7 +280,7 @@ define internal fastcc range(i32 0, 2) i32 @sct_ctx_update(ptr noundef nonnull %
   br label %82
 
 82:                                               ; preds = %77, %68, %66, %59, %55, %49, %11, %7, %3, %81
-  %.060 = phi i32 [ 1, %81 ], [ 0, %3 ], [ 0, %7 ], [ 0, %11 ], [ 0, %49 ], [ 0, %55 ], [ 0, %59 ], [ 0, %66 ], [ 0, %68 ], [ 0, %77 ]
+  %.060 = phi i32 [ 0, %7 ], [ 0, %3 ], [ 0, %49 ], [ 1, %81 ], [ 0, %68 ], [ 0, %66 ], [ 0, %59 ], [ 0, %55 ], [ 0, %11 ], [ 0, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.060
 }

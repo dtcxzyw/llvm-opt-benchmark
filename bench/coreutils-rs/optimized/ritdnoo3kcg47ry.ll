@@ -142,7 +142,7 @@ define hidden void @_ZN14parse_datetime22parse_datetime_at_date17h4e1339b4dbbb39
   br label %361
 
 common.resume:                                    ; preds = %75, %.body220
-  %common.resume.op = phi { ptr, i32 } [ %.pn134, %.body220 ], [ %76, %75 ]
+  %common.resume.op = phi { ptr, i32 } [ %76, %75 ], [ %.pn134, %.body220 ]
   resume { ptr, i32 } %common.resume.op
 
 57:                                               ; preds = %371
@@ -297,7 +297,7 @@ common.resume:                                    ; preds = %75, %.body220
           to label %315 unwind label %.loopexit265
 
 .body220:                                         ; preds = %.loopexit265, %.loopexit.split-lp266, %174, %325, %154, %120, %104, %339, %.body204, %143, %126
-  %.pn134 = phi { ptr, i32 } [ %.pn132, %.body204 ], [ %144, %143 ], [ %127, %126 ], [ %340, %339 ], [ %105, %104 ], [ %121, %120 ], [ %155, %154 ], [ %326, %325 ], [ %175, %174 ], [ %lpad.loopexit267, %.loopexit265 ], [ %lpad.loopexit.split-lp268, %.loopexit.split-lp266 ]
+  %.pn134 = phi { ptr, i32 } [ %105, %104 ], [ %.pn132, %.body204 ], [ %155, %154 ], [ %326, %325 ], [ %144, %143 ], [ %127, %126 ], [ %340, %339 ], [ %175, %174 ], [ %121, %120 ], [ %lpad.loopexit267, %.loopexit265 ], [ %lpad.loopexit.split-lp268, %.loopexit.split-lp266 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17heda4037b66f59af1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %44) #8
           to label %common.resume unwind label %241
 

@@ -979,7 +979,7 @@ define internal noundef align 8 ptr @_ZN4core3ops8function6FnOnce9call_once17h61
   br label %"_ZN5wasmi5store6pruned17PrunedStoreVTable3new28_$u7b$$u7b$closure$u7d$$u7d$17h69c61ffa7b24f55cE.exit"
 
 "_ZN5wasmi5store6pruned17PrunedStoreVTable3new28_$u7b$$u7b$closure$u7d$$u7d$17h69c61ffa7b24f55cE.exit": ; preds = %"_ZN5wasmi5store14Store$LT$T$GT$14call_host_func17hc86f55d0b7eb6838E.exit.i", %46, %53, %56
-  %.sroa.0.0.i = phi ptr [ %52, %46 ], [ %40, %"_ZN5wasmi5store14Store$LT$T$GT$14call_host_func17hc86f55d0b7eb6838E.exit.i" ], [ null, %53 ], [ %62, %56 ]
+  %.sroa.0.0.i = phi ptr [ %40, %"_ZN5wasmi5store14Store$LT$T$GT$14call_host_func17hc86f55d0b7eb6838E.exit.i" ], [ %52, %46 ], [ null, %53 ], [ %62, %56 ]
   ret ptr %.sroa.0.0.i
 }
 
@@ -1188,7 +1188,7 @@ define internal noundef align 8 ptr @_ZN4core3ops8function6FnOnce9call_once17ha3
   br label %"_ZN5wasmi5store6pruned17PrunedStoreVTable3new28_$u7b$$u7b$closure$u7d$$u7d$17h9b1ac963e27f0b24E.exit"
 
 "_ZN5wasmi5store6pruned17PrunedStoreVTable3new28_$u7b$$u7b$closure$u7d$$u7d$17h9b1ac963e27f0b24E.exit": ; preds = %"_ZN5wasmi5store14Store$LT$T$GT$14call_host_func17he9fe27949f370533E.exit.i", %46, %54, %57
-  %.sroa.0.0.i = phi ptr [ %53, %46 ], [ %40, %"_ZN5wasmi5store14Store$LT$T$GT$14call_host_func17he9fe27949f370533E.exit.i" ], [ null, %54 ], [ %64, %57 ]
+  %.sroa.0.0.i = phi ptr [ %40, %"_ZN5wasmi5store14Store$LT$T$GT$14call_host_func17he9fe27949f370533E.exit.i" ], [ %53, %46 ], [ null, %54 ], [ %64, %57 ]
   ret ptr %.sroa.0.0.i
 }
 

@@ -304,7 +304,7 @@ pmix_obj_new_tma.exit:                            ; preds = %72
   br label %.thread60
 
 .thread60:                                        ; preds = %50, %55, %62, %pmix_obj_new_tma.exit, %44, %23, %29, %33, %24, %._crit_edge
-  %.2 = phi i32 [ 0, %._crit_edge ], [ 0, %24 ], [ 0, %33 ], [ 0, %29 ], [ 0, %23 ], [ -1, %44 ], [ -29, %pmix_obj_new_tma.exit ], [ -27, %62 ], [ -1, %55 ], [ -1, %50 ]
+  %.2 = phi i32 [ 0, %23 ], [ 0, %._crit_edge ], [ 0, %24 ], [ 0, %33 ], [ 0, %29 ], [ -1, %44 ], [ -29, %pmix_obj_new_tma.exit ], [ -27, %62 ], [ -1, %55 ], [ -1, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.2
 }
@@ -396,7 +396,7 @@ define noundef zeroext i1 @pmix_mca_base_show_load_errors(ptr noundef readonly c
   br label %.loopexit
 
 .loopexit:                                        ; preds = %21, %.lr.ph.split.us, %._crit_edge, %5, %2, %4
-  %.015 = phi i1 [ false, %4 ], [ true, %2 ], [ false, %5 ], [ %28, %._crit_edge ], [ %8, %.lr.ph.split.us ], [ %8, %21 ]
+  %.015 = phi i1 [ false, %5 ], [ false, %4 ], [ true, %2 ], [ %28, %._crit_edge ], [ %8, %.lr.ph.split.us ], [ %8, %21 ]
   ret i1 %.015
 }
 

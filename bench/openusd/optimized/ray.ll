@@ -589,8 +589,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__5GfRay9IntersectERKNS_7GfPlaneEPdPb.exit: 
   store double %spec.store.select, ptr %121, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__5GfRay9IntersectERKNS_7GfPlaneEPdPb.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__5GfRay9IntersectERKNS_7GfPlaneEPdPb.exit.thread: ; preds = %25, %8, %118, %119, %103, %107, %49, %_ZNK32pxrInternal_v0_24__pxrReserved__5GfRay9IntersectERKNS_7GfPlaneEPdPb.exit
-  %.066 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__5GfRay9IntersectERKNS_7GfPlaneEPdPb.exit ], [ false, %49 ], [ false, %107 ], [ false, %103 ], [ true, %119 ], [ true, %118 ], [ false, %8 ], [ false, %25 ]
+_ZNK32pxrInternal_v0_24__pxrReserved__5GfRay9IntersectERKNS_7GfPlaneEPdPb.exit.thread: ; preds = %8, %25, %118, %119, %103, %107, %49, %_ZNK32pxrInternal_v0_24__pxrReserved__5GfRay9IntersectERKNS_7GfPlaneEPdPb.exit
+  %.066 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__5GfRay9IntersectERKNS_7GfPlaneEPdPb.exit ], [ true, %118 ], [ false, %49 ], [ false, %103 ], [ false, %107 ], [ true, %119 ], [ false, %25 ], [ false, %8 ]
   ret i1 %.066
 }
 
@@ -654,7 +654,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__5GfRay9Intersec
   br label %45
 
 45:                                               ; preds = %41, %42, %20, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %20 ], [ true, %42 ], [ true, %41 ]
+  %.0 = phi i1 [ false, %20 ], [ false, %4 ], [ true, %42 ], [ true, %41 ]
   ret i1 %.0
 }
 
@@ -766,7 +766,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit: ; preds = %9
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit.thread: ; preds = %26, %32, %4, %9, %59, %60, %54, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit
-  %.0 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit ], [ false, %54 ], [ true, %60 ], [ true, %59 ], [ false, %9 ], [ false, %4 ], [ false, %32 ], [ false, %26 ]
+  %.0 = phi i1 [ false, %54 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit ], [ false, %9 ], [ false, %4 ], [ true, %60 ], [ true, %59 ], [ false, %32 ], [ false, %26 ]
   ret i1 %.0
 }
 
@@ -953,7 +953,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit.i: ; preds = %84
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__5GfRay9IntersectERKNS_9GfRange3dEPdS4_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__5GfRay9IntersectERKNS_9GfRange3dEPdS4_.exit: ; preds = %99, %105, %4, %84, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit.i, %127, %132, %133
-  %.0.i = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit.i ], [ false, %127 ], [ true, %133 ], [ true, %132 ], [ false, %84 ], [ false, %4 ], [ false, %105 ], [ false, %99 ]
+  %.0.i = phi i1 [ false, %127 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit.i ], [ false, %84 ], [ false, %4 ], [ true, %133 ], [ true, %132 ], [ false, %105 ], [ false, %99 ]
   ret i1 %.0.i
 }
 
@@ -1087,12 +1087,12 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__5GfRay9Intersec
   br i1 %.not38.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__5GfRay15_SolveQuadraticEdddPdS1_.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %84, %70, %56
-  %.052.sink.i = phi double [ %52, %56 ], [ %66, %70 ], [ %.052.i, %84 ]
+  %.052.sink.i = phi double [ %66, %70 ], [ %52, %56 ], [ %.052.i, %84 ]
   store double %.052.sink.i, ptr %4, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__5GfRay15_SolveQuadraticEdddPdS1_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__5GfRay15_SolveQuadraticEdddPdS1_.exit: ; preds = %47, %50, %56, %63, %70, %71, %73, %84, %.sink.split.i
-  %.0.i = phi i1 [ false, %47 ], [ false, %50 ], [ true, %56 ], [ false, %63 ], [ true, %70 ], [ false, %71 ], [ true, %84 ], [ false, %73 ], [ true, %.sink.split.i ]
+  %.0.i = phi i1 [ true, %84 ], [ false, %47 ], [ false, %50 ], [ true, %56 ], [ false, %63 ], [ true, %70 ], [ false, %71 ], [ false, %73 ], [ true, %.sink.split.i ]
   ret i1 %.0.i
 }
 
@@ -1182,12 +1182,12 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__5GfRay15_SolveQ
   br i1 %.not38, label %47, label %.sink.split
 
 .sink.split:                                      ; preds = %46, %32, %18
-  %.052.sink = phi double [ %14, %18 ], [ %28, %32 ], [ %.052, %46 ]
+  %.052.sink = phi double [ %28, %32 ], [ %14, %18 ], [ %.052, %46 ]
   store double %.052.sink, ptr %5, align 8
   br label %47
 
 47:                                               ; preds = %.sink.split, %35, %46, %33, %32, %25, %18, %12, %9
-  %.0 = phi i1 [ false, %9 ], [ false, %12 ], [ true, %18 ], [ false, %25 ], [ true, %32 ], [ false, %33 ], [ true, %46 ], [ false, %35 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ true, %46 ], [ false, %9 ], [ false, %12 ], [ true, %18 ], [ false, %25 ], [ true, %32 ], [ false, %33 ], [ false, %35 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 
@@ -1341,12 +1341,12 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__5GfRay9Intersec
   br i1 %.not38.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__5GfRay15_SolveQuadraticEdddPdS1_.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %99, %85, %71
-  %.052.sink.i = phi double [ %67, %71 ], [ %81, %85 ], [ %.052.i, %99 ]
+  %.052.sink.i = phi double [ %81, %85 ], [ %67, %71 ], [ %.052.i, %99 ]
   store double %.052.sink.i, ptr %5, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__5GfRay15_SolveQuadraticEdddPdS1_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__5GfRay15_SolveQuadraticEdddPdS1_.exit: ; preds = %62, %65, %71, %78, %85, %86, %88, %99, %.sink.split.i
-  %.0.i = phi i1 [ false, %62 ], [ false, %65 ], [ true, %71 ], [ false, %78 ], [ true, %85 ], [ false, %86 ], [ true, %99 ], [ false, %88 ], [ true, %.sink.split.i ]
+  %.0.i = phi i1 [ true, %99 ], [ false, %62 ], [ false, %65 ], [ true, %71 ], [ false, %78 ], [ true, %85 ], [ false, %86 ], [ false, %88 ], [ true, %.sink.split.i ]
   ret i1 %.0.i
 }
 
@@ -1520,7 +1520,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__5GfRay9Intersec
   br i1 %.not38.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__5GfRay15_SolveQuadraticEdddPdS1_.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %115, %101, %87
-  %.052.sink.i = phi double [ %83, %87 ], [ %97, %101 ], [ %.052.i, %115 ]
+  %.052.sink.i = phi double [ %97, %101 ], [ %83, %87 ], [ %.052.i, %115 ]
   store double %.052.sink.i, ptr %6, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__5GfRay15_SolveQuadraticEdddPdS1_.exit
 
@@ -1577,7 +1577,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__5GfRay15_SolveQuadraticEdddPdS1_.exit: ; p
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__5GfRay15_SolveQuadraticEdddPdS1_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__5GfRay15_SolveQuadraticEdddPdS1_.exit.thread: ; preds = %104, %102, %94, %81, %78, %145, %147, %146, %_ZNK32pxrInternal_v0_24__pxrReserved__5GfRay15_SolveQuadraticEdddPdS1_.exit
-  %.0 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__5GfRay15_SolveQuadraticEdddPdS1_.exit ], [ true, %146 ], [ true, %147 ], [ true, %145 ], [ false, %78 ], [ false, %81 ], [ false, %94 ], [ false, %102 ], [ false, %104 ]
+  %.0 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__5GfRay15_SolveQuadraticEdddPdS1_.exit ], [ true, %145 ], [ true, %146 ], [ true, %147 ], [ false, %78 ], [ false, %81 ], [ false, %94 ], [ false, %102 ], [ false, %104 ]
   ret i1 %.0
 }
 

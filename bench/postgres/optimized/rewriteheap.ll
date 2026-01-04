@@ -338,7 +338,7 @@ define internal fastcc void @raw_heap_insert(ptr noundef captures(none) %0, ptr 
   br label %19
 
 19:                                               ; preds = %14, %2, %17
-  %.046 = phi ptr [ %18, %17 ], [ %1, %2 ], [ %1, %14 ]
+  %.046 = phi ptr [ %1, %2 ], [ %18, %17 ], [ %1, %14 ]
   %20 = load i32, ptr %.046, align 8
   %21 = zext i32 %20 to i64
   %22 = add nuw nsw i64 %21, 7
@@ -682,7 +682,7 @@ HeapTupleHeaderGetUpdateXid.exit.i:               ; preds = %123, %121
   br label %128
 
 128:                                              ; preds = %126, %HeapTupleHeaderGetUpdateXid.exit.i
-  %.024.i = phi i1 [ false, %HeapTupleHeaderGetUpdateXid.exit.i ], [ %not..i, %126 ]
+  %.024.i = phi i1 [ %not..i, %126 ], [ false, %HeapTupleHeaderGetUpdateXid.exit.i ]
   %129 = icmp ugt i32 %.0.i.i, 2
   br i1 %129, label %130, label %142
 
@@ -704,7 +704,7 @@ HeapTupleHeaderGetUpdateXid.exit.i:               ; preds = %123, %121
   br label %142
 
 142:                                              ; preds = %140, %130, %128
-  %.0.i74 = phi i1 [ false, %130 ], [ false, %128 ], [ %not.30.i, %140 ]
+  %.0.i74 = phi i1 [ false, %130 ], [ %not.30.i, %140 ], [ false, %128 ]
   %or.cond.i = or i1 %.024.i, %.0.i74
   br i1 %or.cond.i, label %143, label %logical_rewrite_heap_tuple.exit
 

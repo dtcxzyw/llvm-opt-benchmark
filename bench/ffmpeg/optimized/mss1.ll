@@ -35,7 +35,7 @@ define internal i32 @mss1_decode_init(ptr noundef %0) #0 {
   br label %12
 
 12:                                               ; preds = %6, %1, %10
-  %.0 = phi i32 [ %8, %10 ], [ -12, %1 ], [ %8, %6 ]
+  %.0 = phi i32 [ -12, %1 ], [ %8, %10 ], [ %8, %6 ]
   ret i32 %.0
 }
 
@@ -671,7 +671,7 @@ decode_pal.exit:                                  ; preds = %arith_get_bits.exit
   br label %386
 
 386:                                              ; preds = %376, %369, %362, %24, %4, %384
-  %.0 = phi i32 [ %385, %384 ], [ -1094995529, %4 ], [ %37, %24 ], [ -1094995529, %362 ], [ -1094995529, %369 ], [ %382, %376 ]
+  %.0 = phi i32 [ %37, %24 ], [ -1094995529, %4 ], [ -1094995529, %362 ], [ -1094995529, %369 ], [ %385, %384 ], [ %382, %376 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

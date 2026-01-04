@@ -278,7 +278,7 @@ initialize_ll_merge.exit.i:                       ; preds = %77, %75
   br i1 %.not21.i, label %find_ll_merge_driver.exit, label %91
 
 find_ll_merge_driver.exit:                        ; preds = %.lr.ph.i, %91, %.preheader.i, %initialize_ll_merge.exit.i, %80, %84
-  %.016.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @ll_merge_drv, i64 48), %initialize_ll_merge.exit.i ], [ @ll_merge_drv, %80 ], [ getelementptr inbounds nuw (i8, ptr @ll_merge_drv, i64 48), %84 ], [ %92, %.preheader.i ], [ getelementptr inbounds nuw (i8, ptr @ll_merge_drv, i64 48), %91 ], [ %.01527.i, %.lr.ph.i ]
+  %.016.i = phi ptr [ @ll_merge_drv, %80 ], [ getelementptr inbounds nuw (i8, ptr @ll_merge_drv, i64 48), %initialize_ll_merge.exit.i ], [ getelementptr inbounds nuw (i8, ptr @ll_merge_drv, i64 48), %84 ], [ %92, %.preheader.i ], [ getelementptr inbounds nuw (i8, ptr @ll_merge_drv, i64 48), %91 ], [ %.01527.i, %.lr.ph.i ]
   %95 = load i8, ptr %spec.store.select, align 8
   %96 = and i8 %95, 1
   %.not41 = icmp eq i8 %96, 0
@@ -344,7 +344,7 @@ initialize_ll_merge.exit.i54:                     ; preds = %102, %100
   br i1 %.not21.i65, label %find_ll_merge_driver.exit70, label %112
 
 find_ll_merge_driver.exit70:                      ; preds = %.lr.ph.i58, %.preheader.i63, %112, %105, %initialize_ll_merge.exit.i54, %97, %find_ll_merge_driver.exit
-  %.0 = phi ptr [ %.016.i, %97 ], [ %.016.i, %find_ll_merge_driver.exit ], [ getelementptr inbounds nuw (i8, ptr @ll_merge_drv, i64 48), %initialize_ll_merge.exit.i54 ], [ @ll_merge_drv, %105 ], [ %113, %.preheader.i63 ], [ getelementptr inbounds nuw (i8, ptr @ll_merge_drv, i64 48), %112 ], [ %.01527.i59, %.lr.ph.i58 ]
+  %.0 = phi ptr [ %.016.i, %find_ll_merge_driver.exit ], [ %.016.i, %97 ], [ @ll_merge_drv, %105 ], [ getelementptr inbounds nuw (i8, ptr @ll_merge_drv, i64 48), %initialize_ll_merge.exit.i54 ], [ %113, %.preheader.i63 ], [ getelementptr inbounds nuw (i8, ptr @ll_merge_drv, i64 48), %112 ], [ %.01527.i59, %.lr.ph.i58 ]
   %116 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 4
   %117 = load i32, ptr %116, align 4, !tbaa !40
   %118 = add i32 %117, %.073
@@ -557,7 +557,7 @@ define internal i32 @read_merge_config(ptr noundef %0, ptr noundef %1, ptr readn
   br label %47
 
 47:                                               ; preds = %42, %11, %44, %39, %37, %31, %9
-  %.023 = phi i32 [ %46, %44 ], [ 0, %39 ], [ -1, %37 ], [ %33, %31 ], [ %10, %9 ], [ 0, %11 ], [ 0, %42 ]
+  %.023 = phi i32 [ 0, %11 ], [ %46, %44 ], [ 0, %39 ], [ -1, %37 ], [ %33, %31 ], [ %10, %9 ], [ 0, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1049,8 +1049,8 @@ define internal range(i32 0, 3) i32 @ll_binary_merge(ptr readnone captures(none)
   br label %19
 
 19:                                               ; preds = %14, %11, %17, %18
-  %.011 = phi i32 [ 0, %17 ], [ 0, %18 ], [ 0, %11 ], [ 2, %14 ]
-  %.0 = phi ptr [ %5, %17 ], [ %7, %18 ], [ %3, %11 ], [ %5, %14 ]
+  %.011 = phi i32 [ 0, %18 ], [ 0, %11 ], [ 0, %17 ], [ 2, %14 ]
+  %.0 = phi ptr [ %7, %18 ], [ %3, %11 ], [ %5, %17 ], [ %5, %14 ]
   %20 = load ptr, ptr %.0, align 8, !tbaa !9
   store ptr %20, ptr %1, align 8, !tbaa !55
   %21 = getelementptr inbounds nuw i8, ptr %.0, i64 8
@@ -1123,8 +1123,8 @@ define internal range(i32 -2147483648, 3) i32 @ll_xdl_merge(ptr readnone capture
   br label %ll_binary_merge.exit
 
 ll_binary_merge.exit:                             ; preds = %35, %38, %41, %42
-  %.011.i = phi i32 [ 0, %41 ], [ 0, %42 ], [ 0, %35 ], [ 2, %38 ]
-  %.0.i = phi ptr [ %5, %41 ], [ %7, %42 ], [ %3, %35 ], [ %5, %38 ]
+  %.011.i = phi i32 [ 0, %42 ], [ 0, %35 ], [ 0, %41 ], [ 2, %38 ]
+  %.0.i = phi ptr [ %7, %42 ], [ %3, %35 ], [ %5, %41 ], [ %5, %38 ]
   %43 = load ptr, ptr %.0.i, align 8, !tbaa !9
   store ptr %43, ptr %1, align 8, !tbaa !55
   %44 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8

@@ -473,7 +473,7 @@ define dso_local void @_ZN4llvm3sys7Process13FindInEnvPathENS_9StringRefES2_NS_8
   br label %"_ZN4llvm6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_cE3$_0EEbOT_T0_.exit"
 
 "_ZN4llvm6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_cE3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %"_ZN4llvm6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_cE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_cE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit60", %"_ZN4llvm6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_cE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit62", %154, %163, %172
-  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %154 ], [ %.1.i.i.i.i.i.i, %163 ], [ %.2.i.i.i.i.i.i, %172 ], [ %179, %"_ZN4llvm6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_cE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %180, %"_ZN4llvm6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_cE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit60" ], [ %181, %"_ZN4llvm6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_cE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit62" ], [ %.02970.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
+  %.028.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i, %163 ], [ %.029.lcssa.i.i.i.i.i.i, %154 ], [ %.2.i.i.i.i.i.i, %172 ], [ %181, %"_ZN4llvm6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_cE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit62" ], [ %180, %"_ZN4llvm6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_cE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit60" ], [ %179, %"_ZN4llvm6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_cE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %.02970.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not34 = icmp eq ptr %116, %.028.i.i.i.i.i.i
   br i1 %.not34, label %"_ZN4llvm6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_cE3$_0EEbOT_T0_.exit.thread", label %.thread
 
@@ -1223,8 +1223,8 @@ _ZN4llvm3sys16RetryAfterSignalIiDoFiiP4statEJiS3_EEEDcRKT_RKT0_DpRKT1_.exit.thre
   br label %"_ZN4llvm3sys16RetryAfterSignalIiZNS0_7Process28FixupStandardFileDescriptorsEvE3$_0JEEEDcRKT_RKT0_DpRKT1_.exit.thread"
 
 "_ZN4llvm3sys16RetryAfterSignalIiZNS0_7Process28FixupStandardFileDescriptorsEvE3$_0JEEEDcRKT_RKT0_DpRKT1_.exit.thread": ; preds = %_ZN4llvm3sys16RetryAfterSignalIiDoFiiP4statEJiS3_EEEDcRKT_RKT0_DpRKT1_.exit.thread, %17, %"_ZN4llvm3sys16RetryAfterSignalIiZNS0_7Process28FixupStandardFileDescriptorsEvE3$_0JEEEDcRKT_RKT0_DpRKT1_.exit.thread.sink.split"
-  %.131.ph = phi i32 [ %.131.ph.ph, %"_ZN4llvm3sys16RetryAfterSignalIiZNS0_7Process28FixupStandardFileDescriptorsEvE3$_0JEEEDcRKT_RKT0_DpRKT1_.exit.thread.sink.split" ], [ %15, %17 ], [ %.066, %_ZN4llvm3sys16RetryAfterSignalIiDoFiiP4statEJiS3_EEEDcRKT_RKT0_DpRKT1_.exit.thread ]
-  %.sroa.028.1.ph = phi i32 [ %.pre85, %"_ZN4llvm3sys16RetryAfterSignalIiZNS0_7Process28FixupStandardFileDescriptorsEvE3$_0JEEEDcRKT_RKT0_DpRKT1_.exit.thread.sink.split" ], [ %18, %17 ], [ %12, %_ZN4llvm3sys16RetryAfterSignalIiDoFiiP4statEJiS3_EEEDcRKT_RKT0_DpRKT1_.exit.thread ]
+  %.131.ph = phi i32 [ %15, %17 ], [ %.131.ph.ph, %"_ZN4llvm3sys16RetryAfterSignalIiZNS0_7Process28FixupStandardFileDescriptorsEvE3$_0JEEEDcRKT_RKT0_DpRKT1_.exit.thread.sink.split" ], [ %.066, %_ZN4llvm3sys16RetryAfterSignalIiDoFiiP4statEJiS3_EEEDcRKT_RKT0_DpRKT1_.exit.thread ]
+  %.sroa.028.1.ph = phi i32 [ %18, %17 ], [ %.pre85, %"_ZN4llvm3sys16RetryAfterSignalIiZNS0_7Process28FixupStandardFileDescriptorsEvE3$_0JEEEDcRKT_RKT0_DpRKT1_.exit.thread.sink.split" ], [ %12, %_ZN4llvm3sys16RetryAfterSignalIiDoFiiP4statEJiS3_EEEDcRKT_RKT0_DpRKT1_.exit.thread ]
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #29
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %28
@@ -1304,7 +1304,7 @@ define dso_local { i32, ptr } @_ZN4llvm3sys7Process25SafelyCloseFileDescriptorEi
   br label %21
 
 21:                                               ; preds = %17, %.thread, %12, %9
-  %.sroa.0.0 = phi i32 [ %11, %9 ], [ %13, %12 ], [ %16, %.thread ], [ %spec.select, %17 ]
+  %.sroa.0.0 = phi i32 [ %11, %9 ], [ %spec.select, %17 ], [ %13, %12 ], [ %16, %.thread ]
   %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -1373,7 +1373,7 @@ define dso_local noundef range(i32 0, -2147483648) i32 @_ZN4llvm3sys7Process18St
   br label %_ZL10getColumnsv.exit
 
 _ZL10getColumnsv.exit:                            ; preds = %4, %2, %0
-  %.0 = phi i32 [ 0, %0 ], [ 0, %2 ], [ %spec.select.i, %4 ]
+  %.0 = phi i32 [ 0, %0 ], [ %spec.select.i, %4 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -1395,7 +1395,7 @@ define dso_local noundef range(i32 0, -2147483648) i32 @_ZN4llvm3sys7Process18St
   br label %_ZL10getColumnsv.exit
 
 _ZL10getColumnsv.exit:                            ; preds = %4, %2, %0
-  %.0 = phi i32 [ 0, %0 ], [ 0, %2 ], [ %spec.select.i, %4 ]
+  %.0 = phi i32 [ 0, %0 ], [ %spec.select.i, %4 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -1446,7 +1446,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i.i:    ; preds = %_ZN4llvm12StringSwi
   br i1 %10, label %_ZN4llvm12StringSwitchIbbE8EndsWithENS_13StringLiteralEb.exit.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i23.i
 
 _ZN4llvm12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit.thread138.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i17.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit12.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i
-  %.sroa.20.3.ph.i = phi i16 [ 257, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit12.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ], [ 257, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i17.i ]
+  %.sroa.20.3.ph.i = phi i16 [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ], [ 257, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit12.i ], [ 257, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i17.i ]
   %.not.i.i21142.i = icmp samesign ult i64 %6, 5
   br label %_ZN4llvm12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit26.i
 
@@ -1456,8 +1456,8 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i23.i:  ; preds = %_ZNK4llvm9StringRef
   br i1 %11, label %_ZN4llvm12StringSwitchIbbE8EndsWithENS_13StringLiteralEb.exit.i, label %_ZN4llvm12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit26.i
 
 _ZN4llvm12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit26.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i23.i, %_ZN4llvm12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit.thread138.i
-  %.not.i.i21114.i = phi i1 [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i23.i ], [ %.not.i.i21142.i, %_ZN4llvm12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit.thread138.i ]
-  %.sroa.20.4.i = phi i16 [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i23.i ], [ %.sroa.20.3.ph.i, %_ZN4llvm12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit.thread138.i ]
+  %.not.i.i21114.i = phi i1 [ %.not.i.i21142.i, %_ZN4llvm12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit.thread138.i ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i23.i ]
+  %.sroa.20.4.i = phi i16 [ %.sroa.20.3.ph.i, %_ZN4llvm12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit.thread138.i ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i23.i ]
   %12 = and i16 %.sroa.20.4.i, 256
   %13 = icmp ne i16 %12, 0
   %or.cond.i28.i = select i1 %13, i1 true, i1 %.not.i.i21114.i
@@ -1469,8 +1469,8 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i29.i:  ; preds = %_ZN4llvm12StringSwi
   br i1 %14, label %_ZN4llvm12StringSwitchIbbE8EndsWithENS_13StringLiteralEb.exit.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i35.i
 
 _ZN4llvm12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit32.i: ; preds = %_ZN4llvm12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit26.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit20.i
-  %15 = phi i1 [ %13, %_ZN4llvm12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit26.i ], [ false, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit20.i ]
-  %.sroa.20.4150.i = phi i16 [ %.sroa.20.4.i, %_ZN4llvm12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit26.i ], [ 0, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit20.i ]
+  %15 = phi i1 [ false, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit20.i ], [ %13, %_ZN4llvm12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit26.i ]
+  %.sroa.20.4150.i = phi i16 [ 0, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit20.i ], [ %.sroa.20.4.i, %_ZN4llvm12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit26.i ]
   %.not.i.i33.i = icmp ult i64 %6, 4
   %or.cond.i34.i = or i1 %.not.i.i33.i, %15
   br i1 %or.cond.i34.i, label %_ZN4llvm12StringSwitchIbbE8EndsWithENS_13StringLiteralEb.exit.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i35.i
@@ -1493,7 +1493,7 @@ _ZNK4llvm9StringRef9ends_withES0_.exit.i.i:       ; preds = %_ZNK4llvm9StringRef
   br label %_ZN4llvm12StringSwitchIbbE8EndsWithENS_13StringLiteralEb.exit.i
 
 _ZN4llvm12StringSwitchIbbE8EndsWithENS_13StringLiteralEb.exit.i: ; preds = %_ZN4llvm12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit32.i, %_ZNK4llvm9StringRef9ends_withES0_.exit.i.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i35.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i29.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i23.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i
-  %.sroa.20.7.i = phi i16 [ 257, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i ], [ 257, %_ZNK4llvm9StringRef11starts_withES0_.exit.i23.i ], [ 257, %_ZNK4llvm9StringRef11starts_withES0_.exit.i29.i ], [ %.mux.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i35.i ], [ %spec.select144.i, %_ZNK4llvm9StringRef9ends_withES0_.exit.i.i ], [ %.sroa.20.4150.i, %_ZN4llvm12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit32.i ]
+  %.sroa.20.7.i = phi i16 [ 257, %_ZNK4llvm9StringRef11starts_withES0_.exit.i23.i ], [ %.mux.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i35.i ], [ 257, %_ZNK4llvm9StringRef11starts_withES0_.exit.i29.i ], [ %spec.select144.i, %_ZNK4llvm9StringRef9ends_withES0_.exit.i.i ], [ 257, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i ], [ %.sroa.20.4150.i, %_ZN4llvm12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit32.i ]
   %20 = and i16 %.sroa.20.7.i, 257
   %.0.i.i = icmp eq i16 %20, 257
   br label %_ZL17terminalHasColorsv.exit
@@ -2135,7 +2135,7 @@ _ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %47, %50
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !73
 
 _ZSt11swap_rangesIPcS0_ET0_T_S2_S1_.exit:         ; preds = %._crit_edge, %._crit_edge110, %.lr.ph.i, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit, %5, %3
-  %.053 = phi ptr [ %2, %3 ], [ %0, %5 ], [ %21, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit ], [ %21, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %1, %.lr.ph.i ], [ %21, %._crit_edge110 ], [ %21, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %21, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %21, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit ], [ %1, %.lr.ph.i ], [ %21, %._crit_edge110 ], [ %21, %._crit_edge ]
   ret ptr %.053
 }
 

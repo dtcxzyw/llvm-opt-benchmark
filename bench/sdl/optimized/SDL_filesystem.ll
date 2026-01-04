@@ -404,7 +404,7 @@ define hidden ptr @SDL_InternalGlobDirectory(ptr noundef %0, ptr noundef %1, i32
   br i1 %78, label %.lr.ph91, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph91, %61, %58
-  %79 = phi i32 [ %70, %61 ], [ %59, %58 ], [ %76, %.lr.ph91 ]
+  %79 = phi i32 [ %59, %58 ], [ %70, %61 ], [ %76, %.lr.ph91 ]
   %80 = sext i32 %79 to i64
   %81 = getelementptr inbounds ptr, ptr %57, i64 %80
   store ptr null, ptr %81, align 8
@@ -565,7 +565,7 @@ define internal fastcc ptr @CaseFoldUtf8String(ptr noundef %0) unnamed_addr #0 {
   br label %EncodeCodepointToUtf8.exit
 
 EncodeCodepointToUtf8.exit:                       ; preds = %16, %17, %21, %23, %33, %35, %48, %51
-  %.0.i = phi i64 [ 1, %17 ], [ 2, %23 ], [ 3, %35 ], [ 4, %51 ], [ 0, %21 ], [ 0, %48 ], [ 0, %33 ], [ 0, %16 ]
+  %.0.i = phi i64 [ 1, %17 ], [ 4, %51 ], [ 2, %23 ], [ 3, %35 ], [ 0, %21 ], [ 0, %48 ], [ 0, %33 ], [ 0, %16 ]
   %69 = sub i64 %.137, %.0.i
   %70 = getelementptr inbounds nuw i8, ptr %.12836, i64 %.0.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -785,7 +785,7 @@ define internal range(i32 0, 3) i32 @GlobDirectoryCallback(ptr noundef %0, ptr n
   br label %56
 
 56:                                               ; preds = %50, %41
-  %.1 = phi i32 [ 0, %41 ], [ %spec.select, %50 ]
+  %.1 = phi i32 [ %spec.select, %50 ], [ 0, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %57
 

@@ -1476,9 +1476,9 @@ _ZN2dd3bddD2Ev.exit49:                            ; preds = %156, %148, %_ZNK6ve
   %171 = call noundef zeroext i1 @_ZN11mpz_managerILb1EE7get_bitERK3mpzj(ptr noundef nonnull align 8 dereferenceable(728) %170, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %52)
   br i1 %171, label %.thread101, label %.thread
 
-.thread101:                                       ; preds = %104, %102, %169
-  %.1106 = phi i8 [ 1, %169 ], [ %spec.select, %104 ], [ 0, %102 ]
-  %.129105 = phi i1 [ false, %169 ], [ %.028131, %104 ], [ %.028131, %102 ]
+.thread101:                                       ; preds = %102, %104, %169
+  %.1106 = phi i8 [ 1, %169 ], [ 0, %102 ], [ %spec.select, %104 ]
+  %.129105 = phi i1 [ false, %169 ], [ %.028131, %102 ], [ %.028131, %104 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN8rational12power_of_twoEj(ptr dead_on_unwind nonnull writable sret(%class.rational) align 8 %5, i32 noundef %52)
   %172 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !43
@@ -1644,9 +1644,9 @@ _ZN2dd3bddD2Ev.exit67:                            ; preds = %231, %222, %_ZNK6ve
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %308
 
-.thread:                                          ; preds = %165, %168, %164, %169
-  %.198 = phi i8 [ 1, %169 ], [ %spec.select31, %165 ], [ 0, %168 ], [ 0, %164 ]
-  %.12996 = phi i1 [ false, %169 ], [ %.028131, %165 ], [ false, %168 ], [ %.028131, %164 ]
+.thread:                                          ; preds = %164, %168, %165, %169
+  %.198 = phi i8 [ 1, %169 ], [ 0, %164 ], [ 0, %168 ], [ %spec.select31, %165 ]
+  %.12996 = phi i1 [ false, %169 ], [ %.028131, %164 ], [ false, %168 ], [ %.028131, %165 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !68)
   %242 = load ptr, ptr %23, align 8, !tbaa !33, !noalias !68
@@ -2589,8 +2589,8 @@ _ZN2dd3bddD2Ev.exit99:                            ; preds = %300, %291, %_ZNK6ve
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn29.pn
 
-.critedge35.loopexit:                             ; preds = %.critedge, %.critedge33, %312
-  %.lcssa.ph = phi i1 [ true, %312 ], [ false, %.critedge33 ], [ false, %.critedge ]
+.critedge35.loopexit:                             ; preds = %.critedge33, %.critedge, %312
+  %.lcssa.ph = phi i1 [ true, %312 ], [ false, %.critedge ], [ false, %.critedge33 ]
   %.pre151 = load ptr, ptr %8, align 8, !tbaa !33
   %.pre152 = load i32, ptr %4, align 8, !tbaa !35
   br label %.critedge35
@@ -3917,7 +3917,7 @@ _ZN6vectorIN2dd3bddELb1EjED2Ev.exit:              ; preds = %_ZN2dd3bddD2Ev.exit
   br label %566
 
 564:                                              ; preds = %313, %517, %450, %444, %58, %218
-  %.pn79 = phi { ptr, i32 } [ %.pn62.pn.pn, %218 ], [ %59, %58 ], [ %.pn67.pn, %313 ], [ %.pn73, %450 ], [ %.pn71, %517 ], [ %445, %444 ]
+  %.pn79 = phi { ptr, i32 } [ %445, %444 ], [ %59, %58 ], [ %.pn62.pn.pn, %218 ], [ %.pn71, %517 ], [ %.pn67.pn, %313 ], [ %.pn73, %450 ]
   call void @_ZN2dd3bddD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #21
   br label %565
 
@@ -5305,7 +5305,7 @@ _ZN6vectorIN2dd3bddELb1EjED2Ev.exit:              ; preds = %_ZN2dd3bddD2Ev.exit
   br label %566
 
 564:                                              ; preds = %313, %517, %450, %444, %58, %218
-  %.pn78 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %218 ], [ %59, %58 ], [ %.pn66.pn, %313 ], [ %.pn72, %517 ], [ %.pn70, %450 ], [ %445, %444 ]
+  %.pn78 = phi { ptr, i32 } [ %445, %444 ], [ %59, %58 ], [ %.pn.pn.pn.pn.pn, %218 ], [ %.pn70, %450 ], [ %.pn66.pn, %313 ], [ %.pn72, %517 ]
   call void @_ZN2dd3bddD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #21
   br label %565
 

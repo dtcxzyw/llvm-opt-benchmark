@@ -531,7 +531,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   br label %._crit_edge38.i.i
 
 ._crit_edge38.i.i:                                ; preds = %._crit_edge38.loopexit.i.i, %.preheader33.lr.ph.i.i, %152
-  %189 = phi i32 [ %188, %._crit_edge38.loopexit.i.i ], [ 0, %152 ], [ 0, %.preheader33.lr.ph.i.i ]
+  %189 = phi i32 [ 0, %152 ], [ %188, %._crit_edge38.loopexit.i.i ], [ 0, %.preheader33.lr.ph.i.i ]
   %190 = mul i32 %170, %169
   %191 = icmp sgt i32 %190, %189
   br i1 %191, label %.preheader.i.i, label %block_cmp.exit.thread.i
@@ -720,9 +720,9 @@ block_cmp.exit137.i.us.us:                        ; preds = %.preheader.i118.i.u
   br i1 %.not92.i.us.us, label %.loopexit593, label %._crit_edge.i.us.us
 
 ._crit_edge.i.us.us:                              ; preds = %253, %block_cmp.exit137.i.us.us, %243
-  %.5248.us.us = phi i32 [ %.4247.us.us, %243 ], [ %.4247.us.us, %block_cmp.exit137.i.us.us ], [ %.081165.i.us.us, %253 ]
-  %.5238.us.us = phi i32 [ %.4237.us.us, %243 ], [ %.4237.us.us, %block_cmp.exit137.i.us.us ], [ %.082171.i.us, %253 ]
-  %.3.i.us.us = phi i32 [ %.2164.i.us.us, %243 ], [ %.2164.i.us.us, %block_cmp.exit137.i.us.us ], [ %251, %253 ]
+  %.5248.us.us = phi i32 [ %.4247.us.us, %243 ], [ %.081165.i.us.us, %253 ], [ %.4247.us.us, %block_cmp.exit137.i.us.us ]
+  %.5238.us.us = phi i32 [ %.4237.us.us, %243 ], [ %.082171.i.us, %253 ], [ %.4237.us.us, %block_cmp.exit137.i.us.us ]
+  %.3.i.us.us = phi i32 [ %.2164.i.us.us, %243 ], [ %251, %253 ], [ %.2164.i.us.us, %block_cmp.exit137.i.us.us ]
   %254 = add i32 %.081165.i.us.us, 1
   %exitcond500.not = icmp eq i32 %.081165.i.us.us, %238
   br i1 %exitcond500.not, label %._crit_edge.split.i.loopexit.split.us.us, label %243, !llvm.loop !64
@@ -873,9 +873,9 @@ block_cmp.exit137.us.us.i.us:                     ; preds = %.preheader.i118.us.
   br i1 %.not92.us.us.i.us, label %.loopexit593, label %._crit_edge202.i.us
 
 ._crit_edge202.i.us:                              ; preds = %297, %block_cmp.exit137.us.us.i.us, %block_cmp.exit137.thread.us.us.i.us, %.lr.ph.us.i.split.us
-  %.9252.us = phi i32 [ %.8251.us, %.lr.ph.us.i.split.us ], [ %.8251.us, %block_cmp.exit137.us.us.i.us ], [ %.8251.us, %block_cmp.exit137.thread.us.us.i.us ], [ %271, %297 ]
-  %.9242.us = phi i32 [ %.8241.us, %.lr.ph.us.i.split.us ], [ %.8241.us, %block_cmp.exit137.us.us.i.us ], [ %.8241.us, %block_cmp.exit137.thread.us.us.i.us ], [ %268, %297 ]
-  %.3.us.us.i.us = phi i32 [ %.2164.us.us.i.us, %.lr.ph.us.i.split.us ], [ %.2164.us.us.i.us, %block_cmp.exit137.us.us.i.us ], [ %.2164.us.us.i.us, %block_cmp.exit137.thread.us.us.i.us ], [ %295, %297 ]
+  %.9252.us = phi i32 [ %.8251.us, %.lr.ph.us.i.split.us ], [ %.8251.us, %block_cmp.exit137.thread.us.us.i.us ], [ %.8251.us, %block_cmp.exit137.us.us.i.us ], [ %271, %297 ]
+  %.9242.us = phi i32 [ %.8241.us, %.lr.ph.us.i.split.us ], [ %.8241.us, %block_cmp.exit137.thread.us.us.i.us ], [ %.8241.us, %block_cmp.exit137.us.us.i.us ], [ %268, %297 ]
+  %.3.us.us.i.us = phi i32 [ %.2164.us.us.i.us, %.lr.ph.us.i.split.us ], [ %.2164.us.us.i.us, %block_cmp.exit137.thread.us.us.i.us ], [ %.2164.us.us.i.us, %block_cmp.exit137.us.us.i.us ], [ %295, %297 ]
   %indvars.iv.next506 = add nsw i64 %indvars.iv505, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next506 to i32
   %exitcond508.not = icmp eq i32 %265, %lftr.wideiv
@@ -921,9 +921,9 @@ block_cmp.exit137.us.us.i.us364:                  ; preds = %.preheader.i118.us.
   br i1 %.not92.us.us.i.us366, label %.loopexit593, label %._crit_edge202.i.us367
 
 ._crit_edge202.i.us367:                           ; preds = %307, %block_cmp.exit137.us.us.i.us364, %.lr.ph.us.i.split.split.us
-  %.9252.us369 = phi i32 [ %.8251.us351, %.lr.ph.us.i.split.split.us ], [ %.8251.us351, %block_cmp.exit137.us.us.i.us364 ], [ %.081165.us.us.i.us353, %307 ]
-  %.9242.us370 = phi i32 [ %.8241.us352, %.lr.ph.us.i.split.split.us ], [ %.8241.us352, %block_cmp.exit137.us.us.i.us364 ], [ %268, %307 ]
-  %.3.us.us.i.us371 = phi i32 [ %.2164.us.us.i.us354, %.lr.ph.us.i.split.split.us ], [ %.2164.us.us.i.us354, %block_cmp.exit137.us.us.i.us364 ], [ %305, %307 ]
+  %.9252.us369 = phi i32 [ %.8251.us351, %.lr.ph.us.i.split.split.us ], [ %.081165.us.us.i.us353, %307 ], [ %.8251.us351, %block_cmp.exit137.us.us.i.us364 ]
+  %.9242.us370 = phi i32 [ %.8241.us352, %.lr.ph.us.i.split.split.us ], [ %268, %307 ], [ %.8241.us352, %block_cmp.exit137.us.us.i.us364 ]
+  %.3.us.us.i.us371 = phi i32 [ %.2164.us.us.i.us354, %.lr.ph.us.i.split.split.us ], [ %305, %307 ], [ %.2164.us.us.i.us354, %block_cmp.exit137.us.us.i.us364 ]
   %308 = add i32 %.081165.us.us.i.us353, 1
   %exitcond504.not = icmp eq i32 %.081165.us.us.i.us353, %238
   br i1 %exitcond504.not, label %._crit_edge.split.us.us.i.loopexit, label %.lr.ph.us.i.split.split.us, !llvm.loop !64
@@ -941,8 +941,8 @@ zmbv_me.exit:                                     ; preds = %258, %block_cmp.exi
   br label %.loopexit
 
 .loopexit593:                                     ; preds = %._crit_edge.split.i.loopexit.split.split.us.us, %._crit_edge.split.i.loopexit.split.us.us, %._crit_edge.split.us.us.i.loopexit, %253, %307, %297, %.lr.ph174.split.i.preheader.split, %block_cmp.exit.i, %234, %235
-  %.11254.ph = phi i32 [ %.2245, %235 ], [ %.1244425, %234 ], [ 0, %block_cmp.exit.i ], [ %.2245, %.lr.ph174.split.i.preheader.split ], [ %271, %297 ], [ %.081165.us.us.i.us353, %307 ], [ %.081165.i.us.us, %253 ], [ %.us-phi346, %._crit_edge.split.us.us.i.loopexit ], [ %.5248.us.us, %._crit_edge.split.i.loopexit.split.us.us ], [ %.2245, %._crit_edge.split.i.loopexit.split.split.us.us ]
-  %.11.ph = phi i32 [ %.2235, %235 ], [ %.1234426, %234 ], [ 0, %block_cmp.exit.i ], [ %.2235, %.lr.ph174.split.i.preheader.split ], [ %268, %297 ], [ %268, %307 ], [ %.082171.i.us, %253 ], [ %.us-phi347, %._crit_edge.split.us.us.i.loopexit ], [ %.5238.us.us, %._crit_edge.split.i.loopexit.split.us.us ], [ %.2235, %._crit_edge.split.i.loopexit.split.split.us.us ]
+  %.11254.ph = phi i32 [ %271, %297 ], [ %.5248.us.us, %._crit_edge.split.i.loopexit.split.us.us ], [ %.us-phi346, %._crit_edge.split.us.us.i.loopexit ], [ %.2245, %.lr.ph174.split.i.preheader.split ], [ %.081165.us.us.i.us353, %307 ], [ 0, %block_cmp.exit.i ], [ %.081165.i.us.us, %253 ], [ %.2245, %235 ], [ %.1244425, %234 ], [ %.2245, %._crit_edge.split.i.loopexit.split.split.us.us ]
+  %.11.ph = phi i32 [ %268, %297 ], [ %.5238.us.us, %._crit_edge.split.i.loopexit.split.us.us ], [ %.us-phi347, %._crit_edge.split.us.us.i.loopexit ], [ %.2235, %.lr.ph174.split.i.preheader.split ], [ %268, %307 ], [ 0, %block_cmp.exit.i ], [ %.082171.i.us, %253 ], [ %.2235, %235 ], [ %.1234426, %234 ], [ %.2235, %._crit_edge.split.i.loopexit.split.split.us.us ]
   %.11254.ph.tr = trunc i32 %.11254.ph to i8
   %312 = shl i8 %.11254.ph.tr, 1
   %313 = or disjoint i8 %312, 1
@@ -1102,8 +1102,8 @@ zmbv_me.exit:                                     ; preds = %258, %block_cmp.exi
   br label %._crit_edge452.thread
 
 ._crit_edge452.thread:                            ; preds = %.thread268, %._crit_edge452.thread590, %._crit_edge452
-  %394 = phi i1 [ %392, %._crit_edge452.thread590 ], [ %391, %._crit_edge452 ], [ %113, %.thread268 ]
-  %.4584589 = phi i32 [ %.4584592, %._crit_edge452.thread590 ], [ %.4584, %._crit_edge452 ], [ %134, %.thread268 ]
+  %394 = phi i1 [ %391, %._crit_edge452 ], [ %392, %._crit_edge452.thread590 ], [ %113, %.thread268 ]
+  %.4584589 = phi i32 [ %.4584, %._crit_edge452 ], [ %.4584592, %._crit_edge452.thread590 ], [ %134, %.thread268 ]
   %395 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %396 = load ptr, ptr %395, align 8, !tbaa !49
   store ptr %396, ptr %10, align 8, !tbaa !72

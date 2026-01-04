@@ -317,7 +317,7 @@ select.unfold.i.i:                                ; preds = %18, %._crit_edge.th
   br label %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IiNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIiEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IiNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIiEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i: ; preds = %22, %select.unfold.i.i
-  %26 = phi i1 [ true, %select.unfold.i.i ], [ %25, %22 ]
+  %26 = phi i1 [ %25, %22 ], [ true, %select.unfold.i.i ]
   %27 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store i32 %7, ptr %28, align 4, !tbaa !63
@@ -1071,10 +1071,10 @@ _ZNK7Minisat3vecINS_3LitEiE6copyToERS2_.exit.i:   ; preds = %197, %.noexc126
   br label %292
 
 261:                                              ; preds = %239, %253, %214, %227
-  %.sroa.0224.10.sink = phi ptr [ %230, %227 ], [ %.sroa.0224.1478, %214 ], [ %256, %253 ], [ %.sroa.0224.1478, %239 ]
-  %.sink = phi i32 [ %217, %227 ], [ %217, %214 ], [ %243, %253 ], [ %243, %239 ]
-  %262 = phi i32 [ %211, %227 ], [ %211, %214 ], [ %236, %253 ], [ %236, %239 ]
-  %.sroa.26236.2 = phi i32 [ %228, %227 ], [ %.sroa.26236.1480, %214 ], [ %254, %253 ], [ %.sroa.26236.1480, %239 ]
+  %.sroa.0224.10.sink = phi ptr [ %.sroa.0224.1478, %214 ], [ %230, %227 ], [ %256, %253 ], [ %.sroa.0224.1478, %239 ]
+  %.sink = phi i32 [ %217, %214 ], [ %217, %227 ], [ %243, %253 ], [ %243, %239 ]
+  %262 = phi i32 [ %211, %214 ], [ %211, %227 ], [ %236, %253 ], [ %236, %239 ]
+  %.sroa.26236.2 = phi i32 [ %.sroa.26236.1480, %214 ], [ %228, %227 ], [ %254, %253 ], [ %.sroa.26236.1480, %239 ]
   %263 = getelementptr inbounds nuw %"struct.Minisat::Lit", ptr %.sroa.0224.10.sink, i64 %indvars.iv
   store i32 %.sink, ptr %263, align 4, !tbaa !63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1319,10 +1319,10 @@ _ZN7Minisat3vecINS_3LitEiED2Ev.exit:              ; preds = %_ZN7Minisat10SimpSo
   br label %479
 
 363:                                              ; preds = %341, %355, %316, %329
-  %.sroa.0200.9.sink = phi ptr [ %332, %329 ], [ %.sroa.0200.0492, %316 ], [ %358, %355 ], [ %.sroa.0200.0492, %341 ]
-  %.sink785 = phi i32 [ %319, %329 ], [ %319, %316 ], [ %345, %355 ], [ %345, %341 ]
-  %364 = phi i32 [ %313, %329 ], [ %313, %316 ], [ %338, %355 ], [ %338, %341 ]
-  %.sroa.26.1 = phi i32 [ %330, %329 ], [ %.sroa.26.0494, %316 ], [ %356, %355 ], [ %.sroa.26.0494, %341 ]
+  %.sroa.0200.9.sink = phi ptr [ %.sroa.0200.0492, %316 ], [ %332, %329 ], [ %358, %355 ], [ %.sroa.0200.0492, %341 ]
+  %.sink785 = phi i32 [ %319, %316 ], [ %319, %329 ], [ %345, %355 ], [ %345, %341 ]
+  %364 = phi i32 [ %313, %316 ], [ %313, %329 ], [ %338, %355 ], [ %338, %341 ]
+  %.sroa.26.1 = phi i32 [ %.sroa.26.0494, %316 ], [ %330, %329 ], [ %356, %355 ], [ %.sroa.26.0494, %341 ]
   %365 = getelementptr inbounds nuw %"struct.Minisat::Lit", ptr %.sroa.0200.9.sink, i64 %indvars.iv596
   store i32 %.sink785, ptr %365, align 4, !tbaa !63
   %366 = sext i32 %364 to i64
@@ -1586,8 +1586,8 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %468, %471
   br label %_ZN7Minisat3vecINS_3LitEiED2Ev.exit145
 
 _ZN7Minisat3vecINS_3LitEiED2Ev.exit178:           ; preds = %_ZN7Minisat3vecINS_3LitEiED2Ev.exit, %.preheader.i.i177, %.loopexit, %297
-  %480 = phi i1 [ true, %297 ], [ false, %.loopexit ], [ false, %.preheader.i.i177 ], [ true, %_ZN7Minisat3vecINS_3LitEiED2Ev.exit ]
-  %.1 = phi i1 [ undef, %297 ], [ %418, %.loopexit ], [ %418, %.preheader.i.i177 ], [ undef, %_ZN7Minisat3vecINS_3LitEiED2Ev.exit ]
+  %480 = phi i1 [ false, %.preheader.i.i177 ], [ true, %297 ], [ false, %.loopexit ], [ true, %_ZN7Minisat3vecINS_3LitEiED2Ev.exit ]
+  %.1 = phi i1 [ %418, %.preheader.i.i177 ], [ undef, %297 ], [ %418, %.loopexit ], [ undef, %_ZN7Minisat3vecINS_3LitEiED2Ev.exit ]
   %481 = load ptr, ptr %5, align 8, !tbaa !135
   %482 = load ptr, ptr %156, align 8, !tbaa !134
   %.not4.i.i.i.i = icmp eq ptr %481, %482
@@ -1658,15 +1658,15 @@ _ZNSt6vectorIiSaIiEED2Ev.exit186:                 ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %480, label %14, label %515
 
 _ZN7Minisat3vecINS_3LitEiED2Ev.exit145:           ; preds = %.loopexit305, %.loopexit.split-lp, %.preheader.i.i180, %479, %.preheader.i.i144, %292, %181, %142
-  %.pn97 = phi { ptr, i32 } [ %182, %181 ], [ %143, %142 ], [ %.pn94.pn, %292 ], [ %.pn94.pn682, %.preheader.i.i144 ], [ %.pn91.pn, %479 ], [ %.pn91.pn690, %.preheader.i.i180 ], [ %lpad.loopexit, %.loopexit305 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn97 = phi { ptr, i32 } [ %.pn91.pn690, %.preheader.i.i180 ], [ %182, %181 ], [ %143, %142 ], [ %.pn94.pn682, %.preheader.i.i144 ], [ %.pn94.pn, %292 ], [ %.pn91.pn, %479 ], [ %lpad.loopexit, %.loopexit305 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %506
 
 506:                                              ; preds = %.loopexit306, %.loopexit.split-lp307, %_ZN7Minisat3vecINS_3LitEiED2Ev.exit145, %89, %87
-  %.sroa.16.1415 = phi ptr [ %.sroa.16.1.lcssa, %_ZN7Minisat3vecINS_3LitEiED2Ev.exit145 ], [ %.sroa.16.1.lcssa, %89 ], [ %.sroa.16.1.lcssa, %87 ], [ %.sroa.16.1459.lcssa, %.loopexit306 ], [ %.sroa.11.0460, %.loopexit.split-lp307 ]
-  %.sroa.0265.1408 = phi ptr [ %.sroa.0265.1.lcssa, %_ZN7Minisat3vecINS_3LitEiED2Ev.exit145 ], [ %.sroa.0265.1.lcssa, %89 ], [ %.sroa.0265.1.lcssa, %87 ], [ %.sroa.0265.1461, %.loopexit306 ], [ %.sroa.0265.1461, %.loopexit.split-lp307 ]
-  %.pn99 = phi { ptr, i32 } [ %.pn97, %_ZN7Minisat3vecINS_3LitEiED2Ev.exit145 ], [ %90, %89 ], [ %88, %87 ], [ %lpad.loopexit308, %.loopexit306 ], [ %lpad.loopexit.split-lp309, %.loopexit.split-lp307 ]
+  %.sroa.16.1415 = phi ptr [ %.sroa.16.1.lcssa, %87 ], [ %.sroa.16.1.lcssa, %89 ], [ %.sroa.16.1.lcssa, %_ZN7Minisat3vecINS_3LitEiED2Ev.exit145 ], [ %.sroa.16.1459.lcssa, %.loopexit306 ], [ %.sroa.11.0460, %.loopexit.split-lp307 ]
+  %.sroa.0265.1408 = phi ptr [ %.sroa.0265.1.lcssa, %87 ], [ %.sroa.0265.1.lcssa, %89 ], [ %.sroa.0265.1.lcssa, %_ZN7Minisat3vecINS_3LitEiED2Ev.exit145 ], [ %.sroa.0265.1461, %.loopexit306 ], [ %.sroa.0265.1461, %.loopexit.split-lp307 ]
+  %.pn99 = phi { ptr, i32 } [ %88, %87 ], [ %90, %89 ], [ %.pn97, %_ZN7Minisat3vecINS_3LitEiED2Ev.exit145 ], [ %lpad.loopexit308, %.loopexit306 ], [ %lpad.loopexit.split-lp309, %.loopexit.split-lp307 ]
   %.not.i.i.i187 = icmp eq ptr %.sroa.0265.1408, null
   br i1 %.not.i.i.i187, label %_ZNSt6vectorIiSaIiEED2Ev.exit188, label %507
 
@@ -1678,9 +1678,9 @@ _ZN7Minisat3vecINS_3LitEiED2Ev.exit145:           ; preds = %.loopexit305, %.loo
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit188
 
 _ZNSt6vectorIiSaIiEED2Ev.exit188:                 ; preds = %.thread284.loopexit, %.thread284.loopexit.split-lp, %506, %507
-  %.sroa.13.0437 = phi ptr [ %.sroa.13.0.lcssa, %506 ], [ %.sroa.13.0.lcssa, %507 ], [ %.sroa.13.0452.lcssa, %.thread284.loopexit ], [ %.sroa.9.0453, %.thread284.loopexit.split-lp ]
-  %.sroa.0275.0420 = phi ptr [ %.sroa.0275.0.lcssa, %506 ], [ %.sroa.0275.0.lcssa, %507 ], [ %.sroa.0275.0454, %.thread284.loopexit ], [ %.sroa.0275.0454, %.thread284.loopexit.split-lp ]
-  %.pn99289 = phi { ptr, i32 } [ %.pn99, %506 ], [ %.pn99, %507 ], [ %lpad.loopexit311, %.thread284.loopexit ], [ %lpad.loopexit.split-lp312, %.thread284.loopexit.split-lp ]
+  %.sroa.13.0437 = phi ptr [ %.sroa.13.0.lcssa, %507 ], [ %.sroa.13.0.lcssa, %506 ], [ %.sroa.13.0452.lcssa, %.thread284.loopexit ], [ %.sroa.9.0453, %.thread284.loopexit.split-lp ]
+  %.sroa.0275.0420 = phi ptr [ %.sroa.0275.0.lcssa, %507 ], [ %.sroa.0275.0.lcssa, %506 ], [ %.sroa.0275.0454, %.thread284.loopexit ], [ %.sroa.0275.0454, %.thread284.loopexit.split-lp ]
+  %.pn99289 = phi { ptr, i32 } [ %.pn99, %507 ], [ %.pn99, %506 ], [ %lpad.loopexit311, %.thread284.loopexit ], [ %lpad.loopexit.split-lp312, %.thread284.loopexit.split-lp ]
   %.not.i.i.i189 = icmp eq ptr %.sroa.0275.0420, null
   br i1 %.not.i.i.i189, label %_ZNSt6vectorIiSaIiEED2Ev.exit190, label %511
 

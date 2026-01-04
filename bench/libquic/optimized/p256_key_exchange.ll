@@ -201,7 +201,7 @@ define noundef ptr @_ZN3net15P256KeyExchange3NewEN4base16BasicStringPieceINSt7__
   unreachable
 
 _ZNSt10unique_ptrI9ec_key_stN6crypto16OpenSSLDestroyerIS0_XadL_Z11EC_KEY_freeEEEEED2Ev.exit: ; preds = %.thread22, %7, %.thread
-  %.1513 = phi ptr [ null, %.thread ], [ null, %7 ], [ %24, %.thread22 ]
+  %.1513 = phi ptr [ null, %.thread ], [ %24, %.thread22 ], [ null, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %34

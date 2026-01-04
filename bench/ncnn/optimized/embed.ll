@@ -615,7 +615,7 @@ _ZN4ncnn3MatD2Ev.exit13:                          ; preds = %222, %213, %229, %2
   br label %_ZNK4ncnn3Mat5emptyEv.exit.thread
 
 _ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %_ZN4ncnn3MatD2Ev.exit11, %_ZN4ncnn3MatD2Ev.exit, %210, %_ZN4ncnn3MatD2Ev.exit13, %_ZNK4ncnn3Mat5emptyEv.exit49, %_ZNK4ncnn3Mat5emptyEv.exit
-  %.07 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit49 ], [ 0, %_ZN4ncnn3MatD2Ev.exit13 ], [ 0, %210 ], [ -100, %_ZN4ncnn3MatD2Ev.exit ], [ -100, %_ZN4ncnn3MatD2Ev.exit11 ]
+  %.07 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit49 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ 0, %_ZN4ncnn3MatD2Ev.exit13 ], [ 0, %210 ], [ -100, %_ZN4ncnn3MatD2Ev.exit ], [ -100, %_ZN4ncnn3MatD2Ev.exit11 ]
   ret i32 %.07
 
 238:                                              ; preds = %_ZN4ncnn3MatD2Ev.exit12, %_ZN4ncnn3MatD2Ev.exit10
@@ -1097,7 +1097,7 @@ define internal void @_ZN4ncnnL5embedERKNS_3MatES2_S2_RS0_iRKNS_6OptionE.omp_out
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %78
-  %81 = phi i32 [ %52, %.preheader ], [ %.pre, %78 ], [ %52, %.lr.ph ]
+  %81 = phi i32 [ %.pre, %78 ], [ %52, %.preheader ], [ %52, %.lr.ph ]
   %indvars.iv.next55 = add nsw i64 %indvars.iv54, 1
   %82 = sext i32 %81 to i64
   %.not.not = icmp slt i64 %indvars.iv54, %82

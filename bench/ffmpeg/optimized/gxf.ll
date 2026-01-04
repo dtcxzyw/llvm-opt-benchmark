@@ -484,9 +484,9 @@ thread-pre-split:                                 ; preds = %166
   br label %205
 
 205:                                              ; preds = %192, %194, %203, %204
-  %206 = phi i32 [ %174, %203 ], [ %.pre, %204 ], [ %195, %194 ], [ %177, %192 ]
-  %.sroa.10.4 = phi i32 [ %.sroa.10.0.lcssa, %203 ], [ %.sroa.10.0.lcssa, %204 ], [ %.sroa.10.3, %194 ], [ %.sroa.10.3, %192 ]
-  %.sroa.047.4 = phi i32 [ %.sroa.047.0.lcssa, %203 ], [ %.sroa.047.0.lcssa, %204 ], [ %.sroa.047.3, %194 ], [ %.sroa.047.3, %192 ]
+  %206 = phi i32 [ %.pre, %204 ], [ %174, %203 ], [ %195, %194 ], [ %177, %192 ]
+  %.sroa.10.4 = phi i32 [ %.sroa.10.0.lcssa, %204 ], [ %.sroa.10.0.lcssa, %203 ], [ %.sroa.10.3, %194 ], [ %.sroa.10.3, %192 ]
+  %.sroa.047.4 = phi i32 [ %.sroa.047.0.lcssa, %204 ], [ %.sroa.047.0.lcssa, %203 ], [ %.sroa.047.3, %194 ], [ %.sroa.047.3, %192 ]
   %207 = sext i32 %206 to i64
   %208 = call i64 @avio_skip(ptr noundef %7, i64 noundef %207) #8
   %209 = icmp ne i32 %.sroa.047.4, 0
@@ -516,7 +516,7 @@ thread-pre-split:                                 ; preds = %166
   br i1 %220, label %214, label %.loopexit, !llvm.loop !50
 
 .loopexit:                                        ; preds = %214, %205, %169, %162, %55, %25, %20, %14
-  %.0 = phi i32 [ 0, %14 ], [ 0, %20 ], [ 0, %25 ], [ 0, %55 ], [ -1, %169 ], [ -1, %162 ], [ 0, %205 ], [ 0, %214 ]
+  %.0 = phi i32 [ 0, %14 ], [ 0, %20 ], [ 0, %25 ], [ 0, %55 ], [ -1, %162 ], [ -1, %169 ], [ 0, %205 ], [ 0, %214 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -668,8 +668,8 @@ define internal i32 @gxf_packet(ptr noundef %0, ptr noundef %1) #1 {
   %.not = icmp eq i32 %81, 0
   br i1 %.not, label %.lr.ph, label %.thread75
 
-.thread75:                                        ; preds = %80, %2, %66, %75, %25, %12, %14
-  %.2 = phi i32 [ %67, %66 ], [ %67, %75 ], [ %29, %25 ], [ -1, %12 ], [ -1, %14 ], [ -541478725, %2 ], [ -541478725, %80 ]
+.thread75:                                        ; preds = %80, %2, %66, %75, %14, %25, %12
+  %.2 = phi i32 [ -1, %12 ], [ %67, %66 ], [ %67, %75 ], [ -1, %14 ], [ %29, %25 ], [ -541478725, %2 ], [ -541478725, %80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.2
@@ -733,7 +733,7 @@ define internal i32 @gxf_seek(ptr noundef readonly captures(none) %0, i32 nounde
   br label %44
 
 44:                                               ; preds = %38, %4, %36
-  %.0 = phi i32 [ %37, %36 ], [ -1, %4 ], [ %spec.select40, %38 ]
+  %.0 = phi i32 [ %spec.select40, %38 ], [ %37, %36 ], [ -1, %4 ]
   ret i32 %.0
 }
 
@@ -799,7 +799,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_packet_header(ptr noundef %0, 
   br label %18
 
 18:                                               ; preds = %16, %14, %11, %7, %5, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %5 ], [ 0, %7 ], [ 0, %11 ], [ 0, %14 ], [ %., %16 ]
+  %.0 = phi i32 [ 0, %14 ], [ 0, %3 ], [ 0, %5 ], [ 0, %7 ], [ 0, %11 ], [ %., %16 ]
   ret i32 %.0
 }
 
@@ -1001,7 +1001,7 @@ define internal fastcc i32 @get_sindex(ptr noundef %0, i32 noundef %1, i32 nound
   br label %46
 
 46:                                               ; preds = %6, %3, %42
-  %.0 = phi i32 [ %45, %42 ], [ %4, %3 ], [ -12, %6 ]
+  %.0 = phi i32 [ %4, %3 ], [ %45, %42 ], [ -12, %6 ]
   ret i32 %.0
 }
 
@@ -1071,7 +1071,7 @@ define internal fastcc void @gxf_read_index(ptr noundef %0, i32 noundef %1) unna
   br i1 %exitcond.not, label %.sink.split, label %28, !llvm.loop !86
 
 .sink.split:                                      ; preds = %28, %24, %6, %13, %23
-  %.sink46 = phi i32 [ %9, %23 ], [ %9, %13 ], [ %9, %6 ], [ %25, %24 ], [ %25, %28 ]
+  %.sink46 = phi i32 [ %9, %6 ], [ %9, %23 ], [ %9, %13 ], [ %25, %24 ], [ %25, %28 ]
   %35 = zext nneg i32 %.sink46 to i64
   %36 = tail call i64 @avio_skip(ptr noundef %4, i64 noundef %35) #8
   br label %37
@@ -1206,8 +1206,8 @@ define internal fastcc range(i64 0, -9223372036854775807) i64 @gxf_resync_media(
   br i1 %41, label %.outer, label %.loopexit
 
 .loopexit:                                        ; preds = %31, %39, %28, %19, %._crit_edge, %15, %.lr.ph, %8
-  %.138 = phi i64 [ %.037.ph, %8 ], [ %.037.ph, %.lr.ph ], [ %.037.ph, %15 ], [ %.037.ph, %._crit_edge ], [ %.037.ph, %19 ], [ %.037.ph, %28 ], [ %37, %39 ], [ %37, %31 ]
-  %.134 = phi i64 [ %.033.ph, %8 ], [ %.033.ph, %.lr.ph ], [ %.033.ph, %15 ], [ %.033.ph, %._crit_edge ], [ %.033.ph, %19 ], [ %.033.ph, %28 ], [ %35, %39 ], [ %35, %31 ]
+  %.138 = phi i64 [ %.037.ph, %28 ], [ %.037.ph, %.lr.ph ], [ %.037.ph, %8 ], [ %.037.ph, %15 ], [ %.037.ph, %._crit_edge ], [ %.037.ph, %19 ], [ %37, %39 ], [ %37, %31 ]
+  %.134 = phi i64 [ %.033.ph, %28 ], [ %.033.ph, %.lr.ph ], [ %.033.ph, %8 ], [ %.033.ph, %15 ], [ %.033.ph, %._crit_edge ], [ %.033.ph, %19 ], [ %35, %39 ], [ %35, %31 ]
   %.not49 = icmp eq i64 %.138, 0
   br i1 %.not49, label %44, label %42
 

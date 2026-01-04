@@ -276,8 +276,8 @@ define hidden void @_ZN7memmap211MmapOptions3map17hfc885e7b6792dbf3E(ptr dead_on
   br i1 %32, label %35, label %37
 
 35:                                               ; preds = %37, %26, %12, %23
-  %.sink.sink = phi ptr [ %16, %12 ], [ %24, %23 ], [ %34, %26 ], [ %34, %37 ]
-  %storemerge.sink = phi i64 [ 1, %12 ], [ 1, %23 ], [ 1, %26 ], [ 0, %37 ]
+  %.sink.sink = phi ptr [ %24, %23 ], [ %16, %12 ], [ %34, %26 ], [ %34, %37 ]
+  %storemerge.sink = phi i64 [ 1, %23 ], [ 1, %12 ], [ 1, %26 ], [ 0, %37 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink.sink, ptr %36, align 8
   store i64 %storemerge.sink, ptr %0, align 8
@@ -678,7 +678,7 @@ define noundef nonnull ptr @_ZN12polars_utils3mem8prefetch24get_memory_prefetch_
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hf9bd768407f5cb3eE.exit"
 
 "_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hf9bd768407f5cb3eE.exit": ; preds = %"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17h7930e497dd985e42E.exit", %25, %27
-  %.sroa.0.035 = phi ptr [ %.sroa.0.0.ph, %25 ], [ %.sroa.0.0.ph, %27 ], [ @_ZN12polars_utils3mem8prefetch16madvise_willneed17h4b1d4f04a8121decE, %"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17h7930e497dd985e42E.exit" ]
+  %.sroa.0.035 = phi ptr [ %.sroa.0.0.ph, %27 ], [ %.sroa.0.0.ph, %25 ], [ @_ZN12polars_utils3mem8prefetch16madvise_willneed17h4b1d4f04a8121decE, %"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17h7930e497dd985e42E.exit" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %0, label %57, label %56
 
@@ -789,8 +789,8 @@ define noundef nonnull ptr @_ZN12polars_utils3mem8prefetch24get_memory_prefetch_
   unreachable
 
 70:                                               ; preds = %67, %65, %63, %61, %59, %57
-  %anon.b8abe737df307a700df49d5e67f30d6c.56.sink = phi ptr [ @anon.b8abe737df307a700df49d5e67f30d6c.51, %57 ], [ @anon.b8abe737df307a700df49d5e67f30d6c.52, %59 ], [ @anon.b8abe737df307a700df49d5e67f30d6c.53, %61 ], [ @anon.b8abe737df307a700df49d5e67f30d6c.54, %63 ], [ @anon.b8abe737df307a700df49d5e67f30d6c.55, %65 ], [ @anon.b8abe737df307a700df49d5e67f30d6c.56, %67 ]
-  %.sink = phi i64 [ 11, %57 ], [ 11, %59 ], [ 18, %61 ], [ 16, %63 ], [ 21, %65 ], [ 19, %67 ]
+  %anon.b8abe737df307a700df49d5e67f30d6c.56.sink = phi ptr [ @anon.b8abe737df307a700df49d5e67f30d6c.55, %65 ], [ @anon.b8abe737df307a700df49d5e67f30d6c.54, %63 ], [ @anon.b8abe737df307a700df49d5e67f30d6c.53, %61 ], [ @anon.b8abe737df307a700df49d5e67f30d6c.52, %59 ], [ @anon.b8abe737df307a700df49d5e67f30d6c.51, %57 ], [ @anon.b8abe737df307a700df49d5e67f30d6c.56, %67 ]
+  %.sink = phi i64 [ 21, %65 ], [ 16, %63 ], [ 18, %61 ], [ 11, %59 ], [ 11, %57 ], [ 19, %67 ]
   store ptr %anon.b8abe737df307a700df49d5e67f30d6c.56.sink, ptr %4, align 8
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %.sink, ptr %71, align 8

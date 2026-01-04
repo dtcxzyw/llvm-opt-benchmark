@@ -680,7 +680,7 @@ define ptr @l_Std_Time_Hour_instOfNatOffset(ptr noundef %0) local_unnamed_addr #
   br label %lean_nat_to_int.exit
 
 lean_nat_to_int.exit:                             ; preds = %1, %5
-  %.1.i = phi ptr [ %7, %5 ], [ %0, %1 ]
+  %.1.i = phi ptr [ %0, %1 ], [ %7, %5 ]
   ret ptr %.1.i
 }
 
@@ -866,7 +866,7 @@ lean_int_emod.exit.thread23:                      ; preds = %27
   br label %lean_dec.exit9
 
 lean_dec.exit9:                                   ; preds = %47, %42, %31, %56, %55, %53, %lean_int_emod.exit.thread23
-  %.1.i22 = phi ptr [ %30, %lean_int_emod.exit.thread23 ], [ %50, %53 ], [ %50, %55 ], [ %50, %56 ], [ %48, %47 ], [ %46, %42 ], [ %.0.i, %31 ]
+  %.1.i22 = phi ptr [ %50, %56 ], [ %30, %lean_int_emod.exit.thread23 ], [ %50, %53 ], [ %50, %55 ], [ %48, %47 ], [ %46, %42 ], [ %.0.i, %31 ]
   %57 = load ptr, ptr @l_Std_Time_Hour_instInhabitedOrdinal___closed__4, align 8, !tbaa !11
   %58 = ptrtoint ptr %.1.i22 to i64
   %59 = and i64 %58, 1
@@ -924,7 +924,7 @@ lean_int_add.exit20.thread26:                     ; preds = %60
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %77, %72, %86, %85, %83, %lean_int_add.exit20.thread26
-  %.0.i1825 = phi ptr [ %63, %lean_int_add.exit20.thread26 ], [ %80, %83 ], [ %80, %85 ], [ %80, %86 ], [ %78, %77 ], [ %76, %72 ]
+  %.0.i1825 = phi ptr [ %80, %86 ], [ %63, %lean_int_add.exit20.thread26 ], [ %80, %83 ], [ %80, %85 ], [ %78, %77 ], [ %76, %72 ]
   ret ptr %.0.i1825
 }
 
@@ -1096,7 +1096,7 @@ l_Std_Time_Hour_Ordinal_shiftTo1BasedHour.exit.thread: ; preds = %l_Std_Time_Hou
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %18, %lean_int_dec_lt.exit.thread.i, %lean_int_dec_lt.exit.thread8.i, %27, %26, %24, %l_Std_Time_Hour_Ordinal_shiftTo1BasedHour.exit.thread11
-  %.0.i6 = phi ptr [ %20, %l_Std_Time_Hour_Ordinal_shiftTo1BasedHour.exit.thread11 ], [ %.0.i5, %24 ], [ %.0.i5, %26 ], [ %.0.i5, %27 ], [ %0, %lean_int_dec_lt.exit.thread8.i ], [ %0, %lean_int_dec_lt.exit.thread.i ], [ %0, %18 ]
+  %.0.i6 = phi ptr [ %20, %l_Std_Time_Hour_Ordinal_shiftTo1BasedHour.exit.thread11 ], [ %.0.i5, %27 ], [ %.0.i5, %24 ], [ %.0.i5, %26 ], [ %0, %lean_int_dec_lt.exit.thread8.i ], [ %0, %lean_int_dec_lt.exit.thread.i ], [ %0, %18 ]
   ret ptr %.0.i6
 }
 
@@ -1115,7 +1115,7 @@ define ptr @l_Std_Time_Hour_Ordinal_ofNat(ptr noundef %0, ptr noundef readnone c
   br label %lean_nat_to_int.exit
 
 lean_nat_to_int.exit:                             ; preds = %2, %6
-  %.1.i = phi ptr [ %8, %6 ], [ %0, %2 ]
+  %.1.i = phi ptr [ %0, %2 ], [ %8, %6 ]
   ret ptr %.1.i
 }
 
@@ -1134,7 +1134,7 @@ define ptr @l_Std_Time_Hour_Ordinal_ofFin(ptr noundef %0) local_unnamed_addr #0 
   br label %lean_nat_to_int.exit
 
 lean_nat_to_int.exit:                             ; preds = %1, %5
-  %.1.i = phi ptr [ %7, %5 ], [ %0, %1 ]
+  %.1.i = phi ptr [ %0, %1 ], [ %7, %5 ]
   ret ptr %.1.i
 }
 
@@ -1230,7 +1230,7 @@ define ptr @l_Std_Time_Hour_Offset_ofNat(ptr noundef %0) local_unnamed_addr #0 {
   br label %lean_nat_to_int.exit
 
 lean_nat_to_int.exit:                             ; preds = %1, %5
-  %.1.i = phi ptr [ %7, %5 ], [ %0, %1 ]
+  %.1.i = phi ptr [ %0, %1 ], [ %7, %5 ]
   ret ptr %.1.i
 }
 
@@ -2112,7 +2112,7 @@ _init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__7.exit: ; preds = %326
   br label %340
 
 340:                                              ; preds = %.sink.split, %lean_dec_ref.exit19, %lean_dec_ref.exit17, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit17 ], [ %38, %lean_dec_ref.exit19 ], [ %.sink110, %.sink.split ]
+  %.0 = phi ptr [ %28, %lean_dec_ref.exit17 ], [ %38, %lean_dec_ref.exit19 ], [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink110, %.sink.split ]
   ret ptr %.0
 }
 

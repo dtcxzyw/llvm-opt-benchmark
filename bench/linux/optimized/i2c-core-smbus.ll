@@ -2011,7 +2011,7 @@ select.unfold:                                    ; preds = %93, %81
   br label %.thread38
 
 .thread38:                                        ; preds = %.preheader43, %119, %113, %.thread36, %401, %126
-  %403 = phi i32 [ %402, %401 ], [ -95, %126 ], [ 0, %.thread36 ], [ %118, %.preheader43 ], [ -11, %113 ], [ -11, %119 ]
+  %403 = phi i32 [ 0, %.thread36 ], [ %402, %401 ], [ -95, %126 ], [ -11, %113 ], [ -11, %119 ], [ %118, %.preheader43 ]
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_smbus_reply, i64 8), i32 2) #15
           to label %428 [label %404], !srcloc !33
 
@@ -2096,7 +2096,7 @@ select.unfold:                                    ; preds = %93, %81
   br label %.thread
 
 .thread:                                          ; preds = %16, %28, %446, %442, %429, %428
-  %449 = phi i32 [ %403, %428 ], [ %403, %429 ], [ %403, %442 ], [ %403, %446 ], [ -108, %28 ], [ -108, %16 ]
+  %449 = phi i32 [ %403, %446 ], [ %403, %428 ], [ %403, %429 ], [ %403, %442 ], [ -108, %28 ], [ -108, %16 ]
   ret i32 %449
 }
 

@@ -566,12 +566,12 @@ fill.exit241:                                     ; preds = %fill.exit241.loopex
   br i1 %213, label %115, label %nextYRange.exit.thread, !llvm.loop !8
 
 nextYRange.exit.thread:                           ; preds = %.outer263.loopexit, %131, %209, %.preheader
-  %.0199.ph.lcssa = phi i32 [ %28, %.preheader ], [ %.0199.ph299, %209 ], [ %.0199.ph299, %131 ], [ %124, %.outer263.loopexit ]
-  %.0198.ph.lcssa = phi i32 [ %23, %.preheader ], [ %.0198.ph300, %209 ], [ %.0198.ph300, %131 ], [ %116, %.outer263.loopexit ]
-  %.0195.lcssa = phi i32 [ %65, %.preheader ], [ %.0195277, %131 ], [ %.2197, %209 ], [ %.0195277, %.outer263.loopexit ]
-  %.0193.lcssa = phi i32 [ %67, %.preheader ], [ %.0193278, %131 ], [ %.1194, %209 ], [ %.0193278, %.outer263.loopexit ]
-  %.0191.lcssa = phi i32 [ %61, %.preheader ], [ %.0191279, %131 ], [ %spec.select226, %209 ], [ %.0191279, %.outer263.loopexit ]
-  %.0189.lcssa = phi i32 [ %67, %.preheader ], [ %.0189280, %131 ], [ %.2, %209 ], [ %.0189280, %.outer263.loopexit ]
+  %.0199.ph.lcssa = phi i32 [ %.0199.ph299, %131 ], [ %28, %.preheader ], [ %.0199.ph299, %209 ], [ %124, %.outer263.loopexit ]
+  %.0198.ph.lcssa = phi i32 [ %.0198.ph300, %131 ], [ %23, %.preheader ], [ %.0198.ph300, %209 ], [ %116, %.outer263.loopexit ]
+  %.0195.lcssa = phi i32 [ %.0195277, %131 ], [ %65, %.preheader ], [ %.2197, %209 ], [ %.0195277, %.outer263.loopexit ]
+  %.0193.lcssa = phi i32 [ %.0193278, %131 ], [ %67, %.preheader ], [ %.1194, %209 ], [ %.0193278, %.outer263.loopexit ]
+  %.0191.lcssa = phi i32 [ %.0191279, %131 ], [ %61, %.preheader ], [ %spec.select226, %209 ], [ %.0191279, %.outer263.loopexit ]
+  %.0189.lcssa = phi i32 [ %.0189280, %131 ], [ %67, %.preheader ], [ %.2, %209 ], [ %.0189280, %.outer263.loopexit ]
   store i32 %.0195.lcssa, ptr %58, align 4
   store i32 %.0193.lcssa, ptr %62, align 4
   store i32 %.0191.lcssa, ptr %64, align 4

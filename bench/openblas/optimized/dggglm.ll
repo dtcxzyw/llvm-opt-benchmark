@@ -116,7 +116,7 @@ define void @dggglm_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not222, label %71, label %.thread239
 
 .thread239.sink.split:                            ; preds = %62, %39, %36, %32, %30, %13
-  %.sink = phi i32 [ -1, %13 ], [ -2, %30 ], [ -3, %32 ], [ -5, %36 ], [ -7, %39 ], [ -12, %62 ]
+  %.sink = phi i32 [ -1, %13 ], [ -3, %32 ], [ -5, %36 ], [ -2, %30 ], [ -7, %39 ], [ -12, %62 ]
   store i32 %.sink, ptr %12, align 4, !tbaa !3
   br label %.thread239
 

@@ -186,7 +186,7 @@ define internal i32 @png_parse(ptr noundef captures(none) initializes((40, 44)) 
   br i1 %79, label %.lr.ph88.split, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %70, %76, %36, %32, %67, %66, %30, %.split94.us
-  %.063 = phi i32 [ -100, %30 ], [ -100, %.split94.us ], [ -100, %66 ], [ %69, %67 ], [ %., %32 ], [ -100, %36 ], [ -100, %76 ], [ -100, %70 ]
+  %.063 = phi i32 [ -100, %30 ], [ %., %32 ], [ -100, %.split94.us ], [ -100, %66 ], [ %69, %67 ], [ -100, %36 ], [ -100, %76 ], [ -100, %70 ]
   %80 = call i32 @ff_combine_frame(ptr noundef nonnull %9, i32 noundef %.063, ptr noundef nonnull %7, ptr noundef nonnull %8) #3
   %81 = icmp slt i32 %80, 0
   br i1 %81, label %82, label %84

@@ -1385,8 +1385,8 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i: ; preds = %28
   br label %.lr.ph.i.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i.i, %.thread31, %.thread, %34
-  %37 = phi i64 [ 0, %.thread ], [ %35, %34 ], [ %27, %.thread31 ], [ %35, %.lr.ph.i.i.i.i.i.i.i ]
-  %.pre.i30 = phi ptr [ null, %.thread ], [ %31, %34 ], [ null, %.thread31 ], [ %31, %.lr.ph.i.i.i.i.i.i.i ]
+  %37 = phi i64 [ 0, %.thread ], [ %27, %.thread31 ], [ %35, %34 ], [ %35, %.lr.ph.i.i.i.i.i.i.i ]
+  %.pre.i30 = phi ptr [ null, %.thread ], [ null, %.thread31 ], [ %31, %34 ], [ %31, %.lr.ph.i.i.i.i.i.i.i ]
   %38 = icmp slt i64 %37, %23
   br i1 %38, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal18scalar_quotient_opIddEEKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES7_EEEEE4evalEv.exit
 
@@ -2239,8 +2239,8 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i: ; preds = %28
   br label %.lr.ph.i.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i.i, %.thread31, %.thread, %34
-  %37 = phi i64 [ 0, %.thread ], [ %35, %34 ], [ %27, %.thread31 ], [ %35, %.lr.ph.i.i.i.i.i.i.i ]
-  %.pre.i30 = phi ptr [ null, %.thread ], [ %31, %34 ], [ null, %.thread31 ], [ %31, %.lr.ph.i.i.i.i.i.i.i ]
+  %37 = phi i64 [ 0, %.thread ], [ %27, %.thread31 ], [ %35, %34 ], [ %35, %.lr.ph.i.i.i.i.i.i.i ]
+  %.pre.i30 = phi ptr [ null, %.thread ], [ null, %.thread31 ], [ %31, %34 ], [ %31, %.lr.ph.i.i.i.i.i.i.i ]
   %38 = icmp slt i64 %37, %23
   br i1 %38, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal18scalar_quotient_opIddEEKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES7_EEEEE4evalEv.exit
 

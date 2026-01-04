@@ -1772,7 +1772,7 @@ _ZN5QListI7QStringED2Ev.exit91:                   ; preds = %_ZN5QListIP13QStand
   ret ptr %.0
 
 .body:                                            ; preds = %197, %225, %223, %199, %_ZN5QListIP13QStandardItemED2Ev.exit6.i, %160, %158, %_ZN7QStringD2Ev.exit57, %52, %50
-  %.pn26 = phi { ptr, i32 } [ %53, %52 ], [ %51, %50 ], [ %159, %158 ], [ %.pn.pn, %_ZN7QStringD2Ev.exit57 ], [ %198, %197 ], [ %226, %225 ], [ %224, %223 ], [ %200, %199 ], [ %161, %160 ], [ %148, %_ZN5QListIP13QStandardItemED2Ev.exit6.i ]
+  %.pn26 = phi { ptr, i32 } [ %53, %52 ], [ %51, %50 ], [ %.pn.pn, %_ZN7QStringD2Ev.exit57 ], [ %159, %158 ], [ %200, %199 ], [ %198, %197 ], [ %226, %225 ], [ %224, %223 ], [ %161, %160 ], [ %148, %_ZN5QListIP13QStandardItemED2Ev.exit6.i ]
   %248 = load ptr, ptr %10, align 8
   %.not.i.i.i92 = icmp eq ptr %248, null
   br i1 %.not.i.i.i92, label %_ZN5QListIP13QStandardItemED2Ev.exit95, label %_ZN17QArrayDataPointerIP13QStandardItemE5derefEv.exit.i.i93
@@ -2260,7 +2260,7 @@ _ZN5QListI11QModelIndexED2Ev.exit:                ; preds = %27, %_ZN17QArrayDat
   br label %113
 
 37:                                               ; preds = %14, %_ZN5QListI11QModelIndexED2Ev.exit, %1
-  %.0 = phi i1 [ %30, %_ZN5QListI11QModelIndexED2Ev.exit ], [ true, %1 ], [ false, %14 ]
+  %.0 = phi i1 [ true, %1 ], [ %30, %_ZN5QListI11QModelIndexED2Ev.exit ], [ false, %14 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.sroa.01.0.copyload = load i48, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 42), align 2

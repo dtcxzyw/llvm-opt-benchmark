@@ -224,8 +224,8 @@ _ZN6icu_779ScriptRun12getPairIndexEi.exit:        ; preds = %38
   br label %75
 
 75:                                               ; preds = %.critedge, %71, %53, %59, %_ZN6icu_779ScriptRun12getPairIndexEi.exit
-  %.034 = phi i32 [ %36, %53 ], [ %36, %59 ], [ %36, %_ZN6icu_779ScriptRun12getPairIndexEi.exit ], [ %74, %71 ], [ %36, %.critedge ]
-  %.1 = phi i32 [ %.03364, %53 ], [ %.03364, %59 ], [ %.03364, %_ZN6icu_779ScriptRun12getPairIndexEi.exit ], [ %spec.select56, %71 ], [ %spec.select, %.critedge ]
+  %.034 = phi i32 [ %36, %53 ], [ %36, %_ZN6icu_779ScriptRun12getPairIndexEi.exit ], [ %36, %59 ], [ %74, %71 ], [ %36, %.critedge ]
+  %.1 = phi i32 [ %.03364, %53 ], [ %.03364, %_ZN6icu_779ScriptRun12getPairIndexEi.exit ], [ %.03364, %59 ], [ %spec.select56, %71 ], [ %spec.select, %.critedge ]
   %76 = load i32, ptr %9, align 8, !tbaa !20
   %77 = icmp slt i32 %76, 2
   %78 = icmp slt i32 %.034, 2
@@ -296,7 +296,7 @@ _ZN6icu_779ScriptRun12getPairIndexEi.exit:        ; preds = %38
   br i1 %105, label %13, label %.loopexit61, !llvm.loop !30
 
 .loopexit61:                                      ; preds = %101, %98, %96, %1
-  %.0 = phi i8 [ 0, %1 ], [ 1, %96 ], [ 1, %98 ], [ 1, %101 ]
+  %.0 = phi i8 [ 0, %1 ], [ 1, %98 ], [ 1, %96 ], [ 1, %101 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i8 %.0
 }

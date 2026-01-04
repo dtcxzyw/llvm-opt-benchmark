@@ -799,7 +799,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE6resizeEiRKS1_.exit: ; preds =
   br i1 %exitcond.not, label %._crit_edge, label %125, !llvm.loop !103
 
 .loopexit:                                        ; preds = %._crit_edge, %107, %95, %84, %90
-  %.1 = phi i1 [ %.079, %90 ], [ %.079, %84 ], [ %.079, %95 ], [ %.079, %107 ], [ %.3.lcssa, %._crit_edge ]
+  %.1 = phi i1 [ %.079, %95 ], [ %.079, %84 ], [ %.079, %90 ], [ %.079, %107 ], [ %.3.lcssa, %._crit_edge ]
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %156 = load ptr, ptr %8, align 8, !tbaa !20
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 408
@@ -1822,7 +1822,7 @@ define dso_local void @_ZN30btKinematicCharacterController8stepDownEP16btCollisi
   br label %31
 
 31:                                               ; preds = %17, %19, %30, %23
-  %.029 = phi float [ %21, %30 ], [ %15, %19 ], [ %15, %17 ], [ %15, %23 ]
+  %.029 = phi float [ %21, %30 ], [ %15, %23 ], [ %15, %19 ], [ %15, %17 ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %34 = load float, ptr %33, align 4, !tbaa !44
@@ -2168,7 +2168,7 @@ define dso_local void @_ZN30btKinematicCharacterController8stepDownEP16btCollisi
   br label %271
 
 271:                                              ; preds = %250, %265, %239, %256, %259, %244
-  %.037.in = phi i1 [ false, %244 ], [ %255, %250 ], [ false, %259 ], [ false, %256 ], [ %270, %265 ], [ false, %239 ]
+  %.037.in = phi i1 [ %255, %250 ], [ false, %244 ], [ false, %239 ], [ false, %259 ], [ false, %256 ], [ %270, %265 ]
   %272 = load float, ptr %10, align 4, !tbaa !35
   %273 = fcmp olt float %272, 0.000000e+00
   %274 = load float, ptr %123, align 4
@@ -2990,7 +2990,7 @@ define dso_local void @_ZN30btKinematicCharacterController10playerStepEP16btColl
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %187, %191, %._crit_edge
-  %192 = phi float [ %189, %191 ], [ %185, %._crit_edge ], [ %185, %187 ]
+  %192 = phi float [ %185, %._crit_edge ], [ %189, %191 ], [ %185, %187 ]
   %193 = fcmp olt float %192, 0.000000e+00
   br i1 %193, label %194, label %202
 
@@ -3420,8 +3420,8 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit.i.i: ; preds = %81, %74
   br label %_ZNK30btKinematicCharacterController11getRotationER9btVector3S1_.exit
 
 _ZNK30btKinematicCharacterController11getRotationER9btVector3S1_.exit: ; preds = %88, %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit.i.i, %48, %53
-  %.sroa.2.0.i = phi <2 x float> [ undef, %53 ], [ undef, %48 ], [ %.sroa.528.12.vec.insert.i.i, %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit.i.i ], [ %.sroa.528.12.vec.insert33.i.i, %88 ]
-  %.sroa.0.0.i = phi <2 x float> [ undef, %53 ], [ undef, %48 ], [ %.sroa.022.4.vec.insert.i.i, %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit.i.i ], [ %.sroa.022.4.vec.insert27.i.i, %88 ]
+  %.sroa.2.0.i = phi <2 x float> [ undef, %48 ], [ undef, %53 ], [ %.sroa.528.12.vec.insert.i.i, %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit.i.i ], [ %.sroa.528.12.vec.insert33.i.i, %88 ]
+  %.sroa.0.0.i = phi <2 x float> [ undef, %48 ], [ undef, %53 ], [ %.sroa.022.4.vec.insert.i.i, %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit.i.i ], [ %.sroa.022.4.vec.insert27.i.i, %88 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %106 = getelementptr inbounds nuw i8, ptr %47, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %4, ptr noundef nonnull align 4 dereferenceable(64) %106, i64 16, i1 false), !tbaa.struct !78

@@ -511,8 +511,8 @@ Tim_ManBoxNum.exit:                               ; preds = %Tim_ManPoNum.exit
   br i1 %exitcond.not, label %.critedge, label %27, !llvm.loop !50
 
 .critedge:                                        ; preds = %39, %Tim_ManPoNum.exit, %Tim_ManBoxNum.exit
-  %.0118 = phi i32 [ %.0.i, %Tim_ManBoxNum.exit ], [ %.0.i, %Tim_ManPoNum.exit ], [ %.2120, %39 ]
-  %.0116 = phi i32 [ %.0.i144, %Tim_ManBoxNum.exit ], [ %.0.i144, %Tim_ManPoNum.exit ], [ %.2, %39 ]
+  %.0118 = phi i32 [ %.0.i, %Tim_ManPoNum.exit ], [ %.0.i, %Tim_ManBoxNum.exit ], [ %.2120, %39 ]
+  %.0116 = phi i32 [ %.0.i144, %Tim_ManPoNum.exit ], [ %.0.i144, %Tim_ManBoxNum.exit ], [ %.2, %39 ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %41 = load i32, ptr %40, align 8, !tbaa !12
   %42 = icmp eq i32 %.0118, %41
@@ -689,8 +689,8 @@ Tim_ManBoxNum.exit10.i169:                        ; preds = %Tim_ManBoxNum.exit.
   br label %Tim_ManPoNum.exit172
 
 Tim_ManPoNum.exit172:                             ; preds = %Tim_ManBoxNum.exit.i167, %Tim_ManPoNum.exit165.Tim_ManBoxNum.exit.thread.i171_crit_edge, %Tim_ManPoNum.exit158, %Tim_ManBoxNum.exit10.i169
-  %115 = phi ptr [ %107, %Tim_ManBoxNum.exit10.i169 ], [ %107, %Tim_ManBoxNum.exit.i167 ], [ %106, %Tim_ManPoNum.exit165.Tim_ManBoxNum.exit.thread.i171_crit_edge ], [ %95, %Tim_ManPoNum.exit158 ]
-  %.0.i170 = phi i32 [ %114, %Tim_ManBoxNum.exit10.i169 ], [ %.pre264, %Tim_ManBoxNum.exit.i167 ], [ %.pre263, %Tim_ManPoNum.exit165.Tim_ManBoxNum.exit.thread.i171_crit_edge ], [ %90, %Tim_ManPoNum.exit158 ]
+  %115 = phi ptr [ %107, %Tim_ManBoxNum.exit10.i169 ], [ %106, %Tim_ManPoNum.exit165.Tim_ManBoxNum.exit.thread.i171_crit_edge ], [ %107, %Tim_ManBoxNum.exit.i167 ], [ %95, %Tim_ManPoNum.exit158 ]
+  %.0.i170 = phi i32 [ %114, %Tim_ManBoxNum.exit10.i169 ], [ %.pre263, %Tim_ManPoNum.exit165.Tim_ManBoxNum.exit.thread.i171_crit_edge ], [ %.pre264, %Tim_ManBoxNum.exit.i167 ], [ %90, %Tim_ManPoNum.exit158 ]
   %116 = sext i32 %.0.i170 to i64
   %117 = mul nsw i64 %116, 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %93, ptr align 4 %115, i64 %117, i1 false)
@@ -928,7 +928,7 @@ Tim_ManBoxNum.exit10.i195:                        ; preds = %Tim_ManBoxNum.exit.
   br label %Tim_ManPoNum.exit198
 
 Tim_ManPoNum.exit198:                             ; preds = %Tim_ManBoxNum.exit.i193, %.critedge6, %Tim_ManBoxNum.exit10.i195, %Tim_ManBoxNum.exit178, %47
-  %.0115 = phi ptr [ %48, %47 ], [ %62, %Tim_ManBoxNum.exit178 ], [ %62, %Tim_ManBoxNum.exit10.i195 ], [ %62, %.critedge6 ], [ %62, %Tim_ManBoxNum.exit.i193 ]
+  %.0115 = phi ptr [ %48, %47 ], [ %62, %Tim_ManBoxNum.exit10.i195 ], [ %62, %Tim_ManBoxNum.exit178 ], [ %62, %.critedge6 ], [ %62, %Tim_ManBoxNum.exit.i193 ]
   ret ptr %.0115
 }
 
@@ -2610,7 +2610,7 @@ Tim_ManBoxNum.exit206:                            ; preds = %.critedge6
   br label %.critedge12, !llvm.loop !96
 
 .critedge12:                                      ; preds = %.lr.ph261, %.lr.ph261.preheader, %..critedge12.loopexit_crit_edge, %.preheader213, %182
-  %204 = phi i32 [ %180, %.preheader213 ], [ %.pre335, %182 ], [ %201, %..critedge12.loopexit_crit_edge ], [ %180, %.lr.ph261.preheader ], [ %201, %.lr.ph261 ]
+  %204 = phi i32 [ %.pre335, %182 ], [ %180, %.preheader213 ], [ %180, %.lr.ph261.preheader ], [ %201, %..critedge12.loopexit_crit_edge ], [ %201, %.lr.ph261 ]
   %.val196 = load ptr, ptr %32, align 8, !tbaa !14
   %205 = sext i32 %204 to i64
   %206 = getelementptr inbounds i32, ptr %152, i64 %205
@@ -3061,9 +3061,9 @@ Vec_IntAlloc.exit.i:                              ; preds = %39
   br label %Vec_IntAlloc.exit.i.thread
 
 Vec_IntAlloc.exit.i.thread:                       ; preds = %Vec_IntAlloc.exit.i, %.preheader
-  %wide.trip.count89 = phi i64 [ 1, %.preheader ], [ %52, %Vec_IntAlloc.exit.i ]
-  %.0.lcssa108 = phi i64 [ 64, %.preheader ], [ %51, %Vec_IntAlloc.exit.i ]
-  %53 = phi i64 [ 64, %.preheader ], [ %47, %Vec_IntAlloc.exit.i ]
+  %wide.trip.count89 = phi i64 [ %52, %Vec_IntAlloc.exit.i ], [ 1, %.preheader ]
+  %.0.lcssa108 = phi i64 [ %51, %Vec_IntAlloc.exit.i ], [ 64, %.preheader ]
+  %53 = phi i64 [ %47, %Vec_IntAlloc.exit.i ], [ 64, %.preheader ]
   %54 = tail call noalias ptr @malloc(i64 noundef %53) #22
   %.not.i67 = icmp eq ptr %54, null
   br i1 %.not.i67, label %Vec_PtrStart.exit, label %55
@@ -3211,7 +3211,7 @@ Tim_ManBoxNum.exit:                               ; preds = %1
   br i1 %exitcond.not, label %.critedge, label %6, !llvm.loop !111
 
 .critedge:                                        ; preds = %6, %1, %Tim_ManBoxNum.exit
-  %.0 = phi i32 [ 0, %Tim_ManBoxNum.exit ], [ 0, %1 ], [ %11, %6 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %Tim_ManBoxNum.exit ], [ %11, %6 ]
   ret i32 %.0
 }
 

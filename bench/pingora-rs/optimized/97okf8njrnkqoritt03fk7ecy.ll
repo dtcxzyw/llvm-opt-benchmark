@@ -772,7 +772,7 @@ define hidden void @"_ZN4core3ptr154drop_in_place$LT$std..thread..Builder..spawn
   unreachable
 
 common.resume.i.i:                                ; preds = %25, %21, %9
-  %common.resume.op.i.i = phi { ptr, i32 } [ %22, %25 ], [ %22, %21 ], [ %.pn.i.i, %9 ]
+  %common.resume.op.i.i = phi { ptr, i32 } [ %22, %21 ], [ %22, %25 ], [ %.pn.i.i, %9 ]
   resume { ptr, i32 } %common.resume.op.i.i
 
 31:                                               ; preds = %9, %7
@@ -2395,7 +2395,7 @@ define internal fastcc void @"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..sch
   unreachable
 
 common.resume:                                    ; preds = %53, %.body.i.i.i.i.i15, %.body.i, %.body.i.i.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %31, %.body.i.i.i.i.i ], [ %.pn.i, %.body.i ], [ %70, %.body.i.i.i.i.i15 ], [ %.pn.i2, %53 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %.body.i ], [ %31, %.body.i.i.i.i.i ], [ %70, %.body.i.i.i.i.i15 ], [ %.pn.i2, %53 ]
   resume { ptr, i32 } %common.resume.op
 
 42:                                               ; preds = %.body.i, %10
@@ -2860,7 +2860,7 @@ define internal fastcc void @"_ZN4core3ptr65drop_in_place$LT$tokio..runtime..blo
   unreachable
 
 common.resume:                                    ; preds = %"_ZN4core3ptr60drop_in_place$LT$tokio..runtime..blocking..pool..Spawner$GT$17h0c3949b2212b077bE.exit", %23, %27
-  %common.resume.op = phi { ptr, i32 } [ %24, %27 ], [ %24, %23 ], [ %.pn, %"_ZN4core3ptr60drop_in_place$LT$tokio..runtime..blocking..pool..Spawner$GT$17h0c3949b2212b077bE.exit" ]
+  %common.resume.op = phi { ptr, i32 } [ %24, %23 ], [ %24, %27 ], [ %.pn, %"_ZN4core3ptr60drop_in_place$LT$tokio..runtime..blocking..pool..Spawner$GT$17h0c3949b2212b077bE.exit" ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr65drop_in_place$LT$tokio..runtime..blocking..shutdown..Receiver$GT$17h9f162ff0a3828d41E.exit": ; preds = %"_ZN4core3ptr60drop_in_place$LT$tokio..runtime..blocking..pool..Spawner$GT$17h0c3949b2212b077bE.exit3", %"_ZN81_$LT$tokio..sync..oneshot..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h08d6208b66fb8019E.exit.i.i", %30
@@ -3940,7 +3940,7 @@ define hidden void @"_ZN4core3ptr85drop_in_place$LT$alloc..sync..ArcInner$LT$std
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %101, %93, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17hf2bcead8c96e1861E.exit.i"
-  %common.resume.op.i = phi { ptr, i32 } [ %94, %101 ], [ %94, %93 ], [ %.pn.i, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17hf2bcead8c96e1861E.exit.i" ]
+  %common.resume.op.i = phi { ptr, i32 } [ %94, %93 ], [ %94, %101 ], [ %.pn.i, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17hf2bcead8c96e1861E.exit.i" ]
   resume { ptr, i32 } %common.resume.op.i
 
 102:                                              ; preds = %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17hf2bcead8c96e1861E.exit.i", %69

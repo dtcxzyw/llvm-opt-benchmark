@@ -203,7 +203,7 @@ define dso_local noundef zeroext i1 @cppc_allow_fast_switch() #0 align 16 {
   br i1 %switch, label %2, label %.thread
 
 .thread:                                          ; preds = %6, %2, %24, %14, %11
-  %27 = phi i1 [ false, %24 ], [ false, %14 ], [ true, %11 ], [ true, %2 ], [ true, %6 ]
+  %27 = phi i1 [ true, %11 ], [ false, %24 ], [ false, %14 ], [ true, %2 ], [ true, %6 ]
   ret i1 %27
 }
 
@@ -1871,8 +1871,8 @@ define dso_local noundef zeroext i1 @cppc_perf_ctrs_in_pcc() #0 align 16 {
   br label %71
 
 71:                                               ; preds = %69, %65, %61, %57, %53, %49
-  %72 = phi i32 [ %.pre, %69 ], [ %43, %65 ], [ %43, %61 ], [ %43, %57 ], [ %43, %53 ], [ %43, %49 ]
-  %73 = phi i64 [ 56, %69 ], [ 600, %65 ], [ 600, %61 ], [ 600, %57 ], [ 600, %53 ], [ 600, %49 ]
+  %72 = phi i32 [ %43, %49 ], [ %.pre, %69 ], [ %43, %65 ], [ %43, %61 ], [ %43, %57 ], [ %43, %53 ]
+  %73 = phi i64 [ 600, %49 ], [ 56, %69 ], [ 600, %65 ], [ 600, %61 ], [ 600, %57 ], [ 600, %53 ]
   %74 = icmp eq i32 %72, 3
   br i1 %74, label %75, label %.thread4
 
@@ -1890,7 +1890,7 @@ define dso_local noundef zeroext i1 @cppc_perf_ctrs_in_pcc() #0 align 16 {
   br i1 %82, label %.thread, label %2, !prof !10, !llvm.loop !31
 
 .thread:                                          ; preds = %2, %.thread4, %75, %37, %29, %21, %7
-  %83 = phi i1 [ true, %75 ], [ true, %37 ], [ true, %29 ], [ true, %21 ], [ false, %7 ], [ false, %.thread4 ], [ false, %2 ]
+  %83 = phi i1 [ false, %7 ], [ true, %75 ], [ true, %37 ], [ true, %29 ], [ true, %21 ], [ false, %.thread4 ], [ false, %2 ]
   ret i1 %83
 }
 
@@ -2923,7 +2923,7 @@ define internal fastcc range(i32 -110, 1) i32 @check_pcc_chan(i32 noundef %0, i1
   br i1 %39, label %.thread, label %.loopexit.thread, !prof !38
 
 .loopexit.thread:                                 ; preds = %32, %.split.us, %9, %.loopexit
-  %40 = phi i32 [ %38, %.loopexit ], [ %21, %9 ], [ %27, %.split.us ], [ %34, %32 ]
+  %40 = phi i32 [ %38, %.loopexit ], [ %27, %.split.us ], [ %21, %9 ], [ %34, %32 ]
   store i8 0, ptr %6, align 1
   %41 = and i32 %40, 4
   %42 = icmp ne i32 %41, 0
@@ -3020,7 +3020,7 @@ define dso_local i32 @cppc_get_transition_latency(i32 noundef %0) #6 align 16 {
   br label %42
 
 42:                                               ; preds = %15, %32, %18, %12, %1
-  %43 = phi i32 [ %41, %32 ], [ -1, %1 ], [ -1, %18 ], [ -1, %12 ], [ 0, %15 ]
+  %43 = phi i32 [ %41, %32 ], [ -1, %1 ], [ -1, %12 ], [ 0, %15 ], [ -1, %18 ]
   ret i32 %43
 }
 

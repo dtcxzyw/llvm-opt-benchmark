@@ -246,8 +246,8 @@ define { i64, i64 } @_RNvMs1_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecINtNtB7_
   br label %24
 
 24:                                               ; preds = %3, %20, %17
-  %.sroa.4.0 = phi i64 [ undef, %17 ], [ %23, %20 ], [ undef, %3 ]
-  %.sroa.0.0 = phi i64 [ -9223372036854775807, %17 ], [ %21, %20 ], [ 0, %3 ]
+  %.sroa.4.0 = phi i64 [ %23, %20 ], [ undef, %17 ], [ undef, %3 ]
+  %.sroa.0.0 = phi i64 [ %21, %20 ], [ -9223372036854775807, %17 ], [ 0, %3 ]
   %25 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %26 = insertvalue { i64, i64 } %25, i64 %.sroa.4.0, 1
   ret { i64, i64 } %26

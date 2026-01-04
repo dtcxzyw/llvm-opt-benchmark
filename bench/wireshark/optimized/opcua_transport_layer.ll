@@ -512,7 +512,7 @@ opcua_string_compare.exit:                        ; preds = %32
   br label %opcua_string_compare.exit64
 
 opcua_string_compare.exit64:                      ; preds = %43, %41, %39, %37, %32, %5, %45
-  %.0 = phi i64 [ %47, %45 ], [ 4, %5 ], [ 4, %32 ], [ %spec.select, %37 ], [ %spec.select75, %39 ], [ %spec.select76, %41 ], [ %spec.select77, %43 ]
+  %.0 = phi i64 [ 4, %32 ], [ %47, %45 ], [ %spec.select, %37 ], [ 4, %5 ], [ %spec.select77, %43 ], [ %spec.select76, %41 ], [ %spec.select75, %39 ]
   %48 = call ptr @find_conversation_pinfo(ptr noundef %2, i32 noundef 0)
   %.not.i65 = icmp eq ptr %48, null
   br i1 %.not.i65, label %store_encryption_info.exit.thread, label %49
@@ -534,7 +534,7 @@ store_encryption_info.exit.thread:                ; preds = %opcua_string_compar
   br label %54
 
 54:                                               ; preds = %store_encryption_info.exit.thread, %52
-  %.044 = phi i32 [ %53, %52 ], [ -1, %store_encryption_info.exit.thread ]
+  %.044 = phi i32 [ -1, %store_encryption_info.exit.thread ], [ %53, %52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.044

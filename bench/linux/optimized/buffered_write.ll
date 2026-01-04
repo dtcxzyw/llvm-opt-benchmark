@@ -433,7 +433,7 @@ define dso_local i64 @netfs_perform_write(ptr noundef %0, ptr noundef %1, ptr no
   tail call void asm sideeffect "681: nop\0A\09.pushsection .discard.instr_end\0A\09.long 681b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 681) #11, !srcloc !19
   br label %select.unfold30
 
-250:                                              ; preds = %168, %194, %202
+250:                                              ; preds = %168, %202, %194
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_netfs_folio, i64 8), i32 2) #11
           to label %271 [label %251], !srcloc !10
 
@@ -512,8 +512,8 @@ define dso_local i64 @netfs_perform_write(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %295, label %select.unfold30, label %550
 
 .thread:                                          ; preds = %243, %194, %179, %175, %247, %204
-  %296 = phi i32 [ 1, %204 ], [ 4, %247 ], [ 2, %179 ], [ 0, %175 ], [ 5, %194 ], [ 3, %243 ]
-  %297 = phi i64 [ %206, %204 ], [ -5, %247 ], [ -14, %179 ], [ -14, %175 ], [ -14, %194 ], [ -14, %243 ]
+  %296 = phi i32 [ 5, %194 ], [ 1, %204 ], [ 4, %247 ], [ 0, %175 ], [ 2, %179 ], [ 3, %243 ]
+  %297 = phi i64 [ -14, %194 ], [ %206, %204 ], [ -5, %247 ], [ -14, %175 ], [ -14, %179 ], [ -14, %243 ]
   %298 = load volatile i32, ptr %53, align 4
   %299 = tail call i64 @copy_page_from_iter_atomic(ptr noundef %77, i64 noundef %93, i64 noundef %95, ptr noundef %1) #11
   %300 = icmp eq i64 %299, 0
@@ -989,17 +989,17 @@ default.unreachable128:                           ; preds = %301
   br label %550
 
 550:                                              ; preds = %548, %292
-  %551 = phi i64 [ %540, %548 ], [ %60, %292 ]
-  %552 = phi i8 [ %541, %548 ], [ %61, %292 ]
-  %553 = phi i64 [ %297, %548 ], [ %294, %292 ]
-  %554 = phi i64 [ %542, %548 ], [ %62, %292 ]
+  %551 = phi i64 [ %60, %292 ], [ %540, %548 ]
+  %552 = phi i8 [ %61, %292 ], [ %541, %548 ]
+  %553 = phi i64 [ %294, %292 ], [ %297, %548 ]
+  %554 = phi i64 [ %62, %292 ], [ %542, %548 ]
   %555 = load i64, ptr %11, align 8
   %556 = icmp eq i64 %555, 0
   br i1 %556, label %.thread37, label %59, !llvm.loop !33
 
 .thread37:                                        ; preds = %67, %550, %79, %65, %572, %select.unfold30
-  %557 = phi i64 [ %.ph32, %select.unfold30 ], [ %.ph32, %572 ], [ %80, %79 ], [ %66, %65 ], [ -14, %67 ], [ %553, %550 ]
-  %558 = phi i64 [ %62, %select.unfold30 ], [ %62, %572 ], [ %62, %79 ], [ %62, %65 ], [ %62, %67 ], [ %554, %550 ]
+  %557 = phi i64 [ %80, %79 ], [ %.ph32, %572 ], [ %.ph32, %select.unfold30 ], [ %66, %65 ], [ -14, %67 ], [ %553, %550 ]
+  %558 = phi i64 [ %62, %79 ], [ %62, %572 ], [ %62, %select.unfold30 ], [ %62, %65 ], [ %62, %67 ], [ %554, %550 ]
   %.fr = freeze i64 %558
   br i1 %57, label %563, label %559, !prof !34
 
@@ -1019,7 +1019,7 @@ default.unreachable128:                           ; preds = %301
   br label %.thread41
 
 select.unfold30:                                  ; preds = %292, %204, %.thread, %.critedge, %427, %249
-  %.ph32 = phi i64 [ -5, %249 ], [ -12, %427 ], [ %106, %.critedge ], [ %294, %292 ], [ %206, %204 ], [ -14, %.thread ]
+  %.ph32 = phi i64 [ %106, %.critedge ], [ -12, %427 ], [ -5, %249 ], [ %294, %292 ], [ %206, %204 ], [ -14, %.thread ]
   tail call void @folio_unlock(ptr noundef %77) #11
   %568 = getelementptr inbounds nuw i8, ptr %77, i64 52
   %569 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %568, ptr nonnull elementtype(i32) %568) #11, !srcloc !27
@@ -2939,13 +2939,13 @@ define internal fastcc i32 @netfs_writepages_region(ptr noundef %0, ptr noundef 
   br label %19, !llvm.loop !71
 
 .thread41.loopexit:                               ; preds = %521, %513, %137, %140, %516
-  %.ph101 = phi i64 [ %517, %521 ], [ %514, %513 ], [ 0, %137 ], [ 0, %140 ], [ %517, %516 ]
+  %.ph101 = phi i64 [ 0, %140 ], [ %517, %521 ], [ %514, %513 ], [ 0, %137 ], [ %517, %516 ]
   %524 = call i64 @llvm.smin.i64(i64 %.ph101, i64 0)
   %525 = trunc i64 %524 to i32
   br label %.thread41
 
 .thread41:                                        ; preds = %110, %.thread41.loopexit, %101
-  %526 = phi i32 [ 0, %101 ], [ %525, %.thread41.loopexit ], [ %111, %110 ]
+  %526 = phi i32 [ %525, %.thread41.loopexit ], [ 0, %101 ], [ %111, %110 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %526
 }

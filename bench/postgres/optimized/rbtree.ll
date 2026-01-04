@@ -105,7 +105,7 @@ define dso_local ptr @rbt_find_great(ptr noundef readonly captures(none) %0, ptr
   br i1 %.not, label %.thread, label %.lr.ph.split
 
 .thread:                                          ; preds = %.lr.ph.split.us, %14, %.lr.ph.split, %3
-  %.2 = phi ptr [ null, %3 ], [ %.02029, %.lr.ph.split ], [ %.219, %14 ], [ %.219.us, %.lr.ph.split.us ]
+  %.2 = phi ptr [ %.02029, %.lr.ph.split ], [ null, %3 ], [ %.219, %14 ], [ %.219.us, %.lr.ph.split.us ]
   ret ptr %.2
 }
 
@@ -153,7 +153,7 @@ define dso_local ptr @rbt_find_less(ptr noundef readonly captures(none) %0, ptr 
   br i1 %.not, label %.thread, label %.lr.ph.split
 
 .thread:                                          ; preds = %.lr.ph.split.us, %14, %.lr.ph.split, %3
-  %.2 = phi ptr [ null, %3 ], [ %.02029, %.lr.ph.split ], [ %.219, %14 ], [ %.219.us, %.lr.ph.split.us ]
+  %.2 = phi ptr [ %.02029, %.lr.ph.split ], [ null, %3 ], [ %.219, %14 ], [ %.219.us, %.lr.ph.split.us ]
   ret ptr %.2
 }
 
@@ -590,7 +590,7 @@ rbt_rotate_right.exit53.i:                        ; preds = %144, %.rbt_rotate_r
   br label %rbt_rotate_right.exit.i
 
 rbt_rotate_right.exit.i:                          ; preds = %171, %170, %116, %112, %111, %57
-  %.3.i = phi ptr [ %63, %57 ], [ %122, %116 ], [ %.2.i, %111 ], [ %.2.i, %112 ], [ %.5.i, %170 ], [ %.5.i, %171 ]
+  %.3.i = phi ptr [ %.2.i, %112 ], [ %63, %57 ], [ %122, %116 ], [ %.2.i, %111 ], [ %.5.i, %170 ], [ %.5.i, %171 ]
   %172 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %.3.i, %172
   br i1 %.not.i, label %rbt_rotate_right.exit.i.rbt_insert_fixup.exit.loopexit_crit_edge, label %.lr.ph.i, !llvm.loop !8
@@ -599,7 +599,7 @@ rbt_rotate_right.exit.i.rbt_insert_fixup.exit.loopexit_crit_edge: ; preds = %rbt
   br label %rbt_insert_fixup.exit, !llvm.loop !8
 
 rbt_insert_fixup.exit:                            ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %rbt_rotate_right.exit.i.rbt_insert_fixup.exit.loopexit_crit_edge, %36
-  %.lcssa.i = phi ptr [ %37, %36 ], [ %172, %rbt_rotate_right.exit.i.rbt_insert_fixup.exit.loopexit_crit_edge ], [ %37, %.lr.ph.i.preheader ], [ %172, %.lr.ph.i ]
+  %.lcssa.i = phi ptr [ %37, %36 ], [ %37, %.lr.ph.i.preheader ], [ %172, %rbt_rotate_right.exit.i.rbt_insert_fixup.exit.loopexit_crit_edge ], [ %172, %.lr.ph.i ]
   store i8 0, ptr %.lcssa.i, align 8
   br label %173
 
@@ -1161,7 +1161,7 @@ rbt_rotate_left.exit89.i.i:                       ; preds = %196, %195
   br label %rbt_rotate_left.exit73.i.i
 
 rbt_rotate_left.exit73.i.i:                       ; preds = %224, %223, %176, %136, %135, %88
-  %.2.in.i.i = phi ptr [ %42, %88 ], [ %42, %176 ], [ %0, %135 ], [ %0, %136 ], [ %0, %223 ], [ %0, %224 ]
+  %.2.in.i.i = phi ptr [ %0, %136 ], [ %42, %88 ], [ %42, %176 ], [ %0, %135 ], [ %0, %223 ], [ %0, %224 ]
   %.2.i.i = load ptr, ptr %.2.in.i.i, align 8
   %225 = load ptr, ptr %0, align 8
   %.not.i.i = icmp eq ptr %.2.i.i, %225
@@ -1273,7 +1273,7 @@ define internal ptr @rbt_left_right_iterator(ptr noundef captures(none) %0) #3 {
   br i1 %25, label %select.unfold, label %.preheader
 
 select.unfold:                                    ; preds = %.preheader34, %22, %8, %20
-  %.023 = phi ptr [ null, %20 ], [ %storemerge30, %8 ], [ %18, %22 ], [ %storemerge, %.preheader34 ]
+  %.023 = phi ptr [ %storemerge30, %8 ], [ %18, %22 ], [ null, %20 ], [ %storemerge, %.preheader34 ]
   ret ptr %.023
 }
 
@@ -1331,7 +1331,7 @@ define internal ptr @rbt_right_left_iterator(ptr noundef captures(none) %0) #3 {
   br i1 %25, label %select.unfold, label %.preheader
 
 select.unfold:                                    ; preds = %.preheader34, %22, %8, %20
-  %.023 = phi ptr [ null, %20 ], [ %storemerge30, %8 ], [ %18, %22 ], [ %storemerge, %.preheader34 ]
+  %.023 = phi ptr [ %storemerge30, %8 ], [ %18, %22 ], [ null, %20 ], [ %storemerge, %.preheader34 ]
   ret ptr %.023
 }
 

@@ -4177,7 +4177,7 @@ define hidden i32 @dissect_blocks(ptr noundef %0, i32 noundef %1, ptr noundef %2
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %5, %16, %._crit_edge
-  %.0.lcssa16 = phi i32 [ %11, %16 ], [ %11, %._crit_edge ], [ %1, %5 ]
+  %.0.lcssa16 = phi i32 [ %11, %._crit_edge ], [ %11, %16 ], [ %1, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -5506,7 +5506,7 @@ define hidden i32 @dissect_rsi_blocks(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %dissect_blocks.exit
 
 dissect_blocks.exit:                              ; preds = %15, %._crit_edge.i, %23
-  %.0.lcssa16.i = phi i32 [ %18, %23 ], [ %18, %._crit_edge.i ], [ %1, %15 ]
+  %.0.lcssa16.i = phi i32 [ %18, %._crit_edge.i ], [ %18, %23 ], [ %1, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -5560,7 +5560,7 @@ dissect_blocks.exit:                              ; preds = %15, %._crit_edge.i,
   br label %dissect_blocks.exit95
 
 dissect_blocks.exit95:                            ; preds = %31, %._crit_edge.i92, %39
-  %.0.lcssa16.i89 = phi i32 [ %34, %39 ], [ %34, %._crit_edge.i92 ], [ %1, %31 ]
+  %.0.lcssa16.i89 = phi i32 [ %34, %._crit_edge.i92 ], [ %34, %39 ], [ %1, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -5625,7 +5625,7 @@ dissect_blocks.exit95:                            ; preds = %31, %._crit_edge.i9
   br label %.thread
 
 .thread:                                          ; preds = %24, %40, %42, %44, %29, %49, %54, %26, %46, %51, %62, %61
-  %.099 = phi i32 [ %.0.ph, %62 ], [ %.0.ph, %61 ], [ %1, %51 ], [ %1, %46 ], [ %1, %26 ], [ %55, %54 ], [ %50, %49 ], [ %45, %44 ], [ %43, %42 ], [ %41, %40 ], [ %30, %29 ], [ %25, %24 ]
+  %.099 = phi i32 [ %.0.ph, %61 ], [ %.0.ph, %62 ], [ %45, %44 ], [ %43, %42 ], [ %41, %40 ], [ %1, %51 ], [ %1, %26 ], [ %30, %29 ], [ %1, %46 ], [ %25, %24 ], [ %50, %49 ], [ %55, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i32 %.099
 }
@@ -6046,7 +6046,7 @@ dissect_ProfiDriveParameterRequest.exit.i:        ; preds = %._crit_edge93.i.i, 
   br label %select.unfold.i
 
 select.unfold.i:                                  ; preds = %.fold.split20.i.i, %.fold.split.i.i, %229, %227, %225
-  %.0.i.ph.i = phi ptr [ @.str.1671, %.fold.split20.i.i ], [ @.str.1669, %.fold.split.i.i ], [ @.str.1670, %227 ], [ @.str.1668, %225 ], [ @.str.1672, %229 ]
+  %.0.i.ph.i = phi ptr [ @.str.1669, %.fold.split.i.i ], [ @.str.1671, %.fold.split20.i.i ], [ @.str.1670, %227 ], [ @.str.1668, %225 ], [ @.str.1672, %229 ]
   %231 = call i32 @dissect_pn_user_data(ptr noundef %40, i32 noundef 0, ptr noundef %2, ptr noundef %3, i32 noundef %42, ptr noundef nonnull %.0.i.ph.i)
   br label %dissect_RecordDataWrite.exit
 
@@ -6117,7 +6117,7 @@ dissect_RecordDataWrite.exit:                     ; preds = %82, %97, %114, %dis
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %238, %240, %242, %dissect_RecordDataWrite.exit
-  %.1 = phi i32 [ %236, %dissect_RecordDataWrite.exit ], [ %239, %238 ], [ %241, %240 ], [ %243, %242 ], [ %29, %.preheader ], [ %35, %.lr.ph ]
+  %.1 = phi i32 [ %243, %242 ], [ %236, %dissect_RecordDataWrite.exit ], [ %239, %238 ], [ %241, %240 ], [ %29, %.preheader ], [ %35, %.lr.ph ]
   call void @decrement_dissection_depth(ptr noundef %2)
   br label %244
 
@@ -7251,7 +7251,7 @@ define internal noundef zeroext i1 @dissect_PNIO_heur(ptr noundef %0, ptr nounde
   br label %dissect_PNIO_C_SDU.exit
 
 dissect_PNIO_C_SDU.exit:                          ; preds = %61, %59, %72, %4, %79, %76, %73, %70, %66, %41, %.thread105
-  %.097 = phi i1 [ true, %41 ], [ true, %66 ], [ true, %70 ], [ true, %73 ], [ true, %76 ], [ true, %79 ], [ true, %.thread105 ], [ true, %4 ], [ false, %72 ], [ true, %59 ], [ true, %61 ]
+  %.097 = phi i1 [ true, %.thread105 ], [ true, %41 ], [ false, %72 ], [ true, %66 ], [ true, %70 ], [ true, %73 ], [ true, %76 ], [ true, %79 ], [ true, %4 ], [ true, %59 ], [ true, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.097
@@ -9406,7 +9406,7 @@ define internal fastcc void @dissect_ARBlockReq_block(ptr noundef %0, i32 nounde
   br label %decode_ARType_spezial.exit
 
 decode_ARType_spezial.exit:                       ; preds = %44, %44, %47, %48, %49, %51
-  %.0.i = phi ptr [ @.str.1449, %47 ], [ @.str.1450, %48 ], [ @.str.1453, %51 ], [ @.str.1448, %44 ], [ @.str.1448, %44 ], [ %.str.1452..str.1451.i, %49 ]
+  %.0.i = phi ptr [ @.str.1453, %51 ], [ @.str.1448, %44 ], [ @.str.1449, %47 ], [ @.str.1450, %48 ], [ %.str.1452..str.1451.i, %49 ], [ @.str.1448, %44 ]
   %52 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef nonnull %3, i32 noundef %45, ptr noundef %0, i32 noundef %1, i32 noundef 2, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.1446, i32 noundef %46, ptr noundef nonnull %.0.i)
   br label %53
 
@@ -9604,7 +9604,7 @@ decode_ARType_spezial.exit:                       ; preds = %44, %44, %47, %48, 
   br label %decode_ARType_spezial.exit162
 
 decode_ARType_spezial.exit162:                    ; preds = %160, %160, %180, %181, %182, %184
-  %.0.i161 = phi ptr [ @.str.1449, %180 ], [ @.str.1450, %181 ], [ @.str.1453, %184 ], [ @.str.1448, %160 ], [ @.str.1448, %160 ], [ %.str.1452..str.1451.i160, %182 ]
+  %.0.i161 = phi ptr [ @.str.1453, %184 ], [ @.str.1448, %160 ], [ @.str.1449, %180 ], [ @.str.1450, %181 ], [ %.str.1452..str.1451.i160, %182 ], [ @.str.1448, %160 ]
   %185 = load i16, ptr %12, align 2
   %186 = zext i16 %185 to i32
   %187 = load i8, ptr %13, align 1
@@ -9670,7 +9670,7 @@ pnio_ar_find_by_aruuid.exit.thread:               ; preds = %208, %207, %pnio_ar
   br label %221
 
 221:                                              ; preds = %decode_ARType_spezial.exit162, %pnio_ar_find_by_aruuid.exit.thread, %pnio_ar_find_by_aruuid.exit
-  %storemerge = phi ptr [ %214, %pnio_ar_find_by_aruuid.exit.thread ], [ %210, %pnio_ar_find_by_aruuid.exit ], [ null, %decode_ARType_spezial.exit162 ]
+  %storemerge = phi ptr [ %210, %pnio_ar_find_by_aruuid.exit ], [ %214, %pnio_ar_find_by_aruuid.exit.thread ], [ null, %decode_ARType_spezial.exit162 ]
   store ptr %storemerge, ptr %8, align 8
   br label %222
 
@@ -11035,7 +11035,7 @@ define internal fastcc void @dissect_ARVendorBlockReq_block(ptr noundef %0, i32 
   br label %42
 
 42:                                               ; preds = %33, %41, %39
-  %hf_pn_io_arvendor_strucidentifier_if0_low.sink = phi ptr [ @hf_pn_io_arvendor_strucidentifier_if0_low, %39 ], [ %hf_pn_io_arvendor_strucidentifier_if0_is8000.hf_pn_io_arvendor_strucidentifier_if0_high, %41 ], [ @hf_pn_io_arvendor_strucidentifier_not0, %33 ]
+  %hf_pn_io_arvendor_strucidentifier_if0_low.sink = phi ptr [ %hf_pn_io_arvendor_strucidentifier_if0_is8000.hf_pn_io_arvendor_strucidentifier_if0_high, %41 ], [ @hf_pn_io_arvendor_strucidentifier_if0_low, %39 ], [ @hf_pn_io_arvendor_strucidentifier_not0, %33 ]
   %43 = load i32, ptr %hf_pn_io_arvendor_strucidentifier_if0_low.sink, align 4
   %44 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %43, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef %38)
   %45 = load i32, ptr @hf_pn_io_api, align 4
@@ -14647,7 +14647,7 @@ define internal fastcc void @dissect_PDPortStatistic_block(ptr noundef %0, i32 n
   br label %37
 
 37:                                               ; preds = %18, %16
-  %.085 = phi i32 [ %17, %16 ], [ %36, %18 ]
+  %.085 = phi i32 [ %36, %18 ], [ %17, %16 ]
   %38 = load i32, ptr @hf_pn_io_pdportstatistic_ifInOctets, align 4
   %39 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %.085, ptr noundef %2, ptr noundef %3, ptr noundef %5, i32 noundef %38, ptr noundef nonnull %9)
   %40 = load i32, ptr @hf_pn_io_pdportstatistic_ifOutOctets, align 4
@@ -16383,8 +16383,8 @@ define internal fastcc void @dissect_RecordDataReadQuery_block(ptr noundef %0, i
 .fold.split20.i:                                  ; preds = %23
   br label %select.unfold
 
-select.unfold:                                    ; preds = %25, %21, %23, %.fold.split.i, %.fold.split20.i
-  %.0.i.ph = phi ptr [ @.str.1671, %.fold.split20.i ], [ @.str.1669, %.fold.split.i ], [ @.str.1670, %23 ], [ @.str.1668, %21 ], [ @.str.1672, %25 ]
+select.unfold:                                    ; preds = %25, %.fold.split.i, %21, %23, %.fold.split20.i
+  %.0.i.ph = phi ptr [ @.str.1669, %.fold.split.i ], [ @.str.1671, %.fold.split20.i ], [ @.str.1670, %23 ], [ @.str.1668, %21 ], [ @.str.1672, %25 ]
   %27 = zext i16 %8 to i32
   %28 = tail call i32 @dissect_pn_user_data(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %27, ptr noundef nonnull %.0.i.ph)
   br label %31
@@ -17813,8 +17813,8 @@ switch.lookup:                                    ; preds = %79
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br i1 %69, label %401, label %.thread574
 
-.thread574:                                       ; preds = %.thread565, %383, %371, %212, %176, %172, %125, %118, %393, %.loopexit
-  %.0512569 = phi i16 [ %.0512571, %.loopexit ], [ %.0512571, %393 ], [ %.0512571, %118 ], [ %.0512571, %125 ], [ %.0512571, %172 ], [ %.0512571, %176 ], [ %.0512571, %212 ], [ %.0512571, %371 ], [ %.0512571, %383 ], [ %.1513, %.thread565 ]
+.thread574:                                       ; preds = %.thread565, %176, %212, %172, %371, %383, %125, %118, %393, %.loopexit
+  %.0512569 = phi i16 [ %.0512571, %.loopexit ], [ %.1513, %.thread565 ], [ %.0512571, %393 ], [ %.0512571, %118 ], [ %.0512571, %125 ], [ %.0512571, %383 ], [ %.0512571, %371 ], [ %.0512571, %172 ], [ %.0512571, %212 ], [ %.0512571, %176 ]
   %395 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %396 = load ptr, ptr %395, align 8
   %397 = load i8, ptr %11, align 1
@@ -17824,7 +17824,7 @@ switch.lookup:                                    ; preds = %79
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %396, i32 noundef 25, ptr noundef nonnull @.str.1720, i32 noundef %398, ptr noundef %400)
   br label %401
 
-401:                                              ; preds = %82, %383, %371, %212, %176, %172, %125, %118, %393, %.thread, %.loopexit, %.thread574, %50
+401:                                              ; preds = %82, %176, %212, %172, %371, %383, %125, %118, %393, %.thread, %.loopexit, %.thread574, %50
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -18627,7 +18627,7 @@ pnio_ar_find_by_aruuid.exit:                      ; preds = %.lr.ph.i
   br label %pnio_ar_find_by_aruuid.exit.thread
 
 pnio_ar_find_by_aruuid.exit.thread:               ; preds = %68, %37, %72, %pnio_ar_find_by_aruuid.exit
-  %.0.i46 = phi ptr [ %70, %72 ], [ null, %pnio_ar_find_by_aruuid.exit ], [ null, %37 ], [ null, %68 ]
+  %.0.i46 = phi ptr [ null, %pnio_ar_find_by_aruuid.exit ], [ %70, %72 ], [ null, %37 ], [ null, %68 ]
   store ptr %.0.i46, ptr %8, align 8
   br label %74
 
@@ -19367,8 +19367,8 @@ define internal fastcc i32 @dissect_AlarmUserStructure(ptr noundef %0, i32 nound
   br label %55
 
 55:                                               ; preds = %51, %53, %45, %43, %34, %30, %26, %22, %14
-  %.sink = phi i16 [ 0, %45 ], [ 0, %43 ], [ 0, %34 ], [ %33, %30 ], [ %29, %26 ], [ %25, %22 ], [ %21, %14 ], [ 0, %53 ], [ 0, %51 ]
-  %.0 = phi i32 [ %46, %45 ], [ %44, %43 ], [ %42, %34 ], [ %31, %30 ], [ %27, %26 ], [ %23, %22 ], [ %19, %14 ], [ %54, %53 ], [ %52, %51 ]
+  %.sink = phi i16 [ %21, %14 ], [ 0, %45 ], [ 0, %43 ], [ 0, %34 ], [ %33, %30 ], [ %29, %26 ], [ %25, %22 ], [ 0, %53 ], [ 0, %51 ]
+  %.0 = phi i32 [ %19, %14 ], [ %46, %45 ], [ %44, %43 ], [ %42, %34 ], [ %31, %30 ], [ %27, %26 ], [ %23, %22 ], [ %54, %53 ], [ %52, %51 ]
   store i16 %.sink, ptr %5, align 2
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -19733,8 +19733,8 @@ dissect_RS_EventDataExtension_Data.exit.thread.i.i.i: ; preds = %185, %155, %152
   br label %dissect_RS_EventDataExtension.exit.i.i
 
 dissect_RS_EventDataExtension_Data.exit.i.i.i:    ; preds = %174, %138, %123, %107
-  %188 = phi i8 [ %119, %107 ], [ %.pre.i.i.i, %138 ], [ %136, %123 ], [ %184, %174 ]
-  %.0.i.i.i.i = phi i32 [ %117, %107 ], [ %151, %138 ], [ %134, %123 ], [ %182, %174 ]
+  %188 = phi i8 [ %136, %123 ], [ %119, %107 ], [ %184, %174 ], [ %.pre.i.i.i, %138 ]
+  %.0.i.i.i.i = phi i32 [ %134, %123 ], [ %117, %107 ], [ %182, %174 ], [ %151, %138 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -20662,7 +20662,7 @@ define internal fastcc i32 @dissect_ProfiSafeParameterRequest(ptr noundef %0, pt
   br label %78
 
 78:                                               ; preds = %75, %6
-  %.0142 = phi i32 [ %77, %75 ], [ %72, %6 ]
+  %.0142 = phi i32 [ %72, %6 ], [ %77, %75 ]
   %79 = load i32, ptr @hf_pn_io_ps_f_par_crc, align 4
   %80 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %.0142, ptr noundef %1, ptr noundef %22, ptr noundef %3, i32 noundef %79, ptr noundef nonnull %10)
   %81 = load i8, ptr %19, align 1
@@ -21004,7 +21004,7 @@ define internal i32 @dissect_IPNIO_rqst(ptr noundef %0, i32 noundef %1, ptr noun
   br label %dissect_blocks.exit
 
 dissect_blocks.exit:                              ; preds = %6, %._crit_edge.i, %18
-  %.0.lcssa16.i = phi i32 [ %13, %18 ], [ %13, %._crit_edge.i ], [ %10, %6 ]
+  %.0.lcssa16.i = phi i32 [ %13, %._crit_edge.i ], [ %13, %18 ], [ %10, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -21046,7 +21046,7 @@ define internal i32 @dissect_IPNIO_resp(ptr noundef %0, i32 noundef %1, ptr noun
   br label %dissect_blocks.exit
 
 dissect_blocks.exit:                              ; preds = %6, %._crit_edge.i, %18
-  %.0.lcssa16.i = phi i32 [ %13, %18 ], [ %13, %._crit_edge.i ], [ %10, %6 ]
+  %.0.lcssa16.i = phi i32 [ %13, %._crit_edge.i ], [ %13, %18 ], [ %10, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -21449,7 +21449,7 @@ dissect_ProfiDriveParameterResponse.exit.i:       ; preds = %.loopexit.i.i, %.lo
   br label %select.unfold.i
 
 select.unfold.i:                                  ; preds = %.fold.split20.i.i, %.fold.split.i.i, %186, %184, %182
-  %.0.i66.ph.i = phi ptr [ @.str.1671, %.fold.split20.i.i ], [ @.str.1669, %.fold.split.i.i ], [ @.str.1670, %184 ], [ @.str.1668, %182 ], [ @.str.1672, %186 ]
+  %.0.i66.ph.i = phi ptr [ @.str.1669, %.fold.split.i.i ], [ @.str.1671, %.fold.split20.i.i ], [ @.str.1670, %184 ], [ @.str.1668, %182 ], [ @.str.1672, %186 ]
   %188 = call i32 @dissect_pn_user_data(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %3, i32 noundef %31, ptr noundef nonnull %.0.i66.ph.i)
   br label %dissect_RecordDataRead.exit
 
@@ -21633,7 +21633,7 @@ indexReservedForProfiles.exit.i:                  ; preds = %186
   br label %dissect_RecordDataRead.exit
 
 dissect_RecordDataRead.exit:                      ; preds = %dissect_ProfiDriveParameterResponse.exit.i, %180, %select.unfold.i, %189, %197, %199, %201, %203, %205
-  %.0.i = phi i32 [ %.9.i.i, %dissect_ProfiDriveParameterResponse.exit.i ], [ %181, %180 ], [ %188, %select.unfold.i ], [ %206, %205 ], [ %190, %189 ], [ %202, %201 ], [ %204, %203 ], [ %200, %199 ], [ %.1.i, %197 ]
+  %.0.i = phi i32 [ %.9.i.i, %dissect_ProfiDriveParameterResponse.exit.i ], [ %181, %180 ], [ %188, %select.unfold.i ], [ %206, %205 ], [ %190, %189 ], [ %204, %203 ], [ %202, %201 ], [ %200, %199 ], [ %.1.i, %197 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)

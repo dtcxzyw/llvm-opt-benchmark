@@ -272,7 +272,7 @@ getX11InputMethodData.exit:                       ; preds = %isX11InputMethodGRe
   br label %getX11InputMethodData.exit.thread
 
 getX11InputMethodData.exit.thread:                ; preds = %30, %22, %.thread, %70, %79, %85, %82, %94, %93, %36, %getX11InputMethodData.exit, %65, %48, %.loopexit
-  %.0 = phi i8 [ 1, %48 ], [ 1, %65 ], [ 0, %.loopexit ], [ 0, %getX11InputMethodData.exit ], [ 0, %36 ], [ 1, %70 ], [ 1, %85 ], [ 1, %82 ], [ 0, %79 ], [ 1, %93 ], [ 0, %94 ], [ 1, %.thread ], [ 0, %22 ], [ 0, %30 ]
+  %.0 = phi i8 [ 0, %.loopexit ], [ 0, %getX11InputMethodData.exit ], [ 1, %48 ], [ 1, %65 ], [ 0, %36 ], [ 1, %70 ], [ 1, %85 ], [ 1, %82 ], [ 0, %79 ], [ 1, %93 ], [ 0, %94 ], [ 1, %.thread ], [ 0, %22 ], [ 0, %30 ]
   ret i8 %.0
 }
 
@@ -728,7 +728,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
   br i1 %132, label %._crit_edge.i, label %128
 
 ._crit_edge.i:                                    ; preds = %129, %128
-  %.091.i = phi i64 [ 1026, %128 ], [ 514, %129 ]
+  %.091.i = phi i64 [ 514, %129 ], [ 1026, %128 ]
   br label %133
 
 133:                                              ; preds = %133, %._crit_edge.i
@@ -1049,7 +1049,7 @@ createStatusWindow.exit.i:                        ; preds = %270, %259
   br label %320
 
 .thread.i:                                        ; preds = %149, %148, %.thread66.i
-  %.1903.i = phi i64 [ 0, %.thread66.i ], [ %146, %149 ], [ %spec.select.i, %148 ]
+  %.1903.i = phi i64 [ %spec.select.i, %148 ], [ %146, %149 ], [ 0, %.thread66.i ]
   %316 = load ptr, ptr @X11im, align 8
   %317 = call ptr (ptr, ...) @XCreateIC(ptr noundef %316, ptr noundef nonnull @.str.16, i64 noundef range(i64 1, 0) %2, ptr noundef nonnull @.str.6, i64 noundef range(i64 1, 0) %2, ptr noundef nonnull @.str.17, i64 noundef %.1903.i, ptr noundef null) #14
   %318 = getelementptr inbounds nuw i8, ptr %77, i64 8
@@ -1139,7 +1139,7 @@ createXIC.exit:                                   ; preds = %setXICFocus.exit.i,
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %361
 
-.thread118:                                       ; preds = %125, %346, %110, %150, %320
+.thread118:                                       ; preds = %320, %125, %110, %346, %150
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %destroyX11InputMethodData.exit
@@ -1240,7 +1240,7 @@ destroyX11InputMethodData.exit:                   ; preds = %.thread118, %349, %
   br label %398
 
 398:                                              ; preds = %392, %393, %104, %105, %70, %71
-  %.0 = phi i8 [ 0, %71 ], [ 0, %70 ], [ 0, %105 ], [ 0, %104 ], [ %.1, %393 ], [ %.1, %392 ]
+  %.0 = phi i8 [ 0, %70 ], [ 0, %104 ], [ 0, %71 ], [ 0, %105 ], [ %.1, %393 ], [ %.1, %392 ]
   ret i8 %.0
 }
 
@@ -1532,7 +1532,7 @@ setXICFocus.exit96:                               ; preds = %onoffStatusWindow.e
   br i1 %.not92, label %159, label %.sink.split
 
 .sink.split:                                      ; preds = %154, %100, %74
-  %.sink = phi ptr [ %55, %74 ], [ %81, %100 ], [ %135, %154 ]
+  %.sink = phi ptr [ %81, %100 ], [ %55, %74 ], [ %135, %154 ]
   %155 = load ptr, ptr %0, align 8
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 104
   %157 = load ptr, ptr %156, align 8
@@ -2556,7 +2556,7 @@ getX11InputMethodData.exit.thread:                ; preds = %55, %47, %getX11Inp
   br label %getParentWindow.exit
 
 getParentWindow.exit:                             ; preds = %110, %113
-  %.0.i76 = phi i64 [ 0, %110 ], [ %spec.select.i, %113 ]
+  %.0.i76 = phi i64 [ %spec.select.i, %113 ], [ 0, %110 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -2584,7 +2584,7 @@ getParentWindow.exit:                             ; preds = %110, %113
   br label %getParentWindow.exit79
 
 getParentWindow.exit79:                           ; preds = %getParentWindow.exit, %122
-  %.0.i78 = phi i64 [ 0, %getParentWindow.exit ], [ %spec.select.i77, %122 ]
+  %.0.i78 = phi i64 [ %spec.select.i77, %122 ], [ 0, %getParentWindow.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2908,7 +2908,7 @@ getX11InputMethodData.exit.thread:                ; preds = %44, %36, %getX11Inp
   br label %126
 
 126:                                              ; preds = %75, %76, %122, %121
-  %.0 = phi i8 [ 0, %121 ], [ %125, %122 ], [ 0, %76 ], [ 0, %75 ]
+  %.0 = phi i8 [ %125, %122 ], [ 0, %121 ], [ 0, %76 ], [ 0, %75 ]
   ret i8 %.0
 }
 
@@ -3281,7 +3281,7 @@ define internal fastcc void @freeX11InputMethodData(ptr noundef %0, ptr noundef 
   br label %removeX11InputMethodGRefFromList.exit
 
 removeX11InputMethodGRefFromList.exit:            ; preds = %.lr.ph, %35, %54
-  %55 = phi ptr [ %37, %35 ], [ %.pre, %54 ], [ %37, %.lr.ph ]
+  %55 = phi ptr [ %.pre, %54 ], [ %37, %35 ], [ %37, %.lr.ph ]
   %56 = load ptr, ptr %0, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 176
   %58 = load ptr, ptr %57, align 8
@@ -3650,7 +3650,7 @@ wcstombsdmp.exit:                                 ; preds = %82
   %98 = tail call i64 (ptr, ptr, ptr, ptr, ptr, ...) @JNU_CallMethodByName(ptr noundef nonnull %6, ptr noundef null, ptr noundef %90, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull %.0, i64 noundef %97) #14
   br label %getX11InputMethodData.exit.thread
 
-getX11InputMethodData.exit.thread:                ; preds = %69, %85, %79, %55, %47, %37, %.loopexit, %getX11InputMethodData.exit, %88, %87
+getX11InputMethodData.exit.thread:                ; preds = %85, %79, %69, %55, %47, %37, %.loopexit, %getX11InputMethodData.exit, %88, %87
   tail call void (...) @awt_output_flush() #14
   %99 = load ptr, ptr %6, align 8
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 120

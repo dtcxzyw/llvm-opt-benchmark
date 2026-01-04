@@ -948,7 +948,7 @@ define dso_local range(i64 0, 2) i64 @pg_promote(ptr noundef readonly captures(n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge, %60, %39
-  %.0 = phi i64 [ 1, %39 ], [ 0, %60 ], [ 0, %._crit_edge ], [ 1, %.lr.ph ]
+  %.0 = phi i64 [ 1, %39 ], [ 0, %._crit_edge ], [ 0, %60 ], [ 1, %.lr.ph ]
   ret i64 %.0
 }
 

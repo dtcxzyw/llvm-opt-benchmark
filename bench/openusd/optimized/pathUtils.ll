@@ -404,7 +404,7 @@ _ZSt4bindIRFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmmPS5_EJS7_RK
   br label %63
 
 63:                                               ; preds = %52, %60, %58
-  %.0 = phi i64 [ %59, %58 ], [ %62, %60 ], [ 0, %52 ]
+  %.0 = phi i64 [ %62, %60 ], [ %59, %58 ], [ 0, %52 ]
   %.not.i.i.i16 = icmp eq ptr %.sroa.028.4, null
   br i1 %.not.i.i.i16, label %_ZNSt6vectorImSaImEED2Ev.exit, label %64
 
@@ -612,7 +612,7 @@ define internal noundef zeroext i1 @_ZZN32pxrInternal_v0_24__pxrReserved__29TfFi
   br label %17
 
 17:                                               ; preds = %4, %15, %13, %8
-  %.0 = phi i1 [ %10, %8 ], [ %14, %13 ], [ %16, %15 ], [ false, %4 ]
+  %.0 = phi i1 [ %16, %15 ], [ %10, %8 ], [ %14, %13 ], [ false, %4 ]
   ret i1 %.0
 }
 

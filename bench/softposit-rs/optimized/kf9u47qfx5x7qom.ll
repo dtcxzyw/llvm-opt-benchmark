@@ -230,7 +230,7 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread: ; preds = %_
   br i1 %105, label %114, label %108
 
 106:                                              ; preds = %99, %92, %132, %128
-  %.068 = phi i32 [ %136, %132 ], [ %130, %128 ], [ 2147483647, %92 ], [ 1, %99 ]
+  %.068 = phi i32 [ 2147483647, %92 ], [ %136, %132 ], [ %130, %128 ], [ 1, %99 ]
   %107 = sub i32 0, %.068
   %.0.i108 = select i1 %.not, i32 %.068, i32 %107
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

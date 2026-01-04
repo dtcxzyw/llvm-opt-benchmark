@@ -225,8 +225,8 @@ param_to_asn1.exit:                               ; preds = %31, %39, %40
   br label %68
 
 68:                                               ; preds = %29, %27, %67, %12
-  %.035 = phi ptr [ null, %12 ], [ %.1, %67 ], [ null, %29 ], [ null, %27 ]
-  %.033 = phi ptr [ null, %12 ], [ %15, %67 ], [ %15, %29 ], [ %15, %27 ]
+  %.035 = phi ptr [ null, %12 ], [ null, %27 ], [ %.1, %67 ], [ null, %29 ]
+  %.033 = phi ptr [ null, %12 ], [ %15, %27 ], [ %15, %67 ], [ %15, %29 ]
   call void @ASN1_item_free(ptr noundef %.033, ptr noundef nonnull @PBE2PARAM_it) #5
   call void @X509_ALGOR_free(ptr noundef null) #5
   call void @X509_ALGOR_free(ptr noundef %.035) #5

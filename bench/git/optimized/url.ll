@@ -103,7 +103,7 @@ is_urlschemechar.exit15:                          ; preds = %13, %11
   br label %.critedge
 
 .critedge:                                        ; preds = %.preheader, %is_urlschemechar.exit15, %2, %21, %25, %1, %is_urlschemechar.exit
-  %.08 = phi i32 [ 0, %is_urlschemechar.exit ], [ 0, %1 ], [ 0, %21 ], [ %29, %25 ], [ 0, %2 ], [ 0, %is_urlschemechar.exit15 ], [ 0, %.preheader ]
+  %.08 = phi i32 [ 0, %1 ], [ %29, %25 ], [ 0, %is_urlschemechar.exit ], [ 0, %21 ], [ 0, %2 ], [ 0, %is_urlschemechar.exit15 ], [ 0, %.preheader ]
   ret i32 %.08
 }
 
@@ -299,7 +299,7 @@ strbuf_avail.exit.i57:                            ; preds = %.thread69
   br i1 %.not.i59, label %strbuf_addch.exit55.sink.split, label %strbuf_addch.exit55
 
 strbuf_addch.exit55.sink.split:                   ; preds = %.thread69, %strbuf_avail.exit.i57, %47, %strbuf_avail.exit.i47
-  %.sink.ph = phi i8 [ 32, %strbuf_avail.exit.i47 ], [ 32, %47 ], [ %11, %strbuf_avail.exit.i57 ], [ %11, %.thread69 ]
+  %.sink.ph = phi i8 [ 32, %47 ], [ 32, %strbuf_avail.exit.i47 ], [ %11, %strbuf_avail.exit.i57 ], [ %11, %.thread69 ]
   tail call void @strbuf_grow(ptr noundef nonnull %3, i64 noundef 1) #9
   %.pre.i63 = load i64, ptr %8, align 8, !tbaa !15
   %.pre7.i64 = add i64 %.pre.i63, 1

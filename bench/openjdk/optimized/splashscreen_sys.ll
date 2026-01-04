@@ -1180,7 +1180,7 @@ GetNumAvailableColors.exit:                       ; preds = %65, %69
   br label %133
 
 133:                                              ; preds = %29, %._crit_edge88, %21, %78, %14
-  %.0 = phi i32 [ 0, %78 ], [ 0, %14 ], [ 1, %21 ], [ 1, %._crit_edge88 ], [ 1, %29 ]
+  %.0 = phi i32 [ 0, %14 ], [ 0, %78 ], [ 1, %21 ], [ 1, %._crit_edge88 ], [ 1, %29 ]
   ret i32 %.0
 }
 

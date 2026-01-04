@@ -170,8 +170,8 @@ define hidden i32 @VP8LCreateCompressedHuffmanTree(ptr noundef readonly captures
   br i1 %69, label %.lr.ph38.i, label %.lr.ph
 
 CodeRepeatedZeros.exit:                           ; preds = %56, %61, %51, %39, %33, %.lr.ph35.preheader.i, %24
-  %.130 = phi i32 [ %.02958, %24 ], [ %.02958, %.lr.ph35.preheader.i ], [ %.02958, %33 ], [ %.02958, %39 ], [ %13, %51 ], [ %13, %61 ], [ %13, %56 ]
-  %.1 = phi ptr [ %.059, %24 ], [ %31, %.lr.ph35.preheader.i ], [ %indvars.iv.i52, %33 ], [ %indvars.iv.i52, %39 ], [ %.026.i, %51 ], [ %65, %61 ], [ %58, %56 ]
+  %.130 = phi i32 [ %.02958, %39 ], [ %.02958, %24 ], [ %.02958, %.lr.ph35.preheader.i ], [ %.02958, %33 ], [ %13, %51 ], [ %13, %61 ], [ %13, %56 ]
+  %.1 = phi ptr [ %indvars.iv.i52, %39 ], [ %.059, %24 ], [ %31, %.lr.ph35.preheader.i ], [ %indvars.iv.i52, %33 ], [ %.026.i, %51 ], [ %65, %61 ], [ %58, %56 ]
   %70 = icmp slt i32 %.028.lcssa, %4
   br i1 %70, label %8, label %._crit_edge, !llvm.loop !19
 
@@ -687,7 +687,7 @@ OptimizeHuffmanForRle.exit:                       ; preds = %.lr.ph.i, %108
   br i1 %.not.i18, label %.split.split.i, label %GenerateOptimalTree.exit
 
 GenerateOptimalTree.exit:                         ; preds = %._crit_edge134.i, %._crit_edge134.us150.i, %._crit_edge134.us.us.i, %OptimizeHuffmanForRle.exit.thread45, %OptimizeHuffmanForRle.exit.thread, %._crit_edge.i17
-  %204 = phi ptr [ %13, %OptimizeHuffmanForRle.exit.thread ], [ %110, %._crit_edge.i17 ], [ %12, %OptimizeHuffmanForRle.exit.thread45 ], [ %110, %._crit_edge134.us.us.i ], [ %110, %._crit_edge134.us150.i ], [ %110, %._crit_edge134.i ]
+  %204 = phi ptr [ %13, %OptimizeHuffmanForRle.exit.thread ], [ %110, %._crit_edge134.us.us.i ], [ %110, %._crit_edge.i17 ], [ %110, %._crit_edge134.us150.i ], [ %12, %OptimizeHuffmanForRle.exit.thread45 ], [ %110, %._crit_edge134.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %7, i8 0, i64 64, i1 false)

@@ -820,7 +820,7 @@ _ZN5arrow6ResultISt10shared_ptrINS_4util10CompressorEEED2Ev.exit: ; preds = %_ZN
   ret void
 
 143:                                              ; preds = %50, %111, %14
-  %.pn17 = phi { ptr, i32 } [ %15, %14 ], [ %.pn14, %111 ], [ %51, %50 ]
+  %.pn17 = phi { ptr, i32 } [ %15, %14 ], [ %51, %50 ], [ %.pn14, %111 ]
   call void @_ZN5arrow6ResultISt10shared_ptrINS_4util10CompressorEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn17
@@ -1785,7 +1785,7 @@ _ZN5arrow6ResultINS_4util10Compressor14CompressResultEED2Ev.exit100: ; preds = %
   br i1 %156, label %21, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge, !llvm.loop !159
 
 157:                                              ; preds = %69, %134, %148, %_ZN5arrow6ResultINS_4util10Compressor14CompressResultEED2Ev.exit85, %92, %48
-  %.pn64 = phi { ptr, i32 } [ %49, %48 ], [ %149, %148 ], [ %135, %134 ], [ %70, %69 ], [ %95, %_ZN5arrow6ResultINS_4util10Compressor14CompressResultEED2Ev.exit85 ], [ %93, %92 ]
+  %.pn64 = phi { ptr, i32 } [ %49, %48 ], [ %149, %148 ], [ %135, %134 ], [ %93, %92 ], [ %70, %69 ], [ %95, %_ZN5arrow6ResultINS_4util10Compressor14CompressResultEED2Ev.exit85 ]
   %158 = load ptr, ptr %7, align 8, !tbaa !42
   %.not.i.i101 = icmp eq ptr %158, null
   br i1 %.not.i.i101, label %_ZN5arrow6ResultINS_4util10Compressor14CompressResultEED2Ev.exit103, label %159, !prof !45
@@ -1990,7 +1990,7 @@ _ZN5arrow6StatusD2Ev.exit29:                      ; preds = %63
   br label %81
 
 .critedge:                                        ; preds = %_ZN5arrow6StatusD2Ev.exit29, %_ZN5arrow6StatusD2Ev.exit, %37, %_ZN5arrow6StatusD2Ev.exit26
-  %.018 = phi i32 [ 3, %_ZN5arrow6StatusD2Ev.exit26 ], [ 1, %_ZN5arrow6StatusD2Ev.exit ], [ 1, %37 ], [ %., %_ZN5arrow6StatusD2Ev.exit29 ]
+  %.018 = phi i32 [ 1, %37 ], [ 3, %_ZN5arrow6StatusD2Ev.exit26 ], [ %., %_ZN5arrow6StatusD2Ev.exit29 ], [ 1, %_ZN5arrow6StatusD2Ev.exit ]
   %75 = load ptr, ptr %4, align 8, !tbaa !42
   %.not.i.i32 = icmp eq ptr %75, null
   br i1 %.not.i.i32, label %_ZN5arrow6ResultINS_4util10Compressor11FlushResultEED2Ev.exit, label %76, !prof !45
@@ -2918,7 +2918,7 @@ define linkonce_odr hidden void @_ZN5arrow2io21CompressedInputStream4Impl4ReadEl
   br label %_ZN5arrow2io21CompressedInputStream4Impl20ReadFromDecompressedElPh.exit
 
 _ZN5arrow2io21CompressedInputStream4Impl20ReadFromDecompressedElPh.exit: ; preds = %.lr.ph, %13, %20
-  %.sroa.speculated.i26 = phi i64 [ %18, %13 ], [ %18, %20 ], [ 0, %.lr.ph ]
+  %.sroa.speculated.i26 = phi i64 [ %18, %20 ], [ %18, %13 ], [ 0, %.lr.ph ]
   %31 = add nsw i64 %.sroa.speculated.i26, %.032
   %32 = icmp eq i64 %2, %31
   br i1 %32, label %_ZN5arrow2io21CompressedInputStream4Impl20ReadFromDecompressedElPh.exit._crit_edge, label %33
@@ -4434,7 +4434,7 @@ _ZN5arrow6StatusD2Ev.exit26:                      ; preds = %58
   br label %76
 
 .critedge:                                        ; preds = %_ZN5arrow6StatusD2Ev.exit26, %_ZN5arrow6StatusD2Ev.exit, %34, %_ZN5arrow6StatusD2Ev.exit23
-  %.017 = phi i32 [ 3, %_ZN5arrow6StatusD2Ev.exit23 ], [ 1, %_ZN5arrow6StatusD2Ev.exit ], [ 1, %34 ], [ %., %_ZN5arrow6StatusD2Ev.exit26 ]
+  %.017 = phi i32 [ 1, %34 ], [ 3, %_ZN5arrow6StatusD2Ev.exit23 ], [ %., %_ZN5arrow6StatusD2Ev.exit26 ], [ 1, %_ZN5arrow6StatusD2Ev.exit ]
   %70 = load ptr, ptr %4, align 8, !tbaa !42
   %.not.i.i = icmp eq ptr %70, null
   br i1 %.not.i.i, label %_ZN5arrow6ResultINS_4util10Compressor9EndResultEED2Ev.exit, label %71, !prof !45

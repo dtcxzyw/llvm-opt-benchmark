@@ -538,7 +538,7 @@ _ZN6icu_7712_GLOBAL__N_120MutableCodePointTrieD2Ev.exit.i.i: ; preds = %62
   resume { ptr, i32 } %.pn.i
 
 _ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie10fromUCPMapEPK6UCPMapR10UErrorCode.exit: ; preds = %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrieD2Ev.exit.i.i, %56, %37, %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrieC2EjjR10UErrorCode.exit.i, %2, %8
-  %.0 = phi ptr [ null, %8 ], [ null, %2 ], [ null, %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrieD2Ev.exit.i.i ], [ %12, %56 ], [ null, %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrieC2EjjR10UErrorCode.exit.i ], [ null, %37 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %8 ], [ null, %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrieD2Ev.exit.i.i ], [ null, %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrieC2EjjR10UErrorCode.exit.i ], [ %12, %56 ], [ null, %37 ]
   ret ptr %.0
 }
 
@@ -772,7 +772,7 @@ _ZN6icu_7712_GLOBAL__N_120MutableCodePointTrieD2Ev.exit.i.i: ; preds = %101
   resume { ptr, i32 } %.pn.i
 
 _ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie11fromUCPTrieEPK7UCPTrieR10UErrorCode.exit: ; preds = %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrieD2Ev.exit.i.i, %95, %76, %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrieC2EjjR10UErrorCode.exit.i, %49, %2, %8
-  %.0 = phi ptr [ null, %8 ], [ null, %2 ], [ null, %49 ], [ null, %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrieD2Ev.exit.i.i ], [ %51, %95 ], [ null, %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrieC2EjjR10UErrorCode.exit.i ], [ null, %76 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %8 ], [ null, %49 ], [ null, %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrieC2EjjR10UErrorCode.exit.i ], [ null, %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrieD2Ev.exit.i.i ], [ %51, %95 ], [ null, %76 ]
   ret ptr %.0
 }
 
@@ -918,7 +918,7 @@ define internal noundef i32 @_ZN12_GLOBAL__N_18getRangeEPKviPFjS1_jES1_Pj(ptr no
   br label %_ZN6icu_7712_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES2_.exit.i
 
 _ZN6icu_7712_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES2_.exit.i: ; preds = %40, %37
-  %.0.i.i = phi i32 [ %41, %40 ], [ %.0109.i, %37 ]
+  %.0.i.i = phi i32 [ %.0109.i, %37 ], [ %41, %40 ]
   %.not132.i = icmp eq i32 %.0.i.i, %.092.i
   br i1 %.not132.i, label %.thread.i, label %50
 
@@ -934,7 +934,7 @@ _ZN6icu_7712_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES2_.exit.i: ; preds = %40,
   br label %_ZN6icu_7712_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES2_.exit138.i
 
 _ZN6icu_7712_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES2_.exit138.i: ; preds = %45, %42
-  %.0.i137.i = phi i32 [ %46, %45 ], [ %.0109.mux.i, %42 ]
+  %.0.i137.i = phi i32 [ %.0109.mux.i, %42 ], [ %46, %45 ]
   br i1 %.not124.i, label %.thread.i, label %47
 
 47:                                               ; preds = %_ZN6icu_7712_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES2_.exit138.i
@@ -942,8 +942,8 @@ _ZN6icu_7712_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES2_.exit138.i: ; preds = %
   br label %.thread.i
 
 .thread.i:                                        ; preds = %47, %_ZN6icu_7712_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES2_.exit138.i, %_ZN6icu_7712_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES2_.exit.i, %35
-  %.2100.i = phi i32 [ %.098.i, %35 ], [ %33, %_ZN6icu_7712_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES2_.exit.i ], [ %33, %47 ], [ %33, %_ZN6icu_7712_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES2_.exit138.i ]
-  %.294.i = phi i32 [ %.092.i, %35 ], [ %.092.i, %_ZN6icu_7712_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES2_.exit.i ], [ %.0.i137.i, %47 ], [ %.0.i137.i, %_ZN6icu_7712_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES2_.exit138.i ]
+  %.2100.i = phi i32 [ %33, %_ZN6icu_7712_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES2_.exit.i ], [ %.098.i, %35 ], [ %33, %47 ], [ %33, %_ZN6icu_7712_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES2_.exit138.i ]
+  %.294.i = phi i32 [ %.092.i, %_ZN6icu_7712_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES2_.exit.i ], [ %.092.i, %35 ], [ %.0.i137.i, %47 ], [ %.0.i137.i, %_ZN6icu_7712_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES2_.exit138.i ]
   %48 = and i32 %.0104.i, -16
   %49 = add nsw i32 %48, 16
   br label %.loopexit.i
@@ -978,7 +978,7 @@ _ZN6icu_7712_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES2_.exit138.i: ; preds = %
   br label %_ZN6icu_7712_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES2_.exit141.i
 
 _ZN6icu_7712_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES2_.exit141.i: ; preds = %64, %61
-  %.0.i140.i = phi i32 [ %65, %64 ], [ %.0109.i, %61 ]
+  %.0.i140.i = phi i32 [ %.0109.i, %61 ], [ %65, %64 ]
   %.not126.i = icmp eq i32 %.0.i140.i, %.092.i
   br i1 %.not126.i, label %.thread218.i, label %66
 
@@ -998,7 +998,7 @@ _ZN6icu_7712_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES2_.exit141.i: ; preds = %
   br label %_ZN6icu_7712_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES2_.exit144.i
 
 _ZN6icu_7712_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES2_.exit144.i: ; preds = %71, %68
-  %.0.i143.i = phi i32 [ %72, %71 ], [ %.0109.mux165.i, %68 ]
+  %.0.i143.i = phi i32 [ %.0109.mux165.i, %68 ], [ %72, %71 ]
   br i1 %.not124.i, label %74, label %73
 
 73:                                               ; preds = %_ZN6icu_7712_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES2_.exit144.i
@@ -1006,8 +1006,8 @@ _ZN6icu_7712_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES2_.exit144.i: ; preds = %
   br label %74
 
 74:                                               ; preds = %73, %_ZN6icu_7712_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES2_.exit144.i, %59
-  %.5103.i = phi i32 [ %.098.i, %59 ], [ %58, %73 ], [ %58, %_ZN6icu_7712_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES2_.exit144.i ]
-  %.597.i = phi i32 [ %.092.i, %59 ], [ %.0.i143.i, %73 ], [ %.0.i143.i, %_ZN6icu_7712_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES2_.exit144.i ]
+  %.5103.i = phi i32 [ %58, %_ZN6icu_7712_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES2_.exit144.i ], [ %.098.i, %59 ], [ %58, %73 ]
+  %.597.i = phi i32 [ %.0.i143.i, %_ZN6icu_7712_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES2_.exit144.i ], [ %.092.i, %59 ], [ %.0.i143.i, %73 ]
   %75 = add nsw i32 %.0104.i, 1
   %76 = and i32 %75, 15
   %.not127174.i = icmp eq i32 %76, 0
@@ -1074,7 +1074,7 @@ _ZN6icu_7712_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES2_.exit144.i: ; preds = %
   br label %_ZN6icu_7712_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES2_.exit147.i
 
 _ZN6icu_7712_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES2_.exit147.i: ; preds = %98, %95
-  %.0.i146.i = phi i32 [ %99, %98 ], [ %.0109.i, %95 ]
+  %.0.i146.i = phi i32 [ %.0109.i, %95 ], [ %99, %98 ]
   %.not129.i = icmp eq i32 %.0.i146.i, %.597223226.i
   br i1 %.not129.i, label %100, label %_ZNK6icu_7712_GLOBAL__N_120MutableCodePointTrie8getRangeEiPFjPKvjES3_Pj.exit
 
@@ -1107,14 +1107,14 @@ _ZN6icu_7712_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES2_.exit147.i: ; preds = %
   br label %_ZN6icu_7712_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES2_.exit150.i
 
 _ZN6icu_7712_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES2_.exit150.i: ; preds = %110, %105
-  %.0.i149.i = phi i32 [ %111, %110 ], [ %.0109.mux167.i, %105 ]
+  %.0.i149.i = phi i32 [ %.0109.mux167.i, %105 ], [ %111, %110 ]
   %.not133.i = icmp eq i32 %.0.i149.i, %.395.i
   %112 = add nsw i32 %.2106.i, -1
   %spec.select.i = select i1 %.not133.i, i32 1114111, i32 %112
   br label %_ZNK6icu_7712_GLOBAL__N_120MutableCodePointTrie8getRangeEiPFjPKvjES3_Pj.exit
 
 _ZNK6icu_7712_GLOBAL__N_120MutableCodePointTrie8getRangeEiPFjPKvjES3_Pj.exit: ; preds = %.lr.ph.split.us.i, %_ZN6icu_7712_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES2_.exit147.i, %85, %5, %10, %16, %50, %66, %_ZN6icu_7712_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES2_.exit150.i
-  %.083.i = phi i32 [ -1, %5 ], [ 1114111, %16 ], [ 1114111, %10 ], [ %51, %50 ], [ %spec.select.i, %_ZN6icu_7712_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES2_.exit150.i ], [ %67, %66 ], [ %88, %85 ], [ %.4108175.i, %_ZN6icu_7712_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES2_.exit147.i ], [ %.0104.i, %.lr.ph.split.us.i ]
+  %.083.i = phi i32 [ 1114111, %10 ], [ -1, %5 ], [ 1114111, %16 ], [ %spec.select.i, %_ZN6icu_7712_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES2_.exit150.i ], [ %51, %50 ], [ %67, %66 ], [ %.4108175.i, %_ZN6icu_7712_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES2_.exit147.i ], [ %88, %85 ], [ %.0104.i, %.lr.ph.split.us.i ]
   ret i32 %.083.i
 }
 
@@ -1436,7 +1436,7 @@ _ZN6icu_7712_GLOBAL__N_19fillBlockEPjiij.exit67:  ; preds = %.lr.ph.i65, %80
   br i1 %99, label %.lr.ph.i69, label %_ZN6icu_7712_GLOBAL__N_19fillBlockEPjiij.exit71, !llvm.loop !38
 
 _ZN6icu_7712_GLOBAL__N_19fillBlockEPjiij.exit71.sink.split: ; preds = %88, %43, %23, %8
-  %.sink = phi i32 [ 1, %8 ], [ 7, %23 ], [ 7, %43 ], [ 7, %88 ]
+  %.sink = phi i32 [ 7, %43 ], [ 7, %23 ], [ 1, %8 ], [ 7, %88 ]
   store i32 %.sink, ptr %4, align 4, !tbaa !3
   br label %_ZN6icu_7712_GLOBAL__N_19fillBlockEPjiij.exit71
 
@@ -1643,8 +1643,8 @@ _ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie10maskValuesEj.exit.i: ; preds = %
   br label %_ZNK6icu_7712_GLOBAL__N_120MutableCodePointTrie3getEi.exit.i.i
 
 _ZNK6icu_7712_GLOBAL__N_120MutableCodePointTrie3getEi.exit.i.i: ; preds = %105, %102, %96
-  %.pre235.pre.i = phi ptr [ %.pre235.pre.pre.i, %96 ], [ %103, %102 ], [ %108, %105 ]
-  %.0.in.i.i.i = phi ptr [ %97, %96 ], [ %104, %102 ], [ %113, %105 ]
+  %.pre235.pre.i = phi ptr [ %108, %105 ], [ %.pre235.pre.pre.i, %96 ], [ %103, %102 ]
+  %.0.in.i.i.i = phi ptr [ %113, %105 ], [ %97, %96 ], [ %104, %102 ]
   %.0.i.i.i = load i32, ptr %.0.in.i.i.i, align 4, !tbaa !25
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %.0.i.i.i, ptr %114, align 4, !tbaa !20
@@ -1752,7 +1752,7 @@ _ZNK6icu_7712_GLOBAL__N_120MutableCodePointTrie13findHighStartEv.exit.i.i: ; pre
   %162 = zext nneg i32 %157 to i64
   br label %283
 
-.lr.ph148.i.i.i:                                  ; preds = %_ZNK6icu_7712_GLOBAL__N_120MutableCodePointTrie3getEi.exit64.i.i
+.lr.ph147.i.i.i:                                  ; preds = %_ZNK6icu_7712_GLOBAL__N_120MutableCodePointTrie3getEi.exit64.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !44
   %163 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -1763,11 +1763,11 @@ _ZNK6icu_7712_GLOBAL__N_120MutableCodePointTrie13findHighStartEv.exit.i.i: ; pre
   %167 = getelementptr inbounds nuw i8, ptr %9, i64 264
   br label %168
 
-168:                                              ; preds = %.thread130.i.i.i, %.lr.ph148.i.i.i
-  %.078145.i.i.i = phi i32 [ 148, %.lr.ph148.i.i.i ], [ %.381133.i.i.i, %.thread130.i.i.i ]
-  %.089142.i.i.i = phi i32 [ 0, %.lr.ph148.i.i.i ], [ %281, %.thread130.i.i.i ]
-  %.090141.i.i.i = phi i32 [ 4, %.lr.ph148.i.i.i ], [ %spec.select98.i.i.i, %.thread130.i.i.i ]
-  %.092140.i.i.i = phi i32 [ 64, %.lr.ph148.i.i.i ], [ %spec.select.i.i.i, %.thread130.i.i.i ]
+168:                                              ; preds = %.thread130.i.i.i, %.lr.ph147.i.i.i
+  %.078145.i.i.i = phi i32 [ 148, %.lr.ph147.i.i.i ], [ %.381133.i.i.i, %.thread130.i.i.i ]
+  %.089142.i.i.i = phi i32 [ 0, %.lr.ph147.i.i.i ], [ %281, %.thread130.i.i.i ]
+  %.090141.i.i.i = phi i32 [ 4, %.lr.ph147.i.i.i ], [ %spec.select98.i.i.i, %.thread130.i.i.i ]
+  %.092140.i.i.i = phi i32 [ 64, %.lr.ph147.i.i.i ], [ %spec.select.i.i.i, %.thread130.i.i.i ]
   %169 = icmp eq i32 %.089142.i.i.i, %93
   %spec.select.i.i.i = select i1 %169, i32 16, i32 %.092140.i.i.i
   %spec.select98.i.i.i = select i1 %169, i32 1, i32 %.090141.i.i.i
@@ -1839,7 +1839,7 @@ _ZN6icu_7712_GLOBAL__N_115allValuesSameAsEPKjij.exit.i.i.i: ; preds = %187, %.lr
   br i1 %.not.i59.i.i, label %198, label %277, !llvm.loop !48
 
 .critedge.i.i.i:                                  ; preds = %198, %193, %.thread.i60.i.i
-  %.084.i.i.i = phi i32 [ %173, %193 ], [ %180, %.thread.i60.i.i ], [ %173, %198 ]
+  %.084.i.i.i = phi i32 [ %180, %.thread.i60.i.i ], [ %173, %193 ], [ %173, %198 ]
   %202 = load i32, ptr %163, align 4, !tbaa !46
   %203 = icmp sgt i32 %202, -1
   br i1 %203, label %204, label %209
@@ -1897,12 +1897,12 @@ _ZN6icu_7712_GLOBAL__N_113AllSameBlocks9findOrAddEiij.exit.thread.i.i.i: ; preds
   br label %.thread127.sink.split.i.i.i
 
 _ZN6icu_7712_GLOBAL__N_113AllSameBlocks9findOrAddEiij.exit.i.i.i: ; preds = %217, %204
-  %.sink171.i.i.i = phi i64 [ %indvars.iv.i.i.i.i, %217 ], [ %205, %204 ]
-  %228 = getelementptr inbounds nuw i32, ptr %167, i64 %.sink171.i.i.i
+  %.sink170.i.i.i = phi i64 [ %indvars.iv.i.i.i.i, %217 ], [ %205, %204 ]
+  %228 = getelementptr inbounds nuw i32, ptr %167, i64 %.sink170.i.i.i
   %229 = load i32, ptr %228, align 4, !tbaa !25
   %230 = add nsw i32 %229, %spec.select98.i.i.i
   store i32 %230, ptr %228, align 4, !tbaa !25
-  %231 = getelementptr inbounds nuw i32, ptr %166, i64 %.sink171.i.i.i
+  %231 = getelementptr inbounds nuw i32, ptr %166, i64 %.sink170.i.i.i
   %232 = load i32, ptr %231, align 4, !tbaa !25
   %233 = icmp eq i32 %232, -2
   br i1 %233, label %.preheader.i.i.i, label %272
@@ -2017,8 +2017,8 @@ _ZN6icu_7712_GLOBAL__N_113AllSameBlocks3addEiij.exit121.i.i.i: ; preds = %260, %
   br label %.thread130.i.i.i
 
 .thread127.sink.split.i.i.i:                      ; preds = %_ZN6icu_7712_GLOBAL__N_113AllSameBlocks3addEiij.exit.i.i.i, %_ZN6icu_7712_GLOBAL__N_113AllSameBlocks9findOrAddEiij.exit.thread.i.i.i
-  %.sink172.i.i.i = phi i64 [ %227, %_ZN6icu_7712_GLOBAL__N_113AllSameBlocks9findOrAddEiij.exit.thread.i.i.i ], [ %243, %_ZN6icu_7712_GLOBAL__N_113AllSameBlocks3addEiij.exit.i.i.i ]
-  %275 = getelementptr inbounds i32, ptr %167, i64 %.sink172.i.i.i
+  %.sink171.i.i.i = phi i64 [ %227, %_ZN6icu_7712_GLOBAL__N_113AllSameBlocks9findOrAddEiij.exit.thread.i.i.i ], [ %243, %_ZN6icu_7712_GLOBAL__N_113AllSameBlocks3addEiij.exit.i.i.i ]
+  %275 = getelementptr inbounds i32, ptr %167, i64 %.sink171.i.i.i
   store i32 %spec.select98.i.i.i, ptr %275, align 4, !tbaa !25
   br label %.thread127.i.i.i
 
@@ -2034,7 +2034,7 @@ _ZN6icu_7712_GLOBAL__N_113AllSameBlocks3addEiij.exit121.i.i.i: ; preds = %260, %
   br i1 %279, label %.thread130.i.i.i, label %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie11compactTrieEiR10UErrorCode.exit.thread.i
 
 .thread130.i.i.i:                                 ; preds = %277, %.thread127.i.i.i, %274, %191
-  %.381133.i.i.i = phi i32 [ %spec.select102.i.i.i, %277 ], [ %276, %.thread127.i.i.i ], [ %.078145.i.i.i, %274 ], [ %192, %191 ]
+  %.381133.i.i.i = phi i32 [ %192, %191 ], [ %spec.select102.i.i.i, %277 ], [ %276, %.thread127.i.i.i ], [ %.078145.i.i.i, %274 ]
   %281 = add nuw nsw i32 %spec.select98.i.i.i, %.089142.i.i.i
   %.not97.i.i.i = icmp samesign ult i32 %281, %164
   br i1 %.not97.i.i.i, label %168, label %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie22compactWholeDataBlocksEiRNS0_13AllSameBlocksE.exit.i.i, !llvm.loop !52
@@ -2070,13 +2070,13 @@ _ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie22compactWholeDataBlocksEiRNS0_13A
   br label %_ZNK6icu_7712_GLOBAL__N_120MutableCodePointTrie3getEi.exit64.i.i
 
 _ZNK6icu_7712_GLOBAL__N_120MutableCodePointTrie3getEi.exit64.i.i: ; preds = %291, %289, %283
-  %.0.in.i62.i.i = phi ptr [ %290, %289 ], [ %298, %291 ], [ %114, %283 ]
+  %.0.in.i62.i.i = phi ptr [ %298, %291 ], [ %290, %289 ], [ %114, %283 ]
   %.0.i63.i.i = load i32, ptr %.0.in.i62.i.i, align 4, !tbaa !25
   %299 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv236.i.i
   store i32 %.0.i63.i.i, ptr %299, align 4, !tbaa !25
   %indvars.iv.next237.i.i = add nuw nsw i64 %indvars.iv236.i.i, 1
   %exitcond239.not.i.i = icmp eq i64 %indvars.iv.next237.i.i, 128
-  br i1 %exitcond239.not.i.i, label %.lr.ph148.i.i.i, label %283, !llvm.loop !53
+  br i1 %exitcond239.not.i.i, label %.lr.ph147.i.i.i, label %283, !llvm.loop !53
 
 _ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie22compactWholeDataBlocksEiRNS0_13AllSameBlocksE.exit.thread121.i.i: ; preds = %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie22compactWholeDataBlocksEiRNS0_13AllSameBlocksE.exit.i.i
   %300 = shl nsw i32 %.381133.i.i.i, 2
@@ -2701,7 +2701,7 @@ _ZN6icu_7712_GLOBAL__N_110getOverlapIjjEEiPKT_iPKT0_ii.exit.i.i.i: ; preds = %_Z
   br label %535
 
 535:                                              ; preds = %528, %._crit_edge.i76.i.i, %504, %._crit_edge200.i.i.i, %.critedge.thread.i.i.i
-  %.6.i.i.i = phi i32 [ %.199207.i.i.i, %528 ], [ %.199207.i.i.i, %.critedge.thread.i.i.i ], [ %.3.lcssa.i.i.i, %._crit_edge200.i.i.i ], [ %.199207.i.i.i, %504 ], [ %.5.lcssa.i.i.i, %._crit_edge.i76.i.i ]
+  %.6.i.i.i = phi i32 [ %.199207.i.i.i, %528 ], [ %.3.lcssa.i.i.i, %._crit_edge200.i.i.i ], [ %.199207.i.i.i, %.critedge.thread.i.i.i ], [ %.199207.i.i.i, %504 ], [ %.5.lcssa.i.i.i, %._crit_edge.i76.i.i ]
   %536 = add i32 %.1112.i.i.i, %.0108205.i.i.i
   %.not.i77.i.i = icmp slt i32 %536, %345
   br i1 %.not.i77.i.i, label %352, label %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie11compactDataEiPjiiRNS0_11MixedBlocksER10UErrorCode.exit.i.i, !llvm.loop !76
@@ -2815,7 +2815,7 @@ _ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie11compactDataEiPjiiRNS0_11MixedBlo
   br label %583
 
 583:                                              ; preds = %582, %577, %575, %567
-  %.1240.i.i.i = phi i32 [ %.0239381.i.i.i, %582 ], [ %.0239381.i.i.i, %577 ], [ %indvars434.i.i.i, %575 ], [ -1, %567 ]
+  %.1240.i.i.i = phi i32 [ %.0239381.i.i.i, %577 ], [ %.0239381.i.i.i, %582 ], [ %indvars434.i.i.i, %575 ], [ -1, %567 ]
   %584 = add nuw nsw i32 %.0246380.i.i.i, 3
   %585 = add nsw i32 %.0246380.i.i.i, 1
   %586 = sext i32 %585 to i64
@@ -2982,9 +2982,9 @@ _ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie11compactDataEiPjiiRNS0_11MixedBlo
   br label %655
 
 655:                                              ; preds = %653, %651, %647
-  %.sink513.i.i.i = phi i32 [ 12, %647 ], [ 15, %651 ], [ %..i96.i.i, %653 ]
-  %.sink.i97.i.i = phi i32 [ 4095, %647 ], [ 32767, %651 ], [ %.514.i.i.i, %653 ]
-  %.0.i317.i.i.i = phi i32 [ 6007, %647 ], [ 50021, %651 ], [ %.515.i.i.i, %653 ]
+  %.sink513.i.i.i = phi i32 [ 15, %651 ], [ %..i96.i.i, %653 ], [ 12, %647 ]
+  %.sink.i97.i.i = phi i32 [ 32767, %651 ], [ %.514.i.i.i, %653 ], [ 4095, %647 ]
+  %.0.i317.i.i.i = phi i32 [ 50021, %651 ], [ %.515.i.i.i, %653 ], [ 6007, %647 ]
   store i32 %.sink513.i.i.i, ptr %595, align 8, !tbaa !55
   store i32 %.sink.i97.i.i, ptr %596, align 4, !tbaa !57
   %656 = icmp samesign ugt i32 %.0.i317.i.i.i, %537
@@ -3204,9 +3204,9 @@ _ZN6icu_7712_GLOBAL__N_110getOverlapItjEEiPKT_iPKT0_ii.exit.i.i.i: ; preds = %72
   br i1 %735, label %.lr.ph.preheader.i107.i.i, label %._crit_edge389.i.i.i
 
 .lr.ph.preheader.i107.i.i:                        ; preds = %_ZN6icu_7712_GLOBAL__N_111equalBlocksItjEEbPKT_PKT0_i.exit.i.i.i.i, %_ZN6icu_7712_GLOBAL__N_110getOverlapItjEEiPKT_iPKT0_ii.exit.i.i.i, %715
-  %.pre-phi.i.i = phi i64 [ %719, %_ZN6icu_7712_GLOBAL__N_110getOverlapItjEEiPKT_iPKT0_ii.exit.i.i.i ], [ %.pre258.i.i, %715 ], [ %719, %_ZN6icu_7712_GLOBAL__N_111equalBlocksItjEEbPKT_PKT0_i.exit.i.i.i.i ]
-  %736 = phi i32 [ %734, %_ZN6icu_7712_GLOBAL__N_110getOverlapItjEEiPKT_iPKT0_ii.exit.i.i.i ], [ %611, %715 ], [ %.0263396.i.i.i, %_ZN6icu_7712_GLOBAL__N_111equalBlocksItjEEbPKT_PKT0_i.exit.i.i.i.i ]
-  %.0256500.i.i.i = phi i64 [ %indvars.iv.i.i101.i.i, %_ZN6icu_7712_GLOBAL__N_110getOverlapItjEEiPKT_iPKT0_ii.exit.i.i.i ], [ 0, %715 ], [ 0, %_ZN6icu_7712_GLOBAL__N_111equalBlocksItjEEbPKT_PKT0_i.exit.i.i.i.i ]
+  %.pre-phi.i.i = phi i64 [ %.pre258.i.i, %715 ], [ %719, %_ZN6icu_7712_GLOBAL__N_110getOverlapItjEEiPKT_iPKT0_ii.exit.i.i.i ], [ %719, %_ZN6icu_7712_GLOBAL__N_111equalBlocksItjEEbPKT_PKT0_i.exit.i.i.i.i ]
+  %736 = phi i32 [ %611, %715 ], [ %734, %_ZN6icu_7712_GLOBAL__N_110getOverlapItjEEiPKT_iPKT0_ii.exit.i.i.i ], [ %.0263396.i.i.i, %_ZN6icu_7712_GLOBAL__N_111equalBlocksItjEEbPKT_PKT0_i.exit.i.i.i.i ]
+  %.0256500.i.i.i = phi i64 [ 0, %715 ], [ %indvars.iv.i.i101.i.i, %_ZN6icu_7712_GLOBAL__N_110getOverlapItjEEiPKT_iPKT0_ii.exit.i.i.i ], [ 0, %_ZN6icu_7712_GLOBAL__N_111equalBlocksItjEEbPKT_PKT0_i.exit.i.i.i.i ]
   %737 = and i64 %.0256500.i.i.i, 4294967295
   %invariant.gep.i.i.i = getelementptr inbounds nuw i32, ptr %711, i64 %indvars.iv447.i.i.i
   br label %.lr.ph.i108.i.i
@@ -3409,8 +3409,8 @@ _ZN6icu_7712_GLOBAL__N_110getOverlapIttEEiPKT_iPKT0_ii.exit.thread.i.i.i: ; pred
   br label %840
 
 840:                                              ; preds = %839, %743, %._crit_edge389.i.i.i, %709, %705, %696
-  %.1264.i.i.i = phi i32 [ %.0263396.i.i.i, %705 ], [ %.4267.i.i.i, %839 ], [ %.0263396.i.i.i, %709 ], [ %.3266.lcssa.i.i.i, %743 ], [ %.3266.lcssa.i.i.i, %._crit_edge389.i.i.i ], [ %.0263396.i.i.i, %696 ]
-  %.0259.i.i.i = phi i32 [ %708, %705 ], [ %.2261.i.i.i, %839 ], [ %713, %709 ], [ %742, %743 ], [ %742, %._crit_edge389.i.i.i ], [ %697, %696 ]
+  %.1264.i.i.i = phi i32 [ %.3266.lcssa.i.i.i, %._crit_edge389.i.i.i ], [ %.0263396.i.i.i, %705 ], [ %.4267.i.i.i, %839 ], [ %.0263396.i.i.i, %709 ], [ %.3266.lcssa.i.i.i, %743 ], [ %.0263396.i.i.i, %696 ]
+  %.0259.i.i.i = phi i32 [ %742, %._crit_edge389.i.i.i ], [ %708, %705 ], [ %.2261.i.i.i, %839 ], [ %713, %709 ], [ %742, %743 ], [ %697, %696 ]
   %841 = load i32, ptr %566, align 4, !tbaa !14
   %842 = icmp slt i32 %841, 0
   %843 = icmp sgt i32 %.5.i.i.i, -1
@@ -3646,8 +3646,8 @@ _ZN6icu_7712_GLOBAL__N_111MixedBlocksD2Ev.exit356.i.i.i: ; preds = %688
   br label %.body.i.i
 
 927:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_111MixedBlocksD2Ev.exit.i.i.i, %_ZN6icu_7712_GLOBAL__N_111MixedBlocks4initEii.exit324.i.i.i, %646
-  %.val.pre.pre.i.i = phi ptr [ %.val.pre.pre256.ph.i.i, %646 ], [ %.val.pre.pre.pre.i.i, %_ZN6icu_7712_GLOBAL__N_111MixedBlocksD2Ev.exit.i.i.i ], [ null, %_ZN6icu_7712_GLOBAL__N_111MixedBlocks4initEii.exit324.i.i.i ]
-  %.1.i.i.i = phi i32 [ 0, %646 ], [ %.3.i.i.i, %_ZN6icu_7712_GLOBAL__N_111MixedBlocksD2Ev.exit.i.i.i ], [ 0, %_ZN6icu_7712_GLOBAL__N_111MixedBlocks4initEii.exit324.i.i.i ]
+  %.val.pre.pre.i.i = phi ptr [ null, %_ZN6icu_7712_GLOBAL__N_111MixedBlocks4initEii.exit324.i.i.i ], [ %.val.pre.pre256.ph.i.i, %646 ], [ %.val.pre.pre.pre.i.i, %_ZN6icu_7712_GLOBAL__N_111MixedBlocksD2Ev.exit.i.i.i ]
+  %.1.i.i.i = phi i32 [ 0, %_ZN6icu_7712_GLOBAL__N_111MixedBlocks4initEii.exit324.i.i.i ], [ 0, %646 ], [ %.3.i.i.i, %_ZN6icu_7712_GLOBAL__N_111MixedBlocksD2Ev.exit.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie12compactIndexEiRNS0_11MixedBlocksER10UErrorCode.exit.i.i
 
@@ -3663,8 +3663,8 @@ _ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie12compactIndexEiRNS0_11MixedBlocks
   br label %.body.i.i
 
 930:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie12compactIndexEiRNS0_11MixedBlocksER10UErrorCode.exit.i.i, %545, %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie11compactDataEiPjiiRNS0_11MixedBlocksER10UErrorCode.exit.i.i, %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie11compactDataEiPjiiRNS0_11MixedBlocksER10UErrorCode.exit.thread.i.i
-  %.val.i.i = phi ptr [ %.val.pre.pre256.ph.i.i, %545 ], [ %.val.pre.i.i, %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie12compactIndexEiRNS0_11MixedBlocksER10UErrorCode.exit.i.i ], [ %.val.pre.pre256.ph.i.i, %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie11compactDataEiPjiiRNS0_11MixedBlocksER10UErrorCode.exit.i.i ], [ null, %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie11compactDataEiPjiiRNS0_11MixedBlocksER10UErrorCode.exit.thread.i.i ]
-  %.2.i.i = phi i32 [ 0, %545 ], [ %.0.i90.i.i, %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie12compactIndexEiRNS0_11MixedBlocksER10UErrorCode.exit.i.i ], [ 0, %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie11compactDataEiPjiiRNS0_11MixedBlocksER10UErrorCode.exit.i.i ], [ 0, %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie11compactDataEiPjiiRNS0_11MixedBlocksER10UErrorCode.exit.thread.i.i ]
+  %.val.i.i = phi ptr [ %.val.pre.i.i, %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie12compactIndexEiRNS0_11MixedBlocksER10UErrorCode.exit.i.i ], [ %.val.pre.pre256.ph.i.i, %545 ], [ %.val.pre.pre256.ph.i.i, %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie11compactDataEiPjiiRNS0_11MixedBlocksER10UErrorCode.exit.i.i ], [ null, %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie11compactDataEiPjiiRNS0_11MixedBlocksER10UErrorCode.exit.thread.i.i ]
+  %.2.i.i = phi i32 [ %.0.i90.i.i, %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie12compactIndexEiRNS0_11MixedBlocksER10UErrorCode.exit.i.i ], [ 0, %545 ], [ 0, %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie11compactDataEiPjiiRNS0_11MixedBlocksER10UErrorCode.exit.i.i ], [ 0, %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie11compactDataEiPjiiRNS0_11MixedBlocksER10UErrorCode.exit.thread.i.i ]
   invoke void @uprv_free_77(ptr noundef %.val.i.i)
           to label %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie11compactTrieEiR10UErrorCode.exit.i unwind label %931
 
@@ -3676,7 +3676,7 @@ _ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie12compactIndexEiRNS0_11MixedBlocks
   unreachable
 
 .body.i.i:                                        ; preds = %928, %_ZN6icu_7712_GLOBAL__N_111MixedBlocksD2Ev.exit356.i.i.i, %.loopexit.split-lp.i.i, %.loopexit.i.i
-  %.pn.i.i = phi { ptr, i32 } [ %929, %928 ], [ %689, %_ZN6icu_7712_GLOBAL__N_111MixedBlocksD2Ev.exit356.i.i.i ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
+  %.pn.i.i = phi { ptr, i32 } [ %689, %_ZN6icu_7712_GLOBAL__N_111MixedBlocksD2Ev.exit356.i.i.i ], [ %929, %928 ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
   %.val54.i.i = load ptr, ptr %10, align 8, !tbaa !58
   invoke void @uprv_free_77(ptr noundef %.val54.i.i)
           to label %_ZN6icu_7712_GLOBAL__N_111MixedBlocksD2Ev.exit118.i.i unwind label %934
@@ -4130,7 +4130,7 @@ default.unreachable:                              ; preds = %.loopexit136.i, %10
   br label %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie5buildE11UCPTrieType17UCPTrieValueWidthR10UErrorCode.exit
 
 _ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie5buildE11UCPTrieType17UCPTrieValueWidthR10UErrorCode.exit: ; preds = %.loopexit.i, %1070, %938, %15, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %15 ], [ null, %938 ], [ null, %1070 ], [ %1068, %.loopexit.i ]
+  %.0 = phi ptr [ null, %4 ], [ %1068, %.loopexit.i ], [ null, %15 ], [ null, %938 ], [ null, %1070 ]
   ret ptr %.0
 }
 
@@ -4329,8 +4329,8 @@ _ZN6icu_7712_GLOBAL__N_110writeBlockEPjj.exit38:  ; preds = %85
   store i32 %15, ptr %88, align 4, !tbaa !25
   br label %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie14allocDataBlockEi.exit.thread
 
-_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie14allocDataBlockEi.exit.thread: ; preds = %66, %64, %25, %23, %_ZN6icu_7712_GLOBAL__N_110writeBlockEPjj.exit38, %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie14allocDataBlockEi.exit34, %56, %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie14allocDataBlockEi.exit, %8
-  %.0 = phi i32 [ %11, %8 ], [ %58, %56 ], [ %15, %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie14allocDataBlockEi.exit ], [ %15, %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie14allocDataBlockEi.exit34 ], [ %15, %_ZN6icu_7712_GLOBAL__N_110writeBlockEPjj.exit38 ], [ -1, %23 ], [ -1, %25 ], [ -1, %64 ], [ -1, %66 ]
+_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie14allocDataBlockEi.exit.thread: ; preds = %64, %66, %23, %25, %_ZN6icu_7712_GLOBAL__N_110writeBlockEPjj.exit38, %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie14allocDataBlockEi.exit34, %56, %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie14allocDataBlockEi.exit, %8
+  %.0 = phi i32 [ %11, %8 ], [ %15, %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie14allocDataBlockEi.exit ], [ %58, %56 ], [ %15, %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie14allocDataBlockEi.exit34 ], [ %15, %_ZN6icu_7712_GLOBAL__N_110writeBlockEPjj.exit38 ], [ -1, %23 ], [ -1, %25 ], [ -1, %66 ], [ -1, %64 ]
   ret i32 %.0
 }
 

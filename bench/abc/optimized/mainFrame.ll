@@ -2183,7 +2183,7 @@ define range(i32 -1, 2) i32 @Abc_FrameCheckPoConst(ptr noundef readonly captures
   br label %34
 
 34:                                               ; preds = %12, %9, %6, %2, %29
-  %.0 = phi i32 [ %33, %29 ], [ -1, %2 ], [ -1, %6 ], [ -1, %9 ], [ -1, %12 ]
+  %.0 = phi i32 [ -1, %2 ], [ -1, %6 ], [ %33, %29 ], [ -1, %12 ], [ -1, %9 ]
   ret i32 %.0
 }
 
@@ -2240,7 +2240,7 @@ define void @Abc_FrameCheckPoConstTest(ptr noundef readonly captures(none) %0) l
   br label %Abc_FrameCheckPoConst.exit
 
 Abc_FrameCheckPoConst.exit:                       ; preds = %.lr.ph, %8, %24
-  %.0.i = phi i32 [ %28, %24 ], [ -1, %.lr.ph ], [ -1, %8 ]
+  %.0.i = phi i32 [ -1, %8 ], [ -1, %.lr.ph ], [ %28, %24 ]
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   %30 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %29, i32 noundef %.0.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

@@ -2414,7 +2414,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
   br i1 %398, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !114
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %395, %393, %389, %385, %376
-  %.0.i.i = phi i32 [ %386, %385 ], [ %390, %389 ], [ %394, %393 ], [ 1, %376 ], [ %397, %395 ]
+  %.0.i.i = phi i32 [ %394, %393 ], [ %386, %385 ], [ %390, %389 ], [ 1, %376 ], [ %397, %395 ]
   %.lobit.i = lshr i64 %381, 63
   %399 = trunc nuw nsw i64 %.lobit.i to i32
   %400 = add i32 %.0.i.i, %399
@@ -2693,7 +2693,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
   br i1 %521, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i180, label %.lr.ph.i.i177, !llvm.loop !114
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i180: ; preds = %518, %516, %512, %508, %499
-  %.0.i.i181 = phi i32 [ %509, %508 ], [ %513, %512 ], [ %517, %516 ], [ 1, %499 ], [ %520, %518 ]
+  %.0.i.i181 = phi i32 [ %517, %516 ], [ %509, %508 ], [ %513, %512 ], [ 1, %499 ], [ %520, %518 ]
   %.lobit.i182 = lshr i64 %504, 63
   %522 = trunc nuw nsw i64 %.lobit.i182 to i32
   %523 = add i32 %.0.i.i181, %522
@@ -4954,7 +4954,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
   br i1 %403, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !114
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %400, %398, %394, %390, %381
-  %.0.i.i = phi i32 [ %391, %390 ], [ %395, %394 ], [ %399, %398 ], [ 1, %381 ], [ %402, %400 ]
+  %.0.i.i = phi i32 [ %399, %398 ], [ %391, %390 ], [ %395, %394 ], [ 1, %381 ], [ %402, %400 ]
   %.lobit.i = lshr i64 %386, 63
   %404 = trunc nuw nsw i64 %.lobit.i to i32
   %405 = add i32 %.0.i.i, %404
@@ -5233,7 +5233,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
   br i1 %526, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i182, label %.lr.ph.i.i179, !llvm.loop !114
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i182: ; preds = %523, %521, %517, %513, %504
-  %.0.i.i183 = phi i32 [ %514, %513 ], [ %518, %517 ], [ %522, %521 ], [ 1, %504 ], [ %525, %523 ]
+  %.0.i.i183 = phi i32 [ %522, %521 ], [ %514, %513 ], [ %518, %517 ], [ 1, %504 ], [ %525, %523 ]
   %.lobit.i184 = lshr i64 %509, 63
   %527 = trunc nuw nsw i64 %.lobit.i184 to i32
   %528 = add i32 %.0.i.i183, %527
@@ -6431,7 +6431,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit390: ; preds = %_Z
   br label %957
 
 957:                                              ; preds = %713, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit390, %711
-  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit390 ], [ %712, %711 ], [ %714, %713 ]
+  %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit390 ], [ %714, %713 ], [ %712, %711 ]
   %958 = load ptr, ptr %12, align 8, !tbaa !161
   call void @free(ptr noundef %958) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -34076,8 +34076,8 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i: ; preds = %27
   br i1 %35, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i.i, %.thread37, %.thread, %33
-  %36 = phi i64 [ 0, %.thread ], [ %34, %33 ], [ %26, %.thread37 ], [ %34, %.lr.ph.i.i.i.i.i.i.i ]
-  %.pre.i36 = phi ptr [ null, %.thread ], [ %30, %33 ], [ null, %.thread37 ], [ %30, %.lr.ph.i.i.i.i.i.i.i ]
+  %36 = phi i64 [ 0, %.thread ], [ %26, %.thread37 ], [ %34, %33 ], [ %34, %.lr.ph.i.i.i.i.i.i.i ]
+  %.pre.i36 = phi ptr [ null, %.thread ], [ null, %.thread37 ], [ %30, %33 ], [ %30, %.lr.ph.i.i.i.i.i.i.i ]
   %37 = icmp slt i64 %36, %22
   br i1 %37, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIiiEEKNS_12ArrayWrapperIKNS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIiEEKNS_5ArrayIiLin1ELin1ELi0ELin1ELin1EEEEEEEE4evalEv.exit
 
@@ -34299,7 +34299,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15: ; preds = %120
   br label %.body17
 
 .body17:                                          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15, %49
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15 ], [ %50, %49 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %50, %49 ], [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %126
@@ -38764,7 +38764,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
   br i1 %413, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !114
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %410, %408, %404, %400, %391
-  %.0.i.i = phi i32 [ %401, %400 ], [ %405, %404 ], [ %409, %408 ], [ 1, %391 ], [ %412, %410 ]
+  %.0.i.i = phi i32 [ %409, %408 ], [ %401, %400 ], [ %405, %404 ], [ 1, %391 ], [ %412, %410 ]
   %.lobit.i = lshr i64 %396, 63
   %414 = trunc nuw nsw i64 %.lobit.i to i32
   %415 = add i32 %.0.i.i, %414
@@ -39043,7 +39043,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
   br i1 %536, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i183, label %.lr.ph.i.i180, !llvm.loop !114
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i183: ; preds = %533, %531, %527, %523, %514
-  %.0.i.i184 = phi i32 [ %524, %523 ], [ %528, %527 ], [ %532, %531 ], [ 1, %514 ], [ %535, %533 ]
+  %.0.i.i184 = phi i32 [ %532, %531 ], [ %524, %523 ], [ %528, %527 ], [ 1, %514 ], [ %535, %533 ]
   %.lobit.i185 = lshr i64 %519, 63
   %537 = trunc nuw nsw i64 %.lobit.i185 to i32
   %538 = add i32 %.0.i.i184, %537

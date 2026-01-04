@@ -166,8 +166,8 @@ _ZNSt10unique_ptrIKN4llvm12MemoryBufferESt14default_deleteIS2_EED2Ev.exit: ; pre
   store ptr null, ptr %0, align 8, !tbaa !30
   br label %_ZN4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit
 
-_ZN5clang13HeaderMapImpl11checkHeaderERKN4llvm12MemoryBufferERb.exit.thread: ; preds = %_ZN5clang13HeaderMapImpl11checkHeaderERKN4llvm12MemoryBufferERb.exit, %23, %38, %42, %34, %45, %32, %_ZNSt10unique_ptrIKN4llvm12MemoryBufferESt14default_deleteIS2_EED2Ev.exit
-  %.sink = phi ptr [ %54, %_ZNSt10unique_ptrIKN4llvm12MemoryBufferESt14default_deleteIS2_EED2Ev.exit ], [ null, %32 ], [ null, %45 ], [ null, %34 ], [ null, %42 ], [ null, %38 ], [ null, %23 ], [ null, %_ZN5clang13HeaderMapImpl11checkHeaderERKN4llvm12MemoryBufferERb.exit ]
+_ZN5clang13HeaderMapImpl11checkHeaderERKN4llvm12MemoryBufferERb.exit.thread: ; preds = %_ZN5clang13HeaderMapImpl11checkHeaderERKN4llvm12MemoryBufferERb.exit, %23, %32, %42, %38, %45, %34, %_ZNSt10unique_ptrIKN4llvm12MemoryBufferESt14default_deleteIS2_EED2Ev.exit
+  %.sink = phi ptr [ %54, %_ZNSt10unique_ptrIKN4llvm12MemoryBufferESt14default_deleteIS2_EED2Ev.exit ], [ null, %34 ], [ null, %45 ], [ null, %38 ], [ null, %42 ], [ null, %32 ], [ null, %23 ], [ null, %_ZN5clang13HeaderMapImpl11checkHeaderERKN4llvm12MemoryBufferERb.exit ]
   store ptr %.sink, ptr %0, align 8, !tbaa !57
   %.pr = load ptr, ptr %4, align 8, !tbaa !35
   %.not.i.i = icmp eq ptr %.pr, null
@@ -250,7 +250,7 @@ define dso_local noundef zeroext i1 @_ZN5clang13HeaderMapImpl11checkHeaderERKN4l
   br label %.thread
 
 .thread:                                          ; preds = %11, %24, %13, %17, %21, %31, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %17 ], [ false, %21 ], [ %35, %31 ], [ false, %13 ], [ false, %24 ], [ false, %11 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %11 ], [ false, %21 ], [ false, %17 ], [ %35, %31 ], [ false, %24 ], [ false, %13 ]
   ret i1 %.0
 }
 
@@ -364,7 +364,7 @@ define dso_local void @_ZNK5clang13HeaderMapImpl9getStringEj(ptr dead_on_unwind 
   br label %35
 
 35:                                               ; preds = %28, %3, %33
-  %.sink = phi i8 [ 1, %33 ], [ 0, %3 ], [ 0, %28 ]
+  %.sink = phi i8 [ 0, %3 ], [ 1, %33 ], [ 0, %28 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %36, align 8, !tbaa !71
   ret void
@@ -915,14 +915,14 @@ _ZL11HashHMapKeyN4llvm9StringRefE.exit:           ; preds = %.lr.ph.i, %4
   %34 = icmp eq i32 %spec.select.i.i70, 0
   br i1 %34, label %.critedge19, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZL11HashHMapKeyN4llvm9StringRefE.exit, %_ZNK5clang13HeaderMapImpl9getStringEj.exit.thread
-  %35 = phi i8 [ %141, %_ZNK5clang13HeaderMapImpl9getStringEj.exit.thread ], [ %13, %_ZL11HashHMapKeyN4llvm9StringRefE.exit ]
-  %36 = phi ptr [ %142, %_ZNK5clang13HeaderMapImpl9getStringEj.exit.thread ], [ %7, %_ZL11HashHMapKeyN4llvm9StringRefE.exit ]
-  %.pn = phi ptr [ %149, %_ZNK5clang13HeaderMapImpl9getStringEj.exit.thread ], [ %31, %_ZL11HashHMapKeyN4llvm9StringRefE.exit ]
-  %spec.select.i.i72 = phi i32 [ %spec.select.i.i, %_ZNK5clang13HeaderMapImpl9getStringEj.exit.thread ], [ %spec.select.i.i70, %_ZL11HashHMapKeyN4llvm9StringRefE.exit ]
-  %37 = phi i1 [ %151, %_ZNK5clang13HeaderMapImpl9getStringEj.exit.thread ], [ %14, %_ZL11HashHMapKeyN4llvm9StringRefE.exit ]
-  %38 = phi ptr [ %146, %_ZNK5clang13HeaderMapImpl9getStringEj.exit.thread ], [ %9, %_ZL11HashHMapKeyN4llvm9StringRefE.exit ]
-  %.071 = phi i32 [ %143, %_ZNK5clang13HeaderMapImpl9getStringEj.exit.thread ], [ %.0.lcssa.i, %_ZL11HashHMapKeyN4llvm9StringRefE.exit ]
+.lr.ph:                                           ; preds = %_ZL11HashHMapKeyN4llvm9StringRefE.exit, %.critedge21
+  %35 = phi i8 [ %141, %.critedge21 ], [ %13, %_ZL11HashHMapKeyN4llvm9StringRefE.exit ]
+  %36 = phi ptr [ %142, %.critedge21 ], [ %7, %_ZL11HashHMapKeyN4llvm9StringRefE.exit ]
+  %.pn = phi ptr [ %149, %.critedge21 ], [ %31, %_ZL11HashHMapKeyN4llvm9StringRefE.exit ]
+  %spec.select.i.i72 = phi i32 [ %spec.select.i.i, %.critedge21 ], [ %spec.select.i.i70, %_ZL11HashHMapKeyN4llvm9StringRefE.exit ]
+  %37 = phi i1 [ %151, %.critedge21 ], [ %14, %_ZL11HashHMapKeyN4llvm9StringRefE.exit ]
+  %38 = phi ptr [ %146, %.critedge21 ], [ %9, %_ZL11HashHMapKeyN4llvm9StringRefE.exit ]
+  %.071 = phi i32 [ %143, %.critedge21 ], [ %.0.lcssa.i, %_ZL11HashHMapKeyN4llvm9StringRefE.exit ]
   %.in73 = getelementptr inbounds nuw i8, ptr %.pn, i64 4
   %39 = load i32, ptr %.in73, align 4, !tbaa !65
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 8
@@ -939,7 +939,7 @@ _ZL11HashHMapKeyN4llvm9StringRefE.exit:           ; preds = %.lr.ph.i, %4
   %49 = ptrtoint ptr %38 to i64
   %50 = sub i64 %48, %49
   %.not.i23 = icmp ugt i64 %50, %45
-  br i1 %.not.i23, label %51, label %_ZNK5clang13HeaderMapImpl9getStringEj.exit.thread
+  br i1 %.not.i23, label %51, label %.critedge21
 
 51:                                               ; preds = %.lr.ph
   %52 = getelementptr inbounds nuw i8, ptr %38, i64 %45
@@ -957,20 +957,20 @@ _ZL11HashHMapKeyN4llvm9StringRefE.exit:           ; preds = %.lr.ph.i, %4
   %62 = getelementptr inbounds nuw i8, ptr %52, i64 %61
   %63 = load i8, ptr %62, align 1, !tbaa !68, !noalias !95
   %.not13.i = icmp eq i8 %63, 0
-  br i1 %.not13.i, label %64, label %_ZNK5clang13HeaderMapImpl9getStringEj.exit.thread
+  br i1 %.not13.i, label %64, label %.critedge21
 
 64:                                               ; preds = %59, %51
   %65 = and i64 %56, 4294967295
   %66 = load i64, ptr %6, align 8, !tbaa !98
   %67 = icmp eq i64 %66, %65
-  br i1 %67, label %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit, label %_ZNK5clang13HeaderMapImpl9getStringEj.exit.thread
+  br i1 %67, label %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit, label %.critedge21
 
 _ZNK4llvm9StringRef18equals_insensitiveES0_.exit: ; preds = %64
   %68 = call noundef i32 @_ZNK4llvm9StringRef19compare_insensitiveES0_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr %52, i64 %65) #16
   %69 = icmp eq i32 %68, 0
   %.pre = load ptr, ptr %0, align 8, !tbaa !35
   %.pre81 = load i8, ptr %12, align 8, !tbaa !45, !range !61
-  br i1 %69, label %70, label %_ZNK5clang13HeaderMapImpl9getStringEj.exit.thread
+  br i1 %69, label %70, label %.critedge21
 
 70:                                               ; preds = %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit
   %71 = call i32 @llvm.bswap.i32(i32 %39)
@@ -1116,7 +1116,7 @@ _ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit41: ; preds = %_ZN4llvm15Sm
   %140 = load ptr, ptr %3, align 8, !tbaa !110
   br label %.critedge19
 
-_ZNK5clang13HeaderMapImpl9getStringEj.exit.thread: ; preds = %64, %59, %.lr.ph, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit
+.critedge21:                                      ; preds = %64, %59, %.lr.ph, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit
   %141 = phi i8 [ %35, %64 ], [ %35, %59 ], [ %35, %.lr.ph ], [ %.pre81, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit ]
   %142 = phi ptr [ %36, %64 ], [ %36, %59 ], [ %36, %.lr.ph ], [ %.pre, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit ]
   %143 = add i32 %.071, 1
@@ -1133,9 +1133,9 @@ _ZNK5clang13HeaderMapImpl9getStringEj.exit.thread: ; preds = %64, %59, %.lr.ph, 
   %153 = icmp eq i32 %spec.select.i.i, 0
   br i1 %153, label %.critedge19, label %.lr.ph, !llvm.loop !111
 
-.critedge19:                                      ; preds = %_ZNK5clang13HeaderMapImpl9getStringEj.exit.thread, %_ZL11HashHMapKeyN4llvm9StringRefE.exit, %.critedge
-  %.sroa.4.0 = phi i64 [ %139, %.critedge ], [ 0, %_ZL11HashHMapKeyN4llvm9StringRefE.exit ], [ 0, %_ZNK5clang13HeaderMapImpl9getStringEj.exit.thread ]
-  %.sroa.052.0 = phi ptr [ %140, %.critedge ], [ null, %_ZL11HashHMapKeyN4llvm9StringRefE.exit ], [ null, %_ZNK5clang13HeaderMapImpl9getStringEj.exit.thread ]
+.critedge19:                                      ; preds = %.critedge21, %_ZL11HashHMapKeyN4llvm9StringRefE.exit, %.critedge
+  %.sroa.4.0 = phi i64 [ %139, %.critedge ], [ 0, %_ZL11HashHMapKeyN4llvm9StringRefE.exit ], [ 0, %.critedge21 ]
+  %.sroa.052.0 = phi ptr [ %140, %.critedge ], [ null, %_ZL11HashHMapKeyN4llvm9StringRefE.exit ], [ null, %.critedge21 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.052.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -1421,19 +1421,19 @@ _ZN4llvm11SmallVectorIcLj1024EED2Ev.exit:         ; preds = %_ZN4llvmeqENS_9Stri
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNK5clang13HeaderMapImpl9getStringEj.exit28, %106, %_ZN4llvm11SmallVectorIcLj1024EED2Ev.exit, %_ZNK5clang13HeaderMapImpl9getStringEj.exit34, %36
-  %.sroa.548.1 = phi i64 [ %.sroa.548.062, %36 ], [ %.sroa.548.2, %_ZNK5clang13HeaderMapImpl9getStringEj.exit34 ], [ %.sroa.548.2, %_ZN4llvm11SmallVectorIcLj1024EED2Ev.exit ], [ %.sroa.548.2, %106 ], [ %.sroa.548.2, %_ZNK5clang13HeaderMapImpl9getStringEj.exit28 ]
-  %.sroa.046.1 = phi ptr [ %.sroa.046.063, %36 ], [ %.sroa.046.2, %_ZNK5clang13HeaderMapImpl9getStringEj.exit34 ], [ %.sroa.046.2, %_ZN4llvm11SmallVectorIcLj1024EED2Ev.exit ], [ %.sroa.046.2, %106 ], [ %.sroa.046.2, %_ZNK5clang13HeaderMapImpl9getStringEj.exit28 ]
-  %.sroa.051.1 = phi ptr [ %.sroa.051.064, %36 ], [ %.sroa.051.2, %_ZNK5clang13HeaderMapImpl9getStringEj.exit34 ], [ %.sroa.051.2, %_ZN4llvm11SmallVectorIcLj1024EED2Ev.exit ], [ %.sroa.051.2, %106 ], [ %.sroa.051.2, %_ZNK5clang13HeaderMapImpl9getStringEj.exit28 ]
-  %.sroa.553.1 = phi i64 [ %.sroa.553.065, %36 ], [ %.sroa.553.2, %_ZNK5clang13HeaderMapImpl9getStringEj.exit34 ], [ %.sroa.553.2, %_ZN4llvm11SmallVectorIcLj1024EED2Ev.exit ], [ %.sroa.553.2, %106 ], [ %.sroa.553.2, %_ZNK5clang13HeaderMapImpl9getStringEj.exit28 ]
-  %.sroa.4.2 = phi i64 [ %.sroa.4.168, %36 ], [ %.sroa.4.168, %_ZNK5clang13HeaderMapImpl9getStringEj.exit34 ], [ %.sroa.4.4, %_ZN4llvm11SmallVectorIcLj1024EED2Ev.exit ], [ %.sroa.4.168, %106 ], [ %.sroa.4.168, %_ZNK5clang13HeaderMapImpl9getStringEj.exit28 ]
-  %.sroa.056.2 = phi ptr [ %.sroa.056.169, %36 ], [ %.sroa.056.169, %_ZNK5clang13HeaderMapImpl9getStringEj.exit34 ], [ %.sroa.056.4, %_ZN4llvm11SmallVectorIcLj1024EED2Ev.exit ], [ %.sroa.056.169, %106 ], [ %.sroa.056.169, %_ZNK5clang13HeaderMapImpl9getStringEj.exit28 ]
+  %.sroa.548.1 = phi i64 [ %.sroa.548.062, %36 ], [ %.sroa.548.2, %_ZN4llvm11SmallVectorIcLj1024EED2Ev.exit ], [ %.sroa.548.2, %_ZNK5clang13HeaderMapImpl9getStringEj.exit34 ], [ %.sroa.548.2, %106 ], [ %.sroa.548.2, %_ZNK5clang13HeaderMapImpl9getStringEj.exit28 ]
+  %.sroa.046.1 = phi ptr [ %.sroa.046.063, %36 ], [ %.sroa.046.2, %_ZN4llvm11SmallVectorIcLj1024EED2Ev.exit ], [ %.sroa.046.2, %_ZNK5clang13HeaderMapImpl9getStringEj.exit34 ], [ %.sroa.046.2, %106 ], [ %.sroa.046.2, %_ZNK5clang13HeaderMapImpl9getStringEj.exit28 ]
+  %.sroa.051.1 = phi ptr [ %.sroa.051.064, %36 ], [ %.sroa.051.2, %_ZN4llvm11SmallVectorIcLj1024EED2Ev.exit ], [ %.sroa.051.2, %_ZNK5clang13HeaderMapImpl9getStringEj.exit34 ], [ %.sroa.051.2, %106 ], [ %.sroa.051.2, %_ZNK5clang13HeaderMapImpl9getStringEj.exit28 ]
+  %.sroa.553.1 = phi i64 [ %.sroa.553.065, %36 ], [ %.sroa.553.2, %_ZN4llvm11SmallVectorIcLj1024EED2Ev.exit ], [ %.sroa.553.2, %_ZNK5clang13HeaderMapImpl9getStringEj.exit34 ], [ %.sroa.553.2, %106 ], [ %.sroa.553.2, %_ZNK5clang13HeaderMapImpl9getStringEj.exit28 ]
+  %.sroa.4.2 = phi i64 [ %.sroa.4.168, %36 ], [ %.sroa.4.4, %_ZN4llvm11SmallVectorIcLj1024EED2Ev.exit ], [ %.sroa.4.168, %_ZNK5clang13HeaderMapImpl9getStringEj.exit34 ], [ %.sroa.4.168, %106 ], [ %.sroa.4.168, %_ZNK5clang13HeaderMapImpl9getStringEj.exit28 ]
+  %.sroa.056.2 = phi ptr [ %.sroa.056.169, %36 ], [ %.sroa.056.4, %_ZN4llvm11SmallVectorIcLj1024EED2Ev.exit ], [ %.sroa.056.169, %_ZNK5clang13HeaderMapImpl9getStringEj.exit34 ], [ %.sroa.056.169, %106 ], [ %.sroa.056.169, %_ZNK5clang13HeaderMapImpl9getStringEj.exit28 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %35
   br i1 %.not, label %_ZNK4llvm9StringMapINS_9StringRefENS_15MallocAllocatorEE6lookupES1_.exit, label %36, !llvm.loop !124
 
 _ZNK4llvm9StringMapINS_9StringRefENS_15MallocAllocatorEE6lookupES1_.exit: ; preds = %.critedge, %21, %17, %9
-  %.sroa.4.0 = phi i64 [ %.sroa.4.0.copyload.i, %17 ], [ 0, %9 ], [ 0, %21 ], [ %.sroa.4.2, %.critedge ]
-  %.sroa.056.0 = phi ptr [ %.sroa.06.0.copyload.i, %17 ], [ null, %9 ], [ null, %21 ], [ %.sroa.056.2, %.critedge ]
+  %.sroa.4.0 = phi i64 [ 0, %9 ], [ %.sroa.4.0.copyload.i, %17 ], [ 0, %21 ], [ %.sroa.4.2, %.critedge ]
+  %.sroa.056.0 = phi ptr [ null, %9 ], [ %.sroa.06.0.copyload.i, %17 ], [ null, %21 ], [ %.sroa.056.2, %.critedge ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.056.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %.fca.1.insert

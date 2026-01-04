@@ -61,7 +61,7 @@ define range(i32 0, 2) i32 @conf_ssl_name_find(ptr noundef readonly captures(add
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
 .loopexit:                                        ; preds = %11, %4, %2, %10
-  %.09 = phi i32 [ 1, %10 ], [ 0, %2 ], [ 0, %4 ], [ 0, %11 ]
+  %.09 = phi i32 [ 0, %2 ], [ 1, %10 ], [ 0, %4 ], [ 0, %11 ]
   ret i32 %.09
 }
 
@@ -203,7 +203,7 @@ define internal range(i32 0, 2) i32 @ssl_module_init(ptr noundef %0, ptr noundef
   %67 = icmp ult i64 %65, %66
   br i1 %67, label %.lr.ph86, label %.loopexit, !llvm.loop !26
 
-.thread:                                          ; preds = %38, %33, %.lr.ph, %26, %7, %10
+.thread:                                          ; preds = %33, %38, %.lr.ph, %26, %7, %10
   tail call void @ssl_module_free(ptr poison)
   br label %.loopexit
 

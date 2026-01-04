@@ -1409,7 +1409,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i: ; preds = %2
   br label %_ZNK4llvm9StringRef7compareES0_.exit
 
 _ZNK4llvm9StringRef7compareES0_.exit:             ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i, %.thread.i, %18
-  %.1.i = phi i32 [ %20, %18 ], [ %spec.select.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i ], [ 0, %.thread.i ]
+  %.1.i = phi i32 [ %spec.select.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i ], [ %20, %18 ], [ 0, %.thread.i ]
   ret i32 %.1.i
 }
 
@@ -5812,7 +5812,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %18, %20
 _ZN4llvm11raw_ostreamlsEc.exit23:                 ; preds = %29, %59, %25
   br i1 %or.cond17, label %_ZN4llvm11raw_ostreamlsEc.exit23.thread, label %71
 
-_ZN4llvm11raw_ostreamlsEc.exit23.thread:          ; preds = %69, %67, %48, %46, %53, %58, %_ZN4llvm11raw_ostreamlsEc.exit23
+_ZN4llvm11raw_ostreamlsEc.exit23.thread:          ; preds = %69, %67, %46, %58, %53, %48, %_ZN4llvm11raw_ostreamlsEc.exit23
   store i8 0, ptr %4, align 4, !tbaa !318
   store i8 0, ptr %7, align 1, !tbaa !319
   br label %71
@@ -6106,7 +6106,7 @@ _ZN12_GLOBAL__N_124PrintPPOutputPPCallbacks10MoveToLineERKN5clang5TokenEb.exit: 
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
 .lr.ph:                                           ; preds = %57, %53
-  %.039 = phi i32 [ 2, %57 ], [ %56, %53 ]
+  %.039 = phi i32 [ %56, %53 ], [ 2, %57 ]
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 496
   br label %75
 
@@ -6187,7 +6187,7 @@ _ZN4llvm11raw_ostreamlsEc.exit34:                 ; preds = %81, %83
   store i8 32, ptr %111, align 1, !tbaa !42
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
-_ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %_ZN4llvm11raw_ostreamlsEc.exit34, %72, %70, %.thread, %116, %114, %51, %49, %96, %102, %39
+_ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %_ZN4llvm11raw_ostreamlsEc.exit34, %70, %.thread, %72, %116, %114, %51, %49, %96, %102, %39
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %119, ptr noundef nonnull align 8 dereferenceable(20) %118, i64 20, i1 false), !tbaa.struct !424

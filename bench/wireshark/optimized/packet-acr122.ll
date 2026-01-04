@@ -800,8 +800,8 @@ proto_item_set_generated.exit:                    ; preds = %86, %92, %95
   br label %.thread559
 
 .thread559:                                       ; preds = %.thread, %261, %268, %285, %271, %258
-  %.2536 = phi i8 [ %273, %271 ], [ %273, %285 ], [ 0, %268 ], [ 0, %261 ], [ 0, %258 ], [ %282, %.thread ]
-  %.0532 = phi i32 [ %275, %271 ], [ %275, %285 ], [ 0, %268 ], [ 0, %261 ], [ 0, %258 ], [ %284, %.thread ]
+  %.2536 = phi i8 [ %273, %271 ], [ %273, %285 ], [ %282, %.thread ], [ 0, %268 ], [ 0, %261 ], [ 0, %258 ]
+  %.0532 = phi i32 [ %275, %271 ], [ %275, %285 ], [ %284, %.thread ], [ 0, %268 ], [ 0, %261 ], [ 0, %258 ]
   %287 = load i32, ptr @hf_response, align 4
   %288 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0)
   %289 = zext i8 %.2536 to i32
@@ -912,8 +912,8 @@ proto_item_set_generated.exit557:                 ; preds = %300, %304, %307
   %349 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0)
   br label %413
 
-350:                                              ; preds = %314, %311, %322, %329, %332, %339, %proto_item_set_generated.exit554, %proto_item_set_generated.exit557
-  %.2.ph = phi i32 [ 0, %proto_item_set_generated.exit557 ], [ 0, %proto_item_set_generated.exit554 ], [ %345, %339 ], [ %338, %332 ], [ 0, %329 ], [ %328, %322 ], [ 0, %311 ], [ %321, %314 ]
+350:                                              ; preds = %339, %314, %311, %322, %329, %332, %proto_item_set_generated.exit554, %proto_item_set_generated.exit557
+  %.2.ph = phi i32 [ 0, %proto_item_set_generated.exit557 ], [ 0, %proto_item_set_generated.exit554 ], [ %338, %332 ], [ 0, %329 ], [ %328, %322 ], [ 0, %311 ], [ %321, %314 ], [ %345, %339 ]
   %351 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.2.ph)
   %352 = zext i16 %351 to i32
   %353 = load ptr, ptr %10, align 8

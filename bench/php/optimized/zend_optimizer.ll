@@ -215,7 +215,7 @@ define hidden i32 @zend_optimizer_eval_unary_op(ptr noundef %0, i8 noundef zeroe
   br label %14
 
 14:                                               ; preds = %6, %10, %8
-  %.0 = phi i32 [ %9, %8 ], [ 0, %10 ], [ -1, %6 ]
+  %.0 = phi i32 [ 0, %10 ], [ %9, %8 ], [ -1, %6 ]
   ret i32 %.0
 }
 
@@ -351,7 +351,7 @@ zval_get_string.exit:                             ; preds = %38, %33, %41
   br label %59
 
 59:                                               ; preds = %30, %30, %3, %58, %zval_get_string.exit, %zval_get_double.exit, %zval_get_long.exit, %6, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %6 ], [ 0, %zval_get_long.exit ], [ 0, %zval_get_double.exit ], [ 0, %zval_get_string.exit ], [ 0, %58 ], [ -1, %30 ], [ -1, %3 ], [ -1, %30 ]
+  %.0 = phi i32 [ 0, %58 ], [ 0, %4 ], [ 0, %6 ], [ 0, %zval_get_long.exit ], [ 0, %zval_get_double.exit ], [ 0, %zval_get_string.exit ], [ -1, %30 ], [ -1, %30 ], [ -1, %3 ]
   ret i32 %.0
 }
 
@@ -657,7 +657,7 @@ zend_string_equals_cstr.exit77:                   ; preds = %zend_string_equals_
   br label %zend_string_release_ex.exit89
 
 zend_string_release_ex.exit89:                    ; preds = %3, %zend_string_equals_cstr.exit65, %zend_string_equals_cstr.exit, %zend_string_equals_cstr.exit68, %zend_string_equals_cstr.exit71, %95, %90, %87, %zend_string_equals_cstr.exit77, %99, %104, %115, %117, %121, %102, %82, %65, %52, %58, %49, %54, %32, %26, %23, %zend_string_release_ex.exit, %61
-  %.1 = phi i32 [ %63, %61 ], [ 0, %32 ], [ -1, %26 ], [ -1, %23 ], [ -1, %zend_string_release_ex.exit ], [ 0, %58 ], [ 0, %52 ], [ -1, %49 ], [ -1, %54 ], [ -1, %65 ], [ 0, %82 ], [ -1, %99 ], [ -1, %104 ], [ 0, %115 ], [ 0, %117 ], [ 0, %121 ], [ 0, %102 ], [ -1, %zend_string_equals_cstr.exit77 ], [ -1, %87 ], [ -1, %90 ], [ -1, %95 ], [ -1, %zend_string_equals_cstr.exit71 ], [ -1, %zend_string_equals_cstr.exit68 ], [ -1, %zend_string_equals_cstr.exit ], [ -1, %zend_string_equals_cstr.exit65 ], [ -1, %3 ]
+  %.1 = phi i32 [ 0, %102 ], [ -1, %zend_string_release_ex.exit ], [ %63, %61 ], [ -1, %65 ], [ -1, %54 ], [ -1, %zend_string_equals_cstr.exit77 ], [ 0, %32 ], [ -1, %26 ], [ -1, %23 ], [ 0, %58 ], [ -1, %49 ], [ 0, %52 ], [ 0, %82 ], [ -1, %99 ], [ -1, %104 ], [ 0, %115 ], [ 0, %117 ], [ 0, %121 ], [ -1, %87 ], [ -1, %90 ], [ -1, %95 ], [ -1, %zend_string_equals_cstr.exit71 ], [ -1, %zend_string_equals_cstr.exit68 ], [ -1, %zend_string_equals_cstr.exit ], [ -1, %zend_string_equals_cstr.exit65 ], [ -1, %3 ]
   ret i32 %.1
 }
 
@@ -1197,8 +1197,8 @@ define hidden noundef zeroext i1 @zend_optimizer_update_op1_const(ptr noundef ca
   br label %zval_ptr_dtor_nogc.exit
 
 zval_ptr_dtor_nogc.exit:                          ; preds = %164, %159, %156, %153, %151
-  %.0116.sroa.phi = phi ptr [ %.0116.sroa.gep134, %153 ], [ %.0116.sroa.gep134, %151 ], [ %.0116.sroa.gep, %156 ], [ %.0116.sroa.gep, %159 ], [ %.0116.sroa.gep, %164 ]
-  %.0116 = phi ptr [ %2, %153 ], [ %2, %151 ], [ %4, %156 ], [ %4, %159 ], [ %4, %164 ]
+  %.0116.sroa.phi = phi ptr [ %.0116.sroa.gep134, %151 ], [ %.0116.sroa.gep134, %153 ], [ %.0116.sroa.gep, %156 ], [ %.0116.sroa.gep, %159 ], [ %.0116.sroa.gep, %164 ]
+  %.0116 = phi ptr [ %2, %151 ], [ %2, %153 ], [ %4, %156 ], [ %4, %159 ], [ %4, %164 ]
   %166 = call i32 @zend_optimizer_add_literal(ptr noundef %0, ptr noundef nonnull %.0116)
   %167 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %166, ptr %167, align 8, !tbaa !20
@@ -1314,7 +1314,7 @@ zval_ptr_dtor_nogc.exit:                          ; preds = %164, %159, %156, %1
   br label %zval_ptr_dtor_nogc.exit132
 
 zval_ptr_dtor_nogc.exit132:                       ; preds = %227, %223, %175, %28, %23, %14, %212, %181, %96, %81, %66, %55, %44, %30, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %7
-  %.0117 = phi i1 [ true, %175 ], [ false, %7 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %30 ], [ false, %44 ], [ false, %55 ], [ false, %66 ], [ false, %81 ], [ false, %96 ], [ false, %181 ], [ true, %212 ], [ true, %14 ], [ true, %23 ], [ true, %28 ], [ true, %223 ], [ true, %227 ]
+  %.0117 = phi i1 [ false, %181 ], [ false, %3 ], [ true, %212 ], [ false, %7 ], [ false, %3 ], [ false, %30 ], [ false, %44 ], [ false, %55 ], [ false, %66 ], [ false, %81 ], [ false, %96 ], [ false, %3 ], [ true, %175 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ true, %28 ], [ true, %14 ], [ true, %23 ], [ true, %223 ], [ true, %227 ]
   ret i1 %.0117
 }
 
@@ -2226,7 +2226,7 @@ _zend_handle_numeric_str.exit171.thread:          ; preds = %349, %348, %339, %z
   br label %zend_string_hash_val.exit
 
 zend_string_hash_val.exit:                        ; preds = %431, %427, %416, %383, %239, %226, %198, %183, %171, %157, %151, %114, %33, %21, %9, %3, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %3 ], [ false, %9 ], [ false, %21 ], [ false, %33 ], [ false, %114 ], [ false, %151 ], [ false, %157 ], [ false, %171 ], [ false, %183 ], [ false, %198 ], [ false, %226 ], [ false, %239 ], [ false, %383 ], [ true, %416 ], [ true, %427 ], [ true, %431 ]
+  %.0 = phi i1 [ false, %383 ], [ false, %239 ], [ false, %3 ], [ false, %9 ], [ false, %21 ], [ false, %33 ], [ false, %114 ], [ false, %151 ], [ false, %157 ], [ false, %171 ], [ false, %183 ], [ false, %198 ], [ false, %226 ], [ false, %3 ], [ true, %416 ], [ true, %427 ], [ true, %431 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
@@ -2293,7 +2293,7 @@ zend_string_equals_cstr.exit:                     ; preds = %zend_string_equals_
   br label %zend_string_equals_cstr.exit.thread
 
 zend_string_equals_cstr.exit.thread:              ; preds = %.thread29, %zend_string_equals_cstr.exit, %zend_string_equals_cstr.exit9, %zend_string_equals_cstr.exit15, %2, %zend_string_equals_cstr.exit12, %zend_string_equals_cstr.exit18, %zend_string_equals_cstr.exit21, %zend_string_equals_cstr.exit24
-  %.0 = phi i32 [ 1, %zend_string_equals_cstr.exit24 ], [ 1, %zend_string_equals_cstr.exit21 ], [ 1, %zend_string_equals_cstr.exit18 ], [ 4, %zend_string_equals_cstr.exit12 ], [ %spec.select, %zend_string_equals_cstr.exit15 ], [ 0, %2 ], [ 0, %.thread29 ], [ %spec.select36, %zend_string_equals_cstr.exit9 ], [ %spec.select37, %zend_string_equals_cstr.exit ]
+  %.0 = phi i32 [ 0, %2 ], [ 1, %zend_string_equals_cstr.exit24 ], [ 1, %zend_string_equals_cstr.exit21 ], [ 1, %zend_string_equals_cstr.exit18 ], [ %spec.select, %zend_string_equals_cstr.exit15 ], [ 4, %zend_string_equals_cstr.exit12 ], [ %spec.select36, %zend_string_equals_cstr.exit9 ], [ %spec.select37, %zend_string_equals_cstr.exit ], [ 0, %.thread29 ]
   ret i32 %.0
 }
 
@@ -2383,7 +2383,7 @@ define hidden noundef zeroext i1 @zend_optimizer_replace_by_const(ptr noundef ca
   br label %42
 
 42:                                               ; preds = %35, %35, %35, %35, %35, %35, %35, %35, %.fold.split, %38
-  %.not105 = phi i1 [ true, %35 ], [ %41, %38 ], [ true, %35 ], [ true, %35 ], [ true, %35 ], [ true, %35 ], [ true, %35 ], [ true, %35 ], [ true, %35 ], [ false, %.fold.split ]
+  %.not105 = phi i1 [ true, %35 ], [ true, %35 ], [ true, %35 ], [ true, %35 ], [ true, %35 ], [ true, %35 ], [ true, %35 ], [ true, %35 ], [ %41, %38 ], [ false, %.fold.split ]
   %43 = load i8, ptr %27, align 1, !tbaa !20
   %.not89 = icmp eq i8 %43, 0
   br i1 %.not89, label %48, label %44
@@ -2519,7 +2519,7 @@ define hidden noundef zeroext i1 @zend_optimizer_replace_by_const(ptr noundef ca
   br i1 %102, label %.lr.ph, label %.critedge91
 
 .critedge91:                                      ; preds = %100, %5, %60, %55, %._crit_edge, %.thread, %72, %62, %98, %88
-  %.4 = phi i1 [ %89, %88 ], [ %99, %98 ], [ false, %62 ], [ false, %72 ], [ false, %.thread ], [ true, %._crit_edge ], [ true, %55 ], [ true, %60 ], [ true, %5 ], [ true, %100 ]
+  %.4 = phi i1 [ %89, %88 ], [ false, %72 ], [ true, %60 ], [ %99, %98 ], [ false, %.thread ], [ false, %62 ], [ true, %._crit_edge ], [ true, %55 ], [ true, %5 ], [ true, %100 ]
   ret i1 %.4
 }
 
@@ -2982,7 +2982,7 @@ zend_optimizer_ignore_class.exit:                 ; preds = %31
   br label %zend_optimizer_ignore_class.exit.thread
 
 zend_optimizer_ignore_class.exit.thread:          ; preds = %31, %21, %zend_optimizer_ignore_class.exit, %zend_hash_find_ptr.exit, %53, %49, %41, %38, %37
-  %.0 = phi ptr [ %7, %zend_hash_find_ptr.exit ], [ %54, %53 ], [ null, %49 ], [ null, %41 ], [ null, %38 ], [ null, %37 ], [ %17, %zend_optimizer_ignore_class.exit ], [ %17, %21 ], [ %17, %31 ]
+  %.0 = phi ptr [ %7, %zend_hash_find_ptr.exit ], [ null, %37 ], [ %54, %53 ], [ null, %49 ], [ null, %41 ], [ null, %38 ], [ %17, %zend_optimizer_ignore_class.exit ], [ %17, %21 ], [ %17, %31 ]
   ret ptr %.0
 }
 
@@ -3343,8 +3343,8 @@ define hidden noundef ptr @zend_fetch_class_const_info(ptr noundef %0, ptr nound
   store i8 %132, ptr %3, align 1, !tbaa !138
   br label %.thread
 
-.thread:                                          ; preds = %105, %76, %81, %30, %56, %61, %46, %67, %70, %131, %116, %109, %86, %.thread89, %4, %7, %26
-  %.0 = phi ptr [ null, %26 ], [ null, %7 ], [ null, %4 ], [ null, %.thread89 ], [ null, %86 ], [ %110, %131 ], [ null, %116 ], [ null, %109 ], [ null, %70 ], [ null, %67 ], [ null, %46 ], [ null, %61 ], [ null, %56 ], [ null, %30 ], [ null, %81 ], [ null, %76 ], [ null, %105 ]
+.thread:                                          ; preds = %105, %76, %81, %61, %46, %67, %56, %70, %30, %131, %116, %109, %86, %.thread89, %4, %7, %26
+  %.0 = phi ptr [ null, %86 ], [ null, %4 ], [ null, %26 ], [ null, %7 ], [ null, %.thread89 ], [ null, %76 ], [ %110, %131 ], [ null, %116 ], [ null, %109 ], [ null, %30 ], [ null, %70 ], [ null, %105 ], [ null, %56 ], [ null, %67 ], [ null, %46 ], [ null, %61 ], [ null, %81 ]
   ret ptr %.0
 }
 
@@ -3989,8 +3989,8 @@ zend_optimizer_get_class_entry_from_op1.exit214.thread: ; preds = %359, %355, %z
   %368 = load ptr, ptr %367, align 8, !tbaa !145
   br label %zend_hash_find_ptr.exit
 
-zend_hash_find_ptr.exit:                          ; preds = %359, %355, %351, %348, %343, %324, %zend_optimizer_get_class_entry_from_op1.exit214, %zend_optimizer_get_class_entry_from_op1.exit214.thread, %319, %312, %316, %306, %281, %287, %270, %273, %280, %264, %zend_optimizer_ignore_function.exit206, %99, %90, %zend_optimizer_ignore_function.exit, %41, %32, %4, %63, %55, %133, %113, %240, %236, %230, %210, %206, %.thread, %.thread222, %.thread230, %.thread243, %253, %366, %323, %195, %zend_hash_find_ptr.exit195, %zend_hash_find_ptr.exit198
-  %.1 = phi ptr [ %322, %323 ], [ %368, %366 ], [ %29, %zend_hash_find_ptr.exit198 ], [ %86, %zend_hash_find_ptr.exit195 ], [ %196, %195 ], [ null, %253 ], [ null, %.thread243 ], [ null, %.thread230 ], [ null, %.thread222 ], [ null, %.thread ], [ null, %206 ], [ null, %210 ], [ null, %230 ], [ null, %236 ], [ null, %240 ], [ null, %113 ], [ null, %133 ], [ null, %55 ], [ null, %63 ], [ null, %4 ], [ %35, %32 ], [ %35, %41 ], [ %35, %zend_optimizer_ignore_function.exit ], [ %93, %90 ], [ %93, %99 ], [ %93, %zend_optimizer_ignore_function.exit206 ], [ %260, %270 ], [ %260, %273 ], [ %260, %280 ], [ %269, %264 ], [ null, %287 ], [ null, %281 ], [ null, %306 ], [ null, %316 ], [ null, %312 ], [ null, %319 ], [ null, %zend_optimizer_get_class_entry_from_op1.exit214.thread ], [ null, %zend_optimizer_get_class_entry_from_op1.exit214 ], [ null, %324 ], [ null, %343 ], [ null, %348 ], [ null, %351 ], [ null, %355 ], [ null, %359 ]
+zend_hash_find_ptr.exit:                          ; preds = %359, %355, %351, %348, %343, %324, %zend_optimizer_get_class_entry_from_op1.exit214, %zend_optimizer_get_class_entry_from_op1.exit214.thread, %316, %306, %319, %312, %287, %281, %273, %280, %264, %270, %zend_optimizer_ignore_function.exit206, %99, %90, %zend_optimizer_ignore_function.exit, %41, %32, %4, %63, %55, %133, %113, %240, %236, %230, %210, %206, %.thread, %.thread222, %.thread230, %.thread243, %253, %366, %323, %195, %zend_hash_find_ptr.exit195, %zend_hash_find_ptr.exit198
+  %.1 = phi ptr [ %196, %195 ], [ %368, %366 ], [ %29, %zend_hash_find_ptr.exit198 ], [ %86, %zend_hash_find_ptr.exit195 ], [ %93, %zend_optimizer_ignore_function.exit206 ], [ %322, %323 ], [ null, %4 ], [ %35, %zend_optimizer_ignore_function.exit ], [ null, %316 ], [ %260, %270 ], [ null, %253 ], [ null, %.thread243 ], [ null, %.thread230 ], [ null, %.thread222 ], [ null, %.thread ], [ null, %206 ], [ null, %210 ], [ null, %230 ], [ null, %236 ], [ null, %359 ], [ null, %240 ], [ null, %113 ], [ null, %133 ], [ null, %55 ], [ null, %63 ], [ %35, %32 ], [ %35, %41 ], [ %93, %90 ], [ %93, %99 ], [ %260, %273 ], [ %260, %280 ], [ %269, %264 ], [ null, %281 ], [ null, %287 ], [ null, %312 ], [ null, %319 ], [ null, %306 ], [ null, %zend_optimizer_get_class_entry_from_op1.exit214.thread ], [ null, %zend_optimizer_get_class_entry_from_op1.exit214 ], [ null, %324 ], [ null, %343 ], [ null, %348 ], [ null, %351 ], [ null, %355 ]
   ret ptr %.1
 }
 
@@ -4638,7 +4638,7 @@ zend_revert_pass_two.exit:                        ; preds = %._crit_edge.i, %71
   br i1 %228, label %217, label %.loopexit187
 
 .loopexit187:                                     ; preds = %225, %.preheader194, %.preheader195, %._crit_edge, %.loopexit189
-  %229 = phi i32 [ %212, %.loopexit189 ], [ %146, %.preheader194 ], [ %115, %.preheader195 ], [ %89, %._crit_edge ], [ %226, %225 ]
+  %229 = phi i32 [ %89, %._crit_edge ], [ %212, %.loopexit189 ], [ %146, %.preheader194 ], [ %115, %.preheader195 ], [ %226, %225 ]
   %230 = and i64 %1, 2048
   %.not148 = icmp eq i64 %230, 0
   br i1 %.not148, label %.loopexit185, label %.preheader184
@@ -4917,7 +4917,7 @@ zend_adjust_fcall_stack_size_graph.exit:          ; preds = %270, %235, %242
   br label %.thread.thread.i
 
 .thread.thread.i:                                 ; preds = %373, %370, %368, %366, %361, %357
-  %.0.i.ph.i = phi i32 [ %363, %361 ], [ -486539265, %368 ], [ -486539265, %370 ], [ %376, %373 ], [ %spec.select.i96.i, %366 ], [ -521143298, %357 ]
+  %.0.i.ph.i = phi i32 [ %363, %361 ], [ -486539265, %370 ], [ %376, %373 ], [ -486539265, %368 ], [ -521143298, %357 ], [ %spec.select.i96.i, %366 ]
   %377 = and i32 %.0.i.ph.i, 552599551
   br label %381
 
@@ -5000,7 +5000,7 @@ zend_adjust_fcall_stack_size_graph.exit:          ; preds = %270, %235, %242
   br label %_ssa_op2_info.exit.i
 
 _ssa_op2_info.exit.i:                             ; preds = %419, %415, %413, %411, %406, %404, %400
-  %.0.i89.i = phi i32 [ %405, %404 ], [ -521143298, %400 ], [ %spec.select.i.i, %411 ], [ %422, %419 ], [ -486539265, %415 ], [ -486539265, %413 ], [ %408, %406 ]
+  %.0.i89.i = phi i32 [ %spec.select.i.i, %411 ], [ -521143298, %400 ], [ %405, %404 ], [ -486539265, %413 ], [ %422, %419 ], [ -486539265, %415 ], [ %408, %406 ]
   %423 = and i32 %.0.i89.i, 552599551
   br label %.thread109.i
 
@@ -5063,7 +5063,7 @@ get_ssa_var_info.exit101.sink.split.i:            ; preds = %_ssa_result_def_inf
   br label %get_ssa_var_info.exit101.i
 
 get_ssa_var_info.exit101.i:                       ; preds = %get_ssa_var_info.exit101.sink.split.i, %_ssa_result_def_info.exit.i, %447, %443, %_ssa_op1_def_info.exit.i, %438, %428
-  %456 = phi i32 [ 1022, %428 ], [ 0, %443 ], [ 552599551, %_ssa_op1_def_info.exit.i ], [ 552599551, %438 ], [ 552599551, %_ssa_result_def_info.exit.i ], [ 552599551, %447 ], [ %455, %get_ssa_var_info.exit101.sink.split.i ]
+  %456 = phi i32 [ 1022, %428 ], [ 0, %443 ], [ 552599551, %438 ], [ 552599551, %_ssa_result_def_info.exit.i ], [ 552599551, %_ssa_op1_def_info.exit.i ], [ 552599551, %447 ], [ %455, %get_ssa_var_info.exit101.sink.split.i ]
   %457 = load i8, ptr %341, align 1, !tbaa !82
   %458 = icmp eq i8 %457, 1
   br i1 %458, label %459, label %468
@@ -6063,7 +6063,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @zend_optimizer_registe
   br label %9
 
 9:                                                ; preds = %2, %1, %5
-  %.0 = phi i32 [ %6, %5 ], [ -1, %1 ], [ -1, %2 ]
+  %.0 = phi i32 [ -1, %1 ], [ %6, %5 ], [ -1, %2 ]
   ret i32 %.0
 }
 

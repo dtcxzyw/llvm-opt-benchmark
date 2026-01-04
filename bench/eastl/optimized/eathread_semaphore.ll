@@ -196,7 +196,7 @@ if.else:                                          ; preds = %if.then25
   br label %return
 
 return:                                           ; preds = %entry, %if.end, %land.lhs.true, %if.else, %if.then33
-  %retval.0 = phi i1 [ false, %if.then33 ], [ true, %if.else ], [ false, %land.lhs.true ], [ true, %if.end ], [ false, %entry ]
+  %retval.0 = phi i1 [ true, %if.end ], [ false, %if.then33 ], [ true, %if.else ], [ false, %land.lhs.true ], [ false, %entry ]
   ret i1 %retval.0
 }
 
@@ -366,7 +366,7 @@ if.end39:                                         ; preds = %while.cond20, %whil
   br label %return
 
 return:                                           ; preds = %land.rhs, %if.then32, %if.then13, %if.end39
-  %retval.0 = phi i32 [ %8, %if.end39 ], [ %., %if.then13 ], [ %.5, %if.then32 ], [ -1, %land.rhs ]
+  %retval.0 = phi i32 [ %.5, %if.then32 ], [ %8, %if.end39 ], [ %., %if.then13 ], [ -1, %land.rhs ]
   ret i32 %retval.0
 }
 
@@ -409,7 +409,7 @@ if.then10:                                        ; preds = %while.body
   br label %return
 
 return:                                           ; preds = %while.cond, %entry, %if.then10
-  %retval.0 = phi i32 [ -1, %if.then10 ], [ -1, %entry ], [ %add, %while.cond ]
+  %retval.0 = phi i32 [ -1, %entry ], [ -1, %if.then10 ], [ %add, %while.cond ]
   ret i32 %retval.0
 }
 
@@ -519,7 +519,7 @@ if.else.i.i13:                                    ; preds = %if.then25.i.i10
   br label %return
 
 return:                                           ; preds = %if.else.i.i13, %if.then33.i.i14, %if.end.i.i4, %if.else.i.i, %if.then33.i.i, %if.end.i.i
-  %retval.0 = phi ptr [ %call, %if.end.i.i ], [ %call, %if.then33.i.i ], [ %call, %if.else.i.i ], [ %call1, %if.end.i.i4 ], [ %call1, %if.then33.i.i14 ], [ %call1, %if.else.i.i13 ]
+  %retval.0 = phi ptr [ %call, %if.else.i.i ], [ %call, %if.end.i.i ], [ %call, %if.then33.i.i ], [ %call1, %if.end.i.i4 ], [ %call1, %if.then33.i.i14 ], [ %call1, %if.else.i.i13 ]
   ret ptr %retval.0
 }
 

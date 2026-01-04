@@ -225,7 +225,7 @@ define internal i32 @dissect_gmrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %.sink.split
 
 .thread174:                                       ; preds = %53, %54, %70, %69, %67
-  %.2151243.lcssa.lcssa.sink = phi i32 [ %66, %67 ], [ %66, %69 ], [ %66, %70 ], [ %66, %54 ], [ %.2151243, %53 ]
+  %.2151243.lcssa.lcssa.sink = phi i32 [ %66, %54 ], [ %66, %67 ], [ %66, %69 ], [ %66, %70 ], [ %.2151243, %53 ]
   %72 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.2151243.lcssa.lcssa.sink)
   %73 = call i32 @call_data_dissector(ptr noundef %72, ptr noundef %1, ptr noundef %2)
   %74 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -280,7 +280,7 @@ define internal i32 @dissect_gmrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %89
 
 89:                                               ; preds = %.thread190, %.loopexit202, %21
-  %.0 = phi i32 [ %25, %21 ], [ %88, %.loopexit202 ], [ %.2.ph, %.thread190 ]
+  %.0 = phi i32 [ %25, %21 ], [ %.2.ph, %.thread190 ], [ %88, %.loopexit202 ]
   ret i32 %.0
 }
 

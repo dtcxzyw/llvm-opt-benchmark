@@ -430,7 +430,7 @@ define dso_local noundef ptr @vmemmap_pmd_populate(ptr noundef readonly captures
   br label %.thread
 
 .thread:                                          ; preds = %19, %22, %3
-  %32 = phi ptr [ %15, %22 ], [ %15, %3 ], [ null, %19 ]
+  %32 = phi ptr [ %15, %3 ], [ %15, %22 ], [ null, %19 ]
   ret ptr %32
 }
 
@@ -480,7 +480,7 @@ define dso_local noundef ptr @vmemmap_pud_populate(ptr noundef readonly captures
   br label %.thread
 
 .thread:                                          ; preds = %16, %19, %3
-  %29 = phi ptr [ %12, %19 ], [ %12, %3 ], [ null, %16 ]
+  %29 = phi ptr [ %12, %3 ], [ %12, %19 ], [ null, %16 ]
   ret ptr %29
 }
 
@@ -527,7 +527,7 @@ define dso_local noundef ptr @vmemmap_p4d_populate(ptr noundef %0, i64 noundef %
   br label %.thread
 
 .thread:                                          ; preds = %21, %24, %16
-  %25 = phi ptr [ %17, %24 ], [ %17, %16 ], [ null, %21 ]
+  %25 = phi ptr [ %17, %16 ], [ %17, %24 ], [ null, %21 ]
   ret ptr %25
 }
 
@@ -630,7 +630,7 @@ define dso_local noundef ptr @vmemmap_pgd_populate(i64 noundef %0, i32 noundef %
   br label %.thread
 
 .thread:                                          ; preds = %13, %29, %16, %11, %2
-  %31 = phi ptr [ %9, %11 ], [ %9, %16 ], [ %9, %29 ], [ %9, %2 ], [ null, %13 ]
+  %31 = phi ptr [ %9, %2 ], [ %9, %11 ], [ %9, %16 ], [ %9, %29 ], [ null, %13 ]
   ret ptr %31
 }
 
@@ -757,7 +757,7 @@ define dso_local noundef range(i32 -12, 1) i32 @vmemmap_populate_hugepages(i64 n
   br i1 %57, label %9, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %42, %.loopexit8, %21, %18, %9, %53, %4
-  %58 = phi i32 [ 0, %4 ], [ -12, %53 ], [ -12, %42 ], [ -12, %9 ], [ -12, %18 ], [ -12, %21 ], [ 0, %.loopexit8 ]
+  %58 = phi i32 [ 0, %4 ], [ -12, %53 ], [ -12, %9 ], [ -12, %18 ], [ -12, %21 ], [ 0, %.loopexit8 ], [ -12, %42 ]
   ret i32 %58
 }
 
@@ -935,7 +935,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @vmemmap_populate_compound_
   br i1 %83, label %.loopexit, label %78, !llvm.loop !19
 
 .loopexit:                                        ; preds = %59, %.preheader10, %.loopexit9, %.preheader7, %.preheader, %43, %49, %29, %26
-  %84 = phi i32 [ -12, %26 ], [ 0, %29 ], [ 0, %49 ], [ 0, %43 ], [ -12, %.preheader ], [ -12, %.preheader7 ], [ 0, %.loopexit9 ], [ -12, %59 ], [ -12, %.preheader10 ]
+  %84 = phi i32 [ -12, %26 ], [ 0, %29 ], [ 0, %49 ], [ -12, %.preheader7 ], [ -12, %.preheader ], [ 0, %43 ], [ -12, %.preheader10 ], [ 0, %.loopexit9 ], [ -12, %59 ]
   ret i32 %84
 }
 

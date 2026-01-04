@@ -69,9 +69,9 @@ define internal range(i32 0, 52) i32 @s337m_probe(ptr noundef readonly captures(
   br label %38
 
 38:                                               ; preds = %.thread, %27
-  %.025.i = phi i32 [ %spec.select.i, %27 ], [ %26, %.thread ]
-  %.024.i.in.in = phi ptr [ %28, %27 ], [ %23, %.thread ]
-  %.0.i = phi i32 [ %spec.select35.i, %27 ], [ 16, %.thread ]
+  %.025.i = phi i32 [ %26, %.thread ], [ %spec.select.i, %27 ]
+  %.024.i.in.in = phi ptr [ %23, %.thread ], [ %28, %27 ]
+  %.0.i = phi i32 [ 16, %.thread ], [ %spec.select35.i, %27 ]
   %.024.i.in = load i16, ptr %.024.i.in.in, align 1
   %39 = and i16 %.024.i.in, 31
   %.not.i = icmp eq i16 %39, 28
@@ -113,8 +113,8 @@ define internal range(i32 0, 52) i32 @s337m_probe(ptr noundef readonly captures(
   br label %s337m_get_offset_and_codec.exit.thread
 
 s337m_get_offset_and_codec.exit.thread:           ; preds = %40, %38, %8, %45
-  %.147 = phi i64 [ 0, %45 ], [ %14, %8 ], [ %14, %38 ], [ %14, %40 ]
-  %.144 = phi i32 [ %58, %45 ], [ %.04360, %8 ], [ %.04360, %38 ], [ %.04360, %40 ]
+  %.147 = phi i64 [ %14, %8 ], [ 0, %45 ], [ %14, %38 ], [ %14, %40 ]
+  %.144 = phi i32 [ %.04360, %8 ], [ %58, %45 ], [ %.04360, %38 ], [ %.04360, %40 ]
   %59 = add nsw i32 %.144, 1
   %60 = icmp slt i32 %59, %4
   br i1 %60, label %8, label %.preheader.preheader, !llvm.loop !14
@@ -215,9 +215,9 @@ define internal i32 @s337m_read_packet(ptr noundef %0, ptr noundef %1) #2 {
   br label %26
 
 26:                                               ; preds = %.thread, %21
-  %.025.i = phi i32 [ %spec.select.i, %21 ], [ %20, %.thread ]
-  %.024.i = phi i32 [ %24, %21 ], [ %19, %.thread ]
-  %.0.i = phi i32 [ %spec.select35.i, %21 ], [ 16, %.thread ]
+  %.025.i = phi i32 [ %20, %.thread ], [ %spec.select.i, %21 ]
+  %.024.i = phi i32 [ %19, %.thread ], [ %24, %21 ]
+  %.0.i = phi i32 [ 16, %.thread ], [ %spec.select35.i, %21 ]
   %27 = and i32 %.024.i, 31
   %.not.i = icmp eq i32 %27, 28
   br i1 %.not.i, label %30, label %28
@@ -329,8 +329,8 @@ bswap_buf24.exit:                                 ; preds = %.lr.ph.i, %54, %48
   store i32 2, ptr %74, align 8, !tbaa !49
   br label %.critedge46
 
-.critedge46:                                      ; preds = %13, %35, %36, %28, %29, %bswap_buf24.exit, %70, %68, %44
-  %.0 = phi i32 [ %46, %44 ], [ -12, %68 ], [ 0, %70 ], [ 0, %bswap_buf24.exit ], [ -1163346256, %29 ], [ -1163346256, %28 ], [ -1163346256, %36 ], [ -1163346256, %35 ], [ -541478725, %13 ]
+.critedge46:                                      ; preds = %13, %35, %36, %29, %28, %bswap_buf24.exit, %70, %68, %44
+  %.0 = phi i32 [ -12, %68 ], [ -1163346256, %35 ], [ %46, %44 ], [ 0, %bswap_buf24.exit ], [ 0, %70 ], [ -1163346256, %28 ], [ -1163346256, %29 ], [ -1163346256, %36 ], [ -541478725, %13 ]
   ret i32 %.0
 }
 

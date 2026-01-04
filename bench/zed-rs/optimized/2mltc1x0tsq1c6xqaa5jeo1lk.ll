@@ -487,7 +487,7 @@ define hidden void @_ZN4gpui3app10AppContext10set_global17h24909fd79bfdf38aE(ptr
   ret void
 
 .body.thread:                                     ; preds = %34, %42, %12, %43
-  %eh.lpad-body8 = phi { ptr, i32 } [ %44, %43 ], [ %13, %12 ], [ %35, %42 ], [ %35, %34 ]
+  %eh.lpad-body8 = phi { ptr, i32 } [ %35, %34 ], [ %44, %43 ], [ %13, %12 ], [ %35, %42 ]
   resume { ptr, i32 } %eh.lpad-body8
 
 43:                                               ; preds = %2
@@ -607,7 +607,7 @@ define hidden void @_ZN4gpui3app10AppContext10set_global17h2895bf429681dfdbE(ptr
   ret void
 
 .body.thread:                                     ; preds = %39, %47, %16, %48
-  %eh.lpad-body8 = phi { ptr, i32 } [ %49, %48 ], [ %17, %16 ], [ %40, %47 ], [ %40, %39 ]
+  %eh.lpad-body8 = phi { ptr, i32 } [ %40, %39 ], [ %49, %48 ], [ %17, %16 ], [ %40, %47 ]
   resume { ptr, i32 } %eh.lpad-body8
 
 48:                                               ; preds = %3

@@ -536,7 +536,7 @@ sub_0.i:                                          ; preds = %249
   br label %hwloc_linux_pci_link_speed_from_string.exit
 
 hwloc_linux_pci_link_speed_from_string.exit:      ; preds = %sub_0.i, %.tail.thread.i, %249, %246, %243
-  %.0124 = phi float [ 0.000000e+00, %246 ], [ 0.000000e+00, %243 ], [ %254, %.tail.thread.i ], [ 2.000000e+00, %249 ], [ 4.000000e+00, %sub_0.i ]
+  %.0124 = phi float [ 0.000000e+00, %243 ], [ 0.000000e+00, %246 ], [ %254, %.tail.thread.i ], [ 2.000000e+00, %249 ], [ 4.000000e+00, %sub_0.i ]
   %255 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %19, i64 noundef 128, ptr noundef nonnull @.str.9, i32 noundef %136, i32 noundef %139, i32 noundef %142, i32 noundef %145) #10
   %256 = call noalias ptr @fopen(ptr noundef nonnull %19, ptr noundef nonnull @.str.6)
   %.not145 = icmp eq ptr %256, null
@@ -631,7 +631,7 @@ hwloc_pci_get_obj_names.exit:                     ; preds = %291, %293, %295
   br label %299
 
 299:                                              ; preds = %162, %160, %153, %hwloc_pci_get_obj_names.exit
-  %.1 = phi i32 [ %298, %hwloc_pci_get_obj_names.exit ], [ %.0126173, %153 ], [ %.0126173, %160 ], [ %.0126173, %162 ]
+  %.1 = phi i32 [ %.0126173, %162 ], [ %.0126173, %153 ], [ %298, %hwloc_pci_get_obj_names.exit ], [ %.0126173, %160 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -666,7 +666,7 @@ hwloc_pci_get_obj_names.exit:                     ; preds = %291, %293, %295
   br label %314
 
 314:                                              ; preds = %._crit_edge, %311, %117, %121, %2, %hwloc_pci_get_names.exit
-  %.0125 = phi i32 [ 0, %hwloc_pci_get_names.exit ], [ 0, %2 ], [ -1, %121 ], [ -1, %117 ], [ 0, %311 ], [ 0, %._crit_edge ]
+  %.0125 = phi i32 [ -1, %117 ], [ 0, %hwloc_pci_get_names.exit ], [ 0, %2 ], [ -1, %121 ], [ 0, %311 ], [ 0, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

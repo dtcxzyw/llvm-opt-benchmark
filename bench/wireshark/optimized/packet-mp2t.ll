@@ -619,7 +619,7 @@ addresses_equal.exit56:                           ; preds = %51, %43, %addresses
   br label %58
 
 58:                                               ; preds = %49, %51, %28, %30, %addresses_equal.exit56
-  %.sink = phi i32 [ 0, %addresses_equal.exit56 ], [ 0, %30 ], [ 0, %28 ], [ 1, %51 ], [ 1, %49 ]
+  %.sink = phi i32 [ 0, %28 ], [ 0, %addresses_equal.exit56 ], [ 0, %30 ], [ 1, %51 ], [ 1, %49 ]
   %59 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 %.sink, ptr %59, align 8
   %60 = load ptr, ptr %12, align 8
@@ -822,8 +822,8 @@ get_pid_analysis.exit.i:                          ; preds = %146, %proto_item_se
   br i1 %or.cond.i, label %.thread, label %169
 
 169:                                              ; preds = %165, %.thread.i
-  %170 = phi i1 [ %168, %165 ], [ %164, %.thread.i ]
-  %171 = phi i32 [ %166, %165 ], [ %.ph.i, %.thread.i ]
+  %170 = phi i1 [ %164, %.thread.i ], [ %168, %165 ]
+  %171 = phi i32 [ %.ph.i, %.thread.i ], [ %166, %165 ]
   %172 = icmp eq i32 %171, 4
   br i1 %172, label %176, label %180
 
@@ -979,9 +979,9 @@ get_pid_analysis.exit.i.i:                        ; preds = %199, %196
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %246, %222, %219, %proto_item_set_generated.exit119.i
-  %.092.i.i = phi i32 [ %spec.select.i.i.i, %246 ], [ %spec.select.i.i.i, %222 ], [ 0, %proto_item_set_generated.exit119.i ], [ 0, %219 ]
-  %.06091.i.i = phi i1 [ true, %246 ], [ true, %222 ], [ false, %proto_item_set_generated.exit119.i ], [ false, %219 ]
-  %.06490.i.i = phi i32 [ %213, %246 ], [ %213, %222 ], [ -1, %proto_item_set_generated.exit119.i ], [ %213, %219 ]
+  %.092.i.i = phi i32 [ %spec.select.i.i.i, %222 ], [ %spec.select.i.i.i, %246 ], [ 0, %proto_item_set_generated.exit119.i ], [ 0, %219 ]
+  %.06091.i.i = phi i1 [ true, %222 ], [ true, %246 ], [ false, %proto_item_set_generated.exit119.i ], [ false, %219 ]
+  %.06490.i.i = phi i32 [ %213, %222 ], [ %213, %246 ], [ -1, %proto_item_set_generated.exit119.i ], [ %213, %219 ]
   %256 = load ptr, ptr %67, align 8
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 57
   %258 = load i16, ptr %257, align 1
@@ -1067,7 +1067,7 @@ proto_item_set_generated.exit.i.i:                ; preds = %287, %284, %276
   br label %detect_cc_drops.exit.i
 
 detect_cc_drops.exit.i:                           ; preds = %296, %293, %proto_item_set_generated.exit.i.i, %275
-  %.062.i.i = phi i32 [ %.092.i.i, %275 ], [ %.198.i.i, %proto_item_set_generated.exit.i.i ], [ %.198.i.i, %293 ], [ %.198.i.i, %296 ]
+  %.062.i.i = phi i32 [ %.198.i.i, %293 ], [ %.198.i.i, %296 ], [ %.092.i.i, %275 ], [ %.198.i.i, %proto_item_set_generated.exit.i.i ]
   %.not.i = icmp eq i32 %.062.i.i, 0
   br i1 %.not.i, label %detect_cc_drops.exit.thread.i, label %300
 
@@ -1593,10 +1593,10 @@ dissect_mp2t_adaptation_field.exit.i:             ; preds = %438, %435, %303, %d
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %566, %.thread264.i.i, %.critedge.i.i, %587, %576, %571, %564, %540
-  %.2214.i.i = phi i32 [ 0, %576 ], [ 0, %587 ], [ %.pre-phi.i.i, %.critedge.i.i ], [ %.5230.i.i, %564 ], [ 0, %540 ], [ 0, %571 ], [ 0, %.thread264.i.i ], [ 0, %566 ]
-  %.3210.i.i = phi i32 [ 0, %576 ], [ 0, %587 ], [ %.2209291.i.i, %.critedge.i.i ], [ %562, %564 ], [ 0, %540 ], [ %562, %571 ], [ 0, %.thread264.i.i ], [ 0, %566 ]
-  %.1206.i.i = phi i8 [ 0, %576 ], [ 0, %587 ], [ 1, %.critedge.i.i ], [ 1, %564 ], [ 0, %540 ], [ 0, %571 ], [ 0, %.thread264.i.i ], [ 0, %566 ]
-  %.3.i126.i = phi i32 [ %580, %576 ], [ %588, %587 ], [ %.1295.i.i, %.critedge.i.i ], [ %.4308.i.i, %564 ], [ %.2.i125.i, %540 ], [ %.4308.i.i, %571 ], [ %570, %566 ], [ %.4308.i.i, %.thread264.i.i ]
+  %.2214.i.i = phi i32 [ 0, %540 ], [ 0, %571 ], [ 0, %576 ], [ 0, %587 ], [ %.pre-phi.i.i, %.critedge.i.i ], [ %.5230.i.i, %564 ], [ 0, %.thread264.i.i ], [ 0, %566 ]
+  %.3210.i.i = phi i32 [ 0, %540 ], [ %562, %571 ], [ 0, %576 ], [ 0, %587 ], [ %.2209291.i.i, %.critedge.i.i ], [ %562, %564 ], [ 0, %.thread264.i.i ], [ 0, %566 ]
+  %.1206.i.i = phi i8 [ 0, %540 ], [ 0, %571 ], [ 0, %576 ], [ 0, %587 ], [ 1, %.critedge.i.i ], [ 1, %564 ], [ 0, %.thread264.i.i ], [ 0, %566 ]
+  %.3.i126.i = phi i32 [ %.2.i125.i, %540 ], [ %.4308.i.i, %571 ], [ %580, %576 ], [ %588, %587 ], [ %.1295.i.i, %.critedge.i.i ], [ %.4308.i.i, %564 ], [ %570, %566 ], [ %.4308.i.i, %.thread264.i.i ]
   %589 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   store i8 %.1206.i.i, ptr %589, align 8
   %590 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 20
@@ -2013,8 +2013,8 @@ define internal fastcc range(i32 -1, 65542) i32 @mp2t_get_packet_length(ptr noun
   br label %.thread
 
 .thread:                                          ; preds = %22, %24, %20, %26, %17
-  %.046 = phi i32 [ 0, %17 ], [ %33, %26 ], [ %1, %20 ], [ %1, %24 ], [ %1, %22 ]
-  %.044 = phi ptr [ %19, %17 ], [ %30, %26 ], [ %0, %20 ], [ %0, %24 ], [ %0, %22 ]
+  %.046 = phi i32 [ 0, %17 ], [ %1, %20 ], [ %33, %26 ], [ %1, %24 ], [ %1, %22 ]
+  %.044 = phi ptr [ %19, %17 ], [ %0, %20 ], [ %30, %26 ], [ %0, %24 ], [ %0, %22 ]
   %34 = tail call i32 @tvb_reported_length_remaining(ptr noundef %.044, i32 noundef %.046)
   switch i32 %4, label %57 [
     i32 1, label %35
@@ -2061,7 +2061,7 @@ define internal fastcc range(i32 -1, 65542) i32 @mp2t_get_packet_length(ptr noun
   br label %57
 
 57:                                               ; preds = %37, %52, %47, %44, %.thread, %50, %42, %35, %20
-  %.0 = phi i32 [ -1, %20 ], [ -1, %35 ], [ -1, %42 ], [ -1, %50 ], [ 0, %.thread ], [ %41, %37 ], [ %49, %47 ], [ 0, %44 ], [ %56, %52 ]
+  %.0 = phi i32 [ -1, %50 ], [ -1, %20 ], [ -1, %35 ], [ -1, %42 ], [ 0, %.thread ], [ %41, %37 ], [ %49, %47 ], [ 0, %44 ], [ %56, %52 ]
   ret i32 %.0
 }
 

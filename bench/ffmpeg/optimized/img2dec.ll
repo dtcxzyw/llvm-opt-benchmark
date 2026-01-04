@@ -397,8 +397,8 @@ thread-pre-split.thread:                          ; preds = %.backedge.i, %67
   br label %93
 
 93:                                               ; preds = %86, %89, %91
-  %.1155 = phi ptr [ %.0154248, %91 ], [ %.0154248, %89 ], [ %87, %86 ]
-  %.1153 = phi ptr [ %92, %91 ], [ %.0152249, %89 ], [ %.0152249, %86 ]
+  %.1155 = phi ptr [ %.0154248, %89 ], [ %.0154248, %91 ], [ %87, %86 ]
+  %.1153 = phi ptr [ %.0152249, %89 ], [ %92, %91 ], [ %.0152249, %86 ]
   %94 = getelementptr inbounds nuw i8, ptr %.1155, i64 1
   %95 = load i8, ptr %.1155, align 1, !tbaa !68
   %96 = getelementptr inbounds nuw i8, ptr %.1153, i64 1
@@ -510,7 +510,7 @@ thread-pre-split:                                 ; preds = %103, %61
   %141 = add nsw i32 %.030.i, %.029.i
   br i1 %.not.i, label %find_image_range.exit.thread229, label %.preheader.i
 
-find_image_range.exit.thread:                     ; preds = %138, %130, %._crit_edge.i
+find_image_range.exit.thread:                     ; preds = %130, %138, %._crit_edge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %144
 
@@ -553,8 +553,8 @@ find_image_range.exit:                            ; preds = %122
   br label %.critedge
 
 .thread222:                                       ; preds = %thread-pre-split, %108, %.thread215, %find_image_range.exit.thread229, %152, %find_image_range.exit
-  %.1210 = phi i32 [ 1, %find_image_range.exit ], [ 0, %152 ], [ %.2211.ph, %find_image_range.exit.thread229 ], [ %.0209285, %108 ], [ 1, %.thread215 ], [ %.0209, %thread-pre-split ]
-  %.1 = phi i32 [ 1, %find_image_range.exit ], [ %155, %152 ], [ %.2.ph, %find_image_range.exit.thread229 ], [ %.0208286, %108 ], [ 1, %.thread215 ], [ %.0208, %thread-pre-split ]
+  %.1210 = phi i32 [ 1, %find_image_range.exit ], [ 0, %152 ], [ 1, %.thread215 ], [ %.0209, %thread-pre-split ], [ %.2211.ph, %find_image_range.exit.thread229 ], [ %.0209285, %108 ]
+  %.1 = phi i32 [ 1, %find_image_range.exit ], [ %155, %152 ], [ 1, %.thread215 ], [ %.0208, %thread-pre-split ], [ %.2.ph, %find_image_range.exit.thread229 ], [ %.0208286, %108 ]
   %158 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %.1210, ptr %158, align 8, !tbaa !77
   %159 = getelementptr inbounds nuw i8, ptr %7, i64 12
@@ -797,7 +797,7 @@ find_image_range.exit:                            ; preds = %122
   br label %.critedge
 
 .critedge:                                        ; preds = %260, %149, %._crit_edge, %.thread241, %265, %1, %157, %144, %18
-  %.0 = phi i32 [ -22, %18 ], [ %.7, %260 ], [ -2, %144 ], [ -22, %157 ], [ -12, %1 ], [ 0, %265 ], [ 0, %.thread241 ], [ -2, %._crit_edge ], [ -2, %149 ]
+  %.0 = phi i32 [ -22, %18 ], [ -2, %._crit_edge ], [ %.7, %260 ], [ -2, %144 ], [ 0, %265 ], [ -22, %157 ], [ -2, %149 ], [ -12, %1 ], [ 0, %.thread241 ]
   ret i32 %.0
 }
 
@@ -894,7 +894,7 @@ define i32 @ff_img_read_packet(ptr noundef %0, ptr noundef %1) #0 {
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %23, %27
-  %30 = phi i32 [ %29, %27 ], [ %.pre, %23 ]
+  %30 = phi i32 [ %.pre, %23 ], [ %29, %27 ]
   %31 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %32 = icmp sgt i32 %30, %.pre221
   br i1 %32, label %.loopexit, label %33
@@ -1437,7 +1437,7 @@ thread-pre-split197:                              ; preds = %235, %252, %248
   br label %.loopexit
 
 300:                                              ; preds = %add_filename_as_pkt_side_data.exit.thread, %194, %285, %283, %infer_size.exit
-  %.0141 = phi i32 [ %169, %infer_size.exit ], [ -5, %194 ], [ %275, %283 ], [ %spec.select, %285 ], [ %.0.i.ph, %add_filename_as_pkt_side_data.exit.thread ]
+  %.0141 = phi i32 [ %169, %infer_size.exit ], [ -5, %194 ], [ %275, %283 ], [ %.0.i.ph, %add_filename_as_pkt_side_data.exit.thread ], [ %spec.select, %285 ]
   %301 = load i32, ptr %21, align 4, !tbaa !55
   %.not184 = icmp eq i32 %301, 0
   br i1 %.not184, label %.preheader, label %.loopexit
@@ -1470,7 +1470,7 @@ thread-pre-split197:                              ; preds = %235, %252, %248
   br label %.loopexit
 
 .loopexit:                                        ; preds = %309, %300, %145, %.critedge, %53, %._crit_edge, %286, %77
-  %.0 = phi i32 [ 0, %286 ], [ -5, %77 ], [ -541478725, %._crit_edge ], [ -5, %53 ], [ %95, %.critedge ], [ -541478725, %145 ], [ %.0141, %300 ], [ %.0141, %309 ]
+  %.0 = phi i32 [ %95, %.critedge ], [ -5, %53 ], [ -541478725, %145 ], [ 0, %286 ], [ -541478725, %._crit_edge ], [ %.0141, %300 ], [ -5, %77 ], [ %.0141, %309 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1577,7 +1577,7 @@ define internal range(i32 0, 101) i32 @img_read_probe(ptr noundef readonly captu
   br label %is_glob.exit
 
 is_glob.exit:                                     ; preds = %18, %29, %1, %3, %27, %23, %.loopexit, %5
-  %.0 = phi i32 [ 100, %5 ], [ 52, %.loopexit ], [ 0, %23 ], [ 5, %27 ], [ 0, %3 ], [ 0, %1 ], [ %spec.select, %29 ], [ 100, %18 ]
+  %.0 = phi i32 [ 5, %27 ], [ 100, %5 ], [ 0, %3 ], [ 52, %.loopexit ], [ 0, %23 ], [ 0, %1 ], [ %spec.select, %29 ], [ 100, %18 ]
   ret i32 %.0
 }
 
@@ -1661,7 +1661,7 @@ define internal range(i32 -1, 1) i32 @img_read_seek(ptr noundef readonly capture
   br label %44
 
 44:                                               ; preds = %23, %32, %15, %12, %._crit_edge
-  %.1 = phi i32 [ 0, %._crit_edge ], [ 0, %15 ], [ -1, %12 ], [ -1, %32 ], [ -1, %23 ]
+  %.1 = phi i32 [ 0, %._crit_edge ], [ -1, %12 ], [ 0, %15 ], [ -1, %32 ], [ -1, %23 ]
   ret i32 %.1
 }
 
@@ -1688,7 +1688,7 @@ define internal range(i32 0, 52) i32 @bmp_probe(ptr noundef readonly captures(no
   br label %12
 
 12:                                               ; preds = %9, %5, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %5 ], [ %., %9 ]
+  %.0 = phi i32 [ %., %9 ], [ 0, %1 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -1789,7 +1789,7 @@ define internal range(i32 0, 52) i32 @dpx_probe(ptr noundef readonly captures(no
   br label %25
 
 25:                                               ; preds = %.thread14, %23, %18, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %18 ], [ %spec.select, %23 ], [ %.mux17, %.thread14 ]
+  %.0 = phi i32 [ %spec.select, %23 ], [ 0, %1 ], [ 0, %18 ], [ %.mux17, %.thread14 ]
   ret i32 %.0
 }
 
@@ -1877,7 +1877,7 @@ define internal range(i32 0, 52) i32 @gem_probe(ptr noundef readonly captures(no
   br label %38
 
 38:                                               ; preds = %1, %7, %12, %17, %22, %25, %28, %31, %34, %34, %34, %37
-  %.0 = phi i32 [ 12, %37 ], [ 51, %34 ], [ 51, %34 ], [ 51, %34 ], [ 0, %31 ], [ 0, %28 ], [ 0, %25 ], [ 0, %22 ], [ 0, %17 ], [ 0, %12 ], [ 0, %7 ], [ 0, %1 ]
+  %.0 = phi i32 [ 51, %34 ], [ 12, %37 ], [ 51, %34 ], [ 51, %34 ], [ 0, %31 ], [ 0, %28 ], [ 0, %25 ], [ 0, %22 ], [ 0, %17 ], [ 0, %12 ], [ 0, %7 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -2076,8 +2076,8 @@ define internal range(i32 0, 52) i32 @jpeg_probe(ptr noundef readonly captures(n
 ._crit_edge.thread:                               ; preds = %8, %._crit_edge
   br label %.thread60
 
-.thread60:                                        ; preds = %46, %34, %27, %20, %17, %._crit_edge, %1, %5, %._crit_edge.thread, %52
-  %.0 = phi i32 [ %53, %52 ], [ 7, %._crit_edge.thread ], [ 0, %5 ], [ 0, %1 ], [ 51, %._crit_edge ], [ 0, %17 ], [ 0, %20 ], [ 0, %27 ], [ 0, %34 ], [ 0, %46 ]
+.thread60:                                        ; preds = %46, %20, %17, %34, %27, %._crit_edge, %1, %5, %._crit_edge.thread, %52
+  %.0 = phi i32 [ 7, %._crit_edge.thread ], [ 51, %._crit_edge ], [ 0, %1 ], [ %53, %52 ], [ 0, %5 ], [ 0, %27 ], [ 0, %34 ], [ 0, %17 ], [ 0, %20 ], [ 0, %46 ]
   ret i32 %.0
 }
 
@@ -2113,7 +2113,7 @@ define internal range(i32 0, 99) i32 @jpegxl_probe(ptr noundef readonly captures
   br label %12
 
 12:                                               ; preds = %8, %6, %1
-  %.0 = phi i32 [ 51, %1 ], [ 0, %6 ], [ %., %8 ]
+  %.0 = phi i32 [ 0, %6 ], [ 51, %1 ], [ %., %8 ]
   ret i32 %.0
 }
 
@@ -2157,7 +2157,7 @@ pnm_magic_check.exit:                             ; preds = %1
   br label %pnm_probe.exit
 
 pnm_probe.exit:                                   ; preds = %1, %.loopexit.i, %11, %pnm_magic_check.exit
-  %16 = phi i32 [ 0, %pnm_magic_check.exit ], [ 0, %.loopexit.i ], [ 52, %11 ], [ 0, %1 ]
+  %16 = phi i32 [ 52, %11 ], [ 0, %pnm_magic_check.exit ], [ 0, %.loopexit.i ], [ 0, %1 ]
   ret i32 %16
 }
 
@@ -2206,7 +2206,7 @@ pnm_magic_check.exit:                             ; preds = %1
   br label %pnm_probe.exit
 
 pnm_probe.exit:                                   ; preds = %pnm_magic_check.exit, %1, %.loopexit.i, %12
-  %17 = phi i32 [ 0, %.loopexit.i ], [ 52, %12 ], [ 0, %1 ], [ 0, %pnm_magic_check.exit ]
+  %17 = phi i32 [ 52, %12 ], [ 0, %pnm_magic_check.exit ], [ 0, %.loopexit.i ], [ 0, %1 ]
   ret i32 %17
 }
 
@@ -2295,7 +2295,7 @@ define internal range(i32 0, 52) i32 @pcx_probe(ptr noundef readonly captures(no
   br i1 %.not20, label %.preheader, label %.loopexit, !llvm.loop !132
 
 .loopexit:                                        ; preds = %.preheader, %52, %1, %7, %9, %13, %17, %37, %43, %49
-  %.016 = phi i32 [ 0, %49 ], [ 0, %43 ], [ 0, %37 ], [ 0, %17 ], [ 0, %13 ], [ 0, %9 ], [ 0, %7 ], [ 0, %1 ], [ 51, %.preheader ], [ 12, %52 ]
+  %.016 = phi i32 [ 0, %7 ], [ 0, %1 ], [ 0, %49 ], [ 0, %43 ], [ 0, %37 ], [ 0, %17 ], [ 0, %13 ], [ 0, %9 ], [ 51, %.preheader ], [ 12, %52 ]
   ret i32 %.016
 }
 
@@ -2344,7 +2344,7 @@ pnm_magic_check.exit:                             ; preds = %1
   br label %pnm_probe.exit
 
 pnm_probe.exit:                                   ; preds = %pnm_magic_check.exit, %1, %.loopexit.i, %12
-  %17 = phi i32 [ 0, %.loopexit.i ], [ 52, %12 ], [ 0, %1 ], [ 0, %pnm_magic_check.exit ]
+  %17 = phi i32 [ 52, %12 ], [ 0, %pnm_magic_check.exit ], [ 0, %.loopexit.i ], [ 0, %1 ]
   ret i32 %17
 }
 
@@ -2396,8 +2396,8 @@ pgmx_probe.exit:                                  ; preds = %12
   %spec.select = select i1 %.not3, i32 52, i32 0
   br label %pgmx_probe.exit.thread
 
-pgmx_probe.exit.thread:                           ; preds = %7, %12, %pnm_magic_check.exit.i, %1, %pgmx_probe.exit
-  %19 = phi i32 [ %spec.select, %pgmx_probe.exit ], [ 0, %1 ], [ 0, %pnm_magic_check.exit.i ], [ 0, %12 ], [ 0, %7 ]
+pgmx_probe.exit.thread:                           ; preds = %7, %12, %1, %pnm_magic_check.exit.i, %pgmx_probe.exit
+  %19 = phi i32 [ %spec.select, %pgmx_probe.exit ], [ 0, %pnm_magic_check.exit.i ], [ 0, %1 ], [ 0, %12 ], [ 0, %7 ]
   ret i32 %19
 }
 
@@ -2449,8 +2449,8 @@ pgmx_probe.exit:                                  ; preds = %12
   %spec.select = select i1 %.not3, i32 0, i32 52
   br label %pgmx_probe.exit.thread
 
-pgmx_probe.exit.thread:                           ; preds = %7, %12, %pnm_magic_check.exit.i, %1, %pgmx_probe.exit
-  %19 = phi i32 [ %spec.select, %pgmx_probe.exit ], [ 0, %1 ], [ 0, %pnm_magic_check.exit.i ], [ 0, %12 ], [ 0, %7 ]
+pgmx_probe.exit.thread:                           ; preds = %7, %12, %1, %pnm_magic_check.exit.i, %pgmx_probe.exit
+  %19 = phi i32 [ %spec.select, %pgmx_probe.exit ], [ 0, %pnm_magic_check.exit.i ], [ 0, %1 ], [ 0, %12 ], [ 0, %7 ]
   ret i32 %19
 }
 
@@ -2509,7 +2509,7 @@ pnm_magic_check.exit:                             ; preds = %1
   br label %pnm_probe.exit
 
 pnm_probe.exit:                                   ; preds = %pnm_magic_check.exit, %1, %.loopexit.i, %12
-  %17 = phi i32 [ 0, %.loopexit.i ], [ 52, %12 ], [ 0, %1 ], [ 0, %pnm_magic_check.exit ]
+  %17 = phi i32 [ 52, %12 ], [ 0, %pnm_magic_check.exit ], [ 0, %.loopexit.i ], [ 0, %1 ]
   ret i32 %17
 }
 
@@ -2604,7 +2604,7 @@ pnm_magic_check.exit:                             ; preds = %1
   br label %pnm_probe.exit
 
 pnm_probe.exit:                                   ; preds = %pnm_magic_check.exit, %1, %.loopexit.i, %12
-  %17 = phi i32 [ 0, %.loopexit.i ], [ 52, %12 ], [ 0, %1 ], [ 0, %pnm_magic_check.exit ]
+  %17 = phi i32 [ 52, %12 ], [ 0, %pnm_magic_check.exit ], [ 0, %.loopexit.i ], [ 0, %1 ]
   ret i32 %17
 }
 
@@ -2743,7 +2743,7 @@ define internal range(i32 0, 100) i32 @qoi_probe(ptr noundef readonly captures(n
   br label %19
 
 19:                                               ; preds = %12, %15, %4, %8, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %8 ], [ 0, %4 ], [ 0, %12 ], [ %., %15 ]
+  %.0 = phi i32 [ 0, %12 ], [ 0, %1 ], [ 0, %4 ], [ %., %15 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -2899,7 +2899,7 @@ ff_subtitles_next_line.exit:                      ; preds = %27, %32
   br i1 %.not39, label %.thread44, label %20
 
 .thread44:                                        ; preds = %37, %34, %ff_subtitles_next_line.exit, %20, %17, %15, %.critedge
-  %.0 = phi i32 [ 0, %.critedge ], [ 51, %15 ], [ 0, %17 ], [ 51, %37 ], [ 0, %34 ], [ 0, %ff_subtitles_next_line.exit ], [ 0, %20 ]
+  %.0 = phi i32 [ 0, %.critedge ], [ 51, %15 ], [ 0, %17 ], [ 51, %37 ], [ 0, %34 ], [ 0, %20 ], [ 0, %ff_subtitles_next_line.exit ]
   ret i32 %.0
 }
 
@@ -3154,7 +3154,7 @@ define internal range(i32 0, 52) i32 @xwd_probe(ptr noundef readonly captures(no
   br label %104
 
 104:                                              ; preds = %93, %1, %7, %11, %14, %17, %22, %27, %31, %36, %41, %57, %62, %67, %83, %88
-  %.0 = phi i32 [ 0, %88 ], [ 0, %83 ], [ 0, %67 ], [ 0, %62 ], [ 0, %57 ], [ 0, %41 ], [ 0, %36 ], [ 0, %31 ], [ 0, %27 ], [ 0, %22 ], [ 0, %17 ], [ 0, %14 ], [ 0, %11 ], [ 0, %7 ], [ 0, %1 ], [ %., %93 ]
+  %.0 = phi i32 [ 0, %1 ], [ %., %93 ], [ 0, %88 ], [ 0, %83 ], [ 0, %67 ], [ 0, %62 ], [ 0, %57 ], [ 0, %41 ], [ 0, %36 ], [ 0, %31 ], [ 0, %27 ], [ 0, %22 ], [ 0, %17 ], [ 0, %14 ], [ 0, %11 ], [ 0, %7 ]
   ret i32 %.0
 }
 

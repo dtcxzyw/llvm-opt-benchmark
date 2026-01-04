@@ -427,7 +427,7 @@ add_tablespace_mapping.exit:                      ; preds = %76
   br i1 %117, label %.sink.split, label %118, !prof !9
 
 .sink.split:                                      ; preds = %113, %108
-  %.str.20.sink = phi ptr [ %.str.17..str.18, %108 ], [ %.str.19..str.20, %113 ]
+  %.str.20.sink = phi ptr [ %.str.19..str.20, %113 ], [ %.str.17..str.18, %108 ]
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef nonnull %.str.20.sink) #12
   br label %118
 
@@ -1044,7 +1044,7 @@ sub_0.i:                                          ; preds = %.preheader.i, %359
   br label %359
 
 359:                                              ; preds = %.tail.i, %._crit_edge85.i, %312, %309, %302, %299, %.tail59.i
-  %.1.i113 = phi ptr [ %314, %._crit_edge85.i ], [ %.04387.i, %.tail59.i ], [ %.04387.i, %.tail.i ], [ %.04387.i, %302 ], [ %.04387.i, %299 ], [ %.04387.i, %312 ], [ %.04387.i, %309 ]
+  %.1.i113 = phi ptr [ %.04387.i, %.tail.i ], [ %.04387.i, %299 ], [ %314, %._crit_edge85.i ], [ %.04387.i, %.tail59.i ], [ %.04387.i, %302 ], [ %.04387.i, %312 ], [ %.04387.i, %309 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i32 0, ptr %131, align 4
@@ -1608,9 +1608,9 @@ define internal fastcc void @process_directory_recursively(i32 noundef %0, ptr n
   br label %.thread137
 
 .thread119:                                       ; preds = %46, %43, %.thread130, %49
-  %.092128 = phi i32 [ %51, %49 ], [ %48, %.thread130 ], [ 0, %43 ], [ 0, %46 ]
-  %.091115126 = phi i1 [ true, %49 ], [ %.091114.ph, %.thread130 ], [ %45, %43 ], [ true, %46 ]
-  %.0117124 = phi i1 [ false, %49 ], [ %30, %.thread130 ], [ %30, %43 ], [ %30, %46 ]
+  %.092128 = phi i32 [ %48, %.thread130 ], [ %51, %49 ], [ 0, %43 ], [ 0, %46 ]
+  %.091115126 = phi i1 [ %.091114.ph, %.thread130 ], [ true, %49 ], [ %45, %43 ], [ true, %46 ]
+  %.0117124 = phi i1 [ %30, %.thread130 ], [ false, %49 ], [ %30, %43 ], [ %30, %46 ]
   %60 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %11, i64 noundef 1024, ptr noundef nonnull @.str.21, ptr noundef %1, ptr noundef nonnull %3) #12
   %61 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %12, i64 noundef 1024, ptr noundef nonnull @.str.21, ptr noundef %2, ptr noundef nonnull %3) #12
   br i1 %.not.not, label %64, label %62
@@ -1657,10 +1657,10 @@ define internal fastcc void @process_directory_recursively(i32 noundef %0, ptr n
   unreachable
 
 .thread137:                                       ; preds = %59, %57, %73, %72, %76
-  %.0117123143 = phi i1 [ %.0117124, %73 ], [ %.0117124, %72 ], [ %.0117124, %76 ], [ false, %57 ], [ false, %59 ]
-  %.091115125142 = phi i1 [ %.091115126, %73 ], [ %.091115126, %72 ], [ %.091115126, %76 ], [ true, %57 ], [ false, %59 ]
-  %.092127141 = phi i32 [ %.092128, %73 ], [ %.092128, %72 ], [ %.092128, %76 ], [ %54, %57 ], [ %54, %59 ]
-  %81 = phi i1 [ false, %73 ], [ false, %72 ], [ false, %76 ], [ true, %57 ], [ true, %59 ]
+  %.0117123143 = phi i1 [ false, %59 ], [ %.0117124, %73 ], [ %.0117124, %72 ], [ %.0117124, %76 ], [ false, %57 ]
+  %.091115125142 = phi i1 [ false, %59 ], [ %.091115126, %73 ], [ %.091115126, %72 ], [ %.091115126, %76 ], [ true, %57 ]
+  %.092127141 = phi i32 [ %54, %59 ], [ %.092128, %73 ], [ %.092128, %72 ], [ %.092128, %76 ], [ %54, %57 ]
+  %81 = phi i1 [ true, %59 ], [ false, %73 ], [ false, %72 ], [ false, %76 ], [ true, %57 ]
   %82 = call ptr @opendir(ptr noundef nonnull %11)
   %83 = icmp eq ptr %82, null
   br i1 %83, label %93, label %.preheader

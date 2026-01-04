@@ -298,7 +298,7 @@ closeDescriptors.exit.i:                          ; preds = %.backedge.i.i, %.pr
   br label %.thread.i
 
 .thread.i:                                        ; preds = %125, %.thread27.i
-  %126 = phi ptr [ %.pr30.i, %.thread27.i ], [ %.pre.i, %125 ]
+  %126 = phi ptr [ %.pre.i, %125 ], [ %.pr30.i, %.thread27.i ]
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 528
   %128 = load i32, ptr %127, align 8
   %129 = and i32 %128, 128
@@ -344,7 +344,7 @@ closeDescriptors.exit.i:                          ; preds = %.backedge.i.i, %.pr
   br label %142
 
 142:                                              ; preds = %140, %skipWhitespace.exit, %50
-  %.0 = phi i32 [ -5, %50 ], [ -5, %skipWhitespace.exit ], [ %., %140 ]
+  %.0 = phi i32 [ -5, %skipWhitespace.exit ], [ -5, %50 ], [ %., %140 ]
   ret i32 %.0
 }
 

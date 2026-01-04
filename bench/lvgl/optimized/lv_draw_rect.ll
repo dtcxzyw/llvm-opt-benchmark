@@ -231,7 +231,7 @@ define void @lv_draw_rect(ptr noundef %0, ptr noundef readonly %1, ptr noundef %
   br label %57
 
 57:                                               ; preds = %51, %43, %47
-  %.0205 = phi i1 [ false, %47 ], [ false, %43 ], [ %or.cond239.not, %51 ]
+  %.0205 = phi i1 [ false, %43 ], [ %or.cond239.not, %51 ], [ false, %47 ]
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %59 = load i8, ptr %58, align 8, !tbaa !20
   %60 = icmp ult i8 %59, 3

@@ -1115,7 +1115,7 @@ define internal i64 @trip_point_temp_store(ptr noundef %0, ptr noundef readonly 
   br label %38
 
 38:                                               ; preds = %37, %35, %10, %4
-  %39 = phi i64 [ -22, %4 ], [ -22, %10 ], [ %3, %37 ], [ %36, %35 ]
+  %39 = phi i64 [ -22, %10 ], [ -22, %4 ], [ %3, %37 ], [ %36, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %39
@@ -1218,7 +1218,7 @@ define internal i64 @trip_point_hyst_store(ptr noundef %0, ptr noundef readonly 
   br label %42
 
 42:                                               ; preds = %41, %39, %13, %4
-  %43 = phi i64 [ -22, %4 ], [ -22, %13 ], [ %3, %41 ], [ %40, %39 ]
+  %43 = phi i64 [ -22, %13 ], [ -22, %4 ], [ %3, %41 ], [ %40, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %43

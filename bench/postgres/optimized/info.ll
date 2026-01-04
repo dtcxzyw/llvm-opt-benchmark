@@ -163,6 +163,12 @@ define dso_local ptr @gen_db_file_maps(ptr noundef readonly captures(none) %0, p
   tail call fastcc void @report_unmatched_relation(ptr noundef nonnull %34, ptr noundef nonnull %1, i1 noundef zeroext true)
   br label %.outer87.backedge
 
+.outer87.backedge:                                ; preds = %47, %50, %.thread85, %37, %._crit_edge
+  %.062.ph88.be = phi i1 [ false, %._crit_edge ], [ %.062, %.thread85 ], [ false, %37 ], [ false, %50 ], [ %.062, %47 ]
+  %.0.ph90.be = phi i32 [ %62, %._crit_edge ], [ %.0, %.thread85 ], [ %.0, %37 ], [ %.0, %50 ], [ %.0, %47 ]
+  %.060.ph89.be = add nsw i32 %.060.ph89, 1
+  br label %.outer87, !llvm.loop !4
+
 38:                                               ; preds = %31
   %39 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %40 = load i32, ptr %39, align 8
@@ -192,12 +198,6 @@ define dso_local ptr @gen_db_file_maps(ptr noundef readonly captures(none) %0, p
 50:                                               ; preds = %47
   tail call fastcc void @report_unmatched_relation(ptr noundef nonnull %28, ptr noundef nonnull %1, i1 noundef zeroext true)
   br label %.outer87.backedge
-
-.outer87.backedge:                                ; preds = %47, %50, %.thread85, %37, %._crit_edge
-  %.062.ph88.be = phi i1 [ false, %._crit_edge ], [ false, %37 ], [ %.062, %.thread85 ], [ false, %50 ], [ %.062, %47 ]
-  %.0.ph90.be = phi i32 [ %62, %._crit_edge ], [ %.0, %37 ], [ %.0, %.thread85 ], [ %.0, %50 ], [ %.0, %47 ]
-  %.060.ph89.be = add nsw i32 %.060.ph89, 1
-  br label %.outer87, !llvm.loop !4
 
 51:                                               ; preds = %45
   %52 = load ptr, ptr %24, align 8

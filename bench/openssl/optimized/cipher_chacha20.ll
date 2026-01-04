@@ -49,7 +49,7 @@ define i32 @ossl_chacha20_einit(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
   br label %18
 
 18:                                               ; preds = %16, %15
-  %.0 = phi i32 [ 0, %15 ], [ %spec.select, %16 ]
+  %.0 = phi i32 [ %spec.select, %16 ], [ 0, %15 ]
   ret i32 %.0
 }
 
@@ -98,15 +98,15 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br i1 %.not14, label %ossl_param_is_empty.exit.thread, label %ossl_param_is_empty.exit.thread.sink.split
 
 ossl_param_is_empty.exit.thread.sink.split:       ; preds = %16, %14, %10, %8
-  %.sink19 = phi i32 [ 135, %8 ], [ 139, %10 ], [ 146, %14 ], [ 150, %16 ]
-  %.sink = phi i32 [ 103, %8 ], [ 105, %10 ], [ 103, %14 ], [ 109, %16 ]
+  %.sink19 = phi i32 [ 146, %14 ], [ 139, %10 ], [ 135, %8 ], [ 150, %16 ]
+  %.sink = phi i32 [ 103, %14 ], [ 105, %10 ], [ 103, %8 ], [ 109, %16 ]
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef %.sink19, ptr noundef nonnull @__func__.chacha20_set_ctx_params) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef %.sink, ptr noundef null) #4
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %ossl_param_is_empty.exit.thread.sink.split, %2, %12, %16, %ossl_param_is_empty.exit
-  %.0 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ 1, %16 ], [ 1, %12 ], [ 1, %2 ], [ 0, %ossl_param_is_empty.exit.thread.sink.split ]
+  %.0 = phi i32 [ 1, %2 ], [ 1, %16 ], [ 1, %12 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %ossl_param_is_empty.exit.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -137,7 +137,7 @@ define i32 @ossl_chacha20_dinit(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
   br label %18
 
 18:                                               ; preds = %16, %15
-  %.0 = phi i32 [ 0, %15 ], [ %spec.select, %16 ]
+  %.0 = phi i32 [ %spec.select, %16 ], [ 0, %15 ]
   ret i32 %.0
 }
 

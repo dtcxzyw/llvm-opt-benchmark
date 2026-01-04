@@ -1697,7 +1697,7 @@ dt_calloc_align_float.exit1813:                   ; preds = %115, %141
   br label %.loopexit1964
 
 .loopexit1964:                                    ; preds = %941, %951, %954
-  %.2 = phi i32 [ 0, %954 ], [ 0, %951 ], [ %.12085, %941 ]
+  %.2 = phi i32 [ 0, %951 ], [ 0, %954 ], [ %.12085, %941 ]
   br i1 %934, label %.preheader1963, label %935
 
 .preheader1970:                                   ; preds = %973, %.preheader1971
@@ -2100,8 +2100,8 @@ dt_calloc_align_float.exit1813:                   ; preds = %115, %141
   br label %.thread1864
 
 1160:                                             ; preds = %1154, %._crit_edge2114
-  %.21624 = phi i32 [ 4, %1154 ], [ %.016222232, %._crit_edge2114 ]
-  %.21621 = phi i32 [ 2, %1154 ], [ %.016192234, %._crit_edge2114 ]
+  %.21624 = phi i32 [ %.016222232, %._crit_edge2114 ], [ 4, %1154 ]
+  %.21621 = phi i32 [ %.016192234, %._crit_edge2114 ], [ 2, %1154 ]
   %1161 = zext nneg i32 %.21624 to i64
   %1162 = add nsw i64 %1161, -1
   %.1122132.i = add nuw nsw i64 %1161, 1
@@ -2285,7 +2285,7 @@ dt_calloc_align_float.exit1813:                   ; preds = %115, %141
   br label %_LinEqSolve.exit
 
 _LinEqSolve.exit:                                 ; preds = %._crit_edge161.i, %1237, %1240
-  %.8 = phi i32 [ 0, %1240 ], [ 0, %1237 ], [ %.72116, %._crit_edge161.i ]
+  %.8 = phi i32 [ 0, %1237 ], [ 0, %1240 ], [ %.72116, %._crit_edge161.i ]
   br i1 %1166, label %1165, label %1164
 
 1242:                                             ; preds = %1164
@@ -3258,7 +3258,7 @@ _LinEqSolve.exit:                                 ; preds = %._crit_edge161.i, %
   br label %1830
 
 1830:                                             ; preds = %.sink.split, %1789, %1785
-  %.01648 = phi nsz float [ %1778, %1785 ], [ %1824, %1789 ], [ %.01648.ph, %.sink.split ]
+  %.01648 = phi nsz float [ %1824, %1789 ], [ %1778, %1785 ], [ %.01648.ph, %.sink.split ]
   %1831 = fmul reassoc nsz arcp contract afn float %.01648, %1750
   %1832 = fcmp reassoc nsz arcp contract afn olt float %1831, 0.000000e+00
   br i1 %1832, label %1833, label %1838
@@ -3379,9 +3379,9 @@ _LinEqSolve.exit:                                 ; preds = %._crit_edge161.i, %
   br i1 %1892, label %.lr.ph2227, label %._crit_edge2228
 
 .thread1864:                                      ; preds = %._crit_edge2228, %1242, %.preheader1967, %935, %.thread1872
-  %1893 = phi i1 [ %not..not1786, %1242 ], [ false, %.thread1872 ], [ false, %935 ], [ true, %.preheader1967 ], [ true, %._crit_edge2228 ]
-  %.116201870 = phi i32 [ %.21621, %1242 ], [ 2, %.thread1872 ], [ %.016192234, %935 ], [ %.21621, %.preheader1967 ], [ %.21621, %._crit_edge2228 ]
-  %.116231869 = phi i32 [ %.21624, %1242 ], [ 4, %.thread1872 ], [ %.016222232, %935 ], [ %.21624, %.preheader1967 ], [ %.21624, %._crit_edge2228 ]
+  %1893 = phi i1 [ false, %.thread1872 ], [ false, %935 ], [ %not..not1786, %1242 ], [ true, %.preheader1967 ], [ true, %._crit_edge2228 ]
+  %.116201870 = phi i32 [ 2, %.thread1872 ], [ %.016192234, %935 ], [ %.21621, %1242 ], [ %.21621, %.preheader1967 ], [ %.21621, %._crit_edge2228 ]
+  %.116231869 = phi i32 [ 4, %.thread1872 ], [ %.016222232, %935 ], [ %.21624, %1242 ], [ %.21624, %.preheader1967 ], [ %.21624, %._crit_edge2228 ]
   tail call void @free(ptr noundef %190) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
@@ -3473,7 +3473,7 @@ _LinEqSolve.exit:                                 ; preds = %._crit_edge161.i, %
   br label %1936
 
 1936:                                             ; preds = %1925, %1935, %1933
-  %1937 = phi reassoc nsz arcp contract afn float [ %1931, %1935 ], [ 2.000000e+00, %1933 ], [ 5.000000e-01, %1925 ]
+  %1937 = phi reassoc nsz arcp contract afn float [ 2.000000e+00, %1933 ], [ %1931, %1935 ], [ 5.000000e-01, %1925 ]
   %gep2816 = getelementptr float, ptr %invariant.gep2815, i64 %1926
   store float %1937, ptr %gep2816, align 4, !tbaa !56
   %indvars.iv.next2670 = add nuw nsw i64 %indvars.iv2669, 2
@@ -3624,12 +3624,12 @@ _LinEqSolve.exit:                                 ; preds = %._crit_edge161.i, %
   br label %2009
 
 2009:                                             ; preds = %._crit_edge2237, %2008, %114, %dt_calloc_align_float.exit1809.thread, %66
-  %.01614 = phi ptr [ null, %66 ], [ %107, %2008 ], [ %107, %._crit_edge2237 ], [ %107, %114 ], [ null, %dt_calloc_align_float.exit1809.thread ]
-  %.01613 = phi ptr [ null, %66 ], [ %111, %2008 ], [ %111, %._crit_edge2237 ], [ %111, %114 ], [ null, %dt_calloc_align_float.exit1809.thread ]
-  %.01611 = phi ptr [ null, %66 ], [ %140, %2008 ], [ %140, %._crit_edge2237 ], [ null, %114 ], [ null, %dt_calloc_align_float.exit1809.thread ]
-  %.01607 = phi ptr [ null, %66 ], [ %.11608, %2008 ], [ %.11608, %._crit_edge2237 ], [ %.11608, %114 ], [ %87, %dt_calloc_align_float.exit1809.thread ]
-  %.01605 = phi ptr [ null, %66 ], [ %.11606, %2008 ], [ %.11606, %._crit_edge2237 ], [ %.11606, %114 ], [ %84, %dt_calloc_align_float.exit1809.thread ]
-  %.01603 = phi ptr [ null, %66 ], [ %.11604, %2008 ], [ %.11604, %._crit_edge2237 ], [ %.11604, %114 ], [ %82, %dt_calloc_align_float.exit1809.thread ]
+  %.01614 = phi ptr [ null, %66 ], [ %107, %2008 ], [ %107, %._crit_edge2237 ], [ null, %dt_calloc_align_float.exit1809.thread ], [ %107, %114 ]
+  %.01613 = phi ptr [ null, %66 ], [ %111, %2008 ], [ %111, %._crit_edge2237 ], [ null, %dt_calloc_align_float.exit1809.thread ], [ %111, %114 ]
+  %.01611 = phi ptr [ null, %66 ], [ %140, %2008 ], [ %140, %._crit_edge2237 ], [ null, %dt_calloc_align_float.exit1809.thread ], [ null, %114 ]
+  %.01607 = phi ptr [ null, %66 ], [ %.11608, %2008 ], [ %.11608, %._crit_edge2237 ], [ %87, %dt_calloc_align_float.exit1809.thread ], [ %.11608, %114 ]
+  %.01605 = phi ptr [ null, %66 ], [ %.11606, %2008 ], [ %.11606, %._crit_edge2237 ], [ %84, %dt_calloc_align_float.exit1809.thread ], [ %.11606, %114 ]
+  %.01603 = phi ptr [ null, %66 ], [ %.11604, %2008 ], [ %.11604, %._crit_edge2237 ], [ %82, %dt_calloc_align_float.exit1809.thread ], [ %.11604, %114 ]
   %2010 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %2011 = load i32, ptr %2010, align 4, !tbaa !54
   %2012 = sext i32 %2011 to i64

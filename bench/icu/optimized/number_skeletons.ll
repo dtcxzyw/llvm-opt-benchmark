@@ -304,7 +304,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -3989,7 +3989,7 @@ _ZN6icu_7713UnicodeStringC2IA4_DsvEERKT_.exit608: ; preds = %_ZN6icu_778internal
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %613, %618, %620
-  %.0.i = phi ptr [ %619, %618 ], [ %622, %620 ], [ null, %613 ]
+  %.0.i = phi ptr [ %622, %620 ], [ %619, %618 ], [ null, %613 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %612, ptr align 2 %.0.i, i64 %611, i1 false)
   br label %623
 
@@ -4923,7 +4923,7 @@ define noundef range(i32 0, 13) i32 @_ZN6icu_776number4impl8skeleton9parseStemER
   br label %_ZNK6icu_7710UCharsTrie8getValueEv.exit
 
 _ZNK6icu_7710UCharsTrie8getValueEv.exit:          ; preds = %60, %64, %70, %80, %85, %92
-  %100 = phi i32 [ %69, %64 ], [ %77, %70 ], [ %61, %60 ], [ %82, %80 ], [ %91, %85 ], [ %99, %92 ]
+  %100 = phi i32 [ %61, %60 ], [ %77, %70 ], [ %69, %64 ], [ %82, %80 ], [ %91, %85 ], [ %99, %92 ]
   switch i32 %100, label %257 [
     i32 0, label %101
     i32 1, label %101
@@ -5378,7 +5378,7 @@ _ZNK6icu_7710UCharsTrie8getValueEv.exit:          ; preds = %60, %64, %70, %80, 
   unreachable
 
 _ZN6icu_776number4impl17blueprint_helpers16parseIntegerStemERKNS_13StringSegmentERNS1_10MacroPropsER10UErrorCode.exit: ; preds = %47, %46, %53, %137, %105, %256, %255, %250, %249, %244, %243, %238, %237, %232, %227, %226, %221, %220, %215, %210, %209, %204, %203, %198, %197, %191, %190, %184, %183, %177, %176, %169, %168, %161, %160, %152, %151, %144, %143, %136, %127, %126, %121, %114, %113, %104, %33, %28, %27, %23, %22, %17, %16
-  %.0 = phi i32 [ 0, %16 ], [ 2, %17 ], [ 0, %22 ], [ 3, %23 ], [ 0, %27 ], [ 0, %28 ], [ 0, %33 ], [ 0, %53 ], [ 0, %104 ], [ 0, %113 ], [ 0, %114 ], [ 0, %121 ], [ 0, %126 ], [ 0, %127 ], [ 0, %136 ], [ 0, %143 ], [ 0, %144 ], [ 0, %151 ], [ 0, %152 ], [ 0, %160 ], [ 0, %161 ], [ 0, %168 ], [ 0, %169 ], [ 0, %176 ], [ 0, %177 ], [ 0, %183 ], [ 0, %184 ], [ 0, %190 ], [ 0, %191 ], [ 0, %197 ], [ 4, %198 ], [ 0, %203 ], [ 5, %204 ], [ 0, %209 ], [ 6, %210 ], [ 0, %215 ], [ 0, %220 ], [ 7, %221 ], [ 0, %226 ], [ 8, %227 ], [ 0, %232 ], [ 0, %237 ], [ 9, %238 ], [ 0, %243 ], [ 10, %244 ], [ 0, %249 ], [ 11, %250 ], [ 0, %255 ], [ 12, %256 ], [ %., %105 ], [ %.141, %137 ], [ 0, %46 ], [ 0, %47 ]
+  %.0 = phi i32 [ 11, %250 ], [ 0, %16 ], [ 2, %17 ], [ 0, %22 ], [ 3, %23 ], [ 0, %27 ], [ 0, %28 ], [ 0, %33 ], [ 0, %53 ], [ 0, %104 ], [ 12, %256 ], [ %., %105 ], [ 0, %113 ], [ 0, %114 ], [ 0, %121 ], [ 0, %126 ], [ 0, %127 ], [ 0, %136 ], [ %.141, %137 ], [ 0, %255 ], [ 0, %143 ], [ 0, %144 ], [ 0, %151 ], [ 0, %152 ], [ 0, %160 ], [ 0, %161 ], [ 0, %168 ], [ 0, %169 ], [ 0, %176 ], [ 0, %177 ], [ 0, %183 ], [ 0, %184 ], [ 0, %190 ], [ 0, %191 ], [ 0, %197 ], [ 4, %198 ], [ 0, %203 ], [ 5, %204 ], [ 0, %209 ], [ 6, %210 ], [ 0, %215 ], [ 0, %220 ], [ 7, %221 ], [ 0, %226 ], [ 8, %227 ], [ 0, %232 ], [ 0, %237 ], [ 9, %238 ], [ 0, %243 ], [ 10, %244 ], [ 0, %249 ], [ 0, %46 ], [ 0, %47 ]
   ret i32 %.0
 }
 
@@ -5547,7 +5547,7 @@ _ZN6icu_776number4impl17blueprint_helpers23parseTrailingZeroOptionERKNS_13String
   br label %55
 
 55:                                               ; preds = %_ZN6icu_776number4impl17blueprint_helpers23parseTrailingZeroOptionERKNS_13StringSegmentERNS1_10MacroPropsER10UErrorCode.exit.thread, %_ZN6icu_776number4impl17blueprint_helpers23parseTrailingZeroOptionERKNS_13StringSegmentERNS1_10MacroPropsER10UErrorCode.exit, %41, %39, %36, %34, %31, %29, %.thread57, %28, %27, %26, %24, %23, %22, %_ZN6icu_776number4impl17blueprint_helpers25parseMeasurePerUnitOptionERKNS_13StringSegmentERNS1_10MacroPropsER10UErrorCode.exit, %9, %8
-  %.0 = phi i32 [ 0, %.thread57 ], [ 0, %8 ], [ 0, %9 ], [ 0, %_ZN6icu_776number4impl17blueprint_helpers25parseMeasurePerUnitOptionERKNS_13StringSegmentERNS1_10MacroPropsER10UErrorCode.exit ], [ 0, %22 ], [ 0, %23 ], [ 3, %24 ], [ 0, %26 ], [ 0, %27 ], [ 0, %28 ], [ 1, %29 ], [ 0, %31 ], [ 1, %34 ], [ 0, %36 ], [ 3, %39 ], [ 0, %41 ], [ 0, %_ZN6icu_776number4impl17blueprint_helpers23parseTrailingZeroOptionERKNS_13StringSegmentERNS1_10MacroPropsER10UErrorCode.exit ], [ 0, %_ZN6icu_776number4impl17blueprint_helpers23parseTrailingZeroOptionERKNS_13StringSegmentERNS1_10MacroPropsER10UErrorCode.exit.thread ]
+  %.0 = phi i32 [ 0, %28 ], [ 1, %29 ], [ 0, %31 ], [ 1, %34 ], [ 0, %36 ], [ 3, %39 ], [ 0, %41 ], [ 0, %_ZN6icu_776number4impl17blueprint_helpers23parseTrailingZeroOptionERKNS_13StringSegmentERNS1_10MacroPropsER10UErrorCode.exit.thread ], [ 0, %.thread57 ], [ 0, %8 ], [ 0, %9 ], [ 0, %_ZN6icu_776number4impl17blueprint_helpers25parseMeasurePerUnitOptionERKNS_13StringSegmentERNS1_10MacroPropsER10UErrorCode.exit ], [ 0, %22 ], [ 0, %23 ], [ 3, %24 ], [ 0, %26 ], [ 0, %27 ], [ 0, %_ZN6icu_776number4impl17blueprint_helpers23parseTrailingZeroOptionERKNS_13StringSegmentERNS1_10MacroPropsER10UErrorCode.exit ]
   ret i32 %.0
 }
 
@@ -5977,7 +5977,7 @@ define void @_ZN6icu_776number4impl17blueprint_helpers19parseCurrencyOptionERKNS
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %10, %16, %18
-  %.0.i = phi ptr [ %17, %16 ], [ %20, %18 ], [ null, %10 ]
+  %.0.i = phi ptr [ %20, %18 ], [ %17, %16 ], [ null, %10 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -6126,7 +6126,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.thread:  ; preds = %_ZNK6icu_7713Unicod
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %34, %41, %43
-  %.0.i = phi ptr [ %42, %41 ], [ %45, %43 ], [ null, %34 ]
+  %.0.i = phi ptr [ %45, %43 ], [ %42, %41 ], [ null, %34 ]
   store ptr %.0.i, ptr %8, align 8, !tbaa !108
   invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 noundef signext 0, ptr noundef nonnull %8, i32 noundef %.0.lcssa)
           to label %46 unwind label %54
@@ -6206,7 +6206,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %34, %41, %43
   br label %75
 
 75:                                               ; preds = %72, %70, %63
-  %.0.i77 = phi ptr [ %71, %70 ], [ %74, %72 ], [ null, %63 ]
+  %.0.i77 = phi ptr [ %74, %72 ], [ %71, %70 ], [ null, %63 ]
   %76 = add nuw nsw i32 %.0.lcssa, 1
   %77 = zext nneg i32 %76 to i64
   %78 = getelementptr inbounds nuw i16, ptr %.0.i77, i64 %77
@@ -6408,7 +6408,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %34, %41, %43
   br i1 %141, label %.loopexit, label %138
 
 .loopexit:                                        ; preds = %.preheader84, %138, %112
-  %.pn57.pn = phi { ptr, i32 } [ %113, %112 ], [ %.pn57, %138 ], [ %113, %.preheader84 ]
+  %.pn57.pn = phi { ptr, i32 } [ %.pn57, %138 ], [ %113, %112 ], [ %113, %.preheader84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %142
 
@@ -6515,7 +6515,7 @@ define void @_ZN6icu_776number4impl17blueprint_helpers25parseIdentifierUnitOptio
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %13, %19, %21
-  %.0.i = phi ptr [ %20, %19 ], [ %23, %21 ], [ null, %13 ]
+  %.0.i = phi ptr [ %23, %21 ], [ %20, %19 ], [ null, %13 ]
   store ptr %.0.i, ptr %7, align 8, !tbaa !108
   %24 = invoke noundef i32 @_ZNK6icu_7713StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17) %0)
           to label %25 unwind label %34
@@ -6671,7 +6671,7 @@ define void @_ZN6icu_776number4impl17blueprint_helpers20parseUnitUsageOptionERKN
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %11, %17, %19
-  %.0.i = phi ptr [ %18, %17 ], [ %21, %19 ], [ null, %11 ]
+  %.0.i = phi ptr [ %21, %19 ], [ %18, %17 ], [ null, %11 ]
   store ptr %.0.i, ptr %7, align 8, !tbaa !108
   %22 = invoke noundef i32 @_ZNK6icu_7713StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17) %0)
           to label %23 unwind label %32
@@ -6921,7 +6921,7 @@ define void @_ZN6icu_776number4impl17blueprint_helpers26parseNumberingSystemOpti
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %11, %17, %19
-  %.0.i = phi ptr [ %18, %17 ], [ %21, %19 ], [ null, %11 ]
+  %.0.i = phi ptr [ %21, %19 ], [ %18, %17 ], [ null, %11 ]
   store ptr %.0.i, ptr %7, align 8, !tbaa !108
   %22 = invoke noundef i32 @_ZNK6icu_7713StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17) %0)
           to label %23 unwind label %32
@@ -7068,7 +7068,7 @@ define void @_ZN6icu_776number4impl17blueprint_helpers16parseScaleOptionERKNS_13
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %13, %19, %21
-  %.0.i = phi ptr [ %20, %19 ], [ %23, %21 ], [ null, %13 ]
+  %.0.i = phi ptr [ %23, %21 ], [ %20, %19 ], [ null, %13 ]
   store ptr %.0.i, ptr %7, align 8, !tbaa !108
   %24 = invoke noundef i32 @_ZNK6icu_7713StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17) %0)
           to label %25 unwind label %34
@@ -7347,7 +7347,7 @@ define noundef zeroext i1 @_ZN6icu_776number4impl17blueprint_helpers23parseExpon
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %11, %17, %19
-  %.0.i = phi ptr [ %18, %17 ], [ %21, %19 ], [ null, %11 ]
+  %.0.i = phi ptr [ %21, %19 ], [ %18, %17 ], [ null, %11 ]
   store ptr %.0.i, ptr %5, align 8, !tbaa !108
   %22 = invoke noundef i32 @_ZNK6icu_7713StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17) %0)
           to label %23 unwind label %30
@@ -7451,7 +7451,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %11, %17, %19
   br label %_ZNK6icu_7710UCharsTrie8getValueEv.exit
 
 _ZNK6icu_7710UCharsTrie8getValueEv.exit:          ; preds = %71, %64, %59, %49, %43, %39
-  %79 = phi i32 [ %48, %43 ], [ %56, %49 ], [ %40, %39 ], [ %61, %59 ], [ %70, %64 ], [ %78, %71 ]
+  %79 = phi i32 [ %40, %39 ], [ %56, %49 ], [ %48, %43 ], [ %61, %59 ], [ %70, %64 ], [ %78, %71 ]
   %switch.tableidx.i = add i32 %79, -38
   %.not = icmp ugt i32 %switch.tableidx.i, 8
   br i1 %.not, label %86, label %80
@@ -7618,7 +7618,7 @@ define noundef zeroext i1 @_ZN6icu_776number4impl17blueprint_helpers18parseFracS
   br label %.critedge
 
 .critedge:                                        ; preds = %55, %49, %50, %54, %44, %48, %37, %3
-  %.051 = phi i1 [ false, %3 ], [ false, %55 ], [ true, %49 ], [ true, %50 ], [ true, %54 ], [ false, %44 ], [ false, %48 ], [ false, %37 ]
+  %.051 = phi i1 [ false, %3 ], [ false, %55 ], [ true, %54 ], [ true, %49 ], [ true, %50 ], [ false, %44 ], [ false, %48 ], [ false, %37 ]
   ret i1 %.051
 }
 
@@ -7806,11 +7806,11 @@ _ZN6icu_776number4impl17blueprint_helpers27generateExponentWidthOptionEiRNS_13Un
   br label %53
 
 53:                                               ; preds = %3, %_ZN6icu_776number4impl17blueprint_helpers27generateExponentWidthOptionEiRNS_13UnicodeStringER10UErrorCode.exit, %50, %47, %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit, %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit37, %20
-  %.1 = phi i1 [ true, %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit ], [ true, %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit37 ], [ false, %20 ], [ false, %_ZN6icu_776number4impl17blueprint_helpers27generateExponentWidthOptionEiRNS_13UnicodeStringER10UErrorCode.exit ], [ true, %50 ], [ true, %47 ], [ false, %3 ]
+  %.1 = phi i1 [ true, %47 ], [ false, %20 ], [ true, %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit ], [ true, %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit37 ], [ false, %_ZN6icu_776number4impl17blueprint_helpers27generateExponentWidthOptionEiRNS_13UnicodeStringER10UErrorCode.exit ], [ true, %50 ], [ false, %3 ]
   ret i1 %.1
 
 54:                                               ; preds = %27, %31, %14, %18
-  %.pn34.pn = phi { ptr, i32 } [ %15, %14 ], [ %19, %18 ], [ %28, %27 ], [ %32, %31 ]
+  %.pn34.pn = phi { ptr, i32 } [ %19, %18 ], [ %15, %14 ], [ %28, %27 ], [ %32, %31 ]
   resume { ptr, i32 } %.pn34.pn
 }
 
@@ -8097,7 +8097,7 @@ _ZN6icu_7713UnicodeString6appendERKS0_.exit:      ; preds = %92
   br label %.body
 
 109:                                              ; preds = %69, %_ZN6icu_7713UnicodeString6appendERKS0_.exit, %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit48, %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit45, %60, %30
-  %.023 = phi i1 [ %51, %60 ], [ true, %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit45 ], [ true, %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit48 ], [ true, %_ZN6icu_7713UnicodeString6appendERKS0_.exit ], [ false, %30 ], [ false, %69 ]
+  %.023 = phi i1 [ %51, %60 ], [ false, %30 ], [ true, %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit45 ], [ true, %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit48 ], [ true, %_ZN6icu_7713UnicodeString6appendERKS0_.exit ], [ false, %69 ]
   call void @_ZN6icu_7711MeasureUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(19) %6) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.023
@@ -8505,7 +8505,7 @@ define noundef zeroext i1 @_ZN6icu_776number4impl16GeneratorHelpers8groupingERKN
   br label %12
 
 12:                                               ; preds = %7, %3, %11, %10
-  %.0 = phi i1 [ false, %10 ], [ true, %11 ], [ false, %3 ], [ false, %7 ]
+  %.0 = phi i1 [ true, %11 ], [ false, %10 ], [ false, %3 ], [ false, %7 ]
   ret i1 %.0
 }
 
@@ -8615,7 +8615,7 @@ _ZN12_GLOBAL__N_114appendMultipleERN6icu_7713UnicodeStringEii.exit.i: ; preds = 
   resume { ptr, i32 } %.pn
 
 _ZN6icu_776number4impl17blueprint_helpers26generateIntegerWidthOptionEiiRNS_13UnicodeStringER10UErrorCode.exit: ; preds = %.lr.ph.i6.i, %_ZN12_GLOBAL__N_114appendMultipleERN6icu_7713UnicodeStringEii.exit.i, %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit, %11, %.critedge
-  %.015 = phi i1 [ false, %.critedge ], [ false, %11 ], [ true, %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit ], [ true, %_ZN12_GLOBAL__N_114appendMultipleERN6icu_7713UnicodeStringEii.exit.i ], [ true, %.lr.ph.i6.i ]
+  %.015 = phi i1 [ false, %11 ], [ false, %.critedge ], [ true, %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit ], [ true, %_ZN12_GLOBAL__N_114appendMultipleERN6icu_7713UnicodeStringEii.exit.i ], [ true, %.lr.ph.i6.i ]
   ret i1 %.015
 }
 
@@ -9456,7 +9456,7 @@ _ZNK6icu_776number12IntegerWidth11copyErrorToER10UErrorCode.exit.i: ; preds = %2
   br i1 %53, label %54, label %58
 
 54:                                               ; preds = %_ZNK6icu_776number8Notation11copyErrorToER10UErrorCode.exit.i, %_ZNK6icu_776number9Precision11copyErrorToER10UErrorCode.exit.i, %_ZNK6icu_776number4impl6Padder11copyErrorToER10UErrorCode.exit.i, %_ZNK6icu_776number12IntegerWidth11copyErrorToER10UErrorCode.exit.i, %34, %42, %46, %50
-  %.sink.i = phi i32 [ %33, %_ZNK6icu_776number12IntegerWidth11copyErrorToER10UErrorCode.exit.i ], [ %27, %_ZNK6icu_776number4impl6Padder11copyErrorToER10UErrorCode.exit.i ], [ %21, %_ZNK6icu_776number9Precision11copyErrorToER10UErrorCode.exit.i ], [ %15, %_ZNK6icu_776number8Notation11copyErrorToER10UErrorCode.exit.i ], [ 7, %34 ], [ %44, %42 ], [ %48, %46 ], [ %52, %50 ]
+  %.sink.i = phi i32 [ %48, %46 ], [ %44, %42 ], [ 7, %34 ], [ %15, %_ZNK6icu_776number8Notation11copyErrorToER10UErrorCode.exit.i ], [ %33, %_ZNK6icu_776number12IntegerWidth11copyErrorToER10UErrorCode.exit.i ], [ %27, %_ZNK6icu_776number4impl6Padder11copyErrorToER10UErrorCode.exit.i ], [ %21, %_ZNK6icu_776number9Precision11copyErrorToER10UErrorCode.exit.i ], [ %52, %50 ]
   store i32 %.sink.i, ptr %2, align 4, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %0, align 8, !tbaa !27, !alias.scope !159
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -9592,7 +9592,7 @@ _ZNK6icu_776number12IntegerWidth11copyErrorToER10UErrorCode.exit.i: ; preds = %2
   br i1 %48, label %_ZNK6icu_776number4impl10StringProp11copyErrorToER10UErrorCode.exit22.sink.split.i, label %_ZNK6icu_776number4impl10MacroProps11copyErrorToER10UErrorCode.exit
 
 _ZNK6icu_776number4impl10StringProp11copyErrorToER10UErrorCode.exit22.sink.split.i: ; preds = %45, %41, %37, %29, %_ZNK6icu_776number12IntegerWidth11copyErrorToER10UErrorCode.exit.i, %_ZNK6icu_776number4impl6Padder11copyErrorToER10UErrorCode.exit.i, %_ZNK6icu_776number9Precision11copyErrorToER10UErrorCode.exit.i, %_ZNK6icu_776number8Notation11copyErrorToER10UErrorCode.exit.i
-  %.sink.i = phi i32 [ %28, %_ZNK6icu_776number12IntegerWidth11copyErrorToER10UErrorCode.exit.i ], [ %22, %_ZNK6icu_776number4impl6Padder11copyErrorToER10UErrorCode.exit.i ], [ %16, %_ZNK6icu_776number9Precision11copyErrorToER10UErrorCode.exit.i ], [ %10, %_ZNK6icu_776number8Notation11copyErrorToER10UErrorCode.exit.i ], [ 7, %29 ], [ %39, %37 ], [ %43, %41 ], [ %47, %45 ]
+  %.sink.i = phi i32 [ %43, %41 ], [ %39, %37 ], [ 7, %29 ], [ %10, %_ZNK6icu_776number8Notation11copyErrorToER10UErrorCode.exit.i ], [ %28, %_ZNK6icu_776number12IntegerWidth11copyErrorToER10UErrorCode.exit.i ], [ %22, %_ZNK6icu_776number4impl6Padder11copyErrorToER10UErrorCode.exit.i ], [ %16, %_ZNK6icu_776number9Precision11copyErrorToER10UErrorCode.exit.i ], [ %47, %45 ]
   store i32 %.sink.i, ptr %1, align 4, !tbaa !13
   br label %_ZNK6icu_776number4impl10MacroProps11copyErrorToER10UErrorCode.exit
 
@@ -9704,7 +9704,7 @@ _ZNK6icu_776number12IntegerWidth11copyErrorToER10UErrorCode.exit.i: ; preds = %2
   br i1 %53, label %54, label %58
 
 54:                                               ; preds = %_ZNK6icu_776number8Notation11copyErrorToER10UErrorCode.exit.i, %_ZNK6icu_776number9Precision11copyErrorToER10UErrorCode.exit.i, %_ZNK6icu_776number4impl6Padder11copyErrorToER10UErrorCode.exit.i, %_ZNK6icu_776number12IntegerWidth11copyErrorToER10UErrorCode.exit.i, %34, %42, %46, %50
-  %.sink.i = phi i32 [ %33, %_ZNK6icu_776number12IntegerWidth11copyErrorToER10UErrorCode.exit.i ], [ %27, %_ZNK6icu_776number4impl6Padder11copyErrorToER10UErrorCode.exit.i ], [ %21, %_ZNK6icu_776number9Precision11copyErrorToER10UErrorCode.exit.i ], [ %15, %_ZNK6icu_776number8Notation11copyErrorToER10UErrorCode.exit.i ], [ 7, %34 ], [ %44, %42 ], [ %48, %46 ], [ %52, %50 ]
+  %.sink.i = phi i32 [ %48, %46 ], [ %44, %42 ], [ 7, %34 ], [ %15, %_ZNK6icu_776number8Notation11copyErrorToER10UErrorCode.exit.i ], [ %33, %_ZNK6icu_776number12IntegerWidth11copyErrorToER10UErrorCode.exit.i ], [ %27, %_ZNK6icu_776number4impl6Padder11copyErrorToER10UErrorCode.exit.i ], [ %21, %_ZNK6icu_776number9Precision11copyErrorToER10UErrorCode.exit.i ], [ %52, %50 ]
   store i32 %.sink.i, ptr %2, align 4, !tbaa !13
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %0, align 8, !tbaa !27, !alias.scope !168
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -9840,7 +9840,7 @@ _ZNK6icu_776number12IntegerWidth11copyErrorToER10UErrorCode.exit.i: ; preds = %2
   br i1 %48, label %_ZNK6icu_776number4impl10StringProp11copyErrorToER10UErrorCode.exit22.sink.split.i, label %_ZNK6icu_776number4impl10MacroProps11copyErrorToER10UErrorCode.exit
 
 _ZNK6icu_776number4impl10StringProp11copyErrorToER10UErrorCode.exit22.sink.split.i: ; preds = %45, %41, %37, %29, %_ZNK6icu_776number12IntegerWidth11copyErrorToER10UErrorCode.exit.i, %_ZNK6icu_776number4impl6Padder11copyErrorToER10UErrorCode.exit.i, %_ZNK6icu_776number9Precision11copyErrorToER10UErrorCode.exit.i, %_ZNK6icu_776number8Notation11copyErrorToER10UErrorCode.exit.i
-  %.sink.i = phi i32 [ %28, %_ZNK6icu_776number12IntegerWidth11copyErrorToER10UErrorCode.exit.i ], [ %22, %_ZNK6icu_776number4impl6Padder11copyErrorToER10UErrorCode.exit.i ], [ %16, %_ZNK6icu_776number9Precision11copyErrorToER10UErrorCode.exit.i ], [ %10, %_ZNK6icu_776number8Notation11copyErrorToER10UErrorCode.exit.i ], [ 7, %29 ], [ %39, %37 ], [ %43, %41 ], [ %47, %45 ]
+  %.sink.i = phi i32 [ %43, %41 ], [ %39, %37 ], [ 7, %29 ], [ %10, %_ZNK6icu_776number8Notation11copyErrorToER10UErrorCode.exit.i ], [ %28, %_ZNK6icu_776number12IntegerWidth11copyErrorToER10UErrorCode.exit.i ], [ %22, %_ZNK6icu_776number4impl6Padder11copyErrorToER10UErrorCode.exit.i ], [ %16, %_ZNK6icu_776number9Precision11copyErrorToER10UErrorCode.exit.i ], [ %47, %45 ]
   store i32 %.sink.i, ptr %1, align 4, !tbaa !13
   br label %_ZNK6icu_776number4impl10MacroProps11copyErrorToER10UErrorCode.exit
 

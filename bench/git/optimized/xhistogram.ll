@@ -535,14 +535,14 @@ define internal fastcc i32 @histogram_diff(ptr noundef %0, ptr noundef %1, i32 n
   br i1 %235, label %.thread.i.i, label %.preheader.i.i, !llvm.loop !60
 
 .thread.i.i:                                      ; preds = %226, %230, %159, %149, %148
-  %.sroa.0.4 = phi i32 [ %.sroa.0.3, %149 ], [ %.sroa.0.3, %148 ], [ %.sroa.0.3, %159 ], [ %.sroa.0.7, %230 ], [ %.sroa.0.7, %226 ]
-  %.sroa.6.4 = phi i32 [ %.sroa.6.3, %149 ], [ %.sroa.6.3, %148 ], [ %.sroa.6.3, %159 ], [ %.sroa.6.7, %230 ], [ %.sroa.6.7, %226 ]
-  %.sroa.9.4 = phi i32 [ %.sroa.9.3, %149 ], [ %.sroa.9.3, %148 ], [ %.sroa.9.3, %159 ], [ %.sroa.9.7, %230 ], [ %.sroa.9.7, %226 ]
-  %.sroa.11.4 = phi i32 [ %.sroa.11.3, %149 ], [ %.sroa.11.3, %148 ], [ %.sroa.11.3, %159 ], [ %.sroa.11.7, %230 ], [ %.sroa.11.7, %226 ]
-  %.promoted172.i49.i = phi i32 [ %.promoted172.i52.i, %149 ], [ %.promoted172.i52.i, %148 ], [ %.promoted172.i52.i, %159 ], [ %.promoted172.i50.i, %230 ], [ %.promoted172.i50.i, %226 ]
-  %236 = phi i32 [ %158, %149 ], [ %143, %148 ], [ %143, %159 ], [ 1, %230 ], [ 1, %226 ]
-  %237 = phi i32 [ %144, %149 ], [ %144, %148 ], [ %144, %159 ], [ %227, %230 ], [ %227, %226 ]
-  %.1111.i.i = phi i32 [ %.0110168.i.i, %149 ], [ %.0110168.i.i, %148 ], [ %.0110168.i.i, %159 ], [ %spec.select.i.i, %230 ], [ %spec.select.i.i, %226 ]
+  %.sroa.0.4 = phi i32 [ %.sroa.0.3, %149 ], [ %.sroa.0.3, %148 ], [ %.sroa.0.7, %230 ], [ %.sroa.0.3, %159 ], [ %.sroa.0.7, %226 ]
+  %.sroa.6.4 = phi i32 [ %.sroa.6.3, %149 ], [ %.sroa.6.3, %148 ], [ %.sroa.6.7, %230 ], [ %.sroa.6.3, %159 ], [ %.sroa.6.7, %226 ]
+  %.sroa.9.4 = phi i32 [ %.sroa.9.3, %149 ], [ %.sroa.9.3, %148 ], [ %.sroa.9.7, %230 ], [ %.sroa.9.3, %159 ], [ %.sroa.9.7, %226 ]
+  %.sroa.11.4 = phi i32 [ %.sroa.11.3, %149 ], [ %.sroa.11.3, %148 ], [ %.sroa.11.7, %230 ], [ %.sroa.11.3, %159 ], [ %.sroa.11.7, %226 ]
+  %.promoted172.i49.i = phi i32 [ %.promoted172.i52.i, %149 ], [ %.promoted172.i52.i, %148 ], [ %.promoted172.i50.i, %230 ], [ %.promoted172.i52.i, %159 ], [ %.promoted172.i50.i, %226 ]
+  %236 = phi i32 [ %158, %149 ], [ %143, %148 ], [ 1, %230 ], [ %143, %159 ], [ 1, %226 ]
+  %237 = phi i32 [ %144, %149 ], [ %144, %148 ], [ %227, %230 ], [ %144, %159 ], [ %227, %226 ]
+  %.1111.i.i = phi i32 [ %.0110168.i.i, %149 ], [ %.0110168.i.i, %148 ], [ %spec.select.i.i, %230 ], [ %.0110168.i.i, %159 ], [ %spec.select.i.i, %226 ]
   %238 = getelementptr inbounds nuw i8, ptr %.0109169.i.i, i64 8
   %.0109.i.i = load ptr, ptr %238, align 8, !tbaa !46
   %.not.i25.i = icmp eq ptr %.0109.i.i, null
@@ -664,7 +664,7 @@ find_lcs.exit:                                    ; preds = %._crit_edge.i.i, %9
   br i1 %or.cond, label %.loopexit, label %24
 
 .loopexit:                                        ; preds = %272, %24, %268, %find_lcs.exit, %263, %38, %30, %6, %.preheader, %247
-  %.048 = phi i32 [ %250, %247 ], [ 0, %.preheader ], [ 0, %6 ], [ 0, %30 ], [ 0, %38 ], [ 0, %263 ], [ 0, %272 ], [ -1, %24 ], [ %271, %268 ], [ -1, %find_lcs.exit ]
+  %.048 = phi i32 [ 0, %263 ], [ %250, %247 ], [ 0, %30 ], [ 0, %.preheader ], [ 0, %38 ], [ 0, %6 ], [ -1, %24 ], [ %271, %268 ], [ 0, %272 ], [ -1, %find_lcs.exit ]
   ret i32 %.048
 }
 

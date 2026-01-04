@@ -633,7 +633,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit45:               ; preds = %68
   br label %91
 
 91:                                               ; preds = %87, %89
-  %.pn37.pn = phi { ptr, i32 } [ %90, %89 ], [ %88, %87 ]
+  %.pn37.pn = phi { ptr, i32 } [ %88, %87 ], [ %90, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %106
@@ -696,7 +696,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   br label %106
 
 106:                                              ; preds = %84, %85, %91, %104, %48
-  %.pn37.pn.pn.pn = phi { ptr, i32 } [ %105, %104 ], [ %49, %48 ], [ %.pn37.pn, %91 ], [ %86, %85 ], [ %.pn30.pn.pn, %84 ]
+  %.pn37.pn.pn.pn = phi { ptr, i32 } [ %49, %48 ], [ %105, %104 ], [ %.pn37.pn, %91 ], [ %86, %85 ], [ %.pn30.pn.pn, %84 ]
   call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn37.pn.pn.pn

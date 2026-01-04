@@ -89,7 +89,7 @@ define range(i32 -32768, 32768) i32 @Amap_LibFindNode(ptr noundef readonly captu
   br label %Vec_IntCheckWithMask.exit
 
 Vec_IntCheckWithMask.exit:                        ; preds = %17, %37, %44, %26, %24, %6
-  %.0 = phi i32 [ %25, %24 ], [ -1, %6 ], [ %45, %44 ], [ -1, %26 ], [ -1, %37 ], [ -1, %17 ]
+  %.0 = phi i32 [ -1, %37 ], [ %25, %24 ], [ -1, %6 ], [ %45, %44 ], [ -1, %26 ], [ -1, %17 ]
   ret i32 %.0
 }
 
@@ -1035,9 +1035,9 @@ Vec_IntGrow.exit.i110:                            ; preds = %253, %242, %Vec_Int
   br label %Vec_IntPushOrderWithMask.exit
 
 Vec_IntPushOrderWithMask.exit:                    ; preds = %154, %81, %267, %194, %._crit_edge.loopexit.split.loop.exit.i115, %Vec_IntGrow.exit.i110, %._crit_edge.loopexit.split.loop.exit.i93, %Vec_IntGrow.exit.i88, %._crit_edge.loopexit.split.loop.exit.i82, %Vec_IntGrow.exit.i77, %._crit_edge.loopexit.split.loop.exit.i, %Vec_IntGrow.exit.i
-  %.0.in.lcssa.i89.sink = phi i32 [ %69, %Vec_IntGrow.exit.i ], [ %84, %._crit_edge.loopexit.split.loop.exit.i ], [ %142, %Vec_IntGrow.exit.i77 ], [ %157, %._crit_edge.loopexit.split.loop.exit.i82 ], [ %182, %Vec_IntGrow.exit.i88 ], [ %197, %._crit_edge.loopexit.split.loop.exit.i93 ], [ %255, %Vec_IntGrow.exit.i110 ], [ %270, %._crit_edge.loopexit.split.loop.exit.i115 ], [ 0, %194 ], [ 0, %267 ], [ 0, %81 ], [ 0, %154 ]
-  %.sink174 = phi ptr [ %73, %Vec_IntGrow.exit.i ], [ %73, %._crit_edge.loopexit.split.loop.exit.i ], [ %146, %Vec_IntGrow.exit.i77 ], [ %146, %._crit_edge.loopexit.split.loop.exit.i82 ], [ %186, %Vec_IntGrow.exit.i88 ], [ %186, %._crit_edge.loopexit.split.loop.exit.i93 ], [ %259, %Vec_IntGrow.exit.i110 ], [ %259, %._crit_edge.loopexit.split.loop.exit.i115 ], [ %186, %194 ], [ %259, %267 ], [ %73, %81 ], [ %146, %154 ]
-  %.sink = phi i32 [ %44, %Vec_IntGrow.exit.i ], [ %44, %._crit_edge.loopexit.split.loop.exit.i ], [ %124, %Vec_IntGrow.exit.i77 ], [ %124, %._crit_edge.loopexit.split.loop.exit.i82 ], [ %44, %Vec_IntGrow.exit.i88 ], [ %44, %._crit_edge.loopexit.split.loop.exit.i93 ], [ %237, %Vec_IntGrow.exit.i110 ], [ %237, %._crit_edge.loopexit.split.loop.exit.i115 ], [ %44, %194 ], [ %237, %267 ], [ %44, %81 ], [ %124, %154 ]
+  %.0.in.lcssa.i89.sink = phi i32 [ 0, %81 ], [ 0, %194 ], [ 0, %267 ], [ %69, %Vec_IntGrow.exit.i ], [ %84, %._crit_edge.loopexit.split.loop.exit.i ], [ %142, %Vec_IntGrow.exit.i77 ], [ %157, %._crit_edge.loopexit.split.loop.exit.i82 ], [ %182, %Vec_IntGrow.exit.i88 ], [ %197, %._crit_edge.loopexit.split.loop.exit.i93 ], [ %255, %Vec_IntGrow.exit.i110 ], [ %270, %._crit_edge.loopexit.split.loop.exit.i115 ], [ 0, %154 ]
+  %.sink174 = phi ptr [ %73, %81 ], [ %186, %194 ], [ %259, %267 ], [ %73, %Vec_IntGrow.exit.i ], [ %73, %._crit_edge.loopexit.split.loop.exit.i ], [ %146, %Vec_IntGrow.exit.i77 ], [ %146, %._crit_edge.loopexit.split.loop.exit.i82 ], [ %186, %Vec_IntGrow.exit.i88 ], [ %186, %._crit_edge.loopexit.split.loop.exit.i93 ], [ %259, %Vec_IntGrow.exit.i110 ], [ %259, %._crit_edge.loopexit.split.loop.exit.i115 ], [ %146, %154 ]
+  %.sink = phi i32 [ %44, %81 ], [ %44, %194 ], [ %237, %267 ], [ %44, %Vec_IntGrow.exit.i ], [ %44, %._crit_edge.loopexit.split.loop.exit.i ], [ %124, %Vec_IntGrow.exit.i77 ], [ %124, %._crit_edge.loopexit.split.loop.exit.i82 ], [ %44, %Vec_IntGrow.exit.i88 ], [ %44, %._crit_edge.loopexit.split.loop.exit.i93 ], [ %237, %Vec_IntGrow.exit.i110 ], [ %237, %._crit_edge.loopexit.split.loop.exit.i115 ], [ %124, %154 ]
   %271 = sext i32 %.0.in.lcssa.i89.sink to i64
   %272 = getelementptr inbounds i32, ptr %.sink174, i64 %271
   store i32 %.sink, ptr %272, align 4, !tbaa !25

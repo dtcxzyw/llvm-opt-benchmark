@@ -416,7 +416,7 @@ define noundef range(i32 -255, 256) i32 @_ZN5folly7LogName3cmpENS_5RangeIPKcEES4
   br label %21, !llvm.loop !25
 
 .loopexit:                                        ; preds = %39, %51, %47, %36
-  %.02 = phi i32 [ %38, %36 ], [ %49, %47 ], [ %54, %51 ], [ 1, %39 ]
+  %.02 = phi i32 [ %38, %36 ], [ %54, %51 ], [ %49, %47 ], [ 1, %39 ]
   ret i32 %.02
 }
 

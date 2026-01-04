@@ -533,7 +533,7 @@ _ZNK4llvm12function_refIFvNS_5ErrorEEEclES1_.exit73: ; preds = %197, %209
   br i1 %.not57, label %.loopexit, label %185
 
 .loopexit:                                        ; preds = %221, %.critedge, %219, %76, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZN4llvm5ErrorD2Ev.exit63, %173, %_ZN4llvm5ErrorD2Ev.exit
-  %.0 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit ], [ true, %76 ], [ true, %173 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %_ZN4llvm5ErrorD2Ev.exit63 ], [ false, %219 ], [ true, %.critedge ], [ true, %221 ]
+  %.0 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit ], [ true, %76 ], [ false, %_ZN4llvm5ErrorD2Ev.exit63 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ true, %173 ], [ false, %219 ], [ true, %.critedge ], [ true, %221 ]
   ret i1 %.0
 }
 

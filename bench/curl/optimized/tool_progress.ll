@@ -454,7 +454,7 @@ time2str.exit113:                                 ; preds = %168, %171, %180, %1
   br label %195
 
 195:                                              ; preds = %27, %3, %13, %time2str.exit113
-  %.0 = phi i1 [ true, %time2str.exit113 ], [ false, %13 ], [ false, %3 ], [ false, %27 ]
+  %.0 = phi i1 [ false, %3 ], [ true, %time2str.exit113 ], [ false, %13 ], [ false, %27 ]
   ret i1 %.0
 }
 

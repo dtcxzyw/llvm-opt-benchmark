@@ -600,7 +600,7 @@ define dso_local noundef ptr @cpool_get_rand(ptr noundef writeonly captures(none
   br label %28
 
 28:                                               ; preds = %25, %22, %19
-  %.0 = phi ptr [ %16, %22 ], [ %16, %19 ], [ %spec.select, %25 ]
+  %.0 = phi ptr [ %spec.select, %25 ], [ %16, %19 ], [ %16, %22 ]
   %29 = tail call i32 @nc_connect_entry(ptr noundef nonnull %.0) #13
   store i32 %29, ptr %0, align 4, !tbaa !52
   %30 = icmp eq i32 %29, -1

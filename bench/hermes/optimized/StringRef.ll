@@ -334,7 +334,7 @@ if.end67:                                         ; preds = %for.end62
   br label %return
 
 return:                                           ; preds = %land.end22.thread, %if.then27, %for.end62, %if.end67, %if.then50, %if.then37
-  %retval.0 = phi i32 [ %cond39, %if.then37 ], [ %cond58, %if.then50 ], [ %cond71, %if.end67 ], [ 0, %for.end62 ], [ %spec.select, %if.then27 ], [ 1, %land.end22.thread ]
+  %retval.0 = phi i32 [ 0, %for.end62 ], [ %cond39, %if.then37 ], [ %cond58, %if.then50 ], [ %cond71, %if.end67 ], [ %spec.select, %if.then27 ], [ 1, %land.end22.thread ]
   ret i32 %retval.0
 }
 
@@ -821,7 +821,7 @@ if.end61:                                         ; preds = %if.then51, %do.body
   br i1 %cmp67, label %do.body42, label %return, !llvm.loop !16
 
 return:                                           ; preds = %if.end61, %if.end28, %if.end6, %if.end, %entry, %if.then55, %if.then23, %if.then11
-  %retval.0 = phi i64 [ %cond, %if.then11 ], [ %sub.ptr.sub27, %if.then23 ], [ %sub.ptr.sub59, %if.then55 ], [ -1, %entry ], [ %From, %if.end ], [ -1, %if.end6 ], [ -1, %if.end28 ], [ -1, %if.end61 ]
+  %retval.0 = phi i64 [ -1, %if.end28 ], [ -1, %entry ], [ %From, %if.end ], [ %cond, %if.then11 ], [ %sub.ptr.sub27, %if.then23 ], [ -1, %if.end6 ], [ %sub.ptr.sub59, %if.then55 ], [ -1, %if.end61 ]
   ret i64 %retval.0
 }
 
@@ -889,7 +889,7 @@ if.end:                                           ; preds = %for.body.i.i
   br i1 %cmp.not, label %return, label %land.rhs.i, !llvm.loop !17
 
 return:                                           ; preds = %if.end, %for.cond.i.i, %entry, %land.rhs.i.lr.ph
-  %retval.0 = phi i64 [ -1, %entry ], [ %From, %land.rhs.i.lr.ph ], [ %From.addr.048, %for.cond.i.i ], [ -1, %if.end ]
+  %retval.0 = phi i64 [ %From, %land.rhs.i.lr.ph ], [ %From.addr.048, %for.cond.i.i ], [ -1, %entry ], [ -1, %if.end ]
   ret i64 %retval.0
 }
 
@@ -969,7 +969,7 @@ if.end7:                                          ; preds = %for.body, %land.rhs
   br i1 %cmp3.not, label %return, label %for.body, !llvm.loop !19
 
 return:                                           ; preds = %land.rhs.i, %if.end7, %for.body.lr.ph, %if.end, %entry
-  %retval.0 = phi i64 [ -1, %entry ], [ -1, %if.end ], [ %reass.sub, %for.body.lr.ph ], [ %dec, %land.rhs.i ], [ -1, %if.end7 ]
+  %retval.0 = phi i64 [ -1, %entry ], [ -1, %if.end ], [ %reass.sub, %for.body.lr.ph ], [ -1, %if.end7 ], [ %dec, %land.rhs.i ]
   ret i64 %retval.0
 }
 
@@ -1029,7 +1029,7 @@ _ZNK4llvh9StringRef12equals_lowerES0_.exit:       ; preds = %for.body.i.i.i, %fo
   br i1 %cmp3.not, label %return, label %for.body, !llvm.loop !20
 
 return:                                           ; preds = %_ZNK4llvh9StringRef12equals_lowerES0_.exit, %for.cond.i.i.i, %for.body.lr.ph, %if.end, %entry
-  %retval.0 = phi i64 [ -1, %entry ], [ -1, %if.end ], [ %reass.sub, %for.body.lr.ph ], [ %dec, %for.cond.i.i.i ], [ -1, %_ZNK4llvh9StringRef12equals_lowerES0_.exit ]
+  %retval.0 = phi i64 [ %dec, %for.cond.i.i.i ], [ -1, %entry ], [ %reass.sub, %for.body.lr.ph ], [ -1, %if.end ], [ -1, %_ZNK4llvh9StringRef12equals_lowerES0_.exit ]
   ret i64 %retval.0
 }
 
@@ -1591,8 +1591,8 @@ while.end:                                        ; preds = %if.end6, %_ZN4llvh2
   br i1 %or.cond16.not, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %_ZNK4llvh9StringRef4findEcm.exit, %if.then.i, %_ZNK4llvh9StringRef4findEcm.exit.us, %if.then.i.us, %while.end
-  %S.sroa.0.0105 = phi ptr [ %S.sroa.0.0.lcssa, %while.end ], [ %S.sroa.0.0110.us, %if.then.i.us ], [ %S.sroa.0.0110.us, %_ZNK4llvh9StringRef4findEcm.exit.us ], [ %S.sroa.0.0110, %if.then.i ], [ %S.sroa.0.0110, %_ZNK4llvh9StringRef4findEcm.exit ]
-  %S.sroa.6.0103 = phi i64 [ %S.sroa.6.0.lcssa, %while.end ], [ %S.sroa.6.0111.us, %if.then.i.us ], [ %S.sroa.6.0111.us, %_ZNK4llvh9StringRef4findEcm.exit.us ], [ %S.sroa.6.0111, %if.then.i ], [ %S.sroa.6.0111, %_ZNK4llvh9StringRef4findEcm.exit ]
+  %S.sroa.0.0105 = phi ptr [ %S.sroa.0.0.lcssa, %while.end ], [ %S.sroa.0.0110.us, %_ZNK4llvh9StringRef4findEcm.exit.us ], [ %S.sroa.0.0110.us, %if.then.i.us ], [ %S.sroa.0.0110, %if.then.i ], [ %S.sroa.0.0110, %_ZNK4llvh9StringRef4findEcm.exit ]
+  %S.sroa.6.0103 = phi i64 [ %S.sroa.6.0.lcssa, %while.end ], [ %S.sroa.6.0111.us, %_ZNK4llvh9StringRef4findEcm.exit.us ], [ %S.sroa.6.0111.us, %if.then.i.us ], [ %S.sroa.6.0111, %if.then.i ], [ %S.sroa.6.0111, %_ZNK4llvh9StringRef4findEcm.exit ]
   %Size.i.i31 = getelementptr inbounds nuw i8, ptr %A, i64 8
   %12 = load i32, ptr %Size.i.i31, align 8
   %Capacity.i.i32 = getelementptr inbounds nuw i8, ptr %A, i64 12
@@ -1761,7 +1761,7 @@ if.end56:                                         ; preds = %while.end
   br label %return
 
 return:                                           ; preds = %if.end43, %while.end, %if.end, %if.end56
-  %retval.0 = phi i1 [ false, %if.end56 ], [ true, %if.end ], [ true, %while.end ], [ true, %if.end43 ]
+  %retval.0 = phi i1 [ true, %if.end ], [ true, %while.end ], [ false, %if.end56 ], [ true, %if.end43 ]
   ret i1 %retval.0
 }
 
@@ -1824,16 +1824,16 @@ land.lhs.true25:                                  ; preds = %if.end21
   br i1 %10, label %return.sink.split, label %return
 
 return.sink.split:                                ; preds = %land.lhs.true25, %if.then4, %if.then12, %if.then18
-  %.sink = phi i64 [ -2, %if.then18 ], [ -2, %if.then12 ], [ -2, %if.then4 ], [ -1, %land.lhs.true25 ]
-  %arrayidx.i.sink = phi ptr [ %add.ptr.i43, %if.then18 ], [ %add.ptr.i55, %if.then12 ], [ %add.ptr.i67, %if.then4 ], [ %arrayidx.i, %land.lhs.true25 ]
-  %retval.0.ph = phi i32 [ 8, %if.then18 ], [ 2, %if.then12 ], [ 16, %if.then4 ], [ 8, %land.lhs.true25 ]
+  %.sink = phi i64 [ -2, %if.then4 ], [ -2, %if.then18 ], [ -2, %if.then12 ], [ -1, %land.lhs.true25 ]
+  %arrayidx.i.sink = phi ptr [ %add.ptr.i67, %if.then4 ], [ %add.ptr.i43, %if.then18 ], [ %add.ptr.i55, %if.then12 ], [ %arrayidx.i, %land.lhs.true25 ]
+  %retval.0.ph = phi i32 [ 16, %if.then4 ], [ 8, %if.then18 ], [ 2, %if.then12 ], [ 8, %land.lhs.true25 ]
   %sub.i = add i64 %0, %.sink
   store ptr %arrayidx.i.sink, ptr %Str, align 8
   store i64 %sub.i, ptr %Length.i73, align 8
   br label %return
 
 return:                                           ; preds = %return.sink.split, %entry, %if.end21, %land.lhs.true25
-  %retval.0 = phi i32 [ 10, %land.lhs.true25 ], [ 10, %if.end21 ], [ 10, %entry ], [ %retval.0.ph, %return.sink.split ]
+  %retval.0 = phi i32 [ 10, %entry ], [ 10, %land.lhs.true25 ], [ 10, %if.end21 ], [ %retval.0.ph, %return.sink.split ]
   ret i32 %retval.0
 }
 
@@ -2028,7 +2028,7 @@ return.sink.split:                                ; preds = %_ZN4llvh22consumeUn
   br label %return
 
 return:                                           ; preds = %if.end43.i45, %if.end43.i, %return.sink.split, %while.end.i28, %if.end.i17, %while.end.i, %if.end.i, %_ZN4llvh22consumeUnsignedIntegerERNS_9StringRefEjRy.exit59, %_ZN4llvh22consumeUnsignedIntegerERNS_9StringRefEjRy.exit
-  %retval.0 = phi i1 [ true, %_ZN4llvh22consumeUnsignedIntegerERNS_9StringRefEjRy.exit ], [ true, %_ZN4llvh22consumeUnsignedIntegerERNS_9StringRefEjRy.exit59 ], [ true, %if.end.i ], [ true, %while.end.i ], [ true, %if.end.i17 ], [ true, %while.end.i28 ], [ false, %return.sink.split ], [ true, %if.end43.i ], [ true, %if.end43.i45 ]
+  %retval.0 = phi i1 [ true, %while.end.i28 ], [ true, %if.end43.i ], [ true, %_ZN4llvh22consumeUnsignedIntegerERNS_9StringRefEjRy.exit ], [ true, %_ZN4llvh22consumeUnsignedIntegerERNS_9StringRefEjRy.exit59 ], [ false, %return.sink.split ], [ true, %if.end.i ], [ true, %while.end.i ], [ true, %if.end.i17 ], [ true, %if.end43.i45 ]
   ret i1 %retval.0
 }
 
@@ -2107,7 +2107,7 @@ if.end50.i:                                       ; preds = %if.end43.i
   br i1 %cmp.i.not.i, label %_ZN4llvh22consumeUnsignedIntegerERNS_9StringRefEjRy.exit, label %while.body.i, !llvm.loop !34
 
 _ZN4llvh22consumeUnsignedIntegerERNS_9StringRefEjRy.exit: ; preds = %if.end43.i, %while.body.i, %land.lhs.true16.i, %if.else24.i, %if.end40.i, %if.end50.i, %if.end.i
-  %retval.0.i = phi i1 [ true, %if.end.i ], [ true, %if.end43.i ], [ false, %if.end50.i ], [ true, %if.else24.i ], [ true, %if.end40.i ], [ true, %while.body.i ], [ true, %land.lhs.true16.i ]
+  %retval.0.i = phi i1 [ true, %if.end.i ], [ true, %if.end43.i ], [ true, %if.else24.i ], [ true, %if.end40.i ], [ true, %while.body.i ], [ true, %land.lhs.true16.i ], [ false, %if.end50.i ]
   ret i1 %retval.0.i
 }
 
@@ -2231,8 +2231,8 @@ _ZN4llvh5APIntD2Ev.exit53:                        ; preds = %delete.notnull.i45,
   br label %if.end33
 
 if.end33:                                         ; preds = %while.end17, %if.else, %_ZN4llvh5APIntD2Ev.exit53
-  %10 = phi i32 [ %9, %_ZN4llvh5APIntD2Ev.exit53 ], [ %5, %if.else ], [ %5, %while.end17 ]
-  %BitWidth.0 = phi i32 [ %conv22, %_ZN4llvh5APIntD2Ev.exit53 ], [ %conv22, %if.else ], [ %5, %while.end17 ]
+  %10 = phi i32 [ %5, %if.else ], [ %9, %_ZN4llvh5APIntD2Ev.exit53 ], [ %5, %while.end17 ]
+  %BitWidth.0 = phi i32 [ %conv22, %if.else ], [ %conv22, %_ZN4llvh5APIntD2Ev.exit53 ], [ %5, %while.end17 ]
   %BitWidth.i54 = getelementptr inbounds nuw i8, ptr %RadixAP, i64 8
   store i32 1, ptr %BitWidth.i54, align 8
   store i64 0, ptr %RadixAP, align 8
@@ -2340,7 +2340,7 @@ land.lhs.true58.us:                               ; preds = %if.else54.us
   br i1 %cmp61.us, label %if.end82.us, label %cleanup
 
 if.end82.us:                                      ; preds = %land.lhs.true.us, %land.lhs.true58.us, %if.else66.us
-  %.sink = phi i32 [ -55, %if.else66.us ], [ -87, %land.lhs.true58.us ], [ -48, %land.lhs.true.us ]
+  %.sink = phi i32 [ -87, %land.lhs.true58.us ], [ -55, %if.else66.us ], [ -48, %land.lhs.true.us ]
   %conv53.us = zext nneg i8 %22 to i32
   %sub.us = add nsw i32 %.sink, %conv53.us
   %cmp83.not.us = icmp ult i32 %sub.us, %Radix.addr.0
@@ -2504,7 +2504,7 @@ delete.notnull.i157:                              ; preds = %if.then.i155
   br label %return
 
 return:                                           ; preds = %delete.notnull.i157, %if.then.i155, %_ZN4llvh5APIntD2Ev.exit152, %if.end, %_ZN4llvh5APIntD2Ev.exit
-  %retval.0 = phi i1 [ false, %_ZN4llvh5APIntD2Ev.exit ], [ true, %if.end ], [ %cmp.i.not.lcssa, %_ZN4llvh5APIntD2Ev.exit152 ], [ %cmp.i.not.lcssa, %if.then.i155 ], [ %cmp.i.not.lcssa, %delete.notnull.i157 ]
+  %retval.0 = phi i1 [ true, %if.end ], [ false, %_ZN4llvh5APIntD2Ev.exit ], [ %cmp.i.not.lcssa, %_ZN4llvh5APIntD2Ev.exit152 ], [ %cmp.i.not.lcssa, %if.then.i155 ], [ %cmp.i.not.lcssa, %delete.notnull.i157 ]
   ret i1 %retval.0
 }
 

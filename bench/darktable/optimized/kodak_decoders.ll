@@ -250,7 +250,7 @@ _ZNSt6vectorItSaItEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split
   br label %_ZNSt6vectorItSaItEED2Ev.exit
 
 _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %_ZNSt6vectorItSaItEED2Ev.exit.loopexit.split-lp.loopexit, %_ZNSt6vectorItSaItEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %_ZNSt6vectorItSaItEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %_ZNSt6vectorItSaItEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %_ZNSt6vectorItSaItEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %_ZNSt6vectorItSaItEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %_ZNSt6vectorItSaItEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split, %_ZNSt6vectorItSaItEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.split.us, %_ZNSt6vectorItSaItEED2Ev.exit.loopexit.split, %_ZNSt6vectorItSaItEED2Ev.exit.loopexit.split.us
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %_ZNSt6vectorItSaItEED2Ev.exit.loopexit.split ], [ %lpad.loopexit.us, %_ZNSt6vectorItSaItEED2Ev.exit.loopexit.split.us ], [ %lpad.loopexit290, %_ZNSt6vectorItSaItEED2Ev.exit.loopexit.split-lp.loopexit ], [ %lpad.loopexit294, %_ZNSt6vectorItSaItEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split ], [ %lpad.loopexit294.us.us, %_ZNSt6vectorItSaItEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.split.us ], [ %lpad.loopexit298, %_ZNSt6vectorItSaItEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit307, %_ZNSt6vectorItSaItEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit314, %_ZNSt6vectorItSaItEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit318, %_ZNSt6vectorItSaItEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %_ZNSt6vectorItSaItEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.us, %_ZNSt6vectorItSaItEED2Ev.exit.loopexit.split.us ], [ %lpad.loopexit, %_ZNSt6vectorItSaItEED2Ev.exit.loopexit.split ], [ %lpad.loopexit290, %_ZNSt6vectorItSaItEED2Ev.exit.loopexit.split-lp.loopexit ], [ %lpad.loopexit294.us.us, %_ZNSt6vectorItSaItEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.split.us ], [ %lpad.loopexit294, %_ZNSt6vectorItSaItEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split ], [ %lpad.loopexit298, %_ZNSt6vectorItSaItEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit307, %_ZNSt6vectorItSaItEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit314, %_ZNSt6vectorItSaItEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit318, %_ZNSt6vectorItSaItEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %_ZNSt6vectorItSaItEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -791,12 +791,12 @@ _ZNSt6vectorItSaItEED2Ev.exit.loopexit.split.us:  ; preds = %272
   br i1 %exitcond449.not, label %.critedge, label %.split355, !llvm.loop !97
 
 .critedge:                                        ; preds = %.split355, %.loopexit, %.split355.us, %.loopexit.us
-  %.us-phi356 = phi i32 [ %265, %.loopexit.us ], [ %268, %.split355.us ], [ %265, %.loopexit ], [ %304, %.split355 ]
+  %.us-phi356 = phi i32 [ %268, %.split355.us ], [ %265, %.loopexit.us ], [ %265, %.loopexit ], [ %304, %.split355 ]
   %334 = icmp eq i32 %263, 9
   br i1 %334, label %.preheader297, label %.loopexit301, !llvm.loop !100
 
 .loopexit301:                                     ; preds = %.split, %.split.us.us, %236, %.critedge
-  %.1248 = phi i32 [ %.us-phi356, %.critedge ], [ %196, %236 ], [ %196, %.split.us.us ], [ %196, %.split ]
+  %.1248 = phi i32 [ %196, %.split.us.us ], [ %196, %236 ], [ %.us-phi356, %.critedge ], [ %196, %.split ]
   %335 = icmp sgt i32 %.1248, 0
   br i1 %335, label %.lr.ph362, label %.preheader306, !llvm.loop !101
 
@@ -2365,7 +2365,7 @@ define noundef range(i32 0, 2) i32 @_ZN6LibRaw18kodak_65000_decodeEPsi(ptr nound
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph73, !llvm.loop !165
 
 .loopexit:                                        ; preds = %127, %73, %92
-  %.051 = phi i32 [ 0, %92 ], [ 1, %73 ], [ 0, %127 ]
+  %.051 = phi i32 [ 1, %73 ], [ 0, %92 ], [ 0, %127 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.051
@@ -2899,14 +2899,14 @@ define void @_ZN6LibRaw18kodak_rgb_load_rawEv(ptr noundef nonnull align 8 derefe
   br i1 %exitcond.not, label %.loopexit, label %.preheader40.split, !llvm.loop !177
 
 .loopexit:                                        ; preds = %62, %49, %.preheader.split, %.preheader.split.us
-  %.5 = phi ptr [ %.229.us, %.preheader.split.us ], [ %.229, %.preheader.split ], [ %.4.us, %49 ], [ %.4, %62 ]
+  %.5 = phi ptr [ %.4.us, %49 ], [ %.229, %.preheader.split ], [ %.229.us, %.preheader.split.us ], [ %.4, %62 ]
   %63 = add nuw nsw i32 %.03047, 1
   %64 = getelementptr inbounds nuw i8, ptr %.249, i64 8
   %exitcond95.not = icmp eq i32 %63, %umax108
   br i1 %exitcond95.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !178
 
 ._crit_edge:                                      ; preds = %.loopexit, %.loopexit.split.us54, %.loopexit.split.us.us.us, %.lr.ph62
-  %.2.lcssa = phi ptr [ %.160, %.lr.ph62 ], [ %33, %.loopexit.split.us.us.us ], [ %38, %.loopexit.split.us54 ], [ %64, %.loopexit ]
+  %.2.lcssa = phi ptr [ %.160, %.lr.ph62 ], [ %38, %.loopexit.split.us54 ], [ %33, %.loopexit.split.us.us.us ], [ %64, %.loopexit ]
   %65 = add nuw nsw i32 %.03459, 256
   %66 = load i16, ptr %11, align 2, !tbaa !6
   %67 = zext i16 %66 to i32

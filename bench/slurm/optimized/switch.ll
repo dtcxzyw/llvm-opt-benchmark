@@ -527,7 +527,7 @@ define dso_local range(i32 -1, 1) i32 @switch_g_unpack_jobinfo(ptr noundef %0, p
   br label %49
 
 49:                                               ; preds = %3, %26, %41, %45, %7, %47, %40, %25
-  %.0 = phi i32 [ 0, %40 ], [ -1, %47 ], [ 0, %25 ], [ -1, %7 ], [ 0, %45 ], [ -1, %41 ], [ -1, %26 ], [ -1, %3 ]
+  %.0 = phi i32 [ 0, %45 ], [ 0, %25 ], [ 0, %40 ], [ -1, %47 ], [ -1, %7 ], [ -1, %41 ], [ -1, %26 ], [ -1, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -882,7 +882,7 @@ switch_g_free_stepinfo.exit:                      ; preds = %.thread41, %77, %91
   br label %93
 
 93:                                               ; preds = %68, %75, %59, %62, %64, %28, %22, %switch_g_free_stepinfo.exit
-  %.032 = phi i32 [ -1, %switch_g_free_stepinfo.exit ], [ -1, %22 ], [ 0, %28 ], [ 0, %64 ], [ 0, %62 ], [ 0, %59 ], [ 0, %75 ], [ 0, %68 ]
+  %.032 = phi i32 [ -1, %switch_g_free_stepinfo.exit ], [ -1, %22 ], [ 0, %59 ], [ 0, %28 ], [ 0, %64 ], [ 0, %62 ], [ 0, %75 ], [ 0, %68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.032

@@ -419,7 +419,7 @@ define void @_ZN7rocksdb21BlockCacheTraceHelper13ComputeRowKeyB5cxx11ERKNS_21Blo
   br i1 %37, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !29
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %34, %32, %28, %24, %13
-  %.0.i.i = phi i32 [ %25, %24 ], [ %29, %28 ], [ %33, %32 ], [ 1, %13 ], [ %36, %34 ]
+  %.0.i.i = phi i32 [ %33, %32 ], [ %25, %24 ], [ %29, %28 ], [ 1, %13 ], [ %36, %34 ]
   %38 = zext i32 %.0.i.i to i64
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %39, ptr %5, align 8, !tbaa !23, !alias.scope !26
@@ -817,7 +817,7 @@ define noundef range(i64 0, 72057594037927937) i64 @_ZN7rocksdb21BlockCacheTrace
   br label %21
 
 21:                                               ; preds = %6, %14, %1
-  %.0 = phi i64 [ 0, %1 ], [ %20, %14 ], [ 0, %6 ]
+  %.0 = phi i64 [ 0, %1 ], [ 0, %6 ], [ %20, %14 ]
   ret i64 %.0
 }
 
@@ -3640,8 +3640,8 @@ _ZN7rocksdb21BlockCacheTraceHelper10GetTableIdERKNS_21BlockCacheTraceRecordE.exi
   br label %_ZN7rocksdb21BlockCacheTraceHelper17GetSequenceNumberERKNS_21BlockCacheTraceRecordE.exit
 
 _ZN7rocksdb21BlockCacheTraceHelper17GetSequenceNumberERKNS_21BlockCacheTraceRecordE.exit: ; preds = %_ZN7rocksdb21BlockCacheTraceHelper10GetTableIdERKNS_21BlockCacheTraceRecordE.exit, %60, %66
-  %.0.i31 = phi i64 [ 0, %_ZN7rocksdb21BlockCacheTraceHelper10GetTableIdERKNS_21BlockCacheTraceRecordE.exit ], [ %.0.i32, %66 ], [ %.0.i32, %60 ]
-  %.0.i26 = phi i64 [ 0, %_ZN7rocksdb21BlockCacheTraceHelper10GetTableIdERKNS_21BlockCacheTraceRecordE.exit ], [ %72, %66 ], [ 0, %60 ]
+  %.0.i31 = phi i64 [ 0, %_ZN7rocksdb21BlockCacheTraceHelper10GetTableIdERKNS_21BlockCacheTraceRecordE.exit ], [ %.0.i32, %60 ], [ %.0.i32, %66 ]
+  %.0.i26 = phi i64 [ 0, %_ZN7rocksdb21BlockCacheTraceHelper10GetTableIdERKNS_21BlockCacheTraceRecordE.exit ], [ 0, %60 ], [ %72, %66 ]
   %73 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %75 = load i64, ptr %74, align 8, !tbaa !24
@@ -5642,12 +5642,12 @@ define internal void @_GLOBAL__sub_I_block_cache_tracer.cc() #22 section ".text.
   br label %26
 
 26:                                               ; preds = %24, %22
-  %.015.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL22global_operation_tableE, i64 280), %22 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL22global_operation_tableE, i64 320), %24 ]
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %23, %22 ], [ %25, %24 ]
+  %.015.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL22global_operation_tableE, i64 320), %24 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL22global_operation_tableE, i64 280), %22 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %25, %24 ], [ %23, %22 ]
   br label %27
 
 27:                                               ; preds = %_ZN7rocksdb13OperationInfoD2Ev.exit.i, %26
-  %28 = phi ptr [ %29, %_ZN7rocksdb13OperationInfoD2Ev.exit.i ], [ %.015.i, %26 ]
+  %28 = phi ptr [ %.015.i, %26 ], [ %29, %_ZN7rocksdb13OperationInfoD2Ev.exit.i ]
   %29 = getelementptr inbounds i8, ptr %28, i64 -40
   %30 = getelementptr inbounds i8, ptr %28, i64 -32
   %31 = load ptr, ptr %30, align 8, !tbaa !11
@@ -5666,7 +5666,7 @@ _ZN7rocksdb13OperationInfoD2Ev.exit.i:            ; preds = %27, %_ZNKSt7__cxx11
   br i1 %36, label %common.resume, label %27
 
 common.resume:                                    ; preds = %_ZN7rocksdb13OperationInfoD2Ev.exit.i, %_ZN7rocksdb18OperationStageInfoD2Ev.exit.i, %_ZN7rocksdb17OperationPropertyD2Ev.exit.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.i, %_ZN7rocksdb17OperationPropertyD2Ev.exit.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZN7rocksdb18OperationStageInfoD2Ev.exit.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZN7rocksdb13OperationInfoD2Ev.exit.i ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZN7rocksdb18OperationStageInfoD2Ev.exit.i ], [ %.pn.pn.pn.pn.pn.i, %_ZN7rocksdb17OperationPropertyD2Ev.exit.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZN7rocksdb13OperationInfoD2Ev.exit.i ]
   resume { ptr, i32 } %common.resume.op
 
 __cxx_global_var_init.2.exit:                     ; preds = %.noexc63.i
@@ -5893,12 +5893,12 @@ __cxx_global_var_init.2.exit:                     ; preds = %.noexc63.i
   br label %92
 
 92:                                               ; preds = %90, %88, %86, %84, %82, %80, %78, %76, %74
-  %.014.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 80), %74 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 120), %76 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 160), %78 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 200), %80 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 240), %82 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 280), %84 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 320), %86 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 400), %90 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 360), %88 ]
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %75, %74 ], [ %77, %76 ], [ %79, %78 ], [ %81, %80 ], [ %83, %82 ], [ %85, %84 ], [ %87, %86 ], [ %91, %90 ], [ %89, %88 ]
+  %.014.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 360), %88 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 400), %90 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 80), %74 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 120), %76 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 160), %78 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 200), %80 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 240), %82 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 280), %84 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 320), %86 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %89, %88 ], [ %91, %90 ], [ %75, %74 ], [ %77, %76 ], [ %79, %78 ], [ %81, %80 ], [ %83, %82 ], [ %85, %84 ], [ %87, %86 ]
   br label %93
 
 93:                                               ; preds = %_ZN7rocksdb18OperationStageInfoD2Ev.exit.i, %92
-  %94 = phi ptr [ %95, %_ZN7rocksdb18OperationStageInfoD2Ev.exit.i ], [ %.014.i, %92 ]
+  %94 = phi ptr [ %.014.i, %92 ], [ %95, %_ZN7rocksdb18OperationStageInfoD2Ev.exit.i ]
   %95 = getelementptr inbounds i8, ptr %94, i64 -40
   %96 = getelementptr inbounds i8, ptr %94, i64 -32
   %97 = load ptr, ptr %96, align 8, !tbaa !11
@@ -5977,12 +5977,12 @@ __cxx_global_var_init.14.exit:                    ; preds = %.noexc68.i
   br label %117
 
 117:                                              ; preds = %115, %113
-  %.09.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL31compaction_operation_propertiesE, i64 40), %113 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL31compaction_operation_propertiesE, i64 80), %115 ]
-  %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %114, %113 ], [ %116, %115 ]
+  %.09.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL31compaction_operation_propertiesE, i64 80), %115 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL31compaction_operation_propertiesE, i64 40), %113 ]
+  %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %116, %115 ], [ %114, %113 ]
   br label %118
 
 118:                                              ; preds = %_ZN7rocksdb17OperationPropertyD2Ev.exit.i, %117
-  %119 = phi ptr [ %120, %_ZN7rocksdb17OperationPropertyD2Ev.exit.i ], [ %.09.i, %117 ]
+  %119 = phi ptr [ %.09.i, %117 ], [ %120, %_ZN7rocksdb17OperationPropertyD2Ev.exit.i ]
   %120 = getelementptr inbounds i8, ptr %119, i64 -40
   %121 = getelementptr inbounds i8, ptr %119, i64 -32
   %122 = load ptr, ptr %121, align 8, !tbaa !11

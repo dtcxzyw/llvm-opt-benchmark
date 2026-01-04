@@ -1292,8 +1292,8 @@ define internal fastcc { ptr, i64 } @_ZN12_GLOBAL__N_115getLeafTypeNameEN4llvm8c
   br label %41
 
 41:                                               ; preds = %1, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.sroa.41.0 = phi i64 [ 11, %40 ], [ 8, %2 ], [ 9, %3 ], [ 14, %4 ], [ 5, %5 ], [ 7, %6 ], [ 9, %7 ], [ 5, %8 ], [ 5, %9 ], [ 6, %10 ], [ 9, %11 ], [ 5, %12 ], [ 4, %13 ], [ 11, %14 ], [ 7, %15 ], [ 12, %16 ], [ 8, %17 ], [ 9, %18 ], [ 13, %19 ], [ 16, %20 ], [ 24, %21 ], [ 5, %22 ], [ 16, %23 ], [ 16, %24 ], [ 10, %25 ], [ 10, %26 ], [ 9, %27 ], [ 10, %28 ], [ 16, %29 ], [ 6, %30 ], [ 12, %31 ], [ 9, %32 ], [ 10, %33 ], [ 8, %34 ], [ 13, %35 ], [ 16, %36 ], [ 18, %37 ], [ 7, %38 ], [ 10, %39 ], [ 7, %1 ]
-  %.sroa.0.0 = phi ptr [ @.str.292, %40 ], [ @.str.255, %2 ], [ @.str.256, %3 ], [ @.str.257, %4 ], [ @.str.258, %5 ], [ @.str.259, %6 ], [ @.str.40, %7 ], [ @.str.260, %8 ], [ @.str.261, %9 ], [ @.str.262, %10 ], [ @.str.263, %11 ], [ @.str.264, %12 ], [ @.str.265, %13 ], [ @.str.266, %14 ], [ @.str.267, %15 ], [ @.str.268, %16 ], [ @.str.269, %17 ], [ @.str.270, %18 ], [ @.str.271, %19 ], [ @.str.272, %20 ], [ @.str.273, %21 ], [ @.str.274, %22 ], [ @.str.275, %23 ], [ @.str.276, %24 ], [ @.str.277, %25 ], [ @.str.278, %26 ], [ @.str.279, %27 ], [ @.str.280, %28 ], [ @.str.281, %29 ], [ @.str.282, %30 ], [ @.str.283, %31 ], [ @.str.284, %32 ], [ @.str.285, %33 ], [ @.str.286, %34 ], [ @.str.287, %35 ], [ @.str.288, %36 ], [ @.str.289, %37 ], [ @.str.290, %38 ], [ @.str.291, %39 ], [ @.str.254, %1 ]
+  %.sroa.41.0 = phi i64 [ 11, %40 ], [ 10, %39 ], [ 8, %2 ], [ 9, %3 ], [ 14, %4 ], [ 5, %5 ], [ 7, %6 ], [ 9, %7 ], [ 5, %8 ], [ 5, %9 ], [ 6, %10 ], [ 9, %11 ], [ 5, %12 ], [ 4, %13 ], [ 11, %14 ], [ 7, %15 ], [ 12, %16 ], [ 8, %17 ], [ 9, %18 ], [ 13, %19 ], [ 16, %20 ], [ 24, %21 ], [ 5, %22 ], [ 16, %23 ], [ 16, %24 ], [ 10, %25 ], [ 10, %26 ], [ 9, %27 ], [ 10, %28 ], [ 16, %29 ], [ 6, %30 ], [ 12, %31 ], [ 9, %32 ], [ 10, %33 ], [ 8, %34 ], [ 13, %35 ], [ 16, %36 ], [ 18, %37 ], [ 7, %38 ], [ 7, %1 ]
+  %.sroa.0.0 = phi ptr [ @.str.292, %40 ], [ @.str.291, %39 ], [ @.str.255, %2 ], [ @.str.256, %3 ], [ @.str.257, %4 ], [ @.str.258, %5 ], [ @.str.259, %6 ], [ @.str.40, %7 ], [ @.str.260, %8 ], [ @.str.261, %9 ], [ @.str.262, %10 ], [ @.str.263, %11 ], [ @.str.264, %12 ], [ @.str.265, %13 ], [ @.str.266, %14 ], [ @.str.267, %15 ], [ @.str.268, %16 ], [ @.str.269, %17 ], [ @.str.270, %18 ], [ @.str.271, %19 ], [ @.str.272, %20 ], [ @.str.273, %21 ], [ @.str.274, %22 ], [ @.str.275, %23 ], [ @.str.276, %24 ], [ @.str.277, %25 ], [ @.str.278, %26 ], [ @.str.279, %27 ], [ @.str.280, %28 ], [ @.str.281, %29 ], [ @.str.282, %30 ], [ @.str.283, %31 ], [ @.str.284, %32 ], [ @.str.285, %33 ], [ @.str.286, %34 ], [ @.str.287, %35 ], [ @.str.288, %36 ], [ @.str.289, %37 ], [ @.str.290, %38 ], [ @.str.254, %1 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.41.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -11982,7 +11982,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i: ; preds = %2
   br label %_ZN4llvmltENS_9StringRefES0_.exit
 
 _ZN4llvmltENS_9StringRefES0_.exit:                ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i, %.thread.i.i, %6
-  %.1.i.i = phi i32 [ %8, %6 ], [ %spec.select.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i ], [ 0, %.thread.i.i ]
+  %.1.i.i = phi i32 [ %spec.select.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i ], [ %8, %6 ], [ 0, %.thread.i.i ]
   %9 = icmp slt i32 %.1.i.i, 0
   ret i1 %9
 }
@@ -12457,7 +12457,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i: ; preds = %2
   br label %_ZN4llvmltENS_9StringRefES0_.exit
 
 _ZN4llvmltENS_9StringRefES0_.exit:                ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i, %.thread.i.i, %6
-  %.1.i.i = phi i32 [ %8, %6 ], [ %spec.select.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i ], [ 0, %.thread.i.i ]
+  %.1.i.i = phi i32 [ %spec.select.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i ], [ %8, %6 ], [ 0, %.thread.i.i ]
   %9 = icmp slt i32 %.1.i.i, 0
   ret i1 %9
 }

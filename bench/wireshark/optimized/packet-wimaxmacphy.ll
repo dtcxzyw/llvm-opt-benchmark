@@ -2215,7 +2215,7 @@ dissect_wimaxmacphy_phy_rxstart_request.exit:     ; preds = %dissect_wimaxmacphy
   br label %dissect_wimaxmacphy_phy_rxend_indication.exit
 
 dissect_wimaxmacphy_phy_rxend_indication.exit:    ; preds = %900, %854, %839, %834, %801, %934, %905, %794, %787, %dissect_wimaxmacphy_phy_rxstart_request.exit, %322, %307, %296, %285, %278, %dissect_wimaxmacphy_phy_txstart_request.exit
-  %.0101 = phi i32 [ %939, %934 ], [ %277, %dissect_wimaxmacphy_phy_txstart_request.exit ], [ 4, %278 ], [ 8, %285 ], [ %306, %296 ], [ 8, %307 ], [ 8, %322 ], [ %786, %dissect_wimaxmacphy_phy_rxstart_request.exit ], [ 4, %787 ], [ 4, %794 ], [ 24, %905 ], [ 24, %801 ], [ %838, %834 ], [ 28, %839 ], [ 32, %854 ], [ %903, %900 ]
+  %.0101 = phi i32 [ %939, %934 ], [ %277, %dissect_wimaxmacphy_phy_txstart_request.exit ], [ 4, %278 ], [ 8, %285 ], [ %306, %296 ], [ 8, %307 ], [ 8, %322 ], [ %786, %dissect_wimaxmacphy_phy_rxstart_request.exit ], [ 4, %787 ], [ 4, %794 ], [ 32, %854 ], [ 24, %905 ], [ 24, %801 ], [ %838, %834 ], [ 28, %839 ], [ %903, %900 ]
   %940 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0101)
   %941 = icmp sgt i32 %940, 0
   br i1 %941, label %942, label %947

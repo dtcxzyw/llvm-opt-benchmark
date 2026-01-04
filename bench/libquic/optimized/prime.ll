@@ -257,8 +257,8 @@ get_word.exit60.us.i:                             ; preds = %80, %79
   br i1 %110, label %.backedge66.i, label %.preheader.i
 
 .critedge.thread.i:                               ; preds = %98, %84, %83
-  %.14597.i = phi i64 [ %.041.i, %83 ], [ %.041.i, %84 ], [ %.04474.i, %98 ]
-  %.04769.i = phi i64 [ %.047.us.i, %83 ], [ %.047.us.i, %84 ], [ %.047.i, %98 ]
+  %.14597.i = phi i64 [ %.041.i, %84 ], [ %.041.i, %83 ], [ %.04474.i, %98 ]
+  %.04769.i = phi i64 [ %.047.us.i, %84 ], [ %.047.us.i, %83 ], [ %.047.i, %98 ]
   %111 = tail call i32 @BN_add_word(ptr noundef %0, i64 noundef %.04769.i) #5
   %.not55.i = icmp eq i32 %111, 0
   br i1 %.not55.i, label %probable_prime.exit.thread, label %112
@@ -269,7 +269,7 @@ get_word.exit60.us.i:                             ; preds = %80, %79
   br i1 %.not56.i, label %probable_prime.exit, label %.backedge66.i
 
 .backedge66.i:                                    ; preds = %.backedge.i, %.critedge.us.i, %112
-  %.14596.i = phi i64 [ %.14597.i, %112 ], [ %.041.i, %.critedge.us.i ], [ %.04474.i, %.backedge.i ]
+  %.14596.i = phi i64 [ %.041.i, %.critedge.us.i ], [ %.14597.i, %112 ], [ %.04474.i, %.backedge.i ]
   %114 = tail call i32 @BN_rand(ptr noundef %0, i32 noundef range(i32 2, -2147483648) %1, i32 noundef 1, i32 noundef 1) #5
   %.not.i = icmp eq i32 %114, 0
   br i1 %.not.i, label %probable_prime.exit.thread, label %.preheader65.i
@@ -374,7 +374,7 @@ probable_prime.exit:                              ; preds = %112
   %.not52.i = icmp eq i32 %152, 0
   br i1 %.not52.i, label %probable_prime_dh_safe.exit.thread, label %.preheader.i80.backedge
 
-probable_prime_dh_safe.exit.thread:               ; preds = %117, %138, %136, %130, %134, %132, %127, %125, %123, %121, %149, %151
+probable_prime_dh_safe.exit.thread:               ; preds = %117, %123, %121, %138, %136, %130, %134, %132, %127, %125, %149, %151
   tail call void @BN_CTX_end(ptr noundef nonnull %40) #5
   br label %.thread106
 
@@ -440,7 +440,7 @@ probable_prime_dh_safe.exit:                      ; preds = %140
   %.not31.i = icmp eq i32 %174, 0
   br i1 %.not31.i, label %probable_prime_dh.exit.thread, label %.backedge163
 
-probable_prime_dh.exit.thread:                    ; preds = %153, %162, %164, %159, %157, %155, %173
+probable_prime_dh.exit.thread:                    ; preds = %153, %155, %162, %164, %159, %157, %173
   tail call void @BN_CTX_end(ptr noundef nonnull %40) #5
   br label %.thread106
 
@@ -509,7 +509,7 @@ BN_GENCB_call.exit92.thread:                      ; preds = %186, %BN_GENCB_call
   br label %.thread106
 
 .thread106:                                       ; preds = %BN_GENCB_call.exit92.thread, %BN_GENCB_call.exit92, %.preheader, %184, %179, %.thread106.loopexit167, %probable_prime.exit.thread, %42, %probable_prime_dh_safe.exit.thread, %probable_prime_dh.exit.thread
-  %.062108 = phi i32 [ 0, %probable_prime_dh.exit.thread ], [ 0, %probable_prime_dh_safe.exit.thread ], [ 0, %42 ], [ 0, %probable_prime.exit.thread ], [ 0, %.thread106.loopexit167 ], [ 1, %179 ], [ 1, %BN_GENCB_call.exit92.thread ], [ 0, %BN_GENCB_call.exit92 ], [ 0, %.preheader ], [ 0, %184 ]
+  %.062108 = phi i32 [ 0, %.thread106.loopexit167 ], [ 0, %probable_prime_dh.exit.thread ], [ 0, %probable_prime_dh_safe.exit.thread ], [ 0, %probable_prime.exit.thread ], [ 0, %42 ], [ 1, %179 ], [ 1, %BN_GENCB_call.exit92.thread ], [ 0, %BN_GENCB_call.exit92 ], [ 0, %.preheader ], [ 0, %184 ]
   tail call void @BN_CTX_end(ptr noundef nonnull %40) #5
   tail call void @BN_CTX_free(ptr noundef nonnull %40) #5
   br label %.thread109
@@ -777,9 +777,9 @@ BN_GENCB_call.exit114.thread:                     ; preds = %BN_GENCB_call.exit1
 .thread.loopexit173:                              ; preds = %104
   br label %.thread
 
-.thread:                                          ; preds = %BN_GENCB_call.exit114.thread, %.lr.ph.split, %102, %BN_GENCB_call.exit114, %BN_GENCB_call.exit114.thread.us, %.lr.ph.split.us, %96, %104, %98, %.thread.loopexit173, %.thread.loopexit, %.preheader, %66, %69, %73, %88, %91, %86, %80, %78, %82
-  %.081.ph = phi i32 [ 0, %82 ], [ -1, %78 ], [ -1, %80 ], [ -1, %86 ], [ -1, %91 ], [ -1, %88 ], [ -1, %73 ], [ -1, %69 ], [ -1, %66 ], [ 1, %.preheader ], [ 0, %98 ], [ 0, %104 ], [ 1, %BN_GENCB_call.exit114.thread.us ], [ -1, %.lr.ph.split.us ], [ -1, %96 ], [ %99, %.thread.loopexit ], [ 1, %BN_GENCB_call.exit114.thread ], [ -1, %.lr.ph.split ], [ -1, %102 ], [ -1, %BN_GENCB_call.exit114 ], [ %105, %.thread.loopexit173 ]
-  %.077.ph = phi ptr [ null, %82 ], [ null, %78 ], [ null, %80 ], [ null, %86 ], [ %89, %91 ], [ null, %88 ], [ null, %73 ], [ null, %69 ], [ null, %66 ], [ %89, %.preheader ], [ %89, %98 ], [ %89, %104 ], [ %89, %96 ], [ %89, %.lr.ph.split.us ], [ %89, %BN_GENCB_call.exit114.thread.us ], [ %89, %.thread.loopexit ], [ %89, %BN_GENCB_call.exit114 ], [ %89, %102 ], [ %89, %.lr.ph.split ], [ %89, %BN_GENCB_call.exit114.thread ], [ %89, %.thread.loopexit173 ]
+.thread:                                          ; preds = %BN_GENCB_call.exit114.thread, %.lr.ph.split, %102, %BN_GENCB_call.exit114, %BN_GENCB_call.exit114.thread.us, %.lr.ph.split.us, %96, %104, %98, %.thread.loopexit173, %.thread.loopexit, %.preheader, %66, %69, %73, %88, %82, %91, %86, %80, %78
+  %.081.ph = phi i32 [ 0, %98 ], [ -1, %73 ], [ -1, %78 ], [ -1, %80 ], [ -1, %86 ], [ -1, %91 ], [ 0, %82 ], [ -1, %66 ], [ -1, %88 ], [ -1, %69 ], [ %99, %.thread.loopexit ], [ 1, %.preheader ], [ 0, %104 ], [ -1, %.lr.ph.split.us ], [ -1, %96 ], [ 1, %BN_GENCB_call.exit114.thread.us ], [ -1, %BN_GENCB_call.exit114 ], [ -1, %102 ], [ -1, %.lr.ph.split ], [ 1, %BN_GENCB_call.exit114.thread ], [ %105, %.thread.loopexit173 ]
+  %.077.ph = phi ptr [ %89, %98 ], [ null, %73 ], [ null, %78 ], [ null, %80 ], [ null, %86 ], [ %89, %91 ], [ null, %82 ], [ null, %66 ], [ null, %88 ], [ null, %69 ], [ %89, %.thread.loopexit ], [ %89, %.preheader ], [ %89, %104 ], [ %89, %96 ], [ %89, %.lr.ph.split.us ], [ %89, %BN_GENCB_call.exit114.thread.us ], [ %89, %BN_GENCB_call.exit114 ], [ %89, %102 ], [ %89, %.lr.ph.split ], [ %89, %BN_GENCB_call.exit114.thread ], [ %89, %.thread.loopexit173 ]
   tail call void @BN_CTX_end(ptr noundef nonnull %.183) #5
   br i1 %.not96, label %109, label %110
 
@@ -796,7 +796,7 @@ BN_GENCB_call.exit114.thread:                     ; preds = %BN_GENCB_call.exit1
   br label %.thread133
 
 .thread133:                                       ; preds = %.preheader138, %BN_GENCB_call.exit, %60, %110, %111, %5, %47
-  %.0 = phi i32 [ %48, %47 ], [ 0, %5 ], [ %.081.ph, %111 ], [ %.081.ph, %110 ], [ -1, %60 ], [ -1, %BN_GENCB_call.exit ], [ 0, %.preheader138 ]
+  %.0 = phi i32 [ %48, %47 ], [ 0, %5 ], [ -1, %BN_GENCB_call.exit ], [ %.081.ph, %111 ], [ %.081.ph, %110 ], [ -1, %60 ], [ 0, %.preheader138 ]
   ret i32 %.0
 }
 

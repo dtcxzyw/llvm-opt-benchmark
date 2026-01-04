@@ -264,7 +264,7 @@ define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error
   br label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hcc80a9266ed9879eE.exit"
 
 common.resume:                                    ; preds = %299, %307, %274, %282, %249, %257, %291, %266, %241, %214, %222, %230, %167, %175, %159, %121, %128, %138, %33, %41
-  %common.resume.op = phi { ptr, i32 } [ %34, %41 ], [ %34, %33 ], [ %139, %138 ], [ %122, %121 ], [ %129, %128 ], [ %160, %159 ], [ %168, %175 ], [ %168, %167 ], [ %223, %230 ], [ %223, %222 ], [ %215, %214 ], [ %242, %241 ], [ %267, %266 ], [ %292, %291 ], [ %250, %257 ], [ %250, %249 ], [ %275, %282 ], [ %275, %274 ], [ %300, %307 ], [ %300, %299 ]
+  %common.resume.op = phi { ptr, i32 } [ %275, %274 ], [ %34, %33 ], [ %129, %128 ], [ %160, %159 ], [ %168, %167 ], [ %223, %222 ], [ %292, %291 ], [ %250, %249 ], [ %34, %41 ], [ %139, %138 ], [ %122, %121 ], [ %168, %175 ], [ %223, %230 ], [ %215, %214 ], [ %242, %241 ], [ %267, %266 ], [ %250, %257 ], [ %275, %282 ], [ %300, %307 ], [ %300, %299 ]
   resume { ptr, i32 } %common.resume.op
 
 50:                                               ; preds = %1
@@ -1158,7 +1158,7 @@ define internal fastcc void @"_ZN4core3ptr52drop_in_place$LT$arrow_schema..error
   br label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hcc80a9266ed9879eE.exit"
 
 common.resume:                                    ; preds = %170, %34, %42
-  %common.resume.op = phi { ptr, i32 } [ %35, %42 ], [ %35, %34 ], [ %171, %170 ]
+  %common.resume.op = phi { ptr, i32 } [ %35, %34 ], [ %35, %42 ], [ %171, %170 ]
   resume { ptr, i32 } %common.resume.op
 
 51:                                               ; preds = %1
@@ -1623,7 +1623,7 @@ define internal fastcc void @"_ZN4core3ptr57drop_in_place$LT$deltalake_core..ker
   br label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hcc80a9266ed9879eE.exit"
 
 common.resume:                                    ; preds = %.body, %176, %44, %52, %137
-  %common.resume.op = phi { ptr, i32 } [ %138, %137 ], [ %45, %52 ], [ %45, %44 ], [ %177, %176 ], [ %152, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %45, %44 ], [ %138, %137 ], [ %45, %52 ], [ %177, %176 ], [ %152, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 61:                                               ; preds = %1
@@ -2188,7 +2188,7 @@ define internal void @"_ZN4core3ptr60drop_in_place$LT$deltalake_core..errors..De
   br label %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17hd0c9db7436bdbc88E.exit.i"
 
 common.resume:                                    ; preds = %.body, %.body8, %472, %421, %429, %242, %264, %272, %285, %293, %330, %338, %346, %405, %390, %138, %91
-  %common.resume.op = phi { ptr, i32 } [ %92, %91 ], [ %139, %138 ], [ %391, %390 ], [ %406, %405 ], [ %243, %242 ], [ %265, %272 ], [ %265, %264 ], [ %286, %293 ], [ %286, %285 ], [ %339, %346 ], [ %339, %338 ], [ %331, %330 ], [ %422, %429 ], [ %422, %421 ], [ %123, %.body ], [ %153, %.body8 ], [ %473, %472 ]
+  %common.resume.op = phi { ptr, i32 } [ %92, %91 ], [ %139, %138 ], [ %422, %421 ], [ %391, %390 ], [ %406, %405 ], [ %331, %330 ], [ %243, %242 ], [ %339, %338 ], [ %286, %285 ], [ %265, %264 ], [ %265, %272 ], [ %286, %293 ], [ %339, %346 ], [ %422, %429 ], [ %123, %.body ], [ %153, %.body8 ], [ %473, %472 ]
   resume { ptr, i32 } %common.resume.op
 
 91:                                               ; preds = %89, %84, %82
@@ -3771,7 +3771,7 @@ define { ptr, ptr } @_ZN14deltalake_test11TestContext11new_storage17hb079a949408
   unreachable
 
 common.resume:                                    ; preds = %102, %90, %25
-  %common.resume.op = phi { ptr, i32 } [ %26, %25 ], [ %lpad.thr_comm, %102 ], [ %91, %90 ]
+  %common.resume.op = phi { ptr, i32 } [ %26, %25 ], [ %91, %90 ], [ %lpad.thr_comm, %102 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN83_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd546edc13e99ddc0E.exit": ; preds = %21, %"_ZN87_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$hashbrown..raw..RawTableClone$GT$15clone_from_spec17h3e70448b1b713569E.llvm.17294361704363063694.exit.i.i"
@@ -3976,7 +3976,7 @@ select.unfold:                                    ; preds = %"_ZN9hashbrown3raw2
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret { ptr, ptr } %101
 
-102:                                              ; preds = %select.unfold, %85, %82, %32, %.noexc, %.noexc2, %.noexc3
+102:                                              ; preds = %select.unfold, %.noexc3, %85, %82, %32, %.noexc, %.noexc2
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr110drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..string..String$GT$$GT$17h43762ca7d052a465E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %13) #19

@@ -444,8 +444,8 @@ define noalias noundef ptr @Faig_ManSimulateFrames(ptr noundef readonly captures
   br i1 %exitcond151.not, label %.loopexit93, label %67, !llvm.loop !50
 
 .loopexit93:                                      ; preds = %48, %74, %.lr.ph101.split.us.preheader, %.preheader95, %.preheader92
-  %.val.i = phi i32 [ %59, %.preheader92 ], [ %21, %.preheader95 ], [ %21, %.lr.ph101.split.us.preheader ], [ %59, %74 ], [ %21, %48 ]
-  %.2 = phi i32 [ %.3.lcssa, %.preheader92 ], [ %.0.lcssa, %.preheader95 ], [ %21, %.lr.ph101.split.us.preheader ], [ %59, %74 ], [ %21, %48 ]
+  %.val.i = phi i32 [ %21, %.lr.ph101.split.us.preheader ], [ %59, %.preheader92 ], [ %21, %.preheader95 ], [ %59, %74 ], [ %21, %48 ]
+  %.2 = phi i32 [ %21, %.lr.ph101.split.us.preheader ], [ %.3.lcssa, %.preheader92 ], [ %.0.lcssa, %.preheader95 ], [ %59, %74 ], [ %21, %48 ]
   %77 = load i32, ptr %14, align 4, !tbaa !34
   %78 = icmp slt i32 %.2, %77
   br i1 %78, label %.lr.ph110, label %.preheader91

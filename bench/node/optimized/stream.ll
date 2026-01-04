@@ -978,7 +978,7 @@ if.else21:                                        ; preds = %if.else
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then10, %if.then19, %if.else21
-  %err.0 = phi i32 [ %sub, %if.then19 ], [ 0, %if.else21 ], [ -125, %if.then10 ]
+  %err.0 = phi i32 [ 0, %if.else21 ], [ %sub, %if.then19 ], [ -125, %if.then10 ]
   %cb = getelementptr inbounds nuw i8, ptr %2, i64 72
   %11 = load ptr, ptr %cb, align 8
   %cmp25.not = icmp eq ptr %11, null
@@ -1203,7 +1203,7 @@ if.then31:                                        ; preds = %done.thread
   br label %return
 
 return:                                           ; preds = %if.else27, %if.else, %if.then20, %if.then31, %if.end, %entry
-  %retval.0 = phi i32 [ -11, %entry ], [ -22, %if.end ], [ %err.0, %if.else27 ], [ 0, %if.then31 ], [ %err.034, %if.then20 ], [ %err.034, %if.else ]
+  %retval.0 = phi i32 [ -22, %if.end ], [ -11, %entry ], [ %err.0, %if.else27 ], [ 0, %if.then31 ], [ %err.034, %if.then20 ], [ %err.034, %if.else ]
   ret i32 %retval.0
 }
 
@@ -1244,7 +1244,7 @@ sw.bb1:                                           ; preds = %if.end
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb1, %sw.bb
-  %err.0 = phi i32 [ %call, %sw.bb ], [ %call2, %sw.bb1 ]
+  %err.0 = phi i32 [ %call2, %sw.bb1 ], [ %call, %sw.bb ]
   %cmp3 = icmp eq i32 %err.0, 0
   br i1 %cmp3, label %do.body, label %return
 
@@ -1326,7 +1326,7 @@ if.then18:                                        ; preds = %do.body9
   br label %return
 
 return:                                           ; preds = %do.body9, %if.then18, %entry, %lor.lhs.false4
-  %retval.0 = phi i32 [ -107, %lor.lhs.false4 ], [ -107, %entry ], [ 0, %if.then18 ], [ 0, %do.body9 ]
+  %retval.0 = phi i32 [ -107, %entry ], [ -107, %lor.lhs.false4 ], [ 0, %if.then18 ], [ 0, %do.body9 ]
   ret i32 %retval.0
 }
 
@@ -1456,8 +1456,8 @@ if.else32:                                        ; preds = %if.else
   tail call void @uv__io_start(ptr noundef %13, ptr noundef nonnull %io_watcher, i32 noundef 4) #12
   br label %return
 
-return:                                           ; preds = %if.end8.i, %uv__handle_fd.exit.i, %if.then4.i, %lor.lhs.false.i, %if.end.i, %entry, %if.end21, %if.else32, %if.then31, %if.end16
-  %retval.0 = phi i32 [ -12, %if.end16 ], [ 0, %if.then31 ], [ 0, %if.else32 ], [ 0, %if.end21 ], [ -9, %if.end8.i ], [ -9, %uv__handle_fd.exit.i ], [ -22, %if.then4.i ], [ -22, %lor.lhs.false.i ], [ -32, %if.end.i ], [ -9, %entry ]
+return:                                           ; preds = %if.end8.i, %uv__handle_fd.exit.i, %lor.lhs.false.i, %if.then4.i, %if.end.i, %entry, %if.end21, %if.else32, %if.then31, %if.end16
+  %retval.0 = phi i32 [ -12, %if.end16 ], [ 0, %if.end21 ], [ 0, %if.then31 ], [ 0, %if.else32 ], [ -9, %if.end8.i ], [ -9, %uv__handle_fd.exit.i ], [ -22, %lor.lhs.false.i ], [ -22, %if.then4.i ], [ -32, %if.end.i ], [ -9, %entry ]
   ret i32 %retval.0
 }
 
@@ -1696,7 +1696,7 @@ if.end4.i:                                        ; preds = %if.end.i.i
   br label %uv_try_write2.exit
 
 uv_try_write2.exit:                               ; preds = %entry, %lor.lhs.false.i, %if.end.i, %if.end.i.i, %if.end4.i
-  %retval.0.i = phi i32 [ %call5.i, %if.end4.i ], [ -11, %lor.lhs.false.i ], [ -11, %entry ], [ -32, %if.end.i.i ], [ -9, %if.end.i ]
+  %retval.0.i = phi i32 [ %call5.i, %if.end4.i ], [ -11, %entry ], [ -11, %lor.lhs.false.i ], [ -32, %if.end.i.i ], [ -9, %if.end.i ]
   ret i32 %retval.0.i
 }
 
@@ -1732,7 +1732,7 @@ if.end4:                                          ; preds = %if.end.i
   br label %return
 
 return:                                           ; preds = %if.end.i, %if.end, %entry, %lor.lhs.false, %if.end4
-  %retval.0 = phi i32 [ %call5, %if.end4 ], [ -11, %lor.lhs.false ], [ -11, %entry ], [ -32, %if.end.i ], [ -9, %if.end ]
+  %retval.0 = phi i32 [ %call5, %if.end4 ], [ -11, %entry ], [ -11, %lor.lhs.false ], [ -32, %if.end.i ], [ -9, %if.end ]
   ret i32 %retval.0
 }
 
@@ -1844,7 +1844,7 @@ land.rhs21:                                       ; preds = %do.body13
   br i1 %cmp23, label %do.body13, label %if.end32
 
 if.end27:                                         ; preds = %do.body, %do.body13, %do.body13.us
-  %n.0 = phi i64 [ %call.i.us, %do.body13.us ], [ %call1.i, %do.body13 ], [ %call7, %do.body ]
+  %n.0 = phi i64 [ %call1.i, %do.body13 ], [ %call.i.us, %do.body13.us ], [ %call7, %do.body ]
   %cmp28 = icmp sgt i64 %n.0, -1
   br i1 %cmp28, label %if.then30, label %if.end27.if.end32_crit_edge
 
@@ -1858,7 +1858,7 @@ if.then30:                                        ; preds = %if.end27
   br label %return
 
 if.end32:                                         ; preds = %land.rhs, %land.rhs21, %land.rhs21.us, %if.end27.if.end32_crit_edge
-  %12 = phi i32 [ %.pr, %if.end27.if.end32_crit_edge ], [ %3, %land.rhs21.us ], [ %11, %land.rhs21 ], [ %9, %land.rhs ]
+  %12 = phi i32 [ %3, %land.rhs21.us ], [ %11, %land.rhs21 ], [ %.pr, %if.end27.if.end32_crit_edge ], [ %9, %land.rhs ]
   switch i32 %12, label %if.end44 [
     i32 11, label %return
     i32 105, label %return
@@ -1869,7 +1869,7 @@ if.end44:                                         ; preds = %if.end32
   br label %return
 
 return:                                           ; preds = %if.end32, %if.end32, %if.then2, %if.end44, %if.then30
-  %retval.0 = phi i32 [ %conv31, %if.then30 ], [ %sub, %if.end44 ], [ -9, %if.then2 ], [ -11, %if.end32 ], [ -11, %if.end32 ]
+  %retval.0 = phi i32 [ %sub, %if.end44 ], [ %conv31, %if.then30 ], [ -9, %if.then2 ], [ -11, %if.end32 ], [ -11, %if.end32 ]
   ret i32 %retval.0
 }
 

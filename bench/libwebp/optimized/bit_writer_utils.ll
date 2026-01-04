@@ -494,7 +494,7 @@ define hidden range(i32 0, 2) i32 @VP8BitWriterInit(ptr noundef captures(none) i
   br label %BitWriterResize.exit
 
 BitWriterResize.exit:                             ; preds = %18, %13, %2
-  %20 = phi i32 [ 1, %2 ], [ 0, %13 ], [ 1, %18 ]
+  %20 = phi i32 [ 1, %2 ], [ 1, %18 ], [ 0, %13 ]
   ret i32 %20
 }
 
@@ -612,7 +612,7 @@ BitWriterResize.exit:                             ; preds = %12
   br label %31
 
 31:                                               ; preds = %BitWriterResize.exit, %3, %25
-  %.0 = phi i32 [ 1, %25 ], [ 0, %3 ], [ 0, %BitWriterResize.exit ]
+  %.0 = phi i32 [ 0, %3 ], [ 1, %25 ], [ 0, %BitWriterResize.exit ]
   ret i32 %.0
 }
 
@@ -667,7 +667,7 @@ define hidden range(i32 0, 2) i32 @VP8LBitWriterInit(ptr noundef captures(none) 
   br label %VP8LBitWriterResize.exit
 
 VP8LBitWriterResize.exit:                         ; preds = %7, %9
-  %.0.i = phi i32 [ 0, %7 ], [ 1, %9 ]
+  %.0.i = phi i32 [ 1, %9 ], [ 0, %7 ]
   ret i32 %.0.i
 }
 

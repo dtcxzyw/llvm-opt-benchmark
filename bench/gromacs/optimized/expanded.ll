@@ -800,8 +800,8 @@ define noundef i32 @_Z33expandedEnsembleUpdateLambdaStateP8_IO_FILEPK10t_inputre
   br label %115
 
 115:                                              ; preds = %101, %114, %111
-  %.2130 = phi float [ %.1129, %114 ], [ %.1129, %111 ], [ %110, %101 ]
-  %.1127 = phi float [ %107, %114 ], [ %.0126220, %111 ], [ %107, %101 ]
+  %.2130 = phi float [ %.1129, %111 ], [ %.1129, %114 ], [ %110, %101 ]
+  %.1127 = phi float [ %.0126220, %111 ], [ %107, %114 ], [ %107, %101 ]
   %indvars.iv.next257 = add nuw nsw i64 %indvars.iv256, 1
   %exitcond260.not = icmp eq i64 %indvars.iv.next257, %wide.trip.count259
   br i1 %exitcond260.not, label %.lr.ph225.preheader, label %101, !llvm.loop !160
@@ -821,7 +821,7 @@ define noundef i32 @_Z33expandedEnsembleUpdateLambdaStateP8_IO_FILEPK10t_inputre
   br i1 %exitcond265.not, label %._crit_edge, label %.lr.ph225, !llvm.loop !161
 
 ._crit_edge:                                      ; preds = %.lr.ph225, %.preheader206, %.loopexit
-  %122 = phi i1 [ false, %.loopexit ], [ false, %.preheader206 ], [ true, %.lr.ph225 ]
+  %122 = phi i1 [ false, %.preheader206 ], [ false, %.loopexit ], [ true, %.lr.ph225 ]
   %123 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %124 = load i8, ptr %123, align 4, !tbaa !48, !range !49, !noundef !50
   %125 = trunc nuw i8 %124 to i1
@@ -1687,9 +1687,9 @@ _ZL11FindMinimumPKfi.exit437.i:                   ; preds = %_ZL11FindMinimumPKf
   br label %.thread.i
 
 .thread.i:                                        ; preds = %571, %563, %545
-  %.sink609.i = phi float [ %.0363.i, %545 ], [ %.0363.i, %563 ], [ %spec.select615.i, %571 ]
-  %.0356498.i = phi float [ 0.000000e+00, %545 ], [ %570, %563 ], [ 0.000000e+00, %571 ]
-  %.0358496.i = phi float [ 0.000000e+00, %545 ], [ %.1.i, %563 ], [ 0.000000e+00, %571 ]
+  %.sink609.i = phi float [ %spec.select615.i, %571 ], [ %.0363.i, %545 ], [ %.0363.i, %563 ]
+  %.0356498.i = phi float [ 0.000000e+00, %571 ], [ 0.000000e+00, %545 ], [ %570, %563 ]
+  %.0358496.i = phi float [ 0.000000e+00, %571 ], [ 0.000000e+00, %545 ], [ %.1.i, %563 ]
   %572 = getelementptr inbounds nuw float, ptr %311, i64 %indvars.iv570.i
   store float %.sink609.i, ptr %572, align 4, !tbaa !43
   %573 = getelementptr inbounds nuw float, ptr %312, i64 %indvars.iv570.i
@@ -1926,12 +1926,12 @@ _ZL11FindMinimumPKfi.exit437.i:                   ; preds = %_ZL11FindMinimumPKf
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.26, i32 noundef 846, ptr noundef %310)
   br label %_ZL13UpdateWeightsiP10t_expandedP12df_history_tiPKfS4_l.exit.thread
 
-_ZL13UpdateWeightsiP10t_expandedP12df_history_tiPKfS4_l.exit.thread: ; preds = %._crit_edge, %.loopexit.i, %._crit_edge541.i
+_ZL13UpdateWeightsiP10t_expandedP12df_history_tiPKfS4_l.exit.thread: ; preds = %._crit_edge541.i, %._crit_edge, %.loopexit.i
   %691 = icmp ne ptr %0, null
   br label %698
 
 _ZL13UpdateWeightsiP10t_expandedP12df_history_tiPKfS4_l.exit: ; preds = %196, %_ZL24CheckIfDoneEquilibratingiPK10t_expandedPK12df_history_tl.exit.thread.thread.i, %_ZL24CheckIfDoneEquilibratingiPK10t_expandedPK12df_history_tl.exit.thread.i
-  %692 = phi i1 [ false, %_ZL24CheckIfDoneEquilibratingiPK10t_expandedPK12df_history_tl.exit.thread.thread.i ], [ false, %_ZL24CheckIfDoneEquilibratingiPK10t_expandedPK12df_history_tl.exit.thread.i ], [ true, %196 ]
+  %692 = phi i1 [ false, %_ZL24CheckIfDoneEquilibratingiPK10t_expandedPK12df_history_tl.exit.thread.i ], [ false, %_ZL24CheckIfDoneEquilibratingiPK10t_expandedPK12df_history_tl.exit.thread.thread.i ], [ true, %196 ]
   %.not201 = icmp eq ptr %0, null
   br i1 %.not201, label %698, label %693
 
@@ -2359,9 +2359,9 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit272.i..
   br label %.loopexit.i157
 
 .loopexit.i157:                                   ; preds = %914, %._crit_edge365.i, %.loopexit.loopexit513.i, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit272.i, %_ZL26GenerateGibbsProbabilitiesPKfPdS1_ii.exit.i
-  %.0356486.i = phi double [ %.0356487491498502.i195, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit272.i ], [ 0.000000e+00, %_ZL26GenerateGibbsProbabilitiesPKfPdS1_ii.exit.i ], [ %836, %.loopexit.loopexit513.i ], [ 0.000000e+00, %._crit_edge365.i ], [ %.0356487491499506.i, %914 ]
-  %.3222.i = phi i32 [ %.4223.i, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit272.i ], [ %.0212.i, %_ZL26GenerateGibbsProbabilitiesPKfPdS1_ii.exit.i ], [ %918, %.loopexit.loopexit513.i ], [ %.0200403.i, %._crit_edge365.i ], [ %.4223507.i, %914 ]
-  %.1205.i = phi float [ %.3207.i, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit272.i ], [ %.0204401.i, %_ZL26GenerateGibbsProbabilitiesPKfPdS1_ii.exit.i ], [ %.0204401.i, %.loopexit.loopexit513.i ], [ %.0204401.i, %._crit_edge365.i ], [ %.5209.i, %914 ]
+  %.0356486.i = phi double [ %836, %.loopexit.loopexit513.i ], [ 0.000000e+00, %_ZL26GenerateGibbsProbabilitiesPKfPdS1_ii.exit.i ], [ %.0356487491498502.i195, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit272.i ], [ 0.000000e+00, %._crit_edge365.i ], [ %.0356487491499506.i, %914 ]
+  %.3222.i = phi i32 [ %918, %.loopexit.loopexit513.i ], [ %.0212.i, %_ZL26GenerateGibbsProbabilitiesPKfPdS1_ii.exit.i ], [ %.4223.i, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit272.i ], [ %.0200403.i, %._crit_edge365.i ], [ %.4223507.i, %914 ]
+  %.1205.i = phi float [ %.0204401.i, %.loopexit.loopexit513.i ], [ %.0204401.i, %_ZL26GenerateGibbsProbabilitiesPKfPdS1_ii.exit.i ], [ %.3207.i, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit272.i ], [ %.0204401.i, %._crit_edge365.i ], [ %.5209.i, %914 ]
   %919 = icmp sgt i32 %.3222.i, %.0216.i
   br i1 %919, label %.loopexit.thread.i, label %1009
 
@@ -2529,8 +2529,8 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit288.i: 
   br label %1009
 
 1009:                                             ; preds = %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit288.i, %.loopexit.thread.i, %.loopexit.i157, %._crit_edge.i140
-  %.5224.i = phi i32 [ %.3222.i, %.loopexit.i157 ], [ %.0200403.i, %.loopexit.thread.i ], [ %.0200403.i, %._crit_edge.i140 ], [ %.1218..0200.i, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit288.i ]
-  %.6210.i = phi float [ %.1205.i, %.loopexit.i157 ], [ %.1205512.i, %.loopexit.thread.i ], [ %.0204401.i, %._crit_edge.i140 ], [ %.8.i, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit288.i ]
+  %.5224.i = phi i32 [ %.0200403.i, %._crit_edge.i140 ], [ %.3222.i, %.loopexit.i157 ], [ %.1218..0200.i, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit288.i ], [ %.0200403.i, %.loopexit.thread.i ]
+  %.6210.i = phi float [ %.0204401.i, %._crit_edge.i140 ], [ %.1205.i, %.loopexit.i157 ], [ %.8.i, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit288.i ], [ %.1205512.i, %.loopexit.thread.i ]
   br i1 %699, label %.lr.ph392.i, label %._crit_edge393.i
 
 .lr.ph392.i:                                      ; preds = %1009
@@ -2592,8 +2592,8 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit288.i: 
   br label %_ZL15ChooseNewLambdaiPK10t_expandedP12df_history_tiPKfPdll.exit
 
 _ZL15ChooseNewLambdaiPK10t_expandedP12df_history_tiPKfPdll.exit: ; preds = %719, %723, %._crit_edge406.i
-  %1040 = phi i32 [ %.pre279, %._crit_edge406.i ], [ %708, %723 ], [ %708, %719 ]
-  %.0.i138 = phi i32 [ %.0200.lcssa.i, %._crit_edge406.i ], [ %spec.select.i162, %723 ], [ %3, %719 ]
+  %1040 = phi i32 [ %.pre279, %._crit_edge406.i ], [ %708, %719 ], [ %708, %723 ]
+  %.0.i138 = phi i32 [ %.0200.lcssa.i, %._crit_edge406.i ], [ %3, %719 ], [ %spec.select.i162, %723 ]
   %1041 = and i32 %1040, -2
   %switch = icmp eq i32 %1041, 4
   br i1 %switch, label %1042, label %_ZL20CheckHistogramRatiosiPKff.exit.thread

@@ -706,7 +706,7 @@ _ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit.i: ; preds = %114
   br i1 %122, label %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit21, label %_ZN4llvm15BitstreamCursor8ReadCodeEv.exit.i.backedge
 
 _ZN4llvm8ExpectedINS_14BitstreamEntryEE9takeErrorEv.exit: ; preds = %_ZN4llvm15BitstreamCursor8ReadCodeEv.exit.i, %_ZN4llvm8ExpectedIjED2Ev.exit24.thread55.i, %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit.i.thread49, %_ZN4llvm15BitstreamCursor7advanceEj.exit.thread118
-  %.sroa.025.34044.ph = phi i64 [ %102, %_ZN4llvm15BitstreamCursor7advanceEj.exit.thread118 ], [ %116, %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit.i.thread49 ], [ %105, %_ZN4llvm8ExpectedIjED2Ev.exit24.thread55.i ], [ %87, %_ZN4llvm15BitstreamCursor8ReadCodeEv.exit.i ]
+  %.sroa.025.34044.ph = phi i64 [ %116, %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit.i.thread49 ], [ %102, %_ZN4llvm15BitstreamCursor7advanceEj.exit.thread118 ], [ %105, %_ZN4llvm8ExpectedIjED2Ev.exit24.thread55.i ], [ %87, %_ZN4llvm15BitstreamCursor8ReadCodeEv.exit.i ]
   %123 = icmp eq i64 %.sroa.025.34044.ph, 0
   br i1 %123, label %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit21, label %124
 
@@ -879,7 +879,7 @@ _ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit: ; preds = %177, %_ZNKSt14defau
   %187 = select i1 %183, i1 %186, i1 false
   br i1 %187, label %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit21, label %_ZN4llvm15BitstreamCursor8ReadCodeEv.exit.i.backedge
 
-_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit21: ; preds = %_ZN4llvm5ErrorD2Ev.exit, %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit, %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit.i, %_ZN4llvm8ExpectedIjED2Ev.exit24.i, %_ZN4llvm15BitstreamCursorC2ERKS0_.exit, %89, %_ZN4llvm15BitstreamCursor12ReadBlockEndEv.exit.i, %124, %_ZN4llvm8ExpectedINS_14BitstreamEntryEE9takeErrorEv.exit
+_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit21: ; preds = %_ZN4llvm5ErrorD2Ev.exit, %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit, %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit.i, %_ZN4llvm8ExpectedIjED2Ev.exit24.i, %_ZN4llvm15BitstreamCursorC2ERKS0_.exit, %_ZN4llvm15BitstreamCursor12ReadBlockEndEv.exit.i, %89, %124, %_ZN4llvm8ExpectedINS_14BitstreamEntryEE9takeErrorEv.exit
   %188 = load ptr, ptr %9, align 8, !tbaa !17
   %189 = icmp eq ptr %188, %64
   br i1 %189, label %_ZN4llvm11SmallVectorImLj4EED2Ev.exit, label %190
@@ -1607,7 +1607,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm11RTTIExtendsIN5clang23T
   br label %7
 
 7:                                                ; preds = %4, %2
-  %8 = phi i1 [ true, %2 ], [ %spec.select.i, %4 ]
+  %8 = phi i1 [ %spec.select.i, %4 ], [ true, %2 ]
   ret i1 %8
 }
 
@@ -4181,8 +4181,8 @@ _ZN4llvm8ExpectedIjEC2EOS1_.exit.thread:          ; preds = %_ZN4llvm8ExpectedIm
   br label %_ZN4llvm8ExpectedIjED2Ev.exit24
 
 _ZN4llvm8ExpectedIjEC2EOS1_.exit:                 ; preds = %26, %_ZN4llvm5ErrorD2Ev.exit, %._crit_edge
-  %.sroa.032.0 = phi i64 [ %.sroa.032.0.insert.ext, %26 ], [ %.sroa.032.0.insert.insert41, %._crit_edge ], [ %.sroa.032.275, %_ZN4llvm5ErrorD2Ev.exit ]
-  %.sroa.18.0 = phi i8 [ %10, %26 ], [ %59, %._crit_edge ], [ %.sroa.18.276, %_ZN4llvm5ErrorD2Ev.exit ]
+  %.sroa.032.0 = phi i64 [ %.sroa.032.0.insert.insert41, %._crit_edge ], [ %.sroa.032.275, %_ZN4llvm5ErrorD2Ev.exit ], [ %.sroa.032.0.insert.ext, %26 ]
+  %.sroa.18.0 = phi i8 [ %59, %._crit_edge ], [ %.sroa.18.276, %_ZN4llvm5ErrorD2Ev.exit ], [ %10, %26 ]
   %80 = trunc i8 %.sroa.18.0 to i1
   %.not.i.i21 = icmp ne i64 %.sroa.032.0, 0
   %or.cond.not = select i1 %80, i1 %.not.i.i21, i1 false
@@ -4669,9 +4669,9 @@ _ZN4llvm15BitstreamWriter8EmitCodeEj.exit:        ; preds = %7, %_ZN4llvm15Bitst
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph70, %72, %75, %82, %83, %87, %63
-  %.147 = phi i32 [ %64, %63 ], [ %.04672, %82 ], [ %.04672, %83 ], [ %91, %87 ], [ %54, %75 ], [ %.04672, %72 ], [ %54, %.lr.ph70 ], [ %.04672, %.lr.ph ]
-  %.245 = phi i32 [ %.14473, %63 ], [ %.14473, %82 ], [ %.14473, %83 ], [ %.14473, %87 ], [ %69, %75 ], [ %69, %72 ], [ %69, %.lr.ph70 ], [ %69, %.lr.ph ]
-  %.1 = phi ptr [ %.074, %63 ], [ null, %82 ], [ null, %83 ], [ %.074, %87 ], [ null, %75 ], [ null, %72 ], [ null, %.lr.ph70 ], [ null, %.lr.ph ]
+  %.147 = phi i32 [ %64, %63 ], [ %91, %87 ], [ %.04672, %82 ], [ %.04672, %83 ], [ %.04672, %72 ], [ %54, %75 ], [ %54, %.lr.ph70 ], [ %.04672, %.lr.ph ]
+  %.245 = phi i32 [ %.14473, %63 ], [ %.14473, %87 ], [ %.14473, %82 ], [ %.14473, %83 ], [ %69, %72 ], [ %69, %75 ], [ %69, %.lr.ph70 ], [ %69, %.lr.ph ]
+  %.1 = phi ptr [ %.074, %63 ], [ %.074, %87 ], [ null, %82 ], [ null, %83 ], [ null, %72 ], [ null, %75 ], [ null, %.lr.ph70 ], [ null, %.lr.ph ]
   %92 = add i32 %.245, 1
   %.not = icmp eq i32 %92, %45
   br i1 %.not, label %._crit_edge, label %56, !llvm.loop !735

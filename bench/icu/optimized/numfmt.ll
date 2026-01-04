@@ -293,7 +293,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1757,7 +1757,7 @@ _ZN6icu_7712LocalPointerINS_14CurrencyAmountEEC2EPS1_R10UErrorCode.exit.thread: 
   br label %40
 
 .sink.split:                                      ; preds = %_ZN6icu_7712LocalPointerINS_14CurrencyAmountEEC2EPS1_R10UErrorCode.exit.thread, %31, %.thread, %19
-  %.3.ph = phi ptr [ null, %19 ], [ null, %.thread ], [ null, %31 ], [ %23, %_ZN6icu_7712LocalPointerINS_14CurrencyAmountEEC2EPS1_R10UErrorCode.exit.thread ]
+  %.3.ph = phi ptr [ null, %31 ], [ null, %19 ], [ null, %.thread ], [ %23, %_ZN6icu_7712LocalPointerINS_14CurrencyAmountEEC2EPS1_R10UErrorCode.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %39
@@ -1828,7 +1828,7 @@ _ZN6icu_7712NumberFormat20createSharedInstanceERKNS_6LocaleE18UNumberFormatStyle
   br label %_ZN6icu_7712NumberFormat14createInstanceERKNS_6LocaleE18UNumberFormatStyleR10UErrorCode.exit
 
 _ZN6icu_7712NumberFormat14createInstanceERKNS_6LocaleE18UNumberFormatStyleR10UErrorCode.exit: ; preds = %1, %_ZN6icu_7712NumberFormat20createSharedInstanceERKNS_6LocaleE18UNumberFormatStyleR10UErrorCode.exit.i, %8, %16
-  %.0.i = phi ptr [ null, %_ZN6icu_7712NumberFormat20createSharedInstanceERKNS_6LocaleE18UNumberFormatStyleR10UErrorCode.exit.i ], [ null, %16 ], [ %14, %8 ], [ null, %1 ]
+  %.0.i = phi ptr [ %14, %8 ], [ null, %_ZN6icu_7712NumberFormat20createSharedInstanceERKNS_6LocaleE18UNumberFormatStyleR10UErrorCode.exit.i ], [ null, %16 ], [ null, %1 ]
   ret ptr %.0.i
 }
 
@@ -1906,7 +1906,7 @@ _ZN6icu_7712NumberFormat20createSharedInstanceERKNS_6LocaleE18UNumberFormatStyle
   br label %_ZN6icu_7712NumberFormat22internalCreateInstanceERKNS_6LocaleE18UNumberFormatStyleR10UErrorCode.exit
 
 _ZN6icu_7712NumberFormat22internalCreateInstanceERKNS_6LocaleE18UNumberFormatStyleR10UErrorCode.exit: ; preds = %19, %17, %14, %_ZN6icu_7712NumberFormat20createSharedInstanceERKNS_6LocaleE18UNumberFormatStyleR10UErrorCode.exit, %32, %24
-  %.0 = phi ptr [ null, %_ZN6icu_7712NumberFormat20createSharedInstanceERKNS_6LocaleE18UNumberFormatStyleR10UErrorCode.exit ], [ null, %32 ], [ %30, %24 ], [ %16, %14 ], [ %18, %17 ], [ null, %19 ]
+  %.0 = phi ptr [ %30, %24 ], [ null, %_ZN6icu_7712NumberFormat20createSharedInstanceERKNS_6LocaleE18UNumberFormatStyleR10UErrorCode.exit ], [ null, %32 ], [ %16, %14 ], [ %18, %17 ], [ null, %19 ]
   ret ptr %.0
 }
 
@@ -1945,7 +1945,7 @@ _ZN6icu_7712NumberFormat20createSharedInstanceERKNS_6LocaleE18UNumberFormatStyle
   br label %_ZN6icu_7712NumberFormat14createInstanceERKNS_6LocaleE18UNumberFormatStyleR10UErrorCode.exit
 
 _ZN6icu_7712NumberFormat14createInstanceERKNS_6LocaleE18UNumberFormatStyleR10UErrorCode.exit: ; preds = %2, %_ZN6icu_7712NumberFormat20createSharedInstanceERKNS_6LocaleE18UNumberFormatStyleR10UErrorCode.exit.i, %8, %16
-  %.0.i = phi ptr [ null, %_ZN6icu_7712NumberFormat20createSharedInstanceERKNS_6LocaleE18UNumberFormatStyleR10UErrorCode.exit.i ], [ null, %16 ], [ %14, %8 ], [ null, %2 ]
+  %.0.i = phi ptr [ %14, %8 ], [ null, %_ZN6icu_7712NumberFormat20createSharedInstanceERKNS_6LocaleE18UNumberFormatStyleR10UErrorCode.exit.i ], [ null, %16 ], [ null, %2 ]
   ret ptr %.0.i
 }
 
@@ -1983,7 +1983,7 @@ define noundef ptr @_ZN6icu_7712NumberFormat22createCurrencyInstanceER10UErrorCo
   br label %_ZN6icu_7712NumberFormat22createCurrencyInstanceERKNS_6LocaleER10UErrorCode.exit
 
 _ZN6icu_7712NumberFormat22createCurrencyInstanceERKNS_6LocaleER10UErrorCode.exit: ; preds = %10, %13
-  %.0.i.i = phi ptr [ %12, %10 ], [ %14, %13 ]
+  %.0.i.i = phi ptr [ %14, %13 ], [ %12, %10 ]
   ret ptr %.0.i.i
 }
 
@@ -2020,7 +2020,7 @@ define noundef ptr @_ZN6icu_7712NumberFormat22createCurrencyInstanceERKNS_6Local
   br label %_ZN6icu_7712NumberFormat14createInstanceERKNS_6LocaleE18UNumberFormatStyleR10UErrorCode.exit
 
 _ZN6icu_7712NumberFormat14createInstanceERKNS_6LocaleE18UNumberFormatStyleR10UErrorCode.exit: ; preds = %10, %13
-  %.0.i = phi ptr [ %12, %10 ], [ %14, %13 ]
+  %.0.i = phi ptr [ %14, %13 ], [ %12, %10 ]
   ret ptr %.0.i
 }
 
@@ -2041,7 +2041,7 @@ define noundef ptr @_ZN6icu_7712NumberFormat21createPercentInstanceER10UErrorCod
   br label %_ZN6icu_7712NumberFormat14createInstanceERKNS_6LocaleE18UNumberFormatStyleR10UErrorCode.exit
 
 _ZN6icu_7712NumberFormat14createInstanceERKNS_6LocaleE18UNumberFormatStyleR10UErrorCode.exit: ; preds = %4, %7
-  %.0.i = phi ptr [ %6, %4 ], [ %8, %7 ]
+  %.0.i = phi ptr [ %8, %7 ], [ %6, %4 ]
   ret ptr %.0.i
 }
 
@@ -2061,7 +2061,7 @@ define noundef ptr @_ZN6icu_7712NumberFormat21createPercentInstanceERKNS_6Locale
   br label %_ZN6icu_7712NumberFormat14createInstanceERKNS_6LocaleE18UNumberFormatStyleR10UErrorCode.exit
 
 _ZN6icu_7712NumberFormat14createInstanceERKNS_6LocaleE18UNumberFormatStyleR10UErrorCode.exit: ; preds = %4, %7
-  %.0.i = phi ptr [ %6, %4 ], [ %8, %7 ]
+  %.0.i = phi ptr [ %8, %7 ], [ %6, %4 ]
   ret ptr %.0.i
 }
 
@@ -2082,7 +2082,7 @@ define noundef ptr @_ZN6icu_7712NumberFormat24createScientificInstanceER10UError
   br label %_ZN6icu_7712NumberFormat14createInstanceERKNS_6LocaleE18UNumberFormatStyleR10UErrorCode.exit
 
 _ZN6icu_7712NumberFormat14createInstanceERKNS_6LocaleE18UNumberFormatStyleR10UErrorCode.exit: ; preds = %4, %7
-  %.0.i = phi ptr [ %6, %4 ], [ %8, %7 ]
+  %.0.i = phi ptr [ %8, %7 ], [ %6, %4 ]
   ret ptr %.0.i
 }
 
@@ -2102,7 +2102,7 @@ define noundef ptr @_ZN6icu_7712NumberFormat24createScientificInstanceERKNS_6Loc
   br label %_ZN6icu_7712NumberFormat14createInstanceERKNS_6LocaleE18UNumberFormatStyleR10UErrorCode.exit
 
 _ZN6icu_7712NumberFormat14createInstanceERKNS_6LocaleE18UNumberFormatStyleR10UErrorCode.exit: ; preds = %4, %7
-  %.0.i = phi ptr [ %6, %4 ], [ %8, %7 ]
+  %.0.i = phi ptr [ %8, %7 ], [ %6, %4 ]
   ret ptr %.0.i
 }
 
@@ -2300,7 +2300,7 @@ _ZN6icu_77L22getNumberFormatServiceEv.exit:       ; preds = %11, %14, %_ZN6icu_7
   br label %41
 
 41:                                               ; preds = %34, %.thread24, %5, %7
-  %.014 = phi ptr [ null, %7 ], [ null, %5 ], [ null, %.thread24 ], [ %40, %34 ]
+  %.014 = phi ptr [ null, %5 ], [ null, %7 ], [ null, %.thread24 ], [ %40, %34 ]
   ret ptr %.014
 }
 
@@ -2328,7 +2328,7 @@ define noundef signext i8 @_ZN6icu_7712NumberFormat10unregisterEPKvR10UErrorCode
   br label %14
 
 14:                                               ; preds = %2, %13, %7
-  %.0 = phi i8 [ %12, %7 ], [ 0, %13 ], [ 0, %2 ]
+  %.0 = phi i8 [ 0, %13 ], [ %12, %7 ], [ 0, %2 ]
   ret i8 %.0
 }
 
@@ -2514,7 +2514,7 @@ define noundef ptr @_ZN6icu_7712NumberFormat20createSharedInstanceERKNS_6LocaleE
   br label %11
 
 11:                                               ; preds = %3, %9, %8
-  %.0 = phi ptr [ null, %8 ], [ %10, %9 ], [ null, %3 ]
+  %.0 = phi ptr [ %10, %9 ], [ null, %8 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -2748,7 +2748,7 @@ define noundef i32 @_ZNK6icu_7712NumberFormat10getContextE19UDisplayContextTypeR
   br label %11
 
 11:                                               ; preds = %3, %8, %7
-  %.0 = phi i32 [ 0, %7 ], [ %10, %8 ], [ 0, %3 ]
+  %.0 = phi i32 [ %10, %8 ], [ 0, %7 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -3442,7 +3442,7 @@ _ZN6icu_7712LocalPointerINS_12NumberFormatEE12adoptInsteadEPS1_.exit: ; preds = 
   br label %226
 
 226:                                              ; preds = %187, %224, %218, %209, %189, %186
-  %.pn169.pn.pn.pn = phi { ptr, i32 } [ %.pn161, %186 ], [ %188, %187 ], [ %.pn165.pn.pn, %209 ], [ %190, %189 ], [ %225, %224 ], [ %219, %218 ]
+  %.pn169.pn.pn.pn = phi { ptr, i32 } [ %.pn161, %186 ], [ %188, %187 ], [ %190, %189 ], [ %.pn165.pn.pn, %209 ], [ %225, %224 ], [ %219, %218 ]
   call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %14) #22
   br label %227
 
@@ -3617,7 +3617,7 @@ _ZN6icu_7712LocalPointerINS_13DecimalFormatEED2Ev.exit192.thread222: ; preds = %
   br label %_ZN6icu_7712LocalPointerINS_12NumberFormatEED2Ev.exit193
 
 _ZN6icu_7712LocalPointerINS_12NumberFormatEED2Ev.exitthread-pre-split: ; preds = %_ZN6icu_7712LocalPointerINS_12NumberFormatEE12adoptInsteadEPS1_.exit, %263, %274, %264, %92, %104, %_ZN6icu_7712LocalPointerINS_13DecimalFormatEED2Ev.exit192.thread222
-  %.2.ph = phi ptr [ null, %_ZN6icu_7712LocalPointerINS_13DecimalFormatEED2Ev.exit192.thread222 ], [ null, %104 ], [ null, %92 ], [ null, %264 ], [ null, %263 ], [ %.sroa.0202.4, %274 ], [ null, %_ZN6icu_7712LocalPointerINS_12NumberFormatEE12adoptInsteadEPS1_.exit ]
+  %.2.ph = phi ptr [ null, %_ZN6icu_7712LocalPointerINS_13DecimalFormatEED2Ev.exit192.thread222 ], [ %.sroa.0202.4, %274 ], [ null, %104 ], [ null, %92 ], [ null, %264 ], [ null, %263 ], [ null, %_ZN6icu_7712LocalPointerINS_12NumberFormatEE12adoptInsteadEPS1_.exit ]
   %.pr = load ptr, ptr %8, align 8, !tbaa !90
   br label %_ZN6icu_7712LocalPointerINS_12NumberFormatEED2Ev.exit
 
@@ -3657,8 +3657,8 @@ _ZN6icu_7712LocalPointerINS_20DecimalFormatSymbolsEED2Ev.exit: ; preds = %_ZN6ic
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %305
 
-_ZN6icu_7712LocalPointerINS_12NumberFormatEED2Ev.exit193: ; preds = %_ZN6icu_7712LocalPointerINS_13DecimalFormatEED2Ev.exit, %251, %227, %244, %.thread231, %282, %109, %111, %95, %125
-  %.pn179.pn.pn = phi { ptr, i32 } [ %126, %125 ], [ %96, %95 ], [ %112, %111 ], [ %110, %109 ], [ %283, %282 ], [ %129, %.thread231 ], [ %252, %251 ], [ %253, %_ZN6icu_7712LocalPointerINS_13DecimalFormatEED2Ev.exit ], [ %.pn153.pn, %244 ], [ %.pn169.pn.pn.pn.pn, %227 ]
+_ZN6icu_7712LocalPointerINS_12NumberFormatEED2Ev.exit193: ; preds = %_ZN6icu_7712LocalPointerINS_13DecimalFormatEED2Ev.exit, %251, %244, %227, %.thread231, %282, %109, %111, %95, %125
+  %.pn179.pn.pn = phi { ptr, i32 } [ %110, %109 ], [ %126, %125 ], [ %96, %95 ], [ %112, %111 ], [ %.pn169.pn.pn.pn.pn, %227 ], [ %129, %.thread231 ], [ %253, %_ZN6icu_7712LocalPointerINS_13DecimalFormatEED2Ev.exit ], [ %283, %282 ], [ %252, %251 ], [ %.pn153.pn, %244 ]
   call void @_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #22
   br label %298
 
@@ -3683,7 +3683,7 @@ _ZN6icu_7712LocalPointerINS_20DecimalFormatSymbolsEED2Ev.exit195: ; preds = %301
   br label %_ZN6icu_775MutexD2Ev.exit
 
 305:                                              ; preds = %_ZN6icu_775MutexD2Ev.exit188, %_ZN6icu_7712LocalPointerINS_20DecimalFormatSymbolsEED2Ev.exit, %77
-  %.1 = phi ptr [ null, %77 ], [ %.2, %_ZN6icu_7712LocalPointerINS_20DecimalFormatSymbolsEED2Ev.exit ], [ null, %_ZN6icu_775MutexD2Ev.exit188 ]
+  %.1 = phi ptr [ %.2, %_ZN6icu_7712LocalPointerINS_20DecimalFormatSymbolsEED2Ev.exit ], [ null, %77 ], [ null, %_ZN6icu_775MutexD2Ev.exit188 ]
   %306 = icmp eq ptr %.sroa.0210.0, null
   br i1 %306, label %_ZN6icu_7712LocalPointerINS_15NumberingSystemEED2Ev.exit, label %307
 
@@ -3708,11 +3708,11 @@ _ZN6icu_775MutexD2Ev.exit:                        ; preds = %_ZN6icu_7712LocalPo
   br label %_ZN6icu_7712LocalPointerINS_15NumberingSystemEED2Ev.exit196
 
 _ZN6icu_7712LocalPointerINS_15NumberingSystemEED2Ev.exit196: ; preds = %58, %_ZN6icu_775MutexD2Ev.exit, %312
-  %.pn179.pn.pn.pn.pn.pn.pn238 = phi { ptr, i32 } [ %.pn179.pn.pn.pn.pn.pn.pn, %_ZN6icu_775MutexD2Ev.exit ], [ %.pn179.pn.pn.pn.pn.pn.pn, %312 ], [ %59, %58 ]
+  %.pn179.pn.pn.pn.pn.pn.pn238 = phi { ptr, i32 } [ %.pn179.pn.pn.pn.pn.pn.pn, %312 ], [ %.pn179.pn.pn.pn.pn.pn.pn, %_ZN6icu_775MutexD2Ev.exit ], [ %59, %58 ]
   resume { ptr, i32 } %.pn179.pn.pn.pn.pn.pn.pn238
 
 _ZN6icu_7712LocalPointerINS_15NumberingSystemEED2Ev.exit: ; preds = %307, %305, %4, %34, %28
-  %.0 = phi ptr [ null, %28 ], [ null, %34 ], [ null, %4 ], [ %.1, %305 ], [ %.1, %307 ]
+  %.0 = phi ptr [ null, %34 ], [ null, %28 ], [ null, %4 ], [ %.1, %305 ], [ %.1, %307 ]
   ret ptr %.0
 }
 

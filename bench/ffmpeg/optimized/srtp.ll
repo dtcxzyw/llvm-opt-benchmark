@@ -652,8 +652,8 @@ define range(i32 -1094995529, 1) i32 @ff_srtp_decrypt(ptr noundef %0, ptr nounde
   call fastcc void @encrypt_counter(ptr noundef %124, ptr noundef %4, ptr noundef nonnull %.0108, i32 noundef %.0112)
   br label %.critedge
 
-.critedge:                                        ; preds = %86, %105, %107, %69, %9, %3, %72, %119, %68
-  %.0 = phi i32 [ -1094995529, %68 ], [ 0, %119 ], [ 0, %72 ], [ -1094995529, %3 ], [ -1094995529, %9 ], [ -1094995529, %69 ], [ -1094995529, %107 ], [ -1094995529, %105 ], [ -1094995529, %86 ]
+.critedge:                                        ; preds = %107, %86, %105, %69, %9, %3, %72, %119, %68
+  %.0 = phi i32 [ -1094995529, %69 ], [ -1094995529, %3 ], [ -1094995529, %68 ], [ -1094995529, %9 ], [ 0, %119 ], [ 0, %72 ], [ -1094995529, %105 ], [ -1094995529, %86 ], [ -1094995529, %107 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -1039,8 +1039,8 @@ encrypt_counter.exit:                             ; preds = %127, %create_iv.exi
   %163 = trunc i64 %162 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %.thread, %.thread115, %43, %._crit_edge, %77, %79, %18, %5, %154
-  %.0 = phi i32 [ %163, %154 ], [ -1094995529, %5 ], [ 0, %18 ], [ -1094995529, %79 ], [ -1094995529, %77 ], [ -1094995529, %._crit_edge ], [ -1094995529, %43 ], [ 0, %.thread115 ], [ 0, %.thread ]
+.critedge:                                        ; preds = %.thread, %.thread115, %79, %43, %._crit_edge, %77, %18, %5, %154
+  %.0 = phi i32 [ 0, %18 ], [ -1094995529, %5 ], [ %163, %154 ], [ -1094995529, %77 ], [ -1094995529, %._crit_edge ], [ -1094995529, %43 ], [ -1094995529, %79 ], [ 0, %.thread115 ], [ 0, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0

@@ -1142,7 +1142,7 @@ rename_tokens.exit165:                            ; preds = %233
   unreachable
 
 294:                                              ; preds = %290, %283, %274, %256, %247
-  %.1.i = phi i32 [ 1, %274 ], [ %.2.i, %256 ], [ %248, %247 ], [ 1, %290 ], [ 1, %283 ]
+  %.1.i = phi i32 [ 1, %274 ], [ %248, %247 ], [ %.2.i, %256 ], [ 1, %290 ], [ 1, %283 ]
   %.017.i = load ptr, ptr %.01749.i, align 8
   %.not20.i = icmp eq ptr %.017.i, null
   br i1 %.not20.i, label %thread-pre-split.loopexit.i, label %.lr.ph.i168, !llvm.loop !11
@@ -2233,14 +2233,14 @@ define internal fastcc void @tokenize(ptr noundef captures(none) %0) unnamed_add
   br label %6
 
 6:                                                ; preds = %.lr.ph, %.backedge
-  %.096 = phi i32 [ 0, %.lr.ph ], [ %.0.be, %.backedge ]
-  %.04295 = phi i32 [ 0, %.lr.ph ], [ %.042.be, %.backedge ]
-  %.04494 = phi i32 [ 0, %.lr.ph ], [ %.044.be, %.backedge ]
-  %.04793 = phi i32 [ 0, %.lr.ph ], [ %.047.be, %.backedge ]
+  %.095 = phi i32 [ 0, %.lr.ph ], [ %.0.be, %.backedge ]
+  %.04294 = phi i32 [ 0, %.lr.ph ], [ %.042.be, %.backedge ]
+  %.04493 = phi i32 [ 0, %.lr.ph ], [ %.044.be, %.backedge ]
+  %.04792 = phi i32 [ 0, %.lr.ph ], [ %.047.be, %.backedge ]
   %.05191 = phi i32 [ 0, %.lr.ph ], [ %.051.be, %.backedge ]
   %.05290 = phi i32 [ 0, %.lr.ph ], [ %.052.be, %.backedge ]
   %7 = call i32 @fgetc(ptr noundef %0)
-  %.not57 = icmp eq i32 %.096, 0
+  %.not57 = icmp eq i32 %.095, 0
   br i1 %.not57, label %11, label %8
 
 8:                                                ; preds = %6
@@ -2254,12 +2254,12 @@ define internal fastcc void @tokenize(ptr noundef captures(none) %0) unnamed_add
   br label %.backedge
 
 .backedge:                                        ; preds = %62, %pushtoken.exit79, %.thread88, %pushtoken.exit71, %68, %22, %.thread82, %9, %8, %pushtoken.exit, %.thread87, %50, %11, %19, %24
-  %.052.be = phi i32 [ 0, %pushtoken.exit ], [ 1, %.thread87 ], [ 1, %50 ], [ %.05290, %11 ], [ %.05290, %19 ], [ %.05290, %24 ], [ %.05290, %8 ], [ %.05290, %9 ], [ %.05290, %.thread82 ], [ %.05290, %22 ], [ 0, %68 ], [ 0, %pushtoken.exit71 ], [ 0, %.thread88 ], [ 0, %pushtoken.exit79 ], [ 0, %62 ]
-  %.051.be = phi i32 [ %33, %pushtoken.exit ], [ %46, %.thread87 ], [ 1, %50 ], [ %.05191, %11 ], [ %.05191, %19 ], [ %.05191, %24 ], [ %.05191, %8 ], [ %.05191, %9 ], [ %.05191, %.thread82 ], [ %.05191, %22 ], [ %.05191, %68 ], [ %.05191, %pushtoken.exit71 ], [ %.05191, %.thread88 ], [ %.05191, %pushtoken.exit79 ], [ %.05191, %62 ]
-  %.047.be = phi i32 [ %.04793, %pushtoken.exit ], [ %.04793, %.thread87 ], [ %.04793, %50 ], [ %.04793, %11 ], [ %.04793, %19 ], [ %.04793, %24 ], [ %.04793, %8 ], [ %.04793, %9 ], [ %.04793, %.thread82 ], [ %.04793, %22 ], [ 0, %68 ], [ 0, %pushtoken.exit71 ], [ 1, %.thread88 ], [ 0, %pushtoken.exit79 ], [ 0, %62 ]
-  %.044.be = phi i32 [ %.04494, %pushtoken.exit ], [ %.04494, %.thread87 ], [ %.04494, %50 ], [ %.04494, %11 ], [ %.04494, %19 ], [ %.04494, %24 ], [ %.04494, %8 ], [ %.04494, %9 ], [ %.04494, %.thread82 ], [ %.04494, %22 ], [ %.04494, %68 ], [ %.04494, %pushtoken.exit71 ], [ %101, %.thread88 ], [ %.04494, %pushtoken.exit79 ], [ %.04494, %62 ]
-  %.042.be = phi i32 [ 0, %pushtoken.exit ], [ 0, %.thread87 ], [ 0, %50 ], [ %.04295, %11 ], [ 1, %19 ], [ 0, %24 ], [ %.04295, %8 ], [ %.04295, %9 ], [ 1, %.thread82 ], [ 1, %22 ], [ 0, %68 ], [ 0, %pushtoken.exit71 ], [ 0, %.thread88 ], [ 0, %pushtoken.exit79 ], [ 0, %62 ]
-  %.0.be = phi i32 [ 0, %pushtoken.exit ], [ 0, %.thread87 ], [ 0, %50 ], [ 1, %11 ], [ 0, %19 ], [ 0, %24 ], [ 1, %8 ], [ 0, %9 ], [ 0, %.thread82 ], [ 0, %22 ], [ 0, %68 ], [ 0, %pushtoken.exit71 ], [ 0, %.thread88 ], [ 0, %pushtoken.exit79 ], [ 0, %62 ]
+  %.052.be = phi i32 [ %.05290, %24 ], [ %.05290, %19 ], [ 0, %pushtoken.exit ], [ 1, %.thread87 ], [ 1, %50 ], [ %.05290, %22 ], [ %.05290, %11 ], [ %.05290, %9 ], [ %.05290, %8 ], [ %.05290, %.thread82 ], [ 0, %68 ], [ 0, %pushtoken.exit71 ], [ 0, %.thread88 ], [ 0, %pushtoken.exit79 ], [ 0, %62 ]
+  %.051.be = phi i32 [ %.05191, %24 ], [ %.05191, %19 ], [ %33, %pushtoken.exit ], [ %46, %.thread87 ], [ 1, %50 ], [ %.05191, %22 ], [ %.05191, %11 ], [ %.05191, %9 ], [ %.05191, %8 ], [ %.05191, %.thread82 ], [ %.05191, %68 ], [ %.05191, %pushtoken.exit71 ], [ %.05191, %.thread88 ], [ %.05191, %pushtoken.exit79 ], [ %.05191, %62 ]
+  %.047.be = phi i32 [ %.04792, %24 ], [ %.04792, %19 ], [ %.04792, %pushtoken.exit ], [ %.04792, %.thread87 ], [ %.04792, %50 ], [ %.04792, %22 ], [ %.04792, %11 ], [ %.04792, %9 ], [ %.04792, %8 ], [ %.04792, %.thread82 ], [ 0, %68 ], [ 0, %pushtoken.exit71 ], [ 1, %.thread88 ], [ 0, %pushtoken.exit79 ], [ 0, %62 ]
+  %.044.be = phi i32 [ %.04493, %24 ], [ %.04493, %19 ], [ %.04493, %pushtoken.exit ], [ %.04493, %.thread87 ], [ %.04493, %50 ], [ %.04493, %22 ], [ %.04493, %11 ], [ %.04493, %9 ], [ %.04493, %8 ], [ %.04493, %.thread82 ], [ %.04493, %68 ], [ %.04493, %pushtoken.exit71 ], [ %101, %.thread88 ], [ %.04493, %pushtoken.exit79 ], [ %.04493, %62 ]
+  %.042.be = phi i32 [ 0, %24 ], [ 1, %19 ], [ 0, %pushtoken.exit ], [ 0, %.thread87 ], [ 0, %50 ], [ 1, %22 ], [ %.04294, %11 ], [ %.04294, %9 ], [ %.04294, %8 ], [ 1, %.thread82 ], [ 0, %68 ], [ 0, %pushtoken.exit71 ], [ 0, %.thread88 ], [ 0, %pushtoken.exit79 ], [ 0, %62 ]
+  %.0.be = phi i32 [ 0, %24 ], [ 0, %19 ], [ 0, %pushtoken.exit ], [ 0, %.thread87 ], [ 0, %50 ], [ 0, %22 ], [ 1, %11 ], [ 0, %9 ], [ 1, %8 ], [ 0, %.thread82 ], [ 0, %68 ], [ 0, %pushtoken.exit71 ], [ 0, %.thread88 ], [ 0, %pushtoken.exit79 ], [ 0, %62 ]
   %10 = call i32 @feof(ptr noundef %0) #17
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %6, label %._crit_edge, !llvm.loop !18
@@ -2272,7 +2272,7 @@ define internal fastcc void @tokenize(ptr noundef captures(none) %0) unnamed_add
   br i1 %or.cond3, label %.backedge, label %15
 
 15:                                               ; preds = %11
-  %16 = icmp eq i32 %.04295, 0
+  %16 = icmp eq i32 %.04294, 0
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %15
@@ -2307,7 +2307,7 @@ define internal fastcc void @tokenize(ptr noundef captures(none) %0) unnamed_add
   br i1 %.not5886, label %.thread85..thread88_crit_edge, label %.thread87
 
 .thread85..thread88_crit_edge:                    ; preds = %.thread85
-  %.pre97 = load i32, ptr @linepos, align 4
+  %.pre96 = load i32, ptr @linepos, align 4
   br label %.thread88
 
 30:                                               ; preds = %28
@@ -2375,11 +2375,11 @@ pushtoken.exit:                                   ; preds = %32
   br label %.backedge
 
 51:                                               ; preds = %49, %49
-  %.not61 = icmp eq i32 %.04793, 0
+  %.not61 = icmp eq i32 %.04792, 0
   br i1 %.not61, label %62, label %52
 
 52:                                               ; preds = %51
-  %53 = sext i32 %.04494 to i64
+  %53 = sext i32 %.04493 to i64
   %54 = getelementptr i8, ptr %3, i64 %53
   store i8 0, ptr %54, align 1
   %55 = call noalias ptr @g_strdup(ptr noundef nonnull %3)
@@ -2418,11 +2418,11 @@ pushtoken.exit67:                                 ; preds = %52
   br label %.backedge
 
 68:                                               ; preds = %49, %49
-  %.not60 = icmp eq i32 %.04793, 0
+  %.not60 = icmp eq i32 %.04792, 0
   br i1 %.not60, label %.backedge, label %69
 
 69:                                               ; preds = %68
-  %70 = sext i32 %.04494 to i64
+  %70 = sext i32 %.04493 to i64
   %71 = getelementptr i8, ptr %3, i64 %70
   store i8 0, ptr %71, align 1
   %72 = call noalias ptr @g_strdup(ptr noundef nonnull %3)
@@ -2449,11 +2449,11 @@ pushtoken.exit71:                                 ; preds = %69
   br label %.backedge
 
 79:                                               ; preds = %49, %49, %49, %49, %49, %49, %49, %49
-  %.not59 = icmp eq i32 %.04793, 0
+  %.not59 = icmp eq i32 %.04792, 0
   br i1 %.not59, label %90, label %80
 
 80:                                               ; preds = %79
-  %81 = sext i32 %.04494 to i64
+  %81 = sext i32 %.04493 to i64
   %82 = getelementptr i8, ptr %3, i64 %81
   store i8 0, ptr %82, align 1
   %83 = call noalias ptr @g_strdup(ptr noundef nonnull %3)
@@ -2507,9 +2507,9 @@ pushtoken.exit79:                                 ; preds = %90
   br label %.backedge
 
 .thread88:                                        ; preds = %.thread85..thread88_crit_edge, %49
-  %99 = phi i32 [ %.pre97, %.thread85..thread88_crit_edge ], [ %13, %49 ]
-  %.not62 = icmp eq i32 %.04793, 0
-  %spec.select = select i1 %.not62, i32 0, i32 %.04494
+  %99 = phi i32 [ %.pre96, %.thread85..thread88_crit_edge ], [ %13, %49 ]
+  %.not62 = icmp eq i32 %.04792, 0
+  %spec.select = select i1 %.not62, i32 0, i32 %.04493
   %100 = trunc i32 %7 to i8
   %101 = add i32 %spec.select, 1
   %102 = sext i32 %spec.select to i64
@@ -2626,12 +2626,12 @@ define internal fastcc ptr @parsebrackets(ptr noundef readonly captures(none) %0
   br i1 %.not182, label %.backedge243.sink.split, label %._crit_edge
 
 .backedge243.sink.split:                          ; preds = %.lr.ph, %.lr.ph287, %37, %203, %91, %88, %59, %43, %251, %233, %227, %221, %215, %85, %79, %73
-  %.3284.lcssa.sink = phi ptr [ %.0162290, %73 ], [ %.0162290, %79 ], [ %.0162290, %85 ], [ %.0162290, %215 ], [ %.0162290, %221 ], [ %.0162290, %227 ], [ %.0162290, %233 ], [ %.0162290, %251 ], [ %.0162290, %43 ], [ %63, %59 ], [ %.0162290, %88 ], [ %.0162290, %91 ], [ %206, %203 ], [ %38, %37 ], [ %.1286, %.lr.ph287 ], [ %.3284, %.lr.ph ]
+  %.3284.lcssa.sink = phi ptr [ %38, %37 ], [ %.0162290, %91 ], [ %206, %203 ], [ %.0162290, %251 ], [ %.0162290, %43 ], [ %.0162290, %73 ], [ %.0162290, %79 ], [ %.0162290, %85 ], [ %63, %59 ], [ %.0162290, %88 ], [ %.1286, %.lr.ph287 ], [ %.0162290, %215 ], [ %.0162290, %221 ], [ %.0162290, %227 ], [ %.0162290, %233 ], [ %.3284, %.lr.ph ]
   %42 = load ptr, ptr %.3284.lcssa.sink, align 8
   br label %.backedge243
 
 .backedge243:                                     ; preds = %177, %154, %130, %.backedge243.sink.split
-  %.0162.be = phi ptr [ %42, %.backedge243.sink.split ], [ %131, %130 ], [ %155, %154 ], [ %178, %177 ]
+  %.0162.be = phi ptr [ %42, %.backedge243.sink.split ], [ %155, %154 ], [ %131, %130 ], [ %178, %177 ]
   %.not177 = icmp eq ptr %.0162.be, null
   br i1 %.not177, label %._crit_edge, label %18, !llvm.loop !19
 
@@ -3125,8 +3125,8 @@ define internal fastcc ptr @parsebrackets(ptr noundef readonly captures(none) %0
   tail call fastcc void @Exit(i32 noundef 10)
   unreachable
 
-._crit_edge:                                      ; preds = %.preheader240, %.preheader237, %.preheader235, %37, %.backedge243, %.backedge242, %.backedge239, %.backedge, %109, %101, %14
-  %.0 = phi ptr [ null, %14 ], [ null, %101 ], [ null, %109 ], [ null, %.backedge ], [ null, %.backedge239 ], [ null, %.backedge242 ], [ null, %.preheader240 ], [ null, %.preheader237 ], [ null, %.preheader235 ], [ null, %.backedge243 ], [ %38, %37 ]
+._crit_edge:                                      ; preds = %.preheader240, %.preheader235, %.preheader237, %37, %.backedge243, %.backedge242, %.backedge239, %.backedge, %109, %101, %14
+  %.0 = phi ptr [ null, %14 ], [ null, %.backedge ], [ null, %.backedge242 ], [ null, %.backedge239 ], [ null, %101 ], [ null, %109 ], [ null, %.preheader240 ], [ null, %.preheader235 ], [ null, %.preheader237 ], [ null, %.backedge243 ], [ %38, %37 ]
   ret ptr %.0
 }
 
@@ -3536,7 +3536,7 @@ define internal fastcc void @parsetypedefstruct(i32 noundef range(i32 0, 2) %0) 
   unreachable
 
 .thread481:                                       ; preds = %15, %22, %20
-  %.0484 = phi ptr [ %21, %22 ], [ %21, %20 ], [ %16, %15 ]
+  %.0484 = phi ptr [ %21, %20 ], [ %21, %22 ], [ %16, %15 ]
   %27 = getelementptr inbounds nuw i8, ptr %.0484, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 @g_strcmp0(ptr noundef %28, ptr noundef nonnull @.str.31)
@@ -3787,7 +3787,7 @@ check_if_to_emit.exit:                            ; preds = %68
   br label %.backedge
 
 .backedge:                                        ; preds = %123, %400
-  %.2.be = phi ptr [ %401, %400 ], [ %124, %123 ]
+  %.2.be = phi ptr [ %124, %123 ], [ %401, %400 ]
   %.not184 = icmp eq ptr %.2.be, null
   br i1 %.not184, label %.loopexit347, label %111, !llvm.loop !29
 
@@ -4009,9 +4009,9 @@ prepend_pointer_list.exit242:                     ; preds = %190, %.preheader.i2
   br label %204
 
 204:                                              ; preds = %prepend_pointer_list.exit242, %202, %180
-  %.1144 = phi ptr [ %.0.lcssa.i, %202 ], [ %.0.lcssa.i241, %prepend_pointer_list.exit242 ], [ %.0.lcssa.i, %180 ]
-  %205 = phi i1 [ true, %202 ], [ false, %prepend_pointer_list.exit242 ], [ true, %180 ]
-  %.5 = phi ptr [ %203, %202 ], [ %194, %prepend_pointer_list.exit242 ], [ %176, %180 ]
+  %.1144 = phi ptr [ %.0.lcssa.i, %202 ], [ %.0.lcssa.i, %180 ], [ %.0.lcssa.i241, %prepend_pointer_list.exit242 ]
+  %205 = phi i1 [ true, %202 ], [ true, %180 ], [ false, %prepend_pointer_list.exit242 ]
+  %.5 = phi ptr [ %203, %202 ], [ %176, %180 ], [ %194, %prepend_pointer_list.exit242 ]
   %206 = getelementptr inbounds nuw i8, ptr %.5, i64 8
   %207 = load ptr, ptr %206, align 8
   %208 = call i32 @g_strcmp0(ptr noundef %207, ptr noundef nonnull @.str.29)
@@ -4167,7 +4167,7 @@ check_if_to_emit.exit259:                         ; preds = %262
   unreachable
 
 ptr_to_define.exit:                               ; preds = %check_if_to_emit.exit259, %272, %274
-  %.0.i262 = phi ptr [ @.str.292, %check_if_to_emit.exit259 ], [ @.str.293, %272 ], [ @.str.294, %274 ]
+  %.0.i262 = phi ptr [ @.str.293, %272 ], [ @.str.292, %check_if_to_emit.exit259 ], [ @.str.294, %274 ]
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %270, ptr noundef nonnull @.str.271, ptr noundef %222, ptr noundef nonnull %.0.i262, ptr noundef %170)
   br label %.sink.split527.sink.split
 
@@ -4301,7 +4301,7 @@ default.unreachable:                              ; preds = %376, %302
   unreachable
 
 .sink.split528.sink.split:                        ; preds = %322, %315, %308
-  %.str.282.sink = phi ptr [ @.str.278, %308 ], [ @.str.280, %315 ], [ @.str.282, %322 ]
+  %.str.282.sink = phi ptr [ @.str.280, %315 ], [ @.str.278, %308 ], [ @.str.282, %322 ]
   %327 = load ptr, ptr @eth_code, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %327, ptr noundef nonnull @.str.152)
   %328 = load ptr, ptr @eth_code, align 8
@@ -4380,7 +4380,7 @@ check_if_to_emit.exit292:                         ; preds = %341
   unreachable
 
 ptr_to_define.exit297:                            ; preds = %check_if_to_emit.exit292, %351, %353
-  %.0.i296 = phi ptr [ @.str.292, %check_if_to_emit.exit292 ], [ @.str.293, %351 ], [ @.str.294, %353 ]
+  %.0.i296 = phi ptr [ @.str.293, %351 ], [ @.str.292, %check_if_to_emit.exit292 ], [ @.str.294, %353 ]
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %349, ptr noundef nonnull @.str.271, ptr noundef %.2151409, ptr noundef nonnull %.0.i296, ptr noundef %170)
   %357 = load ptr, ptr @eth_code, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %357, ptr noundef nonnull @.str.268)
@@ -4451,7 +4451,7 @@ ptr_to_define.exit297:                            ; preds = %check_if_to_emit.ex
   br label %.sink.split530
 
 .sink.split530:                                   ; preds = %376, %381, %380
-  %.str.277.sink = phi ptr [ @.str.279, %380 ], [ @.str.281, %381 ], [ @.str.277, %376 ]
+  %.str.277.sink = phi ptr [ @.str.281, %381 ], [ @.str.279, %380 ], [ @.str.277, %376 ]
   %382 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %3, i64 noundef 256, i32 noundef 2, i64 noundef 256, ptr noundef nonnull %.str.277.sink, ptr noundef %.3152)
   %383 = call noalias ptr @g_strdup(ptr noundef nonnull %3)
   br label %384
@@ -4639,9 +4639,9 @@ define internal fastcc void @parsetypedefunion(i32 noundef range(i32 0, 2) %0) u
   unreachable
 
 .thread274:                                       ; preds = %14, %21, %19
-  %.not115278 = phi i1 [ false, %21 ], [ true, %19 ], [ true, %14 ]
-  %.0277 = phi ptr [ %20, %21 ], [ %20, %19 ], [ %15, %14 ]
-  %27 = phi ptr [ %.pre, %21 ], [ null, %19 ], [ null, %14 ]
+  %.not115278 = phi i1 [ true, %19 ], [ false, %21 ], [ true, %14 ]
+  %.0277 = phi ptr [ %20, %19 ], [ %20, %21 ], [ %15, %14 ]
+  %27 = phi ptr [ null, %19 ], [ %.pre, %21 ], [ null, %14 ]
   %28 = getelementptr inbounds nuw i8, ptr %.0277, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i32 @g_strcmp0(ptr noundef %29, ptr noundef nonnull @.str.32)
@@ -4924,7 +4924,7 @@ get_union_tag_size.exit:                          ; preds = %72
   br label %.backedge
 
 .backedge:                                        ; preds = %132, %153, %274
-  %.1.be = phi ptr [ %275, %274 ], [ %154, %153 ], [ %133, %132 ]
+  %.1.be = phi ptr [ %133, %132 ], [ %275, %274 ], [ %154, %153 ]
   %.not127 = icmp eq ptr %.1.be, null
   br i1 %.not127, label %.loopexit, label %120, !llvm.loop !38
 
@@ -6194,7 +6194,7 @@ default.unreachable:                              ; preds = %179, %find_dissecto
   unreachable
 
 ptr_to_define.exit:                               ; preds = %.lr.ph247, %167, %169
-  %.0.i136 = phi ptr [ @.str.292, %.lr.ph247 ], [ @.str.293, %167 ], [ @.str.294, %169 ]
+  %.0.i136 = phi ptr [ @.str.293, %167 ], [ @.str.292, %.lr.ph247 ], [ @.str.294, %169 ]
   %173 = load ptr, ptr %90, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %165, ptr noundef nonnull @.str.388, ptr noundef %.1105245, ptr noundef nonnull %.0.i136, ptr noundef %173)
   %174 = load ptr, ptr @eth_code, align 8
@@ -6332,10 +6332,10 @@ ptr_to_define.exit:                               ; preds = %.lr.ph247, %167, %1
   br label %.outer.backedge
 
 .loopexit:                                        ; preds = %.outer.backedge, %55, %.outer158.backedge, %60, %45
-  %or.cond150.ph220 = phi i1 [ %26, %45 ], [ %or.cond150.ph258, %60 ], [ %or.cond150.ph258, %.outer158.backedge ], [ %or.cond150.ph258, %55 ], [ %or.cond142, %.outer.backedge ]
-  %.ph208 = phi i1 [ %46, %45 ], [ %.ph259, %60 ], [ %.ph259, %.outer158.backedge ], [ %.ph259, %55 ], [ %219, %.outer.backedge ]
-  %.0169 = phi ptr [ null, %45 ], [ null, %60 ], [ %.0222, %55 ], [ null, %.outer158.backedge ], [ null, %.outer.backedge ]
-  %.not110165 = phi i1 [ true, %45 ], [ true, %60 ], [ false, %55 ], [ true, %.outer158.backedge ], [ true, %.outer.backedge ]
+  %or.cond150.ph220 = phi i1 [ %26, %45 ], [ %or.cond150.ph258, %55 ], [ %or.cond150.ph258, %60 ], [ %or.cond150.ph258, %.outer158.backedge ], [ %or.cond142, %.outer.backedge ]
+  %.ph208 = phi i1 [ %46, %45 ], [ %.ph259, %55 ], [ %.ph259, %60 ], [ %.ph259, %.outer158.backedge ], [ %219, %.outer.backedge ]
+  %.0169 = phi ptr [ null, %45 ], [ %.0222, %55 ], [ null, %60 ], [ null, %.outer158.backedge ], [ null, %.outer.backedge ]
+  %.not110165 = phi i1 [ true, %45 ], [ false, %55 ], [ true, %60 ], [ true, %.outer158.backedge ], [ true, %.outer.backedge ]
   br i1 %or.cond150.ph220, label %226, label %234
 
 226:                                              ; preds = %.loopexit
@@ -6516,8 +6516,8 @@ define internal fastcc ptr @str_read_string(ptr noundef readonly captures(ret: a
   br label %8
 
 .outer35._crit_edge:                              ; preds = %.outer.backedge, %.outer35, %11, %2
-  %.026.ph.lcssa48 = phi ptr [ %3, %2 ], [ %.026.ph65, %11 ], [ %.026.ph65, %.outer35 ], [ %.026.ph.be, %.outer.backedge ]
-  %.028.lcssa = phi ptr [ %0, %2 ], [ %12, %11 ], [ %.129, %.outer35 ], [ %.028.ph.be, %.outer.backedge ]
+  %.026.ph.lcssa48 = phi ptr [ %.026.ph65, %.outer35 ], [ %.026.ph65, %11 ], [ %3, %2 ], [ %.026.ph.be, %.outer.backedge ]
+  %.028.lcssa = phi ptr [ %.129, %.outer35 ], [ %12, %11 ], [ %0, %2 ], [ %.028.ph.be, %.outer.backedge ]
   store i8 0, ptr %.026.ph.lcssa48, align 1
   %7 = call noalias ptr @g_strdup(ptr noundef nonnull %3)
   store ptr %7, ptr %1, align 8

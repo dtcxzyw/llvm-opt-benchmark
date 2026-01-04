@@ -281,26 +281,26 @@ _ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i.i
 _ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EED2Ev.exit.i.i: ; preds = %74, %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i.i
   %80 = load ptr, ptr %6, align 8, !tbaa !12
   %81 = icmp eq ptr %80, %9
-  br i1 %81, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZN3gmx20ExceptionInitializerD2Ev.exit.i
+  br i1 %81, label %_ZN3gmx20ExceptionInitializerD2Ev.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %_ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EED2Ev.exit.i.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.2.i, label %84, label %85
-
-_ZN3gmx20ExceptionInitializerD2Ev.exit.i:         ; preds = %_ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EED2Ev.exit.i.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %_ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EED2Ev.exit.i.i
   %82 = load i64, ptr %9, align 8, !tbaa !14
   %83 = add i64 %82, 1
   call void @_ZdlPvm(ptr noundef %80, i64 noundef %83) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.2.i, label %84, label %85
 
-84:                                               ; preds = %_ZN3gmx20ExceptionInitializerD2Ev.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, %_ZN3gmx20ExceptionInitializerD2Ev.exit.thread.i
-  %.pn.pn4.i = phi { ptr, i32 } [ %38, %_ZN3gmx20ExceptionInitializerD2Ev.exit.thread.i ], [ %.pn.i, %_ZN3gmx20ExceptionInitializerD2Ev.exit.i ], [ %.pn.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i ]
+_ZN3gmx20ExceptionInitializerD2Ev.exit.i:         ; preds = %_ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EED2Ev.exit.i.i
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  br i1 %.2.i, label %84, label %85
+
+84:                                               ; preds = %_ZN3gmx20ExceptionInitializerD2Ev.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZN3gmx20ExceptionInitializerD2Ev.exit.thread.i
+  %.pn.pn4.i = phi { ptr, i32 } [ %38, %_ZN3gmx20ExceptionInitializerD2Ev.exit.thread.i ], [ %.pn.i, %_ZN3gmx20ExceptionInitializerD2Ev.exit.i ], [ %.pn.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ]
   call void @__cxa_free_exception(ptr %8) #13
   br label %85
 
-85:                                               ; preds = %84, %_ZN3gmx20ExceptionInitializerD2Ev.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  %.pn.pn3.i = phi { ptr, i32 } [ %.pn.i, %_ZN3gmx20ExceptionInitializerD2Ev.exit.i ], [ %.pn.pn4.i, %84 ], [ %.pn.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i ]
+85:                                               ; preds = %84, %_ZN3gmx20ExceptionInitializerD2Ev.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
+  %.pn.pn3.i = phi { ptr, i32 } [ %.pn.i, %_ZN3gmx20ExceptionInitializerD2Ev.exit.i ], [ %.pn.pn4.i, %84 ], [ %.pn.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ]
   resume { ptr, i32 } %.pn.pn3.i
 
 86:                                               ; preds = %31

@@ -641,7 +641,7 @@ _ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i143.i.i: ; preds = %.lr.ph.i
   br i1 %178, label %.lr.ph.i10.i150.i.i, label %_ZN11hb_buffer_t13reverse_rangeEjj.exit162.i.i, !llvm.loop !18
 
 _ZN11hb_buffer_t13reverse_rangeEjj.exit162.i.i:   ; preds = %.lr.ph.i10.i150.i.i, %168, %_ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i143.i.i, %.lr.ph195.i.i
-  %.1.i.i = phi i32 [ %154, %168 ], [ %154, %_ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i143.i.i ], [ %.0112193.i.i, %.lr.ph195.i.i ], [ %154, %.lr.ph.i10.i150.i.i ]
+  %.1.i.i = phi i32 [ %.0112193.i.i, %.lr.ph195.i.i ], [ %154, %_ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i143.i.i ], [ %154, %168 ], [ %154, %.lr.ph.i10.i150.i.i ]
   %.not134.i.i = icmp ugt i32 %154, %.1115.i.i
   br i1 %.not134.i.i, label %_ZL24reorder_syllable_myanmarPK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.exit, label %.lr.ph195.i.i, !llvm.loop !19
 
@@ -712,11 +712,11 @@ define linkonce_odr hidden void @_Z22find_syllables_myanmarP11hb_buffer_t(ptr no
   br label %.thread
 
 .thread:                                          ; preds = %7, %1
-  %12 = phi i64 [ 0, %1 ], [ %8, %7 ]
-  %.1158 = phi i32 [ 0, %1 ], [ %128, %7 ]
-  %.1125156 = phi i32 [ 1, %1 ], [ %.3127, %7 ]
-  %.1129154 = phi i64 [ 0, %1 ], [ %11, %7 ]
-  %13 = phi i32 [ 0, %1 ], [ %spec.select, %7 ]
+  %12 = phi i64 [ %8, %7 ], [ 0, %1 ]
+  %.1158 = phi i32 [ %128, %7 ], [ 0, %1 ]
+  %.1125156 = phi i32 [ %.3127, %7 ], [ 1, %1 ]
+  %.1129154 = phi i64 [ %11, %7 ], [ 0, %1 ]
+  %13 = phi i32 [ %spec.select, %7 ], [ 0, %1 ]
   %14 = getelementptr inbounds i8, ptr @_ZL36_myanmar_syllable_machine_trans_keys, i64 %.1129154
   %15 = getelementptr inbounds i16, ptr @_ZL39_myanmar_syllable_machine_index_offsets, i64 %12
   %16 = load i16, ptr %15, align 2
@@ -1447,7 +1447,7 @@ _ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56: ; preds
   br i1 %exitcond.not.i83, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit89, label %.lr.ph.i78, !llvm.loop !32
 
 _ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit89: ; preds = %.lr.ph.i78, %209, %195, %200, %191, %_ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56, %.loopexit.thread, %.preheader55.i77, %.preheader.i84
-  %.013.i57129 = phi i32 [ %.013.i57.ph182, %.loopexit.thread ], [ %.sroa.speculated.i, %.preheader55.i77 ], [ %.sroa.speculated.i, %.preheader.i84 ], [ %.013.i46, %_ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56 ], [ %.013.i57.ph182, %191 ], [ %.sroa.speculated.i, %200 ], [ %.sroa.speculated.i, %195 ], [ %.sroa.speculated.i, %209 ], [ %.sroa.speculated.i, %.lr.ph.i78 ]
+  %.013.i57129 = phi i32 [ %.sroa.speculated.i, %195 ], [ %.013.i57.ph182, %.loopexit.thread ], [ %.013.i46, %_ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56 ], [ %.sroa.speculated.i, %.preheader55.i77 ], [ %.sroa.speculated.i, %.preheader.i84 ], [ %.013.i57.ph182, %191 ], [ %.sroa.speculated.i, %200 ], [ %.sroa.speculated.i, %209 ], [ %.sroa.speculated.i, %.lr.ph.i78 ]
   %215 = load ptr, ptr %122, align 8
   %216 = load i32, ptr %124, align 4
   %217 = icmp eq i32 %216, %.sroa.speculated

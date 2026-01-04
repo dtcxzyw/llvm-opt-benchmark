@@ -424,7 +424,7 @@ merge_select_frame_type.exit.loopexit:            ; preds = %.lr.ph.i178, %127
   br label %merge_select_frame_type.exit
 
 merge_select_frame_type.exit:                     ; preds = %.lr.ph.i178, %merge_select_frame_type.exit.loopexit, %115, %.preheader.i177
-  %.0.i = phi i32 [ 0, %115 ], [ %119, %.preheader.i177 ], [ %.217.i, %merge_select_frame_type.exit.loopexit ], [ 0, %.lr.ph.i178 ]
+  %.0.i = phi i32 [ %.217.i, %merge_select_frame_type.exit.loopexit ], [ 0, %115 ], [ %119, %.preheader.i177 ], [ 0, %.lr.ph.i178 ]
   br i1 %.not82.i, label %132, label %128
 
 128:                                              ; preds = %merge_select_frame_type.exit
@@ -1014,7 +1014,7 @@ default.unreachable398:                           ; preds = %._crit_edge
   br label %.thread239.thread
 
 .thread239.thread:                                ; preds = %12, %merge_open_in_files.exit.thread, %315, %.thread234, %.thread239, %360, %357, %358
-  %.3 = phi i1 [ false, %358 ], [ false, %357 ], [ %366, %360 ], [ true, %.thread239 ], [ false, %.thread234 ], [ false, %315 ], [ false, %merge_open_in_files.exit.thread ], [ true, %12 ]
+  %.3 = phi i1 [ false, %.thread234 ], [ false, %357 ], [ false, %358 ], [ %366, %360 ], [ true, %.thread239 ], [ false, %315 ], [ false, %merge_open_in_files.exit.thread ], [ true, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -1254,9 +1254,9 @@ is_earlier.exit.thread.i:                         ; preds = %65
   br label %70
 
 is_earlier.exit.thread51.i:                       ; preds = %is_earlier.exit.thread.i, %65, %61, %.thread49.i, %.lr.ph.i185
-  %.sroa.5.1.ph.i = phi i32 [ %.sroa.5.080.i, %.thread49.i ], [ %.sroa.5.0.copyload47.pre.i, %is_earlier.exit.thread.i ], [ %.sroa.5.080.i, %61 ], [ %.sroa.5.080.i, %.lr.ph.i185 ], [ %.sroa.5.080.i, %65 ]
-  %.sroa.0.1.ph.i = phi i64 [ %.sroa.0.081.i, %.thread49.i ], [ %63, %is_earlier.exit.thread.i ], [ %.sroa.0.081.i, %61 ], [ %.sroa.0.081.i, %.lr.ph.i185 ], [ %.sroa.0.081.i, %65 ]
-  %.242.ph.i = phi i32 [ %.04083.i, %.thread49.i ], [ %67, %is_earlier.exit.thread.i ], [ %.04083.i, %61 ], [ %.04083.i, %.lr.ph.i185 ], [ %.04083.i, %65 ]
+  %.sroa.5.1.ph.i = phi i32 [ %.sroa.5.0.copyload47.pre.i, %is_earlier.exit.thread.i ], [ %.sroa.5.080.i, %.thread49.i ], [ %.sroa.5.080.i, %.lr.ph.i185 ], [ %.sroa.5.080.i, %65 ], [ %.sroa.5.080.i, %61 ]
+  %.sroa.0.1.ph.i = phi i64 [ %63, %is_earlier.exit.thread.i ], [ %.sroa.0.081.i, %.thread49.i ], [ %.sroa.0.081.i, %.lr.ph.i185 ], [ %.sroa.0.081.i, %65 ], [ %.sroa.0.081.i, %61 ]
+  %.242.ph.i = phi i32 [ %67, %is_earlier.exit.thread.i ], [ %.04083.i, %.thread49.i ], [ %.04083.i, %.lr.ph.i185 ], [ %.04083.i, %65 ], [ %.04083.i, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %indvars.iv.next.i187 = add nuw nsw i64 %indvars.iv.i186, 1
   %exitcond.not.i188 = icmp eq i64 %indvars.iv.next.i187, %wide.trip.count.i184
@@ -1284,7 +1284,7 @@ merge_read_packet.exit.thread:                    ; preds = %46, %._crit_edge.i1
   br label %merge_read_packet.exit
 
 merge_read_packet.exit:                           ; preds = %70, %.thread63.i, %merge_append_read_packet.exit
-  %.0143 = phi ptr [ %.024.i, %merge_append_read_packet.exit ], [ %72, %70 ], [ %47, %.thread63.i ]
+  %.0143 = phi ptr [ %.024.i, %merge_append_read_packet.exit ], [ %47, %.thread63.i ], [ %72, %70 ]
   %77 = icmp eq ptr %.0143, null
   br i1 %77, label %map_rec_interface_id.exit, label %78
 
@@ -1493,10 +1493,10 @@ map_rec_interface_id.exit.thread:                 ; preds = %121
   br label %.outer
 
 map_rec_interface_id.exit:                        ; preds = %121, %.loopexit205, %94, %78, %merge_read_packet.exit, %merge_read_packet.exit.thread
-  %or.cond = phi i1 [ true, %merge_read_packet.exit.thread ], [ %77, %merge_read_packet.exit ], [ %77, %78 ], [ false, %94 ], [ false, %.loopexit205 ], [ false, %121 ]
+  %or.cond = phi i1 [ true, %merge_read_packet.exit.thread ], [ %77, %78 ], [ %77, %merge_read_packet.exit ], [ false, %94 ], [ false, %.loopexit205 ], [ false, %121 ]
   %.0143200 = phi ptr [ null, %merge_read_packet.exit.thread ], [ %.0143, %78 ], [ null, %merge_read_packet.exit ], [ %.0143, %94 ], [ %.0143, %.loopexit205 ], [ %.0143, %121 ]
-  %.1150 = phi i32 [ %.0149.ph, %merge_read_packet.exit.thread ], [ %.0149.ph, %merge_read_packet.exit ], [ %.0149.ph, %78 ], [ %85, %94 ], [ %85, %.loopexit205 ], [ %85, %121 ]
-  %.0140 = phi i32 [ 0, %merge_read_packet.exit.thread ], [ 4, %78 ], [ 0, %merge_read_packet.exit ], [ 5, %121 ], [ 6, %.loopexit205 ], [ 6, %94 ]
+  %.1150 = phi i32 [ %.0149.ph, %merge_read_packet.exit.thread ], [ %.0149.ph, %78 ], [ %.0149.ph, %merge_read_packet.exit ], [ %85, %94 ], [ %85, %.loopexit205 ], [ %85, %121 ]
+  %.0140 = phi i32 [ 0, %merge_read_packet.exit.thread ], [ 4, %78 ], [ 0, %merge_read_packet.exit ], [ 6, %94 ], [ 5, %121 ], [ 6, %.loopexit205 ]
   br i1 %.not166, label %185, label %map_rec_interface_id.exit.thread299
 
 map_rec_interface_id.exit.thread299:              ; preds = %map_rec_interface_id.exit
@@ -1521,7 +1521,7 @@ map_rec_interface_id.exit.thread299:              ; preds = %map_rec_interface_i
   br label %190
 
 190:                                              ; preds = %188, %186
-  %.2 = phi i32 [ %.0140310311, %186 ], [ %spec.select, %188 ]
+  %.2 = phi i32 [ %spec.select, %188 ], [ %.0140310311, %186 ]
   br i1 %.not170, label %.loopexit204, label %.preheader203
 
 .preheader203:                                    ; preds = %190, %.loopexit202
@@ -1619,8 +1619,8 @@ map_rec_interface_id.exit.thread299:              ; preds = %map_rec_interface_i
   br i1 %exitcond279.not, label %.loopexit201, label %.preheader, !llvm.loop !30
 
 .loopexit201:                                     ; preds = %.loopexit, %map_rec_interface_id.exit.thread299, %.loopexit204, %185
-  %.1144 = phi ptr [ %.2145, %.loopexit204 ], [ %.0143200, %185 ], [ %.0143200, %map_rec_interface_id.exit.thread299 ], [ %212, %.loopexit ]
-  %.1 = phi i32 [ %.2, %.loopexit204 ], [ %.0140, %185 ], [ %.0140, %map_rec_interface_id.exit.thread299 ], [ %.2, %.loopexit ]
+  %.1144 = phi ptr [ %.0143200, %185 ], [ %.2145, %.loopexit204 ], [ %.0143200, %map_rec_interface_id.exit.thread299 ], [ %212, %.loopexit ]
+  %.1 = phi i32 [ %.0140, %185 ], [ %.2, %.loopexit204 ], [ %.0140, %map_rec_interface_id.exit.thread299 ], [ %.2, %.loopexit ]
   %or.cond3 = icmp ult i32 %.1, 2
   br i1 %or.cond3, label %233, label %235
 
@@ -1642,7 +1642,7 @@ map_rec_interface_id.exit.thread299:              ; preds = %map_rec_interface_i
   br label %238
 
 238:                                              ; preds = %233, %235
-  %.3 = phi i32 [ %.1, %235 ], [ %spec.select180, %233 ]
+  %.3 = phi i32 [ %spec.select180, %233 ], [ %.1, %235 ]
   br i1 %24, label %.lr.ph.i195, label %merge_close_in_files.exit
 
 .lr.ph.i195:                                      ; preds = %238, %.lr.ph.i195

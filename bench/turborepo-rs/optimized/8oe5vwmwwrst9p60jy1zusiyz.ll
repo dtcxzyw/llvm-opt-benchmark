@@ -1491,8 +1491,8 @@ _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainIBO_INtNtNtB8_7s
   br label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainIBO_INtNtNtB8_7sources4once4OnceRNtNtCseG2FYMysgNb_3wax5token5TokenEB13_EQINtNtB6_3map3MapINtNtCslyFhtC9DD08_9itertools11groupbylazy5GroupNtB1y_8PositionINtB1y_4WalkTjjEENCNvNtB1A_4rule8boundary0ENCNCB3L_s_00EENtNtNtB8_6traits8iterator8Iterator4nextB1A_.llvm.15969390215716056838.exit.thread
 
 _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainIBO_INtNtNtB8_7sources4once4OnceRNtNtCseG2FYMysgNb_3wax5token5TokenEB13_EQINtNtB6_3map3MapINtNtCslyFhtC9DD08_9itertools11groupbylazy5GroupNtB1y_8PositionINtB1y_4WalkTjjEENCNvNtB1A_4rule8boundary0ENCNCB3L_s_00EENtNtNtB8_6traits8iterator8Iterator4nextB1A_.llvm.15969390215716056838.exit.thread: ; preds = %16, %_RNvYNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters5chain5ChainINtNtNtBc_7sources4once4OnceRNtNtCseG2FYMysgNb_3wax5token5TokenEBX_ENtNtNtBc_6traits8iterator8Iterator4nextINtNtNtBe_3ops8function6FnOnceTQB5_EE9call_onceB1u_.exit.thread.i.i10, %_RNvYNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters5chain5ChainINtNtNtBc_7sources4once4OnceRNtNtCseG2FYMysgNb_3wax5token5TokenEBX_ENtNtNtBc_6traits8iterator8Iterator4nextINtNtNtBe_3ops8function6FnOnceTQB5_EE9call_onceB1u_.exit.thread.i.i, %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainIBO_INtNtNtB8_7sources4once4OnceRNtNtCseG2FYMysgNb_3wax5token5TokenEB13_EQINtNtB6_3map3MapINtNtCslyFhtC9DD08_9itertools11groupbylazy5GroupNtB1y_8PositionINtB1y_4WalkTjjEENCNvNtB1A_4rule8boundary0ENCNCB3L_s_00EENtNtNtB8_6traits8iterator8Iterator4nextB1A_.llvm.15969390215716056838.exit25, %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainIBO_INtNtNtB8_7sources4once4OnceRNtNtCseG2FYMysgNb_3wax5token5TokenEB13_EQINtNtB6_3map3MapINtNtCslyFhtC9DD08_9itertools11groupbylazy5GroupNtB1y_8PositionINtB1y_4WalkTjjEENCNvNtB1A_4rule8boundary0ENCNCB3L_s_00EENtNtNtB8_6traits8iterator8Iterator4nextB1A_.llvm.15969390215716056838.exit.thread45, %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainIBO_INtNtNtB8_7sources4once4OnceRNtNtCseG2FYMysgNb_3wax5token5TokenEB13_EQINtNtB6_3map3MapINtNtCslyFhtC9DD08_9itertools11groupbylazy5GroupNtB1y_8PositionINtB1y_4WalkTjjEENCNvNtB1A_4rule8boundary0ENCNCB3L_s_00EENtNtNtB8_6traits8iterator8Iterator4nextB1A_.llvm.15969390215716056838.exit25.thread79
-  %.sroa.4.0 = phi ptr [ undef, %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainIBO_INtNtNtB8_7sources4once4OnceRNtNtCseG2FYMysgNb_3wax5token5TokenEB13_EQINtNtB6_3map3MapINtNtCslyFhtC9DD08_9itertools11groupbylazy5GroupNtB1y_8PositionINtB1y_4WalkTjjEENCNvNtB1A_4rule8boundary0ENCNCB3L_s_00EENtNtNtB8_6traits8iterator8Iterator4nextB1A_.llvm.15969390215716056838.exit25.thread79 ], [ undef, %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainIBO_INtNtNtB8_7sources4once4OnceRNtNtCseG2FYMysgNb_3wax5token5TokenEB13_EQINtNtB6_3map3MapINtNtCslyFhtC9DD08_9itertools11groupbylazy5GroupNtB1y_8PositionINtB1y_4WalkTjjEENCNvNtB1A_4rule8boundary0ENCNCB3L_s_00EENtNtNtB8_6traits8iterator8Iterator4nextB1A_.llvm.15969390215716056838.exit.thread45 ], [ %.sroa.4.0.copyload.i.i.i.i.i16, %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainIBO_INtNtNtB8_7sources4once4OnceRNtNtCseG2FYMysgNb_3wax5token5TokenEB13_EQINtNtB6_3map3MapINtNtCslyFhtC9DD08_9itertools11groupbylazy5GroupNtB1y_8PositionINtB1y_4WalkTjjEENCNvNtB1A_4rule8boundary0ENCNCB3L_s_00EENtNtNtB8_6traits8iterator8Iterator4nextB1A_.llvm.15969390215716056838.exit25 ], [ undef, %_RNvYNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters5chain5ChainINtNtNtBc_7sources4once4OnceRNtNtCseG2FYMysgNb_3wax5token5TokenEBX_ENtNtNtBc_6traits8iterator8Iterator4nextINtNtNtBe_3ops8function6FnOnceTQB5_EE9call_onceB1u_.exit.thread.i.i ], [ undef, %_RNvYNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters5chain5ChainINtNtNtBc_7sources4once4OnceRNtNtCseG2FYMysgNb_3wax5token5TokenEBX_ENtNtNtBc_6traits8iterator8Iterator4nextINtNtNtBe_3ops8function6FnOnceTQB5_EE9call_onceB1u_.exit.thread.i.i10 ], [ %.sroa.16.0.copyload, %16 ]
-  %.sroa.0.1 = phi ptr [ null, %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainIBO_INtNtNtB8_7sources4once4OnceRNtNtCseG2FYMysgNb_3wax5token5TokenEB13_EQINtNtB6_3map3MapINtNtCslyFhtC9DD08_9itertools11groupbylazy5GroupNtB1y_8PositionINtB1y_4WalkTjjEENCNvNtB1A_4rule8boundary0ENCNCB3L_s_00EENtNtNtB8_6traits8iterator8Iterator4nextB1A_.llvm.15969390215716056838.exit25.thread79 ], [ null, %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainIBO_INtNtNtB8_7sources4once4OnceRNtNtCseG2FYMysgNb_3wax5token5TokenEB13_EQINtNtB6_3map3MapINtNtCslyFhtC9DD08_9itertools11groupbylazy5GroupNtB1y_8PositionINtB1y_4WalkTjjEENCNvNtB1A_4rule8boundary0ENCNCB3L_s_00EENtNtNtB8_6traits8iterator8Iterator4nextB1A_.llvm.15969390215716056838.exit.thread45 ], [ %.sroa.02.0.i.i445271, %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainIBO_INtNtNtB8_7sources4once4OnceRNtNtCseG2FYMysgNb_3wax5token5TokenEB13_EQINtNtB6_3map3MapINtNtCslyFhtC9DD08_9itertools11groupbylazy5GroupNtB1y_8PositionINtB1y_4WalkTjjEENCNvNtB1A_4rule8boundary0ENCNCB3L_s_00EENtNtNtB8_6traits8iterator8Iterator4nextB1A_.llvm.15969390215716056838.exit25 ], [ null, %_RNvYNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters5chain5ChainINtNtNtBc_7sources4once4OnceRNtNtCseG2FYMysgNb_3wax5token5TokenEBX_ENtNtNtBc_6traits8iterator8Iterator4nextINtNtNtBe_3ops8function6FnOnceTQB5_EE9call_onceB1u_.exit.thread.i.i ], [ null, %_RNvYNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters5chain5ChainINtNtNtBc_7sources4once4OnceRNtNtCseG2FYMysgNb_3wax5token5TokenEBX_ENtNtNtBc_6traits8iterator8Iterator4nextINtNtNtBe_3ops8function6FnOnceTQB5_EE9call_onceB1u_.exit.thread.i.i10 ], [ %.sroa.10.0.copyload, %16 ]
+  %.sroa.4.0 = phi ptr [ %.sroa.4.0.copyload.i.i.i.i.i16, %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainIBO_INtNtNtB8_7sources4once4OnceRNtNtCseG2FYMysgNb_3wax5token5TokenEB13_EQINtNtB6_3map3MapINtNtCslyFhtC9DD08_9itertools11groupbylazy5GroupNtB1y_8PositionINtB1y_4WalkTjjEENCNvNtB1A_4rule8boundary0ENCNCB3L_s_00EENtNtNtB8_6traits8iterator8Iterator4nextB1A_.llvm.15969390215716056838.exit25 ], [ undef, %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainIBO_INtNtNtB8_7sources4once4OnceRNtNtCseG2FYMysgNb_3wax5token5TokenEB13_EQINtNtB6_3map3MapINtNtCslyFhtC9DD08_9itertools11groupbylazy5GroupNtB1y_8PositionINtB1y_4WalkTjjEENCNvNtB1A_4rule8boundary0ENCNCB3L_s_00EENtNtNtB8_6traits8iterator8Iterator4nextB1A_.llvm.15969390215716056838.exit25.thread79 ], [ undef, %_RNvYNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters5chain5ChainINtNtNtBc_7sources4once4OnceRNtNtCseG2FYMysgNb_3wax5token5TokenEBX_ENtNtNtBc_6traits8iterator8Iterator4nextINtNtNtBe_3ops8function6FnOnceTQB5_EE9call_onceB1u_.exit.thread.i.i ], [ undef, %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainIBO_INtNtNtB8_7sources4once4OnceRNtNtCseG2FYMysgNb_3wax5token5TokenEB13_EQINtNtB6_3map3MapINtNtCslyFhtC9DD08_9itertools11groupbylazy5GroupNtB1y_8PositionINtB1y_4WalkTjjEENCNvNtB1A_4rule8boundary0ENCNCB3L_s_00EENtNtNtB8_6traits8iterator8Iterator4nextB1A_.llvm.15969390215716056838.exit.thread45 ], [ undef, %_RNvYNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters5chain5ChainINtNtNtBc_7sources4once4OnceRNtNtCseG2FYMysgNb_3wax5token5TokenEBX_ENtNtNtBc_6traits8iterator8Iterator4nextINtNtNtBe_3ops8function6FnOnceTQB5_EE9call_onceB1u_.exit.thread.i.i10 ], [ %.sroa.16.0.copyload, %16 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.02.0.i.i445271, %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainIBO_INtNtNtB8_7sources4once4OnceRNtNtCseG2FYMysgNb_3wax5token5TokenEB13_EQINtNtB6_3map3MapINtNtCslyFhtC9DD08_9itertools11groupbylazy5GroupNtB1y_8PositionINtB1y_4WalkTjjEENCNvNtB1A_4rule8boundary0ENCNCB3L_s_00EENtNtNtB8_6traits8iterator8Iterator4nextB1A_.llvm.15969390215716056838.exit25 ], [ null, %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainIBO_INtNtNtB8_7sources4once4OnceRNtNtCseG2FYMysgNb_3wax5token5TokenEB13_EQINtNtB6_3map3MapINtNtCslyFhtC9DD08_9itertools11groupbylazy5GroupNtB1y_8PositionINtB1y_4WalkTjjEENCNvNtB1A_4rule8boundary0ENCNCB3L_s_00EENtNtNtB8_6traits8iterator8Iterator4nextB1A_.llvm.15969390215716056838.exit25.thread79 ], [ null, %_RNvYNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters5chain5ChainINtNtNtBc_7sources4once4OnceRNtNtCseG2FYMysgNb_3wax5token5TokenEBX_ENtNtNtBc_6traits8iterator8Iterator4nextINtNtNtBe_3ops8function6FnOnceTQB5_EE9call_onceB1u_.exit.thread.i.i ], [ null, %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB4_5ChainIBO_INtNtNtB8_7sources4once4OnceRNtNtCseG2FYMysgNb_3wax5token5TokenEB13_EQINtNtB6_3map3MapINtNtCslyFhtC9DD08_9itertools11groupbylazy5GroupNtB1y_8PositionINtB1y_4WalkTjjEENCNvNtB1A_4rule8boundary0ENCNCB3L_s_00EENtNtNtB8_6traits8iterator8Iterator4nextB1A_.llvm.15969390215716056838.exit.thread45 ], [ null, %_RNvYNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters5chain5ChainINtNtNtBc_7sources4once4OnceRNtNtCseG2FYMysgNb_3wax5token5TokenEBX_ENtNtNtBc_6traits8iterator8Iterator4nextINtNtNtBe_3ops8function6FnOnceTQB5_EE9call_onceB1u_.exit.thread.i.i10 ], [ %.sroa.10.0.copyload, %16 ]
   %26 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
   %27 = insertvalue { ptr, ptr } %26, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %27
@@ -2087,7 +2087,7 @@ define hidden noundef zeroext i1 @_RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6trai
   br label %_RNCNvMs1_NtCseG2FYMysgNb_3wax5tokenNtB7_5Token22has_component_boundary0B9_.llvm.15969390215716056838.exit
 
 _RNCNvMs1_NtCseG2FYMysgNb_3wax5tokenNtB7_5Token22has_component_boundary0B9_.llvm.15969390215716056838.exit: ; preds = %2, %4, %5
-  %.sroa.0.0.i = phi i1 [ true, %4 ], [ %8, %5 ], [ false, %2 ]
+  %.sroa.0.0.i = phi i1 [ %8, %5 ], [ true, %4 ], [ false, %2 ]
   ret i1 %.sroa.0.0.i
 }
 
@@ -2117,7 +2117,7 @@ define hidden noundef zeroext i1 @_RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6trai
   br label %_RNCNvMs1_NtCseG2FYMysgNb_3wax5tokenNtB7_5Token8has_root0B9_.llvm.15969390215716056838.exit
 
 _RNCNvMs1_NtCseG2FYMysgNb_3wax5tokenNtB7_5Token8has_root0B9_.llvm.15969390215716056838.exit: ; preds = %2, %4, %5, %9
-  %.sroa.0.0.i = phi i1 [ true, %4 ], [ %12, %9 ], [ false, %5 ], [ false, %2 ]
+  %.sroa.0.0.i = phi i1 [ %12, %9 ], [ true, %4 ], [ false, %5 ], [ false, %2 ]
   ret i1 %.sroa.0.0.i
 }
 
@@ -2739,7 +2739,7 @@ define noundef zeroext i1 @_RNvXs2_NtNtNtCs1LoaDTb72WA_4core3ops8function5implsQ
   br label %_RNCNCNCINvNtCseG2FYMysgNb_3wax5token10componentsTjjEINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekable8PeekableINtNtNtBX_5slice4iter4IterNtB8_5TokenEEE000Ba_.llvm.15969390215716056838.exit
 
 _RNCNCNCINvNtCseG2FYMysgNb_3wax5token10componentsTjjEINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekable8PeekableINtNtNtBX_5slice4iter4IterNtB8_5TokenEEE000Ba_.llvm.15969390215716056838.exit: ; preds = %2, %5, %6
-  %.sroa.0.0.i = phi i1 [ false, %5 ], [ %9, %6 ], [ true, %2 ]
+  %.sroa.0.0.i = phi i1 [ %9, %6 ], [ false, %5 ], [ true, %2 ]
   ret i1 %.sroa.0.0.i
 }
 
@@ -2763,7 +2763,7 @@ define noundef zeroext i1 @_RNvXs2_NtNtNtCs1LoaDTb72WA_4core3ops8function5implsQ
   br label %_RNCNCNCINvNtCseG2FYMysgNb_3wax5token10componentsTjjERINtNtCs68wO5nsWeTG_5alloc3vec3VecNtB8_5TokenEE000Ba_.llvm.15969390215716056838.exit
 
 _RNCNCNCINvNtCseG2FYMysgNb_3wax5token10componentsTjjERINtNtCs68wO5nsWeTG_5alloc3vec3VecNtB8_5TokenEE000Ba_.llvm.15969390215716056838.exit: ; preds = %2, %5, %6
-  %.sroa.0.0.i = phi i1 [ false, %5 ], [ %9, %6 ], [ true, %2 ]
+  %.sroa.0.0.i = phi i1 [ %9, %6 ], [ false, %5 ], [ true, %2 ]
   ret i1 %.sroa.0.0.i
 }
 
@@ -2787,7 +2787,7 @@ define noundef zeroext i1 @_RNvXs2_NtNtNtCs1LoaDTb72WA_4core3ops8function5implsQ
   br label %_RNCNCNCINvNtCseG2FYMysgNb_3wax5token10componentsTjjERSNtB8_5TokenE000Ba_.llvm.15969390215716056838.exit
 
 _RNCNCNCINvNtCseG2FYMysgNb_3wax5token10componentsTjjERSNtB8_5TokenE000Ba_.llvm.15969390215716056838.exit: ; preds = %2, %5, %6
-  %.sroa.0.0.i = phi i1 [ false, %5 ], [ %9, %6 ], [ true, %2 ]
+  %.sroa.0.0.i = phi i1 [ %9, %6 ], [ false, %5 ], [ true, %2 ]
   ret i1 %.sroa.0.0.i
 }
 
@@ -2811,7 +2811,7 @@ define noundef zeroext i1 @_RNvXs2_NtNtNtCs1LoaDTb72WA_4core3ops8function5implsQ
   br label %_RNCNCNCINvNtCseG2FYMysgNb_3wax5token10componentsuINtNtCs1LoaDTb72WA_4core6option6OptionRINtB8_5TokenuEEE000Ba_.llvm.15969390215716056838.exit
 
 _RNCNCNCINvNtCseG2FYMysgNb_3wax5token10componentsuINtNtCs1LoaDTb72WA_4core6option6OptionRINtB8_5TokenuEEE000Ba_.llvm.15969390215716056838.exit: ; preds = %2, %5, %6
-  %.sroa.0.0.i = phi i1 [ false, %5 ], [ %9, %6 ], [ true, %2 ]
+  %.sroa.0.0.i = phi i1 [ %9, %6 ], [ false, %5 ], [ true, %2 ]
   ret i1 %.sroa.0.0.i
 }
 
@@ -2848,7 +2848,7 @@ define noundef zeroext i1 @_RNvXs2_NtNtNtCs1LoaDTb72WA_4core3ops8function5implsQ
   br label %_RNCNCNvMsO_NtCseG2FYMysgNb_3wax5tokenINtB9_4WalkTjjEE6ending00Bb_.llvm.15969390215716056838.exit
 
 _RNCNCNvMsO_NtCseG2FYMysgNb_3wax5tokenINtB9_4WalkTjjEE6ending00Bb_.llvm.15969390215716056838.exit: ; preds = %2, %7, %13
-  %.sroa.0.0.shrunk.i.i = phi i1 [ %18, %13 ], [ false, %2 ], [ %.mux.i.i, %7 ]
+  %.sroa.0.0.shrunk.i.i = phi i1 [ %.mux.i.i, %7 ], [ %18, %13 ], [ false, %2 ]
   ret i1 %.sroa.0.0.shrunk.i.i
 }
 
@@ -2885,7 +2885,7 @@ define noundef zeroext i1 @_RNvXs2_NtNtNtCs1LoaDTb72WA_4core3ops8function5implsQ
   br label %_RNCNCNvMsO_NtCseG2FYMysgNb_3wax5tokenINtB9_4WalkTjjEE8starting00Bb_.llvm.15969390215716056838.exit
 
 _RNCNCNvMsO_NtCseG2FYMysgNb_3wax5tokenINtB9_4WalkTjjEE8starting00Bb_.llvm.15969390215716056838.exit: ; preds = %2, %7, %13
-  %.sroa.0.0.shrunk.i.i = phi i1 [ %18, %13 ], [ false, %2 ], [ %.mux.i.i, %7 ]
+  %.sroa.0.0.shrunk.i.i = phi i1 [ %.mux.i.i, %7 ], [ %18, %13 ], [ false, %2 ]
   ret i1 %.sroa.0.0.shrunk.i.i
 }
 
@@ -3435,7 +3435,7 @@ _RNvYNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters5chain5ChainINtNtNtBc_7sources
   br label %15
 
 _RINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters5chain17and_then_or_clearINtB2_5ChainINtNtNtB6_7sources4once4OnceRNtNtCseG2FYMysgNb_3wax5token5TokenEB1g_EB1I_NvYB14_NtNtNtB6_6traits8iterator8Iterator4nextEB1N_.llvm.15969390215716056838.exit: ; preds = %4, %_RNvYNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters5chain5ChainINtNtNtBc_7sources4once4OnceRNtNtCseG2FYMysgNb_3wax5token5TokenEBX_ENtNtNtBc_6traits8iterator8Iterator4nextINtNtNtBe_3ops8function6FnOnceTQB5_EE9call_onceB1u_.exit.i
-  %.sroa.0.0.i = phi ptr [ %13, %_RNvYNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters5chain5ChainINtNtNtBc_7sources4once4OnceRNtNtCseG2FYMysgNb_3wax5token5TokenEBX_ENtNtNtBc_6traits8iterator8Iterator4nextINtNtNtBe_3ops8function6FnOnceTQB5_EE9call_onceB1u_.exit.i ], [ %6, %4 ]
+  %.sroa.0.0.i = phi ptr [ %6, %4 ], [ %13, %_RNvYNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters5chain5ChainINtNtNtBc_7sources4once4OnceRNtNtCseG2FYMysgNb_3wax5token5TokenEBX_ENtNtNtBc_6traits8iterator8Iterator4nextINtNtNtBe_3ops8function6FnOnceTQB5_EE9call_onceB1u_.exit.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !727)
   br label %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRNtNtCseG2FYMysgNb_3wax5token5TokenE7or_elseNCNvXs_NtNtNtB5_4iter8adapters5chainINtB1x_5ChainIB21_INtNtNtB1B_7sources4once4OnceBI_EB2i_EQINtNtB1z_3map3MapINtNtCslyFhtC9DD08_9itertools11groupbylazy5GroupNtBL_8PositionINtBL_4WalkTjjEENCNvNtBN_4rule8boundary0ENCNCB4u_s_00EENtNtNtB1B_6traits8iterator8Iterator4next0EBN_.llvm.15969390215716056838.exit
 
@@ -4440,7 +4440,7 @@ define hidden noundef zeroext i1 @_RNCNvMs1_NtCseG2FYMysgNb_3wax5tokenNtB7_5Toke
   br i1 %10, label %12, label %11
 
 11:                                               ; preds = %2, %7, %12, %6
-  %.sroa.0.0 = phi i1 [ true, %6 ], [ %15, %12 ], [ false, %7 ], [ false, %2 ]
+  %.sroa.0.0 = phi i1 [ %15, %12 ], [ true, %6 ], [ false, %7 ], [ false, %2 ]
   ret i1 %.sroa.0.0
 
 12:                                               ; preds = %7
@@ -4612,7 +4612,7 @@ define hidden noundef zeroext i1 @_RNCNvMs1_NtCseG2FYMysgNb_3wax5tokenNtB7_5Toke
   br label %11
 
 11:                                               ; preds = %2, %7, %6
-  %.sroa.0.0 = phi i1 [ true, %6 ], [ %10, %7 ], [ false, %2 ]
+  %.sroa.0.0 = phi i1 [ %10, %7 ], [ true, %6 ], [ false, %2 ]
   ret i1 %.sroa.0.0
 }
 
@@ -4662,7 +4662,7 @@ define noundef zeroext i1 @_RNvXs8_NtCseG2FYMysgNb_3wax5tokenRINtB5_5TokenuENtNt
   br label %_RNvXsg_NtCseG2FYMysgNb_3wax5tokenRNtB5_9TokenKindNtNtB5_8variance9UnitDepth10unit_depthB7_.exit
 
 _RNvXsg_NtCseG2FYMysgNb_3wax5tokenRNtB5_9TokenKindNtNtB5_8variance9UnitDepth10unit_depthB7_.exit: ; preds = %1, %1, %1, %8, %17, %19
-  %.sroa.0.0.shrunk.i = phi i1 [ %16, %8 ], [ %18, %17 ], [ %22, %19 ], [ false, %1 ], [ false, %1 ], [ false, %1 ]
+  %.sroa.0.0.shrunk.i = phi i1 [ %16, %8 ], [ %22, %19 ], [ false, %1 ], [ %18, %17 ], [ false, %1 ], [ false, %1 ]
   ret i1 %.sroa.0.0.shrunk.i
 }
 
@@ -4712,7 +4712,7 @@ define noundef zeroext i1 @_RNvXs8_NtCseG2FYMysgNb_3wax5tokenRNtB5_5TokenNtNtB5_
   br label %_RNvXsg_NtCseG2FYMysgNb_3wax5tokenRINtB5_9TokenKindTjjEENtNtB5_8variance9UnitDepth10unit_depthB7_.exit
 
 _RNvXsg_NtCseG2FYMysgNb_3wax5tokenRINtB5_9TokenKindTjjEENtNtB5_8variance9UnitDepth10unit_depthB7_.exit: ; preds = %1, %1, %1, %8, %17, %19
-  %.sroa.0.0.shrunk.i = phi i1 [ %16, %8 ], [ %18, %17 ], [ %22, %19 ], [ false, %1 ], [ false, %1 ], [ false, %1 ]
+  %.sroa.0.0.shrunk.i = phi i1 [ %16, %8 ], [ %22, %19 ], [ false, %1 ], [ %18, %17 ], [ false, %1 ], [ false, %1 ]
   ret i1 %.sroa.0.0.shrunk.i
 }
 
@@ -5247,7 +5247,7 @@ define noundef zeroext i1 @_RNvXsg_NtCseG2FYMysgNb_3wax5tokenRINtB5_9TokenKindTj
   br label %23
 
 23:                                               ; preds = %1, %1, %1, %19, %17, %8
-  %.sroa.0.0.shrunk = phi i1 [ %16, %8 ], [ %18, %17 ], [ %22, %19 ], [ false, %1 ], [ false, %1 ], [ false, %1 ]
+  %.sroa.0.0.shrunk = phi i1 [ %16, %8 ], [ %22, %19 ], [ false, %1 ], [ %18, %17 ], [ false, %1 ], [ false, %1 ]
   ret i1 %.sroa.0.0.shrunk
 }
 
@@ -5296,7 +5296,7 @@ define noundef zeroext i1 @_RNvXsg_NtCseG2FYMysgNb_3wax5tokenRNtB5_9TokenKindNtN
   br label %23
 
 23:                                               ; preds = %1, %1, %1, %19, %17, %8
-  %.sroa.0.0.shrunk = phi i1 [ %16, %8 ], [ %18, %17 ], [ %22, %19 ], [ false, %1 ], [ false, %1 ], [ false, %1 ]
+  %.sroa.0.0.shrunk = phi i1 [ %16, %8 ], [ %22, %19 ], [ false, %1 ], [ %18, %17 ], [ false, %1 ], [ false, %1 ]
   ret i1 %.sroa.0.0.shrunk
 }
 
@@ -6275,7 +6275,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token4WalkT
   br label %37
 
 37:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token4WalkTjjEEEBL_.exit, %1
-  %.sroa.0.0 = phi i1 [ false, %1 ], [ %21, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token4WalkTjjEEEBL_.exit ]
+  %.sroa.0.0 = phi i1 [ %21, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token4WalkTjjEEEBL_.exit ], [ false, %1 ]
   ret i1 %.sroa.0.0
 
 38:                                               ; preds = %20
@@ -6424,7 +6424,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token4Walku
   br label %37
 
 37:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token4WalkuEEBL_.exit, %1
-  %.sroa.0.0 = phi i1 [ false, %1 ], [ %21, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token4WalkuEEBL_.exit ]
+  %.sroa.0.0 = phi i1 [ %21, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token4WalkuEEBL_.exit ], [ false, %1 ]
   ret i1 %.sroa.0.0
 
 38:                                               ; preds = %20
@@ -6985,7 +6985,7 @@ define hidden void @_RNCNvXsE_NtCseG2FYMysgNb_3wax5tokenRINtB7_10RepetitionTjjEE
   br label %28
 
 28:                                               ; preds = %71, %26
-  %29 = phi i64 [ %24, %71 ], [ %.pre, %26 ]
+  %29 = phi i64 [ %.pre, %26 ], [ %24, %71 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1479)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1480)
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -7089,7 +7089,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeTRINtNtCseG2FYMysgNb_3wax5token9Tok
   unreachable
 
 common.resume:                                    ; preds = %11, %.body.i, %50
-  %common.resume.op = phi { ptr, i32 } [ %51, %50 ], [ %eh.lpad-body.i, %.body.i ], [ %12, %11 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %51, %50 ], [ %12, %11 ]
   resume { ptr, i32 } %common.resume.op
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCseG2FYMysgNb_3wax5token8variance13InvariantTextEBM_.exit.i.i2.i: ; preds = %60, %56, %52
@@ -7191,7 +7191,7 @@ define hidden void @_RNCNvXsE_NtCseG2FYMysgNb_3wax5tokenRNtB7_10RepetitionINtNtB
   br label %28
 
 28:                                               ; preds = %71, %26
-  %29 = phi i64 [ %24, %71 ], [ %.pre, %26 ]
+  %29 = phi i64 [ %.pre, %26 ], [ %24, %71 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1514)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1515)
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -7295,7 +7295,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeTRNtNtCseG2FYMysgNb_3wax5token9Toke
   unreachable
 
 common.resume:                                    ; preds = %11, %.body.i, %50
-  %common.resume.op = phi { ptr, i32 } [ %51, %50 ], [ %eh.lpad-body.i, %.body.i ], [ %12, %11 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %51, %50 ], [ %12, %11 ]
   resume { ptr, i32 } %common.resume.op
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCseG2FYMysgNb_3wax5token8variance13InvariantTextEBM_.exit.i.i2.i: ; preds = %60, %56, %52
@@ -7439,7 +7439,7 @@ define hidden noundef zeroext i1 @_RNCNCNvMsO_NtCseG2FYMysgNb_3wax5tokenINtB9_4W
   br label %_RNvXs1p_NtCseG2FYMysgNb_3wax5tokenNtB6_8PositionNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.15969390215716056838.exit
 
 _RNvXs1p_NtCseG2FYMysgNb_3wax5tokenNtB6_8PositionNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.15969390215716056838.exit: ; preds = %2, %7, %13
-  %.sroa.0.0.shrunk.i = phi i1 [ %18, %13 ], [ false, %2 ], [ %.mux.i, %7 ]
+  %.sroa.0.0.shrunk.i = phi i1 [ %.mux.i, %7 ], [ %18, %13 ], [ false, %2 ]
   ret i1 %.sroa.0.0.shrunk.i
 }
 
@@ -7474,7 +7474,7 @@ define hidden noundef zeroext i1 @_RNCNCNvMsO_NtCseG2FYMysgNb_3wax5tokenINtB9_4W
   br label %_RNvXs1p_NtCseG2FYMysgNb_3wax5tokenNtB6_8PositionNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.15969390215716056838.exit
 
 _RNvXs1p_NtCseG2FYMysgNb_3wax5tokenNtB6_8PositionNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.llvm.15969390215716056838.exit: ; preds = %2, %7, %13
-  %.sroa.0.0.shrunk.i = phi i1 [ %18, %13 ], [ false, %2 ], [ %.mux.i, %7 ]
+  %.sroa.0.0.shrunk.i = phi i1 [ %.mux.i, %7 ], [ %18, %13 ], [ false, %2 ]
   ret i1 %.sroa.0.0.shrunk.i
 }
 
@@ -7922,7 +7922,7 @@ define hidden noundef zeroext i1 @_RNCNCNCINvNtCseG2FYMysgNb_3wax5token10compone
   br label %10
 
 10:                                               ; preds = %2, %6, %5
-  %.sroa.0.0 = phi i1 [ false, %5 ], [ %9, %6 ], [ true, %2 ]
+  %.sroa.0.0 = phi i1 [ %9, %6 ], [ false, %5 ], [ true, %2 ]
   ret i1 %.sroa.0.0
 }
 
@@ -7945,7 +7945,7 @@ define hidden noundef zeroext i1 @_RNCNCNCINvNtCseG2FYMysgNb_3wax5token10compone
   br label %10
 
 10:                                               ; preds = %2, %6, %5
-  %.sroa.0.0 = phi i1 [ false, %5 ], [ %9, %6 ], [ true, %2 ]
+  %.sroa.0.0 = phi i1 [ %9, %6 ], [ false, %5 ], [ true, %2 ]
   ret i1 %.sroa.0.0
 }
 
@@ -7968,7 +7968,7 @@ define hidden noundef zeroext i1 @_RNCNCNCINvNtCseG2FYMysgNb_3wax5token10compone
   br label %10
 
 10:                                               ; preds = %2, %6, %5
-  %.sroa.0.0 = phi i1 [ false, %5 ], [ %9, %6 ], [ true, %2 ]
+  %.sroa.0.0 = phi i1 [ %9, %6 ], [ false, %5 ], [ true, %2 ]
   ret i1 %.sroa.0.0
 }
 
@@ -7991,7 +7991,7 @@ define hidden noundef zeroext i1 @_RNCNCNCINvNtCseG2FYMysgNb_3wax5token10compone
   br label %10
 
 10:                                               ; preds = %2, %6, %5
-  %.sroa.0.0 = phi i1 [ false, %5 ], [ %9, %6 ], [ true, %2 ]
+  %.sroa.0.0 = phi i1 [ %9, %6 ], [ false, %5 ], [ true, %2 ]
   ret i1 %.sroa.0.0
 }
 
@@ -8174,7 +8174,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token9Compo
   resume { ptr, i32 } %.pn17
 
 .thread21:                                        ; preds = %42, %44, %25
-  %.pn17 = phi { ptr, i32 } [ %26, %25 ], [ %43, %42 ], [ %45, %44 ]
+  %.pn17 = phi { ptr, i32 } [ %26, %25 ], [ %45, %44 ], [ %43, %42 ]
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token9ComponentTjjEEEBL_(ptr noalias noundef nonnull align 8 dereferenceable(24) %2) #35
           to label %58 unwind label %46
 }
@@ -8315,7 +8315,7 @@ define hidden noundef zeroext i1 @_RNvXs1p_NtCseG2FYMysgNb_3wax5tokenNtB6_8Posit
   br i1 %brmerge.not, label %13, label %12
 
 12:                                               ; preds = %6, %2, %13
-  %.sroa.0.0.shrunk = phi i1 [ %18, %13 ], [ false, %2 ], [ %.mux, %6 ]
+  %.sroa.0.0.shrunk = phi i1 [ %.mux, %6 ], [ %18, %13 ], [ false, %2 ]
   ret i1 %.sroa.0.0.shrunk
 
 13:                                               ; preds = %6

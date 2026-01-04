@@ -1364,7 +1364,7 @@ mov_parse_stsd_subtitle.exit:                     ; preds = %339, %339, %344
   %420 = call i64 @avio_skip(ptr noundef nonnull %1, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %354) #17
   br label %mov_parse_stsd_data.exit.thread
 
-mov_parse_stsd_data.exit.thread:                  ; preds = %397, %404, %411, %419, %366, %368, %387, %391, %333, %mov_parse_stsd_subtitle.exit, %mov_parse_stsd_video.exit
+mov_parse_stsd_data.exit.thread:                  ; preds = %397, %404, %411, %387, %391, %366, %368, %419, %333, %mov_parse_stsd_subtitle.exit, %mov_parse_stsd_video.exit
   %421 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #17
   %.neg117 = sub i64 %48, %421
   %422 = add i64 %.neg117, %50
@@ -1428,7 +1428,7 @@ mov_parse_stsd_data.exit:                         ; preds = %431, %433, %437, %7
   br label %mov_parse_stsd_data.exit.thread133
 
 mov_parse_stsd_data.exit.thread133:               ; preds = %407, %361, %359, %424, %59, %337, %331, %.critedge, %445
-  %.2 = phi i32 [ -541478725, %445 ], [ 0, %.critedge ], [ -1094995529, %59 ], [ -1094995529, %337 ], [ -1094995529, %331 ], [ %425, %424 ], [ -12, %359 ], [ %364, %361 ], [ -12, %407 ]
+  %.2 = phi i32 [ 0, %.critedge ], [ -541478725, %445 ], [ -1094995529, %59 ], [ -1094995529, %337 ], [ -1094995529, %331 ], [ %425, %424 ], [ %364, %361 ], [ -12, %359 ], [ -12, %407 ]
   ret i32 %.2
 }
 
@@ -1552,8 +1552,8 @@ switch.early.test:                                ; preds = %20
   br label %49
 
 49:                                               ; preds = %31, %switch.early.test, %switch.early.test, %20, %34, %47, %45, %.thread47, %19
-  %50 = phi ptr [ %15, %19 ], [ %30, %.thread47 ], [ %46, %45 ], [ %.pre, %47 ], [ %32, %34 ], [ %21, %switch.early.test ], [ %21, %20 ], [ %21, %switch.early.test ], [ %32, %31 ]
-  %.1 = phi i32 [ %.0, %19 ], [ %.249, %.thread47 ], [ %.3, %45 ], [ %48, %47 ], [ %28, %34 ], [ %.046, %switch.early.test ], [ %.046, %20 ], [ %.046, %switch.early.test ], [ %28, %31 ]
+  %50 = phi ptr [ %15, %19 ], [ %30, %.thread47 ], [ %46, %45 ], [ %.pre, %47 ], [ %32, %34 ], [ %32, %31 ], [ %21, %switch.early.test ], [ %21, %20 ], [ %21, %switch.early.test ]
+  %.1 = phi i32 [ %.0, %19 ], [ %.249, %.thread47 ], [ %.3, %45 ], [ %48, %47 ], [ %28, %34 ], [ %28, %31 ], [ %.046, %switch.early.test ], [ %.046, %20 ], [ %.046, %switch.early.test ]
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i32 %1, ptr %51, align 8, !tbaa !50
   ret i32 %.1
@@ -1652,7 +1652,7 @@ define internal range(i32 -2147483648, 1) i32 @mov_read_default(ptr noundef %0, 
   br label %.thread
 
 .thread:                                          ; preds = %46, %48, %32, %33, %37, %35
-  %.sroa.0.0 = phi i32 [ %30, %37 ], [ %30, %35 ], [ 1701147238, %33 ], [ %30, %32 ], [ %30, %46 ], [ 1987014509, %48 ]
+  %.sroa.0.0 = phi i32 [ %30, %32 ], [ %30, %37 ], [ %30, %35 ], [ 1701147238, %33 ], [ %30, %46 ], [ 1987014509, %48 ]
   switch i32 %2, label %50 [
     i32 1987014509, label %56
     i32 1953460082, label %56
@@ -1862,7 +1862,7 @@ split.thread247:                                  ; preds = %103, %121, %split.t
   %.not = icmp sgt i64 %142, %16
   br i1 %.not, label %.thread206, label %27
 
-.thread206:                                       ; preds = %.thread197, %27, %64, %42, %14
+.thread206:                                       ; preds = %.thread197, %42, %27, %64, %14
   %.1148 = phi i64 [ 0, %14 ], [ %.0147222, %42 ], [ %.3150, %64 ], [ %.0147222, %27 ], [ %142, %.thread197 ]
   %143 = icmp slt i64 %.1148, %spec.select
   %144 = icmp ult i64 %3, 524287
@@ -1901,10 +1901,10 @@ define internal range(i32 0, 101) i32 @mov_probe(ptr noundef readonly captures(n
   %8 = sext i32 %3 to i64
   br label %9
 
-9:                                                ; preds = %.lr.ph, %47
-  %.05578 = phi i32 [ -1, %.lr.ph ], [ %.1, %47 ]
-  %.05677 = phi i32 [ 0, %.lr.ph ], [ %.157, %47 ]
-  %.06076 = phi i64 [ 0, %.lr.ph ], [ %.161, %47 ]
+9:                                                ; preds = %.lr.ph, %44
+  %.05578 = phi i32 [ -1, %.lr.ph ], [ %.1, %44 ]
+  %.05677 = phi i32 [ 0, %.lr.ph ], [ %.157, %44 ]
+  %.06076 = phi i64 [ 0, %.lr.ph ], [ %.161, %44 ]
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 %.06076
   %11 = load i32, ptr %10, align 1, !tbaa !82
   %12 = icmp ne i32 %11, 16777216
@@ -1931,131 +1931,127 @@ define internal range(i32 0, 101) i32 @mov_probe(ptr noundef readonly captures(n
   %.054 = phi i64 [ %17, %14 ], [ %spec.select, %18 ]
   %.053 = phi i64 [ 16, %14 ], [ 8, %18 ]
   %24 = icmp slt i64 %.054, %.053
-  br i1 %24, label %25, label %27
+  br i1 %24, label %44, label %25
 
 25:                                               ; preds = %23
-  %26 = add nuw nsw i64 %.06076, 4
-  br label %47
-
-27:                                               ; preds = %23
-  %28 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %29 = load i32, ptr %28, align 1, !tbaa !82
-  switch i32 %29, label %43 [
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %27 = load i32, ptr %26, align 1, !tbaa !82
+  switch i32 %27, label %41 [
     i32 1987014509, label %.thread
-    i32 1818653296, label %41
-    i32 1684632949, label %41
-    i32 1885956979, label %41
-    i32 2105508482, label %39
-    i32 2003395685, label %37
-    i32 1701079415, label %37
-    i32 1701147238, label %37
-    i32 1802401130, label %37
-    i32 1952672112, label %37
-    i32 1887007846, label %32
+    i32 1818653296, label %39
+    i32 1684632949, label %39
+    i32 1885956979, label %39
+    i32 2105508482, label %37
+    i32 2003395685, label %35
+    i32 1701079415, label %35
+    i32 1701147238, label %35
+    i32 1802401130, label %35
+    i32 1952672112, label %35
+    i32 1887007846, label %30
     i32 1635017845, label %.fold.split
     i32 1952539757, label %.fold.split
     i32 1953459824, label %.fold.split
   ]
 
-.thread:                                          ; preds = %27
-  %30 = trunc i64 %.06076 to i32
-  %31 = add i32 %30, 4
-  br label %43
+.thread:                                          ; preds = %25
+  %28 = trunc i64 %.06076 to i32
+  %29 = add i32 %28, 4
+  br label %41
 
-32:                                               ; preds = %27
-  %33 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %34 = load i32, ptr %33, align 1, !tbaa !82
-  switch i32 %34, label %43 [
-    i32 540176490, label %35
-    i32 544764010, label %35
-    i32 543979626, label %35
+30:                                               ; preds = %25
+  %31 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %32 = load i32, ptr %31, align 1, !tbaa !82
+  switch i32 %32, label %41 [
+    i32 540176490, label %33
+    i32 544764010, label %33
+    i32 543979626, label %33
   ]
 
-35:                                               ; preds = %32, %32, %32
-  %36 = tail call i32 @llvm.smax.i32(i32 %.05677, i32 5)
-  br label %43
+33:                                               ; preds = %30, %30, %30
+  %34 = tail call i32 @llvm.smax.i32(i32 %.05677, i32 5)
+  br label %41
 
-37:                                               ; preds = %27, %27, %27, %27, %27
-  %38 = tail call i32 @llvm.smax.i32(i32 %.05677, i32 95)
-  br label %43
+35:                                               ; preds = %25, %25, %25, %25, %25
+  %36 = tail call i32 @llvm.smax.i32(i32 %.05677, i32 95)
+  br label %41
 
-39:                                               ; preds = %27
-  %40 = tail call i32 @llvm.smax.i32(i32 %.05677, i32 45)
-  br label %43
+37:                                               ; preds = %25
+  %38 = tail call i32 @llvm.smax.i32(i32 %.05677, i32 45)
+  br label %41
 
-41:                                               ; preds = %27, %27, %27
-  %42 = tail call i32 @llvm.smax.i32(i32 %.05677, i32 50)
-  br label %43
+39:                                               ; preds = %25, %25, %25
+  %40 = tail call i32 @llvm.smax.i32(i32 %.05677, i32 50)
+  br label %41
 
-.fold.split:                                      ; preds = %27, %27, %27
-  br label %43
+.fold.split:                                      ; preds = %25, %25, %25
+  br label %41
 
-43:                                               ; preds = %27, %.fold.split, %.thread, %32, %35, %41, %39, %37
-  %.258 = phi i32 [ %.05677, %27 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ 100, %32 ], [ 100, %.thread ], [ 100, %.fold.split ]
-  %.2 = phi i32 [ %.05578, %27 ], [ %.05578, %35 ], [ %.05578, %37 ], [ %.05578, %39 ], [ %.05578, %41 ], [ %.05578, %32 ], [ %31, %.thread ], [ %.05578, %.fold.split ]
-  %44 = sub nuw nsw i64 9223372036854775807, %.06076
-  %45 = icmp samesign ugt i64 %.054, %44
-  %46 = add nuw nsw i64 %.054, %.06076
-  br i1 %45, label %select.unfold, label %47
+41:                                               ; preds = %25, %.fold.split, %.thread, %30, %33, %39, %37, %35
+  %.258 = phi i32 [ %.05677, %25 ], [ %34, %33 ], [ %40, %39 ], [ %36, %35 ], [ %38, %37 ], [ 100, %30 ], [ 100, %.thread ], [ 100, %.fold.split ]
+  %.2 = phi i32 [ %.05578, %25 ], [ %.05578, %33 ], [ %.05578, %39 ], [ %.05578, %35 ], [ %.05578, %37 ], [ %.05578, %30 ], [ %29, %.thread ], [ %.05578, %.fold.split ]
+  %42 = sub nuw nsw i64 9223372036854775807, %.06076
+  %43 = icmp samesign ugt i64 %.054, %42
+  br i1 %43, label %select.unfold, label %44
 
-47:                                               ; preds = %43, %25
-  %.161 = phi i64 [ %26, %25 ], [ %46, %43 ]
-  %.157 = phi i32 [ %.05677, %25 ], [ %.258, %43 ]
-  %.1 = phi i32 [ %.05578, %25 ], [ %.2, %43 ]
-  %48 = add nuw i64 %.161, 8
-  %49 = icmp ugt i64 %48, %4
-  br i1 %49, label %select.unfold, label %9
+44:                                               ; preds = %23, %41
+  %.054.pn = phi i64 [ %.054, %41 ], [ 4, %23 ]
+  %.157 = phi i32 [ %.258, %41 ], [ %.05677, %23 ]
+  %.1 = phi i32 [ %.2, %41 ], [ %.05578, %23 ]
+  %.161 = add nuw nsw i64 %.054.pn, %.06076
+  %45 = add nuw i64 %.161, 8
+  %46 = icmp ugt i64 %45, %4
+  br i1 %46, label %select.unfold, label %9
 
-select.unfold:                                    ; preds = %47, %43
-  %.157.ph = phi i32 [ %.157, %47 ], [ %.258, %43 ]
-  %.1.ph = phi i32 [ %.1, %47 ], [ %.2, %43 ]
-  %50 = icmp sgt i32 %.157.ph, 50
-  %51 = icmp ne i32 %.1.ph, -1
-  %or.cond = select i1 %50, i1 %51, i1 false
-  br i1 %or.cond, label %52, label %.loopexit
+select.unfold:                                    ; preds = %44, %41
+  %.157.ph = phi i32 [ %.258, %41 ], [ %.157, %44 ]
+  %.1.ph = phi i32 [ %.2, %41 ], [ %.1, %44 ]
+  %47 = icmp sgt i32 %.157.ph, 50
+  %48 = icmp ne i32 %.1.ph, -1
+  %or.cond = select i1 %47, i1 %48, i1 false
+  br i1 %or.cond, label %49, label %.loopexit
 
-52:                                               ; preds = %select.unfold
-  %53 = add nsw i32 %3, -16
-  %54 = sext i32 %53 to i64
-  %55 = icmp slt i32 %.1.ph, %53
-  br i1 %55, label %.lr.ph86, label %.loopexit
+49:                                               ; preds = %select.unfold
+  %50 = add nsw i32 %3, -16
+  %51 = sext i32 %50 to i64
+  %52 = icmp slt i32 %.1.ph, %50
+  br i1 %52, label %.lr.ph86, label %.loopexit
 
-.lr.ph86:                                         ; preds = %52
-  %56 = sext i32 %.1.ph to i64
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %58 = load ptr, ptr %57, align 8, !tbaa !142
-  br label %59
+.lr.ph86:                                         ; preds = %49
+  %53 = sext i32 %.1.ph to i64
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %55 = load ptr, ptr %54, align 8, !tbaa !142
+  br label %56
 
-59:                                               ; preds = %.lr.ph86, %72
-  %.26285 = phi i64 [ %56, %.lr.ph86 ], [ %73, %72 ]
-  %60 = getelementptr inbounds i8, ptr %58, i64 %.26285
-  %61 = load i32, ptr %60, align 1, !tbaa !82
-  %62 = icmp eq i32 %61, 1919706216
-  br i1 %62, label %63, label %72
+56:                                               ; preds = %.lr.ph86, %69
+  %.26285 = phi i64 [ %53, %.lr.ph86 ], [ %70, %69 ]
+  %57 = getelementptr inbounds i8, ptr %55, i64 %.26285
+  %58 = load i32, ptr %57, align 1, !tbaa !82
+  %59 = icmp eq i32 %58, 1919706216
+  br i1 %59, label %60, label %69
 
-63:                                               ; preds = %59
-  %64 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %65 = load i32, ptr %64, align 1, !tbaa !82
-  %66 = icmp eq i32 %65, 1919707245
-  br i1 %66, label %67, label %72
+60:                                               ; preds = %56
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %62 = load i32, ptr %61, align 1, !tbaa !82
+  %63 = icmp eq i32 %62, 1919707245
+  br i1 %63, label %64, label %69
 
-67:                                               ; preds = %63
-  %68 = getelementptr inbounds nuw i8, ptr %60, i64 12
-  %69 = load i32, ptr %68, align 1, !tbaa !82
-  %70 = icmp eq i32 %69, 1195724877
-  br i1 %70, label %71, label %72
+64:                                               ; preds = %60
+  %65 = getelementptr inbounds nuw i8, ptr %57, i64 12
+  %66 = load i32, ptr %65, align 1, !tbaa !82
+  %67 = icmp eq i32 %66, 1195724877
+  br i1 %67, label %68, label %69
 
-71:                                               ; preds = %67
+68:                                               ; preds = %64
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 24, ptr noundef nonnull @.str.492) #17
   br label %.loopexit
 
-72:                                               ; preds = %67, %63, %59
-  %73 = add nsw i64 %.26285, 2
-  %74 = icmp slt i64 %73, %54
-  br i1 %74, label %59, label %.loopexit, !llvm.loop !143
+69:                                               ; preds = %64, %60, %56
+  %70 = add nsw i64 %.26285, 2
+  %71 = icmp slt i64 %70, %51
+  br i1 %71, label %56, label %.loopexit, !llvm.loop !143
 
-.loopexit:                                        ; preds = %72, %1, %52, %select.unfold, %71
-  %.059 = phi i32 [ 5, %71 ], [ %.157.ph, %select.unfold ], [ %.157.ph, %52 ], [ 0, %1 ], [ %.157.ph, %72 ]
+.loopexit:                                        ; preds = %69, %1, %49, %select.unfold, %68
+  %.059 = phi i32 [ 5, %68 ], [ %.157.ph, %select.unfold ], [ %.157.ph, %49 ], [ 0, %1 ], [ %.157.ph, %69 ]
   ret i32 %.059
 }
 
@@ -2309,7 +2305,7 @@ define internal range(i32 -2147483648, 1) i32 @mov_read_header(ptr noundef %0) #
   br i1 %122, label %sanity_checks.exit.i, label %123
 
 sanity_checks.exit.i:                             ; preds = %.thread.thread.i.i, %112, %109, %103, %100
-  %.str.161.sink.i.i = phi ptr [ @.str.160, %112 ], [ @.str.160, %109 ], [ @.str.160, %103 ], [ @.str.160, %100 ], [ @.str.161, %.thread.thread.i.i ]
+  %.str.161.sink.i.i = phi ptr [ @.str.160, %100 ], [ @.str.160, %112 ], [ @.str.160, %109 ], [ @.str.160, %103 ], [ @.str.161, %.thread.thread.i.i ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull %.str.161.sink.i.i, i32 noundef %97) #17
   br label %mov_parse_heif_items.exit.thread
 
@@ -2557,7 +2553,7 @@ set_display_matrix_from_item.exit.i:              ; preds = %150
   br i1 %exitcond.not.i.i, label %.thread135.i.i, label %212, !llvm.loop !201
 
 .thread135.i.i:                                   ; preds = %253, %249, %246, %204
-  %.092208.i.i = phi i32 [ %220, %246 ], [ %220, %249 ], [ 0, %204 ], [ %205, %253 ]
+  %.092208.i.i = phi i32 [ %220, %249 ], [ %220, %246 ], [ 0, %204 ], [ %205, %253 ]
   %254 = load i32, ptr %174, align 8, !tbaa !154
   %255 = icmp eq i32 %.092208.i.i, %254
   br i1 %255, label %261, label %200
@@ -3829,8 +3825,8 @@ tmcd_is_referenced.exit.i:                        ; preds = %927
   br label %export_orphan_timecode.exit
 
 .thread.i310:                                     ; preds = %920, %..thread_crit_edge.i, %902
-  %.pr572 = phi i32 [ %.pre.i317, %..thread_crit_edge.i ], [ %.pr571, %902 ], [ %.pr571, %920 ]
-  %935 = phi i32 [ %.pre.i317, %..thread_crit_edge.i ], [ %903, %902 ], [ %903, %920 ]
+  %.pr572 = phi i32 [ %.pr571, %902 ], [ %.pre.i317, %..thread_crit_edge.i ], [ %.pr571, %920 ]
+  %935 = phi i32 [ %903, %902 ], [ %.pre.i317, %..thread_crit_edge.i ], [ %903, %920 ]
   %936 = zext i32 %935 to i64
   %937 = icmp samesign ult i64 %912, %936
   br i1 %937, label %902, label %export_orphan_timecode.exit, !llvm.loop !247
@@ -4141,7 +4137,7 @@ fix_timescale.exit:                               ; preds = %1006, %1015
   br label %1100
 
 1099:                                             ; preds = %1083, %1080
-  %.2 = phi i32 [ %1081, %1080 ], [ %1088, %1083 ]
+  %.2 = phi i32 [ %1088, %1083 ], [ %1081, %1080 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %mov_parse_heif_items.exit.thread
 
@@ -4154,8 +4150,8 @@ fix_timescale.exit:                               ; preds = %1006, %1015
   br i1 %1103, label %1006, label %._crit_edge447, !llvm.loop !267
 
 ._crit_edge447:                                   ; preds = %1100, %.loopexit362.thread, %.loopexit362, %export_orphan_timecode.exit, %._crit_edge, %mov_parse_lcevc_streams.exit
-  %1104 = phi ptr [ %863, %mov_parse_lcevc_streams.exit ], [ %863, %export_orphan_timecode.exit ], [ %863, %._crit_edge ], [ %767, %.loopexit362.thread ], [ %863, %.loopexit362 ], [ %863, %1100 ]
-  %1105 = phi i32 [ 0, %mov_parse_lcevc_streams.exit ], [ 0, %export_orphan_timecode.exit ], [ 0, %._crit_edge ], [ 0, %.loopexit362.thread ], [ 0, %.loopexit362 ], [ %1101, %1100 ]
+  %1104 = phi ptr [ %863, %.loopexit362 ], [ %863, %mov_parse_lcevc_streams.exit ], [ %863, %._crit_edge ], [ %863, %export_orphan_timecode.exit ], [ %767, %.loopexit362.thread ], [ %863, %1100 ]
+  %1105 = phi i32 [ 0, %.loopexit362 ], [ 0, %mov_parse_lcevc_streams.exit ], [ 0, %._crit_edge ], [ 0, %export_orphan_timecode.exit ], [ 0, %.loopexit362.thread ], [ %1101, %1100 ]
   %1106 = getelementptr inbounds nuw i8, ptr %9, i64 144
   %1107 = load ptr, ptr %1106, align 8, !tbaa !268
   %.not276 = icmp eq ptr %1107, null
@@ -4226,7 +4222,7 @@ fix_timescale.exit:                               ; preds = %1006, %1015
   br i1 %1145, label %1115, label %.loopexit, !llvm.loop !273
 
 .loopexit:                                        ; preds = %1142, %1112, %1108
-  %1146 = phi i32 [ 0, %1112 ], [ %1105, %1108 ], [ %1143, %1142 ]
+  %1146 = phi i32 [ %1105, %1108 ], [ 0, %1112 ], [ %1143, %1142 ]
   %1147 = getelementptr inbounds nuw i8, ptr %9, i64 232
   %1148 = load i32, ptr %1147, align 8, !tbaa !274
   %1149 = icmp sgt i32 %1148, 0
@@ -4548,8 +4544,8 @@ fix_stream_ids.exit:                              ; preds = %.loopexit.us.i, %.c
   %exitcond567.not = icmp eq i64 %indvars.iv.next564, %wide.trip.count566
   br i1 %exitcond567.not, label %mov_parse_heif_items.exit.thread, label %1293, !llvm.loop !305
 
-mov_parse_heif_items.exit.thread:                 ; preds = %150, %336, %319, %374, %348, %180, %230, %394, %990, %952, %mov_find_reference_track.exit.i, %1137, %1237, %1226, %1215, %1204, %1193, %1185, %1178, %1298, %fix_stream_ids.exit, %.loopexit.thread.i, %read_image_grid.exit.thread167.i.i, %read_image_grid.exit.i.i, %.split.us.i.i.i, %276, %285, %432, %82, %76, %sanity_checks.exit.i, %1099, %50, %36, %14
-  %.0 = phi i32 [ -22, %14 ], [ %34, %36 ], [ %.2, %1099 ], [ -1094995529, %50 ], [ %.089.i.ph.i.i, %read_image_grid.exit.thread167.i.i ], [ -12, %read_image_grid.exit.i.i ], [ -1094995529, %.split.us.i.i.i ], [ -1163346256, %276 ], [ -1094995529, %285 ], [ -1094995529, %432 ], [ -1094995529, %82 ], [ -1094995529, %76 ], [ -1094995529, %sanity_checks.exit.i ], [ -1094995529, %.loopexit.thread.i ], [ 0, %fix_stream_ids.exit ], [ 0, %1298 ], [ %1180, %1178 ], [ -12, %1185 ], [ -12, %1193 ], [ -12, %1204 ], [ -12, %1215 ], [ -12, %1226 ], [ -12, %1237 ], [ -1094995529, %1137 ], [ %982, %mov_find_reference_track.exit.i ], [ -12, %952 ], [ %991, %990 ], [ -1094995529, %394 ], [ %228, %230 ], [ -12, %180 ], [ -1094995529, %348 ], [ -12, %374 ], [ -12, %319 ], [ -12, %336 ], [ -12, %150 ]
+mov_parse_heif_items.exit.thread:                 ; preds = %150, %336, %180, %348, %374, %319, %230, %394, %990, %952, %mov_find_reference_track.exit.i, %1137, %1237, %1185, %1193, %1204, %1215, %1226, %1178, %1298, %fix_stream_ids.exit, %.loopexit.thread.i, %432, %.split.us.i.i.i, %read_image_grid.exit.thread167.i.i, %285, %276, %82, %76, %sanity_checks.exit.i, %read_image_grid.exit.i.i, %1099, %50, %36, %14
+  %.0 = phi i32 [ -22, %14 ], [ %34, %36 ], [ -1094995529, %50 ], [ 0, %fix_stream_ids.exit ], [ %.2, %1099 ], [ %991, %990 ], [ -1094995529, %.loopexit.thread.i ], [ 0, %1298 ], [ %228, %230 ], [ -1094995529, %sanity_checks.exit.i ], [ -12, %read_image_grid.exit.i.i ], [ %1180, %1178 ], [ -1094995529, %1137 ], [ -1094995529, %394 ], [ -1094995529, %432 ], [ -1094995529, %.split.us.i.i.i ], [ %.089.i.ph.i.i, %read_image_grid.exit.thread167.i.i ], [ -12, %336 ], [ -1094995529, %285 ], [ -1163346256, %276 ], [ -1094995529, %82 ], [ -1094995529, %76 ], [ %982, %mov_find_reference_track.exit.i ], [ -12, %1226 ], [ -12, %1215 ], [ -12, %1204 ], [ -12, %1193 ], [ -12, %1185 ], [ -12, %1237 ], [ -12, %952 ], [ -12, %319 ], [ -12, %374 ], [ -1094995529, %348 ], [ -12, %180 ], [ -12, %150 ]
   ret i32 %.0
 }
 
@@ -5086,7 +5082,7 @@ mov_current_sample_dec.exit222:                   ; preds = %273, %232
   br label %get_eia608_packet.exit
 
 get_eia608_packet.exit:                           ; preds = %228, %280, %mov_current_sample_dec.exit222
-  %.0161 = phi i32 [ %.1162.lcssa, %mov_current_sample_dec.exit222 ], [ %285, %280 ], [ %.14871.i, %228 ]
+  %.0161 = phi i32 [ %285, %280 ], [ %.1162.lcssa, %mov_current_sample_dec.exit222 ], [ %.14871.i, %228 ]
   %286 = icmp slt i32 %.0161, 0
   br i1 %286, label %get_eia608_packet.exit.thread, label %306
 
@@ -5233,7 +5229,7 @@ mov_current_sample_dec.exit230:                   ; preds = %163
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %354, i32 noundef 48, ptr noundef nonnull @.str.526, i32 noundef %356) #17
   br label %.outer.backedge
 
-mov_current_sample_dec.exit230.thread254:         ; preds = %125, %330, %335, %338, %353, %341
+mov_current_sample_dec.exit230.thread254:         ; preds = %125, %338, %353, %341, %330, %335
   %357 = tail call fastcc i32 @mov_finalize_packet(ptr noundef nonnull %94, ptr noundef %85, ptr noundef %1)
   %358 = icmp slt i32 %357, 0
   br i1 %358, label %mov_current_sample_dec.exit230.thread, label %359
@@ -5712,7 +5708,7 @@ thread-pre-split:                                 ; preds = %446
   br label %cbc1_scheme_decrypt.exit.i.i
 
 cbc1_scheme_decrypt.exit.i.i:                     ; preds = %576, %._crit_edge.i39.i.i, %557, %553, %541, %531, %529
-  %.0.i37.i.i = phi i32 [ -1094995529, %553 ], [ -1094995529, %557 ], [ -1094995529, %576 ], [ 0, %541 ], [ -12, %529 ], [ %533, %531 ], [ 0, %._crit_edge.i39.i.i ]
+  %.0.i37.i.i = phi i32 [ -1094995529, %553 ], [ -1094995529, %557 ], [ -1094995529, %576 ], [ %533, %531 ], [ 0, %541 ], [ -12, %529 ], [ 0, %._crit_edge.i39.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %cenc_filter.exit
 
@@ -6005,7 +6001,7 @@ cbc1_scheme_decrypt.exit.i.i:                     ; preds = %576, %._crit_edge.i
   br label %cbcs_scheme_decrypt.exit.i.i
 
 cbcs_scheme_decrypt.exit.i.i:                     ; preds = %724, %._crit_edge89.i.i.i, %688, %673, %662, %655, %653
-  %.065.i54.i.i = phi i32 [ -1094995529, %688 ], [ -1094995529, %724 ], [ -1094995529, %673 ], [ 0, %662 ], [ -12, %653 ], [ %657, %655 ], [ 0, %._crit_edge89.i.i.i ]
+  %.065.i54.i.i = phi i32 [ -1094995529, %688 ], [ -1094995529, %724 ], [ %657, %655 ], [ -1094995529, %673 ], [ 0, %662 ], [ -12, %653 ], [ 0, %._crit_edge89.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %cenc_filter.exit
 
@@ -6036,13 +6032,13 @@ cbcs_scheme_decrypt.exit.i.i:                     ; preds = %724, %._crit_edge89
   br label %cenc_filter.exit
 
 cenc_filter.exit:                                 ; preds = %cbc1_scheme_decrypt.exit.i.i, %cbcs_scheme_decrypt.exit.i.i, %734
-  %.0.i236 = phi i32 [ %.1.i, %734 ], [ %.065.i54.i.i, %cbcs_scheme_decrypt.exit.i.i ], [ %.0.i37.i.i, %cbc1_scheme_decrypt.exit.i.i ]
+  %.0.i236 = phi i32 [ %.065.i54.i.i, %cbcs_scheme_decrypt.exit.i.i ], [ %.1.i, %734 ], [ %.0.i37.i.i, %cbc1_scheme_decrypt.exit.i.i ]
   %.0.i236.fr = freeze i32 %.0.i236
   %spec.select = call i32 @llvm.smin.i32(i32 %.0.i236.fr, i32 0)
   br label %mov_current_sample_dec.exit230.thread
 
-mov_current_sample_dec.exit230.thread:            ; preds = %317, %311, %mov_current_sample_dec.exit222, %mov_current_sample_dec.exit230.thread254, %.thread, %90, %._crit_edge340, %cenc_filter.exit, %get_frag_stream_info_from_pkt.exit.i, %._crit_edge90.i.i.i, %593, %._crit_edge.i.i.i, %495, %.loopexit.i234, %583, %581, %601, %648, %615, %484, %482, %518, %505, %.thread62.i.i, %449, %454, %.thread14.i, %get_eia608_packet.exit.thread, %251, %268, %263, %257, %should_retry.exit218, %301, %296, %290, %should_retry.exit226, %should_retry.exit.thread, %mov_current_sample_dec.exit
-  %.1 = phi i32 [ %.0161248265, %301 ], [ %.0161248265, %296 ], [ %.0161248265, %290 ], [ %.0161248265, %should_retry.exit226 ], [ %139, %should_retry.exit.thread ], [ -1094995529, %mov_current_sample_dec.exit ], [ %249, %should_retry.exit218 ], [ %249, %257 ], [ %249, %263 ], [ %249, %268 ], [ -541478725, %251 ], [ -541478725, %get_eia608_packet.exit.thread ], [ %585, %583 ], [ -12, %581 ], [ -1094995529, %601 ], [ -1094995529, %648 ], [ -1094995529, %615 ], [ %486, %484 ], [ -12, %482 ], [ -1094995529, %518 ], [ -1094995529, %505 ], [ -1094995529, %.thread62.i.i ], [ -1094995529, %449 ], [ -1094995529, %454 ], [ -1094995529, %.thread14.i ], [ 0, %.loopexit.i234 ], [ 0, %495 ], [ 0, %._crit_edge.i.i.i ], [ 0, %593 ], [ 0, %._crit_edge90.i.i.i ], [ 0, %get_frag_stream_info_from_pkt.exit.i ], [ %spec.select, %cenc_filter.exit ], [ %357, %mov_current_sample_dec.exit230.thread254 ], [ %319, %317 ], [ %315, %311 ], [ -1329874258, %mov_current_sample_dec.exit222 ], [ %82, %._crit_edge340 ], [ -541478725, %90 ], [ %91, %.thread ]
+mov_current_sample_dec.exit230.thread:            ; preds = %mov_current_sample_dec.exit222, %317, %311, %mov_current_sample_dec.exit230.thread254, %.thread, %90, %._crit_edge340, %cenc_filter.exit, %593, %._crit_edge.i.i.i, %.loopexit.i234, %get_frag_stream_info_from_pkt.exit.i, %495, %._crit_edge90.i.i.i, %581, %601, %583, %648, %615, %482, %484, %518, %505, %.thread62.i.i, %449, %454, %.thread14.i, %get_eia608_packet.exit.thread, %251, %268, %263, %257, %should_retry.exit218, %301, %296, %290, %should_retry.exit226, %should_retry.exit.thread, %mov_current_sample_dec.exit
+  %.1 = phi i32 [ -1094995529, %449 ], [ -1094995529, %454 ], [ 0, %._crit_edge90.i.i.i ], [ 0, %593 ], [ 0, %495 ], [ -1094995529, %.thread14.i ], [ %spec.select, %cenc_filter.exit ], [ -541478725, %get_eia608_packet.exit.thread ], [ %.0161248265, %301 ], [ %.0161248265, %296 ], [ %.0161248265, %290 ], [ -1094995529, %mov_current_sample_dec.exit ], [ -541478725, %251 ], [ 0, %get_frag_stream_info_from_pkt.exit.i ], [ 0, %.loopexit.i234 ], [ 0, %._crit_edge.i.i.i ], [ %.0161248265, %should_retry.exit226 ], [ %139, %should_retry.exit.thread ], [ %249, %should_retry.exit218 ], [ %249, %257 ], [ %249, %263 ], [ %249, %268 ], [ -12, %581 ], [ -1094995529, %601 ], [ %585, %583 ], [ -1094995529, %648 ], [ -1094995529, %615 ], [ -12, %482 ], [ %486, %484 ], [ -1094995529, %518 ], [ -1094995529, %505 ], [ -1094995529, %.thread62.i.i ], [ -1329874258, %mov_current_sample_dec.exit222 ], [ %319, %317 ], [ %315, %311 ], [ %357, %mov_current_sample_dec.exit230.thread254 ], [ -541478725, %90 ], [ %82, %._crit_edge340 ], [ %91, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1
 }
@@ -6542,7 +6538,7 @@ mov_current_sample_inc.exit:                      ; preds = %144, %139, %.lr.ph8
   br i1 %.not57, label %mov_current_sample_inc.exit.thread, label %.lr.ph82
 
 mov_current_sample_inc.exit.thread:               ; preds = %92, %mov_current_sample_inc.exit, %.lr.ph82, %mov_get_skip_samples.exit, %.preheader, %10, %4
-  %.0 = phi i32 [ -1094995529, %4 ], [ %16, %10 ], [ -1094995529, %.preheader ], [ 0, %mov_get_skip_samples.exit ], [ -1094995529, %mov_current_sample_inc.exit ], [ 0, %.lr.ph82 ], [ 0, %92 ]
+  %.0 = phi i32 [ 0, %.lr.ph82 ], [ -1094995529, %4 ], [ %16, %10 ], [ 0, %mov_get_skip_samples.exit ], [ -1094995529, %.preheader ], [ -1094995529, %mov_current_sample_inc.exit ], [ 0, %92 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -6811,8 +6807,8 @@ get_curr_st.exit:                                 ; preds = %29, %14
   store i32 173, ptr %76, align 4, !tbaa !79
   br label %get_curr_st.exit.thread
 
-get_curr_st.exit.thread:                          ; preds = %32, %42, %51, %20, %4, %68, %70, %75, %63, %33, %get_curr_st.exit, %62
-  %.0 = phi i32 [ 0, %62 ], [ 0, %get_curr_st.exit ], [ -1094995529, %33 ], [ %66, %63 ], [ 0, %75 ], [ 0, %70 ], [ 0, %68 ], [ 0, %4 ], [ 0, %20 ], [ -1094995529, %42 ], [ %52, %51 ], [ 0, %32 ]
+get_curr_st.exit.thread:                          ; preds = %32, %51, %42, %20, %4, %68, %70, %75, %63, %33, %get_curr_st.exit, %62
+  %.0 = phi i32 [ 0, %get_curr_st.exit ], [ 0, %62 ], [ -1094995529, %33 ], [ %66, %63 ], [ -1094995529, %42 ], [ 0, %75 ], [ 0, %70 ], [ 0, %68 ], [ 0, %4 ], [ 0, %20 ], [ %52, %51 ], [ 0, %32 ]
   ret i32 %.0
 }
 
@@ -7146,10 +7142,10 @@ define internal i32 @mov_read_udta_string(ptr noundef %0, ptr noundef %1, i32 %2
   br label %100
 
 100:                                              ; preds = %32, %99, %98, %97, %96, %95, %94, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %51, %50, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %31, %30, %29
-  %.not220 = phi i1 [ true, %29 ], [ true, %30 ], [ true, %31 ], [ true, %35 ], [ false, %36 ], [ true, %37 ], [ true, %38 ], [ false, %39 ], [ true, %40 ], [ true, %41 ], [ false, %42 ], [ false, %43 ], [ true, %44 ], [ false, %45 ], [ false, %46 ], [ true, %50 ], [ true, %51 ], [ true, %55 ], [ true, %56 ], [ false, %57 ], [ false, %58 ], [ true, %59 ], [ false, %60 ], [ true, %61 ], [ true, %62 ], [ true, %63 ], [ true, %64 ], [ true, %65 ], [ true, %66 ], [ false, %67 ], [ false, %68 ], [ true, %69 ], [ false, %70 ], [ true, %71 ], [ true, %72 ], [ false, %73 ], [ true, %74 ], [ true, %75 ], [ true, %76 ], [ true, %77 ], [ true, %78 ], [ true, %79 ], [ true, %80 ], [ true, %81 ], [ true, %82 ], [ true, %83 ], [ true, %84 ], [ true, %85 ], [ true, %86 ], [ true, %87 ], [ true, %88 ], [ true, %89 ], [ true, %90 ], [ true, %91 ], [ true, %92 ], [ true, %93 ], [ true, %94 ], [ true, %95 ], [ true, %96 ], [ true, %97 ], [ true, %98 ], [ true, %99 ], [ true, %32 ]
-  %.0199 = phi ptr [ null, %29 ], [ null, %30 ], [ null, %31 ], [ null, %35 ], [ @mov_metadata_int8_no_padding, %36 ], [ null, %37 ], [ null, %38 ], [ @mov_metadata_int8_no_padding, %39 ], [ null, %40 ], [ null, %41 ], [ @mov_metadata_track_or_disc_number, %42 ], [ @mov_metadata_int8_no_padding, %43 ], [ null, %44 ], [ @mov_metadata_gnre, %45 ], [ @mov_metadata_int8_no_padding, %46 ], [ null, %50 ], [ null, %51 ], [ null, %55 ], [ null, %56 ], [ @mov_metadata_int8_no_padding, %57 ], [ @mov_metadata_int8_no_padding, %58 ], [ null, %59 ], [ @mov_metadata_int8_no_padding, %60 ], [ null, %61 ], [ null, %62 ], [ null, %63 ], [ null, %64 ], [ null, %65 ], [ null, %66 ], [ @mov_metadata_int8_no_padding, %67 ], [ @mov_metadata_track_or_disc_number, %68 ], [ null, %69 ], [ @mov_metadata_int8_bypass_padding, %70 ], [ null, %71 ], [ null, %72 ], [ @mov_metadata_int8_bypass_padding, %73 ], [ null, %74 ], [ null, %75 ], [ null, %76 ], [ null, %77 ], [ null, %78 ], [ null, %79 ], [ null, %80 ], [ null, %81 ], [ null, %82 ], [ null, %83 ], [ null, %84 ], [ null, %85 ], [ null, %86 ], [ null, %87 ], [ null, %88 ], [ null, %89 ], [ null, %90 ], [ null, %91 ], [ null, %92 ], [ null, %93 ], [ null, %94 ], [ null, %95 ], [ null, %96 ], [ null, %97 ], [ null, %98 ], [ null, %99 ], [ null, %32 ]
-  %.0197 = phi i32 [ 0, %29 ], [ 1, %30 ], [ 1, %31 ], [ 0, %35 ], [ 0, %36 ], [ 0, %37 ], [ 0, %38 ], [ 0, %39 ], [ 0, %40 ], [ 0, %41 ], [ 0, %42 ], [ 0, %43 ], [ 1, %44 ], [ 0, %45 ], [ 0, %46 ], [ 0, %50 ], [ 0, %51 ], [ 0, %55 ], [ 0, %56 ], [ 0, %57 ], [ 0, %58 ], [ 0, %59 ], [ 0, %60 ], [ 0, %61 ], [ 0, %62 ], [ 0, %63 ], [ 0, %64 ], [ 0, %65 ], [ 0, %66 ], [ 0, %67 ], [ 0, %68 ], [ 0, %69 ], [ 0, %70 ], [ 0, %71 ], [ 0, %72 ], [ 0, %73 ], [ 0, %74 ], [ 0, %75 ], [ 0, %76 ], [ 0, %77 ], [ 0, %78 ], [ 0, %79 ], [ 0, %80 ], [ 0, %81 ], [ 0, %82 ], [ 0, %83 ], [ 0, %84 ], [ 0, %85 ], [ 0, %86 ], [ 0, %87 ], [ 0, %88 ], [ 0, %89 ], [ 0, %90 ], [ 0, %91 ], [ 0, %92 ], [ 0, %93 ], [ 0, %94 ], [ 0, %95 ], [ 0, %96 ], [ 0, %97 ], [ 0, %98 ], [ 0, %99 ], [ %spec.select, %32 ]
-  %.0176 = phi ptr [ null, %29 ], [ @.str.371, %30 ], [ @.str.372, %31 ], [ @.str.373, %35 ], [ @.str.374, %36 ], [ @.str.375, %37 ], [ @.str.376, %38 ], [ @.str.377, %39 ], [ @.str.378, %40 ], [ @.str.379, %41 ], [ @.str.380, %42 ], [ @.str.381, %43 ], [ @.str.382, %44 ], [ @.str.383, %45 ], [ @.str.384, %46 ], [ @.str.385, %50 ], [ @.str.386, %51 ], [ @.str.387, %55 ], [ @.str.388, %56 ], [ @.str.389, %57 ], [ @.str.390, %58 ], [ @.str.391, %59 ], [ @.str.392, %60 ], [ @.str.393, %61 ], [ @.str.394, %62 ], [ @.str.395, %63 ], [ @.str.396, %64 ], [ @.str.397, %65 ], [ @.str.398, %66 ], [ @.str.399, %67 ], [ @.str.400, %68 ], [ @.str.401, %69 ], [ @.str.402, %70 ], [ @.str.403, %71 ], [ @.str.404, %72 ], [ @.str.405, %73 ], [ @.str.406, %74 ], [ @.str.407, %75 ], [ @.str.408, %76 ], [ @.str.409, %77 ], [ @.str.410, %78 ], [ @.str.411, %79 ], [ @.str.412, %80 ], [ @.str.413, %81 ], [ @.str.414, %82 ], [ @.str.415, %83 ], [ @.str.20, %84 ], [ @.str.416, %85 ], [ @.str.383, %86 ], [ @.str.417, %87 ], [ @.str.418, %88 ], [ @.str.419, %89 ], [ @.str.362, %90 ], [ @.str.420, %91 ], [ @.str.421, %92 ], [ @.str.422, %93 ], [ @.str.423, %94 ], [ @.str.424, %95 ], [ @.str.400, %96 ], [ @.str.425, %97 ], [ @.str.426, %98 ], [ @.str.427, %99 ], [ %spec.select229, %32 ]
+  %.not220 = phi i1 [ true, %29 ], [ true, %30 ], [ true, %31 ], [ true, %99 ], [ true, %93 ], [ true, %35 ], [ false, %36 ], [ true, %37 ], [ true, %38 ], [ false, %39 ], [ true, %40 ], [ true, %41 ], [ false, %42 ], [ false, %43 ], [ true, %44 ], [ false, %45 ], [ false, %46 ], [ true, %50 ], [ true, %51 ], [ true, %55 ], [ true, %56 ], [ false, %57 ], [ false, %58 ], [ true, %59 ], [ false, %60 ], [ true, %61 ], [ true, %62 ], [ true, %63 ], [ true, %64 ], [ true, %65 ], [ true, %66 ], [ false, %67 ], [ false, %68 ], [ true, %69 ], [ false, %70 ], [ true, %71 ], [ true, %72 ], [ false, %73 ], [ true, %74 ], [ true, %75 ], [ true, %76 ], [ true, %32 ], [ true, %77 ], [ true, %78 ], [ true, %79 ], [ true, %94 ], [ true, %80 ], [ true, %81 ], [ true, %82 ], [ true, %83 ], [ true, %84 ], [ true, %85 ], [ true, %86 ], [ true, %87 ], [ true, %88 ], [ true, %98 ], [ true, %89 ], [ true, %97 ], [ true, %96 ], [ true, %90 ], [ true, %91 ], [ true, %95 ], [ true, %92 ]
+  %.0199 = phi ptr [ null, %29 ], [ null, %30 ], [ null, %31 ], [ null, %99 ], [ null, %93 ], [ null, %35 ], [ @mov_metadata_int8_no_padding, %36 ], [ null, %37 ], [ null, %38 ], [ @mov_metadata_int8_no_padding, %39 ], [ null, %40 ], [ null, %41 ], [ @mov_metadata_track_or_disc_number, %42 ], [ @mov_metadata_int8_no_padding, %43 ], [ null, %44 ], [ @mov_metadata_gnre, %45 ], [ @mov_metadata_int8_no_padding, %46 ], [ null, %50 ], [ null, %51 ], [ null, %55 ], [ null, %56 ], [ @mov_metadata_int8_no_padding, %57 ], [ @mov_metadata_int8_no_padding, %58 ], [ null, %59 ], [ @mov_metadata_int8_no_padding, %60 ], [ null, %61 ], [ null, %62 ], [ null, %63 ], [ null, %64 ], [ null, %65 ], [ null, %66 ], [ @mov_metadata_int8_no_padding, %67 ], [ @mov_metadata_track_or_disc_number, %68 ], [ null, %69 ], [ @mov_metadata_int8_bypass_padding, %70 ], [ null, %71 ], [ null, %72 ], [ @mov_metadata_int8_bypass_padding, %73 ], [ null, %74 ], [ null, %75 ], [ null, %76 ], [ null, %32 ], [ null, %77 ], [ null, %78 ], [ null, %79 ], [ null, %94 ], [ null, %80 ], [ null, %81 ], [ null, %82 ], [ null, %83 ], [ null, %84 ], [ null, %85 ], [ null, %86 ], [ null, %87 ], [ null, %88 ], [ null, %98 ], [ null, %89 ], [ null, %97 ], [ null, %96 ], [ null, %90 ], [ null, %91 ], [ null, %95 ], [ null, %92 ]
+  %.0197 = phi i32 [ 0, %29 ], [ 1, %30 ], [ 1, %31 ], [ 0, %99 ], [ 0, %93 ], [ 0, %35 ], [ 0, %36 ], [ 0, %37 ], [ 0, %38 ], [ 0, %39 ], [ 0, %40 ], [ 0, %41 ], [ 0, %42 ], [ 0, %43 ], [ 1, %44 ], [ 0, %45 ], [ 0, %46 ], [ 0, %50 ], [ 0, %51 ], [ 0, %55 ], [ 0, %56 ], [ 0, %57 ], [ 0, %58 ], [ 0, %59 ], [ 0, %60 ], [ 0, %61 ], [ 0, %62 ], [ 0, %63 ], [ 0, %64 ], [ 0, %65 ], [ 0, %66 ], [ 0, %67 ], [ 0, %68 ], [ 0, %69 ], [ 0, %70 ], [ 0, %71 ], [ 0, %72 ], [ 0, %73 ], [ 0, %74 ], [ 0, %75 ], [ 0, %76 ], [ %spec.select, %32 ], [ 0, %77 ], [ 0, %78 ], [ 0, %79 ], [ 0, %94 ], [ 0, %80 ], [ 0, %81 ], [ 0, %82 ], [ 0, %83 ], [ 0, %84 ], [ 0, %85 ], [ 0, %86 ], [ 0, %87 ], [ 0, %88 ], [ 0, %98 ], [ 0, %89 ], [ 0, %97 ], [ 0, %96 ], [ 0, %90 ], [ 0, %91 ], [ 0, %95 ], [ 0, %92 ]
+  %.0176 = phi ptr [ null, %29 ], [ @.str.371, %30 ], [ @.str.372, %31 ], [ @.str.427, %99 ], [ @.str.422, %93 ], [ @.str.373, %35 ], [ @.str.374, %36 ], [ @.str.375, %37 ], [ @.str.376, %38 ], [ @.str.377, %39 ], [ @.str.378, %40 ], [ @.str.379, %41 ], [ @.str.380, %42 ], [ @.str.381, %43 ], [ @.str.382, %44 ], [ @.str.383, %45 ], [ @.str.384, %46 ], [ @.str.385, %50 ], [ @.str.386, %51 ], [ @.str.387, %55 ], [ @.str.388, %56 ], [ @.str.389, %57 ], [ @.str.390, %58 ], [ @.str.391, %59 ], [ @.str.392, %60 ], [ @.str.393, %61 ], [ @.str.394, %62 ], [ @.str.395, %63 ], [ @.str.396, %64 ], [ @.str.397, %65 ], [ @.str.398, %66 ], [ @.str.399, %67 ], [ @.str.400, %68 ], [ @.str.401, %69 ], [ @.str.402, %70 ], [ @.str.403, %71 ], [ @.str.404, %72 ], [ @.str.405, %73 ], [ @.str.406, %74 ], [ @.str.407, %75 ], [ @.str.408, %76 ], [ %spec.select229, %32 ], [ @.str.409, %77 ], [ @.str.410, %78 ], [ @.str.411, %79 ], [ @.str.423, %94 ], [ @.str.412, %80 ], [ @.str.413, %81 ], [ @.str.414, %82 ], [ @.str.415, %83 ], [ @.str.20, %84 ], [ @.str.416, %85 ], [ @.str.383, %86 ], [ @.str.417, %87 ], [ @.str.418, %88 ], [ @.str.426, %98 ], [ @.str.419, %89 ], [ @.str.425, %97 ], [ @.str.400, %96 ], [ @.str.362, %90 ], [ @.str.420, %91 ], [ @.str.424, %95 ], [ @.str.421, %92 ]
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -7231,7 +7227,7 @@ define internal i32 @mov_read_udta_string(ptr noundef %0, ptr noundef %1, i32 %2
   br label %.thread249
 
 139:                                              ; preds = %134, %129, %127, %121
-  %.2178 = phi ptr [ %.1177371, %121 ], [ null, %129 ], [ null, %127 ], [ %136, %134 ]
+  %.2178 = phi ptr [ %.1177371, %121 ], [ null, %127 ], [ null, %129 ], [ %136, %134 ]
   br i1 %.not214, label %.thread, label %140
 
 140:                                              ; preds = %139
@@ -7244,7 +7240,7 @@ define internal i32 @mov_read_udta_string(ptr noundef %0, ptr noundef %1, i32 %2
   br i1 %.not216, label %.thread, label %.thread303
 
 .thread:                                          ; preds = %137, %141, %139
-  %.2178232 = phi ptr [ %.2178, %141 ], [ %.2178, %139 ], [ null, %137 ]
+  %.2178232 = phi ptr [ %.2178, %139 ], [ %.2178, %141 ], [ null, %137 ]
   switch i32 %122, label %145 [
     i32 13, label %148
     i32 14, label %143
@@ -7264,8 +7260,8 @@ define internal i32 @mov_read_udta_string(ptr noundef %0, ptr noundef %1, i32 %2
   br label %mov_read_covr.exit
 
 148:                                              ; preds = %144, %143, %.thread
-  %149 = phi i1 [ true, %143 ], [ false, %144 ], [ true, %.thread ]
-  %.025.i = phi i32 [ 61, %143 ], [ 78, %144 ], [ 7, %.thread ]
+  %149 = phi i1 [ false, %144 ], [ true, %143 ], [ true, %.thread ]
+  %.025.i = phi i32 [ 78, %144 ], [ 61, %143 ], [ 7, %.thread ]
   %150 = tail call noalias ptr @av_mallocz(i64 noundef 1656) #17
   %.not.i = icmp eq ptr %150, null
   br i1 %.not.i, label %.loopexit, label %151
@@ -7313,7 +7309,7 @@ define internal i32 @mov_read_udta_string(ptr noundef %0, ptr noundef %1, i32 %2
   br label %179
 
 179:                                              ; preds = %174, %156
-  %.1.i = phi i32 [ %.025.i, %156 ], [ %..i, %174 ]
+  %.1.i = phi i32 [ %..i, %174 ], [ %.025.i, %156 ]
   %180 = getelementptr inbounds nuw i8, ptr %165, i64 16
   %181 = load ptr, ptr %180, align 8, !tbaa !49
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 4
@@ -7629,8 +7625,8 @@ mov_read_covr.exit:                               ; preds = %179, %145
   call void @av_freep(ptr noundef nonnull %8) #17
   br label %.thread241
 
-.thread241:                                       ; preds = %.lr.ph, %117, %mov_read_covr.exit, %.loopexit, %279, %269, %259, %246, %209, %.thread303, %206, %306, %272, %52, %47
-  %.0 = phi i32 [ 0, %306 ], [ -1094995529, %246 ], [ -1094995529, %259 ], [ -1094995529, %269 ], [ 0, %272 ], [ %276, %279 ], [ %49, %47 ], [ %54, %52 ], [ 0, %206 ], [ -1094995529, %.thread303 ], [ -12, %209 ], [ %.0.i.ph, %.loopexit ], [ 0, %mov_read_covr.exit ], [ 0, %117 ], [ 0, %.lr.ph ]
+.thread241:                                       ; preds = %117, %.lr.ph, %mov_read_covr.exit, %.loopexit, %279, %269, %259, %246, %209, %.thread303, %206, %306, %272, %52, %47
+  %.0 = phi i32 [ -12, %209 ], [ 0, %206 ], [ 0, %306 ], [ -1094995529, %246 ], [ -1094995529, %259 ], [ -1094995529, %269 ], [ 0, %272 ], [ %276, %279 ], [ -1094995529, %.thread303 ], [ %54, %52 ], [ %49, %47 ], [ %.0.i.ph, %.loopexit ], [ 0, %mov_read_covr.exit ], [ 0, %.lr.ph ], [ 0, %117 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -7726,7 +7722,7 @@ define internal range(i32 -1094995529, 1) i32 @mov_read_keys(ptr noundef capture
   br i1 %.not44, label %.thread, label %.lr.ph, !llvm.loop !396
 
 .thread:                                          ; preds = %45, %36, %.preheader, %27, %13, %4, %10
-  %.0 = phi i32 [ -1094995529, %10 ], [ 0, %4 ], [ -12, %13 ], [ -1094995529, %27 ], [ 0, %.preheader ], [ 0, %45 ], [ -12, %36 ]
+  %.0 = phi i32 [ 0, %4 ], [ -1094995529, %10 ], [ -1094995529, %27 ], [ -12, %13 ], [ 0, %.preheader ], [ 0, %45 ], [ -12, %36 ]
   ret i32 %.0
 }
 
@@ -7858,7 +7854,7 @@ mov_realloc_extradata.exit.thread:                ; preds = %mov_realloc_extrada
   br label %.critedge
 
 .critedge:                                        ; preds = %57, %55, %53, %mov_realloc_extradata.exit.thread, %60, %63, %9, %4
-  %.1 = phi i32 [ 0, %4 ], [ 0, %9 ], [ %.0.i42, %mov_realloc_extradata.exit.thread ], [ 0, %60 ], [ 0, %63 ], [ 0, %53 ], [ 0, %55 ], [ 0, %57 ]
+  %.1 = phi i32 [ 0, %9 ], [ 0, %4 ], [ 0, %57 ], [ %.0.i42, %mov_realloc_extradata.exit.thread ], [ 0, %63 ], [ 0, %60 ], [ 0, %53 ], [ 0, %55 ]
   ret i32 %.1
 }
 
@@ -7974,8 +7970,8 @@ define internal range(i32 -2147483648, 1) i32 @mov_read_ares(ptr noundef readonl
   %51 = tail call fastcc i32 @mov_read_extradata(ptr noundef nonnull readonly %0, ptr noundef %1, i32 %2, i64 %3, i32 noundef 99)
   br label %mov_read_avid.exit
 
-mov_read_avid.exit:                               ; preds = %35, %43, %47, %41, %29, %25, %50, %.thread50
-  %.2 = phi i32 [ %49, %.thread50 ], [ %51, %50 ], [ 0, %25 ], [ 0, %29 ], [ 0, %41 ], [ 0, %47 ], [ 0, %43 ], [ 0, %35 ]
+mov_read_avid.exit:                               ; preds = %43, %47, %41, %25, %29, %35, %50, %.thread50
+  %.2 = phi i32 [ %51, %50 ], [ %49, %.thread50 ], [ 0, %35 ], [ 0, %29 ], [ 0, %25 ], [ 0, %41 ], [ 0, %47 ], [ 0, %43 ]
   ret i32 %.2
 }
 
@@ -8050,7 +8046,7 @@ define internal range(i32 -2147483648, 1) i32 @mov_read_chpl(ptr noundef readonl
   br i1 %or.cond, label %.loopexit, label %22, !llvm.loop !398
 
 .loopexit:                                        ; preds = %22, %29, %32, %16, %8, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %8 ], [ 0, %16 ], [ 0, %22 ], [ %30, %29 ], [ 0, %32 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %4 ], [ 0, %16 ], [ %30, %29 ], [ 0, %22 ], [ 0, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -8185,7 +8181,7 @@ define internal range(i32 -1094995529, 1) i32 @mov_read_stco(ptr noundef readonl
   br label %.critedge
 
 .critedge:                                        ; preds = %65, %46, %.critedge.loopexit83.split.loop.exit, %.critedge.loopexit.split.loop.exit87
-  %.1 = phi i32 [ %66, %.critedge.loopexit.split.loop.exit87 ], [ %67, %.critedge.loopexit83.split.loop.exit ], [ %33, %46 ], [ %33, %65 ]
+  %.1 = phi i32 [ %33, %46 ], [ %66, %.critedge.loopexit.split.loop.exit87 ], [ %67, %.critedge.loopexit83.split.loop.exit ], [ %33, %65 ]
   store i32 %.1, ptr %40, align 4, !tbaa !165
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %69 = load i32, ptr %68, align 8, !tbaa !47
@@ -8198,7 +8194,7 @@ define internal range(i32 -1094995529, 1) i32 @mov_read_stco(ptr noundef readonl
   br label %72
 
 72:                                               ; preds = %.critedge, %51, %39, %15, %11, %70, %37, %10
-  %.054 = phi i32 [ 0, %10 ], [ 0, %37 ], [ -541478725, %70 ], [ 0, %11 ], [ 0, %15 ], [ -12, %39 ], [ -1094995529, %51 ], [ 0, %.critedge ]
+  %.054 = phi i32 [ 0, %10 ], [ 0, %11 ], [ 0, %37 ], [ -541478725, %70 ], [ -1094995529, %51 ], [ -12, %39 ], [ 0, %15 ], [ 0, %.critedge ]
   ret i32 %.054
 }
 
@@ -8428,8 +8424,8 @@ heif_cur_item.exit:                               ; preds = %43, %get_curr_st.ex
 108:                                              ; preds = %78, %95, %73
   br label %heif_cur_item.exit.thread
 
-heif_cur_item.exit.thread:                        ; preds = %47, %57, %71, %get_curr_st.exit.thread, %heif_cur_item.exit, %73, %108, %53
-  %.0 = phi i32 [ 0, %53 ], [ 0, %108 ], [ %76, %73 ], [ %48, %heif_cur_item.exit ], [ 0, %get_curr_st.exit.thread ], [ -12, %71 ], [ -12, %57 ], [ 0, %47 ]
+heif_cur_item.exit.thread:                        ; preds = %47, %71, %57, %get_curr_st.exit.thread, %heif_cur_item.exit, %73, %108, %53
+  %.0 = phi i32 [ -12, %71 ], [ 0, %53 ], [ 0, %108 ], [ %76, %73 ], [ %48, %heif_cur_item.exit ], [ 0, %get_curr_st.exit.thread ], [ -12, %57 ], [ 0, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -8595,7 +8591,7 @@ define internal range(i32 -1094995529, 1) i32 @mov_read_ctts(ptr noundef readonl
   br label %mov_update_dts_shift.exit
 
 mov_update_dts_shift.exit:                        ; preds = %59, %62, %33, %31, %15, %11, %86, %84, %10
-  %.0 = phi i32 [ 0, %10 ], [ -541478725, %84 ], [ 0, %86 ], [ 0, %11 ], [ 0, %15 ], [ -1094995529, %31 ], [ -12, %33 ], [ -12, %62 ], [ -12, %59 ]
+  %.0 = phi i32 [ 0, %10 ], [ 0, %11 ], [ 0, %15 ], [ -12, %33 ], [ -541478725, %84 ], [ 0, %86 ], [ -1094995529, %31 ], [ -12, %62 ], [ -12, %59 ]
   ret i32 %.0
 }
 
@@ -8965,8 +8961,8 @@ define internal range(i32 -2147483648, 1) i32 @mov_read_dref(ptr noundef readonl
   tail call void @av_freep(ptr noundef nonnull %.lcssa298.sink) #17
   br label %.thread
 
-.thread:                                          ; preds = %.loopexit, %.lr.ph243, %62, %68, %151, %113, %103, %.thread.sink.split, %._crit_edge, %10, %21, %4
-  %.0169 = phi i32 [ 0, %4 ], [ -1094995529, %21 ], [ -1094995529, %10 ], [ -12, %._crit_edge ], [ %.0169.ph, %.thread.sink.split ], [ -541478725, %103 ], [ -12, %113 ], [ -12, %151 ], [ 0, %.loopexit ], [ -1094995529, %.lr.ph243 ], [ %66, %62 ], [ %77, %68 ]
+.thread:                                          ; preds = %.loopexit, %.lr.ph243, %62, %68, %113, %103, %151, %.thread.sink.split, %._crit_edge, %10, %21, %4
+  %.0169 = phi i32 [ -1094995529, %10 ], [ 0, %4 ], [ %.0169.ph, %.thread.sink.split ], [ -12, %._crit_edge ], [ -1094995529, %21 ], [ -12, %113 ], [ -12, %151 ], [ -541478725, %103 ], [ 0, %.loopexit ], [ %77, %68 ], [ %66, %62 ], [ -1094995529, %.lr.ph243 ]
   ret i32 %.0169
 }
 
@@ -9213,7 +9209,7 @@ define internal range(i32 -1094995529, 1) i32 @mov_read_elst(ptr noundef readonl
   br label %.critedge92
 
 .critedge92:                                      ; preds = %.split.us, %.split107.us, %48, %42, %4, %10, %.critedge, %35
-  %.0 = phi i32 [ -1094995529, %35 ], [ 0, %.critedge ], [ 0, %10 ], [ 0, %4 ], [ 0, %42 ], [ -12, %48 ], [ -1094995529, %.split107.us ], [ -1094995529, %.split.us ]
+  %.0 = phi i32 [ 0, %4 ], [ -1094995529, %35 ], [ -12, %48 ], [ 0, %.critedge ], [ 0, %42 ], [ 0, %10 ], [ -1094995529, %.split107.us ], [ -1094995529, %.split.us ]
   ret i32 %.0
 }
 
@@ -9266,7 +9262,7 @@ define internal noundef i32 @mov_read_enda(ptr noundef readonly captures(none) %
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %29, %28, %27, %26, %15
-  %.sink.i = phi i32 [ 65548, %26 ], [ 65544, %27 ], [ 65557, %28 ], [ 65559, %29 ], [ 65536, %15 ]
+  %.sink.i = phi i32 [ 65559, %29 ], [ 65548, %26 ], [ 65544, %27 ], [ 65557, %28 ], [ 65536, %15 ]
   store i32 %.sink.i, ptr %24, align 4, !tbaa !79
   br label %set_last_stream_little_endian.exit
 
@@ -9329,8 +9325,8 @@ define internal range(i32 -1094995529, 1) i32 @mov_read_fiel(ptr noundef readonl
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %26, i32 noundef 16, ptr noundef nonnull @.str.75, i32 noundef %19) #17
   br label %.thread
 
-.thread:                                          ; preds = %21, %18, %24, %23, %22, %25, %.fold.split
-  %.020 = phi i32 [ 0, %25 ], [ 0, %.fold.split ], [ 1, %18 ], [ 5, %24 ], [ 4, %23 ], [ 3, %22 ], [ 2, %21 ]
+.thread:                                          ; preds = %21, %24, %23, %22, %18, %25, %.fold.split
+  %.020 = phi i32 [ 0, %.fold.split ], [ 0, %25 ], [ 5, %24 ], [ 4, %23 ], [ 3, %22 ], [ 1, %18 ], [ 2, %21 ]
   %27 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !49
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 96
@@ -9586,7 +9582,7 @@ define internal range(i32 -2147483648, 1) i32 @mov_read_ftyp(ptr noundef capture
   br label %49
 
 49:                                               ; preds = %42, %48, %34, %22, %14, %4, %41, %18
-  %.0 = phi i32 [ 0, %18 ], [ %39, %41 ], [ %7, %4 ], [ -1094995529, %14 ], [ -1094995529, %22 ], [ -12, %34 ], [ 0, %48 ], [ 0, %42 ]
+  %.0 = phi i32 [ -1094995529, %22 ], [ %7, %4 ], [ 0, %18 ], [ -1094995529, %14 ], [ %39, %41 ], [ -12, %34 ], [ 0, %48 ], [ 0, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -9723,7 +9719,7 @@ define internal range(i32 -2147483648, 1) i32 @mov_read_hdlr(ptr noundef capture
   br label %77
 
 77:                                               ; preds = %47, %76, %55, %53, %20, %22, %62
-  %.0 = phi i32 [ %60, %62 ], [ 0, %22 ], [ 0, %20 ], [ -1094995529, %53 ], [ -12, %55 ], [ 0, %76 ], [ 0, %47 ]
+  %.0 = phi i32 [ -1094995529, %53 ], [ 0, %20 ], [ %60, %62 ], [ -12, %55 ], [ 0, %22 ], [ 0, %76 ], [ 0, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -9851,7 +9847,7 @@ define internal range(i32 -1163346256, 1) i32 @mov_read_mdhd(ptr noundef readonl
   br label %54
 
 54:                                               ; preds = %4, %52, %26, %22
-  %.0 = phi i32 [ -1094995529, %22 ], [ -1163346256, %26 ], [ 0, %52 ], [ 0, %4 ]
+  %.0 = phi i32 [ 0, %52 ], [ -1094995529, %22 ], [ -1163346256, %26 ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -10589,7 +10585,7 @@ get_curr_st.exit:                                 ; preds = %40, %28
   br label %get_curr_st.exit.thread
 
 get_curr_st.exit.thread:                          ; preds = %43, %34, %heif_cur_item.exit, %142, %.critedge, %126, %114, %get_curr_st.exit
-  %.0 = phi i32 [ 0, %get_curr_st.exit ], [ 0, %114 ], [ -12, %126 ], [ %spec.select, %142 ], [ 0, %.critedge ], [ 0, %heif_cur_item.exit ], [ 0, %34 ], [ 0, %43 ]
+  %.0 = phi i32 [ -12, %126 ], [ 0, %114 ], [ 0, %get_curr_st.exit ], [ %spec.select, %142 ], [ 0, %.critedge ], [ 0, %heif_cur_item.exit ], [ 0, %34 ], [ 0, %43 ]
   ret i32 %.0
 }
 
@@ -10629,7 +10625,7 @@ define internal range(i32 -1163346256, 1) i32 @mov_read_sbas(ptr noundef readonl
   br label %27
 
 27:                                               ; preds = %4, %13, %12
-  %.0 = phi i32 [ -1163346256, %12 ], [ 0, %13 ], [ 0, %4 ]
+  %.0 = phi i32 [ 0, %13 ], [ -1163346256, %12 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -10985,7 +10981,7 @@ select.unfold:                                    ; preds = %130, %102
   br label %.thread180
 
 .thread180:                                       ; preds = %get_frag_stream_info.exit.thread, %98, %107, %130, %128, %121, %69, %.loopexit, %56, %52, %40, %._crit_edge, %16
-  %.0 = phi i32 [ 0, %16 ], [ -1094995529, %40 ], [ 0, %._crit_edge ], [ -1094995529, %52 ], [ -1094995529, %56 ], [ 0, %.loopexit ], [ -1163346256, %69 ], [ %129, %128 ], [ %122, %121 ], [ 0, %130 ], [ 0, %107 ], [ -1094995529, %98 ], [ -1094995529, %get_frag_stream_info.exit.thread ]
+  %.0 = phi i32 [ 0, %16 ], [ -1094995529, %40 ], [ 0, %._crit_edge ], [ -1094995529, %52 ], [ %122, %121 ], [ -1094995529, %56 ], [ -1163346256, %69 ], [ 0, %.loopexit ], [ 0, %130 ], [ 0, %107 ], [ %129, %128 ], [ -1094995529, %98 ], [ -1094995529, %get_frag_stream_info.exit.thread ]
   ret i32 %.0
 }
 
@@ -11078,7 +11074,7 @@ define internal range(i32 -541478725, 1) i32 @mov_read_stps(ptr noundef readonly
   br label %44
 
 44:                                               ; preds = %.critedge, %30, %11, %42, %10
-  %.0 = phi i32 [ 0, %10 ], [ -541478725, %42 ], [ 0, %11 ], [ -12, %30 ], [ 0, %.critedge ]
+  %.0 = phi i32 [ 0, %10 ], [ 0, %11 ], [ -541478725, %42 ], [ -12, %30 ], [ 0, %.critedge ]
   ret i32 %.0
 }
 
@@ -11115,7 +11111,7 @@ define internal range(i32 -2147483648, 1) i32 @mov_read_strf(ptr noundef readonl
   br label %27
 
 27:                                               ; preds = %13, %11, %4
-  %.0 = phi i32 [ 0, %4 ], [ -1094995529, %11 ], [ %., %13 ]
+  %.0 = phi i32 [ -1094995529, %11 ], [ 0, %4 ], [ %., %13 ]
   ret i32 %.0
 }
 
@@ -11221,8 +11217,8 @@ define internal range(i32 -1094995529, 1) i32 @mov_read_stsc(ptr noundef readonl
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph172, %.preheader, %..critedge.split.loop.exit164_crit_edge
-  %60 = phi ptr [ %56, %..critedge.split.loop.exit164_crit_edge ], [ %43, %.preheader ], [ %56, %.lr.ph172 ]
-  %.0120.lcssa = phi i32 [ %59, %..critedge.split.loop.exit164_crit_edge ], [ 0, %.preheader ], [ %26, %.lr.ph172 ]
+  %60 = phi ptr [ %43, %.preheader ], [ %56, %..critedge.split.loop.exit164_crit_edge ], [ %56, %.lr.ph172 ]
+  %.0120.lcssa = phi i32 [ 0, %.preheader ], [ %59, %..critedge.split.loop.exit164_crit_edge ], [ %26, %.lr.ph172 ]
   store i32 %.0120.lcssa, ptr %42, align 8, !tbaa !167
   %.not135145 = icmp eq i32 %.0120.lcssa, 0
   br i1 %.not135145, label %._crit_edge, label %.lr.ph.preheader
@@ -11391,7 +11387,7 @@ define internal range(i32 -1094995529, 1) i32 @mov_read_stsc(ptr noundef readonl
   br label %146
 
 146:                                              ; preds = %._crit_edge, %41, %31, %15, %11, %144, %39, %10
-  %.0 = phi i32 [ 0, %10 ], [ 0, %39 ], [ -541478725, %144 ], [ 0, %11 ], [ -1094995529, %15 ], [ 0, %31 ], [ -12, %41 ], [ 0, %._crit_edge ]
+  %.0 = phi i32 [ 0, %10 ], [ -1094995529, %15 ], [ 0, %11 ], [ 0, %39 ], [ -541478725, %144 ], [ -12, %41 ], [ 0, %31 ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -11528,7 +11524,7 @@ define internal range(i32 -2147483648, 1) i32 @mov_read_stsd(ptr noundef %0, ptr
   br label %76
 
 76:                                               ; preds = %52, %36, %4, %.loopexit, %64, %34, %29
-  %.049 = phi i32 [ -1094995529, %29 ], [ -1094995529, %34 ], [ %.050, %.loopexit ], [ %65, %64 ], [ 0, %4 ], [ -12, %36 ], [ -12, %52 ]
+  %.049 = phi i32 [ 0, %4 ], [ -1094995529, %29 ], [ -1094995529, %34 ], [ %.050, %.loopexit ], [ %65, %64 ], [ -12, %36 ], [ -12, %52 ]
   ret i32 %.049
 }
 
@@ -11648,7 +11644,7 @@ define internal range(i32 -1094995529, 1) i32 @mov_read_stss(ptr noundef readonl
   br label %60
 
 60:                                               ; preds = %.critedge, %45, %43, %28, %32, %37, %11, %58, %10
-  %.0 = phi i32 [ 0, %10 ], [ -541478725, %58 ], [ 0, %11 ], [ 0, %37 ], [ 0, %32 ], [ 0, %28 ], [ -1094995529, %43 ], [ -12, %45 ], [ 0, %.critedge ]
+  %.0 = phi i32 [ 0, %10 ], [ 0, %11 ], [ 0, %28 ], [ -541478725, %58 ], [ -12, %45 ], [ -1094995529, %43 ], [ 0, %37 ], [ 0, %32 ], [ 0, %.critedge ]
   ret i32 %.0
 }
 
@@ -11886,7 +11882,7 @@ get_bits_long.exit:                               ; preds = %75, %128
   br label %132
 
 132:                                              ; preds = %58, %51, %50, %38, %11, %.split96.us, %.split94.us, %73, %69, %48, %10
-  %.0 = phi i32 [ 0, %10 ], [ -1094995529, %48 ], [ 0, %73 ], [ -1094995529, %.split94.us ], [ 0, %.split96.us ], [ -12, %69 ], [ 0, %11 ], [ 0, %38 ], [ 0, %50 ], [ -1094995529, %51 ], [ -12, %58 ]
+  %.0 = phi i32 [ 0, %10 ], [ 0, %38 ], [ 0, %11 ], [ -1094995529, %48 ], [ 0, %50 ], [ 0, %73 ], [ -1094995529, %.split94.us ], [ 0, %.split96.us ], [ -12, %69 ], [ -1094995529, %51 ], [ -12, %58 ]
   ret i32 %.0
 }
 
@@ -12078,9 +12074,9 @@ define internal range(i32 -541478725, 1) i32 @mov_read_stts(ptr noundef readonly
   br i1 %exitcond.not, label %.critedge, label %42, !llvm.loop !484
 
 .critedge:                                        ; preds = %42, %109
-  %.0129.lcssa = phi i64 [ %.0129166, %42 ], [ %114, %109 ]
-  %.0127.lcssa = phi i64 [ %.0127167, %42 ], [ %113, %109 ]
-  %.0126.lcssa = phi i32 [ %44, %42 ], [ %26, %109 ]
+  %.0129.lcssa = phi i64 [ %114, %109 ], [ %.0129166, %42 ]
+  %.0127.lcssa = phi i64 [ %113, %109 ], [ %.0127167, %42 ]
+  %.0126.lcssa = phi i32 [ %26, %109 ], [ %44, %42 ]
   store i32 %.0126.lcssa, ptr %36, align 8, !tbaa !166
   %115 = icmp sgt i64 %.0127.lcssa, 0
   br i1 %115, label %116, label %129
@@ -12171,7 +12167,7 @@ define internal range(i32 -541478725, 1) i32 @mov_read_stts(ptr noundef readonly
   br label %155
 
 155:                                              ; preds = %.thread, %35, %11, %153, %134, %10
-  %.0 = phi i32 [ 0, %10 ], [ -541478725, %134 ], [ 0, %153 ], [ 0, %11 ], [ -12, %35 ], [ -12, %.thread ]
+  %.0 = phi i32 [ 0, %10 ], [ 0, %153 ], [ 0, %11 ], [ -12, %.thread ], [ -541478725, %134 ], [ -12, %35 ]
   ret i32 %.0
 }
 
@@ -12252,7 +12248,7 @@ define internal range(i32 -12, 1) i32 @mov_read_sdtp(ptr noundef readonly captur
   br label %43
 
 43:                                               ; preds = %30, %4, %.critedge
-  %.0 = phi i32 [ 0, %.critedge ], [ 0, %4 ], [ -12, %30 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %.critedge ], [ -12, %30 ]
   ret i32 %.0
 }
 
@@ -12499,7 +12495,7 @@ define internal range(i32 -1094995529, 1) i32 @mov_read_tkhd(ptr noundef readonl
   br label %146
 
 146:                                              ; preds = %.critedge, %138, %143, %.loopexit, %118, %113, %12, %4
-  %.0 = phi i32 [ 0, %4 ], [ -1094995529, %12 ], [ -12, %113 ], [ 0, %118 ], [ 0, %.loopexit ], [ 0, %143 ], [ 0, %138 ], [ 0, %.critedge ]
+  %.0 = phi i32 [ -1094995529, %12 ], [ 0, %4 ], [ -12, %113 ], [ 0, %.loopexit ], [ 0, %118 ], [ 0, %143 ], [ 0, %138 ], [ 0, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -12616,7 +12612,7 @@ get_current_frag_stream_info.exit:                ; preds = %52
   store i64 %.0, ptr %61, align 8, !tbaa !497
   br label %get_current_frag_stream_info.exit.thread
 
-get_current_frag_stream_info.exit.thread:         ; preds = %44, %52, %37, %41, %58, %get_current_frag_stream_info.exit
+get_current_frag_stream_info.exit.thread:         ; preds = %44, %52, %41, %37, %58, %get_current_frag_stream_info.exit
   %62 = getelementptr inbounds nuw i8, ptr %18, i64 1368
   store i64 %.0, ptr %62, align 8, !tbaa !460
   br label %63
@@ -12858,8 +12854,8 @@ get_current_frag_stream_info.exit:                ; preds = %111
   store i32 %121, ptr %122, align 8, !tbaa !344
   br label %get_current_frag_stream_info.exit.thread
 
-get_current_frag_stream_info.exit.thread:         ; preds = %103, %111, %93, %100, %get_current_frag_stream_info.exit, %117, %4, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ -1094995529, %4 ], [ 0, %117 ], [ 0, %get_current_frag_stream_info.exit ], [ 0, %100 ], [ 0, %93 ], [ 0, %111 ], [ 0, %103 ]
+get_current_frag_stream_info.exit.thread:         ; preds = %103, %111, %100, %93, %get_current_frag_stream_info.exit, %117, %4, %._crit_edge
+  %.0 = phi i32 [ -1094995529, %4 ], [ 0, %._crit_edge ], [ 0, %117 ], [ 0, %get_current_frag_stream_info.exit ], [ 0, %93 ], [ 0, %100 ], [ 0, %111 ], [ 0, %103 ]
   ret i32 %.0
 }
 
@@ -12998,9 +12994,9 @@ define internal range(i32 -2147483648, 1) i32 @mov_read_trak(ptr noundef %0, ptr
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %62, i32 noundef 16, ptr noundef nonnull @.str.161, i32 noundef %61) #17
   br label %mov_update_iamf_streams.exit
 
-73:                                               ; preds = %56, %53, %47, %41
-  %.ph = phi i32 [ %42, %41 ], [ %42, %47 ], [ %42, %53 ], [ %57, %56 ]
-  %.ph207 = phi ptr [ %43, %41 ], [ %43, %47 ], [ %43, %53 ], [ %58, %56 ]
+73:                                               ; preds = %41, %56, %53, %47
+  %.ph = phi i32 [ %42, %47 ], [ %42, %53 ], [ %57, %56 ], [ %42, %41 ]
+  %.ph207 = phi ptr [ %43, %47 ], [ %43, %53 ], [ %58, %56 ], [ %43, %41 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %.ph207, i32 noundef 16, ptr noundef nonnull @.str.160, i32 noundef %.ph) #17
   br label %mov_update_iamf_streams.exit
 
@@ -13188,7 +13184,7 @@ fix_timescale.exit:                               ; preds = %74, %79
   br label %168
 
 168:                                              ; preds = %159, %132
-  %169 = phi i32 [ %.pre.i203, %159 ], [ %133, %132 ]
+  %169 = phi i32 [ %133, %132 ], [ %.pre.i203, %159 ]
   %indvars.iv.next87.i = add nuw nsw i64 %indvars.iv86.i, 1
   %170 = zext i32 %169 to i64
   %171 = icmp samesign ult i64 %indvars.iv.next87.i, %170
@@ -13543,7 +13539,7 @@ mov_update_iamf_streams.exit.thread:              ; preds = %._crit_edge79.i, %9
   br label %mov_update_iamf_streams.exit
 
 mov_update_iamf_streams.exit:                     ; preds = %155, %73, %72, %314, %11, %8, %4, %.critedge2.thread
-  %.0158 = phi i32 [ 0, %.critedge2.thread ], [ -12, %4 ], [ -12, %8 ], [ %22, %11 ], [ %315, %314 ], [ 0, %73 ], [ -1094995529, %72 ], [ -12, %155 ]
+  %.0158 = phi i32 [ -12, %8 ], [ %315, %314 ], [ %22, %11 ], [ 0, %.critedge2.thread ], [ -1094995529, %72 ], [ -12, %4 ], [ 0, %73 ], [ -12, %155 ]
   ret i32 %.0158
 }
 
@@ -13677,7 +13673,7 @@ define internal range(i32 -2147483648, 1) i32 @mov_read_trex(ptr noundef %0, ptr
   br label %35
 
 35:                                               ; preds = %4, %15, %14
-  %.0 = phi i32 [ %12, %14 ], [ 0, %15 ], [ -1094995529, %4 ]
+  %.0 = phi i32 [ 0, %15 ], [ %12, %14 ], [ -1094995529, %4 ]
   ret i32 %.0
 }
 
@@ -14002,7 +13998,7 @@ get_current_frag_stream_info.exit:                ; preds = %97
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %159, i32 noundef 48, ptr noundef nonnull @.str.212, i64 noundef %158) #17
   br label %166
 
-get_current_frag_stream_info.exit.thread:         ; preds = %89, %97, %84, %87, %get_current_frag_stream_info.exit
+get_current_frag_stream_info.exit.thread:         ; preds = %89, %97, %87, %84, %get_current_frag_stream_info.exit
   %160 = getelementptr inbounds nuw i8, ptr %23, i64 1368
   %161 = load i64, ptr %160, align 8, !tbaa !460
   %162 = getelementptr inbounds nuw i8, ptr %23, i64 208
@@ -14343,7 +14339,7 @@ mov_update_dts_shift.exit.thread:                 ; preds = %282
   store i32 %344, ptr %262, align 8, !tbaa !263
   br label %345
 
-345:                                              ; preds = %342, %340, %333
+345:                                              ; preds = %333, %342, %340
   %346 = add nuw i32 %.2351471, 1
   %exitcond493.not = icmp eq i32 %346, %.0356
   br i1 %exitcond493.not, label %.critedge, label %265, !llvm.loop !554
@@ -14478,7 +14474,7 @@ mov_update_dts_shift.exit.thread:                 ; preds = %282
   br label %.loopexit
 
 .loopexit:                                        ; preds = %302, %409, %417, %189, %180, %178, %.thread414, %28, %407, %._crit_edge, %17
-  %.0326 = phi i32 [ -541478725, %407 ], [ 0, %._crit_edge ], [ -1094995529, %17 ], [ 0, %28 ], [ -1094995529, %.thread414 ], [ 0, %178 ], [ -12, %180 ], [ -12, %189 ], [ 0, %417 ], [ 0, %409 ], [ -1094995529, %302 ]
+  %.0326 = phi i32 [ -1094995529, %17 ], [ 0, %28 ], [ -1094995529, %.thread414 ], [ 0, %409 ], [ -541478725, %407 ], [ -12, %189 ], [ -12, %180 ], [ 0, %178 ], [ 0, %._crit_edge ], [ 0, %417 ], [ -1094995529, %302 ]
   ret i32 %.0326
 }
 
@@ -14580,7 +14576,7 @@ define internal range(i32 -2147483648, 1) i32 @mov_read_wave(ptr noundef %0, ptr
   br label %.thread
 
 61:                                               ; preds = %44, %42, %29
-  %.sroa.2.0 = phi i64 [ %3, %29 ], [ %3, %42 ], [ %37, %44 ]
+  %.sroa.2.0 = phi i64 [ %3, %29 ], [ %37, %44 ], [ %3, %42 ]
   %62 = tail call i32 @mov_read_default(ptr noundef nonnull %0, ptr noundef %1, i32 %2, i64 %.sroa.2.0)
   %63 = icmp slt i32 %62, 0
   br i1 %63, label %.thread, label %66
@@ -14592,8 +14588,8 @@ define internal range(i32 -2147483648, 1) i32 @mov_read_wave(ptr noundef %0, ptr
 66:                                               ; preds = %64, %61, %23
   br label %.thread
 
-.thread:                                          ; preds = %48, %32, %52, %61, %23, %10, %4, %66
-  %.0 = phi i32 [ 0, %66 ], [ 0, %4 ], [ -1094995529, %10 ], [ %25, %23 ], [ %62, %61 ], [ -12, %48 ], [ %33, %32 ], [ 0, %52 ]
+.thread:                                          ; preds = %52, %48, %32, %61, %23, %10, %4, %66
+  %.0 = phi i32 [ %62, %61 ], [ 0, %4 ], [ -1094995529, %10 ], [ 0, %66 ], [ %25, %23 ], [ 0, %52 ], [ -12, %48 ], [ %33, %32 ]
   ret i32 %.0
 }
 
@@ -14847,7 +14843,7 @@ define internal range(i32 -2147483648, 1) i32 @mov_read_ddts(ptr noundef readonl
   br label %86
 
 86:                                               ; preds = %8, %4, %68, %33
-  %.0 = phi i32 [ -1094995529, %33 ], [ 0, %68 ], [ %6, %4 ], [ 0, %8 ]
+  %.0 = phi i32 [ 0, %68 ], [ %6, %4 ], [ -1094995529, %33 ], [ 0, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -14997,7 +14993,7 @@ define internal range(i32 -2147483648, 1) i32 @mov_read_cmov(ptr noundef %0, ptr
   br label %38
 
 38:                                               ; preds = %17, %14, %4, %37, %24, %11
-  %.024 = phi i32 [ -1094995529, %11 ], [ %.0, %37 ], [ -12, %24 ], [ -1094995529, %4 ], [ -1094995529, %14 ], [ -12, %17 ]
+  %.024 = phi i32 [ -1094995529, %14 ], [ -1094995529, %11 ], [ -1094995529, %4 ], [ %.0, %37 ], [ -12, %24 ], [ -12, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.024
@@ -15085,7 +15081,7 @@ define internal i32 @mov_read_chnl(ptr noundef readonly captures(none) %0, ptr n
   br label %40
 
 40:                                               ; preds = %33, %35, %30, %4, %29
-  %.0 = phi i32 [ -1094995529, %29 ], [ 0, %4 ], [ %31, %30 ], [ %31, %35 ], [ %31, %33 ]
+  %.0 = phi i32 [ %31, %30 ], [ -1094995529, %29 ], [ 0, %4 ], [ %31, %35 ], [ %31, %33 ]
   ret i32 %.0
 }
 
@@ -15127,7 +15123,7 @@ define internal range(i32 -2147483648, 1) i32 @mov_read_dvc1(ptr noundef readonl
   br label %29
 
 29:                                               ; preds = %21, %18, %10, %4
-  %.0 = phi i32 [ 0, %4 ], [ -1094995529, %10 ], [ 0, %18 ], [ %., %21 ]
+  %.0 = phi i32 [ 0, %18 ], [ 0, %4 ], [ -1094995529, %10 ], [ %., %21 ]
   ret i32 %.0
 }
 
@@ -15170,7 +15166,7 @@ define internal range(i32 -541478725, 1) i32 @mov_read_sgpd(ptr noundef readonly
   br label %.thread
 
 .thread:                                          ; preds = %22, %25, %27
-  %29 = phi i32 [ %26, %25 ], [ %26, %27 ], [ 0, %22 ]
+  %29 = phi i32 [ %26, %27 ], [ %26, %25 ], [ 0, %22 ]
   %.fr = freeze i32 %29
   %30 = tail call i32 @avio_rb32(ptr noundef %1) #17
   %31 = getelementptr inbounds nuw i8, ptr %18, i64 1408
@@ -15248,7 +15244,7 @@ define internal range(i32 -541478725, 1) i32 @mov_read_sgpd(ptr noundef readonly
   br label %60
 
 60:                                               ; preds = %.critedge, %.thread, %10, %4, %.critedge.thread
-  %.0 = phi i32 [ -541478725, %.critedge.thread ], [ 0, %4 ], [ 0, %10 ], [ -12, %.thread ], [ 0, %.critedge ]
+  %.0 = phi i32 [ 0, %10 ], [ 0, %4 ], [ -541478725, %.critedge.thread ], [ -12, %.thread ], [ 0, %.critedge ]
   ret i32 %.0
 }
 
@@ -15358,7 +15354,7 @@ define internal range(i32 -541478725, 1) i32 @mov_read_sbgp(ptr noundef readonly
   br label %54
 
 54:                                               ; preds = %.critedge, %38, %31, %11, %4, %52
-  %.040 = phi i32 [ -541478725, %52 ], [ 0, %4 ], [ 0, %11 ], [ 0, %31 ], [ -12, %38 ], [ 0, %.critedge ]
+  %.040 = phi i32 [ 0, %4 ], [ -541478725, %52 ], [ -12, %38 ], [ 0, %31 ], [ 0, %11 ], [ 0, %.critedge ]
   ret i32 %.040
 }
 
@@ -15465,7 +15461,7 @@ define internal i32 @mov_read_uuid(ptr noundef captures(none) %0, ptr noundef %1
   br label %60
 
 60:                                               ; preds = %56, %50, %54
-  %.sink = phi i32 [ 0, %54 ], [ 0, %50 ], [ %spec.select, %56 ]
+  %.sink = phi i32 [ 0, %50 ], [ %spec.select, %56 ], [ 0, %54 ]
   %61 = load ptr, ptr %40, align 8, !tbaa !275
   %62 = load i32, ptr %39, align 8, !tbaa !274
   %63 = sext i32 %62 to i64
@@ -15559,7 +15555,7 @@ define internal i32 @mov_read_uuid(ptr noundef captures(none) %0, ptr noundef %1
   br label %.critedge
 
 .critedge:                                        ; preds = %72, %79, %.thread, %89, %14, %8, %4, %84, %98
-  %.0 = phi i32 [ 0, %98 ], [ %87, %84 ], [ -1094995529, %4 ], [ 0, %8 ], [ %23, %14 ], [ %91, %89 ], [ %.1.ph, %.thread ], [ -12, %72 ], [ %77, %79 ]
+  %.0 = phi i32 [ %91, %89 ], [ -1094995529, %4 ], [ 0, %8 ], [ 0, %98 ], [ %.1.ph, %.thread ], [ %87, %84 ], [ %23, %14 ], [ -12, %72 ], [ %77, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -15653,7 +15649,7 @@ define internal range(i32 -2147483648, 1) i32 @mov_read_free(ptr noundef capture
   br label %23
 
 23:                                               ; preds = %12, %15, %18, %22, %7, %4
-  %.0 = phi i32 [ 0, %4 ], [ %10, %7 ], [ 0, %22 ], [ 0, %18 ], [ 0, %15 ], [ 0, %12 ]
+  %.0 = phi i32 [ %10, %7 ], [ 0, %4 ], [ 0, %22 ], [ 0, %18 ], [ 0, %15 ], [ 0, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -15744,8 +15740,8 @@ define internal i32 @mov_read_custom(ptr noundef readonly captures(none) %0, ptr
   br label %57
 
 57:                                               ; preds = %49, %50, %54
-  %.050 = phi ptr [ %5, %50 ], [ %6, %54 ], [ %7, %49 ]
-  %.049 = phi i32 [ %44, %50 ], [ %56, %54 ], [ %44, %49 ]
+  %.050 = phi ptr [ %6, %54 ], [ %5, %50 ], [ %7, %49 ]
+  %.049 = phi i32 [ %56, %54 ], [ %44, %50 ], [ %44, %49 ]
   %58 = load ptr, ptr %.050, align 8, !tbaa !123
   %.not = icmp eq ptr %58, null
   br i1 %.not, label %59, label %.thread
@@ -15779,8 +15775,8 @@ define internal i32 @mov_read_custom(ptr noundef readonly captures(none) %0, ptr
 ..thread.loopexit_crit_edge:                      ; preds = %67
   br label %.thread, !llvm.loop !568
 
-.thread:                                          ; preds = %35, %43, %.lr.ph, %51, %57, %59, %23, %..thread.loopexit_crit_edge, %66
-  %.1 = phi i32 [ %64, %66 ], [ %64, %..thread.loopexit_crit_edge ], [ 0, %23 ], [ -12, %59 ], [ %.0536778, %57 ], [ %.0536778, %51 ], [ %.0536778, %.lr.ph ], [ %.0536778, %43 ], [ %64, %35 ]
+.thread:                                          ; preds = %.lr.ph, %35, %51, %57, %43, %59, %23, %..thread.loopexit_crit_edge, %66
+  %.1 = phi i32 [ %64, %66 ], [ %64, %..thread.loopexit_crit_edge ], [ 0, %23 ], [ -12, %59 ], [ %.0536778, %.lr.ph ], [ %64, %35 ], [ %.0536778, %51 ], [ %.0536778, %57 ], [ %.0536778, %43 ]
   %72 = load ptr, ptr %7, align 8, !tbaa !123
   %73 = icmp ne ptr %72, null
   %74 = load ptr, ptr %5, align 8
@@ -16008,7 +16004,7 @@ define internal range(i32 -2147483648, 1) i32 @mov_read_senc(ptr noundef readonl
   br i1 %49, label %25, label %.preheader
 
 .preheader:                                       ; preds = %48, %40, %43
-  %.14058 = phi i32 [ -1094995529, %43 ], [ -1094995529, %40 ], [ %.039, %48 ]
+  %.14058 = phi i32 [ -1094995529, %40 ], [ -1094995529, %43 ], [ %.039, %48 ]
   %.not4951 = icmp eq i32 %.036, 0
   br i1 %.not4951, label %.loopexit.loopexit, label %.lr.ph.preheader
 
@@ -16035,7 +16031,7 @@ define internal range(i32 -2147483648, 1) i32 @mov_read_senc(ptr noundef readonl
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %15, %4, %55, %12
-  %.0 = phi i32 [ 0, %12 ], [ 0, %55 ], [ %8, %4 ], [ -12, %15 ], [ %.14058, %.loopexit.loopexit ]
+  %.0 = phi i32 [ 0, %55 ], [ 0, %12 ], [ %8, %4 ], [ -12, %15 ], [ %.14058, %.loopexit.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -16194,7 +16190,7 @@ define internal i32 @mov_read_saiz(ptr noundef readonly captures(none) %0, ptr n
   br label %78
 
 78:                                               ; preds = %73, %62, %60, %48, %40, %4, %76, %68, %45, %37, %33, %18, %12
-  %.0 = phi i32 [ 0, %12 ], [ -1094995529, %18 ], [ 0, %33 ], [ 0, %37 ], [ %spec.store.select, %68 ], [ %77, %76 ], [ -1094995529, %45 ], [ %8, %4 ], [ 0, %40 ], [ 0, %48 ], [ -1094995529, %60 ], [ -12, %62 ], [ 0, %73 ]
+  %.0 = phi i32 [ 0, %40 ], [ 0, %12 ], [ -1094995529, %18 ], [ 0, %33 ], [ 0, %37 ], [ 0, %48 ], [ %spec.store.select, %68 ], [ %77, %76 ], [ -12, %62 ], [ -1094995529, %60 ], [ -1094995529, %45 ], [ %8, %4 ], [ 0, %73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -16425,7 +16421,7 @@ define internal range(i32 -2147483648, 1) i32 @mov_read_saio(ptr noundef readonl
   br label %110
 
 110:                                              ; preds = %.thread, %105, %52, %48, %40, %4, %108, %101, %45, %37, %33, %18, %12
-  %.0 = phi i32 [ 0, %12 ], [ -1094995529, %18 ], [ 0, %33 ], [ 0, %37 ], [ -1094995529, %101 ], [ %109, %108 ], [ -1094995529, %45 ], [ %8, %4 ], [ 0, %40 ], [ 0, %48 ], [ -12, %52 ], [ 0, %105 ], [ -12, %.thread ]
+  %.0 = phi i32 [ 0, %40 ], [ 0, %12 ], [ -1094995529, %18 ], [ 0, %33 ], [ 0, %37 ], [ 0, %48 ], [ -12, %.thread ], [ -1094995529, %101 ], [ %109, %108 ], [ -12, %52 ], [ -1094995529, %45 ], [ %8, %4 ], [ 0, %105 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -16609,14 +16605,14 @@ define internal i32 @mov_read_pssh(ptr noundef readonly captures(none) %0, ptr n
   call void @av_free(ptr noundef nonnull %83) #17
   br label %.critedge
 
-.critedge:                                        ; preds = %44, %37, %51, %82, %73, %55, %29, %84, %90, %61, %.thread, %26
-  %.081 = phi i32 [ %24, %26 ], [ -1094995529, %.thread ], [ %spec.store.select, %61 ], [ %56, %84 ], [ %56, %90 ], [ -12, %29 ], [ -12, %55 ], [ -12, %73 ], [ -12, %82 ], [ %49, %51 ], [ -12, %37 ], [ -12, %44 ]
-  %.079 = phi ptr [ %21, %26 ], [ %21, %.thread ], [ %21, %61 ], [ %.180, %84 ], [ %.180, %90 ], [ %21, %29 ], [ %21, %55 ], [ %21, %73 ], [ %.180, %82 ], [ %21, %51 ], [ %21, %37 ], [ %21, %44 ]
+.critedge:                                        ; preds = %37, %44, %51, %82, %73, %55, %29, %84, %90, %61, %.thread, %26
+  %.081 = phi i32 [ %24, %26 ], [ -12, %82 ], [ -1094995529, %.thread ], [ %spec.store.select, %61 ], [ %56, %84 ], [ %56, %90 ], [ -12, %73 ], [ -12, %55 ], [ -12, %29 ], [ %49, %51 ], [ -12, %44 ], [ -12, %37 ]
+  %.079 = phi ptr [ %21, %26 ], [ %.180, %82 ], [ %21, %.thread ], [ %21, %61 ], [ %.180, %84 ], [ %.180, %90 ], [ %21, %73 ], [ %21, %55 ], [ %21, %29 ], [ %21, %51 ], [ %21, %44 ], [ %21, %37 ]
   call void @av_encryption_init_info_free(ptr noundef nonnull %.079) #17
   br label %91
 
 91:                                               ; preds = %12, %4, %.critedge
-  %.076 = phi i32 [ %.081, %.critedge ], [ 0, %4 ], [ -12, %12 ]
+  %.076 = phi i32 [ 0, %4 ], [ %.081, %.critedge ], [ -12, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.076
@@ -16673,7 +16669,7 @@ define internal range(i32 -1163346256, 1) i32 @mov_read_schm(ptr noundef readonl
   br label %33
 
 33:                                               ; preds = %28, %22, %4, %30, %21
-  %.0 = phi i32 [ -1163346256, %21 ], [ 0, %30 ], [ 0, %4 ], [ -1094995529, %22 ], [ -12, %28 ]
+  %.0 = phi i32 [ -1094995529, %22 ], [ -1163346256, %21 ], [ 0, %4 ], [ 0, %30 ], [ -12, %28 ]
   ret i32 %.0
 }
 
@@ -16817,7 +16813,7 @@ define internal range(i32 -1163346256, 1) i32 @mov_read_tenc(ptr noundef readonl
   br label %73
 
 73:                                               ; preds = %59, %60, %66, %45, %27, %25, %4, %71, %64, %57, %50, %21
-  %.0 = phi i32 [ -1163346256, %21 ], [ -1094995529, %50 ], [ -1094995529, %57 ], [ -1094995529, %64 ], [ -1094995529, %71 ], [ 0, %4 ], [ -12, %25 ], [ -1094995529, %27 ], [ -12, %45 ], [ 0, %66 ], [ 0, %60 ], [ 0, %59 ]
+  %.0 = phi i32 [ 0, %4 ], [ -1163346256, %21 ], [ -12, %25 ], [ -1094995529, %50 ], [ -1094995529, %57 ], [ -12, %45 ], [ -1094995529, %64 ], [ -1094995529, %71 ], [ -1094995529, %27 ], [ 0, %66 ], [ 0, %60 ], [ 0, %59 ]
   ret i32 %.0
 }
 
@@ -16906,7 +16902,7 @@ define internal range(i32 -2147483648, 1) i32 @mov_read_dfla(ptr noundef readonl
   br label %57
 
 57:                                               ; preds = %54, %55, %49, %19, %11, %4, %48, %24
-  %.0 = phi i32 [ %spec.select, %24 ], [ -1094995529, %48 ], [ 0, %4 ], [ -1094995529, %11 ], [ -1094995529, %19 ], [ %52, %49 ], [ 0, %55 ], [ 0, %54 ]
+  %.0 = phi i32 [ %52, %49 ], [ 0, %4 ], [ -1094995529, %11 ], [ %spec.select, %24 ], [ -1094995529, %48 ], [ -1094995529, %19 ], [ 0, %55 ], [ 0, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -16968,7 +16964,7 @@ switch.lookup:                                    ; preds = %24
   br label %34
 
 34:                                               ; preds = %switch.lookup, %21, %4, %33, %28, %20
-  %.0 = phi i32 [ -1094995529, %20 ], [ 0, %28 ], [ 0, %33 ], [ 0, %4 ], [ -1094995529, %21 ], [ -12, %switch.lookup ]
+  %.0 = phi i32 [ -1094995529, %21 ], [ -1094995529, %20 ], [ 0, %4 ], [ 0, %28 ], [ 0, %33 ], [ -12, %switch.lookup ]
   ret i32 %.0
 }
 
@@ -17187,7 +17183,7 @@ define internal range(i32 -1094995529, 1) i32 @mov_read_sv3d(ptr noundef readonl
   br label %110
 
 110:                                              ; preds = %97, %59, %47, %35, %22, %4, %101, %94, %87, %76, %70, %57, %53, %45, %33, %29, %21
-  %.0104 = phi i32 [ -1094995529, %21 ], [ 0, %29 ], [ 0, %33 ], [ 0, %45 ], [ 0, %53 ], [ 0, %57 ], [ 0, %70 ], [ 0, %94 ], [ 0, %76 ], [ 0, %101 ], [ -1094995529, %87 ], [ 0, %4 ], [ -1094995529, %22 ], [ -1094995529, %35 ], [ -1094995529, %47 ], [ -1094995529, %59 ], [ -12, %97 ]
+  %.0104 = phi i32 [ -1094995529, %87 ], [ -1094995529, %21 ], [ 0, %4 ], [ 0, %29 ], [ 0, %33 ], [ -1094995529, %22 ], [ 0, %45 ], [ -1094995529, %35 ], [ 0, %53 ], [ 0, %57 ], [ -1094995529, %47 ], [ 0, %70 ], [ 0, %94 ], [ 0, %76 ], [ 0, %101 ], [ -1094995529, %59 ], [ -12, %97 ]
   ret i32 %.0104
 }
 
@@ -17302,7 +17298,7 @@ define internal range(i32 -1094995529, 1) i32 @mov_read_vexu(ptr noundef readonl
   br label %mov_read_vexu_proj.exit.thread
 
 56:                                               ; preds = %53, %52, %51, %47
-  %.0.i = phi i32 [ 0, %51 ], [ 3, %52 ], [ 5, %53 ], [ 4, %47 ]
+  %.0.i = phi i32 [ 5, %53 ], [ 0, %51 ], [ 3, %52 ], [ 4, %47 ]
   %57 = getelementptr inbounds nuw i8, ptr %36, i64 1536
   %58 = tail call ptr @av_spherical_alloc(ptr noundef nonnull %57) #17
   %59 = getelementptr inbounds nuw i8, ptr %36, i64 1528
@@ -17498,13 +17494,13 @@ define internal range(i32 -1094995529, 1) i32 @mov_read_vexu(ptr noundef readonl
   br label %.thread155.i
 
 .thread155.i:                                     ; preds = %96, %134, %130, %115, %100, %.thread.i
-  %.sroa.0.1.i = phi i32 [ %.sroa.0.0248.i, %134 ], [ %.sroa.0.0248.i, %115 ], [ %133, %130 ], [ %.sroa.0.0248.i, %.thread.i ], [ %.sroa.0.0248.i, %100 ], [ %.sroa.0.0248.i, %96 ]
-  %.sroa.5.1.i = phi i32 [ %.sroa.5.0249.i, %134 ], [ %.sroa.5.0249.i, %115 ], [ 10000, %130 ], [ %.sroa.5.0249.i, %.thread.i ], [ %.sroa.5.0249.i, %100 ], [ %.sroa.5.0249.i, %96 ]
-  %.1123.i = phi i32 [ %.0122250.i, %134 ], [ %.0122250.i, %115 ], [ %.0122250.i, %130 ], [ %.0122250.i, %.thread.i ], [ %.0122250.i, %100 ], [ %99, %96 ]
-  %.3121.i = phi i32 [ %.0118251.i, %134 ], [ %.0118251.i, %115 ], [ %.0118251.i, %130 ], [ %spec.select150.i, %.thread.i ], [ %.0118251.i, %100 ], [ %.0118251.i, %96 ]
-  %.3117.i = phi i32 [ %.0114252.i, %134 ], [ %.0114252.i, %115 ], [ %.0114252.i, %130 ], [ %.2116.i, %.thread.i ], [ %.0114252.i, %100 ], [ %.0114252.i, %96 ]
-  %.1112.i = phi i32 [ %.0111253.i, %134 ], [ %118, %115 ], [ %.0111253.i, %130 ], [ %.0111253.i, %.thread.i ], [ %.0111253.i, %100 ], [ %.0111253.i, %96 ]
-  %.3109.i = phi i32 [ %.0106255.i, %134 ], [ %.0106255.i, %115 ], [ %.0106255.i, %130 ], [ %spec.select.i, %.thread.i ], [ %.0106255.i, %100 ], [ %.0106255.i, %96 ]
+  %.sroa.0.1.i = phi i32 [ %.sroa.0.0248.i, %134 ], [ %.sroa.0.0248.i, %.thread.i ], [ %133, %130 ], [ %.sroa.0.0248.i, %115 ], [ %.sroa.0.0248.i, %96 ], [ %.sroa.0.0248.i, %100 ]
+  %.sroa.5.1.i = phi i32 [ %.sroa.5.0249.i, %134 ], [ %.sroa.5.0249.i, %.thread.i ], [ 10000, %130 ], [ %.sroa.5.0249.i, %115 ], [ %.sroa.5.0249.i, %96 ], [ %.sroa.5.0249.i, %100 ]
+  %.1123.i = phi i32 [ %.0122250.i, %134 ], [ %.0122250.i, %.thread.i ], [ %.0122250.i, %130 ], [ %.0122250.i, %115 ], [ %99, %96 ], [ %.0122250.i, %100 ]
+  %.3121.i = phi i32 [ %.0118251.i, %134 ], [ %spec.select150.i, %.thread.i ], [ %.0118251.i, %130 ], [ %.0118251.i, %115 ], [ %.0118251.i, %96 ], [ %.0118251.i, %100 ]
+  %.3117.i = phi i32 [ %.0114252.i, %134 ], [ %.2116.i, %.thread.i ], [ %.0114252.i, %130 ], [ %.0114252.i, %115 ], [ %.0114252.i, %96 ], [ %.0114252.i, %100 ]
+  %.1112.i = phi i32 [ %.0111253.i, %134 ], [ %.0111253.i, %.thread.i ], [ %.0111253.i, %130 ], [ %118, %115 ], [ %.0111253.i, %96 ], [ %.0111253.i, %100 ]
+  %.3109.i = phi i32 [ %.0106255.i, %134 ], [ %spec.select.i, %.thread.i ], [ %.0106255.i, %130 ], [ %.0106255.i, %115 ], [ %.0106255.i, %96 ], [ %.0106255.i, %100 ]
   %139 = sub nsw i64 %.0110254.i, %79
   %140 = icmp sgt i64 %139, 0
   br i1 %140, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !604
@@ -17573,8 +17569,8 @@ mov_read_vexu_proj.exit:                          ; preds = %152, %144, %65, %61
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %167, i32 noundef 16, ptr noundef nonnull @.str.293) #17
   br label %mov_read_vexu_proj.exit.thread
 
-mov_read_vexu_proj.exit.thread:                   ; preds = %149, %56, %128, %124, %120, %113, %109, %105, %142, %102, %93, %81, %54, %45, %41, %37, %165, %4, %166, %18, %12
-  %.0 = phi i32 [ -1094995529, %12 ], [ -1094995529, %18 ], [ -1094995529, %166 ], [ 0, %4 ], [ 0, %165 ], [ -1094995529, %54 ], [ -1094995529, %45 ], [ -1094995529, %41 ], [ -1094995529, %37 ], [ -1094995529, %128 ], [ -1094995529, %124 ], [ -1094995529, %120 ], [ -1094995529, %113 ], [ -1094995529, %109 ], [ -1094995529, %105 ], [ -1094995529, %142 ], [ -1094995529, %102 ], [ -1094995529, %93 ], [ -1094995529, %81 ], [ -12, %56 ], [ -12, %149 ]
+mov_read_vexu_proj.exit.thread:                   ; preds = %149, %56, %128, %124, %120, %109, %105, %142, %113, %102, %93, %81, %54, %45, %41, %37, %165, %4, %166, %18, %12
+  %.0 = phi i32 [ 0, %4 ], [ -1094995529, %12 ], [ -1094995529, %18 ], [ 0, %165 ], [ -1094995529, %37 ], [ -1094995529, %166 ], [ -1094995529, %93 ], [ -1094995529, %54 ], [ -1094995529, %45 ], [ -1094995529, %41 ], [ -1094995529, %128 ], [ -1094995529, %124 ], [ -1094995529, %120 ], [ -1094995529, %109 ], [ -1094995529, %105 ], [ -1094995529, %142 ], [ -1094995529, %113 ], [ -1094995529, %81 ], [ -1094995529, %102 ], [ -12, %56 ], [ -12, %149 ]
   ret i32 %.0
 }
 
@@ -17626,7 +17622,7 @@ define internal range(i32 -1094995529, 1) i32 @mov_read_hfov(ptr noundef readonl
   br label %31
 
 31:                                               ; preds = %23, %4, %26, %19
-  %.0 = phi i32 [ -1094995529, %19 ], [ 0, %26 ], [ 0, %4 ], [ -12, %23 ]
+  %.0 = phi i32 [ 0, %4 ], [ -1094995529, %19 ], [ 0, %26 ], [ -12, %23 ]
   ret i32 %.0
 }
 
@@ -17722,7 +17718,7 @@ define internal range(i32 -2147483648, 1) i32 @mov_read_dops(ptr noundef readonl
   br label %71
 
 71:                                               ; preds = %22, %10, %4, %29, %20
-  %.0 = phi i32 [ -1094995529, %20 ], [ 0, %29 ], [ 0, %4 ], [ -1094995529, %10 ], [ %27, %22 ]
+  %.0 = phi i32 [ 0, %29 ], [ 0, %4 ], [ -1094995529, %20 ], [ -1094995529, %10 ], [ %27, %22 ]
   ret i32 %.0
 }
 
@@ -17902,7 +17898,7 @@ define internal range(i32 -1094995529, 1) i32 @mov_read_smdm(ptr noundef readonl
   br label %57
 
 57:                                               ; preds = %30, %4, %41, %28, %23, %20
-  %.0 = phi i32 [ -1094995529, %20 ], [ 0, %23 ], [ 0, %28 ], [ 0, %41 ], [ -1094995529, %4 ], [ -12, %30 ]
+  %.0 = phi i32 [ -1094995529, %4 ], [ -1094995529, %20 ], [ 0, %23 ], [ 0, %28 ], [ 0, %41 ], [ -12, %30 ]
   ret i32 %.0
 }
 
@@ -17971,7 +17967,7 @@ define internal range(i32 -1094995529, 1) i32 @mov_read_coll(ptr noundef readonl
   br label %40
 
 40:                                               ; preds = %31, %4, %34, %29, %23, %20
-  %.0 = phi i32 [ -1094995529, %20 ], [ 0, %23 ], [ 0, %29 ], [ 0, %34 ], [ -1094995529, %4 ], [ -12, %31 ]
+  %.0 = phi i32 [ -1094995529, %4 ], [ -1094995529, %20 ], [ 0, %23 ], [ 0, %29 ], [ 0, %34 ], [ -12, %31 ]
   ret i32 %.0
 }
 
@@ -18044,7 +18040,7 @@ define internal range(i32 -1094995529, 1) i32 @mov_read_vpcc(ptr noundef readonl
   br label %43
 
 43:                                               ; preds = %23, %4, %31, %21, %18
-  %.028 = phi i32 [ -1094995529, %18 ], [ 0, %21 ], [ 0, %31 ], [ 0, %4 ], [ -1094995529, %23 ]
+  %.028 = phi i32 [ 0, %31 ], [ -1094995529, %18 ], [ 0, %21 ], [ 0, %4 ], [ -1094995529, %23 ]
   ret i32 %.028
 }
 
@@ -18145,7 +18141,7 @@ define internal range(i32 -1094995529, 1) i32 @mov_read_mdcv(ptr noundef readonl
   br label %54
 
 54:                                               ; preds = %25, %4, %38, %24, %20
-  %.0 = phi i32 [ -1094995529, %20 ], [ 0, %24 ], [ 0, %38 ], [ -1094995529, %4 ], [ -12, %25 ]
+  %.0 = phi i32 [ -1094995529, %4 ], [ -1094995529, %20 ], [ 0, %24 ], [ 0, %38 ], [ -12, %25 ]
   ret i32 %.0
 }
 
@@ -18202,7 +18198,7 @@ define internal range(i32 -1094995529, 1) i32 @mov_read_clli(ptr noundef readonl
   br label %34
 
 34:                                               ; preds = %25, %4, %28, %24, %20
-  %.0 = phi i32 [ -1094995529, %20 ], [ 0, %24 ], [ 0, %28 ], [ -1094995529, %4 ], [ -12, %25 ]
+  %.0 = phi i32 [ -1094995529, %4 ], [ -1094995529, %20 ], [ 0, %24 ], [ 0, %28 ], [ -12, %25 ]
   ret i32 %.0
 }
 
@@ -18373,13 +18369,13 @@ define internal i32 @mov_read_kind(ptr noundef readonly captures(none) %0, ptr n
   br i1 %.not54, label %.loopexit58, label %53, !llvm.loop !632
 
 .loopexit58:                                      ; preds = %.loopexit, %42, %40, %32, %38, %30
-  %.043 = phi i32 [ %31, %30 ], [ %39, %38 ], [ -1094995529, %32 ], [ -1094995529, %40 ], [ 0, %42 ], [ 0, %.loopexit ]
+  %.043 = phi i32 [ %31, %30 ], [ -1094995529, %40 ], [ %39, %38 ], [ -1094995529, %32 ], [ 0, %42 ], [ 0, %.loopexit ]
   %71 = call i32 @av_bprint_finalize(ptr noundef nonnull %5, ptr noundef null) #17
   %72 = call i32 @av_bprint_finalize(ptr noundef nonnull %6, ptr noundef null) #17
   br label %73
 
 73:                                               ; preds = %10, %4, %.loopexit58, %26
-  %.0 = phi i32 [ -1094995529, %26 ], [ %.043, %.loopexit58 ], [ -1094995529, %4 ], [ 0, %10 ]
+  %.0 = phi i32 [ %.043, %.loopexit58 ], [ -1094995529, %4 ], [ -1094995529, %26 ], [ 0, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -18533,7 +18529,7 @@ define internal range(i32 -1094995529, 1) i32 @mov_read_SA3D(ptr noundef readonl
   br label %72
 
 72:                                               ; preds = %61, %49, %4, %66, %65, %47, %37, %33, %27, %22, %19
-  %.0 = phi i32 [ -1094995529, %19 ], [ 0, %22 ], [ 0, %27 ], [ 0, %33 ], [ 0, %37 ], [ 0, %47 ], [ 0, %61 ], [ 0, %65 ], [ 0, %66 ], [ 0, %4 ], [ 0, %49 ]
+  %.0 = phi i32 [ 0, %66 ], [ -1094995529, %19 ], [ 0, %22 ], [ 0, %27 ], [ 0, %33 ], [ 0, %37 ], [ 0, %47 ], [ 0, %4 ], [ 0, %61 ], [ 0, %65 ], [ 0, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -18579,7 +18575,7 @@ define internal range(i32 -1094995529, 1) i32 @mov_read_SAND(ptr noundef readonl
   br label %27
 
 27:                                               ; preds = %4, %23, %21, %18
-  %.0 = phi i32 [ -1094995529, %18 ], [ 0, %21 ], [ 0, %23 ], [ 0, %4 ]
+  %.0 = phi i32 [ 0, %23 ], [ -1094995529, %18 ], [ 0, %21 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -18861,7 +18857,7 @@ rb_size.exit110:                                  ; preds = %rb_size.exit106, %1
   br label %.thread146
 
 .thread146:                                       ; preds = %59, %rb_size.exit110, %116, %.thread127, %81, %.thread129, %98, %88, %110, %rb_size.exit106, %67, %86, %30, %._crit_edge, %21, %7
-  %.0 = phi i32 [ 0, %7 ], [ -1163346256, %21 ], [ %129, %._crit_edge ], [ -12, %30 ], [ -1163346256, %86 ], [ -1163346256, %67 ], [ -1094995529, %rb_size.exit106 ], [ -1094995529, %110 ], [ -1094995529, %88 ], [ -1094995529, %98 ], [ -1094995529, %.thread129 ], [ -1094995529, %81 ], [ -1094995529, %59 ], [ -1094995529, %rb_size.exit110 ], [ -12, %116 ], [ -1094995529, %.thread127 ]
+  %.0 = phi i32 [ 0, %7 ], [ -1163346256, %21 ], [ %129, %._crit_edge ], [ -12, %30 ], [ -1163346256, %67 ], [ -1163346256, %86 ], [ -1094995529, %rb_size.exit106 ], [ -1094995529, %110 ], [ -1094995529, %98 ], [ -1094995529, %81 ], [ -1094995529, %59 ], [ -1094995529, %.thread129 ], [ -1094995529, %rb_size.exit110 ], [ -1094995529, %88 ], [ -12, %116 ], [ -1094995529, %.thread127 ]
   ret i32 %.0
 }
 
@@ -18957,7 +18953,7 @@ define internal range(i32 -1094995529, 1) i32 @mov_read_pcmc(ptr noundef readonl
   br label %77
 
 47:                                               ; preds = %40, %36, %42, %41, %37
-  %.sink = phi i32 [ 65545, %42 ], [ 65549, %41 ], [ 65558, %37 ], [ 65556, %36 ], [ 65537, %40 ]
+  %.sink = phi i32 [ 65545, %42 ], [ 65549, %41 ], [ 65556, %36 ], [ 65558, %37 ], [ 65537, %40 ]
   %48 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %49 = load ptr, ptr %48, align 8, !tbaa !49
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
@@ -19005,7 +19001,7 @@ define internal range(i32 -1094995529, 1) i32 @mov_read_pcmc(ptr noundef readonl
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %71, %70, %69, %68, %57
-  %.sink.i = phi i32 [ 65548, %68 ], [ 65544, %69 ], [ 65557, %70 ], [ 65559, %71 ], [ 65536, %57 ]
+  %.sink.i = phi i32 [ 65559, %71 ], [ 65548, %68 ], [ 65544, %69 ], [ 65557, %70 ], [ 65536, %57 ]
   store i32 %.sink.i, ptr %66, align 4, !tbaa !79
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %49, i64 4
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !79
@@ -19021,7 +19017,7 @@ set_last_stream_little_endian.exit:               ; preds = %.sink.split.i, %57,
   br label %77
 
 77:                                               ; preds = %19, %set_last_stream_little_endian.exit, %45, %43, %38, %17, %11
-  %.0 = phi i32 [ -1094995529, %11 ], [ -1094995529, %17 ], [ -1094995529, %38 ], [ 0, %set_last_stream_little_endian.exit ], [ -1094995529, %43 ], [ -1094995529, %45 ], [ -1094995529, %19 ]
+  %.0 = phi i32 [ -1094995529, %11 ], [ -1094995529, %17 ], [ -1094995529, %45 ], [ -1094995529, %38 ], [ 0, %set_last_stream_little_endian.exit ], [ -1094995529, %43 ], [ -1094995529, %19 ]
   ret i32 %.0
 }
 
@@ -19378,7 +19374,7 @@ mov_read_iref_thmb.exit:                          ; preds = %119, %114, %109, %1
   br i1 %.not, label %.critedge, label %21, !llvm.loop !642
 
 .critedge:                                        ; preds = %mov_read_iref_thmb.exit, %21, %26, %.preheader, %18
-  %.0 = phi i32 [ 0, %18 ], [ 0, %.preheader ], [ 0, %mov_read_iref_thmb.exit ], [ -1094995529, %21 ], [ -1094995529, %26 ]
+  %.0 = phi i32 [ 0, %18 ], [ 0, %.preheader ], [ -1094995529, %21 ], [ 0, %mov_read_iref_thmb.exit ], [ -1094995529, %26 ]
   ret i32 %.0
 }
 
@@ -19728,7 +19724,7 @@ define internal range(i32 -2147483648, 1) i32 @mov_read_iprp(ptr noundef %0, ptr
   br i1 %exitcond171.not, label %.thread120thread-pre-split, label %.lr.ph152.split, !llvm.loop !649
 
 .thread120thread-pre-split:                       ; preds = %20, %18, %30, %32, %._crit_edge149.split, %99, %112, %._crit_edge149.split.us.us, %65, %76, %._crit_edge, %49, %54
-  %.3.ph = phi i32 [ 0, %54 ], [ -1094995529, %49 ], [ -1094995529, %._crit_edge ], [ %87, %76 ], [ 0, %._crit_edge149.split.us.us ], [ -1094995529, %65 ], [ %123, %112 ], [ 0, %._crit_edge149.split ], [ -1094995529, %99 ], [ -1094995529, %20 ], [ -1094995529, %32 ], [ -1094995529, %30 ], [ -12, %18 ]
+  %.3.ph = phi i32 [ -1094995529, %99 ], [ 0, %54 ], [ 0, %._crit_edge149.split.us.us ], [ %123, %112 ], [ %87, %76 ], [ -1094995529, %._crit_edge ], [ -1094995529, %49 ], [ -1094995529, %65 ], [ 0, %._crit_edge149.split ], [ -1094995529, %30 ], [ -12, %18 ], [ -1094995529, %32 ], [ -1094995529, %20 ]
   %.pr = load i32, ptr %6, align 4, !tbaa !83
   br label %.thread120
 
@@ -20055,8 +20051,8 @@ heif_add_stream.exit.i:                           ; preds = %150
   store i32 0, ptr %154, align 4, !tbaa !482
   br label %159
 
-mov_read_infe.exit.thread:                        ; preds = %44, %58, %84, %100, %103, %136, %140, %146, %150, %68
-  %.0.i.ph = phi i32 [ %66, %68 ], [ -1094995529, %44 ], [ -1094995529, %58 ], [ -12, %84 ], [ -12, %100 ], [ -12, %103 ], [ -12, %136 ], [ -12, %140 ], [ -12, %146 ], [ -12, %150 ]
+mov_read_infe.exit.thread:                        ; preds = %58, %44, %84, %146, %140, %136, %103, %100, %150, %68
+  %.0.i.ph = phi i32 [ %66, %68 ], [ -1094995529, %58 ], [ -1094995529, %44 ], [ -12, %84 ], [ -12, %146 ], [ -12, %140 ], [ -12, %136 ], [ -12, %103 ], [ -12, %100 ], [ -12, %150 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.lr.ph104
@@ -20115,7 +20111,7 @@ mov_read_infe.exit.thread:                        ; preds = %44, %58, %84, %100,
   br i1 %172, label %160, label %.loopexit, !llvm.loop !655
 
 .loopexit:                                        ; preds = %171, %19, %._crit_edge, %9
-  %.0 = phi i32 [ 0, %9 ], [ 0, %._crit_edge ], [ -12, %19 ], [ %.056, %171 ]
+  %.0 = phi i32 [ 0, %9 ], [ -12, %19 ], [ 0, %._crit_edge ], [ %.056, %171 ]
   ret i32 %.0
 }
 
@@ -20181,7 +20177,7 @@ define internal range(i32 -1094995529, 1) i32 @mov_read_amve(ptr noundef readonl
   br label %36
 
 36:                                               ; preds = %25, %4, %28, %24, %20
-  %.0 = phi i32 [ -1094995529, %20 ], [ 0, %24 ], [ 0, %28 ], [ -1094995529, %4 ], [ -12, %25 ]
+  %.0 = phi i32 [ -1094995529, %4 ], [ -1094995529, %20 ], [ 0, %24 ], [ 0, %28 ], [ -12, %25 ]
   ret i32 %.0
 }
 
@@ -20286,7 +20282,7 @@ mov_realloc_extradata.exit.thread:                ; preds = %34, %mov_realloc_ex
   br label %66
 
 66:                                               ; preds = %24, %21, %10, %4, %50, %mov_realloc_extradata.exit.thread, %32
-  %.0 = phi i32 [ 0, %32 ], [ %.0.i38, %mov_realloc_extradata.exit.thread ], [ 0, %50 ], [ 0, %4 ], [ 0, %10 ], [ -1094995529, %21 ], [ -12, %24 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %10 ], [ 0, %32 ], [ %.0.i38, %mov_realloc_extradata.exit.thread ], [ 0, %50 ], [ -1094995529, %21 ], [ -12, %24 ]
   ret i32 %.0
 }
 
@@ -20728,12 +20724,12 @@ define internal i32 @mov_read_iacb(ptr noundef readonly captures(none) %0, ptr n
   br i1 %234, label %.thread255, label %159
 
 .thread255:                                       ; preds = %.thread243, %80, %115, %139, %146, %163, %159, %._crit_edge333, %219, %.preheader289
-  %.6 = phi i32 [ 0, %.preheader289 ], [ %223, %219 ], [ -12, %163 ], [ 0, %159 ], [ %233, %._crit_edge333 ], [ -12, %115 ], [ %144, %139 ], [ %150, %146 ], [ %153, %.thread243 ], [ -12, %80 ]
+  %.6 = phi i32 [ %144, %139 ], [ 0, %.preheader289 ], [ %223, %219 ], [ %233, %._crit_edge333 ], [ 0, %159 ], [ -12, %163 ], [ -12, %115 ], [ %150, %146 ], [ -12, %80 ], [ %153, %.thread243 ]
   call void @av_dict_free(ptr noundef nonnull %6) #17
   br label %235
 
 235:                                              ; preds = %53, %42, %39, %20, %8, %4, %.thread255, %50, %38, %16
-  %.0175 = phi i32 [ -1094995529, %16 ], [ 0, %38 ], [ %52, %50 ], [ %.6, %.thread255 ], [ -1094995529, %4 ], [ 0, %8 ], [ -1094995529, %20 ], [ -12, %39 ], [ -12, %42 ], [ %58, %53 ]
+  %.0175 = phi i32 [ -1094995529, %20 ], [ -1094995529, %4 ], [ -1094995529, %16 ], [ 0, %8 ], [ 0, %38 ], [ %52, %50 ], [ -12, %42 ], [ -12, %39 ], [ %58, %53 ], [ %.6, %.thread255 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0175
@@ -20831,7 +20827,7 @@ mov_realloc_extradata.exit:                       ; preds = %22
   br label %mov_realloc_extradata.exit.thread
 
 mov_realloc_extradata.exit.thread:                ; preds = %59, %46, %22, %mov_realloc_extradata.exit, %11, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %11 ], [ %30, %mov_realloc_extradata.exit ], [ -1094995529, %22 ], [ %44, %46 ], [ 0, %59 ]
+  %.0 = phi i32 [ %30, %mov_realloc_extradata.exit ], [ 0, %5 ], [ 0, %11 ], [ -1094995529, %22 ], [ %44, %46 ], [ 0, %59 ]
   ret i32 %.0
 }
 
@@ -21170,7 +21166,7 @@ search_frag_moof_offset.exit._crit_edge:          ; preds = %6, %search_frag_moo
   br label %88
 
 88:                                               ; preds = %57, %37, %30, %23, %78
-  %.0 = phi i32 [ -1094995529, %57 ], [ %.0.i88, %78 ], [ %.0.i, %23 ], [ -1, %30 ], [ -1, %37 ]
+  %.0 = phi i32 [ %.0.i, %23 ], [ -1094995529, %57 ], [ %.0.i88, %78 ], [ -1, %30 ], [ -1, %37 ]
   ret i32 %.0
 }
 
@@ -21424,7 +21420,7 @@ define internal fastcc range(i32 -38, 1) i32 @mov_finalize_stsd_codec(ptr nounde
   br label %99
 
 99:                                               ; preds = %36, %54, %60, %66, %67, %95, %97, %53, %49, %88, %71, %16, %33, %27, %22
-  %.0 = phi i32 [ -38, %22 ], [ -12, %33 ], [ -12, %27 ], [ 0, %16 ], [ 0, %71 ], [ 0, %88 ], [ 0, %49 ], [ 0, %53 ], [ 0, %97 ], [ 0, %95 ], [ 0, %67 ], [ 0, %66 ], [ 0, %60 ], [ 0, %54 ], [ 0, %36 ]
+  %.0 = phi i32 [ -12, %27 ], [ -38, %22 ], [ -12, %33 ], [ 0, %16 ], [ 0, %71 ], [ 0, %88 ], [ 0, %49 ], [ 0, %53 ], [ 0, %97 ], [ 0, %95 ], [ 0, %67 ], [ 0, %66 ], [ 0, %60 ], [ 0, %54 ], [ 0, %36 ]
   ret i32 %.0
 }
 
@@ -21852,7 +21848,7 @@ build_open_gop_key_points.exit:                   ; preds = %43, %.get_sgpd_sync
   br label %155
 
 155:                                              ; preds = %149, %128, %131
-  %.1363 = phi i64 [ 0, %131 ], [ 0, %128 ], [ %spec.select571, %149 ]
+  %.1363 = phi i64 [ %spec.select571, %149 ], [ 0, %128 ], [ 0, %131 ]
   br i1 %.not477805, label %156, label %167
 
 156:                                              ; preds = %155
@@ -22226,9 +22222,9 @@ build_open_gop_key_points.exit:                   ; preds = %43, %.get_sgpd_sync
   br label %345
 
 345:                                              ; preds = %342, %330, %333, %335
-  %.3393 = phi i32 [ %.1391660, %335 ], [ %.1391660, %333 ], [ %.1391660, %330 ], [ %spec.select516, %342 ]
-  %.3388 = phi i32 [ %.1386661, %335 ], [ %.1386661, %333 ], [ %spec.select, %330 ], [ %.1386661, %342 ]
-  %.0377 = phi i32 [ 0, %335 ], [ 0, %333 ], [ 1, %330 ], [ 1, %342 ]
+  %.3393 = phi i32 [ %.1391660, %330 ], [ %spec.select516, %342 ], [ %.1391660, %335 ], [ %.1391660, %333 ]
+  %.3388 = phi i32 [ %spec.select, %330 ], [ %.1386661, %342 ], [ %.1386661, %335 ], [ %.1386661, %333 ]
+  %.0377 = phi i32 [ 1, %330 ], [ 1, %342 ], [ 0, %335 ], [ 0, %333 ]
   br i1 %190, label %346, label %359
 
 346:                                              ; preds = %345
@@ -22253,9 +22249,9 @@ build_open_gop_key_points.exit:                   ; preds = %43, %.get_sgpd_sync
   br label %359
 
 359:                                              ; preds = %349, %346, %345
-  %.3403 = phi i32 [ %.1401658, %346 ], [ %.1401658, %345 ], [ %spec.select528, %349 ]
-  %.3398 = phi i32 [ %.1396659, %346 ], [ %.1396659, %345 ], [ %spec.select529, %349 ]
-  %.1378 = phi i32 [ %.0377, %346 ], [ %.0377, %345 ], [ %spec.select517, %349 ]
+  %.3403 = phi i32 [ %.1401658, %345 ], [ %spec.select528, %349 ], [ %.1401658, %346 ]
+  %.3398 = phi i32 [ %.1396659, %345 ], [ %spec.select529, %349 ], [ %.1396659, %346 ]
+  %.1378 = phi i32 [ %.0377, %345 ], [ %spec.select517, %349 ], [ %.0377, %346 ]
   br i1 %.not494, label %368, label %360
 
 360:                                              ; preds = %359
@@ -22383,8 +22379,8 @@ build_open_gop_key_points.exit:                   ; preds = %43, %.get_sgpd_sync
   br label %434
 
 434:                                              ; preds = %.thread, %431
-  %.2415 = phi i32 [ %427, %.thread ], [ %spec.select520, %431 ]
-  %.2374 = phi i32 [ %.1373662, %.thread ], [ %spec.select521, %431 ]
+  %.2415 = phi i32 [ %spec.select520, %431 ], [ %427, %.thread ]
+  %.2374 = phi i32 [ %spec.select521, %431 ], [ %.1373662, %.thread ]
   %435 = add nuw i32 %.0422653, 1
   %436 = load ptr, ptr %239, align 8, !tbaa !169
   %437 = getelementptr inbounds nuw %struct.MOVStsc, ptr %436, i64 %307
@@ -22652,8 +22648,8 @@ build_open_gop_key_points.exit:                   ; preds = %43, %.get_sgpd_sync
   br label %570
 
 570:                                              ; preds = %559, %561, %566
-  %.0360 = phi i32 [ %565, %561 ], [ %569, %566 ], [ %556, %559 ]
-  %.0 = phi i32 [ %.0370., %561 ], [ %567, %566 ], [ %553, %559 ]
+  %.0360 = phi i32 [ %569, %566 ], [ %565, %561 ], [ %556, %559 ]
+  %.0 = phi i32 [ %567, %566 ], [ %.0370., %561 ], [ %553, %559 ]
   %571 = load i32, ptr %509, align 8, !tbaa !233
   %.not508 = icmp ult i32 %571, %.0368.lcssa
   br i1 %.not508, label %574, label %572
@@ -22771,7 +22767,7 @@ build_open_gop_key_points.exit:                   ; preds = %43, %.get_sgpd_sync
   tail call fastcc void @mov_estimate_video_delay(ptr noundef nonnull %0, ptr noundef nonnull %1)
   br label %.critedge523
 
-.critedge523:                                     ; preds = %16, %62, %._crit_edge36.i, %.thread3.i, %557, %576, %572, %317, %379, %415, %.critedge115.i, %.critedge.i, %500, %519, %455, %452, %458, %._crit_edge, %227, %218, %215, %207, %228, %632
+.critedge523:                                     ; preds = %16, %62, %.thread3.i, %._crit_edge36.i, %557, %576, %572, %317, %379, %415, %.critedge.i, %.critedge115.i, %500, %._crit_edge, %452, %458, %519, %455, %228, %207, %227, %218, %215, %632
   ret void
 }
 
@@ -22843,7 +22839,7 @@ define internal fastcc range(i32 -2, 1) i32 @mov_open_dref(ptr noundef readonly 
   %.058.lcssa = phi i32 [ 0, %21 ], [ %.159, %39 ]
   %.057.lcssa = phi i32 [ %.05781, %21 ], [ -1, %39 ]
   %41 = icmp eq i32 %.058.lcssa, %29
-  br i1 %41, label %._crit_edge.thread, label %112
+  br i1 %41, label %._crit_edge.thread, label %.critedge
 
 ._crit_edge.thread.loopexit:                      ; preds = %35
   %42 = trunc nuw nsw i64 %indvars.iv to i32
@@ -22855,7 +22851,7 @@ define internal fastcc range(i32 -2, 1) i32 @mov_open_dref(ptr noundef readonly 
   %44 = ptrtoint ptr %2 to i64
   %45 = sub i64 %43, %44
   %46 = icmp ult i64 %45, 1025
-  br i1 %46, label %47, label %112
+  br i1 %46, label %47, label %.critedge
 
 47:                                               ; preds = %._crit_edge.thread
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %13, ptr nonnull align 1 %2, i64 %45, i1 false)
@@ -22886,7 +22882,7 @@ define internal fastcc range(i32 -2, 1) i32 @mov_open_dref(ptr noundef readonly 
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %60 = load i32, ptr %59, align 4, !tbaa !734
   %.not67 = icmp eq i32 %60, 0
-  br i1 %.not67, label %61, label %.critedge
+  br i1 %.not67, label %61, label %104
 
 61:                                               ; preds = %._crit_edge91
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -22955,7 +22951,7 @@ test_same_origin.exit.thread75:                   ; preds = %61
   %.not4.i = icmp eq i32 %84, 0
   br i1 %.not4.i, label %test_same_origin.exit, label %test_same_origin.exit.thread
 
-test_same_origin.exit.thread:                     ; preds = %75, %71, %67, %63, %83, %81, %79
+test_same_origin.exit.thread:                     ; preds = %79, %63, %75, %71, %67, %83, %81
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -22985,7 +22981,7 @@ test_same_origin.exit:                            ; preds = %83
   %89 = load ptr, ptr %88, align 8, !tbaa !4
   %90 = load ptr, ptr %24, align 8, !tbaa !419
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %89, i32 noundef 16, ptr noundef nonnull @.str.198, ptr noundef %90) #17
-  br label %.thread
+  br label %.critedge.thread
 
 91:                                               ; preds = %test_same_origin.exit.thread75, %test_same_origin.exit
   %92 = load ptr, ptr %24, align 8, !tbaa !419
@@ -22993,46 +22989,46 @@ test_same_origin.exit:                            ; preds = %83
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 1
   %95 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %94, ptr noundef nonnull dereferenceable(1) @.str.199) #19
   %.not69 = icmp eq ptr %95, null
-  br i1 %.not69, label %96, label %.thread
+  br i1 %.not69, label %96, label %.critedge.thread
 
 96:                                               ; preds = %91
   %strchr = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %94, i32 58)
   %.not70 = icmp eq ptr %strchr, null
-  br i1 %.not70, label %97, label %.thread
+  br i1 %.not70, label %97, label %.critedge.thread
 
 97:                                               ; preds = %96
   %98 = load i16, ptr %18, align 2, !tbaa !417
   %99 = icmp sgt i16 %98, 1
   %or.cond = and i1 %62, %99
-  br i1 %or.cond, label %.thread, label %100
+  br i1 %or.cond, label %.critedge.thread, label %100
 
 100:                                              ; preds = %97
   %101 = load i8, ptr %13, align 16, !tbaa !82
   %102 = icmp eq i8 %101, 47
   %103 = icmp eq ptr %.061, %2
   %or.cond72 = select i1 %102, i1 %103, i1 false
-  br i1 %or.cond72, label %.thread, label %.critedge
+  br i1 %or.cond72, label %.critedge.thread, label %104
 
-.critedge:                                        ; preds = %100, %._crit_edge91
-  %104 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #19
-  %105 = icmp eq i64 %104, 1024
-  br i1 %105, label %.thread, label %106
+104:                                              ; preds = %100, %._crit_edge91
+  %105 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #19
+  %106 = icmp eq i64 %105, 1024
+  br i1 %106, label %.critedge.thread, label %107
 
-106:                                              ; preds = %.critedge
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %108 = load ptr, ptr %107, align 8, !tbaa !4
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 448
-  %110 = load ptr, ptr %109, align 8, !tbaa !735
-  %111 = call i32 %110(ptr noundef %108, ptr noundef nonnull %1, ptr noundef nonnull %13, i32 noundef 1, ptr noundef null) #17
-  %.not71 = icmp eq i32 %111, 0
-  br i1 %.not71, label %.thread, label %112
+107:                                              ; preds = %104
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %109 = load ptr, ptr %108, align 8, !tbaa !4
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 448
+  %111 = load ptr, ptr %110, align 8, !tbaa !735
+  %112 = call i32 %111(ptr noundef %109, ptr noundef nonnull %1, ptr noundef nonnull %13, i32 noundef 1, ptr noundef null) #17
+  %.not71 = icmp eq i32 %112, 0
+  br i1 %.not71, label %.critedge.thread, label %.critedge
 
-.thread:                                          ; preds = %91, %96, %97, %100, %87, %.critedge, %106
-  %.3.ph = phi i32 [ 0, %106 ], [ -2, %.critedge ], [ -2, %87 ], [ -2, %100 ], [ -2, %97 ], [ -2, %96 ], [ -2, %91 ]
+.critedge.thread:                                 ; preds = %107, %104, %91, %96, %97, %100, %87
+  %.3.ph = phi i32 [ -2, %87 ], [ -2, %100 ], [ -2, %97 ], [ -2, %96 ], [ -2, %91 ], [ -2, %104 ], [ 0, %107 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %129
 
-112:                                              ; preds = %._crit_edge, %._crit_edge.thread, %106
+.critedge:                                        ; preds = %._crit_edge, %._crit_edge.thread, %107
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %128
 
@@ -23061,11 +23057,11 @@ test_same_origin.exit:                            ; preds = %83
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %117, i32 noundef 16, ptr noundef nonnull @.str.202, ptr noundef %127) #17
   br label %128
 
-128:                                              ; preds = %112, %125, %118
+128:                                              ; preds = %.critedge, %125, %118
   br label %129
 
-129:                                              ; preds = %.thread, %118, %128
-  %.4 = phi i32 [ -2, %128 ], [ 0, %118 ], [ %.3.ph, %.thread ]
+129:                                              ; preds = %.critedge.thread, %118, %128
+  %.4 = phi i32 [ -2, %128 ], [ %.3.ph, %.critedge.thread ], [ 0, %118 ]
   ret i32 %.4
 }
 
@@ -23273,7 +23269,7 @@ define internal fastcc range(i32 -1, 1) i32 @mov_merge_tts_data(ptr %.24.val, i3
   br label %.critedge96
 
 .critedge96:                                      ; preds = %49, %20, %13, %16, %1, %85
-  %.081 = phi i32 [ 0, %85 ], [ 0, %1 ], [ -1, %16 ], [ -1, %13 ], [ -1, %20 ], [ -1, %49 ]
+  %.081 = phi i32 [ 0, %1 ], [ 0, %85 ], [ -1, %49 ], [ -1, %13 ], [ -1, %16 ], [ -1, %20 ]
   ret i32 %.081
 }
 
@@ -23994,7 +23990,7 @@ add_tts_entry.exit320:                            ; preds = %356
   br label %387
 
 384:                                              ; preds = %340, %328, %334
-  %.1 = phi i32 [ %.0236423, %334 ], [ %.0236423, %328 ], [ 1, %340 ]
+  %.1 = phi i32 [ %.0236423, %328 ], [ %.0236423, %334 ], [ 1, %340 ]
   br i1 %124, label %119, label %.loopexit349, !llvm.loop !746
 
 .loopexit349:                                     ; preds = %338, %384, %113
@@ -24015,9 +24011,9 @@ add_tts_entry.exit320:                            ; preds = %356
   br i1 %390, label %.loopexit350, label %62, !llvm.loop !743
 
 .loopexit350:                                     ; preds = %.outer, %387, %50, %71
-  %.0250.ph394 = phi i64 [ %.0250.ph444, %71 ], [ 0, %50 ], [ %.0250.ph444, %387 ], [ %86, %.outer ]
-  %.1256382 = phi i64 [ %.1256432, %71 ], [ %.0255, %50 ], [ %84, %387 ], [ %84, %.outer ]
-  %.0237373 = phi ptr [ %.0237435, %71 ], [ null, %50 ], [ %.2, %387 ], [ %.0237435, %.outer ]
+  %.0250.ph394 = phi i64 [ %.0250.ph444, %71 ], [ %.0250.ph444, %387 ], [ 0, %50 ], [ %86, %.outer ]
+  %.1256382 = phi i64 [ %.1256432, %71 ], [ %84, %387 ], [ %.0255, %50 ], [ %84, %.outer ]
+  %.0237373 = phi ptr [ %.0237435, %71 ], [ %.2, %387 ], [ null, %50 ], [ %.0237435, %.outer ]
   %391 = load i64, ptr %41, align 8, !tbaa !724
   %392 = sub nsw i64 %391, %.0250.ph394
   store i64 %392, ptr %41, align 8, !tbaa !724
@@ -24302,7 +24298,7 @@ define internal fastcc range(i32 -1, 1) i32 @find_prev_closest_index(ptr noundef
   br i1 %50, label %.lr.ph.split, label %.critedge, !llvm.loop !752
 
 .critedge:                                        ; preds = %49, %.lr.ph.split, %38, %.lr.ph.split.us, %10
-  %51 = phi i64 [ %22, %10 ], [ %39, %38 ], [ %24, %.lr.ph.split.us ], [ %44, %49 ], [ %.07187, %.lr.ph.split ]
+  %51 = phi i64 [ %39, %38 ], [ %22, %10 ], [ %24, %.lr.ph.split.us ], [ %44, %49 ], [ %.07187, %.lr.ph.split ]
   %52 = getelementptr inbounds nuw i8, ptr %12, i64 88
   %53 = load i32, ptr %52, align 8, !tbaa !405
   %.not = icmp ne i32 %53, 0
@@ -24422,7 +24418,7 @@ define internal fastcc range(i32 -1, 1) i32 @find_prev_closest_index(ptr noundef
   br i1 %109, label %.lr.ph91, label %.critedge2, !llvm.loop !755
 
 .critedge2:                                       ; preds = %.lr.ph91, %108, %89, %.preheader, %.critedge
-  %110 = phi i64 [ %.lcssa, %.preheader ], [ %51, %.critedge ], [ %78, %.lr.ph91 ], [ %.pr, %108 ], [ %78, %89 ]
+  %110 = phi i64 [ %51, %.critedge ], [ %.lcssa, %.preheader ], [ %78, %.lr.ph91 ], [ %.pr, %108 ], [ %78, %89 ]
   store ptr %14, ptr %13, align 8, !tbaa !234
   store i32 %16, ptr %15, align 8, !tbaa !233
   %.lobit = ashr i64 %110, 63
@@ -24794,7 +24790,7 @@ get_current_frag_stream_info.exit:                ; preds = %18
   store ptr %56, ptr %1, align 8, !tbaa !380
   br label %.thread
 
-get_current_frag_stream_info.exit.thread:         ; preds = %10, %18, %3, %7, %get_current_frag_stream_info.exit
+get_current_frag_stream_info.exit.thread:         ; preds = %10, %18, %7, %3, %get_current_frag_stream_info.exit
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %58 = load ptr, ptr %57, align 8, !tbaa !4
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 44
@@ -24837,7 +24833,7 @@ get_current_frag_stream_info.exit.thread:         ; preds = %10, %18, %3, %7, %g
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %._crit_edge48, %76, %73, %get_current_frag_stream_info.exit.thread, %53, %50, %42, %80, %55
-  %.034 = phi i32 [ 1, %55 ], [ 1, %80 ], [ 0, %42 ], [ 0, %50 ], [ -12, %53 ], [ 0, %get_current_frag_stream_info.exit.thread ], [ 0, %73 ], [ -12, %76 ], [ 0, %._crit_edge48 ], [ 0, %.preheader ]
+  %.034 = phi i32 [ 0, %get_current_frag_stream_info.exit.thread ], [ 1, %55 ], [ 0, %50 ], [ 0, %42 ], [ -12, %53 ], [ 1, %80 ], [ 0, %73 ], [ -12, %76 ], [ 0, %._crit_edge48 ], [ 0, %.preheader ]
   ret i32 %.034
 }
 
@@ -24970,7 +24966,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mov_read_sample_encryption
   br label %60
 
 60:                                               ; preds = %30, %58, %15, %.critedge.thread, %41, %26, %8
-  %.0 = phi i32 [ %24, %26 ], [ -1094995529, %.critedge.thread ], [ -12, %41 ], [ -1094995529, %8 ], [ -12, %15 ], [ 0, %58 ], [ 0, %30 ]
+  %.0 = phi i32 [ %24, %26 ], [ -1094995529, %.critedge.thread ], [ -12, %15 ], [ -12, %41 ], [ -1094995529, %8 ], [ 0, %58 ], [ 0, %30 ]
   ret i32 %.0
 }
 
@@ -25120,7 +25116,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mov_parse_auxiliary_info(p
   br label %69
 
 69:                                               ; preds = %.thread, %.thread77, %._crit_edge, %15, %4, %12
-  %.0 = phi i32 [ -1163346256, %12 ], [ 0, %4 ], [ -12, %15 ], [ %.054.ph, %._crit_edge ], [ 0, %.thread ], [ 0, %.thread77 ]
+  %.0 = phi i32 [ -12, %15 ], [ -1163346256, %12 ], [ 0, %4 ], [ %.054.ph, %._crit_edge ], [ 0, %.thread ], [ 0, %.thread77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -25523,7 +25519,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @mov_metadata_hmmt(ptr noun
   br label %22
 
 22:                                               ; preds = %.critedge, %8, %5, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %5 ], [ -1094995529, %8 ], [ %., %.critedge ]
+  %.0 = phi i32 [ -1094995529, %8 ], [ 0, %3 ], [ 0, %5 ], [ %., %.critedge ]
   ret i32 %.0
 }
 
@@ -25971,8 +25967,8 @@ define internal fastcc ptr @mov_find_next_sample(ptr noundef %0, ptr noundef non
   br label %.thread
 
 .thread:                                          ; preds = %64, %53, %60, %69, %71, %68, %26, %19
-  %.152 = phi i64 [ %.05171, %26 ], [ %.05171, %19 ], [ %42, %71 ], [ %.05171, %69 ], [ %.05171, %68 ], [ %.05171, %60 ], [ %.05171, %53 ], [ %.05171, %64 ]
-  %.1 = phi ptr [ %.072, %26 ], [ %.072, %19 ], [ %36, %71 ], [ %.072, %69 ], [ %.072, %68 ], [ %.072, %60 ], [ %.072, %53 ], [ %.072, %64 ]
+  %.152 = phi i64 [ %.05171, %19 ], [ %.05171, %26 ], [ %42, %71 ], [ %.05171, %69 ], [ %.05171, %53 ], [ %.05171, %68 ], [ %.05171, %60 ], [ %.05171, %64 ]
+  %.1 = phi ptr [ %.072, %19 ], [ %.072, %26 ], [ %36, %71 ], [ %.072, %69 ], [ %.072, %53 ], [ %.072, %68 ], [ %.072, %60 ], [ %.072, %64 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %72 = load i32, ptr %15, align 4, !tbaa !25
   %73 = zext i32 %72 to i64
@@ -26276,7 +26272,7 @@ mov_get_stsc_samples.exit:                        ; preds = %mov_change_extradat
   br label %mov_change_extradata.exit
 
 mov_change_extradata.exit:                        ; preds = %163, %124, %190, %mov_get_stsc_samples.exit, %mov_change_extradata.exit.thread
-  %.1 = phi i32 [ 0, %mov_change_extradata.exit.thread ], [ 0, %mov_get_stsc_samples.exit ], [ 0, %190 ], [ 0, %124 ], [ -12, %163 ]
+  %.1 = phi i32 [ 0, %124 ], [ 0, %mov_change_extradata.exit.thread ], [ 0, %mov_get_stsc_samples.exit ], [ 0, %190 ], [ -12, %163 ]
   ret i32 %.1
 }
 
@@ -26584,9 +26580,9 @@ get_frag_time.exit.thread.i.i:                    ; preds = %84, %122, %get_frag
   br label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %get_frag_time.exit.thread.us.i.i, %get_frag_time.exit.us.i.i, %get_frag_stream_info.exit.i.us.i.i, %get_frag_time.exit.thread.i.i, %.critedge.loopexit.split.loop.exit91.i.i, %.critedge.loopexit.split.loop.exit.i.i, %26
-  %.020.lcssa.i.i = phi i32 [ %28, %26 ], [ %130, %.critedge.loopexit.split.loop.exit.i.i ], [ %131, %.critedge.loopexit.split.loop.exit91.i.i ], [ %.02149.i.i, %get_frag_time.exit.thread.i.i ], [ %.02032.us.i.i, %get_frag_stream_info.exit.i.us.i.i ], [ %.02149.i.i, %get_frag_time.exit.thread.us.i.i ], [ %.02032.us.i.i, %get_frag_time.exit.us.i.i ]
-  %.lcssa31.i.i = phi i1 [ true, %26 ], [ false, %.critedge.loopexit.split.loop.exit.i.i ], [ false, %.critedge.loopexit.split.loop.exit91.i.i ], [ true, %get_frag_time.exit.thread.i.i ], [ false, %get_frag_stream_info.exit.i.us.i.i ], [ true, %get_frag_time.exit.thread.us.i.i ], [ false, %get_frag_time.exit.us.i.i ]
-  %.2.i.i = phi i64 [ %.052.i.i, %26 ], [ %90, %.critedge.loopexit.split.loop.exit.i.i ], [ %.0.i.i.i, %.critedge.loopexit.split.loop.exit91.i.i ], [ -9223372036854775808, %get_frag_time.exit.thread.i.i ], [ %56, %get_frag_stream_info.exit.i.us.i.i ], [ -9223372036854775808, %get_frag_time.exit.thread.us.i.i ], [ %58, %get_frag_time.exit.us.i.i ]
+  %.020.lcssa.i.i = phi i32 [ %28, %26 ], [ %.02149.i.i, %get_frag_time.exit.thread.i.i ], [ %130, %.critedge.loopexit.split.loop.exit.i.i ], [ %131, %.critedge.loopexit.split.loop.exit91.i.i ], [ %.02149.i.i, %get_frag_time.exit.thread.us.i.i ], [ %.02032.us.i.i, %get_frag_time.exit.us.i.i ], [ %.02032.us.i.i, %get_frag_stream_info.exit.i.us.i.i ]
+  %.lcssa31.i.i = phi i1 [ true, %26 ], [ true, %get_frag_time.exit.thread.i.i ], [ false, %.critedge.loopexit.split.loop.exit.i.i ], [ false, %.critedge.loopexit.split.loop.exit91.i.i ], [ true, %get_frag_time.exit.thread.us.i.i ], [ false, %get_frag_time.exit.us.i.i ], [ false, %get_frag_stream_info.exit.i.us.i.i ]
+  %.2.i.i = phi i64 [ %.052.i.i, %26 ], [ -9223372036854775808, %get_frag_time.exit.thread.i.i ], [ %90, %.critedge.loopexit.split.loop.exit.i.i ], [ %.0.i.i.i, %.critedge.loopexit.split.loop.exit91.i.i ], [ -9223372036854775808, %get_frag_time.exit.thread.us.i.i ], [ %58, %get_frag_time.exit.us.i.i ], [ %56, %get_frag_stream_info.exit.i.us.i.i ]
   %.not.i.i = icmp sgt i64 %.2.i.i, %13
   %or.cond.i.i = select i1 %.lcssa31.i.i, i1 true, i1 %.not.i.i
   %.122.i.i = select i1 %or.cond.i.i, i32 %28, i32 %.02149.i.i
@@ -26801,7 +26797,7 @@ can_seek_to_key_sample.exit121.thread:            ; preds = %237, %216, %is_open
   br i1 %245, label %._crit_edge, label %167
 
 can_seek_to_key_sample.exit121:                   ; preds = %177, %is_open_key_sample.exit.i, %174, %169, %is_open_key_sample.exit.i120, %167, %198, %161
-  %.082130 = phi i32 [ 0, %161 ], [ %168, %198 ], [ 0, %167 ], [ %168, %is_open_key_sample.exit.i120 ], [ %168, %169 ], [ %168, %174 ], [ %168, %is_open_key_sample.exit.i ], [ %168, %177 ]
+  %.082130 = phi i32 [ %168, %198 ], [ 0, %161 ], [ 0, %167 ], [ %168, %169 ], [ %168, %174 ], [ %168, %is_open_key_sample.exit.i ], [ %168, %177 ], [ %168, %is_open_key_sample.exit.i120 ]
   %246 = getelementptr inbounds nuw i8, ptr %6, i64 224
   store i32 %.082130, ptr %246, align 8, !tbaa !310
   %247 = zext nneg i32 %.082130 to i64
@@ -26981,8 +26977,8 @@ mov_get_stsc_samples.exit:                        ; preds = %296, %305
   %exitcond225.not = icmp eq i64 %indvars.iv.next222, %wide.trip.count224
   br i1 %exitcond225.not, label %.thread, label %293, !llvm.loop !777
 
-.thread:                                          ; preds = %326, %.preheader, %161, %._crit_edge, %321, %.loopexit, %mov_seek_fragment.exit
-  %.0 = phi i32 [ %150, %mov_seek_fragment.exit ], [ %.082130, %321 ], [ %.082130, %.loopexit ], [ -1094995529, %._crit_edge ], [ -1094995529, %161 ], [ %.082130, %.preheader ], [ %.082130, %326 ]
+.thread:                                          ; preds = %326, %.preheader, %._crit_edge, %161, %321, %.loopexit, %mov_seek_fragment.exit
+  %.0 = phi i32 [ %.082130, %.loopexit ], [ %150, %mov_seek_fragment.exit ], [ %.082130, %321 ], [ -1094995529, %._crit_edge ], [ -1094995529, %161 ], [ %.082130, %.preheader ], [ %.082130, %326 ]
   ret i32 %.0
 }
 

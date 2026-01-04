@@ -1048,7 +1048,7 @@ define dso_local range(i32 0, 2) i32 @cmd_update_index(i32 noundef %0, ptr nound
   ]
 
 .lr.ph.backedge:                                  ; preds = %425, %455
-  %.041115.be = phi i32 [ %.1106109, %455 ], [ %424, %425 ]
+  %.041115.be = phi i32 [ %424, %425 ], [ %.1106109, %455 ]
   br label %.lr.ph, !llvm.loop !52
 
 426:                                              ; preds = %425, %425
@@ -2287,7 +2287,7 @@ define internal range(i32 -1, 1) i32 @cacheinfo_callback(ptr noundef captures(no
   store i32 %41, ptr %39, align 8, !tbaa !48
   br label %78
 
-42:                                               ; preds = %12, %23, %20, %16, %29, %25
+42:                                               ; preds = %12, %16, %23, %20, %29, %25
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3645,7 +3645,7 @@ define internal fastcc range(i32 -1, 1) i32 @process_path(ptr noundef %0, ptr no
   br label %process_lstat_error.exit
 
 .thread:                                          ; preds = %10, %24, %16
-  %37 = phi ptr [ %23, %24 ], [ null, %16 ], [ null, %10 ]
+  %37 = phi ptr [ null, %16 ], [ %23, %24 ], [ null, %10 ]
   switch i32 %2, label %46 [
     i32 0, label %49
     i32 20, label %38
@@ -3786,7 +3786,7 @@ define internal fastcc range(i32 -1, 1) i32 @process_path(ptr noundef %0, ptr no
   br label %process_directory.exit
 
 process_directory.exit:                           ; preds = %72, %75, %79, %.sink.split.i.i33, %.thread36.i, %105, %107
-  %.1.i = phi i32 [ -1, %107 ], [ %106, %105 ], [ %76, %75 ], [ 0, %72 ], [ 0, %79 ], [ -1, %.sink.split.i.i33 ], [ -1, %.thread36.i ]
+  %.1.i = phi i32 [ %106, %105 ], [ -1, %.thread36.i ], [ -1, %107 ], [ 0, %72 ], [ %76, %75 ], [ 0, %79 ], [ -1, %.sink.split.i.i33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %process_lstat_error.exit
 
@@ -3795,7 +3795,7 @@ process_directory.exit:                           ; preds = %72, %75, %79, %.sin
   br label %process_lstat_error.exit
 
 process_lstat_error.exit:                         ; preds = %46, %.sink.split.i.i, %40, %28, %33, %109, %process_directory.exit, %35, %8
-  %.0 = phi i32 [ -1, %8 ], [ -1, %35 ], [ %.1.i, %process_directory.exit ], [ %110, %109 ], [ 0, %33 ], [ 0, %28 ], [ -1, %46 ], [ 0, %40 ], [ -1, %.sink.split.i.i ]
+  %.0 = phi i32 [ -1, %8 ], [ -1, %35 ], [ %110, %109 ], [ 0, %28 ], [ %.1.i, %process_directory.exit ], [ 0, %33 ], [ -1, %46 ], [ 0, %40 ], [ -1, %.sink.split.i.i ]
   ret i32 %.0
 }
 
@@ -3917,7 +3917,7 @@ define internal fastcc range(i32 -1, 1) i32 @add_one_path(ptr noundef %0, ptr no
   br label %ce_mode_from_stat.exit
 
 ce_mode_from_stat.exit:                           ; preds = %33, %.thread30.i, %44, %45, %47, %49, %49, %.thread27.i
-  %.0.i = phi i32 [ 33188, %44 ], [ %35, %33 ], [ %42, %.thread30.i ], [ %51, %.thread27.i ], [ 40960, %45 ], [ 16384, %47 ], [ 57344, %49 ], [ 57344, %49 ]
+  %.0.i = phi i32 [ %42, %.thread30.i ], [ %35, %33 ], [ 33188, %44 ], [ %51, %.thread27.i ], [ 40960, %45 ], [ 16384, %47 ], [ 57344, %49 ], [ 57344, %49 ]
   %52 = getelementptr inbounds nuw i8, ptr %19, i64 52
   store i32 %.0.i, ptr %52, align 4, !tbaa !4
   %53 = load ptr, ptr @the_repository, align 8, !tbaa !14

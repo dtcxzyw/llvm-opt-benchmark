@@ -3236,8 +3236,8 @@ _ZN4core5slice6memchr6memchr17h2d5411a4e6c78ad8E.exit.thread16.i.i: ; preds = %.
   br label %84
 
 84:                                               ; preds = %._crit_edge.i.i, %79, %.loopexit.i, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hbd7d807cf085a09fE.exit.i"
-  %.sroa.4.0.i = phi i64 [ %75, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hbd7d807cf085a09fE.exit.i" ], [ %82, %._crit_edge.i.i ], [ undef, %.loopexit.i ], [ undef, %79 ]
-  %.sroa.0.0.i = phi ptr [ %76, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hbd7d807cf085a09fE.exit.i" ], [ %83, %._crit_edge.i.i ], [ null, %.loopexit.i ], [ null, %79 ]
+  %.sroa.4.0.i = phi i64 [ undef, %.loopexit.i ], [ %75, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hbd7d807cf085a09fE.exit.i" ], [ %82, %._crit_edge.i.i ], [ undef, %79 ]
+  %.sroa.0.0.i = phi ptr [ null, %.loopexit.i ], [ %76, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hbd7d807cf085a09fE.exit.i" ], [ %83, %._crit_edge.i.i ], [ null, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %85
 
@@ -5883,13 +5883,13 @@ define void @"_ZN3h3i12recordreplay4qlog143_$LT$impl$u20$core..convert..From$LT$
   unreachable
 
 common.resume.sink.split:                         ; preds = %464, %421, %397, %328
-  %.sink = phi ptr [ %320, %328 ], [ %389, %397 ], [ %413, %421 ], [ %456, %464 ]
-  %common.resume.op.ph = phi { ptr, i32 } [ %329, %328 ], [ %398, %397 ], [ %422, %421 ], [ %465, %464 ]
+  %.sink = phi ptr [ %413, %421 ], [ %320, %328 ], [ %389, %397 ], [ %456, %464 ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %422, %421 ], [ %329, %328 ], [ %398, %397 ], [ %465, %464 ]
   call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.sink, i64 noundef 104, i64 noundef 8) #20
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %447, %437, %124, %131, %185, %186, %195, %274, %.body220, %335, %380, %381, %404, %428, %.body, %471
-  %common.resume.op = phi { ptr, i32 } [ %.pn147.pn322, %185 ], [ %.pn147, %131 ], [ %125, %124 ], [ %.pn144.pn326, %274 ], [ %.pn144, %195 ], [ %187, %186 ], [ %336, %335 ], [ %eh.lpad-body221, %.body220 ], [ %.pn139, %381 ], [ %.pn139, %380 ], [ %405, %404 ], [ %429, %428 ], [ %.pn, %.body ], [ %472, %471 ], [ %438, %437 ], [ %448, %447 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %438, %437 ], [ %.pn, %.body ], [ %.pn147.pn322, %185 ], [ %.pn147, %131 ], [ %125, %124 ], [ %.pn144.pn326, %274 ], [ %.pn144, %195 ], [ %187, %186 ], [ %336, %335 ], [ %429, %428 ], [ %eh.lpad-body221, %.body220 ], [ %.pn139, %381 ], [ %.pn139, %380 ], [ %405, %404 ], [ %448, %447 ], [ %472, %471 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 185:                                              ; preds = %.thread, %131
@@ -6189,7 +6189,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   br label %.body220
 
 .body220:                                         ; preds = %306, %282, %275
-  %eh.lpad-body221 = phi { ptr, i32 } [ %276, %275 ], [ %283, %282 ], [ %307, %306 ]
+  %eh.lpad-body221 = phi { ptr, i32 } [ %283, %282 ], [ %276, %275 ], [ %307, %306 ]
   invoke void @"_ZN4core3ptr97drop_in_place$LT$smallvec..SmallVec$LT$$u5b$qlog..events..quic..QuicFrame$u3b$$u20$1$u5d$$GT$$GT$17h9dbb73363915227bE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %34) #18
           to label %common.resume unwind label %182
 
@@ -6886,7 +6886,7 @@ _ZN5alloc6string6String9from_utf817he498c382b5462433E.exit251: ; preds = %439
           to label %478 unwind label %476
 
 .body:                                            ; preds = %496, %484, %476, %502
-  %.pn = phi { ptr, i32 } [ %503, %502 ], [ %477, %476 ], [ %485, %484 ], [ %497, %496 ]
+  %.pn = phi { ptr, i32 } [ %503, %502 ], [ %485, %484 ], [ %477, %476 ], [ %497, %496 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha362250438a746d5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23) #18
           to label %common.resume unwind label %182
 

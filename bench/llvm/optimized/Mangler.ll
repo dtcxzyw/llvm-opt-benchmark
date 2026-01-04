@@ -166,8 +166,8 @@ define internal fastcc void @_ZL21getNameWithPrefixImplRN4llvm11raw_ostreamERKNS
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %12, %15, %17, %19, %24, %28
-  %.sroa.3.0.i = phi i64 [ %30, %28 ], [ %23, %19 ], [ %27, %24 ], [ 0, %15 ], [ %18, %17 ], [ 0, %12 ]
-  %.sroa.0.0.i = phi ptr [ %29, %28 ], [ %21, %19 ], [ %25, %24 ], [ null, %15 ], [ %16, %17 ], [ null, %12 ]
+  %.sroa.3.0.i = phi i64 [ %30, %28 ], [ %27, %24 ], [ 0, %12 ], [ %23, %19 ], [ 0, %15 ], [ %18, %17 ]
+  %.sroa.0.0.i = phi ptr [ %29, %28 ], [ %25, %24 ], [ null, %12 ], [ %21, %19 ], [ null, %15 ], [ %16, %17 ]
   %31 = load i8, ptr %.sroa.0.0.i, align 1, !tbaa !60
   %32 = icmp eq i8 %31, 1
   br i1 %32, label %33, label %51
@@ -243,8 +243,8 @@ _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %12, %15,
   unreachable
 
 _ZNK4llvm10DataLayout22getPrivateGlobalPrefixEv.exit: ; preds = %57, %57, %58, %59, %60, %61
-  %.sroa.7.0.i = phi i64 [ 2, %58 ], [ 1, %59 ], [ 1, %60 ], [ 3, %61 ], [ 2, %57 ], [ 2, %57 ]
-  %.sroa.0.0.i21 = phi ptr [ @.str.15, %58 ], [ @.str.16, %59 ], [ @.str.17, %60 ], [ @.str.18, %61 ], [ @.str.14, %57 ], [ @.str.14, %57 ]
+  %.sroa.7.0.i = phi i64 [ 3, %61 ], [ 1, %60 ], [ 2, %58 ], [ 1, %59 ], [ 2, %57 ], [ 2, %57 ]
+  %.sroa.0.0.i21 = phi ptr [ @.str.18, %61 ], [ @.str.17, %60 ], [ @.str.15, %58 ], [ @.str.16, %59 ], [ @.str.14, %57 ], [ @.str.14, %57 ]
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %64 = load ptr, ptr %63, align 8, !tbaa !63
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -499,7 +499,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit45.thread63: ; preds = %_ZNK4llvm9Strin
   br label %_ZL18hasByteCountSuffixj.exit
 
 58:                                               ; preds = %54, %.fold.split, %53
-  %.034 = phi i8 [ 0, %54 ], [ 64, %53 ], [ %switch.masked98, %.fold.split ]
+  %.034 = phi i8 [ %switch.masked98, %.fold.split ], [ 0, %54 ], [ 64, %53 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %59 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i8 5, ptr %59, align 8, !tbaa !59
@@ -974,7 +974,7 @@ switch.early.test.i.i:                            ; preds = %.lr.ph.i
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit51
 
 _ZN4llvm11raw_ostreamlsEPKc.exit51:               ; preds = %64, %_ZN4llvm11raw_ostreamlsEPKc.exit, %73, %71
-  %76 = phi i1 [ true, %71 ], [ true, %73 ], [ false, %_ZN4llvm11raw_ostreamlsEPKc.exit ], [ false, %64 ]
+  %76 = phi i1 [ true, %73 ], [ false, %_ZN4llvm11raw_ostreamlsEPKc.exit ], [ true, %71 ], [ false, %64 ]
   %77 = load i32, ptr %21, align 4, !tbaa !128
   %78 = icmp eq i32 %77, 14
   %79 = load i32, ptr %24, align 8
@@ -1375,7 +1375,7 @@ switch.early.test.i.i77:                          ; preds = %.lr.ph.i75
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit83
 
 _ZN4llvm11raw_ostreamlsEPKc.exit83:               ; preds = %266, %_ZN4llvm11raw_ostreamlsEPKc.exit73, %273, %271
-  %276 = phi i1 [ true, %271 ], [ true, %273 ], [ false, %_ZN4llvm11raw_ostreamlsEPKc.exit73 ], [ false, %266 ]
+  %276 = phi i1 [ true, %273 ], [ false, %_ZN4llvm11raw_ostreamlsEPKc.exit73 ], [ true, %271 ], [ false, %266 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %277 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %277, ptr %11, align 8, !tbaa !136
@@ -2114,8 +2114,8 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %2
   unreachable
 
 58:                                               ; preds = %2, %2, %54, %43, %42, %41, %40, %39, %38, %35, %32, %15, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit, %5
-  %.sroa.077.0 = phi i64 [ %9, %5 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %31, %15 ], [ %34, %32 ], [ %37, %35 ], [ 32, %38 ], [ 64, %39 ], [ 128, %40 ], [ 8192, %41 ], [ 80, %42 ], [ %52, %43 ], [ %.fca.0.extract, %54 ], [ 16, %2 ], [ 16, %2 ]
-  %.sroa.14.0 = phi i8 [ 0, %5 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %22, %15 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ 0, %35 ], [ 0, %38 ], [ 0, %39 ], [ 0, %40 ], [ 0, %41 ], [ 0, %42 ], [ %53, %43 ], [ %.fca.1.extract, %54 ], [ 0, %2 ], [ 0, %2 ]
+  %.sroa.077.0 = phi i64 [ %9, %5 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %31, %15 ], [ %34, %32 ], [ %37, %35 ], [ %.fca.0.extract, %54 ], [ 32, %38 ], [ 64, %39 ], [ 128, %40 ], [ 8192, %41 ], [ 80, %42 ], [ %52, %43 ], [ 16, %2 ], [ 16, %2 ]
+  %.sroa.14.0 = phi i8 [ 0, %5 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %22, %15 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ 0, %35 ], [ %.fca.1.extract, %54 ], [ 0, %38 ], [ 0, %39 ], [ 0, %40 ], [ 0, %41 ], [ 0, %42 ], [ %53, %43 ], [ 0, %2 ], [ 0, %2 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.077.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.14.0, 1
   ret { i64, i8 } %.fca.1.insert

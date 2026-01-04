@@ -342,8 +342,8 @@ smtp_parse_address.exit.i.i.i:                    ; preds = %59
   br label %104
 
 104:                                              ; preds = %101, %smtp_parse_address.exit.thread149.i.i.i
-  %.372.i.i.i = phi ptr [ %103, %101 ], [ %.170.i.i.i, %smtp_parse_address.exit.thread149.i.i.i ]
-  %.168.i.i.i = phi i8 [ 0, %101 ], [ %94, %smtp_parse_address.exit.thread149.i.i.i ]
+  %.372.i.i.i = phi ptr [ %.170.i.i.i, %smtp_parse_address.exit.thread149.i.i.i ], [ %103, %101 ]
+  %.168.i.i.i = phi i8 [ %94, %smtp_parse_address.exit.thread149.i.i.i ], [ 0, %101 ]
   %.not97.i.i.i = icmp eq ptr %.372.i.i.i, null
   br i1 %.not97.i.i.i, label %.thread170.i.i.i, label %105
 
@@ -468,8 +468,8 @@ smtp_parse_address.exit129.i.i.i:                 ; preds = %113
   br label %158
 
 158:                                              ; preds = %155, %smtp_parse_address.exit129.thread160.i.i.i
-  %.482.i.i.i = phi ptr [ %157, %155 ], [ %.381.i.i.i, %smtp_parse_address.exit129.thread160.i.i.i ]
-  %.5.i.i.i = phi i8 [ %.168.i.i.i, %155 ], [ %.4.i.i.i, %smtp_parse_address.exit129.thread160.i.i.i ]
+  %.482.i.i.i = phi ptr [ %.381.i.i.i, %smtp_parse_address.exit129.thread160.i.i.i ], [ %157, %155 ]
+  %.5.i.i.i = phi i8 [ %.4.i.i.i, %smtp_parse_address.exit129.thread160.i.i.i ], [ %.168.i.i.i, %155 ]
   %.not105.i.i.i = icmp eq ptr %.482.i.i.i, null
   br i1 %.not105.i.i.i, label %.thread170.i.i.i, label %159
 
@@ -621,10 +621,10 @@ cr_eob_add.exit.i.i.i:                            ; preds = %212
   br label %.thread170.i.i.i
 
 .thread170.i.i.i:                                 ; preds = %216, %cr_eob_add.exit.i.i.i, %cr_eob_add.exit.thread.i.i.i, %193, %180, %.thread.i.i.i, %173, %163, %158, %smtp_parse_address.exit129.i.i.i, %104, %smtp_parse_address.exit.i.i.i
-  %.078.i.i.i = phi ptr [ %.179.i.i.i, %.thread.i.i.i ], [ %.179.i.i.i, %cr_eob_add.exit.i.i.i ], [ %.179.i.i.i, %216 ], [ %.179.i.i.i, %180 ], [ null, %smtp_parse_address.exit129.i.i.i ], [ null, %smtp_parse_address.exit.i.i.i ], [ null, %104 ], [ null, %158 ], [ %.179.i.i.i, %193 ], [ %.179.i.i.i, %cr_eob_add.exit.thread.i.i.i ], [ %.179.i.i.i, %173 ], [ %.179.i.i.i, %163 ]
-  %.076.i.i.i = phi ptr [ null, %.thread.i.i.i ], [ %.177.i.i.i, %cr_eob_add.exit.i.i.i ], [ %.177.i.i.i, %216 ], [ null, %180 ], [ null, %smtp_parse_address.exit129.i.i.i ], [ null, %smtp_parse_address.exit.i.i.i ], [ null, %104 ], [ null, %158 ], [ null, %193 ], [ %.177.i.i.i, %cr_eob_add.exit.thread.i.i.i ], [ null, %173 ], [ null, %163 ]
-  %.073.i.i.i = phi i32 [ %176, %.thread.i.i.i ], [ %.0.i131.i.i.i, %cr_eob_add.exit.i.i.i ], [ %223, %216 ], [ %183, %180 ], [ 27, %smtp_parse_address.exit129.i.i.i ], [ 27, %smtp_parse_address.exit.i.i.i ], [ 27, %104 ], [ 27, %158 ], [ 27, %193 ], [ %.0.i131.i.i.i, %cr_eob_add.exit.thread.i.i.i ], [ %175, %173 ], [ %170, %163 ]
-  %.271.i.i.i = phi ptr [ %.372.i.i.i, %.thread.i.i.i ], [ %.372.i.i.i, %cr_eob_add.exit.i.i.i ], [ %.372.i.i.i, %216 ], [ %.372.i.i.i, %180 ], [ %.372.i.i.i, %smtp_parse_address.exit129.i.i.i ], [ null, %smtp_parse_address.exit.i.i.i ], [ null, %104 ], [ %.372.i.i.i, %158 ], [ %.372.i.i.i, %193 ], [ %.372.i.i.i, %cr_eob_add.exit.thread.i.i.i ], [ %.372.i.i.i, %173 ], [ %.372.i.i.i, %163 ]
+  %.078.i.i.i = phi ptr [ %.179.i.i.i, %.thread.i.i.i ], [ %.179.i.i.i, %cr_eob_add.exit.i.i.i ], [ %.179.i.i.i, %216 ], [ null, %158 ], [ %.179.i.i.i, %180 ], [ null, %104 ], [ null, %smtp_parse_address.exit129.i.i.i ], [ null, %smtp_parse_address.exit.i.i.i ], [ %.179.i.i.i, %193 ], [ %.179.i.i.i, %cr_eob_add.exit.thread.i.i.i ], [ %.179.i.i.i, %173 ], [ %.179.i.i.i, %163 ]
+  %.076.i.i.i = phi ptr [ null, %.thread.i.i.i ], [ %.177.i.i.i, %cr_eob_add.exit.i.i.i ], [ %.177.i.i.i, %216 ], [ null, %158 ], [ null, %180 ], [ null, %104 ], [ null, %smtp_parse_address.exit129.i.i.i ], [ null, %smtp_parse_address.exit.i.i.i ], [ null, %193 ], [ %.177.i.i.i, %cr_eob_add.exit.thread.i.i.i ], [ null, %173 ], [ null, %163 ]
+  %.073.i.i.i = phi i32 [ %176, %.thread.i.i.i ], [ %.0.i131.i.i.i, %cr_eob_add.exit.i.i.i ], [ %223, %216 ], [ 27, %158 ], [ %183, %180 ], [ 27, %104 ], [ 27, %smtp_parse_address.exit129.i.i.i ], [ 27, %smtp_parse_address.exit.i.i.i ], [ 27, %193 ], [ %.0.i131.i.i.i, %cr_eob_add.exit.thread.i.i.i ], [ %175, %173 ], [ %170, %163 ]
+  %.271.i.i.i = phi ptr [ %.372.i.i.i, %.thread.i.i.i ], [ %.372.i.i.i, %cr_eob_add.exit.i.i.i ], [ %.372.i.i.i, %216 ], [ %.372.i.i.i, %158 ], [ %.372.i.i.i, %180 ], [ null, %104 ], [ %.372.i.i.i, %smtp_parse_address.exit129.i.i.i ], [ null, %smtp_parse_address.exit.i.i.i ], [ %.372.i.i.i, %193 ], [ %.372.i.i.i, %cr_eob_add.exit.thread.i.i.i ], [ %.372.i.i.i, %173 ], [ %.372.i.i.i, %163 ]
   %224 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
   call void %224(ptr noundef %.271.i.i.i) #9
   %225 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
@@ -949,7 +949,7 @@ smtp_state.exit:                                  ; preds = %27, %35, %41, %42
   br i1 %52, label %.lr.ph.i, label %.loopexit, !llvm.loop !111
 
 .loopexit:                                        ; preds = %.lr.ph.i, %12, %24, %17, %13, %smtp_state.exit
-  %.026 = phi i32 [ %1, %12 ], [ 0, %13 ], [ 0, %24 ], [ 0, %17 ], [ 0, %smtp_state.exit ], [ %49, %.lr.ph.i ]
+  %.026 = phi i32 [ %1, %12 ], [ 0, %13 ], [ 0, %17 ], [ 0, %24 ], [ 0, %smtp_state.exit ], [ %49, %.lr.ph.i ]
   store i32 0, ptr %7, align 8, !tbaa !83
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 2658
   %54 = load i64, ptr %53, align 2
@@ -1167,7 +1167,7 @@ smtp_state.exit:                                  ; preds = %37, %41, %48, %54, 
   br label %smtp_parse_url_options.exit
 
 smtp_parse_url_options.exit:                      ; preds = %22, %.critedge5.i, %.critedge.i, %66, %smtp_parse_url_path.exit
-  %.0 = phi i32 [ %36, %smtp_parse_url_path.exit ], [ %72, %.critedge.i ], [ %67, %66 ], [ %26, %22 ], [ 3, %.critedge5.i ]
+  %.0 = phi i32 [ %72, %.critedge.i ], [ %36, %smtp_parse_url_path.exit ], [ %67, %66 ], [ %26, %22 ], [ 3, %.critedge5.i ]
   ret i32 %.0
 }
 
@@ -2420,11 +2420,11 @@ smtp_state.exit:                                  ; preds = %392, %397, %402, %4
   br label %smtp_state_servergreet_resp.exit.thread126thread-pre-split
 
 smtp_state_servergreet_resp.exit:                 ; preds = %316, %298, %smtp_state.exit42.i, %smtp_state.exit.i86, %254, %248, %161, %158, %153, %smtp_state_auth_resp.exit
-  %.1 = phi i32 [ %.0.i72, %smtp_state_auth_resp.exit ], [ %162, %161 ], [ %154, %153 ], [ %159, %158 ], [ %255, %254 ], [ %.1.i, %smtp_state.exit.i86 ], [ %.1.i, %smtp_state.exit42.i ], [ %.1.i, %248 ], [ %299, %298 ], [ %317, %316 ]
+  %.1 = phi i32 [ %154, %153 ], [ %159, %158 ], [ %255, %254 ], [ %.1.i, %smtp_state.exit.i86 ], [ %.1.i, %smtp_state.exit42.i ], [ %162, %161 ], [ %.0.i72, %smtp_state_auth_resp.exit ], [ %317, %316 ], [ %.1.i, %248 ], [ %299, %298 ]
   %.not56 = icmp eq i32 %.1, 0
   br i1 %.not56, label %smtp_state_servergreet_resp.exit.thread126thread-pre-split, label %.critedge
 
-smtp_state_servergreet_resp.exit.thread126thread-pre-split: ; preds = %smtp_state_servergreet_resp.exit, %smtp_state.exit, %smtp_state.exit.i.i, %.thread109.i, %smtp_state.exit.i.i63, %smtp_state.exit.i, %smtp_state.exit.i99, %smtp_state.exit.i105, %smtp_state_postdata_resp.exit
+smtp_state_servergreet_resp.exit.thread126thread-pre-split: ; preds = %smtp_state_servergreet_resp.exit, %smtp_state.exit, %.thread109.i, %smtp_state.exit.i.i, %smtp_state.exit.i.i63, %smtp_state.exit.i, %smtp_state.exit.i105, %smtp_state.exit.i99, %smtp_state_postdata_resp.exit
   %.pr = load i32, ptr %8, align 8, !tbaa !103
   br label %smtp_state_servergreet_resp.exit.thread126
 
@@ -2437,8 +2437,8 @@ smtp_state_servergreet_resp.exit.thread126:       ; preds = %smtp_state_servergr
   %415 = call zeroext i1 @Curl_pp_moredata(ptr noundef nonnull %7) #9
   br i1 %415, label %.preheader, label %.critedge, !llvm.loop !139
 
-.critedge:                                        ; preds = %187, %325, %84, %43, %smtp_state_postdata_resp.exit, %smtp_state_starttls_resp.exit, %414, %39, %smtp_state_servergreet_resp.exit, %smtp_state_servergreet_resp.exit.thread126, %.preheader, %194, %348, %322, %310, %297, %243, %165, %163, %160, %107, %42, %30, %._crit_edge
-  %.0 = phi i32 [ %11, %._crit_edge ], [ %31, %30 ], [ 55, %348 ], [ 55, %322 ], [ 55, %310 ], [ 55, %297 ], [ 8, %243 ], [ 9, %165 ], [ 8, %163 ], [ 64, %160 ], [ 9, %107 ], [ 8, %42 ], [ 64, %194 ], [ 8, %187 ], [ %.08.i, %smtp_state_starttls_resp.exit ], [ 8, %smtp_state_postdata_resp.exit ], [ %53, %43 ], [ %86, %84 ], [ %326, %325 ], [ 0, %39 ], [ 0, %smtp_state_servergreet_resp.exit.thread126 ], [ 0, %414 ], [ %.1, %smtp_state_servergreet_resp.exit ], [ %32, %.preheader ]
+.critedge:                                        ; preds = %187, %325, %84, %43, %smtp_state_starttls_resp.exit, %smtp_state_postdata_resp.exit, %414, %39, %smtp_state_servergreet_resp.exit, %smtp_state_servergreet_resp.exit.thread126, %.preheader, %194, %348, %310, %297, %243, %165, %160, %107, %163, %42, %322, %30, %._crit_edge
+  %.0 = phi i32 [ %11, %._crit_edge ], [ %31, %30 ], [ 55, %322 ], [ 64, %160 ], [ 9, %107 ], [ 8, %163 ], [ 64, %194 ], [ 55, %348 ], [ 8, %42 ], [ 55, %310 ], [ 55, %297 ], [ 8, %243 ], [ 9, %165 ], [ 8, %187 ], [ %.08.i, %smtp_state_starttls_resp.exit ], [ 8, %smtp_state_postdata_resp.exit ], [ %53, %43 ], [ %86, %84 ], [ %326, %325 ], [ 0, %39 ], [ 0, %smtp_state_servergreet_resp.exit.thread126 ], [ 0, %414 ], [ %.1, %smtp_state_servergreet_resp.exit ], [ %32, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -2511,7 +2511,7 @@ define internal noundef zeroext i1 @smtp_endofresp(ptr readnone captures(none) %
   br label %36
 
 36:                                               ; preds = %24, %35, %30, %32, %5, %8, %11, %15
-  %.021 = phi i1 [ false, %15 ], [ false, %11 ], [ false, %8 ], [ false, %5 ], [ true, %24 ], [ true, %35 ], [ false, %30 ], [ false, %32 ]
+  %.021 = phi i1 [ false, %5 ], [ false, %15 ], [ false, %11 ], [ false, %8 ], [ true, %24 ], [ true, %35 ], [ false, %32 ], [ false, %30 ]
   ret i1 %.021
 }
 
@@ -2672,7 +2672,7 @@ smtp_state.exit.i:                                ; preds = %76, %75, %69, %62, 
   br label %smtp_perform_ehlo.exit
 
 smtp_perform_ehlo.exit:                           ; preds = %smtp_state.exit.i, %43, %8, %40, %6
-  %.0 = phi i32 [ %9, %8 ], [ 0, %40 ], [ %7, %6 ], [ %57, %43 ], [ 0, %smtp_state.exit.i ]
+  %.0 = phi i32 [ %9, %8 ], [ %7, %6 ], [ 0, %40 ], [ %57, %43 ], [ 0, %smtp_state.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -3058,7 +3058,7 @@ define internal fastcc i32 @smtp_perform_command(ptr noundef %0) unnamed_addr #0
   br label %75
 
 75:                                               ; preds = %.thread65, %.thread, %72
-  %.335 = phi i32 [ %74, %72 ], [ %64, %.thread ], [ %52, %.thread65 ]
+  %.335 = phi i32 [ %52, %.thread65 ], [ %74, %72 ], [ %64, %.thread ]
   %.not49 = icmp eq i32 %.335, 0
   br i1 %.not49, label %76, label %98
 
@@ -3244,7 +3244,7 @@ smtp_state.exit:                                  ; preds = %35, %39, %46, %52, 
   br label %smtp_parse_address.exit
 
 smtp_parse_address.exit:                          ; preds = %1, %33, %smtp_state.exit
-  %.0 = phi i32 [ 0, %smtp_state.exit ], [ %.012, %33 ], [ 27, %1 ]
+  %.0 = phi i32 [ %.012, %33 ], [ 0, %smtp_state.exit ], [ 27, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -3612,7 +3612,7 @@ define internal i32 @cr_eob_read(ptr noundef %0, ptr noundef readonly captures(n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %42, %38, %.loopexit.sink.split, %65, %18, %72
-  %.072 = phi i32 [ %76, %72 ], [ %21, %18 ], [ %68, %65 ], [ %.072.ph, %.loopexit.sink.split ], [ %43, %42 ], [ %41, %38 ]
+  %.072 = phi i32 [ %68, %65 ], [ %.072.ph, %.loopexit.sink.split ], [ %21, %18 ], [ %76, %72 ], [ %43, %42 ], [ %41, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

@@ -185,7 +185,7 @@ compute_sampled_width.exit.us:                    ; preds = %85, %compute_sample
   br i1 %exitcond61.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %compute_sampled_width.exit, %compute_sampled_width.exit.us, %compute_sampled_height.exit.us.us, %24
-  %.04677 = phi ptr [ %2, %24 ], [ %.04676, %compute_sampled_height.exit.us.us ], [ %.04676, %compute_sampled_width.exit.us ], [ %.04676, %compute_sampled_width.exit ]
+  %.04677 = phi ptr [ %.04676, %compute_sampled_width.exit.us ], [ %.04676, %compute_sampled_height.exit.us.us ], [ %2, %24 ], [ %.04676, %compute_sampled_width.exit ]
   store ptr %.04677, ptr %0, align 8, !tbaa !51
   %103 = trunc i32 %11 to i16
   store i16 %103, ptr %1, align 2, !tbaa !52
@@ -221,7 +221,7 @@ compute_sampled_width.exit.us:                    ; preds = %85, %compute_sample
   br label %compute_sampled_height.exit
 
 compute_sampled_height.exit:                      ; preds = %.lr.ph.split, %111, %119
-  %.028.i = phi i32 [ %.fr53, %.lr.ph.split ], [ %122, %119 ], [ 0, %111 ]
+  %.028.i = phi i32 [ %.fr53, %.lr.ph.split ], [ 0, %111 ], [ %122, %119 ]
   %123 = getelementptr inbounds nuw i8, ptr %105, i64 8
   store i32 %.028.i, ptr %123, align 8, !tbaa !37
   %124 = getelementptr inbounds nuw i8, ptr %104, i64 24
@@ -448,7 +448,7 @@ compute_sampled_width.exit.us:                    ; preds = %69, %compute_sample
   br label %compute_sampled_height.exit.us41
 
 compute_sampled_height.exit.us41:                 ; preds = %99, %91, %.lr.ph.split.split.us
-  %.028.i.us42 = phi i32 [ %.fr48, %.lr.ph.split.split.us ], [ %102, %99 ], [ 0, %91 ]
+  %.028.i.us42 = phi i32 [ %.fr48, %.lr.ph.split.split.us ], [ 0, %91 ], [ %102, %99 ]
   %103 = getelementptr inbounds nuw i8, ptr %85, i64 8
   store i32 %.028.i.us42, ptr %103, align 8, !tbaa !37
   %104 = getelementptr inbounds nuw i8, ptr %84, i64 24
@@ -512,7 +512,7 @@ compute_sampled_height.exit.us41:                 ; preds = %99, %91, %.lr.ph.sp
   br label %compute_sampled_height.exit
 
 compute_sampled_height.exit:                      ; preds = %.lr.ph.split.split, %130, %138
-  %.028.i = phi i32 [ %.fr48, %.lr.ph.split.split ], [ %141, %138 ], [ 0, %130 ]
+  %.028.i = phi i32 [ %.fr48, %.lr.ph.split.split ], [ 0, %130 ], [ %141, %138 ]
   %142 = getelementptr inbounds nuw i8, ptr %124, i64 8
   store i32 %.028.i, ptr %142, align 8, !tbaa !37
   %143 = getelementptr inbounds nuw i8, ptr %123, i64 24
@@ -550,7 +550,7 @@ compute_sampled_width.exit:                       ; preds = %compute_sampled_hei
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !53
 
 .loopexit:                                        ; preds = %compute_sampled_width.exit, %compute_sampled_height.exit.us41, %compute_sampled_width.exit.us, %compute_sampled_height.exit.us.us, %.preheader, %119
-  %.0 = phi i32 [ %122, %119 ], [ 0, %.preheader ], [ 0, %compute_sampled_height.exit.us.us ], [ 0, %compute_sampled_width.exit.us ], [ 0, %compute_sampled_height.exit.us41 ], [ 0, %compute_sampled_width.exit ]
+  %.0 = phi i32 [ %122, %119 ], [ 0, %compute_sampled_height.exit.us41 ], [ 0, %.preheader ], [ 0, %compute_sampled_width.exit.us ], [ 0, %compute_sampled_height.exit.us.us ], [ 0, %compute_sampled_width.exit ]
   ret i32 %.0
 }
 
@@ -796,7 +796,7 @@ internal_encode_free_buffer.exit:                 ; preds = %35, %45, %.thread
   br label %.thread69
 
 .thread69:                                        ; preds = %57, %67, %27, %95, %87, %91, %77, %18, %22, %8
-  %.1 = phi i32 [ %21, %18 ], [ %25, %22 ], [ 2, %8 ], [ %90, %87 ], [ %94, %91 ], [ 2, %77 ], [ 0, %95 ], [ 0, %27 ], [ 2, %57 ], [ %70, %67 ]
+  %.1 = phi i32 [ 0, %27 ], [ 2, %8 ], [ 2, %77 ], [ %21, %18 ], [ %25, %22 ], [ %90, %87 ], [ %94, %91 ], [ 0, %95 ], [ 2, %57 ], [ %70, %67 ]
   ret i32 %.1
 }
 
@@ -1012,7 +1012,7 @@ internal_decode_free_buffer.exit:                 ; preds = %17, %27, %.thread
   br label %.thread54
 
 .thread54:                                        ; preds = %39, %49, %9, %77, %69, %73, %59, %5
-  %.0 = phi i32 [ 0, %5 ], [ %72, %69 ], [ %76, %73 ], [ 2, %59 ], [ 0, %77 ], [ 0, %9 ], [ 2, %39 ], [ %52, %49 ]
+  %.0 = phi i32 [ 0, %9 ], [ 0, %5 ], [ 2, %59 ], [ %72, %69 ], [ %76, %73 ], [ 0, %77 ], [ 2, %39 ], [ %52, %49 ]
   ret i32 %.0
 }
 

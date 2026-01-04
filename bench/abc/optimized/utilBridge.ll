@@ -1760,8 +1760,8 @@ Gia_AigerReadUnsigned.exit230:                    ; preds = %.lr.ph299, %._crit_
   br label %Vec_IntPush.exit237.sink.split
 
 Vec_IntPush.exit237.sink.split:                   ; preds = %377, %379, %369, %371
-  %.sink418 = phi ptr [ %370, %369 ], [ %372, %371 ], [ %378, %377 ], [ %380, %379 ]
-  %.sink417 = phi i32 [ 16, %369 ], [ 16, %371 ], [ %374, %377 ], [ %374, %379 ]
+  %.sink418 = phi ptr [ %372, %371 ], [ %370, %369 ], [ %378, %377 ], [ %380, %379 ]
+  %.sink417 = phi i32 [ 16, %371 ], [ 16, %369 ], [ %374, %377 ], [ %374, %379 ]
   store ptr %.sink418, ptr %344, align 8, !tbaa !32
   store i32 %.sink417, ptr %336, align 8, !tbaa !63
   br label %Vec_IntPush.exit237
@@ -2176,7 +2176,7 @@ define ptr @Gia_ManFromBridge(ptr noundef captures(none) %0, ptr noundef writeon
   br label %23
 
 23:                                               ; preds = %22, %16, %10, %9
-  %.0 = phi ptr [ null, %9 ], [ null, %10 ], [ null, %16 ], [ %., %22 ]
+  %.0 = phi ptr [ null, %10 ], [ null, %16 ], [ %., %22 ], [ null, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

@@ -1162,7 +1162,7 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE18uninitialized_moveIPcS3_EEvT_S4_T0_.ex
   br label %_ZN4llvm11SmallVectorIcLj0EEC2EOS1_.exit.i.i
 
 _ZN4llvm11SmallVectorIcLj0EEC2EOS1_.exit.i.i:     ; preds = %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE18uninitialized_moveIPcS3_EEvT_S4_T0_.exit.i32, %_ZN4llvm15SmallVectorImplIcE12assignRemoteEOS1_.exit.i23, %_ZN4llvm11SmallVectorIcLj0EEaSEOS1_.exit10
-  %99 = phi i64 [ %.pre41, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE18uninitialized_moveIPcS3_EEvT_S4_T0_.exit.i32 ], [ %75, %_ZN4llvm15SmallVectorImplIcE12assignRemoteEOS1_.exit.i23 ], [ %75, %_ZN4llvm11SmallVectorIcLj0EEaSEOS1_.exit10 ]
+  %99 = phi i64 [ %.pre41, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE18uninitialized_moveIPcS3_EEvT_S4_T0_.exit.i32 ], [ %75, %_ZN4llvm11SmallVectorIcLj0EEaSEOS1_.exit10 ], [ %75, %_ZN4llvm15SmallVectorImplIcE12assignRemoteEOS1_.exit.i23 ]
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %100, ptr %87, align 8, !tbaa !118
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 56

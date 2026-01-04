@@ -588,7 +588,7 @@ _supported_image.exit:                            ; preds = %13, %16
   br label %.thread163
 
 .thread163:                                       ; preds = %37, %134, %172, %35, %174, %177, %178, %179, %180
-  %.1128 = phi i32 [ 2, %180 ], [ 5, %177 ], [ 6, %178 ], [ 7, %179 ], [ 3, %174 ], [ 2, %37 ], [ 8, %134 ], [ 0, %172 ], [ 5, %35 ]
+  %.1128 = phi i32 [ 2, %180 ], [ 3, %174 ], [ 5, %177 ], [ 6, %178 ], [ 7, %179 ], [ 2, %37 ], [ 8, %134 ], [ 0, %172 ], [ 5, %35 ]
   tail call void @libraw_close(ptr noundef nonnull %24) #5
   br label %_supported_image.exit.thread
 

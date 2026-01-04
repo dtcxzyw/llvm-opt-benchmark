@@ -283,7 +283,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %12, %4, %64, %.critedge, %68, %47, %29, %26, %21
-  %.0 = phi i32 [ %22, %21 ], [ -1094995529, %26 ], [ -1094995529, %29 ], [ -1094995529, %47 ], [ %69, %68 ], [ -1094995529, %.critedge ], [ %54, %64 ], [ -1094995529, %4 ], [ -1094995529, %12 ]
+  %.0 = phi i32 [ -1094995529, %.critedge ], [ %22, %21 ], [ -1094995529, %26 ], [ -1094995529, %29 ], [ -1094995529, %47 ], [ %69, %68 ], [ %54, %64 ], [ -1094995529, %4 ], [ -1094995529, %12 ]
   ret i32 %.0
 }
 
@@ -674,7 +674,7 @@ define internal range(i32 4, 0) i32 @decode_frame_mp3on4(ptr noundef %0, ptr nou
   br label %108
 
 108:                                              ; preds = %15, %4, %98, %97, %61, %47, %38
-  %.077 = phi i32 [ -1094995529, %38 ], [ -1094995529, %47 ], [ -1094995529, %61 ], [ -1094995529, %97 ], [ %9, %98 ], [ %13, %4 ], [ -1094995529, %15 ]
+  %.077 = phi i32 [ %9, %98 ], [ %13, %4 ], [ -1094995529, %38 ], [ -1094995529, %47 ], [ -1094995529, %61 ], [ -1094995529, %97 ], [ -1094995529, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.077
 }
@@ -3523,7 +3523,7 @@ compute_band_indexes.exit.i:                      ; preds = %1112, %1109, %1104
   br label %.loopexit418.i
 
 .loopexit418.i:                                   ; preds = %.loopexit418.loopexit523.i, %.lr.ph477.preheader.i, %.preheader417.i, %.preheader419.i
-  %.14.i = phi i32 [ %.11322480.i, %.preheader417.i ], [ %.11322480.i, %.preheader419.i ], [ %1459, %.lr.ph477.preheader.i ], [ %1477, %.loopexit418.loopexit523.i ]
+  %.14.i = phi i32 [ %1459, %.lr.ph477.preheader.i ], [ %.11322480.i, %.preheader417.i ], [ %.11322480.i, %.preheader419.i ], [ %1477, %.loopexit418.loopexit523.i ]
   %indvars.iv.next594.i = add nuw nsw i64 %indvars.iv593.i, 1
   %exitcond596.not.i = icmp eq i64 %indvars.iv.next594.i, 4
   br i1 %exitcond596.not.i, label %.preheader432.i, label %1449, !llvm.loop !170
@@ -4410,7 +4410,7 @@ switch_buffer.exit215.i.i:                        ; preds = %1939, %1934, %1932
   br label %.thread288.i.i
 
 .thread288.i.i:                                   ; preds = %.thread288.sink.split.i.i, %2009, %2008, %2005
-  %.9.i.i = phi i32 [ %.6.i.i, %2009 ], [ %.6.i.i, %2008 ], [ %.6.i.i, %2005 ], [ 0, %.thread288.sink.split.i.i ]
+  %.9.i.i = phi i32 [ %.6.i.i, %2008 ], [ %.6.i.i, %2005 ], [ %.6.i.i, %2009 ], [ 0, %.thread288.sink.split.i.i ]
   %2013 = sext i32 %.9.i.i to i64
   %2014 = getelementptr inbounds float, ptr %1563, i64 %2013
   %2015 = sub nsw i32 576, %.9.i.i
@@ -4807,7 +4807,7 @@ huffman_decode.exit.i:                            ; preds = %2030, %2025, %.thre
   br i1 %2182, label %.loopexit152.us.i.i, label %2162
 
 .loopexit152.us.i.i:                              ; preds = %.lr.ph200.us.i.i, %.lr.ph204.us.i.i, %2169, %._crit_edge201.us.i.i, %.lr.ph213.split.us.i.i
-  %.2128.us.i.i = phi i32 [ %.0126208.us.i.i, %.lr.ph213.split.us.i.i ], [ 0, %._crit_edge201.us.i.i ], [ 0, %2169 ], [ 0, %.lr.ph204.us.i.i ], [ 1, %.lr.ph200.us.i.i ]
+  %.2128.us.i.i = phi i32 [ 0, %2169 ], [ %.0126208.us.i.i, %.lr.ph213.split.us.i.i ], [ 0, %._crit_edge201.us.i.i ], [ 0, %.lr.ph204.us.i.i ], [ 1, %.lr.ph200.us.i.i ]
   %indvars.iv.next313.i.i = add nsw i64 %indvars.iv312.i.i, -1
   %2183 = icmp sgt i64 %indvars.iv312.i.i, 0
   br i1 %2183, label %.lr.ph213.split.us.i.i, label %compute_stereo.exit.i, !llvm.loop !192
@@ -4899,7 +4899,7 @@ huffman_decode.exit.i:                            ; preds = %2030, %2025, %.thre
   br i1 %exitcond293.not.i.i, label %.loopexit.i393.i, label %.lr.ph206.i.i, !llvm.loop !193
 
 .loopexit.i393.i:                                 ; preds = %.lr.ph206.i.i, %.lr.ph204.i.i, %.preheader.i.i, %2200
-  %.2128.i.i = phi i32 [ %.1127.i.i, %.preheader.i.i ], [ 0, %2200 ], [ 0, %.lr.ph204.i.i ], [ %.1127.i.i, %.lr.ph206.i.i ]
+  %.2128.i.i = phi i32 [ %.1127.i.i, %.preheader.i.i ], [ 0, %.lr.ph204.i.i ], [ 0, %2200 ], [ %.1127.i.i, %.lr.ph206.i.i ]
   %indvars.iv.next300.i.i = add nsw i64 %indvars.iv299.i.i, -1
   %2219 = icmp sgt i64 %indvars.iv299.i.i, 0
   br i1 %2219, label %.lr.ph213.split.i.i, label %compute_stereo.exit.i, !llvm.loop !192
@@ -4918,7 +4918,7 @@ huffman_decode.exit.i:                            ; preds = %2030, %2025, %.thre
   br label %compute_stereo.exit.i
 
 compute_stereo.exit.i:                            ; preds = %.loopexit.i393.i, %.loopexit152.us.i.i, %2222, %2220, %._crit_edge179.i.i
-  %.pre675.i = phi i32 [ %.pre675688.i, %._crit_edge179.i.i ], [ %.pre675688.i, %2220 ], [ %.pre675.pre.i, %2222 ], [ %.pre675688.i, %.loopexit152.us.i.i ], [ %.pre675688.i, %.loopexit.i393.i ]
+  %.pre675.i = phi i32 [ %.pre675688.i, %.loopexit152.us.i.i ], [ %.pre675.pre.i, %2222 ], [ %.pre675688.i, %._crit_edge179.i.i ], [ %.pre675688.i, %2220 ], [ %.pre675688.i, %.loopexit.i393.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %2226
 
@@ -5169,7 +5169,7 @@ compute_antialias.exit.i:                         ; preds = %2274, %2270
   br label %mp_decode_layer3.exit
 
 mp_decode_layer3.exit:                            ; preds = %.loopexit440.i, %918, %974, %2352
-  %.0.i132 = phi i32 [ -1094995529, %918 ], [ -1094995529, %974 ], [ %2353, %2352 ], [ %.0326.i, %.loopexit440.i ]
+  %.0.i132 = phi i32 [ %2353, %2352 ], [ -1094995529, %918 ], [ -1094995529, %974 ], [ %.0326.i, %.loopexit440.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %2354 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   store i32 0, ptr %2354, align 16, !tbaa !64
@@ -5404,7 +5404,7 @@ align_get_bits.exit147:                           ; preds = %2380, %2383
   br label %2471
 
 2471:                                             ; preds = %2421, %2414, %._crit_edge197
-  %.095 = phi i32 [ %2470, %._crit_edge197 ], [ %.097, %2414 ], [ %2427, %2421 ]
+  %.095 = phi i32 [ %.097, %2414 ], [ %2470, %._crit_edge197 ], [ %2427, %2421 ]
   ret i32 %.095
 }
 
@@ -5474,7 +5474,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @handle_crc(ptr noundef rea
   br label %.sink.split
 
 .sink.split:                                      ; preds = %35, %10
-  %.1.ph = phi i32 [ 0, %10 ], [ %spec.select, %35 ]
+  %.1.ph = phi i32 [ %spec.select, %35 ], [ 0, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %40
 

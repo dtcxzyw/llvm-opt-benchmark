@@ -3247,8 +3247,8 @@ Io_MvGetLine.exit72.i.i:                          ; preds = %1329, %.critedge.lo
   br label %.critedge4.i138
 
 .critedge4.i138:                                  ; preds = %1336, %.thread76.i.i, %1335, %1334, %1285
-  %.sink1410.i = phi ptr [ %1290, %1335 ], [ %1290, %.thread76.i.i ], [ %1347, %1336 ], [ %1290, %1285 ], [ %1290, %1334 ]
-  %.sink1408.i = phi ptr [ inttoptr (i64 2 to ptr), %1335 ], [ inttoptr (i64 3 to ptr), %.thread76.i.i ], [ inttoptr (i64 1 to ptr), %1336 ], [ inttoptr (i64 1 to ptr), %1285 ], [ inttoptr (i64 1 to ptr), %1334 ]
+  %.sink1410.i = phi ptr [ %1347, %1336 ], [ %1290, %1335 ], [ %1290, %.thread76.i.i ], [ %1290, %1285 ], [ %1290, %1334 ]
+  %.sink1408.i = phi ptr [ inttoptr (i64 1 to ptr), %1336 ], [ inttoptr (i64 2 to ptr), %1335 ], [ inttoptr (i64 3 to ptr), %.thread76.i.i ], [ inttoptr (i64 1 to ptr), %1285 ], [ inttoptr (i64 1 to ptr), %1334 ]
   %1348 = getelementptr inbounds nuw i8, ptr %.sink1410.i, i64 56
   store ptr %.sink1408.i, ptr %1348, align 8, !tbaa !37
   %indvars.iv.next1018.i = add nuw nsw i64 %indvars.iv1017.i, 1
@@ -4523,7 +4523,7 @@ Io_MvParseTableBlif.exit.thread.i.i:              ; preds = %Io_MvGetLine.exit14
   br label %Io_MvParse.exit
 
 Io_MvParseTableBlif.exit.i.i:                     ; preds = %Vec_StrPush.exit169.i.i.i, %1681, %1679, %1647
-  %.090.i.i.i = phi ptr [ %1651, %1647 ], [ %.val102.i53.i.i, %Vec_StrPush.exit169.i.i.i ], [ %1680, %1679 ], [ %1682, %1681 ]
+  %.090.i.i.i = phi ptr [ %1651, %1647 ], [ %1682, %1681 ], [ %.val102.i53.i.i, %Vec_StrPush.exit169.i.i.i ], [ %1680, %1679 ]
   %1916 = getelementptr inbounds nuw i8, ptr %1629, i64 56
   store ptr %.090.i.i.i, ptr %1916, align 8, !tbaa !37
   %1917 = icmp eq ptr %.090.i.i.i, null
@@ -5526,8 +5526,8 @@ Io_MvGetLine.exit63.i.i:                          ; preds = %2336, %.critedge.lo
   br label %Vec_IntPush.exit.sink.split.i.i
 
 Vec_IntPush.exit.sink.split.i.i:                  ; preds = %2362, %2360, %2354, %2352
-  %.sink86.i.i = phi ptr [ %2353, %2352 ], [ %2355, %2354 ], [ %2361, %2360 ], [ %2363, %2362 ]
-  %.sink.i.i = phi i32 [ 16, %2352 ], [ 16, %2354 ], [ %2357, %2360 ], [ %2357, %2362 ]
+  %.sink86.i.i = phi ptr [ %2355, %2354 ], [ %2353, %2352 ], [ %2361, %2360 ], [ %2363, %2362 ]
+  %.sink.i.i = phi i32 [ 16, %2354 ], [ 16, %2352 ], [ %2357, %2360 ], [ %2357, %2362 ]
   store ptr %.sink86.i.i, ptr %2280, align 8, !tbaa !151
   store i32 %.sink.i.i, ptr %2272, align 8, !tbaa !150
   %.val48.i.pre.i = load ptr, ptr %2311, align 8, !tbaa !105
@@ -5803,8 +5803,8 @@ Io_MvParseLineOnehot.exit.thread.i:               ; preds = %Vec_VecSizeSize.exi
   store ptr null, ptr %90, align 8, !tbaa !32
   br label %Io_MvParse.exit
 
-Io_MvParse.exit:                                  ; preds = %.lr.ph718.i, %.lr.ph721.i, %Io_MvParseTableBlif.exit.i.i, %Io_MvParseLineModel.exit.i, %Io_MvGetLine.exit.i114, %2492, %Io_MvGetLine.exit63.i.i, %Io_MvGetLine.exit.i370.i, %Io_MvGetLine.exit144.i.i, %Io_MvGetLine.exit.i346.i, %Io_MvGetLine.exit70.i.i, %Io_MvGetLine.exit60.i.i, %Io_MvGetLine.exit50.i.i, %Io_MvGetLine.exit.i310.i, %Io_MvParseTableBlif.exit.thread.i.i, %Io_MvGetLine.exit.i291.i, %Io_MvGetLine.exit148.i.i.i, %Io_MvGetLine.exit133.i.i.i, %Io_MvGetLine.exit123.i.i.i, %Io_MvGetLine.exit113.i.i.i, %Io_MvGetLine.exit.i.i.i, %Io_MvGetLine.exit72.i.i, %Io_MvGetLine.exit.i272.i, %Io_MvGetLine.exit101.i.i, %Io_MvGetLine.exit91.i.i, %Io_MvGetLine.exit.i247.i, %Io_MvGetLine.exit.i144, %Io_MvGetLine.exit142.i.i, %Io_MvGetLine.exit131.i.i, %Io_MvGetLine.exit121.i.i, %Io_MvGetLine.exit.i.i
-  %.081 = phi ptr [ null, %Io_MvGetLine.exit.i144 ], [ %2493, %2492 ], [ null, %Io_MvGetLine.exit.i272.i ], [ null, %Io_MvGetLine.exit72.i.i ], [ null, %Io_MvGetLine.exit.i.i ], [ null, %Io_MvGetLine.exit121.i.i ], [ null, %Io_MvGetLine.exit131.i.i ], [ null, %Io_MvGetLine.exit142.i.i ], [ null, %Io_MvGetLine.exit.i247.i ], [ null, %Io_MvGetLine.exit91.i.i ], [ null, %Io_MvGetLine.exit101.i.i ], [ null, %Io_MvGetLine.exit.i291.i ], [ null, %Io_MvGetLine.exit.i.i.i ], [ null, %Io_MvGetLine.exit113.i.i.i ], [ null, %Io_MvGetLine.exit123.i.i.i ], [ null, %Io_MvGetLine.exit148.i.i.i ], [ null, %Io_MvGetLine.exit133.i.i.i ], [ null, %Io_MvParseTableBlif.exit.thread.i.i ], [ null, %Io_MvGetLine.exit.i310.i ], [ null, %Io_MvGetLine.exit50.i.i ], [ null, %Io_MvGetLine.exit70.i.i ], [ null, %Io_MvGetLine.exit60.i.i ], [ null, %Io_MvGetLine.exit.i346.i ], [ null, %Io_MvGetLine.exit144.i.i ], [ null, %Io_MvGetLine.exit63.i.i ], [ null, %Io_MvGetLine.exit.i370.i ], [ null, %Io_MvGetLine.exit.i114 ], [ null, %Io_MvParseLineModel.exit.i ], [ null, %Io_MvParseTableBlif.exit.i.i ], [ null, %.lr.ph721.i ], [ null, %.lr.ph718.i ]
+Io_MvParse.exit:                                  ; preds = %.lr.ph718.i, %.lr.ph721.i, %Io_MvParseTableBlif.exit.i.i, %Io_MvGetLine.exit.i114, %Io_MvParseLineModel.exit.i, %2492, %Io_MvGetLine.exit63.i.i, %Io_MvGetLine.exit.i370.i, %Io_MvGetLine.exit144.i.i, %Io_MvGetLine.exit.i346.i, %Io_MvGetLine.exit70.i.i, %Io_MvGetLine.exit60.i.i, %Io_MvGetLine.exit50.i.i, %Io_MvGetLine.exit.i310.i, %Io_MvParseTableBlif.exit.thread.i.i, %Io_MvGetLine.exit.i291.i, %Io_MvGetLine.exit148.i.i.i, %Io_MvGetLine.exit133.i.i.i, %Io_MvGetLine.exit123.i.i.i, %Io_MvGetLine.exit113.i.i.i, %Io_MvGetLine.exit.i.i.i, %Io_MvGetLine.exit72.i.i, %Io_MvGetLine.exit.i272.i, %Io_MvGetLine.exit101.i.i, %Io_MvGetLine.exit91.i.i, %Io_MvGetLine.exit.i247.i, %Io_MvGetLine.exit.i144, %Io_MvGetLine.exit142.i.i, %Io_MvGetLine.exit131.i.i, %Io_MvGetLine.exit121.i.i, %Io_MvGetLine.exit.i.i
+  %.081 = phi ptr [ null, %Io_MvParseTableBlif.exit.i.i ], [ %2493, %2492 ], [ null, %Io_MvGetLine.exit.i144 ], [ null, %Io_MvGetLine.exit72.i.i ], [ null, %Io_MvGetLine.exit142.i.i ], [ null, %Io_MvGetLine.exit60.i.i ], [ null, %.lr.ph721.i ], [ null, %Io_MvParseTableBlif.exit.thread.i.i ], [ null, %Io_MvGetLine.exit.i114 ], [ null, %Io_MvGetLine.exit.i370.i ], [ null, %Io_MvGetLine.exit101.i.i ], [ null, %Io_MvGetLine.exit.i272.i ], [ null, %Io_MvGetLine.exit.i.i ], [ null, %Io_MvGetLine.exit121.i.i ], [ null, %Io_MvGetLine.exit131.i.i ], [ null, %Io_MvGetLine.exit.i247.i ], [ null, %Io_MvGetLine.exit91.i.i ], [ null, %Io_MvGetLine.exit.i291.i ], [ null, %Io_MvGetLine.exit144.i.i ], [ null, %Io_MvGetLine.exit.i.i.i ], [ null, %Io_MvGetLine.exit113.i.i.i ], [ null, %Io_MvGetLine.exit123.i.i.i ], [ null, %Io_MvGetLine.exit148.i.i.i ], [ null, %Io_MvGetLine.exit133.i.i.i ], [ null, %Io_MvGetLine.exit.i310.i ], [ null, %Io_MvGetLine.exit50.i.i ], [ null, %Io_MvGetLine.exit70.i.i ], [ null, %Io_MvGetLine.exit.i346.i ], [ null, %Io_MvGetLine.exit63.i.i ], [ null, %Io_MvParseLineModel.exit.i ], [ null, %.lr.ph718.i ]
   %2494 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 88
   %2495 = load i8, ptr %2494, align 8, !tbaa !37
   %.not85 = icmp eq i8 %2495, 0
@@ -6022,7 +6022,7 @@ Vec_PtrFreeP.exit:                                ; preds = %2583, %2586
   br label %2589
 
 2589:                                             ; preds = %2499, %Vec_PtrFreeP.exit, %2514, %85, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %85 ], [ null, %2514 ], [ %2565, %Vec_PtrFreeP.exit ], [ null, %2499 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %85 ], [ %2565, %Vec_PtrFreeP.exit ], [ null, %2514 ], [ null, %2499 ]
   ret ptr %.0
 }
 
@@ -7487,7 +7487,7 @@ Io_MvParseTableMv.exit.i:                         ; preds = %253, %Vec_StrGrow.e
   br i1 %exitcond.not, label %Io_MvParseLineNamesMvOne.exit.thread, label %117, !llvm.loop !187
 
 Io_MvParseLineNamesMvOne.exit.thread:             ; preds = %Io_MvParseTableMv.exit.i, %264, %109, %Io_MvParseTableMv.exit.thread.i, %Io_MvGetLine.exit53.i, %Io_MvGetLine.exit.i, %Io_MvGetLine.exit103, %Io_MvGetLine.exit
-  %.069 = phi i32 [ 0, %Io_MvGetLine.exit ], [ 0, %Io_MvGetLine.exit103 ], [ 0, %Io_MvGetLine.exit.i ], [ 0, %Io_MvGetLine.exit53.i ], [ 0, %Io_MvParseTableMv.exit.thread.i ], [ 1, %109 ], [ 0, %Io_MvParseTableMv.exit.i ], [ 1, %264 ]
+  %.069 = phi i32 [ 0, %Io_MvGetLine.exit ], [ 0, %Io_MvGetLine.exit103 ], [ 1, %109 ], [ 0, %Io_MvParseTableMv.exit.thread.i ], [ 0, %Io_MvGetLine.exit.i ], [ 0, %Io_MvGetLine.exit53.i ], [ 0, %Io_MvParseTableMv.exit.i ], [ 1, %264 ]
   ret i32 %.069
 }
 
@@ -7868,7 +7868,7 @@ Abc_NtkMvVarMan.exit:                             ; preds = %4, %8
   br i1 %37, label %.lr.ph, label %.loopexit, !llvm.loop !189
 
 .loopexit:                                        ; preds = %.lr.ph, %17, %Abc_NtkMvVarMan.exit, %2
-  %.024 = phi ptr [ null, %2 ], [ %11, %Abc_NtkMvVarMan.exit ], [ %11, %17 ], [ %11, %.lr.ph ]
+  %.024 = phi ptr [ %11, %Abc_NtkMvVarMan.exit ], [ null, %2 ], [ %11, %17 ], [ %11, %.lr.ph ]
   ret ptr %.024
 }
 

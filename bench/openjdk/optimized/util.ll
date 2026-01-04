@@ -1394,7 +1394,7 @@ define hidden zeroext range(i8 0, 2) i8 @isObjectTag(i8 noundef signext %0) loca
   br label %5
 
 5:                                                ; preds = %1, %1, %1, %1, %1, %1, %2
-  %6 = phi i8 [ 1, %1 ], [ %4, %2 ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ]
+  %6 = phi i8 [ %4, %2 ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ]
   ret i8 %6
 }
 
@@ -2546,7 +2546,7 @@ define hidden zeroext range(i8 0, 2) i8 @sharedInvoke(ptr noundef %0, ptr nounde
   br label %55
 
 48:                                               ; preds = %43, %40, %37, %34
-  %.055 = phi i8 [ 1, %34 ], [ 2, %37 ], [ 2, %40 ], [ 3, %43 ]
+  %.055 = phi i8 [ 2, %40 ], [ 1, %34 ], [ 2, %37 ], [ 3, %43 ]
   %49 = trunc i32 %30 to i8
   %50 = tail call i32 @inStream_id(ptr noundef %0) #14
   %51 = tail call i32 @invoker_requestInvoke(i8 noundef signext %.055, i8 noundef signext %49, i32 noundef %50, ptr noundef %.053, ptr noundef %.056, ptr noundef %14, ptr noundef %.054, ptr noundef %.052, i32 noundef %15) #14
@@ -2564,7 +2564,7 @@ define hidden zeroext range(i8 0, 2) i8 @sharedInvoke(ptr noundef %0, ptr nounde
   br label %55
 
 55:                                               ; preds = %48, %52, %54, %46, %47, %32, %33, %.critedge, %13, %23
-  %.0 = phi i8 [ 1, %23 ], [ 1, %13 ], [ 1, %.critedge ], [ 1, %33 ], [ 1, %32 ], [ 1, %47 ], [ 1, %46 ], [ 1, %54 ], [ 1, %52 ], [ 0, %48 ]
+  %.0 = phi i8 [ 1, %32 ], [ 1, %23 ], [ 1, %13 ], [ 1, %.critedge ], [ 1, %46 ], [ 1, %52 ], [ 1, %33 ], [ 1, %47 ], [ 1, %54 ], [ 0, %48 ]
   ret i8 %.0
 }
 
@@ -2875,7 +2875,7 @@ define hidden zeroext range(i16 0, 513) i16 @map2jdwpError(i32 noundef %0) local
   br label %58
 
 58:                                               ; preds = %1, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi i16 [ 113, %57 ], [ 10, %2 ], [ 11, %3 ], [ 12, %4 ], [ 13, %5 ], [ 14, %6 ], [ 20, %7 ], [ 21, %8 ], [ 22, %9 ], [ 23, %10 ], [ 24, %11 ], [ 25, %12 ], [ 31, %13 ], [ 32, %14 ], [ 34, %15 ], [ 35, %16 ], [ 40, %17 ], [ 41, %18 ], [ 50, %19 ], [ 51, %20 ], [ 52, %21 ], [ 60, %22 ], [ 61, %23 ], [ 62, %24 ], [ 65, %25 ], [ 68, %26 ], [ 69, %27 ], [ 100, %28 ], [ 101, %29 ], [ 102, %30 ], [ 103, %31 ], [ 110, %32 ], [ 111, %33 ], [ 112, %34 ], [ 115, %35 ], [ 99, %36 ], [ 66, %37 ], [ 67, %38 ], [ 63, %39 ], [ 64, %40 ], [ 70, %41 ], [ 71, %42 ], [ 72, %43 ], [ 33, %44 ], [ 500, %45 ], [ 502, %46 ], [ 503, %47 ], [ 504, %48 ], [ 506, %49 ], [ 507, %50 ], [ 508, %51 ], [ 509, %52 ], [ 510, %53 ], [ 511, %54 ], [ 512, %55 ], [ 30, %56 ], [ 0, %1 ]
+  %.0 = phi i16 [ 113, %57 ], [ 512, %55 ], [ 10, %2 ], [ 11, %3 ], [ 12, %4 ], [ 13, %5 ], [ 14, %6 ], [ 0, %1 ], [ 20, %7 ], [ 21, %8 ], [ 22, %9 ], [ 23, %10 ], [ 24, %11 ], [ 25, %12 ], [ 31, %13 ], [ 32, %14 ], [ 34, %15 ], [ 35, %16 ], [ 40, %17 ], [ 41, %18 ], [ 50, %19 ], [ 51, %20 ], [ 52, %21 ], [ 60, %22 ], [ 61, %23 ], [ 62, %24 ], [ 65, %25 ], [ 68, %26 ], [ 69, %27 ], [ 100, %28 ], [ 101, %29 ], [ 102, %30 ], [ 103, %31 ], [ 110, %32 ], [ 111, %33 ], [ 112, %34 ], [ 115, %35 ], [ 99, %36 ], [ 66, %37 ], [ 67, %38 ], [ 63, %39 ], [ 64, %40 ], [ 70, %41 ], [ 71, %42 ], [ 72, %43 ], [ 30, %56 ], [ 33, %44 ], [ 500, %45 ], [ 502, %46 ], [ 503, %47 ], [ 504, %48 ], [ 506, %49 ], [ 507, %50 ], [ 508, %51 ], [ 509, %52 ], [ 510, %53 ], [ 511, %54 ]
   ret i16 %.0
 }
 
@@ -3250,7 +3250,7 @@ methodSignature.exit:                             ; preds = %20, %23
   br label %36
 
 36:                                               ; preds = %25, %35, %methodSignature.exit
-  %.0 = phi i32 [ %.1, %35 ], [ %17, %methodSignature.exit ], [ 189, %25 ]
+  %.0 = phi i32 [ %17, %methodSignature.exit ], [ %.1, %35 ], [ 189, %25 ]
   ret i32 %.0
 }
 
@@ -3660,7 +3660,7 @@ define hidden i32 @jvmtiGetCapabilities(ptr noundef writeonly captures(none) %0)
   br label %27
 
 27:                                               ; preds = %13, %1, %24
-  %.0 = phi i32 [ 0, %24 ], [ 182, %1 ], [ %20, %13 ]
+  %.0 = phi i32 [ 182, %1 ], [ 0, %24 ], [ %20, %13 ]
   ret i32 %.0
 }
 
@@ -3805,7 +3805,7 @@ define hidden void @debugMonitorEnter(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @debugInit_exit(i32 noundef %13, ptr noundef nonnull @.str.81) #14
   br label %ignore_vm_death.exit.thread
 
-ignore_vm_death.exit.thread:                      ; preds = %7, %19, %14, %20
+ignore_vm_death.exit.thread:                      ; preds = %7, %14, %19, %20
   ret void
 }
 
@@ -3856,7 +3856,7 @@ define hidden void @debugMonitorExit(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @debugInit_exit(i32 noundef %13, ptr noundef nonnull @.str.83) #14
   br label %ignore_vm_death.exit.thread
 
-ignore_vm_death.exit.thread:                      ; preds = %7, %19, %14, %20
+ignore_vm_death.exit.thread:                      ; preds = %7, %14, %19, %20
   ret void
 }
 
@@ -3922,7 +3922,7 @@ define hidden void @debugMonitorWait(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @debugInit_exit(i32 noundef %13, ptr noundef nonnull @.str.85) #14
   br label %ignore_vm_death.exit.thread
 
-ignore_vm_death.exit.thread:                      ; preds = %7, %18, %16, %14, %24, %19, %25
+ignore_vm_death.exit.thread:                      ; preds = %7, %18, %16, %14, %19, %24, %25
   ret void
 }
 
@@ -3973,7 +3973,7 @@ define hidden void @debugMonitorNotify(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @debugInit_exit(i32 noundef %13, ptr noundef nonnull @.str.87) #14
   br label %ignore_vm_death.exit.thread
 
-ignore_vm_death.exit.thread:                      ; preds = %7, %19, %14, %20
+ignore_vm_death.exit.thread:                      ; preds = %7, %14, %19, %20
   ret void
 }
 
@@ -4024,7 +4024,7 @@ define hidden void @debugMonitorNotifyAll(ptr noundef %0) local_unnamed_addr #0 
   tail call void @debugInit_exit(i32 noundef %13, ptr noundef nonnull @.str.89) #14
   br label %ignore_vm_death.exit.thread
 
-ignore_vm_death.exit.thread:                      ; preds = %7, %19, %14, %20
+ignore_vm_death.exit.thread:                      ; preds = %7, %14, %19, %20
   ret void
 }
 
@@ -4113,7 +4113,7 @@ define hidden void @debugMonitorDestroy(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @debugInit_exit(i32 noundef %13, ptr noundef nonnull @.str.93) #14
   br label %ignore_vm_death.exit.thread
 
-ignore_vm_death.exit.thread:                      ; preds = %7, %19, %14, %20
+ignore_vm_death.exit.thread:                      ; preds = %7, %14, %19, %20
   ret void
 }
 
@@ -4826,8 +4826,8 @@ is_a_nested_class.exit63:                         ; preds = %101, %90, %.critedg
   store ptr %56, ptr %114, align 8
   br label %is_a_nested_class.exit63.thread
 
-is_a_nested_class.exit63.thread:                  ; preds = %71, %69, %.critedge.i62, %is_a_nested_class.exit.thread.thread, %106, %is_a_nested_class.exit63
-  %.1 = phi i32 [ %113, %106 ], [ %.02885, %is_a_nested_class.exit63 ], [ %.02885, %is_a_nested_class.exit.thread.thread ], [ %.02885, %.critedge.i62 ], [ %.02885, %69 ], [ %.02885, %71 ]
+is_a_nested_class.exit63.thread:                  ; preds = %71, %69, %is_a_nested_class.exit.thread.thread, %.critedge.i62, %106, %is_a_nested_class.exit63
+  %.1 = phi i32 [ %113, %106 ], [ %.02885, %is_a_nested_class.exit63 ], [ %.02885, %.critedge.i62 ], [ %.02885, %69 ], [ %.02885, %is_a_nested_class.exit.thread.thread ], [ %.02885, %71 ]
   call void @jvmtiDeallocate(ptr noundef %68)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %115 = load i32, ptr %8, align 4
@@ -4857,7 +4857,7 @@ classSignature.exit48._crit_edge:                 ; preds = %is_a_nested_class.e
   br label %124
 
 124:                                              ; preds = %classSignature.exit, %classLoader.exit, %122, %52
-  %.0 = phi i32 [ %46, %52 ], [ %.130, %122 ], [ %19, %classLoader.exit ], [ %31, %classSignature.exit ]
+  %.0 = phi i32 [ %.130, %122 ], [ %19, %classLoader.exit ], [ %46, %52 ], [ %31, %classSignature.exit ]
   ret i32 %.0
 }
 
@@ -5231,7 +5231,7 @@ define hidden zeroext i8 @isMethodObsolete(ptr noundef %0) local_unnamed_addr #0
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9, %1
-  %16 = phi i8 [ 1, %1 ], [ %spec.select, %9 ]
+  %16 = phi i8 [ %spec.select, %9 ], [ 1, %1 ]
   ret i8 %16
 }
 
@@ -5291,7 +5291,7 @@ define hidden ptr @getSpecialJvmti() local_unnamed_addr #0 {
   br label %30
 
 30:                                               ; preds = %23, %8
-  %.0 = phi ptr [ null, %8 ], [ %spec.select, %23 ]
+  %.0 = phi ptr [ %spec.select, %23 ], [ null, %8 ]
   ret ptr %.0
 }
 
@@ -5342,7 +5342,7 @@ define hidden void @writeCodeLocation(ptr noundef %0, ptr noundef %1, ptr nounde
   %.not3.i = icmp eq i32 %24, 0
   br i1 %.not3.i, label %isMethodObsolete.exit, label %isMethodObsolete.exit.thread
 
-isMethodObsolete.exit.thread:                     ; preds = %8, %18
+isMethodObsolete.exit.thread:                     ; preds = %18, %8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %25
 
@@ -5603,7 +5603,7 @@ define hidden range(i32 0, 201) i32 @map2jvmtiError(i16 noundef zeroext %0) loca
   br label %59
 
 59:                                               ; preds = %1, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi i32 [ 181, %58 ], [ 10, %2 ], [ 11, %3 ], [ 12, %4 ], [ 13, %5 ], [ 14, %6 ], [ 20, %7 ], [ 21, %8 ], [ 22, %9 ], [ 23, %10 ], [ 24, %11 ], [ 25, %12 ], [ 200, %13 ], [ 31, %14 ], [ 32, %15 ], [ 187, %16 ], [ 34, %17 ], [ 35, %18 ], [ 40, %19 ], [ 41, %20 ], [ 50, %21 ], [ 51, %22 ], [ 52, %23 ], [ 60, %24 ], [ 61, %25 ], [ 62, %26 ], [ 63, %27 ], [ 64, %28 ], [ 65, %29 ], [ 66, %30 ], [ 67, %31 ], [ 68, %32 ], [ 69, %33 ], [ 70, %34 ], [ 71, %35 ], [ 72, %36 ], [ 98, %37 ], [ 100, %38 ], [ 101, %39 ], [ 102, %40 ], [ 103, %41 ], [ 110, %42 ], [ 111, %43 ], [ 112, %44 ], [ 115, %45 ], [ 189, %46 ], [ 190, %47 ], [ 191, %48 ], [ 192, %49 ], [ 193, %50 ], [ 194, %51 ], [ 195, %52 ], [ 196, %53 ], [ 197, %54 ], [ 198, %55 ], [ 199, %56 ], [ 186, %57 ], [ 0, %1 ]
+  %.0 = phi i32 [ 181, %58 ], [ 186, %57 ], [ 10, %2 ], [ 11, %3 ], [ 12, %4 ], [ 13, %5 ], [ 14, %6 ], [ 20, %7 ], [ 21, %8 ], [ 22, %9 ], [ 23, %10 ], [ 24, %11 ], [ 25, %12 ], [ 200, %13 ], [ 31, %14 ], [ 32, %15 ], [ 187, %16 ], [ 34, %17 ], [ 35, %18 ], [ 40, %19 ], [ 41, %20 ], [ 50, %21 ], [ 51, %22 ], [ 52, %23 ], [ 60, %24 ], [ 61, %25 ], [ 62, %26 ], [ 63, %27 ], [ 64, %28 ], [ 65, %29 ], [ 66, %30 ], [ 67, %31 ], [ 68, %32 ], [ 69, %33 ], [ 70, %34 ], [ 71, %35 ], [ 72, %36 ], [ 98, %37 ], [ 100, %38 ], [ 101, %39 ], [ 102, %40 ], [ 103, %41 ], [ 110, %42 ], [ 111, %43 ], [ 112, %44 ], [ 115, %45 ], [ 189, %46 ], [ 190, %47 ], [ 191, %48 ], [ 192, %49 ], [ 193, %50 ], [ 194, %51 ], [ 195, %52 ], [ 196, %53 ], [ 197, %54 ], [ 198, %55 ], [ 199, %56 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -5795,7 +5795,7 @@ define hidden range(i32 0, 21) i32 @jdwp2EventIndex(i8 noundef zeroext %0) local
   br label %22
 
 22:                                               ; preds = %1, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi i32 [ 0, %21 ], [ 2, %2 ], [ 3, %3 ], [ 4, %4 ], [ 5, %5 ], [ 6, %6 ], [ 7, %7 ], [ 8, %8 ], [ 9, %9 ], [ 10, %10 ], [ 11, %11 ], [ 12, %12 ], [ 13, %13 ], [ 14, %14 ], [ 15, %15 ], [ 16, %16 ], [ 17, %17 ], [ 18, %18 ], [ 19, %19 ], [ 20, %20 ], [ 1, %1 ]
+  %.0 = phi i32 [ 0, %21 ], [ 20, %20 ], [ 2, %2 ], [ 3, %3 ], [ 4, %4 ], [ 5, %5 ], [ 6, %6 ], [ 7, %7 ], [ 8, %8 ], [ 9, %9 ], [ 10, %10 ], [ 11, %11 ], [ 12, %12 ], [ 13, %13 ], [ 14, %14 ], [ 1, %1 ], [ 15, %15 ], [ 16, %16 ], [ 17, %17 ], [ 18, %18 ], [ 19, %19 ]
   ret i32 %.0
 }
 
@@ -6062,8 +6062,8 @@ classSignature.exit:                              ; preds = %75, %81
   br label %.thread39
 
 .thread39:                                        ; preds = %classSignature.exit, %42, %.thread, %methodClass.exit, %methodSignature.exit
-  %.03342 = phi ptr [ %spec.select, %methodSignature.exit ], [ %spec.select, %methodClass.exit ], [ null, %.thread ], [ null, %42 ], [ %spec.select, %classSignature.exit ]
-  %.0 = phi ptr [ null, %methodSignature.exit ], [ null, %methodClass.exit ], [ null, %.thread ], [ null, %42 ], [ %spec.select43, %classSignature.exit ]
+  %.03342 = phi ptr [ %spec.select, %methodSignature.exit ], [ %spec.select, %classSignature.exit ], [ null, %42 ], [ %spec.select, %methodClass.exit ], [ null, %.thread ]
+  %.0 = phi ptr [ null, %methodSignature.exit ], [ %spec.select43, %classSignature.exit ], [ null, %42 ], [ null, %methodClass.exit ], [ null, %.thread ]
   %89 = load ptr, ptr @gdata, align 8
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 528
   %91 = load i32, ptr %90, align 8
@@ -6403,7 +6403,7 @@ define hidden i32 @classInstanceCounts(i32 noundef %0, ptr noundef readonly capt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %23, %54, %70
-  %.3 = phi i32 [ %spec.select, %70 ], [ 0, %54 ], [ %28, %23 ]
+  %.3 = phi i32 [ 0, %54 ], [ %spec.select, %70 ], [ %28, %23 ]
   %73 = load ptr, ptr @gdata, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 528
   %75 = load i32, ptr %74, align 8
@@ -6485,7 +6485,7 @@ define internal range(i32 256, 32769) i32 @cbObjectCounterFromRef(i32 %0, ptr re
   br label %40
 
 40:                                               ; preds = %19, %15, %9, %33, %31, %13
-  %.0 = phi i32 [ 32768, %13 ], [ 32768, %31 ], [ 256, %33 ], [ 32768, %9 ], [ 256, %15 ], [ 256, %19 ]
+  %.0 = phi i32 [ 256, %33 ], [ 32768, %13 ], [ 32768, %9 ], [ 256, %15 ], [ 32768, %31 ], [ 256, %19 ]
   ret i32 %.0
 }
 
@@ -6530,7 +6530,7 @@ define internal range(i32 256, 32769) i32 @cbObjectCounter(i64 noundef %0, i64 %
   br label %26
 
 26:                                               ; preds = %5, %19, %17, %9
-  %.0 = phi i32 [ 32768, %9 ], [ 32768, %17 ], [ 256, %19 ], [ 32768, %5 ]
+  %.0 = phi i32 [ 256, %19 ], [ 32768, %9 ], [ 32768, %17 ], [ 32768, %5 ]
   ret i32 %.0
 }
 
@@ -6752,7 +6752,7 @@ define internal range(i32 256, 32769) i32 @cbObjectTagReferrer(i32 %0, ptr readn
   br label %36
 
 36:                                               ; preds = %.sink.split, %27, %28, %22, %16, %14, %9
-  %.0 = phi i32 [ 32768, %9 ], [ 32768, %14 ], [ 256, %16 ], [ 256, %22 ], [ 256, %28 ], [ 256, %27 ], [ 256, %.sink.split ]
+  %.0 = phi i32 [ 256, %22 ], [ 32768, %9 ], [ 32768, %14 ], [ 256, %16 ], [ 256, %27 ], [ 256, %28 ], [ 256, %.sink.split ]
   ret i32 %.0
 }
 

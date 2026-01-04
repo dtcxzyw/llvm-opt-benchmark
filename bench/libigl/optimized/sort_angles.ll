@@ -762,7 +762,7 @@ define linkonce_odr dso_local void @_ZSt11__sort_heapIPiN9__gnu_cxx5__ops15_Iter
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread35
-  %.029.i.i = phi i64 [ %104, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread35 ], [ 0, %.lr.ph.i.i.preheader ]
+  %.029.i.i = phi i64 [ %103, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread35 ], [ 0, %.lr.ph.i.i.preheader ]
   %21 = shl i64 %.029.i.i, 1
   %22 = add i64 %21, 2
   %23 = getelementptr inbounds i32, ptr %0, i64 %22
@@ -789,17 +789,17 @@ define linkonce_odr dso_local void @_ZSt11__sort_heapIPiN9__gnu_cxx5__ops15_Iter
   %38 = fcmp oeq double %.fr53, %.fr54
   %39 = fcmp oeq double %.fr, %.fr52
   %or.cond120.i7 = and i1 %38, %39
-  br i1 %or.cond120.i7, label %.preheader.i20, label %51
+  br i1 %or.cond120.i7, label %.preheader.i20, label %50
 
 .preheader.i20:                                   ; preds = %.lr.ph.i.i
   %40 = load i64, ptr %.sroa.2.0.copyload.i, align 8, !tbaa !12
   %.not127.i21 = icmp ugt i64 %40, 2
-  br i1 %.not127.i21, label %.lr.ph.i23, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26
+  br i1 %.not127.i21, label %.lr.ph.i23, label %.split.loop.exit.thread.i22
 
 41:                                               ; preds = %.lr.ph.i23
   %42 = add nuw i64 %.0103128.i24, 1
   %exitcond.not.i25 = icmp eq i64 %42, %40
-  br i1 %exitcond.not.i25, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26, label %.lr.ph.i23, !llvm.loop !75
+  br i1 %exitcond.not.i25, label %.split.loop.exit.thread.i22, label %.lr.ph.i23, !llvm.loop !75
 
 .lr.ph.i23:                                       ; preds = %.preheader.i20, %41
   %.0103128.i24 = phi i64 [ %42, %41 ], [ 2, %.preheader.i20 ]
@@ -811,324 +811,324 @@ define linkonce_odr dso_local void @_ZSt11__sort_heapIPiN9__gnu_cxx5__ops15_Iter
   %47 = load double, ptr %46, align 8, !tbaa !73
   %.fr57 = freeze double %47
   %48 = fcmp oeq double %.fr56, %.fr57
-  br i1 %48, label %41, label %49
+  br i1 %48, label %41, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26
 
-49:                                               ; preds = %.lr.ph.i23
-  %50 = fcmp olt double %.fr56, %.fr57
-  br i1 %50, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread35
+.split.loop.exit.thread.i22:                      ; preds = %41, %.preheader.i20
+  %49 = icmp ult i32 %.fr58, %.fr59
+  br i1 %49, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread35
 
-51:                                               ; preds = %.lr.ph.i.i
-  %52 = fcmp oge double %.fr53, 0.000000e+00
-  %53 = fcmp oge double %.fr, 0.000000e+00
-  %or.cond.i8 = and i1 %52, %53
-  br i1 %or.cond.i8, label %54, label %65
+50:                                               ; preds = %.lr.ph.i.i
+  %51 = fcmp oge double %.fr53, 0.000000e+00
+  %52 = fcmp oge double %.fr, 0.000000e+00
+  %or.cond.i8 = and i1 %51, %52
+  br i1 %or.cond.i8, label %53, label %64
 
-54:                                               ; preds = %51
-  %55 = fcmp oge double %.fr54, 0.000000e+00
-  %56 = fcmp oge double %.fr52, 0.000000e+00
-  %or.cond4.i18 = and i1 %56, %55
-  br i1 %or.cond4.i18, label %57, label %63
+53:                                               ; preds = %50
+  %54 = fcmp oge double %.fr54, 0.000000e+00
+  %55 = fcmp oge double %.fr52, 0.000000e+00
+  %or.cond4.i18 = and i1 %55, %54
+  br i1 %or.cond4.i18, label %56, label %62
 
-57:                                               ; preds = %54
-  %58 = fcmp une double %.fr53, %.fr54
-  br i1 %58, label %59, label %61
+56:                                               ; preds = %53
+  %57 = fcmp une double %.fr53, %.fr54
+  br i1 %57, label %58, label %60
 
-59:                                               ; preds = %57
-  %60 = fcmp ogt double %.fr53, %.fr54
-  br i1 %60, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread35
+58:                                               ; preds = %56
+  %59 = fcmp ogt double %.fr53, %.fr54
+  br i1 %59, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread35
 
-61:                                               ; preds = %57
-  %62 = fcmp olt double %.fr, %.fr52
-  br i1 %62, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread35
+60:                                               ; preds = %56
+  %61 = fcmp olt double %.fr, %.fr52
+  br i1 %61, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread35
 
-63:                                               ; preds = %54
-  %64 = fcmp olt double %.fr54, 0.000000e+00
-  %or.cond6.i19 = and i1 %56, %64
+62:                                               ; preds = %53
+  %63 = fcmp olt double %.fr54, 0.000000e+00
+  %or.cond6.i19 = and i1 %55, %63
   br i1 %or.cond6.i19, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread35
 
-65:                                               ; preds = %51
-  %66 = fcmp olt double %.fr53, 0.000000e+00
-  %or.cond10.i9 = and i1 %66, %53
-  br i1 %or.cond10.i9, label %67, label %76
+64:                                               ; preds = %50
+  %65 = fcmp olt double %.fr53, 0.000000e+00
+  %or.cond10.i9 = and i1 %65, %52
+  br i1 %or.cond10.i9, label %66, label %75
 
-67:                                               ; preds = %65
-  %68 = fcmp oge double %.fr52, 0.000000e+00
-  %69 = fcmp olt double %.fr54, 0.000000e+00
-  %or.cond121.i17 = and i1 %68, %69
-  br i1 %or.cond121.i17, label %70, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread35
+66:                                               ; preds = %64
+  %67 = fcmp oge double %.fr52, 0.000000e+00
+  %68 = fcmp olt double %.fr54, 0.000000e+00
+  %or.cond121.i17 = and i1 %67, %68
+  br i1 %or.cond121.i17, label %69, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread35
 
-70:                                               ; preds = %67
-  %71 = fcmp une double %.fr53, %.fr54
-  br i1 %71, label %72, label %74
+69:                                               ; preds = %66
+  %70 = fcmp une double %.fr53, %.fr54
+  br i1 %70, label %71, label %73
 
-72:                                               ; preds = %70
-  %73 = fcmp ogt double %.fr53, %.fr54
-  br i1 %73, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread35
+71:                                               ; preds = %69
+  %72 = fcmp ogt double %.fr53, %.fr54
+  br i1 %72, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread35
 
-74:                                               ; preds = %70
-  %75 = fcmp ogt double %.fr, %.fr52
-  br i1 %75, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread35
+73:                                               ; preds = %69
+  %74 = fcmp ogt double %.fr, %.fr52
+  br i1 %74, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread35
 
-76:                                               ; preds = %65
-  %77 = fcmp olt double %.fr, 0.000000e+00
-  %or.cond18.i10 = and i1 %66, %77
-  %78 = fcmp oge double %.fr54, 0.000000e+00
-  %79 = fcmp oge double %.fr52, 0.000000e+00
-  %or.cond20.i11 = and i1 %78, %79
-  br i1 %or.cond18.i10, label %80, label %90
+75:                                               ; preds = %64
+  %76 = fcmp olt double %.fr, 0.000000e+00
+  %or.cond18.i10 = and i1 %65, %76
+  %77 = fcmp oge double %.fr54, 0.000000e+00
+  %78 = fcmp oge double %.fr52, 0.000000e+00
+  %or.cond20.i11 = and i1 %77, %78
+  br i1 %or.cond18.i10, label %79, label %89
 
-80:                                               ; preds = %76
-  br i1 %or.cond20.i11, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread, label %81
+79:                                               ; preds = %75
+  br i1 %or.cond20.i11, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread, label %80
 
-81:                                               ; preds = %80
-  %82 = fcmp olt double %.fr54, 0.000000e+00
-  %83 = fcmp olt double %.fr52, 0.000000e+00
-  %or.cond122.i16 = and i1 %83, %82
-  br i1 %or.cond122.i16, label %84, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread
+80:                                               ; preds = %79
+  %81 = fcmp olt double %.fr54, 0.000000e+00
+  %82 = fcmp olt double %.fr52, 0.000000e+00
+  %or.cond122.i16 = and i1 %82, %81
+  br i1 %or.cond122.i16, label %83, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread
 
-84:                                               ; preds = %81
-  %85 = fcmp une double %.fr53, %.fr54
-  br i1 %85, label %86, label %88
+83:                                               ; preds = %80
+  %84 = fcmp une double %.fr53, %.fr54
+  br i1 %84, label %85, label %87
 
-86:                                               ; preds = %84
-  %87 = fcmp olt double %.fr53, %.fr54
-  br i1 %87, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread35
+85:                                               ; preds = %83
+  %86 = fcmp olt double %.fr53, %.fr54
+  br i1 %86, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread35
 
-88:                                               ; preds = %84
-  %89 = fcmp ogt double %.fr, %.fr52
-  br i1 %89, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread35
+87:                                               ; preds = %83
+  %88 = fcmp ogt double %.fr, %.fr52
+  br i1 %88, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread35
 
-90:                                               ; preds = %76
-  br i1 %or.cond20.i11, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread, label %91
+89:                                               ; preds = %75
+  br i1 %or.cond20.i11, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread, label %90
 
-91:                                               ; preds = %90
-  %92 = fcmp olt double %.fr54, 0.000000e+00
-  %or.cond28.i12 = and i1 %92, %79
-  br i1 %or.cond28.i12, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread, label %93
+90:                                               ; preds = %89
+  %91 = fcmp olt double %.fr54, 0.000000e+00
+  %or.cond28.i12 = and i1 %91, %78
+  br i1 %or.cond28.i12, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread, label %92
 
-93:                                               ; preds = %91
-  %94 = fcmp olt double %.fr52, 0.000000e+00
-  %or.cond30.i13 = and i1 %92, %94
-  br i1 %or.cond30.i13, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread35, label %95
+92:                                               ; preds = %90
+  %93 = fcmp olt double %.fr52, 0.000000e+00
+  %or.cond30.i13 = and i1 %91, %93
+  br i1 %or.cond30.i13, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread35, label %94
 
-95:                                               ; preds = %93
-  %96 = fcmp une double %.fr53, %.fr54
-  br i1 %96, label %97, label %99
+94:                                               ; preds = %92
+  %95 = fcmp une double %.fr53, %.fr54
+  br i1 %95, label %96, label %98
 
-97:                                               ; preds = %95
-  %98 = fcmp olt double %.fr53, %.fr54
-  br i1 %98, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread35
+96:                                               ; preds = %94
+  %97 = fcmp olt double %.fr53, %.fr54
+  br i1 %97, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread35
 
-99:                                               ; preds = %95
-  %100 = fcmp olt double %.fr, %.fr52
+98:                                               ; preds = %94
+  %99 = fcmp olt double %.fr, %.fr52
+  br i1 %99, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread35
+
+_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26: ; preds = %.lr.ph.i23
+  %100 = fcmp olt double %.fr56, %.fr57
   br i1 %100, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread35
 
-_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26: ; preds = %41, %.preheader.i20
-  %101 = icmp ult i32 %.fr58, %.fr59
-  br i1 %101, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread35
-
-_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread: ; preds = %91, %90, %81, %80, %49, %63, %99, %97, %88, %86, %74, %72, %61, %59, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26
-  %102 = or disjoint i64 %21, 1
-  %.phi.trans.insert = getelementptr inbounds i32, ptr %0, i64 %102
+_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread: ; preds = %80, %79, %90, %89, %58, %60, %62, %87, %96, %71, %73, %85, %.split.loop.exit.thread.i22, %98, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26
+  %101 = or disjoint i64 %21, 1
+  %.phi.trans.insert = getelementptr inbounds i32, ptr %0, i64 %101
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !19
   br label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread35
 
-_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread35: ; preds = %93, %67, %49, %63, %99, %97, %88, %86, %74, %72, %61, %59, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread
-  %103 = phi i32 [ %.pre, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread ], [ %.fr58, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26 ], [ %.fr58, %59 ], [ %.fr58, %61 ], [ %.fr58, %72 ], [ %.fr58, %74 ], [ %.fr58, %86 ], [ %.fr58, %88 ], [ %.fr58, %97 ], [ %.fr58, %99 ], [ %.fr58, %63 ], [ %.fr58, %49 ], [ %.fr58, %67 ], [ %.fr58, %93 ]
-  %104 = phi i64 [ %102, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread ], [ %22, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26 ], [ %22, %59 ], [ %22, %61 ], [ %22, %72 ], [ %22, %74 ], [ %22, %86 ], [ %22, %88 ], [ %22, %97 ], [ %22, %99 ], [ %22, %63 ], [ %22, %49 ], [ %22, %67 ], [ %22, %93 ]
-  %105 = getelementptr inbounds i32, ptr %0, i64 %.029.i.i
-  store i32 %103, ptr %105, align 4, !tbaa !19
-  %106 = icmp slt i64 %104, %17
-  br i1 %106, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !76
+_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread35: ; preds = %66, %92, %58, %60, %62, %87, %96, %71, %73, %85, %.split.loop.exit.thread.i22, %98, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread
+  %102 = phi i32 [ %.pre, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread ], [ %.fr58, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26 ], [ %.fr58, %58 ], [ %.fr58, %98 ], [ %.fr58, %.split.loop.exit.thread.i22 ], [ %.fr58, %85 ], [ %.fr58, %73 ], [ %.fr58, %71 ], [ %.fr58, %96 ], [ %.fr58, %87 ], [ %.fr58, %62 ], [ %.fr58, %60 ], [ %.fr58, %92 ], [ %.fr58, %66 ]
+  %103 = phi i64 [ %101, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread ], [ %22, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26 ], [ %22, %58 ], [ %22, %98 ], [ %22, %.split.loop.exit.thread.i22 ], [ %22, %85 ], [ %22, %73 ], [ %22, %71 ], [ %22, %96 ], [ %22, %87 ], [ %22, %62 ], [ %22, %60 ], [ %22, %92 ], [ %22, %66 ]
+  %104 = getelementptr inbounds i32, ptr %0, i64 %.029.i.i
+  store i32 %102, ptr %104, align 4, !tbaa !19
+  %105 = icmp slt i64 %103, %17
+  br i1 %105, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !76
 
 ._crit_edge.i.i:                                  ; preds = %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread35, %9
-  %.0.lcssa.i.i = phi i64 [ 0, %9 ], [ %104, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread35 ]
-  %107 = and i64 %14, 4
-  %108 = icmp eq i64 %107, 0
-  br i1 %108, label %109, label %118
+  %.0.lcssa.i.i = phi i64 [ 0, %9 ], [ %103, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit26.thread35 ]
+  %106 = and i64 %14, 4
+  %107 = icmp eq i64 %106, 0
+  br i1 %107, label %108, label %117
 
-109:                                              ; preds = %._crit_edge.i.i
-  %110 = add nsw i64 %15, -2
-  %111 = ashr exact i64 %110, 1
-  %112 = icmp eq i64 %.0.lcssa.i.i, %111
-  br i1 %112, label %.thread.i, label %118
+108:                                              ; preds = %._crit_edge.i.i
+  %109 = add nsw i64 %15, -2
+  %110 = ashr exact i64 %109, 1
+  %111 = icmp eq i64 %.0.lcssa.i.i, %110
+  br i1 %111, label %.thread.i, label %117
 
-.thread.i:                                        ; preds = %109
-  %113 = shl nuw nsw i64 %.0.lcssa.i.i, 1
-  %114 = or disjoint i64 %113, 1
-  %115 = getelementptr inbounds nuw i32, ptr %0, i64 %114
-  %116 = load i32, ptr %115, align 4, !tbaa !19
-  %117 = getelementptr inbounds i32, ptr %0, i64 %.0.lcssa.i.i
-  store i32 %116, ptr %117, align 4, !tbaa !19
+.thread.i:                                        ; preds = %108
+  %112 = shl nuw nsw i64 %.0.lcssa.i.i, 1
+  %113 = or disjoint i64 %112, 1
+  %114 = getelementptr inbounds nuw i32, ptr %0, i64 %113
+  %115 = load i32, ptr %114, align 4, !tbaa !19
+  %116 = getelementptr inbounds i32, ptr %0, i64 %.0.lcssa.i.i
+  store i32 %115, ptr %116, align 4, !tbaa !19
   br label %.lr.ph.i.i.i
 
-118:                                              ; preds = %109, %._crit_edge.i.i
+117:                                              ; preds = %108, %._crit_edge.i.i
   %.not.i = icmp eq i64 %.0.lcssa.i.i, 0
   br i1 %.not.i, label %_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SB_SB_RSG_.exit, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %118, %.thread.i
-  %.128.i8.i = phi i64 [ %114, %.thread.i ], [ %.0.lcssa.i.i, %118 ]
-  %119 = sext i32 %11 to i64
-  %120 = load ptr, ptr %.sroa.0.0.copyload.i, align 8, !tbaa !72
-  %121 = load i64, ptr %8, align 8, !tbaa !4
-  %122 = getelementptr double, ptr %120, i64 %119
-  %123 = load double, ptr %122, align 8, !tbaa !73
-  %124 = getelementptr double, ptr %122, i64 %121
-  %125 = load double, ptr %124, align 8, !tbaa !73
-  %126 = fcmp oge double %125, 0.000000e+00
-  %127 = fcmp oge double %123, 0.000000e+00
-  %or.cond20.i = select i1 %126, i1 %127, i1 false
-  %128 = fcmp olt double %125, 0.000000e+00
-  %129 = fcmp olt double %123, 0.000000e+00
-  %or.cond30.i = select i1 %128, i1 %129, i1 false
-  %or.cond22.i = select i1 %128, i1 %127, i1 false
-  %130 = fcmp uge double %123, 0.000000e+00
-  %131 = xor i1 %128, %or.cond22.i
-  %not. = xor i1 %131, true
-  %132 = fcmp ord double %125, 0.000000e+00
-  %brmerge67 = select i1 %132, i1 %127, i1 false
-  %133 = select i1 %or.cond20.i, i1 true, i1 %not.
-  %brmerge = select i1 %133, i1 true, i1 %130
-  br label %134
+.lr.ph.i.i.i:                                     ; preds = %117, %.thread.i
+  %.128.i8.i = phi i64 [ %113, %.thread.i ], [ %.0.lcssa.i.i, %117 ]
+  %118 = sext i32 %11 to i64
+  %119 = load ptr, ptr %.sroa.0.0.copyload.i, align 8, !tbaa !72
+  %120 = load i64, ptr %8, align 8, !tbaa !4
+  %121 = getelementptr double, ptr %119, i64 %118
+  %122 = load double, ptr %121, align 8, !tbaa !73
+  %123 = getelementptr double, ptr %121, i64 %120
+  %124 = load double, ptr %123, align 8, !tbaa !73
+  %125 = fcmp oge double %124, 0.000000e+00
+  %126 = fcmp oge double %122, 0.000000e+00
+  %or.cond20.i = select i1 %125, i1 %126, i1 false
+  %127 = fcmp olt double %124, 0.000000e+00
+  %128 = fcmp olt double %122, 0.000000e+00
+  %or.cond30.i = select i1 %127, i1 %128, i1 false
+  %or.cond22.i = select i1 %127, i1 %126, i1 false
+  %129 = fcmp uge double %122, 0.000000e+00
+  %130 = xor i1 %127, %or.cond22.i
+  %not. = xor i1 %130, true
+  %131 = fcmp ord double %124, 0.000000e+00
+  %brmerge67 = select i1 %131, i1 %126, i1 false
+  %132 = select i1 %or.cond20.i, i1 true, i1 %not.
+  %brmerge = select i1 %132, i1 true, i1 %129
+  br label %133
 
-134:                                              ; preds = %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, %.lr.ph.i.i.i
+133:                                              ; preds = %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, %.lr.ph.i.i.i
   %.01317.i.i.i = phi i64 [ %.128.i8.i, %.lr.ph.i.i.i ], [ %.018.i.i910.i, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread ]
   %.018.in.i.i.i = add nsw i64 %.01317.i.i.i, -1
   %.018.i.i910.i = lshr i64 %.018.in.i.i.i, 1
-  %135 = getelementptr inbounds nuw i32, ptr %0, i64 %.018.i.i910.i
-  %136 = load i32, ptr %135, align 4, !tbaa !19
-  %137 = sext i32 %136 to i64
-  %138 = getelementptr double, ptr %120, i64 %137
-  %139 = load double, ptr %138, align 8, !tbaa !73
-  %140 = getelementptr double, ptr %138, i64 %121
-  %141 = load double, ptr %140, align 8, !tbaa !73
-  %142 = fcmp oeq double %141, %125
-  %143 = fcmp oeq double %139, %123
-  %or.cond120.i = select i1 %142, i1 %143, i1 false
-  br i1 %or.cond120.i, label %.preheader.i, label %155
+  %134 = getelementptr inbounds nuw i32, ptr %0, i64 %.018.i.i910.i
+  %135 = load i32, ptr %134, align 4, !tbaa !19
+  %136 = sext i32 %135 to i64
+  %137 = getelementptr double, ptr %119, i64 %136
+  %138 = load double, ptr %137, align 8, !tbaa !73
+  %139 = getelementptr double, ptr %137, i64 %120
+  %140 = load double, ptr %139, align 8, !tbaa !73
+  %141 = fcmp oeq double %140, %124
+  %142 = fcmp oeq double %138, %122
+  %or.cond120.i = select i1 %141, i1 %142, i1 false
+  br i1 %or.cond120.i, label %.preheader.i, label %153
 
-.preheader.i:                                     ; preds = %134
-  %144 = load i64, ptr %.sroa.2.0.copyload.i, align 8, !tbaa !12
-  %.not127.i = icmp ugt i64 %144, 2
-  br i1 %.not127.i, label %.lr.ph.i, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit
+.preheader.i:                                     ; preds = %133
+  %143 = load i64, ptr %.sroa.2.0.copyload.i, align 8, !tbaa !12
+  %.not127.i = icmp ugt i64 %143, 2
+  br i1 %.not127.i, label %.lr.ph.i, label %.split.loop.exit.thread.i
 
-145:                                              ; preds = %.lr.ph.i
-  %146 = add nuw i64 %.0103128.i, 1
-  %exitcond.not.i = icmp eq i64 %146, %144
-  br i1 %exitcond.not.i, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit, label %.lr.ph.i, !llvm.loop !75
+144:                                              ; preds = %.lr.ph.i
+  %145 = add nuw i64 %.0103128.i, 1
+  %exitcond.not.i = icmp eq i64 %145, %143
+  br i1 %exitcond.not.i, label %.split.loop.exit.thread.i, label %.lr.ph.i, !llvm.loop !75
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %145
-  %.0103128.i = phi i64 [ %146, %145 ], [ 2, %.preheader.i ]
-  %147 = mul nsw i64 %.0103128.i, %121
-  %148 = getelementptr double, ptr %138, i64 %147
-  %149 = load double, ptr %148, align 8, !tbaa !73
-  %150 = getelementptr double, ptr %122, i64 %147
-  %151 = load double, ptr %150, align 8, !tbaa !73
-  %152 = fcmp oeq double %149, %151
-  br i1 %152, label %145, label %153
+.lr.ph.i:                                         ; preds = %.preheader.i, %144
+  %.0103128.i = phi i64 [ %145, %144 ], [ 2, %.preheader.i ]
+  %146 = mul nsw i64 %.0103128.i, %120
+  %147 = getelementptr double, ptr %137, i64 %146
+  %148 = load double, ptr %147, align 8, !tbaa !73
+  %149 = getelementptr double, ptr %121, i64 %146
+  %150 = load double, ptr %149, align 8, !tbaa !73
+  %151 = fcmp oeq double %148, %150
+  br i1 %151, label %144, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit
 
-153:                                              ; preds = %.lr.ph.i
-  %154 = fcmp olt double %149, %151
-  br i1 %154, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, label %_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SB_SB_RSG_.exit
+.split.loop.exit.thread.i:                        ; preds = %144, %.preheader.i
+  %152 = icmp ult i32 %135, %11
+  br i1 %152, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, label %_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SB_SB_RSG_.exit
 
-155:                                              ; preds = %134
-  %156 = fcmp oge double %141, 0.000000e+00
-  %157 = fcmp oge double %139, 0.000000e+00
-  %or.cond.i = select i1 %156, i1 %157, i1 false
-  br i1 %or.cond.i, label %158, label %166
+153:                                              ; preds = %133
+  %154 = fcmp oge double %140, 0.000000e+00
+  %155 = fcmp oge double %138, 0.000000e+00
+  %or.cond.i = select i1 %154, i1 %155, i1 false
+  br i1 %or.cond.i, label %156, label %164
 
-158:                                              ; preds = %155
-  br i1 %or.cond20.i, label %159, label %165
+156:                                              ; preds = %153
+  br i1 %or.cond20.i, label %157, label %163
 
-159:                                              ; preds = %158
-  %160 = fcmp une double %141, %125
-  br i1 %160, label %161, label %163
+157:                                              ; preds = %156
+  %158 = fcmp une double %140, %124
+  br i1 %158, label %159, label %161
 
-161:                                              ; preds = %159
-  %162 = fcmp ogt double %141, %125
+159:                                              ; preds = %157
+  %160 = fcmp ogt double %140, %124
+  br i1 %160, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, label %_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SB_SB_RSG_.exit
+
+161:                                              ; preds = %157
+  %162 = fcmp olt double %138, %122
   br i1 %162, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, label %_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SB_SB_RSG_.exit
 
-163:                                              ; preds = %159
-  %164 = fcmp olt double %139, %123
-  br i1 %164, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, label %_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SB_SB_RSG_.exit
-
-165:                                              ; preds = %158
+163:                                              ; preds = %156
   br i1 %or.cond22.i, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, label %_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SB_SB_RSG_.exit
 
-166:                                              ; preds = %155
-  %167 = fcmp olt double %141, 0.000000e+00
-  %or.cond10.i = select i1 %167, i1 %157, i1 false
-  br i1 %or.cond10.i, label %168, label %175
+164:                                              ; preds = %153
+  %165 = fcmp olt double %140, 0.000000e+00
+  %or.cond10.i = select i1 %165, i1 %155, i1 false
+  br i1 %or.cond10.i, label %166, label %173
 
-168:                                              ; preds = %166
-  br i1 %or.cond22.i, label %169, label %_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SB_SB_RSG_.exit
+166:                                              ; preds = %164
+  br i1 %or.cond22.i, label %167, label %_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SB_SB_RSG_.exit
 
-169:                                              ; preds = %168
-  %170 = fcmp une double %141, %125
-  br i1 %170, label %171, label %173
+167:                                              ; preds = %166
+  %168 = fcmp une double %140, %124
+  br i1 %168, label %169, label %171
 
-171:                                              ; preds = %169
-  %172 = fcmp ogt double %141, %125
+169:                                              ; preds = %167
+  %170 = fcmp ogt double %140, %124
+  br i1 %170, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, label %_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SB_SB_RSG_.exit
+
+171:                                              ; preds = %167
+  %172 = fcmp ogt double %138, %122
   br i1 %172, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, label %_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SB_SB_RSG_.exit
 
-173:                                              ; preds = %169
-  %174 = fcmp ogt double %139, %123
-  br i1 %174, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, label %_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SB_SB_RSG_.exit
+173:                                              ; preds = %164
+  %174 = fcmp olt double %138, 0.000000e+00
+  %or.cond18.i = select i1 %165, i1 %174, i1 false
+  br i1 %or.cond18.i, label %175, label %182
 
-175:                                              ; preds = %166
-  %176 = fcmp olt double %139, 0.000000e+00
-  %or.cond18.i = select i1 %167, i1 %176, i1 false
-  br i1 %or.cond18.i, label %177, label %184
+175:                                              ; preds = %173
+  br i1 %brmerge, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, label %176
 
-177:                                              ; preds = %175
-  br i1 %brmerge, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, label %178
+176:                                              ; preds = %175
+  %177 = fcmp une double %140, %124
+  br i1 %177, label %178, label %180
 
-178:                                              ; preds = %177
-  %179 = fcmp une double %141, %125
-  br i1 %179, label %180, label %182
+178:                                              ; preds = %176
+  %179 = fcmp olt double %140, %124
+  br i1 %179, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, label %_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SB_SB_RSG_.exit
 
-180:                                              ; preds = %178
-  %181 = fcmp olt double %141, %125
+180:                                              ; preds = %176
+  %181 = fcmp ogt double %138, %122
   br i1 %181, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, label %_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SB_SB_RSG_.exit
 
-182:                                              ; preds = %178
-  %183 = fcmp ogt double %139, %123
-  br i1 %183, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, label %_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SB_SB_RSG_.exit
+182:                                              ; preds = %173
+  br i1 %brmerge67, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, label %183
 
-184:                                              ; preds = %175
-  br i1 %brmerge67, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, label %185
+183:                                              ; preds = %182
+  br i1 %or.cond30.i, label %_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SB_SB_RSG_.exit, label %184
 
-185:                                              ; preds = %184
-  br i1 %or.cond30.i, label %_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SB_SB_RSG_.exit, label %186
+184:                                              ; preds = %183
+  %185 = fcmp une double %140, %124
+  br i1 %185, label %186, label %188
 
-186:                                              ; preds = %185
-  %187 = fcmp une double %141, %125
-  br i1 %187, label %188, label %190
+186:                                              ; preds = %184
+  %187 = fcmp olt double %140, %124
+  br i1 %187, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, label %_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SB_SB_RSG_.exit
 
-188:                                              ; preds = %186
-  %189 = fcmp olt double %141, %125
+188:                                              ; preds = %184
+  %189 = fcmp olt double %138, %122
   br i1 %189, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, label %_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SB_SB_RSG_.exit
 
-190:                                              ; preds = %186
-  %191 = fcmp olt double %139, %123
-  br i1 %191, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, label %_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SB_SB_RSG_.exit
+_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit: ; preds = %.lr.ph.i
+  %190 = fcmp olt double %148, %150
+  br i1 %190, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, label %_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SB_SB_RSG_.exit
 
-_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit: ; preds = %145, %.preheader.i
-  %192 = icmp ult i32 %136, %11
-  br i1 %192, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, label %_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SB_SB_RSG_.exit
-
-_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread: ; preds = %184, %177, %153, %165, %190, %188, %182, %180, %173, %171, %163, %161, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit
-  %193 = getelementptr inbounds i32, ptr %0, i64 %.01317.i.i.i
-  store i32 %136, ptr %193, align 4, !tbaa !19
+_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread: ; preds = %182, %175, %159, %161, %163, %180, %186, %169, %171, %178, %.split.loop.exit.thread.i, %188, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit
+  %191 = getelementptr inbounds i32, ptr %0, i64 %.01317.i.i.i
+  store i32 %135, ptr %191, align 4, !tbaa !19
   %.not11.i = icmp eq i64 %.018.i.i910.i, 0
-  br i1 %.not11.i, label %_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SB_SB_RSG_.exit, label %134, !llvm.loop !77
+  br i1 %.not11.i, label %_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SB_SB_RSG_.exit, label %133, !llvm.loop !77
 
-_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SB_SB_RSG_.exit: ; preds = %185, %168, %153, %165, %190, %188, %182, %180, %173, %171, %163, %161, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, %118
-  %.013.lcssa.i.i.i = phi i64 [ 0, %118 ], [ %.01317.i.i.i, %185 ], [ %.01317.i.i.i, %168 ], [ %.01317.i.i.i, %153 ], [ %.01317.i.i.i, %165 ], [ %.01317.i.i.i, %190 ], [ %.01317.i.i.i, %188 ], [ %.01317.i.i.i, %182 ], [ %.01317.i.i.i, %180 ], [ %.01317.i.i.i, %173 ], [ %.01317.i.i.i, %171 ], [ %.01317.i.i.i, %163 ], [ %.01317.i.i.i, %161 ], [ %.01317.i.i.i, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit ], [ 0, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread ]
-  %194 = getelementptr inbounds i32, ptr %0, i64 %.013.lcssa.i.i.i
-  store i32 %11, ptr %194, align 4, !tbaa !19
-  %195 = icmp sgt i64 %14, 4
-  br i1 %195, label %9, label %._crit_edge, !llvm.loop !78
+_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SB_SB_RSG_.exit: ; preds = %166, %183, %159, %161, %163, %180, %186, %169, %171, %178, %.split.loop.exit.thread.i, %188, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, %117
+  %.013.lcssa.i.i.i = phi i64 [ 0, %117 ], [ %.01317.i.i.i, %166 ], [ %.01317.i.i.i, %183 ], [ %.01317.i.i.i, %161 ], [ %.01317.i.i.i, %163 ], [ %.01317.i.i.i, %180 ], [ %.01317.i.i.i, %186 ], [ %.01317.i.i.i, %169 ], [ %.01317.i.i.i, %171 ], [ %.01317.i.i.i, %178 ], [ %.01317.i.i.i, %.split.loop.exit.thread.i ], [ %.01317.i.i.i, %188 ], [ %.01317.i.i.i, %159 ], [ %.01317.i.i.i, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit ], [ 0, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread ]
+  %192 = getelementptr inbounds i32, ptr %0, i64 %.013.lcssa.i.i.i
+  store i32 %11, ptr %192, align 4, !tbaa !19
+  %193 = icmp sgt i64 %14, 4
+  br i1 %193, label %9, label %._crit_edge, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SB_SB_RSG_.exit, %3
   ret void
@@ -1161,7 +1161,7 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter
   br label %21
 
 21:                                               ; preds = %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SG_SG_T1_T2_.exit, %9
-  %.014 = phi i64 [ %11, %9 ], [ %195, %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SG_SG_T1_T2_.exit ]
+  %.014 = phi i64 [ %11, %9 ], [ %193, %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SG_SG_T1_T2_.exit ]
   %22 = getelementptr inbounds nuw i32, ptr %0, i64 %.014
   %23 = load i32, ptr %22, align 4, !tbaa !19
   %24 = icmp slt i64 %.014, %13
@@ -1173,7 +1173,7 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread42
-  %.029.i = phi i64 [ %110, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread42 ], [ %.014, %.lr.ph.i.preheader ]
+  %.029.i = phi i64 [ %109, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread42 ], [ %.014, %.lr.ph.i.preheader ]
   %27 = shl i64 %.029.i, 1
   %28 = add i64 %27, 2
   %29 = getelementptr inbounds i32, ptr %0, i64 %28
@@ -1200,17 +1200,17 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter
   %44 = fcmp oeq double %.fr61, %.fr62
   %45 = fcmp oeq double %.fr, %.fr60
   %or.cond120.i17 = and i1 %44, %45
-  br i1 %or.cond120.i17, label %.preheader.i30, label %57
+  br i1 %or.cond120.i17, label %.preheader.i30, label %56
 
 .preheader.i30:                                   ; preds = %.lr.ph.i
   %46 = load i64, ptr %.sroa.2.0.copyload, align 8, !tbaa !12
   %.not127.i31 = icmp ugt i64 %46, 2
-  br i1 %.not127.i31, label %.lr.ph.i33, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36
+  br i1 %.not127.i31, label %.lr.ph.i33, label %.split.loop.exit.thread.i32
 
 47:                                               ; preds = %.lr.ph.i33
   %48 = add nuw i64 %.0103128.i34, 1
   %exitcond.not.i35 = icmp eq i64 %48, %46
-  br i1 %exitcond.not.i35, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36, label %.lr.ph.i33, !llvm.loop !75
+  br i1 %exitcond.not.i35, label %.split.loop.exit.thread.i32, label %.lr.ph.i33, !llvm.loop !75
 
 .lr.ph.i33:                                       ; preds = %.preheader.i30, %47
   %.0103128.i34 = phi i64 [ %48, %47 ], [ 2, %.preheader.i30 ]
@@ -1222,314 +1222,314 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter
   %53 = load double, ptr %52, align 8, !tbaa !73
   %.fr65 = freeze double %53
   %54 = fcmp oeq double %.fr64, %.fr65
-  br i1 %54, label %47, label %55
+  br i1 %54, label %47, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36
 
-55:                                               ; preds = %.lr.ph.i33
-  %56 = fcmp olt double %.fr64, %.fr65
-  br i1 %56, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread42
+.split.loop.exit.thread.i32:                      ; preds = %47, %.preheader.i30
+  %55 = icmp ult i32 %.fr66, %.fr67
+  br i1 %55, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread42
 
-57:                                               ; preds = %.lr.ph.i
-  %58 = fcmp oge double %.fr61, 0.000000e+00
-  %59 = fcmp oge double %.fr, 0.000000e+00
-  %or.cond.i18 = and i1 %58, %59
-  br i1 %or.cond.i18, label %60, label %71
+56:                                               ; preds = %.lr.ph.i
+  %57 = fcmp oge double %.fr61, 0.000000e+00
+  %58 = fcmp oge double %.fr, 0.000000e+00
+  %or.cond.i18 = and i1 %57, %58
+  br i1 %or.cond.i18, label %59, label %70
 
-60:                                               ; preds = %57
-  %61 = fcmp oge double %.fr62, 0.000000e+00
-  %62 = fcmp oge double %.fr60, 0.000000e+00
-  %or.cond4.i28 = and i1 %62, %61
-  br i1 %or.cond4.i28, label %63, label %69
+59:                                               ; preds = %56
+  %60 = fcmp oge double %.fr62, 0.000000e+00
+  %61 = fcmp oge double %.fr60, 0.000000e+00
+  %or.cond4.i28 = and i1 %61, %60
+  br i1 %or.cond4.i28, label %62, label %68
 
-63:                                               ; preds = %60
-  %64 = fcmp une double %.fr61, %.fr62
-  br i1 %64, label %65, label %67
+62:                                               ; preds = %59
+  %63 = fcmp une double %.fr61, %.fr62
+  br i1 %63, label %64, label %66
 
-65:                                               ; preds = %63
-  %66 = fcmp ogt double %.fr61, %.fr62
-  br i1 %66, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread42
+64:                                               ; preds = %62
+  %65 = fcmp ogt double %.fr61, %.fr62
+  br i1 %65, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread42
 
-67:                                               ; preds = %63
-  %68 = fcmp olt double %.fr, %.fr60
-  br i1 %68, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread42
+66:                                               ; preds = %62
+  %67 = fcmp olt double %.fr, %.fr60
+  br i1 %67, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread42
 
-69:                                               ; preds = %60
-  %70 = fcmp olt double %.fr62, 0.000000e+00
-  %or.cond6.i29 = and i1 %62, %70
+68:                                               ; preds = %59
+  %69 = fcmp olt double %.fr62, 0.000000e+00
+  %or.cond6.i29 = and i1 %61, %69
   br i1 %or.cond6.i29, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread42
 
-71:                                               ; preds = %57
-  %72 = fcmp olt double %.fr61, 0.000000e+00
-  %or.cond10.i19 = and i1 %72, %59
-  br i1 %or.cond10.i19, label %73, label %82
+70:                                               ; preds = %56
+  %71 = fcmp olt double %.fr61, 0.000000e+00
+  %or.cond10.i19 = and i1 %71, %58
+  br i1 %or.cond10.i19, label %72, label %81
 
-73:                                               ; preds = %71
-  %74 = fcmp oge double %.fr60, 0.000000e+00
-  %75 = fcmp olt double %.fr62, 0.000000e+00
-  %or.cond121.i27 = and i1 %74, %75
-  br i1 %or.cond121.i27, label %76, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread42
+72:                                               ; preds = %70
+  %73 = fcmp oge double %.fr60, 0.000000e+00
+  %74 = fcmp olt double %.fr62, 0.000000e+00
+  %or.cond121.i27 = and i1 %73, %74
+  br i1 %or.cond121.i27, label %75, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread42
 
-76:                                               ; preds = %73
-  %77 = fcmp une double %.fr61, %.fr62
-  br i1 %77, label %78, label %80
+75:                                               ; preds = %72
+  %76 = fcmp une double %.fr61, %.fr62
+  br i1 %76, label %77, label %79
 
-78:                                               ; preds = %76
-  %79 = fcmp ogt double %.fr61, %.fr62
-  br i1 %79, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread42
+77:                                               ; preds = %75
+  %78 = fcmp ogt double %.fr61, %.fr62
+  br i1 %78, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread42
 
-80:                                               ; preds = %76
-  %81 = fcmp ogt double %.fr, %.fr60
-  br i1 %81, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread42
+79:                                               ; preds = %75
+  %80 = fcmp ogt double %.fr, %.fr60
+  br i1 %80, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread42
 
-82:                                               ; preds = %71
-  %83 = fcmp olt double %.fr, 0.000000e+00
-  %or.cond18.i20 = and i1 %72, %83
-  %84 = fcmp oge double %.fr62, 0.000000e+00
-  %85 = fcmp oge double %.fr60, 0.000000e+00
-  %or.cond20.i21 = and i1 %84, %85
-  br i1 %or.cond18.i20, label %86, label %96
+81:                                               ; preds = %70
+  %82 = fcmp olt double %.fr, 0.000000e+00
+  %or.cond18.i20 = and i1 %71, %82
+  %83 = fcmp oge double %.fr62, 0.000000e+00
+  %84 = fcmp oge double %.fr60, 0.000000e+00
+  %or.cond20.i21 = and i1 %83, %84
+  br i1 %or.cond18.i20, label %85, label %95
 
-86:                                               ; preds = %82
-  br i1 %or.cond20.i21, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread, label %87
+85:                                               ; preds = %81
+  br i1 %or.cond20.i21, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread, label %86
 
-87:                                               ; preds = %86
-  %88 = fcmp olt double %.fr62, 0.000000e+00
-  %89 = fcmp olt double %.fr60, 0.000000e+00
-  %or.cond122.i26 = and i1 %89, %88
-  br i1 %or.cond122.i26, label %90, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread
+86:                                               ; preds = %85
+  %87 = fcmp olt double %.fr62, 0.000000e+00
+  %88 = fcmp olt double %.fr60, 0.000000e+00
+  %or.cond122.i26 = and i1 %88, %87
+  br i1 %or.cond122.i26, label %89, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread
 
-90:                                               ; preds = %87
-  %91 = fcmp une double %.fr61, %.fr62
-  br i1 %91, label %92, label %94
+89:                                               ; preds = %86
+  %90 = fcmp une double %.fr61, %.fr62
+  br i1 %90, label %91, label %93
 
-92:                                               ; preds = %90
-  %93 = fcmp olt double %.fr61, %.fr62
-  br i1 %93, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread42
+91:                                               ; preds = %89
+  %92 = fcmp olt double %.fr61, %.fr62
+  br i1 %92, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread42
 
-94:                                               ; preds = %90
-  %95 = fcmp ogt double %.fr, %.fr60
-  br i1 %95, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread42
+93:                                               ; preds = %89
+  %94 = fcmp ogt double %.fr, %.fr60
+  br i1 %94, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread42
 
-96:                                               ; preds = %82
-  br i1 %or.cond20.i21, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread, label %97
+95:                                               ; preds = %81
+  br i1 %or.cond20.i21, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread, label %96
 
-97:                                               ; preds = %96
-  %98 = fcmp olt double %.fr62, 0.000000e+00
-  %or.cond28.i22 = and i1 %98, %85
-  br i1 %or.cond28.i22, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread, label %99
+96:                                               ; preds = %95
+  %97 = fcmp olt double %.fr62, 0.000000e+00
+  %or.cond28.i22 = and i1 %97, %84
+  br i1 %or.cond28.i22, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread, label %98
 
-99:                                               ; preds = %97
-  %100 = fcmp olt double %.fr60, 0.000000e+00
-  %or.cond30.i23 = and i1 %98, %100
-  br i1 %or.cond30.i23, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread42, label %101
+98:                                               ; preds = %96
+  %99 = fcmp olt double %.fr60, 0.000000e+00
+  %or.cond30.i23 = and i1 %97, %99
+  br i1 %or.cond30.i23, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread42, label %100
 
-101:                                              ; preds = %99
-  %102 = fcmp une double %.fr61, %.fr62
-  br i1 %102, label %103, label %105
+100:                                              ; preds = %98
+  %101 = fcmp une double %.fr61, %.fr62
+  br i1 %101, label %102, label %104
 
-103:                                              ; preds = %101
-  %104 = fcmp olt double %.fr61, %.fr62
-  br i1 %104, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread42
+102:                                              ; preds = %100
+  %103 = fcmp olt double %.fr61, %.fr62
+  br i1 %103, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread42
 
-105:                                              ; preds = %101
-  %106 = fcmp olt double %.fr, %.fr60
+104:                                              ; preds = %100
+  %105 = fcmp olt double %.fr, %.fr60
+  br i1 %105, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread42
+
+_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36: ; preds = %.lr.ph.i33
+  %106 = fcmp olt double %.fr64, %.fr65
   br i1 %106, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread42
 
-_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36: ; preds = %47, %.preheader.i30
-  %107 = icmp ult i32 %.fr66, %.fr67
-  br i1 %107, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread42
-
-_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread: ; preds = %97, %96, %87, %86, %55, %69, %105, %103, %94, %92, %80, %78, %67, %65, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36
-  %108 = or disjoint i64 %27, 1
-  %.phi.trans.insert = getelementptr inbounds i32, ptr %0, i64 %108
+_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread: ; preds = %86, %85, %96, %95, %64, %66, %68, %93, %102, %77, %79, %91, %.split.loop.exit.thread.i32, %104, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36
+  %107 = or disjoint i64 %27, 1
+  %.phi.trans.insert = getelementptr inbounds i32, ptr %0, i64 %107
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !19
   br label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread42
 
-_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread42: ; preds = %99, %73, %55, %69, %105, %103, %94, %92, %80, %78, %67, %65, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread
-  %109 = phi i32 [ %.pre, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread ], [ %.fr66, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36 ], [ %.fr66, %65 ], [ %.fr66, %67 ], [ %.fr66, %78 ], [ %.fr66, %80 ], [ %.fr66, %92 ], [ %.fr66, %94 ], [ %.fr66, %103 ], [ %.fr66, %105 ], [ %.fr66, %69 ], [ %.fr66, %55 ], [ %.fr66, %73 ], [ %.fr66, %99 ]
-  %110 = phi i64 [ %108, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread ], [ %28, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36 ], [ %28, %65 ], [ %28, %67 ], [ %28, %78 ], [ %28, %80 ], [ %28, %92 ], [ %28, %94 ], [ %28, %103 ], [ %28, %105 ], [ %28, %69 ], [ %28, %55 ], [ %28, %73 ], [ %28, %99 ]
-  %111 = getelementptr inbounds i32, ptr %0, i64 %.029.i
-  store i32 %109, ptr %111, align 4, !tbaa !19
-  %112 = icmp slt i64 %110, %13
-  br i1 %112, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !76
+_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread42: ; preds = %72, %98, %64, %66, %68, %93, %102, %77, %79, %91, %.split.loop.exit.thread.i32, %104, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread
+  %108 = phi i32 [ %.pre, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread ], [ %.fr66, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36 ], [ %.fr66, %64 ], [ %.fr66, %104 ], [ %.fr66, %.split.loop.exit.thread.i32 ], [ %.fr66, %91 ], [ %.fr66, %79 ], [ %.fr66, %77 ], [ %.fr66, %102 ], [ %.fr66, %93 ], [ %.fr66, %68 ], [ %.fr66, %66 ], [ %.fr66, %98 ], [ %.fr66, %72 ]
+  %109 = phi i64 [ %107, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread ], [ %28, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36 ], [ %28, %64 ], [ %28, %104 ], [ %28, %.split.loop.exit.thread.i32 ], [ %28, %91 ], [ %28, %79 ], [ %28, %77 ], [ %28, %102 ], [ %28, %93 ], [ %28, %68 ], [ %28, %66 ], [ %28, %98 ], [ %28, %72 ]
+  %110 = getelementptr inbounds i32, ptr %0, i64 %.029.i
+  store i32 %108, ptr %110, align 4, !tbaa !19
+  %111 = icmp slt i64 %109, %13
+  br i1 %111, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !76
 
 ._crit_edge.i:                                    ; preds = %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread42, %21
-  %.0.lcssa.i = phi i64 [ %.014, %21 ], [ %110, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread42 ]
-  %113 = icmp eq i64 %.0.lcssa.i, %16
-  %or.cond = select i1 %15, i1 %113, i1 false
-  br i1 %or.cond, label %114, label %116
+  %.0.lcssa.i = phi i64 [ %.014, %21 ], [ %109, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit36.thread42 ]
+  %112 = icmp eq i64 %.0.lcssa.i, %16
+  %or.cond = select i1 %15, i1 %112, i1 false
+  br i1 %or.cond, label %113, label %115
 
-114:                                              ; preds = %._crit_edge.i
-  %115 = load i32, ptr %19, align 4, !tbaa !19
-  store i32 %115, ptr %20, align 4, !tbaa !19
-  br label %116
+113:                                              ; preds = %._crit_edge.i
+  %114 = load i32, ptr %19, align 4, !tbaa !19
+  store i32 %114, ptr %20, align 4, !tbaa !19
+  br label %115
 
-116:                                              ; preds = %114, %._crit_edge.i
-  %.128.i = phi i64 [ %18, %114 ], [ %.0.lcssa.i, %._crit_edge.i ]
-  %117 = icmp sgt i64 %.128.i, %.014
-  br i1 %117, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SG_SG_T1_T2_.exit
+115:                                              ; preds = %113, %._crit_edge.i
+  %.128.i = phi i64 [ %18, %113 ], [ %.0.lcssa.i, %._crit_edge.i ]
+  %116 = icmp sgt i64 %.128.i, %.014
+  br i1 %116, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SG_SG_T1_T2_.exit
 
-.lr.ph.i.i:                                       ; preds = %116
-  %118 = sext i32 %23 to i64
-  %119 = load ptr, ptr %.sroa.0.0.copyload, align 8, !tbaa !72
-  %120 = load i64, ptr %17, align 8, !tbaa !4
-  %121 = getelementptr double, ptr %119, i64 %118
-  %122 = load double, ptr %121, align 8, !tbaa !73
-  %123 = getelementptr double, ptr %121, i64 %120
-  %124 = load double, ptr %123, align 8, !tbaa !73
-  %125 = fcmp oge double %124, 0.000000e+00
-  %126 = fcmp oge double %122, 0.000000e+00
-  %or.cond20.i = select i1 %125, i1 %126, i1 false
-  %127 = fcmp olt double %124, 0.000000e+00
-  %128 = fcmp olt double %122, 0.000000e+00
-  %or.cond30.i = select i1 %127, i1 %128, i1 false
-  %or.cond22.i = select i1 %127, i1 %126, i1 false
-  %129 = fcmp uge double %122, 0.000000e+00
-  %130 = xor i1 %127, %or.cond22.i
-  %not. = xor i1 %130, true
-  %131 = fcmp ord double %124, 0.000000e+00
-  %brmerge74 = select i1 %131, i1 %126, i1 false
-  %132 = select i1 %or.cond20.i, i1 true, i1 %not.
-  %brmerge = select i1 %132, i1 true, i1 %129
-  br label %133
+.lr.ph.i.i:                                       ; preds = %115
+  %117 = sext i32 %23 to i64
+  %118 = load ptr, ptr %.sroa.0.0.copyload, align 8, !tbaa !72
+  %119 = load i64, ptr %17, align 8, !tbaa !4
+  %120 = getelementptr double, ptr %118, i64 %117
+  %121 = load double, ptr %120, align 8, !tbaa !73
+  %122 = getelementptr double, ptr %120, i64 %119
+  %123 = load double, ptr %122, align 8, !tbaa !73
+  %124 = fcmp oge double %123, 0.000000e+00
+  %125 = fcmp oge double %121, 0.000000e+00
+  %or.cond20.i = select i1 %124, i1 %125, i1 false
+  %126 = fcmp olt double %123, 0.000000e+00
+  %127 = fcmp olt double %121, 0.000000e+00
+  %or.cond30.i = select i1 %126, i1 %127, i1 false
+  %or.cond22.i = select i1 %126, i1 %125, i1 false
+  %128 = fcmp uge double %121, 0.000000e+00
+  %129 = xor i1 %126, %or.cond22.i
+  %not. = xor i1 %129, true
+  %130 = fcmp ord double %123, 0.000000e+00
+  %brmerge74 = select i1 %130, i1 %125, i1 false
+  %131 = select i1 %or.cond20.i, i1 true, i1 %not.
+  %brmerge = select i1 %131, i1 true, i1 %128
+  br label %132
 
-133:                                              ; preds = %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, %.lr.ph.i.i
+132:                                              ; preds = %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, %.lr.ph.i.i
   %.01317.i.i = phi i64 [ %.128.i, %.lr.ph.i.i ], [ %.018.i.i, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread ]
   %.018.in.i.i = add nsw i64 %.01317.i.i, -1
   %.018.i.i = sdiv i64 %.018.in.i.i, 2
-  %134 = getelementptr inbounds i32, ptr %0, i64 %.018.i.i
-  %135 = load i32, ptr %134, align 4, !tbaa !19
-  %136 = sext i32 %135 to i64
-  %137 = getelementptr double, ptr %119, i64 %136
-  %138 = load double, ptr %137, align 8, !tbaa !73
-  %139 = getelementptr double, ptr %137, i64 %120
-  %140 = load double, ptr %139, align 8, !tbaa !73
-  %141 = fcmp oeq double %140, %124
-  %142 = fcmp oeq double %138, %122
-  %or.cond120.i = select i1 %141, i1 %142, i1 false
-  br i1 %or.cond120.i, label %.preheader.i, label %154
+  %133 = getelementptr inbounds i32, ptr %0, i64 %.018.i.i
+  %134 = load i32, ptr %133, align 4, !tbaa !19
+  %135 = sext i32 %134 to i64
+  %136 = getelementptr double, ptr %118, i64 %135
+  %137 = load double, ptr %136, align 8, !tbaa !73
+  %138 = getelementptr double, ptr %136, i64 %119
+  %139 = load double, ptr %138, align 8, !tbaa !73
+  %140 = fcmp oeq double %139, %123
+  %141 = fcmp oeq double %137, %121
+  %or.cond120.i = select i1 %140, i1 %141, i1 false
+  br i1 %or.cond120.i, label %.preheader.i, label %152
 
-.preheader.i:                                     ; preds = %133
-  %143 = load i64, ptr %.sroa.2.0.copyload, align 8, !tbaa !12
-  %.not127.i = icmp ugt i64 %143, 2
-  br i1 %.not127.i, label %.lr.ph.i16, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit
+.preheader.i:                                     ; preds = %132
+  %142 = load i64, ptr %.sroa.2.0.copyload, align 8, !tbaa !12
+  %.not127.i = icmp ugt i64 %142, 2
+  br i1 %.not127.i, label %.lr.ph.i16, label %.split.loop.exit.thread.i
 
-144:                                              ; preds = %.lr.ph.i16
-  %145 = add nuw i64 %.0103128.i, 1
-  %exitcond.not.i = icmp eq i64 %145, %143
-  br i1 %exitcond.not.i, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit, label %.lr.ph.i16, !llvm.loop !75
+143:                                              ; preds = %.lr.ph.i16
+  %144 = add nuw i64 %.0103128.i, 1
+  %exitcond.not.i = icmp eq i64 %144, %142
+  br i1 %exitcond.not.i, label %.split.loop.exit.thread.i, label %.lr.ph.i16, !llvm.loop !75
 
-.lr.ph.i16:                                       ; preds = %.preheader.i, %144
-  %.0103128.i = phi i64 [ %145, %144 ], [ 2, %.preheader.i ]
-  %146 = mul nsw i64 %.0103128.i, %120
-  %147 = getelementptr double, ptr %137, i64 %146
-  %148 = load double, ptr %147, align 8, !tbaa !73
-  %149 = getelementptr double, ptr %121, i64 %146
-  %150 = load double, ptr %149, align 8, !tbaa !73
-  %151 = fcmp oeq double %148, %150
-  br i1 %151, label %144, label %152
+.lr.ph.i16:                                       ; preds = %.preheader.i, %143
+  %.0103128.i = phi i64 [ %144, %143 ], [ 2, %.preheader.i ]
+  %145 = mul nsw i64 %.0103128.i, %119
+  %146 = getelementptr double, ptr %136, i64 %145
+  %147 = load double, ptr %146, align 8, !tbaa !73
+  %148 = getelementptr double, ptr %120, i64 %145
+  %149 = load double, ptr %148, align 8, !tbaa !73
+  %150 = fcmp oeq double %147, %149
+  br i1 %150, label %143, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit
 
-152:                                              ; preds = %.lr.ph.i16
-  %153 = fcmp olt double %148, %150
-  br i1 %153, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SG_SG_T1_T2_.exit
+.split.loop.exit.thread.i:                        ; preds = %143, %.preheader.i
+  %151 = icmp ult i32 %134, %23
+  br i1 %151, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SG_SG_T1_T2_.exit
 
-154:                                              ; preds = %133
-  %155 = fcmp oge double %140, 0.000000e+00
-  %156 = fcmp oge double %138, 0.000000e+00
-  %or.cond.i = select i1 %155, i1 %156, i1 false
-  br i1 %or.cond.i, label %157, label %165
+152:                                              ; preds = %132
+  %153 = fcmp oge double %139, 0.000000e+00
+  %154 = fcmp oge double %137, 0.000000e+00
+  %or.cond.i = select i1 %153, i1 %154, i1 false
+  br i1 %or.cond.i, label %155, label %163
 
-157:                                              ; preds = %154
-  br i1 %or.cond20.i, label %158, label %164
+155:                                              ; preds = %152
+  br i1 %or.cond20.i, label %156, label %162
 
-158:                                              ; preds = %157
-  %159 = fcmp une double %140, %124
-  br i1 %159, label %160, label %162
+156:                                              ; preds = %155
+  %157 = fcmp une double %139, %123
+  br i1 %157, label %158, label %160
 
-160:                                              ; preds = %158
-  %161 = fcmp ogt double %140, %124
+158:                                              ; preds = %156
+  %159 = fcmp ogt double %139, %123
+  br i1 %159, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SG_SG_T1_T2_.exit
+
+160:                                              ; preds = %156
+  %161 = fcmp olt double %137, %121
   br i1 %161, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SG_SG_T1_T2_.exit
 
-162:                                              ; preds = %158
-  %163 = fcmp olt double %138, %122
-  br i1 %163, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SG_SG_T1_T2_.exit
-
-164:                                              ; preds = %157
+162:                                              ; preds = %155
   br i1 %or.cond22.i, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SG_SG_T1_T2_.exit
 
-165:                                              ; preds = %154
-  %166 = fcmp olt double %140, 0.000000e+00
-  %or.cond10.i = select i1 %166, i1 %156, i1 false
-  br i1 %or.cond10.i, label %167, label %174
+163:                                              ; preds = %152
+  %164 = fcmp olt double %139, 0.000000e+00
+  %or.cond10.i = select i1 %164, i1 %154, i1 false
+  br i1 %or.cond10.i, label %165, label %172
 
-167:                                              ; preds = %165
-  br i1 %or.cond22.i, label %168, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SG_SG_T1_T2_.exit
+165:                                              ; preds = %163
+  br i1 %or.cond22.i, label %166, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SG_SG_T1_T2_.exit
 
-168:                                              ; preds = %167
-  %169 = fcmp une double %140, %124
-  br i1 %169, label %170, label %172
+166:                                              ; preds = %165
+  %167 = fcmp une double %139, %123
+  br i1 %167, label %168, label %170
 
-170:                                              ; preds = %168
-  %171 = fcmp ogt double %140, %124
+168:                                              ; preds = %166
+  %169 = fcmp ogt double %139, %123
+  br i1 %169, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SG_SG_T1_T2_.exit
+
+170:                                              ; preds = %166
+  %171 = fcmp ogt double %137, %121
   br i1 %171, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SG_SG_T1_T2_.exit
 
-172:                                              ; preds = %168
-  %173 = fcmp ogt double %138, %122
-  br i1 %173, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SG_SG_T1_T2_.exit
+172:                                              ; preds = %163
+  %173 = fcmp olt double %137, 0.000000e+00
+  %or.cond18.i = select i1 %164, i1 %173, i1 false
+  br i1 %or.cond18.i, label %174, label %181
 
-174:                                              ; preds = %165
-  %175 = fcmp olt double %138, 0.000000e+00
-  %or.cond18.i = select i1 %166, i1 %175, i1 false
-  br i1 %or.cond18.i, label %176, label %183
+174:                                              ; preds = %172
+  br i1 %brmerge, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, label %175
 
-176:                                              ; preds = %174
-  br i1 %brmerge, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, label %177
+175:                                              ; preds = %174
+  %176 = fcmp une double %139, %123
+  br i1 %176, label %177, label %179
 
-177:                                              ; preds = %176
-  %178 = fcmp une double %140, %124
-  br i1 %178, label %179, label %181
+177:                                              ; preds = %175
+  %178 = fcmp olt double %139, %123
+  br i1 %178, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SG_SG_T1_T2_.exit
 
-179:                                              ; preds = %177
-  %180 = fcmp olt double %140, %124
+179:                                              ; preds = %175
+  %180 = fcmp ogt double %137, %121
   br i1 %180, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SG_SG_T1_T2_.exit
 
-181:                                              ; preds = %177
-  %182 = fcmp ogt double %138, %122
-  br i1 %182, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SG_SG_T1_T2_.exit
+181:                                              ; preds = %172
+  br i1 %brmerge74, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, label %182
 
-183:                                              ; preds = %174
-  br i1 %brmerge74, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, label %184
+182:                                              ; preds = %181
+  br i1 %or.cond30.i, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SG_SG_T1_T2_.exit, label %183
 
-184:                                              ; preds = %183
-  br i1 %or.cond30.i, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SG_SG_T1_T2_.exit, label %185
+183:                                              ; preds = %182
+  %184 = fcmp une double %139, %123
+  br i1 %184, label %185, label %187
 
-185:                                              ; preds = %184
-  %186 = fcmp une double %140, %124
-  br i1 %186, label %187, label %189
+185:                                              ; preds = %183
+  %186 = fcmp olt double %139, %123
+  br i1 %186, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SG_SG_T1_T2_.exit
 
-187:                                              ; preds = %185
-  %188 = fcmp olt double %140, %124
+187:                                              ; preds = %183
+  %188 = fcmp olt double %137, %121
   br i1 %188, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SG_SG_T1_T2_.exit
 
-189:                                              ; preds = %185
-  %190 = fcmp olt double %138, %122
-  br i1 %190, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SG_SG_T1_T2_.exit
+_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit: ; preds = %.lr.ph.i16
+  %189 = fcmp olt double %147, %149
+  br i1 %189, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SG_SG_T1_T2_.exit
 
-_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit: ; preds = %144, %.preheader.i
-  %191 = icmp ult i32 %135, %23
-  br i1 %191, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SG_SG_T1_T2_.exit
+_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread: ; preds = %181, %174, %158, %160, %162, %179, %185, %168, %170, %177, %.split.loop.exit.thread.i, %187, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit
+  %190 = getelementptr inbounds i32, ptr %0, i64 %.01317.i.i
+  store i32 %134, ptr %190, align 4, !tbaa !19
+  %191 = icmp sgt i64 %.018.i.i, %.014
+  br i1 %191, label %132, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SG_SG_T1_T2_.exit, !llvm.loop !77
 
-_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread: ; preds = %183, %176, %152, %164, %189, %187, %181, %179, %172, %170, %162, %160, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit
-  %192 = getelementptr inbounds i32, ptr %0, i64 %.01317.i.i
-  store i32 %135, ptr %192, align 4, !tbaa !19
-  %193 = icmp sgt i64 %.018.i.i, %.014
-  br i1 %193, label %133, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SG_SG_T1_T2_.exit, !llvm.loop !77
-
-_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SG_SG_T1_T2_.exit: ; preds = %184, %167, %152, %164, %189, %187, %181, %179, %172, %170, %162, %160, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, %116
-  %.013.lcssa.i.i = phi i64 [ %.128.i, %116 ], [ %.01317.i.i, %184 ], [ %.01317.i.i, %167 ], [ %.01317.i.i, %152 ], [ %.01317.i.i, %164 ], [ %.01317.i.i, %189 ], [ %.01317.i.i, %187 ], [ %.01317.i.i, %181 ], [ %.01317.i.i, %179 ], [ %.01317.i.i, %172 ], [ %.01317.i.i, %170 ], [ %.01317.i.i, %162 ], [ %.01317.i.i, %160 ], [ %.018.i.i, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread ], [ %.01317.i.i, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit ]
-  %194 = getelementptr inbounds i32, ptr %0, i64 %.013.lcssa.i.i
-  store i32 %23, ptr %194, align 4, !tbaa !19
+_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SG_SG_T1_T2_.exit: ; preds = %165, %182, %158, %160, %162, %179, %185, %168, %170, %177, %.split.loop.exit.thread.i, %187, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, %115
+  %.013.lcssa.i.i = phi i64 [ %.128.i, %115 ], [ %.01317.i.i, %165 ], [ %.01317.i.i, %182 ], [ %.01317.i.i, %160 ], [ %.01317.i.i, %162 ], [ %.01317.i.i, %179 ], [ %.01317.i.i, %185 ], [ %.01317.i.i, %168 ], [ %.01317.i.i, %170 ], [ %.01317.i.i, %177 ], [ %.01317.i.i, %.split.loop.exit.thread.i ], [ %.01317.i.i, %187 ], [ %.01317.i.i, %158 ], [ %.018.i.i, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread ], [ %.01317.i.i, %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit ]
+  %192 = getelementptr inbounds i32, ptr %0, i64 %.013.lcssa.i.i
+  store i32 %23, ptr %192, align 4, !tbaa !19
   %.not = icmp eq i64 %.014, 0
-  %195 = add nsw i64 %.014, -1
+  %193 = add nsw i64 %.014, -1
   br i1 %.not, label %.loopexit, label %21, !llvm.loop !79
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SG_SG_T1_T2_.exit, %3
@@ -1694,7 +1694,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZZN3igl11sort_anglesIN5Eigen6
   br label %83
 
 83:                                               ; preds = %30, %.split.loop.exit.thread, %75, %73, %72, %62, %61, %48, %44, %81, %79, %70, %68, %55, %53, %42, %40
-  %.3 = phi i1 [ %41, %40 ], [ %43, %42 ], [ %54, %53 ], [ %56, %55 ], [ %69, %68 ], [ %71, %70 ], [ %80, %79 ], [ %82, %81 ], [ %or.cond6, %44 ], [ false, %48 ], [ true, %61 ], [ true, %62 ], [ true, %72 ], [ true, %73 ], [ false, %75 ], [ %31, %30 ], [ %29, %.split.loop.exit.thread ]
+  %.3 = phi i1 [ %82, %81 ], [ false, %75 ], [ %41, %40 ], [ %43, %42 ], [ %or.cond6, %44 ], [ true, %72 ], [ %80, %79 ], [ %54, %53 ], [ %56, %55 ], [ false, %48 ], [ true, %73 ], [ true, %61 ], [ %69, %68 ], [ %71, %70 ], [ true, %62 ], [ %31, %30 ], [ %29, %.split.loop.exit.thread ]
   ret i1 %.3
 }
 
@@ -1890,7 +1890,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt21__unguarded_partitionIPiN9__gnu
 58:                                               ; preds = %56
   br i1 %or.cond22.i, label %59, label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %51, %53, %61, %63, %70, %72, %78, %80, %55, %43, %.split.loop.exit.thread.i, %75, %58
+.preheader.preheader:                             ; preds = %80, %70, %43, %.split.loop.exit.thread.i, %51, %63, %61, %78, %72, %55, %53, %75, %58
   br label %.preheader
 
 59:                                               ; preds = %58
@@ -1943,7 +1943,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt21__unguarded_partitionIPiN9__gnu
   %81 = fcmp olt double %28, %13
   br i1 %81, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread, label %.preheader.preheader
 
-_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread: ; preds = %74, %67, %.split.loop.exit.thread.i, %43, %55, %80, %78, %72, %70, %63, %61, %53, %51
+_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit.thread: ; preds = %74, %67, %53, %55, %72, %78, %61, %63, %51, %.split.loop.exit.thread.i, %43, %70, %80
   %82 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   br label %24, !llvm.loop !83
 
@@ -2073,7 +2073,7 @@ _ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1EL
   %or.cond28.i20 = select i1 %141, i1 %127, i1 false
   br i1 %or.cond28.i20, label %.preheader.backedge, label %142
 
-.preheader.backedge:                              ; preds = %140, %139, %129, %128, %109, %111, %121, %123, %135, %137, %146, %148, %113, %101, %.split.loop.exit.thread.i30
+.preheader.backedge:                              ; preds = %140, %139, %129, %128, %148, %101, %137, %135, %109, %111, %.split.loop.exit.thread.i30, %123, %121, %146, %113
   br label %.preheader, !llvm.loop !84
 
 142:                                              ; preds = %140
@@ -2093,7 +2093,7 @@ _ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1EL
   %149 = fcmp olt double %13, %86
   br i1 %149, label %.preheader.backedge, label %_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit34.thread
 
-_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit34.thread: ; preds = %142, %116, %.split.loop.exit.thread.i30, %101, %113, %148, %146, %137, %135, %123, %121, %111, %109
+_ZZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUlmmE_clEmm.exit34.thread: ; preds = %116, %142, %113, %146, %121, %123, %.split.loop.exit.thread.i30, %111, %109, %135, %137, %101, %148
   %150 = icmp ult ptr %.1, %.114
   br i1 %150, label %152, label %151
 
@@ -2378,7 +2378,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %23, %27, %29
   %or.cond28.i = select i1 %130, i1 %116, i1 false
   br i1 %or.cond28.i, label %.lr.ph.i.backedge, label %131
 
-.lr.ph.i.backedge:                                ; preds = %129, %128, %118, %117, %110, %112, %124, %126, %135, %137, %102, %.split.loop.exit.thread.i
+.lr.ph.i.backedge:                                ; preds = %129, %128, %118, %117, %137, %102, %126, %124, %.split.loop.exit.thread.i, %112, %110, %135
   br label %.lr.ph.i, !llvm.loop !87
 
 131:                                              ; preds = %129
@@ -2398,8 +2398,8 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %23, %27, %29
   %138 = fcmp olt double %.fr29, %87
   br i1 %138, label %.lr.ph.i.backedge, label %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SG_.exit
 
-_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SG_.exit: ; preds = %110, %112, %124, %126, %135, %137, %102, %.split.loop.exit.thread.i, %105, %131, %.split.loop.exit.thread.i.us, %78, %69, %67, %63, %32
-  %.09.lcssa.i = phi ptr [ %.026, %32 ], [ %.013.i.us, %63 ], [ %.013.i.us, %67 ], [ %.013.i.us, %69 ], [ %.013.i.us, %78 ], [ %.013.i.us, %.split.loop.exit.thread.i.us ], [ %.013.i, %131 ], [ %.013.i, %105 ], [ %.013.i, %.split.loop.exit.thread.i ], [ %.013.i, %102 ], [ %.013.i, %137 ], [ %.013.i, %135 ], [ %.013.i, %126 ], [ %.013.i, %124 ], [ %.013.i, %112 ], [ %.013.i, %110 ]
+_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SG_.exit: ; preds = %137, %102, %126, %124, %.split.loop.exit.thread.i, %112, %110, %135, %131, %105, %.split.loop.exit.thread.i.us, %78, %69, %67, %63, %32
+  %.09.lcssa.i = phi ptr [ %.026, %32 ], [ %.013.i.us, %.split.loop.exit.thread.i.us ], [ %.013.i.us, %63 ], [ %.013.i.us, %67 ], [ %.013.i.us, %69 ], [ %.013.i.us, %78 ], [ %.013.i, %105 ], [ %.013.i, %131 ], [ %.013.i, %135 ], [ %.013.i, %110 ], [ %.013.i, %112 ], [ %.013.i, %.split.loop.exit.thread.i ], [ %.013.i, %124 ], [ %.013.i, %126 ], [ %.013.i, %102 ], [ %.013.i, %137 ]
   store i32 %33, ptr %.09.lcssa.i, align 4, !tbaa !19
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %139
@@ -2635,7 +2635,7 @@ define linkonce_odr dso_local void @_ZSt26__unguarded_insertion_sortIPiN9__gnu_c
   %or.cond28.i = select i1 %105, i1 %91, i1 false
   br i1 %or.cond28.i, label %.lr.ph.i.backedge, label %106
 
-.lr.ph.i.backedge:                                ; preds = %104, %103, %93, %92, %85, %87, %99, %101, %110, %112, %77, %.split.loop.exit.thread.i
+.lr.ph.i.backedge:                                ; preds = %104, %103, %93, %92, %112, %77, %101, %99, %.split.loop.exit.thread.i, %87, %85, %110
   br label %.lr.ph.i, !llvm.loop !87
 
 106:                                              ; preds = %104
@@ -2655,8 +2655,8 @@ define linkonce_odr dso_local void @_ZSt26__unguarded_insertion_sortIPiN9__gnu_c
   %113 = fcmp olt double %.fr17, %62
   br i1 %113, label %.lr.ph.i.backedge, label %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SG_.exit
 
-_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SG_.exit: ; preds = %85, %87, %99, %101, %110, %112, %77, %.split.loop.exit.thread.i, %80, %106, %.split.loop.exit.thread.i.us, %53, %44, %42, %38, %7
-  %.09.lcssa.i = phi ptr [ %.015, %7 ], [ %.013.i.us, %38 ], [ %.013.i.us, %42 ], [ %.013.i.us, %44 ], [ %.013.i.us, %53 ], [ %.013.i.us, %.split.loop.exit.thread.i.us ], [ %.013.i, %106 ], [ %.013.i, %80 ], [ %.013.i, %.split.loop.exit.thread.i ], [ %.013.i, %77 ], [ %.013.i, %112 ], [ %.013.i, %110 ], [ %.013.i, %101 ], [ %.013.i, %99 ], [ %.013.i, %87 ], [ %.013.i, %85 ]
+_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_10MatrixBaseIT_EERNS6_15PlainObjectBaseIT0_EEEUlmmE_EEEvSB_SG_.exit: ; preds = %112, %77, %101, %99, %.split.loop.exit.thread.i, %87, %85, %110, %106, %80, %.split.loop.exit.thread.i.us, %53, %44, %42, %38, %7
+  %.09.lcssa.i = phi ptr [ %.015, %7 ], [ %.013.i.us, %.split.loop.exit.thread.i.us ], [ %.013.i.us, %38 ], [ %.013.i.us, %42 ], [ %.013.i.us, %44 ], [ %.013.i.us, %53 ], [ %.013.i, %80 ], [ %.013.i, %106 ], [ %.013.i, %110 ], [ %.013.i, %85 ], [ %.013.i, %87 ], [ %.013.i, %.split.loop.exit.thread.i ], [ %.013.i, %99 ], [ %.013.i, %101 ], [ %.013.i, %77 ], [ %.013.i, %112 ]
   store i32 %8, ptr %.09.lcssa.i, align 4, !tbaa !19
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %114 = getelementptr inbounds nuw i8, ptr %.015, i64 4

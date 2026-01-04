@@ -422,7 +422,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h82cc00910141d6a4
 30:                                               ; preds = %31
   resume { ptr, i32 } %lpad.thr_comm
 
-31:                                               ; preds = %24, %2, %19
+31:                                               ; preds = %19, %24, %2
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr81drop_in_place$LT$core..option..IntoIter$LT$anki_proto_gen..BackendService$GT$$GT$17hca957f6ecbca6705E"(ptr align 8 %1) #15
@@ -500,7 +500,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hd60bade151dc9335
 30:                                               ; preds = %31
   resume { ptr, i32 } %lpad.thr_comm
 
-31:                                               ; preds = %24, %2, %19
+31:                                               ; preds = %19, %24, %2
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr84drop_in_place$LT$core..option..IntoIter$LT$anki_proto_gen..CollectionService$GT$$GT$17h4cf5430b06568c88E"(ptr align 8 %1) #15

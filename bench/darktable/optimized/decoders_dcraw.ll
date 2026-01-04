@@ -176,7 +176,7 @@ define noundef range(i32 0, 33554432) i32 @_ZN6LibRaw10getbithuffEiPt(ptr nounde
   br label %79
 
 79:                                               ; preds = %76, %78, %12, %14, %3, %7
-  %.016 = phi i32 [ 0, %7 ], [ 0, %3 ], [ 0, %14 ], [ 0, %12 ], [ %.0, %78 ], [ %.0, %76 ]
+  %.016 = phi i32 [ 0, %12 ], [ 0, %7 ], [ 0, %3 ], [ 0, %14 ], [ %.0, %78 ], [ %.0, %76 ]
   ret i32 %.016
 }
 
@@ -915,7 +915,7 @@ _ZN6LibRaw17canon_has_lowbitsEv.exit:             ; preds = %27
           to label %_ZN6LibRaw10getbithuffEiPt.exit unwind label %.loopexit.split-lp120.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZN6LibRaw10getbithuffEiPt.exit:                  ; preds = %127, %78, %71, %135
-  %.016.i.shrunk = phi i16 [ 0, %71 ], [ 0, %78 ], [ %133, %127 ], [ %133, %135 ]
+  %.016.i.shrunk = phi i16 [ %133, %135 ], [ %133, %127 ], [ 0, %71 ], [ 0, %78 ]
   %.016.i = zext nneg i16 %.016.i.shrunk to i32
   %136 = icmp eq i16 %.016.i.shrunk, 0
   %137 = icmp ne i32 %.075151, 0
@@ -1782,7 +1782,7 @@ _ZN6LibRaw16make_decoder_refEPPKh.exit:           ; preds = %._crit_edge40.i, %.
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit126
 
 _ZNSt6vectorIhSaIhEED2Ev.exit126:                 ; preds = %69, %47, %46, %38, %37, %188, %190, %180, %183, %186, %13, %14, %215
-  %.0 = phi i32 [ 1, %215 ], [ 0, %14 ], [ 0, %13 ], [ %.mux, %188 ], [ 0, %186 ], [ 0, %183 ], [ 0, %180 ], [ 0, %190 ], [ 0, %37 ], [ 0, %38 ], [ 0, %46 ], [ 0, %47 ], [ 0, %69 ]
+  %.0 = phi i32 [ 1, %215 ], [ 0, %13 ], [ 0, %14 ], [ %.mux, %188 ], [ 0, %186 ], [ 0, %183 ], [ 0, %190 ], [ 0, %180 ], [ 0, %37 ], [ 0, %38 ], [ 0, %46 ], [ 0, %47 ], [ 0, %69 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 65536) #18
   ret i32 %.0
 }
@@ -2158,7 +2158,7 @@ _ZN6LibRaw10getbithuffEiPt.exit102:               ; preds = %145, %154
   br i1 %or.cond120, label %_ZN6LibRaw10getbithuffEiPt.exit, label %.split.i.thread.thread114
 
 .split.i.thread.thread114:                        ; preds = %.split.i, %156
-  %.016.i91104107118 = phi i32 [ 16, %156 ], [ %152, %.split.i ]
+  %.016.i91104107118 = phi i32 [ %152, %.split.i ], [ 16, %156 ]
   %160 = load ptr, ptr %61, align 8, !tbaa !6
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 4
   %162 = load i32, ptr %161, align 4, !tbaa !78
@@ -2261,8 +2261,8 @@ _ZN6LibRaw10getbithuffEiPt.exit102:               ; preds = %145, %154
   br label %_ZN6LibRaw10getbithuffEiPt.exit
 
 _ZN6LibRaw10getbithuffEiPt.exit:                  ; preds = %95, %90, %.split.i, %.split.i.thread.thread114, %208, %211
-  %.016.i91104108 = phi i32 [ %152, %.split.i ], [ %.016.i91104107118, %.split.i.thread.thread114 ], [ %.016.i91104107118, %211 ], [ %.016.i91104107118, %208 ], [ 0, %90 ], [ 0, %95 ]
-  %.016.i = phi i32 [ 0, %.split.i ], [ 0, %.split.i.thread.thread114 ], [ %209, %211 ], [ %209, %208 ], [ 0, %90 ], [ 0, %95 ]
+  %.016.i91104108 = phi i32 [ 0, %90 ], [ %.016.i91104107118, %208 ], [ %152, %.split.i ], [ %.016.i91104107118, %.split.i.thread.thread114 ], [ %.016.i91104107118, %211 ], [ 0, %95 ]
+  %.016.i = phi i32 [ 0, %90 ], [ %209, %208 ], [ 0, %.split.i ], [ 0, %.split.i.thread.thread114 ], [ %209, %211 ], [ 0, %95 ]
   %212 = add nsw i32 %.016.i91104108, -1
   %213 = shl nuw i32 1, %212
   %214 = and i32 %213, %.016.i
@@ -2306,7 +2306,7 @@ _ZN6LibRaw10ljpeg_diffEPt.exit:                   ; preds = %156, %_ZN6LibRaw10g
   br label %286
 
 232:                                              ; preds = %_ZN6LibRaw10ljpeg_diffEPt.exit, %222
-  %.063 = phi i32 [ %228, %222 ], [ %.1134, %_ZN6LibRaw10ljpeg_diffEPt.exit ]
+  %.063 = phi i32 [ %.1134, %_ZN6LibRaw10ljpeg_diffEPt.exit ], [ %228, %222 ]
   br i1 %or.cond, label %233, label %286
 
 233:                                              ; preds = %232
@@ -2820,7 +2820,7 @@ _ZN6LibRaw10getbithuffEiPt.exit138:               ; preds = %180, %189
   br i1 %or.cond249, label %_ZN6LibRaw10getbithuffEiPt.exit, label %.split.i93.thread.thread230
 
 .split.i93.thread.thread230:                      ; preds = %.split.i93, %191
-  %.016.i127208211234 = phi i32 [ 16, %191 ], [ %187, %.split.i93 ]
+  %.016.i127208211234 = phi i32 [ %187, %.split.i93 ], [ 16, %191 ]
   %195 = load ptr, ptr %108, align 8, !tbaa !6
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
   %197 = load i32, ptr %196, align 4, !tbaa !78
@@ -2923,8 +2923,8 @@ _ZN6LibRaw10getbithuffEiPt.exit138:               ; preds = %180, %189
   br label %_ZN6LibRaw10getbithuffEiPt.exit
 
 _ZN6LibRaw10getbithuffEiPt.exit:                  ; preds = %130, %125, %.split.i93, %.split.i93.thread.thread230, %243, %246
-  %.016.i127208212 = phi i32 [ %187, %.split.i93 ], [ %.016.i127208211234, %.split.i93.thread.thread230 ], [ %.016.i127208211234, %246 ], [ %.016.i127208211234, %243 ], [ 0, %125 ], [ 0, %130 ]
-  %.016.i = phi i32 [ 0, %.split.i93 ], [ 0, %.split.i93.thread.thread230 ], [ %244, %246 ], [ %244, %243 ], [ 0, %125 ], [ 0, %130 ]
+  %.016.i127208212 = phi i32 [ 0, %125 ], [ %.016.i127208211234, %243 ], [ %187, %.split.i93 ], [ %.016.i127208211234, %.split.i93.thread.thread230 ], [ %.016.i127208211234, %246 ], [ 0, %130 ]
+  %.016.i = phi i32 [ 0, %125 ], [ %244, %243 ], [ 0, %.split.i93 ], [ 0, %.split.i93.thread.thread230 ], [ %244, %246 ], [ 0, %130 ]
   %247 = add nsw i32 %.016.i127208212, -1
   %248 = shl nuw i32 1, %247
   %249 = and i32 %248, %.016.i
@@ -3169,7 +3169,7 @@ _ZN6LibRaw10getbithuffEiPt.exit172:               ; preds = %358, %367
   br i1 %or.cond251, label %_ZN6LibRaw10getbithuffEiPt.exit155, label %.split.i102.thread.thread237
 
 .split.i102.thread.thread237:                     ; preds = %.split.i102, %369
-  %.016.i161215218241 = phi i32 [ 16, %369 ], [ %365, %.split.i102 ]
+  %.016.i161215218241 = phi i32 [ %365, %.split.i102 ], [ 16, %369 ]
   %373 = load ptr, ptr %289, align 8, !tbaa !6
   %374 = getelementptr inbounds nuw i8, ptr %373, i64 4
   %375 = load i32, ptr %374, align 4, !tbaa !78
@@ -3272,8 +3272,8 @@ _ZN6LibRaw10getbithuffEiPt.exit172:               ; preds = %358, %367
   br label %_ZN6LibRaw10getbithuffEiPt.exit155
 
 _ZN6LibRaw10getbithuffEiPt.exit155:               ; preds = %308, %303, %.split.i102, %.split.i102.thread.thread237, %421, %424
-  %.016.i161215219 = phi i32 [ %365, %.split.i102 ], [ %.016.i161215218241, %.split.i102.thread.thread237 ], [ %.016.i161215218241, %424 ], [ %.016.i161215218241, %421 ], [ 0, %303 ], [ 0, %308 ]
-  %.016.i144 = phi i32 [ 0, %.split.i102 ], [ 0, %.split.i102.thread.thread237 ], [ %422, %424 ], [ %422, %421 ], [ 0, %303 ], [ 0, %308 ]
+  %.016.i161215219 = phi i32 [ 0, %303 ], [ %.016.i161215218241, %421 ], [ %365, %.split.i102 ], [ %.016.i161215218241, %.split.i102.thread.thread237 ], [ %.016.i161215218241, %424 ], [ 0, %308 ]
+  %.016.i144 = phi i32 [ 0, %303 ], [ %422, %421 ], [ 0, %.split.i102 ], [ 0, %.split.i102.thread.thread237 ], [ %422, %424 ], [ 0, %308 ]
   %425 = add nsw i32 %.016.i161215219, -1
   %426 = shl nuw i32 1, %425
   %427 = and i32 %426, %.016.i144
@@ -3486,7 +3486,7 @@ _ZN6LibRaw10getbithuffEiPt.exit206:               ; preds = %515, %524
   br i1 %or.cond253, label %_ZN6LibRaw10getbithuffEiPt.exit189, label %.split.i111.thread.thread244
 
 .split.i111.thread.thread244:                     ; preds = %.split.i111, %526
-  %.016.i195222225248 = phi i32 [ 16, %526 ], [ %522, %.split.i111 ]
+  %.016.i195222225248 = phi i32 [ %522, %.split.i111 ], [ 16, %526 ]
   %530 = load ptr, ptr %281, align 8, !tbaa !6
   %531 = getelementptr inbounds nuw i8, ptr %530, i64 4
   %532 = load i32, ptr %531, align 4, !tbaa !78
@@ -3589,8 +3589,8 @@ _ZN6LibRaw10getbithuffEiPt.exit206:               ; preds = %515, %524
   br label %_ZN6LibRaw10getbithuffEiPt.exit189
 
 _ZN6LibRaw10getbithuffEiPt.exit189:               ; preds = %465, %460, %.split.i111, %.split.i111.thread.thread244, %578, %581
-  %.016.i195222226 = phi i32 [ %522, %.split.i111 ], [ %.016.i195222225248, %.split.i111.thread.thread244 ], [ %.016.i195222225248, %581 ], [ %.016.i195222225248, %578 ], [ 0, %460 ], [ 0, %465 ]
-  %.016.i178 = phi i32 [ 0, %.split.i111 ], [ 0, %.split.i111.thread.thread244 ], [ %579, %581 ], [ %579, %578 ], [ 0, %460 ], [ 0, %465 ]
+  %.016.i195222226 = phi i32 [ 0, %460 ], [ %.016.i195222225248, %578 ], [ %522, %.split.i111 ], [ %.016.i195222225248, %.split.i111.thread.thread244 ], [ %.016.i195222225248, %581 ], [ 0, %465 ]
+  %.016.i178 = phi i32 [ 0, %460 ], [ %579, %578 ], [ 0, %.split.i111 ], [ 0, %.split.i111.thread.thread244 ], [ %579, %581 ], [ 0, %465 ]
   %582 = add nsw i32 %.016.i195222226, -1
   %583 = shl nuw i32 1, %582
   %584 = and i32 %583, %.016.i178
@@ -5387,7 +5387,7 @@ _ZN6LibRaw10getbithuffEiPt.exit57:                ; preds = %127, %136
   br i1 %or.cond, label %_ZN6LibRaw10getbithuffEiPt.exit, label %.split.i.thread.thread67
 
 .split.i.thread.thread67:                         ; preds = %.split.i, %138
-  %.016.i46596271 = phi i32 [ 16, %138 ], [ %134, %.split.i ]
+  %.016.i46596271 = phi i32 [ %134, %.split.i ], [ 16, %138 ]
   %142 = load ptr, ptr %61, align 8, !tbaa !6
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 4
   %144 = load i32, ptr %143, align 4, !tbaa !78
@@ -5490,8 +5490,8 @@ _ZN6LibRaw10getbithuffEiPt.exit57:                ; preds = %127, %136
   br label %_ZN6LibRaw10getbithuffEiPt.exit
 
 _ZN6LibRaw10getbithuffEiPt.exit:                  ; preds = %78, %.split.i, %.split.i.thread.thread67, %190, %193
-  %.016.i465963 = phi i32 [ %134, %.split.i ], [ %.016.i46596271, %.split.i.thread.thread67 ], [ %.016.i46596271, %193 ], [ %.016.i46596271, %190 ], [ 0, %78 ]
-  %.016.i = phi i32 [ 0, %.split.i ], [ 0, %.split.i.thread.thread67 ], [ %191, %193 ], [ %191, %190 ], [ 0, %78 ]
+  %.016.i465963 = phi i32 [ 0, %78 ], [ %.016.i46596271, %190 ], [ %134, %.split.i ], [ %.016.i46596271, %.split.i.thread.thread67 ], [ %.016.i46596271, %193 ]
+  %.016.i = phi i32 [ 0, %78 ], [ %191, %190 ], [ 0, %.split.i ], [ 0, %.split.i.thread.thread67 ], [ %191, %193 ]
   %194 = add nsw i32 %.016.i465963, -1
   %195 = shl nuw i32 1, %194
   %196 = and i32 %195, %.016.i
@@ -6239,7 +6239,7 @@ _ZN6LibRaw12make_decoderEPKh.exit118:             ; preds = %._crit_edge40.i.i11
           to label %_ZN6LibRaw10getbithuffEiPt.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZN6LibRaw10getbithuffEiPt.exit:                  ; preds = %217, %167, %163, %225
-  %.016.i.shrunk = phi i16 [ 0, %163 ], [ 0, %167 ], [ %223, %217 ], [ %223, %225 ]
+  %.016.i.shrunk = phi i16 [ %223, %225 ], [ %223, %217 ], [ 0, %163 ], [ 0, %167 ]
   %.016.i = zext nneg i16 %.016.i.shrunk to i32
   %226 = and i32 %.016.i, 15
   %227 = lshr i32 %.016.i, 4
@@ -6369,7 +6369,7 @@ _ZN6LibRaw10getbithuffEiPt.exit:                  ; preds = %217, %167, %163, %2
           to label %_ZN6LibRaw10getbithuffEiPt.exit142 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZN6LibRaw10getbithuffEiPt.exit142:               ; preds = %285, %236, %234, %230, %288
-  %.016.i128 = phi i32 [ 0, %230 ], [ 0, %236 ], [ 0, %234 ], [ %286, %285 ], [ %286, %288 ]
+  %.016.i128 = phi i32 [ 0, %234 ], [ 0, %230 ], [ %286, %288 ], [ 0, %236 ], [ %286, %285 ]
   %289 = shl nuw nsw i32 %.016.i128, 1
   %290 = or disjoint i32 %289, 1
   %291 = shl nuw nsw i32 %290, %227
@@ -7279,7 +7279,7 @@ define noundef range(i32 0, 65536) i32 @_ZN6LibRaw9pana_dataEiPj(ptr noundef non
   br label %.loopexit
 
 .loopexit:                                        ; preds = %53, %63, %6
-  %.012 = phi i32 [ %79, %63 ], [ 0, %6 ], [ 0, %53 ]
+  %.012 = phi i32 [ 0, %6 ], [ %79, %63 ], [ 0, %53 ]
   ret i32 %.012
 }
 
@@ -8549,7 +8549,7 @@ _ZN6LibRaw10getbithuffEiPt.exit123:               ; preds = %147, %156
   br label %_ZN6LibRaw10getbithuffEiPt.exit139
 
 _ZN6LibRaw10getbithuffEiPt.exit139:               ; preds = %158, %161, %210, %213
-  %.016.i128 = phi i32 [ 0, %161 ], [ 0, %158 ], [ %211, %213 ], [ %211, %210 ]
+  %.016.i128 = phi i32 [ 0, %158 ], [ %211, %213 ], [ %211, %210 ], [ 0, %161 ]
   %214 = lshr i32 %.016.i128, 1
   br label %_ZN6LibRaw10getbithuffEiPt.exit.thread
 
@@ -8660,7 +8660,7 @@ _ZN6LibRaw10getbithuffEiPt.exit.thread:           ; preds = %35, %_ZN6LibRaw10ge
   br label %_ZN6LibRaw10getbithuffEiPt.exit155
 
 _ZN6LibRaw10getbithuffEiPt.exit155:               ; preds = %_ZN6LibRaw10getbithuffEiPt.exit.thread, %266, %269
-  %.016.i144 = phi i32 [ 0, %_ZN6LibRaw10getbithuffEiPt.exit.thread ], [ %267, %269 ], [ %267, %266 ]
+  %.016.i144 = phi i32 [ %267, %266 ], [ %267, %269 ], [ 0, %_ZN6LibRaw10getbithuffEiPt.exit.thread ]
   %270 = or i32 %.016.i144, %217
   store i32 %270, ptr %38, align 4, !tbaa !101
   %271 = xor i32 %270, %215
@@ -8782,7 +8782,7 @@ _ZN6LibRaw10getbithuffEiPt.exit155:               ; preds = %_ZN6LibRaw10getbith
   br label %._crit_edge189
 
 ._crit_edge189:                                   ; preds = %286, %289, %343, %340, %337, %298
-  %.093 = phi i32 [ %296, %289 ], [ %349, %343 ], [ %342, %340 ], [ %339, %337 ], [ %304, %298 ], [ 0, %286 ]
+  %.093 = phi i32 [ %304, %298 ], [ %296, %289 ], [ %349, %343 ], [ %342, %340 ], [ %339, %337 ], [ 0, %286 ]
   %350 = shl i32 %274, 2
   %351 = or disjoint i32 %350, %216
   %352 = add nsw i32 %351, %.093
@@ -10041,7 +10041,7 @@ define void @_ZN6LibRaw17sony_arw_load_rawEv(ptr noundef nonnull align 8 derefer
   br i1 %or.cond81, label %.noexc34, label %.split.i.thread.thread76
 
 .split.i.thread.thread76:                         ; preds = %.split.i, %97
-  %.016.i48687180 = phi i32 [ 16, %97 ], [ %93, %.split.i ]
+  %.016.i48687180 = phi i32 [ %93, %.split.i ], [ 16, %97 ]
   %101 = load ptr, ptr %12, align 8, !tbaa !6
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 4
   %103 = load i32, ptr %102, align 4, !tbaa !78
@@ -10150,8 +10150,8 @@ define void @_ZN6LibRaw17sony_arw_load_rawEv(ptr noundef nonnull align 8 derefer
           to label %.noexc34 unwind label %_ZNSt6vectorItSaItEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc34:                                         ; preds = %36, %30, %149, %.split.i.thread.thread76, %.split.i, %152
-  %.016.i486872 = phi i32 [ %93, %.split.i ], [ %.016.i48687180, %.split.i.thread.thread76 ], [ %.016.i48687180, %149 ], [ %.016.i48687180, %152 ], [ 0, %30 ], [ 0, %36 ]
-  %.016.i = phi i32 [ 0, %.split.i ], [ 0, %.split.i.thread.thread76 ], [ %150, %149 ], [ %150, %152 ], [ 0, %30 ], [ 0, %36 ]
+  %.016.i486872 = phi i32 [ 0, %30 ], [ %.016.i48687180, %149 ], [ %93, %.split.i ], [ %.016.i48687180, %.split.i.thread.thread76 ], [ %.016.i48687180, %152 ], [ 0, %36 ]
+  %.016.i = phi i32 [ 0, %30 ], [ %150, %149 ], [ 0, %.split.i ], [ 0, %.split.i.thread.thread76 ], [ %150, %152 ], [ 0, %36 ]
   %153 = add nsw i32 %.016.i486872, -1
   %154 = shl nuw i32 1, %153
   %155 = and i32 %154, %.016.i
@@ -10619,7 +10619,7 @@ define void @_ZN6LibRaw18sony_arw2_load_rawEv(ptr noundef nonnull align 8 derefe
   br label %180
 
 180:                                              ; preds = %175, %169
-  %181 = phi i16 [ 0, %169 ], [ %spec.select147, %175 ]
+  %181 = phi i16 [ %spec.select147, %175 ], [ 0, %169 ]
   %182 = load i16, ptr %3, align 2, !tbaa !98
   %183 = zext i16 %182 to i32
   %184 = mul nuw nsw i32 %.0113184, %183
@@ -11320,7 +11320,7 @@ _ZN6LibRaw10getbithuffEiPt.exit45:                ; preds = %109, %118
   br i1 %or.cond60, label %_ZN6LibRaw10getbithuffEiPt.exit, label %.split.i.thread.thread55
 
 .split.i.thread.thread55:                         ; preds = %.split.i, %120
-  %.016.i34475059 = phi i32 [ 16, %120 ], [ %116, %.split.i ]
+  %.016.i34475059 = phi i32 [ %116, %.split.i ], [ 16, %120 ]
   %124 = load ptr, ptr %14, align 8, !tbaa !6
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 4
   %126 = load i32, ptr %125, align 4, !tbaa !78
@@ -11423,8 +11423,8 @@ _ZN6LibRaw10getbithuffEiPt.exit45:                ; preds = %109, %118
   br label %_ZN6LibRaw10getbithuffEiPt.exit
 
 _ZN6LibRaw10getbithuffEiPt.exit:                  ; preds = %60, %.split.i, %.split.i.thread.thread55, %172, %175
-  %.016.i344751 = phi i32 [ %116, %.split.i ], [ %.016.i34475059, %.split.i.thread.thread55 ], [ %.016.i34475059, %175 ], [ %.016.i34475059, %172 ], [ 0, %60 ]
-  %.016.i = phi i32 [ 0, %.split.i ], [ 0, %.split.i.thread.thread55 ], [ %173, %175 ], [ %173, %172 ], [ 0, %60 ]
+  %.016.i344751 = phi i32 [ 0, %60 ], [ %.016.i34475059, %172 ], [ %116, %.split.i ], [ %.016.i34475059, %.split.i.thread.thread55 ], [ %.016.i34475059, %175 ]
+  %.016.i = phi i32 [ 0, %60 ], [ %173, %172 ], [ 0, %.split.i ], [ 0, %.split.i.thread.thread55 ], [ %173, %175 ]
   %176 = add nsw i32 %.016.i344751, -1
   %177 = shl nuw i32 1, %176
   %178 = and i32 %177, %.016.i

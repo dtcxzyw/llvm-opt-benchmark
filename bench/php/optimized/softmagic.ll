@@ -135,7 +135,7 @@ define hidden i32 @file_softmagic(ptr noundef %0, ptr noundef %1, ptr noundef ca
   br i1 %.not, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %28, %.lr.ph, %24, %17
-  %.2 = phi i32 [ 0, %17 ], [ %23, %24 ], [ %23, %.lr.ph ], [ %.123, %28 ]
+  %.2 = phi i32 [ 0, %17 ], [ %23, %.lr.ph ], [ %23, %24 ], [ %.123, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -222,7 +222,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i64 noundef %2
   br i1 %.not215, label %57, label %.critedge239.preheader
 
 .critedge239.preheader:                           ; preds = %109, %74, %89, %67, %57, %42, %.critedge235, %45
-  %.2202.ph = phi i32 [ %.0200270, %74 ], [ %.0200270, %.critedge235 ], [ %.0200270, %89 ], [ %.0200270, %67 ], [ %.0200270, %57 ], [ %.0200270, %45 ], [ %.0200270, %42 ], [ %97, %109 ]
+  %.2202.ph = phi i32 [ %.0200270, %42 ], [ %.0200270, %89 ], [ %.0200270, %.critedge235 ], [ %.0200270, %74 ], [ %.0200270, %67 ], [ %.0200270, %57 ], [ %.0200270, %45 ], [ %97, %109 ]
   br label %.critedge239
 
 .critedge239:                                     ; preds = %.critedge239.preheader, %54
@@ -441,8 +441,8 @@ print_sep.exit.thread:                            ; preds = %83, %print_sep.exit
   store i32 0, ptr %152, align 4, !tbaa !44
   br label %.outer.backedge
 
-.outer.backedge:                                  ; preds = %148, %163, %194, %128, %139
-  %.2199.ph.be = phi i32 [ %107, %148 ], [ %107, %163 ], [ %199, %194 ], [ %107, %128 ], [ %107, %139 ]
+.outer.backedge:                                  ; preds = %148, %163, %194, %139, %128
+  %.2199.ph.be = phi i32 [ %107, %128 ], [ %107, %148 ], [ %107, %163 ], [ %199, %194 ], [ %107, %139 ]
   br label %.outer
 
 .critedge241.thread:                              ; preds = %139, %.critedge241
@@ -587,8 +587,8 @@ print_sep.exit250.thread:                         ; preds = %178, %print_sep.exi
   br label %.critedge
 
 .critedge:                                        ; preds = %54, %.critedge239, %212, %204
-  %.pre-phi284 = phi i64 [ %98, %212 ], [ %98, %204 ], [ %53, %.critedge239 ], [ %53, %54 ]
-  %.pre-phi = phi i32 [ %97, %212 ], [ %97, %204 ], [ %52, %.critedge239 ], [ %52, %54 ]
+  %.pre-phi284 = phi i64 [ %98, %204 ], [ %98, %212 ], [ %53, %.critedge239 ], [ %53, %54 ]
+  %.pre-phi = phi i32 [ %97, %204 ], [ %97, %212 ], [ %52, %.critedge239 ], [ %52, %54 ]
   %213 = icmp ugt i64 %2, %.pre-phi284
   br i1 %213, label %33, label %._crit_edge
 
@@ -596,8 +596,8 @@ print_sep.exit250.thread:                         ; preds = %178, %print_sep.exi
   %214 = load i32, ptr %spec.store.select, align 4, !tbaa !4
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %93, %print_sep.exit.thread, %print_sep.exit, %74, %60, %194, %190, %187, %print_sep.exit250, %.critedge241, %135, %210, %168, %78, %15, %._crit_edge
-  %.0195 = phi i32 [ %214, %._crit_edge ], [ -1, %15 ], [ %211, %210 ], [ %167, %168 ], [ %77, %78 ], [ -1, %194 ], [ -1, %190 ], [ -1, %187 ], [ -1, %print_sep.exit250 ], [ %147, %.critedge241 ], [ %138, %135 ], [ -1, %93 ], [ -1, %print_sep.exit.thread ], [ -1, %print_sep.exit ], [ %75, %74 ], [ %66, %60 ]
+.critedge.thread:                                 ; preds = %60, %93, %print_sep.exit.thread, %print_sep.exit, %74, %194, %135, %.critedge241, %190, %187, %print_sep.exit250, %210, %168, %78, %15, %._crit_edge
+  %.0195 = phi i32 [ %214, %._crit_edge ], [ -1, %15 ], [ -1, %194 ], [ %167, %168 ], [ %211, %210 ], [ %77, %78 ], [ %138, %135 ], [ %147, %.critedge241 ], [ -1, %190 ], [ -1, %187 ], [ -1, %print_sep.exit250 ], [ -1, %93 ], [ -1, %print_sep.exit.thread ], [ -1, %print_sep.exit ], [ %75, %74 ], [ %66, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -663,7 +663,7 @@ define internal fastcc range(i32 -1, 1) i32 @msetoffset(ptr noundef %0, ptr noun
   br i1 %35, label %36, label %43
 
 36:                                               ; preds = %11, %34
-  %.0 = phi i32 [ %10, %34 ], [ %12, %11 ]
+  %.0 = phi i32 [ %12, %11 ], [ %10, %34 ]
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %38 = load ptr, ptr %37, align 8, !tbaa !33
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 160
@@ -710,7 +710,7 @@ define internal fastcc range(i32 -1, 1) i32 @msetoffset(ptr noundef %0, ptr noun
   br label %68
 
 68:                                               ; preds = %48, %53, %19, %14, %18
-  %.039 = phi i32 [ -1, %18 ], [ -1, %14 ], [ -1, %19 ], [ 0, %53 ], [ 0, %48 ]
+  %.039 = phi i32 [ -1, %19 ], [ -1, %14 ], [ -1, %18 ], [ 0, %53 ], [ 0, %48 ]
   ret i32 %.039
 }
 
@@ -1194,8 +1194,8 @@ cvt_flip.exit.thread615:                          ; preds = %79, %cvt_flip.exit
 cvt_flip.exit.thread.fold.split:                  ; preds = %79, %cvt_flip.exit
   br label %cvt_flip.exit.thread
 
-cvt_flip.exit.thread:                             ; preds = %79, %cvt_flip.exit.thread.fold.split, %92, %91, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80
-  %.0.i599 = phi i32 [ 37, %92 ], [ 38, %91 ], [ 34, %90 ], [ 35, %89 ], [ 44, %88 ], [ 32, %87 ], [ 29, %86 ], [ 15, %85 ], [ 9, %84 ], [ 43, %83 ], [ 31, %82 ], [ 28, %81 ], [ 16, %80 ], [ 12, %79 ], [ %77, %cvt_flip.exit.thread.fold.split ]
+cvt_flip.exit.thread:                             ; preds = %79, %cvt_flip.exit.thread.fold.split, %91, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %92
+  %.0.i599 = phi i32 [ 12, %79 ], [ 38, %91 ], [ 34, %90 ], [ 35, %89 ], [ 44, %88 ], [ 32, %87 ], [ 29, %86 ], [ 15, %85 ], [ 9, %84 ], [ 43, %83 ], [ 31, %82 ], [ 28, %81 ], [ 16, %80 ], [ 37, %92 ], [ %77, %cvt_flip.exit.thread.fold.split ]
   %291 = load i32, ptr %47, align 4, !tbaa !19
   %292 = and i32 %291, 1
   %.not493 = icmp eq i32 %292, 0
@@ -1207,7 +1207,7 @@ cvt_flip.exit.thread:                             ; preds = %79, %cvt_flip.exit.
   br label %.critedge574
 
 296:                                              ; preds = %236, %279, %214, %223, %198, %200, %168, %180, %141, %143, %123, %129, %100, %102, %289, %151, %110
-  %.2442 = phi i64 [ %113, %110 ], [ %154, %151 ], [ %290, %289 ], [ %101, %100 ], [ %103, %102 ], [ %128, %123 ], [ %133, %129 ], [ %142, %141 ], [ %144, %143 ], [ %179, %168 ], [ %190, %180 ], [ %199, %198 ], [ %201, %200 ], [ %222, %214 ], [ %230, %223 ], [ %280, %279 ], [ %273, %236 ]
+  %.2442 = phi i64 [ %290, %289 ], [ %113, %110 ], [ %103, %102 ], [ %133, %129 ], [ %154, %151 ], [ %144, %143 ], [ %190, %180 ], [ %201, %200 ], [ %230, %223 ], [ %280, %279 ], [ %101, %100 ], [ %128, %123 ], [ %142, %141 ], [ %179, %168 ], [ %199, %198 ], [ %222, %214 ], [ %273, %236 ]
   %297 = load i32, ptr %47, align 4, !tbaa !19
   %298 = and i32 %297, 1
   %.not492 = icmp eq i32 %298, 0
@@ -1639,8 +1639,8 @@ cvt_flip.exit589.thread638:                       ; preds = %307, %cvt_flip.exit
 cvt_flip.exit589.thread.fold.split:               ; preds = %307, %cvt_flip.exit589
   br label %cvt_flip.exit589.thread
 
-cvt_flip.exit589.thread:                          ; preds = %307, %cvt_flip.exit589.thread.fold.split, %320, %319, %318, %317, %316, %315, %314, %313, %312, %311, %310, %309, %308
-  %.0.i588620 = phi i32 [ 37, %320 ], [ 38, %319 ], [ 34, %318 ], [ 35, %317 ], [ 44, %316 ], [ 32, %315 ], [ 29, %314 ], [ 15, %313 ], [ 9, %312 ], [ 43, %311 ], [ 31, %310 ], [ 28, %309 ], [ 16, %308 ], [ 12, %307 ], [ %305, %cvt_flip.exit589.thread.fold.split ]
+cvt_flip.exit589.thread:                          ; preds = %307, %cvt_flip.exit589.thread.fold.split, %319, %318, %317, %316, %315, %314, %313, %312, %311, %310, %309, %308, %320
+  %.0.i588620 = phi i32 [ 12, %307 ], [ 38, %319 ], [ 34, %318 ], [ 35, %317 ], [ 44, %316 ], [ 32, %315 ], [ 29, %314 ], [ 15, %313 ], [ 9, %312 ], [ 43, %311 ], [ 31, %310 ], [ 28, %309 ], [ 16, %308 ], [ 37, %320 ], [ %305, %cvt_flip.exit589.thread.fold.split ]
   %531 = load i32, ptr %47, align 4, !tbaa !19
   %532 = and i32 %531, 1
   %.not522 = icmp eq i32 %532, 0
@@ -3040,8 +3040,8 @@ cvt_16.exit.thread.i:                             ; preds = %cvt_flip.exit.threa
   tail call void (ptr, ptr, ...) @file_magerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.22) #21
   br label %.critedge574
 
-.critedge574:                                     ; preds = %1137, %1132, %1090, %1085, %1039, %1034, %991, %986, %925, %920, %849, %845, %818, %814, %775, %771, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.thread205.i, %cvt_flip.exit.thread202.i, %1163, %cvt_flip.exit.thread199.i, %cvt_flip.exit.thread196.i, %1139, %cvt_flip.exit.thread193.i, %cvt_flip.exit.thread190.i, %._crit_edge.i, %725, %852, %cvt_16.exit.thread.i, %1207, %857, %854, %.thread, %321, %323, %cvt_flip.exit589.thread621, %348, %cvt_flip.exit589.thread624, %355, %361, %366, %cvt_flip.exit589.thread627, %397, %cvt_flip.exit589.thread631, %422, %427, %455, %458, %463, %cvt_flip.exit589.thread635, %473, %cvt_flip.exit589.thread638, %480, %522, %519, %528, %533, %cvt_flip.exit589.thread, %544, %541, %560, %559, %cvt_flip.exit.thread, %293, %281, %283, %cvt_flip.exit.thread615, %cvt_flip.exit.thread612, %202, %cvt_flip.exit.thread609, %cvt_flip.exit.thread606, %145, %cvt_flip.exit.thread603, %cvt_flip.exit.thread600, %104, %93, %717, %714, %709, %710, %667, %665, %666, %663, %664, %658, %659, %644, %618, %610, %607, %598, %601, %593, %588, %583, %578, %576, %684, %678, %34, %28
-  %.0 = phi i32 [ -1, %28 ], [ -1, %34 ], [ -1, %678 ], [ -1, %684 ], [ 0, %576 ], [ 0, %578 ], [ 0, %583 ], [ 0, %588 ], [ 0, %593 ], [ 0, %601 ], [ 0, %598 ], [ 0, %607 ], [ 0, %610 ], [ -1, %618 ], [ -1, %644 ], [ -1, %659 ], [ -1, %658 ], [ -1, %664 ], [ -1, %663 ], [ %.1438, %666 ], [ %.1438, %665 ], [ 0, %667 ], [ 1, %709 ], [ %713, %710 ], [ 1, %714 ], [ %., %717 ], [ 0, %93 ], [ 0, %104 ], [ 0, %cvt_flip.exit.thread600 ], [ 0, %cvt_flip.exit.thread603 ], [ 0, %145 ], [ 0, %cvt_flip.exit.thread606 ], [ 0, %cvt_flip.exit.thread609 ], [ 0, %202 ], [ 0, %cvt_flip.exit.thread612 ], [ 0, %cvt_flip.exit.thread615 ], [ 0, %283 ], [ 0, %281 ], [ 0, %293 ], [ 0, %cvt_flip.exit.thread ], [ 0, %559 ], [ 0, %560 ], [ 0, %541 ], [ 0, %544 ], [ 0, %cvt_flip.exit589.thread ], [ 0, %533 ], [ 0, %528 ], [ 0, %519 ], [ 0, %522 ], [ 0, %480 ], [ 0, %cvt_flip.exit589.thread638 ], [ 0, %473 ], [ 0, %cvt_flip.exit589.thread635 ], [ 0, %463 ], [ 0, %458 ], [ 0, %455 ], [ 0, %427 ], [ 0, %422 ], [ 0, %cvt_flip.exit589.thread631 ], [ 0, %397 ], [ 0, %cvt_flip.exit589.thread627 ], [ 0, %366 ], [ 0, %361 ], [ 0, %355 ], [ 0, %cvt_flip.exit589.thread624 ], [ 0, %348 ], [ 0, %cvt_flip.exit589.thread621 ], [ 0, %323 ], [ 0, %321 ], [ 1, %.thread ], [ 0, %cvt_16.exit.thread.i ], [ 0, %1207 ], [ 0, %857 ], [ 0, %854 ], [ 1, %852 ], [ 1, %725 ], [ 1, %._crit_edge.i ], [ 1, %cvt_flip.exit.thread190.i ], [ 1, %cvt_flip.exit.thread193.i ], [ 1, %1139 ], [ 1, %cvt_flip.exit.thread196.i ], [ 1, %cvt_flip.exit.thread199.i ], [ 1, %1163 ], [ 1, %cvt_flip.exit.thread202.i ], [ 1, %cvt_flip.exit.thread205.i ], [ 1, %cvt_flip.exit.i ], [ 1, %cvt_flip.exit.i ], [ 1, %cvt_flip.exit.i ], [ 1, %cvt_flip.exit.i ], [ 1, %cvt_flip.exit.i ], [ 1, %cvt_flip.exit.i ], [ 1, %cvt_flip.exit.i ], [ 1, %cvt_flip.exit.i ], [ 1, %771 ], [ 1, %775 ], [ 1, %814 ], [ 1, %818 ], [ 1, %845 ], [ 1, %849 ], [ 1, %920 ], [ 1, %925 ], [ 1, %986 ], [ 1, %991 ], [ 1, %1034 ], [ 1, %1039 ], [ 1, %1085 ], [ 1, %1090 ], [ 1, %1132 ], [ 1, %1137 ]
+.critedge574:                                     ; preds = %1137, %1132, %1085, %1034, %986, %920, %845, %814, %771, %._crit_edge.i, %cvt_flip.exit.thread202.i, %1163, %cvt_flip.exit.thread199.i, %cvt_flip.exit.thread196.i, %1139, %1090, %991, %1039, %cvt_flip.exit.thread193.i, %849, %925, %cvt_flip.exit.thread190.i, %775, %852, %818, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %725, %cvt_flip.exit.thread205.i, %cvt_16.exit.thread.i, %1207, %857, %854, %.thread, %528, %519, %321, %cvt_flip.exit589.thread, %541, %559, %323, %cvt_flip.exit589.thread621, %348, %cvt_flip.exit589.thread624, %355, %361, %366, %cvt_flip.exit589.thread627, %397, %cvt_flip.exit589.thread631, %422, %427, %455, %458, %463, %cvt_flip.exit589.thread635, %473, %cvt_flip.exit589.thread638, %480, %522, %533, %544, %560, %293, %283, %cvt_flip.exit.thread612, %202, %cvt_flip.exit.thread609, %cvt_flip.exit.thread606, %145, %cvt_flip.exit.thread603, %cvt_flip.exit.thread600, %104, %93, %cvt_flip.exit.thread, %cvt_flip.exit.thread615, %281, %717, %714, %709, %710, %667, %665, %666, %663, %664, %658, %659, %644, %618, %610, %607, %598, %601, %593, %588, %583, %578, %576, %684, %678, %34, %28
+  %.0 = phi i32 [ -1, %28 ], [ -1, %34 ], [ %.1438, %666 ], [ 1, %709 ], [ 1, %.thread ], [ 1, %714 ], [ 0, %576 ], [ 0, %578 ], [ 0, %583 ], [ 0, %588 ], [ 0, %593 ], [ 0, %598 ], [ 0, %607 ], [ 0, %610 ], [ 0, %528 ], [ -1, %618 ], [ -1, %644 ], [ -1, %658 ], [ -1, %663 ], [ %.1438, %665 ], [ -1, %678 ], [ -1, %684 ], [ 0, %667 ], [ %713, %710 ], [ %., %717 ], [ 0, %601 ], [ -1, %659 ], [ -1, %664 ], [ 0, %281 ], [ 0, %cvt_flip.exit.thread615 ], [ 0, %cvt_flip.exit.thread ], [ 0, %93 ], [ 0, %104 ], [ 0, %cvt_flip.exit.thread600 ], [ 0, %cvt_flip.exit.thread603 ], [ 0, %145 ], [ 0, %cvt_flip.exit.thread606 ], [ 0, %cvt_flip.exit.thread609 ], [ 0, %202 ], [ 0, %cvt_flip.exit.thread612 ], [ 0, %283 ], [ 0, %293 ], [ 0, %560 ], [ 0, %544 ], [ 0, %533 ], [ 0, %522 ], [ 0, %480 ], [ 0, %cvt_flip.exit589.thread638 ], [ 0, %473 ], [ 0, %cvt_flip.exit589.thread635 ], [ 0, %463 ], [ 0, %458 ], [ 0, %455 ], [ 0, %427 ], [ 0, %422 ], [ 0, %cvt_flip.exit589.thread631 ], [ 0, %397 ], [ 0, %cvt_flip.exit589.thread627 ], [ 0, %366 ], [ 0, %361 ], [ 0, %355 ], [ 0, %cvt_flip.exit589.thread624 ], [ 0, %348 ], [ 0, %cvt_flip.exit589.thread621 ], [ 0, %323 ], [ 0, %559 ], [ 0, %541 ], [ 0, %cvt_flip.exit589.thread ], [ 0, %321 ], [ 0, %519 ], [ 0, %854 ], [ 0, %cvt_16.exit.thread.i ], [ 0, %1207 ], [ 0, %857 ], [ 1, %cvt_flip.exit.thread205.i ], [ 1, %725 ], [ 1, %cvt_flip.exit.i ], [ 1, %cvt_flip.exit.i ], [ 1, %cvt_flip.exit.i ], [ 1, %cvt_flip.exit.i ], [ 1, %cvt_flip.exit.i ], [ 1, %cvt_flip.exit.i ], [ 1, %cvt_flip.exit.i ], [ 1, %cvt_flip.exit.i ], [ 1, %818 ], [ 1, %852 ], [ 1, %775 ], [ 1, %cvt_flip.exit.thread190.i ], [ 1, %925 ], [ 1, %849 ], [ 1, %cvt_flip.exit.thread193.i ], [ 1, %1039 ], [ 1, %991 ], [ 1, %1090 ], [ 1, %1139 ], [ 1, %cvt_flip.exit.thread196.i ], [ 1, %cvt_flip.exit.thread199.i ], [ 1, %1163 ], [ 1, %cvt_flip.exit.thread202.i ], [ 1, %._crit_edge.i ], [ 1, %771 ], [ 1, %814 ], [ 1, %845 ], [ 1, %920 ], [ 1, %986 ], [ 1, %1034 ], [ 1, %1085 ], [ 1, %1132 ], [ 1, %1137 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -3173,7 +3173,7 @@ define internal fastcc i32 @magiccheck(ptr noundef %0, ptr noundef %1) unnamed_a
   br label %.critedge269
 
 39:                                               ; preds = %25, %35, %33, %31, %29
-  %.0214.shrunk = phi i1 [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ true, %25 ]
+  %.0214.shrunk = phi i1 [ %36, %35 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ true, %25 ]
   %.0214 = zext i1 %.0214.shrunk to i32
   br label %.critedge269
 
@@ -3211,7 +3211,7 @@ define internal fastcc i32 @magiccheck(ptr noundef %0, ptr noundef %1) unnamed_a
   br label %.critedge269
 
 54:                                               ; preds = %40, %50, %48, %46, %44
-  %.1215.shrunk = phi i1 [ %45, %44 ], [ %47, %46 ], [ %49, %48 ], [ %51, %50 ], [ true, %40 ]
+  %.1215.shrunk = phi i1 [ %51, %50 ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ], [ true, %40 ]
   %.1215 = zext i1 %.1215.shrunk to i32
   br label %.critedge269
 
@@ -3290,8 +3290,8 @@ define internal fastcc i32 @magiccheck(ptr noundef %0, ptr noundef %1) unnamed_a
   br label %95
 
 95:                                               ; preds = %90, %._crit_edge
-  %96 = phi i64 [ %.pre, %._crit_edge ], [ %94, %90 ]
-  %.0223 = phi i64 [ %.pre, %._crit_edge ], [ %spec.select356, %90 ]
+  %96 = phi i64 [ %94, %90 ], [ %.pre, %._crit_edge ]
+  %.0223 = phi i64 [ %spec.select356, %90 ], [ %.pre, %._crit_edge ]
   %97 = getelementptr inbounds nuw i8, ptr %78, i64 %.0223
   %98 = icmp eq i8 %81, 1
   br i1 %98, label %99, label %102
@@ -3738,8 +3738,8 @@ zend_string_release.exit282:                      ; preds = %281, %285, %292, %2
   br label %.critedge269
 
 file_strncmp16.exit:                              ; preds = %119, %129, %172, %.critedge, %.critedge.us, %68, %.preheader.i.i, %108, %.critedge.lr.ph.split.us, %102, %zend_memnstr.exit, %zend_memnstr.exit.thread285, %.split.us, %zend_string_release.exit282, %2, %2, %308, %55, %23, %20, %17, %14
-  %.0208 = phi i64 [ %16, %14 ], [ %19, %17 ], [ %22, %20 ], [ %24, %23 ], [ %61, %55 ], [ %.10, %zend_string_release.exit282 ], [ %310, %308 ], [ 0, %2 ], [ 0, %2 ], [ 0, %zend_memnstr.exit.thread285 ], [ 1, %zend_memnstr.exit ], [ 0, %.split.us ], [ 1, %102 ], [ 1, %.critedge.lr.ph.split.us ], [ 1, %108 ], [ %75, %68 ], [ 0, %.preheader.i.i ], [ 1, %.critedge.us ], [ %166, %172 ], [ 1, %.critedge ], [ 1, %129 ], [ 1, %119 ]
-  %.0206 = phi i64 [ %6, %14 ], [ %6, %17 ], [ %6, %20 ], [ %6, %23 ], [ 0, %55 ], [ 0, %zend_string_release.exit282 ], [ 0, %308 ], [ 0, %2 ], [ 0, %2 ], [ 0, %zend_memnstr.exit.thread285 ], [ 0, %zend_memnstr.exit ], [ 0, %.split.us ], [ 0, %102 ], [ 0, %.critedge.lr.ph.split.us ], [ 0, %108 ], [ 0, %.preheader.i.i ], [ 0, %68 ], [ 0, %.critedge.us ], [ 0, %.critedge ], [ 0, %172 ], [ 0, %129 ], [ 0, %119 ]
+  %.0208 = phi i64 [ %16, %14 ], [ %19, %17 ], [ %22, %20 ], [ %24, %23 ], [ %310, %308 ], [ %61, %55 ], [ 0, %2 ], [ 0, %.split.us ], [ %.10, %zend_string_release.exit282 ], [ 0, %2 ], [ 1, %.critedge.lr.ph.split.us ], [ 1, %zend_memnstr.exit ], [ 1, %102 ], [ 0, %zend_memnstr.exit.thread285 ], [ 1, %.critedge.us ], [ 1, %108 ], [ 1, %.critedge ], [ %75, %68 ], [ 0, %.preheader.i.i ], [ %166, %172 ], [ 1, %129 ], [ 1, %119 ]
+  %.0206 = phi i64 [ %6, %14 ], [ %6, %17 ], [ %6, %20 ], [ %6, %23 ], [ 0, %308 ], [ 0, %55 ], [ 0, %2 ], [ 0, %.split.us ], [ 0, %zend_string_release.exit282 ], [ 0, %2 ], [ 0, %.critedge.lr.ph.split.us ], [ 0, %zend_memnstr.exit ], [ 0, %102 ], [ 0, %zend_memnstr.exit.thread285 ], [ 0, %.critedge.us ], [ 0, %108 ], [ 0, %172 ], [ 0, %68 ], [ 0, %.preheader.i.i ], [ 0, %.critedge ], [ 0, %129 ], [ 0, %119 ]
   %313 = call i64 @file_signextend(ptr noundef %0, ptr noundef %1, i64 noundef %.0208) #21
   %314 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %315 = load i8, ptr %314, align 4, !tbaa !38
@@ -3891,7 +3891,7 @@ file_strncmp16.exit:                              ; preds = %119, %129, %172, %.
   br label %.critedge269
 
 401:                                              ; preds = %316, %320, %389, %396, %379, %386, %370, %367, %376, %373, %351, %348, %357, %354, %332, %338, %323, %329
-  %.2216 = phi i32 [ %325, %329 ], [ %325, %323 ], [ %334, %338 ], [ %334, %332 ], [ %350, %351 ], [ %350, %348 ], [ %356, %357 ], [ %356, %354 ], [ %369, %370 ], [ %369, %367 ], [ %375, %376 ], [ %375, %373 ], [ %382, %386 ], [ %382, %379 ], [ %392, %396 ], [ %392, %389 ], [ 1, %320 ], [ 1, %316 ]
+  %.2216 = phi i32 [ %392, %389 ], [ %325, %329 ], [ %325, %323 ], [ %334, %338 ], [ %334, %332 ], [ %350, %351 ], [ %350, %348 ], [ %356, %357 ], [ %356, %354 ], [ %369, %370 ], [ %369, %367 ], [ %375, %376 ], [ %375, %373 ], [ %382, %386 ], [ %382, %379 ], [ %392, %396 ], [ 1, %320 ], [ 1, %316 ]
   %402 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %403 = load i32, ptr %402, align 4, !tbaa !19
   %404 = and i32 %403, 1
@@ -3910,7 +3910,7 @@ file_strncmp16.exit:                              ; preds = %119, %129, %172, %.
   br label %.critedge269
 
 .critedge269:                                     ; preds = %195, %194, %187, %.critedge265, %76, %.critedge267, %401, %405, %298, %301, %305, %2, %2, %399, %311, %294, %54, %52, %39, %37
-  %.0 = phi i32 [ -1, %311 ], [ -1, %399 ], [ -1, %37 ], [ %.0214, %39 ], [ -1, %52 ], [ %.1215, %54 ], [ %297, %294 ], [ 1, %2 ], [ 1, %2 ], [ 0, %305 ], [ 0, %301 ], [ %299, %298 ], [ %.2216, %405 ], [ %.2216, %401 ], [ -1, %.critedge267 ], [ 0, %76 ], [ -1, %.critedge265 ], [ -1, %187 ], [ -1, %194 ], [ -1, %195 ]
+  %.0 = phi i32 [ -1, %311 ], [ -1, %399 ], [ %299, %298 ], [ -1, %37 ], [ %.0214, %39 ], [ -1, %52 ], [ %.1215, %54 ], [ 0, %76 ], [ -1, %.critedge267 ], [ %297, %294 ], [ %.2216, %401 ], [ 1, %2 ], [ 0, %301 ], [ 1, %2 ], [ 0, %305 ], [ %.2216, %405 ], [ -1, %.critedge265 ], [ -1, %187 ], [ -1, %194 ], [ -1, %195 ]
   ret i32 %.0
 }
 
@@ -4001,12 +4001,12 @@ print_sep.exit34.thread:                          ; preds = %31, %print_sep.exit
   br label %38
 
 38:                                               ; preds = %print_sep.exit34.thread, %print_sep.exit34
-  %.1 = phi i32 [ -1, %print_sep.exit34 ], [ %spec.select, %print_sep.exit34.thread ]
+  %.1 = phi i32 [ %spec.select, %print_sep.exit34.thread ], [ -1, %print_sep.exit34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %39
 
 39:                                               ; preds = %26, %28, %print_sep.exit31.thread, %print_sep.exit31, %print_sep.exit.thread, %print_sep.exit, %38
-  %.021 = phi i32 [ %.1, %38 ], [ -1, %print_sep.exit ], [ %., %print_sep.exit.thread ], [ -1, %print_sep.exit31 ], [ %.27, %print_sep.exit31.thread ], [ 0, %28 ], [ 0, %26 ]
+  %.021 = phi i32 [ -1, %print_sep.exit31 ], [ %., %print_sep.exit.thread ], [ -1, %print_sep.exit ], [ %.1, %38 ], [ %.27, %print_sep.exit31.thread ], [ 0, %28 ], [ 0, %26 ]
   ret i32 %.021
 }
 
@@ -4071,9 +4071,9 @@ define internal fastcc range(i32 -1, 1) i32 @mprint(ptr noundef %0, ptr noundef 
     i8 17, label %193
     i8 3, label %212
     i8 47, label %212
-    i8 41, label %.critedge
-    i8 46, label %.critedge
-    i8 45, label %.critedge
+    i8 41, label %240
+    i8 46, label %240
+    i8 45, label %240
     i8 48, label %215
     i8 49, label %219
     i8 53, label %223
@@ -4091,7 +4091,7 @@ define internal fastcc range(i32 -1, 1) i32 @mprint(ptr noundef %0, ptr noundef 
   %16 = tail call i64 @file_signextend(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %15) #21
   %17 = call fastcc i32 @check_fmt(ptr noundef nonnull %.)
   switch i32 %17, label %33 [
-    i32 -1, label %240
+    i32 -1, label %.critedge
     i32 1, label %18
   ]
 
@@ -4117,7 +4117,7 @@ define internal fastcc range(i32 -1, 1) i32 @mprint(ptr noundef %0, ptr noundef 
 30:                                               ; preds = %26, %22
   %31 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull %., ptr noundef nonnull %3) #21
   %32 = icmp eq i32 %31, -1
-  br i1 %32, label %240, label %.critedge
+  br i1 %32, label %.critedge, label %240
 
 33:                                               ; preds = %13
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -4131,14 +4131,14 @@ define internal fastcc range(i32 -1, 1) i32 @mprint(ptr noundef %0, ptr noundef 
   %39 = and i32 %38, 255
   %40 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull %., i32 noundef %39) #21
   %41 = icmp eq i32 %40, -1
-  br i1 %41, label %240, label %.critedge
+  br i1 %41, label %.critedge, label %240
 
 42:                                               ; preds = %33
   %43 = trunc i64 %16 to i8
   %44 = sext i8 %43 to i32
   %45 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull %., i32 noundef %44) #21
   %46 = icmp eq i32 %45, -1
-  br i1 %46, label %240, label %.critedge
+  br i1 %46, label %.critedge, label %240
 
 47:                                               ; preds = %2, %2, %2
   %48 = load i16, ptr %7, align 8, !tbaa !28
@@ -4146,7 +4146,7 @@ define internal fastcc range(i32 -1, 1) i32 @mprint(ptr noundef %0, ptr noundef 
   %50 = tail call i64 @file_signextend(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %49) #21
   %51 = call fastcc i32 @check_fmt(ptr noundef nonnull %.)
   switch i32 %51, label %67 [
-    i32 -1, label %240
+    i32 -1, label %.critedge
     i32 1, label %52
   ]
 
@@ -4172,7 +4172,7 @@ define internal fastcc range(i32 -1, 1) i32 @mprint(ptr noundef %0, ptr noundef 
 64:                                               ; preds = %60, %56
   %65 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull %., ptr noundef nonnull %3) #21
   %66 = icmp eq i32 %65, -1
-  br i1 %66, label %240, label %.critedge
+  br i1 %66, label %.critedge, label %240
 
 67:                                               ; preds = %47
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -4186,14 +4186,14 @@ define internal fastcc range(i32 -1, 1) i32 @mprint(ptr noundef %0, ptr noundef 
   %73 = and i32 %72, 65535
   %74 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull %., i32 noundef %73) #21
   %75 = icmp eq i32 %74, -1
-  br i1 %75, label %240, label %.critedge
+  br i1 %75, label %.critedge, label %240
 
 76:                                               ; preds = %67
   %77 = trunc i64 %50 to i16
   %78 = sext i16 %77 to i32
   %79 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull %., i32 noundef %78) #21
   %80 = icmp eq i32 %79, -1
-  br i1 %80, label %240, label %.critedge
+  br i1 %80, label %.critedge, label %240
 
 81:                                               ; preds = %2, %2, %2, %2
   %82 = load i32, ptr %7, align 8, !tbaa !28
@@ -4201,7 +4201,7 @@ define internal fastcc range(i32 -1, 1) i32 @mprint(ptr noundef %0, ptr noundef 
   %84 = tail call i64 @file_signextend(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %83) #21
   %85 = call fastcc i32 @check_fmt(ptr noundef nonnull %.)
   switch i32 %85, label %94 [
-    i32 -1, label %240
+    i32 -1, label %.critedge
     i32 1, label %86
   ]
 
@@ -4215,20 +4215,20 @@ define internal fastcc range(i32 -1, 1) i32 @mprint(ptr noundef %0, ptr noundef 
   %91 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %3, i64 noundef 128, ptr noundef nonnull %.str.41..str.40, i32 noundef %90) #21
   %92 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull %., ptr noundef nonnull %3) #21
   %93 = icmp eq i32 %92, -1
-  br i1 %93, label %240, label %.critedge
+  br i1 %93, label %.critedge, label %240
 
 94:                                               ; preds = %81
   %95 = trunc i64 %84 to i32
   %96 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull %., i32 noundef %95) #21
   %97 = icmp eq i32 %96, -1
-  br i1 %97, label %240, label %.critedge
+  br i1 %97, label %.critedge, label %240
 
 98:                                               ; preds = %2, %2, %2, %2
   %99 = load i64, ptr %7, align 8, !tbaa !28
   %100 = tail call i64 @file_signextend(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %99) #21
   %101 = call fastcc i32 @check_fmt(ptr noundef nonnull %.)
   switch i32 %101, label %109 [
-    i32 -1, label %240
+    i32 -1, label %.critedge
     i32 1, label %102
   ]
 
@@ -4241,12 +4241,12 @@ define internal fastcc range(i32 -1, 1) i32 @mprint(ptr noundef %0, ptr noundef 
   %106 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %3, i64 noundef 128, ptr noundef nonnull %.str.43..str.42, i64 noundef %100) #21
   %107 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull %., ptr noundef nonnull %3) #21
   %108 = icmp eq i32 %107, -1
-  br i1 %108, label %240, label %.critedge
+  br i1 %108, label %.critedge, label %240
 
 109:                                              ; preds = %98
   %110 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull %., i64 noundef %100) #21
   %111 = icmp eq i32 %110, -1
-  br i1 %111, label %240, label %.critedge
+  br i1 %111, label %.critedge, label %240
 
 112:                                              ; preds = %2, %2, %2, %2
   %113 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -4261,7 +4261,7 @@ define internal fastcc range(i32 -1, 1) i32 @mprint(ptr noundef %0, ptr noundef 
   %117 = call ptr @file_printable(ptr noundef %0, ptr noundef nonnull %5, i64 noundef 512, ptr noundef nonnull %115, i64 noundef 128) #21
   %118 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull %., ptr noundef %117) #21
   %119 = icmp eq i32 %118, -1
-  br i1 %119, label %240, label %.critedge
+  br i1 %119, label %.critedge, label %240
 
 120:                                              ; preds = %112
   %121 = load i8, ptr %115, align 8, !tbaa !28
@@ -4294,17 +4294,17 @@ define internal fastcc range(i32 -1, 1) i32 @mprint(ptr noundef %0, ptr noundef 
   %136 = call ptr @file_printable(ptr noundef %0, ptr noundef nonnull %5, i64 noundef 512, ptr noundef %.0172, i64 noundef %135) #21
   %137 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull %., ptr noundef %136) #21
   %138 = icmp eq i32 %137, -1
-  br i1 %138, label %240, label %139
+  br i1 %138, label %.critedge, label %139
 
 139:                                              ; preds = %132
   %140 = load i8, ptr %11, align 2, !tbaa !26
   %141 = icmp eq i8 %140, 13
-  br i1 %141, label %142, label %.critedge
+  br i1 %141, label %142, label %240
 
 142:                                              ; preds = %139
   %143 = call i64 @file_pstring_length_size(ptr noundef %0, ptr noundef nonnull %1) #21
   %.not176 = icmp eq i64 %143, -1
-  br i1 %.not176, label %240, label %.critedge
+  br i1 %.not176, label %.critedge, label %240
 
 144:                                              ; preds = %2, %2, %2, %2
   %145 = load i32, ptr %7, align 8, !tbaa !28
@@ -4312,7 +4312,7 @@ define internal fastcc range(i32 -1, 1) i32 @mprint(ptr noundef %0, ptr noundef 
   %147 = call ptr @file_fmtdatetime(ptr noundef nonnull %4, i64 noundef 26, i64 noundef %146, i32 noundef 0) #21
   %148 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull %., ptr noundef %147) #21
   %149 = icmp eq i32 %148, -1
-  br i1 %149, label %240, label %.critedge
+  br i1 %149, label %.critedge, label %240
 
 150:                                              ; preds = %2, %2, %2, %2
   %151 = load i32, ptr %7, align 8, !tbaa !28
@@ -4320,34 +4320,34 @@ define internal fastcc range(i32 -1, 1) i32 @mprint(ptr noundef %0, ptr noundef 
   %153 = call ptr @file_fmtdatetime(ptr noundef nonnull %4, i64 noundef 26, i64 noundef %152, i32 noundef 1) #21
   %154 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull %., ptr noundef %153) #21
   %155 = icmp eq i32 %154, -1
-  br i1 %155, label %240, label %.critedge
+  br i1 %155, label %.critedge, label %240
 
 156:                                              ; preds = %2, %2, %2
   %157 = load i64, ptr %7, align 8, !tbaa !28
   %158 = call ptr @file_fmtdatetime(ptr noundef nonnull %4, i64 noundef 26, i64 noundef %157, i32 noundef 0) #21
   %159 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull %., ptr noundef %158) #21
   %160 = icmp eq i32 %159, -1
-  br i1 %160, label %240, label %.critedge
+  br i1 %160, label %.critedge, label %240
 
 161:                                              ; preds = %2, %2, %2
   %162 = load i64, ptr %7, align 8, !tbaa !28
   %163 = call ptr @file_fmtdatetime(ptr noundef nonnull %4, i64 noundef 26, i64 noundef %162, i32 noundef 1) #21
   %164 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull %., ptr noundef %163) #21
   %165 = icmp eq i32 %164, -1
-  br i1 %165, label %240, label %.critedge
+  br i1 %165, label %.critedge, label %240
 
 166:                                              ; preds = %2, %2, %2
   %167 = load i64, ptr %7, align 8, !tbaa !28
   %168 = call ptr @file_fmtdatetime(ptr noundef nonnull %4, i64 noundef 26, i64 noundef %167, i32 noundef 2) #21
   %169 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull %., ptr noundef %168) #21
   %170 = icmp eq i32 %169, -1
-  br i1 %170, label %240, label %.critedge
+  br i1 %170, label %.critedge, label %240
 
 171:                                              ; preds = %2, %2, %2
   %172 = load float, ptr %7, align 8, !tbaa !28
   %173 = call fastcc i32 @check_fmt(ptr noundef nonnull %.)
   switch i32 %173, label %179 [
-    i32 -1, label %240
+    i32 -1, label %.critedge
     i32 1, label %174
   ]
 
@@ -4356,19 +4356,19 @@ define internal fastcc range(i32 -1, 1) i32 @mprint(ptr noundef %0, ptr noundef 
   %176 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %3, i64 noundef 128, ptr noundef nonnull @.str.45, double noundef %175) #21
   %177 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull %., ptr noundef nonnull %3) #21
   %178 = icmp eq i32 %177, -1
-  br i1 %178, label %240, label %.critedge
+  br i1 %178, label %.critedge, label %240
 
 179:                                              ; preds = %171
   %180 = fpext float %172 to double
   %181 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull %., double noundef %180) #21
   %182 = icmp eq i32 %181, -1
-  br i1 %182, label %240, label %.critedge
+  br i1 %182, label %.critedge, label %240
 
 183:                                              ; preds = %2, %2, %2
   %184 = load double, ptr %7, align 8, !tbaa !28
   %185 = call fastcc i32 @check_fmt(ptr noundef nonnull %.)
   switch i32 %185, label %190 [
-    i32 -1, label %240
+    i32 -1, label %.critedge
     i32 1, label %186
   ]
 
@@ -4376,12 +4376,12 @@ define internal fastcc range(i32 -1, 1) i32 @mprint(ptr noundef %0, ptr noundef 
   %187 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %3, i64 noundef 128, ptr noundef nonnull @.str.45, double noundef %184) #21
   %188 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull %., ptr noundef nonnull %3) #21
   %189 = icmp eq i32 %188, -1
-  br i1 %189, label %240, label %.critedge
+  br i1 %189, label %.critedge, label %240
 
 190:                                              ; preds = %183
   %191 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull %., double noundef %184) #21
   %192 = icmp eq i32 %191, -1
-  br i1 %192, label %240, label %.critedge
+  br i1 %192, label %.critedge, label %240
 
 193:                                              ; preds = %2, %2
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -4395,7 +4395,7 @@ define internal fastcc range(i32 -1, 1) i32 @mprint(ptr noundef %0, ptr noundef 
 .critedge187:                                     ; preds = %193
   %200 = load i64, ptr %196, align 8, !tbaa !68
   tail call void @file_oomem(ptr noundef nonnull %0, i64 noundef %200) #21
-  br label %240
+  br label %.critedge
 
 201:                                              ; preds = %193
   %202 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -4415,56 +4415,56 @@ define internal fastcc range(i32 -1, 1) i32 @mprint(ptr noundef %0, ptr noundef 
   %211 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull %., ptr noundef %210) #21
   call void @_efree(ptr noundef nonnull %198) #21
   %.not188 = icmp eq i32 %211, -1
-  br i1 %.not188, label %240, label %.critedge
+  br i1 %.not188, label %.critedge, label %240
 
 212:                                              ; preds = %2, %2
   %213 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str.14, ptr noundef nonnull %8) #21
   %214 = icmp eq i32 %213, -1
-  br i1 %214, label %240, label %.critedge
+  br i1 %214, label %.critedge, label %240
 
 215:                                              ; preds = %2
   %216 = call ptr @file_printable(ptr noundef %0, ptr noundef nonnull %5, i64 noundef 512, ptr noundef nonnull %7, i64 noundef 128) #21
   %217 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull %., ptr noundef %216) #21
   %218 = icmp eq i32 %217, -1
-  br i1 %218, label %240, label %.critedge
+  br i1 %218, label %.critedge, label %240
 
 219:                                              ; preds = %2
   %220 = call i32 @file_print_guid(ptr noundef nonnull %3, i64 noundef 128, ptr noundef nonnull %7) #21
   %221 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull %., ptr noundef nonnull %3) #21
   %222 = icmp eq i32 %221, -1
-  br i1 %222, label %240, label %.critedge
+  br i1 %222, label %.critedge, label %240
 
 223:                                              ; preds = %2, %2, %2
   %224 = load i16, ptr %7, align 8, !tbaa !28
   %225 = call ptr @file_fmtdate(ptr noundef nonnull %4, i64 noundef 26, i16 noundef zeroext %224) #21
   %226 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull %., ptr noundef %225) #21
   %227 = icmp eq i32 %226, -1
-  br i1 %227, label %240, label %.critedge
+  br i1 %227, label %.critedge, label %240
 
 228:                                              ; preds = %2, %2, %2
   %229 = load i16, ptr %7, align 8, !tbaa !28
   %230 = call ptr @file_fmttime(ptr noundef nonnull %4, i64 noundef 26, i16 noundef zeroext %229) #21
   %231 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull %., ptr noundef %230) #21
   %232 = icmp eq i32 %231, -1
-  br i1 %232, label %240, label %.critedge
+  br i1 %232, label %.critedge, label %240
 
 233:                                              ; preds = %2
   %234 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %235 = call ptr @file_fmtnum(ptr noundef nonnull %3, i64 noundef 128, ptr noundef nonnull %234, i32 noundef 8) #21
   %236 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull %., ptr noundef nonnull %3) #21
   %237 = icmp eq i32 %236, -1
-  br i1 %237, label %240, label %.critedge
+  br i1 %237, label %.critedge, label %240
 
 238:                                              ; preds = %2
   %239 = zext i8 %12 to i32
   tail call void (ptr, ptr, ...) @file_magerror(ptr noundef %0, ptr noundef nonnull @.str.46, i32 noundef %239) #21
-  br label %240
+  br label %.critedge
 
-.critedge:                                        ; preds = %109, %94, %139, %142, %233, %228, %223, %219, %215, %2, %2, %2, %212, %186, %190, %174, %179, %166, %161, %156, %150, %144, %116, %102, %86, %64, %76, %71, %30, %42, %37, %207
-  br label %240
+240:                                              ; preds = %109, %94, %139, %142, %233, %228, %223, %219, %215, %2, %2, %2, %212, %186, %190, %174, %179, %166, %161, %156, %150, %144, %116, %102, %86, %64, %76, %71, %30, %42, %37, %207
+  br label %.critedge
 
-240:                                              ; preds = %109, %94, %233, %228, %223, %219, %215, %212, %.critedge187, %190, %186, %183, %179, %174, %171, %166, %161, %156, %150, %144, %142, %132, %116, %102, %98, %86, %81, %76, %71, %64, %47, %42, %37, %30, %13, %207, %.critedge, %238
-  %.0 = phi i32 [ -1, %238 ], [ 0, %.critedge ], [ -1, %207 ], [ %17, %13 ], [ -1, %30 ], [ -1, %37 ], [ -1, %42 ], [ %51, %47 ], [ -1, %64 ], [ -1, %71 ], [ -1, %76 ], [ %85, %81 ], [ -1, %86 ], [ %101, %98 ], [ -1, %102 ], [ -1, %116 ], [ -1, %132 ], [ -1, %142 ], [ -1, %144 ], [ -1, %150 ], [ -1, %156 ], [ -1, %161 ], [ -1, %166 ], [ %173, %171 ], [ -1, %174 ], [ -1, %179 ], [ %185, %183 ], [ -1, %186 ], [ -1, %190 ], [ -1, %.critedge187 ], [ -1, %212 ], [ -1, %215 ], [ -1, %219 ], [ -1, %223 ], [ -1, %228 ], [ -1, %233 ], [ -1, %94 ], [ -1, %109 ]
+.critedge:                                        ; preds = %109, %94, %142, %132, %233, %228, %223, %219, %215, %212, %.critedge187, %190, %186, %183, %179, %174, %171, %166, %161, %156, %150, %144, %116, %102, %98, %86, %81, %76, %71, %64, %47, %42, %37, %30, %13, %207, %240, %238
+  %.0 = phi i32 [ -1, %238 ], [ -1, %30 ], [ 0, %240 ], [ -1, %37 ], [ -1, %228 ], [ %17, %13 ], [ -1, %64 ], [ -1, %71 ], [ -1, %42 ], [ %51, %47 ], [ -1, %86 ], [ -1, %94 ], [ -1, %76 ], [ %85, %81 ], [ -1, %102 ], [ -1, %109 ], [ -1, %142 ], [ %101, %98 ], [ -1, %132 ], [ -1, %233 ], [ -1, %116 ], [ -1, %144 ], [ -1, %150 ], [ -1, %156 ], [ -1, %161 ], [ -1, %174 ], [ -1, %166 ], [ %173, %171 ], [ -1, %186 ], [ -1, %179 ], [ %185, %183 ], [ -1, %207 ], [ -1, %.critedge187 ], [ -1, %212 ], [ -1, %215 ], [ -1, %219 ], [ -1, %223 ], [ -1, %190 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -4715,14 +4715,14 @@ define internal fastcc range(i32 -1, 2) i32 @moffset(ptr noundef %0, ptr noundef
   br label %127
 
 127:                                              ; preds = %49, %41, %4, %111, %98, %101, %83, %86, %26, %123, %108, %73, %69, %65, %61, %57, %53, %19, %15, %11, %7
-  %.061 = phi i32 [ %10, %7 ], [ %14, %11 ], [ %18, %15 ], [ %22, %19 ], [ %32, %26 ], [ %56, %53 ], [ %60, %57 ], [ %64, %61 ], [ %68, %65 ], [ %72, %69 ], [ %76, %73 ], [ %85, %83 ], [ %91, %86 ], [ %100, %98 ], [ %107, %101 ], [ %110, %108 ], [ %126, %123 ], [ %112, %111 ], [ 0, %4 ], [ %47, %41 ], [ %52, %49 ]
+  %.061 = phi i32 [ %126, %123 ], [ %10, %7 ], [ %14, %11 ], [ %18, %15 ], [ %22, %19 ], [ %32, %26 ], [ 0, %4 ], [ %56, %53 ], [ %60, %57 ], [ %64, %61 ], [ %68, %65 ], [ %72, %69 ], [ %76, %73 ], [ %85, %83 ], [ %91, %86 ], [ %100, %98 ], [ %107, %101 ], [ %110, %108 ], [ %112, %111 ], [ %47, %41 ], [ %52, %49 ]
   %128 = sext i32 %.061 to i64
   %129 = icmp ult i64 %.160.val, %128
   br i1 %129, label %.critedge, label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %127, %116, %120
-  %.061.sink = phi i32 [ 0, %120 ], [ 0, %116 ], [ %.061, %127 ]
-  %.3.ph = phi i32 [ 0, %120 ], [ 0, %116 ], [ 1, %127 ]
+  %.061.sink = phi i32 [ 0, %116 ], [ 0, %120 ], [ %.061, %127 ]
+  %.3.ph = phi i32 [ 0, %116 ], [ 0, %120 ], [ 1, %127 ]
   store i32 %.061.sink, ptr %3, align 4, !tbaa !4
   br label %.critedge
 
@@ -4854,7 +4854,7 @@ define internal fastcc void @mcopy(ptr noundef captures(none) %0, ptr noundef wr
   br label %58
 
 58:                                               ; preds = %54, %51, %.critedge2
-  %.2139 = phi ptr [ %.1138, %51 ], [ %.1138, %.critedge2 ], [ %spec.select162, %54 ]
+  %.2139 = phi ptr [ %.1138, %.critedge2 ], [ %spec.select162, %54 ], [ %.1138, %51 ]
   %59 = icmp ult ptr %.2139, %43
   br i1 %59, label %60, label %63
 
@@ -4995,7 +4995,7 @@ define internal fastcc void @mcopy(ptr noundef captures(none) %0, ptr noundef wr
   br label %.critedge168
 
 .critedge168:                                     ; preds = %103, %74, %10, %8
-  %.0133 = phi i64 [ 128, %10 ], [ 128, %8 ], [ 128, %74 ], [ %spec.select170, %103 ]
+  %.0133 = phi i64 [ 128, %10 ], [ %spec.select170, %103 ], [ 128, %74 ], [ 128, %8 ]
   %107 = icmp eq i32 %2, 50
   br i1 %107, label %108, label %111
 
@@ -5156,7 +5156,7 @@ default.unreachable45:                            ; preds = %17
   br label %47
 
 47:                                               ; preds = %38, %42, %9, %13, %45
-  %.038 = phi i32 [ 0, %45 ], [ 1, %13 ], [ 1, %9 ], [ 1, %42 ], [ 1, %38 ]
+  %.038 = phi i32 [ 0, %45 ], [ 1, %9 ], [ 1, %13 ], [ 1, %42 ], [ 1, %38 ]
   ret i32 %.038
 }
 
@@ -5316,7 +5316,7 @@ default.unreachable31:                            ; preds = %5
   br label %52
 
 52:                                               ; preds = %45, %49, %39, %33
-  %.0 = phi i32 [ -1, %33 ], [ -1, %39 ], [ 0, %49 ], [ 0, %45 ]
+  %.0 = phi i32 [ -1, %39 ], [ -1, %33 ], [ 0, %49 ], [ 0, %45 ]
   ret i32 %.0
 }
 
@@ -5422,7 +5422,7 @@ default.unreachable31:                            ; preds = %5
   br label %52
 
 52:                                               ; preds = %45, %49, %39, %33
-  %.0 = phi i32 [ -1, %33 ], [ -1, %39 ], [ 0, %49 ], [ 0, %45 ]
+  %.0 = phi i32 [ -1, %39 ], [ -1, %33 ], [ 0, %49 ], [ 0, %45 ]
   ret i32 %.0
 }
 
@@ -5740,8 +5740,8 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @file_strncmp(ptr 
   br i1 %.not90, label %.critedge2, label %.critedge.thread107
 
 .critedge2:                                       ; preds = %91, %.lr.ph, %.lr.ph121, %110, %77, %52, %113, %34
-  %.3 = phi ptr [ %38, %34 ], [ %56, %52 ], [ %114, %113 ], [ %78, %77 ], [ %.7120, %.lr.ph121 ], [ %111, %110 ], [ %92, %91 ], [ %.4117, %.lr.ph ]
-  %.2 = phi ptr [ %43, %34 ], [ %61, %52 ], [ %117, %113 ], [ %71, %77 ], [ %104, %110 ], [ %104, %.lr.ph121 ], [ %71, %.lr.ph ], [ %71, %91 ]
+  %.3 = phi ptr [ %38, %34 ], [ %56, %52 ], [ %114, %113 ], [ %111, %110 ], [ %78, %77 ], [ %.7120, %.lr.ph121 ], [ %.4117, %.lr.ph ], [ %92, %91 ]
+  %.2 = phi ptr [ %43, %34 ], [ %61, %52 ], [ %117, %113 ], [ %104, %.lr.ph121 ], [ %71, %77 ], [ %104, %110 ], [ %71, %.lr.ph ], [ %71, %91 ]
   %119 = add nsw i64 %25, -1
   %.not80 = icmp eq i64 %119, 0
   br i1 %.not80, label %.critedge, label %24
@@ -5779,7 +5779,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @file_strncmp(ptr 
   br label %.critedge.thread107
 
 .critedge.thread107:                              ; preds = %70, %24, %113, %.preheader, %16, %.critedge.thread107.loopexit114.split.loop.exit129, %.critedge.thread107.loopexit114.split.loop.exit131, %123, %.critedge, %121
-  %.163 = phi i64 [ 0, %121 ], [ 0, %.critedge ], [ %spec.select, %123 ], [ %131, %.critedge.thread107.loopexit114.split.loop.exit129 ], [ %133, %.critedge.thread107.loopexit114.split.loop.exit131 ], [ 0, %.preheader ], [ %23, %16 ], [ 1, %70 ], [ 1, %24 ], [ %118, %113 ]
+  %.163 = phi i64 [ 0, %121 ], [ 0, %.critedge ], [ %spec.select, %123 ], [ %133, %.critedge.thread107.loopexit114.split.loop.exit131 ], [ %131, %.critedge.thread107.loopexit114.split.loop.exit129 ], [ %23, %16 ], [ 0, %.preheader ], [ 1, %70 ], [ 1, %24 ], [ %118, %113 ]
   ret i64 %.163
 }
 
@@ -5930,7 +5930,7 @@ define internal fastcc range(i32 -1, 1) i32 @varexpand(ptr noundef readonly capt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %33, %32, %12, %17, %7, %22, %28, %._crit_edge, %48
-  %.056 = phi i32 [ 0, %48 ], [ -1, %._crit_edge ], [ -1, %28 ], [ -1, %22 ], [ -1, %7 ], [ -1, %17 ], [ -1, %12 ], [ -1, %32 ], [ -1, %33 ]
+  %.056 = phi i32 [ 0, %48 ], [ -1, %28 ], [ -1, %._crit_edge ], [ -1, %22 ], [ -1, %7 ], [ -1, %17 ], [ -1, %12 ], [ -1, %32 ], [ -1, %33 ]
   ret i32 %.056
 }
 

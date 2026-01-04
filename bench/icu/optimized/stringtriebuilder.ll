@@ -491,7 +491,7 @@ define noundef ptr @_ZN6icu_7717StringTrieBuilder8makeNodeEiiiR10UErrorCode(ptr 
   br label %_ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit
 
 _ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit: ; preds = %57, %58, %63, %67, %73, %78
-  %.0.i = phi ptr [ null, %63 ], [ null, %58 ], [ null, %57 ], [ %72, %67 ], [ null, %78 ], [ %53, %73 ]
+  %.0.i = phi ptr [ null, %57 ], [ null, %63 ], [ null, %58 ], [ %72, %67 ], [ null, %78 ], [ %53, %73 ]
   %82 = icmp sgt i32 %49, %44
   br i1 %82, label %47, label %._crit_edge, !llvm.loop !20
 
@@ -630,9 +630,9 @@ _ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit85.thre
   %155 = add i32 %154, -1232566318
   br label %_ZN6icu_7717StringTrieBuilder21IntermediateValueNodeC2EiPNS0_4NodeE.exit
 
-_ZN6icu_7717StringTrieBuilder21IntermediateValueNodeC2EiPNS0_4NodeE.exit: ; preds = %142, %129, %_ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit85, %_ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit85.thread93
-  %.0.i8292 = phi ptr [ %.0.i8295, %_ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit85.thread93 ], [ null, %_ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit85 ], [ null, %129 ], [ null, %142 ]
-  %156 = phi i32 [ %155, %_ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit85.thread93 ], [ -1232566318, %_ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit85 ], [ -1232566318, %129 ], [ -1232566318, %142 ]
+_ZN6icu_7717StringTrieBuilder21IntermediateValueNodeC2EiPNS0_4NodeE.exit: ; preds = %129, %142, %_ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit85, %_ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit85.thread93
+  %.0.i8292 = phi ptr [ %.0.i8295, %_ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit85.thread93 ], [ null, %_ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit85 ], [ null, %142 ], [ null, %129 ]
+  %156 = phi i32 [ %155, %_ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit85.thread93 ], [ -1232566318, %_ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit85 ], [ -1232566318, %142 ], [ -1232566318, %129 ]
   %157 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %158 = getelementptr inbounds nuw i8, ptr %124, i64 12
   store i32 0, ptr %158, align 4, !tbaa !21
@@ -708,7 +708,7 @@ _ZN6icu_7717StringTrieBuilder21IntermediateValueNodeC2EiPNS0_4NodeE.exit: ; pred
   br label %_ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit88
 
 _ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit88: ; preds = %190, %185, %179, %174, %169, %168, %21, %5
-  %.0 = phi ptr [ null, %5 ], [ %22, %21 ], [ null, %174 ], [ null, %169 ], [ null, %168 ], [ %184, %179 ], [ null, %190 ], [ %.175, %185 ]
+  %.0 = phi ptr [ null, %5 ], [ %22, %21 ], [ null, %168 ], [ null, %174 ], [ null, %169 ], [ %184, %179 ], [ null, %190 ], [ %.175, %185 ]
   ret ptr %.0
 }
 
@@ -1081,7 +1081,7 @@ define noundef ptr @_ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UE
   br label %33
 
 33:                                               ; preds = %18, %29, %24, %7, %8, %13
-  %.0 = phi ptr [ null, %13 ], [ null, %8 ], [ null, %7 ], [ %23, %18 ], [ null, %29 ], [ %1, %24 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %13 ], [ null, %8 ], [ %23, %18 ], [ null, %29 ], [ %1, %24 ]
   ret ptr %.0
 }
 
@@ -1370,7 +1370,7 @@ _ZN6icu_7717StringTrieBuilder14ListBranchNode3addEiPNS0_4NodeE.exit90: ; preds =
   br label %_ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit
 
 _ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit: ; preds = %163, %171, %177, %182
-  %.0.i = phi ptr [ null, %163 ], [ %176, %171 ], [ null, %182 ], [ %39, %177 ]
+  %.0.i = phi ptr [ %39, %177 ], [ null, %182 ], [ null, %163 ], [ %176, %171 ]
   %186 = icmp sgt i32 %.081.lcssa, 0
   br i1 %186, label %.lr.ph101, label %.loopexit
 
@@ -1479,7 +1479,7 @@ _ZN6icu_7717StringTrieBuilder4Node8hashCodeEPKS1_.exit.i: ; preds = %198, %192
   br label %_ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit93
 
 _ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit93: ; preds = %206, %223, %227, %231, %237, %242
-  %.0.i91 = phi ptr [ null, %227 ], [ null, %223 ], [ %236, %231 ], [ null, %242 ], [ %190, %237 ], [ null, %206 ]
+  %.0.i91 = phi ptr [ %190, %237 ], [ null, %227 ], [ null, %223 ], [ %236, %231 ], [ null, %242 ], [ null, %206 ]
   %246 = icmp samesign ugt i64 %indvars.iv107, 1
   br i1 %246, label %189, label %.loopexit, !llvm.loop !51
 
@@ -1631,8 +1631,8 @@ _ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit: ; preds = %4, %_ZNKSt9type_inf
   %33 = icmp eq i32 %30, %32
   br label %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.thread
 
-_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.thread: ; preds = %16, %_ZNKSt9type_infoeqERKS_.exit.i, %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit, %2, %28
-  %.0 = phi i1 [ %33, %28 ], [ true, %2 ], [ false, %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit ], [ false, %_ZNKSt9type_infoeqERKS_.exit.i ], [ false, %16 ]
+_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.thread: ; preds = %_ZNKSt9type_infoeqERKS_.exit.i, %16, %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit, %2, %28
+  %.0 = phi i1 [ true, %2 ], [ %33, %28 ], [ false, %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit ], [ false, %16 ], [ false, %_ZNKSt9type_infoeqERKS_.exit.i ]
   ret i1 %.0
 }
 
@@ -1710,8 +1710,8 @@ _ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit: ; preds = %4, %_ZNKSt9type_inf
   %40 = icmp eq i32 %37, %39
   br label %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.thread
 
-_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.thread: ; preds = %16, %_ZNKSt9type_infoeqERKS_.exit.i, %28, %35, %34, %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit, %2
-  %.0 = phi i1 [ true, %2 ], [ false, %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit ], [ false, %28 ], [ true, %34 ], [ %40, %35 ], [ false, %_ZNKSt9type_infoeqERKS_.exit.i ], [ false, %16 ]
+_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.thread: ; preds = %_ZNKSt9type_infoeqERKS_.exit.i, %16, %28, %35, %34, %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit, %2
+  %.0 = phi i1 [ true, %2 ], [ false, %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit ], [ false, %28 ], [ true, %34 ], [ %40, %35 ], [ false, %16 ], [ false, %_ZNKSt9type_infoeqERKS_.exit.i ]
   ret i1 %.0
 }
 
@@ -1784,8 +1784,8 @@ _ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread9: ; preds = 
   %44 = icmp eq ptr %41, %43
   br label %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread
 
-_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread: ; preds = %16, %_ZNKSt9type_infoeqERKS_.exit.i.i, %28, %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.i, %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit, %2, %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread9
-  %.0 = phi i1 [ %44, %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread9 ], [ true, %2 ], [ false, %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit ], [ false, %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.i ], [ false, %28 ], [ false, %_ZNKSt9type_infoeqERKS_.exit.i.i ], [ false, %16 ]
+_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread: ; preds = %16, %28, %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.i, %_ZNKSt9type_infoeqERKS_.exit.i.i, %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit, %2, %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread9
+  %.0 = phi i1 [ true, %2 ], [ %44, %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread9 ], [ false, %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit ], [ false, %_ZNKSt9type_infoeqERKS_.exit.i.i ], [ false, %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.i ], [ false, %28 ], [ false, %16 ]
   ret i1 %.0
 }
 
@@ -1907,8 +1907,8 @@ _ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread10: ; preds =
   %50 = icmp eq ptr %47, %49
   br label %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread
 
-_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread: ; preds = %16, %_ZNKSt9type_infoeqERKS_.exit.i.i, %28, %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.i, %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread10, %45, %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit, %2
-  %.0 = phi i1 [ true, %2 ], [ false, %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit ], [ false, %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread10 ], [ %50, %45 ], [ false, %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.i ], [ false, %28 ], [ false, %_ZNKSt9type_infoeqERKS_.exit.i.i ], [ false, %16 ]
+_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread: ; preds = %16, %28, %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.i, %_ZNKSt9type_infoeqERKS_.exit.i.i, %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread10, %45, %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit, %2
+  %.0 = phi i1 [ true, %2 ], [ false, %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit ], [ false, %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread10 ], [ %50, %45 ], [ false, %_ZNKSt9type_infoeqERKS_.exit.i.i ], [ false, %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.i ], [ false, %28 ], [ false, %16 ]
   ret i1 %.0
 }
 
@@ -2021,8 +2021,8 @@ _ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit: ; preds = %4, %_ZNKSt9type_inf
   %.not21 = icmp eq ptr %49, %51
   br i1 %.not21, label %36, label %.critedge
 
-.critedge:                                        ; preds = %37, %42, %47, %36, %.preheader, %16, %_ZNKSt9type_infoeqERKS_.exit.i, %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit, %2
-  %.017 = phi i1 [ true, %2 ], [ false, %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit ], [ false, %_ZNKSt9type_infoeqERKS_.exit.i ], [ false, %16 ], [ true, %.preheader ], [ false, %37 ], [ false, %42 ], [ false, %47 ], [ true, %36 ]
+.critedge:                                        ; preds = %37, %42, %47, %36, %.preheader, %_ZNKSt9type_infoeqERKS_.exit.i, %16, %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit, %2
+  %.017 = phi i1 [ true, %2 ], [ false, %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit ], [ false, %16 ], [ false, %_ZNKSt9type_infoeqERKS_.exit.i ], [ true, %.preheader ], [ false, %47 ], [ false, %37 ], [ false, %42 ], [ true, %36 ]
   ret i1 %.017
 }
 
@@ -2276,8 +2276,8 @@ _ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit: ; preds = %4, %_ZNKSt9type_inf
   %45 = icmp eq ptr %42, %44
   br label %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.thread
 
-_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.thread: ; preds = %16, %_ZNKSt9type_infoeqERKS_.exit.i, %28, %34, %40, %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit, %2
-  %.0 = phi i1 [ true, %2 ], [ false, %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit ], [ false, %34 ], [ false, %28 ], [ %45, %40 ], [ false, %_ZNKSt9type_infoeqERKS_.exit.i ], [ false, %16 ]
+_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.thread: ; preds = %_ZNKSt9type_infoeqERKS_.exit.i, %16, %28, %34, %40, %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit, %2
+  %.0 = phi i1 [ true, %2 ], [ false, %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit ], [ false, %34 ], [ false, %28 ], [ %45, %40 ], [ false, %16 ], [ false, %_ZNKSt9type_infoeqERKS_.exit.i ]
   ret i1 %.0
 }
 
@@ -2443,8 +2443,8 @@ _ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread10: ; preds =
   %50 = icmp eq ptr %47, %49
   br label %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread
 
-_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread: ; preds = %16, %_ZNKSt9type_infoeqERKS_.exit.i.i, %28, %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.i, %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread10, %45, %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit, %2
-  %.0 = phi i1 [ true, %2 ], [ false, %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit ], [ false, %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread10 ], [ %50, %45 ], [ false, %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.i ], [ false, %28 ], [ false, %_ZNKSt9type_infoeqERKS_.exit.i.i ], [ false, %16 ]
+_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread: ; preds = %16, %28, %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.i, %_ZNKSt9type_infoeqERKS_.exit.i.i, %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread10, %45, %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit, %2
+  %.0 = phi i1 [ true, %2 ], [ false, %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit ], [ false, %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread10 ], [ %50, %45 ], [ false, %_ZNKSt9type_infoeqERKS_.exit.i.i ], [ false, %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.i ], [ false, %28 ], [ false, %16 ]
   ret i1 %.0
 }
 

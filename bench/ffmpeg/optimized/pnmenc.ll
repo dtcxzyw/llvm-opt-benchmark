@@ -594,7 +594,7 @@ define internal range(i32 -2147483648, 1) i32 @pnm_encode_frame(ptr noundef %0, 
   br i1 %exitcond.not, label %.loopexit267, label %317, !llvm.loop !52
 
 .loopexit267:                                     ; preds = %._crit_edge291, %._crit_edge300, %317, %._crit_edge, %._crit_edge310, %.preheader270.lr.ph, %.preheader268.lr.ph, %199, %.thread261.thread, %275, %169, %109
-  %.3 = phi ptr [ %.0233, %109 ], [ %.0233, %169 ], [ %.0233, %275 ], [ %.0233, %.thread261.thread ], [ %.0233, %199 ], [ %.0233, %.preheader268.lr.ph ], [ %.0233, %.preheader270.lr.ph ], [ %.2.lcssa, %._crit_edge310 ], [ %.7.lcssa, %._crit_edge ], [ %318, %317 ], [ %.5.lcssa, %._crit_edge300 ], [ %.9.lcssa, %._crit_edge291 ]
+  %.3 = phi ptr [ %.7.lcssa, %._crit_edge ], [ %.0233, %.preheader270.lr.ph ], [ %.0233, %.preheader268.lr.ph ], [ %.5.lcssa, %._crit_edge300 ], [ %.0233, %109 ], [ %.0233, %169 ], [ %.2.lcssa, %._crit_edge310 ], [ %.0233, %275 ], [ %318, %317 ], [ %.0233, %.thread261.thread ], [ %.0233, %199 ], [ %.9.lcssa, %._crit_edge291 ]
   %321 = load i32, ptr %7, align 8, !tbaa !27
   switch i32 %321, label %.loopexit [
     i32 0, label %322
@@ -646,7 +646,7 @@ define internal range(i32 -2147483648, 1) i32 @pnm_encode_frame(ptr noundef %0, 
   br label %346
 
 346:                                              ; preds = %20, %15, %4, %.loopexit, %47
-  %.0232 = phi i32 [ 0, %.loopexit ], [ -22, %47 ], [ %13, %4 ], [ %18, %15 ], [ -1, %20 ]
+  %.0232 = phi i32 [ -22, %47 ], [ %13, %4 ], [ %18, %15 ], [ 0, %.loopexit ], [ -1, %20 ]
   ret i32 %.0232
 }
 

@@ -639,8 +639,8 @@ Vec_IntAlloc.exit:                                ; preds = %1, %7
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %33, %35, %25, %27
-  %.sink12 = phi ptr [ %26, %25 ], [ %28, %27 ], [ %34, %33 ], [ %36, %35 ]
-  %.sink = phi i32 [ 16, %25 ], [ 16, %27 ], [ %30, %33 ], [ %30, %35 ]
+  %.sink12 = phi ptr [ %28, %27 ], [ %26, %25 ], [ %34, %33 ], [ %36, %35 ]
+  %.sink = phi i32 [ 16, %27 ], [ 16, %25 ], [ %30, %33 ], [ %30, %35 ]
   store ptr %.sink12, ptr %12, align 8, !tbaa !37
   store i32 %.sink, ptr %4, align 8, !tbaa !36
   br label %Vec_IntPush.exit
@@ -1959,7 +1959,7 @@ Aig_ManSuppCharCommon.exit.thread.us:             ; preds = %78, %Aig_ManSuppCha
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge.thread, %.critedge, %.loopexit.loopexit55, %.loopexit.loopexit
-  %.027 = phi i32 [ %83, %.loopexit.loopexit ], [ %84, %.loopexit.loopexit55 ], [ -1, %.critedge.thread ], [ %.0.lcssa, %.critedge ]
+  %.027 = phi i32 [ %84, %.loopexit.loopexit55 ], [ %83, %.loopexit.loopexit ], [ -1, %.critedge.thread ], [ %.0.lcssa, %.critedge ]
   ret i32 %.027
 }
 

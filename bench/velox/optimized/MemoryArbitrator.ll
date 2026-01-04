@@ -786,7 +786,7 @@ common.resume:                                    ; preds = %lpad.i, %lpad.body.
   resume { ptr, i32 } %common.resume.op
 
 lpad.body.i:                                      ; preds = %ehcleanup25.i.i, %if.then.i.i.i.i.i, %lpad.i.i.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.pn.pn.i.i, %ehcleanup25.i.i ], [ %7, %if.then.i.i.i.i.i ], [ %7, %lpad.i.i.i.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %7, %lpad.i.i.i.i ], [ %.pn.pn.pn.i.i, %ehcleanup25.i.i ], [ %7, %if.then.i.i.i.i.i ]
   call void @_ZdlPv(ptr noundef nonnull %call.i) #37, !noalias !4
   br label %common.resume
 
@@ -1910,7 +1910,7 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyIZN8fa
   %this.val.pr.i = load ptr, ptr %candidates, align 8
   br label %invoke.cont.i
 
-invoke.cont.i:                                    ; preds = %for.end, %for.end.thread, %invoke.contthread-pre-split.i
+invoke.cont.i:                                    ; preds = %for.end.thread, %for.end, %invoke.contthread-pre-split.i
   %reclaimedBytes.1101 = phi i64 [ %add, %invoke.contthread-pre-split.i ], [ 0, %for.end.thread ], [ 0, %for.end ]
   %this.val.i45 = phi ptr [ %this.val.pr.i, %invoke.contthread-pre-split.i ], [ %candidates.val1770, %for.end.thread ], [ %candidates.val17.pre, %for.end ]
   %tobool.not.i.i.i46 = icmp eq ptr %this.val.i45, null
@@ -3338,7 +3338,7 @@ if.then.i:                                        ; preds = %_ZNKSt8__detail15_H
   br label %return
 
 return:                                           ; preds = %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St8functionIFSt10unique_ptrIN8facebook5velox6memory16MemoryArbitratorESt14default_deleteISE_EERKNSE_6ConfigEEEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISN_Lb1EEE.exit, %for.inc, %land.rhs.i.i.i, %if.then, %if.then.i, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St8functionIFSt10unique_ptrIN8facebook5velox6memory16MemoryArbitratorESt14default_deleteISE_EERKNSE_6ConfigEEEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit
-  %retval.sroa.0.1 = phi ptr [ %5, %if.then.i ], [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St8functionIFSt10unique_ptrIN8facebook5velox6memory16MemoryArbitratorESt14default_deleteISE_EERKNSE_6ConfigEEEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ null, %if.then ], [ %retval.sroa.0.010, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St8functionIFSt10unique_ptrIN8facebook5velox6memory16MemoryArbitratorESt14default_deleteISE_EERKNSE_6ConfigEEEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISN_Lb1EEE.exit ], [ null, %for.inc ], [ %retval.sroa.0.010, %land.rhs.i.i.i ]
+  %retval.sroa.0.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St8functionIFSt10unique_ptrIN8facebook5velox6memory16MemoryArbitratorESt14default_deleteISE_EERKNSE_6ConfigEEEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ %5, %if.then.i ], [ null, %if.then ], [ null, %for.inc ], [ %retval.sroa.0.010, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St8functionIFSt10unique_ptrIN8facebook5velox6memory16MemoryArbitratorESt14default_deleteISE_EERKNSE_6ConfigEEEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISN_Lb1EEE.exit ], [ %retval.sroa.0.010, %land.rhs.i.i.i ]
   ret ptr %retval.sroa.0.1
 }
 
@@ -9276,7 +9276,7 @@ _ZNSt8weak_ptrIvED2Ev.exit:                       ; preds = %while.end.thread, %
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
 if.then.i.i.i71:                                  ; preds = %if.then.i.i, %ehcleanup.thread.loopexit, %ehcleanup.thread.loopexit.split-lp
-  %.pn128 = phi { ptr, i32 } [ %lpad.loopexit, %ehcleanup.thread.loopexit ], [ %lpad.loopexit.split-lp, %ehcleanup.thread.loopexit.split-lp ], [ %40, %if.then.i.i ]
+  %.pn128 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %ehcleanup.thread.loopexit.split-lp ], [ %lpad.loopexit, %ehcleanup.thread.loopexit ], [ %40, %if.then.i.i ]
   %_M_weak_count.i.i.i.i72 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %51 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i73 = icmp eq i8 %51, 0
@@ -11608,7 +11608,7 @@ while.body.backedge.us.i.i:                       ; preds = %if.end16.us.i.i, %_
   br i1 %cmp.us.i.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE20yieldWaitForZeroBitsINS4_11WaitForeverEEEbRjjjRT_.exit, label %if.end.us.i.i, !llvm.loop !156
 
 _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE20yieldWaitForZeroBitsINS4_11WaitForeverEEEbRjjjRT_.exit: ; preds = %if.end.i54, %while.body.backedge.us.i.i, %for.end19.i
-  %9 = phi i32 [ %3, %for.end19.i ], [ %8, %while.body.backedge.us.i.i ], [ %2, %if.end.i54 ]
+  %9 = phi i32 [ %8, %while.body.backedge.us.i.i ], [ %3, %for.end19.i ], [ %2, %if.end.i54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %usage.i)
   br label %seqcst_fail50.i.i
 
@@ -11622,7 +11622,7 @@ if.end6.i:                                        ; preds = %if.end.i
   br i1 %cmp.i, label %seqcst_fail50.i.i, label %if.end.i, !llvm.loop !157
 
 seqcst_fail50.i.i:                                ; preds = %if.end6.i, %while.body, %land.lhs.true, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE20yieldWaitForZeroBitsINS4_11WaitForeverEEEbRjjjRT_.exit
-  %11 = phi i32 [ %0, %while.body ], [ %1, %land.lhs.true ], [ %9, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE20yieldWaitForZeroBitsINS4_11WaitForeverEEEbRjjjRT_.exit ], [ %10, %if.end6.i ]
+  %11 = phi i32 [ %9, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE20yieldWaitForZeroBitsINS4_11WaitForeverEEEbRjjjRT_.exit ], [ %0, %while.body ], [ %1, %land.lhs.true ], [ %10, %if.end6.i ]
   %and4 = lshr i32 %11, 1
   %cond = and i32 %and4, 256
   %or = and i32 %11, -673
@@ -13025,7 +13025,7 @@ if.end30:                                         ; preds = %invoke.cont26
   br i1 %cmp33, label %return, label %while.cond, !llvm.loop !179
 
 return:                                           ; preds = %if.end34.i, %if.end17.i, %if.end30, %sw.epilog, %if.end11.i, %if.end.i, %if.then28
-  %retval.0 = phi i1 [ false, %if.then28 ], [ true, %if.end.i ], [ true, %if.end11.i ], [ true, %sw.epilog ], [ true, %if.end30 ], [ %cmp.i.i.i.not.i, %if.end17.i ], [ %cmp.i.i.i.not.i, %if.end34.i ]
+  %retval.0 = phi i1 [ false, %if.then28 ], [ true, %if.end11.i ], [ true, %if.end30 ], [ true, %sw.epilog ], [ true, %if.end.i ], [ %cmp.i.i.i.not.i, %if.end17.i ], [ %cmp.i.i.i.not.i, %if.end34.i ]
   ret i1 %retval.0
 
 terminate.lpad:                                   ; preds = %if.end.i10, %while.cond
@@ -13115,7 +13115,7 @@ if.end34:                                         ; preds = %if.end, %_ZN5folly6
   br label %return
 
 return:                                           ; preds = %if.then20, %entry, %if.end34, %if.then31
-  %retval.0 = phi i1 [ true, %if.then31 ], [ false, %if.end34 ], [ false, %entry ], [ false, %if.then20 ]
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.then31 ], [ false, %if.end34 ], [ false, %if.then20 ]
   ret i1 %retval.0
 }
 
@@ -13518,7 +13518,7 @@ if.else44.i.i:                                    ; preds = %if.else33.i.i
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPZN8facebook5velox6memory15MemoryReclaimer7reclaimEPNS4_10MemoryPoolEmmRNS5_5StatsEE9CandidateSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS5_7reclaimES7_mmS9_E3$_0EEEvT_SK_SK_SK_T0_.exit.i"
 
 "_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPZN8facebook5velox6memory15MemoryReclaimer7reclaimEPNS4_10MemoryPoolEmmRNS5_5StatsEE9CandidateSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS5_7reclaimES7_mmS9_E3$_0EEEvT_SK_SK_SK_T0_.exit.i": ; preds = %if.else44.i.i, %if.else33.i.i, %if.else.i.i, %if.then.i.i
-  %__a.coerce.sink.i.i = phi ptr [ %add.ptr.i.i, %if.then.i.i ], [ %__c.coerce.__a.coerce.i.i, %if.else.i.i ], [ %add.ptr.i6.i, %if.else33.i.i ], [ %__c.coerce.__b.coerce.i.i, %if.else44.i.i ]
+  %__a.coerce.sink.i.i = phi ptr [ %add.ptr.i.i, %if.then.i.i ], [ %add.ptr.i6.i, %if.else33.i.i ], [ %__c.coerce.__b.coerce.i.i, %if.else44.i.i ], [ %__c.coerce.__a.coerce.i.i, %if.else.i.i ]
   %43 = load ptr, ptr %__first.coerce, align 8
   %44 = load ptr, ptr %_M_refcount4.i.i.i.i.i54, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.coerce, i8 0, i64 16, i1 false)

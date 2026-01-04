@@ -379,9 +379,9 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !13
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #22
   unreachable
 
@@ -440,9 +440,9 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !20
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #22
   unreachable
 
@@ -501,9 +501,9 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !26
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #22
   unreachable
 
@@ -562,9 +562,9 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !32
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #22
   unreachable
 
@@ -729,9 +729,9 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i: ; preds = %12
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !38
   br label %40
 
-40:                                               ; preds = %36, %5, %9, %12
-  %.sroa.6.0.i.ph = phi i64 [ undef, %12 ], [ undef, %9 ], [ undef, %5 ], [ %39, %36 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %12 ], [ 0, %9 ], [ 0, %5 ], [ %37, %36 ]
+40:                                               ; preds = %5, %9, %36, %12
+  %.sroa.6.0.i.ph = phi i64 [ undef, %12 ], [ %39, %36 ], [ undef, %9 ], [ undef, %5 ]
+  %.sroa.04.0.i.ph = phi i64 [ 0, %12 ], [ %37, %36 ], [ 0, %9 ], [ 0, %5 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.627859a3e0ead24a2e41fdeb4bfdf6de.15) #22
   unreachable
 
@@ -865,9 +865,9 @@ define hidden { ptr, ptr } @"_ZN69_$LT$$LP$A$C$A$RP$$u20$as$u20$itertools..tuple
   store ptr %16, ptr %.sroa.12.0.copyload, align 8, !alias.scope !56, !noalias !59
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5a1684c1fafdbf14E.exit.thread"
 
-"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5a1684c1fafdbf14E.exit.thread": ; preds = %11, %10, %4, %3, %15
-  %.sroa.4.0 = phi ptr [ %13, %15 ], [ undef, %3 ], [ undef, %4 ], [ undef, %10 ], [ undef, %11 ]
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0.i2.i2832, %15 ], [ null, %3 ], [ null, %4 ], [ null, %10 ], [ null, %11 ]
+"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5a1684c1fafdbf14E.exit.thread": ; preds = %10, %11, %3, %4, %15
+  %.sroa.4.0 = phi ptr [ %13, %15 ], [ undef, %3 ], [ undef, %4 ], [ undef, %11 ], [ undef, %10 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0.i2.i2832, %15 ], [ null, %3 ], [ null, %4 ], [ null, %11 ], [ null, %10 ]
   %17 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
   %18 = insertvalue { ptr, ptr } %17, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %18

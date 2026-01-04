@@ -123,19 +123,19 @@ sub_149:                                          ; preds = %.tail
   br label %.outer
 
 .outer:                                           ; preds = %45, %47, %41, %43, %37, %.tail47.thread
-  %.138 = phi i1 [ %.037.ph64, %43 ], [ %.037.ph64, %41 ], [ %.037.ph64, %.tail47.thread ], [ %.037.ph64, %37 ], [ false, %47 ], [ false, %45 ]
-  %.136 = phi i64 [ %.035.ph65, %43 ], [ %.035.ph65, %41 ], [ %.035.ph65, %.tail47.thread ], [ %39, %37 ], [ %.035.ph65, %47 ], [ %.035.ph65, %45 ]
-  %.133 = phi i64 [ %.032.ph66, %43 ], [ %.032.ph66, %41 ], [ %.032.ph66, %.tail47.thread ], [ %.234, %37 ], [ %.032.ph66, %47 ], [ %.032.ph66, %45 ]
-  %.1 = phi ptr [ %.031.ph67, %43 ], [ %.031.ph67, %41 ], [ %.031.ph67, %.tail47.thread ], [ %.2, %37 ], [ %.031.ph67, %47 ], [ %.031.ph67, %45 ]
+  %.138 = phi i1 [ %.037.ph64, %37 ], [ %.037.ph64, %43 ], [ %.037.ph64, %41 ], [ %.037.ph64, %.tail47.thread ], [ false, %47 ], [ false, %45 ]
+  %.136 = phi i64 [ %39, %37 ], [ %.035.ph65, %43 ], [ %.035.ph65, %41 ], [ %.035.ph65, %.tail47.thread ], [ %.035.ph65, %47 ], [ %.035.ph65, %45 ]
+  %.133 = phi i64 [ %.234, %37 ], [ %.032.ph66, %43 ], [ %.032.ph66, %41 ], [ %.032.ph66, %.tail47.thread ], [ %.032.ph66, %47 ], [ %.032.ph66, %45 ]
+  %.1 = phi ptr [ %.2, %37 ], [ %.031.ph67, %43 ], [ %.031.ph67, %41 ], [ %.031.ph67, %.tail47.thread ], [ %.031.ph67, %47 ], [ %.031.ph67, %45 ]
   store i32 0, ptr %12, align 4
   %49 = call ptr @readdir(ptr noundef nonnull %4) #5
   %.not55 = icmp eq ptr %49, null
   br i1 %.not55, label %.outer._crit_edge, label %sub_0.lr.ph, !llvm.loop !4
 
 .outer._crit_edge:                                ; preds = %.outer, %26, %10
-  %.037.ph.lcssa = phi i1 [ true, %10 ], [ %.037.ph64, %26 ], [ %.138, %.outer ]
-  %.035.ph.lcssa = phi i64 [ 0, %10 ], [ %.035.ph65, %26 ], [ %.136, %.outer ]
-  %.031.ph.lcssa = phi ptr [ %11, %10 ], [ %.031.ph67, %26 ], [ %.1, %.outer ]
+  %.037.ph.lcssa = phi i1 [ %.037.ph64, %26 ], [ true, %10 ], [ %.138, %.outer ]
+  %.035.ph.lcssa = phi i64 [ %.035.ph65, %26 ], [ 0, %10 ], [ %.136, %.outer ]
+  %.031.ph.lcssa = phi ptr [ %.031.ph67, %26 ], [ %11, %10 ], [ %.1, %.outer ]
   %50 = load i32, ptr %12, align 4
   %.not43 = icmp eq i32 %50, 0
   br i1 %.not43, label %55, label %51
@@ -187,7 +187,7 @@ sub_149:                                          ; preds = %.tail
   br label %68
 
 68:                                               ; preds = %64, %66, %62, %._crit_edge75
-  %.5 = phi i1 [ %.3.lcssa, %62 ], [ %.3.lcssa, %._crit_edge75 ], [ false, %66 ], [ false, %64 ]
+  %.5 = phi i1 [ %.3.lcssa, %._crit_edge75 ], [ %.3.lcssa, %62 ], [ false, %66 ], [ false, %64 ]
   call void @pfree(ptr noundef %.031.ph.lcssa) #5
   br label %69
 

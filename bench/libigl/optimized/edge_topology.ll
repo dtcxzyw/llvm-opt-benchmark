@@ -642,7 +642,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit:         ; preds = %_ZSt8_DestroyIPSt6v
   ret void
 
 294:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit144, %172, %174, %176, %117
-  %.pn133.pn.pn.pn = phi { ptr, i32 } [ %118, %117 ], [ %177, %176 ], [ %175, %174 ], [ %173, %172 ], [ %.pn133, %_ZNSt6vectorIiSaIiEED2Ev.exit144 ]
+  %.pn133.pn.pn.pn = phi { ptr, i32 } [ %175, %174 ], [ %118, %117 ], [ %173, %172 ], [ %.pn133, %_ZNSt6vectorIiSaIiEED2Ev.exit144 ], [ %177, %176 ]
   call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %.pn133.pn.pn.pn
@@ -1377,7 +1377,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit:         ; preds = %_ZSt8_DestroyIPSt6v
   ret void
 
 294:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit144, %172, %174, %176, %117
-  %.pn133.pn.pn.pn = phi { ptr, i32 } [ %118, %117 ], [ %177, %176 ], [ %175, %174 ], [ %173, %172 ], [ %.pn133, %_ZNSt6vectorIiSaIiEED2Ev.exit144 ]
+  %.pn133.pn.pn.pn = phi { ptr, i32 } [ %175, %174 ], [ %118, %117 ], [ %173, %172 ], [ %.pn133, %_ZNSt6vectorIiSaIiEED2Ev.exit144 ], [ %177, %176 ]
   call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %.pn133.pn.pn.pn
@@ -2224,7 +2224,7 @@ _ZNSt6vectorIiSaIiEEaSEOS1_.exit:                 ; preds = %_ZNK9__gnu_cxx5__op
   br label %_ZNSt6vectorIiSaIiEEaSEOS1_.exit26
 
 _ZNSt6vectorIiSaIiEEaSEOS1_.exit26:               ; preds = %74, %60, %56, %._crit_edge
-  %.1 = phi i64 [ %.0.lcssa, %56 ], [ %.0.lcssa, %._crit_edge ], [ %62, %60 ], [ %62, %74 ]
+  %.1 = phi i64 [ %.0.lcssa, %._crit_edge ], [ %.0.lcssa, %56 ], [ %62, %60 ], [ %62, %74 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %78 = load ptr, ptr %3, align 8, !tbaa !39
   store ptr %78, ptr %6, align 8, !tbaa !39
@@ -2358,7 +2358,7 @@ _ZNSt6vectorIiSaIiEEaSEOS1_.exit:                 ; preds = %_ZNK9__gnu_cxx5__op
   br i1 %43, label %8, label %.critedge, !llvm.loop !139
 
 .critedge:                                        ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt6vectorIiSaIiEES4_IS6_SaIS6_EEEES6_EEbT_RT0_.exit, %_ZNSt6vectorIiSaIiEEaSEOS1_.exit, %27, %5
-  %.023 = phi i64 [ %1, %5 ], [ %.026, %27 ], [ %.026, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt6vectorIiSaIiEES4_IS6_SaIS6_EEEES6_EEbT_RT0_.exit ], [ %.0927, %_ZNSt6vectorIiSaIiEEaSEOS1_.exit ]
+  %.023 = phi i64 [ %.026, %27 ], [ %1, %5 ], [ %.026, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt6vectorIiSaIiEES4_IS6_SaIS6_EEEES6_EEbT_RT0_.exit ], [ %.0927, %_ZNSt6vectorIiSaIiEEaSEOS1_.exit ]
   %44 = getelementptr inbounds %"class.std::vector.19", ptr %0, i64 %.023
   %45 = load ptr, ptr %44, align 8, !tbaa !39
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 8

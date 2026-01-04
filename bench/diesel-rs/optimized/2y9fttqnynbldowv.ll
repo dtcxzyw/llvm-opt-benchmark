@@ -665,7 +665,7 @@ define hidden void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$
   unreachable
 
 common.resume:                                    ; preds = %.thread247, %181, %242, %.thread290, %257, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %258, %257 ], [ %.pn80250, %.thread247 ], [ %182, %181 ], [ %243, %242 ], [ %.pn294, %.thread290 ]
+  %common.resume.op = phi { ptr, i32 } [ %258, %257 ], [ %eh.lpad-body.i, %.body.i ], [ %243, %242 ], [ %.pn80250, %.thread247 ], [ %.pn294, %.thread290 ], [ %182, %181 ]
   resume { ptr, i32 } %common.resume.op
 
 114:                                              ; preds = %45, %.loopexit.i
@@ -706,7 +706,7 @@ common.resume:                                    ; preds = %.thread247, %181, %
   store i64 -9223372036854775807, ptr %0, align 8
   br label %"_ZN4core3ptr106drop_in_place$LT$diesel..connection..statement_cache..StatementCacheKey$LT$diesel..pg..backend..Pg$GT$$GT$17ha702667c6fc4f073E.exit"
 
-.thread258:                                       ; preds = %114, %131, %159, %162
+.thread258:                                       ; preds = %162, %131, %114, %159
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread247
@@ -975,7 +975,7 @@ common.resume:                                    ; preds = %.thread247, %181, %
   store ptr %.071, ptr %.sroa.435.0..sroa_idx, align 8
   br label %"_ZN4core3ptr106drop_in_place$LT$diesel..connection..statement_cache..StatementCacheKey$LT$diesel..pg..backend..Pg$GT$$GT$17ha702667c6fc4f073E.exit"
 
-.thread299:                                       ; preds = %191, %215, %218
+.thread299:                                       ; preds = %218, %191, %215
   %lpad.thr_comm297 = landingpad { ptr, i32 }
           cleanup
   br label %.thread290
@@ -1286,10 +1286,10 @@ define hidden void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_quer
   br label %32
 
 32:                                               ; preds = %26, %.thread41
-  %33 = phi i64 [ undef, %.thread41 ], [ %..val2.i.pre, %26 ]
-  %34 = phi i1 [ true, %.thread41 ], [ %30, %26 ]
-  %35 = phi ptr [ %23, %.thread41 ], [ %31, %26 ]
-  %36 = phi ptr [ null, %.thread41 ], [ %spec.select, %26 ]
+  %33 = phi i64 [ %..val2.i.pre, %26 ], [ undef, %.thread41 ]
+  %34 = phi i1 [ %30, %26 ], [ true, %.thread41 ]
+  %35 = phi ptr [ %31, %26 ], [ %23, %.thread41 ]
+  %36 = phi ptr [ %spec.select, %26 ], [ null, %.thread41 ]
   %.in = getelementptr inbounds nuw i8, ptr %1, i64 16
   %37 = load ptr, ptr %.in, align 8, !nonnull !5, !align !6, !noundef !5
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1433,10 +1433,10 @@ define hidden void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_quer
   br label %32
 
 32:                                               ; preds = %26, %.thread41
-  %33 = phi i64 [ undef, %.thread41 ], [ %..val2.i.pre, %26 ]
-  %34 = phi i1 [ true, %.thread41 ], [ %30, %26 ]
-  %35 = phi ptr [ %23, %.thread41 ], [ %31, %26 ]
-  %36 = phi ptr [ null, %.thread41 ], [ %spec.select, %26 ]
+  %33 = phi i64 [ %..val2.i.pre, %26 ], [ undef, %.thread41 ]
+  %34 = phi i1 [ %30, %26 ], [ true, %.thread41 ]
+  %35 = phi ptr [ %31, %26 ], [ %23, %.thread41 ]
+  %36 = phi ptr [ %spec.select, %26 ], [ null, %.thread41 ]
   %.in = getelementptr inbounds nuw i8, ptr %1, i64 16
   %37 = load ptr, ptr %.in, align 8, !nonnull !5, !align !6, !noundef !5
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1577,10 +1577,10 @@ define hidden void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_quer
   br label %31
 
 31:                                               ; preds = %25, %.thread41
-  %32 = phi i64 [ undef, %.thread41 ], [ %..val2.i.pre, %25 ]
-  %33 = phi i1 [ true, %.thread41 ], [ %29, %25 ]
-  %34 = phi ptr [ %22, %.thread41 ], [ %30, %25 ]
-  %35 = phi ptr [ null, %.thread41 ], [ %spec.select, %25 ]
+  %32 = phi i64 [ %..val2.i.pre, %25 ], [ undef, %.thread41 ]
+  %33 = phi i1 [ %29, %25 ], [ true, %.thread41 ]
+  %34 = phi ptr [ %30, %25 ], [ %22, %.thread41 ]
+  %35 = phi ptr [ %spec.select, %25 ], [ null, %.thread41 ]
   %.in = getelementptr inbounds nuw i8, ptr %1, i64 16
   %36 = load ptr, ptr %.in, align 8, !nonnull !5, !align !6, !noundef !5
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1724,10 +1724,10 @@ define hidden void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_quer
   br label %32
 
 32:                                               ; preds = %26, %.thread41
-  %33 = phi i64 [ undef, %.thread41 ], [ %..val2.i.pre, %26 ]
-  %34 = phi i1 [ true, %.thread41 ], [ %30, %26 ]
-  %35 = phi ptr [ %23, %.thread41 ], [ %31, %26 ]
-  %36 = phi ptr [ null, %.thread41 ], [ %spec.select, %26 ]
+  %33 = phi i64 [ %..val2.i.pre, %26 ], [ undef, %.thread41 ]
+  %34 = phi i1 [ %30, %26 ], [ true, %.thread41 ]
+  %35 = phi ptr [ %31, %26 ], [ %23, %.thread41 ]
+  %36 = phi ptr [ %spec.select, %26 ], [ null, %.thread41 ]
   %.in = getelementptr inbounds nuw i8, ptr %1, i64 16
   %37 = load ptr, ptr %.in, align 8, !nonnull !5, !align !6, !noundef !5
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1868,10 +1868,10 @@ define hidden void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_quer
   br label %31
 
 31:                                               ; preds = %25, %.thread41
-  %32 = phi i64 [ undef, %.thread41 ], [ %..val2.i.pre, %25 ]
-  %33 = phi i1 [ true, %.thread41 ], [ %29, %25 ]
-  %34 = phi ptr [ %22, %.thread41 ], [ %30, %25 ]
-  %35 = phi ptr [ null, %.thread41 ], [ %spec.select, %25 ]
+  %32 = phi i64 [ %..val2.i.pre, %25 ], [ undef, %.thread41 ]
+  %33 = phi i1 [ %29, %25 ], [ true, %.thread41 ]
+  %34 = phi ptr [ %30, %25 ], [ %22, %.thread41 ]
+  %35 = phi ptr [ %spec.select, %25 ], [ null, %.thread41 ]
   %.in = getelementptr inbounds nuw i8, ptr %1, i64 16
   %36 = load ptr, ptr %.in, align 8, !nonnull !5, !align !6, !noundef !5
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2015,10 +2015,10 @@ define hidden void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_quer
   br label %32
 
 32:                                               ; preds = %26, %.thread41
-  %33 = phi i64 [ undef, %.thread41 ], [ %..val2.i.pre, %26 ]
-  %34 = phi i1 [ true, %.thread41 ], [ %30, %26 ]
-  %35 = phi ptr [ %23, %.thread41 ], [ %31, %26 ]
-  %36 = phi ptr [ null, %.thread41 ], [ %spec.select, %26 ]
+  %33 = phi i64 [ %..val2.i.pre, %26 ], [ undef, %.thread41 ]
+  %34 = phi i1 [ %30, %26 ], [ true, %.thread41 ]
+  %35 = phi ptr [ %31, %26 ], [ %23, %.thread41 ]
+  %36 = phi ptr [ %spec.select, %26 ], [ null, %.thread41 ]
   %.in = getelementptr inbounds nuw i8, ptr %1, i64 16
   %37 = load ptr, ptr %.in, align 8, !nonnull !5, !align !6, !noundef !5
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2162,10 +2162,10 @@ define hidden void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_quer
   br label %32
 
 32:                                               ; preds = %26, %.thread41
-  %33 = phi i64 [ undef, %.thread41 ], [ %..val2.i.pre, %26 ]
-  %34 = phi i1 [ true, %.thread41 ], [ %30, %26 ]
-  %35 = phi ptr [ %23, %.thread41 ], [ %31, %26 ]
-  %36 = phi ptr [ null, %.thread41 ], [ %spec.select, %26 ]
+  %33 = phi i64 [ %..val2.i.pre, %26 ], [ undef, %.thread41 ]
+  %34 = phi i1 [ %30, %26 ], [ true, %.thread41 ]
+  %35 = phi ptr [ %31, %26 ], [ %23, %.thread41 ]
+  %36 = phi ptr [ %spec.select, %26 ], [ null, %.thread41 ]
   %.in = getelementptr inbounds nuw i8, ptr %1, i64 16
   %37 = load ptr, ptr %.in, align 8, !nonnull !5, !align !6, !noundef !5
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2309,10 +2309,10 @@ define hidden void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_quer
   br label %32
 
 32:                                               ; preds = %26, %.thread41
-  %33 = phi i64 [ undef, %.thread41 ], [ %..val2.i.pre, %26 ]
-  %34 = phi i1 [ true, %.thread41 ], [ %30, %26 ]
-  %35 = phi ptr [ %23, %.thread41 ], [ %31, %26 ]
-  %36 = phi ptr [ null, %.thread41 ], [ %spec.select, %26 ]
+  %33 = phi i64 [ %..val2.i.pre, %26 ], [ undef, %.thread41 ]
+  %34 = phi i1 [ %30, %26 ], [ true, %.thread41 ]
+  %35 = phi ptr [ %31, %26 ], [ %23, %.thread41 ]
+  %36 = phi ptr [ %spec.select, %26 ], [ null, %.thread41 ]
   %.in = getelementptr inbounds nuw i8, ptr %1, i64 16
   %37 = load ptr, ptr %.in, align 8, !nonnull !5, !align !6, !noundef !5
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2456,10 +2456,10 @@ define hidden void @"_ZN6diesel2pg10connection12PgConnection19with_prepared_quer
   br label %32
 
 32:                                               ; preds = %26, %.thread41
-  %33 = phi i64 [ undef, %.thread41 ], [ %..val2.i.pre, %26 ]
-  %34 = phi i1 [ true, %.thread41 ], [ %30, %26 ]
-  %35 = phi ptr [ %23, %.thread41 ], [ %31, %26 ]
-  %36 = phi ptr [ null, %.thread41 ], [ %spec.select, %26 ]
+  %33 = phi i64 [ %..val2.i.pre, %26 ], [ undef, %.thread41 ]
+  %34 = phi i1 [ %30, %26 ], [ true, %.thread41 ]
+  %35 = phi ptr [ %31, %26 ], [ %23, %.thread41 ]
+  %36 = phi ptr [ %spec.select, %26 ], [ null, %.thread41 ]
   %.in = getelementptr inbounds nuw i8, ptr %1, i64 16
   %37 = load ptr, ptr %.in, align 8, !nonnull !5, !align !6, !noundef !5
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 24

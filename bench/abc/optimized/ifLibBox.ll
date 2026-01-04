@@ -539,9 +539,9 @@ Abc_UtilStrsav.exit:                              ; preds = %48, %53
   br label %71
 
 71:                                               ; preds = %69, %67, %.lr.ph
-  %.155 = phi i8 [ 1, %.lr.ph ], [ %.05486, %67 ], [ %.05486, %69 ]
-  %.153 = phi i8 [ %.05287, %.lr.ph ], [ 1, %67 ], [ %.05287, %69 ]
-  %.151 = phi i8 [ %.05088, %.lr.ph ], [ %.05088, %67 ], [ %spec.select, %69 ]
+  %.155 = phi i8 [ %.05486, %69 ], [ %.05486, %67 ], [ 1, %.lr.ph ]
+  %.153 = phi i8 [ %.05287, %69 ], [ 1, %67 ], [ %.05287, %.lr.ph ]
+  %.151 = phi i8 [ %spec.select, %69 ], [ %.05088, %67 ], [ %.05088, %.lr.ph ]
   %72 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.2) #20
   %.not68 = icmp eq ptr %72, null
   br i1 %.not68, label %._crit_edge, label %.lr.ph, !llvm.loop !38

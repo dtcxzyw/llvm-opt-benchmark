@@ -25,7 +25,7 @@ define internal range(i32 0, 67) i32 @derf_probe(ptr noundef readonly captures(n
   br label %8
 
 8:                                                ; preds = %5, %1
-  %.0 = phi i32 [ 0, %1 ], [ %spec.select, %5 ]
+  %.0 = phi i32 [ %spec.select, %5 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -67,7 +67,7 @@ define internal range(i32 -1094995529, 1) i32 @derf_read_header(ptr noundef %0) 
   br label %21
 
 21:                                               ; preds = %6, %1, %13
-  %.0 = phi i32 [ 0, %13 ], [ -12, %1 ], [ -1094995529, %6 ]
+  %.0 = phi i32 [ -12, %1 ], [ 0, %13 ], [ -1094995529, %6 ]
   ret i32 %.0
 }
 

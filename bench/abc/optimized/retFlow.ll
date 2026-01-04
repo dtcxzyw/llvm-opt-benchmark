@@ -1128,9 +1128,9 @@ Vec_PtrPush.exit.i121:                            ; preds = %395, %Vec_PtrGrow.e
   br label %.critedge8.i
 
 .critedge8.i:                                     ; preds = %365, %Vec_PtrPush.exit.i121, %.preheader.i, %356, %.lr.ph121.i
-  %402 = phi i32 [ %349, %.preheader.i ], [ %349, %.lr.ph121.i ], [ %397, %Vec_PtrPush.exit.i121 ], [ %349, %356 ], [ %349, %365 ]
-  %403 = phi ptr [ %350, %.preheader.i ], [ %350, %.lr.ph121.i ], [ %.pre155.i, %Vec_PtrPush.exit.i121 ], [ %350, %356 ], [ %350, %365 ]
-  %404 = phi i32 [ %351, %.preheader.i ], [ %351, %.lr.ph121.i ], [ %399, %Vec_PtrPush.exit.i121 ], [ %351, %356 ], [ %351, %365 ]
+  %402 = phi i32 [ %349, %356 ], [ %349, %.preheader.i ], [ %349, %.lr.ph121.i ], [ %397, %Vec_PtrPush.exit.i121 ], [ %349, %365 ]
+  %403 = phi ptr [ %350, %356 ], [ %350, %.preheader.i ], [ %350, %.lr.ph121.i ], [ %.pre155.i, %Vec_PtrPush.exit.i121 ], [ %350, %365 ]
+  %404 = phi i32 [ %351, %356 ], [ %351, %.preheader.i ], [ %351, %.lr.ph121.i ], [ %399, %Vec_PtrPush.exit.i121 ], [ %351, %365 ]
   %indvars.iv.next143.i = add nuw nsw i64 %indvars.iv142.i, 1
   %405 = getelementptr i8, ptr %403, i64 4
   %.val84.i = load i32, ptr %405, align 4, !tbaa !24
@@ -1285,7 +1285,7 @@ Abc_NtkIncrementTravId.exit.i126:                 ; preds = %Vec_IntFill.exit.i.
   br i1 %exitcond163.not, label %Abc_NtkMaxFlowMinCutUpdate.exit, label %.critedge12.i, !llvm.loop !67
 
 Abc_NtkMaxFlowMinCutUpdate.exit:                  ; preds = %.critedge8.i, %.critedge12.i, %345, %.critedge12.preheader.i
-  %.val = phi i32 [ 0, %345 ], [ %.val128.i, %.critedge12.preheader.i ], [ %.val128.i, %.critedge12.i ], [ %404, %.critedge8.i ]
+  %.val = phi i32 [ %.val128.i, %.critedge12.i ], [ %.val128.i, %.critedge12.preheader.i ], [ 0, %345 ], [ %404, %.critedge8.i ]
   %.not71 = icmp eq i32 %2, 0
   br i1 %.not71, label %488, label %473
 
@@ -1570,7 +1570,7 @@ Abc_ObjGetFaninPath.exit:                         ; preds = %93
   br label %.critedge
 
 .critedge:                                        ; preds = %78, %59, %.preheader, %72, %.critedge2, %1, %104, %102, %71, %58
-  %.027 = phi i32 [ 1, %102 ], [ 1, %104 ], [ 1, %58 ], [ 1, %71 ], [ 0, %1 ], [ 0, %.critedge2 ], [ 0, %72 ], [ 0, %.preheader ], [ 0, %59 ], [ 0, %78 ]
+  %.027 = phi i32 [ 0, %1 ], [ 0, %.preheader ], [ 1, %102 ], [ 1, %104 ], [ 0, %.critedge2 ], [ 1, %58 ], [ 1, %71 ], [ 0, %72 ], [ 0, %59 ], [ 0, %78 ]
   ret i32 %.027
 }
 
@@ -1819,7 +1819,7 @@ Abc_ObjGetFanoutPath.exit:                        ; preds = %93
   br label %.critedge
 
 .critedge:                                        ; preds = %78, %59, %.preheader, %72, %.critedge2, %1, %104, %102, %71, %58
-  %.027 = phi i32 [ 1, %102 ], [ 1, %104 ], [ 1, %58 ], [ 1, %71 ], [ 0, %1 ], [ 0, %.critedge2 ], [ 0, %72 ], [ 0, %.preheader ], [ 0, %59 ], [ 0, %78 ]
+  %.027 = phi i32 [ 0, %1 ], [ 0, %.preheader ], [ 1, %102 ], [ 1, %104 ], [ 0, %.critedge2 ], [ 1, %58 ], [ 1, %71 ], [ 0, %72 ], [ 0, %59 ], [ 0, %78 ]
   ret i32 %.027
 }
 
@@ -2429,7 +2429,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %4, %._crit_edge.i.i
   br i1 %.not26, label %.critedge, label %74
 
 .critedge:                                        ; preds = %61, %58, %77, %74, %.preheader41, %.preheader, %70, %70, %53, %2
-  %.021 = phi i32 [ 1, %2 ], [ 0, %53 ], [ 0, %70 ], [ 0, %70 ], [ 1, %.preheader ], [ 1, %.preheader41 ], [ 0, %77 ], [ 1, %74 ], [ 0, %61 ], [ 1, %58 ]
+  %.021 = phi i32 [ 0, %70 ], [ 1, %2 ], [ 0, %53 ], [ 0, %70 ], [ 1, %.preheader41 ], [ 1, %74 ], [ 1, %.preheader ], [ 0, %77 ], [ 0, %61 ], [ 1, %58 ]
   ret i32 %.021
 }
 

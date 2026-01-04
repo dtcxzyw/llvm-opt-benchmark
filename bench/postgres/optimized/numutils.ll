@@ -362,7 +362,7 @@ define dso_local signext i16 @pg_strtoint16_safe(ptr noundef %0, ptr noundef %1)
   br label %153
 
 153:                                              ; preds = %.sink.split, %140, %21, %.loopexit142, %.loopexit143, %143, %24
-  %.0 = phi i16 [ %.097.lcssa, %24 ], [ %.3100, %143 ], [ 0, %.loopexit143 ], [ 0, %.loopexit142 ], [ %22, %21 ], [ %141, %140 ], [ 0, %.sink.split ]
+  %.0 = phi i16 [ %.3100, %143 ], [ 0, %.loopexit143 ], [ %22, %21 ], [ %.097.lcssa, %24 ], [ 0, %.loopexit142 ], [ %141, %140 ], [ 0, %.sink.split ]
   ret i16 %.0
 }
 
@@ -726,7 +726,7 @@ define dso_local i32 @pg_strtoint32_safe(ptr noundef %0, ptr noundef %1) local_u
   br label %159
 
 159:                                              ; preds = %.sink.split, %144, %22, %.loopexit138, %.loopexit139, %149, %27
-  %.0 = phi i32 [ %.097.lcssa, %27 ], [ %.3100, %149 ], [ 0, %.loopexit139 ], [ 0, %.loopexit138 ], [ %25, %22 ], [ %147, %144 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ %.3100, %149 ], [ 0, %.loopexit139 ], [ %25, %22 ], [ %.097.lcssa, %27 ], [ 0, %.loopexit138 ], [ %147, %144 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -1079,7 +1079,7 @@ define dso_local i64 @pg_strtoint64_safe(ptr noundef %0, ptr noundef %1) local_u
   br label %160
 
 160:                                              ; preds = %.sink.split, %145, %23, %.loopexit136, %.loopexit137, %150, %28
-  %.0 = phi i64 [ %.097.lcssa, %28 ], [ %.3100, %150 ], [ 0, %.loopexit137 ], [ 0, %.loopexit136 ], [ %26, %23 ], [ %148, %145 ], [ 0, %.sink.split ]
+  %.0 = phi i64 [ %.3100, %150 ], [ 0, %.loopexit137 ], [ %26, %23 ], [ %.097.lcssa, %28 ], [ 0, %.loopexit136 ], [ %148, %145 ], [ 0, %.sink.split ]
   ret i64 %.0
 }
 
@@ -1187,7 +1187,7 @@ define dso_local i32 @uint32in_subr(ptr noundef %0, ptr noundef writeonly captur
   br label %50
 
 50:                                               ; preds = %.sink.split, %.critedge.thread, %45, %.critedge, %19, %12
-  %.0 = phi i32 [ 0, %12 ], [ 0, %19 ], [ 0, %.critedge ], [ 0, %45 ], [ %43, %.critedge.thread ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 0, %19 ], [ 0, %12 ], [ 0, %.critedge ], [ 0, %45 ], [ %43, %.critedge.thread ], [ 0, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1285,7 +1285,7 @@ define dso_local i64 @uint64in_subr(ptr noundef %0, ptr noundef writeonly captur
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %36, %.preheader, %28, %.critedge, %40, %19, %21, %12, %14
-  %.0 = phi i64 [ 0, %14 ], [ 0, %12 ], [ 0, %21 ], [ 0, %19 ], [ 0, %40 ], [ 0, %.critedge ], [ %7, %28 ], [ %7, %.preheader ], [ %7, %36 ]
+  %.0 = phi i64 [ 0, %19 ], [ 0, %12 ], [ 0, %.critedge ], [ 0, %14 ], [ 0, %21 ], [ 0, %40 ], [ %7, %28 ], [ %7, %.preheader ], [ %7, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.0
 }

@@ -193,7 +193,7 @@ gz_zero.exit:                                     ; preds = %37, %34, %23
   br label %gz_zero.exit.thread
 
 gz_zero.exit.thread:                              ; preds = %47, %75, %31, %84, %81, %20, %14, %5, %8, %3, %.critedge, %13
-  %.0 = phi i32 [ 0, %13 ], [ %2, %.critedge ], [ 0, %3 ], [ 0, %8 ], [ 0, %5 ], [ 0, %14 ], [ 0, %20 ], [ 0, %81 ], [ 0, %84 ], [ 0, %31 ], [ 0, %75 ], [ 0, %47 ]
+  %.0 = phi i32 [ 0, %81 ], [ 0, %3 ], [ 0, %13 ], [ 0, %5 ], [ 0, %14 ], [ 0, %20 ], [ 0, %84 ], [ %2, %.critedge ], [ 0, %75 ], [ 0, %8 ], [ 0, %31 ], [ 0, %47 ]
   ret i32 %.0
 }
 
@@ -496,7 +496,7 @@ define internal fastcc range(i32 -1, 1) i32 @gz_comp(ptr noundef nonnull %0, i32
   br label %106
 
 106:                                              ; preds = %.split48.us, %104, %7, %.split46.us, %.split44.us
-  %.0 = phi i32 [ -1, %.split44.us ], [ -1, %.split46.us ], [ -1, %7 ], [ 0, %104 ], [ 0, %.split48.us ]
+  %.0 = phi i32 [ -1, %7 ], [ -1, %.split44.us ], [ -1, %.split46.us ], [ 0, %104 ], [ 0, %.split48.us ]
   ret i32 %.0
 }
 
@@ -630,7 +630,7 @@ gz_zero.exit:                                     ; preds = %26, %22, %11
   br label %gz_zero.exit.thread
 
 gz_zero.exit.thread:                              ; preds = %36, %19, %61, %5, %8, %2, %52
-  %.0 = phi i32 [ %1, %52 ], [ -1, %2 ], [ -1, %8 ], [ -1, %5 ], [ %., %61 ], [ -1, %19 ], [ -1, %36 ]
+  %.0 = phi i32 [ -1, %8 ], [ -1, %2 ], [ -1, %5 ], [ %1, %52 ], [ %., %61 ], [ -1, %19 ], [ -1, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -792,7 +792,7 @@ gz_zero.exit:                                     ; preds = %32, %29, %18
   br label %gz_zero.exit.thread
 
 gz_zero.exit.thread:                              ; preds = %42, %26, %53, %64, %50, %15, %5, %8, %2, %68
-  %.0 = phi i32 [ %62, %68 ], [ -1, %2 ], [ 0, %8 ], [ 0, %5 ], [ 0, %15 ], [ 0, %50 ], [ 0, %64 ], [ 0, %53 ], [ 0, %26 ], [ 0, %42 ]
+  %.0 = phi i32 [ %62, %68 ], [ -1, %2 ], [ 0, %5 ], [ 0, %15 ], [ 0, %53 ], [ 0, %50 ], [ 0, %8 ], [ 0, %64 ], [ 0, %26 ], [ 0, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -897,7 +897,7 @@ gz_zero.exit:                                     ; preds = %25, %21, %9
   br label %gz_zero.exit.thread
 
 gz_zero.exit.thread:                              ; preds = %35, %18, %4, %6, %2, %gz_zero.exit
-  %.0 = phi i32 [ %42, %gz_zero.exit ], [ -1, %2 ], [ -2, %6 ], [ -2, %4 ], [ -1, %18 ], [ -1, %35 ]
+  %.0 = phi i32 [ %42, %gz_zero.exit ], [ -1, %2 ], [ -2, %4 ], [ -2, %6 ], [ -1, %18 ], [ -1, %35 ]
   ret i32 %.0
 }
 
@@ -1028,7 +1028,7 @@ gz_zero.exit:                                     ; preds = %34, %30, %19
   br label %gz_zero.exit.thread
 
 gz_zero.exit.thread:                              ; preds = %44, %27, %15, %5, %8, %3, %62, %58
-  %.0 = phi i32 [ %59, %58 ], [ 0, %62 ], [ -2, %3 ], [ -2, %8 ], [ -2, %5 ], [ 0, %15 ], [ -1, %27 ], [ -1, %44 ]
+  %.0 = phi i32 [ 0, %62 ], [ -2, %3 ], [ -2, %5 ], [ 0, %15 ], [ %59, %58 ], [ -2, %8 ], [ -1, %27 ], [ -1, %44 ]
   ret i32 %.0
 }
 

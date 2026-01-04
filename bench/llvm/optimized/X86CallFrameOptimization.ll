@@ -635,7 +635,7 @@ _ZN12_GLOBAL__N_124X86CallFrameOptimization7isLegalERN4llvm15MachineFunctionE.ex
   br i1 %112, label %113, label %_ZN12_GLOBAL__N_124X86CallFrameOptimization7isLegalERN4llvm15MachineFunctionE.exit.thread
 
 113:                                              ; preds = %111, %109, %102
-  %.339.i = phi i8 [ %.03662.i, %109 ], [ 0, %111 ], [ 1, %102 ]
+  %.339.i = phi i8 [ %.03662.i, %109 ], [ 1, %102 ], [ 0, %111 ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.043.063.i, align 8
   %114 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i = icmp eq i64 %114, 0
@@ -1107,20 +1107,20 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit._crit_edge.i.i: ; preds = %_
   %320 = and i32 %317, 4
   %321 = icmp ne i32 %320, 0
   %or.cond.i.i34.i.i = or i1 %319, %321
-  br i1 %or.cond.i.i34.i.i, label %322, label %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.i.i
+  br i1 %or.cond.i.i34.i.i, label %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.i.i, label %322
 
 322:                                              ; preds = %316
-  %323 = getelementptr inbounds nuw i8, ptr %.sroa.020.160.i, i64 16
-  %324 = load ptr, ptr %323, align 8, !tbaa !392
-  %325 = getelementptr inbounds nuw i8, ptr %324, i64 16
-  %326 = load i64, ptr %325, align 8, !tbaa !393
-  %327 = and i64 %326, 1048576
-  %.not33.i.i = icmp eq i64 %327, 0
-  br i1 %.not33.i.i, label %329, label %.critedge73.i
+  %323 = call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.020.160.i, i64 noundef 1048576, i32 noundef 1) #18
+  br i1 %323, label %.critedge73.i, label %329
 
 _ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.i.i: ; preds = %316
-  %328 = call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.020.160.i, i64 noundef 1048576, i32 noundef 1) #18
-  br i1 %328, label %.critedge73.i, label %329
+  %324 = getelementptr inbounds nuw i8, ptr %.sroa.020.160.i, i64 16
+  %325 = load ptr, ptr %324, align 8, !tbaa !392
+  %326 = getelementptr inbounds nuw i8, ptr %325, i64 16
+  %327 = load i64, ptr %326, align 8, !tbaa !393
+  %328 = and i64 %327, 1048576
+  %.not33.i.i = icmp eq i64 %328, 0
+  br i1 %.not33.i.i, label %329, label %.critedge73.i
 
 329:                                              ; preds = %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.i.i, %322
   %330 = getelementptr inbounds nuw i8, ptr %.sroa.020.160.i, i64 32
@@ -1492,7 +1492,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfo
   br i1 %.not67.i, label %.critedge73.i, label %.lr.ph.i52
 
 .critedge73.i:                                    ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS2_12DenseSetPairIjEEEEjS3_S5_S7_E11try_emplaceIJRS3_EEESt4pairINS_16DenseMapIteratorIjS3_S5_S7_Lb0EEEbEOjDpOT_.exit, %.loopexit.i.i, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.i.i, %344, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit37.i.i, %.lr.ph.i.i, %422, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.thread.sink.split.i.i, %329, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.i.i, %322, %310, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i.i, %300, %287, %285
-  %.157.i = phi i32 [ %.05661.i, %285 ], [ 2, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.thread.sink.split.i.i ], [ 1, %329 ], [ 2, %310 ], [ 2, %322 ], [ 2, %300 ], [ 2, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i.i ], [ 2, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.i.i ], [ 2, %287 ], [ 0, %422 ], [ 2, %.lr.ph.i.i ], [ 2, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit37.i.i ], [ 2, %344 ], [ 2, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.i.i ], [ 1, %.loopexit.i.i ], [ 0, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS2_12DenseSetPairIjEEEEjS3_S5_S7_E11try_emplaceIJRS3_EEESt4pairINS_16DenseMapIteratorIjS3_S5_S7_Lb0EEEbEOjDpOT_.exit ]
+  %.157.i = phi i32 [ %.05661.i, %285 ], [ 2, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit37.i.i ], [ 2, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.thread.sink.split.i.i ], [ 1, %.loopexit.i.i ], [ 2, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i.i ], [ 2, %287 ], [ 2, %310 ], [ 1, %329 ], [ 2, %300 ], [ 2, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.i.i ], [ 2, %322 ], [ 0, %422 ], [ 2, %.lr.ph.i.i ], [ 2, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.i.i ], [ 2, %344 ], [ 0, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS2_12DenseSetPairIjEEEEjS3_S5_S7_E11try_emplaceIJRS3_EEESt4pairINS_16DenseMapIteratorIjS3_S5_S7_Lb0EEEbEOjDpOT_.exit ]
   %509 = icmp ne ptr %.sroa.020.160.i, null
   call void @llvm.assume(i1 %509)
   %.0.copyload.i.i.i.i.i.i.i.i.i99.i = load i64, ptr %.sroa.020.160.i, align 8
@@ -1645,7 +1645,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit126.i: ; pr
   br i1 %.not69.i, label %._crit_edge.i54, label %571, !llvm.loop !417
 
 ._crit_edge.i54:                                  ; preds = %575, %571
-  %.054.lcssa.i = phi ptr [ %568, %575 ], [ %.05463.i, %571 ]
+  %.054.lcssa.i = phi ptr [ %.05463.i, %571 ], [ %568, %575 ]
   %578 = icmp eq ptr %.054.lcssa.i, %565
   br i1 %578, label %.critedge5.i, label %.preheader.i
 
@@ -2610,8 +2610,8 @@ _ZN4llvm11SmallVectorIN12_GLOBAL__N_124X86CallFrameOptimization11CallContextELj8
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %_ZN12_GLOBAL__N_124X86CallFrameOptimization7isLegalERN4llvm15MachineFunctionE.exit.thread
 
-_ZN12_GLOBAL__N_124X86CallFrameOptimization7isLegalERN4llvm15MachineFunctionE.exit.thread: ; preds = %._crit_edge.i, %111, %102, %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit.thread.i, %_ZNK4llvm12X86Subtarget14isTargetDarwinEv.exit.i, %47, %_ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE.exit.i, %2, %_ZN4llvm11SmallVectorIN12_GLOBAL__N_124X86CallFrameOptimization11CallContextELj8EED2Ev.exit
-  %.0 = phi i1 [ %.1259, %_ZN4llvm11SmallVectorIN12_GLOBAL__N_124X86CallFrameOptimization11CallContextELj8EED2Ev.exit ], [ false, %2 ], [ false, %_ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE.exit.i ], [ false, %47 ], [ false, %_ZNK4llvm12X86Subtarget14isTargetDarwinEv.exit.i ], [ false, %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit.thread.i ], [ false, %102 ], [ false, %111 ], [ false, %._crit_edge.i ]
+_ZN12_GLOBAL__N_124X86CallFrameOptimization7isLegalERN4llvm15MachineFunctionE.exit.thread: ; preds = %._crit_edge.i, %111, %102, %_ZNK4llvm12X86Subtarget14isTargetDarwinEv.exit.i, %_ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE.exit.i, %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit.thread.i, %47, %2, %_ZN4llvm11SmallVectorIN12_GLOBAL__N_124X86CallFrameOptimization11CallContextELj8EED2Ev.exit
+  %.0 = phi i1 [ %.1259, %_ZN4llvm11SmallVectorIN12_GLOBAL__N_124X86CallFrameOptimization11CallContextELj8EED2Ev.exit ], [ false, %2 ], [ false, %111 ], [ false, %47 ], [ false, %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit.thread.i ], [ false, %_ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE.exit.i ], [ false, %_ZNK4llvm12X86Subtarget14isTargetDarwinEv.exit.i ], [ false, %102 ], [ false, %._crit_edge.i ]
   ret i1 %.0
 }
 

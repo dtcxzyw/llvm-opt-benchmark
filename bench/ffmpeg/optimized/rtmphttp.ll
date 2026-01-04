@@ -307,7 +307,7 @@ rtmp_http_write.exit.thread:                      ; preds = %38
   br i1 %64, label %11, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %63, %55, %45, %24, %19, %11, %rtmp_http_write.exit.thread
-  %.031 = phi i32 [ %43, %rtmp_http_write.exit.thread ], [ %.1, %63 ], [ -11, %55 ], [ %53, %45 ], [ %25, %24 ], [ -11, %19 ], [ %15, %11 ]
+  %.031 = phi i32 [ %43, %rtmp_http_write.exit.thread ], [ %.1, %63 ], [ %25, %24 ], [ -11, %55 ], [ %53, %45 ], [ -11, %19 ], [ %15, %11 ]
   ret i32 %.031
 }
 

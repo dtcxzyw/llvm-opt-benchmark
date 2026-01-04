@@ -196,7 +196,7 @@ _ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit: ; preds = %_ZNK5Block8get_n
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph63, %51, %._crit_edge, %32, %36, %_ZNK5Block8get_nodeEj.exit, %_ZNK5Block8get_nodeEj.exit51, %_ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit
-  %.0 = phi i1 [ true, %_ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit ], [ false, %_ZNK5Block8get_nodeEj.exit51 ], [ false, %_ZNK5Block8get_nodeEj.exit ], [ false, %36 ], [ false, %32 ], [ false, %._crit_edge ], [ false, %51 ], [ false, %.lr.ph63 ]
+  %.0 = phi i1 [ false, %32 ], [ false, %_ZNK5Block8get_nodeEj.exit ], [ false, %36 ], [ true, %_ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit ], [ false, %_ZNK5Block8get_nodeEj.exit51 ], [ false, %._crit_edge ], [ false, %51 ], [ false, %.lr.ph63 ]
   ret i1 %.0
 }
 
@@ -304,7 +304,7 @@ _ZNK5Block8get_nodeEj.exit102:                    ; preds = %52, %55
   br label %_ZN7OptoReg8as_VMRegEi.exit104
 
 _ZN7OptoReg8as_VMRegEi.exit104:                   ; preds = %67, %63
-  %.094.ph = phi ptr [ %65, %63 ], [ %71, %67 ]
+  %.094.ph = phi ptr [ %71, %67 ], [ %65, %63 ]
   %72 = lshr i32 %49, 1
   %73 = getelementptr inbounds nuw i8, ptr %.094.ph, i64 40
   %74 = load i32, ptr %73, align 8
@@ -341,7 +341,7 @@ _ZN7OptoReg8as_VMRegEi.exit106:                   ; preds = %_ZN7OptoReg8as_VMRe
   ]
 
 91:                                               ; preds = %86, %_ZN7OptoReg8as_VMRegEi.exit106, %62
-  %.094127 = phi ptr [ null, %62 ], [ %.094.ph, %_ZN7OptoReg8as_VMRegEi.exit106 ], [ %.094.ph, %86 ]
+  %.094127 = phi ptr [ %.094.ph, %_ZN7OptoReg8as_VMRegEi.exit106 ], [ %.094.ph, %86 ], [ null, %62 ]
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %93 = load i32, ptr %92, align 8
   %.090134 = add nuw i32 %1, 1
@@ -616,7 +616,7 @@ _ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit116: ; preds = %_ZN8PhaseCFG1
   br label %.thread
 
 .thread:                                          ; preds = %86, %86, %_ZNK5Block8get_nodeEj.exit, %28, %_ZN7OptoReg8as_VMRegEi.exit, %._crit_edge, %_ZNK5Block8get_nodeEj.exit102, %_ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit116
-  %.0 = phi i1 [ true, %_ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit116 ], [ false, %_ZNK5Block8get_nodeEj.exit102 ], [ false, %86 ], [ false, %._crit_edge ], [ false, %_ZN7OptoReg8as_VMRegEi.exit ], [ false, %28 ], [ false, %_ZNK5Block8get_nodeEj.exit ], [ false, %86 ]
+  %.0 = phi i1 [ false, %._crit_edge ], [ false, %_ZNK5Block8get_nodeEj.exit ], [ false, %86 ], [ true, %_ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit116 ], [ false, %_ZNK5Block8get_nodeEj.exit102 ], [ false, %86 ], [ false, %_ZN7OptoReg8as_VMRegEi.exit ], [ false, %28 ]
   ret i1 %.0
 }
 

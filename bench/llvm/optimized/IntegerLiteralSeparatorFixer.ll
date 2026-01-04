@@ -667,7 +667,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNK5
   br label %_ZNK5clang6format28IntegerLiteralSeparatorFixer14checkSeparatorEN4llvm9StringRefEi.exit.thread
 
 _ZNK5clang6format28IntegerLiteralSeparatorFixer14checkSeparatorEN4llvm9StringRefEi.exit.thread: ; preds = %228, %switch.hole_check, %162, %216, %141, %_ZN5clang6formatL7getBaseEN4llvm9StringRefE.exit, %179, %176, %_ZNK4llvm9StringRef5countEc.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNK5clang5Token9getEndLocEv.exit, %.critedge, %139
-  %.3 = phi i1 [ true, %139 ], [ %spec.select, %141 ], [ %.0186, %.critedge ], [ false, %_ZNK5clang5Token9getEndLocEv.exit ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %_ZNK4llvm9StringRef5countEc.exit ], [ false, %176 ], [ false, %179 ], [ false, %_ZN5clang6formatL7getBaseEN4llvm9StringRefE.exit ], [ false, %216 ], [ false, %162 ], [ false, %switch.hole_check ], [ false, %228 ]
+  %.3 = phi i1 [ false, %_ZNK5clang5Token9getEndLocEv.exit ], [ false, %216 ], [ %spec.select, %141 ], [ true, %139 ], [ %.0186, %.critedge ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %_ZNK4llvm9StringRef5countEc.exit ], [ false, %_ZN5clang6formatL7getBaseEN4llvm9StringRefE.exit ], [ false, %176 ], [ false, %179 ], [ false, %162 ], [ false, %switch.hole_check ], [ false, %228 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %236
 
@@ -1591,7 +1591,7 @@ _ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread: ; preds = 
   br label %50
 
 _ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit: ; preds = %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i, %40
-  %45 = phi ptr [ %44, %40 ], [ %36, %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i ]
+  %45 = phi ptr [ %36, %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i ], [ %44, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq ptr %45, null
   br i1 %.not, label %50, label %46
@@ -1604,7 +1604,7 @@ _ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit: ; preds = %_ZNK4l
   br label %50
 
 50:                                               ; preds = %46, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread
-  %51 = phi ptr [ null, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread ], [ null, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit ], [ %spec.select, %46 ]
+  %51 = phi ptr [ %spec.select, %46 ], [ null, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread ], [ null, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit ]
   ret ptr %51
 }
 

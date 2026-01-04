@@ -411,7 +411,7 @@ copy_address_wmem.exit154:                        ; preds = %copy_address_wmem.e
   br label %.thread164
 
 .thread164:                                       ; preds = %113, %78, %copy_address_wmem.exit154, %166
-  %.1 = phi ptr [ %119, %166 ], [ %119, %copy_address_wmem.exit154 ], [ %53, %78 ], [ %84, %113 ]
+  %.1 = phi ptr [ %119, %copy_address_wmem.exit154 ], [ %119, %166 ], [ %53, %78 ], [ %84, %113 ]
   %184 = getelementptr inbounds nuw i8, ptr %.1, i64 128
   %185 = getelementptr inbounds nuw i8, ptr %1, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %184, ptr noundef nonnull align 8 dereferenceable(16) %185, i64 16, i1 false)
@@ -503,8 +503,8 @@ copy_address_wmem.exit154:                        ; preds = %copy_address_wmem.e
   br label %242
 
 242:                                              ; preds = %237, %236, %228
-  %.027.i = phi i64 [ 39999, %236 ], [ %241, %237 ], [ 39998, %228 ]
-  %.0.i155 = phi i64 [ 0, %236 ], [ %240, %237 ], [ 39999, %228 ]
+  %.027.i = phi i64 [ %241, %237 ], [ 39999, %236 ], [ 39998, %228 ]
+  %.0.i155 = phi i64 [ %240, %237 ], [ 0, %236 ], [ 39999, %228 ]
   %243 = getelementptr %struct.nstime_t, ptr %233, i64 %.0.i155
   %244 = getelementptr %struct.nstime_t, ptr %233, i64 %.027.i
   call void @nstime_delta(ptr noundef nonnull %7, ptr noundef %243, ptr noundef %244)
@@ -579,8 +579,8 @@ buffusagecalc.exit:                               ; preds = %260, %263, %267
   br label %283
 
 283:                                              ; preds = %278, %277, %buffusagecalc.exit
-  %.027.i156 = phi i64 [ 39999, %277 ], [ %282, %278 ], [ 39998, %buffusagecalc.exit ]
-  %.0.i157 = phi i64 [ 0, %277 ], [ %281, %278 ], [ 39999, %buffusagecalc.exit ]
+  %.027.i156 = phi i64 [ %282, %278 ], [ 39999, %277 ], [ 39998, %buffusagecalc.exit ]
+  %.0.i157 = phi i64 [ %281, %278 ], [ 0, %277 ], [ 39999, %buffusagecalc.exit ]
   %284 = getelementptr %struct.nstime_t, ptr %274, i64 %.0.i157
   %285 = getelementptr %struct.nstime_t, ptr %274, i64 %.027.i156
   call void @nstime_delta(ptr noundef nonnull %6, ptr noundef %284, ptr noundef %285)
@@ -631,7 +631,7 @@ buffusagecalc.exit160:                            ; preds = %301, %304, %308
   br label %309
 
 309:                                              ; preds = %5, %20, %24, %11, %15, %buffusagecalc.exit160
-  %.0 = phi i32 [ 1, %buffusagecalc.exit160 ], [ 0, %15 ], [ 0, %11 ], [ 0, %24 ], [ 0, %20 ], [ 0, %5 ]
+  %.0 = phi i32 [ 0, %20 ], [ 0, %11 ], [ 1, %buffusagecalc.exit160 ], [ 0, %15 ], [ 0, %24 ], [ 0, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }

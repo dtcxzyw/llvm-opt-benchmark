@@ -277,7 +277,7 @@ define range(i32 0, 2) i32 @ff_celp_lp_synthesis_filter(ptr noundef captures(non
   br i1 %exitcond59.not, label %._crit_edge35, label %.preheader, !llvm.loop !16
 
 ._crit_edge35:                                    ; preds = %._crit_edge, %.critedge, %._crit_edge.us, %.preheader.us, %.critedge.us, %.preheader.us.us, %8
-  %.2 = phi i32 [ 0, %8 ], [ 0, %.preheader.us.us ], [ 0, %.critedge.us ], [ 1, %.preheader.us ], [ 0, %._crit_edge.us ], [ 0, %.critedge ], [ 1, %._crit_edge ]
+  %.2 = phi i32 [ 0, %._crit_edge.us ], [ 0, %8 ], [ 0, %.preheader.us.us ], [ 0, %.critedge.us ], [ 1, %.preheader.us ], [ 1, %._crit_edge ], [ 0, %.critedge ]
   ret i32 %.2
 }
 

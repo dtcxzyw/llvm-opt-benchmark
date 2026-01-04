@@ -399,7 +399,7 @@ delete_item.exit:                                 ; preds = %.lr.ph.i, %60
   %93 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2) #10
   br label %insert_item.exit
 
-.critedge:                                        ; preds = %42, %38, %8, %delete_item.exit
+.critedge:                                        ; preds = %38, %42, %8, %delete_item.exit
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %95 = load i32, ptr %94, align 8
   %96 = add i32 %95, 1
@@ -773,8 +773,8 @@ find_first_item.exit:                             ; preds = %33
   store ptr %52, ptr %2, align 8
   br label %find_first_item.exit.thread
 
-find_first_item.exit.thread:                      ; preds = %42, %38, %8, %50, %find_first_item.exit
-  %.not2028 = phi i1 [ true, %50 ], [ true, %find_first_item.exit ], [ false, %8 ], [ false, %38 ], [ false, %42 ]
+find_first_item.exit.thread:                      ; preds = %38, %42, %8, %50, %find_first_item.exit
+  %.not2028 = phi i1 [ true, %find_first_item.exit ], [ true, %50 ], [ false, %8 ], [ false, %42 ], [ false, %38 ]
   %53 = load ptr, ptr %0, align 8
   tail call void @SDL_UnlockRWLock_REAL(ptr noundef %53) #10
   br label %54
@@ -928,8 +928,8 @@ delete_item.exit:                                 ; preds = %.lr.ph.i, %56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.020.lcssa.i, i8 0, i64 24, i1 false)
   br label %find_first_item.exit.thread
 
-find_first_item.exit.thread:                      ; preds = %39, %35, %5, %delete_item.exit
-  %.not1519 = phi i1 [ true, %delete_item.exit ], [ false, %5 ], [ false, %35 ], [ false, %39 ]
+find_first_item.exit.thread:                      ; preds = %35, %39, %5, %delete_item.exit
+  %.not1519 = phi i1 [ true, %delete_item.exit ], [ false, %5 ], [ false, %39 ], [ false, %35 ]
   %88 = load ptr, ptr %0, align 8
   tail call void @SDL_UnlockRWLock_REAL(ptr noundef %88) #10
   br label %89
@@ -1174,7 +1174,7 @@ define hidden zeroext i1 @SDL_KeyMatchString(ptr noundef readnone captures(none)
   br label %14
 
 14:                                               ; preds = %8, %5, %3, %11
-  %.0 = phi i1 [ %13, %11 ], [ true, %3 ], [ false, %5 ], [ false, %8 ]
+  %.0 = phi i1 [ true, %3 ], [ false, %5 ], [ %13, %11 ], [ false, %8 ]
   ret i1 %.0
 }
 

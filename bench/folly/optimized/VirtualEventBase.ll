@@ -1903,7 +1903,7 @@ _ZNSt7promiseIvE9set_valueEv.exit:                ; preds = %117, %119
   br label %"_ZN5folly6detail14ScopeGuardImplIZNS_16VirtualEventBase11destroyImplEvE3$_0Lb1EED2Ev.exit14"
 
 "_ZN5folly6detail14ScopeGuardImplIZNS_16VirtualEventBase11destroyImplEvE3$_0Lb1EED2Ev.exit14": ; preds = %148, %127, %124, %143, %137, %132
-  %.pn3.pn.pn.pn = phi { ptr, i32 } [ %.pn3.pn.pn, %132 ], [ %.pn3.pn.pn, %137 ], [ %.pn3.pn.pn, %143 ], [ %149, %148 ], [ %125, %127 ], [ %125, %124 ]
+  %.pn3.pn.pn.pn = phi { ptr, i32 } [ %.pn3.pn.pn, %143 ], [ %.pn3.pn.pn, %132 ], [ %.pn3.pn.pn, %137 ], [ %149, %148 ], [ %125, %127 ], [ %125, %124 ]
   %.4 = extractvalue { ptr, i32 } %.pn3.pn.pn.pn, 0
   %150 = call ptr @__cxa_begin_catch(ptr %.4) #19
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2146,7 +2146,7 @@ _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitFo
   br label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit.thread
 
 _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit.thread: ; preds = %30, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit, %22, %19
-  %35 = phi i32 [ %.pre, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit ], [ %24, %22 ], [ %20, %19 ], [ %31, %30 ]
+  %35 = phi i32 [ %20, %19 ], [ %.pre, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit ], [ %24, %22 ], [ %31, %30 ]
   %36 = load atomic i32, ptr %12 monotonic, align 4
   %37 = and i32 %35, -1536
   %or.cond = icmp eq i32 %37, 0
@@ -2339,7 +2339,7 @@ _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlock
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.backedge
 
-.thread81:                                        ; preds = %.thread79, %71, %70, %98
+.thread81:                                        ; preds = %.thread79, %70, %71, %98
   ret i1 true
 }
 

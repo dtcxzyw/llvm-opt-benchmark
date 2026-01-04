@@ -531,7 +531,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %3, %strbuf_addch.exit, %string_list_set_helper_option.exit
-  %.025 = phi i32 [ %65, %strbuf_addch.exit ], [ %.1.i, %string_list_set_helper_option.exit ], [ 1, %3 ], [ 1, %.preheader ]
+  %.025 = phi i32 [ %65, %strbuf_addch.exit ], [ 1, %3 ], [ %.1.i, %string_list_set_helper_option.exit ], [ 1, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.025
 }
@@ -2688,7 +2688,7 @@ _.exit:                                           ; preds = %51, %53
   br label %57
 
 57:                                               ; preds = %48, %.tail.thread, %.tail, %_.exit
-  %.0 = phi i32 [ 1, %_.exit ], [ 0, %.tail ], [ -1, %.tail.thread ], [ 1, %48 ]
+  %.0 = phi i32 [ 0, %.tail ], [ 1, %_.exit ], [ -1, %.tail.thread ], [ 1, %48 ]
   ret i32 %.0
 }
 
@@ -3048,7 +3048,7 @@ has_attribute.exit.thread:                        ; preds = %107, %has_attribute
   br label %skip_prefix.exit
 
 skip_prefix.exit:                                 ; preds = %64, %74, %has_attribute.exit.thread
-  %.1 = phi ptr [ %124, %has_attribute.exit.thread ], [ %.0, %74 ], [ %.0, %64 ]
+  %.1 = phi ptr [ %.0, %74 ], [ %124, %has_attribute.exit.thread ], [ %.0, %64 ]
   %.pre95 = load ptr, ptr %40, align 8, !tbaa !65
   br label %42
 
@@ -3820,8 +3820,8 @@ xstrdup_or_null.exit.i:                           ; preds = %62, %61
   br i1 %.not119.i, label %.sink.split.i, label %138
 
 .sink.split.i:                                    ; preds = %136, %134, %132, %130, %128, %126, %124, %122, %120, %118
-  %.2.ph.i = phi i32 [ 0, %118 ], [ 10, %120 ], [ 2, %122 ], [ 3, %124 ], [ 5, %126 ], [ 6, %128 ], [ 7, %130 ], [ 9, %132 ], [ %.091.i, %134 ], [ 12, %136 ]
-  %.1.ph.i = phi i8 [ 0, %118 ], [ 0, %120 ], [ 0, %122 ], [ 0, %124 ], [ 0, %126 ], [ 0, %128 ], [ 0, %130 ], [ 0, %132 ], [ 2, %134 ], [ 0, %136 ]
+  %.2.ph.i = phi i32 [ %.091.i, %134 ], [ 0, %118 ], [ 10, %120 ], [ 2, %122 ], [ 3, %124 ], [ 5, %126 ], [ 6, %128 ], [ 7, %130 ], [ 9, %132 ], [ 12, %136 ]
+  %.1.ph.i = phi i8 [ 2, %134 ], [ 0, %118 ], [ 0, %120 ], [ 0, %122 ], [ 0, %124 ], [ 0, %126 ], [ 0, %128 ], [ 0, %130 ], [ 0, %132 ], [ 0, %136 ]
   call void @free(ptr noundef nonnull %.194.i) #19
   br label %138
 
@@ -3975,7 +3975,7 @@ push_update_ref_status.exit:                      ; preds = %94, %_.exit.i, %.th
   br i1 %.not41, label %.loopexit61, label %.preheader60, !llvm.loop !126
 
 .loopexit61:                                      ; preds = %.loopexit, %156, %158, %162, %recvline.exit
-  %.031 = phi i32 [ 1, %recvline.exit ], [ 0, %162 ], [ 0, %158 ], [ 0, %156 ], [ 0, %.loopexit ]
+  %.031 = phi i32 [ 1, %recvline.exit ], [ 0, %156 ], [ 0, %162 ], [ 0, %158 ], [ 0, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.031
 }
@@ -4175,7 +4175,7 @@ udt_close_if_finished.exit:                       ; preds = %78, %69, %udt_do_wr
   br i1 %.not, label %.loopexit, label %10, !llvm.loop !134
 
 .loopexit:                                        ; preds = %udt_close_if_finished.exit, %1, %udt_do_write.exit, %udt_do_read.exit
-  %.0 = phi ptr [ null, %udt_do_read.exit ], [ null, %udt_do_write.exit ], [ %0, %1 ], [ %0, %udt_close_if_finished.exit ]
+  %.0 = phi ptr [ null, %udt_do_write.exit ], [ null, %udt_do_read.exit ], [ %0, %1 ], [ %0, %udt_close_if_finished.exit ]
   ret ptr %.0
 }
 

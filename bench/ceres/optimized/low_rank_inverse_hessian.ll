@@ -609,14 +609,14 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEaSINS1_IdLin
   br label %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11squaredNormEv.exit
 
 _ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11squaredNormEv.exit: ; preds = %.lr.ph85.i.i.i.i, %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEaSINS1_IdLin1ELi1ELi0ELin1ELi1EEEEERS3_RKNS_9DenseBaseIT_EE.exit35, %201, %209
-  %.0.i.i = phi double [ 0.000000e+00, %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEaSINS1_IdLin1ELi1ELi0ELin1ELi1EEEEERS3_RKNS_9DenseBaseIT_EE.exit35 ], [ %211, %209 ], [ %202, %201 ], [ %207, %.lr.ph85.i.i.i.i ]
+  %.0.i.i = phi double [ 0.000000e+00, %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEaSINS1_IdLin1ELi1ELi0ELin1ELi1EEEEERS3_RKNS_9DenseBaseIT_EE.exit35 ], [ %202, %201 ], [ %211, %209 ], [ %207, %.lr.ph85.i.i.i.i ]
   %212 = fdiv double %.0.i.i.i, %.0.i.i
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %212, ptr %213, align 8, !tbaa !30
   br label %.critedge19
 
 .critedge19:                                      ; preds = %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotIS2_EENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENS6_17scalar_product_opIdSA_EEE10ReturnTypeERKNS0_IS8_EE.exit.thread, %.critedge, %_ZN4absl12lts_2024011612log_internal8VLogSite9IsEnabledEi.exit, %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11squaredNormEv.exit
-  %214 = phi i1 [ true, %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11squaredNormEv.exit ], [ false, %_ZN4absl12lts_2024011612log_internal8VLogSite9IsEnabledEi.exit ], [ false, %.critedge ], [ false, %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotIS2_EENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENS6_17scalar_product_opIdSA_EEE10ReturnTypeERKNS0_IS8_EE.exit.thread ]
+  %214 = phi i1 [ true, %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11squaredNormEv.exit ], [ false, %.critedge ], [ false, %_ZN4absl12lts_2024011612log_internal8VLogSite9IsEnabledEi.exit ], [ false, %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotIS2_EENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENS6_17scalar_product_opIdSA_EEE10ReturnTypeERKNS0_IS8_EE.exit.thread ]
   ret i1 %214
 }
 
@@ -852,7 +852,7 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2IiEERKT_.exit: ; preds = %_ZN5Eigen8i
   br label %.loopexit162
 
 .loopexit162:                                     ; preds = %.lr.ph85.i.i.i.i.i, %74, %115, %124
-  %.0.i.i.i = phi double [ 0.000000e+00, %74 ], [ %127, %124 ], [ %116, %115 ], [ %122, %.lr.ph85.i.i.i.i.i ]
+  %.0.i.i.i = phi double [ 0.000000e+00, %74 ], [ %116, %115 ], [ %127, %124 ], [ %122, %.lr.ph85.i.i.i.i.i ]
   %128 = load ptr, ptr %58, align 8, !tbaa !31
   %129 = getelementptr inbounds double, ptr %128, i64 %79
   %130 = load double, ptr %129, align 8, !tbaa !40
@@ -1185,7 +1185,7 @@ _ZN4absl12lts_2024011612log_internal10LogMessagelsILi29EEERS2_RAT__Kc.exit: ; pr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph85.i.i.i.i.i60, %286, %277, %238
-  %.0.i.i.i59 = phi double [ 0.000000e+00, %238 ], [ %289, %286 ], [ %278, %277 ], [ %284, %.lr.ph85.i.i.i.i.i60 ]
+  %.0.i.i.i59 = phi double [ 0.000000e+00, %238 ], [ %278, %277 ], [ %289, %286 ], [ %284, %.lr.ph85.i.i.i.i.i60 ]
   %290 = load ptr, ptr %225, align 8, !tbaa !31
   %291 = getelementptr inbounds double, ptr %290, i64 %241
   %292 = load double, ptr %291, align 8, !tbaa !40
@@ -1255,7 +1255,7 @@ _ZN5Eigen10MatrixBaseINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6Stride
   br i1 %.not160, label %._crit_edge174, label %238
 
 common.resume:                                    ; preds = %205, %211
-  %.pn29.pn.pn = phi { ptr, i32 } [ %.pn, %211 ], [ %206, %205 ]
+  %.pn29.pn.pn = phi { ptr, i32 } [ %206, %205 ], [ %.pn, %211 ]
   call void @free(ptr noundef %.sroa.0138.0) #16
   resume { ptr, i32 } %.pn29.pn.pn
 }

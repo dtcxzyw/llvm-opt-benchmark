@@ -449,7 +449,7 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   br label %79
 
 79:                                               ; preds = %76, %62, %34
-  %.1.us = phi float [ %78, %76 ], [ %.05566.us, %34 ], [ %.4.us, %62 ]
+  %.1.us = phi float [ %.4.us, %62 ], [ %78, %76 ], [ %.05566.us, %34 ]
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %80 = load i8, ptr %5, align 4, !tbaa !44
   %81 = sext i8 %80 to i64

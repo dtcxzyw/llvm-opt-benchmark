@@ -1551,8 +1551,8 @@ _ZN2cv4Mat_IfE6createEii.exit246:                 ; preds = %_ZN2cv4Mat_IfE6crea
   br label %512
 
 _ZN2cv4Mat_INS_3VecIfLi2EEEE6createEii.exit:      ; preds = %_ZN2cv4Mat_IfE6createEii.exit246, %352, %387
-  %.1131 = phi i32 [ %364, %387 ], [ %.0130275, %352 ], [ %292, %_ZN2cv4Mat_IfE6createEii.exit246 ]
-  %.1128 = phi i32 [ %361, %387 ], [ %.0127277, %352 ], [ %290, %_ZN2cv4Mat_IfE6createEii.exit246 ]
+  %.1131 = phi i32 [ %.0130275, %352 ], [ %364, %387 ], [ %292, %_ZN2cv4Mat_IfE6createEii.exit246 ]
+  %.1128 = phi i32 [ %.0127277, %352 ], [ %361, %387 ], [ %290, %_ZN2cv4Mat_IfE6createEii.exit246 ]
   %392 = load i32, ptr %211, align 8, !tbaa !18
   %393 = sext i32 %392 to i64
   %.not146 = icmp slt i64 %indvars.iv, %393
@@ -3990,7 +3990,7 @@ _ZN2cv12processPatchERfS0_PhS1_PsS2_iiffffi.exit.us: ; preds = %._crit_edge.us.i
   br label %._crit_edge831
 
 ._crit_edge831:                                   ; preds = %.preheader784.lr.ph, %._crit_edge831.loopexit, %159
-  %736 = phi i32 [ %.pre858, %._crit_edge831.loopexit ], [ %134, %159 ], [ %134, %.preheader784.lr.ph ]
+  %736 = phi i32 [ %134, %159 ], [ %.pre858, %._crit_edge831.loopexit ], [ %134, %.preheader784.lr.ph ]
   %737 = add nuw nsw i32 %.0479832, 1
   %738 = icmp slt i32 %737, %736
   br i1 %738, label %133, label %.loopexit, !llvm.loop !160
@@ -4172,7 +4172,7 @@ define hidden void @_ZNK2cv18DISOpticalFlowImpl21Densification_ParBodyclERKNS_5R
   br label %.lr.ph223.us
 
 .lr.ph223.us:                                     ; preds = %64, %.lr.ph228.split.us
-  %.3.us = phi i32 [ %.2227.us, %.lr.ph228.split.us ], [ %spec.select157.us, %64 ]
+  %.3.us = phi i32 [ %spec.select157.us, %64 ], [ %.2227.us, %.lr.ph228.split.us ]
   %.not149208.us = icmp sgt i32 %.3.us, %.3142.us
   %70 = sitofp i32 %59 to float
   %71 = mul nsw i64 %indvars.iv264, %54
@@ -4209,7 +4209,7 @@ define hidden void @_ZNK2cv18DISOpticalFlowImpl21Densification_ParBodyclERKNS_5R
   br label %.preheader.lr.ph.us
 
 .preheader.lr.ph.us:                              ; preds = %80, %.lr.ph223.split.us245
-  %.1138.us238 = phi i32 [ %.0137219.us232, %.lr.ph223.split.us245 ], [ %spec.select158.us237, %80 ]
+  %.1138.us238 = phi i32 [ %spec.select158.us237, %80 ], [ %.0137219.us232, %.lr.ph223.split.us245 ]
   %.not150199.us = icmp sgt i32 %.1138.us238, %.1136.us235
   %86 = uitofp nneg i32 %74 to float
   %.pre = add nsw i64 %71, %indvars.iv255
@@ -4372,7 +4372,7 @@ define hidden void @_ZNK2cv18DISOpticalFlowImpl21Densification_ParBodyclERKNS_5R
   br label %177
 
 177:                                              ; preds = %172, %.lr.ph
-  %.1131 = phi i32 [ %.0130197, %.lr.ph ], [ %spec.select156, %172 ]
+  %.1131 = phi i32 [ %spec.select156, %172 ], [ %.0130197, %.lr.ph ]
   %178 = add nuw nsw i32 %.0134196, 1
   %exitcond.not = icmp eq i32 %178, %.sroa.speculated189
   br i1 %exitcond.not, label %.preheader194, label %.lr.ph, !llvm.loop !176
@@ -5624,12 +5624,12 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit201:    ; preds = %531, %534
   br i1 %550, label %.loopexit, label %547
 
 .loopexit:                                        ; preds = %547, %.loopexit.loopexit222, %.thread
-  %.pn125.pn = phi { ptr, i32 } [ %334, %.thread ], [ %538, %.loopexit.loopexit222 ], [ %.pn125, %547 ]
+  %.pn125.pn = phi { ptr, i32 } [ %538, %.loopexit.loopexit222 ], [ %334, %.thread ], [ %.pn125, %547 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   br label %551
 
 551:                                              ; preds = %335, %337, %339, %497, %.loopexit, %214, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit183
-  %.pn143.pn = phi { ptr, i32 } [ %.pn143, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit183 ], [ %215, %214 ], [ %.pn139.pn, %497 ], [ %.pn125.pn, %.loopexit ], [ %340, %339 ], [ %338, %337 ], [ %336, %335 ]
+  %.pn143.pn = phi { ptr, i32 } [ %.pn143, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit183 ], [ %215, %214 ], [ %336, %335 ], [ %.pn139.pn, %497 ], [ %.pn125.pn, %.loopexit ], [ %340, %339 ], [ %338, %337 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %21) #22
   br label %552
 
@@ -6164,7 +6164,7 @@ _ZNSt12__shared_ptrIN2cv18DISOpticalFlowImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.
           to label %.invoke unwind label %28
 
 .invoke:                                          ; preds = %.invoke10, %22
-  %50 = phi i32 [ 0, %22 ], [ 5, %.invoke10 ]
+  %50 = phi i32 [ 5, %.invoke10 ], [ 0, %22 ]
   %51 = load ptr, ptr %7, align 8, !tbaa !3
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 152
   %53 = load ptr, ptr %52, align 8

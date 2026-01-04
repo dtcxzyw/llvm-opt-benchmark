@@ -327,7 +327,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZN
   ret void
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21: ; preds = %103, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i19, %74, %37
-  %.pn14 = phi { ptr, i32 } [ %38, %37 ], [ %.pn.pn.pn, %74 ], [ %104, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i19 ], [ %104, %103 ]
+  %.pn14 = phi { ptr, i32 } [ %.pn.pn.pn, %74 ], [ %38, %37 ], [ %104, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i19 ], [ %104, %103 ]
   %113 = load ptr, ptr %8, align 8, !tbaa !30
   %114 = icmp eq ptr %113, %17
   br i1 %114, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25
@@ -1194,7 +1194,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21: ; preds = %48,
   br i1 %74, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !72
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %71, %69, %65, %61, %55
-  %.0.i.i = phi i32 [ %62, %61 ], [ %66, %65 ], [ %70, %69 ], [ 1, %55 ], [ %73, %71 ]
+  %.0.i.i = phi i32 [ %70, %69 ], [ %62, %61 ], [ %66, %65 ], [ 1, %55 ], [ %73, %71 ]
   %.lobit.i = lshr i64 %57, 63
   %75 = trunc nuw nsw i64 %.lobit.i to i32
   %76 = add i32 %.0.i.i, %75
@@ -1309,7 +1309,7 @@ _ZNSt7__cxx119to_stringEl.exit:                   ; preds = %98, %105
   br i1 %127, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %.lr.ph.i.i22, !llvm.loop !77
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %124, %122, %118, %114, %110
-  %.0.i.i23 = phi i32 [ %115, %114 ], [ %119, %118 ], [ %123, %122 ], [ 1, %110 ], [ %126, %124 ]
+  %.0.i.i23 = phi i32 [ %123, %122 ], [ %115, %114 ], [ %119, %118 ], [ 1, %110 ], [ %126, %124 ]
   %128 = zext i32 %.0.i.i23 to i64
   %129 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %129, ptr %16, align 8, !tbaa !12, !alias.scope !74

@@ -494,15 +494,15 @@ thread-pre-split:                                 ; preds = %60
   %.not46 = icmp eq i32 %85, 0
   br i1 %.not46, label %.thread55, label %.critedge
 
-.thread55:                                        ; preds = %81, %80, %84
-  %.13359 = phi i1 [ %.0326387, %84 ], [ %.0326387, %80 ], [ true, %81 ]
+.thread55:                                        ; preds = %80, %81, %84
+  %.13359 = phi i1 [ %.0326387, %84 ], [ true, %81 ], [ %.0326387, %80 ]
   %86 = getelementptr inbounds nuw i8, ptr %75, i64 1
   %87 = load i8, ptr %75, align 1, !tbaa !24
   %.not42 = icmp eq i8 %87, 0
   br i1 %.not42, label %.critedge, label %.lr.ph88
 
 .critedge:                                        ; preds = %67, %69, %74, %64, %.thread55, %84, %.lr.ph.preheader, %49, %61, %.thread
-  %.2 = phi i32 [ -13, %.thread ], [ -43, %61 ], [ 0, %49 ], [ 0, %.lr.ph.preheader ], [ -11, %84 ], [ 0, %.thread55 ], [ -5, %64 ], [ -11, %74 ], [ -5, %69 ], [ -5, %67 ]
+  %.2 = phi i32 [ -43, %61 ], [ -13, %.thread ], [ 0, %49 ], [ 0, %.lr.ph.preheader ], [ -11, %84 ], [ 0, %.thread55 ], [ -11, %74 ], [ -5, %67 ], [ -5, %64 ], [ -5, %69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -710,7 +710,7 @@ switch.lookup108:                                 ; preds = %60
   br label %76
 
 76:                                               ; preds = %switch.lookup108, %60, %switch.lookup104, %58, %switch.lookup100, %55, %switch.lookup96, %52, %switch.lookup, %50, %57, %54, %62, %63, %64, %65, %66, %67, %68, %69, %70
-  %.0 = phi ptr [ @.str.14, %62 ], [ @.str.51, %63 ], [ @.str.52, %64 ], [ @.str.53, %65 ], [ @.str.54, %66 ], [ @.str.55, %67 ], [ @.str.56, %68 ], [ @.str.57, %69 ], [ @.str.58, %70 ], [ @.str.14, %50 ], [ @.str.14, %52 ], [ @.str.14, %55 ], [ @.str.14, %58 ], [ @.str.14, %60 ], [ %switch.select86, %54 ], [ %switch.select90, %57 ], [ %switch.load, %switch.lookup ], [ %switch.load98, %switch.lookup96 ], [ %switch.load102, %switch.lookup100 ], [ %switch.load106, %switch.lookup104 ], [ %switch.load110, %switch.lookup108 ]
+  %.0 = phi ptr [ @.str.14, %62 ], [ @.str.51, %63 ], [ @.str.52, %64 ], [ @.str.53, %65 ], [ @.str.54, %66 ], [ @.str.55, %67 ], [ @.str.56, %68 ], [ @.str.57, %69 ], [ @.str.58, %70 ], [ @.str.14, %50 ], [ %switch.load, %switch.lookup ], [ @.str.14, %55 ], [ %switch.load110, %switch.lookup108 ], [ @.str.14, %60 ], [ %switch.load102, %switch.lookup100 ], [ @.str.14, %58 ], [ %switch.select86, %54 ], [ %switch.select90, %57 ], [ @.str.14, %52 ], [ %switch.load98, %switch.lookup96 ], [ %switch.load106, %switch.lookup104 ]
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %78 = load i32, ptr %77, align 4, !tbaa !32
   %.not81 = icmp eq i32 %78, 0

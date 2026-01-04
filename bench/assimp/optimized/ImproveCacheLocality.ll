@@ -1090,7 +1090,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit184:                 ; preds = %303, %304
   br label %_ZNSt5stackIjSt6vectorIjSaIjEEED2Ev.exit189
 
 _ZNSt5stackIjSt6vectorIjSaIjEEED2Ev.exit189:      ; preds = %_ZNSt12_Vector_baseIjSaIjEED2Ev.exit.i, %.body155, %311
-  %.pn140.pn.pn.pn.pn349 = phi { ptr, i32 } [ %.pn140.pn.pn.pn344562, %.body155 ], [ %.pn140.pn.pn.pn344562, %311 ], [ %110, %_ZNSt12_Vector_baseIjSaIjEED2Ev.exit.i ]
+  %.pn140.pn.pn.pn.pn349 = phi { ptr, i32 } [ %.pn140.pn.pn.pn344562, %311 ], [ %.pn140.pn.pn.pn344562, %.body155 ], [ %110, %_ZNSt12_Vector_baseIjSaIjEED2Ev.exit.i ]
   %.not.i.i190 = icmp eq ptr %.sroa.0294.0, null
   br i1 %.not.i.i190, label %.body, label %315
 
@@ -1118,7 +1118,7 @@ _ZNSt5stackIjSt6vectorIjSaIjEEED2Ev.exit189:      ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit197
 
 _ZNSt6vectorIjSaIjEED2Ev.exit197:                 ; preds = %322, %.body, %.body.thread
-  %.pn140.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %115, %.body.thread ], [ %.pn140.pn.pn.pn.pn349, %.body ], [ %.pn140.pn.pn.pn.pn.pn.pn574, %322 ]
+  %.pn140.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn140.pn.pn.pn.pn.pn.pn574, %322 ], [ %115, %.body.thread ], [ %.pn140.pn.pn.pn.pn349, %.body ]
   %.not.i.i.i198 = icmp eq ptr %.sroa.0318.1, null
   br i1 %.not.i.i.i198, label %_ZNSt6vectorIjSaIjEED2Ev.exit200, label %325
 
@@ -1136,7 +1136,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit200:                 ; preds = %_ZNSt6vectorIjSaIjE
   resume { ptr, i32 } %.pn140.pn.pn.pn.pn.pn.pn.pn359
 
 328:                                              ; preds = %27, %3, %16, %_ZNSt6vectorIjSaIjEED2Ev.exit181, %25
-  %.0 = phi float [ 0.000000e+00, %25 ], [ %261, %_ZNSt6vectorIjSaIjEED2Ev.exit181 ], [ 0.000000e+00, %16 ], [ 0.000000e+00, %3 ], [ 0.000000e+00, %27 ]
+  %.0 = phi float [ 0.000000e+00, %25 ], [ 0.000000e+00, %3 ], [ %261, %_ZNSt6vectorIjSaIjEED2Ev.exit181 ], [ 0.000000e+00, %16 ], [ 0.000000e+00, %27 ]
   ret float %.0
 }
 

@@ -442,7 +442,7 @@ _ZNK9LogTagSet9level_forEPK9LogOutput.exit139:    ; preds = %.lr.ph184, %120
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph179, %_ZNK9LogTagSet9level_forEPK9LogOutput.exit139, %125, %.critedge
-  %.5 = phi i64 [ %.4182, %_ZNK9LogTagSet9level_forEPK9LogOutput.exit139 ], [ %132, %.critedge ], [ %.4182, %125 ], [ %.4182, %.lr.ph179 ]
+  %.5 = phi i64 [ %.4182, %_ZNK9LogTagSet9level_forEPK9LogOutput.exit139 ], [ %.4182, %125 ], [ %132, %.critedge ], [ %.4182, %.lr.ph179 ]
   %.099 = load ptr, ptr %.099183, align 8
   %.not123 = icmp eq ptr %.099, null
   br i1 %.not123, label %._crit_edge185, label %.lr.ph184, !llvm.loop !15
@@ -706,7 +706,7 @@ define hidden noundef zeroext i1 @_ZN9LogOutput13parse_optionsEPKcP12outputStrea
   br label %.loopexit
 
 .loopexit:                                        ; preds = %33, %.loopexit.sink.split, %25
-  %.028.shrunk = phi i1 [ false, %25 ], [ false, %.loopexit.sink.split ], [ true, %33 ]
+  %.028.shrunk = phi i1 [ false, %.loopexit.sink.split ], [ false, %25 ], [ true, %33 ]
   tail call void @_ZN2os4freeEPv(ptr noundef %8) #13
   br label %39
 

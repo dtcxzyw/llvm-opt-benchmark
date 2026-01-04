@@ -606,7 +606,7 @@ define internal void @"_ZN64_$LT$$RF$mut$u20$W$u20$as$u20$ruff_formatter..buffer
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %47, %39, %6
-  %common.resume.op.i = phi { ptr, i32 } [ %40, %47 ], [ %40, %39 ], [ %7, %6 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %40, %39 ], [ %40, %47 ], [ %7, %6 ]
   resume { ptr, i32 } %common.resume.op.i
 
 48:                                               ; preds = %6
@@ -1298,7 +1298,7 @@ define noundef align 8 ptr @"_ZN100_$LT$ruff_formatter..printer..queue..PrintQue
   br i1 %12, label %15, label %13
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17hb1a782f05f96b331E.exit": ; preds = %27, %20, %15, %13, %1
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ %9, %13 ], [ %23, %27 ], [ null, %15 ], [ null, %20 ]
+  %.sroa.0.0 = phi ptr [ null, %1 ], [ %9, %13 ], [ null, %15 ], [ %23, %27 ], [ null, %20 ]
   ret ptr %.sroa.0.0
 
 13:                                               ; preds = %4
@@ -1367,7 +1367,7 @@ define noundef align 8 ptr @"_ZN100_$LT$ruff_formatter..printer..queue..PrintQue
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17he98a4c18ce99862fE.exit"
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17he98a4c18ce99862fE.exit": ; preds = %1, %15, %13, %5
-  %.sroa.0.0 = phi ptr [ %10, %5 ], [ %..i.i, %15 ], [ null, %13 ], [ null, %1 ]
+  %.sroa.0.0 = phi ptr [ null, %13 ], [ %10, %5 ], [ %..i.i, %15 ], [ null, %1 ]
   ret ptr %.sroa.0.0
 }
 
@@ -1516,7 +1516,7 @@ define noundef align 8 ptr @"_ZN99_$LT$ruff_formatter..printer..queue..FitsQueue
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17hfce5e6482a9cc5c7E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17hfce5e6482a9cc5c7E.exit": ; preds = %27, %13, %29
-  %.sroa.0.0.i2 = phi ptr [ %31, %29 ], [ %9, %13 ], [ %23, %27 ]
+  %.sroa.0.0.i2 = phi ptr [ %31, %29 ], [ %23, %27 ], [ %9, %13 ]
   ret ptr %.sroa.0.0.i2
 }
 
@@ -1619,7 +1619,7 @@ define internal fastcc noundef align 8 ptr @"_ZN99_$LT$ruff_formatter..printer..
   br label %"_ZN100_$LT$ruff_formatter..printer..queue..PrintQueue$u20$as$u20$ruff_formatter..printer..queue..Queue$GT$3pop17h1c2dba19db47e764E.exit"
 
 "_ZN100_$LT$ruff_formatter..printer..queue..PrintQueue$u20$as$u20$ruff_formatter..printer..queue..Queue$GT$3pop17h1c2dba19db47e764E.exit": ; preds = %2, %53, %46, %41, %39, %"_ZN100_$LT$ruff_formatter..printer..queue..PrintQueue$u20$as$u20$ruff_formatter..printer..queue..Queue$GT$11extend_back17h56daa174292a5535E.exit"
-  %.sroa.0.0 = phi ptr [ null, %"_ZN100_$LT$ruff_formatter..printer..queue..PrintQueue$u20$as$u20$ruff_formatter..printer..queue..Queue$GT$11extend_back17h56daa174292a5535E.exit" ], [ %35, %39 ], [ %49, %53 ], [ null, %41 ], [ null, %46 ], [ null, %2 ]
+  %.sroa.0.0 = phi ptr [ null, %46 ], [ null, %"_ZN100_$LT$ruff_formatter..printer..queue..PrintQueue$u20$as$u20$ruff_formatter..printer..queue..Queue$GT$11extend_back17h56daa174292a5535E.exit" ], [ %35, %39 ], [ null, %41 ], [ %49, %53 ], [ null, %2 ]
   ret ptr %.sroa.0.0
 }
 
@@ -1677,7 +1677,7 @@ select.unfold:                                    ; preds = %15, %13, %1
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17hb003884e3cddc5fcE.exit"
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17hb003884e3cddc5fcE.exit": ; preds = %5, %15, %select.unfold, %22
-  %.sroa.0.0.i2 = phi ptr [ %..i.i, %22 ], [ null, %select.unfold ], [ %10, %5 ], [ %17, %15 ]
+  %.sroa.0.0.i2 = phi ptr [ null, %select.unfold ], [ %..i.i, %22 ], [ %17, %15 ], [ %10, %5 ]
   ret ptr %.sroa.0.0.i2
 }
 
@@ -1849,9 +1849,9 @@ define i64 @"_ZN121_$LT$ruff_formatter..printer..queue..SingleEntryPredicate$u20
   br label %30
 
 30:                                               ; preds = %14, %27, %24, %2, %5, %7, %22, %28
-  %.sroa.5.sroa.0.0 = phi i64 [ %.sroa.515.0.extract.shift, %28 ], [ %.sroa.5.0.extract.shift, %22 ], [ 0, %7 ], [ 0, %5 ], [ 0, %2 ], [ 0, %24 ], [ 0, %27 ], [ 0, %14 ]
-  %.sroa.4.0 = phi i64 [ %29, %28 ], [ %23, %22 ], [ 0, %7 ], [ 0, %5 ], [ 256, %2 ], [ 0, %24 ], [ 256, %27 ], [ 0, %14 ]
-  %.sroa.03.0 = phi i64 [ %29, %28 ], [ %23, %22 ], [ 4, %7 ], [ 4, %5 ], [ 4, %2 ], [ 4, %24 ], [ 4, %27 ], [ 4, %14 ]
+  %.sroa.5.sroa.0.0 = phi i64 [ %.sroa.5.0.extract.shift, %22 ], [ %.sroa.515.0.extract.shift, %28 ], [ 0, %7 ], [ 0, %5 ], [ 0, %2 ], [ 0, %24 ], [ 0, %27 ], [ 0, %14 ]
+  %.sroa.4.0 = phi i64 [ %23, %22 ], [ %29, %28 ], [ 0, %7 ], [ 0, %5 ], [ 256, %2 ], [ 0, %24 ], [ 256, %27 ], [ 0, %14 ]
+  %.sroa.03.0 = phi i64 [ %23, %22 ], [ %29, %28 ], [ 4, %7 ], [ 4, %5 ], [ 4, %2 ], [ 4, %24 ], [ 4, %27 ], [ 4, %14 ]
   %.sroa.4.0.insert.shift = and i64 %.sroa.4.0, 65280
   %.sroa.4.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift, %.sroa.5.sroa.0.0
   %.sroa.03.0.insert.ext = and i64 %.sroa.03.0, 255
@@ -2076,10 +2076,10 @@ define hidden void @_ZN14ruff_formatter6format17heaba8ba0fe0e72daE(ptr dead_on_u
           to label %.thread33 unwind label %68
 
 .thread26:                                        ; preds = %.thread33, %25, %73
-  %.pn725 = phi { ptr, i32 } [ %lpad.thr_comm, %73 ], [ %26, %25 ], [ %.pn5, %.thread33 ]
+  %.pn725 = phi { ptr, i32 } [ %26, %25 ], [ %lpad.thr_comm, %73 ], [ %.pn5, %.thread33 ]
   resume { ptr, i32 } %.pn725
 
-73:                                               ; preds = %18, %4
+73:                                               ; preds = %4, %18
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr78drop_in_place$LT$ruff_formatter..format_element..document..IrFormatContext$GT$17he024b9340f078e56E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1) #24

@@ -3466,8 +3466,8 @@ define internal fastcc i64 @mem_rw(ptr %.200.val, ptr noundef %0, i64 noundef %1
   br i1 %63, label %.thread4, label %.lr.ph10.split
 
 .thread4:                                         ; preds = %.thread3, %.lr.ph10.split, %.thread3.us, %38, %24, %.critedge, %.split.us
-  %64 = phi i64 [ %30, %.critedge ], [ %.us-phi, %.split.us ], [ %5, %24 ], [ %42, %.thread3.us ], [ %30, %38 ], [ %60, %.thread3 ], [ %49, %.lr.ph10.split ]
-  %65 = phi i64 [ -14, %.critedge ], [ %57, %.split.us ], [ 0, %24 ], [ %43, %.thread3.us ], [ -14, %38 ], [ %61, %.thread3 ], [ -14, %.lr.ph10.split ]
+  %64 = phi i64 [ %.us-phi, %.split.us ], [ %30, %.critedge ], [ %5, %24 ], [ %42, %.thread3.us ], [ %30, %38 ], [ %60, %.thread3 ], [ %49, %.lr.ph10.split ]
+  %65 = phi i64 [ %57, %.split.us ], [ -14, %.critedge ], [ 0, %24 ], [ %43, %.thread3.us ], [ -14, %38 ], [ %61, %.thread3 ], [ -14, %.lr.ph10.split ]
   store i64 %64, ptr %2, align 8
   tail call void @mmput(ptr noundef nonnull %.200.val) #18
   br label %.thread1
@@ -5298,7 +5298,7 @@ define internal ptr @proc_map_files_lookup(ptr noundef readonly captures(none) %
   br label %85
 
 85:                                               ; preds = %.critedge, %83, %45, %10
-  %86 = phi ptr [ %84, %83 ], [ inttoptr (i64 -2 to ptr), %45 ], [ inttoptr (i64 -13 to ptr), %10 ], [ inttoptr (i64 -2 to ptr), %.critedge ]
+  %86 = phi ptr [ inttoptr (i64 -2 to ptr), %.critedge ], [ %84, %83 ], [ inttoptr (i64 -2 to ptr), %45 ], [ inttoptr (i64 -13 to ptr), %10 ]
   %87 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %88 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %87, i32 -1, ptr nonnull elementtype(i32) %87) #18, !srcloc !6
   %89 = icmp eq i32 %88, 1
@@ -5561,7 +5561,7 @@ define internal i32 @map_files_get_link(ptr noundef readonly captures(none) %0, 
   br label %94
 
 94:                                               ; preds = %.thread10, %93, %63
-  %95 = phi i32 [ %60, %63 ], [ %91, %93 ], [ -22, %.thread10 ]
+  %95 = phi i32 [ -22, %.thread10 ], [ %60, %63 ], [ %91, %93 ]
   call void @mmput(ptr noundef nonnull %12) #18
   br label %96
 
@@ -5732,8 +5732,8 @@ define internal i32 @map_files_d_revalidate(ptr noundef readonly captures(none) 
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread
 
-.thread:                                          ; preds = %61, %.critedge
-  %.ph = phi i32 [ 0, %.critedge ], [ %58, %61 ]
+.thread:                                          ; preds = %.critedge, %61
+  %.ph = phi i32 [ %58, %61 ], [ 0, %.critedge ]
   call void @mmput(ptr noundef nonnull %15) #18
   br label %110
 

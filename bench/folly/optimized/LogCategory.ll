@@ -1202,7 +1202,7 @@ _ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.ex
   br label %.loopexit
 
 .loopexit:                                        ; preds = %188, %202, %204, %181
-  %.merged = phi { ptr, i32 } [ %.pn, %181 ], [ %205, %204 ], [ %203, %202 ], [ %189, %188 ]
+  %.merged = phi { ptr, i32 } [ %.pn, %181 ], [ %203, %202 ], [ %205, %204 ], [ %189, %188 ]
   call void @_ZNSt6vectorISt10shared_ptrIN5folly10LogHandlerEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZNSt5arrayISt10shared_ptrIN5folly10LogHandlerEELm5EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %7) #15
@@ -1967,7 +1967,7 @@ _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitFo
   br label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit.thread
 
 _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit.thread: ; preds = %30, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit, %22, %19
-  %35 = phi i32 [ %.pre, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit ], [ %24, %22 ], [ %20, %19 ], [ %31, %30 ]
+  %35 = phi i32 [ %20, %19 ], [ %.pre, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit ], [ %24, %22 ], [ %31, %30 ]
   %36 = load atomic i32, ptr %12 monotonic, align 4
   %37 = and i32 %35, -1536
   %or.cond = icmp eq i32 %37, 0
@@ -2160,7 +2160,7 @@ _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlock
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.backedge
 
-.thread81:                                        ; preds = %.thread79, %71, %70, %98
+.thread81:                                        ; preds = %.thread79, %70, %71, %98
   ret i1 true
 }
 
@@ -3522,7 +3522,7 @@ _ZN5folly9LockedPtrINS_12SynchronizedISt6vectorISt10shared_ptrINS_10LogHandlerEE
   br label %_ZNSt10shared_ptrIN5folly10LogHandlerEEaSERKS2_.exit, !llvm.loop !159
 
 .loopexit:                                        ; preds = %49, %33, %44
-  %.sroa.06.1.i.i.i = phi ptr [ %45, %44 ], [ %.sroa.06.0.i.i.i, %33 ], [ %51, %49 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %33 ], [ %45, %44 ], [ %51, %49 ]
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 24
   %58 = load ptr, ptr %57, align 8, !tbaa !86
   store ptr %58, ptr %.sroa.012.022, align 8, !tbaa !86
@@ -3607,7 +3607,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i:
   store ptr %61, ptr %59, align 8, !tbaa !45
   br label %_ZNSt10shared_ptrIN5folly10LogHandlerEEaSERKS2_.exit
 
-_ZNSt10shared_ptrIN5folly10LogHandlerEEaSERKS2_.exit: ; preds = %.lr.ph.i.i.i.i.i, %.preheader, %..loopexit_crit_edge21.i.i.i.i.i, %37, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i, %.loopexit
+_ZNSt10shared_ptrIN5folly10LogHandlerEEaSERKS2_.exit: ; preds = %.lr.ph.i.i.i.i.i, %.preheader, %37, %..loopexit_crit_edge21.i.i.i.i.i, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i, %.loopexit
   %94 = getelementptr inbounds nuw i8, ptr %.sroa.012.022, i64 16
   %.not = icmp eq ptr %94, %19
   br i1 %.not, label %._crit_edge, label %30

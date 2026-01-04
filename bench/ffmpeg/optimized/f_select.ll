@@ -100,7 +100,7 @@ define internal range(i32 -2147483648, 1) i32 @aselect_init(ptr noundef %0) #0 {
   br label %10
 
 10:                                               ; preds = %6, %1, %9
-  %.0 = phi i32 [ -22, %9 ], [ %4, %1 ], [ 0, %6 ]
+  %.0 = phi i32 [ %4, %1 ], [ -22, %9 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -264,7 +264,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br label %get_concatdec_select.exit.i
 
 get_concatdec_select.exit.i:                      ; preds = %67, %66, %62, %37
-  %.2.i.i = phi nsz double [ %..i.i, %67 ], [ -1.000000e+00, %66 ], [ 0.000000e+00, %62 ], [ 0x7FF8000000000000, %37 ]
+  %.2.i.i = phi nsz double [ 0.000000e+00, %62 ], [ %..i.i, %67 ], [ -1.000000e+00, %66 ], [ 0x7FF8000000000000, %37 ]
   %73 = getelementptr inbounds nuw i8, ptr %10, i64 312
   store double %.2.i.i, ptr %73, align 8, !tbaa !39
   %74 = getelementptr inbounds nuw i8, ptr %13, i64 32
@@ -519,7 +519,7 @@ get_scene_score.exit.i:                           ; preds = %._crit_edge.i.i, %1
   br label %231
 
 231:                                              ; preds = %221, %220, %218
-  %.sink128.i = phi i32 [ %230, %221 ], [ -1, %218 ], [ 0, %220 ]
+  %.sink128.i = phi i32 [ -1, %218 ], [ %230, %221 ], [ 0, %220 ]
   %232 = getelementptr inbounds nuw i8, ptr %10, i64 456
   store i32 %.sink128.i, ptr %232, align 8, !tbaa !73
   %233 = load ptr, ptr %191, align 8, !tbaa !27

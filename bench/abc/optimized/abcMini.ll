@@ -585,19 +585,19 @@ Mini_AigCreatePi.exit:                            ; preds = %Mini_AigCreatePi.ex
   br label %Mini_AigAnd.exit.sink.split
 
 Mini_AigAnd.exit.sink.split:                      ; preds = %107, %109, %99, %101, %91, %93, %83, %85
-  %.sink114 = phi ptr [ %84, %83 ], [ %86, %85 ], [ %92, %91 ], [ %94, %93 ], [ %100, %99 ], [ %102, %101 ], [ %108, %107 ], [ %110, %109 ]
-  %.sink113 = phi i32 [ 255, %83 ], [ 255, %85 ], [ %88, %91 ], [ %88, %93 ], [ 255, %99 ], [ 255, %101 ], [ %104, %107 ], [ %104, %109 ]
-  %.sink32.i.ph = phi i32 [ %64, %83 ], [ %64, %85 ], [ %64, %91 ], [ %64, %93 ], [ %73, %99 ], [ %73, %101 ], [ %73, %107 ], [ %73, %109 ]
-  %.sink.i.ph = phi i32 [ %73, %83 ], [ %73, %85 ], [ %73, %91 ], [ %73, %93 ], [ %64, %99 ], [ %64, %101 ], [ %64, %107 ], [ %64, %109 ]
+  %.sink114 = phi ptr [ %102, %101 ], [ %86, %85 ], [ %94, %93 ], [ %84, %83 ], [ %92, %91 ], [ %100, %99 ], [ %108, %107 ], [ %110, %109 ]
+  %.sink113 = phi i32 [ 255, %101 ], [ 255, %85 ], [ %88, %93 ], [ 255, %83 ], [ %88, %91 ], [ 255, %99 ], [ %104, %107 ], [ %104, %109 ]
+  %.sink32.i.ph = phi i32 [ %73, %101 ], [ %64, %85 ], [ %64, %93 ], [ %64, %83 ], [ %64, %91 ], [ %73, %99 ], [ %73, %107 ], [ %73, %109 ]
+  %.sink.i.ph = phi i32 [ %64, %101 ], [ %73, %85 ], [ %73, %93 ], [ %73, %83 ], [ %73, %91 ], [ %64, %99 ], [ %64, %107 ], [ %64, %109 ]
   store ptr %.sink114, ptr %4, align 8, !tbaa !3
   store i32 %.sink113, ptr %2, align 8, !tbaa !47
   br label %Mini_AigAnd.exit
 
 Mini_AigAnd.exit:                                 ; preds = %Mini_AigAnd.exit.sink.split, %95, %79
-  %.pre.i.i5093 = phi ptr [ %44, %79 ], [ %44, %95 ], [ %.sink114, %Mini_AigAnd.exit.sink.split ]
-  %.pre.i13.i89 = phi ptr [ %44, %79 ], [ %45, %95 ], [ %.sink114, %Mini_AigAnd.exit.sink.split ]
-  %.sink32.i = phi i32 [ %64, %79 ], [ %73, %95 ], [ %.sink32.i.ph, %Mini_AigAnd.exit.sink.split ]
-  %.sink.i = phi i32 [ %73, %79 ], [ %64, %95 ], [ %.sink.i.ph, %Mini_AigAnd.exit.sink.split ]
+  %.pre.i.i5093 = phi ptr [ %44, %95 ], [ %44, %79 ], [ %.sink114, %Mini_AigAnd.exit.sink.split ]
+  %.pre.i13.i89 = phi ptr [ %45, %95 ], [ %44, %79 ], [ %.sink114, %Mini_AigAnd.exit.sink.split ]
+  %.sink32.i = phi i32 [ %73, %95 ], [ %64, %79 ], [ %.sink32.i.ph, %Mini_AigAnd.exit.sink.split ]
+  %.sink.i = phi i32 [ %64, %95 ], [ %73, %79 ], [ %.sink.i.ph, %Mini_AigAnd.exit.sink.split ]
   %111 = add nsw i32 %74, 1
   store i32 %111, ptr %5, align 4, !tbaa !31
   %112 = sext i32 %74 to i64
@@ -689,8 +689,8 @@ Mini_AigAnd.exit:                                 ; preds = %Mini_AigAnd.exit.si
   br label %Mini_AigCreatePo.exit.sink.split
 
 Mini_AigCreatePo.exit.sink.split:                 ; preds = %154, %156, %146, %148
-  %.sink116 = phi ptr [ %147, %146 ], [ %149, %148 ], [ %155, %154 ], [ %157, %156 ]
-  %.sink115 = phi i32 [ 255, %146 ], [ 255, %148 ], [ %151, %154 ], [ %151, %156 ]
+  %.sink116 = phi ptr [ %149, %148 ], [ %147, %146 ], [ %155, %154 ], [ %157, %156 ]
+  %.sink115 = phi i32 [ 255, %148 ], [ 255, %146 ], [ %151, %154 ], [ %151, %156 ]
   store ptr %.sink116, ptr %4, align 8, !tbaa !3
   store i32 %.sink115, ptr %2, align 8, !tbaa !47
   br label %Mini_AigCreatePo.exit

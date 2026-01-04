@@ -377,7 +377,7 @@ define range(i32 -2147483647, -2147483648) i32 @ff_rdt_parse_header(ptr noundef 
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %20, %12, %14, %7, %.critedge, %137
-  %.2 = phi i32 [ %139, %137 ], [ -1, %.critedge ], [ -1, %7 ], [ -1, %20 ], [ -1, %12 ], [ -1094995529, %14 ]
+  %.2 = phi i32 [ -1, %.critedge ], [ %139, %137 ], [ -1, %7 ], [ -1, %20 ], [ -1, %12 ], [ -1094995529, %14 ]
   ret i32 %.2
 }
 
@@ -511,7 +511,7 @@ define i32 @ff_rdt_parse_packet(ptr noundef captures(none) %0, ptr noundef %1, p
   br label %71
 
 71:                                               ; preds = %.thread, %34, %30, %10, %58, %57, %20
-  %.042 = phi i32 [ -1, %57 ], [ %70, %58 ], [ %29, %20 ], [ -1, %10 ], [ -1, %30 ], [ %35, %34 ], [ -1, %.thread ]
+  %.042 = phi i32 [ -1, %10 ], [ -1, %30 ], [ -1, %57 ], [ %70, %58 ], [ %29, %20 ], [ %35, %34 ], [ -1, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -670,7 +670,7 @@ define internal i32 @rdt_init(ptr noundef %0, i32 %1, ptr noundef initializes((0
   br label %10
 
 10:                                               ; preds = %5, %3, %8
-  %.0 = phi i32 [ %9, %8 ], [ -12, %3 ], [ %6, %5 ]
+  %.0 = phi i32 [ -12, %3 ], [ %9, %8 ], [ %6, %5 ]
   ret i32 %.0
 }
 
@@ -897,7 +897,7 @@ rdt_parse_b64buf.exit:                            ; preds = %13, %26
   br i1 %.not54, label %47, label %.thread58, !llvm.loop !82
 
 .thread58:                                        ; preds = %126, %77, %.preheader, %68, %rdt_parse_b64buf.exit, %38, %34
-  %.4 = phi i32 [ 0, %34 ], [ 0, %38 ], [ 0, %rdt_parse_b64buf.exit ], [ %66, %68 ], [ 0, %.preheader ], [ 0, %126 ], [ -12, %77 ]
+  %.4 = phi i32 [ 0, %rdt_parse_b64buf.exit ], [ %66, %68 ], [ 0, %34 ], [ 0, %38 ], [ 0, %.preheader ], [ 0, %126 ], [ -12, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.4
 }
@@ -1016,7 +1016,7 @@ define internal range(i32 -2147483648, 2) i32 @rdt_parse_packet(ptr readnone cap
   store ptr %45, ptr %47, align 8, !tbaa !86
   br label %.thread
 
-.thread:                                          ; preds = %39, %33
+.thread:                                          ; preds = %33, %39
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %49
 
@@ -1069,7 +1069,7 @@ define internal range(i32 -2147483648, 2) i32 @rdt_parse_packet(ptr readnone cap
   br label %81
 
 81:                                               ; preds = %.thread44, %71
-  %.1 = phi i32 [ %80, %71 ], [ %28, %.thread44 ]
+  %.1 = phi i32 [ %28, %.thread44 ], [ %80, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.1
 }

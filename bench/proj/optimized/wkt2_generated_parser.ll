@@ -848,8 +848,8 @@ define hidden range(i32 0, 3) i32 @pj_wkt2_parse(ptr noundef %0) local_unnamed_a
   br i1 %137, label %.thread288, label %138
 
 138:                                              ; preds = %134, %131, %.thread264, %121, %136
-  %.5237 = phi ptr [ %.0233, %121 ], [ %.0233, %136 ], [ %.0233, %.thread264 ], [ %129, %131 ], [ %.0233, %134 ]
-  %.8 = phi i32 [ %.4, %121 ], [ %.4, %136 ], [ %.4, %.thread264 ], [ %.4, %131 ], [ -2, %134 ]
+  %.5237 = phi ptr [ %.0233, %121 ], [ %.0233, %136 ], [ %129, %131 ], [ %.0233, %.thread264 ], [ %.0233, %134 ]
+  %.8 = phi i32 [ %.4, %121 ], [ %.4, %136 ], [ %.4, %131 ], [ %.4, %.thread264 ], [ -2, %134 ]
   br label %139
 
 139:                                              ; preds = %154, %138
@@ -901,9 +901,9 @@ define hidden range(i32 0, 3) i32 @pj_wkt2_parse(ptr noundef %0) local_unnamed_a
   br label %.thread288
 
 .thread288:                                       ; preds = %.thread252, %136, %152, %.thread245
-  %.6169286 = phi ptr [ %.5168, %.thread245 ], [ %.1164, %152 ], [ %.1164, %136 ], [ %.1164, %.thread252 ]
-  %.0186282 = phi i32 [ 2, %.thread245 ], [ 1, %152 ], [ 0, %.thread252 ], [ 1, %136 ]
-  %.6238278 = phi ptr [ %.2, %.thread245 ], [ %.5237, %152 ], [ %.0233, %136 ], [ %.0233, %.thread252 ]
+  %.6169286 = phi ptr [ %.1164, %152 ], [ %.5168, %.thread245 ], [ %.1164, %136 ], [ %.1164, %.thread252 ]
+  %.0186282 = phi i32 [ 1, %152 ], [ 2, %.thread245 ], [ 1, %136 ], [ 0, %.thread252 ]
+  %.6238278 = phi ptr [ %.5237, %152 ], [ %.2, %.thread245 ], [ %.0233, %136 ], [ %.0233, %.thread252 ]
   %.not226 = icmp eq ptr %.6169286, %3
   br i1 %.not226, label %162, label %.thread288.thread
 
@@ -1105,9 +1105,9 @@ yytnamerr.exit120:                                ; preds = %.preheader31.split.
   br label %.thread7
 
 .thread7:                                         ; preds = %38, %24, %yytnamerr.exit, %3, %._crit_edge, %62, %61, %60, %59, %58
-  %.0836 = phi i32 [ %.588, %62 ], [ %.588, %59 ], [ %.588, %60 ], [ %.588, %61 ], [ %.588, %._crit_edge ], [ 0, %3 ], [ 1, %yytnamerr.exit ], [ %.588, %58 ], [ 1, %24 ], [ 1, %38 ]
-  %.0904 = phi i64 [ %.696, %62 ], [ %.696, %59 ], [ %.696, %60 ], [ %.696, %61 ], [ %.696, %._crit_edge ], [ 0, %3 ], [ %.122.i, %yytnamerr.exit ], [ %.696, %58 ], [ %.122.i, %24 ], [ %.122.i, %38 ]
-  %.079 = phi ptr [ @.str.10, %62 ], [ @.str.7, %59 ], [ @.str.8, %60 ], [ @.str.9, %61 ], [ @.str, %._crit_edge ], [ @.str, %3 ], [ @.str.6, %yytnamerr.exit ], [ @.str.6, %58 ], [ @.str.6, %24 ], [ @.str.6, %38 ]
+  %.0836 = phi i32 [ %.588, %61 ], [ %.588, %62 ], [ %.588, %58 ], [ %.588, %59 ], [ %.588, %60 ], [ %.588, %._crit_edge ], [ 0, %3 ], [ 1, %yytnamerr.exit ], [ 1, %24 ], [ 1, %38 ]
+  %.0904 = phi i64 [ %.696, %61 ], [ %.696, %62 ], [ %.696, %58 ], [ %.696, %59 ], [ %.696, %60 ], [ %.696, %._crit_edge ], [ 0, %3 ], [ %.122.i, %yytnamerr.exit ], [ %.122.i, %24 ], [ %.122.i, %38 ]
+  %.079 = phi ptr [ @.str.9, %61 ], [ @.str.10, %62 ], [ @.str.6, %58 ], [ @.str.7, %59 ], [ @.str.8, %60 ], [ @.str, %._crit_edge ], [ @.str, %3 ], [ @.str.6, %yytnamerr.exit ], [ @.str.6, %24 ], [ @.str.6, %38 ]
   %strlen.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.079)
   %63 = shl nsw i32 %.0836, 1
   %64 = sext i32 %63 to i64
@@ -1207,15 +1207,15 @@ yystpcpy.exit.i:                                  ; preds = %.preheader.i
   br label %yytnamerr.exit131
 
 yytnamerr.exit131:                                ; preds = %73, %.preheader, %yystpcpy.exit.i, %.split.us.thread.i
-  %.sink41 = phi i64 [ %99, %yystpcpy.exit.i ], [ %.020.i, %.split.us.thread.i ], [ 1, %.preheader ], [ 1, %73 ]
-  %.sink = phi i64 [ 2, %yystpcpy.exit.i ], [ 2, %.split.us.thread.i ], [ 1, %.preheader ], [ 1, %73 ]
-  %.1 = phi i32 [ %79, %yystpcpy.exit.i ], [ %79, %.split.us.thread.i ], [ %.0, %.preheader ], [ %.0, %73 ]
+  %.sink41 = phi i64 [ %.020.i, %.split.us.thread.i ], [ %99, %yystpcpy.exit.i ], [ 1, %.preheader ], [ 1, %73 ]
+  %.sink = phi i64 [ 2, %.split.us.thread.i ], [ 2, %yystpcpy.exit.i ], [ 1, %.preheader ], [ 1, %73 ]
+  %.1 = phi i32 [ %79, %.split.us.thread.i ], [ %79, %yystpcpy.exit.i ], [ %.0, %.preheader ], [ %.0, %73 ]
   %100 = getelementptr inbounds i8, ptr %.071, i64 %.sink41
   %101 = getelementptr inbounds nuw i8, ptr %.180, i64 %.sink
   br label %.preheader
 
 .critedge:                                        ; preds = %yytnamerr.exit120, %.preheader, %70, %.thread7
-  %.7 = phi i32 [ 2, %.thread7 ], [ 1, %70 ], [ 0, %.preheader ], [ 2, %yytnamerr.exit120 ]
+  %.7 = phi i32 [ 1, %70 ], [ 0, %.preheader ], [ 2, %.thread7 ], [ 2, %yytnamerr.exit120 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.7
 }

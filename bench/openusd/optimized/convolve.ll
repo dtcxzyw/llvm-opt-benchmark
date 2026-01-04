@@ -3034,8 +3034,8 @@ define hidden void @av1_highbd_dist_wtd_convolve_2d_c(ptr noundef readonly captu
   br label %clip_pixel_highbd.exit.us
 
 clip_pixel_highbd.exit.us:                        ; preds = %._crit_edge132.us, %130, %132, %134
-  %.sink197 = phi i32 [ %135, %134 ], [ %133, %132 ], [ %131, %130 ], [ %105, %._crit_edge132.us ]
-  %invariant.gep195.sink = phi ptr [ %invariant.gep193, %134 ], [ %invariant.gep193, %132 ], [ %invariant.gep193, %130 ], [ %invariant.gep195, %._crit_edge132.us ]
+  %.sink197 = phi i32 [ %131, %130 ], [ %135, %134 ], [ %133, %132 ], [ %105, %._crit_edge132.us ]
+  %invariant.gep195.sink = phi ptr [ %invariant.gep193, %130 ], [ %invariant.gep193, %134 ], [ %invariant.gep193, %132 ], [ %invariant.gep195, %._crit_edge132.us ]
   %136 = trunc i32 %.sink197 to i16
   %gep196 = getelementptr i16, ptr %invariant.gep195.sink, i64 %indvars.iv170
   store i16 %136, ptr %gep196, align 2
@@ -3189,8 +3189,8 @@ define hidden void @av1_highbd_dist_wtd_convolve_x_c(ptr noundef readonly captur
   br label %clip_pixel_highbd.exit.us
 
 clip_pixel_highbd.exit.us:                        ; preds = %._crit_edge.us, %78, %80, %82
-  %.sink101 = phi i32 [ %83, %82 ], [ %81, %80 ], [ %79, %78 ], [ %58, %._crit_edge.us ]
-  %invariant.gep99.sink = phi ptr [ %invariant.gep97, %82 ], [ %invariant.gep97, %80 ], [ %invariant.gep97, %78 ], [ %invariant.gep99, %._crit_edge.us ]
+  %.sink101 = phi i32 [ %79, %78 ], [ %83, %82 ], [ %81, %80 ], [ %58, %._crit_edge.us ]
+  %invariant.gep99.sink = phi ptr [ %invariant.gep97, %78 ], [ %invariant.gep97, %82 ], [ %invariant.gep97, %80 ], [ %invariant.gep99, %._crit_edge.us ]
   %84 = trunc i32 %.sink101 to i16
   %gep100 = getelementptr i16, ptr %invariant.gep99.sink, i64 %indvars.iv84
   store i16 %84, ptr %gep100, align 2
@@ -3355,8 +3355,8 @@ define hidden void @av1_highbd_dist_wtd_convolve_y_c(ptr noundef readonly captur
   br label %clip_pixel_highbd.exit.us
 
 clip_pixel_highbd.exit.us:                        ; preds = %._crit_edge.us, %78, %80, %82
-  %.sink104 = phi i32 [ %83, %82 ], [ %81, %80 ], [ %79, %78 ], [ %58, %._crit_edge.us ]
-  %invariant.gep102.sink = phi ptr [ %invariant.gep100, %82 ], [ %invariant.gep100, %80 ], [ %invariant.gep100, %78 ], [ %invariant.gep102, %._crit_edge.us ]
+  %.sink104 = phi i32 [ %79, %78 ], [ %83, %82 ], [ %81, %80 ], [ %58, %._crit_edge.us ]
+  %invariant.gep102.sink = phi ptr [ %invariant.gep100, %78 ], [ %invariant.gep100, %82 ], [ %invariant.gep100, %80 ], [ %invariant.gep102, %._crit_edge.us ]
   %84 = trunc i32 %.sink104 to i16
   %gep103 = getelementptr i16, ptr %invariant.gep102.sink, i64 %indvars.iv85
   store i16 %84, ptr %gep103, align 2
@@ -3509,8 +3509,8 @@ define hidden void @av1_highbd_dist_wtd_convolve_2d_copy_c(ptr noundef readonly 
   br label %clip_pixel_highbd.exit.us
 
 clip_pixel_highbd.exit.us:                        ; preds = %39, %65, %67, %69
-  %.sink72 = phi i32 [ %70, %69 ], [ %68, %67 ], [ %66, %65 ], [ %43, %39 ]
-  %invariant.gep70.sink = phi ptr [ %invariant.gep68, %69 ], [ %invariant.gep68, %67 ], [ %invariant.gep68, %65 ], [ %invariant.gep70, %39 ]
+  %.sink72 = phi i32 [ %66, %65 ], [ %70, %69 ], [ %68, %67 ], [ %43, %39 ]
+  %invariant.gep70.sink = phi ptr [ %invariant.gep68, %65 ], [ %invariant.gep68, %69 ], [ %invariant.gep68, %67 ], [ %invariant.gep70, %39 ]
   %71 = trunc i32 %.sink72 to i16
   %gep71 = getelementptr i16, ptr %invariant.gep70.sink, i64 %indvars.iv
   store i16 %71, ptr %gep71, align 2
@@ -4032,8 +4032,8 @@ define hidden void @av1_highbd_convolve_2d_facade(ptr noundef %0, i32 noundef %1
   br label %clip_pixel_highbd.exit.us.i.i
 
 clip_pixel_highbd.exit.us.i.i:                    ; preds = %103, %101, %99, %73
-  %.sink72.i.i = phi i32 [ %104, %103 ], [ %102, %101 ], [ %100, %99 ], [ %77, %73 ]
-  %invariant.gep70.sink.i.i = phi ptr [ %invariant.gep68.i.i, %103 ], [ %invariant.gep68.i.i, %101 ], [ %invariant.gep68.i.i, %99 ], [ %invariant.gep66.i.i, %73 ]
+  %.sink72.i.i = phi i32 [ %100, %99 ], [ %104, %103 ], [ %102, %101 ], [ %77, %73 ]
+  %invariant.gep70.sink.i.i = phi ptr [ %invariant.gep68.i.i, %99 ], [ %invariant.gep68.i.i, %103 ], [ %invariant.gep68.i.i, %101 ], [ %invariant.gep66.i.i, %73 ]
   %105 = trunc i32 %.sink72.i.i to i16
   %gep71.i.i = getelementptr i16, ptr %invariant.gep70.sink.i.i, i64 %indvars.iv.i.i
   store i16 %105, ptr %gep71.i.i, align 2

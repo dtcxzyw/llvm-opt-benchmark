@@ -34,9 +34,9 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   br label %5
 
 3:                                                ; preds = %307, %73
-  %.1262 = phi ptr [ %287, %307 ], [ %74, %73 ]
-  %.1251 = phi ptr [ %286, %307 ], [ %.2252, %73 ]
-  %.1 = phi i32 [ %308, %307 ], [ %68, %73 ]
+  %.1262 = phi ptr [ %74, %73 ], [ %287, %307 ]
+  %.1251 = phi ptr [ %.2252, %73 ], [ %286, %307 ]
+  %.1 = phi i32 [ %68, %73 ], [ %308, %307 ]
   %4 = getelementptr inbounds nuw i8, ptr %.1251, i64 1
   br label %5
 
@@ -541,9 +541,9 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   br label %283
 
 283:                                              ; preds = %80, %277, %268, %261, %258, %243, %232, %226, %223, %208, %202, %199, %184, %183, %175, %172, %157, %142, %139, %124, %122, %120, %118, %117, %102, %101, %87
-  %.sroa.89.0 = phi i32 [ %.sroa.89.0.copyload, %80 ], [ %.sroa.89.0.copyload, %87 ], [ %.sroa.89.0.copyload, %101 ], [ %.sroa.89.0.copyload, %102 ], [ %.sroa.89.0.copyload, %117 ], [ %.sroa.89.0.copyload, %118 ], [ %.sroa.89.0.copyload, %120 ], [ %.sroa.89.0.copyload, %122 ], [ %.sroa.89.0.copyload, %124 ], [ %.sroa.89.0.copyload, %139 ], [ %.sroa.89.0.copyload, %142 ], [ %.sroa.89.0.copyload, %157 ], [ %.sroa.89.0.copyload, %172 ], [ %.sroa.89.0.copyload, %175 ], [ %.sroa.89.0.copyload89, %183 ], [ %.sroa.89.0.copyload, %184 ], [ %.sroa.89.0.copyload, %199 ], [ %.sroa.89.0.copyload, %202 ], [ %.sroa.89.0.copyload, %208 ], [ %.sroa.89.0.copyload, %223 ], [ %.sroa.89.0.copyload, %226 ], [ %.sroa.89.0.copyload, %232 ], [ %.sroa.89.0.copyload, %243 ], [ %.sroa.89.0.copyload, %258 ], [ %.sroa.89.0.copyload, %261 ], [ %.sroa.89.0.copyload, %268 ], [ %.sroa.89.0.copyload, %277 ]
-  %.sroa.76.0 = phi i32 [ %.sroa.76.0.copyload, %80 ], [ %.sroa.76.0.copyload, %87 ], [ 0, %101 ], [ %116, %102 ], [ %.sroa.76.0.copyload, %117 ], [ %.sroa.76.0.copyload, %118 ], [ %.sroa.76.0.copyload, %120 ], [ %.sroa.76.0.copyload, %122 ], [ %138, %124 ], [ 1, %139 ], [ %.sroa.76.0.copyload, %142 ], [ %171, %157 ], [ 1, %172 ], [ %.sroa.76.0.copyload, %175 ], [ %.sroa.76.0.copyload85, %183 ], [ %198, %184 ], [ 1, %199 ], [ %.sroa.76.0.copyload, %202 ], [ %222, %208 ], [ 1, %223 ], [ %.sroa.76.0.copyload, %226 ], [ %.sroa.76.0.copyload, %232 ], [ %257, %243 ], [ 1, %258 ], [ %.sroa.76.0.copyload, %261 ], [ %.sroa.76.0.copyload, %268 ], [ %.sroa.76.0.copyload, %277 ]
-  %.sroa.0.0 = phi ptr [ %.sroa.0.0.copyload, %80 ], [ %.sroa.0.0.copyload, %87 ], [ null, %101 ], [ %110, %102 ], [ null, %117 ], [ %119, %118 ], [ %121, %120 ], [ %123, %122 ], [ %132, %124 ], [ %140, %139 ], [ %143, %142 ], [ %165, %157 ], [ %173, %172 ], [ %176, %175 ], [ %.sroa.0.0.copyload82, %183 ], [ %192, %184 ], [ %200, %199 ], [ %203, %202 ], [ %216, %208 ], [ %224, %223 ], [ %227, %226 ], [ %233, %232 ], [ %251, %243 ], [ %259, %258 ], [ %262, %261 ], [ %269, %268 ], [ %278, %277 ]
+  %.sroa.89.0 = phi i32 [ %.sroa.89.0.copyload, %80 ], [ %.sroa.89.0.copyload, %87 ], [ %.sroa.89.0.copyload, %101 ], [ %.sroa.89.0.copyload, %102 ], [ %.sroa.89.0.copyload, %117 ], [ %.sroa.89.0.copyload, %118 ], [ %.sroa.89.0.copyload, %120 ], [ %.sroa.89.0.copyload, %277 ], [ %.sroa.89.0.copyload, %122 ], [ %.sroa.89.0.copyload, %124 ], [ %.sroa.89.0.copyload, %139 ], [ %.sroa.89.0.copyload, %142 ], [ %.sroa.89.0.copyload, %157 ], [ %.sroa.89.0.copyload, %172 ], [ %.sroa.89.0.copyload, %175 ], [ %.sroa.89.0.copyload89, %183 ], [ %.sroa.89.0.copyload, %268 ], [ %.sroa.89.0.copyload, %184 ], [ %.sroa.89.0.copyload, %199 ], [ %.sroa.89.0.copyload, %202 ], [ %.sroa.89.0.copyload, %208 ], [ %.sroa.89.0.copyload, %223 ], [ %.sroa.89.0.copyload, %226 ], [ %.sroa.89.0.copyload, %232 ], [ %.sroa.89.0.copyload, %243 ], [ %.sroa.89.0.copyload, %258 ], [ %.sroa.89.0.copyload, %261 ]
+  %.sroa.76.0 = phi i32 [ %.sroa.76.0.copyload, %80 ], [ %.sroa.76.0.copyload, %87 ], [ 0, %101 ], [ %116, %102 ], [ %.sroa.76.0.copyload, %117 ], [ %.sroa.76.0.copyload, %118 ], [ %.sroa.76.0.copyload, %120 ], [ %.sroa.76.0.copyload, %277 ], [ %.sroa.76.0.copyload, %122 ], [ %138, %124 ], [ 1, %139 ], [ %.sroa.76.0.copyload, %142 ], [ %171, %157 ], [ 1, %172 ], [ %.sroa.76.0.copyload, %175 ], [ %.sroa.76.0.copyload85, %183 ], [ %.sroa.76.0.copyload, %268 ], [ %198, %184 ], [ 1, %199 ], [ %.sroa.76.0.copyload, %202 ], [ %222, %208 ], [ 1, %223 ], [ %.sroa.76.0.copyload, %226 ], [ %.sroa.76.0.copyload, %232 ], [ %257, %243 ], [ 1, %258 ], [ %.sroa.76.0.copyload, %261 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.0.copyload, %80 ], [ %.sroa.0.0.copyload, %87 ], [ null, %101 ], [ %110, %102 ], [ null, %117 ], [ %119, %118 ], [ %121, %120 ], [ %278, %277 ], [ %123, %122 ], [ %132, %124 ], [ %140, %139 ], [ %143, %142 ], [ %165, %157 ], [ %173, %172 ], [ %176, %175 ], [ %.sroa.0.0.copyload82, %183 ], [ %269, %268 ], [ %192, %184 ], [ %200, %199 ], [ %203, %202 ], [ %216, %208 ], [ %224, %223 ], [ %227, %226 ], [ %233, %232 ], [ %251, %243 ], [ %259, %258 ], [ %262, %261 ]
   %284 = sub nsw i64 0, %84
   %285 = getelementptr inbounds %union.YYSTYPE, ptr %.2263, i64 %284
   %286 = getelementptr inbounds i8, ptr %.2252, i64 %284
@@ -599,8 +599,8 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread319, %50, %309, %312
-  %.0259 = phi i32 [ 2, %312 ], [ 1, %309 ], [ 1, %50 ], [ 0, %.thread319 ]
-  %.5 = phi ptr [ %.0247, %312 ], [ %.1248, %309 ], [ %.1248, %50 ], [ %.1248, %.thread319 ]
+  %.0259 = phi i32 [ 2, %312 ], [ 1, %50 ], [ 1, %309 ], [ 0, %.thread319 ]
+  %.5 = phi ptr [ %.0247, %312 ], [ %.1248, %50 ], [ %.1248, %309 ], [ %.1248, %.thread319 ]
   %.not302 = icmp eq ptr %.5, %1
   br i1 %.not302, label %313, label %.loopexit.thread
 

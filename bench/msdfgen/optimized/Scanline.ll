@@ -37,7 +37,7 @@ sw.bb4:                                           ; preds = %entry
   br label %return
 
 return:                                           ; preds = %entry, %sw.bb4, %sw.bb2, %sw.bb1, %sw.bb
-  %retval.0 = phi i1 [ %cmp, %sw.bb ], [ %tobool, %sw.bb1 ], [ %cmp3, %sw.bb2 ], [ %cmp5, %sw.bb4 ], [ false, %entry ]
+  %retval.0 = phi i1 [ %cmp5, %sw.bb4 ], [ %cmp, %sw.bb ], [ %tobool, %sw.bb1 ], [ %cmp3, %sw.bb2 ], [ false, %entry ]
   ret i1 %retval.0
 }
 
@@ -155,7 +155,7 @@ sw.bb4.i:                                         ; preds = %if.then
   br label %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit
 
 _ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit: ; preds = %if.then, %sw.bb.i, %sw.bb1.i, %sw.bb2.i, %sw.bb4.i
-  %retval.0.i = phi i1 [ %cmp.i69, %sw.bb.i ], [ %tobool.i, %sw.bb1.i ], [ %cmp3.i, %sw.bb2.i ], [ %cmp5.i, %sw.bb4.i ], [ false, %if.then ]
+  %retval.0.i = phi i1 [ %cmp5.i, %sw.bb4.i ], [ %cmp.i69, %sw.bb.i ], [ %tobool.i, %sw.bb1.i ], [ %cmp3.i, %sw.bb2.i ], [ false, %if.then ]
   %frombool = zext i1 %retval.0.i to i8
   %inc = add nsw i32 %ai.0150, 1
   %cmp27 = icmp slt i32 %inc, %conv18
@@ -168,9 +168,9 @@ cond.true28:                                      ; preds = %_ZN7msdfgen17interp
   br label %if.end
 
 if.end:                                           ; preds = %cond.true28, %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit, %while.body
-  %ai.1 = phi i32 [ %ai.0150, %while.body ], [ %inc, %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit ], [ %inc, %cond.true28 ]
-  %ax.1 = phi double [ %ax.0152, %while.body ], [ %xTo, %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit ], [ %9, %cond.true28 ]
-  %aInside.1 = phi i8 [ %aInside.0154, %while.body ], [ %frombool, %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit ], [ %frombool, %cond.true28 ]
+  %ai.1 = phi i32 [ %ai.0150, %while.body ], [ %inc, %cond.true28 ], [ %inc, %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit ]
+  %ax.1 = phi double [ %ax.0152, %while.body ], [ %9, %cond.true28 ], [ %xTo, %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit ]
+  %aInside.1 = phi i8 [ %aInside.0154, %while.body ], [ %frombool, %cond.true28 ], [ %frombool, %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit ]
   %cmp36 = fcmp oeq double %bx.0153, %cond.i
   %cmp41 = icmp slt i32 %bi.0151, %conv40
   %or.cond174 = select i1 %cmp36, i1 %cmp41, i1 false
@@ -206,7 +206,7 @@ sw.bb4.i82:                                       ; preds = %if.then42
   br label %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit92
 
 _ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit92: ; preds = %if.then42, %sw.bb.i90, %sw.bb1.i87, %sw.bb2.i85, %sw.bb4.i82
-  %retval.0.i84 = phi i1 [ %cmp.i91, %sw.bb.i90 ], [ %tobool.i89, %sw.bb1.i87 ], [ %cmp3.i86, %sw.bb2.i85 ], [ %cmp5.i83, %sw.bb4.i82 ], [ false, %if.then42 ]
+  %retval.0.i84 = phi i1 [ %cmp5.i83, %sw.bb4.i82 ], [ %cmp.i91, %sw.bb.i90 ], [ %tobool.i89, %sw.bb1.i87 ], [ %cmp3.i86, %sw.bb2.i85 ], [ false, %if.then42 ]
   %frombool48 = zext i1 %retval.0.i84 to i8
   %inc49 = add nsw i32 %bi.0151, 1
   %cmp53 = icmp slt i32 %inc49, %conv40
@@ -219,9 +219,9 @@ cond.true54:                                      ; preds = %_ZN7msdfgen17interp
   br label %if.end62
 
 if.end62:                                         ; preds = %cond.true54, %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit92, %if.end
-  %bInside.1 = phi i8 [ %bInside.0149, %if.end ], [ %frombool48, %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit92 ], [ %frombool48, %cond.true54 ]
-  %bi.1 = phi i32 [ %bi.0151, %if.end ], [ %inc49, %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit92 ], [ %inc49, %cond.true54 ]
-  %bx.1 = phi double [ %bx.0153, %if.end ], [ %xTo, %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit92 ], [ %11, %cond.true54 ]
+  %bInside.1 = phi i8 [ %bInside.0149, %if.end ], [ %frombool48, %cond.true54 ], [ %frombool48, %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit92 ]
+  %bi.1 = phi i32 [ %bi.0151, %if.end ], [ %inc49, %cond.true54 ], [ %inc49, %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit92 ]
+  %bx.1 = phi double [ %bx.0153, %if.end ], [ %11, %cond.true54 ], [ %xTo, %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit92 ]
   %cmp = fcmp olt double %ax.1, %xFrom
   %cmp13 = fcmp olt double %bx.1, %xFrom
   %12 = select i1 %cmp, i1 true, i1 %cmp13
@@ -277,7 +277,7 @@ sw.bb4.i107:                                      ; preds = %if.then84
   br label %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit117
 
 _ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit117: ; preds = %if.then84, %sw.bb.i115, %sw.bb1.i112, %sw.bb2.i110, %sw.bb4.i107
-  %retval.0.i109 = phi i1 [ %cmp.i116, %sw.bb.i115 ], [ %tobool.i114, %sw.bb1.i112 ], [ %cmp3.i111, %sw.bb2.i110 ], [ %cmp5.i108, %sw.bb4.i107 ], [ false, %if.then84 ]
+  %retval.0.i109 = phi i1 [ %cmp5.i108, %sw.bb4.i107 ], [ %cmp.i116, %sw.bb.i115 ], [ %tobool.i114, %sw.bb1.i112 ], [ %cmp3.i111, %sw.bb2.i110 ], [ false, %if.then84 ]
   %frombool90 = zext i1 %retval.0.i109 to i8
   %inc91 = add nsw i32 %ai.2163, 1
   %cmp95 = icmp slt i32 %inc91, %conv82
@@ -290,9 +290,9 @@ cond.true96:                                      ; preds = %_ZN7msdfgen17interp
   br label %if.end104
 
 if.end104:                                        ; preds = %cond.true96, %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit117, %while.body69
-  %ai.3 = phi i32 [ %ai.2163, %while.body69 ], [ %inc91, %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit117 ], [ %inc91, %cond.true96 ]
-  %ax.3 = phi double [ %ax.2165, %while.body69 ], [ %xTo, %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit117 ], [ %14, %cond.true96 ]
-  %aInside.3 = phi i8 [ %aInside.2167, %while.body69 ], [ %frombool90, %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit117 ], [ %frombool90, %cond.true96 ]
+  %ai.3 = phi i32 [ %ai.2163, %while.body69 ], [ %inc91, %cond.true96 ], [ %inc91, %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit117 ]
+  %ax.3 = phi double [ %ax.2165, %while.body69 ], [ %14, %cond.true96 ], [ %xTo, %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit117 ]
+  %aInside.3 = phi i8 [ %aInside.2167, %while.body69 ], [ %frombool90, %cond.true96 ], [ %frombool90, %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit117 ]
   %cmp105 = fcmp oeq double %bx.2166, %cond.i100
   %cmp110 = icmp slt i32 %bi.2164, %conv109
   %or.cond176 = select i1 %cmp105, i1 %cmp110, i1 false
@@ -328,7 +328,7 @@ sw.bb4.i130:                                      ; preds = %if.then111
   br label %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit140
 
 _ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit140: ; preds = %if.then111, %sw.bb.i138, %sw.bb1.i135, %sw.bb2.i133, %sw.bb4.i130
-  %retval.0.i132 = phi i1 [ %cmp.i139, %sw.bb.i138 ], [ %tobool.i137, %sw.bb1.i135 ], [ %cmp3.i134, %sw.bb2.i133 ], [ %cmp5.i131, %sw.bb4.i130 ], [ false, %if.then111 ]
+  %retval.0.i132 = phi i1 [ %cmp5.i131, %sw.bb4.i130 ], [ %cmp.i139, %sw.bb.i138 ], [ %tobool.i137, %sw.bb1.i135 ], [ %cmp3.i134, %sw.bb2.i133 ], [ false, %if.then111 ]
   %frombool117 = zext i1 %retval.0.i132 to i8
   %inc118 = add nsw i32 %bi.2164, 1
   %cmp122 = icmp slt i32 %inc118, %conv109
@@ -341,9 +341,9 @@ cond.true123:                                     ; preds = %_ZN7msdfgen17interp
   br label %if.end131
 
 if.end131:                                        ; preds = %cond.true123, %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit140, %if.end104
-  %bInside.3 = phi i8 [ %bInside.2162, %if.end104 ], [ %frombool117, %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit140 ], [ %frombool117, %cond.true123 ]
-  %bi.3 = phi i32 [ %bi.2164, %if.end104 ], [ %inc118, %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit140 ], [ %inc118, %cond.true123 ]
-  %bx.3 = phi double [ %bx.2166, %if.end104 ], [ %xTo, %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit140 ], [ %16, %cond.true123 ]
+  %bInside.3 = phi i8 [ %bInside.2162, %if.end104 ], [ %frombool117, %cond.true123 ], [ %frombool117, %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit140 ]
+  %bi.3 = phi i32 [ %bi.2164, %if.end104 ], [ %inc118, %cond.true123 ], [ %inc118, %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit140 ]
+  %bx.3 = phi double [ %bx.2166, %if.end104 ], [ %16, %cond.true123 ], [ %xTo, %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit140 ]
   %cmp65 = fcmp olt double %ax.3, %xTo
   %cmp67 = fcmp olt double %bx.3, %xTo
   %17 = select i1 %cmp65, i1 true, i1 %cmp67
@@ -692,8 +692,8 @@ if.end24.loopexit20.split.loop.exit21:            ; preds = %land.rhs
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %while.cond, %do.body, %if.end24.loopexit, %if.end24.loopexit20.split.loop.exit21
-  %index.1.sink = phi i32 [ %7, %if.end24.loopexit ], [ %8, %if.end24.loopexit20.split.loop.exit21 ], [ 0, %do.body ], [ %smax, %while.cond ]
-  %retval.0.ph = phi i32 [ %7, %if.end24.loopexit ], [ %8, %if.end24.loopexit20.split.loop.exit21 ], [ -1, %do.body ], [ %smax, %while.cond ]
+  %index.1.sink = phi i32 [ 0, %do.body ], [ %7, %if.end24.loopexit ], [ %8, %if.end24.loopexit20.split.loop.exit21 ], [ %smax, %while.cond ]
+  %retval.0.ph = phi i32 [ -1, %do.body ], [ %7, %if.end24.loopexit ], [ %8, %if.end24.loopexit20.split.loop.exit21 ], [ %smax, %while.cond ]
   store i32 %index.1.sink, ptr %lastIndex, align 8
   br label %return
 
@@ -764,8 +764,8 @@ if.end24.loopexit20.split.loop.exit21.i:          ; preds = %land.rhs.i
   br label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %while.cond.i, %do.body.i, %if.end24.loopexit20.split.loop.exit21.i, %if.end24.loopexit.i
-  %index.1.sink.i = phi i32 [ %7, %if.end24.loopexit.i ], [ %8, %if.end24.loopexit20.split.loop.exit21.i ], [ 0, %do.body.i ], [ %smax.i, %while.cond.i ]
-  %retval.0.ph.i = phi i32 [ %7, %if.end24.loopexit.i ], [ %8, %if.end24.loopexit20.split.loop.exit21.i ], [ -1, %do.body.i ], [ %smax.i, %while.cond.i ]
+  %index.1.sink.i = phi i32 [ 0, %do.body.i ], [ %7, %if.end24.loopexit.i ], [ %8, %if.end24.loopexit20.split.loop.exit21.i ], [ %smax.i, %while.cond.i ]
+  %retval.0.ph.i = phi i32 [ -1, %do.body.i ], [ %7, %if.end24.loopexit.i ], [ %8, %if.end24.loopexit20.split.loop.exit21.i ], [ %smax.i, %while.cond.i ]
   store i32 %index.1.sink.i, ptr %lastIndex.i, align 8
   %9 = add nsw i32 %retval.0.ph.i, 1
   br label %_ZNK7msdfgen8Scanline6moveToEd.exit
@@ -841,7 +841,7 @@ if.end24.loopexit20.split.loop.exit21.i:          ; preds = %land.rhs.i
   br label %_ZNK7msdfgen8Scanline6moveToEd.exit
 
 _ZNK7msdfgen8Scanline6moveToEd.exit:              ; preds = %while.cond.i, %if.end24.loopexit.i, %if.end24.loopexit20.split.loop.exit21.i
-  %index.1.sink.i = phi i32 [ %7, %if.end24.loopexit.i ], [ %8, %if.end24.loopexit20.split.loop.exit21.i ], [ %smax.i, %while.cond.i ]
+  %index.1.sink.i = phi i32 [ %8, %if.end24.loopexit20.split.loop.exit21.i ], [ %7, %if.end24.loopexit.i ], [ %smax.i, %while.cond.i ]
   store i32 %index.1.sink.i, ptr %lastIndex.i, align 8
   %cmp = icmp sgt i32 %index.1.sink.i, -1
   br i1 %cmp, label %if.then, label %return
@@ -924,7 +924,7 @@ if.end24.loopexit20.split.loop.exit21.i.i:        ; preds = %land.rhs.i.i
   br label %_ZNK7msdfgen8Scanline6moveToEd.exit.i
 
 _ZNK7msdfgen8Scanline6moveToEd.exit.i:            ; preds = %while.cond.i.i, %if.end24.loopexit20.split.loop.exit21.i.i, %if.end24.loopexit.i.i
-  %index.1.sink.i.i = phi i32 [ %7, %if.end24.loopexit.i.i ], [ %8, %if.end24.loopexit20.split.loop.exit21.i.i ], [ %smax.i.i, %while.cond.i.i ]
+  %index.1.sink.i.i = phi i32 [ %8, %if.end24.loopexit20.split.loop.exit21.i.i ], [ %7, %if.end24.loopexit.i.i ], [ %smax.i.i, %while.cond.i.i ]
   store i32 %index.1.sink.i.i, ptr %lastIndex.i.i, align 8
   %cmp.i = icmp sgt i32 %index.1.sink.i.i, -1
   br i1 %cmp.i, label %if.then.i, label %_ZNK7msdfgen8Scanline16sumIntersectionsEd.exit
@@ -963,7 +963,7 @@ sw.bb4.i:                                         ; preds = %_ZNK7msdfgen8Scanli
   br label %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit
 
 _ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit: ; preds = %_ZNK7msdfgen8Scanline16sumIntersectionsEd.exit, %sw.bb.i, %sw.bb1.i, %sw.bb2.i, %sw.bb4.i
-  %retval.0.i1 = phi i1 [ %cmp.i2, %sw.bb.i ], [ %tobool.i, %sw.bb1.i ], [ %cmp3.i, %sw.bb2.i ], [ %cmp5.i, %sw.bb4.i ], [ false, %_ZNK7msdfgen8Scanline16sumIntersectionsEd.exit ]
+  %retval.0.i1 = phi i1 [ %cmp5.i, %sw.bb4.i ], [ %cmp.i2, %sw.bb.i ], [ %tobool.i, %sw.bb1.i ], [ %cmp3.i, %sw.bb2.i ], [ false, %_ZNK7msdfgen8Scanline16sumIntersectionsEd.exit ]
   ret i1 %retval.0.i1
 }
 

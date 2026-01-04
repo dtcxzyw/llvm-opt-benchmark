@@ -66,7 +66,7 @@ safe_malloc_add_2op_.exit.i:                      ; preds = %10
   br i1 %.not27.i, label %convert_string.exit, label %.lr.ph.i, !llvm.loop !10
 
 convert_string.exit:                              ; preds = %20, %current_charset.exit, %9, %10, %safe_malloc_add_2op_.exit.i, %14
-  %.022.i = phi i32 [ %8, %9 ], [ -1, %current_charset.exit ], [ -1, %safe_malloc_add_2op_.exit.i ], [ -1, %10 ], [ 3, %14 ], [ 3, %20 ]
+  %.022.i = phi i32 [ -1, %current_charset.exit ], [ %8, %9 ], [ -1, %safe_malloc_add_2op_.exit.i ], [ -1, %10 ], [ 3, %14 ], [ 3, %20 ]
   ret i32 %.022.i
 }
 
@@ -128,7 +128,7 @@ safe_malloc_add_2op_.exit.i:                      ; preds = %10
   br i1 %.not27.i, label %convert_string.exit, label %.lr.ph.i, !llvm.loop !10
 
 convert_string.exit:                              ; preds = %20, %current_charset.exit, %9, %10, %safe_malloc_add_2op_.exit.i, %14
-  %.022.i = phi i32 [ %8, %9 ], [ -1, %current_charset.exit ], [ -1, %safe_malloc_add_2op_.exit.i ], [ -1, %10 ], [ 3, %14 ], [ 3, %20 ]
+  %.022.i = phi i32 [ -1, %current_charset.exit ], [ %8, %9 ], [ -1, %safe_malloc_add_2op_.exit.i ], [ -1, %10 ], [ 3, %14 ], [ 3, %20 ]
   ret i32 %.022.i
 }
 

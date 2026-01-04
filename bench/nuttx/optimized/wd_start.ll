@@ -101,9 +101,9 @@ define range(i32 -22, 1) i32 @wd_start(ptr noundef %0, i64 noundef %1, ptr nound
   br label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %31, %..critedge_crit_edge97, %.preheader
-  %.069.lcssa = phi ptr [ %.06993.lcssa, %..critedge_crit_edge97 ], [ %19, %.preheader ], [ %.06794160, %31 ]
-  %.067.lcssa = phi ptr [ %.06794.lcssa, %..critedge_crit_edge97 ], [ %19, %.preheader ], [ %32, %31 ]
-  %.lcssa = phi i64 [ %.lcssa156, %..critedge_crit_edge97 ], [ %22, %.preheader ], [ %36, %31 ]
+  %.069.lcssa = phi ptr [ %19, %.preheader ], [ %.06993.lcssa, %..critedge_crit_edge97 ], [ %.06794160, %31 ]
+  %.067.lcssa = phi ptr [ %19, %.preheader ], [ %.06794.lcssa, %..critedge_crit_edge97 ], [ %32, %31 ]
+  %.lcssa = phi i64 [ %22, %.preheader ], [ %.lcssa156, %..critedge_crit_edge97 ], [ %36, %31 ]
   %.not84101 = icmp sgt i64 %.lcssa, %17
   br i1 %.not84101, label %.critedge.._crit_edge_crit_edge, label %.lr.ph104
 
@@ -176,7 +176,7 @@ define range(i32 -22, 1) i32 @wd_start(ptr noundef %0, i64 noundef %1, ptr nound
   br label %60
 
 60:                                               ; preds = %53, %52, %58, %57, %29, %28
-  %.1 = phi i64 [ %17, %29 ], [ %17, %28 ], [ %46, %52 ], [ %46, %53 ], [ %55, %58 ], [ %55, %57 ]
+  %.1 = phi i64 [ %17, %29 ], [ %17, %28 ], [ %46, %52 ], [ %46, %53 ], [ %55, %57 ], [ %55, %58 ]
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.1, ptr %61, align 8
   call void @nxsched_resume_timer() #4
@@ -286,7 +286,7 @@ wd_expiration.exit.thread26:                      ; preds = %.lr.ph.i, %wd_expir
   br label %wd_expiration.exit.thread
 
 wd_expiration.exit.thread:                        ; preds = %34, %20, %wd_expiration.exit.thread26, %wd_expiration.exit
-  %42 = phi i32 [ 0, %wd_expiration.exit ], [ %spec.select, %wd_expiration.exit.thread26 ], [ 0, %20 ], [ 0, %34 ]
+  %42 = phi i32 [ %spec.select, %wd_expiration.exit.thread26 ], [ 0, %wd_expiration.exit ], [ 0, %20 ], [ 0, %34 ]
   ret i32 %42
 }
 

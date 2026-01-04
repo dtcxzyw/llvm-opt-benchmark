@@ -961,7 +961,7 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiED2Ev.exit: ; preds = %_ZN
   br label %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit.thread
 
 _ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit.thread: ; preds = %13, %2, %30, %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiED2Ev.exit, %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit
-  %106 = phi i1 [ true, %30 ], [ true, %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiED2Ev.exit ], [ false, %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit ], [ false, %2 ], [ false, %13 ]
+  %106 = phi i1 [ false, %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit ], [ true, %30 ], [ true, %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiED2Ev.exit ], [ false, %2 ], [ false, %13 ]
   ret i1 %106
 }
 
@@ -1709,7 +1709,7 @@ define dso_local noundef zeroext i1 @_ZNK4absl24synchronization_internal11GraphC
   br i1 %45, label %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet8containsEi.exit, label %.lr.ph.i.i, !llvm.loop !45
 
 _ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet8containsEi.exit: ; preds = %38, %34, %22, %13, %3
-  %46 = phi i1 [ false, %13 ], [ false, %3 ], [ true, %22 ], [ %37, %34 ], [ true, %38 ]
+  %46 = phi i1 [ false, %13 ], [ false, %3 ], [ %37, %34 ], [ true, %22 ], [ true, %38 ]
   ret i1 %46
 }
 
@@ -2834,7 +2834,7 @@ _ZSt5mergeIPiS0_S0_ET1_T_S2_T0_S3_S1_.exit.i:     ; preds = %390, %_ZSt4copyIPiS
   br i1 %exitcond.not.i93, label %_ZN4absl24synchronization_internalL7ReorderEPNS0_11GraphCycles3RepE.exit, label %395, !llvm.loop !58
 
 _ZN4absl24synchronization_internalL7ReorderEPNS0_11GraphCycles3RepE.exit: ; preds = %.lr.ph, %395, %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.exit70, %_ZSt5mergeIPiS0_S0_ET1_T_S2_T0_S3_S1_.exit.i, %32, %29, %27, %3
-  %.0 = phi i1 [ true, %3 ], [ false, %27 ], [ true, %29 ], [ true, %32 ], [ true, %_ZSt5mergeIPiS0_S0_ET1_T_S2_T0_S3_S1_.exit.i ], [ false, %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.exit70 ], [ true, %395 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %27 ], [ true, %3 ], [ true, %29 ], [ false, %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.exit70 ], [ true, %32 ], [ true, %_ZSt5mergeIPiS0_S0_ET1_T_S2_T0_S3_S1_.exit.i ], [ true, %395 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -3557,7 +3557,7 @@ define internal fastcc void @_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter_
   br i1 %60, label %50, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_T0_SI_T1_T2_.exit.us.i.i.i, !llvm.loop !67
 
 _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_T0_SI_T1_T2_.exit.us.i.i.i: ; preds = %58, %50, %.split.us.i.i.i
-  %.013.lcssa.i.i.us.i.i.i = phi i64 [ %.014.us.i.i.i, %.split.us.i.i.i ], [ %.0134.i.i.us.i.i.i, %50 ], [ %.059.i.i.us.i.i.i, %58 ]
+  %.013.lcssa.i.i.us.i.i.i = phi i64 [ %.014.us.i.i.i, %.split.us.i.i.i ], [ %.059.i.i.us.i.i.i, %58 ], [ %.0134.i.i.us.i.i.i, %50 ]
   %61 = getelementptr inbounds nuw i32, ptr %0, i64 %.013.lcssa.i.i.us.i.i.i
   store i32 %25, ptr %61, align 4, !tbaa !31
   %.not.us.i.i.i = icmp eq i64 %.014.us.i.i.i, 0

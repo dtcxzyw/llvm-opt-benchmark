@@ -234,7 +234,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1392,7 +1392,7 @@ _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED
   ret void
 
 261:                                              ; preds = %241, %258, %202, %200
-  %.pn28.pn = phi { ptr, i32 } [ %201, %200 ], [ %203, %202 ], [ %259, %258 ], [ %.pn.pn, %241 ]
+  %.pn28.pn = phi { ptr, i32 } [ %203, %202 ], [ %201, %200 ], [ %259, %258 ], [ %.pn.pn, %241 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %19) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %262
@@ -1750,7 +1750,7 @@ define noundef i32 @_ZNK6icu_7722LocaleDisplayNamesImpl10getContextE19UDisplayCo
   br label %15
 
 15:                                               ; preds = %2, %12, %9, %6, %3
-  %.0 = phi i32 [ %5, %3 ], [ %8, %6 ], [ %11, %9 ], [ %14, %12 ], [ 0, %2 ]
+  %.0 = phi i32 [ %14, %12 ], [ %5, %3 ], [ %8, %6 ], [ %11, %9 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -2090,8 +2090,8 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit156: ; preds = 
   br label %530
 
 136:                                              ; preds = %113, %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit156, %85, %110, %132
-  %.169 = phi i1 [ %51, %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit156 ], [ %51, %113 ], [ false, %85 ], [ %.not108, %110 ], [ %51, %132 ]
-  %.167 = phi i1 [ %52, %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit156 ], [ false, %113 ], [ false, %85 ], [ %52, %110 ], [ %spec.select, %132 ]
+  %.169 = phi i1 [ %51, %132 ], [ %.not108, %110 ], [ %51, %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit156 ], [ %51, %113 ], [ false, %85 ]
+  %.167 = phi i1 [ %spec.select, %132 ], [ %52, %110 ], [ %52, %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit156 ], [ false, %113 ], [ false, %85 ]
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %16) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -2950,7 +2950,7 @@ _ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit: ; preds = %520, %519
   br label %529
 
 _ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit191: ; preds = %314, %524, %525, %312, %212, %195, %172
-  %.pn140.pn.pn = phi { ptr, i32 } [ %313, %312 ], [ %.pn122, %212 ], [ %.pn119, %195 ], [ %.pn116, %172 ], [ %315, %314 ], [ %.pn140, %524 ], [ %.pn140, %525 ]
+  %.pn140.pn.pn = phi { ptr, i32 } [ %.pn116, %172 ], [ %313, %312 ], [ %.pn122, %212 ], [ %.pn119, %195 ], [ %315, %314 ], [ %.pn140, %524 ], [ %.pn140, %525 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %25) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
@@ -4440,7 +4440,7 @@ define noundef i32 @uldn_localeDisplayName_77(ptr noundef %0, ptr noundef %1, pt
   resume { ptr, i32 } %.pn
 
 39:                                               ; preds = %5, %37, %17
-  %.023 = phi i32 [ 0, %17 ], [ %.1, %37 ], [ 0, %5 ]
+  %.023 = phi i32 [ %.1, %37 ], [ 0, %17 ], [ 0, %5 ]
   ret i32 %.023
 }
 
@@ -4514,7 +4514,7 @@ define noundef i32 @uldn_languageDisplayName_77(ptr noundef %0, ptr noundef %1, 
   resume { ptr, i32 } %.pn
 
 33:                                               ; preds = %5, %25, %17
-  %.022 = phi i32 [ 0, %17 ], [ %24, %25 ], [ 0, %5 ]
+  %.022 = phi i32 [ %24, %25 ], [ 0, %17 ], [ 0, %5 ]
   ret i32 %.022
 }
 
@@ -4584,7 +4584,7 @@ define noundef i32 @uldn_scriptDisplayName_77(ptr noundef %0, ptr noundef %1, pt
   resume { ptr, i32 } %.pn
 
 33:                                               ; preds = %5, %25, %17
-  %.022 = phi i32 [ 0, %17 ], [ %24, %25 ], [ 0, %5 ]
+  %.022 = phi i32 [ %24, %25 ], [ 0, %17 ], [ 0, %5 ]
   ret i32 %.022
 }
 
@@ -4661,7 +4661,7 @@ define noundef i32 @uldn_regionDisplayName_77(ptr noundef %0, ptr noundef %1, pt
   resume { ptr, i32 } %.pn
 
 33:                                               ; preds = %5, %25, %17
-  %.022 = phi i32 [ 0, %17 ], [ %24, %25 ], [ 0, %5 ]
+  %.022 = phi i32 [ %24, %25 ], [ 0, %17 ], [ 0, %5 ]
   ret i32 %.022
 }
 
@@ -4731,7 +4731,7 @@ define noundef i32 @uldn_variantDisplayName_77(ptr noundef %0, ptr noundef %1, p
   resume { ptr, i32 } %.pn
 
 33:                                               ; preds = %5, %25, %17
-  %.022 = phi i32 [ 0, %17 ], [ %24, %25 ], [ 0, %5 ]
+  %.022 = phi i32 [ %24, %25 ], [ 0, %17 ], [ 0, %5 ]
   ret i32 %.022
 }
 
@@ -4801,7 +4801,7 @@ define noundef i32 @uldn_keyDisplayName_77(ptr noundef %0, ptr noundef %1, ptr n
   resume { ptr, i32 } %.pn
 
 33:                                               ; preds = %5, %25, %17
-  %.022 = phi i32 [ 0, %17 ], [ %24, %25 ], [ 0, %5 ]
+  %.022 = phi i32 [ %24, %25 ], [ 0, %17 ], [ 0, %5 ]
   ret i32 %.022
 }
 
@@ -4873,7 +4873,7 @@ define noundef i32 @uldn_keyValueDisplayName_77(ptr noundef %0, ptr noundef %1, 
   resume { ptr, i32 } %.pn
 
 35:                                               ; preds = %6, %27, %19
-  %.026 = phi i32 [ 0, %19 ], [ %26, %27 ], [ 0, %6 ]
+  %.026 = phi i32 [ %26, %27 ], [ 0, %19 ], [ 0, %6 ]
   ret i32 %.026
 }
 
@@ -4939,7 +4939,7 @@ define linkonce_odr void @_ZN6icu_7722LocaleDisplayNamesImpl25CapitalizationCont
   br i1 %35, label %36, label %.thread
 
 36:                                               ; preds = %33, %30, %27, %24, %21, %17
-  %.016 = phi i64 [ 4, %17 ], [ 5, %21 ], [ 0, %24 ], [ 1, %27 ], [ 2, %30 ], [ 3, %33 ]
+  %.016 = phi i64 [ 2, %30 ], [ 4, %17 ], [ 5, %21 ], [ 0, %24 ], [ 1, %27 ], [ 3, %33 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !12
   %37 = load ptr, ptr %2, align 8, !tbaa !21

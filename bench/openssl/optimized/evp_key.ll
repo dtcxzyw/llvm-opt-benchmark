@@ -291,7 +291,7 @@ define i32 @EVP_BytesToKey(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   br label %.loopexit98
 
 .loopexit98:                                      ; preds = %37, %35, %32, %28, %24, %46, %42, %.lr.ph, %19, %76
-  %.0 = phi i32 [ 0, %19 ], [ %77, %76 ], [ 0, %.lr.ph ], [ 0, %42 ], [ 0, %46 ], [ 0, %24 ], [ 0, %28 ], [ 0, %32 ], [ 0, %35 ], [ 0, %37 ]
+  %.0 = phi i32 [ 0, %19 ], [ 0, %46 ], [ %77, %76 ], [ 0, %.lr.ph ], [ 0, %42 ], [ 0, %24 ], [ 0, %28 ], [ 0, %32 ], [ 0, %35 ], [ 0, %37 ]
   call void @EVP_MD_CTX_free(ptr noundef %20) #8
   call void @OPENSSL_cleanse(ptr noundef nonnull %9, i64 noundef 64) #8
   br label %78

@@ -194,7 +194,7 @@ define noundef ptr @umsg_open_77(ptr noundef %0, i32 noundef %1, ptr noundef %2,
   resume { ptr, i32 } %.pn.pn
 
 47:                                               ; preds = %5, %11, %45, %17
-  %.031 = phi ptr [ null, %17 ], [ %28, %45 ], [ null, %11 ], [ null, %5 ]
+  %.031 = phi ptr [ %28, %45 ], [ null, %17 ], [ null, %11 ], [ null, %5 ]
   ret ptr %.031
 }
 
@@ -611,7 +611,7 @@ _ZN6icu_7713UnicodeStringC2IPDsvEERKT_.exit:      ; preds = %.loopexit.i
   br label %common.resume
 
 187:                                              ; preds = %5, %11, %185, %20
-  %.055 = phi i32 [ -1, %20 ], [ %.156, %185 ], [ -1, %11 ], [ -1, %5 ]
+  %.055 = phi i32 [ %.156, %185 ], [ -1, %20 ], [ -1, %11 ], [ -1, %5 ]
   ret i32 %.055
 }
 
@@ -1169,7 +1169,7 @@ define noundef ptr @umsg_clone_77(ptr noundef %0, ptr noundef captures(address_i
   br label %15
 
 15:                                               ; preds = %.sink.split, %9, %2, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %2 ], [ %13, %9 ], [ null, %.sink.split ]
+  %.0 = phi ptr [ null, %2 ], [ %13, %9 ], [ null, %4 ], [ null, %.sink.split ]
   ret ptr %.0
 }
 
@@ -1362,7 +1362,7 @@ define noundef i32 @umsg_toPattern_77(ptr noundef %0, ptr noundef %1, i32 nounde
   resume { ptr, i32 } %.pn
 
 38:                                               ; preds = %4, %8, %32, %17
-  %.023 = phi i32 [ -1, %17 ], [ %31, %32 ], [ -1, %8 ], [ -1, %4 ]
+  %.023 = phi i32 [ %31, %32 ], [ -1, %17 ], [ -1, %8 ], [ -1, %4 ]
   ret i32 %.023
 }
 
@@ -1550,9 +1550,9 @@ default.unreachable74:                            ; preds = %.lr.ph
   unreachable
 
 46:                                               ; preds = %43, %39, %31, %40, %41, %32, %38, %27, %28, %29
-  %.154 = phi i32 [ 0, %27 ], [ 1, %28 ], [ 3, %29 ], [ 0, %38 ], [ 2, %32 ], [ 3, %40 ], [ 3, %41 ], [ 0, %31 ], [ %spec.select, %39 ], [ %spec.select61, %43 ]
-  %.152 = phi i32 [ %.05166, %27 ], [ %.05166, %28 ], [ %30, %29 ], [ %.05166, %38 ], [ %.05166, %32 ], [ %.05166, %40 ], [ %42, %41 ], [ %.05166, %31 ], [ %.05166, %39 ], [ %44, %43 ]
-  %.1 = phi i32 [ %.05067, %27 ], [ %.05067, %28 ], [ %.05067, %29 ], [ %.2, %38 ], [ %.05067, %32 ], [ %.05067, %40 ], [ %.05067, %41 ], [ %.05067, %31 ], [ %.05067, %39 ], [ %.05067, %43 ]
+  %.154 = phi i32 [ 3, %41 ], [ 0, %27 ], [ 1, %28 ], [ 3, %29 ], [ 0, %38 ], [ %spec.select61, %43 ], [ 2, %32 ], [ 0, %31 ], [ %spec.select, %39 ], [ 3, %40 ]
+  %.152 = phi i32 [ %42, %41 ], [ %.05166, %27 ], [ %.05166, %28 ], [ %30, %29 ], [ %.05166, %38 ], [ %44, %43 ], [ %.05166, %32 ], [ %.05166, %31 ], [ %.05166, %39 ], [ %.05166, %40 ]
+  %.1 = phi i32 [ %.05067, %41 ], [ %.05067, %27 ], [ %.05067, %28 ], [ %.05067, %29 ], [ %.2, %38 ], [ %.05067, %43 ], [ %.05067, %32 ], [ %.05067, %31 ], [ %.05067, %39 ], [ %.05067, %40 ]
   %47 = icmp slt i32 %.1, %3
   br i1 %47, label %48, label %51
 
@@ -1580,12 +1580,12 @@ default.unreachable74:                            ; preds = %.lr.ph
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %52, %21, %55, %._crit_edge
-  %.4 = phi i32 [ %54, %55 ], [ %.3, %._crit_edge ], [ 0, %21 ], [ %54, %52 ]
+  %.4 = phi i32 [ %54, %55 ], [ 0, %21 ], [ %.3, %._crit_edge ], [ %54, %52 ]
   %58 = tail call i32 @u_terminateUChars_77(ptr noundef %2, i32 noundef %3, i32 noundef %.4, ptr noundef nonnull %4)
   br label %59
 
 59:                                               ; preds = %5, %7, %._crit_edge.thread, %16
-  %.0 = phi i32 [ -1, %16 ], [ %58, %._crit_edge.thread ], [ -1, %7 ], [ -1, %5 ]
+  %.0 = phi i32 [ %58, %._crit_edge.thread ], [ -1, %16 ], [ -1, %7 ], [ -1, %5 ]
   ret i32 %.0
 }
 

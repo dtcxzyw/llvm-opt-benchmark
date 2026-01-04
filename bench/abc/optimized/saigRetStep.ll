@@ -124,7 +124,7 @@ Saig_ObjIsLo.exit80:                              ; preds = %Saig_ObjIsLo.exit
   br label %Saig_ObjIsLo.exit.thread
 
 Saig_ObjIsLo.exit.thread:                         ; preds = %Saig_ObjIsLo.exit, %14, %21, %Saig_ObjIsLo.exit80, %3, %48
-  %.0 = phi ptr [ %66, %48 ], [ null, %14 ], [ null, %3 ], [ null, %Saig_ObjIsLo.exit80 ], [ null, %Saig_ObjIsLo.exit ], [ null, %21 ]
+  %.0 = phi ptr [ %66, %48 ], [ null, %Saig_ObjIsLo.exit ], [ null, %3 ], [ null, %14 ], [ null, %Saig_ObjIsLo.exit80 ], [ null, %21 ]
   ret ptr %.0
 }
 
@@ -427,9 +427,9 @@ Saig_ManRetimeNodeFwd.exit.Saig_ManRetimeNodeFwd.exit.thread_crit_edge: ; preds 
   %.pre118 = load ptr, ptr %22, align 8, !tbaa !34
   br label %.critedge
 
-Saig_ManRetimeNodeFwd.exit.thread:                ; preds = %Saig_ManRetimeNodeFwd.exit.Saig_ManRetimeNodeFwd.exit.thread_crit_edge, %67, %Saig_ObjIsLo.exit.i, %Saig_ObjIsLo.exit80.i, %51, %62, %46, %39
-  %110 = phi ptr [ %.pre, %Saig_ManRetimeNodeFwd.exit.Saig_ManRetimeNodeFwd.exit.thread_crit_edge ], [ %40, %67 ], [ %40, %Saig_ObjIsLo.exit.i ], [ %40, %Saig_ObjIsLo.exit80.i ], [ %40, %51 ], [ %40, %62 ], [ %40, %46 ], [ %40, %39 ]
-  %111 = phi ptr [ %.pre, %Saig_ManRetimeNodeFwd.exit.Saig_ManRetimeNodeFwd.exit.thread_crit_edge ], [ %41, %67 ], [ %41, %Saig_ObjIsLo.exit.i ], [ %41, %Saig_ObjIsLo.exit80.i ], [ %41, %51 ], [ %41, %62 ], [ %41, %46 ], [ %41, %39 ]
+Saig_ManRetimeNodeFwd.exit.thread:                ; preds = %Saig_ManRetimeNodeFwd.exit.Saig_ManRetimeNodeFwd.exit.thread_crit_edge, %67, %Saig_ObjIsLo.exit80.i, %62, %51, %Saig_ObjIsLo.exit.i, %46, %39
+  %110 = phi ptr [ %.pre, %Saig_ManRetimeNodeFwd.exit.Saig_ManRetimeNodeFwd.exit.thread_crit_edge ], [ %40, %67 ], [ %40, %Saig_ObjIsLo.exit80.i ], [ %40, %62 ], [ %40, %51 ], [ %40, %Saig_ObjIsLo.exit.i ], [ %40, %46 ], [ %40, %39 ]
+  %111 = phi ptr [ %.pre, %Saig_ManRetimeNodeFwd.exit.Saig_ManRetimeNodeFwd.exit.thread_crit_edge ], [ %41, %67 ], [ %41, %Saig_ObjIsLo.exit80.i ], [ %41, %62 ], [ %41, %51 ], [ %41, %Saig_ObjIsLo.exit.i ], [ %41, %46 ], [ %41, %39 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %112 = getelementptr i8, ptr %111, i64 4
   %.val58 = load i32, ptr %112, align 4, !tbaa !35
@@ -571,7 +571,7 @@ Saig_ManRetimeNodeBwd.exit.thread:                ; preds = %Saig_ManRetimeNodeB
   br i1 %exitcond116.not, label %.loopexit, label %.preheaderthread-pre-split, !llvm.loop !42
 
 .loopexit:                                        ; preds = %.critedge, %119, %.critedge2, %179, %.preheader70.lr.ph.split.us, %.preheader.lr.ph.split.us, %20, %.preheader69
-  %.150 = phi i32 [ 0, %.preheader69 ], [ 0, %20 ], [ %spec.select, %.preheader.lr.ph.split.us ], [ %spec.select142, %.preheader70.lr.ph.split.us ], [ %.293, %.critedge2 ], [ %1, %179 ], [ %.04984, %.critedge ], [ %1, %119 ]
+  %.150 = phi i32 [ 0, %20 ], [ 0, %.preheader69 ], [ %spec.select142, %.preheader70.lr.ph.split.us ], [ %1, %179 ], [ %spec.select, %.preheader.lr.ph.split.us ], [ %.293, %.critedge2 ], [ %1, %119 ], [ %.04984, %.critedge ]
   store i32 0, ptr %5, align 8, !tbaa !33
   tail call void @Aig_ManFanoutStop(ptr noundef nonnull %0) #3
   %181 = tail call i32 @Aig_ManCleanup(ptr noundef nonnull %0) #3

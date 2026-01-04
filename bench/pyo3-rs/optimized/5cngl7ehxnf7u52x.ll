@@ -55,7 +55,7 @@ define hidden void @_ZN17pyo3_build_config31_add_extension_module_link_args17h17
   br i1 %16, label %27, label %17
 
 common.resume:                                    ; preds = %75, %63, %47, %35, %21, %52
-  %common.resume.op = phi { ptr, i32 } [ %53, %52 ], [ %22, %21 ], [ %36, %35 ], [ %48, %47 ], [ %64, %63 ], [ %76, %75 ]
+  %common.resume.op = phi { ptr, i32 } [ %64, %63 ], [ %53, %52 ], [ %22, %21 ], [ %36, %35 ], [ %48, %47 ], [ %76, %75 ]
   resume { ptr, i32 } %common.resume.op
 
 17:                                               ; preds = %2
@@ -491,8 +491,8 @@ define hidden { i32, i32 } @"_ZN17pyo3_build_config19rustc_minor_version28_$u7b$
           to label %19 unwind label %17
 
 14:                                               ; preds = %0, %59, %55, %41, %24
-  %.sroa.8.0 = phi i32 [ undef, %24 ], [ undef, %41 ], [ undef, %55 ], [ %.sroa.8.2, %59 ], [ undef, %0 ]
-  %.sroa.0.0 = phi i32 [ 0, %24 ], [ 0, %41 ], [ 0, %55 ], [ %.sroa.0.2, %59 ], [ 0, %0 ]
+  %.sroa.8.0 = phi i32 [ %.sroa.8.2, %59 ], [ undef, %24 ], [ undef, %41 ], [ undef, %55 ], [ undef, %0 ]
+  %.sroa.0.0 = phi i32 [ %.sroa.0.2, %59 ], [ 0, %24 ], [ 0, %41 ], [ 0, %55 ], [ 0, %0 ]
   %15 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %16 = insertvalue { i32, i32 } %15, i32 %.sroa.8.0, 1
   ret { i32, i32 } %16

@@ -786,7 +786,7 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %172, %_ZNSt6vectorI
   br label %281
 
 281:                                              ; preds = %272, %280, %279, %278, %277, %276, %275, %274, %273
-  %.035 = phi ptr [ @.str.1, %273 ], [ @.str.2, %274 ], [ @.str.3, %275 ], [ @.str.4, %276 ], [ @.str.5, %277 ], [ @.str.6, %278 ], [ @.str.7, %279 ], [ @.str.8, %280 ], [ @.str, %272 ]
+  %.035 = phi ptr [ @.str, %272 ], [ @.str.1, %273 ], [ @.str.2, %274 ], [ @.str.3, %275 ], [ @.str.4, %276 ], [ @.str.5, %277 ], [ @.str.6, %278 ], [ @.str.7, %279 ], [ @.str.8, %280 ]
   %282 = tail call ptr @__cxa_allocate_exception(i64 16) #21
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #21
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull %.035, ptr noundef nonnull align 1 dereferenceable(1) %15)
@@ -852,8 +852,8 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %295, %296
   ret void
 
 297:                                              ; preds = %.loopexit, %.loopexit.split-lp, %292, %293
-  %.sroa.0.0150 = phi ptr [ %.sroa.0.0.lcssa203, %293 ], [ %.sroa.0.0.lcssa203, %292 ], [ %.sroa.0.0159, %.loopexit ], [ %.sroa.0.0152, %.loopexit.split-lp ]
-  %.pn64 = phi { ptr, i32 } [ %.pn.pn139, %293 ], [ %.pn, %292 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.0.0150 = phi ptr [ %.sroa.0.0.lcssa203, %292 ], [ %.sroa.0.0.lcssa203, %293 ], [ %.sroa.0.0159, %.loopexit ], [ %.sroa.0.0152, %.loopexit.split-lp ]
+  %.pn64 = phi { ptr, i32 } [ %.pn, %292 ], [ %.pn.pn139, %293 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i104 = icmp eq ptr %.sroa.0.0150, null
   br i1 %.not.i.i.i104, label %_ZNSt6vectorIjSaIjEED2Ev.exit105, label %298
 
@@ -1666,8 +1666,8 @@ define hidden void @_ZN7nanogui10RenderPass7blit_toERKNS_5ArrayIiLm2EEES4_PNS_6O
   resume { ptr, i32 } %68
 
 .thread65:                                        ; preds = %28, %44, %59, %22, %56, %55, %18
-  %.1 = phi i32 [ %.031, %18 ], [ %.3, %56 ], [ %.3, %55 ], [ %spec.select46, %22 ], [ %spec.select49, %59 ], [ %.2, %44 ], [ 0, %28 ]
-  %.0 = phi i32 [ 0, %18 ], [ %30, %56 ], [ %30, %55 ], [ 0, %22 ], [ %30, %59 ], [ %30, %44 ], [ %30, %28 ]
+  %.1 = phi i32 [ %.3, %55 ], [ %.3, %56 ], [ %.031, %18 ], [ %spec.select46, %22 ], [ %spec.select49, %59 ], [ %.2, %44 ], [ 0, %28 ]
+  %.0 = phi i32 [ %30, %55 ], [ %30, %56 ], [ 0, %18 ], [ 0, %22 ], [ %30, %59 ], [ %30, %44 ], [ %30, %28 ]
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %70 = load i32, ptr %69, align 4
   tail call void @glBindFramebuffer(i32 noundef 36008, i32 noundef %70)

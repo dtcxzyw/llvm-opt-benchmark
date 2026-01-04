@@ -623,9 +623,9 @@ xiph_lacing_16bit.exit280:                        ; preds = %258, %252
   br i1 %exitcond399.not, label %thread-pre-split, label %.lr.ph383, !llvm.loop !18
 
 thread-pre-split:                                 ; preds = %.lr.ph383, %290, %53, %94, %154, %._crit_edge380
-  %301 = phi i32 [ %162, %._crit_edge380 ], [ 2, %154 ], [ 2, %94 ], [ 1, %53 ], [ %162, %290 ], [ %162, %.lr.ph383 ]
-  %.0212.ph = phi i32 [ %.1213, %._crit_edge380 ], [ 0, %154 ], [ 0, %94 ], [ 0, %53 ], [ %.1213, %290 ], [ %.1213, %.lr.ph383 ]
-  %.0198.ph = phi i32 [ %.8, %._crit_edge380 ], [ %.5, %154 ], [ %.3, %94 ], [ %.1, %53 ], [ %.10, %290 ], [ %.10, %.lr.ph383 ]
+  %301 = phi i32 [ 1, %53 ], [ %162, %._crit_edge380 ], [ 2, %154 ], [ 2, %94 ], [ %162, %290 ], [ %162, %.lr.ph383 ]
+  %.0212.ph = phi i32 [ 0, %53 ], [ %.1213, %._crit_edge380 ], [ 0, %154 ], [ 0, %94 ], [ %.1213, %290 ], [ %.1213, %.lr.ph383 ]
+  %.0198.ph = phi i32 [ %.1, %53 ], [ %.8, %._crit_edge380 ], [ %.5, %154 ], [ %.3, %94 ], [ %.10, %290 ], [ %.10, %.lr.ph383 ]
   store i32 %.0198.ph, ptr %0, align 4, !tbaa !19
   %302 = sub nsw i32 %.0198.ph, %.0212.ph
   %303 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -681,7 +681,7 @@ default.unreachable452:                           ; preds = %21
   store i32 %328, ptr %320, align 4, !tbaa !25
   br label %329
 
-.thread:                                          ; preds = %175, %190, %184, %257, %251, %205, %199, %xiph_lacing_16bit.exit276, %230, %169, %124, %118, %xiph_lacing_16bit.exit267, %111, %103, %68, %62, %xiph_lacing_16bit.exit259, %31, %25, %xiph_lacing_16bit.exit, %thread-pre-split, %280, %xiph_lacing_16bit.exit280, %xiph_lacing_full.exit, %158, %146, %87, %91, %49, %8, %4
+.thread:                                          ; preds = %175, %184, %190, %251, %257, %199, %205, %xiph_lacing_16bit.exit276, %230, %169, %118, %124, %xiph_lacing_16bit.exit267, %103, %111, %62, %68, %xiph_lacing_16bit.exit259, %25, %31, %xiph_lacing_16bit.exit, %thread-pre-split, %280, %xiph_lacing_16bit.exit280, %xiph_lacing_full.exit, %158, %146, %87, %91, %49, %8, %4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(424) %0, i8 0, i64 424, i1 false)
   br label %329
 
@@ -1007,8 +1007,8 @@ ff_sqrt.exit.thread:                              ; preds = %82
   br label %150
 
 144:                                              ; preds = %114, %141, %138
-  %.sink216 = phi i64 [ 4, %141 ], [ 4, %138 ], [ 16, %114 ]
-  %.sink = phi i32 [ 0, %141 ], [ %140, %138 ], [ 1, %114 ]
+  %.sink216 = phi i64 [ 4, %138 ], [ 4, %141 ], [ 16, %114 ]
+  %.sink = phi i32 [ %140, %138 ], [ 0, %141 ], [ 1, %114 ]
   %145 = getelementptr inbounds nuw i8, ptr %116, i64 %.sink216
   store i32 %.sink, ptr %145, align 4, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1032,7 +1032,7 @@ ff_sqrt.exit.thread:                              ; preds = %82
   br label %151
 
 151:                                              ; preds = %150, %148, %107, %38, %20, %16, %11
-  %.0 = phi i32 [ -1094995529, %16 ], [ -1163346256, %20 ], [ %.0138, %150 ], [ 0, %148 ], [ -1163346256, %107 ], [ -1094995529, %38 ], [ -22, %11 ]
+  %.0 = phi i32 [ -1094995529, %16 ], [ -1163346256, %20 ], [ %.0138, %150 ], [ -1094995529, %38 ], [ 0, %148 ], [ -22, %11 ], [ -1163346256, %107 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

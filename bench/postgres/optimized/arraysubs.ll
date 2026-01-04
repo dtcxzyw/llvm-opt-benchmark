@@ -112,8 +112,8 @@ define internal void @array_subscript_transform(ptr noundef captures(none) %0, p
   br label %list_length.exit.thread
 
 .critedge:                                        ; preds = %73, %.lr.ph.split.us, %.lr.ph.split.us.preheader
-  %.043.lcssa = phi ptr [ null, %.lr.ph.split.us.preheader ], [ %29, %.lr.ph.split.us ], [ null, %73 ]
-  %.042.lcssa = phi ptr [ null, %.lr.ph.split.us.preheader ], [ %38, %.lr.ph.split.us ], [ %74, %73 ]
+  %.043.lcssa = phi ptr [ %29, %.lr.ph.split.us ], [ null, %.lr.ph.split.us.preheader ], [ null, %73 ]
+  %.042.lcssa = phi ptr [ %38, %.lr.ph.split.us ], [ null, %.lr.ph.split.us.preheader ], [ %74, %73 ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.042.lcssa, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -294,7 +294,7 @@ define dso_local i64 @array_subscript_handler_support(ptr noundef readonly captu
   br label %29
 
 29:                                               ; preds = %25, %7, %12, %15, %19, %1
-  %.0 = phi i64 [ 0, %1 ], [ 0, %19 ], [ 0, %15 ], [ 0, %12 ], [ 0, %7 ], [ %28, %25 ]
+  %.0 = phi i64 [ 0, %1 ], [ 0, %7 ], [ %28, %25 ], [ 0, %19 ], [ 0, %15 ], [ 0, %12 ]
   ret i64 %.0
 }
 

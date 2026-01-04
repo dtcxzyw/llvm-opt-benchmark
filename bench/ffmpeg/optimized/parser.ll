@@ -116,7 +116,7 @@ define ptr @av_parser_init(i32 noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %1, %.critedge, %47
-  %.0 = phi ptr [ null, %.critedge ], [ %33, %47 ], [ null, %1 ], [ null, %.preheader ]
+  %.0 = phi ptr [ null, %1 ], [ null, %.critedge ], [ %33, %47 ], [ null, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
@@ -962,7 +962,7 @@ define range(i32 -22, 1) i32 @ff_combine_frame(ptr noundef %0, i32 noundef %1, p
   br i1 %exitcond.not, label %.loopexit, label %103, !llvm.loop !82
 
 .loopexit:                                        ; preds = %103, %94, %87, %._crit_edge, %61
-  %.0 = phi i32 [ %.1, %61 ], [ -12, %87 ], [ -22, %._crit_edge ], [ 0, %94 ], [ 0, %103 ]
+  %.0 = phi i32 [ -12, %87 ], [ %.1, %61 ], [ -22, %._crit_edge ], [ 0, %94 ], [ 0, %103 ]
   ret i32 %.0
 }
 

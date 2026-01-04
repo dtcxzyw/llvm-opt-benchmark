@@ -116,7 +116,7 @@ define dso_local range(i32 1, 44) i32 @urlerr_cvt(i32 noundef %0) local_unnamed_
   br label %6
 
 6:                                                ; preds = %1, %5, %4, %3, %2
-  %.0 = phi i32 [ 1, %2 ], [ 4, %3 ], [ 43, %4 ], [ 3, %5 ], [ 27, %1 ]
+  %.0 = phi i32 [ 3, %5 ], [ 1, %2 ], [ 4, %3 ], [ 43, %4 ], [ 27, %1 ]
   ret i32 %.0
 }
 
@@ -257,15 +257,15 @@ urlerr_cvt.exit.thread87:                         ; preds = %21
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %urlerr_cvt.exit.thread
 
-urlerr_cvt.exit.thread:                           ; preds = %48, %.thread, %33, %15, %8, %20, %19, %18, %17, %14, %13, %12, %11, %30, %3
-  %.5 = phi i32 [ 3, %3 ], [ 3, %20 ], [ 43, %19 ], [ 4, %18 ], [ 1, %17 ], [ 3, %14 ], [ 43, %13 ], [ 4, %12 ], [ 1, %11 ], [ 0, %30 ], [ 27, %8 ], [ 27, %15 ], [ 3, %33 ], [ 0, %48 ], [ %.2.ph, %.thread ]
+urlerr_cvt.exit.thread:                           ; preds = %48, %.thread, %33, %15, %8, %20, %19, %18, %17, %13, %12, %11, %14, %30, %3
+  %.5 = phi i32 [ 3, %3 ], [ 0, %30 ], [ 27, %15 ], [ 43, %19 ], [ 4, %18 ], [ 1, %17 ], [ 3, %20 ], [ 43, %13 ], [ 4, %12 ], [ 1, %11 ], [ 3, %14 ], [ 27, %8 ], [ 3, %33 ], [ 0, %48 ], [ %.2.ph, %.thread ]
   call void @curl_url_cleanup(ptr noundef %7) #8
   %51 = load ptr, ptr %4, align 8, !tbaa !30
   call void @curl_free(ptr noundef %51) #8
   br label %52
 
 52:                                               ; preds = %urlerr_cvt.exit.thread87, %urlerr_cvt.exit.thread
-  %.1 = phi i32 [ %.5, %urlerr_cvt.exit.thread ], [ 0, %urlerr_cvt.exit.thread87 ]
+  %.1 = phi i32 [ 0, %urlerr_cvt.exit.thread87 ], [ %.5, %urlerr_cvt.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1
@@ -386,7 +386,7 @@ define dso_local range(i32 0, 44) i32 @get_url_file_name(ptr noundef %0, ptr nou
   br label %urlerr_cvt.exit
 
 urlerr_cvt.exit:                                  ; preds = %33, %32, %31, %30, %29, %3, %25
-  %.031 = phi i32 [ %., %25 ], [ 27, %3 ], [ 1, %30 ], [ 4, %31 ], [ 43, %32 ], [ 3, %33 ], [ 27, %29 ]
+  %.031 = phi i32 [ 27, %3 ], [ %., %25 ], [ 3, %33 ], [ 1, %30 ], [ 4, %31 ], [ 43, %32 ], [ 27, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.031
 }

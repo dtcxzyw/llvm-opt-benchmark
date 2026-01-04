@@ -319,7 +319,7 @@ define hidden noundef ptr @_ZN8NodeHash9hash_findEPK4Node(ptr noundef nonnull re
   br i1 %.not35, label %.loopexit36, label %.split, !llvm.loop !8
 
 .loopexit36:                                      ; preds = %.loopexit.us, %._crit_edge.us, %.preheader, %67, %8, %2
-  %.027 = phi ptr [ null, %2 ], [ null, %8 ], [ null, %67 ], [ %.029, %.preheader ], [ null, %.loopexit.us ], [ %.029.us, %._crit_edge.us ]
+  %.027 = phi ptr [ null, %2 ], [ null, %8 ], [ null, %67 ], [ %.029, %.preheader ], [ %.029.us, %._crit_edge.us ], [ null, %.loopexit.us ]
   ret ptr %.027
 }
 
@@ -629,7 +629,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i51: ; preds = %149
   br label %.split, !llvm.loop !11
 
 _ZN8NodeHash10check_growEv.exit:                  ; preds = %._crit_edge.us, %.preheader, %162, %57, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i51, %.split68.us, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i, %19, %2
-  %.039 = phi ptr [ null, %2 ], [ null, %19 ], [ null, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i ], [ null, %.split68.us ], [ null, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i51 ], [ null, %57 ], [ null, %162 ], [ %.041, %.preheader ], [ %.041.us, %._crit_edge.us ]
+  %.039 = phi ptr [ null, %57 ], [ %.041, %.preheader ], [ null, %2 ], [ null, %19 ], [ null, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i ], [ null, %.split68.us ], [ null, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i51 ], [ null, %162 ], [ %.041.us, %._crit_edge.us ]
   ret ptr %.039
 }
 
@@ -810,7 +810,7 @@ define hidden noundef zeroext i1 @_ZN8NodeHash11hash_deleteEPK4Node(ptr noundef 
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph26, %8, %2, %.lr.ph._crit_edge
-  %.0 = phi i1 [ true, %.lr.ph._crit_edge ], [ false, %2 ], [ false, %8 ], [ false, %.lr.ph26 ]
+  %.0 = phi i1 [ false, %2 ], [ true, %.lr.ph._crit_edge ], [ false, %8 ], [ false, %.lr.ph26 ]
   ret i1 %.0
 }
 
@@ -1366,7 +1366,7 @@ _ZN7Compile17locate_node_notesEP13GrowableArrayIP10Node_NotesEib.exit: ; preds =
   br label %_ZN7Compile17locate_node_notesEP13GrowableArrayIP10Node_NotesEib.exit.i
 
 _ZN7Compile17locate_node_notesEP13GrowableArrayIP10Node_NotesEib.exit.i: ; preds = %161, %160
-  %.0.i.i = phi ptr [ %168, %161 ], [ null, %160 ]
+  %.0.i.i = phi ptr [ null, %160 ], [ %168, %161 ]
   %169 = load ptr, ptr %141, align 8
   %.not5.i.i = icmp eq ptr %169, null
   br i1 %.not5.i.i, label %_ZN7Compile17set_node_notes_atEiP10Node_Notes.exit, label %170
@@ -1725,7 +1725,7 @@ _ZN10Type_Array3mapEjPK4Type.exit:                ; preds = %_ZN17PhaseRenumberL
   br label %125
 
 125:                                              ; preds = %46, %55, %59, %_ZN10Type_Array3mapEjPK4Type.exit, %64, %29, %10
-  %.0 = phi i32 [ -1, %10 ], [ -1, %29 ], [ -1, %64 ], [ %124, %_ZN10Type_Array3mapEjPK4Type.exit ], [ %.025, %59 ], [ %.025, %55 ], [ %.025, %46 ]
+  %.0 = phi i32 [ -1, %64 ], [ -1, %29 ], [ -1, %10 ], [ %124, %_ZN10Type_Array3mapEjPK4Type.exit ], [ %.025, %59 ], [ %.025, %55 ], [ %.025, %46 ]
   ret i32 %.0
 }
 
@@ -1947,7 +1947,7 @@ _ZNK4Type12is_zero_typeEv.exit.thread:            ; preds = %48, %_ZNK4Type12is_
   br label %_ZN11PhaseValues6intconEi.exit
 
 _ZN11PhaseValues6intconEi.exit:                   ; preds = %67, %63, %45, %42, %38, %26, %23, %19, %_ZNK4Type12is_zero_typeEv.exit.thread, %5
-  %.0 = phi ptr [ %69, %_ZNK4Type12is_zero_typeEv.exit.thread ], [ %9, %5 ], [ %18, %19 ], [ %25, %26 ], [ %25, %23 ], [ %37, %38 ], [ %44, %45 ], [ %44, %42 ], [ %68, %67 ], [ %62, %63 ]
+  %.0 = phi ptr [ %44, %42 ], [ %69, %_ZNK4Type12is_zero_typeEv.exit.thread ], [ %9, %5 ], [ %25, %23 ], [ %18, %19 ], [ %25, %26 ], [ %37, %38 ], [ %44, %45 ], [ %68, %67 ], [ %62, %63 ]
   ret ptr %.0
 }
 
@@ -2259,7 +2259,7 @@ define hidden noundef ptr @_ZN11PhaseValues10integerconEl9BasicType(ptr noundef 
   br label %_ZN11PhaseValues6intconEi.exit
 
 _ZN11PhaseValues6intconEi.exit:                   ; preds = %37, %34, %30, %20, %17, %13
-  %.0 = phi ptr [ %12, %13 ], [ %19, %20 ], [ %19, %17 ], [ %29, %30 ], [ %36, %37 ], [ %36, %34 ]
+  %.0 = phi ptr [ %19, %17 ], [ %12, %13 ], [ %19, %20 ], [ %29, %30 ], [ %36, %37 ], [ %36, %34 ]
   ret ptr %.0
 }
 
@@ -2606,7 +2606,7 @@ define hidden noundef zeroext i1 @_ZN8PhaseGVN19is_dominator_helperEP4NodeS1_b(p
   br i1 %or.cond, label %.loopexit, label %36, !llvm.loop !19
 
 .loopexit:                                        ; preds = %36, %37, %20, %29, %4, %13
-  %.014 = phi i1 [ false, %13 ], [ false, %4 ], [ false, %29 ], [ false, %20 ], [ %.not, %37 ], [ %.not, %36 ]
+  %.014 = phi i1 [ false, %29 ], [ false, %4 ], [ false, %20 ], [ false, %13 ], [ %.not, %37 ], [ %.not, %36 ]
   ret i1 %.014
 }
 
@@ -3834,7 +3834,7 @@ _ZN11PhaseValues8set_typeEPK4NodePK4Type.exit:    ; preds = %118, %_ZN10Type_Arr
   br i1 %or.cond, label %174, label %.sink.split
 
 .sink.split:                                      ; preds = %171, %166, %164
-  %.sink = phi ptr [ %165, %164 ], [ %170, %166 ], [ %173, %171 ]
+  %.sink = phi ptr [ %170, %166 ], [ %165, %164 ], [ %173, %171 ]
   tail call void @_ZN12PhaseIterGVN21add_users_to_worklistEP4Node(ptr noundef nonnull align 8 dereferenceable(2416) %0, ptr noundef nonnull %.049.lcssa)
   tail call void @_ZN12PhaseIterGVN12subsume_nodeEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %0, ptr noundef nonnull %.049.lcssa, ptr noundef %.sink)
   br label %174
@@ -4708,7 +4708,7 @@ _ZN9Node_List4pushEP4Node.exit.i80:               ; preds = %237, %231
   br label %_ZN16Unique_Node_List4pushEP4Node.exit
 
 _ZN16Unique_Node_List4pushEP4Node.exit:           ; preds = %_ZN9Node_List4pushEP4Node.exit.i80, %_ZN9VectorSet8test_setEj.exit.i77, %_ZN9Node_List4pushEP4Node.exit.i68, %_ZN9VectorSet8test_setEj.exit.i65, %_ZN9Node_List4pushEP4Node.exit.i, %_ZN9VectorSet8test_setEj.exit.i, %_ZN16Unique_Node_List4pushEP4Node.exit75, %174, %242, %_ZN10Node_Stack4pushEP4Nodej.exit61
-  %.1 = phi i1 [ true, %_ZN10Node_Stack4pushEP4Nodej.exit61 ], [ %.052101, %_ZN16Unique_Node_List4pushEP4Node.exit75 ], [ %.052101, %174 ], [ %.052101, %242 ], [ %.052101, %_ZN9VectorSet8test_setEj.exit.i ], [ %.052101, %_ZN9Node_List4pushEP4Node.exit.i ], [ %.052101, %_ZN9VectorSet8test_setEj.exit.i65 ], [ %.052101, %_ZN9Node_List4pushEP4Node.exit.i68 ], [ %.052101, %_ZN9VectorSet8test_setEj.exit.i77 ], [ %.052101, %_ZN9Node_List4pushEP4Node.exit.i80 ]
+  %.1 = phi i1 [ true, %_ZN10Node_Stack4pushEP4Nodej.exit61 ], [ %.052101, %242 ], [ %.052101, %_ZN9Node_List4pushEP4Node.exit.i ], [ %.052101, %_ZN9Node_List4pushEP4Node.exit.i68 ], [ %.052101, %_ZN16Unique_Node_List4pushEP4Node.exit75 ], [ %.052101, %174 ], [ %.052101, %_ZN9VectorSet8test_setEj.exit.i ], [ %.052101, %_ZN9VectorSet8test_setEj.exit.i65 ], [ %.052101, %_ZN9VectorSet8test_setEj.exit.i77 ], [ %.052101, %_ZN9Node_List4pushEP4Node.exit.i80 ]
   %249 = load i8, ptr @ReduceFieldZeroing, align 1
   %250 = trunc i8 %249 to i1
   br i1 %250, label %251, label %.loopexit
@@ -4817,7 +4817,7 @@ _ZN16Unique_Node_List4pushEP4Node.exit87:         ; preds = %_ZN9Node_List4pushE
   br i1 %310, label %.lr.ph99, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %_ZN16Unique_Node_List4pushEP4Node.exit87, %270, %82, %86, %265, %261, %256, %251, %_ZN16Unique_Node_List4pushEP4Node.exit
-  %.2 = phi i1 [ %.1, %265 ], [ %.1, %261 ], [ %.1, %256 ], [ %.1, %251 ], [ %.1, %_ZN16Unique_Node_List4pushEP4Node.exit ], [ %.052101, %86 ], [ %.052101, %82 ], [ %.1, %270 ], [ %.1, %_ZN16Unique_Node_List4pushEP4Node.exit87 ]
+  %.2 = phi i1 [ %.052101, %82 ], [ %.1, %265 ], [ %.1, %261 ], [ %.1, %256 ], [ %.1, %251 ], [ %.1, %_ZN16Unique_Node_List4pushEP4Node.exit ], [ %.052101, %86 ], [ %.1, %270 ], [ %.1, %_ZN16Unique_Node_List4pushEP4Node.exit87 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %311 = load i32, ptr %78, align 8
   %312 = zext i32 %311 to i64
@@ -7139,7 +7139,7 @@ define hidden noundef zeroext i1 @_ZNK12PhaseIterGVN23no_dependent_zero_checkEP4
   br label %54
 
 54:                                               ; preds = %2, %46, %50, %30, %22, %26, %6
-  %.0 = phi i1 [ false, %6 ], [ true, %22 ], [ %29, %26 ], [ false, %30 ], [ true, %46 ], [ %53, %50 ], [ true, %2 ]
+  %.0 = phi i1 [ %53, %50 ], [ false, %30 ], [ false, %6 ], [ %29, %26 ], [ true, %22 ], [ true, %46 ], [ true, %2 ]
   ret i1 %.0
 }
 
@@ -9482,8 +9482,8 @@ _ZN13GrowableArrayIP4NodeE8allocateEv.exit.i:     ; preds = %_ZN10Node_Array3map
   br i1 %exitcond.not, label %.preheader16.loopexit.i, label %.lr.ph.i, !llvm.loop !63
 
 _ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit: ; preds = %_ZN10Node_Array3mapEjP4Node.exit, %.lr.ph19.preheader.i, %.preheader16.i
-  %.sroa.27.4 = phi ptr [ %86, %.lr.ph19.preheader.i ], [ %86, %.preheader16.i ], [ %.sroa.27.0111, %_ZN10Node_Array3mapEjP4Node.exit ]
-  %.sroa.16.4 = phi i32 [ %.0.i.i.i.i.i21, %.lr.ph19.preheader.i ], [ %.0.i.i.i.i.i21, %.preheader16.i ], [ %.sroa.16.0112, %_ZN10Node_Array3mapEjP4Node.exit ]
+  %.sroa.27.4 = phi ptr [ %86, %.preheader16.i ], [ %86, %.lr.ph19.preheader.i ], [ %.sroa.27.0111, %_ZN10Node_Array3mapEjP4Node.exit ]
+  %.sroa.16.4 = phi i32 [ %.0.i.i.i.i.i21, %.preheader16.i ], [ %.0.i.i.i.i.i21, %.lr.ph19.preheader.i ], [ %.sroa.16.0112, %_ZN10Node_Array3mapEjP4Node.exit ]
   %99 = getelementptr inbounds nuw ptr, ptr %.sroa.27.4, i64 %indvars.iv
   store ptr %70, ptr %99, align 8
   %100 = getelementptr inbounds nuw i8, ptr %70, i64 40
@@ -9654,8 +9654,8 @@ _ZN13GrowableArrayIP4NodeE8allocateEv.exit.i50:   ; preds = %_ZN10Node_Array3map
   br i1 %exitcond135.not, label %.preheader16.i52, label %.lr.ph.i61, !llvm.loop !63
 
 _ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit29: ; preds = %_ZN10Node_Array3mapEjP4Node.exit25, %.lr.ph19.preheader.i57, %.preheader16.i52
-  %.sroa.27.5 = phi ptr [ %164, %.lr.ph19.preheader.i57 ], [ %164, %.preheader16.i52 ], [ %.sroa.27.2117, %_ZN10Node_Array3mapEjP4Node.exit25 ]
-  %.sroa.16.5 = phi i32 [ %.0.i.i.i.i.i27, %.lr.ph19.preheader.i57 ], [ %.0.i.i.i.i.i27, %.preheader16.i52 ], [ %.sroa.16.2118, %_ZN10Node_Array3mapEjP4Node.exit25 ]
+  %.sroa.27.5 = phi ptr [ %164, %.preheader16.i52 ], [ %164, %.lr.ph19.preheader.i57 ], [ %.sroa.27.2117, %_ZN10Node_Array3mapEjP4Node.exit25 ]
+  %.sroa.16.5 = phi i32 [ %.0.i.i.i.i.i27, %.preheader16.i52 ], [ %.0.i.i.i.i.i27, %.lr.ph19.preheader.i57 ], [ %.sroa.16.2118, %_ZN10Node_Array3mapEjP4Node.exit25 ]
   %178 = sext i32 %.sroa.0.2119 to i64
   %179 = getelementptr inbounds ptr, ptr %.sroa.27.5, i64 %178
   store ptr %149, ptr %179, align 8
@@ -10381,7 +10381,7 @@ _ZN9Node_List4pushEP4Node.exit.i72:               ; preds = %274, %268
   br label %_ZN16Unique_Node_List4pushEP4Node.exit73
 
 _ZN16Unique_Node_List4pushEP4Node.exit73:         ; preds = %_ZN9Node_List4pushEP4Node.exit.i72, %_ZN9VectorSet8test_setEj.exit.i69, %_ZN16Unique_Node_List4pushEP4Node.exit, %79, %_ZN12PhaseIterGVN12replace_nodeEP4NodeS1_.exit61
-  %.0 = phi ptr [ %.044, %79 ], [ %.246, %_ZN12PhaseIterGVN12replace_nodeEP4NodeS1_.exit61 ], [ %1, %_ZN16Unique_Node_List4pushEP4Node.exit ], [ %1, %_ZN9VectorSet8test_setEj.exit.i69 ], [ %1, %_ZN9Node_List4pushEP4Node.exit.i72 ]
+  %.0 = phi ptr [ %.246, %_ZN12PhaseIterGVN12replace_nodeEP4NodeS1_.exit61 ], [ %.044, %79 ], [ %1, %_ZN16Unique_Node_List4pushEP4Node.exit ], [ %1, %_ZN9VectorSet8test_setEj.exit.i69 ], [ %1, %_ZN9Node_List4pushEP4Node.exit.i72 ]
   ret ptr %.0
 }
 
@@ -11276,7 +11276,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8PhaseGVN12is_dominatorEP4Node
   br i1 %or.cond.i, label %_ZN8PhaseGVN19is_dominator_helperEP4NodeS1_b.exit, label %35, !llvm.loop !19
 
 _ZN8PhaseGVN19is_dominator_helperEP4NodeS1_b.exit: ; preds = %35, %36, %3, %12, %19, %28
-  %.014.i = phi i1 [ false, %12 ], [ false, %3 ], [ false, %28 ], [ false, %19 ], [ %.not.i, %36 ], [ %.not.i, %35 ]
+  %.014.i = phi i1 [ false, %28 ], [ false, %3 ], [ false, %19 ], [ false, %12 ], [ %.not.i, %36 ], [ %.not.i, %35 ]
   ret i1 %.014.i
 }
 
@@ -11426,7 +11426,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN12PhaseIterGVN12is_dominatorEP
   br i1 %or.cond.i, label %_ZN8PhaseGVN19is_dominator_helperEP4NodeS1_b.exit, label %35, !llvm.loop !19
 
 _ZN8PhaseGVN19is_dominator_helperEP4NodeS1_b.exit: ; preds = %35, %36, %3, %12, %19, %28
-  %.014.i = phi i1 [ false, %12 ], [ false, %3 ], [ false, %28 ], [ false, %19 ], [ %.not.i, %36 ], [ %.not.i, %35 ]
+  %.014.i = phi i1 [ false, %28 ], [ false, %3 ], [ false, %19 ], [ false, %12 ], [ %.not.i, %36 ], [ %.not.i, %35 ]
   ret i1 %.014.i
 }
 

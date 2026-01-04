@@ -280,8 +280,8 @@ Vec_IntPush.exit49:                               ; preds = %Vec_IntPush.exit49.
   br label %Vec_IntPush.exit56.sink.split
 
 Vec_IntPush.exit56.sink.split:                    ; preds = %66, %68, %58, %60
-  %.sink109 = phi ptr [ %59, %58 ], [ %61, %60 ], [ %67, %66 ], [ %69, %68 ]
-  %.sink108 = phi i32 [ 16, %58 ], [ 16, %60 ], [ %63, %66 ], [ %63, %68 ]
+  %.sink109 = phi ptr [ %61, %60 ], [ %59, %58 ], [ %67, %66 ], [ %69, %68 ]
+  %.sink108 = phi i32 [ 16, %60 ], [ 16, %58 ], [ %63, %66 ], [ %63, %68 ]
   store ptr %.sink109, ptr %21, align 8, !tbaa !41
   store i32 %.sink108, ptr %18, align 8, !tbaa !43
   br label %Vec_IntPush.exit56
@@ -497,7 +497,7 @@ define noalias noundef ptr @Gia_FlaConvertToGla(ptr noundef %0, ptr noundef read
   br i1 %37, label %23, label %.critedge2, !llvm.loop !59
 
 .critedge2:                                       ; preds = %.critedge, %.lr.ph94, %.critedge.preheader
-  %.val7095 = phi i32 [ %.val6891, %.lr.ph94 ], [ %.val6891, %.critedge.preheader ], [ %.val68, %.critedge ]
+  %.val7095 = phi i32 [ %.val6891, %.critedge.preheader ], [ %.val6891, %.lr.ph94 ], [ %.val68, %.critedge ]
   %38 = getelementptr i8, ptr %0, i64 24
   %.val = load i32, ptr %38, align 8, !tbaa !21
   %39 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #12

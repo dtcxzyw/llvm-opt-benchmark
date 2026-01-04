@@ -1386,7 +1386,7 @@ part_data_rebuild_rows.exit:                      ; preds = %28, %20
   br i1 %.not, label %.loopexit, label %.split, !llvm.loop !33
 
 .loopexit:                                        ; preds = %38, %41, %.split.us, %11, %2
-  %.025 = phi ptr [ null, %2 ], [ %5, %11 ], [ %5, %.split.us ], [ %5, %41 ], [ %5, %38 ]
+  %.025 = phi ptr [ null, %2 ], [ %5, %.split.us ], [ %5, %11 ], [ %5, %41 ], [ %5, %38 ]
   ret ptr %.025
 }
 

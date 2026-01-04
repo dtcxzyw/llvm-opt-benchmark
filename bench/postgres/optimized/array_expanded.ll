@@ -147,7 +147,7 @@ define dso_local i64 @expand_array(i64 noundef %0, ptr noundef %1, ptr noundef c
   br label %148
 
 .thread:                                          ; preds = %16, %29, %11, %3
-  %.074 = phi ptr [ %2, %11 ], [ %2, %3 ], [ %spec.store.select, %29 ], [ %spec.store.select, %16 ]
+  %.074 = phi ptr [ %2, %3 ], [ %2, %11 ], [ %spec.store.select, %29 ], [ %spec.store.select, %16 ]
   %84 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %5, ptr @CurrentMemoryContext, align 8
   %85 = tail call ptr @pg_detoast_datum_copy(ptr noundef nonnull %8) #7
@@ -562,7 +562,7 @@ define internal i64 @EA_get_flat_size(ptr noundef captures(none) %0) #0 {
   br label %75
 
 75:                                               ; preds = %63, %72, %69, %66
-  %76 = phi i64 [ %68, %66 ], [ %71, %69 ], [ %74, %72 ], [ %64, %63 ]
+  %76 = phi i64 [ %68, %66 ], [ %74, %72 ], [ %71, %69 ], [ %64, %63 ]
   %77 = icmp ult i64 %76, 1073741824
   br i1 %77, label %82, label %78
 

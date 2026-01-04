@@ -1425,7 +1425,7 @@ define void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf
   ret void
 
 .body.thread:                                     ; preds = %36, %24, %48
-  %eh.lpad-body9 = phi { ptr, i32 } [ %lpad.thr_comm, %48 ], [ %25, %24 ], [ %37, %36 ]
+  %eh.lpad-body9 = phi { ptr, i32 } [ %37, %36 ], [ %lpad.thr_comm, %48 ], [ %25, %24 ]
   resume { ptr, i32 } %eh.lpad-body9
 
 48:                                               ; preds = %13, %14

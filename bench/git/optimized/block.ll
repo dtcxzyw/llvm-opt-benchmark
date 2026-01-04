@@ -274,7 +274,7 @@ st_mult.exit.i.i:                                 ; preds = %60
   br label %block_writer_register_restart.exit
 
 block_writer_register_restart.exit:               ; preds = %93, %84, %76, %.thread.i, %44, %36, %32, %29, %15
-  %.0 = phi i32 [ %27, %15 ], [ -6, %29 ], [ -1, %32 ], [ -1, %36 ], [ 0, %93 ], [ -1, %44 ], [ -13, %76 ], [ %91, %84 ], [ -13, %.thread.i ]
+  %.0 = phi i32 [ %27, %15 ], [ -6, %29 ], [ -1, %32 ], [ -1, %36 ], [ -1, %44 ], [ -13, %76 ], [ 0, %93 ], [ %91, %84 ], [ -13, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -442,7 +442,7 @@ define dso_local i32 @block_writer_finish(ptr noundef captures(none) %0) local_u
   br label %.thread
 
 .thread:                                          ; preds = %._crit_edge, %71, %.thread83, %60, %59, %41
-  %.1 = phi i32 [ -7, %60 ], [ -13, %59 ], [ -7, %41 ], [ -13, %.thread83 ], [ %83, %71 ], [ %.pre78, %._crit_edge ]
+  %.1 = phi i32 [ -13, %.thread83 ], [ -7, %60 ], [ -13, %59 ], [ -7, %41 ], [ %83, %71 ], [ %.pre78, %._crit_edge ]
   ret i32 %.1
 }
 
@@ -632,7 +632,7 @@ reftable_block_done.exit:                         ; preds = %5, %14
   br label %91
 
 91:                                               ; preds = %72, %87, %78, %82, %80
-  %.1 = phi i32 [ %77, %72 ], [ %3, %82 ], [ %3, %80 ], [ %11, %78 ], [ %spec.select, %87 ]
+  %.1 = phi i32 [ %77, %72 ], [ %3, %80 ], [ %11, %78 ], [ %spec.select, %87 ], [ %3, %82 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !46
   %93 = zext i32 %11 to i64
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 %93
@@ -665,8 +665,8 @@ reftable_block_done.exit:                         ; preds = %5, %14
   store ptr %105, ptr %110, align 8, !tbaa !65
   br label %.thread
 
-.thread:                                          ; preds = %.thread135, %62, %50, %49, %43, %36, %91, %reftable_block_done.exit
-  %.091 = phi i32 [ 0, %91 ], [ -3, %reftable_block_done.exit ], [ -3, %62 ], [ -7, %50 ], [ -7, %49 ], [ -13, %43 ], [ -13, %36 ], [ -13, %.thread135 ]
+.thread:                                          ; preds = %.thread135, %62, %36, %50, %49, %43, %91, %reftable_block_done.exit
+  %.091 = phi i32 [ 0, %91 ], [ -3, %reftable_block_done.exit ], [ -3, %62 ], [ -13, %36 ], [ -7, %50 ], [ -7, %49 ], [ -13, %43 ], [ -13, %.thread135 ]
   ret i32 %.091
 }
 
@@ -770,7 +770,7 @@ define dso_local range(i32 -2147483648, 1) i32 @block_reader_first_key(ptr nound
   br label %19
 
 19:                                               ; preds = %16, %2
-  %.0 = phi i32 [ %14, %2 ], [ %., %16 ]
+  %.0 = phi i32 [ %., %16 ], [ %14, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -850,7 +850,7 @@ define dso_local range(i32 -3, 2) i32 @block_iter_next(ptr noundef %0, ptr nound
   br label %32
 
 32:                                               ; preds = %19, %16, %12, %2, %29
-  %.0 = phi i32 [ 0, %29 ], [ 1, %2 ], [ -1, %12 ], [ -3, %16 ], [ -1, %19 ]
+  %.0 = phi i32 [ -1, %12 ], [ 1, %2 ], [ -3, %16 ], [ 0, %29 ], [ -1, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -1006,8 +1006,8 @@ block_iter_next.exit.thread:                      ; preds = %50, %53, %55
   store i32 %44, ptr %0, align 8, !tbaa !71
   br label %.thread43
 
-.thread43:                                        ; preds = %64, %block_iter_next.exit.thread, %72, %63, %3
-  %.031 = phi i32 [ -3, %3 ], [ %.0.i.ph, %block_iter_next.exit.thread ], [ %67, %72 ], [ 0, %63 ], [ %67, %64 ]
+.thread43:                                        ; preds = %64, %72, %block_iter_next.exit.thread, %63, %3
+  %.031 = phi i32 [ -3, %3 ], [ %67, %72 ], [ %.0.i.ph, %block_iter_next.exit.thread ], [ 0, %63 ], [ %67, %64 ]
   call void @reftable_record_release(ptr noundef nonnull %6) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

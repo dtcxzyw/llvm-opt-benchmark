@@ -59,9 +59,9 @@ define internal fastcc void @Abc_NtkRetimeMinDelayTry(ptr noundef %0, i32 nounde
   br label %.thread
 
 .thread:                                          ; preds = %10, %9, %15, %13
-  %or.cond114 = phi i1 [ false, %15 ], [ true, %13 ], [ true, %9 ], [ true, %10 ]
-  %.083113 = phi ptr [ null, %15 ], [ null, %13 ], [ null, %9 ], [ %12, %10 ]
-  %.088112 = phi ptr [ null, %15 ], [ null, %13 ], [ null, %9 ], [ %11, %10 ]
+  %or.cond114 = phi i1 [ true, %13 ], [ false, %15 ], [ true, %9 ], [ true, %10 ]
+  %.083113 = phi ptr [ null, %13 ], [ null, %15 ], [ null, %9 ], [ %12, %10 ]
+  %.088112 = phi ptr [ null, %13 ], [ null, %15 ], [ null, %9 ], [ %11, %10 ]
   %16 = getelementptr i8, ptr %0, i64 128
   %.val = load i32, ptr %16, align 8, !tbaa !3
   %17 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
@@ -555,9 +555,9 @@ Abc_NodeSetTravIdCurrent.exit.i:                  ; preds = %._crit_edge.i.i.i.i
   br i1 %219, label %.critedge10.i, label %.critedge6.i, !llvm.loop !51
 
 .critedge6.i:                                     ; preds = %.critedge8.i, %.critedge10.i, %.critedge10.preheader.i, %.critedge2.preheader.i
-  %.not414.i = phi i1 [ true, %.critedge10.preheader.i ], [ false, %.critedge2.preheader.i ], [ true, %.critedge10.i ], [ false, %.critedge8.i ]
-  %.val152413.i = phi i32 [ %.val152412424.i, %.critedge10.preheader.i ], [ %.val152411420.i, %.critedge2.preheader.i ], [ %.val152412424.i, %.critedge10.i ], [ %.val152411420.i, %.critedge8.i ]
-  %.6.i = phi i32 [ %.7.lcssa.i, %.critedge10.preheader.i ], [ %.0.lcssa.i, %.critedge2.preheader.i ], [ %spec.select147.i, %.critedge10.i ], [ %.4.lcssa.i, %.critedge8.i ]
+  %.not414.i = phi i1 [ true, %.critedge10.i ], [ true, %.critedge10.preheader.i ], [ false, %.critedge2.preheader.i ], [ false, %.critedge8.i ]
+  %.val152413.i = phi i32 [ %.val152412424.i, %.critedge10.i ], [ %.val152412424.i, %.critedge10.preheader.i ], [ %.val152411420.i, %.critedge2.preheader.i ], [ %.val152411420.i, %.critedge8.i ]
+  %.6.i = phi i32 [ %spec.select147.i, %.critedge10.i ], [ %.7.lcssa.i, %.critedge10.preheader.i ], [ %.0.lcssa.i, %.critedge2.preheader.i ], [ %.4.lcssa.i, %.critedge8.i ]
   store i32 0, ptr %18, align 4, !tbaa !7
   %220 = load ptr, ptr %21, align 8, !tbaa !12
   %.not.i188.i = icmp eq ptr %220, null
@@ -1272,9 +1272,9 @@ Abc_NodeSetTravIdCurrent.exit272.i:               ; preds = %._crit_edge.i.i.i.i
   br i1 %exitcond365.not.i, label %.critedge14.i, label %389, !llvm.loop !56
 
 .critedge14.i:                                    ; preds = %.critedge16.i, %.critedge20.i, %.preheader.i, %.preheader278.i
-  %.val105 = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader278.i ], [ %539, %.critedge20.i ], [ %388, %.critedge16.i ]
-  %541 = phi i32 [ %31, %.preheader.i ], [ %31, %.preheader278.i ], [ %538, %.critedge20.i ], [ %386, %.critedge16.i ]
-  %542 = phi i32 [ %32, %.preheader.i ], [ %32, %.preheader278.i ], [ %540, %.critedge20.i ], [ %387, %.critedge16.i ]
+  %.val105 = phi i32 [ %539, %.critedge20.i ], [ 0, %.preheader278.i ], [ 0, %.preheader.i ], [ %388, %.critedge16.i ]
+  %541 = phi i32 [ %538, %.critedge20.i ], [ %31, %.preheader278.i ], [ %31, %.preheader.i ], [ %386, %.critedge16.i ]
+  %542 = phi i32 [ %540, %.critedge20.i ], [ %32, %.preheader278.i ], [ %32, %.preheader.i ], [ %387, %.critedge16.i ]
   %543 = load ptr, ptr %56, align 8, !tbaa !11
   %.not.i273.i = icmp eq ptr %543, null
   br i1 %.not.i273.i, label %Abc_NtkRetimeTiming.exit, label %544
@@ -1614,7 +1614,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %7, %._crit_edge.i.i
   br i1 %81, label %71, label %.critedge, !llvm.loop !59
 
 .critedge:                                        ; preds = %60, %71, %.preheader45, %.preheader
-  %.2 = phi i32 [ 0, %.preheader ], [ 0, %.preheader45 ], [ %spec.select37, %71 ], [ %spec.select, %60 ]
+  %.2 = phi i32 [ %spec.select37, %71 ], [ 0, %.preheader ], [ 0, %.preheader45 ], [ %spec.select, %60 ]
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %83 = load i32, ptr %82, align 4
   %84 = shl nuw i32 %.2, 12

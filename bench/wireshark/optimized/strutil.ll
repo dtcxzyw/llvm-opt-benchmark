@@ -62,7 +62,7 @@ define hidden ptr @find_line_end(ptr noundef %0, ptr noundef %1, ptr noundef wri
   br label %25
 
 25:                                               ; preds = %20, %16, %17, %24
-  %.1 = phi ptr [ %7, %16 ], [ %7, %17 ], [ %7, %24 ], [ %spec.select, %20 ]
+  %.1 = phi ptr [ %7, %16 ], [ %7, %24 ], [ %spec.select, %20 ], [ %7, %17 ]
   %26 = getelementptr i8, ptr %.1, i64 1
   br label %27
 
@@ -246,7 +246,7 @@ define noundef zeroext i1 @hex_str_to_bytes(ptr noundef readonly captures(addres
   br label %.backedgethread-pre-split
 
 .backedgethread-pre-split:                        ; preds = %80, %72, %70, %57, %65, %65, %65
-  %.050.be.ph = phi ptr [ %26, %65 ], [ %26, %65 ], [ %26, %65 ], [ %24, %80 ], [ %25, %72 ], [ %25, %70 ], [ %58, %57 ]
+  %.050.be.ph = phi ptr [ %26, %65 ], [ %26, %65 ], [ %26, %65 ], [ %25, %72 ], [ %25, %70 ], [ %24, %80 ], [ %58, %57 ]
   %.pr = load i8, ptr %.050.be.ph, align 1
   br label %.backedge
 
@@ -326,7 +326,7 @@ is_byte_sep.exit72:                               ; preds = %22
   br label %.backedgethread-pre-split
 
 is_byte_sep.exit72.thread76:                      ; preds = %31, %60, %48, %42, %is_byte_sep.exit, %is_byte_sep.exit71, %is_byte_sep.exit72, %.backedge, %71, %11, %3
-  %.0 = phi i1 [ false, %3 ], [ true, %11 ], [ false, %31 ], [ false, %60 ], [ true, %48 ], [ false, %42 ], [ false, %is_byte_sep.exit ], [ false, %is_byte_sep.exit71 ], [ false, %is_byte_sep.exit72 ], [ true, %.backedge ], [ false, %71 ]
+  %.0 = phi i1 [ false, %3 ], [ true, %11 ], [ false, %31 ], [ false, %60 ], [ false, %71 ], [ true, %.backedge ], [ false, %is_byte_sep.exit71 ], [ false, %is_byte_sep.exit72 ], [ false, %is_byte_sep.exit ], [ false, %42 ], [ true, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -406,7 +406,7 @@ define noundef zeroext i1 @hex_str_to_bytes_encoding(ptr noundef %0, ptr noundef
   %.not.i = icmp eq i32 %32, 0
   br i1 %.not.i, label %.lr.ph.split.split, label %.lr.ph.split.us.preheader
 
-.lr.ph.split.us.preheader:                        ; preds = %25, %27, %29, %31
+.lr.ph.split.us.preheader:                        ; preds = %29, %27, %31, %25
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.thread.us._crit_edge
@@ -498,14 +498,14 @@ define noundef zeroext i1 @hex_str_to_bytes_encoding(ptr noundef %0, ptr noundef
   %.not43.us86 = icmp eq i8 %82, 0
   br i1 %.not43.us86, label %.thread51, label %.lr.ph.split.split.us, !llvm.loop !10
 
-.lr.ph.split.split:                               ; preds = %31, %29, %27, %25, %.lr.ph.split
+.lr.ph.split.split:                               ; preds = %25, %31, %27, %29, %.lr.ph.split
   %.phi.trans.insert = getelementptr i8, ptr @hex_str_to_bytes_encoding.str_to_nibble, i64 %11
   %.pre112 = load i8, ptr %.phi.trans.insert, align 1
   %83 = icmp slt i8 %.pre112, 0
   br i1 %83, label %.split.us, label %84
 
 .split.us:                                        ; preds = %.lr.ph.split.us, %.lr.ph.split.split.us, %.lr.ph.split.split
-  %.us-phi = phi ptr [ %0, %.lr.ph.split.split ], [ %.177.us85, %.lr.ph.split.split.us ], [ %.177.us, %.lr.ph.split.us ]
+  %.us-phi = phi ptr [ %.177.us85, %.lr.ph.split.split.us ], [ %0, %.lr.ph.split.split ], [ %.177.us, %.lr.ph.split.us ]
   br i1 %4, label %.thread51.thread, label %.thread51
 
 84:                                               ; preds = %.lr.ph.split.split
@@ -517,7 +517,7 @@ define noundef zeroext i1 @hex_str_to_bytes_encoding(ptr noundef %0, ptr noundef
   br i1 %89, label %.split79.us, label %.threadthread-pre-split
 
 .split79.us:                                      ; preds = %38, %70, %84
-  %.us-phi80 = phi ptr [ %0, %84 ], [ %.177.us85, %70 ], [ %.177.us, %38 ]
+  %.us-phi80 = phi ptr [ %.177.us85, %70 ], [ %0, %84 ], [ %.177.us, %38 ]
   br i1 %4, label %.thread51.thread, label %.thread51
 
 .threadthread-pre-split:                          ; preds = %84
@@ -533,13 +533,13 @@ define noundef zeroext i1 @hex_str_to_bytes_encoding(ptr noundef %0, ptr noundef
   %.us-phi83 = phi ptr [ %59, %.thread.us ], [ %23, %.threadthread-pre-split ]
   br i1 %4, label %.thread51.thread, label %.thread51
 
-.thread51.thread:                                 ; preds = %.split79.us, %.split.us, %.split82.us, %7, %9, %15
+.thread51.thread:                                 ; preds = %.split.us, %.split79.us, %.split82.us, %15, %7, %9
   %93 = call ptr @g_byte_array_set_size(ptr noundef nonnull %1, i32 noundef 0)
   br label %.thread51
 
-.thread51:                                        ; preds = %.thread.us._crit_edge, %77, %.thread.us, %.threadthread-pre-split, %.split79.us, %.split.us, %.split82.us, %5, %.thread51.thread
-  %.05569 = phi i1 [ false, %.thread51.thread ], [ false, %5 ], [ true, %.split82.us ], [ true, %.split.us ], [ true, %.split79.us ], [ true, %.threadthread-pre-split ], [ true, %.thread.us ], [ true, %77 ], [ true, %.thread.us._crit_edge ]
-  %.3 = phi ptr [ %0, %.thread51.thread ], [ %0, %5 ], [ %.us-phi83, %.split82.us ], [ %.us-phi, %.split.us ], [ %.us-phi80, %.split79.us ], [ %23, %.threadthread-pre-split ], [ %59, %.thread.us ], [ %81, %77 ], [ %53, %.thread.us._crit_edge ]
+.thread51:                                        ; preds = %.thread.us._crit_edge, %77, %.thread.us, %.threadthread-pre-split, %.split.us, %.split79.us, %.split82.us, %5, %.thread51.thread
+  %.05569 = phi i1 [ true, %.split79.us ], [ false, %.thread51.thread ], [ false, %5 ], [ true, %.split.us ], [ true, %.split82.us ], [ true, %.thread.us ], [ true, %77 ], [ true, %.threadthread-pre-split ], [ true, %.thread.us._crit_edge ]
+  %.3 = phi ptr [ %.us-phi80, %.split79.us ], [ %0, %.thread51.thread ], [ %0, %5 ], [ %.us-phi, %.split.us ], [ %.us-phi83, %.split82.us ], [ %59, %.thread.us ], [ %81, %77 ], [ %23, %.threadthread-pre-split ], [ %53, %.thread.us._crit_edge ]
   %.not46 = icmp eq ptr %2, null
   br i1 %.not46, label %95, label %94
 
@@ -633,7 +633,7 @@ define noundef zeroext i1 @uri_to_bytes(ptr noundef %0, ptr noundef %1, i64 noun
   br i1 %44, label %12, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %12, %20, %24, %33, %28, %41, %.preheader, %3
-  %.0 = phi i1 [ false, %3 ], [ true, %.preheader ], [ false, %12 ], [ false, %20 ], [ false, %24 ], [ false, %33 ], [ false, %28 ], [ true, %41 ]
+  %.0 = phi i1 [ false, %3 ], [ true, %.preheader ], [ false, %28 ], [ false, %24 ], [ false, %33 ], [ false, %20 ], [ false, %12 ], [ true, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
@@ -874,7 +874,7 @@ define noundef zeroext i1 @rel_oid_str_to_bytes(ptr noundef readonly captures(ad
   br i1 %.not61, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %16, %.lr.ph.split.us, %.lr.ph.split, %26, %28, %58, %60, %.thread, %3, %36, %._crit_edge
-  %.058 = phi i1 [ false, %._crit_edge ], [ true, %36 ], [ false, %3 ], [ false, %58 ], [ false, %60 ], [ true, %.thread ], [ false, %28 ], [ false, %26 ], [ false, %.lr.ph.split ], [ false, %.lr.ph.split.us ], [ false, %16 ]
+  %.058 = phi i1 [ true, %.thread ], [ false, %._crit_edge ], [ false, %3 ], [ true, %36 ], [ false, %.lr.ph.split ], [ false, %58 ], [ false, %60 ], [ false, %28 ], [ false, %26 ], [ false, %.lr.ph.split.us ], [ false, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.058
 }
@@ -903,7 +903,7 @@ define zeroext i1 @byte_array_equal(ptr noundef readonly captures(address_is_nul
   br label %14
 
 14:                                               ; preds = %10, %5, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %5 ], [ %.not12, %10 ]
+  %.0 = phi i1 [ false, %2 ], [ %.not12, %10 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -1158,7 +1158,7 @@ define noalias ptr @convert_string_to_hex(ptr noundef readonly captures(none) %0
   br label %.loopexit
 
 .loopexit:                                        ; preds = %20, %18, %2, %.outer50._crit_edge, %.outer._crit_edge
-  %.0 = phi ptr [ %32, %.outer._crit_edge ], [ null, %.outer50._crit_edge ], [ null, %2 ], [ null, %18 ], [ null, %20 ]
+  %.0 = phi ptr [ null, %.outer50._crit_edge ], [ %32, %.outer._crit_edge ], [ null, %2 ], [ null, %18 ], [ null, %20 ]
   ret ptr %.0
 }
 

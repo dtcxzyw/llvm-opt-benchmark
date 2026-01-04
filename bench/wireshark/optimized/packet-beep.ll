@@ -285,7 +285,7 @@ define internal i32 @dissect_beep(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %55
 
 55:                                               ; preds = %48, %53
-  %56 = phi i32 [ %54, %53 ], [ %43, %48 ]
+  %56 = phi i32 [ %43, %48 ], [ %54, %53 ]
   %57 = icmp sgt i32 %56, 0
   %or.cond = select i1 %35, i1 %57, i1 false
   br i1 %or.cond, label %58, label %.thread82
@@ -320,7 +320,7 @@ define internal i32 @dissect_beep(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %73
 
 73:                                               ; preds = %61, %62, %66
-  %.070 = phi ptr [ %68, %66 ], [ %8, %62 ], [ %8, %61 ]
+  %.070 = phi ptr [ %8, %61 ], [ %68, %66 ], [ %8, %62 ]
   %74 = icmp eq ptr %.070, null
   br i1 %74, label %75, label %.thread82
 
@@ -338,8 +338,8 @@ define internal i32 @dissect_beep(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %.thread82
 
 .thread82:                                        ; preds = %.critedge, %55, %58, %75, %73
-  %.085 = phi i32 [ 0, %75 ], [ 0, %73 ], [ %56, %55 ], [ %56, %58 ], [ 0, %.critedge ]
-  %.1 = phi ptr [ %77, %75 ], [ %.070, %73 ], [ %8, %55 ], [ %8, %58 ], [ %8, %.critedge ]
+  %.085 = phi i32 [ 0, %75 ], [ 0, %73 ], [ %56, %58 ], [ %56, %55 ], [ 0, %.critedge ]
+  %.1 = phi ptr [ %77, %75 ], [ %.070, %73 ], [ %8, %58 ], [ %8, %55 ], [ %8, %.critedge ]
   %82 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.085)
   %83 = icmp sgt i32 %82, 0
   br i1 %83, label %84, label %86
@@ -781,7 +781,7 @@ dissect_beep_mime_header.exit:                    ; preds = %header_len.exit.i, 
   br label %188
 
 188:                                              ; preds = %183, %.sink.split, %169
-  %.2272 = phi i32 [ %.1271, %169 ], [ %184, %.sink.split ], [ %184, %183 ]
+  %.2272 = phi i32 [ %.1271, %169 ], [ %184, %183 ], [ %184, %.sink.split ]
   %189 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2272)
   %190 = icmp sgt i32 %189, 0
   br i1 %190, label %191, label %275
@@ -976,7 +976,7 @@ dissect_beep_mime_header.exit:                    ; preds = %header_len.exit.i, 
   br label %305
 
 305:                                              ; preds = %299, %301, %303, %291
-  %.0 = phi i32 [ %292, %291 ], [ %304, %303 ], [ %300, %299 ], [ %302, %301 ]
+  %.0 = phi i32 [ %292, %291 ], [ %302, %301 ], [ %304, %303 ], [ %300, %299 ]
   %306 = icmp eq i32 %.0, 0
   br i1 %306, label %307, label %.thread330
 
@@ -1020,7 +1020,7 @@ dissect_beep_mime_header.exit:                    ; preds = %header_len.exit.i, 
   br label %.thread332
 
 .thread332:                                       ; preds = %.thread332.sink.split, %307, %318, %.thread330
-  %.6 = phi i32 [ %317, %318 ], [ %.3273, %.thread330 ], [ %.3273, %307 ], [ %317, %.thread332.sink.split ]
+  %.6 = phi i32 [ %.3273, %.thread330 ], [ %317, %318 ], [ %.3273, %307 ], [ %317, %.thread332.sink.split ]
   %322 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.6)
   %323 = icmp sgt i32 %322, 0
   br i1 %323, label %324, label %327
@@ -1036,7 +1036,7 @@ dissect_beep_mime_header.exit:                    ; preds = %header_len.exit.i, 
   br label %.thread328
 
 .thread328:                                       ; preds = %252, %264, %267, %198, %.thread324, %231, %122, %123, %126, %97, %99, %102, %327
-  %.0264 = phi i32 [ %328, %327 ], [ -1, %102 ], [ -1, %99 ], [ -1, %97 ], [ -1, %126 ], [ -1, %123 ], [ -1, %122 ], [ -1, %231 ], [ -1, %.thread324 ], [ -1, %198 ], [ -1, %267 ], [ -1, %264 ], [ -1, %252 ]
+  %.0264 = phi i32 [ -1, %97 ], [ %328, %327 ], [ -1, %198 ], [ -1, %122 ], [ -1, %102 ], [ -1, %99 ], [ -1, %126 ], [ -1, %123 ], [ -1, %231 ], [ -1, %.thread324 ], [ -1, %267 ], [ -1, %264 ], [ -1, %252 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

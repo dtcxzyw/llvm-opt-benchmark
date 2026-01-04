@@ -2162,7 +2162,7 @@ define linkonce_odr dso_local void @_ZN4absl16FlagsUsageConfigC2ERKS0_(ptr nound
   unreachable
 
 common.resume:                                    ; preds = %120, %.body, %13, %16
-  %common.resume.op = phi { ptr, i32 } [ %14, %16 ], [ %14, %13 ], [ %.pn.pn.pn, %.body ], [ %.pn.pn.pn, %120 ]
+  %common.resume.op = phi { ptr, i32 } [ %14, %13 ], [ %14, %16 ], [ %.pn.pn.pn, %.body ], [ %.pn.pn.pn, %120 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEEC2ERKS5_.exit: ; preds = %2, %9
@@ -2349,7 +2349,7 @@ _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_st
   unreachable
 
 .body26:                                          ; preds = %102, %.body31, %76, %73
-  %.pn = phi { ptr, i32 } [ %74, %76 ], [ %74, %73 ], [ %94, %.body31 ], [ %94, %102 ]
+  %.pn = phi { ptr, i32 } [ %74, %73 ], [ %94, %102 ], [ %74, %76 ], [ %94, %.body31 ]
   %107 = load ptr, ptr %42, align 8, !tbaa !7
   %.not.i33 = icmp eq ptr %107, null
   br i1 %.not.i33, label %.body20, label %108
@@ -2366,7 +2366,7 @@ _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_st
   unreachable
 
 .body20:                                          ; preds = %108, %.body26, %56, %53
-  %.pn.pn = phi { ptr, i32 } [ %54, %56 ], [ %54, %53 ], [ %.pn, %.body26 ], [ %.pn, %108 ]
+  %.pn.pn = phi { ptr, i32 } [ %54, %53 ], [ %.pn, %108 ], [ %54, %56 ], [ %.pn, %.body26 ]
   %113 = load ptr, ptr %22, align 8, !tbaa !7
   %.not.i35 = icmp eq ptr %113, null
   br i1 %.not.i35, label %.body, label %114
@@ -2383,7 +2383,7 @@ _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_st
   unreachable
 
 .body:                                            ; preds = %114, %.body20, %36, %33
-  %.pn.pn.pn = phi { ptr, i32 } [ %34, %36 ], [ %34, %33 ], [ %.pn.pn, %.body20 ], [ %.pn.pn, %114 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %34, %33 ], [ %.pn.pn, %114 ], [ %34, %36 ], [ %.pn.pn, %.body20 ]
   %119 = load ptr, ptr %3, align 8, !tbaa !7
   %.not.i37 = icmp eq ptr %119, null
   br i1 %.not.i37, label %common.resume, label %120
@@ -10461,7 +10461,7 @@ common.resume.sink.split:                         ; preds = %_ZNKSt7__cxx1112bas
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i53, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i9, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20.i ], [ %.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i ], [ %.pn.i10, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i9 ], [ %.pn.i32, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i31 ], [ %.pn.i54, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i53 ], [ %.pn.i76, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i75 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i32, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i31 ], [ %.pn.i54, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i53 ], [ %.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20.i ], [ %.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i ], [ %.pn.i10, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i9 ], [ %.pn.i76, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i75 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 __cxx_global_var_init.1.exit:                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12.i

@@ -175,7 +175,7 @@ define internal i32 @mylog(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr n
   br i1 %exitcond83.not, label %.loopexit, label %.lr.ph73, !llvm.loop !52
 
 .loopexit:                                        ; preds = %29, %35, %46, %50, %7
-  %.056 = phi i32 [ -64, %7 ], [ %32, %29 ], [ %38, %35 ], [ %49, %46 ], [ 0, %50 ]
+  %.056 = phi i32 [ -64, %7 ], [ %49, %46 ], [ %32, %29 ], [ %38, %35 ], [ 0, %50 ]
   ret i32 %.056
 }
 

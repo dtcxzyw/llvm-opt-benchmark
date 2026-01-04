@@ -98,7 +98,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi60EEERS2_RAT__Kc.exit: ; pr
           to label %_ZSt11make_uniqueIN9grpc_core7GsecKeyEJN4absl12lts_202407224SpanIKhEERbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i unwind label %22, !noalias !10
 
 common.resume:                                    ; preds = %17, %61, %22, %35, %_ZNSt10unique_ptrIN9grpc_core7GsecKeyESt14default_deleteIS1_EED2Ev.exit37.i
-  %common.resume.op = phi { ptr, i32 } [ %23, %22 ], [ %36, %35 ], [ %.pn.i, %_ZNSt10unique_ptrIN9grpc_core7GsecKeyESt14default_deleteIS1_EED2Ev.exit37.i ], [ %18, %17 ], [ %62, %61 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %_ZNSt10unique_ptrIN9grpc_core7GsecKeyESt14default_deleteIS1_EED2Ev.exit37.i ], [ %23, %22 ], [ %36, %35 ], [ %18, %17 ], [ %62, %61 ]
   resume { ptr, i32 } %common.resume.op
 
 22:                                               ; preds = %19
@@ -199,7 +199,7 @@ _ZNSt10unique_ptrIN9grpc_core7GsecKeyESt14default_deleteIS1_EED2Ev.exit37.i: ; p
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
-_ZL20create_alts_cryptersPKhmbbP20alts_frame_protectorPPc.exit.thread: ; preds = %_ZNSt10unique_ptrIN9grpc_core7GsecKeyESt14default_deleteIS1_EED2Ev.exit.i, %_ZNSt10unique_ptrIN9grpc_core7GsecKeyESt14default_deleteIS1_EED2Ev.exit49.i, %46
+_ZL20create_alts_cryptersPKhmbbP20alts_frame_protectorPPc.exit.thread: ; preds = %_ZNSt10unique_ptrIN9grpc_core7GsecKeyESt14default_deleteIS1_EED2Ev.exit49.i, %_ZNSt10unique_ptrIN9grpc_core7GsecKeyESt14default_deleteIS1_EED2Ev.exit.i, %46
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

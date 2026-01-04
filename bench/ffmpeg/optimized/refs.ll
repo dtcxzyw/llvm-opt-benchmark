@@ -289,7 +289,7 @@ set_pict_type.exit:                               ; preds = %31, %.critedge.i, %
   br i1 %.not58, label %80, label %.sink.split
 
 .sink.split:                                      ; preds = %75, %69, %71
-  %.sink = phi i8 [ 2, %71 ], [ 2, %69 ], [ 3, %75 ]
+  %.sink = phi i8 [ 2, %69 ], [ 2, %71 ], [ 3, %75 ]
   %79 = getelementptr inbounds nuw i8, ptr %26, i64 98
   store i8 %.sink, ptr %79, align 2, !tbaa !23
   br label %80
@@ -586,7 +586,7 @@ alloc_progress.exit:                              ; preds = %105
   br label %.thread85
 
 .thread85:                                        ; preds = %118, %123, %14, %.thread83
-  %.3 = phi ptr [ null, %.thread83 ], [ null, %14 ], [ null, %123 ], [ %10, %118 ]
+  %.3 = phi ptr [ null, %.thread83 ], [ null, %14 ], [ %10, %118 ], [ null, %123 ]
   ret ptr %.3
 }
 
@@ -662,9 +662,9 @@ define range(i32 -2147483648, 2) i32 @ff_vvc_output_frame(ptr noundef captures(n
   br label %36
 
 36:                                               ; preds = %29, %25, %20
-  %.267.us.us.us = phi i32 [ %.16697.us.us.us, %25 ], [ %.16697.us.us.us, %20 ], [ %spec.select.us.us.us, %29 ]
-  %.163.us.us.us = phi i32 [ %.06298.us.us.us, %25 ], [ %.06298.us.us.us, %20 ], [ %spec.select83.us.us.us, %29 ]
-  %.160.us.us.us = phi i32 [ %.059100.us.us.us, %25 ], [ %.059100.us.us.us, %20 ], [ %30, %29 ]
+  %.267.us.us.us = phi i32 [ %.16697.us.us.us, %20 ], [ %spec.select.us.us.us, %29 ], [ %.16697.us.us.us, %25 ]
+  %.163.us.us.us = phi i32 [ %.06298.us.us.us, %20 ], [ %spec.select83.us.us.us, %29 ], [ %.06298.us.us.us, %25 ]
+  %.160.us.us.us = phi i32 [ %.059100.us.us.us, %20 ], [ %30, %29 ], [ %.059100.us.us.us, %25 ]
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %exitcond139.not = icmp eq i64 %indvars.iv.next137, 17
   br i1 %exitcond139.not, label %15, label %20, !llvm.loop !155
@@ -719,9 +719,9 @@ define range(i32 -2147483648, 2) i32 @ff_vvc_output_frame(ptr noundef captures(n
   br label %60
 
 60:                                               ; preds = %53, %49, %44
-  %.267.us.us = phi i32 [ %.16697.us.us, %49 ], [ %.16697.us.us, %44 ], [ %spec.select.us.us, %53 ]
-  %.163.us.us = phi i32 [ %.06298.us.us, %49 ], [ %.06298.us.us, %44 ], [ %spec.select83.us.us, %53 ]
-  %.160.us.us = phi i32 [ %.059100.us.us, %49 ], [ %.059100.us.us, %44 ], [ %54, %53 ]
+  %.267.us.us = phi i32 [ %.16697.us.us, %44 ], [ %spec.select.us.us, %53 ], [ %.16697.us.us, %49 ]
+  %.163.us.us = phi i32 [ %.06298.us.us, %44 ], [ %spec.select83.us.us, %53 ], [ %.06298.us.us, %49 ]
+  %.160.us.us = phi i32 [ %.059100.us.us, %44 ], [ %54, %53 ], [ %.059100.us.us, %49 ]
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %exitcond143.not = icmp eq i64 %indvars.iv.next141, 17
   br i1 %exitcond143.not, label %38, label %44, !llvm.loop !155
@@ -774,9 +774,9 @@ define range(i32 -2147483648, 2) i32 @ff_vvc_output_frame(ptr noundef captures(n
   br label %84
 
 84:                                               ; preds = %77, %72, %.split.us.split
-  %.267.us = phi i32 [ %.16697.us, %72 ], [ %.16697.us, %.split.us.split ], [ %spec.select.us, %77 ]
-  %.163.us = phi i32 [ %.06298.us, %72 ], [ %.06298.us, %.split.us.split ], [ %spec.select83.us, %77 ]
-  %.160.us = phi i32 [ %.059100.us, %72 ], [ %.059100.us, %.split.us.split ], [ %78, %77 ]
+  %.267.us = phi i32 [ %.16697.us, %.split.us.split ], [ %spec.select.us, %77 ], [ %.16697.us, %72 ]
+  %.163.us = phi i32 [ %.06298.us, %.split.us.split ], [ %spec.select83.us, %77 ], [ %.06298.us, %72 ]
+  %.160.us = phi i32 [ %.059100.us, %.split.us.split ], [ %78, %77 ], [ %.059100.us, %72 ]
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
   %exitcond135.not = icmp eq i64 %indvars.iv.next133, 17
   br i1 %exitcond135.not, label %61, label %.split.us.split.backedge
@@ -858,9 +858,9 @@ define range(i32 -2147483648, 2) i32 @ff_vvc_output_frame(ptr noundef captures(n
   br label %118
 
 118:                                              ; preds = %111, %106, %.loopexit
-  %.267 = phi i32 [ %.16697, %106 ], [ %.16697, %.loopexit ], [ %spec.select, %111 ]
-  %.163 = phi i32 [ %.06298, %106 ], [ %.06298, %.loopexit ], [ %spec.select83, %111 ]
-  %.160 = phi i32 [ %.059100, %106 ], [ %.059100, %.loopexit ], [ %112, %111 ]
+  %.267 = phi i32 [ %.16697, %.loopexit ], [ %spec.select, %111 ], [ %.16697, %106 ]
+  %.163 = phi i32 [ %.06298, %.loopexit ], [ %spec.select83, %111 ], [ %.06298, %106 ]
+  %.160 = phi i32 [ %.059100, %.loopexit ], [ %112, %111 ], [ %.059100, %106 ]
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %exitcond131.not = icmp eq i64 %indvars.iv.next129, 17
   br i1 %exitcond131.not, label %101, label %.loopexit, !llvm.loop !155
@@ -937,8 +937,8 @@ define range(i32 -2147483648, 2) i32 @ff_vvc_output_frame(ptr noundef captures(n
   store i16 %155, ptr %10, align 2, !tbaa !154
   br label %.preheader
 
-.thread85:                                        ; preds = %150, %62, %16, %146, %141, %.split102.us
-  %.3 = phi i32 [ %142, %141 ], [ 1, %146 ], [ 0, %.split102.us ], [ 0, %16 ], [ 0, %62 ], [ 0, %150 ]
+.thread85:                                        ; preds = %150, %62, %16, %141, %146, %.split102.us
+  %.3 = phi i32 [ 0, %.split102.us ], [ 1, %146 ], [ %142, %141 ], [ 0, %16 ], [ 0, %62 ], [ 0, %150 ]
   ret i32 %.3
 }
 
@@ -983,7 +983,7 @@ define void @ff_vvc_bump_frame(ptr noundef readonly captures(none) %0, ptr nound
   br label %23
 
 23:                                               ; preds = %19, %14, %10
-  %.1 = phi i32 [ %.061, %14 ], [ %.061, %10 ], [ %spec.select, %19 ]
+  %.1 = phi i32 [ %.061, %10 ], [ %spec.select, %19 ], [ %.061, %14 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 17
   br i1 %exitcond.not, label %9, label %10, !llvm.loop !168
@@ -1027,7 +1027,7 @@ define void @ff_vvc_bump_frame(ptr noundef readonly captures(none) %0, ptr nound
   br label %46
 
 46:                                               ; preds = %41, %36, %.preheader59
-  %.141 = phi i32 [ %.04063, %36 ], [ %.04063, %.preheader59 ], [ %spec.select58, %41 ]
+  %.141 = phi i32 [ %spec.select58, %41 ], [ %.04063, %36 ], [ %.04063, %.preheader59 ]
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next67, 17
   br i1 %exitcond69.not, label %.preheader, label %.preheader59, !llvm.loop !169
@@ -1746,8 +1746,8 @@ check_candidate_ref.exit.i:                       ; preds = %329
   %404 = phi ptr [ %377, %385 ], [ %377, %381 ], [ %377, %.thread140 ], [ %375, %401 ]
   br i1 %.not159, label %62, label %init_slice_rpl.exit.thread, !llvm.loop !233
 
-init_slice_rpl.exit.thread:                       ; preds = %403, %394, %389, %find_ref_idx.exit.i, %check_candidate_ref.exit.i, %183, %192, %329, %321, %313, %.thread138, %21
-  %.0 = phi i32 [ -1094995529, %21 ], [ -1163346256, %.thread138 ], [ -1094995529, %find_ref_idx.exit.i ], [ -1094995529, %check_candidate_ref.exit.i ], [ -1094995529, %183 ], [ -12, %192 ], [ -1094995529, %329 ], [ -1094995529, %321 ], [ -1094995529, %313 ], [ -1094995529, %389 ], [ -1094995529, %394 ], [ 0, %403 ]
+init_slice_rpl.exit.thread:                       ; preds = %403, %394, %389, %check_candidate_ref.exit.i, %192, %find_ref_idx.exit.i, %183, %321, %329, %313, %.thread138, %21
+  %.0 = phi i32 [ -1094995529, %21 ], [ -1163346256, %.thread138 ], [ -1094995529, %313 ], [ -1094995529, %check_candidate_ref.exit.i ], [ -12, %192 ], [ -1094995529, %find_ref_idx.exit.i ], [ -1094995529, %183 ], [ -1094995529, %321 ], [ -1094995529, %329 ], [ -1094995529, %394 ], [ -1094995529, %389 ], [ 0, %403 ]
   ret i32 %.0
 }
 

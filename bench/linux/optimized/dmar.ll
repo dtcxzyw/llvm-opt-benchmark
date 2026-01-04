@@ -476,7 +476,7 @@ define dso_local noundef range(i32 -22, 2) i32 @dmar_insert_dev_scope(ptr nounde
   br label %.loopexit12
 
 .loopexit12:                                      ; preds = %40, %43, %79
-  %83 = phi i8 [ %.pre40, %79 ], [ %20, %43 ], [ %20, %40 ]
+  %83 = phi i8 [ %20, %43 ], [ %.pre40, %79 ], [ %20, %40 ]
   switch i8 %83, label %110 [
     i8 1, label %84
     i8 2, label %89
@@ -769,7 +769,7 @@ define dso_local ptr @dmar_find_matched_drhd_unit(ptr noundef readonly captures(
   br i1 %77, label %.loopexit7, label %52, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.loopexit7, %33, %64, %23, %12, %1
-  %78 = phi ptr [ null, %1 ], [ %7, %12 ], [ null, %23 ], [ %28, %64 ], [ %28, %33 ], [ null, %.loopexit7 ]
+  %78 = phi ptr [ null, %1 ], [ %28, %64 ], [ %7, %12 ], [ null, %23 ], [ null, %.loopexit7 ], [ %28, %33 ]
   tail call void @__rcu_read_unlock() #20
   ret ptr %78
 }
@@ -3208,7 +3208,7 @@ dmar_walk_dsm_resource.exit:                      ; preds = %34
   br label %dmar_walk_dsm_resource.exit9
 
 dmar_walk_dsm_resource.exit9:                     ; preds = %46, %.thread.sink.split.i7
-  %63 = phi i32 [ 0, %46 ], [ %.ph.i8, %.thread.sink.split.i7 ]
+  %63 = phi i32 [ %.ph.i8, %.thread.sink.split.i7 ], [ 0, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %64 = icmp eq i32 %63, 0
   %65 = load i32, ptr %12, align 4
@@ -4303,7 +4303,7 @@ define internal i32 @dmar_parse_one_drhd(ptr noundef readonly captures(address) 
   br i1 %231, label %253, label %.thread20
 
 .thread20:                                        ; preds = %97, %96, %.thread22, %228
-  %232 = phi i32 [ %230, %228 ], [ %226, %.thread22 ], [ -12, %97 ], [ -22, %96 ]
+  %232 = phi i32 [ %226, %.thread22 ], [ %230, %228 ], [ -12, %97 ], [ -22, %96 ]
   %233 = load ptr, ptr %86, align 8
   %234 = icmp eq ptr %233, null
   br i1 %234, label %252, label %235
@@ -5097,7 +5097,7 @@ define internal fastcc i32 @dmar_walk_dsm_resource(ptr noundef %0, i32 noundef r
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %9, %4
-  %29 = phi i32 [ 0, %4 ], [ -19, %9 ], [ %.ph, %.thread.sink.split ]
+  %29 = phi i32 [ -19, %9 ], [ 0, %4 ], [ %.ph, %.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %29
 }
@@ -5231,7 +5231,7 @@ define internal i32 @dmar_hp_remove_drhd(ptr noundef readonly captures(none) %0,
   br label %.thread
 
 .thread:                                          ; preds = %19, %51, %2, %.loopexit, %22
-  %54 = phi i32 [ %53, %.loopexit ], [ 0, %22 ], [ 0, %2 ], [ -16, %51 ], [ 0, %19 ]
+  %54 = phi i32 [ %53, %.loopexit ], [ 0, %22 ], [ -16, %51 ], [ 0, %2 ], [ 0, %19 ]
   ret i32 %54
 }
 

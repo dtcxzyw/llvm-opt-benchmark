@@ -435,9 +435,9 @@ tailrecurse:                                      ; preds = %.loopexit, %10
   br i1 %203, label %.loopexit438.i, label %194
 
 .loopexit438.i:                                   ; preds = %.lr.ph492.i, %194, %.preheader437.i, %181, %171
-  %.sroa.12.4 = phi i64 [ %.sroa.12.3, %.preheader437.i ], [ %.sroa.12.3, %181 ], [ %.sroa.12.3, %171 ], [ %175, %.lr.ph492.i ], [ %.sroa.12.3, %194 ]
-  %.sroa.0.4 = phi i64 [ %.sroa.0.3, %.preheader437.i ], [ %.sroa.0.3, %181 ], [ %.sroa.0.3, %171 ], [ %174, %.lr.ph492.i ], [ %.sroa.0.3, %194 ]
-  %.1323.i = phi i64 [ %.0322495.i, %.preheader437.i ], [ %.0322495.i, %181 ], [ %.0322495.i, %171 ], [ %178, %.lr.ph492.i ], [ %.0322495.i, %194 ]
+  %.sroa.12.4 = phi i64 [ %.sroa.12.3, %171 ], [ %.sroa.12.3, %181 ], [ %.sroa.12.3, %.preheader437.i ], [ %175, %.lr.ph492.i ], [ %.sroa.12.3, %194 ]
+  %.sroa.0.4 = phi i64 [ %.sroa.0.3, %171 ], [ %.sroa.0.3, %181 ], [ %.sroa.0.3, %.preheader437.i ], [ %174, %.lr.ph492.i ], [ %.sroa.0.3, %194 ]
+  %.1323.i = phi i64 [ %.0322495.i, %171 ], [ %.0322495.i, %181 ], [ %.0322495.i, %.preheader437.i ], [ %178, %.lr.ph492.i ], [ %.0322495.i, %194 ]
   %204 = add nsw i64 %.2336494.i, -2
   %.not380.i = icmp slt i64 %204, %.1350.i
   br i1 %.not380.i, label %._crit_edge497.i, label %171, !llvm.loop !29
@@ -515,9 +515,9 @@ tailrecurse:                                      ; preds = %.loopexit, %10
   br i1 %237, label %.loopexit.i, label %229
 
 .loopexit.i:                                      ; preds = %236, %229, %.preheader436.i, %218, %207
-  %.sroa.12.7 = phi i64 [ %.sroa.12.6, %218 ], [ %.sroa.12.6, %.preheader436.i ], [ %.sroa.12.6, %207 ], [ %211, %236 ], [ %.sroa.12.6, %229 ]
-  %.sroa.0.7 = phi i64 [ %.sroa.0.6, %218 ], [ %.sroa.0.6, %.preheader436.i ], [ %.sroa.0.6, %207 ], [ %210, %236 ], [ %.sroa.0.6, %229 ]
-  %.3325.i = phi i64 [ %.2324503.i, %218 ], [ %.2324503.i, %.preheader436.i ], [ %.2324503.i, %207 ], [ %214, %236 ], [ %.2324503.i, %229 ]
+  %.sroa.12.7 = phi i64 [ %.sroa.12.6, %218 ], [ %.sroa.12.6, %207 ], [ %.sroa.12.6, %.preheader436.i ], [ %211, %236 ], [ %.sroa.12.6, %229 ]
+  %.sroa.0.7 = phi i64 [ %.sroa.0.6, %218 ], [ %.sroa.0.6, %207 ], [ %.sroa.0.6, %.preheader436.i ], [ %210, %236 ], [ %.sroa.0.6, %229 ]
+  %.3325.i = phi i64 [ %.2324503.i, %218 ], [ %.2324503.i, %207 ], [ %.2324503.i, %.preheader436.i ], [ %214, %236 ], [ %.2324503.i, %229 ]
   %238 = add nsw i64 %.3337502.i, -2
   %.not381.i = icmp slt i64 %238, %.2346.i
   br i1 %.not381.i, label %._crit_edge505.i, label %207, !llvm.loop !31
@@ -604,10 +604,10 @@ tailrecurse:                                      ; preds = %.loopexit, %10
   br label %77
 
 .loopexit:                                        ; preds = %._crit_edge505.i, %._crit_edge497.i, %116, %161, %260, %262
-  %.sroa.28.0 = phi i32 [ 0, %260 ], [ 1, %262 ], [ 1, %161 ], [ 1, %116 ], [ 1, %._crit_edge505.i ], [ 0, %._crit_edge497.i ]
-  %.sroa.21.0 = phi i32 [ 1, %260 ], [ 0, %262 ], [ 1, %161 ], [ 1, %116 ], [ 0, %._crit_edge505.i ], [ 1, %._crit_edge497.i ]
-  %.sroa.12.8 = phi i64 [ %261, %260 ], [ %263, %262 ], [ %.1327.lcssa.i, %161 ], [ %.0326.lcssa.i, %116 ], [ %.sroa.12.7, %._crit_edge505.i ], [ %.sroa.12.4, %._crit_edge497.i ]
-  %.sroa.0.8 = phi i64 [ %.0313.lcssa.i, %260 ], [ %.0.lcssa.i, %262 ], [ %.3333.lcssa.i, %161 ], [ %.1331.lcssa.i, %116 ], [ %.sroa.0.7, %._crit_edge505.i ], [ %.sroa.0.4, %._crit_edge497.i ]
+  %.sroa.28.0 = phi i32 [ 0, %260 ], [ 1, %262 ], [ 1, %116 ], [ 1, %161 ], [ 1, %._crit_edge505.i ], [ 0, %._crit_edge497.i ]
+  %.sroa.21.0 = phi i32 [ 1, %260 ], [ 0, %262 ], [ 1, %116 ], [ 1, %161 ], [ 0, %._crit_edge505.i ], [ 1, %._crit_edge497.i ]
+  %.sroa.12.8 = phi i64 [ %261, %260 ], [ %263, %262 ], [ %.0326.lcssa.i, %116 ], [ %.1327.lcssa.i, %161 ], [ %.sroa.12.7, %._crit_edge505.i ], [ %.sroa.12.4, %._crit_edge497.i ]
+  %.sroa.0.8 = phi i64 [ %.0313.lcssa.i, %260 ], [ %.0.lcssa.i, %262 ], [ %.1331.lcssa.i, %116 ], [ %.3333.lcssa.i, %161 ], [ %.sroa.0.7, %._crit_edge505.i ], [ %.sroa.0.4, %._crit_edge497.i ]
   %266 = tail call i32 @xdl_recs_cmp(ptr noundef %0, i64 noundef %.070.lcssa, i64 noundef %.sroa.0.8, ptr noundef %3, i64 noundef %.073.lcssa, i64 noundef %.sroa.12.8, ptr noundef %6, ptr noundef %7, i32 noundef %.sroa.21.0, ptr noundef %9)
   %current.ret.tr = select i1 %ret.known.tr, i32 %ret.tr, i32 0
   br label %tailrecurse
@@ -1382,12 +1382,12 @@ group_previous.exit110:                           ; preds = %287
   unreachable
 
 .loopexit246:                                     ; preds = %group_previous.exit87, %group_previous.exit110, %.preheader247, %.preheader, %119, %161, %group_next.exit118
-  %294 = phi ptr [ %22, %group_next.exit118 ], [ %115, %119 ], [ %115, %161 ], [ %115, %.preheader ], [ %115, %.preheader247 ], [ %286, %group_previous.exit110 ], [ %153, %group_previous.exit87 ]
-  %295 = phi ptr [ %23, %group_next.exit118 ], [ %116, %119 ], [ %116, %161 ], [ %116, %.preheader ], [ %116, %.preheader247 ], [ %274, %group_previous.exit110 ], [ %141, %group_previous.exit87 ]
-  %.sroa.21.1 = phi i64 [ %.sroa.0150.0, %group_next.exit118 ], [ %.sroa.21.3.lcssa, %119 ], [ %.sroa.21.4.lcssa, %161 ], [ %.sroa.21.4.lcssa, %.preheader ], [ %.sroa.21.4.lcssa, %.preheader247 ], [ %.0.lcssa, %group_previous.exit110 ], [ %139, %group_previous.exit87 ]
-  %.sroa.15.1 = phi i64 [ %.sroa.15.0, %group_next.exit118 ], [ %.sroa.15.4.lcssa, %119 ], [ %.sroa.15.4.lcssa, %161 ], [ %.sroa.15.4.lcssa, %.preheader ], [ %.sroa.15.4.lcssa, %.preheader247 ], [ %285, %group_previous.exit110 ], [ %152, %group_previous.exit87 ]
-  %.sroa.4.1 = phi i32 [ %.sroa.4.0, %group_next.exit118 ], [ %.sroa.4.0, %119 ], [ %.sroa.4.0, %161 ], [ %.sroa.4.2.lcssa, %.preheader ], [ %.sroa.4.0, %.preheader247 ], [ %.sroa.4.2.lcssa, %group_previous.exit110 ], [ %.sroa.4.0, %group_previous.exit87 ]
-  %.sroa.0133.1 = phi i32 [ %.sroa.0133.0, %group_next.exit118 ], [ %.sroa.0133.0, %119 ], [ %.sroa.0133.0, %161 ], [ %.sroa.0133.2.lcssa, %.preheader ], [ %.sroa.0133.0, %.preheader247 ], [ %.sroa.0133.2.lcssa, %group_previous.exit110 ], [ %.sroa.0133.0, %group_previous.exit87 ]
+  %294 = phi ptr [ %22, %group_next.exit118 ], [ %115, %119 ], [ %115, %161 ], [ %286, %group_previous.exit110 ], [ %115, %.preheader ], [ %115, %.preheader247 ], [ %153, %group_previous.exit87 ]
+  %295 = phi ptr [ %23, %group_next.exit118 ], [ %116, %119 ], [ %116, %161 ], [ %274, %group_previous.exit110 ], [ %116, %.preheader ], [ %116, %.preheader247 ], [ %141, %group_previous.exit87 ]
+  %.sroa.21.1 = phi i64 [ %.sroa.0150.0, %group_next.exit118 ], [ %.sroa.21.3.lcssa, %119 ], [ %.sroa.21.4.lcssa, %161 ], [ %.0.lcssa, %group_previous.exit110 ], [ %.sroa.21.4.lcssa, %.preheader ], [ %.sroa.21.4.lcssa, %.preheader247 ], [ %139, %group_previous.exit87 ]
+  %.sroa.15.1 = phi i64 [ %.sroa.15.0, %group_next.exit118 ], [ %.sroa.15.4.lcssa, %119 ], [ %.sroa.15.4.lcssa, %161 ], [ %285, %group_previous.exit110 ], [ %.sroa.15.4.lcssa, %.preheader ], [ %.sroa.15.4.lcssa, %.preheader247 ], [ %152, %group_previous.exit87 ]
+  %.sroa.4.1 = phi i32 [ %.sroa.4.0, %group_next.exit118 ], [ %.sroa.4.0, %119 ], [ %.sroa.4.0, %161 ], [ %.sroa.4.2.lcssa, %group_previous.exit110 ], [ %.sroa.4.2.lcssa, %.preheader ], [ %.sroa.4.0, %.preheader247 ], [ %.sroa.4.0, %group_previous.exit87 ]
+  %.sroa.0133.1 = phi i32 [ %.sroa.0133.0, %group_next.exit118 ], [ %.sroa.0133.0, %119 ], [ %.sroa.0133.0, %161 ], [ %.sroa.0133.2.lcssa, %group_previous.exit110 ], [ %.sroa.0133.2.lcssa, %.preheader ], [ %.sroa.0133.0, %.preheader247 ], [ %.sroa.0133.0, %group_previous.exit87 ]
   %296 = load i64, ptr %14, align 8, !tbaa !63
   %297 = icmp eq i64 %.sroa.21.1, %296
   %298 = load i64, ptr %15, align 8, !tbaa !63
@@ -1497,7 +1497,7 @@ define internal fastcc void @measure_split(ptr noundef readonly captures(none) %
   br i1 %32, label %.thread31.i, label %get_indent.exit
 
 get_indent.exit:                                  ; preds = %31, %18, %.thread31.i, %7, %6
-  %.2.i.sink = phi i32 [ -1, %6 ], [ -1, %7 ], [ 200, %31 ], [ -1, %.thread31.i ], [ %.01524.i, %18 ]
+  %.2.i.sink = phi i32 [ -1, %6 ], [ -1, %7 ], [ 200, %31 ], [ %.01524.i, %18 ], [ -1, %.thread31.i ]
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %.2.i.sink, ptr %33, align 4, !tbaa !69
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2165,7 +2165,7 @@ record_matches_regex.exit33.i:                    ; preds = %168
   br i1 %177, label %.lr.ph37.splitthread-pre-split.i, label %._crit_edge38.i, !llvm.loop !113
 
 ._crit_edge38.i:                                  ; preds = %record_matches_regex.exit33.i, %record_matches_regex.exit33.thread64.i, %record_matches_regex.exit33.thread.i, %.lr.ph37.i, %._crit_edge.i21, %record_matches_regex.exit.thread57.i, %record_matches_regex.exit.thread.i, %.lr.ph.i23
-  %.124.lcssa.i = phi i32 [ 1, %._crit_edge.i21 ], [ 0, %.lr.ph37.i ], [ 0, %record_matches_regex.exit33.thread.i ], [ 0, %record_matches_regex.exit33.thread64.i ], [ 0, %.lr.ph.i23 ], [ 0, %record_matches_regex.exit.thread.i ], [ 0, %record_matches_regex.exit.thread57.i ], [ 1, %record_matches_regex.exit33.i ]
+  %.124.lcssa.i = phi i32 [ 1, %._crit_edge.i21 ], [ 0, %record_matches_regex.exit33.thread64.i ], [ 0, %.lr.ph37.i ], [ 0, %record_matches_regex.exit33.thread.i ], [ 0, %record_matches_regex.exit.thread57.i ], [ 0, %.lr.ph.i23 ], [ 0, %record_matches_regex.exit.thread.i ], [ 1, %record_matches_regex.exit33.i ]
   store i32 %.124.lcssa.i, ptr %119, align 8, !tbaa !92
   br label %178
 
@@ -2194,7 +2194,7 @@ xdl_mark_ignorable_regex.exit:                    ; preds = %178, %xdl_mark_igno
   br i1 %.not.i33, label %.sink.split, label %.lr.ph.i31, !llvm.loop !93
 
 .sink.split:                                      ; preds = %.lr.ph.i.i, %.lr.ph.i31, %.lr.ph.i27, %xdl_build_script.exit, %14, %56
-  %.0.ph = phi i32 [ -1, %56 ], [ 0, %14 ], [ 0, %xdl_build_script.exit ], [ -1, %.lr.ph.i27 ], [ 0, %.lr.ph.i31 ], [ -1, %.lr.ph.i.i ]
+  %.0.ph = phi i32 [ -1, %56 ], [ 0, %xdl_build_script.exit ], [ -1, %.lr.ph.i27 ], [ 0, %.lr.ph.i31 ], [ 0, %14 ], [ -1, %.lr.ph.i.i ]
   call void @xdl_free_env(ptr noundef nonnull %8) #10
   br label %184
 
@@ -2249,7 +2249,7 @@ define internal range(i32 -1, 1) i32 @xdl_call_hunk_func(ptr readnone captures(n
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !118
 
 ._crit_edge:                                      ; preds = %9, %.lr.ph, %30, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %30 ], [ 0, %.lr.ph ], [ -1, %9 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %.lr.ph ], [ 0, %30 ], [ -1, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

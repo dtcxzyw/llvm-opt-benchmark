@@ -140,8 +140,8 @@ define internal fastcc zeroext i1 @SDL_SendDrop(ptr noundef captures(address_is_
   store float 0.000000e+00, ptr @SDL_SendDrop.last_drop_y, align 4
   br label %.sink.split
 
-.sink.split:                                      ; preds = %14, %22, %26, %.thread39, %48, %37
-  %.1.ph = phi i1 [ %42, %37 ], [ %42, %48 ], [ false, %.thread39 ], [ false, %26 ], [ false, %22 ], [ false, %14 ]
+.sink.split:                                      ; preds = %26, %22, %14, %.thread39, %48, %37
+  %.1.ph = phi i1 [ %42, %48 ], [ %42, %37 ], [ false, %.thread39 ], [ false, %14 ], [ false, %22 ], [ false, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %49
 
@@ -220,7 +220,7 @@ define hidden zeroext i1 @SDL_SendDropPosition(ptr noundef captures(address_is_n
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %19, %.thread39.i, %11
-  %.1.ph.i = phi i1 [ %24, %19 ], [ false, %.thread39.i ], [ false, %11 ]
+  %.1.ph.i = phi i1 [ false, %11 ], [ %24, %19 ], [ false, %.thread39.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %SDL_SendDrop.exit
 

@@ -2713,7 +2713,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.ex
   br label %_ZN4llvm8ExpectedINS_3msf9MSFLayoutEEC2IS2_EEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS5_S2_EEvE4typeE.exit
 
 _ZN4llvm8ExpectedINS_3msf9MSFLayoutEEC2IS2_EEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS5_S2_EEvE4typeE.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.exit.i, %_ZN4llvm15SmallVectorImplImE12assignRemoteEOS1_.exit.i, %_ZN4llvm9BitVectoraSERKS0_.exit
-  %331 = phi i32 [ %.pre124, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.exit.i ], [ %312, %_ZN4llvm15SmallVectorImplImE12assignRemoteEOS1_.exit.i ], [ %312, %_ZN4llvm9BitVectoraSERKS0_.exit ]
+  %331 = phi i32 [ %.pre124, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.exit.i ], [ %312, %_ZN4llvm9BitVectoraSERKS0_.exit ], [ %312, %_ZN4llvm15SmallVectorImplImE12assignRemoteEOS1_.exit.i ]
   %332 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %331, ptr %332, align 8, !tbaa !38
   %333 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -2987,7 +2987,7 @@ _ZN4llvm3msf9MSFLayoutaSEOS1_.exit:               ; preds = %_ZN4llvm15SmallVect
   br label %_ZN4llvm3msf27getMaxFileSizeFromBlockSizeEj.exit
 
 _ZN4llvm3msf27getMaxFileSizeFromBlockSizeEj.exit: ; preds = %_ZN4llvm3msf9MSFLayoutaSEOS1_.exit, %114, %115, %116
-  %.0.i = phi i64 [ 4294967295, %116 ], [ 12884901885, %114 ], [ 17179869180, %115 ], [ 8589934590, %_ZN4llvm3msf9MSFLayoutaSEOS1_.exit ]
+  %.0.i = phi i64 [ 4294967295, %116 ], [ 17179869180, %115 ], [ 12884901885, %114 ], [ 8589934590, %_ZN4llvm3msf9MSFLayoutaSEOS1_.exit ]
   %117 = icmp ugt i64 %113, %.0.i
   br i1 %117, label %118, label %136
 
@@ -3008,7 +3008,7 @@ _ZN4llvm3msf27getMaxFileSizeFromBlockSizeEj.exit: ; preds = %_ZN4llvm3msf9MSFLay
   br label %_ZN4llvm5ErrorD2Ev.exit63
 
 _ZN4llvm5ErrorD2Ev.exit63:                        ; preds = %121, %120, %119, %118
-  %.0.i62 = phi i32 [ 7, %121 ], [ 9, %119 ], [ 10, %120 ], [ 8, %118 ]
+  %.0.i62 = phi i32 [ 7, %121 ], [ 10, %120 ], [ 9, %119 ], [ 8, %118 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %122 = getelementptr inbounds nuw i8, ptr %17, i64 72
   store ptr @.str.9, ptr %17, align 8, !tbaa !177, !alias.scope !178
@@ -4073,8 +4073,8 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i20:    ; preds = %_ZNK4llvm9StringRef
   br i1 %21, label %_ZN4llvm9StringRef13consume_frontES0_.exit23.sink.split, label %_ZN4llvm9StringRef13consume_frontES0_.exit23
 
 _ZN4llvm9StringRef13consume_frontES0_.exit23.sink.split: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i20, %_ZNK4llvm9StringRef11starts_withES0_.exit.i14, %_ZNK4llvm9StringRef11starts_withES0_.exit.i8, %_ZNK4llvm9StringRef11starts_withES0_.exit.i
-  %.pre.i19.sink = phi ptr [ %.pre.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ %.pre.i7, %_ZNK4llvm9StringRef11starts_withES0_.exit.i8 ], [ %.pre.i13, %_ZNK4llvm9StringRef11starts_withES0_.exit.i14 ], [ %.pre.i19, %_ZNK4llvm9StringRef11starts_withES0_.exit.i20 ]
-  %.0.ph = phi i32 [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i8 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i14 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i20 ]
+  %.pre.i19.sink = phi ptr [ %.pre.i13, %_ZNK4llvm9StringRef11starts_withES0_.exit.i14 ], [ %.pre.i7, %_ZNK4llvm9StringRef11starts_withES0_.exit.i8 ], [ %.pre.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ %.pre.i19, %_ZNK4llvm9StringRef11starts_withES0_.exit.i20 ]
+  %.0.ph = phi i32 [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i14 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i8 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i20 ]
   %22 = getelementptr inbounds nuw i8, ptr %.pre.i19.sink, i64 1
   %23 = add i64 %17, -1
   store ptr %22, ptr %7, align 8, !tbaa !177
@@ -4188,7 +4188,7 @@ _ZN4llvm9StringRef13consume_frontES0_.exit30:     ; preds = %_ZNK4llvm9StringRef
   br label %26
 
 26:                                               ; preds = %.thread50, %_ZN4llvm9StringRef13consume_frontES0_.exit30, %_ZN4llvm9StringRef13consume_frontES0_.exit18, %_ZN4llvm9StringRef13consume_frontES0_.exit24, %1, %11, %7
-  %.sroa.5.0 = phi i64 [ 4294967297, %7 ], [ 4294967296, %11 ], [ 0, %1 ], [ 4294967299, %_ZN4llvm9StringRef13consume_frontES0_.exit24 ], [ 4294967299, %_ZN4llvm9StringRef13consume_frontES0_.exit18 ], [ 4294967298, %_ZN4llvm9StringRef13consume_frontES0_.exit30 ], [ 4294967298, %.thread50 ]
+  %.sroa.5.0 = phi i64 [ 4294967297, %7 ], [ 4294967296, %11 ], [ 0, %1 ], [ 4294967299, %_ZN4llvm9StringRef13consume_frontES0_.exit18 ], [ 4294967299, %_ZN4llvm9StringRef13consume_frontES0_.exit24 ], [ 4294967298, %_ZN4llvm9StringRef13consume_frontES0_.exit30 ], [ 4294967298, %.thread50 ]
   ret i64 %.sroa.5.0
 }
 
@@ -4396,7 +4396,7 @@ define linkonce_odr hidden void @_ZN4llvm20FileBufferByteStream10writeBytesEmNS_
   br i1 %18, label %28, label %_ZN4llvm5ErrorD2Ev.exit7.i
 
 28:                                               ; preds = %27, %20, %19
-  %.sink6.i.sink.i.i = phi i32 [ 3, %19 ], [ 1, %20 ], [ 3, %27 ]
+  %.sink6.i.sink.i.i = phi i32 [ 1, %20 ], [ 3, %19 ], [ 3, %27 ]
   %29 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23, !noalias !317
   tail call void @_ZN4llvm17BinaryStreamErrorC1ENS_17stream_error_codeE(ptr noundef nonnull align 8 dereferenceable(44) %29, i32 noundef %.sink6.i.sink.i.i) #22, !noalias !317
   br label %_ZN4llvm23MutableBinaryByteStream10writeBytesEmNS_8ArrayRefIhEE.exit
@@ -4628,7 +4628,7 @@ define linkonce_odr hidden void @_ZN4llvm23MutableBinaryByteStream10writeBytesEm
   br i1 %17, label %27, label %_ZN4llvm5ErrorD2Ev.exit7
 
 27:                                               ; preds = %26, %19, %18
-  %.sink6.i.sink.i = phi i32 [ 3, %18 ], [ 1, %19 ], [ 3, %26 ]
+  %.sink6.i.sink.i = phi i32 [ 1, %19 ], [ 3, %18 ], [ 3, %26 ]
   %28 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23, !noalias !343
   tail call void @_ZN4llvm17BinaryStreamErrorC1ENS_17stream_error_codeE(ptr noundef nonnull align 8 dereferenceable(44) %28, i32 noundef %.sink6.i.sink.i) #22, !noalias !343
   br label %_ZN4llvm5ErrorD2Ev.exit

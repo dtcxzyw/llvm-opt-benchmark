@@ -413,7 +413,7 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
   br label %.thread1825
 
 .thread1825:                                      ; preds = %.thread1820, %.thread1794, %178, %.thread1793, %175
-  %.11350 = phi i32 [ %.013491790, %175 ], [ 1, %.thread1793 ], [ 1, %178 ], [ 1, %.thread1794 ], [ 1, %.thread1820 ]
+  %.11350 = phi i32 [ %.013491790, %175 ], [ 1, %.thread1794 ], [ 1, %.thread1793 ], [ 1, %178 ], [ 1, %.thread1820 ]
   %184 = load i32, ptr %61, align 4, !tbaa !27
   %185 = add nuw nsw i32 %63, 1
   %186 = icmp ult i32 %133, 2
@@ -511,7 +511,7 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
   br label %.thread1795
 
 .thread1795:                                      ; preds = %221, %227, %224
-  %228 = phi i1 [ true, %227 ], [ false, %224 ], [ false, %221 ]
+  %228 = phi i1 [ false, %224 ], [ true, %227 ], [ false, %221 ]
   %229 = getelementptr inbounds nuw i8, ptr %141, i64 2112
   store i8 0, ptr %229, align 1, !tbaa !44
   %230 = call fastcc i32 @mel_get_run(ptr noundef %9)
@@ -1122,7 +1122,7 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
   store i32 0, ptr %622, align 4, !tbaa !51
   br label %623
 
-.thread1797:                                      ; preds = %.critedge1761, %365, %.critedge1763, %385
+.thread1797:                                      ; preds = %385, %.critedge1761, %365, %.critedge1763
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.critedge1742
 
@@ -2442,7 +2442,7 @@ decode_noninit_uvlc.exit:                         ; preds = %720, %739, %758
   br i1 %1399, label %1213, label %._crit_edge1942, !llvm.loop !63
 
 ._crit_edge1942:                                  ; preds = %1382, %1181, %._crit_edge1909
-  %1400 = phi ptr [ %1185, %._crit_edge1909 ], [ %1182, %1181 ], [ %1185, %1382 ]
+  %1400 = phi ptr [ %1182, %1181 ], [ %1185, %._crit_edge1909 ], [ %1185, %1382 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %1400, i8 0, i64 %262, i1 false)
   br label %.thread1807
 
@@ -3163,8 +3163,8 @@ switch.lookup:                                    ; preds = %1528
   %exitcond2064.not = icmp eq i64 %indvars.iv.next2061, %wide.trip.count2063
   br i1 %exitcond2064.not, label %.critedge1742, label %.lr.ph2007.us, !llvm.loop !74
 
-.critedge1742:                                    ; preds = %._crit_edge2008.us, %.loopexit1836, %.thread2143, %.critedge1766, %821, %.critedge1768, %839, %37, %50, %.thread1797, %82, %.thread2181, %218, %.critedge1759, %211, %.critedge1757, %191, %.critedge1755, %170, %.critedge1750, %161, %.critedge1748, %152, %.critedge1746, %52, %17, %.critedge
-  %.0 = phi i32 [ 0, %.critedge ], [ 0, %17 ], [ 1, %52 ], [ 0, %.critedge1746 ], [ 0, %152 ], [ 0, %.critedge1748 ], [ 0, %161 ], [ 0, %.critedge1750 ], [ 0, %170 ], [ 0, %.critedge1755 ], [ 0, %191 ], [ 0, %.critedge1757 ], [ 0, %211 ], [ 0, %.critedge1759 ], [ 0, %218 ], [ 0, %.thread2181 ], [ 0, %82 ], [ 0, %.thread1797 ], [ 0, %50 ], [ 0, %37 ], [ 0, %839 ], [ 0, %.critedge1768 ], [ 0, %821 ], [ 0, %.critedge1766 ], [ 1, %.loopexit1836 ], [ 1, %.thread2143 ], [ 1, %._crit_edge2008.us ]
+.critedge1742:                                    ; preds = %._crit_edge2008.us, %.loopexit1836, %.thread2143, %839, %.critedge1766, %821, %.critedge1768, %37, %50, %.thread1797, %.thread2181, %82, %218, %.critedge1759, %211, %.critedge1757, %191, %.critedge1755, %170, %.critedge1750, %161, %.critedge1748, %152, %.critedge1746, %52, %17, %.critedge
+  %.0 = phi i32 [ 0, %.thread2181 ], [ 0, %37 ], [ 1, %.thread2143 ], [ 0, %82 ], [ 0, %218 ], [ 0, %.critedge1759 ], [ 0, %211 ], [ 0, %.critedge1757 ], [ 0, %.thread1797 ], [ 0, %839 ], [ 0, %191 ], [ 0, %.critedge1766 ], [ 1, %52 ], [ 0, %.critedge ], [ 0, %17 ], [ 0, %.critedge1746 ], [ 0, %152 ], [ 0, %.critedge1748 ], [ 0, %161 ], [ 0, %.critedge1750 ], [ 0, %170 ], [ 0, %.critedge1755 ], [ 0, %50 ], [ 0, %.critedge1768 ], [ 0, %821 ], [ 1, %.loopexit1836 ], [ 1, %._crit_edge2008.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -3385,10 +3385,10 @@ define internal fastcc void @rev_init(ptr noundef nonnull writeonly captures(non
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.preheader.i, %.loopexit.i.sink.split, %53
-  %65 = phi i64 [ %40, %53 ], [ %.ph, %.loopexit.i.sink.split ], [ %40, %.preheader.i ]
-  %66 = phi i1 [ %42, %53 ], [ %.ph46, %.loopexit.i.sink.split ], [ %42, %.preheader.i ]
-  %67 = phi i32 [ %41, %53 ], [ %.ph47, %.loopexit.i.sink.split ], [ %41, %.preheader.i ]
-  %.0.i = phi i32 [ 0, %53 ], [ %.0.i.ph, %.loopexit.i.sink.split ], [ %61, %.preheader.i ]
+  %65 = phi i64 [ %.ph, %.loopexit.i.sink.split ], [ %40, %53 ], [ %40, %.preheader.i ]
+  %66 = phi i1 [ %.ph46, %.loopexit.i.sink.split ], [ %42, %53 ], [ %42, %.preheader.i ]
+  %67 = phi i32 [ %.ph47, %.loopexit.i.sink.split ], [ %41, %53 ], [ %41, %.preheader.i ]
+  %.0.i = phi i32 [ %.0.i.ph, %.loopexit.i.sink.split ], [ 0, %53 ], [ %61, %.preheader.i ]
   %68 = lshr i32 %.0.i, 24
   %69 = and i32 %.0.i, 2130706432
   %70 = icmp eq i32 %69, 2130706432
@@ -3922,7 +3922,7 @@ mel_decode.exit.loopexit:                         ; preds = %109
   br label %mel_decode.exit
 
 mel_decode.exit:                                  ; preds = %mel_decode.exit.loopexit, %44, %1
-  %119 = phi i32 [ 0, %44 ], [ %3, %1 ], [ %118, %mel_decode.exit.loopexit ]
+  %119 = phi i32 [ %3, %1 ], [ 0, %44 ], [ %118, %mel_decode.exit.loopexit ]
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %121 = load i64, ptr %120, align 8, !tbaa !83
   %122 = trunc i64 %121 to i32

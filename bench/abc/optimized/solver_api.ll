@@ -1771,7 +1771,7 @@ vec_int_resize.exit:                              ; preds = %7
   br i1 %22, label %19, label %.critedge, !llvm.loop !132
 
 .critedge:                                        ; preds = %19, %vec_int_resize.exit, %2
-  %23 = phi ptr [ %.pre, %vec_int_resize.exit ], [ %3, %2 ], [ %15, %19 ]
+  %23 = phi ptr [ %3, %2 ], [ %.pre, %vec_int_resize.exit ], [ %15, %19 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !59
   %26 = getelementptr i8, ptr %25, i64 4
@@ -2311,7 +2311,7 @@ watch_list_grow.exit.i15.i:                       ; preds = %219, %210, %watch_l
   br label %clause_watch.exit
 
 clause_watch.exit:                                ; preds = %19, %24, %231, %226, %watch_list_grow.exit.i15.i, %solver_enqueue.exit, %._crit_edge55.thread
-  %.0 = phi i32 [ 0, %._crit_edge55.thread ], [ %115, %solver_enqueue.exit ], [ 1, %watch_list_grow.exit.i15.i ], [ 1, %226 ], [ 1, %231 ], [ 1, %24 ], [ 1, %19 ]
+  %.0 = phi i32 [ 1, %226 ], [ 0, %._crit_edge55.thread ], [ %115, %solver_enqueue.exit ], [ 1, %231 ], [ 1, %watch_list_grow.exit.i15.i ], [ 1, %24 ], [ 1, %19 ]
   ret i32 %.0
 }
 

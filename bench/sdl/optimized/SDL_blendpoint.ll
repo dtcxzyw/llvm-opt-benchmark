@@ -155,7 +155,7 @@ define hidden zeroext i1 @SDL_BlendPoint(ptr noundef %0, i32 noundef %1, i32 nou
   br label %82
 
 82:                                               ; preds = %18, %22, %26, %30, %80, %78, %73, %71, %63, %58, %.critedge, %10
-  %.0 = phi i1 [ %17, %.critedge ], [ %81, %80 ], [ %79, %78 ], [ true, %58 ], [ true, %63 ], [ true, %73 ], [ true, %71 ], [ %11, %10 ], [ true, %30 ], [ true, %26 ], [ true, %22 ], [ true, %18 ]
+  %.0 = phi i1 [ %17, %.critedge ], [ %11, %10 ], [ %81, %80 ], [ %79, %78 ], [ true, %58 ], [ true, %63 ], [ true, %73 ], [ true, %71 ], [ true, %30 ], [ true, %26 ], [ true, %22 ], [ true, %18 ]
   ret i1 %.0
 }
 
@@ -2511,7 +2511,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGB(ptr noundef readonly captures(non
   br label %1006
 
 1006:                                             ; preds = %519, %608, %697, %780, %863, %958, %19, %110, %201, %286, %371, %468, %1004
-  %.0 = phi i1 [ %1005, %1004 ], [ true, %468 ], [ true, %371 ], [ true, %286 ], [ true, %201 ], [ true, %110 ], [ true, %19 ], [ true, %958 ], [ true, %863 ], [ true, %780 ], [ true, %697 ], [ true, %608 ], [ true, %519 ]
+  %.0 = phi i1 [ %1005, %1004 ], [ true, %19 ], [ true, %468 ], [ true, %371 ], [ true, %286 ], [ true, %201 ], [ true, %110 ], [ true, %958 ], [ true, %863 ], [ true, %780 ], [ true, %697 ], [ true, %608 ], [ true, %519 ]
   ret i1 %.0
 }
 

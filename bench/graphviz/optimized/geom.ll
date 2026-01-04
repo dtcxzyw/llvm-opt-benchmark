@@ -160,7 +160,7 @@ define range(i32 -1, 2) i32 @lineToBox(double %0, double %1, double %2, double %
   br label %94
 
 94:                                               ; preds = %.thread114._crit_edge, %._crit_edge, %53, %69, %76, %86, %44, %37, %35, %30, %.critedge
-  %.0 = phi i32 [ -1, %.critedge ], [ 0, %30 ], [ 1, %35 ], [ 0, %37 ], [ 0, %44 ], [ 0, %86 ], [ 0, %76 ], [ 0, %69 ], [ 0, %53 ], [ 0, %._crit_edge ], [ 0, %.thread114._crit_edge ]
+  %.0 = phi i32 [ 0, %44 ], [ 0, %30 ], [ 1, %35 ], [ -1, %.critedge ], [ 0, %37 ], [ 0, %86 ], [ 0, %76 ], [ 0, %69 ], [ 0, %53 ], [ 0, %._crit_edge ], [ 0, %.thread114._crit_edge ]
   ret i32 %.0
 }
 

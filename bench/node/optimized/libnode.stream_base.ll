@@ -1106,7 +1106,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
+  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %entry ]
   %isolate_.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 88
   %12 = load ptr, ptr %isolate_.i, align 8
   %principal_realm_.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 2728
@@ -1396,9 +1396,9 @@ if.then.i83:                                      ; preds = %if.then198
   br label %if.end202
 
 if.end202:                                        ; preds = %_ZN4node16MaybeStackBufferI8uv_buf_tLm16EEixEm.exit76, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit.thread, %if.then.i83, %if.end196
-  %cmp197141 = phi i1 [ false, %if.end196 ], [ true, %if.then.i83 ], [ true, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit.thread ], [ false, %_ZN4node16MaybeStackBufferI8uv_buf_tLm16EEixEm.exit76 ]
-  %storage_size.2140 = phi i64 [ 0, %if.end196 ], [ %storage_size.1, %if.then.i83 ], [ %storage_size.1, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit.thread ], [ 0, %_ZN4node16MaybeStackBufferI8uv_buf_tLm16EEixEm.exit76 ]
-  %bs.sroa.0.0 = phi ptr [ null, %if.end196 ], [ %44, %if.then.i83 ], [ %43, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit.thread ], [ null, %_ZN4node16MaybeStackBufferI8uv_buf_tLm16EEixEm.exit76 ]
+  %cmp197141 = phi i1 [ true, %if.then.i83 ], [ false, %if.end196 ], [ true, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit.thread ], [ false, %_ZN4node16MaybeStackBufferI8uv_buf_tLm16EEixEm.exit76 ]
+  %storage_size.2140 = phi i64 [ %storage_size.1, %if.then.i83 ], [ 0, %if.end196 ], [ %storage_size.1, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit.thread ], [ 0, %_ZN4node16MaybeStackBufferI8uv_buf_tLm16EEixEm.exit76 ]
+  %bs.sroa.0.0 = phi ptr [ %44, %if.then.i83 ], [ null, %if.end196 ], [ %43, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit.thread ], [ null, %_ZN4node16MaybeStackBufferI8uv_buf_tLm16EEixEm.exit76 ]
   %cmp207153 = icmp eq i32 %count.0.in, 0
   %or.cond156.not = or i1 %cmp207153, %call56
   br i1 %or.cond156.not, label %if.end328, label %for.body208.lr.ph
@@ -1528,8 +1528,8 @@ for.inc325:                                       ; preds = %_ZN4node16MaybeStac
   br i1 %exitcond159.not, label %if.end328, label %for.body208, !llvm.loop !10
 
 if.end328:                                        ; preds = %for.inc325, %for.cond.preheader, %for.cond161.preheader, %if.end202
-  %bs.sroa.0.0188 = phi ptr [ %bs.sroa.0.0, %if.end202 ], [ null, %for.cond161.preheader ], [ null, %for.cond.preheader ], [ %bs.sroa.0.0, %for.inc325 ]
-  %cmp197141187 = phi i1 [ %cmp197141, %if.end202 ], [ false, %for.cond161.preheader ], [ false, %for.cond.preheader ], [ %cmp197141, %for.inc325 ]
+  %bs.sroa.0.0188 = phi ptr [ null, %for.cond.preheader ], [ %bs.sroa.0.0, %if.end202 ], [ null, %for.cond161.preheader ], [ %bs.sroa.0.0, %for.inc325 ]
+  %cmp197141187 = phi i1 [ false, %for.cond.preheader ], [ %cmp197141, %if.end202 ], [ false, %for.cond161.preheader ], [ %cmp197141, %for.inc325 ]
   %53 = load ptr, ptr %buf_.i.i, align 8
   call void @_ZN4node10StreamBase5WriteEP8uv_buf_tmP11uv_stream_sN2v85LocalINS5_6ObjectEEEb(ptr nonnull sret(%"struct.node::StreamWriteResult") align 8 %res, ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %53, i64 noundef %count.0, ptr noundef null, ptr %retval.i367.sroa.0.0129134, i1 noundef zeroext false)
   %bytes.i = getelementptr inbounds nuw i8, ptr %res, i64 16
@@ -1584,8 +1584,8 @@ if.then.i.i:                                      ; preds = %if.end340
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end285, %cond.end268, %for.body208, %if.then.i.i, %if.end340
-  %bs.sroa.0.1 = phi ptr [ %bs.sroa.0.2, %if.end340 ], [ %bs.sroa.0.2, %if.then.i.i ], [ %bs.sroa.0.0, %for.body208 ], [ %bs.sroa.0.0, %cond.end268 ], [ %bs.sroa.0.0, %if.end285 ]
-  %retval.1 = phi i32 [ %63, %if.end340 ], [ %63, %if.then.i.i ], [ -1, %for.body208 ], [ -1, %cond.end268 ], [ -1, %if.end285 ]
+  %bs.sroa.0.1 = phi ptr [ %bs.sroa.0.2, %if.then.i.i ], [ %bs.sroa.0.2, %if.end340 ], [ %bs.sroa.0.0, %for.body208 ], [ %bs.sroa.0.0, %cond.end268 ], [ %bs.sroa.0.0, %if.end285 ]
+  %retval.1 = phi i32 [ %63, %if.then.i.i ], [ %63, %if.end340 ], [ -1, %for.body208 ], [ -1, %cond.end268 ], [ -1, %if.end285 ]
   %cmp.not.i112 = icmp eq ptr %bs.sroa.0.1, null
   br i1 %cmp.not.i112, label %cleanup341, label %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i113
 
@@ -1595,7 +1595,7 @@ _ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i113: ; preds = %cleanup
   br label %cleanup341
 
 cleanup341:                                       ; preds = %lor.rhs, %land.lhs.true129, %if.end102, %if.end87, %for.body, %for.body163, %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i113, %cleanup, %for.end
-  %retval.0 = phi i32 [ -105, %for.end ], [ %retval.1, %cleanup ], [ %retval.1, %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i113 ], [ -1, %for.body163 ], [ -1, %for.body ], [ -1, %if.end87 ], [ -1, %if.end102 ], [ -1, %land.lhs.true129 ], [ -1, %lor.rhs ]
+  %retval.0 = phi i32 [ -105, %for.end ], [ %retval.1, %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i113 ], [ -1, %for.body163 ], [ %retval.1, %cleanup ], [ -1, %for.body ], [ -1, %if.end87 ], [ -1, %if.end102 ], [ -1, %land.lhs.true129 ], [ -1, %lor.rhs ]
   %65 = load ptr, ptr %buf_.i.i, align 8
   %cmp.i.i.i116 = icmp ne ptr %65, null
   %cmp.i.i118 = icmp ne ptr %65, %buf_st_.i.i
@@ -1704,7 +1704,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %do.end9, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %17, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %do.end9 ], [ null, %if.end.i.i.i ]
+  %retval.0.i.i = phi ptr [ %17, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %do.end9 ]
   %18 = load i32, ptr %length_.i221, align 8
   %cmp2.i204 = icmp slt i32 %18, 2
   br i1 %cmp2.i204, label %if.then.i210, label %if.end.i205
@@ -1929,7 +1929,7 @@ if.then.i.i34:                                    ; preds = %if.end113
   br label %return
 
 return:                                           ; preds = %if.then.i.i34, %if.end113, %do.end77, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %if.then19
-  %retval.0 = phi i32 [ 0, %if.then19 ], [ -22, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ], [ -1, %do.end77 ], [ %72, %if.end113 ], [ %72, %if.then.i.i34 ]
+  %retval.0 = phi i32 [ 0, %if.then19 ], [ -1, %do.end77 ], [ -22, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ], [ %72, %if.end113 ], [ %72, %if.then.i.i34 ]
   ret i32 %retval.0
 }
 
@@ -2245,7 +2245,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   br label %_ZN4node10StreamBase10FromObjectEN2v85LocalINS1_6ObjectEEE.exit
 
 _ZN4node10StreamBase10FromObjectEN2v85LocalINS1_6ObjectEEE.exit: ; preds = %if.then.i.i, %if.end.i.i
-  %retval.0.i = phi ptr [ %20, %if.then.i.i ], [ %call7.i.i, %if.end.i.i ]
+  %retval.0.i = phi ptr [ %call7.i.i, %if.end.i.i ], [ %20, %if.then.i.i ]
   %cmp = icmp eq ptr %retval.0.i, null
   br i1 %cmp, label %if.then.i68, label %if.end
 
@@ -2344,7 +2344,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   br label %_ZN4node10StreamBase10FromObjectEN2v85LocalINS1_6ObjectEEE.exit
 
 _ZN4node10StreamBase10FromObjectEN2v85LocalINS1_6ObjectEEE.exit: ; preds = %if.then.i.i, %if.end.i.i
-  %retval.0.i = phi ptr [ %20, %if.then.i.i ], [ %call7.i.i, %if.end.i.i ]
+  %retval.0.i = phi ptr [ %call7.i.i, %if.end.i.i ], [ %20, %if.then.i.i ]
   %cmp = icmp eq ptr %retval.0.i, null
   br i1 %cmp, label %return, label %if.end
 
@@ -2437,7 +2437,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   br label %_ZN4node10StreamBase10FromObjectEN2v85LocalINS1_6ObjectEEE.exit
 
 _ZN4node10StreamBase10FromObjectEN2v85LocalINS1_6ObjectEEE.exit: ; preds = %if.then.i.i, %if.end.i.i
-  %retval.0.i = phi ptr [ %20, %if.then.i.i ], [ %call7.i.i, %if.end.i.i ]
+  %retval.0.i = phi ptr [ %call7.i.i, %if.end.i.i ], [ %20, %if.then.i.i ]
   %cmp = icmp eq ptr %retval.0.i, null
   br i1 %cmp, label %if.then.i, label %if.end
 
@@ -2538,7 +2538,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   br label %_ZN4node10StreamBase10FromObjectEN2v85LocalINS1_6ObjectEEE.exit
 
 _ZN4node10StreamBase10FromObjectEN2v85LocalINS1_6ObjectEEE.exit: ; preds = %if.then.i.i, %if.end.i.i
-  %retval.0.i = phi ptr [ %20, %if.then.i.i ], [ %call7.i.i, %if.end.i.i ]
+  %retval.0.i = phi ptr [ %call7.i.i, %if.end.i.i ], [ %20, %if.then.i.i ]
   %cmp = icmp eq ptr %retval.0.i, null
   br i1 %cmp, label %if.then.i, label %if.end
 
@@ -2640,7 +2640,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   br label %_ZN4node10StreamBase10FromObjectEN2v85LocalINS1_6ObjectEEE.exit
 
 _ZN4node10StreamBase10FromObjectEN2v85LocalINS1_6ObjectEEE.exit: ; preds = %if.then.i.i, %if.end.i.i
-  %retval.0.i = phi ptr [ %20, %if.then.i.i ], [ %call7.i.i, %if.end.i.i ]
+  %retval.0.i = phi ptr [ %call7.i.i, %if.end.i.i ], [ %20, %if.then.i.i ]
   %cmp = icmp eq ptr %retval.0.i, null
   br i1 %cmp, label %return, label %if.end
 
@@ -2739,7 +2739,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   br label %_ZN4node10StreamBase10FromObjectEN2v85LocalINS1_6ObjectEEE.exit
 
 _ZN4node10StreamBase10FromObjectEN2v85LocalINS1_6ObjectEEE.exit: ; preds = %if.then.i.i, %if.end.i.i
-  %retval.0.i = phi ptr [ %20, %if.then.i.i ], [ %call7.i.i, %if.end.i.i ]
+  %retval.0.i = phi ptr [ %call7.i.i, %if.end.i.i ], [ %20, %if.then.i.i ]
   %cmp = icmp eq ptr %retval.0.i, null
   br i1 %cmp, label %return, label %if.end
 
@@ -2838,7 +2838,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   br label %_ZN4node10StreamBase10FromObjectEN2v85LocalINS1_6ObjectEEE.exit
 
 _ZN4node10StreamBase10FromObjectEN2v85LocalINS1_6ObjectEEE.exit: ; preds = %if.then.i.i, %if.end.i.i
-  %retval.0.i = phi ptr [ %20, %if.then.i.i ], [ %call7.i.i, %if.end.i.i ]
+  %retval.0.i = phi ptr [ %call7.i.i, %if.end.i.i ], [ %20, %if.then.i.i ]
   %cmp = icmp eq ptr %retval.0.i, null
   br i1 %cmp, label %return, label %if.end
 
@@ -2983,7 +2983,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   br label %_ZN4node10StreamBase10FromObjectEN2v85LocalINS1_6ObjectEEE.exit
 
 _ZN4node10StreamBase10FromObjectEN2v85LocalINS1_6ObjectEEE.exit: ; preds = %if.then.i.i, %if.end.i.i
-  %retval.0.i = phi ptr [ %20, %if.then.i.i ], [ %call7.i.i, %if.end.i.i ]
+  %retval.0.i = phi ptr [ %call7.i.i, %if.end.i.i ], [ %20, %if.then.i.i ]
   %cmp = icmp eq ptr %retval.0.i, null
   br i1 %cmp, label %return, label %if.end
 
@@ -3077,7 +3077,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   br label %_ZN4node10StreamBase10FromObjectEN2v85LocalINS1_6ObjectEEE.exit
 
 _ZN4node10StreamBase10FromObjectEN2v85LocalINS1_6ObjectEEE.exit: ; preds = %if.then.i.i, %if.end.i.i
-  %retval.0.i = phi ptr [ %20, %if.then.i.i ], [ %call7.i.i, %if.end.i.i ]
+  %retval.0.i = phi ptr [ %call7.i.i, %if.end.i.i ], [ %20, %if.then.i.i ]
   %cmp = icmp eq ptr %retval.0.i, null
   br i1 %cmp, label %return, label %if.end
 
@@ -3173,7 +3173,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   br label %_ZN4node10StreamBase10FromObjectEN2v85LocalINS1_6ObjectEEE.exit
 
 _ZN4node10StreamBase10FromObjectEN2v85LocalINS1_6ObjectEEE.exit: ; preds = %if.then.i.i, %if.end.i.i
-  %retval.0.i = phi ptr [ %20, %if.then.i.i ], [ %call7.i.i, %if.end.i.i ]
+  %retval.0.i = phi ptr [ %call7.i.i, %if.end.i.i ], [ %20, %if.then.i.i ]
   %cmp = icmp eq ptr %retval.0.i, null
   br i1 %cmp, label %return, label %if.end
 
@@ -3269,7 +3269,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   br label %_ZN4node10StreamBase10FromObjectEN2v85LocalINS1_6ObjectEEE.exit
 
 _ZN4node10StreamBase10FromObjectEN2v85LocalINS1_6ObjectEEE.exit: ; preds = %if.then.i.i, %if.end.i.i
-  %retval.0.i = phi ptr [ %20, %if.then.i.i ], [ %call7.i.i, %if.end.i.i ]
+  %retval.0.i = phi ptr [ %call7.i.i, %if.end.i.i ], [ %20, %if.then.i.i ]
   %cmp = icmp eq ptr %retval.0.i, null
   br i1 %cmp, label %return, label %if.end
 
@@ -3365,7 +3365,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   br label %_ZN4node10StreamBase10FromObjectEN2v85LocalINS1_6ObjectEEE.exit
 
 _ZN4node10StreamBase10FromObjectEN2v85LocalINS1_6ObjectEEE.exit: ; preds = %if.then.i.i, %if.end.i.i
-  %retval.0.i = phi ptr [ %20, %if.then.i.i ], [ %call7.i.i, %if.end.i.i ]
+  %retval.0.i = phi ptr [ %call7.i.i, %if.end.i.i ], [ %20, %if.then.i.i ]
   %cmp = icmp eq ptr %retval.0.i, null
   br i1 %cmp, label %return, label %if.end
 
@@ -3461,7 +3461,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   br label %_ZN4node10StreamBase10FromObjectEN2v85LocalINS1_6ObjectEEE.exit
 
 _ZN4node10StreamBase10FromObjectEN2v85LocalINS1_6ObjectEEE.exit: ; preds = %if.then.i.i, %if.end.i.i
-  %retval.0.i = phi ptr [ %20, %if.then.i.i ], [ %call7.i.i, %if.end.i.i ]
+  %retval.0.i = phi ptr [ %call7.i.i, %if.end.i.i ], [ %20, %if.then.i.i ]
   %cmp = icmp eq ptr %retval.0.i, null
   br i1 %cmp, label %return, label %if.end
 
@@ -3557,7 +3557,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   br label %_ZN4node10StreamBase10FromObjectEN2v85LocalINS1_6ObjectEEE.exit
 
 _ZN4node10StreamBase10FromObjectEN2v85LocalINS1_6ObjectEEE.exit: ; preds = %if.then.i.i, %if.end.i.i
-  %retval.0.i = phi ptr [ %20, %if.then.i.i ], [ %call7.i.i, %if.end.i.i ]
+  %retval.0.i = phi ptr [ %call7.i.i, %if.end.i.i ], [ %20, %if.then.i.i ]
   %cmp = icmp eq ptr %retval.0.i, null
   br i1 %cmp, label %return, label %if.end
 
@@ -6153,7 +6153,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
+  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %entry ]
   %isolate_.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 88
   %12 = load ptr, ptr %isolate_.i, align 8
   %length_.i332 = getelementptr inbounds nuw i8, ptr %args, i64 16
@@ -6433,10 +6433,10 @@ do.body144.sink.split:                            ; preds = %_ZNSt10unique_ptrIN
   br label %do.body144
 
 do.body144:                                       ; preds = %do.body144.sink.split, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit77, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit
-  %synchronously_written.0124 = phi i64 [ %cond, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit ], [ 0, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit77 ], [ %synchronously_written.0124.ph, %do.body144.sink.split ]
-  %64 = phi i1 [ true, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit ], [ false, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit77 ], [ %.ph, %do.body144.sink.split ]
-  %bs.sroa.0.0 = phi ptr [ %57, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit ], [ %63, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit77 ], [ %bs.sroa.0.0.ph, %do.body144.sink.split ]
-  %data_size.0 = phi i64 [ %60, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit ], [ %call142, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit77 ], [ %data_size.0.ph, %do.body144.sink.split ]
+  %synchronously_written.0124 = phi i64 [ 0, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit77 ], [ %cond, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit ], [ %synchronously_written.0124.ph, %do.body144.sink.split ]
+  %64 = phi i1 [ false, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit77 ], [ true, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit ], [ %.ph, %do.body144.sink.split ]
+  %bs.sroa.0.0 = phi ptr [ %63, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit77 ], [ %57, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit ], [ %bs.sroa.0.0.ph, %do.body144.sink.split ]
+  %data_size.0 = phi i64 [ %call142, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit77 ], [ %60, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit ], [ %data_size.0.ph, %do.body144.sink.split ]
   %cmp145.not = icmp ugt i64 %data_size.0, %42
   br i1 %cmp145.not, label %do.body151, label %do.end155
 
@@ -6510,7 +6510,7 @@ do.end181:                                        ; preds = %_ZN4node10BaseObjec
   br i1 %tobool.i, label %if.end217, label %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i104
 
 if.end217:                                        ; preds = %do.end181, %do.end155
-  %send_handle.0 = phi ptr [ %78, %do.end181 ], [ null, %do.end155 ]
+  %send_handle.0 = phi ptr [ null, %do.end155 ], [ %78, %do.end181 ]
   call void @_ZN4node10StreamBase5WriteEP8uv_buf_tmP11uv_stream_sN2v85LocalINS5_6ObjectEEEb(ptr nonnull sret(%"struct.node::StreamWriteResult") align 8 %res, ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull %buf, i64 noundef 1, ptr noundef %send_handle.0, ptr %retval.i289.sroa.0.0114119, i1 noundef zeroext %64)
   %bytes223 = getelementptr inbounds nuw i8, ptr %res, i64 16
   %83 = load i64, ptr %bytes223, align 8
@@ -6568,15 +6568,15 @@ cleanup:                                          ; preds = %if.then.i.i101, %if
   %cmp.not.i103 = icmp eq ptr %bs.sroa.0.2, null
   br i1 %cmp.not.i103, label %return, label %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i104
 
-_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i104: ; preds = %do.end181, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %cleanup
-  %retval.1130 = phi i32 [ %92, %cleanup ], [ -1, %do.end181 ], [ -22, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
-  %bs.sroa.0.1129 = phi ptr [ %bs.sroa.0.2, %cleanup ], [ %bs.sroa.0.0, %do.end181 ], [ %bs.sroa.0.0, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i104: ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %do.end181, %cleanup
+  %retval.1130 = phi i32 [ %92, %cleanup ], [ -22, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ], [ -1, %do.end181 ]
+  %bs.sroa.0.1129 = phi ptr [ %bs.sroa.0.2, %cleanup ], [ %bs.sroa.0.0, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ], [ %bs.sroa.0.0, %do.end181 ]
   call void @_ZN2v812BackingStoreD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %bs.sroa.0.1129) #21
   call void @_ZdlPv(ptr noundef nonnull %bs.sroa.0.1129) #21
   br label %return
 
 return:                                           ; preds = %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i104, %cleanup, %if.end77, %if.end64, %_ZN4node17StreamWriteResultD2Ev.exit
-  %retval.0 = phi i32 [ %call98, %_ZN4node17StreamWriteResultD2Ev.exit ], [ -1, %if.end64 ], [ -105, %if.end77 ], [ %92, %cleanup ], [ %retval.1130, %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i104 ]
+  %retval.0 = phi i32 [ -105, %if.end77 ], [ -1, %if.end64 ], [ %call98, %_ZN4node17StreamWriteResultD2Ev.exit ], [ %92, %cleanup ], [ %retval.1130, %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i104 ]
   ret i32 %retval.0
 }
 
@@ -6623,7 +6623,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
+  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %entry ]
   %isolate_.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 88
   %12 = load ptr, ptr %isolate_.i, align 8
   %length_.i352 = getelementptr inbounds nuw i8, ptr %args, i64 16
@@ -6914,10 +6914,10 @@ do.body160.sink.split:                            ; preds = %_ZNSt10unique_ptrIN
   br label %do.body160
 
 do.body160:                                       ; preds = %do.body160.sink.split, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit80, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit
-  %synchronously_written.0127 = phi i64 [ %cond, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit ], [ 0, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit80 ], [ %synchronously_written.0127.ph, %do.body160.sink.split ]
-  %65 = phi i1 [ true, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit ], [ false, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit80 ], [ %.ph, %do.body160.sink.split ]
-  %bs.sroa.0.0 = phi ptr [ %58, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit ], [ %64, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit80 ], [ %bs.sroa.0.0.ph, %do.body160.sink.split ]
-  %data_size.0 = phi i64 [ %61, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit ], [ %call158, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit80 ], [ %data_size.0.ph, %do.body160.sink.split ]
+  %synchronously_written.0127 = phi i64 [ 0, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit80 ], [ %cond, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit ], [ %synchronously_written.0127.ph, %do.body160.sink.split ]
+  %65 = phi i1 [ false, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit80 ], [ true, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit ], [ %.ph, %do.body160.sink.split ]
+  %bs.sroa.0.0 = phi ptr [ %64, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit80 ], [ %58, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit ], [ %bs.sroa.0.0.ph, %do.body160.sink.split ]
+  %data_size.0 = phi i64 [ %call158, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit80 ], [ %61, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit ], [ %data_size.0.ph, %do.body160.sink.split ]
   %cmp161.not = icmp ugt i64 %data_size.0, %43
   br i1 %cmp161.not, label %do.body167, label %do.end171
 
@@ -6991,7 +6991,7 @@ do.end198:                                        ; preds = %_ZN4node10BaseObjec
   br i1 %tobool.i, label %if.end234, label %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i107
 
 if.end234:                                        ; preds = %do.end198, %do.end171
-  %send_handle.0 = phi ptr [ %79, %do.end198 ], [ null, %do.end171 ]
+  %send_handle.0 = phi ptr [ null, %do.end171 ], [ %79, %do.end198 ]
   call void @_ZN4node10StreamBase5WriteEP8uv_buf_tmP11uv_stream_sN2v85LocalINS5_6ObjectEEEb(ptr nonnull sret(%"struct.node::StreamWriteResult") align 8 %res, ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull %buf, i64 noundef 1, ptr noundef %send_handle.0, ptr %retval.i309.sroa.0.0117122, i1 noundef zeroext %65)
   %bytes240 = getelementptr inbounds nuw i8, ptr %res, i64 16
   %84 = load i64, ptr %bytes240, align 8
@@ -7049,15 +7049,15 @@ cleanup:                                          ; preds = %if.then.i.i104, %if
   %cmp.not.i106 = icmp eq ptr %bs.sroa.0.2, null
   br i1 %cmp.not.i106, label %return, label %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i107
 
-_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i107: ; preds = %do.end198, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %cleanup
-  %retval.1133 = phi i32 [ %93, %cleanup ], [ -1, %do.end198 ], [ -22, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
-  %bs.sroa.0.1132 = phi ptr [ %bs.sroa.0.2, %cleanup ], [ %bs.sroa.0.0, %do.end198 ], [ %bs.sroa.0.0, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i107: ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %do.end198, %cleanup
+  %retval.1133 = phi i32 [ %93, %cleanup ], [ -22, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ], [ -1, %do.end198 ]
+  %bs.sroa.0.1132 = phi ptr [ %bs.sroa.0.2, %cleanup ], [ %bs.sroa.0.0, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ], [ %bs.sroa.0.0, %do.end198 ]
   call void @_ZN2v812BackingStoreD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %bs.sroa.0.1132) #21
   call void @_ZdlPv(ptr noundef nonnull %bs.sroa.0.1132) #21
   br label %return
 
 return:                                           ; preds = %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i107, %cleanup, %if.end90, %lor.rhs, %land.lhs.true, %_ZN4node17StreamWriteResultD2Ev.exit
-  %retval.0 = phi i32 [ %call114, %_ZN4node17StreamWriteResultD2Ev.exit ], [ -1, %land.lhs.true ], [ -1, %lor.rhs ], [ -105, %if.end90 ], [ %93, %cleanup ], [ %retval.1133, %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i107 ]
+  %retval.0 = phi i32 [ -105, %if.end90 ], [ -1, %lor.rhs ], [ %call114, %_ZN4node17StreamWriteResultD2Ev.exit ], [ -1, %land.lhs.true ], [ %93, %cleanup ], [ %retval.1133, %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i107 ]
   ret i32 %retval.0
 }
 
@@ -7104,7 +7104,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
+  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %entry ]
   %isolate_.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 88
   %12 = load ptr, ptr %isolate_.i, align 8
   %length_.i332 = getelementptr inbounds nuw i8, ptr %args, i64 16
@@ -7384,10 +7384,10 @@ do.body144.sink.split:                            ; preds = %_ZNSt10unique_ptrIN
   br label %do.body144
 
 do.body144:                                       ; preds = %do.body144.sink.split, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit77, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit
-  %synchronously_written.0124 = phi i64 [ %cond, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit ], [ 0, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit77 ], [ %synchronously_written.0124.ph, %do.body144.sink.split ]
-  %64 = phi i1 [ true, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit ], [ false, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit77 ], [ %.ph, %do.body144.sink.split ]
-  %bs.sroa.0.0 = phi ptr [ %57, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit ], [ %63, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit77 ], [ %bs.sroa.0.0.ph, %do.body144.sink.split ]
-  %data_size.0 = phi i64 [ %60, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit ], [ %call142, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit77 ], [ %data_size.0.ph, %do.body144.sink.split ]
+  %synchronously_written.0124 = phi i64 [ 0, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit77 ], [ %cond, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit ], [ %synchronously_written.0124.ph, %do.body144.sink.split ]
+  %64 = phi i1 [ false, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit77 ], [ true, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit ], [ %.ph, %do.body144.sink.split ]
+  %bs.sroa.0.0 = phi ptr [ %63, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit77 ], [ %57, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit ], [ %bs.sroa.0.0.ph, %do.body144.sink.split ]
+  %data_size.0 = phi i64 [ %call142, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit77 ], [ %60, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit ], [ %data_size.0.ph, %do.body144.sink.split ]
   %cmp145.not = icmp ugt i64 %data_size.0, %42
   br i1 %cmp145.not, label %do.body151, label %do.end155
 
@@ -7461,7 +7461,7 @@ do.end181:                                        ; preds = %_ZN4node10BaseObjec
   br i1 %tobool.i, label %if.end217, label %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i104
 
 if.end217:                                        ; preds = %do.end181, %do.end155
-  %send_handle.0 = phi ptr [ %78, %do.end181 ], [ null, %do.end155 ]
+  %send_handle.0 = phi ptr [ null, %do.end155 ], [ %78, %do.end181 ]
   call void @_ZN4node10StreamBase5WriteEP8uv_buf_tmP11uv_stream_sN2v85LocalINS5_6ObjectEEEb(ptr nonnull sret(%"struct.node::StreamWriteResult") align 8 %res, ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull %buf, i64 noundef 1, ptr noundef %send_handle.0, ptr %retval.i289.sroa.0.0114119, i1 noundef zeroext %64)
   %bytes223 = getelementptr inbounds nuw i8, ptr %res, i64 16
   %83 = load i64, ptr %bytes223, align 8
@@ -7519,15 +7519,15 @@ cleanup:                                          ; preds = %if.then.i.i101, %if
   %cmp.not.i103 = icmp eq ptr %bs.sroa.0.2, null
   br i1 %cmp.not.i103, label %return, label %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i104
 
-_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i104: ; preds = %do.end181, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %cleanup
-  %retval.1130 = phi i32 [ %92, %cleanup ], [ -1, %do.end181 ], [ -22, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
-  %bs.sroa.0.1129 = phi ptr [ %bs.sroa.0.2, %cleanup ], [ %bs.sroa.0.0, %do.end181 ], [ %bs.sroa.0.0, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i104: ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %do.end181, %cleanup
+  %retval.1130 = phi i32 [ %92, %cleanup ], [ -22, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ], [ -1, %do.end181 ]
+  %bs.sroa.0.1129 = phi ptr [ %bs.sroa.0.2, %cleanup ], [ %bs.sroa.0.0, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ], [ %bs.sroa.0.0, %do.end181 ]
   call void @_ZN2v812BackingStoreD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %bs.sroa.0.1129) #21
   call void @_ZdlPv(ptr noundef nonnull %bs.sroa.0.1129) #21
   br label %return
 
 return:                                           ; preds = %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i104, %cleanup, %if.end77, %if.end64, %_ZN4node17StreamWriteResultD2Ev.exit
-  %retval.0 = phi i32 [ %call98, %_ZN4node17StreamWriteResultD2Ev.exit ], [ -1, %if.end64 ], [ -105, %if.end77 ], [ %92, %cleanup ], [ %retval.1130, %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i104 ]
+  %retval.0 = phi i32 [ -105, %if.end77 ], [ -1, %if.end64 ], [ %call98, %_ZN4node17StreamWriteResultD2Ev.exit ], [ %92, %cleanup ], [ %retval.1130, %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i104 ]
   ret i32 %retval.0
 }
 
@@ -7574,7 +7574,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
+  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %entry ]
   %isolate_.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 88
   %12 = load ptr, ptr %isolate_.i, align 8
   %length_.i332 = getelementptr inbounds nuw i8, ptr %args, i64 16
@@ -7854,10 +7854,10 @@ do.body144.sink.split:                            ; preds = %_ZNSt10unique_ptrIN
   br label %do.body144
 
 do.body144:                                       ; preds = %do.body144.sink.split, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit77, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit
-  %synchronously_written.0124 = phi i64 [ %cond, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit ], [ 0, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit77 ], [ %synchronously_written.0124.ph, %do.body144.sink.split ]
-  %64 = phi i1 [ true, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit ], [ false, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit77 ], [ %.ph, %do.body144.sink.split ]
-  %bs.sroa.0.0 = phi ptr [ %57, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit ], [ %63, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit77 ], [ %bs.sroa.0.0.ph, %do.body144.sink.split ]
-  %data_size.0 = phi i64 [ %60, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit ], [ %call142, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit77 ], [ %data_size.0.ph, %do.body144.sink.split ]
+  %synchronously_written.0124 = phi i64 [ 0, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit77 ], [ %cond, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit ], [ %synchronously_written.0124.ph, %do.body144.sink.split ]
+  %64 = phi i1 [ false, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit77 ], [ true, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit ], [ %.ph, %do.body144.sink.split ]
+  %bs.sroa.0.0 = phi ptr [ %63, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit77 ], [ %57, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit ], [ %bs.sroa.0.0.ph, %do.body144.sink.split ]
+  %data_size.0 = phi i64 [ %call142, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit77 ], [ %60, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit ], [ %data_size.0.ph, %do.body144.sink.split ]
   %cmp145.not = icmp ugt i64 %data_size.0, %42
   br i1 %cmp145.not, label %do.body151, label %do.end155
 
@@ -7931,7 +7931,7 @@ do.end181:                                        ; preds = %_ZN4node10BaseObjec
   br i1 %tobool.i, label %if.end217, label %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i104
 
 if.end217:                                        ; preds = %do.end181, %do.end155
-  %send_handle.0 = phi ptr [ %78, %do.end181 ], [ null, %do.end155 ]
+  %send_handle.0 = phi ptr [ null, %do.end155 ], [ %78, %do.end181 ]
   call void @_ZN4node10StreamBase5WriteEP8uv_buf_tmP11uv_stream_sN2v85LocalINS5_6ObjectEEEb(ptr nonnull sret(%"struct.node::StreamWriteResult") align 8 %res, ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull %buf, i64 noundef 1, ptr noundef %send_handle.0, ptr %retval.i289.sroa.0.0114119, i1 noundef zeroext %64)
   %bytes223 = getelementptr inbounds nuw i8, ptr %res, i64 16
   %83 = load i64, ptr %bytes223, align 8
@@ -7989,15 +7989,15 @@ cleanup:                                          ; preds = %if.then.i.i101, %if
   %cmp.not.i103 = icmp eq ptr %bs.sroa.0.2, null
   br i1 %cmp.not.i103, label %return, label %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i104
 
-_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i104: ; preds = %do.end181, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %cleanup
-  %retval.1130 = phi i32 [ %92, %cleanup ], [ -1, %do.end181 ], [ -22, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
-  %bs.sroa.0.1129 = phi ptr [ %bs.sroa.0.2, %cleanup ], [ %bs.sroa.0.0, %do.end181 ], [ %bs.sroa.0.0, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i104: ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %do.end181, %cleanup
+  %retval.1130 = phi i32 [ %92, %cleanup ], [ -22, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ], [ -1, %do.end181 ]
+  %bs.sroa.0.1129 = phi ptr [ %bs.sroa.0.2, %cleanup ], [ %bs.sroa.0.0, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ], [ %bs.sroa.0.0, %do.end181 ]
   call void @_ZN2v812BackingStoreD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %bs.sroa.0.1129) #21
   call void @_ZdlPv(ptr noundef nonnull %bs.sroa.0.1129) #21
   br label %return
 
 return:                                           ; preds = %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i104, %cleanup, %if.end77, %if.end64, %_ZN4node17StreamWriteResultD2Ev.exit
-  %retval.0 = phi i32 [ %call98, %_ZN4node17StreamWriteResultD2Ev.exit ], [ -1, %if.end64 ], [ -105, %if.end77 ], [ %92, %cleanup ], [ %retval.1130, %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i104 ]
+  %retval.0 = phi i32 [ -105, %if.end77 ], [ -1, %if.end64 ], [ %call98, %_ZN4node17StreamWriteResultD2Ev.exit ], [ %92, %cleanup ], [ %retval.1130, %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i104 ]
   ret i32 %retval.0
 }
 

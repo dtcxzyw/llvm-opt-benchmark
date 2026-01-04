@@ -246,7 +246,7 @@ define hidden noundef zeroext i1 @_ZNK8C2Access16needs_cpu_membarEv(ptr noundef 
   br label %24
 
 24:                                               ; preds = %13, %15, %1, %23
-  %.0 = phi i1 [ false, %23 ], [ true, %1 ], [ true, %15 ], [ true, %13 ]
+  %.0 = phi i1 [ true, %1 ], [ false, %23 ], [ true, %15 ], [ true, %13 ]
   ret i1 %.0
 }
 
@@ -332,7 +332,7 @@ _ZN10Node_Array3mapEjP4Node.exit.i:               ; preds = %47, %_ZN5Arena12Ama
   br label %_ZN17BarrierSetC2State4liveEPK4Node.exit
 
 _ZN17BarrierSetC2State4liveEPK4Node.exit:         ; preds = %_ZNK10Node_ArrayixEj.exit.i, %_ZN10Node_Array3mapEjP4Node.exit.i
-  %.09.i = phi ptr [ %.0.i.i.i, %_ZN10Node_Array3mapEjP4Node.exit.i ], [ %24, %_ZNK10Node_ArrayixEj.exit.i ]
+  %.09.i = phi ptr [ %24, %_ZNK10Node_ArrayixEj.exit.i ], [ %.0.i.i.i, %_ZN10Node_Array3mapEjP4Node.exit.i ]
   ret ptr %.09.i
 }
 
@@ -434,7 +434,7 @@ _ZN10Node_Array3mapEjP4Node.exit.i.i:             ; preds = %55, %_ZN5Arena12Ama
   br label %_ZNK13BarrierStubC24liveEv.exit
 
 _ZNK13BarrierStubC24liveEv.exit:                  ; preds = %_ZNK10Node_ArrayixEj.exit.i.i, %_ZN10Node_Array3mapEjP4Node.exit.i.i
-  %.09.i.i = phi ptr [ %.0.i.i.i.i, %_ZN10Node_Array3mapEjP4Node.exit.i.i ], [ %32, %_ZNK10Node_ArrayixEj.exit.i.i ]
+  %.09.i.i = phi ptr [ %32, %_ZNK10Node_ArrayixEj.exit.i.i ], [ %.0.i.i.i.i, %_ZN10Node_Array3mapEjP4Node.exit.i.i ]
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %60, ptr noundef nonnull align 8 dereferenceable(96) %.09.i.i, i64 96, i1 false)
   ret void
@@ -648,7 +648,7 @@ define hidden noundef ptr @_ZNK12BarrierSetC217store_at_resolvedER8C2AccessR13C2
   br label %_ZNK8C2Access11mem_node_moEv.exit
 
 _ZNK8C2Access11mem_node_moEv.exit:                ; preds = %15, %18, %20, %24
-  %.0.i = phi i32 [ %30, %24 ], [ 2, %18 ], [ %.mux.i, %20 ], [ %spec.select.i, %15 ]
+  %.0.i = phi i32 [ %.mux.i, %20 ], [ 2, %18 ], [ %spec.select.i, %15 ], [ %30, %24 ]
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load i8, ptr %31, align 8
   %33 = load ptr, ptr %1, align 8
@@ -791,7 +791,7 @@ define hidden noundef range(i32 0, 4) i32 @_ZNK8C2Access11mem_node_moEv(ptr noun
   br label %21
 
 21:                                               ; preds = %5, %10, %8, %14
-  %.0 = phi i32 [ %20, %14 ], [ 2, %8 ], [ %.mux, %10 ], [ %spec.select, %5 ]
+  %.0 = phi i32 [ %.mux, %10 ], [ 2, %8 ], [ %spec.select, %5 ], [ %20, %14 ]
   ret i32 %.0
 }
 
@@ -863,7 +863,7 @@ define hidden noundef ptr @_ZNK12BarrierSetC216load_at_resolvedER8C2AccessPK4Typ
   br label %_ZNK8C2Access11mem_node_moEv.exit
 
 _ZNK8C2Access11mem_node_moEv.exit:                ; preds = %23, %26, %28, %32
-  %.0.i = phi i32 [ %38, %32 ], [ 2, %26 ], [ %.mux.i, %28 ], [ %spec.select.i, %23 ]
+  %.0.i = phi i32 [ %.mux.i, %28 ], [ 2, %26 ], [ %spec.select.i, %23 ], [ %38, %32 ]
   %39 = select i1 %.not74, i32 2, i32 1
   %40 = load ptr, ptr %1, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
@@ -1445,7 +1445,7 @@ define hidden noundef ptr @_ZNK12BarrierSetC230atomic_cmpxchg_val_at_resolvedER1
   br label %_ZNK8C2Access11mem_node_moEv.exit
 
 _ZNK8C2Access11mem_node_moEv.exit:                ; preds = %11, %14, %16, %20
-  %.0.i = phi i32 [ %26, %20 ], [ 2, %14 ], [ %.mux.i, %16 ], [ %spec.select.i, %11 ]
+  %.0.i = phi i32 [ %.mux.i, %16 ], [ 2, %14 ], [ %spec.select.i, %11 ], [ %26, %20 ]
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1531,7 +1531,7 @@ _ZN4NodenwEm.exit:                                ; preds = %66, %68
   br label %83
 
 83:                                               ; preds = %81, %79, %71
-  %84 = phi ptr [ %82, %81 ], [ null, %79 ], [ %75, %71 ]
+  %84 = phi ptr [ null, %79 ], [ %82, %81 ], [ %75, %71 ]
   tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i.i, i32 noundef 2) #14
   %85 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   store ptr %84, ptr %85, align 8
@@ -1634,7 +1634,7 @@ _ZN4NodenwEm.exit88:                              ; preds = %126, %128
   br label %143
 
 143:                                              ; preds = %141, %139, %131
-  %144 = phi ptr [ %142, %141 ], [ null, %139 ], [ %135, %131 ]
+  %144 = phi ptr [ null, %139 ], [ %142, %141 ], [ %135, %131 ]
   tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i.i87, i32 noundef 2) #14
   %145 = getelementptr inbounds nuw i8, ptr %.0.i.i.i87, i64 56
   store ptr %144, ptr %145, align 8
@@ -1735,7 +1735,7 @@ _ZN4NodenwEm.exit97:                              ; preds = %185, %187
   br label %_ZNK4Type14make_narrowoopEv.exit99
 
 _ZNK4Type14make_narrowoopEv.exit99:               ; preds = %_ZN4NodenwEm.exit97, %198, %200
-  %202 = phi ptr [ %201, %200 ], [ null, %198 ], [ %4, %_ZN4NodenwEm.exit97 ]
+  %202 = phi ptr [ null, %198 ], [ %201, %200 ], [ %4, %_ZN4NodenwEm.exit97 ]
   tail call void @_ZN13LoadStoreNodeC2EP4NodeS1_S1_S1_PK7TypePtrPK4Typej(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i96, ptr noundef %194, ptr noundef %28, ptr noundef nonnull %31, ptr noundef %110, ptr noundef %33, ptr noundef %202, i32 noundef 5) #14
   store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV22CompareAndExchangeNode, i64 16), ptr %.0.i.i.i96, align 8
   %203 = getelementptr inbounds nuw i8, ptr %.0.i.i.i96, i64 76
@@ -2447,7 +2447,7 @@ define hidden noundef ptr @_ZNK12BarrierSetC231atomic_cmpxchg_bool_at_resolvedER
   br label %_ZNK8C2Access11mem_node_moEv.exit
 
 _ZNK8C2Access11mem_node_moEv.exit:                ; preds = %11, %14, %16, %20
-  %.0.i = phi i32 [ %26, %20 ], [ 2, %14 ], [ %.mux.i, %16 ], [ %spec.select.i, %11 ]
+  %.0.i = phi i32 [ %.mux.i, %16 ], [ 2, %14 ], [ %spec.select.i, %11 ], [ %26, %20 ]
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %28 = load ptr, ptr %27, align 8
   %29 = and i64 %9, 8589934592
@@ -2533,7 +2533,7 @@ _ZN4NodenwEm.exit:                                ; preds = %65, %67
   br label %82
 
 82:                                               ; preds = %80, %78, %70
-  %83 = phi ptr [ %81, %80 ], [ null, %78 ], [ %74, %70 ]
+  %83 = phi ptr [ null, %78 ], [ %81, %80 ], [ %74, %70 ]
   tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i.i, i32 noundef 2) #14
   %84 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   store ptr %83, ptr %84, align 8
@@ -2636,7 +2636,7 @@ _ZN4NodenwEm.exit121:                             ; preds = %125, %127
   br label %142
 
 142:                                              ; preds = %140, %138, %130
-  %143 = phi ptr [ %141, %140 ], [ null, %138 ], [ %134, %130 ]
+  %143 = phi ptr [ null, %138 ], [ %141, %140 ], [ %134, %130 ]
   tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i.i120, i32 noundef 2) #14
   %144 = getelementptr inbounds nuw i8, ptr %.0.i.i.i120, i64 56
   store ptr %143, ptr %144, align 8
@@ -3305,7 +3305,7 @@ _ZN4NodenwEm.exit:                                ; preds = %46, %48
   br label %63
 
 63:                                               ; preds = %61, %59, %51
-  %64 = phi ptr [ %62, %61 ], [ null, %59 ], [ %55, %51 ]
+  %64 = phi ptr [ null, %59 ], [ %62, %61 ], [ %55, %51 ]
   tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i.i, i32 noundef 2) #14
   %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   store ptr %64, ptr %65, align 8
@@ -3409,7 +3409,7 @@ _ZN4NodenwEm.exit72:                              ; preds = %106, %108
   br label %_ZNK4Type14make_narrowoopEv.exit74
 
 _ZNK4Type14make_narrowoopEv.exit74:               ; preds = %111, %120, %122
-  %124 = phi ptr [ %123, %122 ], [ null, %120 ], [ %3, %111 ]
+  %124 = phi ptr [ null, %120 ], [ %123, %122 ], [ %3, %111 ]
   tail call void @_ZN13LoadStoreNodeC2EP4NodeS1_S1_S1_PK7TypePtrPK4Typej(ptr noundef nonnull align 8 dereferenceable(73) %.0.i.i.i71, ptr noundef %116, ptr noundef %8, ptr noundef nonnull %11, ptr noundef %90, ptr noundef %13, ptr noundef %124, i32 noundef 4) #14
   store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV14GetAndSetNNode, i64 16), ptr %.0.i.i.i71, align 8
   br label %125
@@ -4173,9 +4173,9 @@ define hidden noundef range(i32 8, 21) i32 @_ZN12BarrierSetC229arraycopy_payload
   %2 = trunc i8 %1 to i1
   %spec.select.i = select i1 %2, i32 12, i32 16
   %3 = and i32 %spec.select.i, 4
+  %spec.select9 = add nuw nsw i32 %spec.select.i, %3
   %.not6 = icmp eq i32 %3, 0
   %spec.select = select i1 %.not6, i32 %spec.select.i, i32 8
-  %spec.select9 = add nuw nsw i32 %spec.select.i, %3
   %.0 = select i1 %0, i32 %spec.select9, i32 %spec.select
   ret i32 %.0
 }
@@ -4186,9 +4186,9 @@ define hidden void @_ZNK12BarrierSetC25cloneEP8GraphKitP4NodeS3_S3_b(ptr nonnull
   %8 = trunc i8 %7 to i1
   %spec.select.i.i = select i1 %8, i32 12, i32 16
   %9 = and i32 %spec.select.i.i, 4
+  %spec.select9.i = add nuw nsw i32 %9, %spec.select.i.i
   %.not6.i = icmp eq i32 %9, 0
   %spec.select.i = select i1 %.not6.i, i32 %spec.select.i.i, i32 8
-  %spec.select9.i = add nuw nsw i32 %9, %spec.select.i.i
   %.0.i = select i1 %5, i32 %spec.select9.i, i32 %spec.select.i
   %10 = zext nneg i32 %.0.i to i64
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -4915,9 +4915,9 @@ define hidden void @_ZNK12BarrierSetC216clone_in_runtimeEP16PhaseMacroExpandP13A
   %21 = trunc i8 %20 to i1
   %spec.select.i.i = select i1 %21, i32 12, i32 16
   %22 = and i32 %spec.select.i.i, 4
+  %spec.select9.i = add nuw nsw i32 %22, %spec.select.i.i
   %.not6.i = icmp eq i32 %22, 0
   %spec.select.i = select i1 %.not6.i, i32 %spec.select.i.i, i32 8
-  %spec.select9.i = add nuw nsw i32 %22, %spec.select.i.i
   %.0.i = select i1 %19, i32 %spec.select9.i, i32 %spec.select.i
   %23 = lshr i32 %.0.i, 3
   %24 = zext nneg i32 %23 to i64
@@ -5547,7 +5547,7 @@ _ZN17BarrierSetC2State4liveEPK4Node.exit:         ; preds = %_ZN10Node_Array3map
   %.not.i93 = icmp ugt i32 %211, %212
   br i1 %.not.i93, label %_ZN7RegMask2ORERKS_.exit94, label %.lr.ph.i91, !llvm.loop !10
 
-_ZN7RegMask2ORERKS_.exit94:                       ; preds = %.lr.ph.i91, %147, %152, %203, %_ZNK5Block8get_nodeEj.exit
+_ZN7RegMask2ORERKS_.exit94:                       ; preds = %.lr.ph.i91, %152, %147, %203, %_ZNK5Block8get_nodeEj.exit
   %213 = load ptr, ptr %71, align 8
   %214 = getelementptr inbounds nuw i8, ptr %142, i64 40
   %215 = load i32, ptr %214, align 8
@@ -5804,7 +5804,7 @@ _ZN17BarrierSetC2State4liveEPK4Node.exit104:      ; preds = %_ZN10Node_Array3map
   %.not.i108 = icmp ugt i32 %367, %368
   br i1 %.not.i108, label %_ZN7RegMask2ORERKS_.exit109, label %.lr.ph.i106, !llvm.loop !10
 
-_ZN7RegMask2ORERKS_.exit109:                      ; preds = %.lr.ph.i106, %304, %309, %359, %._crit_edge145
+_ZN7RegMask2ORERKS_.exit109:                      ; preds = %.lr.ph.i106, %309, %304, %359, %._crit_edge145
   %indvars.iv.next167 = add nsw i64 %indvars.iv166, -1
   %369 = icmp sgt i64 %indvars.iv166, 0
   br i1 %369, label %134, label %._crit_edge150.loopexit, !llvm.loop !13

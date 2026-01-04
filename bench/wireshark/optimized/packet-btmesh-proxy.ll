@@ -695,7 +695,7 @@ default.unreachable184:                           ; preds = %.loopexit
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %253, %243, %267, %264, %235, %230, %.preheader.i, %.preheader1.i
-  %.0117.i = phi i32 [ %273, %267 ], [ 6, %264 ], [ 4, %235 ], [ 4, %230 ], [ 3, %.preheader.i ], [ 3, %.preheader1.i ], [ %244, %243 ], [ %254, %253 ]
+  %.0117.i = phi i32 [ %273, %267 ], [ 6, %264 ], [ 4, %230 ], [ %244, %243 ], [ 4, %235 ], [ 3, %.preheader.i ], [ 3, %.preheader1.i ], [ %254, %253 ]
   %274 = load i32, ptr %7, align 4
   %275 = sub i32 %220, %274
   %276 = add i32 %.0117.i, 7

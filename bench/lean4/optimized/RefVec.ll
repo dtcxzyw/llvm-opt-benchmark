@@ -850,7 +850,7 @@ lean_nat_eq.exit.thread:                          ; preds = %lean_dec.exit21
 lean_dec.exit:                                    ; preds = %44
   br i1 %39, label %50, label %46
 
-46:                                               ; preds = %45, %42, %lean_nat_eq.exit.thread, %lean_dec.exit
+46:                                               ; preds = %42, %45, %lean_nat_eq.exit.thread, %lean_dec.exit
   tail call void @lean_inc_heartbeat() #4
   %47 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
   %48 = icmp eq ptr %47, null
@@ -860,7 +860,7 @@ lean_dec.exit:                                    ; preds = %44
   tail call void @lean_internal_panic_out_of_memory() #5
   unreachable
 
-50:                                               ; preds = %45, %42, %lean_nat_eq.exit.thread, %lean_dec.exit
+50:                                               ; preds = %42, %45, %lean_nat_eq.exit.thread, %lean_dec.exit
   tail call void @lean_inc_heartbeat() #4
   %51 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
   %52 = icmp eq ptr %51, null
@@ -1833,7 +1833,7 @@ lean_nat_eq.exit.thread:                          ; preds = %lean_dec.exit26
 lean_dec.exit:                                    ; preds = %60
   br i1 %55, label %69, label %62
 
-62:                                               ; preds = %61, %58, %lean_nat_eq.exit.thread, %lean_dec.exit
+62:                                               ; preds = %58, %61, %lean_nat_eq.exit.thread, %lean_dec.exit
   tail call void @lean_inc_heartbeat() #4
   %63 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
   %64 = icmp eq ptr %63, null
@@ -1853,7 +1853,7 @@ lean_alloc_ctor.exit:                             ; preds = %62
   store ptr %.1.i3943, ptr %68, align 8, !tbaa !4
   br label %lean_inc.exit
 
-69:                                               ; preds = %61, %58, %lean_nat_eq.exit.thread, %lean_dec.exit
+69:                                               ; preds = %58, %61, %lean_nat_eq.exit.thread, %lean_dec.exit
   tail call void @lean_inc_heartbeat() #4
   %70 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
   %71 = icmp eq ptr %70, null
@@ -1874,7 +1874,7 @@ lean_alloc_ctor.exit37:                           ; preds = %69
   br label %lean_inc.exit
 
 lean_inc.exit:                                    ; preds = %15, %20, %22, %23, %lean_alloc_ctor.exit, %lean_alloc_ctor.exit37
-  %.0 = phi ptr [ %63, %lean_alloc_ctor.exit ], [ %70, %lean_alloc_ctor.exit37 ], [ %6, %23 ], [ %6, %22 ], [ %6, %20 ], [ %6, %15 ]
+  %.0 = phi ptr [ %70, %lean_alloc_ctor.exit37 ], [ %63, %lean_alloc_ctor.exit ], [ %6, %23 ], [ %6, %22 ], [ %6, %20 ], [ %6, %15 ]
   ret ptr %.0
 }
 
@@ -2286,7 +2286,7 @@ lean_obj_tag.exit.thread:                         ; preds = %lean_dec.exit45
   br label %lean_dec.exit44
 
 lean_dec.exit44:                                  ; preds = %79, %83, %92, %91, %89
-  %.0.i4079 = phi ptr [ %86, %89 ], [ %86, %91 ], [ %86, %92 ], [ %84, %83 ], [ %82, %79 ]
+  %.0.i4079 = phi ptr [ %86, %92 ], [ %86, %89 ], [ %86, %91 ], [ %84, %83 ], [ %82, %79 ]
   %93 = ptrtoint ptr %.031 to i64
   %94 = and i64 %93, 1
   %.not96 = icmp eq i64 %94, 0
@@ -2360,8 +2360,8 @@ lean_dec.exit42:                                  ; preds = %lean_obj_tag.exit, 
   br label %lean_dec.exit47.backedge
 
 lean_dec.exit47.backedge:                         ; preds = %122, %126, %99, %103, %132, %134, %135, %109, %111, %112
-  %.031.be = phi ptr [ %106, %109 ], [ %106, %111 ], [ %106, %112 ], [ %.031, %135 ], [ %.031, %134 ], [ %.031, %132 ], [ %104, %103 ], [ %102, %99 ], [ %.031, %126 ], [ %.031, %122 ]
-  %.029.be = phi ptr [ %.0.i4079, %109 ], [ %.0.i4079, %111 ], [ %.0.i4079, %112 ], [ %129, %135 ], [ %129, %134 ], [ %129, %132 ], [ %.0.i4079, %103 ], [ %.0.i4079, %99 ], [ %127, %126 ], [ %125, %122 ]
+  %.031.be = phi ptr [ %106, %112 ], [ %106, %111 ], [ %.031, %135 ], [ %.031, %134 ], [ %.031, %132 ], [ %102, %99 ], [ %106, %109 ], [ %104, %103 ], [ %.031, %126 ], [ %.031, %122 ]
+  %.029.be = phi ptr [ %.0.i4079, %112 ], [ %.0.i4079, %111 ], [ %129, %135 ], [ %129, %134 ], [ %129, %132 ], [ %.0.i4079, %99 ], [ %.0.i4079, %109 ], [ %.0.i4079, %103 ], [ %127, %126 ], [ %125, %122 ]
   br label %lean_dec.exit47
 
 126:                                              ; preds = %119
@@ -3299,7 +3299,7 @@ lean_dec_ref.exit15:                              ; preds = %34, %36, %37
   br label %45
 
 45:                                               ; preds = %.sink.split, %lean_dec_ref.exit13, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit13 ], [ %.sink31, %.sink.split ]
+  %.0 = phi ptr [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit13 ], [ %8, %7 ], [ %.sink31, %.sink.split ]
   ret ptr %.0
 }
 

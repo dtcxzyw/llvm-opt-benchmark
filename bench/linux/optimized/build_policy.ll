@@ -1126,7 +1126,7 @@ thread-pre-split:                                 ; preds = %74, %68, %64, %55
   br label %.thread7
 
 .thread7:                                         ; preds = %1, %168, %166
-  %171 = phi i32 [ %170, %168 ], [ 1, %166 ], [ 1, %1 ]
+  %171 = phi i32 [ 1, %166 ], [ %170, %168 ], [ 1, %1 ]
   tail call void @_raw_spin_unlock(ptr noundef %2) #30
   ret i32 %171
 }
@@ -1596,7 +1596,7 @@ pick_next_pushable_task.exit10:                   ; preds = %117
   br label %pick_next_pushable_task.exit.thread
 
 pick_next_pushable_task.exit.thread:              ; preds = %145, %147, %6, %148, %79, %76, %63, %60, %57, %53, %49, %48, %._crit_edge, %pick_next_pushable_task.exit, %2
-  %149 = phi i32 [ 0, %._crit_edge ], [ 0, %2 ], [ 0, %pick_next_pushable_task.exit ], [ 0, %63 ], [ 0, %76 ], [ 0, %57 ], [ 0, %60 ], [ 0, %53 ], [ 0, %48 ], [ 0, %49 ], [ 0, %79 ], [ %142, %148 ], [ 0, %6 ], [ %142, %147 ], [ %142, %145 ]
+  %149 = phi i32 [ 0, %._crit_edge ], [ 0, %2 ], [ 0, %pick_next_pushable_task.exit ], [ 0, %63 ], [ 0, %76 ], [ 0, %57 ], [ 0, %60 ], [ 0, %53 ], [ 0, %48 ], [ 0, %49 ], [ 0, %79 ], [ 0, %6 ], [ %142, %148 ], [ %142, %147 ], [ %142, %145 ]
   ret i32 %149
 }
 
@@ -2390,7 +2390,7 @@ define internal ptr @pick_next_task_rt(ptr noundef %0) #1 align 16 {
   br label %.thread
 
 .thread:                                          ; preds = %22, %1, %30
-  %31 = phi ptr [ %28, %30 ], [ null, %1 ], [ null, %22 ]
+  %31 = phi ptr [ null, %22 ], [ %28, %30 ], [ null, %1 ]
   ret ptr %31
 }
 
@@ -3717,7 +3717,7 @@ define internal void @update_curr_rt(ptr noundef %0) #1 align 16 {
   br label %.sink.split
 
 .sink.split:                                      ; preds = %32, %43, %.thread4, %61, %64
-  %.sink = phi ptr [ @def_rt_bandwidth, %64 ], [ @def_rt_bandwidth, %61 ], [ %25, %.thread4 ], [ %25, %43 ], [ %25, %32 ]
+  %.sink = phi ptr [ @def_rt_bandwidth, %61 ], [ @def_rt_bandwidth, %64 ], [ %25, %.thread4 ], [ %25, %43 ], [ %25, %32 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull %.sink) #30
   br label %73
 
@@ -3830,7 +3830,7 @@ define dso_local range(i32 0, 2) i32 @cpudl_find(ptr noundef readonly captures(n
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %49, %60, %55
-  %.pre-phi = phi i64 [ %56, %60 ], [ %56, %55 ], [ 4294967295, %49 ]
+  %.pre-phi = phi i64 [ %56, %55 ], [ %56, %60 ], [ 4294967295, %49 ]
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 992
   %62 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %61, i64 %.pre-phi) #30, !srcloc !24
   %63 = icmp ult i8 %62, 2
@@ -7265,7 +7265,7 @@ define internal fastcc void @enqueue_dl_entity(ptr noundef %0, i32 noundef %1) u
   br label %.thread8
 
 .thread8:                                         ; preds = %.thread7, %222
-  %229 = phi ptr [ %228, %222 ], [ %217, %.thread7 ]
+  %229 = phi ptr [ %217, %.thread7 ], [ %228, %222 ]
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %231 = load ptr, ptr %230, align 8
   %232 = icmp eq ptr %231, %0
@@ -8150,7 +8150,7 @@ define internal void @wakeup_preempt_dl(ptr noundef %0, ptr noundef %1, i32 %2) 
   br label %._crit_edge2
 
 ._crit_edge2:                                     ; preds = %27, %40, %35
-  %.pre-phi = phi i64 [ %36, %40 ], [ %36, %35 ], [ 4294967295, %27 ]
+  %.pre-phi = phi i64 [ %36, %35 ], [ %36, %40 ], [ 4294967295, %27 ]
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 992
   %42 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %41, i64 %.pre-phi) #30, !srcloc !24
   %43 = icmp ult i8 %42, 2
@@ -8196,7 +8196,7 @@ define internal void @wakeup_preempt_dl(ptr noundef %0, ptr noundef %1, i32 %2) 
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %55, %67, %62
-  %.pre-phi4 = phi i64 [ %63, %67 ], [ %63, %62 ], [ 4294967295, %55 ]
+  %.pre-phi4 = phi i64 [ %63, %62 ], [ %63, %67 ], [ 4294967295, %55 ]
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 992
   %69 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %68, i64 %.pre-phi4) #30, !srcloc !24
   %70 = icmp ult i8 %69, 2
@@ -8320,7 +8320,7 @@ define internal ptr @pick_next_task_dl(ptr noundef %0) #1 align 16 {
   br label %.thread
 
 .thread:                                          ; preds = %21, %1, %50, %42, %35, %27
-  %53 = phi ptr [ %32, %50 ], [ %32, %42 ], [ %32, %35 ], [ null, %27 ], [ null, %1 ], [ null, %21 ]
+  %53 = phi ptr [ null, %27 ], [ %32, %50 ], [ %32, %42 ], [ %32, %35 ], [ null, %1 ], [ null, %21 ]
   ret ptr %53
 }
 
@@ -10472,7 +10472,7 @@ define dso_local range(i32 -1, 1) i32 @sched_dl_overflow(ptr noundef %0, i32 nou
   br label %.thread26
 
 .thread26:                                        ; preds = %184, %195, %191, %134, %212, %341, %.thread33, %285
-  %344 = phi i32 [ %343, %341 ], [ 0, %285 ], [ 0, %.thread33 ], [ -1, %212 ], [ -1, %134 ], [ 0, %191 ], [ 0, %195 ], [ 0, %184 ]
+  %344 = phi i32 [ -1, %134 ], [ %343, %341 ], [ 0, %285 ], [ 0, %.thread33 ], [ -1, %212 ], [ 0, %191 ], [ 0, %195 ], [ 0, %184 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull %28) #30
   br label %345
 
@@ -13070,7 +13070,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @push_dl_task(ptr noundef %0)
   br label %.thread10
 
 .thread10:                                        ; preds = %23, %63, %65, %66, %29, %22, %1
-  %67 = phi i32 [ 0, %22 ], [ 0, %1 ], [ 0, %29 ], [ %60, %66 ], [ %60, %65 ], [ %60, %63 ], [ 0, %23 ]
+  %67 = phi i32 [ 0, %22 ], [ 0, %1 ], [ 0, %29 ], [ %60, %63 ], [ %60, %66 ], [ %60, %65 ], [ 0, %23 ]
   ret i32 %67
 }
 

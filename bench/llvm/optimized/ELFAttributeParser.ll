@@ -942,10 +942,10 @@ _ZN4llvm17createStringErrorESt10error_codeRKNS_5TwineE.exit131: ; preds = %_ZN4l
   br label %.critedge38.critedge
 
 _ZN4llvm18ELFAttributeParser14parseIndexListERNS_15SmallVectorImplIhEE.exit: ; preds = %132, %113, %102, %122, %103
-  %.sroa.7.1 = phi i64 [ 8, %103 ], [ 7, %122 ], [ 0, %102 ], [ 8, %113 ], [ 7, %132 ]
-  %.sroa.0155.1 = phi ptr [ @.str.16, %103 ], [ @.str.18, %122 ], [ null, %102 ], [ @.str.16, %113 ], [ @.str.18, %132 ]
-  %.sroa.8.1 = phi i64 [ 17, %103 ], [ 16, %122 ], [ 14, %102 ], [ 17, %113 ], [ 16, %132 ]
-  %.sroa.0156.1 = phi ptr [ @.str.15, %103 ], [ @.str.17, %122 ], [ @.str.14, %102 ], [ @.str.15, %113 ], [ @.str.17, %132 ]
+  %.sroa.7.1 = phi i64 [ 8, %113 ], [ 0, %102 ], [ 8, %103 ], [ 7, %122 ], [ 7, %132 ]
+  %.sroa.0155.1 = phi ptr [ @.str.16, %113 ], [ null, %102 ], [ @.str.16, %103 ], [ @.str.18, %122 ], [ @.str.18, %132 ]
+  %.sroa.8.1 = phi i64 [ 17, %113 ], [ 14, %102 ], [ 17, %103 ], [ 16, %122 ], [ 16, %132 ]
+  %.sroa.0156.1 = phi ptr [ @.str.15, %113 ], [ @.str.14, %102 ], [ @.str.15, %103 ], [ @.str.17, %122 ], [ @.str.17, %132 ]
   %159 = load ptr, ptr %29, align 8, !tbaa !40
   %.not34 = icmp eq ptr %159, null
   br i1 %.not34, label %177, label %160
@@ -1691,7 +1691,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIjSt4pairIKjN4llvm9StringRefEE
   br label %_ZNSt10_HashtableIjSt4pairIKjN4llvm9StringRefEESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
 _ZNKSt10_HashtableIjSt4pairIKjN4llvm9StringRefEESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit: ; preds = %33, %20, %28
-  %.sroa.032.0.ph = phi ptr [ %29, %28 ], [ %.sroa.025.0, %20 ], [ %35, %33 ]
+  %.sroa.032.0.ph = phi ptr [ %.sroa.025.0, %20 ], [ %29, %28 ], [ %35, %33 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 32) #17
   br label %_ZNSt10_HashtableIjSt4pairIKjN4llvm9StringRefEESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
@@ -2538,7 +2538,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__det
   br label %_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
 _ZNKSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit: ; preds = %35, %22, %30
-  %.sroa.031.0.ph = phi ptr [ %31, %30 ], [ %.sroa.024.0, %22 ], [ %37, %35 ]
+  %.sroa.031.0.ph = phi ptr [ %.sroa.024.0, %22 ], [ %31, %30 ], [ %37, %35 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 16) #17
   br label %_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
@@ -2789,7 +2789,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__det
   br label %_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
 _ZNKSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit: ; preds = %34, %21, %29
-  %.sroa.031.0.ph = phi ptr [ %30, %29 ], [ %.sroa.024.0, %21 ], [ %36, %34 ]
+  %.sroa.031.0.ph = phi ptr [ %.sroa.024.0, %21 ], [ %30, %29 ], [ %36, %34 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 16) #17
   br label %_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 

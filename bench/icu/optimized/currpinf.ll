@@ -539,7 +539,7 @@ _ZN6icu_779HashtableD2Ev.exit.i:                  ; preds = %31, %_ZN6icu_7712Lo
   br label %_ZN6icu_7712LocalPointerINS_9HashtableEED2Ev.exit
 
 _ZN6icu_7712LocalPointerINS_9HashtableEED2Ev.exit: ; preds = %27, %21, %_ZN6icu_779HashtableC2EaR10UErrorCode.exit, %_ZN6icu_779HashtableD2Ev.exit.i
-  %.117 = phi ptr [ null, %_ZN6icu_779HashtableD2Ev.exit.i ], [ null, %_ZN6icu_779HashtableC2EaR10UErrorCode.exit ], [ null, %21 ], [ %7, %27 ]
+  %.117 = phi ptr [ null, %21 ], [ null, %_ZN6icu_779HashtableD2Ev.exit.i ], [ null, %_ZN6icu_779HashtableC2EaR10UErrorCode.exit ], [ %7, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %36
 
@@ -1805,7 +1805,7 @@ _ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit: ; preds = %235, %130
   br label %265
 
 .critedge:                                        ; preds = %115, %.thread143, %_ZN6icu_7712LocalPointerINS_17StringEnumerationEEC2EPS1_R10UErrorCode.exit
-  %239 = phi i32 [ %105, %_ZN6icu_7712LocalPointerINS_17StringEnumerationEEC2EPS1_R10UErrorCode.exit ], [ %storemerge, %.thread143 ], [ %.pr145.pre, %115 ]
+  %239 = phi i32 [ %storemerge, %.thread143 ], [ %105, %_ZN6icu_7712LocalPointerINS_17StringEnumerationEEC2EPS1_R10UErrorCode.exit ], [ %.pr145.pre, %115 ]
   %240 = icmp eq i32 %239, 7
   br i1 %240, label %241, label %242
 
@@ -2053,7 +2053,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZN6icu_77L15ValueComparatorE
   br label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
 
 _ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %6, %11, %28
-  %.0.i = phi i1 [ %10, %6 ], [ false, %11 ], [ %35, %28 ]
+  %.0.i = phi i1 [ %10, %6 ], [ %35, %28 ], [ false, %11 ]
   %36 = zext i1 %.0.i to i8
   ret i8 %36
 }

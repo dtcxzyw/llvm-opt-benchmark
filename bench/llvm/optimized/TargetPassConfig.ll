@@ -6191,7 +6191,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm16TargetPassConfig25hasLimitedCodeG
   br label %10
 
 10:                                               ; preds = %5, %0
-  %11 = phi i1 [ true, %0 ], [ %.not3, %5 ]
+  %11 = phi i1 [ %.not3, %5 ], [ true, %0 ]
   ret i1 %11
 }
 
@@ -8409,14 +8409,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN4l
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %171
 
-.critedge:                                        ; preds = %63, %55, %.thread26
+.critedge:                                        ; preds = %55, %.thread26, %63
   store i8 %50, ptr %49, align 2, !tbaa !47
   br label %171
 
 171:                                              ; preds = %.critedge14, %.critedge, %71, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %172 = phi ptr [ %99, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %40, %71 ], [ %40, %.critedge ], [ %92, %.critedge14 ]
-  %173 = phi i8 [ %100, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %41, %71 ], [ %41, %.critedge ], [ %93, %.critedge14 ]
-  %.1 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ true, %71 ], [ true, %.critedge ], [ true, %.critedge14 ]
+  %172 = phi ptr [ %40, %.critedge ], [ %99, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %40, %71 ], [ %92, %.critedge14 ]
+  %173 = phi i8 [ %41, %.critedge ], [ %100, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %41, %71 ], [ %93, %.critedge14 ]
+  %.1 = phi i1 [ true, %.critedge ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ true, %71 ], [ true, %.critedge14 ]
   store i8 %173, ptr %172, align 1, !tbaa !47
   ret i1 %.1
 }

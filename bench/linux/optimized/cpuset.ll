@@ -344,7 +344,7 @@ define internal fastcc void @rebuild_sched_domains_locked() unnamed_addr #1 alig
   br label %98
 
 98:                                               ; preds = %93, %88
-  %99 = phi i1 [ true, %88 ], [ %97, %93 ]
+  %99 = phi i1 [ %97, %93 ], [ true, %88 ]
   %100 = icmp ne ptr %83, @top_cpuset
   %101 = and i1 %100, %99
   br i1 %101, label %102, label %.thread29
@@ -1293,7 +1293,7 @@ define internal i32 @cpuset_can_attach(ptr noundef %0) #1 align 16 {
   br label %.thread
 
 .thread:                                          ; preds = %.split, %.thread7, %.thread7.us, %.split.us, %1, %18, %105, %.thread8
-  %111 = phi i32 [ 0, %.thread8 ], [ %107, %105 ], [ -28, %18 ], [ -28, %1 ], [ %42, %.thread7.us ], [ %39, %.split.us ], [ %62, %.thread7 ], [ %59, %.split ]
+  %111 = phi i32 [ -28, %18 ], [ 0, %.thread8 ], [ %107, %105 ], [ -28, %1 ], [ %42, %.thread7.us ], [ %39, %.split.us ], [ %59, %.split ], [ %62, %.thread7 ]
   call void @mutex_unlock(ptr noundef nonnull @cpuset_mutex) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %111
@@ -1604,7 +1604,7 @@ define internal i32 @cpuset_can_fork(ptr noundef %0, ptr noundef readonly captur
   br label %.thread
 
 .thread:                                          ; preds = %10, %21, %31, %28, %25
-  %35 = phi i32 [ %26, %25 ], [ %29, %28 ], [ 0, %31 ], [ -28, %21 ], [ -28, %10 ]
+  %35 = phi i32 [ 0, %31 ], [ %26, %25 ], [ %29, %28 ], [ -28, %21 ], [ -28, %10 ]
   tail call void @mutex_unlock(ptr noundef nonnull @cpuset_mutex) #19
   br label %36
 
@@ -2151,7 +2151,7 @@ define dso_local range(i32 0, 65) i32 @cpuset_mem_spread_node() #1 align 16 {
   br label %38
 
 38:                                               ; preds = %12, %14, %.loopexit, %21, %18, %7
-  %39 = phi i32 [ -1, %7 ], [ 64, %18 ], [ %37, %.loopexit ], [ 64, %21 ], [ %17, %14 ], [ 64, %12 ]
+  %39 = phi i32 [ 64, %21 ], [ -1, %7 ], [ 64, %18 ], [ %37, %.loopexit ], [ %17, %14 ], [ 64, %12 ]
   store i32 %39, ptr %4, align 4
   br label %40
 
@@ -2262,7 +2262,7 @@ define dso_local range(i32 0, 65) i32 @cpuset_slab_spread_node() local_unnamed_a
   br label %38
 
 38:                                               ; preds = %12, %14, %.loopexit, %21, %18, %7
-  %39 = phi i32 [ -1, %7 ], [ 64, %18 ], [ %37, %.loopexit ], [ 64, %21 ], [ %17, %14 ], [ 64, %12 ]
+  %39 = phi i32 [ 64, %21 ], [ -1, %7 ], [ 64, %18 ], [ %37, %.loopexit ], [ %17, %14 ], [ 64, %12 ]
   store i32 %39, ptr %4, align 8
   br label %40
 
@@ -2464,7 +2464,7 @@ define dso_local range(i32 -2147483648, 1) i32 @proc_cpuset_show(ptr noundef %0,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge, %.loopexit.sink.split, %8
-  %43 = phi ptr [ %11, %8 ], [ %16, %.loopexit.sink.split ], [ %38, %._crit_edge ]
+  %43 = phi ptr [ %16, %.loopexit.sink.split ], [ %11, %8 ], [ %38, %._crit_edge ]
   tail call void @__rcu_read_unlock() #19
   %44 = load ptr, ptr %43, align 8
   %45 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #23, !srcloc !28
@@ -2879,8 +2879,8 @@ define internal fastcc void @update_prstate(ptr noundef %0, i32 noundef range(i3
   %115 = call fastcc i32 @update_parent_effective_cpumask(ptr noundef %0, i32 noundef 2, ptr noundef null, ptr noundef nonnull %3), !range !60
   br label %123
 
-116:                                              ; preds = %42, %51, %69, %65, %53, %30
-  %.ph = phi i32 [ 4, %30 ], [ %49, %53 ], [ %49, %65 ], [ %49, %69 ], [ %49, %51 ], [ 7, %42 ]
+116:                                              ; preds = %53, %42, %51, %69, %65, %30
+  %.ph = phi i32 [ 4, %30 ], [ %49, %65 ], [ %49, %69 ], [ %49, %51 ], [ 7, %42 ], [ %49, %53 ]
   %117 = sub nsw i32 0, %1
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %119 = load volatile i64, ptr %118, align 8
@@ -2893,9 +2893,9 @@ define internal fastcc void @update_prstate(ptr noundef %0, i32 noundef range(i3
   br label %123
 
 123:                                              ; preds = %46, %107, %108, %113, %114, %.split, %116
-  %124 = phi i1 [ false, %116 ], [ false, %.split ], [ false, %113 ], [ false, %114 ], [ false, %46 ], [ true, %108 ], [ false, %107 ]
-  %125 = phi i32 [ %.ph, %116 ], [ %.ph, %.split ], [ 0, %113 ], [ 0, %114 ], [ 0, %46 ], [ 0, %108 ], [ 0, %107 ]
-  %126 = phi i32 [ %117, %116 ], [ %117, %.split ], [ 0, %113 ], [ 0, %114 ], [ %1, %46 ], [ %1, %108 ], [ %1, %107 ]
+  %124 = phi i1 [ false, %116 ], [ false, %.split ], [ true, %108 ], [ false, %113 ], [ false, %114 ], [ false, %107 ], [ false, %46 ]
+  %125 = phi i32 [ %.ph, %116 ], [ %.ph, %.split ], [ 0, %108 ], [ 0, %113 ], [ 0, %114 ], [ 0, %107 ], [ 0, %46 ]
+  %126 = phi i32 [ %117, %116 ], [ %117, %.split ], [ %1, %108 ], [ 0, %113 ], [ 0, %114 ], [ %1, %107 ], [ %1, %46 ]
   call void @_raw_spin_lock_irq(ptr noundef nonnull @callback_lock) #19
   store i32 %126, ptr %4, align 8
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 336
@@ -3497,7 +3497,7 @@ define internal fastcc range(i32 0, 9) i32 @update_parent_effective_cpumask(ptr 
   br label %178
 
 178:                                              ; preds = %173, %168
-  %179 = phi i1 [ true, %168 ], [ %177, %173 ]
+  %179 = phi i1 [ %177, %173 ], [ true, %168 ]
   %180 = icmp ne ptr %163, %0
   %181 = and i1 %180, %179
   br i1 %181, label %182, label %.thread14
@@ -3556,16 +3556,16 @@ define internal fastcc range(i32 0, 9) i32 @update_parent_effective_cpumask(ptr 
   br label %.thread18
 
 213:                                              ; preds = %101, %.thread13, %143, %145, %207
-  %214 = phi i32 [ 5, %.thread13 ], [ 5, %145 ], [ 5, %143 ], [ 7, %101 ], [ 4, %207 ]
-  %.shrunk = phi i1 [ %136, %.thread13 ], [ %150, %145 ], [ false, %143 ], [ false, %101 ], [ false, %207 ]
+  %214 = phi i32 [ 5, %145 ], [ 5, %143 ], [ 4, %207 ], [ 5, %.thread13 ], [ 7, %101 ]
+  %.shrunk = phi i1 [ %150, %145 ], [ false, %143 ], [ false, %207 ], [ %136, %.thread13 ], [ false, %101 ]
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store volatile i32 %214, ptr %215, align 8
   br label %.thread18
 
 .thread18:                                        ; preds = %.thread, %.loopexit, %151, %153, %106, %128, %213
-  %.shrunk28 = phi i1 [ %.shrunk, %213 ], [ false, %.thread ], [ false, %.loopexit ], [ false, %151 ], [ false, %153 ], [ %113, %106 ], [ true, %128 ]
-  %216 = phi i1 [ false, %213 ], [ %126, %.thread ], [ %212, %.loopexit ], [ false, %151 ], [ false, %153 ], [ %121, %106 ], [ %121, %128 ]
-  %217 = phi i1 [ false, %213 ], [ true, %.thread ], [ true, %.loopexit ], [ true, %151 ], [ true, %153 ], [ true, %106 ], [ true, %128 ]
+  %.shrunk28 = phi i1 [ %.shrunk, %213 ], [ false, %.thread ], [ false, %.loopexit ], [ true, %128 ], [ false, %151 ], [ false, %153 ], [ %113, %106 ]
+  %216 = phi i1 [ false, %213 ], [ %126, %.thread ], [ %212, %.loopexit ], [ %121, %128 ], [ false, %151 ], [ false, %153 ], [ %121, %106 ]
+  %217 = phi i1 [ false, %213 ], [ true, %.thread ], [ true, %.loopexit ], [ true, %128 ], [ true, %151 ], [ true, %153 ], [ true, %106 ]
   %218 = icmp eq i32 %1, 3
   br i1 %218, label %219, label %.thread18.thread
 
@@ -3592,11 +3592,11 @@ define internal fastcc range(i32 0, 9) i32 @update_parent_effective_cpumask(ptr 
   br label %.thread18.thread
 
 .thread18.thread:                                 ; preds = %223, %221, %97, %28, %219, %.thread18
-  %225 = phi i1 [ true, %219 ], [ false, %.thread18 ], [ false, %28 ], [ false, %97 ], [ true, %221 ], [ true, %223 ]
-  %226 = phi i1 [ %216, %219 ], [ %216, %.thread18 ], [ false, %28 ], [ false, %97 ], [ %216, %221 ], [ %216, %223 ]
-  %227 = phi i1 [ %.shrunk28, %219 ], [ %.shrunk28, %.thread18 ], [ %29, %28 ], [ %98, %97 ], [ %.shrunk28, %221 ], [ %.shrunk28, %223 ]
-  %228 = phi i32 [ %8, %219 ], [ %8, %.thread18 ], [ %31, %28 ], [ 0, %97 ], [ %spec.select, %221 ], [ %spec.select26, %223 ]
-  %229 = phi i32 [ 0, %219 ], [ 0, %.thread18 ], [ %32, %28 ], [ %99, %97 ], [ %spec.select25, %221 ], [ %spec.select27, %223 ]
+  %225 = phi i1 [ true, %219 ], [ false, %97 ], [ true, %223 ], [ false, %28 ], [ true, %221 ], [ false, %.thread18 ]
+  %226 = phi i1 [ %216, %219 ], [ false, %97 ], [ %216, %223 ], [ false, %28 ], [ %216, %221 ], [ %216, %.thread18 ]
+  %227 = phi i1 [ %.shrunk28, %219 ], [ %98, %97 ], [ %.shrunk28, %223 ], [ %29, %28 ], [ %.shrunk28, %221 ], [ %.shrunk28, %.thread18 ]
+  %228 = phi i32 [ %8, %219 ], [ 0, %97 ], [ %spec.select26, %223 ], [ %31, %28 ], [ %spec.select, %221 ], [ %8, %.thread18 ]
+  %229 = phi i32 [ 0, %219 ], [ %99, %97 ], [ %spec.select27, %223 ], [ %32, %28 ], [ %spec.select25, %221 ], [ 0, %.thread18 ]
   %230 = select i1 %227, i1 true, i1 %226
   %231 = icmp ne i32 %228, %8
   %232 = select i1 %230, i1 true, i1 %231
@@ -3915,7 +3915,7 @@ define internal fastcc range(i32 0, 9) i32 @update_parent_effective_cpumask(ptr 
   br label %397
 
 397:                                              ; preds = %250, %395, %391, %388, %.thread18.thread, %73, %68, %65, %42, %37, %16
-  %398 = phi i32 [ %39, %37 ], [ 0, %16 ], [ 7, %42 ], [ 1, %68 ], [ 1, %65 ], [ %83, %73 ], [ 0, %.thread18.thread ], [ 0, %388 ], [ 0, %391 ], [ 0, %395 ], [ 4, %250 ]
+  %398 = phi i32 [ 0, %395 ], [ %39, %37 ], [ 0, %16 ], [ 7, %42 ], [ 1, %68 ], [ 1, %65 ], [ %83, %73 ], [ 0, %.thread18.thread ], [ 0, %388 ], [ 0, %391 ], [ 4, %250 ]
   ret i32 %398
 }
 
@@ -4639,8 +4639,8 @@ define internal fastcc void @update_cpumasks_hier(ptr noundef %0, ptr noundef %1
   br label %300
 
 300:                                              ; preds = %.thread6, %299, %298, %276, %128, %34, %21, %9
-  %301 = phi i8 [ %11, %21 ], [ %11, %34 ], [ %11, %128 ], [ %277, %276 ], [ %277, %298 ], [ %11, %9 ], [ %11, %299 ], [ %11, %.thread6 ]
-  %302 = phi ptr [ %10, %21 ], [ %35, %34 ], [ %129, %128 ], [ %10, %276 ], [ %10, %298 ], [ %10, %9 ], [ %10, %299 ], [ %10, %.thread6 ]
+  %301 = phi i8 [ %11, %21 ], [ %11, %34 ], [ %11, %128 ], [ %11, %.thread6 ], [ %277, %276 ], [ %277, %298 ], [ %11, %9 ], [ %11, %299 ]
+  %302 = phi ptr [ %10, %21 ], [ %35, %34 ], [ %129, %128 ], [ %10, %.thread6 ], [ %10, %276 ], [ %10, %298 ], [ %10, %9 ], [ %10, %299 ]
   %303 = tail call ptr @css_next_descendant_pre(ptr noundef %302, ptr noundef %0) #19
   %304 = icmp eq ptr %303, null
   br i1 %304, label %305, label %9, !llvm.loop !97
@@ -4746,7 +4746,7 @@ define internal fastcc void @update_sibling_cpumasks(ptr noundef %0, ptr noundef
   br label %25
 
 25:                                               ; preds = %20, %15
-  %26 = phi i1 [ true, %15 ], [ %24, %20 ]
+  %26 = phi i1 [ %24, %20 ], [ true, %15 ]
   %27 = icmp ne ptr %10, %1
   %28 = and i1 %27, %26
   br i1 %28, label %29, label %.thread
@@ -4939,7 +4939,7 @@ define internal fastcc zeroext i1 @partition_is_populated(ptr noundef %0, ptr no
   br label %38
 
 38:                                               ; preds = %33, %28
-  %39 = phi i1 [ true, %28 ], [ %37, %33 ]
+  %39 = phi i1 [ %37, %33 ], [ true, %28 ]
   %40 = icmp ne ptr %23, %1
   %41 = and i1 %40, %39
   br i1 %41, label %42, label %.thread
@@ -5461,7 +5461,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @validate_change(ptr nounde
   br i1 %233, label %.critedge.thread, label %162, !llvm.loop !102
 
 .critedge.thread:                                 ; preds = %46, %39, %32, %56, %231, %225, %208, %87, %79, %71, %99, %153, %148, %139, %131, %.critedge
-  %234 = phi i32 [ 0, %.critedge ], [ -16, %148 ], [ -28, %139 ], [ -28, %131 ], [ 0, %153 ], [ -13, %87 ], [ -13, %79 ], [ -13, %71 ], [ -13, %99 ], [ -22, %208 ], [ -22, %225 ], [ 0, %231 ], [ -16, %56 ], [ -16, %32 ], [ -16, %39 ], [ -16, %46 ]
+  %234 = phi i32 [ 0, %.critedge ], [ -16, %148 ], [ -28, %139 ], [ -28, %131 ], [ 0, %153 ], [ -13, %79 ], [ -13, %71 ], [ -13, %99 ], [ -13, %87 ], [ 0, %231 ], [ -22, %208 ], [ -22, %225 ], [ -16, %56 ], [ -16, %32 ], [ -16, %39 ], [ -16, %46 ]
   tail call void @__rcu_read_unlock() #19
   ret i32 %234
 }
@@ -6806,7 +6806,7 @@ define internal i64 @cpuset_write_resmask(ptr noundef %0, ptr noundef %1, i64 no
   br label %604
 
 604:                                              ; preds = %.thread39, %603, %602, %581, %538, %509, %.preheader40
-  %605 = phi ptr [ %499, %509 ], [ %539, %538 ], [ %499, %581 ], [ %499, %602 ], [ %499, %.preheader40 ], [ %499, %603 ], [ %499, %.thread39 ]
+  %605 = phi ptr [ %499, %509 ], [ %539, %538 ], [ %499, %.thread39 ], [ %499, %581 ], [ %499, %602 ], [ %499, %.preheader40 ], [ %499, %603 ]
   %606 = tail call ptr @css_next_descendant_pre(ptr noundef %605, ptr noundef %7) #19
   %607 = icmp eq ptr %606, null
   br i1 %607, label %.loopexit, label %.preheader40, !llvm.loop !115
@@ -8145,7 +8145,7 @@ define internal void @cpuset_hotplug_workfn(ptr readnone captures(none) %0) #1 a
   br label %185
 
 185:                                              ; preds = %180, %175
-  %186 = phi i1 [ true, %175 ], [ %184, %180 ]
+  %186 = phi i1 [ %184, %180 ], [ true, %175 ]
   %187 = icmp ne ptr %170, %45
   %188 = and i1 %187, %186
   br i1 %188, label %189, label %.thread.i

@@ -263,7 +263,7 @@ define internal noundef i32 @ast_write_trailer(ptr noundef %0) #0 {
   br label %51
 
 51:                                               ; preds = %42, %45, %50, %._crit_edge
-  %.sink = phi i32 [ %.pre, %._crit_edge ], [ %31, %50 ], [ %31, %45 ], [ %31, %42 ]
+  %.sink = phi i32 [ %31, %50 ], [ %.pre, %._crit_edge ], [ %31, %45 ], [ %31, %42 ]
   tail call void @avio_wb32(ptr noundef %3, i32 noundef %.sink) #3
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %53 = load i32, ptr %52, align 8, !tbaa !47

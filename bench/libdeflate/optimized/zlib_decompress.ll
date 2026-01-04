@@ -61,7 +61,7 @@ define i32 @libdeflate_zlib_decompress_ex(ptr noundef %0, ptr noundef %1, i64 no
   br label %31
 
 31:                                               ; preds = %28, %29, %23, %18, %10, %7
-  %.0 = phi i32 [ 1, %7 ], [ 1, %10 ], [ %19, %18 ], [ 1, %23 ], [ 0, %29 ], [ 0, %28 ]
+  %.0 = phi i32 [ 1, %23 ], [ 1, %7 ], [ 1, %10 ], [ 0, %28 ], [ 0, %29 ], [ %19, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -120,7 +120,7 @@ define i32 @libdeflate_zlib_decompress(ptr noundef %0, ptr noundef %1, i64 nound
   br label %libdeflate_zlib_decompress_ex.exit
 
 libdeflate_zlib_decompress_ex.exit:               ; preds = %22, %6, %9, %17
-  %.0.i = phi i32 [ 1, %6 ], [ 1, %9 ], [ %18, %17 ], [ %spec.select, %22 ]
+  %.0.i = phi i32 [ %spec.select, %22 ], [ 1, %6 ], [ 1, %9 ], [ %18, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0.i
 }

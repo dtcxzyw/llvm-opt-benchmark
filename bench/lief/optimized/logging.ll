@@ -765,7 +765,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %68,
   %74 = icmp eq ptr %70, %8
   br i1 %74, label %.thread, label %68
 
-.thread35:                                        ; preds = %13, %.noexc.i
+.thread35:                                        ; preds = %.noexc.i, %13
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread

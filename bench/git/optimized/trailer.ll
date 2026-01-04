@@ -381,7 +381,7 @@ find_same_and_apply_arg.exit:                     ; preds = %same_token.exit.thr
   tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.17, i32 noundef 333, ptr noundef nonnull @.str.18, i32 noundef %100) #18
   unreachable
 
-apply_arg_if_missing.exit:                        ; preds = %86, %85, %71, %70, %67, %60, %48, %137, %135, %101
+apply_arg_if_missing.exit:                        ; preds = %85, %71, %70, %67, %60, %48, %86, %137, %135, %101
   %.not = icmp eq ptr %.01225, %1
   br i1 %.not, label %._crit_edge, label %5, !llvm.loop !32
 
@@ -415,7 +415,7 @@ define dso_local range(i32 -1, 1) i32 @trailer_set_where(ptr noundef writeonly c
   br i1 %.not14, label %.sink.split, label %11
 
 .sink.split:                                      ; preds = %9, %7, %5, %3, %2
-  %.sink = phi i32 [ 0, %2 ], [ 2, %3 ], [ 3, %5 ], [ 1, %7 ], [ 4, %9 ]
+  %.sink = phi i32 [ 0, %2 ], [ 2, %3 ], [ 1, %7 ], [ 3, %5 ], [ 4, %9 ]
   store i32 %.sink, ptr %0, align 4, !tbaa !33
   br label %11
 
@@ -458,7 +458,7 @@ define dso_local range(i32 -1, 1) i32 @trailer_set_if_exists(ptr noundef writeon
   br i1 %.not17, label %.sink.split, label %13
 
 .sink.split:                                      ; preds = %11, %9, %7, %5, %3, %2
-  %.sink = phi i32 [ 0, %2 ], [ 2, %3 ], [ 1, %5 ], [ 3, %7 ], [ 4, %9 ], [ 5, %11 ]
+  %.sink = phi i32 [ 0, %2 ], [ 2, %3 ], [ 3, %7 ], [ 4, %9 ], [ 1, %5 ], [ 5, %11 ]
   store i32 %.sink, ptr %0, align 4, !tbaa !33
   br label %13
 
@@ -567,7 +567,7 @@ define internal range(i32 -1, 1) i32 @git_trailer_default_config(ptr noundef %0,
   br i1 %.not14.i, label %trailer_set_where.exit, label %24
 
 trailer_set_where.exit:                           ; preds = %15, %16, %18, %20, %22
-  %.sink.i = phi i32 [ 0, %15 ], [ 2, %16 ], [ 3, %18 ], [ 1, %20 ], [ 4, %22 ]
+  %.sink.i = phi i32 [ 0, %15 ], [ 2, %16 ], [ 1, %20 ], [ 3, %18 ], [ 4, %22 ]
   store i32 %.sink.i, ptr getelementptr inbounds nuw (i8, ptr @default_conf_info, i64 32), align 8, !tbaa !33
   br label %skip_prefix.exit
 
@@ -620,7 +620,7 @@ _.exit:                                           ; preds = %24, %26
   br i1 %.not17.i, label %trailer_set_if_exists.exit, label %41
 
 trailer_set_if_exists.exit:                       ; preds = %30, %31, %33, %35, %37, %39
-  %.sink.i27 = phi i32 [ 0, %30 ], [ 2, %31 ], [ 1, %33 ], [ 3, %35 ], [ 4, %37 ], [ 5, %39 ]
+  %.sink.i27 = phi i32 [ 0, %30 ], [ 2, %31 ], [ 3, %35 ], [ 4, %37 ], [ 1, %33 ], [ 5, %39 ]
   store i32 %.sink.i27, ptr getelementptr inbounds nuw (i8, ptr @default_conf_info, i64 36), align 4, !tbaa !33
   br label %skip_prefix.exit
 
@@ -695,7 +695,7 @@ _.exit37:                                         ; preds = %52, %54
   br label %skip_prefix.exit
 
 skip_prefix.exit:                                 ; preds = %6, %trailer_set_if_missing.exit, %trailer_set_if_exists.exit, %trailer_set_where.exit, %11, %_.exit30, %56, %61, %_.exit37, %_.exit, %59
-  %.0 = phi i32 [ -1, %59 ], [ 0, %_.exit ], [ 0, %trailer_set_where.exit ], [ 0, %_.exit37 ], [ 0, %trailer_set_if_missing.exit ], [ 0, %61 ], [ 0, %56 ], [ 0, %trailer_set_if_exists.exit ], [ 0, %_.exit30 ], [ 0, %11 ], [ 0, %6 ]
+  %.0 = phi i32 [ 0, %11 ], [ -1, %59 ], [ 0, %_.exit ], [ 0, %trailer_set_where.exit ], [ 0, %_.exit37 ], [ 0, %trailer_set_if_missing.exit ], [ 0, %61 ], [ 0, %56 ], [ 0, %trailer_set_if_exists.exit ], [ 0, %_.exit30 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -963,7 +963,7 @@ _.exit68:                                         ; preds = %85, %87
   br i1 %.not14.i, label %trailer_set_where.exit.thread, label %trailer_set_where.exit
 
 trailer_set_where.exit.thread:                    ; preds = %94, %96, %98, %100, %102
-  %.sink.i = phi i32 [ 0, %94 ], [ 2, %96 ], [ 3, %98 ], [ 1, %100 ], [ 4, %102 ]
+  %.sink.i = phi i32 [ 0, %94 ], [ 2, %96 ], [ 1, %100 ], [ 3, %98 ], [ 4, %102 ]
   store i32 %.sink.i, ptr %95, align 4, !tbaa !33
   br label %skip_prefix.exit
 
@@ -1012,7 +1012,7 @@ _.exit74:                                         ; preds = %trailer_set_where.e
   br i1 %.not17.i, label %trailer_set_if_exists.exit.thread, label %trailer_set_if_exists.exit
 
 trailer_set_if_exists.exit.thread:                ; preds = %107, %109, %111, %113, %115, %117
-  %.sink.i80 = phi i32 [ 0, %107 ], [ 2, %109 ], [ 1, %111 ], [ 3, %113 ], [ 4, %115 ], [ 5, %117 ]
+  %.sink.i80 = phi i32 [ 0, %107 ], [ 2, %109 ], [ 3, %113 ], [ 4, %115 ], [ 1, %111 ], [ 5, %117 ]
   store i32 %.sink.i80, ptr %108, align 4, !tbaa !33
   br label %skip_prefix.exit
 
@@ -1069,7 +1069,7 @@ _.exit90:                                         ; preds = %trailer_set_if_miss
   unreachable
 
 skip_prefix.exit:                                 ; preds = %6, %15, %trailer_set_if_missing.exit.thread, %trailer_set_if_exists.exit.thread, %trailer_set_where.exit.thread, %68, %80, %92, %_.exit74, %_.exit83, %_.exit90, %21, %11, %90, %78, %66
-  %.047 = phi i32 [ -1, %66 ], [ -1, %78 ], [ -1, %90 ], [ 0, %11 ], [ 0, %21 ], [ 0, %_.exit90 ], [ 0, %_.exit83 ], [ 0, %_.exit74 ], [ 0, %92 ], [ 0, %80 ], [ 0, %68 ], [ 0, %trailer_set_where.exit.thread ], [ 0, %trailer_set_if_exists.exit.thread ], [ 0, %trailer_set_if_missing.exit.thread ], [ 0, %15 ], [ 0, %6 ]
+  %.047 = phi i32 [ 0, %21 ], [ -1, %66 ], [ -1, %78 ], [ -1, %90 ], [ 0, %11 ], [ 0, %68 ], [ 0, %trailer_set_if_missing.exit.thread ], [ 0, %_.exit90 ], [ 0, %trailer_set_if_exists.exit.thread ], [ 0, %_.exit83 ], [ 0, %trailer_set_where.exit.thread ], [ 0, %_.exit74 ], [ 0, %92 ], [ 0, %80 ], [ 0, %15 ], [ 0, %6 ]
   ret i32 %.047
 }
 
@@ -1861,7 +1861,7 @@ is_blank_line.exit.i:                             ; preds = %43
   br i1 %67, label %.lr.ph.i.i, label %last_line.exit.i, !llvm.loop !81
 
 last_line.exit.i:                                 ; preds = %65, %.loopexit161.i, %63
-  %.08.i.i = phi i64 [ %64, %63 ], [ 0, %.loopexit161.i ], [ 0, %65 ]
+  %.08.i.i = phi i64 [ 0, %.loopexit161.i ], [ %64, %63 ], [ 0, %65 ]
   %.not93187.i = icmp slt i64 %.08.i.i, %57
   br i1 %.not93187.i, label %find_trailer_block_start.exit, label %.lr.ph195.i
 
@@ -2052,11 +2052,11 @@ find_separator.exit.thread.i:                     ; preds = %108, %107, %106, %1
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.critedge.backedge.i, %token_matches_item.exit.i, %.lr.ph183.i, %135, %133, %.critedge.preheader.i, %120, %91, %.loopexit.i60, %71
-  %.174134.i = phi i32 [ 0, %135 ], [ %134, %133 ], [ 0, %91 ], [ %.073193.i, %.loopexit.i60 ], [ 0, %71 ], [ 0, %120 ], [ 0, %.critedge.preheader.i ], [ 0, %.lr.ph183.i ], [ 0, %token_matches_item.exit.i ], [ 0, %.critedge.backedge.i ]
-  %.177133.i = phi i32 [ %137, %135 ], [ %.076191.i, %133 ], [ %.076191.i, %91 ], [ %.076191.i, %.loopexit.i60 ], [ %72, %71 ], [ %.076191.i, %120 ], [ %.076191.i, %.critedge.preheader.i ], [ %.076191.i, %.lr.ph183.i ], [ %.076191.i, %token_matches_item.exit.i ], [ %.076191.i, %.critedge.backedge.i ]
-  %.180132.i = phi i32 [ %.079190.i, %135 ], [ %.079190.i, %133 ], [ %92, %91 ], [ %.079190.i, %.loopexit.i60 ], [ %.079190.i, %71 ], [ %121, %120 ], [ %121, %.critedge.preheader.i ], [ %121, %.lr.ph183.i ], [ %121, %token_matches_item.exit.i ], [ %121, %.critedge.backedge.i ]
-  %.183131.i = phi i32 [ %.082189.i, %135 ], [ %.082189.i, %133 ], [ 1, %91 ], [ %.082189.i, %.loopexit.i60 ], [ %.082189.i, %71 ], [ 1, %120 ], [ 0, %.critedge.preheader.i ], [ 0, %.critedge.backedge.i ], [ 1, %token_matches_item.exit.i ], [ 1, %.lr.ph183.i ]
-  %.186130.i = phi i32 [ 0, %135 ], [ 0, %133 ], [ 0, %91 ], [ 1, %.loopexit.i60 ], [ %.085188.i, %71 ], [ 0, %120 ], [ 0, %.critedge.preheader.i ], [ 0, %.lr.ph183.i ], [ 0, %token_matches_item.exit.i ], [ 0, %.critedge.backedge.i ]
+  %.174134.i = phi i32 [ 0, %120 ], [ %.073193.i, %.loopexit.i60 ], [ 0, %71 ], [ 0, %135 ], [ %134, %133 ], [ 0, %91 ], [ 0, %.critedge.preheader.i ], [ 0, %.lr.ph183.i ], [ 0, %token_matches_item.exit.i ], [ 0, %.critedge.backedge.i ]
+  %.177133.i = phi i32 [ %.076191.i, %120 ], [ %.076191.i, %.loopexit.i60 ], [ %72, %71 ], [ %137, %135 ], [ %.076191.i, %133 ], [ %.076191.i, %91 ], [ %.076191.i, %.critedge.preheader.i ], [ %.076191.i, %.lr.ph183.i ], [ %.076191.i, %token_matches_item.exit.i ], [ %.076191.i, %.critedge.backedge.i ]
+  %.180132.i = phi i32 [ %121, %120 ], [ %.079190.i, %.loopexit.i60 ], [ %.079190.i, %71 ], [ %.079190.i, %135 ], [ %.079190.i, %133 ], [ %92, %91 ], [ %121, %.critedge.preheader.i ], [ %121, %.lr.ph183.i ], [ %121, %token_matches_item.exit.i ], [ %121, %.critedge.backedge.i ]
+  %.183131.i = phi i32 [ 1, %120 ], [ %.082189.i, %.loopexit.i60 ], [ %.082189.i, %71 ], [ %.082189.i, %135 ], [ %.082189.i, %133 ], [ 1, %91 ], [ 0, %.critedge.preheader.i ], [ 0, %.critedge.backedge.i ], [ 1, %token_matches_item.exit.i ], [ 1, %.lr.ph183.i ]
+  %.186130.i = phi i32 [ 0, %120 ], [ 1, %.loopexit.i60 ], [ %.085188.i, %71 ], [ 0, %135 ], [ 0, %133 ], [ 0, %91 ], [ 0, %.critedge.preheader.i ], [ 0, %.lr.ph183.i ], [ 0, %token_matches_item.exit.i ], [ 0, %.critedge.backedge.i ]
   switch i64 %.072194.i, label %139 [
     i64 0, label %last_line.exit118.i
     i64 1, label %138
@@ -2087,7 +2087,7 @@ find_separator.exit.thread.i:                     ; preds = %108, %107, %106, %1
   br i1 %149, label %.lr.ph.i116.i, label %last_line.exit118.i, !llvm.loop !81
 
 last_line.exit118.i:                              ; preds = %147, %145, %139, %138, %.thread.i
-  %.08.i115.i = phi i64 [ 0, %138 ], [ %146, %145 ], [ -1, %.thread.i ], [ 0, %139 ], [ 0, %147 ]
+  %.08.i115.i = phi i64 [ -1, %.thread.i ], [ 0, %138 ], [ %146, %145 ], [ 0, %139 ], [ 0, %147 ]
   %.not93.i = icmp slt i64 %.08.i115.i, %57
   br i1 %.not93.i, label %find_trailer_block_start.exit, label %.lr.ph195.i, !llvm.loop !83
 
@@ -2102,7 +2102,7 @@ last_line.exit118.i:                              ; preds = %147, %145, %139, %1
   br label %find_trailer_block_start.exit
 
 find_trailer_block_start.exit:                    ; preds = %last_line.exit118.i, %find_end_of_log_message.exit, %last_line.exit.i, %83, %.thread139.sink.split.i
-  %.2.i = phi i64 [ %34, %83 ], [ %34, %last_line.exit.i ], [ 0, %find_end_of_log_message.exit ], [ %156, %.thread139.sink.split.i ], [ %34, %last_line.exit118.i ]
+  %.2.i = phi i64 [ 0, %find_end_of_log_message.exit ], [ %156, %.thread139.sink.split.i ], [ %34, %83 ], [ %34, %last_line.exit.i ], [ %34, %last_line.exit118.i ]
   %157 = getelementptr inbounds nuw i8, ptr %1, i64 %.2.i
   %158 = sub i64 %34, %.2.i
   %159 = tail call ptr @strbuf_split_buf(ptr noundef nonnull %157, i64 noundef %158, i32 noundef 10, i32 noundef 0) #17
@@ -2268,7 +2268,7 @@ find_separator.exit.thread:                       ; preds = %203, %202, %204, %f
   br i1 %223, label %.lr.ph.i.i71, label %.loopexit.i66, !llvm.loop !81
 
 .loopexit.i66:                                    ; preds = %221, %219, %213, %._crit_edge
-  %.08.i.ph.i = phi i64 [ 0, %213 ], [ %220, %219 ], [ 0, %._crit_edge ], [ 0, %221 ]
+  %.08.i.ph.i = phi i64 [ 0, %._crit_edge ], [ 0, %213 ], [ %220, %219 ], [ 0, %221 ]
   %224 = getelementptr inbounds nuw i8, ptr %1, i64 %.08.i.ph.i
   br label %225
 
@@ -2385,8 +2385,8 @@ strbuf_avail.exit.i14:                            ; preds = %28
   br i1 %.not.i16, label %strbuf_addch.exit.sink.split, label %strbuf_addch.exit
 
 strbuf_addch.exit.sink.split:                     ; preds = %28, %strbuf_avail.exit.i14, %.critedge, %strbuf_avail.exit.i
-  %.sink.ph = phi i8 [ 32, %strbuf_avail.exit.i ], [ 32, %.critedge ], [ %15, %strbuf_avail.exit.i14 ], [ %15, %28 ]
-  %.2.ph = phi i64 [ %.1.lcssa, %strbuf_avail.exit.i ], [ %.1.lcssa, %.critedge ], [ %13, %strbuf_avail.exit.i14 ], [ %13, %28 ]
+  %.sink.ph = phi i8 [ 32, %.critedge ], [ 32, %strbuf_avail.exit.i ], [ %15, %strbuf_avail.exit.i14 ], [ %15, %28 ]
+  %.2.ph = phi i64 [ %.1.lcssa, %.critedge ], [ %.1.lcssa, %strbuf_avail.exit.i ], [ %13, %strbuf_avail.exit.i14 ], [ %13, %28 ]
   call void @strbuf_grow(ptr noundef nonnull %3, i64 noundef 1) #17
   %.pre.i20 = load i64, ptr %8, align 8, !tbaa !55
   %.pre7.i21 = add i64 %.pre.i20, 1

@@ -268,8 +268,8 @@ define internal fastcc void @X11_HandleModifierKeys(ptr noundef %0, i32 noundef 
   br label %48
 
 48:                                               ; preds = %4, %47, %17, %16, %15, %14, %13, %12, %11, %10, %9
-  %.030 = phi i16 [ 0, %47 ], [ 2, %9 ], [ 64, %10 ], [ 128, %11 ], [ 256, %12 ], [ 512, %13 ], [ 1024, %14 ], [ 2048, %15 ], [ 16384, %16 ], [ 4, %17 ], [ 1, %4 ]
-  %.029 = phi i1 [ true, %47 ], [ false, %9 ], [ false, %10 ], [ false, %11 ], [ false, %12 ], [ false, %13 ], [ false, %14 ], [ false, %15 ], [ false, %16 ], [ false, %17 ], [ false, %4 ]
+  %.030 = phi i16 [ 0, %47 ], [ 4, %17 ], [ 2, %9 ], [ 64, %10 ], [ 128, %11 ], [ 256, %12 ], [ 512, %13 ], [ 1024, %14 ], [ 2048, %15 ], [ 16384, %16 ], [ 1, %4 ]
+  %.029 = phi i1 [ true, %47 ], [ false, %17 ], [ false, %9 ], [ false, %10 ], [ false, %11 ], [ false, %12 ], [ false, %13 ], [ false, %14 ], [ false, %15 ], [ false, %16 ], [ false, %4 ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 1716
   %50 = load i16, ptr %49, align 4
   %51 = xor i16 %.030, -1
@@ -318,7 +318,7 @@ define internal fastcc void @X11_ReconcileModifiers(ptr noundef captures(none) %
   br label %12
 
 12:                                               ; preds = %7, %10
-  %13 = phi i16 [ %11, %10 ], [ %spec.select, %7 ]
+  %13 = phi i16 [ %spec.select, %7 ], [ %11, %10 ]
   %14 = and i32 %3, 4
   %.not35 = icmp eq i32 %14, 0
   br i1 %.not35, label %18, label %15
@@ -335,7 +335,7 @@ define internal fastcc void @X11_ReconcileModifiers(ptr noundef captures(none) %
   br label %20
 
 20:                                               ; preds = %15, %18
-  %21 = phi i16 [ %19, %18 ], [ %spec.select46, %15 ]
+  %21 = phi i16 [ %spec.select46, %15 ], [ %19, %18 ]
   %22 = and i32 %3, 8
   %.not37 = icmp eq i32 %22, 0
   br i1 %.not37, label %26, label %23
@@ -352,7 +352,7 @@ define internal fastcc void @X11_ReconcileModifiers(ptr noundef captures(none) %
   br label %28
 
 28:                                               ; preds = %23, %26
-  %29 = phi i16 [ %27, %26 ], [ %spec.select47, %23 ]
+  %29 = phi i16 [ %spec.select47, %23 ], [ %27, %26 ]
   %30 = and i32 %3, 64
   %.not39 = icmp eq i32 %30, 0
   br i1 %.not39, label %34, label %31
@@ -369,7 +369,7 @@ define internal fastcc void @X11_ReconcileModifiers(ptr noundef captures(none) %
   br label %36
 
 36:                                               ; preds = %31, %34
-  %37 = phi i16 [ %35, %34 ], [ %spec.select48, %31 ]
+  %37 = phi i16 [ %spec.select48, %31 ], [ %35, %34 ]
   %38 = and i16 %37, 4091
   %39 = trunc i32 %3 to i16
   %40 = lshr i16 %39, 3
@@ -612,7 +612,7 @@ InitiateWindowResize.exit:                        ; preds = %63, %70
   br label %110
 
 110:                                              ; preds = %InitiateWindowResize.exit, %60, %19, %10, %4
-  %.1 = phi i1 [ false, %4 ], [ true, %InitiateWindowResize.exit ], [ true, %60 ], [ true, %19 ], [ false, %10 ]
+  %.1 = phi i1 [ false, %4 ], [ true, %19 ], [ true, %InitiateWindowResize.exit ], [ true, %60 ], [ false, %10 ]
   ret i1 %.1
 }
 
@@ -821,7 +821,7 @@ define hidden void @X11_HandleKeyEvent(ptr noundef readonly captures(none) %0, p
   br label %XLookupStringAsUTF8.exit.thread
 
 XLookupStringAsUTF8.exit.thread:                  ; preds = %44, %51, %55, %4, %38
-  %.046 = phi i32 [ 0, %4 ], [ %40, %38 ], [ %58, %55 ], [ 0, %51 ], [ %43, %44 ]
+  %.046 = phi i32 [ %40, %38 ], [ 0, %4 ], [ 0, %51 ], [ %58, %55 ], [ %43, %44 ]
   br i1 %17, label %59, label %68
 
 59:                                               ; preds = %XLookupStringAsUTF8.exit.thread
@@ -1394,8 +1394,8 @@ define hidden range(i32 -2147483648, 2) i32 @X11_WaitEventTimeout(ptr noundef %0
   call void @SDL_DBus_PumpEvents() #12
   br label %.thread
 
-.thread:                                          ; preds = %20, %18, %11, %24, %27
-  %.0 = phi i32 [ 1, %27 ], [ 1, %24 ], [ 0, %11 ], [ %.17, %20 ], [ 0, %18 ]
+.thread:                                          ; preds = %18, %20, %11, %24, %27
+  %.0 = phi i32 [ 1, %27 ], [ 1, %24 ], [ 0, %11 ], [ 0, %18 ], [ %.17, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -3737,7 +3737,7 @@ define hidden zeroext i1 @X11_SuspendScreenSaver(ptr noundef readonly captures(n
   br label %44
 
 44:                                               ; preds = %1, %42, %34, %32
-  %.0 = phi i1 [ %33, %32 ], [ true, %34 ], [ %43, %42 ], [ true, %1 ]
+  %.0 = phi i1 [ %43, %42 ], [ %33, %32 ], [ true, %34 ], [ true, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

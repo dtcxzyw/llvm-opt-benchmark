@@ -325,7 +325,7 @@ evmap_make_space.exit:                            ; preds = %21, %7
   br label %evmap_make_space.exit.thread
 
 evmap_make_space.exit.thread:                     ; preds = %15, %13, %10, %33, %3, %83, %100, %81, %71
-  %.0 = phi i32 [ -1, %71 ], [ -1, %81 ], [ %.076, %100 ], [ -1, %83 ], [ 0, %3 ], [ -1, %33 ], [ -1, %10 ], [ -1, %13 ], [ -1, %15 ]
+  %.0 = phi i32 [ -1, %83 ], [ 0, %3 ], [ -1, %33 ], [ -1, %71 ], [ -1, %81 ], [ %.076, %100 ], [ -1, %10 ], [ -1, %13 ], [ -1, %15 ]
   ret i32 %.0
 }
 
@@ -623,8 +623,8 @@ evmap_make_space.exit:                            ; preds = %19, %7
   store ptr %45, ptr %63, align 8
   br label %evmap_make_space.exit.thread
 
-evmap_make_space.exit.thread:                     ; preds = %13, %11, %49, %31, %3, %62
-  %.0 = phi i32 [ 1, %62 ], [ -1, %3 ], [ -1, %31 ], [ -1, %49 ], [ -1, %11 ], [ -1, %13 ]
+evmap_make_space.exit.thread:                     ; preds = %11, %13, %49, %31, %3, %62
+  %.0 = phi i32 [ 1, %62 ], [ -1, %3 ], [ -1, %49 ], [ -1, %31 ], [ -1, %13 ], [ -1, %11 ]
   ret i32 %.0
 }
 
@@ -680,7 +680,7 @@ define hidden range(i32 -1, 2) i32 @evmap_signal_del_(ptr noundef %0, i32 nounde
   br label %31
 
 31:                                               ; preds = %23, %3, %8, %30
-  %.0 = phi i32 [ 1, %30 ], [ -1, %8 ], [ -1, %3 ], [ -1, %23 ]
+  %.0 = phi i32 [ 1, %30 ], [ -1, %3 ], [ -1, %8 ], [ -1, %23 ]
   ret i32 %.0
 }
 
@@ -799,7 +799,7 @@ define hidden range(i32 -1, 1) i32 @evmap_reinit_(ptr noundef %0) local_unnamed_
   br label %.select.unfold_crit_edge.i
 
 .select.unfold_crit_edge.i:                       ; preds = %28, %26, %25
-  %.3.i = phi i16 [ %.2.i, %26 ], [ 0, %25 ], [ %spec.select30.i, %28 ]
+  %.3.i = phi i16 [ 0, %25 ], [ %spec.select30.i, %28 ], [ %.2.i, %26 ]
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = tail call i32 %33(ptr noundef nonnull %0, i32 noundef %11, i16 noundef signext 0, i16 noundef signext %.3.i, ptr noundef nonnull %13) #7
@@ -1321,7 +1321,7 @@ select.unfold.i13:                                ; preds = %27, %.select.unfold
   br i1 %33, label %.lr.ph.i7, label %evmap_io_foreach_fd.exit, !llvm.loop !11
 
 evmap_io_foreach_fd.exit:                         ; preds = %.lr.ph.i15, %select.unfold.i13, %.lr.ph.i19, %.loopexit
-  %.0 = phi i32 [ 0, %.loopexit ], [ %30, %.lr.ph.i19 ], [ 0, %select.unfold.i13 ], [ %15, %.lr.ph.i15 ]
+  %.0 = phi i32 [ %30, %.lr.ph.i19 ], [ 0, %.loopexit ], [ 0, %select.unfold.i13 ], [ %15, %.lr.ph.i15 ]
   ret i32 %.0
 }
 

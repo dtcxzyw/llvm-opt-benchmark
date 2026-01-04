@@ -3056,7 +3056,7 @@ define internal i32 @ecp_mod_p448(ptr noundef %0) #0 {
   br label %40
 
 40:                                               ; preds = %._crit_edge, %22, %24, %._crit_edge33, %36, %38, %9, %1
-  %.019 = phi i32 [ 0, %1 ], [ -20352, %9 ], [ %21, %._crit_edge ], [ %23, %22 ], [ %25, %24 ], [ %35, %._crit_edge33 ], [ %37, %36 ], [ %39, %38 ]
+  %.019 = phi i32 [ -20352, %9 ], [ 0, %1 ], [ %21, %._crit_edge ], [ %23, %22 ], [ %25, %24 ], [ %35, %._crit_edge33 ], [ %37, %36 ], [ %39, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

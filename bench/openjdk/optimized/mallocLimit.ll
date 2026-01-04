@@ -133,8 +133,8 @@ _Z24byte_size_in_proper_unitImET_S0_.exit:        ; preds = %5
   br label %_Z25proper_unit_for_byte_sizem.exit
 
 _Z25proper_unit_for_byte_sizem.exit:              ; preds = %.thread, %_Z24byte_size_in_proper_unitImET_S0_.exit, %11
-  %.0.i23 = phi i64 [ %10, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %spec.select.i, %11 ], [ %9, %.thread ]
-  %.0.i11 = phi ptr [ @.str.17, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %.str.19..str.20.i, %11 ], [ @.str.18, %.thread ]
+  %.0.i23 = phi i64 [ %9, %.thread ], [ %10, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %spec.select.i, %11 ]
+  %.0.i11 = phi ptr [ @.str.18, %.thread ], [ @.str.17, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %.str.19..str.20.i, %11 ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i32, ptr %14, align 8
   switch i32 %15, label %17 [
@@ -189,8 +189,8 @@ _Z24byte_size_in_proper_unitImET_S0_.exit15:      ; preds = %22
   br label %_Z25proper_unit_for_byte_sizem.exit18
 
 _Z25proper_unit_for_byte_sizem.exit18:            ; preds = %.thread28, %_Z24byte_size_in_proper_unitImET_S0_.exit15, %30
-  %.0.i1427 = phi i64 [ %29, %_Z24byte_size_in_proper_unitImET_S0_.exit15 ], [ %spec.select.i13, %30 ], [ %28, %.thread28 ]
-  %.0.i17 = phi ptr [ @.str.17, %_Z24byte_size_in_proper_unitImET_S0_.exit15 ], [ %.str.19..str.20.i16, %30 ], [ @.str.18, %.thread28 ]
+  %.0.i1427 = phi i64 [ %28, %.thread28 ], [ %29, %_Z24byte_size_in_proper_unitImET_S0_.exit15 ], [ %spec.select.i13, %30 ]
+  %.0.i17 = phi ptr [ @.str.18, %.thread28 ], [ @.str.17, %_Z24byte_size_in_proper_unitImET_S0_.exit15 ], [ %.str.19..str.20.i16, %30 ]
   %33 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %34 = load i32, ptr %33, align 8
   switch i32 %34, label %36 [
@@ -428,7 +428,7 @@ _ZN12ParserHelper10match_charEc.exit31:           ; preds = %78
   br i1 %.not41, label %34, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %82, %.preheader, %_ZN12ParserHelper15match_mode_flagEP15MallocLimitMode.exit, %20, %_ZN12ParserHelper10match_charEc.exit31, %76, %59, %53, %46, %33, %_ZN12ParserHelper10match_charEc.exit, %14
-  %.0 = phi i1 [ false, %14 ], [ false, %33 ], [ false, %_ZN12ParserHelper10match_charEc.exit ], [ false, %_ZN12ParserHelper10match_charEc.exit31 ], [ false, %76 ], [ false, %59 ], [ false, %53 ], [ false, %46 ], [ true, %20 ], [ true, %_ZN12ParserHelper15match_mode_flagEP15MallocLimitMode.exit ], [ true, %.preheader ], [ true, %82 ]
+  %.0 = phi i1 [ false, %14 ], [ false, %46 ], [ false, %33 ], [ false, %_ZN12ParserHelper10match_charEc.exit ], [ false, %_ZN12ParserHelper10match_charEc.exit31 ], [ false, %76 ], [ false, %59 ], [ false, %53 ], [ true, %_ZN12ParserHelper15match_mode_flagEP15MallocLimitMode.exit ], [ true, %20 ], [ true, %.preheader ], [ true, %82 ]
   ret i1 %.0
 }
 
@@ -504,7 +504,7 @@ _Z14multiply_by_1kImEbRT_.exit.thread.i:          ; preds = %28
   br label %30
 
 30:                                               ; preds = %_Z14multiply_by_1kImEbRT_.exit.thread.i, %26, %26
-  %.026.i = phi i64 [ %20, %26 ], [ %20, %26 ], [ %29, %_Z14multiply_by_1kImEbRT_.exit.thread.i ]
+  %.026.i = phi i64 [ %29, %_Z14multiply_by_1kImEbRT_.exit.thread.i ], [ %20, %26 ], [ %20, %26 ]
   %.not4.i16.i = icmp ult i64 %.026.i, 18014398509481984
   br i1 %.not4.i16.i, label %_Z14multiply_by_1kImEbRT_.exit17.thread.i, label %_ZL13parse_integerImEbPKcPPcPT_.exit.thread
 
@@ -513,7 +513,7 @@ _Z14multiply_by_1kImEbRT_.exit17.thread.i:        ; preds = %30
   br label %32
 
 32:                                               ; preds = %_Z14multiply_by_1kImEbRT_.exit17.thread.i, %26, %26
-  %.1.i = phi i64 [ %20, %26 ], [ %20, %26 ], [ %31, %_Z14multiply_by_1kImEbRT_.exit17.thread.i ]
+  %.1.i = phi i64 [ %31, %_Z14multiply_by_1kImEbRT_.exit17.thread.i ], [ %20, %26 ], [ %20, %26 ]
   %.not4.i18.i = icmp ult i64 %.1.i, 18014398509481984
   br i1 %.not4.i18.i, label %_Z14multiply_by_1kImEbRT_.exit19.thread.i, label %_ZL13parse_integerImEbPKcPPcPT_.exit.thread
 
@@ -522,7 +522,7 @@ _Z14multiply_by_1kImEbRT_.exit19.thread.i:        ; preds = %32
   br label %34
 
 34:                                               ; preds = %_Z14multiply_by_1kImEbRT_.exit19.thread.i, %26, %26
-  %.2.i = phi i64 [ %20, %26 ], [ %20, %26 ], [ %33, %_Z14multiply_by_1kImEbRT_.exit19.thread.i ]
+  %.2.i = phi i64 [ %33, %_Z14multiply_by_1kImEbRT_.exit19.thread.i ], [ %20, %26 ], [ %20, %26 ]
   %.not4.i20.i = icmp ult i64 %.2.i, 18014398509481984
   br i1 %.not4.i20.i, label %35, label %_ZL13parse_integerImEbPKcPPcPT_.exit.thread
 
@@ -531,7 +531,7 @@ _Z14multiply_by_1kImEbRT_.exit19.thread.i:        ; preds = %32
   %37 = getelementptr inbounds nuw i8, ptr %24, i64 1
   br label %38
 
-_ZL13parse_integerImEbPKcPPcPT_.exit.thread:      ; preds = %8, %_Z18parse_integer_implImTnNSt9enable_ifIXcvbntsr3std9is_signedIT_EE5valueEiE4typeELi0ETnNS0_IXcvbeqstS1_Li8EEiE4typeELi0EEbPKcPPciPS1_.exit.i, %23, %28, %30, %32, %34, %18
+_ZL13parse_integerImEbPKcPPcPT_.exit.thread:      ; preds = %_Z18parse_integer_implImTnNSt9enable_ifIXcvbntsr3std9is_signedIT_EE5valueEiE4typeELi0ETnNS0_IXcvbeqstS1_Li8EEiE4typeELi0EEbPKcPPciPS1_.exit.i, %30, %28, %34, %23, %8, %32, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %40
 
@@ -544,7 +544,7 @@ _ZL13parse_integerImEbPKcPPcPT_.exit.thread:      ; preds = %8, %_Z18parse_integ
   br label %40
 
 40:                                               ; preds = %_ZL13parse_integerImEbPKcPPcPT_.exit.thread, %2, %38
-  %.0 = phi i1 [ true, %38 ], [ false, %2 ], [ false, %_ZL13parse_integerImEbPKcPPcPT_.exit.thread ]
+  %.0 = phi i1 [ true, %38 ], [ false, %_ZL13parse_integerImEbPKcPPcPT_.exit.thread ], [ false, %2 ]
   ret i1 %.0
 }
 

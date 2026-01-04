@@ -81,7 +81,7 @@ vm_locked.exit.thread:                            ; preds = %1
   br label %rb_current_ractor.exit
 
 rb_current_ractor.exit:                           ; preds = %vm_locked.exit, %vm_locked.exit.thread, %18
-  %.0.i.i = phi ptr [ %20, %18 ], [ %4, %vm_locked.exit.thread ], [ null, %vm_locked.exit ]
+  %.0.i.i = phi ptr [ %4, %vm_locked.exit.thread ], [ %20, %18 ], [ null, %vm_locked.exit ]
   tail call fastcc void @vm_lock_enter(ptr noundef %.0.i.i, ptr noundef nonnull %2, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %0)
   br label %21
 
@@ -184,7 +184,7 @@ vm_locked.exit.thread:                            ; preds = %1
   br label %rb_current_ractor.exit
 
 rb_current_ractor.exit:                           ; preds = %vm_locked.exit, %vm_locked.exit.thread, %14
-  %.0.i.i = phi ptr [ %16, %14 ], [ %4, %vm_locked.exit.thread ], [ null, %vm_locked.exit ]
+  %.0.i.i = phi ptr [ %4, %vm_locked.exit.thread ], [ %16, %14 ], [ null, %vm_locked.exit ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 48
   tail call void @rb_native_mutex_lock(ptr noundef nonnull %17) #7
   store ptr %.0.i.i, ptr %3, align 8, !tbaa !12

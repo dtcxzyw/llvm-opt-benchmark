@@ -937,8 +937,8 @@ define dso_local noundef ptr @_ZN11cmXMLParser13FindAttributeEPPKcS1_(ptr nounde
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %.critedge, label %6
 
-.critedge:                                        ; preds = %12, %6, %.lr.ph, %.preheader, %2
-  %.1 = phi ptr [ null, %2 ], [ null, %.preheader ], [ %11, %12 ], [ null, %6 ], [ null, %.lr.ph ]
+.critedge:                                        ; preds = %12, %.lr.ph, %6, %.preheader, %2
+  %.1 = phi ptr [ null, %2 ], [ null, %.preheader ], [ null, %.lr.ph ], [ %11, %12 ], [ null, %6 ]
   ret ptr %.1
 }
 

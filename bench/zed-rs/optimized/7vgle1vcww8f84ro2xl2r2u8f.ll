@@ -743,7 +743,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN163_$LT$sum_tree..tree_map..MapKey
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %9, %7, %12
-  %.sroa.0.0 = phi i8 [ %13, %12 ], [ %., %7 ], [ 1, %9 ]
+  %.sroa.0.0 = phi i8 [ %., %7 ], [ %13, %12 ], [ 1, %9 ]
   ret i8 %.sroa.0.0
 
 12:                                               ; preds = %9
@@ -959,7 +959,7 @@ define hidden void @"_ZN4core3ptr95drop_in_place$LT$$LP$clock..Global$C$postage.
   unreachable
 
 common.resume:                                    ; preds = %14, %21, %25
-  %common.resume.op = phi { ptr, i32 } [ %22, %25 ], [ %22, %21 ], [ %15, %14 ]
+  %common.resume.op = phi { ptr, i32 } [ %22, %21 ], [ %22, %25 ], [ %15, %14 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr71drop_in_place$LT$postage..channels..oneshot..Sender$LT$$LP$$RP$$GT$$GT$17h14c82262331d5f89E.exit": ; preds = %"_ZN85_$LT$postage..channels..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc919c9329fcd61abE.llvm.8532454445049387414.exit.i", %28
@@ -2661,7 +2661,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN55_$LT$D$u20$as$u20$sum_tree..Seek
   br label %"_ZN70_$LT$sum_tree..tree_map..MapKey$LT$K$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17he682655c27536bedE.exit"
 
 "_ZN70_$LT$sum_tree..tree_map..MapKey$LT$K$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17he682655c27536bedE.exit": ; preds = %6, %7, %8
-  %.sroa.0.0.i.i = phi i8 [ %11, %8 ], [ %..i.i, %6 ], [ 1, %7 ]
+  %.sroa.0.0.i.i = phi i8 [ %..i.i, %6 ], [ %11, %8 ], [ 1, %7 ]
   ret i8 %.sroa.0.0.i.i
 }
 
@@ -3063,8 +3063,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h4d8c915efaf84
   br label %._crit_edge.i.i12
 
 41:                                               ; preds = %23, %27, %.noexc8
-  %.sroa.7.0.ph = phi i64 [ %.sroa.7.3, %23 ], [ %.sroa.7.3, %27 ], [ %32, %.noexc8 ]
-  %.sroa.15.0.ph = phi i64 [ %.sroa.15.2, %23 ], [ %.sroa.15.2, %27 ], [ %33, %.noexc8 ]
+  %.sroa.7.0.ph = phi i64 [ %32, %.noexc8 ], [ %.sroa.7.3, %23 ], [ %.sroa.7.3, %27 ]
+  %.sroa.15.0.ph = phi i64 [ %33, %.noexc8 ], [ %.sroa.15.2, %23 ], [ %.sroa.15.2, %27 ]
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   %.not.i.i10 = icmp eq i64 %.sroa.15.0.ph, 0
@@ -3136,8 +3136,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h6a2ae8399377b
   br i1 %.not.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17hd130ae8c7db4279aE.llvm.1728190777194418898.exit._crit_edge", label %7
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h9389b6a655c22775E.llvm.1728190777194418898.exit": ; preds = %20, %16, %13, %2
-  %.sroa.7.2 = phi i64 [ 0, %2 ], [ %12, %13 ], [ %12, %20 ], [ %12, %16 ]
-  %.sroa.16.1 = phi i64 [ 0, %2 ], [ 1, %13 ], [ 1, %20 ], [ 1, %16 ]
+  %.sroa.7.2 = phi i64 [ 0, %2 ], [ %12, %16 ], [ %12, %13 ], [ %12, %20 ]
+  %.sroa.16.1 = phi i64 [ 0, %2 ], [ 1, %16 ], [ 1, %13 ], [ 1, %20 ]
   %.not1.i = icmp eq i64 %.sroa.7.2, %4
   br i1 %.not1.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17hd130ae8c7db4279aE.llvm.1728190777194418898.exit", label %.lr.ph.i2.preheader
 
@@ -3362,7 +3362,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h3a7503f96
   br label %14
 
 .body.thread:                                     ; preds = %31, %22
-  %eh.lpad-body8 = phi { ptr, i32 } [ %23, %22 ], [ %lpad.thr_comm, %31 ]
+  %eh.lpad-body8 = phi { ptr, i32 } [ %lpad.thr_comm, %31 ], [ %23, %22 ]
   resume { ptr, i32 } %eh.lpad-body8
 
 31:                                               ; preds = %30
@@ -4936,7 +4936,7 @@ common.resume:                                    ; preds = %32, %.body, %10
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %39, %42, %45
-  %eh.lpad-body = phi { ptr, i32 } [ %40, %45 ], [ %40, %42 ], [ %40, %39 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %40, %39 ], [ %40, %45 ], [ %40, %42 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !862)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !865)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !868)

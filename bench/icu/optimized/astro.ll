@@ -851,14 +851,14 @@ _ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread14: ; preds
   br label %.sink.split
 
 _ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread: ; preds = %13, %6
-  %21 = phi ptr [ %7, %6 ], [ %10, %13 ]
+  %21 = phi ptr [ %10, %13 ], [ %7, %6 ]
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !32
   %24 = tail call i32 @uhash_igeti_77(ptr noundef %23, i32 noundef %1)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread14, %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread
-  %.0.ph = phi i32 [ %24, %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread ], [ 0, %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread14 ]
+  %.0.ph = phi i32 [ 0, %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread14 ], [ %24, %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread ]
   tail call void @umtx_unlock_77(ptr noundef nonnull @_ZL6ccLock)
   br label %25
 
@@ -919,7 +919,7 @@ _ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread13: ; preds
   br label %.sink.split
 
 _ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread: ; preds = %14, %7
-  %22 = phi ptr [ %8, %7 ], [ %11, %14 ]
+  %22 = phi ptr [ %11, %14 ], [ %8, %7 ]
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !32
   %25 = tail call i32 @uhash_iputi_77(ptr noundef %24, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3)

@@ -21,8 +21,8 @@ define dso_local void @pg_qsort(ptr noundef %0, i64 noundef %1, i64 noundef %2, 
   br label %22
 
 .preheader240:                                    ; preds = %.outer, %148, %4
-  %.0176.ph.lcssa257 = phi ptr [ %0, %4 ], [ %.0176.ph297, %148 ], [ %137, %.outer ]
-  %.0.lcssa = phi i64 [ %1, %4 ], [ %149, %148 ], [ %138, %.outer ]
+  %.0176.ph.lcssa257 = phi ptr [ %.0176.ph297, %148 ], [ %0, %4 ], [ %137, %.outer ]
+  %.0.lcssa = phi i64 [ %149, %148 ], [ %1, %4 ], [ %138, %.outer ]
   %9 = mul i64 %.0.lcssa, %2
   %10 = getelementptr inbounds nuw i8, ptr %.0176.ph.lcssa257, i64 %9
   %.not413 = icmp samesign ult i64 %2, %9
@@ -194,8 +194,8 @@ pg_qsort_swapn.exit218.loopexit:                  ; preds = %.lr.ph.i215
   br i1 %.not204, label %.critedge2, label %.lr.ph264.split, !llvm.loop !9
 
 .critedge2:                                       ; preds = %.lr.ph264.split, %80, %.lr.ph264.split.us, %67
-  %.1189.lcssa = phi ptr [ %.0188, %67 ], [ %.0188, %.lr.ph264.split.us ], [ %.2190, %80 ], [ %.1189261, %.lr.ph264.split ]
-  %.1187.lcssa = phi ptr [ %.0186, %67 ], [ %.0186, %.lr.ph264.split.us ], [ %81, %80 ], [ %.1187262, %.lr.ph264.split ]
+  %.1189.lcssa = phi ptr [ %.0188, %67 ], [ %.0188, %.lr.ph264.split.us ], [ %.1189261, %.lr.ph264.split ], [ %.2190, %80 ]
+  %.1187.lcssa = phi ptr [ %.0186, %67 ], [ %.0186, %.lr.ph264.split.us ], [ %.1187262, %.lr.ph264.split ], [ %81, %80 ]
   %.not205272 = icmp ugt ptr %.1187.lcssa, %.0184
   br i1 %.not205272, label %.critedge2._crit_edge, label %.lr.ph276
 

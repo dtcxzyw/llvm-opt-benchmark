@@ -130,7 +130,7 @@ EVP_CIPHER_get_mode.exit:                         ; preds = %EVP_CIPHER_get_flag
   br label %evp_cipher_set_asn1_aead_params.exit.thread
 
 evp_cipher_set_asn1_aead_params.exit:             ; preds = %26, %12, %33
-  %.0 = phi i32 [ %13, %12 ], [ %34, %33 ], [ %32, %26 ]
+  %.0 = phi i32 [ %34, %33 ], [ %32, %26 ], [ %13, %12 ]
   %41 = icmp eq i32 %.0, -2
   br i1 %41, label %evp_cipher_set_asn1_aead_params.exit.thread31, label %evp_cipher_set_asn1_aead_params.exit.thread
 
@@ -228,7 +228,7 @@ EVP_CIPHER_get_mode.exit:                         ; preds = %EVP_CIPHER_get_flag
   br label %31
 
 31:                                               ; preds = %12, %28
-  %.0 = phi i32 [ %13, %12 ], [ %30, %28 ]
+  %.0 = phi i32 [ %30, %28 ], [ %13, %12 ]
   %32 = icmp eq i32 %.0, -2
   br i1 %32, label %.thread.thread34.sink.split, label %.thread
 
@@ -238,9 +238,9 @@ EVP_CIPHER_get_mode.exit:                         ; preds = %EVP_CIPHER_get_flag
   br i1 %33, label %.thread.thread34.sink.split, label %.thread.thread34
 
 .thread.thread34.sink.split:                      ; preds = %.thread, %22, %6, %3, %31, %25, %EVP_CIPHER_get_mode.exit, %EVP_CIPHER_get_mode.exit, %EVP_CIPHER_get_mode.exit
-  %.sink39 = phi i32 [ 213, %EVP_CIPHER_get_mode.exit ], [ 213, %EVP_CIPHER_get_mode.exit ], [ 213, %EVP_CIPHER_get_mode.exit ], [ 213, %25 ], [ 213, %31 ], [ 215, %3 ], [ 215, %6 ], [ 215, %22 ], [ 215, %.thread ]
-  %.sink = phi i32 [ 107, %EVP_CIPHER_get_mode.exit ], [ 107, %EVP_CIPHER_get_mode.exit ], [ 107, %EVP_CIPHER_get_mode.exit ], [ 107, %25 ], [ 107, %31 ], [ 122, %3 ], [ 122, %6 ], [ 122, %22 ], [ 122, %.thread ]
-  %.026.ph = phi i32 [ -2, %EVP_CIPHER_get_mode.exit ], [ -2, %EVP_CIPHER_get_mode.exit ], [ -2, %EVP_CIPHER_get_mode.exit ], [ -2, %25 ], [ -2, %31 ], [ -1, %3 ], [ -1, %6 ], [ -1, %22 ], [ %.025, %.thread ]
+  %.sink39 = phi i32 [ 213, %31 ], [ 213, %EVP_CIPHER_get_mode.exit ], [ 213, %EVP_CIPHER_get_mode.exit ], [ 213, %EVP_CIPHER_get_mode.exit ], [ 213, %25 ], [ 215, %3 ], [ 215, %6 ], [ 215, %22 ], [ 215, %.thread ]
+  %.sink = phi i32 [ 107, %31 ], [ 107, %EVP_CIPHER_get_mode.exit ], [ 107, %EVP_CIPHER_get_mode.exit ], [ 107, %EVP_CIPHER_get_mode.exit ], [ 107, %25 ], [ 122, %3 ], [ 122, %6 ], [ 122, %22 ], [ 122, %.thread ]
+  %.026.ph = phi i32 [ -2, %31 ], [ -2, %EVP_CIPHER_get_mode.exit ], [ -2, %EVP_CIPHER_get_mode.exit ], [ -2, %EVP_CIPHER_get_mode.exit ], [ -2, %25 ], [ -1, %3 ], [ -1, %6 ], [ -1, %22 ], [ %.025, %.thread ]
   tail call void @ERR_new() #13
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef %.sink39, ptr noundef nonnull @__func__.evp_cipher_asn1_to_param_ex) #13
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef %.sink, ptr noundef null) #13
@@ -281,7 +281,7 @@ define range(i32 -1, 17) i32 @EVP_CIPHER_get_asn1_iv(ptr noundef %0, ptr noundef
   br label %11
 
 11:                                               ; preds = %9, %2, %.critedge
-  %.1 = phi i32 [ -1, %.critedge ], [ 0, %2 ], [ %spec.select, %9 ]
+  %.1 = phi i32 [ -1, %.critedge ], [ %spec.select, %9 ], [ 0, %2 ]
   ret i32 %.1
 }
 
@@ -355,15 +355,15 @@ EVP_CIPHER_get_flags.exit:                        ; preds = %EVP_CIPHER_get_iv_l
   store i32 %34, ptr %8, align 4, !tbaa !29
   br label %.sink.split
 
-.sink.split:                                      ; preds = %30, %26, %24, %33
-  %.014.ph = phi i32 [ %34, %33 ], [ -1, %24 ], [ -1, %26 ], [ -1, %30 ]
+.sink.split:                                      ; preds = %30, %24, %26, %33
+  %.014.ph = phi i32 [ %34, %33 ], [ -1, %26 ], [ -1, %24 ], [ -1, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %35
 
 35:                                               ; preds = %.sink.split, %7, %1
-  %.014 = phi i32 [ 0, %1 ], [ %9, %7 ], [ %.014.ph, %.sink.split ]
+  %.014 = phi i32 [ %9, %7 ], [ 0, %1 ], [ %.014.ph, %.sink.split ]
   ret i32 %.014
 }
 
@@ -506,7 +506,7 @@ EVP_CIPHER_get0_name.exit:                        ; preds = %11, %EVP_CIPHER_get
   br label %17
 
 17:                                               ; preds = %2, %EVP_CIPHER_get0_name.exit, %7
-  %.0 = phi i32 [ %10, %7 ], [ %16, %EVP_CIPHER_get0_name.exit ], [ 0, %2 ]
+  %.0 = phi i32 [ %16, %EVP_CIPHER_get0_name.exit ], [ %10, %7 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -772,7 +772,7 @@ EVP_CIPHER_get_nid.exit.thread:                   ; preds = %1, %EVP_CIPHER_get_
   br label %13
 
 13:                                               ; preds = %EVP_CIPHER_get_nid.exit, %EVP_CIPHER_get_nid.exit, %EVP_CIPHER_get_nid.exit, %EVP_CIPHER_get_nid.exit.thread, %8, %7, %6, %5, %4
-  %.0 = phi i32 [ %spec.select, %EVP_CIPHER_get_nid.exit.thread ], [ 5, %4 ], [ 421, %5 ], [ 425, %6 ], [ 429, %7 ], [ 30, %8 ], [ 37, %EVP_CIPHER_get_nid.exit ], [ 37, %EVP_CIPHER_get_nid.exit ], [ 37, %EVP_CIPHER_get_nid.exit ]
+  %.0 = phi i32 [ %spec.select, %EVP_CIPHER_get_nid.exit.thread ], [ 37, %EVP_CIPHER_get_nid.exit ], [ 5, %4 ], [ 421, %5 ], [ 425, %6 ], [ 429, %7 ], [ 30, %8 ], [ 37, %EVP_CIPHER_get_nid.exit ], [ 37, %EVP_CIPHER_get_nid.exit ]
   ret i32 %.0
 }
 
@@ -1134,7 +1134,7 @@ EVP_CIPHER_CTX_get_block_size.exit:               ; preds = %10
   br label %54
 
 54:                                               ; preds = %4, %7, %49, %48
-  %.0 = phi i32 [ %.1, %48 ], [ %53, %49 ], [ 0, %7 ], [ 0, %4 ]
+  %.0 = phi i32 [ %53, %49 ], [ %.1, %48 ], [ 0, %7 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -1183,7 +1183,7 @@ define ptr @EVP_CIPHER_CTX_get1_cipher(ptr noundef readonly captures(address_is_
   br label %8
 
 8:                                                ; preds = %6, %1, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %1 ], [ %., %6 ]
+  %.0 = phi ptr [ %., %6 ], [ null, %1 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1478,7 +1478,7 @@ define i32 @EVP_CIPHER_CTX_get_key_length(ptr noundef %0) local_unnamed_addr #0 
   br label %25
 
 25:                                               ; preds = %.sink.split, %6, %10, %1
-  %.010 = phi i32 [ 0, %1 ], [ %8, %10 ], [ %8, %6 ], [ %.010.ph, %.sink.split ]
+  %.010 = phi i32 [ %8, %10 ], [ 0, %1 ], [ %8, %6 ], [ %.010.ph, %.sink.split ]
   ret i32 %.010
 }
 
@@ -1605,7 +1605,7 @@ EVP_MD_get0_name.exit:                            ; preds = %11, %14
   br label %18
 
 18:                                               ; preds = %2, %EVP_MD_get0_name.exit, %7
-  %.0 = phi i32 [ %10, %7 ], [ %17, %EVP_MD_get0_name.exit ], [ 0, %2 ]
+  %.0 = phi i32 [ %17, %EVP_MD_get0_name.exit ], [ %10, %7 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -2128,7 +2128,7 @@ define ptr @EVP_MD_CTX_get1_md(ptr noundef readonly captures(address_is_null) %0
   br label %8
 
 8:                                                ; preds = %6, %3, %1
-  %.0 = phi ptr [ null, %1 ], [ null, %3 ], [ %spec.select, %6 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %1 ], [ %spec.select, %6 ]
   ret ptr %.0
 }
 
@@ -2423,7 +2423,7 @@ define range(i32 -2, 2) i32 @EVP_PKEY_CTX_get_group_name(ptr noundef %0, ptr nou
   br label %14
 
 14:                                               ; preds = %12, %10, %9
-  %.0 = phi i32 [ -2, %9 ], [ -1, %10 ], [ %., %12 ]
+  %.0 = phi i32 [ -2, %9 ], [ %., %12 ], [ -1, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -2620,7 +2620,7 @@ define range(i32 -2, 2) i32 @EVP_CIPHER_CTX_get_algor(ptr noundef %0, ptr nounde
   br label %26
 
 26:                                               ; preds = %24, %20, %22, %18
-  %.1 = phi i32 [ -1, %22 ], [ -1, %20 ], [ -1, %18 ], [ %spec.select, %24 ]
+  %.1 = phi i32 [ -1, %18 ], [ %spec.select, %24 ], [ -1, %22 ], [ -1, %20 ]
   call void @CRYPTO_free(ptr noundef %19, ptr noundef nonnull @.str.1, i32 noundef 1371) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %27
@@ -2810,7 +2810,7 @@ define range(i32 -2, 2) i32 @EVP_PKEY_CTX_get_algor(ptr noundef %0, ptr noundef 
   br label %26
 
 26:                                               ; preds = %24, %20, %22, %18
-  %.1 = phi i32 [ -1, %22 ], [ -1, %20 ], [ -1, %18 ], [ %spec.select, %24 ]
+  %.1 = phi i32 [ -1, %18 ], [ %spec.select, %24 ], [ -1, %22 ], [ -1, %20 ]
   call void @CRYPTO_free(ptr noundef %19, ptr noundef nonnull @.str.1, i32 noundef 1487) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %27

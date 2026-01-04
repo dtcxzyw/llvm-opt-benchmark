@@ -940,8 +940,8 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i186.i:          ; preds = %380
   br i1 %.not.i.i.i.i.i18, label %_ZN5ZXing9BitMatrix3setEiib.exit20, label %.invoke
 
 .invoke:                                          ; preds = %453, %443, %428
-  %465 = phi i64 [ %434, %428 ], [ %447, %443 ], [ %459, %453 ]
-  %466 = phi i64 [ %439, %428 ], [ %452, %443 ], [ %464, %453 ]
+  %465 = phi i64 [ %447, %443 ], [ %434, %428 ], [ %459, %453 ]
+  %466 = phi i64 [ %452, %443 ], [ %439, %428 ], [ %464, %453 ]
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %465, i64 noundef %466) #11
           to label %.cont unwind label %468
 
@@ -1019,7 +1019,7 @@ _ZN5ZXing9BitMatrixD2Ev.exit25:                   ; preds = %_ZN5ZXing9BitMatrix
   ret void
 
 .body:                                            ; preds = %471, %468, %426, %416, %414
-  %.pn = phi { ptr, i32 } [ %427, %426 ], [ %.pn.i, %416 ], [ %.pn.i, %414 ], [ %469, %468 ], [ %469, %471 ]
+  %.pn = phi { ptr, i32 } [ %.pn.i, %414 ], [ %427, %426 ], [ %.pn.i, %416 ], [ %469, %468 ], [ %469, %471 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %501 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %502 = load ptr, ptr %501, align 8, !tbaa !27
@@ -1077,9 +1077,9 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
   br label %15
 
 15:                                               ; preds = %.noexc15, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i
-  %16 = phi i64 [ %14, %.noexc15 ], [ 0, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ]
-  %17 = phi ptr [ %11, %.noexc15 ], [ %9, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ]
-  %18 = phi ptr [ %12, %.noexc15 ], [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ]
+  %16 = phi i64 [ 0, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ], [ %14, %.noexc15 ]
+  %17 = phi ptr [ %9, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ], [ %11, %.noexc15 ]
+  %18 = phi ptr [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ], [ %12, %.noexc15 ]
   store ptr %18, ptr %17, align 8, !tbaa !26
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %31, label %19
@@ -1284,7 +1284,7 @@ common.resume:                                    ; preds = %83, %86, %_ZN5ZXing
   resume { ptr, i32 } %common.resume.op
 
 .loopexit:                                        ; preds = %._crit_edge.i, %.preheader.lr.ph.i, %3
-  %92 = phi i32 [ %31, %.preheader.lr.ph.i ], [ %31, %3 ], [ %43, %._crit_edge.i ]
+  %92 = phi i32 [ %31, %3 ], [ %31, %.preheader.lr.ph.i ], [ %43, %._crit_edge.i ]
   %93 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %94 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %95 = load i32, ptr %94, align 4, !tbaa !69

@@ -921,7 +921,7 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
   br label %.sink.split
 
 .sink.split:                                      ; preds = %235, %234, %215, %214, %._crit_edge.i233, %._crit_edge.i, %51, %103, %157, %169
-  %.sink = phi ptr [ %calloc241, %169 ], [ %calloc240, %157 ], [ %calloc239, %103 ], [ %calloc, %51 ], [ %calloc242, %._crit_edge.i ], [ %222, %._crit_edge.i233 ], [ %calloc242, %214 ], [ %calloc242, %215 ], [ %222, %234 ], [ %222, %235 ]
+  %.sink = phi ptr [ %calloc242, %._crit_edge.i ], [ %calloc, %51 ], [ %calloc241, %169 ], [ %calloc240, %157 ], [ %calloc239, %103 ], [ %calloc242, %215 ], [ %222, %._crit_edge.i233 ], [ %calloc242, %214 ], [ %222, %234 ], [ %222, %235 ]
   store ptr %.sink, ptr %3, align 8, !tbaa !98
   store i32 1044, ptr %4, align 4, !tbaa !96
   store i32 7, ptr %5, align 4, !tbaa !96
@@ -1975,7 +1975,7 @@ _apply_blue_mapping.exit.i.i:                     ; preds = %601, %598, %590
   br label %645
 
 645:                                              ; preds = %635, %620, %612
-  %646 = phi reassoc nsz arcp contract afn float [ %634, %620 ], [ %644, %635 ], [ %617, %612 ]
+  %646 = phi reassoc nsz arcp contract afn float [ %644, %635 ], [ %634, %620 ], [ %617, %612 ]
   %647 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv.i.i
   store float %646, ptr %647, align 4, !tbaa !121
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -4082,7 +4082,7 @@ split:                                            ; preds = %23
   br label %split.thread
 
 split.thread:                                     ; preds = %22, %.thread84, %split
-  %.3 = phi i32 [ 0, %.thread84 ], [ %.pre, %split ], [ %16, %22 ]
+  %.3 = phi i32 [ %.pre, %split ], [ 0, %.thread84 ], [ %16, %22 ]
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %35 = load ptr, ptr %34, align 8, !tbaa !209
   tail call void @dt_bauhaus_combobox_set(ptr noundef %35, i32 noundef %.3) #17
@@ -4424,7 +4424,7 @@ define void @reload_defaults(ptr noundef captures(none) initializes((484, 488), 
   br label %110
 
 110:                                              ; preds = %108, %101
-  %.087 = phi ptr [ @.str.48, %101 ], [ %spec.select, %108 ]
+  %.087 = phi ptr [ %spec.select, %108 ], [ @.str.48, %101 ]
   %111 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.50, i32 noundef 5) #17
   %112 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef %111, ptr noundef nonnull %7, i32 noundef %103, i32 noundef %106, ptr noundef nonnull %.087, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %.088) #17
   %113 = call noalias ptr (ptr, ...) @g_strconcat(ptr noundef %112, ptr noundef %84, ptr noundef null) #17
@@ -4498,7 +4498,7 @@ define void @reload_defaults(ptr noundef captures(none) initializes((484, 488), 
   br label %139
 
 139:                                              ; preds = %125, %137, %135, %130, %128, %123, %119, %118, %.thread
-  %.sink = phi i32 [ %.3, %.thread ], [ %.3, %118 ], [ 4, %119 ], [ 3, %123 ], [ 1, %128 ], [ 10, %130 ], [ 11, %135 ], [ %., %137 ], [ %127, %125 ]
+  %.sink = phi i32 [ %.3, %118 ], [ 3, %123 ], [ %127, %125 ], [ 10, %130 ], [ 11, %135 ], [ %., %137 ], [ 1, %128 ], [ %.3, %.thread ], [ 4, %119 ]
   store i32 %.sink, ptr %13, align 4, !tbaa !176
   %140 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !200
   call void @dt_image_cache_write_release(ptr noundef %140, ptr noundef nonnull %19, i32 noundef 1) #17
@@ -5241,7 +5241,7 @@ define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, pt
   br label %35
 
 35:                                               ; preds = %32, %2, %30, %26, %22, %18, %14, %10, %6
-  %.0 = phi ptr [ %31, %30 ], [ %27, %26 ], [ %23, %22 ], [ %19, %18 ], [ %15, %14 ], [ %11, %10 ], [ %7, %6 ], [ %0, %2 ], [ %spec.select, %32 ]
+  %.0 = phi ptr [ %0, %2 ], [ %spec.select, %32 ], [ %31, %30 ], [ %27, %26 ], [ %23, %22 ], [ %19, %18 ], [ %15, %14 ], [ %11, %10 ], [ %7, %6 ]
   ret ptr %.0
 }
 
@@ -5293,7 +5293,7 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #1 {
   br label %19
 
 19:                                               ; preds = %17, %15, %13, %11, %9, %7, %5, %3, %1
-  %.0 = phi ptr [ @introspection_linear, %1 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %9 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 440), %11 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 528), %13 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 616), %15 ], [ %., %17 ]
+  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 616), %15 ], [ %., %17 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 528), %13 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 440), %11 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %9 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ @introspection_linear, %1 ]
   ret ptr %.0
 }
 

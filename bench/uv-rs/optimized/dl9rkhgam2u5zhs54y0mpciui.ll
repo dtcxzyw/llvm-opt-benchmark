@@ -755,10 +755,10 @@ define hidden void @"_ZN4core4iter6traits7collect22default_extend_tuple_b6extend
   ret void
 
 .body:                                            ; preds = %51, %55, %38, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %39, %42 ], [ %39, %38 ], [ %18, %55 ], [ %18, %51 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %39, %38 ], [ %18, %51 ], [ %39, %42 ], [ %18, %55 ]
   resume { ptr, i32 } %eh.lpad-body6
 
-51:                                               ; preds = %22, %17
+51:                                               ; preds = %17, %22
   call void @llvm.experimental.noalias.scope.decl(metadata !245)
   call void @llvm.experimental.noalias.scope.decl(metadata !248)
   call void @llvm.experimental.noalias.scope.decl(metadata !251)
@@ -1610,7 +1610,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h2525f676b
   ret void
 
 .body:                                            ; preds = %10, %7
-  %eh.lpad-body = phi { ptr, i32 } [ %11, %10 ], [ %8, %7 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %8, %7 ], [ %11, %10 ]
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -1690,7 +1690,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h2e48ae2e1
   ret void
 
 .body:                                            ; preds = %10, %7
-  %eh.lpad-body = phi { ptr, i32 } [ %11, %10 ], [ %8, %7 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %8, %7 ], [ %11, %10 ]
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -1756,7 +1756,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h53d53836a
   %56 = trunc nuw i8 %55 to i1
   br i1 %56, label %57, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hc8eed6405fd50fc8E.exit"
 
-.thread133:                                       ; preds = %184, %62, %.noexc, %.noexc54, %.noexc55, %124, %.noexc78, %.noexc79, %.noexc80, %select.unfold138, %253, %257, %316, %320
+.thread133:                                       ; preds = %320, %257, %select.unfold138, %184, %.noexc80, %.noexc55, %62, %.noexc, %.noexc54, %124, %.noexc78, %.noexc79, %253, %316
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -2100,8 +2100,8 @@ select.unfold138:                                 ; preds = %._crit_edge.i.i73, 
           to label %193 unwind label %.loopexit.split-lp
 
 192:                                              ; preds = %.loopexit, %.loopexit.split-lp, %236, %263, %218, %213
-  %.pn = phi { ptr, i32 } [ %264, %263 ], [ %237, %236 ], [ %214, %213 ], [ %219, %218 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %.sroa.03.1 = phi i8 [ %.sroa.03.2, %263 ], [ %.sroa.03.2, %236 ], [ 1, %213 ], [ 0, %218 ], [ 1, %.loopexit ], [ %.sroa.03.0.ph, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %219, %218 ], [ %264, %263 ], [ %237, %236 ], [ %214, %213 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.03.1 = phi i8 [ 0, %218 ], [ %.sroa.03.2, %263 ], [ %.sroa.03.2, %236 ], [ 1, %213 ], [ 1, %.loopexit ], [ %.sroa.03.0.ph, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he37a5e5a121d0c88E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %48) #25
           to label %267 unwind label %265
 
@@ -2111,7 +2111,7 @@ select.unfold138:                                 ; preds = %._crit_edge.i.i73, 
   br label %192
 
 .loopexit.split-lp:                               ; preds = %.loopexit186, %221, %186, %228, %242, %246
-  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %246 ], [ %.sroa.03.2, %242 ], [ %.sroa.03.2, %228 ], [ 1, %186 ], [ %.sroa.03.2, %.loopexit186 ], [ %.sroa.03.2, %221 ]
+  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %242 ], [ 1, %186 ], [ %.sroa.03.2, %.loopexit186 ], [ %.sroa.03.2, %221 ], [ %.sroa.03.2, %228 ], [ %.sroa.03.2, %246 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %192
@@ -2418,8 +2418,8 @@ select.unfold138:                                 ; preds = %._crit_edge.i.i73, 
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !754
   br i1 %trunc.i, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h6742c4cb137a681bE.exit.thread", label %281
 
-.body.thread155:                                  ; preds = %277, %.thread33.i, %311
-  %.sroa.05.2.ph = phi i1 [ false, %311 ], [ false, %.thread33.i ], [ true, %277 ]
+.body.thread155:                                  ; preds = %311, %277, %.thread33.i
+  %.sroa.05.2.ph = phi i1 [ false, %.thread33.i ], [ true, %277 ], [ false, %311 ]
   %lpad.thr_comm153 = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -2600,7 +2600,7 @@ select.unfold138:                                 ; preds = %._crit_edge.i.i73, 
   unreachable
 
 .thread34.i:                                      ; preds = %287, %313, %312
-  %eh.lpad-body2539.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp43.i, %312 ], [ %lpad.thr_comm.split-lp.i, %313 ], [ %288, %287 ]
+  %eh.lpad-body2539.i = phi { ptr, i32 } [ %288, %287 ], [ %lpad.thr_comm.split-lp43.i, %312 ], [ %lpad.thr_comm.split-lp.i, %313 ]
   invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hde97de3385536238E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %35) #25
           to label %.body.thread.i unwind label %314
 
@@ -2671,8 +2671,8 @@ select.unfold138:                                 ; preds = %._crit_edge.i.i73, 
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hde97de3385536238E.exit"
 
 .body.thread:                                     ; preds = %.body.thread.i, %303, %299, %.body.thread155
-  %eh.lpad-body151 = phi { ptr, i32 } [ %lpad.thr_comm153, %.body.thread155 ], [ %eh.lpad-body253849.i, %.body.thread.i ], [ %300, %303 ], [ %300, %299 ]
-  %.sroa.05.2.lpad-body150 = phi i1 [ %.sroa.05.2.ph, %.body.thread155 ], [ false, %.body.thread.i ], [ false, %303 ], [ false, %299 ]
+  %eh.lpad-body151 = phi { ptr, i32 } [ %lpad.thr_comm153, %.body.thread155 ], [ %300, %299 ], [ %eh.lpad-body253849.i, %.body.thread.i ], [ %300, %303 ]
+  %.sroa.05.2.lpad-body150 = phi i1 [ %.sroa.05.2.ph, %.body.thread155 ], [ false, %299 ], [ false, %.body.thread.i ], [ false, %303 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he37a5e5a121d0c88E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %39) #25
           to label %271 unwind label %265
 
@@ -2767,7 +2767,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h94875f762
   ret void
 
 .body:                                            ; preds = %10, %7
-  %eh.lpad-body = phi { ptr, i32 } [ %11, %10 ], [ %8, %7 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %8, %7 ], [ %11, %10 ]
   resume { ptr, i32 } %eh.lpad-body
 }
 

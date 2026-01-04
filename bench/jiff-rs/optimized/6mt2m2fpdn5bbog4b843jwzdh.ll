@@ -1200,7 +1200,7 @@ _ZN4jiff4util5parse3i6417h7a1dfa963dd68f8fE.exit211.i: ; preds = %_ZN4jiff4util5
   br i1 %230, label %_ZN4jiff3fmt8temporal6parser14DateTimeParser10parse_year17h064c939ed24f0659E.exit.i, label %236
 
 common.resume.i:                                  ; preds = %.body.thread.i.i.i, %.body.i.thread.i, %1046, %1043, %1029, %1027, %1010, %1006, %998, %996, %914, %912, %897, %895, %879, %877, %798, %796, %781, %779, %763, %761, %677, %675, %645, %643, %626, %624, %607, %605, %547, %545, %502, %500, %485, %483, %466, %464, %403, %401, %368, %366, %356, %354, %333, %331, %256, %254, %233, %231
-  %common.resume.op.i = phi { ptr, i32 } [ %232, %233 ], [ %232, %231 ], [ %255, %256 ], [ %255, %254 ], [ %332, %333 ], [ %332, %331 ], [ %355, %356 ], [ %355, %354 ], [ %367, %368 ], [ %367, %366 ], [ %402, %403 ], [ %402, %401 ], [ %465, %466 ], [ %465, %464 ], [ %484, %485 ], [ %484, %483 ], [ %501, %502 ], [ %501, %500 ], [ %546, %547 ], [ %546, %545 ], [ %606, %607 ], [ %606, %605 ], [ %625, %626 ], [ %625, %624 ], [ %644, %645 ], [ %644, %643 ], [ %676, %677 ], [ %676, %675 ], [ %762, %763 ], [ %762, %761 ], [ %780, %781 ], [ %780, %779 ], [ %797, %798 ], [ %797, %796 ], [ %878, %879 ], [ %878, %877 ], [ %896, %897 ], [ %896, %895 ], [ %913, %914 ], [ %913, %912 ], [ %997, %998 ], [ %997, %996 ], [ %1007, %1010 ], [ %1007, %1006 ], [ %1028, %1029 ], [ %1028, %1027 ], [ %1044, %1046 ], [ %1044, %1043 ], [ %.pn.i.i, %.body.i.thread.i ], [ %eh.lpad-body11.i.i.i, %.body.thread.i.i.i ]
+  %common.resume.op.i = phi { ptr, i32 } [ %.pn.i.i, %.body.i.thread.i ], [ %232, %231 ], [ %255, %254 ], [ %332, %331 ], [ %355, %354 ], [ %367, %366 ], [ %402, %401 ], [ %465, %464 ], [ %484, %483 ], [ %501, %500 ], [ %546, %545 ], [ %606, %605 ], [ %625, %624 ], [ %644, %643 ], [ %676, %675 ], [ %762, %761 ], [ %780, %779 ], [ %797, %796 ], [ %878, %877 ], [ %896, %895 ], [ %913, %912 ], [ %997, %996 ], [ %1007, %1006 ], [ %1028, %1027 ], [ %1044, %1043 ], [ %eh.lpad-body11.i.i.i, %.body.thread.i.i.i ], [ %232, %233 ], [ %1044, %1046 ], [ %255, %256 ], [ %644, %645 ], [ %332, %333 ], [ %1028, %1029 ], [ %355, %356 ], [ %878, %879 ], [ %367, %368 ], [ %1007, %1010 ], [ %402, %403 ], [ %676, %677 ], [ %465, %466 ], [ %997, %998 ], [ %484, %485 ], [ %780, %781 ], [ %501, %502 ], [ %913, %914 ], [ %546, %547 ], [ %762, %763 ], [ %606, %607 ], [ %896, %897 ], [ %625, %626 ], [ %797, %798 ]
   resume { ptr, i32 } %common.resume.op.i
 
 231:                                              ; preds = %_ZN4jiff4util5parse3i6417h7a1dfa963dd68f8fE.exit211.i
@@ -1544,9 +1544,9 @@ _ZN4jiff4util5parse3i6417h7a1dfa963dd68f8fE.exit226.i: ; preds = %_ZN4jiff4util5
   br label %_ZN4jiff3fmt8temporal6parser14DateTimeParser10parse_year17h064c939ed24f0659E.exit.i
 
 _ZN4jiff3fmt8temporal6parser14DateTimeParser10parse_year17h064c939ed24f0659E.exit.i: ; preds = %359, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i.i71.i", %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h3a2cd60a7864fb7bE.exit.i.i", %.thread.i, %272, %269, %259, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h97a435f3fe71e13aE.exit.i.i", %178
-  %.sroa.21.0.i = phi i16 [ undef, %178 ], [ undef, %259 ], [ undef, %272 ], [ %271, %269 ], [ undef, %.thread.i ], [ undef, %359 ], [ undef, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h97a435f3fe71e13aE.exit.i.i" ], [ undef, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h3a2cd60a7864fb7bE.exit.i.i" ], [ %353, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i.i71.i" ]
-  %.sroa.1220.0.i = phi i64 [ %184, %178 ], [ %260, %259 ], [ %278, %272 ], [ %187, %269 ], [ %284, %.thread.i ], [ %360, %359 ], [ %229, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h97a435f3fe71e13aE.exit.i.i" ], [ %329, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h3a2cd60a7864fb7bE.exit.i.i" ], [ %287, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i.i71.i" ]
-  %361 = phi ptr [ null, %178 ], [ null, %259 ], [ null, %272 ], [ %186, %269 ], [ null, %.thread.i ], [ null, %359 ], [ null, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h97a435f3fe71e13aE.exit.i.i" ], [ null, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h3a2cd60a7864fb7bE.exit.i.i" ], [ %286, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i.i71.i" ]
+  %.sroa.21.0.i = phi i16 [ undef, %178 ], [ undef, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h3a2cd60a7864fb7bE.exit.i.i" ], [ undef, %259 ], [ undef, %272 ], [ %271, %269 ], [ undef, %.thread.i ], [ undef, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h97a435f3fe71e13aE.exit.i.i" ], [ undef, %359 ], [ %353, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i.i71.i" ]
+  %.sroa.1220.0.i = phi i64 [ %184, %178 ], [ %329, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h3a2cd60a7864fb7bE.exit.i.i" ], [ %260, %259 ], [ %278, %272 ], [ %187, %269 ], [ %284, %.thread.i ], [ %229, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h97a435f3fe71e13aE.exit.i.i" ], [ %360, %359 ], [ %287, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i.i71.i" ]
+  %361 = phi ptr [ null, %178 ], [ null, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h3a2cd60a7864fb7bE.exit.i.i" ], [ null, %259 ], [ null, %272 ], [ %186, %269 ], [ null, %.thread.i ], [ null, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h97a435f3fe71e13aE.exit.i.i" ], [ null, %359 ], [ %286, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i.i71.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %135), !noalias !79
   store ptr %361, ptr %135, align 8, !noalias !84
   %.sroa.1220.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %135, i64 8
@@ -1658,9 +1658,9 @@ _ZN4jiff3fmt8temporal6parser14DateTimeParser10parse_year17h064c939ed24f0659E.exi
   br label %_ZN4jiff3fmt8temporal6parser14DateTimeParser20parse_date_separator17h777efc894091f0ddE.exit121.i
 
 _ZN4jiff3fmt8temporal6parser14DateTimeParser20parse_date_separator17h777efc894091f0ddE.exit121.i: ; preds = %393, %386, %376, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h702e00ca08770e95E.exit245.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h702e00ca08770e95E.exit245.thread.i"
-  %.sroa.02.0.i241178.i = phi i1 [ true, %393 ], [ true, %386 ], [ false, %376 ], [ false, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h702e00ca08770e95E.exit245.thread.i" ], [ false, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h702e00ca08770e95E.exit245.i" ]
-  %396 = phi ptr [ %395, %393 ], [ null, %386 ], [ null, %376 ], [ %363, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h702e00ca08770e95E.exit245.thread.i" ], [ %363, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h702e00ca08770e95E.exit245.i" ]
-  %.sroa.823.0.i = phi i64 [ %394, %393 ], [ %392, %386 ], [ %382, %376 ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h702e00ca08770e95E.exit245.thread.i" ], [ %.sroa.534.0.copyload.i.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h702e00ca08770e95E.exit245.i" ]
+  %.sroa.02.0.i241178.i = phi i1 [ false, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h702e00ca08770e95E.exit245.i" ], [ true, %393 ], [ true, %386 ], [ false, %376 ], [ false, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h702e00ca08770e95E.exit245.thread.i" ]
+  %396 = phi ptr [ %363, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h702e00ca08770e95E.exit245.i" ], [ %395, %393 ], [ null, %386 ], [ null, %376 ], [ %363, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h702e00ca08770e95E.exit245.thread.i" ]
+  %.sroa.823.0.i = phi i64 [ %.sroa.534.0.copyload.i.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h702e00ca08770e95E.exit245.i" ], [ %394, %393 ], [ %392, %386 ], [ %382, %376 ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h702e00ca08770e95E.exit245.thread.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %137), !noalias !96
   store ptr %396, ptr %137, align 8, !noalias !101
   %.sroa.823.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %137, i64 8
@@ -1936,9 +1936,9 @@ _ZN4jiff4util5parse3i6417h7a1dfa963dd68f8fE.exit196.i: ; preds = %_ZN4jiff4util5
   br label %_ZN4jiff3fmt8temporal6parser14DateTimeParser11parse_month17hd7128ceccfa3cad5E.exit.i
 
 _ZN4jiff3fmt8temporal6parser14DateTimeParser11parse_month17hd7128ceccfa3cad5E.exit.i: ; preds = %492, %488, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h6259cd80256d557cE.exit.i.i", %411
-  %495 = phi ptr [ null, %411 ], [ null, %488 ], [ %419, %492 ], [ null, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h6259cd80256d557cE.exit.i.i" ]
-  %.sroa.7.0.i = phi i64 [ %417, %411 ], [ %491, %488 ], [ %420, %492 ], [ %463, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h6259cd80256d557cE.exit.i.i" ]
-  %.sroa.1125.0.i = phi i8 [ undef, %411 ], [ undef, %488 ], [ %494, %492 ], [ undef, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h6259cd80256d557cE.exit.i.i" ]
+  %495 = phi ptr [ null, %411 ], [ %419, %492 ], [ null, %488 ], [ null, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h6259cd80256d557cE.exit.i.i" ]
+  %.sroa.7.0.i = phi i64 [ %417, %411 ], [ %420, %492 ], [ %491, %488 ], [ %463, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h6259cd80256d557cE.exit.i.i" ]
+  %.sroa.1125.0.i = phi i8 [ undef, %411 ], [ %494, %492 ], [ undef, %488 ], [ undef, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h6259cd80256d557cE.exit.i.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %133), !noalias !128
   store ptr %495, ptr %133, align 8, !noalias !133
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %133, i64 8
@@ -2337,9 +2337,9 @@ _ZN4jiff4util5parse3i6417h7a1dfa963dd68f8fE.exit181.i: ; preds = %_ZN4jiff4util5
   br label %_ZN4jiff3fmt8temporal6parser14DateTimeParser9parse_day17h31ab2e7510ce1b2aE.exit.i
 
 _ZN4jiff3fmt8temporal6parser14DateTimeParser9parse_day17h31ab2e7510ce1b2aE.exit.i: ; preds = %633, %629, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h3c68b449c94d7e5aE.exit.i.i", %552
-  %636 = phi ptr [ null, %552 ], [ null, %629 ], [ %560, %633 ], [ null, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h3c68b449c94d7e5aE.exit.i.i" ]
-  %.sroa.730.0.i = phi i64 [ %558, %552 ], [ %632, %629 ], [ %561, %633 ], [ %604, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h3c68b449c94d7e5aE.exit.i.i" ]
-  %.sroa.1131.0.i = phi i8 [ undef, %552 ], [ undef, %629 ], [ %635, %633 ], [ undef, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h3c68b449c94d7e5aE.exit.i.i" ]
+  %636 = phi ptr [ null, %552 ], [ %560, %633 ], [ null, %629 ], [ null, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h3c68b449c94d7e5aE.exit.i.i" ]
+  %.sroa.730.0.i = phi i64 [ %558, %552 ], [ %561, %633 ], [ %632, %629 ], [ %604, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h3c68b449c94d7e5aE.exit.i.i" ]
+  %.sroa.1131.0.i = phi i8 [ undef, %552 ], [ %635, %633 ], [ undef, %629 ], [ undef, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h3c68b449c94d7e5aE.exit.i.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %136), !noalias !175
   store ptr %636, ptr %136, align 8, !noalias !180
   %.sroa.730.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %136, i64 8
@@ -2478,7 +2478,7 @@ _ZN4jiff5civil4date4Date10new_ranged17h13beb0486dc3afdcE.exit.i: ; preds = %664,
   unreachable
 
 690:                                              ; preds = %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17had89b20dbe044b92E.exit.i.i", %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h4aa6249acac42783E.exit.i.i", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i.i.i", %505, %406, %371
-  %.sroa.11.0.in.i = phi ptr [ %372, %371 ], [ %407, %406 ], [ %506, %505 ], [ %544, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i.i.i" ], [ %641, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h4aa6249acac42783E.exit.i.i" ], [ %673, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17had89b20dbe044b92E.exit.i.i" ]
+  %.sroa.11.0.in.i = phi ptr [ %372, %371 ], [ %407, %406 ], [ %506, %505 ], [ %641, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h4aa6249acac42783E.exit.i.i" ], [ %544, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i.i.i" ], [ %673, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17had89b20dbe044b92E.exit.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %145), !noalias !20
   call void @llvm.lifetime.end.p0(ptr nonnull %146), !noalias !20
   br label %1103
@@ -2760,9 +2760,9 @@ _ZN4jiff4util5parse3i6417h7a1dfa963dd68f8fE.exit166.i: ; preds = %_ZN4jiff4util5
   br label %_ZN4jiff3fmt8temporal6parser14DateTimeParser10parse_hour17h9458501885362cbfE.exit.i
 
 _ZN4jiff3fmt8temporal6parser14DateTimeParser10parse_hour17h9458501885362cbfE.exit.i: ; preds = %788, %784, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17ha39bf9d72f08fe53E.exit.i.i", %708
-  %791 = phi ptr [ null, %708 ], [ null, %784 ], [ %716, %788 ], [ null, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17ha39bf9d72f08fe53E.exit.i.i" ]
-  %.sroa.739.0.i = phi i64 [ %714, %708 ], [ %787, %784 ], [ %717, %788 ], [ %760, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17ha39bf9d72f08fe53E.exit.i.i" ]
-  %.sroa.1140.0.i = phi i8 [ undef, %708 ], [ undef, %784 ], [ %790, %788 ], [ undef, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17ha39bf9d72f08fe53E.exit.i.i" ]
+  %791 = phi ptr [ null, %708 ], [ %716, %788 ], [ null, %784 ], [ null, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17ha39bf9d72f08fe53E.exit.i.i" ]
+  %.sroa.739.0.i = phi i64 [ %714, %708 ], [ %717, %788 ], [ %787, %784 ], [ %760, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17ha39bf9d72f08fe53E.exit.i.i" ]
+  %.sroa.1140.0.i = phi i8 [ undef, %708 ], [ %790, %788 ], [ undef, %784 ], [ undef, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17ha39bf9d72f08fe53E.exit.i.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %123), !noalias !230
   store ptr %791, ptr %123, align 8, !noalias !235
   %.sroa.739.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %123, i64 8
@@ -3098,9 +3098,9 @@ _ZN4jiff4util5parse3i6417h7a1dfa963dd68f8fE.exit151.i: ; preds = %_ZN4jiff4util5
   br label %_ZN4jiff3fmt8temporal6parser14DateTimeParser12parse_minute17h8f2807bf1fa12388E.exit.i
 
 _ZN4jiff3fmt8temporal6parser14DateTimeParser12parse_minute17h8f2807bf1fa12388E.exit.i: ; preds = %904, %900, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17hb80fe09e300d7c1cE.exit.i.i", %824
-  %907 = phi ptr [ null, %824 ], [ null, %900 ], [ %832, %904 ], [ null, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17hb80fe09e300d7c1cE.exit.i.i" ]
-  %.sroa.748.0.i = phi i64 [ %830, %824 ], [ %903, %900 ], [ %833, %904 ], [ %876, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17hb80fe09e300d7c1cE.exit.i.i" ]
-  %.sroa.1149.0.i = phi i8 [ undef, %824 ], [ undef, %900 ], [ %906, %904 ], [ undef, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17hb80fe09e300d7c1cE.exit.i.i" ]
+  %907 = phi ptr [ null, %824 ], [ %832, %904 ], [ null, %900 ], [ null, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17hb80fe09e300d7c1cE.exit.i.i" ]
+  %.sroa.748.0.i = phi i64 [ %830, %824 ], [ %833, %904 ], [ %903, %900 ], [ %876, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17hb80fe09e300d7c1cE.exit.i.i" ]
+  %.sroa.1149.0.i = phi i8 [ undef, %824 ], [ %906, %904 ], [ undef, %900 ], [ undef, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17hb80fe09e300d7c1cE.exit.i.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %122), !noalias !275
   store ptr %907, ptr %122, align 8, !noalias !280
   %.sroa.748.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %122, i64 8
@@ -3178,7 +3178,7 @@ _ZN4jiff3fmt8temporal6parser14DateTimeParser12parse_minute17h8f2807bf1fa12388E.e
   br label %_ZN4jiff3fmt8temporal6parser14DateTimeParser20parse_time_separator17h7ed0d44431613945E.exit.i
 
 _ZN4jiff3fmt8temporal6parser14DateTimeParser20parse_time_separator17h7ed0d44431613945E.exit.thread.i: ; preds = %925, %"_ZN4core6option15Option$LT$T$GT$6map_or17h4dbf5acf57ad2eefE.exit301.i", %922, %920
-  %.sroa.552.0277.i = phi i64 [ %.sroa.564.0.copyload.i.i, %920 ], [ 0, %922 ], [ %.sroa.564.0.copyload.i.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17h4dbf5acf57ad2eefE.exit301.i" ], [ %.sroa.564.0.copyload.i.i, %925 ]
+  %.sroa.552.0277.i = phi i64 [ %.sroa.564.0.copyload.i.i, %920 ], [ %.sroa.564.0.copyload.i.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17h4dbf5acf57ad2eefE.exit301.i" ], [ 0, %922 ], [ %.sroa.564.0.copyload.i.i, %925 ]
   %930 = call noundef i8 @"_ZN58_$LT$T$u20$as$u20$jiff..util..rangeint..RInto$LT$U$GT$$GT$5rinto17hd49e999ac00eade0E"(i8 noundef %.sroa.660.0.copyload.i.i), !noalias !238
   %931 = call noundef i8 @"_ZN58_$LT$T$u20$as$u20$jiff..util..rangeint..RInto$LT$U$GT$$GT$5rinto17h1a493077950fa652E"(i8 noundef %.sroa.665.0.copyload.i.i), !noalias !238
   %932 = call noundef i8 @"_ZN58_$LT$T$u20$as$u20$jiff..util..rangeint..RInto$LT$U$GT$$GT$5rinto17h1a493077950fa652E"(i8 noundef 0), !noalias !238
@@ -3413,9 +3413,9 @@ _ZN4jiff4util5parse3i6417h7a1dfa963dd68f8fE.exit.i: ; preds = %_ZN4jiff4util5par
   br label %_ZN4jiff3fmt8temporal6parser14DateTimeParser12parse_second17h313db18dbdb55029E.exit.i
 
 _ZN4jiff3fmt8temporal6parser14DateTimeParser12parse_second17h313db18dbdb55029E.exit.i: ; preds = %1018, %1014, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h03c63f4b2ff84a07E.exit.i.i", %943
-  %1021 = phi ptr [ null, %943 ], [ null, %1014 ], [ %951, %1018 ], [ null, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h03c63f4b2ff84a07E.exit.i.i" ]
-  %.sroa.756.0.i = phi i64 [ %949, %943 ], [ %1017, %1014 ], [ %952, %1018 ], [ %995, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h03c63f4b2ff84a07E.exit.i.i" ]
-  %.sroa.1157.0.i = phi i8 [ undef, %943 ], [ undef, %1014 ], [ %1020, %1018 ], [ undef, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h03c63f4b2ff84a07E.exit.i.i" ]
+  %1021 = phi ptr [ null, %943 ], [ %951, %1018 ], [ null, %1014 ], [ null, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h03c63f4b2ff84a07E.exit.i.i" ]
+  %.sroa.756.0.i = phi i64 [ %949, %943 ], [ %952, %1018 ], [ %1017, %1014 ], [ %995, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h03c63f4b2ff84a07E.exit.i.i" ]
+  %.sroa.1157.0.i = phi i8 [ undef, %943 ], [ %1020, %1018 ], [ undef, %1014 ], [ undef, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h03c63f4b2ff84a07E.exit.i.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %125), !noalias !319
   store ptr %1021, ptr %125, align 8, !noalias !324
   %.sroa.756.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %125, i64 8
@@ -3574,7 +3574,7 @@ _ZN4jiff3fmt8temporal6parser14DateTimeParser15parse_time_spec17h0129b735c83e63f5
   br label %1069
 
 1068:                                             ; preds = %1050, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h1af1d4f5d48cfad1E.exit.i.i", %917, %801
-  %.sroa.010.0.ph.i = phi ptr [ %1052, %1050 ], [ %918, %917 ], [ %802, %801 ], [ %1026, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h1af1d4f5d48cfad1E.exit.i.i" ]
+  %.sroa.010.0.ph.i = phi ptr [ %1052, %1050 ], [ %802, %801 ], [ %918, %917 ], [ %1026, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h1af1d4f5d48cfad1E.exit.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %131), !noalias !201
   call void @llvm.lifetime.end.p0(ptr nonnull %132), !noalias !201
   br label %1103
@@ -3943,7 +3943,7 @@ _ZN4jiff3fmt8temporal6parser14DateTimeParser23parse_temporal_datetime17hf26532a8
   br label %.thread435.i
 
 .body.i.thread.i:                                 ; preds = %1195, %1190, %1187, %1181, %1178, %.body.i.thread442.i, %1149
-  %.pn.i.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %1195 ], [ %1150, %1149 ], [ %lpad.thr_comm.i, %.body.i.thread442.i ], [ %1182, %1181 ], [ %1179, %1178 ], [ %1191, %1190 ], [ %1188, %1187 ]
+  %.pn.i.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %1195 ], [ %lpad.thr_comm.i, %.body.i.thread442.i ], [ %1150, %1149 ], [ %1179, %1178 ], [ %1182, %1181 ], [ %1191, %1190 ], [ %1188, %1187 ]
   invoke void @"_ZN4core3ptr68drop_in_place$LT$jiff..fmt..temporal..pieces..TimeZoneAnnotation$GT$17he219ffdcdfa0f429E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %161) #19
           to label %common.resume.i unwind label %1196, !noalias !387
 
@@ -3965,7 +3965,7 @@ _ZN4jiff3fmt8temporal6parser14DateTimeParser23parse_temporal_datetime17hf26532a8
   br label %_ZN4jiff3fmt8temporal6parser14ParsedDateTime18to_ambiguous_zoned17h1e14482bd5edad64E.exit.i
 
 .thread435.i:                                     ; preds = %1151, %1144, %1137
-  %.sroa.3.0.i438.i = phi ptr [ %1153, %1151 ], [ inttoptr (i64 1 to ptr), %1137 ], [ %1148, %1144 ]
+  %.sroa.3.0.i438.i = phi ptr [ %1153, %1151 ], [ %1148, %1144 ], [ inttoptr (i64 1 to ptr), %1137 ]
   store ptr %.sroa.3.0.i438.i, ptr %159, align 8, !noalias !384
   %1157 = load i32, ptr %166, align 8, !range !7, !alias.scope !379, !noalias !382, !noundef !3
   %.not65.i.i = icmp eq i32 %1157, 3
@@ -4727,7 +4727,7 @@ _ZN4jiff4util5parse3i6417h7a1dfa963dd68f8fE.exit189: ; preds = %167, %176, %_ZN4
   br i1 %201, label %_ZN4jiff3fmt8temporal6parser14DateTimeParser10parse_year17h064c939ed24f0659E.exit, label %207
 
 common.resume:                                    ; preds = %1017, %1014, %1000, %998, %981, %977, %969, %967, %885, %883, %868, %866, %850, %848, %769, %767, %752, %750, %734, %732, %648, %646, %616, %614, %597, %595, %578, %576, %518, %516, %473, %471, %456, %454, %437, %435, %374, %372, %339, %337, %327, %325, %304, %302, %227, %225, %204, %202
-  %common.resume.op = phi { ptr, i32 } [ %203, %204 ], [ %203, %202 ], [ %226, %227 ], [ %226, %225 ], [ %303, %304 ], [ %303, %302 ], [ %326, %327 ], [ %326, %325 ], [ %338, %339 ], [ %338, %337 ], [ %373, %374 ], [ %373, %372 ], [ %436, %437 ], [ %436, %435 ], [ %455, %456 ], [ %455, %454 ], [ %472, %473 ], [ %472, %471 ], [ %517, %518 ], [ %517, %516 ], [ %577, %578 ], [ %577, %576 ], [ %596, %597 ], [ %596, %595 ], [ %615, %616 ], [ %615, %614 ], [ %647, %648 ], [ %647, %646 ], [ %733, %734 ], [ %733, %732 ], [ %751, %752 ], [ %751, %750 ], [ %768, %769 ], [ %768, %767 ], [ %849, %850 ], [ %849, %848 ], [ %867, %868 ], [ %867, %866 ], [ %884, %885 ], [ %884, %883 ], [ %968, %969 ], [ %968, %967 ], [ %978, %981 ], [ %978, %977 ], [ %999, %1000 ], [ %999, %998 ], [ %1015, %1017 ], [ %1015, %1014 ]
+  %common.resume.op = phi { ptr, i32 } [ %999, %998 ], [ %203, %202 ], [ %226, %225 ], [ %303, %302 ], [ %326, %325 ], [ %338, %337 ], [ %373, %372 ], [ %436, %435 ], [ %455, %454 ], [ %472, %471 ], [ %517, %516 ], [ %577, %576 ], [ %596, %595 ], [ %615, %614 ], [ %647, %646 ], [ %733, %732 ], [ %751, %750 ], [ %768, %767 ], [ %849, %848 ], [ %867, %866 ], [ %884, %883 ], [ %968, %967 ], [ %978, %977 ], [ %1015, %1014 ], [ %203, %204 ], [ %1015, %1017 ], [ %226, %227 ], [ %615, %616 ], [ %303, %304 ], [ %999, %1000 ], [ %326, %327 ], [ %849, %850 ], [ %338, %339 ], [ %978, %981 ], [ %373, %374 ], [ %647, %648 ], [ %436, %437 ], [ %968, %969 ], [ %455, %456 ], [ %751, %752 ], [ %472, %473 ], [ %884, %885 ], [ %517, %518 ], [ %733, %734 ], [ %577, %578 ], [ %867, %868 ], [ %596, %597 ], [ %768, %769 ]
   resume { ptr, i32 } %common.resume.op
 
 202:                                              ; preds = %_ZN4jiff4util5parse3i6417h7a1dfa963dd68f8fE.exit189
@@ -5071,9 +5071,9 @@ _ZN4jiff4util5parse3i6417h7a1dfa963dd68f8fE.exit204: ; preds = %267, %276, %_ZN4
   br label %_ZN4jiff3fmt8temporal6parser14DateTimeParser10parse_year17h064c939ed24f0659E.exit
 
 _ZN4jiff3fmt8temporal6parser14DateTimeParser10parse_year17h064c939ed24f0659E.exit: ; preds = %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i.i48", %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h3a2cd60a7864fb7bE.exit.i", %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h97a435f3fe71e13aE.exit.i", %149, %230, %240, %243, %.thread, %330
-  %332 = phi ptr [ null, %149 ], [ null, %230 ], [ null, %243 ], [ %157, %240 ], [ null, %.thread ], [ null, %330 ], [ null, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h97a435f3fe71e13aE.exit.i" ], [ null, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h3a2cd60a7864fb7bE.exit.i" ], [ %257, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i.i48" ]
-  %.sroa.12326.0 = phi i64 [ %155, %149 ], [ %231, %230 ], [ %249, %243 ], [ %158, %240 ], [ %255, %.thread ], [ %331, %330 ], [ %200, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h97a435f3fe71e13aE.exit.i" ], [ %300, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h3a2cd60a7864fb7bE.exit.i" ], [ %258, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i.i48" ]
-  %.sroa.21.0 = phi i16 [ undef, %149 ], [ undef, %230 ], [ undef, %243 ], [ %242, %240 ], [ undef, %.thread ], [ undef, %330 ], [ undef, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h97a435f3fe71e13aE.exit.i" ], [ undef, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h3a2cd60a7864fb7bE.exit.i" ], [ %324, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i.i48" ]
+  %332 = phi ptr [ null, %149 ], [ null, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h3a2cd60a7864fb7bE.exit.i" ], [ null, %230 ], [ null, %243 ], [ %157, %240 ], [ null, %.thread ], [ null, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h97a435f3fe71e13aE.exit.i" ], [ null, %330 ], [ %257, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i.i48" ]
+  %.sroa.12326.0 = phi i64 [ %155, %149 ], [ %300, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h3a2cd60a7864fb7bE.exit.i" ], [ %231, %230 ], [ %249, %243 ], [ %158, %240 ], [ %255, %.thread ], [ %200, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h97a435f3fe71e13aE.exit.i" ], [ %331, %330 ], [ %258, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i.i48" ]
+  %.sroa.21.0 = phi i16 [ undef, %149 ], [ undef, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h3a2cd60a7864fb7bE.exit.i" ], [ undef, %230 ], [ undef, %243 ], [ %242, %240 ], [ undef, %.thread ], [ undef, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h97a435f3fe71e13aE.exit.i" ], [ undef, %330 ], [ %324, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i.i48" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %122), !noalias !502
   store ptr %332, ptr %122, align 8, !noalias !507
   %.sroa.12326.0..sroa_idx = getelementptr inbounds nuw i8, ptr %122, i64 8
@@ -5185,9 +5185,9 @@ _ZN4jiff3fmt8temporal6parser14DateTimeParser10parse_year17h064c939ed24f0659E.exi
   br label %_ZN4jiff3fmt8temporal6parser14DateTimeParser20parse_date_separator17h777efc894091f0ddE.exit98
 
 _ZN4jiff3fmt8temporal6parser14DateTimeParser20parse_date_separator17h777efc894091f0ddE.exit98: ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h702e00ca08770e95E.exit222", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h702e00ca08770e95E.exit222.thread", %347, %357, %364
-  %.sroa.02.0.i484 = phi i1 [ true, %364 ], [ true, %357 ], [ false, %347 ], [ false, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h702e00ca08770e95E.exit222.thread" ], [ false, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h702e00ca08770e95E.exit222" ]
-  %367 = phi ptr [ %366, %364 ], [ null, %357 ], [ null, %347 ], [ %334, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h702e00ca08770e95E.exit222.thread" ], [ %334, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h702e00ca08770e95E.exit222" ]
-  %.sroa.8329.0 = phi i64 [ %365, %364 ], [ %363, %357 ], [ %353, %347 ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h702e00ca08770e95E.exit222.thread" ], [ %.sroa.534.0.copyload.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h702e00ca08770e95E.exit222" ]
+  %.sroa.02.0.i484 = phi i1 [ false, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h702e00ca08770e95E.exit222" ], [ true, %364 ], [ true, %357 ], [ false, %347 ], [ false, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h702e00ca08770e95E.exit222.thread" ]
+  %367 = phi ptr [ %334, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h702e00ca08770e95E.exit222" ], [ %366, %364 ], [ null, %357 ], [ null, %347 ], [ %334, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h702e00ca08770e95E.exit222.thread" ]
+  %.sroa.8329.0 = phi i64 [ %.sroa.534.0.copyload.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h702e00ca08770e95E.exit222" ], [ %365, %364 ], [ %363, %357 ], [ %353, %347 ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h702e00ca08770e95E.exit222.thread" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %124), !noalias !517
   store ptr %367, ptr %124, align 8, !noalias !522
   %.sroa.8329.0..sroa_idx = getelementptr inbounds nuw i8, ptr %124, i64 8
@@ -5463,9 +5463,9 @@ _ZN4jiff4util5parse3i6417h7a1dfa963dd68f8fE.exit174: ; preds = %400, %409, %_ZN4
   br label %_ZN4jiff3fmt8temporal6parser14DateTimeParser11parse_month17hd7128ceccfa3cad5E.exit
 
 _ZN4jiff3fmt8temporal6parser14DateTimeParser11parse_month17hd7128ceccfa3cad5E.exit: ; preds = %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h6259cd80256d557cE.exit.i", %382, %459, %463
-  %466 = phi ptr [ null, %382 ], [ null, %459 ], [ %390, %463 ], [ null, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h6259cd80256d557cE.exit.i" ]
-  %.sroa.7331.0 = phi i64 [ %388, %382 ], [ %462, %459 ], [ %391, %463 ], [ %434, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h6259cd80256d557cE.exit.i" ]
-  %.sroa.11332.0 = phi i8 [ undef, %382 ], [ undef, %459 ], [ %465, %463 ], [ undef, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h6259cd80256d557cE.exit.i" ]
+  %466 = phi ptr [ null, %382 ], [ %390, %463 ], [ null, %459 ], [ null, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h6259cd80256d557cE.exit.i" ]
+  %.sroa.7331.0 = phi i64 [ %388, %382 ], [ %391, %463 ], [ %462, %459 ], [ %434, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h6259cd80256d557cE.exit.i" ]
+  %.sroa.11332.0 = phi i8 [ undef, %382 ], [ %465, %463 ], [ undef, %459 ], [ undef, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h6259cd80256d557cE.exit.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %120), !noalias !547
   store ptr %466, ptr %120, align 8, !noalias !552
   %.sroa.7331.0..sroa_idx = getelementptr inbounds nuw i8, ptr %120, i64 8
@@ -5864,9 +5864,9 @@ _ZN4jiff4util5parse3i6417h7a1dfa963dd68f8fE.exit159: ; preds = %541, %550, %_ZN4
   br label %_ZN4jiff3fmt8temporal6parser14DateTimeParser9parse_day17h31ab2e7510ce1b2aE.exit
 
 _ZN4jiff3fmt8temporal6parser14DateTimeParser9parse_day17h31ab2e7510ce1b2aE.exit: ; preds = %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h3c68b449c94d7e5aE.exit.i", %523, %600, %604
-  %607 = phi ptr [ null, %523 ], [ null, %600 ], [ %531, %604 ], [ null, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h3c68b449c94d7e5aE.exit.i" ]
-  %.sroa.7337.0 = phi i64 [ %529, %523 ], [ %603, %600 ], [ %532, %604 ], [ %575, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h3c68b449c94d7e5aE.exit.i" ]
-  %.sroa.11338.0 = phi i8 [ undef, %523 ], [ undef, %600 ], [ %606, %604 ], [ undef, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h3c68b449c94d7e5aE.exit.i" ]
+  %607 = phi ptr [ null, %523 ], [ %531, %604 ], [ null, %600 ], [ null, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h3c68b449c94d7e5aE.exit.i" ]
+  %.sroa.7337.0 = phi i64 [ %529, %523 ], [ %532, %604 ], [ %603, %600 ], [ %575, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h3c68b449c94d7e5aE.exit.i" ]
+  %.sroa.11338.0 = phi i8 [ undef, %523 ], [ %606, %604 ], [ undef, %600 ], [ undef, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h3c68b449c94d7e5aE.exit.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %123), !noalias !591
   store ptr %607, ptr %123, align 8, !noalias !596
   %.sroa.7337.0..sroa_idx = getelementptr inbounds nuw i8, ptr %123, i64 8
@@ -6005,7 +6005,7 @@ _ZN4jiff5civil4date4Date10new_ranged17h13beb0486dc3afdcE.exit: ; preds = %619, %
   unreachable
 
 661:                                              ; preds = %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17had89b20dbe044b92E.exit.i", %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h4aa6249acac42783E.exit.i", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i.i", %342, %377, %476
-  %.sroa.11.0.in = phi ptr [ %343, %342 ], [ %378, %377 ], [ %477, %476 ], [ %515, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i.i" ], [ %612, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h4aa6249acac42783E.exit.i" ], [ %644, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17had89b20dbe044b92E.exit.i" ]
+  %.sroa.11.0.in = phi ptr [ %343, %342 ], [ %378, %377 ], [ %477, %476 ], [ %612, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h4aa6249acac42783E.exit.i" ], [ %515, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i.i" ], [ %644, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17had89b20dbe044b92E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %132), !noalias !451
   call void @llvm.lifetime.end.p0(ptr nonnull %133), !noalias !451
   br label %1074
@@ -6287,9 +6287,9 @@ _ZN4jiff4util5parse3i6417h7a1dfa963dd68f8fE.exit144: ; preds = %697, %706, %_ZN4
   br label %_ZN4jiff3fmt8temporal6parser14DateTimeParser10parse_hour17h9458501885362cbfE.exit
 
 _ZN4jiff3fmt8temporal6parser14DateTimeParser10parse_hour17h9458501885362cbfE.exit: ; preds = %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17ha39bf9d72f08fe53E.exit.i", %679, %755, %759
-  %762 = phi ptr [ null, %679 ], [ null, %755 ], [ %687, %759 ], [ null, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17ha39bf9d72f08fe53E.exit.i" ]
-  %.sroa.7347.0 = phi i64 [ %685, %679 ], [ %758, %755 ], [ %688, %759 ], [ %731, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17ha39bf9d72f08fe53E.exit.i" ]
-  %.sroa.11348.0 = phi i8 [ undef, %679 ], [ undef, %755 ], [ %761, %759 ], [ undef, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17ha39bf9d72f08fe53E.exit.i" ]
+  %762 = phi ptr [ null, %679 ], [ %687, %759 ], [ null, %755 ], [ null, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17ha39bf9d72f08fe53E.exit.i" ]
+  %.sroa.7347.0 = phi i64 [ %685, %679 ], [ %688, %759 ], [ %758, %755 ], [ %731, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17ha39bf9d72f08fe53E.exit.i" ]
+  %.sroa.11348.0 = phi i8 [ undef, %679 ], [ %761, %759 ], [ undef, %755 ], [ undef, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17ha39bf9d72f08fe53E.exit.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %110), !noalias !645
   store ptr %762, ptr %110, align 8, !noalias !650
   %.sroa.7347.0..sroa_idx = getelementptr inbounds nuw i8, ptr %110, i64 8
@@ -6625,9 +6625,9 @@ _ZN4jiff4util5parse3i6417h7a1dfa963dd68f8fE.exit129: ; preds = %813, %822, %_ZN4
   br label %_ZN4jiff3fmt8temporal6parser14DateTimeParser12parse_minute17h8f2807bf1fa12388E.exit
 
 _ZN4jiff3fmt8temporal6parser14DateTimeParser12parse_minute17h8f2807bf1fa12388E.exit: ; preds = %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17hb80fe09e300d7c1cE.exit.i", %795, %871, %875
-  %878 = phi ptr [ null, %795 ], [ null, %871 ], [ %803, %875 ], [ null, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17hb80fe09e300d7c1cE.exit.i" ]
-  %.sroa.7355.0 = phi i64 [ %801, %795 ], [ %874, %871 ], [ %804, %875 ], [ %847, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17hb80fe09e300d7c1cE.exit.i" ]
-  %.sroa.11356.0 = phi i8 [ undef, %795 ], [ undef, %871 ], [ %877, %875 ], [ undef, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17hb80fe09e300d7c1cE.exit.i" ]
+  %878 = phi ptr [ null, %795 ], [ %803, %875 ], [ null, %871 ], [ null, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17hb80fe09e300d7c1cE.exit.i" ]
+  %.sroa.7355.0 = phi i64 [ %801, %795 ], [ %804, %875 ], [ %874, %871 ], [ %847, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17hb80fe09e300d7c1cE.exit.i" ]
+  %.sroa.11356.0 = phi i8 [ undef, %795 ], [ %877, %875 ], [ undef, %871 ], [ undef, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17hb80fe09e300d7c1cE.exit.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %109), !noalias !689
   store ptr %878, ptr %109, align 8, !noalias !694
   %.sroa.7355.0..sroa_idx = getelementptr inbounds nuw i8, ptr %109, i64 8
@@ -6705,7 +6705,7 @@ _ZN4jiff3fmt8temporal6parser14DateTimeParser12parse_minute17h8f2807bf1fa12388E.e
   br label %_ZN4jiff3fmt8temporal6parser14DateTimeParser20parse_time_separator17h7ed0d44431613945E.exit
 
 _ZN4jiff3fmt8temporal6parser14DateTimeParser20parse_time_separator17h7ed0d44431613945E.exit.thread: ; preds = %896, %893, %"_ZN4core6option15Option$LT$T$GT$6map_or17h4dbf5acf57ad2eefE.exit279", %891
-  %.sroa.5359.0583 = phi i64 [ %.sroa.564.0.copyload.i, %891 ], [ 0, %893 ], [ %.sroa.564.0.copyload.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17h4dbf5acf57ad2eefE.exit279" ], [ %.sroa.564.0.copyload.i, %896 ]
+  %.sroa.5359.0583 = phi i64 [ %.sroa.564.0.copyload.i, %891 ], [ %.sroa.564.0.copyload.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17h4dbf5acf57ad2eefE.exit279" ], [ 0, %893 ], [ %.sroa.564.0.copyload.i, %896 ]
   %901 = call noundef i8 @"_ZN58_$LT$T$u20$as$u20$jiff..util..rangeint..RInto$LT$U$GT$$GT$5rinto17hd49e999ac00eade0E"(i8 noundef %.sroa.660.0.copyload.i), !noalias !653
   %902 = call noundef i8 @"_ZN58_$LT$T$u20$as$u20$jiff..util..rangeint..RInto$LT$U$GT$$GT$5rinto17h1a493077950fa652E"(i8 noundef %.sroa.665.0.copyload.i), !noalias !653
   %903 = call noundef i8 @"_ZN58_$LT$T$u20$as$u20$jiff..util..rangeint..RInto$LT$U$GT$$GT$5rinto17h1a493077950fa652E"(i8 noundef 0), !noalias !653
@@ -6940,9 +6940,9 @@ _ZN4jiff4util5parse3i6417h7a1dfa963dd68f8fE.exit: ; preds = %932, %941, %_ZN4jif
   br label %_ZN4jiff3fmt8temporal6parser14DateTimeParser12parse_second17h313db18dbdb55029E.exit
 
 _ZN4jiff3fmt8temporal6parser14DateTimeParser12parse_second17h313db18dbdb55029E.exit: ; preds = %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h03c63f4b2ff84a07E.exit.i", %914, %985, %989
-  %992 = phi ptr [ null, %914 ], [ null, %985 ], [ %922, %989 ], [ null, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h03c63f4b2ff84a07E.exit.i" ]
-  %.sroa.7363.0 = phi i64 [ %920, %914 ], [ %988, %985 ], [ %923, %989 ], [ %966, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h03c63f4b2ff84a07E.exit.i" ]
-  %.sroa.11364.0 = phi i8 [ undef, %914 ], [ undef, %985 ], [ %991, %989 ], [ undef, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h03c63f4b2ff84a07E.exit.i" ]
+  %992 = phi ptr [ null, %914 ], [ %922, %989 ], [ null, %985 ], [ null, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h03c63f4b2ff84a07E.exit.i" ]
+  %.sroa.7363.0 = phi i64 [ %920, %914 ], [ %923, %989 ], [ %988, %985 ], [ %966, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h03c63f4b2ff84a07E.exit.i" ]
+  %.sroa.11364.0 = phi i8 [ undef, %914 ], [ %991, %989 ], [ undef, %985 ], [ undef, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h03c63f4b2ff84a07E.exit.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %112), !noalias !731
   store ptr %992, ptr %112, align 8, !noalias !736
   %.sroa.7363.0..sroa_idx = getelementptr inbounds nuw i8, ptr %112, i64 8
@@ -7101,7 +7101,7 @@ _ZN4jiff3fmt8temporal6parser14DateTimeParser15parse_time_spec17h0129b735c83e63f5
   br label %1040
 
 1039:                                             ; preds = %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h1af1d4f5d48cfad1E.exit.i", %772, %888, %1021
-  %.sroa.0316.0.ph = phi ptr [ %1023, %1021 ], [ %889, %888 ], [ %773, %772 ], [ %997, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h1af1d4f5d48cfad1E.exit.i" ]
+  %.sroa.0316.0.ph = phi ptr [ %1023, %1021 ], [ %773, %772 ], [ %889, %888 ], [ %997, %"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$12with_context17h1af1d4f5d48cfad1E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %118), !noalias !617
   call void @llvm.lifetime.end.p0(ptr nonnull %119), !noalias !617
   br label %1074
@@ -8489,7 +8489,7 @@ default.unreachable14:                            ; preds = %5
   unreachable
 
 common.resume:                                    ; preds = %46, %34, %29
-  %common.resume.op = phi { ptr, i32 } [ %30, %29 ], [ %35, %34 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %35, %34 ], [ %30, %29 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN4jiff2tz8timezone8TimeZone20into_ambiguous_zoned17h3632df3c32d0213cE.exit: ; preds = %28
@@ -8846,7 +8846,7 @@ default.unreachable22:                            ; preds = %6
   unreachable
 
 common.resume:                                    ; preds = %92, %45, %40
-  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %46, %45 ], [ %93, %92 ]
+  %common.resume.op = phi { ptr, i32 } [ %46, %45 ], [ %41, %40 ], [ %93, %92 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN4jiff2tz8timezone8TimeZone20into_ambiguous_zoned17h3632df3c32d0213cE.exit: ; preds = %39
@@ -10358,7 +10358,7 @@ define internal fastcc void @_ZN4jiff5zoned5Zoned3new17h68851bfd65d9f17bE(ptr de
           to label %92 unwind label %90
 
 _ZN4jiff2tz8timezone8TimeZone9to_offset17hd85c397c919b8629E.exit: ; preds = %9, %4, %4, %12, %.noexc4, %.noexc6
-  %.sroa.0.0.i = phi i32 [ %11, %9 ], [ 0, %4 ], [ 0, %4 ], [ %13, %12 ], [ %20, %.noexc4 ], [ %27, %.noexc6 ]
+  %.sroa.0.0.i = phi i32 [ %20, %.noexc4 ], [ 0, %4 ], [ %11, %9 ], [ 0, %4 ], [ %13, %12 ], [ %27, %.noexc6 ]
   %30 = sext i32 %.sroa.0.0.i to i64
   %31 = add i64 %1, %30
   %32 = sdiv i64 %31, 86400

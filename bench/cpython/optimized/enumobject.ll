@@ -1407,7 +1407,7 @@ Py_DECREF.exit44:                                 ; preds = %152, %154, %157
   br label %enum_next_long.exit
 
 enum_next_long.exit:                              ; preds = %162, %159, %Py_DECREF.exit44, %106, %103, %101, %95, %94, %91, %Py_DECREF.exit37.i, %58, %Py_DECREF.exit39.i, %40, %37, %35, %28, %25, %23, %Py_DECREF.exit42, %126, %1, %163
-  %.0 = phi ptr [ %150, %163 ], [ null, %1 ], [ %3, %126 ], [ %3, %Py_DECREF.exit42 ], [ %82, %95 ], [ %16, %58 ], [ %16, %Py_DECREF.exit39.i ], [ null, %23 ], [ null, %25 ], [ null, %28 ], [ null, %35 ], [ null, %37 ], [ null, %40 ], [ null, %Py_DECREF.exit37.i ], [ null, %91 ], [ null, %94 ], [ null, %101 ], [ null, %103 ], [ null, %106 ], [ null, %Py_DECREF.exit44 ], [ null, %159 ], [ null, %162 ]
+  %.0 = phi ptr [ %150, %163 ], [ %3, %Py_DECREF.exit42 ], [ null, %94 ], [ null, %1 ], [ null, %106 ], [ %3, %126 ], [ %16, %Py_DECREF.exit39.i ], [ null, %28 ], [ %82, %95 ], [ null, %40 ], [ %16, %58 ], [ null, %23 ], [ null, %25 ], [ null, %35 ], [ null, %37 ], [ null, %Py_DECREF.exit37.i ], [ null, %91 ], [ null, %101 ], [ null, %103 ], [ null, %Py_DECREF.exit44 ], [ null, %159 ], [ null, %162 ]
   ret ptr %.0
 }
 
@@ -1595,7 +1595,7 @@ check_keyword.exit52:                             ; preds = %48, %46
   br label %check_keyword.exit49.thread61
 
 check_keyword.exit49.thread61:                    ; preds = %39, %check_keyword.exit46.thread, %check_keyword.exit43.thread, %check_keyword.exit43, %check_keyword.exit52.thread, %check_keyword.exit.thread, %60, %59, %check_keyword.exit52, %check_keyword.exit
-  %.0 = phi ptr [ %45, %check_keyword.exit ], [ %55, %check_keyword.exit52 ], [ null, %59 ], [ null, %60 ], [ null, %check_keyword.exit.thread ], [ null, %check_keyword.exit52.thread ], [ null, %39 ], [ null, %check_keyword.exit46.thread ], [ null, %check_keyword.exit43.thread ], [ %30, %check_keyword.exit43 ]
+  %.0 = phi ptr [ %45, %check_keyword.exit ], [ null, %60 ], [ null, %check_keyword.exit52.thread ], [ %55, %check_keyword.exit52 ], [ null, %check_keyword.exit.thread ], [ null, %59 ], [ null, %39 ], [ null, %check_keyword.exit46.thread ], [ null, %check_keyword.exit43.thread ], [ %30, %check_keyword.exit43 ]
   ret ptr %.0
 }
 
@@ -1960,7 +1960,7 @@ Py_DECREF.exit34:                                 ; preds = %32, %29, %26, %24, 
   br label %Py_DECREF.exit36
 
 Py_DECREF.exit36:                                 ; preds = %54, %51, %49, %44, %41, %39, %17, %14, %12, %3, %55
-  %.0 = phi ptr [ %6, %55 ], [ null, %3 ], [ null, %12 ], [ null, %14 ], [ null, %17 ], [ null, %39 ], [ null, %41 ], [ null, %44 ], [ null, %49 ], [ null, %51 ], [ null, %54 ]
+  %.0 = phi ptr [ %6, %55 ], [ null, %3 ], [ null, %17 ], [ null, %44 ], [ null, %12 ], [ null, %14 ], [ null, %39 ], [ null, %41 ], [ null, %49 ], [ null, %51 ], [ null, %54 ]
   ret ptr %.0
 }
 
@@ -2072,7 +2072,7 @@ define internal noundef ptr @reversed_setstate(ptr noundef captures(none) %0, pt
   br label %.critedge
 
 .critedge:                                        ; preds = %7, %13, %10, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %10 ], [ @_Py_NoneStruct, %13 ], [ @_Py_NoneStruct, %7 ]
+  %.0 = phi ptr [ null, %10 ], [ null, %5 ], [ @_Py_NoneStruct, %13 ], [ @_Py_NoneStruct, %7 ]
   ret ptr %.0
 }
 
@@ -2212,7 +2212,7 @@ _Py_NewRef.exit:                                  ; preds = %54, %59
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %35, %32, %_PyObject_CallNoArgs.exit, %49, %46, %36, %_Py_NewRef.exit, %40, %Py_DECREF.exit26
-  %.0 = phi ptr [ null, %Py_DECREF.exit26 ], [ %52, %_Py_NewRef.exit ], [ null, %40 ], [ null, %36 ], [ null, %46 ], [ null, %49 ], [ %.0.i.i, %_PyObject_CallNoArgs.exit ], [ %.0.i.i, %32 ], [ %.0.i.i, %35 ]
+  %.0 = phi ptr [ null, %Py_DECREF.exit26 ], [ null, %49 ], [ null, %40 ], [ null, %36 ], [ null, %46 ], [ %52, %_Py_NewRef.exit ], [ %.0.i.i, %_PyObject_CallNoArgs.exit ], [ %.0.i.i, %32 ], [ %.0.i.i, %35 ]
   ret ptr %.0
 }
 

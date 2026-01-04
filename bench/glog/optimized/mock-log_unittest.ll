@@ -3312,7 +3312,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78
   br label %.body
 
 .body:                                            ; preds = %170, %125, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78, %168, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  %.pn19 = phi { ptr, i32 } [ %169, %168 ], [ %126, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %171, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78 ], [ %126, %125 ], [ %171, %170 ]
+  %.pn19 = phi { ptr, i32 } [ %171, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78 ], [ %169, %168 ], [ %126, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %126, %125 ], [ %171, %170 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %178
 
@@ -8519,7 +8519,7 @@ _ZNSt10shared_ptrIN7testing8internal15ExpectationBaseEEC2INS1_16TypedExpectation
   br label %_ZNSt16allocator_traitsISaISt10shared_ptrIN7testing8internal15ExpectationBaseEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i
 
 _ZNSt16allocator_traitsISaISt10shared_ptrIN7testing8internal15ExpectationBaseEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i: ; preds = %77, %76
-  %79 = phi ptr [ %70, %76 ], [ %.pre.i, %77 ]
+  %79 = phi ptr [ %.pre.i, %77 ], [ %70, %76 ]
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
   store ptr %80, ptr %69, align 8, !tbaa !209
   br label %_ZNSt6vectorISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE9push_backERKS4_.exit
@@ -11113,7 +11113,7 @@ _ZN7testing6ActionIFvN6google11LogSeverityERKNSt7__cxx1112basic_stringIcSt11char
   br label %.body
 
 .body:                                            ; preds = %723, %626, %722, %710, %698, %686, %665
-  %.pn63 = phi { ptr, i32 } [ %.pn58.pn.pn, %722 ], [ %.pn53.pn.pn, %710 ], [ %.pn48.pn.pn, %698 ], [ %.pn41.pn.pn.pn.pn, %686 ], [ %.pn.pn.pn.pn.pn, %665 ], [ %724, %723 ], [ %625, %626 ]
+  %.pn63 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %665 ], [ %.pn58.pn.pn, %722 ], [ %.pn53.pn.pn, %710 ], [ %.pn48.pn.pn, %698 ], [ %.pn41.pn.pn.pn.pn, %686 ], [ %724, %723 ], [ %625, %626 ]
   call void @_ZN7testing10InSequenceD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #28
   br label %725
 

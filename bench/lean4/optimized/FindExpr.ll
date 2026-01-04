@@ -208,7 +208,7 @@ lean_obj_tag.exit.thread:                         ; preds = %lean_dec.exit9
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %lean_obj_tag.exit, %26, %28, %29, %lean_obj_tag.exit.thread
-  %.0 = phi i8 [ 0, %lean_obj_tag.exit.thread ], [ 1, %29 ], [ 1, %28 ], [ 1, %26 ], [ %spec.select, %lean_obj_tag.exit ]
+  %.0 = phi i8 [ 0, %lean_obj_tag.exit.thread ], [ %spec.select, %lean_obj_tag.exit ], [ 1, %29 ], [ 1, %28 ], [ 1, %26 ]
   ret i8 %.0
 }
 

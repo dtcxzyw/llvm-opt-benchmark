@@ -837,7 +837,7 @@ _ZNK11OpenImageIO6v3_1_012_GLOBAL__N_115GaussianPyramid5valueEiii.exit209.us: ; 
   br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_13tviEf.exit.us
 
 _ZN11OpenImageIO6v3_1_012_GLOBAL__N_13tviEf.exit.us: ; preds = %321, %319, %315, %313, %_ZNK11OpenImageIO6v3_1_012_GLOBAL__N_115GaussianPyramid5valueEiii.exit209.us
-  %.0.i210.us = phi float [ %324, %321 ], [ %320, %319 ], [ %318, %315 ], [ %314, %313 ], [ 0xC006E147A0000000, %_ZNK11OpenImageIO6v3_1_012_GLOBAL__N_115GaussianPyramid5valueEiii.exit209.us ]
+  %.0.i210.us = phi float [ %314, %313 ], [ %324, %321 ], [ %320, %319 ], [ %318, %315 ], [ 0xC006E147A0000000, %_ZNK11OpenImageIO6v3_1_012_GLOBAL__N_115GaussianPyramid5valueEiii.exit209.us ]
   %325 = call noundef float @llvm.pow.f32(float 1.000000e+01, float %.0.i210.us)
   %326 = fdiv float %304, %325
   %327 = fcmp ogt float %326, %.1.i.us
@@ -1483,7 +1483,7 @@ define internal fastcc void @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_115GaussianPyra
   br i1 %39, label %.loopexit, label %36
 
 .loopexit:                                        ; preds = %.preheader16, %36, %20
-  %.pn.pn = phi { ptr, i32 } [ %21, %20 ], [ %.pn, %36 ], [ %21, %.preheader16 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %36 ], [ %21, %20 ], [ %21, %.preheader16 ]
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -2073,7 +2073,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.i.i.backedge: ; preds = 
   br label %136
 
 136:                                              ; preds = %134, %132, %130, %46
-  %.pn32.i.i.i = phi { ptr, i32 } [ %47, %46 ], [ %135, %134 ], [ %133, %132 ], [ %131, %130 ]
+  %.pn32.i.i.i = phi { ptr, i32 } [ %47, %46 ], [ %131, %130 ], [ %135, %134 ], [ %133, %132 ]
   call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %3) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn32.i.i.i
@@ -2460,7 +2460,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv.exit.i.i.backedge: ; preds = 
   br label %168
 
 168:                                              ; preds = %166, %164, %162, %160
-  %.pn32.i.i.i = phi { ptr, i32 } [ %167, %166 ], [ %165, %164 ], [ %163, %162 ], [ %161, %160 ]
+  %.pn32.i.i.i = phi { ptr, i32 } [ %167, %166 ], [ %161, %160 ], [ %165, %164 ], [ %163, %162 ]
   call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(126) %5) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn32.i.i.i

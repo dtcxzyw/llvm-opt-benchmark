@@ -78,7 +78,7 @@ define hidden ptr @hb_buffer_serialize_format_to_string(i32 noundef %0) local_un
   br label %6
 
 6:                                                ; preds = %1, %4, %2
-  %.0 = phi ptr [ %3, %2 ], [ %5, %4 ], [ null, %1 ]
+  %.0 = phi ptr [ %5, %4 ], [ %3, %2 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -661,7 +661,7 @@ _ZL32_hb_buffer_serialize_glyphs_jsonP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer
   br label %276
 
 276:                                              ; preds = %29, %21, %_ZL32_hb_buffer_serialize_glyphs_jsonP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer_serialize_flags_t.exit, %_ZL32_hb_buffer_serialize_glyphs_textP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer_serialize_flags_t.exit
-  %.0 = phi i32 [ %.0.i, %_ZL32_hb_buffer_serialize_glyphs_textP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer_serialize_flags_t.exit ], [ %.0.i27, %_ZL32_hb_buffer_serialize_glyphs_jsonP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer_serialize_flags_t.exit ], [ 0, %21 ], [ 0, %29 ]
+  %.0 = phi i32 [ %.0.i27, %_ZL32_hb_buffer_serialize_glyphs_jsonP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer_serialize_flags_t.exit ], [ 0, %21 ], [ %.0.i, %_ZL32_hb_buffer_serialize_glyphs_textP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer_serialize_flags_t.exit ], [ 0, %29 ]
   ret i32 %.0
 }
 
@@ -854,7 +854,7 @@ _ZL9hb_memcpyPvPKvm.exit.i.cont:                  ; preds = %_ZL9hb_memcpyPvPKvm
   br label %_ZL33_hb_buffer_serialize_unicode_textP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit
 
 _ZL33_hb_buffer_serialize_unicode_textP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit: ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.cont, %_ZL9hb_memcpyPvPKvm.exit.us.i.cont, %.cont54, %._crit_edge.loopexit.split.loop.exit81.i, %._crit_edge.loopexit77.split.loop.exit79.i
-  %.040.pn.i = phi i32 [ %14, %.cont54 ], [ %72, %._crit_edge.loopexit.split.loop.exit81.i ], [ %73, %._crit_edge.loopexit77.split.loop.exit79.i ], [ %14, %_ZL9hb_memcpyPvPKvm.exit.us.i.cont ], [ %14, %_ZL9hb_memcpyPvPKvm.exit.i.cont ]
+  %.040.pn.i = phi i32 [ %14, %_ZL9hb_memcpyPvPKvm.exit.us.i.cont ], [ %14, %.cont54 ], [ %72, %._crit_edge.loopexit.split.loop.exit81.i ], [ %73, %._crit_edge.loopexit77.split.loop.exit79.i ], [ %14, %_ZL9hb_memcpyPvPKvm.exit.i.cont ]
   %.0.i = sub i32 %.040.pn.i, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %133
@@ -1020,13 +1020,13 @@ _ZL9hb_memcpyPvPKvm.exit.i30.cont:                ; preds = %_ZL9hb_memcpyPvPKvm
   br label %_ZL33_hb_buffer_serialize_unicode_jsonP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit
 
 _ZL33_hb_buffer_serialize_unicode_jsonP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit: ; preds = %_ZL9hb_memcpyPvPKvm.exit.i30.cont, %_ZL9hb_memcpyPvPKvm.exit.us.i39.cont, %.cont, %._crit_edge.loopexit.split.loop.exit85.i, %._crit_edge.loopexit81.split.loop.exit83.i
-  %.044.pn.i = phi i32 [ %14, %.cont ], [ %131, %._crit_edge.loopexit.split.loop.exit85.i ], [ %132, %._crit_edge.loopexit81.split.loop.exit83.i ], [ %14, %_ZL9hb_memcpyPvPKvm.exit.us.i39.cont ], [ %14, %_ZL9hb_memcpyPvPKvm.exit.i30.cont ]
+  %.044.pn.i = phi i32 [ %14, %_ZL9hb_memcpyPvPKvm.exit.us.i39.cont ], [ %14, %.cont ], [ %131, %._crit_edge.loopexit.split.loop.exit85.i ], [ %132, %._crit_edge.loopexit81.split.loop.exit83.i ], [ %14, %_ZL9hb_memcpyPvPKvm.exit.i30.cont ]
   %.0.i23 = sub i32 %.044.pn.i, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %133
 
 133:                                              ; preds = %18, %17, %_ZL33_hb_buffer_serialize_unicode_jsonP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit, %_ZL33_hb_buffer_serialize_unicode_textP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit
-  %.0 = phi i32 [ %.0.i, %_ZL33_hb_buffer_serialize_unicode_textP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit ], [ %.0.i23, %_ZL33_hb_buffer_serialize_unicode_jsonP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit ], [ 0, %17 ], [ 0, %18 ]
+  %.0 = phi i32 [ %.0.i23, %_ZL33_hb_buffer_serialize_unicode_jsonP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit ], [ 0, %17 ], [ %.0.i, %_ZL33_hb_buffer_serialize_unicode_textP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit ], [ 0, %18 ]
   ret i32 %.0
 }
 
@@ -1079,7 +1079,7 @@ define hidden i32 @hb_buffer_serialize(ptr noundef %0, i32 noundef %1, i32 nound
   br label %_ZL28_hb_buffer_serialize_invalidP11hb_buffer_tjjPcjPj28hb_buffer_serialize_format_t27hb_buffer_serialize_flags_t.exit
 
 _ZL28_hb_buffer_serialize_invalidP11hb_buffer_tjjPcjPj28hb_buffer_serialize_format_t27hb_buffer_serialize_flags_t.exit: ; preds = %.else.i, %22, %16, %14, %12
-  %.0 = phi i32 [ %13, %12 ], [ %15, %14 ], [ 0, %16 ], [ 0, %22 ], [ 0, %.else.i ]
+  %.0 = phi i32 [ %15, %14 ], [ %13, %12 ], [ 0, %16 ], [ 0, %22 ], [ 0, %.else.i ]
   ret i32 %.0
 }
 
@@ -1664,11 +1664,11 @@ _ZL10parse_uintPKcS0_Pj.exit241.i:                ; preds = %199
   br label %224
 
 224:                                              ; preds = %218, %211, %205, %193, %181, %169, %157, %145, %135, %_ZL9parse_intPKcS0_Pi.exit236.thread.i, %_ZL9parse_intPKcS0_Pi.exit235.thread.i, %_ZL9parse_intPKcS0_Pi.exit234.thread.i, %_ZL9parse_intPKcS0_Pi.exit.thread.i, %_ZL10parse_uintPKcS0_Pj.exit.thread.i, %114, %113, %110, %99
-  %.sroa.0.2.i = phi i32 [ %.sroa.0.1.i, %110 ], [ %.sroa.0.1.i, %113 ], [ %.sroa.0.1.i, %114 ], [ 0, %135 ], [ %.sroa.0.1.i, %145 ], [ %.sroa.0.1.i, %157 ], [ %.sroa.0.1.i, %169 ], [ %178, %181 ], [ %.sroa.0.1.i, %193 ], [ %.sroa.0.1.i, %205 ], [ 0, %211 ], [ 0, %218 ], [ %.sroa.0.1.i, %99 ], [ %.sroa.0.1.i, %_ZL10parse_uintPKcS0_Pj.exit.thread.i ], [ %.sroa.0.1.i, %_ZL9parse_intPKcS0_Pi.exit.thread.i ], [ %.sroa.0.1.i, %_ZL9parse_intPKcS0_Pi.exit234.thread.i ], [ %131, %_ZL9parse_intPKcS0_Pi.exit235.thread.i ], [ %.sroa.0.1.i, %_ZL9parse_intPKcS0_Pi.exit236.thread.i ]
-  %.sroa.22.2.i = phi i32 [ %.sroa.22.1.i, %110 ], [ %.sroa.22.1.i, %113 ], [ %.sroa.22.1.i, %114 ], [ 0, %135 ], [ %.sroa.22.1.i, %145 ], [ %.sroa.22.1.i, %157 ], [ %.sroa.22.1.i, %169 ], [ %.sroa.22.1.i, %181 ], [ %190, %193 ], [ %.sroa.22.1.i, %205 ], [ 0, %211 ], [ 0, %218 ], [ %.sroa.22.1.i, %99 ], [ %.sroa.22.1.i, %_ZL10parse_uintPKcS0_Pj.exit.thread.i ], [ %.sroa.22.1.i, %_ZL9parse_intPKcS0_Pi.exit.thread.i ], [ %.sroa.22.1.i, %_ZL9parse_intPKcS0_Pi.exit234.thread.i ], [ %.sroa.22.1.i, %_ZL9parse_intPKcS0_Pi.exit235.thread.i ], [ %134, %_ZL9parse_intPKcS0_Pi.exit236.thread.i ]
-  %.sroa.25.2.i = phi i32 [ %.sroa.25.1.i, %110 ], [ %.sroa.25.1.i, %113 ], [ %.sroa.25.1.i, %114 ], [ 0, %135 ], [ %.sroa.25.1.i, %145 ], [ %.sroa.25.1.i, %157 ], [ %.sroa.25.1.i, %169 ], [ %.sroa.25.1.i, %181 ], [ %.sroa.25.1.i, %193 ], [ %.sroa.25.1.i, %205 ], [ 0, %211 ], [ 0, %218 ], [ %.sroa.25.1.i, %99 ], [ %.sroa.25.1.i, %_ZL10parse_uintPKcS0_Pj.exit.thread.i ], [ %125, %_ZL9parse_intPKcS0_Pi.exit.thread.i ], [ %.sroa.25.1.i, %_ZL9parse_intPKcS0_Pi.exit234.thread.i ], [ %.sroa.25.1.i, %_ZL9parse_intPKcS0_Pi.exit235.thread.i ], [ %.sroa.25.1.i, %_ZL9parse_intPKcS0_Pi.exit236.thread.i ]
-  %.sroa.26.2.i = phi i32 [ %.sroa.26.1.i, %110 ], [ %.sroa.26.1.i, %113 ], [ %.sroa.26.1.i, %114 ], [ 0, %135 ], [ %.sroa.26.1.i, %145 ], [ %.sroa.26.1.i, %157 ], [ %166, %169 ], [ %.sroa.26.1.i, %181 ], [ %.sroa.26.1.i, %193 ], [ %.sroa.26.1.i, %205 ], [ 0, %211 ], [ 0, %218 ], [ %.sroa.26.1.i, %99 ], [ %.sroa.26.1.i, %_ZL10parse_uintPKcS0_Pj.exit.thread.i ], [ %.sroa.26.1.i, %_ZL9parse_intPKcS0_Pi.exit.thread.i ], [ %128, %_ZL9parse_intPKcS0_Pi.exit234.thread.i ], [ %.sroa.26.1.i, %_ZL9parse_intPKcS0_Pi.exit235.thread.i ], [ %.sroa.26.1.i, %_ZL9parse_intPKcS0_Pi.exit236.thread.i ]
-  %.2209.i = phi ptr [ %.1208.i, %110 ], [ %.4.i, %113 ], [ %.1208.i, %114 ], [ %.4.i, %135 ], [ %.1208.i, %145 ], [ %.1208.i, %157 ], [ %.1208.i, %169 ], [ %.1208.i, %181 ], [ %.1208.i, %193 ], [ %.1208.i, %205 ], [ %.4.i, %211 ], [ %.4.i, %218 ], [ %.1208.i, %99 ], [ %.1208.i, %_ZL10parse_uintPKcS0_Pj.exit.thread.i ], [ %.1208.i, %_ZL9parse_intPKcS0_Pi.exit.thread.i ], [ %.1208.i, %_ZL9parse_intPKcS0_Pi.exit234.thread.i ], [ %.1208.i, %_ZL9parse_intPKcS0_Pi.exit235.thread.i ], [ %.1208.i, %_ZL9parse_intPKcS0_Pi.exit236.thread.i ]
+  %.sroa.0.2.i = phi i32 [ %.sroa.0.1.i, %110 ], [ %.sroa.0.1.i, %113 ], [ %.sroa.0.1.i, %114 ], [ %.sroa.0.1.i, %_ZL10parse_uintPKcS0_Pj.exit.thread.i ], [ %.sroa.0.1.i, %_ZL9parse_intPKcS0_Pi.exit.thread.i ], [ %.sroa.0.1.i, %_ZL9parse_intPKcS0_Pi.exit234.thread.i ], [ %131, %_ZL9parse_intPKcS0_Pi.exit235.thread.i ], [ %.sroa.0.1.i, %_ZL9parse_intPKcS0_Pi.exit236.thread.i ], [ 0, %135 ], [ %.sroa.0.1.i, %145 ], [ %.sroa.0.1.i, %157 ], [ %.sroa.0.1.i, %169 ], [ %178, %181 ], [ %.sroa.0.1.i, %193 ], [ %.sroa.0.1.i, %205 ], [ 0, %211 ], [ 0, %218 ], [ %.sroa.0.1.i, %99 ]
+  %.sroa.22.2.i = phi i32 [ %.sroa.22.1.i, %110 ], [ %.sroa.22.1.i, %113 ], [ %.sroa.22.1.i, %114 ], [ %.sroa.22.1.i, %_ZL10parse_uintPKcS0_Pj.exit.thread.i ], [ %.sroa.22.1.i, %_ZL9parse_intPKcS0_Pi.exit.thread.i ], [ %.sroa.22.1.i, %_ZL9parse_intPKcS0_Pi.exit234.thread.i ], [ %.sroa.22.1.i, %_ZL9parse_intPKcS0_Pi.exit235.thread.i ], [ %134, %_ZL9parse_intPKcS0_Pi.exit236.thread.i ], [ 0, %135 ], [ %.sroa.22.1.i, %145 ], [ %.sroa.22.1.i, %157 ], [ %.sroa.22.1.i, %169 ], [ %.sroa.22.1.i, %181 ], [ %190, %193 ], [ %.sroa.22.1.i, %205 ], [ 0, %211 ], [ 0, %218 ], [ %.sroa.22.1.i, %99 ]
+  %.sroa.25.2.i = phi i32 [ %.sroa.25.1.i, %110 ], [ %.sroa.25.1.i, %113 ], [ %.sroa.25.1.i, %114 ], [ %.sroa.25.1.i, %_ZL10parse_uintPKcS0_Pj.exit.thread.i ], [ %125, %_ZL9parse_intPKcS0_Pi.exit.thread.i ], [ %.sroa.25.1.i, %_ZL9parse_intPKcS0_Pi.exit234.thread.i ], [ %.sroa.25.1.i, %_ZL9parse_intPKcS0_Pi.exit235.thread.i ], [ %.sroa.25.1.i, %_ZL9parse_intPKcS0_Pi.exit236.thread.i ], [ 0, %135 ], [ %.sroa.25.1.i, %145 ], [ %.sroa.25.1.i, %157 ], [ %.sroa.25.1.i, %169 ], [ %.sroa.25.1.i, %181 ], [ %.sroa.25.1.i, %193 ], [ %.sroa.25.1.i, %205 ], [ 0, %211 ], [ 0, %218 ], [ %.sroa.25.1.i, %99 ]
+  %.sroa.26.2.i = phi i32 [ %.sroa.26.1.i, %110 ], [ %.sroa.26.1.i, %113 ], [ %.sroa.26.1.i, %114 ], [ %.sroa.26.1.i, %_ZL10parse_uintPKcS0_Pj.exit.thread.i ], [ %.sroa.26.1.i, %_ZL9parse_intPKcS0_Pi.exit.thread.i ], [ %128, %_ZL9parse_intPKcS0_Pi.exit234.thread.i ], [ %.sroa.26.1.i, %_ZL9parse_intPKcS0_Pi.exit235.thread.i ], [ %.sroa.26.1.i, %_ZL9parse_intPKcS0_Pi.exit236.thread.i ], [ 0, %135 ], [ %.sroa.26.1.i, %145 ], [ %.sroa.26.1.i, %157 ], [ %166, %169 ], [ %.sroa.26.1.i, %181 ], [ %.sroa.26.1.i, %193 ], [ %.sroa.26.1.i, %205 ], [ 0, %211 ], [ 0, %218 ], [ %.sroa.26.1.i, %99 ]
+  %.2209.i = phi ptr [ %.1208.i, %110 ], [ %.4.i, %113 ], [ %.1208.i, %114 ], [ %.1208.i, %_ZL10parse_uintPKcS0_Pj.exit.thread.i ], [ %.1208.i, %_ZL9parse_intPKcS0_Pi.exit.thread.i ], [ %.1208.i, %_ZL9parse_intPKcS0_Pi.exit234.thread.i ], [ %.1208.i, %_ZL9parse_intPKcS0_Pi.exit235.thread.i ], [ %.1208.i, %_ZL9parse_intPKcS0_Pi.exit236.thread.i ], [ %.4.i, %135 ], [ %.1208.i, %145 ], [ %.1208.i, %157 ], [ %.1208.i, %169 ], [ %.1208.i, %181 ], [ %.1208.i, %193 ], [ %.1208.i, %205 ], [ %.4.i, %211 ], [ %.4.i, %218 ], [ %.1208.i, %99 ]
   %225 = icmp eq i8 %103, 1
   br i1 %225, label %.loopexit452.i, label %226
 
@@ -1978,7 +1978,7 @@ _ZL10parse_uintPKcS0_Pj.exit246.i:                ; preds = %312
   br label %.loopexit452.i
 
 .loopexit452.i:                                   ; preds = %224, %.loopexit452.sink.split.i, %230, %.loopexit453.i
-  %.3.i = phi ptr [ %.2.i, %230 ], [ %.2.i, %.loopexit453.i ], [ %.2.i, %.loopexit452.sink.split.i ], [ %.4.i, %224 ]
+  %.3.i = phi ptr [ %.2.i, %230 ], [ %.2.i, %.loopexit452.sink.split.i ], [ %.2.i, %.loopexit453.i ], [ %.4.i, %224 ]
   %342 = icmp ult ptr %.0202.i, %55
   br i1 %342, label %343, label %349
 
@@ -1995,15 +1995,15 @@ _ZL10parse_uintPKcS0_Pj.exit246.i:                ; preds = %312
   br label %349
 
 349:                                              ; preds = %346, %343, %.loopexit452.i
-  %.1203.i = phi ptr [ %.0202.i, %343 ], [ %.0202.i, %.loopexit452.i ], [ %347, %346 ]
-  %.5.i = phi ptr [ %.3.i, %343 ], [ %.3.i, %.loopexit452.i ], [ %spec.select.i, %346 ]
+  %.1203.i = phi ptr [ %.0202.i, %.loopexit452.i ], [ %347, %346 ], [ %.0202.i, %343 ]
+  %.5.i = phi ptr [ %.3.i, %.loopexit452.i ], [ %spec.select.i, %346 ], [ %.3.i, %343 ]
   store ptr %.5.i, ptr %spec.select, align 8
   %350 = icmp eq ptr %.5.i, %.1203.i
   %351 = zext i1 %350 to i32
   br label %_ZL34_hb_buffer_deserialize_text_glyphsP11hb_buffer_tPKcjPS2_P9hb_font_t.exit
 
 _ZL34_hb_buffer_deserialize_text_glyphsP11hb_buffer_tPKcjPS2_P9hb_font_t.exit: ; preds = %114, %136, %142, %153, %165, %177, %189, %201, %211, %213, %215, %_ZL10parse_uintPKcS0_Pj.exit.i, %_ZL9parse_intPKcS0_Pi.exit.i, %_ZL9parse_intPKcS0_Pi.exit234.i, %_ZL9parse_intPKcS0_Pi.exit235.i, %_ZL9parse_intPKcS0_Pi.exit236.i, %_ZL10parse_uintPKcS0_Pj.exit237.i, %_ZL9parse_intPKcS0_Pi.exit238.i, %_ZL9parse_intPKcS0_Pi.exit239.i, %_ZL9parse_intPKcS0_Pi.exit240.i, %_ZL10parse_uintPKcS0_Pj.exit241.i, %233, %239, %_ZL10parse_uintPKcS0_Pj.exit242.i, %253, %_ZL9parse_intPKcS0_Pi.exit243.i, %269, %_ZL9parse_intPKcS0_Pi.exit244.i, %284, %_ZL9parse_intPKcS0_Pi.exit245.i, %299, %_ZL10parse_uintPKcS0_Pj.exit246.i, %314, %328, %330, %349
-  %.0.i = phi i32 [ %351, %349 ], [ 0, %_ZL10parse_uintPKcS0_Pj.exit.i ], [ 0, %_ZL9parse_intPKcS0_Pi.exit.i ], [ 0, %_ZL9parse_intPKcS0_Pi.exit234.i ], [ 0, %_ZL9parse_intPKcS0_Pi.exit235.i ], [ 0, %_ZL9parse_intPKcS0_Pi.exit236.i ], [ 0, %_ZL10parse_uintPKcS0_Pj.exit237.i ], [ 0, %_ZL9parse_intPKcS0_Pi.exit238.i ], [ 0, %_ZL9parse_intPKcS0_Pi.exit239.i ], [ 0, %_ZL9parse_intPKcS0_Pi.exit240.i ], [ 0, %_ZL10parse_uintPKcS0_Pj.exit241.i ], [ 0, %233 ], [ 0, %239 ], [ 0, %_ZL10parse_uintPKcS0_Pj.exit242.i ], [ 0, %253 ], [ 0, %_ZL9parse_intPKcS0_Pi.exit243.i ], [ 0, %269 ], [ 0, %_ZL9parse_intPKcS0_Pi.exit244.i ], [ 0, %284 ], [ 0, %_ZL9parse_intPKcS0_Pi.exit245.i ], [ 0, %299 ], [ 0, %_ZL10parse_uintPKcS0_Pj.exit246.i ], [ 0, %314 ], [ 0, %328 ], [ 0, %330 ], [ 0, %215 ], [ 0, %213 ], [ 0, %211 ], [ 0, %201 ], [ 0, %189 ], [ 0, %177 ], [ 0, %165 ], [ 0, %153 ], [ 0, %142 ], [ 0, %136 ], [ 0, %114 ]
+  %.0.i = phi i32 [ %351, %349 ], [ 0, %233 ], [ 0, %_ZL9parse_intPKcS0_Pi.exit238.i ], [ 0, %_ZL10parse_uintPKcS0_Pj.exit242.i ], [ 0, %239 ], [ 0, %_ZL9parse_intPKcS0_Pi.exit243.i ], [ 0, %253 ], [ 0, %_ZL9parse_intPKcS0_Pi.exit244.i ], [ 0, %269 ], [ 0, %_ZL9parse_intPKcS0_Pi.exit245.i ], [ 0, %284 ], [ 0, %_ZL10parse_uintPKcS0_Pj.exit246.i ], [ 0, %299 ], [ 0, %328 ], [ 0, %314 ], [ 0, %330 ], [ 0, %_ZL9parse_intPKcS0_Pi.exit239.i ], [ 0, %_ZL10parse_uintPKcS0_Pj.exit.i ], [ 0, %_ZL9parse_intPKcS0_Pi.exit.i ], [ 0, %_ZL9parse_intPKcS0_Pi.exit234.i ], [ 0, %_ZL9parse_intPKcS0_Pi.exit235.i ], [ 0, %_ZL10parse_uintPKcS0_Pj.exit241.i ], [ 0, %_ZL9parse_intPKcS0_Pi.exit236.i ], [ 0, %_ZL10parse_uintPKcS0_Pj.exit237.i ], [ 0, %_ZL9parse_intPKcS0_Pi.exit240.i ], [ 0, %215 ], [ 0, %213 ], [ 0, %211 ], [ 0, %201 ], [ 0, %189 ], [ 0, %177 ], [ 0, %165 ], [ 0, %153 ], [ 0, %142 ], [ 0, %136 ], [ 0, %114 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %354
 
@@ -2012,7 +2012,7 @@ _ZL34_hb_buffer_deserialize_text_glyphsP11hb_buffer_tPKcjPS2_P9hb_font_t.exit: ;
   br label %354
 
 354:                                              ; preds = %52, %352, %_ZL34_hb_buffer_deserialize_text_glyphsP11hb_buffer_tPKcjPS2_P9hb_font_t.exit, %48, %41
-  %.0 = phi i32 [ 0, %41 ], [ %.0.i, %_ZL34_hb_buffer_deserialize_text_glyphsP11hb_buffer_tPKcjPS2_P9hb_font_t.exit ], [ %353, %352 ], [ 0, %48 ], [ 0, %52 ]
+  %.0 = phi i32 [ 0, %41 ], [ 0, %48 ], [ %.0.i, %_ZL34_hb_buffer_deserialize_text_glyphsP11hb_buffer_tPKcjPS2_P9hb_font_t.exit ], [ %353, %352 ], [ 0, %52 ]
   ret i32 %.0
 }
 
@@ -2144,7 +2144,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL27_hb_buffer_deserialize_
   br label %77
 
 77:                                               ; preds = %72, %55, %67
-  %78 = phi i32 [ %66, %67 ], [ %66, %55 ], [ %spec.select, %72 ]
+  %78 = phi i32 [ %66, %55 ], [ %spec.select, %72 ], [ %66, %67 ]
   %79 = sext i32 %78 to i64
   %80 = getelementptr inbounds i8, ptr %63, i64 %79
   %81 = load i8, ptr %80, align 1
@@ -2707,11 +2707,11 @@ _ZL10parse_uintPKcS0_Pj.exit171:                  ; preds = %229
   br label %_ZN11hb_buffer_t13ensure_glyphsEv.exit.thread
 
 _ZN11hb_buffer_t13ensure_glyphsEv.exit.thread:    ; preds = %139, %137, %136, %134, %104, %102, %101, %99, %_ZL10parse_uintPKcS0_Pj.exit160.thread, %_ZL9parse_intPKcS0_Pi.exit159.thread, %_ZL9parse_intPKcS0_Pi.exit158.thread, %_ZL9parse_intPKcS0_Pi.exit157.thread, %_ZL9parse_intPKcS0_Pi.exit.thread, %_ZL10parse_uintPKcS0_Pj.exit156.thread, %_ZL10parse_uintPKcS0_Pj.exit.thread, %77, %88, %92, %98, %151, %163, %175, %187, %199, %211, %223, %235, %105
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %77 ], [ %.sroa.0.0, %235 ], [ 0, %88 ], [ %.sroa.0.0, %92 ], [ %.sroa.0.0, %98 ], [ %.sroa.0.0, %105 ], [ %.sroa.0.0, %151 ], [ %.sroa.0.0, %163 ], [ %.sroa.0.0, %175 ], [ %.sroa.0.0, %187 ], [ %.sroa.0.0, %199 ], [ %208, %211 ], [ %.sroa.0.0, %223 ], [ %.sroa.0.0, %_ZL10parse_uintPKcS0_Pj.exit.thread ], [ %.sroa.0.0, %_ZL10parse_uintPKcS0_Pj.exit156.thread ], [ %.sroa.0.0, %_ZL9parse_intPKcS0_Pi.exit.thread ], [ %.sroa.0.0, %_ZL9parse_intPKcS0_Pi.exit157.thread ], [ %127, %_ZL9parse_intPKcS0_Pi.exit158.thread ], [ %.sroa.0.0, %_ZL9parse_intPKcS0_Pi.exit159.thread ], [ %.sroa.0.0, %_ZL10parse_uintPKcS0_Pj.exit160.thread ], [ %.sroa.0.0, %99 ], [ %.sroa.0.0, %101 ], [ %.sroa.0.0, %102 ], [ %.sroa.0.0, %104 ], [ %.sroa.0.0, %134 ], [ %.sroa.0.0, %136 ], [ %.sroa.0.0, %137 ], [ %.sroa.0.0, %139 ]
-  %.sroa.13.1 = phi i32 [ %.sroa.13.0, %77 ], [ %.sroa.13.0, %235 ], [ 0, %88 ], [ %.sroa.13.0, %92 ], [ %.sroa.13.0, %98 ], [ %.sroa.13.0, %105 ], [ %.sroa.13.0, %151 ], [ %.sroa.13.0, %163 ], [ %.sroa.13.0, %175 ], [ %.sroa.13.0, %187 ], [ %.sroa.13.0, %199 ], [ %.sroa.13.0, %211 ], [ %220, %223 ], [ %.sroa.13.0, %_ZL10parse_uintPKcS0_Pj.exit.thread ], [ %.sroa.13.0, %_ZL10parse_uintPKcS0_Pj.exit156.thread ], [ %.sroa.13.0, %_ZL9parse_intPKcS0_Pi.exit.thread ], [ %.sroa.13.0, %_ZL9parse_intPKcS0_Pi.exit157.thread ], [ %.sroa.13.0, %_ZL9parse_intPKcS0_Pi.exit158.thread ], [ %130, %_ZL9parse_intPKcS0_Pi.exit159.thread ], [ %.sroa.13.0, %_ZL10parse_uintPKcS0_Pj.exit160.thread ], [ %.sroa.13.0, %99 ], [ %.sroa.13.0, %101 ], [ %.sroa.13.0, %102 ], [ %.sroa.13.0, %104 ], [ %.sroa.13.0, %134 ], [ %.sroa.13.0, %136 ], [ %.sroa.13.0, %137 ], [ %.sroa.13.0, %139 ]
-  %.sroa.15.1 = phi i32 [ %.sroa.15.0, %77 ], [ %.sroa.15.0, %235 ], [ 0, %88 ], [ %.sroa.15.0, %92 ], [ %.sroa.15.0, %98 ], [ %.sroa.15.0, %105 ], [ %.sroa.15.0, %151 ], [ %.sroa.15.0, %163 ], [ %.sroa.15.0, %175 ], [ %184, %187 ], [ %.sroa.15.0, %199 ], [ %.sroa.15.0, %211 ], [ %.sroa.15.0, %223 ], [ %.sroa.15.0, %_ZL10parse_uintPKcS0_Pj.exit.thread ], [ %.sroa.15.0, %_ZL10parse_uintPKcS0_Pj.exit156.thread ], [ %121, %_ZL9parse_intPKcS0_Pi.exit.thread ], [ %.sroa.15.0, %_ZL9parse_intPKcS0_Pi.exit157.thread ], [ %.sroa.15.0, %_ZL9parse_intPKcS0_Pi.exit158.thread ], [ %.sroa.15.0, %_ZL9parse_intPKcS0_Pi.exit159.thread ], [ %.sroa.15.0, %_ZL10parse_uintPKcS0_Pj.exit160.thread ], [ %.sroa.15.0, %99 ], [ %.sroa.15.0, %101 ], [ %.sroa.15.0, %102 ], [ %.sroa.15.0, %104 ], [ %.sroa.15.0, %134 ], [ %.sroa.15.0, %136 ], [ %.sroa.15.0, %137 ], [ %.sroa.15.0, %139 ]
-  %.sroa.17.1 = phi i32 [ %.sroa.17.0, %77 ], [ %.sroa.17.0, %235 ], [ 0, %88 ], [ %.sroa.17.0, %92 ], [ %.sroa.17.0, %98 ], [ %.sroa.17.0, %105 ], [ %.sroa.17.0, %151 ], [ %.sroa.17.0, %163 ], [ %.sroa.17.0, %175 ], [ %.sroa.17.0, %187 ], [ %196, %199 ], [ %.sroa.17.0, %211 ], [ %.sroa.17.0, %223 ], [ %.sroa.17.0, %_ZL10parse_uintPKcS0_Pj.exit.thread ], [ %.sroa.17.0, %_ZL10parse_uintPKcS0_Pj.exit156.thread ], [ %.sroa.17.0, %_ZL9parse_intPKcS0_Pi.exit.thread ], [ %124, %_ZL9parse_intPKcS0_Pi.exit157.thread ], [ %.sroa.17.0, %_ZL9parse_intPKcS0_Pi.exit158.thread ], [ %.sroa.17.0, %_ZL9parse_intPKcS0_Pi.exit159.thread ], [ %.sroa.17.0, %_ZL10parse_uintPKcS0_Pj.exit160.thread ], [ %.sroa.17.0, %99 ], [ %.sroa.17.0, %101 ], [ %.sroa.17.0, %102 ], [ %.sroa.17.0, %104 ], [ %.sroa.17.0, %134 ], [ %.sroa.17.0, %136 ], [ %.sroa.17.0, %137 ], [ %.sroa.17.0, %139 ]
-  %.1140 = phi ptr [ %.0139, %77 ], [ %.0139, %235 ], [ %.0139, %88 ], [ %.0139, %92 ], [ %.3, %98 ], [ %.0139, %105 ], [ %.0139, %151 ], [ %.0139, %163 ], [ %.0139, %175 ], [ %.0139, %187 ], [ %.0139, %199 ], [ %.0139, %211 ], [ %.0139, %223 ], [ %.0139, %_ZL10parse_uintPKcS0_Pj.exit.thread ], [ %.0139, %_ZL10parse_uintPKcS0_Pj.exit156.thread ], [ %.0139, %_ZL9parse_intPKcS0_Pi.exit.thread ], [ %.0139, %_ZL9parse_intPKcS0_Pi.exit157.thread ], [ %.0139, %_ZL9parse_intPKcS0_Pi.exit158.thread ], [ %.0139, %_ZL9parse_intPKcS0_Pi.exit159.thread ], [ %.0139, %_ZL10parse_uintPKcS0_Pj.exit160.thread ], [ %.0139, %99 ], [ %.0139, %101 ], [ %.0139, %102 ], [ %.0139, %104 ], [ %.3, %134 ], [ %.3, %136 ], [ %.3, %137 ], [ %.3, %139 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %77 ], [ %.sroa.0.0, %235 ], [ 0, %88 ], [ %.sroa.0.0, %92 ], [ %.sroa.0.0, %98 ], [ %.sroa.0.0, %223 ], [ %.sroa.0.0, %101 ], [ %.sroa.0.0, %105 ], [ %.sroa.0.0, %_ZL10parse_uintPKcS0_Pj.exit.thread ], [ %.sroa.0.0, %_ZL10parse_uintPKcS0_Pj.exit156.thread ], [ %.sroa.0.0, %_ZL9parse_intPKcS0_Pi.exit.thread ], [ %.sroa.0.0, %_ZL9parse_intPKcS0_Pi.exit157.thread ], [ %127, %_ZL9parse_intPKcS0_Pi.exit158.thread ], [ %.sroa.0.0, %_ZL9parse_intPKcS0_Pi.exit159.thread ], [ %.sroa.0.0, %_ZL10parse_uintPKcS0_Pj.exit160.thread ], [ %.sroa.0.0, %104 ], [ %.sroa.0.0, %136 ], [ %.sroa.0.0, %151 ], [ %.sroa.0.0, %163 ], [ %.sroa.0.0, %175 ], [ %.sroa.0.0, %187 ], [ %.sroa.0.0, %199 ], [ %208, %211 ], [ %.sroa.0.0, %99 ], [ %.sroa.0.0, %102 ], [ %.sroa.0.0, %134 ], [ %.sroa.0.0, %137 ], [ %.sroa.0.0, %139 ]
+  %.sroa.13.1 = phi i32 [ %.sroa.13.0, %77 ], [ %.sroa.13.0, %235 ], [ 0, %88 ], [ %.sroa.13.0, %92 ], [ %.sroa.13.0, %98 ], [ %220, %223 ], [ %.sroa.13.0, %101 ], [ %.sroa.13.0, %105 ], [ %.sroa.13.0, %_ZL10parse_uintPKcS0_Pj.exit.thread ], [ %.sroa.13.0, %_ZL10parse_uintPKcS0_Pj.exit156.thread ], [ %.sroa.13.0, %_ZL9parse_intPKcS0_Pi.exit.thread ], [ %.sroa.13.0, %_ZL9parse_intPKcS0_Pi.exit157.thread ], [ %.sroa.13.0, %_ZL9parse_intPKcS0_Pi.exit158.thread ], [ %130, %_ZL9parse_intPKcS0_Pi.exit159.thread ], [ %.sroa.13.0, %_ZL10parse_uintPKcS0_Pj.exit160.thread ], [ %.sroa.13.0, %104 ], [ %.sroa.13.0, %136 ], [ %.sroa.13.0, %151 ], [ %.sroa.13.0, %163 ], [ %.sroa.13.0, %175 ], [ %.sroa.13.0, %187 ], [ %.sroa.13.0, %199 ], [ %.sroa.13.0, %211 ], [ %.sroa.13.0, %99 ], [ %.sroa.13.0, %102 ], [ %.sroa.13.0, %134 ], [ %.sroa.13.0, %137 ], [ %.sroa.13.0, %139 ]
+  %.sroa.15.1 = phi i32 [ %.sroa.15.0, %77 ], [ %.sroa.15.0, %235 ], [ 0, %88 ], [ %.sroa.15.0, %92 ], [ %.sroa.15.0, %98 ], [ %.sroa.15.0, %223 ], [ %.sroa.15.0, %101 ], [ %.sroa.15.0, %105 ], [ %.sroa.15.0, %_ZL10parse_uintPKcS0_Pj.exit.thread ], [ %.sroa.15.0, %_ZL10parse_uintPKcS0_Pj.exit156.thread ], [ %121, %_ZL9parse_intPKcS0_Pi.exit.thread ], [ %.sroa.15.0, %_ZL9parse_intPKcS0_Pi.exit157.thread ], [ %.sroa.15.0, %_ZL9parse_intPKcS0_Pi.exit158.thread ], [ %.sroa.15.0, %_ZL9parse_intPKcS0_Pi.exit159.thread ], [ %.sroa.15.0, %_ZL10parse_uintPKcS0_Pj.exit160.thread ], [ %.sroa.15.0, %104 ], [ %.sroa.15.0, %136 ], [ %.sroa.15.0, %151 ], [ %.sroa.15.0, %163 ], [ %.sroa.15.0, %175 ], [ %184, %187 ], [ %.sroa.15.0, %199 ], [ %.sroa.15.0, %211 ], [ %.sroa.15.0, %99 ], [ %.sroa.15.0, %102 ], [ %.sroa.15.0, %134 ], [ %.sroa.15.0, %137 ], [ %.sroa.15.0, %139 ]
+  %.sroa.17.1 = phi i32 [ %.sroa.17.0, %77 ], [ %.sroa.17.0, %235 ], [ 0, %88 ], [ %.sroa.17.0, %92 ], [ %.sroa.17.0, %98 ], [ %.sroa.17.0, %223 ], [ %.sroa.17.0, %101 ], [ %.sroa.17.0, %105 ], [ %.sroa.17.0, %_ZL10parse_uintPKcS0_Pj.exit.thread ], [ %.sroa.17.0, %_ZL10parse_uintPKcS0_Pj.exit156.thread ], [ %.sroa.17.0, %_ZL9parse_intPKcS0_Pi.exit.thread ], [ %124, %_ZL9parse_intPKcS0_Pi.exit157.thread ], [ %.sroa.17.0, %_ZL9parse_intPKcS0_Pi.exit158.thread ], [ %.sroa.17.0, %_ZL9parse_intPKcS0_Pi.exit159.thread ], [ %.sroa.17.0, %_ZL10parse_uintPKcS0_Pj.exit160.thread ], [ %.sroa.17.0, %104 ], [ %.sroa.17.0, %136 ], [ %.sroa.17.0, %151 ], [ %.sroa.17.0, %163 ], [ %.sroa.17.0, %175 ], [ %.sroa.17.0, %187 ], [ %196, %199 ], [ %.sroa.17.0, %211 ], [ %.sroa.17.0, %99 ], [ %.sroa.17.0, %102 ], [ %.sroa.17.0, %134 ], [ %.sroa.17.0, %137 ], [ %.sroa.17.0, %139 ]
+  %.1140 = phi ptr [ %.0139, %77 ], [ %.0139, %235 ], [ %.0139, %88 ], [ %.0139, %92 ], [ %.3, %98 ], [ %.0139, %223 ], [ %.0139, %101 ], [ %.0139, %105 ], [ %.0139, %_ZL10parse_uintPKcS0_Pj.exit.thread ], [ %.0139, %_ZL10parse_uintPKcS0_Pj.exit156.thread ], [ %.0139, %_ZL9parse_intPKcS0_Pi.exit.thread ], [ %.0139, %_ZL9parse_intPKcS0_Pi.exit157.thread ], [ %.0139, %_ZL9parse_intPKcS0_Pi.exit158.thread ], [ %.0139, %_ZL9parse_intPKcS0_Pi.exit159.thread ], [ %.0139, %_ZL10parse_uintPKcS0_Pj.exit160.thread ], [ %.0139, %104 ], [ %.3, %136 ], [ %.0139, %151 ], [ %.0139, %163 ], [ %.0139, %175 ], [ %.0139, %187 ], [ %.0139, %199 ], [ %.0139, %211 ], [ %.0139, %99 ], [ %.0139, %102 ], [ %.3, %134 ], [ %.3, %137 ], [ %.3, %139 ]
   %241 = icmp eq i8 %81, 1
   br i1 %241, label %.loopexit, label %242
 
@@ -2734,7 +2734,7 @@ _ZN11hb_buffer_t13ensure_glyphsEv.exit.thread:    ; preds = %139, %137, %136, %1
   br label %_ZN11hb_buffer_t13ensure_glyphsEv.exit
 
 _ZN11hb_buffer_t13ensure_glyphsEv.exit:           ; preds = %137, %134, %102, %99, %231, %219, %207, %195, %183, %171, %159, %148, %140, %105, %89, %_ZL10parse_uintPKcS0_Pj.exit171, %_ZL9parse_intPKcS0_Pi.exit170, %_ZL9parse_intPKcS0_Pi.exit169, %_ZL9parse_intPKcS0_Pi.exit168, %_ZL9parse_intPKcS0_Pi.exit167, %_ZL10parse_uintPKcS0_Pj.exit166, %_ZL10parse_uintPKcS0_Pj.exit165, %_ZL10parse_uintPKcS0_Pj.exit160, %_ZL9parse_intPKcS0_Pi.exit159, %_ZL9parse_intPKcS0_Pi.exit158, %_ZL9parse_intPKcS0_Pi.exit157, %_ZL9parse_intPKcS0_Pi.exit, %_ZL10parse_uintPKcS0_Pj.exit156, %_ZL10parse_uintPKcS0_Pj.exit, %.loopexit, %245
-  %.0 = phi i32 [ 0, %_ZL10parse_uintPKcS0_Pj.exit ], [ 0, %_ZL10parse_uintPKcS0_Pj.exit156 ], [ 0, %_ZL9parse_intPKcS0_Pi.exit ], [ 0, %_ZL9parse_intPKcS0_Pi.exit157 ], [ 0, %_ZL9parse_intPKcS0_Pi.exit158 ], [ 0, %_ZL9parse_intPKcS0_Pi.exit159 ], [ 0, %_ZL10parse_uintPKcS0_Pj.exit160 ], [ 0, %_ZL10parse_uintPKcS0_Pj.exit165 ], [ 0, %_ZL10parse_uintPKcS0_Pj.exit166 ], [ 0, %_ZL9parse_intPKcS0_Pi.exit167 ], [ 0, %_ZL9parse_intPKcS0_Pi.exit168 ], [ 0, %_ZL9parse_intPKcS0_Pi.exit169 ], [ 0, %_ZL9parse_intPKcS0_Pi.exit170 ], [ 0, %_ZL10parse_uintPKcS0_Pj.exit171 ], [ 0, %.loopexit ], [ %249, %245 ], [ 0, %89 ], [ 0, %105 ], [ 0, %140 ], [ 0, %148 ], [ 0, %159 ], [ 0, %171 ], [ 0, %183 ], [ 0, %195 ], [ 0, %207 ], [ 0, %219 ], [ 0, %231 ], [ 0, %99 ], [ 0, %102 ], [ 0, %134 ], [ 0, %137 ]
+  %.0 = phi i32 [ 0, %_ZL10parse_uintPKcS0_Pj.exit165 ], [ 0, %_ZL9parse_intPKcS0_Pi.exit169 ], [ 0, %_ZL10parse_uintPKcS0_Pj.exit166 ], [ %249, %245 ], [ 0, %_ZL10parse_uintPKcS0_Pj.exit171 ], [ 0, %_ZL9parse_intPKcS0_Pi.exit167 ], [ 0, %_ZL10parse_uintPKcS0_Pj.exit ], [ 0, %_ZL10parse_uintPKcS0_Pj.exit156 ], [ 0, %_ZL9parse_intPKcS0_Pi.exit ], [ 0, %_ZL9parse_intPKcS0_Pi.exit157 ], [ 0, %_ZL9parse_intPKcS0_Pi.exit158 ], [ 0, %_ZL9parse_intPKcS0_Pi.exit159 ], [ 0, %_ZL10parse_uintPKcS0_Pj.exit160 ], [ 0, %_ZL9parse_intPKcS0_Pi.exit170 ], [ 0, %_ZL9parse_intPKcS0_Pi.exit168 ], [ 0, %.loopexit ], [ 0, %89 ], [ 0, %105 ], [ 0, %140 ], [ 0, %148 ], [ 0, %159 ], [ 0, %171 ], [ 0, %183 ], [ 0, %195 ], [ 0, %207 ], [ 0, %219 ], [ 0, %231 ], [ 0, %99 ], [ 0, %102 ], [ 0, %134 ], [ 0, %137 ]
   ret i32 %.0
 }
 
@@ -3019,7 +3019,7 @@ _ZL10parse_uintPKcS0_Pj.exit.i:                   ; preds = %111
   br label %127
 
 127:                                              ; preds = %126, %110, %_ZL9parse_hexPKcS0_Pj.exit.thread.i, %91, %90, %87, %76
-  %.2104.i = phi ptr [ %.1103.i, %76 ], [ %.1103.i, %87 ], [ %.1103.i, %90 ], [ %.4.i, %91 ], [ %.1103.i, %110 ], [ %.1103.i, %126 ], [ %.1103.i, %_ZL9parse_hexPKcS0_Pj.exit.thread.i ]
+  %.2104.i = phi ptr [ %.1103.i, %76 ], [ %.1103.i, %87 ], [ %.1103.i, %90 ], [ %.4.i, %91 ], [ %.1103.i, %_ZL9parse_hexPKcS0_Pj.exit.thread.i ], [ %.1103.i, %110 ], [ %.1103.i, %126 ]
   %128 = icmp eq i8 %80, 1
   br i1 %128, label %.loopexit1.i, label %129
 
@@ -3139,15 +3139,15 @@ _ZL10parse_uintPKcS0_Pj.exit125.i:                ; preds = %147
   br label %173
 
 173:                                              ; preds = %170, %167, %.loopexit1.i
-  %.198.i = phi ptr [ %.097.i, %167 ], [ %.097.i, %.loopexit1.i ], [ %171, %170 ]
-  %.5.i = phi ptr [ %.3.i, %167 ], [ %.3.i, %.loopexit1.i ], [ %spec.select.i, %170 ]
+  %.198.i = phi ptr [ %.097.i, %.loopexit1.i ], [ %171, %170 ], [ %.097.i, %167 ]
+  %.5.i = phi ptr [ %.3.i, %.loopexit1.i ], [ %spec.select.i, %170 ], [ %.3.i, %167 ]
   store ptr %.5.i, ptr %spec.select, align 8
   %174 = icmp eq ptr %.5.i, %.198.i
   %175 = zext i1 %174 to i32
   br label %_ZL35_hb_buffer_deserialize_text_unicodeP11hb_buffer_tPKcjPS2_P9hb_font_t.exit
 
 _ZL35_hb_buffer_deserialize_text_unicodeP11hb_buffer_tPKcjPS2_P9hb_font_t.exit: ; preds = %97, %113, %_ZL9parse_hexPKcS0_Pj.exit.i, %_ZL9parse_hexPKcS0_Pj.exit123.i, %_ZL10parse_uintPKcS0_Pj.exit.i, %_ZL9parse_hexPKcS0_Pj.exit124.i, %138, %_ZL10parse_uintPKcS0_Pj.exit125.i, %149, %173
-  %.0.i = phi i32 [ %175, %173 ], [ 0, %_ZL9parse_hexPKcS0_Pj.exit.i ], [ 0, %_ZL9parse_hexPKcS0_Pj.exit123.i ], [ 0, %_ZL10parse_uintPKcS0_Pj.exit.i ], [ 0, %_ZL9parse_hexPKcS0_Pj.exit124.i ], [ 0, %138 ], [ 0, %_ZL10parse_uintPKcS0_Pj.exit125.i ], [ 0, %149 ], [ 0, %113 ], [ 0, %97 ]
+  %.0.i = phi i32 [ %175, %173 ], [ 0, %_ZL9parse_hexPKcS0_Pj.exit124.i ], [ 0, %_ZL10parse_uintPKcS0_Pj.exit.i ], [ 0, %_ZL10parse_uintPKcS0_Pj.exit125.i ], [ 0, %138 ], [ 0, %149 ], [ 0, %_ZL9parse_hexPKcS0_Pj.exit123.i ], [ 0, %_ZL9parse_hexPKcS0_Pj.exit.i ], [ 0, %113 ], [ 0, %97 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %178
@@ -3157,7 +3157,7 @@ _ZL35_hb_buffer_deserialize_text_unicodeP11hb_buffer_tPKcjPS2_P9hb_font_t.exit: 
   br label %178
 
 178:                                              ; preds = %29, %176, %_ZL35_hb_buffer_deserialize_text_unicodeP11hb_buffer_tPKcjPS2_P9hb_font_t.exit, %28, %21
-  %.0 = phi i32 [ 0, %21 ], [ %.0.i, %_ZL35_hb_buffer_deserialize_text_unicodeP11hb_buffer_tPKcjPS2_P9hb_font_t.exit ], [ %177, %176 ], [ 0, %28 ], [ 0, %29 ]
+  %.0 = phi i32 [ 0, %21 ], [ 0, %28 ], [ %.0.i, %_ZL35_hb_buffer_deserialize_text_unicodeP11hb_buffer_tPKcjPS2_P9hb_font_t.exit ], [ %177, %176 ], [ 0, %29 ]
   ret i32 %.0
 }
 

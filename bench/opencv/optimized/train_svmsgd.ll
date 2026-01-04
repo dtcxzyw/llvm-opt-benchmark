@@ -1032,7 +1032,7 @@ _ZNK2cv3Mat2atIfEERKT_i.exit81:                   ; preds = %139
   br label %_ZNK2cv3Mat2atIfEERKT_i.exit84
 
 _ZNK2cv3Mat2atIfEERKT_i.exit84:                   ; preds = %156, %151, %_ZNK2cv3Mat2atIfEERKT_i.exit81.thread88, %_ZNK2cv3Mat2atIfEERKT_i.exit81
-  %.sink99.in = phi ptr [ %146, %_ZNK2cv3Mat2atIfEERKT_i.exit81.thread88 ], [ %172, %_ZNK2cv3Mat2atIfEERKT_i.exit81 ], [ %171, %156 ], [ %155, %151 ]
+  %.sink99.in = phi ptr [ %172, %_ZNK2cv3Mat2atIfEERKT_i.exit81 ], [ %146, %_ZNK2cv3Mat2atIfEERKT_i.exit81.thread88 ], [ %171, %156 ], [ %155, %151 ]
   %.sink99 = load float, ptr %.sink99.in, align 4, !tbaa !21
   %173 = sitofp i32 %18 to float
   %174 = tail call float @llvm.fmuladd.f32(float %.sink99, float %173, float %1)
@@ -1054,7 +1054,7 @@ _ZNK2cv3Mat2atIfEERKT_i.exit84:                   ; preds = %156, %151, %_ZNK2cv
   br label %180
 
 180:                                              ; preds = %.sink.split, %_ZNK2cv3Mat2atIfEERKT_i.exit75, %_ZNK2cv3Mat2atIfEERKT_i.exit84, %_ZNK2cv3Mat2atIfEERKT_i.exit78, %136
-  %.050 = phi i1 [ false, %136 ], [ false, %_ZNK2cv3Mat2atIfEERKT_i.exit78 ], [ false, %_ZNK2cv3Mat2atIfEERKT_i.exit84 ], [ false, %_ZNK2cv3Mat2atIfEERKT_i.exit75 ], [ true, %.sink.split ]
+  %.050 = phi i1 [ false, %_ZNK2cv3Mat2atIfEERKT_i.exit84 ], [ false, %_ZNK2cv3Mat2atIfEERKT_i.exit75 ], [ false, %136 ], [ false, %_ZNK2cv3Mat2atIfEERKT_i.exit78 ], [ true, %.sink.split ]
   ret i1 %.050
 
 181:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -1407,7 +1407,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29: ; preds = %113
   br label %117
 
 117:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn21 = phi { ptr, i32 } [ %114, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %.pn21 = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %114, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn21
 }

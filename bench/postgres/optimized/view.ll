@@ -539,7 +539,7 @@ list_length.exit.thread.i:                        ; preds = %checkViewColumns.ex
   br i1 %280, label %282, label %284
 
 .critedge88.i:                                    ; preds = %292, %.lr.ph134.i, %list_length.exit.i
-  %.073.lcssa.i = phi ptr [ null, %.lr.ph134.i ], [ null, %list_length.exit.i ], [ %.174.i, %292 ]
+  %.073.lcssa.i = phi ptr [ null, %list_length.exit.i ], [ null, %.lr.ph134.i ], [ %.174.i, %292 ]
   %281 = load i32, ptr %6, align 4
   call void @AlterTableInternal(i32 noundef %281, ptr noundef %.073.lcssa.i, i1 noundef zeroext true) #5
   call void @CommandCounterIncrement() #5

@@ -88,7 +88,7 @@ Gia_ObjIsPi.exit.thread:                          ; preds = %20
   br i1 %narrow.i35.not45, label %66, label %38
 
 common.ret47:                                     ; preds = %38, %68, %30, %15, %70, %44
-  %common.ret47.op = phi i32 [ %60, %44 ], [ %75, %70 ], [ %37, %38 ], [ %19, %15 ], [ 1, %30 ], [ 1, %68 ]
+  %common.ret47.op = phi i32 [ %75, %70 ], [ %60, %44 ], [ %37, %38 ], [ 1, %68 ], [ 1, %30 ], [ %19, %15 ]
   ret i32 %common.ret47.op
 
 38:                                               ; preds = %.thread
@@ -453,8 +453,8 @@ Abc_UtilStrsav.exit140:                           ; preds = %Abc_UtilStrsav.exit
   br label %.critedge4, !llvm.loop !50
 
 .critedge4:                                       ; preds = %.lr.ph158, %.lr.ph158.preheader, %.critedge2..critedge4.loopexit_crit_edge, %.critedge2.preheader
-  %.val133.val161 = phi i32 [ %.val156, %.critedge2.preheader ], [ %.val, %.critedge2..critedge4.loopexit_crit_edge ], [ %.val156, %.lr.ph158.preheader ], [ %.val, %.lr.ph158 ]
-  %.val133160 = phi ptr [ %43, %.critedge2.preheader ], [ %67, %.critedge2..critedge4.loopexit_crit_edge ], [ %43, %.lr.ph158.preheader ], [ %67, %.lr.ph158 ]
+  %.val133.val161 = phi i32 [ %.val156, %.critedge2.preheader ], [ %.val156, %.lr.ph158.preheader ], [ %.val, %.critedge2..critedge4.loopexit_crit_edge ], [ %.val, %.lr.ph158 ]
+  %.val133160 = phi ptr [ %43, %.critedge2.preheader ], [ %43, %.lr.ph158.preheader ], [ %67, %.critedge2..critedge4.loopexit_crit_edge ], [ %67, %.lr.ph158 ]
   %.val132159 = load i32, ptr %23, align 8, !tbaa !31
   %71 = sub nsw i32 %.val133.val161, %.val132159
   %72 = icmp sgt i32 %71, 0
@@ -505,9 +505,9 @@ Abc_UtilStrsav.exit140:                           ; preds = %Abc_UtilStrsav.exit
   br label %.critedge6, !llvm.loop !51
 
 .critedge6:                                       ; preds = %.lr.ph165, %.lr.ph165.preheader, %..critedge6.loopexit_crit_edge, %.critedge4
-  %.val132.lcssa = phi i32 [ %.val132159, %.critedge4 ], [ %.val132, %..critedge6.loopexit_crit_edge ], [ %.val132159, %.lr.ph165.preheader ], [ %.val132, %.lr.ph165 ]
-  %.val133.lcssa = phi ptr [ %.val133160, %.critedge4 ], [ %.val133, %..critedge6.loopexit_crit_edge ], [ %.val133160, %.lr.ph165.preheader ], [ %.val133, %.lr.ph165 ]
-  %.lcssa = phi i32 [ %71, %.critedge4 ], [ %89, %..critedge6.loopexit_crit_edge ], [ %71, %.lr.ph165.preheader ], [ %89, %.lr.ph165 ]
+  %.val132.lcssa = phi i32 [ %.val132159, %.critedge4 ], [ %.val132159, %.lr.ph165.preheader ], [ %.val132, %..critedge6.loopexit_crit_edge ], [ %.val132, %.lr.ph165 ]
+  %.val133.lcssa = phi ptr [ %.val133160, %.critedge4 ], [ %.val133160, %.lr.ph165.preheader ], [ %.val133, %..critedge6.loopexit_crit_edge ], [ %.val133, %.lr.ph165 ]
+  %.lcssa = phi i32 [ %71, %.critedge4 ], [ %71, %.lr.ph165.preheader ], [ %89, %..critedge6.loopexit_crit_edge ], [ %89, %.lr.ph165 ]
   %92 = icmp sgt i32 %.val132.lcssa, 0
   br i1 %92, label %.lr.ph173, label %.critedge10
 
@@ -986,8 +986,8 @@ Vec_IntAlloc.exit:                                ; preds = %6, %11
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %41, %43, %33, %35
-  %.sink361 = phi ptr [ %34, %33 ], [ %36, %35 ], [ %42, %41 ], [ %44, %43 ]
-  %.sink = phi i32 [ 16, %33 ], [ 16, %35 ], [ %38, %41 ], [ %38, %43 ]
+  %.sink361 = phi ptr [ %36, %35 ], [ %34, %33 ], [ %42, %41 ], [ %44, %43 ]
+  %.sink = phi i32 [ 16, %35 ], [ 16, %33 ], [ %38, %41 ], [ %38, %43 ]
   store ptr %.sink361, ptr %16, align 8, !tbaa !35
   store i32 %.sink, ptr %8, align 8, !tbaa !56
   br label %Vec_IntPush.exit
@@ -1478,15 +1478,15 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br label %275
 
 275:                                              ; preds = %Vec_PtrPush.exit, %190
-  %.pre-phi = phi i1 [ %274, %Vec_PtrPush.exit ], [ false, %190 ]
-  %276 = phi i32 [ %256, %Vec_PtrPush.exit ], [ %178, %190 ]
-  %277 = phi i32 [ %266, %Vec_PtrPush.exit ], [ %186, %190 ]
-  %.val.i220 = phi ptr [ %.val.i216, %Vec_PtrPush.exit ], [ %.val.i220311, %190 ]
-  %278 = phi ptr [ %267, %Vec_PtrPush.exit ], [ %183, %190 ]
-  %.val173 = phi i64 [ %.val173.pre, %Vec_PtrPush.exit ], [ %.val153, %190 ]
-  %279 = phi i32 [ %257, %Vec_PtrPush.exit ], [ %179, %190 ]
-  %280 = phi i32 [ %259, %Vec_PtrPush.exit ], [ %180, %190 ]
-  %.val160304 = phi ptr [ %.val.i216, %Vec_PtrPush.exit ], [ %.val160, %190 ]
+  %.pre-phi = phi i1 [ false, %190 ], [ %274, %Vec_PtrPush.exit ]
+  %276 = phi i32 [ %178, %190 ], [ %256, %Vec_PtrPush.exit ]
+  %277 = phi i32 [ %186, %190 ], [ %266, %Vec_PtrPush.exit ]
+  %.val.i220 = phi ptr [ %.val.i220311, %190 ], [ %.val.i216, %Vec_PtrPush.exit ]
+  %278 = phi ptr [ %183, %190 ], [ %267, %Vec_PtrPush.exit ]
+  %.val173 = phi i64 [ %.val153, %190 ], [ %.val173.pre, %Vec_PtrPush.exit ]
+  %279 = phi i32 [ %179, %190 ], [ %257, %Vec_PtrPush.exit ]
+  %280 = phi i32 [ %180, %190 ], [ %259, %Vec_PtrPush.exit ]
+  %.val160304 = phi ptr [ %.val160, %190 ], [ %.val.i216, %Vec_PtrPush.exit ]
   %281 = and i64 %.val173, 2147483648
   %.not.i218 = icmp ne i64 %281, 0
   %narrow.i219.not = or i1 %.not.i218, %.pre-phi

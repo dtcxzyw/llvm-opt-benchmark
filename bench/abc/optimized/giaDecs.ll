@@ -1572,7 +1572,7 @@ Vec_WrdFree.exit:                                 ; preds = %122, %123
   br label %144
 
 144:                                              ; preds = %139, %Vec_WrdFree.exit, %141, %136, %131, %127
-  %.0 = phi i32 [ %128, %127 ], [ %133, %131 ], [ %138, %136 ], [ %143, %141 ], [ -1, %Vec_WrdFree.exit ], [ -1, %139 ]
+  %.0 = phi i32 [ -1, %Vec_WrdFree.exit ], [ %128, %127 ], [ %133, %131 ], [ %138, %136 ], [ %143, %141 ], [ -1, %139 ]
   ret i32 %.0
 }
 
@@ -1658,7 +1658,7 @@ Abc_TtOr.exit.i:                                  ; preds = %13
   br label %Gia_ManDeriveBidec.exit
 
 Gia_ManDeriveBidec.exit:                          ; preds = %.lr.ph.i17.i, %Abc_TtOr.exit.i, %42, %34, %11
-  %.0 = phi ptr [ %12, %11 ], [ %41, %34 ], [ %43, %42 ], [ %26, %Abc_TtOr.exit.i ], [ %27, %.lr.ph.i17.i ]
+  %.0 = phi ptr [ %12, %11 ], [ %26, %Abc_TtOr.exit.i ], [ %41, %34 ], [ %43, %42 ], [ %27, %.lr.ph.i17.i ]
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %Gia_ResubToTruth6.exit, label %44
 
@@ -1706,7 +1706,7 @@ Gia_ResubVarNum.exit.i:                           ; preds = %61, %59
   br label %Gia_ResubToTruth6.exit
 
 Gia_ResubToTruth6.exit:                           ; preds = %Gia_ResubVarNum.exit.thread, %7, %Gia_ResubVarNum.exit.i, %Gia_ResubVarNum.exit, %Gia_ManDeriveBidec.exit
-  %.038 = phi ptr [ %.0, %Gia_ResubVarNum.exit ], [ null, %Gia_ManDeriveBidec.exit ], [ %.0, %Gia_ResubVarNum.exit.i ], [ null, %7 ], [ %.0, %Gia_ResubVarNum.exit.thread ]
+  %.038 = phi ptr [ %.0, %Gia_ResubVarNum.exit.i ], [ null, %Gia_ManDeriveBidec.exit ], [ %.0, %Gia_ResubVarNum.exit ], [ null, %7 ], [ %.0, %Gia_ResubVarNum.exit.thread ]
   %.not.i35 = icmp eq ptr %.val30, null
   br i1 %.not.i35, label %Vec_WrdFree.exit, label %66
 

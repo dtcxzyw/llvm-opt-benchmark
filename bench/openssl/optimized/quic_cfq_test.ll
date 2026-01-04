@@ -197,7 +197,7 @@ define internal range(i32 0, 2) i32 @test_cfq() #0 {
   br i1 %.not63, label %.loopexit, label %56
 
 .loopexit:                                        ; preds = %.preheader81, %14, %17, %20, %23, %26, %.preheader78, %56, %.preheader, %46, %29, %0
-  %.057 = phi i32 [ 0, %46 ], [ 0, %29 ], [ 0, %0 ], [ 1, %56 ], [ 0, %.preheader ], [ 0, %.preheader78 ], [ 0, %26 ], [ 0, %23 ], [ 0, %20 ], [ 0, %17 ], [ 0, %14 ], [ 0, %.preheader81 ]
+  %.057 = phi i32 [ 0, %.preheader ], [ 0, %.preheader78 ], [ 0, %29 ], [ 0, %0 ], [ 0, %46 ], [ 1, %56 ], [ 0, %26 ], [ 0, %23 ], [ 0, %20 ], [ 0, %17 ], [ 0, %14 ], [ 0, %.preheader81 ]
   tail call void @ossl_quic_cfq_free(ptr noundef %1) #3
   ret i32 %.057
 }
@@ -295,7 +295,7 @@ define internal fastcc range(i32 0, 2) i32 @check(ptr noundef %0) unnamed_addr #
   br i1 %29, label %._crit_edge, label %9
 
 .loopexit:                                        ; preds = %2, %._crit_edge, %9, %13, %18, %21
-  %.022 = phi i32 [ 0, %21 ], [ 0, %18 ], [ 0, %13 ], [ 0, %9 ], [ 1, %2 ], [ 0, %._crit_edge ]
+  %.022 = phi i32 [ 0, %9 ], [ 0, %21 ], [ 0, %18 ], [ 0, %13 ], [ 1, %2 ], [ 0, %._crit_edge ]
   ret i32 %.022
 }
 

@@ -62,7 +62,7 @@ define noundef ptr @_ZN6icu_778TimeUnit14createInstanceENS0_15UTimeUnitFieldsER1
   resume { ptr, i32 } %12
 
 13:                                               ; preds = %7, %10, %2, %6
-  %.0 = phi ptr [ null, %6 ], [ null, %2 ], [ null, %7 ], [ %8, %10 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %6 ], [ null, %7 ], [ %8, %10 ]
   ret ptr %.0
 }
 

@@ -134,7 +134,7 @@ define i32 @cs_dfs(i32 noundef %0, ptr noundef readonly captures(address_is_null
   br i1 %71, label %18, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %69, %6, %7
-  %.0 = phi i32 [ -1, %7 ], [ -1, %6 ], [ %.163, %69 ]
+  %.0 = phi i32 [ -1, %6 ], [ -1, %7 ], [ %.163, %69 ]
   ret i32 %.0
 }
 

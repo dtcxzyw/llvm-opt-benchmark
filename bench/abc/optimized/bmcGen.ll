@@ -545,8 +545,8 @@ Abc_Clock.exit:                                   ; preds = %1, %9
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %81, %83, %73, %75
-  %.sink89 = phi ptr [ %74, %73 ], [ %76, %75 ], [ %82, %81 ], [ %84, %83 ]
-  %.sink = phi i32 [ 16, %73 ], [ 16, %75 ], [ %78, %81 ], [ %78, %83 ]
+  %.sink89 = phi ptr [ %76, %75 ], [ %74, %73 ], [ %82, %81 ], [ %84, %83 ]
+  %.sink = phi i32 [ 16, %75 ], [ 16, %73 ], [ %78, %81 ], [ %78, %83 ]
   store ptr %.sink89, ptr %18, align 8, !tbaa !38
   store i32 %.sink, ptr %15, align 8, !tbaa !56
   br label %Vec_IntPush.exit

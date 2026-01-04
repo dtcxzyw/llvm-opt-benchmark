@@ -469,7 +469,7 @@ ExecQual.exit87:                                  ; preds = %159
   br label %.backedge.backedge
 
 .loopexit:                                        ; preds = %ExecProcNode.exit, %50, %164, %114
-  %.0 = phi ptr [ %121, %114 ], [ %171, %164 ], [ null, %50 ], [ null, %ExecProcNode.exit ]
+  %.0 = phi ptr [ %171, %164 ], [ %121, %114 ], [ null, %50 ], [ null, %ExecProcNode.exit ]
   ret ptr %.0
 }
 

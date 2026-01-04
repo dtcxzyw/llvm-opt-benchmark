@@ -961,7 +961,7 @@ elv_rqhash_find.exit6:                            ; preds = %135
   br i1 %148, label %elv_rqhash_find.exit.thread, label %.preheader.i4, !llvm.loop !12
 
 elv_rqhash_find.exit.thread:                      ; preds = %78, %.preheader, %elv_rqhash_find.exit6, %144, %23, %elv_rqhash_find.exit, %19, %14, %3
-  %149 = phi i1 [ true, %14 ], [ false, %3 ], [ false, %19 ], [ false, %elv_rqhash_find.exit ], [ false, %23 ], [ true, %144 ], [ true, %elv_rqhash_find.exit6 ], [ true, %.preheader ], [ false, %78 ]
+  %149 = phi i1 [ true, %14 ], [ false, %3 ], [ false, %19 ], [ true, %.preheader ], [ false, %elv_rqhash_find.exit ], [ true, %144 ], [ false, %23 ], [ true, %elv_rqhash_find.exit6 ], [ false, %78 ]
   ret i1 %149
 }
 
@@ -1860,7 +1860,7 @@ define dso_local noundef i64 @elv_iosched_store(ptr noundef %0, ptr noundef %1, 
   br label %.thread7
 
 .thread7:                                         ; preds = %49, %17, %.thread, %53, %12, %3
-  %60 = phi i64 [ %2, %3 ], [ %2, %12 ], [ %2, %.thread ], [ %59, %53 ], [ -22, %49 ], [ -2, %17 ]
+  %60 = phi i64 [ %2, %12 ], [ %2, %3 ], [ %2, %.thread ], [ %59, %53 ], [ -22, %49 ], [ -2, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %60
 }

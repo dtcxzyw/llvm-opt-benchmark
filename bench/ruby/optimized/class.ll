@@ -939,7 +939,7 @@ class_init_copy_check.exit:                       ; preds = %31, %rbimpl_RB_TYPE
   br label %rb_class_of.exit
 
 rb_class_of.exit:                                 ; preds = %48, %50, %51, %52, %53, %55
-  %.0.in.i = phi ptr [ @rb_cNilClass, %51 ], [ @rb_cTrueClass, %52 ], [ %49, %48 ], [ @rb_cFalseClass, %50 ], [ @rb_cInteger, %53 ], [ %spec.select.i, %55 ]
+  %.0.in.i = phi ptr [ %49, %48 ], [ @rb_cNilClass, %51 ], [ @rb_cTrueClass, %52 ], [ @rb_cFalseClass, %50 ], [ @rb_cInteger, %53 ], [ %spec.select.i, %55 ]
   %.0.i102 = load i64, ptr %.0.in.i, align 8, !tbaa !29
   %58 = icmp eq i64 %.0.i102, 0
   %59 = and i64 %.0.i102, 7
@@ -1689,8 +1689,8 @@ class_alloc.exit.thread:                          ; preds = %19
   br label %RBASIC_SET_CLASS.exit
 
 RBASIC_SET_CLASS.exit:                            ; preds = %55, %44, %42, %40
-  %56 = phi ptr [ %31, %40 ], [ %36, %42 ], [ %45, %44 ], [ %45, %55 ]
-  %.035 = phi i1 [ true, %40 ], [ true, %42 ], [ %49, %44 ], [ %49, %55 ]
+  %56 = phi ptr [ %36, %42 ], [ %31, %40 ], [ %45, %44 ], [ %45, %55 ]
+  %.035 = phi i1 [ true, %42 ], [ true, %40 ], [ %49, %44 ], [ %49, %55 ]
   %57 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %58 = load i64, ptr %57, align 8, !tbaa !34
   %59 = tail call fastcc i64 @RCLASS_SET_SUPER(i64 noundef %22, i64 noundef %58)
@@ -1790,7 +1790,7 @@ RB_FL_ABLE.exit.i:                                ; preds = %rb_singleton_class_
   br label %RB_FL_SET.exit
 
 RB_FL_SET.exit:                                   ; preds = %92, %2, %rbimpl_RB_TYPE_P_fastpath.exit.i, %96, %RB_FL_ABLE.exit.i, %rb_singleton_class_attached.exit40, %15
-  %.0 = phi i64 [ %7, %15 ], [ %22, %rb_singleton_class_attached.exit40 ], [ %22, %RB_FL_ABLE.exit.i ], [ %22, %96 ], [ %7, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %7, %2 ], [ %22, %92 ]
+  %.0 = phi i64 [ %22, %96 ], [ %7, %15 ], [ %22, %92 ], [ %7, %2 ], [ %22, %rb_singleton_class_attached.exit40 ], [ %22, %RB_FL_ABLE.exit.i ], [ %7, %rbimpl_RB_TYPE_P_fastpath.exit.i ]
   ret i64 %.0
 }
 
@@ -1867,7 +1867,7 @@ rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %1
   br label %rbimpl_RB_TYPE_P_fastpath.exit.thread
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %1, %13, %rbimpl_RB_TYPE_P_fastpath.exit
-  %21 = phi i32 [ 0, %rbimpl_RB_TYPE_P_fastpath.exit ], [ %20, %13 ], [ 0, %1 ]
+  %21 = phi i32 [ %20, %13 ], [ 0, %rbimpl_RB_TYPE_P_fastpath.exit ], [ 0, %1 ]
   ret i32 %21
 }
 
@@ -2228,7 +2228,7 @@ RB_FL_TEST.exit.thread:                           ; preds = %RB_FL_ABLE.exit.i36
   br label %RBASIC_SET_CLASS.exit34
 
 RBASIC_SET_CLASS.exit34:                          ; preds = %78, %71, %52, %.thread
-  %79 = phi ptr [ %47, %.thread ], [ %43, %52 ], [ %54, %71 ], [ %54, %78 ]
+  %79 = phi ptr [ %43, %52 ], [ %47, %.thread ], [ %54, %71 ], [ %54, %78 ]
   %.0.in59 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %.060 = load i64, ptr %.0.in59, align 8, !tbaa !34
   %80 = icmp eq i64 %.060, 0
@@ -3126,7 +3126,7 @@ rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %.lr.ph
   br label %rbimpl_RB_TYPE_P_fastpath.exit.thread
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %.lr.ph, %45, %rbimpl_RB_TYPE_P_fastpath.exit
-  %.1 = phi i32 [ %spec.select, %45 ], [ %.02237, %rbimpl_RB_TYPE_P_fastpath.exit ], [ %.02237, %.lr.ph ]
+  %.1 = phi i32 [ %.02237, %rbimpl_RB_TYPE_P_fastpath.exit ], [ %spec.select, %45 ], [ %.02237, %.lr.ph ]
   %49 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %50 = load i64, ptr %49, align 8, !tbaa !34
   %.not29 = icmp eq i64 %50, 0
@@ -3550,12 +3550,12 @@ rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %80
   br i1 %83, label %84, label %.sink.split
 
 .sink.split:                                      ; preds = %rbimpl_RB_TYPE_P_fastpath.exit, %80, %rbimpl_RB_TYPE_P_fastpath.exit121, %74
-  %.pre-phi201.sink = phi ptr [ %76, %rbimpl_RB_TYPE_P_fastpath.exit121 ], [ %76, %74 ], [ %7, %80 ], [ %7, %rbimpl_RB_TYPE_P_fastpath.exit ]
+  %.pre-phi201.sink = phi ptr [ %76, %74 ], [ %76, %rbimpl_RB_TYPE_P_fastpath.exit121 ], [ %7, %80 ], [ %7, %rbimpl_RB_TYPE_P_fastpath.exit ]
   call void @rb_id_table_foreach(ptr noundef nonnull %69, ptr noundef nonnull @clear_module_cache_i, ptr noundef %.pre-phi201.sink) #19
   br label %84
 
 84:                                               ; preds = %.sink.split, %rbimpl_RB_TYPE_P_fastpath.exit121, %73, %rbimpl_RB_TYPE_P_fastpath.exit, %70, %.thread142
-  %.2102 = phi i32 [ %.0100179, %70 ], [ %.0100179, %.thread142 ], [ 1, %rbimpl_RB_TYPE_P_fastpath.exit ], [ 1, %73 ], [ 1, %rbimpl_RB_TYPE_P_fastpath.exit121 ], [ 1, %.sink.split ]
+  %.2102 = phi i32 [ %.0100179, %.thread142 ], [ %.0100179, %70 ], [ 1, %rbimpl_RB_TYPE_P_fastpath.exit ], [ 1, %rbimpl_RB_TYPE_P_fastpath.exit121 ], [ 1, %73 ], [ 1, %.sink.split ]
   %85 = call i64 @rb_include_class_new(i64 noundef %.086181, i64 noundef %64)
   %86 = call fastcc i64 @RCLASS_SET_SUPER(i64 noundef %.085184, i64 noundef %85)
   %87 = inttoptr i64 %85 to ptr
@@ -3759,7 +3759,7 @@ RB_FL_TEST.exit.thread:                           ; preds = %rb_module_add_to_su
   br i1 %.not, label %module_in_super_chain.exit, label %29, !llvm.loop !74
 
 module_in_super_chain.exit:                       ; preds = %.preheader.i, %171, %module_in_super_chain.exit.thread
-  %.0 = phi i32 [ 0, %module_in_super_chain.exit.thread ], [ %.1101, %171 ], [ -1, %.preheader.i ]
+  %.0 = phi i32 [ %.1101, %171 ], [ 0, %module_in_super_chain.exit.thread ], [ -1, %.preheader.i ]
   ret i32 %.0
 }
 
@@ -3918,7 +3918,7 @@ define dso_local i64 @rb_mod_ancestors(i64 noundef %0) local_unnamed_addr #0 {
   br label %RB_FL_TEST.exit.thread
 
 RB_FL_TEST.exit.thread:                           ; preds = %7, %13, %1
-  %.0 = phi i64 [ %14, %13 ], [ 4, %1 ], [ 4, %7 ]
+  %.0 = phi i64 [ %14, %13 ], [ 4, %7 ], [ 4, %1 ]
   %.not1723 = icmp eq i64 %0, 0
   %15 = icmp eq i64 %0, %.0
   %or.cond24 = select i1 %.not1723, i1 true, i1 %15
@@ -4401,7 +4401,7 @@ rb_check_arity.exit:                              ; preds = %3
   br label %rb_class_of.exit
 
 rb_class_of.exit:                                 ; preds = %16, %19, %20, %21, %22, %24
-  %.0.in.i = phi ptr [ @rb_cNilClass, %20 ], [ @rb_cTrueClass, %21 ], [ %18, %16 ], [ @rb_cFalseClass, %19 ], [ @rb_cInteger, %22 ], [ %spec.select.i, %24 ]
+  %.0.in.i = phi ptr [ %18, %16 ], [ @rb_cNilClass, %20 ], [ @rb_cTrueClass, %21 ], [ @rb_cFalseClass, %19 ], [ @rb_cInteger, %22 ], [ %spec.select.i, %24 ]
   %.0.i = load i64, ptr %.0.in.i, align 8, !tbaa !29
   %27 = tail call fastcc i64 @class_instance_method_list(i32 noundef %0, ptr noundef %1, i64 noundef %.0.i, i32 noundef 1, ptr noundef nonnull @ins_methods_i)
   br label %28
@@ -4514,7 +4514,7 @@ rb_singleton_class.exit:                          ; preds = %rbimpl_RB_TYPE_P_fa
   br label %rb_class_of.exit
 
 rb_class_of.exit:                                 ; preds = %rb_singleton_class.exit, %40, %41, %42, %43, %45
-  %.0.in.i = phi ptr [ @rb_cNilClass, %41 ], [ @rb_cTrueClass, %42 ], [ %39, %rb_singleton_class.exit ], [ @rb_cFalseClass, %40 ], [ @rb_cInteger, %43 ], [ %spec.select.i, %45 ]
+  %.0.in.i = phi ptr [ %39, %rb_singleton_class.exit ], [ @rb_cNilClass, %41 ], [ @rb_cTrueClass, %42 ], [ @rb_cFalseClass, %40 ], [ @rb_cInteger, %43 ], [ %spec.select.i, %45 ]
   %.0.i38 = load i64, ptr %.0.in.i, align 8, !tbaa !29
   %48 = inttoptr i64 %.0.i38 to ptr
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 112
@@ -4554,7 +4554,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.i40:               ; preds = %53
   br label %RCLASS_SINGLETON_P.exit41.thread
 
 RCLASS_SINGLETON_P.exit41.thread:                 ; preds = %53, %rbimpl_RB_TYPE_P_fastpath.exit.i40, %62
-  %.026 = phi i64 [ %64, %62 ], [ %.0.i38, %rbimpl_RB_TYPE_P_fastpath.exit.i40 ], [ %.0.i38, %53 ]
+  %.026 = phi i64 [ %64, %62 ], [ %.0.i38, %53 ], [ %.0.i38, %rbimpl_RB_TYPE_P_fastpath.exit.i40 ]
   %65 = icmp ne i32 %.0, 0
   %66 = icmp ne i64 %.026, 0
   %or.cond = select i1 %65, i1 %66, i1 false
@@ -4647,7 +4647,7 @@ define hidden noundef i64 @rb_obj_protected_methods(i32 noundef %0, ptr noundef 
   br label %rb_class_of.exit
 
 rb_class_of.exit:                                 ; preds = %8, %11, %12, %13, %14, %16
-  %.0.in.i = phi ptr [ @rb_cNilClass, %12 ], [ @rb_cTrueClass, %13 ], [ %10, %8 ], [ @rb_cFalseClass, %11 ], [ @rb_cInteger, %14 ], [ %spec.select.i, %16 ]
+  %.0.in.i = phi ptr [ %10, %8 ], [ @rb_cNilClass, %12 ], [ @rb_cTrueClass, %13 ], [ @rb_cFalseClass, %11 ], [ @rb_cInteger, %14 ], [ %spec.select.i, %16 ]
   %.0.i = load i64, ptr %.0.in.i, align 8, !tbaa !29
   %19 = tail call fastcc i64 @class_instance_method_list(i32 noundef %0, ptr noundef %1, i64 noundef %.0.i, i32 noundef 1, ptr noundef nonnull @ins_methods_prot_i)
   ret i64 %19
@@ -4691,7 +4691,7 @@ define hidden noundef i64 @rb_obj_private_methods(i32 noundef %0, ptr noundef re
   br label %rb_class_of.exit
 
 rb_class_of.exit:                                 ; preds = %8, %11, %12, %13, %14, %16
-  %.0.in.i = phi ptr [ @rb_cNilClass, %12 ], [ @rb_cTrueClass, %13 ], [ %10, %8 ], [ @rb_cFalseClass, %11 ], [ @rb_cInteger, %14 ], [ %spec.select.i, %16 ]
+  %.0.in.i = phi ptr [ %10, %8 ], [ @rb_cNilClass, %12 ], [ @rb_cTrueClass, %13 ], [ @rb_cFalseClass, %11 ], [ @rb_cInteger, %14 ], [ %spec.select.i, %16 ]
   %.0.i = load i64, ptr %.0.in.i, align 8, !tbaa !29
   %19 = tail call fastcc i64 @class_instance_method_list(i32 noundef %0, ptr noundef %1, i64 noundef %.0.i, i32 noundef 1, ptr noundef nonnull @ins_methods_priv_i)
   ret i64 %19
@@ -4735,7 +4735,7 @@ define hidden noundef i64 @rb_obj_public_methods(i32 noundef %0, ptr noundef rea
   br label %rb_class_of.exit
 
 rb_class_of.exit:                                 ; preds = %8, %11, %12, %13, %14, %16
-  %.0.in.i = phi ptr [ @rb_cNilClass, %12 ], [ @rb_cTrueClass, %13 ], [ %10, %8 ], [ @rb_cFalseClass, %11 ], [ @rb_cInteger, %14 ], [ %spec.select.i, %16 ]
+  %.0.in.i = phi ptr [ %10, %8 ], [ @rb_cNilClass, %12 ], [ @rb_cTrueClass, %13 ], [ @rb_cFalseClass, %11 ], [ @rb_cInteger, %14 ], [ %spec.select.i, %16 ]
   %.0.i = load i64, ptr %.0.in.i, align 8, !tbaa !29
   %19 = tail call fastcc i64 @class_instance_method_list(i32 noundef %0, ptr noundef %1, i64 noundef %.0.i, i32 noundef 1, ptr noundef nonnull @ins_methods_pub_i)
   ret i64 %19
@@ -4946,7 +4946,7 @@ define hidden i64 @rb_special_singleton_class(i64 noundef %0) local_unnamed_addr
   br label %special_singleton_class_of.exit
 
 special_singleton_class_of.exit:                  ; preds = %1, %2, %4, %6
-  %.0.i = phi i64 [ %3, %2 ], [ %5, %4 ], [ %7, %6 ], [ 4, %1 ]
+  %.0.i = phi i64 [ %7, %6 ], [ %3, %2 ], [ %5, %4 ], [ 4, %1 ]
   ret i64 %.0.i
 }
 
@@ -5046,7 +5046,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %13
   br label %rb_special_singleton_class.exit
 
 rb_special_singleton_class.exit:                  ; preds = %13, %rbimpl_RB_TYPE_P_fastpath.exit.i, %11, %9, %7, %6, %24
-  %.0 = phi i64 [ %., %24 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ 4, %6 ], [ 4, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ 4, %13 ]
+  %.0 = phi i64 [ 4, %13 ], [ %., %24 ], [ %12, %11 ], [ %8, %7 ], [ %10, %9 ], [ 4, %6 ], [ 4, %rbimpl_RB_TYPE_P_fastpath.exit.i ]
   ret i64 %.0
 }
 
@@ -5106,7 +5106,7 @@ rb_type.exit.thread23:                            ; preds = %6, %6, %6, %rb_type
   br label %special_singleton_class_of.exit
 
 special_singleton_class_of.exit:                  ; preds = %rb_type.exit.thread23, %13, %14
-  %.0.i19.in = phi ptr [ @rb_cFalseClass, %13 ], [ @rb_cTrueClass, %14 ], [ @rb_cNilClass, %rb_type.exit.thread23 ]
+  %.0.i19.in = phi ptr [ @rb_cTrueClass, %14 ], [ @rb_cFalseClass, %13 ], [ @rb_cNilClass, %rb_type.exit.thread23 ]
   %.0.i19 = load i64, ptr %.0.i19.in, align 8, !tbaa !29
   %15 = icmp eq i64 %.0.i19, 4
   br i1 %15, label %special_singleton_class_of.exit.thread, label %49
@@ -5877,38 +5877,38 @@ define internal fastcc i32 @rb_scan_args_assign(ptr noundef nonnull readonly cap
   %26 = getelementptr i8, ptr %25, i64 -8
   %27 = load i64, ptr %26, align 8, !tbaa !29
   switch i32 %23, label %rb_scan_args_keyword_p.exit.thread [
-    i32 0, label %28
+    i32 0, label %rb_scan_args_keyword_p.exit
     i32 1, label %rb_scan_args_keyword_p.exit.thread111
-    i32 3, label %30
+    i32 3, label %28
   ]
 
 28:                                               ; preds = %22
-  %29 = tail call i32 @rb_keyword_given_p() #19
-  %.not113 = icmp eq i32 %29, 0
+  %29 = icmp eq i64 %27, 0
+  %30 = and i64 %27, 7
+  %31 = icmp ne i64 %30, 0
+  %32 = or i1 %29, %31
+  br i1 %32, label %rb_scan_args_keyword_p.exit.thread, label %33
+
+33:                                               ; preds = %28
+  %34 = inttoptr i64 %27 to ptr
+  %35 = load i64, ptr %34, align 8, !tbaa !35
+  %36 = and i64 %35, 31
+  %37 = icmp eq i64 %36, 8
+  br i1 %37, label %rb_scan_args_keyword_p.exit.thread111, label %rb_scan_args_keyword_p.exit.thread
+
+rb_scan_args_keyword_p.exit:                      ; preds = %22
+  %38 = tail call i32 @rb_keyword_given_p() #19
+  %.not113 = icmp eq i32 %38, 0
   br i1 %.not113, label %rb_scan_args_keyword_p.exit.thread, label %rb_scan_args_keyword_p.exit.thread111
 
-30:                                               ; preds = %22
-  %31 = icmp eq i64 %27, 0
-  %32 = and i64 %27, 7
-  %33 = icmp ne i64 %32, 0
-  %34 = or i1 %31, %33
-  br i1 %34, label %rb_scan_args_keyword_p.exit.thread, label %rb_scan_args_keyword_p.exit
-
-rb_scan_args_keyword_p.exit:                      ; preds = %30
-  %35 = inttoptr i64 %27 to ptr
-  %36 = load i64, ptr %35, align 8, !tbaa !35
-  %37 = and i64 %36, 31
-  %38 = icmp eq i64 %37, 8
-  br i1 %38, label %rb_scan_args_keyword_p.exit.thread111, label %rb_scan_args_keyword_p.exit.thread
-
-rb_scan_args_keyword_p.exit.thread111:            ; preds = %22, %28, %rb_scan_args_keyword_p.exit
+rb_scan_args_keyword_p.exit.thread111:            ; preds = %22, %33, %rb_scan_args_keyword_p.exit
   %39 = tail call i64 @rb_hash_dup(i64 noundef %27) #19
   %40 = add nsw i32 %1, -1
   br label %rb_scan_args_keyword_p.exit.thread
 
-rb_scan_args_keyword_p.exit.thread:               ; preds = %22, %30, %28, %rb_scan_args_keyword_p.exit, %rb_scan_args_keyword_p.exit.thread111, %4
-  %.086 = phi i64 [ 4, %4 ], [ %39, %rb_scan_args_keyword_p.exit.thread111 ], [ 4, %rb_scan_args_keyword_p.exit ], [ 4, %28 ], [ 4, %30 ], [ 4, %22 ]
-  %.080 = phi i32 [ %1, %4 ], [ %40, %rb_scan_args_keyword_p.exit.thread111 ], [ %1, %rb_scan_args_keyword_p.exit ], [ %1, %28 ], [ %1, %30 ], [ %1, %22 ]
+rb_scan_args_keyword_p.exit.thread:               ; preds = %22, %28, %33, %rb_scan_args_keyword_p.exit, %rb_scan_args_keyword_p.exit.thread111, %4
+  %.086 = phi i64 [ 4, %4 ], [ %39, %rb_scan_args_keyword_p.exit.thread111 ], [ 4, %rb_scan_args_keyword_p.exit ], [ 4, %33 ], [ 4, %28 ], [ 4, %22 ]
+  %.080 = phi i32 [ %1, %4 ], [ %40, %rb_scan_args_keyword_p.exit.thread111 ], [ %1, %rb_scan_args_keyword_p.exit ], [ %1, %33 ], [ %1, %28 ], [ %1, %22 ]
   %41 = icmp slt i32 %.080, %11
   br i1 %41, label %187, label %.preheader115
 
@@ -6474,7 +6474,7 @@ define internal range(i32 0, 3) i32 @move_refined_method(i64 noundef %0, i64 nou
   br label %19
 
 19:                                               ; preds = %3, %16, %18
-  %.1 = phi i32 [ 0, %16 ], [ 2, %18 ], [ 0, %3 ]
+  %.1 = phi i32 [ 2, %18 ], [ 0, %16 ], [ 0, %3 ]
   ret i32 %.1
 }
 

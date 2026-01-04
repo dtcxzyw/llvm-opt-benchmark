@@ -636,8 +636,8 @@ _unlink_free_nodes.exit:                          ; preds = %.preheader24.i, %._
   br i1 %.not92, label %.outer._crit_edge, label %69, !llvm.loop !16
 
 .outer._crit_edge:                                ; preds = %.outer, %129, %.preheader
-  %.079.ph.lcssa = phi i32 [ 0, %.preheader ], [ %.079.ph137, %129 ], [ 2018, %.outer ]
-  %.078.ph.lcssa = phi ptr [ null, %.preheader ], [ %.078.ph138, %129 ], [ %.1, %.outer ]
+  %.079.ph.lcssa = phi i32 [ %.079.ph137, %129 ], [ 0, %.preheader ], [ 2018, %.outer ]
+  %.078.ph.lcssa = phi ptr [ %.078.ph138, %129 ], [ null, %.preheader ], [ %.1, %.outer ]
   tail call void @hostlist_destroy(ptr noundef nonnull %25) #16
   %135 = icmp eq i32 %.079.ph.lcssa, 2018
   %136 = icmp ne ptr %.078.ph.lcssa, null
@@ -748,7 +748,7 @@ _unlink_free_nodes.exit112:                       ; preds = %143, %.preheader24.
   br label %177
 
 177:                                              ; preds = %_unlink_free_nodes.exit112, %176, %68, %29
-  %.0 = phi i32 [ 0, %68 ], [ 2018, %29 ], [ %.079.ph.lcssa, %176 ], [ %.079.ph.lcssa, %_unlink_free_nodes.exit112 ]
+  %.0 = phi i32 [ 2018, %29 ], [ 0, %68 ], [ %.079.ph.lcssa, %176 ], [ %.079.ph.lcssa, %_unlink_free_nodes.exit112 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -1388,7 +1388,7 @@ define dso_local range(i32 0, 23) i32 @load_all_part_state(i16 noundef zeroext %
   br label %262
 
 252:                                              ; preds = %.thread148, %24, %48, %35
-  %.084 = phi i32 [ 0, %48 ], [ 0, %35 ], [ 0, %24 ], [ %.185161, %.thread148 ]
+  %.084 = phi i32 [ 0, %48 ], [ %.185161, %.thread148 ], [ 0, %35 ], [ 0, %24 ]
   %253 = load i8, ptr @ignore_state_errors, align 1, !range !18, !noundef !19
   %254 = trunc nuw i8 %253 to i1
   br i1 %254, label %256, label %255
@@ -1412,7 +1412,7 @@ define dso_local range(i32 0, 23) i32 @load_all_part_state(i16 noundef zeroext %
   br label %262
 
 262:                                              ; preds = %12, %15, %261, %251, %44, %23
-  %.092 = phi i32 [ 14, %44 ], [ 14, %261 ], [ %.490, %251 ], [ 2, %23 ], [ 0, %15 ], [ 0, %12 ]
+  %.092 = phi i32 [ 0, %15 ], [ 14, %44 ], [ 14, %261 ], [ 0, %12 ], [ %.490, %251 ], [ 2, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1874,7 +1874,7 @@ define dso_local range(i32 0, 2) i32 @part_not_on_list(ptr noundef readonly capt
   br i1 %.not, label %.thread, label %5, !llvm.loop !27
 
 .thread:                                          ; preds = %16, %2, %10, %11
-  %19 = phi i32 [ 0, %11 ], [ 0, %10 ], [ 1, %2 ], [ 1, %16 ]
+  %19 = phi i32 [ 0, %10 ], [ 0, %11 ], [ 1, %2 ], [ 1, %16 ]
   ret i32 %19
 }
 
@@ -2003,7 +2003,7 @@ define internal noundef i32 @_pack_part(ptr noundef %0, ptr noundef captures(non
   %.not.i = icmp eq ptr %28, null
   br i1 %.not.i, label %part_not_on_list.exit, label %15, !llvm.loop !27
 
-part_not_on_list.exit.thread:                     ; preds = %20, %21, %6, %2
+part_not_on_list.exit.thread:                     ; preds = %21, %20, %6, %2
   %29 = load ptr, ptr %1, align 8
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 14
   %31 = load i16, ptr %30, align 2
@@ -4073,7 +4073,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %54, %60, %47
   br label %714
 
 714:                                              ; preds = %673, %._crit_edge555, %711, %701, %662
-  %.2 = phi i32 [ 2066, %662 ], [ 2170, %673 ], [ 0, %711 ], [ 0, %._crit_edge555 ], [ 0, %701 ]
+  %.2 = phi i32 [ 2066, %662 ], [ 2170, %673 ], [ 0, %701 ], [ 0, %711 ], [ 0, %._crit_edge555 ]
   call void @assoc_mgr_unlock(ptr noundef nonnull %6) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -4081,7 +4081,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %54, %60, %47
   br label %.thread533
 
 .thread533:                                       ; preds = %623, %629, %653, %714
-  %.1 = phi i32 [ %.2, %714 ], [ 0, %653 ], [ 0, %629 ], [ 0, %623 ]
+  %.1 = phi i32 [ 0, %629 ], [ %.2, %714 ], [ 0, %653 ], [ 0, %623 ]
   %715 = load ptr, ptr %0, align 8
   %.not501 = icmp eq ptr %715, null
   br i1 %.not501, label %736, label %716
@@ -4566,7 +4566,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %54, %60, %47
   br label %set_partition_billing_weights.exit
 
 set_partition_billing_weights.exit:               ; preds = %923, %928, %924
-  %.0395 = phi i32 [ %.9, %923 ], [ %.3, %928 ], [ %.3, %924 ]
+  %.0395 = phi i32 [ %.3, %924 ], [ %.3, %928 ], [ %.9, %923 ]
   %932 = icmp eq i32 %.0395, 0
   br i1 %932, label %933, label %set_partition_billing_weights.exit.thread543
 
@@ -4586,7 +4586,7 @@ set_partition_billing_weights.exit.thread543:     ; preds = %57, %set_partition_
   br label %939
 
 939:                                              ; preds = %933, %935, %set_partition_billing_weights.exit.thread543, %42, %45, %26, %28, %17, %20
-  %.0394 = phi i32 [ 2000, %20 ], [ 2000, %17 ], [ 2000, %28 ], [ 2000, %26 ], [ 2000, %45 ], [ 2000, %42 ], [ %.0395545, %set_partition_billing_weights.exit.thread543 ], [ %.0395545, %935 ], [ 0, %933 ]
+  %.0394 = phi i32 [ 2000, %26 ], [ 2000, %17 ], [ 2000, %45 ], [ 2000, %42 ], [ 2000, %20 ], [ 2000, %28 ], [ %.0395545, %set_partition_billing_weights.exit.thread543 ], [ %.0395545, %935 ], [ 0, %933 ]
   ret i32 %.0394
 }
 
@@ -4782,14 +4782,14 @@ define dso_local range(i32 0, 2) i32 @validate_group(ptr noundef %0, i32 noundef
   store i32 %1, ptr %64, align 4
   br label %.loopexit
 
-65:                                               ; preds = %33, %37, %.critedge47
+65:                                               ; preds = %33, %.critedge47, %37
   store i32 %1, ptr @validate_group.last_fail_uid, align 4
   store ptr %0, ptr @validate_group.last_fail_part_ptr, align 8
   store i64 %21, ptr @validate_group.last_fail_time, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %17, %54, %65, %26, %11, %9, %2
-  %.038 = phi i32 [ 1, %2 ], [ 1, %9 ], [ 0, %11 ], [ 0, %26 ], [ 0, %65 ], [ 1, %54 ], [ 1, %17 ]
+  %.038 = phi i32 [ 1, %9 ], [ 1, %2 ], [ 0, %11 ], [ 0, %26 ], [ 1, %54 ], [ 0, %65 ], [ 1, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -5101,7 +5101,7 @@ thread-pre-split:                                 ; preds = %13, %9
   br label %thread-pre-split.thread
 
 thread-pre-split.thread:                          ; preds = %12, %28, %23, %25, %thread-pre-split, %3
-  %.010 = phi i32 [ 0, %3 ], [ %.0, %thread-pre-split ], [ %.0, %25 ], [ %spec.select24, %23 ], [ %spec.select25, %28 ], [ 2045, %12 ]
+  %.010 = phi i32 [ %.0, %thread-pre-split ], [ 0, %3 ], [ %spec.select25, %28 ], [ %.0, %25 ], [ %spec.select24, %23 ], [ 2045, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.010
 }
@@ -5302,8 +5302,8 @@ define dso_local range(i32 0, 2067) i32 @part_policy_valid_qos(ptr noundef reado
   call void @slurm_xfree(ptr noundef nonnull %5) #16
   br label %.critedge63
 
-.critedge63:                                      ; preds = %84, %89, %57, %60, %53, %31, %67, %61, %24, %19, %52, %47
-  %.146 = phi i32 [ 2066, %47 ], [ 2066, %52 ], [ 2066, %19 ], [ 2066, %24 ], [ 0, %61 ], [ 0, %67 ], [ 0, %31 ], [ 0, %53 ], [ 2066, %84 ], [ 2066, %89 ], [ 0, %57 ], [ 0, %60 ]
+.critedge63:                                      ; preds = %89, %60, %84, %57, %53, %31, %67, %61, %19, %47, %24, %52
+  %.146 = phi i32 [ 2066, %19 ], [ 0, %53 ], [ 2066, %52 ], [ 2066, %24 ], [ 2066, %47 ], [ 0, %61 ], [ 0, %67 ], [ 0, %31 ], [ 2066, %89 ], [ 0, %60 ], [ 2066, %84 ], [ 0, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.146
 }

@@ -31,9 +31,9 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h7401d5352b23de2
   ]
 
 .sink.split.i.i:                                  ; preds = %38, %28, %23, %17, %2
-  %.sink15.i.i = phi i64 [ 3, %28 ], [ 2, %17 ], [ 1, %2 ], [ 3, %23 ], [ 3, %38 ]
-  %.sink14.i.i = phi i64 [ 4, %28 ], [ 3, %17 ], [ 2, %2 ], [ 4, %23 ], [ 4, %38 ]
-  %.sink.i.i = phi i64 [ %37, %28 ], [ %22, %17 ], [ %7, %2 ], [ %27, %23 ], [ %47, %38 ]
+  %.sink15.i.i = phi i64 [ 1, %2 ], [ 2, %17 ], [ 3, %28 ], [ 3, %23 ], [ 3, %38 ]
+  %.sink14.i.i = phi i64 [ 2, %2 ], [ 3, %17 ], [ 4, %28 ], [ 4, %23 ], [ 4, %38 ]
+  %.sink.i.i = phi i64 [ %7, %2 ], [ %22, %17 ], [ %37, %28 ], [ %27, %23 ], [ %47, %38 ]
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink15.i.i
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink14.i.i
   %10 = load i8, ptr %8, align 1, !alias.scope !11, !noalias !14, !noundef !9
@@ -296,9 +296,9 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
   ]
 
 .sink.split.i:                                    ; preds = %41, %31, %26, %20, %2
-  %.sink15.i = phi i64 [ 3, %31 ], [ 2, %20 ], [ 1, %2 ], [ 3, %26 ], [ 3, %41 ]
-  %.sink14.i = phi i64 [ 4, %31 ], [ 3, %20 ], [ 2, %2 ], [ 4, %26 ], [ 4, %41 ]
-  %.sink.i = phi i64 [ %40, %31 ], [ %25, %20 ], [ %10, %2 ], [ %30, %26 ], [ %50, %41 ]
+  %.sink15.i = phi i64 [ 1, %2 ], [ 2, %20 ], [ 3, %31 ], [ 3, %26 ], [ 3, %41 ]
+  %.sink14.i = phi i64 [ 2, %2 ], [ 3, %20 ], [ 4, %31 ], [ 4, %26 ], [ 4, %41 ]
+  %.sink.i = phi i64 [ %10, %2 ], [ %25, %20 ], [ %40, %31 ], [ %30, %26 ], [ %50, %41 ]
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink15.i
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink14.i
   %13 = load i8, ptr %11, align 1, !alias.scope !44, !noalias !47, !noundef !9
@@ -396,9 +396,9 @@ define hidden void @"_ZN70_$LT$uv_platform_tags..abi_tag..AbiTag$u20$as$u20$core
   ]
 
 .sink.split:                                      ; preds = %41, %26, %2, %20, %31
-  %.sink15 = phi i64 [ 3, %31 ], [ 2, %20 ], [ 1, %2 ], [ 3, %26 ], [ 3, %41 ]
-  %.sink14 = phi i64 [ 4, %31 ], [ 3, %20 ], [ 2, %2 ], [ 4, %26 ], [ 4, %41 ]
-  %.sink = phi i64 [ %40, %31 ], [ %25, %20 ], [ %9, %2 ], [ %30, %26 ], [ %50, %41 ]
+  %.sink15 = phi i64 [ 1, %2 ], [ 2, %20 ], [ 3, %31 ], [ 3, %26 ], [ 3, %41 ]
+  %.sink14 = phi i64 [ 2, %2 ], [ 3, %20 ], [ 4, %31 ], [ 4, %26 ], [ 4, %41 ]
+  %.sink = phi i64 [ %9, %2 ], [ %25, %20 ], [ %40, %31 ], [ %30, %26 ], [ %50, %41 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink15
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink14
   %12 = load i8, ptr %10, align 1, !noundef !9

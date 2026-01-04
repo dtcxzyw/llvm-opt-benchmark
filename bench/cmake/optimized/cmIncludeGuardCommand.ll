@@ -194,7 +194,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit70: ; preds = %58,
   br label %205
 
 .noexc.i72:                                       ; preds = %48, %45, %43
-  %.043 = phi i32 [ 0, %43 ], [ 1, %45 ], [ 2, %48 ]
+  %.043 = phi i32 [ 0, %43 ], [ 2, %48 ], [ 1, %45 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %65 = load ptr, ptr %1, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -667,7 +667,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit132: ; preds = %19
   br label %204
 
 198:                                              ; preds = %.loopexit, %.loopexit.split-lp, %175, %177, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109
-  %.pn52 = phi { ptr, i32 } [ %153, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109 ], [ %187, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129 ], [ %178, %177 ], [ %176, %175 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn52 = phi { ptr, i32 } [ %176, %175 ], [ %153, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109 ], [ %187, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129 ], [ %178, %177 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %199 = load ptr, ptr %14, align 8, !tbaa !16
   %200 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %201 = icmp eq ptr %199, %200

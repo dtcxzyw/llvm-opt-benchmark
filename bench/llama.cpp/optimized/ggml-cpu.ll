@@ -777,7 +777,7 @@ define internal noundef ptr @_ZL33ggml_backend_cpu_get_proc_addressP16ggml_backe
   br label %29
 
 29:                                               ; preds = %26, %23, %20, %17, %14, %11, %8, %5, %2
-  %.0 = phi ptr [ @ggml_backend_cpu_set_n_threads, %2 ], [ @_ZL46ggml_backend_cpu_device_get_extra_buffers_typeP19ggml_backend_device, %5 ], [ @_ZL29ggml_backend_cpu_get_featuresP16ggml_backend_reg, %8 ], [ @ggml_backend_cpu_set_abort_callback, %11 ], [ @ggml_numa_init, %14 ], [ @ggml_is_numa, %17 ], [ @ggml_threadpool_new, %20 ], [ @ggml_threadpool_free, %23 ], [ %ggml_backend_cpu_set_threadpool., %26 ]
+  %.0 = phi ptr [ @ggml_threadpool_free, %23 ], [ @ggml_backend_cpu_set_n_threads, %2 ], [ @_ZL46ggml_backend_cpu_device_get_extra_buffers_typeP19ggml_backend_device, %5 ], [ @_ZL29ggml_backend_cpu_get_featuresP16ggml_backend_reg, %8 ], [ @ggml_backend_cpu_set_abort_callback, %11 ], [ @ggml_numa_init, %14 ], [ @ggml_is_numa, %17 ], [ @ggml_threadpool_new, %20 ], [ %ggml_backend_cpu_set_threadpool., %26 ]
   ret ptr %.0
 }
 
@@ -1178,7 +1178,7 @@ switch.lookup105:                                 ; preds = %42
   br label %switch.edge
 
 switch.edge:                                      ; preds = %26, %37, %2, %42, %switch.lookup105, %.critedge83, %72, %74, %80, %86, %89, %63, %66, %54, %57, %45, %48, %60
-  %.0 = phi i1 [ %62, %60 ], [ true, %45 ], [ %53, %48 ], [ false, %57 ], [ false, %54 ], [ false, %63 ], [ %68, %66 ], [ false, %86 ], [ false, %80 ], [ false, %74 ], [ false, %72 ], [ %91, %89 ], [ true, %.critedge83 ], [ %switch.masked, %switch.lookup105 ], [ true, %42 ], [ true, %2 ], [ false, %37 ], [ true, %26 ]
+  %.0 = phi i1 [ %switch.masked, %switch.lookup105 ], [ %91, %89 ], [ false, %37 ], [ true, %.critedge83 ], [ %53, %48 ], [ %62, %60 ], [ false, %54 ], [ %68, %66 ], [ true, %42 ], [ true, %2 ], [ false, %72 ], [ false, %74 ], [ false, %80 ], [ false, %86 ], [ false, %63 ], [ false, %57 ], [ true, %45 ], [ true, %26 ]
   ret i1 %.0
 }
 
@@ -3788,7 +3788,7 @@ define linkonce_odr void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind noalias w
   br i1 %19, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !109
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %14
-  %.0.i = phi i32 [ %7, %6 ], [ %11, %10 ], [ %15, %14 ], [ 1, %2 ], [ %18, %16 ]
+  %.0.i = phi i32 [ %15, %14 ], [ %7, %6 ], [ %11, %10 ], [ 1, %2 ], [ %18, %16 ]
   %.lobit = lshr i32 %1, 31
   %20 = add i32 %.0.i, %.lobit
   %21 = zext i32 %20 to i64

@@ -484,7 +484,7 @@ pmix_obj_run_destructors.exit113:                 ; preds = %.lr.ph.i110, %193
   br label %.critedge
 
 .critedge:                                        ; preds = %4, %147, %pmix_obj_update.exit80, %206, %204, %pmix_obj_update.exit77, %119, %117, %.split122.us
-  %.0 = phi i32 [ -25, %.split122.us ], [ %.067117, %117 ], [ %.067117, %119 ], [ %.067117, %pmix_obj_update.exit77 ], [ -25, %204 ], [ -25, %206 ], [ -25, %pmix_obj_update.exit80 ], [ 0, %147 ], [ -47, %4 ]
+  %.0 = phi i32 [ -25, %.split122.us ], [ %.067117, %pmix_obj_update.exit77 ], [ -25, %pmix_obj_update.exit80 ], [ -25, %206 ], [ 0, %147 ], [ %.067117, %117 ], [ %.067117, %119 ], [ -25, %204 ], [ -47, %4 ]
   ret i32 %.0
 }
 

@@ -155,7 +155,7 @@ define internal range(i32 -2147483648, 1) i32 @dvvideo_encode_init(ptr noundef %
   br label %57
 
 57:                                               ; preds = %.thread, %11, %48, %28
-  %.2 = phi i32 [ 0, %48 ], [ -22, %28 ], [ -22, %11 ], [ %.3.ph, %.thread ]
+  %.2 = phi i32 [ 0, %48 ], [ %.3.ph, %.thread ], [ -22, %28 ], [ -22, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.2
@@ -559,8 +559,8 @@ dv_write_pack.exit107.i:                          ; preds = %213, %198
   br i1 %245, label %.preheader111.i, label %dv_format_frame.exit, !llvm.loop !74
 
 dv_format_frame.exit:                             ; preds = %._crit_edge.i, %38, %.preheader111.lr.ph.i
-  %246 = phi i32 [ %41, %38 ], [ %41, %.preheader111.lr.ph.i ], [ %244, %._crit_edge.i ]
-  %247 = phi ptr [ %20, %38 ], [ %20, %.preheader111.lr.ph.i ], [ %241, %._crit_edge.i ]
+  %246 = phi i32 [ %41, %.preheader111.lr.ph.i ], [ %41, %38 ], [ %244, %._crit_edge.i ]
+  %247 = phi ptr [ %20, %.preheader111.lr.ph.i ], [ %20, %38 ], [ %241, %._crit_edge.i ]
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %249 = load ptr, ptr %248, align 8, !tbaa !76
   %250 = getelementptr inbounds nuw i8, ptr %6, i64 72
@@ -849,7 +849,7 @@ dv_calculate_mb_xy.exit:                          ; preds = %35, %46, %51
   br label %dv_guess_dct_mode.exit
 
 dv_guess_dct_mode.exit:                           ; preds = %dv_calculate_mb_xy.exit, %80, %61, %76
-  %.sink = phi i32 [ %90, %80 ], [ 0, %61 ], [ 0, %76 ], [ 0, %dv_calculate_mb_xy.exit ]
+  %.sink = phi i32 [ 0, %76 ], [ %90, %80 ], [ 0, %61 ], [ 0, %dv_calculate_mb_xy.exit ]
   %91 = getelementptr inbounds nuw i8, ptr %.0203992, i64 60
   store i32 %.sink, ptr %91, align 4, !tbaa !89
   %92 = getelementptr inbounds nuw i8, ptr %.0203992, i64 60
@@ -6353,7 +6353,7 @@ dv_encode_ac.exit324:                             ; preds = %dv_encode_ac.exit32
   br label %dv_encode_ac.exit324.thread
 
 dv_encode_ac.exit324.thread:                      ; preds = %.lr.ph1017, %dv_encode_ac.exit324, %3239
-  %.3209676 = phi ptr [ %.137.i318.ph, %dv_encode_ac.exit324 ], [ %.137.i318.ph, %3239 ], [ %.22081015, %.lr.ph1017 ]
+  %.3209676 = phi ptr [ %.137.i318.ph, %3239 ], [ %.137.i318.ph, %dv_encode_ac.exit324 ], [ %.22081015, %.lr.ph1017 ]
   %indvars.iv.next1295 = add nuw nsw i64 %indvars.iv1294, 1
   %3240 = load ptr, ptr %27, align 8, !tbaa !37
   %3241 = getelementptr inbounds nuw i8, ptr %3240, i64 60
@@ -6429,8 +6429,8 @@ flush_put_bits.exit:                              ; preds = %3260, %.lr.ph1020
   br i1 %3281, label %.lr.ph1020, label %._crit_edge1021, !llvm.loop !142
 
 ._crit_edge1021:                                  ; preds = %flush_put_bits.exit, %2875, %.preheader680, %.preheader
-  %.lcssa1018 = phi ptr [ %3240, %.preheader ], [ %2881, %.preheader680 ], [ %2876, %2875 ], [ %3276, %flush_put_bits.exit ]
-  %.lcssa705 = phi i32 [ %3242, %.preheader ], [ %2880, %.preheader680 ], [ %2878, %2875 ], [ %3278, %flush_put_bits.exit ]
+  %.lcssa1018 = phi ptr [ %3240, %.preheader ], [ %2876, %2875 ], [ %2881, %.preheader680 ], [ %3276, %flush_put_bits.exit ]
+  %.lcssa705 = phi i32 [ %3242, %.preheader ], [ %2878, %2875 ], [ %2880, %.preheader680 ], [ %3278, %flush_put_bits.exit ]
   %3282 = getelementptr inbounds nuw i8, ptr %.lcssa1018, i64 60
   %3283 = getelementptr inbounds nuw i8, ptr %.lcssa1018, i64 4
   %3284 = load i32, ptr %3283, align 4, !tbaa !65

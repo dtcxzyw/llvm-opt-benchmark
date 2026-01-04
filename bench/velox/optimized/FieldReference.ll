@@ -406,7 +406,7 @@ if.end9.i.i.i:                                    ; preds = %if.end8.sink.split.
   br label %return
 
 return:                                           ; preds = %if.then7, %if.end9.i.i.i, %if.end12, %_ZNKSt12__shared_ptrIN8facebook5velox10BaseVectorELN9__gnu_cxx12_Lock_policyE2EE6uniqueEv.exit, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNKSt12__shared_ptrIN8facebook5velox10BaseVectorELN9__gnu_cxx12_Lock_policyE2EE6uniqueEv.exit ], [ true, %if.end12 ], [ true, %if.end9.i.i.i ], [ false, %if.then7 ]
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end9.i.i.i ], [ false, %_ZNKSt12__shared_ptrIN8facebook5velox10BaseVectorELN9__gnu_cxx12_Lock_policyE2EE6uniqueEv.exit ], [ true, %if.end12 ], [ false, %if.then7 ]
   ret i1 %retval.0
 }
 
@@ -2580,7 +2580,7 @@ if.end223.sink.split.sink.split:                  ; preds = %if.then.i.i.i.i.i61
   br label %if.end223.sink.split
 
 if.end223.sink.split:                             ; preds = %if.end223.sink.split.sink.split, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i635, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i603
-  %.sink915 = phi ptr [ %315, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i603 ], [ %324, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i635 ], [ %.sink918, %if.end223.sink.split.sink.split ]
+  %.sink915 = phi ptr [ %324, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i635 ], [ %315, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i603 ], [ %.sink918, %if.end223.sink.split.sink.split ]
   %vtable2.i.i.i.i.i.i639 = load ptr, ptr %.sink915, align 8
   %vfn3.i.i.i.i.i.i640 = getelementptr inbounds nuw i8, ptr %vtable2.i.i.i.i.i.i639, i64 24
   %335 = load ptr, ptr %vfn3.i.i.i.i.i.i640, align 8
@@ -5498,7 +5498,7 @@ return.sink.split:                                ; preds = %if.then.i, %_ZZN8fa
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.then27, %if.then3, %for.end, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then3 ], [ true, %if.then27 ], [ false, %return.sink.split ]
+  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then27 ], [ true, %if.then3 ], [ false, %return.sink.split ]
   ret i1 %retval.0
 }
 
@@ -5993,7 +5993,7 @@ if.then26:                                        ; preds = %for.end
   br label %return
 
 return:                                           ; preds = %for.body, %for.end, %if.then11, %entry, %if.then26, %if.then3
-  %retval.0 = phi i1 [ %cmp.i, %if.then3 ], [ %cmp.i44, %if.then26 ], [ true, %entry ], [ false, %if.then11 ], [ true, %for.end ], [ false, %for.body ]
+  %retval.0 = phi i1 [ true, %entry ], [ %cmp.i, %if.then3 ], [ false, %if.then11 ], [ %cmp.i44, %if.then26 ], [ true, %for.end ], [ false, %for.body ]
   ret i1 %retval.0
 }
 

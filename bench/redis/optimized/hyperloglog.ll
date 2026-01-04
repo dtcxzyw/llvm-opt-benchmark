@@ -606,7 +606,7 @@ define dso_local range(i32 -1, 1) i32 @hllSparseToDense(ptr noundef captures(non
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %1, %8, %11, %15, %19, %23
-  %.0.i = phi i64 [ %10, %8 ], [ %14, %11 ], [ %18, %15 ], [ %22, %19 ], [ %25, %23 ], [ 0, %1 ]
+  %.0.i = phi i64 [ %25, %23 ], [ %10, %8 ], [ %14, %11 ], [ %18, %15 ], [ %22, %19 ], [ 0, %1 ]
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.i
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %28 = load i8, ptr %27, align 1, !tbaa !11
@@ -724,7 +724,7 @@ sdslen.exit:                                      ; preds = %1, %8, %11, %15, %1
   br label %92
 
 92:                                               ; preds = %sdslen.exit, %90, %._crit_edge.thread
-  %.0 = phi i32 [ -1, %._crit_edge.thread ], [ 0, %90 ], [ 0, %sdslen.exit ]
+  %.0 = phi i32 [ 0, %90 ], [ -1, %._crit_edge.thread ], [ 0, %sdslen.exit ]
   ret i32 %.0
 }
 
@@ -771,7 +771,7 @@ define internal fastcc i64 @sdslen(ptr noundef readonly captures(none) %0) unnam
   br label %24
 
 24:                                               ; preds = %1, %21, %17, %13, %9, %6
-  %.0 = phi i64 [ %8, %6 ], [ %12, %9 ], [ %16, %13 ], [ %20, %17 ], [ %23, %21 ], [ 0, %1 ]
+  %.0 = phi i64 [ %23, %21 ], [ %8, %6 ], [ %12, %9 ], [ %16, %13 ], [ %20, %17 ], [ 0, %1 ]
   ret i64 %.0
 }
 
@@ -832,7 +832,7 @@ define dso_local range(i32 -1, 2) i32 @hllSparseSet(ptr noundef captures(none) %
   br label %sdsalloc.exit
 
 sdsalloc.exit:                                    ; preds = %6, %13, %16, %20, %24, %28
-  %.0.i = phi i64 [ %15, %13 ], [ %19, %16 ], [ %23, %20 ], [ %27, %24 ], [ %30, %28 ], [ 0, %6 ]
+  %.0.i = phi i64 [ %30, %28 ], [ %15, %13 ], [ %19, %16 ], [ %23, %20 ], [ %27, %24 ], [ 0, %6 ]
   %31 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7752), align 8, !tbaa !22
   %32 = icmp ult i64 %.0.i, %31
   br i1 %32, label %33, label %87
@@ -884,7 +884,7 @@ sdsalloc.exit:                                    ; preds = %6, %13, %16, %20, %
   br label %sdsavail.exit
 
 sdsavail.exit:                                    ; preds = %35, %43, %51, %58
-  %.0.i244 = phi i64 [ %42, %35 ], [ %50, %43 ], [ %57, %51 ], [ %63, %58 ]
+  %.0.i244 = phi i64 [ %57, %51 ], [ %63, %58 ], [ %42, %35 ], [ %50, %43 ]
   %64 = icmp ult i64 %.0.i244, 3
   br i1 %64, label %sdsavail.exit.thread, label %87
 
@@ -926,7 +926,7 @@ sdsavail.exit.thread:                             ; preds = %33, %sdsavail.exit
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %sdsavail.exit.thread, %65, %68, %72, %76, %80
-  %.0.i245 = phi i64 [ %67, %65 ], [ %71, %68 ], [ %75, %72 ], [ %79, %76 ], [ %82, %80 ], [ 0, %sdsavail.exit.thread ]
+  %.0.i245 = phi i64 [ %82, %80 ], [ %67, %65 ], [ %71, %68 ], [ %75, %72 ], [ %79, %76 ], [ 0, %sdsavail.exit.thread ]
   %83 = add i64 %.0.i245, 3
   %84 = tail call i64 @llvm.umin.i64(i64 %83, i64 300)
   %85 = add i64 %84, %83
@@ -981,7 +981,7 @@ sdslen.exit:                                      ; preds = %sdsavail.exit.threa
   br label %sdslen.exit247
 
 sdslen.exit247:                                   ; preds = %92, %95, %99, %103, %107
-  %.0.i246 = phi i64 [ %94, %92 ], [ %98, %95 ], [ %102, %99 ], [ %106, %103 ], [ %109, %107 ]
+  %.0.i246 = phi i64 [ %109, %107 ], [ %94, %92 ], [ %98, %95 ], [ %102, %99 ], [ %106, %103 ]
   %110 = getelementptr i8, ptr %88, i64 %.0.i246
   %111 = icmp sgt i64 %.0.i246, 16
   br i1 %111, label %.lr.ph, label %.thread.thread
@@ -1013,8 +1013,8 @@ sdslen.exit247:                                   ; preds = %92, %95, %99, %103,
   br label %125
 
 125:                                              ; preds = %.lr.ph, %116, %118
-  %.0205 = phi i64 [ 1, %116 ], [ 2, %118 ], [ 1, %.lr.ph ]
-  %.2194.in.in = phi i32 [ %117, %116 ], [ %124, %118 ], [ %113, %.lr.ph ]
+  %.0205 = phi i64 [ 2, %118 ], [ 1, %116 ], [ 1, %.lr.ph ]
+  %.2194.in.in = phi i32 [ %124, %118 ], [ %117, %116 ], [ %113, %.lr.ph ]
   %.2194.in = add nuw nsw i32 %.2194.in.in, 1
   %.2194 = zext nneg i32 %.2194.in to i64
   %126 = add nuw nsw i64 %.0189305, %.2194
@@ -1262,7 +1262,7 @@ sdslen.exit247:                                   ; preds = %92, %95, %99, %103,
   br label %sdslen.exit249
 
 sdslen.exit249:                                   ; preds = %247, %248, %251, %255, %259, %263
-  %.0.i248 = phi i64 [ %250, %248 ], [ %254, %251 ], [ %258, %255 ], [ %262, %259 ], [ %265, %263 ], [ 0, %247 ]
+  %.0.i248 = phi i64 [ %265, %263 ], [ %250, %248 ], [ %254, %251 ], [ %258, %255 ], [ %262, %259 ], [ 0, %247 ]
   %266 = zext nneg i32 %243 to i64
   %267 = add i64 %.0.i248, %266
   %268 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7752), align 8, !tbaa !22
@@ -1332,9 +1332,9 @@ sdslen.exit251:                                   ; preds = %._crit_edge
   br label %sdsalloc.exit253
 
 sdsalloc.exit253:                                 ; preds = %sdslen.exit251, %sdslen.exit251.thread, %sdslen.exit251.thread279, %sdslen.exit251.thread281, %sdslen.exit251.thread283, %sdslen.exit251.thread285
-  %305 = phi i64 [ %273, %sdslen.exit251.thread ], [ %278, %sdslen.exit251.thread279 ], [ %286, %sdslen.exit251.thread281 ], [ %294, %sdslen.exit251.thread283 ], [ %301, %sdslen.exit251.thread285 ], [ %304, %sdslen.exit251 ]
-  %306 = phi i64 [ %272, %sdslen.exit251.thread ], [ %277, %sdslen.exit251.thread279 ], [ %285, %sdslen.exit251.thread281 ], [ %293, %sdslen.exit251.thread283 ], [ %300, %sdslen.exit251.thread285 ], [ %304, %sdslen.exit251 ]
-  %.0.i252 = phi i64 [ %271, %sdslen.exit251.thread ], [ %281, %sdslen.exit251.thread279 ], [ %289, %sdslen.exit251.thread281 ], [ %297, %sdslen.exit251.thread283 ], [ %303, %sdslen.exit251.thread285 ], [ 0, %sdslen.exit251 ]
+  %305 = phi i64 [ %301, %sdslen.exit251.thread285 ], [ %273, %sdslen.exit251.thread ], [ %278, %sdslen.exit251.thread279 ], [ %286, %sdslen.exit251.thread281 ], [ %294, %sdslen.exit251.thread283 ], [ %304, %sdslen.exit251 ]
+  %306 = phi i64 [ %300, %sdslen.exit251.thread285 ], [ %272, %sdslen.exit251.thread ], [ %277, %sdslen.exit251.thread279 ], [ %285, %sdslen.exit251.thread281 ], [ %293, %sdslen.exit251.thread283 ], [ %304, %sdslen.exit251 ]
+  %.0.i252 = phi i64 [ %303, %sdslen.exit251.thread285 ], [ %271, %sdslen.exit251.thread ], [ %281, %sdslen.exit251.thread279 ], [ %289, %sdslen.exit251.thread281 ], [ %297, %sdslen.exit251.thread283 ], [ 0, %sdslen.exit251 ]
   %.not236 = icmp ugt i64 %305, %.0.i252
   br i1 %.not236, label %307, label %308, !prof !50
 
@@ -1507,7 +1507,7 @@ hllDenseSet.exit:                                 ; preds = %364
   unreachable
 
 .thread.thread:                                   ; preds = %87, %sdslen.exit247, %hllDenseSet.exit, %361, %137, %.thread, %.critedge
-  %.0 = phi i32 [ 1, %.critedge ], [ -1, %.thread ], [ 0, %137 ], [ -1, %361 ], [ 1, %hllDenseSet.exit ], [ -1, %sdslen.exit247 ], [ -1, %87 ]
+  %.0 = phi i32 [ 0, %137 ], [ -1, %361 ], [ 1, %.critedge ], [ -1, %.thread ], [ 1, %hllDenseSet.exit ], [ -1, %sdslen.exit247 ], [ -1, %87 ]
   ret i32 %.0
 }
 
@@ -1816,7 +1816,7 @@ define dso_local i64 @hllCount(ptr noundef readonly captures(address) %0, ptr no
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %14, %17, %21, %25, %29
-  %.0.i = phi i64 [ %16, %14 ], [ %20, %17 ], [ %24, %21 ], [ %28, %25 ], [ %31, %29 ]
+  %.0.i = phi i64 [ %31, %29 ], [ %16, %14 ], [ %20, %17 ], [ %24, %21 ], [ %28, %25 ]
   %32 = trunc i64 %.0.i to i32
   %33 = add i32 %32, -16
   %34 = sext i32 %33 to i64
@@ -2123,7 +2123,7 @@ hllDenseAdd.exit:                                 ; preds = %10, %30
   br label %51
 
 51:                                               ; preds = %3, %46, %hllDenseAdd.exit
-  %.0 = phi i32 [ %.0.i.i, %hllDenseAdd.exit ], [ %50, %46 ], [ -1, %3 ]
+  %.0 = phi i32 [ %50, %46 ], [ %.0.i.i, %hllDenseAdd.exit ], [ -1, %3 ]
   ret i32 %.0
 }
 
@@ -2370,7 +2370,7 @@ define dso_local range(i32 -1, 1) i32 @hllMerge(ptr noundef captures(none) %0, p
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %36, %39, %43, %47, %51
-  %.0.i = phi i64 [ %38, %36 ], [ %42, %39 ], [ %46, %43 ], [ %50, %47 ], [ %53, %51 ]
+  %.0.i = phi i64 [ %53, %51 ], [ %38, %36 ], [ %42, %39 ], [ %46, %43 ], [ %50, %47 ]
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 %.0.i
   %55 = icmp samesign ugt i64 %.0.i, 16
   br i1 %55, label %.lr.ph.preheader, label %._crit_edge.thread
@@ -2684,7 +2684,7 @@ define dso_local range(i32 -1, 1) i32 @isHLLObjectOrReply(ptr noundef %0, ptr no
   br label %33
 
 33:                                               ; preds = %28, %30, %2, %32
-  %.0 = phi i32 [ -1, %32 ], [ -1, %2 ], [ 0, %30 ], [ 0, %28 ]
+  %.0 = phi i32 [ -1, %2 ], [ -1, %32 ], [ 0, %30 ], [ 0, %28 ]
   ret i32 %.0
 }
 
@@ -2795,7 +2795,7 @@ define dso_local void @pfaddCommand(ptr noundef %0) local_unnamed_addr #4 {
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %.lr.ph, %44, %47, %51, %55, %59
-  %.0.i = phi i64 [ %46, %44 ], [ %50, %47 ], [ %54, %51 ], [ %58, %55 ], [ %61, %59 ], [ 0, %.lr.ph ]
+  %.0.i = phi i64 [ %61, %59 ], [ %46, %44 ], [ %50, %47 ], [ %54, %51 ], [ %58, %55 ], [ 0, %.lr.ph ]
   %62 = tail call i32 @hllAdd(ptr noundef %.0, ptr noundef nonnull %39, i64 noundef %.0.i)
   switch i32 %62, label %65 [
     i32 1, label %63
@@ -2811,7 +2811,7 @@ sdslen.exit:                                      ; preds = %.lr.ph, %44, %47, %
   br label %92
 
 65:                                               ; preds = %63, %sdslen.exit
-  %.3 = phi i32 [ %.140, %sdslen.exit ], [ %64, %63 ]
+  %.3 = phi i32 [ %64, %63 ], [ %.140, %sdslen.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %66 = load i32, ptr %32, align 8, !tbaa !79
   %67 = sext i32 %66 to i64
@@ -3074,7 +3074,7 @@ define dso_local void @pfmergeCommand(ptr noundef %0) local_unnamed_addr #4 {
   br label %.thread
 
 26:                                               ; preds = %8, %17
-  %.1 = phi i32 [ %.04860, %8 ], [ %spec.select, %17 ]
+  %.1 = phi i32 [ %spec.select, %17 ], [ %.04860, %8 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = load i32, ptr %3, align 8, !tbaa !79
   %28 = sext i32 %27 to i64
@@ -3521,7 +3521,7 @@ hllDenseAdd.exit:                                 ; preds = %.lr.ph.i.i, %105
   br label %.thread106
 
 .critedge100:                                     ; preds = %.thread103, %hllDenseAdd.exit
-  %.2 = phi i64 [ %.085124, %hllDenseAdd.exit ], [ %145, %.thread103 ]
+  %.2 = phi i64 [ %145, %.thread103 ], [ %.085124, %hllDenseAdd.exit ]
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %exitcond143.not = icmp eq i64 %indvars.iv.next141, 10000001
   br i1 %exitcond143.not, label %147, label %.lr.ph.i.i, !llvm.loop !93
@@ -3846,7 +3846,7 @@ define dso_local void @pfdebugCommand(ptr noundef %0) local_unnamed_addr #4 {
   tail call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef nonnull %0, ptr noundef nonnull @.str.31, ptr noundef %7) #22
   br label %.thread116
 
-.thread116:                                       ; preds = %64, %145, %141, %.thread, %88, %._crit_edge, %149, %36, %150, %57, %35, %23
+.thread116:                                       ; preds = %64, %141, %145, %.thread, %88, %._crit_edge, %149, %36, %150, %57, %35, %23
   ret void
 }
 

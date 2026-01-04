@@ -463,7 +463,7 @@ define noalias noundef ptr @cli_safer_realloc_or_free(ptr noundef captures(addre
   br label %9
 
 9:                                                ; preds = %5, %7, %8, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %8 ], [ null, %7 ], [ %6, %5 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %7 ], [ null, %8 ], [ %6, %5 ]
   ret ptr %.0
 }
 
@@ -521,7 +521,7 @@ define noalias noundef ptr @cli_max_realloc_or_free(ptr noundef captures(address
   br label %9
 
 9:                                                ; preds = %5, %7, %8, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %8 ], [ null, %7 ], [ %6, %5 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %7 ], [ null, %8 ], [ %6, %5 ]
   ret ptr %.0
 }
 
@@ -669,8 +669,8 @@ define noundef i64 @cli_readn(i32 noundef %0, ptr noundef captures(none) %1, i64
   br label %27
 
 27:                                               ; preds = %.critedge, %24
-  %.120 = phi i64 [ %25, %24 ], [ %.019, %.critedge ]
-  %.1 = phi ptr [ %26, %24 ], [ %.018, %.critedge ]
+  %.120 = phi i64 [ %.019, %.critedge ], [ %25, %24 ]
+  %.1 = phi ptr [ %.018, %.critedge ], [ %26, %24 ]
   %.not = icmp eq i64 %.120, 0
   br i1 %.not, label %.loopexit, label %5
 
@@ -746,13 +746,13 @@ define noundef i64 @cli_writen(i32 noundef %0, ptr noundef readonly captures(add
   br label %23
 
 23:                                               ; preds = %.critedge, %20
-  %.118 = phi i64 [ %21, %20 ], [ %.017, %.critedge ]
-  %.1 = phi ptr [ %22, %20 ], [ %.016, %.critedge ]
+  %.118 = phi i64 [ %.017, %.critedge ], [ %21, %20 ]
+  %.1 = phi ptr [ %.016, %.critedge ], [ %22, %20 ]
   %.not24 = icmp eq i64 %.118, 0
   br i1 %.not24, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %23, %18, %12, %5
-  %.019 = phi i64 [ -1, %12 ], [ -1, %5 ], [ %2, %18 ], [ %2, %23 ]
+  %.019 = phi i64 [ -1, %5 ], [ -1, %12 ], [ %2, %18 ], [ %2, %23 ]
   ret i64 %.019
 }
 
@@ -805,7 +805,7 @@ define i32 @cli_filecopy(ptr noundef readonly captures(none) %0, ptr noundef rea
   br label %25
 
 25:                                               ; preds = %2, %._crit_edge, %12, %8
-  %.017 = phi i32 [ -1, %8 ], [ %24, %._crit_edge ], [ -1, %12 ], [ -1, %2 ]
+  %.017 = phi i32 [ -1, %12 ], [ -1, %8 ], [ %24, %._crit_edge ], [ -1, %2 ]
   ret i32 %.017
 }
 
@@ -900,7 +900,7 @@ thread-pre-split:                                 ; preds = %16
   br i1 %37, label %cli_safer_strdup.exit.thread, label %.thread
 
 .thread:                                          ; preds = %6, %35, %34
-  %.05070 = phi ptr [ %.050, %35 ], [ %.050, %34 ], [ %0, %6 ]
+  %.05070 = phi ptr [ %.050, %34 ], [ %.050, %35 ], [ %0, %6 ]
   %38 = call fastcc i32 @handle_filetype(ptr noundef %.05070, i32 noundef %1, ptr noundef %7, ptr noundef %10, ptr noundef %8, ptr noundef %3, ptr noundef %4)
   %.not61 = icmp eq i32 %38, 0
   br i1 %.not61, label %39, label %cli_safer_strdup.exit.thread
@@ -986,7 +986,7 @@ cli_safer_strdup.exit68:                          ; preds = %.thread76
   br label %cli_safer_strdup.exit.thread
 
 cli_safer_strdup.exit.thread:                     ; preds = %64, %62, %54, %51, %39, %35, %cli_safer_strdup.exit, %.thread, %67
-  %.048 = phi i32 [ %38, %.thread ], [ %57, %cli_safer_strdup.exit ], [ %68, %67 ], [ 0, %35 ], [ 0, %39 ], [ 0, %51 ], [ 0, %54 ], [ 0, %62 ], [ 0, %64 ]
+  %.048 = phi i32 [ 0, %54 ], [ %38, %.thread ], [ 0, %35 ], [ 0, %39 ], [ %57, %cli_safer_strdup.exit ], [ %68, %67 ], [ 0, %51 ], [ 0, %62 ], [ 0, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1043,9 +1043,9 @@ define internal fastcc i32 @handle_filetype(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %or.cond.i, label %.sink.split.i, label %25
 
 25:                                               ; preds = %22, %7
-  %26 = phi i32 [ %23, %22 ], [ %9, %7 ]
-  %.028.i = phi i32 [ %.129.i, %22 ], [ %8, %7 ]
-  %.0.i = phi i32 [ %.1.i, %22 ], [ 0, %7 ]
+  %26 = phi i32 [ %9, %7 ], [ %23, %22 ]
+  %.028.i = phi i32 [ %8, %7 ], [ %.129.i, %22 ]
+  %.0.i = phi i32 [ 0, %7 ], [ %.1.i, %22 ]
   %.not35.i = icmp eq i32 %.028.i, 0
   br i1 %.not35.i, label %29, label %.thread.i
 
@@ -1094,8 +1094,8 @@ define internal fastcc i32 @handle_filetype(ptr noundef %0, i32 noundef %1, ptr 
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.thread46.i, %37, %35, %22
-  %.sink.i = phi i32 [ %40, %.thread46.i ], [ 5, %22 ], [ 2, %35 ], [ 3, %37 ]
-  %.027.ph.i = phi i32 [ %.2.i, %.thread46.i ], [ 0, %22 ], [ %.2.i, %35 ], [ %.2.i, %37 ]
+  %.sink.i = phi i32 [ 2, %35 ], [ %40, %.thread46.i ], [ 5, %22 ], [ 3, %37 ]
+  %.027.ph.i = phi i32 [ %.2.i, %35 ], [ %.2.i, %.thread46.i ], [ 0, %22 ], [ %.2.i, %37 ]
   store i32 %.sink.i, ptr %4, align 4, !tbaa !3
   br label %51
 
@@ -1164,7 +1164,7 @@ cli_safer_strdup.exit49:                          ; preds = %57
   br label %.thread
 
 .thread:                                          ; preds = %cli_safer_strdup.exit49, %59, %56, %46, %43, %cli_safer_strdup.exit, %51, %50
-  %.132 = phi i32 [ 0, %50 ], [ 0, %51 ], [ %49, %cli_safer_strdup.exit ], [ 20, %43 ], [ 20, %46 ], [ 20, %56 ], [ 20, %59 ], [ %64, %cli_safer_strdup.exit49 ]
+  %.132 = phi i32 [ 20, %46 ], [ 0, %51 ], [ %64, %cli_safer_strdup.exit49 ], [ 0, %50 ], [ %49, %cli_safer_strdup.exit ], [ 20, %43 ], [ 20, %56 ], [ 20, %59 ]
   ret i32 %.132
 }
 
@@ -1277,7 +1277,7 @@ sub_129:                                          ; preds = %.tail
   br label %51
 
 51:                                               ; preds = %.tail27.thread, %47, %.tail27.thread, %50, %49
-  %.sink = phi i32 [ 4, %50 ], [ 3, %49 ], [ %46, %.tail27.thread ], [ 1, %47 ], [ %46, %.tail27.thread ]
+  %.sink = phi i32 [ 4, %50 ], [ 1, %47 ], [ 3, %49 ], [ %46, %.tail27.thread ], [ %46, %.tail27.thread ]
   store i32 %.sink, ptr %8, align 4, !tbaa !3
   %52 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #24
   %53 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #24
@@ -1435,17 +1435,17 @@ cli_max_realloc.exit:                             ; preds = %94
   call void @free(ptr noundef nonnull %.lcssa108.sink) #23
   br label %.thread
 
-.thread:                                          ; preds = %61, %85, %.thread.sink.split, %97
-  %.2109.i.ph = phi i64 [ %90, %97 ], [ %.2109.i.ph.ph, %.thread.sink.split ], [ %.0107.i55, %85 ], [ %.0107.i55, %61 ]
-  %.2.i.ph = phi ptr [ null, %97 ], [ %.2.i.ph.ph, %.thread.sink.split ], [ %.0102.i56, %85 ], [ %.0102.i56, %61 ]
+.thread:                                          ; preds = %85, %61, %.thread.sink.split, %97
+  %.2109.i.ph = phi i64 [ %90, %97 ], [ %.2109.i.ph.ph, %.thread.sink.split ], [ %.0107.i55, %61 ], [ %.0107.i55, %85 ]
+  %.2.i.ph = phi ptr [ null, %97 ], [ %.2.i.ph.ph, %.thread.sink.split ], [ %.0102.i56, %61 ], [ %.0102.i56, %85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit34
 
 select.unfold:                                    ; preds = %61, %cli_max_realloc.exit, %87, %80, %73, %48, %.tail27, %.tail
-  %.2109.i = phi i64 [ %.0107.i55, %73 ], [ %.0107.i55, %80 ], [ %90, %cli_max_realloc.exit ], [ %.0107.i55, %87 ], [ %.0107.i55, %48 ], [ %.0107.i55, %.tail27 ], [ %.0107.i55, %.tail ], [ %.0107.i55, %61 ]
-  %.2.i = phi ptr [ %.0102.i56, %73 ], [ %.0102.i56, %80 ], [ %95, %cli_max_realloc.exit ], [ %.0102.i56, %87 ], [ %.0102.i56, %48 ], [ %.0102.i56, %.tail27 ], [ %.0102.i56, %.tail ], [ %.0102.i56, %61 ]
+  %.2109.i = phi i64 [ %.0107.i55, %73 ], [ %.0107.i55, %.tail ], [ %.0107.i55, %80 ], [ %90, %cli_max_realloc.exit ], [ %.0107.i55, %48 ], [ %.0107.i55, %.tail27 ], [ %.0107.i55, %87 ], [ %.0107.i55, %61 ]
+  %.2.i = phi ptr [ %.0102.i56, %73 ], [ %.0102.i56, %.tail ], [ %.0102.i56, %80 ], [ %95, %cli_max_realloc.exit ], [ %.0102.i56, %48 ], [ %.0102.i56, %.tail27 ], [ %.0102.i56, %87 ], [ %.0102.i56, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2132,7 +2132,7 @@ define range(i32 0, 21) i32 @cli_gentempfd_with_prefix(ptr noundef %0, ptr nound
   br label %22
 
 22:                                               ; preds = %.sink.split, %6, %15, %12, %4
-  %.0 = phi i32 [ 20, %4 ], [ 20, %12 ], [ 0, %15 ], [ 0, %6 ], [ 9, %.sink.split ]
+  %.0 = phi i32 [ 0, %15 ], [ 20, %12 ], [ 20, %4 ], [ 0, %6 ], [ 9, %.sink.split ]
   ret i32 %.0
 }
 

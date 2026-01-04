@@ -2457,7 +2457,7 @@ _ZN2cv3dpm16PyramidParameterD2Ev.exit:            ; preds = %_ZNSt6vectorIdSaIdE
   br label %562
 
 562:                                              ; preds = %.loopexit398.split.us, %.loopexit.split-lp399, %.loopexit393.split.us, %.loopexit.split-lp394, %.loopexit.split.us, %.loopexit.split-lp, %.loopexit388.split.us
-  %.pn154.pn = phi { ptr, i32 } [ %lpad.loopexit390.us, %.loopexit388.split.us ], [ %lpad.loopexit.us, %.loopexit.split.us ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit395.us, %.loopexit393.split.us ], [ %lpad.loopexit.split-lp396, %.loopexit.split-lp394 ], [ %lpad.loopexit400.us, %.loopexit398.split.us ], [ %lpad.loopexit.split-lp401, %.loopexit.split-lp399 ]
+  %.pn154.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit.split-lp401, %.loopexit.split-lp399 ], [ %lpad.loopexit.split-lp396, %.loopexit.split-lp394 ], [ %lpad.loopexit390.us, %.loopexit388.split.us ], [ %lpad.loopexit.us, %.loopexit.split.us ], [ %lpad.loopexit395.us, %.loopexit393.split.us ], [ %lpad.loopexit400.us, %.loopexit398.split.us ]
   %563 = load ptr, ptr %8, align 8, !tbaa !69
   %.not.i.i.i286 = icmp eq ptr %563, null
   br i1 %.not.i.i.i286, label %_ZNSt6vectorIdSaIdEED2Ev.exit287, label %564
@@ -3788,9 +3788,9 @@ _ZN2cv3dpm16PyramidParameterD2Ev.exit:            ; preds = %212, %213
   br i1 %.not143.not, label %182, label %._crit_edge.split, !llvm.loop !156
 
 ._crit_edge182:                                   ; preds = %._crit_edge.split171, %._crit_edge.split171.us.us, %47, %.lr.ph181
-  %.0131.lcssa = phi double [ 0xFFF0000000000000, %.lr.ph181 ], [ 0xFFF0000000000000, %47 ], [ %.2133.us.us, %._crit_edge.split171.us.us ], [ %.2133, %._crit_edge.split171 ]
-  %.0128.lcssa = phi i32 [ 0, %.lr.ph181 ], [ 0, %47 ], [ %.2130.us.us, %._crit_edge.split171.us.us ], [ %.2130, %._crit_edge.split171 ]
-  %.0127.lcssa = phi i32 [ 0, %.lr.ph181 ], [ 0, %47 ], [ %.2.us.us, %._crit_edge.split171.us.us ], [ %.2, %._crit_edge.split171 ]
+  %.0131.lcssa = phi double [ %.2133.us.us, %._crit_edge.split171.us.us ], [ 0xFFF0000000000000, %.lr.ph181 ], [ 0xFFF0000000000000, %47 ], [ %.2133, %._crit_edge.split171 ]
+  %.0128.lcssa = phi i32 [ %.2130.us.us, %._crit_edge.split171.us.us ], [ 0, %.lr.ph181 ], [ 0, %47 ], [ %.2130, %._crit_edge.split171 ]
+  %.0127.lcssa = phi i32 [ %.2.us.us, %._crit_edge.split171.us.us ], [ 0, %.lr.ph181 ], [ 0, %47 ], [ %.2, %._crit_edge.split171 ]
   %. = select i1 %5, i64 176, i64 152
   %.274 = select i1 %5, i64 224, i64 200
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 %.
@@ -4053,7 +4053,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !19
   br label %40
 
@@ -4154,7 +4154,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !68
   br label %40
 

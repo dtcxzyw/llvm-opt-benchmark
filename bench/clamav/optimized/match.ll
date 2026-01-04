@@ -117,8 +117,8 @@ _ZL10mwcsicompcPKwS0_b.exit70:                    ; preds = %39, %41
   %43 = call fastcc noundef zeroext i1 @_ZL5matchPKwS0_b(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %6)
   br label %.thread79
 
-.thread79:                                        ; preds = %.thread79.sink.split, %_ZL10mwcsicompcPKwS0_b.exit, %35, %_ZL10mwcsicompcPKwS0_b.exit70
-  %.3.ph = phi i1 [ false, %_ZL10mwcsicompcPKwS0_b.exit70 ], [ false, %35 ], [ false, %_ZL10mwcsicompcPKwS0_b.exit ], [ %43, %.thread79.sink.split ]
+.thread79:                                        ; preds = %.thread79.sink.split, %35, %_ZL10mwcsicompcPKwS0_b.exit, %_ZL10mwcsicompcPKwS0_b.exit70
+  %.3.ph = phi i1 [ false, %_ZL10mwcsicompcPKwS0_b.exit70 ], [ false, %_ZL10mwcsicompcPKwS0_b.exit ], [ false, %35 ], [ %43, %.thread79.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread75
@@ -155,7 +155,7 @@ _ZL10mwcsicompcPKwS0_b.exit72:                    ; preds = %49, %51
   br label %.thread75
 
 .thread75:                                        ; preds = %17, %14, %14, %14, %.thread79, %_ZL10mwcsicompcPKwS0_b.exit72, %54
-  %.4 = phi i1 [ %53, %_ZL10mwcsicompcPKwS0_b.exit72 ], [ %55, %54 ], [ %.3.ph, %.thread79 ], [ true, %14 ], [ true, %14 ], [ false, %17 ], [ true, %14 ]
+  %.4 = phi i1 [ %.3.ph, %.thread79 ], [ %53, %_ZL10mwcsicompcPKwS0_b.exit72 ], [ %55, %54 ], [ true, %14 ], [ true, %14 ], [ false, %17 ], [ true, %14 ]
   ret i1 %.4
 }
 
@@ -299,8 +299,8 @@ tailrecurse.backedge:                             ; preds = %53, %53, %53
   %54 = getelementptr inbounds nuw i8, ptr %.044.ph, i64 4
   br label %tailrecurse.outer, !llvm.loop !9
 
-.loopexit:                                        ; preds = %53, %51, %9, %47, %.thread54, %7, %11, %17, %25, %27, %_ZL10mwcsicompcPKwS0_b.exit
-  %.1.ph = phi i1 [ %30, %27 ], [ true, %25 ], [ %45, %_ZL10mwcsicompcPKwS0_b.exit ], [ true, %17 ], [ true, %11 ], [ %8, %7 ], [ %.not52.not.not, %.thread54 ], [ %.not52.not.not, %47 ], [ false, %9 ], [ false, %51 ], [ false, %53 ]
+.loopexit:                                        ; preds = %51, %53, %9, %.thread54, %47, %7, %11, %17, %25, %27, %_ZL10mwcsicompcPKwS0_b.exit
+  %.1.ph = phi i1 [ true, %25 ], [ %45, %_ZL10mwcsicompcPKwS0_b.exit ], [ %30, %27 ], [ %.not52.not.not, %.thread54 ], [ %8, %7 ], [ true, %17 ], [ true, %11 ], [ %.not52.not.not, %47 ], [ false, %9 ], [ false, %53 ], [ false, %51 ]
   ret i1 %.1.ph
 }
 

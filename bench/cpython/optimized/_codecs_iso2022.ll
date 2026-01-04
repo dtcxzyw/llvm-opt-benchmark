@@ -217,7 +217,7 @@ Py_DECREF.exit21.i:                               ; preds = %53, %50, %47
   br i1 %57, label %Py_DECREF.exit.sink.split.i, label %.thread
 
 Py_DECREF.exit.sink.split.i:                      ; preds = %55, %44, %35
-  %.0.ph.i = phi ptr [ null, %35 ], [ null, %44 ], [ %48, %55 ]
+  %.0.ph.i = phi ptr [ null, %44 ], [ null, %35 ], [ %48, %55 ]
   tail call void @_Py_Dealloc(ptr noundef nonnull %22) #15
   br label %.thread
 
@@ -227,7 +227,7 @@ Py_DECREF.exit.sink.split.i:                      ; preds = %55, %44, %35
   br label %.thread
 
 .thread:                                          ; preds = %Py_DECREF.exit.sink.split.i, %55, %Py_DECREF.exit21.i, %44, %42, %35, %32, %21, %8, %._crit_edge, %6
-  %.0 = phi ptr [ null, %6 ], [ null, %8 ], [ null, %._crit_edge ], [ %.0.ph.i, %Py_DECREF.exit.sink.split.i ], [ %48, %55 ], [ %48, %Py_DECREF.exit21.i ], [ null, %44 ], [ null, %42 ], [ null, %35 ], [ null, %32 ], [ null, %21 ]
+  %.0 = phi ptr [ null, %6 ], [ null, %8 ], [ null, %._crit_edge ], [ %.0.ph.i, %Py_DECREF.exit.sink.split.i ], [ null, %44 ], [ null, %42 ], [ null, %35 ], [ null, %32 ], [ %48, %55 ], [ %48, %Py_DECREF.exit21.i ], [ null, %21 ]
   ret ptr %.0
 }
 
@@ -506,7 +506,7 @@ add_codecs.exit.i:                                ; preds = %28, %12
   br i1 %48, label %38, label %register_maps.exit
 
 register_maps.exit:                               ; preds = %38, %41, %1, %7, %add_codecs.exit.i
-  %.0.i = phi i32 [ -1, %1 ], [ -1, %7 ], [ 0, %add_codecs.exit.i ], [ -1, %41 ], [ 0, %38 ]
+  %.0.i = phi i32 [ -1, %7 ], [ -1, %1 ], [ 0, %add_codecs.exit.i ], [ -1, %41 ], [ 0, %38 ]
   ret i32 %.0.i
 }
 
@@ -812,10 +812,10 @@ select.unfold:                                    ; preds = %118, %.lr.ph.split
   %.not = icmp eq i8 %123, 0
   br i1 %.not, label %.thread184, label %.lr.ph.split, !llvm.loop !60
 
-.split.us:                                        ; preds = %118, %.lr.ph.split, %.lr.ph.split.us, %PyUnicode_READ.exit163.us
-  %.us-phi = phi ptr [ %.0137192.us, %PyUnicode_READ.exit163.us ], [ %.0137192.us, %.lr.ph.split.us ], [ %.0137192, %.lr.ph.split ], [ %.0137192, %118 ]
-  %.us-phi194 = phi i16 [ %75, %.lr.ph.split.us ], [ %94, %PyUnicode_READ.exit163.us ], [ %120, %118 ], [ %100, %.lr.ph.split ]
-  %.us-phi195 = phi i64 [ 1, %.lr.ph.split.us ], [ %95, %PyUnicode_READ.exit163.us ], [ %121, %118 ], [ 1, %.lr.ph.split ]
+.split.us:                                        ; preds = %.lr.ph.split, %118, %.lr.ph.split.us, %PyUnicode_READ.exit163.us
+  %.us-phi = phi ptr [ %.0137192.us, %.lr.ph.split.us ], [ %.0137192.us, %PyUnicode_READ.exit163.us ], [ %.0137192, %118 ], [ %.0137192, %.lr.ph.split ]
+  %.us-phi194 = phi i16 [ %75, %.lr.ph.split.us ], [ %94, %PyUnicode_READ.exit163.us ], [ %100, %.lr.ph.split ], [ %120, %118 ]
+  %.us-phi195 = phi i64 [ 1, %.lr.ph.split.us ], [ %95, %PyUnicode_READ.exit163.us ], [ 1, %.lr.ph.split ], [ %121, %118 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.pr = load i8, ptr %.us-phi, align 8, !tbaa !51
@@ -1063,13 +1063,13 @@ select.unfold:                                    ; preds = %118, %.lr.ph.split
   br label %254
 
 254:                                              ; preds = %248, %60
-  %255 = phi i64 [ %64, %60 ], [ %253, %248 ]
-  %.2140 = phi i64 [ %67, %60 ], [ %251, %248 ]
+  %255 = phi i64 [ %253, %248 ], [ %64, %60 ]
+  %.2140 = phi i64 [ %251, %248 ], [ %67, %60 ]
   %256 = icmp slt i64 %255, %5
   br i1 %256, label %19, label %.thread184
 
-.thread184:                                       ; preds = %254, %35, %49, %58, %.split.us, %130, %146, %162, %176, %198, %202, %221, %124, %234, %239, %68, %select.unfold, %select.unfold.us, %9, %.split197.us
-  %.5 = phi i64 [ -2, %.split197.us ], [ 0, %9 ], [ 1, %select.unfold.us ], [ 1, %select.unfold ], [ 1, %68 ], [ 0, %254 ], [ -1, %35 ], [ -1, %49 ], [ -1, %58 ], [ 1, %.split.us ], [ -1, %130 ], [ -1, %146 ], [ -1, %162 ], [ -1, %176 ], [ -1, %198 ], [ -1, %202 ], [ -1, %221 ], [ -3, %124 ], [ -1, %234 ], [ -1, %239 ]
+.thread184:                                       ; preds = %254, %58, %35, %49, %221, %.split.us, %130, %124, %234, %146, %162, %176, %202, %198, %239, %68, %select.unfold, %select.unfold.us, %9, %.split197.us
+  %.5 = phi i64 [ 0, %9 ], [ -2, %.split197.us ], [ 1, %select.unfold.us ], [ 1, %select.unfold ], [ -1, %239 ], [ -1, %58 ], [ -1, %35 ], [ -1, %49 ], [ -1, %221 ], [ 1, %.split.us ], [ -1, %130 ], [ -3, %124 ], [ -1, %234 ], [ -1, %146 ], [ -1, %162 ], [ -1, %176 ], [ -1, %202 ], [ -1, %198 ], [ 0, %254 ], [ 1, %68 ]
   ret i64 %.5
 }
 
@@ -1133,7 +1133,7 @@ define internal range(i64 -1, 1) i64 @iso2022_encode_reset(ptr noundef captures(
   br label %29
 
 29:                                               ; preds = %17, %21, %19, %8
-  %.014 = phi i64 [ -1, %8 ], [ -1, %19 ], [ 0, %21 ], [ 0, %17 ]
+  %.014 = phi i64 [ -1, %19 ], [ -1, %8 ], [ 0, %21 ], [ 0, %17 ]
   ret i64 %.014
 }
 
@@ -1245,7 +1245,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
   br label %57
 
 57:                                               ; preds = %52, %48, %44
-  %.1.i = phi i64 [ %.05487.i, %48 ], [ %.05487.i, %44 ], [ %spec.select.i, %52 ]
+  %.1.i = phi i64 [ %.05487.i, %48 ], [ %spec.select.i, %52 ], [ %.05487.i, %44 ]
   %58 = add nsw i64 %.1.i, 1
   %59 = icmp slt i64 %.1.i, 15
   br i1 %59, label %switch.lookup, label %.thread159, !llvm.loop !65
@@ -1328,13 +1328,13 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
   br i1 %96, label %.thread77.i, label %.thread159
 
 97:                                               ; preds = %68, %67, %62
-  %.055.i = phi i64 [ 1, %67 ], [ 2, %68 ], [ 0, %62 ]
+  %.055.i = phi i64 [ 0, %62 ], [ 2, %68 ], [ 1, %67 ]
   %.not70.i = icmp eq i8 %64, 66
   br i1 %.not70.i, label %iso2022processesc.exit.thread150, label %.thread77.i
 
 .thread77.i:                                      ; preds = %97, %93, %80, %74, %65
-  %.05583.i = phi i64 [ %.055.i, %97 ], [ 0, %93 ], [ 0, %74 ], [ 1, %80 ], [ 0, %65 ]
-  %.05681.i = phi i8 [ %64, %97 ], [ -62, %93 ], [ %77, %74 ], [ %77, %80 ], [ %66, %65 ]
+  %.05583.i = phi i64 [ %.055.i, %97 ], [ 0, %93 ], [ 1, %80 ], [ 0, %74 ], [ 0, %65 ]
+  %.05681.i = phi i8 [ %64, %97 ], [ -62, %93 ], [ %77, %80 ], [ %77, %74 ], [ %66, %65 ]
   %98 = load ptr, ptr %8, align 8, !tbaa !47
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load ptr, ptr %99, align 8, !tbaa !48
@@ -1613,7 +1613,7 @@ iso2022processg2.exit:                            ; preds = %122, %133, %143, %1
   %240 = getelementptr inbounds nuw i8, ptr %.3106, i64 2
   %241 = load i8, ptr %240, align 2, !tbaa !62
   %242 = zext i8 %241 to i64
-  %243 = icmp slt i64 %.0142167, %242
+  %243 = icmp samesign ult i64 %.0142167, %242
   br i1 %243, label %.thread159, label %244
 
 244:                                              ; preds = %.loopexit
@@ -1742,13 +1742,13 @@ PyUnicode_WRITE.exit:                             ; preds = %278, %281, %284
   br label %307
 
 307:                                              ; preds = %iso2022processesc.exit, %193, %202, %211, %225, %301, %183, %iso2022processesc.exit.thread150, %iso2022processg2.exit, %30, %25
-  %.1143 = phi i64 [ %28, %30 ], [ %28, %25 ], [ %228, %225 ], [ %306, %301 ], [ %179, %iso2022processg2.exit ], [ %188, %183 ], [ %197, %193 ], [ %206, %202 ], [ %214, %211 ], [ %107, %iso2022processesc.exit.thread150 ], [ %.0142167, %iso2022processesc.exit ]
-  %.1104 = phi ptr [ %.0103168, %30 ], [ %.0103168, %25 ], [ %.0103168, %225 ], [ %.3106, %301 ], [ %.0103168, %iso2022processg2.exit ], [ %.0103168, %183 ], [ %.0103168, %193 ], [ %.0103168, %202 ], [ %.0103168, %211 ], [ %.0103168, %iso2022processesc.exit.thread150 ], [ %.0103168, %iso2022processesc.exit ]
+  %.1143 = phi i64 [ %206, %202 ], [ %214, %211 ], [ %107, %iso2022processesc.exit.thread150 ], [ %197, %193 ], [ %28, %30 ], [ %28, %25 ], [ %228, %225 ], [ %306, %301 ], [ %179, %iso2022processg2.exit ], [ %188, %183 ], [ %.0142167, %iso2022processesc.exit ]
+  %.1104 = phi ptr [ %.0103168, %202 ], [ %.0103168, %211 ], [ %.0103168, %iso2022processesc.exit.thread150 ], [ %.0103168, %193 ], [ %.0103168, %30 ], [ %.0103168, %25 ], [ %.0103168, %225 ], [ %.3106, %301 ], [ %.0103168, %iso2022processg2.exit ], [ %.0103168, %183 ], [ %.0103168, %iso2022processesc.exit ]
   %308 = icmp sgt i64 %.1143, 0
   br i1 %308, label %15, label %.thread159
 
-.thread159:                                       ; preds = %307, %22, %34, %iso2022processesc.exit, %115, %180, %207, %217, %222, %.loopexit, %254, %259, %105, %60, %68, %73, %74, %93, %89, %85, %81, %122, %118, %133, %143, %156, %161, %164, %167, %160, %170, %173, %117, %272, %switch.lookup, %57, %5, %249
-  %.5 = phi i64 [ %251, %249 ], [ 0, %5 ], [ 1, %57 ], [ -2, %switch.lookup ], [ 0, %307 ], [ -4, %22 ], [ -2, %34 ], [ %61, %iso2022processesc.exit ], [ -2, %115 ], [ -4, %180 ], [ -4, %207 ], [ 1, %217 ], [ -4, %222 ], [ -2, %.loopexit ], [ -4, %254 ], [ -4, %259 ], [ %61, %105 ], [ 1, %60 ], [ 3, %68 ], [ 4, %73 ], [ 4, %74 ], [ 6, %93 ], [ 6, %89 ], [ 6, %85 ], [ 6, %81 ], [ -4, %122 ], [ 3, %118 ], [ -4, %133 ], [ -4, %143 ], [ -4, %156 ], [ -4, %161 ], [ -4, %164 ], [ -4, %167 ], [ 3, %160 ], [ 3, %170 ], [ -4, %173 ], [ -3, %117 ], [ -4, %272 ]
+.thread159:                                       ; preds = %307, %180, %22, %217, %207, %222, %.loopexit, %254, %34, %iso2022processesc.exit, %115, %259, %74, %81, %105, %60, %68, %73, %93, %89, %85, %173, %122, %118, %133, %143, %156, %161, %164, %167, %160, %170, %117, %272, %switch.lookup, %57, %5, %249
+  %.5 = phi i64 [ 0, %5 ], [ %251, %249 ], [ -2, %switch.lookup ], [ 1, %57 ], [ 3, %118 ], [ -4, %133 ], [ -4, %143 ], [ -4, %156 ], [ -4, %161 ], [ -4, %164 ], [ -4, %167 ], [ 3, %160 ], [ 3, %170 ], [ 4, %74 ], [ 6, %81 ], [ %61, %105 ], [ 1, %60 ], [ 3, %68 ], [ 4, %73 ], [ 6, %93 ], [ 6, %89 ], [ -3, %117 ], [ -4, %173 ], [ -4, %180 ], [ -4, %22 ], [ 0, %307 ], [ 1, %217 ], [ -4, %207 ], [ -4, %222 ], [ -2, %.loopexit ], [ 6, %85 ], [ -4, %254 ], [ -2, %34 ], [ %61, %iso2022processesc.exit ], [ -4, %259 ], [ -2, %115 ], [ -4, %272 ], [ -4, %122 ]
   ret i64 %.5
 }
 
@@ -1834,7 +1834,7 @@ define internal range(i32 0, 65536) i32 @ksx1001_decoder(ptr noundef readonly ca
   br label %25
 
 25:                                               ; preds = %21, %2, %11, %18
-  %.0 = phi i32 [ 65535, %18 ], [ 65535, %11 ], [ 65535, %2 ], [ %spec.select, %21 ]
+  %.0 = phi i32 [ 65535, %2 ], [ %spec.select, %21 ], [ 65535, %18 ], [ 65535, %11 ]
   ret i32 %.0
 }
 
@@ -1972,7 +1972,7 @@ Py_DECREF.exit23.sink.split:                      ; preds = %35, %30
   br label %Py_DECREF.exit23
 
 Py_DECREF.exit23:                                 ; preds = %Py_DECREF.exit23.sink.split, %35, %33, %30, %Py_DECREF.exit25, %4
-  %.0 = phi i32 [ -1, %4 ], [ 0, %Py_DECREF.exit25 ], [ 0, %30 ], [ -1, %33 ], [ -1, %35 ], [ %.0.ph, %Py_DECREF.exit23.sink.split ]
+  %.0 = phi i32 [ -1, %4 ], [ -1, %35 ], [ 0, %Py_DECREF.exit25 ], [ 0, %30 ], [ -1, %33 ], [ %.0.ph, %Py_DECREF.exit23.sink.split ]
   ret i32 %.0
 }
 
@@ -2056,7 +2056,7 @@ define internal range(i32 0, 65536) i32 @jisx0208_decoder(ptr noundef readonly c
   br label %31
 
 31:                                               ; preds = %27, %9, %17, %24, %5
-  %.0 = phi i32 [ 65340, %5 ], [ 65535, %24 ], [ 65535, %17 ], [ 65535, %9 ], [ %spec.select, %27 ]
+  %.0 = phi i32 [ 65340, %5 ], [ 65535, %9 ], [ %spec.select, %27 ], [ 65535, %24 ], [ 65535, %17 ]
   ret i32 %.0
 }
 
@@ -2109,7 +2109,7 @@ define internal zeroext range(i16 -1, -32768) i16 @jisx0208_encoder(ptr noundef 
   br label %32
 
 32:                                               ; preds = %26, %6, %31
-  %.0 = phi i16 [ -1, %31 ], [ 8512, %6 ], [ %30, %26 ]
+  %.0 = phi i16 [ 8512, %6 ], [ -1, %31 ], [ %30, %26 ]
   ret i16 %.0
 }
 
@@ -2136,7 +2136,7 @@ define internal range(i32 0, 65536) i32 @jisx0201_r_decoder(ptr readnone capture
   br label %11
 
 11:                                               ; preds = %10, %2, %6, %8
-  %.08 = phi i32 [ %4, %2 ], [ 165, %6 ], [ %4, %8 ], [ %switch.select11, %10 ]
+  %.08 = phi i32 [ %4, %8 ], [ %switch.select11, %10 ], [ %4, %2 ], [ 165, %6 ]
   ret i32 %.08
 }
 
@@ -2165,7 +2165,7 @@ switch.early.test:                                ; preds = %3
   br label %9
 
 9:                                                ; preds = %8, %6
-  %.07 = phi i16 [ %7, %6 ], [ %switch.select13, %8 ]
+  %.07 = phi i16 [ %switch.select13, %8 ], [ %7, %6 ]
   ret i16 %.07
 }
 
@@ -2229,7 +2229,7 @@ define internal range(i32 0, 65536) i32 @jisx0212_decoder(ptr noundef readonly c
   br label %25
 
 25:                                               ; preds = %21, %2, %11, %18
-  %.0 = phi i32 [ 65535, %18 ], [ 65535, %11 ], [ 65535, %2 ], [ %spec.select, %21 ]
+  %.0 = phi i32 [ 65535, %2 ], [ %spec.select, %21 ], [ 65535, %18 ], [ 65535, %11 ]
   ret i32 %.0
 }
 
@@ -2277,7 +2277,7 @@ define internal zeroext range(i16 -1, -32768) i16 @jisx0212_encoder(ptr noundef 
   br label %30
 
 30:                                               ; preds = %24, %3, %20, %15, %6
-  %.0 = phi i16 [ -1, %6 ], [ -1, %15 ], [ -1, %20 ], [ -1, %3 ], [ %spec.select, %24 ]
+  %.0 = phi i16 [ -1, %3 ], [ -1, %6 ], [ -1, %15 ], [ -1, %20 ], [ %spec.select, %24 ]
   ret i16 %.0
 }
 
@@ -2341,7 +2341,7 @@ define internal range(i32 0, 65536) i32 @gb2312_decoder(ptr noundef readonly cap
   br label %25
 
 25:                                               ; preds = %21, %2, %11, %18
-  %.0 = phi i32 [ 65535, %18 ], [ 65535, %11 ], [ 65535, %2 ], [ %spec.select, %21 ]
+  %.0 = phi i32 [ 65535, %2 ], [ %spec.select, %21 ], [ 65535, %18 ], [ 65535, %11 ]
   ret i32 %.0
 }
 
@@ -2462,7 +2462,7 @@ jisx0208_init.exit:                               ; preds = %1
   br label %jisx0208_init.exit.thread
 
 jisx0208_init.exit.thread:                        ; preds = %1, %26, %jisx0208_init.exit, %8, %11, %14, %17, %20, %23
-  %.0 = phi i32 [ -1, %23 ], [ -1, %20 ], [ -1, %17 ], [ -1, %14 ], [ -1, %11 ], [ -1, %8 ], [ -1, %jisx0208_init.exit ], [ %spec.select, %26 ], [ -1, %1 ]
+  %.0 = phi i32 [ -1, %jisx0208_init.exit ], [ %spec.select, %26 ], [ -1, %23 ], [ -1, %20 ], [ -1, %17 ], [ -1, %14 ], [ -1, %11 ], [ -1, %8 ], [ -1, %1 ]
   ret i32 %.0
 }
 
@@ -2613,7 +2613,7 @@ define internal i32 @jisx0213_2004_1_decoder(ptr noundef readonly captures(none)
   br label %92
 
 92:                                               ; preds = %88, %47, %71, %27, %74, %78, %85, %5
-  %.051 = phi i32 [ 65340, %5 ], [ 65535, %85 ], [ 65535, %78 ], [ 65535, %74 ], [ %31, %27 ], [ %51, %47 ], [ %73, %71 ], [ %spec.select, %88 ]
+  %.051 = phi i32 [ 65340, %5 ], [ 65535, %74 ], [ %spec.select, %88 ], [ 65535, %85 ], [ 65535, %78 ], [ %31, %27 ], [ %51, %47 ], [ %73, %71 ]
   ret i32 %.051
 }
 
@@ -2638,7 +2638,7 @@ define internal zeroext i16 @jisx0213_2004_1_encoder_paironly(ptr noundef readon
   br label %10
 
 10:                                               ; preds = %3, %8, %6
-  %.0 = phi i16 [ %., %6 ], [ %.8, %8 ], [ -1, %3 ]
+  %.0 = phi i16 [ %.8, %8 ], [ %., %6 ], [ -1, %3 ]
   ret i16 %.0
 }
 
@@ -2725,7 +2725,7 @@ define internal range(i32 0, 196608) i32 @jisx0213_2004_2_decoder(ptr noundef re
   br label %48
 
 48:                                               ; preds = %45, %21, %26, %31, %38, %41
-  %.028 = phi i32 [ 65535, %41 ], [ 65535, %38 ], [ 65535, %31 ], [ 65535, %26 ], [ %25, %21 ], [ %47, %45 ]
+  %.028 = phi i32 [ 65535, %26 ], [ 65535, %41 ], [ 65535, %38 ], [ 65535, %31 ], [ %25, %21 ], [ %47, %45 ]
   ret i32 %.028
 }
 
@@ -2899,7 +2899,7 @@ define internal fastcc zeroext i16 @jisx0213_encoder(ptr noundef readonly captur
   br i1 %.not90, label %83, label %130
 
 83:                                               ; preds = %41, %78, %59
-  %.0 = phi i16 [ %63, %59 ], [ %82, %78 ], [ -709, %41 ]
+  %.0 = phi i16 [ %82, %78 ], [ %63, %59 ], [ -709, %41 ]
   br label %130
 
 84:                                               ; preds = %4
@@ -3007,7 +3007,7 @@ find_pairencmap.exit107.thread:                   ; preds = %122, %find_pairencm
   br label %130
 
 130:                                              ; preds = %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %find_pairencmap.exit107.thread, %find_pairencmap.exit107, %4, %find_pairencmap.exit, %64, %69, %74, %78, %59, %33, %11, %83, %38
-  %.069 = phi i16 [ -1, %38 ], [ %.0, %83 ], [ -1, %11 ], [ %37, %33 ], [ -1, %41 ], [ -1, %41 ], [ -1, %41 ], [ -1, %41 ], [ -1, %41 ], [ -1, %41 ], [ -1, %41 ], [ -1, %41 ], [ -1, %41 ], [ -1, %41 ], [ %63, %59 ], [ -1, %78 ], [ -1, %74 ], [ -1, %69 ], [ -1, %64 ], [ %109, %find_pairencmap.exit ], [ -1, %4 ], [ -1, %find_pairencmap.exit107.thread ], [ %.fr, %find_pairencmap.exit107 ]
+  %.069 = phi i16 [ -1, %69 ], [ %109, %find_pairencmap.exit ], [ -1, %11 ], [ -1, %38 ], [ %37, %33 ], [ %.0, %83 ], [ -1, %41 ], [ %63, %59 ], [ -1, %4 ], [ -1, %64 ], [ -1, %74 ], [ -1, %41 ], [ -1, %41 ], [ -1, %41 ], [ -1, %41 ], [ -1, %41 ], [ -1, %41 ], [ -1, %41 ], [ -1, %41 ], [ -1, %41 ], [ -1, %78 ], [ -1, %find_pairencmap.exit107.thread ], [ %.fr, %find_pairencmap.exit107 ]
   ret i16 %.069
 }
 
@@ -3197,7 +3197,7 @@ define internal i32 @jisx0213_2000_1_decoder(ptr noundef readonly captures(none)
   br label %108
 
 108:                                              ; preds = %19, %12, %12, %104, %43, %87, %63, %90, %94, %101, %22, %4, %8, %15
-  %.071 = phi i32 [ 65535, %15 ], [ 65535, %12 ], [ 65535, %8 ], [ 65535, %4 ], [ 65340, %22 ], [ 65535, %101 ], [ 65535, %94 ], [ 65535, %90 ], [ %47, %43 ], [ %67, %63 ], [ %89, %87 ], [ %spec.select, %104 ], [ 65535, %12 ], [ 65535, %19 ]
+  %.071 = phi i32 [ 65340, %22 ], [ 65535, %4 ], [ 65535, %90 ], [ %89, %87 ], [ %67, %63 ], [ %47, %43 ], [ 65535, %94 ], [ 65535, %19 ], [ 65535, %15 ], [ 65535, %12 ], [ 65535, %12 ], [ 65535, %8 ], [ %spec.select, %104 ], [ 65535, %101 ]
   ret i32 %.071
 }
 
@@ -3222,7 +3222,7 @@ define internal zeroext i16 @jisx0213_2000_1_encoder_paironly(ptr noundef readon
   br label %10
 
 10:                                               ; preds = %3, %8, %6
-  %.0 = phi i16 [ %., %6 ], [ %.8, %8 ], [ -1, %3 ]
+  %.0 = phi i16 [ %.8, %8 ], [ %., %6 ], [ -1, %3 ]
   ret i16 %.0
 }
 
@@ -3309,7 +3309,7 @@ define internal range(i32 0, 196608) i32 @jisx0213_2000_2_decoder(ptr noundef re
   br label %48
 
 48:                                               ; preds = %45, %21, %26, %31, %38, %41
-  %.030 = phi i32 [ 65535, %41 ], [ 65535, %38 ], [ 65535, %31 ], [ 65535, %26 ], [ %25, %21 ], [ %47, %45 ]
+  %.030 = phi i32 [ 65535, %26 ], [ 65535, %41 ], [ 65535, %38 ], [ 65535, %31 ], [ %25, %21 ], [ %47, %45 ]
   ret i32 %.030
 }
 

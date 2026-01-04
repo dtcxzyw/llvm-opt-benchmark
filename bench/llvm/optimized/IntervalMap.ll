@@ -111,7 +111,7 @@ define dso_local i64 @_ZNK4llvm15IntervalMapImpl4Path14getLeftSiblingEj(ptr noun
   br i1 %.not13, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.lr.ph, %17, %.critedge, %2
-  %.sroa.0.0 = phi i64 [ 0, %2 ], [ 0, %.critedge ], [ %.sroa.0.117, %17 ], [ %.sroa.0.1, %.lr.ph ]
+  %.sroa.0.0 = phi i64 [ 0, %.critedge ], [ 0, %2 ], [ %.sroa.0.117, %17 ], [ %.sroa.0.1, %.lr.ph ]
   ret i64 %.sroa.0.0
 }
 
@@ -191,7 +191,7 @@ _ZNK4llvm15IntervalMapImpl4Path5validEv.exit.thread: ; preds = %2, %_ZNK4llvm15I
   br label %_ZN4llvm15SmallVectorImplINS_15IntervalMapImpl4Path5EntryEE6resizeEmS3_.exit
 
 _ZN4llvm15SmallVectorImplINS_15IntervalMapImpl4Path5EntryEE6resizeEmS3_.exit: ; preds = %.preheader, %.sink.split.i, %18, %_ZNK4llvm15IntervalMapImpl4Path5validEv.exit.thread
-  %.1 = phi i32 [ 0, %_ZNK4llvm15IntervalMapImpl4Path5validEv.exit.thread ], [ 0, %18 ], [ 0, %.sink.split.i ], [ %.0, %.preheader ]
+  %.1 = phi i32 [ 0, %.sink.split.i ], [ 0, %_ZNK4llvm15IntervalMapImpl4Path5validEv.exit.thread ], [ 0, %18 ], [ %.0, %.preheader ]
   %36 = zext i32 %.1 to i64
   %37 = load ptr, ptr %0, align 8, !tbaa !3
   %38 = getelementptr inbounds nuw %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %37, i64 %36
@@ -320,7 +320,7 @@ define dso_local i64 @_ZNK4llvm15IntervalMapImpl4Path15getRightSiblingEj(ptr nou
   br i1 %.not14, label %.loopexit, label %.lr.ph, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.lr.ph, %.critedge.thread, %.critedge, %2
-  %.sroa.0.0 = phi i64 [ 0, %2 ], [ 0, %.critedge ], [ %.sroa.0.121, %.critedge.thread ], [ %.sroa.0.1, %.lr.ph ]
+  %.sroa.0.0 = phi i64 [ 0, %.critedge ], [ 0, %2 ], [ %.sroa.0.121, %.critedge.thread ], [ %.sroa.0.1, %.lr.ph ]
   ret i64 %.sroa.0.0
 }
 
@@ -470,8 +470,8 @@ define dso_local i64 @_ZN4llvm15IntervalMapImpl10distributeEjjjPKjPjjb(i32 nound
   br label %31
 
 31:                                               ; preds = %7, %15, %26
-  %.sroa.026.0 = phi i32 [ %.sroa.026.2, %26 ], [ %.sroa.026.2, %15 ], [ 0, %7 ]
-  %.sroa.6.0 = phi i32 [ %.sroa.6.2, %26 ], [ %.sroa.6.2, %15 ], [ 0, %7 ]
+  %.sroa.026.0 = phi i32 [ %.sroa.026.2, %15 ], [ %.sroa.026.2, %26 ], [ 0, %7 ]
+  %.sroa.6.0 = phi i32 [ %.sroa.6.2, %15 ], [ %.sroa.6.2, %26 ], [ 0, %7 ]
   %.sroa.6.0.insert.ext = zext i32 %.sroa.6.0 to i64
   %.sroa.6.0.insert.shift = shl nuw i64 %.sroa.6.0.insert.ext, 32
   %.sroa.026.0.insert.ext = zext i32 %.sroa.026.0 to i64

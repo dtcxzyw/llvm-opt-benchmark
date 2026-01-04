@@ -3629,7 +3629,7 @@ define internal fastcc i32 @snd_ctl_tlv_ioctl(ptr noundef readonly captures(addr
   br label %.thread
 
 .thread:                                          ; preds = %77, %15, %110, %108, %105, %98, %86, %80, %19, %11, %8, %3
-  %112 = phi i32 [ %111, %110 ], [ -14, %3 ], [ -22, %8 ], [ -22, %11 ], [ -2, %19 ], [ -6, %108 ], [ -6, %80 ], [ -1, %86 ], [ %99, %98 ], [ %99, %105 ], [ -2, %15 ], [ -6, %77 ]
+  %112 = phi i32 [ %111, %110 ], [ -14, %3 ], [ -22, %8 ], [ -22, %11 ], [ -2, %19 ], [ -6, %108 ], [ -2, %15 ], [ -6, %80 ], [ -1, %86 ], [ %99, %98 ], [ %99, %105 ], [ -6, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %112
 }
@@ -3723,7 +3723,7 @@ define internal fastcc noundef range(i32 -14, 1) i32 @snd_ctl_elem_list(ptr noun
   br i1 %58, label %.loopexit, label %20, !llvm.loop !68
 
 .loopexit:                                        ; preds = %.loopexit8, %49, %36, %13, %2
-  %59 = phi i32 [ 0, %2 ], [ 0, %13 ], [ -14, %36 ], [ 0, %49 ], [ 0, %.loopexit8 ]
+  %59 = phi i32 [ 0, %2 ], [ 0, %13 ], [ 0, %49 ], [ -14, %36 ], [ 0, %.loopexit8 ]
   call void @up_read(ptr noundef nonnull %7) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %59
@@ -4392,13 +4392,13 @@ define internal fastcc range(i32 -2147483648, 1) i32 @snd_ctl_elem_add(ptr nound
   br label %.thread14.sink.split
 
 .thread14.sink.split:                             ; preds = %.preheader, %71, %108, %129, %156, %157, %86, %88, %19, %14
-  %.sink = phi ptr [ %16, %14 ], [ %16, %19 ], [ %79, %88 ], [ %79, %86 ], [ %79, %157 ], [ %79, %156 ], [ %79, %129 ], [ %79, %108 ], [ %79, %71 ], [ %16, %.preheader ]
-  %.ph28 = phi i32 [ -2, %14 ], [ -22, %19 ], [ -12, %88 ], [ -22, %86 ], [ 0, %157 ], [ %150, %156 ], [ %123, %129 ], [ -12, %108 ], [ -12, %71 ], [ -16, %.preheader ]
+  %.sink = phi ptr [ %16, %19 ], [ %79, %71 ], [ %16, %14 ], [ %79, %88 ], [ %79, %86 ], [ %79, %157 ], [ %79, %156 ], [ %79, %129 ], [ %79, %108 ], [ %16, %.preheader ]
+  %.ph28 = phi i32 [ -22, %19 ], [ -12, %71 ], [ -2, %14 ], [ -12, %88 ], [ -22, %86 ], [ 0, %157 ], [ %150, %156 ], [ %123, %129 ], [ -12, %108 ], [ -16, %.preheader ]
   tail call void @up_write(ptr noundef nonnull %.sink) #17
   br label %.thread14
 
 .thread14:                                        ; preds = %.thread14.sink.split, %64, %60, %41, %.loopexit, %9, %3
-  %164 = phi i32 [ -22, %3 ], [ -22, %9 ], [ %39, %.loopexit ], [ -22, %41 ], [ -22, %60 ], [ -22, %64 ], [ %.ph28, %.thread14.sink.split ]
+  %164 = phi i32 [ -22, %41 ], [ -22, %3 ], [ -22, %9 ], [ %39, %.loopexit ], [ -22, %60 ], [ -22, %64 ], [ %.ph28, %.thread14.sink.split ]
   ret i32 %164
 }
 
@@ -5331,7 +5331,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @copy_ctl_value_from_user(p
   br label %.thread
 
 .thread:                                          ; preds = %63, %30, %25, %.thread8, %.loopexit, %.thread11, %.thread12, %49, %18, %9, %6
-  %92 = phi i32 [ 0, %.loopexit ], [ -22, %.thread12 ], [ -14, %6 ], [ -14, %9 ], [ -22, %18 ], [ %51, %49 ], [ -14, %.thread11 ], [ %39, %.thread8 ], [ -12, %30 ], [ -2, %25 ], [ -14, %63 ]
+  %92 = phi i32 [ 0, %.loopexit ], [ -22, %.thread12 ], [ -14, %6 ], [ -14, %9 ], [ -22, %18 ], [ %51, %49 ], [ -14, %.thread11 ], [ -2, %25 ], [ %39, %.thread8 ], [ -12, %30 ], [ -14, %63 ]
   ret i32 %92
 }
 

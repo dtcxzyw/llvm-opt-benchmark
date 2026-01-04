@@ -224,7 +224,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN96_$LT$cranelift_codegen_meta..cdsl..operands..OperandKindFields$u20$as$u20$core..clone..Clone$GT$5clone17h2a0186fc19d4ea3cE.exit.i"
 
 "_ZN96_$LT$cranelift_codegen_meta..cdsl..operands..OperandKindFields$u20$as$u20$core..clone..Clone$GT$5clone17h2a0186fc19d4ea3cE.exit.i": ; preds = %15, %13, %2, %2, %2
-  %.sroa.2.0.i = phi ptr [ undef, %2 ], [ %.sroa.2.8.copyload.i, %13 ], [ %17, %15 ], [ undef, %2 ], [ undef, %2 ]
+  %.sroa.2.0.i = phi ptr [ undef, %2 ], [ %17, %15 ], [ undef, %2 ], [ %.sroa.2.8.copyload.i, %13 ], [ undef, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %19 = load ptr, ptr %18, align 8, !noundef !3
@@ -303,7 +303,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN96_$LT$cranelift_codegen_meta..cdsl..operands..OperandKindFields$u20$as$u20$core..clone..Clone$GT$5clone17h2a0186fc19d4ea3cE.exit.i"
 
 "_ZN96_$LT$cranelift_codegen_meta..cdsl..operands..OperandKindFields$u20$as$u20$core..clone..Clone$GT$5clone17h2a0186fc19d4ea3cE.exit.i": ; preds = %19, %17, %2, %2, %2
-  %.sroa.2.0.i = phi ptr [ undef, %2 ], [ %.sroa.2.8.copyload.i, %17 ], [ %21, %19 ], [ undef, %2 ], [ undef, %2 ]
+  %.sroa.2.0.i = phi ptr [ undef, %2 ], [ %21, %19 ], [ undef, %2 ], [ %.sroa.2.8.copyload.i, %17 ], [ undef, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %23 = load ptr, ptr %22, align 8, !noundef !3
@@ -487,7 +487,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN96_$LT$cranelift_codegen_meta..cdsl..operands..OperandKindFields$u20$as$u20$core..clone..Clone$GT$5clone17h2a0186fc19d4ea3cE.exit"
 
 "_ZN96_$LT$cranelift_codegen_meta..cdsl..operands..OperandKindFields$u20$as$u20$core..clone..Clone$GT$5clone17h2a0186fc19d4ea3cE.exit": ; preds = %2, %2, %2, %13, %15
-  %.sroa.2.0 = phi ptr [ undef, %2 ], [ %.sroa.2.8.copyload, %13 ], [ %17, %15 ], [ undef, %2 ], [ undef, %2 ]
+  %.sroa.2.0 = phi ptr [ undef, %2 ], [ %17, %15 ], [ undef, %2 ], [ %.sroa.2.8.copyload, %13 ], [ undef, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %19 = load ptr, ptr %18, align 8, !noundef !3

@@ -1725,7 +1725,7 @@ _ZNK2cv11_InputArray6getMatEi.exit113:            ; preds = %321, %318
   br i1 %408, label %385, label %._crit_edge.loopexit.i, !llvm.loop !113
 
 .loopexit:                                        ; preds = %._crit_edge.i, %.preheader.lr.ph.i, %362
-  %409 = phi i32 [ %363, %.preheader.lr.ph.i ], [ %363, %362 ], [ %380, %._crit_edge.i ]
+  %409 = phi i32 [ %363, %362 ], [ %363, %.preheader.lr.ph.i ], [ %380, %._crit_edge.i ]
   %410 = getelementptr inbounds nuw %"class.cv::Point_", ptr %335, i64 %.039126
   %.val = load float, ptr %410, align 4, !tbaa !64
   %411 = getelementptr i8, ptr %410, i64 4
@@ -2800,7 +2800,7 @@ _ZNK2cv11_InputArray6getMatEi.exit137:            ; preds = %373, %370
   br i1 %460, label %437, label %._crit_edge.loopexit.i, !llvm.loop !113
 
 .loopexit:                                        ; preds = %._crit_edge.i, %.preheader.lr.ph.i, %414
-  %461 = phi i32 [ %415, %.preheader.lr.ph.i ], [ %415, %414 ], [ %432, %._crit_edge.i ]
+  %461 = phi i32 [ %415, %414 ], [ %415, %.preheader.lr.ph.i ], [ %432, %._crit_edge.i ]
   %462 = getelementptr inbounds nuw %"class.cv::Point_", ptr %387, i64 %.050164
   %.val = load float, ptr %462, align 4, !tbaa !64
   %463 = getelementptr i8, ptr %462, i64 4
@@ -4044,7 +4044,7 @@ _ZNK2cv3Mat2atIfEERKT_i.exit.us.us.us.us.i.us.us: ; preds = %_ZNK2cv3Mat2atIfEER
   br label %_ZNK2cv3Mat2atIfEERKT_i.exit67.us.us.us.us.i.us.us
 
 _ZNK2cv3Mat2atIfEERKT_i.exit67.us.us.us.us.i.us.us: ; preds = %353, %343
-  %.0.i66.us.us.us.us.i.us.us = phi ptr [ %356, %353 ], [ %352, %343 ]
+  %.0.i66.us.us.us.us.i.us.us = phi ptr [ %352, %343 ], [ %356, %353 ]
   %357 = load float, ptr %.0.i66.us.us.us.us.i.us.us, align 4, !tbaa !57
   %358 = fmul float %284, %357
   %359 = mul i64 %indvars.iv163.i.us.us, %311
@@ -4085,7 +4085,7 @@ _ZNK2cv3Mat2atIfEERKT_i.exit67.us.us.us.us.i.us.us: ; preds = %353, %343
   br label %_ZNK2cv3Mat2atIfEERKT_i.exit.us.us.us.us.i.us
 
 _ZNK2cv3Mat2atIfEERKT_i.exit.us.us.us.us.i.us:    ; preds = %375, %365
-  %.0.i.us.us.us.us.i.us = phi ptr [ %378, %375 ], [ %374, %365 ]
+  %.0.i.us.us.us.us.i.us = phi ptr [ %374, %365 ], [ %378, %375 ]
   %379 = load float, ptr %.0.i.us.us.us.us.i.us, align 4, !tbaa !57
   %380 = fmul float %284, %379
   %381 = mul i64 %indvars.iv163.i.us, %310
@@ -4201,7 +4201,7 @@ _ZNK2cv3Mat2atIfEERKT_i.exit.us.us.us.us107.i:    ; preds = %.preheader74.us.us.
   br label %_ZNK2cv3Mat2atIfEERKT_i.exit.us.us.us.i
 
 _ZNK2cv3Mat2atIfEERKT_i.exit.us.us.us.i:          ; preds = %436, %426
-  %.0.i.us.us.us.i = phi ptr [ %439, %436 ], [ %435, %426 ]
+  %.0.i.us.us.us.i = phi ptr [ %435, %426 ], [ %439, %436 ]
   %440 = load float, ptr %.0.i.us.us.us.i, align 4, !tbaa !57
   %441 = fmul float %284, %440
   %442 = mul i64 %indvars.iv153.i, %310
@@ -4535,7 +4535,7 @@ _ZNK2cv3Mat2atIfEERKT_i.exit.us85.i:              ; preds = %_ZNK2cv3Mat2atIfEER
   br label %590
 
 590:                                              ; preds = %588, %586
-  %.pn62.i = phi { ptr, i32 } [ %589, %588 ], [ %587, %586 ]
+  %.pn62.i = phi { ptr, i32 } [ %587, %586 ], [ %589, %588 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #24
   br label %591
 
@@ -5330,7 +5330,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %119
   br label %345
 
 .thread:                                          ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit, %183, %174
-  %.077181 = phi double [ %148, %183 ], [ %148, %174 ], [ 0.000000e+00, %_ZNK2cv7MatExprcvNS_3MatEEv.exit ]
+  %.077181 = phi double [ %148, %174 ], [ %148, %183 ], [ 0.000000e+00, %_ZNK2cv7MatExprcvNS_3MatEEv.exit ]
   %191 = fmul double %116, %.077181
   %192 = fcmp oeq double %191, 0.000000e+00
   br i1 %192, label %.loopexit, label %.preheader
@@ -5714,7 +5714,7 @@ _ZN2cvpLERNS_3MatERKNS_7MatExprE.exit170:         ; preds = %329
   ret void
 
 345:                                              ; preds = %343, %342, %260, %266, %267, %269, %271, %277, %278, %280, %190, %184, %172, %171, %165
-  %.pn114.pn.pn.pn = phi { ptr, i32 } [ %.pn102, %190 ], [ %185, %184 ], [ %173, %172 ], [ %.pn98, %171 ], [ %166, %165 ], [ %281, %280 ], [ %279, %278 ], [ %.pn108, %277 ], [ %272, %271 ], [ %270, %269 ], [ %268, %267 ], [ %.pn104, %266 ], [ %261, %260 ], [ %344, %343 ], [ %.pn112, %342 ]
+  %.pn114.pn.pn.pn = phi { ptr, i32 } [ %166, %165 ], [ %.pn102, %190 ], [ %185, %184 ], [ %173, %172 ], [ %.pn98, %171 ], [ %261, %260 ], [ %281, %280 ], [ %279, %278 ], [ %.pn108, %277 ], [ %272, %271 ], [ %270, %269 ], [ %268, %267 ], [ %.pn104, %266 ], [ %.pn112, %342 ], [ %344, %343 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %29) #24
   br label %346
 

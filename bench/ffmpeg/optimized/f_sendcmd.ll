@@ -424,7 +424,7 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
   br i1 %.not76.i.i.i.i, label %141, label %142
 
 141:                                              ; preds = %139, %134, %132, %126
-  %.str.55.sink.i.i.i.i = phi ptr [ @.str.54, %132 ], [ @.str.54, %126 ], [ @.str.55, %139 ], [ @.str.55, %134 ]
+  %.str.55.sink.i.i.i.i = phi ptr [ @.str.54, %126 ], [ @.str.54, %132 ], [ @.str.55, %139 ], [ @.str.55, %134 ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull %.str.55.sink.i.i.i.i, i32 noundef %.024.i163, i32 noundef %.03783.i.i.i) #11
   call void @av_freep(ptr noundef nonnull %45) #11
   call void @av_freep(ptr noundef nonnull %46) #11
@@ -529,12 +529,12 @@ make_command_flags_str.exit.i.i.i:                ; preds = %176
   br i1 %180, label %parse_interval.exit.thread.sink.split.i, label %.lr.ph.i.i.i
 
 parse_interval.exit.thread34.i:                   ; preds = %88, %.thread.i.i
-  %.2.i.ph.i = phi i32 [ %.039.ph.i.i, %.thread.i.i ], [ -22, %88 ]
+  %.2.i.ph.i = phi i32 [ -22, %88 ], [ %.039.ph.i.i, %.thread.i.i ]
   call void @av_free(ptr noundef %66) #11
   br label %parse_intervals.exit.thread59
 
 parse_interval.exit.thread40.i:                   ; preds = %make_command_flags_str.exit.i.i.i, %155, %141, %.thread91.i.i.i.i, %118, %108
-  %.236.ph.i.i.ph.i = phi i32 [ -22, %118 ], [ -22, %108 ], [ -22, %141 ], [ -22, %.thread91.i.i.i.i ], [ -22, %make_command_flags_str.exit.i.i.i ], [ -12, %155 ]
+  %.236.ph.i.i.ph.i = phi i32 [ -22, %.thread91.i.i.i.i ], [ -22, %141 ], [ -22, %make_command_flags_str.exit.i.i.i ], [ -12, %155 ], [ -22, %118 ], [ -22, %108 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @av_free(ptr noundef nonnull %66) #11
@@ -612,8 +612,8 @@ parse_interval.exit.thread.i:                     ; preds = %parse_interval.exit
   %.not11.i.i = icmp eq i8 %204, 0
   br i1 %.not11.i.i, label %.loopexit63, label %.lr.ph.i.i.preheader
 
-parse_intervals.exit.thread59:                    ; preds = %parse_interval.exit.thread40.i, %parse_interval.exit.thread34.i, %197, %185
-  %.021.ph.i.ph = phi i32 [ -22, %185 ], [ -12, %197 ], [ %.2.i.ph.i, %parse_interval.exit.thread34.i ], [ %.236.ph.i.i.ph.i, %parse_interval.exit.thread40.i ]
+parse_intervals.exit.thread59:                    ; preds = %185, %parse_interval.exit.thread34.i, %parse_interval.exit.thread40.i, %197
+  %.021.ph.i.ph = phi i32 [ -12, %197 ], [ %.236.ph.i.i.ph.i, %parse_interval.exit.thread40.i ], [ %.2.i.ph.i, %parse_interval.exit.thread34.i ], [ -22, %185 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
@@ -725,7 +725,7 @@ make_command_flags_str.exit:                      ; preds = %240
   br i1 %255, label %.lr.ph168, label %.loopexit, !llvm.loop !54
 
 .loopexit:                                        ; preds = %._crit_edge, %207, %parse_intervals.exit.thread59, %.thread, %206, %19
-  %.0 = phi i32 [ -22, %19 ], [ -22, %206 ], [ %.1.ph, %.thread ], [ %.021.ph.i.ph, %parse_intervals.exit.thread59 ], [ 0, %207 ], [ 0, %._crit_edge ]
+  %.0 = phi i32 [ -22, %19 ], [ %.1.ph, %.thread ], [ -22, %206 ], [ %.021.ph.i.ph, %parse_intervals.exit.thread59 ], [ 0, %207 ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -855,7 +855,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br label %.thread
 
 .thread:                                          ; preds = %36, %47
-  %.088111 = phi i32 [ 1, %47 ], [ 0, %36 ]
+  %.088111 = phi i32 [ 0, %36 ], [ 1, %47 ]
   %.not100 = icmp slt i64 %20, %.pre
   br i1 %.not100, label %52, label %48
 
@@ -1098,7 +1098,7 @@ make_command_flags_str.exit:                      ; preds = %66
   br label %166
 
 166:                                              ; preds = %.loopexit158, %.loopexit, %159
-  %.9 = phi i32 [ %165, %159 ], [ %.5.ph, %.loopexit158 ], [ -38, %.loopexit ]
+  %.9 = phi i32 [ %.5.ph, %.loopexit158 ], [ %165, %159 ], [ -38, %.loopexit ]
   ret i32 %.9
 }
 

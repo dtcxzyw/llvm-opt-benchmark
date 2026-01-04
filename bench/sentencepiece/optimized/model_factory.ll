@@ -163,7 +163,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit22: ; preds = %_ZStl
   br label %common.resume
 
 _ZNSt10unique_ptrIN13sentencepiece7unigram5ModelESt14default_deleteIS2_EED2Ev.exit: ; preds = %.critedge, %25, %21, %17, %13, %9
-  %.sink = phi ptr [ %10, %9 ], [ %14, %13 ], [ %18, %17 ], [ %22, %21 ], [ null, %25 ], [ null, %.critedge ]
+  %.sink = phi ptr [ %22, %21 ], [ %18, %17 ], [ %14, %13 ], [ %10, %9 ], [ null, %25 ], [ null, %.critedge ]
   store ptr %.sink, ptr %0, align 8, !tbaa !47
   ret void
 }

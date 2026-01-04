@@ -157,7 +157,7 @@ define internal range(i32 0, 2) i32 @ec_gen_set_template(ptr noundef captures(ad
   br label %ec_gen_set_group.exit
 
 ec_gen_set_group.exit:                            ; preds = %14, %13, %7, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %7 ], [ 0, %13 ], [ 1, %14 ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %2 ], [ 0, %13 ], [ 1, %14 ]
   ret i32 %.0
 }
 
@@ -611,7 +611,7 @@ ec_gen_assign_group.exit:                         ; preds = %34, %35
   br label %58
 
 58:                                               ; preds = %53, %54, %48, %49, %ec_gen_assign_group.exit
-  %.041 = phi i32 [ %.0.i, %ec_gen_assign_group.exit ], [ 0, %48 ], [ %52, %49 ], [ 0, %53 ], [ %57, %54 ]
+  %.041 = phi i32 [ %.0.i, %ec_gen_assign_group.exit ], [ %52, %49 ], [ 0, %48 ], [ 0, %53 ], [ %57, %54 ]
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %60 = load i32, ptr %59, align 4, !tbaa !15
   %.not60 = icmp eq i32 %60, -1
@@ -654,7 +654,7 @@ ec_gen_assign_group.exit:                         ; preds = %34, %35
   br label %75
 
 75:                                               ; preds = %74, %3, %7, %.thread78
-  %.0 = phi ptr [ null, %.thread78 ], [ null, %7 ], [ null, %3 ], [ %9, %74 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %3 ], [ null, %.thread78 ], [ %9, %74 ]
   ret ptr %.0
 }
 
@@ -816,7 +816,7 @@ ossl_param_is_empty.exit:                         ; preds = %4
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %4, %.critedge, %7, %ossl_param_is_empty.exit, %2, %26
-  %.019 = phi i32 [ %27, %26 ], [ 0, %2 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %7 ], [ 0, %.critedge ], [ 1, %4 ]
+  %.019 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ 0, %2 ], [ %27, %26 ], [ 0, %.critedge ], [ 0, %7 ], [ 1, %4 ]
   ret i32 %.019
 }
 
@@ -883,7 +883,7 @@ define internal range(i32 0, 2) i32 @ec_has(ptr noundef %0, i32 noundef %1) #0 {
   br label %23
 
 23:                                               ; preds = %18, %.thread26, %.thread30, %6, %2
-  %.014.shrunk = phi i1 [ false, %2 ], [ true, %6 ], [ %.1.shrunk.mux, %18 ], [ %22, %.thread30 ], [ true, %.thread26 ]
+  %.014.shrunk = phi i1 [ true, %6 ], [ false, %2 ], [ %.1.shrunk.mux, %18 ], [ true, %.thread26 ], [ %22, %.thread30 ]
   %.014 = zext i1 %.014.shrunk to i32
   ret i32 %.014
 }
@@ -972,8 +972,8 @@ define internal range(i32 0, 2) i32 @ec_match(ptr noundef %0, ptr noundef %1, i3
   br label %46
 
 46:                                               ; preds = %29, %30, %36, %42, %41, %34
-  %.247 = phi i1 [ false, %34 ], [ true, %41 ], [ true, %42 ], [ false, %36 ], [ true, %30 ], [ true, %29 ]
-  %.4 = phi i32 [ %.044, %34 ], [ 0, %41 ], [ %45, %42 ], [ %.044, %36 ], [ %33, %30 ], [ 0, %29 ]
+  %.247 = phi i1 [ false, %36 ], [ false, %34 ], [ true, %41 ], [ true, %42 ], [ true, %30 ], [ true, %29 ]
+  %.4 = phi i32 [ %.044, %36 ], [ %.044, %34 ], [ 0, %41 ], [ %45, %42 ], [ %33, %30 ], [ 0, %29 ]
   %47 = icmp ne i32 %.4, 0
   %48 = and i1 %.247, %47
   %49 = zext i1 %48 to i32
@@ -985,7 +985,7 @@ define internal range(i32 0, 2) i32 @ec_match(ptr noundef %0, ptr noundef %1, i3
   br label %51
 
 51:                                               ; preds = %7, %3, %50
-  %.0 = phi i32 [ %.1, %50 ], [ 0, %3 ], [ 0, %7 ]
+  %.0 = phi i32 [ 0, %3 ], [ %.1, %50 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -1065,7 +1065,7 @@ define internal range(i32 0, 2) i32 @ec_validate(ptr noundef %0, i32 noundef %1,
   br label %40
 
 40:                                               ; preds = %35, %36, %30, %31, %26
-  %.2 = phi i32 [ %.031, %26 ], [ 0, %30 ], [ %34, %31 ], [ 0, %35 ], [ %39, %36 ]
+  %.2 = phi i32 [ %.031, %26 ], [ %34, %31 ], [ 0, %30 ], [ 0, %35 ], [ %39, %36 ]
   %41 = and i32 %1, 1
   %.not38 = icmp eq i32 %41, 0
   br i1 %.not38, label %47, label %42
@@ -1102,7 +1102,7 @@ define internal range(i32 0, 2) i32 @ec_validate(ptr noundef %0, i32 noundef %1,
   br label %55
 
 55:                                               ; preds = %8, %5, %3, %.thread43
-  %.0 = phi i32 [ %.4, %.thread43 ], [ 0, %3 ], [ 1, %5 ], [ 0, %8 ]
+  %.0 = phi i32 [ 0, %3 ], [ 1, %5 ], [ %.4, %.thread43 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -1219,7 +1219,7 @@ define internal i32 @ec_export(ptr noundef %0, i32 noundef %1, ptr noundef reado
   br label %45
 
 45:                                               ; preds = %15, %12, %4, %.thread
-  %.0 = phi i32 [ %.1, %.thread ], [ 0, %4 ], [ 0, %12 ], [ 0, %15 ]
+  %.0 = phi i32 [ %.1, %.thread ], [ 0, %4 ], [ 0, %15 ], [ 0, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -1323,7 +1323,7 @@ ec_gen_init.exit:                                 ; preds = %10
   br label %ec_gen_init.exit.thread
 
 ec_gen_init.exit.thread:                          ; preds = %8, %14, %3, %19, %17, %ec_gen_init.exit
-  %.0 = phi ptr [ %9, %ec_gen_init.exit ], [ %9, %17 ], [ null, %19 ], [ null, %3 ], [ null, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %9, %17 ], [ %9, %ec_gen_init.exit ], [ null, %19 ], [ null, %3 ], [ null, %14 ], [ null, %8 ]
   ret ptr %.0
 }
 
@@ -1417,7 +1417,7 @@ ec_gen_assign_group.exit.thread:                  ; preds = %29
   br label %41
 
 41:                                               ; preds = %38, %40, %3, %5, %.thread50
-  %.0 = phi ptr [ null, %.thread50 ], [ null, %5 ], [ null, %3 ], [ %7, %40 ], [ %7, %38 ]
+  %.0 = phi ptr [ null, %5 ], [ null, %3 ], [ null, %.thread50 ], [ %7, %40 ], [ %7, %38 ]
   ret ptr %.0
 }
 
@@ -1524,7 +1524,7 @@ define internal range(i32 0, 2) i32 @sm2_validate(ptr noundef %0, i32 noundef %1
   br label %33
 
 33:                                               ; preds = %28, %29, %23, %24, %19
-  %.1 = phi i32 [ %.0, %19 ], [ 0, %23 ], [ %27, %24 ], [ 0, %28 ], [ %32, %29 ]
+  %.1 = phi i32 [ %.0, %19 ], [ %27, %24 ], [ 0, %23 ], [ 0, %28 ], [ %32, %29 ]
   %34 = and i32 %1, 1
   %.not31 = icmp eq i32 %34, 0
   br i1 %.not31, label %40, label %35
@@ -1561,7 +1561,7 @@ define internal range(i32 0, 2) i32 @sm2_validate(ptr noundef %0, i32 noundef %1
   br label %48
 
 48:                                               ; preds = %8, %5, %3, %.thread36
-  %.025 = phi i32 [ %.3, %.thread36 ], [ 0, %3 ], [ 1, %5 ], [ 0, %8 ]
+  %.025 = phi i32 [ 0, %3 ], [ 1, %5 ], [ %.3, %.thread36 ], [ 0, %8 ]
   ret i32 %.025
 }
 
@@ -2077,7 +2077,7 @@ ec_get_ecm_params.exit.thread:                    ; preds = %94, %92, %105, %102
   br label %.thread
 
 .thread:                                          ; preds = %71, %70, %49, %46, %ec_get_ecm_params.exit.thread, %61, %42, %108, %110, %112, %57, %54, %24, %19
-  %.068 = phi i32 [ 0, %61 ], [ 0, %57 ], [ 0, %54 ], [ 0, %42 ], [ 0, %24 ], [ 0, %19 ], [ 0, %110 ], [ 0, %108 ], [ %115, %112 ], [ 0, %ec_get_ecm_params.exit.thread ], [ 0, %46 ], [ 0, %49 ], [ 0, %70 ], [ 0, %71 ]
+  %.068 = phi i32 [ 0, %19 ], [ 0, %49 ], [ 0, %61 ], [ 0, %57 ], [ 0, %54 ], [ %115, %112 ], [ 0, %42 ], [ 0, %24 ], [ 0, %110 ], [ 0, %108 ], [ 0, %ec_get_ecm_params.exit.thread ], [ 0, %46 ], [ 0, %70 ], [ 0, %71 ]
   %116 = load ptr, ptr %8, align 8, !tbaa !42
   call void @CRYPTO_free(ptr noundef %116, ptr noundef nonnull @.str, i32 noundef 762) #5
   %117 = load ptr, ptr %7, align 8, !tbaa !42
@@ -2087,7 +2087,7 @@ ec_get_ecm_params.exit.thread:                    ; preds = %94, %92, %105, %102
   br label %118
 
 118:                                              ; preds = %12, %.thread, %11
-  %.0 = phi i32 [ 0, %11 ], [ %.068, %.thread ], [ 0, %12 ]
+  %.0 = phi i32 [ 0, %11 ], [ 0, %12 ], [ %.068, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
@@ -2217,7 +2217,7 @@ define internal fastcc range(i32 0, 2) i32 @key_to_params(ptr noundef %0, ptr no
   br i1 %.not84, label %.thread102, label %.thread104
 
 .thread104:                                       ; preds = %45, %46, %29, %10
-  %.069 = phi ptr [ null, %10 ], [ %15, %29 ], [ %15, %46 ], [ %15, %45 ]
+  %.069 = phi ptr [ %15, %45 ], [ null, %10 ], [ %15, %29 ], [ %15, %46 ]
   %48 = icmp ne ptr %11, null
   %49 = icmp ne i32 %3, 0
   %or.cond5 = and i1 %49, %48
@@ -2239,14 +2239,14 @@ define internal fastcc range(i32 0, 2) i32 @key_to_params(ptr noundef %0, ptr no
 .thread107:                                       ; preds = %50, %53
   br label %.thread102
 
-.thread102:                                       ; preds = %26, %.thread, %46, %43, %40, %37, %33, %13, %.thread104, %53, %.thread107
-  %.071 = phi i32 [ 0, %.thread107 ], [ 1, %53 ], [ 1, %.thread104 ], [ 0, %13 ], [ 0, %33 ], [ 0, %37 ], [ 0, %40 ], [ 0, %43 ], [ 0, %46 ], [ 0, %.thread ], [ 0, %26 ]
-  %.170 = phi ptr [ %.069, %.thread107 ], [ %.069, %53 ], [ %.069, %.thread104 ], [ null, %13 ], [ %15, %33 ], [ %15, %37 ], [ %15, %40 ], [ %15, %43 ], [ %15, %46 ], [ %15, %.thread ], [ %15, %26 ]
+.thread102:                                       ; preds = %26, %.thread, %46, %37, %40, %43, %33, %13, %.thread104, %53, %.thread107
+  %.071 = phi i32 [ 1, %.thread104 ], [ 0, %.thread107 ], [ 0, %.thread ], [ 1, %53 ], [ 0, %13 ], [ 0, %33 ], [ 0, %43 ], [ 0, %40 ], [ 0, %37 ], [ 0, %46 ], [ 0, %26 ]
+  %.170 = phi ptr [ %.069, %.thread104 ], [ %.069, %.thread107 ], [ %15, %.thread ], [ %.069, %53 ], [ null, %13 ], [ %15, %33 ], [ %15, %43 ], [ %15, %40 ], [ %15, %37 ], [ %15, %46 ], [ %15, %26 ]
   tail call void @BN_CTX_free(ptr noundef %.170) #5
   br label %58
 
 58:                                               ; preds = %5, %7, %.thread102
-  %.0 = phi i32 [ %.071, %.thread102 ], [ 0, %7 ], [ 0, %5 ]
+  %.0 = phi i32 [ %.071, %.thread102 ], [ 0, %5 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -2297,7 +2297,7 @@ define internal fastcc i32 @otherparams_to_params(ptr noundef %0, ptr noundef %1
   br label %25
 
 25:                                               ; preds = %19, %14, %8, %3, %21
-  %.0 = phi i32 [ %24, %21 ], [ 0, %3 ], [ 0, %8 ], [ 0, %14 ], [ 0, %19 ]
+  %.0 = phi i32 [ 0, %3 ], [ %24, %21 ], [ 0, %14 ], [ 0, %8 ], [ 0, %19 ]
   ret i32 %.0
 }
 
@@ -2419,7 +2419,7 @@ common_check_sm2.exit:                            ; preds = %10
   br label %common_check_sm2.exit.thread
 
 common_check_sm2.exit.thread:                     ; preds = %24, %10, %26, %common_check_sm2.exit, %4
-  %.0.shrunk = phi i1 [ false, %4 ], [ false, %common_check_sm2.exit ], [ %.020.in.mux, %24 ], [ %28, %26 ], [ false, %10 ]
+  %.0.shrunk = phi i1 [ %28, %26 ], [ false, %4 ], [ false, %common_check_sm2.exit ], [ %.020.in.mux, %24 ], [ false, %10 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }

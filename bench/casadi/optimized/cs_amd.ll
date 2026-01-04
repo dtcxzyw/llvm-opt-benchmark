@@ -922,9 +922,9 @@ cs_wclear.exit821:                                ; preds = %295
   br i1 %exitcond1072.not, label %cs_wclear.exit832, label %332, !llvm.loop !34
 
 cs_wclear.exit832.thread:                         ; preds = %cs_wclear.exit821.thread, %cs_wclear.exit821
-  %.ph1179 = phi ptr [ %297, %cs_wclear.exit821 ], [ %242, %cs_wclear.exit821.thread ]
-  %.ph1180 = phi ptr [ %299, %cs_wclear.exit821 ], [ %243, %cs_wclear.exit821.thread ]
-  %.3687.lcssa.ph = phi i32 [ %.1685.lcssa, %cs_wclear.exit821 ], [ 0, %cs_wclear.exit821.thread ]
+  %.ph1179 = phi ptr [ %242, %cs_wclear.exit821.thread ], [ %297, %cs_wclear.exit821 ]
+  %.ph1180 = phi ptr [ %243, %cs_wclear.exit821.thread ], [ %299, %cs_wclear.exit821 ]
+  %.3687.lcssa.ph = phi i32 [ 0, %cs_wclear.exit821.thread ], [ %.1685.lcssa, %cs_wclear.exit821 ]
   store i32 %.3687.lcssa.ph, ptr %.ph1179, align 4, !tbaa !13
   %407 = tail call i32 @llvm.smax.i32(i32 %.0694993, i32 %.3687.lcssa.ph)
   %408 = add nuw nsw i32 %407, %.0721990
@@ -1299,12 +1299,12 @@ select.unfold:                                    ; preds = %462
   br i1 %exitcond1109.not, label %.sink.split1229, label %.lr.ph1006, !llvm.loop !44
 
 .sink.split1229:                                  ; preds = %564, %.preheader, %64, %77
-  %.sink1230 = phi i32 [ 0, %77 ], [ 0, %64 ], [ 1, %.preheader ], [ 1, %564 ]
+  %.sink1230 = phi i32 [ 0, %64 ], [ 0, %77 ], [ 1, %.preheader ], [ 1, %564 ]
   %565 = tail call ptr @cs_idone(ptr noundef %72, ptr noundef nonnull %.0669, ptr noundef %74, i32 noundef %.sink1230) #6
   br label %566
 
 566:                                              ; preds = %.sink.split1229, %62, %9, %2, %3
-  %.0668 = phi ptr [ null, %3 ], [ null, %2 ], [ null, %9 ], [ null, %62 ], [ %565, %.sink.split1229 ]
+  %.0668 = phi ptr [ null, %2 ], [ null, %3 ], [ null, %62 ], [ null, %9 ], [ %565, %.sink.split1229 ]
   ret ptr %.0668
 }
 

@@ -443,7 +443,7 @@ define dso_local range(i32 -99, 1) i32 @eth_mac_addr(ptr noundef %0, ptr noundef
   br label %.thread
 
 .thread:                                          ; preds = %16, %11, %6, %22
-  %23 = phi i32 [ 0, %22 ], [ -99, %11 ], [ -16, %6 ], [ -99, %16 ]
+  %23 = phi i32 [ 0, %22 ], [ -16, %6 ], [ -99, %11 ], [ -99, %16 ]
   ret i32 %23
 }
 

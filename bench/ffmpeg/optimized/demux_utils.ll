@@ -312,7 +312,7 @@ define range(i32 -22, 1) i32 @ff_add_param_change(ptr noundef %0, i32 noundef %1
   br label %20
 
 20:                                               ; preds = %18, %17, %7, %6
-  %.022 = phi i32 [ -22, %6 ], [ -12, %7 ], [ 0, %17 ], [ 0, %18 ]
+  %.022 = phi i32 [ -12, %7 ], [ -22, %6 ], [ 0, %17 ], [ 0, %18 ]
   ret i32 %.022
 }
 
@@ -409,8 +409,8 @@ define range(i32 -2147483648, 1) i32 @ff_generate_avci_extradata(ptr noundef rea
   br label %15
 
 15:                                               ; preds = %14, %6, %10, %1
-  %.014 = phi ptr [ @ff_generate_avci_extradata.avci50_720p_extradata, %14 ], [ %ff_generate_avci_extradata.avci100_1080p_extradata.ff_generate_avci_extradata.avci100_1080i_extradata, %6 ], [ %ff_generate_avci_extradata.avci50_1080p_extradata.ff_generate_avci_extradata.avci50_1080i_extradata, %10 ], [ @ff_generate_avci_extradata.avci100_720p_extradata, %1 ]
-  %.0 = phi i32 [ 81, %14 ], [ %., %6 ], [ %.17, %10 ], [ 89, %1 ]
+  %.014 = phi ptr [ %ff_generate_avci_extradata.avci100_1080p_extradata.ff_generate_avci_extradata.avci100_1080i_extradata, %6 ], [ @ff_generate_avci_extradata.avci100_720p_extradata, %1 ], [ %ff_generate_avci_extradata.avci50_1080p_extradata.ff_generate_avci_extradata.avci50_1080i_extradata, %10 ], [ @ff_generate_avci_extradata.avci50_720p_extradata, %14 ]
+  %.0 = phi i32 [ %., %6 ], [ 89, %1 ], [ %.17, %10 ], [ 81, %14 ]
   %16 = tail call i32 @ff_alloc_extradata(ptr noundef nonnull %3, i32 noundef %.0) #6
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %.fold.split, label %18
@@ -424,7 +424,7 @@ define range(i32 -2147483648, 1) i32 @ff_generate_avci_extradata(ptr noundef rea
   br label %.fold.split
 
 .fold.split:                                      ; preds = %1, %15, %18
-  %.013 = phi i32 [ 0, %18 ], [ %16, %15 ], [ 0, %1 ]
+  %.013 = phi i32 [ %16, %15 ], [ 0, %18 ], [ 0, %1 ]
   ret i32 %.013
 }
 
@@ -451,7 +451,7 @@ define i32 @ff_get_extradata(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32
   br label %14
 
 14:                                               ; preds = %7, %4, %12
-  %.0 = phi i32 [ %10, %12 ], [ %5, %4 ], [ %10, %7 ]
+  %.0 = phi i32 [ %5, %4 ], [ %10, %12 ], [ %10, %7 ]
   ret i32 %.0
 }
 

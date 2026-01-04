@@ -755,7 +755,7 @@ refr_invalid_areas.exit:                          ; preds = %310, %203
   br i1 %345, label %.lr.ph, label %.loopexit, !llvm.loop !80
 
 .loopexit:                                        ; preds = %340, %.preheader, %324, %322
-  %346 = phi ptr [ %.pre53, %.preheader ], [ %.pre53, %324 ], [ %.pre53, %322 ], [ %341, %340 ]
+  %346 = phi ptr [ %.pre53, %322 ], [ %.pre53, %.preheader ], [ %.pre53, %324 ], [ %341, %340 ]
   %347 = getelementptr inbounds nuw i8, ptr %346, i64 96
   call void @lv_memset(ptr noundef nonnull %347, i8 noundef zeroext 0, i64 noundef 512) #9
   %348 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 32), align 8, !tbaa !28
@@ -1246,7 +1246,7 @@ alpha_test_area_on_obj.exit:                      ; preds = %94
   br label %101
 
 101:                                              ; preds = %.critedge, %alpha_test_area_on_obj.exit
-  %102 = phi i32 [ 18, %alpha_test_area_on_obj.exit ], [ 16, %.critedge ]
+  %102 = phi i32 [ 16, %.critedge ], [ 18, %alpha_test_area_on_obj.exit ]
   %103 = call ptr @lv_draw_layer_create(ptr noundef %0, i32 noundef %102, ptr noundef nonnull %10) #9
   call void @lv_obj_redraw(ptr noundef %103, ptr noundef %1)
   %104 = call ptr @lv_obj_get_style_prop(ptr noundef %1, i32 noundef 0, i8 noundef zeroext 111) #9
@@ -1396,7 +1396,7 @@ alpha_test_area_on_obj.exit:                      ; preds = %94
   store i8 %20, ptr %19, align 4, !tbaa !102
   br label %189
 
-.critedge75:                                      ; preds = %.critedge.i, %.critedge26.i, %36, %.critedge28.i
+.critedge75:                                      ; preds = %.critedge.i, %36, %.critedge28.i, %.critedge26.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %189

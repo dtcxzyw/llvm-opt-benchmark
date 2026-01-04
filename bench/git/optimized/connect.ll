@@ -210,7 +210,7 @@ define dso_local range(i32 0, 2) i32 @check_ref_type(ptr noundef %0, i32 noundef
   br label %check_ref.exit
 
 check_ref.exit:                                   ; preds = %4, %2, %11, %15, %19, %21
-  %.0.i = phi i32 [ %22, %21 ], [ 1, %2 ], [ 0, %11 ], [ 1, %15 ], [ 1, %19 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %19 ], [ 0, %11 ], [ 1, %15 ], [ %22, %21 ], [ 1, %2 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -485,8 +485,8 @@ skip_prefix.exit.thread25:                        ; preds = %skip_prefix.exit, %
   tail call void (ptr, ...) @die(ptr noundef %45, ptr noundef %1) #25
   unreachable
 
-skip_prefix.exit.thread29:                        ; preds = %34, %31, %skip_prefix.exit.thread25
-  %.2 = phi i32 [ 0, %skip_prefix.exit.thread25 ], [ 1, %31 ], [ 1, %34 ]
+skip_prefix.exit.thread29:                        ; preds = %31, %34, %skip_prefix.exit.thread25
+  %.2 = phi i32 [ 0, %skip_prefix.exit.thread25 ], [ 1, %34 ], [ 1, %31 ]
   ret i32 %.2
 }
 
@@ -544,7 +544,7 @@ define dso_local range(i32 0, 2) i32 @parse_feature_request(ptr noundef readonly
   br i1 %.not55.i, label %parse_feature_value.exit, label %.lr.ph.i, !llvm.loop !21
 
 parse_feature_value.exit:                         ; preds = %16, %19, %.lr.ph.i, %25, %2, %3
-  %.0.i = phi i32 [ 0, %2 ], [ 0, %3 ], [ 1, %16 ], [ 1, %19 ], [ 0, %25 ], [ 0, %.lr.ph.i ]
+  %.0.i = phi i32 [ 0, %3 ], [ 0, %2 ], [ 1, %19 ], [ 0, %25 ], [ 0, %.lr.ph.i ], [ 1, %16 ]
   ret i32 %.0.i
 }
 
@@ -605,7 +605,7 @@ define dso_local noundef i32 @discover_version(ptr noundef %0) local_unnamed_add
   unreachable
 
 process_capabilities_v2.exit:                     ; preds = %1, %1, %1, %._crit_edge.i, %19, %4
-  %.07 = phi i32 [ 1, %19 ], [ %7, %4 ], [ 2, %._crit_edge.i ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ]
+  %.07 = phi i32 [ 2, %._crit_edge.i ], [ 1, %19 ], [ %7, %4 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ]
   %21 = sext i32 %.07 to i64
   tail call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.2, i32 noundef 177, ptr noundef nonnull @.str.4, ptr noundef null, ptr noundef nonnull @.str.5, i64 noundef %21) #24
   ret i32 %.07
@@ -823,7 +823,7 @@ process_capabilities.exit:                        ; preds = %27, %69, %.loopexit
   %.not.i.not.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %.not.i.not.i, label %process_dummy_ref.exit, label %process_dummy_ref.exit.thread
 
-process_dummy_ref.exit.thread:                    ; preds = %process_capabilities.exit, %73, %76
+process_dummy_ref.exit.thread:                    ; preds = %73, %process_capabilities.exit, %76
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %82
@@ -957,7 +957,7 @@ _.exit.i.i:                                       ; preds = %119, %117
   call void (ptr, ...) @warning(ptr noundef %.0.i.i.i20, ptr noundef nonnull %122) #24
   br label %process_ref.exit
 
-process_ref.exit.thread:                          ; preds = %82, %84
+process_ref.exit.thread:                          ; preds = %84, %82
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %123
@@ -968,7 +968,7 @@ process_ref.exit:                                 ; preds = %check_ref.exit.thre
   br label %.thread.outer, !llvm.loop !38
 
 123:                                              ; preds = %process_ref.exit.thread, %26
-  %.4 = phi i64 [ %.141, %26 ], [ %.3, %process_ref.exit.thread ]
+  %.4 = phi i64 [ %.3, %process_ref.exit.thread ], [ %.141, %26 ]
   %124 = load ptr, ptr %13, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %scevgep.i = getelementptr i8, ptr %124, i64 8
@@ -1030,12 +1030,12 @@ _.exit.i.i24:                                     ; preds = %143, %141
   call void (ptr, ...) @warning(ptr noundef %.0.i.i.i25, ptr noundef nonnull %146) #24
   br label %process_shallow.exit.thread
 
-process_shallow.exit.thread:                      ; preds = %139, %_.exit.i.i24
+process_shallow.exit.thread:                      ; preds = %_.exit.i.i24, %139
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread.backedge
 
 .thread.backedge:                                 ; preds = %process_shallow.exit.thread, %process_dummy_ref.exit
-  %.04081.be = phi i64 [ %.5, %process_dummy_ref.exit ], [ %.4, %process_shallow.exit.thread ]
+  %.04081.be = phi i64 [ %.4, %process_shallow.exit.thread ], [ %.5, %process_dummy_ref.exit ]
   br label %.thread, !llvm.loop !38
 
 147:                                              ; preds = %126
@@ -1159,7 +1159,7 @@ default.unreachable:                              ; preds = %26
   br label %parse_one_symref_info.exit.i
 
 parse_one_symref_info.exit.i:                     ; preds = %204, %201, %184, %.thread.i
-  %.11621.i = phi i64 [ %183, %.thread.i ], [ %190, %184 ], [ %190, %201 ], [ %190, %204 ]
+  %.11621.i = phi i64 [ %190, %204 ], [ %183, %.thread.i ], [ %190, %184 ], [ %190, %201 ]
   %205 = load ptr, ptr @server_capabilities_v1, align 8, !tbaa !15
   %.not.i.i.i33 = icmp eq ptr %205, null
   br i1 %.not.i.i.i33, label %.loopexit.i34, label %.lr.ph.i
@@ -1837,7 +1837,7 @@ skip_prefix.exit59.i:                             ; preds = %138, %135
   br i1 %150, label %117, label %process_ref_v2.exit, !llvm.loop !52
 
 process_ref_v2.exit:                              ; preds = %.loopexit82.i, %96, %80, %81, %.preheader.i, %skip_prefix.exit.i, %104
-  %.3 = phi ptr [ %.05676, %80 ], [ %.05676, %skip_prefix.exit.i ], [ %.05676, %.preheader.i ], [ %.05676, %81 ], [ %108, %104 ], [ %.05676, %96 ], [ %.2, %.loopexit82.i ]
+  %.3 = phi ptr [ %108, %104 ], [ %.05676, %80 ], [ %.05676, %skip_prefix.exit.i ], [ %.05676, %96 ], [ %.05676, %.preheader.i ], [ %.05676, %81 ], [ %.2, %.loopexit82.i ]
   call void @string_list_clear(ptr noundef nonnull %9, i32 noundef 0) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1846,7 +1846,7 @@ process_ref_v2.exit:                              ; preds = %.loopexit82.i, %96,
   %152 = icmp eq i32 %151, 1
   br i1 %152, label %72, label %._crit_edge, !llvm.loop !53
 
-.loopexit:                                        ; preds = %72, %101, %98, %skip_prefix.exit59.i
+.loopexit:                                        ; preds = %72, %98, %101, %skip_prefix.exit59.i
   call void @string_list_clear(ptr noundef nonnull %9, i32 noundef 0) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1999,8 +1999,8 @@ define dso_local ptr @parse_feature_value(ptr noundef %0, ptr noundef readonly c
   store i64 %49, ptr %3, align 8, !tbaa !54
   br label %.thread65
 
-.thread65:                                        ; preds = %44, %.lr.ph, %.thread65.sink.split, %10, %41, %33, %4
-  %.0 = phi ptr [ null, %4 ], [ %38, %41 ], [ %31, %33 ], [ null, %10 ], [ %.0.ph, %.thread65.sink.split ], [ null, %.lr.ph ], [ null, %44 ]
+.thread65:                                        ; preds = %44, %.lr.ph, %.thread65.sink.split, %10, %33, %41, %4
+  %.0 = phi ptr [ %31, %33 ], [ null, %4 ], [ %38, %41 ], [ null, %10 ], [ %.0.ph, %.thread65.sink.split ], [ null, %.lr.ph ], [ null, %44 ]
   ret ptr %.0
 }
 
@@ -2194,7 +2194,7 @@ next_server_feature_value.exit27:                 ; preds = %next_server_feature
   br i1 %.not13, label %next_server_feature_value.exit27.thread, label %.lr.ph, !llvm.loop !55
 
 next_server_feature_value.exit27.thread:          ; preds = %next_server_feature_value.exit27, %.lr.ph, %47, %.lr.ph.i.i16, %74, %44
-  %.08 = phi i32 [ 1, %44 ], [ 0, %74 ], [ 0, %.lr.ph.i.i16 ], [ 0, %47 ], [ 0, %.lr.ph ], [ 1, %next_server_feature_value.exit27 ]
+  %.08 = phi i32 [ 0, %.lr.ph.i.i16 ], [ 1, %44 ], [ 0, %74 ], [ 0, %.lr.ph ], [ 0, %47 ], [ 1, %next_server_feature_value.exit27 ]
   ret i32 %.08
 }
 
@@ -2278,7 +2278,7 @@ parse_feature_value.exit.sink.split:              ; preds = %25, %32
   br label %parse_feature_value.exit
 
 parse_feature_value.exit:                         ; preds = %.lr.ph.i, %34, %parse_feature_value.exit.sink.split, %29, %25, %2, %4
-  %.0.i = phi ptr [ null, %2 ], [ null, %4 ], [ %26, %25 ], [ %31, %29 ], [ %.0.i.ph, %parse_feature_value.exit.sink.split ], [ null, %34 ], [ null, %.lr.ph.i ]
+  %.0.i = phi ptr [ null, %4 ], [ null, %2 ], [ %26, %25 ], [ %.0.i.ph, %parse_feature_value.exit.sink.split ], [ %31, %29 ], [ null, %34 ], [ null, %.lr.ph.i ]
   ret ptr %.0.i
 }
 
@@ -2337,7 +2337,7 @@ define dso_local range(i32 0, 2) i32 @server_supports(ptr noundef readonly captu
   br i1 %.not55.i.i, label %server_feature_value.exit, label %.lr.ph.i.i, !llvm.loop !21
 
 server_feature_value.exit:                        ; preds = %16, %19, %.lr.ph.i.i, %25, %1, %3
-  %.0.i.i = phi i32 [ 0, %1 ], [ 0, %3 ], [ 1, %16 ], [ 1, %19 ], [ 0, %.lr.ph.i.i ], [ 0, %25 ]
+  %.0.i.i = phi i32 [ 0, %3 ], [ 0, %1 ], [ 1, %19 ], [ 1, %16 ], [ 0, %25 ], [ 0, %.lr.ph.i.i ]
   ret i32 %.0.i.i
 }
 
@@ -2441,7 +2441,7 @@ define dso_local noundef ptr @git_connect(ptr noundef captures(none) %0, ptr nou
   unreachable
 
 get_protocol.exit.i:                              ; preds = %39, %37, %35, %33, %31
-  %.0.i.i = phi i32 [ 3, %31 ], [ 4, %33 ], [ 3, %35 ], [ 3, %37 ], [ 2, %39 ]
+  %.0.i.i = phi i32 [ 3, %37 ], [ 3, %35 ], [ 4, %33 ], [ 3, %31 ], [ 2, %39 ]
   %43 = getelementptr inbounds nuw i8, ptr %30, i64 3
   br label %49
 
@@ -3371,7 +3371,7 @@ define internal fastcc void @get_host_and_port(ptr %.0.val, ptr noundef nonnull 
   br label %host_end.exit
 
 host_end.exit:                                    ; preds = %1, %7, %10
-  %.017.i = phi ptr [ %14, %10 ], [ %.0.val, %7 ], [ %.0.val, %1 ]
+  %.017.i = phi ptr [ %14, %10 ], [ %.0.val, %1 ], [ %.0.val, %7 ]
   store ptr %.017.i, ptr %2, align 8, !tbaa !15
   %15 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.017.i, i32 noundef 58) #26
   %.not = icmp eq ptr %15, null
@@ -3566,7 +3566,7 @@ define internal i32 @git_proxy_command_options(ptr noundef %0, ptr noundef %1, p
   br label %42
 
 42:                                               ; preds = %38, %15
-  %.032.in = phi i64 [ %41, %38 ], [ %16, %15 ]
+  %.032.in = phi i64 [ %16, %15 ], [ %41, %38 ]
   %.032 = trunc i64 %.032.in to i32
   %43 = icmp sgt i32 %.032, -1
   br i1 %43, label %44, label %.thread
@@ -3582,7 +3582,7 @@ define internal i32 @git_proxy_command_options(ptr noundef %0, ptr noundef %1, p
   br label %47
 
 47:                                               ; preds = %46, %44
-  %.133 = phi i64 [ %.032.in, %44 ], [ %spec.select, %46 ]
+  %.133 = phi i64 [ %spec.select, %46 ], [ %.032.in, %44 ]
   %48 = and i64 %.133, 2147483647
   %49 = tail call ptr @xmemdupz(ptr noundef nonnull %1, i64 noundef %48) #24
   store ptr %49, ptr @git_proxy_command, align 8, !tbaa !15
@@ -3698,8 +3698,8 @@ define internal fastcc range(i32 0, 6) i32 @determine_ssh_variant(ptr noundef %0
   %..i = select i1 %.not11.i, i32 1, i32 2
   br label %override_ssh_variant.exit.thread
 
-override_ssh_variant.exit.thread:                 ; preds = %12, %14, %16, %18
-  %.128.ph = phi i32 [ %..i, %18 ], [ 5, %16 ], [ 4, %14 ], [ 3, %12 ]
+override_ssh_variant.exit.thread:                 ; preds = %12, %18, %16, %14
+  %.128.ph = phi i32 [ 4, %14 ], [ 5, %16 ], [ %..i, %18 ], [ 3, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %47
 
@@ -3735,8 +3735,8 @@ override_ssh_variant.exit.thread:                 ; preds = %12, %14, %16, %18
   br label %47
 
 33:                                               ; preds = %.thread, %21
-  %.015 = phi ptr [ %23, %21 ], [ %30, %.thread ]
-  %.014 = phi ptr [ %22, %21 ], [ %25, %.thread ]
+  %.015 = phi ptr [ %30, %.thread ], [ %23, %21 ]
+  %.014 = phi ptr [ %25, %.thread ], [ %22, %21 ]
   %34 = call i32 @strcasecmp(ptr noundef %.015, ptr noundef nonnull @.str.35) #26
   %.not20 = icmp eq i32 %34, 0
   br i1 %.not20, label %46, label %35
@@ -3770,12 +3770,12 @@ override_ssh_variant.exit.thread:                 ; preds = %12, %14, %16, %18
   br label %46
 
 46:                                               ; preds = %37, %39, %33, %35, %45, %43
-  %.0 = phi i32 [ 5, %45 ], [ 0, %43 ], [ 2, %35 ], [ 2, %33 ], [ 3, %39 ], [ 3, %37 ]
+  %.0 = phi i32 [ 0, %43 ], [ 2, %33 ], [ 5, %45 ], [ 2, %35 ], [ 3, %39 ], [ 3, %37 ]
   call void @free(ptr noundef %.014) #24
   br label %47
 
 47:                                               ; preds = %32, %override_ssh_variant.exit.thread, %46
-  %.016 = phi i32 [ %.0, %46 ], [ 0, %32 ], [ %.128.ph, %override_ssh_variant.exit.thread ]
+  %.016 = phi i32 [ 0, %32 ], [ %.0, %46 ], [ %.128.ph, %override_ssh_variant.exit.thread ]
   ret i32 %.016
 }
 

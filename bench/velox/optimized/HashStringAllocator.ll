@@ -2506,8 +2506,8 @@ return.sink.split.i.i.loopexit:                   ; preds = %for.body.i.i
   br label %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.thread
 
 _ZN8facebook5velox4bits12findFirstBitEPKmii.exit.thread: ; preds = %if.then3.i.i, %_ZZN8facebook5velox4bits12findFirstBitEPKmiiENKUlimE_clEim.exit41.i.i, %for.end.i.i, %return.sink.split.i.i.loopexit
-  %and.i54.sink.i.i = phi i64 [ %and.i35.i.i, %_ZZN8facebook5velox4bits12findFirstBitEPKmiiENKUlimE_clEim.exit41.i.i ], [ %and.i.i.i, %if.then3.i.i ], [ %and.i54.i.i, %for.end.i.i ], [ %8, %return.sink.split.i.i.loopexit ]
-  %.sink.i.i = phi i32 [ %mul.i38.i.i, %_ZZN8facebook5velox4bits12findFirstBitEPKmiiENKUlimE_clEim.exit41.i.i ], [ 3008, %if.then3.i.i ], [ 3008, %for.end.i.i ], [ %10, %return.sink.split.i.i.loopexit ]
+  %and.i54.sink.i.i = phi i64 [ %and.i.i.i, %if.then3.i.i ], [ %and.i54.i.i, %for.end.i.i ], [ %and.i35.i.i, %_ZZN8facebook5velox4bits12findFirstBitEPKmiiENKUlimE_clEim.exit41.i.i ], [ %8, %return.sink.split.i.i.loopexit ]
+  %.sink.i.i = phi i32 [ 3008, %if.then3.i.i ], [ 3008, %for.end.i.i ], [ %mul.i38.i.i, %_ZZN8facebook5velox4bits12findFirstBitEPKmiiENKUlimE_clEim.exit41.i.i ], [ %10, %return.sink.split.i.i.loopexit ]
   %11 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %and.i54.sink.i.i, i1 true)
   %cast.i58.i.i = trunc nuw nsw i64 %11 to i32
   %add.i59.i.i = or disjoint i32 %.sink.i.i, %cast.i58.i.i
@@ -3342,8 +3342,8 @@ if.end8.loopexit:                                 ; preds = %for.body.i.i
   br label %if.end8
 
 if.end8:                                          ; preds = %if.end8.loopexit, %for.end.i.i, %_ZZN8facebook5velox4bits12findFirstBitEPKmiiENKUlimE_clEim.exit41.i.i, %if.then3.i.i
-  %and.i54.sink.i.i = phi i64 [ %and.i35.i.i, %_ZZN8facebook5velox4bits12findFirstBitEPKmiiENKUlimE_clEim.exit41.i.i ], [ %and.i.i.i, %if.then3.i.i ], [ %and.i54.i.i, %for.end.i.i ], [ %8, %if.end8.loopexit ]
-  %.sink.i.i = phi i32 [ %mul.i38.i.i, %_ZZN8facebook5velox4bits12findFirstBitEPKmiiENKUlimE_clEim.exit41.i.i ], [ 3008, %if.then3.i.i ], [ 3008, %for.end.i.i ], [ %10, %if.end8.loopexit ]
+  %and.i54.sink.i.i = phi i64 [ %and.i.i.i, %if.then3.i.i ], [ %and.i54.i.i, %for.end.i.i ], [ %and.i35.i.i, %_ZZN8facebook5velox4bits12findFirstBitEPKmiiENKUlimE_clEim.exit41.i.i ], [ %8, %if.end8.loopexit ]
+  %.sink.i.i = phi i32 [ 3008, %if.then3.i.i ], [ 3008, %for.end.i.i ], [ %mul.i38.i.i, %_ZZN8facebook5velox4bits12findFirstBitEPKmiiENKUlimE_clEim.exit41.i.i ], [ %10, %if.end8.loopexit ]
   %11 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %and.i54.sink.i.i, i1 true)
   %cast.i58.i.i = trunc nuw nsw i64 %11 to i32
   %add.i59.i.i = or disjoint i32 %.sink.i.i, %cast.i58.i.i
@@ -3604,7 +3604,7 @@ _ZN8facebook5velox10StringViewC2EPKci.exit:       ; preds = %if.then2.i, %if.end
   br label %return
 
 return:                                           ; preds = %for.end.i.i, %if.then3.i.i, %if.else42, %if.else, %if.then, %_ZN8facebook5velox10StringViewC2EPKci.exit
-  %retval.0 = phi i1 [ true, %_ZN8facebook5velox10StringViewC2EPKci.exit ], [ false, %if.then ], [ false, %if.else ], [ false, %if.else42 ], [ false, %if.then3.i.i ], [ false, %for.end.i.i ]
+  %retval.0 = phi i1 [ false, %if.else ], [ false, %if.then ], [ true, %_ZN8facebook5velox10StringViewC2EPKci.exit ], [ false, %for.end.i.i ], [ false, %if.else42 ], [ false, %if.then3.i.i ]
   ret i1 %retval.0
 }
 

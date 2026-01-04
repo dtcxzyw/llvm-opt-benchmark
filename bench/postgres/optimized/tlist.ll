@@ -44,7 +44,7 @@ define dso_local ptr @tlist_member(ptr noundef %0, ptr noundef readonly captures
   br i1 %16, label %._crit_edge24, label %7
 
 ._crit_edge24:                                    ; preds = %.lr.ph31, %7, %.lr.ph, %2
-  %17 = phi ptr [ null, %2 ], [ null, %.lr.ph ], [ null, %7 ], [ %13, %.lr.ph31 ]
+  %17 = phi ptr [ null, %.lr.ph ], [ null, %2 ], [ null, %7 ], [ %13, %.lr.ph31 ]
   ret ptr %17
 }
 
@@ -108,10 +108,10 @@ list_length.exit:                                 ; preds = %2, %3
   br i1 %28, label %tlist_member.exit, label %19
 
 .critedge:                                        ; preds = %tlist_member.exit, %.lr.ph, %list_length.exit
-  %.0.lcssa = phi ptr [ %0, %list_length.exit ], [ %0, %.lr.ph ], [ %.1, %tlist_member.exit ]
+  %.0.lcssa = phi ptr [ %0, %.lr.ph ], [ %0, %list_length.exit ], [ %.1, %tlist_member.exit ]
   ret ptr %.0.lcssa
 
-.loopexit:                                        ; preds = %19, %.lr.ph30, %.lr.ph.i
+.loopexit:                                        ; preds = %19, %.lr.ph.i, %.lr.ph30
   %29 = tail call ptr @copyObjectImpl(ptr noundef %14) #9
   %30 = add i32 %.0132228, 1
   %31 = trunc i32 %.0132228 to i16
@@ -181,7 +181,7 @@ define dso_local ptr @get_tlist_exprs(ptr noundef readonly captures(address_is_n
   br i1 %22, label %27, label %23
 
 .critedge:                                        ; preds = %27, %.lr.ph34, %.lr.ph.split.us.split, %.lr.ph.split.split, %2
-  %.0.lcssa = phi ptr [ null, %2 ], [ null, %.lr.ph.split.us.split ], [ null, %.lr.ph.split.split ], [ %12, %.lr.ph34 ], [ %.1, %27 ]
+  %.0.lcssa = phi ptr [ null, %2 ], [ null, %.lr.ph.split.split ], [ null, %.lr.ph.split.us.split ], [ %12, %.lr.ph34 ], [ %.1, %27 ]
   ret ptr %.0.lcssa
 
 23:                                               ; preds = %.lr.ph29
@@ -313,7 +313,7 @@ list_length.exit33.thread.thread:                 ; preds = %list_length.exit.th
   br i1 %36, label %.preheader.split.split, label %.thread, !llvm.loop !6
 
 .thread:                                          ; preds = %19, %28, %24, %list_length.exit33.thread.thread, %list_length.exit33, %list_length.exit.thread, %list_length.exit33.thread
-  %.0 = phi i1 [ false, %list_length.exit33.thread ], [ true, %list_length.exit.thread ], [ %.not4448, %list_length.exit33.thread.thread ], [ %.not, %list_length.exit33 ], [ true, %19 ], [ false, %28 ], [ true, %24 ]
+  %.0 = phi i1 [ %.not4448, %list_length.exit33.thread.thread ], [ true, %list_length.exit.thread ], [ false, %list_length.exit33.thread ], [ %.not, %list_length.exit33 ], [ false, %28 ], [ true, %24 ], [ true, %19 ]
   ret i1 %.0
 }
 
@@ -426,12 +426,12 @@ list_head.exit:                                   ; preds = %3, %4
   br i1 %54, label %.lr.ph64, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.thread37, %32, %.lr.ph.split.us.split, %.lr.ph.split.split, %list_head.exit
-  %.021.lcssa = phi ptr [ %7, %list_head.exit ], [ %7, %.lr.ph.split.us.split ], [ %7, %.lr.ph.split.split ], [ %.22340.us, %32 ], [ %..i, %.thread37 ]
+  %.021.lcssa = phi ptr [ %7, %list_head.exit ], [ %7, %.lr.ph.split.split ], [ %7, %.lr.ph.split.us.split ], [ %.22340.us, %32 ], [ %..i, %.thread37 ]
   %.not28 = icmp eq ptr %.021.lcssa, null
   br label %.thread42
 
 .thread42:                                        ; preds = %43, %.lr.ph64, %21, %23, %._crit_edge
-  %.3 = phi i1 [ %.not28, %._crit_edge ], [ false, %23 ], [ false, %21 ], [ false, %.lr.ph64 ], [ false, %43 ]
+  %.3 = phi i1 [ %.not28, %._crit_edge ], [ false, %21 ], [ false, %23 ], [ false, %.lr.ph64 ], [ false, %43 ]
   ret i1 %.3
 }
 
@@ -546,12 +546,12 @@ list_head.exit:                                   ; preds = %3, %4
   br i1 %54, label %.lr.ph64, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.thread37, %32, %.lr.ph.split.us.split, %.lr.ph.split.split, %list_head.exit
-  %.021.lcssa = phi ptr [ %7, %list_head.exit ], [ %7, %.lr.ph.split.us.split ], [ %7, %.lr.ph.split.split ], [ %.22340.us, %32 ], [ %..i, %.thread37 ]
+  %.021.lcssa = phi ptr [ %7, %list_head.exit ], [ %7, %.lr.ph.split.split ], [ %7, %.lr.ph.split.us.split ], [ %.22340.us, %32 ], [ %..i, %.thread37 ]
   %.not28 = icmp eq ptr %.021.lcssa, null
   br label %.thread42
 
 .thread42:                                        ; preds = %43, %.lr.ph64, %21, %23, %._crit_edge
-  %.3 = phi i1 [ %.not28, %._crit_edge ], [ false, %23 ], [ false, %21 ], [ false, %.lr.ph64 ], [ false, %43 ]
+  %.3 = phi i1 [ %.not28, %._crit_edge ], [ false, %21 ], [ false, %23 ], [ false, %.lr.ph64 ], [ false, %43 ]
   ret i1 %.3
 }
 
@@ -830,7 +830,7 @@ get_sortgroupclause_expr.exit:                    ; preds = %18
   br i1 %30, label %.lr.ph.i.i.i, label %.critedge
 
 .critedge:                                        ; preds = %get_sortgroupclause_expr.exit, %.lr.ph.split.us, %.lr.ph.split.split, %2
-  %.0.lcssa = phi ptr [ null, %2 ], [ null, %.lr.ph.split.us ], [ null, %.lr.ph.split.split ], [ %27, %get_sortgroupclause_expr.exit ]
+  %.0.lcssa = phi ptr [ null, %.lr.ph.split.split ], [ null, %2 ], [ null, %.lr.ph.split.us ], [ %27, %get_sortgroupclause_expr.exit ]
   ret ptr %.0.lcssa
 }
 
@@ -907,7 +907,7 @@ define dso_local ptr @get_sortgroupref_clause_noerr(i32 noundef %0, ptr noundef 
   br i1 %.not17, label %._crit_edge25, label %8
 
 ._crit_edge25:                                    ; preds = %9, %8, %.lr.ph, %2
-  %14 = phi ptr [ null, %2 ], [ null, %.lr.ph ], [ null, %8 ], [ %11, %9 ]
+  %14 = phi ptr [ null, %.lr.ph ], [ null, %2 ], [ null, %8 ], [ %11, %9 ]
   ret ptr %14
 }
 
@@ -1033,7 +1033,7 @@ get_sortgroupclause_tle.exit:                     ; preds = %24
   br i1 %37, label %.lr.ph.i.i, label %.critedge
 
 .critedge:                                        ; preds = %get_sortgroupclause_tle.exit, %list_length.exit.thread, %.lr.ph.split.us, %.lr.ph.split.split
-  %38 = phi ptr [ %3, %list_length.exit.thread ], [ %8, %.lr.ph.split.us ], [ %8, %.lr.ph.split.split ], [ %8, %get_sortgroupclause_tle.exit ]
+  %38 = phi ptr [ %3, %list_length.exit.thread ], [ %8, %.lr.ph.split.split ], [ %8, %.lr.ph.split.us ], [ %8, %get_sortgroupclause_tle.exit ]
   ret ptr %38
 }
 
@@ -1115,7 +1115,7 @@ get_sortgroupclause_tle.exit:                     ; preds = %24
   br i1 %36, label %.lr.ph.i.i, label %.critedge
 
 .critedge:                                        ; preds = %get_sortgroupclause_tle.exit, %list_length.exit.thread, %.lr.ph.split.us, %.lr.ph.split.split
-  %37 = phi ptr [ %3, %list_length.exit.thread ], [ %8, %.lr.ph.split.us ], [ %8, %.lr.ph.split.split ], [ %8, %get_sortgroupclause_tle.exit ]
+  %37 = phi ptr [ %3, %list_length.exit.thread ], [ %8, %.lr.ph.split.split ], [ %8, %.lr.ph.split.us ], [ %8, %get_sortgroupclause_tle.exit ]
   ret ptr %37
 }
 
@@ -1149,7 +1149,7 @@ define dso_local noundef zeroext i1 @grouping_is_sortable(ptr noundef readonly c
   br i1 %or.cond.not, label %7, label %.critedge
 
 .critedge:                                        ; preds = %7, %.lr.ph, %1
-  %.not1418 = phi i1 [ true, %1 ], [ true, %.lr.ph ], [ %.not15.not.not, %7 ]
+  %.not1418 = phi i1 [ true, %.lr.ph ], [ true, %1 ], [ %.not15.not.not, %7 ]
   ret i1 %.not1418
 }
 
@@ -1183,7 +1183,7 @@ define dso_local noundef zeroext i1 @grouping_is_hashable(ptr noundef readonly c
   br i1 %or.cond.not, label %7, label %.critedge
 
 .critedge:                                        ; preds = %7, %.lr.ph, %1
-  %.not1417 = phi i1 [ true, %1 ], [ true, %.lr.ph ], [ %12, %7 ]
+  %.not1417 = phi i1 [ true, %.lr.ph ], [ true, %1 ], [ %12, %7 ]
   ret i1 %.not1417
 }
 
@@ -1698,7 +1698,7 @@ define dso_local void @apply_pathtarget_labeling_to_tlist(ptr noundef readonly c
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i44, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.loopexit, label %57
 
-.loopexit:                                        ; preds = %.split, %.lr.ph.i, %.split25, %.lr.ph.i36, %49, %.lr.ph.i42, %39, %85, %24
+.loopexit:                                        ; preds = %.lr.ph.i, %.split, %.lr.ph.i36, %.split25, %.lr.ph.i42, %49, %39, %85, %24
   %86 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   %87 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 812, ptr noundef nonnull @__func__.apply_pathtarget_labeling_to_tlist) #9
@@ -2322,7 +2322,7 @@ list_length.exit:                                 ; preds = %33, %49
   br label %86
 
 86:                                               ; preds = %2, %.thread, %61, %17, %7
-  %.0 = phi i1 [ false, %7 ], [ false, %17 ], [ false, %61 ], [ %85, %.thread ], [ false, %2 ]
+  %.0 = phi i1 [ %85, %.thread ], [ false, %7 ], [ false, %17 ], [ false, %61 ], [ false, %2 ]
   ret i1 %.0
 }
 

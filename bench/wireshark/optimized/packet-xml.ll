@@ -2069,7 +2069,7 @@ fully_qualified_name.exit:                        ; preds = %.lr.ph.i, %.critedg
   br label %92
 
 92:                                               ; preds = %._crit_edge, %8, %._crit_edge73, %23, %17
-  %.0 = phi ptr [ null, %23 ], [ %40, %._crit_edge73 ], [ null, %17 ], [ null, %8 ], [ null, %._crit_edge ]
+  %.0 = phi ptr [ null, %17 ], [ null, %23 ], [ null, %8 ], [ %40, %._crit_edge73 ], [ null, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret ptr %.0
@@ -2918,7 +2918,7 @@ define internal void @after_untag(ptr noundef %0, ptr readnone captures(none) %1
   br i1 %.not.i, label %xml_get_attrib.exit, label %.lr.ph.i, !llvm.loop !8
 
 xml_get_attrib.exit:                              ; preds = %65, %67
-  %.0.lcssa.i = phi ptr [ %.015.i, %65 ], [ null, %67 ]
+  %.0.lcssa.i = phi ptr [ null, %67 ], [ %.015.i, %65 ]
   br label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %xml_get_attrib.exit, %76
@@ -3051,7 +3051,7 @@ xml_get_tag.exit:                                 ; preds = %74
   %136 = call ptr @wmem_map_insert(ptr noundef %134, ptr noundef %135, ptr noundef %117)
   br label %.thread190
 
-.thread190:                                       ; preds = %82, %102, %xml_get_tag.exit, %xml_get_tag.exit.thread, %78, %84, %110
+.thread190:                                       ; preds = %82, %102, %xml_get_tag.exit.thread, %xml_get_tag.exit, %78, %84, %110
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre = load ptr, ptr %52, align 8
   br label %137
@@ -3487,9 +3487,9 @@ define internal void @before_tag(ptr noundef %0, ptr readnone captures(none) %1,
   br label %67
 
 67:                                               ; preds = %.sink.split, %44, %19, %58
-  %.1 = phi ptr [ %61, %58 ], [ @unknown_ns, %19 ], [ @unknown_ns, %44 ], [ %spec.store.select, %.sink.split ]
-  %.067 = phi ptr [ %54, %58 ], [ %41, %19 ], [ %54, %44 ], [ %.067.ph, %.sink.split ]
-  %.0 = phi ptr [ %52, %58 ], [ %41, %19 ], [ %52, %44 ], [ %.sink82, %.sink.split ]
+  %.1 = phi ptr [ @unknown_ns, %19 ], [ %61, %58 ], [ @unknown_ns, %44 ], [ %spec.store.select, %.sink.split ]
+  %.067 = phi ptr [ %41, %19 ], [ %54, %58 ], [ %54, %44 ], [ %.067.ph, %.sink.split ]
+  %.0 = phi ptr [ %41, %19 ], [ %52, %58 ], [ %52, %44 ], [ %.sink82, %.sink.split ]
   %68 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds nuw i8, ptr %.1, i64 16

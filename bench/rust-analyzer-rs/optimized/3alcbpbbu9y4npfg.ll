@@ -1670,7 +1670,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17ha5c48ca567358d17E.llvm.21066129125
   br label %35
 
 35:                                               ; preds = %28, %33, %72
-  %.0 = phi i1 [ true, %33 ], [ true, %72 ], [ false, %28 ]
+  %.0 = phi i1 [ true, %72 ], [ true, %33 ], [ false, %28 ]
   ret i1 %.0
 
 36:                                               ; preds = %31
@@ -1870,7 +1870,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17ha5c48ca567358d17E.llvm.21066129125
   br label %35
 
 35:                                               ; preds = %28, %33, %74
-  %.0 = phi i1 [ true, %33 ], [ true, %74 ], [ false, %28 ]
+  %.0 = phi i1 [ true, %74 ], [ true, %33 ], [ false, %28 ]
   ret i1 %.0
 
 36:                                               ; preds = %31
@@ -2072,7 +2072,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17ha5c48ca567358d17E.llvm.21066129125
   br label %35
 
 35:                                               ; preds = %28, %33, %74
-  %.0 = phi i1 [ true, %33 ], [ true, %74 ], [ false, %28 ]
+  %.0 = phi i1 [ true, %74 ], [ true, %33 ], [ false, %28 ]
   ret i1 %.0
 
 36:                                               ; preds = %31

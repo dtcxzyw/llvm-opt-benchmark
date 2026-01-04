@@ -1508,7 +1508,7 @@ define dso_local void @_ZN4llvm13RegBankSelect14computeMappingERNS_12MachineInst
   br label %_ZN4llvm13RegBankSelect11MappingCost12addLocalCostEm.exit
 
 _ZN4llvm13RegBankSelect11MappingCost12addLocalCostEm.exit: ; preds = %31, %33, %38
-  %.0.i = phi i8 [ 1, %31 ], [ 0, %33 ], [ %42, %38 ]
+  %.0.i = phi i8 [ 1, %31 ], [ %42, %38 ], [ 0, %33 ]
   %43 = load ptr, ptr %4, align 8, !tbaa !25
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %45 = load i32, ptr %44, align 8, !tbaa !26
@@ -2049,9 +2049,9 @@ _ZNK4llvm13RegBankSelect13getRepairCostERKNS_14MachineOperandERKNS_16RegisterBan
   br label %_ZN4llvm13RegBankSelect11MappingCost12addLocalCostEm.exit115
 
 _ZN4llvm13RegBankSelect11MappingCost12addLocalCostEm.exit115: ; preds = %300, %296, %295, %279, %275, %274, %290
-  %303 = phi i64 [ -1, %290 ], [ -1, %274 ], [ %277, %275 ], [ -1, %279 ], [ -1, %295 ], [ %293, %296 ], [ -1, %300 ]
-  %304 = phi i64 [ -2, %290 ], [ -2, %274 ], [ %272, %275 ], [ -2, %279 ], [ -2, %295 ], [ %297, %296 ], [ -2, %300 ]
-  %.9.shrunk = phi i1 [ true, %290 ], [ true, %274 ], [ false, %275 ], [ %281, %279 ], [ true, %295 ], [ false, %296 ], [ %302, %300 ]
+  %303 = phi i64 [ %277, %275 ], [ -1, %290 ], [ -1, %274 ], [ -1, %279 ], [ -1, %295 ], [ -1, %300 ], [ %293, %296 ]
+  %304 = phi i64 [ %272, %275 ], [ -2, %290 ], [ -2, %274 ], [ -2, %279 ], [ -2, %295 ], [ -2, %300 ], [ %297, %296 ]
+  %.9.shrunk = phi i1 [ false, %275 ], [ true, %290 ], [ true, %274 ], [ %281, %279 ], [ true, %295 ], [ %302, %300 ], [ false, %296 ]
   %305 = load i64, ptr %5, align 8, !tbaa !312
   %306 = icmp eq i64 %304, %305
   br i1 %306, label %307, label %_ZNK4llvm13RegBankSelect11MappingCostgtERKS1_.exit121
@@ -2085,8 +2085,8 @@ _ZNK4llvm13RegBankSelect11MappingCostgtERKS1_.exit121.thread: ; preds = %_ZNK4ll
   %.9.le = zext i1 %.9.shrunk to i8
   br label %.thread150
 
-.thread150:                                       ; preds = %.thread150.loopexit, %_ZNK4llvm13RegBankSelect13getRepairCostERKNS_14MachineOperandERKNS_16RegisterBankInfo12ValueMappingE.exit.thread201, %116, %221, %_ZNK4llvm13RegBankSelect15assignmentMatchENS_8RegisterERKNS_16RegisterBankInfo12ValueMappingERb.exit, %_ZN4llvm13RegBankSelect18RepairingPlacementD2Ev.exit, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit, %112, %106
-  %.1153 = phi i8 [ %.0170, %221 ], [ %.0170, %_ZNK4llvm13RegBankSelect15assignmentMatchENS_8RegisterERKNS_16RegisterBankInfo12ValueMappingERb.exit ], [ %.0170, %_ZN4llvm13RegBankSelect18RepairingPlacementD2Ev.exit ], [ %.0170, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit ], [ %.0170, %112 ], [ %.0170, %106 ], [ %.0170, %116 ], [ 0, %_ZNK4llvm13RegBankSelect13getRepairCostERKNS_14MachineOperandERKNS_16RegisterBankInfo12ValueMappingE.exit.thread201 ], [ %.9.le, %.thread150.loopexit ]
+.thread150:                                       ; preds = %.thread150.loopexit, %_ZNK4llvm13RegBankSelect13getRepairCostERKNS_14MachineOperandERKNS_16RegisterBankInfo12ValueMappingE.exit.thread201, %116, %221, %_ZN4llvm13RegBankSelect18RepairingPlacementD2Ev.exit, %_ZNK4llvm13RegBankSelect15assignmentMatchENS_8RegisterERKNS_16RegisterBankInfo12ValueMappingERb.exit, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit, %112, %106
+  %.1153 = phi i8 [ %.0170, %116 ], [ %.0170, %112 ], [ %.0170, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit ], [ %.0170, %106 ], [ %.0170, %221 ], [ %.0170, %_ZN4llvm13RegBankSelect18RepairingPlacementD2Ev.exit ], [ %.0170, %_ZNK4llvm13RegBankSelect15assignmentMatchENS_8RegisterERKNS_16RegisterBankInfo12ValueMappingERb.exit ], [ 0, %_ZNK4llvm13RegBankSelect13getRepairCostERKNS_14MachineOperandERKNS_16RegisterBankInfo12ValueMappingE.exit.thread201 ], [ %.9.le, %.thread150.loopexit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not82 = icmp eq i64 %indvars.iv.next, %104
   br i1 %.not82, label %._crit_edge, label %106, !llvm.loop !327
@@ -2095,7 +2095,7 @@ _ZNK4llvm13RegBankSelect11MappingCostgtERKS1_.exit121.thread: ; preds = %_ZNK4ll
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !tbaa.struct !282
   br label %.thread160
 
-.thread160:                                       ; preds = %.thread145, %_ZNK4llvm13RegBankSelect13getRepairCostERKNS_14MachineOperandERKNS_16RegisterBankInfo12ValueMappingE.exit.thread, %220, %._crit_edge, %79
+.thread160:                                       ; preds = %220, %.thread145, %_ZNK4llvm13RegBankSelect13getRepairCostERKNS_14MachineOperandERKNS_16RegisterBankInfo12ValueMappingE.exit.thread, %._crit_edge, %79
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %314
 
@@ -2198,7 +2198,7 @@ _ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit.thread: ; preds = %_ZN
   br label %_ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit77
 
 _ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit77: ; preds = %41, %.thread
-  %44 = phi i1 [ %27, %41 ], [ %43, %.thread ]
+  %44 = phi i1 [ %43, %.thread ], [ %27, %41 ]
   %45 = icmp eq i64 %4, -2
   %or.cond.i78 = select i1 %45, i1 %24, i1 false
   %spec.select = select i1 %or.cond.i78, i1 %44, i1 false
@@ -2227,8 +2227,8 @@ _ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit75.thread: ; preds = %_
   br label %54
 
 54:                                               ; preds = %_ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit75.thread, %52
-  %.055 = phi i64 [ %53, %52 ], [ %3, %_ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit75.thread ]
-  %.054 = phi i64 [ 0, %52 ], [ %4, %_ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit75.thread ]
+  %.055 = phi i64 [ %3, %_ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit75.thread ], [ %53, %52 ]
+  %.054 = phi i64 [ %4, %_ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit75.thread ], [ 0, %52 ]
   %.053 = tail call i64 @llvm.usub.sat.i64(i64 %7, i64 %23)
   %.0 = tail call i64 @llvm.usub.sat.i64(i64 %23, i64 %7)
   %55 = mul i64 %.055, %19
@@ -2297,7 +2297,7 @@ _ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit75.thread: ; preds = %_
   br label %_ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit79
 
 _ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit79: ; preds = %_ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit77, %47, %70, %87, %85, %_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit, %_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit73
-  %.056 = phi i1 [ %38, %_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit73 ], [ false, %_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit ], [ %86, %85 ], [ %88, %87 ], [ false, %70 ], [ %spec.select, %_ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit77 ], [ %49, %47 ]
+  %.056 = phi i1 [ false, %_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit ], [ %38, %_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit73 ], [ false, %70 ], [ %49, %47 ], [ %88, %87 ], [ %86, %85 ], [ %spec.select, %_ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit77 ]
   ret i1 %.056
 }
 
@@ -2473,7 +2473,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm13RegBankSelect11MappingCost12addLo
   br label %_ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit
 
 _ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit: ; preds = %13, %8, %6
-  %.0 = phi i1 [ true, %6 ], [ false, %8 ], [ %16, %13 ]
+  %.0 = phi i1 [ true, %6 ], [ %16, %13 ], [ false, %8 ]
   ret i1 %.0
 }
 
@@ -2513,7 +2513,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm13RegBankSelect11MappingCost15addNo
   br label %_ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit
 
 _ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit: ; preds = %13, %9, %7
-  %.0 = phi i1 [ true, %7 ], [ false, %9 ], [ %16, %13 ]
+  %.0 = phi i1 [ true, %7 ], [ %16, %13 ], [ false, %9 ]
   ret i1 %.0
 }
 
@@ -2618,8 +2618,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm13RegBankSelect12applyMappingERNS_1
   call void %61(ptr noundef nonnull align 8 dereferenceable(160) %59, ptr noundef nonnull align 8 dereferenceable(88) %57, ptr noundef nonnull align 8 dereferenceable(120) %5) #23
   br label %.critedge
 
-.critedge:                                        ; preds = %18, %22, %56, %55
-  %.not38 = phi i1 [ true, %56 ], [ true, %55 ], [ false, %22 ], [ false, %18 ]
+.critedge:                                        ; preds = %22, %18, %56, %55
+  %.not38 = phi i1 [ true, %55 ], [ true, %56 ], [ false, %18 ], [ false, %22 ]
   %62 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %63 = load ptr, ptr %62, align 8, !tbaa !25
   %64 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -4085,7 +4085,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm13RegBankSelect16InstrInsertPoint7
   br label %_ZNK4llvm12MachineInstr12isTerminatorENS0_9QueryTypeE.exit
 
 _ZNK4llvm12MachineInstr12isTerminatorENS0_9QueryTypeE.exit: ; preds = %45, %38, %21, %14, %23
-  %.0 = phi i1 [ false, %23 ], [ %20, %14 ], [ %22, %21 ], [ %44, %38 ], [ %46, %45 ]
+  %.0 = phi i1 [ %22, %21 ], [ false, %23 ], [ %20, %14 ], [ %44, %38 ], [ %46, %45 ]
   ret i1 %.0
 }
 
@@ -4265,7 +4265,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm13RegBankSelect11MappingCost11isSa
   br label %11
 
 11:                                               ; preds = %7, %1
-  %12 = phi i1 [ false, %1 ], [ %10, %7 ]
+  %12 = phi i1 [ %10, %7 ], [ false, %1 ]
   ret i1 %12
 }
 
@@ -6738,7 +6738,7 @@ _ZN4llvm15SmallVectorImplISt5tupleIJPNS_17MachineBasicBlockEPS3_S4_EEE12emplace_
   br label %_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPNS_17MachineBasicBlockELj8EEELb0EE10insertEdgeIS3_EEbSt8optionalIT_ES8_.exit.thread6
 
 _ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPNS_17MachineBasicBlockELj8EEELb0EE10insertEdgeIS3_EEbSt8optionalIT_ES8_.exit.thread6: ; preds = %.lr.ph.i.i.i, %_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPNS_17MachineBasicBlockELj8EEELb0EE10insertEdgeIS3_EEbSt8optionalIT_ES8_.exit, %_ZN4llvm15SmallVectorImplISt5tupleIJPNS_17MachineBasicBlockEPS3_S4_EEE12emplace_backIJRS3_S4_S4_EEERS5_DpOT_.exit
-  %60 = phi i32 [ %.pre10, %_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPNS_17MachineBasicBlockELj8EEELb0EE10insertEdgeIS3_EEbSt8optionalIT_ES8_.exit ], [ %.pre9, %_ZN4llvm15SmallVectorImplISt5tupleIJPNS_17MachineBasicBlockEPS3_S4_EEE12emplace_backIJRS3_S4_S4_EEERS5_DpOT_.exit ], [ %21, %.lr.ph.i.i.i ]
+  %60 = phi i32 [ %.pre9, %_ZN4llvm15SmallVectorImplISt5tupleIJPNS_17MachineBasicBlockEPS3_S4_EEE12emplace_backIJRS3_S4_S4_EEERS5_DpOT_.exit ], [ %.pre10, %_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPNS_17MachineBasicBlockELj8EEELb0EE10insertEdgeIS3_EEbSt8optionalIT_ES8_.exit ], [ %21, %.lr.ph.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %61 = load ptr, ptr %5, align 8, !tbaa !25
   %62 = zext i32 %60 to i64
@@ -6989,10 +6989,10 @@ _ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPNS_17MachineBasicBlockEPS3_S4_EELb0
   br i1 %76, label %.lr.ph.i.i.i.i.i36, label %_ZSt4moveIPSt5tupleIJPN4llvm17MachineBasicBlockEPS3_S4_EES6_ET0_T_S8_S7_.exit40, !llvm.loop !452
 
 _ZSt4moveIPSt5tupleIJPN4llvm17MachineBasicBlockEPS3_S4_EES6_ET0_T_S8_S7_.exit40: ; preds = %.lr.ph.i.i.i.i.i36, %65, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPNS_17MachineBasicBlockEPS3_S4_EELb0EE4growEm.exit
-  %.pre-phi = phi i64 [ %24, %65 ], [ %.pre45, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPNS_17MachineBasicBlockEPS3_S4_EELb0EE4growEm.exit ], [ %24, %.lr.ph.i.i.i.i.i36 ]
-  %77 = phi ptr [ %.pre44, %65 ], [ %47, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPNS_17MachineBasicBlockEPS3_S4_EELb0EE4growEm.exit ], [ %.pre44, %.lr.ph.i.i.i.i.i36 ]
-  %78 = phi ptr [ %6, %65 ], [ %.pre42, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPNS_17MachineBasicBlockEPS3_S4_EELb0EE4growEm.exit ], [ %6, %.lr.ph.i.i.i.i.i36 ]
-  %.026 = phi i64 [ 0, %65 ], [ 0, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPNS_17MachineBasicBlockEPS3_S4_EELb0EE4growEm.exit ], [ %27, %.lr.ph.i.i.i.i.i36 ]
+  %.pre-phi = phi i64 [ %.pre45, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPNS_17MachineBasicBlockEPS3_S4_EELb0EE4growEm.exit ], [ %24, %65 ], [ %24, %.lr.ph.i.i.i.i.i36 ]
+  %77 = phi ptr [ %47, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPNS_17MachineBasicBlockEPS3_S4_EELb0EE4growEm.exit ], [ %.pre44, %65 ], [ %.pre44, %.lr.ph.i.i.i.i.i36 ]
+  %78 = phi ptr [ %.pre42, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPNS_17MachineBasicBlockEPS3_S4_EELb0EE4growEm.exit ], [ %6, %65 ], [ %6, %.lr.ph.i.i.i.i.i36 ]
+  %.026 = phi i64 [ 0, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPNS_17MachineBasicBlockEPS3_S4_EELb0EE4growEm.exit ], [ 0, %65 ], [ %27, %.lr.ph.i.i.i.i.i36 ]
   %79 = getelementptr inbounds nuw %"class.std::tuple.371", ptr %78, i64 %.pre-phi
   %.not7.i.i.i.i.i = icmp samesign eq i64 %.026, %.pre-phi
   br i1 %.not7.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPNS_17MachineBasicBlockEPS3_S4_EELb0EE18uninitialized_moveIPS5_S8_EEvT_S9_T0_.exit, label %.lr.ph.i.i.i.i.i41.preheader
@@ -7159,10 +7159,10 @@ _ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPNS_17MachineBasicBlockEPS3_S4_EELb0
   br i1 %61, label %.lr.ph.i.i.i.i.i32, label %_ZSt4copyIPKSt5tupleIJPN4llvm17MachineBasicBlockEPS3_S4_EEPS5_ET0_T_SA_S9_.exit36, !llvm.loop !453
 
 _ZSt4copyIPKSt5tupleIJPN4llvm17MachineBasicBlockEPS3_S4_EEPS5_ET0_T_SA_S9_.exit36: ; preds = %.lr.ph.i.i.i.i.i32, %50, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPNS_17MachineBasicBlockEPS3_S4_EELb0EE4growEm.exit
-  %.pre-phi = phi i64 [ %8, %50 ], [ %.pre40, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPNS_17MachineBasicBlockEPS3_S4_EELb0EE4growEm.exit ], [ %8, %.lr.ph.i.i.i.i.i32 ]
-  %62 = phi ptr [ %.pre39, %50 ], [ %32, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPNS_17MachineBasicBlockEPS3_S4_EELb0EE4growEm.exit ], [ %.pre39, %.lr.ph.i.i.i.i.i32 ]
-  %63 = phi ptr [ %.pre37, %50 ], [ %.pre, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPNS_17MachineBasicBlockEPS3_S4_EELb0EE4growEm.exit ], [ %.pre37, %.lr.ph.i.i.i.i.i32 ]
-  %.022 = phi i64 [ 0, %50 ], [ 0, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPNS_17MachineBasicBlockEPS3_S4_EELb0EE4growEm.exit ], [ %11, %.lr.ph.i.i.i.i.i32 ]
+  %.pre-phi = phi i64 [ %.pre40, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPNS_17MachineBasicBlockEPS3_S4_EELb0EE4growEm.exit ], [ %8, %50 ], [ %8, %.lr.ph.i.i.i.i.i32 ]
+  %62 = phi ptr [ %32, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPNS_17MachineBasicBlockEPS3_S4_EELb0EE4growEm.exit ], [ %.pre39, %50 ], [ %.pre39, %.lr.ph.i.i.i.i.i32 ]
+  %63 = phi ptr [ %.pre, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPNS_17MachineBasicBlockEPS3_S4_EELb0EE4growEm.exit ], [ %.pre37, %50 ], [ %.pre37, %.lr.ph.i.i.i.i.i32 ]
+  %.022 = phi i64 [ 0, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPNS_17MachineBasicBlockEPS3_S4_EELb0EE4growEm.exit ], [ 0, %50 ], [ %11, %.lr.ph.i.i.i.i.i32 ]
   %64 = getelementptr inbounds nuw %"class.std::tuple.371", ptr %63, i64 %.pre-phi
   %.not9.i.i.i.i = icmp samesign eq i64 %.022, %.pre-phi
   br i1 %.not9.i.i.i.i, label %.sink.split, label %.lr.ph.i.i.i.i.preheader

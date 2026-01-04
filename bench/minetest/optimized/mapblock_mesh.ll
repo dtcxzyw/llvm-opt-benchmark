@@ -4569,7 +4569,7 @@ if.then.i.i853:                                   ; preds = %lpad249
   br label %ehcleanup254
 
 ehcleanup254:                                     ; preds = %lpad249, %if.then.i.i853, %lpad243.loopexit.split-lp, %lpad243.loopexit
-  %.pn589 = phi { ptr, i32 } [ %181, %if.then.i.i853 ], [ %lpad.loopexit1329, %lpad243.loopexit ], [ %lpad.loopexit.split-lp1330, %lpad243.loopexit.split-lp ], [ %181, %lpad249 ]
+  %.pn589 = phi { ptr, i32 } [ %lpad.loopexit.split-lp1330, %lpad243.loopexit.split-lp ], [ %181, %if.then.i.i853 ], [ %lpad.loopexit1329, %lpad243.loopexit ], [ %181, %lpad249 ]
   %183 = load ptr, ptr %ref.tmp240, align 8, !tbaa !11
   %cmp.i.i.i858 = icmp eq ptr %183, %49
   br i1 %cmp.i.i.i858, label %ehcleanup255, label %ehcleanup255.sink.split
@@ -5196,7 +5196,7 @@ lpad336:                                          ; preds = %if.then.i985
   br label %ehcleanup343
 
 if.end342:                                        ; preds = %if.then303, %for.cond.cleanup310.for.cond.cleanup310.if.end342_crit_edge_crit_edge, %if.then.i.i.i994, %_ZNSt8_Rb_treeIjSt4pairIKjN3irr5video6SColorEESt10_Select1stIS5_ESt4lessIjESaIS5_EE5clearEv.exit.i.i.i
-  %274 = phi ptr [ null, %_ZNSt8_Rb_treeIjSt4pairIKjN3irr5video6SColorEESt10_Select1stIS5_ESt4lessIjESaIS5_EE5clearEv.exit.i.i.i ], [ null, %if.then.i.i.i994 ], [ %.pre1532.pre, %for.cond.cleanup310.for.cond.cleanup310.if.end342_crit_edge_crit_edge ], [ null, %if.then303 ]
+  %274 = phi ptr [ null, %if.then.i.i.i994 ], [ null, %_ZNSt8_Rb_treeIjSt4pairIKjN3irr5video6SColorEESt10_Select1stIS5_ESt4lessIjESaIS5_EE5clearEv.exit.i.i.i ], [ %.pre1532.pre, %for.cond.cleanup310.for.cond.cleanup310.if.end342_crit_edge_crit_edge ], [ null, %if.then303 ]
   invoke void @_ZNSt8_Rb_treeIjSt4pairIKjN3irr5video6SColorEESt10_Select1stIS5_ESt4lessIjESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %colors, ptr noundef %274)
           to label %_ZNSt3mapIjN3irr5video6SColorESt4lessIjESaISt4pairIKjS2_EEED2Ev.exit unwind label %terminate.lpad.i.i
 

@@ -506,7 +506,7 @@ ossl_list_urxe_insert_tail.exit.i10:              ; preds = %112, %109
   %exitcond71.not.i = icmp eq i64 %116, %78
   br i1 %exitcond71.not.i, label %demux_recv.exit, label %83, !llvm.loop !45
 
-demux_recv.exit.thread:                           ; preds = %39, %65, %67, %demux_ensure_free_urxe.exit, %38
+demux_recv.exit.thread:                           ; preds = %39, %38, %65, %67, %demux_ensure_free_urxe.exit
   %.0.i11.ph = phi i32 [ -2, %38 ], [ -1, %demux_ensure_free_urxe.exit ], [ -2, %67 ], [ -1, %65 ], [ -2, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -523,8 +523,8 @@ demux_recv.exit:                                  ; preds = %ossl_list_urxe_inse
   %. = select i1 %119, i32 -2, i32 1
   br label %demux_ensure_free_urxe.exit.thread
 
-demux_ensure_free_urxe.exit.thread:               ; preds = %12, %15, %demux_recv.exit.thread, %117
-  %.0 = phi i32 [ %., %117 ], [ %.0.i11.ph, %demux_recv.exit.thread ], [ -2, %15 ], [ -2, %12 ]
+demux_ensure_free_urxe.exit.thread:               ; preds = %15, %12, %demux_recv.exit.thread, %117
+  %.0 = phi i32 [ %.0.i11.ph, %demux_recv.exit.thread ], [ %., %117 ], [ -2, %12 ], [ -2, %15 ]
   ret i32 %.0
 }
 
@@ -850,8 +850,8 @@ ossl_list_urxe_insert_tail.exit:                  ; preds = %78, %81
   %88 = zext i1 %87 to i32
   br label %demux_ensure_free_urxe.exit.thread
 
-demux_ensure_free_urxe.exit.thread:               ; preds = %11, %14, %demux_ensure_free_urxe.exit, %ossl_list_urxe_insert_tail.exit
-  %.0 = phi i32 [ %88, %ossl_list_urxe_insert_tail.exit ], [ 0, %demux_ensure_free_urxe.exit ], [ 0, %14 ], [ 0, %11 ]
+demux_ensure_free_urxe.exit.thread:               ; preds = %14, %11, %demux_ensure_free_urxe.exit, %ossl_list_urxe_insert_tail.exit
+  %.0 = phi i32 [ %88, %ossl_list_urxe_insert_tail.exit ], [ 0, %demux_ensure_free_urxe.exit ], [ 0, %11 ], [ 0, %14 ]
   ret i32 %.0
 }
 
@@ -1033,7 +1033,7 @@ ossl_list_urxe_insert_head.exit27.i:              ; preds = %ossl_list_urxe_inse
   br label %demux_resize_urxe.exit
 
 demux_resize_urxe.exit:                           ; preds = %ossl_list_urxe_insert_head.exit27.i, %ossl_list_urxe_insert_after.exit.i, %ossl_list_urxe_insert_head.exit.i, %7, %3
-  %72 = phi ptr [ %1, %3 ], [ %31, %ossl_list_urxe_insert_head.exit27.i ], [ null, %7 ], [ null, %ossl_list_urxe_insert_after.exit.i ], [ null, %ossl_list_urxe_insert_head.exit.i ]
+  %72 = phi ptr [ %1, %3 ], [ null, %7 ], [ %31, %ossl_list_urxe_insert_head.exit27.i ], [ null, %ossl_list_urxe_insert_after.exit.i ], [ null, %ossl_list_urxe_insert_head.exit.i ]
   ret ptr %72
 }
 

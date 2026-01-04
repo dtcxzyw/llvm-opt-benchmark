@@ -226,7 +226,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -790,10 +790,10 @@ define void @usrc_writeArray(ptr noundef captures(none) %0, ptr noundef readonly
   br label %53
 
 18:                                               ; preds = %.split, %13, %12, %11
-  %.040 = phi ptr [ null, %11 ], [ null, %12 ], [ null, %13 ], [ %2, %.split ]
-  %.039 = phi ptr [ %2, %11 ], [ null, %12 ], [ null, %13 ], [ null, %.split ]
-  %.038 = phi ptr [ null, %11 ], [ %2, %12 ], [ null, %13 ], [ null, %.split ]
-  %.037 = phi ptr [ null, %11 ], [ null, %12 ], [ %2, %13 ], [ null, %.split ]
+  %.040 = phi ptr [ null, %13 ], [ null, %11 ], [ null, %12 ], [ %2, %.split ]
+  %.039 = phi ptr [ null, %13 ], [ %2, %11 ], [ null, %12 ], [ null, %.split ]
+  %.038 = phi ptr [ null, %13 ], [ null, %11 ], [ %2, %12 ], [ null, %.split ]
+  %.037 = phi ptr [ %2, %13 ], [ null, %11 ], [ null, %12 ], [ null, %.split ]
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %22, label %19
 
@@ -862,14 +862,14 @@ define void @usrc_writeArray(ptr noundef captures(none) %0, ptr noundef readonly
   br label %46
 
 46:                                               ; preds = %43, %39, %35, %31
-  %.036 = phi i64 [ %34, %31 ], [ %38, %35 ], [ %42, %39 ], [ %45, %43 ]
+  %.036 = phi i64 [ %45, %43 ], [ %34, %31 ], [ %38, %35 ], [ %42, %39 ]
   %47 = icmp slt i64 %.036, 10
   %spec.select = select i1 %47, ptr @.str.8, ptr @.str.9
   br label %.thread
 
 .thread:                                          ; preds = %46, %.split1
-  %.03646 = phi i64 [ 0, %.split1 ], [ %.036, %46 ]
-  %48 = phi ptr [ @.str.8, %.split1 ], [ %spec.select, %46 ]
+  %.03646 = phi i64 [ %.036, %46 ], [ 0, %.split1 ]
+  %48 = phi ptr [ %spec.select, %46 ], [ @.str.8, %.split1 ]
   %49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %48, i64 noundef %.03646) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = add nsw i32 %.1, 1
@@ -1269,7 +1269,7 @@ define void @usrc_writeUnicodeSet(ptr noundef captures(none) %0, ptr noundef non
   br label %33
 
 33:                                               ; preds = %30, %28, %21
-  %.0.i = phi ptr [ %29, %28 ], [ %32, %30 ], [ null, %21 ]
+  %.0.i = phi ptr [ %32, %30 ], [ %29, %28 ], [ null, %21 ]
   %34 = icmp slt i16 %24, 0
   %35 = ashr i16 %24, 5
   %36 = sext i16 %35 to i32

@@ -612,7 +612,7 @@ showwaves_filter_frame.exit:                      ; preds = %70, %av_cmp_q.exit.
   br label %212
 
 212:                                              ; preds = %207, %15, %.critedge41, %.critedge, %211, %showwaves_filter_frame.exit
-  %.1 = phi i32 [ %.086.i, %showwaves_filter_frame.exit ], [ 0, %211 ], [ 0, %207 ], [ 0, %15 ], [ %27, %.critedge ], [ -1497649742, %.critedge41 ]
+  %.1 = phi i32 [ 0, %15 ], [ %.086.i, %showwaves_filter_frame.exit ], [ 0, %211 ], [ %27, %.critedge ], [ 0, %207 ], [ -1497649742, %.critedge41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.1
 }
@@ -823,8 +823,8 @@ switch.lookup:                                    ; preds = %88
   br label %.sink.split
 
 .sink.split:                                      ; preds = %switch.lookup, %95, %100, %105, %110
-  %.sink.sink = phi ptr [ %114, %110 ], [ %109, %105 ], [ %104, %100 ], [ %99, %95 ], [ %switch.load, %switch.lookup ]
-  %.sink159 = phi i32 [ 4, %110 ], [ 4, %105 ], [ 4, %100 ], [ 4, %95 ], [ 1, %switch.lookup ]
+  %.sink.sink = phi ptr [ %switch.load, %switch.lookup ], [ %109, %105 ], [ %104, %100 ], [ %99, %95 ], [ %114, %110 ]
+  %.sink159 = phi i32 [ 1, %switch.lookup ], [ 4, %105 ], [ 4, %100 ], [ 4, %95 ], [ 4, %110 ]
   %116 = getelementptr inbounds nuw i8, ptr %9, i64 136
   store ptr %.sink.sink, ptr %116, align 8, !tbaa !82
   %117 = getelementptr inbounds nuw i8, ptr %9, i64 96
@@ -866,8 +866,8 @@ switch.lookup:                                    ; preds = %88
   br i1 %136, label %.sink.split162, label %216
 
 .sink.split162:                                   ; preds = %133, %129, %125, %121
-  %.sink176 = phi i32 [ %123, %121 ], [ %127, %125 ], [ %131, %129 ], [ %135, %133 ]
-  %switch.table.config_output.7.sink = phi ptr [ @switch.table.config_output.4, %121 ], [ @switch.table.config_output.5, %125 ], [ @switch.table.config_output.6, %129 ], [ @switch.table.config_output.7, %133 ]
+  %.sink176 = phi i32 [ %131, %129 ], [ %127, %125 ], [ %123, %121 ], [ %135, %133 ]
+  %switch.table.config_output.7.sink = phi ptr [ @switch.table.config_output.6, %129 ], [ @switch.table.config_output.5, %125 ], [ @switch.table.config_output.4, %121 ], [ @switch.table.config_output.7, %133 ]
   %137 = zext nneg i32 %.sink176 to i64
   %switch.gep174 = getelementptr inbounds nuw ptr, ptr %switch.table.config_output.7.sink, i64 %137
   %switch.load175 = load ptr, ptr %switch.gep174, align 8
@@ -1012,7 +1012,7 @@ switch.lookup:                                    ; preds = %88
   br label %216
 
 216:                                              ; preds = %133, %129, %125, %121, %88, %142, %139, %92, %63, %47, %.loopexit, %46
-  %.0 = phi i32 [ 0, %.loopexit ], [ -12, %46 ], [ -22, %47 ], [ -12, %63 ], [ -558323010, %88 ], [ -558323010, %92 ], [ -558323010, %121 ], [ -558323010, %125 ], [ -558323010, %129 ], [ -558323010, %133 ], [ -12, %139 ], [ -12, %142 ]
+  %.0 = phi i32 [ -12, %46 ], [ 0, %.loopexit ], [ -12, %139 ], [ -558323010, %133 ], [ -558323010, %92 ], [ -558323010, %121 ], [ -558323010, %125 ], [ -558323010, %129 ], [ -12, %63 ], [ -558323010, %88 ], [ -22, %47 ], [ -12, %142 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

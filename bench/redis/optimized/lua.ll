@@ -258,10 +258,10 @@ handle_luainit.exit:                              ; preds = %14
   br i1 %64, label %collectargs.exit.thread, label %.thread156
 
 .thread156:                                       ; preds = %49, %52, %59, %55
-  %.157 = phi i32 [ %.056, %59 ], [ %.056, %55 ], [ %.056, %52 ], [ 1, %49 ]
-  %.154 = phi i32 [ %.053, %59 ], [ %.053, %55 ], [ 1, %52 ], [ 1, %49 ]
-  %.2 = phi i32 [ %.1, %59 ], [ %.1, %55 ], [ %.0, %52 ], [ %.0, %49 ]
-  %.1.i = phi i32 [ %60, %59 ], [ %.038.i, %55 ], [ %.038.i, %52 ], [ %.038.i, %49 ]
+  %.157 = phi i32 [ %.056, %55 ], [ %.056, %59 ], [ %.056, %52 ], [ 1, %49 ]
+  %.154 = phi i32 [ %.053, %55 ], [ %.053, %59 ], [ 1, %52 ], [ 1, %49 ]
+  %.2 = phi i32 [ %.1, %55 ], [ %.1, %59 ], [ %.0, %52 ], [ %.0, %49 ]
+  %.1.i = phi i32 [ %.038.i, %55 ], [ %60, %59 ], [ %.038.i, %52 ], [ %.038.i, %49 ]
   %65 = add nsw i32 %.1.i, 1
   %66 = sext i32 %65 to i64
   %67 = getelementptr inbounds ptr, ptr %4, i64 %66
@@ -274,7 +274,7 @@ collectargs.exit:                                 ; preds = %38, %.lr.ph.i, %44
   %69 = icmp slt i32 %.026.i, 0
   br i1 %69, label %collectargs.exit.thread, label %collectargs.exit.thread71
 
-collectargs.exit.thread:                          ; preds = %59, %52, %49, %38, %41, %collectargs.exit
+collectargs.exit.thread:                          ; preds = %52, %49, %59, %38, %41, %collectargs.exit
   tail call fastcc void @print_usage()
   store i32 1, ptr %33, align 8, !tbaa !19
   br label %163
@@ -292,7 +292,7 @@ collectargs.exit.thread71:                        ; preds = %.thread156, %44, %c
   br label %71
 
 71:                                               ; preds = %70, %collectargs.exit.thread71
-  %.2557793 = phi i32 [ 1, %70 ], [ 0, %collectargs.exit.thread71 ]
+  %.2557793 = phi i32 [ 0, %collectargs.exit.thread71 ], [ 1, %70 ]
   %.not38 = icmp eq i32 %.026.i79, 0
   br i1 %.not38, label %.thread95, label %73
 
@@ -487,7 +487,7 @@ sub_2.i:                                          ; preds = %sub_127.i
   br label %.tail.i
 
 .tail.i:                                          ; preds = %sub_2.i, %sub_127.i, %sub_026.i, %getargs.exit.tail.i, %getargs.exit.i
-  %.019.i = phi ptr [ %130, %getargs.exit.tail.i ], [ null, %sub_026.i ], [ null, %sub_127.i ], [ %143, %sub_2.i ], [ %130, %getargs.exit.i ]
+  %.019.i = phi ptr [ %130, %getargs.exit.tail.i ], [ %143, %sub_2.i ], [ null, %sub_026.i ], [ null, %sub_127.i ], [ %130, %getargs.exit.i ]
   %144 = tail call i32 @luaL_loadfile(ptr noundef %0, ptr noundef %.019.i) #9
   %145 = xor i32 %118, -1
   tail call void @lua_insert(ptr noundef %0, i32 noundef %145) #9

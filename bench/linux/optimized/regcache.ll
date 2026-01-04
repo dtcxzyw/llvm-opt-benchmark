@@ -527,7 +527,7 @@ define internal fastcc i32 @regcache_hw_init(ptr noundef %0) unnamed_addr #0 ali
   br label %.loopexit
 
 .loopexit:                                        ; preds = %118, %.thread, %124, %.thread11, %34, %28, %1
-  %127 = phi i32 [ %125, %124 ], [ 0, %28 ], [ -22, %1 ], [ -12, %34 ], [ 0, %.thread11 ], [ -12, %.thread ], [ 0, %118 ]
+  %127 = phi i32 [ %125, %124 ], [ -12, %.thread ], [ 0, %28 ], [ -22, %1 ], [ -12, %34 ], [ 0, %.thread11 ], [ 0, %118 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %127
 }
@@ -1965,8 +1965,8 @@ define dso_local i32 @regcache_sync_block(ptr noundef %0, ptr noundef %1, ptr no
   br label %.thread
 
 .thread:                                          ; preds = %107, %44, %.thread25, %.thread22, %124, %122
-  %129 = phi ptr [ %128, %124 ], [ %33, %122 ], [ null, %.thread22 ], [ null, %.thread25 ], [ null, %44 ], [ null, %107 ]
-  %130 = phi i32 [ %37, %124 ], [ %32, %122 ], [ %32, %.thread22 ], [ %32, %.thread25 ], [ %32, %44 ], [ %32, %107 ]
+  %129 = phi ptr [ %128, %124 ], [ %33, %122 ], [ null, %.thread25 ], [ null, %.thread22 ], [ null, %44 ], [ null, %107 ]
+  %130 = phi i32 [ %37, %124 ], [ %32, %122 ], [ %32, %.thread25 ], [ %32, %.thread22 ], [ %32, %44 ], [ %32, %107 ]
   %131 = add nuw nsw i64 %31, 1
   %132 = icmp eq i64 %131, %29
   br i1 %132, label %133, label %30, !llvm.loop !71
@@ -2192,7 +2192,7 @@ define dso_local i32 @regcache_sync_block(ptr noundef %0, ptr noundef %1, ptr no
   br label %.thread26
 
 .thread26:                                        ; preds = %256, %252, %214, %218, %181, %184, %165, %168, %.thread26.sink.split, %13, %149, %133
-  %259 = phi i32 [ 0, %133 ], [ 0, %149 ], [ 0, %13 ], [ %.ph, %.thread26.sink.split ], [ 0, %168 ], [ %166, %165 ], [ 0, %184 ], [ %182, %181 ], [ 0, %218 ], [ %216, %214 ], [ 0, %256 ], [ %254, %252 ]
+  %259 = phi i32 [ %216, %214 ], [ 0, %133 ], [ 0, %149 ], [ %182, %181 ], [ %166, %165 ], [ 0, %13 ], [ %.ph, %.thread26.sink.split ], [ 0, %168 ], [ 0, %184 ], [ 0, %218 ], [ 0, %256 ], [ %254, %252 ]
   ret i32 %259
 }
 

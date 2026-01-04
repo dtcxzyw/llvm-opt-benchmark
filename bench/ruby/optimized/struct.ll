@@ -119,7 +119,7 @@ define hidden i64 @rb_struct_s_keyword_init(i64 noundef %0) #0 {
   br label %struct_ivar_get.exit
 
 struct_ivar_get.exit:                             ; preds = %.preheader.i, %1, %15
-  %.0.i = phi i64 [ %16, %15 ], [ %3, %1 ], [ 4, %.preheader.i ]
+  %.0.i = phi i64 [ %3, %1 ], [ %16, %15 ], [ 4, %.preheader.i ]
   ret i64 %.0.i
 }
 
@@ -552,8 +552,8 @@ RARRAY_AREF.exit58.us:                            ; preds = %.lr.ph84
   br i1 %117, label %RARRAY_AREF.exit61, label %.lr.ph
 
 RARRAY_AREF.exit61:                               ; preds = %RARRAY_AREF.exit58.thread, %RARRAY_AREF.exit58.us, %.split.us, %.split
-  %.13877 = phi i64 [ %.13880, %.split ], [ %.138.us82, %.split.us ], [ %.138.us, %RARRAY_AREF.exit58.us ], [ %.138, %RARRAY_AREF.exit58.thread ]
-  %.0.i.i60 = phi ptr [ %102, %.split ], [ %104, %.split.us ], [ %104, %RARRAY_AREF.exit58.us ], [ %102, %RARRAY_AREF.exit58.thread ]
+  %.13877 = phi i64 [ %.138.us, %RARRAY_AREF.exit58.us ], [ %.13880, %.split ], [ %.138.us82, %.split.us ], [ %.138, %RARRAY_AREF.exit58.thread ]
+  %.0.i.i60 = phi ptr [ %104, %RARRAY_AREF.exit58.us ], [ %102, %.split ], [ %104, %.split.us ], [ %102, %RARRAY_AREF.exit58.thread ]
   %118 = getelementptr i64, ptr %.0.i.i60, i64 %.13877
   %119 = getelementptr i8, ptr %118, i64 8
   %120 = load i64, ptr %119, align 8, !tbaa !7
@@ -578,7 +578,7 @@ RARRAY_AREF.exit58.thread:                        ; preds = %.lr.ph
   br i1 %129, label %RARRAY_AREF.exit61, label %.lr.ph
 
 .thread68:                                        ; preds = %.lr.ph, %.lr.ph84, %64, %55, %.preheader, %RARRAY_AREF.exit61, %.split89.us
-  %.0 = phi i32 [ %63, %.split89.us ], [ %122, %RARRAY_AREF.exit61 ], [ -1, %.preheader ], [ -1, %55 ], [ -1, %64 ], [ -1, %.lr.ph84 ], [ -1, %.lr.ph ]
+  %.0 = phi i32 [ %63, %.split89.us ], [ %122, %RARRAY_AREF.exit61 ], [ -1, %.preheader ], [ -1, %55 ], [ -1, %.lr.ph84 ], [ -1, %64 ], [ -1, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -754,7 +754,7 @@ define dso_local noundef i64 @rb_struct_define_without_accessor(ptr noundef %0, 
   br label %struct_define_without_accessor.exit
 
 struct_define_without_accessor.exit:              ; preds = %6, %8
-  %.0.i = phi i64 [ %7, %6 ], [ %9, %8 ]
+  %.0.i = phi i64 [ %9, %8 ], [ %7, %6 ]
   %15 = call fastcc i64 @struct_set_members(i64 noundef %.0.i, i64 noundef %5)
   %.not18.i = icmp eq ptr %2, null
   %struct_alloc..i = select i1 %.not18.i, ptr @struct_alloc, ptr %2
@@ -1086,7 +1086,7 @@ RSTRUCT_CONST_PTR.exit:                           ; preds = %23, %25
   br label %rb_struct_s_keyword_init.exit
 
 rb_struct_s_keyword_init.exit:                    ; preds = %28, %42
-  %.0.i.i = phi i64 [ %43, %42 ], [ %30, %28 ]
+  %.0.i.i = phi i64 [ %30, %28 ], [ %43, %42 ]
   switch i64 %.0.i.i, label %44 [
     i64 0, label %.critedge
     i64 4, label %rb_struct_s_keyword_init.exit.thread
@@ -1192,7 +1192,7 @@ RSTRING_PTR.exit:                                 ; preds = %80, %88
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %122
 
-.critedge:                                        ; preds = %57, %rb_struct_s_keyword_init.exit, %rb_struct_s_keyword_init.exit.thread, %rbimpl_RB_TYPE_P_fastpath.exit, %67
+.critedge:                                        ; preds = %57, %rbimpl_RB_TYPE_P_fastpath.exit, %rb_struct_s_keyword_init.exit, %rb_struct_s_keyword_init.exit.thread, %67
   %90 = sext i32 %0 to i64
   %91 = icmp slt i64 %18, %90
   br i1 %91, label %95, label %.preheader
@@ -1445,7 +1445,7 @@ define internal fastcc i64 @num_members(i64 noundef %0) unnamed_addr #0 {
   br label %struct_ivar_get.exit
 
 struct_ivar_get.exit:                             ; preds = %1, %15
-  %.0.i3 = phi i64 [ %16, %15 ], [ %3, %1 ]
+  %.0.i3 = phi i64 [ %3, %1 ], [ %16, %15 ]
   %17 = icmp eq i64 %.0.i3, 0
   %18 = and i64 %.0.i3, 7
   %19 = icmp ne i64 %18, 0
@@ -1752,7 +1752,7 @@ internal_RSTRUCT_LEN.exit:                        ; preds = %33, %36
   br label %52
 
 52:                                               ; preds = %43, %47, %50, %20, %23, %RB_SYMBOL_P.exit.thread
-  %.0 = phi i32 [ %15, %RB_SYMBOL_P.exit.thread ], [ %24, %23 ], [ -1, %20 ], [ -1, %43 ], [ %51, %50 ], [ -1, %47 ]
+  %.0 = phi i32 [ %15, %RB_SYMBOL_P.exit.thread ], [ -1, %20 ], [ %24, %23 ], [ -1, %43 ], [ %51, %50 ], [ -1, %47 ]
   ret i32 %.0
 }
 
@@ -2145,7 +2145,7 @@ define hidden void @InitVM_Struct() local_unnamed_addr #0 {
   br label %rb_class_of.exit
 
 rb_class_of.exit:                                 ; preds = %35, %38, %39, %40, %41, %43
-  %.0.in.i = phi ptr [ @rb_cNilClass, %39 ], [ @rb_cTrueClass, %40 ], [ %37, %35 ], [ @rb_cFalseClass, %38 ], [ @rb_cInteger, %41 ], [ %spec.select.i, %43 ]
+  %.0.in.i = phi ptr [ %37, %35 ], [ @rb_cNilClass, %39 ], [ @rb_cTrueClass, %40 ], [ @rb_cFalseClass, %38 ], [ @rb_cInteger, %41 ], [ %spec.select.i, %43 ]
   %.0.i = load i64, ptr %.0.in.i, align 8, !tbaa !7
   tail call void @rb_undef_method(i64 noundef %.0.i, ptr noundef nonnull @.str.6) #20
   %46 = load i64, ptr @rb_cData, align 8, !tbaa !7
@@ -2220,8 +2220,8 @@ rb_scan_args_set.exit:                            ; preds = %5
   unreachable
 
 .thread72:                                        ; preds = %5, %rb_scan_args_set.exit
-  %.0.i616681 = phi i32 [ %14, %rb_scan_args_set.exit ], [ %0, %5 ]
-  %.087.i606879 = phi i64 [ %13, %rb_scan_args_set.exit ], [ 4, %5 ]
+  %.0.i616681 = phi i32 [ %0, %5 ], [ %14, %rb_scan_args_set.exit ]
+  %.087.i606879 = phi i64 [ 4, %5 ], [ %13, %rb_scan_args_set.exit ]
   %16 = load i64, ptr %1, align 8, !tbaa !7
   %17 = and i64 %16, 255
   %18 = icmp eq i64 %17, 12
@@ -2456,7 +2456,7 @@ internal_RSTRUCT_LEN.exit17:                      ; preds = %28, %31
   br label %rbimpl_RB_TYPE_P_fastpath.exit.thread
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %4, %13, %rbimpl_RB_TYPE_P_fastpath.exit, %2, %35
-  %.0 = phi i64 [ %36, %35 ], [ 20, %2 ], [ 0, %rbimpl_RB_TYPE_P_fastpath.exit ], [ 0, %13 ], [ 0, %4 ]
+  %.0 = phi i64 [ 20, %2 ], [ 0, %rbimpl_RB_TYPE_P_fastpath.exit ], [ %36, %35 ], [ 0, %13 ], [ 0, %4 ]
   ret i64 %.0
 }
 
@@ -2533,7 +2533,7 @@ internal_RSTRUCT_LEN.exit17:                      ; preds = %28, %31
   br label %rbimpl_RB_TYPE_P_fastpath.exit.thread
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %4, %13, %rbimpl_RB_TYPE_P_fastpath.exit, %2, %35
-  %.0 = phi i64 [ %36, %35 ], [ 20, %2 ], [ 0, %rbimpl_RB_TYPE_P_fastpath.exit ], [ 0, %13 ], [ 0, %4 ]
+  %.0 = phi i64 [ 20, %2 ], [ 0, %rbimpl_RB_TYPE_P_fastpath.exit ], [ %36, %35 ], [ 0, %13 ], [ 0, %4 ]
   ret i64 %.0
 }
 
@@ -2999,7 +2999,7 @@ internal_RSTRUCT_GET.exit32:                      ; preds = %58, %60
   br label %.preheader, !llvm.loop !49
 
 .loopexit:                                        ; preds = %internal_RSTRUCT_LEN.exit.thread, %internal_RSTRUCT_LEN.exit, %internal_RSTRUCT_LEN.exit29.thread, %internal_RSTRUCT_LEN.exit29, %3
-  %.0 = phi i64 [ %6, %3 ], [ %0, %internal_RSTRUCT_LEN.exit29 ], [ %0, %internal_RSTRUCT_LEN.exit29.thread ], [ %0, %internal_RSTRUCT_LEN.exit ], [ %0, %internal_RSTRUCT_LEN.exit.thread ]
+  %.0 = phi i64 [ %6, %3 ], [ %0, %internal_RSTRUCT_LEN.exit29.thread ], [ %0, %internal_RSTRUCT_LEN.exit29 ], [ %0, %internal_RSTRUCT_LEN.exit ], [ %0, %internal_RSTRUCT_LEN.exit.thread ]
   ret i64 %.0
 }
 
@@ -3423,7 +3423,7 @@ rb_struct_modify.exit:                            ; preds = %rbimpl_RB_TYPE_P_fa
   br label %struct_ivar_get.exit
 
 struct_ivar_get.exit:                             ; preds = %.preheader.i, %rb_struct_modify.exit, %31
-  %.0.i23 = phi i64 [ %32, %31 ], [ %19, %rb_struct_modify.exit ], [ 4, %.preheader.i ]
+  %.0.i23 = phi i64 [ %19, %rb_struct_modify.exit ], [ %32, %31 ], [ 4, %.preheader.i ]
   %33 = inttoptr i64 %.0.i23 to ptr
   %34 = load i64, ptr %33, align 8, !tbaa !11
   %35 = and i64 %34, 8192
@@ -3770,7 +3770,7 @@ RARRAY_AREF.exit.split:                           ; preds = %RARRAY_AREF.exit
   br i1 %.not42, label %.split.us, label %RARRAY_AREF.exit40
 
 .split.us:                                        ; preds = %RARRAY_AREF.exit40, %RARRAY_AREF.exit40.us, %RARRAY_AREF.exit.split, %RARRAY_AREF.exit.split.us
-  %.us-phi = phi i64 [ %.035.us44, %RARRAY_AREF.exit.split.us ], [ %.03541, %RARRAY_AREF.exit.split ], [ %.035.us, %RARRAY_AREF.exit40.us ], [ %.035, %RARRAY_AREF.exit40 ]
+  %.us-phi = phi i64 [ %.035.us, %RARRAY_AREF.exit40.us ], [ %.035.us44, %RARRAY_AREF.exit.split.us ], [ %.03541, %RARRAY_AREF.exit.split ], [ %.035, %RARRAY_AREF.exit40 ]
   tail call void @rb_ary_store(i64 noundef %18, i64 noundef %.us-phi, i64 noundef %33) #20
   %50 = or disjoint i64 %.us-phi, 1
   %51 = shl nuw i64 %.03649, 1
@@ -3871,7 +3871,7 @@ define internal i64 @rb_struct_s_inspect(i64 noundef %0) #0 {
   br label %rb_struct_s_keyword_init.exit
 
 rb_struct_s_keyword_init.exit:                    ; preds = %1, %16
-  %.0.i.i = phi i64 [ %17, %16 ], [ %4, %1 ]
+  %.0.i.i = phi i64 [ %4, %1 ], [ %17, %16 ]
   %18 = and i64 %.0.i.i, -5
   %.not = icmp eq i64 %18, 0
   br i1 %.not, label %rb_struct_s_keyword_init.exit.thread, label %19
@@ -4106,7 +4106,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %8, %rbimpl_RB_TYPE_
   br label %struct_ivar_get.exit
 
 struct_ivar_get.exit:                             ; preds = %.preheader.i, %20, %34
-  %.0.i23 = phi i64 [ %35, %34 ], [ %22, %20 ], [ 4, %.preheader.i ]
+  %.0.i23 = phi i64 [ %22, %20 ], [ %35, %34 ], [ 4, %.preheader.i ]
   %36 = inttoptr i64 %.0.i23 to ptr
   %37 = load i64, ptr %36, align 8, !tbaa !11
   %38 = and i64 %37, 8192

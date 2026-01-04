@@ -1093,7 +1093,7 @@ dissect_ctdb_reply_control.exit:                  ; preds = %287, %find_control_
   br label %367
 
 367:                                              ; preds = %72, %dissect_ctdb_req_call.exit, %dissect_ctdb_reply_call.exit, %dissect_ctdb_reply_dmaster.exit, %dissect_ctdb_req_dmaster.exit, %dissect_ctdb_req_control.exit, %dissect_ctdb_reply_control.exit, %27, %4
-  %.0122 = phi i32 [ 0, %4 ], [ 0, %27 ], [ 1, %dissect_ctdb_reply_control.exit ], [ 1, %dissect_ctdb_req_control.exit ], [ 1, %dissect_ctdb_req_dmaster.exit ], [ 1, %dissect_ctdb_reply_dmaster.exit ], [ 1, %dissect_ctdb_reply_call.exit ], [ 1, %dissect_ctdb_req_call.exit ], [ 1, %72 ]
+  %.0122 = phi i32 [ 0, %27 ], [ 0, %4 ], [ 1, %dissect_ctdb_reply_control.exit ], [ 1, %dissect_ctdb_req_control.exit ], [ 1, %dissect_ctdb_req_dmaster.exit ], [ 1, %dissect_ctdb_reply_dmaster.exit ], [ 1, %dissect_ctdb_reply_call.exit ], [ 1, %dissect_ctdb_req_call.exit ], [ 1, %72 ]
   ret i32 %.0122
 }
 

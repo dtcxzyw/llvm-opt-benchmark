@@ -474,7 +474,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
   br label %245
 
 245:                                              ; preds = %195, %201, %205, %207, %213, %217, %219, %224, %226, %232, %234, %237, %241, %243, %96, %9
-  %.0 = phi i1 [ false, %9 ], [ false, %96 ], [ %196, %195 ], [ %202, %201 ], [ %206, %205 ], [ %208, %207 ], [ %214, %213 ], [ %218, %217 ], [ %220, %219 ], [ %225, %224 ], [ %227, %226 ], [ %233, %232 ], [ %235, %234 ], [ %238, %237 ], [ %242, %241 ], [ %244, %243 ]
+  %.0 = phi i1 [ false, %96 ], [ false, %9 ], [ %196, %195 ], [ %202, %201 ], [ %206, %205 ], [ %208, %207 ], [ %214, %213 ], [ %218, %217 ], [ %220, %219 ], [ %225, %224 ], [ %227, %226 ], [ %233, %232 ], [ %235, %234 ], [ %238, %237 ], [ %242, %241 ], [ %244, %243 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i1 %.0
@@ -1227,7 +1227,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
   br label %240
 
 240:                                              ; preds = %190, %196, %200, %202, %208, %212, %214, %219, %221, %227, %229, %232, %236, %238, %95, %9
-  %.0 = phi i1 [ false, %9 ], [ false, %95 ], [ %191, %190 ], [ %197, %196 ], [ %201, %200 ], [ %203, %202 ], [ %209, %208 ], [ %213, %212 ], [ %215, %214 ], [ %220, %219 ], [ %222, %221 ], [ %228, %227 ], [ %230, %229 ], [ %233, %232 ], [ %237, %236 ], [ %239, %238 ]
+  %.0 = phi i1 [ false, %95 ], [ false, %9 ], [ %191, %190 ], [ %197, %196 ], [ %201, %200 ], [ %203, %202 ], [ %209, %208 ], [ %213, %212 ], [ %215, %214 ], [ %220, %219 ], [ %222, %221 ], [ %228, %227 ], [ %230, %229 ], [ %233, %232 ], [ %237, %236 ], [ %239, %238 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i1 %.0
@@ -1960,7 +1960,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
   br label %236
 
 236:                                              ; preds = %186, %192, %196, %198, %204, %208, %210, %215, %217, %223, %225, %228, %232, %234, %94, %9
-  %.0 = phi i1 [ false, %9 ], [ false, %94 ], [ %187, %186 ], [ %193, %192 ], [ %197, %196 ], [ %199, %198 ], [ %205, %204 ], [ %209, %208 ], [ %211, %210 ], [ %216, %215 ], [ %218, %217 ], [ %224, %223 ], [ %226, %225 ], [ %229, %228 ], [ %233, %232 ], [ %235, %234 ]
+  %.0 = phi i1 [ false, %94 ], [ false, %9 ], [ %187, %186 ], [ %193, %192 ], [ %197, %196 ], [ %199, %198 ], [ %205, %204 ], [ %209, %208 ], [ %211, %210 ], [ %216, %215 ], [ %218, %217 ], [ %224, %223 ], [ %226, %225 ], [ %229, %228 ], [ %233, %232 ], [ %235, %234 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i1 %.0
@@ -2706,7 +2706,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
   br label %245
 
 245:                                              ; preds = %195, %201, %205, %207, %213, %217, %219, %224, %226, %232, %234, %237, %241, %243, %96, %9
-  %.0 = phi i1 [ false, %9 ], [ false, %96 ], [ %196, %195 ], [ %202, %201 ], [ %206, %205 ], [ %208, %207 ], [ %214, %213 ], [ %218, %217 ], [ %220, %219 ], [ %225, %224 ], [ %227, %226 ], [ %233, %232 ], [ %235, %234 ], [ %238, %237 ], [ %242, %241 ], [ %244, %243 ]
+  %.0 = phi i1 [ false, %96 ], [ false, %9 ], [ %196, %195 ], [ %202, %201 ], [ %206, %205 ], [ %208, %207 ], [ %214, %213 ], [ %218, %217 ], [ %220, %219 ], [ %225, %224 ], [ %227, %226 ], [ %233, %232 ], [ %235, %234 ], [ %238, %237 ], [ %242, %241 ], [ %244, %243 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i1 %.0
@@ -3353,7 +3353,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
   br label %173
 
 173:                                              ; preds = %123, %129, %133, %135, %141, %145, %147, %152, %154, %160, %162, %165, %169, %171, %66, %9
-  %.0 = phi i1 [ false, %9 ], [ false, %66 ], [ %124, %123 ], [ %130, %129 ], [ %134, %133 ], [ %136, %135 ], [ %142, %141 ], [ %146, %145 ], [ %148, %147 ], [ %153, %152 ], [ %155, %154 ], [ %161, %160 ], [ %163, %162 ], [ %166, %165 ], [ %170, %169 ], [ %172, %171 ]
+  %.0 = phi i1 [ false, %66 ], [ false, %9 ], [ %124, %123 ], [ %130, %129 ], [ %134, %133 ], [ %136, %135 ], [ %142, %141 ], [ %146, %145 ], [ %148, %147 ], [ %153, %152 ], [ %155, %154 ], [ %161, %160 ], [ %163, %162 ], [ %166, %165 ], [ %170, %169 ], [ %172, %171 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i1 %.0
@@ -3928,7 +3928,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl23tri_tri_overlap_test_3dIN
   br label %195
 
 195:                                              ; preds = %91, %6, %193, %191, %187, %184, %182, %176, %174, %169, %167, %163, %157, %155, %151
-  %.0 = phi i1 [ %152, %151 ], [ %156, %155 ], [ %158, %157 ], [ %164, %163 ], [ %168, %167 ], [ %170, %169 ], [ %175, %174 ], [ %177, %176 ], [ %183, %182 ], [ %185, %184 ], [ %188, %187 ], [ %192, %191 ], [ %194, %193 ], [ false, %6 ], [ false, %91 ]
+  %.0 = phi i1 [ %194, %193 ], [ false, %6 ], [ %152, %151 ], [ %156, %155 ], [ %158, %157 ], [ %164, %163 ], [ %168, %167 ], [ %170, %169 ], [ %175, %174 ], [ %177, %176 ], [ %183, %182 ], [ %185, %184 ], [ %188, %187 ], [ %192, %191 ], [ false, %91 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
@@ -5419,7 +5419,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   br label %_ZN3igl8internal18_IGL_CHECK_MIN_MAXIN5Eigen5BlockIKNS2_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES7_S7_S7_NS3_IS5_Li1ELin1ELb0EEES7_EEbRKNS2_10MatrixBaseIT_EERKNS9_IT0_EERKNS9_IT1_EERKNS9_IT2_EERKNS9_IT3_EERKNS9_IT4_EE.exit
 
 _ZN3igl8internal18_IGL_CHECK_MIN_MAXIN5Eigen5BlockIKNS2_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES7_S7_S7_NS3_IS5_Li1ELin1ELb0EEES7_EEbRKNS2_10MatrixBaseIT_EERKNS9_IT0_EERKNS9_IT1_EERKNS9_IT2_EERKNS9_IT3_EERKNS9_IT4_EE.exit: ; preds = %1003, %950, %910, %857, %818, %765, %722, %669, %630, %577, %535, %482, %443, %390, %349, %296, %253, %200, %161, %108, %67, %14, %1046, %1044
-  %.0 = phi i1 [ %1045, %1044 ], [ %1047, %1046 ], [ false, %14 ], [ %105, %67 ], [ false, %108 ], [ %199, %161 ], [ false, %200 ], [ %291, %253 ], [ false, %296 ], [ %387, %349 ], [ false, %390 ], [ %481, %443 ], [ false, %482 ], [ %573, %535 ], [ false, %577 ], [ %668, %630 ], [ false, %669 ], [ %760, %722 ], [ false, %765 ], [ %856, %818 ], [ false, %857 ], [ %948, %910 ], [ false, %950 ], [ %1041, %1003 ]
+  %.0 = phi i1 [ %1047, %1046 ], [ %105, %67 ], [ %199, %161 ], [ %291, %253 ], [ %387, %349 ], [ %481, %443 ], [ %573, %535 ], [ %668, %630 ], [ %760, %722 ], [ %856, %818 ], [ %948, %910 ], [ %1045, %1044 ], [ false, %14 ], [ false, %108 ], [ false, %200 ], [ false, %296 ], [ false, %390 ], [ false, %482 ], [ false, %577 ], [ false, %669 ], [ false, %765 ], [ false, %857 ], [ false, %950 ], [ %1041, %1003 ]
   ret i1 %.0
 }
 
@@ -5718,7 +5718,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl23tri_tri_overlap_test_3dIN
   br label %190
 
 190:                                              ; preds = %90, %6, %188, %186, %182, %179, %177, %171, %169, %164, %162, %158, %152, %150, %146
-  %.0 = phi i1 [ %147, %146 ], [ %151, %150 ], [ %153, %152 ], [ %159, %158 ], [ %163, %162 ], [ %165, %164 ], [ %170, %169 ], [ %172, %171 ], [ %178, %177 ], [ %180, %179 ], [ %183, %182 ], [ %187, %186 ], [ %189, %188 ], [ false, %6 ], [ false, %90 ]
+  %.0 = phi i1 [ %189, %188 ], [ false, %6 ], [ %147, %146 ], [ %151, %150 ], [ %153, %152 ], [ %159, %158 ], [ %163, %162 ], [ %165, %164 ], [ %170, %169 ], [ %172, %171 ], [ %178, %177 ], [ %180, %179 ], [ %183, %182 ], [ %187, %186 ], [ false, %90 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
@@ -7154,7 +7154,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   br label %_ZN3igl8internal18_IGL_CHECK_MIN_MAXIN5Eigen5BlockIKNS2_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES7_S7_S7_NS4_IdLi1ELin1ELi1ELi1ELin1EEES7_EEbRKNS2_10MatrixBaseIT_EERKNS9_IT0_EERKNS9_IT1_EERKNS9_IT2_EERKNS9_IT3_EERKNS9_IT4_EE.exit
 
 _ZN3igl8internal18_IGL_CHECK_MIN_MAXIN5Eigen5BlockIKNS2_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES7_S7_S7_NS4_IdLi1ELin1ELi1ELi1ELin1EEES7_EEbRKNS2_10MatrixBaseIT_EERKNS9_IT0_EERKNS9_IT1_EERKNS9_IT2_EERKNS9_IT3_EERKNS9_IT4_EE.exit: ; preds = %992, %940, %901, %848, %809, %757, %714, %662, %624, %571, %529, %477, %439, %386, %345, %293, %250, %198, %160, %107, %66, %14, %1035, %1033
-  %.0 = phi i1 [ %1034, %1033 ], [ %1036, %1035 ], [ false, %14 ], [ %104, %66 ], [ false, %107 ], [ %197, %160 ], [ false, %198 ], [ %288, %250 ], [ false, %293 ], [ %383, %345 ], [ false, %386 ], [ %476, %439 ], [ false, %477 ], [ %567, %529 ], [ false, %571 ], [ %661, %624 ], [ false, %662 ], [ %752, %714 ], [ false, %757 ], [ %847, %809 ], [ false, %848 ], [ %938, %901 ], [ false, %940 ], [ %1030, %992 ]
+  %.0 = phi i1 [ %1036, %1035 ], [ %104, %66 ], [ %197, %160 ], [ %288, %250 ], [ %383, %345 ], [ %476, %439 ], [ %567, %529 ], [ %661, %624 ], [ %752, %714 ], [ %847, %809 ], [ %938, %901 ], [ %1034, %1033 ], [ false, %14 ], [ false, %107 ], [ false, %198 ], [ false, %293 ], [ false, %386 ], [ false, %477 ], [ false, %571 ], [ false, %662 ], [ false, %757 ], [ false, %848 ], [ false, %940 ], [ %1030, %992 ]
   ret i1 %.0
 }
 
@@ -7463,7 +7463,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl23tri_tri_overlap_test_3dIN
   br label %195
 
 195:                                              ; preds = %91, %6, %193, %191, %187, %184, %182, %176, %174, %169, %167, %163, %157, %155, %151
-  %.0 = phi i1 [ %152, %151 ], [ %156, %155 ], [ %158, %157 ], [ %164, %163 ], [ %168, %167 ], [ %170, %169 ], [ %175, %174 ], [ %177, %176 ], [ %183, %182 ], [ %185, %184 ], [ %188, %187 ], [ %192, %191 ], [ %194, %193 ], [ false, %6 ], [ false, %91 ]
+  %.0 = phi i1 [ %194, %193 ], [ false, %6 ], [ %152, %151 ], [ %156, %155 ], [ %158, %157 ], [ %164, %163 ], [ %168, %167 ], [ %170, %169 ], [ %175, %174 ], [ %177, %176 ], [ %183, %182 ], [ %185, %184 ], [ %188, %187 ], [ %192, %191 ], [ false, %91 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
@@ -8954,7 +8954,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   br label %_ZN3igl8internal18_IGL_CHECK_MIN_MAXIN5Eigen5BlockIKNS2_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES7_S7_S7_S7_S7_EEbRKNS2_10MatrixBaseIT_EERKNS8_IT0_EERKNS8_IT1_EERKNS8_IT2_EERKNS8_IT3_EERKNS8_IT4_EE.exit
 
 _ZN3igl8internal18_IGL_CHECK_MIN_MAXIN5Eigen5BlockIKNS2_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES7_S7_S7_S7_S7_EEbRKNS2_10MatrixBaseIT_EERKNS8_IT0_EERKNS8_IT1_EERKNS8_IT2_EERKNS8_IT3_EERKNS8_IT4_EE.exit: ; preds = %1003, %950, %910, %857, %818, %765, %722, %669, %630, %577, %535, %482, %443, %390, %349, %296, %253, %200, %161, %108, %67, %14, %1046, %1044
-  %.0 = phi i1 [ %1045, %1044 ], [ %1047, %1046 ], [ false, %14 ], [ %105, %67 ], [ false, %108 ], [ %199, %161 ], [ false, %200 ], [ %291, %253 ], [ false, %296 ], [ %387, %349 ], [ false, %390 ], [ %481, %443 ], [ false, %482 ], [ %573, %535 ], [ false, %577 ], [ %668, %630 ], [ false, %669 ], [ %760, %722 ], [ false, %765 ], [ %856, %818 ], [ false, %857 ], [ %948, %910 ], [ false, %950 ], [ %1041, %1003 ]
+  %.0 = phi i1 [ %1047, %1046 ], [ %105, %67 ], [ %199, %161 ], [ %291, %253 ], [ %387, %349 ], [ %481, %443 ], [ %573, %535 ], [ %668, %630 ], [ %760, %722 ], [ %856, %818 ], [ %948, %910 ], [ %1045, %1044 ], [ false, %14 ], [ false, %108 ], [ false, %200 ], [ false, %296 ], [ false, %390 ], [ false, %482 ], [ false, %577 ], [ false, %669 ], [ false, %765 ], [ false, %857 ], [ false, %950 ], [ %1041, %1003 ]
   ret i1 %.0
 }
 
@@ -9109,7 +9109,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27ccw_tri_tri_
   br label %58
 
 58:                                               ; preds = %38, %56, %54, %52, %44, %42, %39
-  %.0 = phi i1 [ %40, %39 ], [ %43, %42 ], [ %45, %44 ], [ %53, %52 ], [ %55, %54 ], [ %57, %56 ], [ true, %38 ]
+  %.0 = phi i1 [ %57, %56 ], [ %40, %39 ], [ %43, %42 ], [ %45, %44 ], [ %53, %52 ], [ %55, %54 ], [ true, %38 ]
   ret i1 %.0
 }
 
@@ -9224,7 +9224,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_INTERSE
   br label %97
 
 97:                                               ; preds = %61, %73, %91, %82, %42, %54, %33
-  %.0 = phi i1 [ %41, %33 ], [ %60, %54 ], [ false, %42 ], [ true, %82 ], [ %96, %91 ], [ false, %73 ], [ false, %61 ]
+  %.0 = phi i1 [ %41, %33 ], [ false, %73 ], [ %60, %54 ], [ %96, %91 ], [ true, %82 ], [ false, %42 ], [ false, %61 ]
   ret i1 %.0
 }
 
@@ -9393,7 +9393,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal29_IGL_INTERSE
   br label %141
 
 141:                                              ; preds = %93, %123, %135, %114, %68, %72, %84, %47, %59, %43
-  %.0 = phi i1 [ %46, %43 ], [ %67, %59 ], [ false, %47 ], [ %92, %84 ], [ false, %72 ], [ false, %68 ], [ %122, %114 ], [ %140, %135 ], [ false, %123 ], [ false, %93 ]
+  %.0 = phi i1 [ %46, %43 ], [ false, %123 ], [ %67, %59 ], [ %122, %114 ], [ false, %68 ], [ %92, %84 ], [ false, %47 ], [ %140, %135 ], [ false, %72 ], [ false, %93 ]
   ret i1 %.0
 }
 
@@ -10065,7 +10065,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   br label %463
 
 463:                                              ; preds = %263, %62, %387, %310, %189, %109
-  %.0 = phi i1 [ true, %109 ], [ true, %189 ], [ true, %310 ], [ true, %387 ], [ false, %62 ], [ false, %263 ]
+  %.0 = phi i1 [ true, %109 ], [ true, %189 ], [ true, %387 ], [ false, %62 ], [ true, %310 ], [ false, %263 ]
   ret i1 %.0
 }
 
@@ -10737,7 +10737,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   br label %463
 
 463:                                              ; preds = %263, %62, %387, %310, %189, %109
-  %.0 = phi i1 [ true, %109 ], [ true, %189 ], [ true, %310 ], [ true, %387 ], [ false, %62 ], [ false, %263 ]
+  %.0 = phi i1 [ true, %109 ], [ true, %189 ], [ true, %387 ], [ false, %62 ], [ true, %310 ], [ false, %263 ]
   ret i1 %.0
 }
 
@@ -11409,7 +11409,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   br label %463
 
 463:                                              ; preds = %263, %62, %387, %310, %189, %109
-  %.0 = phi i1 [ true, %109 ], [ true, %189 ], [ true, %310 ], [ true, %387 ], [ false, %62 ], [ false, %263 ]
+  %.0 = phi i1 [ true, %109 ], [ true, %189 ], [ true, %387 ], [ false, %62 ], [ true, %310 ], [ false, %263 ]
   ret i1 %.0
 }
 
@@ -12071,7 +12071,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   br label %461
 
 461:                                              ; preds = %262, %62, %385, %308, %188, %108
-  %.0 = phi i1 [ true, %108 ], [ true, %188 ], [ true, %308 ], [ true, %385 ], [ false, %62 ], [ false, %262 ]
+  %.0 = phi i1 [ true, %108 ], [ true, %188 ], [ true, %385 ], [ false, %62 ], [ true, %308 ], [ false, %262 ]
   ret i1 %.0
 }
 
@@ -12724,7 +12724,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   br label %454
 
 454:                                              ; preds = %254, %61, %378, %301, %184, %108
-  %.0 = phi i1 [ true, %108 ], [ true, %184 ], [ true, %301 ], [ true, %378 ], [ false, %61 ], [ false, %254 ]
+  %.0 = phi i1 [ true, %108 ], [ true, %184 ], [ true, %378 ], [ false, %61 ], [ true, %301 ], [ false, %254 ]
   ret i1 %.0
 }
 
@@ -13349,7 +13349,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   br label %444
 
 444:                                              ; preds = %251, %61, %371, %298, %182, %108
-  %.0 = phi i1 [ true, %108 ], [ true, %182 ], [ true, %298 ], [ true, %371 ], [ false, %61 ], [ false, %251 ]
+  %.0 = phi i1 [ true, %108 ], [ true, %182 ], [ true, %371 ], [ false, %61 ], [ true, %298 ], [ false, %251 ]
   ret i1 %.0
 }
 
@@ -14009,7 +14009,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   br label %459
 
 459:                                              ; preds = %261, %62, %383, %306, %187, %107
-  %.0 = phi i1 [ true, %107 ], [ true, %187 ], [ true, %306 ], [ true, %383 ], [ false, %62 ], [ false, %261 ]
+  %.0 = phi i1 [ true, %107 ], [ true, %187 ], [ true, %383 ], [ false, %62 ], [ true, %306 ], [ false, %261 ]
   ret i1 %.0
 }
 
@@ -14661,7 +14661,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   br label %453
 
 453:                                              ; preds = %253, %60, %377, %300, %183, %107
-  %.0 = phi i1 [ true, %107 ], [ true, %183 ], [ true, %300 ], [ true, %377 ], [ false, %60 ], [ false, %253 ]
+  %.0 = phi i1 [ true, %107 ], [ true, %183 ], [ true, %377 ], [ false, %60 ], [ true, %300 ], [ false, %253 ]
   ret i1 %.0
 }
 
@@ -15279,7 +15279,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   br label %437
 
 437:                                              ; preds = %247, %60, %367, %294, %181, %107
-  %.0 = phi i1 [ true, %107 ], [ true, %181 ], [ true, %294 ], [ true, %367 ], [ false, %60 ], [ false, %247 ]
+  %.0 = phi i1 [ true, %107 ], [ true, %181 ], [ true, %367 ], [ false, %60 ], [ true, %294 ], [ false, %247 ]
   ret i1 %.0
 }
 
@@ -15951,7 +15951,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   br label %463
 
 463:                                              ; preds = %263, %62, %387, %310, %189, %109
-  %.0 = phi i1 [ true, %109 ], [ true, %189 ], [ true, %310 ], [ true, %387 ], [ false, %62 ], [ false, %263 ]
+  %.0 = phi i1 [ true, %109 ], [ true, %189 ], [ true, %387 ], [ false, %62 ], [ true, %310 ], [ false, %263 ]
   ret i1 %.0
 }
 
@@ -16376,7 +16376,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   br label %323
 
 323:                                              ; preds = %183, %43, %272, %220, %133, %80
-  %.0 = phi i1 [ true, %80 ], [ true, %133 ], [ true, %220 ], [ true, %272 ], [ false, %43 ], [ false, %183 ]
+  %.0 = phi i1 [ true, %80 ], [ true, %133 ], [ true, %272 ], [ false, %43 ], [ true, %220 ], [ false, %183 ]
   ret i1 %.0
 }
 

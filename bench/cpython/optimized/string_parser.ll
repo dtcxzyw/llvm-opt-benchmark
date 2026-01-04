@@ -209,7 +209,7 @@ PyUnicode_READ.exit.i:                            ; preds = %.lr.ph.i, %PyUnicod
   br i1 %exitcond115.not.i, label %._crit_edge.i, label %PyUnicode_READ.exit.i, !llvm.loop !17
 
 ._crit_edge.i:                                    ; preds = %PyUnicode_READ.exit.us98.i, %PyUnicode_READ.exit.us.i, %PyUnicode_READ.exit.i, %_PyUnicode_DATA.exit.i
-  %.450.lcssa.i = phi ptr [ %.248.i, %_PyUnicode_DATA.exit.i ], [ %76, %PyUnicode_READ.exit.i ], [ %65, %PyUnicode_READ.exit.us.i ], [ %71, %PyUnicode_READ.exit.us98.i ]
+  %.450.lcssa.i = phi ptr [ %.248.i, %_PyUnicode_DATA.exit.i ], [ %65, %PyUnicode_READ.exit.us.i ], [ %76, %PyUnicode_READ.exit.i ], [ %71, %PyUnicode_READ.exit.us98.i ]
   %78 = load i32, ptr %43, align 8, !tbaa !4
   %.not.i66.i = icmp sgt i32 %78, -1
   br i1 %.not.i66.i, label %79, label %Py_DECREF.exit.i
@@ -303,12 +303,12 @@ Py_DECREF.exit69.sink.split.i:                    ; preds = %110, %105
   br label %Py_DECREF.exit69.i
 
 Py_DECREF.exit69.i:                               ; preds = %Py_DECREF.exit69.sink.split.i, %110, %108, %105, %Py_XDECREF.exit.i
-  %.4.i = phi ptr [ null, %Py_XDECREF.exit.i ], [ null, %105 ], [ %90, %108 ], [ %90, %110 ], [ %.4.ph.i, %Py_DECREF.exit69.sink.split.i ]
+  %.4.i = phi ptr [ %90, %110 ], [ null, %Py_XDECREF.exit.i ], [ null, %105 ], [ %90, %108 ], [ %.4.ph.i, %Py_DECREF.exit69.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %decode_unicode_with_escapes.exit
 
 decode_unicode_with_escapes.exit:                 ; preds = %Py_DECREF.exit69.i, %49, %46, %44, %15, %11, %9, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.4.i, %Py_DECREF.exit69.i ], [ null, %9 ], [ null, %11 ], [ null, %15 ], [ null, %49 ], [ null, %46 ], [ null, %44 ]
+  %.0 = phi ptr [ %8, %7 ], [ null, %15 ], [ null, %9 ], [ null, %11 ], [ %.4.i, %Py_DECREF.exit69.i ], [ null, %49 ], [ null, %46 ], [ null, %44 ]
   ret ptr %.0
 }
 
@@ -352,8 +352,8 @@ define hidden ptr @_PyPegen_parse_string(ptr noundef %0, ptr noundef %1) local_u
   br label %15
 
 15:                                               ; preds = %.preheader95, %.fold.split94, %.fold.split
-  %.270 = phi i32 [ 1, %.preheader95 ], [ %.16998, %.fold.split ], [ %.16998, %.fold.split94 ]
-  %.2 = phi i32 [ %.199, %.preheader95 ], [ %.199, %.fold.split ], [ 1, %.fold.split94 ]
+  %.270 = phi i32 [ %.16998, %.fold.split ], [ 1, %.preheader95 ], [ %.16998, %.fold.split94 ]
+  %.2 = phi i32 [ %.199, %.fold.split ], [ %.199, %.preheader95 ], [ 1, %.fold.split94 ]
   %.277 = getelementptr i8, ptr %.17696, i64 1
   %.273.in = load i8, ptr %.277, align 1, !tbaa !4
   %.273 = zext i8 %.273.in to i32
@@ -580,7 +580,7 @@ define internal fastcc ptr @decode_bytes_with_escapes(ptr noundef %0, ptr nounde
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %18, %15, %13, %8, %10, %4
-  %.0 = phi ptr [ null, %4 ], [ %6, %10 ], [ %6, %8 ], [ null, %13 ], [ null, %15 ], [ null, %18 ]
+  %.0 = phi ptr [ null, %4 ], [ %6, %8 ], [ %6, %10 ], [ null, %13 ], [ null, %15 ], [ null, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
@@ -693,7 +693,7 @@ Py_DECREF.exit38.sink.split:                      ; preds = %49, %44
   br label %Py_DECREF.exit38
 
 Py_DECREF.exit38:                                 ; preds = %Py_DECREF.exit38.sink.split, %49, %47, %44, %42, %10, %10, %19, %3
-  %.033 = phi i32 [ 0, %3 ], [ 0, %10 ], [ 0, %10 ], [ -1, %19 ], [ -1, %42 ], [ -1, %44 ], [ 0, %47 ], [ 0, %49 ], [ %.033.ph, %Py_DECREF.exit38.sink.split ]
+  %.033 = phi i32 [ 0, %3 ], [ 0, %10 ], [ 0, %10 ], [ -1, %19 ], [ 0, %49 ], [ -1, %42 ], [ -1, %44 ], [ 0, %47 ], [ %.033.ph, %Py_DECREF.exit38.sink.split ]
   ret i32 %.033
 }
 

@@ -96,7 +96,7 @@ define range(i32 0, 2) i32 @cli_realhex2ui(ptr noundef readonly captures(none) %
   br label %48
 
 48:                                               ; preds = %25, %10, %22, %44, %31
-  %.032 = phi i16 [ %24, %22 ], [ %33, %31 ], [ %47, %44 ], [ 256, %10 ], [ 512, %25 ]
+  %.032 = phi i16 [ %47, %44 ], [ %24, %22 ], [ %33, %31 ], [ 256, %10 ], [ 512, %25 ]
   %49 = getelementptr inbounds nuw i8, ptr %.03440, i64 2
   store i16 %.032, ptr %.03440, align 2, !tbaa !8
   %50 = add i32 %.041, 2
@@ -104,7 +104,7 @@ define range(i32 0, 2) i32 @cli_realhex2ui(ptr noundef readonly captures(none) %
   br i1 %51, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %17, %26, %39, %34, %48, %3
-  %.033 = phi i32 [ 1, %3 ], [ 1, %48 ], [ 0, %34 ], [ 0, %39 ], [ 0, %26 ], [ 0, %17 ]
+  %.033 = phi i32 [ 1, %3 ], [ 1, %48 ], [ 0, %26 ], [ 0, %39 ], [ 0, %34 ], [ 0, %17 ]
   ret i32 %.033
 }
 
@@ -202,19 +202,19 @@ define ptr @cli_hex2ui(ptr noundef %0) local_unnamed_addr #1 {
   br label %52
 
 52:                                               ; preds = %30, %48, %35, %27, %21
-  %.032.i = phi i16 [ %29, %27 ], [ %37, %35 ], [ %51, %48 ], [ 256, %21 ], [ 512, %30 ]
+  %.032.i = phi i16 [ %51, %48 ], [ %29, %27 ], [ %37, %35 ], [ 256, %21 ], [ 512, %30 ]
   %53 = getelementptr inbounds nuw i8, ptr %.03440.i, i64 2
   store i16 %.032.i, ptr %.03440.i, align 2, !tbaa !8
   %54 = add i32 %.041.i, 2
   %55 = icmp ult i32 %54, %3
   br i1 %55, label %.lr.ph.i, label %cli_realhex2ui.exit
 
-56:                                               ; preds = %38, %43, %.thread, %22
+56:                                               ; preds = %.thread, %43, %38, %22
   tail call void @free(ptr noundef %10) #24
   br label %cli_realhex2ui.exit
 
 cli_realhex2ui.exit:                              ; preds = %52, %11, %6, %56, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %56 ], [ null, %6 ], [ %10, %11 ], [ %10, %52 ]
+  %.0 = phi ptr [ null, %5 ], [ null, %6 ], [ null, %56 ], [ %10, %11 ], [ %10, %52 ]
   ret ptr %.0
 }
 
@@ -480,7 +480,7 @@ cli_hex2num.exit27:                               ; preds = %.lr.ph.i22, %37, %.
   br label %cli_hex2num.exit
 
 cli_hex2num.exit:                                 ; preds = %13, %.lr.ph.i, %.preheader.i, %cli_hex2num.exit27, %22
-  %.0 = phi i32 [ -1, %22 ], [ %.012.i18, %cli_hex2num.exit27 ], [ 0, %.preheader.i ], [ %15, %13 ], [ %.01315.i, %.lr.ph.i ]
+  %.0 = phi i32 [ %.012.i18, %cli_hex2num.exit27 ], [ -1, %22 ], [ 0, %.preheader.i ], [ %.01315.i, %.lr.ph.i ], [ %15, %13 ]
   ret i32 %.0
 }
 
@@ -597,7 +597,7 @@ define range(i32 -2147483647, -2147483648) i32 @cli_chomp(ptr noundef captures(a
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge2, %.critedge.loopexit.split.loop.exit25, %.preheader, %3, %1
-  %.014 = phi i32 [ -1, %1 ], [ 0, %3 ], [ %5, %.preheader ], [ %12, %.critedge.loopexit.split.loop.exit25 ], [ 0, %.critedge2 ]
+  %.014 = phi i32 [ 0, %3 ], [ -1, %1 ], [ %5, %.preheader ], [ %12, %.critedge.loopexit.split.loop.exit25 ], [ 0, %.critedge2 ]
   ret i32 %.014
 }
 
@@ -711,7 +711,7 @@ define ptr @cli_strtok(ptr noundef readonly captures(none) %0, i32 noundef %1, p
   br label %50
 
 50:                                               ; preds = %._crit_edge61, %._crit_edge, %46, %45
-  %.041 = phi ptr [ %44, %46 ], [ null, %45 ], [ null, %._crit_edge ], [ null, %._crit_edge61 ]
+  %.041 = phi ptr [ null, %._crit_edge ], [ %44, %46 ], [ null, %45 ], [ null, %._crit_edge61 ]
   ret ptr %.041
 }
 
@@ -883,7 +883,7 @@ define ptr @cli_memstr(ptr noundef readonly %0, i64 noundef %1, ptr noundef read
   br i1 %.not, label %.loopexit, label %21
 
 .loopexit:                                        ; preds = %30, %28, %6, %4, %11
-  %.035 = phi ptr [ %13, %11 ], [ null, %4 ], [ %0, %6 ], [ null, %30 ], [ %22, %28 ]
+  %.035 = phi ptr [ %0, %6 ], [ null, %4 ], [ %13, %11 ], [ null, %30 ], [ %22, %28 ]
   ret ptr %.035
 }
 
@@ -1068,7 +1068,7 @@ define ptr @__cli_strnstr(ptr noundef readonly captures(ret: address, provenance
   br i1 %.not21, label %.loopexit, label %.backedge
 
 .loopexit:                                        ; preds = %18, %16, %8, %11, %3
-  %.0 = phi ptr [ %0, %3 ], [ %.2, %18 ], [ null, %16 ], [ null, %8 ], [ null, %11 ]
+  %.0 = phi ptr [ %0, %3 ], [ %.2, %18 ], [ null, %16 ], [ null, %11 ], [ null, %8 ]
   ret ptr %.0
 }
 
@@ -1116,7 +1116,7 @@ define i64 @cli_strtokenize(ptr noundef %0, i8 noundef signext %1, i64 noundef %
   br i1 %exitcond.not, label %.loopexit, label %6
 
 .loopexit:                                        ; preds = %17, %.lr.ph26.preheader, %4, %.preheader
-  %.017 = phi i64 [ %7, %.preheader ], [ 0, %4 ], [ %7, %.lr.ph26.preheader ], [ %2, %17 ]
+  %.017 = phi i64 [ %7, %.preheader ], [ %7, %.lr.ph26.preheader ], [ 0, %4 ], [ %2, %17 ]
   ret i64 %.017
 }
 
@@ -1198,7 +1198,7 @@ define i64 @cli_strntol(ptr noundef %0, i64 noundef %1, ptr noundef writeonly ca
   %.not103 = icmp ult ptr %36, %8
   br i1 %.not103, label %.thread127, label %.thread165
 
-.thread:                                          ; preds = %30, %33
+.thread:                                          ; preds = %33, %30
   %37 = icmp eq i32 %3, 0
   br i1 %37, label %40, label %.thread127
 
@@ -1208,12 +1208,12 @@ define i64 @cli_strntol(ptr noundef %0, i64 noundef %1, ptr noundef writeonly ca
   br i1 %39, label %40, label %.thread127
 
 40:                                               ; preds = %38, %.thread
-  %41 = phi i32 [ 8, %.thread ], [ %., %38 ]
+  %41 = phi i32 [ %., %38 ], [ 8, %.thread ]
   br label %.thread127
 
 .thread127:                                       ; preds = %38, %35, %.thread, %40
-  %.4118130 = phi ptr [ %.3, %40 ], [ %.3, %.thread ], [ %36, %35 ], [ %.3, %38 ]
-  %42 = phi i32 [ %41, %40 ], [ %3, %.thread ], [ 16, %35 ], [ %3, %38 ]
+  %.4118130 = phi ptr [ %.3, %40 ], [ %36, %35 ], [ %.3, %.thread ], [ %.3, %38 ]
+  %42 = phi i32 [ %41, %40 ], [ 16, %35 ], [ %3, %.thread ], [ %3, %38 ]
   %43 = select i1 %.not105, i64 -9223372036854775808, i64 9223372036854775807
   %44 = sext i32 %42 to i64
   %45 = urem i64 %43, %44
@@ -1283,9 +1283,9 @@ define i64 @cli_strntol(ptr noundef %0, i64 noundef %1, ptr noundef writeonly ca
   br i1 %76, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %74, %58, %63
-  %.5.lcssa = phi ptr [ %75, %74 ], [ %.5133, %58 ], [ %.5133, %63 ]
-  %.182.lcssa = phi i64 [ %.283, %74 ], [ %.182134, %58 ], [ %.182134, %63 ]
-  %.176.lcssa = phi i32 [ %.2, %74 ], [ %.176135, %58 ], [ %.176135, %63 ]
+  %.5.lcssa = phi ptr [ %.5133, %63 ], [ %75, %74 ], [ %.5133, %58 ]
+  %.182.lcssa = phi i64 [ %.182134, %63 ], [ %.283, %74 ], [ %.182134, %58 ]
+  %.176.lcssa = phi i32 [ %.176135, %63 ], [ %.2, %74 ], [ %.176135, %58 ]
   %77 = icmp slt i32 %.176.lcssa, 0
   br i1 %77, label %78, label %80
 
@@ -1302,8 +1302,8 @@ define i64 @cli_strntol(ptr noundef %0, i64 noundef %1, ptr noundef writeonly ca
   br label %.thread165
 
 .thread165:                                       ; preds = %80, %.thread127, %78, %35, %24, %19, %.critedge, %4
-  %.081 = phi i64 [ 0, %4 ], [ 0, %.critedge ], [ 0, %19 ], [ 0, %35 ], [ %43, %78 ], [ 0, %24 ], [ 0, %.thread127 ], [ %spec.select, %80 ]
-  %.075 = phi ptr [ %0, %4 ], [ %0, %.critedge ], [ %0, %19 ], [ %0, %35 ], [ %.5.lcssa, %78 ], [ %0, %24 ], [ %0, %.thread127 ], [ %spec.select172, %80 ]
+  %.081 = phi i64 [ 0, %4 ], [ 0, %.critedge ], [ 0, %19 ], [ 0, %35 ], [ %43, %78 ], [ 0, %24 ], [ %spec.select, %80 ], [ 0, %.thread127 ]
+  %.075 = phi ptr [ %0, %4 ], [ %0, %.critedge ], [ %0, %19 ], [ %0, %35 ], [ %.5.lcssa, %78 ], [ %0, %24 ], [ %spec.select172, %80 ], [ %0, %.thread127 ]
   %.not110 = icmp eq ptr %2, null
   br i1 %.not110, label %84, label %83
 
@@ -1395,7 +1395,7 @@ define i64 @cli_strntoul(ptr noundef %0, i64 noundef %1, ptr noundef writeonly c
   %.not98 = icmp ult ptr %35, %7
   br i1 %.not98, label %.thread122, label %.thread159
 
-.thread:                                          ; preds = %29, %32
+.thread:                                          ; preds = %32, %29
   %36 = icmp eq i32 %3, 0
   br i1 %36, label %39, label %.thread122
 
@@ -1405,12 +1405,12 @@ define i64 @cli_strntoul(ptr noundef %0, i64 noundef %1, ptr noundef writeonly c
   br i1 %38, label %39, label %.thread122
 
 39:                                               ; preds = %37, %.thread
-  %40 = phi i32 [ 8, %.thread ], [ %., %37 ]
+  %40 = phi i32 [ %., %37 ], [ 8, %.thread ]
   br label %.thread122
 
 .thread122:                                       ; preds = %37, %34, %.thread, %39
-  %.4113125 = phi ptr [ %.3, %39 ], [ %.3, %.thread ], [ %35, %34 ], [ %.3, %37 ]
-  %41 = phi i32 [ %40, %39 ], [ %3, %.thread ], [ 16, %34 ], [ %3, %37 ]
+  %.4113125 = phi ptr [ %.3, %39 ], [ %35, %34 ], [ %.3, %.thread ], [ %.3, %37 ]
+  %41 = phi i32 [ %40, %39 ], [ 16, %34 ], [ %3, %.thread ], [ %3, %37 ]
   %42 = sext i32 %41 to i64
   %43 = udiv i64 -1, %42
   %44 = urem i64 -1, %42
@@ -1479,9 +1479,9 @@ define i64 @cli_strntoul(ptr noundef %0, i64 noundef %1, ptr noundef writeonly c
   br i1 %74, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %72, %56, %61
-  %.180.lcssa = phi i64 [ %.281, %72 ], [ %.180128, %56 ], [ %.180128, %61 ]
-  %.5.lcssa = phi ptr [ %73, %72 ], [ %.5129, %56 ], [ %.5129, %61 ]
-  %.171.lcssa = phi i32 [ %.2, %72 ], [ %.171130, %56 ], [ %.171130, %61 ]
+  %.180.lcssa = phi i64 [ %.180128, %61 ], [ %.281, %72 ], [ %.180128, %56 ]
+  %.5.lcssa = phi ptr [ %.5129, %61 ], [ %73, %72 ], [ %.5129, %56 ]
+  %.171.lcssa = phi i32 [ %.171130, %61 ], [ %.2, %72 ], [ %.171130, %56 ]
   %75 = icmp slt i32 %.171.lcssa, 0
   br i1 %75, label %76, label %78
 
@@ -1498,8 +1498,8 @@ define i64 @cli_strntoul(ptr noundef %0, i64 noundef %1, ptr noundef writeonly c
   br label %.thread159
 
 .thread159:                                       ; preds = %78, %.thread122, %76, %34, %23, %18, %.critedge
-  %.079 = phi i64 [ 0, %.critedge ], [ 0, %18 ], [ 0, %34 ], [ -1, %76 ], [ 0, %23 ], [ 0, %.thread122 ], [ %spec.select, %78 ]
-  %.070 = phi ptr [ %0, %.critedge ], [ %0, %18 ], [ %0, %34 ], [ %.5.lcssa, %76 ], [ %0, %23 ], [ %0, %.thread122 ], [ %spec.select166, %78 ]
+  %.079 = phi i64 [ 0, %.critedge ], [ 0, %18 ], [ 0, %34 ], [ -1, %76 ], [ 0, %23 ], [ %spec.select, %78 ], [ 0, %.thread122 ]
+  %.070 = phi ptr [ %0, %.critedge ], [ %0, %18 ], [ %0, %34 ], [ %.5.lcssa, %76 ], [ %0, %23 ], [ %spec.select166, %78 ], [ %0, %.thread122 ]
   %.not105 = icmp eq ptr %2, null
   br i1 %.not105, label %82, label %81
 
@@ -1558,7 +1558,7 @@ define range(i32 0, 28) i32 @cli_strntol_wrap(ptr noundef %0, i64 noundef %1, i3
   br label %26
 
 26:                                               ; preds = %23, %17, %14, %5, %25
-  %.0 = phi i32 [ 0, %25 ], [ 27, %5 ], [ 27, %14 ], [ 27, %17 ], [ 27, %23 ]
+  %.0 = phi i32 [ 27, %5 ], [ 27, %14 ], [ 27, %17 ], [ 0, %25 ], [ 27, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -1609,7 +1609,7 @@ define range(i32 0, 28) i32 @cli_strntoul_wrap(ptr noundef %0, i64 noundef %1, i
   br label %26
 
 26:                                               ; preds = %23, %17, %14, %5, %25
-  %.0 = phi i32 [ 0, %25 ], [ 27, %5 ], [ 27, %14 ], [ 27, %17 ], [ 27, %23 ]
+  %.0 = phi i32 [ 27, %5 ], [ 27, %14 ], [ 27, %17 ], [ 0, %25 ], [ 27, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -1685,7 +1685,7 @@ define i64 @cli_ldbtokenize(ptr noundef %0, i8 noundef signext %1, i64 noundef %
   br label %26
 
 26:                                               ; preds = %22, %21
-  %.2 = phi i1 [ %.155, %21 ], [ %spec.select, %22 ]
+  %.2 = phi i1 [ %spec.select, %22 ], [ %.155, %21 ]
   %27 = add i64 %.13654, 1
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 %27
   %29 = load i8, ptr %28, align 1, !tbaa !3
@@ -1705,7 +1705,7 @@ define i64 @cli_ldbtokenize(ptr noundef %0, i8 noundef signext %1, i64 noundef %
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph80
 
 .loopexit:                                        ; preds = %.split.us, %.lr.ph83.preheader, %5, %.preheader
-  %.039 = phi i64 [ %7, %.preheader ], [ 0, %5 ], [ %7, %.lr.ph83.preheader ], [ %2, %.split.us ]
+  %.039 = phi i64 [ %7, %.preheader ], [ %7, %.lr.ph83.preheader ], [ 0, %5 ], [ %2, %.split.us ]
   ret i64 %.039
 }
 
@@ -2159,8 +2159,8 @@ output_utf8.exit:                                 ; preds = %84, %87, %92, %99
   br label %114
 
 114:                                              ; preds = %22, %25, %13, %16, %17, %18, %19, %20, %21, %113, %39, %10, %6
-  %.153 = phi i64 [ %11, %113 ], [ %11, %16 ], [ %11, %17 ], [ %11, %18 ], [ %11, %19 ], [ %11, %20 ], [ %11, %21 ], [ %11, %39 ], [ %.05269, %10 ], [ %.05269, %6 ], [ %11, %13 ], [ %23, %25 ], [ %23, %22 ]
-  %.050 = phi i8 [ %15, %113 ], [ 8, %16 ], [ 9, %17 ], [ 10, %18 ], [ 11, %19 ], [ 12, %20 ], [ 13, %21 ], [ 92, %39 ], [ 92, %10 ], [ %8, %6 ], [ 0, %13 ], [ %38, %25 ], [ 92, %22 ]
+  %.153 = phi i64 [ %11, %113 ], [ %.05269, %6 ], [ %11, %16 ], [ %11, %17 ], [ %11, %18 ], [ %11, %19 ], [ %11, %20 ], [ %11, %21 ], [ %11, %13 ], [ %11, %39 ], [ %.05269, %10 ], [ %23, %25 ], [ %23, %22 ]
+  %.050 = phi i8 [ %15, %113 ], [ %8, %6 ], [ 8, %16 ], [ 9, %17 ], [ 10, %18 ], [ 11, %19 ], [ 12, %20 ], [ 13, %21 ], [ 0, %13 ], [ 92, %39 ], [ 92, %10 ], [ %38, %25 ], [ 92, %22 ]
   %spec.store.select = tail call i8 @llvm.umax.i8(i8 %.050, i8 1)
   %115 = load i64, ptr %4, align 8, !tbaa !19
   %116 = add i64 %115, 1
@@ -2194,13 +2194,13 @@ textbuffer_putc.exit:                             ; preds = %114, %.thread.i.i
   br label %textbuffer_ensure_capacity.exit
 
 textbuffer_ensure_capacity.exit:                  ; preds = %output_utf8.exit, %textbuffer_putc.exit
-  %.355 = phi i64 [ %40, %output_utf8.exit ], [ %.153, %textbuffer_putc.exit ]
+  %.355 = phi i64 [ %.153, %textbuffer_putc.exit ], [ %40, %output_utf8.exit ]
   %126 = add i64 %.355, 1
   %127 = icmp ult i64 %126, %2
   br i1 %127, label %6, label %textbuffer_ensure_capacity.exit.thread65
 
 textbuffer_ensure_capacity.exit.thread65:         ; preds = %textbuffer_ensure_capacity.exit, %73, %119, %3
-  %.3 = phi i32 [ 0, %3 ], [ -1, %119 ], [ -1, %73 ], [ 0, %textbuffer_ensure_capacity.exit ]
+  %.3 = phi i32 [ 0, %3 ], [ -1, %73 ], [ -1, %119 ], [ 0, %textbuffer_ensure_capacity.exit ]
   ret i32 %.3
 }
 

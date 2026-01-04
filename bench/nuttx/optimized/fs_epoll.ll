@@ -637,7 +637,7 @@ list_remove_head.exit:                            ; preds = %75, %77
   br label %250
 
 .loopexit:                                        ; preds = %.lr.ph337, %.lr.ph343, %.lr.ph349, %25, %52, %222, %195, %171, %98
-  %.0257 = phi i32 [ %95, %98 ], [ %181, %171 ], [ %204, %195 ], [ %232, %222 ], [ -12, %52 ], [ -22, %25 ], [ -17, %.lr.ph349 ], [ -17, %.lr.ph343 ], [ -17, %.lr.ph337 ]
+  %.0257 = phi i32 [ -12, %52 ], [ %232, %222 ], [ -17, %.lr.ph349 ], [ -17, %.lr.ph343 ], [ -22, %25 ], [ %95, %98 ], [ %181, %171 ], [ %204, %195 ], [ -17, %.lr.ph337 ]
   %246 = call i32 @nxmutex_unlock(ptr noundef nonnull %22) #9
   br label %247
 
@@ -649,7 +649,7 @@ list_remove_head.exit:                            ; preds = %75, %77
   br label %250
 
 250:                                              ; preds = %epoll_head_from_fd.exit.thread, %epoll_head_from_fd.exit, %247, %.loopexit290
-  %.0 = phi i32 [ -1, %247 ], [ 0, %.loopexit290 ], [ -1, %epoll_head_from_fd.exit ], [ -1, %epoll_head_from_fd.exit.thread ]
+  %.0 = phi i32 [ 0, %.loopexit290 ], [ -1, %247 ], [ -1, %epoll_head_from_fd.exit ], [ -1, %epoll_head_from_fd.exit.thread ]
   ret i32 %.0
 }
 
@@ -812,7 +812,7 @@ epoll_head_from_fd.exit:                          ; preds = %16
   br label %61
 
 61:                                               ; preds = %54, %57, %59
-  %.024 = phi i32 [ %58, %57 ], [ %60, %59 ], [ -110, %54 ]
+  %.024 = phi i32 [ %60, %59 ], [ %58, %57 ], [ -110, %54 ]
   %62 = call i32 @nxsig_procmask(i32 noundef 3, ptr noundef nonnull %7, ptr noundef null) #9
   %63 = icmp slt i32 %.024, 0
   %64 = icmp ne i32 %.024, -110
@@ -878,14 +878,14 @@ epoll_setup.exit39:                               ; preds = %79, %71
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.split25, %61, %._crit_edge.sink.split, %.split
-  %.1 = phi i32 [ %24, %.split ], [ %.1.ph, %._crit_edge.sink.split ], [ %69, %.split25 ], [ %.024, %61 ]
+  %.1 = phi i32 [ %.1.ph, %._crit_edge.sink.split ], [ %24, %.split ], [ %69, %.split25 ], [ %.024, %61 ]
   %89 = sub nsw i32 0, %.1
   %90 = call ptr @__errno() #9
   store i32 %89, ptr %90, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %65, %epoll_head_from_fd.exit.thread, %epoll_head_from_fd.exit, %._crit_edge
-  %.0 = phi i32 [ -1, %._crit_edge ], [ -1, %epoll_head_from_fd.exit ], [ -1, %epoll_head_from_fd.exit.thread ], [ %66, %65 ]
+  %.0 = phi i32 [ -1, %epoll_head_from_fd.exit ], [ -1, %._crit_edge ], [ -1, %epoll_head_from_fd.exit.thread ], [ %66, %65 ]
   ret i32 %.0
 }
 
@@ -1110,7 +1110,7 @@ epoll_head_from_fd.exit:                          ; preds = %14
   br label %57
 
 57:                                               ; preds = %53, %55
-  %.023 = phi i32 [ %54, %53 ], [ %56, %55 ]
+  %.023 = phi i32 [ %56, %55 ], [ %54, %53 ]
   %58 = icmp slt i32 %.023, 0
   %59 = icmp ne i32 %.023, -110
   %or.cond = and i1 %58, %59
@@ -1175,14 +1175,14 @@ epoll_setup.exit38:                               ; preds = %73, %65
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.split24, %57, %._crit_edge.sink.split, %.split
-  %.1 = phi i32 [ %22, %.split ], [ %.1.ph, %._crit_edge.sink.split ], [ %63, %.split24 ], [ %.023, %57 ]
+  %.1 = phi i32 [ %.1.ph, %._crit_edge.sink.split ], [ %22, %.split ], [ %63, %.split24 ], [ %.023, %57 ]
   %83 = sub nsw i32 0, %.1
   %84 = call ptr @__errno() #9
   store i32 %83, ptr %84, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread, %.thread.us, %epoll_head_from_fd.exit.thread, %epoll_head_from_fd.exit, %._crit_edge
-  %.0 = phi i32 [ -1, %._crit_edge ], [ -1, %epoll_head_from_fd.exit ], [ -1, %epoll_head_from_fd.exit.thread ], [ %52, %.thread.us ], [ %60, %.thread ]
+  %.0 = phi i32 [ -1, %epoll_head_from_fd.exit ], [ -1, %._crit_edge ], [ -1, %epoll_head_from_fd.exit.thread ], [ %52, %.thread.us ], [ %60, %.thread ]
   ret i32 %.0
 }
 

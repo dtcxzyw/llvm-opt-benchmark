@@ -1475,7 +1475,7 @@ define range(i32 0, 7) i32 @Z3_param_descrs_get_kind(ptr noundef %0, ptr noundef
   br label %20
 
 20:                                               ; preds = %13, %13, %13, %19, %18, %17, %16
-  %.0 = phi i32 [ 5, %19 ], [ 4, %16 ], [ 3, %17 ], [ 6, %18 ], [ %12, %13 ], [ %12, %13 ], [ %12, %13 ]
+  %.0 = phi i32 [ 5, %19 ], [ 6, %18 ], [ %12, %13 ], [ %12, %13 ], [ 4, %16 ], [ 3, %17 ], [ %12, %13 ]
   br i1 %6, label %21, label %_ZN10z3_log_ctxD2Ev.exit, !prof !162
 
 21:                                               ; preds = %20

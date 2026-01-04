@@ -1174,7 +1174,7 @@ define hidden range(i32 -94, 1) i32 @mbedtls_aria_crypt_cbc(ptr noundef readonly
   br i1 %.not34, label %.loopexit, label %.preheader44, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.preheader44, %.lr.ph60, %.preheader45, %.preheader42, %8, %6
-  %.031 = phi i32 [ -92, %6 ], [ -94, %8 ], [ 0, %.preheader42 ], [ 0, %.preheader45 ], [ 0, %.lr.ph60 ], [ 0, %.preheader44 ]
+  %.031 = phi i32 [ -94, %8 ], [ -92, %6 ], [ 0, %.preheader42 ], [ 0, %.preheader45 ], [ 0, %.lr.ph60 ], [ 0, %.preheader44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.031
 }
@@ -1255,7 +1255,7 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_crypt_cfb128(ptr noundef reado
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !21
 
 .loopexit:                                        ; preds = %30, %17, %.preheader43, %.preheader
-  %.1 = phi i64 [ %9, %.preheader ], [ %9, %.preheader43 ], [ %25, %17 ], [ %38, %30 ]
+  %.1 = phi i64 [ %25, %17 ], [ %9, %.preheader ], [ %9, %.preheader43 ], [ %38, %30 ]
   store i64 %.1, ptr %3, align 8, !tbaa !18
   br label %39
 

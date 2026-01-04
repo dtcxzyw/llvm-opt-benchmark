@@ -111,12 +111,12 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hbfe95a96c38d7049E.exit.i
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %12
 
-.thread.loopexit:                                 ; preds = %"_ZN4core3ptr139drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$17h2c4441eb59a354ccE.llvm.6766350830065688733.exit.sink.split.i21", %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.6766350830065688733.exit.i.i.i.i.i.i19, %31
+.thread.loopexit:                                 ; preds = %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.6766350830065688733.exit.i.i.i.i.i.i19, %31, %"_ZN4core3ptr139drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$17h2c4441eb59a354ccE.llvm.6766350830065688733.exit.sink.split.i21"
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.thread
 
-.thread.loopexit.split-lp:                        ; preds = %29, %11, %_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hbfe95a96c38d7049E.exit.i, %21
+.thread.loopexit.split-lp:                        ; preds = %11, %_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hbfe95a96c38d7049E.exit.i, %29, %21
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -487,7 +487,7 @@ define hidden noundef range(i8 0, 3) i8 @_ZN3std10sys_common4once5futex4Once5sta
   br label %12
 
 12:                                               ; preds = %1, %11, %10
-  %.0 = phi i8 [ 1, %10 ], [ 2, %11 ], [ 0, %1 ]
+  %.0 = phi i8 [ 2, %11 ], [ 1, %10 ], [ 0, %1 ]
   ret i8 %.0
 }
 
@@ -7624,8 +7624,8 @@ define hidden void @"_ZN4core3ptr324drop_in_place$LT$either..Either$LT$core..ite
   br i1 %31, label %"_ZN4core3ptr78drop_in_place$LT$core..iter..sources..once..Once$LT$std..path..PathBuf$GT$$GT$17h112c12cdf7bb3bd4E.llvm.6766350830065688733.exit", label %"_ZN4core3ptr78drop_in_place$LT$core..iter..sources..once..Once$LT$std..path..PathBuf$GT$$GT$17h112c12cdf7bb3bd4E.llvm.6766350830065688733.exit.sink.split"
 
 "_ZN4core3ptr78drop_in_place$LT$core..iter..sources..once..Once$LT$std..path..PathBuf$GT$$GT$17h112c12cdf7bb3bd4E.llvm.6766350830065688733.exit.sink.split": ; preds = %4, %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$std..path..PathBuf$GT$$GT$17h83383ba726344b72E.llvm.6766350830065688733.exit.i"
-  %.sink = phi i64 [ 8, %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$std..path..PathBuf$GT$$GT$17h83383ba726344b72E.llvm.6766350830065688733.exit.i" ], [ 16, %4 ]
-  %.sink7 = phi i64 [ %2, %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$std..path..PathBuf$GT$$GT$17h83383ba726344b72E.llvm.6766350830065688733.exit.i" ], [ %6, %4 ]
+  %.sink = phi i64 [ 16, %4 ], [ 8, %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$std..path..PathBuf$GT$$GT$17h83383ba726344b72E.llvm.6766350830065688733.exit.i" ]
+  %.sink7 = phi i64 [ %6, %4 ], [ %2, %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$std..path..PathBuf$GT$$GT$17h83383ba726344b72E.llvm.6766350830065688733.exit.i" ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %33 = load ptr, ptr %32, align 8, !noalias !4, !nonnull !4, !noundef !4
   tail call void @__rust_dealloc(ptr noundef nonnull %33, i64 noundef %.sink7, i64 noundef 1) #24, !noalias !4
@@ -8437,7 +8437,7 @@ define hidden void @"_ZN4core3ptr39drop_in_place$LT$tree_sitter..Query$GT$17h4e0
   br label %"_ZN4core3ptr124drop_in_place$LT$alloc..boxed..Box$LT$$u5b$alloc..boxed..Box$LT$$u5b$tree_sitter..TextPredicateCapture$u5d$$GT$$u5d$$GT$$GT$17he22856616dda3a5eE.llvm.6766350830065688733.exit"
 
 .body:                                            ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.6766350830065688733.exit.i.i12", %36, %"_ZN4core3ptr63drop_in_place$LT$alloc..boxed..Box$LT$$u5b$$RF$str$u5d$$GT$$GT$17h3e4d5d13ccd2f9b5E.llvm.6766350830065688733.exit"
-  %.pn4 = phi { ptr, i32 } [ %3, %"_ZN4core3ptr63drop_in_place$LT$alloc..boxed..Box$LT$$u5b$$RF$str$u5d$$GT$$GT$17h3e4d5d13ccd2f9b5E.llvm.6766350830065688733.exit" ], [ %37, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.6766350830065688733.exit.i.i12" ], [ %37, %36 ]
+  %.pn4 = phi { ptr, i32 } [ %3, %"_ZN4core3ptr63drop_in_place$LT$alloc..boxed..Box$LT$$u5b$$RF$str$u5d$$GT$$GT$17h3e4d5d13ccd2f9b5E.llvm.6766350830065688733.exit" ], [ %37, %36 ], [ %37, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.6766350830065688733.exit.i.i12" ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @"_ZN4core3ptr117drop_in_place$LT$alloc..boxed..Box$LT$$u5b$alloc..boxed..Box$LT$$u5b$tree_sitter..QueryProperty$u5d$$GT$$u5d$$GT$$GT$17he499ddafc62875e3E.llvm.6766350830065688733"(ptr noalias noundef nonnull align 8 dereferenceable(16) %43) #22
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -8781,8 +8781,8 @@ define hidden void @"_ZN4core3ptr44drop_in_place$LT$tree_sitter_tags..Error$GT$1
   br i1 %switch, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h26eb43a31b673935E.exit.sink.split", label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h26eb43a31b673935E.exit"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h26eb43a31b673935E.exit.sink.split": ; preds = %12, %10, %6
-  %.sink = phi i64 [ 16, %6 ], [ 8, %10 ], [ 16, %12 ]
-  %.sink4 = phi i64 [ %8, %6 ], [ %2, %10 ], [ %14, %12 ]
+  %.sink = phi i64 [ 8, %10 ], [ 16, %6 ], [ 16, %12 ]
+  %.sink4 = phi i64 [ %2, %10 ], [ %8, %6 ], [ %14, %12 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %16 = load ptr, ptr %15, align 8, !noalias !4, !nonnull !4, !noundef !4
   tail call void @__rust_dealloc(ptr noundef nonnull %16, i64 noundef %.sink4, i64 noundef 1) #24, !noalias !4
@@ -9270,7 +9270,7 @@ define hidden void @"_ZN4core3ptr48drop_in_place$LT$regex..regex..string..Regex$
   unreachable
 
 .body:                                            ; preds = %6, %11
-  %eh.lpad-body = phi { ptr, i32 } [ %12, %11 ], [ %7, %6 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %7, %6 ], [ %12, %11 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4217)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4220)
@@ -9936,7 +9936,7 @@ default.unreachable4:                             ; preds = %1
   unreachable
 
 .body.i:                                          ; preds = %32, %27
-  %eh.lpad-body.i = phi { ptr, i32 } [ %33, %32 ], [ %28, %27 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %28, %27 ], [ %33, %32 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4592)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4595)
@@ -11422,7 +11422,7 @@ define hidden void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..conten
   br label %common.resume
 
 common.resume:                                    ; preds = %.body8, %81, %.body, %31, %57, %52
-  %common.resume.op = phi { ptr, i32 } [ %53, %52 ], [ %58, %57 ], [ %eh.lpad-body11, %31 ], [ %eh.lpad-body11, %.body ], [ %73, %81 ], [ %73, %.body8 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body11, %.body ], [ %53, %52 ], [ %58, %57 ], [ %eh.lpad-body11, %31 ], [ %73, %81 ], [ %73, %.body8 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr131drop_in_place$LT$alloc..vec..Vec$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17hf6ab0d1339175847E.exit": ; preds = %"_ZN4core3ptr108drop_in_place$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$17h6cc8e4412e229630E.llvm.6766350830065688733.exit"
@@ -14630,8 +14630,8 @@ _ZN3std10sys_common4once5futex4Once5state17h8c3bb1db7dfb2918E.llvm.6766350830065
   br i1 %switch, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h26eb43a31b673935E.exit.sink.split.i", label %"_ZN4core3ptr44drop_in_place$LT$tree_sitter_tags..Error$GT$17hdcd0aac04377158fE.llvm.6766350830065688733.exit"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h26eb43a31b673935E.exit.sink.split.i": ; preds = %31, %29, %25
-  %.sink.i = phi i64 [ 16, %25 ], [ 8, %29 ], [ 16, %31 ]
-  %.sink4.i = phi i64 [ %27, %25 ], [ %21, %29 ], [ %33, %31 ]
+  %.sink.i = phi i64 [ 8, %29 ], [ 16, %25 ], [ 16, %31 ]
+  %.sink4.i = phi i64 [ %21, %29 ], [ %27, %25 ], [ %33, %31 ]
   %34 = getelementptr inbounds nuw i8, ptr %20, i64 %.sink.i
   %35 = load ptr, ptr %34, align 8, !alias.scope !6793, !noalias !4, !nonnull !4, !noundef !4
   tail call void @__rust_dealloc(ptr noundef nonnull %35, i64 noundef %.sink4.i, i64 noundef 1) #24, !noalias !6793

@@ -161,7 +161,7 @@ define hidden noundef ptr @ZIP_Get_From_Cache(ptr noundef readonly captures(none
   br label %InitializeZip.exit
 
 InitializeZip.exit:                               ; preds = %11, %6, %16, %.loopexit
-  %.016 = phi ptr [ %.026, %.loopexit ], [ null, %16 ], [ null, %6 ], [ null, %11 ]
+  %.016 = phi ptr [ %.026, %.loopexit ], [ null, %6 ], [ null, %16 ], [ null, %11 ]
   ret ptr %.016
 }
 
@@ -285,7 +285,7 @@ readFully.exit:                                   ; preds = %.outer.i
   store i8 %52, ptr %53, align 1
   br label %readFully.exit.thread
 
-readFully.exit.thread:                            ; preds = %34, %32, %readFully.exit
+readFully.exit.thread:                            ; preds = %32, %34, %readFully.exit
   %54 = tail call i64 @lseek64(i32 noundef %1, i64 noundef 0, i32 noundef 2) #21
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %54, ptr %55, align 8
@@ -339,7 +339,7 @@ readFully.exit.thread:                            ; preds = %34, %32, %readFully
   br label %allocZip.exit.thread
 
 allocZip.exit.thread:                             ; preds = %13, %5, %69, %68, %59, %22
-  %.0 = phi ptr [ null, %22 ], [ null, %59 ], [ null, %68 ], [ %7, %69 ], [ null, %5 ], [ null, %13 ]
+  %.0 = phi ptr [ %7, %69 ], [ null, %22 ], [ null, %59 ], [ null, %68 ], [ null, %5 ], [ null, %13 ]
   ret ptr %.0
 }
 
@@ -961,7 +961,7 @@ readFullyAt.exit.i179:                            ; preds = %.outer.i.i.i178
   %250 = icmp eq i32 %249, 4
   br i1 %250, label %.outer.split.i.i10.i, label %findEND64.exit.thread, !llvm.loop !8
 
-findEND64.exit.thread:                            ; preds = %219, %221, %247, %245, %readFullyAt.exit.i179, %205
+findEND64.exit.thread:                            ; preds = %221, %219, %247, %245, %205, %readFullyAt.exit.i179
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %296
 
@@ -1502,8 +1502,8 @@ hashN.exit:                                       ; preds = %.lr.ph.i191, %isMet
   store i32 %.0150.lcssa, ptr %540, align 8
   br label %freeCEN.exit200
 
-readFullyAt.exit.thread:                          ; preds = %359, %357, %tailrecurse.i._crit_edge, %.loopexit.i190, %473, %342, %readFullyAt.exit, %339, %311, %538, %447, %441, %438, %433, %332, %304, %298
-  %.0151 = phi ptr [ null, %298 ], [ null, %304 ], [ null, %311 ], [ null, %332 ], [ %.1, %readFullyAt.exit ], [ %.1, %438 ], [ %.1, %441 ], [ %.1, %447 ], [ %.1, %433 ], [ %.1, %538 ], [ null, %339 ], [ %340, %342 ], [ %.1, %473 ], [ %.1, %.loopexit.i190 ], [ %.1, %tailrecurse.i._crit_edge ], [ %340, %357 ], [ %340, %359 ]
+readFullyAt.exit.thread:                          ; preds = %357, %359, %tailrecurse.i._crit_edge, %.loopexit.i190, %473, %342, %readFullyAt.exit, %339, %311, %538, %447, %441, %438, %433, %332, %304, %298
+  %.0151 = phi ptr [ null, %298 ], [ null, %304 ], [ null, %311 ], [ null, %332 ], [ %.1, %readFullyAt.exit ], [ %.1, %438 ], [ %.1, %441 ], [ %.1, %447 ], [ %.1, %tailrecurse.i._crit_edge ], [ %.1, %433 ], [ %.1, %538 ], [ null, %339 ], [ %340, %342 ], [ %.1, %473 ], [ %.1, %.loopexit.i190 ], [ %340, %359 ], [ %340, %357 ]
   %541 = load ptr, ptr %180, align 8
   tail call void @free(ptr noundef %541) #21
   store ptr null, ptr %180, align 8
@@ -1543,8 +1543,8 @@ readFullyAt.exit.thread:                          ; preds = %359, %357, %tailrec
   br label %freeCEN.exit200
 
 freeCEN.exit200:                                  ; preds = %._crit_edge.i.i194, %readFullyAt.exit.thread, %539, %countCENHeaders.exit
-  %.2 = phi ptr [ %.1, %countCENHeaders.exit ], [ %.1, %539 ], [ %.0151, %readFullyAt.exit.thread ], [ %.0151, %._crit_edge.i.i194 ]
-  %.0143 = phi i64 [ %401, %countCENHeaders.exit ], [ %300, %539 ], [ -1, %readFullyAt.exit.thread ], [ -1, %._crit_edge.i.i194 ]
+  %.2 = phi ptr [ %.1, %539 ], [ %.1, %countCENHeaders.exit ], [ %.0151, %readFullyAt.exit.thread ], [ %.0151, %._crit_edge.i.i194 ]
+  %.0143 = phi i64 [ %300, %539 ], [ %401, %countCENHeaders.exit ], [ -1, %readFullyAt.exit.thread ], [ -1, %._crit_edge.i.i194 ]
   %554 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %555 = load i8, ptr %554, align 8
   %.not172 = icmp eq i8 %555, 0
@@ -1555,7 +1555,7 @@ freeCEN.exit200:                                  ; preds = %._crit_edge.i.i194,
   br label %557
 
 557:                                              ; preds = %findEND.exit, %findEND.exit.thread, %freeCEN.exit200, %556
-  %.0 = phi i64 [ %.0143, %556 ], [ %.0143, %freeCEN.exit200 ], [ -1, %findEND.exit.thread ], [ %59, %findEND.exit ]
+  %.0 = phi i64 [ %59, %findEND.exit ], [ -1, %findEND.exit.thread ], [ %.0143, %556 ], [ %.0143, %freeCEN.exit200 ]
   ret i64 %.0
 }
 
@@ -2391,7 +2391,7 @@ sequentialAccessReadCENHeader.exit.thread:        ; preds = %32, %55, %sequentia
   br i1 %324, label %.lr.ph, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.lr.ph269, %169, %165, %281, %286, %240, %242, %195, %149
-  %325 = phi ptr [ %158, %169 ], [ %158, %165 ], [ %158, %281 ], [ %158, %286 ], [ %158, %240 ], [ %158, %242 ], [ %158, %195 ], [ null, %149 ], [ %158, %.lr.ph269 ]
+  %325 = phi ptr [ null, %149 ], [ %158, %169 ], [ %158, %165 ], [ %158, %281 ], [ %158, %286 ], [ %158, %240 ], [ %158, %242 ], [ %158, %195 ], [ %158, %.lr.ph269 ]
   %.not214 = icmp eq i32 %85, 0
   br i1 %.not214, label %340, label %326
 
@@ -2521,7 +2521,7 @@ define hidden i64 @ZIP_GetEntryDataOffset(ptr noundef captures(none) %0, ptr nou
   %27 = icmp eq i32 %26, 4
   br i1 %27, label %.outer.split.i.i, label %.loopexit, !llvm.loop !8
 
-.loopexit:                                        ; preds = %22, %24, %7
+.loopexit:                                        ; preds = %24, %22, %7
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr @.str.4, ptr %28, align 8
   br label %55
@@ -2660,13 +2660,13 @@ define hidden i32 @ZIP_Read(ptr noundef captures(address_is_null) %0, ptr nounde
   %53 = icmp eq i32 %52, 4
   br i1 %53, label %.outer.split.i.i, label %readFullyAt.exit.sink.split, !llvm.loop !8
 
-readFullyAt.exit.sink.split:                      ; preds = %50, %48, %33, %26, %16, %7
-  %.str.9.sink = phi ptr [ @.str.6, %7 ], [ @.str.7, %16 ], [ @.str.8, %26 ], [ @.str.9, %33 ], [ @.str.9, %48 ], [ @.str.9, %50 ]
+readFullyAt.exit.sink.split:                      ; preds = %48, %50, %33, %26, %16, %7
+  %.str.9.sink = phi ptr [ @.str.8, %26 ], [ @.str.7, %16 ], [ @.str.6, %7 ], [ @.str.9, %33 ], [ @.str.9, %50 ], [ @.str.9, %48 ]
   store ptr %.str.9.sink, ptr %8, align 8
   br label %readFullyAt.exit
 
 readFullyAt.exit:                                 ; preds = %.outer.i.i, %readFullyAt.exit.sink.split, %.outer.i.preheader.i, %21, %19, %5
-  %.0 = phi i32 [ -1, %5 ], [ 0, %19 ], [ -1, %21 ], [ %spec.select, %.outer.i.preheader.i ], [ -1, %readFullyAt.exit.sink.split ], [ %spec.select, %.outer.i.i ]
+  %.0 = phi i32 [ -1, %21 ], [ %spec.select, %.outer.i.preheader.i ], [ -1, %readFullyAt.exit.sink.split ], [ -1, %5 ], [ 0, %19 ], [ %spec.select, %.outer.i.i ]
   ret i32 %.0
 }
 
@@ -3358,8 +3358,8 @@ readFullyAt.exit:                                 ; preds = %readFullyAt.exit.lo
   %57 = icmp eq i32 %56, 4
   br i1 %57, label %.outer.split.i, label %readFullyAt.exit.thread, !llvm.loop !8
 
-readFullyAt.exit.thread:                          ; preds = %23, %21, %54, %52, %8, %34, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %34 ], [ %6, %8 ], [ %36, %52 ], [ %36, %54 ], [ %6, %21 ], [ %6, %23 ]
+readFullyAt.exit.thread:                          ; preds = %21, %23, %52, %54, %8, %34, %2
+  %.0 = phi ptr [ null, %2 ], [ %36, %52 ], [ null, %34 ], [ %6, %8 ], [ %36, %54 ], [ %6, %23 ], [ %6, %21 ]
   tail call void @free(ptr noundef %.0) #21
   br label %readFully.exit
 

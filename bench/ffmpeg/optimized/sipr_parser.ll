@@ -39,7 +39,7 @@ define internal i32 @sipr_parse(ptr noundef readonly captures(none) %0, ptr noun
   br label %sipr_split.exit
 
 sipr_split.exit:                                  ; preds = %6, %6, %6, %6, %12, %16, %18
-  %.0.i = phi i32 [ 20, %12 ], [ 19, %16 ], [ %..i, %18 ], [ %11, %6 ], [ %11, %6 ], [ %11, %6 ], [ %11, %6 ]
+  %.0.i = phi i32 [ 19, %16 ], [ 20, %12 ], [ %..i, %18 ], [ %11, %6 ], [ %11, %6 ], [ %11, %6 ], [ %11, %6 ]
   %20 = tail call range(i32 -2147483648, 38) i32 @llvm.smin.i32(i32 %.0.i, i32 %5)
   %21 = call i32 @ff_combine_frame(ptr noundef %9, i32 noundef %20, ptr noundef nonnull %7, ptr noundef nonnull %8) #3
   %22 = icmp slt i32 %21, 0

@@ -639,8 +639,8 @@ Vec_IntPush.exit149..critedge.loopexit_crit_edge: ; preds = %Vec_IntPush.exit149
   br label %.critedge, !llvm.loop !79
 
 .critedge:                                        ; preds = %58, %.lr.ph, %Vec_IntPush.exit149..critedge.loopexit_crit_edge, %Vec_IntPush.exit
-  %.pre.i152206 = phi ptr [ %55, %Vec_IntPush.exit ], [ %.pre.i145202, %Vec_IntPush.exit149..critedge.loopexit_crit_edge ], [ %55, %.lr.ph ], [ %.pre.i145202, %58 ]
-  %.val118.lcssa = phi i32 [ %.val118172, %Vec_IntPush.exit ], [ %.val118, %Vec_IntPush.exit149..critedge.loopexit_crit_edge ], [ %.val118172, %.lr.ph ], [ %.val118, %58 ]
+  %.pre.i152206 = phi ptr [ %55, %Vec_IntPush.exit ], [ %55, %.lr.ph ], [ %.pre.i145202, %Vec_IntPush.exit149..critedge.loopexit_crit_edge ], [ %.pre.i145202, %58 ]
+  %.val118.lcssa = phi i32 [ %.val118172, %Vec_IntPush.exit ], [ %.val118172, %.lr.ph ], [ %.val118, %Vec_IntPush.exit149..critedge.loopexit_crit_edge ], [ %.val118, %58 ]
   %.val120177 = load i32, ptr %18, align 4, !tbaa !71
   %89 = icmp slt i32 %.val118.lcssa, %.val120177
   br i1 %89, label %.lr.ph179, label %.preheader
@@ -827,7 +827,7 @@ Vec_IntPush.exit165:                              ; preds = %Vec_IntPush.exit165
   br label %.critedge4, !llvm.loop !82
 
 .critedge4:                                       ; preds = %162, %.lr.ph187, %..critedge4.loopexit_crit_edge, %.critedge2
-  %.val122.lcssa = phi i32 [ %.val122184, %.critedge2 ], [ %.val122, %..critedge4.loopexit_crit_edge ], [ %.val122184, %.lr.ph187 ], [ %.val122, %162 ]
+  %.val122.lcssa = phi i32 [ %.val122184, %.critedge2 ], [ %.val122184, %.lr.ph187 ], [ %.val122, %..critedge4.loopexit_crit_edge ], [ %.val122, %162 ]
   %.val124191 = load i32, ptr %19, align 4, !tbaa !71
   %177 = icmp slt i32 %.val122.lcssa, %.val124191
   br i1 %177, label %.lr.ph193, label %._crit_edge
@@ -1279,8 +1279,8 @@ Vec_IntPush.exit41.i:                             ; preds = %163, %Vec_IntGrow.e
   br label %Vec_IntPush.exit48.i.sink.split
 
 Vec_IntPush.exit48.i.sink.split:                  ; preds = %185, %187, %177, %179
-  %.sink185 = phi ptr [ %178, %177 ], [ %180, %179 ], [ %186, %185 ], [ %188, %187 ]
-  %.sink = phi i32 [ 16, %177 ], [ 16, %179 ], [ %182, %185 ], [ %182, %187 ]
+  %.sink185 = phi ptr [ %180, %179 ], [ %178, %177 ], [ %186, %185 ], [ %188, %187 ]
+  %.sink = phi i32 [ 16, %179 ], [ 16, %177 ], [ %182, %185 ], [ %182, %187 ]
   store ptr %.sink185, ptr %95, align 8, !tbaa !73
   store i32 %.sink, ptr %92, align 8, !tbaa !72
   br label %Vec_IntPush.exit48.i
@@ -1417,8 +1417,8 @@ Vec_IntPush.exit55.i:                             ; preds = %220, %Vec_IntGrow.e
   br label %Vec_IntPush.exit62.i.sink.split
 
 Vec_IntPush.exit62.i.sink.split:                  ; preds = %244, %246, %236, %238
-  %.sink187 = phi ptr [ %237, %236 ], [ %239, %238 ], [ %245, %244 ], [ %247, %246 ]
-  %.sink186 = phi i32 [ 16, %236 ], [ 16, %238 ], [ %241, %244 ], [ %241, %246 ]
+  %.sink187 = phi ptr [ %239, %238 ], [ %237, %236 ], [ %245, %244 ], [ %247, %246 ]
+  %.sink186 = phi i32 [ 16, %238 ], [ 16, %236 ], [ %241, %244 ], [ %241, %246 ]
   store ptr %.sink187, ptr %95, align 8, !tbaa !73
   store i32 %.sink186, ptr %92, align 8, !tbaa !72
   br label %Vec_IntPush.exit62.i

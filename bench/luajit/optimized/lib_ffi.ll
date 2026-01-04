@@ -772,7 +772,7 @@ ctype_rawchild.exit72:                            ; preds = %84, %68
   br label %116
 
 116:                                              ; preds = %102, %.thread79, %114
-  %.3 = phi i32 [ 1, %114 ], [ 1, %.thread79 ], [ %103, %102 ]
+  %.3 = phi i32 [ 1, %.thread79 ], [ 1, %114 ], [ %103, %102 ]
   ret i32 %.3
 }
 
@@ -902,7 +902,7 @@ define internal fastcc i32 @ffi_index_meta(ptr noundef %0, ptr noundef %1, ptr n
   br label %65
 
 65:                                               ; preds = %.thread, %55, %63
-  %.1 = phi i32 [ %64, %63 ], [ 0, %55 ], [ 1, %.thread ]
+  %.1 = phi i32 [ %64, %63 ], [ 1, %.thread ], [ 0, %55 ]
   ret i32 %.1
 }
 
@@ -1016,7 +1016,7 @@ define internal noundef i32 @lj_cf_ffi_new(ptr noundef %0) #0 {
   br label %ffi_checkctype.exit
 
 ffi_checkctype.exit:                              ; preds = %32, %41, %44
-  %.0.i61 = phi i32 [ %34, %32 ], [ %43, %41 ], [ %45, %44 ]
+  %.0.i61 = phi i32 [ %34, %32 ], [ %45, %44 ], [ %43, %41 ]
   %46 = load ptr, ptr %10, align 8, !tbaa !51
   br label %47
 
@@ -1279,7 +1279,7 @@ define internal fastcc i32 @ffi_checkctype(ptr noundef %0, ptr noundef %1, ptr n
   br label %42
 
 42:                                               ; preds = %40, %37, %25
-  %.0 = phi i32 [ %27, %25 ], [ %39, %37 ], [ %41, %40 ]
+  %.0 = phi i32 [ %27, %25 ], [ %41, %40 ], [ %39, %37 ]
   ret i32 %.0
 }
 
@@ -1833,7 +1833,7 @@ ctype_raw.exit:                                   ; preds = %25
   tail call void @lj_err_caller(ptr noundef nonnull %0, i32 noundef 3668) #10
   unreachable
 
-.critedge:                                        ; preds = %64, %70, %78
+.critedge:                                        ; preds = %78, %64, %70
   ret void
 }
 
@@ -1978,7 +1978,7 @@ define internal noundef i32 @lj_cf_ffi_cast(ptr noundef %0) #0 {
   br label %ffi_checkctype.exit
 
 ffi_checkctype.exit:                              ; preds = %30, %39, %42
-  %.0.i27 = phi i32 [ %32, %30 ], [ %41, %39 ], [ %43, %42 ]
+  %.0.i27 = phi i32 [ %32, %30 ], [ %43, %42 ], [ %41, %39 ]
   %44 = load ptr, ptr %8, align 8, !tbaa !51
   br label %45
 
@@ -2228,7 +2228,7 @@ ffi_checkint.exit:                                ; preds = %1
   br label %79
 
 79:                                               ; preds = %ffi_checkint.exit, %18, %70, %77
-  %.0 = phi i32 [ 1, %77 ], [ 1, %70 ], [ 0, %18 ], [ 0, %ffi_checkint.exit ]
+  %.0 = phi i32 [ 1, %70 ], [ 1, %77 ], [ 0, %18 ], [ 0, %ffi_checkint.exit ]
   ret i32 %.0
 }
 
@@ -2311,7 +2311,7 @@ define internal noundef i32 @lj_cf_ffi_istype(ptr noundef %0) #0 {
   br label %ffi_checkctype.exit
 
 ffi_checkctype.exit:                              ; preds = %30, %39, %42
-  %.0.i42 = phi i32 [ %32, %30 ], [ %41, %39 ], [ %43, %42 ]
+  %.0.i42 = phi i32 [ %32, %30 ], [ %43, %42 ], [ %41, %39 ]
   %44 = call ptr @lj_lib_checkany(ptr noundef nonnull %0, i32 noundef 2) #9
   %45 = load i64, ptr %44, align 8, !tbaa !23
   %.mask = and i64 %45, -140737488355328
@@ -2407,7 +2407,7 @@ ctype_rawchild.exit:                              ; preds = %89
   br label %97
 
 97:                                               ; preds = %ctype_rawchild.exit, %79, %58, %80, %77, %85
-  %.1 = phi i32 [ %78, %77 ], [ %84, %80 ], [ 0, %85 ], [ 1, %58 ], [ 0, %79 ], [ %spec.select, %ctype_rawchild.exit ]
+  %.1 = phi i32 [ 0, %85 ], [ %78, %77 ], [ %84, %80 ], [ 0, %79 ], [ 1, %58 ], [ %spec.select, %ctype_rawchild.exit ]
   %98 = add nsw i32 %.1, 1
   %99 = zext i32 %98 to i64
   %100 = shl i64 %99, 47
@@ -2508,8 +2508,8 @@ define internal noundef i32 @lj_cf_ffi_sizeof(ptr noundef %0) #0 {
   br label %ffi_checkctype.exit
 
 ffi_checkctype.exit:                              ; preds = %31, %40, %43
-  %45 = phi i64 [ %.pre26, %31 ], [ %17, %40 ], [ %17, %43 ]
-  %.0.i = phi i32 [ %33, %31 ], [ %42, %40 ], [ %44, %43 ]
+  %45 = phi i64 [ %.pre26, %31 ], [ %17, %43 ], [ %17, %40 ]
+  %.0.i = phi i32 [ %33, %31 ], [ %44, %43 ], [ %42, %40 ]
   %.mask = and i64 %45, -140737488355328
   %46 = icmp eq i64 %.mask, -1548112371908608
   br i1 %46, label %47, label %.critedge
@@ -2674,7 +2674,7 @@ define internal noundef i32 @lj_cf_ffi_alignof(ptr noundef %0) #0 {
   br label %ffi_checkctype.exit
 
 ffi_checkctype.exit:                              ; preds = %31, %40, %43
-  %.0.i = phi i32 [ %33, %31 ], [ %42, %40 ], [ %44, %43 ]
+  %.0.i = phi i32 [ %33, %31 ], [ %44, %43 ], [ %42, %40 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !43
   %45 = call i32 @lj_ctype_info_raw(ptr noundef nonnull %9, i32 noundef %.0.i, ptr noundef nonnull %3) #9
@@ -2769,7 +2769,7 @@ define internal range(i32 0, 4) i32 @lj_cf_ffi_offsetof(ptr noundef %0) #0 {
   br label %ffi_checkctype.exit
 
 ffi_checkctype.exit:                              ; preds = %31, %40, %43
-  %.0.i = phi i32 [ %33, %31 ], [ %42, %40 ], [ %44, %43 ]
+  %.0.i = phi i32 [ %33, %31 ], [ %44, %43 ], [ %42, %40 ]
   %45 = call ptr @lj_lib_checkstr(ptr noundef nonnull %0, i32 noundef 2) #9
   %46 = call ptr @lj_ctype_rawref(ptr noundef nonnull %9, i32 noundef %.0.i) #9
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -2823,7 +2823,7 @@ ffi_checkctype.exit:                              ; preds = %31, %40, %43
   br label %72
 
 72:                                               ; preds = %61, %ffi_checkctype.exit, %49, %52, %54, %.thread
-  %.1 = phi i32 [ 0, %54 ], [ 0, %52 ], [ 0, %49 ], [ 0, %ffi_checkctype.exit ], [ 3, %61 ], [ 1, %.thread ]
+  %.1 = phi i32 [ 0, %ffi_checkctype.exit ], [ 0, %54 ], [ 0, %52 ], [ 0, %49 ], [ 3, %61 ], [ 1, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.1
 }
@@ -3252,7 +3252,7 @@ define internal noundef i32 @lj_cf_ffi_metatype(ptr noundef %0) #0 {
   br label %ffi_checkctype.exit
 
 ffi_checkctype.exit:                              ; preds = %30, %39, %42
-  %.0.i36 = phi i32 [ %32, %30 ], [ %41, %39 ], [ %43, %42 ]
+  %.0.i36 = phi i32 [ %32, %30 ], [ %43, %42 ], [ %41, %39 ]
   %44 = call ptr @lj_lib_checktab(ptr noundef nonnull %0, i32 noundef 2) #9
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %46 = load ptr, ptr %45, align 8, !tbaa !14

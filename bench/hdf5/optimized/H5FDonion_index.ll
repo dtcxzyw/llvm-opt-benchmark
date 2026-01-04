@@ -1726,7 +1726,7 @@ define noundef zeroext i1 @H5FD__onion_archival_index_is_valid(ptr noundef reado
   br i1 %.not15, label %19, label %.loopexit, !llvm.loop !56
 
 .loopexit:                                        ; preds = %20, %19, %1, %14, %8, %10
-  %.013 = phi i1 [ true, %14 ], [ true, %1 ], [ false, %8 ], [ false, %10 ], [ %exitcond.not, %19 ], [ %exitcond.not, %20 ]
+  %.013 = phi i1 [ true, %1 ], [ false, %8 ], [ false, %10 ], [ true, %14 ], [ %exitcond.not, %19 ], [ %exitcond.not, %20 ]
   ret i1 %.013
 }
 
@@ -1814,7 +1814,7 @@ define range(i32 0, 2) i32 @H5FD__onion_archival_index_find(ptr noundef readonly
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge.thread.sink.split, %._crit_edge, %21, %15, %10, %44, %3
-  %.0 = phi i32 [ 0, %44 ], [ 0, %3 ], [ 0, %10 ], [ 0, %15 ], [ 0, %21 ], [ 0, %._crit_edge ], [ 1, %._crit_edge.thread.sink.split ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %15 ], [ 0, %21 ], [ 0, %44 ], [ 0, %._crit_edge ], [ 0, %10 ], [ 1, %._crit_edge.thread.sink.split ]
   ret i32 %.0
 }
 
@@ -2150,7 +2150,7 @@ H5FD__onion_revision_index_resize.exit:           ; preds = %._crit_edge.i, %.pr
   br label %98
 
 98:                                               ; preds = %.thread, %50, %77, %89, %93, %2
-  %.0 = phi i32 [ -1, %50 ], [ -1, %89 ], [ 0, %93 ], [ -1, %77 ], [ 0, %2 ], [ 0, %.thread ]
+  %.0 = phi i32 [ -1, %50 ], [ -1, %89 ], [ 0, %93 ], [ 0, %.thread ], [ -1, %77 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -2198,7 +2198,7 @@ define range(i32 0, 2) i32 @H5FD__onion_revision_index_find(ptr noundef readonly
   br i1 %.not14, label %.loopexit, label %.preheader, !llvm.loop !80
 
 .loopexit:                                        ; preds = %24, %22, %10, %3
-  %.012 = phi i32 [ 0, %10 ], [ 0, %3 ], [ 1, %22 ], [ 0, %24 ]
+  %.012 = phi i32 [ 0, %3 ], [ 0, %10 ], [ 1, %22 ], [ 0, %24 ]
   ret i32 %.012
 }
 

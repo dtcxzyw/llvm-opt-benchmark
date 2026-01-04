@@ -464,7 +464,7 @@ define dso_local noundef ptr @dma_pool_alloc(ptr noundef %0, i32 noundef %1, ptr
   br label %.thread
 
 .thread:                                          ; preds = %22, %41, %.thread9, %110
-  %115 = phi ptr [ %107, %.thread9 ], [ %107, %110 ], [ null, %41 ], [ null, %22 ]
+  %115 = phi ptr [ %107, %110 ], [ %107, %.thread9 ], [ null, %41 ], [ null, %22 ]
   ret ptr %115
 }
 

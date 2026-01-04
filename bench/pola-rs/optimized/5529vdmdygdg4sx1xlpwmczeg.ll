@@ -291,7 +291,7 @@ define hidden { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17
 13:                                               ; preds = %14
   resume { ptr, i32 } %lpad.thr_comm
 
-14:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17h73fd685212456081E.exit.i", %9
+14:                                               ; preds = %9, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17h73fd685212456081E.exit.i"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$core..mem..maybe_uninit..MaybeUninit$LT$rayon_core..job..JobRef$GT$$GT$$GT$17h5a3c50294b2339e2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #13
@@ -347,7 +347,7 @@ define hidden { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17
 13:                                               ; preds = %14
   resume { ptr, i32 } %lpad.thr_comm
 
-14:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17h73fd685212456081E.exit.i", %9
+14:                                               ; preds = %9, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17h73fd685212456081E.exit.i"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h016e12a88a1f8b01E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #13
@@ -785,7 +785,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
   unreachable
 
 "_ZN4core3ptr207drop_in_place$LT$slotmap..basic..SlotMap$LT$polars_utils..cache..LruKey$C$polars_utils..cache..LruEntry$LT$alloc..string..String$C$regex..regex..string..Regex$GT$$GT$..insert..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd9b82f8a5e9e4a5bE.exit14": ; preds = %53, %46, %34, %56
-  %.pn1117 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %56 ], [ %35, %34 ], [ %47, %46 ], [ %54, %53 ]
+  %.pn1117 = phi { ptr, i32 } [ %35, %34 ], [ %lpad.thr_comm.split-lp, %56 ], [ %54, %53 ], [ %47, %46 ]
   resume { ptr, i32 } %.pn1117
 
 56:                                               ; preds = %17

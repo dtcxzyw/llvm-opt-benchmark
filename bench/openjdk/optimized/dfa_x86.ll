@@ -3507,23 +3507,23 @@ define hidden void @_ZN5State12_sub_Op_AddIEPK4Node(ptr noundef nonnull align 8 
 526:                                              ; preds = %522
   %527 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %527, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit.thread [
-    i32 1970169159, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i
-    i32 1752462657, label %528
+    i32 1970169159, label %528
+    i32 1752462657, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i
   ]
 
 528:                                              ; preds = %526
   %529 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %530 = and i64 %529, 262144
-  %.not.i = icmp eq i64 %530, 0
-  br i1 %.not.i, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit.thread, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit
+  %530 = and i64 %529, 8796093284352
+  %or.cond952.not = icmp eq i64 %530, 8796093284352
+  br i1 %or.cond952.not, label %_ZN10VM_Version20is_intel_family_coreEv.exit.i.i, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit.thread
 
 _ZN10VM_Version21supports_fast_2op_leaEv.exit.i:  ; preds = %526
   %531 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %532 = and i64 %531, 8796093284352
-  %or.cond952.not = icmp eq i64 %532, 8796093284352
-  br i1 %or.cond952.not, label %_ZN10VM_Version20is_intel_family_coreEv.exit.i.i, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit.thread
+  %532 = and i64 %531, 262144
+  %.not.i = icmp eq i64 %532, 0
+  br i1 %.not.i, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit.thread, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit
 
-_ZN10VM_Version20is_intel_family_coreEv.exit.i.i: ; preds = %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i
+_ZN10VM_Version20is_intel_family_coreEv.exit.i.i: ; preds = %528
   %533 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
   %534 = lshr i32 %533, 8
   %535 = and i32 %534, 15
@@ -3542,7 +3542,7 @@ _ZN10VM_Version16is_intel_skylakeEv.exit.i:       ; preds = %_ZN10VM_Version20is
   %545 = icmp eq i32 %544, 85
   br i1 %545, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit.thread, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit
 
-_ZN10VM_Version21supports_fast_3op_leaEv.exit:    ; preds = %_ZN10VM_Version20is_intel_family_coreEv.exit.i.i, %_ZN10VM_Version16is_intel_skylakeEv.exit.i, %528
+_ZN10VM_Version21supports_fast_3op_leaEv.exit:    ; preds = %_ZN10VM_Version16is_intel_skylakeEv.exit.i, %_ZN10VM_Version20is_intel_family_coreEv.exit.i.i, %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i
   %546 = getelementptr inbounds nuw i8, ptr %4, i64 728
   %547 = load i32, ptr %546, align 8
   %548 = getelementptr inbounds nuw i8, ptr %521, i64 32
@@ -3701,7 +3701,7 @@ _ZN10VM_Version21supports_fast_3op_leaEv.exit:    ; preds = %_ZN10VM_Version20is
   store i16 1443, ptr %627, align 8
   br label %_ZN10VM_Version21supports_fast_3op_leaEv.exit.thread
 
-_ZN10VM_Version21supports_fast_3op_leaEv.exit.thread: ; preds = %_ZN10VM_Version16is_intel_skylakeEv.exit.i, %526, %528, %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i, %626, %634, %522, %519, %515
+_ZN10VM_Version21supports_fast_3op_leaEv.exit.thread: ; preds = %_ZN10VM_Version16is_intel_skylakeEv.exit.i, %528, %526, %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i, %626, %634, %522, %519, %515
   %635 = getelementptr inbounds nuw i8, ptr %4, i64 1618
   %636 = load i16, ptr %635, align 2
   %637 = and i16 %636, 1
@@ -3756,23 +3756,23 @@ _ZN10VM_Version21supports_fast_3op_leaEv.exit.thread: ; preds = %_ZN10VM_Version
 664:                                              ; preds = %660
   %665 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %665, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit836.thread [
-    i32 1970169159, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i831
-    i32 1752462657, label %666
+    i32 1970169159, label %666
+    i32 1752462657, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i830
   ]
 
 666:                                              ; preds = %664
   %667 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %668 = and i64 %667, 262144
-  %.not.i830 = icmp eq i64 %668, 0
-  br i1 %.not.i830, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit836.thread, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit836
-
-_ZN10VM_Version21supports_fast_2op_leaEv.exit.i831: ; preds = %664
-  %669 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %670 = and i64 %669, 8796093284352
-  %or.cond953.not = icmp eq i64 %670, 8796093284352
+  %668 = and i64 %667, 8796093284352
+  %or.cond953.not = icmp eq i64 %668, 8796093284352
   br i1 %or.cond953.not, label %_ZN10VM_Version20is_intel_family_coreEv.exit.i.i834, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit836.thread
 
-_ZN10VM_Version20is_intel_family_coreEv.exit.i.i834: ; preds = %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i831
+_ZN10VM_Version21supports_fast_2op_leaEv.exit.i830: ; preds = %664
+  %669 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %670 = and i64 %669, 262144
+  %.not.i831 = icmp eq i64 %670, 0
+  br i1 %.not.i831, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit836.thread, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit836
+
+_ZN10VM_Version20is_intel_family_coreEv.exit.i.i834: ; preds = %666
   %671 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
   %672 = lshr i32 %671, 8
   %673 = and i32 %672, 15
@@ -3791,7 +3791,7 @@ _ZN10VM_Version16is_intel_skylakeEv.exit.i835:    ; preds = %_ZN10VM_Version20is
   %683 = icmp eq i32 %682, 85
   br i1 %683, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit836.thread, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit836
 
-_ZN10VM_Version21supports_fast_3op_leaEv.exit836: ; preds = %_ZN10VM_Version20is_intel_family_coreEv.exit.i.i834, %_ZN10VM_Version16is_intel_skylakeEv.exit.i835, %666
+_ZN10VM_Version21supports_fast_3op_leaEv.exit836: ; preds = %_ZN10VM_Version16is_intel_skylakeEv.exit.i835, %_ZN10VM_Version20is_intel_family_coreEv.exit.i.i834, %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i830
   %684 = getelementptr inbounds nuw i8, ptr %4, i64 724
   %685 = load i32, ptr %684, align 4
   %686 = getelementptr inbounds nuw i8, ptr %659, i64 32
@@ -3950,7 +3950,7 @@ _ZN10VM_Version21supports_fast_3op_leaEv.exit836: ; preds = %_ZN10VM_Version20is
   store i16 1441, ptr %765, align 8
   br label %_ZN10VM_Version21supports_fast_3op_leaEv.exit836.thread
 
-_ZN10VM_Version21supports_fast_3op_leaEv.exit836.thread: ; preds = %653, %657, %660, %772, %764, %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i831, %666, %664, %_ZN10VM_Version16is_intel_skylakeEv.exit.i835
+_ZN10VM_Version21supports_fast_3op_leaEv.exit836.thread: ; preds = %653, %657, %660, %772, %764, %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i830, %664, %666, %_ZN10VM_Version16is_intel_skylakeEv.exit.i835
   %773 = load i16, ptr %497, align 2
   %774 = and i16 %773, 1
   %.not381 = icmp eq i16 %774, 0
@@ -4003,21 +4003,21 @@ _ZN10VM_Version21supports_fast_3op_leaEv.exit836.thread: ; preds = %653, %657, %
 800:                                              ; preds = %796
   %801 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %801, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.thread [
-    i32 1970169159, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit
-    i32 1752462657, label %802
+    i32 1970169159, label %802
+    i32 1752462657, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit
   ]
 
 802:                                              ; preds = %800
   %803 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %804 = and i64 %803, 262144
-  %.not955 = icmp eq i64 %804, 0
-  br i1 %.not955, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.thread, label %807
+  %.not956 = icmp eq i64 %804, 0
+  br i1 %.not956, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.thread, label %807
 
 _ZN10VM_Version21supports_fast_2op_leaEv.exit:    ; preds = %800
   %805 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %806 = and i64 %805, 262144
-  %.not956 = icmp eq i64 %806, 0
-  br i1 %.not956, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.thread, label %807
+  %.not955 = icmp eq i64 %806, 0
+  br i1 %.not955, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.thread, label %807
 
 807:                                              ; preds = %802, %_ZN10VM_Version21supports_fast_2op_leaEv.exit
   %808 = getelementptr inbounds nuw i8, ptr %4, i64 716
@@ -4201,21 +4201,21 @@ _ZN10VM_Version21supports_fast_2op_leaEv.exit.thread: ; preds = %800, %888, %896
 907:                                              ; preds = %903
   %908 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %908, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit837.thread [
-    i32 1970169159, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit837
-    i32 1752462657, label %909
+    i32 1970169159, label %909
+    i32 1752462657, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit837
   ]
 
 909:                                              ; preds = %907
   %910 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %911 = and i64 %910, 262144
-  %.not957 = icmp eq i64 %911, 0
-  br i1 %.not957, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit837.thread, label %914
+  %.not958 = icmp eq i64 %911, 0
+  br i1 %.not958, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit837.thread, label %914
 
 _ZN10VM_Version21supports_fast_2op_leaEv.exit837: ; preds = %907
   %912 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %913 = and i64 %912, 262144
-  %.not958 = icmp eq i64 %913, 0
-  br i1 %.not958, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit837.thread, label %914
+  %.not957 = icmp eq i64 %913, 0
+  br i1 %.not957, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit837.thread, label %914
 
 914:                                              ; preds = %909, %_ZN10VM_Version21supports_fast_2op_leaEv.exit837
   %915 = getelementptr inbounds nuw i8, ptr %4, i64 224
@@ -4399,23 +4399,23 @@ _ZN10VM_Version21supports_fast_2op_leaEv.exit837.thread: ; preds = %907, %995, %
 1014:                                             ; preds = %1010
   %1015 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %1015, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit844.thread [
-    i32 1970169159, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i839
-    i32 1752462657, label %1016
+    i32 1970169159, label %1016
+    i32 1752462657, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i838
   ]
 
 1016:                                             ; preds = %1014
   %1017 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %1018 = and i64 %1017, 262144
-  %.not.i838 = icmp eq i64 %1018, 0
-  br i1 %.not.i838, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit844.thread, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit844
-
-_ZN10VM_Version21supports_fast_2op_leaEv.exit.i839: ; preds = %1014
-  %1019 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %1020 = and i64 %1019, 8796093284352
-  %or.cond954.not = icmp eq i64 %1020, 8796093284352
+  %1018 = and i64 %1017, 8796093284352
+  %or.cond954.not = icmp eq i64 %1018, 8796093284352
   br i1 %or.cond954.not, label %_ZN10VM_Version20is_intel_family_coreEv.exit.i.i842, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit844.thread
 
-_ZN10VM_Version20is_intel_family_coreEv.exit.i.i842: ; preds = %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i839
+_ZN10VM_Version21supports_fast_2op_leaEv.exit.i838: ; preds = %1014
+  %1019 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %1020 = and i64 %1019, 262144
+  %.not.i839 = icmp eq i64 %1020, 0
+  br i1 %.not.i839, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit844.thread, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit844
+
+_ZN10VM_Version20is_intel_family_coreEv.exit.i.i842: ; preds = %1016
   %1021 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
   %1022 = lshr i32 %1021, 8
   %1023 = and i32 %1022, 15
@@ -4434,7 +4434,7 @@ _ZN10VM_Version16is_intel_skylakeEv.exit.i843:    ; preds = %_ZN10VM_Version20is
   %1033 = icmp eq i32 %1032, 85
   br i1 %1033, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit844.thread, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit844
 
-_ZN10VM_Version21supports_fast_3op_leaEv.exit844: ; preds = %_ZN10VM_Version20is_intel_family_coreEv.exit.i.i842, %_ZN10VM_Version16is_intel_skylakeEv.exit.i843, %1016
+_ZN10VM_Version21supports_fast_3op_leaEv.exit844: ; preds = %_ZN10VM_Version16is_intel_skylakeEv.exit.i843, %_ZN10VM_Version20is_intel_family_coreEv.exit.i.i842, %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i838
   %1034 = getelementptr inbounds nuw i8, ptr %4, i64 720
   %1035 = load i32, ptr %1034, align 8
   %1036 = getelementptr inbounds nuw i8, ptr %1009, i64 32
@@ -4593,7 +4593,7 @@ _ZN10VM_Version21supports_fast_3op_leaEv.exit844: ; preds = %_ZN10VM_Version20is
   store i16 1435, ptr %1115, align 8
   br label %_ZN10VM_Version21supports_fast_3op_leaEv.exit844.thread
 
-_ZN10VM_Version21supports_fast_3op_leaEv.exit844.thread: ; preds = %_ZN10VM_Version16is_intel_skylakeEv.exit.i843, %1014, %1016, %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i839, %1114, %1122, %1010, %1007, %_ZN10VM_Version21supports_fast_2op_leaEv.exit837.thread
+_ZN10VM_Version21supports_fast_3op_leaEv.exit844.thread: ; preds = %_ZN10VM_Version16is_intel_skylakeEv.exit.i843, %1016, %1014, %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i838, %1114, %1122, %1010, %1007, %_ZN10VM_Version21supports_fast_2op_leaEv.exit837.thread
   %1123 = load i16, ptr %497, align 2
   %1124 = and i16 %1123, 1
   %.not397 = icmp eq i16 %1124, 0
@@ -4646,21 +4646,21 @@ _ZN10VM_Version21supports_fast_3op_leaEv.exit844.thread: ; preds = %_ZN10VM_Vers
 1150:                                             ; preds = %1146
   %1151 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %1151, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit845.thread [
-    i32 1970169159, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit845
-    i32 1752462657, label %1152
+    i32 1970169159, label %1152
+    i32 1752462657, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit845
   ]
 
 1152:                                             ; preds = %1150
   %1153 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %1154 = and i64 %1153, 262144
-  %.not959 = icmp eq i64 %1154, 0
-  br i1 %.not959, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit845.thread, label %1157
+  %.not960 = icmp eq i64 %1154, 0
+  br i1 %.not960, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit845.thread, label %1157
 
 _ZN10VM_Version21supports_fast_2op_leaEv.exit845: ; preds = %1150
   %1155 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %1156 = and i64 %1155, 262144
-  %.not960 = icmp eq i64 %1156, 0
-  br i1 %.not960, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit845.thread, label %1157
+  %.not959 = icmp eq i64 %1156, 0
+  br i1 %.not959, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit845.thread, label %1157
 
 1157:                                             ; preds = %1152, %_ZN10VM_Version21supports_fast_2op_leaEv.exit845
   %1158 = getelementptr inbounds nuw i8, ptr %4, i64 716
@@ -6121,23 +6121,23 @@ define hidden void @_ZN5State12_sub_Op_AddLEPK4Node(ptr noundef nonnull align 8 
 35:                                               ; preds = %31
   %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %36, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit.thread [
-    i32 1970169159, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i
-    i32 1752462657, label %37
+    i32 1970169159, label %37
+    i32 1752462657, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i
   ]
 
 37:                                               ; preds = %35
   %38 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %39 = and i64 %38, 262144
-  %.not.i = icmp eq i64 %39, 0
-  br i1 %.not.i, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit.thread, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit
+  %39 = and i64 %38, 8796093284352
+  %or.cond657.not = icmp eq i64 %39, 8796093284352
+  br i1 %or.cond657.not, label %_ZN10VM_Version20is_intel_family_coreEv.exit.i.i, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit.thread
 
 _ZN10VM_Version21supports_fast_2op_leaEv.exit.i:  ; preds = %35
   %40 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %41 = and i64 %40, 8796093284352
-  %or.cond657.not = icmp eq i64 %41, 8796093284352
-  br i1 %or.cond657.not, label %_ZN10VM_Version20is_intel_family_coreEv.exit.i.i, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit.thread
+  %41 = and i64 %40, 262144
+  %.not.i = icmp eq i64 %41, 0
+  br i1 %.not.i, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit.thread, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit
 
-_ZN10VM_Version20is_intel_family_coreEv.exit.i.i: ; preds = %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i
+_ZN10VM_Version20is_intel_family_coreEv.exit.i.i: ; preds = %37
   %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
   %43 = lshr i32 %42, 8
   %44 = and i32 %43, 15
@@ -6156,7 +6156,7 @@ _ZN10VM_Version16is_intel_skylakeEv.exit.i:       ; preds = %_ZN10VM_Version20is
   %54 = icmp eq i32 %53, 85
   br i1 %54, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit.thread, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit
 
-_ZN10VM_Version21supports_fast_3op_leaEv.exit:    ; preds = %_ZN10VM_Version20is_intel_family_coreEv.exit.i.i, %_ZN10VM_Version16is_intel_skylakeEv.exit.i, %37
+_ZN10VM_Version21supports_fast_3op_leaEv.exit:    ; preds = %_ZN10VM_Version16is_intel_skylakeEv.exit.i, %_ZN10VM_Version20is_intel_family_coreEv.exit.i.i, %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 760
   %56 = load i32, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %30, i64 120
@@ -6299,7 +6299,7 @@ _ZN10VM_Version21supports_fast_3op_leaEv.exit:    ; preds = %_ZN10VM_Version20is
   store i16 1477, ptr %127, align 2
   br label %_ZN10VM_Version21supports_fast_3op_leaEv.exit.thread
 
-_ZN10VM_Version21supports_fast_3op_leaEv.exit.thread: ; preds = %_ZN10VM_Version16is_intel_skylakeEv.exit.i, %35, %37, %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i, %126, %134, %31, %28, %24
+_ZN10VM_Version21supports_fast_3op_leaEv.exit.thread: ; preds = %_ZN10VM_Version16is_intel_skylakeEv.exit.i, %37, %35, %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i, %126, %134, %31, %28, %24
   %135 = getelementptr inbounds nuw i8, ptr %4, i64 1518
   %136 = load i16, ptr %135, align 2
   %137 = and i16 %136, 1
@@ -6354,23 +6354,23 @@ _ZN10VM_Version21supports_fast_3op_leaEv.exit.thread: ; preds = %_ZN10VM_Version
 164:                                              ; preds = %160
   %165 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %165, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit563.thread [
-    i32 1970169159, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i558
-    i32 1752462657, label %166
+    i32 1970169159, label %166
+    i32 1752462657, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i557
   ]
 
 166:                                              ; preds = %164
   %167 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %168 = and i64 %167, 262144
-  %.not.i557 = icmp eq i64 %168, 0
-  br i1 %.not.i557, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit563.thread, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit563
-
-_ZN10VM_Version21supports_fast_2op_leaEv.exit.i558: ; preds = %164
-  %169 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %170 = and i64 %169, 8796093284352
-  %or.cond658.not = icmp eq i64 %170, 8796093284352
+  %168 = and i64 %167, 8796093284352
+  %or.cond658.not = icmp eq i64 %168, 8796093284352
   br i1 %or.cond658.not, label %_ZN10VM_Version20is_intel_family_coreEv.exit.i.i561, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit563.thread
 
-_ZN10VM_Version20is_intel_family_coreEv.exit.i.i561: ; preds = %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i558
+_ZN10VM_Version21supports_fast_2op_leaEv.exit.i557: ; preds = %164
+  %169 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %170 = and i64 %169, 262144
+  %.not.i558 = icmp eq i64 %170, 0
+  br i1 %.not.i558, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit563.thread, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit563
+
+_ZN10VM_Version20is_intel_family_coreEv.exit.i.i561: ; preds = %166
   %171 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
   %172 = lshr i32 %171, 8
   %173 = and i32 %172, 15
@@ -6389,7 +6389,7 @@ _ZN10VM_Version16is_intel_skylakeEv.exit.i562:    ; preds = %_ZN10VM_Version20is
   %183 = icmp eq i32 %182, 85
   br i1 %183, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit563.thread, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit563
 
-_ZN10VM_Version21supports_fast_3op_leaEv.exit563: ; preds = %_ZN10VM_Version20is_intel_family_coreEv.exit.i.i561, %_ZN10VM_Version16is_intel_skylakeEv.exit.i562, %166
+_ZN10VM_Version21supports_fast_3op_leaEv.exit563: ; preds = %_ZN10VM_Version16is_intel_skylakeEv.exit.i562, %_ZN10VM_Version20is_intel_family_coreEv.exit.i.i561, %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i557
   %184 = getelementptr inbounds nuw i8, ptr %4, i64 756
   %185 = load i32, ptr %184, align 4
   %186 = getelementptr inbounds nuw i8, ptr %159, i64 120
@@ -6532,7 +6532,7 @@ _ZN10VM_Version21supports_fast_3op_leaEv.exit563: ; preds = %_ZN10VM_Version20is
   store i16 1475, ptr %256, align 2
   br label %_ZN10VM_Version21supports_fast_3op_leaEv.exit563.thread
 
-_ZN10VM_Version21supports_fast_3op_leaEv.exit563.thread: ; preds = %_ZN10VM_Version16is_intel_skylakeEv.exit.i562, %164, %166, %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i558, %255, %263, %160, %157, %153
+_ZN10VM_Version21supports_fast_3op_leaEv.exit563.thread: ; preds = %_ZN10VM_Version16is_intel_skylakeEv.exit.i562, %166, %164, %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i557, %255, %263, %160, %157, %153
   %264 = load i16, ptr %6, align 4
   %265 = and i16 %264, 1
   %.not257 = icmp eq i16 %265, 0
@@ -6585,21 +6585,21 @@ _ZN10VM_Version21supports_fast_3op_leaEv.exit563.thread: ; preds = %_ZN10VM_Vers
 291:                                              ; preds = %287
   %292 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %292, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.thread [
-    i32 1970169159, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit
-    i32 1752462657, label %293
+    i32 1970169159, label %293
+    i32 1752462657, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit
   ]
 
 293:                                              ; preds = %291
   %294 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %295 = and i64 %294, 262144
-  %.not660 = icmp eq i64 %295, 0
-  br i1 %.not660, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.thread, label %298
+  %.not661 = icmp eq i64 %295, 0
+  br i1 %.not661, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.thread, label %298
 
 _ZN10VM_Version21supports_fast_2op_leaEv.exit:    ; preds = %291
   %296 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %297 = and i64 %296, 262144
-  %.not661 = icmp eq i64 %297, 0
-  br i1 %.not661, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.thread, label %298
+  %.not660 = icmp eq i64 %297, 0
+  br i1 %.not660, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.thread, label %298
 
 298:                                              ; preds = %293, %_ZN10VM_Version21supports_fast_2op_leaEv.exit
   %299 = getelementptr inbounds nuw i8, ptr %4, i64 516
@@ -6767,21 +6767,21 @@ _ZN10VM_Version21supports_fast_2op_leaEv.exit.thread: ; preds = %291, %293, %370
 389:                                              ; preds = %385
   %390 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %390, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit564.thread [
-    i32 1970169159, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit564
-    i32 1752462657, label %391
+    i32 1970169159, label %391
+    i32 1752462657, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit564
   ]
 
 391:                                              ; preds = %389
   %392 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %393 = and i64 %392, 262144
-  %.not662 = icmp eq i64 %393, 0
-  br i1 %.not662, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit564.thread, label %396
+  %.not663 = icmp eq i64 %393, 0
+  br i1 %.not663, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit564.thread, label %396
 
 _ZN10VM_Version21supports_fast_2op_leaEv.exit564: ; preds = %389
   %394 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %395 = and i64 %394, 262144
-  %.not663 = icmp eq i64 %395, 0
-  br i1 %.not663, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit564.thread, label %396
+  %.not662 = icmp eq i64 %395, 0
+  br i1 %.not662, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit564.thread, label %396
 
 396:                                              ; preds = %391, %_ZN10VM_Version21supports_fast_2op_leaEv.exit564
   %397 = getelementptr inbounds nuw i8, ptr %4, i64 296
@@ -6949,23 +6949,23 @@ _ZN10VM_Version21supports_fast_2op_leaEv.exit564.thread: ; preds = %389, %391, %
 487:                                              ; preds = %483
   %488 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %488, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit571.thread [
-    i32 1970169159, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i566
-    i32 1752462657, label %489
+    i32 1970169159, label %489
+    i32 1752462657, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i565
   ]
 
 489:                                              ; preds = %487
   %490 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %491 = and i64 %490, 262144
-  %.not.i565 = icmp eq i64 %491, 0
-  br i1 %.not.i565, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit571.thread, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit571
-
-_ZN10VM_Version21supports_fast_2op_leaEv.exit.i566: ; preds = %487
-  %492 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %493 = and i64 %492, 8796093284352
-  %or.cond659.not = icmp eq i64 %493, 8796093284352
+  %491 = and i64 %490, 8796093284352
+  %or.cond659.not = icmp eq i64 %491, 8796093284352
   br i1 %or.cond659.not, label %_ZN10VM_Version20is_intel_family_coreEv.exit.i.i569, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit571.thread
 
-_ZN10VM_Version20is_intel_family_coreEv.exit.i.i569: ; preds = %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i566
+_ZN10VM_Version21supports_fast_2op_leaEv.exit.i565: ; preds = %487
+  %492 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %493 = and i64 %492, 262144
+  %.not.i566 = icmp eq i64 %493, 0
+  br i1 %.not.i566, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit571.thread, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit571
+
+_ZN10VM_Version20is_intel_family_coreEv.exit.i.i569: ; preds = %489
   %494 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
   %495 = lshr i32 %494, 8
   %496 = and i32 %495, 15
@@ -6984,7 +6984,7 @@ _ZN10VM_Version16is_intel_skylakeEv.exit.i570:    ; preds = %_ZN10VM_Version20is
   %506 = icmp eq i32 %505, 85
   br i1 %506, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit571.thread, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit571
 
-_ZN10VM_Version21supports_fast_3op_leaEv.exit571: ; preds = %_ZN10VM_Version20is_intel_family_coreEv.exit.i.i569, %_ZN10VM_Version16is_intel_skylakeEv.exit.i570, %489
+_ZN10VM_Version21supports_fast_3op_leaEv.exit571: ; preds = %_ZN10VM_Version16is_intel_skylakeEv.exit.i570, %_ZN10VM_Version20is_intel_family_coreEv.exit.i.i569, %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i565
   %507 = getelementptr inbounds nuw i8, ptr %4, i64 752
   %508 = load i32, ptr %507, align 8
   %509 = getelementptr inbounds nuw i8, ptr %482, i64 120
@@ -7127,7 +7127,7 @@ _ZN10VM_Version21supports_fast_3op_leaEv.exit571: ; preds = %_ZN10VM_Version20is
   store i16 1469, ptr %579, align 2
   br label %_ZN10VM_Version21supports_fast_3op_leaEv.exit571.thread
 
-_ZN10VM_Version21supports_fast_3op_leaEv.exit571.thread: ; preds = %_ZN10VM_Version16is_intel_skylakeEv.exit.i570, %487, %489, %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i566, %578, %586, %483, %480, %_ZN10VM_Version21supports_fast_2op_leaEv.exit564.thread
+_ZN10VM_Version21supports_fast_3op_leaEv.exit571.thread: ; preds = %_ZN10VM_Version16is_intel_skylakeEv.exit.i570, %489, %487, %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i565, %578, %586, %483, %480, %_ZN10VM_Version21supports_fast_2op_leaEv.exit564.thread
   %587 = load i16, ptr %6, align 4
   %588 = and i16 %587, 1
   %.not273 = icmp eq i16 %588, 0
@@ -7180,21 +7180,21 @@ _ZN10VM_Version21supports_fast_3op_leaEv.exit571.thread: ; preds = %_ZN10VM_Vers
 614:                                              ; preds = %610
   %615 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %615, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit572.thread [
-    i32 1970169159, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit572
-    i32 1752462657, label %616
+    i32 1970169159, label %616
+    i32 1752462657, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit572
   ]
 
 616:                                              ; preds = %614
   %617 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %618 = and i64 %617, 262144
-  %.not664 = icmp eq i64 %618, 0
-  br i1 %.not664, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit572.thread, label %621
+  %.not665 = icmp eq i64 %618, 0
+  br i1 %.not665, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit572.thread, label %621
 
 _ZN10VM_Version21supports_fast_2op_leaEv.exit572: ; preds = %614
   %619 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %620 = and i64 %619, 262144
-  %.not665 = icmp eq i64 %620, 0
-  br i1 %.not665, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit572.thread, label %621
+  %.not664 = icmp eq i64 %620, 0
+  br i1 %.not664, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit572.thread, label %621
 
 621:                                              ; preds = %616, %_ZN10VM_Version21supports_fast_2op_leaEv.exit572
   %622 = getelementptr inbounds nuw i8, ptr %4, i64 516
@@ -37363,7 +37363,7 @@ define hidden void @_ZN5State12_sub_Op_CmpPEPK4Node(ptr noundef nonnull align 8 
   br i1 %.not63, label %.thread97, label %.thread137
 
 .thread137:                                       ; preds = %.thread129, %159, %.thread132, %163, %194, %204
-  %.pr140 = phi ptr [ %.pr, %204 ], [ %4, %159 ], [ %4, %.thread132 ], [ %4, %163 ], [ %.pr.pre107, %194 ], [ %4, %.thread129 ]
+  %.pr140 = phi ptr [ %.pr, %204 ], [ %.pr.pre107, %194 ], [ %4, %159 ], [ %4, %.thread132 ], [ %4, %163 ], [ %4, %.thread129 ]
   %205 = getelementptr inbounds nuw i8, ptr %.pr140, i64 1376
   %206 = load i16, ptr %205, align 4
   %207 = and i16 %206, 1
@@ -68594,8 +68594,8 @@ define hidden void @_ZN5State26_sub_Op_PrefetchAllocationEPK4Node(ptr noundef no
   br label %32
 
 32:                                               ; preds = %31, %17
-  %.pre-phi37 = phi i16 [ %.pre36, %31 ], [ %.pre-phi, %17 ]
-  %33 = phi i64 [ %.pre32, %31 ], [ %18, %17 ]
+  %.pre-phi37 = phi i16 [ %.pre-phi, %17 ], [ %.pre36, %31 ]
+  %33 = phi i64 [ %18, %17 ], [ %.pre32, %31 ]
   %34 = icmp ne i16 %.pre-phi37, 0
   %35 = icmp eq i64 %33, 0
   %or.cond5 = select i1 %34, i1 %35, i1 false
@@ -68623,8 +68623,8 @@ define hidden void @_ZN5State26_sub_Op_PrefetchAllocationEPK4Node(ptr noundef no
   br label %47
 
 47:                                               ; preds = %46, %32
-  %.pre-phi39 = phi i16 [ %.pre38, %46 ], [ %.pre-phi37, %32 ]
-  %48 = phi i64 [ %.pre34, %46 ], [ %33, %32 ]
+  %.pre-phi39 = phi i16 [ %.pre-phi37, %32 ], [ %.pre38, %46 ]
+  %48 = phi i64 [ %33, %32 ], [ %.pre34, %46 ]
   %49 = icmp ne i16 %.pre-phi39, 0
   %50 = icmp eq i64 %48, 3
   %or.cond7 = select i1 %49, i1 %50, i1 false
@@ -78981,7 +78981,7 @@ _ZNK4Node8get_longEv.exit:                        ; preds = %103
   br i1 %.not128, label %.thread276, label %.thread515
 
 .thread515:                                       ; preds = %5, %26, %64, %95, %.thread509, %99, %123, %147, %134, %148
-  %.pr518 = phi ptr [ %.pr.pre, %148 ], [ %4, %95 ], [ %4, %.thread509 ], [ %4, %99 ], [ %.pr.pre, %123 ], [ %.pr.pre, %147 ], [ %.pr.pre, %134 ], [ %4, %64 ], [ %4, %26 ], [ %4, %5 ]
+  %.pr518 = phi ptr [ %.pr.pre, %148 ], [ %.pr.pre, %134 ], [ %4, %95 ], [ %4, %.thread509 ], [ %4, %99 ], [ %.pr.pre, %123 ], [ %.pr.pre, %147 ], [ %4, %64 ], [ %4, %26 ], [ %4, %5 ]
   %149 = getelementptr inbounds nuw i8, ptr %.pr518, i64 1514
   %150 = load i16, ptr %149, align 2
   %151 = and i16 %150, 1
@@ -79219,7 +79219,7 @@ _ZNK4Node8get_longEv.exit270:                     ; preds = %252
   br i1 %.not144, label %.thread276, label %.thread537
 
 .thread537:                                       ; preds = %.thread515, %182, %213, %244, %.thread531, %248, %273, %297, %284, %298
-  %.pr293540 = phi ptr [ %.pr293.pre, %298 ], [ %.pr518, %244 ], [ %.pr518, %.thread531 ], [ %.pr518, %248 ], [ %.pr293.pre, %273 ], [ %.pr293.pre, %297 ], [ %.pr293.pre, %284 ], [ %.pr518, %213 ], [ %.pr518, %182 ], [ %.pr518, %.thread515 ]
+  %.pr293540 = phi ptr [ %.pr293.pre, %298 ], [ %.pr293.pre, %284 ], [ %.pr518, %244 ], [ %.pr518, %.thread531 ], [ %.pr518, %248 ], [ %.pr293.pre, %273 ], [ %.pr293.pre, %297 ], [ %.pr518, %213 ], [ %.pr518, %182 ], [ %.pr518, %.thread515 ]
   %299 = getelementptr inbounds nuw i8, ptr %.pr293540, i64 1514
   %300 = load i16, ptr %299, align 2
   %301 = and i16 %300, 1
@@ -103984,7 +103984,7 @@ define hidden void @_ZN5State14_sub_Op_SqrtVDEPK4Node(ptr noundef nonnull align 
   br i1 %.not19, label %.thread32, label %.thread46
 
 .thread46:                                        ; preds = %10, %14, %._crit_edge, %58, %53, %60
-  %.pr49 = phi ptr [ %.pr.pre, %60 ], [ %4, %._crit_edge ], [ %.pr.pre, %58 ], [ %.pr.pre, %53 ], [ %4, %14 ], [ %4, %10 ]
+  %.pr49 = phi ptr [ %.pr.pre, %60 ], [ %.pr.pre, %53 ], [ %4, %._crit_edge ], [ %.pr.pre, %58 ], [ %4, %14 ], [ %4, %10 ]
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 1912
   %62 = getelementptr inbounds nuw i8, ptr %.pr49, i64 1488
   %63 = load i16, ptr %62, align 4
@@ -104155,7 +104155,7 @@ define hidden void @_ZN5State14_sub_Op_SqrtVFEPK4Node(ptr noundef nonnull align 
   br i1 %.not19, label %.thread32, label %.thread46
 
 .thread46:                                        ; preds = %10, %14, %._crit_edge, %58, %53, %60
-  %.pr49 = phi ptr [ %.pr.pre, %60 ], [ %4, %._crit_edge ], [ %.pr.pre, %58 ], [ %.pr.pre, %53 ], [ %4, %14 ], [ %4, %10 ]
+  %.pr49 = phi ptr [ %.pr.pre, %60 ], [ %.pr.pre, %53 ], [ %4, %._crit_edge ], [ %.pr.pre, %58 ], [ %4, %14 ], [ %4, %10 ]
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 1912
   %62 = getelementptr inbounds nuw i8, ptr %.pr49, i64 1488
   %63 = load i16, ptr %62, align 4
@@ -128789,7 +128789,7 @@ define hidden void @_ZN5State21_sub_Op_VectorMaskCmpEPK4Node(ptr noundef nonnull
   br i1 %.not87, label %.thread186, label %.thread252
 
 .thread252:                                       ; preds = %5, %16, %.thread, %28, %68, %53, %69
-  %.pr255 = phi ptr [ %.pr, %69 ], [ %4, %16 ], [ %4, %.thread ], [ %4, %28 ], [ %.pr.pre209, %68 ], [ %.pr.pre209, %53 ], [ %4, %5 ]
+  %.pr255 = phi ptr [ %.pr, %69 ], [ %.pr.pre209, %53 ], [ %4, %16 ], [ %4, %.thread ], [ %4, %28 ], [ %.pr.pre209, %68 ], [ %4, %5 ]
   %70 = getelementptr inbounds nuw i8, ptr %.pr255, i64 1838
   %71 = load i16, ptr %70, align 2
   %72 = and i16 %71, 1
@@ -139138,7 +139138,7 @@ define hidden noundef zeroext i1 @_ZN5State3DFAEiPK4Node(ptr noundef nonnull ali
   br label %_ZN5State15_sub_Op_CacheWBEPK4Node.exit
 
 _ZN5State15_sub_Op_CacheWBEPK4Node.exit:          ; preds = %613, %609, %606, %597, %593, %590, %581, %577, %574, %555, %551, %548, %509, %505, %502, %387, %383, %380, %270, %266, %263, %140, %138, %136, %134, %129, %123, %120, %4, %9, %10, %11, %20, %29, %46, %55, %64, %75, %84, %93, %96, %101, %102, %103, %104, %105, %106, %107, %108, %109, %110, %111, %112, %113, %114, %115, %116, %117, %118, %119, %142, %144, %146, %148, %150, %152, %154, %155, %156, %157, %158, %159, %160, %161, %162, %163, %164, %165, %166, %167, %168, %169, %170, %171, %172, %173, %174, %175, %176, %177, %178, %179, %180, %181, %182, %183, %184, %185, %186, %187, %188, %189, %190, %191, %192, %193, %194, %195, %196, %197, %198, %199, %200, %201, %202, %203, %204, %205, %206, %207, %208, %209, %210, %211, %212, %213, %214, %215, %222, %223, %224, %225, %226, %227, %228, %229, %230, %231, %232, %233, %234, %235, %236, %237, %238, %239, %240, %241, %242, %243, %244, %245, %246, %247, %248, %249, %250, %251, %252, %253, %254, %255, %256, %257, %258, %259, %260, %261, %262, %278, %279, %280, %281, %282, %284, %286, %287, %288, %289, %290, %291, %292, %293, %294, %295, %296, %297, %298, %299, %300, %301, %302, %303, %304, %305, %306, %307, %308, %310, %312, %314, %316, %318, %320, %322, %323, %325, %326, %327, %328, %329, %330, %331, %332, %333, %334, %335, %336, %337, %338, %339, %340, %341, %342, %343, %344, %345, %346, %347, %348, %350, %351, %352, %353, %354, %355, %356, %357, %358, %359, %360, %361, %362, %363, %364, %365, %366, %367, %369, %371, %372, %373, %374, %375, %376, %377, %378, %379, %392, %393, %394, %395, %396, %397, %398, %399, %400, %401, %402, %403, %404, %405, %406, %407, %408, %409, %410, %411, %412, %413, %414, %415, %416, %417, %418, %419, %420, %421, %422, %423, %424, %425, %426, %427, %428, %429, %430, %431, %432, %433, %434, %435, %436, %437, %438, %439, %440, %441, %442, %443, %444, %445, %446, %447, %448, %449, %450, %451, %452, %453, %454, %455, %456, %457, %458, %459, %460, %461, %462, %463, %464, %465, %466, %467, %468, %469, %470, %471, %472, %473, %474, %475, %476, %477, %478, %479, %480, %481, %482, %483, %484, %485, %486, %487, %488, %489, %490, %491, %492, %493, %494, %495, %496, %497, %498, %499, %500, %501, %515, %516, %517, %518, %519, %520, %521, %522, %523, %524, %525, %526, %527, %528, %529, %530, %531, %532, %533, %534, %535, %536, %537, %538, %539, %540, %541, %542, %543, %544, %545, %546, %547, %564, %565, %566, %567, %568, %569, %570, %571, %572, %573, %622, %623, %624, %625, %626, %627, %628
-  %.0 = phi i1 [ false, %628 ], [ true, %627 ], [ true, %626 ], [ true, %625 ], [ true, %624 ], [ true, %623 ], [ true, %622 ], [ true, %573 ], [ true, %572 ], [ true, %571 ], [ true, %570 ], [ true, %569 ], [ true, %568 ], [ true, %567 ], [ true, %566 ], [ true, %565 ], [ true, %564 ], [ true, %547 ], [ true, %546 ], [ true, %545 ], [ true, %544 ], [ true, %543 ], [ true, %542 ], [ true, %541 ], [ true, %540 ], [ true, %539 ], [ true, %538 ], [ true, %537 ], [ true, %536 ], [ true, %535 ], [ true, %534 ], [ true, %533 ], [ true, %532 ], [ true, %531 ], [ true, %530 ], [ true, %529 ], [ true, %528 ], [ true, %527 ], [ true, %526 ], [ true, %525 ], [ true, %524 ], [ true, %523 ], [ true, %522 ], [ true, %521 ], [ true, %520 ], [ true, %519 ], [ true, %518 ], [ true, %517 ], [ true, %516 ], [ true, %515 ], [ true, %501 ], [ true, %500 ], [ true, %499 ], [ true, %498 ], [ true, %497 ], [ true, %496 ], [ true, %495 ], [ true, %494 ], [ true, %493 ], [ true, %492 ], [ true, %491 ], [ true, %490 ], [ true, %489 ], [ true, %488 ], [ true, %487 ], [ true, %486 ], [ true, %485 ], [ true, %484 ], [ true, %483 ], [ true, %482 ], [ true, %481 ], [ true, %480 ], [ true, %479 ], [ true, %478 ], [ true, %477 ], [ true, %476 ], [ true, %475 ], [ true, %474 ], [ true, %473 ], [ true, %472 ], [ true, %471 ], [ true, %470 ], [ true, %469 ], [ true, %468 ], [ true, %467 ], [ true, %466 ], [ true, %465 ], [ true, %464 ], [ true, %463 ], [ true, %462 ], [ true, %461 ], [ true, %460 ], [ true, %459 ], [ true, %458 ], [ true, %457 ], [ true, %456 ], [ true, %455 ], [ true, %454 ], [ true, %453 ], [ true, %452 ], [ true, %451 ], [ true, %450 ], [ true, %449 ], [ true, %448 ], [ true, %447 ], [ true, %446 ], [ true, %445 ], [ true, %444 ], [ true, %443 ], [ true, %442 ], [ true, %441 ], [ true, %440 ], [ true, %439 ], [ true, %438 ], [ true, %437 ], [ true, %436 ], [ true, %435 ], [ true, %434 ], [ true, %433 ], [ true, %432 ], [ true, %431 ], [ true, %430 ], [ true, %429 ], [ true, %428 ], [ true, %427 ], [ true, %426 ], [ true, %425 ], [ true, %424 ], [ true, %423 ], [ true, %422 ], [ true, %421 ], [ true, %420 ], [ true, %419 ], [ true, %418 ], [ true, %417 ], [ true, %416 ], [ true, %415 ], [ true, %414 ], [ true, %413 ], [ true, %412 ], [ true, %411 ], [ true, %410 ], [ true, %409 ], [ true, %408 ], [ true, %407 ], [ true, %406 ], [ true, %405 ], [ true, %404 ], [ true, %403 ], [ true, %402 ], [ true, %401 ], [ true, %400 ], [ true, %399 ], [ true, %398 ], [ true, %397 ], [ true, %396 ], [ true, %395 ], [ true, %394 ], [ true, %393 ], [ true, %392 ], [ true, %379 ], [ true, %378 ], [ true, %377 ], [ true, %376 ], [ true, %375 ], [ true, %374 ], [ true, %373 ], [ true, %372 ], [ true, %371 ], [ true, %369 ], [ true, %367 ], [ true, %366 ], [ true, %365 ], [ true, %364 ], [ true, %363 ], [ true, %362 ], [ true, %361 ], [ true, %360 ], [ true, %359 ], [ true, %358 ], [ true, %357 ], [ true, %356 ], [ true, %355 ], [ true, %354 ], [ true, %353 ], [ true, %352 ], [ true, %351 ], [ true, %350 ], [ true, %348 ], [ true, %347 ], [ true, %346 ], [ true, %345 ], [ true, %344 ], [ true, %343 ], [ true, %342 ], [ true, %341 ], [ true, %340 ], [ true, %339 ], [ true, %338 ], [ true, %337 ], [ true, %336 ], [ true, %335 ], [ true, %334 ], [ true, %333 ], [ true, %332 ], [ true, %331 ], [ true, %330 ], [ true, %329 ], [ true, %328 ], [ true, %327 ], [ true, %326 ], [ true, %325 ], [ true, %323 ], [ true, %322 ], [ true, %320 ], [ true, %318 ], [ true, %316 ], [ true, %314 ], [ true, %312 ], [ true, %310 ], [ true, %308 ], [ true, %307 ], [ true, %306 ], [ true, %305 ], [ true, %304 ], [ true, %303 ], [ true, %302 ], [ true, %301 ], [ true, %300 ], [ true, %299 ], [ true, %298 ], [ true, %297 ], [ true, %296 ], [ true, %295 ], [ true, %294 ], [ true, %293 ], [ true, %292 ], [ true, %291 ], [ true, %290 ], [ true, %289 ], [ true, %288 ], [ true, %287 ], [ true, %286 ], [ true, %284 ], [ true, %282 ], [ true, %281 ], [ true, %280 ], [ true, %279 ], [ true, %278 ], [ true, %262 ], [ true, %261 ], [ true, %260 ], [ true, %259 ], [ true, %258 ], [ true, %257 ], [ true, %256 ], [ true, %255 ], [ true, %254 ], [ true, %253 ], [ true, %252 ], [ true, %251 ], [ true, %250 ], [ true, %249 ], [ true, %248 ], [ true, %247 ], [ true, %246 ], [ true, %245 ], [ true, %244 ], [ true, %243 ], [ true, %242 ], [ true, %241 ], [ true, %240 ], [ true, %239 ], [ true, %238 ], [ true, %237 ], [ true, %236 ], [ true, %235 ], [ true, %234 ], [ true, %233 ], [ true, %232 ], [ true, %231 ], [ true, %230 ], [ true, %229 ], [ true, %228 ], [ true, %227 ], [ true, %226 ], [ true, %225 ], [ true, %224 ], [ true, %223 ], [ true, %222 ], [ true, %215 ], [ true, %214 ], [ true, %213 ], [ true, %212 ], [ true, %211 ], [ true, %210 ], [ true, %209 ], [ true, %208 ], [ true, %207 ], [ true, %206 ], [ true, %205 ], [ true, %204 ], [ true, %203 ], [ true, %202 ], [ true, %201 ], [ true, %200 ], [ true, %199 ], [ true, %198 ], [ true, %197 ], [ true, %196 ], [ true, %195 ], [ true, %194 ], [ true, %193 ], [ true, %192 ], [ true, %191 ], [ true, %190 ], [ true, %189 ], [ true, %188 ], [ true, %187 ], [ true, %186 ], [ true, %185 ], [ true, %184 ], [ true, %183 ], [ true, %182 ], [ true, %181 ], [ true, %180 ], [ true, %179 ], [ true, %178 ], [ true, %177 ], [ true, %176 ], [ true, %175 ], [ true, %174 ], [ true, %173 ], [ true, %172 ], [ true, %171 ], [ true, %170 ], [ true, %169 ], [ true, %168 ], [ true, %167 ], [ true, %166 ], [ true, %165 ], [ true, %164 ], [ true, %163 ], [ true, %162 ], [ true, %161 ], [ true, %160 ], [ true, %159 ], [ true, %158 ], [ true, %157 ], [ true, %156 ], [ true, %155 ], [ true, %154 ], [ true, %152 ], [ true, %150 ], [ true, %148 ], [ true, %146 ], [ true, %144 ], [ true, %142 ], [ true, %119 ], [ true, %118 ], [ true, %117 ], [ true, %116 ], [ true, %115 ], [ true, %114 ], [ true, %113 ], [ true, %112 ], [ true, %111 ], [ true, %110 ], [ true, %109 ], [ true, %108 ], [ true, %107 ], [ true, %106 ], [ true, %105 ], [ true, %104 ], [ true, %103 ], [ true, %102 ], [ true, %101 ], [ true, %96 ], [ true, %93 ], [ true, %84 ], [ true, %75 ], [ true, %64 ], [ true, %55 ], [ true, %46 ], [ true, %29 ], [ true, %20 ], [ true, %11 ], [ true, %10 ], [ true, %9 ], [ true, %4 ], [ true, %120 ], [ true, %123 ], [ true, %129 ], [ true, %134 ], [ true, %136 ], [ true, %138 ], [ true, %140 ], [ true, %263 ], [ true, %266 ], [ true, %270 ], [ true, %380 ], [ true, %383 ], [ true, %387 ], [ true, %502 ], [ true, %505 ], [ true, %509 ], [ true, %548 ], [ true, %551 ], [ true, %555 ], [ true, %574 ], [ true, %577 ], [ true, %581 ], [ true, %590 ], [ true, %593 ], [ true, %597 ], [ true, %606 ], [ true, %609 ], [ true, %613 ]
+  %.0 = phi i1 [ false, %628 ], [ true, %627 ], [ true, %626 ], [ true, %625 ], [ true, %624 ], [ true, %623 ], [ true, %622 ], [ true, %597 ], [ true, %581 ], [ true, %555 ], [ true, %573 ], [ true, %572 ], [ true, %571 ], [ true, %570 ], [ true, %569 ], [ true, %568 ], [ true, %567 ], [ true, %566 ], [ true, %565 ], [ true, %564 ], [ true, %509 ], [ true, %547 ], [ true, %546 ], [ true, %545 ], [ true, %544 ], [ true, %543 ], [ true, %542 ], [ true, %541 ], [ true, %540 ], [ true, %539 ], [ true, %538 ], [ true, %537 ], [ true, %536 ], [ true, %535 ], [ true, %534 ], [ true, %533 ], [ true, %532 ], [ true, %531 ], [ true, %530 ], [ true, %529 ], [ true, %528 ], [ true, %527 ], [ true, %526 ], [ true, %525 ], [ true, %524 ], [ true, %523 ], [ true, %522 ], [ true, %521 ], [ true, %520 ], [ true, %519 ], [ true, %518 ], [ true, %517 ], [ true, %516 ], [ true, %515 ], [ true, %387 ], [ true, %501 ], [ true, %500 ], [ true, %499 ], [ true, %498 ], [ true, %497 ], [ true, %496 ], [ true, %495 ], [ true, %494 ], [ true, %493 ], [ true, %492 ], [ true, %491 ], [ true, %490 ], [ true, %489 ], [ true, %488 ], [ true, %487 ], [ true, %486 ], [ true, %485 ], [ true, %484 ], [ true, %483 ], [ true, %482 ], [ true, %481 ], [ true, %480 ], [ true, %479 ], [ true, %478 ], [ true, %477 ], [ true, %476 ], [ true, %475 ], [ true, %474 ], [ true, %473 ], [ true, %472 ], [ true, %471 ], [ true, %470 ], [ true, %469 ], [ true, %468 ], [ true, %467 ], [ true, %466 ], [ true, %465 ], [ true, %464 ], [ true, %463 ], [ true, %462 ], [ true, %461 ], [ true, %460 ], [ true, %459 ], [ true, %458 ], [ true, %457 ], [ true, %456 ], [ true, %455 ], [ true, %454 ], [ true, %453 ], [ true, %452 ], [ true, %451 ], [ true, %450 ], [ true, %449 ], [ true, %448 ], [ true, %447 ], [ true, %446 ], [ true, %445 ], [ true, %444 ], [ true, %443 ], [ true, %442 ], [ true, %441 ], [ true, %440 ], [ true, %439 ], [ true, %438 ], [ true, %437 ], [ true, %436 ], [ true, %435 ], [ true, %434 ], [ true, %433 ], [ true, %432 ], [ true, %431 ], [ true, %430 ], [ true, %429 ], [ true, %428 ], [ true, %427 ], [ true, %426 ], [ true, %425 ], [ true, %424 ], [ true, %423 ], [ true, %422 ], [ true, %421 ], [ true, %420 ], [ true, %419 ], [ true, %418 ], [ true, %417 ], [ true, %416 ], [ true, %415 ], [ true, %414 ], [ true, %413 ], [ true, %412 ], [ true, %411 ], [ true, %410 ], [ true, %409 ], [ true, %408 ], [ true, %407 ], [ true, %406 ], [ true, %405 ], [ true, %404 ], [ true, %403 ], [ true, %402 ], [ true, %401 ], [ true, %400 ], [ true, %399 ], [ true, %398 ], [ true, %397 ], [ true, %396 ], [ true, %395 ], [ true, %394 ], [ true, %393 ], [ true, %392 ], [ true, %270 ], [ true, %379 ], [ true, %378 ], [ true, %377 ], [ true, %376 ], [ true, %375 ], [ true, %374 ], [ true, %373 ], [ true, %372 ], [ true, %371 ], [ true, %369 ], [ true, %367 ], [ true, %366 ], [ true, %365 ], [ true, %364 ], [ true, %363 ], [ true, %362 ], [ true, %361 ], [ true, %360 ], [ true, %359 ], [ true, %358 ], [ true, %357 ], [ true, %356 ], [ true, %355 ], [ true, %354 ], [ true, %353 ], [ true, %352 ], [ true, %351 ], [ true, %350 ], [ true, %348 ], [ true, %347 ], [ true, %346 ], [ true, %345 ], [ true, %344 ], [ true, %343 ], [ true, %342 ], [ true, %341 ], [ true, %340 ], [ true, %339 ], [ true, %338 ], [ true, %337 ], [ true, %336 ], [ true, %335 ], [ true, %334 ], [ true, %333 ], [ true, %332 ], [ true, %331 ], [ true, %330 ], [ true, %329 ], [ true, %328 ], [ true, %327 ], [ true, %326 ], [ true, %325 ], [ true, %323 ], [ true, %322 ], [ true, %320 ], [ true, %318 ], [ true, %316 ], [ true, %314 ], [ true, %312 ], [ true, %310 ], [ true, %308 ], [ true, %307 ], [ true, %306 ], [ true, %305 ], [ true, %304 ], [ true, %303 ], [ true, %302 ], [ true, %301 ], [ true, %300 ], [ true, %299 ], [ true, %298 ], [ true, %297 ], [ true, %296 ], [ true, %295 ], [ true, %294 ], [ true, %293 ], [ true, %292 ], [ true, %291 ], [ true, %290 ], [ true, %289 ], [ true, %288 ], [ true, %287 ], [ true, %286 ], [ true, %284 ], [ true, %282 ], [ true, %281 ], [ true, %280 ], [ true, %279 ], [ true, %278 ], [ true, %140 ], [ true, %262 ], [ true, %261 ], [ true, %260 ], [ true, %259 ], [ true, %258 ], [ true, %257 ], [ true, %256 ], [ true, %255 ], [ true, %254 ], [ true, %253 ], [ true, %252 ], [ true, %251 ], [ true, %250 ], [ true, %249 ], [ true, %248 ], [ true, %247 ], [ true, %246 ], [ true, %245 ], [ true, %244 ], [ true, %243 ], [ true, %242 ], [ true, %241 ], [ true, %240 ], [ true, %239 ], [ true, %238 ], [ true, %237 ], [ true, %236 ], [ true, %235 ], [ true, %234 ], [ true, %233 ], [ true, %232 ], [ true, %231 ], [ true, %230 ], [ true, %229 ], [ true, %228 ], [ true, %227 ], [ true, %226 ], [ true, %225 ], [ true, %224 ], [ true, %223 ], [ true, %222 ], [ true, %215 ], [ true, %214 ], [ true, %213 ], [ true, %212 ], [ true, %211 ], [ true, %210 ], [ true, %209 ], [ true, %208 ], [ true, %207 ], [ true, %206 ], [ true, %205 ], [ true, %204 ], [ true, %203 ], [ true, %202 ], [ true, %201 ], [ true, %200 ], [ true, %199 ], [ true, %198 ], [ true, %197 ], [ true, %196 ], [ true, %195 ], [ true, %194 ], [ true, %193 ], [ true, %192 ], [ true, %191 ], [ true, %190 ], [ true, %189 ], [ true, %188 ], [ true, %187 ], [ true, %186 ], [ true, %185 ], [ true, %184 ], [ true, %183 ], [ true, %182 ], [ true, %181 ], [ true, %180 ], [ true, %179 ], [ true, %178 ], [ true, %177 ], [ true, %176 ], [ true, %175 ], [ true, %174 ], [ true, %173 ], [ true, %172 ], [ true, %171 ], [ true, %170 ], [ true, %169 ], [ true, %168 ], [ true, %167 ], [ true, %166 ], [ true, %165 ], [ true, %164 ], [ true, %163 ], [ true, %162 ], [ true, %161 ], [ true, %160 ], [ true, %159 ], [ true, %158 ], [ true, %157 ], [ true, %156 ], [ true, %155 ], [ true, %154 ], [ true, %152 ], [ true, %150 ], [ true, %148 ], [ true, %146 ], [ true, %144 ], [ true, %142 ], [ true, %136 ], [ true, %129 ], [ true, %4 ], [ true, %119 ], [ true, %118 ], [ true, %117 ], [ true, %116 ], [ true, %115 ], [ true, %114 ], [ true, %113 ], [ true, %112 ], [ true, %111 ], [ true, %110 ], [ true, %109 ], [ true, %108 ], [ true, %107 ], [ true, %106 ], [ true, %105 ], [ true, %104 ], [ true, %103 ], [ true, %102 ], [ true, %101 ], [ true, %96 ], [ true, %93 ], [ true, %84 ], [ true, %75 ], [ true, %64 ], [ true, %55 ], [ true, %46 ], [ true, %29 ], [ true, %20 ], [ true, %11 ], [ true, %10 ], [ true, %9 ], [ true, %120 ], [ true, %123 ], [ true, %134 ], [ true, %138 ], [ true, %263 ], [ true, %266 ], [ true, %380 ], [ true, %383 ], [ true, %502 ], [ true, %505 ], [ true, %548 ], [ true, %551 ], [ true, %574 ], [ true, %577 ], [ true, %590 ], [ true, %593 ], [ true, %606 ], [ true, %609 ], [ true, %613 ]
   ret i1 %.0
 }
 

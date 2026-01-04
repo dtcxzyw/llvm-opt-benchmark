@@ -2143,7 +2143,7 @@ define hidden noundef ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   ret ptr %.sroa.0.0
 
 120:                                              ; preds = %.split17.us.i, %108
-  %.sroa.3.0.i.ph.i = phi i64 [ %.us-phi18.i, %.split17.us.i ], [ %114, %108 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %114, %108 ], [ %.us-phi18.i, %.split17.us.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.014)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.014, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !359)
@@ -2451,8 +2451,8 @@ define hidden { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_f
   %58 = zext nneg i16 %57 to i64
   br label %_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17had99f58361dbddaaE.exit.thread
 
-_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17had99f58361dbddaaE.exit.thread: ; preds = %52, %48
-  %.sroa.3.0.i.ph = phi i64 [ %.sroa.6.1.i, %48 ], [ %58, %52 ]
+_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17had99f58361dbddaaE.exit.thread: ; preds = %48, %52
+  %.sroa.3.0.i.ph = phi i64 [ %58, %52 ], [ %.sroa.6.1.i, %48 ]
   %59 = inttoptr i64 %.sroa.3.0.i.ph to ptr
   br label %.loopexit
 
@@ -2651,10 +2651,10 @@ _ZN3std4sync6poison4once4Once9call_once17h8fdad5f8d40d9cfcE.exit: ; preds = %.no
   ret i1 %14
 
 .body.thread:                                     ; preds = %57, %62
-  %eh.lpad-body35 = phi { ptr, i32 } [ %lpad.thr_comm, %62 ], [ %58, %57 ]
+  %eh.lpad-body35 = phi { ptr, i32 } [ %58, %57 ], [ %lpad.thr_comm, %62 ]
   resume { ptr, i32 } %eh.lpad-body35
 
-62:                                               ; preds = %43, %42, %26, %24, %21
+62:                                               ; preds = %24, %21, %43, %42, %26
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$uv_auth..credentials..Credentials$GT$17he9f2fbe7d0b5fe12E"(ptr noalias noundef align 8 dereferenceable(48) %10) #28
@@ -2801,7 +2801,7 @@ _ZN3std4sync6poison4once4Once9call_once17h8fdad5f8d40d9cfcE.exit: ; preds = %.no
 46:                                               ; preds = %47
   resume { ptr, i32 } %lpad.thr_comm
 
-47:                                               ; preds = %16, %19, %21, %37, %38
+47:                                               ; preds = %19, %21, %37, %38, %16
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$GT$17hc8e58505f8a40c0bE"(ptr nonnull %1) #28

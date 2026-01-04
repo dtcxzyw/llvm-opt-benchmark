@@ -70,7 +70,7 @@ define range(i32 0, 2) i32 @ossl_ecx_public_from_private(ptr noundef %0) local_u
   br label %30
 
 30:                                               ; preds = %1, %4, %17, %8, %21, %29, %16
-  %.0 = phi i32 [ 0, %16 ], [ 0, %29 ], [ 1, %21 ], [ 1, %8 ], [ 1, %17 ], [ 1, %4 ], [ 1, %1 ]
+  %.0 = phi i32 [ 0, %29 ], [ 0, %16 ], [ 1, %21 ], [ 1, %8 ], [ 1, %17 ], [ 1, %4 ], [ 1, %1 ]
   ret i32 %.0
 }
 
@@ -170,7 +170,7 @@ define range(i32 0, 2) i32 @ossl_ecx_key_fromdata(ptr noundef %0, ptr noundef %1
   br label %39
 
 39:                                               ; preds = %34, %30, %28, %16, %12, %3, %.critedge, %24
-  %.0 = phi i32 [ 0, %24 ], [ 1, %.critedge ], [ 0, %3 ], [ 0, %12 ], [ 0, %16 ], [ 0, %28 ], [ 0, %30 ], [ 0, %34 ]
+  %.0 = phi i32 [ 0, %12 ], [ 0, %3 ], [ 0, %24 ], [ 0, %28 ], [ 1, %.critedge ], [ 0, %30 ], [ 0, %16 ], [ 0, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -274,7 +274,7 @@ define ptr @ossl_ecx_key_dup(ptr noundef readonly captures(none) %0, i32 noundef
   br label %49
 
 49:                                               ; preds = %34, %36, %43, %2, %48
-  %.0 = phi ptr [ null, %48 ], [ null, %2 ], [ %3, %43 ], [ %3, %36 ], [ %3, %34 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %48 ], [ %3, %43 ], [ %3, %36 ], [ %3, %34 ]
   ret ptr %.0
 }
 
@@ -464,7 +464,7 @@ switch.edge:                                      ; preds = %28, %33, %31
   br label %76
 
 76:                                               ; preds = %40, %73, %.critedge, %75, %37, %27
-  %.1 = phi ptr [ null, %27 ], [ null, %37 ], [ null, %75 ], [ null, %.critedge ], [ %35, %73 ], [ %35, %40 ]
+  %.1 = phi ptr [ null, %27 ], [ null, %37 ], [ null, %.critedge ], [ null, %75 ], [ %35, %73 ], [ %35, %40 ]
   ret ptr %.1
 }
 

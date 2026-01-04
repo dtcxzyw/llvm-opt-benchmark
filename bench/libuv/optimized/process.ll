@@ -317,8 +317,8 @@ define dso_local i32 @uv_spawn(ptr noundef %0, ptr noundef initializes((8, 20), 
   store i32 %.019.i, ptr %68, align 4
   br label %.loopexit113
 
-uv__process_init_stdio.exit.thread:               ; preds = %42, %47, %65, %36
-  %.018.i.ph = phi i32 [ -22, %65 ], [ %48, %47 ], [ -22, %42 ], [ -22, %36 ]
+uv__process_init_stdio.exit.thread:               ; preds = %42, %65, %47, %36
+  %.018.i.ph = phi i32 [ %48, %47 ], [ -22, %65 ], [ -22, %42 ], [ -22, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit
 
@@ -463,7 +463,7 @@ uv__spawn_and_init_child.exit.thread108:          ; preds = %.preheader27.i
   call void @abort() #14
   unreachable
 
-uv__spawn_and_init_child.exit.thread106:          ; preds = %.preheader.i93, %122
+uv__spawn_and_init_child.exit.thread106:          ; preds = %122, %.preheader.i93
   %125 = load i32, ptr %6, align 8
   %126 = call i32 @uv__close_nocheckstdio(i32 noundef %125) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -472,7 +472,7 @@ uv__spawn_and_init_child.exit.thread106:          ; preds = %.preheader.i93, %12
   br label %147
 
 uv__spawn_and_init_child.exit:                    ; preds = %uv__spawn_and_init_child_fork.exit.i, %.critedge2.i
-  %.022.i = phi i32 [ %119, %.critedge2.i ], [ %.0.i.i, %uv__spawn_and_init_child_fork.exit.i ]
+  %.022.i = phi i32 [ %.0.i.i, %uv__spawn_and_init_child_fork.exit.i ], [ %119, %.critedge2.i ]
   %127 = load i32, ptr %6, align 8
   %128 = call i32 @uv__close_nocheckstdio(i32 noundef %127) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -662,7 +662,7 @@ uv__process_open_stream.exit.thread:              ; preds = %uv__process_open_st
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %26, %209, %._crit_edge125
-  %.077 = phi i32 [ %.0.i105, %._crit_edge125 ], [ %.078, %209 ], [ -12, %26 ], [ %.077.ph, %.thread.sink.split ]
+  %.077 = phi i32 [ %.0.i105, %._crit_edge125 ], [ -12, %26 ], [ %.078, %209 ], [ %.077.ph, %.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.077
 }
@@ -1034,8 +1034,8 @@ define internal fastcc void @uv__process_child_init(ptr noundef readonly capture
   br label %.thread121.thread
 
 .thread121.thread:                                ; preds = %79, %107, %.thread121
-  %.0113130 = phi i32 [ -1, %107 ], [ %.0113, %.thread121 ], [ %.1142, %79 ]
-  %.3124129 = phi i32 [ %.3124, %107 ], [ %.3124, %.thread121 ], [ %.1142, %79 ]
+  %.0113130 = phi i32 [ %.0113, %.thread121 ], [ -1, %107 ], [ %.1142, %79 ]
+  %.3124129 = phi i32 [ %.3124, %.thread121 ], [ %.3124, %107 ], [ %.1142, %79 ]
   %.not91 = icmp slt i32 %.0113130, %1
   br i1 %.not91, label %110, label %.thread131
 

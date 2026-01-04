@@ -221,7 +221,7 @@ default.unreachable:                              ; preds = %0
   br label %_ZN3std3sys3pal4unix17decode_error_kind17hc9782acab9a3508eE.exit
 
 _ZN3std3sys3pal4unix17decode_error_kind17hc9782acab9a3508eE.exit: ; preds = %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %4, %51, %48, %44
-  %.sroa.0.0 = phi i8 [ %spec.select.i.i, %44 ], [ %50, %48 ], [ %53, %51 ], [ 41, %42 ], [ 8, %7 ], [ 9, %8 ], [ 28, %9 ], [ 6, %10 ], [ 2, %11 ], [ 3, %12 ], [ 30, %13 ], [ 26, %14 ], [ 12, %15 ], [ 27, %16 ], [ 4, %17 ], [ 35, %18 ], [ 20, %19 ], [ 15, %20 ], [ 18, %21 ], [ 0, %22 ], [ 38, %23 ], [ 24, %24 ], [ 36, %25 ], [ 32, %26 ], [ 33, %27 ], [ 10, %28 ], [ 5, %29 ], [ 7, %30 ], [ 14, %31 ], [ 16, %32 ], [ 11, %33 ], [ 17, %34 ], [ 25, %35 ], [ 19, %36 ], [ 22, %37 ], [ 29, %38 ], [ 31, %39 ], [ 39, %40 ], [ 1, %41 ], [ 13, %43 ], [ 34, %4 ]
+  %.sroa.0.0 = phi i8 [ %53, %51 ], [ %spec.select.i.i, %44 ], [ %50, %48 ], [ 41, %42 ], [ 13, %43 ], [ 8, %7 ], [ 9, %8 ], [ 28, %9 ], [ 6, %10 ], [ 2, %11 ], [ 3, %12 ], [ 30, %13 ], [ 26, %14 ], [ 12, %15 ], [ 27, %16 ], [ 4, %17 ], [ 35, %18 ], [ 20, %19 ], [ 15, %20 ], [ 18, %21 ], [ 0, %22 ], [ 38, %23 ], [ 24, %24 ], [ 36, %25 ], [ 32, %26 ], [ 33, %27 ], [ 10, %28 ], [ 5, %29 ], [ 7, %30 ], [ 14, %31 ], [ 16, %32 ], [ 11, %33 ], [ 17, %34 ], [ 25, %35 ], [ 19, %36 ], [ 22, %37 ], [ 29, %38 ], [ 31, %39 ], [ 39, %40 ], [ 34, %4 ], [ 1, %41 ]
   ret i8 %.sroa.0.0
 }
 
@@ -363,8 +363,8 @@ define hidden { i64, ptr } @_ZN5tokio7runtime2io12registration12Registration6try
   br label %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h0060ed8543dc92dbE.exit5"
 
 "_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h0060ed8543dc92dbE.exit5": ; preds = %33, %"_ZN5tokio3net3udp9UdpSocket6try_io28_$u7b$$u7b$closure$u7d$$u7d$17h06400bfcf80f90b9E.exit", %27
-  %.sroa.4.1 = phi ptr [ %21, %27 ], [ %21, %"_ZN5tokio3net3udp9UdpSocket6try_io28_$u7b$$u7b$closure$u7d$$u7d$17h06400bfcf80f90b9E.exit" ], [ inttoptr (i64 55834574851 to ptr), %33 ]
-  %.sroa.0.1 = phi i64 [ 1, %27 ], [ 0, %"_ZN5tokio3net3udp9UdpSocket6try_io28_$u7b$$u7b$closure$u7d$$u7d$17h06400bfcf80f90b9E.exit" ], [ 1, %33 ]
+  %.sroa.4.1 = phi ptr [ %21, %"_ZN5tokio3net3udp9UdpSocket6try_io28_$u7b$$u7b$closure$u7d$$u7d$17h06400bfcf80f90b9E.exit" ], [ %21, %27 ], [ inttoptr (i64 55834574851 to ptr), %33 ]
+  %.sroa.0.1 = phi i64 [ 0, %"_ZN5tokio3net3udp9UdpSocket6try_io28_$u7b$$u7b$closure$u7d$$u7d$17h06400bfcf80f90b9E.exit" ], [ 1, %27 ], [ 1, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %24
 
@@ -438,7 +438,7 @@ define hidden noundef ptr @_ZN5tokio7runtime2io12registration12Registration6try_
   br label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17hb52d86d04eb1b8bdE.exit5"
 
 "_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17hb52d86d04eb1b8bdE.exit5": ; preds = %25, %"_ZN5tokio3net3udp9UdpSocket6try_io28_$u7b$$u7b$closure$u7d$$u7d$17hd009d36b7ac8575cE.exit", %19
-  %.sroa.0.1 = phi ptr [ %17, %19 ], [ null, %"_ZN5tokio3net3udp9UdpSocket6try_io28_$u7b$$u7b$closure$u7d$$u7d$17hd009d36b7ac8575cE.exit" ], [ inttoptr (i64 55834574851 to ptr), %25 ]
+  %.sroa.0.1 = phi ptr [ null, %"_ZN5tokio3net3udp9UdpSocket6try_io28_$u7b$$u7b$closure$u7d$$u7d$17hd009d36b7ac8575cE.exit" ], [ %17, %19 ], [ inttoptr (i64 55834574851 to ptr), %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
@@ -470,8 +470,8 @@ define internal fastcc noundef ptr @"_ZN5tokio7runtime4task4list19OwnedTasks$LT$
           to label %17 unwind label %13
 
 12:                                               ; preds = %15, %13
-  %.pn = phi { ptr, i32 } [ %16, %15 ], [ %14, %13 ]
-  %.sroa.02.0 = phi i1 [ %.sroa.02.2, %15 ], [ true, %13 ]
+  %.pn = phi { ptr, i32 } [ %14, %13 ], [ %16, %15 ]
+  %.sroa.02.0 = phi i1 [ true, %13 ], [ %.sroa.02.2, %15 ]
   invoke void @"_ZN4core3ptr132drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$$GT$17h40be38f1383dbbf1E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7) #14
           to label %30 unwind label %31
 
@@ -1505,7 +1505,7 @@ default.unreachable:                              ; preds = %_ZN7tracing4span4Sp
           to label %.thread.i unwind label %174
 
 130:                                              ; preds = %176, %128, %102, %89, %78, %74
-  %.pn29.pn.pn.i = phi { ptr, i32 } [ %.pn29.pn.i, %176 ], [ %.pn21.pn.i, %128 ], [ %103, %102 ], [ %90, %89 ], [ %79, %78 ], [ %75, %74 ]
+  %.pn29.pn.pn.i = phi { ptr, i32 } [ %.pn29.pn.i, %176 ], [ %79, %78 ], [ %75, %74 ], [ %.pn21.pn.i, %128 ], [ %103, %102 ], [ %90, %89 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdd5f77a195751afeE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %21) #14
           to label %173 unwind label %177
 
@@ -2104,7 +2104,7 @@ default.unreachable:                              ; preds = %_ZN7tracing4span4Sp
           to label %.thread.i unwind label %174
 
 130:                                              ; preds = %176, %128, %102, %89, %78, %74
-  %.pn29.pn.pn.i = phi { ptr, i32 } [ %.pn29.pn.i, %176 ], [ %.pn21.pn.i, %128 ], [ %103, %102 ], [ %90, %89 ], [ %79, %78 ], [ %75, %74 ]
+  %.pn29.pn.pn.i = phi { ptr, i32 } [ %.pn29.pn.i, %176 ], [ %79, %78 ], [ %75, %74 ], [ %.pn21.pn.i, %128 ], [ %103, %102 ], [ %90, %89 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdd5f77a195751afeE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %21) #14
           to label %173 unwind label %177
 

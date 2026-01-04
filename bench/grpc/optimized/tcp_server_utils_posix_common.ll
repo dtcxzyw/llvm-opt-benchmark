@@ -180,7 +180,7 @@ define void @_Z24grpc_tcp_server_add_addrP15grpc_tcp_serverPK21grpc_resolved_add
   br label %29
 
 29:                                               ; preds = %.thread, %23, %27
-  %.0 = phi ptr [ %spec.select, %27 ], [ %2, %23 ], [ %2, %.thread ]
+  %.0 = phi ptr [ %2, %.thread ], [ %spec.select, %27 ], [ %2, %23 ]
   call fastcc void @_ZL20add_socket_to_serverP15grpc_tcp_serveriPK21grpc_resolved_addressjjPP17grpc_tcp_listener(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, i32 noundef %13, ptr noundef %.0, i32 noundef %3, i32 noundef %4, ptr noundef %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %50
@@ -696,7 +696,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %.thread, %_ZNKSt7__
   ret void
 
 177:                                              ; preds = %31, %37, %170
-  %.pn69.pn = phi { ptr, i32 } [ %.pn63.pn.pn.pn.pn, %170 ], [ %38, %37 ], [ %32, %31 ]
+  %.pn69.pn = phi { ptr, i32 } [ %32, %31 ], [ %.pn63.pn.pn.pn.pn, %170 ], [ %38, %37 ]
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1668,7 +1668,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit116:        ; preds = %329, %332
   ret void
 
 337:                                              ; preds = %106, %112, %37, %43, %328, %310, %302, %287, %271, %251, %228, %206, %199, %189, %182, %154, %132, %104, %73, %71
-  %.pn71.pn = phi { ptr, i32 } [ %.pn69, %328 ], [ %72, %71 ], [ %311, %310 ], [ %.pn67, %271 ], [ %.pn65, %287 ], [ %.pn63, %302 ], [ %252, %251 ], [ %229, %228 ], [ %207, %206 ], [ %200, %199 ], [ %190, %189 ], [ %183, %182 ], [ %155, %154 ], [ %133, %132 ], [ %105, %104 ], [ %74, %73 ], [ %44, %43 ], [ %38, %37 ], [ %.pn, %112 ], [ %107, %106 ]
+  %.pn71.pn = phi { ptr, i32 } [ %74, %73 ], [ %.pn69, %328 ], [ %72, %71 ], [ %311, %310 ], [ %.pn67, %271 ], [ %.pn65, %287 ], [ %.pn63, %302 ], [ %252, %251 ], [ %229, %228 ], [ %207, %206 ], [ %200, %199 ], [ %190, %189 ], [ %183, %182 ], [ %155, %154 ], [ %133, %132 ], [ %38, %37 ], [ %105, %104 ], [ %44, %43 ], [ %.pn, %112 ], [ %107, %106 ]
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

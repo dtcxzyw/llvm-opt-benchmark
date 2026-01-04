@@ -664,8 +664,8 @@ define ptr @Abc_NtkRestrashZero(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   br label %33
 
 33:                                               ; preds = %17, %.lr.ph, %21, %19
-  %34 = phi ptr [ %11, %19 ], [ %.pre, %21 ], [ %11, %.lr.ph ], [ %11, %17 ]
-  %.1 = phi i32 [ %20, %19 ], [ %.0134, %21 ], [ %.0134, %.lr.ph ], [ %.0134, %17 ]
+  %34 = phi ptr [ %11, %19 ], [ %.pre, %21 ], [ %11, %17 ], [ %11, %.lr.ph ]
+  %.1 = phi i32 [ %20, %19 ], [ %.0134, %21 ], [ %.0134, %17 ], [ %.0134, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = getelementptr i8, ptr %34, i64 4
   %.val92 = load i32, ptr %35, align 4, !tbaa !3
@@ -1024,7 +1024,7 @@ define ptr @Abc_NtkStrash(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   br label %29
 
 29:                                               ; preds = %26, %28, %9, %5
-  %.0 = phi ptr [ %6, %5 ], [ null, %28 ], [ null, %9 ], [ %11, %26 ]
+  %.0 = phi ptr [ %6, %5 ], [ null, %9 ], [ null, %28 ], [ %11, %26 ]
   ret ptr %.0
 }
 
@@ -2848,8 +2848,8 @@ Vec_IntAlloc.exit.thread:                         ; preds = %11
   br label %Vec_IntGrow.exit.i
 
 Vec_IntGrow.exit.i:                               ; preds = %34, %Vec_IntAlloc.exit
-  %37 = phi ptr [ %36, %34 ], [ %20, %Vec_IntAlloc.exit ]
-  %38 = phi ptr [ %35, %34 ], [ %21, %Vec_IntAlloc.exit ]
+  %37 = phi ptr [ %20, %Vec_IntAlloc.exit ], [ %36, %34 ]
+  %38 = phi ptr [ %21, %Vec_IntAlloc.exit ], [ %35, %34 ]
   %39 = icmp sgt i32 %.val145.val, 0
   br i1 %39, label %.lr.ph.i, label %Vec_IntFill.exit
 
@@ -2860,7 +2860,7 @@ Vec_IntGrow.exit.i:                               ; preds = %34, %Vec_IntAlloc.e
   br label %Vec_IntFill.exit
 
 Vec_IntFill.exit:                                 ; preds = %.lr.ph.i, %Vec_IntAlloc.exit.thread, %Vec_IntGrow.exit.i
-  %41 = phi ptr [ %38, %Vec_IntGrow.exit.i ], [ %22, %Vec_IntAlloc.exit.thread ], [ %38, %.lr.ph.i ]
+  %41 = phi ptr [ %22, %Vec_IntAlloc.exit.thread ], [ %38, %Vec_IntGrow.exit.i ], [ %38, %.lr.ph.i ]
   store i32 %14, ptr %17, align 4, !tbaa !39
   %42 = tail call ptr @Abc_AigConst1(ptr noundef nonnull %0) #12
   %43 = getelementptr i8, ptr %42, i64 16

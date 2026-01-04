@@ -168,9 +168,9 @@ define range(i32 0, 2) i32 @ossl_quic_handle_frames(ptr noundef %0, ptr noundef 
   tail call void @ossl_quic_tx_packetiser_set_validated(ptr noundef %56) #3
   br label %60
 
-.thread32:                                        ; preds = %39, %51, %52
-  %.0.i.ph31.ph = phi i32 [ 3, %52 ], [ 1, %51 ], [ 0, %39 ]
-  %.0.i23.ph = phi i8 [ 2, %52 ], [ 2, %51 ], [ 0, %39 ]
+.thread32:                                        ; preds = %39, %52, %51
+  %.0.i.ph31.ph = phi i32 [ 1, %51 ], [ 3, %52 ], [ 0, %39 ]
+  %.0.i23.ph = phi i8 [ 2, %51 ], [ 2, %52 ], [ 0, %39 ]
   %57 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store i8 %.0.i23.ph, ptr %57, align 8
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -658,7 +658,7 @@ depack_do_frame_crypto.exit.thread.i:             ; preds = %227, %247, %241, %2
   br label %.critedge.i
 
 depack_do_frame_crypto.exit.i:                    ; preds = %248, %224
-  %.1.i = phi i64 [ 0, %224 ], [ %251, %248 ]
+  %.1.i = phi i64 [ %251, %248 ], [ 0, %224 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %459
 
@@ -892,7 +892,7 @@ depack_do_frame_stream.exit.thread.i:             ; preds = %275, %336, %327, %2
   br label %.critedge.i
 
 depack_do_frame_stream.exit.i:                    ; preds = %.thread.i.i, %312, %300, %278
-  %.2.i = phi i64 [ 0, %278 ], [ %341, %.thread.i.i ], [ 0, %312 ], [ 0, %300 ]
+  %.2.i = phi i64 [ 0, %300 ], [ 0, %312 ], [ 0, %278 ], [ %341, %.thread.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -1050,7 +1050,7 @@ depack_do_frame_max_streams.exit.thread.i:        ; preds = %375, %371
   br label %.critedge.i
 
 depack_do_frame_max_streams.exit.i:               ; preds = %385, %382, %381, %378
-  %update_streams_bidi.sink.i = phi ptr [ @update_streams_bidi, %381 ], [ @update_streams_bidi, %378 ], [ @update_streams_uni, %385 ], [ @update_streams_uni, %382 ]
+  %update_streams_bidi.sink.i = phi ptr [ @update_streams_bidi, %378 ], [ @update_streams_bidi, %381 ], [ @update_streams_uni, %385 ], [ @update_streams_uni, %382 ]
   call void @ossl_quic_stream_map_visit(ptr noundef nonnull %77, ptr noundef nonnull %update_streams_bidi.sink.i, ptr noundef nonnull %0) #3
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %459
@@ -1404,8 +1404,8 @@ depack_do_frame_handshake_done.exit.i:            ; preds = %455
   br label %472
 
 472:                                              ; preds = %467, %461
-  %.0162.i = phi i32 [ 516, %461 ], [ %spec.select.i, %467 ]
-  %.0.i26 = phi i64 [ %464, %461 ], [ %spec.select292.i, %467 ]
+  %.0162.i = phi i32 [ %spec.select.i, %467 ], [ 516, %461 ]
+  %.0.i26 = phi i64 [ %spec.select292.i, %467 ], [ %464, %461 ]
   %473 = load ptr, ptr %103, align 8, !tbaa !103
   %474 = load ptr, ptr %104, align 8, !tbaa !104
   call void %460(i32 noundef 0, i32 noundef 1, i32 noundef %.0162.i, ptr noundef %spec.select, i64 noundef %.0.i26, ptr noundef %473, ptr noundef %474) #3
@@ -1556,7 +1556,7 @@ define internal fastcc range(i32 0, 2) i32 @depack_do_implicit_stream_create(ptr
   br label %38
 
 38:                                               ; preds = %.thread, %.loopexit, %37, %25, %20, %7
-  %.0 = phi i32 [ 1, %7 ], [ 0, %25 ], [ 1, %.loopexit ], [ 0, %20 ], [ 0, %37 ], [ 0, %.thread ]
+  %.0 = phi i32 [ 1, %7 ], [ 0, %25 ], [ 0, %.thread ], [ 1, %.loopexit ], [ 0, %20 ], [ 0, %37 ]
   ret i32 %.0
 }
 

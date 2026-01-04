@@ -371,7 +371,7 @@ _ZN12dtCrowdAgentC2Ev.exit:                       ; preds = %.lr.ph
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN12dtCrowdAgentC2Ev.exit, %89, %._crit_edge, %56, %50, %44, %40, %36, %21, %18, %13, %4
-  %.028 = phi i1 [ false, %4 ], [ false, %13 ], [ false, %18 ], [ false, %21 ], [ false, %36 ], [ false, %40 ], [ false, %44 ], [ false, %50 ], [ false, %56 ], [ false, %._crit_edge ], [ %91, %89 ], [ false, %_ZN12dtCrowdAgentC2Ev.exit ]
+  %.028 = phi i1 [ false, %56 ], [ %91, %89 ], [ false, %._crit_edge ], [ false, %4 ], [ false, %50 ], [ false, %44 ], [ false, %40 ], [ false, %36 ], [ false, %21 ], [ false, %18 ], [ false, %13 ], [ false, %_ZN12dtCrowdAgentC2Ev.exit ]
   ret i1 %.028
 }
 
@@ -1063,7 +1063,7 @@ define void @_ZN7dtCrowd17updateMoveRequestEf(ptr noundef nonnull align 8 derefe
   br label %_ZL14addToPathQueueP12dtCrowdAgentPS0_ii.exit
 
 _ZL14addToPathQueueP12dtCrowdAgentPS0_ii.exit:    ; preds = %29, %136, %114, %.thread157, %25, %20
-  %.1128 = phi i32 [ %.0127170, %25 ], [ %.0127170, %20 ], [ %.0127170, %.thread157 ], [ %140, %136 ], [ %.0127170, %114 ], [ %.0127170, %29 ]
+  %.1128 = phi i32 [ %.0127170, %25 ], [ %.0127170, %114 ], [ %140, %136 ], [ %.0127170, %.thread157 ], [ %.0127170, %29 ], [ %.0127170, %20 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %141 = load i32, ptr %0, align 8
   %142 = sext i32 %141 to i64
@@ -1291,7 +1291,7 @@ _ZNK14dtPathCorridor11getLastPolyEv.exit:         ; preds = %144, %149
   br i1 %276, label %.lr.ph175, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %273, %240, %231
-  %277 = phi i32 [ %250, %240 ], [ %.pre, %231 ], [ %274, %273 ]
+  %277 = phi i32 [ %.pre, %231 ], [ %250, %240 ], [ %274, %273 ]
   %278 = sext i32 %277 to i64
   %279 = getelementptr i32, ptr %215, i64 %278
   %280 = getelementptr i8, ptr %279, i64 -4
@@ -1325,7 +1325,7 @@ _ZNK14dtPathCorridor11getLastPolyEv.exit:         ; preds = %144, %149
   br label %.sink.split
 
 .sink.split:                                      ; preds = %292, %225, %284, %208, %194
-  %storemerge.sink = phi i8 [ %., %194 ], [ 2, %292 ], [ 1, %225 ], [ 1, %284 ], [ 1, %208 ]
+  %storemerge.sink = phi i8 [ %., %194 ], [ 2, %292 ], [ 1, %208 ], [ 1, %225 ], [ 1, %284 ]
   store i8 %storemerge.sink, ptr %187, align 8
   %295 = getelementptr inbounds nuw i8, ptr %183, i64 620
   store float 0.000000e+00, ptr %295, align 4
@@ -1430,9 +1430,9 @@ define void @_ZN7dtCrowd26updateTopologyOptimizationEPP12dtCrowdAgentif(ptr noun
   br label %_ZL13addToOptQueueP12dtCrowdAgentPS0_ii.exit
 
 _ZL13addToOptQueueP12dtCrowdAgentPS0_ii.exit:     ; preds = %25, %.loopexit.i, %26, %12, %12, %20, %15, %.lr.ph
-  %31 = phi ptr [ %6, %.lr.ph ], [ %6, %12 ], [ %6, %15 ], [ %6, %20 ], [ %6, %12 ], [ %6, %26 ], [ %9, %.loopexit.i ], [ %9, %25 ]
-  %32 = phi ptr [ %7, %.lr.ph ], [ %7, %12 ], [ %7, %15 ], [ %7, %20 ], [ %7, %12 ], [ %7, %26 ], [ %9, %.loopexit.i ], [ %9, %25 ]
-  %.1 = phi i32 [ %.030, %.lr.ph ], [ %.030, %12 ], [ %.030, %15 ], [ %.030, %20 ], [ %.030, %12 ], [ 1, %26 ], [ 1, %.loopexit.i ], [ 1, %25 ]
+  %31 = phi ptr [ %6, %.lr.ph ], [ %6, %12 ], [ %6, %12 ], [ %6, %15 ], [ %6, %20 ], [ %6, %26 ], [ %9, %.loopexit.i ], [ %9, %25 ]
+  %32 = phi ptr [ %7, %.lr.ph ], [ %7, %12 ], [ %7, %12 ], [ %7, %15 ], [ %7, %20 ], [ %7, %26 ], [ %9, %.loopexit.i ], [ %9, %25 ]
+  %.1 = phi i32 [ %.030, %.lr.ph ], [ %.030, %12 ], [ %.030, %12 ], [ %.030, %15 ], [ %.030, %20 ], [ 1, %26 ], [ 1, %.loopexit.i ], [ 1, %25 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !16
@@ -1860,9 +1860,9 @@ _ZN7dtCrowd26updateTopologyOptimizationEPP12dtCrowdAgentif.exit.thread: ; preds 
   br label %_ZL13addToOptQueueP12dtCrowdAgentPS0_ii.exit.i
 
 _ZL13addToOptQueueP12dtCrowdAgentPS0_ii.exit.i:   ; preds = %.loopexit.i.i, %55, %54, %49, %44, %41, %41, %.lr.ph.i383
-  %60 = phi ptr [ %35, %.lr.ph.i383 ], [ %35, %41 ], [ %35, %44 ], [ %35, %49 ], [ %35, %41 ], [ %35, %55 ], [ %38, %.loopexit.i.i ], [ %38, %54 ]
-  %61 = phi ptr [ %36, %.lr.ph.i383 ], [ %36, %41 ], [ %36, %44 ], [ %36, %49 ], [ %36, %41 ], [ %36, %55 ], [ %38, %.loopexit.i.i ], [ %38, %54 ]
-  %.1.i385 = phi i32 [ %.030.i, %.lr.ph.i383 ], [ %.030.i, %41 ], [ %.030.i, %44 ], [ %.030.i, %49 ], [ %.030.i, %41 ], [ 1, %55 ], [ 1, %.loopexit.i.i ], [ 1, %54 ]
+  %60 = phi ptr [ %35, %.lr.ph.i383 ], [ %35, %41 ], [ %35, %41 ], [ %35, %44 ], [ %35, %49 ], [ %35, %55 ], [ %38, %.loopexit.i.i ], [ %38, %54 ]
+  %61 = phi ptr [ %36, %.lr.ph.i383 ], [ %36, %41 ], [ %36, %41 ], [ %36, %44 ], [ %36, %49 ], [ %36, %55 ], [ %38, %.loopexit.i.i ], [ %38, %54 ]
+  %.1.i385 = phi i32 [ %.030.i, %.lr.ph.i383 ], [ %.030.i, %41 ], [ %.030.i, %41 ], [ %.030.i, %44 ], [ %.030.i, %49 ], [ 1, %55 ], [ 1, %.loopexit.i.i ], [ 1, %54 ]
   %indvars.iv.next.i386 = add nuw nsw i64 %indvars.iv.i384, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i386, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i383, !llvm.loop !16
@@ -2128,7 +2128,7 @@ _ZL13getNeighboursPKfffPK12dtCrowdAgentP16dtCrowdNeighbouriPPS1_iP15dtProximityG
   br label %222
 
 222:                                              ; preds = %220, %199, %190
-  %.042.i.i = phi ptr [ %221, %220 ], [ %147, %190 ], [ %194, %199 ]
+  %.042.i.i = phi ptr [ %147, %190 ], [ %221, %220 ], [ %194, %199 ]
   store i32 %191, ptr %.042.i.i, align 4
   %223 = getelementptr inbounds nuw i8, ptr %.042.i.i, i64 4
   store float %188, ptr %223, align 4
@@ -2558,11 +2558,11 @@ _ZL24calcSmoothSteerDirectionPK12dtCrowdAgentPf.exit.thread: ; preds = %409, %44
   br label %_ZL17getDistanceToGoalPK12dtCrowdAgentf.exit
 
 _ZL17getDistanceToGoalPK12dtCrowdAgentf.exit:     ; preds = %_ZL24calcSmoothSteerDirectionPK12dtCrowdAgentPf.exit.thread, %464, %477
-  %495 = phi float [ %470, %477 ], [ %470, %464 ], [ %463, %_ZL24calcSmoothSteerDirectionPK12dtCrowdAgentPf.exit.thread ]
-  %.sroa.0422.3604 = phi float [ %466, %477 ], [ %466, %464 ], [ 0.000000e+00, %_ZL24calcSmoothSteerDirectionPK12dtCrowdAgentPf.exit.thread ]
-  %.sroa.29.3603 = phi float [ %468, %477 ], [ %468, %464 ], [ 0.000000e+00, %_ZL24calcSmoothSteerDirectionPK12dtCrowdAgentPf.exit.thread ]
-  %.sroa.15.3602 = phi float [ %467, %477 ], [ %467, %464 ], [ 0.000000e+00, %_ZL24calcSmoothSteerDirectionPK12dtCrowdAgentPf.exit.thread ]
-  %.0.i404 = phi float [ %494, %477 ], [ %470, %464 ], [ %463, %_ZL24calcSmoothSteerDirectionPK12dtCrowdAgentPf.exit.thread ]
+  %495 = phi float [ %470, %477 ], [ %463, %_ZL24calcSmoothSteerDirectionPK12dtCrowdAgentPf.exit.thread ], [ %470, %464 ]
+  %.sroa.0422.3604 = phi float [ %466, %477 ], [ 0.000000e+00, %_ZL24calcSmoothSteerDirectionPK12dtCrowdAgentPf.exit.thread ], [ %466, %464 ]
+  %.sroa.29.3603 = phi float [ %468, %477 ], [ 0.000000e+00, %_ZL24calcSmoothSteerDirectionPK12dtCrowdAgentPf.exit.thread ], [ %468, %464 ]
+  %.sroa.15.3602 = phi float [ %467, %477 ], [ 0.000000e+00, %_ZL24calcSmoothSteerDirectionPK12dtCrowdAgentPf.exit.thread ], [ %467, %464 ]
+  %.0.i404 = phi float [ %494, %477 ], [ %463, %_ZL24calcSmoothSteerDirectionPK12dtCrowdAgentPf.exit.thread ], [ %470, %464 ]
   %496 = fdiv float %.0.i404, %495
   %497 = getelementptr inbounds nuw i8, ptr %385, i64 492
   %498 = load float, ptr %497, align 4

@@ -529,7 +529,7 @@ _ZN18GrowableArrayCHeapIP10JvmtiAgentL8MEMFLAGS23EED2Ev.exit.i: ; preds = %77, %
   br label %.thread
 
 .thread:                                          ; preds = %_ZN18GrowableArrayCHeapIP10JvmtiAgentL8MEMFLAGS23EED2Ev.exit.i, %68, %_ZL21lookup_special_nativePKc.exit, %56, %52, %47, %_ZL21lookup_special_nativePKc.exit.thread
-  %.025 = phi ptr [ %46, %_ZL21lookup_special_nativePKc.exit.thread ], [ null, %47 ], [ null, %52 ], [ %59, %56 ], [ %44, %_ZL21lookup_special_nativePKc.exit ], [ %spec.select, %68 ], [ %spec.select, %_ZN18GrowableArrayCHeapIP10JvmtiAgentL8MEMFLAGS23EED2Ev.exit.i ]
+  %.025 = phi ptr [ %44, %_ZL21lookup_special_nativePKc.exit ], [ %46, %_ZL21lookup_special_nativePKc.exit.thread ], [ null, %47 ], [ null, %52 ], [ %59, %56 ], [ %spec.select, %68 ], [ %spec.select, %_ZN18GrowableArrayCHeapIP10JvmtiAgentL8MEMFLAGS23EED2Ev.exit.i ]
   ret ptr %.025
 }
 
@@ -643,7 +643,7 @@ define hidden noundef ptr @_ZN12NativeLookup12lookup_entryERK12methodHandleP10Ja
   br label %34
 
 34:                                               ; preds = %31, %30, %27, %26, %23, %20, %19, %5, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %5 ], [ %16, %19 ], [ null, %20 ], [ null, %23 ], [ %24, %26 ], [ null, %27 ], [ %28, %30 ], [ %., %31 ]
+  %.0 = phi ptr [ %28, %30 ], [ null, %2 ], [ null, %5 ], [ %16, %19 ], [ null, %20 ], [ null, %23 ], [ %24, %26 ], [ null, %27 ], [ %., %31 ]
   ret ptr %.0
 }
 
@@ -806,7 +806,7 @@ _ZN16SymbolHandleBaseILb1EED2Ev.exit.thread.sink.split: ; preds = %47, %65, %_ZN
   br label %_ZN16SymbolHandleBaseILb1EED2Ev.exit.thread
 
 _ZN16SymbolHandleBaseILb1EED2Ev.exit.thread:      ; preds = %_ZN16SymbolHandleBaseILb1EED2Ev.exit.thread.sink.split, %2, %38, %._crit_edge
-  %.1 = phi ptr [ null, %._crit_edge ], [ null, %38 ], [ null, %2 ], [ %.1.ph, %_ZN16SymbolHandleBaseILb1EED2Ev.exit.thread.sink.split ]
+  %.1 = phi ptr [ null, %38 ], [ null, %2 ], [ null, %._crit_edge ], [ %.1.ph, %_ZN16SymbolHandleBaseILb1EED2Ev.exit.thread.sink.split ]
   %98 = load ptr, ptr %9, align 8
   %.not.i.i.i.i = icmp eq ptr %98, null
   br i1 %.not.i.i.i.i, label %100, label %99
@@ -1217,7 +1217,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
-  %.0.i.i = phi ptr [ null, %1 ], [ %6, %7 ], [ %6, %4 ]
+  %.0.i.i = phi ptr [ null, %1 ], [ %6, %4 ], [ %6, %7 ]
   ret ptr %.0.i.i
 }
 
@@ -1375,7 +1375,7 @@ _ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit:      ; preds = %44, %45, %49, %54
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 _ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %61, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, %5, %11, %24, %31, %2
-  %.0 = phi ptr [ %1, %2 ], [ %.0.i.i.i, %31 ], [ %.0.i.i.i, %24 ], [ %1, %11 ], [ %1, %5 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
+  %.0 = phi ptr [ %1, %5 ], [ %1, %2 ], [ %.0.i.i.i, %24 ], [ %.0.i.i.i, %31 ], [ %1, %11 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
   ret ptr %.0
 }
 
@@ -1553,7 +1553,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
-  %.0.i.i = phi ptr [ null, %1 ], [ %6, %7 ], [ %6, %4 ]
+  %.0.i.i = phi ptr [ null, %1 ], [ %6, %4 ], [ %6, %7 ]
   ret ptr %.0.i.i
 }
 

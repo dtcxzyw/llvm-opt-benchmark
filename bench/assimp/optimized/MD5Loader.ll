@@ -1719,7 +1719,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit146: ; preds = %_Z
   br i1 %512, label %.lr.ph, label %.loopexit, !llvm.loop !14
 
 513:                                              ; preds = %460, %462, %226, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131, %391, %316, %314, %244, %242, %240, %113, %111
-  %.pn85 = phi { ptr, i32 } [ %114, %113 ], [ %112, %111 ], [ %227, %226 ], [ %235, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131 ], [ %229, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128 ], [ %317, %316 ], [ %315, %314 ], [ %245, %244 ], [ %243, %242 ], [ %241, %240 ], [ %392, %391 ], [ %461, %460 ], [ %463, %462 ]
+  %.pn85 = phi { ptr, i32 } [ %114, %113 ], [ %112, %111 ], [ %229, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128 ], [ %227, %226 ], [ %235, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131 ], [ %241, %240 ], [ %317, %316 ], [ %315, %314 ], [ %245, %244 ], [ %243, %242 ], [ %392, %391 ], [ %461, %460 ], [ %463, %462 ]
   call void @_ZN6Assimp3MD515MD5CameraParserD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #25
   br label %514
 
@@ -2804,7 +2804,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit106: ; preds = %_Z
   ret void
 
 446:                                              ; preds = %258, %260, %167, %224, %367, %369, %127
-  %.pn78 = phi { ptr, i32 } [ %128, %127 ], [ %225, %224 ], [ %370, %369 ], [ %168, %167 ], [ %368, %367 ], [ %261, %260 ], [ %259, %258 ]
+  %.pn78 = phi { ptr, i32 } [ %128, %127 ], [ %225, %224 ], [ %368, %367 ], [ %370, %369 ], [ %168, %167 ], [ %261, %260 ], [ %259, %258 ]
   call void @_ZN6Assimp3MD513MD5AnimParserD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %6) #25
   br label %447
 
@@ -4420,7 +4420,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit285: ; preds = %75
   br i1 %.not349, label %._crit_edge434, label %290, !llvm.loop !39
 
 762:                                              ; preds = %.loopexit360, %.loopexit.split-lp, %540, %555, %553, %398, %518, %749, %747, %745
-  %.pn222.pn.pn = phi { ptr, i32 } [ %399, %398 ], [ %519, %518 ], [ %746, %745 ], [ %750, %749 ], [ %748, %747 ], [ %541, %540 ], [ %556, %555 ], [ %554, %553 ], [ %lpad.loopexit, %.loopexit360 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn222.pn.pn = phi { ptr, i32 } [ %556, %555 ], [ %399, %398 ], [ %748, %747 ], [ %519, %518 ], [ %554, %553 ], [ %746, %745 ], [ %750, %749 ], [ %541, %540 ], [ %lpad.loopexit, %.loopexit360 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %763 = load ptr, ptr %9, align 8
   %764 = icmp eq ptr %763, %226
   br i1 %764, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit288, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i286
@@ -4462,7 +4462,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit292: ; preds = %_Z
   ret void
 
 775:                                              ; preds = %381, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit288, %181, %183, %185, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit255, %173
-  %.pn222.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %174, %173 ], [ %176, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit255 ], [ %182, %181 ], [ %186, %185 ], [ %184, %183 ], [ %.pn222.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit288 ], [ %382, %381 ]
+  %.pn222.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %176, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit255 ], [ %174, %173 ], [ %184, %183 ], [ %182, %181 ], [ %186, %185 ], [ %.pn222.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit288 ], [ %382, %381 ]
   call void @_ZN6Assimp3MD513MD5MeshParserD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #25
   br label %776
 

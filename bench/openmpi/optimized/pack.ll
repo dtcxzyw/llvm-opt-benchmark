@@ -144,7 +144,7 @@ pmix_pointer_array_get_item.exit.i:               ; preds = %46
   br label %pmix20_bfrop_pack_int32.exit
 
 pmix20_bfrop_pack_int32.exit:                     ; preds = %54, %pmix_pointer_array_get_item.exit.i, %46, %44, %21, %10, %4
-  %.0 = phi i32 [ -27, %4 ], [ %11, %10 ], [ -29, %21 ], [ %57, %54 ], [ %45, %44 ], [ -21, %pmix_pointer_array_get_item.exit.i ], [ -21, %46 ]
+  %.0 = phi i32 [ -29, %21 ], [ -27, %4 ], [ %11, %10 ], [ %57, %54 ], [ %45, %44 ], [ -21, %pmix_pointer_array_get_item.exit.i ], [ -21, %46 ]
   ret i32 %.0
 }
 
@@ -816,7 +816,7 @@ pmix20_bfrop_pack_byte.exit.thread:               ; preds = %54
   br i1 %exitcond.not, label %pmix20_bfrop_pack_int32.exit, label %9, !llvm.loop !46
 
 pmix20_bfrop_pack_int32.exit:                     ; preds = %58, %22, %37, %54, %5
-  %.0 = phi i32 [ 0, %5 ], [ -29, %54 ], [ -29, %37 ], [ -29, %22 ], [ 0, %58 ]
+  %.0 = phi i32 [ 0, %5 ], [ -29, %54 ], [ -29, %22 ], [ -29, %37 ], [ 0, %58 ]
   ret i32 %.0
 }
 
@@ -2657,7 +2657,7 @@ pmix20_bfrop_pack_buffer.exit366:                 ; preds = %pmix_pointer_array_
   br label %pmix20_bfrop_pack_buffer.exit.thread
 
 pmix20_bfrop_pack_buffer.exit.thread:             ; preds = %775, %pmix_pointer_array_get_item.exit.i364, %773, %749, %pmix_pointer_array_get_item.exit.i358, %747, %723, %pmix_pointer_array_get_item.exit.i352, %721, %697, %pmix_pointer_array_get_item.exit.i346, %695, %672, %pmix_pointer_array_get_item.exit.i340, %670, %647, %pmix_pointer_array_get_item.exit.i334, %645, %622, %pmix_pointer_array_get_item.exit.i328, %620, %597, %pmix_pointer_array_get_item.exit.i322, %595, %572, %pmix_pointer_array_get_item.exit.i316, %570, %547, %pmix_pointer_array_get_item.exit.i310, %545, %522, %pmix_pointer_array_get_item.exit.i304, %520, %496, %pmix_pointer_array_get_item.exit.i298, %494, %471, %pmix_pointer_array_get_item.exit.i292, %469, %446, %pmix_pointer_array_get_item.exit.i286, %444, %421, %pmix_pointer_array_get_item.exit.i280, %419, %396, %pmix_pointer_array_get_item.exit.i274, %394, %371, %pmix_pointer_array_get_item.exit.i268, %369, %346, %pmix_pointer_array_get_item.exit.i262, %344, %321, %pmix_pointer_array_get_item.exit.i256, %319, %296, %pmix_pointer_array_get_item.exit.i250, %294, %271, %pmix_pointer_array_get_item.exit.i244, %269, %246, %pmix_pointer_array_get_item.exit.i238, %244, %221, %pmix_pointer_array_get_item.exit.i232, %219, %196, %pmix_pointer_array_get_item.exit.i226, %194, %171, %pmix_pointer_array_get_item.exit.i220, %169, %146, %pmix_pointer_array_get_item.exit.i214, %144, %121, %pmix_pointer_array_get_item.exit.i208, %119, %96, %pmix_pointer_array_get_item.exit.i202, %94, %71, %pmix_pointer_array_get_item.exit.i196, %69, %46, %pmix_pointer_array_get_item.exit.i190, %44, %21, %pmix_pointer_array_get_item.exit.i, %19, %pmix20_bfrop_pack_buffer.exit366, %pmix20_bfrop_pack_buffer.exit360, %pmix20_bfrop_pack_buffer.exit354, %pmix20_bfrop_pack_buffer.exit348, %pmix20_bfrop_pack_buffer.exit342, %pmix20_bfrop_pack_buffer.exit336, %pmix20_bfrop_pack_buffer.exit330, %pmix20_bfrop_pack_buffer.exit324, %pmix20_bfrop_pack_buffer.exit318, %pmix20_bfrop_pack_buffer.exit312, %pmix20_bfrop_pack_buffer.exit306, %pmix20_bfrop_pack_buffer.exit300, %pmix20_bfrop_pack_buffer.exit294, %pmix20_bfrop_pack_buffer.exit288, %pmix20_bfrop_pack_buffer.exit282, %pmix20_bfrop_pack_buffer.exit276, %pmix20_bfrop_pack_buffer.exit270, %pmix20_bfrop_pack_buffer.exit264, %pmix20_bfrop_pack_buffer.exit258, %pmix20_bfrop_pack_buffer.exit252, %pmix20_bfrop_pack_buffer.exit246, %pmix20_bfrop_pack_buffer.exit240, %pmix20_bfrop_pack_buffer.exit234, %pmix20_bfrop_pack_buffer.exit228, %pmix20_bfrop_pack_buffer.exit222, %pmix20_bfrop_pack_buffer.exit216, %pmix20_bfrop_pack_buffer.exit210, %pmix20_bfrop_pack_buffer.exit204, %pmix20_bfrop_pack_buffer.exit198, %pmix20_bfrop_pack_buffer.exit192, %pmix20_bfrop_pack_buffer.exit, %786, %784
-  %.0 = phi i32 [ -1, %784 ], [ 0, %786 ], [ %29, %pmix20_bfrop_pack_buffer.exit ], [ %54, %pmix20_bfrop_pack_buffer.exit192 ], [ %79, %pmix20_bfrop_pack_buffer.exit198 ], [ %104, %pmix20_bfrop_pack_buffer.exit204 ], [ %129, %pmix20_bfrop_pack_buffer.exit210 ], [ %154, %pmix20_bfrop_pack_buffer.exit216 ], [ %179, %pmix20_bfrop_pack_buffer.exit222 ], [ %204, %pmix20_bfrop_pack_buffer.exit228 ], [ %229, %pmix20_bfrop_pack_buffer.exit234 ], [ %254, %pmix20_bfrop_pack_buffer.exit240 ], [ %279, %pmix20_bfrop_pack_buffer.exit246 ], [ %304, %pmix20_bfrop_pack_buffer.exit252 ], [ %329, %pmix20_bfrop_pack_buffer.exit258 ], [ %354, %pmix20_bfrop_pack_buffer.exit264 ], [ %379, %pmix20_bfrop_pack_buffer.exit270 ], [ %404, %pmix20_bfrop_pack_buffer.exit276 ], [ %429, %pmix20_bfrop_pack_buffer.exit282 ], [ %454, %pmix20_bfrop_pack_buffer.exit288 ], [ %479, %pmix20_bfrop_pack_buffer.exit294 ], [ %504, %pmix20_bfrop_pack_buffer.exit300 ], [ %530, %pmix20_bfrop_pack_buffer.exit306 ], [ %555, %pmix20_bfrop_pack_buffer.exit312 ], [ %580, %pmix20_bfrop_pack_buffer.exit318 ], [ %605, %pmix20_bfrop_pack_buffer.exit324 ], [ %630, %pmix20_bfrop_pack_buffer.exit330 ], [ %655, %pmix20_bfrop_pack_buffer.exit336 ], [ %680, %pmix20_bfrop_pack_buffer.exit342 ], [ %705, %pmix20_bfrop_pack_buffer.exit348 ], [ %731, %pmix20_bfrop_pack_buffer.exit354 ], [ %757, %pmix20_bfrop_pack_buffer.exit360 ], [ %783, %pmix20_bfrop_pack_buffer.exit366 ], [ -21, %21 ], [ -21, %pmix_pointer_array_get_item.exit.i ], [ %20, %19 ], [ -21, %46 ], [ -21, %pmix_pointer_array_get_item.exit.i190 ], [ %45, %44 ], [ -21, %71 ], [ -21, %pmix_pointer_array_get_item.exit.i196 ], [ %70, %69 ], [ -21, %96 ], [ -21, %pmix_pointer_array_get_item.exit.i202 ], [ %95, %94 ], [ -21, %121 ], [ -21, %pmix_pointer_array_get_item.exit.i208 ], [ %120, %119 ], [ -21, %146 ], [ -21, %pmix_pointer_array_get_item.exit.i214 ], [ %145, %144 ], [ -21, %171 ], [ -21, %pmix_pointer_array_get_item.exit.i220 ], [ %170, %169 ], [ -21, %196 ], [ -21, %pmix_pointer_array_get_item.exit.i226 ], [ %195, %194 ], [ -21, %221 ], [ -21, %pmix_pointer_array_get_item.exit.i232 ], [ %220, %219 ], [ -21, %246 ], [ -21, %pmix_pointer_array_get_item.exit.i238 ], [ %245, %244 ], [ -21, %271 ], [ -21, %pmix_pointer_array_get_item.exit.i244 ], [ %270, %269 ], [ -21, %296 ], [ -21, %pmix_pointer_array_get_item.exit.i250 ], [ %295, %294 ], [ -21, %321 ], [ -21, %pmix_pointer_array_get_item.exit.i256 ], [ %320, %319 ], [ -21, %346 ], [ -21, %pmix_pointer_array_get_item.exit.i262 ], [ %345, %344 ], [ -21, %371 ], [ -21, %pmix_pointer_array_get_item.exit.i268 ], [ %370, %369 ], [ -21, %396 ], [ -21, %pmix_pointer_array_get_item.exit.i274 ], [ %395, %394 ], [ -21, %421 ], [ -21, %pmix_pointer_array_get_item.exit.i280 ], [ %420, %419 ], [ -21, %446 ], [ -21, %pmix_pointer_array_get_item.exit.i286 ], [ %445, %444 ], [ -21, %471 ], [ -21, %pmix_pointer_array_get_item.exit.i292 ], [ %470, %469 ], [ -21, %496 ], [ -21, %pmix_pointer_array_get_item.exit.i298 ], [ %495, %494 ], [ -21, %522 ], [ -21, %pmix_pointer_array_get_item.exit.i304 ], [ %521, %520 ], [ -21, %547 ], [ -21, %pmix_pointer_array_get_item.exit.i310 ], [ %546, %545 ], [ -21, %572 ], [ -21, %pmix_pointer_array_get_item.exit.i316 ], [ %571, %570 ], [ -21, %597 ], [ -21, %pmix_pointer_array_get_item.exit.i322 ], [ %596, %595 ], [ -21, %622 ], [ -21, %pmix_pointer_array_get_item.exit.i328 ], [ %621, %620 ], [ -21, %647 ], [ -21, %pmix_pointer_array_get_item.exit.i334 ], [ %646, %645 ], [ -21, %672 ], [ -21, %pmix_pointer_array_get_item.exit.i340 ], [ %671, %670 ], [ -21, %697 ], [ -21, %pmix_pointer_array_get_item.exit.i346 ], [ %696, %695 ], [ -21, %723 ], [ -21, %pmix_pointer_array_get_item.exit.i352 ], [ %722, %721 ], [ -21, %749 ], [ -21, %pmix_pointer_array_get_item.exit.i358 ], [ %748, %747 ], [ -21, %775 ], [ -21, %pmix_pointer_array_get_item.exit.i364 ], [ %774, %773 ]
+  %.0 = phi i32 [ -1, %784 ], [ 0, %786 ], [ %757, %pmix20_bfrop_pack_buffer.exit360 ], [ %29, %pmix20_bfrop_pack_buffer.exit ], [ %54, %pmix20_bfrop_pack_buffer.exit192 ], [ %79, %pmix20_bfrop_pack_buffer.exit198 ], [ %104, %pmix20_bfrop_pack_buffer.exit204 ], [ %129, %pmix20_bfrop_pack_buffer.exit210 ], [ %154, %pmix20_bfrop_pack_buffer.exit216 ], [ %179, %pmix20_bfrop_pack_buffer.exit222 ], [ %204, %pmix20_bfrop_pack_buffer.exit228 ], [ %229, %pmix20_bfrop_pack_buffer.exit234 ], [ %254, %pmix20_bfrop_pack_buffer.exit240 ], [ %279, %pmix20_bfrop_pack_buffer.exit246 ], [ %304, %pmix20_bfrop_pack_buffer.exit252 ], [ %329, %pmix20_bfrop_pack_buffer.exit258 ], [ %354, %pmix20_bfrop_pack_buffer.exit264 ], [ %379, %pmix20_bfrop_pack_buffer.exit270 ], [ %404, %pmix20_bfrop_pack_buffer.exit276 ], [ %429, %pmix20_bfrop_pack_buffer.exit282 ], [ %454, %pmix20_bfrop_pack_buffer.exit288 ], [ %479, %pmix20_bfrop_pack_buffer.exit294 ], [ %504, %pmix20_bfrop_pack_buffer.exit300 ], [ %530, %pmix20_bfrop_pack_buffer.exit306 ], [ %555, %pmix20_bfrop_pack_buffer.exit312 ], [ %580, %pmix20_bfrop_pack_buffer.exit318 ], [ %605, %pmix20_bfrop_pack_buffer.exit324 ], [ %630, %pmix20_bfrop_pack_buffer.exit330 ], [ %655, %pmix20_bfrop_pack_buffer.exit336 ], [ %680, %pmix20_bfrop_pack_buffer.exit342 ], [ %705, %pmix20_bfrop_pack_buffer.exit348 ], [ %731, %pmix20_bfrop_pack_buffer.exit354 ], [ %783, %pmix20_bfrop_pack_buffer.exit366 ], [ %748, %747 ], [ %20, %19 ], [ %45, %44 ], [ %70, %69 ], [ %95, %94 ], [ %120, %119 ], [ %145, %144 ], [ %170, %169 ], [ %195, %194 ], [ %220, %219 ], [ %245, %244 ], [ %270, %269 ], [ %295, %294 ], [ %320, %319 ], [ %345, %344 ], [ %370, %369 ], [ %395, %394 ], [ %420, %419 ], [ %445, %444 ], [ %470, %469 ], [ %495, %494 ], [ %521, %520 ], [ %546, %545 ], [ %571, %570 ], [ %596, %595 ], [ %621, %620 ], [ %646, %645 ], [ %671, %670 ], [ %696, %695 ], [ %722, %721 ], [ -21, %21 ], [ -21, %pmix_pointer_array_get_item.exit.i ], [ -21, %46 ], [ -21, %pmix_pointer_array_get_item.exit.i190 ], [ -21, %71 ], [ -21, %pmix_pointer_array_get_item.exit.i196 ], [ -21, %96 ], [ -21, %pmix_pointer_array_get_item.exit.i202 ], [ -21, %121 ], [ -21, %pmix_pointer_array_get_item.exit.i208 ], [ -21, %146 ], [ -21, %pmix_pointer_array_get_item.exit.i214 ], [ -21, %171 ], [ -21, %pmix_pointer_array_get_item.exit.i220 ], [ -21, %196 ], [ -21, %pmix_pointer_array_get_item.exit.i226 ], [ -21, %221 ], [ -21, %pmix_pointer_array_get_item.exit.i232 ], [ -21, %246 ], [ -21, %pmix_pointer_array_get_item.exit.i238 ], [ -21, %271 ], [ -21, %pmix_pointer_array_get_item.exit.i244 ], [ -21, %296 ], [ -21, %pmix_pointer_array_get_item.exit.i250 ], [ -21, %321 ], [ -21, %pmix_pointer_array_get_item.exit.i256 ], [ -21, %346 ], [ -21, %pmix_pointer_array_get_item.exit.i262 ], [ -21, %371 ], [ -21, %pmix_pointer_array_get_item.exit.i268 ], [ -21, %396 ], [ -21, %pmix_pointer_array_get_item.exit.i274 ], [ -21, %421 ], [ -21, %pmix_pointer_array_get_item.exit.i280 ], [ -21, %446 ], [ -21, %pmix_pointer_array_get_item.exit.i286 ], [ -21, %471 ], [ -21, %pmix_pointer_array_get_item.exit.i292 ], [ -21, %496 ], [ -21, %pmix_pointer_array_get_item.exit.i298 ], [ -21, %522 ], [ -21, %pmix_pointer_array_get_item.exit.i304 ], [ -21, %547 ], [ -21, %pmix_pointer_array_get_item.exit.i310 ], [ -21, %572 ], [ -21, %pmix_pointer_array_get_item.exit.i316 ], [ -21, %597 ], [ -21, %pmix_pointer_array_get_item.exit.i322 ], [ -21, %622 ], [ -21, %pmix_pointer_array_get_item.exit.i328 ], [ -21, %647 ], [ -21, %pmix_pointer_array_get_item.exit.i334 ], [ -21, %672 ], [ -21, %pmix_pointer_array_get_item.exit.i340 ], [ -21, %697 ], [ -21, %pmix_pointer_array_get_item.exit.i346 ], [ -21, %723 ], [ -21, %pmix_pointer_array_get_item.exit.i352 ], [ -21, %749 ], [ -21, %pmix_pointer_array_get_item.exit.i358 ], [ -21, %775 ], [ -21, %pmix_pointer_array_get_item.exit.i364 ], [ %774, %773 ]
   ret i32 %.0
 }
 
@@ -2778,7 +2778,7 @@ pmix20_bfrop_pack_int.exit:                       ; preds = %pmix_pointer_array_
   br i1 %.not31, label %11, label %pmix20_bfrop_pack_infodirs.exit
 
 pmix20_bfrop_pack_infodirs.exit:                  ; preds = %12, %pmix20_bfrop_pack_int.exit, %59, %11, %25, %.lr.ph.i.i.preheader, %48, %pmix_pointer_array_get_item.exit.i.i, %50, %5
-  %.024 = phi i32 [ 0, %5 ], [ -21, %50 ], [ -21, %pmix_pointer_array_get_item.exit.i.i ], [ %49, %48 ], [ %35, %.lr.ph.i.i.preheader ], [ -29, %25 ], [ 0, %11 ], [ %60, %59 ], [ %58, %pmix20_bfrop_pack_int.exit ], [ %14, %12 ]
+  %.024 = phi i32 [ 0, %5 ], [ 0, %11 ], [ %58, %pmix20_bfrop_pack_int.exit ], [ -29, %25 ], [ %60, %59 ], [ %35, %.lr.ph.i.i.preheader ], [ -21, %50 ], [ -21, %pmix_pointer_array_get_item.exit.i.i ], [ %49, %48 ], [ %14, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.024
 }
@@ -2976,7 +2976,7 @@ pmix20_bfrop_pack_int.exit:                       ; preds = %pmix_pointer_array_
   br i1 %.not31, label %12, label %pmix20_bfrop_pack_int.exit.thread
 
 pmix20_bfrop_pack_int.exit.thread:                ; preds = %.lr.ph.i.i.preheader.i, %pmix20_bfrop_pack_int.exit, %63, %12, %37, %52, %pmix_pointer_array_get_item.exit.i.i, %54, %5, %pmix20_bfrop_pack_proc.exit
-  %.024 = phi i32 [ %.2.ph.i, %pmix20_bfrop_pack_proc.exit ], [ 0, %5 ], [ %36, %.lr.ph.i.i.preheader.i ], [ %62, %pmix20_bfrop_pack_int.exit ], [ %64, %63 ], [ 0, %12 ], [ %39, %37 ], [ %53, %52 ], [ -21, %pmix_pointer_array_get_item.exit.i.i ], [ -21, %54 ]
+  %.024 = phi i32 [ %.2.ph.i, %pmix20_bfrop_pack_proc.exit ], [ 0, %5 ], [ 0, %12 ], [ %39, %37 ], [ %53, %52 ], [ -21, %pmix_pointer_array_get_item.exit.i.i ], [ %64, %63 ], [ %36, %.lr.ph.i.i.preheader.i ], [ %62, %pmix20_bfrop_pack_int.exit ], [ -21, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.024
 }
@@ -3164,7 +3164,7 @@ pmix20_bfrop_pack_byte.exit.thread:               ; preds = %51
   br i1 %exitcond.not, label %pmix20_bfrop_pack_byte.exit, label %10, !llvm.loop !67
 
 pmix20_bfrop_pack_byte.exit:                      ; preds = %pmix20_bfrop_pack_sizet.exit, %59, %51, %10, %26, %pmix_pointer_array_get_item.exit.i.i, %28, %5
-  %.018 = phi i32 [ 0, %5 ], [ -21, %28 ], [ -21, %pmix_pointer_array_get_item.exit.i.i ], [ %27, %26 ], [ %13, %10 ], [ -29, %51 ], [ 0, %59 ], [ %36, %pmix20_bfrop_pack_sizet.exit ]
+  %.018 = phi i32 [ 0, %5 ], [ %13, %10 ], [ 0, %59 ], [ -29, %51 ], [ -21, %28 ], [ -21, %pmix_pointer_array_get_item.exit.i.i ], [ %27, %26 ], [ %36, %pmix20_bfrop_pack_sizet.exit ]
   ret i32 %.018
 }
 
@@ -3509,7 +3509,7 @@ pmix20_bfrop_pack_sizet.exit:                     ; preds = %pmix_pointer_array_
   br i1 %exitcond.not, label %pmix20_bfrop_pack_int.exit.thread, label %11, !llvm.loop !77
 
 pmix20_bfrop_pack_int.exit.thread:                ; preds = %11, %pmix20_bfrop_pack_int.exit, %._crit_edge107, %pmix20_bfrop_pack_int.exit86, %pmix20_bfrop_pack_sizet.exit, %136, %141, %14, %31, %pmix_pointer_array_get_item.exit.i.i, %33, %62, %82, %97, %pmix_pointer_array_get_item.exit.i.i84, %99, %108, %123, %pmix_pointer_array_get_item.exit.i.i91, %125, %.lr.ph, %.lr.ph106, %5
-  %.060 = phi i32 [ 0, %5 ], [ %79, %.lr.ph106 ], [ %50, %.lr.ph ], [ %13, %11 ], [ %41, %pmix20_bfrop_pack_int.exit ], [ %81, %._crit_edge107 ], [ %107, %pmix20_bfrop_pack_int.exit86 ], [ %133, %pmix20_bfrop_pack_sizet.exit ], [ %140, %136 ], [ 0, %141 ], [ %18, %14 ], [ %32, %31 ], [ -21, %pmix_pointer_array_get_item.exit.i.i ], [ -21, %33 ], [ -29, %62 ], [ %84, %82 ], [ %98, %97 ], [ -21, %pmix_pointer_array_get_item.exit.i.i84 ], [ -21, %99 ], [ %110, %108 ], [ %124, %123 ], [ -21, %pmix_pointer_array_get_item.exit.i.i91 ], [ -21, %125 ]
+  %.060 = phi i32 [ %79, %.lr.ph106 ], [ %50, %.lr.ph ], [ 0, %5 ], [ %110, %108 ], [ %124, %123 ], [ -21, %pmix_pointer_array_get_item.exit.i.i91 ], [ %84, %82 ], [ %98, %97 ], [ -21, %pmix_pointer_array_get_item.exit.i.i84 ], [ %18, %14 ], [ %32, %31 ], [ -21, %pmix_pointer_array_get_item.exit.i.i ], [ -21, %33 ], [ -29, %62 ], [ %140, %136 ], [ %107, %pmix20_bfrop_pack_int.exit86 ], [ %81, %._crit_edge107 ], [ %41, %pmix20_bfrop_pack_int.exit ], [ -21, %99 ], [ 0, %141 ], [ %13, %11 ], [ %133, %pmix20_bfrop_pack_sizet.exit ], [ -21, %125 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.060
 }
@@ -3555,8 +3555,8 @@ pmix20_bfrop_pack_value.exit:                     ; preds = %16
   %.not17.i = icmp eq i32 %17, 0
   br i1 %.not17.i, label %pmix20_bfrop_pack_value.exit, label %pmix20_bfrop_pack_value.exit.thread
 
-pmix20_bfrop_pack_value.exit.thread:              ; preds = %.lr.ph, %pmix20_bfrop_pack_value.exit, %.lr.ph.i, %16, %5
-  %.014 = phi i32 [ 0, %5 ], [ %11, %.lr.ph ], [ 0, %pmix20_bfrop_pack_value.exit ], [ %17, %16 ], [ %15, %.lr.ph.i ]
+pmix20_bfrop_pack_value.exit.thread:              ; preds = %.lr.ph, %pmix20_bfrop_pack_value.exit, %16, %.lr.ph.i, %5
+  %.014 = phi i32 [ 0, %5 ], [ %11, %.lr.ph ], [ 0, %pmix20_bfrop_pack_value.exit ], [ %15, %.lr.ph.i ], [ %17, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.014
 }
@@ -3675,7 +3675,7 @@ pmix20_bfrop_pack_byte.exit.thread:               ; preds = %51
   br i1 %exitcond.not, label %pmix20_bfrop_pack_byte.exit, label %10, !llvm.loop !86
 
 pmix20_bfrop_pack_byte.exit:                      ; preds = %pmix20_bfrop_pack_sizet.exit, %59, %51, %10, %26, %pmix_pointer_array_get_item.exit.i.i, %28, %5
-  %.018 = phi i32 [ 0, %5 ], [ -21, %28 ], [ -21, %pmix_pointer_array_get_item.exit.i.i ], [ %27, %26 ], [ %13, %10 ], [ -29, %51 ], [ 0, %59 ], [ %36, %pmix20_bfrop_pack_sizet.exit ]
+  %.018 = phi i32 [ 0, %5 ], [ %13, %10 ], [ 0, %59 ], [ -29, %51 ], [ -21, %28 ], [ -21, %pmix_pointer_array_get_item.exit.i.i ], [ %27, %26 ], [ %36, %pmix20_bfrop_pack_sizet.exit ]
   ret i32 %.018
 }
 
@@ -3956,7 +3956,7 @@ pmix20_bfrop_pack_byte.exit.thread:               ; preds = %50
   br i1 %exitcond.not, label %pmix20_bfrop_pack_byte.exit, label %10, !llvm.loop !90
 
 pmix20_bfrop_pack_byte.exit:                      ; preds = %pmix20_bfrop_pack_sizet.exit, %58, %50, %10, %26, %pmix_pointer_array_get_item.exit.i.i, %28, %5
-  %.0 = phi i32 [ 0, %5 ], [ -21, %28 ], [ -21, %pmix_pointer_array_get_item.exit.i.i ], [ %27, %26 ], [ %13, %10 ], [ -29, %50 ], [ 0, %58 ], [ %36, %pmix20_bfrop_pack_sizet.exit ]
+  %.0 = phi i32 [ 0, %5 ], [ %13, %10 ], [ 0, %58 ], [ -29, %50 ], [ -21, %28 ], [ -21, %pmix_pointer_array_get_item.exit.i.i ], [ %27, %26 ], [ %36, %pmix20_bfrop_pack_sizet.exit ]
   ret i32 %.0
 }
 
@@ -4202,7 +4202,7 @@ pmix20_bfrop_pack_pid.exit:                       ; preds = %pmix_pointer_array_
   br i1 %exitcond.not, label %pmix20_bfrop_pack_pstate.exit, label %11, !llvm.loop !91
 
 pmix20_bfrop_pack_pstate.exit:                    ; preds = %.lr.ph.i.i.preheader.i, %35, %pmix20_bfrop_pack_pid.exit, %77, %74, %38, %53, %pmix_pointer_array_get_item.exit.i.i, %55, %5, %pmix20_bfrop_pack_proc.exit
-  %.029 = phi i32 [ %.2.ph.i, %pmix20_bfrop_pack_proc.exit ], [ 0, %5 ], [ %34, %.lr.ph.i.i.preheader.i ], [ %37, %35 ], [ %63, %pmix20_bfrop_pack_pid.exit ], [ 0, %77 ], [ -29, %74 ], [ %40, %38 ], [ %54, %53 ], [ -21, %pmix_pointer_array_get_item.exit.i.i ], [ -21, %55 ]
+  %.029 = phi i32 [ %.2.ph.i, %pmix20_bfrop_pack_proc.exit ], [ 0, %5 ], [ -29, %74 ], [ %40, %38 ], [ %54, %53 ], [ -21, %pmix_pointer_array_get_item.exit.i.i ], [ %63, %pmix20_bfrop_pack_pid.exit ], [ %37, %35 ], [ %34, %.lr.ph.i.i.preheader.i ], [ 0, %77 ], [ -21, %55 ]
   ret i32 %.029
 }
 
@@ -4363,7 +4363,7 @@ pmix20_bfrop_pack_buffer.exit:                    ; preds = %pmix_pointer_array_
   br i1 %exitcond.not, label %pmix20_bfrop_pack_datatype.exit.thread, label %10, !llvm.loop !96
 
 pmix20_bfrop_pack_datatype.exit.thread:           ; preds = %pmix20_bfrop_pack_datatype.exit, %pmix20_bfrop_pack_sizet.exit, %pmix20_bfrop_pack_buffer.exit, %82, %pmix_pointer_array_get_item.exit.i, %10, %20, %35, %pmix_pointer_array_get_item.exit.i.i, %37, %69, %pmix_pointer_array_get_item.exit.i38, %71, %5
-  %.027 = phi i32 [ 0, %5 ], [ -21, %71 ], [ -21, %pmix_pointer_array_get_item.exit.i38 ], [ %70, %69 ], [ -21, %37 ], [ -21, %pmix_pointer_array_get_item.exit.i.i ], [ %36, %35 ], [ %22, %20 ], [ -16, %10 ], [ -16, %pmix_pointer_array_get_item.exit.i ], [ 0, %82 ], [ %81, %pmix20_bfrop_pack_buffer.exit ], [ %45, %pmix20_bfrop_pack_sizet.exit ], [ %19, %pmix20_bfrop_pack_datatype.exit ]
+  %.027 = phi i32 [ 0, %5 ], [ 0, %82 ], [ %45, %pmix20_bfrop_pack_sizet.exit ], [ %81, %pmix20_bfrop_pack_buffer.exit ], [ -16, %pmix_pointer_array_get_item.exit.i ], [ %36, %35 ], [ %22, %20 ], [ -16, %10 ], [ %70, %69 ], [ -21, %37 ], [ -21, %pmix_pointer_array_get_item.exit.i.i ], [ -21, %71 ], [ -21, %pmix_pointer_array_get_item.exit.i38 ], [ %19, %pmix20_bfrop_pack_datatype.exit ]
   ret i32 %.027
 }
 
@@ -4494,7 +4494,7 @@ pmix20_bfrop_pack_sizet.exit:                     ; preds = %pmix_pointer_array_
   br i1 %exitcond.not, label %pmix20_bfrop_pack_int32.exit, label %10, !llvm.loop !101
 
 pmix20_bfrop_pack_int32.exit:                     ; preds = %31, %pmix20_bfrop_pack_sizet.exit, %62, %67, %22, %34, %49, %pmix_pointer_array_get_item.exit.i.i, %51, %5
-  %.028 = phi i32 [ 0, %5 ], [ -21, %51 ], [ -21, %pmix_pointer_array_get_item.exit.i.i ], [ %50, %49 ], [ %36, %34 ], [ -29, %22 ], [ 0, %67 ], [ %66, %62 ], [ %59, %pmix20_bfrop_pack_sizet.exit ], [ %33, %31 ]
+  %.028 = phi i32 [ 0, %5 ], [ 0, %67 ], [ -29, %22 ], [ %59, %pmix20_bfrop_pack_sizet.exit ], [ %66, %62 ], [ %36, %34 ], [ -21, %51 ], [ -21, %pmix_pointer_array_get_item.exit.i.i ], [ %50, %49 ], [ %33, %31 ]
   ret i32 %.028
 }
 

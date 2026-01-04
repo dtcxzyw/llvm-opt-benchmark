@@ -61,7 +61,7 @@ _ZN4absl13cord_internal20cordz_should_profileEv.exit.thread: ; preds = %18
   br label %common.ret22
 
 common.ret22:                                     ; preds = %_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread, %12, %24, %7, %4, %_ZN4absl13cord_internal20cordz_should_profileEv.exit
-  %common.ret22.op = phi i64 [ %spec.select, %_ZN4absl13cord_internal20cordz_should_profileEv.exit ], [ 0, %4 ], [ 1, %7 ], [ 0, %24 ], [ %14, %12 ], [ 0, %_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread ]
+  %common.ret22.op = phi i64 [ %spec.select, %_ZN4absl13cord_internal20cordz_should_profileEv.exit ], [ 0, %_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread ], [ 0, %4 ], [ 1, %7 ], [ 0, %24 ], [ %14, %12 ]
   ret i64 %common.ret22.op
 
 _ZN4absl13cord_internal20cordz_should_profileEv.exit: ; preds = %18

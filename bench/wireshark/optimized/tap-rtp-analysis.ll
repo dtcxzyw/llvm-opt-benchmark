@@ -351,7 +351,7 @@ define hidden void @rtppacket_analyse(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %get_clock_rate.exit
 
 get_clock_rate.exit:                              ; preds = %167, %141
-  %.0253.in = phi ptr [ %143, %141 ], [ %168, %167 ]
+  %.0253.in = phi ptr [ %168, %167 ], [ %143, %141 ]
   %.0253 = load i32, ptr %.0253.in, align 4
   %.not277 = icmp eq i32 %.0253, 0
   br i1 %.not277, label %get_clock_rate.exit.thread, label %get_clock_rate.exit.thread305
@@ -438,7 +438,7 @@ get_clock_rate.exit.thread305._crit_edge:         ; preds = %get_clock_rate.exit
   store double %199, ptr %197, align 8
   br label %228
 
-get_clock_rate.exit.thread:                       ; preds = %160, %144, %146, %152, %get_clock_rate.exit
+get_clock_rate.exit.thread:                       ; preds = %160, %144, %152, %146, %get_clock_rate.exit
   %221 = load i8, ptr %0, align 8, !range !6, !noundef !7
   %222 = trunc nuw i8 %221 to i1
   br i1 %222, label %228, label %223

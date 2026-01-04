@@ -2001,7 +2001,7 @@ define internal ptr @intel_fake_agp_alloc_by_type(i64 noundef %0, i32 noundef %1
   br label %.thread
 
 .thread:                                          ; preds = %21, %27, %3, %63, %39, %31, %20, %14, %11, %2
-  %75 = phi ptr [ %12, %14 ], [ null, %11 ], [ null, %2 ], [ %42, %63 ], [ null, %20 ], [ null, %31 ], [ null, %39 ], [ null, %3 ], [ null, %27 ], [ null, %21 ]
+  %75 = phi ptr [ %12, %14 ], [ null, %3 ], [ null, %11 ], [ null, %2 ], [ null, %39 ], [ %42, %63 ], [ null, %20 ], [ null, %31 ], [ null, %27 ], [ null, %21 ]
   ret ptr %75
 }
 

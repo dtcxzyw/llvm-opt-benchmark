@@ -91,7 +91,7 @@ switch.lookup:                                    ; preds = %12
   unreachable
 
 _ZL14classifySecondRKN4llvm12MachineInstrE.exit:  ; preds = %12, %27, %26, %25, %24, %24, %switch.lookup, %22, %8
-  %.0 = phi i1 [ false, %8 ], [ true, %switch.lookup ], [ %23, %22 ], [ false, %12 ], [ %switch.masked21, %25 ], [ %switch.masked, %26 ], [ false, %27 ], [ true, %24 ], [ true, %24 ]
+  %.0 = phi i1 [ false, %8 ], [ true, %switch.lookup ], [ false, %12 ], [ %23, %22 ], [ false, %27 ], [ %switch.masked21, %25 ], [ %switch.masked, %26 ], [ true, %24 ], [ true, %24 ]
   ret i1 %.0
 }
 
@@ -230,7 +230,7 @@ define linkonce_odr hidden noundef i32 @_ZN4llvm3X8632classifyFirstOpcodeInMacro
   br label %7
 
 7:                                                ; preds = %1, %6, %5, %4, %3, %2
-  %.0 = phi i32 [ 0, %2 ], [ 2, %3 ], [ 1, %4 ], [ 3, %5 ], [ 4, %6 ], [ 5, %1 ]
+  %.0 = phi i32 [ 4, %6 ], [ 0, %2 ], [ 2, %3 ], [ 1, %4 ], [ 3, %5 ], [ 5, %1 ]
   ret i32 %.0
 }
 

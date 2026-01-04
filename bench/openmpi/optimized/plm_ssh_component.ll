@@ -346,7 +346,7 @@ define internal i32 @ssh_component_query(ptr noundef writeonly captures(none) %0
   br label %104
 
 104:                                              ; preds = %2, %102, %101, %88, %56, %35
-  %.0 = phi i32 [ -6, %88 ], [ -1, %101 ], [ 0, %102 ], [ -1, %56 ], [ -1, %35 ], [ %7, %2 ]
+  %.0 = phi i32 [ -1, %35 ], [ -6, %88 ], [ -1, %101 ], [ 0, %102 ], [ -1, %56 ], [ %7, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -681,7 +681,7 @@ define internal fastcc range(i32 -13, 1) i32 @ssh_launch_agent_lookup(ptr nounde
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %40, %50, %._crit_edge, %48, %34, %31, %7, %8, %14
-  %.021 = phi i32 [ -13, %14 ], [ -13, %8 ], [ -13, %7 ], [ -13, %31 ], [ 0, %34 ], [ 0, %48 ], [ 0, %._crit_edge ], [ 0, %50 ], [ 0, %40 ], [ 0, %.lr.ph ]
+  %.021 = phi i32 [ 0, %34 ], [ -13, %7 ], [ -13, %31 ], [ -13, %14 ], [ -13, %8 ], [ 0, %48 ], [ 0, %40 ], [ 0, %._crit_edge ], [ 0, %50 ], [ 0, %.lr.ph ]
   ret i32 %.021
 }
 

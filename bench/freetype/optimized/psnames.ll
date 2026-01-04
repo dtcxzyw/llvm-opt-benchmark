@@ -276,14 +276,14 @@ define internal i32 @ps_unicode_value(ptr noundef readonly captures(address) %0)
   br i1 %118, label %.lr.ph.i, label %ft_get_adobe_glyph_index.exit, !llvm.loop !10
 
 ft_get_adobe_glyph_index.exit:                    ; preds = %71, %97, %100, %115, %._crit_edge.i, %79, %82
-  %.0.i = phi i32 [ %90, %82 ], [ 0, %._crit_edge.i ], [ 0, %79 ], [ 0, %115 ], [ 0, %100 ], [ 0, %97 ], [ 0, %71 ]
+  %.0.i = phi i32 [ %90, %82 ], [ 0, %115 ], [ 0, %79 ], [ 0, %97 ], [ 0, %._crit_edge.i ], [ 0, %100 ], [ 0, %71 ]
   %119 = icmp eq i8 %52, 46
   %120 = or i32 %.0.i, -2147483648
   %spec.select = select i1 %119, i32 %120, i32 %.0.i
   br label %.thread86
 
 .thread86:                                        ; preds = %.thread91, %50, %29, %31, %ft_get_adobe_glyph_index.exit, %.critedge
-  %.2 = phi i32 [ 0, %.critedge ], [ %spec.select, %ft_get_adobe_glyph_index.exit ], [ %25, %29 ], [ %32, %31 ], [ %.059110, %.thread91 ], [ %51, %50 ]
+  %.2 = phi i32 [ %spec.select, %ft_get_adobe_glyph_index.exit ], [ %32, %31 ], [ 0, %.critedge ], [ %25, %29 ], [ %.059110, %.thread91 ], [ %51, %50 ]
   ret i32 %.2
 }
 
@@ -464,7 +464,7 @@ ps_check_extra_glyph_unicode.exit:                ; preds = %35, %39
   br label %75
 
 75:                                               ; preds = %66, %._crit_edge
-  %.pre = phi i32 [ %.pre.pre, %._crit_edge ], [ %spec.select, %66 ]
+  %.pre = phi i32 [ %spec.select, %66 ], [ %.pre.pre, %._crit_edge ]
   store i32 %64, ptr %10, align 8, !tbaa !11
   br label %76
 
@@ -694,7 +694,7 @@ define internal range(i32 -1, 2) i32 @compare_uni_maps(ptr noundef readonly capt
   br label %16
 
 16:                                               ; preds = %14, %12, %10, %8
-  %.0 = phi i32 [ 1, %8 ], [ %., %10 ], [ 1, %12 ], [ %.18, %14 ]
+  %.0 = phi i32 [ 1, %12 ], [ %., %10 ], [ 1, %8 ], [ %.18, %14 ]
   ret i32 %.0
 }
 

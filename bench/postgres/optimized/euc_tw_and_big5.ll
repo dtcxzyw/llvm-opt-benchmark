@@ -113,7 +113,7 @@ define range(i64 -2147483648, 2147483648) i64 @euc_tw_to_big5(ptr noundef readon
   br label %34
 
 34:                                               ; preds = %32, %31, %28
-  %.043.i = phi i8 [ -106, %31 ], [ %33, %32 ], [ -107, %28 ]
+  %.043.i = phi i8 [ %33, %32 ], [ -106, %31 ], [ -107, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %.067.i, i64 2
   %36 = load i8, ptr %35, align 1
   br label %37
@@ -178,8 +178,8 @@ define range(i64 -2147483648, 2147483648) i64 @euc_tw_to_big5(ptr noundef readon
   br i1 %65, label %.lr.ph.i, label %euc_tw2big5.exit, !llvm.loop !3
 
 euc_tw2big5.exit:                                 ; preds = %64, %1, %24, %45, %58
-  %.04661.i = phi ptr [ %.04666.i, %58 ], [ %.04666.i, %45 ], [ %.04666.i, %24 ], [ %8, %1 ], [ %.147.i, %64 ]
-  %.057.i = phi ptr [ %.067.i, %58 ], [ %.067.i, %45 ], [ %.067.i, %24 ], [ %5, %1 ], [ %.1.i, %64 ]
+  %.04661.i = phi ptr [ %.04666.i, %24 ], [ %.04666.i, %58 ], [ %.04666.i, %45 ], [ %8, %1 ], [ %.147.i, %64 ]
+  %.057.i = phi ptr [ %.067.i, %24 ], [ %.067.i, %58 ], [ %.067.i, %45 ], [ %5, %1 ], [ %.1.i, %64 ]
   store i8 0, ptr %.04661.i, align 1
   %66 = ptrtoint ptr %.057.i to i64
   %67 = sub i64 %66, %4
@@ -335,8 +335,8 @@ define range(i64 -2147483648, 2147483648) i64 @big5_to_euc_tw(ptr noundef readon
   br i1 %76, label %.lr.ph.i, label %big52euc_tw.exit, !llvm.loop !5
 
 big52euc_tw.exit:                                 ; preds = %.backedge.i, %1, %25, %62, %70
-  %.04859.i = phi ptr [ %.04864.i, %70 ], [ %.04864.i, %62 ], [ %.04864.i, %25 ], [ %9, %1 ], [ %.048.be.i, %.backedge.i ]
-  %.055.i = phi ptr [ %.065.i, %70 ], [ %.065.i, %62 ], [ %.065.i, %25 ], [ %6, %1 ], [ %.0.be.i, %.backedge.i ]
+  %.04859.i = phi ptr [ %.04864.i, %25 ], [ %.04864.i, %70 ], [ %.04864.i, %62 ], [ %9, %1 ], [ %.048.be.i, %.backedge.i ]
+  %.055.i = phi ptr [ %.065.i, %25 ], [ %.065.i, %70 ], [ %.065.i, %62 ], [ %6, %1 ], [ %.0.be.i, %.backedge.i ]
   store i8 0, ptr %.04859.i, align 1
   %77 = ptrtoint ptr %.055.i to i64
   %78 = sub i64 %77, %5
@@ -474,8 +474,8 @@ define range(i64 -2147483648, 2147483648) i64 @euc_tw_to_mic(ptr noundef readonl
   br i1 %63, label %.lr.ph.i, label %euc_tw2mic.exit, !llvm.loop !6
 
 euc_tw2mic.exit:                                  ; preds = %62, %1, %24, %56
-  %.04253.i = phi ptr [ %.04257.i, %56 ], [ %.04257.i, %24 ], [ %8, %1 ], [ %.3.i, %62 ]
-  %.050.i = phi ptr [ %.058.i, %56 ], [ %.058.i, %24 ], [ %5, %1 ], [ %.1.i, %62 ]
+  %.04253.i = phi ptr [ %.04257.i, %24 ], [ %.04257.i, %56 ], [ %8, %1 ], [ %.3.i, %62 ]
+  %.050.i = phi ptr [ %.058.i, %24 ], [ %.058.i, %56 ], [ %5, %1 ], [ %.1.i, %62 ]
   store i8 0, ptr %.04253.i, align 1
   %64 = ptrtoint ptr %.050.i to i64
   %65 = sub i64 %64, %4
@@ -625,8 +625,8 @@ define range(i64 -2147483648, 2147483648) i64 @mic_to_euc_tw(ptr noundef readonl
   br label %.backedge.i
 
 mic2euc_tw.exit:                                  ; preds = %.backedge.i, %1, %23, %33, %67
-  %.04961.i = phi ptr [ %.04966.i, %67 ], [ %.04966.i, %33 ], [ %.04966.i, %23 ], [ %8, %1 ], [ %.049.be.i, %.backedge.i ]
-  %.057.i = phi ptr [ %.067.i, %67 ], [ %.067.i, %33 ], [ %.067.i, %23 ], [ %5, %1 ], [ %.0.be.i, %.backedge.i ]
+  %.04961.i = phi ptr [ %.04966.i, %23 ], [ %.04966.i, %67 ], [ %.04966.i, %33 ], [ %8, %1 ], [ %.049.be.i, %.backedge.i ]
+  %.057.i = phi ptr [ %.067.i, %23 ], [ %.067.i, %67 ], [ %.067.i, %33 ], [ %5, %1 ], [ %.0.be.i, %.backedge.i ]
   store i8 0, ptr %.04961.i, align 1
   %73 = ptrtoint ptr %.057.i to i64
   %74 = sub i64 %73, %4
@@ -754,8 +754,8 @@ define range(i64 -2147483648, 2147483648) i64 @big5_to_mic(ptr noundef readonly 
   unreachable
 
 big52mic.exit:                                    ; preds = %.backedge.i, %1, %24, %34, %60
-  %.03850.i = phi ptr [ %.03855.i, %60 ], [ %.03855.i, %34 ], [ %.03855.i, %24 ], [ %9, %1 ], [ %.038.be.i, %.backedge.i ]
-  %.046.i = phi ptr [ %.056.i, %60 ], [ %.056.i, %34 ], [ %.056.i, %24 ], [ %6, %1 ], [ %.0.be.i, %.backedge.i ]
+  %.03850.i = phi ptr [ %.03855.i, %24 ], [ %.03855.i, %60 ], [ %.03855.i, %34 ], [ %9, %1 ], [ %.038.be.i, %.backedge.i ]
+  %.046.i = phi ptr [ %.056.i, %24 ], [ %.056.i, %60 ], [ %.056.i, %34 ], [ %6, %1 ], [ %.0.be.i, %.backedge.i ]
   store i8 0, ptr %.03850.i, align 1
   %62 = ptrtoint ptr %.046.i to i64
   %63 = sub i64 %62, %5
@@ -890,8 +890,8 @@ define range(i64 -2147483648, 2147483648) i64 @mic_to_big5(ptr noundef readonly 
   unreachable
 
 mic2big5.exit:                                    ; preds = %.backedge.i, %1, %23, %33, %50, %61
-  %.05266.i = phi ptr [ %.05272.i, %61 ], [ %.05272.i, %50 ], [ %.05272.i, %33 ], [ %.05272.i, %23 ], [ %8, %1 ], [ %.052.be.i, %.backedge.i ]
-  %.061.i = phi ptr [ %.073.i, %61 ], [ %.073.i, %50 ], [ %.073.i, %33 ], [ %.073.i, %23 ], [ %5, %1 ], [ %.0.be.i, %.backedge.i ]
+  %.05266.i = phi ptr [ %.05272.i, %23 ], [ %.05272.i, %61 ], [ %.05272.i, %50 ], [ %.05272.i, %33 ], [ %8, %1 ], [ %.052.be.i, %.backedge.i ]
+  %.061.i = phi ptr [ %.073.i, %23 ], [ %.073.i, %61 ], [ %.073.i, %50 ], [ %.073.i, %33 ], [ %5, %1 ], [ %.0.be.i, %.backedge.i ]
   store i8 0, ptr %.05266.i, align 1
   %63 = ptrtoint ptr %.061.i to i64
   %64 = sub i64 %63, %4

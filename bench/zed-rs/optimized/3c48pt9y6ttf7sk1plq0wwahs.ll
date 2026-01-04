@@ -419,7 +419,7 @@ define void @_ZN11http_client6github15build_asset_url17he634ed60e0b049ffE(ptr de
           to label %67 unwind label %65
 
 .body:                                            ; preds = %116, %95, %65, %92
-  %.pn = phi { ptr, i32 } [ %93, %92 ], [ %66, %65 ], [ %96, %95 ], [ %117, %116 ]
+  %.pn = phi { ptr, i32 } [ %93, %92 ], [ %96, %95 ], [ %66, %65 ], [ %117, %116 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0a5d3ed64fcd9fcaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %26) #11
           to label %58 unwind label %138
 

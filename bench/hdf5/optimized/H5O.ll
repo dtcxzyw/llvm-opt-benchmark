@@ -4833,8 +4833,8 @@ H5O__close_check_type.exit:                       ; preds = %50, %40
   br label %89
 
 89:                                               ; preds = %78, %80, %85, %74
-  %.027 = phi i32 [ -1, %74 ], [ -1, %85 ], [ 0, %80 ], [ 0, %78 ]
-  %.0 = phi i1 [ true, %74 ], [ true, %85 ], [ false, %80 ], [ false, %78 ]
+  %.027 = phi i32 [ 0, %78 ], [ -1, %74 ], [ -1, %85 ], [ 0, %80 ]
+  %.0 = phi i1 [ false, %78 ], [ true, %74 ], [ true, %85 ], [ false, %80 ]
   %.not35 = icmp eq ptr %.131, null
   br i1 %.not35, label %98, label %90
 
@@ -4859,7 +4859,7 @@ H5O__close_check_type.exit:                       ; preds = %50, %40
   br i1 %.0, label %.thread55, label %101, !prof !35
 
 .thread55:                                        ; preds = %36, %29, %16, %.thread64, %.thread61, %98
-  %.1284859 = phi i32 [ %.027, %98 ], [ -1, %.thread61 ], [ -1, %.thread64 ], [ -1, %16 ], [ -1, %29 ], [ -1, %36 ]
+  %.1284859 = phi i32 [ -1, %.thread64 ], [ %.027, %98 ], [ -1, %.thread61 ], [ -1, %16 ], [ -1, %29 ], [ -1, %36 ]
   %100 = call i32 @H5E_dump_api_stack() #6
   br label %101
 

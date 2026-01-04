@@ -418,7 +418,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5VLregister_connector_by_name(p
   %82 = call i32 @H5CX_pop(i1 noundef zeroext true) #4
   br label %84
 
-.thread54:                                        ; preds = %12, %25, %32, %.thread63, %.thread59
+.thread54:                                        ; preds = %32, %12, %25, %.thread63, %.thread59
   %83 = call i32 @H5E_dump_api_stack() #4
   br label %84
 
@@ -563,7 +563,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5VLregister_connector_by_value(
   %77 = call i32 @H5CX_pop(i1 noundef zeroext true) #4
   br label %79
 
-.thread51:                                        ; preds = %12, %25, %32, %.thread60, %.thread56
+.thread51:                                        ; preds = %25, %32, %12, %.thread60, %.thread56
   %78 = call i32 @H5E_dump_api_stack() #4
   br label %79
 
@@ -1922,7 +1922,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5VLget_file_type(ptr noundef %0
   br label %96
 
 95:                                               ; preds = %69, %76, %84
-  %.041.ph = phi i64 [ %74, %84 ], [ %74, %76 ], [ -1, %69 ]
+  %.041.ph = phi i64 [ -1, %69 ], [ %74, %76 ], [ %74, %84 ]
   %.not51 = icmp eq ptr %.139, null
   br i1 %.not51, label %103, label %96
 
@@ -1962,7 +1962,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5VLget_file_type(ptr noundef %0
   %113 = call i32 @H5CX_pop(i1 noundef zeroext true) #4
   br label %.thread93
 
-114:                                              ; preds = %89, %88
+114:                                              ; preds = %88, %89
   %115 = call i32 @H5CX_pop(i1 noundef zeroext true) #4
   br label %117
 

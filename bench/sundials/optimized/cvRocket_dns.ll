@@ -271,10 +271,10 @@ check_retval.exit87:                              ; preds = %112
   br label %check_retval.exit85.thread
 
 check_retval.exit85.thread:                       ; preds = %104, %110, %117
-  %120 = phi ptr [ %77, %117 ], [ %77, %110 ], [ %99, %104 ]
-  %121 = phi ptr [ %77, %117 ], [ %78, %110 ], [ %99, %104 ]
-  %.0102 = phi i32 [ 2, %117 ], [ %79, %110 ], [ %106, %104 ]
-  %.1 = phi i32 [ %.035, %117 ], [ %.035, %110 ], [ 1, %104 ]
+  %120 = phi ptr [ %77, %110 ], [ %77, %117 ], [ %99, %104 ]
+  %121 = phi ptr [ %78, %110 ], [ %77, %117 ], [ %99, %104 ]
+  %.0102 = phi i32 [ %79, %110 ], [ 2, %117 ], [ %106, %104 ]
+  %.1 = phi i32 [ %.035, %110 ], [ %.035, %117 ], [ 1, %104 ]
   %122 = icmp eq i32 %.0102, 0
   %123 = zext i1 %122 to i32
   %.137 = add nuw nsw i32 %.036, %123
@@ -299,7 +299,7 @@ check_retval.exit85.thread:                       ; preds = %104, %110, %117
   br label %132
 
 132:                                              ; preds = %check_retval.exit87, %check_retval.exit85, %check_retval.exit83, %check_retval.exit81, %check_retval.exit79, %check_retval.exit77, %check_retval.exit75, %check_retval.exit73, %check_retval.exit71, %check_retval.exit69, %check_retval.exit67, %check_retval.exit65, %check_retval.exit63, %check_retval.exit61, %check_retval.exit59, %check_retval.exit57, %check_retval.exit, %129
-  %.0 = phi i32 [ %.0102, %129 ], [ 1, %check_retval.exit ], [ 1, %check_retval.exit57 ], [ 1, %check_retval.exit59 ], [ 1, %check_retval.exit61 ], [ 1, %check_retval.exit63 ], [ 1, %check_retval.exit65 ], [ 1, %check_retval.exit67 ], [ 1, %check_retval.exit69 ], [ 1, %check_retval.exit71 ], [ 1, %check_retval.exit73 ], [ 1, %check_retval.exit75 ], [ 1, %check_retval.exit77 ], [ 1, %check_retval.exit79 ], [ 1, %check_retval.exit81 ], [ 1, %check_retval.exit83 ], [ 1, %check_retval.exit85 ], [ 1, %check_retval.exit87 ]
+  %.0 = phi i32 [ 1, %check_retval.exit85 ], [ 1, %check_retval.exit ], [ 1, %check_retval.exit57 ], [ 1, %check_retval.exit59 ], [ 1, %check_retval.exit61 ], [ 1, %check_retval.exit63 ], [ 1, %check_retval.exit65 ], [ 1, %check_retval.exit67 ], [ 1, %check_retval.exit69 ], [ 1, %check_retval.exit71 ], [ 1, %check_retval.exit73 ], [ 1, %check_retval.exit75 ], [ 1, %check_retval.exit77 ], [ 1, %check_retval.exit79 ], [ 1, %check_retval.exit81 ], [ 1, %check_retval.exit83 ], [ %.0102, %129 ], [ 1, %check_retval.exit87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

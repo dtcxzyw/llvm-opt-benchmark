@@ -1054,7 +1054,7 @@ thread-pre-split.sink.split.i.i:                  ; preds = %thread-pre-split.si
   br label %thread-pre-split.i.i
 
 thread-pre-split.i.i:                             ; preds = %thread-pre-split.sink.split.i.i, %379, %376, %371, %365
-  %.393.ph.i.i = phi i1 [ %.090163.i.i, %379 ], [ %.090163.i.i, %376 ], [ %.090163.i.i, %365 ], [ true, %371 ], [ %.393.ph.ph.i.i, %thread-pre-split.sink.split.i.i ]
+  %.393.ph.i.i = phi i1 [ %.090163.i.i, %376 ], [ %.090163.i.i, %379 ], [ true, %371 ], [ %.090163.i.i, %365 ], [ %.393.ph.ph.i.i, %thread-pre-split.sink.split.i.i ]
   %.pr.i.i = load i32, ptr @printMode, align 4, !tbaa !4
   br label %383
 
@@ -1558,7 +1558,7 @@ thread-pre-split.sink.split.i:                    ; preds = %thread-pre-split.si
   br label %thread-pre-split.i
 
 thread-pre-split.i:                               ; preds = %thread-pre-split.sink.split.i, %559, %556, %551, %545
-  %.382.ph.i = phi i1 [ %.079154.i, %559 ], [ %.079154.i, %556 ], [ %.079154.i, %545 ], [ true, %551 ], [ %.382.ph.ph.i, %thread-pre-split.sink.split.i ]
+  %.382.ph.i = phi i1 [ %.079154.i, %556 ], [ %.079154.i, %559 ], [ true, %551 ], [ %.079154.i, %545 ], [ %.382.ph.ph.i, %thread-pre-split.sink.split.i ]
   %.pr.i = load i32, ptr @printMode, align 4, !tbaa !4
   br label %563
 
@@ -1645,7 +1645,7 @@ thread-pre-split.i:                               ; preds = %thread-pre-split.si
   br label %process.exit
 
 process.exit:                                     ; preds = %551, %371, %205, %282, %283, %398, %415, %421, %478, %479, %577, %594
-  %.0.shrunk.i = phi i1 [ true, %421 ], [ false, %479 ], [ false, %478 ], [ true, %577 ], [ %595, %594 ], [ true, %205 ], [ false, %283 ], [ false, %282 ], [ true, %398 ], [ %.not122.i.i, %415 ], [ false, %371 ], [ false, %551 ]
+  %.0.shrunk.i = phi i1 [ false, %371 ], [ false, %478 ], [ true, %421 ], [ false, %479 ], [ true, %577 ], [ %595, %594 ], [ false, %282 ], [ true, %205 ], [ false, %283 ], [ true, %398 ], [ %.not122.i.i, %415 ], [ false, %551 ]
   %.0.i10 = zext i1 %.0.shrunk.i to i32
   %596 = add nuw nsw i32 %.0134, %.0.i10
   %597 = call i32 @agclose(ptr noundef nonnull %115) #23

@@ -1752,7 +1752,7 @@ default.unreachable:                              ; preds = %54
   unreachable
 
 181:                                              ; preds = %164, %150, %133, %107, %87, %76, %65, %.loopexit.i.i.i
-  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %66, %65 ], [ %77, %76 ], [ %88, %87 ], [ %108, %107 ], [ %134, %133 ], [ %151, %150 ], [ %165, %164 ], [ %lpad.loopexit.i.i.i, %.loopexit.i.i.i ]
+  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %165, %164 ], [ %151, %150 ], [ %66, %65 ], [ %77, %76 ], [ %88, %87 ], [ %108, %107 ], [ %134, %133 ], [ %lpad.loopexit.i.i.i, %.loopexit.i.i.i ]
   store i64 %.sroa.7.082.i.i.i, ptr %28, align 8, !noalias !262
   invoke void @"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$globset..GlobSetMatchStrategy$GT$$GT$17h8deaa0d9f23a2f08E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #17
           to label %218 unwind label %179, !noalias !285
@@ -1854,7 +1854,7 @@ default.unreachable:                              ; preds = %54
   unreachable
 
 218:                                              ; preds = %.loopexit, %187, %181
-  %eh.lpad-body = phi { ptr, i32 } [ %eh.lpad-body.i.i.i, %181 ], [ %.pn.pn.i, %187 ], [ %lpad.loopexit, %.loopexit ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.pn.i, %187 ], [ %eh.lpad-body.i.i.i, %181 ], [ %lpad.loopexit, %.loopexit ]
   store i64 %.sroa.7.077, ptr %24, align 8
   invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$ignore..gitignore..Gitignore$GT$$GT$17he088dc333e4c63c4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19) #17
           to label %219 unwind label %216
@@ -2384,7 +2384,7 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   br label %_ZN5alloc3vec16in_place_collect13needs_realloc17hffb80e34e0f2806aE.exit.thread
 
 _ZN5alloc3vec16in_place_collect13needs_realloc17hffb80e34e0f2806aE.exit.thread: ; preds = %39, %37, %"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32forget_allocation_drop_remaining17h0ba8bed61dd0b6a7E.exit", %47
-  %.0 = phi ptr [ %49, %47 ], [ %8, %"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32forget_allocation_drop_remaining17h0ba8bed61dd0b6a7E.exit" ], [ inttoptr (i64 8 to ptr), %37 ], [ inttoptr (i64 8 to ptr), %39 ]
+  %.0 = phi ptr [ inttoptr (i64 8 to ptr), %39 ], [ %49, %47 ], [ %8, %"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32forget_allocation_drop_remaining17h0ba8bed61dd0b6a7E.exit" ], [ inttoptr (i64 8 to ptr), %37 ]
   store i64 %12, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0, ptr %.sroa.4.0..sroa_idx, align 8

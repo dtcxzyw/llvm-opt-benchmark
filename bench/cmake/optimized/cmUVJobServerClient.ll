@@ -1759,7 +1759,7 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
   br label %388
 
 .body.i.i:                                        ; preds = %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit76.i.i.i, %79
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %.pn30.pn.pn.i.i.i, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit76.i.i.i ], [ %80, %79 ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %80, %79 ], [ %.pn30.pn.pn.i.i.i, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit76.i.i.i ]
   call void @_ZNSt12__shared_ptrISt8functionIFviEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %46) #27, !noalias !38
   br label %388
 
@@ -1772,7 +1772,7 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
   br label %.body.i
 
 .body.i:                                          ; preds = %388, %_ZNSt14_Function_baseD2Ev.exit4.i.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %26, %_ZNSt14_Function_baseD2Ev.exit4.i.i.i ], [ %.pn.i.i, %388 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.i.i, %388 ], [ %26, %_ZNSt14_Function_baseD2Ev.exit4.i.i.i ]
   call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 184) #29, !noalias !38
   resume { ptr, i32 } %eh.lpad-body.i
 

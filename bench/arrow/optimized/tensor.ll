@@ -1672,7 +1672,7 @@ _ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOB
   br label %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS8_8DataTypeEERKSA_INS8_6BufferEERKS6_EUllE_EbT_SM_T0_.exit.i
 
 _ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS8_8DataTypeEERKSA_INS8_6BufferEERKS6_EUllE_EbT_SM_T0_.exit.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS8_8DataTypeEERKSA_INS8_6BufferEERKS6_EUllE_EbT_SM_T0_.exit.i.loopexit.split.loop.exit, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS8_8DataTypeEERKSA_INS8_6BufferEERKS6_EUllE_EbT_SM_T0_.exit.i.loopexit.split.loop.exit90, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS8_8DataTypeEERKSA_INS8_6BufferEERKS6_EUllE_EbT_SM_T0_.exit.i.loopexit.split.loop.exit92, %95, %90, %85
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i, %85 ], [ %.sroa.025.1.i.i.i.i.i, %90 ], [ %spec.select.i.i.i.i.i, %95 ], [ %98, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS8_8DataTypeEERKSA_INS8_6BufferEERKS6_EUllE_EbT_SM_T0_.exit.i.loopexit.split.loop.exit ], [ %99, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS8_8DataTypeEERKSA_INS8_6BufferEERKS6_EUllE_EbT_SM_T0_.exit.i.loopexit.split.loop.exit90 ], [ %100, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS8_8DataTypeEERKSA_INS8_6BufferEERKS6_EUllE_EbT_SM_T0_.exit.i.loopexit.split.loop.exit92 ], [ %.sroa.025.044.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.025.1.i.i.i.i.i, %90 ], [ %spec.select.i.i.i.i.i, %95 ], [ %.sroa.025.0.lcssa.i.i.i.i.i, %85 ], [ %100, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS8_8DataTypeEERKSA_INS8_6BufferEERKS6_EUllE_EbT_SM_T0_.exit.i.loopexit.split.loop.exit92 ], [ %98, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS8_8DataTypeEERKSA_INS8_6BufferEERKS6_EUllE_EbT_SM_T0_.exit.i.loopexit.split.loop.exit ], [ %99, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS8_8DataTypeEERKSA_INS8_6BufferEERKS6_EUllE_EbT_SM_T0_.exit.i.loopexit.split.loop.exit90 ], [ %.sroa.025.044.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %101 = icmp eq ptr %.val27, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i
   br i1 %101, label %_ZN5arrow6StatusD2Ev.exit34.thread, label %102
 
@@ -1820,7 +1820,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.e
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.exit.i
 
 _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.exit.i: ; preds = %127, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.exit.i.loopexit.split.loop.exit, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.exit.i.loopexit.split.loop.exit98, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.exit.i.loopexit.split.loop.exit100, %._crit_edge._crit_edge57.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i, %147
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %147 ], [ %.sroa.032.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %158, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.exit.i.loopexit.split.loop.exit ], [ %159, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.exit.i.loopexit.split.loop.exit98 ], [ %160, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.exit.i.loopexit.split.loop.exit100 ], [ %.sroa.032.051.i.i.i.i, %127 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %.sroa.032.0.lcssa.i.i.i.i, %147 ], [ %160, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.exit.i.loopexit.split.loop.exit100 ], [ %158, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.exit.i.loopexit.split.loop.exit ], [ %159, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.exit.i.loopexit.split.loop.exit98 ], [ %.sroa.032.051.i.i.i.i, %127 ]
   %.not14.i = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, %.val29
   br i1 %.not14.i, label %.lr.ph.preheader.i, label %_ZN5arrow6StatusD2Ev.exit39.thread
 
@@ -4530,7 +4530,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit338:                 ; preds = %_ZNSt6vectorIlSaIlE
   br label %1144
 
 1130:                                             ; preds = %.body315, %1056, %1017, %1012
-  %.pn149.pn.pn = phi { ptr, i32 } [ %1013, %1012 ], [ %1018, %1017 ], [ %1057, %1056 ], [ %eh.lpad-body316, %.body315 ]
+  %.pn149.pn.pn = phi { ptr, i32 } [ %1018, %1017 ], [ %1013, %1012 ], [ %1057, %1056 ], [ %eh.lpad-body316, %.body315 ]
   %1131 = load ptr, ptr %38, align 8, !tbaa !11
   %.not.i.i.i339 = icmp eq ptr %1131, null
   br i1 %.not.i.i.i339, label %_ZNSt6vectorIlSaIlEED2Ev.exit340, label %1132
@@ -4559,7 +4559,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit340:                 ; preds = %1130, %1132
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit342
 
 _ZNSt6vectorIlSaIlEED2Ev.exit342:                 ; preds = %1139, %_ZNSt6vectorIlSaIlEED2Ev.exit340, %1008, %1010
-  %.pn149.pn.pn.pn = phi { ptr, i32 } [ %1011, %1010 ], [ %1009, %1008 ], [ %.pn149.pn.pn, %_ZNSt6vectorIlSaIlEED2Ev.exit340 ], [ %.pn149.pn.pn, %1139 ]
+  %.pn149.pn.pn.pn = phi { ptr, i32 } [ %1009, %1008 ], [ %1011, %1010 ], [ %.pn149.pn.pn, %_ZNSt6vectorIlSaIlEED2Ev.exit340 ], [ %.pn149.pn.pn, %1139 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %1168
 
@@ -4775,7 +4775,7 @@ _ZNSt12__shared_ptrIN5arrow5FieldELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit358: ; 
   br label %1229
 
 1228:                                             ; preds = %.loopexit, %.loopexit.split-lp, %832, %1183, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit261, %717, %354, %367, %454, %494, %493, %300
-  %.pn158.pn.pn = phi { ptr, i32 } [ %301, %300 ], [ %.pn134.pn, %367 ], [ %.pn, %454 ], [ %355, %354 ], [ %495, %494 ], [ %.pn129, %493 ], [ %718, %717 ], [ %.pn138.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit261 ], [ %.pn158, %1183 ], [ %833, %832 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn158.pn.pn = phi { ptr, i32 } [ %.pn138.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit261 ], [ %.pn129, %493 ], [ %301, %300 ], [ %.pn134.pn, %367 ], [ %833, %832 ], [ %355, %354 ], [ %.pn, %454 ], [ %495, %494 ], [ %718, %717 ], [ %.pn158, %1183 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6374)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10)
   call void @_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #27
@@ -8197,12 +8197,12 @@ _ZNK5arrow6Tensor4sizeEv.exit.i.i.i254.i:         ; preds = %.lr.ph.i.i.i.i.i250
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %343
 
 _ZN5arrow6StatusD2Ev.exit.sink.split:             ; preds = %.lr.ph.i.i4.i.i.i258.i, %.lr.ph.i.i4.i.i.i243.i, %.lr.ph.i.i4.i.i.i225.i, %.lr.ph.i.i4.i.i.i207.i, %.lr.ph.i.i4.i.i.i189.i, %.lr.ph.i.i4.i.i.i171.i, %.lr.ph.i.i4.i.i.i153.i, %.lr.ph.i.i4.i.i.i135.i, %.lr.ph.i.i4.i.i.i117.i, %.lr.ph.i.i4.i.i.i100.i, %.lr.ph.i.i4.i.i.i.i, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i254.i, %308, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i239.i, %281, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i221.i, %254, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i203.i, %228, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i185.i, %202, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i167.i, %176, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i149.i, %150, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i131.i, %124, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i114.i, %98, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i97.i, %72, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i.i, %46
-  %.sroa.15.0.ph = phi i64 [ %47, %46 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i.i ], [ %73, %72 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i97.i ], [ %99, %98 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i114.i ], [ %125, %124 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i131.i ], [ %151, %150 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i149.i ], [ %177, %176 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i167.i ], [ %203, %202 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i185.i ], [ %229, %228 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i203.i ], [ %255, %254 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i221.i ], [ %282, %281 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i239.i ], [ %309, %308 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i254.i ], [ %spec.select.i.i.i.i.i.i, %.lr.ph.i.i4.i.i.i.i ], [ %spec.select.i.i.i.i.i105.i, %.lr.ph.i.i4.i.i.i100.i ], [ %spec.select.i.i.i.i.i122.i, %.lr.ph.i.i4.i.i.i117.i ], [ %spec.select.i.i.i.i.i140.i, %.lr.ph.i.i4.i.i.i135.i ], [ %spec.select.i.i.i.i.i158.i, %.lr.ph.i.i4.i.i.i153.i ], [ %spec.select.i.i.i.i.i176.i, %.lr.ph.i.i4.i.i.i171.i ], [ %spec.select.i.i.i.i.i194.i, %.lr.ph.i.i4.i.i.i189.i ], [ %spec.select.i.i.i.i.i212.i, %.lr.ph.i.i4.i.i.i207.i ], [ %spec.select.i.i.i.i.i230.i, %.lr.ph.i.i4.i.i.i225.i ], [ %spec.select.i.i.i.i.i245.i, %.lr.ph.i.i4.i.i.i243.i ], [ %spec.select.i.i.i.i.i262.i, %.lr.ph.i.i4.i.i.i258.i ]
+  %.sroa.15.0.ph = phi i64 [ %spec.select.i.i.i.i.i176.i, %.lr.ph.i.i4.i.i.i171.i ], [ %spec.select.i.i.i.i.i158.i, %.lr.ph.i.i4.i.i.i153.i ], [ %spec.select.i.i.i.i.i140.i, %.lr.ph.i.i4.i.i.i135.i ], [ %spec.select.i.i.i.i.i122.i, %.lr.ph.i.i4.i.i.i117.i ], [ %spec.select.i.i.i.i.i105.i, %.lr.ph.i.i4.i.i.i100.i ], [ %spec.select.i.i.i.i.i.i, %.lr.ph.i.i4.i.i.i.i ], [ %spec.select.i.i.i.i.i245.i, %.lr.ph.i.i4.i.i.i243.i ], [ %spec.select.i.i.i.i.i230.i, %.lr.ph.i.i4.i.i.i225.i ], [ %spec.select.i.i.i.i.i212.i, %.lr.ph.i.i4.i.i.i207.i ], [ %spec.select.i.i.i.i.i194.i, %.lr.ph.i.i4.i.i.i189.i ], [ %47, %46 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i.i ], [ %73, %72 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i97.i ], [ %99, %98 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i114.i ], [ %125, %124 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i131.i ], [ %151, %150 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i149.i ], [ %177, %176 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i167.i ], [ %203, %202 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i185.i ], [ %229, %228 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i203.i ], [ %255, %254 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i221.i ], [ %282, %281 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i239.i ], [ %309, %308 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i254.i ], [ %spec.select.i.i.i.i.i262.i, %.lr.ph.i.i4.i.i.i258.i ]
   store ptr null, ptr %4, align 8, !tbaa !16, !alias.scope !277
   br label %_ZN5arrow6StatusD2Ev.exit
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %.invoke, %_ZN5arrow6StatusD2Ev.exit.sink.split, %310
-  %.sroa.15.0 = phi i64 [ 0, %310 ], [ %.sroa.15.0.ph, %_ZN5arrow6StatusD2Ev.exit.sink.split ], [ 0, %.invoke ]
+  %.sroa.15.0 = phi i64 [ 0, %.invoke ], [ %.sroa.15.0.ph, %_ZN5arrow6StatusD2Ev.exit.sink.split ], [ 0, %310 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !330)
   %311 = load ptr, ptr %4, align 8, !tbaa !16, !noalias !330
   store ptr %311, ptr %3, align 8, !tbaa !16, !alias.scope !330
@@ -10886,38 +10886,38 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %79 = load ptr, ptr %60, align 8, !tbaa !35
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %81 = load i32, ptr %80, align 8, !tbaa !53
-  switch i32 %81, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %82
-    i32 28, label %84
-    i32 38, label %86
+  switch i32 %81, label %86 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %82
+    i32 38, label %84
   ]
 
 82:                                               ; preds = %78
-  %83 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %60, i64 noundef %.015)
+  %83 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %60, i64 noundef %.015)
   br i1 %83, label %94, label %91
 
 84:                                               ; preds = %78
-  %85 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %60, i64 noundef %.015)
+  %85 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %60, i64 noundef %.015)
   br i1 %85, label %94, label %91
 
 86:                                               ; preds = %78
-  %87 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %60, i64 noundef %.015)
-  br i1 %87, label %94, label %91
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %78
-  %88 = getelementptr inbounds nuw i8, ptr %60, i64 24
-  %89 = load atomic i64, ptr %88 seq_cst, align 8
-  %90 = load i64, ptr %59, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %89, %90
+  %87 = getelementptr inbounds nuw i8, ptr %60, i64 24
+  %88 = load atomic i64, ptr %87 seq_cst, align 8
+  %89 = load i64, ptr %59, align 8, !tbaa !389
+  %.not24 = icmp eq i64 %88, %89
   br i1 %.not24, label %94, label %91
 
-91:                                               ; preds = %86, %84, %82, %64, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %78
+  %90 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %60, i64 noundef %.015)
+  br i1 %90, label %94, label %91
+
+91:                                               ; preds = %82, %84, %86, %64, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %92 = getelementptr inbounds nuw i8, ptr %16, i64 %.015
   %93 = load i8, ptr %92, align 1, !tbaa !92
   br label %94
 
-94:                                               ; preds = %86, %84, %82, %64, %_ZNK5arrow9ArrayData6IsNullEl.exit, %91
-  %95 = phi i8 [ %93, %91 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %64 ], [ poison, %82 ], [ poison, %84 ], [ poison, %86 ]
+94:                                               ; preds = %82, %84, %86, %64, %_ZNK5arrow9ArrayData6IsNullEl.exit, %91
+  %95 = phi i8 [ %93, %91 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %64 ], [ poison, %86 ], [ poison, %84 ], [ poison, %82 ]
   %96 = load ptr, ptr %1, align 8, !tbaa !407
   %97 = load ptr, ptr %96, align 8, !tbaa !217
   %98 = load i32, ptr %37, align 8, !tbaa !223
@@ -11078,38 +11078,38 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %79 = load ptr, ptr %60, align 8, !tbaa !35
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %81 = load i32, ptr %80, align 8, !tbaa !53
-  switch i32 %81, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %82
-    i32 28, label %84
-    i32 38, label %86
+  switch i32 %81, label %86 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %82
+    i32 38, label %84
   ]
 
 82:                                               ; preds = %78
-  %83 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %60, i64 noundef %.015)
+  %83 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %60, i64 noundef %.015)
   br i1 %83, label %94, label %91
 
 84:                                               ; preds = %78
-  %85 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %60, i64 noundef %.015)
+  %85 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %60, i64 noundef %.015)
   br i1 %85, label %94, label %91
 
 86:                                               ; preds = %78
-  %87 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %60, i64 noundef %.015)
-  br i1 %87, label %94, label %91
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %78
-  %88 = getelementptr inbounds nuw i8, ptr %60, i64 24
-  %89 = load atomic i64, ptr %88 seq_cst, align 8
-  %90 = load i64, ptr %59, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %89, %90
+  %87 = getelementptr inbounds nuw i8, ptr %60, i64 24
+  %88 = load atomic i64, ptr %87 seq_cst, align 8
+  %89 = load i64, ptr %59, align 8, !tbaa !389
+  %.not24 = icmp eq i64 %88, %89
   br i1 %.not24, label %94, label %91
 
-91:                                               ; preds = %86, %84, %82, %64, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %78
+  %90 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %60, i64 noundef %.015)
+  br i1 %90, label %94, label %91
+
+91:                                               ; preds = %82, %84, %86, %64, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %92 = getelementptr inbounds nuw i8, ptr %16, i64 %.015
   %93 = load i8, ptr %92, align 1, !tbaa !92
   br label %94
 
-94:                                               ; preds = %86, %84, %82, %64, %_ZNK5arrow9ArrayData6IsNullEl.exit, %91
-  %95 = phi i8 [ %93, %91 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %64 ], [ poison, %82 ], [ poison, %84 ], [ poison, %86 ]
+94:                                               ; preds = %82, %84, %86, %64, %_ZNK5arrow9ArrayData6IsNullEl.exit, %91
+  %95 = phi i8 [ %93, %91 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %64 ], [ poison, %86 ], [ poison, %84 ], [ poison, %82 ]
   %96 = load ptr, ptr %1, align 8, !tbaa !407
   %97 = load ptr, ptr %96, align 8, !tbaa !217
   %98 = load i32, ptr %37, align 8, !tbaa !223
@@ -11271,39 +11271,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %80 = load ptr, ptr %61, align 8, !tbaa !35
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 40
   %82 = load i32, ptr %81, align 8, !tbaa !53
-  switch i32 %82, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %83
-    i32 28, label %85
-    i32 38, label %87
+  switch i32 %82, label %87 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %83
+    i32 38, label %85
   ]
 
 83:                                               ; preds = %79
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  %84 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
   br i1 %84, label %96, label %92
 
 85:                                               ; preds = %79
-  %86 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  %86 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
   br i1 %86, label %96, label %92
 
 87:                                               ; preds = %79
-  %88 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
-  br i1 %88, label %96, label %92
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
-  %89 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  %90 = load atomic i64, ptr %89 seq_cst, align 8
-  %91 = load i64, ptr %60, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %90, %91
+  %88 = getelementptr inbounds nuw i8, ptr %61, i64 24
+  %89 = load atomic i64, ptr %88 seq_cst, align 8
+  %90 = load i64, ptr %60, align 8, !tbaa !389
+  %.not24 = icmp eq i64 %89, %90
   br i1 %.not24, label %96, label %92
 
-92:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
+  %91 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  br i1 %91, label %96, label %92
+
+92:                                               ; preds = %83, %85, %87, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %93 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
   %94 = load i16, ptr %93, align 2, !tbaa !291
   %95 = trunc i16 %94 to i8
   br label %96
 
-96:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit, %92
-  %97 = phi i8 [ %95, %92 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %65 ], [ poison, %83 ], [ poison, %85 ], [ poison, %87 ]
+96:                                               ; preds = %83, %85, %87, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit, %92
+  %97 = phi i8 [ %95, %92 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %65 ], [ poison, %87 ], [ poison, %85 ], [ poison, %83 ]
   %98 = load ptr, ptr %1, align 8, !tbaa !407
   %99 = load ptr, ptr %98, align 8, !tbaa !217
   %100 = load i32, ptr %37, align 8, !tbaa !223
@@ -11465,39 +11465,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %80 = load ptr, ptr %61, align 8, !tbaa !35
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 40
   %82 = load i32, ptr %81, align 8, !tbaa !53
-  switch i32 %82, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %83
-    i32 28, label %85
-    i32 38, label %87
+  switch i32 %82, label %87 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %83
+    i32 38, label %85
   ]
 
 83:                                               ; preds = %79
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  %84 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
   br i1 %84, label %96, label %92
 
 85:                                               ; preds = %79
-  %86 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  %86 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
   br i1 %86, label %96, label %92
 
 87:                                               ; preds = %79
-  %88 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
-  br i1 %88, label %96, label %92
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
-  %89 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  %90 = load atomic i64, ptr %89 seq_cst, align 8
-  %91 = load i64, ptr %60, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %90, %91
+  %88 = getelementptr inbounds nuw i8, ptr %61, i64 24
+  %89 = load atomic i64, ptr %88 seq_cst, align 8
+  %90 = load i64, ptr %60, align 8, !tbaa !389
+  %.not24 = icmp eq i64 %89, %90
   br i1 %.not24, label %96, label %92
 
-92:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
+  %91 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  br i1 %91, label %96, label %92
+
+92:                                               ; preds = %83, %85, %87, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %93 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
   %94 = load i16, ptr %93, align 2, !tbaa !291
   %95 = trunc i16 %94 to i8
   br label %96
 
-96:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit, %92
-  %97 = phi i8 [ %95, %92 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %65 ], [ poison, %83 ], [ poison, %85 ], [ poison, %87 ]
+96:                                               ; preds = %83, %85, %87, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit, %92
+  %97 = phi i8 [ %95, %92 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %65 ], [ poison, %87 ], [ poison, %85 ], [ poison, %83 ]
   %98 = load ptr, ptr %1, align 8, !tbaa !407
   %99 = load ptr, ptr %98, align 8, !tbaa !217
   %100 = load i32, ptr %37, align 8, !tbaa !223
@@ -11659,39 +11659,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %80 = load ptr, ptr %61, align 8, !tbaa !35
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 40
   %82 = load i32, ptr %81, align 8, !tbaa !53
-  switch i32 %82, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %83
-    i32 28, label %85
-    i32 38, label %87
+  switch i32 %82, label %87 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %83
+    i32 38, label %85
   ]
 
 83:                                               ; preds = %79
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  %84 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
   br i1 %84, label %96, label %92
 
 85:                                               ; preds = %79
-  %86 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  %86 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
   br i1 %86, label %96, label %92
 
 87:                                               ; preds = %79
-  %88 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
-  br i1 %88, label %96, label %92
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
-  %89 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  %90 = load atomic i64, ptr %89 seq_cst, align 8
-  %91 = load i64, ptr %60, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %90, %91
+  %88 = getelementptr inbounds nuw i8, ptr %61, i64 24
+  %89 = load atomic i64, ptr %88 seq_cst, align 8
+  %90 = load i64, ptr %60, align 8, !tbaa !389
+  %.not24 = icmp eq i64 %89, %90
   br i1 %.not24, label %96, label %92
 
-92:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
+  %91 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  br i1 %91, label %96, label %92
+
+92:                                               ; preds = %83, %85, %87, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %93 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
   %94 = load i32, ptr %93, align 4, !tbaa !133
   %95 = trunc i32 %94 to i8
   br label %96
 
-96:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit, %92
-  %97 = phi i8 [ %95, %92 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %65 ], [ poison, %83 ], [ poison, %85 ], [ poison, %87 ]
+96:                                               ; preds = %83, %85, %87, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit, %92
+  %97 = phi i8 [ %95, %92 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %65 ], [ poison, %87 ], [ poison, %85 ], [ poison, %83 ]
   %98 = load ptr, ptr %1, align 8, !tbaa !407
   %99 = load ptr, ptr %98, align 8, !tbaa !217
   %100 = load i32, ptr %37, align 8, !tbaa !223
@@ -11853,39 +11853,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %80 = load ptr, ptr %61, align 8, !tbaa !35
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 40
   %82 = load i32, ptr %81, align 8, !tbaa !53
-  switch i32 %82, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %83
-    i32 28, label %85
-    i32 38, label %87
+  switch i32 %82, label %87 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %83
+    i32 38, label %85
   ]
 
 83:                                               ; preds = %79
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  %84 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
   br i1 %84, label %96, label %92
 
 85:                                               ; preds = %79
-  %86 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  %86 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
   br i1 %86, label %96, label %92
 
 87:                                               ; preds = %79
-  %88 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
-  br i1 %88, label %96, label %92
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
-  %89 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  %90 = load atomic i64, ptr %89 seq_cst, align 8
-  %91 = load i64, ptr %60, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %90, %91
+  %88 = getelementptr inbounds nuw i8, ptr %61, i64 24
+  %89 = load atomic i64, ptr %88 seq_cst, align 8
+  %90 = load i64, ptr %60, align 8, !tbaa !389
+  %.not24 = icmp eq i64 %89, %90
   br i1 %.not24, label %96, label %92
 
-92:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
+  %91 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  br i1 %91, label %96, label %92
+
+92:                                               ; preds = %83, %85, %87, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %93 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
   %94 = load i32, ptr %93, align 4, !tbaa !133
   %95 = trunc i32 %94 to i8
   br label %96
 
-96:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit, %92
-  %97 = phi i8 [ %95, %92 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %65 ], [ poison, %83 ], [ poison, %85 ], [ poison, %87 ]
+96:                                               ; preds = %83, %85, %87, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit, %92
+  %97 = phi i8 [ %95, %92 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %65 ], [ poison, %87 ], [ poison, %85 ], [ poison, %83 ]
   %98 = load ptr, ptr %1, align 8, !tbaa !407
   %99 = load ptr, ptr %98, align 8, !tbaa !217
   %100 = load i32, ptr %37, align 8, !tbaa !223
@@ -12047,39 +12047,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %80 = load ptr, ptr %61, align 8, !tbaa !35
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 40
   %82 = load i32, ptr %81, align 8, !tbaa !53
-  switch i32 %82, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %83
-    i32 28, label %85
-    i32 38, label %87
+  switch i32 %82, label %87 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %83
+    i32 38, label %85
   ]
 
 83:                                               ; preds = %79
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  %84 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
   br i1 %84, label %96, label %92
 
 85:                                               ; preds = %79
-  %86 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  %86 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
   br i1 %86, label %96, label %92
 
 87:                                               ; preds = %79
-  %88 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
-  br i1 %88, label %96, label %92
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
-  %89 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  %90 = load atomic i64, ptr %89 seq_cst, align 8
-  %91 = load i64, ptr %60, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %90, %91
+  %88 = getelementptr inbounds nuw i8, ptr %61, i64 24
+  %89 = load atomic i64, ptr %88 seq_cst, align 8
+  %90 = load i64, ptr %60, align 8, !tbaa !389
+  %.not24 = icmp eq i64 %89, %90
   br i1 %.not24, label %96, label %92
 
-92:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
+  %91 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  br i1 %91, label %96, label %92
+
+92:                                               ; preds = %83, %85, %87, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %93 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
   %94 = load i64, ptr %93, align 8, !tbaa !12
   %95 = trunc i64 %94 to i8
   br label %96
 
-96:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit, %92
-  %97 = phi i8 [ %95, %92 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %65 ], [ poison, %83 ], [ poison, %85 ], [ poison, %87 ]
+96:                                               ; preds = %83, %85, %87, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit, %92
+  %97 = phi i8 [ %95, %92 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %65 ], [ poison, %87 ], [ poison, %85 ], [ poison, %83 ]
   %98 = load ptr, ptr %1, align 8, !tbaa !407
   %99 = load ptr, ptr %98, align 8, !tbaa !217
   %100 = load i32, ptr %37, align 8, !tbaa !223
@@ -12241,39 +12241,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %80 = load ptr, ptr %61, align 8, !tbaa !35
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 40
   %82 = load i32, ptr %81, align 8, !tbaa !53
-  switch i32 %82, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %83
-    i32 28, label %85
-    i32 38, label %87
+  switch i32 %82, label %87 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %83
+    i32 38, label %85
   ]
 
 83:                                               ; preds = %79
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  %84 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
   br i1 %84, label %96, label %92
 
 85:                                               ; preds = %79
-  %86 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  %86 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
   br i1 %86, label %96, label %92
 
 87:                                               ; preds = %79
-  %88 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
-  br i1 %88, label %96, label %92
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
-  %89 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  %90 = load atomic i64, ptr %89 seq_cst, align 8
-  %91 = load i64, ptr %60, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %90, %91
+  %88 = getelementptr inbounds nuw i8, ptr %61, i64 24
+  %89 = load atomic i64, ptr %88 seq_cst, align 8
+  %90 = load i64, ptr %60, align 8, !tbaa !389
+  %.not24 = icmp eq i64 %89, %90
   br i1 %.not24, label %96, label %92
 
-92:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
+  %91 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  br i1 %91, label %96, label %92
+
+92:                                               ; preds = %83, %85, %87, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %93 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
   %94 = load i64, ptr %93, align 8, !tbaa !12
   %95 = trunc i64 %94 to i8
   br label %96
 
-96:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit, %92
-  %97 = phi i8 [ %95, %92 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %65 ], [ poison, %83 ], [ poison, %85 ], [ poison, %87 ]
+96:                                               ; preds = %83, %85, %87, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit, %92
+  %97 = phi i8 [ %95, %92 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %65 ], [ poison, %87 ], [ poison, %85 ], [ poison, %83 ]
   %98 = load ptr, ptr %1, align 8, !tbaa !407
   %99 = load ptr, ptr %98, align 8, !tbaa !217
   %100 = load i32, ptr %37, align 8, !tbaa !223
@@ -12435,39 +12435,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %80 = load ptr, ptr %61, align 8, !tbaa !35
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 40
   %82 = load i32, ptr %81, align 8, !tbaa !53
-  switch i32 %82, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %83
-    i32 28, label %85
-    i32 38, label %87
+  switch i32 %82, label %87 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %83
+    i32 38, label %85
   ]
 
 83:                                               ; preds = %79
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  %84 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
   br i1 %84, label %96, label %92
 
 85:                                               ; preds = %79
-  %86 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  %86 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
   br i1 %86, label %96, label %92
 
 87:                                               ; preds = %79
-  %88 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
-  br i1 %88, label %96, label %92
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
-  %89 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  %90 = load atomic i64, ptr %89 seq_cst, align 8
-  %91 = load i64, ptr %60, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %90, %91
+  %88 = getelementptr inbounds nuw i8, ptr %61, i64 24
+  %89 = load atomic i64, ptr %88 seq_cst, align 8
+  %90 = load i64, ptr %60, align 8, !tbaa !389
+  %.not24 = icmp eq i64 %89, %90
   br i1 %.not24, label %96, label %92
 
-92:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
+  %91 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  br i1 %91, label %96, label %92
+
+92:                                               ; preds = %83, %85, %87, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %93 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
   %94 = load i16, ptr %93, align 2, !tbaa !291
   %95 = trunc i16 %94 to i8
   br label %96
 
-96:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit, %92
-  %97 = phi i8 [ %95, %92 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %65 ], [ poison, %83 ], [ poison, %85 ], [ poison, %87 ]
+96:                                               ; preds = %83, %85, %87, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit, %92
+  %97 = phi i8 [ %95, %92 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %65 ], [ poison, %87 ], [ poison, %85 ], [ poison, %83 ]
   %98 = load ptr, ptr %1, align 8, !tbaa !407
   %99 = load ptr, ptr %98, align 8, !tbaa !217
   %100 = load i32, ptr %37, align 8, !tbaa !223
@@ -12629,39 +12629,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %80 = load ptr, ptr %61, align 8, !tbaa !35
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 40
   %82 = load i32, ptr %81, align 8, !tbaa !53
-  switch i32 %82, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %83
-    i32 28, label %85
-    i32 38, label %87
+  switch i32 %82, label %87 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %83
+    i32 38, label %85
   ]
 
 83:                                               ; preds = %79
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  %84 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
   br i1 %84, label %96, label %92
 
 85:                                               ; preds = %79
-  %86 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  %86 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
   br i1 %86, label %96, label %92
 
 87:                                               ; preds = %79
-  %88 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
-  br i1 %88, label %96, label %92
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
-  %89 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  %90 = load atomic i64, ptr %89 seq_cst, align 8
-  %91 = load i64, ptr %60, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %90, %91
+  %88 = getelementptr inbounds nuw i8, ptr %61, i64 24
+  %89 = load atomic i64, ptr %88 seq_cst, align 8
+  %90 = load i64, ptr %60, align 8, !tbaa !389
+  %.not24 = icmp eq i64 %89, %90
   br i1 %.not24, label %96, label %92
 
-92:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
+  %91 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  br i1 %91, label %96, label %92
+
+92:                                               ; preds = %83, %85, %87, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %93 = getelementptr inbounds nuw float, ptr %16, i64 %.015
   %94 = load float, ptr %93, align 4, !tbaa !321
   %95 = fptoui float %94 to i8
   br label %96
 
-96:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit, %92
-  %97 = phi i8 [ %95, %92 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %65 ], [ poison, %83 ], [ poison, %85 ], [ poison, %87 ]
+96:                                               ; preds = %83, %85, %87, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit, %92
+  %97 = phi i8 [ %95, %92 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %65 ], [ poison, %87 ], [ poison, %85 ], [ poison, %83 ]
   %98 = load ptr, ptr %1, align 8, !tbaa !407
   %99 = load ptr, ptr %98, align 8, !tbaa !217
   %100 = load i32, ptr %37, align 8, !tbaa !223
@@ -12823,39 +12823,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %80 = load ptr, ptr %61, align 8, !tbaa !35
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 40
   %82 = load i32, ptr %81, align 8, !tbaa !53
-  switch i32 %82, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %83
-    i32 28, label %85
-    i32 38, label %87
+  switch i32 %82, label %87 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %83
+    i32 38, label %85
   ]
 
 83:                                               ; preds = %79
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  %84 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
   br i1 %84, label %96, label %92
 
 85:                                               ; preds = %79
-  %86 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  %86 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
   br i1 %86, label %96, label %92
 
 87:                                               ; preds = %79
-  %88 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
-  br i1 %88, label %96, label %92
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
-  %89 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  %90 = load atomic i64, ptr %89 seq_cst, align 8
-  %91 = load i64, ptr %60, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %90, %91
+  %88 = getelementptr inbounds nuw i8, ptr %61, i64 24
+  %89 = load atomic i64, ptr %88 seq_cst, align 8
+  %90 = load i64, ptr %60, align 8, !tbaa !389
+  %.not24 = icmp eq i64 %89, %90
   br i1 %.not24, label %96, label %92
 
-92:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
+  %91 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  br i1 %91, label %96, label %92
+
+92:                                               ; preds = %83, %85, %87, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %93 = getelementptr inbounds nuw double, ptr %16, i64 %.015
   %94 = load double, ptr %93, align 8, !tbaa !327
   %95 = fptoui double %94 to i8
   br label %96
 
-96:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit, %92
-  %97 = phi i8 [ %95, %92 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %65 ], [ poison, %83 ], [ poison, %85 ], [ poison, %87 ]
+96:                                               ; preds = %83, %85, %87, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit, %92
+  %97 = phi i8 [ %95, %92 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %65 ], [ poison, %87 ], [ poison, %85 ], [ poison, %83 ]
   %98 = load ptr, ptr %1, align 8, !tbaa !407
   %99 = load ptr, ptr %98, align 8, !tbaa !217
   %100 = load i32, ptr %37, align 8, !tbaa !223
@@ -13157,38 +13157,38 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %67 = load ptr, ptr %48, align 8, !tbaa !35
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 40
   %69 = load i32, ptr %68, align 8, !tbaa !53
-  switch i32 %69, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %70
-    i32 28, label %72
-    i32 38, label %74
+  switch i32 %69, label %74 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %70
+    i32 38, label %72
   ]
 
 70:                                               ; preds = %66
-  %71 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.017)
+  %71 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.017)
   br i1 %71, label %82, label %79
 
 72:                                               ; preds = %66
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.017)
   br i1 %73, label %82, label %79
 
 74:                                               ; preds = %66
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.017)
-  br i1 %75, label %82, label %79
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
-  %76 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %77 = load atomic i64, ptr %76 seq_cst, align 8
-  %78 = load i64, ptr %47, align 8, !tbaa !389
-  %.not28 = icmp eq i64 %77, %78
+  %75 = getelementptr inbounds nuw i8, ptr %48, i64 24
+  %76 = load atomic i64, ptr %75 seq_cst, align 8
+  %77 = load i64, ptr %47, align 8, !tbaa !389
+  %.not28 = icmp eq i64 %76, %77
   br i1 %.not28, label %82, label %79
 
-79:                                               ; preds = %74, %72, %70, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.017)
+  br i1 %78, label %82, label %79
+
+79:                                               ; preds = %70, %72, %74, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %80 = getelementptr inbounds nuw i8, ptr %19, i64 %.017
   %81 = load i8, ptr %80, align 1, !tbaa !92
   br label %82
 
-82:                                               ; preds = %74, %72, %70, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit, %79
-  %83 = phi i8 [ %81, %79 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %52 ], [ poison, %70 ], [ poison, %72 ], [ poison, %74 ]
+82:                                               ; preds = %70, %72, %74, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit, %79
+  %83 = phi i8 [ %81, %79 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %52 ], [ poison, %74 ], [ poison, %72 ], [ poison, %70 ]
   %84 = load ptr, ptr %1, align 8, !tbaa !470
   %85 = load ptr, ptr %84, align 8, !tbaa !217
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 1
@@ -13323,38 +13323,38 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %66 = load ptr, ptr %47, align 8, !tbaa !35
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 40
   %68 = load i32, ptr %67, align 8, !tbaa !53
-  switch i32 %68, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %69
-    i32 28, label %71
-    i32 38, label %73
+  switch i32 %68, label %73 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %69
+    i32 38, label %71
   ]
 
 69:                                               ; preds = %65
-  %70 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %47, i64 noundef %.08)
+  %70 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %47, i64 noundef %.08)
   br i1 %70, label %81, label %78
 
 71:                                               ; preds = %65
-  %72 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %47, i64 noundef %.08)
+  %72 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %47, i64 noundef %.08)
   br i1 %72, label %81, label %78
 
 73:                                               ; preds = %65
-  %74 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %47, i64 noundef %.08)
-  br i1 %74, label %81, label %78
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %65
-  %75 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  %76 = load atomic i64, ptr %75 seq_cst, align 8
-  %77 = load i64, ptr %46, align 8, !tbaa !389
-  %.not13 = icmp eq i64 %76, %77
+  %74 = getelementptr inbounds nuw i8, ptr %47, i64 24
+  %75 = load atomic i64, ptr %74 seq_cst, align 8
+  %76 = load i64, ptr %46, align 8, !tbaa !389
+  %.not13 = icmp eq i64 %75, %76
   br i1 %.not13, label %81, label %78
 
-78:                                               ; preds = %73, %71, %69, %51, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %65
+  %77 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %47, i64 noundef %.08)
+  br i1 %77, label %81, label %78
+
+78:                                               ; preds = %69, %71, %73, %51, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %79 = getelementptr inbounds nuw i8, ptr %19, i64 %.08
   %80 = load i8, ptr %79, align 1, !tbaa !92
   br label %81
 
-81:                                               ; preds = %73, %71, %69, %51, %_ZNK5arrow9ArrayData6IsNullEl.exit, %78
-  %82 = phi i8 [ %80, %78 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %51 ], [ poison, %69 ], [ poison, %71 ], [ poison, %73 ]
+81:                                               ; preds = %69, %71, %73, %51, %_ZNK5arrow9ArrayData6IsNullEl.exit, %78
+  %82 = phi i8 [ %80, %78 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %51 ], [ poison, %73 ], [ poison, %71 ], [ poison, %69 ]
   %83 = load ptr, ptr %1, align 8, !tbaa !470
   %84 = load ptr, ptr %83, align 8, !tbaa !217
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 1
@@ -13498,39 +13498,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %68 = load ptr, ptr %49, align 8, !tbaa !35
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %70 = load i32, ptr %69, align 8, !tbaa !53
-  switch i32 %70, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %71
-    i32 28, label %73
-    i32 38, label %75
+  switch i32 %70, label %75 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %71
+    i32 38, label %73
   ]
 
 71:                                               ; preds = %67
-  %72 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %72 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %72, label %84, label %80
 
 73:                                               ; preds = %67
-  %74 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %74 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %74, label %84, label %80
 
 75:                                               ; preds = %67
-  %76 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
-  br i1 %76, label %84, label %80
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
-  %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %78 = load atomic i64, ptr %77 seq_cst, align 8
-  %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not28 = icmp eq i64 %78, %79
+  %76 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %77 = load atomic i64, ptr %76 seq_cst, align 8
+  %78 = load i64, ptr %48, align 8, !tbaa !389
+  %.not28 = icmp eq i64 %77, %78
   br i1 %.not28, label %84, label %80
 
-80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
+  %79 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  br i1 %79, label %84, label %80
+
+80:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
   %82 = load i16, ptr %81, align 2, !tbaa !291
   %83 = trunc i16 %82 to i8
   br label %84
 
-84:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
-  %85 = phi i8 [ %83, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %71 ], [ poison, %73 ], [ poison, %75 ]
+84:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
+  %85 = phi i8 [ %83, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %75 ], [ poison, %73 ], [ poison, %71 ]
   %86 = load ptr, ptr %1, align 8, !tbaa !470
   %87 = load ptr, ptr %86, align 8, !tbaa !217
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 1
@@ -13674,39 +13674,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %68 = load ptr, ptr %49, align 8, !tbaa !35
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %70 = load i32, ptr %69, align 8, !tbaa !53
-  switch i32 %70, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %71
-    i32 28, label %73
-    i32 38, label %75
+  switch i32 %70, label %75 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %71
+    i32 38, label %73
   ]
 
 71:                                               ; preds = %67
-  %72 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %72 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %72, label %84, label %80
 
 73:                                               ; preds = %67
-  %74 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %74 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %74, label %84, label %80
 
 75:                                               ; preds = %67
-  %76 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
-  br i1 %76, label %84, label %80
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
-  %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %78 = load atomic i64, ptr %77 seq_cst, align 8
-  %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not28 = icmp eq i64 %78, %79
+  %76 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %77 = load atomic i64, ptr %76 seq_cst, align 8
+  %78 = load i64, ptr %48, align 8, !tbaa !389
+  %.not28 = icmp eq i64 %77, %78
   br i1 %.not28, label %84, label %80
 
-80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
+  %79 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  br i1 %79, label %84, label %80
+
+80:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
   %82 = load i16, ptr %81, align 2, !tbaa !291
   %83 = trunc i16 %82 to i8
   br label %84
 
-84:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
-  %85 = phi i8 [ %83, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %71 ], [ poison, %73 ], [ poison, %75 ]
+84:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
+  %85 = phi i8 [ %83, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %75 ], [ poison, %73 ], [ poison, %71 ]
   %86 = load ptr, ptr %1, align 8, !tbaa !470
   %87 = load ptr, ptr %86, align 8, !tbaa !217
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 1
@@ -13850,39 +13850,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %68 = load ptr, ptr %49, align 8, !tbaa !35
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %70 = load i32, ptr %69, align 8, !tbaa !53
-  switch i32 %70, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %71
-    i32 28, label %73
-    i32 38, label %75
+  switch i32 %70, label %75 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %71
+    i32 38, label %73
   ]
 
 71:                                               ; preds = %67
-  %72 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %72 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %72, label %84, label %80
 
 73:                                               ; preds = %67
-  %74 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %74 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %74, label %84, label %80
 
 75:                                               ; preds = %67
-  %76 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
-  br i1 %76, label %84, label %80
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
-  %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %78 = load atomic i64, ptr %77 seq_cst, align 8
-  %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not28 = icmp eq i64 %78, %79
+  %76 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %77 = load atomic i64, ptr %76 seq_cst, align 8
+  %78 = load i64, ptr %48, align 8, !tbaa !389
+  %.not28 = icmp eq i64 %77, %78
   br i1 %.not28, label %84, label %80
 
-80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
+  %79 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  br i1 %79, label %84, label %80
+
+80:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
   %82 = load i32, ptr %81, align 4, !tbaa !133
   %83 = trunc i32 %82 to i8
   br label %84
 
-84:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
-  %85 = phi i8 [ %83, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %71 ], [ poison, %73 ], [ poison, %75 ]
+84:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
+  %85 = phi i8 [ %83, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %75 ], [ poison, %73 ], [ poison, %71 ]
   %86 = load ptr, ptr %1, align 8, !tbaa !470
   %87 = load ptr, ptr %86, align 8, !tbaa !217
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 1
@@ -14026,39 +14026,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %68 = load ptr, ptr %49, align 8, !tbaa !35
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %70 = load i32, ptr %69, align 8, !tbaa !53
-  switch i32 %70, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %71
-    i32 28, label %73
-    i32 38, label %75
+  switch i32 %70, label %75 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %71
+    i32 38, label %73
   ]
 
 71:                                               ; preds = %67
-  %72 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %72 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %72, label %84, label %80
 
 73:                                               ; preds = %67
-  %74 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %74 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %74, label %84, label %80
 
 75:                                               ; preds = %67
-  %76 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
-  br i1 %76, label %84, label %80
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
-  %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %78 = load atomic i64, ptr %77 seq_cst, align 8
-  %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not28 = icmp eq i64 %78, %79
+  %76 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %77 = load atomic i64, ptr %76 seq_cst, align 8
+  %78 = load i64, ptr %48, align 8, !tbaa !389
+  %.not28 = icmp eq i64 %77, %78
   br i1 %.not28, label %84, label %80
 
-80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
+  %79 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  br i1 %79, label %84, label %80
+
+80:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
   %82 = load i32, ptr %81, align 4, !tbaa !133
   %83 = trunc i32 %82 to i8
   br label %84
 
-84:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
-  %85 = phi i8 [ %83, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %71 ], [ poison, %73 ], [ poison, %75 ]
+84:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
+  %85 = phi i8 [ %83, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %75 ], [ poison, %73 ], [ poison, %71 ]
   %86 = load ptr, ptr %1, align 8, !tbaa !470
   %87 = load ptr, ptr %86, align 8, !tbaa !217
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 1
@@ -14202,39 +14202,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %68 = load ptr, ptr %49, align 8, !tbaa !35
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %70 = load i32, ptr %69, align 8, !tbaa !53
-  switch i32 %70, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %71
-    i32 28, label %73
-    i32 38, label %75
+  switch i32 %70, label %75 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %71
+    i32 38, label %73
   ]
 
 71:                                               ; preds = %67
-  %72 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %72 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %72, label %84, label %80
 
 73:                                               ; preds = %67
-  %74 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %74 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %74, label %84, label %80
 
 75:                                               ; preds = %67
-  %76 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
-  br i1 %76, label %84, label %80
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
-  %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %78 = load atomic i64, ptr %77 seq_cst, align 8
-  %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not28 = icmp eq i64 %78, %79
+  %76 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %77 = load atomic i64, ptr %76 seq_cst, align 8
+  %78 = load i64, ptr %48, align 8, !tbaa !389
+  %.not28 = icmp eq i64 %77, %78
   br i1 %.not28, label %84, label %80
 
-80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
+  %79 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  br i1 %79, label %84, label %80
+
+80:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
   %82 = load i64, ptr %81, align 8, !tbaa !12
   %83 = trunc i64 %82 to i8
   br label %84
 
-84:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
-  %85 = phi i8 [ %83, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %71 ], [ poison, %73 ], [ poison, %75 ]
+84:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
+  %85 = phi i8 [ %83, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %75 ], [ poison, %73 ], [ poison, %71 ]
   %86 = load ptr, ptr %1, align 8, !tbaa !470
   %87 = load ptr, ptr %86, align 8, !tbaa !217
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 1
@@ -14378,39 +14378,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %68 = load ptr, ptr %49, align 8, !tbaa !35
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %70 = load i32, ptr %69, align 8, !tbaa !53
-  switch i32 %70, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %71
-    i32 28, label %73
-    i32 38, label %75
+  switch i32 %70, label %75 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %71
+    i32 38, label %73
   ]
 
 71:                                               ; preds = %67
-  %72 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %72 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %72, label %84, label %80
 
 73:                                               ; preds = %67
-  %74 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %74 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %74, label %84, label %80
 
 75:                                               ; preds = %67
-  %76 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
-  br i1 %76, label %84, label %80
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
-  %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %78 = load atomic i64, ptr %77 seq_cst, align 8
-  %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not28 = icmp eq i64 %78, %79
+  %76 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %77 = load atomic i64, ptr %76 seq_cst, align 8
+  %78 = load i64, ptr %48, align 8, !tbaa !389
+  %.not28 = icmp eq i64 %77, %78
   br i1 %.not28, label %84, label %80
 
-80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
+  %79 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  br i1 %79, label %84, label %80
+
+80:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
   %82 = load i64, ptr %81, align 8, !tbaa !12
   %83 = trunc i64 %82 to i8
   br label %84
 
-84:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
-  %85 = phi i8 [ %83, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %71 ], [ poison, %73 ], [ poison, %75 ]
+84:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
+  %85 = phi i8 [ %83, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %75 ], [ poison, %73 ], [ poison, %71 ]
   %86 = load ptr, ptr %1, align 8, !tbaa !470
   %87 = load ptr, ptr %86, align 8, !tbaa !217
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 1
@@ -14554,39 +14554,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %68 = load ptr, ptr %49, align 8, !tbaa !35
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %70 = load i32, ptr %69, align 8, !tbaa !53
-  switch i32 %70, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %71
-    i32 28, label %73
-    i32 38, label %75
+  switch i32 %70, label %75 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %71
+    i32 38, label %73
   ]
 
 71:                                               ; preds = %67
-  %72 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %72 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %72, label %84, label %80
 
 73:                                               ; preds = %67
-  %74 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %74 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %74, label %84, label %80
 
 75:                                               ; preds = %67
-  %76 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
-  br i1 %76, label %84, label %80
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
-  %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %78 = load atomic i64, ptr %77 seq_cst, align 8
-  %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not28 = icmp eq i64 %78, %79
+  %76 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %77 = load atomic i64, ptr %76 seq_cst, align 8
+  %78 = load i64, ptr %48, align 8, !tbaa !389
+  %.not28 = icmp eq i64 %77, %78
   br i1 %.not28, label %84, label %80
 
-80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
+  %79 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  br i1 %79, label %84, label %80
+
+80:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
   %82 = load i16, ptr %81, align 2, !tbaa !291
   %83 = trunc i16 %82 to i8
   br label %84
 
-84:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
-  %85 = phi i8 [ %83, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %71 ], [ poison, %73 ], [ poison, %75 ]
+84:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
+  %85 = phi i8 [ %83, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %75 ], [ poison, %73 ], [ poison, %71 ]
   %86 = load ptr, ptr %1, align 8, !tbaa !470
   %87 = load ptr, ptr %86, align 8, !tbaa !217
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 1
@@ -14730,39 +14730,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %68 = load ptr, ptr %49, align 8, !tbaa !35
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %70 = load i32, ptr %69, align 8, !tbaa !53
-  switch i32 %70, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %71
-    i32 28, label %73
-    i32 38, label %75
+  switch i32 %70, label %75 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %71
+    i32 38, label %73
   ]
 
 71:                                               ; preds = %67
-  %72 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %72 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %72, label %84, label %80
 
 73:                                               ; preds = %67
-  %74 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %74 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %74, label %84, label %80
 
 75:                                               ; preds = %67
-  %76 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
-  br i1 %76, label %84, label %80
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
-  %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %78 = load atomic i64, ptr %77 seq_cst, align 8
-  %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not28 = icmp eq i64 %78, %79
+  %76 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %77 = load atomic i64, ptr %76 seq_cst, align 8
+  %78 = load i64, ptr %48, align 8, !tbaa !389
+  %.not28 = icmp eq i64 %77, %78
   br i1 %.not28, label %84, label %80
 
-80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
+  %79 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  br i1 %79, label %84, label %80
+
+80:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw float, ptr %19, i64 %.017
   %82 = load float, ptr %81, align 4, !tbaa !321
   %83 = fptoui float %82 to i8
   br label %84
 
-84:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
-  %85 = phi i8 [ %83, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %71 ], [ poison, %73 ], [ poison, %75 ]
+84:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
+  %85 = phi i8 [ %83, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %75 ], [ poison, %73 ], [ poison, %71 ]
   %86 = load ptr, ptr %1, align 8, !tbaa !470
   %87 = load ptr, ptr %86, align 8, !tbaa !217
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 1
@@ -14906,39 +14906,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %68 = load ptr, ptr %49, align 8, !tbaa !35
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %70 = load i32, ptr %69, align 8, !tbaa !53
-  switch i32 %70, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %71
-    i32 28, label %73
-    i32 38, label %75
+  switch i32 %70, label %75 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %71
+    i32 38, label %73
   ]
 
 71:                                               ; preds = %67
-  %72 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %72 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %72, label %84, label %80
 
 73:                                               ; preds = %67
-  %74 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %74 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %74, label %84, label %80
 
 75:                                               ; preds = %67
-  %76 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
-  br i1 %76, label %84, label %80
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
-  %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %78 = load atomic i64, ptr %77 seq_cst, align 8
-  %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not28 = icmp eq i64 %78, %79
+  %76 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %77 = load atomic i64, ptr %76 seq_cst, align 8
+  %78 = load i64, ptr %48, align 8, !tbaa !389
+  %.not28 = icmp eq i64 %77, %78
   br i1 %.not28, label %84, label %80
 
-80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
+  %79 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  br i1 %79, label %84, label %80
+
+80:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw double, ptr %19, i64 %.017
   %82 = load double, ptr %81, align 8, !tbaa !327
   %83 = fptoui double %82 to i8
   br label %84
 
-84:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
-  %85 = phi i8 [ %83, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %71 ], [ poison, %73 ], [ poison, %75 ]
+84:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
+  %85 = phi i8 [ %83, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %75 ], [ poison, %73 ], [ poison, %71 ]
   %86 = load ptr, ptr %1, align 8, !tbaa !470
   %87 = load ptr, ptr %86, align 8, !tbaa !217
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 1
@@ -15572,39 +15572,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %74 = load ptr, ptr %55, align 8, !tbaa !35
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %76 = load i32, ptr %75, align 8, !tbaa !53
-  switch i32 %76, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %77
-    i32 28, label %79
-    i32 38, label %81
+  switch i32 %76, label %81 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %77
+    i32 38, label %79
   ]
 
 77:                                               ; preds = %73
-  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %78, label %90, label %86
 
 79:                                               ; preds = %73
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %80, label %90, label %86
 
 81:                                               ; preds = %73
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
-  br i1 %82, label %90, label %86
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
-  %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %84 = load atomic i64, ptr %83 seq_cst, align 8
-  %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %84, %85
+  %82 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %83 = load atomic i64, ptr %82 seq_cst, align 8
+  %84 = load i64, ptr %54, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %83, %84
   br i1 %.not25, label %90, label %86
 
-86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
+  %85 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  br i1 %85, label %90, label %86
+
+86:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i8, ptr %16, i64 %.015
   %88 = load i8, ptr %87, align 1, !tbaa !92
   %89 = sext i8 %88 to i16
   br label %90
 
-90:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
-  %91 = phi i16 [ %89, %86 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %59 ], [ poison, %77 ], [ poison, %79 ], [ poison, %81 ]
+90:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
+  %91 = phi i16 [ %89, %86 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %59 ], [ poison, %81 ], [ poison, %79 ], [ poison, %77 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !516
   %93 = load ptr, ptr %92, align 8, !tbaa !226
   %94 = load i32, ptr %37, align 8, !tbaa !230
@@ -15763,39 +15763,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %74 = load ptr, ptr %55, align 8, !tbaa !35
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %76 = load i32, ptr %75, align 8, !tbaa !53
-  switch i32 %76, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %77
-    i32 28, label %79
-    i32 38, label %81
+  switch i32 %76, label %81 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %77
+    i32 38, label %79
   ]
 
 77:                                               ; preds = %73
-  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %78, label %90, label %86
 
 79:                                               ; preds = %73
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %80, label %90, label %86
 
 81:                                               ; preds = %73
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
-  br i1 %82, label %90, label %86
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
-  %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %84 = load atomic i64, ptr %83 seq_cst, align 8
-  %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %84, %85
+  %82 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %83 = load atomic i64, ptr %82 seq_cst, align 8
+  %84 = load i64, ptr %54, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %83, %84
   br i1 %.not25, label %90, label %86
 
-86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
+  %85 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  br i1 %85, label %90, label %86
+
+86:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i8, ptr %16, i64 %.015
   %88 = load i8, ptr %87, align 1, !tbaa !92
   %89 = zext i8 %88 to i16
   br label %90
 
-90:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
-  %91 = phi i16 [ %89, %86 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %59 ], [ poison, %77 ], [ poison, %79 ], [ poison, %81 ]
+90:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
+  %91 = phi i16 [ %89, %86 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %59 ], [ poison, %81 ], [ poison, %79 ], [ poison, %77 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !516
   %93 = load ptr, ptr %92, align 8, !tbaa !226
   %94 = load i32, ptr %37, align 8, !tbaa !230
@@ -15953,38 +15953,38 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %73 = load ptr, ptr %54, align 8, !tbaa !35
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 40
   %75 = load i32, ptr %74, align 8, !tbaa !53
-  switch i32 %75, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %76
-    i32 28, label %78
-    i32 38, label %80
+  switch i32 %75, label %80 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %76
+    i32 38, label %78
   ]
 
 76:                                               ; preds = %72
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
+  %77 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
   br i1 %77, label %88, label %85
 
 78:                                               ; preds = %72
-  %79 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
+  %79 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
   br i1 %79, label %88, label %85
 
 80:                                               ; preds = %72
-  %81 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
-  br i1 %81, label %88, label %85
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
-  %82 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  %83 = load atomic i64, ptr %82 seq_cst, align 8
-  %84 = load i64, ptr %53, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %83, %84
+  %81 = getelementptr inbounds nuw i8, ptr %54, i64 24
+  %82 = load atomic i64, ptr %81 seq_cst, align 8
+  %83 = load i64, ptr %53, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %82, %83
   br i1 %.not25, label %88, label %85
 
-85:                                               ; preds = %80, %78, %76, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
+  %84 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
+  br i1 %84, label %88, label %85
+
+85:                                               ; preds = %76, %78, %80, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %86 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
   %87 = load i16, ptr %86, align 2, !tbaa !291
   br label %88
 
-88:                                               ; preds = %80, %78, %76, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit, %85
-  %89 = phi i16 [ %87, %85 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %58 ], [ poison, %76 ], [ poison, %78 ], [ poison, %80 ]
+88:                                               ; preds = %76, %78, %80, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit, %85
+  %89 = phi i16 [ %87, %85 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %58 ], [ poison, %80 ], [ poison, %78 ], [ poison, %76 ]
   %90 = load ptr, ptr %1, align 8, !tbaa !516
   %91 = load ptr, ptr %90, align 8, !tbaa !226
   %92 = load i32, ptr %37, align 8, !tbaa !230
@@ -16142,38 +16142,38 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %73 = load ptr, ptr %54, align 8, !tbaa !35
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 40
   %75 = load i32, ptr %74, align 8, !tbaa !53
-  switch i32 %75, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %76
-    i32 28, label %78
-    i32 38, label %80
+  switch i32 %75, label %80 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %76
+    i32 38, label %78
   ]
 
 76:                                               ; preds = %72
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
+  %77 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
   br i1 %77, label %88, label %85
 
 78:                                               ; preds = %72
-  %79 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
+  %79 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
   br i1 %79, label %88, label %85
 
 80:                                               ; preds = %72
-  %81 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
-  br i1 %81, label %88, label %85
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
-  %82 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  %83 = load atomic i64, ptr %82 seq_cst, align 8
-  %84 = load i64, ptr %53, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %83, %84
+  %81 = getelementptr inbounds nuw i8, ptr %54, i64 24
+  %82 = load atomic i64, ptr %81 seq_cst, align 8
+  %83 = load i64, ptr %53, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %82, %83
   br i1 %.not25, label %88, label %85
 
-85:                                               ; preds = %80, %78, %76, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
+  %84 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
+  br i1 %84, label %88, label %85
+
+85:                                               ; preds = %76, %78, %80, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %86 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
   %87 = load i16, ptr %86, align 2, !tbaa !291
   br label %88
 
-88:                                               ; preds = %80, %78, %76, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit, %85
-  %89 = phi i16 [ %87, %85 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %58 ], [ poison, %76 ], [ poison, %78 ], [ poison, %80 ]
+88:                                               ; preds = %76, %78, %80, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit, %85
+  %89 = phi i16 [ %87, %85 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %58 ], [ poison, %80 ], [ poison, %78 ], [ poison, %76 ]
   %90 = load ptr, ptr %1, align 8, !tbaa !516
   %91 = load ptr, ptr %90, align 8, !tbaa !226
   %92 = load i32, ptr %37, align 8, !tbaa !230
@@ -16332,39 +16332,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %74 = load ptr, ptr %55, align 8, !tbaa !35
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %76 = load i32, ptr %75, align 8, !tbaa !53
-  switch i32 %76, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %77
-    i32 28, label %79
-    i32 38, label %81
+  switch i32 %76, label %81 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %77
+    i32 38, label %79
   ]
 
 77:                                               ; preds = %73
-  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %78, label %90, label %86
 
 79:                                               ; preds = %73
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %80, label %90, label %86
 
 81:                                               ; preds = %73
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
-  br i1 %82, label %90, label %86
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
-  %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %84 = load atomic i64, ptr %83 seq_cst, align 8
-  %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %84, %85
+  %82 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %83 = load atomic i64, ptr %82 seq_cst, align 8
+  %84 = load i64, ptr %54, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %83, %84
   br i1 %.not25, label %90, label %86
 
-86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
+  %85 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  br i1 %85, label %90, label %86
+
+86:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
   %88 = load i32, ptr %87, align 4, !tbaa !133
   %89 = trunc i32 %88 to i16
   br label %90
 
-90:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
-  %91 = phi i16 [ %89, %86 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %59 ], [ poison, %77 ], [ poison, %79 ], [ poison, %81 ]
+90:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
+  %91 = phi i16 [ %89, %86 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %59 ], [ poison, %81 ], [ poison, %79 ], [ poison, %77 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !516
   %93 = load ptr, ptr %92, align 8, !tbaa !226
   %94 = load i32, ptr %37, align 8, !tbaa !230
@@ -16523,39 +16523,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %74 = load ptr, ptr %55, align 8, !tbaa !35
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %76 = load i32, ptr %75, align 8, !tbaa !53
-  switch i32 %76, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %77
-    i32 28, label %79
-    i32 38, label %81
+  switch i32 %76, label %81 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %77
+    i32 38, label %79
   ]
 
 77:                                               ; preds = %73
-  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %78, label %90, label %86
 
 79:                                               ; preds = %73
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %80, label %90, label %86
 
 81:                                               ; preds = %73
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
-  br i1 %82, label %90, label %86
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
-  %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %84 = load atomic i64, ptr %83 seq_cst, align 8
-  %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %84, %85
+  %82 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %83 = load atomic i64, ptr %82 seq_cst, align 8
+  %84 = load i64, ptr %54, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %83, %84
   br i1 %.not25, label %90, label %86
 
-86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
+  %85 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  br i1 %85, label %90, label %86
+
+86:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
   %88 = load i32, ptr %87, align 4, !tbaa !133
   %89 = trunc i32 %88 to i16
   br label %90
 
-90:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
-  %91 = phi i16 [ %89, %86 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %59 ], [ poison, %77 ], [ poison, %79 ], [ poison, %81 ]
+90:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
+  %91 = phi i16 [ %89, %86 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %59 ], [ poison, %81 ], [ poison, %79 ], [ poison, %77 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !516
   %93 = load ptr, ptr %92, align 8, !tbaa !226
   %94 = load i32, ptr %37, align 8, !tbaa !230
@@ -16714,39 +16714,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %74 = load ptr, ptr %55, align 8, !tbaa !35
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %76 = load i32, ptr %75, align 8, !tbaa !53
-  switch i32 %76, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %77
-    i32 28, label %79
-    i32 38, label %81
+  switch i32 %76, label %81 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %77
+    i32 38, label %79
   ]
 
 77:                                               ; preds = %73
-  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %78, label %90, label %86
 
 79:                                               ; preds = %73
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %80, label %90, label %86
 
 81:                                               ; preds = %73
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
-  br i1 %82, label %90, label %86
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
-  %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %84 = load atomic i64, ptr %83 seq_cst, align 8
-  %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %84, %85
+  %82 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %83 = load atomic i64, ptr %82 seq_cst, align 8
+  %84 = load i64, ptr %54, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %83, %84
   br i1 %.not25, label %90, label %86
 
-86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
+  %85 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  br i1 %85, label %90, label %86
+
+86:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
   %88 = load i64, ptr %87, align 8, !tbaa !12
   %89 = trunc i64 %88 to i16
   br label %90
 
-90:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
-  %91 = phi i16 [ %89, %86 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %59 ], [ poison, %77 ], [ poison, %79 ], [ poison, %81 ]
+90:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
+  %91 = phi i16 [ %89, %86 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %59 ], [ poison, %81 ], [ poison, %79 ], [ poison, %77 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !516
   %93 = load ptr, ptr %92, align 8, !tbaa !226
   %94 = load i32, ptr %37, align 8, !tbaa !230
@@ -16905,39 +16905,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %74 = load ptr, ptr %55, align 8, !tbaa !35
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %76 = load i32, ptr %75, align 8, !tbaa !53
-  switch i32 %76, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %77
-    i32 28, label %79
-    i32 38, label %81
+  switch i32 %76, label %81 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %77
+    i32 38, label %79
   ]
 
 77:                                               ; preds = %73
-  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %78, label %90, label %86
 
 79:                                               ; preds = %73
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %80, label %90, label %86
 
 81:                                               ; preds = %73
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
-  br i1 %82, label %90, label %86
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
-  %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %84 = load atomic i64, ptr %83 seq_cst, align 8
-  %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %84, %85
+  %82 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %83 = load atomic i64, ptr %82 seq_cst, align 8
+  %84 = load i64, ptr %54, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %83, %84
   br i1 %.not25, label %90, label %86
 
-86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
+  %85 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  br i1 %85, label %90, label %86
+
+86:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
   %88 = load i64, ptr %87, align 8, !tbaa !12
   %89 = trunc i64 %88 to i16
   br label %90
 
-90:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
-  %91 = phi i16 [ %89, %86 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %59 ], [ poison, %77 ], [ poison, %79 ], [ poison, %81 ]
+90:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
+  %91 = phi i16 [ %89, %86 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %59 ], [ poison, %81 ], [ poison, %79 ], [ poison, %77 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !516
   %93 = load ptr, ptr %92, align 8, !tbaa !226
   %94 = load i32, ptr %37, align 8, !tbaa !230
@@ -17095,38 +17095,38 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %73 = load ptr, ptr %54, align 8, !tbaa !35
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 40
   %75 = load i32, ptr %74, align 8, !tbaa !53
-  switch i32 %75, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %76
-    i32 28, label %78
-    i32 38, label %80
+  switch i32 %75, label %80 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %76
+    i32 38, label %78
   ]
 
 76:                                               ; preds = %72
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
+  %77 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
   br i1 %77, label %88, label %85
 
 78:                                               ; preds = %72
-  %79 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
+  %79 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
   br i1 %79, label %88, label %85
 
 80:                                               ; preds = %72
-  %81 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
-  br i1 %81, label %88, label %85
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
-  %82 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  %83 = load atomic i64, ptr %82 seq_cst, align 8
-  %84 = load i64, ptr %53, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %83, %84
+  %81 = getelementptr inbounds nuw i8, ptr %54, i64 24
+  %82 = load atomic i64, ptr %81 seq_cst, align 8
+  %83 = load i64, ptr %53, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %82, %83
   br i1 %.not25, label %88, label %85
 
-85:                                               ; preds = %80, %78, %76, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
+  %84 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
+  br i1 %84, label %88, label %85
+
+85:                                               ; preds = %76, %78, %80, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %86 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
   %87 = load i16, ptr %86, align 2, !tbaa !291
   br label %88
 
-88:                                               ; preds = %80, %78, %76, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit, %85
-  %89 = phi i16 [ %87, %85 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %58 ], [ poison, %76 ], [ poison, %78 ], [ poison, %80 ]
+88:                                               ; preds = %76, %78, %80, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit, %85
+  %89 = phi i16 [ %87, %85 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %58 ], [ poison, %80 ], [ poison, %78 ], [ poison, %76 ]
   %90 = load ptr, ptr %1, align 8, !tbaa !516
   %91 = load ptr, ptr %90, align 8, !tbaa !226
   %92 = load i32, ptr %37, align 8, !tbaa !230
@@ -17285,39 +17285,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %74 = load ptr, ptr %55, align 8, !tbaa !35
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %76 = load i32, ptr %75, align 8, !tbaa !53
-  switch i32 %76, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %77
-    i32 28, label %79
-    i32 38, label %81
+  switch i32 %76, label %81 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %77
+    i32 38, label %79
   ]
 
 77:                                               ; preds = %73
-  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %78, label %90, label %86
 
 79:                                               ; preds = %73
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %80, label %90, label %86
 
 81:                                               ; preds = %73
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
-  br i1 %82, label %90, label %86
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
-  %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %84 = load atomic i64, ptr %83 seq_cst, align 8
-  %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %84, %85
+  %82 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %83 = load atomic i64, ptr %82 seq_cst, align 8
+  %84 = load i64, ptr %54, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %83, %84
   br i1 %.not25, label %90, label %86
 
-86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
+  %85 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  br i1 %85, label %90, label %86
+
+86:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw float, ptr %16, i64 %.015
   %88 = load float, ptr %87, align 4, !tbaa !321
   %89 = fptoui float %88 to i16
   br label %90
 
-90:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
-  %91 = phi i16 [ %89, %86 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %59 ], [ poison, %77 ], [ poison, %79 ], [ poison, %81 ]
+90:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
+  %91 = phi i16 [ %89, %86 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %59 ], [ poison, %81 ], [ poison, %79 ], [ poison, %77 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !516
   %93 = load ptr, ptr %92, align 8, !tbaa !226
   %94 = load i32, ptr %37, align 8, !tbaa !230
@@ -17476,39 +17476,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %74 = load ptr, ptr %55, align 8, !tbaa !35
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %76 = load i32, ptr %75, align 8, !tbaa !53
-  switch i32 %76, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %77
-    i32 28, label %79
-    i32 38, label %81
+  switch i32 %76, label %81 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %77
+    i32 38, label %79
   ]
 
 77:                                               ; preds = %73
-  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %78, label %90, label %86
 
 79:                                               ; preds = %73
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %80, label %90, label %86
 
 81:                                               ; preds = %73
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
-  br i1 %82, label %90, label %86
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
-  %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %84 = load atomic i64, ptr %83 seq_cst, align 8
-  %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %84, %85
+  %82 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %83 = load atomic i64, ptr %82 seq_cst, align 8
+  %84 = load i64, ptr %54, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %83, %84
   br i1 %.not25, label %90, label %86
 
-86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
+  %85 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  br i1 %85, label %90, label %86
+
+86:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw double, ptr %16, i64 %.015
   %88 = load double, ptr %87, align 8, !tbaa !327
   %89 = fptoui double %88 to i16
   br label %90
 
-90:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
-  %91 = phi i16 [ %89, %86 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %59 ], [ poison, %77 ], [ poison, %79 ], [ poison, %81 ]
+90:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
+  %91 = phi i16 [ %89, %86 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %59 ], [ poison, %81 ], [ poison, %79 ], [ poison, %77 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !516
   %93 = load ptr, ptr %92, align 8, !tbaa !226
   %94 = load i32, ptr %37, align 8, !tbaa !230
@@ -17660,39 +17660,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not28 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not28 = icmp eq i64 %78, %79
   br i1 %.not28, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i8, ptr %19, i64 %.017
   %83 = load i8, ptr %82, align 1, !tbaa !92
   %84 = sext i8 %83 to i16
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i16 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i16 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !574
   %88 = load ptr, ptr %87, align 8, !tbaa !226
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 2
@@ -17839,39 +17839,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not28 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not28 = icmp eq i64 %78, %79
   br i1 %.not28, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i8, ptr %19, i64 %.017
   %83 = load i8, ptr %82, align 1, !tbaa !92
   %84 = zext i8 %83 to i16
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i16 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i16 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !574
   %88 = load ptr, ptr %87, align 8, !tbaa !226
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 2
@@ -18017,38 +18017,38 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %68 = load ptr, ptr %49, align 8, !tbaa !35
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %70 = load i32, ptr %69, align 8, !tbaa !53
-  switch i32 %70, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %71
-    i32 28, label %73
-    i32 38, label %75
+  switch i32 %70, label %75 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %71
+    i32 38, label %73
   ]
 
 71:                                               ; preds = %67
-  %72 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %72 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %72, label %83, label %80
 
 73:                                               ; preds = %67
-  %74 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %74 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %74, label %83, label %80
 
 75:                                               ; preds = %67
-  %76 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
-  br i1 %76, label %83, label %80
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
-  %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %78 = load atomic i64, ptr %77 seq_cst, align 8
-  %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %78, %79
+  %76 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %77 = load atomic i64, ptr %76 seq_cst, align 8
+  %78 = load i64, ptr %48, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %77, %78
   br i1 %.not26, label %83, label %80
 
-80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
+  %79 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  br i1 %79, label %83, label %80
+
+80:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
   %82 = load i16, ptr %81, align 2, !tbaa !291
   br label %83
 
-83:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
-  %84 = phi i16 [ %82, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %71 ], [ poison, %73 ], [ poison, %75 ]
+83:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
+  %84 = phi i16 [ %82, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %75 ], [ poison, %73 ], [ poison, %71 ]
   %85 = load ptr, ptr %1, align 8, !tbaa !574
   %86 = load ptr, ptr %85, align 8, !tbaa !226
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 2
@@ -18188,38 +18188,38 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %67 = load ptr, ptr %48, align 8, !tbaa !35
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 40
   %69 = load i32, ptr %68, align 8, !tbaa !53
-  switch i32 %69, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %70
-    i32 28, label %72
-    i32 38, label %74
+  switch i32 %69, label %74 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %70
+    i32 38, label %72
   ]
 
 70:                                               ; preds = %66
-  %71 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
+  %71 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
   br i1 %71, label %82, label %79
 
 72:                                               ; preds = %66
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
   br i1 %73, label %82, label %79
 
 74:                                               ; preds = %66
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
-  br i1 %75, label %82, label %79
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
-  %76 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %77 = load atomic i64, ptr %76 seq_cst, align 8
-  %78 = load i64, ptr %47, align 8, !tbaa !389
-  %.not13 = icmp eq i64 %77, %78
+  %75 = getelementptr inbounds nuw i8, ptr %48, i64 24
+  %76 = load atomic i64, ptr %75 seq_cst, align 8
+  %77 = load i64, ptr %47, align 8, !tbaa !389
+  %.not13 = icmp eq i64 %76, %77
   br i1 %.not13, label %82, label %79
 
-79:                                               ; preds = %74, %72, %70, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
+  br i1 %78, label %82, label %79
+
+79:                                               ; preds = %70, %72, %74, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %80 = getelementptr inbounds nuw i16, ptr %19, i64 %.08
   %81 = load i16, ptr %80, align 2, !tbaa !291
   br label %82
 
-82:                                               ; preds = %74, %72, %70, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit, %79
-  %83 = phi i16 [ %81, %79 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %52 ], [ poison, %70 ], [ poison, %72 ], [ poison, %74 ]
+82:                                               ; preds = %70, %72, %74, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit, %79
+  %83 = phi i16 [ %81, %79 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %52 ], [ poison, %74 ], [ poison, %72 ], [ poison, %70 ]
   %84 = load ptr, ptr %1, align 8, !tbaa !574
   %85 = load ptr, ptr %84, align 8, !tbaa !226
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 2
@@ -18366,39 +18366,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
   %83 = load i32, ptr %82, align 4, !tbaa !133
   %84 = trunc i32 %83 to i16
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i16 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i16 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !574
   %88 = load ptr, ptr %87, align 8, !tbaa !226
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 2
@@ -18549,39 +18549,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
   %83 = load i32, ptr %82, align 4, !tbaa !133
   %84 = trunc i32 %83 to i16
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i16 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i16 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !574
   %88 = load ptr, ptr %87, align 8, !tbaa !226
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 2
@@ -18732,39 +18732,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
   %83 = load i64, ptr %82, align 8, !tbaa !12
   %84 = trunc i64 %83 to i16
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i16 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i16 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !574
   %88 = load ptr, ptr %87, align 8, !tbaa !226
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 2
@@ -18915,39 +18915,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
   %83 = load i64, ptr %82, align 8, !tbaa !12
   %84 = trunc i64 %83 to i16
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i16 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i16 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !574
   %88 = load ptr, ptr %87, align 8, !tbaa !226
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 2
@@ -19087,38 +19087,38 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %67 = load ptr, ptr %48, align 8, !tbaa !35
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 40
   %69 = load i32, ptr %68, align 8, !tbaa !53
-  switch i32 %69, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %70
-    i32 28, label %72
-    i32 38, label %74
+  switch i32 %69, label %74 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %70
+    i32 38, label %72
   ]
 
 70:                                               ; preds = %66
-  %71 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
+  %71 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
   br i1 %71, label %82, label %79
 
 72:                                               ; preds = %66
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
   br i1 %73, label %82, label %79
 
 74:                                               ; preds = %66
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
-  br i1 %75, label %82, label %79
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
-  %76 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %77 = load atomic i64, ptr %76 seq_cst, align 8
-  %78 = load i64, ptr %47, align 8, !tbaa !389
-  %.not13 = icmp eq i64 %77, %78
+  %75 = getelementptr inbounds nuw i8, ptr %48, i64 24
+  %76 = load atomic i64, ptr %75 seq_cst, align 8
+  %77 = load i64, ptr %47, align 8, !tbaa !389
+  %.not13 = icmp eq i64 %76, %77
   br i1 %.not13, label %82, label %79
 
-79:                                               ; preds = %74, %72, %70, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
+  br i1 %78, label %82, label %79
+
+79:                                               ; preds = %70, %72, %74, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %80 = getelementptr inbounds nuw i16, ptr %19, i64 %.08
   %81 = load i16, ptr %80, align 2, !tbaa !291
   br label %82
 
-82:                                               ; preds = %74, %72, %70, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit, %79
-  %83 = phi i16 [ %81, %79 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %52 ], [ poison, %70 ], [ poison, %72 ], [ poison, %74 ]
+82:                                               ; preds = %70, %72, %74, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit, %79
+  %83 = phi i16 [ %81, %79 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %52 ], [ poison, %74 ], [ poison, %72 ], [ poison, %70 ]
   %84 = load ptr, ptr %1, align 8, !tbaa !574
   %85 = load ptr, ptr %84, align 8, !tbaa !226
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 2
@@ -19265,39 +19265,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw float, ptr %19, i64 %.017
   %83 = load float, ptr %82, align 4, !tbaa !321
   %84 = fptoui float %83 to i16
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i16 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i16 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !574
   %88 = load ptr, ptr %87, align 8, !tbaa !226
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 2
@@ -19448,39 +19448,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw double, ptr %19, i64 %.017
   %83 = load double, ptr %82, align 8, !tbaa !327
   %84 = fptoui double %83 to i16
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i16 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i16 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !574
   %88 = load ptr, ptr %87, align 8, !tbaa !226
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 2
@@ -20118,39 +20118,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %76 = load ptr, ptr %57, align 8, !tbaa !35
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %78 = load i32, ptr %77, align 8, !tbaa !53
-  switch i32 %78, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %79
-    i32 28, label %81
-    i32 38, label %83
+  switch i32 %78, label %83 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %79
+    i32 38, label %81
   ]
 
 79:                                               ; preds = %75
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %80, label %92, label %88
 
 81:                                               ; preds = %75
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %82, label %92, label %88
 
 83:                                               ; preds = %75
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
-  br i1 %84, label %92, label %88
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
-  %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %86 = load atomic i64, ptr %85 seq_cst, align 8
-  %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %86, %87
+  %84 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %85 = load atomic i64, ptr %84 seq_cst, align 8
+  %86 = load i64, ptr %56, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %85, %86
   br i1 %.not25, label %92, label %88
 
-88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
+  %87 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  br i1 %87, label %92, label %88
+
+88:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i8, ptr %16, i64 %.015
   %90 = load i8, ptr %89, align 1, !tbaa !92
   %91 = sext i8 %90 to i32
   br label %92
 
-92:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
-  %93 = phi i32 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %79 ], [ poison, %81 ], [ poison, %83 ]
+92:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
+  %93 = phi i32 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %83 ], [ poison, %81 ], [ poison, %79 ]
   %94 = load ptr, ptr %1, align 8, !tbaa !620
   %95 = load ptr, ptr %94, align 8, !tbaa !233
   %96 = load i32, ptr %37, align 8, !tbaa !237
@@ -20309,39 +20309,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %76 = load ptr, ptr %57, align 8, !tbaa !35
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %78 = load i32, ptr %77, align 8, !tbaa !53
-  switch i32 %78, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %79
-    i32 28, label %81
-    i32 38, label %83
+  switch i32 %78, label %83 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %79
+    i32 38, label %81
   ]
 
 79:                                               ; preds = %75
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %80, label %92, label %88
 
 81:                                               ; preds = %75
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %82, label %92, label %88
 
 83:                                               ; preds = %75
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
-  br i1 %84, label %92, label %88
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
-  %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %86 = load atomic i64, ptr %85 seq_cst, align 8
-  %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %86, %87
+  %84 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %85 = load atomic i64, ptr %84 seq_cst, align 8
+  %86 = load i64, ptr %56, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %85, %86
   br i1 %.not25, label %92, label %88
 
-88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
+  %87 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  br i1 %87, label %92, label %88
+
+88:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i8, ptr %16, i64 %.015
   %90 = load i8, ptr %89, align 1, !tbaa !92
   %91 = zext i8 %90 to i32
   br label %92
 
-92:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
-  %93 = phi i32 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %79 ], [ poison, %81 ], [ poison, %83 ]
+92:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
+  %93 = phi i32 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %83 ], [ poison, %81 ], [ poison, %79 ]
   %94 = load ptr, ptr %1, align 8, !tbaa !620
   %95 = load ptr, ptr %94, align 8, !tbaa !233
   %96 = load i32, ptr %37, align 8, !tbaa !237
@@ -20500,39 +20500,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %76 = load ptr, ptr %57, align 8, !tbaa !35
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %78 = load i32, ptr %77, align 8, !tbaa !53
-  switch i32 %78, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %79
-    i32 28, label %81
-    i32 38, label %83
+  switch i32 %78, label %83 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %79
+    i32 38, label %81
   ]
 
 79:                                               ; preds = %75
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %80, label %92, label %88
 
 81:                                               ; preds = %75
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %82, label %92, label %88
 
 83:                                               ; preds = %75
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
-  br i1 %84, label %92, label %88
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
-  %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %86 = load atomic i64, ptr %85 seq_cst, align 8
-  %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %86, %87
+  %84 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %85 = load atomic i64, ptr %84 seq_cst, align 8
+  %86 = load i64, ptr %56, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %85, %86
   br i1 %.not25, label %92, label %88
 
-88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
+  %87 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  br i1 %87, label %92, label %88
+
+88:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
   %90 = load i16, ptr %89, align 2, !tbaa !291
   %91 = sext i16 %90 to i32
   br label %92
 
-92:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
-  %93 = phi i32 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %79 ], [ poison, %81 ], [ poison, %83 ]
+92:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
+  %93 = phi i32 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %83 ], [ poison, %81 ], [ poison, %79 ]
   %94 = load ptr, ptr %1, align 8, !tbaa !620
   %95 = load ptr, ptr %94, align 8, !tbaa !233
   %96 = load i32, ptr %37, align 8, !tbaa !237
@@ -20691,39 +20691,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %76 = load ptr, ptr %57, align 8, !tbaa !35
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %78 = load i32, ptr %77, align 8, !tbaa !53
-  switch i32 %78, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %79
-    i32 28, label %81
-    i32 38, label %83
+  switch i32 %78, label %83 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %79
+    i32 38, label %81
   ]
 
 79:                                               ; preds = %75
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %80, label %92, label %88
 
 81:                                               ; preds = %75
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %82, label %92, label %88
 
 83:                                               ; preds = %75
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
-  br i1 %84, label %92, label %88
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
-  %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %86 = load atomic i64, ptr %85 seq_cst, align 8
-  %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %86, %87
+  %84 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %85 = load atomic i64, ptr %84 seq_cst, align 8
+  %86 = load i64, ptr %56, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %85, %86
   br i1 %.not25, label %92, label %88
 
-88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
+  %87 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  br i1 %87, label %92, label %88
+
+88:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
   %90 = load i16, ptr %89, align 2, !tbaa !291
   %91 = zext i16 %90 to i32
   br label %92
 
-92:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
-  %93 = phi i32 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %79 ], [ poison, %81 ], [ poison, %83 ]
+92:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
+  %93 = phi i32 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %83 ], [ poison, %81 ], [ poison, %79 ]
   %94 = load ptr, ptr %1, align 8, !tbaa !620
   %95 = load ptr, ptr %94, align 8, !tbaa !233
   %96 = load i32, ptr %37, align 8, !tbaa !237
@@ -20881,38 +20881,38 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %75 = load ptr, ptr %56, align 8, !tbaa !35
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 40
   %77 = load i32, ptr %76, align 8, !tbaa !53
-  switch i32 %77, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %78
-    i32 28, label %80
-    i32 38, label %82
+  switch i32 %77, label %82 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %78
+    i32 38, label %80
   ]
 
 78:                                               ; preds = %74
-  %79 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
+  %79 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
   br i1 %79, label %90, label %87
 
 80:                                               ; preds = %74
-  %81 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
+  %81 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
   br i1 %81, label %90, label %87
 
 82:                                               ; preds = %74
-  %83 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
-  br i1 %83, label %90, label %87
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
-  %84 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  %85 = load atomic i64, ptr %84 seq_cst, align 8
-  %86 = load i64, ptr %55, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %85, %86
+  %83 = getelementptr inbounds nuw i8, ptr %56, i64 24
+  %84 = load atomic i64, ptr %83 seq_cst, align 8
+  %85 = load i64, ptr %55, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %84, %85
   br i1 %.not25, label %90, label %87
 
-87:                                               ; preds = %82, %80, %78, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
+  %86 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
+  br i1 %86, label %90, label %87
+
+87:                                               ; preds = %78, %80, %82, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %88 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
   %89 = load i32, ptr %88, align 4, !tbaa !133
   br label %90
 
-90:                                               ; preds = %82, %80, %78, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit, %87
-  %91 = phi i32 [ %89, %87 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %60 ], [ poison, %78 ], [ poison, %80 ], [ poison, %82 ]
+90:                                               ; preds = %78, %80, %82, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit, %87
+  %91 = phi i32 [ %89, %87 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %60 ], [ poison, %82 ], [ poison, %80 ], [ poison, %78 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !620
   %93 = load ptr, ptr %92, align 8, !tbaa !233
   %94 = load i32, ptr %37, align 8, !tbaa !237
@@ -21070,38 +21070,38 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %75 = load ptr, ptr %56, align 8, !tbaa !35
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 40
   %77 = load i32, ptr %76, align 8, !tbaa !53
-  switch i32 %77, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %78
-    i32 28, label %80
-    i32 38, label %82
+  switch i32 %77, label %82 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %78
+    i32 38, label %80
   ]
 
 78:                                               ; preds = %74
-  %79 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
+  %79 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
   br i1 %79, label %90, label %87
 
 80:                                               ; preds = %74
-  %81 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
+  %81 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
   br i1 %81, label %90, label %87
 
 82:                                               ; preds = %74
-  %83 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
-  br i1 %83, label %90, label %87
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
-  %84 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  %85 = load atomic i64, ptr %84 seq_cst, align 8
-  %86 = load i64, ptr %55, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %85, %86
+  %83 = getelementptr inbounds nuw i8, ptr %56, i64 24
+  %84 = load atomic i64, ptr %83 seq_cst, align 8
+  %85 = load i64, ptr %55, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %84, %85
   br i1 %.not25, label %90, label %87
 
-87:                                               ; preds = %82, %80, %78, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
+  %86 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
+  br i1 %86, label %90, label %87
+
+87:                                               ; preds = %78, %80, %82, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %88 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
   %89 = load i32, ptr %88, align 4, !tbaa !133
   br label %90
 
-90:                                               ; preds = %82, %80, %78, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit, %87
-  %91 = phi i32 [ %89, %87 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %60 ], [ poison, %78 ], [ poison, %80 ], [ poison, %82 ]
+90:                                               ; preds = %78, %80, %82, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit, %87
+  %91 = phi i32 [ %89, %87 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %60 ], [ poison, %82 ], [ poison, %80 ], [ poison, %78 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !620
   %93 = load ptr, ptr %92, align 8, !tbaa !233
   %94 = load i32, ptr %37, align 8, !tbaa !237
@@ -21260,39 +21260,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %76 = load ptr, ptr %57, align 8, !tbaa !35
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %78 = load i32, ptr %77, align 8, !tbaa !53
-  switch i32 %78, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %79
-    i32 28, label %81
-    i32 38, label %83
+  switch i32 %78, label %83 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %79
+    i32 38, label %81
   ]
 
 79:                                               ; preds = %75
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %80, label %92, label %88
 
 81:                                               ; preds = %75
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %82, label %92, label %88
 
 83:                                               ; preds = %75
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
-  br i1 %84, label %92, label %88
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
-  %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %86 = load atomic i64, ptr %85 seq_cst, align 8
-  %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %86, %87
+  %84 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %85 = load atomic i64, ptr %84 seq_cst, align 8
+  %86 = load i64, ptr %56, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %85, %86
   br i1 %.not25, label %92, label %88
 
-88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
+  %87 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  br i1 %87, label %92, label %88
+
+88:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
   %90 = load i64, ptr %89, align 8, !tbaa !12
   %91 = trunc i64 %90 to i32
   br label %92
 
-92:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
-  %93 = phi i32 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %79 ], [ poison, %81 ], [ poison, %83 ]
+92:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
+  %93 = phi i32 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %83 ], [ poison, %81 ], [ poison, %79 ]
   %94 = load ptr, ptr %1, align 8, !tbaa !620
   %95 = load ptr, ptr %94, align 8, !tbaa !233
   %96 = load i32, ptr %37, align 8, !tbaa !237
@@ -21451,39 +21451,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %76 = load ptr, ptr %57, align 8, !tbaa !35
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %78 = load i32, ptr %77, align 8, !tbaa !53
-  switch i32 %78, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %79
-    i32 28, label %81
-    i32 38, label %83
+  switch i32 %78, label %83 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %79
+    i32 38, label %81
   ]
 
 79:                                               ; preds = %75
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %80, label %92, label %88
 
 81:                                               ; preds = %75
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %82, label %92, label %88
 
 83:                                               ; preds = %75
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
-  br i1 %84, label %92, label %88
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
-  %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %86 = load atomic i64, ptr %85 seq_cst, align 8
-  %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %86, %87
+  %84 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %85 = load atomic i64, ptr %84 seq_cst, align 8
+  %86 = load i64, ptr %56, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %85, %86
   br i1 %.not25, label %92, label %88
 
-88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
+  %87 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  br i1 %87, label %92, label %88
+
+88:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
   %90 = load i64, ptr %89, align 8, !tbaa !12
   %91 = trunc i64 %90 to i32
   br label %92
 
-92:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
-  %93 = phi i32 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %79 ], [ poison, %81 ], [ poison, %83 ]
+92:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
+  %93 = phi i32 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %83 ], [ poison, %81 ], [ poison, %79 ]
   %94 = load ptr, ptr %1, align 8, !tbaa !620
   %95 = load ptr, ptr %94, align 8, !tbaa !233
   %96 = load i32, ptr %37, align 8, !tbaa !237
@@ -21642,39 +21642,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %76 = load ptr, ptr %57, align 8, !tbaa !35
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %78 = load i32, ptr %77, align 8, !tbaa !53
-  switch i32 %78, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %79
-    i32 28, label %81
-    i32 38, label %83
+  switch i32 %78, label %83 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %79
+    i32 38, label %81
   ]
 
 79:                                               ; preds = %75
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %80, label %92, label %88
 
 81:                                               ; preds = %75
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %82, label %92, label %88
 
 83:                                               ; preds = %75
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
-  br i1 %84, label %92, label %88
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
-  %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %86 = load atomic i64, ptr %85 seq_cst, align 8
-  %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %86, %87
+  %84 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %85 = load atomic i64, ptr %84 seq_cst, align 8
+  %86 = load i64, ptr %56, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %85, %86
   br i1 %.not25, label %92, label %88
 
-88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
+  %87 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  br i1 %87, label %92, label %88
+
+88:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
   %90 = load i16, ptr %89, align 2, !tbaa !291
   %91 = zext i16 %90 to i32
   br label %92
 
-92:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
-  %93 = phi i32 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %79 ], [ poison, %81 ], [ poison, %83 ]
+92:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
+  %93 = phi i32 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %83 ], [ poison, %81 ], [ poison, %79 ]
   %94 = load ptr, ptr %1, align 8, !tbaa !620
   %95 = load ptr, ptr %94, align 8, !tbaa !233
   %96 = load i32, ptr %37, align 8, !tbaa !237
@@ -21833,39 +21833,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %76 = load ptr, ptr %57, align 8, !tbaa !35
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %78 = load i32, ptr %77, align 8, !tbaa !53
-  switch i32 %78, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %79
-    i32 28, label %81
-    i32 38, label %83
+  switch i32 %78, label %83 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %79
+    i32 38, label %81
   ]
 
 79:                                               ; preds = %75
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %80, label %92, label %88
 
 81:                                               ; preds = %75
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %82, label %92, label %88
 
 83:                                               ; preds = %75
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
-  br i1 %84, label %92, label %88
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
-  %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %86 = load atomic i64, ptr %85 seq_cst, align 8
-  %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %86, %87
+  %84 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %85 = load atomic i64, ptr %84 seq_cst, align 8
+  %86 = load i64, ptr %56, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %85, %86
   br i1 %.not25, label %92, label %88
 
-88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
+  %87 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  br i1 %87, label %92, label %88
+
+88:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw float, ptr %16, i64 %.015
   %90 = load float, ptr %89, align 4, !tbaa !321
   %91 = fptoui float %90 to i32
   br label %92
 
-92:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
-  %93 = phi i32 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %79 ], [ poison, %81 ], [ poison, %83 ]
+92:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
+  %93 = phi i32 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %83 ], [ poison, %81 ], [ poison, %79 ]
   %94 = load ptr, ptr %1, align 8, !tbaa !620
   %95 = load ptr, ptr %94, align 8, !tbaa !233
   %96 = load i32, ptr %37, align 8, !tbaa !237
@@ -22024,39 +22024,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %76 = load ptr, ptr %57, align 8, !tbaa !35
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %78 = load i32, ptr %77, align 8, !tbaa !53
-  switch i32 %78, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %79
-    i32 28, label %81
-    i32 38, label %83
+  switch i32 %78, label %83 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %79
+    i32 38, label %81
   ]
 
 79:                                               ; preds = %75
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %80, label %92, label %88
 
 81:                                               ; preds = %75
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %82, label %92, label %88
 
 83:                                               ; preds = %75
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
-  br i1 %84, label %92, label %88
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
-  %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %86 = load atomic i64, ptr %85 seq_cst, align 8
-  %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %86, %87
+  %84 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %85 = load atomic i64, ptr %84 seq_cst, align 8
+  %86 = load i64, ptr %56, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %85, %86
   br i1 %.not25, label %92, label %88
 
-88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
+  %87 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  br i1 %87, label %92, label %88
+
+88:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw double, ptr %16, i64 %.015
   %90 = load double, ptr %89, align 8, !tbaa !327
   %91 = fptoui double %90 to i32
   br label %92
 
-92:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
-  %93 = phi i32 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %79 ], [ poison, %81 ], [ poison, %83 ]
+92:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
+  %93 = phi i32 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %83 ], [ poison, %81 ], [ poison, %79 ]
   %94 = load ptr, ptr %1, align 8, !tbaa !620
   %95 = load ptr, ptr %94, align 8, !tbaa !233
   %96 = load i32, ptr %37, align 8, !tbaa !237
@@ -22208,39 +22208,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not28 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not28 = icmp eq i64 %78, %79
   br i1 %.not28, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i8, ptr %19, i64 %.017
   %83 = load i8, ptr %82, align 1, !tbaa !92
   %84 = sext i8 %83 to i32
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i32 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i32 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !678
   %88 = load ptr, ptr %87, align 8, !tbaa !233
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
@@ -22387,39 +22387,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not28 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not28 = icmp eq i64 %78, %79
   br i1 %.not28, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i8, ptr %19, i64 %.017
   %83 = load i8, ptr %82, align 1, !tbaa !92
   %84 = zext i8 %83 to i32
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i32 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i32 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !678
   %88 = load ptr, ptr %87, align 8, !tbaa !233
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
@@ -22566,39 +22566,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
   %83 = load i16, ptr %82, align 2, !tbaa !291
   %84 = sext i16 %83 to i32
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i32 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i32 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !678
   %88 = load ptr, ptr %87, align 8, !tbaa !233
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
@@ -22749,39 +22749,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
   %83 = load i16, ptr %82, align 2, !tbaa !291
   %84 = zext i16 %83 to i32
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i32 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i32 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !678
   %88 = load ptr, ptr %87, align 8, !tbaa !233
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
@@ -22931,38 +22931,38 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %68 = load ptr, ptr %49, align 8, !tbaa !35
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %70 = load i32, ptr %69, align 8, !tbaa !53
-  switch i32 %70, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %71
-    i32 28, label %73
-    i32 38, label %75
+  switch i32 %70, label %75 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %71
+    i32 38, label %73
   ]
 
 71:                                               ; preds = %67
-  %72 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %72 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %72, label %83, label %80
 
 73:                                               ; preds = %67
-  %74 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %74 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %74, label %83, label %80
 
 75:                                               ; preds = %67
-  %76 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
-  br i1 %76, label %83, label %80
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
-  %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %78 = load atomic i64, ptr %77 seq_cst, align 8
-  %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %78, %79
+  %76 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %77 = load atomic i64, ptr %76 seq_cst, align 8
+  %78 = load i64, ptr %48, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %77, %78
   br i1 %.not26, label %83, label %80
 
-80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
+  %79 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  br i1 %79, label %83, label %80
+
+80:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
   %82 = load i32, ptr %81, align 4, !tbaa !133
   br label %83
 
-83:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
-  %84 = phi i32 [ %82, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %71 ], [ poison, %73 ], [ poison, %75 ]
+83:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
+  %84 = phi i32 [ %82, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %75 ], [ poison, %73 ], [ poison, %71 ]
   %85 = load ptr, ptr %1, align 8, !tbaa !678
   %86 = load ptr, ptr %85, align 8, !tbaa !233
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 4
@@ -23102,38 +23102,38 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %67 = load ptr, ptr %48, align 8, !tbaa !35
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 40
   %69 = load i32, ptr %68, align 8, !tbaa !53
-  switch i32 %69, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %70
-    i32 28, label %72
-    i32 38, label %74
+  switch i32 %69, label %74 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %70
+    i32 38, label %72
   ]
 
 70:                                               ; preds = %66
-  %71 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
+  %71 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
   br i1 %71, label %82, label %79
 
 72:                                               ; preds = %66
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
   br i1 %73, label %82, label %79
 
 74:                                               ; preds = %66
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
-  br i1 %75, label %82, label %79
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
-  %76 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %77 = load atomic i64, ptr %76 seq_cst, align 8
-  %78 = load i64, ptr %47, align 8, !tbaa !389
-  %.not13 = icmp eq i64 %77, %78
+  %75 = getelementptr inbounds nuw i8, ptr %48, i64 24
+  %76 = load atomic i64, ptr %75 seq_cst, align 8
+  %77 = load i64, ptr %47, align 8, !tbaa !389
+  %.not13 = icmp eq i64 %76, %77
   br i1 %.not13, label %82, label %79
 
-79:                                               ; preds = %74, %72, %70, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
+  br i1 %78, label %82, label %79
+
+79:                                               ; preds = %70, %72, %74, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %80 = getelementptr inbounds nuw i32, ptr %19, i64 %.08
   %81 = load i32, ptr %80, align 4, !tbaa !133
   br label %82
 
-82:                                               ; preds = %74, %72, %70, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit, %79
-  %83 = phi i32 [ %81, %79 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %52 ], [ poison, %70 ], [ poison, %72 ], [ poison, %74 ]
+82:                                               ; preds = %70, %72, %74, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit, %79
+  %83 = phi i32 [ %81, %79 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %52 ], [ poison, %74 ], [ poison, %72 ], [ poison, %70 ]
   %84 = load ptr, ptr %1, align 8, !tbaa !678
   %85 = load ptr, ptr %84, align 8, !tbaa !233
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 4
@@ -23280,39 +23280,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
   %83 = load i64, ptr %82, align 8, !tbaa !12
   %84 = trunc i64 %83 to i32
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i32 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i32 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !678
   %88 = load ptr, ptr %87, align 8, !tbaa !233
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
@@ -23463,39 +23463,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
   %83 = load i64, ptr %82, align 8, !tbaa !12
   %84 = trunc i64 %83 to i32
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i32 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i32 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !678
   %88 = load ptr, ptr %87, align 8, !tbaa !233
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
@@ -23646,39 +23646,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
   %83 = load i16, ptr %82, align 2, !tbaa !291
   %84 = zext i16 %83 to i32
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i32 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i32 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !678
   %88 = load ptr, ptr %87, align 8, !tbaa !233
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
@@ -23829,39 +23829,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw float, ptr %19, i64 %.017
   %83 = load float, ptr %82, align 4, !tbaa !321
   %84 = fptoui float %83 to i32
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i32 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i32 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !678
   %88 = load ptr, ptr %87, align 8, !tbaa !233
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
@@ -24012,39 +24012,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw double, ptr %19, i64 %.017
   %83 = load double, ptr %82, align 8, !tbaa !327
   %84 = fptoui double %83 to i32
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i32 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i32 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !678
   %88 = load ptr, ptr %87, align 8, !tbaa !233
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
@@ -24683,39 +24683,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %76 = load ptr, ptr %57, align 8, !tbaa !35
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %78 = load i32, ptr %77, align 8, !tbaa !53
-  switch i32 %78, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %79
-    i32 28, label %81
-    i32 38, label %83
+  switch i32 %78, label %83 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %79
+    i32 38, label %81
   ]
 
 79:                                               ; preds = %75
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %80, label %92, label %88
 
 81:                                               ; preds = %75
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %82, label %92, label %88
 
 83:                                               ; preds = %75
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
-  br i1 %84, label %92, label %88
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
-  %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %86 = load atomic i64, ptr %85 seq_cst, align 8
-  %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %86, %87
+  %84 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %85 = load atomic i64, ptr %84 seq_cst, align 8
+  %86 = load i64, ptr %56, align 8, !tbaa !389
+  %.not24 = icmp eq i64 %85, %86
   br i1 %.not24, label %92, label %88
 
-88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
+  %87 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  br i1 %87, label %92, label %88
+
+88:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i8, ptr %16, i64 %.015
   %90 = load i8, ptr %89, align 1, !tbaa !92
   %91 = sext i8 %90 to i64
   br label %92
 
-92:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
-  %93 = phi i64 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %79 ], [ poison, %81 ], [ poison, %83 ]
+92:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
+  %93 = phi i64 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %83 ], [ poison, %81 ], [ poison, %79 ]
   %94 = load ptr, ptr %1, align 8, !tbaa !724
   %95 = load ptr, ptr %94, align 8, !tbaa !99
   %96 = load i32, ptr %37, align 8, !tbaa !242
@@ -24875,39 +24875,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %76 = load ptr, ptr %57, align 8, !tbaa !35
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %78 = load i32, ptr %77, align 8, !tbaa !53
-  switch i32 %78, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %79
-    i32 28, label %81
-    i32 38, label %83
+  switch i32 %78, label %83 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %79
+    i32 38, label %81
   ]
 
 79:                                               ; preds = %75
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %80, label %92, label %88
 
 81:                                               ; preds = %75
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %82, label %92, label %88
 
 83:                                               ; preds = %75
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
-  br i1 %84, label %92, label %88
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
-  %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %86 = load atomic i64, ptr %85 seq_cst, align 8
-  %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %86, %87
+  %84 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %85 = load atomic i64, ptr %84 seq_cst, align 8
+  %86 = load i64, ptr %56, align 8, !tbaa !389
+  %.not24 = icmp eq i64 %85, %86
   br i1 %.not24, label %92, label %88
 
-88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
+  %87 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  br i1 %87, label %92, label %88
+
+88:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i8, ptr %16, i64 %.015
   %90 = load i8, ptr %89, align 1, !tbaa !92
   %91 = zext i8 %90 to i64
   br label %92
 
-92:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
-  %93 = phi i64 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %79 ], [ poison, %81 ], [ poison, %83 ]
+92:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
+  %93 = phi i64 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %83 ], [ poison, %81 ], [ poison, %79 ]
   %94 = load ptr, ptr %1, align 8, !tbaa !724
   %95 = load ptr, ptr %94, align 8, !tbaa !99
   %96 = load i32, ptr %37, align 8, !tbaa !242
@@ -25067,39 +25067,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %76 = load ptr, ptr %57, align 8, !tbaa !35
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %78 = load i32, ptr %77, align 8, !tbaa !53
-  switch i32 %78, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %79
-    i32 28, label %81
-    i32 38, label %83
+  switch i32 %78, label %83 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %79
+    i32 38, label %81
   ]
 
 79:                                               ; preds = %75
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %80, label %92, label %88
 
 81:                                               ; preds = %75
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %82, label %92, label %88
 
 83:                                               ; preds = %75
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
-  br i1 %84, label %92, label %88
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
-  %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %86 = load atomic i64, ptr %85 seq_cst, align 8
-  %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %86, %87
+  %84 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %85 = load atomic i64, ptr %84 seq_cst, align 8
+  %86 = load i64, ptr %56, align 8, !tbaa !389
+  %.not24 = icmp eq i64 %85, %86
   br i1 %.not24, label %92, label %88
 
-88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
+  %87 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  br i1 %87, label %92, label %88
+
+88:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
   %90 = load i16, ptr %89, align 2, !tbaa !291
   %91 = sext i16 %90 to i64
   br label %92
 
-92:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
-  %93 = phi i64 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %79 ], [ poison, %81 ], [ poison, %83 ]
+92:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
+  %93 = phi i64 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %83 ], [ poison, %81 ], [ poison, %79 ]
   %94 = load ptr, ptr %1, align 8, !tbaa !724
   %95 = load ptr, ptr %94, align 8, !tbaa !99
   %96 = load i32, ptr %37, align 8, !tbaa !242
@@ -25259,39 +25259,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %76 = load ptr, ptr %57, align 8, !tbaa !35
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %78 = load i32, ptr %77, align 8, !tbaa !53
-  switch i32 %78, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %79
-    i32 28, label %81
-    i32 38, label %83
+  switch i32 %78, label %83 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %79
+    i32 38, label %81
   ]
 
 79:                                               ; preds = %75
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %80, label %92, label %88
 
 81:                                               ; preds = %75
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %82, label %92, label %88
 
 83:                                               ; preds = %75
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
-  br i1 %84, label %92, label %88
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
-  %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %86 = load atomic i64, ptr %85 seq_cst, align 8
-  %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %86, %87
+  %84 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %85 = load atomic i64, ptr %84 seq_cst, align 8
+  %86 = load i64, ptr %56, align 8, !tbaa !389
+  %.not24 = icmp eq i64 %85, %86
   br i1 %.not24, label %92, label %88
 
-88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
+  %87 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  br i1 %87, label %92, label %88
+
+88:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
   %90 = load i16, ptr %89, align 2, !tbaa !291
   %91 = zext i16 %90 to i64
   br label %92
 
-92:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
-  %93 = phi i64 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %79 ], [ poison, %81 ], [ poison, %83 ]
+92:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
+  %93 = phi i64 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %83 ], [ poison, %81 ], [ poison, %79 ]
   %94 = load ptr, ptr %1, align 8, !tbaa !724
   %95 = load ptr, ptr %94, align 8, !tbaa !99
   %96 = load i32, ptr %37, align 8, !tbaa !242
@@ -25451,39 +25451,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %76 = load ptr, ptr %57, align 8, !tbaa !35
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %78 = load i32, ptr %77, align 8, !tbaa !53
-  switch i32 %78, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %79
-    i32 28, label %81
-    i32 38, label %83
+  switch i32 %78, label %83 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %79
+    i32 38, label %81
   ]
 
 79:                                               ; preds = %75
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %80, label %92, label %88
 
 81:                                               ; preds = %75
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %82, label %92, label %88
 
 83:                                               ; preds = %75
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
-  br i1 %84, label %92, label %88
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
-  %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %86 = load atomic i64, ptr %85 seq_cst, align 8
-  %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %86, %87
+  %84 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %85 = load atomic i64, ptr %84 seq_cst, align 8
+  %86 = load i64, ptr %56, align 8, !tbaa !389
+  %.not24 = icmp eq i64 %85, %86
   br i1 %.not24, label %92, label %88
 
-88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
+  %87 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  br i1 %87, label %92, label %88
+
+88:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
   %90 = load i32, ptr %89, align 4, !tbaa !133
   %91 = sext i32 %90 to i64
   br label %92
 
-92:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
-  %93 = phi i64 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %79 ], [ poison, %81 ], [ poison, %83 ]
+92:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
+  %93 = phi i64 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %83 ], [ poison, %81 ], [ poison, %79 ]
   %94 = load ptr, ptr %1, align 8, !tbaa !724
   %95 = load ptr, ptr %94, align 8, !tbaa !99
   %96 = load i32, ptr %37, align 8, !tbaa !242
@@ -25643,39 +25643,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %76 = load ptr, ptr %57, align 8, !tbaa !35
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %78 = load i32, ptr %77, align 8, !tbaa !53
-  switch i32 %78, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %79
-    i32 28, label %81
-    i32 38, label %83
+  switch i32 %78, label %83 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %79
+    i32 38, label %81
   ]
 
 79:                                               ; preds = %75
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %80, label %92, label %88
 
 81:                                               ; preds = %75
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %82, label %92, label %88
 
 83:                                               ; preds = %75
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
-  br i1 %84, label %92, label %88
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
-  %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %86 = load atomic i64, ptr %85 seq_cst, align 8
-  %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %86, %87
+  %84 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %85 = load atomic i64, ptr %84 seq_cst, align 8
+  %86 = load i64, ptr %56, align 8, !tbaa !389
+  %.not24 = icmp eq i64 %85, %86
   br i1 %.not24, label %92, label %88
 
-88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
+  %87 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  br i1 %87, label %92, label %88
+
+88:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
   %90 = load i32, ptr %89, align 4, !tbaa !133
   %91 = zext i32 %90 to i64
   br label %92
 
-92:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
-  %93 = phi i64 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %79 ], [ poison, %81 ], [ poison, %83 ]
+92:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
+  %93 = phi i64 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %83 ], [ poison, %81 ], [ poison, %79 ]
   %94 = load ptr, ptr %1, align 8, !tbaa !724
   %95 = load ptr, ptr %94, align 8, !tbaa !99
   %96 = load i32, ptr %37, align 8, !tbaa !242
@@ -25834,38 +25834,38 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %75 = load ptr, ptr %56, align 8, !tbaa !35
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 40
   %77 = load i32, ptr %76, align 8, !tbaa !53
-  switch i32 %77, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %78
-    i32 28, label %80
-    i32 38, label %82
+  switch i32 %77, label %82 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %78
+    i32 38, label %80
   ]
 
 78:                                               ; preds = %74
-  %79 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
+  %79 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
   br i1 %79, label %90, label %87
 
 80:                                               ; preds = %74
-  %81 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
+  %81 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
   br i1 %81, label %90, label %87
 
 82:                                               ; preds = %74
-  %83 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
-  br i1 %83, label %90, label %87
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
-  %84 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  %85 = load atomic i64, ptr %84 seq_cst, align 8
-  %86 = load i64, ptr %55, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %85, %86
+  %83 = getelementptr inbounds nuw i8, ptr %56, i64 24
+  %84 = load atomic i64, ptr %83 seq_cst, align 8
+  %85 = load i64, ptr %55, align 8, !tbaa !389
+  %.not24 = icmp eq i64 %84, %85
   br i1 %.not24, label %90, label %87
 
-87:                                               ; preds = %82, %80, %78, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
+  %86 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
+  br i1 %86, label %90, label %87
+
+87:                                               ; preds = %78, %80, %82, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %88 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
   %89 = load i64, ptr %88, align 8, !tbaa !12
   br label %90
 
-90:                                               ; preds = %82, %80, %78, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit, %87
-  %91 = phi i64 [ %89, %87 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %60 ], [ poison, %78 ], [ poison, %80 ], [ poison, %82 ]
+90:                                               ; preds = %78, %80, %82, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit, %87
+  %91 = phi i64 [ %89, %87 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %60 ], [ poison, %82 ], [ poison, %80 ], [ poison, %78 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !724
   %93 = load ptr, ptr %92, align 8, !tbaa !99
   %94 = load i32, ptr %37, align 8, !tbaa !242
@@ -26024,38 +26024,38 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %75 = load ptr, ptr %56, align 8, !tbaa !35
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 40
   %77 = load i32, ptr %76, align 8, !tbaa !53
-  switch i32 %77, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %78
-    i32 28, label %80
-    i32 38, label %82
+  switch i32 %77, label %82 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %78
+    i32 38, label %80
   ]
 
 78:                                               ; preds = %74
-  %79 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
+  %79 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
   br i1 %79, label %90, label %87
 
 80:                                               ; preds = %74
-  %81 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
+  %81 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
   br i1 %81, label %90, label %87
 
 82:                                               ; preds = %74
-  %83 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
-  br i1 %83, label %90, label %87
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
-  %84 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  %85 = load atomic i64, ptr %84 seq_cst, align 8
-  %86 = load i64, ptr %55, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %85, %86
+  %83 = getelementptr inbounds nuw i8, ptr %56, i64 24
+  %84 = load atomic i64, ptr %83 seq_cst, align 8
+  %85 = load i64, ptr %55, align 8, !tbaa !389
+  %.not24 = icmp eq i64 %84, %85
   br i1 %.not24, label %90, label %87
 
-87:                                               ; preds = %82, %80, %78, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
+  %86 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
+  br i1 %86, label %90, label %87
+
+87:                                               ; preds = %78, %80, %82, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %88 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
   %89 = load i64, ptr %88, align 8, !tbaa !12
   br label %90
 
-90:                                               ; preds = %82, %80, %78, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit, %87
-  %91 = phi i64 [ %89, %87 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %60 ], [ poison, %78 ], [ poison, %80 ], [ poison, %82 ]
+90:                                               ; preds = %78, %80, %82, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit, %87
+  %91 = phi i64 [ %89, %87 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %60 ], [ poison, %82 ], [ poison, %80 ], [ poison, %78 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !724
   %93 = load ptr, ptr %92, align 8, !tbaa !99
   %94 = load i32, ptr %37, align 8, !tbaa !242
@@ -26215,39 +26215,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %76 = load ptr, ptr %57, align 8, !tbaa !35
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %78 = load i32, ptr %77, align 8, !tbaa !53
-  switch i32 %78, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %79
-    i32 28, label %81
-    i32 38, label %83
+  switch i32 %78, label %83 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %79
+    i32 38, label %81
   ]
 
 79:                                               ; preds = %75
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %80, label %92, label %88
 
 81:                                               ; preds = %75
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %82, label %92, label %88
 
 83:                                               ; preds = %75
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
-  br i1 %84, label %92, label %88
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
-  %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %86 = load atomic i64, ptr %85 seq_cst, align 8
-  %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %86, %87
+  %84 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %85 = load atomic i64, ptr %84 seq_cst, align 8
+  %86 = load i64, ptr %56, align 8, !tbaa !389
+  %.not24 = icmp eq i64 %85, %86
   br i1 %.not24, label %92, label %88
 
-88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
+  %87 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  br i1 %87, label %92, label %88
+
+88:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
   %90 = load i16, ptr %89, align 2, !tbaa !291
   %91 = zext i16 %90 to i64
   br label %92
 
-92:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
-  %93 = phi i64 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %79 ], [ poison, %81 ], [ poison, %83 ]
+92:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
+  %93 = phi i64 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %83 ], [ poison, %81 ], [ poison, %79 ]
   %94 = load ptr, ptr %1, align 8, !tbaa !724
   %95 = load ptr, ptr %94, align 8, !tbaa !99
   %96 = load i32, ptr %37, align 8, !tbaa !242
@@ -26407,39 +26407,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %76 = load ptr, ptr %57, align 8, !tbaa !35
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %78 = load i32, ptr %77, align 8, !tbaa !53
-  switch i32 %78, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %79
-    i32 28, label %81
-    i32 38, label %83
+  switch i32 %78, label %83 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %79
+    i32 38, label %81
   ]
 
 79:                                               ; preds = %75
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %80, label %92, label %88
 
 81:                                               ; preds = %75
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %82, label %92, label %88
 
 83:                                               ; preds = %75
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
-  br i1 %84, label %92, label %88
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
-  %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %86 = load atomic i64, ptr %85 seq_cst, align 8
-  %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %86, %87
+  %84 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %85 = load atomic i64, ptr %84 seq_cst, align 8
+  %86 = load i64, ptr %56, align 8, !tbaa !389
+  %.not24 = icmp eq i64 %85, %86
   br i1 %.not24, label %92, label %88
 
-88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
+  %87 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  br i1 %87, label %92, label %88
+
+88:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw float, ptr %16, i64 %.015
   %90 = load float, ptr %89, align 4, !tbaa !321
   %91 = fptoui float %90 to i64
   br label %92
 
-92:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
-  %93 = phi i64 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %79 ], [ poison, %81 ], [ poison, %83 ]
+92:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
+  %93 = phi i64 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %83 ], [ poison, %81 ], [ poison, %79 ]
   %94 = load ptr, ptr %1, align 8, !tbaa !724
   %95 = load ptr, ptr %94, align 8, !tbaa !99
   %96 = load i32, ptr %37, align 8, !tbaa !242
@@ -26599,39 +26599,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %76 = load ptr, ptr %57, align 8, !tbaa !35
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %78 = load i32, ptr %77, align 8, !tbaa !53
-  switch i32 %78, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %79
-    i32 28, label %81
-    i32 38, label %83
+  switch i32 %78, label %83 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %79
+    i32 38, label %81
   ]
 
 79:                                               ; preds = %75
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %80, label %92, label %88
 
 81:                                               ; preds = %75
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %82, label %92, label %88
 
 83:                                               ; preds = %75
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
-  br i1 %84, label %92, label %88
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
-  %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %86 = load atomic i64, ptr %85 seq_cst, align 8
-  %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %86, %87
+  %84 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %85 = load atomic i64, ptr %84 seq_cst, align 8
+  %86 = load i64, ptr %56, align 8, !tbaa !389
+  %.not24 = icmp eq i64 %85, %86
   br i1 %.not24, label %92, label %88
 
-88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
+  %87 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  br i1 %87, label %92, label %88
+
+88:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw double, ptr %16, i64 %.015
   %90 = load double, ptr %89, align 8, !tbaa !327
   %91 = fptoui double %90 to i64
   br label %92
 
-92:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
-  %93 = phi i64 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %79 ], [ poison, %81 ], [ poison, %83 ]
+92:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
+  %93 = phi i64 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %83 ], [ poison, %81 ], [ poison, %79 ]
   %94 = load ptr, ptr %1, align 8, !tbaa !724
   %95 = load ptr, ptr %94, align 8, !tbaa !99
   %96 = load i32, ptr %37, align 8, !tbaa !242
@@ -26783,39 +26783,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not28 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not28 = icmp eq i64 %78, %79
   br i1 %.not28, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i8, ptr %19, i64 %.017
   %83 = load i8, ptr %82, align 1, !tbaa !92
   %84 = sext i8 %83 to i64
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i64 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i64 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !782
   %88 = load ptr, ptr %87, align 8, !tbaa !99
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
@@ -26962,39 +26962,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not28 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not28 = icmp eq i64 %78, %79
   br i1 %.not28, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i8, ptr %19, i64 %.017
   %83 = load i8, ptr %82, align 1, !tbaa !92
   %84 = zext i8 %83 to i64
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i64 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i64 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !782
   %88 = load ptr, ptr %87, align 8, !tbaa !99
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
@@ -27141,39 +27141,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
   %83 = load i16, ptr %82, align 2, !tbaa !291
   %84 = sext i16 %83 to i64
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i64 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i64 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !782
   %88 = load ptr, ptr %87, align 8, !tbaa !99
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
@@ -27324,39 +27324,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
   %83 = load i16, ptr %82, align 2, !tbaa !291
   %84 = zext i16 %83 to i64
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i64 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i64 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !782
   %88 = load ptr, ptr %87, align 8, !tbaa !99
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
@@ -27507,39 +27507,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
   %83 = load i32, ptr %82, align 4, !tbaa !133
   %84 = sext i32 %83 to i64
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i64 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i64 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !782
   %88 = load ptr, ptr %87, align 8, !tbaa !99
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
@@ -27690,39 +27690,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
   %83 = load i32, ptr %82, align 4, !tbaa !133
   %84 = zext i32 %83 to i64
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i64 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i64 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !782
   %88 = load ptr, ptr %87, align 8, !tbaa !99
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
@@ -27872,38 +27872,38 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %68 = load ptr, ptr %49, align 8, !tbaa !35
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %70 = load i32, ptr %69, align 8, !tbaa !53
-  switch i32 %70, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %71
-    i32 28, label %73
-    i32 38, label %75
+  switch i32 %70, label %75 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %71
+    i32 38, label %73
   ]
 
 71:                                               ; preds = %67
-  %72 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %72 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %72, label %83, label %80
 
 73:                                               ; preds = %67
-  %74 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %74 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %74, label %83, label %80
 
 75:                                               ; preds = %67
-  %76 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
-  br i1 %76, label %83, label %80
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
-  %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %78 = load atomic i64, ptr %77 seq_cst, align 8
-  %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %78, %79
+  %76 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %77 = load atomic i64, ptr %76 seq_cst, align 8
+  %78 = load i64, ptr %48, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %77, %78
   br i1 %.not26, label %83, label %80
 
-80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
+  %79 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  br i1 %79, label %83, label %80
+
+80:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
   %82 = load i64, ptr %81, align 8, !tbaa !12
   br label %83
 
-83:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
-  %84 = phi i64 [ %82, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %71 ], [ poison, %73 ], [ poison, %75 ]
+83:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
+  %84 = phi i64 [ %82, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %75 ], [ poison, %73 ], [ poison, %71 ]
   %85 = load ptr, ptr %1, align 8, !tbaa !782
   %86 = load ptr, ptr %85, align 8, !tbaa !99
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
@@ -28043,38 +28043,38 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %67 = load ptr, ptr %48, align 8, !tbaa !35
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 40
   %69 = load i32, ptr %68, align 8, !tbaa !53
-  switch i32 %69, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %70
-    i32 28, label %72
-    i32 38, label %74
+  switch i32 %69, label %74 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %70
+    i32 38, label %72
   ]
 
 70:                                               ; preds = %66
-  %71 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
+  %71 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
   br i1 %71, label %82, label %79
 
 72:                                               ; preds = %66
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
   br i1 %73, label %82, label %79
 
 74:                                               ; preds = %66
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
-  br i1 %75, label %82, label %79
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
-  %76 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %77 = load atomic i64, ptr %76 seq_cst, align 8
-  %78 = load i64, ptr %47, align 8, !tbaa !389
-  %.not13 = icmp eq i64 %77, %78
+  %75 = getelementptr inbounds nuw i8, ptr %48, i64 24
+  %76 = load atomic i64, ptr %75 seq_cst, align 8
+  %77 = load i64, ptr %47, align 8, !tbaa !389
+  %.not13 = icmp eq i64 %76, %77
   br i1 %.not13, label %82, label %79
 
-79:                                               ; preds = %74, %72, %70, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
+  br i1 %78, label %82, label %79
+
+79:                                               ; preds = %70, %72, %74, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %80 = getelementptr inbounds nuw i64, ptr %19, i64 %.08
   %81 = load i64, ptr %80, align 8, !tbaa !12
   br label %82
 
-82:                                               ; preds = %74, %72, %70, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit, %79
-  %83 = phi i64 [ %81, %79 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %52 ], [ poison, %70 ], [ poison, %72 ], [ poison, %74 ]
+82:                                               ; preds = %70, %72, %74, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit, %79
+  %83 = phi i64 [ %81, %79 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %52 ], [ poison, %74 ], [ poison, %72 ], [ poison, %70 ]
   %84 = load ptr, ptr %1, align 8, !tbaa !782
   %85 = load ptr, ptr %84, align 8, !tbaa !99
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
@@ -28221,39 +28221,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
   %83 = load i16, ptr %82, align 2, !tbaa !291
   %84 = zext i16 %83 to i64
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i64 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i64 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !782
   %88 = load ptr, ptr %87, align 8, !tbaa !99
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
@@ -28404,39 +28404,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw float, ptr %19, i64 %.017
   %83 = load float, ptr %82, align 4, !tbaa !321
   %84 = fptoui float %83 to i64
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i64 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i64 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !782
   %88 = load ptr, ptr %87, align 8, !tbaa !99
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
@@ -28587,39 +28587,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw double, ptr %19, i64 %.017
   %83 = load double, ptr %82, align 8, !tbaa !327
   %84 = fptoui double %83 to i64
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i64 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i64 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !782
   %88 = load ptr, ptr %87, align 8, !tbaa !99
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
@@ -29259,38 +29259,38 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %79 = load ptr, ptr %60, align 8, !tbaa !35
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %81 = load i32, ptr %80, align 8, !tbaa !53
-  switch i32 %81, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %82
-    i32 28, label %84
-    i32 38, label %86
+  switch i32 %81, label %86 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %82
+    i32 38, label %84
   ]
 
 82:                                               ; preds = %78
-  %83 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %60, i64 noundef %.015)
+  %83 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %60, i64 noundef %.015)
   br i1 %83, label %94, label %91
 
 84:                                               ; preds = %78
-  %85 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %60, i64 noundef %.015)
+  %85 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %60, i64 noundef %.015)
   br i1 %85, label %94, label %91
 
 86:                                               ; preds = %78
-  %87 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %60, i64 noundef %.015)
-  br i1 %87, label %94, label %91
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %78
-  %88 = getelementptr inbounds nuw i8, ptr %60, i64 24
-  %89 = load atomic i64, ptr %88 seq_cst, align 8
-  %90 = load i64, ptr %59, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %89, %90
+  %87 = getelementptr inbounds nuw i8, ptr %60, i64 24
+  %88 = load atomic i64, ptr %87 seq_cst, align 8
+  %89 = load i64, ptr %59, align 8, !tbaa !389
+  %.not24 = icmp eq i64 %88, %89
   br i1 %.not24, label %94, label %91
 
-91:                                               ; preds = %86, %84, %82, %64, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %78
+  %90 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %60, i64 noundef %.015)
+  br i1 %90, label %94, label %91
+
+91:                                               ; preds = %82, %84, %86, %64, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %92 = getelementptr inbounds nuw i8, ptr %16, i64 %.015
   %93 = load i8, ptr %92, align 1, !tbaa !92
   br label %94
 
-94:                                               ; preds = %86, %84, %82, %64, %_ZNK5arrow9ArrayData6IsNullEl.exit, %91
-  %95 = phi i8 [ %93, %91 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %64 ], [ poison, %82 ], [ poison, %84 ], [ poison, %86 ]
+94:                                               ; preds = %82, %84, %86, %64, %_ZNK5arrow9ArrayData6IsNullEl.exit, %91
+  %95 = phi i8 [ %93, %91 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %64 ], [ poison, %86 ], [ poison, %84 ], [ poison, %82 ]
   %96 = load ptr, ptr %1, align 8, !tbaa !828
   %97 = load ptr, ptr %96, align 8, !tbaa !217
   %98 = load i32, ptr %37, align 8, !tbaa !245
@@ -29451,38 +29451,38 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %79 = load ptr, ptr %60, align 8, !tbaa !35
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %81 = load i32, ptr %80, align 8, !tbaa !53
-  switch i32 %81, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %82
-    i32 28, label %84
-    i32 38, label %86
+  switch i32 %81, label %86 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %82
+    i32 38, label %84
   ]
 
 82:                                               ; preds = %78
-  %83 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %60, i64 noundef %.015)
+  %83 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %60, i64 noundef %.015)
   br i1 %83, label %94, label %91
 
 84:                                               ; preds = %78
-  %85 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %60, i64 noundef %.015)
+  %85 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %60, i64 noundef %.015)
   br i1 %85, label %94, label %91
 
 86:                                               ; preds = %78
-  %87 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %60, i64 noundef %.015)
-  br i1 %87, label %94, label %91
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %78
-  %88 = getelementptr inbounds nuw i8, ptr %60, i64 24
-  %89 = load atomic i64, ptr %88 seq_cst, align 8
-  %90 = load i64, ptr %59, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %89, %90
+  %87 = getelementptr inbounds nuw i8, ptr %60, i64 24
+  %88 = load atomic i64, ptr %87 seq_cst, align 8
+  %89 = load i64, ptr %59, align 8, !tbaa !389
+  %.not24 = icmp eq i64 %88, %89
   br i1 %.not24, label %94, label %91
 
-91:                                               ; preds = %86, %84, %82, %64, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %78
+  %90 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %60, i64 noundef %.015)
+  br i1 %90, label %94, label %91
+
+91:                                               ; preds = %82, %84, %86, %64, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %92 = getelementptr inbounds nuw i8, ptr %16, i64 %.015
   %93 = load i8, ptr %92, align 1, !tbaa !92
   br label %94
 
-94:                                               ; preds = %86, %84, %82, %64, %_ZNK5arrow9ArrayData6IsNullEl.exit, %91
-  %95 = phi i8 [ %93, %91 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %64 ], [ poison, %82 ], [ poison, %84 ], [ poison, %86 ]
+94:                                               ; preds = %82, %84, %86, %64, %_ZNK5arrow9ArrayData6IsNullEl.exit, %91
+  %95 = phi i8 [ %93, %91 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %64 ], [ poison, %86 ], [ poison, %84 ], [ poison, %82 ]
   %96 = load ptr, ptr %1, align 8, !tbaa !828
   %97 = load ptr, ptr %96, align 8, !tbaa !217
   %98 = load i32, ptr %37, align 8, !tbaa !245
@@ -29644,39 +29644,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %80 = load ptr, ptr %61, align 8, !tbaa !35
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 40
   %82 = load i32, ptr %81, align 8, !tbaa !53
-  switch i32 %82, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %83
-    i32 28, label %85
-    i32 38, label %87
+  switch i32 %82, label %87 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %83
+    i32 38, label %85
   ]
 
 83:                                               ; preds = %79
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  %84 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
   br i1 %84, label %96, label %92
 
 85:                                               ; preds = %79
-  %86 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  %86 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
   br i1 %86, label %96, label %92
 
 87:                                               ; preds = %79
-  %88 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
-  br i1 %88, label %96, label %92
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
-  %89 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  %90 = load atomic i64, ptr %89 seq_cst, align 8
-  %91 = load i64, ptr %60, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %90, %91
+  %88 = getelementptr inbounds nuw i8, ptr %61, i64 24
+  %89 = load atomic i64, ptr %88 seq_cst, align 8
+  %90 = load i64, ptr %60, align 8, !tbaa !389
+  %.not24 = icmp eq i64 %89, %90
   br i1 %.not24, label %96, label %92
 
-92:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
+  %91 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  br i1 %91, label %96, label %92
+
+92:                                               ; preds = %83, %85, %87, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %93 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
   %94 = load i16, ptr %93, align 2, !tbaa !291
   %95 = trunc i16 %94 to i8
   br label %96
 
-96:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit, %92
-  %97 = phi i8 [ %95, %92 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %65 ], [ poison, %83 ], [ poison, %85 ], [ poison, %87 ]
+96:                                               ; preds = %83, %85, %87, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit, %92
+  %97 = phi i8 [ %95, %92 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %65 ], [ poison, %87 ], [ poison, %85 ], [ poison, %83 ]
   %98 = load ptr, ptr %1, align 8, !tbaa !828
   %99 = load ptr, ptr %98, align 8, !tbaa !217
   %100 = load i32, ptr %37, align 8, !tbaa !245
@@ -29838,39 +29838,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %80 = load ptr, ptr %61, align 8, !tbaa !35
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 40
   %82 = load i32, ptr %81, align 8, !tbaa !53
-  switch i32 %82, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %83
-    i32 28, label %85
-    i32 38, label %87
+  switch i32 %82, label %87 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %83
+    i32 38, label %85
   ]
 
 83:                                               ; preds = %79
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  %84 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
   br i1 %84, label %96, label %92
 
 85:                                               ; preds = %79
-  %86 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  %86 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
   br i1 %86, label %96, label %92
 
 87:                                               ; preds = %79
-  %88 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
-  br i1 %88, label %96, label %92
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
-  %89 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  %90 = load atomic i64, ptr %89 seq_cst, align 8
-  %91 = load i64, ptr %60, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %90, %91
+  %88 = getelementptr inbounds nuw i8, ptr %61, i64 24
+  %89 = load atomic i64, ptr %88 seq_cst, align 8
+  %90 = load i64, ptr %60, align 8, !tbaa !389
+  %.not24 = icmp eq i64 %89, %90
   br i1 %.not24, label %96, label %92
 
-92:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
+  %91 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  br i1 %91, label %96, label %92
+
+92:                                               ; preds = %83, %85, %87, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %93 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
   %94 = load i16, ptr %93, align 2, !tbaa !291
   %95 = trunc i16 %94 to i8
   br label %96
 
-96:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit, %92
-  %97 = phi i8 [ %95, %92 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %65 ], [ poison, %83 ], [ poison, %85 ], [ poison, %87 ]
+96:                                               ; preds = %83, %85, %87, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit, %92
+  %97 = phi i8 [ %95, %92 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %65 ], [ poison, %87 ], [ poison, %85 ], [ poison, %83 ]
   %98 = load ptr, ptr %1, align 8, !tbaa !828
   %99 = load ptr, ptr %98, align 8, !tbaa !217
   %100 = load i32, ptr %37, align 8, !tbaa !245
@@ -30032,39 +30032,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %80 = load ptr, ptr %61, align 8, !tbaa !35
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 40
   %82 = load i32, ptr %81, align 8, !tbaa !53
-  switch i32 %82, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %83
-    i32 28, label %85
-    i32 38, label %87
+  switch i32 %82, label %87 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %83
+    i32 38, label %85
   ]
 
 83:                                               ; preds = %79
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  %84 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
   br i1 %84, label %96, label %92
 
 85:                                               ; preds = %79
-  %86 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  %86 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
   br i1 %86, label %96, label %92
 
 87:                                               ; preds = %79
-  %88 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
-  br i1 %88, label %96, label %92
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
-  %89 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  %90 = load atomic i64, ptr %89 seq_cst, align 8
-  %91 = load i64, ptr %60, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %90, %91
+  %88 = getelementptr inbounds nuw i8, ptr %61, i64 24
+  %89 = load atomic i64, ptr %88 seq_cst, align 8
+  %90 = load i64, ptr %60, align 8, !tbaa !389
+  %.not24 = icmp eq i64 %89, %90
   br i1 %.not24, label %96, label %92
 
-92:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
+  %91 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  br i1 %91, label %96, label %92
+
+92:                                               ; preds = %83, %85, %87, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %93 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
   %94 = load i32, ptr %93, align 4, !tbaa !133
   %95 = trunc i32 %94 to i8
   br label %96
 
-96:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit, %92
-  %97 = phi i8 [ %95, %92 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %65 ], [ poison, %83 ], [ poison, %85 ], [ poison, %87 ]
+96:                                               ; preds = %83, %85, %87, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit, %92
+  %97 = phi i8 [ %95, %92 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %65 ], [ poison, %87 ], [ poison, %85 ], [ poison, %83 ]
   %98 = load ptr, ptr %1, align 8, !tbaa !828
   %99 = load ptr, ptr %98, align 8, !tbaa !217
   %100 = load i32, ptr %37, align 8, !tbaa !245
@@ -30226,39 +30226,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %80 = load ptr, ptr %61, align 8, !tbaa !35
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 40
   %82 = load i32, ptr %81, align 8, !tbaa !53
-  switch i32 %82, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %83
-    i32 28, label %85
-    i32 38, label %87
+  switch i32 %82, label %87 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %83
+    i32 38, label %85
   ]
 
 83:                                               ; preds = %79
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  %84 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
   br i1 %84, label %96, label %92
 
 85:                                               ; preds = %79
-  %86 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  %86 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
   br i1 %86, label %96, label %92
 
 87:                                               ; preds = %79
-  %88 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
-  br i1 %88, label %96, label %92
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
-  %89 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  %90 = load atomic i64, ptr %89 seq_cst, align 8
-  %91 = load i64, ptr %60, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %90, %91
+  %88 = getelementptr inbounds nuw i8, ptr %61, i64 24
+  %89 = load atomic i64, ptr %88 seq_cst, align 8
+  %90 = load i64, ptr %60, align 8, !tbaa !389
+  %.not24 = icmp eq i64 %89, %90
   br i1 %.not24, label %96, label %92
 
-92:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
+  %91 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  br i1 %91, label %96, label %92
+
+92:                                               ; preds = %83, %85, %87, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %93 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
   %94 = load i32, ptr %93, align 4, !tbaa !133
   %95 = trunc i32 %94 to i8
   br label %96
 
-96:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit, %92
-  %97 = phi i8 [ %95, %92 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %65 ], [ poison, %83 ], [ poison, %85 ], [ poison, %87 ]
+96:                                               ; preds = %83, %85, %87, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit, %92
+  %97 = phi i8 [ %95, %92 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %65 ], [ poison, %87 ], [ poison, %85 ], [ poison, %83 ]
   %98 = load ptr, ptr %1, align 8, !tbaa !828
   %99 = load ptr, ptr %98, align 8, !tbaa !217
   %100 = load i32, ptr %37, align 8, !tbaa !245
@@ -30420,39 +30420,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %80 = load ptr, ptr %61, align 8, !tbaa !35
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 40
   %82 = load i32, ptr %81, align 8, !tbaa !53
-  switch i32 %82, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %83
-    i32 28, label %85
-    i32 38, label %87
+  switch i32 %82, label %87 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %83
+    i32 38, label %85
   ]
 
 83:                                               ; preds = %79
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  %84 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
   br i1 %84, label %96, label %92
 
 85:                                               ; preds = %79
-  %86 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  %86 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
   br i1 %86, label %96, label %92
 
 87:                                               ; preds = %79
-  %88 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
-  br i1 %88, label %96, label %92
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
-  %89 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  %90 = load atomic i64, ptr %89 seq_cst, align 8
-  %91 = load i64, ptr %60, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %90, %91
+  %88 = getelementptr inbounds nuw i8, ptr %61, i64 24
+  %89 = load atomic i64, ptr %88 seq_cst, align 8
+  %90 = load i64, ptr %60, align 8, !tbaa !389
+  %.not24 = icmp eq i64 %89, %90
   br i1 %.not24, label %96, label %92
 
-92:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
+  %91 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  br i1 %91, label %96, label %92
+
+92:                                               ; preds = %83, %85, %87, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %93 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
   %94 = load i64, ptr %93, align 8, !tbaa !12
   %95 = trunc i64 %94 to i8
   br label %96
 
-96:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit, %92
-  %97 = phi i8 [ %95, %92 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %65 ], [ poison, %83 ], [ poison, %85 ], [ poison, %87 ]
+96:                                               ; preds = %83, %85, %87, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit, %92
+  %97 = phi i8 [ %95, %92 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %65 ], [ poison, %87 ], [ poison, %85 ], [ poison, %83 ]
   %98 = load ptr, ptr %1, align 8, !tbaa !828
   %99 = load ptr, ptr %98, align 8, !tbaa !217
   %100 = load i32, ptr %37, align 8, !tbaa !245
@@ -30614,39 +30614,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %80 = load ptr, ptr %61, align 8, !tbaa !35
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 40
   %82 = load i32, ptr %81, align 8, !tbaa !53
-  switch i32 %82, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %83
-    i32 28, label %85
-    i32 38, label %87
+  switch i32 %82, label %87 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %83
+    i32 38, label %85
   ]
 
 83:                                               ; preds = %79
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  %84 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
   br i1 %84, label %96, label %92
 
 85:                                               ; preds = %79
-  %86 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  %86 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
   br i1 %86, label %96, label %92
 
 87:                                               ; preds = %79
-  %88 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
-  br i1 %88, label %96, label %92
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
-  %89 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  %90 = load atomic i64, ptr %89 seq_cst, align 8
-  %91 = load i64, ptr %60, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %90, %91
+  %88 = getelementptr inbounds nuw i8, ptr %61, i64 24
+  %89 = load atomic i64, ptr %88 seq_cst, align 8
+  %90 = load i64, ptr %60, align 8, !tbaa !389
+  %.not24 = icmp eq i64 %89, %90
   br i1 %.not24, label %96, label %92
 
-92:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
+  %91 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  br i1 %91, label %96, label %92
+
+92:                                               ; preds = %83, %85, %87, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %93 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
   %94 = load i64, ptr %93, align 8, !tbaa !12
   %95 = trunc i64 %94 to i8
   br label %96
 
-96:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit, %92
-  %97 = phi i8 [ %95, %92 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %65 ], [ poison, %83 ], [ poison, %85 ], [ poison, %87 ]
+96:                                               ; preds = %83, %85, %87, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit, %92
+  %97 = phi i8 [ %95, %92 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %65 ], [ poison, %87 ], [ poison, %85 ], [ poison, %83 ]
   %98 = load ptr, ptr %1, align 8, !tbaa !828
   %99 = load ptr, ptr %98, align 8, !tbaa !217
   %100 = load i32, ptr %37, align 8, !tbaa !245
@@ -30808,39 +30808,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %80 = load ptr, ptr %61, align 8, !tbaa !35
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 40
   %82 = load i32, ptr %81, align 8, !tbaa !53
-  switch i32 %82, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %83
-    i32 28, label %85
-    i32 38, label %87
+  switch i32 %82, label %87 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %83
+    i32 38, label %85
   ]
 
 83:                                               ; preds = %79
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  %84 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
   br i1 %84, label %96, label %92
 
 85:                                               ; preds = %79
-  %86 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  %86 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
   br i1 %86, label %96, label %92
 
 87:                                               ; preds = %79
-  %88 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
-  br i1 %88, label %96, label %92
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
-  %89 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  %90 = load atomic i64, ptr %89 seq_cst, align 8
-  %91 = load i64, ptr %60, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %90, %91
+  %88 = getelementptr inbounds nuw i8, ptr %61, i64 24
+  %89 = load atomic i64, ptr %88 seq_cst, align 8
+  %90 = load i64, ptr %60, align 8, !tbaa !389
+  %.not24 = icmp eq i64 %89, %90
   br i1 %.not24, label %96, label %92
 
-92:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
+  %91 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  br i1 %91, label %96, label %92
+
+92:                                               ; preds = %83, %85, %87, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %93 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
   %94 = load i16, ptr %93, align 2, !tbaa !291
   %95 = trunc i16 %94 to i8
   br label %96
 
-96:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit, %92
-  %97 = phi i8 [ %95, %92 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %65 ], [ poison, %83 ], [ poison, %85 ], [ poison, %87 ]
+96:                                               ; preds = %83, %85, %87, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit, %92
+  %97 = phi i8 [ %95, %92 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %65 ], [ poison, %87 ], [ poison, %85 ], [ poison, %83 ]
   %98 = load ptr, ptr %1, align 8, !tbaa !828
   %99 = load ptr, ptr %98, align 8, !tbaa !217
   %100 = load i32, ptr %37, align 8, !tbaa !245
@@ -31002,39 +31002,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %80 = load ptr, ptr %61, align 8, !tbaa !35
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 40
   %82 = load i32, ptr %81, align 8, !tbaa !53
-  switch i32 %82, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %83
-    i32 28, label %85
-    i32 38, label %87
+  switch i32 %82, label %87 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %83
+    i32 38, label %85
   ]
 
 83:                                               ; preds = %79
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  %84 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
   br i1 %84, label %96, label %92
 
 85:                                               ; preds = %79
-  %86 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  %86 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
   br i1 %86, label %96, label %92
 
 87:                                               ; preds = %79
-  %88 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
-  br i1 %88, label %96, label %92
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
-  %89 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  %90 = load atomic i64, ptr %89 seq_cst, align 8
-  %91 = load i64, ptr %60, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %90, %91
+  %88 = getelementptr inbounds nuw i8, ptr %61, i64 24
+  %89 = load atomic i64, ptr %88 seq_cst, align 8
+  %90 = load i64, ptr %60, align 8, !tbaa !389
+  %.not24 = icmp eq i64 %89, %90
   br i1 %.not24, label %96, label %92
 
-92:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
+  %91 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  br i1 %91, label %96, label %92
+
+92:                                               ; preds = %83, %85, %87, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %93 = getelementptr inbounds nuw float, ptr %16, i64 %.015
   %94 = load float, ptr %93, align 4, !tbaa !321
   %95 = fptosi float %94 to i8
   br label %96
 
-96:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit, %92
-  %97 = phi i8 [ %95, %92 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %65 ], [ poison, %83 ], [ poison, %85 ], [ poison, %87 ]
+96:                                               ; preds = %83, %85, %87, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit, %92
+  %97 = phi i8 [ %95, %92 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %65 ], [ poison, %87 ], [ poison, %85 ], [ poison, %83 ]
   %98 = load ptr, ptr %1, align 8, !tbaa !828
   %99 = load ptr, ptr %98, align 8, !tbaa !217
   %100 = load i32, ptr %37, align 8, !tbaa !245
@@ -31196,39 +31196,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %80 = load ptr, ptr %61, align 8, !tbaa !35
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 40
   %82 = load i32, ptr %81, align 8, !tbaa !53
-  switch i32 %82, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %83
-    i32 28, label %85
-    i32 38, label %87
+  switch i32 %82, label %87 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %83
+    i32 38, label %85
   ]
 
 83:                                               ; preds = %79
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  %84 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
   br i1 %84, label %96, label %92
 
 85:                                               ; preds = %79
-  %86 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  %86 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
   br i1 %86, label %96, label %92
 
 87:                                               ; preds = %79
-  %88 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
-  br i1 %88, label %96, label %92
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
-  %89 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  %90 = load atomic i64, ptr %89 seq_cst, align 8
-  %91 = load i64, ptr %60, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %90, %91
+  %88 = getelementptr inbounds nuw i8, ptr %61, i64 24
+  %89 = load atomic i64, ptr %88 seq_cst, align 8
+  %90 = load i64, ptr %60, align 8, !tbaa !389
+  %.not24 = icmp eq i64 %89, %90
   br i1 %.not24, label %96, label %92
 
-92:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
+  %91 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %61, i64 noundef %.015)
+  br i1 %91, label %96, label %92
+
+92:                                               ; preds = %83, %85, %87, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %93 = getelementptr inbounds nuw double, ptr %16, i64 %.015
   %94 = load double, ptr %93, align 8, !tbaa !327
   %95 = fptosi double %94 to i8
   br label %96
 
-96:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit, %92
-  %97 = phi i8 [ %95, %92 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %65 ], [ poison, %83 ], [ poison, %85 ], [ poison, %87 ]
+96:                                               ; preds = %83, %85, %87, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit, %92
+  %97 = phi i8 [ %95, %92 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %65 ], [ poison, %87 ], [ poison, %85 ], [ poison, %83 ]
   %98 = load ptr, ptr %1, align 8, !tbaa !828
   %99 = load ptr, ptr %98, align 8, !tbaa !217
   %100 = load i32, ptr %37, align 8, !tbaa !245
@@ -31368,38 +31368,38 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %66 = load ptr, ptr %47, align 8, !tbaa !35
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 40
   %68 = load i32, ptr %67, align 8, !tbaa !53
-  switch i32 %68, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %69
-    i32 28, label %71
-    i32 38, label %73
+  switch i32 %68, label %73 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %69
+    i32 38, label %71
   ]
 
 69:                                               ; preds = %65
-  %70 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %47, i64 noundef %.08)
+  %70 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %47, i64 noundef %.08)
   br i1 %70, label %81, label %78
 
 71:                                               ; preds = %65
-  %72 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %47, i64 noundef %.08)
+  %72 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %47, i64 noundef %.08)
   br i1 %72, label %81, label %78
 
 73:                                               ; preds = %65
-  %74 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %47, i64 noundef %.08)
-  br i1 %74, label %81, label %78
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %65
-  %75 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  %76 = load atomic i64, ptr %75 seq_cst, align 8
-  %77 = load i64, ptr %46, align 8, !tbaa !389
-  %.not13 = icmp eq i64 %76, %77
+  %74 = getelementptr inbounds nuw i8, ptr %47, i64 24
+  %75 = load atomic i64, ptr %74 seq_cst, align 8
+  %76 = load i64, ptr %46, align 8, !tbaa !389
+  %.not13 = icmp eq i64 %75, %76
   br i1 %.not13, label %81, label %78
 
-78:                                               ; preds = %73, %71, %69, %51, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %65
+  %77 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %47, i64 noundef %.08)
+  br i1 %77, label %81, label %78
+
+78:                                               ; preds = %69, %71, %73, %51, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %79 = getelementptr inbounds nuw i8, ptr %19, i64 %.08
   %80 = load i8, ptr %79, align 1, !tbaa !92
   br label %81
 
-81:                                               ; preds = %73, %71, %69, %51, %_ZNK5arrow9ArrayData6IsNullEl.exit, %78
-  %82 = phi i8 [ %80, %78 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %51 ], [ poison, %69 ], [ poison, %71 ], [ poison, %73 ]
+81:                                               ; preds = %69, %71, %73, %51, %_ZNK5arrow9ArrayData6IsNullEl.exit, %78
+  %82 = phi i8 [ %80, %78 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %51 ], [ poison, %73 ], [ poison, %71 ], [ poison, %69 ]
   %83 = load ptr, ptr %1, align 8, !tbaa !886
   %84 = load ptr, ptr %83, align 8, !tbaa !217
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 1
@@ -31541,38 +31541,38 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %67 = load ptr, ptr %48, align 8, !tbaa !35
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 40
   %69 = load i32, ptr %68, align 8, !tbaa !53
-  switch i32 %69, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %70
-    i32 28, label %72
-    i32 38, label %74
+  switch i32 %69, label %74 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %70
+    i32 38, label %72
   ]
 
 70:                                               ; preds = %66
-  %71 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.017)
+  %71 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.017)
   br i1 %71, label %82, label %79
 
 72:                                               ; preds = %66
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.017)
   br i1 %73, label %82, label %79
 
 74:                                               ; preds = %66
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.017)
-  br i1 %75, label %82, label %79
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
-  %76 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %77 = load atomic i64, ptr %76 seq_cst, align 8
-  %78 = load i64, ptr %47, align 8, !tbaa !389
-  %.not28 = icmp eq i64 %77, %78
+  %75 = getelementptr inbounds nuw i8, ptr %48, i64 24
+  %76 = load atomic i64, ptr %75 seq_cst, align 8
+  %77 = load i64, ptr %47, align 8, !tbaa !389
+  %.not28 = icmp eq i64 %76, %77
   br i1 %.not28, label %82, label %79
 
-79:                                               ; preds = %74, %72, %70, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.017)
+  br i1 %78, label %82, label %79
+
+79:                                               ; preds = %70, %72, %74, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %80 = getelementptr inbounds nuw i8, ptr %19, i64 %.017
   %81 = load i8, ptr %80, align 1, !tbaa !92
   br label %82
 
-82:                                               ; preds = %74, %72, %70, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit, %79
-  %83 = phi i8 [ %81, %79 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %52 ], [ poison, %70 ], [ poison, %72 ], [ poison, %74 ]
+82:                                               ; preds = %70, %72, %74, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit, %79
+  %83 = phi i8 [ %81, %79 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %52 ], [ poison, %74 ], [ poison, %72 ], [ poison, %70 ]
   %84 = load ptr, ptr %1, align 8, !tbaa !886
   %85 = load ptr, ptr %84, align 8, !tbaa !217
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 1
@@ -31716,39 +31716,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %68 = load ptr, ptr %49, align 8, !tbaa !35
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %70 = load i32, ptr %69, align 8, !tbaa !53
-  switch i32 %70, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %71
-    i32 28, label %73
-    i32 38, label %75
+  switch i32 %70, label %75 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %71
+    i32 38, label %73
   ]
 
 71:                                               ; preds = %67
-  %72 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %72 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %72, label %84, label %80
 
 73:                                               ; preds = %67
-  %74 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %74 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %74, label %84, label %80
 
 75:                                               ; preds = %67
-  %76 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
-  br i1 %76, label %84, label %80
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
-  %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %78 = load atomic i64, ptr %77 seq_cst, align 8
-  %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not28 = icmp eq i64 %78, %79
+  %76 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %77 = load atomic i64, ptr %76 seq_cst, align 8
+  %78 = load i64, ptr %48, align 8, !tbaa !389
+  %.not28 = icmp eq i64 %77, %78
   br i1 %.not28, label %84, label %80
 
-80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
+  %79 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  br i1 %79, label %84, label %80
+
+80:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
   %82 = load i16, ptr %81, align 2, !tbaa !291
   %83 = trunc i16 %82 to i8
   br label %84
 
-84:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
-  %85 = phi i8 [ %83, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %71 ], [ poison, %73 ], [ poison, %75 ]
+84:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
+  %85 = phi i8 [ %83, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %75 ], [ poison, %73 ], [ poison, %71 ]
   %86 = load ptr, ptr %1, align 8, !tbaa !886
   %87 = load ptr, ptr %86, align 8, !tbaa !217
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 1
@@ -31892,39 +31892,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %68 = load ptr, ptr %49, align 8, !tbaa !35
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %70 = load i32, ptr %69, align 8, !tbaa !53
-  switch i32 %70, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %71
-    i32 28, label %73
-    i32 38, label %75
+  switch i32 %70, label %75 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %71
+    i32 38, label %73
   ]
 
 71:                                               ; preds = %67
-  %72 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %72 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %72, label %84, label %80
 
 73:                                               ; preds = %67
-  %74 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %74 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %74, label %84, label %80
 
 75:                                               ; preds = %67
-  %76 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
-  br i1 %76, label %84, label %80
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
-  %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %78 = load atomic i64, ptr %77 seq_cst, align 8
-  %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not28 = icmp eq i64 %78, %79
+  %76 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %77 = load atomic i64, ptr %76 seq_cst, align 8
+  %78 = load i64, ptr %48, align 8, !tbaa !389
+  %.not28 = icmp eq i64 %77, %78
   br i1 %.not28, label %84, label %80
 
-80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
+  %79 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  br i1 %79, label %84, label %80
+
+80:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
   %82 = load i16, ptr %81, align 2, !tbaa !291
   %83 = trunc i16 %82 to i8
   br label %84
 
-84:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
-  %85 = phi i8 [ %83, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %71 ], [ poison, %73 ], [ poison, %75 ]
+84:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
+  %85 = phi i8 [ %83, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %75 ], [ poison, %73 ], [ poison, %71 ]
   %86 = load ptr, ptr %1, align 8, !tbaa !886
   %87 = load ptr, ptr %86, align 8, !tbaa !217
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 1
@@ -32068,39 +32068,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %68 = load ptr, ptr %49, align 8, !tbaa !35
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %70 = load i32, ptr %69, align 8, !tbaa !53
-  switch i32 %70, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %71
-    i32 28, label %73
-    i32 38, label %75
+  switch i32 %70, label %75 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %71
+    i32 38, label %73
   ]
 
 71:                                               ; preds = %67
-  %72 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %72 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %72, label %84, label %80
 
 73:                                               ; preds = %67
-  %74 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %74 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %74, label %84, label %80
 
 75:                                               ; preds = %67
-  %76 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
-  br i1 %76, label %84, label %80
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
-  %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %78 = load atomic i64, ptr %77 seq_cst, align 8
-  %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not28 = icmp eq i64 %78, %79
+  %76 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %77 = load atomic i64, ptr %76 seq_cst, align 8
+  %78 = load i64, ptr %48, align 8, !tbaa !389
+  %.not28 = icmp eq i64 %77, %78
   br i1 %.not28, label %84, label %80
 
-80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
+  %79 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  br i1 %79, label %84, label %80
+
+80:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
   %82 = load i32, ptr %81, align 4, !tbaa !133
   %83 = trunc i32 %82 to i8
   br label %84
 
-84:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
-  %85 = phi i8 [ %83, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %71 ], [ poison, %73 ], [ poison, %75 ]
+84:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
+  %85 = phi i8 [ %83, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %75 ], [ poison, %73 ], [ poison, %71 ]
   %86 = load ptr, ptr %1, align 8, !tbaa !886
   %87 = load ptr, ptr %86, align 8, !tbaa !217
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 1
@@ -32244,39 +32244,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %68 = load ptr, ptr %49, align 8, !tbaa !35
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %70 = load i32, ptr %69, align 8, !tbaa !53
-  switch i32 %70, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %71
-    i32 28, label %73
-    i32 38, label %75
+  switch i32 %70, label %75 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %71
+    i32 38, label %73
   ]
 
 71:                                               ; preds = %67
-  %72 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %72 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %72, label %84, label %80
 
 73:                                               ; preds = %67
-  %74 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %74 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %74, label %84, label %80
 
 75:                                               ; preds = %67
-  %76 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
-  br i1 %76, label %84, label %80
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
-  %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %78 = load atomic i64, ptr %77 seq_cst, align 8
-  %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not28 = icmp eq i64 %78, %79
+  %76 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %77 = load atomic i64, ptr %76 seq_cst, align 8
+  %78 = load i64, ptr %48, align 8, !tbaa !389
+  %.not28 = icmp eq i64 %77, %78
   br i1 %.not28, label %84, label %80
 
-80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
+  %79 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  br i1 %79, label %84, label %80
+
+80:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
   %82 = load i32, ptr %81, align 4, !tbaa !133
   %83 = trunc i32 %82 to i8
   br label %84
 
-84:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
-  %85 = phi i8 [ %83, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %71 ], [ poison, %73 ], [ poison, %75 ]
+84:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
+  %85 = phi i8 [ %83, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %75 ], [ poison, %73 ], [ poison, %71 ]
   %86 = load ptr, ptr %1, align 8, !tbaa !886
   %87 = load ptr, ptr %86, align 8, !tbaa !217
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 1
@@ -32420,39 +32420,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %68 = load ptr, ptr %49, align 8, !tbaa !35
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %70 = load i32, ptr %69, align 8, !tbaa !53
-  switch i32 %70, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %71
-    i32 28, label %73
-    i32 38, label %75
+  switch i32 %70, label %75 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %71
+    i32 38, label %73
   ]
 
 71:                                               ; preds = %67
-  %72 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %72 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %72, label %84, label %80
 
 73:                                               ; preds = %67
-  %74 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %74 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %74, label %84, label %80
 
 75:                                               ; preds = %67
-  %76 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
-  br i1 %76, label %84, label %80
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
-  %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %78 = load atomic i64, ptr %77 seq_cst, align 8
-  %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not28 = icmp eq i64 %78, %79
+  %76 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %77 = load atomic i64, ptr %76 seq_cst, align 8
+  %78 = load i64, ptr %48, align 8, !tbaa !389
+  %.not28 = icmp eq i64 %77, %78
   br i1 %.not28, label %84, label %80
 
-80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
+  %79 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  br i1 %79, label %84, label %80
+
+80:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
   %82 = load i64, ptr %81, align 8, !tbaa !12
   %83 = trunc i64 %82 to i8
   br label %84
 
-84:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
-  %85 = phi i8 [ %83, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %71 ], [ poison, %73 ], [ poison, %75 ]
+84:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
+  %85 = phi i8 [ %83, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %75 ], [ poison, %73 ], [ poison, %71 ]
   %86 = load ptr, ptr %1, align 8, !tbaa !886
   %87 = load ptr, ptr %86, align 8, !tbaa !217
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 1
@@ -32596,39 +32596,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %68 = load ptr, ptr %49, align 8, !tbaa !35
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %70 = load i32, ptr %69, align 8, !tbaa !53
-  switch i32 %70, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %71
-    i32 28, label %73
-    i32 38, label %75
+  switch i32 %70, label %75 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %71
+    i32 38, label %73
   ]
 
 71:                                               ; preds = %67
-  %72 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %72 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %72, label %84, label %80
 
 73:                                               ; preds = %67
-  %74 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %74 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %74, label %84, label %80
 
 75:                                               ; preds = %67
-  %76 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
-  br i1 %76, label %84, label %80
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
-  %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %78 = load atomic i64, ptr %77 seq_cst, align 8
-  %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not28 = icmp eq i64 %78, %79
+  %76 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %77 = load atomic i64, ptr %76 seq_cst, align 8
+  %78 = load i64, ptr %48, align 8, !tbaa !389
+  %.not28 = icmp eq i64 %77, %78
   br i1 %.not28, label %84, label %80
 
-80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
+  %79 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  br i1 %79, label %84, label %80
+
+80:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
   %82 = load i64, ptr %81, align 8, !tbaa !12
   %83 = trunc i64 %82 to i8
   br label %84
 
-84:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
-  %85 = phi i8 [ %83, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %71 ], [ poison, %73 ], [ poison, %75 ]
+84:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
+  %85 = phi i8 [ %83, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %75 ], [ poison, %73 ], [ poison, %71 ]
   %86 = load ptr, ptr %1, align 8, !tbaa !886
   %87 = load ptr, ptr %86, align 8, !tbaa !217
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 1
@@ -32772,39 +32772,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %68 = load ptr, ptr %49, align 8, !tbaa !35
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %70 = load i32, ptr %69, align 8, !tbaa !53
-  switch i32 %70, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %71
-    i32 28, label %73
-    i32 38, label %75
+  switch i32 %70, label %75 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %71
+    i32 38, label %73
   ]
 
 71:                                               ; preds = %67
-  %72 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %72 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %72, label %84, label %80
 
 73:                                               ; preds = %67
-  %74 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %74 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %74, label %84, label %80
 
 75:                                               ; preds = %67
-  %76 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
-  br i1 %76, label %84, label %80
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
-  %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %78 = load atomic i64, ptr %77 seq_cst, align 8
-  %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not28 = icmp eq i64 %78, %79
+  %76 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %77 = load atomic i64, ptr %76 seq_cst, align 8
+  %78 = load i64, ptr %48, align 8, !tbaa !389
+  %.not28 = icmp eq i64 %77, %78
   br i1 %.not28, label %84, label %80
 
-80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
+  %79 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  br i1 %79, label %84, label %80
+
+80:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
   %82 = load i16, ptr %81, align 2, !tbaa !291
   %83 = trunc i16 %82 to i8
   br label %84
 
-84:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
-  %85 = phi i8 [ %83, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %71 ], [ poison, %73 ], [ poison, %75 ]
+84:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
+  %85 = phi i8 [ %83, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %75 ], [ poison, %73 ], [ poison, %71 ]
   %86 = load ptr, ptr %1, align 8, !tbaa !886
   %87 = load ptr, ptr %86, align 8, !tbaa !217
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 1
@@ -32948,39 +32948,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %68 = load ptr, ptr %49, align 8, !tbaa !35
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %70 = load i32, ptr %69, align 8, !tbaa !53
-  switch i32 %70, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %71
-    i32 28, label %73
-    i32 38, label %75
+  switch i32 %70, label %75 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %71
+    i32 38, label %73
   ]
 
 71:                                               ; preds = %67
-  %72 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %72 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %72, label %84, label %80
 
 73:                                               ; preds = %67
-  %74 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %74 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %74, label %84, label %80
 
 75:                                               ; preds = %67
-  %76 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
-  br i1 %76, label %84, label %80
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
-  %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %78 = load atomic i64, ptr %77 seq_cst, align 8
-  %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not28 = icmp eq i64 %78, %79
+  %76 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %77 = load atomic i64, ptr %76 seq_cst, align 8
+  %78 = load i64, ptr %48, align 8, !tbaa !389
+  %.not28 = icmp eq i64 %77, %78
   br i1 %.not28, label %84, label %80
 
-80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
+  %79 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  br i1 %79, label %84, label %80
+
+80:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw float, ptr %19, i64 %.017
   %82 = load float, ptr %81, align 4, !tbaa !321
   %83 = fptosi float %82 to i8
   br label %84
 
-84:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
-  %85 = phi i8 [ %83, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %71 ], [ poison, %73 ], [ poison, %75 ]
+84:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
+  %85 = phi i8 [ %83, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %75 ], [ poison, %73 ], [ poison, %71 ]
   %86 = load ptr, ptr %1, align 8, !tbaa !886
   %87 = load ptr, ptr %86, align 8, !tbaa !217
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 1
@@ -33124,39 +33124,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %68 = load ptr, ptr %49, align 8, !tbaa !35
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %70 = load i32, ptr %69, align 8, !tbaa !53
-  switch i32 %70, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %71
-    i32 28, label %73
-    i32 38, label %75
+  switch i32 %70, label %75 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %71
+    i32 38, label %73
   ]
 
 71:                                               ; preds = %67
-  %72 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %72 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %72, label %84, label %80
 
 73:                                               ; preds = %67
-  %74 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %74 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %74, label %84, label %80
 
 75:                                               ; preds = %67
-  %76 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
-  br i1 %76, label %84, label %80
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
-  %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %78 = load atomic i64, ptr %77 seq_cst, align 8
-  %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not28 = icmp eq i64 %78, %79
+  %76 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %77 = load atomic i64, ptr %76 seq_cst, align 8
+  %78 = load i64, ptr %48, align 8, !tbaa !389
+  %.not28 = icmp eq i64 %77, %78
   br i1 %.not28, label %84, label %80
 
-80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
+  %79 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  br i1 %79, label %84, label %80
+
+80:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw double, ptr %19, i64 %.017
   %82 = load double, ptr %81, align 8, !tbaa !327
   %83 = fptosi double %82 to i8
   br label %84
 
-84:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
-  %85 = phi i8 [ %83, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %71 ], [ poison, %73 ], [ poison, %75 ]
+84:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
+  %85 = phi i8 [ %83, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %75 ], [ poison, %73 ], [ poison, %71 ]
   %86 = load ptr, ptr %1, align 8, !tbaa !886
   %87 = load ptr, ptr %86, align 8, !tbaa !217
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 1
@@ -33790,39 +33790,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %74 = load ptr, ptr %55, align 8, !tbaa !35
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %76 = load i32, ptr %75, align 8, !tbaa !53
-  switch i32 %76, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %77
-    i32 28, label %79
-    i32 38, label %81
+  switch i32 %76, label %81 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %77
+    i32 38, label %79
   ]
 
 77:                                               ; preds = %73
-  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %78, label %90, label %86
 
 79:                                               ; preds = %73
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %80, label %90, label %86
 
 81:                                               ; preds = %73
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
-  br i1 %82, label %90, label %86
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
-  %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %84 = load atomic i64, ptr %83 seq_cst, align 8
-  %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %84, %85
+  %82 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %83 = load atomic i64, ptr %82 seq_cst, align 8
+  %84 = load i64, ptr %54, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %83, %84
   br i1 %.not25, label %90, label %86
 
-86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
+  %85 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  br i1 %85, label %90, label %86
+
+86:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i8, ptr %16, i64 %.015
   %88 = load i8, ptr %87, align 1, !tbaa !92
   %89 = sext i8 %88 to i16
   br label %90
 
-90:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
-  %91 = phi i16 [ %89, %86 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %59 ], [ poison, %77 ], [ poison, %79 ], [ poison, %81 ]
+90:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
+  %91 = phi i16 [ %89, %86 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %59 ], [ poison, %81 ], [ poison, %79 ], [ poison, %77 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !932
   %93 = load ptr, ptr %92, align 8, !tbaa !226
   %94 = load i32, ptr %37, align 8, !tbaa !248
@@ -33981,39 +33981,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %74 = load ptr, ptr %55, align 8, !tbaa !35
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %76 = load i32, ptr %75, align 8, !tbaa !53
-  switch i32 %76, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %77
-    i32 28, label %79
-    i32 38, label %81
+  switch i32 %76, label %81 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %77
+    i32 38, label %79
   ]
 
 77:                                               ; preds = %73
-  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %78, label %90, label %86
 
 79:                                               ; preds = %73
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %80, label %90, label %86
 
 81:                                               ; preds = %73
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
-  br i1 %82, label %90, label %86
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
-  %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %84 = load atomic i64, ptr %83 seq_cst, align 8
-  %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %84, %85
+  %82 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %83 = load atomic i64, ptr %82 seq_cst, align 8
+  %84 = load i64, ptr %54, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %83, %84
   br i1 %.not25, label %90, label %86
 
-86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
+  %85 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  br i1 %85, label %90, label %86
+
+86:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i8, ptr %16, i64 %.015
   %88 = load i8, ptr %87, align 1, !tbaa !92
   %89 = zext i8 %88 to i16
   br label %90
 
-90:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
-  %91 = phi i16 [ %89, %86 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %59 ], [ poison, %77 ], [ poison, %79 ], [ poison, %81 ]
+90:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
+  %91 = phi i16 [ %89, %86 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %59 ], [ poison, %81 ], [ poison, %79 ], [ poison, %77 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !932
   %93 = load ptr, ptr %92, align 8, !tbaa !226
   %94 = load i32, ptr %37, align 8, !tbaa !248
@@ -34171,38 +34171,38 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %73 = load ptr, ptr %54, align 8, !tbaa !35
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 40
   %75 = load i32, ptr %74, align 8, !tbaa !53
-  switch i32 %75, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %76
-    i32 28, label %78
-    i32 38, label %80
+  switch i32 %75, label %80 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %76
+    i32 38, label %78
   ]
 
 76:                                               ; preds = %72
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
+  %77 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
   br i1 %77, label %88, label %85
 
 78:                                               ; preds = %72
-  %79 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
+  %79 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
   br i1 %79, label %88, label %85
 
 80:                                               ; preds = %72
-  %81 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
-  br i1 %81, label %88, label %85
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
-  %82 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  %83 = load atomic i64, ptr %82 seq_cst, align 8
-  %84 = load i64, ptr %53, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %83, %84
+  %81 = getelementptr inbounds nuw i8, ptr %54, i64 24
+  %82 = load atomic i64, ptr %81 seq_cst, align 8
+  %83 = load i64, ptr %53, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %82, %83
   br i1 %.not25, label %88, label %85
 
-85:                                               ; preds = %80, %78, %76, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
+  %84 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
+  br i1 %84, label %88, label %85
+
+85:                                               ; preds = %76, %78, %80, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %86 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
   %87 = load i16, ptr %86, align 2, !tbaa !291
   br label %88
 
-88:                                               ; preds = %80, %78, %76, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit, %85
-  %89 = phi i16 [ %87, %85 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %58 ], [ poison, %76 ], [ poison, %78 ], [ poison, %80 ]
+88:                                               ; preds = %76, %78, %80, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit, %85
+  %89 = phi i16 [ %87, %85 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %58 ], [ poison, %80 ], [ poison, %78 ], [ poison, %76 ]
   %90 = load ptr, ptr %1, align 8, !tbaa !932
   %91 = load ptr, ptr %90, align 8, !tbaa !226
   %92 = load i32, ptr %37, align 8, !tbaa !248
@@ -34360,38 +34360,38 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %73 = load ptr, ptr %54, align 8, !tbaa !35
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 40
   %75 = load i32, ptr %74, align 8, !tbaa !53
-  switch i32 %75, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %76
-    i32 28, label %78
-    i32 38, label %80
+  switch i32 %75, label %80 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %76
+    i32 38, label %78
   ]
 
 76:                                               ; preds = %72
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
+  %77 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
   br i1 %77, label %88, label %85
 
 78:                                               ; preds = %72
-  %79 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
+  %79 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
   br i1 %79, label %88, label %85
 
 80:                                               ; preds = %72
-  %81 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
-  br i1 %81, label %88, label %85
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
-  %82 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  %83 = load atomic i64, ptr %82 seq_cst, align 8
-  %84 = load i64, ptr %53, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %83, %84
+  %81 = getelementptr inbounds nuw i8, ptr %54, i64 24
+  %82 = load atomic i64, ptr %81 seq_cst, align 8
+  %83 = load i64, ptr %53, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %82, %83
   br i1 %.not25, label %88, label %85
 
-85:                                               ; preds = %80, %78, %76, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
+  %84 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
+  br i1 %84, label %88, label %85
+
+85:                                               ; preds = %76, %78, %80, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %86 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
   %87 = load i16, ptr %86, align 2, !tbaa !291
   br label %88
 
-88:                                               ; preds = %80, %78, %76, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit, %85
-  %89 = phi i16 [ %87, %85 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %58 ], [ poison, %76 ], [ poison, %78 ], [ poison, %80 ]
+88:                                               ; preds = %76, %78, %80, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit, %85
+  %89 = phi i16 [ %87, %85 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %58 ], [ poison, %80 ], [ poison, %78 ], [ poison, %76 ]
   %90 = load ptr, ptr %1, align 8, !tbaa !932
   %91 = load ptr, ptr %90, align 8, !tbaa !226
   %92 = load i32, ptr %37, align 8, !tbaa !248
@@ -34550,39 +34550,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %74 = load ptr, ptr %55, align 8, !tbaa !35
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %76 = load i32, ptr %75, align 8, !tbaa !53
-  switch i32 %76, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %77
-    i32 28, label %79
-    i32 38, label %81
+  switch i32 %76, label %81 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %77
+    i32 38, label %79
   ]
 
 77:                                               ; preds = %73
-  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %78, label %90, label %86
 
 79:                                               ; preds = %73
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %80, label %90, label %86
 
 81:                                               ; preds = %73
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
-  br i1 %82, label %90, label %86
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
-  %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %84 = load atomic i64, ptr %83 seq_cst, align 8
-  %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %84, %85
+  %82 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %83 = load atomic i64, ptr %82 seq_cst, align 8
+  %84 = load i64, ptr %54, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %83, %84
   br i1 %.not25, label %90, label %86
 
-86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
+  %85 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  br i1 %85, label %90, label %86
+
+86:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
   %88 = load i32, ptr %87, align 4, !tbaa !133
   %89 = trunc i32 %88 to i16
   br label %90
 
-90:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
-  %91 = phi i16 [ %89, %86 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %59 ], [ poison, %77 ], [ poison, %79 ], [ poison, %81 ]
+90:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
+  %91 = phi i16 [ %89, %86 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %59 ], [ poison, %81 ], [ poison, %79 ], [ poison, %77 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !932
   %93 = load ptr, ptr %92, align 8, !tbaa !226
   %94 = load i32, ptr %37, align 8, !tbaa !248
@@ -34741,39 +34741,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %74 = load ptr, ptr %55, align 8, !tbaa !35
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %76 = load i32, ptr %75, align 8, !tbaa !53
-  switch i32 %76, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %77
-    i32 28, label %79
-    i32 38, label %81
+  switch i32 %76, label %81 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %77
+    i32 38, label %79
   ]
 
 77:                                               ; preds = %73
-  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %78, label %90, label %86
 
 79:                                               ; preds = %73
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %80, label %90, label %86
 
 81:                                               ; preds = %73
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
-  br i1 %82, label %90, label %86
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
-  %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %84 = load atomic i64, ptr %83 seq_cst, align 8
-  %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %84, %85
+  %82 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %83 = load atomic i64, ptr %82 seq_cst, align 8
+  %84 = load i64, ptr %54, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %83, %84
   br i1 %.not25, label %90, label %86
 
-86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
+  %85 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  br i1 %85, label %90, label %86
+
+86:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
   %88 = load i32, ptr %87, align 4, !tbaa !133
   %89 = trunc i32 %88 to i16
   br label %90
 
-90:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
-  %91 = phi i16 [ %89, %86 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %59 ], [ poison, %77 ], [ poison, %79 ], [ poison, %81 ]
+90:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
+  %91 = phi i16 [ %89, %86 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %59 ], [ poison, %81 ], [ poison, %79 ], [ poison, %77 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !932
   %93 = load ptr, ptr %92, align 8, !tbaa !226
   %94 = load i32, ptr %37, align 8, !tbaa !248
@@ -34932,39 +34932,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %74 = load ptr, ptr %55, align 8, !tbaa !35
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %76 = load i32, ptr %75, align 8, !tbaa !53
-  switch i32 %76, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %77
-    i32 28, label %79
-    i32 38, label %81
+  switch i32 %76, label %81 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %77
+    i32 38, label %79
   ]
 
 77:                                               ; preds = %73
-  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %78, label %90, label %86
 
 79:                                               ; preds = %73
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %80, label %90, label %86
 
 81:                                               ; preds = %73
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
-  br i1 %82, label %90, label %86
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
-  %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %84 = load atomic i64, ptr %83 seq_cst, align 8
-  %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %84, %85
+  %82 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %83 = load atomic i64, ptr %82 seq_cst, align 8
+  %84 = load i64, ptr %54, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %83, %84
   br i1 %.not25, label %90, label %86
 
-86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
+  %85 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  br i1 %85, label %90, label %86
+
+86:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
   %88 = load i64, ptr %87, align 8, !tbaa !12
   %89 = trunc i64 %88 to i16
   br label %90
 
-90:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
-  %91 = phi i16 [ %89, %86 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %59 ], [ poison, %77 ], [ poison, %79 ], [ poison, %81 ]
+90:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
+  %91 = phi i16 [ %89, %86 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %59 ], [ poison, %81 ], [ poison, %79 ], [ poison, %77 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !932
   %93 = load ptr, ptr %92, align 8, !tbaa !226
   %94 = load i32, ptr %37, align 8, !tbaa !248
@@ -35123,39 +35123,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %74 = load ptr, ptr %55, align 8, !tbaa !35
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %76 = load i32, ptr %75, align 8, !tbaa !53
-  switch i32 %76, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %77
-    i32 28, label %79
-    i32 38, label %81
+  switch i32 %76, label %81 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %77
+    i32 38, label %79
   ]
 
 77:                                               ; preds = %73
-  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %78, label %90, label %86
 
 79:                                               ; preds = %73
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %80, label %90, label %86
 
 81:                                               ; preds = %73
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
-  br i1 %82, label %90, label %86
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
-  %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %84 = load atomic i64, ptr %83 seq_cst, align 8
-  %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %84, %85
+  %82 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %83 = load atomic i64, ptr %82 seq_cst, align 8
+  %84 = load i64, ptr %54, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %83, %84
   br i1 %.not25, label %90, label %86
 
-86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
+  %85 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  br i1 %85, label %90, label %86
+
+86:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
   %88 = load i64, ptr %87, align 8, !tbaa !12
   %89 = trunc i64 %88 to i16
   br label %90
 
-90:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
-  %91 = phi i16 [ %89, %86 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %59 ], [ poison, %77 ], [ poison, %79 ], [ poison, %81 ]
+90:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
+  %91 = phi i16 [ %89, %86 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %59 ], [ poison, %81 ], [ poison, %79 ], [ poison, %77 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !932
   %93 = load ptr, ptr %92, align 8, !tbaa !226
   %94 = load i32, ptr %37, align 8, !tbaa !248
@@ -35313,38 +35313,38 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %73 = load ptr, ptr %54, align 8, !tbaa !35
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 40
   %75 = load i32, ptr %74, align 8, !tbaa !53
-  switch i32 %75, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %76
-    i32 28, label %78
-    i32 38, label %80
+  switch i32 %75, label %80 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %76
+    i32 38, label %78
   ]
 
 76:                                               ; preds = %72
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
+  %77 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
   br i1 %77, label %88, label %85
 
 78:                                               ; preds = %72
-  %79 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
+  %79 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
   br i1 %79, label %88, label %85
 
 80:                                               ; preds = %72
-  %81 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
-  br i1 %81, label %88, label %85
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
-  %82 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  %83 = load atomic i64, ptr %82 seq_cst, align 8
-  %84 = load i64, ptr %53, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %83, %84
+  %81 = getelementptr inbounds nuw i8, ptr %54, i64 24
+  %82 = load atomic i64, ptr %81 seq_cst, align 8
+  %83 = load i64, ptr %53, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %82, %83
   br i1 %.not25, label %88, label %85
 
-85:                                               ; preds = %80, %78, %76, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
+  %84 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
+  br i1 %84, label %88, label %85
+
+85:                                               ; preds = %76, %78, %80, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %86 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
   %87 = load i16, ptr %86, align 2, !tbaa !291
   br label %88
 
-88:                                               ; preds = %80, %78, %76, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit, %85
-  %89 = phi i16 [ %87, %85 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %58 ], [ poison, %76 ], [ poison, %78 ], [ poison, %80 ]
+88:                                               ; preds = %76, %78, %80, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit, %85
+  %89 = phi i16 [ %87, %85 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %58 ], [ poison, %80 ], [ poison, %78 ], [ poison, %76 ]
   %90 = load ptr, ptr %1, align 8, !tbaa !932
   %91 = load ptr, ptr %90, align 8, !tbaa !226
   %92 = load i32, ptr %37, align 8, !tbaa !248
@@ -35503,39 +35503,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %74 = load ptr, ptr %55, align 8, !tbaa !35
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %76 = load i32, ptr %75, align 8, !tbaa !53
-  switch i32 %76, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %77
-    i32 28, label %79
-    i32 38, label %81
+  switch i32 %76, label %81 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %77
+    i32 38, label %79
   ]
 
 77:                                               ; preds = %73
-  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %78, label %90, label %86
 
 79:                                               ; preds = %73
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %80, label %90, label %86
 
 81:                                               ; preds = %73
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
-  br i1 %82, label %90, label %86
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
-  %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %84 = load atomic i64, ptr %83 seq_cst, align 8
-  %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %84, %85
+  %82 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %83 = load atomic i64, ptr %82 seq_cst, align 8
+  %84 = load i64, ptr %54, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %83, %84
   br i1 %.not25, label %90, label %86
 
-86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
+  %85 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  br i1 %85, label %90, label %86
+
+86:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw float, ptr %16, i64 %.015
   %88 = load float, ptr %87, align 4, !tbaa !321
   %89 = fptosi float %88 to i16
   br label %90
 
-90:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
-  %91 = phi i16 [ %89, %86 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %59 ], [ poison, %77 ], [ poison, %79 ], [ poison, %81 ]
+90:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
+  %91 = phi i16 [ %89, %86 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %59 ], [ poison, %81 ], [ poison, %79 ], [ poison, %77 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !932
   %93 = load ptr, ptr %92, align 8, !tbaa !226
   %94 = load i32, ptr %37, align 8, !tbaa !248
@@ -35694,39 +35694,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %74 = load ptr, ptr %55, align 8, !tbaa !35
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %76 = load i32, ptr %75, align 8, !tbaa !53
-  switch i32 %76, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %77
-    i32 28, label %79
-    i32 38, label %81
+  switch i32 %76, label %81 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %77
+    i32 38, label %79
   ]
 
 77:                                               ; preds = %73
-  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %78, label %90, label %86
 
 79:                                               ; preds = %73
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %80, label %90, label %86
 
 81:                                               ; preds = %73
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
-  br i1 %82, label %90, label %86
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
-  %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %84 = load atomic i64, ptr %83 seq_cst, align 8
-  %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %84, %85
+  %82 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %83 = load atomic i64, ptr %82 seq_cst, align 8
+  %84 = load i64, ptr %54, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %83, %84
   br i1 %.not25, label %90, label %86
 
-86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
+  %85 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  br i1 %85, label %90, label %86
+
+86:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw double, ptr %16, i64 %.015
   %88 = load double, ptr %87, align 8, !tbaa !327
   %89 = fptosi double %88 to i16
   br label %90
 
-90:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
-  %91 = phi i16 [ %89, %86 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %59 ], [ poison, %77 ], [ poison, %79 ], [ poison, %81 ]
+90:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
+  %91 = phi i16 [ %89, %86 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %59 ], [ poison, %81 ], [ poison, %79 ], [ poison, %77 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !932
   %93 = load ptr, ptr %92, align 8, !tbaa !226
   %94 = load i32, ptr %37, align 8, !tbaa !248
@@ -35878,39 +35878,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not28 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not28 = icmp eq i64 %78, %79
   br i1 %.not28, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i8, ptr %19, i64 %.017
   %83 = load i8, ptr %82, align 1, !tbaa !92
   %84 = sext i8 %83 to i16
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i16 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i16 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !990
   %88 = load ptr, ptr %87, align 8, !tbaa !226
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 2
@@ -36057,39 +36057,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not28 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not28 = icmp eq i64 %78, %79
   br i1 %.not28, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i8, ptr %19, i64 %.017
   %83 = load i8, ptr %82, align 1, !tbaa !92
   %84 = zext i8 %83 to i16
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i16 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i16 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !990
   %88 = load ptr, ptr %87, align 8, !tbaa !226
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 2
@@ -36225,38 +36225,38 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %67 = load ptr, ptr %48, align 8, !tbaa !35
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 40
   %69 = load i32, ptr %68, align 8, !tbaa !53
-  switch i32 %69, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %70
-    i32 28, label %72
-    i32 38, label %74
+  switch i32 %69, label %74 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %70
+    i32 38, label %72
   ]
 
 70:                                               ; preds = %66
-  %71 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
+  %71 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
   br i1 %71, label %82, label %79
 
 72:                                               ; preds = %66
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
   br i1 %73, label %82, label %79
 
 74:                                               ; preds = %66
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
-  br i1 %75, label %82, label %79
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
-  %76 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %77 = load atomic i64, ptr %76 seq_cst, align 8
-  %78 = load i64, ptr %47, align 8, !tbaa !389
-  %.not13 = icmp eq i64 %77, %78
+  %75 = getelementptr inbounds nuw i8, ptr %48, i64 24
+  %76 = load atomic i64, ptr %75 seq_cst, align 8
+  %77 = load i64, ptr %47, align 8, !tbaa !389
+  %.not13 = icmp eq i64 %76, %77
   br i1 %.not13, label %82, label %79
 
-79:                                               ; preds = %74, %72, %70, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
+  br i1 %78, label %82, label %79
+
+79:                                               ; preds = %70, %72, %74, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %80 = getelementptr inbounds nuw i16, ptr %19, i64 %.08
   %81 = load i16, ptr %80, align 2, !tbaa !291
   br label %82
 
-82:                                               ; preds = %74, %72, %70, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit, %79
-  %83 = phi i16 [ %81, %79 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %52 ], [ poison, %70 ], [ poison, %72 ], [ poison, %74 ]
+82:                                               ; preds = %70, %72, %74, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit, %79
+  %83 = phi i16 [ %81, %79 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %52 ], [ poison, %74 ], [ poison, %72 ], [ poison, %70 ]
   %84 = load ptr, ptr %1, align 8, !tbaa !990
   %85 = load ptr, ptr %84, align 8, !tbaa !226
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 2
@@ -36402,38 +36402,38 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %68 = load ptr, ptr %49, align 8, !tbaa !35
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %70 = load i32, ptr %69, align 8, !tbaa !53
-  switch i32 %70, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %71
-    i32 28, label %73
-    i32 38, label %75
+  switch i32 %70, label %75 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %71
+    i32 38, label %73
   ]
 
 71:                                               ; preds = %67
-  %72 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %72 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %72, label %83, label %80
 
 73:                                               ; preds = %67
-  %74 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %74 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %74, label %83, label %80
 
 75:                                               ; preds = %67
-  %76 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
-  br i1 %76, label %83, label %80
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
-  %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %78 = load atomic i64, ptr %77 seq_cst, align 8
-  %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %78, %79
+  %76 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %77 = load atomic i64, ptr %76 seq_cst, align 8
+  %78 = load i64, ptr %48, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %77, %78
   br i1 %.not26, label %83, label %80
 
-80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
+  %79 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  br i1 %79, label %83, label %80
+
+80:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
   %82 = load i16, ptr %81, align 2, !tbaa !291
   br label %83
 
-83:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
-  %84 = phi i16 [ %82, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %71 ], [ poison, %73 ], [ poison, %75 ]
+83:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
+  %84 = phi i16 [ %82, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %75 ], [ poison, %73 ], [ poison, %71 ]
   %85 = load ptr, ptr %1, align 8, !tbaa !990
   %86 = load ptr, ptr %85, align 8, !tbaa !226
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 2
@@ -36584,39 +36584,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
   %83 = load i32, ptr %82, align 4, !tbaa !133
   %84 = trunc i32 %83 to i16
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i16 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i16 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !990
   %88 = load ptr, ptr %87, align 8, !tbaa !226
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 2
@@ -36767,39 +36767,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
   %83 = load i32, ptr %82, align 4, !tbaa !133
   %84 = trunc i32 %83 to i16
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i16 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i16 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !990
   %88 = load ptr, ptr %87, align 8, !tbaa !226
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 2
@@ -36950,39 +36950,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
   %83 = load i64, ptr %82, align 8, !tbaa !12
   %84 = trunc i64 %83 to i16
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i16 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i16 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !990
   %88 = load ptr, ptr %87, align 8, !tbaa !226
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 2
@@ -37133,39 +37133,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
   %83 = load i64, ptr %82, align 8, !tbaa !12
   %84 = trunc i64 %83 to i16
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i16 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i16 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !990
   %88 = load ptr, ptr %87, align 8, !tbaa !226
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 2
@@ -37315,38 +37315,38 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %68 = load ptr, ptr %49, align 8, !tbaa !35
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %70 = load i32, ptr %69, align 8, !tbaa !53
-  switch i32 %70, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %71
-    i32 28, label %73
-    i32 38, label %75
+  switch i32 %70, label %75 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %71
+    i32 38, label %73
   ]
 
 71:                                               ; preds = %67
-  %72 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %72 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %72, label %83, label %80
 
 73:                                               ; preds = %67
-  %74 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %74 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %74, label %83, label %80
 
 75:                                               ; preds = %67
-  %76 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
-  br i1 %76, label %83, label %80
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
-  %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %78 = load atomic i64, ptr %77 seq_cst, align 8
-  %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %78, %79
+  %76 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %77 = load atomic i64, ptr %76 seq_cst, align 8
+  %78 = load i64, ptr %48, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %77, %78
   br i1 %.not26, label %83, label %80
 
-80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
+  %79 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  br i1 %79, label %83, label %80
+
+80:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
   %82 = load i16, ptr %81, align 2, !tbaa !291
   br label %83
 
-83:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
-  %84 = phi i16 [ %82, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %71 ], [ poison, %73 ], [ poison, %75 ]
+83:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
+  %84 = phi i16 [ %82, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %75 ], [ poison, %73 ], [ poison, %71 ]
   %85 = load ptr, ptr %1, align 8, !tbaa !990
   %86 = load ptr, ptr %85, align 8, !tbaa !226
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 2
@@ -37497,39 +37497,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw float, ptr %19, i64 %.017
   %83 = load float, ptr %82, align 4, !tbaa !321
   %84 = fptosi float %83 to i16
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i16 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i16 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !990
   %88 = load ptr, ptr %87, align 8, !tbaa !226
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 2
@@ -37680,39 +37680,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw double, ptr %19, i64 %.017
   %83 = load double, ptr %82, align 8, !tbaa !327
   %84 = fptosi double %83 to i16
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i16 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i16 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !990
   %88 = load ptr, ptr %87, align 8, !tbaa !226
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 2
@@ -38350,39 +38350,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %76 = load ptr, ptr %57, align 8, !tbaa !35
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %78 = load i32, ptr %77, align 8, !tbaa !53
-  switch i32 %78, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %79
-    i32 28, label %81
-    i32 38, label %83
+  switch i32 %78, label %83 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %79
+    i32 38, label %81
   ]
 
 79:                                               ; preds = %75
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %80, label %92, label %88
 
 81:                                               ; preds = %75
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %82, label %92, label %88
 
 83:                                               ; preds = %75
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
-  br i1 %84, label %92, label %88
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
-  %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %86 = load atomic i64, ptr %85 seq_cst, align 8
-  %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %86, %87
+  %84 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %85 = load atomic i64, ptr %84 seq_cst, align 8
+  %86 = load i64, ptr %56, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %85, %86
   br i1 %.not25, label %92, label %88
 
-88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
+  %87 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  br i1 %87, label %92, label %88
+
+88:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i8, ptr %16, i64 %.015
   %90 = load i8, ptr %89, align 1, !tbaa !92
   %91 = sext i8 %90 to i32
   br label %92
 
-92:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
-  %93 = phi i32 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %79 ], [ poison, %81 ], [ poison, %83 ]
+92:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
+  %93 = phi i32 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %83 ], [ poison, %81 ], [ poison, %79 ]
   %94 = load ptr, ptr %1, align 8, !tbaa !1036
   %95 = load ptr, ptr %94, align 8, !tbaa !233
   %96 = load i32, ptr %37, align 8, !tbaa !251
@@ -38541,39 +38541,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %76 = load ptr, ptr %57, align 8, !tbaa !35
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %78 = load i32, ptr %77, align 8, !tbaa !53
-  switch i32 %78, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %79
-    i32 28, label %81
-    i32 38, label %83
+  switch i32 %78, label %83 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %79
+    i32 38, label %81
   ]
 
 79:                                               ; preds = %75
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %80, label %92, label %88
 
 81:                                               ; preds = %75
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %82, label %92, label %88
 
 83:                                               ; preds = %75
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
-  br i1 %84, label %92, label %88
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
-  %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %86 = load atomic i64, ptr %85 seq_cst, align 8
-  %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %86, %87
+  %84 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %85 = load atomic i64, ptr %84 seq_cst, align 8
+  %86 = load i64, ptr %56, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %85, %86
   br i1 %.not25, label %92, label %88
 
-88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
+  %87 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  br i1 %87, label %92, label %88
+
+88:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i8, ptr %16, i64 %.015
   %90 = load i8, ptr %89, align 1, !tbaa !92
   %91 = zext i8 %90 to i32
   br label %92
 
-92:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
-  %93 = phi i32 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %79 ], [ poison, %81 ], [ poison, %83 ]
+92:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
+  %93 = phi i32 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %83 ], [ poison, %81 ], [ poison, %79 ]
   %94 = load ptr, ptr %1, align 8, !tbaa !1036
   %95 = load ptr, ptr %94, align 8, !tbaa !233
   %96 = load i32, ptr %37, align 8, !tbaa !251
@@ -38732,39 +38732,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %76 = load ptr, ptr %57, align 8, !tbaa !35
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %78 = load i32, ptr %77, align 8, !tbaa !53
-  switch i32 %78, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %79
-    i32 28, label %81
-    i32 38, label %83
+  switch i32 %78, label %83 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %79
+    i32 38, label %81
   ]
 
 79:                                               ; preds = %75
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %80, label %92, label %88
 
 81:                                               ; preds = %75
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %82, label %92, label %88
 
 83:                                               ; preds = %75
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
-  br i1 %84, label %92, label %88
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
-  %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %86 = load atomic i64, ptr %85 seq_cst, align 8
-  %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %86, %87
+  %84 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %85 = load atomic i64, ptr %84 seq_cst, align 8
+  %86 = load i64, ptr %56, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %85, %86
   br i1 %.not25, label %92, label %88
 
-88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
+  %87 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  br i1 %87, label %92, label %88
+
+88:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
   %90 = load i16, ptr %89, align 2, !tbaa !291
   %91 = sext i16 %90 to i32
   br label %92
 
-92:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
-  %93 = phi i32 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %79 ], [ poison, %81 ], [ poison, %83 ]
+92:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
+  %93 = phi i32 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %83 ], [ poison, %81 ], [ poison, %79 ]
   %94 = load ptr, ptr %1, align 8, !tbaa !1036
   %95 = load ptr, ptr %94, align 8, !tbaa !233
   %96 = load i32, ptr %37, align 8, !tbaa !251
@@ -38923,39 +38923,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %76 = load ptr, ptr %57, align 8, !tbaa !35
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %78 = load i32, ptr %77, align 8, !tbaa !53
-  switch i32 %78, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %79
-    i32 28, label %81
-    i32 38, label %83
+  switch i32 %78, label %83 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %79
+    i32 38, label %81
   ]
 
 79:                                               ; preds = %75
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %80, label %92, label %88
 
 81:                                               ; preds = %75
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %82, label %92, label %88
 
 83:                                               ; preds = %75
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
-  br i1 %84, label %92, label %88
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
-  %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %86 = load atomic i64, ptr %85 seq_cst, align 8
-  %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %86, %87
+  %84 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %85 = load atomic i64, ptr %84 seq_cst, align 8
+  %86 = load i64, ptr %56, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %85, %86
   br i1 %.not25, label %92, label %88
 
-88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
+  %87 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  br i1 %87, label %92, label %88
+
+88:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
   %90 = load i16, ptr %89, align 2, !tbaa !291
   %91 = zext i16 %90 to i32
   br label %92
 
-92:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
-  %93 = phi i32 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %79 ], [ poison, %81 ], [ poison, %83 ]
+92:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
+  %93 = phi i32 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %83 ], [ poison, %81 ], [ poison, %79 ]
   %94 = load ptr, ptr %1, align 8, !tbaa !1036
   %95 = load ptr, ptr %94, align 8, !tbaa !233
   %96 = load i32, ptr %37, align 8, !tbaa !251
@@ -39113,38 +39113,38 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %75 = load ptr, ptr %56, align 8, !tbaa !35
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 40
   %77 = load i32, ptr %76, align 8, !tbaa !53
-  switch i32 %77, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %78
-    i32 28, label %80
-    i32 38, label %82
+  switch i32 %77, label %82 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %78
+    i32 38, label %80
   ]
 
 78:                                               ; preds = %74
-  %79 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
+  %79 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
   br i1 %79, label %90, label %87
 
 80:                                               ; preds = %74
-  %81 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
+  %81 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
   br i1 %81, label %90, label %87
 
 82:                                               ; preds = %74
-  %83 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
-  br i1 %83, label %90, label %87
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
-  %84 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  %85 = load atomic i64, ptr %84 seq_cst, align 8
-  %86 = load i64, ptr %55, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %85, %86
+  %83 = getelementptr inbounds nuw i8, ptr %56, i64 24
+  %84 = load atomic i64, ptr %83 seq_cst, align 8
+  %85 = load i64, ptr %55, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %84, %85
   br i1 %.not25, label %90, label %87
 
-87:                                               ; preds = %82, %80, %78, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
+  %86 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
+  br i1 %86, label %90, label %87
+
+87:                                               ; preds = %78, %80, %82, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %88 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
   %89 = load i32, ptr %88, align 4, !tbaa !133
   br label %90
 
-90:                                               ; preds = %82, %80, %78, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit, %87
-  %91 = phi i32 [ %89, %87 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %60 ], [ poison, %78 ], [ poison, %80 ], [ poison, %82 ]
+90:                                               ; preds = %78, %80, %82, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit, %87
+  %91 = phi i32 [ %89, %87 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %60 ], [ poison, %82 ], [ poison, %80 ], [ poison, %78 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !1036
   %93 = load ptr, ptr %92, align 8, !tbaa !233
   %94 = load i32, ptr %37, align 8, !tbaa !251
@@ -39302,38 +39302,38 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %75 = load ptr, ptr %56, align 8, !tbaa !35
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 40
   %77 = load i32, ptr %76, align 8, !tbaa !53
-  switch i32 %77, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %78
-    i32 28, label %80
-    i32 38, label %82
+  switch i32 %77, label %82 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %78
+    i32 38, label %80
   ]
 
 78:                                               ; preds = %74
-  %79 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
+  %79 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
   br i1 %79, label %90, label %87
 
 80:                                               ; preds = %74
-  %81 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
+  %81 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
   br i1 %81, label %90, label %87
 
 82:                                               ; preds = %74
-  %83 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
-  br i1 %83, label %90, label %87
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
-  %84 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  %85 = load atomic i64, ptr %84 seq_cst, align 8
-  %86 = load i64, ptr %55, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %85, %86
+  %83 = getelementptr inbounds nuw i8, ptr %56, i64 24
+  %84 = load atomic i64, ptr %83 seq_cst, align 8
+  %85 = load i64, ptr %55, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %84, %85
   br i1 %.not25, label %90, label %87
 
-87:                                               ; preds = %82, %80, %78, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
+  %86 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
+  br i1 %86, label %90, label %87
+
+87:                                               ; preds = %78, %80, %82, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %88 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
   %89 = load i32, ptr %88, align 4, !tbaa !133
   br label %90
 
-90:                                               ; preds = %82, %80, %78, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit, %87
-  %91 = phi i32 [ %89, %87 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %60 ], [ poison, %78 ], [ poison, %80 ], [ poison, %82 ]
+90:                                               ; preds = %78, %80, %82, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit, %87
+  %91 = phi i32 [ %89, %87 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %60 ], [ poison, %82 ], [ poison, %80 ], [ poison, %78 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !1036
   %93 = load ptr, ptr %92, align 8, !tbaa !233
   %94 = load i32, ptr %37, align 8, !tbaa !251
@@ -39492,39 +39492,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %76 = load ptr, ptr %57, align 8, !tbaa !35
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %78 = load i32, ptr %77, align 8, !tbaa !53
-  switch i32 %78, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %79
-    i32 28, label %81
-    i32 38, label %83
+  switch i32 %78, label %83 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %79
+    i32 38, label %81
   ]
 
 79:                                               ; preds = %75
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %80, label %92, label %88
 
 81:                                               ; preds = %75
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %82, label %92, label %88
 
 83:                                               ; preds = %75
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
-  br i1 %84, label %92, label %88
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
-  %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %86 = load atomic i64, ptr %85 seq_cst, align 8
-  %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %86, %87
+  %84 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %85 = load atomic i64, ptr %84 seq_cst, align 8
+  %86 = load i64, ptr %56, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %85, %86
   br i1 %.not25, label %92, label %88
 
-88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
+  %87 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  br i1 %87, label %92, label %88
+
+88:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
   %90 = load i64, ptr %89, align 8, !tbaa !12
   %91 = trunc i64 %90 to i32
   br label %92
 
-92:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
-  %93 = phi i32 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %79 ], [ poison, %81 ], [ poison, %83 ]
+92:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
+  %93 = phi i32 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %83 ], [ poison, %81 ], [ poison, %79 ]
   %94 = load ptr, ptr %1, align 8, !tbaa !1036
   %95 = load ptr, ptr %94, align 8, !tbaa !233
   %96 = load i32, ptr %37, align 8, !tbaa !251
@@ -39683,39 +39683,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %76 = load ptr, ptr %57, align 8, !tbaa !35
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %78 = load i32, ptr %77, align 8, !tbaa !53
-  switch i32 %78, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %79
-    i32 28, label %81
-    i32 38, label %83
+  switch i32 %78, label %83 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %79
+    i32 38, label %81
   ]
 
 79:                                               ; preds = %75
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %80, label %92, label %88
 
 81:                                               ; preds = %75
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %82, label %92, label %88
 
 83:                                               ; preds = %75
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
-  br i1 %84, label %92, label %88
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
-  %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %86 = load atomic i64, ptr %85 seq_cst, align 8
-  %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %86, %87
+  %84 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %85 = load atomic i64, ptr %84 seq_cst, align 8
+  %86 = load i64, ptr %56, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %85, %86
   br i1 %.not25, label %92, label %88
 
-88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
+  %87 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  br i1 %87, label %92, label %88
+
+88:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
   %90 = load i64, ptr %89, align 8, !tbaa !12
   %91 = trunc i64 %90 to i32
   br label %92
 
-92:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
-  %93 = phi i32 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %79 ], [ poison, %81 ], [ poison, %83 ]
+92:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
+  %93 = phi i32 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %83 ], [ poison, %81 ], [ poison, %79 ]
   %94 = load ptr, ptr %1, align 8, !tbaa !1036
   %95 = load ptr, ptr %94, align 8, !tbaa !233
   %96 = load i32, ptr %37, align 8, !tbaa !251
@@ -39874,39 +39874,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %76 = load ptr, ptr %57, align 8, !tbaa !35
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %78 = load i32, ptr %77, align 8, !tbaa !53
-  switch i32 %78, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %79
-    i32 28, label %81
-    i32 38, label %83
+  switch i32 %78, label %83 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %79
+    i32 38, label %81
   ]
 
 79:                                               ; preds = %75
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %80, label %92, label %88
 
 81:                                               ; preds = %75
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %82, label %92, label %88
 
 83:                                               ; preds = %75
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
-  br i1 %84, label %92, label %88
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
-  %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %86 = load atomic i64, ptr %85 seq_cst, align 8
-  %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %86, %87
+  %84 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %85 = load atomic i64, ptr %84 seq_cst, align 8
+  %86 = load i64, ptr %56, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %85, %86
   br i1 %.not25, label %92, label %88
 
-88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
+  %87 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  br i1 %87, label %92, label %88
+
+88:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
   %90 = load i16, ptr %89, align 2, !tbaa !291
   %91 = zext i16 %90 to i32
   br label %92
 
-92:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
-  %93 = phi i32 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %79 ], [ poison, %81 ], [ poison, %83 ]
+92:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
+  %93 = phi i32 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %83 ], [ poison, %81 ], [ poison, %79 ]
   %94 = load ptr, ptr %1, align 8, !tbaa !1036
   %95 = load ptr, ptr %94, align 8, !tbaa !233
   %96 = load i32, ptr %37, align 8, !tbaa !251
@@ -40065,39 +40065,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %76 = load ptr, ptr %57, align 8, !tbaa !35
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %78 = load i32, ptr %77, align 8, !tbaa !53
-  switch i32 %78, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %79
-    i32 28, label %81
-    i32 38, label %83
+  switch i32 %78, label %83 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %79
+    i32 38, label %81
   ]
 
 79:                                               ; preds = %75
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %80, label %92, label %88
 
 81:                                               ; preds = %75
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %82, label %92, label %88
 
 83:                                               ; preds = %75
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
-  br i1 %84, label %92, label %88
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
-  %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %86 = load atomic i64, ptr %85 seq_cst, align 8
-  %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %86, %87
+  %84 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %85 = load atomic i64, ptr %84 seq_cst, align 8
+  %86 = load i64, ptr %56, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %85, %86
   br i1 %.not25, label %92, label %88
 
-88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
+  %87 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  br i1 %87, label %92, label %88
+
+88:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw float, ptr %16, i64 %.015
   %90 = load float, ptr %89, align 4, !tbaa !321
   %91 = fptosi float %90 to i32
   br label %92
 
-92:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
-  %93 = phi i32 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %79 ], [ poison, %81 ], [ poison, %83 ]
+92:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
+  %93 = phi i32 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %83 ], [ poison, %81 ], [ poison, %79 ]
   %94 = load ptr, ptr %1, align 8, !tbaa !1036
   %95 = load ptr, ptr %94, align 8, !tbaa !233
   %96 = load i32, ptr %37, align 8, !tbaa !251
@@ -40256,39 +40256,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %76 = load ptr, ptr %57, align 8, !tbaa !35
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %78 = load i32, ptr %77, align 8, !tbaa !53
-  switch i32 %78, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %79
-    i32 28, label %81
-    i32 38, label %83
+  switch i32 %78, label %83 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %79
+    i32 38, label %81
   ]
 
 79:                                               ; preds = %75
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %80, label %92, label %88
 
 81:                                               ; preds = %75
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %82, label %92, label %88
 
 83:                                               ; preds = %75
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
-  br i1 %84, label %92, label %88
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
-  %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %86 = load atomic i64, ptr %85 seq_cst, align 8
-  %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %86, %87
+  %84 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %85 = load atomic i64, ptr %84 seq_cst, align 8
+  %86 = load i64, ptr %56, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %85, %86
   br i1 %.not25, label %92, label %88
 
-88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
+  %87 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  br i1 %87, label %92, label %88
+
+88:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw double, ptr %16, i64 %.015
   %90 = load double, ptr %89, align 8, !tbaa !327
   %91 = fptosi double %90 to i32
   br label %92
 
-92:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
-  %93 = phi i32 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %79 ], [ poison, %81 ], [ poison, %83 ]
+92:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
+  %93 = phi i32 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %83 ], [ poison, %81 ], [ poison, %79 ]
   %94 = load ptr, ptr %1, align 8, !tbaa !1036
   %95 = load ptr, ptr %94, align 8, !tbaa !233
   %96 = load i32, ptr %37, align 8, !tbaa !251
@@ -40440,39 +40440,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not28 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not28 = icmp eq i64 %78, %79
   br i1 %.not28, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i8, ptr %19, i64 %.017
   %83 = load i8, ptr %82, align 1, !tbaa !92
   %84 = sext i8 %83 to i32
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i32 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i32 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !1094
   %88 = load ptr, ptr %87, align 8, !tbaa !233
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
@@ -40619,39 +40619,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not28 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not28 = icmp eq i64 %78, %79
   br i1 %.not28, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i8, ptr %19, i64 %.017
   %83 = load i8, ptr %82, align 1, !tbaa !92
   %84 = zext i8 %83 to i32
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i32 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i32 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !1094
   %88 = load ptr, ptr %87, align 8, !tbaa !233
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
@@ -40798,39 +40798,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
   %83 = load i16, ptr %82, align 2, !tbaa !291
   %84 = sext i16 %83 to i32
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i32 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i32 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !1094
   %88 = load ptr, ptr %87, align 8, !tbaa !233
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
@@ -40981,39 +40981,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
   %83 = load i16, ptr %82, align 2, !tbaa !291
   %84 = zext i16 %83 to i32
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i32 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i32 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !1094
   %88 = load ptr, ptr %87, align 8, !tbaa !233
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
@@ -41153,38 +41153,38 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %67 = load ptr, ptr %48, align 8, !tbaa !35
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 40
   %69 = load i32, ptr %68, align 8, !tbaa !53
-  switch i32 %69, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %70
-    i32 28, label %72
-    i32 38, label %74
+  switch i32 %69, label %74 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %70
+    i32 38, label %72
   ]
 
 70:                                               ; preds = %66
-  %71 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
+  %71 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
   br i1 %71, label %82, label %79
 
 72:                                               ; preds = %66
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
   br i1 %73, label %82, label %79
 
 74:                                               ; preds = %66
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
-  br i1 %75, label %82, label %79
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
-  %76 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %77 = load atomic i64, ptr %76 seq_cst, align 8
-  %78 = load i64, ptr %47, align 8, !tbaa !389
-  %.not13 = icmp eq i64 %77, %78
+  %75 = getelementptr inbounds nuw i8, ptr %48, i64 24
+  %76 = load atomic i64, ptr %75 seq_cst, align 8
+  %77 = load i64, ptr %47, align 8, !tbaa !389
+  %.not13 = icmp eq i64 %76, %77
   br i1 %.not13, label %82, label %79
 
-79:                                               ; preds = %74, %72, %70, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
+  br i1 %78, label %82, label %79
+
+79:                                               ; preds = %70, %72, %74, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %80 = getelementptr inbounds nuw i32, ptr %19, i64 %.08
   %81 = load i32, ptr %80, align 4, !tbaa !133
   br label %82
 
-82:                                               ; preds = %74, %72, %70, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit, %79
-  %83 = phi i32 [ %81, %79 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %52 ], [ poison, %70 ], [ poison, %72 ], [ poison, %74 ]
+82:                                               ; preds = %70, %72, %74, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit, %79
+  %83 = phi i32 [ %81, %79 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %52 ], [ poison, %74 ], [ poison, %72 ], [ poison, %70 ]
   %84 = load ptr, ptr %1, align 8, !tbaa !1094
   %85 = load ptr, ptr %84, align 8, !tbaa !233
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 4
@@ -41330,38 +41330,38 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %68 = load ptr, ptr %49, align 8, !tbaa !35
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %70 = load i32, ptr %69, align 8, !tbaa !53
-  switch i32 %70, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %71
-    i32 28, label %73
-    i32 38, label %75
+  switch i32 %70, label %75 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %71
+    i32 38, label %73
   ]
 
 71:                                               ; preds = %67
-  %72 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %72 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %72, label %83, label %80
 
 73:                                               ; preds = %67
-  %74 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %74 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %74, label %83, label %80
 
 75:                                               ; preds = %67
-  %76 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
-  br i1 %76, label %83, label %80
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
-  %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %78 = load atomic i64, ptr %77 seq_cst, align 8
-  %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %78, %79
+  %76 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %77 = load atomic i64, ptr %76 seq_cst, align 8
+  %78 = load i64, ptr %48, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %77, %78
   br i1 %.not26, label %83, label %80
 
-80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
+  %79 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  br i1 %79, label %83, label %80
+
+80:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
   %82 = load i32, ptr %81, align 4, !tbaa !133
   br label %83
 
-83:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
-  %84 = phi i32 [ %82, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %71 ], [ poison, %73 ], [ poison, %75 ]
+83:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
+  %84 = phi i32 [ %82, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %75 ], [ poison, %73 ], [ poison, %71 ]
   %85 = load ptr, ptr %1, align 8, !tbaa !1094
   %86 = load ptr, ptr %85, align 8, !tbaa !233
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 4
@@ -41512,39 +41512,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
   %83 = load i64, ptr %82, align 8, !tbaa !12
   %84 = trunc i64 %83 to i32
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i32 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i32 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !1094
   %88 = load ptr, ptr %87, align 8, !tbaa !233
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
@@ -41695,39 +41695,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
   %83 = load i64, ptr %82, align 8, !tbaa !12
   %84 = trunc i64 %83 to i32
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i32 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i32 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !1094
   %88 = load ptr, ptr %87, align 8, !tbaa !233
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
@@ -41878,39 +41878,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
   %83 = load i16, ptr %82, align 2, !tbaa !291
   %84 = zext i16 %83 to i32
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i32 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i32 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !1094
   %88 = load ptr, ptr %87, align 8, !tbaa !233
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
@@ -42061,39 +42061,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw float, ptr %19, i64 %.017
   %83 = load float, ptr %82, align 4, !tbaa !321
   %84 = fptosi float %83 to i32
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i32 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i32 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !1094
   %88 = load ptr, ptr %87, align 8, !tbaa !233
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
@@ -42244,39 +42244,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw double, ptr %19, i64 %.017
   %83 = load double, ptr %82, align 8, !tbaa !327
   %84 = fptosi double %83 to i32
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i32 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i32 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !1094
   %88 = load ptr, ptr %87, align 8, !tbaa !233
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
@@ -42915,39 +42915,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %76 = load ptr, ptr %57, align 8, !tbaa !35
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %78 = load i32, ptr %77, align 8, !tbaa !53
-  switch i32 %78, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %79
-    i32 28, label %81
-    i32 38, label %83
+  switch i32 %78, label %83 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %79
+    i32 38, label %81
   ]
 
 79:                                               ; preds = %75
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %80, label %92, label %88
 
 81:                                               ; preds = %75
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %82, label %92, label %88
 
 83:                                               ; preds = %75
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
-  br i1 %84, label %92, label %88
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
-  %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %86 = load atomic i64, ptr %85 seq_cst, align 8
-  %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %86, %87
+  %84 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %85 = load atomic i64, ptr %84 seq_cst, align 8
+  %86 = load i64, ptr %56, align 8, !tbaa !389
+  %.not24 = icmp eq i64 %85, %86
   br i1 %.not24, label %92, label %88
 
-88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
+  %87 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  br i1 %87, label %92, label %88
+
+88:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i8, ptr %16, i64 %.015
   %90 = load i8, ptr %89, align 1, !tbaa !92
   %91 = sext i8 %90 to i64
   br label %92
 
-92:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
-  %93 = phi i64 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %79 ], [ poison, %81 ], [ poison, %83 ]
+92:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
+  %93 = phi i64 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %83 ], [ poison, %81 ], [ poison, %79 ]
   %94 = load ptr, ptr %1, align 8, !tbaa !1140
   %95 = load ptr, ptr %94, align 8, !tbaa !99
   %96 = load i32, ptr %37, align 8, !tbaa !254
@@ -43107,39 +43107,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %76 = load ptr, ptr %57, align 8, !tbaa !35
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %78 = load i32, ptr %77, align 8, !tbaa !53
-  switch i32 %78, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %79
-    i32 28, label %81
-    i32 38, label %83
+  switch i32 %78, label %83 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %79
+    i32 38, label %81
   ]
 
 79:                                               ; preds = %75
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %80, label %92, label %88
 
 81:                                               ; preds = %75
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %82, label %92, label %88
 
 83:                                               ; preds = %75
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
-  br i1 %84, label %92, label %88
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
-  %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %86 = load atomic i64, ptr %85 seq_cst, align 8
-  %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %86, %87
+  %84 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %85 = load atomic i64, ptr %84 seq_cst, align 8
+  %86 = load i64, ptr %56, align 8, !tbaa !389
+  %.not24 = icmp eq i64 %85, %86
   br i1 %.not24, label %92, label %88
 
-88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
+  %87 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  br i1 %87, label %92, label %88
+
+88:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i8, ptr %16, i64 %.015
   %90 = load i8, ptr %89, align 1, !tbaa !92
   %91 = zext i8 %90 to i64
   br label %92
 
-92:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
-  %93 = phi i64 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %79 ], [ poison, %81 ], [ poison, %83 ]
+92:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
+  %93 = phi i64 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %83 ], [ poison, %81 ], [ poison, %79 ]
   %94 = load ptr, ptr %1, align 8, !tbaa !1140
   %95 = load ptr, ptr %94, align 8, !tbaa !99
   %96 = load i32, ptr %37, align 8, !tbaa !254
@@ -43299,39 +43299,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %76 = load ptr, ptr %57, align 8, !tbaa !35
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %78 = load i32, ptr %77, align 8, !tbaa !53
-  switch i32 %78, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %79
-    i32 28, label %81
-    i32 38, label %83
+  switch i32 %78, label %83 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %79
+    i32 38, label %81
   ]
 
 79:                                               ; preds = %75
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %80, label %92, label %88
 
 81:                                               ; preds = %75
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %82, label %92, label %88
 
 83:                                               ; preds = %75
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
-  br i1 %84, label %92, label %88
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
-  %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %86 = load atomic i64, ptr %85 seq_cst, align 8
-  %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %86, %87
+  %84 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %85 = load atomic i64, ptr %84 seq_cst, align 8
+  %86 = load i64, ptr %56, align 8, !tbaa !389
+  %.not24 = icmp eq i64 %85, %86
   br i1 %.not24, label %92, label %88
 
-88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
+  %87 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  br i1 %87, label %92, label %88
+
+88:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
   %90 = load i16, ptr %89, align 2, !tbaa !291
   %91 = sext i16 %90 to i64
   br label %92
 
-92:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
-  %93 = phi i64 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %79 ], [ poison, %81 ], [ poison, %83 ]
+92:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
+  %93 = phi i64 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %83 ], [ poison, %81 ], [ poison, %79 ]
   %94 = load ptr, ptr %1, align 8, !tbaa !1140
   %95 = load ptr, ptr %94, align 8, !tbaa !99
   %96 = load i32, ptr %37, align 8, !tbaa !254
@@ -43491,39 +43491,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %76 = load ptr, ptr %57, align 8, !tbaa !35
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %78 = load i32, ptr %77, align 8, !tbaa !53
-  switch i32 %78, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %79
-    i32 28, label %81
-    i32 38, label %83
+  switch i32 %78, label %83 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %79
+    i32 38, label %81
   ]
 
 79:                                               ; preds = %75
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %80, label %92, label %88
 
 81:                                               ; preds = %75
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %82, label %92, label %88
 
 83:                                               ; preds = %75
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
-  br i1 %84, label %92, label %88
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
-  %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %86 = load atomic i64, ptr %85 seq_cst, align 8
-  %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %86, %87
+  %84 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %85 = load atomic i64, ptr %84 seq_cst, align 8
+  %86 = load i64, ptr %56, align 8, !tbaa !389
+  %.not24 = icmp eq i64 %85, %86
   br i1 %.not24, label %92, label %88
 
-88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
+  %87 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  br i1 %87, label %92, label %88
+
+88:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
   %90 = load i16, ptr %89, align 2, !tbaa !291
   %91 = zext i16 %90 to i64
   br label %92
 
-92:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
-  %93 = phi i64 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %79 ], [ poison, %81 ], [ poison, %83 ]
+92:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
+  %93 = phi i64 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %83 ], [ poison, %81 ], [ poison, %79 ]
   %94 = load ptr, ptr %1, align 8, !tbaa !1140
   %95 = load ptr, ptr %94, align 8, !tbaa !99
   %96 = load i32, ptr %37, align 8, !tbaa !254
@@ -43683,39 +43683,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %76 = load ptr, ptr %57, align 8, !tbaa !35
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %78 = load i32, ptr %77, align 8, !tbaa !53
-  switch i32 %78, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %79
-    i32 28, label %81
-    i32 38, label %83
+  switch i32 %78, label %83 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %79
+    i32 38, label %81
   ]
 
 79:                                               ; preds = %75
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %80, label %92, label %88
 
 81:                                               ; preds = %75
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %82, label %92, label %88
 
 83:                                               ; preds = %75
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
-  br i1 %84, label %92, label %88
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
-  %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %86 = load atomic i64, ptr %85 seq_cst, align 8
-  %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %86, %87
+  %84 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %85 = load atomic i64, ptr %84 seq_cst, align 8
+  %86 = load i64, ptr %56, align 8, !tbaa !389
+  %.not24 = icmp eq i64 %85, %86
   br i1 %.not24, label %92, label %88
 
-88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
+  %87 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  br i1 %87, label %92, label %88
+
+88:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
   %90 = load i32, ptr %89, align 4, !tbaa !133
   %91 = sext i32 %90 to i64
   br label %92
 
-92:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
-  %93 = phi i64 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %79 ], [ poison, %81 ], [ poison, %83 ]
+92:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
+  %93 = phi i64 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %83 ], [ poison, %81 ], [ poison, %79 ]
   %94 = load ptr, ptr %1, align 8, !tbaa !1140
   %95 = load ptr, ptr %94, align 8, !tbaa !99
   %96 = load i32, ptr %37, align 8, !tbaa !254
@@ -43875,39 +43875,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %76 = load ptr, ptr %57, align 8, !tbaa !35
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %78 = load i32, ptr %77, align 8, !tbaa !53
-  switch i32 %78, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %79
-    i32 28, label %81
-    i32 38, label %83
+  switch i32 %78, label %83 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %79
+    i32 38, label %81
   ]
 
 79:                                               ; preds = %75
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %80, label %92, label %88
 
 81:                                               ; preds = %75
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %82, label %92, label %88
 
 83:                                               ; preds = %75
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
-  br i1 %84, label %92, label %88
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
-  %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %86 = load atomic i64, ptr %85 seq_cst, align 8
-  %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %86, %87
+  %84 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %85 = load atomic i64, ptr %84 seq_cst, align 8
+  %86 = load i64, ptr %56, align 8, !tbaa !389
+  %.not24 = icmp eq i64 %85, %86
   br i1 %.not24, label %92, label %88
 
-88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
+  %87 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  br i1 %87, label %92, label %88
+
+88:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
   %90 = load i32, ptr %89, align 4, !tbaa !133
   %91 = zext i32 %90 to i64
   br label %92
 
-92:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
-  %93 = phi i64 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %79 ], [ poison, %81 ], [ poison, %83 ]
+92:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
+  %93 = phi i64 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %83 ], [ poison, %81 ], [ poison, %79 ]
   %94 = load ptr, ptr %1, align 8, !tbaa !1140
   %95 = load ptr, ptr %94, align 8, !tbaa !99
   %96 = load i32, ptr %37, align 8, !tbaa !254
@@ -44066,38 +44066,38 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %75 = load ptr, ptr %56, align 8, !tbaa !35
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 40
   %77 = load i32, ptr %76, align 8, !tbaa !53
-  switch i32 %77, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %78
-    i32 28, label %80
-    i32 38, label %82
+  switch i32 %77, label %82 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %78
+    i32 38, label %80
   ]
 
 78:                                               ; preds = %74
-  %79 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
+  %79 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
   br i1 %79, label %90, label %87
 
 80:                                               ; preds = %74
-  %81 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
+  %81 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
   br i1 %81, label %90, label %87
 
 82:                                               ; preds = %74
-  %83 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
-  br i1 %83, label %90, label %87
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
-  %84 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  %85 = load atomic i64, ptr %84 seq_cst, align 8
-  %86 = load i64, ptr %55, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %85, %86
+  %83 = getelementptr inbounds nuw i8, ptr %56, i64 24
+  %84 = load atomic i64, ptr %83 seq_cst, align 8
+  %85 = load i64, ptr %55, align 8, !tbaa !389
+  %.not24 = icmp eq i64 %84, %85
   br i1 %.not24, label %90, label %87
 
-87:                                               ; preds = %82, %80, %78, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
+  %86 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
+  br i1 %86, label %90, label %87
+
+87:                                               ; preds = %78, %80, %82, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %88 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
   %89 = load i64, ptr %88, align 8, !tbaa !12
   br label %90
 
-90:                                               ; preds = %82, %80, %78, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit, %87
-  %91 = phi i64 [ %89, %87 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %60 ], [ poison, %78 ], [ poison, %80 ], [ poison, %82 ]
+90:                                               ; preds = %78, %80, %82, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit, %87
+  %91 = phi i64 [ %89, %87 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %60 ], [ poison, %82 ], [ poison, %80 ], [ poison, %78 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !1140
   %93 = load ptr, ptr %92, align 8, !tbaa !99
   %94 = load i32, ptr %37, align 8, !tbaa !254
@@ -44256,38 +44256,38 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %75 = load ptr, ptr %56, align 8, !tbaa !35
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 40
   %77 = load i32, ptr %76, align 8, !tbaa !53
-  switch i32 %77, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %78
-    i32 28, label %80
-    i32 38, label %82
+  switch i32 %77, label %82 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %78
+    i32 38, label %80
   ]
 
 78:                                               ; preds = %74
-  %79 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
+  %79 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
   br i1 %79, label %90, label %87
 
 80:                                               ; preds = %74
-  %81 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
+  %81 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
   br i1 %81, label %90, label %87
 
 82:                                               ; preds = %74
-  %83 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
-  br i1 %83, label %90, label %87
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
-  %84 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  %85 = load atomic i64, ptr %84 seq_cst, align 8
-  %86 = load i64, ptr %55, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %85, %86
+  %83 = getelementptr inbounds nuw i8, ptr %56, i64 24
+  %84 = load atomic i64, ptr %83 seq_cst, align 8
+  %85 = load i64, ptr %55, align 8, !tbaa !389
+  %.not24 = icmp eq i64 %84, %85
   br i1 %.not24, label %90, label %87
 
-87:                                               ; preds = %82, %80, %78, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
+  %86 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %56, i64 noundef %.015)
+  br i1 %86, label %90, label %87
+
+87:                                               ; preds = %78, %80, %82, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %88 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
   %89 = load i64, ptr %88, align 8, !tbaa !12
   br label %90
 
-90:                                               ; preds = %82, %80, %78, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit, %87
-  %91 = phi i64 [ %89, %87 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %60 ], [ poison, %78 ], [ poison, %80 ], [ poison, %82 ]
+90:                                               ; preds = %78, %80, %82, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit, %87
+  %91 = phi i64 [ %89, %87 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %60 ], [ poison, %82 ], [ poison, %80 ], [ poison, %78 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !1140
   %93 = load ptr, ptr %92, align 8, !tbaa !99
   %94 = load i32, ptr %37, align 8, !tbaa !254
@@ -44447,39 +44447,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %76 = load ptr, ptr %57, align 8, !tbaa !35
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %78 = load i32, ptr %77, align 8, !tbaa !53
-  switch i32 %78, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %79
-    i32 28, label %81
-    i32 38, label %83
+  switch i32 %78, label %83 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %79
+    i32 38, label %81
   ]
 
 79:                                               ; preds = %75
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %80, label %92, label %88
 
 81:                                               ; preds = %75
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %82, label %92, label %88
 
 83:                                               ; preds = %75
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
-  br i1 %84, label %92, label %88
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
-  %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %86 = load atomic i64, ptr %85 seq_cst, align 8
-  %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %86, %87
+  %84 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %85 = load atomic i64, ptr %84 seq_cst, align 8
+  %86 = load i64, ptr %56, align 8, !tbaa !389
+  %.not24 = icmp eq i64 %85, %86
   br i1 %.not24, label %92, label %88
 
-88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
+  %87 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  br i1 %87, label %92, label %88
+
+88:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
   %90 = load i16, ptr %89, align 2, !tbaa !291
   %91 = zext i16 %90 to i64
   br label %92
 
-92:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
-  %93 = phi i64 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %79 ], [ poison, %81 ], [ poison, %83 ]
+92:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
+  %93 = phi i64 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %83 ], [ poison, %81 ], [ poison, %79 ]
   %94 = load ptr, ptr %1, align 8, !tbaa !1140
   %95 = load ptr, ptr %94, align 8, !tbaa !99
   %96 = load i32, ptr %37, align 8, !tbaa !254
@@ -44639,39 +44639,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %76 = load ptr, ptr %57, align 8, !tbaa !35
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %78 = load i32, ptr %77, align 8, !tbaa !53
-  switch i32 %78, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %79
-    i32 28, label %81
-    i32 38, label %83
+  switch i32 %78, label %83 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %79
+    i32 38, label %81
   ]
 
 79:                                               ; preds = %75
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %80, label %92, label %88
 
 81:                                               ; preds = %75
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %82, label %92, label %88
 
 83:                                               ; preds = %75
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
-  br i1 %84, label %92, label %88
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
-  %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %86 = load atomic i64, ptr %85 seq_cst, align 8
-  %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %86, %87
+  %84 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %85 = load atomic i64, ptr %84 seq_cst, align 8
+  %86 = load i64, ptr %56, align 8, !tbaa !389
+  %.not24 = icmp eq i64 %85, %86
   br i1 %.not24, label %92, label %88
 
-88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
+  %87 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  br i1 %87, label %92, label %88
+
+88:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw float, ptr %16, i64 %.015
   %90 = load float, ptr %89, align 4, !tbaa !321
   %91 = fptosi float %90 to i64
   br label %92
 
-92:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
-  %93 = phi i64 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %79 ], [ poison, %81 ], [ poison, %83 ]
+92:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
+  %93 = phi i64 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %83 ], [ poison, %81 ], [ poison, %79 ]
   %94 = load ptr, ptr %1, align 8, !tbaa !1140
   %95 = load ptr, ptr %94, align 8, !tbaa !99
   %96 = load i32, ptr %37, align 8, !tbaa !254
@@ -44831,39 +44831,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %76 = load ptr, ptr %57, align 8, !tbaa !35
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %78 = load i32, ptr %77, align 8, !tbaa !53
-  switch i32 %78, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %79
-    i32 28, label %81
-    i32 38, label %83
+  switch i32 %78, label %83 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %79
+    i32 38, label %81
   ]
 
 79:                                               ; preds = %75
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %80, label %92, label %88
 
 81:                                               ; preds = %75
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
   br i1 %82, label %92, label %88
 
 83:                                               ; preds = %75
-  %84 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
-  br i1 %84, label %92, label %88
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
-  %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %86 = load atomic i64, ptr %85 seq_cst, align 8
-  %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %86, %87
+  %84 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %85 = load atomic i64, ptr %84 seq_cst, align 8
+  %86 = load i64, ptr %56, align 8, !tbaa !389
+  %.not24 = icmp eq i64 %85, %86
   br i1 %.not24, label %92, label %88
 
-88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
+  %87 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %57, i64 noundef %.015)
+  br i1 %87, label %92, label %88
+
+88:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw double, ptr %16, i64 %.015
   %90 = load double, ptr %89, align 8, !tbaa !327
   %91 = fptosi double %90 to i64
   br label %92
 
-92:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
-  %93 = phi i64 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %79 ], [ poison, %81 ], [ poison, %83 ]
+92:                                               ; preds = %79, %81, %83, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit, %88
+  %93 = phi i64 [ %91, %88 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %61 ], [ poison, %83 ], [ poison, %81 ], [ poison, %79 ]
   %94 = load ptr, ptr %1, align 8, !tbaa !1140
   %95 = load ptr, ptr %94, align 8, !tbaa !99
   %96 = load i32, ptr %37, align 8, !tbaa !254
@@ -45015,39 +45015,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not28 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not28 = icmp eq i64 %78, %79
   br i1 %.not28, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i8, ptr %19, i64 %.017
   %83 = load i8, ptr %82, align 1, !tbaa !92
   %84 = sext i8 %83 to i64
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i64 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i64 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !1198
   %88 = load ptr, ptr %87, align 8, !tbaa !99
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
@@ -45194,39 +45194,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not28 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not28 = icmp eq i64 %78, %79
   br i1 %.not28, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i8, ptr %19, i64 %.017
   %83 = load i8, ptr %82, align 1, !tbaa !92
   %84 = zext i8 %83 to i64
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i64 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i64 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !1198
   %88 = load ptr, ptr %87, align 8, !tbaa !99
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
@@ -45373,39 +45373,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
   %83 = load i16, ptr %82, align 2, !tbaa !291
   %84 = sext i16 %83 to i64
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i64 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i64 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !1198
   %88 = load ptr, ptr %87, align 8, !tbaa !99
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
@@ -45556,39 +45556,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
   %83 = load i16, ptr %82, align 2, !tbaa !291
   %84 = zext i16 %83 to i64
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i64 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i64 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !1198
   %88 = load ptr, ptr %87, align 8, !tbaa !99
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
@@ -45739,39 +45739,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
   %83 = load i32, ptr %82, align 4, !tbaa !133
   %84 = sext i32 %83 to i64
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i64 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i64 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !1198
   %88 = load ptr, ptr %87, align 8, !tbaa !99
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
@@ -45922,39 +45922,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
   %83 = load i32, ptr %82, align 4, !tbaa !133
   %84 = zext i32 %83 to i64
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i64 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i64 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !1198
   %88 = load ptr, ptr %87, align 8, !tbaa !99
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
@@ -46094,38 +46094,38 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %67 = load ptr, ptr %48, align 8, !tbaa !35
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 40
   %69 = load i32, ptr %68, align 8, !tbaa !53
-  switch i32 %69, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %70
-    i32 28, label %72
-    i32 38, label %74
+  switch i32 %69, label %74 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %70
+    i32 38, label %72
   ]
 
 70:                                               ; preds = %66
-  %71 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
+  %71 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
   br i1 %71, label %82, label %79
 
 72:                                               ; preds = %66
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
   br i1 %73, label %82, label %79
 
 74:                                               ; preds = %66
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
-  br i1 %75, label %82, label %79
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
-  %76 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %77 = load atomic i64, ptr %76 seq_cst, align 8
-  %78 = load i64, ptr %47, align 8, !tbaa !389
-  %.not13 = icmp eq i64 %77, %78
+  %75 = getelementptr inbounds nuw i8, ptr %48, i64 24
+  %76 = load atomic i64, ptr %75 seq_cst, align 8
+  %77 = load i64, ptr %47, align 8, !tbaa !389
+  %.not13 = icmp eq i64 %76, %77
   br i1 %.not13, label %82, label %79
 
-79:                                               ; preds = %74, %72, %70, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
+  br i1 %78, label %82, label %79
+
+79:                                               ; preds = %70, %72, %74, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %80 = getelementptr inbounds nuw i64, ptr %19, i64 %.08
   %81 = load i64, ptr %80, align 8, !tbaa !12
   br label %82
 
-82:                                               ; preds = %74, %72, %70, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit, %79
-  %83 = phi i64 [ %81, %79 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %52 ], [ poison, %70 ], [ poison, %72 ], [ poison, %74 ]
+82:                                               ; preds = %70, %72, %74, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit, %79
+  %83 = phi i64 [ %81, %79 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %52 ], [ poison, %74 ], [ poison, %72 ], [ poison, %70 ]
   %84 = load ptr, ptr %1, align 8, !tbaa !1198
   %85 = load ptr, ptr %84, align 8, !tbaa !99
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
@@ -46271,38 +46271,38 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %68 = load ptr, ptr %49, align 8, !tbaa !35
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %70 = load i32, ptr %69, align 8, !tbaa !53
-  switch i32 %70, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %71
-    i32 28, label %73
-    i32 38, label %75
+  switch i32 %70, label %75 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %71
+    i32 38, label %73
   ]
 
 71:                                               ; preds = %67
-  %72 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %72 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %72, label %83, label %80
 
 73:                                               ; preds = %67
-  %74 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  %74 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
   br i1 %74, label %83, label %80
 
 75:                                               ; preds = %67
-  %76 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
-  br i1 %76, label %83, label %80
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
-  %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %78 = load atomic i64, ptr %77 seq_cst, align 8
-  %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %78, %79
+  %76 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %77 = load atomic i64, ptr %76 seq_cst, align 8
+  %78 = load i64, ptr %48, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %77, %78
   br i1 %.not26, label %83, label %80
 
-80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
+  %79 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %49, i64 noundef %.017)
+  br i1 %79, label %83, label %80
+
+80:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
   %82 = load i64, ptr %81, align 8, !tbaa !12
   br label %83
 
-83:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
-  %84 = phi i64 [ %82, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %71 ], [ poison, %73 ], [ poison, %75 ]
+83:                                               ; preds = %71, %73, %75, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit, %80
+  %84 = phi i64 [ %82, %80 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %53 ], [ poison, %75 ], [ poison, %73 ], [ poison, %71 ]
   %85 = load ptr, ptr %1, align 8, !tbaa !1198
   %86 = load ptr, ptr %85, align 8, !tbaa !99
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
@@ -46453,39 +46453,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
   %83 = load i16, ptr %82, align 2, !tbaa !291
   %84 = zext i16 %83 to i64
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i64 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i64 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !1198
   %88 = load ptr, ptr %87, align 8, !tbaa !99
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
@@ -46636,39 +46636,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw float, ptr %19, i64 %.017
   %83 = load float, ptr %82, align 4, !tbaa !321
   %84 = fptosi float %83 to i64
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i64 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i64 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !1198
   %88 = load ptr, ptr %87, align 8, !tbaa !99
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
@@ -46819,39 +46819,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw double, ptr %19, i64 %.017
   %83 = load double, ptr %82, align 8, !tbaa !327
   %84 = fptosi double %83 to i64
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi i64 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %72 ], [ poison, %74 ], [ poison, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi i64 [ %84, %81 ], [ poison, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ poison, %54 ], [ poison, %76 ], [ poison, %74 ], [ poison, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !1198
   %88 = load ptr, ptr %87, align 8, !tbaa !99
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
@@ -47489,39 +47489,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %74 = load ptr, ptr %55, align 8, !tbaa !35
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %76 = load i32, ptr %75, align 8, !tbaa !53
-  switch i32 %76, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %77
-    i32 28, label %79
-    i32 38, label %81
+  switch i32 %76, label %81 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %77
+    i32 38, label %79
   ]
 
 77:                                               ; preds = %73
-  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %78, label %90, label %86
 
 79:                                               ; preds = %73
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %80, label %90, label %86
 
 81:                                               ; preds = %73
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
-  br i1 %82, label %90, label %86
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
-  %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %84 = load atomic i64, ptr %83 seq_cst, align 8
-  %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %84, %85
+  %82 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %83 = load atomic i64, ptr %82 seq_cst, align 8
+  %84 = load i64, ptr %54, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %83, %84
   br i1 %.not25, label %90, label %86
 
-86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
+  %85 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  br i1 %85, label %90, label %86
+
+86:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i8, ptr %16, i64 %.015
   %88 = load i8, ptr %87, align 1, !tbaa !92
   %89 = sitofp i8 %88 to float
   br label %90
 
-90:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
-  %91 = phi float [ %89, %86 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %59 ], [ 0x7FF8000000000000, %77 ], [ 0x7FF8000000000000, %79 ], [ 0x7FF8000000000000, %81 ]
+90:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
+  %91 = phi float [ %89, %86 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %59 ], [ 0x7FF8000000000000, %81 ], [ 0x7FF8000000000000, %79 ], [ 0x7FF8000000000000, %77 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !1244
   %93 = load ptr, ptr %92, align 8, !tbaa !257
   %94 = load i32, ptr %37, align 8, !tbaa !261
@@ -47680,39 +47680,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %74 = load ptr, ptr %55, align 8, !tbaa !35
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %76 = load i32, ptr %75, align 8, !tbaa !53
-  switch i32 %76, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %77
-    i32 28, label %79
-    i32 38, label %81
+  switch i32 %76, label %81 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %77
+    i32 38, label %79
   ]
 
 77:                                               ; preds = %73
-  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %78, label %90, label %86
 
 79:                                               ; preds = %73
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %80, label %90, label %86
 
 81:                                               ; preds = %73
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
-  br i1 %82, label %90, label %86
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
-  %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %84 = load atomic i64, ptr %83 seq_cst, align 8
-  %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %84, %85
+  %82 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %83 = load atomic i64, ptr %82 seq_cst, align 8
+  %84 = load i64, ptr %54, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %83, %84
   br i1 %.not25, label %90, label %86
 
-86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
+  %85 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  br i1 %85, label %90, label %86
+
+86:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i8, ptr %16, i64 %.015
   %88 = load i8, ptr %87, align 1, !tbaa !92
   %89 = uitofp i8 %88 to float
   br label %90
 
-90:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
-  %91 = phi float [ %89, %86 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %59 ], [ 0x7FF8000000000000, %77 ], [ 0x7FF8000000000000, %79 ], [ 0x7FF8000000000000, %81 ]
+90:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
+  %91 = phi float [ %89, %86 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %59 ], [ 0x7FF8000000000000, %81 ], [ 0x7FF8000000000000, %79 ], [ 0x7FF8000000000000, %77 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !1244
   %93 = load ptr, ptr %92, align 8, !tbaa !257
   %94 = load i32, ptr %37, align 8, !tbaa !261
@@ -47871,39 +47871,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %74 = load ptr, ptr %55, align 8, !tbaa !35
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %76 = load i32, ptr %75, align 8, !tbaa !53
-  switch i32 %76, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %77
-    i32 28, label %79
-    i32 38, label %81
+  switch i32 %76, label %81 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %77
+    i32 38, label %79
   ]
 
 77:                                               ; preds = %73
-  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %78, label %90, label %86
 
 79:                                               ; preds = %73
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %80, label %90, label %86
 
 81:                                               ; preds = %73
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
-  br i1 %82, label %90, label %86
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
-  %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %84 = load atomic i64, ptr %83 seq_cst, align 8
-  %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %84, %85
+  %82 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %83 = load atomic i64, ptr %82 seq_cst, align 8
+  %84 = load i64, ptr %54, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %83, %84
   br i1 %.not25, label %90, label %86
 
-86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
+  %85 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  br i1 %85, label %90, label %86
+
+86:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
   %88 = load i16, ptr %87, align 2, !tbaa !291
   %89 = sitofp i16 %88 to float
   br label %90
 
-90:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
-  %91 = phi float [ %89, %86 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %59 ], [ 0x7FF8000000000000, %77 ], [ 0x7FF8000000000000, %79 ], [ 0x7FF8000000000000, %81 ]
+90:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
+  %91 = phi float [ %89, %86 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %59 ], [ 0x7FF8000000000000, %81 ], [ 0x7FF8000000000000, %79 ], [ 0x7FF8000000000000, %77 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !1244
   %93 = load ptr, ptr %92, align 8, !tbaa !257
   %94 = load i32, ptr %37, align 8, !tbaa !261
@@ -48062,39 +48062,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %74 = load ptr, ptr %55, align 8, !tbaa !35
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %76 = load i32, ptr %75, align 8, !tbaa !53
-  switch i32 %76, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %77
-    i32 28, label %79
-    i32 38, label %81
+  switch i32 %76, label %81 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %77
+    i32 38, label %79
   ]
 
 77:                                               ; preds = %73
-  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %78, label %90, label %86
 
 79:                                               ; preds = %73
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %80, label %90, label %86
 
 81:                                               ; preds = %73
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
-  br i1 %82, label %90, label %86
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
-  %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %84 = load atomic i64, ptr %83 seq_cst, align 8
-  %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %84, %85
+  %82 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %83 = load atomic i64, ptr %82 seq_cst, align 8
+  %84 = load i64, ptr %54, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %83, %84
   br i1 %.not25, label %90, label %86
 
-86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
+  %85 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  br i1 %85, label %90, label %86
+
+86:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
   %88 = load i16, ptr %87, align 2, !tbaa !291
   %89 = uitofp i16 %88 to float
   br label %90
 
-90:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
-  %91 = phi float [ %89, %86 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %59 ], [ 0x7FF8000000000000, %77 ], [ 0x7FF8000000000000, %79 ], [ 0x7FF8000000000000, %81 ]
+90:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
+  %91 = phi float [ %89, %86 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %59 ], [ 0x7FF8000000000000, %81 ], [ 0x7FF8000000000000, %79 ], [ 0x7FF8000000000000, %77 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !1244
   %93 = load ptr, ptr %92, align 8, !tbaa !257
   %94 = load i32, ptr %37, align 8, !tbaa !261
@@ -48253,39 +48253,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %74 = load ptr, ptr %55, align 8, !tbaa !35
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %76 = load i32, ptr %75, align 8, !tbaa !53
-  switch i32 %76, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %77
-    i32 28, label %79
-    i32 38, label %81
+  switch i32 %76, label %81 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %77
+    i32 38, label %79
   ]
 
 77:                                               ; preds = %73
-  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %78, label %90, label %86
 
 79:                                               ; preds = %73
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %80, label %90, label %86
 
 81:                                               ; preds = %73
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
-  br i1 %82, label %90, label %86
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
-  %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %84 = load atomic i64, ptr %83 seq_cst, align 8
-  %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %84, %85
+  %82 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %83 = load atomic i64, ptr %82 seq_cst, align 8
+  %84 = load i64, ptr %54, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %83, %84
   br i1 %.not25, label %90, label %86
 
-86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
+  %85 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  br i1 %85, label %90, label %86
+
+86:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
   %88 = load i32, ptr %87, align 4, !tbaa !133
   %89 = sitofp i32 %88 to float
   br label %90
 
-90:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
-  %91 = phi float [ %89, %86 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %59 ], [ 0x7FF8000000000000, %77 ], [ 0x7FF8000000000000, %79 ], [ 0x7FF8000000000000, %81 ]
+90:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
+  %91 = phi float [ %89, %86 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %59 ], [ 0x7FF8000000000000, %81 ], [ 0x7FF8000000000000, %79 ], [ 0x7FF8000000000000, %77 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !1244
   %93 = load ptr, ptr %92, align 8, !tbaa !257
   %94 = load i32, ptr %37, align 8, !tbaa !261
@@ -48444,39 +48444,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %74 = load ptr, ptr %55, align 8, !tbaa !35
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %76 = load i32, ptr %75, align 8, !tbaa !53
-  switch i32 %76, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %77
-    i32 28, label %79
-    i32 38, label %81
+  switch i32 %76, label %81 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %77
+    i32 38, label %79
   ]
 
 77:                                               ; preds = %73
-  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %78, label %90, label %86
 
 79:                                               ; preds = %73
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %80, label %90, label %86
 
 81:                                               ; preds = %73
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
-  br i1 %82, label %90, label %86
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
-  %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %84 = load atomic i64, ptr %83 seq_cst, align 8
-  %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %84, %85
+  %82 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %83 = load atomic i64, ptr %82 seq_cst, align 8
+  %84 = load i64, ptr %54, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %83, %84
   br i1 %.not25, label %90, label %86
 
-86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
+  %85 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  br i1 %85, label %90, label %86
+
+86:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
   %88 = load i32, ptr %87, align 4, !tbaa !133
   %89 = uitofp i32 %88 to float
   br label %90
 
-90:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
-  %91 = phi float [ %89, %86 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %59 ], [ 0x7FF8000000000000, %77 ], [ 0x7FF8000000000000, %79 ], [ 0x7FF8000000000000, %81 ]
+90:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
+  %91 = phi float [ %89, %86 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %59 ], [ 0x7FF8000000000000, %81 ], [ 0x7FF8000000000000, %79 ], [ 0x7FF8000000000000, %77 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !1244
   %93 = load ptr, ptr %92, align 8, !tbaa !257
   %94 = load i32, ptr %37, align 8, !tbaa !261
@@ -48635,39 +48635,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %74 = load ptr, ptr %55, align 8, !tbaa !35
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %76 = load i32, ptr %75, align 8, !tbaa !53
-  switch i32 %76, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %77
-    i32 28, label %79
-    i32 38, label %81
+  switch i32 %76, label %81 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %77
+    i32 38, label %79
   ]
 
 77:                                               ; preds = %73
-  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %78, label %90, label %86
 
 79:                                               ; preds = %73
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %80, label %90, label %86
 
 81:                                               ; preds = %73
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
-  br i1 %82, label %90, label %86
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
-  %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %84 = load atomic i64, ptr %83 seq_cst, align 8
-  %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %84, %85
+  %82 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %83 = load atomic i64, ptr %82 seq_cst, align 8
+  %84 = load i64, ptr %54, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %83, %84
   br i1 %.not25, label %90, label %86
 
-86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
+  %85 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  br i1 %85, label %90, label %86
+
+86:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
   %88 = load i64, ptr %87, align 8, !tbaa !12
   %89 = sitofp i64 %88 to float
   br label %90
 
-90:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
-  %91 = phi float [ %89, %86 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %59 ], [ 0x7FF8000000000000, %77 ], [ 0x7FF8000000000000, %79 ], [ 0x7FF8000000000000, %81 ]
+90:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
+  %91 = phi float [ %89, %86 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %59 ], [ 0x7FF8000000000000, %81 ], [ 0x7FF8000000000000, %79 ], [ 0x7FF8000000000000, %77 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !1244
   %93 = load ptr, ptr %92, align 8, !tbaa !257
   %94 = load i32, ptr %37, align 8, !tbaa !261
@@ -48826,39 +48826,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %74 = load ptr, ptr %55, align 8, !tbaa !35
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %76 = load i32, ptr %75, align 8, !tbaa !53
-  switch i32 %76, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %77
-    i32 28, label %79
-    i32 38, label %81
+  switch i32 %76, label %81 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %77
+    i32 38, label %79
   ]
 
 77:                                               ; preds = %73
-  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %78, label %90, label %86
 
 79:                                               ; preds = %73
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %80, label %90, label %86
 
 81:                                               ; preds = %73
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
-  br i1 %82, label %90, label %86
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
-  %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %84 = load atomic i64, ptr %83 seq_cst, align 8
-  %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %84, %85
+  %82 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %83 = load atomic i64, ptr %82 seq_cst, align 8
+  %84 = load i64, ptr %54, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %83, %84
   br i1 %.not25, label %90, label %86
 
-86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
+  %85 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  br i1 %85, label %90, label %86
+
+86:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
   %88 = load i64, ptr %87, align 8, !tbaa !12
   %89 = uitofp i64 %88 to float
   br label %90
 
-90:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
-  %91 = phi float [ %89, %86 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %59 ], [ 0x7FF8000000000000, %77 ], [ 0x7FF8000000000000, %79 ], [ 0x7FF8000000000000, %81 ]
+90:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
+  %91 = phi float [ %89, %86 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %59 ], [ 0x7FF8000000000000, %81 ], [ 0x7FF8000000000000, %79 ], [ 0x7FF8000000000000, %77 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !1244
   %93 = load ptr, ptr %92, align 8, !tbaa !257
   %94 = load i32, ptr %37, align 8, !tbaa !261
@@ -49017,39 +49017,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %74 = load ptr, ptr %55, align 8, !tbaa !35
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %76 = load i32, ptr %75, align 8, !tbaa !53
-  switch i32 %76, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %77
-    i32 28, label %79
-    i32 38, label %81
+  switch i32 %76, label %81 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %77
+    i32 38, label %79
   ]
 
 77:                                               ; preds = %73
-  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %78, label %90, label %86
 
 79:                                               ; preds = %73
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %80, label %90, label %86
 
 81:                                               ; preds = %73
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
-  br i1 %82, label %90, label %86
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
-  %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %84 = load atomic i64, ptr %83 seq_cst, align 8
-  %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %84, %85
+  %82 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %83 = load atomic i64, ptr %82 seq_cst, align 8
+  %84 = load i64, ptr %54, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %83, %84
   br i1 %.not25, label %90, label %86
 
-86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
+  %85 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  br i1 %85, label %90, label %86
+
+86:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
   %88 = load i16, ptr %87, align 2, !tbaa !291
   %89 = uitofp i16 %88 to float
   br label %90
 
-90:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
-  %91 = phi float [ %89, %86 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %59 ], [ 0x7FF8000000000000, %77 ], [ 0x7FF8000000000000, %79 ], [ 0x7FF8000000000000, %81 ]
+90:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
+  %91 = phi float [ %89, %86 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %59 ], [ 0x7FF8000000000000, %81 ], [ 0x7FF8000000000000, %79 ], [ 0x7FF8000000000000, %77 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !1244
   %93 = load ptr, ptr %92, align 8, !tbaa !257
   %94 = load i32, ptr %37, align 8, !tbaa !261
@@ -49207,38 +49207,38 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %73 = load ptr, ptr %54, align 8, !tbaa !35
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 40
   %75 = load i32, ptr %74, align 8, !tbaa !53
-  switch i32 %75, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %76
-    i32 28, label %78
-    i32 38, label %80
+  switch i32 %75, label %80 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %76
+    i32 38, label %78
   ]
 
 76:                                               ; preds = %72
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
+  %77 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
   br i1 %77, label %88, label %85
 
 78:                                               ; preds = %72
-  %79 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
+  %79 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
   br i1 %79, label %88, label %85
 
 80:                                               ; preds = %72
-  %81 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
-  br i1 %81, label %88, label %85
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
-  %82 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  %83 = load atomic i64, ptr %82 seq_cst, align 8
-  %84 = load i64, ptr %53, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %83, %84
+  %81 = getelementptr inbounds nuw i8, ptr %54, i64 24
+  %82 = load atomic i64, ptr %81 seq_cst, align 8
+  %83 = load i64, ptr %53, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %82, %83
   br i1 %.not25, label %88, label %85
 
-85:                                               ; preds = %80, %78, %76, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
+  %84 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
+  br i1 %84, label %88, label %85
+
+85:                                               ; preds = %76, %78, %80, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %86 = getelementptr inbounds nuw float, ptr %16, i64 %.015
   %87 = load float, ptr %86, align 4, !tbaa !321
   br label %88
 
-88:                                               ; preds = %80, %78, %76, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit, %85
-  %89 = phi float [ %87, %85 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %58 ], [ 0x7FF8000000000000, %76 ], [ 0x7FF8000000000000, %78 ], [ 0x7FF8000000000000, %80 ]
+88:                                               ; preds = %76, %78, %80, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit, %85
+  %89 = phi float [ %87, %85 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %58 ], [ 0x7FF8000000000000, %80 ], [ 0x7FF8000000000000, %78 ], [ 0x7FF8000000000000, %76 ]
   %90 = load ptr, ptr %1, align 8, !tbaa !1244
   %91 = load ptr, ptr %90, align 8, !tbaa !257
   %92 = load i32, ptr %37, align 8, !tbaa !261
@@ -49397,39 +49397,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %74 = load ptr, ptr %55, align 8, !tbaa !35
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %76 = load i32, ptr %75, align 8, !tbaa !53
-  switch i32 %76, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %77
-    i32 28, label %79
-    i32 38, label %81
+  switch i32 %76, label %81 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %77
+    i32 38, label %79
   ]
 
 77:                                               ; preds = %73
-  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %78, label %90, label %86
 
 79:                                               ; preds = %73
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %80, label %90, label %86
 
 81:                                               ; preds = %73
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
-  br i1 %82, label %90, label %86
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
-  %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %84 = load atomic i64, ptr %83 seq_cst, align 8
-  %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %84, %85
+  %82 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %83 = load atomic i64, ptr %82 seq_cst, align 8
+  %84 = load i64, ptr %54, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %83, %84
   br i1 %.not25, label %90, label %86
 
-86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
+  %85 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  br i1 %85, label %90, label %86
+
+86:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw double, ptr %16, i64 %.015
   %88 = load double, ptr %87, align 8, !tbaa !327
   %89 = fptrunc double %88 to float
   br label %90
 
-90:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
-  %91 = phi float [ %89, %86 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %59 ], [ 0x7FF8000000000000, %77 ], [ 0x7FF8000000000000, %79 ], [ 0x7FF8000000000000, %81 ]
+90:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
+  %91 = phi float [ %89, %86 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %59 ], [ 0x7FF8000000000000, %81 ], [ 0x7FF8000000000000, %79 ], [ 0x7FF8000000000000, %77 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !1244
   %93 = load ptr, ptr %92, align 8, !tbaa !257
   %94 = load i32, ptr %37, align 8, !tbaa !261
@@ -49581,39 +49581,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not28 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not28 = icmp eq i64 %78, %79
   br i1 %.not28, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i8, ptr %19, i64 %.017
   %83 = load i8, ptr %82, align 1, !tbaa !92
   %84 = sitofp i8 %83 to float
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi float [ %84, %81 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %54 ], [ 0x7FF8000000000000, %72 ], [ 0x7FF8000000000000, %74 ], [ 0x7FF8000000000000, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi float [ %84, %81 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %54 ], [ 0x7FF8000000000000, %76 ], [ 0x7FF8000000000000, %74 ], [ 0x7FF8000000000000, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !1302
   %88 = load ptr, ptr %87, align 8, !tbaa !257
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
@@ -49760,39 +49760,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not28 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not28 = icmp eq i64 %78, %79
   br i1 %.not28, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i8, ptr %19, i64 %.017
   %83 = load i8, ptr %82, align 1, !tbaa !92
   %84 = uitofp i8 %83 to float
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi float [ %84, %81 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %54 ], [ 0x7FF8000000000000, %72 ], [ 0x7FF8000000000000, %74 ], [ 0x7FF8000000000000, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi float [ %84, %81 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %54 ], [ 0x7FF8000000000000, %76 ], [ 0x7FF8000000000000, %74 ], [ 0x7FF8000000000000, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !1302
   %88 = load ptr, ptr %87, align 8, !tbaa !257
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
@@ -49939,39 +49939,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
   %83 = load i16, ptr %82, align 2, !tbaa !291
   %84 = sitofp i16 %83 to float
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi float [ %84, %81 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %54 ], [ 0x7FF8000000000000, %72 ], [ 0x7FF8000000000000, %74 ], [ 0x7FF8000000000000, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi float [ %84, %81 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %54 ], [ 0x7FF8000000000000, %76 ], [ 0x7FF8000000000000, %74 ], [ 0x7FF8000000000000, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !1302
   %88 = load ptr, ptr %87, align 8, !tbaa !257
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
@@ -50122,39 +50122,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
   %83 = load i16, ptr %82, align 2, !tbaa !291
   %84 = uitofp i16 %83 to float
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi float [ %84, %81 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %54 ], [ 0x7FF8000000000000, %72 ], [ 0x7FF8000000000000, %74 ], [ 0x7FF8000000000000, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi float [ %84, %81 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %54 ], [ 0x7FF8000000000000, %76 ], [ 0x7FF8000000000000, %74 ], [ 0x7FF8000000000000, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !1302
   %88 = load ptr, ptr %87, align 8, !tbaa !257
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
@@ -50305,39 +50305,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
   %83 = load i32, ptr %82, align 4, !tbaa !133
   %84 = sitofp i32 %83 to float
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi float [ %84, %81 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %54 ], [ 0x7FF8000000000000, %72 ], [ 0x7FF8000000000000, %74 ], [ 0x7FF8000000000000, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi float [ %84, %81 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %54 ], [ 0x7FF8000000000000, %76 ], [ 0x7FF8000000000000, %74 ], [ 0x7FF8000000000000, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !1302
   %88 = load ptr, ptr %87, align 8, !tbaa !257
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
@@ -50488,39 +50488,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
   %83 = load i32, ptr %82, align 4, !tbaa !133
   %84 = uitofp i32 %83 to float
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi float [ %84, %81 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %54 ], [ 0x7FF8000000000000, %72 ], [ 0x7FF8000000000000, %74 ], [ 0x7FF8000000000000, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi float [ %84, %81 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %54 ], [ 0x7FF8000000000000, %76 ], [ 0x7FF8000000000000, %74 ], [ 0x7FF8000000000000, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !1302
   %88 = load ptr, ptr %87, align 8, !tbaa !257
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
@@ -50671,39 +50671,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
   %83 = load i64, ptr %82, align 8, !tbaa !12
   %84 = sitofp i64 %83 to float
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi float [ %84, %81 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %54 ], [ 0x7FF8000000000000, %72 ], [ 0x7FF8000000000000, %74 ], [ 0x7FF8000000000000, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi float [ %84, %81 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %54 ], [ 0x7FF8000000000000, %76 ], [ 0x7FF8000000000000, %74 ], [ 0x7FF8000000000000, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !1302
   %88 = load ptr, ptr %87, align 8, !tbaa !257
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
@@ -50854,39 +50854,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
   %83 = load i64, ptr %82, align 8, !tbaa !12
   %84 = uitofp i64 %83 to float
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi float [ %84, %81 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %54 ], [ 0x7FF8000000000000, %72 ], [ 0x7FF8000000000000, %74 ], [ 0x7FF8000000000000, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi float [ %84, %81 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %54 ], [ 0x7FF8000000000000, %76 ], [ 0x7FF8000000000000, %74 ], [ 0x7FF8000000000000, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !1302
   %88 = load ptr, ptr %87, align 8, !tbaa !257
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
@@ -51037,39 +51037,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
   %83 = load i16, ptr %82, align 2, !tbaa !291
   %84 = uitofp i16 %83 to float
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi float [ %84, %81 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %54 ], [ 0x7FF8000000000000, %72 ], [ 0x7FF8000000000000, %74 ], [ 0x7FF8000000000000, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi float [ %84, %81 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %54 ], [ 0x7FF8000000000000, %76 ], [ 0x7FF8000000000000, %74 ], [ 0x7FF8000000000000, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !1302
   %88 = load ptr, ptr %87, align 8, !tbaa !257
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
@@ -51209,38 +51209,38 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %67 = load ptr, ptr %48, align 8, !tbaa !35
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 40
   %69 = load i32, ptr %68, align 8, !tbaa !53
-  switch i32 %69, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %70
-    i32 28, label %72
-    i32 38, label %74
+  switch i32 %69, label %74 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %70
+    i32 38, label %72
   ]
 
 70:                                               ; preds = %66
-  %71 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
+  %71 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
   br i1 %71, label %82, label %79
 
 72:                                               ; preds = %66
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
   br i1 %73, label %82, label %79
 
 74:                                               ; preds = %66
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
-  br i1 %75, label %82, label %79
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
-  %76 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %77 = load atomic i64, ptr %76 seq_cst, align 8
-  %78 = load i64, ptr %47, align 8, !tbaa !389
-  %.not13 = icmp eq i64 %77, %78
+  %75 = getelementptr inbounds nuw i8, ptr %48, i64 24
+  %76 = load atomic i64, ptr %75 seq_cst, align 8
+  %77 = load i64, ptr %47, align 8, !tbaa !389
+  %.not13 = icmp eq i64 %76, %77
   br i1 %.not13, label %82, label %79
 
-79:                                               ; preds = %74, %72, %70, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
+  br i1 %78, label %82, label %79
+
+79:                                               ; preds = %70, %72, %74, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %80 = getelementptr inbounds nuw float, ptr %19, i64 %.08
   %81 = load float, ptr %80, align 4, !tbaa !321
   br label %82
 
-82:                                               ; preds = %74, %72, %70, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit, %79
-  %83 = phi float [ %81, %79 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %52 ], [ 0x7FF8000000000000, %70 ], [ 0x7FF8000000000000, %72 ], [ 0x7FF8000000000000, %74 ]
+82:                                               ; preds = %70, %72, %74, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit, %79
+  %83 = phi float [ %81, %79 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %52 ], [ 0x7FF8000000000000, %74 ], [ 0x7FF8000000000000, %72 ], [ 0x7FF8000000000000, %70 ]
   %84 = load ptr, ptr %1, align 8, !tbaa !1302
   %85 = load ptr, ptr %84, align 8, !tbaa !257
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 4
@@ -51387,39 +51387,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw double, ptr %19, i64 %.017
   %83 = load double, ptr %82, align 8, !tbaa !327
   %84 = fptrunc double %83 to float
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi float [ %84, %81 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %54 ], [ 0x7FF8000000000000, %72 ], [ 0x7FF8000000000000, %74 ], [ 0x7FF8000000000000, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi float [ %84, %81 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %54 ], [ 0x7FF8000000000000, %76 ], [ 0x7FF8000000000000, %74 ], [ 0x7FF8000000000000, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !1302
   %88 = load ptr, ptr %87, align 8, !tbaa !257
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
@@ -52057,39 +52057,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %74 = load ptr, ptr %55, align 8, !tbaa !35
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %76 = load i32, ptr %75, align 8, !tbaa !53
-  switch i32 %76, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %77
-    i32 28, label %79
-    i32 38, label %81
+  switch i32 %76, label %81 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %77
+    i32 38, label %79
   ]
 
 77:                                               ; preds = %73
-  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %78, label %90, label %86
 
 79:                                               ; preds = %73
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %80, label %90, label %86
 
 81:                                               ; preds = %73
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
-  br i1 %82, label %90, label %86
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
-  %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %84 = load atomic i64, ptr %83 seq_cst, align 8
-  %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %84, %85
+  %82 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %83 = load atomic i64, ptr %82 seq_cst, align 8
+  %84 = load i64, ptr %54, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %83, %84
   br i1 %.not25, label %90, label %86
 
-86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
+  %85 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  br i1 %85, label %90, label %86
+
+86:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i8, ptr %16, i64 %.015
   %88 = load i8, ptr %87, align 1, !tbaa !92
   %89 = sitofp i8 %88 to double
   br label %90
 
-90:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
-  %91 = phi double [ %89, %86 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %59 ], [ 0x7FF8000000000000, %77 ], [ 0x7FF8000000000000, %79 ], [ 0x7FF8000000000000, %81 ]
+90:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
+  %91 = phi double [ %89, %86 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %59 ], [ 0x7FF8000000000000, %81 ], [ 0x7FF8000000000000, %79 ], [ 0x7FF8000000000000, %77 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !1348
   %93 = load ptr, ptr %92, align 8, !tbaa !264
   %94 = load i32, ptr %37, align 8, !tbaa !268
@@ -52248,39 +52248,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %74 = load ptr, ptr %55, align 8, !tbaa !35
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %76 = load i32, ptr %75, align 8, !tbaa !53
-  switch i32 %76, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %77
-    i32 28, label %79
-    i32 38, label %81
+  switch i32 %76, label %81 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %77
+    i32 38, label %79
   ]
 
 77:                                               ; preds = %73
-  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %78, label %90, label %86
 
 79:                                               ; preds = %73
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %80, label %90, label %86
 
 81:                                               ; preds = %73
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
-  br i1 %82, label %90, label %86
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
-  %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %84 = load atomic i64, ptr %83 seq_cst, align 8
-  %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %84, %85
+  %82 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %83 = load atomic i64, ptr %82 seq_cst, align 8
+  %84 = load i64, ptr %54, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %83, %84
   br i1 %.not25, label %90, label %86
 
-86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
+  %85 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  br i1 %85, label %90, label %86
+
+86:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i8, ptr %16, i64 %.015
   %88 = load i8, ptr %87, align 1, !tbaa !92
   %89 = uitofp i8 %88 to double
   br label %90
 
-90:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
-  %91 = phi double [ %89, %86 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %59 ], [ 0x7FF8000000000000, %77 ], [ 0x7FF8000000000000, %79 ], [ 0x7FF8000000000000, %81 ]
+90:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
+  %91 = phi double [ %89, %86 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %59 ], [ 0x7FF8000000000000, %81 ], [ 0x7FF8000000000000, %79 ], [ 0x7FF8000000000000, %77 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !1348
   %93 = load ptr, ptr %92, align 8, !tbaa !264
   %94 = load i32, ptr %37, align 8, !tbaa !268
@@ -52439,39 +52439,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %74 = load ptr, ptr %55, align 8, !tbaa !35
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %76 = load i32, ptr %75, align 8, !tbaa !53
-  switch i32 %76, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %77
-    i32 28, label %79
-    i32 38, label %81
+  switch i32 %76, label %81 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %77
+    i32 38, label %79
   ]
 
 77:                                               ; preds = %73
-  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %78, label %90, label %86
 
 79:                                               ; preds = %73
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %80, label %90, label %86
 
 81:                                               ; preds = %73
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
-  br i1 %82, label %90, label %86
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
-  %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %84 = load atomic i64, ptr %83 seq_cst, align 8
-  %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %84, %85
+  %82 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %83 = load atomic i64, ptr %82 seq_cst, align 8
+  %84 = load i64, ptr %54, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %83, %84
   br i1 %.not25, label %90, label %86
 
-86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
+  %85 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  br i1 %85, label %90, label %86
+
+86:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
   %88 = load i16, ptr %87, align 2, !tbaa !291
   %89 = sitofp i16 %88 to double
   br label %90
 
-90:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
-  %91 = phi double [ %89, %86 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %59 ], [ 0x7FF8000000000000, %77 ], [ 0x7FF8000000000000, %79 ], [ 0x7FF8000000000000, %81 ]
+90:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
+  %91 = phi double [ %89, %86 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %59 ], [ 0x7FF8000000000000, %81 ], [ 0x7FF8000000000000, %79 ], [ 0x7FF8000000000000, %77 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !1348
   %93 = load ptr, ptr %92, align 8, !tbaa !264
   %94 = load i32, ptr %37, align 8, !tbaa !268
@@ -52630,39 +52630,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %74 = load ptr, ptr %55, align 8, !tbaa !35
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %76 = load i32, ptr %75, align 8, !tbaa !53
-  switch i32 %76, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %77
-    i32 28, label %79
-    i32 38, label %81
+  switch i32 %76, label %81 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %77
+    i32 38, label %79
   ]
 
 77:                                               ; preds = %73
-  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %78, label %90, label %86
 
 79:                                               ; preds = %73
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %80, label %90, label %86
 
 81:                                               ; preds = %73
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
-  br i1 %82, label %90, label %86
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
-  %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %84 = load atomic i64, ptr %83 seq_cst, align 8
-  %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %84, %85
+  %82 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %83 = load atomic i64, ptr %82 seq_cst, align 8
+  %84 = load i64, ptr %54, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %83, %84
   br i1 %.not25, label %90, label %86
 
-86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
+  %85 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  br i1 %85, label %90, label %86
+
+86:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
   %88 = load i16, ptr %87, align 2, !tbaa !291
   %89 = uitofp i16 %88 to double
   br label %90
 
-90:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
-  %91 = phi double [ %89, %86 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %59 ], [ 0x7FF8000000000000, %77 ], [ 0x7FF8000000000000, %79 ], [ 0x7FF8000000000000, %81 ]
+90:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
+  %91 = phi double [ %89, %86 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %59 ], [ 0x7FF8000000000000, %81 ], [ 0x7FF8000000000000, %79 ], [ 0x7FF8000000000000, %77 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !1348
   %93 = load ptr, ptr %92, align 8, !tbaa !264
   %94 = load i32, ptr %37, align 8, !tbaa !268
@@ -52821,39 +52821,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %74 = load ptr, ptr %55, align 8, !tbaa !35
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %76 = load i32, ptr %75, align 8, !tbaa !53
-  switch i32 %76, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %77
-    i32 28, label %79
-    i32 38, label %81
+  switch i32 %76, label %81 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %77
+    i32 38, label %79
   ]
 
 77:                                               ; preds = %73
-  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %78, label %90, label %86
 
 79:                                               ; preds = %73
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %80, label %90, label %86
 
 81:                                               ; preds = %73
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
-  br i1 %82, label %90, label %86
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
-  %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %84 = load atomic i64, ptr %83 seq_cst, align 8
-  %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %84, %85
+  %82 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %83 = load atomic i64, ptr %82 seq_cst, align 8
+  %84 = load i64, ptr %54, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %83, %84
   br i1 %.not25, label %90, label %86
 
-86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
+  %85 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  br i1 %85, label %90, label %86
+
+86:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
   %88 = load i32, ptr %87, align 4, !tbaa !133
   %89 = sitofp i32 %88 to double
   br label %90
 
-90:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
-  %91 = phi double [ %89, %86 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %59 ], [ 0x7FF8000000000000, %77 ], [ 0x7FF8000000000000, %79 ], [ 0x7FF8000000000000, %81 ]
+90:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
+  %91 = phi double [ %89, %86 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %59 ], [ 0x7FF8000000000000, %81 ], [ 0x7FF8000000000000, %79 ], [ 0x7FF8000000000000, %77 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !1348
   %93 = load ptr, ptr %92, align 8, !tbaa !264
   %94 = load i32, ptr %37, align 8, !tbaa !268
@@ -53012,39 +53012,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %74 = load ptr, ptr %55, align 8, !tbaa !35
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %76 = load i32, ptr %75, align 8, !tbaa !53
-  switch i32 %76, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %77
-    i32 28, label %79
-    i32 38, label %81
+  switch i32 %76, label %81 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %77
+    i32 38, label %79
   ]
 
 77:                                               ; preds = %73
-  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %78, label %90, label %86
 
 79:                                               ; preds = %73
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %80, label %90, label %86
 
 81:                                               ; preds = %73
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
-  br i1 %82, label %90, label %86
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
-  %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %84 = load atomic i64, ptr %83 seq_cst, align 8
-  %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %84, %85
+  %82 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %83 = load atomic i64, ptr %82 seq_cst, align 8
+  %84 = load i64, ptr %54, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %83, %84
   br i1 %.not25, label %90, label %86
 
-86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
+  %85 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  br i1 %85, label %90, label %86
+
+86:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
   %88 = load i32, ptr %87, align 4, !tbaa !133
   %89 = uitofp i32 %88 to double
   br label %90
 
-90:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
-  %91 = phi double [ %89, %86 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %59 ], [ 0x7FF8000000000000, %77 ], [ 0x7FF8000000000000, %79 ], [ 0x7FF8000000000000, %81 ]
+90:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
+  %91 = phi double [ %89, %86 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %59 ], [ 0x7FF8000000000000, %81 ], [ 0x7FF8000000000000, %79 ], [ 0x7FF8000000000000, %77 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !1348
   %93 = load ptr, ptr %92, align 8, !tbaa !264
   %94 = load i32, ptr %37, align 8, !tbaa !268
@@ -53203,39 +53203,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %74 = load ptr, ptr %55, align 8, !tbaa !35
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %76 = load i32, ptr %75, align 8, !tbaa !53
-  switch i32 %76, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %77
-    i32 28, label %79
-    i32 38, label %81
+  switch i32 %76, label %81 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %77
+    i32 38, label %79
   ]
 
 77:                                               ; preds = %73
-  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %78, label %90, label %86
 
 79:                                               ; preds = %73
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %80, label %90, label %86
 
 81:                                               ; preds = %73
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
-  br i1 %82, label %90, label %86
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
-  %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %84 = load atomic i64, ptr %83 seq_cst, align 8
-  %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %84, %85
+  %82 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %83 = load atomic i64, ptr %82 seq_cst, align 8
+  %84 = load i64, ptr %54, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %83, %84
   br i1 %.not25, label %90, label %86
 
-86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
+  %85 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  br i1 %85, label %90, label %86
+
+86:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
   %88 = load i64, ptr %87, align 8, !tbaa !12
   %89 = sitofp i64 %88 to double
   br label %90
 
-90:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
-  %91 = phi double [ %89, %86 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %59 ], [ 0x7FF8000000000000, %77 ], [ 0x7FF8000000000000, %79 ], [ 0x7FF8000000000000, %81 ]
+90:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
+  %91 = phi double [ %89, %86 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %59 ], [ 0x7FF8000000000000, %81 ], [ 0x7FF8000000000000, %79 ], [ 0x7FF8000000000000, %77 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !1348
   %93 = load ptr, ptr %92, align 8, !tbaa !264
   %94 = load i32, ptr %37, align 8, !tbaa !268
@@ -53394,39 +53394,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %74 = load ptr, ptr %55, align 8, !tbaa !35
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %76 = load i32, ptr %75, align 8, !tbaa !53
-  switch i32 %76, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %77
-    i32 28, label %79
-    i32 38, label %81
+  switch i32 %76, label %81 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %77
+    i32 38, label %79
   ]
 
 77:                                               ; preds = %73
-  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %78, label %90, label %86
 
 79:                                               ; preds = %73
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %80, label %90, label %86
 
 81:                                               ; preds = %73
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
-  br i1 %82, label %90, label %86
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
-  %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %84 = load atomic i64, ptr %83 seq_cst, align 8
-  %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %84, %85
+  %82 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %83 = load atomic i64, ptr %82 seq_cst, align 8
+  %84 = load i64, ptr %54, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %83, %84
   br i1 %.not25, label %90, label %86
 
-86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
+  %85 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  br i1 %85, label %90, label %86
+
+86:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
   %88 = load i64, ptr %87, align 8, !tbaa !12
   %89 = uitofp i64 %88 to double
   br label %90
 
-90:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
-  %91 = phi double [ %89, %86 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %59 ], [ 0x7FF8000000000000, %77 ], [ 0x7FF8000000000000, %79 ], [ 0x7FF8000000000000, %81 ]
+90:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
+  %91 = phi double [ %89, %86 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %59 ], [ 0x7FF8000000000000, %81 ], [ 0x7FF8000000000000, %79 ], [ 0x7FF8000000000000, %77 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !1348
   %93 = load ptr, ptr %92, align 8, !tbaa !264
   %94 = load i32, ptr %37, align 8, !tbaa !268
@@ -53585,39 +53585,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %74 = load ptr, ptr %55, align 8, !tbaa !35
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %76 = load i32, ptr %75, align 8, !tbaa !53
-  switch i32 %76, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %77
-    i32 28, label %79
-    i32 38, label %81
+  switch i32 %76, label %81 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %77
+    i32 38, label %79
   ]
 
 77:                                               ; preds = %73
-  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %78, label %90, label %86
 
 79:                                               ; preds = %73
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %80, label %90, label %86
 
 81:                                               ; preds = %73
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
-  br i1 %82, label %90, label %86
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
-  %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %84 = load atomic i64, ptr %83 seq_cst, align 8
-  %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %84, %85
+  %82 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %83 = load atomic i64, ptr %82 seq_cst, align 8
+  %84 = load i64, ptr %54, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %83, %84
   br i1 %.not25, label %90, label %86
 
-86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
+  %85 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  br i1 %85, label %90, label %86
+
+86:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
   %88 = load i16, ptr %87, align 2, !tbaa !291
   %89 = uitofp i16 %88 to double
   br label %90
 
-90:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
-  %91 = phi double [ %89, %86 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %59 ], [ 0x7FF8000000000000, %77 ], [ 0x7FF8000000000000, %79 ], [ 0x7FF8000000000000, %81 ]
+90:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
+  %91 = phi double [ %89, %86 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %59 ], [ 0x7FF8000000000000, %81 ], [ 0x7FF8000000000000, %79 ], [ 0x7FF8000000000000, %77 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !1348
   %93 = load ptr, ptr %92, align 8, !tbaa !264
   %94 = load i32, ptr %37, align 8, !tbaa !268
@@ -53776,39 +53776,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %74 = load ptr, ptr %55, align 8, !tbaa !35
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %76 = load i32, ptr %75, align 8, !tbaa !53
-  switch i32 %76, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %77
-    i32 28, label %79
-    i32 38, label %81
+  switch i32 %76, label %81 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %77
+    i32 38, label %79
   ]
 
 77:                                               ; preds = %73
-  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %78, label %90, label %86
 
 79:                                               ; preds = %73
-  %80 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
   br i1 %80, label %90, label %86
 
 81:                                               ; preds = %73
-  %82 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
-  br i1 %82, label %90, label %86
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
-  %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %84 = load atomic i64, ptr %83 seq_cst, align 8
-  %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %84, %85
+  %82 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %83 = load atomic i64, ptr %82 seq_cst, align 8
+  %84 = load i64, ptr %54, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %83, %84
   br i1 %.not25, label %90, label %86
 
-86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
+  %85 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %55, i64 noundef %.015)
+  br i1 %85, label %90, label %86
+
+86:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw float, ptr %16, i64 %.015
   %88 = load float, ptr %87, align 4, !tbaa !321
   %89 = fpext float %88 to double
   br label %90
 
-90:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
-  %91 = phi double [ %89, %86 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %59 ], [ 0x7FF8000000000000, %77 ], [ 0x7FF8000000000000, %79 ], [ 0x7FF8000000000000, %81 ]
+90:                                               ; preds = %77, %79, %81, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit, %86
+  %91 = phi double [ %89, %86 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %59 ], [ 0x7FF8000000000000, %81 ], [ 0x7FF8000000000000, %79 ], [ 0x7FF8000000000000, %77 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !1348
   %93 = load ptr, ptr %92, align 8, !tbaa !264
   %94 = load i32, ptr %37, align 8, !tbaa !268
@@ -53966,38 +53966,38 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %73 = load ptr, ptr %54, align 8, !tbaa !35
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 40
   %75 = load i32, ptr %74, align 8, !tbaa !53
-  switch i32 %75, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %76
-    i32 28, label %78
-    i32 38, label %80
+  switch i32 %75, label %80 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %76
+    i32 38, label %78
   ]
 
 76:                                               ; preds = %72
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
+  %77 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
   br i1 %77, label %88, label %85
 
 78:                                               ; preds = %72
-  %79 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
+  %79 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
   br i1 %79, label %88, label %85
 
 80:                                               ; preds = %72
-  %81 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
-  br i1 %81, label %88, label %85
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
-  %82 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  %83 = load atomic i64, ptr %82 seq_cst, align 8
-  %84 = load i64, ptr %53, align 8, !tbaa !389
-  %.not25 = icmp eq i64 %83, %84
+  %81 = getelementptr inbounds nuw i8, ptr %54, i64 24
+  %82 = load atomic i64, ptr %81 seq_cst, align 8
+  %83 = load i64, ptr %53, align 8, !tbaa !389
+  %.not25 = icmp eq i64 %82, %83
   br i1 %.not25, label %88, label %85
 
-85:                                               ; preds = %80, %78, %76, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
+  %84 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %54, i64 noundef %.015)
+  br i1 %84, label %88, label %85
+
+85:                                               ; preds = %76, %78, %80, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %86 = getelementptr inbounds nuw double, ptr %16, i64 %.015
   %87 = load double, ptr %86, align 8, !tbaa !327
   br label %88
 
-88:                                               ; preds = %80, %78, %76, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit, %85
-  %89 = phi double [ %87, %85 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %58 ], [ 0x7FF8000000000000, %76 ], [ 0x7FF8000000000000, %78 ], [ 0x7FF8000000000000, %80 ]
+88:                                               ; preds = %76, %78, %80, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit, %85
+  %89 = phi double [ %87, %85 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %58 ], [ 0x7FF8000000000000, %80 ], [ 0x7FF8000000000000, %78 ], [ 0x7FF8000000000000, %76 ]
   %90 = load ptr, ptr %1, align 8, !tbaa !1348
   %91 = load ptr, ptr %90, align 8, !tbaa !264
   %92 = load i32, ptr %37, align 8, !tbaa !268
@@ -54149,39 +54149,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not28 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not28 = icmp eq i64 %78, %79
   br i1 %.not28, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i8, ptr %19, i64 %.017
   %83 = load i8, ptr %82, align 1, !tbaa !92
   %84 = sitofp i8 %83 to double
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi double [ %84, %81 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %54 ], [ 0x7FF8000000000000, %72 ], [ 0x7FF8000000000000, %74 ], [ 0x7FF8000000000000, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi double [ %84, %81 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %54 ], [ 0x7FF8000000000000, %76 ], [ 0x7FF8000000000000, %74 ], [ 0x7FF8000000000000, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !1406
   %88 = load ptr, ptr %87, align 8, !tbaa !264
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
@@ -54328,39 +54328,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not28 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not28 = icmp eq i64 %78, %79
   br i1 %.not28, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i8, ptr %19, i64 %.017
   %83 = load i8, ptr %82, align 1, !tbaa !92
   %84 = uitofp i8 %83 to double
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi double [ %84, %81 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %54 ], [ 0x7FF8000000000000, %72 ], [ 0x7FF8000000000000, %74 ], [ 0x7FF8000000000000, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi double [ %84, %81 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %54 ], [ 0x7FF8000000000000, %76 ], [ 0x7FF8000000000000, %74 ], [ 0x7FF8000000000000, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !1406
   %88 = load ptr, ptr %87, align 8, !tbaa !264
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
@@ -54507,39 +54507,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
   %83 = load i16, ptr %82, align 2, !tbaa !291
   %84 = sitofp i16 %83 to double
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi double [ %84, %81 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %54 ], [ 0x7FF8000000000000, %72 ], [ 0x7FF8000000000000, %74 ], [ 0x7FF8000000000000, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi double [ %84, %81 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %54 ], [ 0x7FF8000000000000, %76 ], [ 0x7FF8000000000000, %74 ], [ 0x7FF8000000000000, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !1406
   %88 = load ptr, ptr %87, align 8, !tbaa !264
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
@@ -54690,39 +54690,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
   %83 = load i16, ptr %82, align 2, !tbaa !291
   %84 = uitofp i16 %83 to double
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi double [ %84, %81 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %54 ], [ 0x7FF8000000000000, %72 ], [ 0x7FF8000000000000, %74 ], [ 0x7FF8000000000000, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi double [ %84, %81 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %54 ], [ 0x7FF8000000000000, %76 ], [ 0x7FF8000000000000, %74 ], [ 0x7FF8000000000000, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !1406
   %88 = load ptr, ptr %87, align 8, !tbaa !264
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
@@ -54873,39 +54873,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
   %83 = load i32, ptr %82, align 4, !tbaa !133
   %84 = sitofp i32 %83 to double
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi double [ %84, %81 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %54 ], [ 0x7FF8000000000000, %72 ], [ 0x7FF8000000000000, %74 ], [ 0x7FF8000000000000, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi double [ %84, %81 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %54 ], [ 0x7FF8000000000000, %76 ], [ 0x7FF8000000000000, %74 ], [ 0x7FF8000000000000, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !1406
   %88 = load ptr, ptr %87, align 8, !tbaa !264
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
@@ -55056,39 +55056,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
   %83 = load i32, ptr %82, align 4, !tbaa !133
   %84 = uitofp i32 %83 to double
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi double [ %84, %81 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %54 ], [ 0x7FF8000000000000, %72 ], [ 0x7FF8000000000000, %74 ], [ 0x7FF8000000000000, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi double [ %84, %81 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %54 ], [ 0x7FF8000000000000, %76 ], [ 0x7FF8000000000000, %74 ], [ 0x7FF8000000000000, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !1406
   %88 = load ptr, ptr %87, align 8, !tbaa !264
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
@@ -55239,39 +55239,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
   %83 = load i64, ptr %82, align 8, !tbaa !12
   %84 = sitofp i64 %83 to double
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi double [ %84, %81 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %54 ], [ 0x7FF8000000000000, %72 ], [ 0x7FF8000000000000, %74 ], [ 0x7FF8000000000000, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi double [ %84, %81 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %54 ], [ 0x7FF8000000000000, %76 ], [ 0x7FF8000000000000, %74 ], [ 0x7FF8000000000000, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !1406
   %88 = load ptr, ptr %87, align 8, !tbaa !264
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
@@ -55422,39 +55422,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
   %83 = load i64, ptr %82, align 8, !tbaa !12
   %84 = uitofp i64 %83 to double
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi double [ %84, %81 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %54 ], [ 0x7FF8000000000000, %72 ], [ 0x7FF8000000000000, %74 ], [ 0x7FF8000000000000, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi double [ %84, %81 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %54 ], [ 0x7FF8000000000000, %76 ], [ 0x7FF8000000000000, %74 ], [ 0x7FF8000000000000, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !1406
   %88 = load ptr, ptr %87, align 8, !tbaa !264
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
@@ -55605,39 +55605,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
   %83 = load i16, ptr %82, align 2, !tbaa !291
   %84 = uitofp i16 %83 to double
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi double [ %84, %81 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %54 ], [ 0x7FF8000000000000, %72 ], [ 0x7FF8000000000000, %74 ], [ 0x7FF8000000000000, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi double [ %84, %81 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %54 ], [ 0x7FF8000000000000, %76 ], [ 0x7FF8000000000000, %74 ], [ 0x7FF8000000000000, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !1406
   %88 = load ptr, ptr %87, align 8, !tbaa !264
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
@@ -55788,39 +55788,39 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %69 = load ptr, ptr %50, align 8, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !53
-  switch i32 %71, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %72
-    i32 28, label %74
-    i32 38, label %76
+  switch i32 %71, label %76 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %72
+    i32 38, label %74
   ]
 
 72:                                               ; preds = %68
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %73, label %85, label %81
 
 74:                                               ; preds = %68
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
   br i1 %75, label %85, label %81
 
 76:                                               ; preds = %68
-  %77 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
-  br i1 %77, label %85, label %81
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not26 = icmp eq i64 %79, %80
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %78 = load atomic i64, ptr %77 seq_cst, align 8
+  %79 = load i64, ptr %49, align 8, !tbaa !389
+  %.not26 = icmp eq i64 %78, %79
   br i1 %.not26, label %85, label %81
 
-81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
+  %80 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %50, i64 noundef %.017)
+  br i1 %80, label %85, label %81
+
+81:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw float, ptr %19, i64 %.017
   %83 = load float, ptr %82, align 4, !tbaa !321
   %84 = fpext float %83 to double
   br label %85
 
-85:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
-  %86 = phi double [ %84, %81 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %54 ], [ 0x7FF8000000000000, %72 ], [ 0x7FF8000000000000, %74 ], [ 0x7FF8000000000000, %76 ]
+85:                                               ; preds = %72, %74, %76, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit, %81
+  %86 = phi double [ %84, %81 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %54 ], [ 0x7FF8000000000000, %76 ], [ 0x7FF8000000000000, %74 ], [ 0x7FF8000000000000, %72 ]
   %87 = load ptr, ptr %1, align 8, !tbaa !1406
   %88 = load ptr, ptr %87, align 8, !tbaa !264
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
@@ -55960,38 +55960,38 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %67 = load ptr, ptr %48, align 8, !tbaa !35
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 40
   %69 = load i32, ptr %68, align 8, !tbaa !53
-  switch i32 %69, label %_ZNK5arrow9ArrayData6IsNullEl.exit [
-    i32 27, label %70
-    i32 28, label %72
-    i32 38, label %74
+  switch i32 %69, label %74 [
+    i32 27, label %_ZNK5arrow9ArrayData6IsNullEl.exit
+    i32 28, label %70
+    i32 38, label %72
   ]
 
 70:                                               ; preds = %66
-  %71 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
+  %71 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
   br i1 %71, label %82, label %79
 
 72:                                               ; preds = %66
-  %73 = call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
+  %73 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
   br i1 %73, label %82, label %79
 
 74:                                               ; preds = %66
-  %75 = call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
-  br i1 %75, label %82, label %79
-
-_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
-  %76 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %77 = load atomic i64, ptr %76 seq_cst, align 8
-  %78 = load i64, ptr %47, align 8, !tbaa !389
-  %.not13 = icmp eq i64 %77, %78
+  %75 = getelementptr inbounds nuw i8, ptr %48, i64 24
+  %76 = load atomic i64, ptr %75 seq_cst, align 8
+  %77 = load i64, ptr %47, align 8, !tbaa !389
+  %.not13 = icmp eq i64 %76, %77
   br i1 %.not13, label %82, label %79
 
-79:                                               ; preds = %74, %72, %70, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit
+_ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
+  %78 = call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %48, i64 noundef %.08)
+  br i1 %78, label %82, label %79
+
+79:                                               ; preds = %70, %72, %74, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %80 = getelementptr inbounds nuw double, ptr %19, i64 %.08
   %81 = load double, ptr %80, align 8, !tbaa !327
   br label %82
 
-82:                                               ; preds = %74, %72, %70, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit, %79
-  %83 = phi double [ %81, %79 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %52 ], [ 0x7FF8000000000000, %70 ], [ 0x7FF8000000000000, %72 ], [ 0x7FF8000000000000, %74 ]
+82:                                               ; preds = %70, %72, %74, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit, %79
+  %83 = phi double [ %81, %79 ], [ 0x7FF8000000000000, %_ZNK5arrow9ArrayData6IsNullEl.exit ], [ 0x7FF8000000000000, %52 ], [ 0x7FF8000000000000, %74 ], [ 0x7FF8000000000000, %72 ], [ 0x7FF8000000000000, %70 ]
   %84 = load ptr, ptr %1, align 8, !tbaa !1406
   %85 = load ptr, ptr %84, align 8, !tbaa !264
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
@@ -56334,7 +56334,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !1458
 
 .loopexit:                                        ; preds = %39, %33, %.preheader33, %.preheader
-  %.027 = phi i64 [ 0, %.preheader ], [ 0, %.preheader33 ], [ %spec.select, %33 ], [ %41, %39 ]
+  %.027 = phi i64 [ %spec.select, %33 ], [ 0, %.preheader ], [ 0, %.preheader33 ], [ %41, %39 ]
   ret i64 %.027
 }
 
@@ -56408,7 +56408,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !1460
 
 .loopexit:                                        ; preds = %39, %33, %.preheader33, %.preheader
-  %.027 = phi i64 [ 0, %.preheader ], [ 0, %.preheader33 ], [ %spec.select, %33 ], [ %41, %39 ]
+  %.027 = phi i64 [ %spec.select, %33 ], [ 0, %.preheader ], [ 0, %.preheader33 ], [ %41, %39 ]
   ret i64 %.027
 }
 
@@ -56482,7 +56482,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !1462
 
 .loopexit:                                        ; preds = %39, %33, %.preheader33, %.preheader
-  %.027 = phi i64 [ 0, %.preheader ], [ 0, %.preheader33 ], [ %spec.select, %33 ], [ %41, %39 ]
+  %.027 = phi i64 [ %spec.select, %33 ], [ 0, %.preheader ], [ 0, %.preheader33 ], [ %41, %39 ]
   ret i64 %.027
 }
 
@@ -56556,7 +56556,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !1464
 
 .loopexit:                                        ; preds = %39, %33, %.preheader33, %.preheader
-  %.027 = phi i64 [ 0, %.preheader ], [ 0, %.preheader33 ], [ %spec.select, %33 ], [ %41, %39 ]
+  %.027 = phi i64 [ %spec.select, %33 ], [ 0, %.preheader ], [ 0, %.preheader33 ], [ %41, %39 ]
   ret i64 %.027
 }
 
@@ -56630,7 +56630,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !1466
 
 .loopexit:                                        ; preds = %39, %33, %.preheader33, %.preheader
-  %.027 = phi i64 [ 0, %.preheader ], [ 0, %.preheader33 ], [ %spec.select, %33 ], [ %41, %39 ]
+  %.027 = phi i64 [ %spec.select, %33 ], [ 0, %.preheader ], [ 0, %.preheader33 ], [ %41, %39 ]
   ret i64 %.027
 }
 
@@ -56704,7 +56704,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !1468
 
 .loopexit:                                        ; preds = %39, %33, %.preheader33, %.preheader
-  %.027 = phi i64 [ 0, %.preheader ], [ 0, %.preheader33 ], [ %spec.select, %33 ], [ %41, %39 ]
+  %.027 = phi i64 [ %spec.select, %33 ], [ 0, %.preheader ], [ 0, %.preheader33 ], [ %41, %39 ]
   ret i64 %.027
 }
 
@@ -56778,7 +56778,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !1470
 
 .loopexit:                                        ; preds = %39, %33, %.preheader33, %.preheader
-  %.027 = phi i64 [ 0, %.preheader ], [ 0, %.preheader33 ], [ %spec.select, %33 ], [ %41, %39 ]
+  %.027 = phi i64 [ %spec.select, %33 ], [ 0, %.preheader ], [ 0, %.preheader33 ], [ %41, %39 ]
   ret i64 %.027
 }
 
@@ -56852,7 +56852,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !1472
 
 .loopexit:                                        ; preds = %39, %33, %.preheader33, %.preheader
-  %.027 = phi i64 [ 0, %.preheader ], [ 0, %.preheader33 ], [ %spec.select, %33 ], [ %41, %39 ]
+  %.027 = phi i64 [ %spec.select, %33 ], [ 0, %.preheader ], [ 0, %.preheader33 ], [ %41, %39 ]
   ret i64 %.027
 }
 
@@ -56926,7 +56926,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !1474
 
 .loopexit:                                        ; preds = %39, %33, %.preheader33, %.preheader
-  %.027 = phi i64 [ 0, %.preheader ], [ 0, %.preheader33 ], [ %spec.select, %33 ], [ %41, %39 ]
+  %.027 = phi i64 [ %spec.select, %33 ], [ 0, %.preheader ], [ 0, %.preheader33 ], [ %41, %39 ]
   ret i64 %.027
 }
 
@@ -57000,7 +57000,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   br i1 %exitcond.not, label %.loopexit, label %40, !llvm.loop !1476
 
 .loopexit:                                        ; preds = %40, %33, %.preheader33, %.preheader
-  %.027 = phi i64 [ 0, %.preheader ], [ 0, %.preheader33 ], [ %.1, %33 ], [ %42, %40 ]
+  %.027 = phi i64 [ %.1, %33 ], [ 0, %.preheader ], [ 0, %.preheader33 ], [ %42, %40 ]
   ret i64 %.027
 }
 
@@ -57074,7 +57074,7 @@ define internal fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountN
   br i1 %exitcond.not, label %.loopexit, label %40, !llvm.loop !1478
 
 .loopexit:                                        ; preds = %40, %33, %.preheader33, %.preheader
-  %.027 = phi i64 [ 0, %.preheader ], [ 0, %.preheader33 ], [ %.1, %33 ], [ %42, %40 ]
+  %.027 = phi i64 [ %.1, %33 ], [ 0, %.preheader ], [ 0, %.preheader33 ], [ %42, %40 ]
   ret i64 %.027
 }
 

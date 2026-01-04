@@ -786,7 +786,7 @@ define internal range(i32 0, 2) i32 @__ioremap_collect_map_flags(ptr noundef rea
   br label %85
 
 85:                                               ; preds = %82, %74
-  %86 = phi i32 [ %75, %74 ], [ %84, %82 ]
+  %86 = phi i32 [ %84, %82 ], [ %75, %74 ]
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %.thread, label %88
 

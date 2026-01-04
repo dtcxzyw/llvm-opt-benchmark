@@ -2137,14 +2137,14 @@ default.unreachable:                              ; preds = %18
   unreachable
 
 .loopexit.i:                                      ; preds = %51, %75, %.thread.i, %145, %133, %129, %._crit_edge.i
-  %.1129.i = phi i32 [ %.0128.i66, %129 ], [ %.0128.i66, %133 ], [ %.0128.i66, %._crit_edge.i ], [ %.2130.i, %145 ], [ %.0128.i66, %.thread.i ], [ %.0128.i66, %75 ], [ %.0128.i66, %51 ]
-  %.1127.i = phi i32 [ %.0126.i67, %129 ], [ %.0126.i67, %133 ], [ %.0126.i67, %._crit_edge.i ], [ %152, %145 ], [ %.0126.i67, %.thread.i ], [ %.0126.i67, %75 ], [ %.0126.i67, %51 ]
-  %161 = phi i64 [ %121, %129 ], [ %135, %133 ], [ %121, %._crit_edge.i ], [ %13, %145 ], [ %.ph246.i, %.thread.i ], [ %76, %75 ], [ %52, %51 ]
-  %162 = phi i64 [ %122, %129 ], [ %136, %133 ], [ %122, %._crit_edge.i ], [ %12, %145 ], [ %.ph245.i, %.thread.i ], [ %77, %75 ], [ %53, %51 ]
-  %163 = phi i64 [ %123, %129 ], [ %137, %133 ], [ %123, %._crit_edge.i ], [ %11, %145 ], [ %.ph244.i, %.thread.i ], [ %78, %75 ], [ %54, %51 ]
-  %.1117.i = phi ptr [ %.7123.i, %129 ], [ %138, %133 ], [ %.7123.i, %._crit_edge.i ], [ %.0116.i68, %145 ], [ %.6122178.ph.i, %.thread.i ], [ %.4120.i, %75 ], [ %.4120.us.i, %51 ]
-  %.1112.i = phi i32 [ 0, %129 ], [ %139, %133 ], [ %.7.i, %._crit_edge.i ], [ %.0111.i69, %145 ], [ 0, %.thread.i ], [ %.4115.i, %75 ], [ %.4115.us.i, %51 ]
-  %.2.i = phi i32 [ %124, %129 ], [ %124, %133 ], [ %124, %._crit_edge.i ], [ %151, %145 ], [ %126, %.thread.i ], [ %80, %75 ], [ %56, %51 ]
+  %.1129.i = phi i32 [ %.2130.i, %145 ], [ %.0128.i66, %._crit_edge.i ], [ %.0128.i66, %129 ], [ %.0128.i66, %133 ], [ %.0128.i66, %.thread.i ], [ %.0128.i66, %75 ], [ %.0128.i66, %51 ]
+  %.1127.i = phi i32 [ %152, %145 ], [ %.0126.i67, %._crit_edge.i ], [ %.0126.i67, %129 ], [ %.0126.i67, %133 ], [ %.0126.i67, %.thread.i ], [ %.0126.i67, %75 ], [ %.0126.i67, %51 ]
+  %161 = phi i64 [ %13, %145 ], [ %121, %._crit_edge.i ], [ %121, %129 ], [ %135, %133 ], [ %.ph246.i, %.thread.i ], [ %76, %75 ], [ %52, %51 ]
+  %162 = phi i64 [ %12, %145 ], [ %122, %._crit_edge.i ], [ %122, %129 ], [ %136, %133 ], [ %.ph245.i, %.thread.i ], [ %77, %75 ], [ %53, %51 ]
+  %163 = phi i64 [ %11, %145 ], [ %123, %._crit_edge.i ], [ %123, %129 ], [ %137, %133 ], [ %.ph244.i, %.thread.i ], [ %78, %75 ], [ %54, %51 ]
+  %.1117.i = phi ptr [ %.0116.i68, %145 ], [ %.7123.i, %._crit_edge.i ], [ %.7123.i, %129 ], [ %138, %133 ], [ %.6122178.ph.i, %.thread.i ], [ %.4120.i, %75 ], [ %.4120.us.i, %51 ]
+  %.1112.i = phi i32 [ %.0111.i69, %145 ], [ %.7.i, %._crit_edge.i ], [ 0, %129 ], [ %139, %133 ], [ 0, %.thread.i ], [ %.4115.i, %75 ], [ %.4115.us.i, %51 ]
+  %.2.i = phi i32 [ %151, %145 ], [ %124, %._crit_edge.i ], [ %124, %129 ], [ %124, %133 ], [ %126, %.thread.i ], [ %80, %75 ], [ %56, %51 ]
   %164 = sub i32 %.2.i, %1
   %165 = icmp sgt i32 %164, %9
   %or.cond196.i = select i1 %.not.i, i1 %165, i1 false
@@ -4321,7 +4321,7 @@ define internal noundef zeroext i1 @dissect_dns_heur(ptr noundef %0, ptr noundef
   br label %42
 
 42:                                               ; preds = %31, %26, %22, %18, %14, %7, %4, %40
-  %.0 = phi i1 [ true, %40 ], [ false, %4 ], [ false, %7 ], [ false, %14 ], [ false, %18 ], [ false, %22 ], [ false, %26 ], [ false, %31 ]
+  %.0 = phi i1 [ false, %7 ], [ false, %4 ], [ false, %14 ], [ false, %18 ], [ false, %22 ], [ false, %26 ], [ true, %40 ], [ false, %31 ]
   ret i1 %.0
 }
 
@@ -4846,8 +4846,8 @@ thread-pre-split.thread:                          ; preds = %60, %thread-pre-spl
   %.not432 = icmp eq ptr %.0403, null
   br i1 %.not432, label %.thread505, label %.thread499
 
-.thread505:                                       ; preds = %136, %121, %120, %135, %76, %159
-  %.0399509 = phi i1 [ %.not423, %159 ], [ false, %76 ], [ false, %135 ], [ false, %120 ], [ false, %121 ], [ false, %136 ]
+.thread505:                                       ; preds = %120, %121, %136, %135, %76, %159
+  %.0399509 = phi i1 [ %.not423, %159 ], [ false, %76 ], [ false, %135 ], [ false, %136 ], [ false, %121 ], [ false, %120 ]
   %160 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %161 = load ptr, ptr %160, align 8
   %162 = call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %161, i64 noundef 32) #12
@@ -4859,9 +4859,9 @@ thread-pre-split.thread:                          ; preds = %60, %thread-pre-spl
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %164, ptr noundef nonnull align 8 dereferenceable(16) %165, i64 16, i1 false)
   br label %.thread499
 
-.thread499:                                       ; preds = %141, %155, %131, %103, %129, %.critedge, %.thread505, %159
-  %.0399503 = phi i1 [ %.not423, %159 ], [ %.0399509, %.thread505 ], [ false, %141 ], [ %not., %155 ], [ %not.516, %131 ], [ true, %103 ], [ false, %129 ], [ false, %.critedge ]
-  %.2405 = phi ptr [ %.0403, %159 ], [ %162, %.thread505 ], [ %93, %141 ], [ %93, %155 ], [ %93, %131 ], [ %93, %103 ], [ %93, %129 ], [ %93, %.critedge ]
+.thread499:                                       ; preds = %141, %131, %129, %103, %.critedge, %155, %.thread505, %159
+  %.0399503 = phi i1 [ %.not423, %159 ], [ %.0399509, %.thread505 ], [ false, %141 ], [ %not.516, %131 ], [ false, %129 ], [ true, %103 ], [ false, %.critedge ], [ %not., %155 ]
+  %.2405 = phi ptr [ %.0403, %159 ], [ %162, %.thread505 ], [ %93, %141 ], [ %93, %131 ], [ %93, %129 ], [ %93, %103 ], [ %93, %.critedge ], [ %93, %155 ]
   br i1 %22, label %166, label %169
 
 166:                                              ; preds = %.thread499
@@ -6142,8 +6142,8 @@ define internal fastcc i32 @dissect_dns_answer(ptr noundef %0, i32 noundef %1, i
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %186, %183, %159, %147, %144
-  %hf_dns_srv_name.sink.i = phi ptr [ @hf_dns_srv_name, %186 ], [ @hf_dns_srv_name, %159 ], [ @hf_dns_srv_name, %183 ], [ @hf_dns_rr_name, %147 ], [ @hf_dns_rr_name, %144 ]
-  %.sink100.i = phi ptr [ %188, %186 ], [ %171, %159 ], [ %182, %183 ], [ %139, %147 ], [ %139, %144 ]
+  %hf_dns_srv_name.sink.i = phi ptr [ @hf_dns_srv_name, %183 ], [ @hf_dns_srv_name, %159 ], [ @hf_dns_srv_name, %186 ], [ @hf_dns_rr_name, %147 ], [ @hf_dns_rr_name, %144 ]
+  %.sink100.i = phi ptr [ %182, %183 ], [ %171, %159 ], [ %188, %186 ], [ %139, %147 ], [ %139, %144 ]
   %189 = load i32, ptr %hf_dns_srv_name.sink.i, align 4
   %190 = call ptr @proto_tree_add_string(ptr noundef %145, i32 noundef %189, ptr noundef %0, i32 noundef %1, i32 noundef %111, ptr noundef %.sink100.i)
   br label %191
@@ -6734,7 +6734,7 @@ add_opt_rr_to_tree.exit:                          ; preds = %226, %234
   br i1 %exitcond2383.not, label %.split2332.us, label %.split, !llvm.loop !20
 
 .split2332.us:                                    ; preds = %467, %456, %476
-  %.us-phi = phi i32 [ %478, %476 ], [ %458, %456 ], [ %469, %467 ]
+  %.us-phi = phi i32 [ %458, %456 ], [ %478, %476 ], [ %469, %467 ]
   %480 = load i32, ptr @hf_dns_wks_bits, align 4
   %481 = call ptr @proto_tree_add_item(ptr noundef %.02114, i32 noundef %480, ptr noundef %0, i32 noundef %.021132344, i32 noundef 1, i32 noundef 0)
   %482 = call ptr @wmem_strbuf_get_str(ptr noundef %432)
@@ -7981,8 +7981,8 @@ proto_item_set_generated.exit2208:                ; preds = %959, %1001, %1004
   br label %.loopexit2242
 
 .loopexit2242:                                    ; preds = %.lr.ph2297, %.lr.ph2304, %.lr.ph2311, %.preheader2245, %.preheader2243, %.preheader2241, %1208, %1215, %1210, %1256, %1255, %1221, %1205, %1196, %1193, %1177, %1174
-  %.22130 = phi i32 [ %1258, %1256 ], [ %1176, %1174 ], [ %1187, %1177 ], [ %1195, %1193 ], [ %1200, %1196 ], [ %1207, %1205 ], [ %1220, %1215 ], [ %1214, %1210 ], [ %1109, %1208 ], [ %1231, %1221 ], [ %.52133, %1255 ], [ %1109, %.preheader2241 ], [ %1109, %.preheader2243 ], [ %1109, %.preheader2245 ], [ %1128, %.lr.ph2311 ], [ %1133, %.lr.ph2304 ], [ %1138, %.lr.ph2297 ]
-  %.4 = phi i32 [ %1257, %1256 ], [ %1175, %1174 ], [ %1186, %1177 ], [ %1194, %1193 ], [ %1199, %1196 ], [ %1206, %1205 ], [ %1219, %1215 ], [ %1213, %1210 ], [ %1122, %1208 ], [ %1230, %1221 ], [ %.7, %1255 ], [ %1122, %.preheader2241 ], [ %1122, %.preheader2243 ], [ %1122, %.preheader2245 ], [ %1127, %.lr.ph2311 ], [ %1132, %.lr.ph2304 ], [ %1137, %.lr.ph2297 ]
+  %.22130 = phi i32 [ %1258, %1256 ], [ %.52133, %1255 ], [ %1133, %.lr.ph2304 ], [ %1128, %.lr.ph2311 ], [ %1176, %1174 ], [ %1187, %1177 ], [ %1195, %1193 ], [ %1200, %1196 ], [ %1207, %1205 ], [ %1220, %1215 ], [ %1214, %1210 ], [ %1109, %1208 ], [ %1231, %1221 ], [ %1109, %.preheader2241 ], [ %1109, %.preheader2243 ], [ %1109, %.preheader2245 ], [ %1138, %.lr.ph2297 ]
+  %.4 = phi i32 [ %1257, %1256 ], [ %.7, %1255 ], [ %1132, %.lr.ph2304 ], [ %1127, %.lr.ph2311 ], [ %1175, %1174 ], [ %1186, %1177 ], [ %1194, %1193 ], [ %1199, %1196 ], [ %1206, %1205 ], [ %1219, %1215 ], [ %1213, %1210 ], [ %1122, %1208 ], [ %1230, %1221 ], [ %1122, %.preheader2241 ], [ %1122, %.preheader2243 ], [ %1122, %.preheader2245 ], [ %1137, %.lr.ph2297 ]
   %1259 = icmp sgt i32 %.22130, 0
   br i1 %1259, label %.preheader2247, label %.loopexit, !llvm.loop !28
 
@@ -8701,7 +8701,7 @@ proto_item_set_generated.exit2214:                ; preds = %1503, %1507, %1510
   br label %.loopexit2251
 
 .loopexit2251:                                    ; preds = %.lr.ph2270, %.lr.ph2273, %.lr.ph2277, %.lr.ph2281, %.preheader2256, %.preheader2254, %.preheader2252, %.preheader2250, %1721, %1723, %1711, %1703, %1687, %1672, %.lr.ph2284
-  %.13 = phi i32 [ %1730, %1723 ], [ %1635, %1721 ], [ %1635, %.lr.ph2284 ], [ %1676, %1672 ], [ %1692, %1687 ], [ %1709, %1703 ], [ %1720, %1711 ], [ %1635, %.preheader2250 ], [ %1635, %.preheader2252 ], [ %1635, %.preheader2254 ], [ %1635, %.preheader2256 ], [ %1651, %.lr.ph2281 ], [ %1663, %.lr.ph2277 ], [ %1683, %.lr.ph2273 ], [ %1699, %.lr.ph2270 ]
+  %.13 = phi i32 [ %1730, %1723 ], [ %1635, %1721 ], [ %1720, %1711 ], [ %1651, %.lr.ph2281 ], [ %1635, %.lr.ph2284 ], [ %1676, %1672 ], [ %1663, %.lr.ph2277 ], [ %1692, %1687 ], [ %1683, %.lr.ph2273 ], [ %1709, %1703 ], [ %1635, %.preheader2250 ], [ %1635, %.preheader2252 ], [ %1635, %.preheader2254 ], [ %1635, %.preheader2256 ], [ %1699, %.lr.ph2270 ]
   %1731 = sub i32 %.13, %126
   %1732 = icmp slt i32 %1731, %261
   br i1 %1732, label %.lr.ph2284, label %.loopexit2259, !llvm.loop !36
@@ -9002,7 +9002,7 @@ proto_item_set_generated.exit2214:                ; preds = %1503, %1507, %1510
   br label %1930
 
 1930:                                             ; preds = %1927, %1924, %1899
-  %.02110.in = phi ptr [ @hf_dns_caa_issue, %1899 ], [ @hf_dns_caa_issuewild, %1924 ], [ %hf_dns_caa_iodef.hf_dns_caa_unknown, %1927 ]
+  %.02110.in = phi ptr [ @hf_dns_caa_issuewild, %1924 ], [ @hf_dns_caa_issue, %1899 ], [ %hf_dns_caa_iodef.hf_dns_caa_unknown, %1927 ]
   %.02110 = load i32, ptr %.02110.in, align 4
   %1931 = add nuw nsw i32 %1910, 1
   %1932 = add nuw nsw i32 %1931, %1916

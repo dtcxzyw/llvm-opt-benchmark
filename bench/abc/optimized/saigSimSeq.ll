@@ -861,7 +861,7 @@ define ptr @Raig_ManSimDeref(ptr noundef captures(none) %0, i32 noundef %1) loca
   br label %24
 
 24:                                               ; preds = %2, %6, %17
-  %.0 = phi ptr [ %13, %17 ], [ %13, %6 ], [ %5, %2 ]
+  %.0 = phi ptr [ %13, %6 ], [ %13, %17 ], [ %5, %2 ]
   ret ptr %.0
 }
 
@@ -973,7 +973,7 @@ define i32 @Raig_ManSimulateRound(ptr noundef captures(none) %0, i32 noundef %1,
   br label %Raig_ManSimDeref.exit
 
 Raig_ManSimDeref.exit:                            ; preds = %50, %60, %70
-  %.0.i = phi ptr [ %66, %70 ], [ %66, %60 ], [ %59, %50 ]
+  %.0.i = phi ptr [ %66, %60 ], [ %66, %70 ], [ %59, %50 ]
   %75 = load i32, ptr %11, align 8, !tbaa !63
   %.not187222 = icmp slt i32 %75, 1
   br i1 %.not187222, label %.loopexit218, label %.lr.ph
@@ -1153,7 +1153,7 @@ Raig_ManSimDeref.exit196:                         ; preds = %145, %135, %117, %.
   br label %Raig_ManSimDeref.exit198
 
 Raig_ManSimDeref.exit198:                         ; preds = %156, %160, %170
-  %.0.i197 = phi ptr [ %166, %170 ], [ %166, %160 ], [ %159, %156 ]
+  %.0.i197 = phi ptr [ %166, %160 ], [ %166, %170 ], [ %159, %156 ]
   %175 = load i32, ptr %27, align 8, !tbaa !44
   %176 = icmp slt i32 %.0152255, %175
   %or.cond = and i1 %28, %176
@@ -1296,7 +1296,7 @@ Raig_ManSimDeref.exit198:                         ; preds = %156, %160, %170
   br label %Raig_ManSimDeref.exit200
 
 Raig_ManSimDeref.exit200:                         ; preds = %218, %230, %240
-  %.0.i199 = phi ptr [ %236, %240 ], [ %236, %230 ], [ %229, %218 ]
+  %.0.i199 = phi ptr [ %236, %230 ], [ %236, %240 ], [ %229, %218 ]
   %245 = load i32, ptr %225, align 4, !tbaa !36
   %246 = ashr i32 %245, 1
   %247 = icmp eq i32 %246, 1
@@ -1327,7 +1327,7 @@ Raig_ManSimDeref.exit200:                         ; preds = %218, %230, %240
   br label %Raig_ManSimDeref.exit202
 
 Raig_ManSimDeref.exit202:                         ; preds = %Raig_ManSimDeref.exit200, %248, %258
-  %.0.i201 = phi ptr [ %254, %258 ], [ %254, %248 ], [ %229, %Raig_ManSimDeref.exit200 ]
+  %.0.i201 = phi ptr [ %254, %248 ], [ %254, %258 ], [ %229, %Raig_ManSimDeref.exit200 ]
   %263 = and i32 %223, 1
   %.not = icmp eq i32 %263, 0
   %264 = and i32 %226, 1
@@ -1418,8 +1418,8 @@ Raig_ManSimDeref.exit202:                         ; preds = %Raig_ManSimDeref.ex
   br i1 %.not177.not, label %.lr.ph238, label %.critedge, !llvm.loop !76
 
 .critedge:                                        ; preds = %.lr.ph229, %.lr.ph232, %.lr.ph235, %.lr.ph238, %.preheader215, %.preheader213, %.preheader211, %.preheader210, %.thread, %Raig_ManSimDeref.exit196
-  %.1155 = phi i32 [ %150, %Raig_ManSimDeref.exit196 ], [ %.0154254, %.thread ], [ %.0154254, %.preheader210 ], [ %.0154254, %.preheader211 ], [ %.0154254, %.preheader213 ], [ %.0154254, %.preheader215 ], [ %.0154254, %.lr.ph238 ], [ %.0154254, %.lr.ph235 ], [ %.0154254, %.lr.ph232 ], [ %.0154254, %.lr.ph229 ]
-  %.1153 = phi i32 [ %.0152255, %Raig_ManSimDeref.exit196 ], [ %217, %.thread ], [ %.0152255, %.preheader210 ], [ %.0152255, %.preheader211 ], [ %.0152255, %.preheader213 ], [ %.0152255, %.preheader215 ], [ %.0152255, %.lr.ph238 ], [ %.0152255, %.lr.ph235 ], [ %.0152255, %.lr.ph232 ], [ %.0152255, %.lr.ph229 ]
+  %.1155 = phi i32 [ %150, %Raig_ManSimDeref.exit196 ], [ %.0154254, %.thread ], [ %.0154254, %.preheader211 ], [ %.0154254, %.preheader210 ], [ %.0154254, %.preheader213 ], [ %.0154254, %.preheader215 ], [ %.0154254, %.lr.ph232 ], [ %.0154254, %.lr.ph238 ], [ %.0154254, %.lr.ph235 ], [ %.0154254, %.lr.ph229 ]
+  %.1153 = phi i32 [ %.0152255, %Raig_ManSimDeref.exit196 ], [ %217, %.thread ], [ %.0152255, %.preheader211 ], [ %.0152255, %.preheader210 ], [ %.0152255, %.preheader213 ], [ %.0152255, %.preheader215 ], [ %.0152255, %.lr.ph232 ], [ %.0152255, %.lr.ph238 ], [ %.0152255, %.lr.ph235 ], [ %.0152255, %.lr.ph229 ]
   %indvars.iv.next294 = add nuw nsw i64 %indvars.iv293, 1
   %303 = load i32, ptr %17, align 8, !tbaa !38
   %304 = sext i32 %303 to i64
@@ -1566,8 +1566,8 @@ define noundef ptr @Raig_ManGenerateCounter(ptr noundef readonly captures(none) 
   br i1 %66, label %.lr.ph48.split, label %._crit_edge49, !llvm.loop !83
 
 ._crit_edge49:                                    ; preds = %64, %43, %.preheader44
-  %.val4167 = phi i32 [ %.val4166, %.preheader44 ], [ %.val41.us, %43 ], [ %.val41, %64 ]
-  %.val414664 = phi i32 [ %.val4146, %.preheader44 ], [ %.val41.us, %43 ], [ %.val41, %64 ]
+  %.val4167 = phi i32 [ %.val41.us, %43 ], [ %.val4166, %.preheader44 ], [ %.val41, %64 ]
+  %.val414664 = phi i32 [ %.val41.us, %43 ], [ %.val4146, %.preheader44 ], [ %.val41, %64 ]
   %67 = add nuw i32 %.03551, 1
   %68 = load i32, ptr %20, align 4, !tbaa !82
   %69 = add nsw i32 %68, %.052
@@ -1831,7 +1831,7 @@ Abc_Clock.exit52:                                 ; preds = %101, %117
   br label %.thread
 
 .thread:                                          ; preds = %Raig_ManFindPo.exit, %Abc_Clock.exit52, %.loopexit
-  %.155 = phi i32 [ %.159, %Abc_Clock.exit52 ], [ %.1, %.loopexit ], [ %47, %Raig_ManFindPo.exit ]
+  %.155 = phi i32 [ %.1, %.loopexit ], [ %.159, %Abc_Clock.exit52 ], [ %47, %Raig_ManFindPo.exit ]
   call void @Raig_ManDelete(ptr noundef %31)
   %127 = icmp sgt i32 %.155, 0
   %128 = zext i1 %127 to i32

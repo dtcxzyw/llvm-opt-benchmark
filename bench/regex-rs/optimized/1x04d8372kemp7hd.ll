@@ -901,7 +901,7 @@ define hidden noundef zeroext i1 @"_ZN107_$LT$core..ops..range..RangeInclusive$L
   br label %.critedge
 
 .critedge:                                        ; preds = %14, %23, %12, %5, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %5 ], [ false, %12 ], [ %.not.i13.not, %23 ], [ true, %14 ]
+  %.0 = phi i1 [ false, %12 ], [ %.not.i13.not, %23 ], [ false, %5 ], [ false, %2 ], [ true, %14 ]
   ret i1 %.0
 }
 
@@ -2730,7 +2730,7 @@ default.unreachable:                              ; preds = %475, %890, %1244, %
   br i1 %181, label %190, label %_ZN14regex_automata6hybrid3dfa7LazyRef19get_cached_start_id17h75ba8958808ab7c2E.exit.i329
 
 183:                                              ; preds = %193, %176, %172
-  %.0.i6.i354 = phi i64 [ %177, %176 ], [ %196, %193 ], [ %175, %172 ]
+  %.0.i6.i354 = phi i64 [ %196, %193 ], [ %177, %176 ], [ %175, %172 ]
   %184 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %.val458 = load i64, ptr %184, align 8, !noundef !9
   %185 = icmp ult i64 %.0.i6.i354, %.val458
@@ -2900,10 +2900,10 @@ _ZN14regex_automata6hybrid3dfa3DFA11start_state17h2564ea2672b0fa76E.exit.i338: ;
   br label %274
 
 .outer._crit_edge:                                ; preds = %_ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E.exit, %515, %230
-  %.sroa.14.0.ph.lcssa2119 = phi i32 [ undef, %230 ], [ %.sroa.14.0.ph2139, %515 ], [ %.sroa.14.1, %_ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E.exit ]
-  %.sroa.11.0.ph.lcssa2102 = phi i64 [ undef, %230 ], [ %.sroa.11.0.ph2140, %515 ], [ %.sroa.11.1, %_ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E.exit ]
-  %.sroa.0.0.ph.lcssa2085 = phi i64 [ 0, %230 ], [ %.sroa.0.0.ph2141, %515 ], [ %.sroa.0.1, %_ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E.exit ]
-  %.2.lcssa = phi i32 [ %.0, %230 ], [ %.7, %515 ], [ %.61427, %_ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E.exit ]
+  %.sroa.14.0.ph.lcssa2119 = phi i32 [ %.sroa.14.0.ph2139, %515 ], [ undef, %230 ], [ %.sroa.14.1, %_ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E.exit ]
+  %.sroa.11.0.ph.lcssa2102 = phi i64 [ %.sroa.11.0.ph2140, %515 ], [ undef, %230 ], [ %.sroa.11.1, %_ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E.exit ]
+  %.sroa.0.0.ph.lcssa2085 = phi i64 [ %.sroa.0.0.ph2141, %515 ], [ 0, %230 ], [ %.sroa.0.1, %_ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E.exit ]
+  %.2.lcssa = phi i32 [ %.7, %515 ], [ %.0, %230 ], [ %.61427, %_ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E.exit ]
   %.not1740 = icmp ult i64 %51, %132
   br i1 %.not1740, label %260, label %253
 
@@ -2977,7 +2977,7 @@ _ZN14regex_automata6hybrid3dfa3DFA11start_state17h2564ea2672b0fa76E.exit.i338: ;
   %277 = call fastcc noundef i32 @_ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E(ptr noalias noundef nonnull readonly align 8 dereferenceable(688) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(352) %2, i32 noundef %.sink, i64 noundef 0), !noalias !913
   br label %278
 
-278:                                              ; preds = %.sink.split, %270, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha2314c5e44bdeaa7E.exit.thread"
+278:                                              ; preds = %.sink.split, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha2314c5e44bdeaa7E.exit.thread", %270
   %.sroa.14.3.ph = phi i32 [ %.sroa.14.0.ph.lcssa2119, %270 ], [ %.sroa.14.0.ph.lcssa2119, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha2314c5e44bdeaa7E.exit.thread" ], [ %277, %.sink.split ]
   %.sroa.11.3.ph = phi i64 [ %.sroa.11.0.ph.lcssa2102, %270 ], [ %.sroa.11.0.ph.lcssa2102, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha2314c5e44bdeaa7E.exit.thread" ], [ %.sroa.11.3.ph.ph, %.sink.split ]
   %.sroa.0.3.ph = phi i64 [ %.sroa.0.0.ph.lcssa2085, %270 ], [ %.sroa.0.0.ph.lcssa2085, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha2314c5e44bdeaa7E.exit.thread" ], [ 1, %.sink.split ]
@@ -3039,9 +3039,9 @@ _ZN14regex_automata6hybrid3dfa5Cache13search_update17h09cc923c444f4c7fE.exit: ; 
   br i1 %or.cond, label %300, label %299
 
 299:                                              ; preds = %315, %284, %330, %300
-  %.11319 = phi i32 [ %296, %300 ], [ %328, %330 ], [ %.32121, %284 ], [ %313, %315 ]
-  %.31316 = phi i64 [ %301, %300 ], [ %298, %330 ], [ %.213152120, %284 ], [ %316, %315 ]
-  %.4 = phi i32 [ %313, %300 ], [ %342, %330 ], [ %296, %284 ], [ %328, %315 ]
+  %.11319 = phi i32 [ %328, %330 ], [ %296, %300 ], [ %.32121, %284 ], [ %313, %315 ]
+  %.31316 = phi i64 [ %298, %330 ], [ %301, %300 ], [ %.213152120, %284 ], [ %316, %315 ]
+  %.4 = phi i32 [ %342, %330 ], [ %313, %300 ], [ %296, %284 ], [ %328, %315 ]
   %.not83.i = icmp sgt i32 %.4, -1
   br i1 %.not83.i, label %372, label %347
 
@@ -3178,8 +3178,8 @@ _ZN14regex_automata6hybrid3dfa3DFA10next_state17hdf7fbf07a67bbb18E.exit: ; preds
   br label %_ZN14regex_automata6hybrid6search12find_fwd_imp17h84e8b0dfe1a6784fE.exit
 
 372:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h4e29974036e46183E.exit.thread", %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hf340e554860ae8d0E.exit.thread", %299
-  %.41317 = phi i64 [ %.31316, %299 ], [ %.31316, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hf340e554860ae8d0E.exit.thread" ], [ %.113142126, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h4e29974036e46183E.exit.thread" ]
-  %.6 = phi i32 [ %.4, %299 ], [ %369, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hf340e554860ae8d0E.exit.thread" ], [ %394, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h4e29974036e46183E.exit.thread" ]
+  %.41317 = phi i64 [ %.31316, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hf340e554860ae8d0E.exit.thread" ], [ %.31316, %299 ], [ %.113142126, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h4e29974036e46183E.exit.thread" ]
+  %.6 = phi i32 [ %369, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hf340e554860ae8d0E.exit.thread" ], [ %.4, %299 ], [ %394, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h4e29974036e46183E.exit.thread" ]
   %373 = icmp ugt i32 %.6, 134217727
   br i1 %373, label %398, label %_ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E.exit
 
@@ -3255,11 +3255,11 @@ _ZN14regex_automata6hybrid3dfa3DFA10next_state17hdf7fbf07a67bbb18E.exit573: ; pr
   br i1 %.not88.i, label %403, label %450
 
 _ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E.exit: ; preds = %372, %.preheader1766, %344, %428, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i, %407, %457
-  %.61427 = phi i32 [ %.6, %457 ], [ %.6, %407 ], [ %.6, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i ], [ %.6, %428 ], [ %342, %344 ], [ %.22127, %.preheader1766 ], [ %.6, %372 ]
-  %.413171426 = phi i64 [ %.41317, %457 ], [ %.41317, %407 ], [ %.41317, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i ], [ %.41317, %428 ], [ %345, %344 ], [ %.113142126, %.preheader1766 ], [ %.41317, %372 ]
-  %.sroa.14.1 = phi i32 [ %.sroa.14.0.ph2139, %457 ], [ 0, %407 ], [ 0, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i ], [ %432, %428 ], [ %.sroa.14.0.ph2139, %344 ], [ %.sroa.14.0.ph2139, %.preheader1766 ], [ %.sroa.14.0.ph2139, %372 ]
-  %.sroa.11.1 = phi i64 [ %.sroa.11.0.ph2140, %457 ], [ %.41317, %407 ], [ %.41317, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i ], [ %.41317, %428 ], [ %.sroa.11.0.ph2140, %344 ], [ %.sroa.11.0.ph2140, %.preheader1766 ], [ %.sroa.11.0.ph2140, %372 ]
-  %.sroa.0.1 = phi i64 [ %.sroa.0.0.ph2141, %457 ], [ 1, %407 ], [ 1, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i ], [ 1, %428 ], [ %.sroa.0.0.ph2141, %344 ], [ %.sroa.0.0.ph2141, %.preheader1766 ], [ %.sroa.0.0.ph2141, %372 ]
+  %.61427 = phi i32 [ %342, %344 ], [ %.6, %428 ], [ %.6, %457 ], [ %.6, %407 ], [ %.6, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i ], [ %.22127, %.preheader1766 ], [ %.6, %372 ]
+  %.413171426 = phi i64 [ %345, %344 ], [ %.41317, %428 ], [ %.41317, %457 ], [ %.41317, %407 ], [ %.41317, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i ], [ %.113142126, %.preheader1766 ], [ %.41317, %372 ]
+  %.sroa.14.1 = phi i32 [ %.sroa.14.0.ph2139, %344 ], [ %432, %428 ], [ %.sroa.14.0.ph2139, %457 ], [ 0, %407 ], [ 0, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i ], [ %.sroa.14.0.ph2139, %.preheader1766 ], [ %.sroa.14.0.ph2139, %372 ]
+  %.sroa.11.1 = phi i64 [ %.sroa.11.0.ph2140, %344 ], [ %.41317, %428 ], [ %.sroa.11.0.ph2140, %457 ], [ %.41317, %407 ], [ %.41317, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i ], [ %.sroa.11.0.ph2140, %.preheader1766 ], [ %.sroa.11.0.ph2140, %372 ]
+  %.sroa.0.1 = phi i64 [ %.sroa.0.0.ph2141, %344 ], [ 1, %428 ], [ %.sroa.0.0.ph2141, %457 ], [ 1, %407 ], [ 1, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i ], [ %.sroa.0.0.ph2141, %.preheader1766 ], [ %.sroa.0.0.ph2141, %372 ]
   %401 = add i64 %.413171426, 1
   %402 = icmp ult i64 %401, %51
   br i1 %402, label %.lr.ph2128, label %.outer._crit_edge
@@ -3485,7 +3485,7 @@ _ZN14regex_automata4util5start6Config18from_input_forward17hd402dba0fcedb21eE.ex
   br i1 %241, label %485, label %_ZN14regex_automata6hybrid3dfa7LazyRef19get_cached_start_id17h75ba8958808ab7c2E.exit.i290
 
 480:                                              ; preds = %487, %477, %475
-  %.0.i6.i315 = phi i64 [ %478, %477 ], [ %488, %487 ], [ %476, %475 ]
+  %.0.i6.i315 = phi i64 [ %488, %487 ], [ %478, %477 ], [ %476, %475 ]
   %.val460 = load i64, ptr %246, align 8, !noundef !9
   %481 = icmp ult i64 %.0.i6.i315, %.val460
   br i1 %481, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17haabff9077a7e77a6E.exit588", label %482, !prof !701
@@ -3885,7 +3885,7 @@ _ZN14regex_automata4util5start6Config18from_input_forward17hd402dba0fcedb21eE.ex
   br i1 %626, label %635, label %_ZN14regex_automata6hybrid3dfa7LazyRef19get_cached_start_id17h75ba8958808ab7c2E.exit.i212
 
 628:                                              ; preds = %638, %621, %617
-  %.0.i6.i237 = phi i64 [ %622, %621 ], [ %641, %638 ], [ %620, %617 ]
+  %.0.i6.i237 = phi i64 [ %641, %638 ], [ %622, %621 ], [ %620, %617 ]
   %629 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %.val464 = load i64, ptr %629, align 8, !noundef !9
   %630 = icmp ult i64 %.0.i6.i237, %.val464
@@ -4116,7 +4116,7 @@ _ZN14regex_automata6hybrid3dfa3DFA11start_state17h2564ea2672b0fa76E.exit.i221: ;
   %717 = call fastcc noundef i32 @_ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E(ptr noalias noundef nonnull readonly align 8 dereferenceable(688) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(352) %2, i32 noundef %.sink2945, i64 noundef 0), !noalias !1207
   br label %718
 
-718:                                              ; preds = %.sink.split2944, %710, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha2314c5e44bdeaa7E.exit662.thread"
+718:                                              ; preds = %.sink.split2944, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha2314c5e44bdeaa7E.exit662.thread", %710
   %.sroa.15978.1.ph = phi i32 [ undef, %710 ], [ undef, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha2314c5e44bdeaa7E.exit662.thread" ], [ %717, %.sink.split2944 ]
   %.sroa.12.1.ph = phi i64 [ undef, %710 ], [ undef, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha2314c5e44bdeaa7E.exit662.thread" ], [ %.sroa.12.1.ph.ph, %.sink.split2944 ]
   %.sroa.0965.1.ph = phi i64 [ 0, %710 ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha2314c5e44bdeaa7E.exit662.thread" ], [ 1, %.sink.split2944 ]
@@ -4178,9 +4178,9 @@ _ZN14regex_automata6hybrid3dfa5Cache13search_update17h09cc923c444f4c7fE.exit668:
   br i1 %or.cond1729, label %740, label %739
 
 739:                                              ; preds = %755, %724, %770, %740
-  %.11340 = phi i32 [ %736, %740 ], [ %768, %770 ], [ %.313232147, %724 ], [ %753, %755 ]
-  %.31331 = phi i64 [ %741, %740 ], [ %738, %770 ], [ %.213302146, %724 ], [ %756, %755 ]
-  %.41324 = phi i32 [ %753, %740 ], [ %782, %770 ], [ %736, %724 ], [ %768, %755 ]
+  %.11340 = phi i32 [ %768, %770 ], [ %736, %740 ], [ %.313232147, %724 ], [ %753, %755 ]
+  %.31331 = phi i64 [ %738, %770 ], [ %741, %740 ], [ %.213302146, %724 ], [ %756, %755 ]
+  %.41324 = phi i32 [ %782, %770 ], [ %753, %740 ], [ %736, %724 ], [ %768, %755 ]
   %.not83.i24 = icmp sgt i32 %.41324, -1
   br i1 %.not83.i24, label %812, label %787
 
@@ -4317,8 +4317,8 @@ _ZN14regex_automata6hybrid3dfa3DFA10next_state17hdf7fbf07a67bbb18E.exit679: ; pr
   br label %_ZN14regex_automata6hybrid6search12find_fwd_imp17h84e8b0dfe1a6784fE.exit
 
 812:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h4e29974036e46183E.exit692.thread", %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hf340e554860ae8d0E.exit681.thread", %739
-  %.41332 = phi i64 [ %.31331, %739 ], [ %.31331, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hf340e554860ae8d0E.exit681.thread" ], [ %.113292152, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h4e29974036e46183E.exit692.thread" ]
-  %.61326 = phi i32 [ %.41324, %739 ], [ %809, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hf340e554860ae8d0E.exit681.thread" ], [ %834, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h4e29974036e46183E.exit692.thread" ]
+  %.41332 = phi i64 [ %.31331, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hf340e554860ae8d0E.exit681.thread" ], [ %.31331, %739 ], [ %.113292152, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h4e29974036e46183E.exit692.thread" ]
+  %.61326 = phi i32 [ %809, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hf340e554860ae8d0E.exit681.thread" ], [ %.41324, %739 ], [ %834, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h4e29974036e46183E.exit692.thread" ]
   %813 = icmp ugt i32 %.61326, 134217727
   br i1 %813, label %838, label %.thread1521
 
@@ -4394,8 +4394,8 @@ _ZN14regex_automata6hybrid3dfa3DFA10next_state17hdf7fbf07a67bbb18E.exit690: ; pr
   br i1 %.not88.i34, label %843, label %865
 
 .thread1521:                                      ; preds = %784, %.preheader1765, %872, %812
-  %.613261537 = phi i32 [ %.61326, %872 ], [ %.61326, %812 ], [ %.213222153, %.preheader1765 ], [ %782, %784 ]
-  %.413321536 = phi i64 [ %.41332, %872 ], [ %.41332, %812 ], [ %.113292152, %.preheader1765 ], [ %785, %784 ]
+  %.613261537 = phi i32 [ %.61326, %812 ], [ %.61326, %872 ], [ %.213222153, %.preheader1765 ], [ %782, %784 ]
+  %.413321536 = phi i64 [ %.41332, %812 ], [ %.41332, %872 ], [ %.113292152, %.preheader1765 ], [ %785, %784 ]
   %841 = add i64 %.413321536, 1
   br label %.backedge
 
@@ -4574,7 +4574,7 @@ _ZN14regex_automata4util5start6Config18from_input_forward17hd402dba0fcedb21eE.ex
   br i1 %686, label %900, label %_ZN14regex_automata6hybrid3dfa7LazyRef19get_cached_start_id17h75ba8958808ab7c2E.exit.i173
 
 895:                                              ; preds = %902, %892, %890
-  %.0.i6.i198 = phi i64 [ %893, %892 ], [ %903, %902 ], [ %891, %890 ]
+  %.0.i6.i198 = phi i64 [ %903, %902 ], [ %893, %892 ], [ %891, %890 ]
   %.val466 = load i64, ptr %691, align 8, !noundef !9
   %896 = icmp ult i64 %.0.i6.i198, %.val466
   br i1 %896, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17haabff9077a7e77a6E.exit708", label %897, !prof !701
@@ -4769,7 +4769,7 @@ _ZN14regex_automata4util5start6Config18from_input_forward17hd402dba0fcedb21eE.ex
   br i1 %958, label %967, label %_ZN14regex_automata6hybrid3dfa7LazyRef19get_cached_start_id17h75ba8958808ab7c2E.exit.i134
 
 960:                                              ; preds = %970, %953, %950
-  %.0.i6.i159 = phi i64 [ %954, %953 ], [ %973, %970 ], [ %952, %950 ]
+  %.0.i6.i159 = phi i64 [ %973, %970 ], [ %954, %953 ], [ %952, %950 ]
   %961 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %.val468 = load i64, ptr %961, align 8, !noundef !9
   %962 = icmp ult i64 %.0.i6.i159, %.val468
@@ -5047,7 +5047,7 @@ _ZN14regex_automata6hybrid3dfa3DFA11start_state17h2564ea2672b0fa76E.exit.i143: ;
   %1056 = call fastcc noundef i32 @_ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E(ptr noalias noundef nonnull readonly align 8 dereferenceable(688) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(352) %2, i32 noundef %.sink2949, i64 noundef 0), !noalias !1436
   br label %1057
 
-1057:                                             ; preds = %.sink.split2948, %1049, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha2314c5e44bdeaa7E.exit765.thread"
+1057:                                             ; preds = %.sink.split2948, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha2314c5e44bdeaa7E.exit765.thread", %1049
   %.sroa.01081.3.ph = phi i64 [ %.sroa.01081.0.lcssa, %1049 ], [ %.sroa.01081.0.lcssa, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha2314c5e44bdeaa7E.exit765.thread" ], [ 1, %.sink.split2948 ]
   %.sroa.9.3.ph = phi i64 [ %.sroa.9.0.lcssa, %1049 ], [ %.sroa.9.0.lcssa, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha2314c5e44bdeaa7E.exit765.thread" ], [ %.sroa.9.3.ph.ph, %.sink.split2948 ]
   %.sroa.121085.3.ph = phi i32 [ %.sroa.121085.0.lcssa, %1049 ], [ %.sroa.121085.0.lcssa, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha2314c5e44bdeaa7E.exit765.thread" ], [ %1056, %.sink.split2948 ]
@@ -5109,9 +5109,9 @@ _ZN14regex_automata6hybrid3dfa5Cache13search_update17h09cc923c444f4c7fE.exit771:
   br i1 %or.cond1730, label %1079, label %1078
 
 1078:                                             ; preds = %1094, %1063, %1109, %1079
-  %.21354 = phi i32 [ %1092, %1079 ], [ %1121, %1109 ], [ %1075, %1063 ], [ %1107, %1094 ]
-  %.21350 = phi i64 [ %1080, %1079 ], [ %1077, %1109 ], [ %.113492159, %1063 ], [ %1095, %1094 ]
-  %.11347 = phi i32 [ %1075, %1079 ], [ %1107, %1109 ], [ %.113532158, %1063 ], [ %1092, %1094 ]
+  %.21354 = phi i32 [ %1121, %1109 ], [ %1092, %1079 ], [ %1075, %1063 ], [ %1107, %1094 ]
+  %.21350 = phi i64 [ %1077, %1109 ], [ %1080, %1079 ], [ %.113492159, %1063 ], [ %1095, %1094 ]
+  %.11347 = phi i32 [ %1107, %1109 ], [ %1075, %1079 ], [ %.113532158, %1063 ], [ %1092, %1094 ]
   %.not83.i65 = icmp sgt i32 %.21354, -1
   br i1 %.not83.i65, label %1151, label %1126
 
@@ -5248,8 +5248,8 @@ _ZN14regex_automata6hybrid3dfa3DFA10next_state17hdf7fbf07a67bbb18E.exit782: ; pr
   br label %_ZN14regex_automata6hybrid6search12find_fwd_imp17h84e8b0dfe1a6784fE.exit
 
 1151:                                             ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h4e29974036e46183E.exit795.thread", %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hf340e554860ae8d0E.exit784.thread", %1078
-  %.41356 = phi i32 [ %.21354, %1078 ], [ %1148, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hf340e554860ae8d0E.exit784.thread" ], [ %1175, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h4e29974036e46183E.exit795.thread" ]
-  %.31351 = phi i64 [ %.21350, %1078 ], [ %.21350, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hf340e554860ae8d0E.exit784.thread" ], [ %.013482167, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h4e29974036e46183E.exit795.thread" ]
+  %.41356 = phi i32 [ %1148, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hf340e554860ae8d0E.exit784.thread" ], [ %.21354, %1078 ], [ %1175, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h4e29974036e46183E.exit795.thread" ]
+  %.31351 = phi i64 [ %.21350, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hf340e554860ae8d0E.exit784.thread" ], [ %.21350, %1078 ], [ %.013482167, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h4e29974036e46183E.exit795.thread" ]
   %1152 = zext i32 %.41356 to i64
   %1153 = icmp ugt i32 %.41356, 134217727
   %1154 = and i64 %1152, 268435456
@@ -5323,11 +5323,11 @@ _ZN14regex_automata6hybrid3dfa3DFA10next_state17hdf7fbf07a67bbb18E.exit793: ; pr
   unreachable
 
 _ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E.exit801: ; preds = %1123, %.preheader1764, %1206, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i798, %1185, %1151
-  %.313511636 = phi i64 [ %.31351, %1151 ], [ %.31351, %1185 ], [ %.31351, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i798 ], [ %.31351, %1206 ], [ %.013482167, %.preheader1764 ], [ %1124, %1123 ]
-  %.413561635 = phi i32 [ %.41356, %1151 ], [ %.41356, %1185 ], [ %.41356, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i798 ], [ %.41356, %1206 ], [ %.013522166, %.preheader1764 ], [ %1121, %1123 ]
-  %.sroa.01081.1 = phi i64 [ %.sroa.01081.02163, %1151 ], [ 1, %1185 ], [ 1, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i798 ], [ 1, %1206 ], [ %.sroa.01081.02163, %.preheader1764 ], [ %.sroa.01081.02163, %1123 ]
-  %.sroa.9.1 = phi i64 [ %.sroa.9.02164, %1151 ], [ %.31351, %1185 ], [ %.31351, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i798 ], [ %.31351, %1206 ], [ %.sroa.9.02164, %.preheader1764 ], [ %.sroa.9.02164, %1123 ]
-  %.sroa.121085.1 = phi i32 [ %.sroa.121085.02165, %1151 ], [ 0, %1185 ], [ 0, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i798 ], [ %1210, %1206 ], [ %.sroa.121085.02165, %.preheader1764 ], [ %.sroa.121085.02165, %1123 ]
+  %.313511636 = phi i64 [ %.31351, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i798 ], [ %.31351, %1206 ], [ %.31351, %1151 ], [ %.31351, %1185 ], [ %.013482167, %.preheader1764 ], [ %1124, %1123 ]
+  %.413561635 = phi i32 [ %.41356, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i798 ], [ %.41356, %1206 ], [ %.41356, %1151 ], [ %.41356, %1185 ], [ %.013522166, %.preheader1764 ], [ %1121, %1123 ]
+  %.sroa.01081.1 = phi i64 [ 1, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i798 ], [ 1, %1206 ], [ %.sroa.01081.02163, %1151 ], [ 1, %1185 ], [ %.sroa.01081.02163, %.preheader1764 ], [ %.sroa.01081.02163, %1123 ]
+  %.sroa.9.1 = phi i64 [ %.31351, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i798 ], [ %.31351, %1206 ], [ %.sroa.9.02164, %1151 ], [ %.31351, %1185 ], [ %.sroa.9.02164, %.preheader1764 ], [ %.sroa.9.02164, %1123 ]
+  %.sroa.121085.1 = phi i32 [ 0, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i798 ], [ %1210, %1206 ], [ %.sroa.121085.02165, %1151 ], [ 0, %1185 ], [ %.sroa.121085.02165, %.preheader1764 ], [ %.sroa.121085.02165, %1123 ]
   %1179 = add i64 %.313511636, 1
   %1180 = icmp ult i64 %1179, %51
   br i1 %1180, label %1053, label %._crit_edge2170
@@ -5512,7 +5512,7 @@ _ZN14regex_automata4util5start6Config18from_input_forward17hd402dba0fcedb21eE.ex
   br i1 %1252, label %1261, label %_ZN14regex_automata6hybrid3dfa7LazyRef19get_cached_start_id17h75ba8958808ab7c2E.exit.i
 
 1254:                                             ; preds = %1264, %1247, %1244
-  %.0.i6.i = phi i64 [ %1248, %1247 ], [ %1267, %1264 ], [ %1246, %1244 ]
+  %.0.i6.i = phi i64 [ %1267, %1264 ], [ %1248, %1247 ], [ %1246, %1244 ]
   %1255 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %.val470 = load i64, ptr %1255, align 8, !noundef !9
   %1256 = icmp ult i64 %.0.i6.i, %.val470
@@ -5778,7 +5778,7 @@ _ZN14regex_automata6hybrid3dfa3DFA11start_state17h2564ea2672b0fa76E.exit.i: ; pr
   %1344 = call fastcc noundef i32 @_ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E(ptr noalias noundef nonnull readonly align 8 dereferenceable(688) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(352) %2, i32 noundef %.sink2953, i64 noundef 0), !noalias !1635
   br label %1345
 
-1345:                                             ; preds = %.sink.split2952, %1337, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha2314c5e44bdeaa7E.exit838.thread"
+1345:                                             ; preds = %.sink.split2952, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha2314c5e44bdeaa7E.exit838.thread", %1337
   %.sroa.01143.1.ph = phi i64 [ 0, %1337 ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha2314c5e44bdeaa7E.exit838.thread" ], [ 1, %.sink.split2952 ]
   %.sroa.10.1.ph = phi i64 [ undef, %1337 ], [ undef, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha2314c5e44bdeaa7E.exit838.thread" ], [ %.sroa.10.1.ph.ph, %.sink.split2952 ]
   %.sroa.13.1.ph = phi i32 [ undef, %1337 ], [ undef, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha2314c5e44bdeaa7E.exit838.thread" ], [ %1344, %.sink.split2952 ]
@@ -5840,9 +5840,9 @@ _ZN14regex_automata6hybrid3dfa5Cache13search_update17h09cc923c444f4c7fE.exit844:
   br i1 %or.cond1732, label %1367, label %1366
 
 1366:                                             ; preds = %1382, %1351, %1397, %1367
-  %.21343 = phi i32 [ %1380, %1367 ], [ %1409, %1397 ], [ %1363, %1351 ], [ %1395, %1382 ]
-  %.21337 = phi i64 [ %1368, %1367 ], [ %1365, %1397 ], [ %.113362176, %1351 ], [ %1383, %1382 ]
-  %.11334 = phi i32 [ %1363, %1367 ], [ %1395, %1397 ], [ %.113422175, %1351 ], [ %1380, %1382 ]
+  %.21343 = phi i32 [ %1409, %1397 ], [ %1380, %1367 ], [ %1363, %1351 ], [ %1395, %1382 ]
+  %.21337 = phi i64 [ %1365, %1397 ], [ %1368, %1367 ], [ %.113362176, %1351 ], [ %1383, %1382 ]
+  %.11334 = phi i32 [ %1395, %1397 ], [ %1363, %1367 ], [ %.113422175, %1351 ], [ %1380, %1382 ]
   %.not83.i100 = icmp sgt i32 %.21343, -1
   br i1 %.not83.i100, label %1439, label %1414
 
@@ -5979,8 +5979,8 @@ _ZN14regex_automata6hybrid3dfa3DFA10next_state17hdf7fbf07a67bbb18E.exit855: ; pr
   br label %_ZN14regex_automata6hybrid6search12find_fwd_imp17h84e8b0dfe1a6784fE.exit
 
 1439:                                             ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h4e29974036e46183E.exit868.thread", %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hf340e554860ae8d0E.exit857.thread", %1366
-  %.41345 = phi i32 [ %.21343, %1366 ], [ %1436, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hf340e554860ae8d0E.exit857.thread" ], [ %1463, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h4e29974036e46183E.exit868.thread" ]
-  %.31338 = phi i64 [ %.21337, %1366 ], [ %.21337, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hf340e554860ae8d0E.exit857.thread" ], [ %.013352181, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h4e29974036e46183E.exit868.thread" ]
+  %.41345 = phi i32 [ %1436, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hf340e554860ae8d0E.exit857.thread" ], [ %.21343, %1366 ], [ %1463, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h4e29974036e46183E.exit868.thread" ]
+  %.31338 = phi i64 [ %.21337, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hf340e554860ae8d0E.exit857.thread" ], [ %.21337, %1366 ], [ %.013352181, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h4e29974036e46183E.exit868.thread" ]
   %1440 = zext i32 %.41345 to i64
   %1441 = icmp ugt i32 %.41345, 134217727
   %1442 = and i64 %1440, 268435456
@@ -6227,7 +6227,7 @@ default.unreachable:                              ; preds = %395, %44
   br i1 %53, label %62, label %_ZN14regex_automata6hybrid3dfa7LazyRef19get_cached_start_id17h75ba8958808ab7c2E.exit.i49
 
 55:                                               ; preds = %67, %48, %44
-  %.0.i6.i74 = phi i64 [ %49, %48 ], [ %70, %67 ], [ %47, %44 ]
+  %.0.i6.i74 = phi i64 [ %70, %67 ], [ %49, %48 ], [ %47, %44 ]
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %.val135 = load i64, ptr %56, align 8, !noundef !9
   %57 = icmp ult i64 %.0.i6.i74, %.val135
@@ -6577,9 +6577,9 @@ _ZN14regex_automata6hybrid3dfa5Cache13search_update17h09cc923c444f4c7fE.exit: ; 
   br i1 %or.cond, label %192, label %191
 
 191:                                              ; preds = %207, %177, %222, %192
-  %.1505 = phi i32 [ %189, %192 ], [ %220, %222 ], [ %.1798, %177 ], [ %205, %207 ]
-  %.2502 = phi i64 [ %193, %192 ], [ %223, %222 ], [ %.1501797, %177 ], [ %208, %207 ]
-  %.2 = phi i32 [ %205, %192 ], [ %235, %222 ], [ %189, %177 ], [ %220, %207 ]
+  %.1505 = phi i32 [ %220, %222 ], [ %.1798, %177 ], [ %189, %192 ], [ %205, %207 ]
+  %.2502 = phi i64 [ %223, %222 ], [ %.1501797, %177 ], [ %193, %192 ], [ %208, %207 ]
+  %.2 = phi i32 [ %235, %222 ], [ %189, %177 ], [ %205, %192 ], [ %220, %207 ]
   %.not64.i = icmp sgt i32 %.2, -1
   br i1 %.not64.i, label %263, label %239
 
@@ -6717,8 +6717,8 @@ _ZN14regex_automata6hybrid3dfa3DFA10next_state17hdf7fbf07a67bbb18E.exit192: ; pr
   br label %_ZN14regex_automata6hybrid6search12find_rev_imp17ha1ee3f4dcb9800dcE.exit
 
 263:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h22bcdaa5612189abE.exit.thread", %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h087d3790853c4052E.exit.thread", %191
-  %.3503 = phi i64 [ %.2502, %191 ], [ %.2502, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h087d3790853c4052E.exit.thread" ], [ %.0500, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h22bcdaa5612189abE.exit.thread" ]
-  %.4 = phi i32 [ %.2, %191 ], [ %260, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h087d3790853c4052E.exit.thread" ], [ %287, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h22bcdaa5612189abE.exit.thread" ]
+  %.3503 = phi i64 [ %.2502, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h087d3790853c4052E.exit.thread" ], [ %.2502, %191 ], [ %.0500, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h22bcdaa5612189abE.exit.thread" ]
+  %.4 = phi i32 [ %260, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h087d3790853c4052E.exit.thread" ], [ %.2, %191 ], [ %287, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h22bcdaa5612189abE.exit.thread" ]
   %264 = zext i32 %.4 to i64
   %265 = icmp ugt i32 %.4, 134217727
   %266 = and i64 %264, 268435456
@@ -7010,7 +7010,7 @@ _ZN14regex_automata6hybrid3dfa5Cache13search_finish17h4048cce97b222203E.exit: ; 
   %374 = call fastcc noundef i32 @_ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E(ptr noalias noundef nonnull readonly align 8 dereferenceable(688) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(352) %2, i32 noundef %.sink, i64 noundef 0), !noalias !1915
   br label %375
 
-375:                                              ; preds = %.sink.split, %370, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc2228f7f12459132E.exit211.thread"
+375:                                              ; preds = %.sink.split, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc2228f7f12459132E.exit211.thread", %370
   %.sroa.17.5.ph = phi i32 [ %.sroa.17.1, %370 ], [ %.sroa.17.1, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc2228f7f12459132E.exit211.thread" ], [ %374, %.sink.split ]
   %.sroa.12.5.ph = phi i64 [ %.sroa.12.1, %370 ], [ %.sroa.12.1, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc2228f7f12459132E.exit211.thread" ], [ %.sroa.12.5.ph.ph, %.sink.split ]
   %.sroa.0.5.ph = phi i64 [ %.sroa.0.1, %370 ], [ %.sroa.0.1, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc2228f7f12459132E.exit211.thread" ], [ 1, %.sink.split ]
@@ -7037,7 +7037,7 @@ _ZN14regex_automata6hybrid6search7eoi_rev17h8b1be98e25653f47E.exit134: ; preds =
   %377 = call fastcc noundef i32 @_ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E(ptr noalias noundef nonnull readonly align 8 dereferenceable(688) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(352) %2, i32 noundef %.sink1067, i64 noundef 0), !noalias !1773
   br label %378
 
-378:                                              ; preds = %.sink.split1066, %146, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc2228f7f12459132E.exit.thread"
+378:                                              ; preds = %.sink.split1066, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc2228f7f12459132E.exit.thread", %146
   %.sroa.17.3.ph = phi i32 [ undef, %146 ], [ undef, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc2228f7f12459132E.exit.thread" ], [ %377, %.sink.split1066 ]
   %.sroa.12.3.ph = phi i64 [ undef, %146 ], [ undef, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc2228f7f12459132E.exit.thread" ], [ %.sroa.12.3.ph.ph, %.sink.split1066 ]
   %.sroa.0.3.ph = phi i64 [ 0, %146 ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc2228f7f12459132E.exit.thread" ], [ 1, %.sink.split1066 ]
@@ -7118,7 +7118,7 @@ _ZN14regex_automata4util5start6Config18from_input_reverse17h624f281abb1ab2b7E.ex
   br i1 %404, label %413, label %_ZN14regex_automata6hybrid3dfa7LazyRef19get_cached_start_id17h75ba8958808ab7c2E.exit.i
 
 406:                                              ; preds = %418, %399, %395
-  %.0.i6.i = phi i64 [ %400, %399 ], [ %421, %418 ], [ %398, %395 ]
+  %.0.i6.i = phi i64 [ %421, %418 ], [ %400, %399 ], [ %398, %395 ]
   %407 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %.val137 = load i64, ptr %407, align 8, !noundef !9
   %408 = icmp ult i64 %.0.i6.i, %.val137
@@ -7457,9 +7457,9 @@ _ZN14regex_automata6hybrid3dfa5Cache13search_update17h09cc923c444f4c7fE.exit258:
   br i1 %or.cond704, label %535, label %534
 
 534:                                              ; preds = %550, %520, %565, %535
-  %.1516 = phi i32 [ %532, %535 ], [ %563, %565 ], [ %.1507802, %520 ], [ %548, %550 ]
-  %.2513 = phi i64 [ %536, %535 ], [ %566, %565 ], [ %.1512801, %520 ], [ %551, %550 ]
-  %.2508 = phi i32 [ %548, %535 ], [ %578, %565 ], [ %532, %520 ], [ %563, %550 ]
+  %.1516 = phi i32 [ %563, %565 ], [ %.1507802, %520 ], [ %532, %535 ], [ %548, %550 ]
+  %.2513 = phi i64 [ %566, %565 ], [ %.1512801, %520 ], [ %536, %535 ], [ %551, %550 ]
+  %.2508 = phi i32 [ %578, %565 ], [ %532, %520 ], [ %548, %535 ], [ %563, %550 ]
   %.not64.i15 = icmp sgt i32 %.2508, -1
   br i1 %.not64.i15, label %606, label %582
 
@@ -7597,8 +7597,8 @@ _ZN14regex_automata6hybrid3dfa3DFA10next_state17hdf7fbf07a67bbb18E.exit269: ; pr
   br label %_ZN14regex_automata6hybrid6search12find_rev_imp17ha1ee3f4dcb9800dcE.exit
 
 606:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h22bcdaa5612189abE.exit282.thread", %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h087d3790853c4052E.exit271.thread", %534
-  %.3514 = phi i64 [ %.2513, %534 ], [ %.2513, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h087d3790853c4052E.exit271.thread" ], [ %.0511, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h22bcdaa5612189abE.exit282.thread" ]
-  %.4510 = phi i32 [ %.2508, %534 ], [ %603, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h087d3790853c4052E.exit271.thread" ], [ %630, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h22bcdaa5612189abE.exit282.thread" ]
+  %.3514 = phi i64 [ %.2513, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h087d3790853c4052E.exit271.thread" ], [ %.2513, %534 ], [ %.0511, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h22bcdaa5612189abE.exit282.thread" ]
+  %.4510 = phi i32 [ %603, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h087d3790853c4052E.exit271.thread" ], [ %.2508, %534 ], [ %630, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h22bcdaa5612189abE.exit282.thread" ]
   %607 = zext i32 %.4510 to i64
   %608 = icmp ugt i32 %.4510, 134217727
   %609 = and i64 %607, 268435456
@@ -7815,7 +7815,7 @@ _ZN14regex_automata6hybrid3dfa3DFA10next_state17hdf7fbf07a67bbb18E.exit280: ; pr
   %685 = call fastcc noundef i32 @_ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E(ptr noalias noundef nonnull readonly align 8 dereferenceable(688) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(352) %2, i32 noundef %.sink1071, i64 noundef 0), !noalias !2120
   br label %686
 
-686:                                              ; preds = %.sink.split1070, %681, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc2228f7f12459132E.exit286.thread"
+686:                                              ; preds = %.sink.split1070, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc2228f7f12459132E.exit286.thread", %681
   %.sroa.18.3.ph = phi i32 [ undef, %681 ], [ undef, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc2228f7f12459132E.exit286.thread" ], [ %685, %.sink.split1070 ]
   %.sroa.13.3.ph = phi i64 [ undef, %681 ], [ undef, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc2228f7f12459132E.exit286.thread" ], [ %.sroa.13.3.ph.ph, %.sink.split1070 ]
   %.sroa.0358.3.ph = phi i64 [ 0, %681 ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc2228f7f12459132E.exit286.thread" ], [ 1, %.sink.split1070 ]
@@ -7842,7 +7842,7 @@ _ZN14regex_automata6hybrid6search7eoi_rev17h8b1be98e25653f47E.exit100: ; preds =
   %688 = call fastcc noundef i32 @_ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E(ptr noalias noundef nonnull readonly align 8 dereferenceable(688) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(352) %2, i32 noundef %.sink1075, i64 noundef 0), !noalias !2013
   br label %689
 
-689:                                              ; preds = %.sink.split1074, %497, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc2228f7f12459132E.exit241.thread"
+689:                                              ; preds = %.sink.split1074, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc2228f7f12459132E.exit241.thread", %497
   %.sroa.18.1.ph = phi i32 [ undef, %497 ], [ undef, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc2228f7f12459132E.exit241.thread" ], [ %688, %.sink.split1074 ]
   %.sroa.13.1.ph = phi i64 [ undef, %497 ], [ undef, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc2228f7f12459132E.exit241.thread" ], [ %.sroa.13.1.ph.ph, %.sink.split1074 ]
   %.sroa.0358.1.ph = phi i64 [ 0, %497 ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc2228f7f12459132E.exit241.thread" ], [ 1, %.sink.split1074 ]
@@ -8072,8 +8072,8 @@ _ZN14regex_automata6hybrid6search8init_fwd17h27c50c577b94c7c4E.exit78.thread: ; 
   br i1 %.not.i, label %110, label %105
 
 101:                                              ; preds = %_ZN14regex_automata6hybrid6search8init_fwd17h27c50c577b94c7c4E.exit78.thread, %110
-  %102 = phi i64 [ %113, %110 ], [ %.pre, %_ZN14regex_automata6hybrid6search8init_fwd17h27c50c577b94c7c4E.exit78.thread ]
-  %storemerge.i = phi i32 [ %98, %110 ], [ %.sroa.4.0.extract.trunc.i, %_ZN14regex_automata6hybrid6search8init_fwd17h27c50c577b94c7c4E.exit78.thread ]
+  %102 = phi i64 [ %.pre, %_ZN14regex_automata6hybrid6search8init_fwd17h27c50c577b94c7c4E.exit78.thread ], [ %113, %110 ]
+  %storemerge.i = phi i32 [ %.sroa.4.0.extract.trunc.i, %_ZN14regex_automata6hybrid6search8init_fwd17h27c50c577b94c7c4E.exit78.thread ], [ %98, %110 ]
   %103 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %.sroa.039.0.copyload.i = load i64, ptr %1, align 8, !alias.scope !2152, !noalias !2211
   %.sroa.440.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8360,8 +8360,8 @@ _ZN14regex_automata6hybrid6search7eoi_fwd17h44851bdaa872c461E.exit141.sink.split
   br label %_ZN14regex_automata6hybrid6search7eoi_fwd17h44851bdaa872c461E.exit141
 
 _ZN14regex_automata6hybrid6search7eoi_fwd17h44851bdaa872c461E.exit141: ; preds = %_ZN14regex_automata6hybrid6search7eoi_fwd17h44851bdaa872c461E.exit141.sink.split, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha2314c5e44bdeaa7E.exit.thread", %225
-  %.4.ph = phi i32 [ %220, %225 ], [ %193, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha2314c5e44bdeaa7E.exit.thread" ], [ %.4.ph.ph, %_ZN14regex_automata6hybrid6search7eoi_fwd17h44851bdaa872c461E.exit141.sink.split ]
-  %.1.i130.ph = phi ptr [ null, %225 ], [ null, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha2314c5e44bdeaa7E.exit.thread" ], [ %.sink847, %_ZN14regex_automata6hybrid6search7eoi_fwd17h44851bdaa872c461E.exit141.sink.split ]
+  %.4.ph = phi i32 [ %193, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha2314c5e44bdeaa7E.exit.thread" ], [ %220, %225 ], [ %.4.ph.ph, %_ZN14regex_automata6hybrid6search7eoi_fwd17h44851bdaa872c461E.exit141.sink.split ]
+  %.1.i130.ph = phi ptr [ null, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha2314c5e44bdeaa7E.exit.thread" ], [ null, %225 ], [ %.sink847, %_ZN14regex_automata6hybrid6search7eoi_fwd17h44851bdaa872c461E.exit141.sink.split ]
   %.pr = load i64, ptr %3, align 8, !alias.scope !2155, !noalias !2160
   store ptr %.1.i130.ph, ptr %20, align 8, !noalias !2248
   store i32 1, ptr %44, align 8, !alias.scope !2155, !noalias !2160
@@ -8429,7 +8429,7 @@ _ZN14regex_automata6hybrid6search7eoi_fwd17h44851bdaa872c461E.exit141: ; preds =
   unreachable
 
 common.resume:                                    ; preds = %570, %567, %245, %242
-  %common.resume.op = phi { ptr, i32 } [ %243, %242 ], [ %243, %245 ], [ %568, %567 ], [ %568, %570 ]
+  %common.resume.op = phi { ptr, i32 } [ %243, %245 ], [ %243, %242 ], [ %568, %567 ], [ %568, %570 ]
   resume { ptr, i32 } %common.resume.op
 
 255:                                              ; preds = %232
@@ -8623,7 +8623,7 @@ _ZN14regex_automata6hybrid3dfa5Cache13search_update17h09cc923c444f4c7fE.exit: ; 
   br i1 %328, label %330, label %329
 
 .loopexit:                                        ; preds = %316, %379, %381, %383
-  %.2.i = phi ptr [ %382, %381 ], [ %384, %383 ], [ %380, %379 ], [ null, %316 ]
+  %.2.i = phi ptr [ %380, %379 ], [ %382, %381 ], [ %384, %383 ], [ null, %316 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !2248
   br label %_ZN14regex_automata6hybrid6search24find_overlapping_fwd_imp17ha1c3533d5ea98bf6E.exit
 
@@ -8715,7 +8715,7 @@ default.unreachable:                              ; preds = %408
   br i1 %182, label %355, label %_ZN14regex_automata6hybrid3dfa7LazyRef19get_cached_start_id17h75ba8958808ab7c2E.exit.i89
 
 350:                                              ; preds = %345, %357, %347
-  %.0.i6.i114 = phi i64 [ %348, %347 ], [ %358, %357 ], [ %346, %345 ]
+  %.0.i6.i114 = phi i64 [ %358, %357 ], [ %348, %347 ], [ %346, %345 ]
   %.val142 = load i64, ptr %187, align 8, !noundef !9
   %351 = icmp ult i64 %.0.i6.i114, %.val142
   br i1 %351, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17haabff9077a7e77a6E.exit201", label %352, !prof !701
@@ -8917,7 +8917,7 @@ _ZN14regex_automata4util5start6Config18from_input_forward17hd402dba0fcedb21eE.ex
   br i1 %416, label %425, label %_ZN14regex_automata6hybrid3dfa7LazyRef19get_cached_start_id17h75ba8958808ab7c2E.exit.i
 
 418:                                              ; preds = %428, %411, %408
-  %.0.i6.i = phi i64 [ %412, %411 ], [ %431, %428 ], [ %410, %408 ]
+  %.0.i6.i = phi i64 [ %431, %428 ], [ %412, %411 ], [ %410, %408 ]
   %419 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.val146 = load i64, ptr %419, align 8, !noundef !9
   %420 = icmp ult i64 %.0.i6.i, %.val146
@@ -9066,8 +9066,8 @@ _ZN14regex_automata6hybrid6search8init_fwd17h27c50c577b94c7c4E.exit.thread: ; pr
   br i1 %.not.i7, label %475, label %470
 
 467:                                              ; preds = %_ZN14regex_automata6hybrid6search8init_fwd17h27c50c577b94c7c4E.exit.thread, %475
-  %.pre674 = phi i64 [ %478, %475 ], [ %.pre673, %_ZN14regex_automata6hybrid6search8init_fwd17h27c50c577b94c7c4E.exit.thread ]
-  %storemerge.i8 = phi i32 [ %464, %475 ], [ %.sroa.4.0.extract.trunc.i253, %_ZN14regex_automata6hybrid6search8init_fwd17h27c50c577b94c7c4E.exit.thread ]
+  %.pre674 = phi i64 [ %.pre673, %_ZN14regex_automata6hybrid6search8init_fwd17h27c50c577b94c7c4E.exit.thread ], [ %478, %475 ]
+  %storemerge.i8 = phi i32 [ %.sroa.4.0.extract.trunc.i253, %_ZN14regex_automata6hybrid6search8init_fwd17h27c50c577b94c7c4E.exit.thread ], [ %464, %475 ]
   %468 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %.sroa.039.0.copyload.i9 = load i64, ptr %1, align 8, !alias.scope !2389, !noalias !2456
   %.sroa.440.0..sroa_idx.i10 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9281,8 +9281,8 @@ _ZN14regex_automata6hybrid6search7eoi_fwd17h44851bdaa872c461E.exit.sink.split: ;
   br label %_ZN14regex_automata6hybrid6search7eoi_fwd17h44851bdaa872c461E.exit
 
 _ZN14regex_automata6hybrid6search7eoi_fwd17h44851bdaa872c461E.exit: ; preds = %_ZN14regex_automata6hybrid6search7eoi_fwd17h44851bdaa872c461E.exit.sink.split, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha2314c5e44bdeaa7E.exit264.thread", %553
-  %.3372.ph = phi i32 [ %548, %553 ], [ %540, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha2314c5e44bdeaa7E.exit264.thread" ], [ %.3372.ph.ph, %_ZN14regex_automata6hybrid6search7eoi_fwd17h44851bdaa872c461E.exit.sink.split ]
-  %.1.i122.ph = phi ptr [ null, %553 ], [ null, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha2314c5e44bdeaa7E.exit264.thread" ], [ %.sink852, %_ZN14regex_automata6hybrid6search7eoi_fwd17h44851bdaa872c461E.exit.sink.split ]
+  %.3372.ph = phi i32 [ %540, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha2314c5e44bdeaa7E.exit264.thread" ], [ %548, %553 ], [ %.3372.ph.ph, %_ZN14regex_automata6hybrid6search7eoi_fwd17h44851bdaa872c461E.exit.sink.split ]
+  %.1.i122.ph = phi ptr [ null, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha2314c5e44bdeaa7E.exit264.thread" ], [ null, %553 ], [ %.sink852, %_ZN14regex_automata6hybrid6search7eoi_fwd17h44851bdaa872c461E.exit.sink.split ]
   %.pr459 = load i64, ptr %3, align 8, !alias.scope !2392, !noalias !2397
   store ptr %.1.i122.ph, ptr %18, align 8, !noalias !2493
   store i32 1, ptr %389, align 8, !alias.scope !2392, !noalias !2397
@@ -9503,7 +9503,7 @@ _ZN14regex_automata6hybrid3dfa3DFA10next_state17hdf7fbf07a67bbb18E.exit286: ; pr
   unreachable
 
 _ZN14regex_automata6hybrid6search24find_overlapping_fwd_imp17ha1c3533d5ea98bf6E.exit: ; preds = %454, %457, %460, %88, %91, %94, %572, %634, %623, %616, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h39b1498b2333fb33E.exit288", %_ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E.exit260, %475, %247, %.loopexit, %311, %300, %293, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h39b1498b2333fb33E.exit", %_ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E.exit, %110, %4
-  %.0 = phi ptr [ null, %4 ], [ %239, %247 ], [ %.2.i, %.loopexit ], [ null, %293 ], [ null, %300 ], [ %314, %311 ], [ %277, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h39b1498b2333fb33E.exit" ], [ null, %_ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E.exit ], [ null, %110 ], [ %564, %572 ], [ null, %616 ], [ null, %623 ], [ %637, %634 ], [ %602, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h39b1498b2333fb33E.exit288" ], [ null, %_ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E.exit260 ], [ null, %475 ], [ %92, %91 ], [ %95, %94 ], [ %89, %88 ], [ %458, %457 ], [ %461, %460 ], [ %455, %454 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %110 ], [ %239, %247 ], [ %.2.i, %.loopexit ], [ null, %293 ], [ null, %300 ], [ %314, %311 ], [ %277, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h39b1498b2333fb33E.exit" ], [ null, %_ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E.exit260 ], [ null, %_ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E.exit ], [ %564, %572 ], [ null, %475 ], [ null, %616 ], [ null, %623 ], [ %637, %634 ], [ %602, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h39b1498b2333fb33E.exit288" ], [ %89, %88 ], [ %92, %91 ], [ %95, %94 ], [ %458, %457 ], [ %461, %460 ], [ %455, %454 ]
   ret ptr %.0
 }
 
@@ -9594,7 +9594,7 @@ default.unreachable:                              ; preds = %37
   br i1 %46, label %55, label %_ZN14regex_automata6hybrid3dfa7LazyRef19get_cached_start_id17h75ba8958808ab7c2E.exit.i
 
 48:                                               ; preds = %60, %41, %37
-  %.0.i6.i = phi i64 [ %42, %41 ], [ %63, %60 ], [ %40, %37 ]
+  %.0.i6.i = phi i64 [ %63, %60 ], [ %42, %41 ], [ %40, %37 ]
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.val72 = load i64, ptr %49, align 8, !noundef !9
   %50 = icmp ult i64 %.0.i6.i, %.val72
@@ -9755,8 +9755,8 @@ _ZN14regex_automata6hybrid3dfa3DFA11start_state17h2564ea2672b0fa76E.exit.i: ; pr
   br label %105
 
 105:                                              ; preds = %162, %164, %100, %103
-  %106 = phi i64 [ %.pre, %103 ], [ %102, %100 ], [ %14, %164 ], [ %163, %162 ]
-  %storemerge = phi i32 [ %.sroa.4.0.extract.trunc.i, %103 ], [ %.sroa.4.0.extract.trunc.i, %100 ], [ %94, %164 ], [ %94, %162 ]
+  %106 = phi i64 [ %102, %100 ], [ %.pre, %103 ], [ %14, %164 ], [ %163, %162 ]
+  %storemerge = phi i32 [ %.sroa.4.0.extract.trunc.i, %100 ], [ %.sroa.4.0.extract.trunc.i, %103 ], [ %94, %164 ], [ %94, %162 ]
   %107 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %.sroa.034.0.copyload = load i64, ptr %1, align 8
   %.sroa.435.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10073,8 +10073,8 @@ _ZN14regex_automata6hybrid6search7eoi_rev17h8b1be98e25653f47E.exit.thread.sink.s
   br label %_ZN14regex_automata6hybrid6search7eoi_rev17h8b1be98e25653f47E.exit.thread
 
 _ZN14regex_automata6hybrid6search7eoi_rev17h8b1be98e25653f47E.exit.thread: ; preds = %_ZN14regex_automata6hybrid6search7eoi_rev17h8b1be98e25653f47E.exit.thread.sink.split, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc2228f7f12459132E.exit.thread", %231
-  %.4.ph = phi i32 [ %225, %231 ], [ %200, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc2228f7f12459132E.exit.thread" ], [ %.4.ph.ph, %_ZN14regex_automata6hybrid6search7eoi_rev17h8b1be98e25653f47E.exit.thread.sink.split ]
-  %.ph = phi ptr [ null, %231 ], [ null, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc2228f7f12459132E.exit.thread" ], [ %.sink294, %_ZN14regex_automata6hybrid6search7eoi_rev17h8b1be98e25653f47E.exit.thread.sink.split ]
+  %.4.ph = phi i32 [ %200, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc2228f7f12459132E.exit.thread" ], [ %225, %231 ], [ %.4.ph.ph, %_ZN14regex_automata6hybrid6search7eoi_rev17h8b1be98e25653f47E.exit.thread.sink.split ]
+  %.ph = phi ptr [ null, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc2228f7f12459132E.exit.thread" ], [ null, %231 ], [ %.sink294, %_ZN14regex_automata6hybrid6search7eoi_rev17h8b1be98e25653f47E.exit.thread.sink.split ]
   store ptr %.ph, ptr %11, align 8
   store i8 1, ptr %172, align 8
   store i32 1, ptr %19, align 8
@@ -10284,7 +10284,7 @@ _ZN14regex_automata6hybrid3dfa3DFA10next_state17hdf7fbf07a67bbb18E.exit104: ; pr
   br label %308
 
 308:                                              ; preds = %86, %88, %90, %_ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E.exit, %269, %282, %276, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h36be3050b291a971E.exit", %114, %4, %302
-  %.0 = phi ptr [ %294, %302 ], [ null, %4 ], [ null, %269 ], [ null, %276 ], [ %284, %282 ], [ %257, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h36be3050b291a971E.exit" ], [ null, %_ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E.exit ], [ null, %114 ], [ %91, %90 ], [ %89, %88 ], [ %87, %86 ]
+  %.0 = phi ptr [ null, %4 ], [ %294, %302 ], [ null, %269 ], [ null, %276 ], [ %284, %282 ], [ %257, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h36be3050b291a971E.exit" ], [ null, %114 ], [ null, %_ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E.exit ], [ %91, %90 ], [ %89, %88 ], [ %87, %86 ]
   ret ptr %.0
 
 309:                                              ; preds = %300
@@ -10365,7 +10365,7 @@ default.unreachable:                              ; preds = %35
   br i1 %44, label %53, label %_ZN14regex_automata6hybrid3dfa3DFA11start_state17h2564ea2672b0fa76E.exit.thread
 
 46:                                               ; preds = %58, %39, %35
-  %.0.i50 = phi i64 [ %40, %39 ], [ %61, %58 ], [ %38, %35 ]
+  %.0.i50 = phi i64 [ %61, %58 ], [ %40, %39 ], [ %38, %35 ]
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %.val71 = load i64, ptr %47, align 8, !noundef !9
   %48 = icmp ult i64 %.0.i50, %.val71
@@ -11110,7 +11110,7 @@ _ZN14regex_automata6hybrid3dfa3DFA10next_state17hdf7fbf07a67bbb18E.exit129: ; pr
   store i64 2, ptr %0, align 8
   br label %350
 
-345:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h6ebcf27c62a832efE.exit120.thread", %336
+345:                                              ; preds = %336, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h6ebcf27c62a832efE.exit120.thread"
   %trunc.i139 = trunc nuw i64 %.sroa.0.1 to i1
   %346 = icmp ule i64 %.sroa.13.1, %95
   %not.trunc.i139 = xor i1 %trunc.i139, true
@@ -11145,7 +11145,7 @@ _ZN14regex_automata6hybrid3dfa3DFA10next_state17hdf7fbf07a67bbb18E.exit129: ; pr
 350:                                              ; preds = %"_ZN127_$LT$regex_automata..meta..error..RetryError$u20$as$u20$core..convert..From$LT$regex_automata..util..search..MatchError$GT$$GT$4from17h4cc54f364ed2212cE.exit", %"_ZN127_$LT$regex_automata..meta..error..RetryError$u20$as$u20$core..convert..From$LT$regex_automata..util..search..MatchError$GT$$GT$4from17h4cc54f364ed2212cE.exit145", %351, %289, %290, %348, %"_ZN127_$LT$regex_automata..meta..error..RetryError$u20$as$u20$core..convert..From$LT$regex_automata..util..search..MatchError$GT$$GT$4from17h4cc54f364ed2212cE.exit138", %340, %"_ZN127_$LT$regex_automata..meta..error..RetryError$u20$as$u20$core..convert..From$LT$regex_automata..util..search..MatchError$GT$$GT$4from17h4cc54f364ed2212cE.exit110", %.thread
   ret void
 
-351:                                              ; preds = %184, %153, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h6ebcf27c62a832efE.exit.thread", %186, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i, %215
+351:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h6ebcf27c62a832efE.exit.thread", %184, %153, %186, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i, %215
   %.sroa.18.3.ph = phi i32 [ 0, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i ], [ %219, %215 ], [ 0, %186 ], [ undef, %184 ], [ %154, %153 ], [ undef, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h6ebcf27c62a832efE.exit.thread" ]
   %.sroa.13.3.ph = phi i64 [ %21, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i ], [ %21, %215 ], [ %21, %186 ], [ undef, %184 ], [ 0, %153 ], [ undef, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h6ebcf27c62a832efE.exit.thread" ]
   %.sroa.0.3.ph = phi i64 [ 1, %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17h1fd9a150873f9a9cE.llvm.7032729871794229628.exit.i.i.i ], [ 1, %215 ], [ 1, %186 ], [ 0, %184 ], [ 1, %153 ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h6ebcf27c62a832efE.exit.thread" ]
@@ -11248,7 +11248,7 @@ default.unreachable:                              ; preds = %35
   br i1 %44, label %53, label %_ZN14regex_automata6hybrid3dfa3DFA11start_state17h2564ea2672b0fa76E.exit.thread
 
 46:                                               ; preds = %58, %39, %35
-  %.0.i61 = phi i64 [ %40, %39 ], [ %61, %58 ], [ %38, %35 ]
+  %.0.i61 = phi i64 [ %61, %58 ], [ %40, %39 ], [ %38, %35 ]
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %.val65 = load i64, ptr %47, align 8, !noundef !9
   %48 = icmp ult i64 %.0.i61, %.val65
@@ -11630,7 +11630,7 @@ _ZN14regex_automata6hybrid3dfa3DFA10next_state17hdf7fbf07a67bbb18E.exit: ; preds
   %188 = call fastcc noundef i32 @_ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E(ptr noalias noundef nonnull readonly align 8 dereferenceable(688) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(352) %2, i32 noundef %.sink492, i64 noundef 0), !noalias !3158
   br label %189
 
-189:                                              ; preds = %.sink.split, %182, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h0f6a152a75f58c2eE.exit.thread"
+189:                                              ; preds = %.sink.split, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h0f6a152a75f58c2eE.exit.thread", %182
   %.sroa.16.3.ph = phi i32 [ %.sroa.16.0.lcssa, %182 ], [ %.sroa.16.0.lcssa, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h0f6a152a75f58c2eE.exit.thread" ], [ %188, %.sink.split ]
   %.sroa.10.3.ph = phi i64 [ %.sroa.10.0.lcssa, %182 ], [ %.sroa.10.0.lcssa, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h0f6a152a75f58c2eE.exit.thread" ], [ %.sroa.10.3.ph.ph, %.sink.split ]
   %.sroa.0.3.ph = phi i64 [ %.sroa.0.0.lcssa, %182 ], [ %.sroa.0.0.lcssa, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h0f6a152a75f58c2eE.exit.thread" ], [ 1, %.sink.split ]
@@ -12656,8 +12656,8 @@ define range(i32 0, 16777220) i32 @"_ZN108_$LT$regex_automata..util..alphabet..B
   br label %9
 
 9:                                                ; preds = %.split21.us.thread, %.split21.us, %14
-  %.sroa.4.sroa.0.0 = phi i32 [ %.sroa.4.0.insert.shift.i, %14 ], [ 0, %.split21.us ], [ %spec.select, %.split21.us.thread ]
-  %.sroa.0.0 = phi i32 [ %.sroa.4.0.insert.shift.i, %14 ], [ 2, %.split21.us ], [ %spec.select15, %.split21.us.thread ]
+  %.sroa.4.sroa.0.0 = phi i32 [ %.sroa.4.0.insert.shift.i, %14 ], [ %spec.select, %.split21.us.thread ], [ 0, %.split21.us ]
+  %.sroa.0.0 = phi i32 [ %.sroa.4.0.insert.shift.i, %14 ], [ %spec.select15, %.split21.us.thread ], [ 2, %.split21.us ]
   %.sroa.0.0.insert.ext = and i32 %.sroa.0.0, 3
   %.sroa.0.0.insert.insert = or disjoint i32 %.sroa.0.0.insert.ext, %.sroa.4.sroa.0.0
   ret i32 %.sroa.0.0.insert.insert
@@ -13210,14 +13210,14 @@ define i24 @"_ZN107_$LT$regex_automata..util..alphabet..ByteSetRangeIter$u20$as$
   br i1 %6, label %7, label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %.lr.ph, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h839709a51b834882E.llvm.8347807780687254574.exit"
-  %.sroa.4.0.ph = phi i8 [ %30, %.lr.ph ], [ -1, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h839709a51b834882E.llvm.8347807780687254574.exit" ]
+  %.sroa.4.0.ph = phi i8 [ -1, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h839709a51b834882E.llvm.8347807780687254574.exit" ], [ %30, %.lr.ph ]
   store i64 %32, ptr %2, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %.loopexit.loopexit, %.lr.ph.preheader, %thread-pre-split
-  %.sroa.4.0 = phi i8 [ -1, %thread-pre-split ], [ %8, %.lr.ph.preheader ], [ %.sroa.4.0.ph, %.loopexit.loopexit ], [ undef, %4 ]
-  %.sroa.3.0 = phi i8 [ -1, %thread-pre-split ], [ %8, %.lr.ph.preheader ], [ %8, %.loopexit.loopexit ], [ undef, %4 ]
-  %.sroa.0.0 = phi i8 [ 1, %thread-pre-split ], [ 1, %.lr.ph.preheader ], [ 1, %.loopexit.loopexit ], [ 0, %4 ]
+  %.sroa.4.0 = phi i8 [ %8, %.lr.ph.preheader ], [ -1, %thread-pre-split ], [ %.sroa.4.0.ph, %.loopexit.loopexit ], [ undef, %4 ]
+  %.sroa.3.0 = phi i8 [ %8, %.lr.ph.preheader ], [ -1, %thread-pre-split ], [ %8, %.loopexit.loopexit ], [ undef, %4 ]
+  %.sroa.0.0 = phi i8 [ 1, %.lr.ph.preheader ], [ 1, %thread-pre-split ], [ 1, %.loopexit.loopexit ], [ 0, %4 ]
   %.sroa.4.0.insert.ext = zext i8 %.sroa.4.0 to i24
   %.sroa.4.0.insert.shift = shl nuw i24 %.sroa.4.0.insert.ext, 16
   %.sroa.3.0.insert.ext = zext i8 %.sroa.3.0 to i24
@@ -14220,8 +14220,8 @@ _ZN14regex_automata4util4utf811is_boundary17hf4d6af245184b3aeE.exit.i: ; preds =
   br i1 %spec.select.i.i, label %.split94.us.i, label %59
 
 .split94.us.i:                                    ; preds = %_ZN14regex_automata4util4utf811is_boundary17hf4d6af245184b3aeE.exit.i, %55, %_ZN14regex_automata4util4utf811is_boundary17hf4d6af245184b3aeE.exit.us.i, %36
-  %.us-phi.i = phi i32 [ %3, %36 ], [ %3, %_ZN14regex_automata4util4utf811is_boundary17hf4d6af245184b3aeE.exit.us.i ], [ %.sroa.66.0.i, %55 ], [ %.sroa.66.0.i, %_ZN14regex_automata4util4utf811is_boundary17hf4d6af245184b3aeE.exit.i ]
-  %.us-phi95.i = phi i64 [ %2, %36 ], [ %2, %_ZN14regex_automata4util4utf811is_boundary17hf4d6af245184b3aeE.exit.us.i ], [ %.sroa.05.0.i, %55 ], [ %.sroa.05.0.i, %_ZN14regex_automata4util4utf811is_boundary17hf4d6af245184b3aeE.exit.i ]
+  %.us-phi.i = phi i32 [ %3, %_ZN14regex_automata4util4utf811is_boundary17hf4d6af245184b3aeE.exit.us.i ], [ %3, %36 ], [ %.sroa.66.0.i, %55 ], [ %.sroa.66.0.i, %_ZN14regex_automata4util4utf811is_boundary17hf4d6af245184b3aeE.exit.i ]
+  %.us-phi95.i = phi i64 [ %2, %_ZN14regex_automata4util4utf811is_boundary17hf4d6af245184b3aeE.exit.us.i ], [ %2, %36 ], [ %.sroa.05.0.i, %55 ], [ %.sroa.05.0.i, %_ZN14regex_automata4util4utf811is_boundary17hf4d6af245184b3aeE.exit.i ]
   store i64 1, ptr %0, align 8, !alias.scope !3430, !noalias !3449
   %.sroa.427.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.us-phi95.i, ptr %.sroa.427.0..sroa_idx.i, align 8, !alias.scope !3430, !noalias !3449
@@ -14428,8 +14428,8 @@ _ZN14regex_automata4util4utf811is_boundary17hf4d6af245184b3aeE.exit.i: ; preds =
   br i1 %spec.select.i.i, label %.split11.us, label %56
 
 .split11.us:                                      ; preds = %52, %_ZN14regex_automata4util4utf811is_boundary17hf4d6af245184b3aeE.exit.i, %36, %_ZN14regex_automata4util4utf811is_boundary17hf4d6af245184b3aeE.exit.i.us
-  %.us-phi = phi i32 [ %3, %_ZN14regex_automata4util4utf811is_boundary17hf4d6af245184b3aeE.exit.i.us ], [ %3, %36 ], [ %.sroa.66.0.i, %_ZN14regex_automata4util4utf811is_boundary17hf4d6af245184b3aeE.exit.i ], [ %.sroa.66.0.i, %52 ]
-  %.us-phi12 = phi i64 [ %2, %_ZN14regex_automata4util4utf811is_boundary17hf4d6af245184b3aeE.exit.i.us ], [ %2, %36 ], [ %.sroa.05.0.i, %_ZN14regex_automata4util4utf811is_boundary17hf4d6af245184b3aeE.exit.i ], [ %.sroa.05.0.i, %52 ]
+  %.us-phi = phi i32 [ %3, %36 ], [ %3, %_ZN14regex_automata4util4utf811is_boundary17hf4d6af245184b3aeE.exit.i.us ], [ %.sroa.66.0.i, %_ZN14regex_automata4util4utf811is_boundary17hf4d6af245184b3aeE.exit.i ], [ %.sroa.66.0.i, %52 ]
+  %.us-phi12 = phi i64 [ %2, %36 ], [ %2, %_ZN14regex_automata4util4utf811is_boundary17hf4d6af245184b3aeE.exit.i.us ], [ %.sroa.05.0.i, %_ZN14regex_automata4util4utf811is_boundary17hf4d6af245184b3aeE.exit.i ], [ %.sroa.05.0.i, %52 ]
   store i64 1, ptr %0, align 8, !alias.scope !3463, !noalias !3483
   %.sroa.427.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.us-phi12, ptr %.sroa.427.0..sroa_idx.i, align 8, !alias.scope !3463, !noalias !3483

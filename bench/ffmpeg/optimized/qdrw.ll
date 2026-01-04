@@ -125,7 +125,7 @@ check_header.exit211:                             ; preds = %check_header.exit.t
   br label %.thread231
 
 56:                                               ; preds = %40, %51, %53
-  %.0.i208.ph = phi i32 [ %..i210, %53 ], [ 1, %51 ], [ 0, %40 ]
+  %.0.i208.ph = phi i32 [ 1, %51 ], [ %..i210, %53 ], [ 0, %40 ]
   %..i159 = tail call i64 @llvm.smin.i64(i64 %37, i64 6)
   %57 = getelementptr inbounds i8, ptr %35, i64 %..i159
   %58 = ptrtoint ptr %57 to i64
@@ -483,7 +483,7 @@ bytestream2_get_byte.exit36.i:                    ; preds = %212, %bytestream2_g
   br label %223
 
 223:                                              ; preds = %bytestream2_get_byte.exit36.i, %178
-  %224 = phi ptr [ %218, %bytestream2_get_byte.exit36.i ], [ %181, %178 ]
+  %224 = phi ptr [ %181, %178 ], [ %218, %bytestream2_get_byte.exit36.i ]
   %225 = add nuw nsw i32 %.02641.i, 1
   %exitcond.not.i = icmp eq i32 %.02641.i, %.0.i184222
   br i1 %exitcond.not.i, label %parse_palette.exit, label %168, !llvm.loop !37
@@ -837,7 +837,7 @@ bytestream2_get_be16.exit203.thread:              ; preds = %.thread225, %bytest
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.18, i32 noundef %389) #6
   br label %.thread235
 
-.thread235:                                       ; preds = %91, %388, %390
+.thread235:                                       ; preds = %91, %390, %388
   %391 = load i32, ptr %2, align 4, !tbaa !36
   %.not157 = icmp eq i32 %391, 0
   br i1 %.not157, label %394, label %392
@@ -850,8 +850,8 @@ bytestream2_get_be16.exit203.thread:              ; preds = %.thread225, %bytest
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.19) #6
   br label %.thread231
 
-.thread231:                                       ; preds = %bytestream2_get_be16.exit.thread.i, %350, %332, %327, %bytestream2_get_be16.exit191, %246, %161, %321, %326, %bytestream2_get_be16.exit187.thread, %.thread, %160, %154, %bytestream2_get_be16.exit175, %394, %392, %bytestream2_get_be32.exit, %78, %check_header.exit211
-  %.0 = phi i32 [ -1094995529, %check_header.exit211 ], [ -1163346256, %78 ], [ -1163346256, %bytestream2_get_be32.exit ], [ %393, %392 ], [ -1094995529, %394 ], [ %75, %bytestream2_get_be16.exit175 ], [ %.1139, %350 ], [ %333, %332 ], [ -1094995529, %327 ], [ %283, %bytestream2_get_be16.exit191 ], [ %.0138, %246 ], [ %162, %161 ], [ -1094995529, %321 ], [ -1163346256, %326 ], [ -1163346256, %bytestream2_get_be16.exit187.thread ], [ -1094995529, %.thread ], [ -1094995529, %160 ], [ -1094995529, %154 ], [ -1094995529, %bytestream2_get_be16.exit.thread.i ]
+.thread231:                                       ; preds = %bytestream2_get_be16.exit.thread.i, %332, %327, %bytestream2_get_be16.exit191, %326, %246, %bytestream2_get_be16.exit187.thread, %.thread, %161, %321, %160, %154, %350, %bytestream2_get_be16.exit175, %394, %392, %bytestream2_get_be32.exit, %78, %check_header.exit211
+  %.0 = phi i32 [ -1094995529, %check_header.exit211 ], [ -1094995529, %394 ], [ -1163346256, %78 ], [ -1163346256, %bytestream2_get_be32.exit ], [ %75, %bytestream2_get_be16.exit175 ], [ %393, %392 ], [ %333, %332 ], [ -1094995529, %327 ], [ %283, %bytestream2_get_be16.exit191 ], [ -1163346256, %326 ], [ %.0138, %246 ], [ -1163346256, %bytestream2_get_be16.exit187.thread ], [ -1094995529, %.thread ], [ %.1139, %350 ], [ %162, %161 ], [ -1094995529, %321 ], [ -1094995529, %160 ], [ -1094995529, %154 ], [ -1094995529, %bytestream2_get_be16.exit.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

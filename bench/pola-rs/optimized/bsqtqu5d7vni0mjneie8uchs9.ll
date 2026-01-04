@@ -2817,14 +2817,14 @@ default.unreachable:                              ; preds = %183
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
   br label %301
 
-320:                                              ; preds = %308, %164
+320:                                              ; preds = %164, %308
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$polars_arrow..datatypes..ArrowDataType$GT$17h513574738d094a50E"(ptr noalias noundef align 8 dereferenceable(32) %38) #21
           to label %.critedge unwind label %304
 
 .critedge:                                        ; preds = %295, %.body224.thread, %314, %320, %327, %.noexc, %321, %92
-  %.pn219 = phi { ptr, i32 } [ %334, %.noexc ], [ %.pn217232, %321 ], [ %.pn215238, %92 ], [ %328, %327 ], [ %lpad.thr_comm, %320 ], [ %315, %314 ], [ %.pn.ph, %.body224.thread ], [ %296, %295 ]
+  %.pn219 = phi { ptr, i32 } [ %334, %.noexc ], [ %328, %327 ], [ %.pn217232, %321 ], [ %.pn215238, %92 ], [ %.pn.ph, %.body224.thread ], [ %lpad.thr_comm, %320 ], [ %296, %295 ], [ %315, %314 ]
   resume { ptr, i32 } %.pn219
 
 321:                                              ; preds = %.thread229, %92
@@ -3194,7 +3194,7 @@ _ZN10polars_row8variable6binary11decoded_len17h4f9569e3f40fe677E.exit: ; preds =
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke, %94, %._crit_edge80
-  %.not71 = phi i1 [ false, %94 ], [ true, %._crit_edge80 ], [ false, %.invoke ]
+  %.not71 = phi i1 [ false, %.invoke ], [ false, %94 ], [ true, %._crit_edge80 ]
   %lpad.loopexit.split-lp53 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -3529,7 +3529,7 @@ _ZN12polars_arrow5array7binview4view4View14new_from_bytes17h2e0224cb3746c684E.ex
   unreachable
 
 .body.i:                                          ; preds = %166, %163
-  %eh.lpad-body.i = phi { ptr, i32 } [ %164, %163 ], [ %167, %166 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %167, %166 ], [ %164, %163 ]
   invoke void @"_ZN4core3ptr93drop_in_place$LT$polars_arrow..array..binview..BinaryViewArrayGeneric$LT$$u5b$u8$u5d$$GT$$GT$17h7149b911ec8ab1d9E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %13) #21
           to label %.body unwind label %170, !noalias !202
 

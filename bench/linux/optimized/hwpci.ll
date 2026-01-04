@@ -73,7 +73,7 @@ define dso_local i32 @acpi_hw_derive_pci_id(ptr noundef %0, ptr noundef readnone
   br i1 %38, label %.preheader24, label %.preheader22, !llvm.loop !10
 
 .thread17:                                        ; preds = %.preheader22, %.preheader, %28, %10
-  %.ph16 = phi i32 [ 4, %28 ], [ %11, %10 ], [ 4, %.preheader ], [ %37, %.preheader22 ]
+  %.ph16 = phi i32 [ 4, %.preheader ], [ %11, %10 ], [ 4, %28 ], [ %37, %.preheader22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread21
 
@@ -160,7 +160,7 @@ define dso_local i32 @acpi_hw_derive_pci_id(ptr noundef %0, ptr noundef readnone
   br label %87
 
 85:                                               ; preds = %77, %74, %66, %46
-  %86 = phi i32 [ %80, %77 ], [ %75, %74 ], [ %67, %66 ], [ %51, %46 ]
+  %86 = phi i32 [ %67, %66 ], [ %51, %46 ], [ %80, %77 ], [ %75, %74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

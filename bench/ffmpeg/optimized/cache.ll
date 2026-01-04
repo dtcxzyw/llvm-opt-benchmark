@@ -309,8 +309,8 @@ define internal i32 @cache_read(ptr noundef %0, ptr noundef %1, i32 noundef %2) 
   br label %add_entry.exit
 
 .sink.split:                                      ; preds = %120, %89, %78
-  %.str.11.sink = phi ptr [ @.str.9, %78 ], [ @.str.10, %89 ], [ @.str.11, %120 ]
-  %.041.i.ph = phi ptr [ null, %78 ], [ null, %89 ], [ %116, %120 ]
+  %.str.11.sink = phi ptr [ @.str.10, %89 ], [ @.str.9, %78 ], [ @.str.11, %120 ]
+  %.041.i.ph = phi ptr [ null, %89 ], [ null, %78 ], [ %116, %120 ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull %.str.11.sink) #10
   br label %127
 
@@ -334,7 +334,7 @@ add_entry.exit:                                   ; preds = %120, %125, %127
   br label %.thread101
 
 .thread101:                                       ; preds = %70, %44, %76, %add_entry.exit, %60
-  %.3 = phi i32 [ %61, %60 ], [ %66, %add_entry.exit ], [ %51, %44 ], [ %66, %76 ], [ -541478725, %70 ]
+  %.3 = phi i32 [ %61, %60 ], [ %51, %44 ], [ %66, %add_entry.exit ], [ %66, %76 ], [ -541478725, %70 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.3
 }
@@ -544,7 +544,7 @@ define internal i64 @cache_seek(ptr noundef %0, i64 noundef %1, i32 noundef %2) 
   br label %.thread124
 
 .thread124:                                       ; preds = %58, %64, %.thread119, %.thread111, %.thread123, %43, %24
-  %.085 = phi i64 [ %.089108, %24 ], [ %.190, %43 ], [ %85, %.thread123 ], [ %83, %.thread111 ], [ %.us-phi, %.thread119 ], [ %48, %64 ], [ %50, %58 ]
+  %.085 = phi i64 [ %.089108, %24 ], [ %.190, %43 ], [ %.us-phi, %.thread119 ], [ %85, %.thread123 ], [ %83, %.thread111 ], [ %48, %64 ], [ %50, %58 ]
   ret i64 %.085
 }
 

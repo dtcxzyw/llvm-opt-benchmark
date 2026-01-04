@@ -1011,7 +1011,7 @@ define internal fastcc i32 @init_vqs(ptr noundef captures(none) initializes((144
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %69, %77, %82, %106
-  %110 = phi i32 [ %108, %106 ], [ 0, %82 ], [ 0, %77 ], [ 0, %69 ], [ 0, %.preheader ]
+  %110 = phi i32 [ %108, %106 ], [ 0, %69 ], [ 0, %82 ], [ 0, %77 ], [ 0, %.preheader ]
   tail call void @kfree(ptr noundef %18) #17
   tail call void @kfree(ptr noundef %17) #17
   tail call void @kfree(ptr noundef %16) #17
@@ -3384,7 +3384,7 @@ reclaim_dma_bufs.exit:                            ; preds = %.preheader.i, %19, 
   br label %.thread
 
 .thread:                                          ; preds = %55, %reclaim_dma_bufs.exit, %66, %61, %17, %4
-  %68 = phi i64 [ %18, %17 ], [ 0, %4 ], [ %67, %66 ], [ %64, %61 ], [ -12, %reclaim_dma_bufs.exit ], [ -12, %55 ]
+  %68 = phi i64 [ %18, %17 ], [ 0, %4 ], [ %64, %61 ], [ %67, %66 ], [ -12, %reclaim_dma_bufs.exit ], [ -12, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %68
 }
@@ -3464,7 +3464,7 @@ define internal range(i32 0, 96) i32 @port_fops_poll(ptr noundef %0, ptr noundef
   br label %42
 
 42:                                               ; preds = %.thread, %37
-  %43 = phi i32 [ %41, %37 ], [ 65, %.thread ]
+  %43 = phi i32 [ 65, %.thread ], [ %41, %37 ]
   %44 = call fastcc zeroext i1 @will_write_block(ptr noundef %5)
   %45 = or disjoint i32 %43, 4
   %46 = select i1 %44, i32 %43, i32 %45
@@ -3633,7 +3633,7 @@ define internal noundef range(i32 -16, 1) i32 @port_fops_open(ptr noundef %0, pt
   br label %.thread8
 
 .thread8:                                         ; preds = %80, %82, %.thread, %83, %72, %.loopexit
-  %84 = phi i32 [ 0, %.loopexit ], [ 0, %72 ], [ %76, %83 ], [ -6, %.thread ], [ %76, %82 ], [ %76, %80 ]
+  %84 = phi i32 [ -6, %.thread ], [ 0, %.loopexit ], [ 0, %72 ], [ %76, %83 ], [ %76, %82 ], [ %76, %80 ]
   ret i32 %84
 }
 
@@ -4316,7 +4316,7 @@ define internal i32 @pipe_to_sg(ptr noundef %0, ptr noundef %1, ptr noundef read
   br label %.critedge
 
 .critedge:                                        ; preds = %71, %133, %3
-  %140 = phi i32 [ %134, %133 ], [ 0, %3 ], [ -12, %71 ]
+  %140 = phi i32 [ %134, %133 ], [ -12, %71 ], [ 0, %3 ]
   ret i32 %140
 }
 

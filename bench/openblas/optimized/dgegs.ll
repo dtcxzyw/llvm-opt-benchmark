@@ -98,6 +98,7 @@ define void @dgegs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   store i32 0, ptr %16, align 4, !tbaa !3
   %brmerge = select i1 %43, i1 true, i1 %48
   %.mux = select i1 %43, i32 -1, i32 -2
+  %.mux440 = select i1 %43, i32 -1, i32 -2
   br i1 %brmerge, label %.thread380.sink.split, label %55
 
 55:                                               ; preds = %47
@@ -155,12 +156,13 @@ define void @dgegs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   br i1 %.not345, label %87, label %.thread380
 
 .thread380.sink.split:                            ; preds = %47, %72, %68, %64, %61, %58, %55
-  %.sink = phi i32 [ %.mux, %47 ], [ -3, %55 ], [ -5, %58 ], [ -7, %61 ], [ -12, %64 ], [ -14, %68 ], [ -16, %72 ]
+  %.sink = phi i32 [ %.mux, %47 ], [ -3, %55 ], [ -7, %61 ], [ -14, %68 ], [ -12, %64 ], [ -5, %58 ], [ -16, %72 ]
+  %.ph = phi i32 [ %.mux440, %47 ], [ -3, %55 ], [ -7, %61 ], [ -14, %68 ], [ -12, %64 ], [ -5, %58 ], [ -16, %72 ]
   store i32 %.sink, ptr %16, align 4, !tbaa !3
   br label %.thread380
 
 .thread380:                                       ; preds = %.thread380.sink.split, %.thread
-  %84 = phi i32 [ %.pr379.pr, %.thread ], [ %.sink, %.thread380.sink.split ]
+  %84 = phi i32 [ %.pr379.pr, %.thread ], [ %.ph, %.thread380.sink.split ]
   %85 = sub nsw i32 0, %84
   store i32 %85, ptr %18, align 4, !tbaa !3
   %86 = call i32 @xerbla_(ptr noundef nonnull @.str.6, ptr noundef nonnull %18, i32 noundef 6) #4
@@ -539,8 +541,8 @@ define void @dgegs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   br label %277
 
 .sink.split:                                      ; preds = %226, %129, %.thread392, %.thread396, %.thread400, %212, %239, %245, %232, %234
-  %.sink439 = phi i32 [ %235, %234 ], [ %233, %232 ], [ %247, %245 ], [ %241, %239 ], [ %214, %212 ], [ %207, %.thread400 ], [ %177, %.thread396 ], [ %157, %.thread392 ], [ %131, %129 ], [ %218, %226 ]
-  %.0.ph = phi i32 [ %.5407411, %234 ], [ %.5407411, %232 ], [ %225, %245 ], [ %225, %239 ], [ %.3, %212 ], [ %.4403, %.thread400 ], [ %.2399, %.thread396 ], [ %.1395, %.thread392 ], [ %51, %129 ], [ %225, %226 ]
+  %.sink439 = phi i32 [ %131, %129 ], [ %235, %234 ], [ %233, %232 ], [ %247, %245 ], [ %241, %239 ], [ %214, %212 ], [ %207, %.thread400 ], [ %177, %.thread396 ], [ %157, %.thread392 ], [ %218, %226 ]
+  %.0.ph = phi i32 [ %51, %129 ], [ %.5407411, %234 ], [ %.5407411, %232 ], [ %225, %245 ], [ %225, %239 ], [ %.3, %212 ], [ %.4403, %.thread400 ], [ %.2399, %.thread396 ], [ %.1395, %.thread392 ], [ %225, %226 ]
   store i32 %.sink439, ptr %16, align 4, !tbaa !3
   br label %275
 

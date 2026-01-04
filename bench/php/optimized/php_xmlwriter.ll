@@ -2663,7 +2663,7 @@ define internal fastcc noundef ptr @_xmlwriter_get_valid_file_path(ptr noundef %
   br label %.thread
 
 .thread:                                          ; preds = %30, %20, %7
-  %.03949 = phi ptr [ %0, %7 ], [ %31, %30 ], [ %21, %20 ]
+  %.03949 = phi ptr [ %21, %20 ], [ %0, %7 ], [ %31, %30 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %32 = tail call ptr @tsrm_realpath(ptr noundef %.03949, ptr noundef nonnull %1) #12
   %.not41 = icmp eq ptr %32, null
@@ -2715,7 +2715,7 @@ define internal fastcc noundef ptr @_xmlwriter_get_valid_file_path(ptr noundef %
   br label %44
 
 44:                                               ; preds = %42, %2, %43, %29, %19
-  %.0 = phi ptr [ null, %19 ], [ %.138, %43 ], [ null, %42 ], [ null, %29 ], [ null, %2 ]
+  %.0 = phi ptr [ null, %29 ], [ null, %19 ], [ %.138, %43 ], [ null, %42 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -3444,9 +3444,9 @@ define internal noundef i32 @xml_writer_stream_write_memory(ptr noundef %0, ptr 
   br label %smart_str_alloc.exit
 
 smart_str_alloc.exit:                             ; preds = %6, %12
-  %13 = phi i64 [ %.pre4, %12 ], [ %8, %6 ]
-  %14 = phi ptr [ %.pre, %12 ], [ %5, %6 ]
-  %.1.i = phi i64 [ %.0.i, %12 ], [ %9, %6 ]
+  %13 = phi i64 [ %8, %6 ], [ %.pre4, %12 ]
+  %14 = phi ptr [ %5, %6 ], [ %.pre, %12 ]
+  %.1.i = phi i64 [ %9, %6 ], [ %.0.i, %12 ]
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr align 1 %1, i64 range(i64 -2147483648, 2147483648) %4, i1 false)

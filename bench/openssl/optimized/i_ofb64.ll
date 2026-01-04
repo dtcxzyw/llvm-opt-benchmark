@@ -158,7 +158,7 @@ define void @IDEA_ofb64_encrypt(ptr noundef readonly captures(none) %0, ptr noun
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge, %90, %11, %6
-  %storemerge = phi i32 [ -1, %6 ], [ %88, %90 ], [ %88, %._crit_edge ], [ %9, %11 ]
+  %storemerge = phi i32 [ -1, %6 ], [ %88, %._crit_edge ], [ %88, %90 ], [ %9, %11 ]
   store i32 %storemerge, ptr %5, align 4, !tbaa !3
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

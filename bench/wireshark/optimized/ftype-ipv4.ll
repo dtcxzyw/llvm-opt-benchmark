@@ -130,7 +130,7 @@ define internal noundef zeroext i1 @val_from_literal(ptr noundef writeonly captu
   br label %47
 
 47:                                               ; preds = %41, %44, %38, %39, %32, %33, %19, %20
-  %.0 = phi i1 [ false, %20 ], [ false, %19 ], [ false, %33 ], [ false, %32 ], [ false, %39 ], [ false, %38 ], [ true, %44 ], [ true, %41 ]
+  %.0 = phi i1 [ false, %19 ], [ false, %32 ], [ false, %38 ], [ false, %20 ], [ false, %33 ], [ false, %39 ], [ true, %44 ], [ true, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

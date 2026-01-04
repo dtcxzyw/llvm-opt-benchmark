@@ -46,7 +46,7 @@ define internal range(i32 0, 101) i32 @dat_probe(ptr noundef readonly captures(n
   br label %15
 
 15:                                               ; preds = %13, %10, %8, %5, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %5 ], [ 0, %8 ], [ 0, %10 ], [ %., %13 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %1 ], [ 0, %5 ], [ %., %13 ], [ 0, %10 ]
   ret i32 %.0
 }
 
@@ -182,7 +182,7 @@ define internal i32 @dat_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   br label %.critedge
 
 .critedge:                                        ; preds = %._crit_edge.thread, %51, %55, %48, %9, %7, %2
-  %.0 = phi i32 [ -541478725, %2 ], [ -1094995529, %7 ], [ -541478725, %9 ], [ %49, %48 ], [ %49, %55 ], [ %49, %51 ], [ -12, %._crit_edge.thread ]
+  %.0 = phi i32 [ -12, %._crit_edge.thread ], [ -541478725, %2 ], [ -1094995529, %7 ], [ %49, %51 ], [ %49, %48 ], [ -541478725, %9 ], [ %49, %55 ]
   ret i32 %.0
 }
 

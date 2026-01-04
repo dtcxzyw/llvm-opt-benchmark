@@ -1781,13 +1781,13 @@ dissect_mip6_ba.exit:                             ; preds = %112, %132
   br label %dissect_mip6_hoti.exit
 
 dissect_mip6_hoti.exit:                           ; preds = %.lr.ph.i, %.sink.split.i, %245, %243, %241, %234, %233, %222, %221, %212, %211, %200, %195, %172, %171, %152, %151, %144, %143, %64, %63, %54, %53, %48, %47, %42, %41, %dissect_mip6_ba.exit, %141, %dissect_mip6_bu.exit, %110, %277, %187, %38
-  %.0144 = phi i32 [ %281, %277 ], [ 8, %38 ], [ 12, %110 ], [ 12, %dissect_mip6_bu.exit ], [ 12, %141 ], [ 12, %dissect_mip6_ba.exit ], [ 8, %187 ], [ 16, %41 ], [ 16, %42 ], [ 16, %47 ], [ 16, %48 ], [ 24, %53 ], [ 24, %54 ], [ 24, %63 ], [ 24, %64 ], [ 24, %143 ], [ 24, %144 ], [ 12, %151 ], [ 12, %152 ], [ 12, %171 ], [ 12, %172 ], [ %199, %195 ], [ %199, %200 ], [ 12, %211 ], [ 12, %212 ], [ 10, %221 ], [ 10, %222 ], [ 10, %233 ], [ 10, %234 ], [ 12, %241 ], [ 12, %243 ], [ 12, %245 ], [ 12, %.sink.split.i ], [ %199, %.lr.ph.i ]
+  %.0144 = phi i32 [ %281, %277 ], [ 8, %38 ], [ 12, %241 ], [ 16, %42 ], [ 16, %48 ], [ 24, %54 ], [ 12, %110 ], [ 12, %dissect_mip6_bu.exit ], [ 12, %141 ], [ 12, %dissect_mip6_ba.exit ], [ 24, %64 ], [ 24, %144 ], [ 12, %152 ], [ 8, %187 ], [ 12, %245 ], [ 12, %172 ], [ 10, %233 ], [ 12, %212 ], [ 10, %222 ], [ 10, %234 ], [ 12, %.sink.split.i ], [ 12, %243 ], [ 16, %41 ], [ 16, %47 ], [ 24, %53 ], [ 24, %63 ], [ 24, %143 ], [ 12, %151 ], [ 12, %171 ], [ %199, %195 ], [ %199, %200 ], [ 12, %211 ], [ 10, %221 ], [ %199, %.lr.ph.i ]
   %285 = icmp samesign ult i32 %.0144, %12
   br i1 %285, label %dissect_mip6_hoti.exit.thread, label %344
 
-dissect_mip6_hoti.exit.thread.sink.split:         ; preds = %263, %268
-  %hf_pmip6_lra_lifetime.sink = phi ptr [ @hf_pmip6_lra_lifetime, %268 ], [ @hf_pmip6_lri_lifetime, %263 ]
-  %286 = load i32, ptr %hf_pmip6_lra_lifetime.sink, align 4
+dissect_mip6_hoti.exit.thread.sink.split:         ; preds = %268, %263
+  %hf_pmip6_lri_lifetime.sink = phi ptr [ @hf_pmip6_lri_lifetime, %263 ], [ @hf_pmip6_lra_lifetime, %268 ]
+  %286 = load i32, ptr %hf_pmip6_lri_lifetime.sink, align 4
   %287 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %286, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0)
   br label %dissect_mip6_hoti.exit.thread
 
@@ -1923,7 +1923,7 @@ dissect_mip6_options.exit:                        ; preds = %342, %dissect_mip6_
   call void @ipv6_dissect_next(i32 noundef 51, ptr noundef %357, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   br label %.thread173
 
-.thread173:                                       ; preds = %191, %190, %347, %354, %351
+.thread173:                                       ; preds = %190, %191, %347, %354, %351
   %358 = call i32 @tvb_captured_length(ptr noundef %0)
   ret i32 %358
 }

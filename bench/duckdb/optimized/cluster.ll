@@ -137,7 +137,7 @@ _ZN13duckdb_brotliL28HistogramAddHistogramLiteralEPNS_16HistogramLiteralEPKS0_.e
   br i1 %84, label %.critedge61, label %.critedge
 
 .critedge:                                        ; preds = %_ZN13duckdb_brotliL28HistogramAddHistogramLiteralEPNS_16HistogramLiteralEPKS0_.exit, %57, %_ZN13duckdb_brotliL8FastLog2Em.exit
-  %.sroa.10.0 = phi double [ %52, %_ZN13duckdb_brotliL8FastLog2Em.exit ], [ %48, %57 ], [ %82, %_ZN13duckdb_brotliL28HistogramAddHistogramLiteralEPNS_16HistogramLiteralEPKS0_.exit ]
+  %.sroa.10.0 = phi double [ %48, %57 ], [ %52, %_ZN13duckdb_brotliL8FastLog2Em.exit ], [ %82, %_ZN13duckdb_brotliL28HistogramAddHistogramLiteralEPNS_16HistogramLiteralEPKS0_.exit ]
   %85 = fadd double %53, %.sroa.10.0
   %86 = load i64, ptr %7, align 8, !tbaa !13
   %.not = icmp eq i64 %86, 0
@@ -378,7 +378,7 @@ _ZN13duckdb_brotliL28HistogramAddHistogramLiteralEPNS_16HistogramLiteralEPKS0_.e
   br i1 %99, label %_ZN13duckdb_brotli34BrotliCompareAndPushToQueueLiteralEPKNS_16HistogramLiteralEPS0_PKjjjmPNS_13HistogramPairEPm.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %_ZN13duckdb_brotliL28HistogramAddHistogramLiteralEPNS_16HistogramLiteralEPKS0_.exit.i, %75, %_ZN13duckdb_brotliL8FastLog2Em.exit.i
-  %.sroa.10.0.i = phi double [ %70, %_ZN13duckdb_brotliL8FastLog2Em.exit.i ], [ %66, %75 ], [ %97, %_ZN13duckdb_brotliL28HistogramAddHistogramLiteralEPNS_16HistogramLiteralEPKS0_.exit.i ]
+  %.sroa.10.0.i = phi double [ %66, %75 ], [ %70, %_ZN13duckdb_brotliL8FastLog2Em.exit.i ], [ %97, %_ZN13duckdb_brotliL28HistogramAddHistogramLiteralEPNS_16HistogramLiteralEPKS0_.exit.i ]
   %100 = fadd double %71, %.sroa.10.0.i
   %.not.i = icmp eq i64 %.1138146, 0
   br i1 %.not.i, label %117, label %101
@@ -726,7 +726,7 @@ _ZN13duckdb_brotliL28HistogramAddHistogramLiteralEPNS_16HistogramLiteralEPKS0_.e
   br i1 %273, label %_ZN13duckdb_brotli34BrotliCompareAndPushToQueueLiteralEPKNS_16HistogramLiteralEPS0_PKjjjmPNS_13HistogramPairEPm.exit130, label %.critedge.i121
 
 .critedge.i121:                                   ; preds = %_ZN13duckdb_brotliL28HistogramAddHistogramLiteralEPNS_16HistogramLiteralEPKS0_.exit.i120, %249, %_ZN13duckdb_brotliL8FastLog2Em.exit.i116
-  %.sroa.10.0.i122 = phi double [ %244, %_ZN13duckdb_brotliL8FastLog2Em.exit.i116 ], [ %240, %249 ], [ %271, %_ZN13duckdb_brotliL28HistogramAddHistogramLiteralEPNS_16HistogramLiteralEPKS0_.exit.i120 ]
+  %.sroa.10.0.i122 = phi double [ %240, %249 ], [ %244, %_ZN13duckdb_brotliL8FastLog2Em.exit.i116 ], [ %271, %_ZN13duckdb_brotliL28HistogramAddHistogramLiteralEPNS_16HistogramLiteralEPKS0_.exit.i120 ]
   %274 = fadd double %245, %.sroa.10.0.i122
   %.not.i123 = icmp eq i64 %.4160, 0
   br i1 %.not.i123, label %291, label %275
@@ -1434,7 +1434,7 @@ _ZN13duckdb_brotliL28HistogramAddHistogramCommandEPNS_16HistogramCommandEPKS0_.e
   br i1 %84, label %.critedge61, label %.critedge
 
 .critedge:                                        ; preds = %_ZN13duckdb_brotliL28HistogramAddHistogramCommandEPNS_16HistogramCommandEPKS0_.exit, %57, %_ZN13duckdb_brotliL8FastLog2Em.exit
-  %.sroa.10.0 = phi double [ %52, %_ZN13duckdb_brotliL8FastLog2Em.exit ], [ %48, %57 ], [ %82, %_ZN13duckdb_brotliL28HistogramAddHistogramCommandEPNS_16HistogramCommandEPKS0_.exit ]
+  %.sroa.10.0 = phi double [ %48, %57 ], [ %52, %_ZN13duckdb_brotliL8FastLog2Em.exit ], [ %82, %_ZN13duckdb_brotliL28HistogramAddHistogramCommandEPNS_16HistogramCommandEPKS0_.exit ]
   %85 = fadd double %53, %.sroa.10.0
   %86 = load i64, ptr %7, align 8, !tbaa !13
   %.not = icmp eq i64 %86, 0
@@ -1672,7 +1672,7 @@ _ZN13duckdb_brotliL28HistogramAddHistogramCommandEPNS_16HistogramCommandEPKS0_.e
   br i1 %99, label %_ZN13duckdb_brotli34BrotliCompareAndPushToQueueCommandEPKNS_16HistogramCommandEPS0_PKjjjmPNS_13HistogramPairEPm.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %_ZN13duckdb_brotliL28HistogramAddHistogramCommandEPNS_16HistogramCommandEPKS0_.exit.i, %75, %_ZN13duckdb_brotliL8FastLog2Em.exit.i
-  %.sroa.10.0.i = phi double [ %70, %_ZN13duckdb_brotliL8FastLog2Em.exit.i ], [ %66, %75 ], [ %97, %_ZN13duckdb_brotliL28HistogramAddHistogramCommandEPNS_16HistogramCommandEPKS0_.exit.i ]
+  %.sroa.10.0.i = phi double [ %66, %75 ], [ %70, %_ZN13duckdb_brotliL8FastLog2Em.exit.i ], [ %97, %_ZN13duckdb_brotliL28HistogramAddHistogramCommandEPNS_16HistogramCommandEPKS0_.exit.i ]
   %100 = fadd double %71, %.sroa.10.0.i
   %.not.i = icmp eq i64 %.1138146, 0
   br i1 %.not.i, label %117, label %101
@@ -2020,7 +2020,7 @@ _ZN13duckdb_brotliL28HistogramAddHistogramCommandEPNS_16HistogramCommandEPKS0_.e
   br i1 %273, label %_ZN13duckdb_brotli34BrotliCompareAndPushToQueueCommandEPKNS_16HistogramCommandEPS0_PKjjjmPNS_13HistogramPairEPm.exit130, label %.critedge.i121
 
 .critedge.i121:                                   ; preds = %_ZN13duckdb_brotliL28HistogramAddHistogramCommandEPNS_16HistogramCommandEPKS0_.exit.i120, %249, %_ZN13duckdb_brotliL8FastLog2Em.exit.i116
-  %.sroa.10.0.i122 = phi double [ %244, %_ZN13duckdb_brotliL8FastLog2Em.exit.i116 ], [ %240, %249 ], [ %271, %_ZN13duckdb_brotliL28HistogramAddHistogramCommandEPNS_16HistogramCommandEPKS0_.exit.i120 ]
+  %.sroa.10.0.i122 = phi double [ %240, %249 ], [ %244, %_ZN13duckdb_brotliL8FastLog2Em.exit.i116 ], [ %271, %_ZN13duckdb_brotliL28HistogramAddHistogramCommandEPNS_16HistogramCommandEPKS0_.exit.i120 ]
   %274 = fadd double %245, %.sroa.10.0.i122
   %.not.i123 = icmp eq i64 %.4160, 0
   br i1 %.not.i123, label %291, label %275
@@ -2721,7 +2721,7 @@ _ZN13duckdb_brotliL29HistogramAddHistogramDistanceEPNS_17HistogramDistanceEPKS0_
   br i1 %84, label %.critedge61, label %.critedge
 
 .critedge:                                        ; preds = %_ZN13duckdb_brotliL29HistogramAddHistogramDistanceEPNS_17HistogramDistanceEPKS0_.exit, %57, %_ZN13duckdb_brotliL8FastLog2Em.exit
-  %.sroa.10.0 = phi double [ %52, %_ZN13duckdb_brotliL8FastLog2Em.exit ], [ %48, %57 ], [ %82, %_ZN13duckdb_brotliL29HistogramAddHistogramDistanceEPNS_17HistogramDistanceEPKS0_.exit ]
+  %.sroa.10.0 = phi double [ %48, %57 ], [ %52, %_ZN13duckdb_brotliL8FastLog2Em.exit ], [ %82, %_ZN13duckdb_brotliL29HistogramAddHistogramDistanceEPNS_17HistogramDistanceEPKS0_.exit ]
   %85 = fadd double %53, %.sroa.10.0
   %86 = load i64, ptr %7, align 8, !tbaa !13
   %.not = icmp eq i64 %86, 0
@@ -2959,7 +2959,7 @@ _ZN13duckdb_brotliL29HistogramAddHistogramDistanceEPNS_17HistogramDistanceEPKS0_
   br i1 %99, label %_ZN13duckdb_brotli35BrotliCompareAndPushToQueueDistanceEPKNS_17HistogramDistanceEPS0_PKjjjmPNS_13HistogramPairEPm.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %_ZN13duckdb_brotliL29HistogramAddHistogramDistanceEPNS_17HistogramDistanceEPKS0_.exit.i, %75, %_ZN13duckdb_brotliL8FastLog2Em.exit.i
-  %.sroa.10.0.i = phi double [ %70, %_ZN13duckdb_brotliL8FastLog2Em.exit.i ], [ %66, %75 ], [ %97, %_ZN13duckdb_brotliL29HistogramAddHistogramDistanceEPNS_17HistogramDistanceEPKS0_.exit.i ]
+  %.sroa.10.0.i = phi double [ %66, %75 ], [ %70, %_ZN13duckdb_brotliL8FastLog2Em.exit.i ], [ %97, %_ZN13duckdb_brotliL29HistogramAddHistogramDistanceEPNS_17HistogramDistanceEPKS0_.exit.i ]
   %100 = fadd double %71, %.sroa.10.0.i
   %.not.i = icmp eq i64 %.1138146, 0
   br i1 %.not.i, label %117, label %101
@@ -3307,7 +3307,7 @@ _ZN13duckdb_brotliL29HistogramAddHistogramDistanceEPNS_17HistogramDistanceEPKS0_
   br i1 %273, label %_ZN13duckdb_brotli35BrotliCompareAndPushToQueueDistanceEPKNS_17HistogramDistanceEPS0_PKjjjmPNS_13HistogramPairEPm.exit130, label %.critedge.i121
 
 .critedge.i121:                                   ; preds = %_ZN13duckdb_brotliL29HistogramAddHistogramDistanceEPNS_17HistogramDistanceEPKS0_.exit.i120, %249, %_ZN13duckdb_brotliL8FastLog2Em.exit.i116
-  %.sroa.10.0.i122 = phi double [ %244, %_ZN13duckdb_brotliL8FastLog2Em.exit.i116 ], [ %240, %249 ], [ %271, %_ZN13duckdb_brotliL29HistogramAddHistogramDistanceEPNS_17HistogramDistanceEPKS0_.exit.i120 ]
+  %.sroa.10.0.i122 = phi double [ %240, %249 ], [ %244, %_ZN13duckdb_brotliL8FastLog2Em.exit.i116 ], [ %271, %_ZN13duckdb_brotliL29HistogramAddHistogramDistanceEPNS_17HistogramDistanceEPKS0_.exit.i120 ]
   %274 = fadd double %245, %.sroa.10.0.i122
   %.not.i123 = icmp eq i64 %.4160, 0
   br i1 %.not.i123, label %291, label %275

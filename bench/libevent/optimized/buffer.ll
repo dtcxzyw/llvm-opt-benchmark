@@ -1016,7 +1016,7 @@ define i64 @evbuffer_add_iovec(ptr noundef %0, ptr noundef readonly captures(non
   br i1 %exitcond43.not, label %.loopexit, label %.lr.ph34, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph34, %24, %._crit_edge.thread, %._crit_edge
-  %.1 = phi i64 [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %.02333, %.lr.ph34 ], [ %26, %24 ]
+  %.1 = phi i64 [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %26, %24 ], [ %.02333, %.lr.ph34 ]
   %27 = load ptr, ptr %4, align 8
   %.not29 = icmp eq ptr %27, null
   br i1 %.not29, label %31, label %28
@@ -1199,8 +1199,8 @@ evbuffer_chain_insert.exit.i:                     ; preds = %44, %32
   br label %.thread
 
 .thread:                                          ; preds = %61, %57, %70
-  %.372 = phi i64 [ %74, %70 ], [ %.069, %57 ], [ %68, %61 ]
-  %.3 = phi i32 [ %75, %70 ], [ %.067, %57 ], [ %spec.select, %61 ]
+  %.372 = phi i64 [ %74, %70 ], [ %68, %61 ], [ %.069, %57 ]
+  %.3 = phi i32 [ %75, %70 ], [ %spec.select, %61 ], [ %.067, %57 ]
   %.not86 = icmp ult i64 %.372, %1
   br i1 %.not86, label %76, label %evbuffer_chain_new_membuf.exit.thread
 
@@ -1367,7 +1367,7 @@ evbuffer_chain_insert.exit.i:                     ; preds = %44, %32
   br label %evbuffer_chain_new_membuf.exit.thread
 
 evbuffer_chain_new_membuf.exit.thread:            ; preds = %.thread, %evbuffer_chain_insert.exit.i, %.loopexit.thread.i.i, %.loopexit.i.i, %11, %.loopexit.thread.i, %.loopexit.i, %80, %131, %129, %140, %139, %93
-  %.066 = phi i32 [ 0, %93 ], [ -1, %131 ], [ -1, %129 ], [ 0, %140 ], [ 0, %139 ], [ -1, %80 ], [ -1, %.loopexit.i ], [ -1, %.loopexit.thread.i ], [ 0, %evbuffer_chain_insert.exit.i ], [ -1, %11 ], [ -1, %.loopexit.i.i ], [ -1, %.loopexit.thread.i.i ], [ 0, %.thread ]
+  %.066 = phi i32 [ -1, %.loopexit.thread.i ], [ 0, %139 ], [ 0, %93 ], [ -1, %.loopexit.thread.i.i ], [ -1, %129 ], [ -1, %131 ], [ 0, %140 ], [ -1, %80 ], [ -1, %.loopexit.i ], [ 0, %evbuffer_chain_insert.exit.i ], [ -1, %11 ], [ -1, %.loopexit.i.i ], [ 0, %.thread ]
   ret i32 %.066
 }
 
@@ -1722,7 +1722,7 @@ evbuffer_chain_insert.exit:                       ; preds = %142, %154
   br label %evbuffer_chain_insert_new.exit.thread
 
 evbuffer_chain_insert_new.exit.thread:            ; preds = %.loopexit.thread.i, %.loopexit.i, %.thread._crit_edge, %.loopexit.thread.i.i, %.loopexit.i.i, %27, %13, %9, %157
-  %.0 = phi i32 [ -1, %9 ], [ -1, %13 ], [ 0, %157 ], [ -1, %27 ], [ -1, %.loopexit.i.i ], [ -1, %.loopexit.thread.i.i ], [ -1, %.thread._crit_edge ], [ -1, %.loopexit.i ], [ -1, %.loopexit.thread.i ]
+  %.0 = phi i32 [ -1, %9 ], [ -1, %13 ], [ 0, %157 ], [ -1, %.loopexit.thread.i.i ], [ -1, %27 ], [ -1, %.loopexit.i.i ], [ -1, %.thread._crit_edge ], [ -1, %.loopexit.i ], [ -1, %.loopexit.thread.i ]
   %163 = load ptr, ptr %4, align 8
   %.not99 = icmp eq ptr %163, null
   br i1 %.not99, label %167, label %164
@@ -1890,7 +1890,7 @@ define i32 @evbuffer_reserve_space(ptr noundef %0, i64 noundef %1, ptr noundef w
   br label %evbuffer_read_setup_vecs_.exit
 
 evbuffer_read_setup_vecs_.exit:                   ; preds = %._crit_edge.loopexit.i, %63, %40, %43, %18, %10
-  %.0 = phi i32 [ -1, %10 ], [ -1, %18 ], [ 1, %40 ], [ -1, %43 ], [ 0, %63 ], [ %91, %._crit_edge.loopexit.i ]
+  %.0 = phi i32 [ -1, %10 ], [ -1, %18 ], [ 1, %40 ], [ -1, %43 ], [ %91, %._crit_edge.loopexit.i ], [ 0, %63 ]
   %92 = load ptr, ptr %5, align 8
   %.not31 = icmp eq ptr %92, null
   br i1 %.not31, label %96, label %93
@@ -2152,7 +2152,7 @@ evbuffer_chain_insert.exit.i:                     ; preds = %118, %105
   br label %evbuffer_chain_insert_new.exit
 
 evbuffer_chain_insert_new.exit:                   ; preds = %evbuffer_chain_insert.exit.i, %.loopexit.thread.i.i, %.loopexit.i.i, %.thread, %57, %41, %24, %67, %84
-  %.1 = phi ptr [ %.pr106, %41 ], [ %.pr106, %24 ], [ %69, %84 ], [ null, %67 ], [ %52, %57 ], [ %95, %evbuffer_chain_insert.exit.i ], [ null, %.thread ], [ null, %.loopexit.i.i ], [ null, %.loopexit.thread.i.i ]
+  %.1 = phi ptr [ %52, %57 ], [ %.pr106, %24 ], [ %.pr106, %41 ], [ null, %67 ], [ %69, %84 ], [ %95, %evbuffer_chain_insert.exit.i ], [ null, %.thread ], [ null, %.loopexit.i.i ], [ null, %.loopexit.thread.i.i ]
   ret ptr %.1
 }
 
@@ -2519,7 +2519,7 @@ define range(i32 -1, 1) i32 @evbuffer_commit_space(ptr noundef %0, ptr noundef r
   br label %.loopexit95
 
 .loopexit95:                                      ; preds = %66, %88, %.lr.ph, %13, %46, %39, %9, %.loopexit
-  %.068 = phi i32 [ -1, %9 ], [ -1, %39 ], [ 0, %.loopexit ], [ -1, %46 ], [ %2, %13 ], [ -1, %.lr.ph ], [ -1, %88 ], [ -1, %66 ]
+  %.068 = phi i32 [ -1, %9 ], [ -1, %46 ], [ -1, %39 ], [ 0, %.loopexit ], [ %2, %13 ], [ -1, %.lr.ph ], [ -1, %88 ], [ -1, %66 ]
   %109 = load ptr, ptr %4, align 8
   %.not89 = icmp eq ptr %109, null
   br i1 %.not89, label %113, label %110
@@ -2757,7 +2757,7 @@ RESTORE_PINNED.exit:                              ; preds = %77, %78
   br label %88
 
 88:                                               ; preds = %37, %29, %33, %22, %RESTORE_PINNED.exit
-  %.0 = phi i32 [ 0, %22 ], [ 0, %RESTORE_PINNED.exit ], [ -1, %33 ], [ -1, %29 ], [ -1, %37 ]
+  %.0 = phi i32 [ 0, %22 ], [ 0, %RESTORE_PINNED.exit ], [ -1, %29 ], [ -1, %33 ], [ -1, %37 ]
   %89 = load ptr, ptr %5, align 8
   %90 = load ptr, ptr %7, align 8
   %91 = icmp ne ptr %90, null
@@ -2891,7 +2891,7 @@ HAS_PINNED_R.exit.thread:                         ; preds = %3, %HAS_PINNED_R.ex
   br label %.critedge
 
 .critedge:                                        ; preds = %.loopexit.thread.i, %.loopexit.i, %19, %48, %31, %HAS_PINNED_R.exit.thread
-  %.0 = phi i32 [ 0, %HAS_PINNED_R.exit.thread ], [ 0, %31 ], [ 0, %48 ], [ -1, %19 ], [ -1, %.loopexit.i ], [ -1, %.loopexit.thread.i ]
+  %.0 = phi i32 [ 0, %HAS_PINNED_R.exit.thread ], [ 0, %48 ], [ 0, %31 ], [ -1, %19 ], [ -1, %.loopexit.i ], [ -1, %.loopexit.thread.i ]
   ret i32 %.0
 }
 
@@ -3344,7 +3344,7 @@ RESTORE_PINNED.exit:                              ; preds = %73, %74
   br label %84
 
 84:                                               ; preds = %36, %28, %32, %22, %RESTORE_PINNED.exit
-  %.0 = phi i32 [ 0, %RESTORE_PINNED.exit ], [ 0, %22 ], [ -1, %32 ], [ -1, %28 ], [ -1, %36 ]
+  %.0 = phi i32 [ 0, %22 ], [ 0, %RESTORE_PINNED.exit ], [ -1, %28 ], [ -1, %32 ], [ -1, %36 ]
   %85 = load ptr, ptr %5, align 8
   %86 = load ptr, ptr %7, align 8
   %87 = icmp ne ptr %86, null
@@ -3599,7 +3599,7 @@ define i32 @evbuffer_remove(ptr noundef %0, ptr noundef writeonly captures(none)
   br label %.critedge65.i
 
 .critedge65.i:                                    ; preds = %26, %.critedge.i, %15, %.thread
-  %.047.i = phi i64 [ 0, %.thread ], [ -1, %15 ], [ %spec.select64.i, %.critedge.i ], [ %spec.select64.i, %26 ]
+  %.047.i = phi i64 [ -1, %15 ], [ 0, %.thread ], [ %spec.select64.i, %.critedge.i ], [ %spec.select64.i, %26 ]
   %29 = load ptr, ptr %4, align 8
   %.not63.i = icmp eq ptr %29, null
   br i1 %.not63.i, label %evbuffer_copyout_from.exit, label %30
@@ -3719,7 +3719,7 @@ define i64 @evbuffer_copyout_from(ptr noundef readonly captures(none) %0, ptr no
   br label %.critedge65
 
 .critedge65:                                      ; preds = %42, %.critedge, %29, %11, %27
-  %.047 = phi i64 [ 0, %27 ], [ -1, %11 ], [ -1, %29 ], [ %.0, %.critedge ], [ %.0, %42 ]
+  %.047 = phi i64 [ -1, %29 ], [ 0, %27 ], [ -1, %11 ], [ %.0, %.critedge ], [ %.0, %42 ]
   %45 = load ptr, ptr %5, align 8
   %.not63 = icmp eq ptr %45, null
   br i1 %.not63, label %49, label %46
@@ -3786,7 +3786,7 @@ define i64 @evbuffer_copyout(ptr noundef readonly captures(none) %0, ptr noundef
   br label %.critedge65.i
 
 .critedge65.i:                                    ; preds = %24, %.critedge.i, %13, %9
-  %.047.i = phi i64 [ 0, %9 ], [ -1, %13 ], [ %spec.select64.i, %.critedge.i ], [ %spec.select64.i, %24 ]
+  %.047.i = phi i64 [ -1, %13 ], [ 0, %9 ], [ %spec.select64.i, %.critedge.i ], [ %spec.select64.i, %24 ]
   %27 = load ptr, ptr %4, align 8
   %.not63.i = icmp eq ptr %27, null
   br i1 %.not63.i, label %evbuffer_copyout_from.exit, label %28
@@ -4037,7 +4037,7 @@ advance_last_with_data.exit:                      ; preds = %79, %evbuffer_free_
   br label %109
 
 109:                                              ; preds = %25, %29, %21, %107, %40
-  %.0103 = phi i32 [ %42, %40 ], [ %108, %107 ], [ 0, %21 ], [ -1, %29 ], [ -1, %25 ]
+  %.0103 = phi i32 [ %108, %107 ], [ 0, %21 ], [ %42, %40 ], [ -1, %29 ], [ -1, %25 ]
   %110 = load ptr, ptr %4, align 8
   %111 = load ptr, ptr %6, align 8
   %112 = icmp ne ptr %111, null
@@ -4334,7 +4334,7 @@ define ptr @evbuffer_pullup(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %51, %14, %16, %120, %72, %23
-  %.0114 = phi ptr [ null, %14 ], [ null, %16 ], [ %28, %23 ], [ %125, %120 ], [ null, %72 ], [ null, %51 ], [ null, %.lr.ph ]
+  %.0114 = phi ptr [ null, %14 ], [ null, %16 ], [ %28, %23 ], [ null, %51 ], [ %125, %120 ], [ null, %72 ], [ null, %.lr.ph ]
   %126 = load ptr, ptr %3, align 8
   %.not148 = icmp eq ptr %126, null
   br i1 %.not148, label %130, label %127
@@ -4901,8 +4901,8 @@ evbuffer_strchr.exit62:                           ; preds = %168
   %187 = icmp slt i64 %186, 0
   br i1 %187, label %evbuffer_find_eol_char.exit.thread, label %evbuffer_strspn.exit
 
-evbuffer_strspn.exit:                             ; preds = %._crit_edge.i, %74, %evbuffer_getchr.exit, %139, %evbuffer_ptr_subtract.exit, %110, %evbuffer_strchr.exit62, %evbuffer_strchr.exit51, %82
-  %.0 = phi i64 [ 2, %82 ], [ 1, %evbuffer_strchr.exit51 ], [ 1, %evbuffer_strchr.exit62 ], [ 1, %evbuffer_getchr.exit ], [ 2, %139 ], [ 1, %evbuffer_ptr_subtract.exit ], [ 1, %110 ], [ %.14212.i, %74 ], [ %.142.lcssa.i, %._crit_edge.i ]
+evbuffer_strspn.exit:                             ; preds = %._crit_edge.i, %74, %evbuffer_getchr.exit, %139, %110, %evbuffer_ptr_subtract.exit, %evbuffer_strchr.exit62, %evbuffer_strchr.exit51, %82
+  %.0 = phi i64 [ 1, %evbuffer_strchr.exit62 ], [ 1, %evbuffer_strchr.exit51 ], [ 2, %139 ], [ 2, %82 ], [ 1, %evbuffer_getchr.exit ], [ 1, %110 ], [ %.14212.i, %74 ], [ 1, %evbuffer_ptr_subtract.exit ], [ %.142.lcssa.i, %._crit_edge.i ]
   br label %evbuffer_find_eol_char.exit.thread
 
 evbuffer_find_eol_char.exit.thread.loopexit:      ; preds = %54
@@ -4922,8 +4922,8 @@ evbuffer_find_eol_char.exit.thread.loopexit116:   ; preds = %180
   br label %evbuffer_find_eol_char.exit.thread
 
 evbuffer_find_eol_char.exit.thread:               ; preds = %evbuffer_find_eol_char.exit.thread.loopexit116, %evbuffer_find_eol_char.exit.thread.loopexit115, %evbuffer_find_eol_char.exit.thread.loopexit114, %evbuffer_find_eol_char.exit.thread.loopexit, %164, %140, %85, %26, %evbuffer_strchr.exit, %25, %evbuffer_strchr.exit62, %evbuffer_strchr.exit51, %82, %evbuffer_find_eol_char.exit, %evbuffer_strspn.exit
-  %.not30 = phi i1 [ true, %25 ], [ true, %evbuffer_find_eol_char.exit ], [ false, %evbuffer_strspn.exit ], [ true, %82 ], [ true, %evbuffer_strchr.exit51 ], [ true, %evbuffer_strchr.exit62 ], [ true, %evbuffer_strchr.exit ], [ true, %26 ], [ true, %85 ], [ true, %140 ], [ true, %164 ], [ true, %evbuffer_find_eol_char.exit.thread.loopexit ], [ true, %evbuffer_find_eol_char.exit.thread.loopexit114 ], [ true, %evbuffer_find_eol_char.exit.thread.loopexit115 ], [ true, %evbuffer_find_eol_char.exit.thread.loopexit116 ]
-  %.3 = phi i64 [ 0, %25 ], [ 0, %evbuffer_find_eol_char.exit ], [ %.0, %evbuffer_strspn.exit ], [ 0, %82 ], [ 0, %evbuffer_strchr.exit51 ], [ 0, %evbuffer_strchr.exit62 ], [ 0, %evbuffer_strchr.exit ], [ 0, %26 ], [ 0, %85 ], [ 0, %140 ], [ 0, %164 ], [ 0, %evbuffer_find_eol_char.exit.thread.loopexit ], [ 0, %evbuffer_find_eol_char.exit.thread.loopexit114 ], [ 0, %evbuffer_find_eol_char.exit.thread.loopexit115 ], [ 0, %evbuffer_find_eol_char.exit.thread.loopexit116 ]
+  %.not30 = phi i1 [ true, %25 ], [ true, %evbuffer_find_eol_char.exit ], [ false, %evbuffer_strspn.exit ], [ true, %82 ], [ true, %evbuffer_find_eol_char.exit.thread.loopexit114 ], [ true, %evbuffer_strchr.exit51 ], [ true, %evbuffer_strchr.exit62 ], [ true, %evbuffer_find_eol_char.exit.thread.loopexit115 ], [ true, %evbuffer_strchr.exit ], [ true, %evbuffer_find_eol_char.exit.thread.loopexit ], [ true, %26 ], [ true, %85 ], [ true, %140 ], [ true, %164 ], [ true, %evbuffer_find_eol_char.exit.thread.loopexit116 ]
+  %.3 = phi i64 [ 0, %25 ], [ 0, %evbuffer_find_eol_char.exit ], [ %.0, %evbuffer_strspn.exit ], [ 0, %82 ], [ 0, %evbuffer_find_eol_char.exit.thread.loopexit114 ], [ 0, %evbuffer_strchr.exit51 ], [ 0, %evbuffer_strchr.exit62 ], [ 0, %evbuffer_find_eol_char.exit.thread.loopexit115 ], [ 0, %evbuffer_strchr.exit ], [ 0, %evbuffer_find_eol_char.exit.thread.loopexit ], [ 0, %26 ], [ 0, %85 ], [ 0, %140 ], [ 0, %164 ], [ 0, %evbuffer_find_eol_char.exit.thread.loopexit116 ]
   %188 = load ptr, ptr %14, align 8
   %.not29 = icmp eq ptr %188, null
   br i1 %.not29, label %192, label %189
@@ -5256,7 +5256,7 @@ evbuffer_chain_insert_new.exit:                   ; preds = %44, %57
   br label %evbuffer_chain_insert_new.exit.thread
 
 evbuffer_chain_insert_new.exit.thread:            ; preds = %.loopexit.thread.i, %.loopexit.i, %107, %.loopexit.thread.i.i, %.loopexit.i.i, %23, %9, %15, %11, %138
-  %.0 = phi i32 [ -1, %11 ], [ -1, %15 ], [ 0, %138 ], [ 0, %9 ], [ -1, %23 ], [ -1, %.loopexit.i.i ], [ -1, %.loopexit.thread.i.i ], [ -1, %107 ], [ -1, %.loopexit.i ], [ -1, %.loopexit.thread.i ]
+  %.0 = phi i32 [ 0, %9 ], [ -1, %11 ], [ -1, %15 ], [ 0, %138 ], [ -1, %.loopexit.thread.i.i ], [ -1, %23 ], [ -1, %.loopexit.i.i ], [ -1, %107 ], [ -1, %.loopexit.i ], [ -1, %.loopexit.thread.i ]
   %144 = load ptr, ptr %4, align 8
   %.not85 = icmp eq ptr %144, null
   br i1 %.not85, label %148, label %145
@@ -5700,7 +5700,7 @@ evbuffer_write_iovec.exit:                        ; preds = %.thread, %.critedge
   br label %71
 
 71:                                               ; preds = %evbuffer_write_sendfile.exit, %evbuffer_write_iovec.exit
-  %.022 = phi i32 [ %.0.i, %evbuffer_write_sendfile.exit ], [ %.033.i, %evbuffer_write_iovec.exit ]
+  %.022 = phi i32 [ %.033.i, %evbuffer_write_iovec.exit ], [ %.0.i, %evbuffer_write_sendfile.exit ]
   %72 = icmp sgt i32 %.022, 0
   br i1 %72, label %73, label %.thread31
 
@@ -5760,7 +5760,7 @@ define ptr @evbuffer_find(ptr noundef %0, ptr noundef readonly captures(none) %1
   br label %16
 
 16:                                               ; preds = %12, %10
-  %.0 = phi ptr [ null, %10 ], [ %spec.select, %12 ]
+  %.0 = phi ptr [ %spec.select, %12 ], [ null, %10 ]
   %17 = load ptr, ptr %5, align 8
   %.not17 = icmp eq ptr %17, null
   br i1 %.not17, label %21, label %18
@@ -5820,8 +5820,8 @@ define range(i32 -1, 1) i32 @evbuffer_ptr_set(ptr noundef readonly captures(none
   br label %26
 
 26:                                               ; preds = %11, %20
-  %.042 = phi i64 [ 0, %11 ], [ %25, %20 ]
-  %.039 = phi ptr [ %12, %11 ], [ %22, %20 ]
+  %.042 = phi i64 [ %25, %20 ], [ 0, %11 ]
+  %.039 = phi ptr [ %22, %20 ], [ %12, %11 ]
   %.not5058 = icmp eq ptr %.039, null
   br i1 %.not5058, label %.critedge54, label %.lr.ph
 
@@ -6019,7 +6019,7 @@ evbuffer_ptr_memcmp.exit:                         ; preds = %55, %67
   %75 = icmp sgt i64 %52, %74
   br i1 %75, label %.thread, label %.thread55
 
-.loopexit:                                        ; preds = %.lr.ph.i, %51, %44
+.loopexit:                                        ; preds = %.lr.ph.i, %44, %51
   %76 = add nsw i64 %48, 1
   store i64 %76, ptr %0, align 8
   %77 = add i64 %49, 1
@@ -6550,7 +6550,7 @@ evbuffer_chain_insert.exit:                       ; preds = %34, %46
   br label %evbuffer_chain_new.exit.thread
 
 evbuffer_chain_new.exit.thread:                   ; preds = %6, %55, %57
-  %.028 = phi i32 [ %.0, %57 ], [ %.0, %55 ], [ -1, %6 ]
+  %.028 = phi i32 [ %.0, %55 ], [ %.0, %57 ], [ -1, %6 ]
   ret i32 %.028
 }
 
@@ -6734,7 +6734,7 @@ define internal fastcc range(i32 -1, 1) i32 @evbuffer_file_segment_materialize(p
   br label %.thread92
 
 .thread92:                                        ; preds = %33, %44, %19, %.thread87, %.thread82, %1, %12
-  %.0 = phi i32 [ 0, %12 ], [ 0, %1 ], [ 0, %.thread87 ], [ 0, %.thread82 ], [ -1, %19 ], [ -1, %44 ], [ -1, %33 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %12 ], [ 0, %.thread82 ], [ 0, %.thread87 ], [ -1, %19 ], [ -1, %44 ], [ -1, %33 ]
   ret i32 %.0
 }
 
@@ -7198,7 +7198,7 @@ define range(i32 -1, 1) i32 @evbuffer_add_file(ptr noundef %0, i32 noundef %1, i
   br label %evbuffer_file_segment_new.exit.thread
 
 evbuffer_file_segment_new.exit.thread:            ; preds = %4, %28, %29, %33
-  %.0 = phi i32 [ 0, %33 ], [ -1, %29 ], [ -1, %28 ], [ -1, %4 ]
+  %.0 = phi i32 [ -1, %29 ], [ 0, %33 ], [ -1, %28 ], [ -1, %4 ]
   ret i32 %.0
 }
 
@@ -7658,7 +7658,7 @@ define hidden range(i32 -1, 2) i32 @evbuffer_get_callbacks_(ptr noundef %0, ptr 
   br label %17
 
 17:                                               ; preds = %13, %9, %15
-  %.0 = phi i32 [ 1, %15 ], [ 0, %9 ], [ -1, %13 ]
+  %.0 = phi i32 [ 0, %9 ], [ 1, %15 ], [ -1, %13 ]
   %18 = load ptr, ptr %4, align 8
   %.not11 = icmp eq ptr %18, null
   br i1 %.not11, label %22, label %19

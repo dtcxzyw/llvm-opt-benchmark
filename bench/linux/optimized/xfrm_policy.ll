@@ -541,7 +541,7 @@ define dso_local zeroext i1 @xfrm_selector_match(ptr noundef readonly captures(n
   br label %210
 
 210:                                              ; preds = %.sink.split, %198, %189, %162, %135, %128, %107, %100, %86, %77, %50, %19, %4, %3
-  %211 = phi i1 [ false, %3 ], [ false, %77 ], [ false, %50 ], [ false, %19 ], [ false, %4 ], [ false, %86 ], [ false, %189 ], [ false, %162 ], [ false, %198 ], [ false, %100 ], [ false, %107 ], [ false, %128 ], [ false, %135 ], [ %209, %.sink.split ]
+  %211 = phi i1 [ false, %3 ], [ false, %77 ], [ false, %50 ], [ false, %19 ], [ false, %4 ], [ false, %86 ], [ false, %128 ], [ false, %189 ], [ false, %162 ], [ false, %198 ], [ false, %135 ], [ false, %100 ], [ false, %107 ], [ %209, %.sink.split ]
   ret i1 %211
 }
 
@@ -1938,8 +1938,8 @@ define dso_local i32 @xfrm_policy_insert(i32 noundef %0, ptr noundef %1, i32 nou
   br i1 %145, label %.thread, label %136, !llvm.loop !27
 
 .thread:                                          ; preds = %118, %.preheader, %101
-  %.pre-phi26 = phi i32 [ %.pre25, %101 ], [ %123, %.preheader ], [ %123, %118 ]
-  %146 = phi i32 [ %103, %101 ], [ %121, %.preheader ], [ %121, %118 ]
+  %.pre-phi26 = phi i32 [ %123, %.preheader ], [ %.pre25, %101 ], [ %123, %118 ]
+  %146 = phi i32 [ %121, %.preheader ], [ %103, %101 ], [ %121, %118 ]
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store i32 %146, ptr %147, align 8
   %148 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2382,8 +2382,8 @@ define internal fastcc ptr @xfrm_policy_insert_list(ptr noundef nonnull %0, ptr 
   br i1 %118, label %.split7.us, label %.split, !llvm.loop !29
 
 .split7.us:                                       ; preds = %98, %108, %110, %49
-  %.us-phi = phi ptr [ %spec.select, %49 ], [ %112, %110 ], [ %61, %108 ], [ %61, %98 ]
-  %.us-phi8 = phi ptr [ null, %49 ], [ %111, %110 ], [ %62, %108 ], [ %60, %98 ]
+  %.us-phi = phi ptr [ %spec.select, %49 ], [ %61, %108 ], [ %61, %98 ], [ %112, %110 ]
+  %.us-phi8 = phi ptr [ null, %49 ], [ %62, %108 ], [ %60, %98 ], [ %111, %110 ]
   %119 = icmp eq ptr %.us-phi, null
   br i1 %119, label %.threadthread-pre-split, label %120
 
@@ -2569,7 +2569,7 @@ define internal fastcc ptr @xfrm_policy_inexact_insert(ptr noundef %0, i8 nounde
   br i1 %92, label %93, label %31, !llvm.loop !38
 
 93:                                               ; preds = %84, %82, %70
-  %94 = phi ptr [ %85, %84 ], [ %34, %82 ], [ %34, %70 ]
+  %94 = phi ptr [ %34, %70 ], [ %85, %84 ], [ %34, %82 ]
   %95 = icmp eq ptr %94, null
   br i1 %95, label %.thread, label %96
 
@@ -3141,7 +3141,7 @@ define dso_local ptr @xfrm_policy_bysel_ctx(ptr noundef %0, ptr noundef readonly
   br label %.thread
 
 .thread:                                          ; preds = %96, %59, %53, %111, %105
-  %112 = phi ptr [ %65, %111 ], [ %55, %105 ], [ %55, %53 ], [ %55, %59 ], [ %55, %96 ]
+  %112 = phi ptr [ %55, %105 ], [ %65, %111 ], [ %55, %53 ], [ %55, %59 ], [ %55, %96 ]
   %113 = add nuw nsw i64 %54, 1
   %114 = icmp eq i64 %113, 4
   br i1 %114, label %115, label %53, !llvm.loop !41
@@ -3354,7 +3354,7 @@ define dso_local ptr @xfrm_policy_bysel_ctx(ptr noundef %0, ptr noundef readonly
   br label %234
 
 234:                                              ; preds = %.thread23, %231, %228
-  %235 = phi ptr [ %223, %231 ], [ %223, %228 ], [ null, %.thread23 ]
+  %235 = phi ptr [ null, %.thread23 ], [ %223, %231 ], [ %223, %228 ]
   ret ptr %235
 }
 
@@ -4261,7 +4261,7 @@ define dso_local noundef i32 @xfrm_sk_policy_insert(ptr noundef %0, i32 noundef 
   br i1 %65, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.loopexit16, %.preheader, %12
-  %66 = phi i32 [ %25, %12 ], [ %37, %.preheader ], [ %55, %.loopexit16 ]
+  %66 = phi i32 [ %37, %.preheader ], [ %25, %12 ], [ %55, %.loopexit16 ]
   %67 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 %66, ptr %67, align 8
   %68 = load ptr, ptr %2, align 8
@@ -5340,7 +5340,7 @@ define dso_local ptr @xfrm_lookup_with_ifid(ptr noundef %0, ptr noundef %1, ptr 
   br label %.thread97
 
 .thread97:                                        ; preds = %376, %378, %421, %393, %367
-  %395 = phi ptr [ %370, %393 ], [ %370, %367 ], [ %1, %421 ], [ %370, %378 ], [ %370, %376 ]
+  %395 = phi ptr [ %370, %367 ], [ %1, %421 ], [ %370, %393 ], [ %370, %378 ], [ %370, %376 ]
   %396 = icmp eq ptr %395, null
   br i1 %396, label %462, label %397
 
@@ -5465,7 +5465,7 @@ define dso_local ptr @xfrm_lookup_with_ifid(ptr noundef %0, ptr noundef %1, ptr 
   br label %462
 
 462:                                              ; preds = %.thread101, %405, %401, %397, %.thread97
-  %463 = phi ptr [ %461, %.thread101 ], [ %395, %405 ], [ %395, %401 ], [ %395, %397 ], [ null, %.thread97 ]
+  %463 = phi ptr [ %461, %.thread101 ], [ null, %.thread97 ], [ %395, %405 ], [ %395, %401 ], [ %395, %397 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %463
 }
@@ -5592,8 +5592,8 @@ define internal fastcc ptr @xfrm_resolve_and_create_bundle(ptr noundef readonly 
   br label %.thread
 
 .thread:                                          ; preds = %22, %19, %.thread58
-  %23 = phi ptr [ null, %22 ], [ %13, %.thread58 ], [ %20, %19 ]
-  %24 = phi ptr [ null, %22 ], [ %14, %.thread58 ], [ %13, %19 ]
+  %23 = phi ptr [ %13, %.thread58 ], [ null, %22 ], [ %20, %19 ]
+  %24 = phi ptr [ %14, %.thread58 ], [ null, %22 ], [ %13, %19 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %9, i8 0, i64 16, i1 false), !annotation !18
   %25 = icmp eq i8 %17, 0
@@ -6146,8 +6146,8 @@ select.unfold:                                    ; preds = %.thread61, %56, %.t
   br label %313
 
 313:                                              ; preds = %300, %302, %312, %310, %305
-  %314 = phi ptr [ %162, %305 ], [ %162, %310 ], [ %162, %312 ], [ %295, %302 ], [ %295, %300 ]
-  %315 = phi i32 [ %156, %305 ], [ %156, %310 ], [ %156, %312 ], [ %255, %302 ], [ %255, %300 ]
+  %314 = phi ptr [ %162, %312 ], [ %162, %305 ], [ %162, %310 ], [ %295, %302 ], [ %295, %300 ]
+  %315 = phi i32 [ %156, %312 ], [ %156, %305 ], [ %156, %310 ], [ %255, %302 ], [ %255, %300 ]
   %316 = getelementptr inbounds nuw i8, ptr %190, i64 %209
   %317 = load ptr, ptr %189, align 8
   %318 = getelementptr inbounds nuw i8, ptr %174, i64 32
@@ -6487,7 +6487,7 @@ select.unfold:                                    ; preds = %.thread61, %56, %.t
 
 .thread90:                                        ; preds = %.preheader94, %480, %.thread92, %479, %354, %.thread81
   %522 = phi ptr [ %188, %354 ], [ %.ph84, %.thread81 ], [ %188, %479 ], [ %.ph84, %.thread92 ], [ %188, %480 ], [ %188, %.preheader94 ]
-  %523 = phi i32 [ -19, %354 ], [ %.ph85, %.thread81 ], [ -22, %479 ], [ %.ph85, %.thread92 ], [ -22, %.preheader94 ], [ %483, %480 ]
+  %523 = phi i32 [ -19, %354 ], [ %.ph85, %.thread81 ], [ -22, %479 ], [ %.ph85, %.thread92 ], [ %483, %480 ], [ -22, %.preheader94 ]
   %524 = icmp eq ptr %522, null
   br i1 %524, label %526, label %525
 
@@ -7480,7 +7480,7 @@ define dso_local range(i32 0, 2) i32 @__xfrm_policy_check(ptr noundef %0, i32 no
   br label %.critedge
 
 .critedge:                                        ; preds = %61, %118, %384, %386, %121, %.thread43, %105, %401, %150, %140, %137, %126, %96, %91, %84, %22
-  %403 = phi i32 [ 0, %22 ], [ 0, %84 ], [ 0, %91 ], [ %104, %96 ], [ 0, %126 ], [ 0, %137 ], [ 0, %140 ], [ 0, %150 ], [ 0, %401 ], [ 1, %105 ], [ 1, %.thread43 ], [ 0, %121 ], [ 0, %386 ], [ 0, %384 ], [ 1, %118 ], [ 0, %61 ]
+  %403 = phi i32 [ 1, %.thread43 ], [ 0, %22 ], [ 0, %84 ], [ 0, %91 ], [ %104, %96 ], [ 0, %384 ], [ 0, %126 ], [ 0, %137 ], [ 0, %140 ], [ 0, %150 ], [ 0, %121 ], [ 0, %401 ], [ 1, %118 ], [ 1, %105 ], [ 0, %386 ], [ 0, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %403
 }
@@ -7774,8 +7774,8 @@ define internal fastcc ptr @xfrm_policy_lookup(ptr noundef %0, ptr noundef reado
   %179 = or i1 %176, %178
   br i1 %179, label %.thread39, label %136, !llvm.loop !75
 
-180:                                              ; preds = %167, %172
-  %.ph = phi ptr [ %118, %167 ], [ %137, %172 ]
+180:                                              ; preds = %172, %167
+  %.ph = phi ptr [ %137, %172 ], [ %118, %167 ]
   %181 = icmp ugt ptr %.ph, inttoptr (i64 -4096 to ptr)
   br i1 %181, label %.thread40, label %.thread39
 
@@ -7845,7 +7845,7 @@ define internal fastcc ptr @xfrm_policy_lookup(ptr noundef %0, ptr noundef reado
   br label %27, !llvm.loop !77
 
 214:                                              ; preds = %212, %193, %.thread40
-  %215 = phi ptr [ %190, %212 ], [ null, %193 ], [ %187, %.thread40 ]
+  %215 = phi ptr [ %187, %.thread40 ], [ %190, %212 ], [ null, %193 ]
   call void @__rcu_read_unlock() #22
   br label %.thread28
 
@@ -8059,7 +8059,7 @@ __xfrm_decode_session.exit.thread:                ; preds = %2
   br label %118
 
 118:                                              ; preds = %.thread3, %__xfrm_decode_session.exit.thread, %.thread5, %90
-  %119 = phi i32 [ %107, %.thread5 ], [ 0, %90 ], [ 0, %__xfrm_decode_session.exit.thread ], [ 0, %.thread3 ]
+  %119 = phi i32 [ %107, %.thread5 ], [ 0, %__xfrm_decode_session.exit.thread ], [ 0, %90 ], [ 0, %.thread3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %119
 }
@@ -8606,7 +8606,7 @@ define internal noundef ptr @xfrm_dst_check(ptr noundef %0, i32 %1) #1 align 16 
   br i1 %207, label %.sink.split, label %.preheader, !llvm.loop !86
 
 .sink.split:                                      ; preds = %135, %69, %59, %.preheader10, %.preheader, %35, %41, %46, %176, %178
-  %.ph = phi ptr [ %0, %178 ], [ %0, %176 ], [ %0, %46 ], [ null, %41 ], [ null, %35 ], [ %0, %.preheader ], [ null, %.preheader10 ], [ null, %59 ], [ null, %69 ], [ null, %135 ]
+  %.ph = phi ptr [ %0, %46 ], [ null, %35 ], [ %0, %178 ], [ %0, %176 ], [ null, %41 ], [ %0, %.preheader ], [ null, %.preheader10 ], [ null, %59 ], [ null, %69 ], [ null, %135 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %208
 
@@ -8808,8 +8808,8 @@ define internal ptr @xfrm_neigh_lookup(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %45, label %.thread, label %.preheader
 
 .thread:                                          ; preds = %41, %7, %.thread2, %14
-  %46 = phi ptr [ %16, %14 ], [ %13, %.thread2 ], [ %0, %7 ], [ %16, %41 ]
-  %47 = phi ptr [ %2, %14 ], [ %2, %.thread2 ], [ %2, %7 ], [ %42, %41 ]
+  %46 = phi ptr [ %16, %14 ], [ %0, %7 ], [ %13, %.thread2 ], [ %16, %41 ]
+  %47 = phi ptr [ %2, %14 ], [ %2, %7 ], [ %2, %.thread2 ], [ %42, %41 ]
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 104
@@ -9827,9 +9827,9 @@ define internal fastcc ptr @xfrm_policy_inexact_alloc_chain(ptr noundef nonnull 
   br label %.thread9
 
 .thread9:                                         ; preds = %33, %.thread3
-  %39 = phi i1 [ %36, %33 ], [ %28, %.thread3 ]
-  %40 = phi ptr [ %37, %33 ], [ %29, %.thread3 ]
-  %41 = phi i8 [ %38, %33 ], [ %30, %.thread3 ]
+  %39 = phi i1 [ %28, %.thread3 ], [ %36, %33 ]
+  %40 = phi ptr [ %29, %.thread3 ], [ %37, %33 ]
+  %41 = phi i8 [ %30, %.thread3 ], [ %38, %33 ]
   %42 = icmp eq i16 %9, 2
   %43 = icmp ult i8 %41, 16
   %44 = and i1 %42, %43
@@ -10472,7 +10472,7 @@ define internal fastcc ptr @rhashtable_lookup(ptr noundef %0, ptr noundef readon
   br i1 %110, label %.loopexit, label %.split11, !prof !7
 
 .loopexit:                                        ; preds = %.split9, %.preheader, %.split9.us.us, %49
-  %111 = phi ptr [ %50, %49 ], [ null, %.split9.us.us ], [ %94, %.preheader ], [ null, %.split9 ]
+  %111 = phi ptr [ %50, %49 ], [ %94, %.preheader ], [ null, %.split9.us.us ], [ null, %.split9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %112 = icmp eq ptr %111, null
   %113 = load i16, ptr getelementptr inbounds nuw (i8, ptr @xfrm_policy_inexact_table, i64 22), align 2
@@ -10748,7 +10748,7 @@ define internal fastcc ptr @xfrm_policy_inexact_insert_node(ptr noundef readonly
   br i1 %73, label %.thread120, label %.thread39
 
 79:                                               ; preds = %69, %54, %42, %29, %23
-  %.shrunk = phi i1 [ false, %29 ], [ false, %23 ], [ false, %54 ], [ %43, %42 ], [ %70, %69 ]
+  %.shrunk = phi i1 [ false, %29 ], [ %43, %42 ], [ false, %23 ], [ false, %54 ], [ %70, %69 ]
   %80 = icmp ugt i8 %28, %4
   %81 = select i1 %.shrunk, i1 true, i1 %80
   br i1 %81, label %85, label %82
@@ -10768,7 +10768,7 @@ define internal fastcc ptr @xfrm_policy_inexact_insert_node(ptr noundef readonly
   br i1 %80, label %87, label %.thread39
 
 87:                                               ; preds = %.thread.thread, %85
-  %88 = phi ptr [ %86, %85 ], [ %72, %.thread.thread ]
+  %88 = phi ptr [ %72, %.thread.thread ], [ %86, %85 ]
   switch i16 %3, label %.thread37 [
     i16 2, label %89
     i16 10, label %.thread120
@@ -10822,8 +10822,8 @@ define internal fastcc ptr @xfrm_policy_inexact_insert_node(ptr noundef readonly
   br label %119
 
 119:                                              ; preds = %116, %102, %98
-  %120 = phi ptr [ %101, %102 ], [ %88, %98 ], [ %101, %116 ]
-  %121 = phi i32 [ %103, %102 ], [ %100, %98 ], [ %118, %116 ]
+  %120 = phi ptr [ %88, %98 ], [ %101, %102 ], [ %101, %116 ]
+  %121 = phi i32 [ %100, %98 ], [ %103, %102 ], [ %118, %116 ]
   %122 = icmp eq i32 %121, 0
   br i1 %122, label %.thread37, label %.thread39, !llvm.loop !133
 
@@ -10882,8 +10882,8 @@ define internal fastcc ptr @xfrm_policy_inexact_insert_node(ptr noundef readonly
   %146 = getelementptr inbounds nuw i8, ptr %.ph145, i64 24
   br label %.preheader62
 
-.thread44:                                        ; preds = %196, %158, %181, %.thread45
-  %.sink = phi i64 [ 8, %.thread45 ], [ 16, %181 ], [ 16, %158 ], [ 16, %196 ]
+.thread44:                                        ; preds = %196, %181, %158, %.thread45
+  %.sink = phi i64 [ 8, %.thread45 ], [ 16, %158 ], [ 16, %181 ], [ 16, %196 ]
   %147 = getelementptr inbounds nuw i8, ptr %150, i64 %.sink
   %148 = load ptr, ptr %147, align 8
   %149 = icmp eq ptr %148, null
@@ -11073,10 +11073,10 @@ define internal fastcc ptr @xfrm_policy_inexact_insert_node(ptr noundef readonly
   tail call void @kvfree_call_rcu(ptr noundef nonnull %26, ptr noundef nonnull %24) #22
   br label %.thread39
 
-.thread39:                                        ; preds = %107, %90, %75, %.thread.thread, %119, %85, %.loopexit65, %124, %77
-  %.ph54 = phi ptr [ %24, %77 ], [ null, %124 ], [ null, %.loopexit65 ], [ %24, %85 ], [ %24, %119 ], [ %24, %.thread.thread ], [ %24, %75 ], [ %24, %90 ], [ %24, %107 ]
-  %.ph55 = phi ptr [ %78, %77 ], [ %1, %124 ], [ %1, %.loopexit65 ], [ %86, %85 ], [ %120, %119 ], [ %72, %.thread.thread ], [ %76, %75 ], [ %88, %90 ], [ %101, %107 ]
-  %.ph56 = phi ptr [ %25, %77 ], [ %24, %124 ], [ %25, %.loopexit65 ], [ %25, %85 ], [ %25, %119 ], [ %25, %.thread.thread ], [ %25, %75 ], [ %25, %90 ], [ %25, %107 ]
+.thread39:                                        ; preds = %90, %107, %75, %.thread.thread, %119, %85, %.loopexit65, %124, %77
+  %.ph54 = phi ptr [ %24, %75 ], [ %24, %77 ], [ null, %124 ], [ null, %.loopexit65 ], [ %24, %85 ], [ %24, %119 ], [ %24, %.thread.thread ], [ %24, %107 ], [ %24, %90 ]
+  %.ph55 = phi ptr [ %76, %75 ], [ %78, %77 ], [ %1, %124 ], [ %1, %.loopexit65 ], [ %86, %85 ], [ %120, %119 ], [ %72, %.thread.thread ], [ %101, %107 ], [ %88, %90 ]
+  %.ph56 = phi ptr [ %25, %75 ], [ %25, %77 ], [ %24, %124 ], [ %25, %.loopexit65 ], [ %25, %85 ], [ %25, %119 ], [ %25, %.thread.thread ], [ %25, %107 ], [ %25, %90 ]
   %253 = load ptr, ptr %.ph55, align 8
   %254 = icmp eq ptr %253, null
   br i1 %254, label %255, label %23, !llvm.loop !133
@@ -11378,8 +11378,8 @@ define internal fastcc void @xfrm_policy_inexact_list_reinsert(ptr noundef reado
   br label %.thread18
 
 .thread18:                                        ; preds = %81, %134, %125, %114, %112
-  %146 = phi i1 [ %113, %114 ], [ %113, %112 ], [ %128, %125 ], [ %135, %134 ], [ false, %81 ]
-  %147 = phi i1 [ false, %114 ], [ false, %112 ], [ false, %125 ], [ %145, %134 ], [ false, %81 ]
+  %146 = phi i1 [ %113, %114 ], [ %135, %134 ], [ %113, %112 ], [ %128, %125 ], [ false, %81 ]
+  %147 = phi i1 [ false, %114 ], [ %145, %134 ], [ false, %112 ], [ false, %125 ], [ false, %81 ]
   %148 = or i1 %146, %147
   br i1 %148, label %.thread19, label %164
 
@@ -11571,7 +11571,7 @@ define internal fastcc ptr @xfrm_policy_lookup_inexact_addr(ptr noundef %0, ptr 
   br i1 %33, label %.thread10.us.us, label %.thread16, !llvm.loop !159
 
 .thread10.us.us:                                  ; preds = %32, %20
-  %34 = phi i64 [ 8, %32 ], [ 16, %20 ]
+  %34 = phi i64 [ 16, %20 ], [ 8, %32 ]
   %35 = getelementptr inbounds nuw i8, ptr %16, i64 %34
   %36 = load volatile ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
@@ -11650,7 +11650,7 @@ define internal fastcc ptr @xfrm_policy_lookup_inexact_addr(ptr noundef %0, ptr 
   br i1 %80, label %.thread10.us23.us, label %.thread16, !llvm.loop !159
 
 .thread10.us23.us:                                ; preds = %79, %66, %62
-  %81 = phi i64 [ 8, %79 ], [ 16, %66 ], [ %spec.select.us.us, %62 ]
+  %81 = phi i64 [ %spec.select.us.us, %62 ], [ 8, %79 ], [ 16, %66 ]
   %82 = getelementptr inbounds nuw i8, ptr %49, i64 %81
   %83 = load volatile ptr, ptr %82, align 8
   %84 = icmp eq ptr %83, null
@@ -11683,7 +11683,7 @@ define internal fastcc ptr @xfrm_policy_lookup_inexact_addr(ptr noundef %0, ptr 
   br i1 %96, label %.thread16, label %.split
 
 .thread16:                                        ; preds = %._crit_edge.split.split.us.us, %79, %64, %._crit_edge.split.us.us, %.lr.ph.us, %32, %94, %.loopexit
-  %97 = phi ptr [ null, %94 ], [ %92, %.loopexit ], [ %16, %32 ], [ %16, %.lr.ph.us ], [ null, %._crit_edge.split.us.us ], [ %49, %64 ], [ %49, %79 ], [ null, %._crit_edge.split.split.us.us ]
+  %97 = phi ptr [ null, %94 ], [ %49, %79 ], [ null, %._crit_edge.split.us.us ], [ %16, %.lr.ph.us ], [ %92, %.loopexit ], [ %16, %32 ], [ %49, %64 ], [ null, %._crit_edge.split.split.us.us ]
   ret ptr %97
 }
 

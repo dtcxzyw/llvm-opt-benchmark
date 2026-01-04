@@ -436,10 +436,10 @@ write_yskip.exit91.i:                             ; preds = %180, %150
   br label %.thread164.i
 
 206:                                              ; preds = %write_yskip.exit84.i, %106, %103
-  %207 = phi i32 [ %97, %103 ], [ %.pre, %write_yskip.exit84.i ], [ %97, %106 ]
-  %.472.i = phi i32 [ %.169119.i, %103 ], [ 0, %write_yskip.exit84.i ], [ %.169119.i, %106 ]
-  %.165.i = phi i32 [ %.064121.i, %103 ], [ -1, %write_yskip.exit84.i ], [ -1, %106 ]
-  %.3.i = phi i32 [ %.063122.i, %103 ], [ 1, %write_yskip.exit84.i ], [ %.063122.i, %106 ]
+  %207 = phi i32 [ %.pre, %write_yskip.exit84.i ], [ %97, %103 ], [ %97, %106 ]
+  %.472.i = phi i32 [ 0, %write_yskip.exit84.i ], [ %.169119.i, %103 ], [ %.169119.i, %106 ]
+  %.165.i = phi i32 [ -1, %write_yskip.exit84.i ], [ %.064121.i, %103 ], [ -1, %106 ]
+  %.3.i = phi i32 [ 1, %write_yskip.exit84.i ], [ %.063122.i, %103 ], [ %.063122.i, %106 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %208 = sext i32 %207 to i64
   %209 = icmp slt i64 %indvars.iv.next.i, %208
@@ -595,7 +595,7 @@ encode.exit.thread:                               ; preds = %encode.exit.thread.
   br label %291
 
 encode.exit.thread41:                             ; preds = %._crit_edge133.i, %78
-  %.ph40 = phi ptr [ %48, %._crit_edge133.i ], [ %81, %78 ]
+  %.ph40 = phi ptr [ %81, %78 ], [ %48, %._crit_edge133.i ]
   store i16 256, ptr %.ph40, align 1, !tbaa !38
   %274 = load ptr, ptr %5, align 8, !tbaa !33
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 2
@@ -648,7 +648,7 @@ encode.exit:                                      ; preds = %.thread
   br label %.critedge
 
 .critedge:                                        ; preds = %21, %4, %295
-  %.0 = phi i32 [ %302, %295 ], [ %17, %4 ], [ -12, %21 ]
+  %.0 = phi i32 [ %302, %295 ], [ -12, %21 ], [ %17, %4 ]
   ret i32 %.0
 }
 
@@ -855,8 +855,8 @@ write_absolute.exit.sink.split:                   ; preds = %31, %36, %60, %._cr
   br label %write_absolute.exit
 
 write_absolute.exit:                              ; preds = %write_absolute.exit.sink.split, %._crit_edge.i42, %49, %47, %61, %11
-  %.136 = phi i32 [ %12, %11 ], [ 1, %61 ], [ 3, %47 ], [ 3, %49 ], [ 1, %._crit_edge.i42 ], [ %.136.ph, %write_absolute.exit.sink.split ]
-  %.1 = phi i32 [ %.0338, %11 ], [ %.0338, %61 ], [ %.0338, %47 ], [ %.0338, %49 ], [ %65, %._crit_edge.i42 ], [ %.1.ph, %write_absolute.exit.sink.split ]
+  %.136 = phi i32 [ 1, %61 ], [ %12, %11 ], [ 1, %._crit_edge.i42 ], [ 3, %47 ], [ 3, %49 ], [ %.136.ph, %write_absolute.exit.sink.split ]
+  %.1 = phi i32 [ %.0338, %61 ], [ %.0338, %11 ], [ %65, %._crit_edge.i42 ], [ %.0338, %47 ], [ %.0338, %49 ], [ %.1.ph, %write_absolute.exit.sink.split ]
   %80 = load i8, ptr %7, align 1, !tbaa !38
   %81 = zext i8 %80 to i32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

@@ -698,8 +698,8 @@ define dso_local i32 @ext4_htree_fill_tree(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %172, label %.thread23, label %.preheader, !llvm.loop !22
 
 .thread23:                                        ; preds = %.preheader25, %166, %148, %.thread21
-  %.ph = phi i32 [ %131, %.thread21 ], [ %149, %148 ], [ %149, %166 ], [ -1, %.preheader25 ]
-  %.ph22 = phi i32 [ 1, %.thread21 ], [ 1, %148 ], [ 1, %166 ], [ 0, %.preheader25 ]
+  %.ph = phi i32 [ %131, %.thread21 ], [ %149, %166 ], [ %149, %148 ], [ -1, %.preheader25 ]
+  %.ph22 = phi i32 [ 1, %.thread21 ], [ 1, %166 ], [ 1, %148 ], [ 0, %.preheader25 ]
   store i32 %.ph, ptr %3, align 4
   br label %177
 
@@ -784,7 +784,7 @@ define dso_local i32 @ext4_htree_fill_tree(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %219, label %.loopexit, label %212, !llvm.loop !25
 
 .loopexit:                                        ; preds = %200, %195, %217, %212, %.loopexit27, %186, %57, %51, %49
-  %220 = phi i32 [ %59, %57 ], [ %52, %51 ], [ %46, %49 ], [ %122, %186 ], [ %204, %.loopexit27 ], [ %204, %212 ], [ %204, %217 ], [ %122, %195 ], [ %122, %200 ]
+  %220 = phi i32 [ %59, %57 ], [ %52, %51 ], [ %46, %49 ], [ %122, %186 ], [ %204, %.loopexit27 ], [ %204, %217 ], [ %204, %212 ], [ %122, %195 ], [ %122, %200 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1429,8 +1429,8 @@ define internal fastcc ptr @dx_probe(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %254
 
 254:                                              ; preds = %250, %240, %228, %189
-  %255 = phi ptr [ %184, %189 ], [ %184, %228 ], [ %237, %240 ], [ %237, %250 ]
-  %256 = phi ptr [ %80, %189 ], [ %80, %228 ], [ %238, %240 ], [ %80, %250 ]
+  %255 = phi ptr [ %237, %240 ], [ %237, %250 ], [ %184, %189 ], [ %184, %228 ]
+  %256 = phi ptr [ %238, %240 ], [ %80, %250 ], [ %80, %189 ], [ %80, %228 ]
   %257 = icmp ult ptr %255, %3
   br i1 %257, label %.loopexit, label %.preheader.preheader
 
@@ -1783,7 +1783,7 @@ define dso_local noundef range(i32 -117, 1) i32 @ext4_find_dest_de(ptr noundef %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.split, %83, %101, %65, %50, %.split.us, %.thread, %.split8.us, %13
-  %106 = phi i32 [ 0, %.split8.us ], [ -28, %13 ], [ -28, %.thread ], [ -117, %.split.us ], [ -17, %50 ], [ -28, %65 ], [ -117, %.split ], [ -17, %83 ], [ -28, %101 ]
+  %106 = phi i32 [ 0, %.split8.us ], [ -28, %13 ], [ -28, %.thread ], [ -117, %.split.us ], [ -17, %50 ], [ -28, %65 ], [ -17, %83 ], [ -28, %101 ], [ -117, %.split ]
   ret i32 %106
 }
 
@@ -2856,7 +2856,7 @@ define internal fastcc ptr @__ext4_read_dirblock(ptr noundef %0, i32 noundef %1,
   br label %.thread11
 
 .thread11:                                        ; preds = %67, %110, %108, %104, %100, %99, %84, %.thread13, %78, %66, %30, %29, %19, %14
-  %111 = phi ptr [ inttoptr (i64 -117 to ptr), %14 ], [ %17, %19 ], [ inttoptr (i64 -117 to ptr), %30 ], [ %17, %84 ], [ %17, %.thread13 ], [ %17, %100 ], [ null, %29 ], [ inttoptr (i64 -117 to ptr), %66 ], [ inttoptr (i64 -74 to ptr), %99 ], [ %17, %104 ], [ %17, %108 ], [ inttoptr (i64 -74 to ptr), %110 ], [ %17, %78 ], [ %17, %67 ]
+  %111 = phi ptr [ inttoptr (i64 -117 to ptr), %14 ], [ %17, %19 ], [ inttoptr (i64 -117 to ptr), %30 ], [ %17, %84 ], [ %17, %.thread13 ], [ %17, %100 ], [ null, %29 ], [ %17, %78 ], [ inttoptr (i64 -117 to ptr), %66 ], [ inttoptr (i64 -74 to ptr), %110 ], [ inttoptr (i64 -74 to ptr), %99 ], [ %17, %104 ], [ %17, %108 ], [ %17, %67 ]
   ret ptr %111
 }
 
@@ -3510,8 +3510,8 @@ define internal fastcc i32 @ext4_add_entry(ptr noundef %0, ptr noundef %1, ptr n
   br label %.thread
 
 .thread:                                          ; preds = %3, %.thread244, %30
-  %35 = phi i1 [ true, %30 ], [ %.not, %.thread244 ], [ true, %3 ]
-  %36 = phi i32 [ 0, %30 ], [ %spec.select, %.thread244 ], [ 0, %3 ]
+  %35 = phi i1 [ %.not, %.thread244 ], [ true, %30 ], [ true, %3 ]
+  %36 = phi i32 [ %spec.select, %.thread244 ], [ 0, %30 ], [ 0, %3 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, i8 0, i64 48, i1 false), !annotation !13
   %37 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %38 = load ptr, ptr %37, align 8
@@ -3902,7 +3902,7 @@ define internal fastcc i32 @ext4_add_entry(ptr noundef %0, ptr noundef %1, ptr n
   br label %286
 
 286:                                              ; preds = %279, %.thread62
-  %287 = phi i32 [ %278, %.thread62 ], [ %spec.select91, %279 ]
+  %287 = phi i32 [ %spec.select91, %279 ], [ %278, %.thread62 ]
   %288 = lshr i32 %287, 3
   %289 = trunc i32 %288 to i16
   store i16 %289, ptr %183, align 2
@@ -3964,22 +3964,22 @@ define internal fastcc i32 @ext4_add_entry(ptr noundef %0, ptr noundef %1, ptr n
   br label %.thread71
 
 select.unfold:                                    ; preds = %241, %301, %304
-  %.ph = phi i32 [ 1, %304 ], [ 1, %301 ], [ %169, %241 ]
-  %.ph64 = phi i32 [ %302, %304 ], [ %302, %301 ], [ %243, %241 ]
+  %.ph = phi i32 [ 1, %301 ], [ 1, %304 ], [ %169, %241 ]
+  %.ph64 = phi i32 [ %302, %301 ], [ %302, %304 ], [ %243, %241 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %317 = icmp eq i32 %.ph64, 0
   br i1 %317, label %thread-pre-split, label %.thread71
 
 .thread71:                                        ; preds = %99, %.thread73, %select.unfold
-  %318 = phi i32 [ %.ph64, %select.unfold ], [ %.ph64.ph, %.thread73 ], [ %100, %99 ]
-  %319 = phi i32 [ %.ph, %select.unfold ], [ %169, %.thread73 ], [ 0, %99 ]
+  %318 = phi i32 [ %.ph64.ph, %.thread73 ], [ %.ph64, %select.unfold ], [ %100, %99 ]
+  %319 = phi i32 [ %169, %.thread73 ], [ %.ph, %select.unfold ], [ 0, %99 ]
   %320 = load ptr, ptr %37, align 8
   call void @__ext4_std_error(ptr noundef %320, ptr noundef nonnull @__func__.ext4_dx_add_entry, i32 noundef 2645, i32 noundef %318) #13
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %102, %311, %select.unfold, %.thread71, %.thread70
-  %.ph76 = phi i32 [ %.ph68, %.thread70 ], [ %307, %311 ], [ 0, %102 ], [ %.ph, %select.unfold ], [ %319, %.thread71 ]
-  %.ph77 = phi i32 [ %.ph69, %.thread70 ], [ %313, %311 ], [ %103, %102 ], [ 0, %select.unfold ], [ %318, %.thread71 ]
+  %.ph76 = phi i32 [ %307, %311 ], [ %.ph68, %.thread70 ], [ 0, %102 ], [ %.ph, %select.unfold ], [ %319, %.thread71 ]
+  %.ph77 = phi i32 [ %313, %311 ], [ %.ph69, %.thread70 ], [ %103, %102 ], [ 0, %select.unfold ], [ %318, %.thread71 ]
   %.pr = load ptr, ptr %8, align 8
   br label %321
 
@@ -4186,8 +4186,8 @@ thread-pre-split:                                 ; preds = %102, %311, %select.
   br label %.thread80
 
 .thread80:                                        ; preds = %410, %.thread252, %424
-  %429 = phi i1 [ true, %424 ], [ %.not56, %.thread252 ], [ true, %410 ]
-  %430 = phi i64 [ 0, %424 ], [ %spec.select92, %.thread252 ], [ 0, %410 ]
+  %429 = phi i1 [ %.not56, %.thread252 ], [ true, %424 ], [ true, %410 ]
+  %430 = phi i64 [ %spec.select92, %.thread252 ], [ 0, %424 ], [ 0, %410 ]
   %431 = load ptr, ptr %37, align 8
   %432 = getelementptr inbounds nuw i8, ptr %431, i64 24
   %433 = load i64, ptr %432, align 8
@@ -4622,7 +4622,7 @@ thread-pre-split:                                 ; preds = %102, %311, %select.
   br label %.thread87
 
 .thread87:                                        ; preds = %635, %395, %645, %.loopexit96, %.thread88, %672
-  %677 = phi i32 [ %675, %.thread88 ], [ %673, %672 ], [ %636, %635 ], [ %397, %395 ], [ %647, %645 ], [ %349, %.loopexit96 ]
+  %677 = phi i32 [ %673, %672 ], [ %675, %.thread88 ], [ %349, %.loopexit96 ], [ %636, %635 ], [ %397, %395 ], [ %647, %645 ]
   %678 = icmp eq i32 %677, 0
   br i1 %678, label %.thread87.thread90, label %.thread87.thread
 
@@ -4632,7 +4632,7 @@ thread-pre-split:                                 ; preds = %102, %311, %select.
   br label %.thread87.thread
 
 .thread87.thread:                                 ; preds = %56, %369, %.critedge58, %.thread87.thread90, %.thread87
-  %680 = phi i32 [ 0, %.thread87.thread90 ], [ %677, %.thread87 ], [ %57, %56 ], [ -117, %369 ], [ %371, %.critedge58 ]
+  %680 = phi i32 [ %677, %.thread87 ], [ 0, %.thread87.thread90 ], [ %57, %56 ], [ -117, %369 ], [ %371, %.critedge58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %680
@@ -4765,12 +4765,12 @@ define internal ptr @ext4_lookup(ptr noundef %0, ptr noundef %1, i32 %2) #0 alig
   br label %.thread
 
 65:                                               ; preds = %49, %51, %56, %18
-  %66 = phi ptr [ null, %18 ], [ %46, %56 ], [ %46, %51 ], [ %46, %49 ]
+  %66 = phi ptr [ null, %18 ], [ %46, %49 ], [ %46, %56 ], [ %46, %51 ]
   %67 = call ptr @d_splice_alias(ptr noundef %66, ptr noundef %1) #13
   br label %.thread
 
 .thread:                                          ; preds = %39, %59, %48, %44, %65, %9, %3
-  %68 = phi ptr [ %67, %65 ], [ inttoptr (i64 -36 to ptr), %3 ], [ %16, %9 ], [ inttoptr (i64 -117 to ptr), %39 ], [ inttoptr (i64 -1 to ptr), %59 ], [ inttoptr (i64 -117 to ptr), %48 ], [ inttoptr (i64 -117 to ptr), %44 ]
+  %68 = phi ptr [ %67, %65 ], [ %16, %9 ], [ inttoptr (i64 -36 to ptr), %3 ], [ inttoptr (i64 -117 to ptr), %39 ], [ inttoptr (i64 -1 to ptr), %59 ], [ inttoptr (i64 -117 to ptr), %48 ], [ inttoptr (i64 -117 to ptr), %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %68
 }
@@ -5727,7 +5727,7 @@ define internal i32 @ext4_rmdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br label %.thread9
 
 133:                                              ; preds = %98, %110, %131
-  %.ph8 = phi i32 [ %132, %131 ], [ %120, %110 ], [ %100, %98 ]
+  %.ph8 = phi i32 [ %100, %98 ], [ %132, %131 ], [ %120, %110 ]
   call void @__brelse(ptr noundef nonnull %30) #13
   %134 = icmp eq ptr %74, null
   br i1 %134, label %.thread9, label %135
@@ -7028,7 +7028,7 @@ define internal i32 @ext4_rename2(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %770
 
 770:                                              ; preds = %768, %763, %759, %756, %716, %710, %689, %655, %638, %633, %600, %595, %590, %579, %569
-  %771 = phi i32 [ %603, %600 ], [ %644, %638 ], [ %660, %655 ], [ %694, %689 ], [ %718, %716 ], [ %761, %759 ], [ %714, %710 ], [ %636, %633 ], [ -39, %569 ], [ -31, %595 ], [ 0, %763 ], [ 0, %768 ], [ 0, %756 ], [ -31, %590 ], [ -31, %579 ]
+  %771 = phi i32 [ %603, %600 ], [ -31, %590 ], [ -31, %579 ], [ %644, %638 ], [ %660, %655 ], [ %694, %689 ], [ %718, %716 ], [ %761, %759 ], [ %714, %710 ], [ %636, %633 ], [ -39, %569 ], [ -31, %595 ], [ 0, %763 ], [ 0, %768 ], [ 0, %756 ]
   %772 = icmp eq ptr %525, null
   br i1 %772, label %790, label %773
 
@@ -7318,7 +7318,7 @@ define internal fastcc range(i32 0, 536870912) i32 @dx_node_limit(ptr noundef re
   br label %42
 
 42:                                               ; preds = %35, %.thread
-  %43 = phi i32 [ %34, %.thread ], [ %spec.select, %35 ]
+  %43 = phi i32 [ %spec.select, %35 ], [ %34, %.thread ]
   %44 = lshr i32 %43, 3
   ret i32 %44
 }
@@ -7506,7 +7506,7 @@ thread-pre-split:                                 ; preds = %25, %28
   br i1 %118, label %.loopexit53, label %85, !llvm.loop !32
 
 .loopexit53:                                      ; preds = %109, %69, %106
-  %119 = phi i1 [ true, %106 ], [ false, %69 ], [ %112, %109 ]
+  %119 = phi i1 [ false, %69 ], [ true, %106 ], [ %112, %109 ]
   %120 = icmp eq ptr %67, null
   br i1 %120, label %122, label %121
 
@@ -7622,7 +7622,7 @@ thread-pre-split:                                 ; preds = %25, %28
   br i1 %190, label %62, label %.thread.thread, !llvm.loop !61
 
 .thread.thread:                                   ; preds = %.loopexit52, %.thread, %122, %62, %.preheader51, %.critedge, %186
-  %191 = phi ptr [ %188, %186 ], [ %67, %.critedge ], [ null, %.preheader51 ], [ null, %.loopexit52 ], [ inttoptr (i64 -4094 to ptr), %122 ], [ null, %.thread ], [ %67, %62 ]
+  %191 = phi ptr [ %188, %186 ], [ null, %.preheader51 ], [ %67, %.critedge ], [ null, %.loopexit52 ], [ inttoptr (i64 -4094 to ptr), %122 ], [ null, %.thread ], [ %67, %62 ]
   %192 = load ptr, ptr %5, align 16
   %193 = icmp eq ptr %192, null
   br i1 %193, label %.loopexit49, label %194
@@ -7915,7 +7915,7 @@ thread-pre-split:                                 ; preds = %25, %28
   br label %.loopexit
 
 .loopexit:                                        ; preds = %375, %369, %.critedge4, %.critedge2, %310, %273
-  %382 = phi ptr [ %261, %.critedge2 ], [ inttoptr (i64 -74 to ptr), %310 ], [ inttoptr (i64 -5 to ptr), %273 ], [ %228, %.critedge4 ], [ %228, %369 ], [ %228, %375 ]
+  %382 = phi ptr [ %228, %.critedge4 ], [ %228, %369 ], [ %261, %.critedge2 ], [ inttoptr (i64 -74 to ptr), %310 ], [ inttoptr (i64 -5 to ptr), %273 ], [ %228, %375 ]
   %383 = icmp ult i64 %259, %258
   br i1 %383, label %.preheader, label %.thread47
 
@@ -7936,7 +7936,7 @@ thread-pre-split:                                 ; preds = %25, %28
   br i1 %391, label %.thread47, label %.preheader, !llvm.loop !64
 
 .thread47:                                        ; preds = %389, %210, %.loopexit49, %253, %thread-pre-split, %.loopexit, %4
-  %392 = phi ptr [ null, %4 ], [ %382, %.loopexit ], [ null, %210 ], [ %208, %.loopexit49 ], [ %255, %253 ], [ %26, %thread-pre-split ], [ %382, %389 ]
+  %392 = phi ptr [ null, %4 ], [ %382, %.loopexit ], [ %26, %thread-pre-split ], [ null, %210 ], [ %208, %.loopexit49 ], [ %255, %253 ], [ %382, %389 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %392
 }
@@ -8554,8 +8554,8 @@ define internal fastcc ptr @do_split(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %.thread
 
 .thread:                                          ; preds = %5, %.thread141, %28
-  %33 = phi i1 [ true, %28 ], [ %.not, %.thread141 ], [ true, %5 ]
-  %34 = phi i64 [ 0, %28 ], [ %spec.select, %.thread141 ], [ 0, %5 ]
+  %33 = phi i1 [ %.not, %.thread141 ], [ true, %28 ], [ true, %5 ]
+  %34 = phi i64 [ %spec.select, %.thread141 ], [ 0, %28 ], [ 0, %5 ]
   store i32 0, ptr %7, align 4, !annotation !13
   %35 = call fastcc ptr @ext4_append(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %7)
   %36 = icmp ugt ptr %35, inttoptr (i64 -4096 to ptr)
@@ -9496,7 +9496,7 @@ sub_2:                                            ; preds = %sub_14
   br label %88
 
 .thread:                                          ; preds = %80, %82, %49, %51, %22
-  %86 = phi i32 [ %24, %22 ], [ -117, %51 ], [ -117, %49 ], [ -117, %82 ], [ -117, %80 ]
+  %86 = phi i32 [ %24, %22 ], [ -117, %49 ], [ -117, %51 ], [ -117, %82 ], [ -117, %80 ]
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store ptr null, ptr %87, align 8
   br label %104
@@ -9529,7 +9529,7 @@ sub_2:                                            ; preds = %sub_14
   br label %104
 
 104:                                              ; preds = %.thread, %._crit_edge, %100, %92, %3
-  %105 = phi i32 [ %103, %100 ], [ 0, %3 ], [ -117, %92 ], [ %.pre, %._crit_edge ], [ %86, %.thread ]
+  %105 = phi i32 [ %103, %100 ], [ -117, %92 ], [ 0, %3 ], [ %.pre, %._crit_edge ], [ %86, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %105
 }

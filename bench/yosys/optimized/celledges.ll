@@ -442,7 +442,7 @@ define noundef zeroext i1 @_ZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_
   br label %"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK3$_0clEv.exit"
 
 common.resume:                                    ; preds = %.body, %.body119, %.body164, %.body187, %.body234, %1557, %1566, %1611, %1674, %907, %981, %1034, %487, %560, %613, %666, %719, %188, %218, %272, %325, %1319, %1300, %1054, %835, %.split.us.i, %735, %345, %85
-  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %346, %345 ], [ %736, %735 ], [ %813, %.split.us.i ], [ %836, %835 ], [ %1055, %1054 ], [ %1301, %1300 ], [ %1320, %1319 ], [ %189, %188 ], [ %219, %218 ], [ %273, %272 ], [ %326, %325 ], [ %488, %487 ], [ %667, %666 ], [ %720, %719 ], [ %561, %560 ], [ %614, %613 ], [ %908, %907 ], [ %1035, %1034 ], [ %982, %981 ], [ %.pn91.pn.pn.pn.pn.pn.pn.pn, %1674 ], [ %.pn86.pn.pn.pn, %1611 ], [ %1567, %1566 ], [ %.pn77.pn.pn.pn.pn.pn, %1557 ], [ %.pn72.pn.pn.pn, %.body234 ], [ %.pn67.pn.pn.pn, %.body187 ], [ %853, %.body164 ], [ %.pn62.pn, %.body119 ], [ %.pn, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %982, %981 ], [ %346, %345 ], [ %326, %325 ], [ %736, %735 ], [ %813, %.split.us.i ], [ %836, %835 ], [ %614, %613 ], [ %1055, %1054 ], [ %1301, %1300 ], [ %1320, %1319 ], [ %189, %188 ], [ %219, %218 ], [ %273, %272 ], [ %488, %487 ], [ %667, %666 ], [ %720, %719 ], [ %561, %560 ], [ %908, %907 ], [ %1035, %1034 ], [ %.pn91.pn.pn.pn.pn.pn.pn.pn, %1674 ], [ %.pn86.pn.pn.pn, %1611 ], [ %1567, %1566 ], [ %.pn77.pn.pn.pn.pn.pn, %1557 ], [ %.pn72.pn.pn.pn, %.body234 ], [ %.pn67.pn.pn.pn, %.body187 ], [ %853, %.body164 ], [ %.pn62.pn, %.body119 ], [ %.pn, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 85:                                               ; preds = %73
@@ -4310,7 +4310,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18shift_opEPN5Yosys25AbstractCellEd
   br label %"_ZZN12_GLOBAL__N_18shift_opEPN5Yosys25AbstractCellEdgesDatabaseEPNS0_5RTLIL4CellEENK3$_0clEv.exit"
 
 common.resume:                                    ; preds = %.body, %.body230, %.body256, %409, %462, %.body343, %1017, %1313, %1260, %1207, %.body375, %1070, %.body319, %707, %654, %600, %.body284, %1089, %879, %726, %494, %301, %155, %84
-  %common.resume.op = phi { ptr, i32 } [ %85, %84 ], [ %156, %155 ], [ %302, %301 ], [ %495, %494 ], [ %727, %726 ], [ %880, %879 ], [ %1090, %1089 ], [ %410, %409 ], [ %463, %462 ], [ %319, %.body256 ], [ %.pn166.pn.pn.pn, %.body230 ], [ %102, %.body ], [ %601, %600 ], [ %655, %654 ], [ %708, %707 ], [ %1071, %1070 ], [ %1208, %1207 ], [ %1261, %1260 ], [ %1314, %1313 ], [ %1107, %.body375 ], [ %.pn177.pn.pn.pn, %.body319 ], [ %512, %.body284 ], [ %1018, %1017 ], [ %.pn197, %.body343 ]
+  %common.resume.op = phi { ptr, i32 } [ %85, %84 ], [ %156, %155 ], [ %302, %301 ], [ %495, %494 ], [ %727, %726 ], [ %880, %879 ], [ %1090, %1089 ], [ %410, %409 ], [ %102, %.body ], [ %463, %462 ], [ %319, %.body256 ], [ %.pn166.pn.pn.pn, %.body230 ], [ %601, %600 ], [ %655, %654 ], [ %708, %707 ], [ %512, %.body284 ], [ %1071, %1070 ], [ %1208, %1207 ], [ %1261, %1260 ], [ %1314, %1313 ], [ %1107, %.body375 ], [ %.pn177.pn.pn.pn, %.body319 ], [ %1018, %1017 ], [ %.pn197, %.body343 ]
   resume { ptr, i32 } %common.resume.op
 
 84:                                               ; preds = %72
@@ -4678,7 +4678,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit243:             ; preds = %._ZN5Yosys5RTLIL8Id
   unreachable
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit245:             ; preds = %175, %247, %240, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit243
-  %251 = phi i1 [ %222, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit243 ], [ %222, %240 ], [ %222, %247 ], [ true, %175 ]
+  %251 = phi i1 [ %222, %247 ], [ %222, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit243 ], [ %222, %240 ], [ true, %175 ]
   %252 = load i32, ptr %5, align 4, !tbaa !10
   %253 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !26, !range !28, !noundef !29
   %254 = trunc nuw i8 %253 to i1
@@ -4750,7 +4750,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit249:             ; preds = %_ZN5Yosys5RTLIL8IdS
   br label %356
 
 .body235:                                         ; preds = %.body239, %197
-  %.pn166.pn.pn = phi { ptr, i32 } [ %216, %.body239 ], [ %198, %197 ]
+  %.pn166.pn.pn = phi { ptr, i32 } [ %198, %197 ], [ %216, %.body239 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %5) #23
   br label %.body230
 
@@ -5918,7 +5918,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit332:             ; preds = %._ZN5Yosys5RTLIL8Id
   unreachable
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit334:             ; preds = %746, %818, %811, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit332
-  %822 = phi i1 [ %793, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit332 ], [ %793, %811 ], [ %793, %818 ], [ true, %746 ]
+  %822 = phi i1 [ %793, %818 ], [ %793, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit332 ], [ %793, %811 ], [ true, %746 ]
   %823 = load i32, ptr %20, align 4, !tbaa !10
   %824 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !26, !range !28, !noundef !29
   %825 = trunc nuw i8 %824 to i1
@@ -6327,7 +6327,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit360:             ; preds = %._ZN5Yosys5RTLIL8Id
   unreachable
 
 .body324:                                         ; preds = %.body328, %768
-  %.pn177.pn.pn = phi { ptr, i32 } [ %787, %.body328 ], [ %769, %768 ]
+  %.pn177.pn.pn = phi { ptr, i32 } [ %769, %768 ], [ %787, %.body328 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %20) #23
   br label %.body319
 
@@ -8982,7 +8982,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_16mem_opEPN5Yosys25AbstractCellEdge
   br i1 %28, label %50, label %207
 
 common.resume:                                    ; preds = %.body, %.body39, %.split.us.i26, %348, %416, %435, %224, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit69.i, %29
-  %common.resume.op = phi { ptr, i32 } [ %30, %29 ], [ %.pn49.pn.pn.pn.pn.pn.i, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit69.i ], [ %225, %224 ], [ %436, %435 ], [ %349, %348 ], [ %417, %416 ], [ %330, %.split.us.i26 ], [ %.pn12, %.body39 ], [ %242, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %30, %29 ], [ %.pn49.pn.pn.pn.pn.pn.i, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit69.i ], [ %225, %224 ], [ %330, %.split.us.i26 ], [ %436, %435 ], [ %349, %348 ], [ %417, %416 ], [ %.pn12, %.body39 ], [ %242, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 29:                                               ; preds = %21
@@ -9387,7 +9387,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit59.i:            ; preds = %189, %182, %_ZN5Yos
   br i1 %exitcond92.not.i, label %_ZN12_GLOBAL__N_113packed_mem_opEPN5Yosys25AbstractCellEdgesDatabaseEPNS0_5RTLIL4CellE.exit, label %73, !llvm.loop !199
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit69.i:            ; preds = %203, %196, %194, %139, %.split.us.i, %71, %69, %67
-  %.pn49.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %68, %67 ], [ %70, %69 ], [ %72, %71 ], [ %140, %139 ], [ %195, %194 ], [ %130, %.split.us.i ], [ %130, %196 ], [ %130, %203 ]
+  %.pn49.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %68, %67 ], [ %70, %69 ], [ %72, %71 ], [ %140, %139 ], [ %130, %203 ], [ %195, %194 ], [ %130, %196 ], [ %130, %.split.us.i ]
   call void @_ZN5Yosys5RTLIL5ConstD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
@@ -10243,7 +10243,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_15ff_opEPN5Yosys25AbstractCellEdges
   br label %"_ZZN12_GLOBAL__N_15ff_opEPN5Yosys25AbstractCellEdgesDatabaseEPNS0_5RTLIL4CellEENK3$_0clEv.exit"
 
 common.resume:                                    ; preds = %.body, %279, %332, %385, %438, %491, %226, %224, %38
-  %common.resume.op = phi { ptr, i32 } [ %39, %38 ], [ %280, %279 ], [ %333, %332 ], [ %386, %385 ], [ %439, %438 ], [ %492, %491 ], [ %.pn, %.body ], [ %227, %226 ], [ %225, %224 ]
+  %common.resume.op = phi { ptr, i32 } [ %39, %38 ], [ %.pn, %.body ], [ %280, %279 ], [ %333, %332 ], [ %386, %385 ], [ %439, %438 ], [ %492, %491 ], [ %227, %226 ], [ %225, %224 ]
   resume { ptr, i32 } %common.resume.op
 
 38:                                               ; preds = %26

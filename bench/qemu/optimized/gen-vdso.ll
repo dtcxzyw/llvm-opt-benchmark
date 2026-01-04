@@ -470,9 +470,9 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %207
 
 207:                                              ; preds = %202, %201, %.lr.ph190.i
-  %.0140.i = phi ptr [ @.str.31, %201 ], [ @.str.32, %202 ], [ @.str.30, %.lr.ph190.i ]
-  %.1133.i = phi i32 [ %.0132188.i, %201 ], [ %206, %202 ], [ %.0132188.i, %.lr.ph190.i ]
-  %.1.i = phi i32 [ %.0131189.i, %201 ], [ %204, %202 ], [ %.0131189.i, %.lr.ph190.i ]
+  %.0140.i = phi ptr [ @.str.32, %202 ], [ @.str.31, %201 ], [ @.str.30, %.lr.ph190.i ]
+  %.1133.i = phi i32 [ %206, %202 ], [ %.0132188.i, %201 ], [ %.0132188.i, %.lr.ph190.i ]
+  %.1.i = phi i32 [ %204, %202 ], [ %.0131189.i, %201 ], [ %.0131189.i, %.lr.ph190.i ]
   %208 = getelementptr inbounds nuw i8, ptr %199, i64 8
   %209 = load i32, ptr %208, align 4, !tbaa !36
   %210 = getelementptr inbounds nuw i8, ptr %199, i64 16
@@ -1008,9 +1008,9 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %454
 
 454:                                              ; preds = %447, %446, %443
-  %.0140.i121 = phi ptr [ @.str.31, %446 ], [ @.str.32, %447 ], [ @.str.30, %443 ]
-  %.1133.i122 = phi i32 [ %.0132188.i119, %446 ], [ %453, %447 ], [ %.0132188.i119, %443 ]
-  %.1.i123 = phi i32 [ %.0131189.i118, %446 ], [ %450, %447 ], [ %.0131189.i118, %443 ]
+  %.0140.i121 = phi ptr [ @.str.32, %447 ], [ @.str.31, %446 ], [ @.str.30, %443 ]
+  %.1133.i122 = phi i32 [ %453, %447 ], [ %.0132188.i119, %446 ], [ %.0132188.i119, %443 ]
+  %.1.i123 = phi i32 [ %450, %447 ], [ %.0131189.i118, %446 ], [ %.0131189.i118, %443 ]
   %455 = getelementptr inbounds nuw i8, ptr %444, i64 16
   %456 = load i64, ptr %455, align 8, !tbaa !69
   %457 = getelementptr inbounds nuw i8, ptr %444, i64 32

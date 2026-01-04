@@ -2643,7 +2643,7 @@ default.unreachable:                              ; preds = %75
   unreachable
 
 284:                                              ; preds = %decode_pitch_bend_change.exit, %decode_channel_pressure.exit, %decode_program_change.exit, %decode_control_change.exit, %decode_poly_pressure.exit, %decode_note_on.exit, %decode_note_off.exit
-  %.0143.i = phi i32 [ 2, %decode_note_off.exit ], [ 2, %decode_note_on.exit ], [ 2, %decode_poly_pressure.exit ], [ 2, %decode_control_change.exit ], [ 1, %decode_program_change.exit ], [ 1, %decode_channel_pressure.exit ], [ 2, %decode_pitch_bend_change.exit ]
+  %.0143.i = phi i32 [ 2, %decode_pitch_bend_change.exit ], [ 2, %decode_note_off.exit ], [ 2, %decode_note_on.exit ], [ 2, %decode_poly_pressure.exit ], [ 2, %decode_control_change.exit ], [ 1, %decode_program_change.exit ], [ 1, %decode_channel_pressure.exit ]
   %285 = add nuw nsw i32 %.0143.i, %.0144.i
   br label %860
 
@@ -2685,8 +2685,8 @@ default.unreachable:                              ; preds = %75
   br label %.thread.i185
 
 .thread.i185:                                     ; preds = %292, %.split.i184, %.thread.i185.loopexit487, %.thread.i185.loopexit, %287
-  %.184.i = phi ptr [ %288, %287 ], [ @rtp_midi_common_status_sysex_segment_complete, %.thread.i185.loopexit ], [ @rtp_midi_common_status_sysex_cancel, %.split.i184 ], [ %288, %292 ], [ @rtp_midi_common_status_sysex_segment_start, %.thread.i185.loopexit487 ]
-  %.182.i = phi i32 [ 0, %287 ], [ %291, %.thread.i185.loopexit ], [ %291, %.split.i184 ], [ %291, %292 ], [ %291, %.thread.i185.loopexit487 ]
+  %.184.i = phi ptr [ @rtp_midi_common_status_sysex_cancel, %.split.i184 ], [ @rtp_midi_common_status_sysex_segment_complete, %.thread.i185.loopexit ], [ %288, %287 ], [ %288, %292 ], [ @rtp_midi_common_status_sysex_segment_start, %.thread.i185.loopexit487 ]
+  %.182.i = phi i32 [ %291, %.split.i184 ], [ %291, %.thread.i185.loopexit ], [ 0, %287 ], [ %291, %292 ], [ %291, %.thread.i185.loopexit487 ]
   %293 = add i32 %.182.i, -1
   %294 = add i32 %.0140.i, -1
   %295 = add i32 %.182.i, 1
@@ -3112,12 +3112,12 @@ decode_sysex_common_nrt_sd_packet.exit.i.i:       ; preds = %351, %345
   br label %decode_sysex_common_nrt_mtc.exit.thread.i.i
 
 decode_sysex_common_nrt_mtc.exit.i.i:             ; preds = %523, %521, %424, %396, %decode_sysex_common_nrt_sd_packet.exit.i.i
-  %.0.i.i189 = phi i32 [ %358, %decode_sysex_common_nrt_sd_packet.exit.i.i ], [ %524, %523 ], [ %397, %396 ], [ %425, %424 ], [ %522, %521 ]
+  %.0.i.i189 = phi i32 [ %397, %396 ], [ %425, %424 ], [ %358, %decode_sysex_common_nrt_sd_packet.exit.i.i ], [ %522, %521 ], [ %524, %523 ]
   %560 = icmp slt i32 %.0.i.i189, 0
   br i1 %560, label %decodemidi.exit, label %decode_sysex_common_nrt_mtc.exit.thread.i.i
 
 decode_sysex_common_nrt_mtc.exit.thread.i.i:      ; preds = %decode_sysex_common_nrt_mtc.exit.i.i, %557, %552, %547, %542, %537, %532, %527, %464, %462, %455, %449, %442, %428, %359, %324, %313
-  %.0131.i.i = phi i32 [ %.0.i.i189, %decode_sysex_common_nrt_mtc.exit.i.i ], [ 1, %557 ], [ 1, %552 ], [ 1, %547 ], [ 1, %542 ], [ 1, %537 ], [ 1, %532 ], [ 1, %527 ], [ %456, %455 ], [ %463, %462 ], [ 2, %442 ], [ %.2.i.i.i191, %449 ], [ %468, %464 ], [ 1, %428 ], [ 2, %359 ], [ 16, %324 ], [ 0, %313 ]
+  %.0131.i.i = phi i32 [ %.0.i.i189, %decode_sysex_common_nrt_mtc.exit.i.i ], [ 2, %442 ], [ 1, %557 ], [ 1, %552 ], [ 1, %547 ], [ 1, %542 ], [ 1, %537 ], [ 1, %532 ], [ 1, %527 ], [ %456, %455 ], [ %463, %462 ], [ %.2.i.i.i191, %449 ], [ %468, %464 ], [ 2, %359 ], [ 1, %428 ], [ 16, %324 ], [ 0, %313 ]
   %561 = add nuw i32 %.0131.i.i, 2
   %.not.i.i188 = icmp eq i32 %323, %.0131.i.i
   br i1 %.not.i.i188, label %737, label %562
@@ -3365,12 +3365,12 @@ decode_sysex_common_nrt_mtc.exit.thread.i.i:      ; preds = %decode_sysex_common
   br label %decode_sysex_common_rt_mtc.exit.i.i
 
 decode_sysex_common_rt_mtc.exit.i.i:              ; preds = %704, %698, %679, %.loopexit.i.i.i, %621
-  %.0.i90.i = phi i32 [ %705, %704 ], [ %622, %621 ], [ %667, %.loopexit.i.i.i ], [ %680, %679 ], [ %699, %698 ]
+  %.0.i90.i = phi i32 [ %699, %698 ], [ %705, %704 ], [ %667, %.loopexit.i.i.i ], [ %680, %679 ], [ %622, %621 ]
   %706 = icmp slt i32 %.0.i90.i, 0
   br i1 %706, label %decodemidi.exit, label %decode_sysex_common_rt_mtc.exit.thread.i.i
 
 decode_sysex_common_rt_mtc.exit.thread.sink.split.i.i: ; preds = %702, %700, %623
-  %hf_rtp_midi_sysex_common_rt_mmc_responses.sink.i.i = phi ptr [ @hf_rtp_midi_sysex_common_rt_sc, %623 ], [ @hf_rtp_midi_sysex_common_rt_mmc_commands, %700 ], [ @hf_rtp_midi_sysex_common_rt_mmc_responses, %702 ]
+  %hf_rtp_midi_sysex_common_rt_mmc_responses.sink.i.i = phi ptr [ @hf_rtp_midi_sysex_common_rt_mmc_commands, %700 ], [ @hf_rtp_midi_sysex_common_rt_sc, %623 ], [ @hf_rtp_midi_sysex_common_rt_mmc_responses, %702 ]
   %707 = load i32, ptr %hf_rtp_midi_sysex_common_rt_mmc_responses.sink.i.i, align 4
   %708 = tail call ptr @proto_tree_add_item(ptr noundef %578, i32 noundef %707, ptr noundef %0, i32 noundef %582, i32 noundef 1, i32 noundef 0)
   br label %decode_sysex_common_rt_mtc.exit.thread.i.i
@@ -3419,8 +3419,8 @@ decode_sysex_common_rt_mtc.exit.thread.i.i:       ; preds = %decode_sysex_common
   br label %737
 
 737:                                              ; preds = %732, %722, %715, %710, %decode_sysex_common_rt_mtc.exit.thread.i.i, %702, %700, %681, %668, %625, %623, %583, %567, %562, %decode_sysex_common_nrt_mtc.exit.thread.i.i, %555, %550, %545, %540, %535, %530, %525, %469, %426, %398, %362, %308, %.thread.i185
-  %.079.ph.i = phi i32 [ 2, %583 ], [ 2, %623 ], [ 2, %625 ], [ 2, %668 ], [ 2, %681 ], [ 2, %700 ], [ 2, %702 ], [ %709, %decode_sysex_common_rt_mtc.exit.thread.i.i ], [ %307, %710 ], [ 1, %567 ], [ 2, %362 ], [ 2, %398 ], [ 2, %426 ], [ 2, %469 ], [ 2, %525 ], [ 2, %530 ], [ 2, %535 ], [ 2, %540 ], [ 2, %545 ], [ 2, %550 ], [ 2, %555 ], [ %561, %decode_sysex_common_nrt_mtc.exit.thread.i.i ], [ %307, %562 ], [ 1, %308 ], [ %727, %722 ], [ %307, %715 ], [ %307, %732 ], [ 0, %.thread.i185 ]
-  %.078.ph.i = phi i32 [ %306, %583 ], [ %306, %623 ], [ %306, %625 ], [ %306, %668 ], [ %306, %681 ], [ %306, %700 ], [ %306, %702 ], [ %306, %decode_sysex_common_rt_mtc.exit.thread.i.i ], [ %306, %710 ], [ %306, %567 ], [ %306, %362 ], [ %306, %398 ], [ %306, %426 ], [ %306, %469 ], [ %306, %525 ], [ %306, %530 ], [ %306, %535 ], [ %306, %540 ], [ %306, %545 ], [ %306, %550 ], [ %306, %555 ], [ %306, %decode_sysex_common_nrt_mtc.exit.thread.i.i ], [ %306, %562 ], [ %306, %308 ], [ %726, %722 ], [ %306, %715 ], [ %306, %732 ], [ %.0140.i, %.thread.i185 ]
+  %.079.ph.i = phi i32 [ 2, %583 ], [ 2, %623 ], [ 2, %625 ], [ 2, %668 ], [ 2, %681 ], [ 2, %700 ], [ 2, %702 ], [ %709, %decode_sysex_common_rt_mtc.exit.thread.i.i ], [ %307, %710 ], [ 1, %567 ], [ 2, %362 ], [ 2, %398 ], [ 2, %469 ], [ 2, %525 ], [ 2, %530 ], [ 2, %535 ], [ 2, %540 ], [ 2, %545 ], [ 2, %426 ], [ 2, %555 ], [ %561, %decode_sysex_common_nrt_mtc.exit.thread.i.i ], [ %307, %562 ], [ 1, %308 ], [ %727, %722 ], [ %307, %715 ], [ 2, %550 ], [ %307, %732 ], [ 0, %.thread.i185 ]
+  %.078.ph.i = phi i32 [ %306, %583 ], [ %306, %623 ], [ %306, %625 ], [ %306, %668 ], [ %306, %681 ], [ %306, %700 ], [ %306, %702 ], [ %306, %decode_sysex_common_rt_mtc.exit.thread.i.i ], [ %306, %710 ], [ %306, %567 ], [ %306, %362 ], [ %306, %398 ], [ %306, %469 ], [ %306, %525 ], [ %306, %530 ], [ %306, %535 ], [ %306, %540 ], [ %306, %545 ], [ %306, %426 ], [ %306, %555 ], [ %306, %decode_sysex_common_nrt_mtc.exit.thread.i.i ], [ %306, %562 ], [ %306, %308 ], [ %726, %722 ], [ %306, %715 ], [ %306, %550 ], [ %306, %732 ], [ %.0140.i, %.thread.i185 ]
   %738 = add i32 %.078.ph.i, %.079.ph.i
   %739 = load i32, ptr @hf_rtp_midi_common_status, align 4
   %740 = tail call ptr @proto_tree_add_item(ptr noundef %297, i32 noundef %739, ptr noundef %0, i32 noundef %738, i32 noundef 1, i32 noundef 0)
@@ -3610,8 +3610,8 @@ decode_sysex_common_rt_mtc.exit.thread.i.i:       ; preds = %decode_sysex_common
   br label %.thread.i168
 
 .thread.i168:                                     ; preds = %840, %.split.i, %.thread.i168.loopexit488, %.thread.i168.loopexit, %835
-  %.133.i = phi i32 [ 0, %835 ], [ %839, %.thread.i168.loopexit ], [ %839, %.split.i ], [ %839, %840 ], [ %839, %.thread.i168.loopexit488 ]
-  %.1.i169 = phi ptr [ %836, %835 ], [ @rtp_midi_common_status_sysex_segment_end, %.thread.i168.loopexit ], [ @rtp_midi_common_status_sysex_cancel, %.split.i ], [ %836, %840 ], [ @rtp_midi_common_status_sysex_segment, %.thread.i168.loopexit488 ]
+  %.133.i = phi i32 [ %839, %.split.i ], [ %839, %.thread.i168.loopexit ], [ 0, %835 ], [ %839, %840 ], [ %839, %.thread.i168.loopexit488 ]
+  %.1.i169 = phi ptr [ @rtp_midi_common_status_sysex_cancel, %.split.i ], [ @rtp_midi_common_status_sysex_segment_end, %.thread.i168.loopexit ], [ %836, %835 ], [ %836, %840 ], [ @rtp_midi_common_status_sysex_segment, %.thread.i168.loopexit488 ]
   %841 = add i32 %.0140.i, -1
   %842 = add i32 %.133.i, 1
   %843 = load i32, ptr @ett_rtp_midi_command, align 4
@@ -3636,12 +3636,12 @@ decode_sysex_common_rt_mtc.exit.thread.i.i:       ; preds = %decode_sysex_common
   br label %decodemidi.exit
 
 .thread.i146:                                     ; preds = %834, %833, %758, %757, %775, %759, %286
-  %.1.ph.i = phi i32 [ 1, %775 ], [ 2, %759 ], [ 0, %286 ], [ 1, %757 ], [ 1, %758 ], [ 0, %833 ], [ 0, %834 ]
+  %.1.ph.i = phi i32 [ 1, %758 ], [ 1, %775 ], [ 2, %759 ], [ 0, %286 ], [ 1, %757 ], [ 0, %833 ], [ 0, %834 ]
   %856 = add nuw nsw i32 %.1.ph.i, %.0144.i
   br label %860
 
 decodemidi.exit:                                  ; preds = %decode_sysex_common_nrt_mtc.exit.i.i, %decode_sysex_common_rt_mtc.exit.i.i, %720, %742, %743, %804, %805, %823, %824, %854, %855
-  %.1.i = phi i32 [ %.182.i, %743 ], [ %.182.i, %742 ], [ -1, %decode_sysex_common_rt_mtc.exit.i.i ], [ -1, %decode_sysex_common_nrt_mtc.exit.i.i ], [ -1, %720 ], [ %.us-phi.i178, %804 ], [ %.us-phi.i178, %805 ], [ %.us-phi.i, %823 ], [ %.us-phi.i, %824 ], [ %.133.i, %854 ], [ %.133.i, %855 ]
+  %.1.i = phi i32 [ %.us-phi.i, %824 ], [ %.us-phi.i178, %805 ], [ -1, %720 ], [ %.182.i, %742 ], [ %.182.i, %743 ], [ -1, %decode_sysex_common_rt_mtc.exit.i.i ], [ -1, %decode_sysex_common_nrt_mtc.exit.i.i ], [ %.us-phi.i178, %804 ], [ %.us-phi.i, %823 ], [ %.133.i, %854 ], [ %.133.i, %855 ]
   %.1.fr.i = freeze i32 %.1.i
   %857 = icmp slt i32 %.1.fr.i, 0
   %858 = select i1 %857, i32 0, i32 %.0144.i
@@ -3649,10 +3649,10 @@ decodemidi.exit:                                  ; preds = %decode_sysex_common
   %859 = icmp eq i32 %spec.select.i, -1
   br i1 %859, label %.thread242, label %860
 
-860:                                              ; preds = %decodemidi.exit, %284, %64, %63, %.thread.i146
-  %.0.i227 = phi i32 [ %spec.select.i, %decodemidi.exit ], [ %856, %.thread.i146 ], [ 1, %63 ], [ 1, %64 ], [ %285, %284 ]
-  %.4226 = phi i32 [ %.3212, %decodemidi.exit ], [ %.3212, %.thread.i146 ], [ %.0209282, %63 ], [ %.0209282, %64 ], [ %.3212, %284 ]
-  %.3216225 = phi i8 [ %.2215, %decodemidi.exit ], [ %.2215, %.thread.i146 ], [ %.0213281, %63 ], [ %.0213281, %64 ], [ %.2215, %284 ]
+860:                                              ; preds = %decodemidi.exit, %63, %64, %284, %.thread.i146
+  %.0.i227 = phi i32 [ %spec.select.i, %decodemidi.exit ], [ %856, %.thread.i146 ], [ %285, %284 ], [ 1, %64 ], [ 1, %63 ]
+  %.4226 = phi i32 [ %.3212, %decodemidi.exit ], [ %.3212, %.thread.i146 ], [ %.3212, %284 ], [ %.0209282, %64 ], [ %.0209282, %63 ]
+  %.3216225 = phi i8 [ %.2215, %decodemidi.exit ], [ %.2215, %.thread.i146 ], [ %.2215, %284 ], [ %.0213281, %64 ], [ %.0213281, %63 ]
   %861 = add i32 %.0.i227, %.3121221
   %862 = sub i32 %.2130220, %.0.i227
   %863 = add i32 %.0132283, 1
@@ -4356,7 +4356,7 @@ switch.lookup:                                    ; preds = %1244
   br label %decode_sj_chapter_x.exit.i
 
 decode_sj_chapter_x.exit.i:                       ; preds = %.thread.i150, %1271, %._crit_edge.thread.i.i, %1267, %._crit_edge.i.i
-  %.1127.i.i = phi i32 [ %1199, %1271 ], [ %.2.i89.i, %._crit_edge.thread.i.i ], [ %1199, %1267 ], [ %1199, %._crit_edge.i.i ], [ %1199, %.thread.i150 ]
+  %.1127.i.i = phi i32 [ %.2.i89.i, %._crit_edge.thread.i.i ], [ %1199, %1271 ], [ %1199, %1267 ], [ %1199, %._crit_edge.i.i ], [ %1199, %.thread.i150 ]
   %1275 = icmp slt i32 %.1127.i.i, 0
   br i1 %1275, label %decode_system_journal.exit, label %1276
 
@@ -5023,7 +5023,7 @@ decode_cj_chapter_a.exit.i:                       ; preds = %1670
   br i1 %.not181.i, label %decode_channel_journal.exit.thread, label %.thread242
 
 decode_channel_journal.exit:                      ; preds = %decode_cj_chapter_c.exit.i, %decode_cj_chapter_m.exit.i, %decode_cj_chapter_n.exit.i, %decode_cj_chapter_e.exit.i, %decode_cj_chapter_a.exit.i
-  %.0156.i = phi i32 [ %1380, %decode_cj_chapter_c.exit.i ], [ %1510, %decode_cj_chapter_m.exit.i ], [ %1595, %decode_cj_chapter_n.exit.i ], [ %1641, %decode_cj_chapter_e.exit.i ], [ %1691, %decode_cj_chapter_a.exit.i ]
+  %.0156.i = phi i32 [ %1691, %decode_cj_chapter_a.exit.i ], [ %1380, %decode_cj_chapter_c.exit.i ], [ %1510, %decode_cj_chapter_m.exit.i ], [ %1595, %decode_cj_chapter_n.exit.i ], [ %1641, %decode_cj_chapter_e.exit.i ]
   %1696 = icmp eq i32 %.0156.i, -1
   br i1 %1696, label %.thread242, label %decode_channel_journal.exit.thread
 
@@ -5039,7 +5039,7 @@ decode_channel_journal.exit.thread:               ; preds = %1695, %decode_chann
   br label %.thread242
 
 .thread242:                                       ; preds = %decodemidi.exit, %67, %.preheader.split.i.i, %decode_channel_journal.exit, %1543, %1695, %.preheader.i.i, %1278, %decode_system_journal.exit, %.thread238
-  %.2 = phi i32 [ %1699, %.thread238 ], [ %884, %decode_system_journal.exit ], [ %884, %1278 ], [ %884, %.preheader.i.i ], [ %.7287, %1695 ], [ %.7287, %1543 ], [ %.7287, %decode_channel_journal.exit ], [ %884, %.preheader.split.i.i ], [ %.3121221, %67 ], [ %.3121221, %decodemidi.exit ]
+  %.2 = phi i32 [ %1699, %.thread238 ], [ %884, %.preheader.i.i ], [ %884, %.preheader.split.i.i ], [ %.7287, %decode_channel_journal.exit ], [ %884, %decode_system_journal.exit ], [ %884, %1278 ], [ %.7287, %1695 ], [ %.7287, %1543 ], [ %.3121221, %67 ], [ %.3121221, %decodemidi.exit ]
   ret i32 %.2
 }
 

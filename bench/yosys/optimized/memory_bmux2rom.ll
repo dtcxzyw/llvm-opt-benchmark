@@ -326,7 +326,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   br label %common.resume
 
 common.resume:                                    ; preds = %121, %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit130, %36, %39
-  %common.resume.op = phi { ptr, i32 } [ %37, %39 ], [ %37, %36 ], [ %.pn70.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit130 ], [ %122, %121 ]
+  %common.resume.op = phi { ptr, i32 } [ %37, %36 ], [ %37, %39 ], [ %.pn70.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit130 ], [ %122, %121 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_.exit: ; preds = %30
@@ -1564,7 +1564,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
   br label %.body142
 
 .body142:                                         ; preds = %493, %371, %515, %492, %487, %482
-  %.pn70.pn.pn = phi { ptr, i32 } [ %.pn70.pn, %515 ], [ %.pn62, %492 ], [ %.pn60, %487 ], [ %.pn58, %482 ], [ %494, %493 ], [ %.pn.pn.i.i, %371 ]
+  %.pn70.pn.pn = phi { ptr, i32 } [ %.pn70.pn, %515 ], [ %.pn58, %482 ], [ %.pn62, %492 ], [ %.pn60, %487 ], [ %494, %493 ], [ %.pn.pn.i.i, %371 ]
   call void @_ZN5Yosys7MemInitD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %13) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %516
@@ -1585,7 +1585,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126: ; preds = %_Z
   br label %.body92
 
 .body92:                                          ; preds = %.loopexit162, %.loopexit.split-lp, %238, %.body140, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i, %272, %517
-  %.pn70.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn70.pn.pn.pn.pn.pn.pn.pn.pn, %517 ], [ %232, %238 ], [ %232, %.body140 ], [ %lpad.phi167, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i ], [ %lpad.phi167, %272 ], [ %lpad.loopexit, %.loopexit162 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn70.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn70.pn.pn.pn.pn.pn.pn.pn.pn, %517 ], [ %lpad.phi167, %272 ], [ %232, %.body140 ], [ %232, %238 ], [ %lpad.phi167, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i ], [ %lpad.loopexit, %.loopexit162 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.body
 

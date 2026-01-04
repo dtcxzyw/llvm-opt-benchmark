@@ -780,7 +780,7 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br i1 %cmp35.not, label %success, label %while.cond.backedge
 
 success:                                          ; preds = %if.end.i.i, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %do.body, %if.then30
-  %ptr.addr.2 = phi ptr [ %retval.0.i38, %if.then30 ], [ null, %do.body ], [ %ptr.addr.0, %if.end.i.i ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  %ptr.addr.2 = phi ptr [ %retval.0.i38, %if.then30 ], [ null, %do.body ], [ %ptr.addr.0, %if.end.i.i ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   ret ptr %ptr.addr.2
 }
 
@@ -1947,13 +1947,13 @@ delete.notnull.i53:                               ; preds = %land.lhs.true.i49
   br i1 %cmp.i.i.i.i54, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.epilog.sink.split.sink.split:                  ; preds = %delete.notnull.i53, %delete.notnull.i33, %delete.notnull.i13, %delete.notnull.i
-  %.sink = phi ptr [ %6, %delete.notnull.i ], [ %13, %delete.notnull.i13 ], [ %20, %delete.notnull.i33 ], [ %27, %delete.notnull.i53 ]
-  %.sink68.ph = phi ptr [ %5, %delete.notnull.i ], [ %12, %delete.notnull.i13 ], [ %19, %delete.notnull.i33 ], [ %26, %delete.notnull.i53 ]
+  %.sink = phi ptr [ %20, %delete.notnull.i33 ], [ %13, %delete.notnull.i13 ], [ %6, %delete.notnull.i ], [ %27, %delete.notnull.i53 ]
+  %.sink68.ph = phi ptr [ %19, %delete.notnull.i33 ], [ %12, %delete.notnull.i13 ], [ %5, %delete.notnull.i ], [ %26, %delete.notnull.i53 ]
   tail call void @_ZdlPv(ptr noundef %.sink) #23
   br label %sw.epilog.sink.split
 
 sw.epilog.sink.split:                             ; preds = %sw.epilog.sink.split.sink.split, %delete.notnull.i53, %delete.notnull.i33, %delete.notnull.i13, %delete.notnull.i
-  %.sink68 = phi ptr [ %5, %delete.notnull.i ], [ %12, %delete.notnull.i13 ], [ %19, %delete.notnull.i33 ], [ %26, %delete.notnull.i53 ], [ %.sink68.ph, %sw.epilog.sink.split.sink.split ]
+  %.sink68 = phi ptr [ %12, %delete.notnull.i13 ], [ %5, %delete.notnull.i ], [ %19, %delete.notnull.i33 ], [ %26, %delete.notnull.i53 ], [ %.sink68.ph, %sw.epilog.sink.split.sink.split ]
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink68) #21
   tail call void @_ZdlPv(ptr noundef nonnull %.sink68) #23
   br label %sw.epilog
@@ -2692,7 +2692,7 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br i1 %cmp186.not, label %success, label %while.cond.backedge
 
 success:                                          ; preds = %if.end8.i, %if.end4.i, %if.end.i79, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i, %if.end.i.i, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %_ZN11conformance18ConformanceRequest34_internal_mutable_protobuf_payloadB5cxx11Ev.exit, %_ZN11conformance18ConformanceRequest30_internal_mutable_json_payloadB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN11conformance18ConformanceRequest30_internal_mutable_message_typeB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit67, %_ZN11conformance18ConformanceRequest30_internal_mutable_jspb_payloadB5cxx11Ev.exit, %_ZN11conformance18ConformanceRequest30_internal_mutable_text_payloadB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit141, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %if.then181
-  %ptr.addr.1 = phi ptr [ %retval.0.i180, %if.then181 ], [ null, %if.end8.i ], [ null, %if.end4.i ], [ null, %if.end.i79 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ], [ %ptr.addr.0, %if.end.i.i ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN11conformance18ConformanceRequest34_internal_mutable_protobuf_payloadB5cxx11Ev.exit ], [ null, %_ZN11conformance18ConformanceRequest30_internal_mutable_json_payloadB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN11conformance18ConformanceRequest30_internal_mutable_message_typeB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit67 ], [ null, %_ZN11conformance18ConformanceRequest30_internal_mutable_jspb_payloadB5cxx11Ev.exit ], [ null, %_ZN11conformance18ConformanceRequest30_internal_mutable_text_payloadB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit141 ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  %ptr.addr.1 = phi ptr [ %retval.0.i180, %if.then181 ], [ null, %if.end8.i ], [ null, %if.end4.i ], [ null, %if.end.i79 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ], [ null, %_ZN11conformance18ConformanceRequest34_internal_mutable_protobuf_payloadB5cxx11Ev.exit ], [ null, %_ZN11conformance18ConformanceRequest30_internal_mutable_json_payloadB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN11conformance18ConformanceRequest30_internal_mutable_message_typeB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit67 ], [ null, %_ZN11conformance18ConformanceRequest30_internal_mutable_jspb_payloadB5cxx11Ev.exit ], [ null, %_ZN11conformance18ConformanceRequest30_internal_mutable_text_payloadB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit141 ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %ptr.addr.0, %if.end.i.i ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   ret ptr %ptr.addr.1
 }
 
@@ -4928,13 +4928,13 @@ delete.notnull.i153:                              ; preds = %land.lhs.true.i149
   br i1 %cmp.i.i.i.i154, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.epilog.sink.split.sink.split:                  ; preds = %delete.notnull.i153, %delete.notnull.i133, %delete.notnull.i113, %delete.notnull.i93, %delete.notnull.i73, %delete.notnull.i53, %delete.notnull.i33, %delete.notnull.i13, %delete.notnull.i
-  %.sink = phi ptr [ %6, %delete.notnull.i ], [ %13, %delete.notnull.i13 ], [ %20, %delete.notnull.i33 ], [ %27, %delete.notnull.i53 ], [ %34, %delete.notnull.i73 ], [ %41, %delete.notnull.i93 ], [ %48, %delete.notnull.i113 ], [ %55, %delete.notnull.i133 ], [ %62, %delete.notnull.i153 ]
-  %.sink178.ph = phi ptr [ %5, %delete.notnull.i ], [ %12, %delete.notnull.i13 ], [ %19, %delete.notnull.i33 ], [ %26, %delete.notnull.i53 ], [ %33, %delete.notnull.i73 ], [ %40, %delete.notnull.i93 ], [ %47, %delete.notnull.i113 ], [ %54, %delete.notnull.i133 ], [ %61, %delete.notnull.i153 ]
+  %.sink = phi ptr [ %55, %delete.notnull.i133 ], [ %48, %delete.notnull.i113 ], [ %41, %delete.notnull.i93 ], [ %34, %delete.notnull.i73 ], [ %27, %delete.notnull.i53 ], [ %20, %delete.notnull.i33 ], [ %13, %delete.notnull.i13 ], [ %6, %delete.notnull.i ], [ %62, %delete.notnull.i153 ]
+  %.sink178.ph = phi ptr [ %54, %delete.notnull.i133 ], [ %47, %delete.notnull.i113 ], [ %40, %delete.notnull.i93 ], [ %33, %delete.notnull.i73 ], [ %26, %delete.notnull.i53 ], [ %19, %delete.notnull.i33 ], [ %12, %delete.notnull.i13 ], [ %5, %delete.notnull.i ], [ %61, %delete.notnull.i153 ]
   tail call void @_ZdlPv(ptr noundef %.sink) #23
   br label %sw.epilog.sink.split
 
 sw.epilog.sink.split:                             ; preds = %sw.epilog.sink.split.sink.split, %delete.notnull.i153, %delete.notnull.i133, %delete.notnull.i113, %delete.notnull.i93, %delete.notnull.i73, %delete.notnull.i53, %delete.notnull.i33, %delete.notnull.i13, %delete.notnull.i
-  %.sink178 = phi ptr [ %5, %delete.notnull.i ], [ %12, %delete.notnull.i13 ], [ %19, %delete.notnull.i33 ], [ %26, %delete.notnull.i53 ], [ %33, %delete.notnull.i73 ], [ %40, %delete.notnull.i93 ], [ %47, %delete.notnull.i113 ], [ %54, %delete.notnull.i133 ], [ %61, %delete.notnull.i153 ], [ %.sink178.ph, %sw.epilog.sink.split.sink.split ]
+  %.sink178 = phi ptr [ %47, %delete.notnull.i113 ], [ %40, %delete.notnull.i93 ], [ %33, %delete.notnull.i73 ], [ %26, %delete.notnull.i53 ], [ %19, %delete.notnull.i33 ], [ %12, %delete.notnull.i13 ], [ %5, %delete.notnull.i ], [ %54, %delete.notnull.i133 ], [ %61, %delete.notnull.i153 ], [ %.sink178.ph, %sw.epilog.sink.split.sink.split ]
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink178) #21
   tail call void @_ZdlPv(ptr noundef nonnull %.sink178) #23
   br label %sw.epilog
@@ -5487,7 +5487,7 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br i1 %cmp209.not, label %success, label %while.cond.backedge
 
 success:                                          ; preds = %if.end.i.i, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %_ZN11conformance19ConformanceResponse29_internal_mutable_parse_errorB5cxx11Ev.exit, %_ZN11conformance19ConformanceResponse31_internal_mutable_runtime_errorB5cxx11Ev.exit, %_ZN11conformance19ConformanceResponse34_internal_mutable_protobuf_payloadB5cxx11Ev.exit, %_ZN11conformance19ConformanceResponse30_internal_mutable_json_payloadB5cxx11Ev.exit, %_ZN11conformance19ConformanceResponse25_internal_mutable_skippedB5cxx11Ev.exit, %_ZN11conformance19ConformanceResponse33_internal_mutable_serialize_errorB5cxx11Ev.exit, %_ZN11conformance19ConformanceResponse30_internal_mutable_jspb_payloadB5cxx11Ev.exit, %_ZN11conformance19ConformanceResponse30_internal_mutable_text_payloadB5cxx11Ev.exit, %_ZN11conformance19ConformanceResponse31_internal_mutable_timeout_errorB5cxx11Ev.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %if.then204
-  %ptr.addr.1 = phi ptr [ %retval.0.i190, %if.then204 ], [ %ptr.addr.0, %if.end.i.i ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN11conformance19ConformanceResponse29_internal_mutable_parse_errorB5cxx11Ev.exit ], [ null, %_ZN11conformance19ConformanceResponse31_internal_mutable_runtime_errorB5cxx11Ev.exit ], [ null, %_ZN11conformance19ConformanceResponse34_internal_mutable_protobuf_payloadB5cxx11Ev.exit ], [ null, %_ZN11conformance19ConformanceResponse30_internal_mutable_json_payloadB5cxx11Ev.exit ], [ null, %_ZN11conformance19ConformanceResponse25_internal_mutable_skippedB5cxx11Ev.exit ], [ null, %_ZN11conformance19ConformanceResponse33_internal_mutable_serialize_errorB5cxx11Ev.exit ], [ null, %_ZN11conformance19ConformanceResponse30_internal_mutable_jspb_payloadB5cxx11Ev.exit ], [ null, %_ZN11conformance19ConformanceResponse30_internal_mutable_text_payloadB5cxx11Ev.exit ], [ null, %_ZN11conformance19ConformanceResponse31_internal_mutable_timeout_errorB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  %ptr.addr.1 = phi ptr [ %retval.0.i190, %if.then204 ], [ %ptr.addr.0, %if.end.i.i ], [ null, %_ZN11conformance19ConformanceResponse29_internal_mutable_parse_errorB5cxx11Ev.exit ], [ null, %_ZN11conformance19ConformanceResponse31_internal_mutable_runtime_errorB5cxx11Ev.exit ], [ null, %_ZN11conformance19ConformanceResponse34_internal_mutable_protobuf_payloadB5cxx11Ev.exit ], [ null, %_ZN11conformance19ConformanceResponse30_internal_mutable_json_payloadB5cxx11Ev.exit ], [ null, %_ZN11conformance19ConformanceResponse25_internal_mutable_skippedB5cxx11Ev.exit ], [ null, %_ZN11conformance19ConformanceResponse33_internal_mutable_serialize_errorB5cxx11Ev.exit ], [ null, %_ZN11conformance19ConformanceResponse30_internal_mutable_jspb_payloadB5cxx11Ev.exit ], [ null, %_ZN11conformance19ConformanceResponse30_internal_mutable_text_payloadB5cxx11Ev.exit ], [ null, %_ZN11conformance19ConformanceResponse31_internal_mutable_timeout_errorB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   ret ptr %ptr.addr.1
 }
 
@@ -7070,7 +7070,7 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br i1 %cmp25.not, label %success, label %while.cond.backedge
 
 success:                                          ; preds = %if.end.i.i, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %if.then20
-  %ptr.addr.1 = phi ptr [ %retval.0.i33, %if.then20 ], [ %ptr.addr.0, %if.end.i.i ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  %ptr.addr.1 = phi ptr [ %retval.0.i33, %if.then20 ], [ %ptr.addr.0, %if.end.i.i ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   ret ptr %ptr.addr.1
 }
 
@@ -7627,7 +7627,7 @@ lpad2.i.i10:                                      ; preds = %if.then.i.i.i.i9
   br label %common.resume
 
 _ZN6google8protobuf5Arena21CreateMessageInternalIN11conformance10FailureSetEEEPT_PS1_.exit: ; preds = %if.then.i.i.i.i9, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit, %if.then.i.i.i.i, %.noexc
-  %retval.i.0 = phi ptr [ %call.i, %.noexc ], [ %call.i, %if.then.i.i.i.i ], [ %call2.i8, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ], [ %call2.i8, %if.then.i.i.i.i9 ]
+  %retval.i.0 = phi ptr [ %call.i, %if.then.i.i.i.i ], [ %call.i, %.noexc ], [ %call2.i8, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ], [ %call2.i8, %if.then.i.i.i.i9 ]
   ret ptr %retval.i.0
 }
 
@@ -7684,7 +7684,7 @@ if.then.i.i.i.i8:                                 ; preds = %_ZNK6google8protobu
   br label %_ZN6google8protobuf5Arena21CreateMessageInternalIN11conformance18ConformanceRequestEEEPT_PS1_.exit
 
 _ZN6google8protobuf5Arena21CreateMessageInternalIN11conformance18ConformanceRequestEEEPT_PS1_.exit: ; preds = %if.then.i.i.i.i8, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit, %if.then.i, %if.then.i.i.i.i
-  %call.i.sink13 = phi ptr [ %call.i, %if.then.i.i.i.i ], [ %call.i, %if.then.i ], [ %call2.i8, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ], [ %call2.i8, %if.then.i.i.i.i8 ]
+  %call.i.sink13 = phi ptr [ %call.i, %if.then.i ], [ %call.i, %if.then.i.i.i.i ], [ %call2.i8, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ], [ %call2.i8, %if.then.i.i.i.i8 ]
   %message_type_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink13, i64 16
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %message_type_.i.i.i, align 8
   %jspb_encoding_options_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink13, i64 24
@@ -7747,7 +7747,7 @@ if.then.i.i.i.i8:                                 ; preds = %_ZNK6google8protobu
   br label %_ZN6google8protobuf5Arena21CreateMessageInternalIN11conformance19ConformanceResponseEEEPT_PS1_.exit
 
 _ZN6google8protobuf5Arena21CreateMessageInternalIN11conformance19ConformanceResponseEEEPT_PS1_.exit: ; preds = %if.then.i.i.i.i8, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit, %if.then.i, %if.then.i.i.i.i
-  %call.i.sink = phi ptr [ %call.i, %if.then.i.i.i.i ], [ %call.i, %if.then.i ], [ %call2.i8, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ], [ %call2.i8, %if.then.i.i.i.i8 ]
+  %call.i.sink = phi ptr [ %call.i, %if.then.i ], [ %call.i, %if.then.i.i.i.i ], [ %call2.i8, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ], [ %call2.i8, %if.then.i.i.i.i8 ]
   %_oneof_case_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink, i64 28
   store i32 0, ptr %_oneof_case_.i.i.i.i, align 4
   ret ptr %call.i.sink

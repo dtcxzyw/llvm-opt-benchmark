@@ -20,8 +20,8 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17h6ffa51b6097a75eaE(ptr no
   %8 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %6, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !12
   br i1 %8, label %.lr.ph37, label %.loopexit
 
-.loopexit:                                        ; preds = %17, %14, %12, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit, %24, %.lr.ph, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %.lr.ph ], [ null, %24 ], [ %9, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit ], [ %9, %12 ], [ %9, %14 ], [ %9, %17 ]
+.loopexit:                                        ; preds = %14, %18, %12, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit, %24, %.lr.ph, %3
+  %.0 = phi ptr [ null, %3 ], [ null, %.lr.ph ], [ null, %24 ], [ %9, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit ], [ %9, %18 ], [ %9, %14 ], [ %9, %12 ]
   ret ptr %.0
 
 .lr.ph37:                                         ; preds = %.lr.ph, %24
@@ -31,9 +31,9 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17h6ffa51b6097a75eaE(ptr no
   %11 = and i64 %10, 3
   switch i64 %11, label %default.unreachable [
     i64 2, label %12
-    i64 3, label %14
-    i64 0, label %17
-    i64 1, label %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit
+    i64 3, label %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit
+    i64 0, label %14
+    i64 1, label %18
   ]
 
 default.unreachable:                              ; preds = %.lr.ph37
@@ -45,22 +45,22 @@ default.unreachable:                              ; preds = %.lr.ph37
   br i1 %13, label %26, label %.loopexit
 
 14:                                               ; preds = %.lr.ph37
-  %15 = icmp ult ptr %9, inttoptr (i64 176093659136 to ptr)
-  call void @llvm.assume(i1 %15)
-  %.mask.i = and i64 %10, -4294967296
-  %16 = icmp eq i64 %.mask.i, 150323855360
-  br i1 %16, label %26, label %.loopexit
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %16 = load i8, ptr %15, align 8, !range !15, !noundef !10
+  %17 = icmp eq i8 %16, 35
+  br i1 %17, label %26, label %.loopexit
 
-17:                                               ; preds = %.lr.ph37
-  %18 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %19 = load i8, ptr %18, align 8, !range !15, !noundef !10
-  %20 = icmp eq i8 %19, 35
-  br i1 %20, label %26, label %.loopexit
+18:                                               ; preds = %.lr.ph37
+  %19 = getelementptr i8, ptr %9, i64 15
+  %20 = load i8, ptr %19, align 8, !range !15, !noundef !10
+  %21 = icmp eq i8 %20, 35
+  br i1 %21, label %26, label %.loopexit
 
 _ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit: ; preds = %.lr.ph37
-  %21 = getelementptr i8, ptr %9, i64 15
-  %22 = load i8, ptr %21, align 8, !range !15, !noundef !10
-  %23 = icmp eq i8 %22, 35
+  %22 = icmp ult ptr %9, inttoptr (i64 176093659136 to ptr)
+  call void @llvm.assume(i1 %22)
+  %.mask.i = and i64 %10, -4294967296
+  %23 = icmp eq i64 %.mask.i, 150323855360
   br i1 %23, label %26, label %.loopexit
 
 24:                                               ; preds = %29, %26
@@ -68,7 +68,7 @@ _ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit: ; preds = %.lr.
   %25 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %6, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !23
   br i1 %25, label %.lr.ph37, label %.loopexit
 
-26:                                               ; preds = %17, %14, %12, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit
+26:                                               ; preds = %14, %18, %12, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !16
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h90361b2b4881ae37E.llvm.12266911530922283489(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %4, ptr noundef nonnull %9), !noalias !16
   %27 = load i8, ptr %4, align 8, !range !25, !alias.scope !26, !noalias !16, !noundef !10

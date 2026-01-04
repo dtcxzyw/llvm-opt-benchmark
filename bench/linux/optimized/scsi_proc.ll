@@ -670,7 +670,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @proc_scsi_write(ptr read
   br label %111
 
 111:                                              ; preds = %108, %72
-  %.fr = phi i32 [ %110, %108 ], [ %74, %72 ]
+  %.fr = phi i32 [ %74, %72 ], [ %110, %108 ]
   %112 = icmp eq i32 %.fr, 0
   %113 = trunc nuw nsw i64 %2 to i32
   %spec.select = select i1 %112, i32 %113, i32 %.fr
@@ -678,7 +678,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @proc_scsi_write(ptr read
   br label %.thread
 
 .thread:                                          ; preds = %75, %58, %111, %20, %13
-  %115 = phi i64 [ -14, %13 ], [ -22, %20 ], [ -6, %58 ], [ -22, %75 ], [ %114, %111 ]
+  %115 = phi i64 [ -14, %13 ], [ -22, %20 ], [ -22, %75 ], [ %114, %111 ], [ -6, %58 ]
   call void @free_pages(i64 noundef %10, i32 noundef 0) #10
   br label %116
 

@@ -722,7 +722,7 @@ _ZNKSt8functionIFbRKN4llvm11GlobalValueEEEclES3_.exit: ; preds = %32
   br label %40
 
 40:                                               ; preds = %13, %19, %17, %4, %2, %_ZNKSt8functionIFbRKN4llvm11GlobalValueEEEclES3_.exit
-  %.0 = phi i1 [ %39, %_ZNKSt8functionIFbRKN4llvm11GlobalValueEEEclES3_.exit ], [ true, %2 ], [ true, %4 ], [ false, %17 ], [ true, %19 ], [ true, %13 ]
+  %.0 = phi i1 [ true, %19 ], [ true, %2 ], [ true, %4 ], [ true, %13 ], [ false, %17 ], [ %39, %_ZNKSt8functionIFbRKN4llvm11GlobalValueEEEclES3_.exit ]
   ret i1 %.0
 }
 
@@ -888,8 +888,8 @@ _ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit: ; preds = %._Z
   store i32 %82, ptr %80, align 8
   br label %.thread
 
-.thread:                                          ; preds = %77, %72, %_ZN4llvm8dyn_castINS_12GlobalObjectENS_11GlobalValueEEEDcPT0_.exit.thread, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_6ComdatENS_15InternalizePass10ComdatInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6lookupES4_.exit, %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit
-  %cond35 = phi i1 [ true, %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit ], [ false, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_6ComdatENS_15InternalizePass10ComdatInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6lookupES4_.exit ], [ false, %_ZN4llvm8dyn_castINS_12GlobalObjectENS_11GlobalValueEEEDcPT0_.exit.thread ], [ false, %72 ], [ false, %77 ]
+.thread:                                          ; preds = %77, %_ZN4llvm8dyn_castINS_12GlobalObjectENS_11GlobalValueEEEDcPT0_.exit.thread, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_6ComdatENS_15InternalizePass10ComdatInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6lookupES4_.exit, %72, %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit
+  %cond35 = phi i1 [ true, %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit ], [ false, %72 ], [ false, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_6ComdatENS_15InternalizePass10ComdatInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6lookupES4_.exit ], [ false, %_ZN4llvm8dyn_castINS_12GlobalObjectENS_11GlobalValueEEEDcPT0_.exit.thread ], [ false, %77 ]
   %83 = load ptr, ptr %4, align 8, !tbaa !76
   %84 = icmp eq ptr %83, %5
   br i1 %84, label %_ZN4llvm11SmallVectorIcLj0EED2Ev.exit, label %85
@@ -5147,7 +5147,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKN4llvm11GlobalV
   br label %_ZSt10__invoke_rIbRN12_GLOBAL__N_115PreserveAPIListEJRKN4llvm11GlobalValueEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit
 
 _ZSt10__invoke_rIbRN12_GLOBAL__N_115PreserveAPIListEJRKN4llvm11GlobalValueEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %12, %18, %24, %35, %42, %49, %54
-  %.028.i.i.i.i.i.i.i.i.i = phi ptr [ %5, %54 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %35 ], [ %.1.i.i.i.i.i.i.i.i.i, %42 ], [ %.2.i.i.i.i.i.i.i.i.i, %49 ], [ %.02937.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %13, %12 ], [ %19, %18 ], [ %25, %24 ]
+  %.028.i.i.i.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i.i.i.i, %42 ], [ %5, %54 ], [ %.2.i.i.i.i.i.i.i.i.i, %49 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %35 ], [ %.02937.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %13, %12 ], [ %19, %18 ], [ %25, %24 ]
   %55 = icmp ne ptr %5, %.028.i.i.i.i.i.i.i.i.i
   ret i1 %55
 }

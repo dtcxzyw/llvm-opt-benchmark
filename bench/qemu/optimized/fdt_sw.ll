@@ -224,7 +224,7 @@ define dso_local range(i32 -13, 1) i32 @fdt_resize(ptr noundef readonly captures
   br label %127
 
 127:                                              ; preds = %112, %126, %101, %24, %22, %3
-  %.1 = phi i32 [ %.0.i, %3 ], [ -3, %22 ], [ -13, %24 ], [ -3, %101 ], [ 0, %126 ], [ 0, %112 ]
+  %.1 = phi i32 [ %.0.i, %3 ], [ -13, %24 ], [ -3, %101 ], [ -3, %22 ], [ 0, %126 ], [ 0, %112 ]
   ret i32 %.1
 }
 
@@ -328,7 +328,7 @@ fdt_sw_probe_memrsv_.exit.thread:                 ; preds = %21
   br label %fdt_sw_probe_memrsv_.exit.thread18
 
 fdt_sw_probe_memrsv_.exit.thread18:               ; preds = %fdt_sw_probe_memrsv_.exit, %21, %fdt_sw_probe_memrsv_.exit.thread, %74
-  %.1 = phi i32 [ 0, %74 ], [ %.0.i.i, %fdt_sw_probe_memrsv_.exit ], [ -3, %fdt_sw_probe_memrsv_.exit.thread ], [ -7, %21 ]
+  %.1 = phi i32 [ %.0.i.i, %fdt_sw_probe_memrsv_.exit ], [ 0, %74 ], [ -3, %fdt_sw_probe_memrsv_.exit.thread ], [ -7, %21 ]
   ret i32 %.1
 }
 
@@ -613,7 +613,7 @@ fdt_sw_probe_struct_.exit.thread:                 ; preds = %20
   br label %fdt_sw_probe_struct_.exit.thread17
 
 fdt_sw_probe_struct_.exit.thread17:               ; preds = %fdt_sw_probe_struct_.exit, %fdt_sw_probe_struct_.exit.thread, %85, %20, %132
-  %.1 = phi i32 [ 0, %132 ], [ %.0.i.i, %fdt_sw_probe_struct_.exit ], [ -7, %20 ], [ -3, %85 ], [ -3, %fdt_sw_probe_struct_.exit.thread ]
+  %.1 = phi i32 [ 0, %132 ], [ %.0.i.i, %fdt_sw_probe_struct_.exit ], [ -3, %fdt_sw_probe_struct_.exit.thread ], [ -7, %20 ], [ -3, %85 ]
   ret i32 %.1
 }
 
@@ -778,7 +778,7 @@ fdt_sw_probe_struct_.exit.thread:                 ; preds = %19
   br label %fdt_sw_probe_struct_.exit.thread12
 
 fdt_sw_probe_struct_.exit.thread12:               ; preds = %fdt_sw_probe_struct_.exit, %fdt_sw_probe_struct_.exit.thread, %19, %123
-  %.1 = phi i32 [ 0, %123 ], [ %.0.i.i, %fdt_sw_probe_struct_.exit ], [ -7, %19 ], [ -3, %fdt_sw_probe_struct_.exit.thread ]
+  %.1 = phi i32 [ 0, %123 ], [ %.0.i.i, %fdt_sw_probe_struct_.exit ], [ -3, %fdt_sw_probe_struct_.exit.thread ], [ -7, %19 ]
   ret i32 %.1
 }
 
@@ -1052,7 +1052,7 @@ fdt_grab_space_.exit.thread:                      ; preds = %107, %133
   br label %fdt_sw_probe_struct_.exit.thread34
 
 fdt_sw_probe_struct_.exit.thread34:               ; preds = %fdt_sw_probe_struct_.exit, %22, %fdt_grab_space_.exit.thread, %184, %fdt_find_add_string_.exit, %206
-  %.1 = phi i32 [ 0, %206 ], [ %.0.i.i, %fdt_sw_probe_struct_.exit ], [ -3, %fdt_find_add_string_.exit ], [ -3, %184 ], [ -3, %fdt_grab_space_.exit.thread ], [ -7, %22 ]
+  %.1 = phi i32 [ %.0.i.i, %fdt_sw_probe_struct_.exit ], [ 0, %206 ], [ -3, %fdt_find_add_string_.exit ], [ -3, %184 ], [ -3, %fdt_grab_space_.exit.thread ], [ -7, %22 ]
   ret i32 %.1
 }
 
@@ -1481,7 +1481,7 @@ fdt_sw_probe_struct_.exit.thread:                 ; preds = %20
   br label %fdt_sw_probe_struct_.exit.thread44
 
 fdt_sw_probe_struct_.exit.thread44:               ; preds = %fdt_sw_probe_struct_.exit, %fdt_sw_probe_struct_.exit.thread, %20, %235, %238
-  %.1 = phi i32 [ 0, %238 ], [ %.0.i.i, %fdt_sw_probe_struct_.exit ], [ %236, %235 ], [ -7, %20 ], [ -3, %fdt_sw_probe_struct_.exit.thread ]
+  %.1 = phi i32 [ -3, %fdt_sw_probe_struct_.exit.thread ], [ 0, %238 ], [ %.0.i.i, %fdt_sw_probe_struct_.exit ], [ %236, %235 ], [ -7, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.1
 }

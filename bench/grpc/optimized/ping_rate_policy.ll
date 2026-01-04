@@ -172,7 +172,7 @@ define void @_ZNK9grpc_core20Chttp2PingRatePolicy15RequestSendPingENS_8DurationE
   br label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit
 
 _ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit: ; preds = %10, %14, %19, %22, %25
-  %.0.i.i = phi i64 [ 9223372036854775807, %10 ], [ -9223372036854775808, %14 ], [ %26, %25 ], [ 9223372036854775807, %19 ], [ -9223372036854775808, %22 ]
+  %.0.i.i = phi i64 [ -9223372036854775808, %14 ], [ 9223372036854775807, %10 ], [ -9223372036854775808, %22 ], [ %26, %25 ], [ 9223372036854775807, %19 ]
   %.not.i.i = icmp eq ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
   br i1 %.not.i.i, label %_ZN9grpc_core9Timestamp3NowEv.exit, label %27
 
@@ -254,7 +254,7 @@ _ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread: ; preds = %54, %_Z
   br label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit26
 
 _ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit26: ; preds = %59, %_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread
-  %.0.i.i25 = phi i64 [ %.sroa.04.0.copyload, %_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread ], [ %spec.select, %59 ]
+  %.0.i.i25 = phi i64 [ %spec.select, %59 ], [ %.sroa.04.0.copyload, %_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread ]
   %60 = icmp sgt i64 %.0.i.i25, %32
   br i1 %60, label %61, label %_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread46
 
@@ -288,9 +288,9 @@ _ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit26: ; preds = %59, %_ZN9grpc_cor
   br label %_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread46.sink.split
 
 _ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread46.sink.split: ; preds = %73, %70, %67, %.thread.i31, %61, %47, %44, %41, %.thread.i, %34
-  %.sink55 = phi i64 [ %2, %34 ], [ %2, %.thread.i ], [ %2, %41 ], [ %2, %44 ], [ %2, %47 ], [ 60000, %61 ], [ 60000, %.thread.i31 ], [ 60000, %67 ], [ 60000, %70 ], [ 60000, %73 ]
-  %.sink54 = phi i64 [ %35, %34 ], [ %35, %.thread.i ], [ %35, %41 ], [ %35, %44 ], [ %35, %47 ], [ %.sroa.04.0.copyload, %61 ], [ %.sroa.04.0.copyload, %.thread.i31 ], [ %.sroa.04.0.copyload, %67 ], [ %.sroa.04.0.copyload, %70 ], [ %.sroa.04.0.copyload, %73 ]
-  %.sroa.04.0.i.sink = phi i64 [ 9223372036854775807, %34 ], [ 9223372036854775807, %.thread.i ], [ 9223372036854775807, %41 ], [ -9223372036854775808, %44 ], [ %48, %47 ], [ 9223372036854775807, %61 ], [ 9223372036854775807, %.thread.i31 ], [ 9223372036854775807, %67 ], [ -9223372036854775808, %70 ], [ %74, %73 ]
+  %.sink55 = phi i64 [ %2, %47 ], [ %2, %34 ], [ %2, %.thread.i ], [ %2, %41 ], [ %2, %44 ], [ 60000, %61 ], [ 60000, %.thread.i31 ], [ 60000, %67 ], [ 60000, %70 ], [ 60000, %73 ]
+  %.sink54 = phi i64 [ %35, %47 ], [ %35, %34 ], [ %35, %.thread.i ], [ %35, %41 ], [ %35, %44 ], [ %.sroa.04.0.copyload, %61 ], [ %.sroa.04.0.copyload, %.thread.i31 ], [ %.sroa.04.0.copyload, %67 ], [ %.sroa.04.0.copyload, %70 ], [ %.sroa.04.0.copyload, %73 ]
+  %.sroa.04.0.i.sink = phi i64 [ %48, %47 ], [ 9223372036854775807, %34 ], [ 9223372036854775807, %.thread.i ], [ 9223372036854775807, %41 ], [ -9223372036854775808, %44 ], [ 9223372036854775807, %61 ], [ 9223372036854775807, %.thread.i31 ], [ 9223372036854775807, %67 ], [ -9223372036854775808, %70 ], [ %74, %73 ]
   store i64 %.sink55, ptr %0, align 8, !tbaa !18
   %.sroa.440.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink54, ptr %.sroa.440.0..sroa_idx, align 8, !tbaa !18
@@ -299,7 +299,7 @@ _ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread46.sink.split: ; pre
   br label %_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread46
 
 _ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread46: ; preds = %_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread46.sink.split, %49, %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit26, %_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread, %_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit, %57, %4
-  %.sink = phi i8 [ 1, %4 ], [ 1, %57 ], [ 1, %_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit ], [ 0, %_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread ], [ 0, %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit26 ], [ 0, %49 ], [ 2, %_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread46.sink.split ]
+  %.sink = phi i8 [ 0, %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit26 ], [ 1, %4 ], [ 1, %_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit ], [ 0, %49 ], [ 1, %57 ], [ 0, %_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread ], [ 2, %_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread46.sink.split ]
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 %.sink, ptr %75, align 8, !tbaa !24
   ret void

@@ -437,7 +437,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageConvClearEdge_Bit(ptr noundef reado
   br i1 %exitcond375.not, label %.loopexit, label %206, !llvm.loop !19
 
 .loopexit:                                        ; preds = %._crit_edge321, %._crit_edge317, %7, %13
-  %.0261 = phi i32 [ 1, %13 ], [ 1, %7 ], [ 0, %._crit_edge317 ], [ 0, %._crit_edge321 ]
+  %.0261 = phi i32 [ 1, %7 ], [ 1, %13 ], [ 0, %._crit_edge317 ], [ 0, %._crit_edge321 ]
   ret i32 %.0261
 }
 

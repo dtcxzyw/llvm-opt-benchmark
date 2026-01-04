@@ -344,7 +344,7 @@ select.unfold:                                    ; preds = %.lr.ph
   br i1 %.not31.i, label %.loopexit, label %71, !llvm.loop !6
 
 86:                                               ; preds = %57, %49
-  %.245 = phi i32 [ %50, %49 ], [ %55, %57 ]
+  %.245 = phi i32 [ %55, %57 ], [ %50, %49 ]
   %87 = icmp slt i32 %.245, 4095
   br i1 %87, label %.lr.ph68, label %._crit_edge._crit_edge
 
@@ -442,7 +442,7 @@ define dso_local noundef zeroext i1 @fsm_truncate_avail(ptr noundef captures(non
   br i1 %.not31.i, label %fsm_rebuild_page.exit, label %10, !llvm.loop !6
 
 fsm_rebuild_page.exit:                            ; preds = %24, %2, %._crit_edge
-  %.0.lcssa16 = phi i1 [ false, %._crit_edge ], [ false, %2 ], [ true, %24 ]
+  %.0.lcssa16 = phi i1 [ false, %2 ], [ false, %._crit_edge ], [ true, %24 ]
   ret i1 %.0.lcssa16
 }
 

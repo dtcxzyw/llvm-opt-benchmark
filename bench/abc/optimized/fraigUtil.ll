@@ -271,7 +271,7 @@ tailrecurse:                                      ; preds = %27
   br i1 %36, label %._crit_edge, label %7
 
 ._crit_edge:                                      ; preds = %tailrecurse, %11, %13, %15, %20, %27, %3
-  %.0 = phi i32 [ 0, %3 ], [ 1, %27 ], [ 1, %20 ], [ 0, %15 ], [ 1, %13 ], [ 0, %11 ], [ 0, %tailrecurse ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %11 ], [ 1, %13 ], [ 0, %15 ], [ 1, %20 ], [ 1, %27 ], [ 0, %tailrecurse ]
   ret i32 %.0
 }
 
@@ -1100,8 +1100,8 @@ Fraig_GetMaxLevel.exit34:                         ; preds = %40, %Fraig_MappingS
   br i1 %.not22, label %.loopexit, label %.lr.ph, !llvm.loop !54
 
 .loopexit:                                        ; preds = %.lr.ph, %55, %61
-  %.2 = phi i32 [ %.02040, %61 ], [ %.02040, %55 ], [ %65, %.lr.ph ]
-  %.1 = phi i32 [ %.01842, %61 ], [ %.01842, %55 ], [ %64, %.lr.ph ]
+  %.2 = phi i32 [ %.02040, %55 ], [ %.02040, %61 ], [ %65, %.lr.ph ]
+  %.1 = phi i32 [ %.01842, %55 ], [ %.01842, %61 ], [ %64, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %55, !llvm.loop !55
@@ -1181,7 +1181,7 @@ define range(i32 0, 2) i32 @Fraig_NodeIsExorType(ptr noundef %0) local_unnamed_a
   br label %47
 
 47:                                               ; preds = %22, %37, %14, %18, %6, %10, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %10 ], [ 0, %6 ], [ 0, %18 ], [ 0, %14 ], [ 0, %22 ], [ %46, %37 ]
+  %.0 = phi i32 [ 0, %14 ], [ 0, %6 ], [ 0, %1 ], [ 0, %10 ], [ 0, %18 ], [ 0, %22 ], [ %46, %37 ]
   ret i32 %.0
 }
 
@@ -1260,7 +1260,7 @@ define range(i32 0, 2) i32 @Fraig_NodeIsMuxType(ptr noundef %0) local_unnamed_ad
   br label %.thread
 
 .thread:                                          ; preds = %22, %37, %44, %48, %14, %18, %6, %10, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %10 ], [ 0, %6 ], [ 0, %18 ], [ 0, %14 ], [ 1, %44 ], [ 1, %37 ], [ %50, %48 ], [ 1, %22 ]
+  %.0 = phi i32 [ 0, %14 ], [ %50, %48 ], [ 0, %6 ], [ 0, %1 ], [ 0, %10 ], [ 0, %18 ], [ 1, %44 ], [ 1, %37 ], [ 1, %22 ]
   ret i32 %.0
 }
 
@@ -1538,7 +1538,7 @@ define i32 @Fraig_ManCountExors(ptr noundef readonly captures(none) %0) local_un
   br label %Fraig_NodeIsExorType.exit
 
 Fraig_NodeIsExorType.exit:                        ; preds = %.lr.ph, %16, %20, %24, %28, %32, %47
-  %.0.i = phi i32 [ 0, %.lr.ph ], [ 0, %20 ], [ 0, %16 ], [ 0, %28 ], [ 0, %24 ], [ 0, %32 ], [ %56, %47 ]
+  %.0.i = phi i32 [ 0, %24 ], [ 0, %16 ], [ 0, %.lr.ph ], [ 0, %20 ], [ 0, %28 ], [ 0, %32 ], [ %56, %47 ]
   %57 = add nuw nsw i32 %.0.i, %.08
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %58 = load ptr, ptr %2, align 8, !tbaa !53
@@ -1643,7 +1643,7 @@ define i32 @Fraig_ManCountMuxes(ptr noundef readonly captures(none) %0) local_un
   br label %Fraig_NodeIsMuxType.exit
 
 Fraig_NodeIsMuxType.exit:                         ; preds = %.lr.ph, %16, %20, %24, %28, %32, %47, %54, %58
-  %.0.i = phi i32 [ 0, %.lr.ph ], [ 0, %20 ], [ 0, %16 ], [ 0, %28 ], [ 0, %24 ], [ 1, %54 ], [ 1, %47 ], [ %60, %58 ], [ 1, %32 ]
+  %.0.i = phi i32 [ 0, %24 ], [ %60, %58 ], [ 0, %16 ], [ 0, %.lr.ph ], [ 0, %20 ], [ 0, %28 ], [ 1, %54 ], [ 1, %47 ], [ 1, %32 ]
   %61 = add nuw nsw i32 %.0.i, %.08
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %62 = load ptr, ptr %2, align 8, !tbaa !53
@@ -1720,7 +1720,7 @@ define range(i32 0, 2) i32 @Fraig_NodeSimsContained(ptr noundef readonly capture
   br i1 %.not, label %25, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph24, %25, %._crit_edge
-  %.018 = phi i32 [ 1, %._crit_edge ], [ 0, %.lr.ph24 ], [ 1, %25 ], [ 0, %.lr.ph ]
+  %.018 = phi i32 [ 1, %._crit_edge ], [ 1, %25 ], [ 0, %.lr.ph24 ], [ 0, %.lr.ph ]
   ret i32 %.018
 }
 
@@ -2048,7 +2048,7 @@ define range(i32 -1, 2) i32 @Fraig_NodeIsInSupergate(ptr noundef %0, ptr noundef
   br label %26
 
 26:                                               ; preds = %23, %14, %10, %12, %7
-  %.0 = phi i32 [ %9, %7 ], [ 0, %12 ], [ 0, %10 ], [ -1, %14 ], [ %., %23 ]
+  %.0 = phi i32 [ %9, %7 ], [ -1, %14 ], [ 0, %10 ], [ %., %23 ], [ 0, %12 ]
   ret i32 %.0
 }
 
@@ -2190,7 +2190,7 @@ tailrecurse:                                      ; preds = %4, %.split13
   %or.cond29 = or i1 %78, %.not25
   br i1 %or.cond29, label %Fraig_NodeIsMuxType.exit.thread22, label %.split13
 
-.split13:                                         ; preds = %75, %45, %49, %37, %41, %32
+.split13:                                         ; preds = %75, %49, %41, %32, %37, %45
   %79 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
   %80 = load ptr, ptr %79, align 8, !tbaa !30
   tail call void @Fraig_CollectSupergate_rec(ptr noundef %80, ptr noundef %1, i32 noundef 0, i32 noundef %3)
@@ -2198,8 +2198,8 @@ tailrecurse:                                      ; preds = %4, %.split13
   %82 = load ptr, ptr %81, align 8, !tbaa !31
   br label %tailrecurse
 
-Fraig_NodeIsMuxType.exit.thread22:                ; preds = %22, %29, %30, %75, %68, %53, %15, %8, %7
-  %.us-phi = phi ptr [ %.tr.ph36.us, %7 ], [ %.tr.ph36.us, %8 ], [ %.tr.ph36.us, %15 ], [ %.tr, %53 ], [ %.tr, %68 ], [ %.tr, %75 ], [ %.tr, %30 ], [ %.tr, %29 ], [ %.tr, %22 ]
+Fraig_NodeIsMuxType.exit.thread22:                ; preds = %22, %29, %30, %68, %53, %75, %15, %8, %7
+  %.us-phi = phi ptr [ %.tr.ph36.us, %15 ], [ %.tr.ph36.us, %7 ], [ %.tr.ph36.us, %8 ], [ %.tr, %75 ], [ %.tr, %53 ], [ %.tr, %68 ], [ %.tr, %30 ], [ %.tr, %29 ], [ %.tr, %22 ]
   %83 = tail call i32 @Fraig_NodeVecPushUnique(ptr noundef %1, ptr noundef %.us-phi) #15
   ret void
 }

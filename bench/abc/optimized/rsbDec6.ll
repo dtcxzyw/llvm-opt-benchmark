@@ -3468,7 +3468,7 @@ Vec_IntPush.exit343:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %exitcond452.not, label %.loopexit, label %.preheader353.lr.ph, !llvm.loop !65
 
 .loopexit:                                        ; preds = %56, %41, %228, %213, %440, %425, %._crit_edge396, %682, %677, %636, %._crit_edge388, %._crit_edge380, %._crit_edge
-  %.0192 = phi i32 [ 0, %._crit_edge ], [ 0, %._crit_edge380 ], [ 0, %._crit_edge388 ], [ 0, %636 ], [ 0, %682 ], [ %676, %677 ], [ 0, %._crit_edge396 ], [ 0, %440 ], [ %424, %425 ], [ 0, %228 ], [ %212, %213 ], [ 0, %56 ], [ %40, %41 ]
+  %.0192 = phi i32 [ %424, %425 ], [ 0, %._crit_edge388 ], [ %212, %213 ], [ 0, %._crit_edge ], [ 0, %682 ], [ 0, %636 ], [ 0, %._crit_edge380 ], [ 0, %._crit_edge396 ], [ %676, %677 ], [ 0, %440 ], [ 0, %228 ], [ 0, %56 ], [ %40, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

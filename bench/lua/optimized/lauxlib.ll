@@ -989,7 +989,7 @@ luaL_optlstring.exit.sink.split:                  ; preds = %10, %8
   br label %luaL_optlstring.exit
 
 luaL_optlstring.exit:                             ; preds = %luaL_optlstring.exit.sink.split, %10, %8, %5
-  %14 = phi ptr [ %9, %8 ], [ %2, %5 ], [ %11, %10 ], [ null, %luaL_optlstring.exit.sink.split ]
+  %14 = phi ptr [ %2, %5 ], [ %9, %8 ], [ %11, %10 ], [ null, %luaL_optlstring.exit.sink.split ]
   %15 = load ptr, ptr %3, align 8, !tbaa !33
   %.not2022 = icmp eq ptr %15, null
   br i1 %.not2022, label %._crit_edge, label %.lr.ph
@@ -1056,7 +1056,7 @@ define dso_local ptr @luaL_optlstring(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %luaL_checklstring.exit
 
 luaL_checklstring.exit:                           ; preds = %15, %13, %7, %11
-  %.0 = phi ptr [ %2, %11 ], [ %2, %7 ], [ %14, %13 ], [ null, %15 ]
+  %.0 = phi ptr [ %2, %7 ], [ %2, %11 ], [ %14, %13 ], [ null, %15 ]
   ret ptr %.0
 }
 
@@ -1664,8 +1664,8 @@ skipBOM.exit.i32:                                 ; preds = %54, %45
   br label %skipcomment.exit39
 
 skipcomment.exit39:                               ; preds = %skipBOM.exit.i32, %58, %skipcomment.exit.thread
-  %60 = phi i32 [ %37, %skipcomment.exit.thread ], [ 0, %skipBOM.exit.i32 ], [ 0, %58 ]
-  %.041 = phi i32 [ %.145, %skipcomment.exit.thread ], [ %.0.i.i33, %skipBOM.exit.i32 ], [ %59, %58 ]
+  %60 = phi i32 [ 0, %58 ], [ %37, %skipcomment.exit.thread ], [ 0, %skipBOM.exit.i32 ]
+  %.041 = phi i32 [ %59, %58 ], [ %.145, %skipcomment.exit.thread ], [ %.0.i.i33, %skipBOM.exit.i32 ]
   %.not29 = icmp eq i32 %.041, -1
   br i1 %.not29, label %67, label %skipcomment.exit39.thread
 
@@ -1937,7 +1937,7 @@ define dso_local ptr @luaL_tolstring(ptr noundef %0, i32 noundef %1, ptr noundef
 23:                                               ; preds = %11
   %24 = tail call i32 @lua_getmetatable(ptr noundef %0, i32 noundef %5) #19
   %.not.i = icmp eq i32 %24, 0
-  br i1 %.not.i, label %luaL_getmetafield.exit.thread, label %25
+  br i1 %.not.i, label %.critedge41, label %25
 
 25:                                               ; preds = %23
   %26 = tail call ptr @lua_pushstring(ptr noundef %0, ptr noundef nonnull @.str.14) #19
@@ -1947,39 +1947,39 @@ define dso_local ptr @luaL_tolstring(ptr noundef %0, i32 noundef %1, ptr noundef
 
 luaL_getmetafield.exit.thread38:                  ; preds = %25
   tail call void @lua_settop(ptr noundef %0, i32 noundef -3) #19
-  br label %luaL_getmetafield.exit.thread
+  br label %.critedge41
 
 luaL_getmetafield.exit:                           ; preds = %25
   tail call void @lua_rotate(ptr noundef %0, i32 noundef -2, i32 noundef -1) #19
   tail call void @lua_settop(ptr noundef %0, i32 noundef -2) #19
   %29 = icmp eq i32 %27, 4
-  br i1 %29, label %.critedge, label %.critedge41
+  br i1 %29, label %.critedge, label %luaL_getmetafield.exit.thread
 
 .critedge:                                        ; preds = %luaL_getmetafield.exit
   %30 = tail call ptr @lua_tolstring(ptr noundef %0, i32 noundef -1, ptr noundef null) #19
-  br label %37
+  br label %33
 
-luaL_getmetafield.exit.thread:                    ; preds = %23, %luaL_getmetafield.exit.thread38
+luaL_getmetafield.exit.thread:                    ; preds = %luaL_getmetafield.exit
   %31 = tail call i32 @lua_type(ptr noundef %0, i32 noundef %5) #19
   %32 = tail call ptr @lua_typename(ptr noundef %0, i32 noundef %31) #19
-  %33 = tail call ptr @lua_topointer(ptr noundef %0, i32 noundef %5) #19
-  %34 = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %0, ptr noundef nonnull @.str.42, ptr noundef %32, ptr noundef %33) #19
-  br label %40
+  br label %33
 
-.critedge41:                                      ; preds = %luaL_getmetafield.exit
-  %35 = tail call i32 @lua_type(ptr noundef %0, i32 noundef %5) #19
-  %36 = tail call ptr @lua_typename(ptr noundef %0, i32 noundef %35) #19
-  br label %37
-
-37:                                               ; preds = %.critedge41, %.critedge
-  %.sink = phi ptr [ %36, %.critedge41 ], [ %30, %.critedge ]
-  %38 = tail call ptr @lua_topointer(ptr noundef %0, i32 noundef %5) #19
-  %39 = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %0, ptr noundef nonnull @.str.42, ptr noundef %.sink, ptr noundef %38) #19
+33:                                               ; preds = %luaL_getmetafield.exit.thread, %.critedge
+  %.sink = phi ptr [ %32, %luaL_getmetafield.exit.thread ], [ %30, %.critedge ]
+  %34 = tail call ptr @lua_topointer(ptr noundef %0, i32 noundef %5) #19
+  %35 = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %0, ptr noundef nonnull @.str.42, ptr noundef %.sink, ptr noundef %34) #19
   tail call void @lua_rotate(ptr noundef %0, i32 noundef -2, i32 noundef -1) #19
   tail call void @lua_settop(ptr noundef %0, i32 noundef -2) #19
   br label %40
 
-40:                                               ; preds = %luaL_getmetafield.exit.thread, %37, %13, %16, %17, %21, %7, %9
+.critedge41:                                      ; preds = %23, %luaL_getmetafield.exit.thread38
+  %36 = tail call i32 @lua_type(ptr noundef %0, i32 noundef %5) #19
+  %37 = tail call ptr @lua_typename(ptr noundef %0, i32 noundef %36) #19
+  %38 = tail call ptr @lua_topointer(ptr noundef %0, i32 noundef %5) #19
+  %39 = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %0, ptr noundef nonnull @.str.42, ptr noundef %37, ptr noundef %38) #19
+  br label %40
+
+40:                                               ; preds = %.critedge41, %33, %13, %16, %17, %21, %7, %9
   %41 = call ptr @lua_tolstring(ptr noundef %0, i32 noundef -1, ptr noundef %2) #19
   ret ptr %41
 }
@@ -2463,7 +2463,7 @@ define internal fastcc range(i32 0, 2) i32 @findfield(ptr noundef %0, i32 nounde
   br i1 %.not, label %.loopexit, label %11
 
 .loopexit:                                        ; preds = %21, %8, %3, %5, %19, %16
-  %.0 = phi i32 [ 1, %16 ], [ 1, %19 ], [ 0, %5 ], [ 0, %3 ], [ 0, %8 ], [ 0, %21 ]
+  %.0 = phi i32 [ 0, %3 ], [ 1, %16 ], [ 1, %19 ], [ 0, %5 ], [ 0, %8 ], [ 0, %21 ]
   ret i32 %.0
 }
 

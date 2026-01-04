@@ -138,7 +138,7 @@ _ZNK5clang4Type10isSamplerTEv.exit.thread:        ; preds = %11, %_ZNK5clang4Typ
   br label %_ZN5clang7CodeGen15CGOpenCLRuntime14getSamplerTypeEPKNS_4TypeE.exit
 
 _ZN5clang7CodeGen15CGOpenCLRuntime14getSamplerTypeEPKNS_4TypeE.exit: ; preds = %49, %22, %2, %_ZNK5clang4Type10isSamplerTEv.exit.thread
-  %.1 = phi ptr [ %58, %_ZNK5clang4Type10isSamplerTEv.exit.thread ], [ %10, %2 ], [ %storemerge.i, %49 ], [ %24, %22 ]
+  %.1 = phi ptr [ %10, %2 ], [ %58, %_ZNK5clang4Type10isSamplerTEv.exit.thread ], [ %storemerge.i, %49 ], [ %24, %22 ]
   ret ptr %.1
 }
 

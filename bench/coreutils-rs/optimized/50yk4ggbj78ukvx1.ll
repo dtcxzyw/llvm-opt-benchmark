@@ -871,7 +871,7 @@ _ZN3std2io5error5Error3new17hda9dfe817548adb4E.exit.i.i: ; preds = %"_ZN50_$LT$T
   br label %91
 
 common.resume:                                    ; preds = %.body71, %.body.i.i, %52, %60
-  %common.resume.op = phi { ptr, i32 } [ %53, %60 ], [ %53, %52 ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %.pn65, %.body71 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i.i, %.body.i.i ], [ %53, %52 ], [ %53, %60 ], [ %.pn65, %.body71 ]
   resume { ptr, i32 } %common.resume.op
 
 69:                                               ; preds = %.body.i.i

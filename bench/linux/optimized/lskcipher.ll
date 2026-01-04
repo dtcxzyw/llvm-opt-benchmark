@@ -763,7 +763,7 @@ define dso_local ptr @lskcipher_alloc_instance_simple(ptr noundef %0, ptr nounde
   br label %107
 
 .thread:                                          ; preds = %67, %60, %54, %49, %26, %76, %71, %39, %36, %30
-  %104 = phi i32 [ -36, %30 ], [ %37, %36 ], [ %44, %39 ], [ -22, %76 ], [ -40, %71 ], [ -2, %26 ], [ -36, %67 ], [ -36, %60 ], [ -22, %54 ], [ -22, %49 ]
+  %104 = phi i32 [ -36, %30 ], [ %37, %36 ], [ %44, %39 ], [ -2, %26 ], [ -22, %76 ], [ -40, %71 ], [ -36, %67 ], [ -36, %60 ], [ -22, %54 ], [ -22, %49 ]
   call void @crypto_drop_spawn(ptr noundef nonnull %20) #12
   call void @kfree(ptr noundef nonnull %17) #12
   %105 = sext i32 %104 to i64

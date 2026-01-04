@@ -343,7 +343,7 @@ Wln_AbcUpdateRtl.exit:                            ; preds = %78, %81
   br label %89
 
 89:                                               ; preds = %64, %Wln_AbcUpdateRtl.exit, %.critedge129, %.critedge, %.loopexit, %47, %37
-  %.085 = phi i32 [ 1, %.loopexit ], [ 0, %37 ], [ 0, %47 ], [ 0, %.critedge ], [ 0, %.critedge129 ], [ 0, %Wln_AbcUpdateRtl.exit ], [ 0, %64 ]
+  %.085 = phi i32 [ 1, %.loopexit ], [ 0, %37 ], [ 0, %47 ], [ 0, %.critedge129 ], [ 0, %.critedge ], [ 0, %Wln_AbcUpdateRtl.exit ], [ 0, %64 ]
   ret i32 %.085
 }
 

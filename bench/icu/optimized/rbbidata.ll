@@ -403,7 +403,7 @@ define noundef zeroext i1 @_ZNK6icu_7715RBBIDataWrappereqERKS0_(ptr noundef nonn
   br label %14
 
 14:                                               ; preds = %11, %6, %2
-  %.0 = phi i1 [ true, %2 ], [ false, %6 ], [ %13, %11 ]
+  %.0 = phi i1 [ false, %6 ], [ true, %2 ], [ %13, %11 ]
   ret i1 %.0
 }
 
@@ -509,7 +509,7 @@ define i32 @ubrk_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
   br i1 %.not, label %48, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %18, %33, %29, %25
-  %36 = phi i8 [ 114, %33 ], [ 114, %29 ], [ 114, %25 ], [ %23, %18 ]
+  %36 = phi i8 [ %23, %18 ], [ 114, %33 ], [ 114, %29 ], [ 114, %25 ]
   %37 = zext i8 %20 to i32
   %38 = zext i8 %36 to i32
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 14
@@ -742,7 +742,7 @@ define i32 @ubrk_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
   br label %207
 
 207:                                              ; preds = %._crit_edge, %74, %183, %66, %65, %5, %7, %17
-  %.0 = phi i32 [ 0, %17 ], [ 0, %7 ], [ 0, %5 ], [ 0, %._crit_edge ], [ 0, %65 ], [ 0, %74 ], [ %70, %183 ], [ %70, %66 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %17 ], [ 0, %7 ], [ 0, %._crit_edge ], [ 0, %65 ], [ %70, %183 ], [ 0, %74 ], [ %70, %66 ]
   ret i32 %.0
 }
 

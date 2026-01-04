@@ -235,7 +235,7 @@ define internal noundef i32 @dissect_manolito(ptr noundef %0, ptr noundef %1, pt
   br label %73
 
 73:                                               ; preds = %59, %61, %64, %67, %70
-  %.0 = phi i64 [ %60, %59 ], [ %63, %61 ], [ %66, %64 ], [ %69, %67 ], [ %72, %70 ]
+  %.0 = phi i64 [ %72, %70 ], [ %60, %59 ], [ %63, %61 ], [ %66, %64 ], [ %69, %67 ]
   %74 = load i32, ptr @hf_manolito_integer, align 4
   %75 = add nuw nsw i32 %58, 4
   %76 = zext i16 %31 to i32
@@ -263,8 +263,8 @@ define internal noundef i32 @dissect_manolito(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not115, label %87, label %.sink.split
 
 .sink.split:                                      ; preds = %85, %24, %21
-  %.1112.lcssa.sink = phi ptr [ @.str.26, %21 ], [ @.str.27, %24 ], [ %.1112, %85 ]
-  %.0109.ph = phi i32 [ 19, %21 ], [ 20, %24 ], [ %.1, %85 ]
+  %.1112.lcssa.sink = phi ptr [ @.str.27, %24 ], [ @.str.26, %21 ], [ %.1112, %85 ]
+  %.0109.ph = phi i32 [ 20, %24 ], [ 19, %21 ], [ %.1, %85 ]
   %86 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %86, i32 noundef 25, ptr noundef nonnull %.1112.lcssa.sink)
   br label %87

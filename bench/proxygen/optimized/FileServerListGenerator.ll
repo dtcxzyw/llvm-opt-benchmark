@@ -1052,7 +1052,7 @@ lpad167:                                          ; preds = %invoke.cont175, %in
   br label %ehcleanup198
 
 ehcleanup198:                                     ; preds = %lpad167, %catch.dispatch122, %ehcleanup47, %lpad26
-  %.merged21 = phi { ptr, i32 } [ %.pn17.pn.pn, %ehcleanup47 ], [ %87, %lpad167 ], [ %29, %lpad26 ], [ %.pn12.pn.pn.pn, %catch.dispatch122 ]
+  %.merged21 = phi { ptr, i32 } [ %.pn17.pn.pn, %ehcleanup47 ], [ %87, %lpad167 ], [ %.pn12.pn.pn.pn, %catch.dispatch122 ], [ %29, %lpad26 ]
   call void @_ZNSt6vectorIN8proxygen19ServerListGenerator12ServerConfigESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %servers) #22
   br label %ehcleanup202
 

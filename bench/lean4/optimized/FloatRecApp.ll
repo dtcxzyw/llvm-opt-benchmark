@@ -562,8 +562,8 @@ lean_alloc_ctor.exit165:                          ; preds = %lean_dec.exit109
   br label %lean_dec.exit110
 
 lean_dec.exit110:                                 ; preds = %189, %186, %200, %199, %197
-  %.1.i187 = phi ptr [ %194, %197 ], [ %194, %199 ], [ %194, %200 ], [ inttoptr (i64 1 to ptr), %186 ], [ %191, %189 ]
-  %201 = phi ptr [ %193, %197 ], [ %193, %199 ], [ %193, %200 ], [ %187, %186 ], [ %187, %189 ]
+  %.1.i187 = phi ptr [ %194, %200 ], [ %194, %197 ], [ %194, %199 ], [ inttoptr (i64 1 to ptr), %186 ], [ %191, %189 ]
+  %201 = phi ptr [ %193, %200 ], [ %193, %197 ], [ %193, %199 ], [ %187, %186 ], [ %187, %189 ]
   %202 = tail call ptr @l___private_Lean_Expr_0__Lean_Expr_getAppArgsAux(ptr noundef %0, ptr noundef %201, ptr noundef %.1.i187) #3
   %203 = tail call ptr @l_Lean_Expr_beta(ptr noundef %125, ptr noundef %202) #3
   %204 = tail call ptr @l_Lean_Expr_mdata___override(ptr noundef %115, ptr noundef %203) #3
@@ -870,7 +870,7 @@ lean_alloc_ctor.exit185:                          ; preds = %lean_dec.exit115
   br label %319
 
 319:                                              ; preds = %lean_alloc_ctor.exit158, %lean_alloc_ctor.exit170, %lean_alloc_ctor.exit165, %lean_alloc_ctor.exit185, %284, %lean_dec.exit113, %lean_alloc_ctor.exit178, %lean_alloc_ctor.exit
-  %.0 = phi ptr [ %36, %lean_alloc_ctor.exit ], [ %84, %lean_alloc_ctor.exit158 ], [ %169, %lean_alloc_ctor.exit165 ], [ %210, %lean_alloc_ctor.exit170 ], [ %234, %lean_dec.exit113 ], [ %278, %lean_alloc_ctor.exit178 ], [ %313, %lean_alloc_ctor.exit185 ], [ %234, %284 ]
+  %.0 = phi ptr [ %36, %lean_alloc_ctor.exit ], [ %84, %lean_alloc_ctor.exit158 ], [ %210, %lean_alloc_ctor.exit170 ], [ %169, %lean_alloc_ctor.exit165 ], [ %278, %lean_alloc_ctor.exit178 ], [ %234, %lean_dec.exit113 ], [ %313, %lean_alloc_ctor.exit185 ], [ %234, %284 ]
   ret ptr %.0
 }
 

@@ -520,8 +520,8 @@ define hidden void @_ZN4core5slice4sort7recurse17h86a04bfa1b35a3e1E.llvm.1236058
   br i1 %46, label %48, label %49
 
 .outer._crit_edge:                                ; preds = %.outer, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h454e5910cbfdbcedE.exit", %5
-  %.sroa.14.0.lcssa = phi i64 [ %1, %5 ], [ %225, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h454e5910cbfdbcedE.exit" ], [ %.sroa.14.1, %.outer ]
-  %.sroa.0.0.lcssa = phi ptr [ %0, %5 ], [ %226, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h454e5910cbfdbcedE.exit" ], [ %.sroa.0.1, %.outer ]
+  %.sroa.14.0.lcssa = phi i64 [ %225, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h454e5910cbfdbcedE.exit" ], [ %1, %5 ], [ %.sroa.14.1, %.outer ]
+  %.sroa.0.0.lcssa = phi ptr [ %226, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h454e5910cbfdbcedE.exit" ], [ %0, %5 ], [ %.sroa.0.1, %.outer ]
   %47 = icmp samesign ugt i64 %.sroa.14.0.lcssa, 1
   br i1 %47, label %247, label %.loopexit
 
@@ -1561,7 +1561,7 @@ define internal fastcc { i64, i1 } @_ZN4core5slice4sort9partition17h7e00584d6344
   br i1 %exitcond34.not.i, label %._crit_edge.i, label %.lr.ph20.i
 
 .loopexit:                                        ; preds = %.preheader5.i, %.preheader.i, %105
-  %spec.select.lcssa.sink.i = phi ptr [ %spec.select.i, %105 ], [ %118, %.preheader.i ], [ %112, %.preheader5.i ]
+  %spec.select.lcssa.sink.i = phi ptr [ %118, %.preheader.i ], [ %spec.select.i, %105 ], [ %112, %.preheader5.i ]
   %134 = ptrtoint ptr %spec.select.lcssa.sink.i to i64
   %135 = ptrtoint ptr %50 to i64
   %136 = sub i64 %134, %135

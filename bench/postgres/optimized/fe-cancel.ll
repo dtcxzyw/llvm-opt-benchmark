@@ -239,7 +239,7 @@ define i32 @PQcancelStart(ptr noundef %0) local_unnamed_addr #0 {
   br label %8
 
 8:                                                ; preds = %2, %1, %6, %5
-  %.0 = phi i32 [ 0, %5 ], [ %7, %6 ], [ 0, %2 ], [ 0, %1 ]
+  %.0 = phi i32 [ %7, %6 ], [ 0, %5 ], [ 0, %2 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -289,7 +289,7 @@ define i32 @PQcancelPoll(ptr noundef %0) local_unnamed_addr #0 {
   br label %18
 
 18:                                               ; preds = %6, %16, %15, %14, %4
-  %.0 = phi i32 [ %5, %4 ], [ 0, %14 ], [ 0, %15 ], [ 3, %16 ], [ 1, %6 ]
+  %.0 = phi i32 [ %5, %4 ], [ 3, %16 ], [ 0, %14 ], [ 0, %15 ], [ 1, %6 ]
   ret i32 %.0
 }
 
@@ -439,7 +439,7 @@ define noundef ptr @PQgetCancel(ptr noundef %0) local_unnamed_addr #0 {
   br label %47
 
 47:                                               ; preds = %41, %44, %6, %2, %1, %46
-  %.0 = phi ptr [ null, %46 ], [ null, %1 ], [ null, %2 ], [ null, %6 ], [ %7, %44 ], [ %7, %41 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %2 ], [ null, %6 ], [ null, %46 ], [ %7, %44 ], [ %7, %41 ]
   ret ptr %.0
 }
 
@@ -620,7 +620,7 @@ define range(i32 0, 2) i32 @PQcancel(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %91
 
 91:                                               ; preds = %88, %89, %66, %9
-  %.043 = phi i32 [ 1, %66 ], [ 0, %9 ], [ 0, %89 ], [ 0, %88 ]
+  %.043 = phi i32 [ 0, %9 ], [ 1, %66 ], [ 0, %89 ], [ 0, %88 ]
   store i32 %8, ptr %7, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.043
@@ -703,7 +703,7 @@ define range(i32 0, 2) i32 @PQrequestCancel(ptr noundef %0) local_unnamed_addr #
   br label %27
 
 27:                                               ; preds = %.sink.split, %19, %1
-  %.0 = phi i32 [ 0, %1 ], [ 1, %19 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %19 ], [ 0, %1 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 

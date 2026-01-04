@@ -291,7 +291,7 @@ define dso_local range(i32 0, 2) i32 @grabbag__replaygain_analyze(ptr noundef re
   br label %.critedge
 
 .critedge:                                        ; preds = %88, %107, %28, %43, %118, %121
-  %.2 = phi i32 [ 1, %121 ], [ 1, %118 ], [ 0, %43 ], [ 0, %28 ], [ 0, %107 ], [ 0, %88 ]
+  %.2 = phi i32 [ 0, %43 ], [ 1, %118 ], [ 0, %107 ], [ 1, %121 ], [ 0, %28 ], [ 0, %88 ]
   ret i32 %.2
 }
 
@@ -367,7 +367,7 @@ define dso_local noundef ptr @grabbag__replaygain_analyze_file(ptr noundef %0, p
   br label %23
 
 23:                                               ; preds = %14, %3, %19, %13
-  %.0 = phi ptr [ @.str.6, %13 ], [ null, %19 ], [ @.str.5, %3 ], [ @.str.7, %14 ]
+  %.0 = phi ptr [ null, %19 ], [ @.str.6, %13 ], [ @.str.5, %3 ], [ @.str.7, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -539,8 +539,8 @@ grabbag__replaygain_store_to_vorbiscomment_title.exit: ; preds = %18
   %spec.select.i20 = select i1 %.not7.i19, ptr @.str.5, ptr null
   br label %grabbag__replaygain_store_to_vorbiscomment_reference.exit.thread
 
-grabbag__replaygain_store_to_vorbiscomment_reference.exit.thread: ; preds = %27, %25, %22, %grabbag__replaygain_store_to_vorbiscomment_title.exit, %18, %16, %grabbag__replaygain_store_to_vorbiscomment_reference.exit, %13, %8, %5
-  %.0 = phi ptr [ @.str.5, %5 ], [ @.str.5, %8 ], [ @.str.5, %13 ], [ @.str.5, %grabbag__replaygain_store_to_vorbiscomment_reference.exit ], [ @.str.5, %16 ], [ @.str.5, %18 ], [ @.str.5, %22 ], [ @.str.5, %grabbag__replaygain_store_to_vorbiscomment_title.exit ], [ @.str.5, %25 ], [ %spec.select.i20, %27 ]
+grabbag__replaygain_store_to_vorbiscomment_reference.exit.thread: ; preds = %27, %25, %22, %grabbag__replaygain_store_to_vorbiscomment_title.exit, %18, %13, %16, %grabbag__replaygain_store_to_vorbiscomment_reference.exit, %8, %5
+  %.0 = phi ptr [ @.str.5, %8 ], [ @.str.5, %18 ], [ @.str.5, %5 ], [ @.str.5, %grabbag__replaygain_store_to_vorbiscomment_reference.exit ], [ @.str.5, %16 ], [ @.str.5, %13 ], [ @.str.5, %grabbag__replaygain_store_to_vorbiscomment_title.exit ], [ @.str.5, %25 ], [ @.str.5, %22 ], [ %spec.select.i20, %27 ]
   ret ptr %.0
 }
 
@@ -558,7 +558,7 @@ define dso_local ptr @grabbag__replaygain_store_to_vorbiscomment_reference(ptr n
   br label %7
 
 7:                                                ; preds = %4, %1
-  %.0 = phi ptr [ @.str.5, %1 ], [ %.str.5., %4 ]
+  %.0 = phi ptr [ %.str.5., %4 ], [ @.str.5, %1 ]
   ret ptr %.0
 }
 
@@ -585,7 +585,7 @@ define dso_local ptr @grabbag__replaygain_store_to_vorbiscomment_title(ptr nound
   br label %13
 
 13:                                               ; preds = %11, %9, %3, %6
-  %.0 = phi ptr [ @.str.5, %6 ], [ @.str.5, %3 ], [ @.str.5, %9 ], [ %spec.select, %11 ]
+  %.0 = phi ptr [ @.str.5, %3 ], [ @.str.5, %9 ], [ @.str.5, %6 ], [ %spec.select, %11 ]
   ret ptr %.0
 }
 
@@ -612,7 +612,7 @@ define dso_local ptr @grabbag__replaygain_store_to_vorbiscomment_album(ptr nound
   br label %13
 
 13:                                               ; preds = %11, %9, %3, %6
-  %.0 = phi ptr [ @.str.5, %6 ], [ @.str.5, %3 ], [ @.str.5, %9 ], [ %spec.select, %11 ]
+  %.0 = phi ptr [ @.str.5, %3 ], [ @.str.5, %9 ], [ @.str.5, %6 ], [ %spec.select, %11 ]
   ret ptr %.0
 }
 
@@ -673,7 +673,7 @@ define dso_local ptr @grabbag__replaygain_store_to_file(ptr noundef %0, float no
   br label %17
 
 17:                                               ; preds = %15, %6, %14
-  %.0 = phi ptr [ %12, %14 ], [ %9, %6 ], [ %16, %15 ]
+  %.0 = phi ptr [ %9, %6 ], [ %12, %14 ], [ %16, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
@@ -766,7 +766,7 @@ define internal fastcc ptr @store_to_file_pre_(ptr noundef %0, ptr noundef nonnu
   br label %41
 
 41:                                               ; preds = %3, %.critedge35, %34, %28, %19, %8
-  %.027 = phi ptr [ @.str.5, %19 ], [ null, %.critedge35 ], [ @.str.5, %28 ], [ %39, %34 ], [ %13, %8 ], [ @.str.5, %3 ]
+  %.027 = phi ptr [ %13, %8 ], [ @.str.5, %19 ], [ null, %.critedge35 ], [ @.str.5, %28 ], [ %39, %34 ], [ @.str.5, %3 ]
   ret ptr %.027
 }
 
@@ -842,7 +842,7 @@ grabbag__replaygain_store_to_vorbiscomment_reference.exit: ; preds = %10
   br label %16
 
 16:                                               ; preds = %grabbag__replaygain_store_to_vorbiscomment_reference.exit, %2, %select.unfold
-  %.0 = phi ptr [ @.str.5, %select.unfold ], [ %5, %2 ], [ %15, %grabbag__replaygain_store_to_vorbiscomment_reference.exit ]
+  %.0 = phi ptr [ %5, %2 ], [ @.str.5, %select.unfold ], [ %15, %grabbag__replaygain_store_to_vorbiscomment_reference.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
@@ -880,7 +880,7 @@ define dso_local ptr @grabbag__replaygain_store_to_file_album(ptr noundef %0, fl
   %.not7.i = icmp eq i32 %18, 0
   br i1 %.not7.i, label %select.unfold, label %grabbag__replaygain_store_to_vorbiscomment_album.exit
 
-select.unfold:                                    ; preds = %17, %12, %8, %15
+select.unfold:                                    ; preds = %17, %8, %15, %12
   %19 = load ptr, ptr %5, align 8, !tbaa !42
   tail call void @FLAC__metadata_chain_delete(ptr noundef %19) #14
   br label %22
@@ -891,7 +891,7 @@ grabbag__replaygain_store_to_vorbiscomment_album.exit: ; preds = %17
   br label %22
 
 22:                                               ; preds = %grabbag__replaygain_store_to_vorbiscomment_album.exit, %4, %select.unfold
-  %.0 = phi ptr [ @.str.5, %select.unfold ], [ %7, %4 ], [ %21, %grabbag__replaygain_store_to_vorbiscomment_album.exit ]
+  %.0 = phi ptr [ %7, %4 ], [ @.str.5, %select.unfold ], [ %21, %grabbag__replaygain_store_to_vorbiscomment_album.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
@@ -929,7 +929,7 @@ define dso_local ptr @grabbag__replaygain_store_to_file_title(ptr noundef %0, fl
   %.not7.i = icmp eq i32 %18, 0
   br i1 %.not7.i, label %select.unfold, label %grabbag__replaygain_store_to_vorbiscomment_title.exit
 
-select.unfold:                                    ; preds = %17, %12, %8, %15
+select.unfold:                                    ; preds = %17, %8, %15, %12
   %19 = load ptr, ptr %5, align 8, !tbaa !42
   tail call void @FLAC__metadata_chain_delete(ptr noundef %19) #14
   br label %22
@@ -940,7 +940,7 @@ grabbag__replaygain_store_to_vorbiscomment_title.exit: ; preds = %17
   br label %22
 
 22:                                               ; preds = %grabbag__replaygain_store_to_vorbiscomment_title.exit, %4, %select.unfold
-  %.0 = phi ptr [ @.str.5, %select.unfold ], [ %7, %4 ], [ %21, %grabbag__replaygain_store_to_vorbiscomment_title.exit ]
+  %.0 = phi ptr [ %7, %4 ], [ @.str.5, %select.unfold ], [ %21, %grabbag__replaygain_store_to_vorbiscomment_title.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
@@ -1125,8 +1125,8 @@ parse_double_.exit51.thread:                      ; preds = %.critedge, %safe_st
   br label %.critedge41
 
 .critedge41:                                      ; preds = %parse_double_.exit51.thread, %parse_double_.exit46.thread, %47, %102, %100
-  %103 = phi i1 [ false, %102 ], [ true, %100 ], [ false, %47 ], [ false, %parse_double_.exit46.thread ], [ false, %parse_double_.exit51.thread ]
-  %.4 = phi i32 [ 0, %102 ], [ 1, %100 ], [ 0, %47 ], [ 0, %parse_double_.exit46.thread ], [ 0, %parse_double_.exit51.thread ]
+  %103 = phi i1 [ false, %102 ], [ true, %100 ], [ false, %parse_double_.exit51.thread ], [ false, %47 ], [ false, %parse_double_.exit46.thread ]
+  %.4 = phi i32 [ 0, %102 ], [ 1, %100 ], [ 0, %parse_double_.exit51.thread ], [ 0, %47 ], [ 0, %parse_double_.exit46.thread ]
   %104 = call ptr @setlocale(i32 noundef 6, ptr noundef nonnull %16) #14
   call void @free(ptr noundef nonnull %16) #14
   %105 = icmp ne i32 %2, 0

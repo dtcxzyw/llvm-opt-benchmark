@@ -715,7 +715,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i: ; preds = %_ZNSt11c
   %.0.i6.i.i.i.i.i = trunc nsw i64 %.08.i.i.i.i.i.i to i32
   br label %_ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit58
 
-_ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit58.thread: ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISB_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i, %_ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit53
+_ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit58.thread: ; preds = %_ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit53, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISB_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.invoke140
 
@@ -838,9 +838,9 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i:       ; preds = %_ZNK9grpc_core12exp
   br label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread: ; preds = %.preheader, %._crit_edge.loopexit, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i, %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit
-  %.0 = phi i32 [ 0, %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ %91, %.preheader ], [ %96, %._crit_edge.loopexit ]
-  %.sroa.095.0 = phi i64 [ 0, %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit ], [ %76, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ %80, %.preheader ], [ %80, %._crit_edge.loopexit ]
-  %.038 = phi i32 [ 1, %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit ], [ 1, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ 1000, %.preheader ], [ 1000, %._crit_edge.loopexit ]
+  %.0 = phi i32 [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ 0, %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit ], [ %91, %.preheader ], [ %96, %._crit_edge.loopexit ]
+  %.sroa.095.0 = phi i64 [ %76, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ 0, %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit ], [ %80, %.preheader ], [ %80, %._crit_edge.loopexit ]
+  %.038 = phi i32 [ 1, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ 1, %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit ], [ 1000, %.preheader ], [ 1000, %._crit_edge.loopexit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %97 = invoke noundef zeroext i1 @_ZN4absl12lts_2024072216numbers_internal18safe_strtou32_baseESt17basic_string_viewIcSt11char_traitsIcEEPji(i64 %.sroa.095.0, ptr %74, ptr noundef nonnull %5, i32 noundef 10)
           to label %98 unwind label %100
@@ -886,7 +886,7 @@ _ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit84: ; preds = %.thread
   ret void
 
 113:                                              ; preds = %88, %100, %61
-  %.pn48 = phi { ptr, i32 } [ %62, %61 ], [ %101, %100 ], [ %89, %88 ]
+  %.pn48 = phi { ptr, i32 } [ %62, %61 ], [ %89, %88 ], [ %101, %100 ]
   call void @_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %114

@@ -1777,8 +1777,8 @@ Cba_ObjAlloc.exit.i.i.i.i:                        ; preds = %Vec_IntPush.exit68.
   br label %Vec_IntGrow.exit.sink.split.i.i.i.i.i.i.i
 
 Vec_IntGrow.exit.sink.split.i.i.i.i.i.i.i:        ; preds = %746, %744, %737, %735
-  %storemerge.i.i.i = phi ptr [ %736, %735 ], [ %738, %737 ], [ %745, %744 ], [ %747, %746 ]
-  %.sink.i.i.i.i.i.i.i = phi i32 [ %725, %735 ], [ %725, %737 ], [ %729, %744 ], [ %729, %746 ]
+  %storemerge.i.i.i = phi ptr [ %738, %737 ], [ %736, %735 ], [ %745, %744 ], [ %747, %746 ]
+  %.sink.i.i.i.i.i.i.i = phi i32 [ %725, %737 ], [ %725, %735 ], [ %729, %744 ], [ %729, %746 ]
   store ptr %storemerge.i.i.i, ptr %504, align 8, !tbaa !34
   store i32 %.sink.i.i.i.i.i.i.i, ptr %459, align 8, !tbaa !44
   %.pre.i.i12.i.i.i.i = load i32, ptr %477, align 4, !tbaa !33
@@ -1901,8 +1901,8 @@ Cba_ObjDup.exit.i.i.i:                            ; preds = %._crit_edge.i.i.i.i
   br label %Vec_IntGrow.exit.sink.split.i.i.i.i.i.i
 
 Vec_IntGrow.exit.sink.split.i.i.i.i.i.i:          ; preds = %798, %796, %790, %788
-  %storemerge213.i.i.i = phi ptr [ %789, %788 ], [ %791, %790 ], [ %797, %796 ], [ %799, %798 ]
-  %.sink.i.i.i.i.i.i = phi i32 [ %779, %788 ], [ %779, %790 ], [ %783, %796 ], [ %783, %798 ]
+  %storemerge213.i.i.i = phi ptr [ %791, %790 ], [ %789, %788 ], [ %797, %796 ], [ %799, %798 ]
+  %.sink.i.i.i.i.i.i = phi i32 [ %779, %790 ], [ %779, %788 ], [ %783, %796 ], [ %783, %798 ]
   store ptr %storemerge213.i.i.i, ptr %504, align 8, !tbaa !34
   store i32 %.sink.i.i.i.i.i.i, ptr %459, align 8, !tbaa !44
   %.pre.i.i89.i.i.i = load i32, ptr %477, align 4, !tbaa !33
@@ -2106,8 +2106,8 @@ Cba_NtkAdd.exit.i:                                ; preds = %852, %Cba_NtkDupOrd
   br label %Vec_IntGrow.exit.sink.split.i.i.i.i.i
 
 Vec_IntGrow.exit.sink.split.i.i.i.i.i:            ; preds = %888, %886, %879, %877
-  %storemerge.i.i = phi ptr [ %878, %877 ], [ %880, %879 ], [ %887, %886 ], [ %889, %888 ]
-  %.sink.i.i.i.i43.i = phi i32 [ %867, %877 ], [ %867, %879 ], [ %871, %886 ], [ %871, %888 ]
+  %storemerge.i.i = phi ptr [ %880, %879 ], [ %878, %877 ], [ %887, %886 ], [ %889, %888 ]
+  %.sink.i.i.i.i43.i = phi i32 [ %867, %879 ], [ %867, %877 ], [ %871, %886 ], [ %871, %888 ]
   store ptr %storemerge.i.i, ptr %862, align 8, !tbaa !34
   store i32 %.sink.i.i.i.i43.i, ptr %860, align 8, !tbaa !44
   %.pre.i.i.i.i = load i32, ptr %861, align 4, !tbaa !33
@@ -2986,7 +2986,7 @@ Cba_AbcUpdateMan.exit:                            ; preds = %1248, %1250
   br label %1255
 
 1255:                                             ; preds = %37, %43, %1251, %Cba_AbcUpdateMan.exit, %58, %.tail.thread, %31, %21
-  %.0 = phi i32 [ 1, %1251 ], [ 0, %21 ], [ 0, %31 ], [ 0, %.tail.thread ], [ 0, %58 ], [ 0, %Cba_AbcUpdateMan.exit ], [ 0, %43 ], [ 0, %37 ]
+  %.0 = phi i32 [ 1, %1251 ], [ 0, %21 ], [ 0, %31 ], [ 0, %.tail.thread ], [ 0, %Cba_AbcUpdateMan.exit ], [ 0, %58 ], [ 0, %43 ], [ 0, %37 ]
   ret i32 %.0
 }
 
@@ -3761,7 +3761,7 @@ Cba_ManRoot.exit65:                               ; preds = %377, %Cba_ManNtkIsO
   br label %Cba_ManPrintStats.exit
 
 Cba_ManPrintStats.exit:                           ; preds = %Cba_NtkPrintStats.exit.i, %Cba_ManNtk.exit.i, %Cba_ManMemory.exit.i, %376, %Cba_ManRoot.exit65, %.loopexit, %28
-  %.028 = phi i32 [ 1, %.loopexit ], [ 0, %28 ], [ 0, %Cba_ManRoot.exit65 ], [ 0, %376 ], [ 0, %Cba_ManMemory.exit.i ], [ 0, %Cba_ManNtk.exit.i ], [ 0, %Cba_NtkPrintStats.exit.i ]
+  %.028 = phi i32 [ 1, %.loopexit ], [ 0, %28 ], [ 0, %376 ], [ 0, %Cba_ManRoot.exit65 ], [ 0, %Cba_ManMemory.exit.i ], [ 0, %Cba_ManNtk.exit.i ], [ 0, %Cba_NtkPrintStats.exit.i ]
   ret i32 %.028
 }
 

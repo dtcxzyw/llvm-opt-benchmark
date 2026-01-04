@@ -531,7 +531,7 @@ r_step1.exit.thread:                              ; preds = %.r_step1.exit.threa
   %111 = icmp sgt i32 %110, -1
   br i1 %111, label %112, label %r_step1.exit
 
-112:                                              ; preds = %103, %106, %109, %101, %r_step1.exit.thread, %96
+112:                                              ; preds = %103, %106, %109, %101, %96, %r_step1.exit.thread
   %113 = load i32, ptr %2, align 4
   store i32 %113, ptr %6, align 8
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -584,7 +584,7 @@ r_step1.exit.thread:                              ; preds = %.r_step1.exit.threa
   br label %r_step1.exit
 
 r_step1.exit:                                     ; preds = %124, %106, %109, %90, %131, %.loopexit, %76, %73, %70, %67, %64, %61, %58, %55, %135
-  %.1 = phi i32 [ 1, %135 ], [ %77, %76 ], [ %74, %73 ], [ %71, %70 ], [ %68, %67 ], [ %65, %64 ], [ %62, %61 ], [ %59, %58 ], [ %56, %55 ], [ %129, %.loopexit ], [ %133, %131 ], [ %91, %90 ], [ %107, %106 ], [ %110, %109 ], [ %126, %124 ]
+  %.1 = phi i32 [ 1, %135 ], [ %129, %.loopexit ], [ %110, %109 ], [ %133, %131 ], [ %91, %90 ], [ %56, %55 ], [ %77, %76 ], [ %74, %73 ], [ %71, %70 ], [ %68, %67 ], [ %65, %64 ], [ %62, %61 ], [ %59, %58 ], [ %107, %106 ], [ %126, %124 ]
   ret i32 %.1
 }
 
@@ -646,7 +646,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_chdz(ptr noundef ini
   br label %25
 
 25:                                               ; preds = %13, %1, %8, %18, %21, %24
-  %.0 = phi i32 [ 1, %24 ], [ %19, %18 ], [ %22, %21 ], [ 0, %8 ], [ 0, %1 ], [ 0, %13 ]
+  %.0 = phi i32 [ 0, %1 ], [ 1, %24 ], [ %19, %18 ], [ %22, %21 ], [ 0, %8 ], [ 0, %13 ]
   ret i32 %.0
 }
 
@@ -685,7 +685,7 @@ define internal fastcc i32 @r_fix_gd(ptr noundef initializes((24, 28)) %0) unnam
   br label %20
 
 20:                                               ; preds = %15, %13, %1, %8
-  %.013 = phi i32 [ 0, %8 ], [ 0, %1 ], [ 0, %13 ], [ %spec.select, %15 ]
+  %.013 = phi i32 [ 0, %1 ], [ 0, %13 ], [ %spec.select, %15 ], [ 0, %8 ]
   ret i32 %.013
 }
 

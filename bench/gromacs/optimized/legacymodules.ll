@@ -377,8 +377,8 @@ _ZNKSt14default_deleteIN3gmx18ICommandLineModuleEEclEPS1_.exit.i.i: ; preds = %5
   br i1 %.not.i6.i, label %common.resume, label %common.resume.sink.split
 
 common.resume.sink.split:                         ; preds = %58, %158, %147, %136, %125, %114
-  %.sink205 = phi ptr [ %116, %114 ], [ %127, %125 ], [ %138, %136 ], [ %149, %147 ], [ %160, %158 ], [ %60, %58 ]
-  %common.resume.op.ph = phi { ptr, i32 } [ %115, %114 ], [ %126, %125 ], [ %137, %136 ], [ %148, %147 ], [ %159, %158 ], [ %59, %58 ]
+  %.sink205 = phi ptr [ %149, %147 ], [ %138, %136 ], [ %127, %125 ], [ %116, %114 ], [ %160, %158 ], [ %60, %58 ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %148, %147 ], [ %137, %136 ], [ %126, %125 ], [ %115, %114 ], [ %159, %158 ], [ %59, %58 ]
   %61 = load ptr, ptr %.sink205, align 8, !tbaa !12
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load ptr, ptr %62, align 8
@@ -386,7 +386,7 @@ common.resume.sink.split:                         ; preds = %58, %158, %147, %13
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %178, %181, %186, %189, %194, %197, %202, %205, %210, %213, %218, %221, %158, %147, %136, %125, %114, %58
-  %common.resume.op = phi { ptr, i32 } [ %59, %58 ], [ %115, %114 ], [ %126, %125 ], [ %137, %136 ], [ %148, %147 ], [ %159, %158 ], [ %179, %178 ], [ %179, %181 ], [ %187, %186 ], [ %187, %189 ], [ %195, %194 ], [ %195, %197 ], [ %203, %202 ], [ %203, %205 ], [ %211, %210 ], [ %211, %213 ], [ %219, %218 ], [ %219, %221 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %159, %158 ], [ %59, %58 ], [ %115, %114 ], [ %126, %125 ], [ %137, %136 ], [ %148, %147 ], [ %187, %186 ], [ %195, %194 ], [ %203, %202 ], [ %211, %210 ], [ %219, %218 ], [ %219, %221 ], [ %211, %213 ], [ %203, %205 ], [ %195, %197 ], [ %187, %189 ], [ %179, %181 ], [ %179, %178 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2IPS6_vEEOT_.exit117: ; preds = %53, %_ZNKSt14default_deleteIN3gmx18ICommandLineModuleEEclEPS1_.exit.i.i

@@ -327,7 +327,7 @@ thread-pre-split:                                 ; preds = %27
   br label %50
 
 50:                                               ; preds = %25, %45, %2, %23
-  %.0 = phi i32 [ %24, %23 ], [ 6, %2 ], [ 0, %45 ], [ 0, %25 ]
+  %.0 = phi i32 [ 6, %2 ], [ %24, %23 ], [ 0, %45 ], [ 0, %25 ]
   ret i32 %.0
 }
 
@@ -389,7 +389,7 @@ define hidden range(i32 0, 2) i32 @Curl_resolver_getsock(ptr noundef %0, ptr nou
   br label %26
 
 26:                                               ; preds = %24, %9, %22
-  %.016 = phi i64 [ %.zext, %22 ], [ 0, %9 ], [ %., %24 ]
+  %.016 = phi i64 [ 0, %9 ], [ %.zext, %22 ], [ %., %24 ]
   tail call void @Curl_expire(ptr noundef nonnull %0, i64 noundef %.016, i32 noundef 1) #9
   br label %27
 
@@ -423,8 +423,8 @@ define hidden noalias noundef ptr @Curl_resolver_getaddrinfo(ptr noundef %0, ptr
   br label %17
 
 17:                                               ; preds = %13, %11, %4
-  %18 = phi ptr [ %.pre, %11 ], [ %8, %4 ], [ %.pre, %13 ]
-  %.013 = phi i32 [ 2, %11 ], [ 2, %4 ], [ %., %13 ]
+  %18 = phi ptr [ %.pre, %13 ], [ %8, %4 ], [ %.pre, %11 ]
+  %.013 = phi i32 [ %., %13 ], [ 2, %4 ], [ 2, %11 ]
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 1410
   %20 = load i8, ptr %19, align 2, !tbaa !113
   %21 = tail call { i64, i32 } @Curl_now() #9

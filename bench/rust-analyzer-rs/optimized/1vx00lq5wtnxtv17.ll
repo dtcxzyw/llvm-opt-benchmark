@@ -272,8 +272,8 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h1ad649304f4d9bdaE(ptr noal
 
 .invoke:                                          ; preds = %.loopexit77, %91, %177
   %94 = phi i64 [ %173, %177 ], [ %.0108, %91 ], [ %.0108, %.loopexit77 ]
-  %95 = phi i64 [ %182, %177 ], [ %98, %.loopexit77 ], [ %.0.sroa.speculated.i.i, %91 ]
-  %96 = phi ptr [ @anon.2a23919e2e32c3693bf4e5e7a411af75.21, %177 ], [ @anon.2a23919e2e32c3693bf4e5e7a411af75.18, %.loopexit77 ], [ @anon.2a23919e2e32c3693bf4e5e7a411af75.48, %91 ]
+  %95 = phi i64 [ %182, %177 ], [ %.0.sroa.speculated.i.i, %91 ], [ %98, %.loopexit77 ]
+  %96 = phi ptr [ @anon.2a23919e2e32c3693bf4e5e7a411af75.21, %177 ], [ @anon.2a23919e2e32c3693bf4e5e7a411af75.48, %91 ], [ @anon.2a23919e2e32c3693bf4e5e7a411af75.18, %.loopexit77 ]
   invoke void @_ZN4core5slice5index22slice_index_order_fail17h2e9882225a126cdcE(i64 noundef %94, i64 noundef %95, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %96) #15
           to label %.cont unwind label %.loopexit.split-lp
 
@@ -592,9 +592,9 @@ _ZN4core5slice4sort20provide_sorted_batch17hac7af97b0f4a6602E.exit: ; preds = %.
   br i1 %or.cond4.i, label %.lr.ph.i55, label %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h7b3abd519736a002E.exit"
 
 "_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h7b3abd519736a002E.exit": ; preds = %.lr.ph.i55, %.lr.ph25.i, %192, %197
-  %.sroa.18.1.i = phi ptr [ %189, %192 ], [ %188, %197 ], [ %210, %.lr.ph25.i ], [ %224, %.lr.ph.i55 ]
-  %.sroa.10.1.i = phi ptr [ %194, %192 ], [ %198, %197 ], [ %211, %.lr.ph25.i ], [ %198, %.lr.ph.i55 ]
-  %.sroa.0.0.i54 = phi ptr [ %14, %192 ], [ %14, %197 ], [ %14, %.lr.ph25.i ], [ %227, %.lr.ph.i55 ]
+  %.sroa.18.1.i = phi ptr [ %210, %.lr.ph25.i ], [ %189, %192 ], [ %188, %197 ], [ %224, %.lr.ph.i55 ]
+  %.sroa.10.1.i = phi ptr [ %211, %.lr.ph25.i ], [ %194, %192 ], [ %198, %197 ], [ %198, %.lr.ph.i55 ]
+  %.sroa.0.0.i54 = phi ptr [ %14, %.lr.ph25.i ], [ %14, %192 ], [ %14, %197 ], [ %227, %.lr.ph.i55 ]
   %230 = ptrtoint ptr %.sroa.10.1.i to i64
   %231 = ptrtoint ptr %.sroa.0.0.i54 to i64
   %232 = sub nuw i64 %230, %231
@@ -679,7 +679,7 @@ define internal fastcc void @"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$clos
   br label %_ZN4core3ops8function5FnMut8call_mut17h84f62f24595e906cE.exit.i
 
 _ZN4core3ops8function5FnMut8call_mut17h84f62f24595e906cE.exit.i: ; preds = %26, %23, %21
-  %.0.i.i.i.i = phi i8 [ %22, %21 ], [ %27, %26 ], [ %24, %23 ]
+  %.0.i.i.i.i = phi i8 [ %22, %21 ], [ %24, %23 ], [ %27, %26 ]
   %28 = icmp eq i8 %.0.i.i.i.i, -1
   br i1 %28, label %_ZN4core3ops8function5FnMut8call_mut17h84f62f24595e906cE.exit.thread.i, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h271cb2e67b54a387E.exit"
 
@@ -742,7 +742,7 @@ _ZN4core3ops8function5FnMut8call_mut17h84f62f24595e906cE.exit.thread.i: ; preds 
   br label %_ZN4core3ops8function5FnMut8call_mut17h84f62f24595e906cE.exit.i6
 
 _ZN4core3ops8function5FnMut8call_mut17h84f62f24595e906cE.exit.i6: ; preds = %53, %50, %48
-  %.0.i.i.i.i7 = phi i8 [ %49, %48 ], [ %54, %53 ], [ %51, %50 ]
+  %.0.i.i.i.i7 = phi i8 [ %49, %48 ], [ %51, %50 ], [ %54, %53 ]
   %55 = icmp eq i8 %.0.i.i.i.i7, -1
   br i1 %55, label %_ZN4core3ops8function5FnMut8call_mut17h84f62f24595e906cE.exit.thread.i8, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h271cb2e67b54a387E.exit9"
 
@@ -803,7 +803,7 @@ _ZN4core3ops8function5FnMut8call_mut17h84f62f24595e906cE.exit.thread.i8: ; preds
   br label %_ZN4core3ops8function5FnMut8call_mut17h84f62f24595e906cE.exit.i12
 
 _ZN4core3ops8function5FnMut8call_mut17h84f62f24595e906cE.exit.i12: ; preds = %78, %75, %73
-  %.0.i.i.i.i13 = phi i8 [ %74, %73 ], [ %79, %78 ], [ %76, %75 ]
+  %.0.i.i.i.i13 = phi i8 [ %74, %73 ], [ %76, %75 ], [ %79, %78 ]
   %80 = icmp eq i8 %.0.i.i.i.i13, -1
   br i1 %80, label %_ZN4core3ops8function5FnMut8call_mut17h84f62f24595e906cE.exit.thread.i14, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h271cb2e67b54a387E.exit15"
 
@@ -928,7 +928,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   br label %_ZN4core3ops8function5FnMut8call_mut17h84f62f24595e906cE.exit.us
 
 _ZN4core3ops8function5FnMut8call_mut17h84f62f24595e906cE.exit.us: ; preds = %23, %20, %17
-  %.0.i.i.i.us = phi i8 [ %24, %23 ], [ %21, %20 ], [ %18, %17 ]
+  %.0.i.i.i.us = phi i8 [ %24, %23 ], [ %18, %17 ], [ %21, %20 ]
   %25 = icmp eq i8 %.0.i.i.i.us, -1
   br i1 %25, label %_ZN4core3ops8function5FnMut8call_mut17h84f62f24595e906cE.exit.thread.us, label %_ZN4core3ops8function5FnMut8call_mut17h84f62f24595e906cE.exit.thread3.us
 
@@ -994,7 +994,7 @@ _ZN4core3ops8function5FnMut8call_mut17h84f62f24595e906cE.exit.thread.us: ; preds
   br label %_ZN4core3ops8function5FnMut8call_mut17h84f62f24595e906cE.exit
 
 _ZN4core3ops8function5FnMut8call_mut17h84f62f24595e906cE.exit: ; preds = %40, %42, %45
-  %.0.i.i.i = phi i8 [ %41, %40 ], [ %46, %45 ], [ %43, %42 ]
+  %.0.i.i.i = phi i8 [ %41, %40 ], [ %43, %42 ], [ %46, %45 ]
   %47 = icmp eq i8 %.0.i.i.i, -1
   br i1 %47, label %_ZN4core3ops8function5FnMut8call_mut17h84f62f24595e906cE.exit.thread, label %_ZN4core3ops8function5FnMut8call_mut17h84f62f24595e906cE.exit.thread3
 
@@ -1072,7 +1072,7 @@ _ZN4core3ops8function5FnMut8call_mut17h84f62f24595e906cE.exit.thread3: ; preds =
   br label %_ZN4core3ops8function5FnMut8call_mut17h84f62f24595e906cE.exit.i.i
 
 _ZN4core3ops8function5FnMut8call_mut17h84f62f24595e906cE.exit.i.i: ; preds = %68, %65, %63
-  %.0.i.i.i.i.i = phi i8 [ %64, %63 ], [ %69, %68 ], [ %66, %65 ]
+  %.0.i.i.i.i.i = phi i8 [ %64, %63 ], [ %66, %65 ], [ %69, %68 ]
   %70 = icmp eq i8 %.0.i.i.i.i.i, -1
   br i1 %70, label %_ZN4core3ops8function5FnMut8call_mut17h84f62f24595e906cE.exit.thread.i.i, label %_ZN4core5slice4sort26insertion_sort_shift_right17hb5aa97e1593814dcE.exit
 
@@ -1211,7 +1211,7 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h31
   br label %_ZN4core3ops8function5FnMut8call_mut17h84f62f24595e906cE.exit.i
 
 _ZN4core3ops8function5FnMut8call_mut17h84f62f24595e906cE.exit.i: ; preds = %23, %20, %18
-  %.0.i.i.i.i = phi i8 [ %19, %18 ], [ %24, %23 ], [ %21, %20 ]
+  %.0.i.i.i.i = phi i8 [ %19, %18 ], [ %21, %20 ], [ %24, %23 ]
   %25 = icmp eq i8 %.0.i.i.i.i, -1
   br i1 %25, label %_ZN4core3ops8function5FnMut8call_mut17h84f62f24595e906cE.exit.thread.i, label %_ZN4core5slice4sort11insert_tail17hbde599b0212f2647E.exit
 
@@ -1427,8 +1427,8 @@ define hidden void @_ZN4core5slice4sort7recurse17he16c24f07e1454e4E.llvm.1301422
   br i1 %30, label %32, label %33
 
 .outer._crit_edge:                                ; preds = %.outer, %302, %5
-  %.sroa.14.0.lcssa = phi i64 [ %1, %5 ], [ %303, %302 ], [ %.sroa.14.1, %.outer ]
-  %.sroa.0.0.lcssa = phi ptr [ %0, %5 ], [ %304, %302 ], [ %.sroa.0.1, %.outer ]
+  %.sroa.14.0.lcssa = phi i64 [ %303, %302 ], [ %1, %5 ], [ %.sroa.14.1, %.outer ]
+  %.sroa.0.0.lcssa = phi ptr [ %304, %302 ], [ %0, %5 ], [ %.sroa.0.1, %.outer ]
   %31 = icmp samesign ugt i64 %.sroa.14.0.lcssa, 1
   br i1 %31, label %310, label %.loopexit
 
@@ -1699,7 +1699,7 @@ _ZN4core3ops8function5FnMut8call_mut17h84f62f24595e906cE.exit.thread: ; preds = 
   unreachable
 
 .thread12.i:                                      ; preds = %.invoke70.i, %.noexc33.i, %108
-  %.0.i.i.i29.i = phi i8 [ %110, %.noexc33.i ], [ 1, %108 ], [ %114, %.invoke70.i ]
+  %.0.i.i.i29.i = phi i8 [ %110, %.noexc33.i ], [ %114, %.invoke70.i ], [ 1, %108 ]
   %117 = icmp eq i8 %.0.i.i.i29.i, -1
   br i1 %117, label %.thread9.i, label %98
 
@@ -1808,7 +1808,7 @@ _ZN4core3ops8function5FnMut8call_mut17h84f62f24595e906cE.exit.thread: ; preds = 
   br i1 %155, label %.invoke69.i, label %_ZN4core3ops8function5FnMut8call_mut17h84f62f24595e906cE.exit.i.i
 
 _ZN4core3ops8function5FnMut8call_mut17h84f62f24595e906cE.exit.i.i: ; preds = %.noexc39.i, %149, %.invoke69.i
-  %.0.i.i.i.i.i = phi i8 [ %.07.i.i.i.i.i, %149 ], [ %154, %.noexc39.i ], [ %148, %.invoke69.i ]
+  %.0.i.i.i.i.i = phi i8 [ %154, %.noexc39.i ], [ %.07.i.i.i.i.i, %149 ], [ %148, %.invoke69.i ]
   %.not9.not.i.not.not.i.not.not.not = icmp ne i8 %.0.i.i.i.i.i, -1
   %.sroa.sel167.idx.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = zext i1 %.not9.not.i.not.not.i.not.not.not to i64
   %.sroa.sel167.idx.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %.214516.i.i, i64 %.sroa.sel167.idx.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx
@@ -1871,7 +1871,7 @@ _ZN4core3ops8function5FnMut8call_mut17h84f62f24595e906cE.exit.i.i: ; preds = %.n
           to label %_ZN4core3ops8function5FnMut8call_mut17h84f62f24595e906cE.exit174.i.i unwind label %.loopexit18.i
 
 _ZN4core3ops8function5FnMut8call_mut17h84f62f24595e906cE.exit174.i.i: ; preds = %.invoke.i, %.noexc42.i, %171
-  %.0.i.i.i171.i.i = phi i8 [ %.07.i.i.i173.i.i, %171 ], [ %176, %.noexc42.i ], [ %180, %.invoke.i ]
+  %.0.i.i.i171.i.i = phi i8 [ %176, %.noexc42.i ], [ %.07.i.i.i173.i.i, %171 ], [ %180, %.invoke.i ]
   %181 = icmp eq i8 %.0.i.i.i171.i.i, -1
   %.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = zext i1 %181 to i64
   %.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %.215919.i.i, i64 %.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx
@@ -1983,7 +1983,7 @@ _ZN4core3ops8function5FnMut8call_mut17h84f62f24595e906cE.exit174.i.i: ; preds = 
   br i1 %230, label %.preheader.i.i, label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.preheader10.i.i, %.preheader.i.i, %216
-  %spec.select.lcssa.sink.i.i = phi ptr [ %spec.select.i.i, %216 ], [ %229, %.preheader.i.i ], [ %223, %.preheader10.i.i ]
+  %spec.select.lcssa.sink.i.i = phi ptr [ %229, %.preheader.i.i ], [ %spec.select.i.i, %216 ], [ %223, %.preheader10.i.i ]
   %231 = ptrtoint ptr %spec.select.lcssa.sink.i.i to i64
   %232 = ptrtoint ptr %119 to i64
   %233 = sub i64 %231, %232
@@ -2087,7 +2087,7 @@ common.resume:                                    ; preds = %299, %.loopexit.spl
   br label %_ZN4core3ops8function5FnMut8call_mut17h84f62f24595e906cE.exit
 
 _ZN4core3ops8function5FnMut8call_mut17h84f62f24595e906cE.exit: ; preds = %252, %254, %257
-  %.0.i.i.i = phi i8 [ %253, %252 ], [ %258, %257 ], [ %255, %254 ]
+  %.0.i.i.i = phi i8 [ %253, %252 ], [ %255, %254 ], [ %258, %257 ]
   %259 = icmp eq i8 %.0.i.i.i, -1
   br i1 %259, label %_ZN4core3ops8function5FnMut8call_mut17h84f62f24595e906cE.exit.thread, label %_ZN4core3ops8function5FnMut8call_mut17h84f62f24595e906cE.exit.thread76
 
@@ -2210,7 +2210,7 @@ _ZN4core3ops8function5FnMut8call_mut17h84f62f24595e906cE.exit.thread76: ; preds 
           to label %select.unfold5.i unwind label %.loopexit.i58
 
 select.unfold5.i:                                 ; preds = %.invoke.i62, %.noexc40.i, %288
-  %.0.i.i.i36.i = phi i8 [ %291, %.noexc40.i ], [ -1, %288 ], [ %295, %.invoke.i62 ]
+  %.0.i.i.i36.i = phi i8 [ %291, %.noexc40.i ], [ %295, %.invoke.i62 ], [ -1, %288 ]
   %296 = icmp eq i8 %.0.i.i.i36.i, -1
   br i1 %296, label %280, label %.thread6.i61
 

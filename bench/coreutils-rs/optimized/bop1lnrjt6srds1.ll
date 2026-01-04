@@ -165,7 +165,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd8f1f61ffa8f49ddE.llvm.14967268045688258034.exit.i"
 
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd8f1f61ffa8f49ddE.llvm.14967268045688258034.exit.i": ; preds = %43, %33, %19
-  %.0.i.i.i = phi ptr [ %45, %43 ], [ %spec.select7.i, %33 ], [ %spec.select.i, %19 ]
+  %.0.i.i.i = phi ptr [ %spec.select.i, %19 ], [ %spec.select7.i, %33 ], [ %45, %43 ]
   %46 = getelementptr inbounds ptr, ptr %.sroa.7.0.copyload, i64 %13
   store ptr %.0.i.i.i, ptr %46, align 8, !noalias !44
   %47 = add i64 %13, 1
@@ -247,7 +247,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br i1 %24, label %.loopexit.i.loopexit, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hff7dc30fd3bb4b00E.llvm.14967268045688258034.exit.i"
 
 .loopexit.i.loopexit:                             ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hff7dc30fd3bb4b00E.llvm.14967268045688258034.exit.i", %17
-  %.ph = phi i64 [ %14, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hff7dc30fd3bb4b00E.llvm.14967268045688258034.exit.i" ], [ %23, %17 ]
+  %.ph = phi i64 [ %23, %17 ], [ %14, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hff7dc30fd3bb4b00E.llvm.14967268045688258034.exit.i" ]
   store ptr %16, ptr %10, align 8, !alias.scope !89, !noalias !90
   br label %.loopexit.i
 
@@ -1253,7 +1253,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h8ec3c14f023370
   br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd8f1f61ffa8f49ddE.llvm.14967268045688258034.exit"
 
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd8f1f61ffa8f49ddE.llvm.14967268045688258034.exit": ; preds = %48, %34, %58
-  %.0.i.i = phi ptr [ %60, %58 ], [ %spec.select7, %48 ], [ %spec.select, %34 ]
+  %.0.i.i = phi ptr [ %spec.select, %34 ], [ %spec.select7, %48 ], [ %60, %58 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !507)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !508)
   %61 = getelementptr inbounds ptr, ptr %25, i64 %28
@@ -1501,7 +1501,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17hac954b68c5
   unreachable
 
 common.resume.i.i:                                ; preds = %50, %36, %28
-  %common.resume.op.i.i = phi { ptr, i32 } [ %29, %28 ], [ %37, %36 ], [ %51, %50 ]
+  %common.resume.op.i.i = phi { ptr, i32 } [ %37, %36 ], [ %29, %28 ], [ %51, %50 ]
   resume { ptr, i32 } %common.resume.op.i.i
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc50c5fdfc16e01e2E.exit.i.i.i": ; preds = %20
@@ -1736,7 +1736,7 @@ define hidden void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d
   br label %"_ZN5uu_pr13write_columns28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hdc4d59a3e028d032E.llvm.14967268045688258034.exit"
 
 "_ZN5uu_pr13write_columns28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hdc4d59a3e028d032E.llvm.14967268045688258034.exit": ; preds = %12, %38, %54, %57, %61
-  %.0.i = phi ptr [ %64, %61 ], [ %56, %54 ], [ %60, %57 ], [ null, %38 ], [ null, %12 ]
+  %.0.i = phi ptr [ %64, %61 ], [ null, %38 ], [ %56, %54 ], [ %60, %57 ], [ null, %12 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !633)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !636)
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2223,7 +2223,7 @@ define hidden noundef align 8 dereferenceable_or_null(64) ptr @"_ZN5uu_pr13write
   br label %60
 
 60:                                               ; preds = %11, %37, %61, %56, %53
-  %.0 = phi ptr [ %64, %61 ], [ %55, %53 ], [ %59, %56 ], [ null, %37 ], [ null, %11 ]
+  %.0 = phi ptr [ %64, %61 ], [ null, %37 ], [ %55, %53 ], [ %59, %56 ], [ null, %11 ]
   ret ptr %.0
 
 61:                                               ; preds = %11

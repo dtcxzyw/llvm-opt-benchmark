@@ -836,7 +836,7 @@ define noundef ptr @set_tap_dfilter(ptr noundef readnone captures(address) %0, p
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %29, %2, %24
-  %.0 = phi ptr [ %25, %24 ], [ null, %2 ], [ null, %29 ], [ null, %.preheader ]
+  %.0 = phi ptr [ null, %2 ], [ %25, %24 ], [ null, %29 ], [ null, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
@@ -1111,7 +1111,7 @@ define noundef zeroext i1 @have_filtering_tap_listeners() local_unnamed_addr #8 
   br i1 %.not, label %.split, label %.split9.us, !llvm.loop !27
 
 .split9.us:                                       ; preds = %5, %8, %.split, %.lr.ph, %2, %.split.us
-  %.us-phi = phi i1 [ false, %.split.us ], [ %.not7.us.not.not, %2 ], [ %.not7.us.not.not, %.lr.ph ], [ %.not.not.not.not, %.split ], [ %.not.not.not.not, %8 ], [ %.not.not.not.not, %5 ]
+  %.us-phi = phi i1 [ false, %.split.us ], [ %.not7.us.not.not, %.lr.ph ], [ %.not7.us.not.not, %2 ], [ %.not.not.not.not, %.split ], [ %.not.not.not.not, %8 ], [ %.not.not.not.not, %5 ]
   ret i1 %.us-phi
 }
 

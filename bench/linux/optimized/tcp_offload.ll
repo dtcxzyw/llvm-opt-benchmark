@@ -879,8 +879,8 @@ define dso_local ptr @tcp_gro_receive(ptr noundef readonly captures(address) %0,
   br label %.thread
 
 .thread:                                          ; preds = %47, %49, %18, %20, %212, %206, %53, %30, %26
-  %220 = phi i32 [ 1, %26 ], [ 1, %30 ], [ 1, %53 ], [ %210, %206 ], [ %210, %212 ], [ 1, %20 ], [ 1, %18 ], [ 1, %49 ], [ 1, %47 ]
-  %221 = phi ptr [ null, %26 ], [ null, %30 ], [ null, %53 ], [ null, %206 ], [ %219, %212 ], [ null, %20 ], [ null, %18 ], [ null, %49 ], [ null, %47 ]
+  %220 = phi i32 [ 1, %26 ], [ 1, %30 ], [ 1, %53 ], [ %210, %206 ], [ %210, %212 ], [ 1, %18 ], [ 1, %20 ], [ 1, %49 ], [ 1, %47 ]
+  %221 = phi ptr [ null, %26 ], [ null, %30 ], [ null, %53 ], [ null, %206 ], [ %219, %212 ], [ null, %18 ], [ null, %20 ], [ null, %49 ], [ null, %47 ]
   %222 = icmp ne i32 %220, 0
   %223 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %224 = load i16, ptr %223, align 4

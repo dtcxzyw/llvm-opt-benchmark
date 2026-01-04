@@ -1554,7 +1554,7 @@ _ZNK12_GLOBAL__N_116TypeStreamMerger16remapIndexSimpleERN4llvm8codeview9TypeInde
   br label %_ZN12_GLOBAL__N_116TypeStreamMerger14remapItemIndexERN4llvm8codeview9TypeIndexE.exit.i.sink.split
 
 .critedge.sink.split.i:                           ; preds = %68, %57, %44
-  %.0.copyload.i.i.i.i.i.i.i.i.sink.i = phi i32 [ %.0.copyload.i.i.i.i.i.i.i.i.i, %44 ], [ %.0.copyload.i.i.i.i.i.i.i.i57.i, %57 ], [ %.0.copyload.i.i.i.i.i.i.i8.i.i, %68 ]
+  %.0.copyload.i.i.i.i.i.i.i.i.sink.i = phi i32 [ %.0.copyload.i.i.i.i.i.i.i.i57.i, %57 ], [ %.0.copyload.i.i.i.i.i.i.i.i.i, %44 ], [ %.0.copyload.i.i.i.i.i.i.i8.i.i, %68 ]
   store i32 %.0.copyload.i.i.i.i.i.i.i.i.sink.i, ptr %33, align 1, !tbaa !78
   %.pre = load i32, ptr %30, align 4, !tbaa !233
   br label %.critedge.i
@@ -1601,8 +1601,8 @@ _ZN12_GLOBAL__N_116TypeStreamMerger14remapItemIndexERN4llvm8codeview9TypeIndexE.
   br label %_ZN12_GLOBAL__N_116TypeStreamMerger14remapItemIndexERN4llvm8codeview9TypeIndexE.exit.i
 
 _ZN12_GLOBAL__N_116TypeStreamMerger14remapItemIndexERN4llvm8codeview9TypeIndexE.exit.i: ; preds = %82, %_ZN12_GLOBAL__N_116TypeStreamMerger14remapItemIndexERN4llvm8codeview9TypeIndexE.exit.i.sink.split, %.critedge52.i, %3
-  %.sroa.5.0.i = phi i64 [ %2, %.critedge52.i ], [ %.sroa.5.0.copyload.i, %3 ], [ 0, %_ZN12_GLOBAL__N_116TypeStreamMerger14remapItemIndexERN4llvm8codeview9TypeIndexE.exit.i.sink.split ], [ %2, %82 ]
-  %.sroa.063.0.i = phi ptr [ %1, %.critedge52.i ], [ %.sroa.063.0.copyload.i, %3 ], [ null, %_ZN12_GLOBAL__N_116TypeStreamMerger14remapItemIndexERN4llvm8codeview9TypeIndexE.exit.i.sink.split ], [ %1, %82 ]
+  %.sroa.5.0.i = phi i64 [ %.sroa.5.0.copyload.i, %3 ], [ 0, %_ZN12_GLOBAL__N_116TypeStreamMerger14remapItemIndexERN4llvm8codeview9TypeIndexE.exit.i.sink.split ], [ %2, %.critedge52.i ], [ %2, %82 ]
+  %.sroa.063.0.i = phi ptr [ %.sroa.063.0.copyload.i, %3 ], [ null, %_ZN12_GLOBAL__N_116TypeStreamMerger14remapItemIndexERN4llvm8codeview9TypeIndexE.exit.i.sink.split ], [ %1, %.critedge52.i ], [ %1, %82 ]
   %87 = load ptr, ptr %4, align 8, !tbaa !205
   %88 = icmp eq ptr %87, %11
   br i1 %88, label %_ZN12_GLOBAL__N_116TypeStreamMerger12remapIndicesERKN4llvm8codeview8CVRecordINS2_12TypeLeafKindEEENS1_15MutableArrayRefIhEE.exit, label %89

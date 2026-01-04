@@ -857,8 +857,8 @@ dissect_xra_tlv.exit:                             ; preds = %202, %4
   br label %243
 
 243:                                              ; preds = %236, %235, %228, %.lr.ph.i73
-  %.str.248.sink.i = phi ptr [ @.str.249, %228 ], [ @.str.251, %235 ], [ @.str.252, %236 ], [ @.str.248, %.lr.ph.i73 ]
-  %.034.i = phi i16 [ %230, %228 ], [ 9, %235 ], [ %242, %236 ], [ 12, %.lr.ph.i73 ]
+  %.str.248.sink.i = phi ptr [ @.str.252, %236 ], [ @.str.249, %228 ], [ @.str.251, %235 ], [ @.str.248, %.lr.ph.i73 ]
+  %.034.i = phi i16 [ %242, %236 ], [ %230, %228 ], [ 9, %235 ], [ 12, %.lr.ph.i73 ]
   %244 = load ptr, ptr %26, align 8
   call void @col_append_str(ptr noundef %244, i32 noundef 25, ptr noundef nonnull %.str.248.sink.i)
   %245 = call ptr @tvb_new_subset_remaining(ptr noundef %216, i32 noundef %.0364.i)
@@ -993,7 +993,7 @@ dissect_ncp.exit:                                 ; preds = %.lr.ph.i74, %250
   br label %.sink.split
 
 .sink.split:                                      ; preds = %243, %340, %213, %210, %287, %321, %318, %326, %323, %.thread.i, %215, %dissect_ncp.exit, %289, %328
-  %.sink = phi ptr [ %329, %328 ], [ %291, %289 ], [ %251, %dissect_ncp.exit ], [ %216, %215 ], [ %216, %.thread.i ], [ %0, %323 ], [ %0, %326 ], [ %0, %318 ], [ %0, %321 ], [ %0, %287 ], [ %0, %210 ], [ %0, %213 ], [ %0, %340 ], [ %216, %243 ]
+  %.sink = phi ptr [ %216, %.thread.i ], [ %329, %328 ], [ %291, %289 ], [ %251, %dissect_ncp.exit ], [ %0, %340 ], [ %216, %215 ], [ %0, %323 ], [ %0, %326 ], [ %0, %318 ], [ %0, %321 ], [ %0, %287 ], [ %0, %210 ], [ %0, %213 ], [ %216, %243 ]
   %343 = call i32 @tvb_captured_length(ptr noundef %.sink)
   br label %344
 

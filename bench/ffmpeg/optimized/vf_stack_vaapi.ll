@@ -173,8 +173,8 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_stack_init(ptr noundef %0) 
   br label %49
 
 49:                                               ; preds = %48, %44, %9, %1
-  %.sink82.i = phi i64 [ 248, %48 ], [ 240, %1 ], [ 240, %9 ], [ 248, %44 ]
-  %.sink.i = phi i32 [ 0, %48 ], [ 0, %1 ], [ 1, %9 ], [ 1, %44 ]
+  %.sink82.i = phi i64 [ 248, %48 ], [ 240, %9 ], [ 240, %1 ], [ 248, %44 ]
+  %.sink.i = phi i32 [ 0, %48 ], [ 1, %9 ], [ 0, %1 ], [ 1, %44 ]
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink82.i
   store i32 %.sink.i, ptr %50, align 8, !tbaa !41
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 264
@@ -231,8 +231,8 @@ stack_init.exit:                                  ; preds = %._crit_edge.i
   store i32 -1, ptr %69, align 8, !tbaa !51
   br label %stack_init.exit.thread
 
-stack_init.exit.thread:                           ; preds = %57, %._crit_edge.i, %.thread62.i, %26, %35, %stack_init.exit, %68
-  %.0 = phi i32 [ 0, %68 ], [ -12, %stack_init.exit ], [ -12, %.thread62.i ], [ -22, %26 ], [ -22, %35 ], [ -12, %._crit_edge.i ], [ %58, %57 ]
+stack_init.exit.thread:                           ; preds = %57, %._crit_edge.i, %.thread62.i, %35, %26, %stack_init.exit, %68
+  %.0 = phi i32 [ -12, %stack_init.exit ], [ 0, %68 ], [ -22, %26 ], [ -12, %._crit_edge.i ], [ -12, %.thread62.i ], [ -22, %35 ], [ %58, %57 ]
   ret i32 %.0
 }
 
@@ -781,7 +781,7 @@ define internal i32 @config_output(ptr noundef %0) #0 {
   br i1 %.not243.i, label %161, label %.thread268.i, !llvm.loop !89
 
 .thread.i:                                        ; preds = %.preheader273.i.preheader, %.preheader273.i._crit_edge, %222, %219, %208, %203, %189, %184, %179
-  %.2.ph.i = phi i32 [ %177, %179 ], [ -22, %184 ], [ -22, %189 ], [ -22, %203 ], [ -22, %208 ], [ -22, %219 ], [ -22, %222 ], [ -22, %.preheader273.i._crit_edge ], [ -22, %.preheader273.i.preheader ]
+  %.2.ph.i = phi i32 [ -22, %222 ], [ %177, %179 ], [ -22, %184 ], [ -22, %189 ], [ -22, %203 ], [ -22, %208 ], [ -22, %219 ], [ -22, %.preheader273.i._crit_edge ], [ -22, %.preheader273.i.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -791,8 +791,8 @@ define internal i32 @config_output(ptr noundef %0) #0 {
   br label %.critedge
 
 .loopexit276.i:                                   ; preds = %104, %75, %.thread268.i, %._crit_edge315.i, %97, %68
-  %.1188.i = phi i32 [ %154, %._crit_edge315.i ], [ %.3190.lcssa.i, %.thread268.i ], [ %.0187.i, %68 ], [ 0, %97 ], [ %.0187.i, %75 ], [ %119, %104 ]
-  %.1181.i = phi i32 [ %153, %._crit_edge315.i ], [ %.3183.lcssa.i, %.thread268.i ], [ 0, %68 ], [ %.2182.i, %97 ], [ %90, %75 ], [ %.2182.i, %104 ]
+  %.1188.i = phi i32 [ %.3190.lcssa.i, %.thread268.i ], [ %.0187.i, %68 ], [ %154, %._crit_edge315.i ], [ %.0187.i, %75 ], [ 0, %97 ], [ %119, %104 ]
+  %.1181.i = phi i32 [ %.3183.lcssa.i, %.thread268.i ], [ 0, %68 ], [ %153, %._crit_edge315.i ], [ %90, %75 ], [ %.2182.i, %97 ], [ %.2182.i, %104 ]
   %247 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %.1181.i, ptr %247, align 8, !tbaa !79
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -951,7 +951,7 @@ config_comm_output.exit:                          ; preds = %init_framesync.exit
   br i1 %exitcond129.not, label %._crit_edge, label %317, !llvm.loop !111
 
 .critedge:                                        ; preds = %.loopexit.i, %.thread270.i, %init_framesync.exit.i, %.thread.i, %49, %44, %39, %._crit_edge, %26
-  %.060 = phi i32 [ -22, %26 ], [ %316, %._crit_edge ], [ -22, %39 ], [ -22, %44 ], [ -22, %49 ], [ %275, %.loopexit.i ], [ -22, %.thread270.i ], [ %301, %init_framesync.exit.i ], [ %.2.ph.i, %.thread.i ]
+  %.060 = phi i32 [ -22, %26 ], [ -22, %49 ], [ %316, %._crit_edge ], [ -22, %39 ], [ -22, %44 ], [ %275, %.loopexit.i ], [ -22, %.thread270.i ], [ %301, %init_framesync.exit.i ], [ %.2.ph.i, %.thread.i ]
   ret i32 %.060
 }
 
@@ -1165,7 +1165,7 @@ define internal i32 @process_frame(ptr noundef %0) #0 {
   br label %124
 
 124:                                              ; preds = %16, %1, %.thread, %122
-  %.052 = phi i32 [ %.051, %.thread ], [ %123, %122 ], [ -22, %1 ], [ -12, %16 ]
+  %.052 = phi i32 [ %123, %122 ], [ -22, %1 ], [ %.051, %.thread ], [ -12, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

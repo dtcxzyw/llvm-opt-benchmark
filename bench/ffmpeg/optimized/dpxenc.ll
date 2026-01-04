@@ -711,7 +711,7 @@ encode_gbrp12.exit:                               ; preds = %353, %284
   br label %361
 
 encode_rgb48_10bit.exit:                          ; preds = %._crit_edge.i, %.loopexit.encode_rgb48_10bit.exit_crit_edge, %.preheader.lr.ph.i, %223, %encode_gbrp10.exit, %encode_gbrp12.exit
-  %.pre-phi = phi i32 [ %.pre, %.loopexit.encode_rgb48_10bit.exit_crit_edge ], [ %44, %.preheader.lr.ph.i ], [ %44, %223 ], [ %44, %encode_gbrp10.exit ], [ %44, %encode_gbrp12.exit ], [ %44, %._crit_edge.i ]
+  %.pre-phi = phi i32 [ %.pre, %.loopexit.encode_rgb48_10bit.exit_crit_edge ], [ %44, %encode_gbrp12.exit ], [ %44, %.preheader.lr.ph.i ], [ %44, %223 ], [ %44, %encode_gbrp10.exit ], [ %44, %._crit_edge.i ]
   %358 = load i32, ptr %9, align 4, !tbaa !30
   %359 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %.not.i151 = icmp eq i32 %358, 0
@@ -722,7 +722,7 @@ encode_rgb48_10bit.exit:                          ; preds = %._crit_edge.i, %.lo
   br label %361
 
 361:                                              ; preds = %.loopexit, %43, %encode_rgb48_10bit.exit, %357
-  %.0115 = phi i32 [ -1, %357 ], [ 0, %encode_rgb48_10bit.exit ], [ %46, %43 ], [ %.1, %.loopexit ]
+  %.0115 = phi i32 [ 0, %encode_rgb48_10bit.exit ], [ -1, %357 ], [ %46, %43 ], [ %.1, %.loopexit ]
   ret i32 %.0115
 }
 

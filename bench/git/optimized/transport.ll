@@ -809,7 +809,7 @@ protocol_allow_list.exit:                         ; preds = %2, %10
   unreachable
 
 parse_protocol_config.exit.i:                     ; preds = %23, %21, %18
-  %.0.i.i = phi i32 [ 2, %18 ], [ 0, %21 ], [ 1, %23 ]
+  %.0.i.i = phi i32 [ 0, %21 ], [ 2, %18 ], [ 1, %23 ]
   call void @free(ptr noundef %15) #21
   call void @free(ptr noundef %19) #21
   br label %get_protocol_config.exit
@@ -843,7 +843,7 @@ parse_protocol_config.exit.i:                     ; preds = %23, %21, %18
   unreachable
 
 parse_protocol_config.exit22.i:                   ; preds = %35, %33, %30
-  %.0.i21.i = phi i32 [ 2, %30 ], [ 0, %33 ], [ 1, %35 ]
+  %.0.i21.i = phi i32 [ 0, %33 ], [ 2, %30 ], [ 1, %35 ]
   call void @free(ptr noundef %31) #21
   br label %get_protocol_config.exit
 
@@ -873,12 +873,12 @@ parse_protocol_config.exit22.i:                   ; preds = %35, %33, %30
   %..i = zext i1 %.not17.i to i32
   br label %get_protocol_config.exit
 
-get_protocol_config.exit.thread:                  ; preds = %45, %43, %41, %39
+get_protocol_config.exit.thread:                  ; preds = %39, %45, %43, %41
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %54
 
 get_protocol_config.exit:                         ; preds = %parse_protocol_config.exit.i, %parse_protocol_config.exit22.i, %47
-  %.0.i = phi i32 [ %.0.i21.i, %parse_protocol_config.exit22.i ], [ %.0.i.i, %parse_protocol_config.exit.i ], [ %..i, %47 ]
+  %.0.i = phi i32 [ %.0.i21.i, %parse_protocol_config.exit22.i ], [ %..i, %47 ], [ %.0.i.i, %parse_protocol_config.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   switch i32 %.0.i, label %default.unreachable14 [
     i32 2, label %54
@@ -901,7 +901,7 @@ default.unreachable14:                            ; preds = %get_protocol_config
   unreachable
 
 54:                                               ; preds = %get_protocol_config.exit.thread, %50, %52, %get_protocol_config.exit, %49, %12
-  %.0 = phi i32 [ %13, %12 ], [ 0, %49 ], [ 1, %get_protocol_config.exit ], [ %53, %52 ], [ %1, %50 ], [ 1, %get_protocol_config.exit.thread ]
+  %.0 = phi i32 [ %13, %12 ], [ 1, %get_protocol_config.exit ], [ 0, %49 ], [ %53, %52 ], [ %1, %50 ], [ 1, %get_protocol_config.exit.thread ]
   ret i32 %.0
 }
 
@@ -1427,7 +1427,7 @@ define dso_local range(i32 -1, 2) i32 @transport_set_option(ptr noundef %0, ptr 
   br label %set_git_option.exit
 
 set_git_option.exit:                              ; preds = %93, %91, %86, %82, %75, %68, %64, %60, %57, %47, %39, %32, %25, %17, %13, %9, %3
-  %.016 = phi i1 [ true, %3 ], [ false, %93 ], [ false, %86 ], [ false, %82 ], [ false, %75 ], [ false, %68 ], [ false, %64 ], [ false, %60 ], [ false, %39 ], [ false, %32 ], [ false, %25 ], [ false, %17 ], [ false, %13 ], [ false, %9 ], [ false, %57 ], [ false, %47 ], [ true, %91 ]
+  %.016 = phi i1 [ true, %3 ], [ false, %47 ], [ false, %93 ], [ false, %86 ], [ false, %82 ], [ false, %75 ], [ false, %68 ], [ false, %64 ], [ false, %60 ], [ false, %9 ], [ false, %39 ], [ false, %32 ], [ false, %25 ], [ false, %17 ], [ false, %13 ], [ false, %57 ], [ true, %91 ]
   %98 = load ptr, ptr %0, align 8, !tbaa !72
   %99 = load ptr, ptr %98, align 8, !tbaa !92
   %.not20 = icmp eq ptr %99, null
@@ -1986,7 +1986,7 @@ push_had_errors.exit:                             ; preds = %170, %165
   br label %202
 
 202:                                              ; preds = %200, %197, %191
-  %.026.us.i = phi ptr [ %192, %197 ], [ %192, %191 ], [ %spec.select.us.i, %200 ]
+  %.026.us.i = phi ptr [ %192, %191 ], [ %spec.select.us.i, %200 ], [ %192, %197 ]
   %203 = call i32 @starts_with(ptr noundef nonnull %.026.us.i, ptr noundef nonnull @.str.65) #21
   %.not36.us.i = icmp eq i32 %203, 0
   br i1 %.not36.us.i, label %214, label %204
@@ -2059,7 +2059,7 @@ push_had_errors.exit:                             ; preds = %170, %165
   br label %234
 
 234:                                              ; preds = %232, %229, %223
-  %.026.i = phi ptr [ %224, %229 ], [ %224, %223 ], [ %spec.select.i134, %232 ]
+  %.026.i = phi ptr [ %224, %223 ], [ %spec.select.i134, %232 ], [ %224, %229 ]
   %235 = call i32 @starts_with(ptr noundef nonnull %.026.i, ptr noundef nonnull @.str.65) #21
   %.not36.i = icmp eq i32 %235, 0
   br i1 %.not36.i, label %251, label %236
@@ -2204,8 +2204,8 @@ transport_update_tracking_ref.exit:               ; preds = %.preheader.i, %255,
   br label %transport_refs_pushed.exit
 
 transport_refs_pushed.exit:                       ; preds = %.lr.ph.i143, %run_pre_push_hook.exit.thread, %280, %.loopexit, %282, %run_pre_push_hook.exit, %33, %29, %25, %5
-  %.097 = phi ptr [ null, %5 ], [ %30, %29 ], [ %30, %33 ], [ %30, %282 ], [ %30, %.loopexit ], [ %30, %280 ], [ %30, %run_pre_push_hook.exit ], [ null, %25 ], [ %30, %run_pre_push_hook.exit.thread ], [ %30, %.lr.ph.i143 ]
-  %.096 = phi i32 [ -1, %5 ], [ -1, %29 ], [ -1, %33 ], [ %179, %282 ], [ 0, %.loopexit ], [ %179, %280 ], [ -1, %run_pre_push_hook.exit ], [ -1, %25 ], [ -1, %run_pre_push_hook.exit.thread ], [ 0, %.lr.ph.i143 ]
+  %.097 = phi ptr [ null, %5 ], [ %30, %29 ], [ %30, %33 ], [ %30, %282 ], [ %30, %run_pre_push_hook.exit.thread ], [ %30, %.loopexit ], [ %30, %280 ], [ %30, %run_pre_push_hook.exit ], [ null, %25 ], [ %30, %.lr.ph.i143 ]
+  %.096 = phi i32 [ -1, %5 ], [ -1, %29 ], [ -1, %33 ], [ %179, %282 ], [ -1, %run_pre_push_hook.exit.thread ], [ 0, %.loopexit ], [ %179, %280 ], [ -1, %run_pre_push_hook.exit ], [ -1, %25 ], [ 0, %.lr.ph.i143 ]
   call void @free_refs(ptr noundef %.097) #21
   %292 = load ptr, ptr %9, align 8, !tbaa !8
   call void @free_refs(ptr noundef %292) #21
@@ -2432,8 +2432,8 @@ st_mult.exit:                                     ; preds = %13
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread, %.loopexit.loopexit, %._crit_edge
-  %.241 = phi i32 [ %.140, %._crit_edge ], [ %33, %.loopexit.loopexit ], [ 0, %.thread ]
-  %.3 = phi ptr [ %.133, %._crit_edge ], [ %30, %.loopexit.loopexit ], [ %3, %.thread ]
+  %.241 = phi i32 [ %.140, %._crit_edge ], [ 0, %.thread ], [ %33, %.loopexit.loopexit ]
+  %.3 = phi ptr [ %.133, %._crit_edge ], [ %3, %.thread ], [ %30, %.loopexit.loopexit ]
   %34 = load ptr, ptr %0, align 8, !tbaa !72
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = load ptr, ptr %35, align 8, !tbaa !118
@@ -2518,7 +2518,7 @@ define dso_local range(i32 -1, 1) i32 @transport_get_remote_bundle_uri(ptr nound
   br label %37
 
 37:                                               ; preds = %.sink.split, %30, %7, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %7 ], [ 0, %30 ], [ -1, %.sink.split ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %30 ], [ 0, %7 ], [ -1, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -2708,7 +2708,7 @@ define dso_local ptr @transport_anonymize_url(ptr noundef %0) local_unnamed_addr
   br label %34
 
 34:                                               ; preds = %.thread, %30
-  %.028 = phi ptr [ %32, %30 ], [ %33, %.thread ]
+  %.028 = phi ptr [ %33, %.thread ], [ %32, %30 ]
   ret ptr %.028
 }
 
@@ -3585,9 +3585,9 @@ define internal i32 @git_transport_push(ptr noundef captures(none) %0, ptr nound
   %56 = trunc i32 %2 to i16
   %57 = lshr i16 %56, 3
   %58 = and i16 %57, 512
-  %.sink34 = select i1 %.not30, i16 %58, i16 1024
-  %spec.select = or disjoint i16 %49, %.sink34
-  store i16 %spec.select, ptr %17, align 8
+  %.pn = select i1 %.not30, i16 %58, i16 1024
+  %.sink = or disjoint i16 %49, %.pn
+  store i16 %.sink, ptr %17, align 8
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 172
   %60 = load i32, ptr %59, align 4, !tbaa !145
   switch i32 %60, label %71 [

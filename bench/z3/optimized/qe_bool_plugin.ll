@@ -555,11 +555,11 @@ define linkonce_odr hidden noundef i32 @_ZN2qe11bool_plugin10get_weightER12conta
   br i1 %.not27.old.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %42, %39
-  %.137.i.i.be = phi ptr [ %.old.i.i, %42 ], [ %41, %39 ]
+  %.137.i.i.be = phi ptr [ %41, %39 ], [ %.old.i.i, %42 ]
   br label %.lr.ph38.i.i, !llvm.loop !128
 
 _ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit: ; preds = %23, %28, %34, %39, %42, %.preheader.i.i
-  %.026.i.i = phi i1 [ false, %.preheader.i.i ], [ false, %39 ], [ false, %42 ], [ true, %34 ], [ %.not.i.not.not, %28 ], [ %.not.i.not.not, %23 ]
+  %.026.i.i = phi i1 [ false, %.preheader.i.i ], [ true, %34 ], [ false, %39 ], [ false, %42 ], [ %.not.i.not.not, %28 ], [ %.not.i.not.not, %23 ]
   %43 = load ptr, ptr %5, align 8, !tbaa !118
   %44 = load ptr, ptr %43, align 8, !tbaa !3
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
@@ -633,11 +633,11 @@ _ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8cont
   br i1 %.not27.old.i.i18, label %_ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit24, label %.lr.ph38.i.i14.backedge
 
 .lr.ph38.i.i14.backedge:                          ; preds = %78, %75
-  %.137.i.i15.be = phi ptr [ %.old.i.i17, %78 ], [ %77, %75 ]
+  %.137.i.i15.be = phi ptr [ %77, %75 ], [ %.old.i.i17, %78 ]
   br label %.lr.ph38.i.i14, !llvm.loop !128
 
 _ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit24: ; preds = %59, %64, %70, %75, %78, %.preheader.i.i12
-  %.026.i.i21 = phi i1 [ false, %.preheader.i.i12 ], [ false, %75 ], [ false, %78 ], [ true, %70 ], [ %.not.i9.not.not, %64 ], [ %.not.i9.not.not, %59 ]
+  %.026.i.i21 = phi i1 [ false, %.preheader.i.i12 ], [ true, %70 ], [ false, %75 ], [ false, %78 ], [ %.not.i9.not.not, %64 ], [ %.not.i9.not.not, %59 ]
   %or.cond = and i1 %.026.i.i, %.026.i.i21
   %. = select i1 %or.cond, i32 3, i32 0
   ret i32 %.
@@ -1147,7 +1147,7 @@ _ZNK11ast_manager6is_notEPK4exprRPS0_.exit.thread: ; preds = %55, %51, %_ZNK11as
   br i1 %.not55, label %.critedge, label %21
 
 .critedge:                                        ; preds = %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit.thread, %.invoke, %12, %16
-  %84 = phi i1 [ false, %16 ], [ false, %12 ], [ true, %.invoke ], [ false, %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit.thread ]
+  %84 = phi i1 [ false, %12 ], [ true, %.invoke ], [ false, %16 ], [ false, %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %85 = load ptr, ptr %4, align 8, !tbaa !44
   %.not.i.i34 = icmp eq ptr %85, null
@@ -1304,7 +1304,7 @@ _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit:  ; preds = %2, %_ZN11ast_manage
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit, %.critedge, %46, %52
-  %.not1832 = phi i1 [ %.not18.ph, %.critedge ], [ %.not18.ph, %46 ], [ %.not18.ph, %52 ], [ false, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit ]
+  %.not1832 = phi i1 [ %.not18.ph, %52 ], [ %.not18.ph, %.critedge ], [ %.not18.ph, %46 ], [ false, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %56 = load ptr, ptr %3, align 8, !tbaa !44
   %.not.i.i14 = icmp eq ptr %56, null
@@ -1446,11 +1446,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2qe11bool_plugin15solve_polari
   br i1 %.not27.old.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %43, %40
-  %.137.i.i.be = phi ptr [ %.old.i.i, %43 ], [ %42, %40 ]
+  %.137.i.i.be = phi ptr [ %42, %40 ], [ %.old.i.i, %43 ]
   br label %.lr.ph38.i.i, !llvm.loop !128
 
 _ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit: ; preds = %24, %29, %35, %40, %43, %.preheader.i.i
-  %.026.i.i = phi i1 [ false, %.preheader.i.i ], [ false, %40 ], [ false, %43 ], [ true, %35 ], [ %.not.i.not.not, %29 ], [ %.not.i.not.not, %24 ]
+  %.026.i.i = phi i1 [ false, %.preheader.i.i ], [ true, %35 ], [ false, %40 ], [ false, %43 ], [ %.not.i.not.not, %29 ], [ %.not.i.not.not, %24 ]
   %44 = load ptr, ptr %6, align 8, !tbaa !118
   %45 = load ptr, ptr %44, align 8, !tbaa !3
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
@@ -1524,7 +1524,7 @@ _ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8cont
   br i1 %.not27.old.i.i91, label %.loopexit200, label %.lr.ph38.i.i87.backedge
 
 .lr.ph38.i.i87.backedge:                          ; preds = %79, %76
-  %.137.i.i88.be = phi ptr [ %.old.i.i90, %79 ], [ %78, %76 ]
+  %.137.i.i88.be = phi ptr [ %78, %76 ], [ %.old.i.i90, %79 ]
   br label %.lr.ph38.i.i87, !llvm.loop !128
 
 _ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit97: ; preds = %60, %71
@@ -1918,7 +1918,7 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit155:   ; preds = %229, %231, %238
   br label %.loopexit
 
 .loopexit:                                        ; preds = %166, %193, %99, %122, %.thread190, %_ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit97, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit155, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit151, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit
-  %.0 = phi i1 [ true, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit151 ], [ true, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit155 ], [ true, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ false, %_ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit97 ], [ false, %.thread190 ], [ false, %122 ], [ false, %99 ], [ false, %193 ], [ false, %166 ]
+  %.0 = phi i1 [ false, %.thread190 ], [ true, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit151 ], [ false, %193 ], [ false, %99 ], [ false, %_ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit97 ], [ true, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit155 ], [ true, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ false, %122 ], [ false, %166 ]
   ret i1 %.0
 }
 

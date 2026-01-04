@@ -374,7 +374,7 @@ define dso_local noundef zeroext i1 @zend_observer_remove_begin_handler(ptr noun
   br label %zend_observer_remove_handler.exit.thread
 
 zend_observer_remove_handler.exit.thread:         ; preds = %42, %12, %44, %52, %47
-  %.not29.i13 = phi i1 [ true, %44 ], [ true, %52 ], [ true, %47 ], [ false, %12 ], [ false, %42 ]
+  %.not29.i13 = phi i1 [ true, %52 ], [ true, %47 ], [ true, %44 ], [ false, %12 ], [ false, %42 ]
   ret i1 %.not29.i13
 }
 
@@ -527,7 +527,7 @@ define dso_local noundef zeroext i1 @zend_observer_remove_end_handler(ptr nounde
   br label %zend_observer_remove_handler.exit.thread
 
 zend_observer_remove_handler.exit.thread:         ; preds = %43, %13, %45, %48, %51
-  %.not29.i14 = phi i1 [ true, %45 ], [ true, %48 ], [ true, %51 ], [ false, %13 ], [ false, %43 ]
+  %.not29.i14 = phi i1 [ true, %48 ], [ true, %51 ], [ true, %45 ], [ false, %13 ], [ false, %43 ]
   ret i1 %.not29.i14
 }
 

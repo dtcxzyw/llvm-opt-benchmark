@@ -207,7 +207,7 @@ pkey_type2param.exit.thread.i.i:                  ; preds = %86, %85
   br label %ecdh_cms_set_peerkey.exit.thread.i
 
 pkey_type2param.exit.i.i:                         ; preds = %83, %65
-  %.1.i.i.i = phi ptr [ %66, %65 ], [ %84, %83 ]
+  %.1.i.i.i = phi ptr [ %84, %83 ], [ %66, %65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %88 = icmp eq ptr %.1.i.i.i, null
   br i1 %88, label %ecdh_cms_set_peerkey.exit.thread.i, label %89
@@ -228,7 +228,7 @@ pkey_type2param.exit.i.i:                         ; preds = %83, %65
   br i1 %97, label %ecdh_cms_set_peerkey.exit.thread.i, label %ecdh_cms_set_peerkey.exit.i
 
 ecdh_cms_set_peerkey.exit.thread.i:               ; preds = %94, %89, %pkey_type2param.exit.i.i, %pkey_type2param.exit.thread.i.i, %49, %46, %43, %38
-  %.026.i.ph.i = phi ptr [ %47, %49 ], [ null, %43 ], [ null, %46 ], [ null, %pkey_type2param.exit.thread.i.i ], [ null, %pkey_type2param.exit.i.i ], [ %.2.i.i, %94 ], [ %.2.i.i, %89 ], [ null, %38 ]
+  %.026.i.ph.i = phi ptr [ %47, %49 ], [ null, %46 ], [ null, %43 ], [ null, %pkey_type2param.exit.thread.i.i ], [ null, %pkey_type2param.exit.i.i ], [ %.2.i.i, %94 ], [ %.2.i.i, %89 ], [ null, %38 ]
   call void @EVP_PKEY_free(ptr noundef %.026.i.ph.i) #3
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
@@ -636,7 +636,7 @@ ecdh_cms_encrypt.exit:                            ; preds = %176, %271
   br label %ecdh_cms_decrypt.exit
 
 ecdh_cms_decrypt.exit:                            ; preds = %.critedge.i, %ecdh_cms_set_shared_info.exit.thread.i, %ecdh_cms_set_shared_info.exit.i, %26, %273, %ecdh_cms_encrypt.exit
-  %.0 = phi i32 [ %.0.i, %ecdh_cms_encrypt.exit ], [ 0, %273 ], [ 0, %ecdh_cms_set_shared_info.exit.thread.i ], [ 0, %26 ], [ 0, %.critedge.i ], [ 1, %ecdh_cms_set_shared_info.exit.i ]
+  %.0 = phi i32 [ 0, %273 ], [ %.0.i, %ecdh_cms_encrypt.exit ], [ 0, %.critedge.i ], [ 0, %26 ], [ 0, %ecdh_cms_set_shared_info.exit.thread.i ], [ 1, %ecdh_cms_set_shared_info.exit.i ]
   ret i32 %.0
 }
 

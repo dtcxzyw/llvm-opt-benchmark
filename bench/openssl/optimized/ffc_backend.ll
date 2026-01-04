@@ -256,7 +256,7 @@ define range(i32 0, 2) i32 @ossl_ffc_params_fromdata(ptr noundef %0, ptr noundef
   call void @ossl_ffc_params_set0_j(ptr noundef %0, ptr noundef %107) #3
   br label %112
 
-.thread:                                          ; preds = %94, %89, %19, %9, %12, %16, %83, %77, %71, %60, %63, %53, %49, %42, %35, %25, %28, %31
+.thread:                                          ; preds = %94, %89, %19, %12, %16, %9, %83, %77, %71, %60, %63, %53, %49, %42, %35, %25, %28, %31
   %108 = load ptr, ptr %6, align 8, !tbaa !3
   call void @BN_free(ptr noundef %108) #3
   %109 = load ptr, ptr %3, align 8, !tbaa !3
@@ -268,7 +268,7 @@ define range(i32 0, 2) i32 @ossl_ffc_params_fromdata(ptr noundef %0, ptr noundef
   br label %112
 
 112:                                              ; preds = %.thread, %103
-  %.063 = phi i32 [ 0, %.thread ], [ 1, %103 ]
+  %.063 = phi i32 [ 1, %103 ], [ 0, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

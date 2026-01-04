@@ -462,7 +462,7 @@ define dso_local ptr @b3OpenCLUtils_createContextFromPlatform(ptr noundef %0, i6
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %24, %36, %41
-  %.2 = phi ptr [ %40, %36 ], [ %44, %41 ], [ %30, %24 ], [ %30, %.lr.ph ]
+  %.2 = phi ptr [ %44, %41 ], [ %40, %36 ], [ %30, %24 ], [ %30, %.lr.ph ]
   %.not25 = icmp eq ptr %2, null
   br i1 %.not25, label %47, label %45
 
@@ -627,7 +627,7 @@ _Z22b3OpenCLUtils_clewInitv.exit:                 ; preds = %15, %16
   store ptr %56, ptr %48, align 8, !tbaa !12
   br label %61
 
-.thread:                                          ; preds = %51, %.split.us
+.thread:                                          ; preds = %.split.us, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread91
 
@@ -649,7 +649,7 @@ _Z22b3OpenCLUtils_clewInitv.exit:                 ; preds = %15, %16
   br i1 %64, label %.lr.ph.split, label %.loopexit95, !llvm.loop !19
 
 .loopexit95:                                      ; preds = %40, %61, %58
-  %65 = phi i32 [ %.pre, %58 ], [ %62, %61 ], [ %41, %40 ]
+  %65 = phi i32 [ %62, %61 ], [ %.pre, %58 ], [ %41, %40 ]
   %.not105 = icmp eq i32 %65, 0
   br i1 %.not105, label %.loopexit, label %.lr.ph103
 
@@ -722,7 +722,7 @@ _ZN13b3OpenCLUtils15getPlatformInfoEP15_cl_platform_idP20b3OpenCLPlatformInfo.ex
   br label %.thread91
 
 .thread91:                                        ; preds = %.thread, %46, %.loopexit, %21, %19, %20
-  %.0 = phi ptr [ null, %20 ], [ null, %19 ], [ null, %21 ], [ %.359, %.loopexit ], [ null, %46 ], [ null, %.thread ]
+  %.0 = phi ptr [ null, %21 ], [ null, %19 ], [ null, %20 ], [ %.359, %.loopexit ], [ null, %46 ], [ null, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.0
 }
@@ -1206,7 +1206,7 @@ _ZL6strip2PKcS0_.exit131:                         ; preds = %.lr.ph.i128, %_ZL6s
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %.not113 = icmp eq ptr %59, null
-  br i1 %.not113, label %.critedge.thread, label %155
+  br i1 %.not113, label %.critedge.thread, label %154
 
 .critedge.thread:                                 ; preds = %38, %74, %.critedge.thread134, %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -1328,7 +1328,7 @@ _ZL6strip2PKcS0_.exit131:                         ; preds = %.lr.ph.i128, %_ZL6s
   br label %.sink.split
 
 131:                                              ; preds = %108
-  br i1 %or.cond, label %132, label %154
+  br i1 %or.cond, label %132, label %.critedge126
 
 132:                                              ; preds = %131
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
@@ -1376,20 +1376,20 @@ _ZL6strip2PKcS0_.exit131:                         ; preds = %.lr.ph.i128, %_ZL6s
 
 153:                                              ; preds = %151, %132
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  br label %154
+  br label %.critedge126
 
-154:                                              ; preds = %153, %131
+.critedge126:                                     ; preds = %153, %131
   call void @free(ptr noundef nonnull %112) #13
   br label %.sink.split
 
-.sink.split:                                      ; preds = %130, %107, %106, %154
-  %.1.ph = phi ptr [ %104, %154 ], [ null, %106 ], [ null, %107 ], [ null, %130 ]
+.sink.split:                                      ; preds = %130, %107, %106, %.critedge126
+  %.1.ph = phi ptr [ %104, %.critedge126 ], [ null, %106 ], [ null, %107 ], [ null, %130 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %155
+  br label %154
 
-155:                                              ; preds = %.sink.split, %.critedge
+154:                                              ; preds = %.sink.split, %.critedge
   %.1 = phi ptr [ %59, %.critedge ], [ %.1.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

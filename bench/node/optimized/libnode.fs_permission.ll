@@ -316,8 +316,8 @@ if.end.i13:                                       ; preds = %if.then10
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end.i13, %if.then10, %if.end
-  %parent_node_prefix_len.1 = phi i64 [ %parent_node_prefix_len.017, %if.end ], [ %i.016, %if.then10 ], [ %i.016, %if.end.i13 ], [ %parent_node_prefix_len.017, %for.body ]
-  %current_node.2 = phi ptr [ %call8, %if.end ], [ %2, %if.then10 ], [ %call.i, %if.end.i13 ], [ %current_node.018, %for.body ]
+  %parent_node_prefix_len.1 = phi i64 [ %i.016, %if.end.i13 ], [ %parent_node_prefix_len.017, %if.end ], [ %i.016, %if.then10 ], [ %parent_node_prefix_len.017, %for.body ]
+  %current_node.2 = phi ptr [ %call.i, %if.end.i13 ], [ %call8, %if.end ], [ %2, %if.then10 ], [ %current_node.018, %for.body ]
   %inc = add i64 %i.016, 1
   %cmp.not = icmp ugt i64 %inc, %call2
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !11
@@ -395,7 +395,7 @@ lor.rhs22:                                        ; preds = %land.rhs14
   br label %return
 
 return:                                           ; preds = %entry, %sw.bb12, %lor.rhs22, %land.rhs14, %sw.bb3, %lor.rhs, %land.rhs5, %sw.bb
-  %retval.0 = phi i1 [ %2, %sw.bb ], [ false, %sw.bb3 ], [ %call.i, %lor.rhs ], [ true, %land.rhs5 ], [ false, %sw.bb12 ], [ %call.i8, %lor.rhs22 ], [ true, %land.rhs14 ], [ false, %entry ]
+  %retval.0 = phi i1 [ true, %land.rhs14 ], [ %2, %sw.bb ], [ true, %land.rhs5 ], [ false, %sw.bb3 ], [ %call.i, %lor.rhs ], [ false, %sw.bb12 ], [ %call.i8, %lor.rhs22 ], [ false, %entry ]
   ret i1 %retval.0
 }
 
@@ -616,7 +616,7 @@ if.end11:                                         ; preds = %if.end7
   br i1 %or.cond, label %while.cond, label %cleanup, !llvm.loop !14
 
 cleanup:                                          ; preds = %if.end11, %if.end7, %land.lhs.true
-  %retval.1 = phi i1 [ true, %land.lhs.true ], [ false, %if.end7 ], [ true, %if.end11 ]
+  %retval.1 = phi i1 [ false, %if.end7 ], [ true, %land.lhs.true ], [ true, %if.end11 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %path) #13
   br label %return
 
@@ -700,7 +700,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i:  ; preds = %lor.lhs.false.i.i.i
   br label %return, !llvm.loop !16
 
 if.end11:                                         ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
-  %retval.sroa.0.1.i.i = phi ptr [ %6, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %8, %for.cond.i.i.i.i ]
+  %retval.sroa.0.1.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %6, %if.end.i.i.i.i ], [ %8, %for.cond.i.i.i.i ]
   %second = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i, i64 16
   %10 = load ptr, ptr %second, align 8
   %call13 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #13
@@ -747,8 +747,8 @@ for.inc:                                          ; preds = %if.end29, %land.lhs
   %or.cond = and i1 %cmp16.not, %cmp15
   br i1 %or.cond, label %lor.lhs.false, label %return, !llvm.loop !17
 
-return:                                           ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %lor.lhs.false, %if.end29, %for.inc, %if.end11, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i, %if.end15.i.i, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ null, %if.end15.i.i ], [ null, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i ], [ %10, %if.end11 ], [ %10, %lor.lhs.false ], [ null, %if.end29 ], [ %10, %for.inc ], [ null, %for.cond.i.i ], [ null, %if.end3.i.i.i.i ]
+return:                                           ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %lor.lhs.false, %if.end29, %for.inc, %if.end11, %if.end15.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i, %entry
+  %retval.0 = phi ptr [ null, %for.cond.i.i ], [ null, %entry ], [ null, %if.end15.i.i ], [ %10, %if.end11 ], [ null, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i ], [ %10, %for.inc ], [ null, %if.end29 ], [ %10, %lor.lhs.false ], [ null, %if.end3.i.i.i.i ]
   ret ptr %retval.0
 }
 
@@ -2378,7 +2378,7 @@ if.end16.i:                                       ; preds = %if.end12.i
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %if.end.i, !llvm.loop !118
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %if.end16.i, %entry, %if.then6.i, %if.then10.i, %if.then14.i
-  %retval.0.i = phi i32 [ %add.i, %if.then6.i ], [ %add11.i, %if.then10.i ], [ %add15.i, %if.then14.i ], [ 1, %entry ], [ %add17.i, %if.end16.i ]
+  %retval.0.i = phi i32 [ %add15.i, %if.then14.i ], [ %add.i, %if.then6.i ], [ %add11.i, %if.then10.i ], [ 1, %entry ], [ %add17.i, %if.end16.i ]
   %conv = zext i32 %retval.0.i to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #13

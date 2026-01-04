@@ -1873,7 +1873,7 @@ _ZN4core3ops8function6FnOnce9call_once17h3ca0755e51302a72E.exit.thread.i9.i: ; p
   br label %.body
 
 .body:                                            ; preds = %75, %67, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i.i", %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i7.i"
-  %eh.lpad-body = phi { ptr, i32 } [ %45, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i.i" ], [ %61, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i7.i" ], [ %68, %67 ], [ %76, %75 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %61, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i7.i" ], [ %45, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i.i" ], [ %68, %67 ], [ %76, %75 ]
   invoke void @"_ZN4core3ptr304drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$alloc..vec..into_iter..IntoIter$LT$alloc..vec..Vec$LT$clap_builder..util..any_value..AnyValue$GT$$GT$$GT$$C$clap_builder..parser..matches..arg_matches..unwrap_downcast_into$LT$ruff..args..FormatRange$GT$$GT$$GT$17h862009b4511911d3E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %13) #24
           to label %common.resume unwind label %83
 
@@ -2222,7 +2222,7 @@ _ZN4core3ops8function6FnOnce9call_once17h3ca0755e51302a72E.exit.thread.i9.i: ; p
   br label %.body
 
 .body:                                            ; preds = %73, %67, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i.i", %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i7.i"
-  %eh.lpad-body = phi { ptr, i32 } [ %45, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i.i" ], [ %61, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i7.i" ], [ %68, %67 ], [ %74, %73 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %61, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i7.i" ], [ %45, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i.i" ], [ %68, %67 ], [ %74, %73 ]
   invoke void @"_ZN4core3ptr312drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$alloc..vec..into_iter..IntoIter$LT$alloc..vec..Vec$LT$clap_builder..util..any_value..AnyValue$GT$$GT$$GT$$C$clap_builder..parser..matches..arg_matches..unwrap_downcast_into$LT$ruff_graph..settings..Direction$GT$$GT$$GT$17h4ba54588181fb627E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %13) #24
           to label %common.resume unwind label %82
 
@@ -2564,7 +2564,7 @@ _ZN4core3ops8function6FnOnce9call_once17h3ca0755e51302a72E.exit.thread.i9.i: ; p
   br label %.body
 
 .body:                                            ; preds = %73, %67, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i.i", %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i7.i"
-  %eh.lpad-body = phi { ptr, i32 } [ %45, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i.i" ], [ %61, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i7.i" ], [ %68, %67 ], [ %74, %73 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %61, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i7.i" ], [ %45, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i.i" ], [ %68, %67 ], [ %74, %73 ]
   invoke void @"_ZN4core3ptr305drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$alloc..vec..into_iter..IntoIter$LT$alloc..vec..Vec$LT$clap_builder..util..any_value..AnyValue$GT$$GT$$GT$$C$clap_builder..parser..matches..arg_matches..unwrap_downcast_into$LT$ruff_linter..codes..Rule$GT$$GT$$GT$17h7e7af584fe02247fE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %13) #24
           to label %common.resume unwind label %82
 
@@ -2906,7 +2906,7 @@ _ZN4core3ops8function6FnOnce9call_once17h3ca0755e51302a72E.exit.thread.i9.i: ; p
   br label %.body
 
 .body:                                            ; preds = %73, %67, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i.i", %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i7.i"
-  %eh.lpad-body = phi { ptr, i32 } [ %45, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i.i" ], [ %61, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i7.i" ], [ %68, %67 ], [ %74, %73 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %61, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i7.i" ], [ %45, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i.i" ], [ %68, %67 ], [ %74, %73 ]
   invoke void @"_ZN4core3ptr316drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$alloc..vec..into_iter..IntoIter$LT$alloc..vec..Vec$LT$clap_builder..util..any_value..AnyValue$GT$$GT$$GT$$C$clap_builder..parser..matches..arg_matches..unwrap_downcast_into$LT$ruff_linter..line_width..LineLength$GT$$GT$$GT$17h47972f8aebff623dE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %13) #24
           to label %common.resume unwind label %82
 
@@ -3250,7 +3250,7 @@ _ZN4core3ops8function6FnOnce9call_once17h3ca0755e51302a72E.exit.thread.i9.i: ; p
   br label %.body
 
 .body:                                            ; preds = %73, %67, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i.i", %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i7.i"
-  %eh.lpad-body = phi { ptr, i32 } [ %45, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i.i" ], [ %61, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i7.i" ], [ %68, %67 ], [ %74, %73 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %61, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i7.i" ], [ %45, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i.i" ], [ %68, %67 ], [ %74, %73 ]
   invoke void @"_ZN4core3ptr330drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$alloc..vec..into_iter..IntoIter$LT$alloc..vec..Vec$LT$clap_builder..util..any_value..AnyValue$GT$$GT$$GT$$C$clap_builder..parser..matches..arg_matches..unwrap_downcast_into$LT$ruff..commands..completions..config..OptionString$GT$$GT$$GT$17h5ba803da196d305bE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %13) #24
           to label %common.resume unwind label %81
 
@@ -3600,7 +3600,7 @@ _ZN4core3ops8function6FnOnce9call_once17h3ca0755e51302a72E.exit.thread.i9.i: ; p
   br label %.body
 
 .body:                                            ; preds = %75, %67, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i.i", %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i7.i"
-  %eh.lpad-body = phi { ptr, i32 } [ %45, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i.i" ], [ %61, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i7.i" ], [ %68, %67 ], [ %76, %75 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %61, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i7.i" ], [ %45, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i.i" ], [ %68, %67 ], [ %76, %75 ]
   invoke void @"_ZN4core3ptr308drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$alloc..vec..into_iter..IntoIter$LT$alloc..vec..Vec$LT$clap_builder..util..any_value..AnyValue$GT$$GT$$GT$$C$clap_builder..parser..matches..arg_matches..unwrap_downcast_into$LT$regex..regex..string..Regex$GT$$GT$$GT$17he125896fa39615abE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %13) #24
           to label %common.resume unwind label %83
 
@@ -3838,7 +3838,7 @@ _ZN4core3ops8function6FnOnce9call_once17h3ca0755e51302a72E.exit.thread.i9.i: ; p
   br label %.body
 
 .body:                                            ; preds = %55, %49, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i.i", %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i7.i"
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i.i" ], [ %43, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i7.i" ], [ %50, %49 ], [ %56, %55 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %43, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i7.i" ], [ %27, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i.i" ], [ %50, %49 ], [ %56, %55 ]
   invoke void @"_ZN4core3ptr299drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$alloc..vec..into_iter..IntoIter$LT$alloc..vec..Vec$LT$clap_builder..util..any_value..AnyValue$GT$$GT$$GT$$C$clap_builder..parser..matches..arg_matches..unwrap_downcast_into$LT$std..path..PathBuf$GT$$GT$$GT$17h2a8dc4a03622e0bdE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %9) #24
           to label %65 unwind label %63
 
@@ -4190,7 +4190,7 @@ _ZN4core3ops8function6FnOnce9call_once17h3ca0755e51302a72E.exit.thread.i9.i: ; p
   br label %.body
 
 .body:                                            ; preds = %75, %69, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i.i", %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i7.i"
-  %eh.lpad-body = phi { ptr, i32 } [ %47, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i.i" ], [ %63, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i7.i" ], [ %70, %69 ], [ %76, %75 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %63, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i7.i" ], [ %47, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i.i" ], [ %70, %69 ], [ %76, %75 ]
   invoke void @"_ZN4core3ptr285drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$alloc..vec..into_iter..IntoIter$LT$alloc..vec..Vec$LT$clap_builder..util..any_value..AnyValue$GT$$GT$$GT$$C$clap_builder..parser..matches..arg_matches..unwrap_downcast_into$LT$bool$GT$$GT$$GT$17hd6f5be0136da8e87E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %15) #24
           to label %common.resume unwind label %84
 
@@ -4532,7 +4532,7 @@ _ZN4core3ops8function6FnOnce9call_once17h3ca0755e51302a72E.exit.thread.i9.i: ; p
   br label %.body
 
 .body:                                            ; preds = %73, %67, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i.i", %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i7.i"
-  %eh.lpad-body = phi { ptr, i32 } [ %45, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i.i" ], [ %61, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i7.i" ], [ %68, %67 ], [ %74, %73 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %61, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i7.i" ], [ %45, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i.i" ], [ %68, %67 ], [ %74, %73 ]
   invoke void @"_ZN4core3ptr324drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$alloc..vec..into_iter..IntoIter$LT$alloc..vec..Vec$LT$clap_builder..util..any_value..AnyValue$GT$$GT$$GT$$C$clap_builder..parser..matches..arg_matches..unwrap_downcast_into$LT$ruff_linter..settings..types..PythonVersion$GT$$GT$$GT$17h26015db2ae4d2206E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %13) #24
           to label %common.resume unwind label %82
 
@@ -4874,7 +4874,7 @@ _ZN4core3ops8function6FnOnce9call_once17h3ca0755e51302a72E.exit.thread.i9.i: ; p
   br label %.body
 
 .body:                                            ; preds = %73, %67, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i.i", %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i7.i"
-  %eh.lpad-body = phi { ptr, i32 } [ %45, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i.i" ], [ %61, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i7.i" ], [ %68, %67 ], [ %74, %73 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %61, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i7.i" ], [ %45, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i.i" ], [ %68, %67 ], [ %74, %73 ]
   invoke void @"_ZN4core3ptr303drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$alloc..vec..into_iter..IntoIter$LT$alloc..vec..Vec$LT$clap_builder..util..any_value..AnyValue$GT$$GT$$GT$$C$clap_builder..parser..matches..arg_matches..unwrap_downcast_into$LT$ruff..args..HelpFormat$GT$$GT$$GT$17hf64cb260e68bc58aE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %13) #24
           to label %common.resume unwind label %82
 
@@ -5216,7 +5216,7 @@ _ZN4core3ops8function6FnOnce9call_once17h3ca0755e51302a72E.exit.thread.i9.i: ; p
   br label %.body
 
 .body:                                            ; preds = %73, %67, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i.i", %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i7.i"
-  %eh.lpad-body = phi { ptr, i32 } [ %45, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i.i" ], [ %61, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i7.i" ], [ %68, %67 ], [ %74, %73 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %61, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i7.i" ], [ %45, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i.i" ], [ %68, %67 ], [ %74, %73 ]
   invoke void @"_ZN4core3ptr323drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$alloc..vec..into_iter..IntoIter$LT$alloc..vec..Vec$LT$clap_builder..util..any_value..AnyValue$GT$$GT$$GT$$C$clap_builder..parser..matches..arg_matches..unwrap_downcast_into$LT$ruff_linter..settings..types..OutputFormat$GT$$GT$$GT$17h858605cbbfafdd12E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %13) #24
           to label %common.resume unwind label %82
 
@@ -5558,7 +5558,7 @@ _ZN4core3ops8function6FnOnce9call_once17h3ca0755e51302a72E.exit.thread.i9.i: ; p
   br label %.body
 
 .body:                                            ; preds = %73, %67, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i.i", %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i7.i"
-  %eh.lpad-body = phi { ptr, i32 } [ %45, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i.i" ], [ %61, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i7.i" ], [ %68, %67 ], [ %74, %73 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %61, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i7.i" ], [ %45, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h09a99cf3d9874a55E.exit.i.i" ], [ %68, %67 ], [ %74, %73 ]
   invoke void @"_ZN4core3ptr309drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$alloc..vec..into_iter..IntoIter$LT$alloc..vec..Vec$LT$clap_builder..util..any_value..AnyValue$GT$$GT$$GT$$C$clap_builder..parser..matches..arg_matches..unwrap_downcast_into$LT$clap_complete_command..Shell$GT$$GT$$GT$17h171e1695e2633abdE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %13) #24
           to label %common.resume unwind label %82
 
@@ -7058,7 +7058,7 @@ define internal fastcc void @_ZN12clap_builder7builder3arg3Arg10value_name17h6b5
   resume { ptr, i32 } %.pn10
 
 .thread:                                          ; preds = %.body, %.thread23, %38
-  %.pn10 = phi { ptr, i32 } [ %28, %38 ], [ %9, %.thread23 ], [ %28, %.body ]
+  %.pn10 = phi { ptr, i32 } [ %9, %.thread23 ], [ %28, %38 ], [ %28, %.body ]
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17heff4c494330eb02cE"(ptr noalias noundef nonnull align 8 dereferenceable(672) %1) #24
           to label %41 unwind label %39
 }
@@ -7222,7 +7222,7 @@ define internal fastcc void @_ZN12clap_builder7builder3arg3Arg13default_value17h
   resume { ptr, i32 } %.pn11
 
 .thread:                                          ; preds = %.body, %.thread25, %49
-  %.pn12 = phi { ptr, i32 } [ %38, %49 ], [ %10, %.thread25 ], [ %38, %.body ]
+  %.pn12 = phi { ptr, i32 } [ %10, %.thread25 ], [ %38, %49 ], [ %38, %.body ]
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17heff4c494330eb02cE"(ptr noalias noundef nonnull align 8 dereferenceable(672) %1) #24
           to label %.thread18 unwind label %50
 }
@@ -7489,9 +7489,9 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %3 = alloca [4 x i8], align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1336)
   %4 = icmp samesign ult i32 %1, 128
-  %.sroa.0.1.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %3, i64 2
-  %.sroa.0.1.i.sroa.gep1.i = getelementptr inbounds nuw i8, ptr %3, i64 3
-  %.sroa.0.1.i.sroa.gep2.i = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %.sroa.0.1.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %.sroa.0.1.i.sroa.gep1.i = getelementptr inbounds nuw i8, ptr %3, i64 2
+  %.sroa.0.1.i.sroa.gep2.i = getelementptr inbounds nuw i8, ptr %3, i64 3
   br i1 %4, label %44, label %5
 
 5:                                                ; preds = %2
@@ -7519,11 +7519,11 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %19 = trunc i32 %18 to i8
   %20 = and i8 %19, 63
   %21 = or disjoint i8 %20, -128
-  store i8 %21, ptr %.sroa.0.1.i.sroa.gep.i, align 2, !alias.scope !1339, !noalias !1336
+  store i8 %21, ptr %.sroa.0.1.i.sroa.gep1.i, align 2, !alias.scope !1339, !noalias !1336
   %22 = trunc i32 %1 to i8
   %23 = and i8 %22, 63
   %24 = or disjoint i8 %23, -128
-  store i8 %24, ptr %.sroa.0.1.i.sroa.gep1.i, align 1, !alias.scope !1339, !noalias !1336
+  store i8 %24, ptr %.sroa.0.1.i.sroa.gep2.i, align 1, !alias.scope !1339, !noalias !1336
   br label %_ZN4core4char7methods15encode_utf8_raw17h110904658798e68fE.exit.i
 
 25:                                               ; preds = %7
@@ -7539,7 +7539,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %33 = trunc i32 %1 to i8
   %34 = and i8 %33, 63
   %35 = or disjoint i8 %34, -128
-  store i8 %35, ptr %.sroa.0.1.i.sroa.gep.i, align 2, !alias.scope !1339, !noalias !1336
+  store i8 %35, ptr %.sroa.0.1.i.sroa.gep1.i, align 2, !alias.scope !1339, !noalias !1336
   br label %_ZN4core4char7methods15encode_utf8_raw17h110904658798e68fE.exit.i
 
 36:                                               ; preds = %5
@@ -7555,7 +7555,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   br label %_ZN4core4char7methods15encode_utf8_raw17h110904658798e68fE.exit.i
 
 _ZN4core4char7methods15encode_utf8_raw17h110904658798e68fE.exit.i: ; preds = %36, %25, %10
-  %.sroa.0.1.i.sroa.phi.i = phi ptr [ %.sroa.0.1.i.sroa.gep.i, %36 ], [ %.sroa.0.1.i.sroa.gep1.i, %25 ], [ %.sroa.0.1.i.sroa.gep2.i, %10 ]
+  %.sroa.0.1.i.sroa.phi.i = phi ptr [ %.sroa.0.1.i.sroa.gep.i, %10 ], [ %.sroa.0.1.i.sroa.gep1.i, %36 ], [ %.sroa.0.1.i.sroa.gep2.i, %25 ]
   call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h46385d3787eb9b69E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %3, ptr noundef nonnull %.sroa.0.1.i.sroa.phi.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8c46405b0231e28584de43f9292075af.66)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1336
   br label %_ZN5alloc6string6String4push17h444d5a6351d622eeE.exit
@@ -8568,10 +8568,10 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h67943c895daf358aE.exit: ; preds = %
   br label %54
 
 .critedge.thread:                                 ; preds = %55, %69, %73
-  %.pn1627 = phi { ptr, i32 } [ %lpad.thr_comm, %73 ], [ %56, %55 ], [ %68, %69 ]
+  %.pn1627 = phi { ptr, i32 } [ %68, %69 ], [ %lpad.thr_comm, %73 ], [ %56, %55 ]
   resume { ptr, i32 } %.pn1627
 
-73:                                               ; preds = %70, %31, %7, %34
+73:                                               ; preds = %70, %31, %34, %7
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr102drop_in_place$LT$rayon..vec..DrainProducer$LT$$LP$$RF$std..path..Path$C$ruff..cache..Cache$RP$$GT$$GT$17h9c86bc45113aabe4E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %22) #24
@@ -10705,7 +10705,7 @@ define internal fastcc void @"_ZN81_$LT$ruff_workspace..options..LintCommonOptio
   br i1 %.not101, label %358, label %344
 
 .body:                                            ; preds = %.body194, %364, %338, %315, %311
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %339, %338 ], [ %312, %315 ], [ %312, %311 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %364 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body194 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %312, %311 ], [ %339, %338 ], [ %312, %315 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %364 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body194 ]
   %335 = load i64, ptr %55, align 8, !range !1283, !alias.scope !1494, !noundef !3
   %336 = icmp eq i64 %335, -9223372036854775807
   br i1 %336, label %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$ruff_workspace..options..Flake8BuiltinsOptions$GT$$GT$17h5162d28b4b75f9ecE.exit", label %337
@@ -10800,7 +10800,7 @@ define internal fastcc void @"_ZN81_$LT$ruff_workspace..options..LintCommonOptio
   br i1 %.not102, label %384, label %368
 
 .body194:                                         ; preds = %.body201, %390, %365, %354, %350
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %366, %365 ], [ %351, %354 ], [ %351, %350 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %390 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body201 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %351, %350 ], [ %366, %365 ], [ %351, %354 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %390 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body201 ]
   %362 = load i64, ptr %54, align 8, !range !367, !alias.scope !1506, !noundef !3
   %363 = icmp eq i64 %362, 2
   br i1 %363, label %.body, label %364
@@ -10889,7 +10889,7 @@ define internal fastcc void @"_ZN81_$LT$ruff_workspace..options..LintCommonOptio
   br i1 %.not103, label %395, label %394
 
 .body201:                                         ; preds = %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$ruff_workspace..options..Flake8TypeCheckingOptions$GT$$GT$17h1e38cde5cf1b050bE.exit", %401, %391, %380, %376
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %392, %391 ], [ %377, %380 ], [ %377, %376 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %401 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$ruff_workspace..options..Flake8TypeCheckingOptions$GT$$GT$17h1e38cde5cf1b050bE.exit" ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %377, %376 ], [ %392, %391 ], [ %377, %380 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %401 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$ruff_workspace..options..Flake8TypeCheckingOptions$GT$$GT$17h1e38cde5cf1b050bE.exit" ]
   %388 = load i64, ptr %53, align 8, !range !1283, !alias.scope !1518, !noundef !3
   %389 = icmp eq i64 %388, -9223372036854775807
   br i1 %389, label %.body194, label %390
@@ -11015,7 +11015,7 @@ define internal fastcc void @"_ZN81_$LT$ruff_workspace..options..LintCommonOptio
   br i1 %424, label %431, label %433
 
 .body214:                                         ; preds = %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$ruff_workspace..options..Flake8ImportConventionsOptions$GT$$GT$17ha38f6350d1b80050E.exit", %439, %428, %415, %411
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %429, %428 ], [ %412, %415 ], [ %412, %411 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %439 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$ruff_workspace..options..Flake8ImportConventionsOptions$GT$$GT$17ha38f6350d1b80050E.exit" ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %412, %411 ], [ %429, %428 ], [ %412, %415 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %439 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$ruff_workspace..options..Flake8ImportConventionsOptions$GT$$GT$17ha38f6350d1b80050E.exit" ]
   %425 = load i64, ptr %51, align 8, !range !1283, !alias.scope !1533, !noundef !3
   %426 = icmp eq i64 %425, -9223372036854775807
   br i1 %426, label %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$ruff_workspace..options..Flake8TypeCheckingOptions$GT$$GT$17h1e38cde5cf1b050bE.exit", label %427
@@ -11262,7 +11262,7 @@ define internal fastcc void @"_ZN81_$LT$ruff_workspace..options..LintCommonOptio
   br i1 %.not118, label %530, label %516
 
 .body227:                                         ; preds = %.body239, %536, %511, %500, %496
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %512, %511 ], [ %497, %500 ], [ %497, %496 ], [ %.pn.pn.pn, %536 ], [ %.pn.pn.pn, %.body239 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %497, %496 ], [ %512, %511 ], [ %497, %500 ], [ %.pn.pn.pn, %536 ], [ %.pn.pn.pn, %.body239 ]
   %508 = load i64, ptr %46, align 8, !range !1283, !alias.scope !1557, !noundef !3
   %509 = icmp eq i64 %508, -9223372036854775807
   br i1 %509, label %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$ruff_workspace..options..Pep8NamingOptions$GT$$GT$17h3a5a1a8761100ed7E.exit", label %510
@@ -11355,7 +11355,7 @@ define internal fastcc void @"_ZN81_$LT$ruff_workspace..options..LintCommonOptio
   br i1 %.not119, label %541, label %540
 
 .body239:                                         ; preds = %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$ruff_workspace..options..PylintOptions$GT$$GT$17hda197ed39ad4df47E.exit", %549, %537, %526, %522
-  %.pn.pn.pn = phi { ptr, i32 } [ %538, %537 ], [ %523, %526 ], [ %523, %522 ], [ %.pn.pn, %549 ], [ %.pn.pn, %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$ruff_workspace..options..PylintOptions$GT$$GT$17hda197ed39ad4df47E.exit" ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %523, %522 ], [ %538, %537 ], [ %523, %526 ], [ %.pn.pn, %549 ], [ %.pn.pn, %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$ruff_workspace..options..PylintOptions$GT$$GT$17hda197ed39ad4df47E.exit" ]
   %534 = load i64, ptr %45, align 8, !range !1283, !alias.scope !1569, !noundef !3
   %535 = icmp eq i64 %534, -9223372036854775807
   br i1 %535, label %.body227, label %536
@@ -12908,7 +12908,7 @@ define internal fastcc void @_ZN4ruff4args15ConfigArguments18from_cli_arguments1
   unreachable
 
 .body:                                            ; preds = %445, %65, %62, %58
-  %.pn48.pn = phi { ptr, i32 } [ %59, %58 ], [ %446, %445 ], [ %.pn46, %65 ], [ %.pn46, %62 ]
+  %.pn48.pn = phi { ptr, i32 } [ %59, %58 ], [ %.pn46, %62 ], [ %446, %445 ], [ %.pn46, %65 ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ruff..args..ExplicitConfigOverrides$GT$17hafa56838fe44c9aaE"(ptr noalias noundef nonnull align 8 dereferenceable(384) %2) #24
           to label %452 unwind label %149
 
@@ -13192,13 +13192,13 @@ define internal fastcc void @_ZN4ruff4args15ConfigArguments18from_cli_arguments1
   br label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha30c610cbfb55955E.exit"
 
 .body57:                                          ; preds = %.loopexit, %.loopexit.split-lp, %.body.i, %411, %447, %147
-  %.sroa.017.4 = phi i8 [ 0, %447 ], [ 1, %147 ], [ 1, %411 ], [ 1, %.body.i ], [ %.sroa.017.3.ph, %.loopexit ], [ %.sroa.017.3.ph157, %.loopexit.split-lp ]
-  %.pn42 = phi { ptr, i32 } [ %448, %447 ], [ %148, %147 ], [ %eh.lpad-body.i, %411 ], [ %eh.lpad-body.i, %.body.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.017.4 = phi i8 [ 1, %.body.i ], [ 0, %447 ], [ 1, %147 ], [ 1, %411 ], [ %.sroa.017.3.ph, %.loopexit ], [ %.sroa.017.3.ph157, %.loopexit.split-lp ]
+  %.pn42 = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %448, %447 ], [ %148, %147 ], [ %eh.lpad-body.i, %411 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr92drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$ruff..args..SingleConfigArgument$GT$$GT$17he5375ed3c39b7593E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %53) #24
           to label %68 unwind label %149
 
 .loopexit:                                        ; preds = %435, %113, %416
-  %.sroa.017.3.ph = phi i8 [ 1, %416 ], [ 1, %113 ], [ 0, %435 ]
+  %.sroa.017.3.ph = phi i8 [ 1, %113 ], [ 1, %416 ], [ 0, %435 ]
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body57
@@ -14025,7 +14025,7 @@ define internal fastcc void @_ZN4ruff4args15ConfigArguments18from_cli_arguments1
           to label %347 unwind label %345, !noalias !1688
 
 .body.i.i:                                        ; preds = %344, %341, %334, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17hbb9b2e2be8816d62E.exit.i.i.i"
-  %.pn.pn.pn.i.i = phi { ptr, i32 } [ %335, %334 ], [ %.pn.i.i.i, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17hbb9b2e2be8816d62E.exit.i.i.i" ], [ %.pn.pn.i.i, %344 ], [ %.pn.pn.i.i, %341 ]
+  %.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.i.i.i, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17hbb9b2e2be8816d62E.exit.i.i.i" ], [ %335, %334 ], [ %.pn.pn.i.i, %344 ], [ %.pn.pn.i.i, %341 ]
   %331 = load i64, ptr %26, align 8, !range !1210, !alias.scope !1742, !noalias !1686, !noundef !3
   %332 = icmp eq i64 %331, -9223372036854775808
   br i1 %332, label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17hbb9b2e2be8816d62E.exit71.i.i", label %333
@@ -15609,7 +15609,7 @@ define void @"_ZN98_$LT$ruff..args..ConfigArguments$u20$as$u20$ruff_workspace..r
   br i1 %.not97.i.i, label %449, label %435
 
 .body.i.i:                                        ; preds = %455, %.body174.i.i, %429, %413, %409
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %430, %429 ], [ %410, %413 ], [ %410, %409 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %455 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %.body174.i.i ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %410, %409 ], [ %430, %429 ], [ %410, %413 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %455 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %.body174.i.i ]
   %426 = load i64, ptr %50, align 8, !range !1283, !alias.scope !1864, !noalias !1823, !noundef !3
   %427 = icmp eq i64 %426, -9223372036854775807
   br i1 %427, label %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$ruff_workspace..options..Flake8BuiltinsOptions$GT$$GT$17h5162d28b4b75f9ecE.exit.i.i", label %428
@@ -15705,7 +15705,7 @@ define void @"_ZN98_$LT$ruff..args..ConfigArguments$u20$as$u20$ruff_workspace..r
   br i1 %454, label %459, label %461
 
 .body174.i.i:                                     ; preds = %467, %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$ruff_workspace..options..Flake8ImportConventionsOptions$GT$$GT$17ha38f6350d1b80050E.exit.i.i", %456, %445, %441
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %457, %456 ], [ %442, %445 ], [ %442, %441 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %467 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$ruff_workspace..options..Flake8ImportConventionsOptions$GT$$GT$17ha38f6350d1b80050E.exit.i.i" ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %442, %441 ], [ %457, %456 ], [ %442, %445 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %467 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$ruff_workspace..options..Flake8ImportConventionsOptions$GT$$GT$17ha38f6350d1b80050E.exit.i.i" ]
   br i1 %.not95.i.i, label %.body.i.i, label %455
 
 455:                                              ; preds = %.body174.i.i
@@ -15874,7 +15874,7 @@ define void @"_ZN98_$LT$ruff..args..ConfigArguments$u20$as$u20$ruff_workspace..r
   br i1 %.not107.i.i, label %532, label %516
 
 .body188.i.i:                                     ; preds = %538, %.body195.i.i, %513, %502, %498
-  %.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %514, %513 ], [ %499, %502 ], [ %499, %498 ], [ %.pn.pn.pn.pn.pn.pn.pn.i.i, %538 ], [ %.pn.pn.pn.pn.pn.pn.pn.i.i, %.body195.i.i ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %499, %498 ], [ %514, %513 ], [ %499, %502 ], [ %.pn.pn.pn.pn.pn.pn.pn.i.i, %538 ], [ %.pn.pn.pn.pn.pn.pn.pn.i.i, %.body195.i.i ]
   %510 = load i64, ptr %46, align 8, !range !1283, !alias.scope !1895, !noalias !1823, !noundef !3
   %511 = icmp eq i64 %510, -9223372036854775807
   br i1 %511, label %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$ruff_workspace..options..Flake8PytestStyleOptions$GT$$GT$17h9e4469bda4f63021E.exit.i.i", label %512
@@ -15963,7 +15963,7 @@ define void @"_ZN98_$LT$ruff..args..ConfigArguments$u20$as$u20$ruff_workspace..r
   br i1 %.not108.i.i, label %543, label %542
 
 .body195.i.i:                                     ; preds = %551, %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$ruff_workspace..options..Flake8TypeCheckingOptions$GT$$GT$17h1e38cde5cf1b050bE.exit.i.i", %539, %528, %524
-  %.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %540, %539 ], [ %525, %528 ], [ %525, %524 ], [ %.pn.pn.pn.pn.pn.pn.i.i, %551 ], [ %.pn.pn.pn.pn.pn.pn.i.i, %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$ruff_workspace..options..Flake8TypeCheckingOptions$GT$$GT$17h1e38cde5cf1b050bE.exit.i.i" ]
+  %.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %525, %524 ], [ %540, %539 ], [ %525, %528 ], [ %.pn.pn.pn.pn.pn.pn.i.i, %551 ], [ %.pn.pn.pn.pn.pn.pn.i.i, %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$ruff_workspace..options..Flake8TypeCheckingOptions$GT$$GT$17h1e38cde5cf1b050bE.exit.i.i" ]
   %536 = load i64, ptr %45, align 8, !range !1283, !alias.scope !1909, !noalias !1823, !noundef !3
   %537 = icmp eq i64 %536, -9223372036854775807
   br i1 %537, label %.body188.i.i, label %538
@@ -16176,7 +16176,7 @@ define void @"_ZN98_$LT$ruff..args..ConfigArguments$u20$as$u20$ruff_workspace..r
   br i1 %.not121.i.i, label %630, label %616
 
 .body207.i.i:                                     ; preds = %636, %.body219.i.i, %611, %600, %596
-  %.pn.pn.pn.i.i = phi { ptr, i32 } [ %612, %611 ], [ %597, %600 ], [ %597, %596 ], [ %.pn.pn.i.i, %636 ], [ %.pn.pn.i.i, %.body219.i.i ]
+  %.pn.pn.pn.i.i = phi { ptr, i32 } [ %597, %596 ], [ %612, %611 ], [ %597, %600 ], [ %.pn.pn.i.i, %636 ], [ %.pn.pn.i.i, %.body219.i.i ]
   %608 = load i64, ptr %41, align 8, !range !1283, !alias.scope !1932, !noalias !1823, !noundef !3
   %609 = icmp eq i64 %608, -9223372036854775807
   br i1 %609, label %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$ruff_workspace..options..Pep8NamingOptions$GT$$GT$17h3a5a1a8761100ed7E.exit.i.i", label %610
@@ -16269,7 +16269,7 @@ define void @"_ZN98_$LT$ruff..args..ConfigArguments$u20$as$u20$ruff_workspace..r
   br i1 %.not122.i.i, label %641, label %640
 
 .body219.i.i:                                     ; preds = %649, %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$ruff_workspace..options..PylintOptions$GT$$GT$17hda197ed39ad4df47E.exit.i.i", %637, %626, %622
-  %.pn.pn.i.i = phi { ptr, i32 } [ %638, %637 ], [ %623, %626 ], [ %623, %622 ], [ %.pn.i.i, %649 ], [ %.pn.i.i, %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$ruff_workspace..options..PylintOptions$GT$$GT$17hda197ed39ad4df47E.exit.i.i" ]
+  %.pn.pn.i.i = phi { ptr, i32 } [ %623, %622 ], [ %638, %637 ], [ %623, %626 ], [ %.pn.i.i, %649 ], [ %.pn.i.i, %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$ruff_workspace..options..PylintOptions$GT$$GT$17hda197ed39ad4df47E.exit.i.i" ]
   %634 = load i64, ptr %40, align 8, !range !1283, !alias.scope !1946, !noalias !1823, !noundef !3
   %635 = icmp eq i64 %634, -9223372036854775807
   br i1 %635, label %.body207.i.i, label %636
@@ -17731,9 +17731,9 @@ define void @_ZN4ruff4args13FormatCommand9partition17hebc804edb1b65f85E(ptr dead
   unreachable
 
 "_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ruff_linter..settings..types..FilePattern$GT$$GT$$GT$17ha72de763e7af1584E.exit": ; preds = %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ruff_linter..settings..types..ExtensionPair$GT$$GT$$GT$17h02614f2d2d0c8da7E.exit", %56, %60, %44
-  %.sroa.018.0 = phi i1 [ false, %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ruff_linter..settings..types..ExtensionPair$GT$$GT$$GT$17h02614f2d2d0c8da7E.exit" ], [ true, %44 ], [ true, %60 ], [ true, %56 ]
-  %.sroa.021.0 = phi i1 [ false, %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ruff_linter..settings..types..ExtensionPair$GT$$GT$$GT$17h02614f2d2d0c8da7E.exit" ], [ true, %44 ], [ false, %60 ], [ false, %56 ]
-  %.pn60.pn = phi { ptr, i32 } [ %80, %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ruff_linter..settings..types..ExtensionPair$GT$$GT$$GT$17h02614f2d2d0c8da7E.exit" ], [ %45, %44 ], [ %57, %60 ], [ %57, %56 ]
+  %.sroa.018.0 = phi i1 [ true, %56 ], [ false, %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ruff_linter..settings..types..ExtensionPair$GT$$GT$$GT$17h02614f2d2d0c8da7E.exit" ], [ true, %44 ], [ true, %60 ]
+  %.sroa.021.0 = phi i1 [ false, %56 ], [ false, %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ruff_linter..settings..types..ExtensionPair$GT$$GT$$GT$17h02614f2d2d0c8da7E.exit" ], [ true, %44 ], [ false, %60 ]
+  %.pn60.pn = phi { ptr, i32 } [ %57, %56 ], [ %80, %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ruff_linter..settings..types..ExtensionPair$GT$$GT$$GT$17h02614f2d2d0c8da7E.exit" ], [ %45, %44 ], [ %57, %60 ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$ruff..args..FormatArguments$GT$17hdd382d8e14a3f849E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %12) #24
           to label %117 unwind label %118
 
@@ -18374,7 +18374,7 @@ define void @"_ZN106_$LT$ruff..args..ConfigArgumentParser$u20$as$u20$clap_builde
   unreachable
 
 common.resume:                                    ; preds = %158, %121, %136, %.body, %.sink.split.i, %.body238, %93, %97
-  %common.resume.op = phi { ptr, i32 } [ %94, %97 ], [ %94, %93 ], [ %.pn, %121 ], [ %.pn, %136 ], [ %eh.lpad-body, %.body ], [ %.pn232.pn.pn.pn, %.sink.split.i ], [ %.pn232.pn.pn.pn, %.body238 ], [ %159, %158 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn232.pn.pn.pn, %.body238 ], [ %94, %93 ], [ %94, %97 ], [ %eh.lpad-body, %.body ], [ %.pn, %121 ], [ %.pn, %136 ], [ %.pn232.pn.pn.pn, %.sink.split.i ], [ %159, %158 ]
   resume { ptr, i32 } %common.resume.op
 
 .thread:                                          ; preds = %103, %98
@@ -18777,7 +18777,7 @@ common.resume:                                    ; preds = %158, %121, %136, %.
 207:                                              ; preds = %240
   br i1 %.sroa.033.3, label %.body249.thread, label %.body238
 
-.body249.thread373:                               ; preds = %236, %406, %220, %208, %197, %205, %212, %214, %216, %218, %226, %228, %230, %232
+.body249.thread373:                               ; preds = %236, %406, %230, %232, %220, %205, %218, %208, %197, %212, %214, %216, %226, %228
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body249.thread
@@ -18953,7 +18953,7 @@ common.resume:                                    ; preds = %158, %121, %136, %.
           to label %248 unwind label %.loopexit.split-lp
 
 247:                                              ; preds = %.loopexit400, %.loopexit.split-lp, %.thread387, %405, %353, %350
-  %.pn232 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp386, %405 ], [ %354, %353 ], [ %351, %350 ], [ %lpad.thr_comm385, %.thread387 ], [ %lpad.loopexit, %.loopexit400 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn232 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp386, %405 ], [ %lpad.thr_comm385, %.thread387 ], [ %351, %350 ], [ %354, %353 ], [ %lpad.loopexit, %.loopexit400 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc319f543668396c3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %44) #24
           to label %240 unwind label %134
 
@@ -19176,8 +19176,8 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16.i.i: ; preds = %.
   br label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17hc136889a5cda7203E.exit.thread382"
 
 .loopexit:                                        ; preds = %315, %321, %.lr.ph23.i, %311
-  %.sroa.0.0.lcssa33.i = phi ptr [ %254, %311 ], [ %.sroa.0.015.i, %.lr.ph23.i ], [ %.sroa.0.015.i, %321 ], [ %scevgep.i, %315 ]
-  %.sroa.78.0.lcssa.i = phi i64 [ 0, %311 ], [ 0, %321 ], [ %.sroa.78.021.i, %.lr.ph23.i ], [ 0, %315 ]
+  %.sroa.0.0.lcssa33.i = phi ptr [ %.sroa.0.015.i, %321 ], [ %254, %311 ], [ %.sroa.0.015.i, %.lr.ph23.i ], [ %scevgep.i, %315 ]
+  %.sroa.78.0.lcssa.i = phi i64 [ 0, %321 ], [ 0, %311 ], [ %.sroa.78.021.i, %.lr.ph23.i ], [ 0, %315 ]
   store ptr %.sroa.0.0.lcssa33.i, ptr %39, align 8
   %322 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i64 %.sroa.78.0.lcssa.i, ptr %322, align 8
@@ -19415,7 +19415,7 @@ switch.lookup:                                    ; preds = %328, %335
 .noexc298:                                        ; preds = %376
   unreachable
 
-.thread387:                                       ; preds = %385, %389, %391, %393, %395
+.thread387:                                       ; preds = %395, %385, %389, %391, %393
   %lpad.thr_comm385 = landingpad { ptr, i32 }
           cleanup
   br label %247
@@ -19534,7 +19534,7 @@ switch.lookup:                                    ; preds = %328, %335
   invoke void @"_ZN99_$LT$clap_builder..builder..styled_str..StyledStr$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17hafe4dd9c1012b754E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %48, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.106, i64 noundef 48)
           to label %407 unwind label %.body249.thread373
 
-.thread394:                                       ; preds = %412, %416, %418, %420, %422
+.thread394:                                       ; preds = %422, %412, %416, %418, %420
   %lpad.thr_comm392 = landingpad { ptr, i32 }
           cleanup
   br label %.body249.thread
@@ -19618,7 +19618,7 @@ switch.lookup:                                    ; preds = %328, %335
           to label %.body249.thread unwind label %134
 
 .body249.thread:                                  ; preds = %.thread394, %428, %191, %.body249.thread373, %207
-  %.pn232.pn.pn370 = phi { ptr, i32 } [ %.pn232.pn, %207 ], [ %lpad.thr_comm, %.body249.thread373 ], [ %192, %191 ], [ %lpad.thr_comm392, %.thread394 ], [ %lpad.thr_comm.split-lp393, %428 ]
+  %.pn232.pn.pn370 = phi { ptr, i32 } [ %192, %191 ], [ %.pn232.pn, %207 ], [ %lpad.thr_comm, %.body249.thread373 ], [ %lpad.thr_comm392, %.thread394 ], [ %lpad.thr_comm.split-lp393, %428 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$clap_builder..error..Error$GT$17h92a1e3ea652d8842E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %54) #24
           to label %.body238 unwind label %134
 
@@ -20738,8 +20738,8 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16.i.i: ; preds = %.
   ]
 
 .lr.ph.i.preheader:                               ; preds = %55, %59, %52
-  %.sroa.01.153.i.ph = phi ptr [ %56, %55 ], [ %1, %52 ], [ %1, %59 ]
-  %.sroa.14.152.i.ph = phi i64 [ %57, %55 ], [ 1, %52 ], [ %.sroa.4.0, %59 ]
+  %.sroa.01.153.i.ph = phi ptr [ %56, %55 ], [ %1, %59 ], [ %1, %52 ]
+  %.sroa.14.152.i.ph = phi i64 [ %57, %55 ], [ %.sroa.4.0, %59 ], [ 1, %52 ]
   br label %.lr.ph.i
 
 54:                                               ; preds = %51
@@ -20810,8 +20810,8 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16.i.i: ; preds = %.
   %.not42.i = icmp eq i64 %83, 0
   br i1 %.not42.i, label %"_ZN4core3num23_$LT$impl$u20$usize$GT$16from_ascii_radix17hc106fb2194a84924E.exit", label %.lr.ph.i
 
-.loopexit130:                                     ; preds = %61, %70, %72, %.lr.ph.i, %51, %52, %52
-  %.sroa.5108.0.ph = phi i8 [ 1, %52 ], [ 1, %52 ], [ 0, %51 ], [ 1, %.lr.ph.i ], [ 1, %61 ], [ 2, %70 ], [ 2, %72 ]
+.loopexit130:                                     ; preds = %72, %70, %61, %.lr.ph.i, %52, %52, %51
+  %.sroa.5108.0.ph = phi i8 [ 1, %52 ], [ 1, %52 ], [ 0, %51 ], [ 1, %.lr.ph.i ], [ 2, %72 ], [ 1, %61 ], [ 2, %70 ]
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 3, ptr %87, align 8
   %.sroa.2.0..sroa_idx60 = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -20833,8 +20833,8 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16.i.i: ; preds = %.
   ]
 
 .lr.ph.i88.preheader:                             ; preds = %91, %95, %88
-  %.sroa.01.153.i89.ph = phi ptr [ %92, %91 ], [ %.sroa.078.0, %88 ], [ %.sroa.078.0, %95 ]
-  %.sroa.14.152.i90.ph = phi i64 [ %93, %91 ], [ 1, %88 ], [ %.sroa.379.0, %95 ]
+  %.sroa.01.153.i89.ph = phi ptr [ %92, %91 ], [ %.sroa.078.0, %95 ], [ %.sroa.078.0, %88 ]
+  %.sroa.14.152.i90.ph = phi i64 [ %93, %91 ], [ %.sroa.379.0, %95 ], [ 1, %88 ]
   br label %.lr.ph.i88
 
 90:                                               ; preds = %"_ZN4core3num23_$LT$impl$u20$usize$GT$16from_ascii_radix17hc106fb2194a84924E.exit"
@@ -20905,8 +20905,8 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16.i.i: ; preds = %.
   %.not42.i92 = icmp eq i64 %119, 0
   br i1 %.not42.i92, label %"_ZN4core3num23_$LT$impl$u20$usize$GT$16from_ascii_radix17hc106fb2194a84924E.exit106", label %.lr.ph.i88
 
-.loopexit:                                        ; preds = %97, %106, %108, %.lr.ph.i88, %"_ZN4core3num23_$LT$impl$u20$usize$GT$16from_ascii_radix17hc106fb2194a84924E.exit", %88, %88
-  %.sroa.5111.0.ph = phi i8 [ 1, %88 ], [ 1, %88 ], [ 0, %"_ZN4core3num23_$LT$impl$u20$usize$GT$16from_ascii_radix17hc106fb2194a84924E.exit" ], [ 1, %.lr.ph.i88 ], [ 1, %97 ], [ 2, %106 ], [ 2, %108 ]
+.loopexit:                                        ; preds = %108, %106, %97, %.lr.ph.i88, %88, %88, %"_ZN4core3num23_$LT$impl$u20$usize$GT$16from_ascii_radix17hc106fb2194a84924E.exit"
+  %.sroa.5111.0.ph = phi i8 [ 1, %88 ], [ 1, %88 ], [ 0, %"_ZN4core3num23_$LT$impl$u20$usize$GT$16from_ascii_radix17hc106fb2194a84924E.exit" ], [ 1, %.lr.ph.i88 ], [ 2, %108 ], [ 1, %97 ], [ 2, %106 ]
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 4, ptr %123, align 8
   %.sroa.275.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -21584,7 +21584,7 @@ define void @"_ZN106_$LT$ruff..args..ExplicitConfigOverrides$u20$as$u20$ruff_wor
   br i1 %.not77, label %47, label %45
 
 .body:                                            ; preds = %179, %123, %126, %36, %261, %226, %75, %64, %43
-  %.pn107 = phi { ptr, i32 } [ %262, %261 ], [ %227, %226 ], [ %76, %75 ], [ %65, %64 ], [ %44, %43 ], [ %37, %36 ], [ %.pn.pn.pn.pn, %126 ], [ %.pn.pn.pn.pn, %123 ], [ %180, %179 ]
+  %.pn107 = phi { ptr, i32 } [ %262, %261 ], [ %44, %43 ], [ %227, %226 ], [ %.pn.pn.pn.pn, %123 ], [ %76, %75 ], [ %65, %64 ], [ %37, %36 ], [ %.pn.pn.pn.pn, %126 ], [ %180, %179 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$ruff_workspace..configuration..Configuration$GT$17h822376484948932dE"(ptr noalias noundef nonnull align 8 dereferenceable(2472) %2) #24
           to label %268 unwind label %266
 
@@ -22879,7 +22879,7 @@ define void @"_ZN75_$LT$ruff..args..GlobalConfigArgs$u20$as$u20$clap_builder..de
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %31, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.175, i64 noundef 6)
           to label %62 unwind label %.body23.thread89
 
-.body23.thread89:                                 ; preds = %116, %63, %62, %57
+.body23.thread89:                                 ; preds = %62, %116, %57, %63
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body23.thread
@@ -23156,7 +23156,7 @@ define void @"_ZN75_$LT$ruff..args..GlobalConfigArgs$u20$as$u20$clap_builder..de
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %19, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.176, i64 noundef 8)
           to label %137 unwind label %.body51.thread98
 
-.body51.thread98:                                 ; preds = %138, %137, %136
+.body51.thread98:                                 ; preds = %137, %136, %138
   %lpad.thr_comm96 = landingpad { ptr, i32 }
           cleanup
   br label %.body51.thread
@@ -23437,11 +23437,11 @@ define void @"_ZN75_$LT$ruff..args..GlobalConfigArgs$u20$as$u20$clap_builder..de
   ret void
 
 .body:                                            ; preds = %.body.i, %216, %.body23.thread, %.body51.thread
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body5294, %.body51.thread ], [ %eh.lpad-body2487, %.body23.thread ], [ %217, %216 ], [ %52, %.body.i ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body5294, %.body51.thread ], [ %52, %.body.i ], [ %eh.lpad-body2487, %.body23.thread ], [ %217, %216 ]
   resume { ptr, i32 } %.pn
 
 .body51.thread:                                   ; preds = %195, %178, %161, %144, %.body51.thread98
-  %eh.lpad-body5294 = phi { ptr, i32 } [ %lpad.thr_comm96, %.body51.thread98 ], [ %.pn.i47, %144 ], [ %.pn.i55, %161 ], [ %.pn.i64, %178 ], [ %.pn.i73, %195 ]
+  %eh.lpad-body5294 = phi { ptr, i32 } [ %lpad.thr_comm96, %.body51.thread98 ], [ %.pn.i64, %178 ], [ %.pn.i55, %161 ], [ %.pn.i47, %144 ], [ %.pn.i73, %195 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %24) #24
           to label %.body unwind label %214
 
@@ -23452,7 +23452,7 @@ define void @"_ZN75_$LT$ruff..args..GlobalConfigArgs$u20$as$u20$clap_builder..de
   unreachable
 
 .body23.thread:                                   ; preds = %121, %100, %83, %66, %.body23.thread89
-  %eh.lpad-body2487 = phi { ptr, i32 } [ %lpad.thr_comm, %.body23.thread89 ], [ %.pn.i, %66 ], [ %.pn.i26, %83 ], [ %.pn.i34, %100 ], [ %.pn.i41, %121 ]
+  %eh.lpad-body2487 = phi { ptr, i32 } [ %lpad.thr_comm, %.body23.thread89 ], [ %.pn.i34, %100 ], [ %.pn.i26, %83 ], [ %.pn.i, %66 ], [ %.pn.i41, %121 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %35) #24
           to label %.body unwind label %214
 
@@ -23602,7 +23602,7 @@ define void @"_ZN75_$LT$ruff..args..GlobalConfigArgs$u20$as$u20$clap_builder..de
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %31, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.175, i64 noundef 6)
           to label %62 unwind label %.body23.thread89
 
-.body23.thread89:                                 ; preds = %116, %63, %62, %57
+.body23.thread89:                                 ; preds = %62, %116, %57, %63
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body23.thread
@@ -23883,7 +23883,7 @@ define void @"_ZN75_$LT$ruff..args..GlobalConfigArgs$u20$as$u20$clap_builder..de
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %19, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.176, i64 noundef 8)
           to label %140 unwind label %.body51.thread98
 
-.body51.thread98:                                 ; preds = %141, %140, %136
+.body51.thread98:                                 ; preds = %140, %136, %141
   %lpad.thr_comm96 = landingpad { ptr, i32 }
           cleanup
   br label %.body51.thread
@@ -24165,11 +24165,11 @@ define void @"_ZN75_$LT$ruff..args..GlobalConfigArgs$u20$as$u20$clap_builder..de
   ret void
 
 .body:                                            ; preds = %.body.i, %220, %.body23.thread, %.body51.thread
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body5294, %.body51.thread ], [ %eh.lpad-body2487, %.body23.thread ], [ %221, %220 ], [ %52, %.body.i ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body5294, %.body51.thread ], [ %52, %.body.i ], [ %eh.lpad-body2487, %.body23.thread ], [ %221, %220 ]
   resume { ptr, i32 } %.pn
 
 .body51.thread:                                   ; preds = %198, %181, %164, %147, %.body51.thread98
-  %eh.lpad-body5294 = phi { ptr, i32 } [ %lpad.thr_comm96, %.body51.thread98 ], [ %.pn.i47, %147 ], [ %.pn.i55, %164 ], [ %.pn.i64, %181 ], [ %.pn.i73, %198 ]
+  %eh.lpad-body5294 = phi { ptr, i32 } [ %lpad.thr_comm96, %.body51.thread98 ], [ %.pn.i64, %181 ], [ %.pn.i55, %164 ], [ %.pn.i47, %147 ], [ %.pn.i73, %198 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %24) #24
           to label %.body unwind label %218
 
@@ -24180,7 +24180,7 @@ define void @"_ZN75_$LT$ruff..args..GlobalConfigArgs$u20$as$u20$clap_builder..de
   unreachable
 
 .body23.thread:                                   ; preds = %121, %100, %83, %66, %.body23.thread89
-  %eh.lpad-body2487 = phi { ptr, i32 } [ %lpad.thr_comm, %.body23.thread89 ], [ %.pn.i, %66 ], [ %.pn.i26, %83 ], [ %.pn.i34, %100 ], [ %.pn.i41, %121 ]
+  %eh.lpad-body2487 = phi { ptr, i32 } [ %lpad.thr_comm, %.body23.thread89 ], [ %.pn.i34, %100 ], [ %.pn.i26, %83 ], [ %.pn.i, %66 ], [ %.pn.i41, %121 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %35) #24
           to label %.body unwind label %218
 
@@ -26196,7 +26196,7 @@ define noundef align 8 ptr @"_ZN76_$LT$ruff..args..Command$u20$as$u20$clap_build
   br label %270
 
 .thread:                                          ; preds = %2, %240, %230, %220, %100, %136, %166, %184, %210, %243, %276, %129, %160, %178, %192, %204, %"_ZN4core3ptr40drop_in_place$LT$ruff..args..Command$GT$17h7cebba2bccb88b77E.exit", %270
-  %.sroa.0.0 = phi ptr [ null, %270 ], [ null, %"_ZN4core3ptr40drop_in_place$LT$ruff..args..Command$GT$17h7cebba2bccb88b77E.exit" ], [ null, %204 ], [ null, %192 ], [ null, %178 ], [ null, %160 ], [ null, %129 ], [ %92, %243 ], [ %135, %136 ], [ %165, %166 ], [ %183, %184 ], [ %209, %210 ], [ %275, %276 ], [ %99, %100 ], [ %219, %220 ], [ %229, %230 ], [ %239, %240 ], [ null, %2 ]
+  %.sroa.0.0 = phi ptr [ %209, %210 ], [ null, %270 ], [ null, %"_ZN4core3ptr40drop_in_place$LT$ruff..args..Command$GT$17h7cebba2bccb88b77E.exit" ], [ %219, %220 ], [ %229, %230 ], [ %239, %240 ], [ null, %204 ], [ null, %192 ], [ null, %178 ], [ null, %160 ], [ null, %129 ], [ %275, %276 ], [ %99, %100 ], [ %92, %243 ], [ %135, %136 ], [ %165, %166 ], [ %183, %184 ], [ null, %2 ]
   ret ptr %.sroa.0.0
 }
 
@@ -26764,7 +26764,7 @@ define void @"_ZN72_$LT$ruff..args..Command$u20$as$u20$clap_builder..derive..Sub
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %183, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.197, i64 noundef 3)
           to label %283 unwind label %.body288.thread473
 
-.body288.thread473:                               ; preds = %341, %340, %284, %283, %282
+.body288.thread473:                               ; preds = %341, %340, %282, %284, %283
   %lpad.thr_comm471 = landingpad { ptr, i32 }
           cleanup
   br label %.body288.thread
@@ -27003,7 +27003,7 @@ define void @"_ZN72_$LT$ruff..args..Command$u20$as$u20$clap_builder..derive..Sub
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %170, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.199, i64 noundef 13)
           to label %344 unwind label %.body313.thread482
 
-.body313.thread482:                               ; preds = %401, %345, %344, %343
+.body313.thread482:                               ; preds = %401, %343, %345, %344
   %lpad.thr_comm480 = landingpad { ptr, i32 }
           cleanup
   br label %.body313.thread
@@ -27610,7 +27610,7 @@ define void @"_ZN72_$LT$ruff..args..Command$u20$as$u20$clap_builder..derive..Sub
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %140, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.199, i64 noundef 13)
           to label %494 unwind label %.body365.thread518
 
-.body365.thread518:                               ; preds = %551, %495, %494, %493
+.body365.thread518:                               ; preds = %551, %493, %495, %494
   %lpad.thr_comm516 = landingpad { ptr, i32 }
           cleanup
   br label %.body365.thread
@@ -27972,7 +27972,7 @@ define void @"_ZN72_$LT$ruff..args..Command$u20$as$u20$clap_builder..derive..Sub
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %120, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.199, i64 noundef 13)
           to label %579 unwind label %.body396.thread542
 
-.body396.thread542:                               ; preds = %636, %580, %579, %574
+.body396.thread542:                               ; preds = %636, %574, %580, %579
   %lpad.thr_comm540 = landingpad { ptr, i32 }
           cleanup
   br label %.body396.thread
@@ -28651,7 +28651,7 @@ define void @"_ZN72_$LT$ruff..args..Command$u20$as$u20$clap_builder..derive..Sub
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %65, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.199, i64 noundef 13)
           to label %719 unwind label %.body436.thread620
 
-.body436.thread620:                               ; preds = %742, %720, %719, %714
+.body436.thread620:                               ; preds = %742, %719, %714, %720
   %lpad.thr_comm618 = landingpad { ptr, i32 }
           cleanup
   br label %.body436.thread
@@ -28792,11 +28792,11 @@ define void @"_ZN72_$LT$ruff..args..Command$u20$as$u20$clap_builder..derive..Sub
           to label %.thread601 unwind label %747
 
 751:                                              ; preds = %767, %.thread444, %.thread489, %.thread522, %758, %.thread554, %754, %753, %752, %.thread601
-  %.pn270.pn = phi { ptr, i32 } [ %.pn270604, %.thread601 ], [ %lpad.thr_comm594, %752 ], [ %lpad.thr_comm586, %753 ], [ %lpad.thr_comm578, %754 ], [ %.pn268557, %.thread554 ], [ %lpad.thr_comm547, %758 ], [ %.pn266525, %.thread522 ], [ %.pn264492, %.thread489 ], [ %.pn447, %.thread444 ], [ %lpad.thr_comm, %767 ]
+  %.pn270.pn = phi { ptr, i32 } [ %.pn270604, %.thread601 ], [ %lpad.thr_comm547, %758 ], [ %lpad.thr_comm594, %752 ], [ %lpad.thr_comm, %767 ], [ %lpad.thr_comm586, %753 ], [ %.pn264492, %.thread489 ], [ %lpad.thr_comm578, %754 ], [ %.pn447, %.thread444 ], [ %.pn268557, %.thread554 ], [ %.pn266525, %.thread522 ]
   resume { ptr, i32 } %.pn270.pn
 
 .thread601:                                       ; preds = %.body436, %.body.i427, %749, %.body436.thread, %.thread609
-  %.pn270604 = phi { ptr, i32 } [ %lpad.thr_comm607, %.thread609 ], [ %750, %749 ], [ %lpad.thr_comm.split-lp619, %.body436 ], [ %eh.lpad-body437617, %.body436.thread ], [ %709, %.body.i427 ]
+  %.pn270604 = phi { ptr, i32 } [ %lpad.thr_comm607, %.thread609 ], [ %eh.lpad-body437617, %.body436.thread ], [ %750, %749 ], [ %lpad.thr_comm.split-lp619, %.body436 ], [ %709, %.body.i427 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %79) #24
           to label %751 unwind label %747
 
@@ -28818,7 +28818,7 @@ define void @"_ZN72_$LT$ruff..args..Command$u20$as$u20$clap_builder..derive..Sub
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %94) #24
           to label %751 unwind label %747
 
-755:                                              ; preds = %669, %668, %662
+755:                                              ; preds = %662, %669, %668
   %lpad.thr_comm570 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %102) #24
@@ -28831,7 +28831,7 @@ define void @"_ZN72_$LT$ruff..args..Command$u20$as$u20$clap_builder..derive..Sub
           to label %.thread554 unwind label %747
 
 .thread554:                                       ; preds = %667, %.body.i419, %756, %755, %.thread562
-  %.pn268557 = phi { ptr, i32 } [ %lpad.thr_comm560, %.thread562 ], [ %757, %756 ], [ %lpad.thr_comm.split-lp571, %667 ], [ %lpad.thr_comm570, %755 ], [ %657, %.body.i419 ]
+  %.pn268557 = phi { ptr, i32 } [ %lpad.thr_comm560, %.thread562 ], [ %lpad.thr_comm570, %755 ], [ %757, %756 ], [ %lpad.thr_comm.split-lp571, %667 ], [ %657, %.body.i419 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %110) #24
           to label %751 unwind label %747
 
@@ -28842,7 +28842,7 @@ define void @"_ZN72_$LT$ruff..args..Command$u20$as$u20$clap_builder..derive..Sub
           to label %751 unwind label %747
 
 .body396.thread:                                  ; preds = %620, %603, %586, %.body396.thread542
-  %eh.lpad-body397538 = phi { ptr, i32 } [ %lpad.thr_comm540, %.body396.thread542 ], [ %.pn.i392, %586 ], [ %.pn.i400, %603 ], [ %.pn.i409, %620 ]
+  %eh.lpad-body397538 = phi { ptr, i32 } [ %lpad.thr_comm540, %.body396.thread542 ], [ %.pn.i400, %603 ], [ %.pn.i392, %586 ], [ %.pn.i409, %620 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %125) #24
           to label %.thread522 unwind label %747
 
@@ -28853,12 +28853,12 @@ define void @"_ZN72_$LT$ruff..args..Command$u20$as$u20$clap_builder..derive..Sub
           to label %.thread522 unwind label %747
 
 .thread522:                                       ; preds = %.body396, %.body.i387, %759, %.body396.thread, %.thread530
-  %.pn266525 = phi { ptr, i32 } [ %lpad.thr_comm528, %.thread530 ], [ %760, %759 ], [ %lpad.thr_comm.split-lp541, %.body396 ], [ %eh.lpad-body397538, %.body396.thread ], [ %569, %.body.i387 ]
+  %.pn266525 = phi { ptr, i32 } [ %lpad.thr_comm528, %.thread530 ], [ %eh.lpad-body397538, %.body396.thread ], [ %760, %759 ], [ %lpad.thr_comm.split-lp541, %.body396 ], [ %569, %.body.i387 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %134) #24
           to label %751 unwind label %747
 
 .body365.thread:                                  ; preds = %535, %518, %501, %.body365.thread518
-  %eh.lpad-body366514 = phi { ptr, i32 } [ %lpad.thr_comm516, %.body365.thread518 ], [ %.pn.i361, %501 ], [ %.pn.i369, %518 ], [ %.pn.i378, %535 ]
+  %eh.lpad-body366514 = phi { ptr, i32 } [ %lpad.thr_comm516, %.body365.thread518 ], [ %.pn.i369, %518 ], [ %.pn.i361, %501 ], [ %.pn.i378, %535 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %145) #24
           to label %.thread489 unwind label %747
 
@@ -28874,7 +28874,7 @@ define void @"_ZN72_$LT$ruff..args..Command$u20$as$u20$clap_builder..derive..Sub
           to label %.thread489 unwind label %747
 
 .thread489:                                       ; preds = %.body365, %.body348, %.body.i339, %761, %.body348.thread, %.body365.thread, %.thread497
-  %.pn264492 = phi { ptr, i32 } [ %lpad.thr_comm495, %.thread497 ], [ %762, %761 ], [ %lpad.thr_comm.split-lp508, %.body348 ], [ %eh.lpad-body349505, %.body348.thread ], [ %lpad.thr_comm.split-lp517, %.body365 ], [ %eh.lpad-body366514, %.body365.thread ], [ %442, %.body.i339 ]
+  %.pn264492 = phi { ptr, i32 } [ %lpad.thr_comm495, %.thread497 ], [ %eh.lpad-body366514, %.body365.thread ], [ %762, %761 ], [ %lpad.thr_comm.split-lp508, %.body348 ], [ %eh.lpad-body349505, %.body348.thread ], [ %lpad.thr_comm.split-lp517, %.body365 ], [ %442, %.body.i339 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %162) #24
           to label %751 unwind label %747
 
@@ -28885,12 +28885,12 @@ define void @"_ZN72_$LT$ruff..args..Command$u20$as$u20$clap_builder..derive..Sub
           to label %.thread444 unwind label %747
 
 .body313.thread:                                  ; preds = %385, %368, %351, %.body313.thread482
-  %eh.lpad-body314478 = phi { ptr, i32 } [ %lpad.thr_comm480, %.body313.thread482 ], [ %.pn.i309, %351 ], [ %.pn.i317, %368 ], [ %.pn.i326, %385 ]
+  %eh.lpad-body314478 = phi { ptr, i32 } [ %lpad.thr_comm480, %.body313.thread482 ], [ %.pn.i317, %368 ], [ %.pn.i309, %351 ], [ %.pn.i326, %385 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %175) #24
           to label %.thread444 unwind label %747
 
 .body288.thread:                                  ; preds = %324, %307, %290, %.body288.thread473
-  %eh.lpad-body289469 = phi { ptr, i32 } [ %lpad.thr_comm471, %.body288.thread473 ], [ %.pn.i284, %290 ], [ %.pn.i292, %307 ], [ %.pn.i301, %324 ]
+  %eh.lpad-body289469 = phi { ptr, i32 } [ %lpad.thr_comm471, %.body288.thread473 ], [ %.pn.i292, %307 ], [ %.pn.i284, %290 ], [ %.pn.i301, %324 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %188) #24
           to label %.thread444 unwind label %747
 
@@ -28906,7 +28906,7 @@ define void @"_ZN72_$LT$ruff..args..Command$u20$as$u20$clap_builder..derive..Sub
           to label %.thread444 unwind label %747
 
 .thread444:                                       ; preds = %.body.i334, %.body313, %.body288, %.body273, %.body.i, %765, %.body273.thread, %.body288.thread, %.body313.thread, %763, %.thread452
-  %.pn447 = phi { ptr, i32 } [ %lpad.thr_comm450, %.thread452 ], [ %766, %765 ], [ %lpad.thr_comm.split-lp463, %.body273 ], [ %eh.lpad-body274460, %.body273.thread ], [ %lpad.thr_comm.split-lp472, %.body288 ], [ %eh.lpad-body289469, %.body288.thread ], [ %lpad.thr_comm.split-lp481, %.body313 ], [ %eh.lpad-body314478, %.body313.thread ], [ %764, %763 ], [ %230, %.body.i ], [ %418, %.body.i334 ]
+  %.pn447 = phi { ptr, i32 } [ %lpad.thr_comm450, %.thread452 ], [ %764, %763 ], [ %766, %765 ], [ %lpad.thr_comm.split-lp463, %.body273 ], [ %eh.lpad-body274460, %.body273.thread ], [ %lpad.thr_comm.split-lp472, %.body288 ], [ %eh.lpad-body289469, %.body288.thread ], [ %lpad.thr_comm.split-lp481, %.body313 ], [ %eh.lpad-body314478, %.body313.thread ], [ %230, %.body.i ], [ %418, %.body.i334 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %205) #24
           to label %751 unwind label %747
 
@@ -29482,7 +29482,7 @@ define void @"_ZN72_$LT$ruff..args..Command$u20$as$u20$clap_builder..derive..Sub
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %183, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.197, i64 noundef 3)
           to label %284 unwind label %.body288.thread473
 
-.body288.thread473:                               ; preds = %342, %341, %285, %284, %283
+.body288.thread473:                               ; preds = %342, %341, %283, %285, %284
   %lpad.thr_comm471 = landingpad { ptr, i32 }
           cleanup
   br label %.body288.thread
@@ -29725,7 +29725,7 @@ define void @"_ZN72_$LT$ruff..args..Command$u20$as$u20$clap_builder..derive..Sub
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %170, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.199, i64 noundef 13)
           to label %348 unwind label %.body313.thread482
 
-.body313.thread482:                               ; preds = %405, %349, %348, %347
+.body313.thread482:                               ; preds = %405, %347, %349, %348
   %lpad.thr_comm480 = landingpad { ptr, i32 }
           cleanup
   br label %.body313.thread
@@ -30337,7 +30337,7 @@ define void @"_ZN72_$LT$ruff..args..Command$u20$as$u20$clap_builder..derive..Sub
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %140, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.199, i64 noundef 13)
           to label %502 unwind label %.body365.thread518
 
-.body365.thread518:                               ; preds = %559, %503, %502, %501
+.body365.thread518:                               ; preds = %559, %501, %503, %502
   %lpad.thr_comm516 = landingpad { ptr, i32 }
           cleanup
   br label %.body365.thread
@@ -30703,7 +30703,7 @@ define void @"_ZN72_$LT$ruff..args..Command$u20$as$u20$clap_builder..derive..Sub
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %120, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.199, i64 noundef 13)
           to label %590 unwind label %.body396.thread542
 
-.body396.thread542:                               ; preds = %647, %591, %590, %585
+.body396.thread542:                               ; preds = %647, %585, %591, %590
   %lpad.thr_comm540 = landingpad { ptr, i32 }
           cleanup
   br label %.body396.thread
@@ -31392,7 +31392,7 @@ define void @"_ZN72_$LT$ruff..args..Command$u20$as$u20$clap_builder..derive..Sub
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %65, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.199, i64 noundef 13)
           to label %739 unwind label %.body436.thread620
 
-.body436.thread620:                               ; preds = %762, %740, %739, %734
+.body436.thread620:                               ; preds = %762, %739, %734, %740
   %lpad.thr_comm618 = landingpad { ptr, i32 }
           cleanup
   br label %.body436.thread
@@ -31537,11 +31537,11 @@ define void @"_ZN72_$LT$ruff..args..Command$u20$as$u20$clap_builder..derive..Sub
           to label %.thread601 unwind label %770
 
 774:                                              ; preds = %790, %.thread444, %.thread489, %.thread522, %781, %.thread554, %777, %776, %775, %.thread601
-  %.pn270.pn = phi { ptr, i32 } [ %.pn270604, %.thread601 ], [ %lpad.thr_comm594, %775 ], [ %lpad.thr_comm586, %776 ], [ %lpad.thr_comm578, %777 ], [ %.pn268557, %.thread554 ], [ %lpad.thr_comm547, %781 ], [ %.pn266525, %.thread522 ], [ %.pn264492, %.thread489 ], [ %.pn447, %.thread444 ], [ %lpad.thr_comm, %790 ]
+  %.pn270.pn = phi { ptr, i32 } [ %.pn270604, %.thread601 ], [ %lpad.thr_comm547, %781 ], [ %lpad.thr_comm594, %775 ], [ %lpad.thr_comm, %790 ], [ %lpad.thr_comm586, %776 ], [ %.pn264492, %.thread489 ], [ %lpad.thr_comm578, %777 ], [ %.pn447, %.thread444 ], [ %.pn268557, %.thread554 ], [ %.pn266525, %.thread522 ]
   resume { ptr, i32 } %.pn270.pn
 
 .thread601:                                       ; preds = %.body436, %.body.i427, %772, %.body436.thread, %.thread609
-  %.pn270604 = phi { ptr, i32 } [ %lpad.thr_comm607, %.thread609 ], [ %773, %772 ], [ %lpad.thr_comm.split-lp619, %.body436 ], [ %eh.lpad-body437617, %.body436.thread ], [ %729, %.body.i427 ]
+  %.pn270604 = phi { ptr, i32 } [ %lpad.thr_comm607, %.thread609 ], [ %eh.lpad-body437617, %.body436.thread ], [ %773, %772 ], [ %lpad.thr_comm.split-lp619, %.body436 ], [ %729, %.body.i427 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %79) #24
           to label %774 unwind label %770
 
@@ -31563,7 +31563,7 @@ define void @"_ZN72_$LT$ruff..args..Command$u20$as$u20$clap_builder..derive..Sub
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %94) #24
           to label %774 unwind label %770
 
-778:                                              ; preds = %683, %682, %676
+778:                                              ; preds = %676, %683, %682
   %lpad.thr_comm570 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %102) #24
@@ -31576,7 +31576,7 @@ define void @"_ZN72_$LT$ruff..args..Command$u20$as$u20$clap_builder..derive..Sub
           to label %.thread554 unwind label %770
 
 .thread554:                                       ; preds = %681, %.body.i419, %779, %778, %.thread562
-  %.pn268557 = phi { ptr, i32 } [ %lpad.thr_comm560, %.thread562 ], [ %780, %779 ], [ %lpad.thr_comm.split-lp571, %681 ], [ %lpad.thr_comm570, %778 ], [ %671, %.body.i419 ]
+  %.pn268557 = phi { ptr, i32 } [ %lpad.thr_comm560, %.thread562 ], [ %lpad.thr_comm570, %778 ], [ %780, %779 ], [ %lpad.thr_comm.split-lp571, %681 ], [ %671, %.body.i419 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %110) #24
           to label %774 unwind label %770
 
@@ -31587,7 +31587,7 @@ define void @"_ZN72_$LT$ruff..args..Command$u20$as$u20$clap_builder..derive..Sub
           to label %774 unwind label %770
 
 .body396.thread:                                  ; preds = %631, %614, %597, %.body396.thread542
-  %eh.lpad-body397538 = phi { ptr, i32 } [ %lpad.thr_comm540, %.body396.thread542 ], [ %.pn.i392, %597 ], [ %.pn.i400, %614 ], [ %.pn.i409, %631 ]
+  %eh.lpad-body397538 = phi { ptr, i32 } [ %lpad.thr_comm540, %.body396.thread542 ], [ %.pn.i400, %614 ], [ %.pn.i392, %597 ], [ %.pn.i409, %631 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %125) #24
           to label %.thread522 unwind label %770
 
@@ -31598,12 +31598,12 @@ define void @"_ZN72_$LT$ruff..args..Command$u20$as$u20$clap_builder..derive..Sub
           to label %.thread522 unwind label %770
 
 .thread522:                                       ; preds = %.body396, %.body.i387, %782, %.body396.thread, %.thread530
-  %.pn266525 = phi { ptr, i32 } [ %lpad.thr_comm528, %.thread530 ], [ %783, %782 ], [ %lpad.thr_comm.split-lp541, %.body396 ], [ %eh.lpad-body397538, %.body396.thread ], [ %580, %.body.i387 ]
+  %.pn266525 = phi { ptr, i32 } [ %lpad.thr_comm528, %.thread530 ], [ %eh.lpad-body397538, %.body396.thread ], [ %783, %782 ], [ %lpad.thr_comm.split-lp541, %.body396 ], [ %580, %.body.i387 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %134) #24
           to label %774 unwind label %770
 
 .body365.thread:                                  ; preds = %543, %526, %509, %.body365.thread518
-  %eh.lpad-body366514 = phi { ptr, i32 } [ %lpad.thr_comm516, %.body365.thread518 ], [ %.pn.i361, %509 ], [ %.pn.i369, %526 ], [ %.pn.i378, %543 ]
+  %eh.lpad-body366514 = phi { ptr, i32 } [ %lpad.thr_comm516, %.body365.thread518 ], [ %.pn.i369, %526 ], [ %.pn.i361, %509 ], [ %.pn.i378, %543 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %145) #24
           to label %.thread489 unwind label %770
 
@@ -31619,7 +31619,7 @@ define void @"_ZN72_$LT$ruff..args..Command$u20$as$u20$clap_builder..derive..Sub
           to label %.thread489 unwind label %770
 
 .thread489:                                       ; preds = %.body365, %.body348, %.body.i339, %784, %.body348.thread, %.body365.thread, %.thread497
-  %.pn264492 = phi { ptr, i32 } [ %lpad.thr_comm495, %.thread497 ], [ %785, %784 ], [ %lpad.thr_comm.split-lp508, %.body348 ], [ %eh.lpad-body349505, %.body348.thread ], [ %lpad.thr_comm.split-lp517, %.body365 ], [ %eh.lpad-body366514, %.body365.thread ], [ %449, %.body.i339 ]
+  %.pn264492 = phi { ptr, i32 } [ %lpad.thr_comm495, %.thread497 ], [ %eh.lpad-body366514, %.body365.thread ], [ %785, %784 ], [ %lpad.thr_comm.split-lp508, %.body348 ], [ %eh.lpad-body349505, %.body348.thread ], [ %lpad.thr_comm.split-lp517, %.body365 ], [ %449, %.body.i339 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %162) #24
           to label %774 unwind label %770
 
@@ -31630,12 +31630,12 @@ define void @"_ZN72_$LT$ruff..args..Command$u20$as$u20$clap_builder..derive..Sub
           to label %.thread444 unwind label %770
 
 .body313.thread:                                  ; preds = %389, %372, %355, %.body313.thread482
-  %eh.lpad-body314478 = phi { ptr, i32 } [ %lpad.thr_comm480, %.body313.thread482 ], [ %.pn.i309, %355 ], [ %.pn.i317, %372 ], [ %.pn.i326, %389 ]
+  %eh.lpad-body314478 = phi { ptr, i32 } [ %lpad.thr_comm480, %.body313.thread482 ], [ %.pn.i317, %372 ], [ %.pn.i309, %355 ], [ %.pn.i326, %389 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %175) #24
           to label %.thread444 unwind label %770
 
 .body288.thread:                                  ; preds = %325, %308, %291, %.body288.thread473
-  %eh.lpad-body289469 = phi { ptr, i32 } [ %lpad.thr_comm471, %.body288.thread473 ], [ %.pn.i284, %291 ], [ %.pn.i292, %308 ], [ %.pn.i301, %325 ]
+  %eh.lpad-body289469 = phi { ptr, i32 } [ %lpad.thr_comm471, %.body288.thread473 ], [ %.pn.i292, %308 ], [ %.pn.i284, %291 ], [ %.pn.i301, %325 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %188) #24
           to label %.thread444 unwind label %770
 
@@ -31651,7 +31651,7 @@ define void @"_ZN72_$LT$ruff..args..Command$u20$as$u20$clap_builder..derive..Sub
           to label %.thread444 unwind label %770
 
 .thread444:                                       ; preds = %.body.i334, %.body313, %.body288, %.body273, %.body.i, %788, %.body273.thread, %.body288.thread, %.body313.thread, %786, %.thread452
-  %.pn447 = phi { ptr, i32 } [ %lpad.thr_comm450, %.thread452 ], [ %789, %788 ], [ %lpad.thr_comm.split-lp463, %.body273 ], [ %eh.lpad-body274460, %.body273.thread ], [ %lpad.thr_comm.split-lp472, %.body288 ], [ %eh.lpad-body289469, %.body288.thread ], [ %lpad.thr_comm.split-lp481, %.body313 ], [ %eh.lpad-body314478, %.body313.thread ], [ %787, %786 ], [ %230, %.body.i ], [ %425, %.body.i334 ]
+  %.pn447 = phi { ptr, i32 } [ %lpad.thr_comm450, %.thread452 ], [ %787, %786 ], [ %789, %788 ], [ %lpad.thr_comm.split-lp463, %.body273 ], [ %eh.lpad-body274460, %.body273.thread ], [ %lpad.thr_comm.split-lp472, %.body288 ], [ %eh.lpad-body289469, %.body288.thread ], [ %lpad.thr_comm.split-lp481, %.body313 ], [ %eh.lpad-body314478, %.body313.thread ], [ %230, %.body.i ], [ %425, %.body.i334 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %205) #24
           to label %774 unwind label %770
 
@@ -31704,7 +31704,7 @@ define noundef zeroext i1 @"_ZN72_$LT$ruff..args..Command$u20$as$u20$clap_builde
   br label %22
 
 22:                                               ; preds = %18, %20, %16, %14, %12, %10, %8, %6, %4, %2
-  %.sroa.0.0 = phi i1 [ true, %2 ], [ true, %4 ], [ true, %6 ], [ true, %8 ], [ true, %10 ], [ true, %12 ], [ true, %14 ], [ true, %16 ], [ %21, %20 ], [ true, %18 ]
+  %.sroa.0.0 = phi i1 [ true, %18 ], [ true, %2 ], [ true, %4 ], [ true, %6 ], [ true, %8 ], [ true, %10 ], [ true, %12 ], [ true, %14 ], [ %21, %20 ], [ true, %16 ]
   ret i1 %.sroa.0.0
 }
 
@@ -32010,7 +32010,7 @@ define noundef align 8 ptr @"_ZN83_$LT$ruff..args..AnalyzeCommand$u20$as$u20$cla
   br label %35
 
 35:                                               ; preds = %34, %22, %"_ZN4core3ptr47drop_in_place$LT$ruff..args..AnalyzeCommand$GT$17h9e258df8aeaf5431E.exit", %2
-  %.sroa.0.0 = phi ptr [ null, %2 ], [ null, %"_ZN4core3ptr47drop_in_place$LT$ruff..args..AnalyzeCommand$GT$17h9e258df8aeaf5431E.exit" ], [ %19, %22 ], [ %33, %34 ]
+  %.sroa.0.0 = phi ptr [ null, %"_ZN4core3ptr47drop_in_place$LT$ruff..args..AnalyzeCommand$GT$17h9e258df8aeaf5431E.exit" ], [ null, %2 ], [ %19, %22 ], [ %33, %34 ]
   ret ptr %.sroa.0.0
 
 36:                                               ; preds = %30
@@ -32692,7 +32692,7 @@ define noundef align 8 ptr @"_ZN88_$LT$ruff..args..AnalyzeGraphCommand$u20$as$u2
   br label %66
 
 66:                                               ; preds = %51, %44, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h459f41316235da3dE.exit", %57, %36, %28
-  %.sroa.0.0 = phi ptr [ %29, %28 ], [ %37, %36 ], [ %45, %44 ], [ %52, %51 ], [ null, %57 ], [ null, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h459f41316235da3dE.exit" ]
+  %.sroa.0.0 = phi ptr [ %29, %28 ], [ %37, %36 ], [ %52, %51 ], [ %45, %44 ], [ null, %57 ], [ null, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h459f41316235da3dE.exit" ]
   ret ptr %.sroa.0.0
 
 67:                                               ; preds = %64, %21
@@ -32962,7 +32962,7 @@ define void @"_ZN78_$LT$ruff..args..AnalyzeGraphCommand$u20$as$u20$clap_builder.
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %86, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.254, i64 noundef 5)
           to label %125 unwind label %.body96.thread262
 
-.body96.thread262:                                ; preds = %131, %125, %120
+.body96.thread262:                                ; preds = %125, %131, %120
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body96.thread
@@ -33212,7 +33212,7 @@ define void @"_ZN78_$LT$ruff..args..AnalyzeGraphCommand$u20$as$u20$clap_builder.
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %76, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.255, i64 noundef 9)
           to label %192 unwind label %.thread280
 
-.thread280:                                       ; preds = %193, %192, %191
+.thread280:                                       ; preds = %191, %193, %192
   %lpad.thr_comm278 = landingpad { ptr, i32 }
           cleanup
   br label %.thread268
@@ -33449,7 +33449,7 @@ define void @"_ZN78_$LT$ruff..args..AnalyzeGraphCommand$u20$as$u20$clap_builder.
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %66, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.257, i64 noundef 21)
           to label %257 unwind label %.body148.thread291
 
-.body148.thread291:                               ; preds = %258, %257, %256
+.body148.thread291:                               ; preds = %256, %258, %257
   %lpad.thr_comm289 = landingpad { ptr, i32 }
           cleanup
   br label %.body148.thread
@@ -33668,7 +33668,7 @@ define void @"_ZN78_$LT$ruff..args..AnalyzeGraphCommand$u20$as$u20$clap_builder.
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %56, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.259, i64 noundef 7)
           to label %315 unwind label %.body174.thread300
 
-.body174.thread300:                               ; preds = %372, %316, %315, %314
+.body174.thread300:                               ; preds = %372, %314, %316, %315
   %lpad.thr_comm298 = landingpad { ptr, i32 }
           cleanup
   br label %.body174.thread
@@ -33892,7 +33892,7 @@ define void @"_ZN78_$LT$ruff..args..AnalyzeGraphCommand$u20$as$u20$clap_builder.
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %46, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.261, i64 noundef 10)
           to label %374 unwind label %.body200.thread308
 
-.body200.thread308:                               ; preds = %397, %375, %374, %373
+.body200.thread308:                               ; preds = %397, %374, %373, %375
   %lpad.thr_comm306 = landingpad { ptr, i32 }
           cleanup
   br label %.body200.thread
@@ -33996,7 +33996,7 @@ define void @"_ZN78_$LT$ruff..args..AnalyzeGraphCommand$u20$as$u20$clap_builder.
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %39, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.263, i64 noundef 14)
           to label %402 unwind label %.body208.thread317
 
-.body208.thread317:                               ; preds = %403, %402, %398
+.body208.thread317:                               ; preds = %398, %403, %402
   %lpad.thr_comm315 = landingpad { ptr, i32 }
           cleanup
   br label %.body208.thread
@@ -34204,7 +34204,7 @@ define void @"_ZN78_$LT$ruff..args..AnalyzeGraphCommand$u20$as$u20$clap_builder.
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %31, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.264, i64 noundef 6)
           to label %457 unwind label %.body234.thread326
 
-.body234.thread326:                               ; preds = %458, %457, %456
+.body234.thread326:                               ; preds = %456, %458, %457
   %lpad.thr_comm324 = landingpad { ptr, i32 }
           cleanup
   br label %.body234.thread
@@ -34408,11 +34408,11 @@ define void @"_ZN78_$LT$ruff..args..AnalyzeGraphCommand$u20$as$u20$clap_builder.
   ret void
 
 .body:                                            ; preds = %.body.i, %516, %.body96.thread, %.thread268, %.body148.thread, %.body174.thread, %.body200.thread, %.body208.thread, %.body234.thread
-  %.pn94 = phi { ptr, i32 } [ %eh.lpad-body235322, %.body234.thread ], [ %eh.lpad-body209313, %.body208.thread ], [ %eh.lpad-body201305, %.body200.thread ], [ %eh.lpad-body175296, %.body174.thread ], [ %eh.lpad-body149287, %.body148.thread ], [ %.pn267, %.thread268 ], [ %eh.lpad-body97260, %.body96.thread ], [ %517, %516 ], [ %115, %.body.i ]
+  %.pn94 = phi { ptr, i32 } [ %eh.lpad-body235322, %.body234.thread ], [ %115, %.body.i ], [ %eh.lpad-body209313, %.body208.thread ], [ %517, %516 ], [ %eh.lpad-body201305, %.body200.thread ], [ %.pn267, %.thread268 ], [ %eh.lpad-body175296, %.body174.thread ], [ %eh.lpad-body97260, %.body96.thread ], [ %eh.lpad-body149287, %.body148.thread ]
   resume { ptr, i32 } %.pn94
 
 .body234.thread:                                  ; preds = %495, %478, %461, %.body234.thread326
-  %eh.lpad-body235322 = phi { ptr, i32 } [ %lpad.thr_comm324, %.body234.thread326 ], [ %.pn.i230, %461 ], [ %.pn.i238, %478 ], [ %.pn.i247, %495 ]
+  %eh.lpad-body235322 = phi { ptr, i32 } [ %lpad.thr_comm324, %.body234.thread326 ], [ %.pn.i238, %478 ], [ %.pn.i230, %461 ], [ %.pn.i247, %495 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %35) #24
           to label %.body unwind label %512
 
@@ -34423,7 +34423,7 @@ define void @"_ZN78_$LT$ruff..args..AnalyzeGraphCommand$u20$as$u20$clap_builder.
   unreachable
 
 .body208.thread:                                  ; preds = %440, %423, %406, %.body208.thread317
-  %eh.lpad-body209313 = phi { ptr, i32 } [ %lpad.thr_comm315, %.body208.thread317 ], [ %.pn.i204, %406 ], [ %.pn.i212, %423 ], [ %.pn.i221, %440 ]
+  %eh.lpad-body209313 = phi { ptr, i32 } [ %lpad.thr_comm315, %.body208.thread317 ], [ %.pn.i212, %423 ], [ %.pn.i204, %406 ], [ %.pn.i221, %440 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %43) #24
           to label %.body unwind label %512
 
@@ -34433,12 +34433,12 @@ define void @"_ZN78_$LT$ruff..args..AnalyzeGraphCommand$u20$as$u20$clap_builder.
           to label %.body unwind label %512
 
 .body174.thread:                                  ; preds = %356, %339, %322, %.body174.thread300
-  %eh.lpad-body175296 = phi { ptr, i32 } [ %lpad.thr_comm298, %.body174.thread300 ], [ %.pn.i170, %322 ], [ %.pn.i178, %339 ], [ %.pn.i187, %356 ]
+  %eh.lpad-body175296 = phi { ptr, i32 } [ %lpad.thr_comm298, %.body174.thread300 ], [ %.pn.i178, %339 ], [ %.pn.i170, %322 ], [ %.pn.i187, %356 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %61) #24
           to label %.body unwind label %512
 
 .body148.thread:                                  ; preds = %298, %281, %264, %.body148.thread291
-  %eh.lpad-body149287 = phi { ptr, i32 } [ %lpad.thr_comm289, %.body148.thread291 ], [ %.pn.i144, %264 ], [ %.pn.i152, %281 ], [ %.pn.i161, %298 ]
+  %eh.lpad-body149287 = phi { ptr, i32 } [ %lpad.thr_comm289, %.body148.thread291 ], [ %.pn.i152, %281 ], [ %.pn.i144, %264 ], [ %.pn.i161, %298 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %71) #24
           to label %.body unwind label %512
 
@@ -34449,12 +34449,12 @@ define void @"_ZN78_$LT$ruff..args..AnalyzeGraphCommand$u20$as$u20$clap_builder.
           to label %.thread268 unwind label %512
 
 .thread268:                                       ; preds = %252, %514, %233, %216, %199, %.thread280
-  %.pn267 = phi { ptr, i32 } [ %lpad.thr_comm278, %.thread280 ], [ %.pn.i119, %199 ], [ %.pn.i127, %216 ], [ %.pn.i136, %233 ], [ %253, %252 ], [ %515, %514 ]
+  %.pn267 = phi { ptr, i32 } [ %.pn.i136, %233 ], [ %lpad.thr_comm278, %.thread280 ], [ %.pn.i127, %216 ], [ %.pn.i119, %199 ], [ %253, %252 ], [ %515, %514 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %81) #24
           to label %.body unwind label %512
 
 .body96.thread:                                   ; preds = %175, %158, %141, %127, %.body96.thread262
-  %eh.lpad-body97260 = phi { ptr, i32 } [ %lpad.thr_comm, %.body96.thread262 ], [ %128, %127 ], [ %.pn.i, %141 ], [ %.pn.i102, %158 ], [ %.pn.i110, %175 ]
+  %eh.lpad-body97260 = phi { ptr, i32 } [ %lpad.thr_comm, %.body96.thread262 ], [ %.pn.i102, %158 ], [ %.pn.i, %141 ], [ %128, %127 ], [ %.pn.i110, %175 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %91) #24
           to label %.body unwind label %512
 
@@ -34717,7 +34717,7 @@ define void @"_ZN78_$LT$ruff..args..AnalyzeGraphCommand$u20$as$u20$clap_builder.
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %86, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.254, i64 noundef 5)
           to label %125 unwind label %.body96.thread262
 
-.body96.thread262:                                ; preds = %131, %125, %120
+.body96.thread262:                                ; preds = %125, %131, %120
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body96.thread
@@ -34971,7 +34971,7 @@ define void @"_ZN78_$LT$ruff..args..AnalyzeGraphCommand$u20$as$u20$clap_builder.
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %76, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.255, i64 noundef 9)
           to label %195 unwind label %.thread280
 
-.thread280:                                       ; preds = %196, %195, %191
+.thread280:                                       ; preds = %191, %196, %195
   %lpad.thr_comm278 = landingpad { ptr, i32 }
           cleanup
   br label %.thread268
@@ -35212,7 +35212,7 @@ define void @"_ZN78_$LT$ruff..args..AnalyzeGraphCommand$u20$as$u20$clap_builder.
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %66, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.257, i64 noundef 21)
           to label %263 unwind label %.body148.thread291
 
-.body148.thread291:                               ; preds = %264, %263, %259
+.body148.thread291:                               ; preds = %259, %264, %263
   %lpad.thr_comm289 = landingpad { ptr, i32 }
           cleanup
   br label %.body148.thread
@@ -35435,7 +35435,7 @@ define void @"_ZN78_$LT$ruff..args..AnalyzeGraphCommand$u20$as$u20$clap_builder.
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %56, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.259, i64 noundef 7)
           to label %324 unwind label %.body174.thread300
 
-.body174.thread300:                               ; preds = %381, %325, %324, %320
+.body174.thread300:                               ; preds = %381, %320, %325, %324
   %lpad.thr_comm298 = landingpad { ptr, i32 }
           cleanup
   br label %.body174.thread
@@ -35663,7 +35663,7 @@ define void @"_ZN78_$LT$ruff..args..AnalyzeGraphCommand$u20$as$u20$clap_builder.
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %46, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.261, i64 noundef 10)
           to label %386 unwind label %.body200.thread308
 
-.body200.thread308:                               ; preds = %409, %387, %386, %382
+.body200.thread308:                               ; preds = %409, %386, %382, %387
   %lpad.thr_comm306 = landingpad { ptr, i32 }
           cleanup
   br label %.body200.thread
@@ -35768,7 +35768,7 @@ define void @"_ZN78_$LT$ruff..args..AnalyzeGraphCommand$u20$as$u20$clap_builder.
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %39, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.263, i64 noundef 14)
           to label %415 unwind label %.body208.thread317
 
-.body208.thread317:                               ; preds = %416, %415, %410
+.body208.thread317:                               ; preds = %410, %416, %415
   %lpad.thr_comm315 = landingpad { ptr, i32 }
           cleanup
   br label %.body208.thread
@@ -35980,7 +35980,7 @@ define void @"_ZN78_$LT$ruff..args..AnalyzeGraphCommand$u20$as$u20$clap_builder.
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %31, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.264, i64 noundef 6)
           to label %473 unwind label %.body234.thread326
 
-.body234.thread326:                               ; preds = %474, %473, %469
+.body234.thread326:                               ; preds = %469, %474, %473
   %lpad.thr_comm324 = landingpad { ptr, i32 }
           cleanup
   br label %.body234.thread
@@ -36188,11 +36188,11 @@ define void @"_ZN78_$LT$ruff..args..AnalyzeGraphCommand$u20$as$u20$clap_builder.
   ret void
 
 .body:                                            ; preds = %.body.i, %535, %.body96.thread, %.thread268, %.body148.thread, %.body174.thread, %.body200.thread, %.body208.thread, %.body234.thread
-  %.pn94 = phi { ptr, i32 } [ %eh.lpad-body235322, %.body234.thread ], [ %eh.lpad-body209313, %.body208.thread ], [ %eh.lpad-body201305, %.body200.thread ], [ %eh.lpad-body175296, %.body174.thread ], [ %eh.lpad-body149287, %.body148.thread ], [ %.pn267, %.thread268 ], [ %eh.lpad-body97260, %.body96.thread ], [ %536, %535 ], [ %115, %.body.i ]
+  %.pn94 = phi { ptr, i32 } [ %eh.lpad-body235322, %.body234.thread ], [ %115, %.body.i ], [ %eh.lpad-body209313, %.body208.thread ], [ %536, %535 ], [ %eh.lpad-body201305, %.body200.thread ], [ %.pn267, %.thread268 ], [ %eh.lpad-body175296, %.body174.thread ], [ %eh.lpad-body97260, %.body96.thread ], [ %eh.lpad-body149287, %.body148.thread ]
   resume { ptr, i32 } %.pn94
 
 .body234.thread:                                  ; preds = %511, %494, %477, %.body234.thread326
-  %eh.lpad-body235322 = phi { ptr, i32 } [ %lpad.thr_comm324, %.body234.thread326 ], [ %.pn.i230, %477 ], [ %.pn.i238, %494 ], [ %.pn.i247, %511 ]
+  %eh.lpad-body235322 = phi { ptr, i32 } [ %lpad.thr_comm324, %.body234.thread326 ], [ %.pn.i238, %494 ], [ %.pn.i230, %477 ], [ %.pn.i247, %511 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %35) #24
           to label %.body unwind label %531
 
@@ -36203,7 +36203,7 @@ define void @"_ZN78_$LT$ruff..args..AnalyzeGraphCommand$u20$as$u20$clap_builder.
   unreachable
 
 .body208.thread:                                  ; preds = %453, %436, %419, %.body208.thread317
-  %eh.lpad-body209313 = phi { ptr, i32 } [ %lpad.thr_comm315, %.body208.thread317 ], [ %.pn.i204, %419 ], [ %.pn.i212, %436 ], [ %.pn.i221, %453 ]
+  %eh.lpad-body209313 = phi { ptr, i32 } [ %lpad.thr_comm315, %.body208.thread317 ], [ %.pn.i212, %436 ], [ %.pn.i204, %419 ], [ %.pn.i221, %453 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %43) #24
           to label %.body unwind label %531
 
@@ -36213,12 +36213,12 @@ define void @"_ZN78_$LT$ruff..args..AnalyzeGraphCommand$u20$as$u20$clap_builder.
           to label %.body unwind label %531
 
 .body174.thread:                                  ; preds = %365, %348, %331, %.body174.thread300
-  %eh.lpad-body175296 = phi { ptr, i32 } [ %lpad.thr_comm298, %.body174.thread300 ], [ %.pn.i170, %331 ], [ %.pn.i178, %348 ], [ %.pn.i187, %365 ]
+  %eh.lpad-body175296 = phi { ptr, i32 } [ %lpad.thr_comm298, %.body174.thread300 ], [ %.pn.i178, %348 ], [ %.pn.i170, %331 ], [ %.pn.i187, %365 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %61) #24
           to label %.body unwind label %531
 
 .body148.thread:                                  ; preds = %304, %287, %270, %.body148.thread291
-  %eh.lpad-body149287 = phi { ptr, i32 } [ %lpad.thr_comm289, %.body148.thread291 ], [ %.pn.i144, %270 ], [ %.pn.i152, %287 ], [ %.pn.i161, %304 ]
+  %eh.lpad-body149287 = phi { ptr, i32 } [ %lpad.thr_comm289, %.body148.thread291 ], [ %.pn.i152, %287 ], [ %.pn.i144, %270 ], [ %.pn.i161, %304 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %71) #24
           to label %.body unwind label %531
 
@@ -36229,12 +36229,12 @@ define void @"_ZN78_$LT$ruff..args..AnalyzeGraphCommand$u20$as$u20$clap_builder.
           to label %.thread268 unwind label %531
 
 .thread268:                                       ; preds = %255, %533, %236, %219, %202, %.thread280
-  %.pn267 = phi { ptr, i32 } [ %lpad.thr_comm278, %.thread280 ], [ %.pn.i119, %202 ], [ %.pn.i127, %219 ], [ %.pn.i136, %236 ], [ %256, %255 ], [ %534, %533 ]
+  %.pn267 = phi { ptr, i32 } [ %.pn.i136, %236 ], [ %lpad.thr_comm278, %.thread280 ], [ %.pn.i127, %219 ], [ %.pn.i119, %202 ], [ %256, %255 ], [ %534, %533 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %81) #24
           to label %.body unwind label %531
 
 .body96.thread:                                   ; preds = %175, %158, %141, %127, %.body96.thread262
-  %eh.lpad-body97260 = phi { ptr, i32 } [ %lpad.thr_comm, %.body96.thread262 ], [ %128, %127 ], [ %.pn.i, %141 ], [ %.pn.i102, %158 ], [ %.pn.i110, %175 ]
+  %eh.lpad-body97260 = phi { ptr, i32 } [ %lpad.thr_comm, %.body96.thread262 ], [ %.pn.i102, %158 ], [ %.pn.i, %141 ], [ %128, %127 ], [ %.pn.i110, %175 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %91) #24
           to label %.body unwind label %531
 
@@ -44520,7 +44520,7 @@ define noundef align 8 ptr @"_ZN81_$LT$ruff..args..CheckCommand$u20$as$u20$clap_
   br label %516
 
 516:                                              ; preds = %513, %508, %501, %494, %487, %480, %440, %419, %412, %405, %398, %211, %204, %178, %171, %164, %157, %150, %143, %136, %129, %122, %115, %108, %.critedge613, %506
-  %.sroa.0.0 = phi ptr [ %109, %108 ], [ %116, %115 ], [ %123, %122 ], [ %130, %129 ], [ %137, %136 ], [ %144, %143 ], [ %151, %150 ], [ %158, %157 ], [ %165, %164 ], [ %172, %171 ], [ %179, %178 ], [ %205, %204 ], [ %212, %211 ], [ %399, %398 ], [ %406, %405 ], [ %413, %412 ], [ %420, %419 ], [ %441, %440 ], [ %481, %480 ], [ %488, %487 ], [ %495, %494 ], [ %502, %501 ], [ %509, %508 ], [ null, %506 ], [ null, %.critedge613 ], [ %514, %513 ]
+  %.sroa.0.0 = phi ptr [ %509, %508 ], [ %109, %108 ], [ %116, %115 ], [ %123, %122 ], [ %130, %129 ], [ %137, %136 ], [ %144, %143 ], [ %151, %150 ], [ %158, %157 ], [ %165, %164 ], [ %172, %171 ], [ %179, %178 ], [ %205, %204 ], [ %212, %211 ], [ %399, %398 ], [ %406, %405 ], [ %413, %412 ], [ %420, %419 ], [ %441, %440 ], [ %481, %480 ], [ %488, %487 ], [ %495, %494 ], [ %502, %501 ], [ null, %.critedge613 ], [ null, %506 ], [ %514, %513 ]
   ret ptr %.sroa.0.0
 
 517:                                              ; preds = %474, %459, %450, %434, %392, %377, %362, %347, %332, %317, %302, %287, %272, %257, %242, %227, %193, %101
@@ -45676,7 +45676,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %621, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.254, i64 noundef 5)
           to label %698 unwind label %.body537.thread1914
 
-.body537.thread1914:                              ; preds = %704, %698, %693
+.body537.thread1914:                              ; preds = %698, %704, %693
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body537.thread
@@ -45926,7 +45926,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %611, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.283, i64 noundef 3)
           to label %765 unwind label %.body564.thread1923
 
-.body564.thread1923:                              ; preds = %822, %766, %765, %764
+.body564.thread1923:                              ; preds = %822, %764, %766, %765
   %lpad.thr_comm1921 = landingpad { ptr, i32 }
           cleanup
   br label %.body564.thread
@@ -46151,7 +46151,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %600, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.285, i64 noundef 6)
           to label %824 unwind label %.body589.thread1931
 
-.body589.thread1931:                              ; preds = %847, %825, %824, %823
+.body589.thread1931:                              ; preds = %847, %824, %823, %825
   %lpad.thr_comm1929 = landingpad { ptr, i32 }
           cleanup
   br label %.body589.thread
@@ -46259,7 +46259,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %592, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.287, i64 noundef 12)
           to label %852 unwind label %.body597.thread1940
 
-.body597.thread1940:                              ; preds = %909, %853, %852, %848
+.body597.thread1940:                              ; preds = %909, %848, %853, %852
   %lpad.thr_comm1938 = landingpad { ptr, i32 }
           cleanup
   br label %.body597.thread
@@ -46483,7 +46483,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %582, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.289, i64 noundef 15)
           to label %911 unwind label %.body623.thread1948
 
-.body623.thread1948:                              ; preds = %934, %912, %911, %910
+.body623.thread1948:                              ; preds = %934, %911, %910, %912
   %lpad.thr_comm1946 = landingpad { ptr, i32 }
           cleanup
   br label %.body623.thread
@@ -46591,7 +46591,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %574, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.291, i64 noundef 10)
           to label %939 unwind label %.body631.thread1957
 
-.body631.thread1957:                              ; preds = %996, %940, %939, %935
+.body631.thread1957:                              ; preds = %996, %935, %940, %939
   %lpad.thr_comm1955 = landingpad { ptr, i32 }
           cleanup
   br label %.body631.thread
@@ -46815,7 +46815,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %564, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.293, i64 noundef 13)
           to label %998 unwind label %.body657.thread1965
 
-.body657.thread1965:                              ; preds = %1021, %999, %998, %997
+.body657.thread1965:                              ; preds = %1021, %998, %997, %999
   %lpad.thr_comm1963 = landingpad { ptr, i32 }
           cleanup
   br label %.body657.thread
@@ -46923,7 +46923,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %556, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.295, i64 noundef 4)
           to label %1026 unwind label %.body665.thread1974
 
-.body665.thread1974:                              ; preds = %1083, %1027, %1026, %1022
+.body665.thread1974:                              ; preds = %1083, %1022, %1027, %1026
   %lpad.thr_comm1972 = landingpad { ptr, i32 }
           cleanup
   br label %.body665.thread
@@ -47147,7 +47147,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %546, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.297, i64 noundef 5)
           to label %1085 unwind label %.body691.thread1983
 
-.body691.thread1983:                              ; preds = %1086, %1085, %1084
+.body691.thread1983:                              ; preds = %1085, %1084, %1086
   %lpad.thr_comm1981 = landingpad { ptr, i32 }
           cleanup
   br label %.body691.thread
@@ -47369,7 +47369,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %537, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.299, i64 noundef 8)
           to label %1143 unwind label %.body717.thread1992
 
-.body717.thread1992:                              ; preds = %1200, %1144, %1143, %1142
+.body717.thread1992:                              ; preds = %1200, %1142, %1144, %1143
   %lpad.thr_comm1990 = landingpad { ptr, i32 }
           cleanup
   br label %.body717.thread
@@ -47593,7 +47593,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %527, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.301, i64 noundef 11)
           to label %1202 unwind label %.body743.thread2000
 
-.body743.thread2000:                              ; preds = %1225, %1203, %1202, %1201
+.body743.thread2000:                              ; preds = %1225, %1202, %1201, %1203
   %lpad.thr_comm1998 = landingpad { ptr, i32 }
           cleanup
   br label %.body743.thread
@@ -47701,7 +47701,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %519, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.303, i64 noundef 11)
           to label %1230 unwind label %.body751.thread2009
 
-.body751.thread2009:                              ; preds = %1231, %1230, %1226
+.body751.thread2009:                              ; preds = %1226, %1231, %1230
   %lpad.thr_comm2007 = landingpad { ptr, i32 }
           cleanup
   br label %.body751.thread
@@ -47918,7 +47918,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %511, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.199, i64 noundef 13)
           to label %1288 unwind label %.body777.thread2018
 
-.body777.thread2018:                              ; preds = %1342, %1289, %1288, %1287
+.body777.thread2018:                              ; preds = %1342, %1287, %1289, %1288
   %lpad.thr_comm2016 = landingpad { ptr, i32 }
           cleanup
   br label %.body777.thread
@@ -48132,7 +48132,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %502, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.305, i64 noundef 11)
           to label %1344 unwind label %.body803.thread2027
 
-.body803.thread2027:                              ; preds = %1398, %1345, %1344, %1343
+.body803.thread2027:                              ; preds = %1398, %1344, %1343, %1345
   %lpad.thr_comm2025 = landingpad { ptr, i32 }
           cleanup
   br label %.body803.thread
@@ -48353,7 +48353,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %493, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.263, i64 noundef 14)
           to label %1400 unwind label %.body829.thread2036
 
-.body829.thread2036:                              ; preds = %1401, %1400, %1399
+.body829.thread2036:                              ; preds = %1399, %1401, %1400
   %lpad.thr_comm2034 = landingpad { ptr, i32 }
           cleanup
   br label %.body829.thread
@@ -48562,7 +48562,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %484, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.259, i64 noundef 7)
           to label %1455 unwind label %.body855.thread2045
 
-.body855.thread2045:                              ; preds = %1512, %1456, %1455, %1454
+.body855.thread2045:                              ; preds = %1512, %1454, %1456, %1455
   %lpad.thr_comm2043 = landingpad { ptr, i32 }
           cleanup
   br label %.body855.thread
@@ -48786,7 +48786,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %474, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.261, i64 noundef 10)
           to label %1514 unwind label %.body881.thread2053
 
-.body881.thread2053:                              ; preds = %1537, %1515, %1514, %1513
+.body881.thread2053:                              ; preds = %1537, %1514, %1513, %1515
   %lpad.thr_comm2051 = landingpad { ptr, i32 }
           cleanup
   br label %.body881.thread
@@ -48893,7 +48893,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %467, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.306, i64 noundef 6)
           to label %1542 unwind label %.body889.thread2062
 
-.body889.thread2062:                              ; preds = %1596, %1543, %1542, %1538
+.body889.thread2062:                              ; preds = %1543, %1596, %1542, %1538
   %lpad.thr_comm2060 = landingpad { ptr, i32 }
           cleanup
   br label %.body889.thread
@@ -49177,7 +49177,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %457, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.307, i64 noundef 6)
           to label %1617 unwind label %.body920.thread2071
 
-.body920.thread2071:                              ; preds = %1671, %1618, %1617, %1613
+.body920.thread2071:                              ; preds = %1618, %1671, %1617, %1613
   %lpad.thr_comm2069 = landingpad { ptr, i32 }
           cleanup
   br label %.body920.thread
@@ -49461,7 +49461,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %447, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.308, i64 noundef 13)
           to label %1692 unwind label %.body956.thread2080
 
-.body956.thread2080:                              ; preds = %1746, %1693, %1692, %1688
+.body956.thread2080:                              ; preds = %1693, %1746, %1692, %1688
   %lpad.thr_comm2078 = landingpad { ptr, i32 }
           cleanup
   br label %.body956.thread
@@ -49745,7 +49745,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %437, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.309, i64 noundef 13)
           to label %1767 unwind label %.body992.thread2089
 
-.body992.thread2089:                              ; preds = %1821, %1768, %1767, %1763
+.body992.thread2089:                              ; preds = %1768, %1821, %1767, %1763
   %lpad.thr_comm2087 = landingpad { ptr, i32 }
           cleanup
   br label %.body992.thread
@@ -50629,7 +50629,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %407, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.312, i64 noundef 7)
           to label %1998 unwind label %.thread2162
 
-.thread2162:                                      ; preds = %2059, %1998, %1997
+.thread2162:                                      ; preds = %1998, %2059, %1997
   %lpad.thr_comm2160 = landingpad { ptr, i32 }
           cleanup
   br label %.thread2146
@@ -50935,7 +50935,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %396, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.313, i64 noundef 14)
           to label %2077 unwind label %.thread2188
 
-.thread2188:                                      ; preds = %2138, %2077, %2076
+.thread2188:                                      ; preds = %2077, %2138, %2076
   %lpad.thr_comm2186 = landingpad { ptr, i32 }
           cleanup
   br label %.thread2172
@@ -51241,7 +51241,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %385, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.314, i64 noundef 7)
           to label %2156 unwind label %.body1178.thread2199
 
-.body1178.thread2199:                             ; preds = %2210, %2157, %2156, %2155
+.body1178.thread2199:                             ; preds = %2157, %2210, %2156, %2155
   %lpad.thr_comm2197 = landingpad { ptr, i32 }
           cleanup
   br label %.body1178.thread
@@ -51525,7 +51525,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %375, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.315, i64 noundef 9)
           to label %2231 unwind label %.body1214.thread2208
 
-.body1214.thread2208:                             ; preds = %2285, %2232, %2231, %2227
+.body1214.thread2208:                             ; preds = %2232, %2285, %2231, %2227
   %lpad.thr_comm2206 = landingpad { ptr, i32 }
           cleanup
   br label %.body1214.thread
@@ -51809,7 +51809,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %365, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.316, i64 noundef 14)
           to label %2306 unwind label %.body1250.thread2217
 
-.body1250.thread2217:                             ; preds = %2360, %2307, %2306, %2302
+.body1250.thread2217:                             ; preds = %2307, %2360, %2306, %2302
   %lpad.thr_comm2215 = landingpad { ptr, i32 }
           cleanup
   br label %.body1250.thread
@@ -52093,7 +52093,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %355, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.317, i64 noundef 16)
           to label %2381 unwind label %.body1286.thread2226
 
-.body1286.thread2226:                             ; preds = %2435, %2382, %2381, %2377
+.body1286.thread2226:                             ; preds = %2382, %2435, %2381, %2377
   %lpad.thr_comm2224 = landingpad { ptr, i32 }
           cleanup
   br label %.body1286.thread
@@ -52378,7 +52378,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %344, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.318, i64 noundef 17)
           to label %2456 unwind label %.body1322.thread2235
 
-.body1322.thread2235:                             ; preds = %2513, %2457, %2456, %2452
+.body1322.thread2235:                             ; preds = %2456, %2513, %2452, %2457
   %lpad.thr_comm2233 = landingpad { ptr, i32 }
           cleanup
   br label %.body1322.thread
@@ -52662,7 +52662,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %333, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.320, i64 noundef 20)
           to label %2531 unwind label %.body1358.thread2243
 
-.body1358.thread2243:                             ; preds = %2554, %2532, %2531, %2530
+.body1358.thread2243:                             ; preds = %2554, %2531, %2530, %2532
   %lpad.thr_comm2241 = landingpad { ptr, i32 }
           cleanup
   br label %.body1358.thread
@@ -52770,7 +52770,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %325, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.322, i64 noundef 13)
           to label %2559 unwind label %.body1366.thread2252
 
-.body1366.thread2252:                             ; preds = %2616, %2560, %2559, %2555
+.body1366.thread2252:                             ; preds = %2559, %2616, %2555, %2560
   %lpad.thr_comm2250 = landingpad { ptr, i32 }
           cleanup
   br label %.body1366.thread
@@ -53054,7 +53054,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %314, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.324, i64 noundef 16)
           to label %2634 unwind label %.body1402.thread2260
 
-.body1402.thread2260:                             ; preds = %2657, %2635, %2634, %2633
+.body1402.thread2260:                             ; preds = %2657, %2634, %2633, %2635
   %lpad.thr_comm2258 = landingpad { ptr, i32 }
           cleanup
   br label %.body1402.thread
@@ -53161,7 +53161,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %307, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.326, i64 noundef 11)
           to label %2662 unwind label %.thread2284
 
-.thread2284:                                      ; preds = %2662, %2658
+.thread2284:                                      ; preds = %2658, %2662
   %lpad.thr_comm2282 = landingpad { ptr, i32 }
           cleanup
   br label %.thread2268
@@ -53459,7 +53459,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %297, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.327, i64 noundef 18)
           to label %2743 unwind label %.thread2310
 
-.thread2310:                                      ; preds = %2743, %2739
+.thread2310:                                      ; preds = %2739, %2743
   %lpad.thr_comm2308 = landingpad { ptr, i32 }
           cleanup
   br label %.thread2294
@@ -53758,7 +53758,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %286, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.328, i64 noundef 8)
           to label %2824 unwind label %.body1486.thread2321
 
-.body1486.thread2321:                             ; preds = %2881, %2825, %2824, %2820
+.body1486.thread2321:                             ; preds = %2825, %2881, %2824, %2820
   %lpad.thr_comm2319 = landingpad { ptr, i32 }
           cleanup
   br label %.body1486.thread
@@ -54045,7 +54045,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %276, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.330, i64 noundef 9)
           to label %2899 unwind label %.body1522.thread2330
 
-.body1522.thread2330:                             ; preds = %2953, %2900, %2899, %2898
+.body1522.thread2330:                             ; preds = %2899, %2953, %2898, %2900
   %lpad.thr_comm2328 = landingpad { ptr, i32 }
           cleanup
   br label %.body1522.thread
@@ -54322,7 +54322,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %266, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.331, i64 noundef 14)
           to label %2971 unwind label %.body1558.thread2339
 
-.body1558.thread2339:                             ; preds = %2972, %2971, %2970
+.body1558.thread2339:                             ; preds = %2971, %2970, %2972
   %lpad.thr_comm2337 = landingpad { ptr, i32 }
           cleanup
   br label %.body1558.thread
@@ -54590,7 +54590,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %257, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.332, i64 noundef 9)
           to label %3042 unwind label %.thread2360
 
-.thread2360:                                      ; preds = %3042, %3041
+.thread2360:                                      ; preds = %3041, %3042
   %lpad.thr_comm2358 = landingpad { ptr, i32 }
           cleanup
   br label %.thread2347
@@ -55119,7 +55119,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %236, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.335, i64 noundef 20)
           to label %3179 unwind label %.body1658.thread2380
 
-.body1658.thread2380:                             ; preds = %3252, %3180, %3179, %3178
+.body1658.thread2380:                             ; preds = %3252, %3179, %3178, %3180
   %lpad.thr_comm2378 = landingpad { ptr, i32 }
           cleanup
   br label %.body1658.thread
@@ -55403,7 +55403,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %225, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.337, i64 noundef 10)
           to label %3254 unwind label %.body1694.thread2389
 
-.body1694.thread2389:                             ; preds = %3312, %3311, %3255, %3254, %3253
+.body1694.thread2389:                             ; preds = %3312, %3311, %3253, %3255, %3254
   %lpad.thr_comm2387 = landingpad { ptr, i32 }
           cleanup
   br label %.body1694.thread
@@ -55633,7 +55633,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %214, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.339, i64 noundef 8)
           to label %3314 unwind label %.body1720.thread2398
 
-.body1720.thread2398:                             ; preds = %3377, %3376, %3375, %3374, %3373, %3372, %3371, %3315, %3314, %3313
+.body1720.thread2398:                             ; preds = %3377, %3376, %3375, %3374, %3373, %3372, %3371, %3313, %3315, %3314
   %lpad.thr_comm2396 = landingpad { ptr, i32 }
           cleanup
   br label %.body1720.thread
@@ -55893,7 +55893,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %198, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.341, i64 noundef 10)
           to label %3379 unwind label %.body1746.thread2407
 
-.body1746.thread2407:                             ; preds = %3441, %3440, %3439, %3438, %3437, %3436, %3380, %3379, %3378
+.body1746.thread2407:                             ; preds = %3441, %3440, %3439, %3438, %3437, %3436, %3378, %3380, %3379
   %lpad.thr_comm2405 = landingpad { ptr, i32 }
           cleanup
   br label %.body1746.thread
@@ -56147,7 +56147,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %183, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.343, i64 noundef 13)
           to label %3443 unwind label %.body1772.thread2416
 
-.body1772.thread2416:                             ; preds = %3505, %3504, %3503, %3502, %3501, %3500, %3444, %3443, %3442
+.body1772.thread2416:                             ; preds = %3505, %3504, %3503, %3502, %3501, %3500, %3442, %3444, %3443
   %lpad.thr_comm2414 = landingpad { ptr, i32 }
           cleanup
   br label %.body1772.thread
@@ -56393,11 +56393,11 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   ret void
 
 .body:                                            ; preds = %.body.i, %3523, %.body537.thread, %.body564.thread, %.body589.thread, %.body597.thread, %.body623.thread, %.body631.thread, %.body657.thread, %.body665.thread, %.body691.thread, %.body717.thread, %.body743.thread, %.body751.thread, %.body777.thread, %.body803.thread, %.body829.thread, %.body855.thread, %.body881.thread, %.body889.thread, %.body920.thread, %.body956.thread, %.body992.thread, %.thread2095, %.thread2120, %.thread2146, %.thread2172, %.body1178.thread, %.body1214.thread, %.body1250.thread, %.body1286.thread, %.body1322.thread, %.body1358.thread, %.body1366.thread, %.body1402.thread, %.thread2268, %.thread2294, %.body1486.thread, %.body1522.thread, %.body1558.thread, %.thread2347, %.body1622.thread, %.body1658.thread, %.body1694.thread, %.body1720.thread, %.body1746.thread, %.body1772.thread
-  %.pn533 = phi { ptr, i32 } [ %eh.lpad-body17732412, %.body1772.thread ], [ %eh.lpad-body17472403, %.body1746.thread ], [ %eh.lpad-body17212394, %.body1720.thread ], [ %eh.lpad-body16952385, %.body1694.thread ], [ %eh.lpad-body16592376, %.body1658.thread ], [ %eh.lpad-body16232367, %.body1622.thread ], [ %.pn5312346, %.thread2347 ], [ %eh.lpad-body15592335, %.body1558.thread ], [ %eh.lpad-body15232326, %.body1522.thread ], [ %eh.lpad-body14872317, %.body1486.thread ], [ %.pn5292293, %.thread2294 ], [ %.pn5272267, %.thread2268 ], [ %eh.lpad-body14032257, %.body1402.thread ], [ %eh.lpad-body13672248, %.body1366.thread ], [ %eh.lpad-body13592240, %.body1358.thread ], [ %eh.lpad-body13232231, %.body1322.thread ], [ %eh.lpad-body12872222, %.body1286.thread ], [ %eh.lpad-body12512213, %.body1250.thread ], [ %eh.lpad-body12152204, %.body1214.thread ], [ %eh.lpad-body11792195, %.body1178.thread ], [ %.pn5252171, %.thread2172 ], [ %.pn5232145, %.thread2146 ], [ %.pn5212119, %.thread2120 ], [ %.pn2094, %.thread2095 ], [ %eh.lpad-body9932085, %.body992.thread ], [ %eh.lpad-body9572076, %.body956.thread ], [ %eh.lpad-body9212067, %.body920.thread ], [ %eh.lpad-body8902058, %.body889.thread ], [ %eh.lpad-body8822050, %.body881.thread ], [ %eh.lpad-body8562041, %.body855.thread ], [ %eh.lpad-body8302032, %.body829.thread ], [ %eh.lpad-body8042023, %.body803.thread ], [ %eh.lpad-body7782014, %.body777.thread ], [ %eh.lpad-body7522005, %.body751.thread ], [ %eh.lpad-body7441997, %.body743.thread ], [ %eh.lpad-body7181988, %.body717.thread ], [ %eh.lpad-body6921979, %.body691.thread ], [ %eh.lpad-body6661970, %.body665.thread ], [ %eh.lpad-body6581962, %.body657.thread ], [ %eh.lpad-body6321953, %.body631.thread ], [ %eh.lpad-body6241945, %.body623.thread ], [ %eh.lpad-body5981936, %.body597.thread ], [ %eh.lpad-body5901928, %.body589.thread ], [ %eh.lpad-body5651919, %.body564.thread ], [ %eh.lpad-body5381912, %.body537.thread ], [ %3524, %3523 ], [ %688, %.body.i ]
+  %.pn533 = phi { ptr, i32 } [ %eh.lpad-body17732412, %.body1772.thread ], [ %688, %.body.i ], [ %eh.lpad-body17472403, %.body1746.thread ], [ %3524, %3523 ], [ %eh.lpad-body17212394, %.body1720.thread ], [ %eh.lpad-body7441997, %.body743.thread ], [ %eh.lpad-body16952385, %.body1694.thread ], [ %eh.lpad-body5381912, %.body537.thread ], [ %eh.lpad-body16592376, %.body1658.thread ], [ %eh.lpad-body9932085, %.body992.thread ], [ %eh.lpad-body16232367, %.body1622.thread ], [ %eh.lpad-body5651919, %.body564.thread ], [ %.pn5312346, %.thread2347 ], [ %eh.lpad-body8562041, %.body855.thread ], [ %eh.lpad-body15592335, %.body1558.thread ], [ %eh.lpad-body5901928, %.body589.thread ], [ %eh.lpad-body15232326, %.body1522.thread ], [ %eh.lpad-body9572076, %.body956.thread ], [ %eh.lpad-body14872317, %.body1486.thread ], [ %eh.lpad-body5981936, %.body597.thread ], [ %.pn5292293, %.thread2294 ], [ %eh.lpad-body7522005, %.body751.thread ], [ %.pn5272267, %.thread2268 ], [ %eh.lpad-body6241945, %.body623.thread ], [ %eh.lpad-body14032257, %.body1402.thread ], [ %eh.lpad-body9212067, %.body920.thread ], [ %eh.lpad-body13672248, %.body1366.thread ], [ %eh.lpad-body6321953, %.body631.thread ], [ %eh.lpad-body13592240, %.body1358.thread ], [ %eh.lpad-body8042023, %.body803.thread ], [ %eh.lpad-body13232231, %.body1322.thread ], [ %eh.lpad-body6581962, %.body657.thread ], [ %eh.lpad-body12872222, %.body1286.thread ], [ %eh.lpad-body8902058, %.body889.thread ], [ %eh.lpad-body12512213, %.body1250.thread ], [ %eh.lpad-body6661970, %.body665.thread ], [ %eh.lpad-body12152204, %.body1214.thread ], [ %eh.lpad-body7782014, %.body777.thread ], [ %eh.lpad-body11792195, %.body1178.thread ], [ %eh.lpad-body6921979, %.body691.thread ], [ %.pn5252171, %.thread2172 ], [ %eh.lpad-body8822050, %.body881.thread ], [ %.pn5232145, %.thread2146 ], [ %eh.lpad-body7181988, %.body717.thread ], [ %.pn5212119, %.thread2120 ], [ %eh.lpad-body8302032, %.body829.thread ], [ %.pn2094, %.thread2095 ]
   resume { ptr, i32 } %.pn533
 
 .body1772.thread:                                 ; preds = %3484, %3467, %3450, %.body1772.thread2416
-  %eh.lpad-body17732412 = phi { ptr, i32 } [ %lpad.thr_comm2414, %.body1772.thread2416 ], [ %.pn.i1768, %3450 ], [ %.pn.i1776, %3467 ], [ %.pn.i1785, %3484 ]
+  %eh.lpad-body17732412 = phi { ptr, i32 } [ %lpad.thr_comm2414, %.body1772.thread2416 ], [ %.pn.i1776, %3467 ], [ %.pn.i1768, %3450 ], [ %.pn.i1785, %3484 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %188) #24
           to label %.body unwind label %3507
 
@@ -56408,27 +56408,27 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   unreachable
 
 .body1746.thread:                                 ; preds = %3420, %3403, %3386, %.body1746.thread2407
-  %eh.lpad-body17472403 = phi { ptr, i32 } [ %lpad.thr_comm2405, %.body1746.thread2407 ], [ %.pn.i1742, %3386 ], [ %.pn.i1750, %3403 ], [ %.pn.i1759, %3420 ]
+  %eh.lpad-body17472403 = phi { ptr, i32 } [ %lpad.thr_comm2405, %.body1746.thread2407 ], [ %.pn.i1750, %3403 ], [ %.pn.i1742, %3386 ], [ %.pn.i1759, %3420 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %203) #24
           to label %.body unwind label %3507
 
 .body1720.thread:                                 ; preds = %3355, %3338, %3321, %.body1720.thread2398
-  %eh.lpad-body17212394 = phi { ptr, i32 } [ %lpad.thr_comm2396, %.body1720.thread2398 ], [ %.pn.i1716, %3321 ], [ %.pn.i1724, %3338 ], [ %.pn.i1733, %3355 ]
+  %eh.lpad-body17212394 = phi { ptr, i32 } [ %lpad.thr_comm2396, %.body1720.thread2398 ], [ %.pn.i1724, %3338 ], [ %.pn.i1716, %3321 ], [ %.pn.i1733, %3355 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %219) #24
           to label %.body unwind label %3507
 
 .body1694.thread:                                 ; preds = %3295, %3278, %3261, %.body1694.thread2389
-  %eh.lpad-body16952385 = phi { ptr, i32 } [ %lpad.thr_comm2387, %.body1694.thread2389 ], [ %.pn.i1690, %3261 ], [ %.pn.i1698, %3278 ], [ %.pn.i1707, %3295 ]
+  %eh.lpad-body16952385 = phi { ptr, i32 } [ %lpad.thr_comm2387, %.body1694.thread2389 ], [ %.pn.i1698, %3278 ], [ %.pn.i1690, %3261 ], [ %.pn.i1707, %3295 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %230) #24
           to label %.body unwind label %3507
 
 .body1658.thread:                                 ; preds = %3237, %3220, %3203, %3186, %.body1658.thread2380
-  %eh.lpad-body16592376 = phi { ptr, i32 } [ %lpad.thr_comm2378, %.body1658.thread2380 ], [ %.pn.i1654, %3186 ], [ %.pn.i1662, %3203 ], [ %.pn.i1671, %3220 ], [ %.pn.i1680, %3237 ]
+  %eh.lpad-body16592376 = phi { ptr, i32 } [ %lpad.thr_comm2378, %.body1658.thread2380 ], [ %.pn.i1671, %3220 ], [ %.pn.i1662, %3203 ], [ %.pn.i1654, %3186 ], [ %.pn.i1680, %3237 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %241) #24
           to label %.body unwind label %3507
 
 .body1622.thread:                                 ; preds = %3162, %3145, %3128, %3111, %.body1622.thread2371
-  %eh.lpad-body16232367 = phi { ptr, i32 } [ %lpad.thr_comm2369, %.body1622.thread2371 ], [ %.pn.i1618, %3111 ], [ %.pn.i1626, %3128 ], [ %.pn.i1635, %3145 ], [ %.pn.i1644, %3162 ]
+  %eh.lpad-body16232367 = phi { ptr, i32 } [ %lpad.thr_comm2369, %.body1622.thread2371 ], [ %.pn.i1635, %3145 ], [ %.pn.i1626, %3128 ], [ %.pn.i1618, %3111 ], [ %.pn.i1644, %3162 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %252) #24
           to label %.body unwind label %3507
 
@@ -56439,22 +56439,22 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
           to label %.thread2347 unwind label %3507
 
 .thread2347:                                      ; preds = %3048, %3509, %3087, %3070, %3053, %.thread2360
-  %.pn5312346 = phi { ptr, i32 } [ %lpad.thr_comm2358, %.thread2360 ], [ %.pn.i1592, %3053 ], [ %.pn.i1600, %3070 ], [ %.pn.i1609, %3087 ], [ %3049, %3048 ], [ %3510, %3509 ]
+  %.pn5312346 = phi { ptr, i32 } [ %.pn.i1609, %3087 ], [ %lpad.thr_comm2358, %.thread2360 ], [ %.pn.i1600, %3070 ], [ %.pn.i1592, %3053 ], [ %3049, %3048 ], [ %3510, %3509 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %261) #24
           to label %.body unwind label %3507
 
 .body1558.thread:                                 ; preds = %3026, %3009, %2992, %2975, %.body1558.thread2339
-  %eh.lpad-body15592335 = phi { ptr, i32 } [ %lpad.thr_comm2337, %.body1558.thread2339 ], [ %.pn.i1554, %2975 ], [ %.pn.i1562, %2992 ], [ %.pn.i1571, %3009 ], [ %.pn.i1580, %3026 ]
+  %eh.lpad-body15592335 = phi { ptr, i32 } [ %lpad.thr_comm2337, %.body1558.thread2339 ], [ %.pn.i1571, %3009 ], [ %.pn.i1562, %2992 ], [ %.pn.i1554, %2975 ], [ %.pn.i1580, %3026 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %270) #24
           to label %.body unwind label %3507
 
 .body1522.thread:                                 ; preds = %2955, %2937, %2920, %2903, %.body1522.thread2330
-  %eh.lpad-body15232326 = phi { ptr, i32 } [ %lpad.thr_comm2328, %.body1522.thread2330 ], [ %.pn.i1518, %2903 ], [ %.pn.i1526, %2920 ], [ %.pn.i1535, %2937 ], [ %.pn.i1544, %2955 ]
+  %eh.lpad-body15232326 = phi { ptr, i32 } [ %lpad.thr_comm2328, %.body1522.thread2330 ], [ %.pn.i1535, %2937 ], [ %.pn.i1526, %2920 ], [ %.pn.i1518, %2903 ], [ %.pn.i1544, %2955 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %280) #24
           to label %.body unwind label %3507
 
 .body1486.thread:                                 ; preds = %2883, %2865, %2848, %2831, %.body1486.thread2321
-  %eh.lpad-body14872317 = phi { ptr, i32 } [ %lpad.thr_comm2319, %.body1486.thread2321 ], [ %.pn.i1482, %2831 ], [ %.pn.i1490, %2848 ], [ %.pn.i1499, %2865 ], [ %.pn.i1508, %2883 ]
+  %eh.lpad-body14872317 = phi { ptr, i32 } [ %lpad.thr_comm2319, %.body1486.thread2321 ], [ %.pn.i1499, %2865 ], [ %.pn.i1490, %2848 ], [ %.pn.i1482, %2831 ], [ %.pn.i1508, %2883 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %291) #24
           to label %.body unwind label %3507
 
@@ -56465,7 +56465,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
           to label %.thread2294 unwind label %3507
 
 .thread2294:                                      ; preds = %2749, %3511, %2805, %2788, %2771, %2754, %.thread2310
-  %.pn5292293 = phi { ptr, i32 } [ %lpad.thr_comm2308, %.thread2310 ], [ %.pn.i1446, %2754 ], [ %.pn.i1454, %2771 ], [ %.pn.i1463, %2788 ], [ %.pn.i1472, %2805 ], [ %2750, %2749 ], [ %3512, %3511 ]
+  %.pn5292293 = phi { ptr, i32 } [ %.pn.i1472, %2805 ], [ %lpad.thr_comm2308, %.thread2310 ], [ %.pn.i1463, %2788 ], [ %.pn.i1446, %2754 ], [ %.pn.i1454, %2771 ], [ %2750, %2749 ], [ %3512, %3511 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %301) #24
           to label %.body unwind label %3507
 
@@ -56476,7 +56476,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
           to label %.thread2268 unwind label %3507
 
 .thread2268:                                      ; preds = %2668, %3513, %2724, %2707, %2690, %2673, %.thread2284
-  %.pn5272267 = phi { ptr, i32 } [ %lpad.thr_comm2282, %.thread2284 ], [ %.pn.i1408, %2673 ], [ %.pn.i1416, %2690 ], [ %.pn.i1425, %2707 ], [ %.pn.i1434, %2724 ], [ %2669, %2668 ], [ %3514, %3513 ]
+  %.pn5272267 = phi { ptr, i32 } [ %.pn.i1434, %2724 ], [ %lpad.thr_comm2282, %.thread2284 ], [ %.pn.i1425, %2707 ], [ %.pn.i1408, %2673 ], [ %.pn.i1416, %2690 ], [ %2669, %2668 ], [ %3514, %3513 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %311) #24
           to label %.body unwind label %3507
 
@@ -56486,7 +56486,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
           to label %.body unwind label %3507
 
 .body1366.thread:                                 ; preds = %2618, %2600, %2583, %2566, %.body1366.thread2252
-  %eh.lpad-body13672248 = phi { ptr, i32 } [ %lpad.thr_comm2250, %.body1366.thread2252 ], [ %.pn.i1362, %2566 ], [ %.pn.i1370, %2583 ], [ %.pn.i1379, %2600 ], [ %.pn.i1388, %2618 ]
+  %eh.lpad-body13672248 = phi { ptr, i32 } [ %lpad.thr_comm2250, %.body1366.thread2252 ], [ %.pn.i1379, %2600 ], [ %.pn.i1370, %2583 ], [ %.pn.i1362, %2566 ], [ %.pn.i1388, %2618 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %330) #24
           to label %.body unwind label %3507
 
@@ -56496,27 +56496,27 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
           to label %.body unwind label %3507
 
 .body1322.thread:                                 ; preds = %2515, %2497, %2480, %2463, %.body1322.thread2235
-  %eh.lpad-body13232231 = phi { ptr, i32 } [ %lpad.thr_comm2233, %.body1322.thread2235 ], [ %.pn.i1318, %2463 ], [ %.pn.i1326, %2480 ], [ %.pn.i1335, %2497 ], [ %.pn.i1344, %2515 ]
+  %eh.lpad-body13232231 = phi { ptr, i32 } [ %lpad.thr_comm2233, %.body1322.thread2235 ], [ %.pn.i1335, %2497 ], [ %.pn.i1326, %2480 ], [ %.pn.i1318, %2463 ], [ %.pn.i1344, %2515 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %349) #24
           to label %.body unwind label %3507
 
 .body1286.thread:                                 ; preds = %2437, %2419, %2402, %2385, %.body1286.thread2226
-  %eh.lpad-body12872222 = phi { ptr, i32 } [ %lpad.thr_comm2224, %.body1286.thread2226 ], [ %.pn.i1282, %2385 ], [ %.pn.i1290, %2402 ], [ %.pn.i1299, %2419 ], [ %.pn.i1308, %2437 ]
+  %eh.lpad-body12872222 = phi { ptr, i32 } [ %lpad.thr_comm2224, %.body1286.thread2226 ], [ %.pn.i1299, %2419 ], [ %.pn.i1290, %2402 ], [ %.pn.i1282, %2385 ], [ %.pn.i1308, %2437 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %359) #24
           to label %.body unwind label %3507
 
 .body1250.thread:                                 ; preds = %2362, %2344, %2327, %2310, %.body1250.thread2217
-  %eh.lpad-body12512213 = phi { ptr, i32 } [ %lpad.thr_comm2215, %.body1250.thread2217 ], [ %.pn.i1246, %2310 ], [ %.pn.i1254, %2327 ], [ %.pn.i1263, %2344 ], [ %.pn.i1272, %2362 ]
+  %eh.lpad-body12512213 = phi { ptr, i32 } [ %lpad.thr_comm2215, %.body1250.thread2217 ], [ %.pn.i1263, %2344 ], [ %.pn.i1254, %2327 ], [ %.pn.i1246, %2310 ], [ %.pn.i1272, %2362 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %369) #24
           to label %.body unwind label %3507
 
 .body1214.thread:                                 ; preds = %2287, %2269, %2252, %2235, %.body1214.thread2208
-  %eh.lpad-body12152204 = phi { ptr, i32 } [ %lpad.thr_comm2206, %.body1214.thread2208 ], [ %.pn.i1210, %2235 ], [ %.pn.i1218, %2252 ], [ %.pn.i1227, %2269 ], [ %.pn.i1236, %2287 ]
+  %eh.lpad-body12152204 = phi { ptr, i32 } [ %lpad.thr_comm2206, %.body1214.thread2208 ], [ %.pn.i1227, %2269 ], [ %.pn.i1218, %2252 ], [ %.pn.i1210, %2235 ], [ %.pn.i1236, %2287 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %379) #24
           to label %.body unwind label %3507
 
 .body1178.thread:                                 ; preds = %2212, %2194, %2177, %2160, %.body1178.thread2199
-  %eh.lpad-body11792195 = phi { ptr, i32 } [ %lpad.thr_comm2197, %.body1178.thread2199 ], [ %.pn.i1174, %2160 ], [ %.pn.i1182, %2177 ], [ %.pn.i1191, %2194 ], [ %.pn.i1200, %2212 ]
+  %eh.lpad-body11792195 = phi { ptr, i32 } [ %lpad.thr_comm2197, %.body1178.thread2199 ], [ %.pn.i1191, %2194 ], [ %.pn.i1182, %2177 ], [ %.pn.i1174, %2160 ], [ %.pn.i1200, %2212 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %389) #24
           to label %.body unwind label %3507
 
@@ -56527,7 +56527,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
           to label %.thread2172 unwind label %3507
 
 .thread2172:                                      ; preds = %2083, %3515, %2140, %2122, %2105, %2088, %.thread2188
-  %.pn5252171 = phi { ptr, i32 } [ %lpad.thr_comm2186, %.thread2188 ], [ %.pn.i1138, %2088 ], [ %.pn.i1146, %2105 ], [ %.pn.i1155, %2122 ], [ %.pn.i1164, %2140 ], [ %2084, %2083 ], [ %3516, %3515 ]
+  %.pn5252171 = phi { ptr, i32 } [ %.pn.i1164, %2140 ], [ %lpad.thr_comm2186, %.thread2188 ], [ %.pn.i1155, %2122 ], [ %.pn.i1138, %2088 ], [ %.pn.i1146, %2105 ], [ %2084, %2083 ], [ %3516, %3515 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %400) #24
           to label %.body unwind label %3507
 
@@ -56538,7 +56538,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
           to label %.thread2146 unwind label %3507
 
 .thread2146:                                      ; preds = %2004, %3517, %2061, %2043, %2026, %2009, %.thread2162
-  %.pn5232145 = phi { ptr, i32 } [ %lpad.thr_comm2160, %.thread2162 ], [ %.pn.i1100, %2009 ], [ %.pn.i1108, %2026 ], [ %.pn.i1117, %2043 ], [ %.pn.i1126, %2061 ], [ %2005, %2004 ], [ %3518, %3517 ]
+  %.pn5232145 = phi { ptr, i32 } [ %.pn.i1126, %2061 ], [ %lpad.thr_comm2160, %.thread2162 ], [ %.pn.i1117, %2043 ], [ %.pn.i1100, %2009 ], [ %.pn.i1108, %2026 ], [ %2005, %2004 ], [ %3518, %3517 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %411) #24
           to label %.body unwind label %3507
 
@@ -56549,7 +56549,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
           to label %.thread2120 unwind label %3507
 
 .thread2120:                                      ; preds = %1926, %3519, %1982, %1965, %1948, %1931, %.thread2136
-  %.pn5212119 = phi { ptr, i32 } [ %lpad.thr_comm2134, %.thread2136 ], [ %.pn.i1062, %1931 ], [ %.pn.i1070, %1948 ], [ %.pn.i1079, %1965 ], [ %.pn.i1088, %1982 ], [ %1927, %1926 ], [ %3520, %3519 ]
+  %.pn5212119 = phi { ptr, i32 } [ %.pn.i1088, %1982 ], [ %lpad.thr_comm2134, %.thread2136 ], [ %.pn.i1079, %1965 ], [ %.pn.i1062, %1931 ], [ %.pn.i1070, %1948 ], [ %1927, %1926 ], [ %3520, %3519 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %421) #24
           to label %.body unwind label %3507
 
@@ -56560,27 +56560,27 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
           to label %.thread2095 unwind label %3507
 
 .thread2095:                                      ; preds = %1848, %3521, %1904, %1887, %1870, %1853, %.thread2110
-  %.pn2094 = phi { ptr, i32 } [ %lpad.thr_comm2108, %.thread2110 ], [ %.pn.i1024, %1853 ], [ %.pn.i1032, %1870 ], [ %.pn.i1041, %1887 ], [ %.pn.i1050, %1904 ], [ %1849, %1848 ], [ %3522, %3521 ]
+  %.pn2094 = phi { ptr, i32 } [ %.pn.i1050, %1904 ], [ %lpad.thr_comm2108, %.thread2110 ], [ %.pn.i1041, %1887 ], [ %.pn.i1024, %1853 ], [ %.pn.i1032, %1870 ], [ %1849, %1848 ], [ %3522, %3521 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %431) #24
           to label %.body unwind label %3507
 
 .body992.thread:                                  ; preds = %1823, %1805, %1788, %1771, %.body992.thread2089
-  %eh.lpad-body9932085 = phi { ptr, i32 } [ %lpad.thr_comm2087, %.body992.thread2089 ], [ %.pn.i988, %1771 ], [ %.pn.i996, %1788 ], [ %.pn.i1005, %1805 ], [ %.pn.i1014, %1823 ]
+  %eh.lpad-body9932085 = phi { ptr, i32 } [ %lpad.thr_comm2087, %.body992.thread2089 ], [ %.pn.i1005, %1805 ], [ %.pn.i996, %1788 ], [ %.pn.i988, %1771 ], [ %.pn.i1014, %1823 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %441) #24
           to label %.body unwind label %3507
 
 .body956.thread:                                  ; preds = %1748, %1730, %1713, %1696, %.body956.thread2080
-  %eh.lpad-body9572076 = phi { ptr, i32 } [ %lpad.thr_comm2078, %.body956.thread2080 ], [ %.pn.i952, %1696 ], [ %.pn.i960, %1713 ], [ %.pn.i969, %1730 ], [ %.pn.i978, %1748 ]
+  %eh.lpad-body9572076 = phi { ptr, i32 } [ %lpad.thr_comm2078, %.body956.thread2080 ], [ %.pn.i969, %1730 ], [ %.pn.i960, %1713 ], [ %.pn.i952, %1696 ], [ %.pn.i978, %1748 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %451) #24
           to label %.body unwind label %3507
 
 .body920.thread:                                  ; preds = %1673, %1655, %1638, %1621, %.body920.thread2071
-  %eh.lpad-body9212067 = phi { ptr, i32 } [ %lpad.thr_comm2069, %.body920.thread2071 ], [ %.pn.i916, %1621 ], [ %.pn.i924, %1638 ], [ %.pn.i933, %1655 ], [ %.pn.i942, %1673 ]
+  %eh.lpad-body9212067 = phi { ptr, i32 } [ %lpad.thr_comm2069, %.body920.thread2071 ], [ %.pn.i933, %1655 ], [ %.pn.i924, %1638 ], [ %.pn.i916, %1621 ], [ %.pn.i942, %1673 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %461) #24
           to label %.body unwind label %3507
 
 .body889.thread:                                  ; preds = %1598, %1580, %1563, %1546, %.body889.thread2062
-  %eh.lpad-body8902058 = phi { ptr, i32 } [ %lpad.thr_comm2060, %.body889.thread2062 ], [ %.pn.i885, %1546 ], [ %.pn.i893, %1563 ], [ %.pn.i902, %1580 ], [ %.pn.i910, %1598 ]
+  %eh.lpad-body8902058 = phi { ptr, i32 } [ %lpad.thr_comm2060, %.body889.thread2062 ], [ %.pn.i902, %1580 ], [ %.pn.i893, %1563 ], [ %.pn.i885, %1546 ], [ %.pn.i910, %1598 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %471) #24
           to label %.body unwind label %3507
 
@@ -56590,27 +56590,27 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
           to label %.body unwind label %3507
 
 .body855.thread:                                  ; preds = %1496, %1479, %1462, %.body855.thread2045
-  %eh.lpad-body8562041 = phi { ptr, i32 } [ %lpad.thr_comm2043, %.body855.thread2045 ], [ %.pn.i851, %1462 ], [ %.pn.i859, %1479 ], [ %.pn.i868, %1496 ]
+  %eh.lpad-body8562041 = phi { ptr, i32 } [ %lpad.thr_comm2043, %.body855.thread2045 ], [ %.pn.i859, %1479 ], [ %.pn.i851, %1462 ], [ %.pn.i868, %1496 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %489) #24
           to label %.body unwind label %3507
 
 .body829.thread:                                  ; preds = %1438, %1421, %1404, %.body829.thread2036
-  %eh.lpad-body8302032 = phi { ptr, i32 } [ %lpad.thr_comm2034, %.body829.thread2036 ], [ %.pn.i825, %1404 ], [ %.pn.i833, %1421 ], [ %.pn.i842, %1438 ]
+  %eh.lpad-body8302032 = phi { ptr, i32 } [ %lpad.thr_comm2034, %.body829.thread2036 ], [ %.pn.i833, %1421 ], [ %.pn.i825, %1404 ], [ %.pn.i842, %1438 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %497) #24
           to label %.body unwind label %3507
 
 .body803.thread:                                  ; preds = %1382, %1365, %1348, %.body803.thread2027
-  %eh.lpad-body8042023 = phi { ptr, i32 } [ %lpad.thr_comm2025, %.body803.thread2027 ], [ %.pn.i799, %1348 ], [ %.pn.i807, %1365 ], [ %.pn.i816, %1382 ]
+  %eh.lpad-body8042023 = phi { ptr, i32 } [ %lpad.thr_comm2025, %.body803.thread2027 ], [ %.pn.i807, %1365 ], [ %.pn.i799, %1348 ], [ %.pn.i816, %1382 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %506) #24
           to label %.body unwind label %3507
 
 .body777.thread:                                  ; preds = %1326, %1309, %1292, %.body777.thread2018
-  %eh.lpad-body7782014 = phi { ptr, i32 } [ %lpad.thr_comm2016, %.body777.thread2018 ], [ %.pn.i773, %1292 ], [ %.pn.i781, %1309 ], [ %.pn.i790, %1326 ]
+  %eh.lpad-body7782014 = phi { ptr, i32 } [ %lpad.thr_comm2016, %.body777.thread2018 ], [ %.pn.i781, %1309 ], [ %.pn.i773, %1292 ], [ %.pn.i790, %1326 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %515) #24
           to label %.body unwind label %3507
 
 .body751.thread:                                  ; preds = %1271, %1254, %1237, %.body751.thread2009
-  %eh.lpad-body7522005 = phi { ptr, i32 } [ %lpad.thr_comm2007, %.body751.thread2009 ], [ %.pn.i747, %1237 ], [ %.pn.i755, %1254 ], [ %.pn.i764, %1271 ]
+  %eh.lpad-body7522005 = phi { ptr, i32 } [ %lpad.thr_comm2007, %.body751.thread2009 ], [ %.pn.i755, %1254 ], [ %.pn.i747, %1237 ], [ %.pn.i764, %1271 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %524) #24
           to label %.body unwind label %3507
 
@@ -56620,17 +56620,17 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
           to label %.body unwind label %3507
 
 .body717.thread:                                  ; preds = %1184, %1167, %1150, %.body717.thread1992
-  %eh.lpad-body7181988 = phi { ptr, i32 } [ %lpad.thr_comm1990, %.body717.thread1992 ], [ %.pn.i713, %1150 ], [ %.pn.i721, %1167 ], [ %.pn.i730, %1184 ]
+  %eh.lpad-body7181988 = phi { ptr, i32 } [ %lpad.thr_comm1990, %.body717.thread1992 ], [ %.pn.i721, %1167 ], [ %.pn.i713, %1150 ], [ %.pn.i730, %1184 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %542) #24
           to label %.body unwind label %3507
 
 .body691.thread:                                  ; preds = %1126, %1109, %1092, %.body691.thread1983
-  %eh.lpad-body6921979 = phi { ptr, i32 } [ %lpad.thr_comm1981, %.body691.thread1983 ], [ %.pn.i687, %1092 ], [ %.pn.i695, %1109 ], [ %.pn.i704, %1126 ]
+  %eh.lpad-body6921979 = phi { ptr, i32 } [ %lpad.thr_comm1981, %.body691.thread1983 ], [ %.pn.i695, %1109 ], [ %.pn.i687, %1092 ], [ %.pn.i704, %1126 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %551) #24
           to label %.body unwind label %3507
 
 .body665.thread:                                  ; preds = %1067, %1050, %1033, %.body665.thread1974
-  %eh.lpad-body6661970 = phi { ptr, i32 } [ %lpad.thr_comm1972, %.body665.thread1974 ], [ %.pn.i661, %1033 ], [ %.pn.i669, %1050 ], [ %.pn.i678, %1067 ]
+  %eh.lpad-body6661970 = phi { ptr, i32 } [ %lpad.thr_comm1972, %.body665.thread1974 ], [ %.pn.i669, %1050 ], [ %.pn.i661, %1033 ], [ %.pn.i678, %1067 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %561) #24
           to label %.body unwind label %3507
 
@@ -56640,7 +56640,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
           to label %.body unwind label %3507
 
 .body631.thread:                                  ; preds = %980, %963, %946, %.body631.thread1957
-  %eh.lpad-body6321953 = phi { ptr, i32 } [ %lpad.thr_comm1955, %.body631.thread1957 ], [ %.pn.i627, %946 ], [ %.pn.i635, %963 ], [ %.pn.i644, %980 ]
+  %eh.lpad-body6321953 = phi { ptr, i32 } [ %lpad.thr_comm1955, %.body631.thread1957 ], [ %.pn.i635, %963 ], [ %.pn.i627, %946 ], [ %.pn.i644, %980 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %579) #24
           to label %.body unwind label %3507
 
@@ -56650,7 +56650,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
           to label %.body unwind label %3507
 
 .body597.thread:                                  ; preds = %893, %876, %859, %.body597.thread1940
-  %eh.lpad-body5981936 = phi { ptr, i32 } [ %lpad.thr_comm1938, %.body597.thread1940 ], [ %.pn.i593, %859 ], [ %.pn.i601, %876 ], [ %.pn.i610, %893 ]
+  %eh.lpad-body5981936 = phi { ptr, i32 } [ %lpad.thr_comm1938, %.body597.thread1940 ], [ %.pn.i601, %876 ], [ %.pn.i593, %859 ], [ %.pn.i610, %893 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %597) #24
           to label %.body unwind label %3507
 
@@ -56660,12 +56660,12 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
           to label %.body unwind label %3507
 
 .body564.thread:                                  ; preds = %806, %789, %772, %.body564.thread1923
-  %eh.lpad-body5651919 = phi { ptr, i32 } [ %lpad.thr_comm1921, %.body564.thread1923 ], [ %.pn.i560, %772 ], [ %.pn.i568, %789 ], [ %.pn.i577, %806 ]
+  %eh.lpad-body5651919 = phi { ptr, i32 } [ %lpad.thr_comm1921, %.body564.thread1923 ], [ %.pn.i568, %789 ], [ %.pn.i560, %772 ], [ %.pn.i577, %806 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %616) #24
           to label %.body unwind label %3507
 
 .body537.thread:                                  ; preds = %748, %731, %714, %700, %.body537.thread1914
-  %eh.lpad-body5381912 = phi { ptr, i32 } [ %lpad.thr_comm, %.body537.thread1914 ], [ %701, %700 ], [ %.pn.i, %714 ], [ %.pn.i543, %731 ], [ %.pn.i551, %748 ]
+  %eh.lpad-body5381912 = phi { ptr, i32 } [ %lpad.thr_comm, %.body537.thread1914 ], [ %.pn.i543, %731 ], [ %.pn.i, %714 ], [ %701, %700 ], [ %.pn.i551, %748 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %626) #24
           to label %.body unwind label %3507
 
@@ -57814,7 +57814,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %621, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.254, i64 noundef 5)
           to label %698 unwind label %.body537.thread1914
 
-.body537.thread1914:                              ; preds = %704, %698, %693
+.body537.thread1914:                              ; preds = %698, %704, %693
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body537.thread
@@ -58068,7 +58068,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %611, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.283, i64 noundef 3)
           to label %768 unwind label %.body564.thread1923
 
-.body564.thread1923:                              ; preds = %825, %769, %768, %764
+.body564.thread1923:                              ; preds = %825, %764, %769, %768
   %lpad.thr_comm1921 = landingpad { ptr, i32 }
           cleanup
   br label %.body564.thread
@@ -58297,7 +58297,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %600, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.285, i64 noundef 6)
           to label %830 unwind label %.body589.thread1931
 
-.body589.thread1931:                              ; preds = %853, %831, %830, %826
+.body589.thread1931:                              ; preds = %853, %830, %826, %831
   %lpad.thr_comm1929 = landingpad { ptr, i32 }
           cleanup
   br label %.body589.thread
@@ -58406,7 +58406,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %592, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.287, i64 noundef 12)
           to label %859 unwind label %.body597.thread1940
 
-.body597.thread1940:                              ; preds = %916, %860, %859, %854
+.body597.thread1940:                              ; preds = %916, %854, %860, %859
   %lpad.thr_comm1938 = landingpad { ptr, i32 }
           cleanup
   br label %.body597.thread
@@ -58634,7 +58634,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %582, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.289, i64 noundef 15)
           to label %921 unwind label %.body623.thread1948
 
-.body623.thread1948:                              ; preds = %944, %922, %921, %917
+.body623.thread1948:                              ; preds = %944, %921, %917, %922
   %lpad.thr_comm1946 = landingpad { ptr, i32 }
           cleanup
   br label %.body623.thread
@@ -58743,7 +58743,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %574, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.291, i64 noundef 10)
           to label %950 unwind label %.body631.thread1957
 
-.body631.thread1957:                              ; preds = %1007, %951, %950, %945
+.body631.thread1957:                              ; preds = %1007, %945, %951, %950
   %lpad.thr_comm1955 = landingpad { ptr, i32 }
           cleanup
   br label %.body631.thread
@@ -58971,7 +58971,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %564, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.293, i64 noundef 13)
           to label %1012 unwind label %.body657.thread1965
 
-.body657.thread1965:                              ; preds = %1035, %1013, %1012, %1008
+.body657.thread1965:                              ; preds = %1035, %1012, %1008, %1013
   %lpad.thr_comm1963 = landingpad { ptr, i32 }
           cleanup
   br label %.body657.thread
@@ -59080,7 +59080,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %556, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.295, i64 noundef 4)
           to label %1041 unwind label %.body665.thread1974
 
-.body665.thread1974:                              ; preds = %1098, %1042, %1041, %1036
+.body665.thread1974:                              ; preds = %1098, %1036, %1042, %1041
   %lpad.thr_comm1972 = landingpad { ptr, i32 }
           cleanup
   br label %.body665.thread
@@ -59308,7 +59308,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %546, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.297, i64 noundef 5)
           to label %1103 unwind label %.body691.thread1983
 
-.body691.thread1983:                              ; preds = %1104, %1103, %1099
+.body691.thread1983:                              ; preds = %1103, %1099, %1104
   %lpad.thr_comm1981 = landingpad { ptr, i32 }
           cleanup
   br label %.body691.thread
@@ -59534,7 +59534,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %537, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.299, i64 noundef 8)
           to label %1164 unwind label %.body717.thread1992
 
-.body717.thread1992:                              ; preds = %1221, %1165, %1164, %1160
+.body717.thread1992:                              ; preds = %1221, %1160, %1165, %1164
   %lpad.thr_comm1990 = landingpad { ptr, i32 }
           cleanup
   br label %.body717.thread
@@ -59762,7 +59762,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %527, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.301, i64 noundef 11)
           to label %1226 unwind label %.body743.thread2000
 
-.body743.thread2000:                              ; preds = %1249, %1227, %1226, %1222
+.body743.thread2000:                              ; preds = %1249, %1226, %1222, %1227
   %lpad.thr_comm1998 = landingpad { ptr, i32 }
           cleanup
   br label %.body743.thread
@@ -59871,7 +59871,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %519, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.303, i64 noundef 11)
           to label %1255 unwind label %.body751.thread2009
 
-.body751.thread2009:                              ; preds = %1256, %1255, %1250
+.body751.thread2009:                              ; preds = %1250, %1256, %1255
   %lpad.thr_comm2007 = landingpad { ptr, i32 }
           cleanup
   br label %.body751.thread
@@ -60092,7 +60092,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %511, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.199, i64 noundef 13)
           to label %1316 unwind label %.body777.thread2018
 
-.body777.thread2018:                              ; preds = %1370, %1317, %1316, %1312
+.body777.thread2018:                              ; preds = %1370, %1312, %1317, %1316
   %lpad.thr_comm2016 = landingpad { ptr, i32 }
           cleanup
   br label %.body777.thread
@@ -60310,7 +60310,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %502, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.305, i64 noundef 11)
           to label %1375 unwind label %.body803.thread2027
 
-.body803.thread2027:                              ; preds = %1429, %1376, %1375, %1371
+.body803.thread2027:                              ; preds = %1429, %1375, %1371, %1376
   %lpad.thr_comm2025 = landingpad { ptr, i32 }
           cleanup
   br label %.body803.thread
@@ -60535,7 +60535,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %493, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.263, i64 noundef 14)
           to label %1434 unwind label %.body829.thread2036
 
-.body829.thread2036:                              ; preds = %1435, %1434, %1430
+.body829.thread2036:                              ; preds = %1430, %1435, %1434
   %lpad.thr_comm2034 = landingpad { ptr, i32 }
           cleanup
   br label %.body829.thread
@@ -60748,7 +60748,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %484, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.259, i64 noundef 7)
           to label %1492 unwind label %.body855.thread2045
 
-.body855.thread2045:                              ; preds = %1549, %1493, %1492, %1488
+.body855.thread2045:                              ; preds = %1549, %1488, %1493, %1492
   %lpad.thr_comm2043 = landingpad { ptr, i32 }
           cleanup
   br label %.body855.thread
@@ -60976,7 +60976,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %474, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.261, i64 noundef 10)
           to label %1554 unwind label %.body881.thread2053
 
-.body881.thread2053:                              ; preds = %1577, %1555, %1554, %1550
+.body881.thread2053:                              ; preds = %1577, %1554, %1550, %1555
   %lpad.thr_comm2051 = landingpad { ptr, i32 }
           cleanup
   br label %.body881.thread
@@ -61084,7 +61084,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %467, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.306, i64 noundef 6)
           to label %1583 unwind label %.body889.thread2062
 
-.body889.thread2062:                              ; preds = %1637, %1584, %1583, %1578
+.body889.thread2062:                              ; preds = %1584, %1637, %1583, %1578
   %lpad.thr_comm2060 = landingpad { ptr, i32 }
           cleanup
   br label %.body889.thread
@@ -61369,7 +61369,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %457, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.307, i64 noundef 6)
           to label %1659 unwind label %.body920.thread2071
 
-.body920.thread2071:                              ; preds = %1713, %1660, %1659, %1654
+.body920.thread2071:                              ; preds = %1660, %1713, %1659, %1654
   %lpad.thr_comm2069 = landingpad { ptr, i32 }
           cleanup
   br label %.body920.thread
@@ -61654,7 +61654,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %447, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.308, i64 noundef 13)
           to label %1735 unwind label %.body956.thread2080
 
-.body956.thread2080:                              ; preds = %1789, %1736, %1735, %1730
+.body956.thread2080:                              ; preds = %1736, %1789, %1735, %1730
   %lpad.thr_comm2078 = landingpad { ptr, i32 }
           cleanup
   br label %.body956.thread
@@ -61939,7 +61939,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %437, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.309, i64 noundef 13)
           to label %1811 unwind label %.body992.thread2089
 
-.body992.thread2089:                              ; preds = %1865, %1812, %1811, %1806
+.body992.thread2089:                              ; preds = %1812, %1865, %1811, %1806
   %lpad.thr_comm2087 = landingpad { ptr, i32 }
           cleanup
   br label %.body992.thread
@@ -62832,7 +62832,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %407, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.312, i64 noundef 7)
           to label %2049 unwind label %.thread2162
 
-.thread2162:                                      ; preds = %2110, %2049, %2045
+.thread2162:                                      ; preds = %2049, %2110, %2045
   %lpad.thr_comm2160 = landingpad { ptr, i32 }
           cleanup
   br label %.thread2146
@@ -63142,7 +63142,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %396, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.313, i64 noundef 14)
           to label %2131 unwind label %.thread2188
 
-.thread2188:                                      ; preds = %2192, %2131, %2127
+.thread2188:                                      ; preds = %2131, %2192, %2127
   %lpad.thr_comm2186 = landingpad { ptr, i32 }
           cleanup
   br label %.thread2172
@@ -63452,7 +63452,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %385, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.314, i64 noundef 7)
           to label %2213 unwind label %.body1178.thread2199
 
-.body1178.thread2199:                             ; preds = %2267, %2214, %2213, %2209
+.body1178.thread2199:                             ; preds = %2214, %2267, %2213, %2209
   %lpad.thr_comm2197 = landingpad { ptr, i32 }
           cleanup
   br label %.body1178.thread
@@ -63737,7 +63737,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %375, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.315, i64 noundef 9)
           to label %2289 unwind label %.body1214.thread2208
 
-.body1214.thread2208:                             ; preds = %2343, %2290, %2289, %2284
+.body1214.thread2208:                             ; preds = %2290, %2343, %2289, %2284
   %lpad.thr_comm2206 = landingpad { ptr, i32 }
           cleanup
   br label %.body1214.thread
@@ -64022,7 +64022,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %365, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.316, i64 noundef 14)
           to label %2365 unwind label %.body1250.thread2217
 
-.body1250.thread2217:                             ; preds = %2419, %2366, %2365, %2360
+.body1250.thread2217:                             ; preds = %2366, %2419, %2365, %2360
   %lpad.thr_comm2215 = landingpad { ptr, i32 }
           cleanup
   br label %.body1250.thread
@@ -64307,7 +64307,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %355, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.317, i64 noundef 16)
           to label %2441 unwind label %.body1286.thread2226
 
-.body1286.thread2226:                             ; preds = %2495, %2442, %2441, %2436
+.body1286.thread2226:                             ; preds = %2442, %2495, %2441, %2436
   %lpad.thr_comm2224 = landingpad { ptr, i32 }
           cleanup
   br label %.body1286.thread
@@ -64593,7 +64593,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %344, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.318, i64 noundef 17)
           to label %2517 unwind label %.body1322.thread2235
 
-.body1322.thread2235:                             ; preds = %2574, %2518, %2517, %2512
+.body1322.thread2235:                             ; preds = %2517, %2574, %2512, %2518
   %lpad.thr_comm2233 = landingpad { ptr, i32 }
           cleanup
   br label %.body1322.thread
@@ -64881,7 +64881,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %333, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.320, i64 noundef 20)
           to label %2595 unwind label %.body1358.thread2243
 
-.body1358.thread2243:                             ; preds = %2618, %2596, %2595, %2591
+.body1358.thread2243:                             ; preds = %2618, %2595, %2591, %2596
   %lpad.thr_comm2241 = landingpad { ptr, i32 }
           cleanup
   br label %.body1358.thread
@@ -64990,7 +64990,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %325, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.322, i64 noundef 13)
           to label %2624 unwind label %.body1366.thread2252
 
-.body1366.thread2252:                             ; preds = %2681, %2625, %2624, %2619
+.body1366.thread2252:                             ; preds = %2624, %2681, %2619, %2625
   %lpad.thr_comm2250 = landingpad { ptr, i32 }
           cleanup
   br label %.body1366.thread
@@ -65278,7 +65278,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %314, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.324, i64 noundef 16)
           to label %2702 unwind label %.body1402.thread2260
 
-.body1402.thread2260:                             ; preds = %2725, %2703, %2702, %2698
+.body1402.thread2260:                             ; preds = %2725, %2702, %2698, %2703
   %lpad.thr_comm2258 = landingpad { ptr, i32 }
           cleanup
   br label %.body1402.thread
@@ -65386,7 +65386,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %307, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.326, i64 noundef 11)
           to label %2731 unwind label %.thread2284
 
-.thread2284:                                      ; preds = %2731, %2726
+.thread2284:                                      ; preds = %2726, %2731
   %lpad.thr_comm2282 = landingpad { ptr, i32 }
           cleanup
   br label %.thread2268
@@ -65685,7 +65685,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %297, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.327, i64 noundef 18)
           to label %2813 unwind label %.thread2310
 
-.thread2310:                                      ; preds = %2813, %2808
+.thread2310:                                      ; preds = %2808, %2813
   %lpad.thr_comm2308 = landingpad { ptr, i32 }
           cleanup
   br label %.thread2294
@@ -65985,7 +65985,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %286, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.328, i64 noundef 8)
           to label %2895 unwind label %.body1486.thread2321
 
-.body1486.thread2321:                             ; preds = %2952, %2896, %2895, %2890
+.body1486.thread2321:                             ; preds = %2896, %2952, %2895, %2890
   %lpad.thr_comm2319 = landingpad { ptr, i32 }
           cleanup
   br label %.body1486.thread
@@ -66276,7 +66276,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %276, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.330, i64 noundef 9)
           to label %2973 unwind label %.body1522.thread2330
 
-.body1522.thread2330:                             ; preds = %3027, %2974, %2973, %2969
+.body1522.thread2330:                             ; preds = %2973, %3027, %2969, %2974
   %lpad.thr_comm2328 = landingpad { ptr, i32 }
           cleanup
   br label %.body1522.thread
@@ -66557,7 +66557,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %266, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.331, i64 noundef 14)
           to label %3048 unwind label %.body1558.thread2339
 
-.body1558.thread2339:                             ; preds = %3049, %3048, %3044
+.body1558.thread2339:                             ; preds = %3048, %3044, %3049
   %lpad.thr_comm2337 = landingpad { ptr, i32 }
           cleanup
   br label %.body1558.thread
@@ -66829,7 +66829,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %257, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.332, i64 noundef 9)
           to label %3122 unwind label %.thread2360
 
-.thread2360:                                      ; preds = %3122, %3118
+.thread2360:                                      ; preds = %3118, %3122
   %lpad.thr_comm2358 = landingpad { ptr, i32 }
           cleanup
   br label %.thread2347
@@ -67365,7 +67365,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %236, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.335, i64 noundef 20)
           to label %3264 unwind label %.body1658.thread2380
 
-.body1658.thread2380:                             ; preds = %3337, %3265, %3264, %3260
+.body1658.thread2380:                             ; preds = %3337, %3264, %3260, %3265
   %lpad.thr_comm2378 = landingpad { ptr, i32 }
           cleanup
   br label %.body1658.thread
@@ -67653,7 +67653,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %225, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.337, i64 noundef 10)
           to label %3342 unwind label %.body1694.thread2389
 
-.body1694.thread2389:                             ; preds = %3400, %3399, %3343, %3342, %3338
+.body1694.thread2389:                             ; preds = %3400, %3399, %3338, %3343, %3342
   %lpad.thr_comm2387 = landingpad { ptr, i32 }
           cleanup
   br label %.body1694.thread
@@ -67887,7 +67887,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %214, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.339, i64 noundef 8)
           to label %3405 unwind label %.body1720.thread2398
 
-.body1720.thread2398:                             ; preds = %3468, %3467, %3466, %3465, %3464, %3463, %3462, %3406, %3405, %3401
+.body1720.thread2398:                             ; preds = %3468, %3467, %3466, %3465, %3464, %3463, %3462, %3401, %3406, %3405
   %lpad.thr_comm2396 = landingpad { ptr, i32 }
           cleanup
   br label %.body1720.thread
@@ -68151,7 +68151,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %198, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.341, i64 noundef 10)
           to label %3473 unwind label %.body1746.thread2407
 
-.body1746.thread2407:                             ; preds = %3535, %3534, %3533, %3532, %3531, %3530, %3474, %3473, %3469
+.body1746.thread2407:                             ; preds = %3535, %3534, %3533, %3532, %3531, %3530, %3469, %3474, %3473
   %lpad.thr_comm2405 = landingpad { ptr, i32 }
           cleanup
   br label %.body1746.thread
@@ -68409,7 +68409,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %183, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.343, i64 noundef 13)
           to label %3540 unwind label %.body1772.thread2416
 
-.body1772.thread2416:                             ; preds = %3602, %3601, %3600, %3599, %3598, %3597, %3541, %3540, %3536
+.body1772.thread2416:                             ; preds = %3602, %3601, %3600, %3599, %3598, %3597, %3536, %3541, %3540
   %lpad.thr_comm2414 = landingpad { ptr, i32 }
           cleanup
   br label %.body1772.thread
@@ -68659,11 +68659,11 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   ret void
 
 .body:                                            ; preds = %.body.i, %3623, %.body537.thread, %.body564.thread, %.body589.thread, %.body597.thread, %.body623.thread, %.body631.thread, %.body657.thread, %.body665.thread, %.body691.thread, %.body717.thread, %.body743.thread, %.body751.thread, %.body777.thread, %.body803.thread, %.body829.thread, %.body855.thread, %.body881.thread, %.body889.thread, %.body920.thread, %.body956.thread, %.body992.thread, %.thread2095, %.thread2120, %.thread2146, %.thread2172, %.body1178.thread, %.body1214.thread, %.body1250.thread, %.body1286.thread, %.body1322.thread, %.body1358.thread, %.body1366.thread, %.body1402.thread, %.thread2268, %.thread2294, %.body1486.thread, %.body1522.thread, %.body1558.thread, %.thread2347, %.body1622.thread, %.body1658.thread, %.body1694.thread, %.body1720.thread, %.body1746.thread, %.body1772.thread
-  %.pn533 = phi { ptr, i32 } [ %eh.lpad-body17732412, %.body1772.thread ], [ %eh.lpad-body17472403, %.body1746.thread ], [ %eh.lpad-body17212394, %.body1720.thread ], [ %eh.lpad-body16952385, %.body1694.thread ], [ %eh.lpad-body16592376, %.body1658.thread ], [ %eh.lpad-body16232367, %.body1622.thread ], [ %.pn5312346, %.thread2347 ], [ %eh.lpad-body15592335, %.body1558.thread ], [ %eh.lpad-body15232326, %.body1522.thread ], [ %eh.lpad-body14872317, %.body1486.thread ], [ %.pn5292293, %.thread2294 ], [ %.pn5272267, %.thread2268 ], [ %eh.lpad-body14032257, %.body1402.thread ], [ %eh.lpad-body13672248, %.body1366.thread ], [ %eh.lpad-body13592240, %.body1358.thread ], [ %eh.lpad-body13232231, %.body1322.thread ], [ %eh.lpad-body12872222, %.body1286.thread ], [ %eh.lpad-body12512213, %.body1250.thread ], [ %eh.lpad-body12152204, %.body1214.thread ], [ %eh.lpad-body11792195, %.body1178.thread ], [ %.pn5252171, %.thread2172 ], [ %.pn5232145, %.thread2146 ], [ %.pn5212119, %.thread2120 ], [ %.pn2094, %.thread2095 ], [ %eh.lpad-body9932085, %.body992.thread ], [ %eh.lpad-body9572076, %.body956.thread ], [ %eh.lpad-body9212067, %.body920.thread ], [ %eh.lpad-body8902058, %.body889.thread ], [ %eh.lpad-body8822050, %.body881.thread ], [ %eh.lpad-body8562041, %.body855.thread ], [ %eh.lpad-body8302032, %.body829.thread ], [ %eh.lpad-body8042023, %.body803.thread ], [ %eh.lpad-body7782014, %.body777.thread ], [ %eh.lpad-body7522005, %.body751.thread ], [ %eh.lpad-body7441997, %.body743.thread ], [ %eh.lpad-body7181988, %.body717.thread ], [ %eh.lpad-body6921979, %.body691.thread ], [ %eh.lpad-body6661970, %.body665.thread ], [ %eh.lpad-body6581962, %.body657.thread ], [ %eh.lpad-body6321953, %.body631.thread ], [ %eh.lpad-body6241945, %.body623.thread ], [ %eh.lpad-body5981936, %.body597.thread ], [ %eh.lpad-body5901928, %.body589.thread ], [ %eh.lpad-body5651919, %.body564.thread ], [ %eh.lpad-body5381912, %.body537.thread ], [ %3624, %3623 ], [ %688, %.body.i ]
+  %.pn533 = phi { ptr, i32 } [ %eh.lpad-body17732412, %.body1772.thread ], [ %688, %.body.i ], [ %eh.lpad-body17472403, %.body1746.thread ], [ %3624, %3623 ], [ %eh.lpad-body17212394, %.body1720.thread ], [ %eh.lpad-body7441997, %.body743.thread ], [ %eh.lpad-body16952385, %.body1694.thread ], [ %eh.lpad-body5381912, %.body537.thread ], [ %eh.lpad-body16592376, %.body1658.thread ], [ %eh.lpad-body9932085, %.body992.thread ], [ %eh.lpad-body16232367, %.body1622.thread ], [ %eh.lpad-body5651919, %.body564.thread ], [ %.pn5312346, %.thread2347 ], [ %eh.lpad-body8562041, %.body855.thread ], [ %eh.lpad-body15592335, %.body1558.thread ], [ %eh.lpad-body5901928, %.body589.thread ], [ %eh.lpad-body15232326, %.body1522.thread ], [ %eh.lpad-body9572076, %.body956.thread ], [ %eh.lpad-body14872317, %.body1486.thread ], [ %eh.lpad-body5981936, %.body597.thread ], [ %.pn5292293, %.thread2294 ], [ %eh.lpad-body7522005, %.body751.thread ], [ %.pn5272267, %.thread2268 ], [ %eh.lpad-body6241945, %.body623.thread ], [ %eh.lpad-body14032257, %.body1402.thread ], [ %eh.lpad-body9212067, %.body920.thread ], [ %eh.lpad-body13672248, %.body1366.thread ], [ %eh.lpad-body6321953, %.body631.thread ], [ %eh.lpad-body13592240, %.body1358.thread ], [ %eh.lpad-body8042023, %.body803.thread ], [ %eh.lpad-body13232231, %.body1322.thread ], [ %eh.lpad-body6581962, %.body657.thread ], [ %eh.lpad-body12872222, %.body1286.thread ], [ %eh.lpad-body8902058, %.body889.thread ], [ %eh.lpad-body12512213, %.body1250.thread ], [ %eh.lpad-body6661970, %.body665.thread ], [ %eh.lpad-body12152204, %.body1214.thread ], [ %eh.lpad-body7782014, %.body777.thread ], [ %eh.lpad-body11792195, %.body1178.thread ], [ %eh.lpad-body6921979, %.body691.thread ], [ %.pn5252171, %.thread2172 ], [ %eh.lpad-body8822050, %.body881.thread ], [ %.pn5232145, %.thread2146 ], [ %eh.lpad-body7181988, %.body717.thread ], [ %.pn5212119, %.thread2120 ], [ %eh.lpad-body8302032, %.body829.thread ], [ %.pn2094, %.thread2095 ]
   resume { ptr, i32 } %.pn533
 
 .body1772.thread:                                 ; preds = %3581, %3564, %3547, %.body1772.thread2416
-  %eh.lpad-body17732412 = phi { ptr, i32 } [ %lpad.thr_comm2414, %.body1772.thread2416 ], [ %.pn.i1768, %3547 ], [ %.pn.i1776, %3564 ], [ %.pn.i1785, %3581 ]
+  %eh.lpad-body17732412 = phi { ptr, i32 } [ %lpad.thr_comm2414, %.body1772.thread2416 ], [ %.pn.i1776, %3564 ], [ %.pn.i1768, %3547 ], [ %.pn.i1785, %3581 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %188) #24
           to label %.body unwind label %3607
 
@@ -68674,27 +68674,27 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
   unreachable
 
 .body1746.thread:                                 ; preds = %3514, %3497, %3480, %.body1746.thread2407
-  %eh.lpad-body17472403 = phi { ptr, i32 } [ %lpad.thr_comm2405, %.body1746.thread2407 ], [ %.pn.i1742, %3480 ], [ %.pn.i1750, %3497 ], [ %.pn.i1759, %3514 ]
+  %eh.lpad-body17472403 = phi { ptr, i32 } [ %lpad.thr_comm2405, %.body1746.thread2407 ], [ %.pn.i1750, %3497 ], [ %.pn.i1742, %3480 ], [ %.pn.i1759, %3514 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %203) #24
           to label %.body unwind label %3607
 
 .body1720.thread:                                 ; preds = %3446, %3429, %3412, %.body1720.thread2398
-  %eh.lpad-body17212394 = phi { ptr, i32 } [ %lpad.thr_comm2396, %.body1720.thread2398 ], [ %.pn.i1716, %3412 ], [ %.pn.i1724, %3429 ], [ %.pn.i1733, %3446 ]
+  %eh.lpad-body17212394 = phi { ptr, i32 } [ %lpad.thr_comm2396, %.body1720.thread2398 ], [ %.pn.i1724, %3429 ], [ %.pn.i1716, %3412 ], [ %.pn.i1733, %3446 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %219) #24
           to label %.body unwind label %3607
 
 .body1694.thread:                                 ; preds = %3383, %3366, %3349, %.body1694.thread2389
-  %eh.lpad-body16952385 = phi { ptr, i32 } [ %lpad.thr_comm2387, %.body1694.thread2389 ], [ %.pn.i1690, %3349 ], [ %.pn.i1698, %3366 ], [ %.pn.i1707, %3383 ]
+  %eh.lpad-body16952385 = phi { ptr, i32 } [ %lpad.thr_comm2387, %.body1694.thread2389 ], [ %.pn.i1698, %3366 ], [ %.pn.i1690, %3349 ], [ %.pn.i1707, %3383 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %230) #24
           to label %.body unwind label %3607
 
 .body1658.thread:                                 ; preds = %3322, %3305, %3288, %3271, %.body1658.thread2380
-  %eh.lpad-body16592376 = phi { ptr, i32 } [ %lpad.thr_comm2378, %.body1658.thread2380 ], [ %.pn.i1654, %3271 ], [ %.pn.i1662, %3288 ], [ %.pn.i1671, %3305 ], [ %.pn.i1680, %3322 ]
+  %eh.lpad-body16592376 = phi { ptr, i32 } [ %lpad.thr_comm2378, %.body1658.thread2380 ], [ %.pn.i1671, %3305 ], [ %.pn.i1662, %3288 ], [ %.pn.i1654, %3271 ], [ %.pn.i1680, %3322 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %241) #24
           to label %.body unwind label %3607
 
 .body1622.thread:                                 ; preds = %3244, %3227, %3210, %3193, %.body1622.thread2371
-  %eh.lpad-body16232367 = phi { ptr, i32 } [ %lpad.thr_comm2369, %.body1622.thread2371 ], [ %.pn.i1618, %3193 ], [ %.pn.i1626, %3210 ], [ %.pn.i1635, %3227 ], [ %.pn.i1644, %3244 ]
+  %eh.lpad-body16232367 = phi { ptr, i32 } [ %lpad.thr_comm2369, %.body1622.thread2371 ], [ %.pn.i1635, %3227 ], [ %.pn.i1626, %3210 ], [ %.pn.i1618, %3193 ], [ %.pn.i1644, %3244 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %252) #24
           to label %.body unwind label %3607
 
@@ -68705,22 +68705,22 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
           to label %.thread2347 unwind label %3607
 
 .thread2347:                                      ; preds = %3128, %3609, %3167, %3150, %3133, %.thread2360
-  %.pn5312346 = phi { ptr, i32 } [ %lpad.thr_comm2358, %.thread2360 ], [ %.pn.i1592, %3133 ], [ %.pn.i1600, %3150 ], [ %.pn.i1609, %3167 ], [ %3129, %3128 ], [ %3610, %3609 ]
+  %.pn5312346 = phi { ptr, i32 } [ %.pn.i1609, %3167 ], [ %lpad.thr_comm2358, %.thread2360 ], [ %.pn.i1600, %3150 ], [ %.pn.i1592, %3133 ], [ %3129, %3128 ], [ %3610, %3609 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %261) #24
           to label %.body unwind label %3607
 
 .body1558.thread:                                 ; preds = %3103, %3086, %3069, %3052, %.body1558.thread2339
-  %eh.lpad-body15592335 = phi { ptr, i32 } [ %lpad.thr_comm2337, %.body1558.thread2339 ], [ %.pn.i1554, %3052 ], [ %.pn.i1562, %3069 ], [ %.pn.i1571, %3086 ], [ %.pn.i1580, %3103 ]
+  %eh.lpad-body15592335 = phi { ptr, i32 } [ %lpad.thr_comm2337, %.body1558.thread2339 ], [ %.pn.i1571, %3086 ], [ %.pn.i1562, %3069 ], [ %.pn.i1554, %3052 ], [ %.pn.i1580, %3103 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %270) #24
           to label %.body unwind label %3607
 
 .body1522.thread:                                 ; preds = %3029, %3011, %2994, %2977, %.body1522.thread2330
-  %eh.lpad-body15232326 = phi { ptr, i32 } [ %lpad.thr_comm2328, %.body1522.thread2330 ], [ %.pn.i1518, %2977 ], [ %.pn.i1526, %2994 ], [ %.pn.i1535, %3011 ], [ %.pn.i1544, %3029 ]
+  %eh.lpad-body15232326 = phi { ptr, i32 } [ %lpad.thr_comm2328, %.body1522.thread2330 ], [ %.pn.i1535, %3011 ], [ %.pn.i1526, %2994 ], [ %.pn.i1518, %2977 ], [ %.pn.i1544, %3029 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %280) #24
           to label %.body unwind label %3607
 
 .body1486.thread:                                 ; preds = %2954, %2936, %2919, %2902, %.body1486.thread2321
-  %eh.lpad-body14872317 = phi { ptr, i32 } [ %lpad.thr_comm2319, %.body1486.thread2321 ], [ %.pn.i1482, %2902 ], [ %.pn.i1490, %2919 ], [ %.pn.i1499, %2936 ], [ %.pn.i1508, %2954 ]
+  %eh.lpad-body14872317 = phi { ptr, i32 } [ %lpad.thr_comm2319, %.body1486.thread2321 ], [ %.pn.i1499, %2936 ], [ %.pn.i1490, %2919 ], [ %.pn.i1482, %2902 ], [ %.pn.i1508, %2954 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %291) #24
           to label %.body unwind label %3607
 
@@ -68731,7 +68731,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
           to label %.thread2294 unwind label %3607
 
 .thread2294:                                      ; preds = %2819, %3611, %2875, %2858, %2841, %2824, %.thread2310
-  %.pn5292293 = phi { ptr, i32 } [ %lpad.thr_comm2308, %.thread2310 ], [ %.pn.i1446, %2824 ], [ %.pn.i1454, %2841 ], [ %.pn.i1463, %2858 ], [ %.pn.i1472, %2875 ], [ %2820, %2819 ], [ %3612, %3611 ]
+  %.pn5292293 = phi { ptr, i32 } [ %.pn.i1472, %2875 ], [ %lpad.thr_comm2308, %.thread2310 ], [ %.pn.i1463, %2858 ], [ %.pn.i1446, %2824 ], [ %.pn.i1454, %2841 ], [ %2820, %2819 ], [ %3612, %3611 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %301) #24
           to label %.body unwind label %3607
 
@@ -68742,7 +68742,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
           to label %.thread2268 unwind label %3607
 
 .thread2268:                                      ; preds = %2737, %3613, %2793, %2776, %2759, %2742, %.thread2284
-  %.pn5272267 = phi { ptr, i32 } [ %lpad.thr_comm2282, %.thread2284 ], [ %.pn.i1408, %2742 ], [ %.pn.i1416, %2759 ], [ %.pn.i1425, %2776 ], [ %.pn.i1434, %2793 ], [ %2738, %2737 ], [ %3614, %3613 ]
+  %.pn5272267 = phi { ptr, i32 } [ %.pn.i1434, %2793 ], [ %lpad.thr_comm2282, %.thread2284 ], [ %.pn.i1425, %2776 ], [ %.pn.i1408, %2742 ], [ %.pn.i1416, %2759 ], [ %2738, %2737 ], [ %3614, %3613 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %311) #24
           to label %.body unwind label %3607
 
@@ -68752,7 +68752,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
           to label %.body unwind label %3607
 
 .body1366.thread:                                 ; preds = %2683, %2665, %2648, %2631, %.body1366.thread2252
-  %eh.lpad-body13672248 = phi { ptr, i32 } [ %lpad.thr_comm2250, %.body1366.thread2252 ], [ %.pn.i1362, %2631 ], [ %.pn.i1370, %2648 ], [ %.pn.i1379, %2665 ], [ %.pn.i1388, %2683 ]
+  %eh.lpad-body13672248 = phi { ptr, i32 } [ %lpad.thr_comm2250, %.body1366.thread2252 ], [ %.pn.i1379, %2665 ], [ %.pn.i1370, %2648 ], [ %.pn.i1362, %2631 ], [ %.pn.i1388, %2683 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %330) #24
           to label %.body unwind label %3607
 
@@ -68762,27 +68762,27 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
           to label %.body unwind label %3607
 
 .body1322.thread:                                 ; preds = %2576, %2558, %2541, %2524, %.body1322.thread2235
-  %eh.lpad-body13232231 = phi { ptr, i32 } [ %lpad.thr_comm2233, %.body1322.thread2235 ], [ %.pn.i1318, %2524 ], [ %.pn.i1326, %2541 ], [ %.pn.i1335, %2558 ], [ %.pn.i1344, %2576 ]
+  %eh.lpad-body13232231 = phi { ptr, i32 } [ %lpad.thr_comm2233, %.body1322.thread2235 ], [ %.pn.i1335, %2558 ], [ %.pn.i1326, %2541 ], [ %.pn.i1318, %2524 ], [ %.pn.i1344, %2576 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %349) #24
           to label %.body unwind label %3607
 
 .body1286.thread:                                 ; preds = %2497, %2479, %2462, %2445, %.body1286.thread2226
-  %eh.lpad-body12872222 = phi { ptr, i32 } [ %lpad.thr_comm2224, %.body1286.thread2226 ], [ %.pn.i1282, %2445 ], [ %.pn.i1290, %2462 ], [ %.pn.i1299, %2479 ], [ %.pn.i1308, %2497 ]
+  %eh.lpad-body12872222 = phi { ptr, i32 } [ %lpad.thr_comm2224, %.body1286.thread2226 ], [ %.pn.i1299, %2479 ], [ %.pn.i1290, %2462 ], [ %.pn.i1282, %2445 ], [ %.pn.i1308, %2497 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %359) #24
           to label %.body unwind label %3607
 
 .body1250.thread:                                 ; preds = %2421, %2403, %2386, %2369, %.body1250.thread2217
-  %eh.lpad-body12512213 = phi { ptr, i32 } [ %lpad.thr_comm2215, %.body1250.thread2217 ], [ %.pn.i1246, %2369 ], [ %.pn.i1254, %2386 ], [ %.pn.i1263, %2403 ], [ %.pn.i1272, %2421 ]
+  %eh.lpad-body12512213 = phi { ptr, i32 } [ %lpad.thr_comm2215, %.body1250.thread2217 ], [ %.pn.i1263, %2403 ], [ %.pn.i1254, %2386 ], [ %.pn.i1246, %2369 ], [ %.pn.i1272, %2421 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %369) #24
           to label %.body unwind label %3607
 
 .body1214.thread:                                 ; preds = %2345, %2327, %2310, %2293, %.body1214.thread2208
-  %eh.lpad-body12152204 = phi { ptr, i32 } [ %lpad.thr_comm2206, %.body1214.thread2208 ], [ %.pn.i1210, %2293 ], [ %.pn.i1218, %2310 ], [ %.pn.i1227, %2327 ], [ %.pn.i1236, %2345 ]
+  %eh.lpad-body12152204 = phi { ptr, i32 } [ %lpad.thr_comm2206, %.body1214.thread2208 ], [ %.pn.i1227, %2327 ], [ %.pn.i1218, %2310 ], [ %.pn.i1210, %2293 ], [ %.pn.i1236, %2345 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %379) #24
           to label %.body unwind label %3607
 
 .body1178.thread:                                 ; preds = %2269, %2251, %2234, %2217, %.body1178.thread2199
-  %eh.lpad-body11792195 = phi { ptr, i32 } [ %lpad.thr_comm2197, %.body1178.thread2199 ], [ %.pn.i1174, %2217 ], [ %.pn.i1182, %2234 ], [ %.pn.i1191, %2251 ], [ %.pn.i1200, %2269 ]
+  %eh.lpad-body11792195 = phi { ptr, i32 } [ %lpad.thr_comm2197, %.body1178.thread2199 ], [ %.pn.i1191, %2251 ], [ %.pn.i1182, %2234 ], [ %.pn.i1174, %2217 ], [ %.pn.i1200, %2269 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %389) #24
           to label %.body unwind label %3607
 
@@ -68793,7 +68793,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
           to label %.thread2172 unwind label %3607
 
 .thread2172:                                      ; preds = %2137, %3615, %2194, %2176, %2159, %2142, %.thread2188
-  %.pn5252171 = phi { ptr, i32 } [ %lpad.thr_comm2186, %.thread2188 ], [ %.pn.i1138, %2142 ], [ %.pn.i1146, %2159 ], [ %.pn.i1155, %2176 ], [ %.pn.i1164, %2194 ], [ %2138, %2137 ], [ %3616, %3615 ]
+  %.pn5252171 = phi { ptr, i32 } [ %.pn.i1164, %2194 ], [ %lpad.thr_comm2186, %.thread2188 ], [ %.pn.i1155, %2176 ], [ %.pn.i1138, %2142 ], [ %.pn.i1146, %2159 ], [ %2138, %2137 ], [ %3616, %3615 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %400) #24
           to label %.body unwind label %3607
 
@@ -68804,7 +68804,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
           to label %.thread2146 unwind label %3607
 
 .thread2146:                                      ; preds = %2055, %3617, %2112, %2094, %2077, %2060, %.thread2162
-  %.pn5232145 = phi { ptr, i32 } [ %lpad.thr_comm2160, %.thread2162 ], [ %.pn.i1100, %2060 ], [ %.pn.i1108, %2077 ], [ %.pn.i1117, %2094 ], [ %.pn.i1126, %2112 ], [ %2056, %2055 ], [ %3618, %3617 ]
+  %.pn5232145 = phi { ptr, i32 } [ %.pn.i1126, %2112 ], [ %lpad.thr_comm2160, %.thread2162 ], [ %.pn.i1117, %2094 ], [ %.pn.i1100, %2060 ], [ %.pn.i1108, %2077 ], [ %2056, %2055 ], [ %3618, %3617 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %411) #24
           to label %.body unwind label %3607
 
@@ -68815,7 +68815,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
           to label %.thread2120 unwind label %3607
 
 .thread2120:                                      ; preds = %1974, %3619, %2030, %2013, %1996, %1979, %.thread2136
-  %.pn5212119 = phi { ptr, i32 } [ %lpad.thr_comm2134, %.thread2136 ], [ %.pn.i1062, %1979 ], [ %.pn.i1070, %1996 ], [ %.pn.i1079, %2013 ], [ %.pn.i1088, %2030 ], [ %1975, %1974 ], [ %3620, %3619 ]
+  %.pn5212119 = phi { ptr, i32 } [ %.pn.i1088, %2030 ], [ %lpad.thr_comm2134, %.thread2136 ], [ %.pn.i1079, %2013 ], [ %.pn.i1062, %1979 ], [ %.pn.i1070, %1996 ], [ %1975, %1974 ], [ %3620, %3619 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %421) #24
           to label %.body unwind label %3607
 
@@ -68826,27 +68826,27 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
           to label %.thread2095 unwind label %3607
 
 .thread2095:                                      ; preds = %1893, %3621, %1949, %1932, %1915, %1898, %.thread2110
-  %.pn2094 = phi { ptr, i32 } [ %lpad.thr_comm2108, %.thread2110 ], [ %.pn.i1024, %1898 ], [ %.pn.i1032, %1915 ], [ %.pn.i1041, %1932 ], [ %.pn.i1050, %1949 ], [ %1894, %1893 ], [ %3622, %3621 ]
+  %.pn2094 = phi { ptr, i32 } [ %.pn.i1050, %1949 ], [ %lpad.thr_comm2108, %.thread2110 ], [ %.pn.i1041, %1932 ], [ %.pn.i1024, %1898 ], [ %.pn.i1032, %1915 ], [ %1894, %1893 ], [ %3622, %3621 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %431) #24
           to label %.body unwind label %3607
 
 .body992.thread:                                  ; preds = %1867, %1849, %1832, %1815, %.body992.thread2089
-  %eh.lpad-body9932085 = phi { ptr, i32 } [ %lpad.thr_comm2087, %.body992.thread2089 ], [ %.pn.i988, %1815 ], [ %.pn.i996, %1832 ], [ %.pn.i1005, %1849 ], [ %.pn.i1014, %1867 ]
+  %eh.lpad-body9932085 = phi { ptr, i32 } [ %lpad.thr_comm2087, %.body992.thread2089 ], [ %.pn.i1005, %1849 ], [ %.pn.i996, %1832 ], [ %.pn.i988, %1815 ], [ %.pn.i1014, %1867 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %441) #24
           to label %.body unwind label %3607
 
 .body956.thread:                                  ; preds = %1791, %1773, %1756, %1739, %.body956.thread2080
-  %eh.lpad-body9572076 = phi { ptr, i32 } [ %lpad.thr_comm2078, %.body956.thread2080 ], [ %.pn.i952, %1739 ], [ %.pn.i960, %1756 ], [ %.pn.i969, %1773 ], [ %.pn.i978, %1791 ]
+  %eh.lpad-body9572076 = phi { ptr, i32 } [ %lpad.thr_comm2078, %.body956.thread2080 ], [ %.pn.i969, %1773 ], [ %.pn.i960, %1756 ], [ %.pn.i952, %1739 ], [ %.pn.i978, %1791 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %451) #24
           to label %.body unwind label %3607
 
 .body920.thread:                                  ; preds = %1715, %1697, %1680, %1663, %.body920.thread2071
-  %eh.lpad-body9212067 = phi { ptr, i32 } [ %lpad.thr_comm2069, %.body920.thread2071 ], [ %.pn.i916, %1663 ], [ %.pn.i924, %1680 ], [ %.pn.i933, %1697 ], [ %.pn.i942, %1715 ]
+  %eh.lpad-body9212067 = phi { ptr, i32 } [ %lpad.thr_comm2069, %.body920.thread2071 ], [ %.pn.i933, %1697 ], [ %.pn.i924, %1680 ], [ %.pn.i916, %1663 ], [ %.pn.i942, %1715 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %461) #24
           to label %.body unwind label %3607
 
 .body889.thread:                                  ; preds = %1639, %1621, %1604, %1587, %.body889.thread2062
-  %eh.lpad-body8902058 = phi { ptr, i32 } [ %lpad.thr_comm2060, %.body889.thread2062 ], [ %.pn.i885, %1587 ], [ %.pn.i893, %1604 ], [ %.pn.i902, %1621 ], [ %.pn.i910, %1639 ]
+  %eh.lpad-body8902058 = phi { ptr, i32 } [ %lpad.thr_comm2060, %.body889.thread2062 ], [ %.pn.i902, %1621 ], [ %.pn.i893, %1604 ], [ %.pn.i885, %1587 ], [ %.pn.i910, %1639 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %471) #24
           to label %.body unwind label %3607
 
@@ -68856,27 +68856,27 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
           to label %.body unwind label %3607
 
 .body855.thread:                                  ; preds = %1533, %1516, %1499, %.body855.thread2045
-  %eh.lpad-body8562041 = phi { ptr, i32 } [ %lpad.thr_comm2043, %.body855.thread2045 ], [ %.pn.i851, %1499 ], [ %.pn.i859, %1516 ], [ %.pn.i868, %1533 ]
+  %eh.lpad-body8562041 = phi { ptr, i32 } [ %lpad.thr_comm2043, %.body855.thread2045 ], [ %.pn.i859, %1516 ], [ %.pn.i851, %1499 ], [ %.pn.i868, %1533 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %489) #24
           to label %.body unwind label %3607
 
 .body829.thread:                                  ; preds = %1472, %1455, %1438, %.body829.thread2036
-  %eh.lpad-body8302032 = phi { ptr, i32 } [ %lpad.thr_comm2034, %.body829.thread2036 ], [ %.pn.i825, %1438 ], [ %.pn.i833, %1455 ], [ %.pn.i842, %1472 ]
+  %eh.lpad-body8302032 = phi { ptr, i32 } [ %lpad.thr_comm2034, %.body829.thread2036 ], [ %.pn.i833, %1455 ], [ %.pn.i825, %1438 ], [ %.pn.i842, %1472 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %497) #24
           to label %.body unwind label %3607
 
 .body803.thread:                                  ; preds = %1413, %1396, %1379, %.body803.thread2027
-  %eh.lpad-body8042023 = phi { ptr, i32 } [ %lpad.thr_comm2025, %.body803.thread2027 ], [ %.pn.i799, %1379 ], [ %.pn.i807, %1396 ], [ %.pn.i816, %1413 ]
+  %eh.lpad-body8042023 = phi { ptr, i32 } [ %lpad.thr_comm2025, %.body803.thread2027 ], [ %.pn.i807, %1396 ], [ %.pn.i799, %1379 ], [ %.pn.i816, %1413 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %506) #24
           to label %.body unwind label %3607
 
 .body777.thread:                                  ; preds = %1354, %1337, %1320, %.body777.thread2018
-  %eh.lpad-body7782014 = phi { ptr, i32 } [ %lpad.thr_comm2016, %.body777.thread2018 ], [ %.pn.i773, %1320 ], [ %.pn.i781, %1337 ], [ %.pn.i790, %1354 ]
+  %eh.lpad-body7782014 = phi { ptr, i32 } [ %lpad.thr_comm2016, %.body777.thread2018 ], [ %.pn.i781, %1337 ], [ %.pn.i773, %1320 ], [ %.pn.i790, %1354 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %515) #24
           to label %.body unwind label %3607
 
 .body751.thread:                                  ; preds = %1296, %1279, %1262, %.body751.thread2009
-  %eh.lpad-body7522005 = phi { ptr, i32 } [ %lpad.thr_comm2007, %.body751.thread2009 ], [ %.pn.i747, %1262 ], [ %.pn.i755, %1279 ], [ %.pn.i764, %1296 ]
+  %eh.lpad-body7522005 = phi { ptr, i32 } [ %lpad.thr_comm2007, %.body751.thread2009 ], [ %.pn.i755, %1279 ], [ %.pn.i747, %1262 ], [ %.pn.i764, %1296 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %524) #24
           to label %.body unwind label %3607
 
@@ -68886,17 +68886,17 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
           to label %.body unwind label %3607
 
 .body717.thread:                                  ; preds = %1205, %1188, %1171, %.body717.thread1992
-  %eh.lpad-body7181988 = phi { ptr, i32 } [ %lpad.thr_comm1990, %.body717.thread1992 ], [ %.pn.i713, %1171 ], [ %.pn.i721, %1188 ], [ %.pn.i730, %1205 ]
+  %eh.lpad-body7181988 = phi { ptr, i32 } [ %lpad.thr_comm1990, %.body717.thread1992 ], [ %.pn.i721, %1188 ], [ %.pn.i713, %1171 ], [ %.pn.i730, %1205 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %542) #24
           to label %.body unwind label %3607
 
 .body691.thread:                                  ; preds = %1144, %1127, %1110, %.body691.thread1983
-  %eh.lpad-body6921979 = phi { ptr, i32 } [ %lpad.thr_comm1981, %.body691.thread1983 ], [ %.pn.i687, %1110 ], [ %.pn.i695, %1127 ], [ %.pn.i704, %1144 ]
+  %eh.lpad-body6921979 = phi { ptr, i32 } [ %lpad.thr_comm1981, %.body691.thread1983 ], [ %.pn.i695, %1127 ], [ %.pn.i687, %1110 ], [ %.pn.i704, %1144 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %551) #24
           to label %.body unwind label %3607
 
 .body665.thread:                                  ; preds = %1082, %1065, %1048, %.body665.thread1974
-  %eh.lpad-body6661970 = phi { ptr, i32 } [ %lpad.thr_comm1972, %.body665.thread1974 ], [ %.pn.i661, %1048 ], [ %.pn.i669, %1065 ], [ %.pn.i678, %1082 ]
+  %eh.lpad-body6661970 = phi { ptr, i32 } [ %lpad.thr_comm1972, %.body665.thread1974 ], [ %.pn.i669, %1065 ], [ %.pn.i661, %1048 ], [ %.pn.i678, %1082 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %561) #24
           to label %.body unwind label %3607
 
@@ -68906,7 +68906,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
           to label %.body unwind label %3607
 
 .body631.thread:                                  ; preds = %991, %974, %957, %.body631.thread1957
-  %eh.lpad-body6321953 = phi { ptr, i32 } [ %lpad.thr_comm1955, %.body631.thread1957 ], [ %.pn.i627, %957 ], [ %.pn.i635, %974 ], [ %.pn.i644, %991 ]
+  %eh.lpad-body6321953 = phi { ptr, i32 } [ %lpad.thr_comm1955, %.body631.thread1957 ], [ %.pn.i635, %974 ], [ %.pn.i627, %957 ], [ %.pn.i644, %991 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %579) #24
           to label %.body unwind label %3607
 
@@ -68916,7 +68916,7 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
           to label %.body unwind label %3607
 
 .body597.thread:                                  ; preds = %900, %883, %866, %.body597.thread1940
-  %eh.lpad-body5981936 = phi { ptr, i32 } [ %lpad.thr_comm1938, %.body597.thread1940 ], [ %.pn.i593, %866 ], [ %.pn.i601, %883 ], [ %.pn.i610, %900 ]
+  %eh.lpad-body5981936 = phi { ptr, i32 } [ %lpad.thr_comm1938, %.body597.thread1940 ], [ %.pn.i601, %883 ], [ %.pn.i593, %866 ], [ %.pn.i610, %900 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %597) #24
           to label %.body unwind label %3607
 
@@ -68926,12 +68926,12 @@ define void @"_ZN71_$LT$ruff..args..CheckCommand$u20$as$u20$clap_builder..derive
           to label %.body unwind label %3607
 
 .body564.thread:                                  ; preds = %809, %792, %775, %.body564.thread1923
-  %eh.lpad-body5651919 = phi { ptr, i32 } [ %lpad.thr_comm1921, %.body564.thread1923 ], [ %.pn.i560, %775 ], [ %.pn.i568, %792 ], [ %.pn.i577, %809 ]
+  %eh.lpad-body5651919 = phi { ptr, i32 } [ %lpad.thr_comm1921, %.body564.thread1923 ], [ %.pn.i568, %792 ], [ %.pn.i560, %775 ], [ %.pn.i577, %809 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %616) #24
           to label %.body unwind label %3607
 
 .body537.thread:                                  ; preds = %748, %731, %714, %700, %.body537.thread1914
-  %eh.lpad-body5381912 = phi { ptr, i32 } [ %lpad.thr_comm, %.body537.thread1914 ], [ %701, %700 ], [ %.pn.i, %714 ], [ %.pn.i543, %731 ], [ %.pn.i551, %748 ]
+  %eh.lpad-body5381912 = phi { ptr, i32 } [ %lpad.thr_comm, %.body537.thread1914 ], [ %.pn.i543, %731 ], [ %.pn.i, %714 ], [ %701, %700 ], [ %.pn.i551, %748 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %626) #24
           to label %.body unwind label %3607
 
@@ -70718,7 +70718,7 @@ define noundef align 8 ptr @"_ZN82_$LT$ruff..args..FormatCommand$u20$as$u20$clap
   br label %173
 
 173:                                              ; preds = %170, %161, %154, %113, %106, %84, %77, %61, %54, %47, %.critedge194, %166
-  %.sroa.0.0 = phi ptr [ %48, %47 ], [ %55, %54 ], [ %62, %61 ], [ %78, %77 ], [ %85, %84 ], [ %107, %106 ], [ %114, %113 ], [ %155, %154 ], [ %162, %161 ], [ null, %166 ], [ null, %.critedge194 ], [ %171, %170 ]
+  %.sroa.0.0 = phi ptr [ %162, %161 ], [ %48, %47 ], [ %55, %54 ], [ %62, %61 ], [ %78, %77 ], [ %85, %84 ], [ %107, %106 ], [ %114, %113 ], [ %155, %154 ], [ null, %.critedge194 ], [ null, %166 ], [ %171, %170 ]
   ret ptr %.sroa.0.0
 
 174:                                              ; preds = %143, %128, %100, %71, %40
@@ -71248,7 +71248,7 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %242, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.254, i64 noundef 5)
           to label %292 unwind label %.body238.thread763
 
-.body238.thread763:                               ; preds = %298, %292, %287
+.body238.thread763:                               ; preds = %292, %298, %287
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body238.thread
@@ -71498,7 +71498,7 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %232, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.193, i64 noundef 5)
           to label %359 unwind label %.body265.thread772
 
-.body265.thread772:                               ; preds = %360, %359, %358
+.body265.thread772:                               ; preds = %358, %360, %359
   %lpad.thr_comm770 = landingpad { ptr, i32 }
           cleanup
   br label %.body265.thread
@@ -71717,7 +71717,7 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %222, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.295, i64 noundef 4)
           to label %417 unwind label %.body290.thread781
 
-.body290.thread781:                               ; preds = %418, %417, %416
+.body290.thread781:                               ; preds = %416, %418, %417
   %lpad.thr_comm779 = landingpad { ptr, i32 }
           cleanup
   br label %.body290.thread
@@ -71935,7 +71935,7 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %213, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.328, i64 noundef 8)
           to label %475 unwind label %.body316.thread790
 
-.body316.thread790:                               ; preds = %532, %476, %475, %474
+.body316.thread790:                               ; preds = %476, %532, %475, %474
   %lpad.thr_comm788 = landingpad { ptr, i32 }
           cleanup
   br label %.body316.thread
@@ -72222,7 +72222,7 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %203, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.330, i64 noundef 9)
           to label %550 unwind label %.body347.thread799
 
-.body347.thread799:                               ; preds = %604, %551, %550, %549
+.body347.thread799:                               ; preds = %550, %604, %549, %551
   %lpad.thr_comm797 = landingpad { ptr, i32 }
           cleanup
   br label %.body347.thread
@@ -72500,7 +72500,7 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %192, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.318, i64 noundef 17)
           to label %622 unwind label %.body383.thread808
 
-.body383.thread808:                               ; preds = %679, %623, %622, %621
+.body383.thread808:                               ; preds = %622, %679, %621, %623
   %lpad.thr_comm806 = landingpad { ptr, i32 }
           cleanup
   br label %.body383.thread
@@ -72784,7 +72784,7 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %181, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.320, i64 noundef 20)
           to label %697 unwind label %.body419.thread816
 
-.body419.thread816:                               ; preds = %720, %698, %697, %696
+.body419.thread816:                               ; preds = %720, %697, %696, %698
   %lpad.thr_comm814 = landingpad { ptr, i32 }
           cleanup
   br label %.body419.thread
@@ -72891,7 +72891,7 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %174, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.312, i64 noundef 7)
           to label %725 unwind label %.thread837
 
-.thread837:                                       ; preds = %786, %725, %721
+.thread837:                                       ; preds = %725, %786, %721
   %lpad.thr_comm835 = landingpad { ptr, i32 }
           cleanup
   br label %.thread822
@@ -73198,7 +73198,7 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %162, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.322, i64 noundef 13)
           to label %804 unwind label %.body463.thread848
 
-.body463.thread848:                               ; preds = %861, %805, %804, %803
+.body463.thread848:                               ; preds = %804, %861, %803, %805
   %lpad.thr_comm846 = landingpad { ptr, i32 }
           cleanup
   br label %.body463.thread
@@ -73482,7 +73482,7 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %151, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.324, i64 noundef 16)
           to label %879 unwind label %.body499.thread856
 
-.body499.thread856:                               ; preds = %902, %880, %879, %878
+.body499.thread856:                               ; preds = %902, %879, %878, %880
   %lpad.thr_comm854 = landingpad { ptr, i32 }
           cleanup
   br label %.body499.thread
@@ -73589,7 +73589,7 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %144, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.326, i64 noundef 11)
           to label %907 unwind label %.thread880
 
-.thread880:                                       ; preds = %907, %903
+.thread880:                                       ; preds = %903, %907
   %lpad.thr_comm878 = landingpad { ptr, i32 }
           cleanup
   br label %.thread864
@@ -73883,7 +73883,7 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %134, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.331, i64 noundef 14)
           to label %985 unwind label %.body545.thread891
 
-.body545.thread891:                               ; preds = %986, %985, %984
+.body545.thread891:                               ; preds = %985, %984, %986
   %lpad.thr_comm889 = landingpad { ptr, i32 }
           cleanup
   br label %.body545.thread
@@ -74151,7 +74151,7 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %125, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.332, i64 noundef 9)
           to label %1056 unwind label %.thread912
 
-.thread912:                                       ; preds = %1056, %1055
+.thread912:                                       ; preds = %1055, %1056
   %lpad.thr_comm910 = landingpad { ptr, i32 }
           cleanup
   br label %.thread899
@@ -74391,7 +74391,7 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %116, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.263, i64 noundef 14)
           to label %1118 unwind label %.body609.thread923
 
-.body609.thread923:                               ; preds = %1119, %1118, %1117
+.body609.thread923:                               ; preds = %1117, %1119, %1118
   %lpad.thr_comm921 = landingpad { ptr, i32 }
           cleanup
   br label %.body609.thread
@@ -74600,7 +74600,7 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %107, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.259, i64 noundef 7)
           to label %1173 unwind label %.body635.thread932
 
-.body635.thread932:                               ; preds = %1230, %1174, %1173, %1172
+.body635.thread932:                               ; preds = %1230, %1172, %1174, %1173
   %lpad.thr_comm930 = landingpad { ptr, i32 }
           cleanup
   br label %.body635.thread
@@ -74824,7 +74824,7 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %97, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.261, i64 noundef 10)
           to label %1232 unwind label %.body661.thread940
 
-.body661.thread940:                               ; preds = %1255, %1233, %1232, %1231
+.body661.thread940:                               ; preds = %1255, %1232, %1231, %1233
   %lpad.thr_comm938 = landingpad { ptr, i32 }
           cleanup
   br label %.body661.thread
@@ -74931,7 +74931,7 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %90, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.470, i64 noundef 5)
           to label %1260 unwind label %.thread964
 
-.thread964:                                       ; preds = %1260, %1256
+.thread964:                                       ; preds = %1256, %1260
   %lpad.thr_comm962 = landingpad { ptr, i32 }
           cleanup
   br label %.thread948
@@ -75226,7 +75226,7 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %79, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.471, i64 noundef 23)
           to label %1338 unwind label %.body706.thread975
 
-.body706.thread975:                               ; preds = %1411, %1339, %1338, %1337
+.body706.thread975:                               ; preds = %1411, %1338, %1337, %1339
   %lpad.thr_comm973 = landingpad { ptr, i32 }
           cleanup
   br label %.body706.thread
@@ -75502,11 +75502,11 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
   ret void
 
 .body:                                            ; preds = %.body.i, %1423, %.body238.thread, %.body265.thread, %.body290.thread, %.body316.thread, %.body347.thread, %.body383.thread, %.body419.thread, %.thread822, %.body463.thread, %.body499.thread, %.thread864, %.body545.thread, %.thread899, %.body609.thread, %.body635.thread, %.body661.thread, %.thread948, %.body706.thread
-  %.pn236 = phi { ptr, i32 } [ %eh.lpad-body707971, %.body706.thread ], [ %.pn234947, %.thread948 ], [ %eh.lpad-body662937, %.body661.thread ], [ %eh.lpad-body636928, %.body635.thread ], [ %eh.lpad-body610919, %.body609.thread ], [ %.pn232898, %.thread899 ], [ %eh.lpad-body546887, %.body545.thread ], [ %.pn230863, %.thread864 ], [ %eh.lpad-body500853, %.body499.thread ], [ %eh.lpad-body464844, %.body463.thread ], [ %.pn821, %.thread822 ], [ %eh.lpad-body420813, %.body419.thread ], [ %eh.lpad-body384804, %.body383.thread ], [ %eh.lpad-body348795, %.body347.thread ], [ %eh.lpad-body317786, %.body316.thread ], [ %eh.lpad-body291777, %.body290.thread ], [ %eh.lpad-body266768, %.body265.thread ], [ %eh.lpad-body239761, %.body238.thread ], [ %1424, %1423 ], [ %282, %.body.i ]
+  %.pn236 = phi { ptr, i32 } [ %eh.lpad-body707971, %.body706.thread ], [ %282, %.body.i ], [ %.pn234947, %.thread948 ], [ %1424, %1423 ], [ %eh.lpad-body662937, %.body661.thread ], [ %.pn821, %.thread822 ], [ %eh.lpad-body636928, %.body635.thread ], [ %eh.lpad-body239761, %.body238.thread ], [ %eh.lpad-body610919, %.body609.thread ], [ %eh.lpad-body384804, %.body383.thread ], [ %.pn232898, %.thread899 ], [ %eh.lpad-body266768, %.body265.thread ], [ %eh.lpad-body546887, %.body545.thread ], [ %eh.lpad-body420813, %.body419.thread ], [ %.pn230863, %.thread864 ], [ %eh.lpad-body291777, %.body290.thread ], [ %eh.lpad-body500853, %.body499.thread ], [ %eh.lpad-body348795, %.body347.thread ], [ %eh.lpad-body464844, %.body463.thread ], [ %eh.lpad-body317786, %.body316.thread ]
   resume { ptr, i32 } %.pn236
 
 .body706.thread:                                  ; preds = %1396, %1379, %1362, %1345, %.body706.thread975
-  %eh.lpad-body707971 = phi { ptr, i32 } [ %lpad.thr_comm973, %.body706.thread975 ], [ %.pn.i702, %1345 ], [ %.pn.i710, %1362 ], [ %.pn.i719, %1379 ], [ %.pn.i728, %1396 ]
+  %eh.lpad-body707971 = phi { ptr, i32 } [ %lpad.thr_comm973, %.body706.thread975 ], [ %.pn.i719, %1379 ], [ %.pn.i710, %1362 ], [ %.pn.i702, %1345 ], [ %.pn.i728, %1396 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %84) #24
           to label %.body unwind label %1413
 
@@ -75523,7 +75523,7 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
           to label %.thread948 unwind label %1413
 
 .thread948:                                       ; preds = %1266, %1415, %1322, %1305, %1288, %1271, %.thread964
-  %.pn234947 = phi { ptr, i32 } [ %lpad.thr_comm962, %.thread964 ], [ %.pn.i667, %1271 ], [ %.pn.i675, %1288 ], [ %.pn.i683, %1305 ], [ %.pn.i692, %1322 ], [ %1267, %1266 ], [ %1416, %1415 ]
+  %.pn234947 = phi { ptr, i32 } [ %.pn.i692, %1322 ], [ %lpad.thr_comm962, %.thread964 ], [ %.pn.i683, %1305 ], [ %.pn.i667, %1271 ], [ %.pn.i675, %1288 ], [ %1267, %1266 ], [ %1416, %1415 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %94) #24
           to label %.body unwind label %1413
 
@@ -75533,12 +75533,12 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
           to label %.body unwind label %1413
 
 .body635.thread:                                  ; preds = %1214, %1197, %1180, %.body635.thread932
-  %eh.lpad-body636928 = phi { ptr, i32 } [ %lpad.thr_comm930, %.body635.thread932 ], [ %.pn.i631, %1180 ], [ %.pn.i639, %1197 ], [ %.pn.i648, %1214 ]
+  %eh.lpad-body636928 = phi { ptr, i32 } [ %lpad.thr_comm930, %.body635.thread932 ], [ %.pn.i639, %1197 ], [ %.pn.i631, %1180 ], [ %.pn.i648, %1214 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %112) #24
           to label %.body unwind label %1413
 
 .body609.thread:                                  ; preds = %1156, %1139, %1122, %.body609.thread923
-  %eh.lpad-body610919 = phi { ptr, i32 } [ %lpad.thr_comm921, %.body609.thread923 ], [ %.pn.i605, %1122 ], [ %.pn.i613, %1139 ], [ %.pn.i622, %1156 ]
+  %eh.lpad-body610919 = phi { ptr, i32 } [ %lpad.thr_comm921, %.body609.thread923 ], [ %.pn.i613, %1139 ], [ %.pn.i605, %1122 ], [ %.pn.i622, %1156 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %120) #24
           to label %.body unwind label %1413
 
@@ -75549,12 +75549,12 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
           to label %.thread899 unwind label %1413
 
 .thread899:                                       ; preds = %1062, %1417, %1101, %1084, %1067, %.thread912
-  %.pn232898 = phi { ptr, i32 } [ %lpad.thr_comm910, %.thread912 ], [ %.pn.i579, %1067 ], [ %.pn.i587, %1084 ], [ %.pn.i596, %1101 ], [ %1063, %1062 ], [ %1418, %1417 ]
+  %.pn232898 = phi { ptr, i32 } [ %.pn.i596, %1101 ], [ %lpad.thr_comm910, %.thread912 ], [ %.pn.i587, %1084 ], [ %.pn.i579, %1067 ], [ %1063, %1062 ], [ %1418, %1417 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %129) #24
           to label %.body unwind label %1413
 
 .body545.thread:                                  ; preds = %1040, %1023, %1006, %989, %.body545.thread891
-  %eh.lpad-body546887 = phi { ptr, i32 } [ %lpad.thr_comm889, %.body545.thread891 ], [ %.pn.i541, %989 ], [ %.pn.i549, %1006 ], [ %.pn.i558, %1023 ], [ %.pn.i567, %1040 ]
+  %eh.lpad-body546887 = phi { ptr, i32 } [ %lpad.thr_comm889, %.body545.thread891 ], [ %.pn.i558, %1023 ], [ %.pn.i549, %1006 ], [ %.pn.i541, %989 ], [ %.pn.i567, %1040 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %138) #24
           to label %.body unwind label %1413
 
@@ -75565,7 +75565,7 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
           to label %.thread864 unwind label %1413
 
 .thread864:                                       ; preds = %913, %1419, %969, %952, %935, %918, %.thread880
-  %.pn230863 = phi { ptr, i32 } [ %lpad.thr_comm878, %.thread880 ], [ %.pn.i505, %918 ], [ %.pn.i513, %935 ], [ %.pn.i522, %952 ], [ %.pn.i531, %969 ], [ %914, %913 ], [ %1420, %1419 ]
+  %.pn230863 = phi { ptr, i32 } [ %.pn.i531, %969 ], [ %lpad.thr_comm878, %.thread880 ], [ %.pn.i522, %952 ], [ %.pn.i505, %918 ], [ %.pn.i513, %935 ], [ %914, %913 ], [ %1420, %1419 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %148) #24
           to label %.body unwind label %1413
 
@@ -75575,7 +75575,7 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
           to label %.body unwind label %1413
 
 .body463.thread:                                  ; preds = %863, %845, %828, %811, %.body463.thread848
-  %eh.lpad-body464844 = phi { ptr, i32 } [ %lpad.thr_comm846, %.body463.thread848 ], [ %.pn.i459, %811 ], [ %.pn.i467, %828 ], [ %.pn.i476, %845 ], [ %.pn.i485, %863 ]
+  %eh.lpad-body464844 = phi { ptr, i32 } [ %lpad.thr_comm846, %.body463.thread848 ], [ %.pn.i476, %845 ], [ %.pn.i467, %828 ], [ %.pn.i459, %811 ], [ %.pn.i485, %863 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %167) #24
           to label %.body unwind label %1413
 
@@ -75586,7 +75586,7 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
           to label %.thread822 unwind label %1413
 
 .thread822:                                       ; preds = %731, %1421, %788, %770, %753, %736, %.thread837
-  %.pn821 = phi { ptr, i32 } [ %lpad.thr_comm835, %.thread837 ], [ %.pn.i423, %736 ], [ %.pn.i431, %753 ], [ %.pn.i440, %770 ], [ %.pn.i449, %788 ], [ %732, %731 ], [ %1422, %1421 ]
+  %.pn821 = phi { ptr, i32 } [ %.pn.i449, %788 ], [ %lpad.thr_comm835, %.thread837 ], [ %.pn.i440, %770 ], [ %.pn.i423, %736 ], [ %.pn.i431, %753 ], [ %732, %731 ], [ %1422, %1421 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %178) #24
           to label %.body unwind label %1413
 
@@ -75596,32 +75596,32 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
           to label %.body unwind label %1413
 
 .body383.thread:                                  ; preds = %681, %663, %646, %629, %.body383.thread808
-  %eh.lpad-body384804 = phi { ptr, i32 } [ %lpad.thr_comm806, %.body383.thread808 ], [ %.pn.i379, %629 ], [ %.pn.i387, %646 ], [ %.pn.i396, %663 ], [ %.pn.i405, %681 ]
+  %eh.lpad-body384804 = phi { ptr, i32 } [ %lpad.thr_comm806, %.body383.thread808 ], [ %.pn.i396, %663 ], [ %.pn.i387, %646 ], [ %.pn.i379, %629 ], [ %.pn.i405, %681 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %197) #24
           to label %.body unwind label %1413
 
 .body347.thread:                                  ; preds = %606, %588, %571, %554, %.body347.thread799
-  %eh.lpad-body348795 = phi { ptr, i32 } [ %lpad.thr_comm797, %.body347.thread799 ], [ %.pn.i343, %554 ], [ %.pn.i351, %571 ], [ %.pn.i360, %588 ], [ %.pn.i369, %606 ]
+  %eh.lpad-body348795 = phi { ptr, i32 } [ %lpad.thr_comm797, %.body347.thread799 ], [ %.pn.i360, %588 ], [ %.pn.i351, %571 ], [ %.pn.i343, %554 ], [ %.pn.i369, %606 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %207) #24
           to label %.body unwind label %1413
 
 .body316.thread:                                  ; preds = %534, %516, %499, %482, %.body316.thread790
-  %eh.lpad-body317786 = phi { ptr, i32 } [ %lpad.thr_comm788, %.body316.thread790 ], [ %.pn.i312, %482 ], [ %.pn.i320, %499 ], [ %.pn.i329, %516 ], [ %.pn.i337, %534 ]
+  %eh.lpad-body317786 = phi { ptr, i32 } [ %lpad.thr_comm788, %.body316.thread790 ], [ %.pn.i329, %516 ], [ %.pn.i320, %499 ], [ %.pn.i312, %482 ], [ %.pn.i337, %534 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %218) #24
           to label %.body unwind label %1413
 
 .body290.thread:                                  ; preds = %458, %441, %424, %.body290.thread781
-  %eh.lpad-body291777 = phi { ptr, i32 } [ %lpad.thr_comm779, %.body290.thread781 ], [ %.pn.i286, %424 ], [ %.pn.i294, %441 ], [ %.pn.i303, %458 ]
+  %eh.lpad-body291777 = phi { ptr, i32 } [ %lpad.thr_comm779, %.body290.thread781 ], [ %.pn.i294, %441 ], [ %.pn.i286, %424 ], [ %.pn.i303, %458 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %227) #24
           to label %.body unwind label %1413
 
 .body265.thread:                                  ; preds = %400, %383, %366, %.body265.thread772
-  %eh.lpad-body266768 = phi { ptr, i32 } [ %lpad.thr_comm770, %.body265.thread772 ], [ %.pn.i261, %366 ], [ %.pn.i269, %383 ], [ %.pn.i278, %400 ]
+  %eh.lpad-body266768 = phi { ptr, i32 } [ %lpad.thr_comm770, %.body265.thread772 ], [ %.pn.i269, %383 ], [ %.pn.i261, %366 ], [ %.pn.i278, %400 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %237) #24
           to label %.body unwind label %1413
 
 .body238.thread:                                  ; preds = %342, %325, %308, %294, %.body238.thread763
-  %eh.lpad-body239761 = phi { ptr, i32 } [ %lpad.thr_comm, %.body238.thread763 ], [ %295, %294 ], [ %.pn.i, %308 ], [ %.pn.i244, %325 ], [ %.pn.i252, %342 ]
+  %eh.lpad-body239761 = phi { ptr, i32 } [ %lpad.thr_comm, %.body238.thread763 ], [ %.pn.i244, %325 ], [ %.pn.i, %308 ], [ %295, %294 ], [ %.pn.i252, %342 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %247) #24
           to label %.body unwind label %1413
 
@@ -76144,7 +76144,7 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %242, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.254, i64 noundef 5)
           to label %292 unwind label %.body238.thread763
 
-.body238.thread763:                               ; preds = %298, %292, %287
+.body238.thread763:                               ; preds = %292, %298, %287
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body238.thread
@@ -76398,7 +76398,7 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %232, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.193, i64 noundef 5)
           to label %362 unwind label %.body265.thread772
 
-.body265.thread772:                               ; preds = %363, %362, %358
+.body265.thread772:                               ; preds = %358, %363, %362
   %lpad.thr_comm770 = landingpad { ptr, i32 }
           cleanup
   br label %.body265.thread
@@ -76621,7 +76621,7 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %222, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.295, i64 noundef 4)
           to label %423 unwind label %.body290.thread781
 
-.body290.thread781:                               ; preds = %424, %423, %419
+.body290.thread781:                               ; preds = %419, %424, %423
   %lpad.thr_comm779 = landingpad { ptr, i32 }
           cleanup
   br label %.body290.thread
@@ -76843,7 +76843,7 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %213, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.328, i64 noundef 8)
           to label %484 unwind label %.body316.thread790
 
-.body316.thread790:                               ; preds = %541, %485, %484, %480
+.body316.thread790:                               ; preds = %485, %541, %484, %480
   %lpad.thr_comm788 = landingpad { ptr, i32 }
           cleanup
   br label %.body316.thread
@@ -77134,7 +77134,7 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %203, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.330, i64 noundef 9)
           to label %562 unwind label %.body347.thread799
 
-.body347.thread799:                               ; preds = %616, %563, %562, %558
+.body347.thread799:                               ; preds = %562, %616, %558, %563
   %lpad.thr_comm797 = landingpad { ptr, i32 }
           cleanup
   br label %.body347.thread
@@ -77416,7 +77416,7 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %192, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.318, i64 noundef 17)
           to label %637 unwind label %.body383.thread808
 
-.body383.thread808:                               ; preds = %694, %638, %637, %633
+.body383.thread808:                               ; preds = %637, %694, %633, %638
   %lpad.thr_comm806 = landingpad { ptr, i32 }
           cleanup
   br label %.body383.thread
@@ -77704,7 +77704,7 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %181, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.320, i64 noundef 20)
           to label %715 unwind label %.body419.thread816
 
-.body419.thread816:                               ; preds = %738, %716, %715, %711
+.body419.thread816:                               ; preds = %738, %715, %711, %716
   %lpad.thr_comm814 = landingpad { ptr, i32 }
           cleanup
   br label %.body419.thread
@@ -77812,7 +77812,7 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %174, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.312, i64 noundef 7)
           to label %744 unwind label %.thread837
 
-.thread837:                                       ; preds = %805, %744, %739
+.thread837:                                       ; preds = %744, %805, %739
   %lpad.thr_comm835 = landingpad { ptr, i32 }
           cleanup
   br label %.thread822
@@ -78123,7 +78123,7 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %162, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.322, i64 noundef 13)
           to label %826 unwind label %.body463.thread848
 
-.body463.thread848:                               ; preds = %883, %827, %826, %822
+.body463.thread848:                               ; preds = %826, %883, %822, %827
   %lpad.thr_comm846 = landingpad { ptr, i32 }
           cleanup
   br label %.body463.thread
@@ -78411,7 +78411,7 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %151, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.324, i64 noundef 16)
           to label %904 unwind label %.body499.thread856
 
-.body499.thread856:                               ; preds = %927, %905, %904, %900
+.body499.thread856:                               ; preds = %927, %904, %900, %905
   %lpad.thr_comm854 = landingpad { ptr, i32 }
           cleanup
   br label %.body499.thread
@@ -78519,7 +78519,7 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %144, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.326, i64 noundef 11)
           to label %933 unwind label %.thread880
 
-.thread880:                                       ; preds = %933, %928
+.thread880:                                       ; preds = %928, %933
   %lpad.thr_comm878 = landingpad { ptr, i32 }
           cleanup
   br label %.thread864
@@ -78817,7 +78817,7 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %134, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.331, i64 noundef 14)
           to label %1014 unwind label %.body545.thread891
 
-.body545.thread891:                               ; preds = %1015, %1014, %1010
+.body545.thread891:                               ; preds = %1014, %1010, %1015
   %lpad.thr_comm889 = landingpad { ptr, i32 }
           cleanup
   br label %.body545.thread
@@ -79089,7 +79089,7 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %125, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.332, i64 noundef 9)
           to label %1088 unwind label %.thread912
 
-.thread912:                                       ; preds = %1088, %1084
+.thread912:                                       ; preds = %1084, %1088
   %lpad.thr_comm910 = landingpad { ptr, i32 }
           cleanup
   br label %.thread899
@@ -79332,7 +79332,7 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %116, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.263, i64 noundef 14)
           to label %1152 unwind label %.body609.thread923
 
-.body609.thread923:                               ; preds = %1153, %1152, %1149
+.body609.thread923:                               ; preds = %1149, %1153, %1152
   %lpad.thr_comm921 = landingpad { ptr, i32 }
           cleanup
   br label %.body609.thread
@@ -79545,7 +79545,7 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %107, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.259, i64 noundef 7)
           to label %1210 unwind label %.body635.thread932
 
-.body635.thread932:                               ; preds = %1267, %1211, %1210, %1206
+.body635.thread932:                               ; preds = %1267, %1206, %1211, %1210
   %lpad.thr_comm930 = landingpad { ptr, i32 }
           cleanup
   br label %.body635.thread
@@ -79773,7 +79773,7 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %97, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.261, i64 noundef 10)
           to label %1272 unwind label %.body661.thread940
 
-.body661.thread940:                               ; preds = %1295, %1273, %1272, %1268
+.body661.thread940:                               ; preds = %1295, %1272, %1268, %1273
   %lpad.thr_comm938 = landingpad { ptr, i32 }
           cleanup
   br label %.body661.thread
@@ -79881,7 +79881,7 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %90, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.470, i64 noundef 5)
           to label %1301 unwind label %.thread964
 
-.thread964:                                       ; preds = %1301, %1296
+.thread964:                                       ; preds = %1296, %1301
   %lpad.thr_comm962 = landingpad { ptr, i32 }
           cleanup
   br label %.thread948
@@ -80180,7 +80180,7 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %79, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.471, i64 noundef 23)
           to label %1382 unwind label %.body706.thread975
 
-.body706.thread975:                               ; preds = %1455, %1383, %1382, %1378
+.body706.thread975:                               ; preds = %1455, %1382, %1378, %1383
   %lpad.thr_comm973 = landingpad { ptr, i32 }
           cleanup
   br label %.body706.thread
@@ -80460,11 +80460,11 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
   ret void
 
 .body:                                            ; preds = %.body.i, %1470, %.body238.thread, %.body265.thread, %.body290.thread, %.body316.thread, %.body347.thread, %.body383.thread, %.body419.thread, %.thread822, %.body463.thread, %.body499.thread, %.thread864, %.body545.thread, %.thread899, %.body609.thread, %.body635.thread, %.body661.thread, %.thread948, %.body706.thread
-  %.pn236 = phi { ptr, i32 } [ %eh.lpad-body707971, %.body706.thread ], [ %.pn234947, %.thread948 ], [ %eh.lpad-body662937, %.body661.thread ], [ %eh.lpad-body636928, %.body635.thread ], [ %eh.lpad-body610919, %.body609.thread ], [ %.pn232898, %.thread899 ], [ %eh.lpad-body546887, %.body545.thread ], [ %.pn230863, %.thread864 ], [ %eh.lpad-body500853, %.body499.thread ], [ %eh.lpad-body464844, %.body463.thread ], [ %.pn821, %.thread822 ], [ %eh.lpad-body420813, %.body419.thread ], [ %eh.lpad-body384804, %.body383.thread ], [ %eh.lpad-body348795, %.body347.thread ], [ %eh.lpad-body317786, %.body316.thread ], [ %eh.lpad-body291777, %.body290.thread ], [ %eh.lpad-body266768, %.body265.thread ], [ %eh.lpad-body239761, %.body238.thread ], [ %1471, %1470 ], [ %282, %.body.i ]
+  %.pn236 = phi { ptr, i32 } [ %eh.lpad-body707971, %.body706.thread ], [ %282, %.body.i ], [ %.pn234947, %.thread948 ], [ %1471, %1470 ], [ %eh.lpad-body662937, %.body661.thread ], [ %.pn821, %.thread822 ], [ %eh.lpad-body636928, %.body635.thread ], [ %eh.lpad-body239761, %.body238.thread ], [ %eh.lpad-body610919, %.body609.thread ], [ %eh.lpad-body384804, %.body383.thread ], [ %.pn232898, %.thread899 ], [ %eh.lpad-body266768, %.body265.thread ], [ %eh.lpad-body546887, %.body545.thread ], [ %eh.lpad-body420813, %.body419.thread ], [ %.pn230863, %.thread864 ], [ %eh.lpad-body291777, %.body290.thread ], [ %eh.lpad-body500853, %.body499.thread ], [ %eh.lpad-body348795, %.body347.thread ], [ %eh.lpad-body464844, %.body463.thread ], [ %eh.lpad-body317786, %.body316.thread ]
   resume { ptr, i32 } %.pn236
 
 .body706.thread:                                  ; preds = %1440, %1423, %1406, %1389, %.body706.thread975
-  %eh.lpad-body707971 = phi { ptr, i32 } [ %lpad.thr_comm973, %.body706.thread975 ], [ %.pn.i702, %1389 ], [ %.pn.i710, %1406 ], [ %.pn.i719, %1423 ], [ %.pn.i728, %1440 ]
+  %eh.lpad-body707971 = phi { ptr, i32 } [ %lpad.thr_comm973, %.body706.thread975 ], [ %.pn.i719, %1423 ], [ %.pn.i710, %1406 ], [ %.pn.i702, %1389 ], [ %.pn.i728, %1440 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %84) #24
           to label %.body unwind label %1460
 
@@ -80481,7 +80481,7 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
           to label %.thread948 unwind label %1460
 
 .thread948:                                       ; preds = %1307, %1462, %1363, %1346, %1329, %1312, %.thread964
-  %.pn234947 = phi { ptr, i32 } [ %lpad.thr_comm962, %.thread964 ], [ %.pn.i667, %1312 ], [ %.pn.i675, %1329 ], [ %.pn.i683, %1346 ], [ %.pn.i692, %1363 ], [ %1308, %1307 ], [ %1463, %1462 ]
+  %.pn234947 = phi { ptr, i32 } [ %.pn.i692, %1363 ], [ %lpad.thr_comm962, %.thread964 ], [ %.pn.i683, %1346 ], [ %.pn.i667, %1312 ], [ %.pn.i675, %1329 ], [ %1308, %1307 ], [ %1463, %1462 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %94) #24
           to label %.body unwind label %1460
 
@@ -80491,12 +80491,12 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
           to label %.body unwind label %1460
 
 .body635.thread:                                  ; preds = %1251, %1234, %1217, %.body635.thread932
-  %eh.lpad-body636928 = phi { ptr, i32 } [ %lpad.thr_comm930, %.body635.thread932 ], [ %.pn.i631, %1217 ], [ %.pn.i639, %1234 ], [ %.pn.i648, %1251 ]
+  %eh.lpad-body636928 = phi { ptr, i32 } [ %lpad.thr_comm930, %.body635.thread932 ], [ %.pn.i639, %1234 ], [ %.pn.i631, %1217 ], [ %.pn.i648, %1251 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %112) #24
           to label %.body unwind label %1460
 
 .body609.thread:                                  ; preds = %1190, %1173, %1156, %.body609.thread923
-  %eh.lpad-body610919 = phi { ptr, i32 } [ %lpad.thr_comm921, %.body609.thread923 ], [ %.pn.i605, %1156 ], [ %.pn.i613, %1173 ], [ %.pn.i622, %1190 ]
+  %eh.lpad-body610919 = phi { ptr, i32 } [ %lpad.thr_comm921, %.body609.thread923 ], [ %.pn.i613, %1173 ], [ %.pn.i605, %1156 ], [ %.pn.i622, %1190 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %120) #24
           to label %.body unwind label %1460
 
@@ -80507,12 +80507,12 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
           to label %.thread899 unwind label %1460
 
 .thread899:                                       ; preds = %1094, %1464, %1133, %1116, %1099, %.thread912
-  %.pn232898 = phi { ptr, i32 } [ %lpad.thr_comm910, %.thread912 ], [ %.pn.i579, %1099 ], [ %.pn.i587, %1116 ], [ %.pn.i596, %1133 ], [ %1095, %1094 ], [ %1465, %1464 ]
+  %.pn232898 = phi { ptr, i32 } [ %.pn.i596, %1133 ], [ %lpad.thr_comm910, %.thread912 ], [ %.pn.i587, %1116 ], [ %.pn.i579, %1099 ], [ %1095, %1094 ], [ %1465, %1464 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %129) #24
           to label %.body unwind label %1460
 
 .body545.thread:                                  ; preds = %1069, %1052, %1035, %1018, %.body545.thread891
-  %eh.lpad-body546887 = phi { ptr, i32 } [ %lpad.thr_comm889, %.body545.thread891 ], [ %.pn.i541, %1018 ], [ %.pn.i549, %1035 ], [ %.pn.i558, %1052 ], [ %.pn.i567, %1069 ]
+  %eh.lpad-body546887 = phi { ptr, i32 } [ %lpad.thr_comm889, %.body545.thread891 ], [ %.pn.i558, %1052 ], [ %.pn.i549, %1035 ], [ %.pn.i541, %1018 ], [ %.pn.i567, %1069 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %138) #24
           to label %.body unwind label %1460
 
@@ -80523,7 +80523,7 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
           to label %.thread864 unwind label %1460
 
 .thread864:                                       ; preds = %939, %1466, %995, %978, %961, %944, %.thread880
-  %.pn230863 = phi { ptr, i32 } [ %lpad.thr_comm878, %.thread880 ], [ %.pn.i505, %944 ], [ %.pn.i513, %961 ], [ %.pn.i522, %978 ], [ %.pn.i531, %995 ], [ %940, %939 ], [ %1467, %1466 ]
+  %.pn230863 = phi { ptr, i32 } [ %.pn.i531, %995 ], [ %lpad.thr_comm878, %.thread880 ], [ %.pn.i522, %978 ], [ %.pn.i505, %944 ], [ %.pn.i513, %961 ], [ %940, %939 ], [ %1467, %1466 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %148) #24
           to label %.body unwind label %1460
 
@@ -80533,7 +80533,7 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
           to label %.body unwind label %1460
 
 .body463.thread:                                  ; preds = %885, %867, %850, %833, %.body463.thread848
-  %eh.lpad-body464844 = phi { ptr, i32 } [ %lpad.thr_comm846, %.body463.thread848 ], [ %.pn.i459, %833 ], [ %.pn.i467, %850 ], [ %.pn.i476, %867 ], [ %.pn.i485, %885 ]
+  %eh.lpad-body464844 = phi { ptr, i32 } [ %lpad.thr_comm846, %.body463.thread848 ], [ %.pn.i476, %867 ], [ %.pn.i467, %850 ], [ %.pn.i459, %833 ], [ %.pn.i485, %885 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %167) #24
           to label %.body unwind label %1460
 
@@ -80544,7 +80544,7 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
           to label %.thread822 unwind label %1460
 
 .thread822:                                       ; preds = %750, %1468, %807, %789, %772, %755, %.thread837
-  %.pn821 = phi { ptr, i32 } [ %lpad.thr_comm835, %.thread837 ], [ %.pn.i423, %755 ], [ %.pn.i431, %772 ], [ %.pn.i440, %789 ], [ %.pn.i449, %807 ], [ %751, %750 ], [ %1469, %1468 ]
+  %.pn821 = phi { ptr, i32 } [ %.pn.i449, %807 ], [ %lpad.thr_comm835, %.thread837 ], [ %.pn.i440, %789 ], [ %.pn.i423, %755 ], [ %.pn.i431, %772 ], [ %751, %750 ], [ %1469, %1468 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %178) #24
           to label %.body unwind label %1460
 
@@ -80554,32 +80554,32 @@ define void @"_ZN72_$LT$ruff..args..FormatCommand$u20$as$u20$clap_builder..deriv
           to label %.body unwind label %1460
 
 .body383.thread:                                  ; preds = %696, %678, %661, %644, %.body383.thread808
-  %eh.lpad-body384804 = phi { ptr, i32 } [ %lpad.thr_comm806, %.body383.thread808 ], [ %.pn.i379, %644 ], [ %.pn.i387, %661 ], [ %.pn.i396, %678 ], [ %.pn.i405, %696 ]
+  %eh.lpad-body384804 = phi { ptr, i32 } [ %lpad.thr_comm806, %.body383.thread808 ], [ %.pn.i396, %678 ], [ %.pn.i387, %661 ], [ %.pn.i379, %644 ], [ %.pn.i405, %696 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %197) #24
           to label %.body unwind label %1460
 
 .body347.thread:                                  ; preds = %618, %600, %583, %566, %.body347.thread799
-  %eh.lpad-body348795 = phi { ptr, i32 } [ %lpad.thr_comm797, %.body347.thread799 ], [ %.pn.i343, %566 ], [ %.pn.i351, %583 ], [ %.pn.i360, %600 ], [ %.pn.i369, %618 ]
+  %eh.lpad-body348795 = phi { ptr, i32 } [ %lpad.thr_comm797, %.body347.thread799 ], [ %.pn.i360, %600 ], [ %.pn.i351, %583 ], [ %.pn.i343, %566 ], [ %.pn.i369, %618 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %207) #24
           to label %.body unwind label %1460
 
 .body316.thread:                                  ; preds = %543, %525, %508, %491, %.body316.thread790
-  %eh.lpad-body317786 = phi { ptr, i32 } [ %lpad.thr_comm788, %.body316.thread790 ], [ %.pn.i312, %491 ], [ %.pn.i320, %508 ], [ %.pn.i329, %525 ], [ %.pn.i337, %543 ]
+  %eh.lpad-body317786 = phi { ptr, i32 } [ %lpad.thr_comm788, %.body316.thread790 ], [ %.pn.i329, %525 ], [ %.pn.i320, %508 ], [ %.pn.i312, %491 ], [ %.pn.i337, %543 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %218) #24
           to label %.body unwind label %1460
 
 .body290.thread:                                  ; preds = %464, %447, %430, %.body290.thread781
-  %eh.lpad-body291777 = phi { ptr, i32 } [ %lpad.thr_comm779, %.body290.thread781 ], [ %.pn.i286, %430 ], [ %.pn.i294, %447 ], [ %.pn.i303, %464 ]
+  %eh.lpad-body291777 = phi { ptr, i32 } [ %lpad.thr_comm779, %.body290.thread781 ], [ %.pn.i294, %447 ], [ %.pn.i286, %430 ], [ %.pn.i303, %464 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %227) #24
           to label %.body unwind label %1460
 
 .body265.thread:                                  ; preds = %403, %386, %369, %.body265.thread772
-  %eh.lpad-body266768 = phi { ptr, i32 } [ %lpad.thr_comm770, %.body265.thread772 ], [ %.pn.i261, %369 ], [ %.pn.i269, %386 ], [ %.pn.i278, %403 ]
+  %eh.lpad-body266768 = phi { ptr, i32 } [ %lpad.thr_comm770, %.body265.thread772 ], [ %.pn.i269, %386 ], [ %.pn.i261, %369 ], [ %.pn.i278, %403 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %237) #24
           to label %.body unwind label %1460
 
 .body238.thread:                                  ; preds = %342, %325, %308, %294, %.body238.thread763
-  %eh.lpad-body239761 = phi { ptr, i32 } [ %lpad.thr_comm, %.body238.thread763 ], [ %295, %294 ], [ %.pn.i, %308 ], [ %.pn.i244, %325 ], [ %.pn.i252, %342 ]
+  %eh.lpad-body239761 = phi { ptr, i32 } [ %lpad.thr_comm, %.body238.thread763 ], [ %.pn.i244, %325 ], [ %.pn.i, %308 ], [ %295, %294 ], [ %.pn.i252, %342 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %247) #24
           to label %.body unwind label %1460
 
@@ -80752,7 +80752,7 @@ define noundef align 8 ptr @"_ZN82_$LT$ruff..args..ServerCommand$u20$as$u20$clap
   br label %13
 
 13:                                               ; preds = %16, %8, %18, %11
-  %.sroa.0.0 = phi ptr [ %19, %18 ], [ %12, %11 ], [ null, %8 ], [ null, %16 ]
+  %.sroa.0.0 = phi ptr [ %12, %11 ], [ %19, %18 ], [ null, %8 ], [ null, %16 ]
   ret ptr %.sroa.0.0
 
 14:                                               ; preds = %8
@@ -80927,7 +80927,7 @@ define void @"_ZN72_$LT$ruff..args..ServerCommand$u20$as$u20$clap_builder..deriv
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %23, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.259, i64 noundef 7)
           to label %57 unwind label %.body40.thread73
 
-.body40.thread73:                                 ; preds = %114, %58, %57, %52
+.body40.thread73:                                 ; preds = %114, %52, %58, %57
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body40.thread
@@ -81152,7 +81152,7 @@ define void @"_ZN72_$LT$ruff..args..ServerCommand$u20$as$u20$clap_builder..deriv
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %12, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.261, i64 noundef 10)
           to label %116 unwind label %.body63.thread81
 
-.body63.thread81:                                 ; preds = %139, %117, %116, %115
+.body63.thread81:                                 ; preds = %139, %116, %115, %117
   %lpad.thr_comm79 = landingpad { ptr, i32 }
           cleanup
   br label %.body63.thread
@@ -81252,7 +81252,7 @@ define void @"_ZN72_$LT$ruff..args..ServerCommand$u20$as$u20$clap_builder..deriv
   ret void
 
 .body:                                            ; preds = %.body.i, %146, %.body40.thread, %.body63.thread
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body6478, %.body63.thread ], [ %eh.lpad-body4171, %.body40.thread ], [ %147, %146 ], [ %47, %.body.i ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body6478, %.body63.thread ], [ %47, %.body.i ], [ %eh.lpad-body4171, %.body40.thread ], [ %147, %146 ]
   resume { ptr, i32 } %.pn
 
 .body63.thread:                                   ; preds = %123, %.body63.thread81
@@ -81267,7 +81267,7 @@ define void @"_ZN72_$LT$ruff..args..ServerCommand$u20$as$u20$clap_builder..deriv
   unreachable
 
 .body40.thread:                                   ; preds = %98, %81, %64, %.body40.thread73
-  %eh.lpad-body4171 = phi { ptr, i32 } [ %lpad.thr_comm, %.body40.thread73 ], [ %.pn.i, %64 ], [ %.pn.i43, %81 ], [ %.pn.i51, %98 ]
+  %eh.lpad-body4171 = phi { ptr, i32 } [ %lpad.thr_comm, %.body40.thread73 ], [ %.pn.i43, %81 ], [ %.pn.i, %64 ], [ %.pn.i51, %98 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %28) #24
           to label %.body unwind label %144
 
@@ -81422,7 +81422,7 @@ define void @"_ZN72_$LT$ruff..args..ServerCommand$u20$as$u20$clap_builder..deriv
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %23, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.259, i64 noundef 7)
           to label %57 unwind label %.body40.thread73
 
-.body40.thread73:                                 ; preds = %114, %58, %57, %52
+.body40.thread73:                                 ; preds = %114, %52, %58, %57
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body40.thread
@@ -81651,7 +81651,7 @@ define void @"_ZN72_$LT$ruff..args..ServerCommand$u20$as$u20$clap_builder..deriv
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %12, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.261, i64 noundef 10)
           to label %119 unwind label %.body63.thread81
 
-.body63.thread81:                                 ; preds = %142, %120, %119, %115
+.body63.thread81:                                 ; preds = %142, %119, %115, %120
   %lpad.thr_comm79 = landingpad { ptr, i32 }
           cleanup
   br label %.body63.thread
@@ -81752,7 +81752,7 @@ define void @"_ZN72_$LT$ruff..args..ServerCommand$u20$as$u20$clap_builder..deriv
   ret void
 
 .body:                                            ; preds = %.body.i, %150, %.body40.thread, %.body63.thread
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body6478, %.body63.thread ], [ %eh.lpad-body4171, %.body40.thread ], [ %151, %150 ], [ %47, %.body.i ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body6478, %.body63.thread ], [ %47, %.body.i ], [ %eh.lpad-body4171, %.body40.thread ], [ %151, %150 ]
   resume { ptr, i32 } %.pn
 
 .body63.thread:                                   ; preds = %126, %.body63.thread81
@@ -81767,7 +81767,7 @@ define void @"_ZN72_$LT$ruff..args..ServerCommand$u20$as$u20$clap_builder..deriv
   unreachable
 
 .body40.thread:                                   ; preds = %98, %81, %64, %.body40.thread73
-  %eh.lpad-body4171 = phi { ptr, i32 } [ %lpad.thr_comm, %.body40.thread73 ], [ %.pn.i, %64 ], [ %.pn.i43, %81 ], [ %.pn.i51, %98 ]
+  %eh.lpad-body4171 = phi { ptr, i32 } [ %lpad.thr_comm, %.body40.thread73 ], [ %.pn.i43, %81 ], [ %.pn.i, %64 ], [ %.pn.i51, %98 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %28) #24
           to label %.body unwind label %148
 
@@ -81940,7 +81940,7 @@ define noundef align 8 ptr @"_ZN81_$LT$ruff..args..LogLevelArgs$u20$as$u20$clap_
   br label %14
 
 14:                                               ; preds = %27, %17, %25, %21, %12
-  %.sroa.0.0 = phi ptr [ %26, %25 ], [ %22, %21 ], [ %13, %12 ], [ null, %17 ], [ null, %27 ]
+  %.sroa.0.0 = phi ptr [ %26, %25 ], [ %13, %12 ], [ %22, %21 ], [ null, %17 ], [ null, %27 ]
   ret ptr %.sroa.0.0
 
 15:                                               ; preds = %9
@@ -82174,7 +82174,7 @@ define void @"_ZN71_$LT$ruff..args..LogLevelArgs$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %47, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.494, i64 noundef 7)
           to label %82 unwind label %.body50.thread169
 
-.body50.thread169:                                ; preds = %139, %83, %82, %77
+.body50.thread169:                                ; preds = %83, %139, %82, %77
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body50.thread
@@ -82465,7 +82465,7 @@ define void @"_ZN71_$LT$ruff..args..LogLevelArgs$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %35, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.496, i64 noundef 5)
           to label %160 unwind label %.body78.thread178
 
-.body78.thread178:                                ; preds = %217, %161, %160, %159
+.body78.thread178:                                ; preds = %161, %217, %160, %159
   %lpad.thr_comm176 = landingpad { ptr, i32 }
           cleanup
   br label %.body78.thread
@@ -82755,7 +82755,7 @@ define void @"_ZN71_$LT$ruff..args..LogLevelArgs$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %24, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.498, i64 noundef 6)
           to label %238 unwind label %.body114.thread187
 
-.body114.thread187:                               ; preds = %295, %239, %238, %237
+.body114.thread187:                               ; preds = %239, %295, %238, %237
   %lpad.thr_comm185 = landingpad { ptr, i32 }
           cleanup
   br label %.body114.thread
@@ -83037,11 +83037,11 @@ define void @"_ZN71_$LT$ruff..args..LogLevelArgs$u20$as$u20$clap_builder..derive
   ret void
 
 .body:                                            ; preds = %.body.i, %318, %.body50.thread, %.body78.thread, %.body114.thread
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body115183, %.body114.thread ], [ %eh.lpad-body79174, %.body78.thread ], [ %eh.lpad-body51167, %.body50.thread ], [ %319, %318 ], [ %72, %.body.i ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body115183, %.body114.thread ], [ %72, %.body.i ], [ %eh.lpad-body79174, %.body78.thread ], [ %319, %318 ], [ %eh.lpad-body51167, %.body50.thread ]
   resume { ptr, i32 } %.pn
 
 .body114.thread:                                  ; preds = %300, %279, %262, %245, %.body114.thread187
-  %eh.lpad-body115183 = phi { ptr, i32 } [ %lpad.thr_comm185, %.body114.thread187 ], [ %.pn.i110, %245 ], [ %.pn.i118, %262 ], [ %.pn.i127, %279 ], [ %.pn.i136, %300 ]
+  %eh.lpad-body115183 = phi { ptr, i32 } [ %lpad.thr_comm185, %.body114.thread187 ], [ %.pn.i127, %279 ], [ %.pn.i118, %262 ], [ %.pn.i110, %245 ], [ %.pn.i136, %300 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %29) #24
           to label %.body unwind label %316
 
@@ -83052,12 +83052,12 @@ define void @"_ZN71_$LT$ruff..args..LogLevelArgs$u20$as$u20$clap_builder..derive
   unreachable
 
 .body78.thread:                                   ; preds = %222, %201, %184, %167, %.body78.thread178
-  %eh.lpad-body79174 = phi { ptr, i32 } [ %lpad.thr_comm176, %.body78.thread178 ], [ %.pn.i74, %167 ], [ %.pn.i82, %184 ], [ %.pn.i91, %201 ], [ %.pn.i100, %222 ]
+  %eh.lpad-body79174 = phi { ptr, i32 } [ %lpad.thr_comm176, %.body78.thread178 ], [ %.pn.i91, %201 ], [ %.pn.i82, %184 ], [ %.pn.i74, %167 ], [ %.pn.i100, %222 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %40) #24
           to label %.body unwind label %316
 
 .body50.thread:                                   ; preds = %144, %123, %106, %89, %.body50.thread169
-  %eh.lpad-body51167 = phi { ptr, i32 } [ %lpad.thr_comm, %.body50.thread169 ], [ %.pn.i, %89 ], [ %.pn.i53, %106 ], [ %.pn.i61, %123 ], [ %.pn.i68, %144 ]
+  %eh.lpad-body51167 = phi { ptr, i32 } [ %lpad.thr_comm, %.body50.thread169 ], [ %.pn.i61, %123 ], [ %.pn.i53, %106 ], [ %.pn.i, %89 ], [ %.pn.i68, %144 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %52) #24
           to label %.body unwind label %316
 
@@ -83250,7 +83250,7 @@ define void @"_ZN71_$LT$ruff..args..LogLevelArgs$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %47, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.494, i64 noundef 7)
           to label %82 unwind label %.body50.thread169
 
-.body50.thread169:                                ; preds = %139, %83, %82, %77
+.body50.thread169:                                ; preds = %83, %139, %82, %77
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body50.thread
@@ -83545,7 +83545,7 @@ define void @"_ZN71_$LT$ruff..args..LogLevelArgs$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %35, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.496, i64 noundef 5)
           to label %163 unwind label %.body78.thread178
 
-.body78.thread178:                                ; preds = %220, %164, %163, %159
+.body78.thread178:                                ; preds = %164, %220, %163, %159
   %lpad.thr_comm176 = landingpad { ptr, i32 }
           cleanup
   br label %.body78.thread
@@ -83839,7 +83839,7 @@ define void @"_ZN71_$LT$ruff..args..LogLevelArgs$u20$as$u20$clap_builder..derive
   invoke void @_ZN12clap_builder7builder3arg3Arg3new17hfbe94fb98f49b7deE(ptr noalias noundef nonnull sret([672 x i8]) align 8 captures(none) dereferenceable(672) %24, ptr noalias noundef nonnull readonly align 1 @anon.8c46405b0231e28584de43f9292075af.498, i64 noundef 6)
           to label %244 unwind label %.body114.thread187
 
-.body114.thread187:                               ; preds = %301, %245, %244, %240
+.body114.thread187:                               ; preds = %245, %301, %244, %240
   %lpad.thr_comm185 = landingpad { ptr, i32 }
           cleanup
   br label %.body114.thread
@@ -84125,11 +84125,11 @@ define void @"_ZN71_$LT$ruff..args..LogLevelArgs$u20$as$u20$clap_builder..derive
   ret void
 
 .body:                                            ; preds = %.body.i, %327, %.body50.thread, %.body78.thread, %.body114.thread
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body115183, %.body114.thread ], [ %eh.lpad-body79174, %.body78.thread ], [ %eh.lpad-body51167, %.body50.thread ], [ %328, %327 ], [ %72, %.body.i ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body115183, %.body114.thread ], [ %72, %.body.i ], [ %eh.lpad-body79174, %.body78.thread ], [ %328, %327 ], [ %eh.lpad-body51167, %.body50.thread ]
   resume { ptr, i32 } %.pn
 
 .body114.thread:                                  ; preds = %306, %285, %268, %251, %.body114.thread187
-  %eh.lpad-body115183 = phi { ptr, i32 } [ %lpad.thr_comm185, %.body114.thread187 ], [ %.pn.i110, %251 ], [ %.pn.i118, %268 ], [ %.pn.i127, %285 ], [ %.pn.i136, %306 ]
+  %eh.lpad-body115183 = phi { ptr, i32 } [ %lpad.thr_comm185, %.body114.thread187 ], [ %.pn.i127, %285 ], [ %.pn.i118, %268 ], [ %.pn.i110, %251 ], [ %.pn.i136, %306 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %29) #24
           to label %.body unwind label %325
 
@@ -84140,12 +84140,12 @@ define void @"_ZN71_$LT$ruff..args..LogLevelArgs$u20$as$u20$clap_builder..derive
   unreachable
 
 .body78.thread:                                   ; preds = %225, %204, %187, %170, %.body78.thread178
-  %eh.lpad-body79174 = phi { ptr, i32 } [ %lpad.thr_comm176, %.body78.thread178 ], [ %.pn.i74, %170 ], [ %.pn.i82, %187 ], [ %.pn.i91, %204 ], [ %.pn.i100, %225 ]
+  %eh.lpad-body79174 = phi { ptr, i32 } [ %lpad.thr_comm176, %.body78.thread178 ], [ %.pn.i91, %204 ], [ %.pn.i82, %187 ], [ %.pn.i74, %170 ], [ %.pn.i100, %225 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %40) #24
           to label %.body unwind label %325
 
 .body50.thread:                                   ; preds = %144, %123, %106, %89, %.body50.thread169
-  %eh.lpad-body51167 = phi { ptr, i32 } [ %lpad.thr_comm, %.body50.thread169 ], [ %.pn.i, %89 ], [ %.pn.i53, %106 ], [ %.pn.i61, %123 ], [ %.pn.i68, %144 ]
+  %eh.lpad-body51167 = phi { ptr, i32 } [ %lpad.thr_comm, %.body50.thread169 ], [ %.pn.i61, %123 ], [ %.pn.i53, %106 ], [ %.pn.i, %89 ], [ %.pn.i68, %144 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h6d1387ee51c98662E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %52) #24
           to label %.body unwind label %325
 

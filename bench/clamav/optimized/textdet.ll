@@ -87,7 +87,7 @@ define range(i32 500, 505) i32 @cli_texttype(ptr noundef readonly captures(none)
   br i1 %36, label %37, label %td_isutf8.exit.thread
 
 37:                                               ; preds = %34, %31, %28, %25, %22
-  %.0.i = phi i32 [ 1, %22 ], [ 2, %25 ], [ 3, %28 ], [ 4, %31 ], [ 5, %34 ]
+  %.0.i = phi i32 [ 4, %31 ], [ 1, %22 ], [ 2, %25 ], [ 3, %28 ], [ 5, %34 ]
   %38 = add i32 %.0.i, %.03455.i
   %39 = zext i32 %38 to i64
   br label %41
@@ -124,7 +124,7 @@ td_isutf8.exit:                                   ; preds = %.loopexit.i, %41
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1) #2
   br label %134
 
-td_isutf8.exit.thread:                            ; preds = %34, %19, %15, %td_isutf8.exit
+td_isutf8.exit.thread:                            ; preds = %34, %15, %19, %td_isutf8.exit
   %48 = icmp eq i32 %1, 1
   br i1 %48, label %select.unfold, label %td_isutf8.exit.thread.thread22
 
@@ -281,7 +281,7 @@ td_isutf16.exit:                                  ; preds = %126, %.thread, %._c
   %133 = select i1 %131, i32 502, i32 503
   br label %134
 
-select.unfold:                                    ; preds = %.lr.ph.split.split.us.i, %.lr.ph.split.us.split.us.i, %.lr.ph.split.split.i, %122, %._crit_edge.i, %td_isutf8.exit.thread
+select.unfold:                                    ; preds = %.lr.ph.split.split.us.i, %.lr.ph.split.us.split.us.i, %122, %.lr.ph.split.split.i, %._crit_edge.i, %td_isutf8.exit.thread
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5) #2
   br label %134
 

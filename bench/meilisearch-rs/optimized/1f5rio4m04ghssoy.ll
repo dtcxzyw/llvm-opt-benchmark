@@ -185,16 +185,16 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$9
   %30 = phi i64 [ %84, %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h744ab1a01e55c493E.exit.i" ], [ %.promoted35.i, %.lr.ph.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
   %.not.i.i.i.i = icmp ult i64 %30, %.val11
-  br i1 %.not.i.i.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.i.i.i", label %31
+  br i1 %.not.i.i.i.i, label %31, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.i.i.i"
 
 31:                                               ; preds = %.lr.ph
-  %32 = icmp eq i64 %30, %.val11
-  br i1 %32, label %37, label %36
+  %32 = getelementptr inbounds i8, ptr %.val, i64 %30
+  %33 = load i8, ptr %32, align 1, !alias.scope !40, !noalias !45, !noundef !5
+  %34 = icmp sgt i8 %33, -65
+  br i1 %34, label %37, label %36
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.i.i.i": ; preds = %.lr.ph
-  %33 = getelementptr inbounds i8, ptr %.val, i64 %30
-  %34 = load i8, ptr %33, align 1, !alias.scope !40, !noalias !45, !noundef !5
-  %35 = icmp sgt i8 %34, -65
+  %35 = icmp eq i64 %30, %.val11
   br i1 %35, label %37, label %36
 
 36:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.i.i.i", %31
@@ -263,7 +263,7 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$9
   br label %56
 
 "_ZN96_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h189d834bc25f9481E.exit.i.i": ; preds = %56, %48
-  %75 = phi i32 [ %49, %48 ], [ %60, %56 ]
+  %75 = phi i32 [ %60, %56 ], [ %49, %48 ]
   br i1 %28, label %.sink.split, label %76
 
 "_ZN96_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h189d834bc25f9481E.exit.thread.i.i": ; preds = %.lr.ph.i
@@ -296,7 +296,7 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$9
   br label %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h744ab1a01e55c493E.exit.i"
 
 "_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h744ab1a01e55c493E.exit.i": ; preds = %82, %80, %78
-  %.sroa.03.0.neg.i.i = phi i64 [ -1, %78 ], [ %..i.i, %82 ], [ -2, %80 ]
+  %.sroa.03.0.neg.i.i = phi i64 [ -2, %80 ], [ %..i.i, %82 ], [ -1, %78 ]
   %84 = add i64 %.sroa.03.0.neg.i.i, %30
   store i64 %84, ptr %24, align 8, !alias.scope !34, !noalias !37
   %85 = icmp eq i64 %84, 0
@@ -350,8 +350,8 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$9
   br i1 %104, label %105, label %16
 
 105:                                              ; preds = %102, %10, %1, %122
-  %.sroa.6.0 = phi i64 [ %.pn13, %122 ], [ undef, %1 ], [ %13, %10 ], [ undef, %102 ]
-  %.sroa.0.0 = phi ptr [ %.pn15, %122 ], [ null, %1 ], [ %12, %10 ], [ null, %102 ]
+  %.sroa.6.0 = phi i64 [ undef, %1 ], [ %.pn13, %122 ], [ %13, %10 ], [ undef, %102 ]
+  %.sroa.0.0 = phi ptr [ null, %1 ], [ %.pn15, %122 ], [ %12, %10 ], [ null, %102 ]
   %106 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %107 = insertvalue { ptr, i64 } %106, i64 %.sroa.6.0, 1
   ret { ptr, i64 } %107
@@ -689,8 +689,8 @@ define void @_ZN10meili_snap34default_snapshot_settings_for_test17h23bbead29b6e1
           to label %44 unwind label %.thread
 
 42:                                               ; preds = %.body.thread, %.body
-  %.sroa.020.2.ph = phi i1 [ %.sroa.020.3, %.body ], [ %.sroa.020.3185, %.body.thread ]
-  %.pn34.ph = phi { ptr, i32 } [ %.pn.pn, %.body ], [ %.pn.pn186, %.body.thread ]
+  %.sroa.020.2.ph = phi i1 [ %.sroa.020.3185, %.body.thread ], [ %.sroa.020.3, %.body ]
+  %.pn34.ph = phi { ptr, i32 } [ %.pn.pn186, %.body.thread ], [ %.pn.pn, %.body ]
   br i1 %.sroa.020.2.ph, label %.thread172, label %"_ZN4core3ptr46drop_in_place$LT$insta..settings..Settings$GT$17h143301b41356216cE.exit"
 
 .thread:                                          ; preds = %.invoke, %6, %44, %52, %56, %67, %69, %74, %80
@@ -905,7 +905,7 @@ define void @_ZN10meili_snap34default_snapshot_settings_for_test17h23bbead29b6e1
   br i1 %113, label %.body.thread, label %42
 
 114:                                              ; preds = %231, %226, %.noexc68, %.noexc67, %146, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h93bcf4cc0f27bd71E.exit", %142, %140, %130, %125, %116, %109, %105
-  %.sroa.016.0 = phi i8 [ 1, %105 ], [ 1, %109 ], [ 1, %116 ], [ 1, %125 ], [ 1, %130 ], [ 1, %140 ], [ 1, %142 ], [ 1, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h93bcf4cc0f27bd71E.exit" ], [ 1, %146 ], [ 1, %.noexc67 ], [ 1, %.noexc68 ], [ 0, %226 ], [ 0, %231 ]
+  %.sroa.016.0 = phi i8 [ 0, %231 ], [ 1, %109 ], [ 1, %.noexc68 ], [ 1, %142 ], [ 1, %130 ], [ 1, %125 ], [ 1, %105 ], [ 1, %116 ], [ 1, %140 ], [ 1, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h93bcf4cc0f27bd71E.exit" ], [ 1, %146 ], [ 1, %.noexc67 ], [ 0, %226 ]
   %115 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -1252,7 +1252,7 @@ _ZN3std4sync6poison4Flag4done17h493818bfcfebdf65E.exit.i.i: ; preds = %228, %.no
   invoke void @_ZN3std3sys4sync5mutex5futex5Mutex4wake17hb69143d82f88043dE(ptr noundef nonnull align 4 %164)
           to label %"_ZN4core3ptr127drop_in_place$LT$std..sync..mutex..MutexGuard$LT$std..collections..hash..map..HashMap$LT$std..path..PathBuf$C$usize$GT$$GT$$GT$17he19c1a5a167e0c8aE.exit" unwind label %114
 
-.thread167:                                       ; preds = %"_ZN4core3ptr127drop_in_place$LT$std..sync..mutex..MutexGuard$LT$std..collections..hash..map..HashMap$LT$std..path..PathBuf$C$usize$GT$$GT$$GT$17he19c1a5a167e0c8aE.exit", %248, %252
+.thread167:                                       ; preds = %252, %"_ZN4core3ptr127drop_in_place$LT$std..sync..mutex..MutexGuard$LT$std..collections..hash..map..HashMap$LT$std..path..PathBuf$C$usize$GT$$GT$$GT$17he19c1a5a167e0c8aE.exit", %248
   %lpad.thr_comm165 = landingpad { ptr, i32 }
           cleanup
   br label %.thread160
@@ -1380,16 +1380,16 @@ _ZN3std3env3var17hd22e9185b7941dceE.exit:         ; preds = %"_ZN4core3ptr127dro
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hadce198af27f2353E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %27) #14
           to label %.thread160 unwind label %290
 
-268:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6e2a6ca6f88ebf6E.exit11.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6e2a6ca6f88ebf6E.exit.i", %259
+268:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6e2a6ca6f88ebf6E.exit.i", %259, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6e2a6ca6f88ebf6E.exit11.i"
   invoke void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.0d18f9b890c379d9c30b9e9e5116147c.21, i64 noundef 43, ptr noundef nonnull align 1 %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0d18f9b890c379d9c30b9e9e5116147c.22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5) #13
           to label %.noexc unwind label %266
 
 .noexc:                                           ; preds = %268
   unreachable
 
-select.unfold:                                    ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6e2a6ca6f88ebf6E.exit.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6e2a6ca6f88ebf6E.exit11.i"
-  %269 = phi ptr [ %262, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6e2a6ca6f88ebf6E.exit11.i" ], [ %260, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6e2a6ca6f88ebf6E.exit.i" ]
-  %.sroa.0.0.i87 = phi i8 [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6e2a6ca6f88ebf6E.exit11.i" ], [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6e2a6ca6f88ebf6E.exit.i" ]
+select.unfold:                                    ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6e2a6ca6f88ebf6E.exit11.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6e2a6ca6f88ebf6E.exit.i"
+  %269 = phi ptr [ %260, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6e2a6ca6f88ebf6E.exit.i" ], [ %262, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6e2a6ca6f88ebf6E.exit11.i" ]
+  %.sroa.0.0.i87 = phi i8 [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6e2a6ca6f88ebf6E.exit.i" ], [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6e2a6ca6f88ebf6E.exit11.i" ]
   %270 = load ptr, ptr %40, align 8, !nonnull !5, !noundef !5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %33, i64 24, i1 false)
   %271 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1452,7 +1452,7 @@ select.unfold:                                    ; preds = %"_ZN73_$LT$$u5b$A$u
   unreachable
 
 .thread160:                                       ; preds = %266, %242, %.thread167
-  %.pn159 = phi { ptr, i32 } [ %lpad.thr_comm165, %.thread167 ], [ %243, %242 ], [ %267, %266 ]
+  %.pn159 = phi { ptr, i32 } [ %243, %242 ], [ %lpad.thr_comm165, %.thread167 ], [ %267, %266 ]
   invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hd6a77d1d82c346efE"(ptr noalias noundef align 8 dereferenceable(24) %33) #14
           to label %.body unwind label %290
 

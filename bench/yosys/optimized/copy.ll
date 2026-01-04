@@ -619,7 +619,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44: ; preds = %_ZN
   br label %.body
 
 .body:                                            ; preds = %197, %178, %196, %120, %91, %90
-  %.pn21 = phi { ptr, i32 } [ %92, %91 ], [ %.pn14, %120 ], [ %.pn, %90 ], [ %.pn17, %196 ], [ %198, %197 ], [ %179, %178 ]
+  %.pn21 = phi { ptr, i32 } [ %92, %91 ], [ %.pn, %90 ], [ %.pn14, %120 ], [ %.pn17, %196 ], [ %198, %197 ], [ %179, %178 ]
   %199 = load ptr, ptr %8, align 8, !tbaa !22
   %200 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %201 = icmp eq ptr %199, %200

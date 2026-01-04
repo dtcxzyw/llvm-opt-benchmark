@@ -355,8 +355,8 @@ threads_stop.exit:                                ; preds = %.loopexit40.i, %._c
   store i64 12, ptr %149, align 8, !tbaa !64
   br label %get_options.exit.thread
 
-get_options.exit.thread:                          ; preds = %30, %28, %19, %10, %12, %8, %50, %54, %146, %threads_stop.exit, %128, %140, %44, %75, %135, %39, %35, %get_options.exit
-  %.1 = phi i32 [ 8, %get_options.exit ], [ 11, %35 ], [ 3, %39 ], [ 5, %50 ], [ 5, %54 ], [ 0, %146 ], [ %145, %140 ], [ %134, %128 ], [ %127, %threads_stop.exit ], [ 5, %44 ], [ 5, %75 ], [ 5, %135 ], [ 8, %28 ], [ 8, %19 ], [ 8, %10 ], [ 8, %12 ], [ 11, %8 ], [ 5, %30 ]
+get_options.exit.thread:                          ; preds = %30, %12, %28, %19, %8, %10, %50, %54, %146, %threads_stop.exit, %128, %140, %44, %75, %135, %39, %35, %get_options.exit
+  %.1 = phi i32 [ 5, %135 ], [ 8, %get_options.exit ], [ 3, %39 ], [ 11, %35 ], [ %127, %threads_stop.exit ], [ 5, %50 ], [ 5, %54 ], [ 5, %44 ], [ 5, %75 ], [ 0, %146 ], [ %145, %140 ], [ %134, %128 ], [ 8, %10 ], [ 8, %12 ], [ 8, %28 ], [ 8, %19 ], [ 11, %8 ], [ 5, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1
 }
@@ -450,8 +450,8 @@ get_options.exit:                                 ; preds = %24
   %spec.select = call i64 @llvm.uadd.sat.i64(i64 %48, i64 %34)
   br label %get_options.exit.thread
 
-get_options.exit.thread:                          ; preds = %24, %22, %13, %4, %6, %1, %47, %get_options.exit, %36, %42, %32
-  %.0 = phi i64 [ -1, %get_options.exit ], [ -1, %32 ], [ -1, %36 ], [ -1, %42 ], [ %spec.select, %47 ], [ -1, %1 ], [ -1, %6 ], [ -1, %4 ], [ -1, %13 ], [ -1, %22 ], [ -1, %24 ]
+get_options.exit.thread:                          ; preds = %24, %6, %22, %13, %1, %4, %47, %get_options.exit, %36, %42, %32
+  %.0 = phi i64 [ -1, %42 ], [ -1, %get_options.exit ], [ -1, %32 ], [ %spec.select, %47 ], [ -1, %36 ], [ -1, %4 ], [ -1, %1 ], [ -1, %13 ], [ -1, %22 ], [ -1, %6 ], [ -1, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
@@ -778,7 +778,7 @@ initialize_new_thread.exit.i.i:                   ; preds = %138
   br label %get_thread.exit.i
 
 get_thread.exit.i:                                ; preds = %.loopexit.i.i, %152, %124, %120, %110, %104, %102
-  %.046.i.i = phi i32 [ %111, %110 ], [ %106, %104 ], [ 0, %102 ], [ 0, %120 ], [ 0, %.loopexit.i.i ], [ 5, %152 ], [ 5, %124 ]
+  %.046.i.i = phi i32 [ 0, %102 ], [ 0, %120 ], [ 0, %.loopexit.i.i ], [ %111, %110 ], [ %106, %104 ], [ 5, %152 ], [ 5, %124 ]
   %173 = load ptr, ptr %30, align 8, !tbaa !47, !noalias !71
   %.not56.i = icmp eq ptr %173, null
   br i1 %.not56.i, label %stream_encode_in.exit, label %.critedge.thread.i
@@ -999,7 +999,7 @@ mythread_condtime_set.exit.i:                     ; preds = %257, %242
   br label %.split.us.us.i.backedge
 
 .split.us.us.i.backedge:                          ; preds = %278, %274
-  %.2.us.us.us.i.be = phi i8 [ %277, %274 ], [ 0, %278 ]
+  %.2.us.us.us.i.be = phi i8 [ 0, %278 ], [ %277, %274 ]
   br label %.split.us.us.i, !llvm.loop !87
 
 .split.i126:                                      ; preds = %260
@@ -1035,7 +1035,7 @@ mythread_condtime_set.exit.i:                     ; preds = %257, %242
   br i1 %293, label %wait_for_work.exit, label %.lr.ph.i, !llvm.loop !87
 
 wait_for_work.exit:                               ; preds = %.lr.ph.i, %292, %264, %266, %268, %.split.i126
-  %.us-phi.i = phi i8 [ 0, %.split.i126 ], [ %.2.us.us.us.i, %268 ], [ %.2.us.us.us.i, %266 ], [ %.2.us.us.us.i, %264 ], [ %.232.i, %.lr.ph.i ], [ %.3.i127, %292 ]
+  %.us-phi.i = phi i8 [ 0, %.split.i126 ], [ %.2.us.us.us.i, %264 ], [ %.2.us.us.us.i, %268 ], [ %.2.us.us.us.i, %266 ], [ %.232.i, %.lr.ph.i ], [ %.3.i127, %292 ]
   %294 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %26) #12
   %295 = trunc nuw i8 %.us-phi.i to i1
   br i1 %295, label %threads_stop.exit.thread, label %.outer
@@ -1050,8 +1050,8 @@ wait_for_work.exit:                               ; preds = %.lr.ph.i, %292, %26
 threads_stop.exit.thread.loopexit196:             ; preds = %232
   br label %threads_stop.exit.thread
 
-threads_stop.exit.thread:                         ; preds = %235, %236, %wait_for_work.exit, %.preheader45.i, %.preheader45.i120, %.preheader45.i113, %232, %threads_stop.exit.thread.loopexit196, %296, %58, %78, %213
-  %.2.ph = phi i32 [ %.3.i, %213 ], [ %.393, %78 ], [ %57, %58 ], [ %299, %296 ], [ 1, %232 ], [ %.393, %.preheader45.i113 ], [ %.3.i, %.preheader45.i120 ], [ %57, %.preheader45.i ], [ 1, %235 ], [ 0, %236 ], [ 101, %wait_for_work.exit ], [ %8, %threads_stop.exit.thread.loopexit196 ]
+threads_stop.exit.thread:                         ; preds = %wait_for_work.exit, %236, %235, %.preheader45.i, %.preheader45.i120, %.preheader45.i113, %232, %threads_stop.exit.thread.loopexit196, %58, %78, %296, %213
+  %.2.ph = phi i32 [ %.3.i, %213 ], [ 1, %232 ], [ %.3.i, %.preheader45.i120 ], [ %.393, %.preheader45.i113 ], [ %.393, %78 ], [ %57, %58 ], [ %299, %296 ], [ %57, %.preheader45.i ], [ 0, %236 ], [ 1, %235 ], [ 101, %wait_for_work.exit ], [ %8, %threads_stop.exit.thread.loopexit196 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -1106,7 +1106,7 @@ threads_stop.exit:                                ; preds = %296
   br label %.thread137
 
 .thread137:                                       ; preds = %312, %306, %threads_stop.exit.thread, %9, %18, %321
-  %.1 = phi i32 [ %327, %321 ], [ 0, %18 ], [ 11, %9 ], [ %.2.ph, %threads_stop.exit.thread ], [ 11, %312 ], [ %311, %306 ]
+  %.1 = phi i32 [ 0, %18 ], [ %.2.ph, %threads_stop.exit.thread ], [ %327, %321 ], [ 11, %9 ], [ 11, %312 ], [ %311, %306 ]
   ret i32 %.1
 }
 
@@ -1632,7 +1632,7 @@ worker_error.exit113.i:                           ; preds = %153, %145
   br label %.loopexit115.i
 
 .loopexit115.i:                                   ; preds = %.critedge.i, %159, %worker_error.exit113.i, %worker_error.exit, %.critedge2.loopexit.i, %worker_error.exit112.i
-  %.1.i = phi i32 [ 3, %worker_error.exit113.i ], [ 3, %worker_error.exit112.i ], [ 2, %159 ], [ 3, %worker_error.exit ], [ %.395.lcssa.i, %.critedge2.loopexit.i ], [ %80, %.critedge.i ]
+  %.1.i = phi i32 [ 3, %worker_error.exit ], [ 3, %worker_error.exit113.i ], [ 3, %worker_error.exit112.i ], [ 2, %159 ], [ %.395.lcssa.i, %.critedge2.loopexit.i ], [ %80, %.critedge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %worker_encode.exit
 
@@ -1643,7 +1643,7 @@ worker_encode.exit:                               ; preds = %.loopexit115.i, %.l
   br i1 %165, label %209, label %.preheader70
 
 .preheader74.preheader.sink.split:                ; preds = %53, %61, %41, %49
-  %.sink125 = phi ptr [ %45, %49 ], [ %45, %41 ], [ %57, %61 ], [ %57, %53 ]
+  %.sink125 = phi ptr [ %45, %41 ], [ %45, %49 ], [ %57, %61 ], [ %57, %53 ]
   %166 = getelementptr inbounds nuw i8, ptr %.sink125, i64 512
   %167 = call i32 @pthread_cond_signal(ptr noundef nonnull %166) #12
   %168 = load ptr, ptr %7, align 8, !tbaa !78

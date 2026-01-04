@@ -3537,12 +3537,12 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   br label %.loopexit
 
 .loopexit:                                        ; preds = %59, %.thread1501, %2187, %.thread1492
-  %.61483 = phi ptr [ %.2, %.thread1492 ], [ %.31480, %2187 ], [ %.01478, %.thread1501 ], [ %.01478, %59 ]
-  %.01225 = phi i32 [ 2, %.thread1492 ], [ 1, %2187 ], [ 1, %59 ], [ 0, %.thread1501 ]
-  %.71209 = phi ptr [ %.51207, %.thread1492 ], [ %.61208, %2187 ], [ %63, %59 ], [ %.21204, %.thread1501 ]
-  %.71196 = phi ptr [ %.51194, %.thread1492 ], [ %.61195, %2187 ], [ %61, %59 ], [ %.21191, %.thread1501 ]
-  %.61188 = phi ptr [ %.51187, %.thread1492 ], [ %.11183, %2187 ], [ %45, %59 ], [ %.11183, %.thread1501 ]
-  %.10 = phi i32 [ %.3, %.thread1492 ], [ %.7, %2187 ], [ %.01168, %.thread1501 ], [ %.01168, %59 ]
+  %.61483 = phi ptr [ %.31480, %2187 ], [ %.2, %.thread1492 ], [ %.01478, %.thread1501 ], [ %.01478, %59 ]
+  %.01225 = phi i32 [ 1, %2187 ], [ 2, %.thread1492 ], [ 0, %.thread1501 ], [ 1, %59 ]
+  %.71209 = phi ptr [ %.61208, %2187 ], [ %.51207, %.thread1492 ], [ %.21204, %.thread1501 ], [ %63, %59 ]
+  %.71196 = phi ptr [ %.61195, %2187 ], [ %.51194, %.thread1492 ], [ %.21191, %.thread1501 ], [ %61, %59 ]
+  %.61188 = phi ptr [ %.11183, %2187 ], [ %.51187, %.thread1492 ], [ %.11183, %.thread1501 ], [ %45, %59 ]
+  %.10 = phi i32 [ %.7, %2187 ], [ %.3, %.thread1492 ], [ %.01168, %.thread1501 ], [ %.01168, %59 ]
   %.not1270 = icmp eq i32 %.10, -2
   br i1 %.not1270, label %2213, label %2206
 
@@ -4264,8 +4264,8 @@ yy_syntax_error_arguments.exit:                   ; preds = %.critedge.i.i
   br label %yy_syntax_error_arguments.exit.thread6
 
 yy_syntax_error_arguments.exit.thread6:           ; preds = %30, %.critedge.thread.i.i, %1, %yy_syntax_error_arguments.exit, %41, %40, %39, %38
-  %.1.i5 = phi i32 [ 5, %41 ], [ 2, %38 ], [ 3, %39 ], [ 4, %40 ], [ %37, %yy_syntax_error_arguments.exit ], [ 0, %1 ], [ 1, %.critedge.thread.i.i ], [ 1, %30 ]
-  %.046 = phi ptr [ @.str.70, %41 ], [ @.str.67, %38 ], [ @.str.68, %39 ], [ @.str.69, %40 ], [ @.str.42, %yy_syntax_error_arguments.exit ], [ @.str.42, %1 ], [ @.str.66, %.critedge.thread.i.i ], [ @.str.66, %30 ]
+  %.1.i5 = phi i32 [ 4, %40 ], [ 5, %41 ], [ 1, %.critedge.thread.i.i ], [ 2, %38 ], [ 3, %39 ], [ %37, %yy_syntax_error_arguments.exit ], [ 0, %1 ], [ 1, %30 ]
+  %.046 = phi ptr [ @.str.69, %40 ], [ @.str.70, %41 ], [ @.str.66, %.critedge.thread.i.i ], [ @.str.67, %38 ], [ @.str.68, %39 ], [ @.str.42, %yy_syntax_error_arguments.exit ], [ @.str.42, %1 ], [ @.str.66, %30 ]
   %42 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.046) #9
   %43 = shl nsw i32 %.1.i5, 1
   %44 = sext i32 %43 to i64
@@ -4410,15 +4410,15 @@ yytnamerr.exit:                                   ; preds = %.preheader.split.us
   br label %yytnamerr.exit68
 
 yytnamerr.exit68:                                 ; preds = %68, %.preheader, %.thread.thread.i, %.split.us.thread.i
-  %.sink30 = phi i64 [ %95, %.thread.thread.i ], [ %.020.i, %.split.us.thread.i ], [ 1, %.preheader ], [ 1, %68 ]
-  %.sink = phi i64 [ 2, %.thread.thread.i ], [ 2, %.split.us.thread.i ], [ 1, %.preheader ], [ 1, %68 ]
-  %.1 = phi i32 [ %74, %.thread.thread.i ], [ %74, %.split.us.thread.i ], [ %.0, %.preheader ], [ %.0, %68 ]
+  %.sink30 = phi i64 [ %.020.i, %.split.us.thread.i ], [ %95, %.thread.thread.i ], [ 1, %.preheader ], [ 1, %68 ]
+  %.sink = phi i64 [ 2, %.split.us.thread.i ], [ 2, %.thread.thread.i ], [ 1, %.preheader ], [ 1, %68 ]
+  %.1 = phi i32 [ %74, %.split.us.thread.i ], [ %74, %.thread.thread.i ], [ %.0, %.preheader ], [ %.0, %68 ]
   %96 = getelementptr inbounds i8, ptr %.039, i64 %.sink30
   %97 = getelementptr inbounds nuw i8, ptr %.147, i64 %.sink
   br label %.preheader, !llvm.loop !28
 
 yy_syntax_error_arguments.exit.thread8:           ; preds = %yytnamerr.exit, %.preheader, %.critedge.i.i, %65, %yy_syntax_error_arguments.exit
-  %.041 = phi i32 [ -2, %yy_syntax_error_arguments.exit ], [ -1, %65 ], [ %.2.i.i, %.critedge.i.i ], [ 0, %.preheader ], [ -2, %yytnamerr.exit ]
+  %.041 = phi i32 [ %.2.i.i, %.critedge.i.i ], [ -2, %yy_syntax_error_arguments.exit ], [ 0, %.preheader ], [ -1, %65 ], [ -2, %yytnamerr.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.041
 }
@@ -4769,7 +4769,7 @@ define dso_local i32 @jq_parse_library(ptr noundef %0, ptr noundef captures(none
   br label %10
 
 10:                                               ; preds = %4, %2, %9
-  %.0 = phi i32 [ 1, %9 ], [ %3, %2 ], [ 0, %4 ]
+  %.0 = phi i32 [ %3, %2 ], [ 1, %9 ], [ 0, %4 ]
   ret i32 %.0
 }
 

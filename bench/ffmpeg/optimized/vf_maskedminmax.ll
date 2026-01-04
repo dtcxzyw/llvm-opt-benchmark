@@ -408,7 +408,7 @@ define internal i32 @config_output(ptr noundef captures(none) %0) #3 {
   br i1 %.not64, label %38, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %1, %23, %20
-  %26 = phi i32 [ %17, %23 ], [ %17, %20 ], [ %19, %1 ]
+  %26 = phi i32 [ %19, %1 ], [ %17, %23 ], [ %17, %20 ]
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %28 = load ptr, ptr %27, align 8, !tbaa !62
   %29 = load ptr, ptr %28, align 8, !tbaa !63
@@ -586,7 +586,7 @@ define internal i32 @process_frame(ptr noundef readonly captures(none) %0) #3 {
   br label %57
 
 57:                                               ; preds = %.critedge, %25, %1, %16, %19, %47
-  %.029 = phi i32 [ %56, %47 ], [ %14, %1 ], [ %17, %16 ], [ %20, %19 ], [ -12, %25 ], [ -12, %.critedge ]
+  %.029 = phi i32 [ -12, %.critedge ], [ %56, %47 ], [ %20, %19 ], [ %14, %1 ], [ %17, %16 ], [ -12, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

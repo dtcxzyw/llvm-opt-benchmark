@@ -504,8 +504,8 @@ check_flag.exit137:                               ; preds = %202
   br label %224
 
 check_flag.exit123.thread:                        ; preds = %202, %183, %170, %158, %144
-  %.158 = phi i32 [ %.057284, %144 ], [ 15, %158 ], [ 15, %170 ], [ 25, %183 ], [ 15, %202 ]
-  %.1 = phi ptr [ %.0285, %144 ], [ %148, %158 ], [ %166, %170 ], [ %179, %183 ], [ %192, %202 ]
+  %.158 = phi i32 [ %.057284, %144 ], [ 25, %183 ], [ 15, %158 ], [ 15, %170 ], [ 15, %202 ]
+  %.1 = phi ptr [ %.0285, %144 ], [ %179, %183 ], [ %148, %158 ], [ %166, %170 ], [ %192, %202 ]
   %207 = load ptr, ptr %3, align 8, !tbaa !9
   %208 = call i32 @KINSetPreconditioner(ptr noundef %207, ptr noundef nonnull @PrecSetupBD, ptr noundef nonnull @PrecSolveBD) #10
   %209 = icmp slt i32 %208, 0
@@ -548,7 +548,7 @@ check_flag.exit141:                               ; preds = %212
   br label %224
 
 224:                                              ; preds = %check_flag.exit141, %check_flag.exit139, %check_flag.exit137, %check_flag.exit135, %check_flag.exit133, %check_flag.exit131, %check_flag.exit129, %check_flag.exit127, %check_flag.exit125, %check_flag.exit123, %check_flag.exit121, %check_flag.exit119, %check_flag.exit117, %check_flag.exit115, %check_flag.exit113, %check_flag.exit111, %check_flag.exit109, %check_flag.exit107, %check_flag.exit101, %check_flag.exit99, %check_flag.exit97, %check_flag.exit95, %222
-  %.059 = phi i32 [ 0, %222 ], [ 1, %check_flag.exit95 ], [ 1, %check_flag.exit97 ], [ 1, %check_flag.exit99 ], [ 1, %check_flag.exit101 ], [ 1, %check_flag.exit107 ], [ 1, %check_flag.exit109 ], [ 1, %check_flag.exit111 ], [ 1, %check_flag.exit113 ], [ 1, %check_flag.exit115 ], [ 1, %check_flag.exit117 ], [ 1, %check_flag.exit119 ], [ 1, %check_flag.exit121 ], [ 1, %check_flag.exit123 ], [ 1, %check_flag.exit125 ], [ 1, %check_flag.exit127 ], [ 1, %check_flag.exit129 ], [ 1, %check_flag.exit131 ], [ 1, %check_flag.exit133 ], [ 1, %check_flag.exit135 ], [ 1, %check_flag.exit137 ], [ 1, %check_flag.exit139 ], [ 1, %check_flag.exit141 ]
+  %.059 = phi i32 [ 0, %222 ], [ 1, %check_flag.exit141 ], [ 1, %check_flag.exit95 ], [ 1, %check_flag.exit97 ], [ 1, %check_flag.exit99 ], [ 1, %check_flag.exit101 ], [ 1, %check_flag.exit107 ], [ 1, %check_flag.exit109 ], [ 1, %check_flag.exit111 ], [ 1, %check_flag.exit113 ], [ 1, %check_flag.exit115 ], [ 1, %check_flag.exit137 ], [ 1, %check_flag.exit139 ], [ 1, %check_flag.exit117 ], [ 1, %check_flag.exit119 ], [ 1, %check_flag.exit121 ], [ 1, %check_flag.exit123 ], [ 1, %check_flag.exit125 ], [ 1, %check_flag.exit127 ], [ 1, %check_flag.exit129 ], [ 1, %check_flag.exit131 ], [ 1, %check_flag.exit133 ], [ 1, %check_flag.exit135 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.059

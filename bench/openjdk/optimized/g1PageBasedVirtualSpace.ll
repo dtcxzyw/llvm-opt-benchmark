@@ -689,7 +689,7 @@ _ZNK23G1PageBasedVirtualSpace19is_area_uncommittedEmm.exit.thread18: ; preds = %
   br i1 %63, label %_ZNK6BitMap18find_first_set_bitEmm.exit, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread
 
 _ZNK6BitMap18find_first_set_bitEmm.exit:          ; preds = %40, %60
-  %.0.i.i = phi i64 [ %1, %40 ], [ %62, %60 ]
+  %.0.i.i = phi i64 [ %62, %60 ], [ %1, %40 ]
   %64 = icmp ult i64 %.0.i.i, %4
   br i1 %64, label %65, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread
 

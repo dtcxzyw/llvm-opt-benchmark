@@ -590,8 +590,8 @@ lpad.loopexit.split-lp.i:                         ; preds = %_ZNSt12_Vector_base
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.loopexit.i, %lpad.loopexit.split-lp.i
-  %15 = phi ptr [ %7, %lpad.loopexit.i ], [ %14, %lpad.loopexit.split-lp.i ]
-  %eh.lpad-body.i = phi { ptr, i32 } [ %lpad.loopexit1.i, %lpad.loopexit.i ], [ %lpad.loopexit.split-lp2.i, %lpad.loopexit.split-lp.i ]
+  %15 = phi ptr [ %14, %lpad.loopexit.split-lp.i ], [ %7, %lpad.loopexit.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %lpad.loopexit.split-lp2.i, %lpad.loopexit.split-lp.i ], [ %lpad.loopexit1.i, %lpad.loopexit.i ]
   call void @_ZN5folly9LockedPtrIKNS_12SynchronizedISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_IN8facebook5velox4exec17FunctionSignatureESt10unique_ptrIKNSB_13FunctionEntryESt14default_deleteISF_EESt4hashISC_ESt8equal_toISC_ESaISt4pairIKSC_SI_EEESJ_IS8_ESL_IS8_ESaISN_IKS8_SR_EEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNS14_22SynchronizedMutexLevelE2ELNS14_23SynchronizedMutexMethodE0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #16
   %tobool.not.i.i.i = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPKN8facebook5velox4exec17FunctionSignatureESaIS5_EED2Ev.exit, label %if.then.i.i.i
@@ -601,7 +601,7 @@ if.then.i.i.i:                                    ; preds = %lpad.body
   br label %_ZNSt6vectorIPKN8facebook5velox4exec17FunctionSignatureESaIS5_EED2Ev.exit
 
 _ZNSt6vectorIPKN8facebook5velox4exec17FunctionSignatureESaIS5_EED2Ev.exit: ; preds = %lpad.body.thread9, %lpad.body, %if.then.i.i.i
-  %eh.lpad-body8 = phi { ptr, i32 } [ %eh.lpad-body.i, %lpad.body ], [ %eh.lpad-body.i, %if.then.i.i.i ], [ %0, %lpad.body.thread9 ]
+  %eh.lpad-body8 = phi { ptr, i32 } [ %0, %lpad.body.thread9 ], [ %eh.lpad-body.i, %lpad.body ], [ %eh.lpad-body.i, %if.then.i.i.i ]
   resume { ptr, i32 } %eh.lpad-body8
 
 nrvo.skipdtor:                                    ; preds = %if.then.i.i6.i, %invoke.cont2.i
@@ -2992,8 +2992,8 @@ land.rhs:                                         ; preds = %for.inc.i.i.i.i, %l
   %cmp = icmp eq i8 %17, 0
   br label %land.end
 
-land.end:                                         ; preds = %for.body.i.i, %if.end18.i.i, %lor.lhs.false.i.i, %for.body.i.i.i.i, %entry, %land.lhs.true5, %land.rhs, %land.lhs.true
-  %18 = phi i1 [ false, %land.lhs.true ], [ %cmp, %land.rhs ], [ false, %land.lhs.true5 ], [ false, %entry ], [ false, %for.body.i.i.i.i ], [ false, %lor.lhs.false.i.i ], [ false, %if.end18.i.i ], [ false, %for.body.i.i ]
+land.end:                                         ; preds = %for.body.i.i, %lor.lhs.false.i.i, %if.end18.i.i, %for.body.i.i.i.i, %entry, %land.lhs.true5, %land.rhs, %land.lhs.true
+  %18 = phi i1 [ %cmp, %land.rhs ], [ false, %land.lhs.true ], [ false, %for.body.i.i.i.i ], [ false, %land.lhs.true5 ], [ false, %entry ], [ false, %lor.lhs.false.i.i ], [ false, %if.end18.i.i ], [ false, %for.body.i.i ]
   ret i1 %18
 }
 
@@ -3085,7 +3085,7 @@ if.end.i.i.i:                                     ; preds = %land.rhs.i.i
   br label %land.end
 
 land.end:                                         ; preds = %for.body.i.i, %land.lhs.true, %entry, %if.end.i.i.i, %land.rhs.i.i, %lor.rhs.i, %land.rhs, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
-  %10 = phi i1 [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %not..i, %land.rhs ], [ false, %lor.rhs.i ], [ %9, %if.end.i.i.i ], [ true, %land.rhs.i.i ], [ false, %entry ], [ false, %land.lhs.true ], [ false, %for.body.i.i ]
+  %10 = phi i1 [ false, %entry ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %9, %if.end.i.i.i ], [ %not..i, %land.rhs ], [ true, %land.rhs.i.i ], [ false, %lor.rhs.i ], [ false, %land.lhs.true ], [ false, %for.body.i.i ]
   ret i1 %10
 }
 
@@ -3895,7 +3895,7 @@ lpad5.i:                                          ; preds = %if.then.i.i.i.i.i.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad.i.loopexit, %lpad.i.loopexit.split-lp, %if.then.i.i.i, %lpad10.i, %lpad5.i
-  %.pn.i = phi { ptr, i32 } [ %7, %lpad5.i ], [ %4, %if.then.i.i.i ], [ %4, %lpad10.i ], [ %lpad.loopexit, %lpad.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad.i.loopexit.split-lp ]
+  %.pn.i = phi { ptr, i32 } [ %7, %lpad5.i ], [ %4, %lpad10.i ], [ %4, %if.then.i.i.i ], [ %lpad.loopexit, %lpad.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad.i.loopexit.split-lp ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(96) %__cur.015) #16
   br label %lpad.body
 
@@ -4326,7 +4326,7 @@ if.then.i:                                        ; preds = %_ZNKSt8__detail15_H
   br label %return
 
 return:                                           ; preds = %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St13unordered_mapIN8facebook5velox4exec17FunctionSignatureESt10unique_ptrIKNSC_13FunctionEntryESt14default_deleteISG_EESt4hashISD_ESt8equal_toISD_ESaIS7_IKSD_SJ_EEEENS_10_Select1stESM_IS6_ESK_IS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISS_Lb1EEE.exit, %for.inc, %land.rhs.i.i.i, %if.then, %if.then.i, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St13unordered_mapIN8facebook5velox4exec17FunctionSignatureESt10unique_ptrIKNSC_13FunctionEntryESt14default_deleteISG_EESt4hashISD_ESt8equal_toISD_ESaIS7_IKSD_SJ_EEEENS_10_Select1stESK_IS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit
-  %retval.sroa.0.1 = phi ptr [ %5, %if.then.i ], [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St13unordered_mapIN8facebook5velox4exec17FunctionSignatureESt10unique_ptrIKNSC_13FunctionEntryESt14default_deleteISG_EESt4hashISD_ESt8equal_toISD_ESaIS7_IKSD_SJ_EEEENS_10_Select1stESK_IS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ null, %if.then ], [ %retval.sroa.0.010, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St13unordered_mapIN8facebook5velox4exec17FunctionSignatureESt10unique_ptrIKNSC_13FunctionEntryESt14default_deleteISG_EESt4hashISD_ESt8equal_toISD_ESaIS7_IKSD_SJ_EEEENS_10_Select1stESM_IS6_ESK_IS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISS_Lb1EEE.exit ], [ null, %for.inc ], [ %retval.sroa.0.010, %land.rhs.i.i.i ]
+  %retval.sroa.0.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St13unordered_mapIN8facebook5velox4exec17FunctionSignatureESt10unique_ptrIKNSC_13FunctionEntryESt14default_deleteISG_EESt4hashISD_ESt8equal_toISD_ESaIS7_IKSD_SJ_EEEENS_10_Select1stESK_IS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ %5, %if.then.i ], [ null, %if.then ], [ null, %for.inc ], [ %retval.sroa.0.010, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St13unordered_mapIN8facebook5velox4exec17FunctionSignatureESt10unique_ptrIKNSC_13FunctionEntryESt14default_deleteISG_EESt4hashISD_ESt8equal_toISD_ESaIS7_IKSD_SJ_EEEENS_10_Select1stESM_IS6_ESK_IS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISS_Lb1EEE.exit ], [ %retval.sroa.0.010, %land.rhs.i.i.i ]
   ret ptr %retval.sroa.0.1
 }
 

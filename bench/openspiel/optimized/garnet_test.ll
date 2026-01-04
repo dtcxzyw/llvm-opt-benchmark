@@ -549,7 +549,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit34.i: ; p
   br label %common.resume
 
 common.resume:                                    ; preds = %.body.i1, %255, %.body.i, %.body23.i, %174, %.body.i13
-  %common.resume.op = phi { ptr, i32 } [ %.pn6.pn.pn.i14, %.body.i13 ], [ %.pn15.pn.pn.i, %174 ], [ %.pn10.i, %.body23.i ], [ %.pn.i, %.body.i ], [ %.pn6.pn.i, %255 ], [ %.pn.i2, %.body.i1 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn6.pn.pn.i14, %.body.i13 ], [ %.pn.i, %.body.i ], [ %.pn15.pn.pn.i, %174 ], [ %.pn10.i, %.body23.i ], [ %.pn6.pn.i, %255 ], [ %.pn.i2, %.body.i1 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10open_spiel6garnet12_GLOBAL__N_18TestLoadEv.exit: ; preds = %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit28.i, %144, %157, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
@@ -1075,8 +1075,8 @@ _ZNSt8functionIFvRKN10open_spiel5StateEEED2Ev.exit23.i: ; preds = %357, %354
   br label %.body.i13
 
 .body.i13:                                        ; preds = %362, %350, %348, %346, %261, %257
-  %.sink.i = phi ptr [ %6, %346 ], [ %6, %257 ], [ %6, %348 ], [ %9, %350 ], [ %9, %261 ], [ %9, %362 ]
-  %.pn6.pn.pn.i14 = phi { ptr, i32 } [ %347, %346 ], [ %258, %257 ], [ %349, %348 ], [ %351, %350 ], [ %262, %261 ], [ %.pn6.i18, %362 ]
+  %.sink.i = phi ptr [ %6, %348 ], [ %6, %346 ], [ %6, %257 ], [ %9, %350 ], [ %9, %261 ], [ %9, %362 ]
+  %.pn6.pn.pn.i14 = phi { ptr, i32 } [ %349, %348 ], [ %347, %346 ], [ %258, %257 ], [ %351, %350 ], [ %262, %261 ], [ %.pn6.i18, %362 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink.i) #14
   br label %common.resume
 

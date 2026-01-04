@@ -96,7 +96,7 @@ define noundef i64 @redisNetRead(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   br label %21
 
 21:                                               ; preds = %7, %3, %10, %20, %.thread, %18
-  %.0 = phi i64 [ -1, %18 ], [ -1, %.thread ], [ -1, %20 ], [ 0, %10 ], [ %6, %3 ], [ 0, %7 ]
+  %.0 = phi i64 [ 0, %10 ], [ -1, %18 ], [ -1, %.thread ], [ -1, %20 ], [ 0, %7 ], [ %6, %3 ]
   ret i64 %.0
 }
 
@@ -157,7 +157,7 @@ define range(i64 -1, -9223372036854775808) i64 @redisNetWrite(ptr noundef %0) lo
   br label %hi_sdslen.exit
 
 hi_sdslen.exit:                                   ; preds = %1, %10, %13, %17, %21, %25
-  %.0.i = phi i64 [ %12, %10 ], [ %16, %13 ], [ %20, %17 ], [ %24, %21 ], [ %27, %25 ], [ 0, %1 ]
+  %.0.i = phi i64 [ %27, %25 ], [ %12, %10 ], [ %16, %13 ], [ %20, %17 ], [ %24, %21 ], [ 0, %1 ]
   %28 = tail call i64 @send(i32 noundef %3, ptr noundef nonnull %5, i64 noundef %.0.i, i32 noundef 0) #10
   %29 = icmp slt i64 %28, 0
   br i1 %29, label %30, label %38
@@ -183,7 +183,7 @@ hi_sdslen.exit:                                   ; preds = %1, %10, %13, %17, %
   br label %38
 
 38:                                               ; preds = %30, %hi_sdslen.exit, %33, %.thread
-  %.0 = phi i64 [ -1, %.thread ], [ 0, %33 ], [ %28, %hi_sdslen.exit ], [ 0, %30 ]
+  %.0 = phi i64 [ 0, %33 ], [ -1, %.thread ], [ 0, %30 ], [ %28, %hi_sdslen.exit ]
   ret i64 %.0
 }
 
@@ -364,7 +364,7 @@ define range(i32 -1, 1) i32 @redisCheckConnectDone(ptr noundef readonly captures
   br label %27
 
 27:                                               ; preds = %19, %26
-  %.215 = phi i32 [ %24, %26 ], [ 115, %19 ]
+  %.215 = phi i32 [ 115, %19 ], [ %24, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %28
@@ -386,7 +386,7 @@ define range(i32 -1, 1) i32 @redisCheckConnectDone(ptr noundef readonly captures
   br label %31
 
 31:                                               ; preds = %29, %30, %.critedge, %28, %14
-  %.0 = phi i32 [ 0, %14 ], [ 0, %29 ], [ 0, %30 ], [ 0, %.critedge ], [ -1, %28 ]
+  %.0 = phi i32 [ 0, %14 ], [ 0, %.critedge ], [ 0, %29 ], [ 0, %30 ], [ -1, %28 ]
   ret i32 %.0
 }
 
@@ -980,7 +980,7 @@ redisNetClose.exit134:                            ; preds = %159, %162
   br label %.thread
 
 redisNetClose.exit:                               ; preds = %redisNetClose.exit134, %.preheader, %153, %151
-  %.1154 = phi i32 [ %.1168, %153 ], [ %.1168, %151 ], [ %.089172, %.preheader ], [ %160, %redisNetClose.exit134 ]
+  %.1154 = phi i32 [ %.1168, %151 ], [ %.1168, %153 ], [ %.089172, %.preheader ], [ %160, %redisNetClose.exit134 ]
   %177 = getelementptr inbounds nuw i8, ptr %.094173, i64 40
   %.094 = load ptr, ptr %177, align 8, !tbaa !31
   %.not115 = icmp eq ptr %.094, null
@@ -1001,7 +1001,7 @@ redisContextUpdateConnectTimeout.exit:            ; preds = %131, %34, %22
   br label %.thread
 
 .thread:                                          ; preds = %100, %158, %._crit_edge, %114, %107, %redisContextTimeoutMsec.exit, %redisContextUpdateConnectTimeout.exit, %.loopexit141, %170, %172, %._crit_edge174, %174
-  %.192 = phi i32 [ 0, %174 ], [ -1, %._crit_edge174 ], [ -1, %172 ], [ -1, %170 ], [ -1, %.loopexit141 ], [ -1, %redisContextTimeoutMsec.exit ], [ -1, %redisContextUpdateConnectTimeout.exit ], [ -1, %107 ], [ -1, %114 ], [ -1, %._crit_edge ], [ -1, %158 ], [ -1, %100 ]
+  %.192 = phi i32 [ 0, %174 ], [ -1, %redisContextUpdateConnectTimeout.exit ], [ -1, %._crit_edge174 ], [ -1, %172 ], [ -1, %170 ], [ -1, %.loopexit141 ], [ -1, %114 ], [ -1, %._crit_edge ], [ -1, %redisContextTimeoutMsec.exit ], [ -1, %107 ], [ -1, %158 ], [ -1, %100 ]
   %182 = load ptr, ptr %9, align 8, !tbaa !31
   %.not128 = icmp eq ptr %182, null
   br i1 %.not128, label %184, label %183
@@ -1194,7 +1194,7 @@ redisContextUpdateConnectTimeout.exit:            ; preds = %32, %57, %20
   br label %80
 
 80:                                               ; preds = %redisContextTimeoutMsec.exit, %redisCreateSocket.exit.thread, %76, %73, %13, %redisContextUpdateConnectTimeout.exit, %.thread
-  %.0 = phi i32 [ -1, %redisContextUpdateConnectTimeout.exit ], [ 0, %.thread ], [ -1, %13 ], [ -1, %redisContextTimeoutMsec.exit ], [ -1, %73 ], [ -1, %76 ], [ -1, %redisCreateSocket.exit.thread ]
+  %.0 = phi i32 [ 0, %.thread ], [ -1, %redisCreateSocket.exit.thread ], [ -1, %redisContextUpdateConnectTimeout.exit ], [ -1, %13 ], [ -1, %redisContextTimeoutMsec.exit ], [ -1, %73 ], [ -1, %76 ]
   ret i32 %.0
 }
 
@@ -1257,7 +1257,7 @@ redisNetClose.exit.sink.split:                    ; preds = %23, %9
   br label %redisNetClose.exit
 
 redisNetClose.exit:                               ; preds = %redisNetClose.exit.sink.split, %23, %9, %18
-  %.010 = phi i32 [ 0, %18 ], [ -1, %9 ], [ -1, %23 ], [ -1, %redisNetClose.exit.sink.split ]
+  %.010 = phi i32 [ 0, %18 ], [ -1, %23 ], [ -1, %9 ], [ -1, %redisNetClose.exit.sink.split ]
   ret i32 %.010
 }
 
@@ -1367,7 +1367,7 @@ define internal fastcc range(i32 -1, 1) i32 @redisContextWaitReady(ptr noundef %
   br label %53
 
 53:                                               ; preds = %52, %45
-  %.215.i = phi i32 [ %50, %52 ], [ 115, %45 ]
+  %.215.i = phi i32 [ 115, %45 ], [ %50, %52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %54
@@ -1397,7 +1397,7 @@ redisCheckConnectDone.exit.thread:                ; preds = %54
   br label %redisNetClose.exit
 
 redisNetClose.exit:                               ; preds = %.critedge.i, %33, %54, %59, %56, %redisCheckConnectDone.exit.thread, %18, %26, %28, %31
-  %.1 = phi i32 [ -1, %redisCheckConnectDone.exit.thread ], [ -1, %18 ], [ -1, %26 ], [ -1, %28 ], [ -1, %31 ], [ -1, %56 ], [ -1, %59 ], [ 0, %54 ], [ 0, %33 ], [ 0, %.critedge.i ]
+  %.1 = phi i32 [ -1, %31 ], [ 0, %54 ], [ -1, %26 ], [ -1, %redisCheckConnectDone.exit.thread ], [ -1, %18 ], [ -1, %28 ], [ -1, %56 ], [ -1, %59 ], [ 0, %33 ], [ 0, %.critedge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.1
 }

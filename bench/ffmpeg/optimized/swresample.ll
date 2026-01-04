@@ -561,7 +561,7 @@ define range(i32 -2147483648, 1) i32 @swr_init(ptr noundef initializes((10600, 1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %166, %164, %142, %125, %121
-  %.sink = phi i32 [ 6, %121 ], [ 6, %125 ], [ 6, %142 ], [ 7, %164 ], [ %., %166 ]
+  %.sink = phi i32 [ 6, %121 ], [ 6, %125 ], [ %., %166 ], [ 7, %164 ], [ 6, %142 ]
   store i32 %.sink, ptr %63, align 4, !tbaa !45
   br label %170
 
@@ -1021,12 +1021,12 @@ thread-pre-split:                                 ; preds = %293, %.thread, %291
   br i1 %397, label %398, label %399
 
 398:                                              ; preds = %338, %395, %301, %296, %288, %281, %261
-  %.0 = phi i32 [ -22, %261 ], [ -22, %288 ], [ %320, %301 ], [ %396, %395 ], [ -22, %296 ], [ -22, %281 ], [ -12, %338 ]
+  %.0 = phi i32 [ -22, %261 ], [ -22, %288 ], [ %320, %301 ], [ %396, %395 ], [ -22, %281 ], [ -22, %296 ], [ -12, %338 ]
   call fastcc void @clear_context(ptr noundef nonnull %0)
   br label %399
 
 399:                                              ; preds = %392, %395, %89, %49, %398, %332, %250, %174, %72, %.critedge318, %.critedge, %22, %17, %12, %7
-  %.0255 = phi i32 [ -22, %7 ], [ -22, %12 ], [ -22, %17 ], [ -22, %22 ], [ -22, %.critedge ], [ -22, %.critedge318 ], [ -22, %174 ], [ %.0, %398 ], [ 0, %332 ], [ -12, %250 ], [ -22, %72 ], [ %58, %49 ], [ %90, %89 ], [ 0, %395 ], [ 0, %392 ]
+  %.0255 = phi i32 [ -22, %7 ], [ -22, %12 ], [ -22, %17 ], [ -22, %22 ], [ -22, %.critedge ], [ -22, %.critedge318 ], [ -22, %72 ], [ %58, %49 ], [ -22, %174 ], [ %.0, %398 ], [ %90, %89 ], [ 0, %332 ], [ -12, %250 ], [ 0, %395 ], [ 0, %392 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0255
@@ -1218,7 +1218,7 @@ define range(i32 -22, 2) i32 @swri_realloc_audio(ptr noundef captures(none) %0, 
   br label %72
 
 72:                                               ; preds = %16, %13, %2, %5, %70
-  %.0 = phi i32 [ 1, %70 ], [ -22, %5 ], [ -22, %2 ], [ 0, %13 ], [ -12, %16 ]
+  %.0 = phi i32 [ 0, %13 ], [ -22, %2 ], [ 1, %70 ], [ -22, %5 ], [ -12, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -1786,7 +1786,7 @@ buf_set.exit220:                                  ; preds = %224, %237, %.prehea
   br label %.loopexit
 
 .loopexit:                                        ; preds = %39, %.thread, %97, %100, %102, %57, %257, %17
-  %.0129 = phi i32 [ %.3, %257 ], [ -22, %17 ], [ 0, %57 ], [ %98, %102 ], [ %98, %100 ], [ %98, %97 ], [ %.2131.ph, %.thread ], [ 0, %39 ]
+  %.0129 = phi i32 [ %.2131.ph, %.thread ], [ 0, %57 ], [ %.3, %257 ], [ -22, %17 ], [ %98, %102 ], [ %98, %100 ], [ %98, %97 ], [ 0, %39 ]
   ret i32 %.0129
 }
 
@@ -1895,7 +1895,7 @@ define internal fastcc i32 @swr_convert_internal(ptr noundef %0, ptr noundef %1,
   br label %60
 
 60:                                               ; preds = %57, %54, %47
-  %.0223 = phi ptr [ %17, %54 ], [ %17, %47 ], [ %spec.select, %57 ]
+  %.0223 = phi ptr [ %spec.select, %57 ], [ %17, %47 ], [ %17, %54 ]
   %61 = load i32, ptr %21, align 8, !tbaa !76
   %.not260 = icmp eq i32 %61, 0
   br i1 %.not260, label %.thread288, label %.thread285
@@ -1979,9 +1979,9 @@ define internal fastcc i32 @swr_convert_internal(ptr noundef %0, ptr noundef %1,
   br label %96
 
 96:                                               ; preds = %94, %92, %80, %75, %71
-  %.1237 = phi ptr [ %.0236282, %80 ], [ %.0236282, %75 ], [ %.0236282, %71 ], [ %1, %92 ], [ %..0236, %94 ]
-  %.1235 = phi ptr [ %.0234, %80 ], [ %.0234, %75 ], [ %.0234, %71 ], [ %1, %92 ], [ %1, %94 ]
-  %.1224 = phi ptr [ %.0223, %80 ], [ %.0223, %75 ], [ %.0223, %71 ], [ %1, %92 ], [ %.0223, %94 ]
+  %.1237 = phi ptr [ %.0236282, %80 ], [ %.0236282, %71 ], [ %..0236, %94 ], [ %1, %92 ], [ %.0236282, %75 ]
+  %.1235 = phi ptr [ %.0234, %80 ], [ %.0234, %71 ], [ %1, %94 ], [ %1, %92 ], [ %.0234, %75 ]
+  %.1224 = phi ptr [ %.0223, %80 ], [ %.0223, %71 ], [ %.0223, %94 ], [ %1, %92 ], [ %.0223, %75 ]
   %.not269 = icmp eq ptr %3, %.1224
   br i1 %.not269, label %101, label %97
 
@@ -2284,7 +2284,7 @@ define internal fastcc i32 @swr_convert_internal(ptr noundef %0, ptr noundef %1,
   br label %.loopexit304
 
 .loopexit304:                                     ; preds = %146, %121, %.thread293, %134, %130, %118, %104, %43, %39, %30, %16, %90, %14
-  %.0 = phi i32 [ %2, %14 ], [ %91, %90 ], [ %18, %16 ], [ %32, %30 ], [ %41, %39 ], [ %45, %43 ], [ %105, %104 ], [ %119, %118 ], [ %136, %134 ], [ %132, %130 ], [ %.1222, %.thread293 ], [ %.1222, %121 ], [ %155, %146 ]
+  %.0 = phi i32 [ %2, %14 ], [ %32, %30 ], [ %18, %16 ], [ %41, %39 ], [ %45, %43 ], [ %132, %130 ], [ %119, %118 ], [ %105, %104 ], [ %91, %90 ], [ %.1222, %121 ], [ %136, %134 ], [ %.1222, %.thread293 ], [ %155, %146 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -2697,7 +2697,7 @@ define i32 @swr_set_compensation(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   br label %26
 
 26:                                               ; preds = %18, %12, %6, %3, %23
-  %.0 = phi i32 [ %25, %23 ], [ -22, %3 ], [ -22, %6 ], [ %16, %12 ], [ -22, %18 ]
+  %.0 = phi i32 [ -22, %6 ], [ -22, %3 ], [ %25, %23 ], [ %16, %12 ], [ -22, %18 ]
   ret i32 %.0
 }
 
@@ -3377,9 +3377,9 @@ buf_set.exit189:                                  ; preds = %179, %189, %.prehea
   br i1 %220, label %214, label %buf_set.exit200, !llvm.loop !104
 
 buf_set.exit200:                                  ; preds = %204, %214, %208, %.preheader.i191, %159, %162
-  %.3125 = phi i32 [ %.1123, %162 ], [ %.1123, %159 ], [ %171, %.preheader.i191 ], [ %171, %208 ], [ %171, %214 ], [ %171, %204 ]
-  %.4 = phi i32 [ %.2120, %162 ], [ %.2120, %159 ], [ %197, %.preheader.i191 ], [ %197, %208 ], [ %197, %214 ], [ %197, %204 ]
-  %.3117 = phi i32 [ %.1115, %162 ], [ %.1115, %159 ], [ %172, %.preheader.i191 ], [ %172, %208 ], [ %172, %214 ], [ %172, %204 ]
+  %.3125 = phi i32 [ %.1123, %162 ], [ %.1123, %159 ], [ %171, %.preheader.i191 ], [ %171, %214 ], [ %171, %208 ], [ %171, %204 ]
+  %.4 = phi i32 [ %.2120, %162 ], [ %.2120, %159 ], [ %197, %.preheader.i191 ], [ %197, %214 ], [ %197, %208 ], [ %197, %204 ]
+  %.3117 = phi i32 [ %.1115, %162 ], [ %.1115, %159 ], [ %172, %.preheader.i191 ], [ %172, %214 ], [ %172, %208 ], [ %172, %204 ]
   %221 = load i32, ptr %17, align 8, !tbaa !30
   %222 = load i32, ptr %18, align 4, !tbaa !31
   %223 = add i32 %222, %.4
@@ -3590,8 +3590,8 @@ buf_set.exit233:                                  ; preds = %299, %309, %.prehea
   br i1 %or.cond3.not, label %.thread, label %320
 
 .thread:                                          ; preds = %buf_set.exit167, %255, %buf_set.exit233
-  %.2124.ph = phi i32 [ %.3125, %255 ], [ %102, %buf_set.exit167 ], [ %.3125, %buf_set.exit233 ]
-  %.2116.ph = phi i32 [ %.3117, %255 ], [ %103, %buf_set.exit167 ], [ %.3117, %buf_set.exit233 ]
+  %.2124.ph = phi i32 [ %102, %buf_set.exit167 ], [ %.3125, %255 ], [ %.3125, %buf_set.exit233 ]
+  %.2116.ph = phi i32 [ %103, %buf_set.exit167 ], [ %.3117, %255 ], [ %.3117, %buf_set.exit233 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %318 = icmp ne i32 %.2124.ph, 0
   %319 = zext i1 %318 to i32
@@ -3603,7 +3603,7 @@ buf_set.exit233:                                  ; preds = %299, %309, %.prehea
   br label %68
 
 321:                                              ; preds = %.thread242, %21, %5, %.thread
-  %.0104 = phi i32 [ %.2116.ph, %.thread ], [ 0, %5 ], [ %19, %21 ], [ %253, %.thread242 ]
+  %.0104 = phi i32 [ %.2116.ph, %.thread ], [ 0, %5 ], [ %253, %.thread242 ], [ %19, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

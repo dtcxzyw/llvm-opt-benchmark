@@ -6093,14 +6093,14 @@ ehcleanup880:                                     ; preds = %ehcleanup878
   br i1 %cleanup.isactive875.0, label %cleanup.action885, label %if.then.i.i2254
 
 cleanup.action885.sink.split:                     ; preds = %ehcleanup878.thread, %ehcleanup880.thread, %ehcleanup880.thread2351
-  %.pn1003.pn.pn2343.ph = phi { ptr, i32 } [ %373, %ehcleanup880.thread2351 ], [ %364, %ehcleanup880.thread ], [ %373, %ehcleanup878.thread ]
+  %.pn1003.pn.pn2343.ph = phi { ptr, i32 } [ %364, %ehcleanup880.thread ], [ %373, %ehcleanup880.thread2351 ], [ %373, %ehcleanup878.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp864)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp863)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp862)
   br label %cleanup.action885
 
 cleanup.action885:                                ; preds = %cleanup.action885.sink.split, %ehcleanup880, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2202
-  %.pn1003.pn.pn2343 = phi { ptr, i32 } [ %.pn1003, %ehcleanup880 ], [ %.pn1003, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2202 ], [ %.pn1003.pn.pn2343.ph, %cleanup.action885.sink.split ]
+  %.pn1003.pn.pn2343 = phi { ptr, i32 } [ %.pn1003, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2202 ], [ %.pn1003, %ehcleanup880 ], [ %.pn1003.pn.pn2343.ph, %cleanup.action885.sink.split ]
   call void @__cxa_free_exception(ptr %exception861) #32
   br label %if.then.i.i2254
 
@@ -8567,14 +8567,14 @@ ehcleanup14:                                      ; preds = %ehcleanup
   br i1 %cleanup.isactive.0, label %cleanup.action, label %ehcleanup33
 
 cleanup.action.sink.split:                        ; preds = %ehcleanup.thread, %ehcleanup14.thread, %ehcleanup14.thread74
-  %.pn.pn66.ph = phi { ptr, i32 } [ %11, %ehcleanup14.thread74 ], [ %5, %ehcleanup14.thread ], [ %11, %ehcleanup.thread ]
+  %.pn.pn66.ph = phi { ptr, i32 } [ %5, %ehcleanup14.thread ], [ %11, %ehcleanup14.thread74 ], [ %11, %ehcleanup.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp7)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp6)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   br label %cleanup.action
 
 cleanup.action:                                   ; preds = %cleanup.action.sink.split, %ehcleanup14, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i51
-  %.pn.pn66 = phi { ptr, i32 } [ %6, %ehcleanup14 ], [ %6, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i51 ], [ %.pn.pn66.ph, %cleanup.action.sink.split ]
+  %.pn.pn66 = phi { ptr, i32 } [ %6, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i51 ], [ %6, %ehcleanup14 ], [ %.pn.pn66.ph, %cleanup.action.sink.split ]
   call void @__cxa_free_exception(ptr %exception) #32
   br label %ehcleanup33
 
@@ -10048,7 +10048,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end3.i.i
   br i1 %cmp.not.i.i, label %for.cond.i.i, label %return, !llvm.loop !214
 
 return:                                           ; preds = %for.inc, %land.rhs.i.i.i, %for.inc.us, %for.body.us, %lor.lhs.false.i.i, %if.end3.i.i, %land.rhs.i.i.i.i.i.i, %lor.lhs.false.us.i.i, %if.end3.us.i.i, %land.rhs.i.us.i.i, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_S6_ENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit, %if.then
-  %retval.sroa.0.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_S6_ENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ null, %if.then ], [ null, %lor.lhs.false.us.i.i ], [ null, %if.end3.us.i.i ], [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ null, %if.end3.i.i ], [ null, %lor.lhs.false.i.i ], [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %retval.sroa.0.036.us, %for.body.us ], [ null, %for.inc.us ], [ null, %for.inc ], [ %retval.sroa.0.036, %land.rhs.i.i.i ]
+  %retval.sroa.0.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_S6_ENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ null, %if.then ], [ %retval.sroa.0.036.us, %for.body.us ], [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ null, %lor.lhs.false.us.i.i ], [ null, %if.end3.us.i.i ], [ null, %if.end3.i.i ], [ null, %lor.lhs.false.i.i ], [ null, %for.inc.us ], [ null, %for.inc ], [ %retval.sroa.0.036, %land.rhs.i.i.i ]
   ret ptr %retval.sroa.0.1
 }
 

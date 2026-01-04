@@ -612,7 +612,7 @@ genb64.exit.i:                                    ; preds = %177, %173
   br label %228
 
 228:                                              ; preds = %226, %224, %218, %208
-  %.088.i = phi i32 [ %227, %226 ], [ %210, %224 ], [ %210, %208 ], [ %spec.select114.i, %218 ]
+  %.088.i = phi i32 [ %210, %208 ], [ %spec.select114.i, %218 ], [ %227, %226 ], [ %210, %224 ]
   %229 = icmp eq i32 %.088.i, -1729
   %spec.store.select.i = select i1 %229, i32 0, i32 %.088.i
   %230 = load i32, ptr %11, align 8, !tbaa !7
@@ -710,7 +710,7 @@ test_bio_base64_run.exit:                         ; preds = %255, %257, %258, %2
   br label %test_bio_base64_run.exit.thread
 
 test_bio_base64_run.exit.thread:                  ; preds = %test_bio_base64_run.exit, %195, %45, %38
-  %263 = phi i32 [ 0, %38 ], [ 0, %45 ], [ 0, %195 ], [ %.not44, %test_bio_base64_run.exit ]
+  %263 = phi i32 [ 0, %195 ], [ %.not44, %test_bio_base64_run.exit ], [ 0, %38 ], [ 0, %45 ]
   %264 = load ptr, ptr %7, align 8, !tbaa !17
   %.not45 = icmp eq ptr %264, null
   br i1 %.not45, label %17, label %.loopexit

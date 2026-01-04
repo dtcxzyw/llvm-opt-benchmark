@@ -401,7 +401,7 @@ _ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit:        ; preds = %155, %158, %_ZNSt6v
   br i1 %exitcond.not, label %.loopexit, label %136, !llvm.loop !185
 
 .loopexit:                                        ; preds = %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit, %126, %118
-  %.sroa.01.1 = phi i8 [ %.sroa.01.0126, %118 ], [ %.sroa.01.0126, %126 ], [ %135, %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit ]
+  %.sroa.01.1 = phi i8 [ %.sroa.01.0126, %126 ], [ %.sroa.01.0126, %118 ], [ %135, %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit ]
   %180 = add nuw i64 %.084125, 1
   %exitcond128.not = icmp eq i64 %180, %100
   br i1 %exitcond128.not, label %._crit_edge, label %118, !llvm.loop !187
@@ -483,7 +483,7 @@ _ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEE11lower_boundERS4_.exit: ; p
   br label %.thread.i
 
 .thread.i:                                        ; preds = %23, %21
-  %28 = phi i1 [ true, %21 ], [ %27, %23 ]
+  %28 = phi i1 [ %27, %23 ], [ true, %21 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %28, ptr noundef nonnull %14, ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(32) %5) #18
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load i64, ptr %29, align 8, !tbaa !194
@@ -837,7 +837,7 @@ _ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit:        ; preds = %153, %156, %_ZNSt6v
   br i1 %exitcond.not, label %.loopexit, label %134, !llvm.loop !195
 
 .loopexit:                                        ; preds = %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit, %124, %116
-  %.sroa.01.1 = phi i8 [ %.sroa.01.0126, %116 ], [ %.sroa.01.0126, %124 ], [ %133, %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit ]
+  %.sroa.01.1 = phi i8 [ %.sroa.01.0126, %124 ], [ %.sroa.01.0126, %116 ], [ %133, %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit ]
   %178 = add nuw i64 %.084125, 1
   %exitcond128.not = icmp eq i64 %178, %100
   br i1 %exitcond128.not, label %._crit_edge, label %116, !llvm.loop !196
@@ -1163,7 +1163,7 @@ _ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit:        ; preds = %155, %158, %_ZNSt6v
   br i1 %exitcond.not, label %.loopexit, label %136, !llvm.loop !197
 
 .loopexit:                                        ; preds = %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit, %126, %118
-  %.sroa.01.1 = phi i8 [ %.sroa.01.0126, %118 ], [ %.sroa.01.0126, %126 ], [ %135, %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit ]
+  %.sroa.01.1 = phi i8 [ %.sroa.01.0126, %126 ], [ %.sroa.01.0126, %118 ], [ %135, %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit ]
   %180 = add nuw i64 %.084125, 1
   %exitcond128.not = icmp eq i64 %180, %100
   br i1 %exitcond128.not, label %._crit_edge, label %118, !llvm.loop !198
@@ -1487,7 +1487,7 @@ _ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit:        ; preds = %153, %156, %_ZNSt6v
   br i1 %exitcond.not, label %.loopexit, label %134, !llvm.loop !199
 
 .loopexit:                                        ; preds = %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit, %124, %116
-  %.sroa.01.1 = phi i8 [ %.sroa.01.0126, %116 ], [ %.sroa.01.0126, %124 ], [ %133, %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit ]
+  %.sroa.01.1 = phi i8 [ %.sroa.01.0126, %124 ], [ %.sroa.01.0126, %116 ], [ %133, %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit ]
   %178 = add nuw i64 %.084125, 1
   %exitcond128.not = icmp eq i64 %178, %100
   br i1 %exitcond128.not, label %._crit_edge, label %116, !llvm.loop !200
@@ -1890,7 +1890,7 @@ _ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit:        ; preds = %191, %194, %_ZNSt6v
   br i1 %exitcond.not, label %.loopexit, label %172, !llvm.loop !202
 
 .loopexit:                                        ; preds = %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit, %162, %.lr.ph.split
-  %.sroa.01.1 = phi i8 [ %.sroa.01.0138, %.lr.ph.split ], [ %.sroa.01.0138, %162 ], [ %171, %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit ]
+  %.sroa.01.1 = phi i8 [ %.sroa.01.0138, %162 ], [ %.sroa.01.0138, %.lr.ph.split ], [ %171, %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit ]
   %216 = add nuw i64 %.089137, 1
   %exitcond151.not = icmp eq i64 %216, %100
   br i1 %exitcond151.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !201
@@ -2291,7 +2291,7 @@ _ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit:        ; preds = %189, %192, %_ZNSt6v
   br i1 %exitcond.not, label %.loopexit, label %170, !llvm.loop !204
 
 .loopexit:                                        ; preds = %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit, %160, %.lr.ph.split
-  %.sroa.01.1 = phi i8 [ %.sroa.01.0138, %.lr.ph.split ], [ %.sroa.01.0138, %160 ], [ %169, %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit ]
+  %.sroa.01.1 = phi i8 [ %.sroa.01.0138, %160 ], [ %.sroa.01.0138, %.lr.ph.split ], [ %169, %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit ]
   %214 = add nuw i64 %.089137, 1
   %exitcond151.not = icmp eq i64 %214, %100
   br i1 %exitcond151.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !203
@@ -2694,7 +2694,7 @@ _ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit:        ; preds = %191, %194, %_ZNSt6v
   br i1 %exitcond.not, label %.loopexit, label %172, !llvm.loop !206
 
 .loopexit:                                        ; preds = %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit, %162, %.lr.ph.split
-  %.sroa.01.1 = phi i8 [ %.sroa.01.0138, %.lr.ph.split ], [ %.sroa.01.0138, %162 ], [ %171, %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit ]
+  %.sroa.01.1 = phi i8 [ %.sroa.01.0138, %162 ], [ %.sroa.01.0138, %.lr.ph.split ], [ %171, %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit ]
   %216 = add nuw i64 %.089137, 1
   %exitcond151.not = icmp eq i64 %216, %100
   br i1 %exitcond151.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !205
@@ -3095,7 +3095,7 @@ _ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit:        ; preds = %189, %192, %_ZNSt6v
   br i1 %exitcond.not, label %.loopexit, label %170, !llvm.loop !208
 
 .loopexit:                                        ; preds = %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit, %160, %.lr.ph.split
-  %.sroa.01.1 = phi i8 [ %.sroa.01.0138, %.lr.ph.split ], [ %.sroa.01.0138, %160 ], [ %169, %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit ]
+  %.sroa.01.1 = phi i8 [ %.sroa.01.0138, %160 ], [ %.sroa.01.0138, %.lr.ph.split ], [ %169, %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit ]
   %214 = add nuw i64 %.089137, 1
   %exitcond151.not = icmp eq i64 %214, %100
   br i1 %exitcond151.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !207
@@ -3379,8 +3379,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   br label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
-  %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
+  %.sroa.070.0 = phi ptr [ null, %63 ], [ %spec.select, %46 ], [ null, %9 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %39, %37 ], [ %1, %61 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i, %28 ], [ %spec.select.i21, %58 ], [ %spec.select.i41, %86 ], [ null, %._crit_edge.thread.i47 ]
+  %.sroa.12.0 = phi ptr [ %65, %63 ], [ %spec.select71, %46 ], [ %11, %9 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %39, %37 ], [ null, %61 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i, %28 ], [ %spec.select21.i22, %58 ], [ %spec.select21.i42, %86 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

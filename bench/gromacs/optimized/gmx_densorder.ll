@@ -434,7 +434,7 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit:          ; preds = %_ZL13gmx_snew_implI
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
-  %.0143.sroa.gep153.i = getelementptr inbounds nuw i8, ptr %33, i64 12
+  %.0143.sroa.gep.i = getelementptr inbounds nuw i8, ptr %33, i64 12
   %.0143.sroa.gep154.i = getelementptr inbounds nuw i8, ptr %33, i64 24
   switch i32 %132, label %138 [
     i32 0, label %142
@@ -468,10 +468,10 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit:          ; preds = %_ZL13gmx_snew_implI
   br label %304
 
 142:                                              ; preds = %137, %136, %127
-  %.0143.sroa.phi.i = phi ptr [ %33, %136 ], [ %.0143.sroa.gep153.i, %137 ], [ %.0143.sroa.gep154.i, %127 ]
-  %.0143.i = phi i64 [ 0, %136 ], [ 1, %137 ], [ 2, %127 ]
-  %.0142.sroa.phi.i = phi ptr [ %.0143.sroa.gep154.i, %136 ], [ %33, %137 ], [ %.0143.sroa.gep153.i, %127 ]
-  %.0142.i = phi i64 [ 2, %136 ], [ 0, %137 ], [ 1, %127 ]
+  %.0143.sroa.phi.i = phi ptr [ %.0143.sroa.gep.i, %137 ], [ %33, %136 ], [ %.0143.sroa.gep154.i, %127 ]
+  %.0143.i = phi i64 [ 1, %137 ], [ 0, %136 ], [ 2, %127 ]
+  %.0142.sroa.phi.i = phi ptr [ %33, %137 ], [ %.0143.sroa.gep154.i, %136 ], [ %.0143.sroa.gep.i, %127 ]
+  %.0142.i = phi i64 [ 0, %137 ], [ 2, %136 ], [ 1, %127 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   invoke void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(8) %31, i8 noundef zeroext 2)
           to label %.noexc33 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -2724,7 +2724,7 @@ _ZN8t_filenmD2Ev.exit:                            ; preds = %_ZSt8_DestroyIPNSt7
   ret i32 0
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %913, %919, %816, %810, %892, %883, %881, %879, %602, %793, %596, %304, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit217.i, %366, %330
-  %.pn28.pn.pn = phi { ptr, i32 } [ %.pn, %330 ], [ %.pn.i, %304 ], [ %367, %366 ], [ %523, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit217.i ], [ %.pn28, %602 ], [ %597, %596 ], [ %.pn135.pn.pn.pn.pn.i, %793 ], [ %.pn25, %816 ], [ %811, %810 ], [ %884, %883 ], [ %882, %881 ], [ %880, %879 ], [ %893, %892 ], [ %.pn22, %919 ], [ %914, %913 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit241, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit245, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit247, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit250, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit252.us, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit255, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split ], [ %lpad.loopexit255.us, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit257, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp258, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn28.pn.pn = phi { ptr, i32 } [ %523, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit217.i ], [ %.pn135.pn.pn.pn.pn.i, %793 ], [ %893, %892 ], [ %.pn, %330 ], [ %.pn.i, %304 ], [ %367, %366 ], [ %914, %913 ], [ %.pn28, %602 ], [ %597, %596 ], [ %.pn25, %816 ], [ %811, %810 ], [ %880, %879 ], [ %884, %883 ], [ %882, %881 ], [ %.pn22, %919 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit241, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit245, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit247, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit250, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit252.us, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit255.us, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit255, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split ], [ %lpad.loopexit257, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp258, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %954 = getelementptr inbounds nuw i8, ptr %43, i64 392
   br label %955
 

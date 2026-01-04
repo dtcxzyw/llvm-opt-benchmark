@@ -302,7 +302,7 @@ define dso_local void @taskstats_exit(ptr noundef %0, i32 noundef %1) local_unna
   br label %109
 
 109:                                              ; preds = %106, %99
-  %110 = phi i32 [ %108, %106 ], [ %93, %99 ]
+  %110 = phi i32 [ %93, %99 ], [ %108, %106 ]
   %111 = load ptr, ptr %91, align 8
   %112 = icmp eq ptr %111, %49
   br i1 %112, label %.thread16, label %.lr.ph, !llvm.loop !9
@@ -979,7 +979,7 @@ define internal range(i32 -2147483648, 1) i32 @taskstats_user_cmd(ptr readnone c
   br label %.thread26
 
 .thread26:                                        ; preds = %138, %122, %73, %57, %235, %.critedge, %118, %116, %.thread28, %.thread22, %.thread
-  %237 = phi i32 [ %29, %.thread ], [ %52, %.thread22 ], [ -22, %118 ], [ %117, %116 ], [ %115, %.thread28 ], [ %236, %235 ], [ %233, %.critedge ], [ -22, %73 ], [ -12, %57 ], [ -22, %138 ], [ -12, %122 ]
+  %237 = phi i32 [ %29, %.thread ], [ %52, %.thread22 ], [ -22, %118 ], [ %117, %116 ], [ %115, %.thread28 ], [ -12, %57 ], [ %236, %235 ], [ %233, %.critedge ], [ -22, %73 ], [ -22, %138 ], [ -12, %122 ]
   ret i32 %237
 }
 
@@ -1078,7 +1078,7 @@ prepare_reply.exit:                               ; preds = %28
   br label %prepare_reply.exit.thread
 
 prepare_reply.exit.thread:                        ; preds = %15, %31, %42, %41, %34
-  %63 = phi i32 [ -90, %34 ], [ %39, %41 ], [ %62, %42 ], [ -12, %15 ], [ -22, %31 ]
+  %63 = phi i32 [ %62, %42 ], [ -90, %34 ], [ %39, %41 ], [ -12, %15 ], [ -22, %31 ]
   %64 = and i64 %11, 1
   %65 = icmp eq i64 %64, 0
   br i1 %65, label %67, label %66
@@ -1251,7 +1251,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @add_del_listener(i32 nound
   br i1 %94, label %.thread, label %62, !prof !18, !llvm.loop !30
 
 .thread:                                          ; preds = %.preheader12, %.loopexit10, %21, %62, %.loopexit, %68, %9, %3
-  %95 = phi i32 [ -22, %3 ], [ -22, %9 ], [ %61, %68 ], [ %61, %.loopexit ], [ %61, %62 ], [ 0, %21 ], [ 0, %.loopexit10 ], [ 0, %.preheader12 ]
+  %95 = phi i32 [ -22, %3 ], [ -22, %9 ], [ %61, %62 ], [ %61, %68 ], [ %61, %.loopexit ], [ 0, %21 ], [ 0, %.loopexit10 ], [ 0, %.preheader12 ]
   ret i32 %95
 }
 

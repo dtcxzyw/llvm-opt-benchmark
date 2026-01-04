@@ -326,7 +326,7 @@ _ZN4YAML12EmitterState13SetNullFormatENS_13EMITTER_MANIPENS_8FmtScope5valueE.exi
   br i1 %switch.i19, label %_ZN4YAML12EmitterState12SetIntFormatENS_13EMITTER_MANIPENS_8FmtScope5valueE.exit.sink.split, label %_ZN4YAML12EmitterState12SetIntFormatENS_13EMITTER_MANIPENS_8FmtScope5valueE.exit
 
 _ZN4YAML12EmitterState12SetIntFormatENS_13EMITTER_MANIPENS_8FmtScope5valueE.exit.sink.split: ; preds = %_ZN4YAML12EmitterState16SetOutputCharsetENS_13EMITTER_MANIPENS_8FmtScope5valueE.exit, %_ZN4YAML12EmitterState13SetNullFormatENS_13EMITTER_MANIPENS_8FmtScope5valueE.exit, %_ZN4YAML12EmitterState19SetBoolLengthFormatENS_13EMITTER_MANIPENS_8FmtScope5valueE.exit, %_ZN4YAML12EmitterState17SetBoolCaseFormatENS_13EMITTER_MANIPENS_8FmtScope5valueE.exit, %_ZN4YAML12EmitterState13SetBoolFormatENS_13EMITTER_MANIPENS_8FmtScope5valueE.exit, %_ZN4YAML12EmitterState15SetStringFormatENS_13EMITTER_MANIPENS_8FmtScope5valueE.exit
-  %.sink40 = phi i64 [ 48, %_ZN4YAML12EmitterState15SetStringFormatENS_13EMITTER_MANIPENS_8FmtScope5valueE.exit ], [ 56, %_ZN4YAML12EmitterState13SetBoolFormatENS_13EMITTER_MANIPENS_8FmtScope5valueE.exit ], [ 52, %_ZN4YAML12EmitterState17SetBoolCaseFormatENS_13EMITTER_MANIPENS_8FmtScope5valueE.exit ], [ 60, %_ZN4YAML12EmitterState19SetBoolLengthFormatENS_13EMITTER_MANIPENS_8FmtScope5valueE.exit ], [ 64, %_ZN4YAML12EmitterState13SetNullFormatENS_13EMITTER_MANIPENS_8FmtScope5valueE.exit ], [ 44, %_ZN4YAML12EmitterState16SetOutputCharsetENS_13EMITTER_MANIPENS_8FmtScope5valueE.exit ]
+  %.sink40 = phi i64 [ 64, %_ZN4YAML12EmitterState13SetNullFormatENS_13EMITTER_MANIPENS_8FmtScope5valueE.exit ], [ 60, %_ZN4YAML12EmitterState19SetBoolLengthFormatENS_13EMITTER_MANIPENS_8FmtScope5valueE.exit ], [ 48, %_ZN4YAML12EmitterState15SetStringFormatENS_13EMITTER_MANIPENS_8FmtScope5valueE.exit ], [ 52, %_ZN4YAML12EmitterState17SetBoolCaseFormatENS_13EMITTER_MANIPENS_8FmtScope5valueE.exit ], [ 56, %_ZN4YAML12EmitterState13SetBoolFormatENS_13EMITTER_MANIPENS_8FmtScope5valueE.exit ], [ 44, %_ZN4YAML12EmitterState16SetOutputCharsetENS_13EMITTER_MANIPENS_8FmtScope5valueE.exit ]
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink40
   tail call void @_ZN4YAML12EmitterState4_SetINS_13EMITTER_MANIPEEEvRNS_7SettingIT_EES4_NS_8FmtScope5valueE(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 4 dereferenceable(4) %6, i32 noundef %1, i32 noundef 0)
   br label %_ZN4YAML12EmitterState12SetIntFormatENS_13EMITTER_MANIPENS_8FmtScope5valueE.exit
@@ -656,7 +656,7 @@ _ZNK4YAML12EmitterState11GetFlowTypeENS_9GroupType5valueE.exit9: ; preds = %_ZNK
   br label %_ZNK4YAML12EmitterState11GetFlowTypeENS_9GroupType5valueE.exit.thread
 
 _ZNK4YAML12EmitterState11GetFlowTypeENS_9GroupType5valueE.exit.thread: ; preds = %_ZNK4YAML12EmitterState11GetFlowTypeENS_9GroupType5valueE.exit9, %_ZNK4YAML12EmitterState11GetFlowTypeENS_9GroupType5valueE.exit, %_ZNK4YAML12EmitterState16CurGroupFlowTypeEv.exit.i6, %_ZNK4YAML12EmitterState16CurGroupFlowTypeEv.exit.i
-  %.0 = phi i32 [ 3, %_ZNK4YAML12EmitterState16CurGroupFlowTypeEv.exit.i ], [ 5, %_ZNK4YAML12EmitterState16CurGroupFlowTypeEv.exit.i6 ], [ %spec.select, %_ZNK4YAML12EmitterState11GetFlowTypeENS_9GroupType5valueE.exit ], [ %spec.select15, %_ZNK4YAML12EmitterState11GetFlowTypeENS_9GroupType5valueE.exit9 ]
+  %.0 = phi i32 [ 3, %_ZNK4YAML12EmitterState16CurGroupFlowTypeEv.exit.i ], [ 5, %_ZNK4YAML12EmitterState16CurGroupFlowTypeEv.exit.i6 ], [ %spec.select15, %_ZNK4YAML12EmitterState11GetFlowTypeENS_9GroupType5valueE.exit9 ], [ %spec.select, %_ZNK4YAML12EmitterState11GetFlowTypeENS_9GroupType5valueE.exit ]
   ret i32 %.0
 }
 
@@ -967,11 +967,11 @@ _ZNK4YAML12EmitterState16CurGroupFlowTypeEv.exit.i: ; preds = %_ZN4YAML14Setting
 
 _ZNK4YAML12EmitterState16CurGroupFlowTypeEv.exit.thread.i: ; preds = %_ZNK4YAML12EmitterState16CurGroupFlowTypeEv.exit.i, %_ZN4YAML14SettingChangesaSEOS0_.exit
   %46 = icmp eq i32 %1, 1
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %48 = load i32, ptr %47, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %50 = load i32, ptr %49, align 4
-  %.0.i = select i1 %46, i32 %48, i32 %50
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %48 = load i32, ptr %47, align 4
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %50 = load i32, ptr %49, align 8
+  %.0.i = select i1 %46, i32 %50, i32 %48
   %51 = icmp eq i32 %.0.i, 29
   br i1 %51, label %54, label %_ZNK4YAML12EmitterState11GetFlowTypeENS_9GroupType5valueE.exit.thread
 

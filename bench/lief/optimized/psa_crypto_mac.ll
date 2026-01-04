@@ -52,7 +52,7 @@ define hidden range(i32 -137, 1) i32 @mbedtls_psa_mac_abort(ptr noundef %0) loca
   br label %18
 
 18:                                               ; preds = %1, %17, %16
-  %.0 = phi i32 [ 0, %16 ], [ -137, %17 ], [ 0, %1 ]
+  %.0 = phi i32 [ -137, %17 ], [ 0, %16 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -168,7 +168,7 @@ switch.lookup:                                    ; preds = %33
   br label %.thread84.i
 
 .thread84.i:                                      ; preds = %switch.lookup, %30
-  %.ph83.i = phi i64 [ 64, %30 ], [ %switch.load, %switch.lookup ]
+  %.ph83.i = phi i64 [ %switch.load, %switch.lookup ], [ 64, %30 ]
   store i32 %32, ptr %31, align 8, !tbaa !15
   br label %38
 
@@ -262,12 +262,12 @@ psa_hmac_setup_internal.exit:                     ; preds = %37, %67
   br label %cmac_setup.exit
 
 cmac_setup.exit:                                  ; preds = %28, %psa_hmac_setup_internal.exit
-  %.0 = phi i32 [ %.054.i, %psa_hmac_setup_internal.exit ], [ %29, %28 ]
+  %.0 = phi i32 [ %29, %28 ], [ %.054.i, %psa_hmac_setup_internal.exit ]
   %.not20 = icmp eq i32 %.0, 0
   br i1 %.not20, label %mbedtls_psa_mac_abort.exit, label %cmac_setup.exit.thread
 
 cmac_setup.exit.thread:                           ; preds = %._crit_edge.i, %19, %19, %cmac_setup.exit
-  %.029 = phi i32 [ %.0, %cmac_setup.exit ], [ -134, %19 ], [ -134, %19 ], [ -134, %._crit_edge.i ]
+  %.029 = phi i32 [ %.0, %cmac_setup.exit ], [ -134, %._crit_edge.i ], [ -134, %19 ], [ -134, %19 ]
   %68 = load i32, ptr %0, align 8, !tbaa !3
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %mbedtls_psa_mac_abort.exit, label %70
@@ -303,7 +303,7 @@ cmac_setup.exit.thread:                           ; preds = %._crit_edge.i, %19,
   br label %mbedtls_psa_mac_abort.exit
 
 mbedtls_psa_mac_abort.exit:                       ; preds = %83, %82, %cmac_setup.exit.thread, %mac_init.exit, %cmac_setup.exit, %5
-  %.017 = phi i32 [ -137, %5 ], [ -134, %mac_init.exit ], [ 0, %cmac_setup.exit ], [ %.029, %cmac_setup.exit.thread ], [ %.029, %82 ], [ %.029, %83 ]
+  %.017 = phi i32 [ -134, %mac_init.exit ], [ -137, %5 ], [ 0, %cmac_setup.exit ], [ %.029, %cmac_setup.exit.thread ], [ %.029, %82 ], [ %.029, %83 ]
   ret i32 %.017
 }
 
@@ -341,7 +341,7 @@ define hidden i32 @mbedtls_psa_mac_update(ptr noundef %0, ptr noundef %1, i64 no
   br label %19
 
 19:                                               ; preds = %13, %3, %16, %9
-  %.0 = phi i32 [ %12, %9 ], [ %18, %16 ], [ -137, %3 ], [ -137, %13 ]
+  %.0 = phi i32 [ -137, %3 ], [ %12, %9 ], [ %18, %16 ], [ -137, %13 ]
   ret i32 %.0
 }
 
@@ -546,7 +546,7 @@ define hidden i32 @mbedtls_psa_mac_compute(ptr noundef readonly captures(none) %
   br label %mbedtls_psa_mac_update.exit
 
 mbedtls_psa_mac_update.exit:                      ; preds = %19, %26
-  %.0.i = phi i32 [ %22, %19 ], [ %28, %26 ]
+  %.0.i = phi i32 [ %28, %26 ], [ %22, %19 ]
   %.not19 = icmp eq i32 %.0.i, 0
   br i1 %.not19, label %29, label %mbedtls_psa_mac_update.exit.thread
 
@@ -588,7 +588,7 @@ mbedtls_psa_mac_update.exit.thread:               ; preds = %23, %29, %32, %mbed
   br label %mbedtls_psa_mac_abort.exit
 
 mbedtls_psa_mac_abort.exit:                       ; preds = %39, %37, %42, %13, %mbedtls_psa_mac_update.exit.thread
-  %.024 = phi i32 [ %.0.ph, %mbedtls_psa_mac_update.exit.thread ], [ -137, %13 ], [ %.0.ph, %42 ], [ %.0.ph, %37 ], [ %.0.ph, %39 ]
+  %.024 = phi i32 [ %.0.ph, %37 ], [ %.0.ph, %mbedtls_psa_mac_update.exit.thread ], [ -137, %13 ], [ %.0.ph, %42 ], [ %.0.ph, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.024
 }

@@ -157,7 +157,7 @@ switch.early.test:                                ; preds = %1, %18
   br label %69
 
 69:                                               ; preds = %55, %57, %40, %42, %33, %35, %.critedge, %22, %60
-  %.0 = phi i64 [ %68, %60 ], [ 0, %22 ], [ 0, %.critedge ], [ 0, %35 ], [ 0, %33 ], [ 0, %42 ], [ 0, %40 ], [ 0, %57 ], [ 0, %55 ]
+  %.0 = phi i64 [ %68, %60 ], [ 0, %.critedge ], [ 0, %33 ], [ 0, %40 ], [ 0, %22 ], [ 0, %35 ], [ 0, %42 ], [ 0, %57 ], [ 0, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0

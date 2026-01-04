@@ -1005,7 +1005,7 @@ define hidden void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h
   br label %"_ZN4core3ptr140drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$diesel..result..DatabaseErrorInformation$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h5f3e5e93031de565E.exit"
 
 common.resume:                                    ; preds = %.body, %83, %91, %62, %70, %41, %49, %20, %28, %108
-  %common.resume.op = phi { ptr, i32 } [ %109, %108 ], [ %21, %28 ], [ %21, %20 ], [ %42, %49 ], [ %42, %41 ], [ %63, %70 ], [ %63, %62 ], [ %84, %91 ], [ %84, %83 ], [ %103, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %84, %83 ], [ %21, %20 ], [ %42, %41 ], [ %63, %62 ], [ %109, %108 ], [ %21, %28 ], [ %42, %49 ], [ %63, %70 ], [ %84, %91 ], [ %103, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 37:                                               ; preds = %1
@@ -1624,7 +1624,7 @@ define hidden { i32, i32 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h96
   %.not = icmp eq i32 %bcmp.i.i.fr.i, 0
   br i1 %.not, label %._crit_edge.loopexit.split.loop.exit20, label %.backedge
 
-.backedge:                                        ; preds = %24, %13, %21, %"_ZN6diesel6sqlite10connection4stmt12StatementUse21index_for_column_name28_$u7b$$u7b$closure$u7d$$u7d$17h1e4cf0ead2f31f2bE.exit.i"
+.backedge:                                        ; preds = %21, %24, %13, %"_ZN6diesel6sqlite10connection4stmt12StatementUse21index_for_column_name28_$u7b$$u7b$closure$u7d$$u7d$17h1e4cf0ead2f31f2bE.exit.i"
   %exitcond.not = icmp eq i32 %4, %14
   br i1 %exitcond.not, label %._crit_edge, label %13
 
@@ -3357,8 +3357,8 @@ define hidden void @"_ZN247_$LT$diesel..query_builder..select_statement..SelectS
   br label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h794c966d3083eefcE.exit121"
 
 "_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h794c966d3083eefcE.exit121": ; preds = %36, %.thread234, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit.thread", %.thread231
-  %.sroa.13.0.i113 = phi ptr [ undef, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit.thread" ], [ %35, %.thread231 ], [ undef, %36 ], [ undef, %.thread234 ]
-  %.sroa.11.0.i114 = phi ptr [ %29, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit.thread" ], [ %33, %.thread231 ], [ undef, %36 ], [ undef, %.thread234 ]
+  %.sroa.13.0.i113 = phi ptr [ undef, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit.thread" ], [ %35, %.thread231 ], [ undef, %.thread234 ], [ undef, %36 ]
+  %.sroa.11.0.i114 = phi ptr [ %29, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit.thread" ], [ %33, %.thread231 ], [ undef, %.thread234 ], [ undef, %36 ]
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.6.0.in.i229 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -3431,8 +3431,8 @@ default.unreachable:                              ; preds = %66, %90, %43
   br label %"_ZN122_$LT$diesel..query_builder..from_clause..FromClause$LT$F$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hf948909a8e84fe3eE.exit"
 
 "_ZN122_$LT$diesel..query_builder..from_clause..FromClause$LT$F$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hf948909a8e84fe3eE.exit": ; preds = %43, %43, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h794c966d3083eefcE.exit130.thread", %"_ZN128_$LT$diesel..pg..query_builder..PgQueryBuilder$u20$as$u20$diesel..query_builder..QueryBuilder$LT$diesel..pg..backend..Pg$GT$$GT$8push_sql17ha3d2d20ec2d05c78E.exit.i.i", %62
-  %.sroa.11.0.i123241 = phi ptr [ %52, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h794c966d3083eefcE.exit130.thread" ], [ %45, %"_ZN128_$LT$diesel..pg..query_builder..PgQueryBuilder$u20$as$u20$diesel..query_builder..QueryBuilder$LT$diesel..pg..backend..Pg$GT$$GT$8push_sql17ha3d2d20ec2d05c78E.exit.i.i" ], [ undef, %62 ], [ undef, %43 ], [ undef, %43 ]
-  %.sroa.13.0.i122240 = phi ptr [ %54, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h794c966d3083eefcE.exit130.thread" ], [ undef, %"_ZN128_$LT$diesel..pg..query_builder..PgQueryBuilder$u20$as$u20$diesel..query_builder..QueryBuilder$LT$diesel..pg..backend..Pg$GT$$GT$8push_sql17ha3d2d20ec2d05c78E.exit.i.i" ], [ undef, %62 ], [ undef, %43 ], [ undef, %43 ]
+  %.sroa.11.0.i123241 = phi ptr [ %52, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h794c966d3083eefcE.exit130.thread" ], [ undef, %43 ], [ %45, %"_ZN128_$LT$diesel..pg..query_builder..PgQueryBuilder$u20$as$u20$diesel..query_builder..QueryBuilder$LT$diesel..pg..backend..Pg$GT$$GT$8push_sql17ha3d2d20ec2d05c78E.exit.i.i" ], [ undef, %62 ], [ undef, %43 ]
+  %.sroa.13.0.i122240 = phi ptr [ %54, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h794c966d3083eefcE.exit130.thread" ], [ undef, %43 ], [ undef, %"_ZN128_$LT$diesel..pg..query_builder..PgQueryBuilder$u20$as$u20$diesel..query_builder..QueryBuilder$LT$diesel..pg..backend..Pg$GT$$GT$8push_sql17ha3d2d20ec2d05c78E.exit.i.i" ], [ undef, %62 ], [ undef, %43 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !421
   store i64 %12, ptr %6, align 8, !noalias !422
   %.sroa.5190.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -3506,8 +3506,8 @@ default.unreachable:                              ; preds = %66, %90, %43
   br label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h794c966d3083eefcE.exit.i"
 
 "_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h794c966d3083eefcE.exit.i": ; preds = %66, %66, %81, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit.thread9.i", %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit.thread.i"
-  %.sroa.11.0.i132254 = phi ptr [ %83, %81 ], [ undef, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit.thread9.i" ], [ %68, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit.thread.i" ], [ undef, %66 ], [ undef, %66 ]
-  %.sroa.13.0.i131252 = phi ptr [ %85, %81 ], [ undef, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit.thread9.i" ], [ undef, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit.thread.i" ], [ undef, %66 ], [ undef, %66 ]
+  %.sroa.11.0.i132254 = phi ptr [ %83, %81 ], [ %68, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit.thread.i" ], [ undef, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit.thread9.i" ], [ undef, %66 ], [ undef, %66 ]
+  %.sroa.13.0.i131252 = phi ptr [ %85, %81 ], [ undef, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit.thread.i" ], [ undef, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit.thread9.i" ], [ undef, %66 ], [ undef, %66 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !451
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !451
   store i64 %12, ptr %4, align 8, !alias.scope !452, !noalias !455
@@ -3686,8 +3686,8 @@ define hidden void @"_ZN247_$LT$diesel..query_builder..select_statement..SelectS
   br label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h794c966d3083eefcE.exit121"
 
 "_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h794c966d3083eefcE.exit121": ; preds = %36, %.thread234, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit.thread", %.thread231
-  %.sroa.13.0.i113 = phi ptr [ undef, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit.thread" ], [ %35, %.thread231 ], [ undef, %36 ], [ undef, %.thread234 ]
-  %.sroa.11.0.i114 = phi ptr [ %29, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit.thread" ], [ %33, %.thread231 ], [ undef, %36 ], [ undef, %.thread234 ]
+  %.sroa.13.0.i113 = phi ptr [ undef, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit.thread" ], [ %35, %.thread231 ], [ undef, %.thread234 ], [ undef, %36 ]
+  %.sroa.11.0.i114 = phi ptr [ %29, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit.thread" ], [ %33, %.thread231 ], [ undef, %.thread234 ], [ undef, %36 ]
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.sroa.6.0.in.i229 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -3760,8 +3760,8 @@ default.unreachable:                              ; preds = %66, %90, %43
   br label %"_ZN122_$LT$diesel..query_builder..from_clause..FromClause$LT$F$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17ha05477d0541486c5E.exit"
 
 "_ZN122_$LT$diesel..query_builder..from_clause..FromClause$LT$F$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17ha05477d0541486c5E.exit": ; preds = %43, %43, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h794c966d3083eefcE.exit130.thread", %"_ZN128_$LT$diesel..pg..query_builder..PgQueryBuilder$u20$as$u20$diesel..query_builder..QueryBuilder$LT$diesel..pg..backend..Pg$GT$$GT$8push_sql17ha3d2d20ec2d05c78E.exit.i.i", %62
-  %.sroa.11.0.i123241 = phi ptr [ %52, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h794c966d3083eefcE.exit130.thread" ], [ %45, %"_ZN128_$LT$diesel..pg..query_builder..PgQueryBuilder$u20$as$u20$diesel..query_builder..QueryBuilder$LT$diesel..pg..backend..Pg$GT$$GT$8push_sql17ha3d2d20ec2d05c78E.exit.i.i" ], [ undef, %62 ], [ undef, %43 ], [ undef, %43 ]
-  %.sroa.13.0.i122240 = phi ptr [ %54, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h794c966d3083eefcE.exit130.thread" ], [ undef, %"_ZN128_$LT$diesel..pg..query_builder..PgQueryBuilder$u20$as$u20$diesel..query_builder..QueryBuilder$LT$diesel..pg..backend..Pg$GT$$GT$8push_sql17ha3d2d20ec2d05c78E.exit.i.i" ], [ undef, %62 ], [ undef, %43 ], [ undef, %43 ]
+  %.sroa.11.0.i123241 = phi ptr [ %52, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h794c966d3083eefcE.exit130.thread" ], [ undef, %43 ], [ %45, %"_ZN128_$LT$diesel..pg..query_builder..PgQueryBuilder$u20$as$u20$diesel..query_builder..QueryBuilder$LT$diesel..pg..backend..Pg$GT$$GT$8push_sql17ha3d2d20ec2d05c78E.exit.i.i" ], [ undef, %62 ], [ undef, %43 ]
+  %.sroa.13.0.i122240 = phi ptr [ %54, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h794c966d3083eefcE.exit130.thread" ], [ undef, %43 ], [ undef, %"_ZN128_$LT$diesel..pg..query_builder..PgQueryBuilder$u20$as$u20$diesel..query_builder..QueryBuilder$LT$diesel..pg..backend..Pg$GT$$GT$8push_sql17ha3d2d20ec2d05c78E.exit.i.i" ], [ undef, %62 ], [ undef, %43 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !513
   store i64 %12, ptr %6, align 8, !noalias !514
   %.sroa.5190.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -3835,8 +3835,8 @@ default.unreachable:                              ; preds = %66, %90, %43
   br label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h794c966d3083eefcE.exit.i"
 
 "_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h794c966d3083eefcE.exit.i": ; preds = %66, %66, %81, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit.thread9.i", %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit.thread.i"
-  %.sroa.11.0.i132254 = phi ptr [ %83, %81 ], [ undef, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit.thread9.i" ], [ %68, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit.thread.i" ], [ undef, %66 ], [ undef, %66 ]
-  %.sroa.13.0.i131252 = phi ptr [ %85, %81 ], [ undef, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit.thread9.i" ], [ undef, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit.thread.i" ], [ undef, %66 ], [ undef, %66 ]
+  %.sroa.11.0.i132254 = phi ptr [ %83, %81 ], [ %68, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit.thread.i" ], [ undef, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit.thread9.i" ], [ undef, %66 ], [ undef, %66 ]
+  %.sroa.13.0.i131252 = phi ptr [ %85, %81 ], [ undef, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit.thread.i" ], [ undef, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit.thread9.i" ], [ undef, %66 ], [ undef, %66 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !545
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !545
   store i64 %12, ptr %4, align 8, !alias.scope !546, !noalias !549
@@ -4303,7 +4303,7 @@ define void @_ZN6diesel5mysql10connection4stmt8iterator17StatementIterator9from_
   br i1 %.0, label %.thread112, label %"_ZN4core3ptr119drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..mysql..connection..stmt..Statement$GT$$GT$17h4e932c9ca3e49612E.exit87"
 
 34:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h89a92533f0220769E.llvm.2909037117879540835.exit.i.i.i", %.noexc65, %.noexc, %26
-  %.255 = phi i1 [ true, %26 ], [ true, %.noexc ], [ true, %.noexc65 ], [ false, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h89a92533f0220769E.llvm.2909037117879540835.exit.i.i.i" ]
+  %.255 = phi i1 [ false, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h89a92533f0220769E.llvm.2909037117879540835.exit.i.i.i" ], [ true, %.noexc65 ], [ true, %26 ], [ true, %.noexc ]
   %35 = landingpad { ptr, i32 }
           cleanup
   br label %.thread112
@@ -4571,8 +4571,8 @@ define void @_ZN6diesel5mysql10connection4stmt8iterator17StatementIterator9from_
   br label %"_ZN4core3ptr119drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..mysql..connection..stmt..Statement$GT$$GT$17h4e932c9ca3e49612E.exit"
 
 .thread120:                                       ; preds = %52, %45, %48, %51
-  %.pn.pn127 = phi { ptr, i32 } [ %.pn, %51 ], [ %46, %48 ], [ %46, %45 ], [ %53, %52 ]
-  %.1126 = phi i1 [ %.3, %51 ], [ true, %48 ], [ true, %45 ], [ true, %52 ]
+  %.pn.pn127 = phi { ptr, i32 } [ %.pn, %51 ], [ %46, %45 ], [ %46, %48 ], [ %53, %52 ]
+  %.1126 = phi i1 [ %.3, %51 ], [ true, %45 ], [ true, %48 ], [ true, %52 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$diesel..mysql..connection..bind..OutputBinds$GT$17hebbb1f04276e020bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #29
           to label %33 unwind label %85
 
@@ -4605,7 +4605,7 @@ define void @_ZN6diesel5mysql10connection4stmt8iterator17StatementIterator9from_
   br label %"_ZN4core3ptr119drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..mysql..connection..stmt..Statement$GT$$GT$17h4e932c9ca3e49612E.exit"
 
 "_ZN4core3ptr119drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..mysql..connection..stmt..Statement$GT$$GT$17h4e932c9ca3e49612E.exit87": ; preds = %33, %111, %113, %"_ZN4core3ptr81drop_in_place$LT$diesel..mysql..connection..stmt..metadata..StatementMetadata$GT$17hf1b9086e810a577fE.exit84"
-  %.pn.pn.pn.pn98 = phi { ptr, i32 } [ %.pn.pn.pn119, %"_ZN4core3ptr81drop_in_place$LT$diesel..mysql..connection..stmt..metadata..StatementMetadata$GT$17hf1b9086e810a577fE.exit84" ], [ %.pn.pn.pn.pn99, %113 ], [ %.pn.pn.pn.pn99, %111 ], [ %.pn.pn.pn, %33 ]
+  %.pn.pn.pn.pn98 = phi { ptr, i32 } [ %.pn.pn.pn119, %"_ZN4core3ptr81drop_in_place$LT$diesel..mysql..connection..stmt..metadata..StatementMetadata$GT$17hf1b9086e810a577fE.exit84" ], [ %.pn.pn.pn, %33 ], [ %.pn.pn.pn.pn99, %111 ], [ %.pn.pn.pn.pn99, %113 ]
   resume { ptr, i32 } %.pn.pn.pn.pn98
 
 111:                                              ; preds = %.thread, %"_ZN4core3ptr81drop_in_place$LT$diesel..mysql..connection..stmt..metadata..StatementMetadata$GT$17hf1b9086e810a577fE.exit84"
@@ -4728,7 +4728,7 @@ define void @"_ZN119_$LT$diesel..mysql..connection..stmt..iterator..StatementIte
   unreachable
 
 common.resume:                                    ; preds = %122, %49, %.body, %73, %45
-  %common.resume.op = phi { ptr, i32 } [ %46, %45 ], [ %123, %122 ], [ %50, %49 ], [ %.pn, %.body ], [ %.pn, %73 ]
+  %common.resume.op = phi { ptr, i32 } [ %46, %45 ], [ %.pn, %73 ], [ %123, %122 ], [ %50, %49 ], [ %.pn, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h1ceaa034c956f07eE.exit": ; preds = %36
@@ -5259,7 +5259,7 @@ define void @"_ZN129_$LT$diesel..mysql..connection..stmt..iterator..MysqlField$u
   br label %_ZN6diesel5mysql10connection4bind8BindData5value17h1038345a5317b7c0E.exit
 
 _ZN6diesel5mysql10connection4bind8BindData5value17h1038345a5317b7c0E.exit: ; preds = %"_ZN101_$LT$diesel..mysql..connection..bind..OutputBinds$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h667f4de3bf8bd3b5E.exit", %15, %18
-  %.sink.i = phi i8 [ %23, %18 ], [ 20, %"_ZN101_$LT$diesel..mysql..connection..bind..OutputBinds$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h667f4de3bf8bd3b5E.exit" ], [ 20, %15 ]
+  %.sink.i = phi i8 [ 20, %"_ZN101_$LT$diesel..mysql..connection..bind..OutputBinds$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h667f4de3bf8bd3b5E.exit" ], [ %23, %18 ], [ 20, %15 ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink.i, ptr %26, align 8, !alias.scope !842, !noalias !845
   ret void
@@ -5445,10 +5445,10 @@ define void @"_ZN6diesel5mysql10connection4stmt116_$LT$impl$u20$diesel..connecti
   br label %"_ZN4core3ptr119drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..mysql..connection..stmt..Statement$GT$$GT$17h4e932c9ca3e49612E.exit"
 
 .thread:                                          ; preds = %52, %54, %42, %40, %24
-  %.pn36 = phi { ptr, i32 } [ %25, %24 ], [ %41, %40 ], [ %41, %42 ], [ %lpad.thr_comm, %54 ], [ %lpad.thr_comm, %52 ]
+  %.pn36 = phi { ptr, i32 } [ %25, %24 ], [ %41, %42 ], [ %lpad.thr_comm, %52 ], [ %41, %40 ], [ %lpad.thr_comm, %54 ]
   resume { ptr, i32 } %.pn36
 
-52:                                               ; preds = %2, %13, %17
+52:                                               ; preds = %13, %2, %17
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %53 = load i64, ptr %1, align 8, !range !167, !alias.scope !868, !noundef !10
@@ -6707,7 +6707,7 @@ _ZN3std9panicking3try17hdb07e80180eb803cE.exit:   ; preds = %15
   br label %"_ZN6diesel6sqlite10connection3raw19run_custom_function28_$u7b$$u7b$closure$u7d$$u7d$17h271eb062d0e3f0daE.exit.thread"
 
 common.resume:                                    ; preds = %47, %24, %28, %36
-  %common.resume.op = phi { ptr, i32 } [ %29, %36 ], [ %29, %28 ], [ %25, %24 ], [ %48, %47 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %29, %28 ], [ %29, %36 ], [ %48, %47 ]
   resume { ptr, i32 } %common.resume.op
 
 45:                                               ; preds = %24
@@ -7589,7 +7589,7 @@ define void @_ZN6diesel6sqlite10connection4stmt14BoundStatement12bind_buffers17h
   unreachable
 
 .thread:                                          ; preds = %30, %71
-  %.pn75 = phi { ptr, i32 } [ %lpad.thr_comm, %71 ], [ %31, %30 ]
+  %.pn75 = phi { ptr, i32 } [ %31, %30 ], [ %lpad.thr_comm, %71 ]
   resume { ptr, i32 } %.pn75
 
 71:                                               ; preds = %3, %19
@@ -8530,7 +8530,7 @@ define void @"_ZN95_$LT$diesel..sqlite..connection..SqliteConnection$u20$as$u20$
   br label %"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$diesel..connection..instrumentation..Instrumentation$GT$$GT$$GT$17h103f52571b62c52dE.exit34"
 
 common.resume:                                    ; preds = %110, %.body30, %88, %96
-  %common.resume.op = phi { ptr, i32 } [ %89, %96 ], [ %89, %88 ], [ %.pn.pn.ph, %110 ], [ %68, %.body30 ]
+  %common.resume.op = phi { ptr, i32 } [ %89, %88 ], [ %89, %96 ], [ %.pn.pn.ph, %110 ], [ %68, %.body30 ]
   resume { ptr, i32 } %common.resume.op
 
 .body30:                                          ; preds = %67, %75

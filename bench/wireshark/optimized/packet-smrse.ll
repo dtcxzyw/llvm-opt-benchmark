@@ -304,14 +304,14 @@ default.unreachable:                              ; preds = %17
   unreachable
 
 .sink.split:                                      ; preds = %17, %35, %34, %33, %32, %31, %30, %29, %28
-  %ett_smrse_SMR_Bind.sink = phi ptr [ @ett_smrse_SMR_Bind_Confirm, %28 ], [ @ett_smrse_SMR_Bind_Failure, %29 ], [ @ett_smrse_SMR_Unbind, %30 ], [ @ett_smrse_RPDataMT, %31 ], [ @ett_smrse_RPDataMO, %32 ], [ @ett_smrse_RPAck, %33 ], [ @ett_smrse_RPError, %34 ], [ @ett_smrse_RPAlertSC, %35 ], [ @ett_smrse_SMR_Bind, %17 ]
-  %SMR_Bind_sequence.sink = phi ptr [ @SMR_Bind_Confirm_sequence, %28 ], [ @SMR_Bind_Failure_sequence, %29 ], [ @SMR_Unbind_sequence, %30 ], [ @RPDataMT_sequence, %31 ], [ @RPDataMO_sequence, %32 ], [ @RPAck_sequence, %33 ], [ @RPError_sequence, %34 ], [ @RPAlertSC_sequence, %35 ], [ @SMR_Bind_sequence, %17 ]
+  %ett_smrse_SMR_Bind.sink = phi ptr [ @ett_smrse_RPAlertSC, %35 ], [ @ett_smrse_SMR_Bind_Confirm, %28 ], [ @ett_smrse_SMR_Bind_Failure, %29 ], [ @ett_smrse_SMR_Unbind, %30 ], [ @ett_smrse_RPDataMT, %31 ], [ @ett_smrse_RPDataMO, %32 ], [ @ett_smrse_RPAck, %33 ], [ @ett_smrse_RPError, %34 ], [ @ett_smrse_SMR_Bind, %17 ]
+  %SMR_Bind_sequence.sink = phi ptr [ @RPAlertSC_sequence, %35 ], [ @SMR_Bind_Confirm_sequence, %28 ], [ @SMR_Bind_Failure_sequence, %29 ], [ @SMR_Unbind_sequence, %30 ], [ @RPDataMT_sequence, %31 ], [ @RPDataMO_sequence, %32 ], [ @RPAck_sequence, %33 ], [ @RPError_sequence, %34 ], [ @SMR_Bind_sequence, %17 ]
   %36 = load i32, ptr %ett_smrse_SMR_Bind.sink, align 4
   %37 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %5, ptr noundef %.042, ptr noundef %0, i32 noundef 4, ptr noundef nonnull %SMR_Bind_sequence.sink, i32 noundef -1, i32 noundef %36)
   br label %38
 
 38:                                               ; preds = %.sink.split, %17, %17, %8, %4
-  %.041 = phi i32 [ 0, %4 ], [ 0, %8 ], [ 4, %17 ], [ 4, %17 ], [ %37, %.sink.split ]
+  %.041 = phi i32 [ 0, %8 ], [ 0, %4 ], [ 4, %17 ], [ 4, %17 ], [ %37, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.041
 }

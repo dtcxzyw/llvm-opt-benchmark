@@ -1347,8 +1347,8 @@ AddConstantToken.exit285:                         ; preds = %TBufferNewPage.exit
   br i1 %.not137, label %AddConstantToken.exit, label %622, !llvm.loop !36
 
 AddConstantToken.exit:                            ; preds = %AddConstantToken.exit285, %AddToken.exit178, %AddToken.exit170, %TBufferNewPage.exit.thread.i196, %327, %TBufferNewPage.exit.thread.i209, %369, %AddToken.exit154
-  %.sink367 = phi i32 [ 11, %AddToken.exit154 ], [ 22, %369 ], [ 22, %TBufferNewPage.exit.thread.i209 ], [ 22, %327 ], [ 22, %TBufferNewPage.exit.thread.i196 ], [ 22, %AddToken.exit170 ], [ 22, %AddToken.exit178 ], [ 22, %AddConstantToken.exit285 ]
-  %.sink362 = phi i64 [ 44, %AddToken.exit154 ], [ 88, %369 ], [ 88, %TBufferNewPage.exit.thread.i209 ], [ 88, %327 ], [ 88, %TBufferNewPage.exit.thread.i196 ], [ 88, %AddToken.exit170 ], [ 88, %AddToken.exit178 ], [ 88, %AddConstantToken.exit285 ]
+  %.sink367 = phi i32 [ 11, %AddToken.exit154 ], [ 22, %AddToken.exit178 ], [ 22, %369 ], [ 22, %TBufferNewPage.exit.thread.i209 ], [ 22, %327 ], [ 22, %TBufferNewPage.exit.thread.i196 ], [ 22, %AddToken.exit170 ], [ 22, %AddConstantToken.exit285 ]
+  %.sink362 = phi i64 [ 44, %AddToken.exit154 ], [ 88, %AddToken.exit178 ], [ 88, %369 ], [ 88, %TBufferNewPage.exit.thread.i209 ], [ 88, %327 ], [ 88, %TBufferNewPage.exit.thread.i196 ], [ 88, %AddToken.exit170 ], [ 88, %AddConstantToken.exit285 ]
   %650 = getelementptr inbounds i8, ptr @VP8EncBands, i64 %indvars.iv.next
   %651 = load i8, ptr %650, align 1, !tbaa !34
   %652 = zext i8 %651 to i32

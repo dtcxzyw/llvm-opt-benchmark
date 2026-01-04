@@ -567,7 +567,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
   br i1 %.not95, label %_ZN4llvm17MachineBasicBlock5eraseENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit, label %.lr.ph, !llvm.loop !325
 
 _ZN4llvm17MachineBasicBlock5eraseENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit: ; preds = %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit, %.lr.ph.i.i.i, %54, %_ZN4llvm8DebugLocD2Ev.exit68, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i
-  %.141 = phi i1 [ true, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i ], [ true, %_ZN4llvm8DebugLocD2Ev.exit68 ], [ %.040103, %54 ], [ true, %.lr.ph.i.i.i ], [ %.040103, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit ]
+  %.141 = phi i1 [ %.040103, %54 ], [ true, %_ZN4llvm8DebugLocD2Ev.exit68 ], [ true, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i ], [ true, %.lr.ph.i.i.i ], [ %.040103, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %139 = getelementptr inbounds nuw i8, ptr %.sroa.091.0104, i64 8
   %.sroa.091.0 = load ptr, ptr %139, align 8, !tbaa !277
@@ -575,7 +575,7 @@ _ZN4llvm17MachineBasicBlock5eraseENS_26MachineInstrBundleIteratorINS_12MachineIn
   br i1 %.not94, label %.loopexit, label %54
 
 .loopexit:                                        ; preds = %_ZN4llvm17MachineBasicBlock5eraseENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit, %36, %34, %2, %27
-  %.0 = phi i1 [ false, %27 ], [ false, %2 ], [ false, %34 ], [ false, %36 ], [ %.141, %_ZN4llvm17MachineBasicBlock5eraseENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit ]
+  %.0 = phi i1 [ false, %2 ], [ false, %27 ], [ false, %34 ], [ false, %36 ], [ %.141, %_ZN4llvm17MachineBasicBlock5eraseENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit ]
   ret i1 %.0
 }
 

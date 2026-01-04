@@ -389,7 +389,7 @@ define internal fastcc noundef double @_ZL34pj_imoll_o_compute_zone_x_boundaryP8
   br label %_ZL17imoll_o_s_forward5PJ_LPP8PJconsts.exit
 
 _ZL17imoll_o_s_forward5PJ_LPP8PJconsts.exit:      ; preds = %9, %11, %13, %15
-  %.0.i = phi i64 [ 0, %9 ], [ %..i, %11 ], [ 3, %13 ], [ %.19.i, %15 ]
+  %.0.i = phi i64 [ 3, %13 ], [ %..i, %11 ], [ 0, %9 ], [ %.19.i, %15 ]
   %17 = getelementptr inbounds nuw ptr, ptr %7, i64 %.0.i
   %18 = load ptr, ptr %17, align 8, !tbaa !41
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 440
@@ -423,7 +423,7 @@ _ZL17imoll_o_s_forward5PJ_LPP8PJconsts.exit:      ; preds = %9, %11, %13, %15
   br label %_ZL17imoll_o_s_forward5PJ_LPP8PJconsts.exit24
 
 _ZL17imoll_o_s_forward5PJ_LPP8PJconsts.exit24:    ; preds = %29, %31, %33, %35
-  %.0.i19 = phi i64 [ 0, %29 ], [ %..i22, %31 ], [ 3, %33 ], [ %.19.i23, %35 ]
+  %.0.i19 = phi i64 [ 3, %33 ], [ %..i22, %31 ], [ 0, %29 ], [ %.19.i23, %35 ]
   %37 = extractvalue { double, double } %24, 0
   %38 = fadd double %37, %27
   %39 = getelementptr inbounds nuw ptr, ptr %28, i64 %.0.i19
@@ -467,7 +467,7 @@ define internal { double, double } @_ZL17imoll_o_s_inverse5PJ_XYP8PJconsts(doubl
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %16 = load double, ptr %15, align 8, !tbaa !51
   %17 = fcmp ult double %0, %16
-  br i1 %17, label %select.unfold, label %26
+  br i1 %17, label %select.unfold78, label %26
 
 18:                                               ; preds = %8
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -479,16 +479,16 @@ define internal { double, double } @_ZL17imoll_o_s_inverse5PJ_XYP8PJconsts(doubl
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %24 = load double, ptr %23, align 8, !tbaa !53
   %25 = fcmp ult double %0, %24
-  br i1 %25, label %select.unfold78, label %26
+  br i1 %25, label %select.unfold, label %26
 
-select.unfold:                                    ; preds = %14
+select.unfold:                                    ; preds = %22
   br label %26
 
-select.unfold78:                                  ; preds = %22
+select.unfold78:                                  ; preds = %14
   br label %26
 
-26:                                               ; preds = %22, %14, %10, %select.unfold, %18, %select.unfold78
-  %.066 = phi i32 [ 1, %10 ], [ 3, %14 ], [ 4, %18 ], [ 6, %22 ], [ 2, %select.unfold ], [ 5, %select.unfold78 ]
+26:                                               ; preds = %14, %22, %10, %select.unfold78, %18, %select.unfold
+  %.066 = phi i32 [ 4, %18 ], [ 6, %22 ], [ 3, %14 ], [ 1, %10 ], [ 5, %select.unfold ], [ 2, %select.unfold78 ]
   %27 = zext nneg i32 %.066 to i64
   %28 = getelementptr ptr, ptr %5, i64 %27
   %29 = getelementptr i8, ptr %28, i64 -8
@@ -511,71 +511,71 @@ select.unfold78:                                  ; preds = %22
   %.fr100 = freeze double %44
   %45 = fadd double %40, %.fr100
   switch i32 %.066, label %default.unreachable94 [
-    i32 1, label %46
-    i32 2, label %50
-    i32 3, label %54
-    i32 4, label %58
-    i32 5, label %62
-    i32 6, label %.critedge
+    i32 1, label %.critedge
+    i32 2, label %46
+    i32 3, label %50
+    i32 4, label %54
+    i32 5, label %58
+    i32 6, label %62
   ]
 
 46:                                               ; preds = %26
-  %47 = fcmp oge double %45, 0xC00921FB54479CB4
-  %48 = fcmp ole double %45, 0xBFF921FB543D4DE0
-  %or.cond = and i1 %47, %48
+  %47 = fcmp oge double %45, 0xBFF921FB544B0C50
+  %48 = fcmp ole double %45, 0x3FF0C1523834529D
+  %or.cond5 = and i1 %47, %48
   %49 = fcmp oge double %41, -1.000000e-10
-  %spec.select = and i1 %or.cond, %49
-  br i1 %spec.select, label %69, label %70
-
-50:                                               ; preds = %26
-  %51 = fcmp oge double %45, 0xBFF921FB544B0C50
-  %52 = fcmp ole double %45, 0x3FF0C1523834529D
-  %or.cond5 = and i1 %51, %52
-  %53 = fcmp oge double %41, -1.000000e-10
-  %spec.select73 = and i1 %or.cond5, %53
+  %spec.select73 = and i1 %or.cond5, %49
   br i1 %spec.select73, label %69, label %70
 
-54:                                               ; preds = %26
-  %55 = fcmp oge double %45, 0x3FF0C1523826942D
-  %56 = fcmp ole double %45, 0x400921FB54479CB4
-  %or.cond8 = and i1 %55, %56
-  %57 = fcmp oge double %41, -1.000000e-10
-  %spec.select74 = and i1 %or.cond8, %57
+50:                                               ; preds = %26
+  %51 = fcmp oge double %45, 0x3FF0C1523826942D
+  %52 = fcmp ole double %45, 0x400921FB54479CB4
+  %or.cond8 = and i1 %51, %52
+  %53 = fcmp oge double %41, -1.000000e-10
+  %spec.select74 = and i1 %or.cond8, %53
   br i1 %spec.select74, label %69, label %70
 
-58:                                               ; preds = %26
-  %59 = fcmp oge double %45, 0xC00921FB54479CB4
-  %60 = fcmp ole double %45, 0xBFF0C1523826942D
-  %or.cond11 = and i1 %59, %60
-  %61 = fcmp ole double %41, 1.000000e-10
-  %spec.select75 = and i1 %or.cond11, %61
+54:                                               ; preds = %26
+  %55 = fcmp oge double %45, 0xC00921FB54479CB4
+  %56 = fcmp ole double %45, 0xBFF0C1523826942D
+  %or.cond11 = and i1 %55, %56
+  %57 = fcmp ole double %41, 1.000000e-10
+  %spec.select75 = and i1 %or.cond11, %57
   br i1 %spec.select75, label %69, label %70
 
-62:                                               ; preds = %26
-  %63 = fcmp oge double %45, 0xBFF0C1523834529D
-  %64 = fcmp ole double %45, 0x3FF921FB544B0C50
-  %or.cond14 = and i1 %63, %64
-  %65 = fcmp ole double %41, 1.000000e-10
-  %spec.select76 = and i1 %or.cond14, %65
+58:                                               ; preds = %26
+  %59 = fcmp oge double %45, 0xBFF0C1523834529D
+  %60 = fcmp ole double %45, 0x3FF921FB544B0C50
+  %or.cond14 = and i1 %59, %60
+  %61 = fcmp ole double %41, 1.000000e-10
+  %spec.select76 = and i1 %or.cond14, %61
   br i1 %spec.select76, label %69, label %70
+
+62:                                               ; preds = %26
+  %63 = fcmp oge double %45, 0x3FF921FB543D4DE0
+  %64 = fcmp ole double %45, 0x400921FB54479CB4
+  %or.cond17 = and i1 %63, %64
+  %65 = fcmp ole double %41, 1.000000e-10
+  %spec.select77 = and i1 %or.cond17, %65
+  br i1 %spec.select77, label %69, label %70
 
 default.unreachable94:                            ; preds = %26
   unreachable
 
 .critedge:                                        ; preds = %26
-  %66 = fcmp oge double %45, 0x3FF921FB543D4DE0
-  %67 = fcmp ole double %45, 0x400921FB54479CB4
-  %or.cond17 = and i1 %66, %67
-  %68 = fcmp ole double %41, 1.000000e-10
-  %spec.select77 = and i1 %or.cond17, %68
-  br i1 %spec.select77, label %69, label %70
+  %66 = fcmp oge double %45, 0xC00921FB54479CB4
+  %67 = fcmp ole double %45, 0xBFF921FB543D4DE0
+  %or.cond = and i1 %66, %67
+  %68 = fcmp oge double %41, -1.000000e-10
+  %spec.select = and i1 %or.cond, %68
+  br i1 %spec.select, label %69, label %70
 
-69:                                               ; preds = %62, %58, %54, %50, %46, %.critedge
+69:                                               ; preds = %46, %50, %54, %58, %62, %.critedge
   br label %70
 
-70:                                               ; preds = %62, %58, %54, %50, %46, %69, %3, %.critedge
-  %71 = phi double [ %45, %69 ], [ 0x7FF0000000000000, %3 ], [ 0x7FF0000000000000, %.critedge ], [ 0x7FF0000000000000, %46 ], [ 0x7FF0000000000000, %50 ], [ 0x7FF0000000000000, %54 ], [ 0x7FF0000000000000, %58 ], [ 0x7FF0000000000000, %62 ]
-  %72 = phi double [ %41, %69 ], [ 0x7FF0000000000000, %3 ], [ 0x7FF0000000000000, %.critedge ], [ 0x7FF0000000000000, %46 ], [ 0x7FF0000000000000, %50 ], [ 0x7FF0000000000000, %54 ], [ 0x7FF0000000000000, %58 ], [ 0x7FF0000000000000, %62 ]
+70:                                               ; preds = %46, %50, %54, %58, %62, %69, %3, %.critedge
+  %71 = phi double [ %45, %69 ], [ 0x7FF0000000000000, %3 ], [ 0x7FF0000000000000, %.critedge ], [ 0x7FF0000000000000, %62 ], [ 0x7FF0000000000000, %58 ], [ 0x7FF0000000000000, %54 ], [ 0x7FF0000000000000, %50 ], [ 0x7FF0000000000000, %46 ]
+  %72 = phi double [ %41, %69 ], [ 0x7FF0000000000000, %3 ], [ 0x7FF0000000000000, %.critedge ], [ 0x7FF0000000000000, %62 ], [ 0x7FF0000000000000, %58 ], [ 0x7FF0000000000000, %54 ], [ 0x7FF0000000000000, %50 ], [ 0x7FF0000000000000, %46 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %71, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %72, 1
   ret { double, double } %.fca.1.insert
@@ -607,7 +607,7 @@ define internal { double, double } @_ZL17imoll_o_s_forward5PJ_LPP8PJconsts(doubl
   br label %15
 
 15:                                               ; preds = %13, %11, %9, %7
-  %.0 = phi i64 [ 0, %7 ], [ %., %9 ], [ 3, %11 ], [ %.19, %13 ]
+  %.0 = phi i64 [ 3, %11 ], [ %., %9 ], [ 0, %7 ], [ %.19, %13 ]
   %16 = getelementptr inbounds nuw ptr, ptr %5, i64 %.0
   %17 = load ptr, ptr %16, align 8, !tbaa !41
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 440

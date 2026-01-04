@@ -838,7 +838,7 @@ _adjust_xtrans_filters.exit:                      ; preds = %148, %88, %._crit_e
   br label %256
 
 256:                                              ; preds = %246, %255, %253
-  %257 = phi reassoc nsz arcp contract afn float [ %251, %255 ], [ 0.000000e+00, %253 ], [ %234, %246 ]
+  %257 = phi reassoc nsz arcp contract afn float [ 0.000000e+00, %253 ], [ %251, %255 ], [ %234, %246 ]
   %258 = fcmp reassoc nsz arcp contract afn olt float %257, %236
   %259 = select reassoc nsz arcp contract afn i1 %258, float %257, float %236
   %260 = fptoui float %259 to i32
@@ -915,7 +915,7 @@ _adjust_xtrans_filters.exit:                      ; preds = %148, %88, %._crit_e
   br label %295
 
 295:                                              ; preds = %283, %294, %292
-  %296 = phi reassoc nsz arcp contract afn float [ %290, %294 ], [ 0.000000e+00, %292 ], [ %240, %283 ]
+  %296 = phi reassoc nsz arcp contract afn float [ 0.000000e+00, %292 ], [ %290, %294 ], [ %240, %283 ]
   %297 = fcmp reassoc nsz arcp contract afn olt float %296, %242
   %298 = select reassoc nsz arcp contract afn i1 %297, float %296, float %242
   %299 = fptoui float %298 to i32
@@ -1475,7 +1475,7 @@ define internal fastcc range(i32 0, 2) i32 @_check_gain_maps(ptr readonly captur
   br label %.loopexit
 
 .loopexit:                                        ; preds = %8, %12, %15, %18, %21, %24, %27, %31, %35, %38, %42, %46, %98, %93, %88, %83, %79, %74, %.critedge69, %103, %.critedge67, %1
-  %.047 = phi i32 [ 0, %1 ], [ 0, %.critedge67 ], [ 1, %103 ], [ 1, %.critedge69 ], [ 0, %74 ], [ 0, %79 ], [ 0, %83 ], [ 0, %88 ], [ 0, %93 ], [ 0, %98 ], [ 0, %46 ], [ 0, %42 ], [ 0, %38 ], [ 0, %35 ], [ 0, %31 ], [ 0, %27 ], [ 0, %24 ], [ 0, %21 ], [ 0, %18 ], [ 0, %15 ], [ 0, %12 ], [ 0, %8 ]
+  %.047 = phi i32 [ 1, %.critedge69 ], [ 0, %1 ], [ 0, %.critedge67 ], [ 0, %98 ], [ 1, %103 ], [ 0, %74 ], [ 0, %79 ], [ 0, %83 ], [ 0, %88 ], [ 0, %93 ], [ 0, %46 ], [ 0, %42 ], [ 0, %38 ], [ 0, %35 ], [ 0, %31 ], [ 0, %27 ], [ 0, %24 ], [ 0, %21 ], [ 0, %18 ], [ 0, %15 ], [ 0, %12 ], [ 0, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.047
 }
@@ -2093,7 +2093,7 @@ define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, pt
   br label %31
 
 31:                                               ; preds = %28, %2, %26, %22, %18, %14, %10, %6
-  %.0 = phi ptr [ %27, %26 ], [ %23, %22 ], [ %19, %18 ], [ %15, %14 ], [ %11, %10 ], [ %7, %6 ], [ %0, %2 ], [ %spec.select, %28 ]
+  %.0 = phi ptr [ %0, %2 ], [ %spec.select, %28 ], [ %27, %26 ], [ %23, %22 ], [ %19, %18 ], [ %15, %14 ], [ %11, %10 ], [ %7, %6 ]
   ret ptr %.0
 }
 
@@ -2143,7 +2143,7 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #1 {
   br label %17
 
 17:                                               ; preds = %15, %13, %11, %9, %7, %5, %3, %1
-  %.0 = phi ptr [ @introspection_linear, %1 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %9 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 440), %11 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 528), %13 ], [ %., %15 ]
+  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 528), %13 ], [ %., %15 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 440), %11 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %9 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ @introspection_linear, %1 ]
   ret ptr %.0
 }
 

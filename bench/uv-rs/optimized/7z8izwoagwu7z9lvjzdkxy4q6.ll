@@ -615,7 +615,7 @@ define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..Slic
   br i1 %.not13.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hd8cf67d2446b8818E.llvm.8534778228985836277.exit", label %7
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hd8cf67d2446b8818E.llvm.8534778228985836277.exit": ; preds = %7, %17, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17h5fa254b390323c61E.llvm.8534778228985836277.exit.backedge.i", %3
-  %.lcssa.i = phi i1 [ false, %3 ], [ false, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17h5fa254b390323c61E.llvm.8534778228985836277.exit.backedge.i" ], [ true, %17 ], [ true, %7 ]
+  %.lcssa.i = phi i1 [ false, %3 ], [ false, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17h5fa254b390323c61E.llvm.8534778228985836277.exit.backedge.i" ], [ true, %7 ], [ true, %17 ]
   ret i1 %.lcssa.i
 }
 
@@ -1305,7 +1305,7 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   br i1 %.not13, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf63ad8ec72bea522E.llvm.8534778228985836277.exit.sink.split", label %7
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf63ad8ec72bea522E.llvm.8534778228985836277.exit.sink.split": ; preds = %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17h5fa254b390323c61E.llvm.8534778228985836277.exit.backedge", %17, %7
-  %.lcssa.ph = phi i1 [ true, %7 ], [ true, %17 ], [ false, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17h5fa254b390323c61E.llvm.8534778228985836277.exit.backedge" ]
+  %.lcssa.ph = phi i1 [ true, %17 ], [ true, %7 ], [ false, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17h5fa254b390323c61E.llvm.8534778228985836277.exit.backedge" ]
   store ptr %9, ptr %0, align 8, !alias.scope !200
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf63ad8ec72bea522E.llvm.8534778228985836277.exit"
 
@@ -1947,8 +1947,8 @@ define void @_ZN16uv_configuration15config_settings14ConfigSettings5merge17h09bb
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   ret void
 
-.thread79:                                        ; preds = %59, %48, %144
-  %.sroa.06.0.ph = phi i1 [ false, %144 ], [ true, %48 ], [ true, %59 ]
+.thread79:                                        ; preds = %59, %144, %48
+  %.sroa.06.0.ph = phi i1 [ true, %48 ], [ false, %144 ], [ true, %59 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread68
@@ -2046,7 +2046,7 @@ define void @_ZN16uv_configuration15config_settings14ConfigSettings5merge17h09bb
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #36
   unreachable
 
-.thread88:                                        ; preds = %90, %93, %96
+.thread88:                                        ; preds = %96, %90, %93
   %lpad.thr_comm86 = landingpad { ptr, i32 }
           cleanup
   br label %.thread92
@@ -2116,8 +2116,8 @@ define void @_ZN16uv_configuration15config_settings14ConfigSettings5merge17h09bb
 98:                                               ; preds = %85
   unreachable
 
-.thread92:                                        ; preds = %114, %.thread88, %.body
-  %.pn.ph = phi { ptr, i32 } [ %lpad.thr_comm86, %.thread88 ], [ %102, %.body ], [ %75, %114 ]
+.thread92:                                        ; preds = %.thread88, %114, %.body
+  %.pn.ph = phi { ptr, i32 } [ %102, %.body ], [ %75, %114 ], [ %lpad.thr_comm86, %.thread88 ]
   %.sroa.06.295 = xor i1 %trunc12, true
   br label %.thread68
 
@@ -2294,9 +2294,9 @@ define void @_ZN16uv_configuration15config_settings14ConfigSettings5merge17h09bb
   br label %55
 
 .thread68:                                        ; preds = %.thread92, %135, %.thread79
-  %.pn.pn67 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread79 ], [ %136, %135 ], [ %.pn.ph, %.thread92 ]
-  %.sroa.06.166 = phi i1 [ %.sroa.06.0.ph, %.thread79 ], [ false, %135 ], [ %.sroa.06.295, %.thread92 ]
-  %.sroa.05.165 = phi i1 [ true, %.thread79 ], [ true, %135 ], [ %trunc12, %.thread92 ]
+  %.pn.pn67 = phi { ptr, i32 } [ %136, %135 ], [ %lpad.thr_comm, %.thread79 ], [ %.pn.ph, %.thread92 ]
+  %.sroa.06.166 = phi i1 [ false, %135 ], [ %.sroa.06.0.ph, %.thread79 ], [ %.sroa.06.295, %.thread92 ]
+  %.sroa.05.165 = phi i1 [ true, %135 ], [ true, %.thread79 ], [ %trunc12, %.thread92 ]
   %156 = load i64, ptr %17, align 8, !range !81, !noundef !4
   %157 = icmp eq i64 %156, 0
   br i1 %157, label %162, label %163

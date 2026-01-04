@@ -859,8 +859,8 @@ generateMTFValues.exit:                           ; preds = %.preheader.i, %._cr
   br label %439
 
 439:                                              ; preds = %437, %435, %433, %430
-  %440 = phi i1 [ false, %430 ], [ false, %433 ], [ false, %435 ], [ %438, %437 ]
-  %.01490.i = phi i32 [ 2, %430 ], [ 3, %433 ], [ 4, %435 ], [ %.1516.i, %437 ]
+  %440 = phi i1 [ false, %435 ], [ false, %430 ], [ false, %433 ], [ %438, %437 ]
+  %.01490.i = phi i32 [ 4, %435 ], [ 2, %430 ], [ 3, %433 ], [ %.1516.i, %437 ]
   %441 = sext i32 %421 to i64
   %smax2355.i = call i32 @llvm.smax.i32(i32 %422, i32 1)
   %442 = zext nneg i32 %.01490.i to i64
@@ -2273,8 +2273,8 @@ generateMTFValues.exit:                           ; preds = %.preheader.i, %._cr
   br label %.thread.i
 
 .thread.i:                                        ; preds = %1528, %1526, %.preheader1968.i
-  %.01492.lcssa26222627.i = phi i32 [ %spec.select1524.i, %1528 ], [ %spec.select1524.i, %1526 ], [ 0, %.preheader1968.i ]
-  %.01488.lcssa26232626.i = phi i32 [ 0, %1528 ], [ %.11489.i, %1526 ], [ 32, %.preheader1968.i ]
+  %.01492.lcssa26222627.i = phi i32 [ %spec.select1524.i, %1526 ], [ %spec.select1524.i, %1528 ], [ 0, %.preheader1968.i ]
+  %.01488.lcssa26232626.i = phi i32 [ %.11489.i, %1526 ], [ 0, %1528 ], [ 32, %.preheader1968.i ]
   %1529 = getelementptr inbounds nuw [258 x i32], ptr %1518, i64 %indvars.iv2433.i
   %1530 = getelementptr inbounds nuw [258 x i8], ptr %443, i64 %indvars.iv2433.i
   call void @BZ2_hbAssignCodes(ptr noundef nonnull %1529, ptr noundef nonnull %1530, i32 noundef %.01488.lcssa26232626.i, i32 noundef %.01492.lcssa26222627.i, i32 noundef %422) #10

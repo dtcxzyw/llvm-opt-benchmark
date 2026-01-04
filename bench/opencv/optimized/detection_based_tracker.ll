@@ -1035,7 +1035,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43: ; preds = %92,
   br i1 %.not.i44, label %.invoke, label %100
 
 .invoke:                                          ; preds = %130, %103, %100, %97
-  %99 = phi i32 [ 1, %97 ], [ 35, %100 ], [ %104, %103 ], [ 1, %130 ]
+  %99 = phi i32 [ %104, %103 ], [ 1, %97 ], [ 35, %100 ], [ 1, %130 ]
   invoke void @_ZSt20__throw_system_errori(i32 noundef %99) #27
           to label %.cont unwind label %.loopexit.split-lp
 
@@ -1326,7 +1326,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit:     ; preds = %_ZNSt11unique_lockI
   ret void
 
 196:                                              ; preds = %.loopexit81, %.loopexit.split-lp82, %.loopexit, %.loopexit.split-lp, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54, %171, %154, %63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38
-  %.pn28.pn.pn.pn = phi { ptr, i32 } [ %64, %63 ], [ %.pn22, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38 ], [ %.pn26, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54 ], [ %.pn24, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43 ], [ %155, %154 ], [ %172, %171 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit83, %.loopexit81 ], [ %lpad.loopexit.split-lp84, %.loopexit.split-lp82 ]
+  %.pn28.pn.pn.pn = phi { ptr, i32 } [ %.pn22, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38 ], [ %64, %63 ], [ %.pn24, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43 ], [ %172, %171 ], [ %.pn26, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54 ], [ %155, %154 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit83, %.loopexit81 ], [ %lpad.loopexit.split-lp84, %.loopexit.split-lp82 ]
   %197 = load i8, ptr %37, align 8, !tbaa !62, !range !70, !noundef !74
   %198 = trunc nuw i8 %197 to i1
   br i1 %198, label %199, label %_ZNSt11unique_lockISt5mutexED2Ev.exit77
@@ -1795,7 +1795,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %40, %67
   br label %75
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit23:          ; preds = %30, %32, %71, %69, %53
-  %.pn18.pn = phi { ptr, i32 } [ %33, %32 ], [ %31, %30 ], [ %70, %69 ], [ %72, %71 ], [ %54, %53 ]
+  %.pn18.pn = phi { ptr, i32 } [ %31, %30 ], [ %33, %32 ], [ %70, %69 ], [ %72, %71 ], [ %54, %53 ]
   %74 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %19) #26
   br label %76
 
@@ -3349,10 +3349,10 @@ define void @_ZN2cv21DetectionBasedTracker14detectInRegionERKNS_3MatERKNS_5Rect_
   br label %_ZN2cvanIiEENS_5Rect_IT_EERKS3_S5_.exit
 
 _ZN2cvanIiEENS_5Rect_IT_EERKS3_S5_.exit:          ; preds = %52, %4, %48, %60, %._crit_edge.i.i, %69
-  %.sroa.0.sroa.0.0.i = phi i32 [ 0, %69 ], [ %55, %._crit_edge.i.i ], [ 0, %48 ], [ 0, %4 ], [ 0, %60 ], [ 0, %52 ]
-  %.sroa.0.sroa.9.0.i = phi i32 [ 0, %69 ], [ %63, %._crit_edge.i.i ], [ 0, %48 ], [ 0, %4 ], [ 0, %60 ], [ 0, %52 ]
-  %.sroa.14.sroa.0.0.i = phi i32 [ 0, %69 ], [ %.sroa.speculated53.i.i, %._crit_edge.i.i ], [ 0, %48 ], [ 0, %4 ], [ 0, %60 ], [ 0, %52 ]
-  %.sroa.14.sroa.12.0.i = phi i32 [ 0, %69 ], [ %.sroa.speculated.i.i, %._crit_edge.i.i ], [ 0, %48 ], [ 0, %4 ], [ 0, %60 ], [ 0, %52 ]
+  %.sroa.0.sroa.0.0.i = phi i32 [ %55, %._crit_edge.i.i ], [ 0, %4 ], [ 0, %69 ], [ 0, %48 ], [ 0, %60 ], [ 0, %52 ]
+  %.sroa.0.sroa.9.0.i = phi i32 [ %63, %._crit_edge.i.i ], [ 0, %4 ], [ 0, %69 ], [ 0, %48 ], [ 0, %60 ], [ 0, %52 ]
+  %.sroa.14.sroa.0.0.i = phi i32 [ %.sroa.speculated53.i.i, %._crit_edge.i.i ], [ 0, %4 ], [ 0, %69 ], [ 0, %48 ], [ 0, %60 ], [ 0, %52 ]
+  %.sroa.14.sroa.12.0.i = phi i32 [ %.sroa.speculated.i.i, %._crit_edge.i.i ], [ 0, %4 ], [ 0, %69 ], [ 0, %48 ], [ 0, %60 ], [ 0, %52 ]
   %.sroa.0.sroa.9.0.insert.ext.i = zext nneg i32 %.sroa.0.sroa.9.0.i to i64
   %.sroa.0.sroa.9.0.insert.shift.i = shl nuw nsw i64 %.sroa.0.sroa.9.0.insert.ext.i, 32
   %.sroa.0.sroa.0.0.insert.ext.i = zext nneg i32 %.sroa.0.sroa.0.0.i to i64
@@ -3863,9 +3863,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %82, %
   %spec.select190 = select i1 %132, i32 %133, i32 %.077204
   br label %.thread
 
-.thread:                                          ; preds = %116, %121, %98, %130, %124, %.lr.ph206.split
-  %.181 = phi i32 [ %.080203, %.lr.ph206.split ], [ %.080203, %124 ], [ %spec.select, %130 ], [ %.080203, %98 ], [ %.080203, %121 ], [ %.080203, %116 ]
-  %.178 = phi i32 [ %.077204, %.lr.ph206.split ], [ %.077204, %124 ], [ %spec.select190, %130 ], [ %.077204, %98 ], [ %.077204, %121 ], [ %.077204, %116 ]
+.thread:                                          ; preds = %98, %116, %121, %130, %124, %.lr.ph206.split
+  %.181 = phi i32 [ %.080203, %.lr.ph206.split ], [ %.080203, %124 ], [ %spec.select, %130 ], [ %.080203, %121 ], [ %.080203, %116 ], [ %.080203, %98 ]
+  %.178 = phi i32 [ %.077204, %.lr.ph206.split ], [ %.077204, %124 ], [ %spec.select190, %130 ], [ %.077204, %121 ], [ %.077204, %116 ], [ %.077204, %98 ]
   %indvars.iv.next231 = add nuw nsw i64 %indvars.iv230, 1
   %exitcond234.not = icmp eq i64 %indvars.iv.next231, %wide.trip.count233
   br i1 %exitcond234.not, label %._crit_edge207, label %.lr.ph206.split, !llvm.loop !158
@@ -3964,7 +3964,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %82, %
   store i32 -2, ptr %143, align 4, !tbaa !54
   br label %.critedge
 
-.critedge:                                        ; preds = %151, %146, %170, %165, %173, %179, %142
+.critedge:                                        ; preds = %146, %165, %151, %170, %173, %179, %142
   %indvars.iv.next236 = add nuw nsw i64 %indvars.iv235, 1
   %exitcond239.not = icmp eq i64 %indvars.iv.next236, %wide.trip.count238
   br i1 %exitcond239.not, label %.loopexit199, label %142, !llvm.loop !159

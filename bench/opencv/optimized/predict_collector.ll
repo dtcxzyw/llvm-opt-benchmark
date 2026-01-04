@@ -655,7 +655,7 @@ _ZNSt3mapIidSt4lessIiESaISt4pairIKidEEE4findERS3_.exit: ; preds = %_ZNSt8_Rb_tre
   %23 = icmp slt i32 %.pre, %22
   br i1 %23, label %_ZNSt3mapIidSt4lessIiESaISt4pairIKidEEE4findERS3_.exit.thread, label %29
 
-_ZNSt3mapIidSt4lessIiESaISt4pairIKidEEE4findERS3_.exit.thread: ; preds = %14, %_ZNSt8_Rb_treeIiSt4pairIKidESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %_ZNSt3mapIidSt4lessIiESaISt4pairIKidEEE4findERS3_.exit
+_ZNSt3mapIidSt4lessIiESaISt4pairIKidEEE4findERS3_.exit.thread: ; preds = %_ZNSt8_Rb_treeIiSt4pairIKidESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %14, %_ZNSt3mapIidSt4lessIiESaISt4pairIKidEEE4findERS3_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.09.017, i64 8
   %25 = load double, ptr %24, align 8, !tbaa !20
@@ -1316,7 +1316,7 @@ select.unfold:                                    ; preds = %19, %._crit_edge.th
   br label %.thread24
 
 .thread24:                                        ; preds = %select.unfold, %23
-  %27 = phi i1 [ true, %select.unfold ], [ %26, %23 ]
+  %27 = phi i1 [ %26, %23 ], [ true, %select.unfold ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %27, ptr noundef nonnull %3, ptr noundef nonnull %.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %10) #23
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = load i64, ptr %28, align 8, !tbaa !56

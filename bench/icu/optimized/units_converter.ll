@@ -205,7 +205,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1384,8 +1384,8 @@ _ZN6icu_7715MeasureUnitImplD2Ev.exit:             ; preds = %._crit_edge.i.i, %7
   br i1 %107, label %.lr.ph.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %120, %_ZN6icu_7715MeasureUnitImplD2Ev.exit, %._crit_edge
-  %.498 = phi i1 [ %.4.ph, %._crit_edge ], [ %.175, %_ZN6icu_7715MeasureUnitImplD2Ev.exit ], [ %.4.ph, %120 ]
-  %.not50.not.lcssa97 = phi i1 [ %106, %._crit_edge ], [ false, %_ZN6icu_7715MeasureUnitImplD2Ev.exit ], [ %106, %120 ]
+  %.498 = phi i1 [ %.175, %_ZN6icu_7715MeasureUnitImplD2Ev.exit ], [ %.4.ph, %._crit_edge ], [ %.4.ph, %120 ]
+  %.not50.not.lcssa97 = phi i1 [ false, %_ZN6icu_7715MeasureUnitImplD2Ev.exit ], [ %106, %._crit_edge ], [ %106, %120 ]
   %108 = load i8, ptr %31, align 4, !tbaa !46
   %.not.i.i.i = icmp eq i8 %108, 0
   br i1 %.not.i.i.i, label %124, label %109
@@ -1433,7 +1433,7 @@ _ZN6icu_7715MeasureUnitImplD2Ev.exit:             ; preds = %._crit_edge.i.i, %7
   br label %126
 
 126:                                              ; preds = %50, %125
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn, %125 ], [ %51, %50 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %51, %50 ], [ %.pn, %125 ]
   call void @_ZN6icu_7715MeasureUnitImplD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) #22
   br label %common.resume
 
@@ -1734,7 +1734,7 @@ _ZN6icu_775units12_GLOBAL__N_126checkAllDimensionsAreZerosERKNS_16MaybeStackVect
   br i1 %.not.i31, label %42, label %_ZN6icu_775units12_GLOBAL__N_126checkAllDimensionsAreZerosERKNS_16MaybeStackVectorINS1_21UnitIndexAndDimensionELi8EEE.exit34
 
 _ZN6icu_775units12_GLOBAL__N_126checkAllDimensionsAreZerosERKNS_16MaybeStackVectorINS1_21UnitIndexAndDimensionELi8EEE.exit34: ; preds = %34, %42, %.lr.ph.i29, %32
-  %.217.ph = phi i32 [ 1, %32 ], [ 2, %.lr.ph.i29 ], [ 0, %42 ], [ 1, %34 ]
+  %.217.ph = phi i32 [ 0, %42 ], [ 1, %32 ], [ 2, %.lr.ph.i29 ], [ 1, %34 ]
   %.pr = load i32, ptr %8, align 8, !tbaa !58
   %47 = icmp sgt i32 %.pr, 0
   br i1 %47, label %.lr.ph.i35, label %._crit_edge.i
@@ -3453,7 +3453,7 @@ define noundef i32 @_ZN6icu_775units14UnitsConverter15compareTwoUnitsERKNS_15Mea
   resume { ptr, i32 } %.pn53.pn.pn
 
 64:                                               ; preds = %24, %61, %18, %4, %17
-  %.0 = phi i32 [ 0, %17 ], [ 0, %4 ], [ 0, %24 ], [ %.2, %61 ], [ 0, %18 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %17 ], [ %.2, %61 ], [ 0, %24 ], [ 0, %18 ]
   ret i32 %.0
 }
 
@@ -4159,7 +4159,7 @@ _ZNK6icu_775units14UnitsConverter11baseToScaleEdPdi.exit.loopexit: ; preds = %70
   br label %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit24.thread27
 
 _ZNK6icu_7710CharStringeqENS_11StringPieceE.exit24.thread27: ; preds = %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit24.thread, %_ZNK6icu_775units14UnitsConverter11baseToScaleEdPdi.exit.loopexit, %44, %80, %100, %73, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit24, %98
-  %.018 = phi double [ %99, %98 ], [ %79, %73 ], [ %.0, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit24 ], [ %101, %100 ], [ %92, %80 ], [ %.0, %44 ], [ 1.700000e+01, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit24.thread ], [ %72, %_ZNK6icu_775units14UnitsConverter11baseToScaleEdPdi.exit.loopexit ]
+  %.018 = phi double [ %99, %98 ], [ %.0, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit24 ], [ %79, %73 ], [ %.0, %44 ], [ %101, %100 ], [ %92, %80 ], [ 1.700000e+01, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit24.thread ], [ %72, %_ZNK6icu_775units14UnitsConverter11baseToScaleEdPdi.exit.loopexit ]
   ret double %.018
 }
 
@@ -4335,7 +4335,7 @@ _ZNK6icu_775units14UnitsConverter11baseToScaleEdPdi.exit.loopexit: ; preds = %69
   br label %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit24.thread27
 
 _ZNK6icu_7710CharStringeqENS_11StringPieceE.exit24.thread27: ; preds = %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit24.thread, %_ZNK6icu_775units14UnitsConverter11baseToScaleEdPdi.exit.loopexit, %43, %72, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit24, %89, %85
-  %.018 = phi double [ %86, %85 ], [ %101, %89 ], [ %78, %72 ], [ %.0, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit24 ], [ %.0, %43 ], [ 1.700000e+01, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit24.thread ], [ %71, %_ZNK6icu_775units14UnitsConverter11baseToScaleEdPdi.exit.loopexit ]
+  %.018 = phi double [ %86, %85 ], [ %101, %89 ], [ %78, %72 ], [ %.0, %43 ], [ %.0, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit24 ], [ 1.700000e+01, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit24.thread ], [ %71, %_ZNK6icu_775units14UnitsConverter11baseToScaleEdPdi.exit.loopexit ]
   ret double %.018
 }
 

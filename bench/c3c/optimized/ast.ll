@@ -269,7 +269,7 @@ define dso_local ptr @decl_safe_name(ptr noundef readonly captures(address_is_nu
   br label %9
 
 9:                                                ; preds = %2, %1, %4
-  %.0 = phi ptr [ %.0.i, %4 ], [ @.str.4, %1 ], [ %3, %2 ]
+  %.0 = phi ptr [ @.str.4, %1 ], [ %.0.i, %4 ], [ %3, %2 ]
   ret ptr %.0
 }
 
@@ -467,7 +467,7 @@ define dso_local noundef nonnull ptr @decl_to_a_name(ptr noundef readonly captur
   unreachable
 
 49:                                               ; preds = %30, %1, %46, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %33, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6
-  %.0 = phi ptr [ @.str.6, %6 ], [ @.str.7, %7 ], [ @.str.8, %8 ], [ @.str.9, %9 ], [ @.str.10, %10 ], [ @.str.11, %11 ], [ @.str.12, %12 ], [ @.str.13, %13 ], [ @.str.14, %14 ], [ @.str.15, %15 ], [ @.str.16, %16 ], [ @.str.17, %17 ], [ @.str.18, %18 ], [ @.str.19, %19 ], [ @.str.20, %20 ], [ @.str.21, %21 ], [ @.str.22, %22 ], [ @.str.23, %23 ], [ @.str.24, %24 ], [ @.str.25, %25 ], [ @.str.26, %26 ], [ @.str.27, %27 ], [ @.str.28, %28 ], [ @.str.29, %29 ], [ @.str.31, %33 ], [ @.str.32, %35 ], [ @.str.33, %36 ], [ @.str.34, %37 ], [ @.str.35, %38 ], [ @.str.36, %39 ], [ @.str.37, %40 ], [ @.str.38, %41 ], [ @.str.39, %42 ], [ @.str.40, %43 ], [ @.str.41, %44 ], [ @.str.42, %46 ], [ @.str.5, %1 ], [ @.str.30, %30 ]
+  %.0 = phi ptr [ @.str.42, %46 ], [ @.str.6, %6 ], [ @.str.7, %7 ], [ @.str.8, %8 ], [ @.str.9, %9 ], [ @.str.10, %10 ], [ @.str.11, %11 ], [ @.str.12, %12 ], [ @.str.13, %13 ], [ @.str.14, %14 ], [ @.str.15, %15 ], [ @.str.16, %16 ], [ @.str.17, %17 ], [ @.str.18, %18 ], [ @.str.19, %19 ], [ @.str.20, %20 ], [ @.str.21, %21 ], [ @.str.22, %22 ], [ @.str.23, %23 ], [ @.str.24, %24 ], [ @.str.25, %25 ], [ @.str.26, %26 ], [ @.str.27, %27 ], [ @.str.28, %28 ], [ @.str.29, %29 ], [ @.str.5, %1 ], [ @.str.31, %33 ], [ @.str.32, %35 ], [ @.str.33, %36 ], [ @.str.34, %37 ], [ @.str.35, %38 ], [ @.str.36, %39 ], [ @.str.37, %40 ], [ @.str.38, %41 ], [ @.str.39, %42 ], [ @.str.40, %43 ], [ @.str.41, %44 ], [ @.str.30, %30 ]
   ret ptr %.0
 }
 
@@ -520,7 +520,7 @@ define dso_local void @decl_set_external_name(ptr noundef captures(none) %0) loc
   br label %.preheader
 
 .preheader:                                       ; preds = %17, %22
-  %.0.ph = phi ptr [ %21, %17 ], [ %25, %22 ]
+  %.0.ph = phi ptr [ %25, %22 ], [ %21, %17 ]
   br label %26
 
 26:                                               ; preds = %.backedge, %.preheader
@@ -749,7 +749,7 @@ tailrecurse:                                      ; preds = %9, %1
   br i1 %.not11, label %tailrecurse, label %14
 
 14:                                               ; preds = %6, %9, %3, %tailrecurse
-  %.0 = phi i1 [ false, %tailrecurse ], [ true, %3 ], [ true, %9 ], [ false, %6 ]
+  %.0 = phi i1 [ false, %tailrecurse ], [ true, %3 ], [ false, %6 ], [ true, %9 ]
   ret i1 %.0
 }
 
@@ -1002,7 +1002,7 @@ define dso_local zeroext i1 @ast_is_compile_time(ptr noundef readonly captures(n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %17, %4, %1, %24, %9, %7
-  %.0 = phi i1 [ false, %24 ], [ %8, %7 ], [ %12, %9 ], [ true, %1 ], [ true, %4 ], [ %.not, %17 ], [ %.not, %16 ]
+  %.0 = phi i1 [ false, %24 ], [ true, %4 ], [ %8, %7 ], [ true, %1 ], [ %12, %9 ], [ %.not, %17 ], [ %.not, %16 ]
   ret i1 %.0
 }
 
@@ -1027,7 +1027,7 @@ define dso_local zeroext i1 @decl_is_externally_visible(ptr noundef readonly cap
   br label %10
 
 10:                                               ; preds = %7, %1
-  %11 = phi i1 [ true, %1 ], [ %9, %7 ]
+  %11 = phi i1 [ %9, %7 ], [ true, %1 ]
   ret i1 %11
 }
 
@@ -1048,7 +1048,7 @@ define dso_local zeroext i1 @decl_is_local(ptr noundef readonly captures(none) %
   br label %8
 
 8:                                                ; preds = %6, %1
-  %9 = phi i1 [ false, %1 ], [ %.not4, %6 ]
+  %9 = phi i1 [ %.not4, %6 ], [ false, %1 ]
   ret i1 %9
 }
 
@@ -1105,7 +1105,7 @@ define dso_local noundef ptr @decl_find_enum_constant(ptr noundef readonly captu
   br i1 %12, label %._crit_edge, label %8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8, %2, %5
-  %.013 = phi ptr [ null, %5 ], [ null, %2 ], [ null, %8 ], [ %10, %.lr.ph ]
+  %.013 = phi ptr [ null, %5 ], [ null, %2 ], [ %10, %.lr.ph ], [ null, %8 ]
   ret ptr %.013
 }
 
@@ -1189,7 +1189,7 @@ define dso_local i32 @decl_find_member_offset(ptr noundef readonly captures(none
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
 .loopexit:                                        ; preds = %3, %37, %15, %16, %32, %22
-  %.024 = phi i32 [ %25, %22 ], [ %36, %32 ], [ -1, %16 ], [ -1, %15 ], [ -1, %37 ], [ -1, %3 ]
+  %.024 = phi i32 [ -1, %16 ], [ %25, %22 ], [ %36, %32 ], [ -1, %37 ], [ -1, %15 ], [ -1, %3 ]
   ret i32 %.024
 }
 

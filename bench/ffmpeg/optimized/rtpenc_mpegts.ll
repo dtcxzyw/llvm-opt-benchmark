@@ -192,7 +192,7 @@ define internal range(i32 -2147483648, 1) i32 @rtp_mpegts_write_header(ptr nound
   br label %120
 
 .loopexit:                                        ; preds = %27, %._crit_edge, %59, %12
-  %.068.ph = phi i32 [ -12, %12 ], [ %63, %59 ], [ %57, %._crit_edge ], [ -12, %27 ]
+  %.068.ph = phi i32 [ %57, %._crit_edge ], [ -12, %12 ], [ %63, %59 ], [ -12, %27 ]
   %102 = getelementptr inbounds nuw i8, ptr %11, i64 32
   call void @ffio_free_dyn_buf(ptr noundef nonnull %102) #4
   %103 = getelementptr inbounds nuw i8, ptr %11, i64 192
@@ -201,8 +201,8 @@ define internal range(i32 -2147483648, 1) i32 @rtp_mpegts_write_header(ptr nound
   br label %104
 
 104:                                              ; preds = %86, %._crit_edge102, %83, %.loopexit
-  %.06896 = phi i32 [ %.068.ph, %.loopexit ], [ %98, %86 ], [ -12, %._crit_edge102 ], [ -12, %83 ]
-  %.07094 = phi ptr [ null, %.loopexit ], [ %82, %86 ], [ null, %._crit_edge102 ], [ %82, %83 ]
+  %.06896 = phi i32 [ %.068.ph, %.loopexit ], [ -12, %83 ], [ %98, %86 ], [ -12, %._crit_edge102 ]
+  %.07094 = phi ptr [ null, %.loopexit ], [ %82, %83 ], [ %82, %86 ], [ null, %._crit_edge102 ]
   call void @avformat_free_context(ptr noundef %.07094) #4
   %105 = load ptr, ptr %4, align 8, !tbaa !4
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
@@ -237,7 +237,7 @@ rtp_mpegts_write_close.exit:                      ; preds = %113, %116
   br label %120
 
 120:                                              ; preds = %10, %1, %rtp_mpegts_write_close.exit, %100
-  %.0 = phi i32 [ %.06896, %rtp_mpegts_write_close.exit ], [ 0, %100 ], [ -38, %1 ], [ -12, %10 ]
+  %.0 = phi i32 [ -12, %10 ], [ %.06896, %rtp_mpegts_write_close.exit ], [ 0, %100 ], [ -38, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0

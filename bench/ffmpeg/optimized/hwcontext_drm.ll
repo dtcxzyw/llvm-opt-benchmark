@@ -165,7 +165,7 @@ define internal i32 @drm_transfer_data_to(ptr noundef %0, ptr noundef %1, ptr no
   br label %30
 
 30:                                               ; preds = %16, %3, %10, %29
-  %.013 = phi i32 [ %.0, %29 ], [ -22, %10 ], [ -22, %3 ], [ -12, %16 ]
+  %.013 = phi i32 [ -22, %3 ], [ %.0, %29 ], [ -22, %10 ], [ -12, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.013
 }
@@ -220,7 +220,7 @@ define internal i32 @drm_transfer_data_from(ptr noundef %0, ptr noundef %1, ptr 
   br label %30
 
 30:                                               ; preds = %16, %3, %10, %29
-  %.013 = phi i32 [ %.0, %29 ], [ -22, %10 ], [ -22, %3 ], [ -12, %16 ]
+  %.013 = phi i32 [ -22, %3 ], [ %.0, %29 ], [ -22, %10 ], [ -12, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.013
 }
@@ -244,7 +244,7 @@ define internal i32 @drm_map_from(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %13
 
 13:                                               ; preds = %11, %9, %4
-  %.0 = phi i32 [ -38, %4 ], [ %10, %9 ], [ %12, %11 ]
+  %.0 = phi i32 [ %10, %9 ], [ -38, %4 ], [ %12, %11 ]
   ret i32 %.0
 }
 

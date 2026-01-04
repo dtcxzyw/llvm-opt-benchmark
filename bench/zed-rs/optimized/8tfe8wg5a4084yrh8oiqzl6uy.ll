@@ -423,8 +423,8 @@ define hidden { ptr, ptr } @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$3pop17hc
   br label %.thread29
 
 .thread29:                                        ; preds = %62, %66, %58, %40, %23, %1, %56, %37
-  %.sroa.7.0 = phi ptr [ undef, %37 ], [ undef, %56 ], [ undef, %1 ], [ %33, %40 ], [ %33, %23 ], [ %54, %58 ], [ %54, %66 ], [ %54, %62 ]
-  %.sroa.0.0 = phi ptr [ null, %37 ], [ null, %56 ], [ null, %1 ], [ %32, %40 ], [ %32, %23 ], [ %53, %58 ], [ %53, %66 ], [ %spec.select, %62 ]
+  %.sroa.7.0 = phi ptr [ %33, %23 ], [ undef, %37 ], [ undef, %1 ], [ undef, %56 ], [ %33, %40 ], [ %54, %66 ], [ %54, %62 ], [ %54, %58 ]
+  %.sroa.0.0 = phi ptr [ %32, %23 ], [ null, %37 ], [ null, %1 ], [ null, %56 ], [ %32, %40 ], [ %53, %66 ], [ %spec.select, %62 ], [ %53, %58 ]
   %42 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %43 = insertvalue { ptr, ptr } %42, ptr %.sroa.7.0, 1
   ret { ptr, ptr } %43

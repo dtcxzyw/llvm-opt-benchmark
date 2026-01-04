@@ -2110,7 +2110,7 @@ _ZNSt10unique_ptrI9ServerMapSt14default_deleteIS0_EED2Ev.exit419: ; preds = %ehc
   br label %ehcleanup150
 
 ehcleanup150:                                     ; preds = %lpad33, %lpad39, %_ZNSt10unique_ptrI9ServerMapSt14default_deleteIS0_EED2Ev.exit419, %ehcleanup29, %lpad2
-  %.merged = phi { ptr, i32 } [ %.pn184.pn.pn.pn, %_ZNSt10unique_ptrI9ServerMapSt14default_deleteIS0_EED2Ev.exit419 ], [ %.pn159.pn.pn.pn, %ehcleanup29 ], [ %31, %lpad2 ], [ %49, %lpad39 ], [ %48, %lpad33 ]
+  %.merged = phi { ptr, i32 } [ %.pn184.pn.pn.pn, %_ZNSt10unique_ptrI9ServerMapSt14default_deleteIS0_EED2Ev.exit419 ], [ %31, %lpad2 ], [ %.pn159.pn.pn.pn, %ehcleanup29 ], [ %49, %lpad39 ], [ %48, %lpad33 ]
   call void @_ZN6ServerD2Ev(ptr noundef nonnull align 8 dereferenceable(1640) %server) #29
   br label %ehcleanup152
 

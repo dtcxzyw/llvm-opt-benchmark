@@ -209,7 +209,7 @@ define noalias noundef ptr @arkInterpCreate_Hermite(ptr noundef captures(none) %
   br label %31
 
 31:                                               ; preds = %3, %2, %19, %18, %9
-  %.0 = phi ptr [ null, %9 ], [ null, %18 ], [ %4, %19 ], [ null, %2 ], [ null, %3 ]
+  %.0 = phi ptr [ %4, %19 ], [ null, %2 ], [ null, %9 ], [ null, %18 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -265,7 +265,7 @@ define range(i32 -20, 1) i32 @arkInterpResize_Hermite(ptr noundef %0, ptr nounde
   br label %32
 
 32:                                               ; preds = %21, %17, %13, %9, %7, %25
-  %.0 = phi i32 [ 0, %25 ], [ 0, %7 ], [ -20, %9 ], [ -20, %13 ], [ -20, %17 ], [ -20, %21 ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %25 ], [ -20, %17 ], [ -20, %13 ], [ -20, %9 ], [ -20, %21 ]
   ret i32 %.0
 }
 
@@ -1392,7 +1392,7 @@ define noalias noundef ptr @arkInterpCreate_Lagrange(ptr noundef captures(none) 
   br label %36
 
 36:                                               ; preds = %3, %2, %19, %18, %9
-  %.0 = phi ptr [ null, %9 ], [ null, %18 ], [ %4, %19 ], [ null, %2 ], [ null, %3 ]
+  %.0 = phi ptr [ %4, %19 ], [ null, %2 ], [ null, %9 ], [ null, %18 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1434,7 +1434,7 @@ define range(i32 -20, 1) i32 @arkInterpResize_Lagrange(ptr noundef %0, ptr nound
   br i1 %.not16, label %.loopexit17, label %16
 
 .loopexit:                                        ; preds = %16, %.preheader, %9
-  %27 = phi ptr [ %10, %.preheader ], [ %10, %9 ], [ %17, %16 ]
+  %27 = phi ptr [ %10, %9 ], [ %10, %.preheader ], [ %17, %16 ]
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   store i32 0, ptr %28, align 8, !tbaa !57
   br label %.loopexit17
@@ -1821,8 +1821,8 @@ arkInterpFree.exit66:                             ; preds = %77
   br label %115
 
 .loopexit:                                        ; preds = %72, %56, %.preheader
-  %88 = phi i32 [ %60, %.preheader ], [ %60, %56 ], [ %74, %72 ]
-  %89 = phi ptr [ %42, %.preheader ], [ %42, %56 ], [ %73, %72 ]
+  %88 = phi i32 [ %60, %56 ], [ %60, %.preheader ], [ %74, %72 ]
+  %89 = phi ptr [ %42, %56 ], [ %42, %.preheader ], [ %73, %72 ]
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 4
   %91 = load i32, ptr %90, align 4, !tbaa !56
   %92 = icmp sgt i32 %88, %91
@@ -2173,8 +2173,8 @@ LBasis.exit:                                      ; preds = %47, %56
   br label %86
 
 LBasis.exit93:                                    ; preds = %86, %56, %57, %37
-  %92 = phi double [ 1.000000e+00, %37 ], [ 0.000000e+00, %57 ], [ %.1.i90, %56 ], [ %.127.us.i111, %86 ]
-  %93 = phi double [ 1.000000e+00, %37 ], [ 0.000000e+00, %57 ], [ %.1.i, %56 ], [ %.127.us.i, %86 ]
+  %92 = phi double [ %.1.i90, %56 ], [ 1.000000e+00, %37 ], [ 0.000000e+00, %57 ], [ %.127.us.i111, %86 ]
+  %93 = phi double [ %.1.i, %56 ], [ 1.000000e+00, %37 ], [ 0.000000e+00, %57 ], [ %.127.us.i, %86 ]
   %94 = load ptr, ptr %15, align 8, !tbaa !48
   %95 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %96 = load ptr, ptr %95, align 8, !tbaa !48

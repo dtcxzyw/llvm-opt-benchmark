@@ -127,7 +127,7 @@ define hidden range(i32 -1, 1) i32 @_PyTestCapi_Init_Exceptions(ptr noundef %0) 
   br label %10
 
 10:                                               ; preds = %8, %5, %1
-  %.0 = phi i32 [ -1, %1 ], [ -1, %5 ], [ %.lobit, %8 ]
+  %.0 = phi i32 [ -1, %5 ], [ -1, %1 ], [ %.lobit, %8 ]
   ret i32 %.0
 }
 
@@ -447,7 +447,7 @@ define internal noundef ptr @_testcapi_exception_print(ptr readnone captures(non
   br label %_testcapi_exception_print_impl.exit
 
 _testcapi_exception_print_impl.exit:              ; preds = %.thread, %27, %24, %22, %20, %.thread.i, %10, %5
-  %.011 = phi ptr [ null, %10 ], [ null, %5 ], [ @_Py_NoneStruct, %.thread.i ], [ @_Py_NoneStruct, %20 ], [ @_Py_NoneStruct, %22 ], [ @_Py_NoneStruct, %24 ], [ @_Py_NoneStruct, %27 ], [ @_Py_NoneStruct, %.thread ]
+  %.011 = phi ptr [ null, %5 ], [ null, %10 ], [ @_Py_NoneStruct, %.thread.i ], [ @_Py_NoneStruct, %20 ], [ @_Py_NoneStruct, %22 ], [ @_Py_NoneStruct, %24 ], [ @_Py_NoneStruct, %27 ], [ @_Py_NoneStruct, %.thread ]
   ret ptr %.011
 }
 
@@ -639,14 +639,14 @@ PyTuple_GET_SIZE.exit:                            ; preds = %15
   br label %67
 
 67:                                               ; preds = %60, %.thread77, %43, %64
-  %.043 = phi ptr [ %.144, %64 ], [ null, %43 ], [ %.144, %.thread77 ], [ %53, %60 ]
-  %.042 = phi ptr [ %63, %64 ], [ null, %43 ], [ %63, %.thread77 ], [ null, %60 ]
-  %.041 = phi ptr [ %66, %64 ], [ null, %43 ], [ null, %.thread77 ], [ null, %60 ]
+  %.043 = phi ptr [ %.144, %64 ], [ %.144, %.thread77 ], [ null, %43 ], [ %53, %60 ]
+  %.042 = phi ptr [ %63, %64 ], [ %63, %.thread77 ], [ null, %43 ], [ null, %60 ]
+  %.041 = phi ptr [ %66, %64 ], [ null, %.thread77 ], [ null, %43 ], [ null, %60 ]
   %68 = call ptr @PyErr_NewExceptionWithDoc(ptr noundef nonnull %36, ptr noundef %.043, ptr noundef %.042, ptr noundef %.041) #8
   br label %69
 
 69:                                               ; preds = %.thread74, %34, %41, %51, %67, %27, %35
-  %.048 = phi ptr [ null, %35 ], [ null, %41 ], [ %68, %67 ], [ null, %51 ], [ null, %34 ], [ null, %27 ], [ null, %.thread74 ]
+  %.048 = phi ptr [ null, %35 ], [ null, %41 ], [ %68, %67 ], [ null, %.thread74 ], [ null, %51 ], [ null, %34 ], [ null, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.048
 }

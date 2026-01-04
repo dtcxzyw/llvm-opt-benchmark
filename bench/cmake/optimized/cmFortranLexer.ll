@@ -284,6 +284,12 @@ _Z26cmFortran_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
   %.not488 = icmp eq i16 %136, 492
   br i1 %.not488, label %.preheader.outer, label %95, !llvm.loop !44
 
+.preheader.outer.backedge:                        ; preds = %._crit_edge.i536, %_ZL18yy_get_next_bufferPv.exit.thread541, %_ZL16yy_try_NUL_transiPv.exit
+  %.1422.ph.be = phi ptr [ %1124, %_ZL16yy_try_NUL_transiPv.exit ], [ %1377, %_ZL18yy_get_next_bufferPv.exit.thread541 ], [ %1377, %._crit_edge.i536 ]
+  %.2413.ph.be = phi ptr [ %1127, %_ZL16yy_try_NUL_transiPv.exit ], [ %1380, %_ZL18yy_get_next_bufferPv.exit.thread541 ], [ %1380, %._crit_edge.i536 ]
+  %.3.ph.be = phi i32 [ %.024.lcssa.i, %_ZL16yy_try_NUL_transiPv.exit ], [ %1384, %_ZL18yy_get_next_bufferPv.exit.thread541 ], [ %1425, %._crit_edge.i536 ]
+  br label %.preheader.outer
+
 .preheader.outer:                                 ; preds = %._crit_edge, %.preheader.outer.backedge
   %.1422.ph = phi ptr [ %.1422.ph.be, %.preheader.outer.backedge ], [ %.0421, %._crit_edge ]
   %.2413.ph = phi ptr [ %.2413.ph.be, %.preheader.outer.backedge ], [ %133, %._crit_edge ]
@@ -1866,9 +1872,9 @@ _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %.lr.ph.i499, %1178
   br label %.loopexit.backedge
 
 .loopexit.backedge:                               ; preds = %._crit_edge.i521, %1199, %1323
-  %.0421.be = phi ptr [ %1322, %1323 ], [ %1124, %1199 ], [ %1322, %._crit_edge.i521 ]
-  %.0411.be = phi ptr [ %1330, %1323 ], [ %1201, %1199 ], [ %1330, %._crit_edge.i521 ]
-  %.0406.be = phi i32 [ %1334, %1323 ], [ %1200, %1199 ], [ %1375, %._crit_edge.i521 ]
+  %.0421.be = phi ptr [ %1124, %1199 ], [ %1322, %1323 ], [ %1322, %._crit_edge.i521 ]
+  %.0411.be = phi ptr [ %1201, %1199 ], [ %1330, %1323 ], [ %1330, %._crit_edge.i521 ]
+  %.0406.be = phi i32 [ %1200, %1199 ], [ %1334, %1323 ], [ %1375, %._crit_edge.i521 ]
   br label %.loopexit
 
 1202:                                             ; preds = %1111
@@ -2225,12 +2231,6 @@ _ZL18yy_get_next_bufferPv.exit.thread541:         ; preds = %1213, %_ZL18yy_get_
   %1385 = icmp ult ptr %1377, %1380
   br i1 %1385, label %.lr.ph35.i526, label %.preheader.outer.backedge
 
-.preheader.outer.backedge:                        ; preds = %._crit_edge.i536, %_ZL18yy_get_next_bufferPv.exit.thread541, %_ZL16yy_try_NUL_transiPv.exit
-  %.1422.ph.be = phi ptr [ %1124, %_ZL16yy_try_NUL_transiPv.exit ], [ %1377, %_ZL18yy_get_next_bufferPv.exit.thread541 ], [ %1377, %._crit_edge.i536 ]
-  %.2413.ph.be = phi ptr [ %1127, %_ZL16yy_try_NUL_transiPv.exit ], [ %1380, %_ZL18yy_get_next_bufferPv.exit.thread541 ], [ %1380, %._crit_edge.i536 ]
-  %.3.ph.be = phi i32 [ %.024.lcssa.i, %_ZL16yy_try_NUL_transiPv.exit ], [ %1384, %_ZL18yy_get_next_bufferPv.exit.thread541 ], [ %1425, %._crit_edge.i536 ]
-  br label %.preheader.outer
-
 .lr.ph35.i526:                                    ; preds = %_ZL18yy_get_next_bufferPv.exit.thread541, %._crit_edge.i536
   %.02433.i527 = phi i32 [ %1425, %._crit_edge.i536 ], [ %1384, %_ZL18yy_get_next_bufferPv.exit.thread541 ]
   %.02632.i528 = phi ptr [ %1426, %._crit_edge.i536 ], [ %1377, %_ZL18yy_get_next_bufferPv.exit.thread541 ]
@@ -2323,7 +2323,7 @@ _ZL21yy_get_previous_statePv.exit524:             ; preds = %_ZL18yy_get_next_bu
   unreachable
 
 .loopexit546:                                     ; preds = %1078, %1012, %1015, %996, %999, %980, %983, %964, %967, %931, %934, %915, %918, %899, %902, %883, %886, %867, %870, %851, %854, %835, %838, %819, %822, %803, %806, %787, %790, %771, %774, %723, %726, %707, %710, %691, %694, %675, %678, %659, %662, %643, %646, %627, %630, %611, %614, %595, %598, %579, %582, %563, %566, %547, %550, %531, %534, %515, %518, %499, %502, %483, %486, %467, %470, %451, %454, %435, %438, %396, %399, %380, %383, %364, %367, %348, %351, %1075, %962, %427, %_ZL7yyunputiPcPv.exit, %219
-  %.0 = phi i32 [ 287, %219 ], [ 286, %_ZL7yyunputiPcPv.exit ], [ 289, %427 ], [ 288, %962 ], [ %1077, %1075 ], [ 258, %351 ], [ 258, %348 ], [ 258, %367 ], [ 258, %364 ], [ 261, %383 ], [ 261, %380 ], [ 261, %399 ], [ 261, %396 ], [ 262, %438 ], [ 262, %435 ], [ 263, %454 ], [ 263, %451 ], [ 264, %470 ], [ 264, %467 ], [ 266, %486 ], [ 266, %483 ], [ 265, %502 ], [ 265, %499 ], [ 268, %518 ], [ 268, %515 ], [ 267, %534 ], [ 267, %531 ], [ 269, %550 ], [ 269, %547 ], [ 270, %566 ], [ 270, %563 ], [ 271, %582 ], [ 271, %579 ], [ 273, %598 ], [ 273, %595 ], [ 272, %614 ], [ 272, %611 ], [ 274, %630 ], [ 274, %627 ], [ 275, %646 ], [ 275, %643 ], [ 276, %662 ], [ 276, %659 ], [ 277, %678 ], [ 277, %675 ], [ 279, %694 ], [ 279, %691 ], [ 278, %710 ], [ 278, %707 ], [ 280, %726 ], [ 280, %723 ], [ 281, %774 ], [ 281, %771 ], [ 283, %790 ], [ 283, %787 ], [ 282, %806 ], [ 282, %803 ], [ 260, %822 ], [ 260, %819 ], [ 259, %838 ], [ 259, %835 ], [ 290, %854 ], [ 290, %851 ], [ 291, %870 ], [ 291, %867 ], [ 292, %886 ], [ 292, %883 ], [ 293, %902 ], [ 293, %899 ], [ 294, %918 ], [ 294, %915 ], [ 295, %934 ], [ 295, %931 ], [ 284, %967 ], [ 284, %964 ], [ 285, %983 ], [ 285, %980 ], [ 260, %999 ], [ 260, %996 ], [ 258, %1015 ], [ 258, %1012 ], [ 0, %1078 ]
+  %.0 = phi i32 [ 287, %219 ], [ 286, %_ZL7yyunputiPcPv.exit ], [ 258, %1012 ], [ 258, %348 ], [ 258, %364 ], [ 261, %380 ], [ 289, %427 ], [ 261, %396 ], [ 262, %435 ], [ 263, %451 ], [ 264, %467 ], [ 266, %483 ], [ 265, %499 ], [ 268, %515 ], [ 267, %531 ], [ 269, %547 ], [ 270, %563 ], [ 271, %579 ], [ 273, %595 ], [ 272, %611 ], [ 274, %627 ], [ 275, %643 ], [ 276, %659 ], [ 277, %675 ], [ 279, %691 ], [ 278, %707 ], [ 280, %723 ], [ 281, %771 ], [ 283, %787 ], [ 282, %803 ], [ 260, %819 ], [ 259, %835 ], [ 290, %851 ], [ 291, %867 ], [ 292, %883 ], [ 293, %899 ], [ 294, %915 ], [ 288, %962 ], [ 295, %931 ], [ 284, %964 ], [ 285, %980 ], [ 260, %996 ], [ %1077, %1075 ], [ 258, %351 ], [ 258, %367 ], [ 261, %383 ], [ 261, %399 ], [ 262, %438 ], [ 263, %454 ], [ 264, %470 ], [ 266, %486 ], [ 265, %502 ], [ 268, %518 ], [ 267, %534 ], [ 269, %550 ], [ 270, %566 ], [ 271, %582 ], [ 273, %598 ], [ 272, %614 ], [ 274, %630 ], [ 275, %646 ], [ 276, %662 ], [ 277, %678 ], [ 279, %694 ], [ 278, %710 ], [ 280, %726 ], [ 281, %774 ], [ 283, %790 ], [ 282, %806 ], [ 260, %822 ], [ 259, %838 ], [ 290, %854 ], [ 291, %870 ], [ 292, %886 ], [ 293, %902 ], [ 294, %918 ], [ 295, %934 ], [ 284, %967 ], [ 285, %983 ], [ 260, %999 ], [ 258, %1015 ], [ 0, %1078 ]
   ret i32 %.0
 }
 
@@ -2801,8 +2801,8 @@ define dso_local void @_Z29cmFortran_yy_switch_to_bufferP15yy_buffer_statePv(ptr
   br label %.critedge
 
 .critedge:                                        ; preds = %33, %31
-  %47 = phi i64 [ %40, %33 ], [ %27, %31 ]
-  %48 = phi ptr [ %39, %33 ], [ %25, %31 ]
+  %47 = phi i64 [ %27, %31 ], [ %40, %33 ]
+  %48 = phi ptr [ %25, %31 ], [ %39, %33 ]
   %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %47
   store ptr %0, ptr %49, align 8, !tbaa !22
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 28

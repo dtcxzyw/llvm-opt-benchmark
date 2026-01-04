@@ -725,7 +725,7 @@ define i32 @lv_display_get_horizontal_resolution(ptr noundef readonly captures(a
   br label %14
 
 14:                                               ; preds = %3, %12, %9
-  %.05 = phi i32 [ %13, %12 ], [ %11, %9 ], [ 0, %3 ]
+  %.05 = phi i32 [ %11, %9 ], [ %13, %12 ], [ 0, %3 ]
   ret i32 %.05
 }
 
@@ -759,7 +759,7 @@ define i32 @lv_display_get_vertical_resolution(ptr noundef readonly captures(add
   br label %14
 
 14:                                               ; preds = %3, %11, %9
-  %.05 = phi i32 [ %13, %11 ], [ %10, %9 ], [ 0, %3 ]
+  %.05 = phi i32 [ %10, %9 ], [ %13, %11 ], [ 0, %3 ]
   ret i32 %.05
 }
 
@@ -805,7 +805,7 @@ define i32 @lv_display_get_physical_horizontal_resolution(ptr noundef readonly c
   br label %22
 
 22:                                               ; preds = %20, %16, %13, %9, %3
-  %.09 = phi i32 [ 0, %3 ], [ %15, %13 ], [ %11, %9 ], [ %21, %20 ], [ %18, %16 ]
+  %.09 = phi i32 [ 0, %3 ], [ %11, %9 ], [ %15, %13 ], [ %21, %20 ], [ %18, %16 ]
   ret i32 %.09
 }
 
@@ -851,7 +851,7 @@ define i32 @lv_display_get_physical_vertical_resolution(ptr noundef readonly cap
   br label %22
 
 22:                                               ; preds = %19, %15, %13, %9, %3
-  %.09 = phi i32 [ 0, %3 ], [ %14, %13 ], [ %11, %9 ], [ %21, %19 ], [ %17, %15 ]
+  %.09 = phi i32 [ 0, %3 ], [ %11, %9 ], [ %14, %13 ], [ %21, %19 ], [ %17, %15 ]
   ret i32 %.09
 }
 
@@ -892,7 +892,7 @@ define i32 @lv_display_get_offset_x(ptr noundef readonly captures(address_is_nul
   br label %lv_display_get_physical_horizontal_resolution.exit
 
 lv_display_get_physical_horizontal_resolution.exit: ; preds = %.thread.i, %15
-  %.09.i = phi i32 [ %16, %15 ], [ %13, %.thread.i ]
+  %.09.i = phi i32 [ %13, %.thread.i ], [ %16, %15 ]
   %17 = getelementptr inbounds nuw i8, ptr %.016, i64 16
   %18 = load i32, ptr %17, align 8, !tbaa !27
   %19 = sub nsw i32 %.09.i, %18
@@ -922,7 +922,7 @@ lv_display_get_physical_horizontal_resolution.exit14: ; preds = %.thread.i11, %2
   br label %32
 
 32:                                               ; preds = %3, %29, %lv_display_get_physical_horizontal_resolution.exit14, %lv_display_get_physical_horizontal_resolution.exit, %9
-  %.09 = phi i32 [ %31, %29 ], [ %11, %9 ], [ %19, %lv_display_get_physical_horizontal_resolution.exit ], [ %28, %lv_display_get_physical_horizontal_resolution.exit14 ], [ 0, %3 ]
+  %.09 = phi i32 [ %28, %lv_display_get_physical_horizontal_resolution.exit14 ], [ %31, %29 ], [ %11, %9 ], [ %19, %lv_display_get_physical_horizontal_resolution.exit ], [ 0, %3 ]
   ret i32 %.09
 }
 
@@ -964,7 +964,7 @@ define i32 @lv_display_get_offset_y(ptr noundef readonly captures(address_is_nul
   br label %lv_display_get_physical_vertical_resolution.exit
 
 lv_display_get_physical_vertical_resolution.exit: ; preds = %.thread.i, %15
-  %.09.i = phi i32 [ %17, %15 ], [ %13, %.thread.i ]
+  %.09.i = phi i32 [ %13, %.thread.i ], [ %17, %15 ]
   %18 = getelementptr inbounds nuw i8, ptr %.016, i64 20
   %19 = load i32, ptr %18, align 4, !tbaa !28
   %20 = sub nsw i32 %.09.i, %19
@@ -993,7 +993,7 @@ lv_display_get_physical_vertical_resolution.exit14: ; preds = %.thread.i11, %24
   br label %32
 
 32:                                               ; preds = %3, %29, %lv_display_get_physical_vertical_resolution.exit14, %lv_display_get_physical_vertical_resolution.exit, %9
-  %.09 = phi i32 [ %31, %29 ], [ %11, %9 ], [ %20, %lv_display_get_physical_vertical_resolution.exit ], [ %28, %lv_display_get_physical_vertical_resolution.exit14 ], [ 0, %3 ]
+  %.09 = phi i32 [ %28, %lv_display_get_physical_vertical_resolution.exit14 ], [ %31, %29 ], [ %11, %9 ], [ %20, %lv_display_get_physical_vertical_resolution.exit ], [ 0, %3 ]
   ret i32 %.09
 }
 
@@ -2961,8 +2961,8 @@ define i32 @lv_display_get_invalidated_draw_buf_size(ptr noundef readonly captur
   br label %lv_display_get_color_format.exit
 
 lv_display_get_color_format.exit:                 ; preds = %16, %14, %.thread
-  %.019 = phi i32 [ %2, %.thread ], [ %18, %16 ], [ %15, %14 ]
-  %.018 = phi i32 [ %1, %.thread ], [ %.05.i, %16 ], [ %.05.i, %14 ]
+  %.019 = phi i32 [ %2, %.thread ], [ %15, %14 ], [ %18, %16 ]
+  %.018 = phi i32 [ %1, %.thread ], [ %.05.i, %14 ], [ %.05.i, %16 ]
   %19 = getelementptr inbounds nuw i8, ptr %.01735, i64 92
   %20 = load i32, ptr %19, align 4, !tbaa !30
   %21 = tail call i32 @lv_draw_buf_width_to_stride(i32 noundef %.018, i32 noundef %20) #13

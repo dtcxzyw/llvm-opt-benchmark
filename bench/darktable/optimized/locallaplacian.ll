@@ -882,7 +882,7 @@ dl.exit787:                                       ; preds = %dl.exit769, %._crit
   br label %381
 
 381:                                              ; preds = %380, %378, %368
-  %382 = phi reassoc nsz arcp contract afn float [ %376, %380 ], [ 0.000000e+00, %378 ], [ %349, %368 ]
+  %382 = phi reassoc nsz arcp contract afn float [ 0.000000e+00, %378 ], [ %376, %380 ], [ %349, %368 ]
   %383 = fmul reassoc nsz arcp contract afn float %372, %352
   %384 = fdiv reassoc nsz arcp contract afn float %366, %383
   %385 = fadd reassoc nsz arcp contract afn float %358, %384
@@ -897,7 +897,7 @@ dl.exit787:                                       ; preds = %dl.exit769, %._crit
   br label %390
 
 390:                                              ; preds = %389, %387, %381
-  %391 = phi reassoc nsz arcp contract afn float [ %385, %389 ], [ 0.000000e+00, %387 ], [ %359, %381 ]
+  %391 = phi reassoc nsz arcp contract afn float [ 0.000000e+00, %387 ], [ %385, %389 ], [ %359, %381 ]
   %392 = fmul reassoc nsz arcp contract afn float %382, %273
   %393 = fcmp reassoc nsz arcp contract afn ogt float %392, %318
   %394 = fcmp reassoc nsz arcp contract afn olt float %392, 0.000000e+00
@@ -1499,7 +1499,7 @@ gauss_expand.exit:                                ; preds = %.loopexit.i.i, %715
   br label %756
 
 756:                                              ; preds = %755, %753, %.critedge.us
-  %757 = phi reassoc nsz arcp contract afn float [ %751, %755 ], [ 1.000000e+00, %753 ], [ 0.000000e+00, %.critedge.us ]
+  %757 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %753 ], [ %751, %755 ], [ 0.000000e+00, %.critedge.us ]
   %758 = getelementptr inbounds [30 x ptr], ptr %15, i64 %743
   %759 = getelementptr inbounds nuw ptr, ptr %758, i64 %558
   %760 = load ptr, ptr %759, align 8, !tbaa !15
@@ -1729,7 +1729,7 @@ define void @apply_curve(ptr noundef captures(none) %0, ptr noundef readonly cap
   br label %59
 
 59:                                               ; preds = %58, %56, %52
-  %60 = phi reassoc nsz arcp contract afn float [ %54, %58 ], [ 1.000000e+00, %56 ], [ 0.000000e+00, %52 ]
+  %60 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %56 ], [ %54, %58 ], [ 0.000000e+00, %52 ]
   %61 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %60
   %.neg63.i.us = fmul reassoc nsz arcp contract afn float %60, %16
   %.neg63.i.neg.us = fmul reassoc nsz arcp contract afn float %.neg63.i.us, %61
@@ -2125,7 +2125,7 @@ define internal fastcc ptr @ll_pad_input(ptr noundef readonly captures(none) %0,
   br label %120
 
 120:                                              ; preds = %119, %117, %104
-  %121 = phi reassoc nsz arcp contract afn float [ %113, %119 ], [ 0.000000e+00, %117 ], [ %115, %104 ]
+  %121 = phi reassoc nsz arcp contract afn float [ 0.000000e+00, %117 ], [ %113, %119 ], [ %115, %104 ]
   %122 = fptosi float %121 to i32
   %123 = load i32, ptr %64, align 4, !tbaa !69
   %124 = sitofp i32 %123 to float
@@ -2149,7 +2149,7 @@ define internal fastcc ptr @ll_pad_input(ptr noundef readonly captures(none) %0,
   br label %138
 
 138:                                              ; preds = %137, %135, %120
-  %139 = phi reassoc nsz arcp contract afn float [ %131, %137 ], [ 0.000000e+00, %135 ], [ %133, %120 ]
+  %139 = phi reassoc nsz arcp contract afn float [ 0.000000e+00, %135 ], [ %131, %137 ], [ %133, %120 ]
   %140 = fptosi float %139 to i32
   %141 = load ptr, ptr %66, align 8, !tbaa !6
   %142 = mul nsw i32 %109, %140
@@ -2237,7 +2237,7 @@ define internal fastcc ptr @ll_pad_input(ptr noundef readonly captures(none) %0,
   br label %191
 
 191:                                              ; preds = %175, %190, %188
-  %192 = phi reassoc nsz arcp contract afn float [ %184, %190 ], [ 0.000000e+00, %188 ], [ %186, %175 ]
+  %192 = phi reassoc nsz arcp contract afn float [ 0.000000e+00, %188 ], [ %184, %190 ], [ %186, %175 ]
   %193 = fptosi float %192 to i32
   %194 = load i32, ptr %40, align 4, !tbaa !69
   %195 = sitofp i32 %194 to float
@@ -2261,7 +2261,7 @@ define internal fastcc ptr @ll_pad_input(ptr noundef readonly captures(none) %0,
   br label %209
 
 209:                                              ; preds = %191, %208, %206
-  %210 = phi reassoc nsz arcp contract afn float [ %202, %208 ], [ 0.000000e+00, %206 ], [ %204, %191 ]
+  %210 = phi reassoc nsz arcp contract afn float [ 0.000000e+00, %206 ], [ %202, %208 ], [ %204, %191 ]
   %211 = fptosi float %210 to i32
   %212 = load ptr, ptr %42, align 8, !tbaa !6
   %213 = mul nsw i32 %180, %211
@@ -2367,7 +2367,7 @@ define internal fastcc ptr @ll_pad_input(ptr noundef readonly captures(none) %0,
   br label %277
 
 277:                                              ; preds = %276, %274, %261
-  %278 = phi reassoc nsz arcp contract afn float [ %270, %276 ], [ 0.000000e+00, %274 ], [ %272, %261 ]
+  %278 = phi reassoc nsz arcp contract afn float [ 0.000000e+00, %274 ], [ %270, %276 ], [ %272, %261 ]
   %279 = fptosi float %278 to i32
   %280 = load i32, ptr %227, align 4, !tbaa !69
   %281 = sitofp i32 %280 to float
@@ -2391,7 +2391,7 @@ define internal fastcc ptr @ll_pad_input(ptr noundef readonly captures(none) %0,
   br label %295
 
 295:                                              ; preds = %294, %292, %277
-  %296 = phi reassoc nsz arcp contract afn float [ %288, %294 ], [ 0.000000e+00, %292 ], [ %290, %277 ]
+  %296 = phi reassoc nsz arcp contract afn float [ 0.000000e+00, %292 ], [ %288, %294 ], [ %290, %277 ]
   %297 = fptosi float %296 to i32
   %298 = load ptr, ptr %229, align 8, !tbaa !6
   %299 = mul nsw i32 %266, %297
@@ -2501,7 +2501,7 @@ define internal fastcc ptr @ll_pad_input(ptr noundef readonly captures(none) %0,
   br label %356
 
 356:                                              ; preds = %355, %353, %340
-  %357 = phi reassoc nsz arcp contract afn float [ %349, %355 ], [ 0.000000e+00, %353 ], [ %351, %340 ]
+  %357 = phi reassoc nsz arcp contract afn float [ 0.000000e+00, %353 ], [ %349, %355 ], [ %351, %340 ]
   %358 = fptosi float %357 to i32
   %359 = load i32, ptr %227, align 4, !tbaa !69
   %360 = sitofp i32 %359 to float
@@ -2525,7 +2525,7 @@ define internal fastcc ptr @ll_pad_input(ptr noundef readonly captures(none) %0,
   br label %374
 
 374:                                              ; preds = %373, %371, %356
-  %375 = phi reassoc nsz arcp contract afn float [ %367, %373 ], [ 0.000000e+00, %371 ], [ %369, %356 ]
+  %375 = phi reassoc nsz arcp contract afn float [ 0.000000e+00, %371 ], [ %367, %373 ], [ %369, %356 ]
   %376 = fptosi float %375 to i32
   %377 = load ptr, ptr %229, align 8, !tbaa !6
   %378 = mul nsw i32 %345, %376

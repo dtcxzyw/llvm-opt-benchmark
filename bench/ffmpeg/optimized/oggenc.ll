@@ -1302,8 +1302,8 @@ ogg_write_vorbiscomment.exit.thread:              ; preds = %281, %291
   %339 = icmp samesign ult i64 %indvars.iv.next291, %338
   br i1 %339, label %21, label %.thread224, !llvm.loop !108
 
-.thread224:                                       ; preds = %.thread220, %52, %12, %279, %ogg_write_vorbiscomment.exit.thread, %51, %.loopexit228, %.loopexit229, %.loopexit230, %.loopexit231, %43
-  %.8 = phi i32 [ -12, %ogg_write_vorbiscomment.exit.thread ], [ -1094995529, %279 ], [ -1094995529, %51 ], [ -12, %.loopexit228 ], [ %.0.i175.ph, %.loopexit229 ], [ %.0.i170.ph, %.loopexit230 ], [ %.0.i.ph, %.loopexit231 ], [ -22, %43 ], [ 0, %12 ], [ 0, %.thread220 ], [ -12, %52 ]
+.thread224:                                       ; preds = %.thread220, %52, %12, %ogg_write_vorbiscomment.exit.thread, %51, %.loopexit228, %.loopexit229, %.loopexit230, %.loopexit231, %279, %43
+  %.8 = phi i32 [ -12, %ogg_write_vorbiscomment.exit.thread ], [ -1094995529, %279 ], [ -1094995529, %51 ], [ -22, %43 ], [ -12, %.loopexit228 ], [ %.0.i175.ph, %.loopexit229 ], [ %.0.i170.ph, %.loopexit230 ], [ %.0.i.ph, %.loopexit231 ], [ 0, %12 ], [ 0, %.thread220 ], [ -12, %52 ]
   ret i32 %.8
 }
 
@@ -1468,7 +1468,7 @@ ogg_key_granule.exit.thread7:                     ; preds = %39, %ogg_granule_to
   br i1 %.not103, label %.thread9, label %.thread16
 
 .thread9:                                         ; preds = %39, %44, %ogg_key_granule.exit.thread7, %45
-  %.not10613 = phi i1 [ true, %45 ], [ false, %ogg_key_granule.exit.thread7 ], [ false, %44 ], [ true, %39 ]
+  %.not10613 = phi i1 [ true, %45 ], [ true, %39 ], [ false, %ogg_key_granule.exit.thread7 ], [ false, %44 ]
   %46 = getelementptr inbounds nuw i8, ptr %.24.val, i64 65374
   %47 = load i16, ptr %46, align 2, !tbaa !61
   %.not104 = icmp ne i16 %47, 0

@@ -516,7 +516,7 @@ _ZN6vectorI6symbolLb0EjED2Ev.exit:                ; preds = %_ZN7obj_refI4expr11
           to label %120 unwind label %121
 
 119:                                              ; preds = %.invoke, %116, %109
-  %.0 = phi ptr [ null, %116 ], [ %.2, %109 ], [ null, %.invoke ]
+  %.0 = phi ptr [ null, %.invoke ], [ null, %116 ], [ %.2, %109 ]
   ret ptr %.0
 
 120:                                              ; preds = %117, %111
@@ -943,7 +943,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i:            ; preds = %49
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %76, %77, %83
-  %87 = phi ptr [ null, %76 ], [ %48, %77 ], [ %48, %83 ]
+  %87 = phi ptr [ %48, %83 ], [ null, %76 ], [ %48, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %9, label %88, label %_ZN10z3_log_ctxD2Ev.exit, !prof !182
 
@@ -959,7 +959,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %76, %77, %83
   br label %91
 
 91:                                               ; preds = %90, %21
-  %.pn37 = phi { ptr, i32 } [ %22, %21 ], [ %.pn, %90 ]
+  %.pn37 = phi { ptr, i32 } [ %.pn, %90 ], [ %22, %21 ]
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.030 = extractvalue { ptr, i32 } %.pn37, 1
@@ -1387,7 +1387,7 @@ _ZN6vectorIP4sortLb0EjED2Ev.exit:                 ; preds = %_ZN6vectorIP4exprLb
   br label %154
 
 154:                                              ; preds = %153, %12
-  %.pn44 = phi { ptr, i32 } [ %13, %12 ], [ %.pn41.pn, %153 ]
+  %.pn44 = phi { ptr, i32 } [ %.pn41.pn, %153 ], [ %13, %12 ]
   %.031 = extractvalue { ptr, i32 } %.pn44, 1
   br i1 %10, label %155, label %_ZN10z3_log_ctxD2Ev.exit58, !prof !197
 
@@ -2136,7 +2136,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit184:      ; preds = %267, %269, %275
   br label %283
 
 283:                                              ; preds = %279, %281, %224, %222
-  %.pn139.pn = phi { ptr, i32 } [ %225, %224 ], [ %223, %222 ], [ %282, %281 ], [ %280, %279 ]
+  %.pn139.pn = phi { ptr, i32 } [ %223, %222 ], [ %225, %224 ], [ %282, %281 ], [ %280, %279 ]
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %20) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %375
@@ -2332,8 +2332,8 @@ _ZN6vectorIP11_Z3_patternLb0EjED2Ev.exit:         ; preds = %_ZN15ref_vector_cor
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.critedge
 
-.critedge:                                        ; preds = %119, %120, %51, %52, %40, %41, %31, %32, %_ZN6vectorIP11_Z3_patternLb0EjED2Ev.exit
-  %.0 = phi ptr [ %.8, %_ZN6vectorIP11_Z3_patternLb0EjED2Ev.exit ], [ null, %32 ], [ null, %31 ], [ null, %41 ], [ null, %40 ], [ null, %52 ], [ null, %51 ], [ null, %120 ], [ null, %119 ]
+.critedge:                                        ; preds = %120, %119, %52, %51, %40, %41, %31, %32, %_ZN6vectorIP11_Z3_patternLb0EjED2Ev.exit
+  %.0 = phi ptr [ null, %40 ], [ null, %31 ], [ %.8, %_ZN6vectorIP11_Z3_patternLb0EjED2Ev.exit ], [ null, %32 ], [ null, %41 ], [ null, %51 ], [ null, %52 ], [ null, %119 ], [ null, %120 ]
   %355 = load ptr, ptr %15, align 8, !tbaa !186
   %.not.i.i190 = icmp eq ptr %355, null
   br i1 %.not.i.i190, label %_ZN6vectorIP4exprLb0EjED2Ev.exit, label %356
@@ -3624,7 +3624,7 @@ define ptr @Z3_get_quantifier_pattern_ast(ptr noundef %0, ptr noundef %1, i32 no
   br label %.thread38
 
 48:                                               ; preds = %29, %45
-  %.0 = phi ptr [ %38, %29 ], [ null, %45 ]
+  %.0 = phi ptr [ null, %45 ], [ %38, %29 ]
   store atomic i8 1, ptr @g_z3_log_enabled seq_cst, align 1
   br label %_ZN10z3_log_ctxD2Ev.exit
 
@@ -3867,7 +3867,7 @@ define ptr @Z3_get_quantifier_no_pattern_ast(ptr noundef %0, ptr noundef %1, i32
   br label %.thread38
 
 48:                                               ; preds = %29, %45
-  %.0 = phi ptr [ %38, %29 ], [ null, %45 ]
+  %.0 = phi ptr [ null, %45 ], [ %38, %29 ]
   store atomic i8 1, ptr @g_z3_log_enabled seq_cst, align 1
   br label %_ZN10z3_log_ctxD2Ev.exit
 
@@ -4100,7 +4100,7 @@ define ptr @Z3_get_quantifier_bound_sort(ptr noundef %0, ptr noundef %1, i32 nou
   br label %.thread36
 
 36:                                               ; preds = %24, %33
-  %.0 = phi ptr [ %28, %24 ], [ null, %33 ]
+  %.0 = phi ptr [ null, %33 ], [ %28, %24 ]
   store atomic i8 1, ptr @g_z3_log_enabled seq_cst, align 1
   br label %_ZN10z3_log_ctxD2Ev.exit
 
@@ -4232,7 +4232,7 @@ define ptr @Z3_get_quantifier_body(ptr noundef %0, ptr noundef %1) local_unnamed
   br label %.thread34
 
 31:                                               ; preds = %21, %28
-  %.0 = phi ptr [ %23, %21 ], [ null, %28 ]
+  %.0 = phi ptr [ null, %28 ], [ %23, %21 ]
   store atomic i8 1, ptr @g_z3_log_enabled seq_cst, align 1
   br label %_ZN10z3_log_ctxD2Ev.exit
 

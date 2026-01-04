@@ -217,7 +217,7 @@ define internal fastcc noundef zeroext i1 @lz_encoder_prepare(ptr noundef nonnul
   br label %99
 
 99:                                               ; preds = %.sink.split, %36, %91, %3, %7
-  %.0 = phi i1 [ true, %7 ], [ true, %3 ], [ true, %36 ], [ false, %91 ], [ false, %.sink.split ]
+  %.0 = phi i1 [ true, %3 ], [ true, %7 ], [ true, %36 ], [ false, %91 ], [ false, %.sink.split ]
   ret i1 %.0
 }
 
@@ -383,7 +383,7 @@ define dso_local i32 @lzma_lz_encoder_init(ptr noundef captures(none) %0, ptr no
   br label %lz_encoder_init.exit.thread
 
 lz_encoder_init.exit.thread:                      ; preds = %31, %66, %25, %20, %89
-  %.2 = phi i32 [ %93, %89 ], [ %24, %20 ], [ 8, %25 ], [ 5, %66 ], [ 5, %31 ]
+  %.2 = phi i32 [ %24, %20 ], [ 8, %25 ], [ %93, %89 ], [ 5, %66 ], [ 5, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %94
 
@@ -638,7 +638,7 @@ define internal i32 @lz_encoder_update(ptr noundef %0, ptr noundef %1, ptr readn
   br label %15
 
 15:                                               ; preds = %4, %8, %11
-  %.0 = phi i32 [ %14, %11 ], [ %10, %8 ], [ 11, %4 ]
+  %.0 = phi i32 [ %10, %8 ], [ %14, %11 ], [ 11, %4 ]
   ret i32 %.0
 }
 

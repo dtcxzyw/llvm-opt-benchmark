@@ -337,7 +337,7 @@ define internal range(i32 0, 2) i32 @x509_name_ex_new(ptr noundef writeonly capt
   br label %16
 
 16:                                               ; preds = %2, %14, %12
-  %.0 = phi i32 [ 0, %14 ], [ 1, %12 ], [ 0, %2 ]
+  %.0 = phi i32 [ 1, %12 ], [ 0, %14 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -497,7 +497,7 @@ x509_name_ex_free.exit:                           ; preds = %15
   br label %66
 
 66:                                               ; preds = %8, %64, %60
-  %.0 = phi i32 [ 0, %64 ], [ 1, %60 ], [ %13, %8 ]
+  %.0 = phi i32 [ 1, %60 ], [ 0, %64 ], [ %13, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -902,8 +902,8 @@ define internal fastcc range(i32 0, 2) i32 @x509_name_canon(ptr noundef captures
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %89, %95, %82
-  %.246.i = phi ptr [ %100, %95 ], [ %83, %82 ], [ %90, %89 ]
-  %.1.i = phi i32 [ %101, %95 ], [ %84, %82 ], [ %91, %89 ]
+  %.246.i = phi ptr [ %83, %82 ], [ %100, %95 ], [ %90, %89 ]
+  %.1.i = phi i32 [ %84, %82 ], [ %101, %95 ], [ %91, %89 ]
   %.249.i = getelementptr inbounds nuw i8, ptr %.14870.i, i64 1
   %102 = icmp slt i32 %.1.i, %.14365.i
   br i1 %102, label %.lr.ph73.i, label %._crit_edge.loopexit.i, !llvm.loop !47
@@ -913,8 +913,8 @@ define internal fastcc range(i32 0, 2) i32 @x509_name_canon(ptr noundef captures
   br label %asn1_string_canon.exit.thread62
 
 asn1_string_canon.exit.thread62:                  ; preds = %.critedge2.thread.i, %._crit_edge.loopexit.i
-  %103 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %78, %.critedge2.thread.i ]
-  %.148.lcssa.i = phi ptr [ %.249.i, %._crit_edge.loopexit.i ], [ %78, %.critedge2.thread.i ]
+  %103 = phi ptr [ %78, %.critedge2.thread.i ], [ %.pre.i, %._crit_edge.loopexit.i ]
+  %.148.lcssa.i = phi ptr [ %78, %.critedge2.thread.i ], [ %.249.i, %._crit_edge.loopexit.i ]
   %104 = ptrtoint ptr %.148.lcssa.i to i64
   %105 = ptrtoint ptr %103 to i64
   %106 = sub i64 %104, %105
@@ -1009,8 +1009,8 @@ i2d_name_canon.exit59:                            ; preds = %.lr.ph.i55, %136, %
   br label %asn1_string_canon.exit.thread
 
 asn1_string_canon.exit.thread:                    ; preds = %54, %asn1_string_canon.exit, %28, %i2d_name_canon.exit.thread, %i2d_name_canon.exit.thread66, %i2d_name_canon.exit59, %111, %44, %39, %33, %18
-  %.038 = phi ptr [ null, %18 ], [ null, %39 ], [ %37, %44 ], [ %37, %111 ], [ null, %33 ], [ null, %i2d_name_canon.exit.thread66 ], [ null, %i2d_name_canon.exit59 ], [ null, %i2d_name_canon.exit.thread ], [ %37, %54 ], [ %37, %asn1_string_canon.exit ], [ null, %28 ]
-  %.035 = phi i32 [ 0, %18 ], [ 0, %39 ], [ 0, %44 ], [ 0, %111 ], [ 0, %33 ], [ 0, %i2d_name_canon.exit.thread66 ], [ 1, %i2d_name_canon.exit59 ], [ 0, %i2d_name_canon.exit.thread ], [ 0, %28 ], [ 0, %asn1_string_canon.exit ], [ 0, %54 ]
+  %.038 = phi ptr [ null, %18 ], [ null, %i2d_name_canon.exit.thread66 ], [ null, %39 ], [ %37, %44 ], [ %37, %111 ], [ null, %i2d_name_canon.exit59 ], [ null, %33 ], [ null, %i2d_name_canon.exit.thread ], [ %37, %54 ], [ %37, %asn1_string_canon.exit ], [ null, %28 ]
+  %.035 = phi i32 [ 0, %18 ], [ 0, %i2d_name_canon.exit.thread66 ], [ 0, %39 ], [ 0, %44 ], [ 0, %111 ], [ 1, %i2d_name_canon.exit59 ], [ 0, %33 ], [ 0, %i2d_name_canon.exit.thread ], [ 0, %28 ], [ 0, %asn1_string_canon.exit ], [ 0, %54 ]
   call void @ASN1_item_free(ptr noundef %.038, ptr noundef nonnull @X509_NAME_ENTRY_it.local_it) #6
   call void @OPENSSL_sk_pop_free(ptr noundef %13, ptr noundef nonnull @local_sk_X509_NAME_ENTRY_pop_free) #6
   br label %141

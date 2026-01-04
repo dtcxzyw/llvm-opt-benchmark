@@ -3775,7 +3775,7 @@ switch.edge:                                      ; preds = %353
   br label %390
 
 390:                                              ; preds = %100, %104, %385, %157, %147, %134
-  %391 = phi i32 [ %132, %134 ], [ %152, %147 ], [ %379, %385 ], [ -5, %157 ], [ -5, %104 ], [ -5, %100 ]
+  %391 = phi i32 [ -5, %157 ], [ %132, %134 ], [ %152, %147 ], [ %379, %385 ], [ -5, %104 ], [ -5, %100 ]
   %392 = getelementptr i8, ptr %25, i64 3480
   %393 = load ptr, ptr %392, align 8
   call void @iounmap(ptr noundef %393) #16
@@ -3802,7 +3802,7 @@ switch.edge:                                      ; preds = %353
   br i1 %402, label %.thread17, label %404
 
 .thread17:                                        ; preds = %18, %.thread19, %395
-  %403 = phi i32 [ %396, %395 ], [ %.ph, %.thread19 ], [ %19, %18 ]
+  %403 = phi i32 [ %.ph, %.thread19 ], [ %396, %395 ], [ %19, %18 ]
   call void @pci_disable_device(ptr noundef %0) #16
   br label %404
 
@@ -4945,7 +4945,7 @@ define internal i32 @e1000_clean(ptr noundef %0, i32 noundef %1) #3 align 16 {
   br label %713
 
 713:                                              ; preds = %705, %712, %711, %610
-  %714 = phi i32 [ 4000, %712 ], [ 20000, %711 ], [ 4000, %610 ], [ 70000, %705 ]
+  %714 = phi i32 [ 4000, %610 ], [ 4000, %712 ], [ 20000, %711 ], [ 70000, %705 ]
   %715 = icmp eq i32 %714, %606
   br i1 %715, label %.thread, label %716
 
@@ -5231,7 +5231,7 @@ define internal void @e1000_watchdog(ptr noundef %0) #3 align 16 {
   br label %40
 
 40:                                               ; preds = %36, %29, %24, %22
-  %41 = phi i8 [ %39, %36 ], [ %35, %29 ], [ %28, %24 ], [ 1, %22 ]
+  %41 = phi i8 [ 1, %22 ], [ %39, %36 ], [ %35, %29 ], [ %28, %24 ]
   %42 = and i8 %41, 1
   %43 = icmp ne i8 %42, 0
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 352
@@ -6169,11 +6169,11 @@ __skb_put.exit:                                   ; preds = %65
   br label %.thread44
 
 .thread44:                                        ; preds = %139, %135, %84
-  %144 = phi i32 [ %137, %135 ], [ %105, %84 ], [ %.pr.pre, %139 ]
-  %145 = phi i32 [ %87, %135 ], [ %87, %84 ], [ 4096, %139 ]
-  %146 = phi i32 [ %138, %135 ], [ %10, %84 ], [ %10, %139 ]
-  %147 = phi i32 [ %88, %135 ], [ %88, %84 ], [ 12, %139 ]
-  %148 = phi i32 [ 2, %135 ], [ 2, %84 ], [ %spec.select, %139 ]
+  %144 = phi i32 [ %105, %84 ], [ %137, %135 ], [ %.pr.pre, %139 ]
+  %145 = phi i32 [ %87, %84 ], [ %87, %135 ], [ 4096, %139 ]
+  %146 = phi i32 [ %10, %84 ], [ %138, %135 ], [ %10, %139 ]
+  %147 = phi i32 [ %88, %84 ], [ %88, %135 ], [ 12, %139 ]
+  %148 = phi i32 [ 2, %84 ], [ 2, %135 ], [ %spec.select, %139 ]
   %149 = icmp eq i32 %144, 0
   br i1 %149, label %150, label %.thread44.thread
 
@@ -7215,7 +7215,7 @@ __skb_put.exit:                                   ; preds = %65
   br label %859
 
 859:                                              ; preds = %.critedge, %.thread61, %848, %842, %370, %265, %257, %226, %61
-  %860 = phi i32 [ 0, %370 ], [ 16, %226 ], [ 16, %265 ], [ 16, %257 ], [ 0, %842 ], [ 0, %848 ], [ 0, %.thread61 ], [ 0, %61 ], [ 0, %.critedge ]
+  %860 = phi i32 [ 0, %370 ], [ 0, %.critedge ], [ 16, %226 ], [ 16, %265 ], [ 16, %257 ], [ 0, %842 ], [ 0, %848 ], [ 0, %.thread61 ], [ 0, %61 ]
   ret i32 %860
 }
 
@@ -7724,7 +7724,7 @@ default.unreachable:                              ; preds = %13
   unreachable
 
 96:                                               ; preds = %95, %78, %57, %33, %29, %19, %6, %3
-  %97 = phi i32 [ -95, %3 ], [ 0, %95 ], [ %67, %57 ], [ -95, %6 ], [ -14, %29 ], [ -5, %78 ], [ -5, %19 ], [ -5, %33 ]
+  %97 = phi i32 [ -95, %3 ], [ 0, %95 ], [ %67, %57 ], [ -95, %6 ], [ -14, %29 ], [ -5, %78 ], [ -5, %33 ], [ -5, %19 ]
   ret i32 %97
 }
 
@@ -9172,7 +9172,7 @@ define internal noundef zeroext i1 @e1000_clean_jumbo_rx_irq(ptr noundef %0, ptr
   br label %470
 
 470:                                              ; preds = %468, %464
-  %471 = phi i32 [ 0, %468 ], [ %56, %464 ]
+  %471 = phi i32 [ %56, %464 ], [ 0, %468 ]
   %472 = getelementptr inbounds nuw i8, ptr %53, i64 12
   %473 = load i8, ptr %472, align 4
   %474 = and i8 %473, 1
@@ -9186,10 +9186,10 @@ define internal noundef zeroext i1 @e1000_clean_jumbo_rx_irq(ptr noundef %0, ptr
   br label %.thread21
 
 .thread21:                                        ; preds = %93, %.lr.ph, %470, %.thread21.sink.split, %.lr.ph.preheader, %4
-  %478 = phi i32 [ 0, %4 ], [ 0, %.lr.ph.preheader ], [ %39, %.thread21.sink.split ], [ %465, %470 ], [ %465, %.lr.ph ], [ %39, %93 ]
-  %479 = phi i32 [ 0, %4 ], [ 0, %.lr.ph.preheader ], [ %40, %.thread21.sink.split ], [ %466, %470 ], [ %466, %.lr.ph ], [ %40, %93 ]
-  %480 = phi i1 [ false, %4 ], [ false, %.lr.ph.preheader ], [ true, %.thread21.sink.split ], [ true, %470 ], [ true, %.lr.ph ], [ true, %93 ]
-  %481 = phi i32 [ %10, %4 ], [ %10, %.lr.ph.preheader ], [ %50, %.thread21.sink.split ], [ %50, %470 ], [ %50, %.lr.ph ], [ %50, %93 ]
+  %478 = phi i32 [ 0, %.lr.ph.preheader ], [ %39, %.thread21.sink.split ], [ 0, %4 ], [ %39, %93 ], [ %465, %470 ], [ %465, %.lr.ph ]
+  %479 = phi i32 [ 0, %.lr.ph.preheader ], [ %40, %.thread21.sink.split ], [ 0, %4 ], [ %40, %93 ], [ %466, %470 ], [ %466, %.lr.ph ]
+  %480 = phi i1 [ false, %.lr.ph.preheader ], [ true, %.thread21.sink.split ], [ false, %4 ], [ true, %470 ], [ true, %.lr.ph ], [ true, %93 ]
+  %481 = phi i32 [ %10, %.lr.ph.preheader ], [ %50, %.thread21.sink.split ], [ %10, %4 ], [ %50, %470 ], [ %50, %.lr.ph ], [ %50, %93 ]
   store i32 %481, ptr %9, align 4
   %482 = load volatile i32, ptr %9, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !105
@@ -9659,8 +9659,8 @@ define internal noundef zeroext i1 @e1000_clean_rx_irq(ptr noundef %0, ptr nound
   br label %167
 
 167:                                              ; preds = %.thread10, %165, %116, %102
-  %168 = phi i32 [ %36, %102 ], [ %120, %165 ], [ %36, %116 ], [ %36, %.thread10 ]
-  %169 = phi i32 [ %35, %102 ], [ %121, %165 ], [ %35, %116 ], [ %35, %.thread10 ]
+  %168 = phi i32 [ %36, %102 ], [ %36, %.thread10 ], [ %120, %165 ], [ %36, %116 ]
+  %169 = phi i32 [ %35, %102 ], [ %35, %.thread10 ], [ %121, %165 ], [ %35, %116 ]
   store i8 0, ptr %32, align 4
   %170 = icmp sgt i32 %38, 14
   br i1 %170, label %171, label %173, !prof !44
@@ -9993,7 +9993,7 @@ define internal void @e1000_alloc_rx_buffers(ptr noundef captures(none) %0, ptr 
   br label %.thread8
 
 .thread8:                                         ; preds = %139, %.thread8.sink.split, %3
-  %147 = phi i32 [ %10, %3 ], [ %25, %.thread8.sink.split ], [ %140, %139 ]
+  %147 = phi i32 [ %25, %.thread8.sink.split ], [ %10, %3 ], [ %140, %139 ]
   %148 = load i32, ptr %9, align 8
   %149 = icmp eq i32 %148, %147
   br i1 %149, label %162, label %150, !prof !44

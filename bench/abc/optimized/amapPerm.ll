@@ -240,8 +240,8 @@ Vec_IntGrow.exit.i38:                             ; preds = %94, %92
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %106, %Vec_IntGrow.exit.i38, %.Vec_IntGrow.exit10_crit_edge.i33, %31, %Vec_IntGrow.exit.i, %.Vec_IntGrow.exit10_crit_edge.i
-  %.sink50 = phi ptr [ %.pre.i, %.Vec_IntGrow.exit10_crit_edge.i ], [ %32, %31 ], [ %21, %Vec_IntGrow.exit.i ], [ %.pre.i35, %.Vec_IntGrow.exit10_crit_edge.i33 ], [ %107, %106 ], [ %96, %Vec_IntGrow.exit.i38 ]
-  %.lcssa.sink = phi i32 [ 0, %.Vec_IntGrow.exit10_crit_edge.i ], [ 0, %31 ], [ 0, %Vec_IntGrow.exit.i ], [ %76, %.Vec_IntGrow.exit10_crit_edge.i33 ], [ %76, %106 ], [ %76, %Vec_IntGrow.exit.i38 ]
+  %.sink50 = phi ptr [ %21, %Vec_IntGrow.exit.i ], [ %.pre.i, %.Vec_IntGrow.exit10_crit_edge.i ], [ %32, %31 ], [ %.pre.i35, %.Vec_IntGrow.exit10_crit_edge.i33 ], [ %107, %106 ], [ %96, %Vec_IntGrow.exit.i38 ]
+  %.lcssa.sink = phi i32 [ 0, %Vec_IntGrow.exit.i ], [ 0, %.Vec_IntGrow.exit10_crit_edge.i ], [ 0, %31 ], [ %76, %.Vec_IntGrow.exit10_crit_edge.i33 ], [ %76, %106 ], [ %76, %Vec_IntGrow.exit.i38 ]
   %108 = load i32, ptr %5, align 4, !tbaa !3
   %109 = add nsw i32 %108, 1
   store i32 %109, ptr %5, align 4, !tbaa !3
@@ -820,8 +820,8 @@ Kit_DsdNtkObj.exit202.thread:                     ; preds = %218, %Kit_DsdNtkObj
   br label %Vec_IntPush.exit209.sink.split
 
 Vec_IntPush.exit209.sink.split:                   ; preds = %249, %251, %241, %243
-  %.sink330 = phi ptr [ %242, %241 ], [ %244, %243 ], [ %250, %249 ], [ %252, %251 ]
-  %.sink = phi i32 [ 16, %241 ], [ 16, %243 ], [ %246, %249 ], [ %246, %251 ]
+  %.sink330 = phi ptr [ %244, %243 ], [ %242, %241 ], [ %250, %249 ], [ %252, %251 ]
+  %.sink = phi i32 [ 16, %243 ], [ 16, %241 ], [ %246, %249 ], [ %246, %251 ]
   store ptr %.sink330, ptr %209, align 8, !tbaa !11
   store i32 %.sink, ptr %206, align 8, !tbaa !10
   br label %Vec_IntPush.exit209
@@ -1153,7 +1153,7 @@ Vec_IntFree.exit230:                              ; preds = %Vec_IntFree.exit228
   br label %.thread
 
 .thread:                                          ; preds = %27, %190, %Vec_IntFree.exit230, %336, %263, %Vec_IntFree.exit201, %Vec_IntFree.exit199, %Vec_IntFree.exit190, %Vec_IntFree.exit179, %Vec_IntFree.exit, %Vec_IntPush.exit
-  %.0135 = phi ptr [ %17, %Vec_IntPush.exit ], [ null, %Vec_IntFree.exit ], [ null, %Vec_IntFree.exit179 ], [ null, %Vec_IntFree.exit190 ], [ %29, %Vec_IntFree.exit199 ], [ null, %Vec_IntFree.exit201 ], [ null, %263 ], [ null, %336 ], [ %387, %Vec_IntFree.exit230 ], [ null, %190 ], [ null, %27 ]
+  %.0135 = phi ptr [ %17, %Vec_IntPush.exit ], [ null, %Vec_IntFree.exit ], [ null, %Vec_IntFree.exit179 ], [ null, %Vec_IntFree.exit190 ], [ %29, %Vec_IntFree.exit199 ], [ %387, %Vec_IntFree.exit230 ], [ null, %Vec_IntFree.exit201 ], [ null, %263 ], [ null, %336 ], [ null, %190 ], [ null, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0135
 }
@@ -1394,7 +1394,7 @@ Vec_IntFetch.exit.thread:                         ; preds = %17
   br i1 %exitcond113.not, label %.loopexit, label %.lr.ph94, !llvm.loop !51
 
 .loopexit:                                        ; preds = %.lr.ph98, %.lr.ph94, %.lr.ph, %.lr.ph92, %.lr.ph96, %Vec_IntFetch.exit.thread, %.preheader88, %.preheader86, %.thread82, %.preheader83, %.preheader, %10
-  %.074 = phi ptr [ %16, %10 ], [ %.0.i, %.preheader ], [ %.0.i128, %.preheader83 ], [ %.0.i128, %.thread82 ], [ %.0.i128, %.preheader86 ], [ %.0.i128, %.preheader88 ], [ null, %Vec_IntFetch.exit.thread ], [ %.0.i128, %.lr.ph96 ], [ %.0.i128, %.lr.ph92 ], [ %.0.i128, %.lr.ph ], [ %.0.i128, %.lr.ph94 ], [ %.0.i, %.lr.ph98 ]
+  %.074 = phi ptr [ %16, %10 ], [ %.0.i128, %.preheader86 ], [ %.0.i128, %.thread82 ], [ %.0.i, %.preheader ], [ %.0.i128, %.preheader83 ], [ %.0.i128, %.preheader88 ], [ %.0.i128, %.lr.ph96 ], [ %.0.i128, %.lr.ph ], [ null, %Vec_IntFetch.exit.thread ], [ %.0.i128, %.lr.ph92 ], [ %.0.i128, %.lr.ph94 ], [ %.0.i, %.lr.ph98 ]
   ret ptr %.074
 }
 

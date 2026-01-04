@@ -210,8 +210,8 @@ _ZN4llvm5ErrorD2Ev.exit14:                        ; preds = %50, %47
   br label %_ZN4llvm13DataExtractor6CursorD2Ev.exit
 
 _ZN4llvm13DataExtractor6CursorD2Ev.exit:          ; preds = %44, %_ZN4llvm5ErrorD2Ev.exit, %_ZN4llvm5ErrorD2Ev.exit13, %54, %56
-  %.sroa.5.137 = phi i8 [ 0, %54 ], [ 0, %56 ], [ 0, %_ZN4llvm5ErrorD2Ev.exit13 ], [ 0, %_ZN4llvm5ErrorD2Ev.exit ], [ %.033, %44 ]
-  %.sroa.032.136 = phi i64 [ 0, %54 ], [ 0, %56 ], [ 0, %_ZN4llvm5ErrorD2Ev.exit13 ], [ 0, %_ZN4llvm5ErrorD2Ev.exit ], [ %.0, %44 ]
+  %.sroa.5.137 = phi i8 [ 0, %56 ], [ 0, %54 ], [ 0, %_ZN4llvm5ErrorD2Ev.exit13 ], [ 0, %_ZN4llvm5ErrorD2Ev.exit ], [ %.033, %44 ]
+  %.sroa.032.136 = phi i64 [ 0, %56 ], [ 0, %54 ], [ 0, %_ZN4llvm5ErrorD2Ev.exit13 ], [ 0, %_ZN4llvm5ErrorD2Ev.exit ], [ %.0, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %60
 
@@ -296,7 +296,7 @@ define dso_local noundef i64 @_ZNK4llvm18DWARFDataExtractor17getRelocatedValueEj
   br label %46
 
 46:                                               ; preds = %30, %40, %13, %25
-  %.1 = phi i64 [ %20, %25 ], [ %20, %13 ], [ %45, %40 ], [ %36, %30 ]
+  %.1 = phi i64 [ %20, %13 ], [ %20, %25 ], [ %45, %40 ], [ %36, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %47
 
@@ -396,8 +396,8 @@ define dso_local { i64, i8 } @_ZNK4llvm18DWARFDataExtractor17getEncodedPointerEP
   br label %40
 
 40:                                               ; preds = %39, %10, %7, %37, %34, %4
-  %.sroa.2.0 = phi i8 [ 0, %4 ], [ 0, %39 ], [ 0, %10 ], [ 0, %7 ], [ 1, %37 ], [ 1, %34 ]
-  %.sroa.0.0 = phi i64 [ undef, %4 ], [ undef, %39 ], [ undef, %10 ], [ undef, %7 ], [ %38, %37 ], [ %.0, %34 ]
+  %.sroa.2.0 = phi i8 [ 0, %4 ], [ 0, %10 ], [ 0, %7 ], [ 0, %39 ], [ 1, %37 ], [ 1, %34 ]
+  %.sroa.0.0 = phi i64 [ undef, %4 ], [ undef, %10 ], [ undef, %7 ], [ undef, %39 ], [ %38, %37 ], [ %.0, %34 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.2.0, 1
   ret { i64, i8 } %.fca.1.insert

@@ -729,7 +729,7 @@ define internal fastcc void @composite_to_json(i64 noundef %0, ptr noundef %1, i
   br label %heap_getattr.exit
 
 heap_getattr.exit:                                ; preds = %38, %66, %69, %72, %75, %80, %82, %95, %96
-  %.0.i = phi i64 [ %40, %38 ], [ 0, %95 ], [ %98, %96 ], [ %84, %82 ], [ %68, %66 ], [ %71, %69 ], [ %74, %72 ], [ %76, %75 ], [ %81, %80 ]
+  %.0.i = phi i64 [ %40, %38 ], [ %81, %80 ], [ %98, %96 ], [ 0, %95 ], [ %84, %82 ], [ %68, %66 ], [ %71, %69 ], [ %74, %72 ], [ %76, %75 ]
   %99 = load i8, ptr %5, align 1, !range !4, !noundef !5
   %100 = trunc nuw i8 %99 to i1
   br i1 %100, label %101, label %102
@@ -1521,8 +1521,8 @@ define internal fastcc i64 @json_object_agg_transfn_worker(ptr noundef %0, i1 no
   br label %json_unique_builder_get_throwawaybuf.exit
 
 json_unique_builder_get_throwawaybuf.exit:        ; preds = %82, %78, %.thread, %88
-  %89 = phi i1 [ false, %88 ], [ false, %.thread ], [ true, %78 ], [ true, %82 ]
-  %.055 = phi ptr [ %84, %88 ], [ %84, %.thread ], [ %76, %78 ], [ %76, %82 ]
+  %89 = phi i1 [ false, %.thread ], [ false, %88 ], [ true, %78 ], [ true, %82 ]
+  %.055 = phi ptr [ %84, %.thread ], [ %84, %88 ], [ %76, %78 ], [ %76, %82 ]
   %90 = load i64, ptr %61, align 8
   %91 = getelementptr inbounds nuw i8, ptr %.055, i64 8
   %92 = load i32, ptr %91, align 8
@@ -2843,7 +2843,7 @@ define dso_local void @escape_json_with_len(ptr noundef %0, ptr noundef %1, i32 
   br label %39
 
 39:                                               ; preds = %36, %33
-  %.3 = phi i32 [ %32, %36 ], [ %.14967, %33 ]
+  %.3 = phi i32 [ %.14967, %33 ], [ %32, %36 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 16
   %40 = icmp slt i64 %indvars.iv.next, %22
   br i1 %40, label %.lr.ph, label %.thread.split.loop.exit, !llvm.loop !14
@@ -3076,7 +3076,7 @@ define dso_local noundef zeroext i1 @json_validate(ptr noundef %0, i1 noundef ze
   br label %39
 
 39:                                               ; preds = %37, %38, %32, %26, %27
-  %.0 = phi i1 [ false, %27 ], [ false, %26 ], [ false, %32 ], [ true, %38 ], [ true, %37 ]
+  %.0 = phi i1 [ false, %26 ], [ false, %32 ], [ false, %27 ], [ true, %38 ], [ true, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

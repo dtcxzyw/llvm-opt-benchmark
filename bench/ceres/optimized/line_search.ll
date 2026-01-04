@@ -883,7 +883,7 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_13CwiseBinaryOpINS_8internal17sca
   br label %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotIS2_EENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENS6_17scalar_product_opIdSA_EEE10ReturnTypeERKNS0_IS8_EE.exit
 
 _ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotIS2_EENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENS6_17scalar_product_opIdSA_EEE10ReturnTypeERKNS0_IS8_EE.exit: ; preds = %.lr.ph85.i.i.i.i.i, %66, %113, %123
-  %.0.i.i.i = phi double [ 0.000000e+00, %66 ], [ %126, %123 ], [ %114, %113 ], [ %121, %.lr.ph85.i.i.i.i.i ]
+  %.0.i.i.i = phi double [ 0.000000e+00, %66 ], [ %114, %113 ], [ %126, %123 ], [ %121, %.lr.ph85.i.i.i.i.i ]
   %127 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store double %.0.i.i.i, ptr %127, align 8, !tbaa !61
   %128 = call double @llvm.fabs.f64(double %.0.i.i.i)
@@ -1052,7 +1052,7 @@ define hidden noundef double @_ZNK5ceres8internal18LineSearchFunction21Direction
   br label %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6lpNormILin1EEEdv.exit
 
 _ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6lpNormILin1EEEdv.exit: ; preds = %.lr.ph85.i.i.i.i.i.i, %1, %38, %48
-  %.0.i.i = phi double [ 0.000000e+00, %1 ], [ %50, %48 ], [ %40, %38 ], [ %46, %.lr.ph85.i.i.i.i.i.i ]
+  %.0.i.i = phi double [ 0.000000e+00, %1 ], [ %40, %38 ], [ %50, %48 ], [ %46, %.lr.ph85.i.i.i.i.i.i ]
   ret double %.0.i.i
 }
 
@@ -2633,7 +2633,7 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit: ; preds = %.lr.ph.i.i.i.
   br label %_ZNK5ceres8internal18LineSearchFunction21DirectionInfinityNormEv.exit
 
 _ZNK5ceres8internal18LineSearchFunction21DirectionInfinityNormEv.exit: ; preds = %.lr.ph85.i.i.i.i.i.i.i, %126, %116, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit
-  %.0..0.147 = phi double [ 0.000000e+00, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit ], [ %128, %126 ], [ %118, %116 ], [ %124, %.lr.ph85.i.i.i.i.i.i.i ]
+  %.0..0.147 = phi double [ 0.000000e+00, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit ], [ %118, %116 ], [ %128, %126 ], [ %124, %.lr.ph85.i.i.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %129 = bitcast double %.0..0.147 to i64
   %130 = inttoptr i64 %129 to ptr
@@ -3410,10 +3410,10 @@ define hidden void @_ZNK5ceres8internal15WolfeLineSearch8DoSearchEdddPNS0_10Line
   %21 = alloca %"struct.ceres::internal::FunctionSample", align 8
   %22 = fcmp ult double %1, 0.000000e+00
   %.sink193.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %16, i64 64
-  %.sink193.sink.sroa.gep199 = getelementptr inbounds nuw i8, ptr %16, i64 64
-  %.sink193.sink.sroa.gep200 = getelementptr inbounds nuw i8, ptr %15, i64 64
-  %.sink193.sink.sroa.gep201 = getelementptr inbounds nuw i8, ptr %16, i64 64
-  %.sink193.sink.sroa.gep202 = getelementptr inbounds nuw i8, ptr %15, i64 64
+  %.sink193.sink.sroa.gep199 = getelementptr inbounds nuw i8, ptr %15, i64 64
+  %.sink193.sink.sroa.gep200 = getelementptr inbounds nuw i8, ptr %16, i64 64
+  %.sink193.sink.sroa.gep201 = getelementptr inbounds nuw i8, ptr %15, i64 64
+  %.sink193.sink.sroa.gep202 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %.sink193.sink.sroa.gep203 = getelementptr inbounds nuw i8, ptr %16, i64 64
   br i1 %22, label %27, label %23, !prof !32
 
@@ -4115,7 +4115,7 @@ thread-pre-split.i.i.i.i.i.i.i7.i116:             ; preds = %_ZN5Eigen6MatrixIdL
   br i1 %338, label %.lr.ph.i.i.i.i.i.i.i.i13.i122, label %._crit_edge.i.i.i.i.i.i.i.i9.i118, !llvm.loop !49
 
 .sink.split:                                      ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i10.i, %.lr.ph.i.i.i.i.i.i.i.i.i10.i119, %.lr.ph.i.i.i.i.i.i.i.i.i10.i97, %._crit_edge.i.i.i.i.i.i.i.i9.i96, %._crit_edge.i.i.i.i.i.i.i.i9.i118, %._crit_edge.i.i.i.i.i.i.i.i9.i
-  %.sink193.sink.sroa.phi = phi ptr [ %.sink193.sink.sroa.gep, %._crit_edge.i.i.i.i.i.i.i.i9.i ], [ %.sink193.sink.sroa.gep199, %._crit_edge.i.i.i.i.i.i.i.i9.i96 ], [ %.sink193.sink.sroa.gep200, %._crit_edge.i.i.i.i.i.i.i.i9.i118 ], [ %.sink193.sink.sroa.gep201, %.lr.ph.i.i.i.i.i.i.i.i.i10.i97 ], [ %.sink193.sink.sroa.gep202, %.lr.ph.i.i.i.i.i.i.i.i.i10.i119 ], [ %.sink193.sink.sroa.gep203, %.lr.ph.i.i.i.i.i.i.i.i.i10.i ]
+  %.sink193.sink.sroa.phi = phi ptr [ %.sink193.sink.sroa.gep, %._crit_edge.i.i.i.i.i.i.i.i9.i ], [ %.sink193.sink.sroa.gep202, %.lr.ph.i.i.i.i.i.i.i.i.i10.i97 ], [ %.sink193.sink.sroa.gep200, %._crit_edge.i.i.i.i.i.i.i.i9.i96 ], [ %.sink193.sink.sroa.gep201, %._crit_edge.i.i.i.i.i.i.i.i9.i118 ], [ %.sink193.sink.sroa.gep199, %.lr.ph.i.i.i.i.i.i.i.i.i10.i119 ], [ %.sink193.sink.sroa.gep203, %.lr.ph.i.i.i.i.i.i.i.i.i10.i ]
   %339 = getelementptr inbounds nuw i8, ptr %4, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %339, ptr noundef nonnull align 8 dereferenceable(17) %.sink193.sink.sroa.phi, i64 17, i1 false)
   store i8 1, ptr %4, align 8, !tbaa !74
@@ -4335,7 +4335,7 @@ define hidden noundef zeroext i1 @_ZNK5ceres8internal15WolfeLineSearch15Bracketi
   br label %_ZNK5ceres8internal18LineSearchFunction21DirectionInfinityNormEv.exit
 
 _ZNK5ceres8internal18LineSearchFunction21DirectionInfinityNormEv.exit: ; preds = %.lr.ph85.i.i.i.i.i.i.i, %80, %70, %33
-  %.0.i.i.i = phi double [ 0.000000e+00, %33 ], [ %82, %80 ], [ %72, %70 ], [ %78, %.lr.ph85.i.i.i.i.i.i.i ]
+  %.0.i.i.i = phi double [ 0.000000e+00, %33 ], [ %72, %70 ], [ %82, %80 ], [ %78, %.lr.ph85.i.i.i.i.i.i.i ]
   store i8 0, ptr %5, align 1, !tbaa !22
   %83 = load double, ptr %1, align 8, !tbaa !50
   store double %83, ptr %3, align 8, !tbaa !50
@@ -6261,7 +6261,7 @@ thread-pre-split.i.i.i.i.i.i.i7.i379:             ; preds = %_ZN5Eigen6MatrixIdL
   br label %.loopexit472
 
 .loopexit472:                                     ; preds = %808, %.critedge130, %817, %825
-  %.2 = phi i1 [ true, %825 ], [ true, %817 ], [ true, %.critedge130 ], [ false, %808 ]
+  %.2 = phi i1 [ true, %.critedge130 ], [ true, %825 ], [ true, %817 ], [ false, %808 ]
   %826 = load ptr, ptr %.sroa.gep420, align 8, !tbaa !45
   call void @free(ptr noundef %826) #35
   %827 = load ptr, ptr %.sroa.gep411, align 8, !tbaa !45
@@ -6275,7 +6275,7 @@ thread-pre-split.i.i.i.i.i.i.i7.i379:             ; preds = %_ZN5Eigen6MatrixIdL
   ret i1 %.2
 
 830:                                              ; preds = %518, %524, %411, %420, %291, %300, %289, %552, %641, %647, %814, %287
-  %.pn122.pn.pn.pn.pn = phi { ptr, i32 } [ %288, %287 ], [ %290, %289 ], [ %.pn113, %552 ], [ %.pn111, %647 ], [ %642, %641 ], [ %.pn.pn.pn.pn, %814 ], [ %.pn122.pn, %300 ], [ %292, %291 ], [ %.pn118.pn, %420 ], [ %412, %411 ], [ %.pn115, %524 ], [ %519, %518 ]
+  %.pn122.pn.pn.pn.pn = phi { ptr, i32 } [ %288, %287 ], [ %.pn.pn.pn.pn, %814 ], [ %290, %289 ], [ %292, %291 ], [ %412, %411 ], [ %.pn113, %552 ], [ %.pn111, %647 ], [ %642, %641 ], [ %.pn122.pn, %300 ], [ %.pn118.pn, %420 ], [ %.pn115, %524 ], [ %519, %518 ]
   %831 = load ptr, ptr %.sroa.gep420, align 8, !tbaa !45
   call void @free(ptr noundef %831) #35
   %832 = load ptr, ptr %.sroa.gep411, align 8, !tbaa !45
@@ -6832,7 +6832,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173: ; preds = %_Z
   br label %_ZNK5ceres8internal18LineSearchFunction21DirectionInfinityNormEv.exit
 
 _ZNK5ceres8internal18LineSearchFunction21DirectionInfinityNormEv.exit: ; preds = %.lr.ph85.i.i.i.i.i.i.i, %182, %221, %231
-  %.0..0. = phi double [ 0.000000e+00, %182 ], [ %233, %231 ], [ %223, %221 ], [ %229, %.lr.ph85.i.i.i.i.i.i.i ]
+  %.0..0. = phi double [ 0.000000e+00, %182 ], [ %223, %221 ], [ %233, %231 ], [ %229, %.lr.ph85.i.i.i.i.i.i.i ]
   %234 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %235 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %236 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -7981,7 +7981,7 @@ thread-pre-split.i.i.i.i.i.i.i7.i285:             ; preds = %_ZN5Eigen6MatrixIdL
   %704 = icmp slt i64 %703, %693
   br i1 %704, label %.lr.ph.i.i.i.i.i.i.i.i13.i291, label %._crit_edge.i.i.i.i.i.i.i.i9.i287, !llvm.loop !49
 
-.critedge139.thread328:                           ; preds = %497, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit223
+.critedge139.thread328:                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit223, %497
   %705 = load ptr, ptr %266, align 8, !tbaa !45
   call void @free(ptr noundef %705) #35
   %706 = load ptr, ptr %267, align 8, !tbaa !45
@@ -8001,7 +8001,7 @@ thread-pre-split.i.i.i.i.i.i.i7.i285:             ; preds = %_ZN5Eigen6MatrixIdL
   br label %270
 
 709:                                              ; preds = %610, %619, %579, %585, %500, %510, %504, %502, %498
-  %.pn120.pn.pn = phi { ptr, i32 } [ %499, %498 ], [ %501, %500 ], [ %503, %502 ], [ %.pn, %510 ], [ %505, %504 ], [ %.pn113, %585 ], [ %580, %579 ], [ %.pn116.pn, %619 ], [ %611, %610 ]
+  %.pn120.pn.pn = phi { ptr, i32 } [ %499, %498 ], [ %501, %500 ], [ %503, %502 ], [ %580, %579 ], [ %505, %504 ], [ %.pn, %510 ], [ %.pn113, %585 ], [ %.pn116.pn, %619 ], [ %611, %610 ]
   %710 = load ptr, ptr %266, align 8, !tbaa !45
   call void @free(ptr noundef %710) #35
   %711 = load ptr, ptr %267, align 8, !tbaa !45
@@ -8018,7 +8018,7 @@ thread-pre-split.i.i.i.i.i.i.i7.i285:             ; preds = %_ZN5Eigen6MatrixIdL
   br label %715
 
 715:                                              ; preds = %712, %360, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit189, %419, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit206, %.critedge139.thread328, %180
-  %.085 = phi i1 [ false, %180 ], [ true, %712 ], [ false, %360 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit189 ], [ false, %419 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit206 ], [ false, %.critedge139.thread328 ]
+  %.085 = phi i1 [ false, %180 ], [ true, %712 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit189 ], [ false, %.critedge139.thread328 ], [ false, %360 ], [ false, %419 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit206 ]
   ret i1 %.085
 
 716:                                              ; preds = %361, %420, %709, %178, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173

@@ -460,7 +460,7 @@ _ZNK4llvm6Triple10isOSDarwinEv.exit:              ; preds = %11, %19, %15
   %or.cond701 = or i1 %138, %.old14.i
   br i1 %or.cond701, label %_ZL16useCompactUnwindRKN4llvm6TripleE.exit.thread, label %_ZL16useCompactUnwindRKN4llvm6TripleE.exit.thread698
 
-_ZL16useCompactUnwindRKN4llvm6TripleE.exit.thread: ; preds = %137, %131, %127, %122, %120, %120
+_ZL16useCompactUnwindRKN4llvm6TripleE.exit.thread: ; preds = %122, %137, %131, %127, %120, %120
   %139 = load ptr, ptr %4, align 8, !tbaa !13
   %140 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %139, ptr nonnull @.str.25, i64 4, ptr nonnull @.str.26, i64 16, i32 noundef 33554432, i32 noundef 0, i32 4, ptr noundef null) #11
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -482,7 +482,7 @@ _ZL16useCompactUnwindRKN4llvm6TripleE.exit.thread: ; preds = %137, %131, %127, %
   br label %_ZL16useCompactUnwindRKN4llvm6TripleE.exit.thread698.sink.split
 
 _ZL16useCompactUnwindRKN4llvm6TripleE.exit.thread698.sink.split: ; preds = %144, %144, %_ZL16useCompactUnwindRKN4llvm6TripleE.exit.thread, %145
-  %.sink715 = phi i32 [ 67108864, %145 ], [ 67108864, %_ZL16useCompactUnwindRKN4llvm6TripleE.exit.thread ], [ 50331648, %144 ], [ 50331648, %144 ]
+  %.sink715 = phi i32 [ 67108864, %_ZL16useCompactUnwindRKN4llvm6TripleE.exit.thread ], [ 67108864, %145 ], [ 50331648, %144 ], [ 50331648, %144 ]
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sink715, ptr %146, align 8, !tbaa !60
   br label %_ZL16useCompactUnwindRKN4llvm6TripleE.exit.thread698
@@ -961,7 +961,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   br label %140
 
 140:                                              ; preds = %3, %3, %118, %122, %139, %138, %133, %131
-  %.sink = phi i32 [ %130, %122 ], [ 27, %139 ], [ 11, %138 ], [ %137, %133 ], [ %132, %131 ], [ 27, %118 ], [ 12, %3 ], [ 12, %3 ]
+  %.sink = phi i32 [ %132, %131 ], [ %130, %122 ], [ 27, %139 ], [ 11, %138 ], [ %137, %133 ], [ 27, %118 ], [ 12, %3 ], [ 12, %3 ]
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %.sink, ptr %141, align 4, !tbaa !33
   %142 = getelementptr inbounds nuw i8, ptr %1, i64 44

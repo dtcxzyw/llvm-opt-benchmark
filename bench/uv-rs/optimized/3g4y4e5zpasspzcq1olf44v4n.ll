@@ -1235,7 +1235,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17hb48129a190
           to label %common.resume.i unwind label %50
 
 common.resume.i:                                  ; preds = %49, %35, %31
-  %common.resume.op.i = phi { ptr, i32 } [ %36, %49 ], [ %36, %35 ], [ %32, %31 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %36, %35 ], [ %36, %49 ], [ %32, %31 ]
   resume { ptr, i32 } %common.resume.op.i
 
 50:                                               ; preds = %49
@@ -2553,9 +2553,9 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17heb12d0fa4b16c6c2E.exi
   br label %.preheader
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17heb12d0fa4b16c6c2E.exit.thread: ; preds = %52, %57, %39
-  %.pn = phi { i64, i64 } [ %40, %39 ], [ %58, %57 ], [ %53, %52 ]
-  %.sroa.7.035 = extractvalue { i64, i64 } %.pn, 0
-  %.sroa.12.036 = extractvalue { i64, i64 } %.pn, 1
+  %.pn.i.pn = phi { i64, i64 } [ %40, %39 ], [ %53, %52 ], [ %58, %57 ]
+  %.sroa.7.035 = extractvalue { i64, i64 } %.pn.i.pn, 0
+  %.sroa.12.036 = extractvalue { i64, i64 } %.pn.i.pn, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !426
   br label %_ZN9hashbrown3raw13RawTableInner12resize_inner17h377d8330d298c3e0E.exit.i
 

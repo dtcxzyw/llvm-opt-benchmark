@@ -271,12 +271,12 @@ define internal range(i32 0, 2) i32 @aead_tls_seal(ptr noundef readonly captures
   br label %101
 
 101:                                              ; preds = %97, %78, %94, %66, %63
-  %.2 = phi i32 [ 0, %63 ], [ 0, %66 ], [ 1, %97 ], [ 0, %78 ], [ 0, %94 ]
+  %.2 = phi i32 [ 0, %66 ], [ 0, %63 ], [ 1, %97 ], [ 0, %78 ], [ 0, %94 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %102
 
 102:                                              ; preds = %61, %40, %47, %49, %51, %53, %101
-  %.1 = phi i32 [ %.2, %101 ], [ 0, %53 ], [ 0, %51 ], [ 0, %49 ], [ 0, %47 ], [ 0, %40 ], [ 0, %61 ]
+  %.1 = phi i32 [ %.2, %101 ], [ 0, %40 ], [ 0, %53 ], [ 0, %51 ], [ 0, %49 ], [ 0, %47 ], [ 0, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -518,7 +518,7 @@ define internal range(i32 0, 2) i32 @aead_tls_open(ptr noundef readonly captures
   br label %122
 
 122:                                              ; preds = %119, %120, %.critedge, %96
-  %.3 = phi i32 [ 0, %96 ], [ 0, %.critedge ], [ 1, %120 ], [ 0, %119 ]
+  %.3 = phi i32 [ 0, %.critedge ], [ 0, %96 ], [ 1, %120 ], [ 0, %119 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)

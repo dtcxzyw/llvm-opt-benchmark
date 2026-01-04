@@ -318,8 +318,8 @@ sub_1.i:                                          ; preds = %sub_0.i
   br label %mxpeg_decode_com.exit
 
 mxpeg_decode_com.exit:                            ; preds = %79, %sub_0.i, %sub_1.i, %.tail.i, %103, %110, %114, %117, %._crit_edge.i.i
-  %135 = phi i1 [ false, %.tail.i ], [ false, %79 ], [ true, %103 ], [ true, %114 ], [ true, %110 ], [ false, %._crit_edge.i.i ], [ false, %117 ], [ false, %sub_0.i ], [ false, %sub_1.i ]
-  %.0.i126 = phi i32 [ 0, %.tail.i ], [ 0, %79 ], [ -22, %103 ], [ -12, %114 ], [ -12, %110 ], [ 0, %._crit_edge.i.i ], [ 0, %117 ], [ 0, %sub_0.i ], [ 0, %sub_1.i ]
+  %135 = phi i1 [ false, %.tail.i ], [ false, %79 ], [ true, %103 ], [ true, %110 ], [ true, %114 ], [ false, %._crit_edge.i.i ], [ false, %117 ], [ false, %sub_0.i ], [ false, %sub_1.i ]
+  %.0.i126 = phi i32 [ 0, %.tail.i ], [ 0, %79 ], [ -22, %103 ], [ -12, %110 ], [ -12, %114 ], [ 0, %._crit_edge.i.i ], [ 0, %117 ], [ 0, %sub_0.i ], [ 0, %sub_1.i ]
   %136 = call i32 @llvm.umin.i32(i32 %52, i32 %82)
   %137 = shl nuw nsw i32 %136, 3
   %138 = load i32, ptr %31, align 8, !tbaa !55
@@ -487,7 +487,7 @@ mxpeg_decode_com.exit:                            ; preds = %79, %sub_0.i, %sub_
   br i1 %.not24.i, label %206, label %mxpeg_check_dimensions.exit
 
 mxpeg_check_dimensions.exit:                      ; preds = %207, %213, %187, %197
-  %.str.15.sink.i = phi ptr [ @.str.14, %197 ], [ @.str.14, %187 ], [ @.str.15, %213 ], [ @.str.15, %207 ]
+  %.str.15.sink.i = phi ptr [ @.str.14, %187 ], [ @.str.14, %197 ], [ @.str.15, %213 ], [ @.str.15, %207 ]
   %218 = load ptr, ptr %40, align 8, !tbaa !78
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %218, i32 noundef 16, ptr noundef nonnull %.str.15.sink.i) #6
   br label %mxpeg_decode_com.exit.thread
@@ -582,7 +582,7 @@ mxpeg_decode_com.exit.thread:                     ; preds = %.loopexit, %225, %7
   br label %.thread132
 
 .thread132:                                       ; preds = %225, %.thread, %231, %167, %mxpeg_decode_com.exit, %.thread137, %4, %.thread140, %152, %149, %145, %77, %73
-  %.0 = phi i32 [ %263, %.thread140 ], [ %71, %73 ], [ %75, %77 ], [ -1094995529, %145 ], [ %147, %149 ], [ -22, %152 ], [ -1163346256, %4 ], [ %243, %.thread137 ], [ %219, %.thread ], [ %223, %225 ], [ %229, %231 ], [ %170, %167 ], [ %.0.i126, %mxpeg_decode_com.exit ]
+  %.0 = phi i32 [ -22, %152 ], [ %263, %.thread140 ], [ %243, %.thread137 ], [ %71, %73 ], [ %75, %77 ], [ -1163346256, %4 ], [ -1094995529, %145 ], [ %147, %149 ], [ %219, %.thread ], [ %223, %225 ], [ %170, %167 ], [ %229, %231 ], [ %.0.i126, %mxpeg_decode_com.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

@@ -363,7 +363,7 @@ define internal range(i32 0, 2) i32 @kdf_sshkdf_derive(ptr noundef %0, ptr nound
   br i1 %82, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !23
 
 .loopexit.i:                                      ; preds = %81, %71, %69, %67, %65, %.lr.ph.i, %79, %62, %61, %55, %53, %51, %49, %47, %45
-  %.0.i = phi i32 [ 1, %61 ], [ 1, %79 ], [ 0, %55 ], [ 0, %53 ], [ 0, %51 ], [ 0, %49 ], [ 0, %47 ], [ 0, %45 ], [ 1, %62 ], [ 1, %81 ], [ 0, %71 ], [ 0, %69 ], [ 0, %67 ], [ 0, %65 ], [ 0, %.lr.ph.i ]
+  %.0.i = phi i32 [ 1, %61 ], [ 1, %79 ], [ 0, %55 ], [ 0, %53 ], [ 0, %51 ], [ 0, %49 ], [ 0, %47 ], [ 0, %45 ], [ 1, %62 ], [ 1, %81 ], [ 0, %69 ], [ 0, %67 ], [ 0, %65 ], [ 0, %.lr.ph.i ], [ 0, %71 ]
   call void @EVP_MD_CTX_free(ptr noundef nonnull %43) #6
   call void @OPENSSL_cleanse(ptr noundef nonnull %6, i64 noundef 64) #6
   br label %SSHKDF.exit
@@ -509,12 +509,12 @@ ossl_param_is_empty.exit:                         ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge
 
-.critedge49:                                      ; preds = %45, %48, %43, %54
+.critedge49:                                      ; preds = %45, %48, %54, %43
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge
 
 .critedge:                                        ; preds = %2, %16, %10, %41, %55, %.critedge49, %35, %27, %19, %ossl_param_is_empty.exit
-  %.028 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ 0, %19 ], [ 0, %27 ], [ 0, %35 ], [ 0, %.critedge49 ], [ 1, %55 ], [ 1, %41 ], [ 0, %10 ], [ 0, %16 ], [ 1, %2 ]
+  %.028 = phi i32 [ 1, %41 ], [ 0, %35 ], [ 0, %.critedge49 ], [ 0, %27 ], [ 0, %19 ], [ 1, %ossl_param_is_empty.exit ], [ 1, %55 ], [ 0, %10 ], [ 0, %16 ], [ 1, %2 ]
   ret i32 %.028
 }
 

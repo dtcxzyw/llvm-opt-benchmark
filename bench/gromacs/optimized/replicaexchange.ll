@@ -1167,7 +1167,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %345, 
   ret ptr %48
 
 511:                                              ; preds = %114, %134, %144, %233, %243, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %45, %39, %32, %24
-  %.pn188 = phi { ptr, i32 } [ %25, %24 ], [ %33, %32 ], [ %46, %45 ], [ %40, %39 ], [ %115, %114 ], [ %135, %134 ], [ %145, %144 ], [ %234, %233 ], [ %244, %243 ], [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %.pn188 = phi { ptr, i32 } [ %25, %24 ], [ %33, %32 ], [ %40, %39 ], [ %46, %45 ], [ %115, %114 ], [ %135, %134 ], [ %145, %144 ], [ %234, %233 ], [ %244, %243 ], [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   resume { ptr, i32 } %.pn188
 }
 
@@ -1371,7 +1371,7 @@ define internal fastcc noundef zeroext i1 @_ZL13repl_quantityPK14gmx_multisim_tP
   br i1 %exitcond36.not, label %.loopexit, label %.lr.ph31, !llvm.loop !187
 
 .loopexit:                                        ; preds = %.lr.ph31, %4, %22, %._crit_edge
-  %.022.lcssa39 = phi i1 [ true, %22 ], [ false, %._crit_edge ], [ false, %4 ], [ true, %.lr.ph31 ]
+  %.022.lcssa39 = phi i1 [ false, %4 ], [ false, %._crit_edge ], [ true, %22 ], [ true, %.lr.ph31 ]
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.1, i32 noundef 208, ptr noundef nonnull %7)
   ret i1 %.022.lcssa39
 }
@@ -1874,7 +1874,7 @@ _ZN3gmx22UniformIntDistributionIiEC2Eii.exit.i:   ; preds = %28
   br i1 %267, label %261, label %._crit_edge362.i, !llvm.loop !225
 
 ._crit_edge362.i:                                 ; preds = %261, %.loopexit.i, %.preheader324.i
-  %268 = phi i32 [ %257, %.loopexit.i ], [ %.pre424.i, %.preheader324.i ], [ %265, %261 ]
+  %268 = phi i32 [ %.pre424.i, %.preheader324.i ], [ %257, %.loopexit.i ], [ %265, %261 ]
   store i64 %7, ptr %69, align 8
   store i64 0, ptr %.sroa.74.0..sroa_idx.i.i, align 8, !tbaa !163
   %269 = load i64, ptr %19, align 8, !tbaa !182
@@ -2082,8 +2082,8 @@ _ZN3gmx22UniformIntDistributionIiEC2Eii.exit.i:   ; preds = %28
   br label %common.resume.sink.split.i
 
 common.resume.sink.split.i:                       ; preds = %.sink.split.i284.i, %512, %.sink.split.i.i, %391
-  %.sink471.i = phi ptr [ %505, %.sink.split.i284.i ], [ %505, %512 ], [ %384, %.sink.split.i.i ], [ %384, %391 ]
-  %common.resume.op.ph.i = phi { ptr, i32 } [ %.pn.pn23.ph.i285.i, %.sink.split.i284.i ], [ %513, %512 ], [ %.pn.pn23.ph.i.i, %.sink.split.i.i ], [ %392, %391 ]
+  %.sink471.i = phi ptr [ %505, %512 ], [ %505, %.sink.split.i284.i ], [ %384, %.sink.split.i.i ], [ %384, %391 ]
+  %common.resume.op.ph.i = phi { ptr, i32 } [ %513, %512 ], [ %.pn.pn23.ph.i285.i, %.sink.split.i284.i ], [ %.pn.pn23.ph.i.i, %.sink.split.i.i ], [ %392, %391 ]
   call void @__cxa_free_exception(ptr %.sink471.i) #22
   br label %common.resume.i
 
@@ -3368,9 +3368,9 @@ _ZL22compute_exchange_orderPPiS0_ii.exit.i:       ; preds = %._crit_edge70.i.i, 
   br label %_ZL22prepare_to_do_exchangeP11gmx_repl_exiPiPb.exit
 
 _ZL22prepare_to_do_exchangeP11gmx_repl_exiPiPb.exit: ; preds = %985, %1114, %._crit_edge.thread.i.i, %1118, %_ZL22compute_exchange_orderPPiS0_ii.exit.i, %_ZL25test_for_replica_exchangeP8_IO_FILEPK14gmx_multisim_tP11gmx_repl_exPK14gmx_enerdata_tflf.exit, %24
-  %1119 = phi i8 [ 0, %24 ], [ 1, %1118 ], [ 0, %_ZL22compute_exchange_orderPPiS0_ii.exit.i ], [ 0, %_ZL25test_for_replica_exchangeP8_IO_FILEPK14gmx_multisim_tP11gmx_repl_exPK14gmx_enerdata_tflf.exit ], [ 0, %._crit_edge.thread.i.i ], [ 0, %1114 ], [ 0, %985 ]
-  %.074 = phi i32 [ 0, %24 ], [ %.2, %1118 ], [ 0, %_ZL22compute_exchange_orderPPiS0_ii.exit.i ], [ 0, %_ZL25test_for_replica_exchangeP8_IO_FILEPK14gmx_multisim_tP11gmx_repl_exPK14gmx_enerdata_tflf.exit ], [ 0, %._crit_edge.thread.i.i ], [ %.2, %1114 ], [ 0, %985 ]
-  %.044 = phi i32 [ 0, %24 ], [ %29, %1118 ], [ %29, %_ZL22compute_exchange_orderPPiS0_ii.exit.i ], [ %29, %_ZL25test_for_replica_exchangeP8_IO_FILEPK14gmx_multisim_tP11gmx_repl_exPK14gmx_enerdata_tflf.exit ], [ %29, %._crit_edge.thread.i.i ], [ %29, %1114 ], [ %29, %985 ]
+  %1119 = phi i8 [ 0, %24 ], [ 0, %1114 ], [ 0, %_ZL25test_for_replica_exchangeP8_IO_FILEPK14gmx_multisim_tP11gmx_repl_exPK14gmx_enerdata_tflf.exit ], [ 1, %1118 ], [ 0, %_ZL22compute_exchange_orderPPiS0_ii.exit.i ], [ 0, %._crit_edge.thread.i.i ], [ 0, %985 ]
+  %.074 = phi i32 [ 0, %24 ], [ %.2, %1114 ], [ 0, %_ZL25test_for_replica_exchangeP8_IO_FILEPK14gmx_multisim_tP11gmx_repl_exPK14gmx_enerdata_tflf.exit ], [ %.2, %1118 ], [ 0, %_ZL22compute_exchange_orderPPiS0_ii.exit.i ], [ 0, %._crit_edge.thread.i.i ], [ 0, %985 ]
+  %.044 = phi i32 [ 0, %24 ], [ %29, %1114 ], [ %29, %_ZL25test_for_replica_exchangeP8_IO_FILEPK14gmx_multisim_tP11gmx_repl_exPK14gmx_enerdata_tflf.exit ], [ %29, %1118 ], [ %29, %_ZL22compute_exchange_orderPPiS0_ii.exit.i ], [ %29, %._crit_edge.thread.i.i ], [ %29, %985 ]
   %1120 = getelementptr i8, ptr %1, i64 112
   %.val = load ptr, ptr %1120, align 8, !tbaa !257
   %.not75 = icmp eq ptr %.val, null
@@ -3939,13 +3939,13 @@ define linkonce_odr void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj7EEE
   ret void
 
 .sink.split63:                                    ; preds = %34, %.sink.split62, %18, %.sink.split
-  %.sink = phi ptr [ %11, %.sink.split ], [ %11, %18 ], [ %27, %.sink.split62 ], [ %27, %34 ]
-  %.pn39.pn.pn.ph = phi { ptr, i32 } [ %.pn39.pn50.ph, %.sink.split ], [ %19, %18 ], [ %.pn.pn57.ph, %.sink.split62 ], [ %35, %34 ]
+  %.sink = phi ptr [ %11, %18 ], [ %11, %.sink.split ], [ %27, %.sink.split62 ], [ %27, %34 ]
+  %.pn39.pn.pn.ph = phi { ptr, i32 } [ %19, %18 ], [ %.pn39.pn50.ph, %.sink.split ], [ %.pn.pn57.ph, %.sink.split62 ], [ %35, %34 ]
   call void @__cxa_free_exception(ptr %.sink) #22
   br label %37
 
 37:                                               ; preds = %.sink.split63, %34, %18
-  %.pn39.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %35, %34 ], [ %.pn39.pn.pn.ph, %.sink.split63 ]
+  %.pn39.pn.pn = phi { ptr, i32 } [ %35, %34 ], [ %19, %18 ], [ %.pn39.pn.pn.ph, %.sink.split63 ]
   resume { ptr, i32 } %.pn39.pn.pn
 
 38:                                               ; preds = %31, %15

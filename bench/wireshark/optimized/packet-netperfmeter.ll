@@ -966,7 +966,7 @@ define internal noundef zeroext i1 @dissect_npm_heur(ptr noundef %0, ptr noundef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge, %.critedge30, %9, %18, %20, %7, %4
-  %.0 = phi i1 [ false, %4 ], [ true, %.critedge30 ], [ false, %9 ], [ false, %18 ], [ false, %20 ], [ false, %7 ], [ false, %.critedge ]
+  %.0 = phi i1 [ false, %4 ], [ false, %20 ], [ false, %18 ], [ true, %.critedge30 ], [ false, %7 ], [ false, %9 ], [ false, %.critedge ]
   ret i1 %.0
 }
 

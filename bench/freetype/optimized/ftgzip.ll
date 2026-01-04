@@ -309,7 +309,7 @@ define internal fastcc i32 @ft_gzip_check_header(ptr noundef nonnull %0) unnamed
   br label %.thread
 
 .thread:                                          ; preds = %.preheader36, %.preheader, %7, %16, %26, %23, %45, %.loopexit, %1, %5
-  %47 = phi i32 [ %28, %26 ], [ %25, %23 ], [ %46, %45 ], [ %42, %.loopexit ], [ %4, %1 ], [ %6, %5 ], [ 3, %16 ], [ 3, %7 ], [ %40, %.preheader ], [ %34, %.preheader36 ]
+  %47 = phi i32 [ 3, %7 ], [ %40, %.preheader ], [ %28, %26 ], [ %25, %23 ], [ %46, %45 ], [ %42, %.loopexit ], [ %4, %1 ], [ %6, %5 ], [ 3, %16 ], [ %34, %.preheader36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %47
@@ -437,7 +437,7 @@ ft_gzip_file_skip_output.exit:                    ; preds = %29
   br i1 %.not45, label %46, label %ft_gzip_file_reset.exit
 
 ft_gzip_file_reset.exit:                          ; preds = %40, %59, %46, %8, %43, %ft_gzip_file_skip_output.exit
-  %.036 = phi i64 [ 0, %ft_gzip_file_skip_output.exit ], [ 0, %43 ], [ 0, %8 ], [ %52, %46 ], [ %52, %59 ], [ 0, %40 ]
+  %.036 = phi i64 [ 0, %43 ], [ 0, %ft_gzip_file_skip_output.exit ], [ %52, %59 ], [ 0, %8 ], [ %52, %46 ], [ 0, %40 ]
   ret i64 %.036
 }
 
@@ -696,7 +696,7 @@ ft_gzip_file_fill_input.exit:                     ; preds = %16, %33
   br label %.thread
 
 .thread:                                          ; preds = %thread-pre-split, %30, %21, %48, %43
-  %.1 = phi i32 [ 85, %48 ], [ %spec.select, %43 ], [ 85, %21 ], [ 85, %30 ], [ 0, %thread-pre-split ]
+  %.1 = phi i32 [ 85, %30 ], [ 85, %48 ], [ %spec.select, %43 ], [ 85, %21 ], [ 0, %thread-pre-split ]
   ret i32 %.1
 }
 

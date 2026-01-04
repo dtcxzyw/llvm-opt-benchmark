@@ -1806,18 +1806,18 @@ gen9_rps_enable.exit.thread:                      ; preds = %214
 
 236:                                              ; preds = %193
   %237 = icmp eq i8 %195, 8
-  br i1 %237, label %238, label %240
+  br i1 %237, label %gen9_rps_enable.exit, label %238
 
 238:                                              ; preds = %236
-  %239 = tail call fastcc zeroext i1 @gen8_rps_enable(ptr noundef %0)
+  %239 = icmp samesign ugt i8 %195, 5
+  br i1 %239, label %240, label %242
+
+240:                                              ; preds = %238
+  %241 = tail call fastcc zeroext i1 @gen6_rps_enable(ptr noundef %0)
   tail call void @intel_uncore_forcewake_put(ptr noundef %5, i32 noundef 65535) #11
-  br i1 %239, label %259, label %291
+  br i1 %241, label %259, label %291
 
-240:                                              ; preds = %236
-  %241 = icmp samesign ugt i8 %195, 5
-  br i1 %241, label %gen9_rps_enable.exit, label %242
-
-242:                                              ; preds = %240
+242:                                              ; preds = %238
   %243 = and i64 %33, 262144
   %244 = icmp eq i64 %243, 0
   br i1 %244, label %252, label %245
@@ -1845,8 +1845,8 @@ gen9_rps_enable.exit.thread:                      ; preds = %214
   tail call void asm sideeffect "587: nop\0A\09.pushsection .discard.instr_end\0A\09.long 587b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 587) #11, !srcloc !31
   br label %256
 
-gen9_rps_enable.exit:                             ; preds = %240
-  %255 = tail call fastcc zeroext i1 @gen6_rps_enable(ptr noundef %0)
+gen9_rps_enable.exit:                             ; preds = %236
+  %255 = tail call fastcc zeroext i1 @gen8_rps_enable(ptr noundef %0)
   tail call void @intel_uncore_forcewake_put(ptr noundef %5, i32 noundef 65535) #11
   br i1 %255, label %259, label %291
 
@@ -1864,7 +1864,7 @@ gen9_rps_enable.exit:                             ; preds = %240
   tail call void @intel_uncore_forcewake_put(ptr noundef %5, i32 noundef 65535) #11
   br label %259
 
-259:                                              ; preds = %.sink.split, %238, %gen9_rps_enable.exit
+259:                                              ; preds = %.sink.split, %240, %gen9_rps_enable.exit
   %260 = getelementptr i8, ptr %0, i64 344
   br label %261
 
@@ -1927,7 +1927,7 @@ gen9_rps_enable.exit:                             ; preds = %240
   tail call void @intel_uncore_forcewake_put(ptr noundef %5, i32 noundef 65535) #11
   br label %291
 
-291:                                              ; preds = %238, %gen9_rps_enable.exit.thread11, %.critedge, %287, %256, %gen9_rps_enable.exit, %20, %1
+291:                                              ; preds = %240, %gen9_rps_enable.exit.thread11, %.critedge, %287, %256, %gen9_rps_enable.exit, %20, %1
   ret void
 }
 
@@ -2998,8 +2998,8 @@ define internal void @rps_work(ptr noundef %0) #0 align 16 {
   br label %139
 
 139:                                              ; preds = %91, %135, %121, %119, %115, %107, %87
-  %140 = phi i32 [ %111, %107 ], [ 0, %119 ], [ %138, %135 ], [ 0, %121 ], [ 0, %87 ], [ 0, %115 ], [ 0, %91 ]
-  %141 = phi i8 [ %78, %107 ], [ %120, %119 ], [ %78, %135 ], [ %78, %121 ], [ %89, %87 ], [ %117, %115 ], [ %78, %91 ]
+  %140 = phi i32 [ %111, %107 ], [ 0, %115 ], [ 0, %119 ], [ %138, %135 ], [ 0, %121 ], [ 0, %87 ], [ 0, %91 ]
+  %141 = phi i8 [ %78, %107 ], [ %117, %115 ], [ %120, %119 ], [ %78, %135 ], [ %78, %121 ], [ %89, %87 ], [ %78, %91 ]
   %142 = zext i8 %141 to i32
   %143 = add i32 %140, %142
   %144 = icmp slt i32 %143, %86

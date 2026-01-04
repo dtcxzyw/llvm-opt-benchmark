@@ -574,7 +574,7 @@ define noundef i32 @_ZNK6icu_7713UnicodeString7extractEiiPcjPKc(ptr noundef nonn
   br label %88
 
 88:                                               ; preds = %82, %85, %68, %73, %30
-  %.1 = phi i32 [ %31, %30 ], [ %69, %68 ], [ %81, %73 ], [ %87, %85 ], [ %84, %82 ]
+  %.1 = phi i32 [ %31, %30 ], [ %81, %73 ], [ %69, %68 ], [ %87, %85 ], [ %84, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %89
 
@@ -762,7 +762,7 @@ define noundef i32 @_ZNK6icu_7713UnicodeString7extractEPciP10UConverterR10UError
   br label %38
 
 38:                                               ; preds = %23, %37, %28, %5, %20, %17
-  %.0 = phi i32 [ 0, %17 ], [ %21, %20 ], [ 0, %5 ], [ 0, %23 ], [ %36, %37 ], [ %36, %28 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %17 ], [ %21, %20 ], [ 0, %23 ], [ %36, %37 ], [ %36, %28 ]
   ret i32 %.0
 }
 

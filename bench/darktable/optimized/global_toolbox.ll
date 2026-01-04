@@ -731,7 +731,7 @@ define internal void @_overlays_show_popup(ptr noundef %0, ptr noundef readonly 
   br i1 %121, label %.critedge, label %.thread98
 
 .thread98.sink.split:                             ; preds = %94, %113, %114
-  %.sink109 = phi i64 [ 168, %114 ], [ 160, %113 ], [ 152, %94 ]
+  %.sink109 = phi i64 [ 160, %113 ], [ 168, %114 ], [ 152, %94 ]
   %122 = getelementptr inbounds nuw i8, ptr %8, i64 %.sink109
   %123 = load ptr, ptr %122, align 8, !tbaa !102
   %124 = tail call i64 @gtk_toggle_button_get_type() #12
@@ -982,9 +982,9 @@ define internal void @_overlays_toggle_button(ptr readnone captures(none) %0, pt
   br label %39
 
 39:                                               ; preds = %28, %23, %18, %13, %7, %33, %38
-  %40 = phi i32 [ 1, %38 ], [ 0, %33 ], [ 0, %7 ], [ 0, %13 ], [ 0, %18 ], [ 0, %23 ], [ 0, %28 ]
-  %.not19 = phi i1 [ true, %38 ], [ false, %33 ], [ false, %7 ], [ false, %13 ], [ false, %18 ], [ false, %23 ], [ false, %28 ]
-  %.0 = phi i32 [ 6, %38 ], [ 1, %33 ], [ 0, %7 ], [ 2, %13 ], [ 3, %18 ], [ 4, %23 ], [ 5, %28 ]
+  %40 = phi i32 [ 0, %33 ], [ 0, %7 ], [ 0, %13 ], [ 0, %18 ], [ 0, %23 ], [ 1, %38 ], [ 0, %28 ]
+  %.not19 = phi i1 [ false, %33 ], [ false, %7 ], [ false, %13 ], [ false, %18 ], [ false, %23 ], [ true, %38 ], [ false, %28 ]
+  %.0 = phi i32 [ 1, %33 ], [ 0, %7 ], [ 2, %13 ], [ 3, %18 ], [ 4, %23 ], [ 6, %38 ], [ 5, %28 ]
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 136
   %42 = load ptr, ptr %41, align 8, !tbaa !75
   %43 = tail call ptr @g_type_check_instance_cast(ptr noundef %42, i64 noundef %10) #10
@@ -1098,9 +1098,9 @@ define internal void @_overlays_toggle_culling_button(ptr readnone captures(none
   br label %24
 
 24:                                               ; preds = %13, %7, %23, %18
-  %25 = phi i32 [ 0, %23 ], [ 1, %18 ], [ 0, %7 ], [ 0, %13 ]
-  %.not21 = phi i1 [ false, %23 ], [ true, %18 ], [ false, %7 ], [ false, %13 ]
-  %.016 = phi i32 [ 4, %23 ], [ 6, %18 ], [ 0, %7 ], [ 3, %13 ]
+  %25 = phi i32 [ 1, %18 ], [ 0, %7 ], [ 0, %23 ], [ 0, %13 ]
+  %.not21 = phi i1 [ true, %18 ], [ false, %7 ], [ false, %23 ], [ false, %13 ]
+  %.016 = phi i32 [ 6, %18 ], [ 0, %7 ], [ 4, %23 ], [ 3, %13 ]
   %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 80), align 8, !tbaa !92
   %27 = tail call i32 @dt_view_lighttable_preview_state(ptr noundef %26) #10
   %.not20 = icmp ne i32 %27, 0
@@ -1478,7 +1478,7 @@ define internal fastcc void @_set_mapping_mode_cursor(ptr noundef %0) unnamed_ad
   br label %44
 
 .critedge.thread:                                 ; preds = %1, %.critedge.thread45, %.critedge
-  %.044 = phi ptr [ %.048, %.critedge.thread45 ], [ null, %.critedge ], [ null, %1 ]
+  %.044 = phi ptr [ null, %.critedge ], [ %.048, %.critedge.thread45 ], [ null, %1 ]
   %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !19
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 576
   %25 = load ptr, ptr %24, align 8, !tbaa !129
@@ -1677,7 +1677,7 @@ define internal void @_main_do_event_keymap(ptr noundef %0, ptr noundef %1) #1 {
   br i1 %.not68, label %.critedge72, label %.critedge74.thread
 
 .critedge74.thread:                               ; preds = %66, %.critedge74.thread80, %.critedge74
-  %.079 = phi ptr [ %.083, %.critedge74.thread80 ], [ null, %.critedge74 ], [ null, %66 ]
+  %.079 = phi ptr [ null, %.critedge74 ], [ %.083, %.critedge74.thread80 ], [ null, %66 ]
   %81 = load ptr, ptr %33, align 8, !tbaa !85
   %82 = tail call i64 @gtk_toggle_button_get_type() #12
   %83 = tail call ptr @g_type_check_instance_cast(ptr noundef %81, i64 noundef %82) #10

@@ -131,7 +131,7 @@ define internal noundef i32 @_ZL10UnwindImplILb0ELb0EEiPPvPiiiPKvS2_(ptr noundef
   br label %_ZL14NextStackFrameILb1ELb0EEPPvS1_PKvmm.exit
 
 _ZL14NextStackFrameILb1ELb0EEPPvS1_PKvmm.exit:    ; preds = %16, %25, %28
-  %.0.i = phi ptr [ null, %16 ], [ null, %25 ], [ %..i, %28 ]
+  %.0.i = phi ptr [ null, %16 ], [ %..i, %28 ], [ null, %25 ]
   %30 = icmp sgt i32 %.02946, 0
   br i1 %30, label %31, label %33
 
@@ -270,7 +270,7 @@ define internal noundef i32 @_ZL10UnwindImplILb0ELb1EEiPPvPiiiPKvS2_(ptr noundef
   br label %_ZL14NextStackFrameILb1ELb1EEPPvS1_PKvmm.exit.us
 
 _ZL14NextStackFrameILb1ELb1EEPPvS1_PKvmm.exit.us: ; preds = %31, %28, %19
-  %.0.i.us = phi ptr [ null, %19 ], [ null, %28 ], [ %..i.us, %31 ]
+  %.0.i.us = phi ptr [ null, %28 ], [ %..i.us, %31 ], [ null, %19 ]
   %33 = icmp sgt i32 %.02953.us, 0
   br i1 %33, label %38, label %34
 
@@ -348,7 +348,7 @@ _ZL14NextStackFrameILb1ELb1EEPPvS1_PKvmm.exit.us: ; preds = %31, %28, %19
   br label %_ZL14NextStackFrameILb1ELb1EEPPvS1_PKvmm.exit
 
 _ZL14NextStackFrameILb1ELb1EEPPvS1_PKvmm.exit:    ; preds = %53, %59, %62, %65
-  %.0.i = phi ptr [ null, %53 ], [ null, %59 ], [ null, %62 ], [ %..i, %65 ]
+  %.0.i = phi ptr [ null, %59 ], [ %..i, %65 ], [ null, %62 ], [ null, %53 ]
   %67 = icmp sgt i32 %.02953, 0
   br i1 %67, label %68, label %70
 
@@ -440,8 +440,8 @@ _ZL14NextStackFrameILb1ELb1EEPPvS1_PKvmm.exit50.us: ; preds = %87, %90
   %.0.i.i40 = select i1 %or.cond.i.i39, i64 %.val.i36, i64 %.val42.i37
   br label %103
 
-._crit_edge70:                                    ; preds = %119, %116, %110, %_ZL14NextStackFrameILb1ELb1EEPPvS1_PKvmm.exit50, %90, %.lr.ph69.split.us, %_ZL14NextStackFrameILb1ELb1EEPPvS1_PKvmm.exit50.us, %.preheader
-  %.028.lcssa = phi i32 [ 0, %.preheader ], [ %.1.us, %_ZL14NextStackFrameILb1ELb1EEPPvS1_PKvmm.exit50.us ], [ %.1.us, %.lr.ph69.split.us ], [ %.1.us, %90 ], [ %.1, %_ZL14NextStackFrameILb1ELb1EEPPvS1_PKvmm.exit50 ], [ %.1, %110 ], [ %.1, %116 ], [ %.1, %119 ]
+._crit_edge70:                                    ; preds = %110, %119, %116, %_ZL14NextStackFrameILb1ELb1EEPPvS1_PKvmm.exit50, %.lr.ph69.split.us, %90, %_ZL14NextStackFrameILb1ELb1EEPPvS1_PKvmm.exit50.us, %.preheader
+  %.028.lcssa = phi i32 [ 0, %.preheader ], [ %.1.us, %.lr.ph69.split.us ], [ %.1.us, %_ZL14NextStackFrameILb1ELb1EEPPvS1_PKvmm.exit50.us ], [ %.1.us, %90 ], [ %.1, %_ZL14NextStackFrameILb1ELb1EEPPvS1_PKvmm.exit50 ], [ %.1, %116 ], [ %.1, %119 ], [ %.1, %110 ]
   store i32 %.028.lcssa, ptr %5, align 4, !tbaa !5
   br label %128
 
@@ -535,7 +535,7 @@ define internal noundef i32 @_ZL10UnwindImplILb1ELb0EEiPPvPiiiPKvS2_(ptr noundef
   br label %_ZL14NextStackFrameILb0ELb0EEPPvS1_PKvmm.exit
 
 _ZL14NextStackFrameILb0ELb0EEPPvS1_PKvmm.exit:    ; preds = %14, %20
-  %.0.i = phi ptr [ null, %14 ], [ %..i, %20 ]
+  %.0.i = phi ptr [ %..i, %20 ], [ null, %14 ]
   %22 = icmp sgt i32 %.03753, 0
   br i1 %22, label %23, label %25
 
@@ -649,7 +649,7 @@ define internal noundef i32 @_ZL10UnwindImplILb1ELb1EEiPPvPiiiPKvS2_(ptr noundef
   br label %_ZL14NextStackFrameILb0ELb1EEPPvS1_PKvmm.exit
 
 _ZL14NextStackFrameILb0ELb1EEPPvS1_PKvmm.exit:    ; preds = %14, %20
-  %.0.i = phi ptr [ null, %14 ], [ %..i, %20 ]
+  %.0.i = phi ptr [ %..i, %20 ], [ null, %14 ]
   %22 = icmp sgt i32 %.03753, 0
   br i1 %22, label %23, label %25
 

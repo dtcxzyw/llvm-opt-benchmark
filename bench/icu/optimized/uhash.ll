@@ -89,7 +89,7 @@ _ZL11_uhash_initP10UHashtablePFi8UElementEPFaS1_S1_ES5_iP10UErrorCode.exit.i: ; 
   br label %_ZL13_uhash_createPFi8UElementEPFaS_S_ES3_iP10UErrorCode.exit
 
 _ZL13_uhash_createPFi8UElementEPFaS_S_ES3_iP10UErrorCode.exit: ; preds = %4, %10, %_ZL11_uhash_initP10UHashtablePFi8UElementEPFaS1_S1_ES5_iP10UErrorCode.exit.i, %34
-  %.0.i = phi ptr [ null, %10 ], [ null, %34 ], [ null, %4 ], [ %8, %_ZL11_uhash_initP10UHashtablePFi8UElementEPFaS1_S1_ES5_iP10UErrorCode.exit.i ]
+  %.0.i = phi ptr [ null, %4 ], [ null, %10 ], [ null, %34 ], [ %8, %_ZL11_uhash_initP10UHashtablePFi8UElementEPFaS1_S1_ES5_iP10UErrorCode.exit.i ]
   ret ptr %.0.i
 }
 
@@ -205,7 +205,7 @@ _ZL11_uhash_initP10UHashtablePFi8UElementEPFaS1_S1_ES5_iP10UErrorCode.exit.i: ; 
   br label %_ZL13_uhash_createPFi8UElementEPFaS_S_ES3_iP10UErrorCode.exit
 
 _ZL13_uhash_createPFi8UElementEPFaS_S_ES3_iP10UErrorCode.exit: ; preds = %.critedge, %17, %_ZL11_uhash_initP10UHashtablePFi8UElementEPFaS1_S1_ES5_iP10UErrorCode.exit.i, %52
-  %.0.i = phi ptr [ null, %17 ], [ null, %52 ], [ null, %.critedge ], [ %15, %_ZL11_uhash_initP10UHashtablePFi8UElementEPFaS1_S1_ES5_iP10UErrorCode.exit.i ]
+  %.0.i = phi ptr [ null, %.critedge ], [ null, %17 ], [ null, %52 ], [ %15, %_ZL11_uhash_initP10UHashtablePFi8UElementEPFaS1_S1_ES5_iP10UErrorCode.exit.i ]
   ret ptr %.0.i
 }
 
@@ -1593,7 +1593,7 @@ _ZL17_uhash_setElementP10UHashtableP12UHashElementi8UElementS3_a.exit: ; preds =
   br label %102
 
 102:                                              ; preds = %96, %101, %_ZL17_uhash_setElementP10UHashtableP12UHashElementi8UElementS3_a.exit, %17
-  %.sroa.038.0 = phi ptr [ %18, %17 ], [ %.sroa.018.0.i, %_ZL17_uhash_setElementP10UHashtableP12UHashElementi8UElementS3_a.exit ], [ null, %101 ], [ null, %96 ]
+  %.sroa.038.0 = phi ptr [ %.sroa.018.0.i, %_ZL17_uhash_setElementP10UHashtableP12UHashElementi8UElementS3_a.exit ], [ %18, %17 ], [ null, %101 ], [ null, %96 ]
   ret ptr %.sroa.038.0
 }
 
@@ -2477,7 +2477,7 @@ _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %53, %.thread46.i
   br i1 %.not39, label %.loopexit, label %27
 
 .loopexit:                                        ; preds = %_ZL11_uhash_findPK10UHashtable8UElementi.exit, %27, %.preheader, %18, %4, %7, %12, %2
-  %.0 = phi i8 [ 1, %2 ], [ 0, %12 ], [ 0, %7 ], [ 0, %4 ], [ 0, %18 ], [ 1, %.preheader ], [ 0, %_ZL11_uhash_findPK10UHashtable8UElementi.exit ], [ 1, %27 ]
+  %.0 = phi i8 [ 0, %18 ], [ 1, %2 ], [ 0, %4 ], [ 0, %7 ], [ 0, %12 ], [ 1, %.preheader ], [ 0, %_ZL11_uhash_findPK10UHashtable8UElementi.exit ], [ 1, %27 ]
   ret i8 %.0
 }
 
@@ -2667,7 +2667,7 @@ define signext range(i8 0, 2) i8 @uhash_compareIStringView_77(ptr readonly captu
   br i1 %.not22, label %12, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %15, %12, %.preheader, %7, %4, %2
-  %.018 = phi i8 [ 1, %2 ], [ 0, %4 ], [ 0, %7 ], [ 1, %.preheader ], [ 0, %15 ], [ 1, %12 ]
+  %.018 = phi i8 [ 0, %4 ], [ 1, %2 ], [ 0, %7 ], [ 1, %.preheader ], [ 0, %15 ], [ 1, %12 ]
   ret i8 %.018
 }
 

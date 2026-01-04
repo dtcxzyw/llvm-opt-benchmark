@@ -37,7 +37,7 @@ define range(i32 -12, 1) i32 @ff_replaygain_export_raw(ptr noundef readonly capt
   br label %19
 
 19:                                               ; preds = %8, %5, %14
-  %.0 = phi i32 [ 0, %14 ], [ 0, %5 ], [ -12, %8 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %14 ], [ -12, %8 ]
   ret i32 %.0
 }
 
@@ -124,7 +124,7 @@ define range(i32 -12, 1) i32 @ff_replaygain_export(ptr noundef readonly captures
   br label %parse_value.exit
 
 parse_value.exit:                                 ; preds = %.thread, %11, %.loopexit.i, %48
-  %.0.i = phi i32 [ %52, %48 ], [ -2147483648, %11 ], [ -2147483648, %.loopexit.i ], [ -2147483648, %.thread ]
+  %.0.i = phi i32 [ -2147483648, %11 ], [ %52, %48 ], [ -2147483648, %.loopexit.i ], [ -2147483648, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not16 = icmp eq ptr %8, null
   br i1 %.not16, label %.thread52, label %53
@@ -197,7 +197,7 @@ parse_value.exit:                                 ; preds = %.thread, %11, %.loo
   br label %parse_value.exit28
 
 parse_value.exit28:                               ; preds = %.thread52, %53, %.loopexit.i20, %90
-  %.0.i23 = phi i32 [ %94, %90 ], [ 0, %53 ], [ 0, %.loopexit.i20 ], [ 0, %.thread52 ]
+  %.0.i23 = phi i32 [ 0, %53 ], [ %94, %90 ], [ 0, %.loopexit.i20 ], [ 0, %.thread52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not17 = icmp eq ptr %9, null
   br i1 %.not17, label %.thread54, label %95
@@ -270,7 +270,7 @@ parse_value.exit28:                               ; preds = %.thread52, %53, %.l
   br label %parse_value.exit38
 
 parse_value.exit38:                               ; preds = %.thread54, %95, %.loopexit.i30, %132
-  %.0.i33 = phi i32 [ %136, %132 ], [ -2147483648, %95 ], [ -2147483648, %.loopexit.i30 ], [ -2147483648, %.thread54 ]
+  %.0.i33 = phi i32 [ -2147483648, %95 ], [ %136, %132 ], [ -2147483648, %.loopexit.i30 ], [ -2147483648, %.thread54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not18 = icmp eq ptr %10, null
   br i1 %.not18, label %.thread56, label %137
@@ -343,7 +343,7 @@ parse_value.exit38:                               ; preds = %.thread54, %95, %.l
   br label %parse_value.exit48
 
 parse_value.exit48:                               ; preds = %.thread56, %137, %.loopexit.i40, %174
-  %.0.i43 = phi i32 [ %178, %174 ], [ 0, %137 ], [ 0, %.loopexit.i40 ], [ 0, %.thread56 ]
+  %.0.i43 = phi i32 [ 0, %137 ], [ %178, %174 ], [ 0, %.loopexit.i40 ], [ 0, %.thread56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %179 = icmp eq i32 %.0.i, -2147483648
   %180 = icmp eq i32 %.0.i33, -2147483648
@@ -371,7 +371,7 @@ parse_value.exit48:                               ; preds = %.thread56, %137, %.
   br label %ff_replaygain_export_raw.exit
 
 ff_replaygain_export_raw.exit:                    ; preds = %parse_value.exit48, %181, %187
-  %.0.i50 = phi i32 [ 0, %187 ], [ 0, %parse_value.exit48 ], [ -12, %181 ]
+  %.0.i50 = phi i32 [ 0, %parse_value.exit48 ], [ 0, %187 ], [ -12, %181 ]
   ret i32 %.0.i50
 }
 

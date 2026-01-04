@@ -440,7 +440,7 @@ define dso_local zeroext i1 @LockHasWaiters(ptr noundef readonly captures(none) 
   br label %76
 
 76:                                               ; preds = %31, %33, %65, %64
-  %.0 = phi i1 [ %.not55, %65 ], [ false, %64 ], [ false, %33 ], [ false, %31 ]
+  %.0 = phi i1 [ false, %64 ], [ %.not55, %65 ], [ false, %33 ], [ false, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
@@ -1396,7 +1396,7 @@ GrantLockLocal.exit221:                           ; preds = %451, %._crit_edge.i
   br label %465
 
 465:                                              ; preds = %288, %162, %GrantLockLocal.exit221, %461, %432, %433, %328, %GrantLockLocal.exit
-  %.0 = phi i32 [ 1, %162 ], [ %., %GrantLockLocal.exit ], [ 0, %328 ], [ 0, %433 ], [ 0, %432 ], [ 1, %461 ], [ 1, %GrantLockLocal.exit221 ], [ 0, %288 ]
+  %.0 = phi i32 [ %., %GrantLockLocal.exit ], [ 1, %162 ], [ 0, %328 ], [ 0, %432 ], [ 1, %GrantLockLocal.exit221 ], [ 0, %433 ], [ 1, %461 ], [ 0, %288 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
@@ -1524,7 +1524,7 @@ define internal fastcc noundef zeroext i1 @FastPathGrantRelationLock(i32 noundef
   br label %61
 
 36:                                               ; preds = %18, %25
-  %.225 = phi i32 [ %.02331, %25 ], [ %24, %18 ]
+  %.225 = phi i32 [ %24, %18 ], [ %.02331, %25 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %37, label %18, !llvm.loop !18
@@ -1561,7 +1561,7 @@ define internal fastcc noundef zeroext i1 @FastPathGrantRelationLock(i32 noundef
   br label %61
 
 61:                                               ; preds = %37, %.critedge, %39
-  %.2 = phi i1 [ true, %39 ], [ true, %.critedge ], [ false, %37 ]
+  %.2 = phi i1 [ true, %.critedge ], [ true, %39 ], [ false, %37 ]
   ret i1 %.2
 }
 
@@ -1772,7 +1772,7 @@ dlist_push_tail.exit86:                           ; preds = %dlist_push_tail.exi
   unreachable
 
 94:                                               ; preds = %69, %29, %33, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %33 ], [ null, %29 ], [ %28, %69 ]
+  %.0 = phi ptr [ null, %29 ], [ null, %5 ], [ null, %33 ], [ %28, %69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
@@ -1926,14 +1926,14 @@ define dso_local noundef zeroext i1 @LockCheckConflicts(ptr noundef readonly cap
   br i1 %.not70, label %.critedge, label %75
 
 75:                                               ; preds = %._crit_edge81, %56, %52, %.lr.ph87.split
-  %.6 = phi i32 [ %.25185, %56 ], [ %.25185, %52 ], [ %.25185, %.lr.ph87.split ], [ %.5, %._crit_edge81 ]
+  %.6 = phi i32 [ %.25185, %.lr.ph87.split ], [ %.25185, %56 ], [ %.25185, %52 ], [ %.5, %._crit_edge81 ]
   %76 = getelementptr inbounds nuw i8, ptr %.sroa.0.084, i64 8
   %77 = load ptr, ptr %76, align 8
   %.not66 = icmp eq ptr %77, %48
   br i1 %.not66, label %.critedge, label %.lr.ph87.split, !llvm.loop !21
 
 .critedge:                                        ; preds = %75, %._crit_edge81, %47, %15, %43, %39, %._crit_edge, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %._crit_edge ], [ true, %39 ], [ true, %43 ], [ true, %47 ], [ false, %15 ], [ true, %75 ], [ false, %._crit_edge81 ]
+  %.0 = phi i1 [ false, %4 ], [ false, %._crit_edge ], [ true, %39 ], [ true, %43 ], [ false, %15 ], [ true, %47 ], [ false, %._crit_edge81 ], [ true, %75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
@@ -2544,7 +2544,7 @@ UnGrantLock.exit:                                 ; preds = %158, %176
   br label %190
 
 190:                                              ; preds = %71, %69, %114, %.critedge, %32, %34, %UnGrantLock.exit, %157
-  %.0 = phi i1 [ true, %UnGrantLock.exit ], [ false, %157 ], [ true, %114 ], [ false, %34 ], [ false, %32 ], [ true, %.critedge ], [ false, %69 ], [ false, %71 ]
+  %.0 = phi i1 [ true, %.critedge ], [ false, %32 ], [ true, %UnGrantLock.exit ], [ false, %157 ], [ true, %114 ], [ false, %34 ], [ false, %69 ], [ false, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
@@ -3954,7 +3954,7 @@ define dso_local ptr @GetLockConflicts(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %exitcond.not, label %.sink.split158, label %99, !llvm.loop !37
 
 .sink.split158:                                   ; preds = %123, %109, %116, %113, %83
-  %.2.ph = phi i32 [ %.1124, %83 ], [ %.1124, %113 ], [ %120, %116 ], [ %.1124, %109 ], [ %.1124, %123 ]
+  %.2.ph = phi i32 [ %.1124, %83 ], [ %.1124, %109 ], [ %.1124, %113 ], [ %120, %116 ], [ %.1124, %123 ]
   tail call void @LWLockRelease(ptr noundef nonnull %84) #16
   br label %124
 
@@ -3968,7 +3968,7 @@ define dso_local ptr @GetLockConflicts(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %129, label %76, label %.loopexit, !llvm.loop !38
 
 .loopexit:                                        ; preds = %124, %68, %64, %60, %45
-  %.092 = phi i32 [ 0, %64 ], [ 0, %60 ], [ 0, %45 ], [ 0, %68 ], [ %.2, %124 ]
+  %.092 = phi i32 [ 0, %45 ], [ 0, %64 ], [ 0, %60 ], [ 0, %68 ], [ %.2, %124 ]
   %130 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %52, i32 noundef 1) #16
   %131 = load ptr, ptr @LockMethodLockHash, align 8
   %132 = tail call ptr @hash_search_with_hash_value(ptr noundef %131, ptr noundef nonnull %0, i32 noundef %47, i32 noundef 0, ptr noundef null) #16
@@ -6016,7 +6016,7 @@ define dso_local noundef zeroext i1 @VirtualXactLock(i64 %0, i1 noundef zeroext 
   br i1 %32, label %22, label %XactLockForVirtualXact.exit, !llvm.loop !65
 
 XactLockForVirtualXact.exit:                      ; preds = %29, %13, %.thread18.i
-  %.0.i = phi i1 [ true, %13 ], [ %.2.ph.i, %.thread18.i ], [ true, %29 ]
+  %.0.i = phi i1 [ %.2.ph.i, %.thread18.i ], [ true, %13 ], [ true, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %153
 
@@ -6094,7 +6094,7 @@ XactLockForVirtualXact.exit:                      ; preds = %29, %13, %.thread18
   br i1 %59, label %49, label %XactLockForVirtualXact.exit74, !llvm.loop !65
 
 XactLockForVirtualXact.exit74:                    ; preds = %56, %40, %.thread18.i70
-  %.0.i69 = phi i1 [ true, %40 ], [ %.2.ph.i71, %.thread18.i70 ], [ true, %56 ]
+  %.0.i69 = phi i1 [ %.2.ph.i71, %.thread18.i70 ], [ true, %40 ], [ true, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %153
 
@@ -6173,7 +6173,7 @@ XactLockForVirtualXact.exit74:                    ; preds = %56, %40, %.thread18
   br i1 %87, label %77, label %XactLockForVirtualXact.exit85, !llvm.loop !65
 
 XactLockForVirtualXact.exit85:                    ; preds = %84, %68, %.thread18.i81
-  %.0.i80 = phi i1 [ true, %68 ], [ %.2.ph.i82, %.thread18.i81 ], [ true, %84 ]
+  %.0.i80 = phi i1 [ %.2.ph.i82, %.thread18.i81 ], [ true, %68 ], [ true, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %153
 
@@ -6312,7 +6312,7 @@ GrantLock.exit:                                   ; preds = %109, %123
   br i1 %152, label %142, label %XactLockForVirtualXact.exit96, !llvm.loop !65
 
 XactLockForVirtualXact.exit96:                    ; preds = %149, %130, %.thread18.i92
-  %.0.i91 = phi i1 [ true, %130 ], [ %.2.ph.i93, %.thread18.i92 ], [ true, %149 ]
+  %.0.i91 = phi i1 [ %.2.ph.i93, %.thread18.i92 ], [ true, %130 ], [ true, %149 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %153
 

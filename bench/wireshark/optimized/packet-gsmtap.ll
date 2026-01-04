@@ -654,7 +654,7 @@ switch.lookup:                                    ; preds = %56
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.sink.split.fold.split.i, %100, %99, %98, %97, %72, %72, %72
-  %hf_gsmtap_channel_type.sink.i = phi ptr [ @hf_gsmtap_lte_rrc_channel_type, %98 ], [ @hf_gsmtap_e1t1_sub_type, %100 ], [ @hf_gsmtap_rrc_sub_type, %99 ], [ @hf_gsmtap_gmr1_channel_type, %97 ], [ %hf_gsmtap_burst_type.mux.mux.i, %72 ], [ %hf_gsmtap_burst_type.mux.mux.i, %72 ], [ %hf_gsmtap_burst_type.mux.mux.i, %72 ], [ @hf_gsmtap_burst_type, %.sink.split.fold.split.i ]
+  %hf_gsmtap_channel_type.sink.i = phi ptr [ %hf_gsmtap_burst_type.mux.mux.i, %72 ], [ %hf_gsmtap_burst_type.mux.mux.i, %72 ], [ @hf_gsmtap_lte_rrc_channel_type, %98 ], [ @hf_gsmtap_e1t1_sub_type, %100 ], [ @hf_gsmtap_rrc_sub_type, %99 ], [ @hf_gsmtap_gmr1_channel_type, %97 ], [ %hf_gsmtap_burst_type.mux.mux.i, %72 ], [ @hf_gsmtap_burst_type, %.sink.split.fold.split.i ]
   %101 = load i32, ptr %hf_gsmtap_channel_type.sink.i, align 4
   %102 = tail call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %101, ptr noundef %0, i32 noundef 12, i32 noundef 1, i32 noundef 0)
   br label %103
@@ -992,14 +992,14 @@ switch.lookup.i:                                  ; preds = %155
   br label %select.unfold.i
 
 select.unfold.i:                                  ; preds = %switch.lookup.i, %215, %214, %213, %162, %161, %160, %159, %158, %157, %155, %143, %142, %141, %134, %129, %124, %118, %118, %118, %118, %114, %112, %109, %108
-  %.0246.ph.i = phi i64 [ 25, %162 ], [ 16, %157 ], [ 7, %108 ], [ 0, %129 ], [ 1, %118 ], [ 1, %118 ], [ 1, %118 ], [ 1, %118 ], [ 27, %214 ], [ 0, %213 ], [ 19, %160 ], [ 18, %159 ], [ 17, %158 ], [ 0, %161 ], [ 6, %143 ], [ 5, %142 ], [ 14, %134 ], [ 0, %141 ], [ 0, %215 ], [ 0, %109 ], [ 0, %112 ], [ 0, %114 ], [ %spec.select.i, %124 ], [ %switch.offset.i, %switch.lookup.i ], [ 0, %155 ]
+  %.0246.ph.i = phi i64 [ 0, %114 ], [ 0, %112 ], [ 0, %109 ], [ 0, %215 ], [ 1, %118 ], [ 0, %213 ], [ 19, %160 ], [ 18, %159 ], [ 17, %158 ], [ %switch.offset.i, %switch.lookup.i ], [ 0, %161 ], [ 0, %141 ], [ 1, %118 ], [ 25, %162 ], [ 16, %157 ], [ 27, %214 ], [ 7, %108 ], [ %spec.select.i, %124 ], [ 6, %143 ], [ 5, %142 ], [ 0, %129 ], [ 14, %134 ], [ 1, %118 ], [ 1, %118 ], [ 0, %155 ]
   %233 = getelementptr ptr, ptr @sub_handles, i64 %.0246.ph.i
   %234 = load ptr, ptr %233, align 8
   %.not265.i = icmp eq ptr %234, null
   br i1 %.not265.i, label %236, label %.sink.split34.i
 
 .sink.split34.i:                                  ; preds = %select.unfold.i, %228, %224, %220, %216
-  %.sink35.i = phi ptr [ %231, %228 ], [ %227, %224 ], [ %223, %220 ], [ %219, %216 ], [ %234, %select.unfold.i ]
+  %.sink35.i = phi ptr [ %219, %216 ], [ %231, %228 ], [ %227, %224 ], [ %223, %220 ], [ %234, %select.unfold.i ]
   %235 = tail call i32 @call_dissector(ptr noundef %.sink35.i, ptr noundef %32, ptr noundef %1, ptr noundef %2)
   br label %236
 
@@ -1551,8 +1551,8 @@ define internal fastcc void @handle_rlcmac(i32 noundef %0, ptr noundef %1, ptr n
   br label %49
 
 27:                                               ; preds = %15, %25, %24, %23, %22, %21, %20, %19, %18
-  %.sink33.i.ph = phi i32 [ 51, %18 ], [ 51, %19 ], [ 51, %20 ], [ 50, %21 ], [ 50, %22 ], [ 49, %23 ], [ 49, %24 ], [ 49, %25 ], [ 51, %15 ]
-  %.sink.i.ph = phi i8 [ 2, %18 ], [ 3, %19 ], [ 4, %20 ], [ 5, %21 ], [ 6, %22 ], [ 7, %23 ], [ 8, %24 ], [ 9, %25 ], [ 1, %15 ]
+  %.sink33.i.ph = phi i32 [ 49, %25 ], [ 51, %18 ], [ 51, %19 ], [ 51, %20 ], [ 50, %21 ], [ 50, %22 ], [ 49, %23 ], [ 49, %24 ], [ 51, %15 ]
+  %.sink.i.ph = phi i8 [ 9, %25 ], [ 2, %18 ], [ 3, %19 ], [ 4, %20 ], [ 5, %21 ], [ 6, %22 ], [ 7, %23 ], [ 8, %24 ], [ 1, %15 ]
   store i32 %.sink33.i.ph, ptr %12, align 4
   store i8 %.sink.i.ph, ptr %13, align 4
   %28 = getelementptr ptr, ptr @sub_handles, i64 %.
@@ -1591,7 +1591,7 @@ define internal fastcc void @handle_rlcmac(i32 noundef %0, ptr noundef %1, ptr n
   br label %.thread.critedge
 
 49:                                               ; preds = %26, %17, %16, %15, %4
-  %.sink33.i = phi i32 [ 33, %26 ], [ 36, %17 ], [ 35, %16 ], [ 32, %4 ], [ %11, %15 ]
+  %.sink33.i = phi i32 [ 33, %26 ], [ %11, %15 ], [ 36, %17 ], [ 35, %16 ], [ 32, %4 ]
   store i32 %.sink33.i, ptr %12, align 4
   store i8 0, ptr %13, align 4
   %50 = getelementptr ptr, ptr @sub_handles, i64 %.

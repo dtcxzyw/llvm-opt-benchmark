@@ -184,7 +184,7 @@ sub_017:                                          ; preds = %.tail
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %.tail16, %sub_017, %31, %21
-  %.sink26 = phi ptr [ %23, %21 ], [ %37, %31 ], [ %1, %sub_017 ], [ %1, %.tail16 ]
+  %.sink26 = phi ptr [ %37, %31 ], [ %23, %21 ], [ %1, %sub_017 ], [ %1, %.tail16 ]
   %38 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink26) #8
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull %.sink26, i64 noundef %38) #7
   br label %.sink.split
@@ -444,7 +444,7 @@ define hidden noundef i64 @_ZN24CgroupV1MemoryController26read_memory_limit_in_b
   br label %_ZL11verbose_logmm.exit19
 
 _ZL11verbose_logmm.exit19:                        ; preds = %53, %51, %48, %36, %34, %31, %47, %45, %43, %40, %22, %9, %8
-  %.0 = phi i64 [ -2, %8 ], [ -2, %9 ], [ -2, %22 ], [ -1, %40 ], [ -1, %43 ], [ -1, %45 ], [ -1, %47 ], [ %29, %31 ], [ %29, %34 ], [ %.pre, %36 ], [ %14, %48 ], [ %14, %51 ], [ %.pre35, %53 ]
+  %.0 = phi i64 [ -1, %47 ], [ -2, %22 ], [ -2, %9 ], [ %.pre, %36 ], [ -2, %8 ], [ -1, %40 ], [ -1, %43 ], [ -1, %45 ], [ %29, %31 ], [ %29, %34 ], [ %14, %48 ], [ %14, %51 ], [ %.pre35, %53 ]
   ret i64 %.0
 }
 
@@ -524,7 +524,7 @@ define hidden noundef i64 @_ZN24CgroupV1MemoryController13read_mem_swapEm(ptr no
   br label %33
 
 33:                                               ; preds = %13, %18, %32, %30, %28, %22, %9, %8
-  %.0 = phi i64 [ -2, %8 ], [ -2, %9 ], [ -2, %22 ], [ %29, %28 ], [ -1, %30 ], [ -1, %32 ], [ -1, %18 ], [ %14, %13 ]
+  %.0 = phi i64 [ %29, %28 ], [ -2, %22 ], [ -2, %9 ], [ -1, %18 ], [ -2, %8 ], [ -1, %30 ], [ -1, %32 ], [ %14, %13 ]
   ret i64 %.0
 }
 
@@ -583,7 +583,7 @@ _ZN24CgroupV1MemoryController19read_mem_swappinessEv.exit: ; preds = %12, %13, %
   br label %24
 
 24:                                               ; preds = %21, %.sink.split, %_ZN24CgroupV1MemoryController19read_mem_swappinessEv.exit, %3
-  %.0 = phi i64 [ -1, %3 ], [ %6, %_ZN24CgroupV1MemoryController19read_mem_swappinessEv.exit ], [ %22, %.sink.split ], [ %22, %21 ]
+  %.0 = phi i64 [ %22, %21 ], [ -1, %3 ], [ %6, %_ZN24CgroupV1MemoryController19read_mem_swappinessEv.exit ], [ %22, %.sink.split ]
   ret i64 %.0
 }
 
@@ -774,7 +774,7 @@ define hidden noundef i64 @_ZN24CgroupV1MemoryController26memory_soft_limit_in_b
   br label %17
 
 17:                                               ; preds = %12, %16, %14, %8, %7
-  %.0 = phi i64 [ -2, %7 ], [ -2, %8 ], [ -1, %14 ], [ -1, %16 ], [ %13, %12 ]
+  %.0 = phi i64 [ -2, %8 ], [ -1, %16 ], [ -2, %7 ], [ -1, %14 ], [ %13, %12 ]
   ret i64 %.0
 }
 
@@ -971,7 +971,7 @@ define hidden noundef i64 @_ZN24CgroupV1MemoryController28kernel_memory_limit_in
   br label %14
 
 14:                                               ; preds = %12, %8, %7
-  %.0 = phi i64 [ -2, %7 ], [ -2, %8 ], [ %., %12 ]
+  %.0 = phi i64 [ %., %12 ], [ -2, %8 ], [ -2, %7 ]
   ret i64 %.0
 }
 
@@ -1070,7 +1070,7 @@ _ZN24CgroupV1MemoryController28kernel_memory_usage_in_bytesEv.exit: ; preds = %1
   br label %_ZN24CgroupV1MemoryController28kernel_memory_limit_in_bytesEm.exit
 
 _ZN24CgroupV1MemoryController28kernel_memory_limit_in_bytesEm.exit: ; preds = %19, %20, %24
-  %.0.i7 = phi i64 [ -2, %19 ], [ -2, %20 ], [ %..i, %24 ]
+  %.0.i7 = phi i64 [ %..i, %24 ], [ -2, %20 ], [ -2, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %26 = call noundef zeroext i1 @_ZN16CgroupController11read_numberEPKcPm(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.47, ptr noundef nonnull %4) #7
@@ -1204,7 +1204,7 @@ define hidden noundef i32 @_ZN21CgroupV1CpuController9cpu_quotaEv(ptr noundef no
   br label %13
 
 13:                                               ; preds = %12, %8, %7, %5
-  %.0 = phi i32 [ -2, %5 ], [ -2, %7 ], [ %10, %8 ], [ %10, %12 ]
+  %.0 = phi i32 [ -2, %7 ], [ -2, %5 ], [ %10, %8 ], [ %10, %12 ]
   ret i32 %.0
 }
 
@@ -1274,7 +1274,7 @@ define hidden noundef range(i32 1025, 1024) i32 @_ZN21CgroupV1CpuController10cpu
   br label %15
 
 15:                                               ; preds = %11, %7, %6
-  %.0 = phi i32 [ -2, %6 ], [ -2, %7 ], [ %., %11 ]
+  %.0 = phi i32 [ %., %11 ], [ -2, %7 ], [ -2, %6 ]
   ret i32 %.0
 }
 
@@ -1312,7 +1312,7 @@ define hidden noundef i64 @_ZN17CgroupV1Subsystem8pids_maxEv(ptr noundef nonnull
   br label %16
 
 16:                                               ; preds = %10, %9, %1, %14
-  %.0 = phi i64 [ %15, %14 ], [ -2, %1 ], [ -2, %9 ], [ -2, %10 ]
+  %.0 = phi i64 [ -2, %1 ], [ %15, %14 ], [ -2, %9 ], [ -2, %10 ]
   ret i64 %.0
 }
 
@@ -1352,7 +1352,7 @@ define hidden noundef i64 @_ZN17CgroupV1Subsystem12pids_currentEv(ptr noundef no
   br label %16
 
 16:                                               ; preds = %10, %9, %1, %14
-  %.0 = phi i64 [ %15, %14 ], [ -2, %1 ], [ -2, %9 ], [ -2, %10 ]
+  %.0 = phi i64 [ -2, %1 ], [ %15, %14 ], [ -2, %9 ], [ -2, %10 ]
   ret i64 %.0
 }
 

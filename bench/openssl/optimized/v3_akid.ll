@@ -322,7 +322,7 @@ define internal ptr @v2i_AUTHORITY_KEYID(ptr readnone captures(none) %0, ptr nou
   br label %85
 
 85:                                               ; preds = %80, %84, %77, %74
-  %.2 = phi ptr [ null, %84 ], [ %81, %80 ], [ null, %77 ], [ null, %74 ]
+  %.2 = phi ptr [ null, %84 ], [ %81, %80 ], [ null, %74 ], [ null, %77 ]
   %86 = icmp eq ptr %.2, null
   %or.cond12 = select i1 %86, i1 %62, i1 false
   br i1 %or.cond12, label %87, label %96

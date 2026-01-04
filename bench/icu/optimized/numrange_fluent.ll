@@ -312,7 +312,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1136,13 +1136,13 @@ define linkonce_odr noundef zeroext i1 @_ZNK6icu_776number4impl15RangeMacroProps
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %_ZNK6icu_776number23NumberFormatterSettingsINS0_26UnlocalizedNumberFormatterEE11copyErrorToER10UErrorCode.exit.thread17, label %_ZNK6icu_776number23NumberFormatterSettingsINS0_26UnlocalizedNumberFormatterEE11copyErrorToER10UErrorCode.exit.thread15
 
-_ZNK6icu_776number23NumberFormatterSettingsINS0_26UnlocalizedNumberFormatterEE11copyErrorToER10UErrorCode.exit.thread17: ; preds = %21, %29, %33, %37
-  %.sink.i.i.ph = phi i32 [ %39, %37 ], [ %35, %33 ], [ %31, %29 ], [ 7, %21 ]
+_ZNK6icu_776number23NumberFormatterSettingsINS0_26UnlocalizedNumberFormatterEE11copyErrorToER10UErrorCode.exit.thread17: ; preds = %33, %29, %21, %37
+  %.sink.i.i.ph = phi i32 [ %39, %37 ], [ 7, %21 ], [ %31, %29 ], [ %35, %33 ]
   store i32 %.sink.i.i.ph, ptr %1, align 4, !tbaa !13
   br label %_ZNK6icu_776number23NumberFormatterSettingsINS0_26UnlocalizedNumberFormatterEE11copyErrorToER10UErrorCode.exit.thread
 
 _ZNK6icu_776number23NumberFormatterSettingsINS0_26UnlocalizedNumberFormatterEE11copyErrorToER10UErrorCode.exit: ; preds = %17, %13, %9, %5
-  %.sink = phi i64 [ 16, %5 ], [ 80, %9 ], [ 124, %13 ], [ 132, %17 ]
+  %.sink = phi i64 [ 124, %13 ], [ 16, %5 ], [ 80, %9 ], [ 132, %17 ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %.sink.i.i = load i32, ptr %41, align 4, !tbaa !63
   store i32 %.sink.i.i, ptr %1, align 4, !tbaa !13
@@ -1224,7 +1224,7 @@ _ZNK6icu_776number12IntegerWidth11copyErrorToER10UErrorCode.exit.i.i8: ; preds =
   br i1 %86, label %_ZNK6icu_776number4impl10StringProp11copyErrorToER10UErrorCode.exit22.sink.split.i.i5, label %_ZNK6icu_776number4impl10MacroProps11copyErrorToER10UErrorCode.exit.i7
 
 _ZNK6icu_776number4impl10StringProp11copyErrorToER10UErrorCode.exit22.sink.split.i.i5: ; preds = %83, %79, %75, %67, %_ZNK6icu_776number12IntegerWidth11copyErrorToER10UErrorCode.exit.i.i8, %_ZNK6icu_776number4impl6Padder11copyErrorToER10UErrorCode.exit.i.i9, %_ZNK6icu_776number9Precision11copyErrorToER10UErrorCode.exit.i.i10, %_ZNK6icu_776number8Notation11copyErrorToER10UErrorCode.exit.i.i11
-  %.sink.i.i6 = phi i32 [ %66, %_ZNK6icu_776number12IntegerWidth11copyErrorToER10UErrorCode.exit.i.i8 ], [ %60, %_ZNK6icu_776number4impl6Padder11copyErrorToER10UErrorCode.exit.i.i9 ], [ %54, %_ZNK6icu_776number9Precision11copyErrorToER10UErrorCode.exit.i.i10 ], [ %48, %_ZNK6icu_776number8Notation11copyErrorToER10UErrorCode.exit.i.i11 ], [ 7, %67 ], [ %77, %75 ], [ %81, %79 ], [ %85, %83 ]
+  %.sink.i.i6 = phi i32 [ %81, %79 ], [ %77, %75 ], [ 7, %67 ], [ %48, %_ZNK6icu_776number8Notation11copyErrorToER10UErrorCode.exit.i.i11 ], [ %66, %_ZNK6icu_776number12IntegerWidth11copyErrorToER10UErrorCode.exit.i.i8 ], [ %60, %_ZNK6icu_776number4impl6Padder11copyErrorToER10UErrorCode.exit.i.i9 ], [ %54, %_ZNK6icu_776number9Precision11copyErrorToER10UErrorCode.exit.i.i10 ], [ %85, %83 ]
   store i32 %.sink.i.i6, ptr %1, align 4, !tbaa !13
   br label %_ZNK6icu_776number4impl10MacroProps11copyErrorToER10UErrorCode.exit.i7
 
@@ -1234,7 +1234,7 @@ _ZNK6icu_776number4impl10MacroProps11copyErrorToER10UErrorCode.exit.i7: ; preds 
   br label %_ZNK6icu_776number23NumberFormatterSettingsINS0_26UnlocalizedNumberFormatterEE11copyErrorToER10UErrorCode.exit.thread
 
 _ZNK6icu_776number23NumberFormatterSettingsINS0_26UnlocalizedNumberFormatterEE11copyErrorToER10UErrorCode.exit.thread: ; preds = %_ZNK6icu_776number4impl10MacroProps11copyErrorToER10UErrorCode.exit.i7, %2, %_ZNK6icu_776number23NumberFormatterSettingsINS0_26UnlocalizedNumberFormatterEE11copyErrorToER10UErrorCode.exit.thread17, %_ZNK6icu_776number23NumberFormatterSettingsINS0_26UnlocalizedNumberFormatterEE11copyErrorToER10UErrorCode.exit
-  %89 = phi i1 [ true, %_ZNK6icu_776number23NumberFormatterSettingsINS0_26UnlocalizedNumberFormatterEE11copyErrorToER10UErrorCode.exit ], [ true, %_ZNK6icu_776number23NumberFormatterSettingsINS0_26UnlocalizedNumberFormatterEE11copyErrorToER10UErrorCode.exit.thread17 ], [ true, %2 ], [ %88, %_ZNK6icu_776number4impl10MacroProps11copyErrorToER10UErrorCode.exit.i7 ]
+  %89 = phi i1 [ true, %_ZNK6icu_776number23NumberFormatterSettingsINS0_26UnlocalizedNumberFormatterEE11copyErrorToER10UErrorCode.exit ], [ true, %2 ], [ true, %_ZNK6icu_776number23NumberFormatterSettingsINS0_26UnlocalizedNumberFormatterEE11copyErrorToER10UErrorCode.exit.thread17 ], [ %88, %_ZNK6icu_776number4impl10MacroProps11copyErrorToER10UErrorCode.exit.i7 ]
   ret i1 %89
 }
 

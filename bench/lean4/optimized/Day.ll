@@ -503,7 +503,7 @@ define ptr @l_Std_Time_Day_instOfNatOffset(ptr noundef %0) local_unnamed_addr #0
   br label %lean_nat_to_int.exit
 
 lean_nat_to_int.exit:                             ; preds = %1, %5
-  %.1.i = phi ptr [ %7, %5 ], [ %0, %1 ]
+  %.1.i = phi ptr [ %0, %1 ], [ %7, %5 ]
   ret ptr %.1.i
 }
 
@@ -1189,7 +1189,7 @@ lean_nat_abs.exit40:                              ; preds = %.thread43, %lean_in
   br label %lean_dec.exit20
 
 lean_dec.exit20:                                  ; preds = %63, %61, %73, %72, %70
-  %.1.i45 = phi ptr [ %67, %70 ], [ %67, %72 ], [ %67, %73 ], [ inttoptr (i64 1 to ptr), %61 ], [ %65, %63 ]
+  %.1.i45 = phi ptr [ %67, %73 ], [ %67, %70 ], [ %67, %72 ], [ inttoptr (i64 1 to ptr), %61 ], [ %65, %63 ]
   %74 = ptrtoint ptr %.1.i45 to i64
   %75 = and i64 %74, 1
   %.not52 = icmp eq i64 %75, 0
@@ -1231,7 +1231,7 @@ lean_dec.exit20:                                  ; preds = %63, %61, %73, %72, 
   br label %lean_dec.exit19
 
 lean_dec.exit19:                                  ; preds = %80, %84, %93, %92, %90
-  %.0.i47 = phi ptr [ %87, %90 ], [ %87, %92 ], [ %87, %93 ], [ %85, %84 ], [ %83, %80 ]
+  %.0.i47 = phi ptr [ %87, %93 ], [ %87, %90 ], [ %87, %92 ], [ %85, %84 ], [ %83, %80 ]
   %94 = tail call ptr @l___private_Init_Data_Repr_0__Nat_reprFast(ptr noundef %.0.i47) #6
   %95 = load ptr, ptr @l_Std_Time_Day_Ordinal_instToStringOfYear___rarg___closed__1, align 8, !tbaa !11
   %96 = tail call ptr @lean_string_append(ptr noundef %95, ptr noundef %94) #6
@@ -1583,7 +1583,7 @@ define ptr @l_Std_Time_Day_Ordinal_OfYear_ofNat___rarg(ptr noundef %0, ptr readn
   br label %lean_nat_to_int.exit
 
 lean_nat_to_int.exit:                             ; preds = %2, %6
-  %.1.i = phi ptr [ %8, %6 ], [ %0, %2 ]
+  %.1.i = phi ptr [ %0, %2 ], [ %8, %6 ]
   ret ptr %.1.i
 }
 
@@ -1753,7 +1753,7 @@ define ptr @l_Std_Time_Day_Ordinal_ofNat(ptr noundef %0, ptr noundef readnone ca
   br label %lean_nat_to_int.exit
 
 lean_nat_to_int.exit:                             ; preds = %2, %6
-  %.1.i = phi ptr [ %8, %6 ], [ %0, %2 ]
+  %.1.i = phi ptr [ %0, %2 ], [ %8, %6 ]
   ret ptr %.1.i
 }
 
@@ -1804,7 +1804,7 @@ lean_dec.exit:                                    ; preds = %4, %12, %11, %9
   br label %lean_nat_to_int.exit
 
 lean_nat_to_int.exit:                             ; preds = %lean_nat_le.exit, %16, %14, %lean_dec.exit
-  %.0 = phi ptr [ %13, %lean_dec.exit ], [ %18, %16 ], [ %0, %14 ], [ %0, %lean_nat_le.exit ]
+  %.0 = phi ptr [ %13, %lean_dec.exit ], [ %0, %14 ], [ %18, %16 ], [ %0, %lean_nat_le.exit ]
   ret ptr %.0
 }
 
@@ -2126,7 +2126,7 @@ define ptr @l_Std_Time_Day_Offset_ofNat(ptr noundef %0) local_unnamed_addr #0 {
   br label %lean_nat_to_int.exit
 
 lean_nat_to_int.exit:                             ; preds = %1, %5
-  %.1.i = phi ptr [ %7, %5 ], [ %0, %1 ]
+  %.1.i = phi ptr [ %0, %1 ], [ %7, %5 ]
   ret ptr %.1.i
 }
 
@@ -2310,7 +2310,7 @@ l_Std_Time_Day_Offset_toNanoseconds.exit.thread5: ; preds = %5
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %22, %17, %31, %30, %28, %l_Std_Time_Day_Offset_toNanoseconds.exit.thread5
-  %.0.i.i4 = phi ptr [ %8, %l_Std_Time_Day_Offset_toNanoseconds.exit.thread5 ], [ %25, %28 ], [ %25, %30 ], [ %25, %31 ], [ %23, %22 ], [ %21, %17 ]
+  %.0.i.i4 = phi ptr [ %25, %31 ], [ %8, %l_Std_Time_Day_Offset_toNanoseconds.exit.thread5 ], [ %25, %28 ], [ %25, %30 ], [ %23, %22 ], [ %21, %17 ]
   ret ptr %.0.i.i4
 }
 
@@ -2441,7 +2441,7 @@ l_Std_Time_Day_Offset_ofNanoseconds.exit.thread5: ; preds = %5
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %29, %24, %9, %38, %37, %35, %l_Std_Time_Day_Offset_ofNanoseconds.exit.thread5
-  %.1.i.i4 = phi ptr [ %8, %l_Std_Time_Day_Offset_ofNanoseconds.exit.thread5 ], [ %32, %35 ], [ %32, %37 ], [ %32, %38 ], [ %30, %29 ], [ %28, %24 ], [ inttoptr (i64 1 to ptr), %9 ]
+  %.1.i.i4 = phi ptr [ %32, %38 ], [ %8, %l_Std_Time_Day_Offset_ofNanoseconds.exit.thread5 ], [ %32, %35 ], [ %32, %37 ], [ %30, %29 ], [ %28, %24 ], [ inttoptr (i64 1 to ptr), %9 ]
   ret ptr %.1.i.i4
 }
 
@@ -2548,7 +2548,7 @@ l_Std_Time_Day_Offset_toMilliseconds.exit.thread5: ; preds = %5
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %22, %17, %31, %30, %28, %l_Std_Time_Day_Offset_toMilliseconds.exit.thread5
-  %.0.i.i4 = phi ptr [ %8, %l_Std_Time_Day_Offset_toMilliseconds.exit.thread5 ], [ %25, %28 ], [ %25, %30 ], [ %25, %31 ], [ %23, %22 ], [ %21, %17 ]
+  %.0.i.i4 = phi ptr [ %25, %31 ], [ %8, %l_Std_Time_Day_Offset_toMilliseconds.exit.thread5 ], [ %25, %28 ], [ %25, %30 ], [ %23, %22 ], [ %21, %17 ]
   ret ptr %.0.i.i4
 }
 
@@ -2679,7 +2679,7 @@ l_Std_Time_Day_Offset_ofMilliseconds.exit.thread5: ; preds = %5
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %29, %24, %9, %38, %37, %35, %l_Std_Time_Day_Offset_ofMilliseconds.exit.thread5
-  %.1.i.i4 = phi ptr [ %8, %l_Std_Time_Day_Offset_ofMilliseconds.exit.thread5 ], [ %32, %35 ], [ %32, %37 ], [ %32, %38 ], [ %30, %29 ], [ %28, %24 ], [ inttoptr (i64 1 to ptr), %9 ]
+  %.1.i.i4 = phi ptr [ %32, %38 ], [ %8, %l_Std_Time_Day_Offset_ofMilliseconds.exit.thread5 ], [ %32, %35 ], [ %32, %37 ], [ %30, %29 ], [ %28, %24 ], [ inttoptr (i64 1 to ptr), %9 ]
   ret ptr %.1.i.i4
 }
 
@@ -2786,7 +2786,7 @@ l_Std_Time_Day_Offset_toSeconds.exit.thread5:     ; preds = %5
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %22, %17, %31, %30, %28, %l_Std_Time_Day_Offset_toSeconds.exit.thread5
-  %.0.i.i4 = phi ptr [ %8, %l_Std_Time_Day_Offset_toSeconds.exit.thread5 ], [ %25, %28 ], [ %25, %30 ], [ %25, %31 ], [ %23, %22 ], [ %21, %17 ]
+  %.0.i.i4 = phi ptr [ %25, %31 ], [ %8, %l_Std_Time_Day_Offset_toSeconds.exit.thread5 ], [ %25, %28 ], [ %25, %30 ], [ %23, %22 ], [ %21, %17 ]
   ret ptr %.0.i.i4
 }
 
@@ -2917,7 +2917,7 @@ l_Std_Time_Day_Offset_ofSeconds.exit.thread5:     ; preds = %5
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %29, %24, %9, %38, %37, %35, %l_Std_Time_Day_Offset_ofSeconds.exit.thread5
-  %.1.i.i4 = phi ptr [ %8, %l_Std_Time_Day_Offset_ofSeconds.exit.thread5 ], [ %32, %35 ], [ %32, %37 ], [ %32, %38 ], [ %30, %29 ], [ %28, %24 ], [ inttoptr (i64 1 to ptr), %9 ]
+  %.1.i.i4 = phi ptr [ %32, %38 ], [ %8, %l_Std_Time_Day_Offset_ofSeconds.exit.thread5 ], [ %32, %35 ], [ %32, %37 ], [ %30, %29 ], [ %28, %24 ], [ inttoptr (i64 1 to ptr), %9 ]
   ret ptr %.1.i.i4
 }
 
@@ -3024,7 +3024,7 @@ l_Std_Time_Day_Offset_toMinutes.exit.thread5:     ; preds = %5
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %22, %17, %31, %30, %28, %l_Std_Time_Day_Offset_toMinutes.exit.thread5
-  %.0.i.i4 = phi ptr [ %8, %l_Std_Time_Day_Offset_toMinutes.exit.thread5 ], [ %25, %28 ], [ %25, %30 ], [ %25, %31 ], [ %23, %22 ], [ %21, %17 ]
+  %.0.i.i4 = phi ptr [ %25, %31 ], [ %8, %l_Std_Time_Day_Offset_toMinutes.exit.thread5 ], [ %25, %28 ], [ %25, %30 ], [ %23, %22 ], [ %21, %17 ]
   ret ptr %.0.i.i4
 }
 
@@ -3155,7 +3155,7 @@ l_Std_Time_Day_Offset_ofMinutes.exit.thread5:     ; preds = %5
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %29, %24, %9, %38, %37, %35, %l_Std_Time_Day_Offset_ofMinutes.exit.thread5
-  %.1.i.i4 = phi ptr [ %8, %l_Std_Time_Day_Offset_ofMinutes.exit.thread5 ], [ %32, %35 ], [ %32, %37 ], [ %32, %38 ], [ %30, %29 ], [ %28, %24 ], [ inttoptr (i64 1 to ptr), %9 ]
+  %.1.i.i4 = phi ptr [ %32, %38 ], [ %8, %l_Std_Time_Day_Offset_ofMinutes.exit.thread5 ], [ %32, %35 ], [ %32, %37 ], [ %30, %29 ], [ %28, %24 ], [ inttoptr (i64 1 to ptr), %9 ]
   ret ptr %.1.i.i4
 }
 
@@ -3262,7 +3262,7 @@ l_Std_Time_Day_Offset_toHours.exit.thread5:       ; preds = %5
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %22, %17, %31, %30, %28, %l_Std_Time_Day_Offset_toHours.exit.thread5
-  %.0.i.i4 = phi ptr [ %8, %l_Std_Time_Day_Offset_toHours.exit.thread5 ], [ %25, %28 ], [ %25, %30 ], [ %25, %31 ], [ %23, %22 ], [ %21, %17 ]
+  %.0.i.i4 = phi ptr [ %25, %31 ], [ %8, %l_Std_Time_Day_Offset_toHours.exit.thread5 ], [ %25, %28 ], [ %25, %30 ], [ %23, %22 ], [ %21, %17 ]
   ret ptr %.0.i.i4
 }
 
@@ -3393,7 +3393,7 @@ l_Std_Time_Day_Offset_ofHours.exit.thread5:       ; preds = %5
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %29, %24, %9, %38, %37, %35, %l_Std_Time_Day_Offset_ofHours.exit.thread5
-  %.1.i.i4 = phi ptr [ %8, %l_Std_Time_Day_Offset_ofHours.exit.thread5 ], [ %32, %35 ], [ %32, %37 ], [ %32, %38 ], [ %30, %29 ], [ %28, %24 ], [ inttoptr (i64 1 to ptr), %9 ]
+  %.1.i.i4 = phi ptr [ %32, %38 ], [ %8, %l_Std_Time_Day_Offset_ofHours.exit.thread5 ], [ %32, %35 ], [ %32, %37 ], [ %30, %29 ], [ %28, %24 ], [ inttoptr (i64 1 to ptr), %9 ]
   ret ptr %.1.i.i4
 }
 
@@ -4193,7 +4193,7 @@ _init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__27.exit: ; pre
   br label %_init_l_Std_Time_Day_Offset_toNanoseconds___closed__1.exit
 
 _init_l_Std_Time_Day_Offset_toNanoseconds___closed__1.exit: ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__27.exit, %338
-  %.1.i.i33 = phi ptr [ %340, %338 ], [ %334, %_init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__27.exit ]
+  %.1.i.i33 = phi ptr [ %334, %_init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__27.exit ], [ %340, %338 ]
   store ptr %.1.i.i33, ptr @l_Std_Time_Day_Offset_toNanoseconds___closed__1, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %.1.i.i33) #6
   store ptr inttoptr (i64 172800001 to ptr), ptr @l_Std_Time_Day_Offset_toMilliseconds___closed__1, align 8, !tbaa !11

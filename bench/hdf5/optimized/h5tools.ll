@@ -667,12 +667,12 @@ define range(i32 -1, 1) i32 @h5tools_set_data_output_file(ptr noundef readonly c
   br i1 %.not14, label %15, label %.sink.split
 
 .sink.split:                                      ; preds = %9, %13, %11
-  %.sink = phi ptr [ %12, %11 ], [ %14, %13 ], [ null, %9 ]
+  %.sink = phi ptr [ %14, %13 ], [ %12, %11 ], [ null, %9 ]
   store ptr %.sink, ptr @rawdatastream, align 8, !tbaa !9
   br label %15
 
 15:                                               ; preds = %.sink.split, %11, %13
-  %.0 = phi i32 [ -1, %11 ], [ -1, %13 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ -1, %13 ], [ -1, %11 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -720,12 +720,12 @@ define range(i32 -1, 1) i32 @h5tools_set_attr_output_file(ptr noundef readonly c
   br i1 %.not14, label %15, label %.sink.split
 
 .sink.split:                                      ; preds = %9, %13, %11
-  %.sink = phi ptr [ %12, %11 ], [ %14, %13 ], [ null, %9 ]
+  %.sink = phi ptr [ %14, %13 ], [ %12, %11 ], [ null, %9 ]
   store ptr %.sink, ptr @rawattrstream, align 8, !tbaa !9
   br label %15
 
 15:                                               ; preds = %.sink.split, %11, %13
-  %.0 = phi i32 [ -1, %11 ], [ -1, %13 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ -1, %13 ], [ -1, %11 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -770,12 +770,12 @@ define range(i32 -1, 1) i32 @h5tools_set_input_file(ptr noundef readonly capture
   br i1 %.not14, label %15, label %.sink.split
 
 .sink.split:                                      ; preds = %9, %13, %11
-  %.sink = phi ptr [ %12, %11 ], [ %14, %13 ], [ null, %9 ]
+  %.sink = phi ptr [ %14, %13 ], [ %12, %11 ], [ null, %9 ]
   store ptr %.sink, ptr @rawinstream, align 8, !tbaa !9
   br label %15
 
 15:                                               ; preds = %.sink.split, %11, %13
-  %.0 = phi i32 [ -1, %11 ], [ -1, %13 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ -1, %13 ], [ -1, %11 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -820,12 +820,12 @@ define range(i32 -1, 1) i32 @h5tools_set_output_file(ptr noundef readonly captur
   br i1 %.not14, label %15, label %.sink.split
 
 .sink.split:                                      ; preds = %9, %13, %11
-  %.sink = phi ptr [ %12, %11 ], [ %14, %13 ], [ null, %9 ]
+  %.sink = phi ptr [ %14, %13 ], [ %12, %11 ], [ null, %9 ]
   store ptr %.sink, ptr @rawoutstream, align 8, !tbaa !9
   br label %15
 
 15:                                               ; preds = %.sink.split, %11, %13
-  %.0 = phi i32 [ -1, %11 ], [ -1, %13 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ -1, %13 ], [ -1, %11 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -870,12 +870,12 @@ define range(i32 -1, 1) i32 @h5tools_set_error_file(ptr noundef readonly capture
   br i1 %.not14, label %15, label %.sink.split
 
 .sink.split:                                      ; preds = %9, %13, %11
-  %.sink = phi ptr [ %12, %11 ], [ %14, %13 ], [ null, %9 ]
+  %.sink = phi ptr [ %14, %13 ], [ %12, %11 ], [ null, %9 ]
   store ptr %.sink, ptr @rawerrorstream, align 8, !tbaa !9
   br label %15
 
 15:                                               ; preds = %.sink.split, %11, %13
-  %.0 = phi i32 [ -1, %11 ], [ -1, %13 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ -1, %13 ], [ -1, %11 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -1537,7 +1537,7 @@ define range(i32 -1, 1) i32 @h5tools_set_fapl_vfd(i64 noundef %0, ptr noundef re
   %fputc153 = tail call i32 @fputc(i32 10, ptr %396)
   br label %397
 
-397:                                              ; preds = %12, %24, %20, %31, %43, %39, %53, %65, %61, %72, %84, %80, %94, %106, %102, %116, %128, %124, %138, %150, %146, %160, %172, %168, %182, %194, %190, %201, %213, %209, %220, %232, %228, %239, %251, %247, %258, %270, %266, %280, %292, %288, %299, %311, %307, %318, %331, %326, %340, %352, %348, %361, %375, %369, %381, %393, %389
+397:                                              ; preds = %369, %307, %288, %266, %247, %228, %209, %190, %168, %146, %124, %102, %80, %39, %43, %20, %326, %348, %12, %24, %31, %61, %53, %65, %72, %84, %94, %106, %116, %128, %138, %150, %160, %172, %182, %194, %201, %213, %220, %232, %239, %251, %258, %270, %280, %292, %299, %311, %318, %331, %340, %352, %361, %375, %381, %393, %389
   %398 = load i64, ptr @H5tools_ERR_STACK_g, align 8, !tbaa !7
   %399 = icmp sgt i64 %398, -1
   %400 = load i32, ptr @enable_error_stack, align 4
@@ -1550,7 +1550,7 @@ define range(i32 -1, 1) i32 @h5tools_set_fapl_vfd(i64 noundef %0, ptr noundef re
   br label %404
 
 404:                                              ; preds = %356, %9, %91, %135, %179, %315, %296, %157, %113, %50, %402, %397
-  %.080155 = phi i32 [ -1, %402 ], [ -1, %397 ], [ 0, %315 ], [ 0, %296 ], [ 0, %179 ], [ 0, %157 ], [ 0, %135 ], [ 0, %113 ], [ 0, %91 ], [ 0, %9 ], [ 0, %356 ], [ 0, %50 ]
+  %.080155 = phi i32 [ -1, %397 ], [ -1, %402 ], [ 0, %356 ], [ 0, %179 ], [ 0, %315 ], [ 0, %91 ], [ 0, %296 ], [ 0, %157 ], [ 0, %50 ], [ 0, %135 ], [ 0, %9 ], [ 0, %113 ]
   ret i32 %.080155
 }
 
@@ -1934,8 +1934,8 @@ define range(i32 -1, 1) i32 @h5tools_set_fapl_vol(i64 noundef %0, ptr noundef re
   br label %209
 
 209:                                              ; preds = %201, %205, %193, %181, %185, %173, %159, %163, %143, %147, %135, %112, %116, %104, %91, %95, %83, %70, %74, %62, %39, %43, %31, %18, %22, %10, %189
-  %.043.ph = phi i64 [ %.144, %201 ], [ %.144, %205 ], [ %.144, %193 ], [ %.144, %181 ], [ %.144, %185 ], [ %.144, %173 ], [ -1, %159 ], [ -1, %163 ], [ %133, %143 ], [ %133, %147 ], [ %133, %135 ], [ %102, %112 ], [ %102, %116 ], [ %102, %104 ], [ -1, %91 ], [ -1, %95 ], [ -1, %83 ], [ %60, %70 ], [ %60, %74 ], [ %60, %62 ], [ %29, %39 ], [ %29, %43 ], [ %29, %31 ], [ -1, %18 ], [ -1, %22 ], [ -1, %10 ], [ %.144, %189 ]
-  %210 = phi i1 [ true, %201 ], [ true, %205 ], [ true, %193 ], [ true, %181 ], [ true, %185 ], [ true, %173 ], [ true, %159 ], [ true, %163 ], [ true, %143 ], [ true, %147 ], [ true, %135 ], [ true, %112 ], [ true, %116 ], [ true, %104 ], [ true, %91 ], [ true, %95 ], [ true, %83 ], [ true, %70 ], [ true, %74 ], [ true, %62 ], [ true, %39 ], [ true, %43 ], [ true, %31 ], [ true, %18 ], [ true, %22 ], [ true, %10 ], [ false, %189 ]
+  %.043.ph = phi i64 [ %.144, %201 ], [ %.144, %205 ], [ %.144, %193 ], [ %.144, %185 ], [ %.144, %173 ], [ -1, %163 ], [ %133, %147 ], [ %133, %135 ], [ %102, %116 ], [ %102, %104 ], [ -1, %95 ], [ -1, %83 ], [ %60, %74 ], [ %60, %62 ], [ %29, %43 ], [ %29, %31 ], [ -1, %22 ], [ -1, %10 ], [ -1, %91 ], [ %60, %70 ], [ %29, %39 ], [ %.144, %189 ], [ %.144, %181 ], [ -1, %159 ], [ -1, %18 ], [ %102, %112 ], [ %133, %143 ]
+  %210 = phi i1 [ true, %201 ], [ true, %205 ], [ true, %193 ], [ true, %185 ], [ true, %173 ], [ true, %163 ], [ true, %147 ], [ true, %135 ], [ true, %116 ], [ true, %104 ], [ true, %95 ], [ true, %83 ], [ true, %74 ], [ true, %62 ], [ true, %43 ], [ true, %31 ], [ true, %22 ], [ true, %10 ], [ true, %91 ], [ true, %70 ], [ true, %39 ], [ false, %189 ], [ true, %181 ], [ true, %159 ], [ true, %18 ], [ true, %112 ], [ true, %143 ]
   %.pr = load ptr, ptr %3, align 8, !tbaa !12
   %.not92 = icmp eq ptr %.pr, null
   br i1 %.not92, label %229, label %211
@@ -2157,7 +2157,7 @@ define range(i64 -1, -9223372036854775808) i64 @h5tools_get_new_fapl(i64 noundef
   %fputc = tail call i32 @fputc(i32 10, ptr %67)
   br label %68
 
-68:                                               ; preds = %60, %64, %52, %41, %45, %33, %11, %15, %3
+68:                                               ; preds = %64, %52, %45, %33, %15, %3, %60, %11, %41
   %69 = load i64, ptr @H5tools_ERR_STACK_g, align 8, !tbaa !7
   %70 = icmp sgt i64 %69, -1
   %71 = load i32, ptr @enable_error_stack, align 4
@@ -2170,7 +2170,7 @@ define range(i64 -1, -9223372036854775808) i64 @h5tools_get_new_fapl(i64 noundef
   br label %75
 
 75:                                               ; preds = %49, %29, %68, %73
-  %.033 = phi i64 [ -1, %68 ], [ -1, %73 ], [ %31, %29 ], [ %50, %49 ]
+  %.033 = phi i64 [ -1, %68 ], [ -1, %73 ], [ %50, %49 ], [ %31, %29 ]
   ret i64 %.033
 }
 
@@ -2553,7 +2553,7 @@ define range(i32 -1, 1) i32 @h5tools_get_vfd_name(i64 noundef %0, i64 noundef %1
   br label %224
 
 224:                                              ; preds = %220, %114, %126, %122, %50, %54, %42, %33, %37, %25, %16, %20, %8, %108
-  %.040 = phi i32 [ %.2, %108 ], [ -1, %8 ], [ -1, %20 ], [ -1, %16 ], [ -1, %25 ], [ -1, %37 ], [ -1, %33 ], [ -1, %42 ], [ -1, %54 ], [ -1, %50 ], [ %.2, %220 ], [ -1, %114 ], [ -1, %126 ], [ -1, %122 ]
+  %.040 = phi i32 [ -1, %16 ], [ -1, %50 ], [ -1, %54 ], [ %.2, %108 ], [ -1, %33 ], [ -1, %8 ], [ -1, %20 ], [ -1, %25 ], [ -1, %37 ], [ -1, %42 ], [ %.2, %220 ], [ -1, %114 ], [ -1, %126 ], [ -1, %122 ]
   %225 = load i64, ptr %5, align 8, !tbaa !7
   %226 = icmp sgt i64 %225, -1
   br i1 %226, label %227, label %246
@@ -2590,7 +2590,7 @@ define range(i32 -1, 1) i32 @h5tools_get_vfd_name(i64 noundef %0, i64 noundef %1
   br label %246
 
 246:                                              ; preds = %224, %227, %238, %242, %230
-  %.4 = phi i32 [ %.040, %227 ], [ %.040, %224 ], [ -1, %238 ], [ -1, %242 ], [ -1, %230 ]
+  %.4 = phi i32 [ %.040, %224 ], [ %.040, %227 ], [ -1, %238 ], [ -1, %242 ], [ -1, %230 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.4
@@ -2830,9 +2830,9 @@ define range(i64 -1, -9223372036854775808) i64 @h5tools_fopen(ptr noundef %0, i3
   br i1 %106, label %.loopexit.thread, label %97
 
 .loopexit122:                                     ; preds = %.loopexit.thread, %.loopexit123, %54, %58, %46, %38
-  %.078 = phi i64 [ %.482, %.loopexit123 ], [ -1, %38 ], [ -1, %46 ], [ -1, %58 ], [ -1, %54 ], [ -1, %.loopexit.thread ]
-  %.072 = phi i64 [ %.482, %.loopexit123 ], [ %2, %38 ], [ -1, %46 ], [ -1, %58 ], [ -1, %54 ], [ -1, %.loopexit.thread ]
-  %.068 = phi i64 [ %.4, %.loopexit123 ], [ %.084, %38 ], [ -1, %46 ], [ -1, %58 ], [ -1, %54 ], [ -1, %.loopexit.thread ]
+  %.078 = phi i64 [ -1, %54 ], [ -1, %38 ], [ %.482, %.loopexit123 ], [ -1, %46 ], [ -1, %58 ], [ -1, %.loopexit.thread ]
+  %.072 = phi i64 [ -1, %54 ], [ %2, %38 ], [ %.482, %.loopexit123 ], [ -1, %46 ], [ -1, %58 ], [ -1, %.loopexit.thread ]
+  %.068 = phi i64 [ -1, %54 ], [ %.084, %38 ], [ %.4, %.loopexit123 ], [ -1, %46 ], [ -1, %58 ], [ -1, %.loopexit.thread ]
   %107 = icmp ne ptr %4, null
   %108 = icmp ne i64 %5, 0
   %or.cond3 = and i1 %107, %108
@@ -2873,7 +2873,7 @@ define range(i64 -1, -9223372036854775808) i64 @h5tools_fopen(ptr noundef %0, i3
   br label %130
 
 130:                                              ; preds = %114, %126, %122, %111, %.loopexit122
-  %.6 = phi i64 [ %.068, %111 ], [ %.068, %.loopexit122 ], [ -1, %122 ], [ -1, %126 ], [ -1, %114 ]
+  %.6 = phi i64 [ %.068, %.loopexit122 ], [ %.068, %111 ], [ -1, %122 ], [ -1, %126 ], [ -1, %114 ]
   %131 = icmp sgt i64 %.078, -1
   br i1 %131, label %132, label %134
 
@@ -2989,7 +2989,7 @@ define i32 @h5tools_detect_vlen_str(i64 noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond59, label %.loopexit, label %.lr.ph, !llvm.loop !29
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %1, %19, %13, %17, %11, %21
-  %.040 = phi i32 [ %2, %1 ], [ %2, %19 ], [ %12, %11 ], [ %14, %17 ], [ %14, %13 ], [ -1, %21 ], [ %2, %.preheader ], [ %25, %.lr.ph ]
+  %.040 = phi i32 [ %2, %1 ], [ %2, %19 ], [ %14, %13 ], [ %14, %17 ], [ %12, %11 ], [ -1, %21 ], [ %2, %.preheader ], [ %25, %.lr.ph ]
   ret i32 %.040
 }
 
@@ -3105,7 +3105,7 @@ define void @h5tools_simple_prefix(ptr noundef captures(address_is_null) %0, ptr
   br label %51
 
 51:                                               ; preds = %46, %42, %.thread
-  %.sink84 = phi ptr [ %50, %.thread ], [ %44, %42 ], [ %48, %46 ]
+  %.sink84 = phi ptr [ %44, %42 ], [ %50, %.thread ], [ %48, %46 ]
   %52 = call ptr @h5tools_str_fmt(ptr noundef nonnull %6, i64 noundef 0, ptr noundef %.sink84) #16
   %53 = call i32 @fputs(ptr noundef %52, ptr noundef nonnull %0)
   %54 = call i64 @h5tools_str_len(ptr noundef nonnull %6) #16
@@ -3272,7 +3272,7 @@ define void @h5tools_region_simple_prefix(ptr noundef captures(address_is_null) 
   br label %52
 
 52:                                               ; preds = %47, %43, %.thread
-  %.sink85 = phi ptr [ %51, %.thread ], [ %45, %43 ], [ %49, %47 ]
+  %.sink85 = phi ptr [ %45, %43 ], [ %51, %.thread ], [ %49, %47 ]
   %53 = call ptr @h5tools_str_fmt(ptr noundef nonnull %7, i64 noundef 0, ptr noundef %.sink85) #16
   %54 = call i32 @fputs(ptr noundef %53, ptr noundef nonnull %0)
   %55 = call i64 @h5tools_str_len(ptr noundef nonnull %7) #16
@@ -3598,7 +3598,7 @@ h5tools_count_ncols.exit147:                      ; preds = %.lr.ph.i141, %70
   br label %139
 
 139:                                              ; preds = %132, %131, %128, %.split, %.split90
-  %.2 = phi i32 [ %.0150, %132 ], [ %.0150, %131 ], [ %.0150, %128 ], [ %124, %.split90 ], [ %.0150, %.split ]
+  %.2 = phi i32 [ %.0150, %128 ], [ %.0150, %132 ], [ %.0150, %131 ], [ %124, %.split90 ], [ %.0150, %.split ]
   %140 = tail call i32 @fputs(ptr noundef nonnull %107, ptr noundef nonnull %0)
   %141 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %107) #18
   %142 = load i64, ptr %2, align 8, !tbaa !34
@@ -3914,7 +3914,7 @@ h5tools_count_ncols.exit151:                      ; preds = %.lr.ph.i145, %69
   br label %143
 
 143:                                              ; preds = %.split91, %.split, %138, %134, %131
-  %.2 = phi i32 [ %.0154, %138 ], [ %.0154, %134 ], [ %.0154, %131 ], [ %127, %.split91 ], [ %.0154, %.split ]
+  %.2 = phi i32 [ %.0154, %131 ], [ %.0154, %138 ], [ %.0154, %134 ], [ %127, %.split91 ], [ %.0154, %.split ]
   br i1 %.not127, label %146, label %144
 
 144:                                              ; preds = %143
@@ -4287,7 +4287,7 @@ define range(i32 -1, 1) i32 @render_bin_output(ptr noundef captures(none) %0, i6
   br i1 %exitcond388.not, label %.loopexit, label %71, !llvm.loop !66
 
 .loopexit:                                        ; preds = %.critedge, %69, %.split.us351, %124, %120, %79, %91, %87
-  %.7224 = phi i32 [ -1, %87 ], [ -1, %91 ], [ -1, %79 ], [ -1, %120 ], [ -1, %124 ], [ -1, %.split.us351 ], [ 0, %69 ], [ 0, %.critedge ]
+  %.7224 = phi i32 [ -1, %79 ], [ -1, %.split.us351 ], [ -1, %87 ], [ -1, %91 ], [ -1, %120 ], [ -1, %124 ], [ 0, %69 ], [ 0, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread
 
@@ -4479,7 +4479,7 @@ define range(i32 -1, 1) i32 @render_bin_output(ptr noundef captures(none) %0, i6
   br label %224
 
 224:                                              ; preds = %206, %219, %215, %183, %196, %192, %._crit_edge340
-  %.19 = phi i32 [ 0, %._crit_edge340 ], [ -1, %192 ], [ -1, %196 ], [ -1, %183 ], [ -1, %215 ], [ -1, %219 ], [ -1, %206 ]
+  %.19 = phi i32 [ -1, %183 ], [ 0, %._crit_edge340 ], [ -1, %192 ], [ -1, %196 ], [ -1, %215 ], [ -1, %219 ], [ -1, %206 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread
 
@@ -4716,7 +4716,7 @@ h5tools_is_zero.exit:                             ; preds = %321
   br i1 %exitcond381.not, label %.loopexit323, label %.lr.ph330, !llvm.loop !76
 
 .loopexit323:                                     ; preds = %351, %285, %269, %281, %277
-  %.26 = phi i32 [ -1, %277 ], [ -1, %281 ], [ -1, %269 ], [ 0, %285 ], [ 0, %351 ]
+  %.26 = phi i32 [ -1, %269 ], [ -1, %277 ], [ -1, %281 ], [ 0, %285 ], [ 0, %351 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread
 
@@ -4874,7 +4874,7 @@ h5tools_is_zero.exit:                             ; preds = %321
   br label %.thread
 
 .thread:                                          ; preds = %402, %._crit_edge344.us, %66, %401, %.preheader, %47, %50, %62, %58, %167, %171, %.split.us, %265, %361, %372, %11, %23, %19, %30, %42, %38, %.loopexit, %144, %156, %152, %224, %236, %249, %245, %._crit_edge334, %.loopexit323, %383, %396, %392, %._crit_edge, %407, %419, %415, %423, %435, %431
-  %.1218 = phi i32 [ %.7224, %.loopexit ], [ %.19, %224 ], [ %.26, %.loopexit323 ], [ 0, %265 ], [ 0, %361 ], [ 0, %372 ], [ -1, %11 ], [ -1, %23 ], [ -1, %19 ], [ -1, %30 ], [ -1, %42 ], [ -1, %38 ], [ -1, %152 ], [ -1, %156 ], [ -1, %144 ], [ 0, %._crit_edge334 ], [ -1, %245 ], [ -1, %249 ], [ -1, %236 ], [ 0, %._crit_edge ], [ -1, %392 ], [ -1, %396 ], [ -1, %383 ], [ -1, %407 ], [ -1, %419 ], [ -1, %415 ], [ -1, %423 ], [ -1, %435 ], [ -1, %431 ], [ -1, %.split.us ], [ -1, %171 ], [ -1, %167 ], [ -1, %58 ], [ -1, %62 ], [ -1, %50 ], [ 0, %47 ], [ 0, %.preheader ], [ 0, %401 ], [ 0, %66 ], [ 0, %._crit_edge344.us ], [ 0, %402 ]
+  %.1218 = phi i32 [ -1, %415 ], [ -1, %167 ], [ -1, %50 ], [ -1, %38 ], [ %.7224, %.loopexit ], [ -1, %42 ], [ -1, %30 ], [ 0, %.preheader ], [ %.19, %224 ], [ -1, %156 ], [ -1, %152 ], [ -1, %236 ], [ %.26, %.loopexit323 ], [ 0, %265 ], [ 0, %361 ], [ 0, %372 ], [ -1, %249 ], [ -1, %245 ], [ -1, %383 ], [ 0, %47 ], [ -1, %19 ], [ -1, %11 ], [ -1, %23 ], [ -1, %431 ], [ -1, %144 ], [ 0, %._crit_edge334 ], [ 0, %._crit_edge ], [ -1, %392 ], [ -1, %396 ], [ -1, %407 ], [ -1, %419 ], [ -1, %423 ], [ -1, %435 ], [ -1, %.split.us ], [ -1, %171 ], [ -1, %58 ], [ -1, %62 ], [ 0, %401 ], [ 0, %66 ], [ 0, %._crit_edge344.us ], [ 0, %402 ]
   ret i32 %.1218
 }
 
@@ -5084,7 +5084,7 @@ define noundef zeroext i1 @render_bin_output_region_points(i64 noundef %0, i64 n
   br label %.thread
 
 .thread:                                          ; preds = %72, %76, %64, %85, %97, %93, %82, %80
-  %.4 = phi i1 [ true, %82 ], [ true, %80 ], [ false, %93 ], [ false, %97 ], [ false, %85 ], [ false, %64 ], [ false, %76 ], [ false, %72 ]
+  %.4 = phi i1 [ true, %80 ], [ true, %82 ], [ false, %93 ], [ false, %97 ], [ false, %85 ], [ false, %64 ], [ false, %76 ], [ false, %72 ]
   %.not56 = icmp eq i64 %43, 0
   br i1 %.not56, label %.thread.thread, label %101
 
@@ -5119,8 +5119,8 @@ define noundef zeroext i1 @render_bin_output_region_points(i64 noundef %0, i64 n
   %fputc50 = tail call i32 @fputc(i32 10, ptr %119)
   br label %.thread.thread
 
-.thread.thread:                                   ; preds = %45, %57, %53, %101, %.thread, %112, %116, %104, %34, %38, %26, %15, %19, %7
-  %.1 = phi i1 [ false, %7 ], [ false, %19 ], [ false, %15 ], [ false, %26 ], [ false, %38 ], [ false, %34 ], [ %.4, %101 ], [ %.4, %.thread ], [ false, %112 ], [ false, %116 ], [ false, %104 ], [ false, %53 ], [ false, %57 ], [ false, %45 ]
+.thread.thread:                                   ; preds = %53, %45, %57, %101, %.thread, %112, %116, %104, %34, %38, %26, %15, %19, %7
+  %.1 = phi i1 [ false, %34 ], [ false, %15 ], [ false, %7 ], [ false, %19 ], [ false, %26 ], [ false, %38 ], [ %.4, %.thread ], [ %.4, %101 ], [ false, %112 ], [ false, %116 ], [ false, %104 ], [ false, %57 ], [ false, %45 ], [ false, %53 ]
   ret i1 %.1
 }
 
@@ -5314,8 +5314,8 @@ define noundef zeroext i1 @render_bin_output_region_blocks(i64 noundef %0, i64 n
   %fputc = tail call i32 @fputc(i32 10, ptr %120)
   br label %.thread
 
-.thread:                                          ; preds = %48, %60, %56, %67, %79, %75, %86, %98, %94, %105, %117, %113
-  %.042.ph = phi i64 [ %84, %113 ], [ %84, %117 ], [ %84, %105 ], [ %84, %94 ], [ %84, %98 ], [ %84, %86 ], [ -1, %75 ], [ -1, %79 ], [ -1, %67 ], [ -1, %56 ], [ -1, %60 ], [ -1, %48 ]
+.thread:                                          ; preds = %56, %75, %94, %48, %60, %67, %79, %86, %98, %105, %117, %113
+  %.042.ph = phi i64 [ %84, %113 ], [ %84, %117 ], [ %84, %105 ], [ %84, %98 ], [ %84, %86 ], [ -1, %79 ], [ -1, %67 ], [ -1, %60 ], [ -1, %48 ], [ %84, %94 ], [ -1, %75 ], [ -1, %56 ]
   tail call void @free(ptr noundef %46) #16
   br label %141
 
@@ -5389,7 +5389,7 @@ define noundef zeroext i1 @render_bin_output_region_blocks(i64 noundef %0, i64 n
   br label %161
 
 161:                                              ; preds = %143, %141, %153, %157, %34, %38, %26, %15, %19, %7
-  %.0 = phi i1 [ false, %7 ], [ false, %19 ], [ false, %15 ], [ false, %26 ], [ false, %38 ], [ false, %34 ], [ true, %157 ], [ true, %153 ], [ true, %141 ], [ true, %143 ]
+  %.0 = phi i1 [ false, %34 ], [ false, %15 ], [ false, %7 ], [ false, %19 ], [ false, %26 ], [ false, %38 ], [ true, %143 ], [ true, %157 ], [ true, %153 ], [ true, %141 ]
   ret i1 %.0
 }
 
@@ -5791,11 +5791,11 @@ define noundef i32 @render_bin_output_region_data_blocks(i64 noundef %0, ptr nou
   br i1 %exitcond164.not, label %.loopexit, label %.preheader, !llvm.loop !80
 
 .loopexit:                                        ; preds = %230, %.preheader149, %147, %151, %139, %127, %131, %119, %108, %112, %100, %88, %92, %80, %69, %73, %61, %40, %44, %32, %19, %23, %11
-  %.098 = phi ptr [ null, %11 ], [ null, %23 ], [ null, %19 ], [ null, %32 ], [ null, %44 ], [ null, %40 ], [ null, %61 ], [ null, %73 ], [ null, %69 ], [ null, %80 ], [ null, %92 ], [ null, %88 ], [ null, %100 ], [ null, %112 ], [ null, %108 ], [ null, %119 ], [ null, %131 ], [ null, %127 ], [ %117, %139 ], [ %117, %151 ], [ %117, %147 ], [ %117, %.preheader149 ], [ %117, %230 ]
-  %.097 = phi ptr [ null, %11 ], [ null, %23 ], [ null, %19 ], [ null, %32 ], [ null, %44 ], [ null, %40 ], [ null, %61 ], [ null, %73 ], [ null, %69 ], [ null, %80 ], [ null, %92 ], [ null, %88 ], [ null, %100 ], [ null, %112 ], [ null, %108 ], [ null, %119 ], [ null, %131 ], [ null, %127 ], [ null, %139 ], [ null, %151 ], [ null, %147 ], [ %136, %.preheader149 ], [ %136, %230 ]
-  %.093 = phi ptr [ null, %11 ], [ null, %23 ], [ null, %19 ], [ null, %32 ], [ null, %44 ], [ null, %40 ], [ %30, %61 ], [ %30, %73 ], [ %30, %69 ], [ %30, %80 ], [ %30, %92 ], [ %30, %88 ], [ %30, %100 ], [ %30, %112 ], [ %30, %108 ], [ %30, %119 ], [ %30, %131 ], [ %30, %127 ], [ %30, %139 ], [ %30, %151 ], [ %30, %147 ], [ %30, %.preheader149 ], [ %30, %230 ]
-  %.092 = phi i64 [ -1, %11 ], [ -1, %23 ], [ -1, %19 ], [ -1, %32 ], [ -1, %44 ], [ -1, %40 ], [ %59, %61 ], [ %59, %73 ], [ %59, %69 ], [ %59, %80 ], [ %59, %92 ], [ %59, %88 ], [ %59, %100 ], [ %59, %112 ], [ %59, %108 ], [ %59, %119 ], [ %59, %131 ], [ %59, %127 ], [ %59, %139 ], [ %59, %151 ], [ %59, %147 ], [ %59, %.preheader149 ], [ %59, %230 ]
-  %.091 = phi ptr [ null, %11 ], [ null, %23 ], [ null, %19 ], [ null, %32 ], [ null, %44 ], [ null, %40 ], [ null, %61 ], [ null, %73 ], [ null, %69 ], [ null, %80 ], [ null, %92 ], [ null, %88 ], [ null, %100 ], [ null, %112 ], [ null, %108 ], [ %98, %119 ], [ %98, %131 ], [ %98, %127 ], [ %98, %139 ], [ %98, %151 ], [ %98, %147 ], [ %98, %.preheader149 ], [ %98, %230 ]
+  %.098 = phi ptr [ %117, %147 ], [ null, %127 ], [ null, %108 ], [ null, %88 ], [ null, %69 ], [ null, %40 ], [ null, %19 ], [ null, %11 ], [ null, %23 ], [ null, %32 ], [ null, %44 ], [ null, %61 ], [ null, %73 ], [ null, %80 ], [ null, %92 ], [ null, %100 ], [ null, %112 ], [ null, %119 ], [ null, %131 ], [ %117, %139 ], [ %117, %151 ], [ %117, %.preheader149 ], [ %117, %230 ]
+  %.097 = phi ptr [ null, %147 ], [ null, %127 ], [ null, %108 ], [ null, %88 ], [ null, %69 ], [ null, %40 ], [ null, %19 ], [ null, %11 ], [ null, %23 ], [ null, %32 ], [ null, %44 ], [ null, %61 ], [ null, %73 ], [ null, %80 ], [ null, %92 ], [ null, %100 ], [ null, %112 ], [ null, %119 ], [ null, %131 ], [ null, %139 ], [ null, %151 ], [ %136, %.preheader149 ], [ %136, %230 ]
+  %.093 = phi ptr [ %30, %147 ], [ %30, %127 ], [ %30, %108 ], [ %30, %88 ], [ %30, %69 ], [ null, %40 ], [ null, %19 ], [ null, %11 ], [ null, %23 ], [ null, %32 ], [ null, %44 ], [ %30, %61 ], [ %30, %73 ], [ %30, %80 ], [ %30, %92 ], [ %30, %100 ], [ %30, %112 ], [ %30, %119 ], [ %30, %131 ], [ %30, %139 ], [ %30, %151 ], [ %30, %.preheader149 ], [ %30, %230 ]
+  %.092 = phi i64 [ %59, %147 ], [ %59, %127 ], [ %59, %108 ], [ %59, %88 ], [ %59, %69 ], [ -1, %40 ], [ -1, %19 ], [ -1, %11 ], [ -1, %23 ], [ -1, %32 ], [ -1, %44 ], [ %59, %61 ], [ %59, %73 ], [ %59, %80 ], [ %59, %92 ], [ %59, %100 ], [ %59, %112 ], [ %59, %119 ], [ %59, %131 ], [ %59, %139 ], [ %59, %151 ], [ %59, %.preheader149 ], [ %59, %230 ]
+  %.091 = phi ptr [ %98, %147 ], [ %98, %127 ], [ null, %108 ], [ null, %88 ], [ null, %69 ], [ null, %40 ], [ null, %19 ], [ null, %11 ], [ null, %23 ], [ null, %32 ], [ null, %44 ], [ null, %61 ], [ null, %73 ], [ null, %80 ], [ null, %92 ], [ null, %100 ], [ null, %112 ], [ %98, %119 ], [ %98, %131 ], [ %98, %139 ], [ %98, %151 ], [ %98, %.preheader149 ], [ %98, %230 ]
   call void @free(ptr noundef %.098) #16
   call void @free(ptr noundef %.097) #16
   call void @free(ptr noundef %.091) #16
@@ -6111,10 +6111,10 @@ define range(i32 -1, 1) i32 @render_bin_output_region_data_points(i64 noundef %0
   br label %143
 
 143:                                              ; preds = %135, %139, %127, %116, %120, %108, %97, %101, %89, %78, %82, %70, %59, %63, %51, %38, %42, %30, %18, %22, %10, %124
-  %.039 = phi ptr [ %49, %124 ], [ null, %10 ], [ null, %22 ], [ null, %18 ], [ null, %30 ], [ null, %42 ], [ null, %38 ], [ null, %51 ], [ null, %63 ], [ null, %59 ], [ %49, %70 ], [ %49, %82 ], [ %49, %78 ], [ %49, %89 ], [ %49, %101 ], [ %49, %97 ], [ %49, %108 ], [ %49, %120 ], [ %49, %116 ], [ %49, %127 ], [ %49, %139 ], [ %49, %135 ]
-  %.038 = phi i64 [ %68, %124 ], [ -1, %10 ], [ -1, %22 ], [ -1, %18 ], [ -1, %30 ], [ -1, %42 ], [ -1, %38 ], [ -1, %51 ], [ -1, %63 ], [ -1, %59 ], [ %68, %70 ], [ %68, %82 ], [ %68, %78 ], [ %68, %89 ], [ %68, %101 ], [ %68, %97 ], [ %68, %108 ], [ %68, %120 ], [ %68, %116 ], [ %68, %127 ], [ %68, %139 ], [ %68, %135 ]
-  %.037 = phi ptr [ %28, %124 ], [ null, %10 ], [ null, %22 ], [ null, %18 ], [ null, %30 ], [ null, %42 ], [ null, %38 ], [ %28, %51 ], [ %28, %63 ], [ %28, %59 ], [ %28, %70 ], [ %28, %82 ], [ %28, %78 ], [ %28, %89 ], [ %28, %101 ], [ %28, %97 ], [ %28, %108 ], [ %28, %120 ], [ %28, %116 ], [ %28, %127 ], [ %28, %139 ], [ %28, %135 ]
-  %.0 = phi i32 [ 0, %124 ], [ -1, %10 ], [ -1, %22 ], [ -1, %18 ], [ -1, %30 ], [ -1, %42 ], [ -1, %38 ], [ -1, %51 ], [ -1, %63 ], [ -1, %59 ], [ -1, %70 ], [ -1, %82 ], [ -1, %78 ], [ -1, %89 ], [ -1, %101 ], [ -1, %97 ], [ -1, %108 ], [ -1, %120 ], [ -1, %116 ], [ -1, %127 ], [ -1, %139 ], [ -1, %135 ]
+  %.039 = phi ptr [ %49, %124 ], [ null, %18 ], [ null, %38 ], [ null, %59 ], [ %49, %78 ], [ %49, %97 ], [ %49, %116 ], [ null, %10 ], [ null, %22 ], [ null, %30 ], [ null, %42 ], [ null, %51 ], [ null, %63 ], [ %49, %70 ], [ %49, %82 ], [ %49, %89 ], [ %49, %101 ], [ %49, %108 ], [ %49, %120 ], [ %49, %127 ], [ %49, %139 ], [ %49, %135 ]
+  %.038 = phi i64 [ %68, %124 ], [ -1, %18 ], [ -1, %38 ], [ -1, %59 ], [ %68, %78 ], [ %68, %97 ], [ %68, %116 ], [ -1, %10 ], [ -1, %22 ], [ -1, %30 ], [ -1, %42 ], [ -1, %51 ], [ -1, %63 ], [ %68, %70 ], [ %68, %82 ], [ %68, %89 ], [ %68, %101 ], [ %68, %108 ], [ %68, %120 ], [ %68, %127 ], [ %68, %139 ], [ %68, %135 ]
+  %.037 = phi ptr [ %28, %124 ], [ null, %18 ], [ null, %38 ], [ %28, %59 ], [ %28, %78 ], [ %28, %97 ], [ %28, %116 ], [ null, %10 ], [ null, %22 ], [ null, %30 ], [ null, %42 ], [ %28, %51 ], [ %28, %63 ], [ %28, %70 ], [ %28, %82 ], [ %28, %89 ], [ %28, %101 ], [ %28, %108 ], [ %28, %120 ], [ %28, %127 ], [ %28, %139 ], [ %28, %135 ]
+  %.0 = phi i32 [ 0, %124 ], [ -1, %18 ], [ -1, %38 ], [ -1, %59 ], [ -1, %78 ], [ -1, %97 ], [ -1, %116 ], [ -1, %10 ], [ -1, %22 ], [ -1, %30 ], [ -1, %42 ], [ -1, %51 ], [ -1, %63 ], [ -1, %70 ], [ -1, %82 ], [ -1, %89 ], [ -1, %101 ], [ -1, %108 ], [ -1, %120 ], [ -1, %127 ], [ -1, %139 ], [ -1, %135 ]
   tail call void @free(ptr noundef %.037) #16
   tail call void @free(ptr noundef %.039) #16
   %144 = tail call i32 @H5Sclose(i64 noundef %.038) #16

@@ -201,8 +201,8 @@ define internal range(i32 -22, 1) i32 @swf_write_header(ptr noundef %0) #0 {
   br label %84
 
 84:                                               ; preds = %81, %81, %81, %.fold.split232, %.fold.split, %73, %.thread197
-  %85 = phi i1 [ false, %.thread197 ], [ true, %73 ], [ true, %81 ], [ true, %81 ], [ true, %81 ], [ false, %.fold.split ], [ false, %.fold.split232 ]
-  %.0119 = phi i32 [ 4, %.thread197 ], [ 9, %73 ], [ 8, %81 ], [ 8, %81 ], [ 8, %81 ], [ 7, %.fold.split ], [ 6, %.fold.split232 ]
+  %85 = phi i1 [ true, %73 ], [ true, %81 ], [ false, %.fold.split ], [ false, %.thread197 ], [ true, %81 ], [ true, %81 ], [ false, %.fold.split232 ]
+  %.0119 = phi i32 [ 9, %73 ], [ 8, %81 ], [ 7, %.fold.split ], [ 4, %.thread197 ], [ 8, %81 ], [ 8, %81 ], [ 6, %.fold.split232 ]
   tail call void @avio_w8(ptr noundef %7, i32 noundef %.0119) #7
   tail call void @avio_wl32(ptr noundef %7, i32 noundef 104857600) #7
   %86 = mul nsw i32 %.0123, 20
@@ -443,7 +443,7 @@ flush_put_bits.exit:                              ; preds = %166, %put_bits.exit
   br label %.thread198
 
 .thread198:                                       ; preds = %190, %191, %183
-  %.0 = phi i32 [ 10, %190 ], [ 14, %191 ], [ 6, %183 ]
+  %.0 = phi i32 [ 14, %191 ], [ 10, %190 ], [ 6, %183 ]
   %192 = getelementptr inbounds nuw i8, ptr %187, i64 132
   %193 = load i32, ptr %192, align 4, !tbaa !72
   %194 = icmp eq i32 %193, 2
@@ -468,8 +468,8 @@ flush_put_bits.exit:                              ; preds = %166, %put_bits.exit
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.9) #7
   br label %.thread
 
-.thread:                                          ; preds = %30, %41, %32, %177, %179, %.thread198, %202, %93
-  %.2 = phi i32 [ -22, %93 ], [ -1, %202 ], [ 0, %.thread198 ], [ 0, %179 ], [ 0, %177 ], [ -1, %41 ], [ -1, %32 ], [ -12, %30 ]
+.thread:                                          ; preds = %30, %32, %41, %177, %179, %.thread198, %202, %93
+  %.2 = phi i32 [ 0, %177 ], [ -22, %93 ], [ -1, %202 ], [ 0, %.thread198 ], [ 0, %179 ], [ -1, %41 ], [ -1, %32 ], [ -12, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.2
@@ -1678,8 +1678,8 @@ put_bits.exit68:                                  ; preds = %251, %273
   br label %put_bits.exit48
 
 put_bits.exit48:                                  ; preds = %299, %277, %224, %202, %159, %137
-  %.026.i.i58.sink = phi i32 [ %139, %137 ], [ %135, %159 ], [ %204, %202 ], [ %200, %224 ], [ %279, %277 ], [ %275, %299 ]
-  %.0.i.i59.sink = phi i32 [ %140, %137 ], [ %160, %159 ], [ %205, %202 ], [ %225, %224 ], [ %280, %277 ], [ %300, %299 ]
+  %.026.i.i58.sink = phi i32 [ %135, %159 ], [ %200, %224 ], [ %139, %137 ], [ %204, %202 ], [ %279, %277 ], [ %275, %299 ]
+  %.0.i.i59.sink = phi i32 [ %160, %159 ], [ %225, %224 ], [ %140, %137 ], [ %205, %202 ], [ %280, %277 ], [ %300, %299 ]
   store i32 %.026.i.i58.sink, ptr %0, align 8, !tbaa !68
   store i32 %.0.i.i59.sink, ptr %5, align 4, !tbaa !69
   ret void

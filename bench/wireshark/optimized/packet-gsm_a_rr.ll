@@ -4346,7 +4346,7 @@ define hidden noundef zeroext i16 @de_rr_meas_res(ptr noundef %0, ptr noundef %1
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7, %.thread
-  %.0.lcssa = phi i32 [ %39, %.thread ], [ %39, %7 ], [ %49, %.lr.ph ]
+  %.0.lcssa = phi i32 [ %39, %7 ], [ %39, %.thread ], [ %49, %.lr.ph ]
   %52 = trunc i32 %.0.lcssa to i16
   call fastcc void @gsm_rr_padding_bits(ptr noundef %1, ptr noundef %0, i16 noundef zeroext %52, i8 noundef zeroext 16, i8 noundef zeroext 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -5079,7 +5079,7 @@ f_k.exit:                                         ; preds = %greatest_power_of_2
   br i1 %.not259.not, label %.preheader, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %f_k.exit, %.thread, %111, %66
-  %.3252 = phi i32 [ %94, %111 ], [ %70, %66 ], [ %127, %.thread ], [ %127, %f_k.exit ]
+  %.3252 = phi i32 [ %70, %66 ], [ %94, %111 ], [ %127, %.thread ], [ %127, %f_k.exit ]
   br label %42, !llvm.loop !22
 
 173:                                              ; preds = %7
@@ -5325,7 +5325,7 @@ f_k.exit278:                                      ; preds = %greatest_power_of_2
   br i1 %.not257.not, label %.preheader310, label %.loopexit311, !llvm.loop !24
 
 .loopexit311:                                     ; preds = %f_k.exit278, %.thread283, %247, %201
-  %.9 = phi i32 [ %228, %247 ], [ %204, %201 ], [ %263, %.thread283 ], [ %263, %f_k.exit278 ]
+  %.9 = phi i32 [ %204, %201 ], [ %228, %247 ], [ %263, %.thread283 ], [ %263, %f_k.exit278 ]
   br label %177, !llvm.loop !25
 
 313:                                              ; preds = %7
@@ -5450,8 +5450,8 @@ de_rr_eutran_not_allowed_cells.exit:              ; preds = %360
   br label %317, !llvm.loop !28
 
 .sink.split:                                      ; preds = %317, %177, %42, %18
-  %.lcssa400.sink = phi i32 [ %19, %18 ], [ %43, %42 ], [ %178, %177 ], [ %318, %317 ]
-  %.sink403 = phi i32 [ %15, %18 ], [ %39, %42 ], [ %174, %177 ], [ %314, %317 ]
+  %.lcssa400.sink = phi i32 [ %43, %42 ], [ %19, %18 ], [ %178, %177 ], [ %318, %317 ]
+  %.sink403 = phi i32 [ %39, %42 ], [ %15, %18 ], [ %174, %177 ], [ %314, %317 ]
   %391 = load ptr, ptr %9, align 8
   %392 = ashr i32 %.lcssa400.sink, 3
   %reass.sub353 = sub nsw i32 %392, %.sink403
@@ -6195,7 +6195,7 @@ define internal zeroext i16 @de_rr_ia_rest_oct(ptr noundef %0, ptr noundef %1, p
   br label %160
 
 160:                                              ; preds = %153, %137, %130, %105
-  %.2.i = phi i32 [ %159, %153 ], [ %144, %137 ], [ %136, %130 ], [ %121, %105 ]
+  %.2.i = phi i32 [ %144, %137 ], [ %159, %153 ], [ %136, %130 ], [ %121, %105 ]
   %161 = load i32, ptr @hf_gsm_a_rr_egprs_mcs, align 4
   %162 = call ptr @proto_tree_add_bits_item(ptr noundef %62, i32 noundef %161, ptr noundef %0, i32 noundef %.2.i, i32 noundef 4, i32 noundef 0)
   %163 = add i32 %.2.i, 4
@@ -6929,7 +6929,7 @@ de_rr_ia_rest_oct_multiple_blocks_packet_downlink_assignment.exit: ; preds = %38
   br label %686
 
 686:                                              ; preds = %679, %667, %660, %635
-  %.1.i = phi i32 [ %685, %679 ], [ %674, %667 ], [ %666, %660 ], [ %651, %635 ]
+  %.1.i = phi i32 [ %674, %667 ], [ %685, %679 ], [ %666, %660 ], [ %651, %635 ]
   %687 = load i32, ptr @hf_gsm_a_rr_gprs_cs, align 4
   %688 = call ptr @proto_tree_add_bits_item(ptr noundef %616, i32 noundef %687, ptr noundef %0, i32 noundef %.1.i, i32 noundef 2, i32 noundef 0)
   %689 = add i32 %.1.i, 2
@@ -9936,7 +9936,7 @@ define internal zeroext i16 @de_rr_si13_rest_oct(ptr noundef %0, ptr noundef %1,
   br i1 %.not.i, label %de_rr_rest_oct_gprs_mobile_allocation.exit, label %.lr.ph.i, !llvm.loop !41
 
 de_rr_rest_oct_gprs_mobile_allocation.exit:       ; preds = %.preheader.i, %.lr.ph.i, %77
-  %.2.i = phi i32 [ %80, %77 ], [ %92, %.lr.ph.i ], [ %64, %.preheader.i ]
+  %.2.i = phi i32 [ %92, %.lr.ph.i ], [ %80, %77 ], [ %64, %.preheader.i ]
   %94 = load ptr, ptr %8, align 8
   %95 = ashr i32 %.2.i, 3
   %reass.sub = sub nsw i32 %95, %34
@@ -11372,7 +11372,7 @@ define internal i32 @dissect_ccch(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %95
 
 95:                                               ; preds = %67, %93, %49, %26, %11
-  %.0 = phi i32 [ %23, %11 ], [ %28, %26 ], [ %94, %93 ], [ %50, %49 ], [ %79, %67 ]
+  %.0 = phi i32 [ %23, %11 ], [ %28, %26 ], [ %50, %49 ], [ %79, %67 ], [ %94, %93 ]
   ret i32 %.0
 }
 
@@ -11716,7 +11716,7 @@ define internal fastcc noundef zeroext i16 @dissect_arfcn_list_core(ptr noundef 
   br i1 %.not, label %.loopexit, label %49, !llvm.loop !51
 
 .loopexit.sink.split:                             ; preds = %29, %26, %31, %30
-  %.sink = phi i32 [ 256, %30 ], [ 128, %31 ], [ 1024, %26 ], [ 512, %29 ]
+  %.sink = phi i32 [ 1024, %26 ], [ 256, %30 ], [ 128, %31 ], [ 512, %29 ]
   tail call fastcc void @dissect_channel_list_n_range(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %.sink)
   %63 = add i32 %4, %3
   br label %.loopexit
@@ -11782,10 +11782,10 @@ define internal fastcc void @dissect_channel_list_n_range(ptr noundef %0, ptr no
   unreachable
 
 31:                                               ; preds = %19, %28, %29, %16
-  %.079 = phi i32 [ 10, %16 ], [ 8, %28 ], [ 7, %29 ], [ 9, %19 ]
-  %.076 = phi i32 [ 0, %16 ], [ %22, %28 ], [ %22, %29 ], [ %22, %19 ]
-  %.071 = phi i32 [ 16, %16 ], [ 21, %28 ], [ 28, %29 ], [ 17, %19 ]
-  %.067 = phi i32 [ %18, %16 ], [ %25, %28 ], [ %25, %29 ], [ %25, %19 ]
+  %.079 = phi i32 [ 10, %16 ], [ 7, %29 ], [ 8, %28 ], [ 9, %19 ]
+  %.076 = phi i32 [ 0, %16 ], [ %22, %29 ], [ %22, %28 ], [ %22, %19 ]
+  %.071 = phi i32 [ 16, %16 ], [ 28, %29 ], [ 21, %28 ], [ 17, %19 ]
+  %.067 = phi i32 [ %18, %16 ], [ %25, %29 ], [ %25, %28 ], [ %25, %19 ]
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %33 = add nuw nsw i32 %.071, 1
   %wide.trip.count = zext nneg i32 %33 to i64
@@ -12863,7 +12863,7 @@ define internal fastcc i32 @de_rr_rtd_desc(ptr noundef %0, ptr noundef %1, i32 n
   br label %171, !llvm.loop !64
 
 .loopexit120:                                     ; preds = %.preheader, %113, %.loopexit121
-  %.5 = phi i32 [ %114, %113 ], [ %104, %.loopexit121 ], [ %160, %.preheader ]
+  %.5 = phi i32 [ %104, %.loopexit121 ], [ %114, %113 ], [ %160, %.preheader ]
   %190 = load ptr, ptr %5, align 8
   %191 = ashr i32 %.5, 3
   %reass.sub = sub nsw i32 %191, %6
@@ -18897,8 +18897,8 @@ define internal fastcc noundef zeroext i1 @ra_channel_request_parse(ptr noundef 
   br label %48
 
 48:                                               ; preds = %32, %19, %44, %37, %29, %13, %7
-  %.027 = phi ptr [ %6, %7 ], [ %12, %13 ], [ %18, %19 ], [ %28, %29 ], [ @.str.3035, %37 ], [ @.str.3036, %44 ], [ %33, %32 ]
-  %.0 = phi i8 [ %9, %7 ], [ %15, %13 ], [ %21, %19 ], [ %31, %29 ], [ %40, %37 ], [ %47, %44 ], [ 0, %32 ]
+  %.027 = phi ptr [ %6, %7 ], [ %12, %13 ], [ %18, %19 ], [ %28, %29 ], [ @.str.3036, %44 ], [ @.str.3035, %37 ], [ %33, %32 ]
+  %.0 = phi i8 [ %9, %7 ], [ %15, %13 ], [ %21, %19 ], [ %31, %29 ], [ %47, %44 ], [ %40, %37 ], [ 0, %32 ]
   %.not40 = icmp eq ptr %0, null
   br i1 %.not40, label %50, label %49
 

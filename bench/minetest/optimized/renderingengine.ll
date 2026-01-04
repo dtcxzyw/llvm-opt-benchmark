@@ -2531,7 +2531,7 @@ lpad272:                                          ; preds = %invoke.cont281, %in
   br label %ehcleanup290
 
 ehcleanup290:                                     ; preds = %lpad242.body, %lpad.i81, %lpad237, %if.then.i.i.i.i, %lpad272, %if.then.i.i.i.i867, %ehcleanup234, %lpad.i787
-  %.pn329 = phi { ptr, i32 } [ %.pn325.pn.pn, %ehcleanup234 ], [ %eh.lpad-body756, %if.then.i.i.i.i867 ], [ %243, %lpad272 ], [ %213, %lpad.i787 ], [ %240, %lpad237 ], [ %168, %if.then.i.i.i.i ], [ %168, %lpad.i81 ], [ %eh.lpad-body756, %lpad242.body ]
+  %.pn329 = phi { ptr, i32 } [ %213, %lpad.i787 ], [ %.pn325.pn.pn, %ehcleanup234 ], [ %168, %lpad.i81 ], [ %eh.lpad-body756, %if.then.i.i.i.i867 ], [ %243, %lpad272 ], [ %240, %lpad237 ], [ %168, %if.then.i.i.i.i ], [ %eh.lpad-body756, %lpad242.body ]
   %244 = load ptr, ptr %rel_path, align 8, !tbaa !11
   %cmp.i.i.i872 = icmp eq ptr %244, %103
   br i1 %cmp.i.i.i872, label %ehcleanup291, label %if.then.i.i873
@@ -3143,7 +3143,7 @@ cleanup.done136.sink.split:                       ; preds = %cleanup.action122, 
   br label %cleanup.done136
 
 cleanup.done136:                                  ; preds = %arraydestroy.body131, %cleanup.done136.sink.split, %ehcleanup124
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn229 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup124 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn229.ph, %cleanup.done136.sink.split ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %arraydestroy.body131 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn229 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn229.ph, %cleanup.done136.sink.split ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup124 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %arraydestroy.body131 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN15RenderingEngine18getVideoDriverInfoEN3irr5video13E_DRIVER_TYPEEE15driver_info_map) #28
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn229
@@ -3417,7 +3417,7 @@ if.then.i.i5.i:                                   ; preds = %lpad.i
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %delete.notnull.i.i.i, %if.then.i.i50, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48, %if.then.i.i5.i
-  %common.resume.op = phi { ptr, i32 } [ %11, %if.then.i.i5.i ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48 ], [ %lpad.thr_comm.split-lp, %if.then.i.i50 ], [ %lpad.thr_comm.split-lp, %delete.notnull.i.i.i ], [ %11, %lpad.i ]
+  %common.resume.op = phi { ptr, i32 } [ %11, %if.then.i.i5.i ], [ %lpad.thr_comm.split-lp, %delete.notnull.i.i.i ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48 ], [ %lpad.thr_comm.split-lp, %if.then.i.i50 ], [ %11, %lpad.i ]
   resume { ptr, i32 } %common.resume.op
 
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i

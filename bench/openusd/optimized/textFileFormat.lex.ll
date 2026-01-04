@@ -3055,7 +3055,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit528: ;
   unreachable
 
 1215:                                             ; preds = %1211, %.thread146.i, %.critedge.i
-  %.1148.i = phi i64 [ %1209, %.thread146.i ], [ %.0125.lcssa.i, %1211 ], [ %.0125.lcssa.i, %.critedge.i ]
+  %.1148.i = phi i64 [ %1209, %.thread146.i ], [ %.0125.lcssa.i, %.critedge.i ], [ %.0125.lcssa.i, %1211 ]
   store i64 %.1148.i, ptr %253, align 8
   br label %.critedge2.i
 
@@ -3108,7 +3108,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit528: ;
   br i1 %1244, label %.lr.ph164.i, label %.critedge2.i, !llvm.loop !10
 
 .critedge2.i:                                     ; preds = %1233, %.lr.ph164.i, %1216, %1215
-  %1245 = phi i64 [ %1226, %1216 ], [ %.1148.i, %1215 ], [ 0, %.lr.ph164.i ], [ %1243, %1233 ]
+  %1245 = phi i64 [ %.1148.i, %1215 ], [ %1226, %1216 ], [ 0, %.lr.ph164.i ], [ %1243, %1233 ]
   %1246 = load ptr, ptr %251, align 8
   %1247 = load i64, ptr %252, align 8
   %1248 = getelementptr inbounds ptr, ptr %1246, i64 %1247
@@ -3271,7 +3271,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531.loope
   br label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
 
 _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531: ; preds = %302, %302, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531.loopexit, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit528, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit528, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit528, %1050, %1051, %1055, %1059, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit528, %1010, %1036, %978, %1004, %1065, %1062, %975, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit527, %942, %933, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit, %899, %884, %871, %867, %851, %828, %816, %804, %792, %780, %768, %756, %744, %732, %720, %708, %696, %684, %672, %660, %648, %636, %624, %612, %600, %588, %576, %564, %552, %540, %528, %516, %504, %492, %480, %468, %456, %444, %432, %420, %408, %396, %384, %372, %360, %348, %336, %327, %317
-  %.0 = phi i32 [ 259, %317 ], [ 258, %327 ], [ 269, %336 ], [ 270, %348 ], [ 271, %360 ], [ 272, %372 ], [ 273, %384 ], [ 274, %396 ], [ 275, %408 ], [ 277, %420 ], [ 276, %432 ], [ 278, %444 ], [ 279, %456 ], [ 280, %468 ], [ 281, %480 ], [ 282, %492 ], [ 283, %504 ], [ 284, %516 ], [ 285, %528 ], [ 286, %540 ], [ 287, %552 ], [ 289, %564 ], [ 288, %576 ], [ 290, %588 ], [ 292, %600 ], [ 293, %612 ], [ 294, %624 ], [ 295, %636 ], [ 296, %648 ], [ 298, %660 ], [ 299, %672 ], [ 300, %684 ], [ 302, %696 ], [ 291, %708 ], [ 301, %720 ], [ 303, %732 ], [ 304, %744 ], [ 305, %756 ], [ 306, %768 ], [ 308, %780 ], [ 309, %792 ], [ 307, %804 ], [ 310, %816 ], [ 264, %828 ], [ %.1, %851 ], [ %.2, %867 ], [ 262, %871 ], [ %885, %884 ], [ %900, %899 ], [ 267, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit ], [ 267, %933 ], [ 267, %942 ], [ 267, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit527 ], [ 266, %975 ], [ 266, %1062 ], [ %1068, %1065 ], [ 266, %1004 ], [ 266, %978 ], [ 266, %1036 ], [ 266, %1010 ], [ 266, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit528 ], [ 266, %1059 ], [ 266, %1055 ], [ 266, %1051 ], [ 266, %1050 ], [ 266, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit528 ], [ 266, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit528 ], [ 266, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit528 ], [ 260, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531.loopexit ], [ 0, %302 ], [ 0, %302 ]
+  %.0 = phi i32 [ 259, %317 ], [ 258, %327 ], [ 269, %336 ], [ 270, %348 ], [ 271, %360 ], [ 272, %372 ], [ 273, %384 ], [ 274, %396 ], [ 275, %408 ], [ 277, %420 ], [ 276, %432 ], [ 278, %444 ], [ 279, %456 ], [ 280, %468 ], [ 281, %480 ], [ 282, %492 ], [ 283, %504 ], [ 284, %516 ], [ 285, %528 ], [ 286, %540 ], [ 287, %552 ], [ 289, %564 ], [ 288, %576 ], [ 290, %588 ], [ 292, %600 ], [ 293, %612 ], [ 294, %624 ], [ 295, %636 ], [ 296, %648 ], [ 298, %660 ], [ 299, %672 ], [ 300, %684 ], [ 302, %696 ], [ 291, %708 ], [ 301, %720 ], [ 303, %732 ], [ 304, %744 ], [ 305, %756 ], [ 306, %768 ], [ 308, %780 ], [ 309, %792 ], [ 307, %804 ], [ 310, %816 ], [ 264, %828 ], [ %.1, %851 ], [ %.2, %867 ], [ 262, %871 ], [ %885, %884 ], [ %900, %899 ], [ 267, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit ], [ 267, %933 ], [ 267, %942 ], [ 267, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit527 ], [ 266, %975 ], [ 266, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit528 ], [ 266, %978 ], [ 260, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531.loopexit ], [ 266, %1062 ], [ %1068, %1065 ], [ 266, %1010 ], [ 266, %1004 ], [ 266, %1036 ], [ 266, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit528 ], [ 266, %1059 ], [ 266, %1055 ], [ 266, %1051 ], [ 266, %1050 ], [ 266, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit528 ], [ 266, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit528 ], [ 0, %302 ], [ 0, %302 ]
   ret i32 %.0
 
 1335:                                             ; preds = %973, %945, %936, %927, %905, %890, %874, %862, %860, %846, %844, %835, %823, %811, %799, %787, %775, %763, %751, %739, %727, %715, %703, %691, %679, %667, %655, %643, %631, %619, %607, %595, %583, %571, %559, %547, %535, %523, %511, %499, %487, %475, %463, %451, %439, %427, %415, %403, %391, %379, %367, %355, %343, %324
@@ -3833,7 +3833,7 @@ define void @_Z33textFileFormatYy_switch_to_bufferP15yy_buffer_statePv(ptr nound
   br label %.critedge
 
 .critedge:                                        ; preds = %33, %31
-  %51 = phi ptr [ %.pre, %33 ], [ %25, %31 ]
+  %51 = phi ptr [ %25, %31 ], [ %.pre, %33 ]
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %53 = load i64, ptr %52, align 8
   %54 = getelementptr inbounds ptr, ptr %51, i64 %53
@@ -4685,7 +4685,7 @@ _Z30textFileFormatYy_delete_bufferP15yy_buffer_statePv.exit.i: ; preds = %33, %.
   br label %_Z32textFileFormatYypop_buffer_statePv.exit
 
 _Z32textFileFormatYypop_buffer_statePv.exit:      ; preds = %26, %45, %49
-  %58 = phi ptr [ %25, %26 ], [ %44, %45 ], [ %44, %49 ]
+  %58 = phi ptr [ %44, %45 ], [ %25, %26 ], [ %44, %49 ]
   %59 = load i64, ptr %2, align 8
   %60 = getelementptr inbounds ptr, ptr %58, i64 %59
   %61 = load ptr, ptr %60, align 8

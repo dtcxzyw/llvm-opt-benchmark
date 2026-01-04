@@ -511,7 +511,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNSt10filesystem7_
   br i1 %187, label %.lr.ph590, label %.loopexit534, !llvm.loop !45
 
 .loopexit534:                                     ; preds = %._crit_edge, %156, %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %.loopexit535
-  %.0182 = phi ptr [ %140, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ], [ null, %.loopexit535 ], [ %140, %156 ], [ %140, %._crit_edge ]
+  %.0182 = phi ptr [ null, %.loopexit535 ], [ %140, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ], [ %140, %156 ], [ %140, %._crit_edge ]
   %188 = invoke { ptr, ptr } @_Z7opt2fnsB5cxx11PKciPK8t_filenm(ptr noundef nonnull @.str.40, i32 noundef 4, ptr noundef nonnull %39)
           to label %189 unwind label %196
 
@@ -1751,7 +1751,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %1337
 
 .body328:                                         ; preds = %548, %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %446, %454, %468, %500, %504, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i113.i, %568, %570, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit313
-  %.pn270.pn.pn = phi { ptr, i32 } [ %.pn270.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit313 ], [ %.pn.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i113.i ], [ %501, %500 ], [ %505, %504 ], [ %469, %468 ], [ %455, %454 ], [ %447, %446 ], [ %571, %570 ], [ %569, %568 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit503, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit506, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit510, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit513, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %.pn.i.i, %548 ]
+  %.pn270.pn.pn = phi { ptr, i32 } [ %.pn270.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit313 ], [ %569, %568 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %.pn.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i113.i ], [ %447, %446 ], [ %501, %500 ], [ %505, %504 ], [ %469, %468 ], [ %455, %454 ], [ %571, %570 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit503, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit506, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit510, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit513, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.pn.i.i, %548 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %50) #21
   br label %.body
 
@@ -1937,7 +1937,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i349:     ; preds = %_ZNSt10filesystem7_
   br label %705
 
 679:                                              ; preds = %673, %667, %663
-  %.1.i = phi i32 [ %.02837.i, %667 ], [ %.02837.i, %673 ], [ %665, %663 ]
+  %.1.i = phi i32 [ %.02837.i, %673 ], [ %.02837.i, %667 ], [ %665, %663 ]
   %680 = load ptr, ptr %7, align 8, !tbaa !64
   %681 = invoke noundef zeroext i1 @_Z15read_next_framePK16gmx_output_env_tP11t_trxstatusP10t_trxframe(ptr noundef %622, ptr noundef %680, ptr noundef nonnull %8)
           to label %.noexc357 unwind label %.loopexit528
@@ -2224,7 +2224,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   br i1 %exitcond.not.i392, label %.loopexit102.i, label %.lr.ph.i391, !llvm.loop !84
 
 .loopexit102.i:                                   ; preds = %.lr.ph.i391, %._crit_edge114.i, %.preheader.i384
-  %.3.i = phi i1 [ %.072.lcssa.i, %._crit_edge114.i ], [ %721, %.preheader.i384 ], [ %721, %.lr.ph.i391 ]
+  %.3.i = phi i1 [ %721, %.preheader.i384 ], [ %.072.lcssa.i, %._crit_edge114.i ], [ %721, %.lr.ph.i391 ]
   %.pre684 = ashr exact i64 %718, 5
   br i1 %.3.i, label %.loopexit102.i._crit_edge681, label %.loopexit102.i._crit_edge
 
@@ -2394,7 +2394,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br i1 %exitcond122.not.i, label %._crit_edge118.i, label %.lr.ph117.i, !llvm.loop !87
 
 871:                                              ; preds = %823, %756, %.loopexit.split-lp.i, %.loopexit.i
-  %.pn.pn.pn.i = phi { ptr, i32 } [ %824, %823 ], [ %.pn.i395, %756 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+  %.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.i395, %756 ], [ %824, %823 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   %872 = load ptr, ptr %5, align 8, !tbaa !40
   %873 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %874 = icmp eq ptr %872, %873
@@ -3206,7 +3206,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %1336
 
 1172:                                             ; preds = %1142, %.thread808, %._crit_edge674, %1168, %1155, %1134
-  %.1180 = phi i32 [ %.2181, %1168 ], [ %.2181, %1155 ], [ %.2181, %._crit_edge674 ], [ %.0179605, %1134 ], [ %.2181, %.thread808 ], [ %.2181, %1142 ]
+  %.1180 = phi i32 [ %.2181, %1168 ], [ %.2181, %1155 ], [ %.0179605, %1134 ], [ %.2181, %._crit_edge674 ], [ %.2181, %.thread808 ], [ %.2181, %1142 ]
   %1173 = getelementptr inbounds nuw float, ptr %620, i64 %.0609
   %1174 = load float, ptr %1173, align 4, !tbaa !35
   %1175 = fcmp une float %1174, 0.000000e+00
@@ -3348,22 +3348,22 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit404:       ; preds = %_ZNSt10filesystem7_
   %or.cond11 = and i1 %1211, %.b
   %or.cond620 = select i1 %1238, i1 true, i1 %or.cond11
   %1239 = fpext float %1217 to double
-  br i1 %or.cond620, label %1240, label %1244
+  br i1 %or.cond620, label %1245, label %1240
 
 1240:                                             ; preds = %1236
-  %1241 = fpext float %.5204 to double
-  %1242 = call double @llvm.fmuladd.f64(double %1214, double 5.000000e-01, double %1241)
-  %1243 = fcmp olt double %1242, %1239
-  br i1 %1243, label %.critedge, label %1299
+  %1241 = load float, ptr %1213, align 4, !tbaa !35
+  %1242 = fpext float %1241 to double
+  %1243 = call double @llvm.fmuladd.f64(double %1214, double -5.000000e-01, double %1242)
+  %1244 = fcmp ogt double %1243, %1239
+  br i1 %1244, label %.critedge, label %1299
 
-1244:                                             ; preds = %1236
-  %1245 = load float, ptr %1213, align 4, !tbaa !35
-  %1246 = fpext float %1245 to double
-  %1247 = call double @llvm.fmuladd.f64(double %1214, double -5.000000e-01, double %1246)
-  %1248 = fcmp ogt double %1247, %1239
+1245:                                             ; preds = %1236
+  %1246 = fpext float %.5204 to double
+  %1247 = call double @llvm.fmuladd.f64(double %1214, double 5.000000e-01, double %1246)
+  %1248 = fcmp olt double %1247, %1239
   br i1 %1248, label %.critedge, label %1299
 
-.critedge:                                        ; preds = %1240, %1233, %1244
+.critedge:                                        ; preds = %1240, %1233, %1245
   %1249 = load float, ptr @_ZZ10gmx_trjcatiPPcE5begin, align 4, !tbaa !35
   %1250 = fcmp ult float %1217, %1249
   br i1 %1250, label %1299, label %1251
@@ -3447,13 +3447,13 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit404:       ; preds = %_ZNSt10filesystem7_
   %1298 = call i32 @fflush(ptr noundef %1297)
   br label %1299
 
-1299:                                             ; preds = %1240, %1244, %.critedge, %1287, %1293, %1261
-  %.4211 = phi float [ %spec.select294, %1293 ], [ %spec.select294, %1287 ], [ %spec.select294, %1261 ], [ %.1208, %.critedge ], [ %.1208, %1244 ], [ %.1208, %1240 ]
-  %.7206 = phi float [ %1217, %1293 ], [ %1217, %1287 ], [ %1217, %1261 ], [ %.5204, %.critedge ], [ %.5204, %1244 ], [ %.5204, %1240 ]
-  %.3198 = phi float [ %1263, %1293 ], [ %1263, %1287 ], [ %.1196, %1261 ], [ %.1196, %.critedge ], [ %.1196, %1244 ], [ %.1196, %1240 ]
-  %.2178 = phi i1 [ false, %1293 ], [ false, %1287 ], [ %.0176, %1261 ], [ %.0176, %.critedge ], [ %.0176, %1244 ], [ %.0176, %1240 ]
-  %.3125 = phi i32 [ %1264, %1293 ], [ %1264, %1287 ], [ %.1123, %1261 ], [ %.1123, %.critedge ], [ %.1123, %1244 ], [ %.1123, %1240 ]
-  %.3 = phi i32 [ %1252, %1293 ], [ %1252, %1287 ], [ %1252, %1261 ], [ %.1120, %.critedge ], [ %.1120, %1244 ], [ %.1120, %1240 ]
+1299:                                             ; preds = %1240, %1245, %.critedge, %1287, %1293, %1261
+  %.4211 = phi float [ %spec.select294, %1293 ], [ %spec.select294, %1287 ], [ %spec.select294, %1261 ], [ %.1208, %.critedge ], [ %.1208, %1245 ], [ %.1208, %1240 ]
+  %.7206 = phi float [ %1217, %1293 ], [ %1217, %1287 ], [ %1217, %1261 ], [ %.5204, %.critedge ], [ %.5204, %1245 ], [ %.5204, %1240 ]
+  %.3198 = phi float [ %1263, %1293 ], [ %1263, %1287 ], [ %.1196, %1261 ], [ %.1196, %.critedge ], [ %.1196, %1245 ], [ %.1196, %1240 ]
+  %.2178 = phi i1 [ false, %1293 ], [ false, %1287 ], [ %.0176, %1261 ], [ %.0176, %.critedge ], [ %.0176, %1245 ], [ %.0176, %1240 ]
+  %.3125 = phi i32 [ %1264, %1293 ], [ %1264, %1287 ], [ %.1123, %1261 ], [ %.1123, %.critedge ], [ %.1123, %1245 ], [ %.1123, %1240 ]
+  %.3 = phi i32 [ %1252, %1293 ], [ %1252, %1287 ], [ %1252, %1261 ], [ %.1120, %.critedge ], [ %.1120, %1245 ], [ %.1120, %1240 ]
   %1300 = load ptr, ptr %38, align 8, !tbaa !27
   %1301 = load ptr, ptr %28, align 8, !tbaa !64
   %1302 = invoke noundef zeroext i1 @_Z15read_next_framePK16gmx_output_env_tP11t_trxstatusP10t_trxframe(ptr noundef %1300, ptr noundef %1301, ptr noundef nonnull %29)
@@ -3539,7 +3539,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %1337
 
 1336:                                             ; preds = %.loopexit515, %.loopexit.split-lp516, %.loopexit521, %.loopexit.split-lp522, %1197, %982, %987, %1024, %1036, %1067, %1092, %1112, %1117, %964, %955, %941, %916, %906, %885
-  %.pn264.pn = phi { ptr, i32 } [ %.pn264, %916 ], [ %886, %885 ], [ %.pn255.pn, %941 ], [ %.pn252.pn, %955 ], [ %.pn249, %964 ], [ %.pn227, %906 ], [ %.pn246, %987 ], [ %.pn244, %1036 ], [ %.pn242, %1067 ], [ %.pn240, %1092 ], [ %.pn238, %1117 ], [ %.pn235, %1112 ], [ %.pn231, %1024 ], [ %.pn229, %982 ], [ %.pn260, %1197 ], [ %lpad.loopexit523, %.loopexit521 ], [ %lpad.loopexit.split-lp524, %.loopexit.split-lp522 ], [ %lpad.loopexit517, %.loopexit515 ], [ %lpad.loopexit.split-lp518, %.loopexit.split-lp516 ]
+  %.pn264.pn = phi { ptr, i32 } [ %.pn264, %916 ], [ %.pn229, %982 ], [ %886, %885 ], [ %.pn255.pn, %941 ], [ %.pn252.pn, %955 ], [ %.pn249, %964 ], [ %.pn227, %906 ], [ %.pn246, %987 ], [ %.pn244, %1036 ], [ %.pn242, %1067 ], [ %.pn240, %1092 ], [ %.pn238, %1117 ], [ %.pn260, %1197 ], [ %.pn235, %1112 ], [ %.pn231, %1024 ], [ %lpad.loopexit.split-lp524, %.loopexit.split-lp522 ], [ %lpad.loopexit523, %.loopexit521 ], [ %lpad.loopexit517, %.loopexit515 ], [ %lpad.loopexit.split-lp518, %.loopexit.split-lp516 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
   br label %.body397
 
@@ -3570,7 +3570,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit419: ; preds = %13
   br label %1348
 
 .body362:                                         ; preds = %.loopexit528, %.loopexit.split-lp529, %196, %202, %221, %233, %249, %243, %705, %.body381, %.body, %290, %277, %261, %183, %126
-  %.pn288.pn.pn = phi { ptr, i32 } [ %.pn, %183 ], [ %127, %126 ], [ %.pn288, %202 ], [ %.pn286, %221 ], [ %.pn284, %233 ], [ %197, %196 ], [ %.pn281, %249 ], [ %244, %243 ], [ %.pn277, %261 ], [ %.pn275, %290 ], [ %.pn270.pn.pn.pn, %.body ], [ %.pn264.pn.pn.pn, %.body381 ], [ %.pn222, %277 ], [ %.pn.i, %705 ], [ %lpad.loopexit530, %.loopexit528 ], [ %lpad.loopexit.split-lp531, %.loopexit.split-lp529 ]
+  %.pn288.pn.pn = phi { ptr, i32 } [ %127, %126 ], [ %.pn, %183 ], [ %.pn288, %202 ], [ %.pn286, %221 ], [ %.pn284, %233 ], [ %197, %196 ], [ %244, %243 ], [ %.pn281, %249 ], [ %.pn277, %261 ], [ %.pn275, %290 ], [ %.pn270.pn.pn.pn, %.body ], [ %.pn264.pn.pn.pn, %.body381 ], [ %.pn222, %277 ], [ %.pn.i, %705 ], [ %lpad.loopexit530, %.loopexit528 ], [ %lpad.loopexit.split-lp531, %.loopexit.split-lp529 ]
   %1343 = load ptr, ptr %40, align 8, !tbaa !40
   %1344 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %1345 = icmp eq ptr %1343, %1344

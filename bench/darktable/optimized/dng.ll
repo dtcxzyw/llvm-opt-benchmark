@@ -138,7 +138,7 @@ define void @_ZN6LibRaw16adobe_copy_pixelEjjPPt(ptr noundef nonnull readonly ali
   br i1 %exitcond.not, label %.loopexit, label %46, !llvm.loop !79
 
 .loopexit:                                        ; preds = %46, %38, %..loopexit_crit_edge, %22, %27, %._crit_edge
-  %.sink = phi ptr [ %.pre, %._crit_edge ], [ %.pre31, %27 ], [ %.pre31, %22 ], [ %.pre32, %..loopexit_crit_edge ], [ %.pre33, %38 ], [ %.pre33, %46 ]
+  %.sink = phi ptr [ %.pre31, %22 ], [ %.pre, %._crit_edge ], [ %.pre31, %27 ], [ %.pre32, %..loopexit_crit_edge ], [ %.pre33, %38 ], [ %.pre33, %46 ]
   %59 = zext i32 %6 to i64
   %60 = getelementptr inbounds nuw i16, ptr %.sink, i64 %59
   store ptr %60, ptr %3, align 8, !tbaa !73
@@ -795,8 +795,8 @@ define void @_ZN6LibRaw21lossless_dng_load_rawEv(ptr noundef nonnull align 8 der
   br i1 %exitcond.not, label %.loopexit154, label %.lr.ph.split, !llvm.loop !98
 
 .loopexit154:                                     ; preds = %.loopexit.i121, %.loopexit.i121.us, %.loopexit.i101, %.loopexit.i101.us, %227, %.preheader153
-  %.569 = phi i32 [ %.064181, %.preheader153 ], [ %.064181, %227 ], [ %.266.us, %.loopexit.i101.us ], [ %.266, %.loopexit.i101 ], [ %.468.us, %.loopexit.i121.us ], [ %.468, %.loopexit.i121 ]
-  %.5 = phi i32 [ %.062182, %.preheader153 ], [ %.062182, %227 ], [ %.2.us, %.loopexit.i101.us ], [ %.2, %.loopexit.i101 ], [ %.4.us, %.loopexit.i121.us ], [ %.4, %.loopexit.i121 ]
+  %.569 = phi i32 [ %.468.us, %.loopexit.i121.us ], [ %.064181, %.preheader153 ], [ %.266, %.loopexit.i101 ], [ %.064181, %227 ], [ %.266.us, %.loopexit.i101.us ], [ %.468, %.loopexit.i121 ]
+  %.5 = phi i32 [ %.4.us, %.loopexit.i121.us ], [ %.062182, %.preheader153 ], [ %.2, %.loopexit.i101 ], [ %.062182, %227 ], [ %.2.us, %.loopexit.i101.us ], [ %.4, %.loopexit.i121 ]
   %284 = add nuw i32 %.174180, 1
   %285 = load i32, ptr %20, align 8, !tbaa !91
   %286 = icmp ult i32 %284, %285
@@ -1081,11 +1081,11 @@ define void @_ZN6LibRaw19packed_dng_load_rawEv(ptr noundef nonnull align 8 deref
   br label %_ZN6LibRaw16adobe_copy_pixelEjjPPt.exit.us
 
 _ZN6LibRaw16adobe_copy_pixelEjjPPt.exit.us:       ; preds = %.loopexit.i.us, %.loopexit.i.thread.us
-  %.pre4951 = phi i16 [ %.pre4950, %.loopexit.i.thread.us ], [ %.pre49, %.loopexit.i.us ]
-  %90 = phi i16 [ %68, %.loopexit.i.thread.us ], [ %.pre49, %.loopexit.i.us ]
-  %91 = phi i32 [ %69, %.loopexit.i.thread.us ], [ %88, %.loopexit.i.us ]
-  %92 = phi i32 [ %70, %.loopexit.i.thread.us ], [ %88, %.loopexit.i.us ]
-  %.2.us = phi ptr [ %75, %.loopexit.i.thread.us ], [ %spec.select28.us, %.loopexit.i.us ]
+  %.pre4951 = phi i16 [ %.pre49, %.loopexit.i.us ], [ %.pre4950, %.loopexit.i.thread.us ]
+  %90 = phi i16 [ %.pre49, %.loopexit.i.us ], [ %68, %.loopexit.i.thread.us ]
+  %91 = phi i32 [ %88, %.loopexit.i.us ], [ %69, %.loopexit.i.thread.us ]
+  %92 = phi i32 [ %88, %.loopexit.i.us ], [ %70, %.loopexit.i.thread.us ]
+  %.2.us = phi ptr [ %spec.select28.us, %.loopexit.i.us ], [ %75, %.loopexit.i.thread.us ]
   %93 = add nuw nsw i32 %.132.us, 1
   %94 = zext i16 %90 to i32
   %95 = icmp samesign ult i32 %93, %94
@@ -1395,8 +1395,8 @@ define void @_ZN6LibRaw18lossy_dng_load_rawEv(ptr noundef nonnull align 8 derefe
   br label %206
 
 .loopexit.split-lp:                               ; preds = %.invoke, %.loopexit99, %117, %._crit_edge137
-  %.sroa.1392.0.ph97 = phi ptr [ null, %.loopexit99 ], [ %.sroa.1392.1.lcssa, %._crit_edge137 ], [ %.sroa.1392.1130, %117 ], [ %.sroa.1392.1130, %.invoke ]
-  %.sroa.086.0.ph98 = phi ptr [ null, %.loopexit99 ], [ %.sroa.086.1.lcssa, %._crit_edge137 ], [ %.sroa.086.1132, %117 ], [ %.sroa.086.1132, %.invoke ]
+  %.sroa.1392.0.ph97 = phi ptr [ %.sroa.1392.1.lcssa, %._crit_edge137 ], [ %.sroa.1392.1130, %.invoke ], [ null, %.loopexit99 ], [ %.sroa.1392.1130, %117 ]
+  %.sroa.086.0.ph98 = phi ptr [ %.sroa.086.1.lcssa, %._crit_edge137 ], [ %.sroa.086.1132, %.invoke ], [ null, %.loopexit99 ], [ %.sroa.086.1132, %117 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %206
@@ -1626,9 +1626,9 @@ _ZNSt6vectorIhSaIhEED2Ev.exit74:                  ; preds = %200, %202
   ret void
 
 206:                                              ; preds = %.loopexit, %.loopexit.split-lp, %188, %141
-  %.sroa.1392.2 = phi ptr [ %.sroa.1392.3, %188 ], [ %.sroa.1392.1130, %141 ], [ %.sroa.1392.0.ph, %.loopexit ], [ %.sroa.1392.0.ph97, %.loopexit.split-lp ]
-  %.sroa.086.2 = phi ptr [ %.sroa.086.3, %188 ], [ %.sroa.086.1132, %141 ], [ %.sroa.086.0.ph, %.loopexit ], [ %.sroa.086.0.ph98, %.loopexit.split-lp ]
-  %.pn = phi { ptr, i32 } [ %189, %188 ], [ %142, %141 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.1392.2 = phi ptr [ %.sroa.1392.1130, %141 ], [ %.sroa.1392.3, %188 ], [ %.sroa.1392.0.ph, %.loopexit ], [ %.sroa.1392.0.ph97, %.loopexit.split-lp ]
+  %.sroa.086.2 = phi ptr [ %.sroa.086.1132, %141 ], [ %.sroa.086.3, %188 ], [ %.sroa.086.0.ph, %.loopexit ], [ %.sroa.086.0.ph98, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %142, %141 ], [ %189, %188 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i75 = icmp eq ptr %.sroa.086.2, null
   br i1 %.not.i.i.i75, label %_ZNSt6vectorIhSaIhEED2Ev.exit76, label %207
 

@@ -231,7 +231,7 @@ define internal fastcc noundef ptr @_ZL11path_appendPcPKcPm(ptr noundef %0, ptr 
   br label %29
 
 29:                                               ; preds = %5, %3, %27, %20
-  %.0 = phi ptr [ null, %20 ], [ %.029, %27 ], [ %0, %3 ], [ %0, %5 ]
+  %.0 = phi ptr [ %.029, %27 ], [ %0, %3 ], [ null, %20 ], [ %0, %5 ]
   ret ptr %.0
 }
 

@@ -198,8 +198,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit5
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph.split
-  %.us-phi87 = phi i32 [ %55, %.lr.ph.split ], [ %64, %.critedge.loopexit ]
-  %.us-phi88 = phi i32 [ %.02898, %.lr.ph.split ], [ %66, %.critedge.loopexit ]
+  %.us-phi87 = phi i32 [ %64, %.critedge.loopexit ], [ %55, %.lr.ph.split ]
+  %.us-phi88 = phi i32 [ %66, %.critedge.loopexit ], [ %.02898, %.lr.ph.split ]
   %67 = icmp slt i32 %50, %.us-phi87
   br i1 %67, label %.loopexit, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit67
 
@@ -691,8 +691,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit5
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph.split
-  %.us-phi87 = phi i32 [ %55, %.lr.ph.split ], [ %64, %.critedge.loopexit ]
-  %.us-phi88 = phi i32 [ %.02898, %.lr.ph.split ], [ %66, %.critedge.loopexit ]
+  %.us-phi87 = phi i32 [ %64, %.critedge.loopexit ], [ %55, %.lr.ph.split ]
+  %.us-phi88 = phi i32 [ %66, %.critedge.loopexit ], [ %.02898, %.lr.ph.split ]
   %67 = icmp slt i32 %50, %.us-phi87
   br i1 %67, label %.loopexit, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit67
 
@@ -1178,8 +1178,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit5
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph.split
-  %.us-phi87 = phi i32 [ %55, %.lr.ph.split ], [ %64, %.critedge.loopexit ]
-  %.us-phi88 = phi i32 [ %.02898, %.lr.ph.split ], [ %66, %.critedge.loopexit ]
+  %.us-phi87 = phi i32 [ %64, %.critedge.loopexit ], [ %55, %.lr.ph.split ]
+  %.us-phi88 = phi i32 [ %66, %.critedge.loopexit ], [ %.02898, %.lr.ph.split ]
   %67 = icmp slt i32 %50, %.us-phi87
   br i1 %67, label %.loopexit, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit67
 
@@ -1676,8 +1676,8 @@ _ZN5Eigen12DenseStorageIiLin1ELin1ELin1ELi0EE6resizeElll.exit75: ; preds = %_ZN5
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph.split
-  %.us-phi88 = phi i32 [ %64, %.lr.ph.split ], [ %73, %.critedge.loopexit ]
-  %.us-phi89 = phi i32 [ %.02899, %.lr.ph.split ], [ %75, %.critedge.loopexit ]
+  %.us-phi88 = phi i32 [ %73, %.critedge.loopexit ], [ %64, %.lr.ph.split ]
+  %.us-phi89 = phi i32 [ %75, %.critedge.loopexit ], [ %.02899, %.lr.ph.split ]
   %76 = icmp slt i32 %59, %.us-phi88
   br i1 %76, label %.loopexit, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit65
 
@@ -2170,8 +2170,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit5
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph.split
-  %.us-phi87 = phi i32 [ %58, %.lr.ph.split ], [ %67, %.critedge.loopexit ]
-  %.us-phi88 = phi i32 [ %.02898, %.lr.ph.split ], [ %69, %.critedge.loopexit ]
+  %.us-phi87 = phi i32 [ %67, %.critedge.loopexit ], [ %58, %.lr.ph.split ]
+  %.us-phi88 = phi i32 [ %69, %.critedge.loopexit ], [ %.02898, %.lr.ph.split ]
   %70 = icmp slt i32 %53, %.us-phi87
   br i1 %70, label %.loopexit, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit67
 

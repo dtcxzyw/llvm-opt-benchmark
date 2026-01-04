@@ -590,7 +590,7 @@ define dso_local ptr @ExecGetResultSlotOps(ptr noundef readonly captures(none) %
   br label %32
 
 32:                                               ; preds = %9, %10, %26, %29
-  %.0 = phi ptr [ %31, %29 ], [ @TTSOpsVirtual, %26 ], [ %.pre, %10 ], [ %8, %9 ]
+  %.0 = phi ptr [ @TTSOpsVirtual, %26 ], [ %31, %29 ], [ %.pre, %10 ], [ %8, %9 ]
   ret ptr %.0
 }
 
@@ -816,7 +816,7 @@ ExecGetResultSlotOps.exit26.i:                    ; preds = %39, %.sink.split.i2
   br label %ExecGetCommonSlotOps.exit
 
 ExecGetCommonSlotOps.exit:                        ; preds = %ExecGetResultSlotOps.exit26.i, %.thread.i18.i, %.thread.i.i, %ExecGetResultSlotOps.exit.i
-  %.0.i = phi ptr [ null, %ExecGetResultSlotOps.exit.i ], [ null, %.thread.i.i ], [ null, %.thread.i18.i ], [ %spec.select, %ExecGetResultSlotOps.exit26.i ]
+  %.0.i = phi ptr [ null, %.thread.i.i ], [ null, %ExecGetResultSlotOps.exit.i ], [ %spec.select, %ExecGetResultSlotOps.exit26.i ], [ null, %.thread.i18.i ]
   ret ptr %.0.i
 }
 
@@ -955,7 +955,7 @@ tlist_matches_tupdesc.exit:                       ; preds = %50, %list_head.exit
   %64 = load ptr, ptr %63, align 8
   br label %77
 
-tlist_matches_tupdesc.exit.thread:                ; preds = %19, %26, %22, %29, %33, %37, %46, %41, %tlist_matches_tupdesc.exit
+tlist_matches_tupdesc.exit.thread:                ; preds = %19, %22, %29, %33, %37, %26, %46, %41, %tlist_matches_tupdesc.exit
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %66 = load ptr, ptr %65, align 8
   %.not = icmp eq ptr %66, null
@@ -1591,7 +1591,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
   br label %fastgetattr.exit
 
 fastgetattr.exit:                                 ; preds = %72, %71, %58, %56, %51, %48, %45, %42, %74, %14
-  %.0 = phi i64 [ %15, %14 ], [ %75, %74 ], [ 0, %71 ], [ %73, %72 ], [ %59, %58 ], [ %44, %42 ], [ %47, %45 ], [ %50, %48 ], [ %52, %51 ], [ %57, %56 ]
+  %.0 = phi i64 [ %15, %14 ], [ %75, %74 ], [ %73, %72 ], [ 0, %71 ], [ %59, %58 ], [ %44, %42 ], [ %47, %45 ], [ %50, %48 ], [ %52, %51 ], [ %57, %56 ]
   ret i64 %.0
 }
 
@@ -2018,7 +2018,7 @@ ExecGetRootToChildMap.exit:                       ; preds = %17, %43
   br label %GetResultRTEPermissionInfo.exit.thread
 
 GetResultRTEPermissionInfo.exit.thread:           ; preds = %2, %46, %GetResultRTEPermissionInfo.exit, %.thread
-  %.0 = phi ptr [ %53, %.thread ], [ %51, %46 ], [ null, %GetResultRTEPermissionInfo.exit ], [ null, %2 ]
+  %.0 = phi ptr [ %51, %46 ], [ %53, %.thread ], [ null, %GetResultRTEPermissionInfo.exit ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -2115,7 +2115,7 @@ ExecGetRootToChildMap.exit:                       ; preds = %17, %43
   br label %GetResultRTEPermissionInfo.exit.thread
 
 GetResultRTEPermissionInfo.exit.thread:           ; preds = %2, %46, %GetResultRTEPermissionInfo.exit, %.thread
-  %.0 = phi ptr [ %53, %.thread ], [ %51, %46 ], [ null, %GetResultRTEPermissionInfo.exit ], [ null, %2 ]
+  %.0 = phi ptr [ %51, %46 ], [ %53, %.thread ], [ null, %GetResultRTEPermissionInfo.exit ], [ null, %2 ]
   ret ptr %.0
 }
 

@@ -73,7 +73,7 @@ define range(i32 0, 2) i32 @inet_aton(ptr noundef readonly captures(none) %0, pt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %3, %13, %10, %20, %21
-  %.0 = phi i32 [ 1, %21 ], [ 1, %20 ], [ 0, %10 ], [ 0, %13 ], [ 0, %3 ]
+  %.0 = phi i32 [ 1, %20 ], [ 1, %21 ], [ 0, %10 ], [ 0, %13 ], [ 0, %3 ]
   ret i32 %.0
 }
 

@@ -643,7 +643,7 @@ _ZN11QStringListD2Ev.exit:                        ; preds = %_ZN11QHeaderView13s
   ret void
 
 86:                                               ; preds = %.loopexit, %.loopexit.split-lp, %58, %56, %54
-  %.pn = phi { ptr, i32 } [ %59, %58 ], [ %57, %56 ], [ %55, %54 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %55, %54 ], [ %59, %58 ], [ %57, %56 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN11QStringListD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #15
   resume { ptr, i32 } %.pn
 }
@@ -1603,11 +1603,11 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i120: ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i120, %_ZN9QtPrivate8RefCount5derefEv.exit.i121, %137, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i114, %_ZN9QtPrivate8RefCount5derefEv.exit.i115, %114, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i108, %_ZN9QtPrivate8RefCount5derefEv.exit.i109, %94, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i102, %_ZN9QtPrivate8RefCount5derefEv.exit.i103, %71, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i96, %_ZN9QtPrivate8RefCount5derefEv.exit.i97, %49, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %36, %295, %293, %184, %287, %297, %265, %244, %209, %178, %160
-  %.0 = phi ptr [ %150, %160 ], [ %169, %178 ], [ %207, %209 ], [ %241, %244 ], [ %261, %265 ], [ null, %287 ], [ null, %297 ], [ null, %184 ], [ null, %293 ], [ null, %295 ], [ %32, %36 ], [ %32, %_ZN9QtPrivate8RefCount5derefEv.exit.i ], [ %32, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i ], [ %32, %49 ], [ %32, %_ZN9QtPrivate8RefCount5derefEv.exit.i97 ], [ %32, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i96 ], [ %62, %71 ], [ %62, %_ZN9QtPrivate8RefCount5derefEv.exit.i103 ], [ %62, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i102 ], [ %84, %94 ], [ %84, %_ZN9QtPrivate8RefCount5derefEv.exit.i109 ], [ %84, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i108 ], [ %107, %114 ], [ %107, %_ZN9QtPrivate8RefCount5derefEv.exit.i115 ], [ %107, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i114 ], [ %127, %137 ], [ %127, %_ZN9QtPrivate8RefCount5derefEv.exit.i121 ], [ %127, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i120 ]
+  %.0 = phi ptr [ null, %295 ], [ %32, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i ], [ %32, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i96 ], [ %62, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i102 ], [ %84, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i108 ], [ %107, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i114 ], [ %150, %160 ], [ %169, %178 ], [ null, %297 ], [ %207, %209 ], [ %241, %244 ], [ %261, %265 ], [ null, %287 ], [ null, %184 ], [ null, %293 ], [ %32, %36 ], [ %32, %_ZN9QtPrivate8RefCount5derefEv.exit.i ], [ %32, %49 ], [ %32, %_ZN9QtPrivate8RefCount5derefEv.exit.i97 ], [ %62, %71 ], [ %62, %_ZN9QtPrivate8RefCount5derefEv.exit.i103 ], [ %84, %94 ], [ %84, %_ZN9QtPrivate8RefCount5derefEv.exit.i109 ], [ %107, %114 ], [ %107, %_ZN9QtPrivate8RefCount5derefEv.exit.i115 ], [ %127, %137 ], [ %127, %_ZN9QtPrivate8RefCount5derefEv.exit.i121 ], [ %127, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i120 ]
   ret ptr %.0
 
 299:                                              ; preds = %292, %249, %183, %165, %146, %123, %103, %80, %58, %45, %276, %237, %232
-  %.pn92.pn = phi { ptr, i32 } [ %.pn92, %45 ], [ %.pn90, %58 ], [ %.pn88, %80 ], [ %.pn86, %103 ], [ %.pn84, %123 ], [ %.pn82, %146 ], [ %.pn80, %165 ], [ %.pn78, %183 ], [ %.pn76, %237 ], [ %.pn68.pn.pn.pn.pn.pn.pn, %232 ], [ %.pn66, %249 ], [ %.pn62.pn.pn, %276 ], [ %.pn, %292 ]
+  %.pn92.pn = phi { ptr, i32 } [ %.pn92, %45 ], [ %.pn76, %237 ], [ %.pn90, %58 ], [ %.pn, %292 ], [ %.pn88, %80 ], [ %.pn62.pn.pn, %276 ], [ %.pn86, %103 ], [ %.pn78, %183 ], [ %.pn84, %123 ], [ %.pn66, %249 ], [ %.pn82, %146 ], [ %.pn68.pn.pn.pn.pn.pn.pn, %232 ], [ %.pn80, %165 ]
   resume { ptr, i32 } %.pn92.pn
 }
 

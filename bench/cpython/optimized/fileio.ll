@@ -1196,7 +1196,7 @@ define internal ptr @fileio_repr(ptr noundef %0) #1 {
   br label %mode_string.exit
 
 mode_string.exit:                                 ; preds = %21, %26, %27, %28
-  %.0.i = phi ptr [ %.str.9..str.8.i, %21 ], [ %.str.11..str.10.i, %26 ], [ %.str.13..str.12.i, %28 ], [ @.str.14, %27 ]
+  %.0.i = phi ptr [ %.str.9..str.8.i, %21 ], [ %.str.13..str.12.i, %28 ], [ %.str.11..str.10.i, %26 ], [ @.str.14, %27 ]
   %30 = and i8 %.val22, 64
   %.not21 = icmp eq i8 %30, 0
   %31 = select i1 %.not21, ptr @.str.5, ptr @.str.4
@@ -1243,7 +1243,7 @@ mode_string.exit:                                 ; preds = %21, %26, %27, %28
   br label %mode_string.exit34
 
 mode_string.exit34:                               ; preds = %40, %45, %46, %47
-  %.0.i28 = phi ptr [ %.str.9..str.8.i27, %40 ], [ %.str.11..str.10.i31, %45 ], [ %.str.13..str.12.i33, %47 ], [ @.str.14, %46 ]
+  %.0.i28 = phi ptr [ %.str.9..str.8.i27, %40 ], [ %.str.13..str.12.i33, %47 ], [ %.str.11..str.10.i31, %45 ], [ @.str.14, %46 ]
   %49 = and i8 %.val23, 64
   %.not = icmp eq i8 %49, 0
   %50 = select i1 %.not, ptr @.str.5, ptr @.str.4
@@ -1903,12 +1903,12 @@ Py_DECREF.exit149.thread.i:                       ; preds = %236, %231, %228, %2
   br label %_io_FileIO___init___impl.exit
 
 _io_FileIO___init___impl.exit:                    ; preds = %60, %66, %74, %76, %Py_DECREF.exit149.thread.i, %240, %242, %245
-  %.0.i = phi i32 [ -1, %74 ], [ -1, %60 ], [ -1, %66 ], [ -1, %76 ], [ %.0102.i, %Py_DECREF.exit149.thread.i ], [ %.0102.i, %240 ], [ %.0102.i, %242 ], [ %.0102.i, %245 ]
+  %.0.i = phi i32 [ -1, %74 ], [ -1, %60 ], [ -1, %76 ], [ -1, %66 ], [ %.0102.i, %Py_DECREF.exit149.thread.i ], [ %.0102.i, %240 ], [ %.0102.i, %242 ], [ %.0102.i, %245 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %246
 
 246:                                              ; preds = %.thread73, %32, %_io_FileIO___init___impl.exit, %16, %45
-  %.048 = phi i32 [ -1, %45 ], [ %.0.i, %_io_FileIO___init___impl.exit ], [ -1, %32 ], [ -1, %16 ], [ -1, %.thread73 ]
+  %.048 = phi i32 [ -1, %45 ], [ %.0.i, %_io_FileIO___init___impl.exit ], [ -1, %.thread73 ], [ -1, %32 ], [ -1, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.048
 }
@@ -2099,7 +2099,7 @@ Py_DECREF.exit27.i:                               ; preds = %54, %51, %47
   br label %_io_FileIO_read_impl.exit
 
 _io_FileIO_read_impl.exit:                        ; preds = %24, %30, %37, %39, %Py_DECREF.exit27.i, %56, %57, %58, %61, %62, %64, %67
-  %.0.i = phi ptr [ null, %24 ], [ %38, %37 ], [ %34, %30 ], [ null, %39 ], [ @_Py_NoneStruct, %56 ], [ null, %Py_DECREF.exit27.i ], [ null, %61 ], [ null, %62 ], [ null, %64 ], [ null, %67 ], [ %.pre.i, %58 ], [ %40, %57 ]
+  %.0.i = phi ptr [ null, %24 ], [ %38, %37 ], [ %34, %30 ], [ null, %39 ], [ null, %Py_DECREF.exit27.i ], [ null, %67 ], [ @_Py_NoneStruct, %56 ], [ null, %61 ], [ null, %62 ], [ null, %64 ], [ %.pre.i, %58 ], [ %40, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %68
 
@@ -2198,7 +2198,7 @@ define internal ptr @_io_FileIO_readinto(ptr noundef readonly captures(none) %0,
   br label %_io_FileIO_readinto_impl.exit
 
 _io_FileIO_readinto_impl.exit:                    ; preds = %43, %42, %38, %30, %24, %11, %17
-  %.0 = phi ptr [ null, %17 ], [ null, %11 ], [ null, %24 ], [ @_Py_NoneStruct, %42 ], [ %44, %43 ], [ %34, %30 ], [ null, %38 ]
+  %.0 = phi ptr [ null, %17 ], [ null, %11 ], [ null, %24 ], [ @_Py_NoneStruct, %42 ], [ %34, %30 ], [ %44, %43 ], [ null, %38 ]
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %46 = load ptr, ptr %45, align 8, !tbaa !62
   %.not20 = icmp eq ptr %46, null
@@ -2291,7 +2291,7 @@ define internal ptr @_io_FileIO_write(ptr noundef readonly captures(none) %0, pt
   br label %_io_FileIO_write_impl.exit
 
 _io_FileIO_write_impl.exit:                       ; preds = %40, %39, %35, %27, %21, %.thread, %11
-  %.0 = phi ptr [ null, %.thread ], [ null, %11 ], [ null, %21 ], [ @_Py_NoneStruct, %39 ], [ %41, %40 ], [ %31, %27 ], [ null, %35 ]
+  %.0 = phi ptr [ null, %.thread ], [ null, %11 ], [ null, %21 ], [ @_Py_NoneStruct, %39 ], [ %31, %27 ], [ %41, %40 ], [ null, %35 ]
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !62
   %.not20 = icmp eq ptr %43, null
@@ -2352,7 +2352,7 @@ define internal ptr @_io_FileIO_seek(ptr noundef captures(none) %0, ptr noundef 
   br label %_io_FileIO_seek_impl.exit
 
 _io_FileIO_seek_impl.exit:                        ; preds = %23, %21, %15, %5
-  %.011 = phi ptr [ null, %15 ], [ null, %5 ], [ null, %21 ], [ %24, %23 ]
+  %.011 = phi ptr [ null, %5 ], [ null, %15 ], [ null, %21 ], [ %24, %23 ]
   ret ptr %.011
 }
 
@@ -2567,7 +2567,7 @@ Py_INCREF.exit.i:                                 ; preds = %53, %50, %portable_
   br label %_io_FileIO_truncate_impl.exit
 
 _io_FileIO_truncate_impl.exit:                    ; preds = %78, %75, %74, %71, %67, %62, %59, %57, %portable_lseek.exit.i, %26, %20, %10
-  %.019 = phi ptr [ null, %10 ], [ null, %20 ], [ %30, %26 ], [ null, %portable_lseek.exit.i ], [ %.020.i, %78 ], [ %.020.i, %75 ], [ null, %57 ], [ null, %59 ], [ null, %62 ], [ null, %67 ], [ null, %71 ], [ null, %74 ]
+  %.019 = phi ptr [ null, %10 ], [ null, %20 ], [ %30, %26 ], [ %.020.i, %75 ], [ null, %62 ], [ null, %portable_lseek.exit.i ], [ %.020.i, %78 ], [ null, %57 ], [ null, %59 ], [ null, %67 ], [ null, %71 ], [ null, %74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.019
 }
@@ -2707,7 +2707,7 @@ Py_DECREF.exit29.i:                               ; preds = %49, %46, %fileio_de
   br label %_io_FileIO_close_impl.exit
 
 _io_FileIO_close_impl.exit:                       ; preds = %57, %54, %.thread1.i, %.thread.i, %51, %21, %10
-  %.0 = phi ptr [ null, %10 ], [ %17, %21 ], [ %17, %.thread.i ], [ null, %.thread1.i ], [ null, %54 ], [ null, %57 ], [ null, %51 ]
+  %.0 = phi ptr [ null, %10 ], [ %17, %21 ], [ null, %51 ], [ %17, %.thread.i ], [ null, %57 ], [ null, %.thread1.i ], [ null, %54 ]
   ret ptr %.0
 }
 
@@ -3028,7 +3028,7 @@ define internal fastcc ptr @_io_FileIO_readall_impl(ptr noundef readonly capture
   br label %.thread
 
 .thread:                                          ; preds = %11, %8, %22, %15, %18
-  %.040 = phi i64 [ %16, %18 ], [ %16, %15 ], [ %spec.select, %22 ], [ 8192, %8 ], [ 8192, %11 ]
+  %.040 = phi i64 [ %16, %15 ], [ 8192, %11 ], [ %spec.select, %22 ], [ %16, %18 ], [ 8192, %8 ]
   %26 = tail call ptr @PyBytes_FromStringAndSize(ptr noundef null, i64 noundef %.040) #10
   store ptr %26, ptr %2, align 8, !tbaa !21
   %27 = icmp eq ptr %26, null
@@ -3155,7 +3155,7 @@ define internal fastcc ptr @_io_FileIO_readall_impl(ptr noundef readonly capture
   br label %Py_DECREF.exit54
 
 Py_DECREF.exit54:                                 ; preds = %45, %80, %.loopexit, %74, %71, %68, %67, %64, %61, %40, %37, %33, %.thread, %6
-  %.0 = phi ptr [ null, %6 ], [ null, %.thread ], [ null, %33 ], [ null, %37 ], [ null, %40 ], [ @_Py_NoneStruct, %61 ], [ @_Py_NoneStruct, %64 ], [ @_Py_NoneStruct, %67 ], [ null, %68 ], [ null, %71 ], [ null, %74 ], [ %77, %.loopexit ], [ %spec.select78, %80 ], [ null, %45 ]
+  %.0 = phi ptr [ null, %6 ], [ @_Py_NoneStruct, %67 ], [ %spec.select78, %80 ], [ null, %.thread ], [ null, %74 ], [ %77, %.loopexit ], [ null, %40 ], [ null, %33 ], [ null, %37 ], [ @_Py_NoneStruct, %61 ], [ @_Py_NoneStruct, %64 ], [ null, %68 ], [ null, %71 ], [ null, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
@@ -3392,7 +3392,7 @@ define internal ptr @fileio_get_mode(ptr noundef readonly captures(none) %0, ptr
   br label %mode_string.exit
 
 mode_string.exit:                                 ; preds = %5, %10, %11, %12
-  %.0.i = phi ptr [ %.str.9..str.8.i, %5 ], [ %.str.11..str.10.i, %10 ], [ %.str.13..str.12.i, %12 ], [ @.str.14, %11 ]
+  %.0.i = phi ptr [ %.str.9..str.8.i, %5 ], [ %.str.13..str.12.i, %12 ], [ %.str.11..str.10.i, %10 ], [ @.str.14, %11 ]
   %14 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull %.0.i) #10
   ret ptr %14
 }

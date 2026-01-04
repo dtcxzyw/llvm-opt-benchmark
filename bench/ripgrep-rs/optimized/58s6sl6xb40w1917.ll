@@ -306,9 +306,9 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   br label %"_ZN68_$LT$grep_printer..hyperlink..Part$u20$as$u20$core..clone..Clone$GT$5clone17ha1e002d751fb177fE.exit"
 
 "_ZN68_$LT$grep_printer..hyperlink..Part$u20$as$u20$core..clone..Clone$GT$5clone17ha1e002d751fb177fE.exit": ; preds = %32, %31, %30, %29, %.noexc, %14
-  %.sroa.014.0 = phi i64 [ %26, %.noexc ], [ -9223372036854775807, %29 ], [ -9223372036854775806, %30 ], [ -9223372036854775805, %31 ], [ -9223372036854775804, %32 ], [ -9223372036854775808, %14 ]
-  %.sroa.9.1 = phi ptr [ %27, %.noexc ], [ %.sroa.9.032, %29 ], [ %.sroa.9.032, %30 ], [ %.sroa.9.032, %31 ], [ %.sroa.9.032, %32 ], [ %.sroa.9.032, %14 ]
-  %.sroa.1015.1 = phi i64 [ %.val1.i, %.noexc ], [ %.sroa.1015.034, %29 ], [ %.sroa.1015.034, %30 ], [ %.sroa.1015.034, %31 ], [ %.sroa.1015.034, %32 ], [ %.sroa.1015.034, %14 ]
+  %.sroa.014.0 = phi i64 [ %26, %.noexc ], [ -9223372036854775804, %32 ], [ -9223372036854775807, %29 ], [ -9223372036854775806, %30 ], [ -9223372036854775805, %31 ], [ -9223372036854775808, %14 ]
+  %.sroa.9.1 = phi ptr [ %27, %.noexc ], [ %.sroa.9.032, %32 ], [ %.sroa.9.032, %29 ], [ %.sroa.9.032, %30 ], [ %.sroa.9.032, %31 ], [ %.sroa.9.032, %14 ]
+  %.sroa.1015.1 = phi i64 [ %.val1.i, %.noexc ], [ %.sroa.1015.034, %32 ], [ %.sroa.1015.034, %29 ], [ %.sroa.1015.034, %30 ], [ %.sroa.1015.034, %31 ], [ %.sroa.1015.034, %14 ]
   %33 = getelementptr inbounds nuw { [3 x i64] }, ptr %7, i64 %.sroa.7.031
   store i64 %.sroa.014.0, ptr %33, align 8
   %.sroa.06.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -462,9 +462,9 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   br label %"_ZN68_$LT$grep_printer..hyperlink..Part$u20$as$u20$core..clone..Clone$GT$5clone17ha1e002d751fb177fE.exit.i"
 
 "_ZN68_$LT$grep_printer..hyperlink..Part$u20$as$u20$core..clone..Clone$GT$5clone17ha1e002d751fb177fE.exit.i": ; preds = %35, %34, %33, %32, %.noexc.i, %17
-  %.sroa.014.0.i = phi i64 [ %29, %.noexc.i ], [ -9223372036854775807, %32 ], [ -9223372036854775806, %33 ], [ -9223372036854775805, %34 ], [ -9223372036854775804, %35 ], [ -9223372036854775808, %17 ]
-  %.sroa.9.1.i = phi ptr [ %30, %.noexc.i ], [ %.sroa.9.032.i, %32 ], [ %.sroa.9.032.i, %33 ], [ %.sroa.9.032.i, %34 ], [ %.sroa.9.032.i, %35 ], [ %.sroa.9.032.i, %17 ]
-  %.sroa.1015.1.i = phi i64 [ %.val1.i.i, %.noexc.i ], [ %.sroa.1015.034.i, %32 ], [ %.sroa.1015.034.i, %33 ], [ %.sroa.1015.034.i, %34 ], [ %.sroa.1015.034.i, %35 ], [ %.sroa.1015.034.i, %17 ]
+  %.sroa.014.0.i = phi i64 [ %29, %.noexc.i ], [ -9223372036854775804, %35 ], [ -9223372036854775807, %32 ], [ -9223372036854775806, %33 ], [ -9223372036854775805, %34 ], [ -9223372036854775808, %17 ]
+  %.sroa.9.1.i = phi ptr [ %30, %.noexc.i ], [ %.sroa.9.032.i, %35 ], [ %.sroa.9.032.i, %32 ], [ %.sroa.9.032.i, %33 ], [ %.sroa.9.032.i, %34 ], [ %.sroa.9.032.i, %17 ]
+  %.sroa.1015.1.i = phi i64 [ %.val1.i.i, %.noexc.i ], [ %.sroa.1015.034.i, %35 ], [ %.sroa.1015.034.i, %32 ], [ %.sroa.1015.034.i, %33 ], [ %.sroa.1015.034.i, %34 ], [ %.sroa.1015.034.i, %17 ]
   %36 = getelementptr inbounds nuw { [3 x i64] }, ptr %10, i64 %.sroa.7.031.i
   store i64 %.sroa.014.0.i, ptr %36, align 8, !noalias !50
   %.sroa.06.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %36, i64 8

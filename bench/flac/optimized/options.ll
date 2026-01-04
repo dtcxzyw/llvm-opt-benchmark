@@ -186,7 +186,7 @@ define dso_local range(i32 0, 2) i32 @parse_options(i32 noundef %0, ptr noundef 
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %6, %6, %8, %14
-  %.047.ph.be = phi i32 [ %18, %14 ], [ %13, %8 ], [ 1, %6 ], [ 1, %6 ]
+  %.047.ph.be = phi i32 [ %13, %8 ], [ %18, %14 ], [ 1, %6 ], [ 1, %6 ]
   br label %.outer, !llvm.loop !20
 
 14:                                               ; preds = %6
@@ -460,7 +460,7 @@ find_shorthand_operation.exit105.tail:            ; preds = %find_shorthand_oper
   br label %.thread
 
 .thread:                                          ; preds = %108, %.thread.sink.split, %find_shorthand_operation.exit105, %find_shorthand_operation.exit.thread, %79, %find_shorthand_operation.exit81.thread, %find_shorthand_operation.exit89.thread, %find_shorthand_operation.exit105.tail, %70, %69
-  %.4 = phi i32 [ 1, %69 ], [ %.8.ph.ph, %find_shorthand_operation.exit105.tail ], [ 0, %70 ], [ %.8.ph.ph, %find_shorthand_operation.exit89.thread ], [ %.7.ph, %find_shorthand_operation.exit81.thread ], [ %.5, %79 ], [ %.6.ph, %find_shorthand_operation.exit.thread ], [ %.8.ph.ph, %find_shorthand_operation.exit105 ], [ 1, %.thread.sink.split ], [ %.8.ph.ph, %108 ]
+  %.4 = phi i32 [ 1, %69 ], [ %.5, %79 ], [ %.8.ph.ph, %find_shorthand_operation.exit105.tail ], [ %.8.ph.ph, %find_shorthand_operation.exit105 ], [ 0, %70 ], [ 1, %.thread.sink.split ], [ %.8.ph.ph, %find_shorthand_operation.exit89.thread ], [ %.6.ph, %find_shorthand_operation.exit.thread ], [ %.7.ph, %find_shorthand_operation.exit81.thread ], [ %.8.ph.ph, %108 ]
   %126 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %127 = load i32, ptr %126, align 8, !tbaa !39
   %.not67 = icmp eq i32 %127, 0
@@ -560,8 +560,8 @@ find_shorthand_operation.exit105.tail:            ; preds = %find_shorthand_oper
   br i1 %164, label %find_shorthand_operation.exit121, label %.lr.ph176
 
 find_shorthand_operation.exit121:                 ; preds = %.lr.ph.i115, %.lr.ph176, %.lr.ph.i123
-  %.045 = phi ptr [ %155, %.lr.ph.i123 ], [ %162, %.lr.ph176 ], [ %146, %.lr.ph.i115 ]
-  %.0 = phi ptr [ %159, %.lr.ph.i123 ], [ %159, %.lr.ph176 ], [ %150, %.lr.ph.i115 ]
+  %.045 = phi ptr [ %162, %.lr.ph176 ], [ %155, %.lr.ph.i123 ], [ %146, %.lr.ph.i115 ]
+  %.0 = phi ptr [ %159, %.lr.ph176 ], [ %159, %.lr.ph.i123 ], [ %150, %.lr.ph.i115 ]
   %165 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %166 = getelementptr inbounds nuw i8, ptr %.045, i64 16
   store ptr %165, ptr %166, align 8, !tbaa !38
@@ -1854,7 +1854,7 @@ define dso_local void @free_options(ptr noundef readonly captures(none) %0) loca
   br i1 %.not67, label %36, label %.sink.split
 
 .sink.split:                                      ; preds = %33, %30, %27, %24, %21, %18, %7
-  %.sink = phi ptr [ %9, %7 ], [ %20, %18 ], [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ %35, %33 ]
+  %.sink = phi ptr [ %32, %30 ], [ %9, %7 ], [ %20, %18 ], [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ %35, %33 ]
   tail call void @free(ptr noundef nonnull %.sink) #19
   br label %36
 
@@ -2044,7 +2044,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_md5(ptr noundef readonly captu
   br i1 %exitcond.not, label %.loopexit, label %5, !llvm.loop !57
 
 .loopexit:                                        ; preds = %30, %28, %15, %2
-  %.036 = phi i32 [ 0, %2 ], [ 1, %30 ], [ 0, %28 ], [ 0, %15 ]
+  %.036 = phi i32 [ 0, %2 ], [ 1, %30 ], [ 0, %15 ], [ 0, %28 ]
   ret i32 %.036
 }
 
@@ -2468,7 +2468,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_block_number(ptr noundef %0, p
   br i1 %.not27, label %.sink.split, label %21, !llvm.loop !67
 
 .sink.split:                                      ; preds = %38, %25, %32, %35
-  %.021.ph = phi i32 [ 0, %35 ], [ 0, %32 ], [ 0, %25 ], [ 1, %38 ]
+  %.021.ph = phi i32 [ 0, %25 ], [ 0, %35 ], [ 0, %32 ], [ 1, %38 ]
   tail call void @free(ptr noundef %7) #19
   br label %44
 
@@ -2690,7 +2690,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_block_type(ptr noundef %0, ptr
   br i1 %.not79, label %.sink.split, label %18, !llvm.loop !75
 
 .sink.split:                                      ; preds = %111, %104, %55, %58, %50, %24
-  %.0.ph = phi i32 [ 0, %24 ], [ 0, %50 ], [ 0, %58 ], [ 0, %55 ], [ 0, %104 ], [ 1, %111 ]
+  %.0.ph = phi i32 [ 0, %55 ], [ 0, %24 ], [ 0, %104 ], [ 0, %50 ], [ 0, %58 ], [ 1, %111 ]
   tail call void @free(ptr noundef %6) #19
   br label %112
 

@@ -156,7 +156,7 @@ encode_string_as_pointer.exit:                    ; preds = %38
   br i1 %.not, label %cJSONUtils_strdup.exit, label %.lr.ph
 
 cJSONUtils_strdup.exit:                           ; preds = %49, %11, %16, %encode_string_as_pointer.exit, %48, %10, %7, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %7 ], [ %8, %10 ], [ null, %48 ], [ %36, %encode_string_as_pointer.exit ], [ %19, %16 ], [ null, %11 ], [ null, %49 ]
+  %.0 = phi ptr [ null, %2 ], [ %19, %16 ], [ %8, %10 ], [ null, %7 ], [ null, %48 ], [ %36, %encode_string_as_pointer.exit ], [ null, %11 ], [ null, %49 ]
   ret ptr %.0
 }
 
@@ -330,7 +330,7 @@ decode_array_index_from_pointer.exit:             ; preds = %.critedge.i, %.crit
   br i1 %.not39.us.i, label %59, label %.backedge
 
 59:                                               ; preds = %50, %49, %46
-  %.1.us.i = phi ptr [ %47, %46 ], [ %.02851.us.i, %50 ], [ %47, %49 ]
+  %.1.us.i = phi ptr [ %47, %49 ], [ %.02851.us.i, %50 ], [ %47, %46 ]
   %60 = getelementptr inbounds nuw i8, ptr %.02752.us.i, i64 1
   %61 = getelementptr inbounds nuw i8, ptr %.1.us.i, i64 1
   %62 = load i8, ptr %60, align 1, !tbaa !13
@@ -367,7 +367,7 @@ decode_array_index_from_pointer.exit:             ; preds = %.critedge.i, %.crit
   br i1 %.not40.i, label %69, label %.backedge
 
 69:                                               ; preds = %.critedge46.i, %68, %65
-  %.1.i = phi ptr [ %.02851.i, %.critedge46.i ], [ %66, %65 ], [ %66, %68 ]
+  %.1.i = phi ptr [ %66, %68 ], [ %.02851.i, %.critedge46.i ], [ %66, %65 ]
   %70 = getelementptr inbounds nuw i8, ptr %.02752.i, i64 1
   %71 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
   %72 = load i8, ptr %70, align 1, !tbaa !13
@@ -390,13 +390,13 @@ decode_array_index_from_pointer.exit:             ; preds = %.critedge.i, %.crit
     i8 0, label %.critedge
   ]
 
-.backedge:                                        ; preds = %.critedge46.i, %68, %49, %50, %.critedge.i41, %.critedge.i41.thr_comm, %.critedge.i41.thr_comm, %.lr.ph
+.backedge:                                        ; preds = %.critedge46.i, %68, %50, %49, %.critedge.i41, %.critedge.i41.thr_comm, %.critedge.i41.thr_comm, %.lr.ph
   %.3 = load ptr, ptr %.355, align 8, !tbaa !3
   %.not32 = icmp eq ptr %.3, null
   br i1 %.not32, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %31, %.backedge, %.critedge.i41.thr_comm, %.critedge.i41, %.critedge.i41, %38
-  %.2 = phi ptr [ null, %38 ], [ %.355, %.critedge.i41 ], [ %.355, %.critedge.i41.thr_comm ], [ %.355, %.critedge.i41 ], [ null, %.backedge ], [ %.0.i, %31 ]
+  %.2 = phi ptr [ %.355, %.critedge.i41 ], [ null, %38 ], [ %.355, %.critedge.i41.thr_comm ], [ null, %.backedge ], [ %.355, %.critedge.i41 ], [ %.0.i, %31 ]
   br label %75
 
 75:                                               ; preds = %77, %.critedge
@@ -418,7 +418,7 @@ decode_array_index_from_pointer.exit:             ; preds = %.critedge.i, %.crit
   br i1 %81, label %9, label %.critedge38
 
 .critedge38:                                      ; preds = %36, %.critedge2, %15, %.critedge.i, %.preheader, %3
-  %.023 = phi ptr [ null, %3 ], [ %0, %.preheader ], [ null, %36 ], [ %.2, %.critedge2 ], [ null, %15 ], [ null, %.critedge.i ]
+  %.023 = phi ptr [ null, %3 ], [ %0, %.preheader ], [ null, %15 ], [ %.2, %.critedge2 ], [ null, %36 ], [ null, %.critedge.i ]
   ret ptr %.023
 }
 
@@ -456,7 +456,7 @@ define range(i32 0, 14) i32 @cJSONUtils_ApplyPatches(ptr noundef %0, ptr noundef
   br i1 %.not13, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %9, %4, %5, %2
-  %.09 = phi i32 [ 1, %2 ], [ 0, %5 ], [ 0, %4 ], [ %8, %.lr.ph ], [ 0, %9 ]
+  %.09 = phi i32 [ 1, %2 ], [ 0, %5 ], [ 0, %4 ], [ 0, %9 ], [ %8, %.lr.ph ]
   ret i32 %.09
 }
 
@@ -691,7 +691,7 @@ get_object_item.exit154:                          ; preds = %89, %91
   br i1 %106, label %.thread216.thread, label %.thread238
 
 .thread185:                                       ; preds = %78, %87
-  %107 = phi ptr [ %83, %87 ], [ %80, %78 ]
+  %107 = phi ptr [ %80, %78 ], [ %83, %87 ]
   br i1 %.not.i, label %110, label %108
 
 108:                                              ; preds = %.thread185
@@ -846,15 +846,15 @@ sub_0:                                            ; preds = %140
   br label %.thread216
 
 .thread216:                                       ; preds = %157, %146, %159, %.thread224
-  %.0103222 = phi i32 [ %.0103231, %.thread224 ], [ 0, %159 ], [ 0, %157 ], [ 0, %146 ]
+  %.0103222 = phi i32 [ 0, %159 ], [ %.0103231, %.thread224 ], [ 0, %157 ], [ 0, %146 ]
   br i1 %121, label %.thread216.thread, label %160
 
 160:                                              ; preds = %.thread216
   tail call void @cJSON_free(ptr noundef nonnull %120) #14
   br label %.thread216.thread
 
-.thread216.thread:                                ; preds = %67, %53, %94, %104, %.thread194, %95, %get_object_item.exit154, %87, %.thread176, %30, %get_object_item.exit.i, %get_object_item.exit150, %get_object_item.exit, %68, %71, %77, %74, %get_object_item.exit157, %113, %get_object_item.exit.thread, %.thread216, %160
-  %.0103222244 = phi i32 [ %.0103222, %.thread216 ], [ %.0103222, %160 ], [ 6, %104 ], [ 4, %get_object_item.exit154 ], [ 5, %95 ], [ 5, %.thread194 ], [ 0, %87 ], [ 13, %.thread176 ], [ 3, %30 ], [ 3, %get_object_item.exit.i ], [ %41, %get_object_item.exit150 ], [ 2, %get_object_item.exit ], [ 7, %68 ], [ 8, %71 ], [ 0, %77 ], [ 0, %74 ], [ 7, %get_object_item.exit157 ], [ 8, %113 ], [ 2, %get_object_item.exit.thread ], [ 5, %94 ], [ 0, %53 ], [ 0, %67 ]
+.thread216.thread:                                ; preds = %67, %53, %94, %104, %.thread194, %get_object_item.exit154, %95, %.thread176, %get_object_item.exit.i, %get_object_item.exit150, %get_object_item.exit, %68, %71, %113, %77, %87, %74, %get_object_item.exit157, %30, %get_object_item.exit.thread, %.thread216, %160
+  %.0103222244 = phi i32 [ %.0103222, %160 ], [ %.0103222, %.thread216 ], [ 6, %104 ], [ 4, %get_object_item.exit154 ], [ 5, %95 ], [ 5, %.thread194 ], [ 5, %94 ], [ 13, %.thread176 ], [ 3, %get_object_item.exit.i ], [ %41, %get_object_item.exit150 ], [ 2, %get_object_item.exit.thread ], [ 2, %get_object_item.exit ], [ 7, %68 ], [ 8, %71 ], [ 8, %113 ], [ 0, %77 ], [ 0, %87 ], [ 0, %74 ], [ 7, %get_object_item.exit157 ], [ 3, %30 ], [ 0, %53 ], [ 0, %67 ]
   ret i32 %.0103222244
 }
 
@@ -886,7 +886,7 @@ define range(i32 0, 14) i32 @cJSONUtils_ApplyPatchesCaseSensitive(ptr noundef %0
   br i1 %.not13, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %9, %4, %5, %2
-  %.09 = phi i32 [ 1, %2 ], [ 0, %5 ], [ 0, %4 ], [ %8, %.lr.ph ], [ 0, %9 ]
+  %.09 = phi i32 [ 1, %2 ], [ 0, %5 ], [ 0, %4 ], [ 0, %9 ], [ %8, %.lr.ph ]
   ret i32 %.09
 }
 
@@ -1506,7 +1506,7 @@ define internal fastcc ptr @merge_patch(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %.not36, label %.loopexit, label %.lr.ph.split.split
 
 .loopexit:                                        ; preds = %32, %22, %11, %.thread, %5
-  %.031 = phi ptr [ %6, %5 ], [ null, %.thread ], [ %.032, %11 ], [ %.032, %22 ], [ %.032, %32 ]
+  %.031 = phi ptr [ null, %.thread ], [ %6, %5 ], [ %.032, %11 ], [ %.032, %22 ], [ %.032, %32 ]
   ret ptr %.031
 }
 
@@ -1651,7 +1651,7 @@ sort_object.exit48:                               ; preds = %13, %15
   br label %71
 
 71:                                               ; preds = %._crit_edge, %sort_object.exit48, %70, %11, %5
-  %.041 = phi ptr [ %6, %5 ], [ null, %70 ], [ %12, %11 ], [ null, %sort_object.exit48 ], [ %24, %._crit_edge ]
+  %.041 = phi ptr [ %6, %5 ], [ %12, %11 ], [ null, %70 ], [ null, %sort_object.exit48 ], [ %24, %._crit_edge ]
   ret ptr %.041
 }
 
@@ -1948,7 +1948,7 @@ compare_strings.exit.thread:                      ; preds = %104, %compare_strin
   br label %.thread
 
 .thread:                                          ; preds = %compare_strings.exit.thread, %compare_strings.exit, %97, %compare_strings.exit.thread.us, %59, %.preheader.i.us, %81, %47, %22, %13, %.split, %.split85.us, %49, %34, %17, %3, %6
-  %.049.shrunk = phi i1 [ false, %6 ], [ false, %3 ], [ false, %17 ], [ %.not61, %34 ], [ %not.or.cond3, %49 ], [ %not.or.cond5, %.split85.us ], [ true, %.split ], [ true, %13 ], [ %33, %22 ], [ false, %47 ], [ false, %81 ], [ false, %.preheader.i.us ], [ false, %59 ], [ false, %compare_strings.exit.thread.us ], [ false, %97 ], [ false, %compare_strings.exit ], [ false, %compare_strings.exit.thread ]
+  %.049.shrunk = phi i1 [ false, %6 ], [ %not.or.cond5, %.split85.us ], [ false, %3 ], [ true, %13 ], [ %.not61, %34 ], [ false, %17 ], [ true, %.split ], [ %not.or.cond3, %49 ], [ %33, %22 ], [ false, %compare_strings.exit.thread.us ], [ false, %81 ], [ false, %47 ], [ false, %.preheader.i.us ], [ false, %59 ], [ false, %97 ], [ false, %compare_strings.exit ], [ false, %compare_strings.exit.thread ]
   %.049 = zext i1 %.049.shrunk to i32
   ret i32 %.049
 }
@@ -2173,7 +2173,7 @@ decode_array_index_from_pointer.exit:             ; preds = %.critedge.i, %.crit
   br label %detach_item_from_array.exit.thread34
 
 detach_item_from_array.exit.thread34:             ; preds = %65, %67, %64, %50, %29, %.critedge.i, %8
-  %.02036 = phi ptr [ null, %8 ], [ %68, %67 ], [ null, %65 ], [ null, %50 ], [ %.0.i28, %64 ], [ null, %29 ], [ null, %.critedge.i ]
+  %.02036 = phi ptr [ null, %8 ], [ %.0.i28, %64 ], [ null, %50 ], [ null, %65 ], [ %68, %67 ], [ null, %29 ], [ null, %.critedge.i ]
   tail call void @cJSON_free(ptr noundef nonnull %6) #14
   br label %detach_item_from_array.exit.thread
 
@@ -2239,7 +2239,7 @@ define internal fastcc range(i32 0, 2) i32 @insert_item_in_array(ptr noundef non
   br label %24
 
 24:                                               ; preds = %21, %22, %10, %13
-  %.021 = phi i32 [ 1, %13 ], [ 0, %10 ], [ 1, %22 ], [ 1, %21 ]
+  %.021 = phi i32 [ 0, %10 ], [ 1, %13 ], [ 1, %22 ], [ 1, %21 ]
   ret i32 %.021
 }
 
@@ -2464,7 +2464,7 @@ compare_strings.exit:                             ; preds = %.preheader.split.pr
   br label %compare_strings.exit94
 
 compare_strings.exit94:                           ; preds = %84, %._crit_edge.i88
-  %.0.i86 = phi i32 [ %85, %84 ], [ %100, %._crit_edge.i88 ]
+  %.0.i86 = phi i32 [ %100, %._crit_edge.i88 ], [ %85, %84 ]
   %.0.i86.fr = freeze i32 %.0.i86
   %101 = icmp slt i32 %.0.i86.fr, 0
   %spec.select = select i1 %101, ptr %.072107, ptr %.170108
@@ -2539,7 +2539,7 @@ compare_strings.exit94.thread:                    ; preds = %.lr.ph.i91, %compar
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.preheader.splitthread-pre-split, %.preheader.split.usthread-pre-split, %._crit_edge.thread, %118, %120, %.thread176, %121, %116, %2, %4
-  %.074 = phi ptr [ %0, %4 ], [ null, %2 ], [ %.173, %116 ], [ %.170.lcssa159, %121 ], [ %.065.lcssa161174181, %.thread176 ], [ %.065.lcssa161, %120 ], [ %.166, %118 ], [ %60, %._crit_edge.thread ], [ %0, %.preheader.split.usthread-pre-split ], [ %0, %.preheader.splitthread-pre-split ]
+  %.074 = phi ptr [ %.170.lcssa159, %121 ], [ null, %2 ], [ %.065.lcssa161, %120 ], [ %.173, %116 ], [ %0, %4 ], [ %.065.lcssa161174181, %.thread176 ], [ %.166, %118 ], [ %60, %._crit_edge.thread ], [ %0, %.preheader.split.usthread-pre-split ], [ %0, %.preheader.splitthread-pre-split ]
   ret ptr %.074
 }
 

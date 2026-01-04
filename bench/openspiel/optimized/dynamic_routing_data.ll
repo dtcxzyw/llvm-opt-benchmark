@@ -1519,8 +1519,8 @@ _ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicy
   br i1 %514, label %.body438, label %.body900
 
 .body438:                                         ; preds = %.body900, %510, %244
-  %.17211 = phi i1 [ true, %244 ], [ true, %510 ], [ false, %.body900 ]
-  %.pn335 = phi { ptr, i32 } [ %245, %244 ], [ %511, %510 ], [ %eh.lpad-body.i, %.body900 ]
+  %.17211 = phi i1 [ true, %510 ], [ true, %244 ], [ false, %.body900 ]
+  %.pn335 = phi { ptr, i32 } [ %511, %510 ], [ %245, %244 ], [ %eh.lpad-body.i, %.body900 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #21
   br label %.body434
@@ -1546,9 +1546,9 @@ _ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicy
   br label %.body420
 
 .body420:                                         ; preds = %.body425, %504, %214
-  %.13207 = phi i1 [ true, %214 ], [ true, %504 ], [ %.14208, %.body425 ]
-  %.pn335.pn.pn.pn.pn = phi { ptr, i32 } [ %215, %214 ], [ %505, %504 ], [ %.pn335.pn.pn.pn, %.body425 ]
-  %.13 = phi ptr [ %209, %214 ], [ %209, %504 ], [ %.14, %.body425 ]
+  %.13207 = phi i1 [ true, %504 ], [ true, %214 ], [ %.14208, %.body425 ]
+  %.pn335.pn.pn.pn.pn = phi { ptr, i32 } [ %505, %504 ], [ %215, %214 ], [ %.pn335.pn.pn.pn, %.body425 ]
+  %.13 = phi ptr [ %209, %504 ], [ %209, %214 ], [ %.14, %.body425 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #21
   br label %.body415
@@ -1575,9 +1575,9 @@ _ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicy
   br label %.body401
 
 .body401:                                         ; preds = %.body406, %498, %184
-  %.9203 = phi i1 [ true, %184 ], [ true, %498 ], [ %.10204, %.body406 ]
-  %.pn335.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %185, %184 ], [ %499, %498 ], [ %.pn335.pn.pn.pn.pn.pn.pn.pn, %.body406 ]
-  %.9 = phi ptr [ %179, %184 ], [ %179, %498 ], [ %.10, %.body406 ]
+  %.9203 = phi i1 [ true, %498 ], [ true, %184 ], [ %.10204, %.body406 ]
+  %.pn335.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %499, %498 ], [ %185, %184 ], [ %.pn335.pn.pn.pn.pn.pn.pn.pn, %.body406 ]
+  %.9 = phi ptr [ %179, %498 ], [ %179, %184 ], [ %.10, %.body406 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #21
   br label %.body396
@@ -1604,9 +1604,9 @@ _ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicy
   br label %.body382
 
 .body382:                                         ; preds = %.body387, %492, %154
-  %.5199 = phi i1 [ true, %154 ], [ true, %492 ], [ %.6200, %.body387 ]
-  %.pn335.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %155, %154 ], [ %493, %492 ], [ %.pn335.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body387 ]
-  %.5 = phi ptr [ %149, %154 ], [ %149, %492 ], [ %.6, %.body387 ]
+  %.5199 = phi i1 [ true, %492 ], [ true, %154 ], [ %.6200, %.body387 ]
+  %.pn335.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %493, %492 ], [ %155, %154 ], [ %.pn335.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body387 ]
+  %.5 = phi ptr [ %149, %492 ], [ %149, %154 ], [ %.6, %.body387 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #21
   br label %.body377
@@ -1638,9 +1638,9 @@ _ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicy
   br label %_ZN4absl7debian213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EENS0_18container_internal10StringHashENSB_12StringHashEq2EqESaISt4pairIKS7_SA_EEED2Ev.exit530
 
 .body:                                            ; preds = %.body370, %124, %486
-  %.1195 = phi i1 [ true, %124 ], [ true, %486 ], [ %.2196, %.body370 ]
-  %.pn335.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %125, %124 ], [ %487, %486 ], [ %.pn335.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body370 ]
-  %.1 = phi ptr [ %4, %124 ], [ %4, %486 ], [ %.2, %.body370 ]
+  %.1195 = phi i1 [ true, %486 ], [ true, %124 ], [ %.2196, %.body370 ]
+  %.pn335.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %487, %486 ], [ %125, %124 ], [ %.pn335.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body370 ]
+  %.1 = phi ptr [ %4, %486 ], [ %4, %124 ], [ %.2, %.body370 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #21
@@ -1677,14 +1677,14 @@ _ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicy
   br label %.body517
 
 .body517:                                         ; preds = %.thread1375, %433, %523
-  %.pn359 = phi { ptr, i32 } [ %524, %523 ], [ %434, %433 ], [ %428, %.thread1375 ]
+  %.pn359 = phi { ptr, i32 } [ %524, %523 ], [ %428, %.thread1375 ], [ %434, %433 ]
   %525 = getelementptr inbounds nuw i8, ptr %35, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %525) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(76) %35) #21
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.body517, %521, %519
-  %.pn359.pn = phi { ptr, i32 } [ %522, %521 ], [ %520, %519 ], [ %.pn359, %.body517 ]
+  %.pn359.pn = phi { ptr, i32 } [ %520, %519 ], [ %522, %521 ], [ %.pn359, %.body517 ]
   invoke void @_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SC_EEE13destroy_slotsEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
           to label %_ZN4absl7debian213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EENS0_18container_internal10StringHashENSB_12StringHashEq2EqESaISt4pairIKS7_SA_EEED2Ev.exit530 unwind label %526
 
@@ -3797,8 +3797,8 @@ _ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicy
   br i1 %1160, label %.body642, label %.body984
 
 .body642:                                         ; preds = %.body984, %1156, %702
-  %.23282 = phi i1 [ true, %702 ], [ true, %1156 ], [ false, %.body984 ]
-  %.pn = phi { ptr, i32 } [ %703, %702 ], [ %1157, %1156 ], [ %eh.lpad-body.i976, %.body984 ]
+  %.23282 = phi i1 [ true, %1156 ], [ true, %702 ], [ false, %.body984 ]
+  %.pn = phi { ptr, i32 } [ %1157, %1156 ], [ %703, %702 ], [ %eh.lpad-body.i976, %.body984 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %68) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %66) #21
   br label %.body638
@@ -3824,9 +3824,9 @@ _ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicy
   br label %.body624
 
 .body624:                                         ; preds = %.body629, %1150, %672
-  %.19278 = phi i1 [ true, %672 ], [ true, %1150 ], [ %.20279, %.body629 ]
-  %.19232 = phi ptr [ %667, %672 ], [ %667, %1150 ], [ %.20233, %.body629 ]
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %673, %672 ], [ %1151, %1150 ], [ %.pn.pn.pn.pn, %.body629 ]
+  %.19278 = phi i1 [ true, %1150 ], [ true, %672 ], [ %.20279, %.body629 ]
+  %.19232 = phi ptr [ %667, %1150 ], [ %667, %672 ], [ %.20233, %.body629 ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1151, %1150 ], [ %673, %672 ], [ %.pn.pn.pn.pn, %.body629 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %65) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %61) #21
   br label %.body619
@@ -3853,9 +3853,9 @@ _ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicy
   br label %.body605
 
 .body605:                                         ; preds = %.body610, %1144, %642
-  %.15274 = phi i1 [ true, %642 ], [ true, %1144 ], [ %.16275, %.body610 ]
-  %.15228 = phi ptr [ %637, %642 ], [ %637, %1144 ], [ %.16229, %.body610 ]
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %643, %642 ], [ %1145, %1144 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %.body610 ]
+  %.15274 = phi i1 [ true, %1144 ], [ true, %642 ], [ %.16275, %.body610 ]
+  %.15228 = phi ptr [ %637, %1144 ], [ %637, %642 ], [ %.16229, %.body610 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1145, %1144 ], [ %643, %642 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %.body610 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %60) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #21
   br label %.body600
@@ -3893,10 +3893,10 @@ _ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicy
   br label %.loopexit1155
 
 .body581:                                         ; preds = %1161, %607, %1138
-  %1165 = phi i1 [ false, %607 ], [ false, %1138 ], [ true, %1161 ]
-  %.11270 = phi i1 [ true, %607 ], [ true, %1138 ], [ %.12271, %1161 ]
-  %.11224 = phi ptr [ %598, %607 ], [ %598, %1138 ], [ %.12225, %1161 ]
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %608, %607 ], [ %1139, %1138 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1161 ]
+  %1165 = phi i1 [ false, %1138 ], [ false, %607 ], [ true, %1161 ]
+  %.11270 = phi i1 [ true, %1138 ], [ true, %607 ], [ %.12271, %1161 ]
+  %.11224 = phi ptr [ %598, %1138 ], [ %598, %607 ], [ %.12225, %1161 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1139, %1138 ], [ %608, %607 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1161 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %55) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %54) #21
   br i1 %1165, label %.loopexit1155, label %.preheader1154.preheader
@@ -3945,10 +3945,10 @@ _ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicy
   br label %.loopexit1153
 
 .body557:                                         ; preds = %1166, %568, %1130
-  %1170 = phi i1 [ false, %568 ], [ false, %1130 ], [ true, %1166 ]
-  %.6265 = phi i1 [ true, %568 ], [ true, %1130 ], [ %.7266, %1166 ]
-  %.6219 = phi ptr [ %559, %568 ], [ %559, %1130 ], [ %.7220, %1166 ]
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %569, %568 ], [ %1131, %1130 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1166 ]
+  %1170 = phi i1 [ false, %1130 ], [ false, %568 ], [ true, %1166 ]
+  %.6265 = phi i1 [ true, %1130 ], [ true, %568 ], [ %.7266, %1166 ]
+  %.6219 = phi ptr [ %559, %1130 ], [ %559, %568 ], [ %.7220, %1166 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1131, %1130 ], [ %569, %568 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1166 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %49) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %48) #21
   br i1 %1170, label %.loopexit1153, label %.preheader1152.preheader
@@ -3991,9 +3991,9 @@ _ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicy
   br label %_ZN4absl7debian213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EENS0_18container_internal10StringHashENSB_12StringHashEq2EqESaISt4pairIKS7_SA_EEED2Ev.exit530
 
 .body533:                                         ; preds = %.body543, %534, %1122
-  %.1260 = phi i1 [ true, %534 ], [ true, %1122 ], [ %.2261, %.body543 ]
-  %.1214 = phi ptr [ %38, %534 ], [ %38, %1122 ], [ %.2215, %.body543 ]
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %535, %534 ], [ %1123, %1122 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body543 ]
+  %.1260 = phi i1 [ true, %1122 ], [ true, %534 ], [ %.2261, %.body543 ]
+  %.1214 = phi ptr [ %38, %1122 ], [ %38, %534 ], [ %.2215, %.body543 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1123, %1122 ], [ %535, %534 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body543 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %43) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %40) #21
@@ -4262,34 +4262,34 @@ _ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicy
   br label %.body778
 
 .body778:                                         ; preds = %.thread1388, %979, %1256
-  %.pn327 = phi { ptr, i32 } [ %1257, %1256 ], [ %980, %979 ], [ %974, %.thread1388 ]
+  %.pn327 = phi { ptr, i32 } [ %1257, %1256 ], [ %974, %.thread1388 ], [ %980, %979 ]
   %1258 = getelementptr inbounds nuw i8, ptr %114, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1258) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(76) %114) #21
   br label %.loopexit1138
 
 .loopexit1138:                                    ; preds = %.body778, %1254, %1252
-  %.pn327.pn = phi { ptr, i32 } [ %1255, %1254 ], [ %1253, %1252 ], [ %.pn327, %.body778 ]
+  %.pn327.pn = phi { ptr, i32 } [ %1253, %1252 ], [ %1255, %1254 ], [ %.pn327, %.body778 ]
   call void @_ZN4absl7debian213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfNS0_18container_internal10StringHashENS8_12StringHashEq2EqESaISt4pairIKS7_fEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %103) #21
   br label %.loopexit1139
 
 .loopexit1139:                                    ; preds = %1244, %1248, %.thread1136, %.loopexit1138
-  %.pn327.pn.pn = phi { ptr, i32 } [ %.pn327.pn, %.loopexit1138 ], [ %937, %.thread1136 ], [ %961, %1248 ], [ %1243, %1244 ]
+  %.pn327.pn.pn = phi { ptr, i32 } [ %.pn327.pn, %.loopexit1138 ], [ %961, %1248 ], [ %937, %.thread1136 ], [ %1243, %1244 ]
   call void @_ZN4absl7debian213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfNS0_18container_internal10StringHashENS8_12StringHashEq2EqESaISt4pairIKS7_fEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %101) #21
   br label %.loopexit1141
 
 .loopexit1141:                                    ; preds = %1234, %1238, %.thread1134, %.loopexit1139
-  %.pn327.pn.pn.pn = phi { ptr, i32 } [ %.pn327.pn.pn, %.loopexit1139 ], [ %908, %.thread1134 ], [ %932, %1238 ], [ %1233, %1234 ]
+  %.pn327.pn.pn.pn = phi { ptr, i32 } [ %.pn327.pn.pn, %.loopexit1139 ], [ %932, %1238 ], [ %908, %.thread1134 ], [ %1233, %1234 ]
   call void @_ZN4absl7debian213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfNS0_18container_internal10StringHashENS8_12StringHashEq2EqESaISt4pairIKS7_fEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %92) #21
   br label %.loopexit1143
 
 .loopexit1143:                                    ; preds = %1224, %1228, %.thread1132, %.loopexit1141
-  %.pn327.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn327.pn.pn.pn, %.loopexit1141 ], [ %879, %.thread1132 ], [ %903, %1228 ], [ %1223, %1224 ]
+  %.pn327.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn327.pn.pn.pn, %.loopexit1141 ], [ %903, %1228 ], [ %879, %.thread1132 ], [ %1223, %1224 ]
   call void @_ZN4absl7debian213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfNS0_18container_internal10StringHashENS8_12StringHashEq2EqESaISt4pairIKS7_fEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %83) #21
   br label %.loopexit1145
 
 .loopexit1145:                                    ; preds = %1214, %1218, %.thread, %.loopexit1143
-  %.pn327.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn327.pn.pn.pn.pn, %.loopexit1143 ], [ %850, %.thread ], [ %874, %1218 ], [ %1213, %1214 ]
+  %.pn327.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn327.pn.pn.pn.pn, %.loopexit1143 ], [ %874, %1218 ], [ %850, %.thread ], [ %1213, %1214 ]
   call void @_ZN4absl7debian213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIffENS0_18container_internal10StringHashENSA_12StringHashEq2EqESaIS8_IKS7_S9_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %69) #21
   br label %.loopexit1148
 
@@ -4364,7 +4364,7 @@ _ZN4absl7debian213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   ret void
 
 _ZN4absl7debian213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EENS0_18container_internal10StringHashENSB_12StringHashEq2EqESaISt4pairIKS7_SA_EEED2Ev.exit530: ; preds = %.preheader1150, %.preheader, %.loopexit1148, %.body533.thread, %.loopexit, %.body.thread, %.body533, %.body, %1277, %1275
-  %.pn362 = phi { ptr, i32 } [ %1278, %1277 ], [ %1276, %1275 ], [ %.pn335.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body533 ], [ %.pn335.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.body.thread ], [ %.pn359.pn, %.loopexit ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.body533.thread ], [ %.pn327.pn.pn.pn.pn.pn.pn, %.loopexit1148 ], [ %.pn335.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader1150 ]
+  %.pn362 = phi { ptr, i32 } [ %1278, %1277 ], [ %1276, %1275 ], [ %.pn335.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.body.thread ], [ %.pn335.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body ], [ %.pn327.pn.pn.pn.pn.pn.pn, %.loopexit1148 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.body533.thread ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body533 ], [ %.pn335.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader ], [ %.pn359.pn, %.loopexit ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader1150 ]
   call void @_ZNSt10unique_ptrIN10open_spiel15dynamic_routing18DynamicRoutingDataESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #21
   resume { ptr, i32 } %.pn362
 }

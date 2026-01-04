@@ -4342,7 +4342,7 @@ define dso_local zeroext i1 @intel_pipe_config_compare(ptr noundef %0, ptr nound
   br i1 %120, label %134, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %91, %115, %109, %103
-  %121 = phi i32 [ %99, %115 ], [ %99, %109 ], [ %99, %103 ], [ %101, %91 ]
+  %121 = phi i32 [ %101, %91 ], [ %99, %115 ], [ %99, %109 ], [ %99, %103 ]
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 1504
   %123 = load i32, ptr %122, align 8
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 1508
@@ -4450,7 +4450,7 @@ define dso_local zeroext i1 @intel_pipe_config_compare(ptr noundef %0, ptr nound
   br i1 %197, label %296, label %._crit_edge393
 
 ._crit_edge393:                                   ; preds = %169, %192, %186, %180
-  %198 = phi i32 [ %176, %192 ], [ %176, %186 ], [ %176, %180 ], [ %178, %169 ]
+  %198 = phi i32 [ %178, %169 ], [ %176, %192 ], [ %176, %186 ], [ %176, %180 ]
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 1376
   %200 = load i32, ptr %199, align 8
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 1380
@@ -4505,7 +4505,7 @@ define dso_local zeroext i1 @intel_pipe_config_compare(ptr noundef %0, ptr nound
   br i1 %239, label %253, label %._crit_edge383
 
 ._crit_edge383:                                   ; preds = %211, %234, %228, %222
-  %240 = phi i32 [ %218, %234 ], [ %218, %228 ], [ %218, %222 ], [ %220, %211 ]
+  %240 = phi i32 [ %220, %211 ], [ %218, %234 ], [ %218, %228 ], [ %218, %222 ]
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 1376
   %242 = load i32, ptr %241, align 8
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 1380
@@ -4561,7 +4561,7 @@ define dso_local zeroext i1 @intel_pipe_config_compare(ptr noundef %0, ptr nound
   br i1 %282, label %296, label %._crit_edge388
 
 ._crit_edge388:                                   ; preds = %253, %277, %271, %265
-  %283 = phi i32 [ %261, %277 ], [ %261, %271 ], [ %261, %265 ], [ %263, %253 ]
+  %283 = phi i32 [ %263, %253 ], [ %261, %277 ], [ %261, %271 ], [ %261, %265 ]
   %284 = getelementptr inbounds nuw i8, ptr %0, i64 1396
   %285 = load i32, ptr %284, align 4
   %286 = getelementptr inbounds nuw i8, ptr %0, i64 1400
@@ -9462,7 +9462,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
   br i1 %840, label %841, label %803, !llvm.loop !121
 
 841:                                              ; preds = %837, %828, %819
-  %842 = phi i1 [ %805, %828 ], [ %839, %837 ], [ %805, %819 ]
+  %842 = phi i1 [ %805, %819 ], [ %805, %828 ], [ %839, %837 ]
   br i1 %842, label %.critedge, label %843
 
 843:                                              ; preds = %841
@@ -10008,7 +10008,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
   %1191 = icmp slt i32 %1189, 0
   br i1 %1191, label %.thread220.thread, label %.thread220.thread285
 
-.thread220.thread:                                ; preds = %.thread220, %964, %982, %.thread217
+.thread220.thread:                                ; preds = %.thread220, %.thread217, %964, %982
   %1192 = phi i32 [ -22, %.thread217 ], [ -22, %982 ], [ -22, %964 ], [ %1189, %.thread220 ]
   %1193 = icmp eq ptr %643, null
   br i1 %1193, label %1197, label %1194
@@ -10051,7 +10051,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
   br label %1216
 
 .thread223:                                       ; preds = %1188, %889, %1197, %734, %856, %901
-  %.ph222 = phi i32 [ -22, %856 ], [ -22, %734 ], [ %1192, %1197 ], [ %892, %901 ], [ -35, %889 ], [ -35, %1188 ]
+  %.ph222 = phi i32 [ -22, %856 ], [ %1192, %1197 ], [ -35, %889 ], [ -22, %734 ], [ %892, %901 ], [ -35, %1188 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread203
@@ -10384,14 +10384,14 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
   br i1 %1426, label %468, label %.thread238, !llvm.loop !139
 
 .thread203:                                       ; preds = %547, %1417, %1369, %1311, %1324, %1247, %1267, %.thread223
-  %.ph235 = phi i32 [ %.ph222, %.thread223 ], [ -22, %1267 ], [ -22, %1247 ], [ -22, %1311 ], [ -22, %1324 ], [ -12, %1369 ], [ -12, %547 ], [ %1419, %1417 ]
+  %.ph235 = phi i32 [ -22, %1247 ], [ -22, %1324 ], [ -12, %1369 ], [ %.ph222, %.thread223 ], [ -22, %1267 ], [ -22, %1311 ], [ %1419, %1417 ], [ -12, %547 ]
   %1427 = getelementptr inbounds nuw i8, ptr %472, i64 1648
   %1428 = load i32, ptr %1427, align 8
   br label %.thread202
 
 .thread202:                                       ; preds = %317, %266, %.thread203, %.thread201, %.loopexit315
-  %1429 = phi i32 [ %1428, %.thread203 ], [ -1, %.thread201 ], [ -1, %.loopexit315 ], [ -1, %266 ], [ -1, %317 ]
-  %1430 = phi i32 [ %.ph235, %.thread203 ], [ %459, %.thread201 ], [ %457, %.loopexit315 ], [ %319, %317 ], [ %277, %266 ]
+  %1429 = phi i32 [ -1, %.loopexit315 ], [ %1428, %.thread203 ], [ -1, %.thread201 ], [ -1, %266 ], [ -1, %317 ]
+  %1430 = phi i32 [ %457, %.loopexit315 ], [ %.ph235, %.thread203 ], [ %459, %.thread201 ], [ %319, %317 ], [ %277, %266 ]
   %cond288 = icmp eq i32 %1430, -22
   br i1 %cond288, label %1431, label %.thread240
 
@@ -10533,7 +10533,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
   br label %.thread242
 
 .thread242:                                       ; preds = %..thread242_crit_edge, %1498, %1506, %.preheader302
-  %1512 = phi i32 [ %.pre657, %..thread242_crit_edge ], [ %1492, %.preheader302 ], [ %1492, %1506 ], [ %1492, %1498 ]
+  %1512 = phi i32 [ %1492, %1498 ], [ %.pre657, %..thread242_crit_edge ], [ %1492, %.preheader302 ], [ %1492, %1506 ]
   %1513 = add nuw nsw i64 %1493, 1
   %1514 = sext i32 %1512 to i64
   %1515 = icmp slt i64 %1513, %1514
@@ -10779,7 +10779,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
   br i1 %1669, label %1670, label %1642, !llvm.loop !143
 
 1670:                                             ; preds = %1666, %1661
-  %1671 = phi i1 [ %1644, %1661 ], [ %1668, %1666 ]
+  %1671 = phi i1 [ %1668, %1666 ], [ %1644, %1661 ]
   br i1 %1671, label %1672, label %.critedge184
 
 1672:                                             ; preds = %1670
@@ -10866,7 +10866,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
   br i1 %1729, label %1730, label %1702, !llvm.loop !143
 
 1730:                                             ; preds = %1726, %1721
-  %1731 = phi i1 [ %1704, %1721 ], [ %1728, %1726 ]
+  %1731 = phi i1 [ %1728, %1726 ], [ %1704, %1721 ]
   br i1 %1731, label %1732, label %.critedge186
 
 1732:                                             ; preds = %1730
@@ -10939,7 +10939,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
   br i1 %1776, label %1777, label %1749, !llvm.loop !144
 
 1777:                                             ; preds = %1773, %1768
-  %1778 = phi i1 [ %1751, %1768 ], [ %1775, %1773 ]
+  %1778 = phi i1 [ %1775, %1773 ], [ %1751, %1768 ]
   br i1 %1778, label %1779, label %.critedge188
 
 1779:                                             ; preds = %1777
@@ -10998,7 +10998,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
   br i1 %1811, label %.preheader298, label %.loopexit299, !llvm.loop !146
 
 .loopexit299:                                     ; preds = %1805, %1436, %.loopexit305, %.loopexit301
-  %1812 = phi ptr [ %1785, %.loopexit301 ], [ %1596, %.loopexit305 ], [ %1437, %1436 ], [ %1806, %1805 ]
+  %1812 = phi ptr [ %1785, %.loopexit301 ], [ %1437, %1436 ], [ %1596, %.loopexit305 ], [ %1806, %1805 ]
   %1813 = load i8, ptr %9, align 1, !range !14, !noundef !15
   %1814 = icmp eq i8 %1813, 0
   br i1 %1814, label %1912, label %1815
@@ -11439,7 +11439,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
   br label %.thread256
 
 .thread256:                                       ; preds = %.thread256.loopexit, %2001, %1992
-  %2079 = phi ptr [ %1993, %1992 ], [ %1993, %2001 ], [ %.pre662, %.thread256.loopexit ]
+  %2079 = phi ptr [ %1993, %2001 ], [ %1993, %1992 ], [ %.pre662, %.thread256.loopexit ]
   %2080 = add nuw nsw i64 %1994, 1
   %2081 = getelementptr inbounds nuw i8, ptr %2079, i64 728
   %2082 = load i32, ptr %2081, align 8
@@ -12102,12 +12102,12 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
   br i1 %2510, label %2463, label %.thread, !llvm.loop !188
 
 .thread278:                                       ; preds = %1510, %2074, %2374, %2420, %1981, %2112, %.thread240, %2453, %2450, %2447, %2441, %2434, %2431, %.thread280, %1434, %.loopexit321
-  %2511 = phi i32 [ %59, %.loopexit321 ], [ %1433, %1434 ], [ %2429, %.thread280 ], [ %2432, %2431 ], [ %2435, %2434 ], [ %2442, %2441 ], [ %2448, %2447 ], [ %2451, %2450 ], [ %2454, %2453 ], [ %1430, %.thread240 ], [ %1983, %1981 ], [ %2105, %2112 ], [ %2422, %2420 ], [ %2376, %2374 ], [ %2076, %2074 ], [ %1511, %1510 ]
+  %2511 = phi i32 [ %59, %.loopexit321 ], [ %1433, %1434 ], [ %2076, %2074 ], [ %2429, %.thread280 ], [ %2432, %2431 ], [ %2435, %2434 ], [ %2442, %2441 ], [ %2448, %2447 ], [ %2451, %2450 ], [ %2454, %2453 ], [ %1430, %.thread240 ], [ %1983, %1981 ], [ %2105, %2112 ], [ %2422, %2420 ], [ %2376, %2374 ], [ %1511, %1510 ]
   %2512 = icmp eq i32 %2511, -35
   br i1 %2512, label %.thread, label %.thread284
 
 .thread284:                                       ; preds = %2471, %.thread278.thread, %1910, %.thread278
-  %2513 = phi i32 [ %2511, %.thread278 ], [ -22, %1910 ], [ -22, %.thread278.thread ], [ %2472, %2471 ]
+  %2513 = phi i32 [ %2511, %.thread278 ], [ -22, %.thread278.thread ], [ -22, %1910 ], [ %2472, %2471 ]
   %2514 = load ptr, ptr %10, align 8
   %2515 = getelementptr inbounds nuw i8, ptr %2514, i64 728
   %2516 = load i32, ptr %2515, align 8
@@ -12144,7 +12144,7 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
   br i1 %2536, label %2520, label %.thread, !llvm.loop !189
 
 .thread:                                          ; preds = %2504, %2530, %95, %162, %181, %133, %111, %.thread284, %.thread278, %2456, %2444
-  %2537 = phi i32 [ %2445, %2444 ], [ -35, %.thread278 ], [ %2513, %.thread284 ], [ 0, %2456 ], [ -22, %111 ], [ -22, %133 ], [ -22, %181 ], [ -22, %162 ], [ -22, %95 ], [ %2513, %2530 ], [ 0, %2504 ]
+  %2537 = phi i32 [ %2445, %2444 ], [ -35, %.thread278 ], [ %2513, %.thread284 ], [ 0, %2456 ], [ -22, %95 ], [ %2513, %2530 ], [ -22, %111 ], [ -22, %133 ], [ -22, %181 ], [ -22, %162 ], [ 0, %2504 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %2537
 }
@@ -12681,7 +12681,7 @@ define internal fastcc i32 @intel_atomic_check_crtcs(ptr noundef %0) unnamed_add
   br label %.thread18
 
 .thread17:                                        ; preds = %228, %129, %117, %114, %80, %47, %.thread, %101, %91
-  %234 = phi i32 [ %94, %101 ], [ %84, %91 ], [ %48, %47 ], [ %81, %80 ], [ %115, %114 ], [ %118, %117 ], [ %130, %129 ], [ %230, %228 ], [ %232, %.thread ]
+  %234 = phi i32 [ %84, %91 ], [ %94, %101 ], [ %48, %47 ], [ %81, %80 ], [ %115, %114 ], [ %118, %117 ], [ %130, %129 ], [ %230, %228 ], [ %232, %.thread ]
   %235 = icmp eq ptr %17, null
   br i1 %235, label %239, label %236
 
@@ -14446,7 +14446,7 @@ define internal fastcc void @intel_atomic_commit_tail(ptr noundef %0) unnamed_ad
   br i1 %505, label %475, label %.loopexit54, !llvm.loop !222
 
 .loopexit54:                                      ; preds = %498, %461, %455, %448
-  %506 = phi ptr [ %449, %461 ], [ %449, %455 ], [ %449, %448 ], [ %499, %498 ]
+  %506 = phi ptr [ %449, %448 ], [ %449, %461 ], [ %449, %455 ], [ %499, %498 ]
   %507 = add nuw nsw i64 %450, 1
   %508 = getelementptr inbounds nuw i8, ptr %506, i64 728
   %509 = load i32, ptr %508, align 8
@@ -15614,7 +15614,7 @@ define dso_local void @intel_setup_outputs(ptr noundef %0) local_unnamed_addr #0
   br label %.thread
 
 .thread:                                          ; preds = %241, %252, %249, %238, %226
-  %254 = phi i1 [ false, %252 ], [ false, %226 ], [ true, %238 ], [ false, %249 ], [ false, %241 ]
+  %254 = phi i1 [ false, %249 ], [ false, %252 ], [ false, %226 ], [ true, %238 ], [ false, %241 ]
   %255 = load ptr, ptr %228, align 8
   %256 = tail call i32 %255(ptr noundef nonnull %227, i32 397632, i1 noundef zeroext true) #26
   %257 = and i32 %256, 4
@@ -19136,7 +19136,7 @@ define internal void @hsw_crtc_enable(ptr noundef %0, ptr noundef %1) #0 align 1
   br i1 %165, label %141, label %.loopexit37, !llvm.loop !317
 
 .loopexit37:                                      ; preds = %161, %129, %.thread71, %117
-  %166 = phi ptr [ %121, %129 ], [ %121, %.thread71 ], [ %119, %117 ], [ %121, %161 ]
+  %166 = phi ptr [ %119, %117 ], [ %121, %129 ], [ %121, %.thread71 ], [ %121, %161 ]
   %167 = getelementptr inbounds nuw i8, ptr %9, i64 920
   %168 = load ptr, ptr %167, align 8
   %169 = icmp eq ptr %168, null
@@ -19593,7 +19593,7 @@ intel_cpu_transcoder_set_m2_n2.exit:              ; preds = %intel_cpu_transcode
   br label %499
 
 499:                                              ; preds = %.thread, %482
-  %500 = phi i32 [ %498, %482 ], [ %481, %.thread ]
+  %500 = phi i32 [ %481, %.thread ], [ %498, %482 ]
   %501 = getelementptr inbounds nuw i8, ptr %465, i64 2624
   %502 = load ptr, ptr %501, align 8
   %503 = getelementptr inbounds nuw i8, ptr %502, i64 36
@@ -20615,8 +20615,8 @@ define internal void @skl_commit_modeset_enables(ptr noundef %0) #0 align 16 {
   br i1 %349, label %303, label %.loopexit, !llvm.loop !337
 
 .loopexit:                                        ; preds = %342, %.thread23, %.loopexit28, %.loopexit27, %.loopexit26
-  %350 = phi i8 [ %270, %.loopexit26 ], [ %270, %.loopexit27 ], [ %213, %.loopexit28 ], [ %89, %.thread23 ], [ %270, %342 ]
-  %351 = phi i8 [ %89, %.loopexit26 ], [ %89, %.loopexit27 ], [ %89, %.loopexit28 ], [ %89, %.thread23 ], [ %344, %342 ]
+  %350 = phi i8 [ %270, %.loopexit26 ], [ %89, %.thread23 ], [ %270, %.loopexit27 ], [ %213, %.loopexit28 ], [ %270, %342 ]
+  %351 = phi i8 [ %89, %.loopexit26 ], [ %89, %.thread23 ], [ %89, %.loopexit27 ], [ %89, %.loopexit28 ], [ %344, %342 ]
   %352 = icmp eq i8 %350, 0
   br i1 %352, label %365, label %353, !prof !6
 

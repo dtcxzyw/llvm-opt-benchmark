@@ -364,8 +364,8 @@ ceil_log2.exit164:                                ; preds = %90, %._crit_edge.lo
   br label %.thread190
 
 ceil_log2.exit:                                   ; preds = %floor_log2.exit151, %floor_log2.exit156.loopexit, %65, %floor_log2.exit.loopexit, %._crit_edge.loopexit.i171, %ceil_log2.exit164, %._crit_edge.loopexit.i, %70, %57
-  %.0133 = phi i32 [ 1, %57 ], [ 1, %70 ], [ %76, %._crit_edge.loopexit.i ], [ %97, %ceil_log2.exit164 ], [ %97, %._crit_edge.loopexit.i171 ], [ 1, %65 ], [ %69, %floor_log2.exit.loopexit ], [ %.0.lcssa.i147, %floor_log2.exit156.loopexit ], [ %.0.lcssa.i147, %floor_log2.exit151 ]
-  %.0132 = phi i32 [ 1, %57 ], [ 1, %70 ], [ %76, %._crit_edge.loopexit.i ], [ 1, %ceil_log2.exit164 ], [ %104, %._crit_edge.loopexit.i171 ], [ 1, %65 ], [ %69, %floor_log2.exit.loopexit ], [ %89, %floor_log2.exit156.loopexit ], [ 1, %floor_log2.exit151 ]
+  %.0133 = phi i32 [ %76, %._crit_edge.loopexit.i ], [ %97, %._crit_edge.loopexit.i171 ], [ 1, %57 ], [ %69, %floor_log2.exit.loopexit ], [ 1, %70 ], [ %97, %ceil_log2.exit164 ], [ 1, %65 ], [ %.0.lcssa.i147, %floor_log2.exit156.loopexit ], [ %.0.lcssa.i147, %floor_log2.exit151 ]
+  %.0132 = phi i32 [ %76, %._crit_edge.loopexit.i ], [ %104, %._crit_edge.loopexit.i171 ], [ 1, %57 ], [ %69, %floor_log2.exit.loopexit ], [ 1, %70 ], [ 1, %ceil_log2.exit164 ], [ 1, %65 ], [ %89, %floor_log2.exit156.loopexit ], [ 1, %floor_log2.exit151 ]
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 192
   store i32 %.0133, ptr %109, align 8, !tbaa !37
   %110 = getelementptr inbounds nuw i8, ptr %1, i64 196
@@ -486,8 +486,8 @@ ceil_log2.exit:                                   ; preds = %floor_log2.exit151,
   store ptr %126, ptr %171, align 8, !tbaa !45
   br label %.thread190
 
-.thread190:                                       ; preds = %.thread188, %.thread183, %118, %105, %53, %31, %._crit_edge, %13, %16, %9, %3, %3, %3, %22
-  %.0 = phi i32 [ %25, %22 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %9 ], [ 0, %16 ], [ 0, %13 ], [ 0, %._crit_edge ], [ 0, %31 ], [ %158, %.thread188 ], [ %139, %.thread183 ], [ %121, %118 ], [ %108, %105 ], [ %56, %53 ]
+.thread190:                                       ; preds = %.thread183, %.thread188, %118, %105, %53, %31, %._crit_edge, %13, %16, %9, %3, %3, %3, %22
+  %.0 = phi i32 [ 0, %3 ], [ 0, %13 ], [ 0, %31 ], [ %25, %22 ], [ 0, %9 ], [ 0, %3 ], [ 0, %3 ], [ 0, %16 ], [ 0, %._crit_edge ], [ %139, %.thread183 ], [ %158, %.thread188 ], [ %121, %118 ], [ %108, %105 ], [ %56, %53 ]
   ret i32 %.0
 }
 
@@ -623,7 +623,7 @@ define hidden i32 @internal_exr_compute_chunk_offset_size(ptr noundef captures(n
   br i1 %exitcond164.not, label %._crit_edge, label %52, !llvm.loop !50
 
 .thread122:                                       ; preds = %._crit_edge.us, %43, %.preheader124.lr.ph, %.preheader125, %._crit_edge
-  %.187.in = phi i64 [ %60, %._crit_edge ], [ 0, %.preheader125 ], [ 0, %.preheader124.lr.ph ], [ 0, %43 ], [ %41, %._crit_edge.us ]
+  %.187.in = phi i64 [ %60, %._crit_edge ], [ 0, %.preheader125 ], [ 0, %43 ], [ 0, %.preheader124.lr.ph ], [ %41, %._crit_edge.us ]
   %.187 = trunc i64 %.187.in to i32
   %61 = load i32, ptr %5, align 8, !tbaa !51
   %62 = icmp sgt i32 %61, 0
@@ -768,7 +768,7 @@ compute_sampled_height.exit:                      ; preds = %compute_sampled_wid
   br i1 %exitcond173.not, label %._crit_edge146, label %103, !llvm.loop !63
 
 .critedge:                                        ; preds = %36, %._crit_edge146, %81, %._crit_edge, %18, %._crit_edge140, %9
-  %.085 = phi i32 [ %., %9 ], [ %.187, %._crit_edge140 ], [ -1, %18 ], [ -1, %._crit_edge ], [ -1, %81 ], [ %102, %._crit_edge146 ], [ -1, %36 ]
+  %.085 = phi i32 [ %., %9 ], [ %102, %._crit_edge146 ], [ -1, %._crit_edge ], [ -1, %81 ], [ %.187, %._crit_edge140 ], [ -1, %18 ], [ -1, %36 ]
   ret i32 %.085
 }
 
@@ -964,7 +964,7 @@ read_magic_and_flags.exit.thread:                 ; preds = %62
   br label %69
 
 read_magic_and_flags.exit:                        ; preds = %45, %58, %64
-  %.0.i = phi i32 [ %50, %45 ], [ %61, %58 ], [ %67, %64 ]
+  %.0.i = phi i32 [ %67, %64 ], [ %50, %45 ], [ %61, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
@@ -1511,7 +1511,7 @@ extract_attr_uint8.exit.thread.i.i.i:             ; preds = %extract_attr_uint8.
   br label %check_populate_compression.exit.i.i
 
 check_populate_compression.exit.i.i:              ; preds = %296, %293, %285, %282, %extract_attr_uint8.exit.i.i.i, %257
-  %.0.i80.i.i = phi i32 [ %261, %257 ], [ %284, %282 ], [ 0, %285 ], [ %295, %293 ], [ 0, %296 ], [ %.0.i.i.i.i, %extract_attr_uint8.exit.i.i.i ]
+  %.0.i80.i.i = phi i32 [ %261, %257 ], [ 0, %296 ], [ %284, %282 ], [ 0, %285 ], [ %295, %293 ], [ %.0.i.i.i.i, %extract_attr_uint8.exit.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %check_req_attr.exit.i
 
@@ -1613,7 +1613,7 @@ extract_attr_32bit.exit.thread.i.i.i:             ; preds = %extract_attr_32bit.
   br label %check_populate_dataWindow.exit.i.i
 
 check_populate_dataWindow.exit.i.i:               ; preds = %341, %338, %331, %328, %extract_attr_32bit.exit.i.i.i, %309
-  %.0.i82.i.i = phi i32 [ %313, %309 ], [ %330, %328 ], [ 0, %331 ], [ %340, %338 ], [ 0, %341 ], [ %.0.i.i84.i.i, %extract_attr_32bit.exit.i.i.i ]
+  %.0.i82.i.i = phi i32 [ %313, %309 ], [ 0, %341 ], [ %330, %328 ], [ 0, %331 ], [ %340, %338 ], [ %.0.i.i84.i.i, %extract_attr_32bit.exit.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %check_req_attr.exit.i
 
@@ -1706,7 +1706,7 @@ extract_attr_32bit.exit.thread.i96.i.i:           ; preds = %extract_attr_32bit.
   br label %check_populate_displayWindow.exit.i.i
 
 check_populate_displayWindow.exit.i.i:            ; preds = %381, %378, %371, %368, %extract_attr_32bit.exit.i93.i.i, %349
-  %.0.i91.i.i = phi i32 [ %353, %349 ], [ %370, %368 ], [ 0, %371 ], [ %380, %378 ], [ 0, %381 ], [ %.0.i.i94.i.i, %extract_attr_32bit.exit.i93.i.i ]
+  %.0.i91.i.i = phi i32 [ %353, %349 ], [ 0, %381 ], [ %370, %368 ], [ 0, %371 ], [ %380, %378 ], [ %.0.i.i94.i.i, %extract_attr_32bit.exit.i93.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %check_req_attr.exit.i
 
@@ -1811,7 +1811,7 @@ extract_attr_uint8.exit.thread.i107.i.i:          ; preds = %extract_attr_uint8.
   br label %check_populate_lineOrder.exit.i.i
 
 check_populate_lineOrder.exit.i.i:                ; preds = %428, %425, %417, %414, %extract_attr_uint8.exit.i104.i.i, %389
-  %.0.i102.i.i = phi i32 [ %393, %389 ], [ %416, %414 ], [ 0, %417 ], [ %427, %425 ], [ 0, %428 ], [ %.0.i.i105.i.i, %extract_attr_uint8.exit.i104.i.i ]
+  %.0.i102.i.i = phi i32 [ %393, %389 ], [ 0, %428 ], [ %416, %414 ], [ 0, %417 ], [ %427, %425 ], [ %.0.i.i105.i.i, %extract_attr_uint8.exit.i104.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %check_req_attr.exit.i
 
@@ -1944,7 +1944,7 @@ check_bad_attrsz.exit.thread.i.i.i:               ; preds = %check_bad_attrsz.ex
   br label %check_populate_name.exit.i.i
 
 check_populate_name.exit.i.i:                     ; preds = %502, %494, %489, %479, %470, %464, %check_bad_attrsz.exit.i.i.i
-  %.0.i113.i.i = phi i32 [ %468, %464 ], [ %474, %470 ], [ %483, %479 ], [ %493, %489 ], [ %506, %502 ], [ %.0.i.i114.i.i, %check_bad_attrsz.exit.i.i.i ], [ 0, %494 ]
+  %.0.i113.i.i = phi i32 [ %.0.i.i114.i.i, %check_bad_attrsz.exit.i.i.i ], [ %468, %464 ], [ %474, %470 ], [ %483, %479 ], [ %493, %489 ], [ %506, %502 ], [ 0, %494 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %check_req_attr.exit.i
 
@@ -2544,7 +2544,7 @@ check_bad_attrsz.exit.thread.i137.i.i:            ; preds = %check_bad_attrsz.ex
   br label %check_populate_type.exit.i.i
 
 check_populate_type.exit.i.i:                     ; preds = %807, %803, %796, %794, %787, %785, %778, %776, %769, %767, %756, %743, %733, %724, %718, %check_bad_attrsz.exit.i139.i.i
-  %.0.i138.i.i = phi i32 [ %722, %718 ], [ %728, %724 ], [ %737, %733 ], [ %747, %743 ], [ %760, %756 ], [ %.0.i.i140.i.i, %check_bad_attrsz.exit.i139.i.i ], [ 0, %778 ], [ 0, %776 ], [ 0, %796 ], [ 0, %794 ], [ 0, %807 ], [ 0, %803 ], [ 0, %785 ], [ 0, %787 ], [ 0, %767 ], [ 0, %769 ]
+  %.0.i138.i.i = phi i32 [ %.0.i.i140.i.i, %check_bad_attrsz.exit.i139.i.i ], [ %722, %718 ], [ %728, %724 ], [ %737, %733 ], [ %747, %743 ], [ %760, %756 ], [ 0, %778 ], [ 0, %776 ], [ 0, %796 ], [ 0, %794 ], [ 0, %807 ], [ 0, %803 ], [ 0, %785 ], [ 0, %787 ], [ 0, %767 ], [ 0, %769 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %check_req_attr.exit.i
 
@@ -2641,7 +2641,7 @@ check_populate_version.exit.i.i:                  ; preds = %848, %845, %839, %8
   br label %check_req_attr.exit.i
 
 check_req_attr.exit.i:                            ; preds = %check_populate_version.exit.i.i, %check_populate_type.exit.i.i, %check_populate_tiles.exit.i.i, %check_populate_screenWindowWidth.exit.i.i, %check_populate_screenWindowCenter.exit.i.i, %check_populate_pixelAspectRatio.exit.i.i, %check_populate_name.exit.i.i, %check_populate_lineOrder.exit.i.i, %check_populate_displayWindow.exit.i.i, %check_populate_dataWindow.exit.i.i, %304, %check_populate_compression.exit.i.i, %check_populate_channels.exit.i.i
-  %.0.i.i = phi i32 [ %.0.i.i.i, %check_populate_channels.exit.i.i ], [ %.0.i80.i.i, %check_populate_compression.exit.i.i ], [ %305, %304 ], [ %.0.i82.i.i, %check_populate_dataWindow.exit.i.i ], [ %.0.i91.i.i, %check_populate_displayWindow.exit.i.i ], [ %.0.i102.i.i, %check_populate_lineOrder.exit.i.i ], [ %.0.i113.i.i, %check_populate_name.exit.i.i ], [ %.0.i117.i.i, %check_populate_pixelAspectRatio.exit.i.i ], [ %.0.i121.i.i, %check_populate_screenWindowCenter.exit.i.i ], [ %.0.i128.i.i, %check_populate_screenWindowWidth.exit.i.i ], [ %.0.i135.i.i, %check_populate_tiles.exit.i.i ], [ %.0.i138.i.i, %check_populate_type.exit.i.i ], [ %.0.i144.i.i, %check_populate_version.exit.i.i ]
+  %.0.i.i = phi i32 [ %.0.i144.i.i, %check_populate_version.exit.i.i ], [ %.0.i.i.i, %check_populate_channels.exit.i.i ], [ %.0.i80.i.i, %check_populate_compression.exit.i.i ], [ %305, %304 ], [ %.0.i82.i.i, %check_populate_dataWindow.exit.i.i ], [ %.0.i91.i.i, %check_populate_displayWindow.exit.i.i ], [ %.0.i102.i.i, %check_populate_lineOrder.exit.i.i ], [ %.0.i113.i.i, %check_populate_name.exit.i.i ], [ %.0.i117.i.i, %check_populate_pixelAspectRatio.exit.i.i ], [ %.0.i121.i.i, %check_populate_screenWindowCenter.exit.i.i ], [ %.0.i128.i.i, %check_populate_screenWindowWidth.exit.i.i ], [ %.0.i135.i.i, %check_populate_tiles.exit.i.i ], [ %.0.i138.i.i, %check_populate_type.exit.i.i ]
   %.not113.i = icmp eq i32 %.0.i.i, 33
   br i1 %.not113.i, label %check_req_attr.exit.thread.i, label %1023
 
@@ -2949,8 +2949,8 @@ check_req_attr.exit.thread.i:                     ; preds = %check_req_attr.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %.thread170
 
-.thread170:                                       ; preds = %read_text.exit.i, %read_text.exit128.i, %.critedge.i, %1019, %read_text.exit.thread137.i, %read_text.exit128.thread145.i
-  %.0103.i.ph = phi i32 [ %187, %read_text.exit128.thread145.i ], [ %171, %read_text.exit.thread137.i ], [ %.2.i, %1019 ], [ %854, %.critedge.i ], [ %201, %read_text.exit128.i ], [ %184, %read_text.exit.i ]
+.thread170:                                       ; preds = %read_text.exit.i, %read_text.exit128.thread145.i, %read_text.exit128.i, %.critedge.i, %1019, %read_text.exit.thread137.i
+  %.0103.i.ph = phi i32 [ %171, %read_text.exit.thread137.i ], [ %.2.i, %1019 ], [ %854, %.critedge.i ], [ %201, %read_text.exit128.i ], [ %187, %read_text.exit128.thread145.i ], [ %184, %read_text.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
@@ -2959,7 +2959,7 @@ check_req_attr.exit.thread.i:                     ; preds = %check_req_attr.exit
   br label %.thread166
 
 1023:                                             ; preds = %864, %check_req_attr.exit.i, %207, %202
-  %.0103.i = phi i32 [ %204, %202 ], [ %209, %207 ], [ %866, %864 ], [ %.0.i.i, %check_req_attr.exit.i ]
+  %.0103.i = phi i32 [ %209, %207 ], [ %.0.i.i, %check_req_attr.exit.i ], [ %866, %864 ], [ %204, %202 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
@@ -2969,7 +2969,7 @@ check_req_attr.exit.thread.i:                     ; preds = %check_req_attr.exit
   br i1 %.not107, label %1025, label %.thread166
 
 .thread166:                                       ; preds = %161, %.thread170, %1023
-  %.2169 = phi i32 [ %.0103.i, %1023 ], [ %.0103.i.ph, %.thread170 ], [ %162, %161 ]
+  %.2169 = phi i32 [ %.0103.i.ph, %.thread170 ], [ %.0103.i, %1023 ], [ %162, %161 ]
   %1024 = load i8, ptr %101, align 2, !tbaa !80
   %.not108 = icmp eq i8 %1024, 0
   br i1 %.not108, label %1025, label %.thread183
@@ -3070,7 +3070,7 @@ check_req_attr.exit.thread.i:                     ; preds = %check_req_attr.exit
   br label %priv_destroy_scratch.exit
 
 priv_destroy_scratch.exit:                        ; preds = %1070, %.thread183, %155, %152, %144, %143, %134, %._crit_edge, %119, %114, %93, %89, %83, %82, %read_magic_and_flags.exit, %read_magic_and_flags.exit.thread153
-  %.7.sink = phi i32 [ %39, %read_magic_and_flags.exit.thread153 ], [ %.0.i, %read_magic_and_flags.exit ], [ %81, %82 ], [ %81, %83 ], [ %92, %89 ], [ %92, %93 ], [ %118, %114 ], [ %118, %119 ], [ %133, %._crit_edge ], [ %133, %134 ], [ %142, %143 ], [ %142, %144 ], [ %154, %152 ], [ %154, %155 ], [ %.7, %.thread183 ], [ %.7, %1070 ]
+  %.7.sink = phi i32 [ %154, %155 ], [ %142, %144 ], [ %133, %134 ], [ %118, %119 ], [ %92, %93 ], [ %81, %83 ], [ %.0.i, %read_magic_and_flags.exit ], [ %39, %read_magic_and_flags.exit.thread153 ], [ %81, %82 ], [ %92, %89 ], [ %118, %114 ], [ %133, %._crit_edge ], [ %142, %143 ], [ %154, %152 ], [ %.7, %.thread183 ], [ %.7, %1070 ]
   %1073 = call i32 @internal_exr_context_restore_handlers(ptr noundef %0, i32 noundef %.7.sink) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
@@ -3306,7 +3306,7 @@ define internal range(i32 0, -1) i32 @scratch_seq_read(ptr noundef %0, ptr nound
   br label %48
 
 48:                                               ; preds = %43, %38
-  %.0 = phi i64 [ %spec.select72, %43 ], [ 1, %38 ]
+  %.0 = phi i64 [ 1, %38 ], [ %spec.select72, %43 ]
   %49 = getelementptr inbounds nuw i8, ptr %39, i64 40
   %50 = load ptr, ptr %49, align 8, !tbaa !65
   %51 = load ptr, ptr %0, align 8, !tbaa !76
@@ -3338,10 +3338,10 @@ define internal range(i32 0, -1) i32 @scratch_seq_read(ptr noundef %0, ptr nound
   br label %63
 
 63:                                               ; preds = %62, %.thread, %13
-  %.265 = phi i32 [ %.06390, %13 ], [ %52, %62 ], [ %31, %.thread ]
-  %.161 = phi i64 [ %21, %13 ], [ %.06091, %62 ], [ %34, %.thread ]
-  %.258 = phi i64 [ %23, %13 ], [ %.05692, %62 ], [ %36, %.thread ]
-  %.155 = phi ptr [ %22, %13 ], [ %.05493, %62 ], [ %35, %.thread ]
+  %.265 = phi i32 [ %.06390, %13 ], [ %31, %.thread ], [ %52, %62 ]
+  %.161 = phi i64 [ %21, %13 ], [ %34, %.thread ], [ %.06091, %62 ]
+  %.258 = phi i64 [ %23, %13 ], [ %36, %.thread ], [ %.05692, %62 ]
+  %.155 = phi ptr [ %22, %13 ], [ %35, %.thread ], [ %.05493, %62 ]
   %.not = icmp eq i64 %.161, 0
   br i1 %.not, label %.loopexit, label %10, !llvm.loop !110
 
@@ -3356,7 +3356,7 @@ define internal range(i32 0, -1) i32 @scratch_seq_read(ptr noundef %0, ptr nound
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.loopexit, %3
-  %66 = phi i32 [ 0, %3 ], [ %spec.select113, %.loopexit ]
+  %66 = phi i32 [ %spec.select113, %.loopexit ], [ 0, %3 ]
   ret i32 %66
 }
 
@@ -3447,7 +3447,7 @@ define internal range(i32 0, -1) i32 @scratch_seq_skip(ptr noundef %0, i32 nound
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.loopexit, %2
-  %38 = phi i32 [ 0, %2 ], [ %spec.select60, %.loopexit ]
+  %38 = phi i32 [ %spec.select60, %.loopexit ], [ 0, %2 ]
   ret i32 %38
 }
 
@@ -3625,7 +3625,7 @@ check_bad_attrsz.exit.thread:                     ; preds = %6
   br label %check_bad_attrsz.exit
 
 check_bad_attrsz.exit:                            ; preds = %32, %33, %38, %40
-  %.0.i = phi i32 [ %43, %40 ], [ 0, %38 ], [ 0, %33 ], [ 0, %32 ]
+  %.0.i = phi i32 [ 0, %32 ], [ %43, %40 ], [ 0, %38 ], [ 0, %33 ]
   %44 = icmp eq i32 %.0.i, 0
   %45 = icmp ne i32 %5, 0
   %46 = and i1 %44, %45
@@ -3754,8 +3754,8 @@ read_text.exit:                                   ; preds = %60
   br i1 %106, label %.lr.ph.i, label %.loopexit, !llvm.loop !112
 
 .loopexit:                                        ; preds = %99, %read_text.exit, %67, %81, %84, %87, %90, %check_bad_attrsz.exit.thread, %check_bad_attrsz.exit, %read_text.exit.thread61
-  %.141 = phi i32 [ %.04077, %read_text.exit.thread61 ], [ %5, %check_bad_attrsz.exit ], [ %5, %check_bad_attrsz.exit.thread ], [ %94, %99 ], [ %.04077, %read_text.exit ], [ %69, %67 ], [ %72, %81 ], [ %72, %84 ], [ %72, %87 ], [ %72, %90 ]
-  %.1 = phi i32 [ %55, %read_text.exit.thread61 ], [ %.0.i, %check_bad_attrsz.exit ], [ %21, %check_bad_attrsz.exit.thread ], [ %103, %99 ], [ %65, %read_text.exit ], [ 0, %67 ], [ %83, %81 ], [ %86, %84 ], [ %89, %87 ], [ %92, %90 ]
+  %.141 = phi i32 [ %.04077, %read_text.exit.thread61 ], [ %5, %check_bad_attrsz.exit ], [ %5, %check_bad_attrsz.exit.thread ], [ %72, %87 ], [ %72, %84 ], [ %72, %81 ], [ %69, %67 ], [ %.04077, %read_text.exit ], [ %94, %99 ], [ %72, %90 ]
+  %.1 = phi i32 [ %55, %read_text.exit.thread61 ], [ %.0.i, %check_bad_attrsz.exit ], [ %21, %check_bad_attrsz.exit.thread ], [ %89, %87 ], [ %86, %84 ], [ %83, %81 ], [ 0, %67 ], [ %65, %read_text.exit ], [ %103, %99 ], [ %92, %90 ]
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %108 = load ptr, ptr %107, align 8, !tbaa !74
   %109 = call i32 %108(ptr noundef nonnull %1, i32 noundef %.141) #9
@@ -3935,7 +3935,7 @@ check_bad_attrsz.exit:                            ; preds = %scratch_attr_too_bi
   br label %59
 
 59:                                               ; preds = %47, %check_bad_attrsz.exit, %45, %54
-  %.025 = phi i32 [ %58, %54 ], [ %46, %45 ], [ %.0.i, %check_bad_attrsz.exit ], [ 0, %47 ]
+  %.025 = phi i32 [ %46, %45 ], [ %58, %54 ], [ %.0.i, %check_bad_attrsz.exit ], [ 0, %47 ]
   ret i32 %.025
 }
 
@@ -4028,7 +4028,7 @@ define internal fastcc i32 @extract_attr_preview(ptr noundef %0, ptr noundef non
   br label %62
 
 62:                                               ; preds = %47, %45, %57, %41, %33, %20, %12
-  %.0 = phi i32 [ %15, %12 ], [ %23, %20 ], [ %36, %33 ], [ %44, %41 ], [ %61, %57 ], [ %46, %45 ], [ 0, %47 ]
+  %.0 = phi i32 [ %15, %12 ], [ %23, %20 ], [ %36, %33 ], [ %44, %41 ], [ %46, %45 ], [ %61, %57 ], [ 0, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -4434,7 +4434,7 @@ check_bad_attrsz.exit.thread:                     ; preds = %24, %25, %30, %chec
   br label %50
 
 50:                                               ; preds = %39, %check_bad_attrsz.exit.thread, %check_bad_attrsz.exit, %45
-  %.0 = phi i32 [ %49, %45 ], [ %.0.i, %check_bad_attrsz.exit ], [ %38, %check_bad_attrsz.exit.thread ], [ 0, %39 ]
+  %.0 = phi i32 [ %38, %check_bad_attrsz.exit.thread ], [ %.0.i, %check_bad_attrsz.exit ], [ %49, %45 ], [ 0, %39 ]
   ret i32 %.0
 }
 

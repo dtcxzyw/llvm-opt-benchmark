@@ -1097,8 +1097,8 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc66
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc66, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.10.0 = phi ptr [ %84, %.noexc66 ], [ %84, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.069.0 = phi ptr [ %83, %.noexc66 ], [ %83, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.10.0 = phi ptr [ %84, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %84, %.noexc66 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.069.0 = phi ptr [ %83, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %83, %.noexc66 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %.sroa.069.0, ptr %12, align 8, !tbaa !67
   %88 = load i32, ptr %24, align 4, !tbaa !39
@@ -1898,7 +1898,7 @@ define internal void @_ZNK4ncnn13Convolution3D7forwardERKNS_3MatERS1_RKNS_6Optio
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us.us.us
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us.us.us: ; preds = %126, %120, %119, %112, %105, %99, %95, %91, %83, %._crit_edge.us.us.us.us.us
-  %.1120.us.us.us.us.us = phi nsz float [ %.154.lcssa.us.us.us.us.us, %._crit_edge.us.us.us.us.us ], [ %127, %126 ], [ %125, %120 ], [ %116, %119 ], [ %.0119.us.us.us.us.us, %112 ], [ %111, %105 ], [ %104, %99 ], [ %.154.lcssa.us.us.us.us.us, %91 ], [ %98, %95 ], [ 0.000000e+00, %83 ]
+  %.1120.us.us.us.us.us = phi nsz float [ %.154.lcssa.us.us.us.us.us, %._crit_edge.us.us.us.us.us ], [ %127, %126 ], [ %125, %120 ], [ %116, %119 ], [ %.0119.us.us.us.us.us, %112 ], [ %111, %105 ], [ %104, %99 ], [ %98, %95 ], [ %.154.lcssa.us.us.us.us.us, %91 ], [ 0.000000e+00, %83 ]
   %128 = getelementptr inbounds nuw float, ptr %.1136.us.us.us.us.us, i64 %indvars.iv181
   store float %.1120.us.us.us.us.us, ptr %128, align 4, !tbaa !82
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1

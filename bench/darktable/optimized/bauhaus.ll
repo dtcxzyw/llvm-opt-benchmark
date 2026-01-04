@@ -2080,7 +2080,7 @@ _popup_reject.exit:                               ; preds = %59, %61
   br label %69
 
 69:                                               ; preds = %66, %3, %3, %3, %3
-  %.2.neg = phi i32 [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ %68, %66 ]
+  %.2.neg = phi i32 [ 1, %3 ], [ %68, %66 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ]
   br label %70
 
 70:                                               ; preds = %69, %3, %3, %3, %3
@@ -2090,7 +2090,7 @@ _popup_reject.exit:                               ; preds = %59, %61
   br label %72
 
 72:                                               ; preds = %70, %3, %3
-  %.4 = phi i32 [ -1, %3 ], [ -1, %3 ], [ %spec.select75, %70 ]
+  %.4 = phi i32 [ -1, %3 ], [ %spec.select75, %70 ], [ -1, %3 ]
   br i1 %8, label %73, label %76
 
 73:                                               ; preds = %72
@@ -2180,7 +2180,7 @@ _popup_reject.exit:                               ; preds = %59, %61
   br label %.critedge77
 
 .critedge77:                                      ; preds = %87, %82, %85, %122
-  %.0 = phi i32 [ 1, %122 ], [ 0, %85 ], [ 0, %82 ], [ 0, %87 ]
+  %.0 = phi i32 [ 1, %122 ], [ 0, %87 ], [ 0, %85 ], [ 0, %82 ]
   ret i32 %.0
 }
 
@@ -3336,7 +3336,7 @@ dt_bh_get_type.exit.i:                            ; preds = %6, %4, %2
   br label %DT_IS_BAUHAUS_WIDGET.exit
 
 DT_IS_BAUHAUS_WIDGET.exit:                        ; preds = %11, %14
-  %.0.i = phi i1 [ %16, %14 ], [ true, %11 ]
+  %.0.i = phi i1 [ true, %11 ], [ %16, %14 ]
   %17 = icmp eq i32 %1, 1
   %or.cond = and i1 %17, %.0.i
   br i1 %or.cond, label %18, label %.thread
@@ -3708,7 +3708,7 @@ dt_bauhaus_combobox_set.exit:                     ; preds = %108, %DT_BAUHAUS_WI
   br label %.thread
 
 .thread:                                          ; preds = %125, %122, %dt_bauhaus_combobox_set.exit, %111, %115, %117, %DT_BAUHAUS_WIDGET.exit
-  %.161 = phi ptr [ %.060103, %DT_BAUHAUS_WIDGET.exit ], [ %.060103, %dt_bauhaus_combobox_set.exit ], [ null, %117 ], [ null, %115 ], [ null, %111 ], [ %118, %122 ], [ %spec.select100, %125 ]
+  %.161 = phi ptr [ %.060103, %DT_BAUHAUS_WIDGET.exit ], [ %.060103, %dt_bauhaus_combobox_set.exit ], [ null, %115 ], [ null, %111 ], [ null, %117 ], [ %118, %122 ], [ %spec.select100, %125 ]
   %128 = getelementptr inbounds nuw i8, ptr %.062102, i64 8
   %129 = load ptr, ptr %128, align 8, !tbaa !194
   %.not76 = icmp eq ptr %129, null
@@ -3760,8 +3760,8 @@ DT_BAUHAUS_WIDGET.exit.i.i:                       ; preds = %6, %4, %2
 
 .lr.ph.i:                                         ; preds = %12
   store i32 -1, ptr %13, align 8, !tbaa !137
-  %.not25.i = icmp eq i32 %18, 0
-  br i1 %.not25.i, label %dt_bauhaus_combobox_get_from_value.exit, label %.lr.ph23.i
+  %.not24.i = icmp eq i32 %18, 0
+  br i1 %.not24.i, label %dt_bauhaus_combobox_get_from_value.exit, label %.lr.ph23.i
 
 .lr.ph23.i:                                       ; preds = %12, %.lr.ph.i
   %.val.val.i = load ptr, ptr %16, align 8, !tbaa !133
@@ -3777,19 +3777,19 @@ DT_BAUHAUS_WIDGET.exit.i.i:                       ; preds = %6, %4, %2
   %24 = ptrtoint ptr %23 to i64
   %25 = trunc i64 %24 to i32
   %26 = icmp eq i32 %1, %25
-  br i1 %26, label %.critedge.loopexit.split.loop.exit30.i, label %27
+  br i1 %26, label %.critedge.loopexit.split.loop.exit29.i, label %27
 
 27:                                               ; preds = %19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %dt_bauhaus_combobox_get_from_value.exit, label %19
 
-.critedge.loopexit.split.loop.exit30.i:           ; preds = %19
+.critedge.loopexit.split.loop.exit29.i:           ; preds = %19
   %28 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %dt_bauhaus_combobox_get_from_value.exit
 
-dt_bauhaus_combobox_get_from_value.exit:          ; preds = %27, %DT_BAUHAUS_WIDGET.exit.i.i, %.lr.ph.i, %.critedge.loopexit.split.loop.exit30.i
-  %29 = phi i32 [ -1, %.lr.ph.i ], [ -1, %DT_BAUHAUS_WIDGET.exit.i.i ], [ %28, %.critedge.loopexit.split.loop.exit30.i ], [ -1, %27 ]
+dt_bauhaus_combobox_get_from_value.exit:          ; preds = %27, %DT_BAUHAUS_WIDGET.exit.i.i, %.lr.ph.i, %.critedge.loopexit.split.loop.exit29.i
+  %29 = phi i32 [ -1, %.lr.ph.i ], [ -1, %DT_BAUHAUS_WIDGET.exit.i.i ], [ %28, %.critedge.loopexit.split.loop.exit29.i ], [ -1, %27 ]
   %30 = load atomic i64, ptr @dt_bh_get_type.static_g_define_type_id seq_cst, align 8
   %.not.i.i.i = icmp eq i64 %30, 0
   br i1 %.not.i.i.i, label %31, label %DT_BAUHAUS_WIDGET.exit.i
@@ -3957,7 +3957,7 @@ DT_BAUHAUS_WIDGET.exit.i23:                       ; preds = %92, %90, %dt_bauhau
   br label %dt_bauhaus_combobox_set.exit26
 
 dt_bauhaus_combobox_set.exit26:                   ; preds = %.lr.ph, %54, %46, %98, %DT_BAUHAUS_WIDGET.exit.i23, %40, %dt_bauhaus_combobox_set.exit
-  %.0 = phi i32 [ 1, %dt_bauhaus_combobox_set.exit ], [ 0, %40 ], [ 1, %DT_BAUHAUS_WIDGET.exit.i23 ], [ 1, %98 ], [ 0, %46 ], [ 0, %54 ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ 1, %dt_bauhaus_combobox_set.exit ], [ 0, %40 ], [ 1, %98 ], [ 1, %DT_BAUHAUS_WIDGET.exit.i23 ], [ 0, %46 ], [ 0, %54 ], [ 0, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -4180,7 +4180,7 @@ DT_BAUHAUS_WIDGET.exit:                           ; preds = %45, %48, %50
   br label %DT_IS_BAUHAUS_WIDGET.exit.thread
 
 DT_IS_BAUHAUS_WIDGET.exit.thread:                 ; preds = %dt_bh_get_type.exit.i, %DT_BAUHAUS_WIDGET.exit, %79, %84, %60, %.lr.ph, %DT_IS_BAUHAUS_WIDGET.exit, %DT_IS_BAUHAUS_WIDGET.exit.thread80
-  %.3 = phi i32 [ %.04984, %.lr.ph ], [ 0, %DT_IS_BAUHAUS_WIDGET.exit.thread80 ], [ 0, %DT_IS_BAUHAUS_WIDGET.exit ], [ 0, %DT_BAUHAUS_WIDGET.exit ], [ %78, %60 ], [ 0, %79 ], [ %90, %84 ], [ 0, %dt_bh_get_type.exit.i ]
+  %.3 = phi i32 [ %.04984, %.lr.ph ], [ 0, %DT_IS_BAUHAUS_WIDGET.exit ], [ 0, %DT_IS_BAUHAUS_WIDGET.exit.thread80 ], [ 0, %DT_BAUHAUS_WIDGET.exit ], [ %78, %60 ], [ 0, %79 ], [ %90, %84 ], [ 0, %dt_bh_get_type.exit.i ]
   %91 = tail call ptr @g_list_delete_link(ptr noundef nonnull %.04885, ptr noundef nonnull %.04885) #20
   %.not61 = icmp eq ptr %91, null
   br i1 %.not61, label %._crit_edge, label %.lr.ph
@@ -5577,7 +5577,7 @@ DT_BAUHAUS_WIDGET.exit.i:                         ; preds = %5, %3, %1
   br label %_combobox_data.exit
 
 _combobox_data.exit:                              ; preds = %DT_BAUHAUS_WIDGET.exit.i, %23, %20, %26
-  %.0 = phi ptr [ %30, %26 ], [ %25, %23 ], [ null, %20 ], [ null, %DT_BAUHAUS_WIDGET.exit.i ]
+  %.0 = phi ptr [ null, %20 ], [ %30, %26 ], [ %25, %23 ], [ null, %DT_BAUHAUS_WIDGET.exit.i ]
   ret ptr %.0
 }
 
@@ -5728,7 +5728,7 @@ _combobox_data.exit:                              ; preds = %12, %19
   br label %_combobox_data.exit.thread
 
 _combobox_data.exit.thread:                       ; preds = %DT_BAUHAUS_WIDGET.exit.i, %_combobox_data.exit, %21
-  %.0 = phi ptr [ %25, %21 ], [ null, %_combobox_data.exit ], [ null, %DT_BAUHAUS_WIDGET.exit.i ]
+  %.0 = phi ptr [ %25, %21 ], [ null, %DT_BAUHAUS_WIDGET.exit.i ], [ null, %_combobox_data.exit ]
   ret ptr %.0
 }
 
@@ -6061,7 +6061,7 @@ DT_BAUHAUS_WIDGET.exit.i19:                       ; preds = %34, %32, %.split
   br i1 %46, label %.lr.ph27, label %.critedge
 
 .critedge:                                        ; preds = %41, %DT_BAUHAUS_WIDGET.exit.i, %.lr.ph, %40, %DT_BAUHAUS_WIDGET.exit.i19, %2
-  %.013 = phi i32 [ 0, %2 ], [ 1, %40 ], [ 1, %DT_BAUHAUS_WIDGET.exit.i19 ], [ 0, %.lr.ph ], [ 0, %DT_BAUHAUS_WIDGET.exit.i ], [ 0, %41 ]
+  %.013 = phi i32 [ 0, %2 ], [ 1, %DT_BAUHAUS_WIDGET.exit.i19 ], [ 1, %40 ], [ 0, %DT_BAUHAUS_WIDGET.exit.i ], [ 0, %.lr.ph ], [ 0, %41 ]
   ret i32 %.013
 }
 
@@ -6110,8 +6110,8 @@ DT_BAUHAUS_WIDGET.exit.i:                         ; preds = %6, %4, %2
   %21 = load ptr, ptr %20, align 8, !tbaa !128
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 8, !tbaa !131
-  %.not25 = icmp eq i32 %23, 0
-  br i1 %.not25, label %.critedge, label %.lr.ph23
+  %.not24 = icmp eq i32 %23, 0
+  br i1 %.not24, label %.critedge, label %.lr.ph23
 
 .lr.ph23:                                         ; preds = %.lr.ph
   %.val.val = load ptr, ptr %21, align 8, !tbaa !133
@@ -6127,19 +6127,19 @@ DT_BAUHAUS_WIDGET.exit.i:                         ; preds = %6, %4, %2
   %29 = ptrtoint ptr %28 to i64
   %30 = trunc i64 %29 to i32
   %31 = icmp eq i32 %1, %30
-  br i1 %31, label %.critedge.loopexit.split.loop.exit30, label %32
+  br i1 %31, label %.critedge.loopexit.split.loop.exit29, label %32
 
 32:                                               ; preds = %24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %24
 
-.critedge.loopexit.split.loop.exit30:             ; preds = %24
+.critedge.loopexit.split.loop.exit29:             ; preds = %24
   %33 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %32, %.critedge.loopexit.split.loop.exit30, %DT_BAUHAUS_WIDGET.exit.i, %.lr.ph
-  %34 = phi i32 [ -1, %.lr.ph ], [ -1, %DT_BAUHAUS_WIDGET.exit.i ], [ %33, %.critedge.loopexit.split.loop.exit30 ], [ -1, %32 ]
+.critedge:                                        ; preds = %32, %.critedge.loopexit.split.loop.exit29, %DT_BAUHAUS_WIDGET.exit.i, %.lr.ph
+  %34 = phi i32 [ -1, %.lr.ph ], [ -1, %DT_BAUHAUS_WIDGET.exit.i ], [ %33, %.critedge.loopexit.split.loop.exit29 ], [ -1, %32 ]
   ret i32 %34
 }
 
@@ -7827,10 +7827,10 @@ DT_BAUHAUS_WIDGET.exit:                           ; preds = %2, %13, %15
   br label %122
 
 122:                                              ; preds = %121, %120
-  %.sink107.i = phi i64 [ %..i, %120 ], [ %.115.i, %121 ]
-  %.sink106.i = phi i64 [ %.112.i, %120 ], [ %.116.i, %121 ]
-  %.sink105.i = phi i64 [ %.113.i, %120 ], [ %.117.i, %121 ]
-  %.sink.i = phi i64 [ %.114.i, %120 ], [ %.118.i, %121 ]
+  %.sink107.i = phi i64 [ %.115.i, %121 ], [ %..i, %120 ]
+  %.sink106.i = phi i64 [ %.116.i, %121 ], [ %.112.i, %120 ]
+  %.sink105.i = phi i64 [ %.117.i, %121 ], [ %.113.i, %120 ]
+  %.sink.i = phi i64 [ %.118.i, %121 ], [ %.114.i, %120 ]
   %123 = getelementptr inbounds nuw i8, ptr %98, i64 %.sink107.i
   %.sroa.567.0..sroa_idx70.i = getelementptr inbounds nuw i8, ptr %98, i64 %.sink106.i
   %.sroa.674.0..sroa_idx77.i = getelementptr inbounds nuw i8, ptr %98, i64 %.sink105.i
@@ -8424,7 +8424,7 @@ define internal i32 @_widget_scroll(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not.i11.i, label %dt_action_lib.exit13.i, label %.lr.ph.i8.i
 
 dt_action_lib.exit13.i:                           ; preds = %24, %.lr.ph.i8.i
-  %.0.lcssa.i12.i = phi ptr [ null, %24 ], [ %.06.i9.i, %.lr.ph.i8.i ]
+  %.0.lcssa.i12.i = phi ptr [ %.06.i9.i, %.lr.ph.i8.i ], [ null, %24 ]
   %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 72), align 8, !tbaa !268
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %.0.lcssa.i12.i, ptr %28, align 8, !tbaa !269
@@ -8471,7 +8471,7 @@ _request_focus.exit:                              ; preds = %.lr.ph.i, %15, %20,
   br label %62
 
 .thread:                                          ; preds = %34, %44, %39
-  %54 = phi i32 [ 1, %44 ], [ 0, %39 ], [ 0, %34 ]
+  %54 = phi i32 [ 0, %39 ], [ 1, %44 ], [ 0, %34 ]
   %55 = load i32, ptr %3, align 4, !tbaa !79
   %56 = sub nsw i32 0, %55
   %57 = sitofp i32 %56 to float
@@ -8490,7 +8490,7 @@ _request_focus.exit:                              ; preds = %.lr.ph.i, %15, %20,
   br label %63
 
 63:                                               ; preds = %2, %62, %9
-  %.0 = phi i32 [ %10, %9 ], [ 1, %62 ], [ 0, %2 ]
+  %.0 = phi i32 [ 1, %62 ], [ %10, %9 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -8519,7 +8519,7 @@ define internal range(i32 0, 2) i32 @_widget_key_press(ptr noundef %0, ptr nound
   br label %9
 
 9:                                                ; preds = %5, %2, %2
-  %.0.neg = phi i32 [ 1, %2 ], [ 1, %2 ], [ %spec.select, %5 ]
+  %.0.neg = phi i32 [ 1, %2 ], [ %spec.select, %5 ], [ 1, %2 ]
   br label %10
 
 10:                                               ; preds = %9, %2, %2
@@ -8532,7 +8532,7 @@ define internal range(i32 0, 2) i32 @_widget_key_press(ptr noundef %0, ptr nound
   br label %15
 
 15:                                               ; preds = %10, %2, %2
-  %.2 = phi i32 [ -1, %2 ], [ -1, %2 ], [ %spec.select16, %10 ]
+  %.2 = phi i32 [ -1, %2 ], [ %spec.select16, %10 ], [ -1, %2 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load ptr, ptr %16, align 8, !tbaa !161
   %.not.i = icmp eq ptr %17, null
@@ -8577,7 +8577,7 @@ define internal range(i32 0, 2) i32 @_widget_key_press(ptr noundef %0, ptr nound
   br i1 %.not.i11.i, label %dt_action_lib.exit13.i, label %.lr.ph.i8.i
 
 dt_action_lib.exit13.i:                           ; preds = %24, %.lr.ph.i8.i
-  %.0.lcssa.i12.i = phi ptr [ null, %24 ], [ %.06.i9.i, %.lr.ph.i8.i ]
+  %.0.lcssa.i12.i = phi ptr [ %.06.i9.i, %.lr.ph.i8.i ], [ null, %24 ]
   %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 72), align 8, !tbaa !268
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %.0.lcssa.i12.i, ptr %28, align 8, !tbaa !269
@@ -8608,7 +8608,7 @@ _request_focus.exit:                              ; preds = %.lr.ph.i, %15, %20,
   br label %40
 
 40:                                               ; preds = %2, %34, %38, %39
-  %.015 = phi i32 [ 1, %39 ], [ 1, %38 ], [ 1, %34 ], [ 0, %2 ]
+  %.015 = phi i32 [ 1, %34 ], [ 1, %39 ], [ 1, %38 ], [ 0, %2 ]
   ret i32 %.015
 }
 
@@ -8658,7 +8658,7 @@ define internal range(i32 0, 2) i32 @_widget_button_press(ptr noundef %0, ptr no
   br i1 %.not.i11.i, label %dt_action_lib.exit13.i, label %.lr.ph.i8.i
 
 dt_action_lib.exit13.i:                           ; preds = %11, %.lr.ph.i8.i
-  %.0.lcssa.i12.i = phi ptr [ null, %11 ], [ %.06.i9.i, %.lr.ph.i8.i ]
+  %.0.lcssa.i12.i = phi ptr [ %.06.i9.i, %.lr.ph.i8.i ], [ null, %11 ]
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 72), align 8, !tbaa !268
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %.0.lcssa.i12.i, ptr %15, align 8, !tbaa !269
@@ -8912,7 +8912,7 @@ _slider_right_pos.exit:                           ; preds = %158, %161
   br label %.critedge
 
 .critedge:                                        ; preds = %151, %76, %105, %118, %97, %147, %_slider_right_pos.exit
-  %.1 = phi i32 [ 1, %_slider_right_pos.exit ], [ 1, %147 ], [ 1, %97 ], [ 1, %118 ], [ 1, %105 ], [ 1, %76 ], [ 0, %151 ]
+  %.1 = phi i32 [ 1, %76 ], [ 1, %_slider_right_pos.exit ], [ 1, %147 ], [ 1, %97 ], [ 1, %118 ], [ 1, %105 ], [ 0, %151 ]
   ret i32 %.1
 }
 
@@ -9168,7 +9168,7 @@ _widget_get_quad_width.exit66:                    ; preds = %_widget_get_quad_wi
   br label %136
 
 136:                                              ; preds = %_widget_get_quad_width.exit63, %_widget_get_quad_width.exit66, %_widget_get_quad_width.exit63.thread, %81, %77, %71, %_widget_get_quad_width.exit, %42, %132
-  %.sink = phi i32 [ %135, %132 ], [ 0, %_widget_get_quad_width.exit ], [ %45, %42 ], [ 0, %71 ], [ 0, %77 ], [ 0, %81 ], [ 2, %_widget_get_quad_width.exit63 ], [ %131, %_widget_get_quad_width.exit66 ], [ 2, %_widget_get_quad_width.exit63.thread ]
+  %.sink = phi i32 [ %45, %42 ], [ %135, %132 ], [ 0, %81 ], [ 0, %_widget_get_quad_width.exit ], [ 0, %71 ], [ 0, %77 ], [ 2, %_widget_get_quad_width.exit63 ], [ %131, %_widget_get_quad_width.exit66 ], [ 2, %_widget_get_quad_width.exit63.thread ]
   %137 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !91
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 588
   store i32 %.sink, ptr %138, align 4, !tbaa !265
@@ -10474,7 +10474,7 @@ _stop_cursor.exit:                                ; preds = %16, %23
   br i1 %.not.i11.i, label %dt_action_lib.exit13.i, label %.lr.ph.i8.i
 
 dt_action_lib.exit13.i:                           ; preds = %34, %.lr.ph.i8.i
-  %.0.lcssa.i12.i = phi ptr [ null, %34 ], [ %.06.i9.i, %.lr.ph.i8.i ]
+  %.0.lcssa.i12.i = phi ptr [ %.06.i9.i, %.lr.ph.i8.i ], [ null, %34 ]
   %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 72), align 8, !tbaa !268
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %.0.lcssa.i12.i, ptr %38, align 8, !tbaa !269
@@ -11028,7 +11028,7 @@ DT_BAUHAUS_WIDGET.exit:                           ; preds = %2, %8, %10
   br label %45
 
 45:                                               ; preds = %43, %36, %34
-  %.0 = phi i32 [ %44, %43 ], [ 0, %36 ], [ 0, %34 ]
+  %.0 = phi i32 [ %44, %43 ], [ 0, %34 ], [ 0, %36 ]
   %46 = getelementptr i8, ptr %13, i64 440
   %47 = load ptr, ptr %46, align 8, !tbaa !128
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
@@ -12074,7 +12074,7 @@ dt_bauhaus_slider_get.exit81:                     ; preds = %DT_BAUHAUS_WIDGET.e
   br label %dt_bauhaus_slider_get.exit75
 
 dt_bauhaus_slider_get.exit75:                     ; preds = %138, %132, %DT_BAUHAUS_WIDGET.exit.i71, %198, %dt_bauhaus_slider_get.exit81, %dt_bauhaus_widget_get_quad_active.exit
-  %.0 = phi nsz float [ %121, %dt_bauhaus_widget_get_quad_active.exit ], [ %182, %dt_bauhaus_slider_get.exit81 ], [ %200, %198 ], [ -1.000000e+00, %DT_BAUHAUS_WIDGET.exit.i71 ], [ %148, %138 ], [ %134, %132 ]
+  %.0 = phi nsz float [ %121, %dt_bauhaus_widget_get_quad_active.exit ], [ %200, %198 ], [ %182, %dt_bauhaus_slider_get.exit81 ], [ -1.000000e+00, %DT_BAUHAUS_WIDGET.exit.i71 ], [ %148, %138 ], [ %134, %132 ]
   ret float %.0
 }
 
@@ -12312,7 +12312,7 @@ DT_BAUHAUS_WIDGET.exit.i.i:                       ; preds = %67, %65, %61
   br label %.thread
 
 .thread:                                          ; preds = %88, %85, %82, %DT_BAUHAUS_WIDGET.exit.i.i
-  %.0.i = phi ptr [ %92, %88 ], [ %87, %85 ], [ null, %82 ], [ null, %DT_BAUHAUS_WIDGET.exit.i.i ]
+  %.0.i = phi ptr [ null, %82 ], [ %92, %88 ], [ %87, %85 ], [ null, %DT_BAUHAUS_WIDGET.exit.i.i ]
   tail call void (ptr, ptr, ptr, ...) @dt_action_widget_toast(ptr noundef %63, ptr noundef nonnull %6, ptr noundef nonnull @.str.88, ptr noundef %.0.i) #20
   br label %94
 
@@ -12479,7 +12479,7 @@ dt_bauhaus_combobox_get.exit:                     ; preds = %160
   br label %176
 
 ._crit_edge:                                      ; preds = %176, %167, %DT_BAUHAUS_WIDGET.exit.i.i69, %dt_bauhaus_combobox_get.exit
-  %.043.lcssa = phi i32 [ %162, %dt_bauhaus_combobox_get.exit ], [ -1, %DT_BAUHAUS_WIDGET.exit.i.i69 ], [ -1, %167 ], [ %spec.select, %176 ]
+  %.043.lcssa = phi i32 [ %162, %dt_bauhaus_combobox_get.exit ], [ -1, %167 ], [ -1, %DT_BAUHAUS_WIDGET.exit.i.i69 ], [ %spec.select, %176 ]
   %170 = xor i32 %.043.lcssa, -1
   %171 = sitofp i32 %170 to float
   %172 = add nsw i32 %2, -7
@@ -12761,7 +12761,7 @@ tailrecurse:                                      ; preds = %.critedge102, %.cri
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse, %3, %30, %32, %35, %.critedge106
-  %.063 = phi i32 [ %.lobit, %.critedge106 ], [ 0, %32 ], [ 0, %30 ], [ %38, %35 ], [ 0, %3 ], [ 0, %tailrecurse ]
+  %.063 = phi i32 [ 0, %30 ], [ %38, %35 ], [ %.lobit, %.critedge106 ], [ 0, %32 ], [ 0, %3 ], [ 0, %tailrecurse ]
   ret i32 %.063
 }
 

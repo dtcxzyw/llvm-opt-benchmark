@@ -363,12 +363,12 @@ fmap_readn.exit155.thread:                        ; preds = %33, %31, %fmap_read
   br label %127
 
 127:                                              ; preds = %124, %122, %116, %126, %121, %104
-  %.3171 = phi i64 [ %55, %104 ], [ %.3172, %116 ], [ %.3172, %121 ], [ %.3172, %126 ], [ %.3172, %122 ], [ %.3172, %124 ]
-  %.2122 = phi i1 [ false, %104 ], [ false, %116 ], [ false, %121 ], [ false, %126 ], [ true, %122 ], [ false, %124 ]
-  %.1119 = phi i1 [ %.0118, %104 ], [ true, %116 ], [ %.0118, %121 ], [ %.0118, %126 ], [ %.0118, %122 ], [ %.0118, %124 ]
-  %.1116 = phi i32 [ %87, %104 ], [ %.0115, %116 ], [ 0, %121 ], [ %.0115, %126 ], [ %.0115, %122 ], [ %.0115, %124 ]
-  %.1113 = phi i64 [ %.0112, %104 ], [ %.2114, %116 ], [ %.0112, %121 ], [ %.0112, %126 ], [ %.0112, %122 ], [ %.0112, %124 ]
-  %.1111 = phi i32 [ %78, %104 ], [ %spec.store.select, %116 ], [ %.0110, %121 ], [ %.0110, %126 ], [ %.0110, %122 ], [ %.0110, %124 ]
+  %.3171 = phi i64 [ %55, %104 ], [ %.3172, %116 ], [ %.3172, %121 ], [ %.3172, %122 ], [ %.3172, %126 ], [ %.3172, %124 ]
+  %.2122 = phi i1 [ false, %104 ], [ false, %116 ], [ false, %121 ], [ true, %122 ], [ false, %126 ], [ false, %124 ]
+  %.1119 = phi i1 [ %.0118, %104 ], [ true, %116 ], [ %.0118, %121 ], [ %.0118, %122 ], [ %.0118, %126 ], [ %.0118, %124 ]
+  %.1116 = phi i32 [ %87, %104 ], [ %.0115, %116 ], [ 0, %121 ], [ %.0115, %122 ], [ %.0115, %126 ], [ %.0115, %124 ]
+  %.1113 = phi i64 [ %.0112, %104 ], [ %.2114, %116 ], [ %.0112, %121 ], [ %.0112, %122 ], [ %.0112, %126 ], [ %.0112, %124 ]
+  %.1111 = phi i32 [ %78, %104 ], [ %spec.store.select, %116 ], [ %.0110, %121 ], [ %.0110, %122 ], [ %.0110, %126 ], [ %.0110, %124 ]
   %128 = load i64, ptr %10, align 8, !tbaa !24
   %or.cond195.not = icmp ult i64 %.3171, %128
   br i1 %or.cond195.not, label %129, label %fmap_readn.exit160.thread
@@ -405,19 +405,19 @@ fmap_readn.exit160.thread:                        ; preds = %129, %127, %fmap_re
   br i1 %.2122, label %.thread187, label %13
 
 fmap_readn.exit.thread:                           ; preds = %15, %13, %fmap_readn.exit, %.thread174, %71
-  %.1.ph = phi i64 [ %55, %71 ], [ %.3173178, %.thread174 ], [ %.0, %fmap_readn.exit ], [ %.0, %13 ], [ %.0, %15 ]
+  %.1.ph = phi i64 [ %.3173178, %.thread174 ], [ %55, %71 ], [ %.0, %fmap_readn.exit ], [ %.0, %13 ], [ %.0, %15 ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.35) #8
   br label %.thread187
 
 141:                                              ; preds = %fmap_readn.exit160.thread, %48, %fmap_readn.exit155.thread, %25
-  %.str.33.sink = phi ptr [ @.str.3, %25 ], [ @.str.5, %fmap_readn.exit155.thread ], [ @.str.8, %48 ], [ @.str.33, %fmap_readn.exit160.thread ]
-  %.2 = phi i64 [ %23, %25 ], [ %23, %fmap_readn.exit155.thread ], [ %43, %48 ], [ %.3171, %fmap_readn.exit160.thread ]
+  %.str.33.sink = phi ptr [ @.str.8, %48 ], [ @.str.5, %fmap_readn.exit155.thread ], [ @.str.3, %25 ], [ @.str.33, %fmap_readn.exit160.thread ]
+  %.2 = phi i64 [ %43, %48 ], [ %23, %fmap_readn.exit155.thread ], [ %23, %25 ], [ %.3171, %fmap_readn.exit160.thread ]
   %142 = call i32 @cli_append_potentially_unwanted(ptr noundef nonnull %0, ptr noundef nonnull %.str.33.sink) #8
   %143 = icmp eq i32 %142, 0
   br i1 %143, label %.thread187, label %151
 
-.thread187:                                       ; preds = %138, %fmap_readn.exit160.thread, %fmap_readn.exit.thread, %48, %fmap_readn.exit155.thread, %25, %141
-  %.2190 = phi i64 [ %.2, %141 ], [ %.3171, %fmap_readn.exit160.thread ], [ %.1.ph, %fmap_readn.exit.thread ], [ %43, %48 ], [ %23, %fmap_readn.exit155.thread ], [ %23, %25 ], [ %140, %138 ]
+.thread187:                                       ; preds = %138, %fmap_readn.exit.thread, %fmap_readn.exit160.thread, %48, %fmap_readn.exit155.thread, %25, %141
+  %.2190 = phi i64 [ %.2, %141 ], [ %23, %25 ], [ %.1.ph, %fmap_readn.exit.thread ], [ %.3171, %fmap_readn.exit160.thread ], [ %43, %48 ], [ %23, %fmap_readn.exit155.thread ], [ %140, %138 ]
   %144 = load i64, ptr %10, align 8, !tbaa !24
   %145 = icmp ugt i64 %144, %.2190
   br i1 %145, label %146, label %151

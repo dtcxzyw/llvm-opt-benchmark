@@ -136,12 +136,12 @@ define ptr @getDataInfo(ptr noundef readonly captures(address_is_null, ret: addr
   br i1 %or.cond45, label %.sink.split, label %39
 
 .sink.split:                                      ; preds = %33, %36, %12, %16, %19, %10
-  %.sink51 = phi i32 [ 1, %10 ], [ 16, %19 ], [ 16, %16 ], [ 16, %12 ], [ 16, %36 ], [ 16, %33 ]
+  %.sink51 = phi i32 [ 16, %12 ], [ 1, %10 ], [ 16, %19 ], [ 16, %16 ], [ 16, %36 ], [ 16, %33 ]
   store i32 %.sink51, ptr %4, align 4, !tbaa !3
   br label %39
 
 39:                                               ; preds = %.sink.split, %36, %5, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %5 ], [ %13, %36 ], [ null, %.sink.split ]
+  %.0 = phi ptr [ null, %5 ], [ %13, %36 ], [ null, %7 ], [ null, %.sink.split ]
   ret ptr %.0
 }
 
@@ -395,7 +395,7 @@ define void @_ZN6icu_777Package11readPackageEPKc(ptr noundef nonnull align 8 der
   br i1 %62, label %77, label %._crit_edge202
 
 ._crit_edge202:                                   ; preds = %43, %59, %55, %51
-  %63 = phi i8 [ 109, %59 ], [ 109, %55 ], [ 109, %51 ], [ %49, %43 ]
+  %63 = phi i8 [ %49, %43 ], [ 109, %59 ], [ 109, %55 ], [ 109, %51 ]
   %64 = load ptr, ptr @stderr, align 8, !tbaa !36
   %65 = zext i8 %46 to i32
   %66 = zext i8 %63 to i32
@@ -844,7 +844,7 @@ _ZN6icu_777Package15setItemCapacityEi.exit:       ; preds = %87, %110
   br i1 %or.cond45.i.i, label %.sink.split.i.i, label %_ZL23getTypeEnumForInputDataPKhiP10UErrorCode.exit
 
 .sink.split.i.i:                                  ; preds = %310, %308, %294, %291, %287, %285
-  %.sink51.i.i = phi i32 [ 1, %285 ], [ 16, %294 ], [ 16, %291 ], [ 16, %287 ], [ 16, %310 ], [ 16, %308 ]
+  %.sink51.i.i = phi i32 [ 16, %287 ], [ 1, %285 ], [ 16, %294 ], [ 16, %291 ], [ 16, %310 ], [ 16, %308 ]
   store i32 %.sink51.i.i, ptr %4, align 4, !tbaa !3
   br label %_ZL23getTypeEnumForInputDataPKhiP10UErrorCode.exit.thread
 
@@ -963,7 +963,7 @@ _ZL23getTypeEnumForInputDataPKhiP10UErrorCode.exit.thread: ; preds = %275, %_ZL2
   br i1 %or.cond45.i.i165, label %.sink.split.i.i154, label %_ZL23getTypeEnumForInputDataPKhiP10UErrorCode.exit167
 
 .sink.split.i.i154:                               ; preds = %374, %372, %358, %355, %351, %349
-  %.sink51.i.i155 = phi i32 [ 1, %349 ], [ 16, %358 ], [ 16, %355 ], [ 16, %351 ], [ 16, %374 ], [ 16, %372 ]
+  %.sink51.i.i155 = phi i32 [ 16, %351 ], [ 1, %349 ], [ 16, %358 ], [ 16, %355 ], [ 16, %374 ], [ 16, %372 ]
   store i32 %.sink51.i.i155, ptr %4, align 4, !tbaa !3
   br label %_ZL23getTypeEnumForInputDataPKhiP10UErrorCode.exit167.thread
 
@@ -977,7 +977,7 @@ _ZL23getTypeEnumForInputDataPKhiP10UErrorCode.exit167: ; preds = %374
   %383 = icmp sgt i32 %382, -1
   br i1 %383, label %388, label %_ZL23getTypeEnumForInputDataPKhiP10UErrorCode.exit167.thread
 
-_ZL23getTypeEnumForInputDataPKhiP10UErrorCode.exit167.thread: ; preds = %.sink.split.i.i154, %._crit_edge, %_ZL23getTypeEnumForInputDataPKhiP10UErrorCode.exit167
+_ZL23getTypeEnumForInputDataPKhiP10UErrorCode.exit167.thread: ; preds = %._crit_edge, %.sink.split.i.i154, %_ZL23getTypeEnumForInputDataPKhiP10UErrorCode.exit167
   %384 = load ptr, ptr @stderr, align 8, !tbaa !36
   %385 = getelementptr i8, ptr %343, i64 -24
   %386 = load ptr, ptr %385, align 8, !tbaa !54
@@ -2160,7 +2160,7 @@ define void @_ZN6icu_777Package9findItemsEPKc(ptr noundef nonnull align 8 captur
   br label %35
 
 35:                                               ; preds = %30, %2, %4, %33
-  %.sink = phi i32 [ %34, %33 ], [ -1, %4 ], [ -1, %2 ], [ 0, %30 ]
+  %.sink = phi i32 [ -1, %2 ], [ %34, %33 ], [ -1, %4 ], [ 0, %30 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 201232
   store i32 %.sink, ptr %36, align 8, !tbaa !27
   ret void
@@ -2435,7 +2435,7 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZN6icu_777Package12findN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit115, %.loopexit.loopexit114, %.loopexit.loopexit112, %.loopexit.loopexit51, %.loopexit.loopexit, %55, %57, %1, %._crit_edge
-  %.0 = phi i32 [ -1, %._crit_edge ], [ -1, %1 ], [ %56, %55 ], [ %56, %57 ], [ %113, %.loopexit.loopexit ], [ %114, %.loopexit.loopexit51 ], [ %115, %.loopexit.loopexit112 ], [ %116, %.loopexit.loopexit114 ], [ %117, %.loopexit.loopexit115 ]
+  %.0 = phi i32 [ -1, %1 ], [ -1, %._crit_edge ], [ %56, %57 ], [ %113, %.loopexit.loopexit ], [ %115, %.loopexit.loopexit112 ], [ %56, %55 ], [ %116, %.loopexit.loopexit114 ], [ %114, %.loopexit.loopexit51 ], [ %117, %.loopexit.loopexit115 ]
   ret i32 %.0
 }
 

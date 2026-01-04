@@ -253,7 +253,7 @@ x509_pubkey_ex_free.exit14:                       ; preds = %29, %25, %x509_pubk
   br label %61
 
 61:                                               ; preds = %42, %59, %1, %57, %x509_pubkey_ex_free.exit14, %x509_pubkey_ex_free.exit
-  %.0 = phi ptr [ null, %x509_pubkey_ex_free.exit14 ], [ null, %57 ], [ null, %x509_pubkey_ex_free.exit ], [ null, %1 ], [ %3, %59 ], [ %3, %42 ]
+  %.0 = phi ptr [ null, %x509_pubkey_ex_free.exit ], [ null, %x509_pubkey_ex_free.exit14 ], [ null, %57 ], [ null, %1 ], [ %3, %59 ], [ %3, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
@@ -831,7 +831,7 @@ define i32 @i2d_PUBKEY(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %.critedge
 
 .critedge:                                        ; preds = %19, %8, %49, %20, %2
-  %.0 = phi i32 [ 0, %2 ], [ %.3, %49 ], [ -1, %20 ], [ -1, %8 ], [ %.132, %19 ]
+  %.0 = phi i32 [ %.132, %19 ], [ -1, %8 ], [ 0, %2 ], [ %.3, %49 ], [ -1, %20 ]
   ret i32 %.0
 }
 
@@ -879,7 +879,7 @@ define ptr @d2i_RSA_PUBKEY(ptr noundef captures(address_is_null) %0, ptr noundef
   br label %15
 
 15:                                               ; preds = %11, %13, %8, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %8 ], [ %9, %13 ], [ %9, %11 ]
+  %.0 = phi ptr [ null, %8 ], [ null, %3 ], [ %9, %13 ], [ %9, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -959,7 +959,7 @@ define ptr @ossl_d2i_DH_PUBKEY(ptr noundef captures(address_is_null) %0, ptr nou
   br label %18
 
 18:                                               ; preds = %.thread, %14, %16, %11, %3
-  %.013 = phi ptr [ null, %3 ], [ null, %11 ], [ %12, %16 ], [ %12, %14 ], [ null, %.thread ]
+  %.013 = phi ptr [ null, %11 ], [ null, %3 ], [ %12, %16 ], [ %12, %14 ], [ null, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.013
 }
@@ -1037,7 +1037,7 @@ define ptr @ossl_d2i_DHx_PUBKEY(ptr noundef captures(address_is_null) %0, ptr no
   br label %18
 
 18:                                               ; preds = %.thread, %14, %16, %11, %3
-  %.013 = phi ptr [ null, %3 ], [ null, %11 ], [ %12, %16 ], [ %12, %14 ], [ null, %.thread ]
+  %.013 = phi ptr [ null, %11 ], [ null, %3 ], [ %12, %16 ], [ %12, %14 ], [ null, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.013
 }
@@ -1100,7 +1100,7 @@ define ptr @d2i_DSA_PUBKEY(ptr noundef captures(address_is_null) %0, ptr noundef
   br label %15
 
 15:                                               ; preds = %11, %13, %8, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %8 ], [ %9, %13 ], [ %9, %11 ]
+  %.0 = phi ptr [ null, %8 ], [ null, %3 ], [ %9, %13 ], [ %9, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -1131,7 +1131,7 @@ define ptr @ossl_d2i_DSA_PUBKEY(ptr noundef captures(address_is_null) %0, ptr no
   %13 = icmp eq ptr %12, null
   br i1 %13, label %d2i_DSA_PUBKEY.exit.thread, label %14
 
-d2i_DSA_PUBKEY.exit.thread:                       ; preds = %3, %11
+d2i_DSA_PUBKEY.exit.thread:                       ; preds = %11, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %26
 
@@ -1165,7 +1165,7 @@ d2i_DSA_PUBKEY.exit.thread:                       ; preds = %3, %11
   br label %26
 
 26:                                               ; preds = %d2i_DSA_PUBKEY.exit.thread, %23, %24, %22
-  %.0 = phi ptr [ null, %22 ], [ %12, %24 ], [ %12, %23 ], [ null, %d2i_DSA_PUBKEY.exit.thread ]
+  %.0 = phi ptr [ null, %d2i_DSA_PUBKEY.exit.thread ], [ null, %22 ], [ %12, %24 ], [ %12, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1243,7 +1243,7 @@ define ptr @d2i_EC_PUBKEY(ptr noundef captures(address_is_null) %0, ptr noundef 
   br label %17
 
 17:                                               ; preds = %.thread, %13, %15, %10, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %10 ], [ %11, %15 ], [ %11, %13 ], [ null, %.thread ]
+  %.0 = phi ptr [ null, %10 ], [ null, %3 ], [ %11, %15 ], [ %11, %13 ], [ null, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -1277,7 +1277,7 @@ define i32 @i2d_EC_PUBKEY(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br label %12
 
 12:                                               ; preds = %2, %8, %7
-  %.0 = phi i32 [ -1, %7 ], [ %10, %8 ], [ 0, %2 ]
+  %.0 = phi i32 [ %10, %8 ], [ -1, %7 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -1310,7 +1310,7 @@ define ptr @ossl_d2i_ED25519_PUBKEY(ptr noundef captures(address_is_null) %0, pt
   br label %15
 
 15:                                               ; preds = %11, %13, %8, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %8 ], [ %9, %13 ], [ %9, %11 ]
+  %.0 = phi ptr [ null, %8 ], [ null, %3 ], [ %9, %13 ], [ %9, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -1344,7 +1344,7 @@ define i32 @ossl_i2d_ED25519_PUBKEY(ptr noundef %0, ptr noundef %1) local_unname
   br label %12
 
 12:                                               ; preds = %2, %8, %7
-  %.0 = phi i32 [ -1, %7 ], [ %10, %8 ], [ 0, %2 ]
+  %.0 = phi i32 [ %10, %8 ], [ -1, %7 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -1386,7 +1386,7 @@ define ptr @ossl_d2i_ED448_PUBKEY(ptr noundef captures(address_is_null) %0, ptr 
   br label %18
 
 18:                                               ; preds = %.thread, %14, %16, %11, %3
-  %.013 = phi ptr [ null, %3 ], [ null, %11 ], [ %12, %16 ], [ %12, %14 ], [ null, %.thread ]
+  %.013 = phi ptr [ null, %11 ], [ null, %3 ], [ %12, %16 ], [ %12, %14 ], [ null, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.013
 }
@@ -1418,7 +1418,7 @@ define i32 @ossl_i2d_ED448_PUBKEY(ptr noundef %0, ptr noundef %1) local_unnamed_
   br label %12
 
 12:                                               ; preds = %2, %8, %7
-  %.0 = phi i32 [ -1, %7 ], [ %10, %8 ], [ 0, %2 ]
+  %.0 = phi i32 [ %10, %8 ], [ -1, %7 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -1460,7 +1460,7 @@ define ptr @ossl_d2i_X25519_PUBKEY(ptr noundef captures(address_is_null) %0, ptr
   br label %18
 
 18:                                               ; preds = %.thread, %14, %16, %11, %3
-  %.013 = phi ptr [ null, %3 ], [ null, %11 ], [ %12, %16 ], [ %12, %14 ], [ null, %.thread ]
+  %.013 = phi ptr [ null, %11 ], [ null, %3 ], [ %12, %16 ], [ %12, %14 ], [ null, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.013
 }
@@ -1492,7 +1492,7 @@ define i32 @ossl_i2d_X25519_PUBKEY(ptr noundef %0, ptr noundef %1) local_unnamed
   br label %12
 
 12:                                               ; preds = %2, %8, %7
-  %.0 = phi i32 [ -1, %7 ], [ %10, %8 ], [ 0, %2 ]
+  %.0 = phi i32 [ %10, %8 ], [ -1, %7 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -1534,7 +1534,7 @@ define ptr @ossl_d2i_X448_PUBKEY(ptr noundef captures(address_is_null) %0, ptr n
   br label %18
 
 18:                                               ; preds = %.thread, %14, %16, %11, %3
-  %.013 = phi ptr [ null, %3 ], [ null, %11 ], [ %12, %16 ], [ %12, %14 ], [ null, %.thread ]
+  %.013 = phi ptr [ null, %11 ], [ null, %3 ], [ %12, %16 ], [ %12, %14 ], [ null, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.013
 }
@@ -1566,7 +1566,7 @@ define i32 @ossl_i2d_X448_PUBKEY(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br label %12
 
 12:                                               ; preds = %2, %8, %7
-  %.0 = phi i32 [ -1, %7 ], [ %10, %8 ], [ 0, %2 ]
+  %.0 = phi i32 [ %10, %8 ], [ -1, %7 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -1720,7 +1720,7 @@ X509_PUBKEY_get0.exit21:                          ; preds = %X509_PUBKEY_get0.ex
   br label %23
 
 23:                                               ; preds = %X509_PUBKEY_get0.exit21.thread, %X509_PUBKEY_get0.exit.thread, %13, %7, %10, %4, %2, %X509_PUBKEY_get0.exit21
-  %.0 = phi i32 [ %22, %X509_PUBKEY_get0.exit21 ], [ 1, %2 ], [ 0, %4 ], [ -2, %10 ], [ -2, %7 ], [ 0, %13 ], [ -2, %X509_PUBKEY_get0.exit.thread ], [ -2, %X509_PUBKEY_get0.exit21.thread ]
+  %.0 = phi i32 [ %22, %X509_PUBKEY_get0.exit21 ], [ 1, %2 ], [ 0, %4 ], [ -2, %7 ], [ 0, %13 ], [ -2, %10 ], [ -2, %X509_PUBKEY_get0.exit21.thread ], [ -2, %X509_PUBKEY_get0.exit.thread ]
   ret i32 %.0
 }
 
@@ -2023,7 +2023,7 @@ x509_pubkey_ex_populate.exit.thread64:            ; preds = %23, %x509_pubkey_ex
   br label %76
 
 76:                                               ; preds = %72, %x509_pubkey_ex_populate.exit.thread64, %17, %75, %34, %x509_pubkey_ex_populate.exit.thread
-  %.048 = phi i32 [ %.047, %75 ], [ 0, %72 ], [ 0, %34 ], [ 0, %x509_pubkey_ex_populate.exit.thread ], [ 0, %17 ], [ %27, %x509_pubkey_ex_populate.exit.thread64 ]
+  %.048 = phi i32 [ 0, %17 ], [ %.047, %75 ], [ 0, %72 ], [ 0, %34 ], [ 0, %x509_pubkey_ex_populate.exit.thread ], [ %27, %x509_pubkey_ex_populate.exit.thread64 ]
   ret i32 %.048
 }
 

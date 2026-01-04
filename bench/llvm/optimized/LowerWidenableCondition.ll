@@ -118,7 +118,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8CallInstELb1EE9push_backES2_.exit.i: ; pr
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %._crit_edge.i
-  %44 = phi ptr [ %.pre41.i, %.loopexit.loopexit.i ], [ %.pre42.pre.i, %._crit_edge.i ]
+  %44 = phi ptr [ %.pre42.pre.i, %._crit_edge.i ], [ %.pre41.i, %.loopexit.loopexit.i ]
   %45 = icmp eq ptr %44, %13
   br i1 %45, label %_ZL23lowerWidenableConditionRN4llvm8FunctionE.exit, label %46
 

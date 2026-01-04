@@ -239,7 +239,7 @@ ddReorderPostprocess.exit:                        ; preds = %72, %75
   br label %.critedge
 
 .critedge:                                        ; preds = %27, %104, %78, %70, %ddReorderPreprocess.exit, %15, %3, %._crit_edge89
-  %.0 = phi i32 [ %.065, %._crit_edge89 ], [ 1, %3 ], [ 1, %15 ], [ 0, %ddReorderPreprocess.exit ], [ 0, %70 ], [ 0, %78 ], [ 0, %104 ], [ 0, %27 ]
+  %.0 = phi i32 [ 0, %104 ], [ 1, %3 ], [ 1, %15 ], [ 0, %ddReorderPreprocess.exit ], [ 0, %78 ], [ %.065, %._crit_edge89 ], [ 0, %70 ], [ 0, %27 ]
   ret i32 %.0
 }
 
@@ -442,7 +442,7 @@ ddShuffle.exit:                                   ; preds = %ddSiftUp.exit.i, %7
   br label %.critedge
 
 .critedge:                                        ; preds = %7, %2, %80, %ddShuffle.exit, %58, %57, %54, %53, %ddReorderPreprocess.exit
-  %.040 = phi i32 [ 0, %ddReorderPreprocess.exit ], [ 0, %53 ], [ 0, %54 ], [ 0, %57 ], [ 0, %58 ], [ %.0.i, %ddShuffle.exit ], [ %.0.i, %80 ], [ 1, %2 ], [ 1, %7 ]
+  %.040 = phi i32 [ 0, %ddReorderPreprocess.exit ], [ 0, %57 ], [ %.0.i, %80 ], [ 0, %54 ], [ 0, %58 ], [ 0, %53 ], [ %.0.i, %ddShuffle.exit ], [ 1, %2 ], [ 1, %7 ]
   ret i32 %.040
 }
 
@@ -521,7 +521,7 @@ define internal fastcc range(i32 0, 2) i32 @ddCheckPermuation(ptr noundef readon
   br label %37
 
 37:                                               ; preds = %34, %29, %._crit_edge, %3, %36
-  %.033 = phi i32 [ 1, %36 ], [ 1, %3 ], [ 0, %._crit_edge ], [ 0, %29 ], [ 0, %34 ]
+  %.033 = phi i32 [ 0, %._crit_edge ], [ 1, %3 ], [ 1, %36 ], [ 0, %29 ], [ 0, %34 ]
   ret i32 %.033
 }
 
@@ -606,7 +606,7 @@ define internal fastcc range(i32 0, 2) i32 @ddUpdateMtrTree(ptr noundef %0, ptr 
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %5, %37, %32, %25, %._crit_edge, %3, %39
-  %.040 = phi i32 [ 1, %39 ], [ 1, %3 ], [ 0, %._crit_edge ], [ 0, %25 ], [ 0, %32 ], [ 0, %37 ], [ 0, %5 ]
+  %.040 = phi i32 [ 0, %._crit_edge ], [ 1, %3 ], [ 1, %39 ], [ 0, %32 ], [ 0, %25 ], [ 0, %37 ], [ 0, %5 ]
   ret i32 %.040
 }
 
@@ -1030,8 +1030,8 @@ define range(i32 0, 2) i32 @cuddSifting(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %.not19.i162.i, label %ddSiftingBackward.exit.thread.i, label %.lr.ph26.i159.i, !llvm.loop !92
 
 ddSiftingBackward.exit.thread.i:                  ; preds = %144, %.lr.ph26.i159.i, %123, %.lr.ph26.i146.i, %78, %.lr.ph26.i.i, %109
-  %.194.i = phi ptr [ null, %109 ], [ null, %.lr.ph26.i.i ], [ null, %78 ], [ %110, %.lr.ph26.i146.i ], [ %110, %123 ], [ %127, %.lr.ph26.i159.i ], [ %127, %144 ]
-  %.1.i = phi ptr [ %105, %109 ], [ %65, %.lr.ph26.i.i ], [ %65, %78 ], [ %105, %.lr.ph26.i146.i ], [ %105, %123 ], [ %131, %.lr.ph26.i159.i ], [ %131, %144 ]
+  %.194.i = phi ptr [ %110, %123 ], [ null, %109 ], [ null, %78 ], [ null, %.lr.ph26.i.i ], [ %110, %.lr.ph26.i146.i ], [ %127, %.lr.ph26.i159.i ], [ %127, %144 ]
+  %.1.i = phi ptr [ %105, %123 ], [ %105, %109 ], [ %65, %78 ], [ %65, %.lr.ph26.i.i ], [ %105, %.lr.ph26.i146.i ], [ %131, %.lr.ph26.i159.i ], [ %131, %144 ]
   %.not120188.i = icmp eq ptr %.1.i, null
   br i1 %.not120188.i, label %.preheader.i, label %.lr.ph.i
 
@@ -1044,7 +1044,7 @@ ddSiftingBackward.exit.thread.i:                  ; preds = %144, %.lr.ph26.i159
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %97, %.lr.ph26.i133.i, %..preheader_crit_edge.i, %ddSiftingBackward.exit.thread.i, %130
-  %.194212.i = phi ptr [ %.194.i, %..preheader_crit_edge.i ], [ %.194.i, %ddSiftingBackward.exit.thread.i ], [ %127, %130 ], [ %84, %.lr.ph26.i133.i ], [ %84, %97 ]
+  %.194212.i = phi ptr [ %.194.i, %ddSiftingBackward.exit.thread.i ], [ %.194.i, %..preheader_crit_edge.i ], [ %127, %130 ], [ %84, %.lr.ph26.i133.i ], [ %84, %97 ]
   %.not121191.i = icmp eq ptr %.194212.i, null
   br i1 %.not121191.i, label %ddSiftingAux.exit.thread, label %.lr.ph193.i
 
@@ -1077,8 +1077,8 @@ ddSiftingBackward.exit.thread.i:                  ; preds = %144, %.lr.ph26.i159
   br i1 %.not121.i, label %..loopexit_crit_edge.i, label %153, !llvm.loop !94
 
 ddSiftingBackward.exit.i:                         ; preds = %130, %126, %109, %104, %83, %64, %139, %118, %92, %73
-  %.093.i = phi ptr [ null, %73 ], [ %84, %92 ], [ %110, %118 ], [ %127, %139 ], [ %127, %130 ], [ inttoptr (i64 -1 to ptr), %126 ], [ inttoptr (i64 -1 to ptr), %109 ], [ null, %104 ], [ inttoptr (i64 -1 to ptr), %83 ], [ null, %64 ]
-  %.092.i = phi ptr [ %65, %73 ], [ null, %92 ], [ %105, %118 ], [ %131, %139 ], [ inttoptr (i64 -1 to ptr), %130 ], [ null, %126 ], [ %105, %109 ], [ inttoptr (i64 -1 to ptr), %104 ], [ null, %83 ], [ inttoptr (i64 -1 to ptr), %64 ]
+  %.093.i = phi ptr [ %127, %139 ], [ null, %73 ], [ %110, %118 ], [ %84, %92 ], [ %127, %130 ], [ inttoptr (i64 -1 to ptr), %126 ], [ inttoptr (i64 -1 to ptr), %109 ], [ null, %104 ], [ inttoptr (i64 -1 to ptr), %83 ], [ null, %64 ]
+  %.092.i = phi ptr [ %131, %139 ], [ %65, %73 ], [ %105, %118 ], [ null, %92 ], [ inttoptr (i64 -1 to ptr), %130 ], [ null, %126 ], [ %105, %109 ], [ inttoptr (i64 -1 to ptr), %104 ], [ null, %83 ], [ inttoptr (i64 -1 to ptr), %64 ]
   %magicptr123.i = ptrtoint ptr %.092.i to i64
   %magicptr123.off.i = add i64 %magicptr123.i, -1
   %switch.i = icmp ult i64 %magicptr123.off.i, -2
@@ -1171,7 +1171,7 @@ ddSiftingAux.exit:                                ; preds = %.loopexit178.i, %16
   br label %180
 
 180:                                              ; preds = %.thread, %178, %179, %176, %._crit_edge87
-  %.0 = phi i32 [ 1, %._crit_edge87 ], [ 1, %176 ], [ 0, %179 ], [ 0, %178 ], [ 0, %.thread ]
+  %.0 = phi i32 [ 1, %176 ], [ 1, %._crit_edge87 ], [ 0, %179 ], [ 0, %178 ], [ 0, %.thread ]
   ret i32 %.0
 }
 
@@ -1294,9 +1294,9 @@ define range(i32 0, 2) i32 @cuddSwapping(ptr noundef %0, i32 noundef %1, i32 nou
   br label %.loopexit93
 
 .loopexit93:                                      ; preds = %.preheader, %.loopexit95, %36
-  %.069 = phi i32 [ %1, %36 ], [ %52, %.loopexit95 ], [ %41, %.preheader ]
-  %.168 = phi i32 [ %.067, %36 ], [ %53, %.loopexit95 ], [ %.067, %.preheader ]
-  %.3 = phi i32 [ %.1.lcssa, %36 ], [ %.062111, %.loopexit95 ], [ %.1.lcssa, %.preheader ]
+  %.069 = phi i32 [ %52, %.loopexit95 ], [ %1, %36 ], [ %41, %.preheader ]
+  %.168 = phi i32 [ %53, %.loopexit95 ], [ %.067, %36 ], [ %.067, %.preheader ]
+  %.3 = phi i32 [ %.062111, %.loopexit95 ], [ %.1.lcssa, %36 ], [ %.1.lcssa, %.preheader ]
   %54 = load i32, ptr %11, align 4, !tbaa !3
   %55 = load i32, ptr %12, align 8, !tbaa !32
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %.069, i32 %.168)
@@ -1468,7 +1468,7 @@ define range(i32 0, 2) i32 @cuddSwapping(ptr noundef %0, i32 noundef %1, i32 nou
   br i1 %.not185190.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %124, %121, %104, %98, %81, %75, %72, %66, %.loopexit189.i
-  %.1160208.i = phi ptr [ %.0159.i, %.loopexit189.i ], [ %96, %104 ], [ %96, %98 ], [ %73, %81 ], [ %73, %75 ], [ %64, %72 ], [ %64, %66 ], [ %.sink215.i, %121 ], [ %.sink215.i, %124 ]
+  %.1160208.i = phi ptr [ %.0159.i, %.loopexit189.i ], [ %64, %66 ], [ %96, %104 ], [ %96, %98 ], [ %73, %81 ], [ %73, %75 ], [ %64, %72 ], [ %.sink215.i, %121 ], [ %.sink215.i, %124 ]
   %.promoted.i = load ptr, ptr %14, align 8, !tbaa !65
   br label %131
 
@@ -1485,7 +1485,7 @@ define range(i32 0, 2) i32 @cuddSwapping(ptr noundef %0, i32 noundef %1, i32 nou
   br i1 %.not185.i, label %.loopexit.sink.split, label %131, !llvm.loop !99
 
 ddSwapAny.exit:                                   ; preds = %127, %120
-  %.0156.i = phi ptr [ %125, %127 ], [ %.sink215.i, %120 ]
+  %.0156.i = phi ptr [ %.sink215.i, %120 ], [ %125, %127 ]
   br label %.lr.ph.i86
 
 .lr.ph.i86:                                       ; preds = %ddSwapAny.exit, %.lr.ph.i86
@@ -1564,7 +1564,7 @@ ddSiftingBackward.exit:                           ; preds = %.lr.ph26.i, %149
   br label %.loopexit
 
 .loopexit:                                        ; preds = %17, %158, %.loopexit.sink.split, %.loopexit189.i, %4
-  %.0 = phi i32 [ 1, %4 ], [ 0, %.loopexit189.i ], [ 0, %.loopexit.sink.split ], [ 1, %158 ], [ 1, %17 ]
+  %.0 = phi i32 [ 0, %.loopexit189.i ], [ 0, %.loopexit.sink.split ], [ 1, %4 ], [ 1, %158 ], [ 1, %17 ]
   ret i32 %.0
 }
 
@@ -1982,8 +1982,8 @@ define i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge2.loopexit, %.lr.ph614.preheader, %..critedge2.loopexit_crit_edge, %.preheader548
-  %195 = phi ptr [ %.0451, %.preheader548 ], [ %189, %..critedge2.loopexit_crit_edge ], [ %.0451, %.lr.ph614.preheader ], [ %189, %.critedge2.loopexit ]
-  %.3457.lcssa = phi ptr [ %.2456, %.preheader548 ], [ %193, %..critedge2.loopexit_crit_edge ], [ %.2456, %.lr.ph614.preheader ], [ %194, %.critedge2.loopexit ]
+  %195 = phi ptr [ %.0451, %.preheader548 ], [ %.0451, %.lr.ph614.preheader ], [ %189, %..critedge2.loopexit_crit_edge ], [ %189, %.critedge2.loopexit ]
+  %.3457.lcssa = phi ptr [ %.2456, %.preheader548 ], [ %.2456, %.lr.ph614.preheader ], [ %193, %..critedge2.loopexit_crit_edge ], [ %194, %.critedge2.loopexit ]
   store ptr %195, ptr %146, align 8, !tbaa !77
   store ptr %.2482619, ptr %.3457.lcssa, align 8, !tbaa !35
   %.not531 = icmp eq ptr %147, null
@@ -2172,9 +2172,9 @@ define i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
   br label %291
 
 291:                                              ; preds = %.lr.ph623._crit_edge, %222, %281
-  %.2471621.lcssa.sink = phi ptr [ %247, %281 ], [ %.0474, %222 ], [ %.2471621.lcssa, %.lr.ph623._crit_edge ]
-  %.9504 = phi i32 [ %285, %281 ], [ %.8503637, %222 ], [ %.8503637, %.lr.ph623._crit_edge ]
-  %.0469 = phi ptr [ %279, %281 ], [ %.0474, %222 ], [ %.2471621.lcssa, %.lr.ph623._crit_edge ]
+  %.2471621.lcssa.sink = phi ptr [ %.0474, %222 ], [ %247, %281 ], [ %.2471621.lcssa, %.lr.ph623._crit_edge ]
+  %.9504 = phi i32 [ %.8503637, %222 ], [ %285, %281 ], [ %.8503637, %.lr.ph623._crit_edge ]
+  %.0469 = phi ptr [ %.0474, %222 ], [ %279, %281 ], [ %.2471621.lcssa, %.lr.ph623._crit_edge ]
   %292 = getelementptr inbounds nuw i8, ptr %.2471621.lcssa.sink, i64 4
   %293 = load i32, ptr %292, align 4, !tbaa !36
   %294 = add i32 %293, 1
@@ -2397,8 +2397,8 @@ define i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
   br label %.critedge8
 
 .critedge8:                                       ; preds = %.critedge8.loopexit, %.lr.ph631.preheader, %..critedge8.loopexit_crit_edge, %.preheader545
-  %422 = phi ptr [ %.2453, %.preheader545 ], [ %416, %..critedge8.loopexit_crit_edge ], [ %.2453, %.lr.ph631.preheader ], [ %416, %.critedge8.loopexit ]
-  %.9.lcssa = phi ptr [ %.8, %.preheader545 ], [ %420, %..critedge8.loopexit_crit_edge ], [ %.8, %.lr.ph631.preheader ], [ %421, %.critedge8.loopexit ]
+  %422 = phi ptr [ %.2453, %.preheader545 ], [ %.2453, %.lr.ph631.preheader ], [ %416, %..critedge8.loopexit_crit_edge ], [ %416, %.critedge8.loopexit ]
+  %.9.lcssa = phi ptr [ %.8, %.preheader545 ], [ %.8, %.lr.ph631.preheader ], [ %420, %..critedge8.loopexit_crit_edge ], [ %421, %.critedge8.loopexit ]
   store ptr %422, ptr %198, align 8, !tbaa !77
   store ptr %.3483638, ptr %.9.lcssa, align 8, !tbaa !35
   %.not535 = icmp eq ptr %199, null
@@ -2739,7 +2739,7 @@ ddShuffle.exit:                                   ; preds = %ddSiftUp.exit.i, %6
   br label %73
 
 73:                                               ; preds = %._crit_edge51, %5, %1, %70, %20
-  %.0 = phi i32 [ 0, %20 ], [ %.0.i, %70 ], [ 1, %1 ], [ 0, %5 ], [ 0, %._crit_edge51 ]
+  %.0 = phi i32 [ %.0.i, %70 ], [ 1, %1 ], [ 0, %20 ], [ 0, %5 ], [ 0, %._crit_edge51 ]
   ret i32 %.0
 }
 
@@ -2972,7 +2972,7 @@ define internal fastcc ptr @ddSiftingDown(ptr noundef %0, i32 noundef %1, i32 no
   br label %.critedge
 
 .critedge:                                        ; preds = %78, %69, %3, %.preheader, %81, %..critedge.loopexit_crit_edge
-  %.0 = phi ptr [ inttoptr (i64 -1 to ptr), %..critedge.loopexit_crit_edge ], [ inttoptr (i64 -1 to ptr), %81 ], [ null, %.preheader ], [ null, %3 ], [ %67, %69 ], [ %67, %78 ]
+  %.0 = phi ptr [ inttoptr (i64 -1 to ptr), %81 ], [ inttoptr (i64 -1 to ptr), %..critedge.loopexit_crit_edge ], [ null, %.preheader ], [ null, %3 ], [ %67, %69 ], [ %67, %78 ]
   ret ptr %.0
 }
 
@@ -3152,7 +3152,7 @@ define internal fastcc ptr @ddSiftingUp(ptr noundef %0, i32 noundef %1, i32 noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %83, %92, %._crit_edge, %96, %..loopexit_crit_edge
-  %.075 = phi ptr [ inttoptr (i64 -1 to ptr), %..loopexit_crit_edge ], [ inttoptr (i64 -1 to ptr), %96 ], [ null, %._crit_edge ], [ %81, %92 ], [ %81, %83 ]
+  %.075 = phi ptr [ inttoptr (i64 -1 to ptr), %96 ], [ inttoptr (i64 -1 to ptr), %..loopexit_crit_edge ], [ null, %._crit_edge ], [ %81, %92 ], [ %81, %83 ]
   ret ptr %.075
 }
 

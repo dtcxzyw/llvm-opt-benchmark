@@ -179,14 +179,14 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__124__barrier_algorithm_ba
   br label %.split, !llvm.loop !18
 
 _ZNSt3__136__cxx_atomic_compare_exchange_strongB8ne210000IhEEbPNS_22__cxx_atomic_base_implIT_EEPS2_S2_NS_12memory_orderES6_.exit.thread: ; preds = %43, %56, %27
-  %.us-phi = phi i64 [ %spec.store.select.us66, %27 ], [ %16, %43 ], [ %spec.store.select, %56 ]
+  %.us-phi = phi i64 [ %spec.store.select.us66, %27 ], [ %spec.store.select, %56 ], [ %16, %43 ]
   %64 = lshr i64 %.us-phi, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %65 = icmp ult i64 %14, 4
   br i1 %65, label %_ZNSt3__136__cxx_atomic_compare_exchange_strongB8ne210000IhEEbPNS_22__cxx_atomic_base_implIT_EEPS2_S2_NS_12memory_orderES6_.exit, label %13, !llvm.loop !20
 
 _ZNSt3__136__cxx_atomic_compare_exchange_strongB8ne210000IhEEbPNS_22__cxx_atomic_base_implIT_EEPS2_S2_NS_12memory_orderES6_.exit: ; preds = %_ZNSt3__136__cxx_atomic_compare_exchange_strongB8ne210000IhEEbPNS_22__cxx_atomic_base_implIT_EEPS2_S2_NS_12memory_orderES6_.exit.thread, %.split.us, %48, %33, %2
-  %66 = phi i1 [ true, %2 ], [ false, %33 ], [ false, %48 ], [ false, %.split.us ], [ true, %_ZNSt3__136__cxx_atomic_compare_exchange_strongB8ne210000IhEEbPNS_22__cxx_atomic_base_implIT_EEPS2_S2_NS_12memory_orderES6_.exit.thread ]
+  %66 = phi i1 [ false, %48 ], [ true, %2 ], [ false, %33 ], [ false, %.split.us ], [ true, %_ZNSt3__136__cxx_atomic_compare_exchange_strongB8ne210000IhEEbPNS_22__cxx_atomic_base_implIT_EEPS2_S2_NS_12memory_orderES6_.exit.thread ]
   ret i1 %66
 }
 

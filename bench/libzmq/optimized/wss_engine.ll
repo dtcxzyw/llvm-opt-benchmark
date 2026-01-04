@@ -564,7 +564,7 @@ define noundef i32 @_ZN3zmq12wss_engine_t5writeEPKvm(ptr noundef nonnull readonl
   br label %13
 
 13:                                               ; preds = %3, %3, %11, %9
-  %.0 = phi i32 [ -1, %9 ], [ %12, %11 ], [ 0, %3 ], [ 0, %3 ]
+  %.0 = phi i32 [ %12, %11 ], [ -1, %9 ], [ 0, %3 ], [ 0, %3 ]
   ret i32 %.0
 }
 

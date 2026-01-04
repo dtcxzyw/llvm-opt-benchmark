@@ -587,7 +587,7 @@ AssessPathLength.exit:                            ; preds = %119, %121
   br label %196
 
 196:                                              ; preds = %188, %97, %.thread, %24, %189, %153, %131, %19
-  %.093 = phi ptr [ null, %19 ], [ null, %153 ], [ %.097, %189 ], [ null, %131 ], [ %1, %24 ], [ null, %.thread ], [ null, %97 ], [ null, %188 ]
+  %.093 = phi ptr [ null, %19 ], [ null, %131 ], [ %1, %24 ], [ null, %153 ], [ %.097, %189 ], [ null, %97 ], [ null, %.thread ], [ null, %188 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.093
 }
@@ -912,10 +912,10 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef nonnull %
   br label %139
 
 139:                                              ; preds = %138, %136, %137
-  %.0200 = phi ptr [ %41, %137 ], [ %38, %136 ], [ %., %138 ]
-  %.0199 = phi ptr [ %.0198, %137 ], [ %.0197, %136 ], [ %.0197..0198, %138 ]
-  %.0190 = phi i32 [ %.0185, %137 ], [ %.0184, %136 ], [ %.0184..0185, %138 ]
-  %.2 = phi i32 [ %.1, %137 ], [ 1, %136 ], [ 1, %138 ]
+  %.0200 = phi ptr [ %., %138 ], [ %38, %136 ], [ %41, %137 ]
+  %.0199 = phi ptr [ %.0197..0198, %138 ], [ %.0197, %136 ], [ %.0198, %137 ]
+  %.0190 = phi i32 [ %.0184..0185, %138 ], [ %.0184, %136 ], [ %.0185, %137 ]
+  %.2 = phi i32 [ 1, %138 ], [ 1, %136 ], [ %.1, %137 ]
   %140 = load i32, ptr %3, align 8, !tbaa !46
   %141 = icmp ugt i32 %.0190, %140
   br i1 %141, label %142, label %144
@@ -1210,7 +1210,7 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef nonnull %
   br label %288
 
 288:                                              ; preds = %247, %197, %198, %96, %54, %28, %25, %5, %284, %237, %105, %61, %17
-  %.0181 = phi ptr [ %217, %284 ], [ null, %237 ], [ null, %105 ], [ null, %61 ], [ null, %17 ], [ %2, %5 ], [ %27, %25 ], [ %30, %28 ], [ null, %54 ], [ null, %96 ], [ null, %198 ], [ null, %197 ], [ null, %247 ]
+  %.0181 = phi ptr [ null, %17 ], [ %2, %5 ], [ %30, %28 ], [ null, %54 ], [ null, %96 ], [ null, %197 ], [ %217, %284 ], [ null, %237 ], [ null, %105 ], [ null, %61 ], [ %27, %25 ], [ null, %198 ], [ null, %247 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1780,7 +1780,7 @@ define internal fastcc void @CreateTopDist(ptr noundef %0, i32 noundef %1, i32 n
   br label %135
 
 135:                                              ; preds = %104, %94, %133, %.critedge, %30
-  %.2 = phi i32 [ %.1, %30 ], [ %134, %133 ], [ %.1, %.critedge ], [ %100, %94 ], [ %.1, %104 ]
+  %.2 = phi i32 [ %.1, %30 ], [ %134, %133 ], [ %100, %94 ], [ %.1, %.critedge ], [ %.1, %104 ]
   %136 = add nsw i32 %.075, -1
   br label %28, !llvm.loop !73
 
@@ -2071,7 +2071,7 @@ define internal fastcc range(i32 0, 2) i32 @CreateBotDist(ptr noundef %0, ptr no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %71, %135, %143, %4, %73, %60, %14
-  %.061 = phi i32 [ 0, %73 ], [ 0, %60 ], [ 0, %14 ], [ 1, %4 ], [ 1, %143 ], [ 1, %135 ], [ 0, %71 ]
+  %.061 = phi i32 [ 0, %14 ], [ 1, %4 ], [ 0, %73 ], [ 0, %60 ], [ 1, %143 ], [ 1, %135 ], [ 0, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.061

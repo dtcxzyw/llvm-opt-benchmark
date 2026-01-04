@@ -632,7 +632,7 @@ pmix_obj_run_constructors.exit30:                 ; preds = %.lr.ph.i27, %36
   br label %47
 
 47:                                               ; preds = %0, %45, %43, %pmix_obj_run_constructors.exit30, %pmix_obj_run_constructors.exit
-  %.0 = phi i32 [ %13, %pmix_obj_run_constructors.exit ], [ %42, %pmix_obj_run_constructors.exit30 ], [ %44, %43 ], [ 0, %45 ], [ 0, %0 ]
+  %.0 = phi i32 [ %44, %43 ], [ %42, %pmix_obj_run_constructors.exit30 ], [ %13, %pmix_obj_run_constructors.exit ], [ 0, %45 ], [ 0, %0 ]
   ret i32 %.0
 }
 
@@ -821,7 +821,7 @@ pmix_mca_base_var_register_synonym.exit:          ; preds = %pmix_pointer_array_
   br label %91
 
 91:                                               ; preds = %87, %84, %68, %64, %59, %56, %53, %47, %50, %43, %pmix_mca_base_var_register_synonym.exit, %19, %14, %12, %75, %90
-  %.0 = phi i32 [ 0, %90 ], [ -29, %75 ], [ 0, %12 ], [ -29, %14 ], [ %21, %19 ], [ -29, %pmix_mca_base_var_register_synonym.exit ], [ %45, %43 ], [ 0, %50 ], [ 0, %47 ], [ %54, %53 ], [ %57, %56 ], [ -29, %59 ], [ %66, %64 ], [ %69, %68 ], [ %86, %84 ], [ %89, %87 ]
+  %.0 = phi i32 [ -29, %75 ], [ 0, %12 ], [ -29, %14 ], [ %21, %19 ], [ -29, %pmix_mca_base_var_register_synonym.exit ], [ %45, %43 ], [ 0, %47 ], [ %54, %53 ], [ %57, %56 ], [ -29, %59 ], [ %66, %64 ], [ %69, %68 ], [ %86, %84 ], [ 0, %90 ], [ 0, %50 ], [ %89, %87 ]
   ret i32 %.0
 }
 
@@ -1148,7 +1148,7 @@ append_filename_to_list.exit:                     ; preds = %19, %22
   br label %.loopexit
 
 .loopexit:                                        ; preds = %30, %5, %3, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %3 ], [ -29, %5 ], [ %.2, %30 ]
+  %.0 = phi i32 [ 0, %3 ], [ -29, %5 ], [ 0, %._crit_edge ], [ %.2, %30 ]
   ret i32 %.0
 }
 
@@ -1201,8 +1201,8 @@ pmix_pointer_array_get_item.exit.i.i.var_get.exit.thread27_crit_edge: ; preds = 
   br label %var_get.exit.thread27
 
 var_get.exit.thread27:                            ; preds = %pmix_pointer_array_get_item.exit.i.i.var_get.exit.thread27_crit_edge, %16
-  %29 = phi i32 [ %18, %16 ], [ %.pre, %pmix_pointer_array_get_item.exit.i.i.var_get.exit.thread27_crit_edge ]
-  %.02231 = phi ptr [ %14, %16 ], [ %27, %pmix_pointer_array_get_item.exit.i.i.var_get.exit.thread27_crit_edge ]
+  %29 = phi i32 [ %.pre, %pmix_pointer_array_get_item.exit.i.i.var_get.exit.thread27_crit_edge ], [ %18, %16 ]
+  %.02231 = phi ptr [ %27, %pmix_pointer_array_get_item.exit.i.i.var_get.exit.thread27_crit_edge ], [ %14, %16 ]
   %30 = and i32 %29, 65536
   %.not14 = icmp eq i32 %30, 0
   br i1 %.not14, label %var_get.exit.thread, label %31
@@ -1249,12 +1249,12 @@ var_get.exit.thread27:                            ; preds = %pmix_pointer_array_
   br label %pmix_mca_base_var_source_file.exit
 
 pmix_mca_base_var_source_file.exit:               ; preds = %40, %43, %44
-  %.0.i19 = phi ptr [ %46, %44 ], [ %.val, %40 ], [ null, %43 ]
+  %.0.i19 = phi ptr [ %.val, %40 ], [ %46, %44 ], [ null, %43 ]
   store ptr %.0.i19, ptr %3, align 8, !tbaa !51
   br label %var_get.exit.thread
 
 var_get.exit.thread:                              ; preds = %pmix_pointer_array_get_item.exit.i.i, %20, %pmix_pointer_array_get_item.exit.i, %7, %4, %39, %pmix_mca_base_var_source_file.exit, %var_get.exit.thread27
-  %.0 = phi i32 [ -46, %var_get.exit.thread27 ], [ 0, %pmix_mca_base_var_source_file.exit ], [ 0, %39 ], [ -27, %20 ], [ -27, %pmix_pointer_array_get_item.exit.i ], [ -27, %7 ], [ -1, %4 ], [ -27, %pmix_pointer_array_get_item.exit.i.i ]
+  %.0 = phi i32 [ -1, %4 ], [ -46, %var_get.exit.thread27 ], [ 0, %pmix_mca_base_var_source_file.exit ], [ 0, %39 ], [ -27, %20 ], [ -27, %pmix_pointer_array_get_item.exit.i ], [ -27, %7 ], [ -27, %pmix_pointer_array_get_item.exit.i.i ]
   ret i32 %.0
 }
 
@@ -1389,7 +1389,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %46
   br label %var_get.exit.thread
 
 var_get.exit.thread:                              ; preds = %pmix_pointer_array_get_item.exit.i, %4, %1, %17, %13, %62
-  %.0 = phi i32 [ 0, %62 ], [ -27, %13 ], [ 0, %17 ], [ -27, %pmix_pointer_array_get_item.exit.i ], [ -27, %4 ], [ -1, %1 ]
+  %.0 = phi i32 [ 0, %17 ], [ -27, %13 ], [ 0, %62 ], [ -27, %pmix_pointer_array_get_item.exit.i ], [ -27, %4 ], [ -1, %1 ]
   ret i32 %.0
 }
 
@@ -1513,7 +1513,7 @@ pmix_pointer_array_get_item.exit.i.i:             ; preds = %46
   br label %var_get.exit.i
 
 var_get.exit.i:                                   ; preds = %pmix_pointer_array_get_item.exit.i.i, %46, %40
-  %.010.i = phi ptr [ null, %46 ], [ null, %40 ], [ %53, %pmix_pointer_array_get_item.exit.i.i ]
+  %.010.i = phi ptr [ null, %46 ], [ %53, %pmix_pointer_array_get_item.exit.i.i ], [ null, %40 ]
   br i1 %3, label %59, label %54
 
 54:                                               ; preds = %var_get.exit.i
@@ -1587,7 +1587,7 @@ var_get.exit.i:                                   ; preds = %12
   br label %var_find_by_name.exit
 
 var_find_by_name.exit:                            ; preds = %6, %12, %2, %var_get.exit.i, %20, %24
-  %.0.i = phi i32 [ 0, %24 ], [ %5, %2 ], [ -46, %20 ], [ -46, %var_get.exit.i ], [ -46, %12 ], [ -46, %6 ]
+  %.0.i = phi i32 [ %5, %2 ], [ 0, %24 ], [ -46, %20 ], [ -46, %var_get.exit.i ], [ -46, %12 ], [ -46, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0.i
 }
@@ -1624,7 +1624,7 @@ pmix_pointer_array_get_item.exit.i:               ; preds = %13
   br label %var_get.exit
 
 var_get.exit:                                     ; preds = %pmix_pointer_array_get_item.exit.i, %7, %13
-  %.010 = phi ptr [ null, %13 ], [ null, %7 ], [ %20, %pmix_pointer_array_get_item.exit.i ]
+  %.010 = phi ptr [ null, %13 ], [ %20, %pmix_pointer_array_get_item.exit.i ], [ null, %7 ]
   br i1 %2, label %26, label %21
 
 21:                                               ; preds = %var_get.exit
@@ -1804,7 +1804,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %.lr.ph
   br label %pmix_mca_base_var_source_file.exit
 
 pmix_mca_base_var_source_file.exit:               ; preds = %48, %53, %54
-  %.0.i42 = phi ptr [ %56, %54 ], [ %.val, %48 ], [ null, %53 ]
+  %.0.i42 = phi ptr [ %.val, %48 ], [ %56, %54 ], [ null, %53 ]
   %57 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.41, ptr noundef %49, ptr noundef %50, ptr noundef %.0.i42) #25
   br label %62
 
@@ -1827,7 +1827,7 @@ pmix_mca_base_var_source_file.exit:               ; preds = %48, %53, %54
   br label %pmix_pointer_array_get_item.exit.thread
 
 pmix_pointer_array_get_item.exit.thread:          ; preds = %43, %43, %43, %.lr.ph, %pmix_pointer_array_get_item.exit, %20, %27, %63, %62
-  %.1.ph = phi i32 [ %.2.ph, %62 ], [ %.2.ph, %63 ], [ %.03152, %27 ], [ %.03152, %20 ], [ %.03152, %pmix_pointer_array_get_item.exit ], [ %.03152, %.lr.ph ], [ 0, %43 ], [ 0, %43 ], [ 0, %43 ]
+  %.1.ph = phi i32 [ %.03152, %.lr.ph ], [ %.03152, %pmix_pointer_array_get_item.exit ], [ %.2.ph, %62 ], [ %.2.ph, %63 ], [ %.03152, %27 ], [ %.03152, %20 ], [ 0, %43 ], [ 0, %43 ], [ 0, %43 ]
   %.1.ph.fr = freeze i32 %.1.ph
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1855,7 +1855,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %43, %43, %43, %.lr.
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge, %7, %68, %71, %2
-  %.032 = phi i32 [ -1, %2 ], [ -46, %71 ], [ -46, %68 ], [ 0, %7 ], [ %spec.select, %._crit_edge ]
+  %.032 = phi i32 [ -1, %2 ], [ -46, %68 ], [ -46, %71 ], [ 0, %7 ], [ %spec.select, %._crit_edge ]
   ret i32 %.032
 }
 
@@ -1910,8 +1910,8 @@ pmix_pointer_array_get_item.exit.i.i.var_get.exit.thread27_crit_edge.i: ; preds 
   br label %var_get.exit.thread27.i
 
 var_get.exit.thread27.i:                          ; preds = %pmix_pointer_array_get_item.exit.i.i.var_get.exit.thread27_crit_edge.i, %16
-  %29 = phi i32 [ %18, %16 ], [ %.pre.i, %pmix_pointer_array_get_item.exit.i.i.var_get.exit.thread27_crit_edge.i ]
-  %.02231.i = phi ptr [ %14, %16 ], [ %27, %pmix_pointer_array_get_item.exit.i.i.var_get.exit.thread27_crit_edge.i ]
+  %29 = phi i32 [ %.pre.i, %pmix_pointer_array_get_item.exit.i.i.var_get.exit.thread27_crit_edge.i ], [ %18, %16 ]
+  %.02231.i = phi ptr [ %27, %pmix_pointer_array_get_item.exit.i.i.var_get.exit.thread27_crit_edge.i ], [ %14, %16 ]
   %30 = and i32 %29, 65536
   %.not14.i = icmp eq i32 %30, 0
   br i1 %.not14.i, label %pmix_mca_base_var_get_value.exit.thread, label %pmix_mca_base_var_get_value.exit
@@ -1987,7 +1987,7 @@ pmix_mca_base_var_get_value.exit:                 ; preds = %var_get.exit.thread
   br label %66
 
 66:                                               ; preds = %63, %59, %56, %53, %50, %47, %44, %41
-  %.0 = phi i32 [ %43, %41 ], [ %46, %44 ], [ %49, %47 ], [ %52, %50 ], [ %55, %53 ], [ %58, %56 ], [ %62, %59 ], [ %65, %63 ]
+  %.0 = phi i32 [ %65, %63 ], [ %43, %41 ], [ %46, %44 ], [ %49, %47 ], [ %52, %50 ], [ %55, %53 ], [ %58, %56 ], [ %62, %59 ]
   %.0.fr = freeze i32 %.0
   %67 = icmp slt i32 %.0.fr, 0
   br i1 %67, label %.thread, label %pmix_mca_base_var_get_value.exit.thread
@@ -2012,8 +2012,8 @@ pmix_mca_base_var_get_value.exit:                 ; preds = %var_get.exit.thread
   %78 = tail call i32 %71(ptr noundef nonnull %36, i32 noundef %77, ptr noundef nonnull %1) #25
   br label %pmix_mca_base_var_get_value.exit.thread
 
-pmix_mca_base_var_get_value.exit.thread:          ; preds = %72, %76, %pmix_pointer_array_get_item.exit.i.i.i, %2, %7, %pmix_pointer_array_get_item.exit.i.i, %20, %var_get.exit.thread27.i, %.thread, %66, %pmix_mca_base_var_get_value.exit
-  %.025 = phi i32 [ 0, %pmix_mca_base_var_get_value.exit ], [ -29, %.thread ], [ 0, %66 ], [ -27, %pmix_pointer_array_get_item.exit.i.i.i ], [ -1, %2 ], [ -27, %7 ], [ -27, %pmix_pointer_array_get_item.exit.i.i ], [ -27, %20 ], [ -46, %var_get.exit.thread27.i ], [ %75, %72 ], [ %78, %76 ]
+pmix_mca_base_var_get_value.exit.thread:          ; preds = %72, %76, %7, %pmix_pointer_array_get_item.exit.i.i, %20, %pmix_pointer_array_get_item.exit.i.i.i, %var_get.exit.thread27.i, %2, %.thread, %66, %pmix_mca_base_var_get_value.exit
+  %.025 = phi i32 [ 0, %pmix_mca_base_var_get_value.exit ], [ -1, %2 ], [ 0, %66 ], [ -29, %.thread ], [ -27, %7 ], [ -27, %pmix_pointer_array_get_item.exit.i.i ], [ -27, %20 ], [ -27, %pmix_pointer_array_get_item.exit.i.i.i ], [ -46, %var_get.exit.thread27.i ], [ %75, %72 ], [ %78, %76 ]
   ret i32 %.025
 }
 
@@ -2958,7 +2958,7 @@ pmix_pointer_array_get_item.exit.i:               ; preds = %260
   %281 = getelementptr inbounds nuw i8, ptr %275, i64 168
   %282 = load ptr, ptr %281, align 8, !tbaa !99
   %.not.i163 = icmp eq ptr %1, null
-  br i1 %.not.i163, label %compare_strings.exit, label %sub_0.i
+  br i1 %.not.i163, label %287, label %sub_0.i
 
 sub_0.i:                                          ; preds = %280
   %283 = load i8, ptr %1, align 1
@@ -2971,18 +2971,18 @@ sub_0.i:                                          ; preds = %280
   %286 = icmp eq i8 %285, 0
   br i1 %286, label %compare_strings.exit.thread, label %.tail.thread.i
 
+287:                                              ; preds = %280
+  %.not214 = icmp eq ptr %282, null
+  br i1 %.not214, label %compare_strings.exit.thread, label %compare_strings.exit.thread206
+
 .tail.thread.i:                                   ; preds = %.tail.i, %sub_0.i
   %.not16.i = icmp eq ptr %282, null
-  br i1 %.not16.i, label %compare_strings.exit.thread206, label %287
+  br i1 %.not16.i, label %compare_strings.exit.thread206, label %compare_strings.exit
 
-287:                                              ; preds = %.tail.thread.i
+compare_strings.exit:                             ; preds = %.tail.thread.i
   %288 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(1) %282) #30
   %289 = icmp eq i32 %288, 0
   br i1 %289, label %compare_strings.exit.thread, label %compare_strings.exit.thread206
-
-compare_strings.exit:                             ; preds = %280
-  %.not214 = icmp eq ptr %282, null
-  br i1 %.not214, label %compare_strings.exit.thread, label %compare_strings.exit.thread206
 
 compare_strings.exit.thread:                      ; preds = %287, %.tail.i, %compare_strings.exit
   %290 = getelementptr inbounds nuw i8, ptr %275, i64 176
@@ -3067,7 +3067,7 @@ pmix_value_array_append_item.exit:                ; preds = %321, %315, %311, %3
   br label %pmix_pointer_array_get_item.exit.thread
 
 pmix_pointer_array_get_item.exit.thread:          ; preds = %pmix_pointer_array_get_item.exit.i, %260, %17, %243, %245, %216, %218, %160, %162, %104, %106, %pmix_value_array_append_item.exit, %304, %270, %pmix_obj_update.exit, %pmix_obj_update.exit117, %pmix_obj_update.exit118, %pmix_obj_update.exit119, %32, %27, %pmix_pointer_array_get_item.exit, %15, %compare_strings.exit.thread206
-  %.0 = phi i32 [ -1, %compare_strings.exit.thread206 ], [ -27, %15 ], [ -46, %pmix_pointer_array_get_item.exit ], [ %28, %27 ], [ %33, %32 ], [ -29, %pmix_obj_update.exit119 ], [ -1, %pmix_obj_update.exit118 ], [ -1, %pmix_obj_update.exit117 ], [ -1, %pmix_obj_update.exit ], [ -1, %270 ], [ -65, %304 ], [ %spec.select, %pmix_value_array_append_item.exit ], [ -29, %106 ], [ -29, %104 ], [ -1, %162 ], [ -1, %160 ], [ -1, %218 ], [ -1, %216 ], [ -1, %245 ], [ -1, %243 ], [ -46, %17 ], [ -1, %260 ], [ -1, %pmix_pointer_array_get_item.exit.i ]
+  %.0 = phi i32 [ -46, %pmix_pointer_array_get_item.exit ], [ -27, %15 ], [ %28, %27 ], [ %33, %32 ], [ -29, %pmix_obj_update.exit119 ], [ -1, %pmix_obj_update.exit118 ], [ -1, %pmix_obj_update.exit117 ], [ -65, %304 ], [ %spec.select, %pmix_value_array_append_item.exit ], [ -1, %pmix_obj_update.exit ], [ -46, %17 ], [ -1, %compare_strings.exit.thread206 ], [ -1, %270 ], [ -1, %243 ], [ -29, %104 ], [ -1, %160 ], [ -1, %216 ], [ -29, %106 ], [ -1, %162 ], [ -1, %218 ], [ -1, %245 ], [ -1, %260 ], [ -1, %pmix_pointer_array_get_item.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -3141,7 +3141,7 @@ pmix_pointer_array_get_item.exit.i.i:             ; preds = %27
   br label %var_get.exit.sink.split.i
 
 var_get.exit.sink.split.i:                        ; preds = %pmix_pointer_array_get_item.exit.i.i, %23, %16, %pmix_pointer_array_get_item.exit.i, %27
-  %.045.ph = phi ptr [ %21, %23 ], [ null, %27 ], [ null, %pmix_pointer_array_get_item.exit.i ], [ null, %16 ], [ %34, %pmix_pointer_array_get_item.exit.i.i ]
+  %.045.ph = phi ptr [ null, %16 ], [ %21, %23 ], [ %34, %pmix_pointer_array_get_item.exit.i.i ], [ null, %27 ], [ null, %pmix_pointer_array_get_item.exit.i ]
   %.not61 = icmp sgt i32 %17, %11
   br i1 %.not61, label %pmix_pointer_array_get_item.exit.i26, label %var_get.exit33.thread, !prof !105
 
@@ -3307,7 +3307,7 @@ source_name.exit39:                               ; preds = %100, %105, %107
   br label %var_get.exit33.thread
 
 var_get.exit33.thread:                            ; preds = %pmix_pointer_array_get_item.exit.i.i31, %44, %pmix_pointer_array_get_item.exit.i26, %var_get.exit.sink.split.i, %54, %57, %var_get.exit33, %7, %source_name.exit39
-  %.0 = phi i32 [ -27, %source_name.exit39 ], [ -46, %7 ], [ -46, %var_get.exit33 ], [ 0, %57 ], [ 0, %54 ], [ -46, %var_get.exit.sink.split.i ], [ -46, %pmix_pointer_array_get_item.exit.i26 ], [ -46, %44 ], [ -46, %pmix_pointer_array_get_item.exit.i.i31 ]
+  %.0 = phi i32 [ -46, %var_get.exit33 ], [ -46, %7 ], [ -27, %source_name.exit39 ], [ 0, %57 ], [ 0, %54 ], [ -46, %pmix_pointer_array_get_item.exit.i.i31 ], [ -46, %var_get.exit.sink.split.i ], [ -46, %pmix_pointer_array_get_item.exit.i26 ], [ -46, %44 ]
   ret i32 %.0
 }
 
@@ -3925,8 +3925,8 @@ var_get.exit185.thread:                           ; preds = %pmix_pointer_array_
   call void @free(ptr noundef %.1.i) #25
   br label %var_get.exit.thread
 
-var_get.exit.thread:                              ; preds = %279, %209, %183, %167, %.loopexit255, %130, %122, %115, %153, %pmix_pointer_array_get_item.exit.i173, %36, %31, %pmix_pointer_array_get_item.exit.i, %14, %3, %322, %316, %296, %290, %258, %251, %239, %226, %112, %58, %23, %327, %320, %225, %110, %87
-  %.0 = phi i32 [ -29, %87 ], [ -29, %110 ], [ 0, %327 ], [ -29, %225 ], [ -29, %316 ], [ -29, %320 ], [ %26, %23 ], [ %59, %58 ], [ -29, %112 ], [ -29, %226 ], [ -29, %239 ], [ -29, %251 ], [ -29, %258 ], [ -29, %290 ], [ -29, %296 ], [ -29, %322 ], [ -27, %pmix_pointer_array_get_item.exit.i ], [ -27, %14 ], [ -1, %3 ], [ -27, %pmix_pointer_array_get_item.exit.i173 ], [ -27, %36 ], [ -1, %31 ], [ -29, %153 ], [ -29, %115 ], [ -29, %122 ], [ -29, %130 ], [ -29, %.loopexit255 ], [ -29, %167 ], [ -29, %183 ], [ -29, %209 ], [ -29, %279 ]
+var_get.exit.thread:                              ; preds = %279, %209, %167, %.loopexit255, %130, %153, %122, %115, %183, %pmix_pointer_array_get_item.exit.i173, %36, %31, %pmix_pointer_array_get_item.exit.i, %14, %3, %322, %316, %296, %290, %258, %251, %239, %226, %112, %58, %23, %327, %320, %225, %110, %87
+  %.0 = phi i32 [ -29, %296 ], [ -29, %209 ], [ %26, %23 ], [ -1, %3 ], [ -29, %322 ], [ -29, %87 ], [ -29, %110 ], [ %59, %58 ], [ 0, %327 ], [ -1, %31 ], [ -29, %225 ], [ -29, %112 ], [ -29, %226 ], [ -29, %239 ], [ -29, %290 ], [ -29, %316 ], [ -29, %251 ], [ -29, %320 ], [ -29, %258 ], [ -27, %pmix_pointer_array_get_item.exit.i ], [ -27, %14 ], [ -27, %pmix_pointer_array_get_item.exit.i173 ], [ -27, %36 ], [ -29, %183 ], [ -29, %115 ], [ -29, %122 ], [ -29, %153 ], [ -29, %130 ], [ -29, %.loopexit255 ], [ -29, %167 ], [ -29, %279 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -4023,7 +4023,7 @@ sub_0:                                            ; preds = %2
   br label %.thread14
 
 .thread14:                                        ; preds = %7, %.tail.thread, %.tail, %9
-  %.0 = phi i32 [ %10, %9 ], [ 0, %.tail ], [ 1, %.tail.thread ], [ %spec.select, %7 ]
+  %.0 = phi i32 [ 0, %.tail ], [ %10, %9 ], [ %spec.select, %7 ], [ 1, %.tail.thread ]
   ret i32 %.0
 }
 
@@ -4205,7 +4205,7 @@ append_filename_to_list.exit.i:                   ; preds = %54, %51
   br label %pmix_mca_base_var_source_file.exit.i
 
 pmix_mca_base_var_source_file.exit.i:             ; preds = %86, %85, %82
-  %.0.i40.i = phi ptr [ %88, %86 ], [ %.val.i, %82 ], [ null, %85 ]
+  %.0.i40.i = phi ptr [ %.val.i, %82 ], [ %88, %86 ], [ null, %85 ]
   %89 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.77, i32 noundef 1, ptr noundef %21, ptr noundef %.0.i40.i, ptr noundef %.0.i) #25
   br label %90
 
@@ -4332,7 +4332,7 @@ define internal fastcc i32 @var_set_from_file(ptr noundef captures(none) %0, ptr
   br i1 %.not32, label %.loopexit, label %.lr.ph, !llvm.loop !115
 
 .loopexit:                                        ; preds = %46, %3, %23, %26, %42
-  %.030 = phi i32 [ %45, %42 ], [ -46, %26 ], [ -46, %23 ], [ -46, %3 ], [ -46, %46 ]
+  %.030 = phi i32 [ -46, %23 ], [ %45, %42 ], [ -46, %26 ], [ -46, %3 ], [ -46, %46 ]
   ret i32 %.030
 }
 
@@ -4651,7 +4651,7 @@ var_set_string.exit:                              ; preds = %.lr.ph.i, %92, %95,
   br label %127
 
 127:                                              ; preds = %2, %75, %86, %82, %83, %.thread62, %66, %68, %64, %61, %48, %57, %126
-  %.0 = phi i32 [ 0, %126 ], [ -65, %57 ], [ -65, %48 ], [ %.0.i57, %61 ], [ %.0.i57, %64 ], [ %.0.i57, %68 ], [ %.0.i57, %66 ], [ %.0.i57, %.thread62 ], [ -65, %83 ], [ 0, %82 ], [ 0, %86 ], [ 0, %75 ], [ -1, %2 ]
+  %.0 = phi i32 [ 0, %126 ], [ 0, %75 ], [ -65, %48 ], [ -65, %83 ], [ %.0.i57, %.thread62 ], [ -65, %57 ], [ %.0.i57, %61 ], [ %.0.i57, %64 ], [ %.0.i57, %68 ], [ %.0.i57, %66 ], [ 0, %82 ], [ 0, %86 ], [ -1, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -4709,7 +4709,7 @@ define internal fastcc range(i32 -46, 1) i32 @var_get_env(ptr noundef readonly c
   br label %25
 
 25:                                               ; preds = %17, %4, %24, %16
-  %.0 = phi i32 [ -1, %16 ], [ -46, %24 ], [ -1, %4 ], [ 0, %17 ]
+  %.0 = phi i32 [ -1, %4 ], [ -1, %16 ], [ -46, %24 ], [ 0, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

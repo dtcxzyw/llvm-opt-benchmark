@@ -309,7 +309,7 @@ conn_close_socket.exit:                           ; preds = %7, %11
   br label %52
 
 52:                                               ; preds = %27, %22, %35, %20, %14, %4, %._crit_edge, %19, %16, %51, %48, %45, %41, %32, %conn_close_socket.exit
-  %.0 = phi i64 [ 0, %51 ], [ 0, %conn_close_socket.exit ], [ %18, %16 ], [ 1, %19 ], [ 1, %32 ], [ %40, %._crit_edge ], [ %44, %41 ], [ 1, %45 ], [ 1, %4 ], [ 1, %48 ], [ 1, %14 ], [ %spec.select, %22 ], [ %spec.select39, %27 ], [ 0, %20 ], [ -1, %35 ]
+  %.0 = phi i64 [ 0, %51 ], [ 0, %conn_close_socket.exit ], [ %18, %16 ], [ 1, %48 ], [ 1, %14 ], [ 1, %4 ], [ %spec.select, %22 ], [ -1, %35 ], [ %spec.select39, %27 ], [ 1, %19 ], [ 1, %32 ], [ %40, %._crit_edge ], [ 0, %20 ], [ %44, %41 ], [ 1, %45 ]
   ret i64 %.0
 }
 
@@ -494,9 +494,9 @@ define internal fastcc i32 @conn_state(ptr noundef %0, ptr noundef %1) unnamed_a
   br label %50
 
 50:                                               ; preds = %46, %44, %36, %29
-  %.240.i = phi ptr [ %37, %36 ], [ null, %44 ], [ %42, %46 ], [ null, %29 ]
-  %.136.i = phi i64 [ %33, %36 ], [ %45, %44 ], [ %49, %46 ], [ %33, %29 ]
-  %.134.i = phi ptr [ %30, %36 ], [ %17, %44 ], [ %17, %46 ], [ %30, %29 ]
+  %.240.i = phi ptr [ %42, %46 ], [ %37, %36 ], [ null, %44 ], [ null, %29 ]
+  %.136.i = phi i64 [ %49, %46 ], [ %33, %36 ], [ %45, %44 ], [ %33, %29 ]
+  %.134.i = phi ptr [ %17, %46 ], [ %30, %36 ], [ %17, %44 ], [ %30, %29 ]
   %51 = call ptr @BUF_strndup(ptr noundef nonnull %.134.i, i64 noundef %.136.i) #10
   store ptr %51, ptr %4, align 8, !tbaa !30
   %52 = icmp eq ptr %51, null
@@ -546,9 +546,9 @@ split_host_and_port.exit:                         ; preds = %55, %.critedge.sink
   %.0..0..0.81.pre = load ptr, ptr %4, align 8, !tbaa !30
   br label %.loopexit89
 
-.loopexit89:                                      ; preds = %26, %29, %50, %.loopexit89.loopexit
-  %.0..0.81 = phi ptr [ %.0..0..0.81.pre, %.loopexit89.loopexit ], [ null, %50 ], [ null, %29 ], [ null, %26 ]
-  %.0.8087 = phi ptr [ %.0..0.80, %.loopexit89.loopexit ], [ null, %50 ], [ null, %29 ], [ null, %26 ]
+.loopexit89:                                      ; preds = %50, %26, %29, %.loopexit89.loopexit
+  %.0..0.81 = phi ptr [ %.0..0..0.81.pre, %.loopexit89.loopexit ], [ null, %29 ], [ null, %26 ], [ null, %50 ]
+  %.0.8087 = phi ptr [ %.0..0.80, %.loopexit89.loopexit ], [ null, %29 ], [ null, %26 ], [ null, %50 ]
   call void @free(ptr noundef %.0..0.81) #10
   call void @free(ptr noundef %.0.8087) #10
   call void @ERR_put_error(i32 noundef 17, i32 noundef 0, i32 noundef 109, ptr noundef nonnull @.str.2, i32 noundef 192) #10
@@ -679,7 +679,7 @@ split_host_and_port.exit:                         ; preds = %55, %.critedge.sink
   br label %.loopexit
 
 .loopexit:                                        ; preds = %14, %.loopexit.loopexit, %.loopexit89, %102, %104, %92, %94, %82, %75, %67, %19
-  %.1 = phi i32 [ %.062, %19 ], [ %80, %82 ], [ %88, %92 ], [ %88, %94 ], [ %.062, %75 ], [ %.062, %67 ], [ %.062, %.loopexit89 ], [ -1, %102 ], [ 0, %104 ], [ %.062, %.loopexit.loopexit ], [ 1, %14 ]
+  %.1 = phi i32 [ %.062, %.loopexit.loopexit ], [ %.062, %19 ], [ %80, %82 ], [ %88, %92 ], [ %88, %94 ], [ %.062, %75 ], [ %.062, %67 ], [ %.062, %.loopexit89 ], [ -1, %102 ], [ 0, %104 ], [ 1, %14 ]
   br i1 %.not, label %.loopexit90, label %111
 
 111:                                              ; preds = %.loopexit

@@ -1309,7 +1309,7 @@ _ZN10z3_log_ctxD2Ev.exit49:                       ; preds = %78, %79
           to label %87 unwind label %88
 
 _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %.thread, %.thread58, %76, %84
-  %.1 = phi ptr [ null, %84 ], [ %24, %76 ], [ %.060, %.thread58 ], [ %1, %.thread ]
+  %.1 = phi ptr [ null, %84 ], [ %.060, %.thread58 ], [ %24, %76 ], [ %1, %.thread ]
   ret ptr %.1
 
 87:                                               ; preds = %85, %_ZN10z3_log_ctxD2Ev.exit49
@@ -1628,7 +1628,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
   br label %92
 
 92:                                               ; preds = %26, %.body, %44, %38, %24
-  %.pn28.pn.pn.pn = phi { ptr, i32 } [ %25, %24 ], [ %.pn, %.body ], [ %27, %26 ], [ %.pn28, %44 ], [ %39, %38 ]
+  %.pn28.pn.pn.pn = phi { ptr, i32 } [ %25, %24 ], [ %27, %26 ], [ %.pn, %.body ], [ %.pn28, %44 ], [ %39, %38 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #21
   br label %93
 

@@ -1034,7 +1034,7 @@ _ZNSt6vectorI5iovecSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_ite
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont27, %if.then, %_ZNSt6vectorI5iovecSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i65, %if.then.i.i44
-  %33 = phi ptr [ %8, %if.then ], [ %incdec.ptr.i.i.i62, %_ZNSt6vectorI5iovecSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i65 ], [ %incdec.ptr.i.i45, %if.then.i.i44 ], [ %23, %invoke.cont27 ]
+  %33 = phi ptr [ %incdec.ptr.i.i45, %if.then.i.i44 ], [ %8, %if.then ], [ %incdec.ptr.i.i.i62, %_ZNSt6vectorI5iovecSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i65 ], [ %23, %invoke.cont27 ]
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.093, i64 16
   %cmp.i13.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i13.not, label %for.end, label %for.body
@@ -1057,7 +1057,7 @@ if.end56:                                         ; preds = %invoke.cont3, %invo
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont32, %invoke.cont20, %invoke.cont51, %if.end56
-  %retval.0 = phi i64 [ %35, %if.end56 ], [ %call52, %invoke.cont51 ], [ %call21, %invoke.cont20 ], [ %call33, %invoke.cont32 ]
+  %retval.0 = phi i64 [ %call52, %invoke.cont51 ], [ %call21, %invoke.cont20 ], [ %35, %if.end56 ], [ %call33, %invoke.cont32 ]
   %36 = load ptr, ptr %iovecs, align 8
   %tobool.not.i.i.i74 = icmp eq ptr %36, null
   br i1 %tobool.not.i.i.i74, label %_ZNSt6vectorI5iovecSaIS0_EED2Ev.exit76, label %if.then.i.i.i75
@@ -1127,8 +1127,8 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i, %_ZNSt12_Vector_baseIcSaIcEEC2EmRKS0_.exit.thread
-  %_M_finish.i.i7 = phi ptr [ %_M_finish.i.i, %if.then.i.i.i.i ], [ %_M_finish.i.i, %if.then.i.i.i.i.i.i.i.i ], [ %_M_finish.i.i4, %_ZNSt12_Vector_baseIcSaIcEEC2EmRKS0_.exit.thread ]
-  %__first.addr.0.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %if.then.i.i.i.i ], [ %add.ptr.i.i, %if.then.i.i.i.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIcSaIcEEC2EmRKS0_.exit.thread ]
+  %_M_finish.i.i7 = phi ptr [ %_M_finish.i.i4, %_ZNSt12_Vector_baseIcSaIcEEC2EmRKS0_.exit.thread ], [ %_M_finish.i.i, %if.then.i.i.i.i ], [ %_M_finish.i.i, %if.then.i.i.i.i.i.i.i.i ]
+  %__first.addr.0.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIcSaIcEEC2EmRKS0_.exit.thread ], [ %incdec.ptr.i.i.i.i, %if.then.i.i.i.i ], [ %add.ptr.i.i, %if.then.i.i.i.i.i.i.i.i ]
   store ptr %__first.addr.0.i.i.i.i, ptr %_M_finish.i.i7, align 8
   ret void
 }

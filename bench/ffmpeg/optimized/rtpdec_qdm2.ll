@@ -486,8 +486,8 @@ qdm2_parse_subpacket.exit:                        ; preds = %144
   %274 = zext i1 %.not60 to i32
   br label %qdm2_restore_block.exit
 
-qdm2_restore_block.exit:                          ; preds = %59, %57, %50, %44, %31, %39, %106, %144, %qdm2_parse_subpacket.exit, %23, %206, %.loopexit, %._crit_edge, %119, %qdm2_parse_config.exit, %13, %270
-  %.049 = phi i32 [ %274, %270 ], [ -1094995529, %13 ], [ %113, %qdm2_parse_config.exit ], [ -11, %119 ], [ -11, %._crit_edge ], [ %.051, %.loopexit ], [ %210, %206 ], [ -11, %23 ], [ -1094995529, %144 ], [ %172, %qdm2_parse_subpacket.exit ], [ -11, %106 ], [ -1094995529, %39 ], [ -1094995529, %31 ], [ -1094995529, %44 ], [ -1094995529, %50 ], [ -1094995529, %57 ], [ %62, %59 ]
+qdm2_restore_block.exit:                          ; preds = %59, %39, %31, %57, %50, %44, %106, %144, %qdm2_parse_subpacket.exit, %23, %206, %.loopexit, %._crit_edge, %119, %qdm2_parse_config.exit, %13, %270
+  %.049 = phi i32 [ %274, %270 ], [ -1094995529, %13 ], [ %113, %qdm2_parse_config.exit ], [ -11, %119 ], [ %172, %qdm2_parse_subpacket.exit ], [ -11, %._crit_edge ], [ -11, %23 ], [ %.051, %.loopexit ], [ %210, %206 ], [ -1094995529, %144 ], [ -1094995529, %44 ], [ -1094995529, %50 ], [ -1094995529, %57 ], [ -1094995529, %31 ], [ -1094995529, %39 ], [ %62, %59 ], [ -11, %106 ]
   ret i32 %.049
 }
 

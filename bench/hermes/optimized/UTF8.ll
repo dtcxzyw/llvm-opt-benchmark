@@ -211,8 +211,8 @@ if.end33.fold.split:                              ; preds = %if.end9
   br label %if.end33
 
 if.end33:                                         ; preds = %if.end9, %if.end33.fold.split, %if.then17, %lor.lhs.false, %if.else23
-  %cur.2 = phi ptr [ %add.ptr, %if.else23 ], [ %cur.026, %if.end9 ], [ %cur.026, %lor.lhs.false ], [ %cur.026, %if.then17 ], [ %cur.026, %if.end33.fold.split ]
-  %c32.0 = phi i32 [ %add2.i, %if.else23 ], [ 65533, %if.end9 ], [ 65533, %lor.lhs.false ], [ 65533, %if.then17 ], [ %conv, %if.end33.fold.split ]
+  %cur.2 = phi ptr [ %cur.026, %if.then17 ], [ %cur.026, %if.end9 ], [ %add.ptr, %if.else23 ], [ %cur.026, %lor.lhs.false ], [ %cur.026, %if.end33.fold.split ]
+  %c32.0 = phi i32 [ 65533, %if.then17 ], [ 65533, %if.end9 ], [ %add2.i, %if.else23 ], [ 65533, %lor.lhs.false ], [ %conv, %if.end33.fold.split ]
   store ptr %buff, ptr %ptr, align 8
   call void @_ZN6hermes10encodeUTF8ERPcj(ptr noundef nonnull align 8 dereferenceable(8) %ptr, i32 noundef %c32.0)
   %call34 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %out) #10
@@ -366,7 +366,7 @@ while.end25.loopexit:                             ; preds = %while.body19
   br label %return
 
 return:                                           ; preds = %while.body8, %if.end15, %while.end25.loopexit, %while.end
-  %retval.0 = phi i1 [ false, %while.end ], [ true, %if.end15 ], [ %5, %while.end25.loopexit ], [ false, %while.body8 ]
+  %retval.0 = phi i1 [ %5, %while.end25.loopexit ], [ false, %while.end ], [ true, %if.end15 ], [ false, %while.body8 ]
   ret i1 %retval.0
 }
 
@@ -601,7 +601,7 @@ if.then131:                                       ; preds = %if.else68
   unreachable
 
 return:                                           ; preds = %if.then, %if.else68, %if.then19
-  %retval.0 = phi i32 [ %or, %if.then ], [ %or52, %if.then19 ], [ %or123, %if.else68 ]
+  %retval.0 = phi i32 [ %or123, %if.else68 ], [ %or52, %if.then19 ], [ %or, %if.then ]
   ret i32 %retval.0
 }
 

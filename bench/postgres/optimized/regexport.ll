@@ -238,7 +238,7 @@ define dso_local i32 @pg_reg_getnumcharacters(ptr noundef readonly captures(none
   br label %23
 
 23:                                               ; preds = %18, %11, %2, %6, %21
-  %.0 = phi i32 [ %22, %21 ], [ -1, %6 ], [ -1, %2 ], [ -1, %11 ], [ -1, %18 ]
+  %.0 = phi i32 [ %22, %21 ], [ -1, %2 ], [ -1, %11 ], [ -1, %6 ], [ -1, %18 ]
   ret i32 %.0
 }
 

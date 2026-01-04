@@ -199,7 +199,7 @@ create_buf.exit.thread:                           ; preds = %27
   br label %42
 
 42:                                               ; preds = %38, %41, %23, %26, %5, %8, %15
-  %.0 = phi ptr [ null, %15 ], [ null, %8 ], [ null, %5 ], [ null, %26 ], [ null, %23 ], [ %.0.i20, %41 ], [ %.0.i20, %38 ]
+  %.0 = phi ptr [ null, %23 ], [ null, %15 ], [ null, %5 ], [ null, %8 ], [ null, %26 ], [ %.0.i20, %41 ], [ %.0.i20, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
@@ -431,7 +431,7 @@ try_grow_buf_remaining.exit:                      ; preds = %26, %2
   store i32 %34, ptr %5, align 4
   br label %try_grow_buf_remaining.exit.thread
 
-try_grow_buf_remaining.exit.thread:               ; preds = %23, %9, %15, %21, %try_grow_buf_remaining.exit
+try_grow_buf_remaining.exit.thread:               ; preds = %23, %15, %21, %9, %try_grow_buf_remaining.exit
   ret void
 }
 
@@ -611,7 +611,7 @@ try_grow_buf_remaining.exit:                      ; preds = %26, %2
   store i32 %36, ptr %5, align 4
   br label %try_grow_buf_remaining.exit.thread
 
-try_grow_buf_remaining.exit.thread:               ; preds = %23, %9, %15, %21, %try_grow_buf_remaining.exit
+try_grow_buf_remaining.exit.thread:               ; preds = %23, %15, %21, %9, %try_grow_buf_remaining.exit
   ret void
 }
 
@@ -702,7 +702,7 @@ define dso_local range(i32 -1, 1) i32 @unpacklongdouble(ptr noundef writeonly ca
   br label %unpackmem_ptr.exit
 
 unpackmem_ptr.exit:                               ; preds = %24, %10
-  %.07 = phi ptr [ null, %10 ], [ %26, %24 ]
+  %.07 = phi ptr [ %26, %24 ], [ null, %10 ]
   %28 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.07, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #14
   %.not5 = icmp eq i32 %28, 1
   br i1 %.not5, label %29, label %unpackmem_ptr.exit.thread
@@ -776,7 +776,7 @@ try_grow_buf_remaining.exit:                      ; preds = %26, %2
   store i32 %34, ptr %5, align 4
   br label %try_grow_buf_remaining.exit.thread
 
-try_grow_buf_remaining.exit.thread:               ; preds = %23, %9, %15, %21, %try_grow_buf_remaining.exit
+try_grow_buf_remaining.exit.thread:               ; preds = %23, %15, %21, %9, %try_grow_buf_remaining.exit
   ret void
 }
 
@@ -864,7 +864,7 @@ try_grow_buf_remaining.exit:                      ; preds = %27, %2
   store i32 %34, ptr %6, align 4
   br label %try_grow_buf_remaining.exit.thread
 
-try_grow_buf_remaining.exit.thread:               ; preds = %24, %10, %16, %22, %try_grow_buf_remaining.exit
+try_grow_buf_remaining.exit.thread:               ; preds = %24, %16, %22, %10, %try_grow_buf_remaining.exit
   ret void
 }
 
@@ -952,7 +952,7 @@ try_grow_buf_remaining.exit:                      ; preds = %26, %2
   store i32 %33, ptr %5, align 4
   br label %try_grow_buf_remaining.exit.thread
 
-try_grow_buf_remaining.exit.thread:               ; preds = %23, %9, %15, %21, %try_grow_buf_remaining.exit
+try_grow_buf_remaining.exit.thread:               ; preds = %23, %15, %21, %9, %try_grow_buf_remaining.exit
   ret void
 }
 
@@ -1038,7 +1038,7 @@ try_grow_buf_remaining.exit:                      ; preds = %25, %2
   store i32 %32, ptr %5, align 4
   br label %try_grow_buf_remaining.exit.thread
 
-try_grow_buf_remaining.exit.thread:               ; preds = %22, %8, %14, %20, %try_grow_buf_remaining.exit
+try_grow_buf_remaining.exit.thread:               ; preds = %22, %14, %20, %8, %try_grow_buf_remaining.exit
   ret void
 }
 
@@ -1654,7 +1654,7 @@ try_grow_buf_remaining.exit:                      ; preds = %36, %8
   store i32 %50, ptr %13, align 4
   br label %try_grow_buf_remaining.exit.thread
 
-try_grow_buf_remaining.exit.thread:               ; preds = %33, %17, %25, %31, %try_grow_buf_remaining.exit, %45, %6
+try_grow_buf_remaining.exit.thread:               ; preds = %33, %25, %31, %17, %try_grow_buf_remaining.exit, %45, %6
   ret void
 }
 
@@ -1966,7 +1966,7 @@ unpack32.exit:                                    ; preds = %3, %27
   br label %50
 
 50:                                               ; preds = %23, %10, %unpack32.exit, %.critedge, %21
-  %.035 = phi i32 [ -1, %unpack32.exit ], [ -1, %21 ], [ 0, %.critedge ], [ 0, %10 ], [ -1, %23 ]
+  %.035 = phi i32 [ -1, %unpack32.exit ], [ -1, %21 ], [ 0, %10 ], [ -1, %23 ], [ 0, %.critedge ]
   ret i32 %.035
 }
 
@@ -2233,7 +2233,7 @@ try_grow_buf_remaining.exit:                      ; preds = %28, %3
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %try_grow_buf_remaining.exit.thread, label %.lr.ph, !llvm.loop !17
 
-try_grow_buf_remaining.exit.thread:               ; preds = %42, %try_grow_buf_remaining.exit, %25, %11, %17, %23
+try_grow_buf_remaining.exit.thread:               ; preds = %42, %try_grow_buf_remaining.exit, %25, %17, %23, %11
   ret void
 }
 
@@ -2441,7 +2441,7 @@ try_grow_buf_remaining.exit:                      ; preds = %29, %3
   store i32 %38, ptr %6, align 4
   br label %try_grow_buf_remaining.exit.thread
 
-try_grow_buf_remaining.exit.thread:               ; preds = %26, %10, %18, %24, %try_grow_buf_remaining.exit
+try_grow_buf_remaining.exit.thread:               ; preds = %26, %18, %24, %10, %try_grow_buf_remaining.exit
   ret void
 }
 
@@ -2546,7 +2546,7 @@ define dso_local range(i32 0, 9206) i32 @try_grow_buf(ptr noundef %0, i32 nounde
   br label %25
 
 25:                                               ; preds = %20, %2, %12, %23, %18
-  %.012 = phi i32 [ 9205, %18 ], [ 0, %23 ], [ 22, %12 ], [ 22, %2 ], [ 12, %20 ]
+  %.012 = phi i32 [ 22, %2 ], [ 9205, %18 ], [ 0, %23 ], [ 22, %12 ], [ 12, %20 ]
   ret i32 %.012
 }
 
@@ -2598,7 +2598,7 @@ define dso_local range(i32 0, 9206) i32 @try_grow_buf_remaining(ptr noundef %0, 
   br label %try_grow_buf.exit
 
 try_grow_buf.exit:                                ; preds = %28, %25, %23, %17, %9, %2
-  %.0 = phi i32 [ 0, %2 ], [ 9205, %23 ], [ 0, %28 ], [ 22, %17 ], [ 22, %9 ], [ 12, %25 ]
+  %.0 = phi i32 [ 0, %2 ], [ 22, %9 ], [ 9205, %23 ], [ 0, %28 ], [ 22, %17 ], [ 12, %25 ]
   ret i32 %.0
 }
 
@@ -3304,7 +3304,7 @@ define dso_local range(i32 -1, 1) i32 @unpacklongdouble_array(ptr noundef initia
   br label %unpackmem_ptr.exit.i
 
 unpackmem_ptr.exit.i:                             ; preds = %45, %32
-  %.07.i = phi ptr [ null, %32 ], [ %47, %45 ]
+  %.07.i = phi ptr [ %47, %45 ], [ null, %32 ]
   %49 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.07.i, ptr noundef nonnull @.str.13, ptr noundef nonnull %4) #14
   %.not5.i = icmp eq i32 %49, 1
   br i1 %.not5.i, label %50, label %.loopexit
@@ -3403,7 +3403,7 @@ try_grow_buf_remaining.exit:                      ; preds = %31, %5
   store i32 %42, ptr %8, align 4
   br label %try_grow_buf_remaining.exit.thread
 
-try_grow_buf_remaining.exit.thread:               ; preds = %28, %12, %20, %26, %2, %try_grow_buf_remaining.exit
+try_grow_buf_remaining.exit.thread:               ; preds = %28, %20, %26, %12, %2, %try_grow_buf_remaining.exit
   ret void
 }
 

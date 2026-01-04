@@ -73,7 +73,7 @@ define noundef ptr @ASN1_item_pack(ptr noundef %0, ptr noundef %1, ptr noundef c
   br label %29
 
 29:                                               ; preds = %25, %28, %19, %20, %23, %11
-  %.018 = phi ptr [ null, %11 ], [ %.0, %23 ], [ %.0, %20 ], [ %.0, %19 ], [ null, %28 ], [ null, %25 ]
+  %.018 = phi ptr [ null, %11 ], [ %.0, %19 ], [ %.0, %23 ], [ %.0, %20 ], [ null, %28 ], [ null, %25 ]
   ret ptr %.018
 }
 

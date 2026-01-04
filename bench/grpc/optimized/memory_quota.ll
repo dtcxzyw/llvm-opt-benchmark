@@ -2834,7 +2834,7 @@ _ZN9grpc_core16BasicMemoryQuota15GetPressureInfoEv.exit.thread: ; preds = %8, %_
   br label %60
 
 60:                                               ; preds = %56, %54, %3
-  %.025 = phi i64 [ 0, %3 ], [ 0, %54 ], [ %spec.select, %56 ]
+  %.025 = phi i64 [ 0, %3 ], [ %spec.select, %56 ], [ 0, %54 ]
   %61 = add i64 %.025, %1
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %63 = load atomic i64, ptr %62 acquire, align 8
@@ -3062,7 +3062,7 @@ _ZN9grpc_core40IsUnconstrainedMaxQuotaBufferSizeEnabledEv.exit: ; preds = %11, %
   br label %_ZN9grpc_core40IsUnconstrainedMaxQuotaBufferSizeEnabledEv.exit.thread
 
 _ZN9grpc_core40IsUnconstrainedMaxQuotaBufferSizeEnabledEv.exit.thread: ; preds = %_ZN9grpc_core40IsUnconstrainedMaxQuotaBufferSizeEnabledEv.exit, %.lr.ph
-  %.049 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %_ZN9grpc_core40IsUnconstrainedMaxQuotaBufferSizeEnabledEv.exit ]
+  %.049 = phi i64 [ %spec.select, %_ZN9grpc_core40IsUnconstrainedMaxQuotaBufferSizeEnabledEv.exit ], [ 0, %.lr.ph ]
   %16 = icmp ugt i64 %.055, 8192
   %17 = zext i1 %16 to i64
   %18 = lshr i64 %.055, %17
@@ -4397,8 +4397,8 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicy
   tail call void @_ZN4absl12lts_2024072218container_internal13EraseMetaOnlyERNS1_12CommonFieldsEmm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %68, i64 noundef 8)
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN9grpc_core23GrpcMemoryAllocatorImplEEENS1_6HashEqIS6_vE4HashENS9_2EqESaIS6_EE5eraseENSD_8iteratorE.exit
 
-_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN9grpc_core23GrpcMemoryAllocatorImplEEENS1_6HashEqIS6_vE4HashENS9_2EqESaIS6_EE5eraseENSD_8iteratorE.exit: ; preds = %._crit_edge.i.i, %9, %6, %62, %.thread, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN9grpc_core23GrpcMemoryAllocatorImplEEENS1_6HashEqIS6_vE4HashENS9_2EqESaIS6_EE4findIS6_EENSD_8iteratorERKT_.exit
-  %.0 = phi i64 [ 0, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN9grpc_core23GrpcMemoryAllocatorImplEEENS1_6HashEqIS6_vE4HashENS9_2EqESaIS6_EE4findIS6_EENSD_8iteratorERKT_.exit ], [ 1, %.thread ], [ 1, %62 ], [ 0, %6 ], [ 0, %9 ], [ 0, %._crit_edge.i.i ]
+_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN9grpc_core23GrpcMemoryAllocatorImplEEENS1_6HashEqIS6_vE4HashENS9_2EqESaIS6_EE5eraseENSD_8iteratorE.exit: ; preds = %._crit_edge.i.i, %6, %9, %62, %.thread, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN9grpc_core23GrpcMemoryAllocatorImplEEENS1_6HashEqIS6_vE4HashENS9_2EqESaIS6_EE4findIS6_EENSD_8iteratorERKT_.exit
+  %.0 = phi i64 [ 0, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN9grpc_core23GrpcMemoryAllocatorImplEEENS1_6HashEqIS6_vE4HashENS9_2EqESaIS6_EE4findIS6_EENSD_8iteratorERKT_.exit ], [ 1, %.thread ], [ 1, %62 ], [ 0, %9 ], [ 0, %6 ], [ 0, %._crit_edge.i.i ]
   ret i64 %.0
 }
 
@@ -5057,7 +5057,7 @@ define noundef double @_ZN9grpc_core19memory_quota_detail18PressureController6Up
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %22, %27, %8, %19, %14, %38, %33
-  %.0 = phi double [ %37, %33 ], [ %42, %38 ], [ %12, %14 ], [ %20, %19 ], [ %12, %8 ], [ %29, %27 ], [ %.pre, %22 ]
+  %.0 = phi double [ %12, %8 ], [ %37, %33 ], [ %42, %38 ], [ %12, %14 ], [ %20, %19 ], [ %29, %27 ], [ %.pre, %22 ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %44 = load double, ptr %43, align 8, !tbaa !169
   %45 = fcmp olt double %.0, %44
@@ -8152,10 +8152,10 @@ _ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i: ; preds = %9
   br label %"_ZZN9grpc_core16BasicMemoryQuota5StartEvENK3$_0clEv.exit"
 
 "_ZZN9grpc_core16BasicMemoryQuota5StartEvENK3$_0clEv.exit": ; preds = %85, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i, %107, %113
-  %115 = phi ptr [ %.pre50.i, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i ], [ %109, %107 ], [ %.pre50.i, %113 ], [ %.pre.i, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i ], [ %86, %85 ]
-  %116 = phi ptr [ %.pr.pre.i, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i ], [ %.pr54.i537542, %107 ], [ %.pr.pre.i, %113 ], [ null, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i ], [ null, %85 ]
-  %117 = phi ptr [ %.pre.i, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i ], [ %110, %107 ], [ %.pre.i, %113 ], [ %.pre.i, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i ], [ %86, %85 ]
-  %118 = phi ptr [ null, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i ], [ %.pr4458.i543, %107 ], [ %.pr44.pre.i, %113 ], [ null, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i ], [ null, %85 ]
+  %115 = phi ptr [ %.pre50.i, %113 ], [ %.pre50.i, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i ], [ %109, %107 ], [ %.pre.i, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i ], [ %86, %85 ]
+  %116 = phi ptr [ %.pr.pre.i, %113 ], [ %.pr.pre.i, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i ], [ %.pr54.i537542, %107 ], [ null, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i ], [ null, %85 ]
+  %117 = phi ptr [ %.pre.i, %113 ], [ %.pre.i, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i ], [ %110, %107 ], [ %.pre.i, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i ], [ %86, %85 ]
+  %118 = phi ptr [ %.pr44.pre.i, %113 ], [ null, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i ], [ %.pr4458.i543, %107 ], [ null, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i ], [ null, %85 ]
   store i8 0, ptr %31, align 8, !tbaa !319, !alias.scope !348, !noalias !345
   store i8 0, ptr %37, align 8, !tbaa !319, !noalias !340
   store ptr null, ptr %32, align 8, !tbaa !25, !noalias !340
@@ -8356,7 +8356,7 @@ _ZN9grpc_core4PollIiED2Ev.exit33.thread:          ; preds = %172, %_ZN9__gnu_cxx
   br label %186
 
 common.resume:                                    ; preds = %328, %324, %.body133, %_ZN9grpc_core4PollISt7variantIJNS_8ContinueEN4absl12lts_202407226StatusEEEED2Ev.exit29
-  %common.resume.op = phi { ptr, i32 } [ %457, %_ZN9grpc_core4PollISt7variantIJNS_8ContinueEN4absl12lts_202407226StatusEEEED2Ev.exit29 ], [ %.pn10.pn.i, %.body133 ], [ %.pn10.pn.i, %324 ], [ %.pn10.pn.i, %328 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn10.pn.i, %328 ], [ %457, %_ZN9grpc_core4PollISt7variantIJNS_8ContinueEN4absl12lts_202407226StatusEEEED2Ev.exit29 ], [ %.pn10.pn.i, %.body133 ], [ %.pn10.pn.i, %324 ]
   resume { ptr, i32 } %common.resume.op
 
 186:                                              ; preds = %"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread596", %"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread357", %"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread"
@@ -8981,10 +8981,10 @@ _ZSt17holds_alternativeIN9grpc_core8ContinueEJS1_N4absl12lts_202407226StatusEEEb
   unreachable
 
 432:                                              ; preds = %400, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i200, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i196, %422, %428
-  %433 = phi ptr [ %.pre50.i198, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i196 ], [ %424, %422 ], [ %.pre50.i198, %428 ], [ %.pre.i202, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i200 ], [ %401, %400 ]
-  %434 = phi ptr [ %.pr.pre.i201, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i196 ], [ %.pr54.i191756761, %422 ], [ %.pr.pre.i201, %428 ], [ null, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i200 ], [ null, %400 ]
-  %435 = phi ptr [ %.pre.i202, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i196 ], [ %425, %422 ], [ %.pre.i202, %428 ], [ %.pre.i202, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i200 ], [ %401, %400 ]
-  %436 = phi ptr [ null, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i196 ], [ %.pr4458.i194762, %422 ], [ %.pr44.pre.i197, %428 ], [ null, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i200 ], [ null, %400 ]
+  %433 = phi ptr [ %.pre50.i198, %428 ], [ %.pre50.i198, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i196 ], [ %424, %422 ], [ %.pre.i202, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i200 ], [ %401, %400 ]
+  %434 = phi ptr [ %.pr.pre.i201, %428 ], [ %.pr.pre.i201, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i196 ], [ %.pr54.i191756761, %422 ], [ null, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i200 ], [ null, %400 ]
+  %435 = phi ptr [ %.pre.i202, %428 ], [ %.pre.i202, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i196 ], [ %425, %422 ], [ %.pre.i202, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i200 ], [ %401, %400 ]
+  %436 = phi ptr [ %.pr44.pre.i197, %428 ], [ null, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i196 ], [ %.pr4458.i194762, %422 ], [ null, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i200 ], [ null, %400 ]
   store i8 0, ptr %66, align 8, !tbaa !319, !alias.scope !414
   store i8 0, ptr %72, align 8, !tbaa !319
   store ptr null, ptr %67, align 8, !tbaa !25
@@ -9081,7 +9081,7 @@ _ZN9grpc_core4PollISt7variantIJNS_8ContinueEN4absl12lts_202407226StatusEEEED2Ev.
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !340
   br label %common.resume
 
-.critedge21:                                      ; preds = %121, %363, %_ZN9grpc_core4PollISt5tupleIJPKcNS_13RefCountedPtrINS_14ReclaimerQueue6HandleEEEEEED2Ev.exit37
+.critedge21:                                      ; preds = %363, %121, %_ZN9grpc_core4PollISt5tupleIJPKcNS_13RefCountedPtrINS_14ReclaimerQueue6HandleEEEEEED2Ev.exit37
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !340
   %458 = load i8, ptr %78, align 4, !tbaa !321
   store i8 0, ptr %78, align 4, !tbaa !321
@@ -9616,7 +9616,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   br i1 %.not.i.i, label %.lr.ph.i.i, label %.thread.i.i, !llvm.loop !434
 
 .thread55:                                        ; preds = %.thread.i.i, %40
-  %.sroa.011.0.i.i = phi i64 [ %61, %40 ], [ %71, %.thread.i.i ]
+  %.sroa.011.0.i.i = phi i64 [ %71, %.thread.i.i ], [ %61, %40 ]
   %79 = trunc i128 %53 to i8
   %80 = and i8 %79, 127
   %81 = getelementptr inbounds nuw i8, ptr %55, i64 %.sroa.011.0.i.i
@@ -9705,7 +9705,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   br i1 %.not.i.i44, label %.lr.ph.i.i41, label %.thread.i.i35, !llvm.loop !434
 
 _ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN9grpc_core23GrpcMemoryAllocatorImplEEENS1_6HashEqIS6_vE4HashENS9_2EqESaIS6_EE11resize_implERNS1_12CommonFieldsEmNS1_20HashtablezInfoHandleEENKUlPS6_E_clESH_.exit45: ; preds = %96, %.thread.i.i35
-  %.sroa.011.0.i.i39 = phi i64 [ %118, %96 ], [ %128, %.thread.i.i35 ]
+  %.sroa.011.0.i.i39 = phi i64 [ %128, %.thread.i.i35 ], [ %118, %96 ]
   %136 = trunc i128 %110 to i8
   %137 = and i8 %136, 127
   %138 = getelementptr inbounds nuw i8, ptr %112, i64 %.sroa.011.0.i.i39
@@ -9958,7 +9958,7 @@ define internal void @"_ZN4absl12lts_2024072219functional_internal12InvokeObject
   br label %._crit_edge.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i:                            ; preds = %24, %21, %16
-  %.0.i.i.i.i.i = phi double [ %30, %24 ], [ %23, %21 ], [ %.pre.i.i.i.i.i, %16 ]
+  %.0.i.i.i.i.i = phi double [ %23, %21 ], [ %.pre.i.i.i.i.i, %16 ], [ %30, %24 ]
   %31 = getelementptr inbounds nuw i8, ptr %.val, i64 72
   %32 = load double, ptr %31, align 8, !tbaa !169
   %33 = fcmp olt double %.0.i.i.i.i.i, %32
@@ -10058,7 +10058,7 @@ _ZN9grpc_core19memory_quota_detail18PressureController6UpdateEd.exit.i.i.i.i: ; 
   br label %._crit_edge.i31.i.i.i.i
 
 ._crit_edge.i31.i.i.i.i:                          ; preds = %78, %73, %67, %62, %59, %54, %48
-  %.0.i32.i.i.i.i = phi double [ %77, %73 ], [ %82, %78 ], [ %52, %54 ], [ %60, %59 ], [ %52, %48 ], [ %69, %67 ], [ %.pre.i30.i.i.i.i, %62 ]
+  %.0.i32.i.i.i.i = phi double [ %52, %48 ], [ %77, %73 ], [ %82, %78 ], [ %52, %54 ], [ %60, %59 ], [ %69, %67 ], [ %.pre.i30.i.i.i.i, %62 ]
   %83 = getelementptr inbounds nuw i8, ptr %.val, i64 72
   %84 = load double, ptr %83, align 8, !tbaa !169
   %85 = fcmp olt double %.0.i32.i.i.i.i, %84

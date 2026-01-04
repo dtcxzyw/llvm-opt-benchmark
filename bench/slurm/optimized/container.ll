@@ -209,7 +209,7 @@ define internal fastcc ptr @_generate_spooldir(ptr noundef readonly captures(non
   br label %9
 
 9:                                                ; preds = %6, %2
-  %.str.20.sink = phi ptr [ %5, %2 ], [ %switch.select51, %6 ]
+  %.str.20.sink = phi ptr [ %switch.select51, %6 ], [ %5, %2 ]
   %10 = tail call ptr @xstrdup(ptr noundef nonnull %.str.20.sink) #9
   store ptr %10, ptr %3, align 8
   %.not33 = icmp eq ptr %1, null
@@ -557,14 +557,14 @@ _load_config.exit:                                ; preds = %52, %55
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__._generate_container_paths, ptr noundef %105, ptr noundef %106) #10
   unreachable
 
-107:                                              ; preds = %22, %_load_config.exit, %56, %68, %65
-  %.0.ph = phi i32 [ %64, %65 ], [ %64, %68 ], [ %57, %56 ], [ %.03.i, %_load_config.exit ], [ %21, %22 ]
+107:                                              ; preds = %22, %56, %_load_config.exit, %65, %68
+  %.0.ph = phi i32 [ %64, %68 ], [ %64, %65 ], [ %.03.i, %_load_config.exit ], [ %57, %56 ], [ %21, %22 ]
   %108 = call ptr @slurm_strerror(i32 noundef %.0.ph) #9
   %109 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.setup_container, ptr noundef %108) #9
   br label %_generate_container_paths.exit
 
 _generate_container_paths.exit:                   ; preds = %95, %107, %14, %17, %9
-  %.014 = phi i32 [ %7, %9 ], [ 10000, %17 ], [ 10000, %14 ], [ %.0.ph, %107 ], [ 0, %95 ]
+  %.014 = phi i32 [ %7, %9 ], [ 10000, %14 ], [ 10000, %17 ], [ %.0.ph, %107 ], [ 0, %95 ]
   ret i32 %.014
 }
 
@@ -591,7 +591,7 @@ define internal fastcc range(i32 0, 9203) i32 @_merge_step_config_env(ptr nounde
   br label %10
 
 10:                                               ; preds = %7, %1
-  %.0 = phi i32 [ 0, %1 ], [ %., %7 ]
+  %.0 = phi i32 [ %., %7 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -1117,7 +1117,7 @@ _modify_config.exit:                              ; preds = %255, %._crit_edge.i
   br label %_write_config.exit
 
 _write_config.exit:                               ; preds = %.thread46.i, %321
-  %.032.i = phi i32 [ %322, %321 ], [ %320, %.thread46.i ]
+  %.032.i = phi i32 [ %320, %.thread46.i ], [ %322, %321 ]
   %.not47 = icmp eq i32 %.032.i, 0
   br i1 %.not47, label %_write_config.exit.thread, label %324
 
@@ -2100,7 +2100,7 @@ define internal fastcc ptr @_generate_pattern(ptr noundef readonly captures(addr
   br label %_pattern_argv.exit
 
 _pattern_argv.exit:                               ; preds = %36, %29, %79, %61, %67, %53, %54, %44, %75, %73, %72, %70, %68, %58, %49, %47, %45, %27
-  %.1 = phi ptr [ %25, %27 ], [ %25, %44 ], [ %25, %45 ], [ %25, %47 ], [ %25, %49 ], [ %25, %53 ], [ %25, %54 ], [ %25, %58 ], [ %25, %61 ], [ %25, %67 ], [ %25, %68 ], [ %25, %70 ], [ %25, %72 ], [ %25, %73 ], [ %25, %75 ], [ %.0, %79 ], [ %25, %29 ], [ %25, %36 ]
+  %.1 = phi ptr [ %25, %27 ], [ %.0, %79 ], [ %25, %44 ], [ %25, %45 ], [ %25, %47 ], [ %25, %49 ], [ %25, %53 ], [ %25, %54 ], [ %25, %58 ], [ %25, %61 ], [ %25, %67 ], [ %25, %68 ], [ %25, %70 ], [ %25, %72 ], [ %25, %73 ], [ %25, %75 ], [ %25, %29 ], [ %25, %36 ]
   %81 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   br label %20, !llvm.loop !23
 
@@ -2162,7 +2162,7 @@ define internal fastcc i32 @_mkdir(ptr noundef %0, i32 noundef %1, i32 noundef %
   br label %30
 
 30:                                               ; preds = %5, %23, %26, %27, %19, %12
-  %.0 = phi i32 [ %7, %27 ], [ %15, %12 ], [ %22, %19 ], [ 0, %26 ], [ 0, %23 ], [ 0, %5 ]
+  %.0 = phi i32 [ 0, %23 ], [ %7, %27 ], [ %15, %12 ], [ %22, %19 ], [ 0, %26 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -2570,7 +2570,7 @@ define internal fastcc void @_kill_container() unnamed_addr #0 {
   %exitcond.not = icmp eq i32 %56, 10
   br i1 %exitcond.not, label %.loopexit, label %27, !llvm.loop !24
 
-.critedge:                                        ; preds = %43, %33, %34
+.critedge:                                        ; preds = %43, %34, %33
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit

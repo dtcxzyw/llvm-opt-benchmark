@@ -600,9 +600,9 @@ define internal i32 @dissect_iperf2_tcp(ptr noundef %0, ptr noundef captures(non
   br label %90
 
 90:                                               ; preds = %.thread162.us, %77
-  %.5.us = phi i32 [ %89, %.thread162.us ], [ %.0139221.us, %77 ]
-  %.2138.us = phi i32 [ %84, %.thread162.us ], [ %.0136222.us, %77 ]
-  %.2135.us = phi i32 [ %87, %.thread162.us ], [ %.0133223.us, %77 ]
+  %.5.us = phi i32 [ %.0139221.us, %77 ], [ %89, %.thread162.us ]
+  %.2138.us = phi i32 [ %.0136222.us, %77 ], [ %84, %.thread162.us ]
+  %.2135.us = phi i32 [ %.0133223.us, %77 ], [ %87, %.thread162.us ]
   %91 = and i32 %.2135.us, 32768
   %.not146.us = icmp eq i32 %91, 0
   br i1 %.not146.us, label %115, label %92
@@ -694,10 +694,10 @@ define internal i32 @dissect_iperf2_tcp(ptr noundef %0, ptr noundef captures(non
   br label %.thread203.us
 
 129:                                              ; preds = %118, %.thread179.us
-  %.3142.us = phi i32 [ %114, %.thread179.us ], [ %.5172.us, %118 ]
-  %.1137.us = phi i32 [ %.2138174186.us, %.thread179.us ], [ %.2138173.us, %118 ]
-  %.1134.us = phi i32 [ %.2135175185.us, %.thread179.us ], [ %.2135176.us, %118 ]
-  %.2.us = phi i32 [ %.0131224.us, %.thread179.us ], [ %.3178.us, %118 ]
+  %.3142.us = phi i32 [ %.5172.us, %118 ], [ %114, %.thread179.us ]
+  %.1137.us = phi i32 [ %.2138173.us, %118 ], [ %.2138174186.us, %.thread179.us ]
+  %.1134.us = phi i32 [ %.2135176.us, %118 ], [ %.2135175185.us, %.thread179.us ]
+  %.2.us = phi i32 [ %.3178.us, %118 ], [ %.0131224.us, %.thread179.us ]
   br i1 %76, label %.thread203.us, label %.thread266
 
 .thread203.us:                                    ; preds = %.thread258, %129, %.thread261, %.thread194.us

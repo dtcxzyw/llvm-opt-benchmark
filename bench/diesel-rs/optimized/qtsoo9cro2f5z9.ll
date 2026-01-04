@@ -257,7 +257,7 @@ define internal fastcc void @"_ZN4core3ptr36drop_in_place$LT$syn..expr..Expr$GT$
   unreachable
 
 common.resume:                                    ; preds = %81, %56, %61, %48, %24, %7
-  %common.resume.op = phi { ptr, i32 } [ %8, %7 ], [ %25, %24 ], [ %49, %48 ], [ %62, %61 ], [ %57, %56 ], [ %82, %81 ]
+  %common.resume.op = phi { ptr, i32 } [ %57, %56 ], [ %8, %7 ], [ %25, %24 ], [ %49, %48 ], [ %62, %61 ], [ %82, %81 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr41drop_in_place$LT$syn..expr..ExprArray$GT$17h40f0ad893e2b688bE.exit": ; preds = %6
@@ -626,7 +626,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17h33c0a88e25bfec0dE(
   br label %103
 
 47:                                               ; preds = %.noexc46, %"_ZN64_$LT$core..fmt..Arguments$u20$as$u20$alloc..string..ToString$GT$9to_string17h562b7f62fc3b256cE.llvm.14627679313617025555.exit.i", %60, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17hdf2cb50e8294c669E.exit", %52
-  %.0 = phi i8 [ 1, %52 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17hdf2cb50e8294c669E.exit" ], [ 0, %60 ], [ %.158, %"_ZN64_$LT$core..fmt..Arguments$u20$as$u20$alloc..string..ToString$GT$9to_string17h562b7f62fc3b256cE.llvm.14627679313617025555.exit.i" ], [ %.158, %.noexc46 ]
+  %.0 = phi i8 [ %.158, %.noexc46 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17hdf2cb50e8294c669E.exit" ], [ 0, %60 ], [ 1, %52 ], [ %.158, %"_ZN64_$LT$core..fmt..Arguments$u20$as$u20$alloc..string..ToString$GT$9to_string17h562b7f62fc3b256cE.llvm.14627679313617025555.exit.i" ]
   %48 = landingpad { ptr, i32 }
           cleanup
   %49 = trunc nuw i8 %.0 to i1
@@ -846,7 +846,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17h33c0a88e25bfec0dE(
           to label %115 unwind label %94
 
 115:                                              ; preds = %84, %92, %98, %99, %101, %106, %111, %112, %113
-  %.pn = phi { ptr, i32 } [ %85, %92 ], [ %85, %84 ], [ %76, %101 ], [ %76, %99 ], [ %76, %98 ], [ %eh.lpad-body, %113 ], [ %eh.lpad-body, %112 ], [ %eh.lpad-body, %111 ], [ %eh.lpad-body, %106 ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %106 ], [ %85, %92 ], [ %85, %84 ], [ %76, %101 ], [ %76, %99 ], [ %76, %98 ], [ %eh.lpad-body, %113 ], [ %eh.lpad-body, %112 ], [ %eh.lpad-body, %111 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -946,7 +946,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hfb9bb12205efe714E(
   br label %104
 
 47:                                               ; preds = %.noexc46, %"_ZN64_$LT$core..fmt..Arguments$u20$as$u20$alloc..string..ToString$GT$9to_string17h562b7f62fc3b256cE.llvm.14627679313617025555.exit.i", %60, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17hdf2cb50e8294c669E.exit", %52
-  %.0 = phi i8 [ 1, %52 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17hdf2cb50e8294c669E.exit" ], [ 0, %60 ], [ %.158, %"_ZN64_$LT$core..fmt..Arguments$u20$as$u20$alloc..string..ToString$GT$9to_string17h562b7f62fc3b256cE.llvm.14627679313617025555.exit.i" ], [ %.158, %.noexc46 ]
+  %.0 = phi i8 [ %.158, %.noexc46 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17hdf2cb50e8294c669E.exit" ], [ 0, %60 ], [ 1, %52 ], [ %.158, %"_ZN64_$LT$core..fmt..Arguments$u20$as$u20$alloc..string..ToString$GT$9to_string17h562b7f62fc3b256cE.llvm.14627679313617025555.exit.i" ]
   %48 = landingpad { ptr, i32 }
           cleanup
   %49 = trunc nuw i8 %.0 to i1
@@ -995,7 +995,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hfb9bb12205efe714E(
   br i1 %64, label %"_ZN64_$LT$core..fmt..Arguments$u20$as$u20$alloc..string..ToString$GT$9to_string17h562b7f62fc3b256cE.llvm.14627679313617025555.exit.i", label %.thread61
 
 "_ZN64_$LT$core..fmt..Arguments$u20$as$u20$alloc..string..ToString$GT$9to_string17h562b7f62fc3b256cE.llvm.14627679313617025555.exit.i": ; preds = %54, %.thread59, %61
-  %.158 = phi i8 [ 0, %61 ], [ 0, %.thread59 ], [ 1, %54 ]
+  %.158 = phi i8 [ 0, %.thread59 ], [ 0, %61 ], [ 1, %54 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %14, ptr %9, align 8
@@ -1167,7 +1167,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hfb9bb12205efe714E(
           to label %116 unwind label %95
 
 116:                                              ; preds = %85, %93, %99, %100, %102, %107, %112, %113, %114
-  %.pn = phi { ptr, i32 } [ %86, %93 ], [ %86, %85 ], [ %77, %102 ], [ %77, %100 ], [ %77, %99 ], [ %eh.lpad-body, %114 ], [ %eh.lpad-body, %113 ], [ %eh.lpad-body, %112 ], [ %eh.lpad-body, %107 ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %107 ], [ %86, %93 ], [ %86, %85 ], [ %77, %102 ], [ %77, %100 ], [ %77, %99 ], [ %eh.lpad-body, %114 ], [ %eh.lpad-body, %113 ], [ %eh.lpad-body, %112 ]
   resume { ptr, i32 } %.pn
 }
 

@@ -158,7 +158,7 @@ define internal fastcc i8 @_ZN13unicode_width6tables12lookup_width17h4e08546b925
   br label %37
 
 37:                                               ; preds = %29, %28, %28, %28, %18, %36, %35
-  %.sroa.0.0 = phi i8 [ 3, %35 ], [ 0, %36 ], [ %27, %18 ], [ 1, %28 ], [ 1, %28 ], [ 1, %28 ], [ %spec.select, %29 ]
+  %.sroa.0.0 = phi i8 [ 0, %36 ], [ 1, %28 ], [ %spec.select, %29 ], [ 1, %28 ], [ 1, %28 ], [ 3, %35 ], [ %27, %18 ]
   ret i8 %.sroa.0.0
 }
 
@@ -958,7 +958,7 @@ _ZN14ruff_formatter7printer7Printer4fits17hdf52933521f59629E.exit: ; preds = %"_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %139, %_ZN14ruff_formatter7printer7Printer4fits17hdf52933521f59629E.exit, %145, %115
-  %.sroa.0.1.i = phi i64 [ %147, %145 ], [ %116, %115 ], [ %140, %139 ], [ %132, %_ZN14ruff_formatter7printer7Printer4fits17hdf52933521f59629E.exit ]
+  %.sroa.0.1.i = phi i64 [ %116, %115 ], [ %147, %145 ], [ %140, %139 ], [ %132, %_ZN14ruff_formatter7printer7Printer4fits17hdf52933521f59629E.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !43
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !43
   br label %_ZN14ruff_formatter7printer7Printer18print_best_fitting17h51f83c68699fb46fE.exit
@@ -1170,8 +1170,8 @@ _ZN14ruff_formatter7printer7Printer11push_marker17h90909da73ac6f913E.exit: ; pre
   br label %228
 
 232:                                              ; preds = %586, %247, %400, %349, %590, %294, %_ZN14ruff_formatter7printer7Printer18print_best_fitting17h51f83c68699fb46fE.exit, %384, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit677", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit678", %4, %22, %29, %34, %41, %51, %65, %67, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit664", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit667", %309, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit668", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit669", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit687", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit688", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit696", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit698", %158, %160, %228, %178, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit686", %435, %531, %562, %517, %447, %433
-  %.sroa.16.sroa.0.0 = phi i64 [ %.sroa.57.4.insert.shift.i680, %433 ], [ %.sroa.57.4.insert.shift.i, %447 ], [ %.sroa.57.4.insert.shift.i690, %517 ], [ %.sroa.4565.0.extract.shift, %531 ], [ %.sroa.16.sroa.0.2, %562 ], [ 0, %435 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit686" ], [ 0, %178 ], [ 0, %228 ], [ 0, %160 ], [ 0, %158 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit698" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit696" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit688" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit687" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit669" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit668" ], [ 0, %309 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit667" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit664" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit" ], [ 0, %67 ], [ 0, %65 ], [ 0, %51 ], [ 0, %41 ], [ 0, %34 ], [ 0, %29 ], [ 0, %22 ], [ 0, %4 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit678" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit677" ], [ %.sroa.57.4.insert.shift.i671, %384 ], [ %591, %590 ], [ %spec.select, %_ZN14ruff_formatter7printer7Printer18print_best_fitting17h51f83c68699fb46fE.exit ], [ %spec.select651, %294 ], [ %.sroa.4487.0.extract.shift, %349 ], [ %.sroa.4510.0.extract.shift, %400 ], [ %spec.select788, %247 ], [ %spec.select790, %586 ]
-  %.sroa.0.0 = phi i64 [ 3, %433 ], [ 3, %447 ], [ 3, %517 ], [ %328, %531 ], [ %.sroa.0.2, %562 ], [ 4, %435 ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit686" ], [ 4, %178 ], [ 4, %228 ], [ 4, %160 ], [ 4, %158 ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit698" ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit696" ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit688" ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit687" ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit669" ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit668" ], [ 4, %309 ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit667" ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit664" ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit" ], [ 4, %67 ], [ 4, %65 ], [ 4, %51 ], [ 4, %41 ], [ 4, %34 ], [ 4, %29 ], [ 4, %22 ], [ 4, %4 ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit678" ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit677" ], [ 3, %384 ], [ %584, %590 ], [ %.sroa.0.0.i, %_ZN14ruff_formatter7printer7Printer18print_best_fitting17h51f83c68699fb46fE.exit ], [ %295, %294 ], [ %351, %349 ], [ %401, %400 ], [ %spec.select789, %247 ], [ %spec.select791, %586 ]
+  %.sroa.16.sroa.0.0 = phi i64 [ %spec.select788, %247 ], [ 0, %4 ], [ %spec.select790, %586 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit677" ], [ %.sroa.57.4.insert.shift.i680, %433 ], [ %.sroa.57.4.insert.shift.i, %447 ], [ %.sroa.4487.0.extract.shift, %349 ], [ %.sroa.57.4.insert.shift.i690, %517 ], [ 0, %29 ], [ %.sroa.4565.0.extract.shift, %531 ], [ %.sroa.16.sroa.0.2, %562 ], [ %.sroa.57.4.insert.shift.i671, %384 ], [ 0, %435 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit686" ], [ 0, %178 ], [ 0, %228 ], [ 0, %160 ], [ 0, %158 ], [ %591, %590 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit698" ], [ 0, %22 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit696" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit688" ], [ %spec.select651, %294 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit687" ], [ %spec.select, %_ZN14ruff_formatter7printer7Printer18print_best_fitting17h51f83c68699fb46fE.exit ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit669" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit668" ], [ 0, %309 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit667" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit664" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit678" ], [ 0, %67 ], [ 0, %65 ], [ 0, %51 ], [ 0, %41 ], [ 0, %34 ], [ %.sroa.4510.0.extract.shift, %400 ]
+  %.sroa.0.0 = phi i64 [ %spec.select789, %247 ], [ 4, %4 ], [ %spec.select791, %586 ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit677" ], [ 3, %433 ], [ 3, %447 ], [ %351, %349 ], [ 3, %517 ], [ 4, %29 ], [ %328, %531 ], [ %.sroa.0.2, %562 ], [ 3, %384 ], [ 4, %435 ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit686" ], [ 4, %178 ], [ 4, %228 ], [ 4, %160 ], [ 4, %158 ], [ %584, %590 ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit698" ], [ 4, %22 ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit696" ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit688" ], [ %295, %294 ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit687" ], [ %.sroa.0.0.i, %_ZN14ruff_formatter7printer7Printer18print_best_fitting17h51f83c68699fb46fE.exit ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit669" ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit668" ], [ 4, %309 ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit667" ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit664" ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit" ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit678" ], [ 4, %67 ], [ 4, %65 ], [ 4, %51 ], [ 4, %41 ], [ 4, %34 ], [ %401, %400 ]
   %.sroa.16.0.insert.ext = shl nuw i64 %.sroa.16.sroa.0.0, 8
   %.sroa.0.0.insert.ext = and i64 %.sroa.0.0, 255
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.0.insert.ext, %.sroa.16.0.insert.ext
@@ -2091,9 +2091,9 @@ _ZN14ruff_formatter7printer7Printer4fits17hdf52933521f59629E.exit: ; preds = %"_
   br label %56
 
 56:                                               ; preds = %55, %6, %50, %54
-  %.sroa.5.sroa.0.0 = phi i64 [ %.sroa.576.0.extract.shift, %50 ], [ %.sroa.579.0.extract.shift, %54 ], [ 0, %6 ], [ 0, %55 ]
-  %.sroa.49.0 = phi i64 [ %.sroa.475.0.extract.shift, %50 ], [ %.sroa.478.0.extract.shift, %54 ], [ 0, %6 ], [ %., %55 ]
-  %.sroa.07.0 = phi i64 [ %43, %50 ], [ %52, %54 ], [ 4, %6 ], [ 4, %55 ]
+  %.sroa.5.sroa.0.0 = phi i64 [ %.sroa.579.0.extract.shift, %54 ], [ %.sroa.576.0.extract.shift, %50 ], [ 0, %6 ], [ 0, %55 ]
+  %.sroa.49.0 = phi i64 [ %.sroa.478.0.extract.shift, %54 ], [ %.sroa.475.0.extract.shift, %50 ], [ 0, %6 ], [ %., %55 ]
+  %.sroa.07.0 = phi i64 [ %52, %54 ], [ %43, %50 ], [ 4, %6 ], [ 4, %55 ]
   %.sroa.49.0.insert.ext = shl nuw i64 %.sroa.49.0, 8
   %.sroa.49.0.insert.shift = and i64 %.sroa.49.0.insert.ext, 65280
   %.sroa.49.0.insert.insert = or disjoint i64 %.sroa.49.0.insert.shift, %.sroa.5.sroa.0.0
@@ -2353,7 +2353,7 @@ _ZN14ruff_formatter7printer7Printer11push_marker17h90909da73ac6f913E.exit: ; pre
   %124 = or disjoint i32 %123, %119
   br label %125
 
-125:                                              ; preds = %103, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4e852cf295414a9aE.exit16.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4e852cf295414a9aE.exit14.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4e852cf295414a9aE.exit12.i"
+125:                                              ; preds = %103, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4e852cf295414a9aE.exit12.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4e852cf295414a9aE.exit16.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4e852cf295414a9aE.exit14.i"
   %.sroa.0.1.ph = phi ptr [ %96, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4e852cf295414a9aE.exit12.i" ], [ %106, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4e852cf295414a9aE.exit14.i" ], [ %116, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4e852cf295414a9aE.exit16.i" ], [ %90, %103 ]
   %.sroa.4.0.i.ph = phi i32 [ %101, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4e852cf295414a9aE.exit12.i" ], [ %113, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4e852cf295414a9aE.exit14.i" ], [ %124, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4e852cf295414a9aE.exit16.i" ], [ %104, %103 ]
   %126 = icmp samesign ult i32 %.sroa.4.0.i.ph, 1114112
@@ -2577,10 +2577,10 @@ define internal fastcc noundef zeroext i1 @_ZN14ruff_formatter7printer7Printer19
   unreachable
 
 .thread:                                          ; preds = %31, %58
-  %.pn30 = phi { ptr, i32 } [ %lpad.thr_comm, %58 ], [ %32, %31 ]
+  %.pn30 = phi { ptr, i32 } [ %32, %31 ], [ %lpad.thr_comm, %58 ]
   resume { ptr, i32 } %.pn30
 
-58:                                               ; preds = %25, %4, %21
+58:                                               ; preds = %25, %21, %4
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr108drop_in_place$LT$alloc..vec..drain..Drain$LT$ruff_formatter..printer..line_suffixes..LineSuffixEntry$GT$$GT$17hb970ccf00976b6dcE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %10) #18
@@ -2710,8 +2710,8 @@ _ZN14ruff_formatter7printer12FitsMeasurer14fill_item_fits17he1f767fe795c5455E.ex
           to label %59 unwind label %.loopexit
 
 .loopexit435:                                     ; preds = %84, %77, %74, %73, %70, %63, %60, %59, %57
-  %not. = phi i1 [ true, %57 ], [ true, %84 ], [ false, %77 ], [ false, %74 ], [ false, %73 ], [ true, %70 ], [ false, %63 ], [ false, %60 ], [ false, %59 ]
-  %.sroa.044.0 = phi i64 [ 2, %57 ], [ 1, %84 ], [ 0, %77 ], [ 0, %74 ], [ 0, %73 ], [ 3, %70 ], [ 0, %63 ], [ 0, %60 ], [ 0, %59 ]
+  %not. = phi i1 [ true, %57 ], [ true, %84 ], [ false, %74 ], [ false, %73 ], [ false, %60 ], [ false, %59 ], [ false, %63 ], [ true, %70 ], [ false, %77 ]
+  %.sroa.044.0 = phi i64 [ 2, %57 ], [ 1, %84 ], [ 0, %74 ], [ 0, %73 ], [ 0, %60 ], [ 0, %59 ], [ 0, %63 ], [ 3, %70 ], [ 0, %77 ]
   %.sroa.0269.1 = phi i64 [ 0, %57 ], [ %.sroa.0269.0, %59 ], [ %.sroa.0269.0, %60 ], [ %.sroa.0269.0, %63 ], [ %.sroa.0269.0, %70 ], [ %.sroa.0269.0, %73 ], [ %.sroa.0269.0, %74 ], [ %.sroa.0269.0, %77 ], [ %.sroa.0269.0, %84 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6, ptr noundef nonnull align 8 dereferenceable(104) %7, i64 104, i1 false)
@@ -2821,7 +2821,7 @@ default.unreachable572:                           ; preds = %92
           to label %_ZN14ruff_formatter7printer12FitsMeasurer14fill_item_fits17he1f767fe795c5455E.exit393 unwind label %.loopexit436
 
 _ZN14ruff_formatter7printer7Printer15print_fill_item17hddb95bed48a2c02fE.exit: ; preds = %92, %92, %106, %93
-  %.sroa.0148.0 = phi i1 [ true, %93 ], [ %.sroa.0148.1, %106 ], [ false, %92 ], [ false, %92 ]
+  %.sroa.0148.0 = phi i1 [ %.sroa.0148.1, %106 ], [ true, %93 ], [ false, %92 ], [ false, %92 ]
   %96 = call i48 @_ZN14ruff_formatter7printer10call_stack16PrintElementArgs15with_print_mode17he2b0c884bc6e6650E(i48 %9, i1 noundef zeroext %.sroa.0148.0)
   %97 = call fastcc i64 @_ZN14ruff_formatter7printer7Printer11print_entry17h7b2b0c8f4eb5c9cbE(ptr noalias noundef nonnull align 8 dereferenceable(224) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i48 %96, i8 noundef 8)
   %98 = and i64 %97, 255
@@ -2936,7 +2936,7 @@ _ZN14ruff_formatter7printer7Printer20print_fill_separator17h24f49356c36c88f7E.ex
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread422
 
-.loopexit436:                                     ; preds = %102, %94
+.loopexit436:                                     ; preds = %94, %102
   %lpad.loopexit438 = landingpad { ptr, i32 }
           cleanup
   br label %139
@@ -2980,9 +2980,9 @@ _ZN14ruff_formatter7printer7Printer20print_fill_separator17h24f49356c36c88f7E.ex
   %.sroa.4332.0.extract.shift.le = lshr i64 %129, 8
   br label %.thread422
 
-.thread422:                                       ; preds = %.thread422.loopexit441.split.loop.exit, %.thread422.loopexit441.split.loop.exit496, %.thread422.loopexit.split.loop.exit, %.thread422.loopexit.split.loop.exit491, %134, %138, %.loopexit573
-  %.sroa.0.1427 = phi i64 [ %.sroa.0.1, %.loopexit573 ], [ %132, %134 ], [ %.sroa.0.3, %138 ], [ %143, %.thread422.loopexit.split.loop.exit ], [ %90, %.thread422.loopexit.split.loop.exit491 ], [ %97, %.thread422.loopexit441.split.loop.exit ], [ %129, %.thread422.loopexit441.split.loop.exit496 ]
-  %.sroa.14.sroa.0.1426 = phi i64 [ %.sroa.14.sroa.0.1, %.loopexit573 ], [ %.sroa.4261.sroa.0.0.insert.insert, %134 ], [ %.sroa.14.sroa.0.3, %138 ], [ %.sroa.4355.0.extract.shift.le, %.thread422.loopexit.split.loop.exit ], [ %.sroa.4345.0.extract.shift.le, %.thread422.loopexit.split.loop.exit491 ], [ %.sroa.4313.0.extract.shift.le, %.thread422.loopexit441.split.loop.exit ], [ %.sroa.4332.0.extract.shift.le, %.thread422.loopexit441.split.loop.exit496 ]
+.thread422:                                       ; preds = %.thread422.loopexit441.split.loop.exit, %.thread422.loopexit441.split.loop.exit496, %.thread422.loopexit.split.loop.exit, %.thread422.loopexit.split.loop.exit491, %138, %134, %.loopexit573
+  %.sroa.0.1427 = phi i64 [ %.sroa.0.1, %.loopexit573 ], [ %.sroa.0.3, %138 ], [ %132, %134 ], [ %90, %.thread422.loopexit.split.loop.exit491 ], [ %143, %.thread422.loopexit.split.loop.exit ], [ %97, %.thread422.loopexit441.split.loop.exit ], [ %129, %.thread422.loopexit441.split.loop.exit496 ]
+  %.sroa.14.sroa.0.1426 = phi i64 [ %.sroa.14.sroa.0.1, %.loopexit573 ], [ %.sroa.14.sroa.0.3, %138 ], [ %.sroa.4261.sroa.0.0.insert.insert, %134 ], [ %.sroa.4345.0.extract.shift.le, %.thread422.loopexit.split.loop.exit491 ], [ %.sroa.4355.0.extract.shift.le, %.thread422.loopexit.split.loop.exit ], [ %.sroa.4313.0.extract.shift.le, %.thread422.loopexit441.split.loop.exit ], [ %.sroa.4332.0.extract.shift.le, %.thread422.loopexit441.split.loop.exit496 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %145
 
@@ -3001,7 +3001,7 @@ _ZN14ruff_formatter7printer7Printer20print_fill_separator17h24f49356c36c88f7E.ex
   ret i64 %.sroa.0.0.insert.insert
 
 .thread:                                          ; preds = %139, %146
-  %.pn403 = phi { ptr, i32 } [ %lpad.phi, %146 ], [ %lpad.phi440, %139 ]
+  %.pn403 = phi { ptr, i32 } [ %lpad.phi440, %139 ], [ %lpad.phi, %146 ]
   resume { ptr, i32 } %.pn403
 
 .loopexit:                                        ; preds = %.preheader, %71, %67, %81
@@ -3080,8 +3080,8 @@ define internal fastcc i64 @_ZN14ruff_formatter7printer7Printer11print_entry17h7
   br label %26
 
 25:                                               ; preds = %45, %50, %31, %11
-  %.sroa.06.0 = phi i64 [ %33, %31 ], [ %12, %11 ], [ %38, %50 ], [ %spec.select, %45 ]
-  %.sroa.6.sroa.0.0 = phi i64 [ %.sroa.472.0.extract.shift, %31 ], [ %.sroa.462.0.extract.shift, %11 ], [ %.sroa.2.0.extract.shift, %50 ], [ %spec.select78, %45 ]
+  %.sroa.06.0 = phi i64 [ %12, %11 ], [ %33, %31 ], [ %38, %50 ], [ %spec.select, %45 ]
+  %.sroa.6.sroa.0.0 = phi i64 [ %.sroa.462.0.extract.shift, %11 ], [ %.sroa.472.0.extract.shift, %31 ], [ %.sroa.2.0.extract.shift, %50 ], [ %spec.select78, %45 ]
   %.sroa.06.0.insert.ext = and i64 %.sroa.06.0, 255
   %.sroa.06.0.insert.insert = or i64 %.sroa.6.sroa.0.0, %.sroa.06.0.insert.ext
   ret i64 %.sroa.06.0.insert.insert
@@ -3262,7 +3262,7 @@ _ZN5alloc6string6String4push17h444d5a6351d622eeE.exit: ; preds = %46, %52
   br label %.thread5
 
 .thread5:                                         ; preds = %_ZN5alloc6string6String4push17h444d5a6351d622eeE.exit, %69, %64, %71, %58
-  %.sroa.03.0 = phi i32 [ %60, %58 ], [ 0, %64 ], [ %73, %71 ], [ %spec.select, %69 ], [ 0, %_ZN5alloc6string6String4push17h444d5a6351d622eeE.exit ]
+  %.sroa.03.0 = phi i32 [ %60, %58 ], [ 0, %64 ], [ %spec.select, %69 ], [ %73, %71 ], [ 0, %_ZN5alloc6string6String4push17h444d5a6351d622eeE.exit ]
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %62 = load i32, ptr %61, align 4, !noundef !3
   %63 = add i32 %62, %.sroa.03.0
@@ -3776,9 +3776,9 @@ default.unreachable556:                           ; preds = %77, %70, %2
   ], !prof !239
 
 73:                                               ; preds = %_ZN14ruff_formatter7printer10GroupModes14get_print_mode17h7bc942e990e85c2dE.exit540, %_ZN14ruff_formatter7printer10GroupModes14get_print_mode17h7bc942e990e85c2dE.exit529, %_ZN14ruff_formatter7printer10GroupModes14get_print_mode17h7bc942e990e85c2dE.exit521, %_ZN14ruff_formatter7printer10GroupModes14get_print_mode17h7bc942e990e85c2dE.exit, %20, %59, %422, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h390d9893a2d232f6E.exit", %412, %138, %365, %318, %256, %74, %2, %62, %119, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit510", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit511", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit513", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit514", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit522", %327, %392, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit543", %421, %87, %77, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit530", %279, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit532", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit531", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit542", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit541", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit533", %80, %84, %201, %160, %106, %42, %31, %23, %14
-  %.sroa.40.sroa.0.0 = phi i64 [ 0, %14 ], [ 0, %80 ], [ 0, %84 ], [ 0, %23 ], [ 0, %31 ], [ 0, %42 ], [ %.sroa.5342.0.extract.shift, %106 ], [ 0, %160 ], [ %.sroa.5410.0.extract.shift, %201 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit533" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit541" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit542" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit531" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit532" ], [ 0, %279 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit530" ], [ 0, %77 ], [ 0, %87 ], [ 0, %421 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit543" ], [ 0, %392 ], [ 0, %327 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit522" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit514" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit513" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit511" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit510" ], [ 0, %119 ], [ 0, %62 ], [ 0, %2 ], [ 0, %74 ], [ 0, %59 ], [ 0, %256 ], [ %.sroa.57.4.insert.shift.i516, %_ZN14ruff_formatter7printer10GroupModes14get_print_mode17h7bc942e990e85c2dE.exit521 ], [ %.sroa.57.4.insert.shift.i524, %_ZN14ruff_formatter7printer10GroupModes14get_print_mode17h7bc942e990e85c2dE.exit529 ], [ %.sroa.57.4.insert.shift.i, %_ZN14ruff_formatter7printer10GroupModes14get_print_mode17h7bc942e990e85c2dE.exit ], [ 0, %318 ], [ %.sroa.57.4.insert.shift.i535, %_ZN14ruff_formatter7printer10GroupModes14get_print_mode17h7bc942e990e85c2dE.exit540 ], [ 0, %365 ], [ %.sroa.5444.0.extract.shift, %138 ], [ %.sroa.5455.0.extract.shift, %412 ], [ %.sroa.5463.0.extract.shift, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h390d9893a2d232f6E.exit" ], [ %.sroa.5463.0.extract.shift, %422 ], [ 0, %20 ]
-  %.sroa.25.0 = phi i8 [ %17, %14 ], [ %83, %80 ], [ %86, %84 ], [ %30, %23 ], [ %41, %31 ], [ %58, %42 ], [ %.sroa.4341.0.extract.trunc, %106 ], [ %164, %160 ], [ %.sroa.4409.0.extract.trunc, %201 ], [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit533" ], [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit541" ], [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit542" ], [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit531" ], [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit532" ], [ 2, %279 ], [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit530" ], [ 2, %77 ], [ 2, %87 ], [ 2, %421 ], [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit543" ], [ 2, %392 ], [ 2, %327 ], [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit522" ], [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit514" ], [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit513" ], [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit511" ], [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit510" ], [ 2, %119 ], [ 2, %62 ], [ 2, %2 ], [ 0, %74 ], [ %spec.select, %59 ], [ %258, %256 ], [ 0, %_ZN14ruff_formatter7printer10GroupModes14get_print_mode17h7bc942e990e85c2dE.exit521 ], [ 0, %_ZN14ruff_formatter7printer10GroupModes14get_print_mode17h7bc942e990e85c2dE.exit529 ], [ 0, %_ZN14ruff_formatter7printer10GroupModes14get_print_mode17h7bc942e990e85c2dE.exit ], [ 1, %318 ], [ 0, %_ZN14ruff_formatter7printer10GroupModes14get_print_mode17h7bc942e990e85c2dE.exit540 ], [ 1, %365 ], [ %.sroa.4443.0.extract.trunc, %138 ], [ %.sroa.4454.0.extract.trunc, %412 ], [ %.sroa.4462.0.extract.trunc, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h390d9893a2d232f6E.exit" ], [ %428, %422 ], [ %spec.select493, %20 ]
-  %.sroa.0.0 = phi i64 [ 4, %14 ], [ 4, %80 ], [ 4, %84 ], [ 4, %23 ], [ 4, %31 ], [ 4, %42 ], [ %107, %106 ], [ 4, %160 ], [ %203, %201 ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit533" ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit541" ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit542" ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit531" ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit532" ], [ 4, %279 ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit530" ], [ 4, %77 ], [ 4, %87 ], [ 4, %421 ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit543" ], [ 4, %392 ], [ 4, %327 ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit522" ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit514" ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit513" ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit511" ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit510" ], [ 4, %119 ], [ 4, %62 ], [ 4, %2 ], [ 4, %74 ], [ 4, %59 ], [ 4, %256 ], [ 3, %_ZN14ruff_formatter7printer10GroupModes14get_print_mode17h7bc942e990e85c2dE.exit521 ], [ 3, %_ZN14ruff_formatter7printer10GroupModes14get_print_mode17h7bc942e990e85c2dE.exit529 ], [ 3, %_ZN14ruff_formatter7printer10GroupModes14get_print_mode17h7bc942e990e85c2dE.exit ], [ 4, %318 ], [ 3, %_ZN14ruff_formatter7printer10GroupModes14get_print_mode17h7bc942e990e85c2dE.exit540 ], [ 4, %365 ], [ %140, %138 ], [ %413, %412 ], [ %419, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h390d9893a2d232f6E.exit" ], [ 4, %422 ], [ 4, %20 ]
+  %.sroa.40.sroa.0.0 = phi i64 [ 0, %14 ], [ 0, %2 ], [ %.sroa.5444.0.extract.shift, %138 ], [ 0, %80 ], [ 0, %84 ], [ %.sroa.5463.0.extract.shift, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h390d9893a2d232f6E.exit" ], [ 0, %23 ], [ 0, %31 ], [ 0, %42 ], [ 0, %74 ], [ %.sroa.5342.0.extract.shift, %106 ], [ 0, %160 ], [ %.sroa.5463.0.extract.shift, %422 ], [ %.sroa.57.4.insert.shift.i516, %_ZN14ruff_formatter7printer10GroupModes14get_print_mode17h7bc942e990e85c2dE.exit521 ], [ %.sroa.57.4.insert.shift.i524, %_ZN14ruff_formatter7printer10GroupModes14get_print_mode17h7bc942e990e85c2dE.exit529 ], [ %.sroa.57.4.insert.shift.i, %_ZN14ruff_formatter7printer10GroupModes14get_print_mode17h7bc942e990e85c2dE.exit ], [ %.sroa.5410.0.extract.shift, %201 ], [ 0, %318 ], [ %.sroa.57.4.insert.shift.i535, %_ZN14ruff_formatter7printer10GroupModes14get_print_mode17h7bc942e990e85c2dE.exit540 ], [ 0, %365 ], [ %.sroa.5455.0.extract.shift, %412 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit533" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit541" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit542" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit531" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit532" ], [ 0, %279 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit530" ], [ 0, %59 ], [ 0, %20 ], [ 0, %77 ], [ 0, %87 ], [ 0, %421 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit543" ], [ 0, %392 ], [ 0, %327 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit522" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit514" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit513" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit511" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit510" ], [ 0, %119 ], [ 0, %62 ], [ 0, %256 ]
+  %.sroa.25.0 = phi i8 [ %17, %14 ], [ 2, %2 ], [ %.sroa.4443.0.extract.trunc, %138 ], [ %83, %80 ], [ %86, %84 ], [ %.sroa.4462.0.extract.trunc, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h390d9893a2d232f6E.exit" ], [ %30, %23 ], [ %41, %31 ], [ %58, %42 ], [ 0, %74 ], [ %.sroa.4341.0.extract.trunc, %106 ], [ %164, %160 ], [ %428, %422 ], [ 0, %_ZN14ruff_formatter7printer10GroupModes14get_print_mode17h7bc942e990e85c2dE.exit521 ], [ 0, %_ZN14ruff_formatter7printer10GroupModes14get_print_mode17h7bc942e990e85c2dE.exit529 ], [ 0, %_ZN14ruff_formatter7printer10GroupModes14get_print_mode17h7bc942e990e85c2dE.exit ], [ %.sroa.4409.0.extract.trunc, %201 ], [ 1, %318 ], [ 0, %_ZN14ruff_formatter7printer10GroupModes14get_print_mode17h7bc942e990e85c2dE.exit540 ], [ 1, %365 ], [ %.sroa.4454.0.extract.trunc, %412 ], [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit533" ], [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit541" ], [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit542" ], [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit531" ], [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit532" ], [ 2, %279 ], [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit530" ], [ %spec.select, %59 ], [ %spec.select493, %20 ], [ 2, %77 ], [ 2, %87 ], [ 2, %421 ], [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit543" ], [ 2, %392 ], [ 2, %327 ], [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit522" ], [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit514" ], [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit513" ], [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit511" ], [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit510" ], [ 2, %119 ], [ 2, %62 ], [ %258, %256 ]
+  %.sroa.0.0 = phi i64 [ 4, %14 ], [ 4, %2 ], [ %140, %138 ], [ 4, %80 ], [ 4, %84 ], [ %419, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h390d9893a2d232f6E.exit" ], [ 4, %23 ], [ 4, %31 ], [ 4, %42 ], [ 4, %74 ], [ %107, %106 ], [ 4, %160 ], [ 4, %422 ], [ 3, %_ZN14ruff_formatter7printer10GroupModes14get_print_mode17h7bc942e990e85c2dE.exit521 ], [ 3, %_ZN14ruff_formatter7printer10GroupModes14get_print_mode17h7bc942e990e85c2dE.exit529 ], [ 3, %_ZN14ruff_formatter7printer10GroupModes14get_print_mode17h7bc942e990e85c2dE.exit ], [ %203, %201 ], [ 4, %318 ], [ 3, %_ZN14ruff_formatter7printer10GroupModes14get_print_mode17h7bc942e990e85c2dE.exit540 ], [ 4, %365 ], [ %413, %412 ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit533" ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit541" ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit542" ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit531" ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit532" ], [ 4, %279 ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit530" ], [ 4, %59 ], [ 4, %20 ], [ 4, %77 ], [ 4, %87 ], [ 4, %421 ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit543" ], [ 4, %392 ], [ 4, %327 ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit522" ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit514" ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit513" ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit511" ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit510" ], [ 4, %119 ], [ 4, %62 ], [ 4, %256 ]
   %.sroa.40.0.insert.shift = shl nuw i64 %.sroa.40.sroa.0.0, 16
   %.sroa.25.0.insert.ext = zext i8 %.sroa.25.0 to i64
   %.sroa.25.0.insert.shift = shl nuw nsw i64 %.sroa.25.0.insert.ext, 8
@@ -4681,7 +4681,7 @@ _ZN14ruff_formatter7printer11Indentation5align17ha4dc0ea3df98ad37E.exit: ; preds
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.backedge, %.loopexit.sink.split, %40
-  %.val32 = phi i32 [ %17, %40 ], [ %.sink, %.loopexit.sink.split ], [ %storemerge, %.backedge ]
+  %.val32 = phi i32 [ %.sink, %.loopexit.sink.split ], [ %17, %40 ], [ %storemerge, %.backedge ]
   %33 = load i16, ptr %6, align 8, !range !285, !noundef !3
   %34 = tail call noundef i32 @"_ZN14ruff_formatter86_$LT$impl$u20$core..convert..From$LT$ruff_formatter..LineWidth$GT$$u20$for$u20$u32$GT$4from17h35b3ae7129fd674dE"(i16 noundef %33)
   %35 = icmp ugt i32 %.val32, %34
@@ -4764,7 +4764,7 @@ _ZN14ruff_formatter7printer12FitsMeasurer9fits_text13exceeds_width17hfe9105c158d
   %82 = or disjoint i32 %81, %77
   br label %83
 
-83:                                               ; preds = %61, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4e852cf295414a9aE.exit16.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4e852cf295414a9aE.exit14.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4e852cf295414a9aE.exit12.i"
+83:                                               ; preds = %61, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4e852cf295414a9aE.exit12.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4e852cf295414a9aE.exit16.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4e852cf295414a9aE.exit14.i"
   %.sroa.0.1.ph = phi ptr [ %54, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4e852cf295414a9aE.exit12.i" ], [ %64, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4e852cf295414a9aE.exit14.i" ], [ %74, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4e852cf295414a9aE.exit16.i" ], [ %48, %61 ]
   %.sroa.4.0.i.ph = phi i32 [ %59, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4e852cf295414a9aE.exit12.i" ], [ %71, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4e852cf295414a9aE.exit14.i" ], [ %82, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4e852cf295414a9aE.exit16.i" ], [ %62, %61 ]
   %84 = icmp samesign ult i32 %.sroa.4.0.i.ph, 1114112
@@ -4775,7 +4775,7 @@ _ZN14ruff_formatter7printer12FitsMeasurer9fits_text13exceeds_width17hfe9105c158d
   ]
 
 _ZN14ruff_formatter7printer12FitsMeasurer9fits_text13exceeds_width17hfe9105c158da2f55E.exit.thread: ; preds = %89, %_ZN14ruff_formatter7printer12FitsMeasurer9fits_text13exceeds_width17hfe9105c158da2f55E.exit37, %_ZN14ruff_formatter7printer12FitsMeasurer9fits_text13exceeds_width17hfe9105c158da2f55E.exit, %96, %.loopexit
-  %.sroa.04.0 = phi i8 [ 2, %.loopexit ], [ 0, %96 ], [ %spec.select45, %_ZN14ruff_formatter7printer12FitsMeasurer9fits_text13exceeds_width17hfe9105c158da2f55E.exit ], [ %spec.select46, %_ZN14ruff_formatter7printer12FitsMeasurer9fits_text13exceeds_width17hfe9105c158da2f55E.exit37 ], [ 1, %89 ]
+  %.sroa.04.0 = phi i8 [ 2, %.loopexit ], [ 0, %96 ], [ %spec.select46, %_ZN14ruff_formatter7printer12FitsMeasurer9fits_text13exceeds_width17hfe9105c158da2f55E.exit37 ], [ %spec.select45, %_ZN14ruff_formatter7printer12FitsMeasurer9fits_text13exceeds_width17hfe9105c158da2f55E.exit ], [ 1, %89 ]
   ret i8 %.sroa.04.0
 
 85:                                               ; preds = %83
@@ -4790,7 +4790,7 @@ _ZN14ruff_formatter7printer12FitsMeasurer9fits_text13exceeds_width17hfe9105c158d
   br i1 %45, label %_ZN14ruff_formatter7printer12FitsMeasurer9fits_text13exceeds_width17hfe9105c158da2f55E.exit.thread, label %93
 
 90:                                               ; preds = %103, %101, %105, %87
-  %.sroa.013.0 = phi i32 [ %88, %87 ], [ 0, %101 ], [ %107, %105 ], [ %spec.select, %103 ]
+  %.sroa.013.0 = phi i32 [ %88, %87 ], [ 0, %101 ], [ %spec.select, %103 ], [ %107, %105 ]
   %91 = add i32 %.val34, %.sroa.013.0
   br label %.backedge
 
@@ -4989,9 +4989,9 @@ define void @_ZN14ruff_formatter7printer7Printer17print_with_indent17hb9906e47a4
   br i1 %29, label %220, label %.thread
 
 30:                                               ; preds = %79, %72, %178, %112, %92, %52, %.thread98, %46, %_ZN7tracing4span4Span8do_enter17hc42ad5655e37783bE.exit
-  %.sroa.028.0 = phi i8 [ 1, %112 ], [ 0, %178 ], [ 1, %92 ], [ 1, %_ZN7tracing4span4Span8do_enter17hc42ad5655e37783bE.exit ], [ 1, %52 ], [ 1, %.thread98 ], [ 1, %46 ], [ 1, %72 ], [ 1, %79 ]
-  %.sroa.025.0 = phi i8 [ %.sroa.022.2, %112 ], [ %.sroa.022.2, %178 ], [ %.sroa.022.2, %92 ], [ %.sroa.022.2, %_ZN7tracing4span4Span8do_enter17hc42ad5655e37783bE.exit ], [ 0, %52 ], [ 0, %.thread98 ], [ 0, %46 ], [ 1, %72 ], [ 1, %79 ]
-  %.sroa.022.0 = phi i8 [ %.sroa.022.2, %112 ], [ %.sroa.022.2, %178 ], [ %.sroa.022.2, %92 ], [ %.sroa.022.2, %_ZN7tracing4span4Span8do_enter17hc42ad5655e37783bE.exit ], [ 0, %52 ], [ 0, %.thread98 ], [ 0, %46 ], [ 0, %72 ], [ 0, %79 ]
+  %.sroa.028.0 = phi i8 [ 1, %112 ], [ 0, %178 ], [ 1, %92 ], [ 1, %_ZN7tracing4span4Span8do_enter17hc42ad5655e37783bE.exit ], [ 1, %79 ], [ 1, %52 ], [ 1, %.thread98 ], [ 1, %46 ], [ 1, %72 ]
+  %.sroa.025.0 = phi i8 [ %.sroa.022.2, %112 ], [ %.sroa.022.2, %178 ], [ %.sroa.022.2, %92 ], [ %.sroa.022.2, %_ZN7tracing4span4Span8do_enter17hc42ad5655e37783bE.exit ], [ 1, %79 ], [ 0, %52 ], [ 0, %.thread98 ], [ 0, %46 ], [ 1, %72 ]
+  %.sroa.022.0 = phi i8 [ %.sroa.022.2, %112 ], [ %.sroa.022.2, %178 ], [ %.sroa.022.2, %92 ], [ %.sroa.022.2, %_ZN7tracing4span4Span8do_enter17hc42ad5655e37783bE.exit ], [ 0, %79 ], [ 0, %52 ], [ 0, %.thread98 ], [ 0, %46 ], [ 0, %72 ]
   %31 = landingpad { ptr, i32 }
           cleanup
   br label %28
@@ -5207,7 +5207,7 @@ _ZN7tracing4span4Span8do_enter17hc42ad5655e37783bE.exit: ; preds = %.noexc78, %7
   br label %102
 
 .loopexit.split-lp:                               ; preds = %_ZN14ruff_formatter7printer7Printer11push_marker17h90909da73ac6f913E.exit, %.split.i.i, %"_ZN77_$LT$$RF$alloc..string..String$u20$as$u20$ruff_text_size..traits..TextLen$GT$8text_len17hc2a32688cadce5f7E.exit.i", %166
-  %.sroa.028.5.ph = phi i8 [ 1, %166 ], [ 1, %"_ZN77_$LT$$RF$alloc..string..String$u20$as$u20$ruff_text_size..traits..TextLen$GT$8text_len17hc2a32688cadce5f7E.exit.i" ], [ 1, %.split.i.i ], [ 0, %_ZN14ruff_formatter7printer7Printer11push_marker17h90909da73ac6f913E.exit ]
+  %.sroa.028.5.ph = phi i8 [ 1, %.split.i.i ], [ 1, %166 ], [ 0, %_ZN14ruff_formatter7printer7Printer11push_marker17h90909da73ac6f913E.exit ], [ 1, %"_ZN77_$LT$$RF$alloc..string..String$u20$as$u20$ruff_text_size..traits..TextLen$GT$8text_len17hc2a32688cadce5f7E.exit.i" ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %102
@@ -5311,7 +5311,7 @@ _ZN7tracing4span4Span8do_enter17hc42ad5655e37783bE.exit: ; preds = %.noexc78, %7
   br i1 %134, label %221, label %137
 
 .thread.thread:                                   ; preds = %124, %190, %117, %183
-  %.sroa.028.6 = phi i8 [ 1, %117 ], [ 1, %124 ], [ 0, %183 ], [ 0, %190 ]
+  %.sroa.028.6 = phi i8 [ 1, %124 ], [ 0, %190 ], [ 1, %117 ], [ 0, %183 ]
   %135 = landingpad { ptr, i32 }
           cleanup
   br label %221

@@ -128,7 +128,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h7cc2cf19ece313ddE
   unreachable
 
 common.resume.i:                                  ; preds = %18, %11, %7
-  %common.resume.op.i = phi { ptr, i32 } [ %12, %11 ], [ %19, %18 ], [ %8, %7 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %19, %18 ], [ %12, %11 ], [ %8, %7 ]
   resume { ptr, i32 } %common.resume.op.i
 
 _ZN10rayon_core8registry19set_global_registry17h24c817831ed3ce8dE.exit.i.i: ; preds = %9
@@ -886,7 +886,7 @@ define noundef zeroext i1 @_ZN16uv_configuration15package_options9Reinstall16con
   br i1 %16, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h87c71e4f76ece589E.exit", label %12
 
 "_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h87c71e4f76ece589E.exit": ; preds = %14, %12, %2, %5
-  %.sroa.0.0 = phi i1 [ true, %5 ], [ false, %2 ], [ %.not.not.not.i.not.not.not.i.not.not.not, %12 ], [ %.not.not.not.i.not.not.not.i.not.not.not, %14 ]
+  %.sroa.0.0 = phi i1 [ false, %2 ], [ true, %5 ], [ %.not.not.not.i.not.not.not.i.not.not.not, %12 ], [ %.not.not.not.i.not.not.not.i.not.not.not, %14 ]
   ret i1 %.sroa.0.0
 }
 
@@ -1083,7 +1083,7 @@ _ZN9same_file4unix6Handle9from_path17hd0d09b7412a73f4bE.exit.i.i.i.i: ; preds = 
   unreachable
 
 common.resume.i.i.i:                              ; preds = %80, %76, %55, %51, %.body.i.i.i
-  %common.resume.op.i.i.i = phi { ptr, i32 } [ %52, %55 ], [ %52, %51 ], [ %77, %80 ], [ %77, %76 ], [ %.pn.i.i.i, %.body.i.i.i ]
+  %common.resume.op.i.i.i = phi { ptr, i32 } [ %77, %76 ], [ %52, %51 ], [ %52, %55 ], [ %77, %80 ], [ %.pn.i.i.i, %.body.i.i.i ]
   resume { ptr, i32 } %common.resume.op.i.i.i
 
 62:                                               ; preds = %47
@@ -1187,7 +1187,7 @@ _ZN9same_file12is_same_file17h2a850c8d0550d1d8E.exit.i.i: ; preds = %84, %81
   br label %.backedge.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h25955a76a0c52f88E.exit": ; preds = %.backedge.i, %_ZN9same_file12is_same_file17h2a850c8d0550d1d8E.exit.i.i, %16, %3, %15
-  %.sroa.0.0 = phi i1 [ true, %15 ], [ false, %3 ], [ false, %16 ], [ false, %.backedge.i ], [ true, %_ZN9same_file12is_same_file17h2a850c8d0550d1d8E.exit.i.i ]
+  %.sroa.0.0 = phi i1 [ false, %3 ], [ true, %15 ], [ false, %16 ], [ false, %.backedge.i ], [ true, %_ZN9same_file12is_same_file17h2a850c8d0550d1d8E.exit.i.i ]
   ret i1 %.sroa.0.0
 }
 
@@ -1462,7 +1462,7 @@ define void @_ZN16uv_configuration15package_options9Reinstall7combine17h56f59ae6
   unreachable
 
 111:                                              ; preds = %121, %116, %113, %101
-  %.pn44 = phi { ptr, i32 } [ %117, %116 ], [ %.pn, %113 ], [ %.pn, %101 ], [ %.pn41.pn, %121 ]
+  %.pn44 = phi { ptr, i32 } [ %117, %116 ], [ %.pn41.pn, %121 ], [ %.pn, %113 ], [ %.pn, %101 ]
   resume { ptr, i32 } %.pn44
 
 112:                                              ; preds = %101
@@ -2061,7 +2061,7 @@ default.unreachable5:                             ; preds = %2
   br label %24
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h74aca07113fd3e5dE.exit": ; preds = %._crit_edge.i.i, %.lr.ph.i.i, %5, %2, %4
-  %.sroa.0.0 = phi i1 [ true, %4 ], [ false, %2 ], [ false, %5 ], [ true, %.lr.ph.i.i ], [ false, %._crit_edge.i.i ]
+  %.sroa.0.0 = phi i1 [ false, %2 ], [ true, %4 ], [ false, %5 ], [ true, %.lr.ph.i.i ], [ false, %._crit_edge.i.i ]
   ret i1 %.sroa.0.0
 }
 
@@ -2252,7 +2252,7 @@ thread-pre-split:                                 ; preds = %3
   ret void
 
 "_ZN4core3ptr205drop_in_place$LT$std..collections..hash..map..HashMap$LT$uv_normalize..package_name..PackageName$C$alloc..vec..Vec$LT$uv_distribution_types..requirement..Requirement$GT$$C$rustc_hash..FxBuildHasher$GT$$GT$17h286b00cec79e9ffaE.exit14": ; preds = %.body, %54, %27
-  %.pn = phi { ptr, i32 } [ %28, %27 ], [ %28, %54 ], [ %eh.lpad-body, %.body ]
+  %.pn = phi { ptr, i32 } [ %28, %54 ], [ %28, %27 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn
 
 54:                                               ; preds = %27
@@ -2342,8 +2342,8 @@ define noundef range(i64 1048576, 0) i64 @_ZN16uv_configuration9threading14min_s
   ]
 
 .lr.ph.i.i.preheader:                             ; preds = %22, %18, %15
-  %.sroa.01.155.i.i.ph = phi ptr [ %19, %18 ], [ %12, %15 ], [ %12, %22 ]
-  %.sroa.14.154.i.i.ph = phi i64 [ %20, %18 ], [ 1, %15 ], [ %14, %22 ]
+  %.sroa.01.155.i.i.ph = phi ptr [ %19, %18 ], [ %12, %22 ], [ %12, %15 ]
+  %.sroa.14.154.i.i.ph = phi i64 [ %20, %18 ], [ %14, %22 ], [ 1, %15 ]
   br label %.lr.ph.i.i
 
 17:                                               ; preds = %11
@@ -2415,8 +2415,8 @@ define noundef range(i64 1048576, 0) i64 @_ZN16uv_configuration9threading14min_s
   br i1 %.not42.i.i, label %"_ZN4core3num23_$LT$impl$u20$usize$GT$16from_ascii_radix17h7731da919f8b3be4E.exit.i", label %.lr.ph.i.i
 
 "_ZN4core3num23_$LT$impl$u20$usize$GT$16from_ascii_radix17h7731da919f8b3be4E.exit.i": ; preds = %35, %33, %24, %.preheader46.i.i, %44, %.lr.ph.i.i, %15, %15, %11
-  %.sroa.102.0.i = phi i64 [ undef, %11 ], [ undef, %15 ], [ undef, %15 ], [ %49, %44 ], [ undef, %.lr.ph.i.i ], [ %.sroa.013.0.i.i, %.preheader46.i.i ], [ undef, %24 ], [ undef, %33 ], [ undef, %35 ]
-  %50 = phi i1 [ false, %11 ], [ false, %15 ], [ false, %15 ], [ %43, %.lr.ph.i.i ], [ %43, %44 ], [ %.not.i.i, %.preheader46.i.i ], [ %.not.i.i, %24 ], [ %.not.i.i, %33 ], [ %.not.i.i, %35 ]
+  %.sroa.102.0.i = phi i64 [ undef, %15 ], [ %49, %44 ], [ undef, %11 ], [ undef, %15 ], [ undef, %.lr.ph.i.i ], [ undef, %24 ], [ undef, %33 ], [ undef, %35 ], [ %.sroa.013.0.i.i, %.preheader46.i.i ]
+  %50 = phi i1 [ false, %15 ], [ %43, %44 ], [ false, %11 ], [ false, %15 ], [ %43, %.lr.ph.i.i ], [ %.not.i.i, %.preheader46.i.i ], [ %.not.i.i, %24 ], [ %.not.i.i, %33 ], [ %.not.i.i, %35 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !358
   call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h2b4e12c66e5d22afE.llvm.1636240950872007849"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4, i64 noundef 1, i64 noundef 1)
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2461,8 +2461,8 @@ select.unfold:                                    ; preds = %"_ZN16uv_configurat
   %spec.select = select i1 %62, i64 4194304, i64 %.sroa.0.0.fr
   br label %.thread
 
-.thread:                                          ; preds = %select.unfold, %"_ZN16uv_configuration9threading14min_stack_size28_$u7b$$u7b$closure$u7d$$u7d$17h3ea8914ae88954b8E.exit", %115
-  %63 = phi i64 [ 4194304, %115 ], [ 4194304, %"_ZN16uv_configuration9threading14min_stack_size28_$u7b$$u7b$closure$u7d$$u7d$17h3ea8914ae88954b8E.exit" ], [ %spec.select, %select.unfold ]
+.thread:                                          ; preds = %select.unfold, %115, %"_ZN16uv_configuration9threading14min_stack_size28_$u7b$$u7b$closure$u7d$$u7d$17h3ea8914ae88954b8E.exit"
+  %63 = phi i64 [ 4194304, %115 ], [ %spec.select, %select.unfold ], [ 4194304, %"_ZN16uv_configuration9threading14min_stack_size28_$u7b$$u7b$closure$u7d$$u7d$17h3ea8914ae88954b8E.exit" ]
   ret i64 %63
 
 64:                                               ; preds = %60
@@ -2496,8 +2496,8 @@ select.unfold:                                    ; preds = %"_ZN16uv_configurat
   ]
 
 .lr.ph.i.i39.preheader:                           ; preds = %78, %74, %71
-  %.sroa.01.155.i.i40.ph = phi ptr [ %75, %74 ], [ %68, %71 ], [ %68, %78 ]
-  %.sroa.14.154.i.i41.ph = phi i64 [ %76, %74 ], [ 1, %71 ], [ %70, %78 ]
+  %.sroa.01.155.i.i40.ph = phi ptr [ %75, %74 ], [ %68, %78 ], [ %68, %71 ]
+  %.sroa.14.154.i.i41.ph = phi i64 [ %76, %74 ], [ %70, %78 ], [ 1, %71 ]
   br label %.lr.ph.i.i39
 
 73:                                               ; preds = %67
@@ -2569,8 +2569,8 @@ select.unfold:                                    ; preds = %"_ZN16uv_configurat
   br i1 %.not42.i.i43, label %"_ZN4core3num23_$LT$impl$u20$usize$GT$16from_ascii_radix17h7731da919f8b3be4E.exit.i32", label %.lr.ph.i.i39
 
 "_ZN4core3num23_$LT$impl$u20$usize$GT$16from_ascii_radix17h7731da919f8b3be4E.exit.i32": ; preds = %91, %89, %80, %.preheader46.i.i46, %100, %.lr.ph.i.i39, %71, %71, %67
-  %.sroa.102.0.i33 = phi i64 [ undef, %67 ], [ undef, %71 ], [ undef, %71 ], [ %105, %100 ], [ undef, %.lr.ph.i.i39 ], [ %.sroa.013.0.i.i49, %.preheader46.i.i46 ], [ undef, %80 ], [ undef, %89 ], [ undef, %91 ]
-  %106 = phi i1 [ false, %67 ], [ false, %71 ], [ false, %71 ], [ %99, %.lr.ph.i.i39 ], [ %99, %100 ], [ %.not.i.i52, %.preheader46.i.i46 ], [ %.not.i.i52, %80 ], [ %.not.i.i52, %89 ], [ %.not.i.i52, %91 ]
+  %.sroa.102.0.i33 = phi i64 [ undef, %71 ], [ %105, %100 ], [ undef, %67 ], [ undef, %71 ], [ undef, %.lr.ph.i.i39 ], [ undef, %80 ], [ undef, %89 ], [ undef, %91 ], [ %.sroa.013.0.i.i49, %.preheader46.i.i46 ]
+  %106 = phi i1 [ false, %71 ], [ %99, %100 ], [ false, %67 ], [ false, %71 ], [ %99, %.lr.ph.i.i39 ], [ %.not.i.i52, %.preheader46.i.i46 ], [ %.not.i.i52, %80 ], [ %.not.i.i52, %89 ], [ %.not.i.i52, %91 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1), !noalias !377
   call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h2b4e12c66e5d22afE.llvm.1636240950872007849"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, i64 noundef 1, i64 noundef 1)
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 8

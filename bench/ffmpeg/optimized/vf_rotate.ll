@@ -1348,7 +1348,7 @@ define internal i32 @config_props(ptr noundef captures(none) %0) #1 {
   br label %100
 
 100:                                              ; preds = %1, %90, %89, %79, %63
-  %.0 = phi i32 [ %61, %63 ], [ %75, %79 ], [ %85, %89 ], [ 0, %90 ], [ %18, %1 ]
+  %.0 = phi i32 [ 0, %90 ], [ %61, %63 ], [ %75, %79 ], [ %85, %89 ], [ %18, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

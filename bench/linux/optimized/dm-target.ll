@@ -367,7 +367,7 @@ define internal i32 @io_err_ctr(ptr noundef %0, i32 noundef %1, ptr noundef read
   br label %37
 
 37:                                               ; preds = %.thread, %32
-  %38 = phi i32 [ 0, %32 ], [ %.ph, %.thread ]
+  %38 = phi i32 [ %.ph, %.thread ], [ 0, %32 ]
   ret i32 %38
 }
 

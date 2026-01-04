@@ -295,7 +295,7 @@ define hidden void @_ZN13logos_codegen5graph4fork4Fork5merge17h91ad695d05c85aa4E
           to label %38 unwind label %.loopexit
 
 38:                                               ; preds = %36, %35, %34
-  %.sroa.014.0 = phi i32 [ %31, %34 ], [ %30, %35 ], [ %37, %36 ]
+  %.sroa.014.0 = phi i32 [ %30, %35 ], [ %31, %34 ], [ %37, %36 ]
   store i32 %.sroa.014.0, ptr %25, align 4
   br label %.backedge.backedge
 
@@ -324,7 +324,7 @@ define hidden i32 @_ZN13logos_codegen5graph4fork4Fork8contains17hcb608de847491c2
   br i1 %11, label %12, label %.loopexit
 
 .loopexit:                                        ; preds = %26, %23, %12, %3
-  %.sroa.0.0 = phi i32 [ 0, %3 ], [ 0, %12 ], [ 0, %26 ], [ %17, %23 ]
+  %.sroa.0.0 = phi i32 [ 0, %12 ], [ 0, %3 ], [ %17, %23 ], [ 0, %26 ]
   ret i32 %.sroa.0.0
 
 12:                                               ; preds = %3

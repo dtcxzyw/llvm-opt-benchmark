@@ -186,9 +186,9 @@ sub_0.i:                                          ; preds = %31, %26
   unreachable
 
 ProcessArgs.exit:                                 ; preds = %.tail38.i, %.tail.i, %12
-  %.not125 = phi i1 [ true, %12 ], [ false, %.tail.i ], [ true, %.tail38.i ]
-  %.0221 = phi i32 [ 0, %12 ], [ 1, %.tail.i ], [ 0, %.tail38.i ]
-  %.0220 = phi i32 [ -1, %12 ], [ %storemerge.i, %.tail.i ], [ %storemerge.i, %.tail38.i ]
+  %.not125 = phi i1 [ false, %.tail.i ], [ true, %12 ], [ true, %.tail38.i ]
+  %.0221 = phi i32 [ 1, %.tail.i ], [ 0, %12 ], [ 0, %.tail38.i ]
+  %.0220 = phi i32 [ %storemerge.i, %.tail.i ], [ -1, %12 ], [ %storemerge.i, %.tail38.i ]
   %48 = call i32 @SUNContext_Create(i32 noundef 0, ptr noundef nonnull %3) #17
   %49 = icmp slt i32 %48, 0
   br i1 %49, label %check_retval.exit, label %52
@@ -449,9 +449,9 @@ check_retval.exit185:                             ; preds = %169
   br label %178
 
 178:                                              ; preds = %174, %134
-  %.str.20.sink = phi ptr [ @.str.22, %134 ], [ %spec.select, %174 ]
-  %.0103 = phi ptr [ null, %134 ], [ %141, %174 ]
-  %.0102 = phi ptr [ null, %134 ], [ %148, %174 ]
+  %.str.20.sink = phi ptr [ %spec.select, %174 ], [ @.str.22, %134 ]
+  %.0103 = phi ptr [ %141, %174 ], [ null, %134 ]
+  %.0102 = phi ptr [ %148, %174 ], [ null, %134 ]
   %179 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.20.sink)
   %180 = load ptr, ptr %3, align 8, !tbaa !15
   %181 = call ptr @N_VNew_Serial(i64 noundef 2, ptr noundef %180) #17
@@ -658,7 +658,7 @@ check_retval.exit193:                             ; preds = %217
   br label %275
 
 275:                                              ; preds = %check_retval.exit189, %check_retval.exit187, %check_retval.exit185, %check_retval.exit183, %check_retval.exit181, %check_retval.exit179, %check_retval.exit177.thread, %check_retval.exit175.thread, %check_retval.exit173, %check_retval.exit171, %check_retval.exit169, %check_retval.exit167, %check_retval.exit165, %check_retval.exit163, %check_retval.exit161, %check_retval.exit159, %check_retval.exit157, %check_retval.exit155, %check_retval.exit153, %check_retval.exit, %272
-  %.0101 = phi i32 [ 0, %272 ], [ 1, %check_retval.exit ], [ 1, %check_retval.exit153 ], [ 1, %check_retval.exit155 ], [ 1, %check_retval.exit157 ], [ 1, %check_retval.exit159 ], [ 1, %check_retval.exit161 ], [ 1, %check_retval.exit163 ], [ 1, %check_retval.exit165 ], [ 1, %check_retval.exit167 ], [ 1, %check_retval.exit169 ], [ 1, %check_retval.exit171 ], [ 1, %check_retval.exit173 ], [ 1, %check_retval.exit179 ], [ 1, %check_retval.exit181 ], [ 1, %check_retval.exit183 ], [ 1, %check_retval.exit185 ], [ 1, %check_retval.exit187 ], [ 1, %check_retval.exit189 ], [ 1, %check_retval.exit175.thread ], [ 1, %check_retval.exit177.thread ]
+  %.0101 = phi i32 [ 0, %272 ], [ 1, %check_retval.exit ], [ 1, %check_retval.exit153 ], [ 1, %check_retval.exit155 ], [ 1, %check_retval.exit157 ], [ 1, %check_retval.exit159 ], [ 1, %check_retval.exit161 ], [ 1, %check_retval.exit163 ], [ 1, %check_retval.exit165 ], [ 1, %check_retval.exit167 ], [ 1, %check_retval.exit169 ], [ 1, %check_retval.exit171 ], [ 1, %check_retval.exit173 ], [ 1, %check_retval.exit175.thread ], [ 1, %check_retval.exit177.thread ], [ 1, %check_retval.exit179 ], [ 1, %check_retval.exit181 ], [ 1, %check_retval.exit183 ], [ 1, %check_retval.exit185 ], [ 1, %check_retval.exit187 ], [ 1, %check_retval.exit189 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -824,8 +824,8 @@ default.unreachable69:                            ; preds = %34
   unreachable
 
 71:                                               ; preds = %69, %66, %63
-  %.066 = phi double [ %65, %63 ], [ %68, %66 ], [ %70, %69 ]
-  %.065 = phi double [ %64, %63 ], [ %67, %66 ], [ %55, %69 ]
+  %.066 = phi double [ %70, %69 ], [ %65, %63 ], [ %68, %66 ]
+  %.065 = phi double [ %55, %69 ], [ %64, %63 ], [ %67, %66 ]
   %72 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %73 = load ptr, ptr %72, align 8, !tbaa !26
   %74 = load ptr, ptr %73, align 8, !tbaa !17

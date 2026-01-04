@@ -43,7 +43,7 @@ define range(i32 0, 2) i32 @ossl_encode_der_length(ptr noundef %0, i64 noundef %
   br label %17
 
 17:                                               ; preds = %14, %12, %6, %8, %2, %16
-  %.0 = phi i32 [ 1, %16 ], [ 0, %2 ], [ 0, %8 ], [ 0, %6 ], [ 0, %12 ], [ 0, %14 ]
+  %.0 = phi i32 [ 0, %6 ], [ 1, %16 ], [ 0, %2 ], [ 0, %12 ], [ 0, %8 ], [ 0, %14 ]
   ret i32 %.0
 }
 
@@ -124,8 +124,8 @@ ossl_encode_der_length.exit:                      ; preds = %24, %18
 33:                                               ; preds = %31, %29
   br label %ossl_encode_der_length.exit.thread
 
-ossl_encode_der_length.exit.thread:               ; preds = %24, %22, %16, %18, %31, %5, %11, %ossl_encode_der_length.exit, %27, %2, %33
-  %.0 = phi i32 [ 1, %33 ], [ 0, %2 ], [ 0, %27 ], [ 0, %ossl_encode_der_length.exit ], [ 0, %11 ], [ 0, %5 ], [ 0, %31 ], [ 0, %18 ], [ 0, %16 ], [ 0, %22 ], [ 0, %24 ]
+ossl_encode_der_length.exit.thread:               ; preds = %24, %18, %22, %16, %31, %5, %11, %ossl_encode_der_length.exit, %27, %2, %33
+  %.0 = phi i32 [ 0, %2 ], [ 0, %5 ], [ 1, %33 ], [ 0, %27 ], [ 0, %ossl_encode_der_length.exit ], [ 0, %31 ], [ 0, %11 ], [ 0, %16 ], [ 0, %24 ], [ 0, %22 ], [ 0, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -250,8 +250,8 @@ ossl_encode_der_length.exit:                      ; preds = %36, %30
   %spec.select = zext i1 %.not33 to i32
   br label %ossl_encode_der_length.exit.thread
 
-ossl_encode_der_length.exit.thread:               ; preds = %36, %34, %28, %30, %23, %.critedge, %21, %38, %40, %20, %.thread, %9, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %9 ], [ 0, %.thread ], [ 0, %20 ], [ 0, %40 ], [ 0, %38 ], [ 0, %21 ], [ %spec.select, %.critedge ], [ 0, %23 ], [ 0, %30 ], [ 0, %28 ], [ 0, %34 ], [ 0, %36 ]
+ossl_encode_der_length.exit.thread:               ; preds = %36, %30, %34, %23, %28, %.critedge, %21, %38, %40, %20, %.thread, %9, %3
+  %.0 = phi i32 [ 0, %21 ], [ 0, %20 ], [ 0, %9 ], [ 0, %3 ], [ 0, %.thread ], [ %spec.select, %.critedge ], [ 0, %40 ], [ 0, %38 ], [ 0, %28 ], [ 0, %23 ], [ 0, %34 ], [ 0, %30 ], [ 0, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -356,7 +356,7 @@ define range(i32 0, 2) i32 @ossl_decode_der_length(ptr noundef captures(none) %0
   br label %PACKET_get_sub_packet.exit
 
 PACKET_get_sub_packet.exit:                       ; preds = %2, %42, %32, %30, %25, %20, %19, %13, %10, %18
-  %.0 = phi i32 [ 0, %18 ], [ 1, %13 ], [ 0, %10 ], [ 1, %25 ], [ 0, %19 ], [ 0, %20 ], [ 1, %42 ], [ 0, %30 ], [ 0, %32 ], [ 0, %2 ]
+  %.0 = phi i32 [ 0, %18 ], [ 0, %10 ], [ 0, %20 ], [ 0, %32 ], [ 1, %13 ], [ 1, %25 ], [ 0, %19 ], [ 1, %42 ], [ 0, %30 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -478,8 +478,8 @@ ossl_decode_der_length.exit:                      ; preds = %42, %26, %16
   %. = zext i1 %58 to i32
   br label %PACKET_get_1.exit.thread
 
-PACKET_get_1.exit.thread:                         ; preds = %ossl_decode_der_length.exit, %32, %30, %21, %20, %13, %19, %2, %55, %52, %46, %PACKET_get_1.exit
-  %.0 = phi i32 [ 0, %PACKET_get_1.exit ], [ 0, %46 ], [ 0, %52 ], [ %., %55 ], [ 0, %2 ], [ 0, %19 ], [ 0, %13 ], [ 0, %20 ], [ 0, %21 ], [ 0, %30 ], [ 0, %32 ], [ 0, %ossl_decode_der_length.exit ]
+PACKET_get_1.exit.thread:                         ; preds = %ossl_decode_der_length.exit, %30, %20, %32, %21, %13, %19, %2, %55, %52, %46, %PACKET_get_1.exit
+  %.0 = phi i32 [ 0, %52 ], [ 0, %PACKET_get_1.exit ], [ 0, %ossl_decode_der_length.exit ], [ %., %55 ], [ 0, %2 ], [ 0, %46 ], [ 0, %19 ], [ 0, %13 ], [ 0, %21 ], [ 0, %32 ], [ 0, %20 ], [ 0, %30 ]
   ret i32 %.0
 }
 
@@ -570,7 +570,7 @@ PACKET_get_1.exit:                                ; preds = %4
   br label %ossl_decode_der_length.exit
 
 ossl_decode_der_length.exit:                      ; preds = %44, %28, %18
-  %.sroa.0.2 = phi ptr [ %20, %18 ], [ %30, %28 ], [ %46, %44 ]
+  %.sroa.0.2 = phi ptr [ %46, %44 ], [ %30, %28 ], [ %20, %18 ]
   %48 = call i32 @ossl_decode_der_integer(ptr noundef nonnull %5, ptr noundef %0)
   %.not10 = icmp eq i32 %48, 0
   br i1 %.not10, label %PACKET_buf_init.exit.thread, label %49
@@ -593,8 +593,8 @@ ossl_decode_der_length.exit:                      ; preds = %44, %28, %18
   store ptr %57, ptr %2, align 8, !tbaa !3
   br label %PACKET_buf_init.exit.thread
 
-PACKET_buf_init.exit.thread:                      ; preds = %34, %32, %23, %22, %15, %21, %4, %PACKET_get_1.exit, %ossl_decode_der_length.exit, %49, %52
-  %.0 = phi i64 [ %56, %52 ], [ 0, %49 ], [ 0, %ossl_decode_der_length.exit ], [ 0, %PACKET_get_1.exit ], [ 0, %4 ], [ 0, %21 ], [ 0, %15 ], [ 0, %22 ], [ 0, %23 ], [ 0, %32 ], [ 0, %34 ]
+PACKET_buf_init.exit.thread:                      ; preds = %32, %22, %34, %23, %15, %21, %4, %PACKET_get_1.exit, %ossl_decode_der_length.exit, %49, %52
+  %.0 = phi i64 [ %56, %52 ], [ 0, %22 ], [ 0, %49 ], [ 0, %ossl_decode_der_length.exit ], [ 0, %32 ], [ 0, %PACKET_get_1.exit ], [ 0, %4 ], [ 0, %21 ], [ 0, %15 ], [ 0, %23 ], [ 0, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.0
 }

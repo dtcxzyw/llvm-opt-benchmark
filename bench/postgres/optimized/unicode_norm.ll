@@ -414,12 +414,12 @@ recompose_code.exit.thread126:                    ; preds = %195
   br label %recompose_code.exit.thread
 
 recompose_code.exit.thread:                       ; preds = %200, %recompose_code.exit.thread126, %143, %155
-  %.074150.sink = phi i32 [ %.072151, %155 ], [ %.072151, %143 ], [ %.072151, %recompose_code.exit.thread126 ], [ %.074150, %200 ]
-  %.sink = phi i32 [ %156, %155 ], [ %147, %143 ], [ %199, %recompose_code.exit.thread126 ], [ %108, %200 ]
-  %.177 = phi i32 [ %156, %155 ], [ %147, %143 ], [ %199, %recompose_code.exit.thread126 ], [ %..076149, %200 ]
-  %.175 = phi i32 [ %.074150, %155 ], [ %.074150, %143 ], [ %.074150, %recompose_code.exit.thread126 ], [ %202, %200 ]
-  %.173 = phi i32 [ %.072151, %155 ], [ %.072151, %143 ], [ %.072151, %recompose_code.exit.thread126 ], [ %.074150..072151, %200 ]
-  %.171 = phi i32 [ %.070152, %155 ], [ %.070152, %143 ], [ %.070152, %recompose_code.exit.thread126 ], [ %., %200 ]
+  %.074150.sink = phi i32 [ %.074150, %200 ], [ %.072151, %recompose_code.exit.thread126 ], [ %.072151, %155 ], [ %.072151, %143 ]
+  %.sink = phi i32 [ %108, %200 ], [ %199, %recompose_code.exit.thread126 ], [ %156, %155 ], [ %147, %143 ]
+  %.177 = phi i32 [ %..076149, %200 ], [ %199, %recompose_code.exit.thread126 ], [ %156, %155 ], [ %147, %143 ]
+  %.175 = phi i32 [ %202, %200 ], [ %.074150, %recompose_code.exit.thread126 ], [ %.074150, %155 ], [ %.074150, %143 ]
+  %.173 = phi i32 [ %.074150..072151, %200 ], [ %.072151, %recompose_code.exit.thread126 ], [ %.072151, %155 ], [ %.072151, %143 ]
+  %.171 = phi i32 [ %., %200 ], [ %.070152, %recompose_code.exit.thread126 ], [ %.070152, %155 ], [ %.070152, %143 ]
   %203 = sext i32 %.074150.sink to i64
   %204 = getelementptr inbounds i32, ptr %104, i64 %203
   store i32 %.sink, ptr %204, align 4
@@ -443,7 +443,7 @@ recompose_code.exit.thread:                       ; preds = %200, %recompose_cod
   br label %207
 
 207:                                              ; preds = %.sink.split189, %._crit_edge148, %._crit_edge145, %._crit_edge
-  %.0 = phi ptr [ null, %._crit_edge ], [ %22, %._crit_edge145 ], [ %22, %._crit_edge148 ], [ %.0.ph, %.sink.split189 ]
+  %.0 = phi ptr [ %22, %._crit_edge145 ], [ null, %._crit_edge ], [ %22, %._crit_edge148 ], [ %.0.ph, %.sink.split189 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
@@ -561,7 +561,7 @@ get_code_decomposition.exit:                      ; preds = %45, %47
   br i1 %exitcond.not, label %.loopexit, label %51, !llvm.loop !11
 
 .loopexit:                                        ; preds = %51, %get_code_entry.exit.thread, %33, %39, %5
-  %.1 = phi i32 [ %., %5 ], [ 1, %39 ], [ 1, %33 ], [ 1, %get_code_entry.exit.thread ], [ %55, %51 ]
+  %.1 = phi i32 [ %., %5 ], [ 1, %get_code_entry.exit.thread ], [ 1, %39 ], [ 1, %33 ], [ %55, %51 ]
   ret i32 %.1
 }
 
@@ -907,7 +907,7 @@ qc_hash_lookup.exit10.i:                          ; preds = %86, %NFKC_QC_hash_f
   br label %91
 
 91:                                               ; preds = %qc_hash_lookup.exit10.i, %qc_hash_lookup.exit.i
-  %.0.i35 = phi ptr [ %.0.i.i, %qc_hash_lookup.exit.i ], [ %.0.i7.i, %qc_hash_lookup.exit10.i ]
+  %.0.i35 = phi ptr [ %.0.i7.i, %qc_hash_lookup.exit10.i ], [ %.0.i.i, %qc_hash_lookup.exit.i ]
   %.not.i = icmp eq ptr %.0.i35, null
   br i1 %.not.i, label %qc_is_allowed.exit.thread, label %qc_is_allowed.exit
 
@@ -931,7 +931,7 @@ qc_is_allowed.exit.thread:                        ; preds = %38, %91, %qc_is_all
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
 
 .loopexit:                                        ; preds = %get_canonical_class.exit, %qc_is_allowed.exit, %95, %.preheader, %2
-  %.0 = phi i32 [ -1, %2 ], [ 1, %.preheader ], [ 0, %get_canonical_class.exit ], [ %94, %qc_is_allowed.exit ], [ %.227.ph, %95 ]
+  %.0 = phi i32 [ -1, %2 ], [ 1, %.preheader ], [ %94, %qc_is_allowed.exit ], [ 0, %get_canonical_class.exit ], [ %.227.ph, %95 ]
   ret i32 %.0
 }
 

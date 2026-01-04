@@ -354,7 +354,7 @@ parse_frame_object.exit.thread:                   ; preds = %read_memory.exit.i,
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %.backedge, %.preheader, %103, %100, %parse_frame_object.exit.thread, %28, %24
-  %.2 = phi ptr [ null, %24 ], [ null, %28 ], [ null, %parse_frame_object.exit.thread ], [ null, %100 ], [ null, %103 ], [ %29, %.preheader ], [ %29, %.backedge ]
+  %.2 = phi ptr [ null, %24 ], [ null, %28 ], [ null, %103 ], [ null, %parse_frame_object.exit.thread ], [ null, %100 ], [ %29, %.preheader ], [ %29, %.backedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %104
 
@@ -703,7 +703,7 @@ Py_DECREF.exit:                                   ; preds = %147, %144, %Py_DECR
   br label %Py_DECREF.exit48
 
 Py_DECREF.exit48:                                 ; preds = %read_memory.exit.thread.i, %read_memory.exit.i, %29, %27, %63, %60, %Py_DECREF.exit50, %read_async_debug.exit, %48, %Py_DECREF.exit
-  %.2 = phi ptr [ null, %read_async_debug.exit ], [ %.5, %Py_DECREF.exit ], [ null, %48 ], [ null, %Py_DECREF.exit50 ], [ null, %60 ], [ null, %63 ], [ null, %27 ], [ null, %29 ], [ null, %read_memory.exit.i ], [ null, %read_memory.exit.thread.i ]
+  %.2 = phi ptr [ null, %63 ], [ null, %read_async_debug.exit ], [ %.5, %Py_DECREF.exit ], [ null, %48 ], [ null, %Py_DECREF.exit50 ], [ null, %60 ], [ null, %27 ], [ null, %29 ], [ null, %read_memory.exit.i ], [ null, %read_memory.exit.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %148
 
@@ -795,7 +795,7 @@ read_memory.exit:                                 ; preds = %26
   br label %31
 
 31:                                               ; preds = %30, %read_memory.exit, %10, %12
-  %.0 = phi i32 [ -1, %12 ], [ -1, %10 ], [ -1, %30 ], [ 0, %read_memory.exit ]
+  %.0 = phi i32 [ -1, %10 ], [ -1, %12 ], [ -1, %30 ], [ 0, %read_memory.exit ]
   ret i32 %.0
 }
 
@@ -964,12 +964,12 @@ read_ptr.exit:                                    ; preds = %72
   br label %76
 
 76:                                               ; preds = %read_ptr.exit, %read_ptr.exit.thread, %read_memory.exit19.thread, %read_memory.exit19, %75
-  %.1 = phi i32 [ 0, %75 ], [ -1, %read_memory.exit19 ], [ -1, %read_memory.exit19.thread ], [ -1, %read_ptr.exit.thread ], [ %spec.select, %read_ptr.exit ]
+  %.1 = phi i32 [ 0, %75 ], [ -1, %read_memory.exit19.thread ], [ -1, %read_memory.exit19 ], [ -1, %read_ptr.exit.thread ], [ %spec.select, %read_ptr.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %77
 
 77:                                               ; preds = %read_memory.exit.thread, %read_memory.exit, %76, %34
-  %.0 = phi i32 [ -1, %34 ], [ %.1, %76 ], [ -1, %read_memory.exit ], [ -1, %read_memory.exit.thread ]
+  %.0 = phi i32 [ %.1, %76 ], [ -1, %34 ], [ -1, %read_memory.exit ], [ -1, %read_memory.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0
 }
@@ -1477,7 +1477,7 @@ Py_DECREF.exit:                                   ; preds = %34, %38, %41
   br label %42
 
 42:                                               ; preds = %read_memory.exit.thread, %31, %Py_DECREF.exit, %read_memory.exit, %29
-  %.0 = phi i32 [ -1, %29 ], [ -1, %read_memory.exit ], [ -1, %31 ], [ %., %Py_DECREF.exit ], [ -1, %read_memory.exit.thread ]
+  %.0 = phi i32 [ -1, %read_memory.exit ], [ -1, %29 ], [ -1, %31 ], [ %., %Py_DECREF.exit ], [ -1, %read_memory.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -1594,7 +1594,7 @@ read_memory.exit16.i:                             ; preds = %52
   %55 = icmp slt i64 %53, 0
   br i1 %55, label %read_string.exit.thread, label %56
 
-read_string.exit.thread:                          ; preds = %35, %read_memory.exit.i, %read_memory.exit16.i, %read_memory.exit.thread.i, %read_memory.exit16.thread.i
+read_string.exit.thread:                          ; preds = %read_memory.exit.i, %35, %read_memory.exit16.i, %read_memory.exit.thread.i, %read_memory.exit16.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %62
 
@@ -1850,7 +1850,7 @@ read_ptr.exit:                                    ; preds = %100
   br label %read_py_ptr.exit.thread
 
 read_py_ptr.exit.thread:                          ; preds = %read_ptr.exit, %read_ptr.exit.thread.i, %read_ptr.exit.i, %read_ptr.exit.thread, %80, %59
-  %.2 = phi i32 [ 0, %59 ], [ 0, %80 ], [ -1, %read_ptr.exit.thread ], [ -1, %read_ptr.exit.i ], [ -1, %read_ptr.exit.thread.i ], [ %spec.select, %read_ptr.exit ]
+  %.2 = phi i32 [ 0, %80 ], [ 0, %59 ], [ -1, %read_ptr.exit.thread ], [ -1, %read_ptr.exit.thread.i ], [ %spec.select, %read_ptr.exit ], [ -1, %read_ptr.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %103
 
@@ -1860,7 +1860,7 @@ read_py_ptr.exit.thread:                          ; preds = %read_ptr.exit, %rea
   br label %104
 
 104:                                              ; preds = %read_memory.exit.thread, %read_memory.exit, %103, %38
-  %.0 = phi i32 [ -1, %38 ], [ %.1, %103 ], [ -1, %read_memory.exit ], [ -1, %read_memory.exit.thread ]
+  %.0 = phi i32 [ %.1, %103 ], [ -1, %38 ], [ -1, %read_memory.exit ], [ -1, %read_memory.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i32 %.0
 }
@@ -2034,7 +2034,7 @@ read_ptr.exit.i:                                  ; preds = %74
   br label %read_py_ptr.exit.thread
 
 read_py_ptr.exit.thread:                          ; preds = %read_ptr.exit.thread.i, %read_ptr.exit.i, %read_memory.exit30.thread, %81, %77, %51, %read_memory.exit30, %56
-  %.1 = phi i32 [ -1, %56 ], [ -1, %read_memory.exit30 ], [ 0, %51 ], [ 0, %77 ], [ %., %81 ], [ -1, %read_memory.exit30.thread ], [ -1, %read_ptr.exit.i ], [ -1, %read_ptr.exit.thread.i ]
+  %.1 = phi i32 [ 0, %77 ], [ -1, %read_memory.exit30 ], [ -1, %56 ], [ 0, %51 ], [ -1, %read_memory.exit30.thread ], [ %., %81 ], [ -1, %read_ptr.exit.i ], [ -1, %read_ptr.exit.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %83
 
@@ -2367,7 +2367,7 @@ read_py_long.exit:                                ; preds = %.preheader.i
   br label %145
 
 145:                                              ; preds = %read_unsigned_long.exit.thread, %134, %136, %read_unsigned_long.exit, %142, %140
-  %.2 = phi ptr [ %144, %142 ], [ null, %140 ], [ null, %read_unsigned_long.exit ], [ null, %134 ], [ %137, %136 ], [ null, %read_unsigned_long.exit.thread ]
+  %.2 = phi ptr [ null, %140 ], [ null, %read_unsigned_long.exit ], [ %144, %142 ], [ null, %134 ], [ %137, %136 ], [ null, %read_unsigned_long.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %146
 
@@ -2778,7 +2778,7 @@ read_ptr.exit.i32:                                ; preds = %153
   br label %161
 
 161:                                              ; preds = %parse_tasks_in_set.exit.thread79, %parse_tasks_in_set.exit.thread75, %parse_tasks_in_set.exit.thread72, %parse_tasks_in_set.exit.thread, %read_char.exit.thread, %.critedge, %read_char.exit, %156, %160
-  %.1 = phi i32 [ 0, %160 ], [ -1, %156 ], [ -1, %read_char.exit ], [ -1, %.critedge ], [ -1, %read_char.exit.thread ], [ -1, %parse_tasks_in_set.exit.thread ], [ -1, %parse_tasks_in_set.exit.thread72 ], [ -1, %parse_tasks_in_set.exit.thread75 ], [ -1, %parse_tasks_in_set.exit.thread79 ]
+  %.1 = phi i32 [ -1, %156 ], [ -1, %read_char.exit ], [ 0, %160 ], [ -1, %parse_tasks_in_set.exit.thread79 ], [ -1, %.critedge ], [ -1, %read_char.exit.thread ], [ -1, %parse_tasks_in_set.exit.thread ], [ -1, %parse_tasks_in_set.exit.thread72 ], [ -1, %parse_tasks_in_set.exit.thread75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %read_py_ptr.exit.thread
 
@@ -3398,7 +3398,7 @@ read_int.exit:                                    ; preds = %79, %76
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.sink.split
 
-.critedge60:                                      ; preds = %.critedge56, %96
+.critedge60:                                      ; preds = %96, %.critedge56
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.sink.split
 
@@ -3413,7 +3413,7 @@ read_int.exit:                                    ; preds = %79, %76
   br label %read_py_ptr.exit.thread
 
 read_py_ptr.exit.thread:                          ; preds = %read_ptr.exit.thread.i, %read_ptr.exit.i, %123, %51, %56
-  %.1 = phi i32 [ %.9, %123 ], [ -1, %51 ], [ -1, %56 ], [ -1, %read_ptr.exit.i ], [ -1, %read_ptr.exit.thread.i ]
+  %.1 = phi i32 [ -1, %56 ], [ %.9, %123 ], [ -1, %51 ], [ -1, %read_ptr.exit.i ], [ -1, %read_ptr.exit.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %124
 

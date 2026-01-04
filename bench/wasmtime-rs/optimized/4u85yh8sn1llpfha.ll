@@ -2864,7 +2864,7 @@ define hidden void @_ZN16wasmtime_runtime2gc7enabled9free_list8FreeList7dealloc1
   unreachable
 
 common.resume:                                    ; preds = %72, %51, %33
-  %common.resume.op = phi { ptr, i32 } [ %34, %33 ], [ %52, %51 ], [ %73, %72 ]
+  %common.resume.op = phi { ptr, i32 } [ %52, %51 ], [ %34, %33 ], [ %73, %72 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6e0f1569bf72fd54E.exit": ; preds = %4
@@ -3070,9 +3070,9 @@ common.resume:                                    ; preds = %72, %51, %33
   br i1 %88, label %92, label %.thread161
 
 .thread161:                                       ; preds = %80, %.thread151, %92, %85
-  %.not31.not150155167 = phi i1 [ false, %92 ], [ false, %85 ], [ true, %.thread151 ], [ true, %80 ]
-  %.sroa.322.0157166 = phi i32 [ %82, %92 ], [ %82, %85 ], [ undef, %.thread151 ], [ undef, %80 ]
-  %.sroa.523.0159165 = phi i32 [ %83, %92 ], [ %83, %85 ], [ undef, %.thread151 ], [ undef, %80 ]
+  %.not31.not150155167 = phi i1 [ true, %.thread151 ], [ false, %92 ], [ false, %85 ], [ true, %80 ]
+  %.sroa.322.0157166 = phi i32 [ undef, %.thread151 ], [ %82, %92 ], [ %82, %85 ], [ undef, %80 ]
+  %.sroa.523.0159165 = phi i32 [ undef, %.thread151 ], [ %83, %92 ], [ %83, %85 ], [ undef, %80 ]
   %89 = add i32 %.sroa.319.0.ph, %.sroa.520.0.ph
   %90 = sub i32 %1, %89
   %91 = icmp ult i32 %90, 24
@@ -4319,7 +4319,7 @@ define noundef ptr @"_ZN102_$LT$wasmtime_runtime..memory..MmapMemory$u20$as$u20$
   %45 = icmp eq ptr %44, null
   br i1 %45, label %_ZN16wasmtime_runtime3cow15MemoryImageSlot14set_heap_limit17h3b40bb73f32c953aE.exit.thread, label %_ZN16wasmtime_runtime3cow15MemoryImageSlot14set_heap_limit17h3b40bb73f32c953aE.exit
 
-_ZN16wasmtime_runtime3cow15MemoryImageSlot14set_heap_limit17h3b40bb73f32c953aE.exit.thread: ; preds = %29, %35, %41, %97
+_ZN16wasmtime_runtime3cow15MemoryImageSlot14set_heap_limit17h3b40bb73f32c953aE.exit.thread: ; preds = %35, %29, %41, %97
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 %1, ptr %46, align 8
   br label %_ZN16wasmtime_runtime3cow15MemoryImageSlot14set_heap_limit17h3b40bb73f32c953aE.exit
@@ -4413,9 +4413,9 @@ _ZN16wasmtime_runtime3cow15MemoryImageSlot14set_heap_limit17h3b40bb73f32c953aE.e
   br i1 %.not4.i73, label %.invoke, label %88
 
 .invoke:                                          ; preds = %82, %81, %76
-  %85 = phi ptr [ @anon.ec0cd622983d658554797d545ae27a8b.129.llvm.16389591707760502172, %76 ], [ @anon.ec0cd622983d658554797d545ae27a8b.131.llvm.16389591707760502172, %81 ], [ @anon.ec0cd622983d658554797d545ae27a8b.131.llvm.16389591707760502172, %82 ]
-  %86 = phi i64 [ 42, %76 ], [ 41, %81 ], [ 41, %82 ]
-  %87 = phi ptr [ @anon.ec0cd622983d658554797d545ae27a8b.130, %76 ], [ @anon.ec0cd622983d658554797d545ae27a8b.132, %81 ], [ @anon.ec0cd622983d658554797d545ae27a8b.134.llvm.16389591707760502172, %82 ]
+  %85 = phi ptr [ @anon.ec0cd622983d658554797d545ae27a8b.131.llvm.16389591707760502172, %81 ], [ @anon.ec0cd622983d658554797d545ae27a8b.129.llvm.16389591707760502172, %76 ], [ @anon.ec0cd622983d658554797d545ae27a8b.131.llvm.16389591707760502172, %82 ]
+  %86 = phi i64 [ 41, %81 ], [ 42, %76 ], [ 41, %82 ]
+  %87 = phi ptr [ @anon.ec0cd622983d658554797d545ae27a8b.132, %81 ], [ @anon.ec0cd622983d658554797d545ae27a8b.130, %76 ], [ @anon.ec0cd622983d658554797d545ae27a8b.134.llvm.16389591707760502172, %82 ]
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 %85, i64 noundef %86, ptr noalias noundef readonly align 8 dereferenceable(24) %87) #37
           to label %.cont unwind label %100
 
@@ -4576,7 +4576,7 @@ define noundef ptr @"_ZN104_$LT$wasmtime_runtime..memory..StaticMemory$u20$as$u2
   store i64 %1, ptr %10, align 8, !alias.scope !603
   br label %16
 
-16:                                               ; preds = %15, %9
+16:                                               ; preds = %9, %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %17, align 8
   br label %_ZN16wasmtime_runtime3cow15MemoryImageSlot14set_heap_limit17h3b40bb73f32c953aE.exit
@@ -4953,7 +4953,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.16389591707760502172.exit.i: ; pre
   br label %60
 
 .thread42:                                        ; preds = %61, %50, %29, %76
-  %.pn38 = phi { ptr, i32 } [ %77, %76 ], [ %30, %29 ], [ %51, %50 ], [ %62, %61 ]
+  %.pn38 = phi { ptr, i32 } [ %51, %50 ], [ %77, %76 ], [ %62, %61 ], [ %30, %29 ]
   resume { ptr, i32 } %.pn38
 
 76:                                               ; preds = %8
@@ -5330,8 +5330,8 @@ define i64 @_ZN16wasmtime_runtime6memory6Memory13atomic_notify17hdbd220eaa4b19c5
   br label %_ZN16wasmtime_runtime6memory20validate_atomic_addr17he3c8806ff4ecac7dE.exit
 
 _ZN16wasmtime_runtime6memory20validate_atomic_addr17he3c8806ff4ecac7dE.exit: ; preds = %21, %16
-  %.sroa.4.0 = phi i64 [ 512, %16 ], [ 256, %21 ]
-  %.sink.i = phi i64 [ 1, %16 ], [ %26, %21 ]
+  %.sroa.4.0 = phi i64 [ 256, %21 ], [ 512, %16 ]
+  %.sink.i = phi i64 [ %26, %21 ], [ 1, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %31
 
@@ -5387,7 +5387,7 @@ define { i1, i8 } @_ZN16wasmtime_runtime6memory6Memory13atomic_wait3217h4af2aa4a
   br label %_ZN16wasmtime_runtime6memory20validate_atomic_addr17he3c8806ff4ecac7dE.exit
 
 _ZN16wasmtime_runtime6memory20validate_atomic_addr17he3c8806ff4ecac7dE.exit: ; preds = %23, %18
-  %.sink.i = phi i8 [ 2, %18 ], [ %28, %23 ]
+  %.sink.i = phi i8 [ %28, %23 ], [ 2, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %29 = insertvalue { i1, i8 } { i1 true, i8 poison }, i8 %.sink.i, 1
   br label %32
@@ -5437,7 +5437,7 @@ define { i1, i8 } @_ZN16wasmtime_runtime6memory6Memory13atomic_wait6417h8cc656b7
   br label %_ZN16wasmtime_runtime6memory20validate_atomic_addr17he3c8806ff4ecac7dE.exit
 
 _ZN16wasmtime_runtime6memory20validate_atomic_addr17he3c8806ff4ecac7dE.exit: ; preds = %23, %18
-  %.sink.i = phi i8 [ 2, %18 ], [ %28, %23 ]
+  %.sink.i = phi i8 [ %28, %23 ], [ 2, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %29 = insertvalue { i1, i8 } { i1 true, i8 poison }, i8 %.sink.i, 1
   br label %32
@@ -5916,7 +5916,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.16389591707760502172.exit: ; preds
   invoke void @_ZN5alloc3fmt6format12format_inner17h20bbaee2ca87fbecE(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %19, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %11)
           to label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.16389591707760502172.exit87 unwind label %102
 
-.thread128:                                       ; preds = %88, %91, %94
+.thread128:                                       ; preds = %94, %88, %91
   %lpad.thr_comm126 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17h40d3c047611eb813E.exit"
@@ -5993,7 +5993,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.16389591707760502172.exit87: ; pre
   unreachable
 
 107:                                              ; preds = %125, %108, %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17h40d3c047611eb813E.exit"
-  %.pn68 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp135, %125 ], [ %.pn, %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17h40d3c047611eb813E.exit" ], [ %lpad.thr_comm.split-lp, %108 ]
+  %.pn68 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp135, %125 ], [ %lpad.thr_comm.split-lp, %108 ], [ %.pn, %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17h40d3c047611eb813E.exit" ]
   resume { ptr, i32 } %.pn68
 
 108:                                              ; preds = %59
@@ -7235,7 +7235,7 @@ define noundef float @_ZN16wasmtime_runtime8libcalls6relocs10nearestf3217hd9e95d
   br label %18
 
 18:                                               ; preds = %11, %6, %15
-  %.0 = phi float [ %17, %15 ], [ %10, %6 ], [ %0, %11 ]
+  %.0 = phi float [ %10, %6 ], [ %17, %15 ], [ %0, %11 ]
   ret float %.0
 }
 
@@ -7267,7 +7267,7 @@ define noundef double @_ZN16wasmtime_runtime8libcalls6relocs10nearestf6417h78a0d
   br label %18
 
 18:                                               ; preds = %11, %6, %15
-  %.0 = phi double [ %17, %15 ], [ %10, %6 ], [ %0, %11 ]
+  %.0 = phi double [ %10, %6 ], [ %17, %15 ], [ %0, %11 ]
   ret double %.0
 }
 

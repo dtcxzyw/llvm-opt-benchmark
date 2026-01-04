@@ -327,7 +327,7 @@ ir_input_edges_count.exit:                        ; preds = %22, %28
   br label %131
 
 131:                                              ; preds = %123, %123, %119, %126, %126, %101, %103, %111, %.thread427, %105, %100
-  %.6 = phi i1 [ %.5, %101 ], [ %.5, %103 ], [ %.5, %111 ], [ %.5, %123 ], [ %.5, %126 ], [ false, %.thread427 ], [ %.5, %105 ], [ %.5, %100 ], [ %.5, %123 ], [ %.5, %126 ], [ %.5, %119 ]
+  %.6 = phi i1 [ %.5, %101 ], [ %.5, %103 ], [ %.5, %111 ], [ %.5, %119 ], [ %.5, %123 ], [ %.5, %123 ], [ %.5, %126 ], [ %.5, %126 ], [ false, %.thread427 ], [ %.5, %105 ], [ %.5, %100 ]
   %132 = load i32, ptr %7, align 4, !tbaa !33
   %133 = and i32 %132, 32
   %.not326 = icmp eq i32 %133, 0
@@ -513,7 +513,7 @@ ir_check_domination.exit.thread:                  ; preds = %.preheader.i, %151,
   br label %ir_check_use_list.exit
 
 .thread349:                                       ; preds = %180, %151, %187, %193, %196, %202, %182, %185, %170, %169, %174, %173, %131, %134, %136, %ir_check_domination.exit, %ir_check_domination.exit.thread, %205
-  %.8 = phi i1 [ false, %205 ], [ %.6, %ir_check_domination.exit ], [ false, %ir_check_domination.exit.thread ], [ %.6, %136 ], [ %.6, %134 ], [ %.6, %131 ], [ %.3269, %169 ], [ false, %170 ], [ false, %174 ], [ %.3269, %173 ], [ %.3269, %185 ], [ false, %182 ], [ %.3269, %196 ], [ false, %202 ], [ false, %193 ], [ %.3269, %187 ], [ %.6, %151 ], [ %.3269, %180 ]
+  %.8 = phi i1 [ false, %202 ], [ false, %193 ], [ %.6, %151 ], [ false, %205 ], [ %.6, %ir_check_domination.exit ], [ false, %ir_check_domination.exit.thread ], [ %.6, %136 ], [ %.6, %134 ], [ %.6, %131 ], [ %.3269, %169 ], [ false, %170 ], [ false, %174 ], [ %.3269, %173 ], [ %.3269, %187 ], [ %.3269, %185 ], [ false, %182 ], [ %.3269, %196 ], [ %.3269, %180 ]
   %230 = load ptr, ptr %10, align 8, !tbaa !36
   %.not362 = icmp eq ptr %230, null
   br i1 %.not362, label %ir_check_use_list.exit, label %231
@@ -551,7 +551,7 @@ ir_check_domination.exit.thread:                  ; preds = %.preheader.i, %151,
   br label %ir_check_use_list.exit
 
 ir_check_use_list.exit:                           ; preds = %.lr.ph.i345, %47, %52, %50, %216, %227, %219, %214, %211, %.thread349, %.loopexit363
-  %.9 = phi i1 [ false, %.loopexit363 ], [ %.8, %.thread349 ], [ %.2268371, %211 ], [ %.2268371, %219 ], [ false, %227 ], [ %.2268371, %216 ], [ %.2268371, %214 ], [ %.2268371, %50 ], [ false, %52 ], [ false, %47 ], [ %.8, %.lr.ph.i345 ]
+  %.9 = phi i1 [ false, %47 ], [ false, %.loopexit363 ], [ %.8, %.thread349 ], [ %.2268371, %219 ], [ false, %227 ], [ %.2268371, %216 ], [ %.2268371, %214 ], [ %.2268371, %211 ], [ %.2268371, %50 ], [ false, %52 ], [ %.8, %.lr.ph.i345 ]
   %246 = add nuw nsw i32 %.0263372, 1
   %247 = getelementptr inbounds nuw i8, ptr %.0271370, i64 4
   %exitcond.not = icmp eq i32 %.0263372, %.0.i
@@ -935,7 +935,7 @@ ir_check_input_list.exit:                         ; preds = %.lr.ph.i346, %.loop
   br label %448
 
 448:                                              ; preds = %439, %378, %._crit_edge378, %._crit_edge386, %442, %423, %415, %390, %.thread357, %379, %374, %375, %369, %371, %330
-  %.11 = phi i1 [ %.10, %330 ], [ %.12.lcssa, %415 ], [ %.12.lcssa, %423 ], [ false, %442 ], [ %.12.lcssa, %._crit_edge386 ], [ false, %371 ], [ %.12.lcssa, %369 ], [ false, %375 ], [ %.12.lcssa, %374 ], [ %.12.lcssa, %379 ], [ false, %.thread357 ], [ %.12.lcssa, %390 ], [ %.12.lcssa, %._crit_edge378 ], [ %.12.lcssa, %378 ], [ %.12.lcssa, %439 ]
+  %.11 = phi i1 [ %.10, %330 ], [ %.12.lcssa, %._crit_edge378 ], [ %.12.lcssa, %415 ], [ %.12.lcssa, %423 ], [ %.12.lcssa, %390 ], [ %.12.lcssa, %439 ], [ false, %442 ], [ %.12.lcssa, %._crit_edge386 ], [ false, %371 ], [ %.12.lcssa, %369 ], [ false, %375 ], [ %.12.lcssa, %374 ], [ %.12.lcssa, %379 ], [ false, %.thread357 ], [ %.12.lcssa, %378 ]
   %449 = lshr i32 %.0.i, 2
   %450 = add nuw nsw i32 %449, 1
   %451 = add nuw nsw i32 %450, %.0262390

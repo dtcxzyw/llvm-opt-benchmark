@@ -69,7 +69,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @uv__getaddrinfo_translate
   unreachable
 
 19:                                               ; preds = %1, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi i32 [ -3000, %2 ], [ -3001, %3 ], [ -3002, %4 ], [ -3003, %5 ], [ -3004, %6 ], [ -3005, %7 ], [ -3006, %8 ], [ -3007, %9 ], [ -3008, %10 ], [ -3009, %11 ], [ -3010, %12 ], [ -3011, %13 ], [ %17, %14 ], [ %0, %1 ]
+  %.0 = phi i32 [ %17, %14 ], [ -3000, %2 ], [ -3001, %3 ], [ -3002, %4 ], [ -3003, %5 ], [ -3004, %6 ], [ -3005, %7 ], [ -3006, %8 ], [ -3007, %9 ], [ -3008, %10 ], [ -3009, %11 ], [ -3010, %12 ], [ -3011, %13 ], [ %0, %1 ]
   ret i32 %.0
 }
 
@@ -234,7 +234,7 @@ uv__getaddrinfo_done.exit:                        ; preds = %73, %75
   br label %79
 
 79:                                               ; preds = %28, %6, %9, %uv__getaddrinfo_done.exit, %56, %19
-  %.0 = phi i32 [ %20, %19 ], [ 0, %56 ], [ %78, %uv__getaddrinfo_done.exit ], [ -22, %9 ], [ -22, %6 ], [ -12, %28 ]
+  %.0 = phi i32 [ %78, %uv__getaddrinfo_done.exit ], [ %20, %19 ], [ -22, %6 ], [ 0, %56 ], [ -22, %9 ], [ -12, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -386,7 +386,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_if_indextoname(i32 
   br label %24
 
 24:                                               ; preds = %3, %7, %22, %20, %13
-  %.0 = phi i32 [ %16, %13 ], [ -105, %20 ], [ 0, %22 ], [ -22, %7 ], [ -22, %3 ]
+  %.0 = phi i32 [ 0, %22 ], [ %16, %13 ], [ -105, %20 ], [ -22, %7 ], [ -22, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -441,7 +441,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_if_indextoiid(i32 n
   br label %uv_if_indextoname.exit
 
 uv_if_indextoname.exit:                           ; preds = %3, %7, %13, %20, %22
-  %.0.i = phi i32 [ %16, %13 ], [ -105, %20 ], [ 0, %22 ], [ -22, %7 ], [ -22, %3 ]
+  %.0.i = phi i32 [ 0, %22 ], [ %16, %13 ], [ -105, %20 ], [ -22, %7 ], [ -22, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0.i
 }

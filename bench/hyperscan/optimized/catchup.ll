@@ -557,7 +557,7 @@ mmbit_unset.exit:                                 ; preds = %.lr.ph275, %251, %.
   br label %fatbit_unset.exit80
 
 fatbit_unset.exit80:                              ; preds = %.lr.ph271, %110, %107, %.thread121, %311, %307, %ensureQueueActive.exit
-  %.0 = phi i64 [ 0, %ensureQueueActive.exit ], [ %.1, %311 ], [ %.1, %307 ], [ 0, %.thread121 ], [ 0, %107 ], [ 0, %110 ], [ 0, %.lr.ph271 ]
+  %.0 = phi i64 [ %.1, %307 ], [ 0, %ensureQueueActive.exit ], [ %.1, %311 ], [ 0, %.thread121 ], [ 0, %107 ], [ 0, %110 ], [ 0, %.lr.ph271 ]
   %315 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %316 = load i32, ptr %315, align 4
   %.not69 = icmp eq i32 %316, 0
@@ -589,7 +589,7 @@ fatbit_unset.exit80:                              ; preds = %.lr.ph271, %110, %1
   br label %fatbit_unset.exit
 
 fatbit_unset.exit:                                ; preds = %.lr.ph279, %280, %277, %.thread131, %317, %320
-  %.062 = phi i64 [ %331, %320 ], [ 0, %317 ], [ 0, %.thread131 ], [ 0, %277 ], [ 0, %280 ], [ 0, %.lr.ph279 ]
+  %.062 = phi i64 [ 0, %317 ], [ %331, %320 ], [ 0, %.thread131 ], [ 0, %277 ], [ 0, %280 ], [ 0, %.lr.ph279 ]
   ret i64 %.062
 }
 
@@ -699,7 +699,7 @@ mmbit_isset.exit.i.thread14:                      ; preds = %mmbit_isset.exit.i
   br i1 %.not11.i.i, label %roseSuffixIsExhausted.exit, label %mmbit_isset.exit.i
 
 roseSuffixIsExhausted.exit:                       ; preds = %mmbit_isset.exit.i.thread14, %mmbit_isset.exit.i, %mmbit_isset.exit.i.thread14.loopexit.us, %36, %20, %11, %4
-  %.0 = phi i32 [ 0, %4 ], [ 1, %11 ], [ 0, %20 ], [ 1, %36 ], [ 0, %mmbit_isset.exit.i.thread14.loopexit.us ], [ 0, %mmbit_isset.exit.i.thread14 ], [ 1, %mmbit_isset.exit.i ]
+  %.0 = phi i32 [ 0, %4 ], [ 1, %11 ], [ 0, %mmbit_isset.exit.i.thread14.loopexit.us ], [ 0, %20 ], [ 1, %36 ], [ 0, %mmbit_isset.exit.i.thread14 ], [ 1, %mmbit_isset.exit.i ]
   ret i32 %.0
 }
 
@@ -853,7 +853,7 @@ get_flat_masks.exit:                              ; preds = %mmbit_get_flat_bloc
   br label %get_flat_masks.exit115
 
 get_flat_masks.exit115:                           ; preds = %.lr.ph, %76
-  %.0.i114 = phi i64 [ %80, %76 ], [ %75, %.lr.ph ]
+  %.0.i114 = phi i64 [ %75, %.lr.ph ], [ %80, %76 ]
   %81 = and i64 %.0.i114, %71
   %.not.i67 = icmp eq i64 %81, 0
   br i1 %.not.i67, label %85, label %.thread147
@@ -939,7 +939,7 @@ mmbit_get_flat_block.exit102:                     ; preds = %108, %100, %97, %94
   br label %get_flat_masks.exit119
 
 get_flat_masks.exit119:                           ; preds = %mmbit_get_flat_block.exit102, %120
-  %.0.i117 = phi i64 [ %125, %120 ], [ %119, %mmbit_get_flat_block.exit102 ]
+  %.0.i117 = phi i64 [ %119, %mmbit_get_flat_block.exit102 ], [ %125, %120 ]
   %126 = and i64 %.0.i117, %.0.i100
   %.not58.i65 = icmp eq i64 %126, 0
   br i1 %.not58.i65, label %._crit_edge296, label %127
@@ -1043,7 +1043,7 @@ get_lowhi_masks.exit:                             ; preds = %190, %131
   br label %get_lowhi_masks.exit
 
 mmbit_iterate_bounded.exit:                       ; preds = %.thread162, %58, %.thread147, %127
-  %.013.i = phi i32 [ %60, %58 ], [ %130, %127 ], [ %84, %.thread147 ], [ %180, %.thread162 ]
+  %.013.i = phi i32 [ %84, %.thread147 ], [ %130, %127 ], [ %180, %.thread162 ], [ %60, %58 ]
   %192 = icmp ult i32 %.013.i, %19
   br i1 %192, label %.lr.ph295, label %._crit_edge296
 
@@ -1620,7 +1620,7 @@ get_flat_masks.exit123:                           ; preds = %mmbit_get_flat_bloc
   br label %get_flat_masks.exit127
 
 get_flat_masks.exit127:                           ; preds = %.lr.ph291, %547
-  %.0.i125 = phi i64 [ %551, %547 ], [ %546, %.lr.ph291 ]
+  %.0.i125 = phi i64 [ %546, %.lr.ph291 ], [ %551, %547 ]
   %552 = and i64 %.0.i125, %542
   %.not.i59 = icmp eq i64 %552, 0
   br i1 %.not.i59, label %556, label %.thread192
@@ -1690,7 +1690,7 @@ mmbit_get_flat_block.exit110:                     ; preds = %568, %565, %562, %5
   br label %get_flat_masks.exit131
 
 get_flat_masks.exit131:                           ; preds = %mmbit_get_flat_block.exit110, %575
-  %.0.i129 = phi i64 [ %580, %575 ], [ %574, %mmbit_get_flat_block.exit110 ]
+  %.0.i129 = phi i64 [ %574, %mmbit_get_flat_block.exit110 ], [ %580, %575 ]
   %581 = and i64 %.0.i129, %.0.i108
   %.not58.i = icmp eq i64 %581, 0
   br i1 %.not58.i, label %._crit_edge296, label %582
@@ -1790,11 +1790,11 @@ get_lowhi_masks.exit132:                          ; preds = %641, %586
   br label %get_lowhi_masks.exit132
 
 mmbit_iterate_bounded.exit49:                     ; preds = %.thread208, %530, %.thread192, %582
-  %.013.i48 = phi i32 [ %532, %530 ], [ %585, %582 ], [ %555, %.thread192 ], [ %631, %.thread208 ]
+  %.013.i48 = phi i32 [ %555, %.thread192 ], [ %585, %582 ], [ %631, %.thread208 ], [ %532, %530 ]
   %643 = icmp ult i32 %.013.i48, %505
   br i1 %643, label %243, label %._crit_edge296
 
-._crit_edge296:                                   ; preds = %183, %mmbit_get_flat_block.exit106, %get_flat_masks.exit131, %._crit_edge292, %get_flat_masks.exit123, %fatbit_unset.exit, %mmbit_iterate_bounded.exit49, %634, %mmbit_get_flat_block.exit, %get_flat_masks.exit119, %._crit_edge, %get_flat_masks.exit, %3, %mmbit_iterate_bounded.exit
+._crit_edge296:                                   ; preds = %183, %mmbit_get_flat_block.exit106, %get_flat_masks.exit131, %get_flat_masks.exit123, %._crit_edge292, %fatbit_unset.exit, %mmbit_iterate_bounded.exit49, %634, %mmbit_get_flat_block.exit, %get_flat_masks.exit119, %get_flat_masks.exit, %._crit_edge, %3, %mmbit_iterate_bounded.exit
   ret void
 }
 
@@ -2004,7 +2004,7 @@ rvermUnalign.exit:                                ; preds = %112, %116
   br label %rvermicelliExec.exit
 
 rvermicelliExec.exit:                             ; preds = %.preheader, %82, %rvermSearchAligned.exit, %.thread, %rvermUnalign.exit
-  %.0.i75 = phi ptr [ %124, %rvermUnalign.exit ], [ %111, %rvermSearchAligned.exit ], [ %98, %.thread ], [ %.046.i, %82 ], [ %.046.i, %.preheader ]
+  %.0.i75 = phi ptr [ %111, %rvermSearchAligned.exit ], [ %98, %.thread ], [ %124, %rvermUnalign.exit ], [ %.046.i, %82 ], [ %.046.i, %.preheader ]
   %125 = ptrtoint ptr %.0.i75 to i64
   %126 = sub i64 %72, %80
   %127 = add i64 %126, %125
@@ -2123,7 +2123,7 @@ rvermUnalignNocase.exit:                          ; preds = %174, %179
   br label %rvermicelliExec.exit90
 
 rvermicelliExec.exit90:                           ; preds = %.preheader236, %141, %rvermSearchAlignedNocase.exit, %.thread160, %rvermUnalignNocase.exit
-  %.0.i82 = phi ptr [ %187, %rvermUnalignNocase.exit ], [ %173, %rvermSearchAlignedNocase.exit ], [ %159, %.thread160 ], [ %.046.i88, %141 ], [ %.046.i88, %.preheader236 ]
+  %.0.i82 = phi ptr [ %173, %rvermSearchAlignedNocase.exit ], [ %159, %.thread160 ], [ %187, %rvermUnalignNocase.exit ], [ %.046.i88, %141 ], [ %.046.i88, %.preheader236 ]
   %188 = ptrtoint ptr %.0.i82 to i64
   %189 = sub i64 %131, %139
   %190 = add i64 %189, %188
@@ -2340,7 +2340,7 @@ rdvermPreconditionNocase.exit:                    ; preds = %268
   br label %rvermicelliDoubleExec.exit102
 
 rvermicelliDoubleExec.exit102:                    ; preds = %285, %.thread196, %rdvermPreconditionNocase.exit.thread, %rdvermPreconditionNocase.exit
-  %.1.i100 = phi ptr [ %.ptr214, %rdvermPreconditionNocase.exit ], [ %284, %rdvermPreconditionNocase.exit.thread ], [ %310, %.thread196 ], [ %.022.i.ptr, %285 ]
+  %.1.i100 = phi ptr [ %284, %rdvermPreconditionNocase.exit.thread ], [ %.ptr214, %rdvermPreconditionNocase.exit ], [ %310, %.thread196 ], [ %.022.i.ptr, %285 ]
   %311 = ptrtoint ptr %.1.i100 to i64
   %312 = ptrtoint ptr %61 to i64
   %313 = sub i64 %254, %312
@@ -2400,7 +2400,7 @@ rvermicelliDoubleExec.exit102:                    ; preds = %285, %.thread196, %
   br i1 %.not.i71, label %355, label %fatbit_unset.exit
 
 355:                                              ; preds = %66, %344, %334, %324, %315, %rvermicelliDoubleExec.exit102, %251, %rvermicelliDoubleExec.exit, %191, %rvermicelliExec.exit90, %128, %rvermicelliExec.exit, %69
-  %.0.i72 = phi i64 [ %16, %69 ], [ %127, %rvermicelliExec.exit ], [ %16, %128 ], [ %190, %rvermicelliExec.exit90 ], [ %16, %191 ], [ %250, %rvermicelliDoubleExec.exit ], [ %16, %251 ], [ %314, %rvermicelliDoubleExec.exit102 ], [ %16, %315 ], [ %16, %324 ], [ %16, %334 ], [ %16, %344 ], [ %16, %66 ]
+  %.0.i72 = phi i64 [ %16, %66 ], [ %16, %69 ], [ %127, %rvermicelliExec.exit ], [ %16, %128 ], [ %190, %rvermicelliExec.exit90 ], [ %16, %191 ], [ %250, %rvermicelliDoubleExec.exit ], [ %16, %251 ], [ %314, %rvermicelliDoubleExec.exit102 ], [ %16, %315 ], [ %16, %324 ], [ %16, %334 ], [ %16, %344 ]
   %356 = icmp ult i64 %.0.i72, %64
   br i1 %356, label %fatbit_unset.exit, label %nfaRevAccelCheck.exit
 
@@ -2876,7 +2876,7 @@ mmbit_unset.exit:                                 ; preds = %.lr.ph506, %549, %.
   store i32 1, ptr %476, align 4, !alias.scope !35
   br label %fatbit_unset.exit
 
-fatbit_unset.exit:                                ; preds = %.lr.ph511, %607, %355, %344, %334, %324, %315, %57, %597, %.thread212, %nfaRevAccelCheck.exit, %654, %pq_insert.exit, %54
+fatbit_unset.exit:                                ; preds = %.lr.ph511, %607, %355, %324, %315, %334, %344, %57, %597, %.thread212, %nfaRevAccelCheck.exit, %654, %pq_insert.exit, %54
   %indvars.iv.next367 = add nuw nsw i64 %indvars.iv366, 1
   %656 = load i32, ptr %19, align 8
   %657 = zext i32 %656 to i64
@@ -3010,7 +3010,7 @@ mmbit_iterate_bounded.exit.i.thread217:           ; preds = %mmbit_get_flat_bloc
   br label %get_flat_masks.exit48
 
 get_flat_masks.exit48:                            ; preds = %.lr.ph, %68
-  %.0.i47 = phi i64 [ %72, %68 ], [ %67, %.lr.ph ]
+  %.0.i47 = phi i64 [ %67, %.lr.ph ], [ %72, %68 ]
   %73 = and i64 %.0.i47, %63
   %.not.i31 = icmp eq i64 %73, 0
   br i1 %.not.i31, label %76, label %.thread187
@@ -3092,7 +3092,7 @@ mmbit_get_flat_block.exit43:                      ; preds = %98, %90, %87, %84
   br label %get_flat_masks.exit52
 
 get_flat_masks.exit52:                            ; preds = %mmbit_get_flat_block.exit43, %107
-  %.0.i50 = phi i64 [ %112, %107 ], [ %106, %mmbit_get_flat_block.exit43 ]
+  %.0.i50 = phi i64 [ %106, %mmbit_get_flat_block.exit43 ], [ %112, %107 ]
   %113 = and i64 %.0.i50, %.0.i41
   %.not58.i30 = icmp eq i64 %113, 0
   br i1 %.not58.i30, label %mmbit_iterate_bounded.exit.i.thread, label %mmbit_iterate_bounded.exit.i.thread802
@@ -3598,7 +3598,7 @@ mmbit_get_flat_block.exit.i:                      ; preds = %363, %355, %352, %3
   br label %.backedge
 
 mmbit_iterate.exit:                               ; preds = %393, %.thread241, %mmbit_get_flat_block.exit.i, %326, %279, %mmbit_get_flat_block.exit82.i, %.thread232, %333, %370, %._crit_edge432, %258
-  %.011.i = phi i32 [ -1, %258 ], [ %281, %279 ], [ -1, %mmbit_get_flat_block.exit82.i ], [ %338, %333 ], [ %373, %370 ], [ -1, %326 ], [ %325, %.thread232 ], [ -1, %._crit_edge432 ], [ -1, %mmbit_get_flat_block.exit.i ], [ %397, %393 ], [ -1, %.thread241 ]
+  %.011.i = phi i32 [ -1, %258 ], [ -1, %._crit_edge432 ], [ -1, %mmbit_get_flat_block.exit82.i ], [ %281, %279 ], [ %338, %333 ], [ %325, %.thread232 ], [ %373, %370 ], [ -1, %326 ], [ -1, %mmbit_get_flat_block.exit.i ], [ %397, %393 ], [ -1, %.thread241 ]
   %405 = load i32, ptr %239, align 8
   %.not59.i = icmp eq i32 %405, 0
   br i1 %.not59.i, label %410, label %406
@@ -5347,11 +5347,11 @@ mmbit_unset.exit.i105:                            ; preds = %.lr.ph1056, %1375, 
   store i32 %.0.i116.lcssa, ptr %1316, align 4
   br label %buildSufPQ_final.exit
 
-buildSufPQ_final.exit:                            ; preds = %.lr.ph1050, %.lr.ph1062, %1159, %1432, %ensureQueueActive.exit.i76, %.thread287, %1149, %1494, %1486, %.thread299, %.thread302, %1422
+buildSufPQ_final.exit:                            ; preds = %.lr.ph1050, %.lr.ph1062, %1159, %1432, %ensureQueueActive.exit.i76, %1149, %.thread287, %.thread299, %1486, %1494, %.thread302, %1422
   %.not58.i = icmp eq i32 %.011.i, -1
   br i1 %.not58.i, label %mmbit_iterate_bounded.exit.i.thread, label %258
 
-mmbit_iterate_bounded.exit.i.thread:              ; preds = %167, %buildSufPQ_final.exit, %.lr.ph1074, %.lr.ph1086, %.lr.ph1098, %546, %965, %804, %ensureQueueActive.exit.i, %.thread259, %536, %794, %.thread269, %857, %1030, %1022, %.thread273, %.thread276, %955, %get_flat_masks.exit52, %._crit_edge, %mmbit_get_flat_block.exit, %2, %mmbit_iterate_bounded.exit.i
+mmbit_iterate_bounded.exit.i.thread:              ; preds = %167, %buildSufPQ_final.exit, %.lr.ph1074, %.lr.ph1086, %.lr.ph1098, %546, %965, %804, %536, %ensureQueueActive.exit.i, %.thread259, %794, %.thread269, %857, %.thread273, %1022, %1030, %.thread276, %955, %get_flat_masks.exit52, %mmbit_get_flat_block.exit, %._crit_edge, %2, %mmbit_iterate_bounded.exit.i
   %1495 = tail call fastcc i64 @roseCatchUpNfas(ptr noundef %4, i64 noundef %0, i64 noundef %0, ptr noundef %1)
   %.not21 = icmp eq i64 %1495, -1
   br i1 %.not21, label %1496, label %buildSufPQ.exit
@@ -5438,7 +5438,7 @@ canSkipCatchUpMPV.exit.thread315:                 ; preds = %1529, %canSkipCatch
   br label %buildSufPQ.exit
 
 buildSufPQ.exit:                                  ; preds = %1358, %887, %726, %214, %canSkipCatchUpMPV.exit.thread315, %1538, %1535, %canSkipCatchUpMPV.exit165.thread222, %mmbit_iterate_bounded.exit.i.thread
-  %.0 = phi i64 [ 0, %mmbit_iterate_bounded.exit.i.thread ], [ 0, %canSkipCatchUpMPV.exit165.thread222 ], [ -1, %1538 ], [ %1542, %canSkipCatchUpMPV.exit.thread315 ], [ 0, %1535 ], [ 0, %214 ], [ 0, %726 ], [ 0, %887 ], [ 0, %1358 ]
+  %.0 = phi i64 [ 0, %1535 ], [ 0, %mmbit_iterate_bounded.exit.i.thread ], [ 0, %214 ], [ 0, %canSkipCatchUpMPV.exit165.thread222 ], [ %1542, %canSkipCatchUpMPV.exit.thread315 ], [ -1, %1538 ], [ 0, %726 ], [ 0, %887 ], [ 0, %1358 ]
   ret i64 %.0
 }
 
@@ -6945,7 +6945,7 @@ mmbit_iterate_bounded.exit.i.thread193:           ; preds = %mmbit_get_flat_bloc
   br label %get_flat_masks.exit36
 
 get_flat_masks.exit36:                            ; preds = %.lr.ph, %68
-  %.0.i35 = phi i64 [ %72, %68 ], [ %67, %.lr.ph ]
+  %.0.i35 = phi i64 [ %67, %.lr.ph ], [ %72, %68 ]
   %73 = and i64 %.0.i35, %63
   %.not.i19 = icmp eq i64 %73, 0
   br i1 %.not.i19, label %76, label %.thread163
@@ -7027,7 +7027,7 @@ mmbit_get_flat_block.exit31:                      ; preds = %98, %90, %87, %84
   br label %get_flat_masks.exit40
 
 get_flat_masks.exit40:                            ; preds = %mmbit_get_flat_block.exit31, %107
-  %.0.i38 = phi i64 [ %112, %107 ], [ %106, %mmbit_get_flat_block.exit31 ]
+  %.0.i38 = phi i64 [ %106, %mmbit_get_flat_block.exit31 ], [ %112, %107 ]
   %113 = and i64 %.0.i38, %.0.i29
   %.not58.i18 = icmp eq i64 %113, 0
   br i1 %.not58.i18, label %mmbit_iterate_bounded.exit.i.thread, label %mmbit_iterate_bounded.exit.i.thread767
@@ -7533,7 +7533,7 @@ mmbit_get_flat_block.exit.i:                      ; preds = %363, %355, %352, %3
   br label %.backedge
 
 mmbit_iterate.exit:                               ; preds = %393, %.thread217, %mmbit_get_flat_block.exit.i, %326, %279, %mmbit_get_flat_block.exit82.i, %.thread208, %333, %370, %._crit_edge398, %258
-  %.011.i = phi i32 [ -1, %258 ], [ %281, %279 ], [ -1, %mmbit_get_flat_block.exit82.i ], [ %338, %333 ], [ %373, %370 ], [ -1, %326 ], [ %325, %.thread208 ], [ -1, %._crit_edge398 ], [ -1, %mmbit_get_flat_block.exit.i ], [ %397, %393 ], [ -1, %.thread217 ]
+  %.011.i = phi i32 [ -1, %258 ], [ -1, %._crit_edge398 ], [ -1, %mmbit_get_flat_block.exit82.i ], [ %281, %279 ], [ %338, %333 ], [ %325, %.thread208 ], [ %373, %370 ], [ -1, %326 ], [ -1, %mmbit_get_flat_block.exit.i ], [ %397, %393 ], [ -1, %.thread217 ]
   %405 = load i32, ptr %239, align 8
   %.not59.i = icmp eq i32 %405, 0
   br i1 %.not59.i, label %410, label %406
@@ -9282,16 +9282,16 @@ mmbit_unset.exit.i93:                             ; preds = %.lr.ph1021, %1375, 
   store i32 %.0.i104.lcssa, ptr %1316, align 4
   br label %buildSufPQ_final.exit
 
-buildSufPQ_final.exit:                            ; preds = %.lr.ph1015, %.lr.ph1027, %1159, %1432, %ensureQueueActive.exit.i64, %.thread263, %1149, %1494, %1486, %.thread275, %.thread278, %1422
+buildSufPQ_final.exit:                            ; preds = %.lr.ph1015, %.lr.ph1027, %1159, %1432, %ensureQueueActive.exit.i64, %1149, %.thread263, %.thread275, %1486, %1494, %.thread278, %1422
   %.not58.i = icmp eq i32 %.011.i, -1
   br i1 %.not58.i, label %mmbit_iterate_bounded.exit.i.thread, label %258
 
-mmbit_iterate_bounded.exit.i.thread:              ; preds = %167, %buildSufPQ_final.exit, %.lr.ph1039, %.lr.ph1051, %.lr.ph1063, %546, %965, %804, %ensureQueueActive.exit.i, %.thread235, %536, %794, %.thread245, %857, %1030, %1022, %.thread249, %.thread252, %955, %get_flat_masks.exit40, %._crit_edge, %mmbit_get_flat_block.exit, %2, %mmbit_iterate_bounded.exit.i
+mmbit_iterate_bounded.exit.i.thread:              ; preds = %167, %buildSufPQ_final.exit, %.lr.ph1039, %.lr.ph1051, %.lr.ph1063, %546, %965, %804, %536, %ensureQueueActive.exit.i, %.thread235, %794, %.thread245, %857, %.thread249, %1022, %1030, %.thread252, %955, %get_flat_masks.exit40, %mmbit_get_flat_block.exit, %._crit_edge, %2, %mmbit_iterate_bounded.exit.i
   %1495 = tail call fastcc i64 @roseCatchUpNfas(ptr noundef %4, i64 noundef %0, i64 noundef %0, ptr noundef %1)
   br label %buildSufPQ.exit
 
 buildSufPQ.exit:                                  ; preds = %1358, %887, %726, %214, %canSkipCatchUpMPV.exit.thread198, %mmbit_iterate_bounded.exit.i.thread
-  %.0 = phi i64 [ %1495, %mmbit_iterate_bounded.exit.i.thread ], [ 0, %canSkipCatchUpMPV.exit.thread198 ], [ 0, %214 ], [ 0, %726 ], [ 0, %887 ], [ 0, %1358 ]
+  %.0 = phi i64 [ %1495, %mmbit_iterate_bounded.exit.i.thread ], [ 0, %214 ], [ 0, %canSkipCatchUpMPV.exit.thread198 ], [ 0, %726 ], [ 0, %887 ], [ 0, %1358 ]
   ret i64 %.0
 }
 
@@ -9426,7 +9426,7 @@ mmbit_isset.exit.i.thread18:                      ; preds = %mmbit_isset.exit.i
   br i1 %.not11.i.i, label %roseSuffixIsExhausted.exit, label %mmbit_isset.exit.i
 
 roseSuffixIsExhausted.exit:                       ; preds = %mmbit_isset.exit.i.thread18, %mmbit_isset.exit.i, %mmbit_isset.exit.i.thread18.loopexit.us, %43, %27, %15, %4
-  %.0 = phi i32 [ 0, %4 ], [ 1, %15 ], [ 0, %27 ], [ 1, %43 ], [ 0, %mmbit_isset.exit.i.thread18.loopexit.us ], [ 0, %mmbit_isset.exit.i.thread18 ], [ 1, %mmbit_isset.exit.i ]
+  %.0 = phi i32 [ 0, %4 ], [ 1, %15 ], [ 0, %mmbit_isset.exit.i.thread18.loopexit.us ], [ 0, %27 ], [ 1, %43 ], [ 0, %mmbit_isset.exit.i.thread18 ], [ 1, %mmbit_isset.exit.i ]
   ret i32 %.0
 }
 

@@ -350,8 +350,8 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
   br label %163
 
 163:                                              ; preds = %161, %159, %157, %153, %151, %149
-  %.sink371 = phi i8 [ 49, %149 ], [ 50, %151 ], [ %., %153 ], [ %.377, %157 ], [ 55, %159 ], [ %.379, %161 ]
-  %.sink = phi i64 [ -100, %149 ], [ -200, %151 ], [ %.376, %153 ], [ %.378, %157 ], [ -700, %159 ], [ %.380, %161 ]
+  %.sink371 = phi i8 [ 50, %151 ], [ %.377, %157 ], [ %.379, %161 ], [ 55, %159 ], [ %., %153 ], [ 49, %149 ]
+  %.sink = phi i64 [ -200, %151 ], [ %.378, %157 ], [ %.380, %161 ], [ -700, %159 ], [ %.376, %153 ], [ -100, %149 ]
   store i8 %.sink371, ptr %147, align 1, !tbaa !13
   %164 = add nsw i64 %.2267.lcssa, %.sink
   %165 = shl nuw nsw i64 %164, 1
@@ -405,8 +405,8 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
   br label %189
 
 189:                                              ; preds = %187, %185, %183, %179, %177, %175
-  %.sink373 = phi i8 [ 49, %175 ], [ 50, %177 ], [ %.381, %179 ], [ %.383, %183 ], [ 55, %185 ], [ %.385, %187 ]
-  %.sink372 = phi i64 [ -1000, %175 ], [ -2000, %177 ], [ %.382, %179 ], [ %.384, %183 ], [ -7000, %185 ], [ %.386, %187 ]
+  %.sink373 = phi i8 [ 50, %177 ], [ %.383, %183 ], [ %.385, %187 ], [ 55, %185 ], [ %.381, %179 ], [ 49, %175 ]
+  %.sink372 = phi i64 [ -2000, %177 ], [ %.384, %183 ], [ %.386, %187 ], [ -7000, %185 ], [ %.382, %179 ], [ -1000, %175 ]
   store i8 %.sink373, ptr %173, align 1, !tbaa !13
   %190 = add nsw i64 %.2267.lcssa, %.sink372
   %191 = icmp samesign ult i64 %190, 500
@@ -574,7 +574,7 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
   br label %.loopexit323
 
 .loopexit323:                                     ; preds = %.preheader322, %..loopexit323_crit_edge, %260, %259
-  %.5 = phi double [ %.4, %260 ], [ %.4, %259 ], [ %267, %..loopexit323_crit_edge ], [ %.4, %.preheader322 ]
+  %.5 = phi double [ %.4, %259 ], [ %.4, %260 ], [ %267, %..loopexit323_crit_edge ], [ %.4, %.preheader322 ]
   %272 = icmp ugt ptr %.3261, getelementptr inbounds nuw (i8, ptr @_sfcvt.Buf, i64 512)
   br i1 %272, label %.lr.ph336.preheader, label %.loopexit321
 
@@ -710,7 +710,7 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
   br i1 %320, label %.lr.ph341.split, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %309, %319, %.preheader.preheader, %294, %290, %292
-  %.4262 = phi ptr [ %291, %290 ], [ %.3261, %292 ], [ %.3261, %294 ], [ %.3261, %.preheader.preheader ], [ %.3261, %319 ], [ %.6264.us, %309 ]
+  %.4262 = phi ptr [ %291, %290 ], [ %.3261, %.preheader.preheader ], [ %.3261, %292 ], [ %.3261, %294 ], [ %.3261, %319 ], [ %.6264.us, %309 ]
   %321 = getelementptr inbounds i8, ptr %.4262, i64 -1
   store i8 0, ptr %321, align 1, !tbaa !13
   %322 = ptrtoint ptr %321 to i64
@@ -719,8 +719,8 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
   br label %.thread
 
 .thread:                                          ; preds = %19, %241, %5, %.loopexit
-  %.sink375 = phi i64 [ %324, %.loopexit ], [ 1, %5 ], [ 3, %241 ], [ 3, %19 ]
-  %.1 = phi ptr [ %.1257, %.loopexit ], [ @.str, %5 ], [ @.str.1, %241 ], [ @.str.1, %19 ]
+  %.sink375 = phi i64 [ 1, %5 ], [ 3, %241 ], [ %324, %.loopexit ], [ 3, %19 ]
+  %.1 = phi ptr [ @.str, %5 ], [ @.str.1, %241 ], [ %.1257, %.loopexit ], [ @.str.1, %19 ]
   store i64 %.sink375, ptr @_Sfi, align 8, !tbaa !18
   ret ptr %.1
 }

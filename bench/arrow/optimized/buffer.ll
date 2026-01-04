@@ -1336,7 +1336,7 @@ define noundef zeroext i1 @_ZNK5arrow6Buffer6EqualsERKS0_l(ptr noundef nonnull r
   br label %17
 
 17:                                               ; preds = %5, %16, %10, %3
-  %18 = phi i1 [ true, %3 ], [ false, %5 ], [ true, %10 ], [ %.not12, %16 ]
+  %18 = phi i1 [ true, %3 ], [ %.not12, %16 ], [ false, %5 ], [ true, %10 ]
   ret i1 %18
 }
 

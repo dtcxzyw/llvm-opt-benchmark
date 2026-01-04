@@ -723,7 +723,7 @@ define i64 @check_foreign_key(ptr noundef readonly captures(none) %0) local_unna
   br label %153
 
 153:                                              ; preds = %150, %152
-  %.2194 = phi i1 [ false, %152 ], [ %.0192243, %150 ]
+  %.2194 = phi i1 [ %.0192243, %150 ], [ false, %152 ]
   %154 = load i32, ptr %97, align 8
   %155 = icmp slt i32 %154, 1
   br i1 %155, label %156, label %161

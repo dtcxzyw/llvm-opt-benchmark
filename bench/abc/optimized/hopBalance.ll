@@ -581,7 +581,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %20, %25, %24, %.preheader49, %75, %82, %Vec_PtrPush.exit
-  %.034 = phi i32 [ 0, %Vec_PtrPush.exit ], [ %86, %82 ], [ -1, %75 ], [ 0, %.preheader49 ], [ -1, %25 ], [ 0, %24 ], [ 1, %20 ]
+  %.034 = phi i32 [ %86, %82 ], [ 0, %24 ], [ -1, %75 ], [ 0, %Vec_PtrPush.exit ], [ 0, %.preheader49 ], [ -1, %25 ], [ 1, %20 ]
   ret i32 %.034
 }
 
@@ -623,7 +623,7 @@ define range(i32 -1, 2) i32 @Hop_NodeCompareLevelsDecrease(ptr noundef readonly 
   br label %26
 
 26:                                               ; preds = %25, %19, %17, %2
-  %.0 = phi i32 [ -1, %2 ], [ 1, %17 ], [ -1, %19 ], [ %., %25 ]
+  %.0 = phi i32 [ -1, %19 ], [ -1, %2 ], [ 1, %17 ], [ %., %25 ]
   ret i32 %.0
 }
 
@@ -924,7 +924,7 @@ Vec_PtrGrow.exit.i.i.i:                           ; preds = %116, %114
   br i1 %158, label %.lr.ph.i18, label %Hop_NodeBalancePushUniqueOrderByLevel.exit, !llvm.loop !43
 
 Hop_NodeBalancePushUniqueOrderByLevel.exit:       ; preds = %104, %.lr.ph.i18, %155
-  %159 = phi i32 [ %133, %155 ], [ %133, %.lr.ph.i18 ], [ %100, %104 ]
+  %159 = phi i32 [ %133, %.lr.ph.i18 ], [ %133, %155 ], [ %100, %104 ]
   %160 = icmp sgt i32 %159, 1
   br i1 %160, label %19, label %._crit_edge, !llvm.loop !44
 

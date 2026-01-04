@@ -472,7 +472,7 @@ define hidden noundef zeroext i1 @_ZNK21CardTableBarrierSetC231array_copy_requir
   br label %_Z17is_reference_type9BasicTypeb.exit.thread
 
 _Z17is_reference_type9BasicTypeb.exit.thread:     ; preds = %6, %8
-  %12 = phi i1 [ %11, %8 ], [ %or.cond.i, %6 ]
+  %12 = phi i1 [ %or.cond.i, %6 ], [ %11, %8 ]
   ret i1 %12
 }
 

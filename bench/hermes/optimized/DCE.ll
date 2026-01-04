@@ -130,7 +130,7 @@ do.end.i:                                         ; preds = %if.end.i
   br i1 %cmp.i4.not21.i, label %for.inc.i, label %for.body11.lr.ph.i, !llvm.loop !4
 
 for.inc.i:                                        ; preds = %do.end.i, %for.cond9.backedge.i, %for.body.i
-  %changed.1.ph.lcssa.i = phi i1 [ %changed.030.i, %for.body.i ], [ %changed.1.ph26.i, %for.cond9.backedge.i ], [ true, %do.end.i ]
+  %changed.1.ph.lcssa.i = phi i1 [ %changed.1.ph26.i, %for.cond9.backedge.i ], [ %changed.030.i, %for.body.i ], [ true, %do.end.i ]
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.029.i, i64 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %1
   br i1 %cmp.i.not.i, label %for.end25.loopexit.i, label %for.body.i

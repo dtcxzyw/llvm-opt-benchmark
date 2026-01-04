@@ -237,7 +237,7 @@ define i32 @Bac_NameToType(ptr noundef readonly captures(none) %0) local_unnamed
   br label %.loopexit
 
 .loopexit:                                        ; preds = %5, %1, %12
-  %.08 = phi i32 [ %13, %12 ], [ 0, %1 ], [ 0, %5 ]
+  %.08 = phi i32 [ 0, %1 ], [ %13, %12 ], [ 0, %5 ]
   ret i32 %.08
 }
 
@@ -319,8 +319,8 @@ define noundef nonnull ptr @Bac_NameToRanges(ptr noundef readonly captures(none)
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %31, %33, %23, %25
-  %.sink48 = phi ptr [ %24, %23 ], [ %26, %25 ], [ %32, %31 ], [ %34, %33 ]
-  %.sink = phi i32 [ 16, %23 ], [ 16, %25 ], [ %28, %31 ], [ %28, %33 ]
+  %.sink48 = phi ptr [ %26, %25 ], [ %24, %23 ], [ %32, %31 ], [ %34, %33 ]
+  %.sink = phi i32 [ 16, %25 ], [ 16, %23 ], [ %28, %31 ], [ %28, %33 ]
   store ptr %.sink48, ptr getelementptr inbounds nuw (i8, ptr @Bac_NameToRanges.Bits, i64 8), align 8, !tbaa !23
   store i32 %.sink, ptr @Bac_NameToRanges.Bits, align 8, !tbaa !28
   br label %Vec_IntPush.exit
@@ -381,8 +381,8 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br label %Vec_IntPush.exit27.sink.split
 
 Vec_IntPush.exit27.sink.split:                    ; preds = %53, %55, %45, %47
-  %.sink50 = phi ptr [ %46, %45 ], [ %48, %47 ], [ %54, %53 ], [ %56, %55 ]
-  %.sink49 = phi i32 [ 16, %45 ], [ 16, %47 ], [ %50, %53 ], [ %50, %55 ]
+  %.sink50 = phi ptr [ %48, %47 ], [ %46, %45 ], [ %54, %53 ], [ %56, %55 ]
+  %.sink49 = phi i32 [ 16, %47 ], [ 16, %45 ], [ %50, %53 ], [ %50, %55 ]
   store ptr %.sink50, ptr getelementptr inbounds nuw (i8, ptr @Bac_NameToRanges.Bits, i64 8), align 8, !tbaa !23
   store i32 %.sink49, ptr @Bac_NameToRanges.Bits, align 8, !tbaa !28
   br label %Vec_IntPush.exit27
@@ -466,8 +466,8 @@ define void @Bac_NtkUpdateFanout(ptr noundef captures(none) %0, i32 noundef %1, 
   br label %Vec_IntGrow.exit.sink.split.i.i.i
 
 Vec_IntGrow.exit.sink.split.i.i.i:                ; preds = %30, %32, %21, %23
-  %storemerge86 = phi ptr [ %22, %21 ], [ %24, %23 ], [ %31, %30 ], [ %33, %32 ]
-  %.sink.i.i.i = phi i32 [ %11, %21 ], [ %11, %23 ], [ %15, %30 ], [ %15, %32 ]
+  %storemerge86 = phi ptr [ %24, %23 ], [ %22, %21 ], [ %31, %30 ], [ %33, %32 ]
+  %.sink.i.i.i = phi i32 [ %11, %23 ], [ %11, %21 ], [ %15, %30 ], [ %15, %32 ]
   store ptr %storemerge86, ptr %9, align 8, !tbaa !23
   store i32 %.sink.i.i.i, ptr %7, align 8, !tbaa !28
   %.pre.i.i = load i32, ptr %8, align 4, !tbaa !22
@@ -1116,7 +1116,7 @@ define i32 @Bac_ManAssignCountNames(ptr noundef readonly captures(none) %0) loca
   br i1 %exitcond68.not, label %.critedge2, label %.lr.ph53, !llvm.loop !47
 
 .critedge2:                                       ; preds = %.lr.ph53, %39, %24
-  %.5 = phi i32 [ %.258, %24 ], [ %.351, %.lr.ph53 ], [ %.4, %39 ]
+  %.5 = phi i32 [ %.258, %24 ], [ %.4, %39 ], [ %.351, %.lr.ph53 ]
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count72
   br i1 %exitcond73.not, label %.critedge._crit_edge, label %24, !llvm.loop !48
@@ -1264,7 +1264,7 @@ Bac_NtkStartNames.exit:                           ; preds = %Vec_IntGrow.exit.i.
   br i1 %exitcond68.not.i, label %.critedge2.i, label %.lr.ph53.i, !llvm.loop !47
 
 .critedge2.i:                                     ; preds = %54, %.lr.ph53.i, %39
-  %.5.i = phi i32 [ %.258.i, %39 ], [ %.4.i, %54 ], [ %.351.i, %.lr.ph53.i ]
+  %.5.i = phi i32 [ %.258.i, %39 ], [ %.351.i, %.lr.ph53.i ], [ %.4.i, %54 ]
   %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
   %exitcond73.not.i = icmp eq i64 %indvars.iv.next70.i, %26
   br i1 %exitcond73.not.i, label %Bac_ManAssignCountNames.exit, label %39, !llvm.loop !48
@@ -1636,8 +1636,8 @@ Bac_ManAssignInternTwo.exit:                      ; preds = %156
   br label %Vec_IntGrow.exit.sink.split.i.i.i225
 
 Vec_IntGrow.exit.sink.split.i.i.i225:             ; preds = %198, %200, %190, %192
-  %storemerge341 = phi ptr [ %191, %190 ], [ %193, %192 ], [ %199, %198 ], [ %201, %200 ]
-  %.sink.i.i.i226 = phi i32 [ %189, %190 ], [ %189, %192 ], [ %182, %198 ], [ %182, %200 ]
+  %storemerge341 = phi ptr [ %193, %192 ], [ %191, %190 ], [ %199, %198 ], [ %201, %200 ]
+  %.sink.i.i.i226 = phi i32 [ %189, %192 ], [ %189, %190 ], [ %182, %198 ], [ %182, %200 ]
   store ptr %storemerge341, ptr %5, align 8, !tbaa !23
   store i32 %.sink.i.i.i226, ptr %79, align 8, !tbaa !28
   %.pre.i.i227 = load i32, ptr %80, align 4, !tbaa !22
@@ -1723,8 +1723,8 @@ Bac_ObjSetName.exit235:                           ; preds = %176, %._crit_edge.i
   br label %Vec_IntGrow.exit.sink.split.i.i.i240
 
 Vec_IntGrow.exit.sink.split.i.i.i240:             ; preds = %233, %235, %225, %227
-  %storemerge340 = phi ptr [ %226, %225 ], [ %228, %227 ], [ %234, %233 ], [ %236, %235 ]
-  %.sink.i.i.i241 = phi i32 [ %224, %225 ], [ %224, %227 ], [ %217, %233 ], [ %217, %235 ]
+  %storemerge340 = phi ptr [ %228, %227 ], [ %226, %225 ], [ %234, %233 ], [ %236, %235 ]
+  %.sink.i.i.i241 = phi i32 [ %224, %227 ], [ %224, %225 ], [ %217, %233 ], [ %217, %235 ]
   store ptr %storemerge340, ptr %5, align 8, !tbaa !23
   store i32 %.sink.i.i.i241, ptr %79, align 8, !tbaa !28
   %.pre.i.i242 = load i32, ptr %80, align 4, !tbaa !22
@@ -1778,8 +1778,8 @@ Bac_ObjSetName.exit250:                           ; preds = %210, %._crit_edge.i
   br i1 %248, label %105, label %._crit_edge, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %246, %Abc_Base10Log.exit, %.preheader346, %.preheader345
-  %.val161445 = phi i32 [ %.val163, %.preheader345 ], [ %.val164, %.preheader346 ], [ %.val39.i, %Abc_Base10Log.exit ], [ %.val162, %246 ]
-  %.val8.i.i256 = phi ptr [ %.val172, %.preheader345 ], [ %.val172, %.preheader346 ], [ %.val172, %Abc_Base10Log.exit ], [ %.val.i.i206431, %246 ]
+  %.val161445 = phi i32 [ %.val39.i, %Abc_Base10Log.exit ], [ %.val163, %.preheader345 ], [ %.val164, %.preheader346 ], [ %.val162, %246 ]
+  %.val8.i.i256 = phi ptr [ %.val172, %Abc_Base10Log.exit ], [ %.val172, %.preheader345 ], [ %.val172, %.preheader346 ], [ %.val.i.i206431, %246 ]
   %249 = getelementptr i8, ptr %0, i64 68
   %.val183 = load i32, ptr %249, align 4, !tbaa !22
   %or.cond = icmp sgt i32 %.val183, 2
@@ -2089,8 +2089,8 @@ Bac_ManAssignInternTwo.exit281:                   ; preds = %349
   br label %Vec_IntGrow.exit.sink.split.i.i.i286
 
 Vec_IntGrow.exit.sink.split.i.i.i286:             ; preds = %387, %389, %379, %381
-  %storemerge = phi ptr [ %380, %379 ], [ %382, %381 ], [ %388, %387 ], [ %390, %389 ]
-  %.sink.i.i.i287 = phi i32 [ %378, %379 ], [ %378, %381 ], [ %371, %387 ], [ %371, %389 ]
+  %storemerge = phi ptr [ %382, %381 ], [ %380, %379 ], [ %388, %387 ], [ %390, %389 ]
+  %.sink.i.i.i287 = phi i32 [ %378, %381 ], [ %378, %379 ], [ %371, %387 ], [ %371, %389 ]
   store ptr %storemerge, ptr %5, align 8, !tbaa !23
   store i32 %.sink.i.i.i287, ptr %329, align 8, !tbaa !28
   %.pre.i.i288 = load i32, ptr %330, align 4, !tbaa !22
@@ -2311,11 +2311,11 @@ Bac_ObjNameType.exit324.thread:                   ; preds = %.lr.ph385.preheader
   br label %.critedge2, !llvm.loop !59
 
 .critedge2:                                       ; preds = %.lr.ph385, %.lr.ph385.preheader, %..critedge2.loopexit_crit_edge, %..critedge2_crit_edge, %Bac_ObjNameId.exit316
-  %indvars.iv.next418.pre-phi = phi i64 [ %.pre491, %..critedge2_crit_edge ], [ %453, %Bac_ObjNameId.exit316 ], [ %453, %..critedge2.loopexit_crit_edge ], [ %453, %.lr.ph385.preheader ], [ %453, %.lr.ph385 ]
-  %.val159 = phi i32 [ %.val159481, %..critedge2_crit_edge ], [ %.val158383, %Bac_ObjNameId.exit316 ], [ %.val158, %..critedge2.loopexit_crit_edge ], [ %.val158383, %.lr.ph385.preheader ], [ %.val158, %.lr.ph385 ]
-  %.val7.i.i320475 = phi ptr [ %.val7.i.i320474, %..critedge2_crit_edge ], [ %.val7.i.i320474, %Bac_ObjNameId.exit316 ], [ %.val7.i.i320478, %..critedge2.loopexit_crit_edge ], [ %.val7.i.i320474, %.lr.ph385.preheader ], [ %.val7.i.i320478, %.lr.ph385 ]
-  %.val8.i.i315471 = phi ptr [ %.val8.i.i315, %..critedge2_crit_edge ], [ %.val8.i.i315, %Bac_ObjNameId.exit316 ], [ %.val7.i.i320478, %..critedge2.loopexit_crit_edge ], [ %.val8.i.i315, %.lr.ph385.preheader ], [ %.val7.i.i320478, %.lr.ph385 ]
-  %.val7.i.i312465 = phi ptr [ %.val7.i.i312, %..critedge2_crit_edge ], [ %.val7.i.i312468, %Bac_ObjNameId.exit316 ], [ %.val7.i.i320478, %..critedge2.loopexit_crit_edge ], [ %.val7.i.i312468, %.lr.ph385.preheader ], [ %.val7.i.i320478, %.lr.ph385 ]
+  %indvars.iv.next418.pre-phi = phi i64 [ %.pre491, %..critedge2_crit_edge ], [ %453, %Bac_ObjNameId.exit316 ], [ %453, %.lr.ph385.preheader ], [ %453, %..critedge2.loopexit_crit_edge ], [ %453, %.lr.ph385 ]
+  %.val159 = phi i32 [ %.val159481, %..critedge2_crit_edge ], [ %.val158383, %Bac_ObjNameId.exit316 ], [ %.val158383, %.lr.ph385.preheader ], [ %.val158, %..critedge2.loopexit_crit_edge ], [ %.val158, %.lr.ph385 ]
+  %.val7.i.i320475 = phi ptr [ %.val7.i.i320474, %..critedge2_crit_edge ], [ %.val7.i.i320474, %Bac_ObjNameId.exit316 ], [ %.val7.i.i320474, %.lr.ph385.preheader ], [ %.val7.i.i320478, %..critedge2.loopexit_crit_edge ], [ %.val7.i.i320478, %.lr.ph385 ]
+  %.val8.i.i315471 = phi ptr [ %.val8.i.i315, %..critedge2_crit_edge ], [ %.val8.i.i315, %Bac_ObjNameId.exit316 ], [ %.val8.i.i315, %.lr.ph385.preheader ], [ %.val7.i.i320478, %..critedge2.loopexit_crit_edge ], [ %.val7.i.i320478, %.lr.ph385 ]
+  %.val7.i.i312465 = phi ptr [ %.val7.i.i312, %..critedge2_crit_edge ], [ %.val7.i.i312468, %Bac_ObjNameId.exit316 ], [ %.val7.i.i312468, %.lr.ph385.preheader ], [ %.val7.i.i320478, %..critedge2.loopexit_crit_edge ], [ %.val7.i.i320478, %.lr.ph385 ]
   %471 = sext i32 %.val159 to i64
   %472 = icmp slt i64 %indvars.iv.next418.pre-phi, %471
   %indvars.iv.next413 = add nuw nsw i64 %indvars.iv412, 1
@@ -2994,8 +2994,8 @@ Bac_NtkStartCopies.exit:                          ; preds = %Vec_IntGrow.exit.i.
   br label %Vec_IntGrow.exit.sink.split.i.i.i
 
 Vec_IntGrow.exit.sink.split.i.i.i:                ; preds = %71, %73, %62, %64
-  %storemerge = phi ptr [ %63, %62 ], [ %65, %64 ], [ %72, %71 ], [ %74, %73 ]
-  %.sink.i.i.i = phi i32 [ %52, %62 ], [ %52, %64 ], [ %56, %71 ], [ %56, %73 ]
+  %storemerge = phi ptr [ %65, %64 ], [ %63, %62 ], [ %72, %71 ], [ %74, %73 ]
+  %.sink.i.i.i = phi i32 [ %52, %64 ], [ %52, %62 ], [ %56, %71 ], [ %56, %73 ]
   store ptr %storemerge, ptr %44, align 8, !tbaa !23
   store i32 %.sink.i.i.i, ptr %22, align 8, !tbaa !28
   %.pre.i.i = load i32, ptr %40, align 4, !tbaa !22
@@ -3282,8 +3282,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %Vec_IntGrow.exit.sink.split.i.i.i46
 
 Vec_IntGrow.exit.sink.split.i.i.i46:              ; preds = %105, %107, %96, %98
-  %storemerge59 = phi ptr [ %97, %96 ], [ %99, %98 ], [ %106, %105 ], [ %108, %107 ]
-  %.sink.i.i.i47 = phi i32 [ %10, %96 ], [ %10, %98 ], [ %90, %105 ], [ %90, %107 ]
+  %storemerge59 = phi ptr [ %99, %98 ], [ %97, %96 ], [ %106, %105 ], [ %108, %107 ]
+  %.sink.i.i.i47 = phi i32 [ %10, %98 ], [ %10, %96 ], [ %90, %105 ], [ %90, %107 ]
   store ptr %storemerge59, ptr %4, align 8, !tbaa !23
   store i32 %.sink.i.i.i47, ptr %9, align 8, !tbaa !28
   %.pre.i.i48 = load i32, ptr %11, align 4, !tbaa !22
@@ -3554,8 +3554,8 @@ Bac_NtkStartCopies.exit:                          ; preds = %Vec_IntGrow.exit.i.
   br label %Vec_IntGrow.exit.sink.split.i.i.i
 
 Vec_IntGrow.exit.sink.split.i.i.i:                ; preds = %66, %68, %57, %59
-  %storemerge = phi ptr [ %58, %57 ], [ %60, %59 ], [ %67, %66 ], [ %69, %68 ]
-  %.sink.i.i.i = phi i32 [ %47, %57 ], [ %47, %59 ], [ %51, %66 ], [ %51, %68 ]
+  %storemerge = phi ptr [ %60, %59 ], [ %58, %57 ], [ %67, %66 ], [ %69, %68 ]
+  %.sink.i.i.i = phi i32 [ %47, %59 ], [ %47, %57 ], [ %51, %66 ], [ %51, %68 ]
   store ptr %storemerge, ptr %27, align 8, !tbaa !23
   store i32 %.sink.i.i.i, ptr %4, align 8, !tbaa !28
   %.pre.i.i = load i32, ptr %22, align 4, !tbaa !22
@@ -3833,8 +3833,8 @@ Bac_ManNtkIsOk.exit.i.i63.i:                      ; preds = %Bac_ManNtkIsOk.exit
   br label %Vec_IntGrow.exit.sink.split.i.i.i71.i
 
 Vec_IntGrow.exit.sink.split.i.i.i71.i:            ; preds = %174, %176, %165, %167
-  %storemerge386 = phi ptr [ %166, %165 ], [ %168, %167 ], [ %175, %174 ], [ %177, %176 ]
-  %.sink.i.i.i72.i = phi i32 [ %155, %165 ], [ %155, %167 ], [ %159, %174 ], [ %159, %176 ]
+  %storemerge386 = phi ptr [ %168, %167 ], [ %166, %165 ], [ %175, %174 ], [ %177, %176 ]
+  %.sink.i.i.i72.i = phi i32 [ %155, %167 ], [ %155, %165 ], [ %159, %174 ], [ %159, %176 ]
   store ptr %storemerge386, ptr %38, align 8, !tbaa !23
   store i32 %.sink.i.i.i72.i, ptr %36, align 8, !tbaa !28
   %.pre.i.i73.i = load i32, ptr %37, align 4, !tbaa !22
@@ -4389,8 +4389,8 @@ Bac_ObjSetCopy.exit186..critedge2.loopexit_crit_edge: ; preds = %Bac_ObjSetCopy.
   br label %.critedge2, !llvm.loop !78
 
 .critedge2:                                       ; preds = %.lr.ph95.i, %.lr.ph246, %.lr.ph95.i.preheader, %..critedge2.loopexit392_crit_edge, %.lr.ph246.preheader, %Bac_ObjSetCopy.exit186..critedge2.loopexit_crit_edge, %..critedge2_crit_edge, %.preheader237, %Bac_BoxNtk.exit.thread.i
-  %indvars.iv.next283.pre-phi = phi i64 [ %.pre326, %..critedge2_crit_edge ], [ %97, %.preheader237 ], [ %188, %Bac_BoxNtk.exit.thread.i ], [ %97, %Bac_ObjSetCopy.exit186..critedge2.loopexit_crit_edge ], [ %97, %.lr.ph246.preheader ], [ %188, %..critedge2.loopexit392_crit_edge ], [ %188, %.lr.ph95.i.preheader ], [ %97, %.lr.ph246 ], [ %188, %.lr.ph95.i ]
-  %.val115 = phi i32 [ %.val115317, %..critedge2_crit_edge ], [ %.val115317, %.preheader237 ], [ %.val93.i, %Bac_BoxNtk.exit.thread.i ], [ %.val114, %Bac_ObjSetCopy.exit186..critedge2.loopexit_crit_edge ], [ %.val115317, %.lr.ph246.preheader ], [ %.val.i138, %..critedge2.loopexit392_crit_edge ], [ %.val93.i, %.lr.ph95.i.preheader ], [ %.val114, %.lr.ph246 ], [ %.val.i138, %.lr.ph95.i ]
+  %indvars.iv.next283.pre-phi = phi i64 [ %.pre326, %..critedge2_crit_edge ], [ %97, %.lr.ph246.preheader ], [ %188, %Bac_BoxNtk.exit.thread.i ], [ %97, %.preheader237 ], [ %188, %.lr.ph95.i.preheader ], [ %97, %Bac_ObjSetCopy.exit186..critedge2.loopexit_crit_edge ], [ %97, %.lr.ph246 ], [ %188, %..critedge2.loopexit392_crit_edge ], [ %188, %.lr.ph95.i ]
+  %.val115 = phi i32 [ %.val115317, %..critedge2_crit_edge ], [ %.val115317, %.lr.ph246.preheader ], [ %.val93.i, %Bac_BoxNtk.exit.thread.i ], [ %.val115317, %.preheader237 ], [ %.val93.i, %.lr.ph95.i.preheader ], [ %.val114, %Bac_ObjSetCopy.exit186..critedge2.loopexit_crit_edge ], [ %.val114, %.lr.ph246 ], [ %.val.i138, %..critedge2.loopexit392_crit_edge ], [ %.val.i138, %.lr.ph95.i ]
   %404 = sext i32 %.val115 to i64
   %405 = icmp slt i64 %indvars.iv.next283.pre-phi, %404
   %indvars.iv.next279 = add nuw nsw i64 %indvars.iv278, 1
@@ -4486,8 +4486,8 @@ Bac_ObjSetCopy.exit186..critedge2.loopexit_crit_edge: ; preds = %Bac_ObjSetCopy.
   br label %Vec_IntGrow.exit.sink.split.i.i.i194
 
 Vec_IntGrow.exit.sink.split.i.i.i194:             ; preds = %442, %444, %433, %435
-  %storemerge387 = phi ptr [ %434, %433 ], [ %436, %435 ], [ %443, %442 ], [ %445, %444 ]
-  %.sink.i.i.i195 = phi i32 [ %423, %433 ], [ %423, %435 ], [ %427, %442 ], [ %427, %444 ]
+  %storemerge387 = phi ptr [ %436, %435 ], [ %434, %433 ], [ %443, %442 ], [ %445, %444 ]
+  %.sink.i.i.i195 = phi i32 [ %423, %435 ], [ %423, %433 ], [ %427, %442 ], [ %427, %444 ]
   store ptr %storemerge387, ptr %88, align 8, !tbaa !23
   store i32 %.sink.i.i.i195, ptr %86, align 8, !tbaa !28
   %.pre.i.i196 = load i32, ptr %87, align 4, !tbaa !22
@@ -4716,8 +4716,8 @@ Bac_BoxNtk.exit:                                  ; preds = %.critedge6, %Bac_Ma
   br label %Vec_IntGrow.exit.sink.split.i.i.i212
 
 Vec_IntGrow.exit.sink.split.i.i.i212:             ; preds = %536, %538, %527, %529
-  %storemerge388 = phi ptr [ %528, %527 ], [ %530, %529 ], [ %537, %536 ], [ %539, %538 ]
-  %.sink.i.i.i213 = phi i32 [ %517, %527 ], [ %517, %529 ], [ %521, %536 ], [ %521, %538 ]
+  %storemerge388 = phi ptr [ %530, %529 ], [ %528, %527 ], [ %537, %536 ], [ %539, %538 ]
+  %.sink.i.i.i213 = phi i32 [ %517, %529 ], [ %517, %527 ], [ %521, %536 ], [ %521, %538 ]
   store ptr %storemerge388, ptr %88, align 8, !tbaa !23
   store i32 %.sink.i.i.i213, ptr %86, align 8, !tbaa !28
   %.pre.i.i214 = load i32, ptr %87, align 4, !tbaa !22
@@ -4763,7 +4763,7 @@ Bac_ObjSetFanin.exit222..critedge4.loopexit_crit_edge: ; preds = %Bac_ObjSetFani
   br label %.critedge4, !llvm.loop !83
 
 .critedge4:                                       ; preds = %.lr.ph264, %.lr.ph264.preheader, %Bac_ObjSetFanin.exit222..critedge4.loopexit_crit_edge, %.critedge4.loopexit275, %.preheader, %Bac_BoxNtk.exit, %406
-  %.val113 = phi i32 [ %.val113.pre, %.critedge4.loopexit275 ], [ %.val113322, %.preheader ], [ %.val112261, %Bac_BoxNtk.exit ], [ %.val113322, %406 ], [ %.val112, %Bac_ObjSetFanin.exit222..critedge4.loopexit_crit_edge ], [ %.val112261, %.lr.ph264.preheader ], [ %.val112, %.lr.ph264 ]
+  %.val113 = phi i32 [ %.val113.pre, %.critedge4.loopexit275 ], [ %.val113322, %406 ], [ %.val113322, %.preheader ], [ %.val112261, %Bac_BoxNtk.exit ], [ %.val112261, %.lr.ph264.preheader ], [ %.val112, %Bac_ObjSetFanin.exit222..critedge4.loopexit_crit_edge ], [ %.val112, %.lr.ph264 ]
   %indvars.iv.next293 = add nuw nsw i64 %indvars.iv292, 1
   %552 = sext i32 %.val113 to i64
   %553 = icmp slt i64 %indvars.iv.next293, %552
@@ -5579,8 +5579,8 @@ Vec_IntAppend.exit:                               ; preds = %Vec_IntPush.exit.i,
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %189, %191, %181, %183
-  %.sink192 = phi ptr [ %182, %181 ], [ %184, %183 ], [ %190, %189 ], [ %192, %191 ]
-  %.sink = phi i32 [ 16, %181 ], [ 16, %183 ], [ %186, %189 ], [ %186, %191 ]
+  %.sink192 = phi ptr [ %184, %183 ], [ %182, %181 ], [ %190, %189 ], [ %192, %191 ]
+  %.sink = phi i32 [ 16, %183 ], [ 16, %181 ], [ %186, %189 ], [ %186, %191 ]
   store ptr %.sink192, ptr %6, align 8, !tbaa !23
   store i32 %.sink, ptr %3, align 8, !tbaa !28
   br label %Vec_IntPush.exit
@@ -5781,8 +5781,8 @@ Bac_ObjName.exit:                                 ; preds = %245, %250
   br label %Vec_IntGrow.exit.sink.split.i.i.i
 
 Vec_IntGrow.exit.sink.split.i.i.i:                ; preds = %272, %274, %263, %265
-  %storemerge = phi ptr [ %264, %263 ], [ %266, %265 ], [ %273, %272 ], [ %275, %274 ]
-  %.sink.i.i.i = phi i32 [ %253, %263 ], [ %253, %265 ], [ %257, %272 ], [ %257, %274 ]
+  %storemerge = phi ptr [ %266, %265 ], [ %264, %263 ], [ %273, %272 ], [ %275, %274 ]
+  %.sink.i.i.i = phi i32 [ %253, %265 ], [ %253, %263 ], [ %257, %272 ], [ %257, %274 ]
   store ptr %storemerge, ptr %229, align 8, !tbaa !23
   store i32 %.sink.i.i.i, ptr %206, align 8, !tbaa !28
   %.pre.i.i102 = load i32, ptr %223, align 4, !tbaa !22
@@ -5911,8 +5911,8 @@ Bac_ObjName.exit110:                              ; preds = %301, %306
   br label %Vec_IntGrow.exit.sink.split.i.i.i115
 
 Vec_IntGrow.exit.sink.split.i.i.i115:             ; preds = %328, %330, %319, %321
-  %storemerge176 = phi ptr [ %320, %319 ], [ %322, %321 ], [ %329, %328 ], [ %331, %330 ]
-  %.sink.i.i.i116 = phi i32 [ %309, %319 ], [ %309, %321 ], [ %313, %328 ], [ %313, %330 ]
+  %storemerge176 = phi ptr [ %322, %321 ], [ %320, %319 ], [ %329, %328 ], [ %331, %330 ]
+  %.sink.i.i.i116 = phi i32 [ %309, %321 ], [ %309, %319 ], [ %313, %328 ], [ %313, %330 ]
   store ptr %storemerge176, ptr %235, align 8, !tbaa !23
   store i32 %.sink.i.i.i116, ptr %206, align 8, !tbaa !28
   %.pre.i.i117 = load i32, ptr %223, align 4, !tbaa !22

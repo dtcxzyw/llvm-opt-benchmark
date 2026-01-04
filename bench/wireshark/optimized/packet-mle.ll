@@ -704,9 +704,9 @@ define internal i32 @dissect_mle(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %83, %80, %77, %75, %87
-  %90 = phi ptr [ %62, %75 ], [ %88, %87 ], [ %62, %77 ], [ %62, %80 ], [ %62, %83 ]
-  %91 = phi ptr [ %61, %75 ], [ %89, %87 ], [ %61, %77 ], [ %61, %80 ], [ %61, %83 ]
-  %.0644 = phi ptr [ null, %75 ], [ null, %87 ], [ null, %77 ], [ %79, %80 ], [ %79, %83 ]
+  %90 = phi ptr [ %88, %87 ], [ %62, %75 ], [ %62, %77 ], [ %62, %80 ], [ %62, %83 ]
+  %91 = phi ptr [ %89, %87 ], [ %61, %75 ], [ %61, %77 ], [ %61, %80 ], [ %61, %83 ]
+  %.0644 = phi ptr [ null, %87 ], [ null, %75 ], [ null, %77 ], [ %79, %80 ], [ %79, %83 ]
   %.0..0..0..0.422 = load volatile ptr, ptr %5, align 8
   %.not682 = icmp eq ptr %.0..0..0..0.422, null
   br i1 %.not682, label %92, label %99
@@ -2555,7 +2555,7 @@ define internal ptr @dissect_mle_decrypt(ptr noundef %0, i32 noundef %1, ptr nou
   br label %77
 
 77:                                               ; preds = %.thread, %75
-  %.198 = phi ptr [ %76, %75 ], [ %63, %.thread ]
+  %.198 = phi ptr [ %63, %.thread ], [ %76, %75 ]
   %78 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %79 = load ptr, ptr %78, align 8
   store i32 0, ptr %79, align 4

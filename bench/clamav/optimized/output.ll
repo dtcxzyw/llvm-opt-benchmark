@@ -233,9 +233,9 @@ define i32 @mdprintf(i32 noundef %0, ptr noundef readonly captures(none) %1, ...
   br label %80
 
 80:                                               ; preds = %78, %._crit_edge
-  %.068 = phi ptr [ %4, %._crit_edge ], [ %., %78 ]
-  %.062 = phi i64 [ 512, %._crit_edge ], [ %.89, %78 ]
-  %.058 = phi ptr [ null, %._crit_edge ], [ %79, %78 ]
+  %.068 = phi ptr [ %., %78 ], [ %4, %._crit_edge ]
+  %.062 = phi i64 [ %.89, %78 ], [ 512, %._crit_edge ]
+  %.058 = phi ptr [ %79, %78 ], [ null, %._crit_edge ]
   call void @llvm.va_start.p0(ptr nonnull %3)
   %81 = call i32 @vsnprintf(ptr noundef nonnull %.068, i64 noundef %.062, ptr noundef nonnull %1, ptr noundef nonnull %3) #18
   call void @llvm.va_end.p0(ptr nonnull %3)
@@ -604,9 +604,9 @@ define range(i32 -1, 1) i32 @logg(i32 noundef %0, ptr noundef readonly captures(
   br label %95
 
 95:                                               ; preds = %93, %._crit_edge
-  %.091 = phi ptr [ null, %._crit_edge ], [ %94, %93 ]
-  %.090 = phi ptr [ %7, %._crit_edge ], [ %.117, %93 ]
-  %.089 = phi i64 [ 1025, %._crit_edge ], [ %.118, %93 ]
+  %.091 = phi ptr [ %94, %93 ], [ null, %._crit_edge ]
+  %.090 = phi ptr [ %.117, %93 ], [ %7, %._crit_edge ]
+  %.089 = phi i64 [ %.118, %93 ], [ 1025, %._crit_edge ]
   call void @llvm.va_start.p0(ptr nonnull %6)
   %96 = call i32 @vsnprintf(ptr noundef nonnull %.090, i64 noundef %.089, ptr noundef nonnull %1, ptr noundef nonnull %6) #18
   call void @llvm.va_end.p0(ptr nonnull %6)
@@ -876,7 +876,7 @@ thread-pre-split:                                 ; preds = %190, %182
   br label %.thread123
 
 .thread123:                                       ; preds = %219, %205
-  %.sink = phi ptr [ %202, %205 ], [ %.pre, %219 ]
+  %.sink = phi ptr [ %.pre, %219 ], [ %202, %205 ]
   %fputs109 = call i32 @fputs(ptr nonnull %.090, ptr %.sink)
   br i1 %.not107, label %.critedge120, label %224
 
@@ -943,7 +943,7 @@ thread-pre-split:                                 ; preds = %190, %182
   br label %.sink.split
 
 .sink.split:                                      ; preds = %243, %241, %239
-  %.sink151 = phi i32 [ 3, %239 ], [ 4, %241 ], [ %., %243 ]
+  %.sink151 = phi i32 [ 3, %239 ], [ %., %243 ], [ 4, %241 ]
   call void (i32, ptr, ...) @syslog(i32 noundef %.sink151, ptr noundef nonnull @.str.8, ptr noundef nonnull %.090) #18
   br label %245
 
@@ -957,7 +957,7 @@ thread-pre-split:                                 ; preds = %190, %182
   br label %.critedge
 
 .critedge:                                        ; preds = %166, %179, %199, %245, %247, %2, %18
-  %.083 = phi i32 [ 0, %18 ], [ 0, %2 ], [ 0, %247 ], [ 0, %245 ], [ -1, %199 ], [ -1, %179 ], [ -1, %166 ]
+  %.083 = phi i32 [ 0, %245 ], [ 0, %2 ], [ 0, %18 ], [ 0, %247 ], [ -1, %199 ], [ -1, %179 ], [ -1, %166 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1160,9 +1160,9 @@ define void @mprintf(i32 noundef %0, ptr noundef readonly captures(none) %1, ...
   br label %81
 
 81:                                               ; preds = %79, %._crit_edge
-  %.047 = phi ptr [ null, %._crit_edge ], [ %80, %79 ]
-  %.046 = phi ptr [ %4, %._crit_edge ], [ %.67, %79 ]
-  %.045 = phi i64 [ 512, %._crit_edge ], [ %.68, %79 ]
+  %.047 = phi ptr [ %80, %79 ], [ null, %._crit_edge ]
+  %.046 = phi ptr [ %.67, %79 ], [ %4, %._crit_edge ]
+  %.045 = phi i64 [ %.68, %79 ], [ 512, %._crit_edge ]
   call void @llvm.va_start.p0(ptr nonnull %3)
   %82 = call i32 @vsnprintf(ptr noundef nonnull %.046, i64 noundef %.045, ptr noundef nonnull %1, ptr noundef nonnull %3) #18
   call void @llvm.va_end.p0(ptr nonnull %3)

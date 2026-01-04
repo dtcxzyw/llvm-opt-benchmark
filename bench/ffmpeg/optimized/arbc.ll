@@ -387,7 +387,7 @@ bytestream2_get_le16.exit.i:                      ; preds = %161, %160
   br label %200
 
 200:                                              ; preds = %177, %175, %173, %172
-  %.4.i = phi i32 [ %.269.i, %175 ], [ %.269.i, %173 ], [ %199, %177 ], [ %.269.i, %172 ]
+  %.4.i = phi i32 [ %.269.i, %173 ], [ %.269.i, %175 ], [ %199, %177 ], [ %.269.i, %172 ]
   %.258.i = shl i16 %.15768.i, 1
   %201 = add nuw nsw i32 %.070.i, 1
   %exitcond.not.i = icmp eq i32 %.070.i, %164
@@ -398,7 +398,7 @@ bytestream2_get_le16.exit.i:                      ; preds = %161, %160
   br label %.thread127
 
 .thread127:                                       ; preds = %202, %107, %.thread118, %bytestream2_get_le16.exit63.i
-  %.277124 = phi i32 [ %203, %202 ], [ %.6, %bytestream2_get_le16.exit63.i ], [ %.075135, %.thread118 ], [ %.6, %107 ]
+  %.277124 = phi i32 [ %.6, %bytestream2_get_le16.exit63.i ], [ %203, %202 ], [ %.075135, %.thread118 ], [ %.6, %107 ]
   %204 = add nuw nsw i32 %.072136, 1
   %exitcond.not = icmp eq i32 %204, %24
   br i1 %exitcond.not, label %.thread131, label %41, !llvm.loop !47
@@ -425,7 +425,7 @@ bytestream2_get_le16.exit.i:                      ; preds = %161, %160
   br label %.thread129
 
 .thread129:                                       ; preds = %41, %bytestream2_get_le16.exit, %.thread131, %36, %29, %26, %4, %208
-  %.0 = phi i32 [ %215, %208 ], [ -1094995529, %4 ], [ -1094995529, %26 ], [ %30, %29 ], [ %37, %36 ], [ %206, %.thread131 ], [ %13, %bytestream2_get_le16.exit ], [ -1094995529, %41 ]
+  %.0 = phi i32 [ %13, %bytestream2_get_le16.exit ], [ %206, %.thread131 ], [ -1094995529, %4 ], [ -1094995529, %26 ], [ %30, %29 ], [ %37, %36 ], [ %215, %208 ], [ -1094995529, %41 ]
   ret i32 %.0
 }
 

@@ -435,7 +435,7 @@ define dso_local range(i64 0, 8589934592) i64 @_ZNK5clang5RISCV8LMULType8getScal
   br label %17
 
 17:                                               ; preds = %15, %12, %9, %6
-  %.0 = phi i32 [ %8, %6 ], [ %11, %9 ], [ %14, %12 ], [ %16, %15 ]
+  %.0 = phi i32 [ %16, %15 ], [ %8, %6 ], [ %11, %9 ], [ %14, %12 ]
   %18 = icmp slt i32 %.0, 0
   br i1 %18, label %22, label %.thread
 
@@ -650,7 +650,7 @@ _ZNSt8optionalIjEaSIiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remov
   br label %50
 
 50:                                               ; preds = %48, %45, %42, %39
-  %.0.i = phi i32 [ %41, %39 ], [ %44, %42 ], [ %47, %45 ], [ %49, %48 ]
+  %.0.i = phi i32 [ %49, %48 ], [ %41, %39 ], [ %44, %42 ], [ %47, %45 ]
   %51 = icmp slt i32 %.0.i, 0
   br i1 %51, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit, label %.thread.i
 
@@ -785,7 +785,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit:        ; preds = %50, %.thread.i
   br label %90
 
 90:                                               ; preds = %.split.i19, %88, %86, %84
-  %.0.i20 = phi i32 [ %85, %84 ], [ %87, %86 ], [ %89, %88 ], [ %80, %.split.i19 ]
+  %.0.i20 = phi i32 [ %89, %88 ], [ %85, %84 ], [ %87, %86 ], [ %80, %.split.i19 ]
   %91 = icmp slt i32 %.0.i20, 0
   br i1 %91, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit21, label %.thread.i16
 
@@ -837,7 +837,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit21:      ; preds = %90, %.thread.i16
   br label %112
 
 112:                                              ; preds = %.split.i25, %110, %108, %106
-  %.0.i26 = phi i32 [ %107, %106 ], [ %109, %108 ], [ %111, %110 ], [ %102, %.split.i25 ]
+  %.0.i26 = phi i32 [ %111, %110 ], [ %107, %106 ], [ %109, %108 ], [ %102, %.split.i25 ]
   %113 = icmp slt i32 %.0.i26, 0
   br i1 %113, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit27, label %.thread.i22
 
@@ -889,7 +889,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit27:      ; preds = %112, %.thread.i22
   br label %134
 
 134:                                              ; preds = %.split.i31, %132, %130, %128
-  %.0.i32 = phi i32 [ %129, %128 ], [ %131, %130 ], [ %133, %132 ], [ %124, %.split.i31 ]
+  %.0.i32 = phi i32 [ %133, %132 ], [ %129, %128 ], [ %131, %130 ], [ %124, %.split.i31 ]
   %135 = icmp slt i32 %.0.i32, 0
   br i1 %135, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit33, label %.thread.i28
 
@@ -945,7 +945,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit33:      ; preds = %134, %.thread.i28
   br label %159
 
 159:                                              ; preds = %157, %154, %151, %148
-  %.0.i38 = phi i32 [ %150, %148 ], [ %153, %151 ], [ %156, %154 ], [ %158, %157 ]
+  %.0.i38 = phi i32 [ %158, %157 ], [ %150, %148 ], [ %153, %151 ], [ %156, %154 ]
   %160 = icmp slt i32 %.0.i38, 0
   br i1 %160, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit39, label %.thread.i34
 
@@ -1194,7 +1194,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit.i60:    ; preds = %262
   br label %293
 
 293:                                              ; preds = %291, %289, %287, %.split.i.i
-  %.0.i.i = phi i32 [ %288, %287 ], [ %290, %289 ], [ %292, %291 ], [ %281, %.split.i.i ]
+  %.0.i.i = phi i32 [ %292, %291 ], [ %288, %287 ], [ %290, %289 ], [ %281, %.split.i.i ]
   %294 = icmp slt i32 %.0.i.i, 0
   br i1 %294, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i64, label %.thread.i.i63
 
@@ -1256,7 +1256,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit.i64:    ; preds = %.thread.i.i63, %293
   br label %317
 
 317:                                              ; preds = %315, %313, %311, %.split.i.i71
-  %.0.i.i72 = phi i32 [ %312, %311 ], [ %314, %313 ], [ %316, %315 ], [ %305, %.split.i.i71 ]
+  %.0.i.i72 = phi i32 [ %316, %315 ], [ %312, %311 ], [ %314, %313 ], [ %305, %.split.i.i71 ]
   %318 = icmp slt i32 %.0.i.i72, 0
   br i1 %318, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i69, label %.thread.i.i67
 
@@ -1318,7 +1318,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit.i69:    ; preds = %.thread.i.i67, %317
   br label %341
 
 341:                                              ; preds = %339, %337, %335, %.split.i.i79
-  %.0.i.i80 = phi i32 [ %336, %335 ], [ %338, %337 ], [ %340, %339 ], [ %329, %.split.i.i79 ]
+  %.0.i.i80 = phi i32 [ %340, %339 ], [ %336, %335 ], [ %338, %337 ], [ %329, %.split.i.i79 ]
   %342 = icmp slt i32 %.0.i.i80, 0
   br i1 %342, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i77, label %.thread.i.i75
 
@@ -1380,7 +1380,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit.i77:    ; preds = %.thread.i.i75, %341
   br label %365
 
 365:                                              ; preds = %363, %361, %359, %.split.i.i87
-  %.0.i.i88 = phi i32 [ %360, %359 ], [ %362, %361 ], [ %364, %363 ], [ %353, %.split.i.i87 ]
+  %.0.i.i88 = phi i32 [ %364, %363 ], [ %360, %359 ], [ %362, %361 ], [ %353, %.split.i.i87 ]
   %366 = icmp slt i32 %.0.i.i88, 0
   br i1 %366, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i85, label %.thread.i.i83
 
@@ -1442,7 +1442,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit.i85:    ; preds = %.thread.i.i83, %365
   br label %389
 
 389:                                              ; preds = %387, %385, %383, %.split.i.i95
-  %.0.i.i96 = phi i32 [ %384, %383 ], [ %386, %385 ], [ %388, %387 ], [ %377, %.split.i.i95 ]
+  %.0.i.i96 = phi i32 [ %388, %387 ], [ %384, %383 ], [ %386, %385 ], [ %377, %.split.i.i95 ]
   %390 = icmp slt i32 %.0.i.i96, 0
   br i1 %390, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i93, label %.thread.i.i91
 
@@ -1504,7 +1504,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit.i93:    ; preds = %.thread.i.i91, %389
   br label %413
 
 413:                                              ; preds = %411, %409, %407, %.split.i.i103
-  %.0.i.i104 = phi i32 [ %408, %407 ], [ %410, %409 ], [ %412, %411 ], [ %401, %.split.i.i103 ]
+  %.0.i.i104 = phi i32 [ %412, %411 ], [ %408, %407 ], [ %410, %409 ], [ %401, %.split.i.i103 ]
   %414 = icmp slt i32 %.0.i.i104, 0
   br i1 %414, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i101, label %.thread.i.i99
 
@@ -1566,7 +1566,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit.i101:   ; preds = %.thread.i.i99, %413
   br label %437
 
 437:                                              ; preds = %435, %433, %431, %.split.i.i111
-  %.0.i.i112 = phi i32 [ %432, %431 ], [ %434, %433 ], [ %436, %435 ], [ %425, %.split.i.i111 ]
+  %.0.i.i112 = phi i32 [ %436, %435 ], [ %432, %431 ], [ %434, %433 ], [ %425, %.split.i.i111 ]
   %438 = icmp slt i32 %.0.i.i112, 0
   br i1 %438, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i109, label %.thread.i.i107
 
@@ -1628,7 +1628,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit.i109:   ; preds = %.thread.i.i107, %43
   br label %461
 
 461:                                              ; preds = %459, %457, %455, %.split.i.i118
-  %.0.i.i119 = phi i32 [ %456, %455 ], [ %458, %457 ], [ %460, %459 ], [ %449, %.split.i.i118 ]
+  %.0.i.i119 = phi i32 [ %460, %459 ], [ %456, %455 ], [ %458, %457 ], [ %449, %.split.i.i118 ]
   %462 = icmp slt i32 %.0.i.i119, 0
   br i1 %462, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i116, label %.thread.i.i114
 
@@ -1690,7 +1690,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit.i116:   ; preds = %.thread.i.i114, %46
   br label %485
 
 485:                                              ; preds = %483, %481, %479, %.split.i.i126
-  %.0.i.i127 = phi i32 [ %480, %479 ], [ %482, %481 ], [ %484, %483 ], [ %473, %.split.i.i126 ]
+  %.0.i.i127 = phi i32 [ %484, %483 ], [ %480, %479 ], [ %482, %481 ], [ %473, %.split.i.i126 ]
   %486 = icmp slt i32 %.0.i.i127, 0
   br i1 %486, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i124, label %.thread.i.i122
 
@@ -1752,7 +1752,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit.i124:   ; preds = %.thread.i.i122, %48
   br label %509
 
 509:                                              ; preds = %507, %505, %503, %.split.i.i134
-  %.0.i.i135 = phi i32 [ %504, %503 ], [ %506, %505 ], [ %508, %507 ], [ %497, %.split.i.i134 ]
+  %.0.i.i135 = phi i32 [ %508, %507 ], [ %504, %503 ], [ %506, %505 ], [ %497, %.split.i.i134 ]
   %510 = icmp slt i32 %.0.i.i135, 0
   br i1 %510, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i132, label %.thread.i.i130
 
@@ -1814,7 +1814,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit.i132:   ; preds = %.thread.i.i130, %50
   br label %533
 
 533:                                              ; preds = %531, %529, %527, %.split.i.i142
-  %.0.i.i143 = phi i32 [ %528, %527 ], [ %530, %529 ], [ %532, %531 ], [ %521, %.split.i.i142 ]
+  %.0.i.i143 = phi i32 [ %532, %531 ], [ %528, %527 ], [ %530, %529 ], [ %521, %.split.i.i142 ]
   %534 = icmp slt i32 %.0.i.i143, 0
   br i1 %534, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i140, label %.thread.i.i138
 
@@ -1876,7 +1876,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit.i140:   ; preds = %.thread.i.i138, %53
   br label %557
 
 557:                                              ; preds = %555, %553, %551, %.split.i.i150
-  %.0.i.i151 = phi i32 [ %552, %551 ], [ %554, %553 ], [ %556, %555 ], [ %545, %.split.i.i150 ]
+  %.0.i.i151 = phi i32 [ %556, %555 ], [ %552, %551 ], [ %554, %553 ], [ %545, %.split.i.i150 ]
   %558 = icmp slt i32 %.0.i.i151, 0
   br i1 %558, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i148, label %.thread.i.i146
 
@@ -1938,7 +1938,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit.i148:   ; preds = %.thread.i.i146, %55
   br label %581
 
 581:                                              ; preds = %579, %577, %575, %.split.i.i158
-  %.0.i.i159 = phi i32 [ %576, %575 ], [ %578, %577 ], [ %580, %579 ], [ %569, %.split.i.i158 ]
+  %.0.i.i159 = phi i32 [ %580, %579 ], [ %576, %575 ], [ %578, %577 ], [ %569, %.split.i.i158 ]
   %582 = icmp slt i32 %.0.i.i159, 0
   br i1 %582, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i156, label %.thread.i.i154
 
@@ -2000,7 +2000,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit.i156:   ; preds = %.thread.i.i154, %58
   br label %605
 
 605:                                              ; preds = %603, %601, %599, %.split.i.i166
-  %.0.i.i167 = phi i32 [ %600, %599 ], [ %602, %601 ], [ %604, %603 ], [ %593, %.split.i.i166 ]
+  %.0.i.i167 = phi i32 [ %604, %603 ], [ %600, %599 ], [ %602, %601 ], [ %593, %.split.i.i166 ]
   %606 = icmp slt i32 %.0.i.i167, 0
   br i1 %606, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i164, label %.thread.i.i162
 
@@ -2062,7 +2062,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit.i164:   ; preds = %.thread.i.i162, %60
   br label %630
 
 630:                                              ; preds = %628, %626, %624, %.split.i.i173
-  %.0.i.i174 = phi i32 [ %625, %624 ], [ %627, %626 ], [ %629, %628 ], [ %618, %.split.i.i173 ]
+  %.0.i.i174 = phi i32 [ %629, %628 ], [ %625, %624 ], [ %627, %626 ], [ %618, %.split.i.i173 ]
   %631 = icmp slt i32 %.0.i.i174, 0
   br i1 %631, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i171, label %.thread.i.i169
 
@@ -2124,7 +2124,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit.i171:   ; preds = %.thread.i.i169, %63
   br label %655
 
 655:                                              ; preds = %653, %651, %649, %.split.i.i180
-  %.0.i.i181 = phi i32 [ %650, %649 ], [ %652, %651 ], [ %654, %653 ], [ %643, %.split.i.i180 ]
+  %.0.i.i181 = phi i32 [ %654, %653 ], [ %650, %649 ], [ %652, %651 ], [ %643, %.split.i.i180 ]
   %656 = icmp slt i32 %.0.i.i181, 0
   br i1 %656, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i178, label %.thread.i.i176
 
@@ -2186,7 +2186,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit.i178:   ; preds = %.thread.i.i176, %65
   br label %680
 
 680:                                              ; preds = %678, %676, %674, %.split.i.i187
-  %.0.i.i188 = phi i32 [ %675, %674 ], [ %677, %676 ], [ %679, %678 ], [ %668, %.split.i.i187 ]
+  %.0.i.i188 = phi i32 [ %679, %678 ], [ %675, %674 ], [ %677, %676 ], [ %668, %.split.i.i187 ]
   %681 = icmp slt i32 %.0.i.i188, 0
   br i1 %681, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i185, label %.thread.i.i183
 
@@ -2248,7 +2248,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit.i185:   ; preds = %.thread.i.i183, %68
   br label %705
 
 705:                                              ; preds = %703, %701, %699, %.split.i.i194
-  %.0.i.i195 = phi i32 [ %700, %699 ], [ %702, %701 ], [ %704, %703 ], [ %693, %.split.i.i194 ]
+  %.0.i.i195 = phi i32 [ %704, %703 ], [ %700, %699 ], [ %702, %701 ], [ %693, %.split.i.i194 ]
   %706 = icmp slt i32 %.0.i.i195, 0
   br i1 %706, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i192, label %.thread.i.i190
 
@@ -2310,7 +2310,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit.i192:   ; preds = %.thread.i.i190, %70
   br label %730
 
 730:                                              ; preds = %728, %726, %724, %.split.i.i201
-  %.0.i.i202 = phi i32 [ %725, %724 ], [ %727, %726 ], [ %729, %728 ], [ %718, %.split.i.i201 ]
+  %.0.i.i202 = phi i32 [ %729, %728 ], [ %725, %724 ], [ %727, %726 ], [ %718, %.split.i.i201 ]
   %731 = icmp slt i32 %.0.i.i202, 0
   br i1 %731, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i199, label %.thread.i.i197
 
@@ -2372,7 +2372,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit.i199:   ; preds = %.thread.i.i197, %73
   br label %755
 
 755:                                              ; preds = %753, %751, %749, %.split.i.i208
-  %.0.i.i209 = phi i32 [ %750, %749 ], [ %752, %751 ], [ %754, %753 ], [ %743, %.split.i.i208 ]
+  %.0.i.i209 = phi i32 [ %754, %753 ], [ %750, %749 ], [ %752, %751 ], [ %743, %.split.i.i208 ]
   %756 = icmp slt i32 %.0.i.i209, 0
   br i1 %756, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i206, label %.thread.i.i204
 
@@ -2434,7 +2434,7 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit.i206:   ; preds = %.thread.i.i204, %75
   br label %780
 
 780:                                              ; preds = %778, %776, %774, %.split.i.i215
-  %.0.i.i216 = phi i32 [ %775, %774 ], [ %777, %776 ], [ %779, %778 ], [ %768, %.split.i.i215 ]
+  %.0.i.i216 = phi i32 [ %779, %778 ], [ %775, %774 ], [ %777, %776 ], [ %768, %.split.i.i215 ]
   %781 = icmp slt i32 %.0.i.i216, 0
   br i1 %781, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i213, label %.thread.i.i211
 
@@ -2560,7 +2560,7 @@ _ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit:    ; preds = %_ZNK5clang5RISCV8LM
   br label %827
 
 827:                                              ; preds = %.split.i221, %825, %823, %821
-  %.0.i222 = phi i32 [ %822, %821 ], [ %824, %823 ], [ %826, %825 ], [ %816, %.split.i221 ]
+  %.0.i222 = phi i32 [ %826, %825 ], [ %822, %821 ], [ %824, %823 ], [ %816, %.split.i221 ]
   %828 = icmp slt i32 %.0.i222, 0
   br i1 %828, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit223, label %.thread.i218
 
@@ -2702,7 +2702,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang5RISCV7RVVType10verifyTypeEv(ptr 
   br label %_ZN4llvm13isPowerOf2_32Ej.exit
 
 _ZN4llvm13isPowerOf2_32Ej.exit:                   ; preds = %5, %52, %47, %42, %37, %54, %49, %44, %39, %.critedge, %.split, %29, %24, %18, %13, %1
-  %.0 = phi i1 [ false, %1 ], [ %12, %5 ], [ false, %13 ], [ false, %18 ], [ false, %24 ], [ false, %29 ], [ false, %37 ], [ false, %42 ], [ false, %47 ], [ false, %52 ], [ false, %.critedge ], [ false, %.split ], [ %41, %39 ], [ %46, %44 ], [ %51, %49 ], [ %56, %54 ]
+  %.0 = phi i1 [ %12, %5 ], [ false, %1 ], [ %56, %54 ], [ false, %13 ], [ false, %18 ], [ false, %24 ], [ false, %29 ], [ %51, %49 ], [ %46, %44 ], [ false, %.split ], [ %41, %39 ], [ false, %37 ], [ false, %42 ], [ false, %47 ], [ false, %52 ], [ false, %.critedge ]
   ret i1 %.0
 }
 
@@ -5581,11 +5581,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit41:                ; preds = %3
   br label %_ZN4llvmplERKNS_5TwineES2_.exit56
 
 _ZN4llvmplERKNS_5TwineES2_.exit56:                ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit41, %44, %45
-  %.sink68 = phi i8 [ 4, %44 ], [ %.014.i.i45, %45 ], [ %43, %_ZN4llvmplERKNS_5TwineES2_.exit41 ]
-  %.sink = phi i8 [ 1, %44 ], [ 4, %45 ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit41 ]
-  %.sroa.56.0.copyload.i.i59 = phi i64 [ undef, %44 ], [ %.sroa.56.0.i.i47, %45 ], [ undef, %_ZN4llvmplERKNS_5TwineES2_.exit41 ]
-  %.sroa.05.0.copyload.i.i57 = phi ptr [ %13, %44 ], [ %.sroa.05.0.i.i46, %45 ], [ undef, %_ZN4llvmplERKNS_5TwineES2_.exit41 ]
-  %49 = phi i1 [ true, %44 ], [ false, %45 ], [ true, %_ZN4llvmplERKNS_5TwineES2_.exit41 ]
+  %.sink68 = phi i8 [ %.014.i.i45, %45 ], [ 4, %44 ], [ %43, %_ZN4llvmplERKNS_5TwineES2_.exit41 ]
+  %.sink = phi i8 [ 4, %45 ], [ 1, %44 ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit41 ]
+  %.sroa.56.0.copyload.i.i59 = phi i64 [ %.sroa.56.0.i.i47, %45 ], [ undef, %44 ], [ undef, %_ZN4llvmplERKNS_5TwineES2_.exit41 ]
+  %.sroa.05.0.copyload.i.i57 = phi ptr [ %.sroa.05.0.i.i46, %45 ], [ %13, %44 ], [ undef, %_ZN4llvmplERKNS_5TwineES2_.exit41 ]
+  %49 = phi i1 [ false, %45 ], [ true, %44 ], [ true, %_ZN4llvmplERKNS_5TwineES2_.exit41 ]
   %50 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i8 %.sink68, ptr %50, align 8, !tbaa !143
   %51 = getelementptr inbounds nuw i8, ptr %10, i64 33
@@ -7215,8 +7215,8 @@ define dso_local range(i32 16777216, 33554432) i32 @_ZN5clang5RISCV19PrototypeDe
   unreachable
 
 27:                                               ; preds = %11, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15
-  %.024 = phi i8 [ 0, %15 ], [ 1, %16 ], [ 2, %17 ], [ 3, %18 ], [ 4, %19 ], [ 0, %20 ], [ 0, %21 ], [ 0, %22 ], [ 0, %23 ], [ 0, %24 ], [ 0, %25 ], [ 0, %11 ]
-  %.0 = phi i32 [ 2, %15 ], [ 2, %16 ], [ 2, %17 ], [ 2, %18 ], [ 2, %19 ], [ 3, %20 ], [ 4, %21 ], [ 5, %22 ], [ 6, %23 ], [ 7, %24 ], [ 8, %25 ], [ 1, %11 ]
+  %.024 = phi i8 [ 0, %25 ], [ 0, %15 ], [ 1, %16 ], [ 2, %17 ], [ 3, %18 ], [ 4, %19 ], [ 0, %20 ], [ 0, %21 ], [ 0, %22 ], [ 0, %23 ], [ 0, %24 ], [ 0, %11 ]
+  %.0 = phi i32 [ 8, %25 ], [ 2, %15 ], [ 2, %16 ], [ 2, %17 ], [ 2, %18 ], [ 2, %19 ], [ 3, %20 ], [ 4, %21 ], [ 5, %22 ], [ 6, %23 ], [ 7, %24 ], [ 1, %11 ]
   %28 = add i64 %1, -1
   %.not.i = icmp eq i64 %28, 0
   br i1 %.not.i, label %.loopexit, label %_ZNK4llvm9StringRef11starts_withES0_.exit
@@ -7489,7 +7489,7 @@ define dso_local void @_ZN5clang5RISCV7RVVType12applyLog2EEWEj(ptr noundef nonnu
   br label %18
 
 18:                                               ; preds = %2, %16, %14, %12
-  %.0.i = phi i32 [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %9, %2 ]
+  %.0.i = phi i32 [ %17, %16 ], [ %13, %12 ], [ %15, %14 ], [ %9, %2 ]
   %19 = icmp slt i32 %.0.i, 0
   br i1 %19, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit, label %.thread.i
 
@@ -7555,7 +7555,7 @@ define dso_local void @_ZN5clang5RISCV7RVVType13applyFixedSEWEj(ptr noundef nonn
   br label %24
 
 24:                                               ; preds = %22, %19, %16, %13
-  %.0.i = phi i32 [ %15, %13 ], [ %18, %16 ], [ %21, %19 ], [ %23, %22 ]
+  %.0.i = phi i32 [ %23, %22 ], [ %15, %13 ], [ %18, %16 ], [ %21, %19 ]
   %25 = icmp slt i32 %.0.i, 0
   br i1 %25, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit, label %.thread.i
 
@@ -7653,7 +7653,7 @@ define dso_local void @_ZN5clang5RISCV7RVVType18applyFixedLog2LMULEiNS1_13FixedL
   br label %35
 
 35:                                               ; preds = %.split.i, %33, %31, %29
-  %.0.i = phi i32 [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %23, %.split.i ]
+  %.0.i = phi i32 [ %34, %33 ], [ %30, %29 ], [ %32, %31 ], [ %23, %.split.i ]
   %36 = icmp slt i32 %.0.i, 0
   br i1 %36, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit, label %.thread.i
 
@@ -7868,11 +7868,11 @@ define dso_local { ptr, i8 } @_ZN5clang5RISCV12RVVTypeCache11computeTypeENS0_9Ba
   br label %.loopexit, !llvm.loop !230
 
 _ZNSt13unordered_mapImN5clang5RISCV7RVVTypeESt4hashImESt8equal_toImESaISt4pairIKmS2_EEE4findERS8_.exit: ; preds = %44, %28, %39
-  %.sroa.06.1.i.i = phi ptr [ %40, %39 ], [ %.sroa.06.0.i.i, %28 ], [ %46, %44 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %28 ], [ %40, %39 ], [ %46, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   br label %139
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %27, %32, %..loopexit_crit_edge21.i.i.i.i
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %27, %..loopexit_crit_edge21.i.i.i.i, %32
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %53 = load ptr, ptr %52, align 8, !tbaa !231
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -7902,7 +7902,7 @@ _ZNKSt3setImSt4lessImESaImEE5countERKm.exit:      ; preds = %_ZNKSt8_Rb_treeImmS
   %.not21 = icmp ult i64 %22, %60
   br i1 %.not21, label %_ZNKSt3setImSt4lessImESaImEE5countERKm.exit.thread, label %139
 
-_ZNKSt3setImSt4lessImESaImEE5countERKm.exit.thread: ; preds = %.loopexit, %_ZNKSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPKSt13_Rb_tree_nodeImEPKSt18_Rb_tree_node_baseRKm.exit.i.i, %_ZNKSt3setImSt4lessImESaImEE5countERKm.exit
+_ZNKSt3setImSt4lessImESaImEE5countERKm.exit.thread: ; preds = %_ZNKSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPKSt13_Rb_tree_nodeImEPKSt18_Rb_tree_node_baseRKm.exit.i.i, %.loopexit, %_ZNKSt3setImSt4lessImESaImEE5countERKm.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5clang5RISCV7RVVTypeC1ENS0_9BasicTypeEiRKNS0_19PrototypeDescriptorE(ptr noundef nonnull align 8 dereferenceable(160) %6, i8 noundef zeroext %1, i32 noundef %2, ptr noundef nonnull align 1 dereferenceable(3) %5) #23
   %61 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -8023,7 +8023,7 @@ select.unfold.i.i:                                ; preds = %101, %._crit_edge.t
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i: ; preds = %105, %select.unfold.i.i
-  %109 = phi i1 [ true, %select.unfold.i.i ], [ %108, %105 ]
+  %109 = phi i1 [ %108, %105 ], [ true, %select.unfold.i.i ]
   %110 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 32
   store i64 %22, ptr %111, align 8, !tbaa !21
@@ -10156,7 +10156,7 @@ _ZSt6fill_nIPN5clang5RISCV19PrototypeDescriptorEmS2_ET_S4_T0_RKT1_.exit44: ; pre
   br i1 %.not.i.i.i45, label %_ZSt6fill_nIPN5clang5RISCV19PrototypeDescriptorEmS2_ET_S4_T0_RKT1_.exit, label %.lr.ph.i.i.i, !llvm.loop !309
 
 _ZSt6fill_nIPN5clang5RISCV19PrototypeDescriptorEmS2_ET_S4_T0_RKT1_.exit: ; preds = %.lr.ph.i.i.i.i36, %.lr.ph.i.i.i, %_ZSt6fill_nIPN5clang5RISCV19PrototypeDescriptorEmS2_ET_S4_T0_RKT1_.exit44, %_ZSt13move_backwardIPN5clang5RISCV19PrototypeDescriptorES3_ET0_T_S5_S4_.exit, %_ZN4llvm15SmallVectorImplIN5clang5RISCV19PrototypeDescriptorEE6appendEmS3_.exit
-  %.0 = phi ptr [ %26, %_ZN4llvm15SmallVectorImplIN5clang5RISCV19PrototypeDescriptorEE6appendEmS3_.exit ], [ %32, %_ZSt13move_backwardIPN5clang5RISCV19PrototypeDescriptorES3_ET0_T_S5_S4_.exit ], [ %32, %_ZSt6fill_nIPN5clang5RISCV19PrototypeDescriptorEmS2_ET_S4_T0_RKT1_.exit44 ], [ %32, %.lr.ph.i.i.i ], [ %32, %.lr.ph.i.i.i.i36 ]
+  %.0 = phi ptr [ %26, %_ZN4llvm15SmallVectorImplIN5clang5RISCV19PrototypeDescriptorEE6appendEmS3_.exit ], [ %32, %.lr.ph.i.i.i ], [ %32, %_ZSt13move_backwardIPN5clang5RISCV19PrototypeDescriptorES3_ET0_T_S5_S4_.exit ], [ %32, %_ZSt6fill_nIPN5clang5RISCV19PrototypeDescriptorEmS2_ET_S4_T0_RKT1_.exit44 ], [ %32, %.lr.ph.i.i.i.i36 ]
   ret ptr %.0
 }
 
@@ -11348,7 +11348,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableImSt4pairIKmN5clang5RISCV7RVVT
   br label %_ZNSt10_HashtableImSt4pairIKmN5clang5RISCV7RVVTypeEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
 _ZNKSt10_HashtableImSt4pairIKmN5clang5RISCV7RVVTypeEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit: ; preds = %31, %17, %26
-  %.sroa.031.0.ph = phi ptr [ %27, %26 ], [ %.sroa.024.0, %17 ], [ %33, %31 ]
+  %.sroa.031.0.ph = phi ptr [ %.sroa.024.0, %17 ], [ %27, %26 ], [ %33, %31 ]
   tail call void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmN5clang5RISCV7RVVTypeEELb0EEEEE18_M_deallocate_nodeEPS8_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %3)
   br label %_ZNSt10_HashtableImSt4pairIKmN5clang5RISCV7RVVTypeEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 

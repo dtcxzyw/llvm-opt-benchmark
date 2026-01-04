@@ -110,7 +110,7 @@ define dso_local void @_ZN4llvm15LowerAtomicPass3runERNS_8FunctionERNS_15Analysi
   br label %36
 
 36:                                               ; preds = %31, %29, %24, %22, %19, %16, %14, %.lr.ph.i.i
-  %.1.i.i = phi i1 [ true, %14 ], [ %18, %16 ], [ %21, %19 ], [ %.052.i.i, %31 ], [ %.052.i.i, %29 ], [ %.052.i.i, %22 ], [ %.052.i.i, %24 ], [ %.052.i.i, %.lr.ph.i.i ]
+  %.1.i.i = phi i1 [ true, %14 ], [ %18, %16 ], [ %21, %19 ], [ %.052.i.i, %.lr.ph.i.i ], [ %.052.i.i, %31 ], [ %.052.i.i, %29 ], [ %.052.i.i, %22 ], [ %.052.i.i, %24 ]
   %.not45.i.i = icmp eq ptr %11, %9
   br i1 %.not45.i.i, label %_ZL15runOnBasicBlockRN4llvm10BasicBlockE.exit.i, label %.lr.ph.i.i
 

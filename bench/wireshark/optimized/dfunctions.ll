@@ -1071,7 +1071,7 @@ define internal noundef zeroext i1 @df_func_max(ptr noundef readonly captures(no
   br label %df_func_compare.exit
 
 df_func_compare.exit:                             ; preds = %3, %._crit_edge.i, %22
-  %24 = phi i1 [ false, %._crit_edge.i ], [ true, %22 ], [ false, %3 ]
+  %24 = phi i1 [ true, %22 ], [ false, %._crit_edge.i ], [ false, %3 ]
   ret i1 %24
 }
 
@@ -1180,7 +1180,7 @@ define internal noundef zeroext i1 @df_func_min(ptr noundef readonly captures(no
   br label %df_func_compare.exit
 
 df_func_compare.exit:                             ; preds = %3, %._crit_edge.i, %22
-  %24 = phi i1 [ false, %._crit_edge.i ], [ true, %22 ], [ false, %3 ]
+  %24 = phi i1 [ true, %22 ], [ false, %._crit_edge.i ], [ false, %3 ]
   ret i1 %24
 }
 

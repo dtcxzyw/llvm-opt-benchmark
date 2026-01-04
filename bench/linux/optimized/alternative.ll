@@ -1313,8 +1313,8 @@ define dso_local void @apply_retpolines(ptr noundef %0, ptr noundef readnone cap
   br label %173
 
 170:                                              ; preds = %163, %113, %98
-  %.pre-phi = phi i32 [ %156, %163 ], [ %.pre23, %113 ], [ %111, %98 ]
-  %171 = phi i32 [ %164, %163 ], [ %109, %113 ], [ %109, %98 ]
+  %.pre-phi = phi i32 [ %111, %98 ], [ %156, %163 ], [ %.pre23, %113 ]
+  %171 = phi i32 [ %109, %98 ], [ %164, %163 ], [ %109, %113 ]
   %172 = icmp eq i32 %171, %.pre-phi
   br i1 %172, label %173, label %.thread17
 
@@ -1458,7 +1458,7 @@ optimize_nops.exit:                               ; preds = %182, %190
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !23
   br label %.thread17
 
-.thread17:                                        ; preds = %.thread, %63, %97, %57, %245, %242, %234, %170, %31, %25
+.thread17:                                        ; preds = %63, %97, %.thread, %57, %245, %242, %234, %170, %31, %25
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %246 = getelementptr i8, ptr %19, i64 4

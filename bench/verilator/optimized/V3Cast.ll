@@ -1105,7 +1105,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %38,
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25._crit_edge
 
 44:                                               ; preds = %26, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22 ], [ %27, %26 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %27, %26 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22 ]
   %45 = load ptr, ptr %1, align 8, !tbaa !5
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %47 = icmp eq ptr %45, %46
@@ -1122,7 +1122,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28: ; preds = %44,
   resume { ptr, i32 } %.pn.pn.pn
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25._crit_edge: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25, %0
-  %.1 = phi i32 [ %5, %0 ], [ %spec.select, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25 ]
+  %.1 = phi i32 [ %spec.select, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25 ], [ %5, %0 ]
   ret i32 %.1
 }
 
@@ -1622,7 +1622,7 @@ _ZN7AstNode9privateAsI8AstConstPKS_EEPKT_S3_.exit.i: ; preds = %_ZNK7AstNode6isW
   br label %_ZNK7AstNode6isNullEv.exit
 
 _ZNK7AstNode6isNullEv.exit:                       ; preds = %_ZN7AstNode9privateAsI8AstConstPKS_EEPKT_S3_.exit.i, %_ZNK7AstNode6isWideEv.exit.thread, %_ZNK7AstNode6isQuadEv.exit
-  %.sroa.0.0.insert.ext.i = phi i64 [ 1, %_ZNK7AstNode6isQuadEv.exit ], [ 0, %_ZNK7AstNode6isWideEv.exit.thread ], [ %12, %_ZN7AstNode9privateAsI8AstConstPKS_EEPKT_S3_.exit.i ]
+  %.sroa.0.0.insert.ext.i = phi i64 [ %12, %_ZN7AstNode9privateAsI8AstConstPKS_EEPKT_S3_.exit.i ], [ 1, %_ZNK7AstNode6isQuadEv.exit ], [ 0, %_ZNK7AstNode6isWideEv.exit.thread ]
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store i64 %.sroa.0.0.insert.ext.i, ptr %13, align 8, !tbaa !14
   %14 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4, !tbaa !23
@@ -2018,7 +2018,7 @@ _ZNK7AstNode5widthEv.exit4.i:                     ; preds = %_ZNK7AstNode5widthE
   br label %_ZN11CastVisitor8castSizeEP7AstNode.exit
 
 _ZN11CastVisitor8castSizeEP7AstNode.exit:         ; preds = %22, %_ZNK7AstNode6isQuadEv.exit.i, %_ZNK7AstNode5widthEv.exit.i, %_ZNK7AstNode5widthEv.exit4.i
-  %.0.i = phi i32 [ 64, %_ZNK7AstNode6isQuadEv.exit.i ], [ 8, %_ZNK7AstNode5widthEv.exit.i ], [ %..i, %_ZNK7AstNode5widthEv.exit4.i ], [ 8, %22 ]
+  %.0.i = phi i32 [ 8, %_ZNK7AstNode5widthEv.exit.i ], [ 64, %_ZNK7AstNode6isQuadEv.exit.i ], [ %..i, %_ZNK7AstNode5widthEv.exit4.i ], [ 8, %22 ]
   tail call void @_ZN11CastVisitor10insertCastEP11AstNodeExpri(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 noundef %.0.i)
   br label %29
 
@@ -2241,7 +2241,7 @@ _ZN12AstNodeUniopC2E6VNTypeP8FileLineP11AstNodeExpr.exit.i: ; preds = %55, %49
   br label %_ZN7AstNode9dtypeFromEPKS_.exit.i
 
 _ZN7AstNode9dtypeFromEPKS_.exit.i:                ; preds = %61, %58
-  %64 = phi ptr [ %59, %61 ], [ %60, %58 ]
+  %64 = phi ptr [ %60, %58 ], [ %59, %61 ]
   %.not.i6.i = icmp eq ptr %64, null
   br i1 %.not.i6.i, label %68, label %65
 
@@ -2313,7 +2313,7 @@ _ZN12AstNodeUniopC2E6VNTypeP8FileLineP11AstNodeExpr.exit.i40: ; preds = %87, %81
   br label %_ZN7AstNode9dtypeFromEPKS_.exit.i43
 
 _ZN7AstNode9dtypeFromEPKS_.exit.i43:              ; preds = %93, %90
-  %96 = phi ptr [ %91, %93 ], [ %92, %90 ]
+  %96 = phi ptr [ %92, %90 ], [ %91, %93 ]
   %.not.i6.i44 = icmp eq ptr %96, null
   br i1 %.not.i6.i44, label %100, label %97
 
@@ -3068,7 +3068,7 @@ _ZNK7AstNode5widthEv.exit4.i:                     ; preds = %_ZNK7AstNode5widthE
   br label %_ZN11CastVisitor8castSizeEP7AstNode.exit
 
 _ZN11CastVisitor8castSizeEP7AstNode.exit:         ; preds = %78, %_ZNK7AstNode6isQuadEv.exit.i, %_ZNK7AstNode5widthEv.exit.i, %_ZNK7AstNode5widthEv.exit4.i
-  %.0.i = phi i32 [ 64, %_ZNK7AstNode6isQuadEv.exit.i ], [ 8, %_ZNK7AstNode5widthEv.exit.i ], [ %..i, %_ZNK7AstNode5widthEv.exit4.i ], [ 8, %78 ]
+  %.0.i = phi i32 [ 8, %_ZNK7AstNode5widthEv.exit.i ], [ 64, %_ZNK7AstNode6isQuadEv.exit.i ], [ %..i, %_ZNK7AstNode5widthEv.exit4.i ], [ 8, %78 ]
   %85 = load ptr, ptr %10, align 8, !tbaa !100
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 72
   %87 = load ptr, ptr %86, align 8, !tbaa !65
@@ -3092,7 +3092,7 @@ _ZNK7AstNode5widthEv.exit4.i52:                   ; preds = %_ZNK7AstNode5widthE
   br label %_ZN11CastVisitor8castSizeEP7AstNode.exit56
 
 _ZN11CastVisitor8castSizeEP7AstNode.exit56:       ; preds = %_ZN11CastVisitor8castSizeEP7AstNode.exit, %_ZNK7AstNode6isQuadEv.exit.i49, %_ZNK7AstNode5widthEv.exit.i51, %_ZNK7AstNode5widthEv.exit4.i52
-  %.0.i55 = phi i32 [ 64, %_ZNK7AstNode6isQuadEv.exit.i49 ], [ 8, %_ZNK7AstNode5widthEv.exit.i51 ], [ %..i54, %_ZNK7AstNode5widthEv.exit4.i52 ], [ 8, %_ZN11CastVisitor8castSizeEP7AstNode.exit ]
+  %.0.i55 = phi i32 [ 8, %_ZNK7AstNode5widthEv.exit.i51 ], [ 64, %_ZNK7AstNode6isQuadEv.exit.i49 ], [ %..i54, %_ZNK7AstNode5widthEv.exit4.i52 ], [ 8, %_ZN11CastVisitor8castSizeEP7AstNode.exit ]
   %.not23 = icmp eq i32 %.0.i, %.0.i55
   br i1 %.not23, label %.critedge, label %92
 
@@ -3116,7 +3116,7 @@ _ZNK7AstNode5widthEv.exit4.i61:                   ; preds = %_ZNK7AstNode5widthE
   br label %_ZN11CastVisitor8castSizeEP7AstNode.exit65
 
 _ZN11CastVisitor8castSizeEP7AstNode.exit65:       ; preds = %92, %_ZNK7AstNode6isQuadEv.exit.i58, %_ZNK7AstNode5widthEv.exit.i60, %_ZNK7AstNode5widthEv.exit4.i61
-  %.0.i64 = phi i32 [ 64, %_ZNK7AstNode6isQuadEv.exit.i58 ], [ 8, %_ZNK7AstNode5widthEv.exit.i60 ], [ %..i63, %_ZNK7AstNode5widthEv.exit4.i61 ], [ 8, %92 ]
+  %.0.i64 = phi i32 [ 8, %_ZNK7AstNode5widthEv.exit.i60 ], [ 64, %_ZNK7AstNode6isQuadEv.exit.i58 ], [ %..i63, %_ZNK7AstNode5widthEv.exit4.i61 ], [ 8, %92 ]
   tail call void @_ZN11CastVisitor10insertCastEP11AstNodeExpri(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %1, i32 noundef %.0.i64)
   br label %.critedge
 
@@ -3972,7 +3972,7 @@ _ZNK7AstNode5widthEv.exit:                        ; preds = %1
   br label %_ZNK7AstNode5widthEv.exit.thread
 
 _ZNK7AstNode5widthEv.exit.thread:                 ; preds = %_ZNK7AstNode5widthEv.exit, %1
-  %7 = phi i1 [ false, %1 ], [ %spec.select, %_ZNK7AstNode5widthEv.exit ]
+  %7 = phi i1 [ %spec.select, %_ZNK7AstNode5widthEv.exit ], [ false, %1 ]
   ret i1 %7
 }
 
@@ -4207,7 +4207,7 @@ _ZN10VNRelinker6relinkEP7AstNode.exit:            ; preds = %_ZNSt7__cxx1112basi
   ret void
 
 79:                                               ; preds = %52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32
-  %.pn16.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32 ], [ %53, %52 ]
+  %.pn16.pn = phi { ptr, i32 } [ %53, %52 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn16.pn
 }
@@ -4517,7 +4517,7 @@ _ZNK7AstNode5widthEv.exit4.i:                     ; preds = %_ZNK7AstNode5widthE
   br label %_ZN11CastVisitor8castSizeEP7AstNode.exit
 
 _ZN11CastVisitor8castSizeEP7AstNode.exit:         ; preds = %2, %_ZNK7AstNode6isQuadEv.exit.i, %_ZNK7AstNode5widthEv.exit.i, %_ZNK7AstNode5widthEv.exit4.i
-  %.0.i = phi i32 [ 64, %_ZNK7AstNode6isQuadEv.exit.i ], [ 8, %_ZNK7AstNode5widthEv.exit.i ], [ %..i, %_ZNK7AstNode5widthEv.exit4.i ], [ 8, %2 ]
+  %.0.i = phi i32 [ 8, %_ZNK7AstNode5widthEv.exit.i ], [ 64, %_ZNK7AstNode6isQuadEv.exit.i ], [ %..i, %_ZNK7AstNode5widthEv.exit4.i ], [ 8, %2 ]
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %12 = load ptr, ptr %11, align 8, !tbaa !65
   %.not.i.i.i8 = icmp eq ptr %12, null
@@ -4540,7 +4540,7 @@ _ZNK7AstNode5widthEv.exit4.i12:                   ; preds = %_ZNK7AstNode5widthE
   br label %_ZN11CastVisitor8castSizeEP7AstNode.exit16
 
 _ZN11CastVisitor8castSizeEP7AstNode.exit16:       ; preds = %_ZN11CastVisitor8castSizeEP7AstNode.exit, %_ZNK7AstNode6isQuadEv.exit.i9, %_ZNK7AstNode5widthEv.exit.i11, %_ZNK7AstNode5widthEv.exit4.i12
-  %.0.i15 = phi i32 [ 64, %_ZNK7AstNode6isQuadEv.exit.i9 ], [ 8, %_ZNK7AstNode5widthEv.exit.i11 ], [ %..i14, %_ZNK7AstNode5widthEv.exit4.i12 ], [ 8, %_ZN11CastVisitor8castSizeEP7AstNode.exit ]
+  %.0.i15 = phi i32 [ 8, %_ZNK7AstNode5widthEv.exit.i11 ], [ 64, %_ZNK7AstNode6isQuadEv.exit.i9 ], [ %..i14, %_ZNK7AstNode5widthEv.exit4.i12 ], [ 8, %_ZN11CastVisitor8castSizeEP7AstNode.exit ]
   %.not = icmp eq i32 %.0.i, %.0.i15
   br i1 %.not, label %17, label %25
 
@@ -4589,7 +4589,7 @@ _ZNK7AstNode5widthEv.exit4.i21:                   ; preds = %_ZNK7AstNode5widthE
   br label %_ZN11CastVisitor8castSizeEP7AstNode.exit25
 
 _ZN11CastVisitor8castSizeEP7AstNode.exit25:       ; preds = %_ZNK7AstNode6isNullEv.exit.thread, %_ZNK7AstNode6isQuadEv.exit.i18, %_ZNK7AstNode5widthEv.exit.i20, %_ZNK7AstNode5widthEv.exit4.i21
-  %.0.i24 = phi i32 [ 64, %_ZNK7AstNode6isQuadEv.exit.i18 ], [ 8, %_ZNK7AstNode5widthEv.exit.i20 ], [ %..i23, %_ZNK7AstNode5widthEv.exit4.i21 ], [ 8, %_ZNK7AstNode6isNullEv.exit.thread ]
+  %.0.i24 = phi i32 [ 8, %_ZNK7AstNode5widthEv.exit.i20 ], [ 64, %_ZNK7AstNode6isQuadEv.exit.i18 ], [ %..i23, %_ZNK7AstNode5widthEv.exit4.i21 ], [ 8, %_ZNK7AstNode6isNullEv.exit.thread ]
   tail call void @_ZN11CastVisitor10insertCastEP11AstNodeExpri(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %1, i32 noundef %.0.i24)
   br label %35
 

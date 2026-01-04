@@ -1978,7 +1978,7 @@ _ZN9grpc_core9Timestamp3NowEv.exit72:             ; preds = %_ZTWN9grpc_core9Tim
   br label %_ZN9grpc_coremiENS_9TimestampES0_.exit
 
 _ZN9grpc_coremiENS_9TimestampES0_.exit:           ; preds = %149, %146, %143, %138, %.thread.i, %134, %133
-  %.sroa.04.0.i = phi i64 [ 9223372036854775807, %133 ], [ 9223372036854775807, %.thread.i ], [ -9223372036854775808, %138 ], [ %150, %149 ], [ 9223372036854775807, %143 ], [ -9223372036854775808, %146 ], [ %spec.select.i, %134 ]
+  %.sroa.04.0.i = phi i64 [ %spec.select.i, %134 ], [ 9223372036854775807, %133 ], [ -9223372036854775808, %138 ], [ 9223372036854775807, %.thread.i ], [ -9223372036854775808, %146 ], [ %150, %149 ], [ 9223372036854775807, %143 ]
   store i64 %.sroa.04.0.i, ptr %11, align 8
   %151 = invoke i64 @_ZNK9grpc_core8DurationcvNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
           to label %152 unwind label %166
@@ -2134,7 +2134,7 @@ define void @_ZN9grpc_core4Call13ResetDeadlineEv(ptr noundef nonnull align 8 der
   br label %23
 
 23:                                               ; preds = %21, %1, %22
-  %24 = phi i1 [ true, %22 ], [ false, %1 ], [ false, %21 ]
+  %24 = phi i1 [ false, %1 ], [ true, %22 ], [ false, %21 ]
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit unwind label %25
 
@@ -4759,7 +4759,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7:
   br label %.body
 
 .body:                                            ; preds = %60, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7, %58, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i
-  %.pn = phi { ptr, i32 } [ %59, %58 ], [ %21, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i ], [ %61, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7 ], [ %61, %60 ]
+  %.pn = phi { ptr, i32 } [ %21, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i ], [ %59, %58 ], [ %61, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7 ], [ %61, %60 ]
   %66 = load ptr, ptr %6, align 8, !tbaa !106
   %67 = icmp eq ptr %66, %9
   br i1 %67, label %_ZN4absl12lts_2024072216strings_internal13StringifySinkD2Ev.exit12, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i10

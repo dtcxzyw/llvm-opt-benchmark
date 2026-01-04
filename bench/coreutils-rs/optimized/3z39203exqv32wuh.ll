@@ -1108,7 +1108,7 @@ define internal fastcc void @_ZN5uu_dd6blocks5block17h3209c7000a196d04E(ptr noal
   br label %.body.i.i.i
 
 .body.i.i.i:                                      ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.4233002952263615725.exit.i.i1.i.i.i.i", %50, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.4233002952263615725.exit.i.i1.i.i.i.i.i", %46
-  %eh.lpad-body8.i.i.i = phi { ptr, i32 } [ %47, %46 ], [ %47, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.4233002952263615725.exit.i.i1.i.i.i.i.i" ], [ %51, %50 ], [ %51, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.4233002952263615725.exit.i.i1.i.i.i.i" ]
+  %eh.lpad-body8.i.i.i = phi { ptr, i32 } [ %47, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.4233002952263615725.exit.i.i1.i.i.i.i.i" ], [ %47, %46 ], [ %51, %50 ], [ %51, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.4233002952263615725.exit.i.i1.i.i.i.i" ]
   invoke void @"_ZN4core3ptr69drop_in_place$LT$alloc..vec..Vec$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h6fff9c43db51247eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #33
           to label %67 unwind label %55, !noalias !192
 
@@ -1164,7 +1164,7 @@ define internal fastcc void @_ZN5uu_dd6blocks5block17h3209c7000a196d04E(ptr noal
   br i1 %30, label %_ZN4core4iter6traits8iterator8Iterator4fold17h163cea8fcdd1ae56E.exit, label %12
 
 67:                                               ; preds = %57, %.body.i.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %58, %57 ], [ %eh.lpad-body8.i.i.i, %.body.i.i.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %eh.lpad-body8.i.i.i, %.body.i.i.i ], [ %58, %57 ]
   resume { ptr, i32 } %eh.lpad-body.i
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h163cea8fcdd1ae56E.exit: ; preds = %61
@@ -1703,11 +1703,11 @@ default.unreachable142:                           ; preds = %4
   br label %.critedge
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h73cb49cf35dd299dE.exit103": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.4233002952263615725.exit.i.i1.i96", %102, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.4233002952263615725.exit.i.i1.i", %78, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.4233002952263615725.exit.i.i1.i102", %112
-  %.pn131 = phi { ptr, i32 } [ %lpad.thr_comm, %112 ], [ %lpad.thr_comm, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.4233002952263615725.exit.i.i1.i102" ], [ %79, %78 ], [ %79, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.4233002952263615725.exit.i.i1.i" ], [ %103, %102 ], [ %103, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.4233002952263615725.exit.i.i1.i96" ]
+  %.pn131 = phi { ptr, i32 } [ %lpad.thr_comm, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.4233002952263615725.exit.i.i1.i102" ], [ %103, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.4233002952263615725.exit.i.i1.i96" ], [ %lpad.thr_comm, %112 ], [ %79, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.4233002952263615725.exit.i.i1.i" ], [ %79, %78 ], [ %103, %102 ]
   resume { ptr, i32 } %.pn131
 
-112:                                              ; preds = %19, %29, %36, %86, %46, %58, %60
-  %113 = phi ptr [ %21, %19 ], [ %31, %29 ], [ %38, %36 ], [ %48, %86 ], [ %48, %46 ], [ %21, %58 ], [ %38, %60 ]
+112:                                              ; preds = %58, %46, %19, %29, %60, %36, %86
+  %113 = phi ptr [ %21, %58 ], [ %48, %46 ], [ %21, %19 ], [ %31, %29 ], [ %38, %60 ], [ %38, %36 ], [ %48, %86 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   tail call void @llvm.experimental.noalias.scope.decl(metadata !388)

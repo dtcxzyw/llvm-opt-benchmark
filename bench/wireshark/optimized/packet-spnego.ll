@@ -1652,7 +1652,7 @@ decrypt_gssapi_krb_cfx_wrap.exit:                 ; preds = %86, %94, %100, %rrc
   br label %.critedge
 
 .critedge:                                        ; preds = %64, %79, %decrypt_gssapi_krb_cfx_wrap.exit, %83, %51, %57, %16
-  %.0 = phi i32 [ %30, %16 ], [ %.0105, %57 ], [ %.0105, %51 ], [ %40, %83 ], [ %40, %decrypt_gssapi_krb_cfx_wrap.exit ], [ %40, %79 ], [ %40, %64 ]
+  %.0 = phi i32 [ %30, %16 ], [ %40, %79 ], [ %40, %64 ], [ %.0105, %57 ], [ %.0105, %51 ], [ %40, %83 ], [ %40, %decrypt_gssapi_krb_cfx_wrap.exit ]
   ret i32 %.0
 }
 

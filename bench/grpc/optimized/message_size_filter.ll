@@ -814,7 +814,7 @@ define void @_ZN9grpc_core23MessageSizeParsedConfig18GetFromChannelArgsERKNS_11C
   br label %_ZN9grpc_core29GetMaxSendSizeFromChannelArgsERKNS_11ChannelArgsE.exit
 
 _ZN9grpc_core29GetMaxSendSizeFromChannelArgsERKNS_11ChannelArgsE.exit: ; preds = %.noexc7, %.noexc
-  %.sroa.05.0.insert.insert.i = phi i64 [ 0, %.noexc ], [ %7, %.noexc7 ]
+  %.sroa.05.0.insert.insert.i = phi i64 [ %7, %.noexc7 ], [ 0, %.noexc ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.05.0.insert.insert.i, ptr %8, align 8
   %9 = tail call noundef zeroext i1 @_ZNK9grpc_core11ChannelArgs16WantMinimalStackEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
@@ -833,7 +833,7 @@ _ZN9grpc_core29GetMaxSendSizeFromChannelArgsERKNS_11ChannelArgsE.exit: ; preds =
   br label %_ZN9grpc_core29GetMaxRecvSizeFromChannelArgsERKNS_11ChannelArgsE.exit
 
 _ZN9grpc_core29GetMaxRecvSizeFromChannelArgsERKNS_11ChannelArgsE.exit: ; preds = %.noexc11, %_ZN9grpc_core29GetMaxSendSizeFromChannelArgsERKNS_11ChannelArgsE.exit
-  %.sroa.05.0.insert.insert.i9 = phi i64 [ 0, %_ZN9grpc_core29GetMaxSendSizeFromChannelArgsERKNS_11ChannelArgsE.exit ], [ %15, %.noexc11 ]
+  %.sroa.05.0.insert.insert.i9 = phi i64 [ %15, %.noexc11 ], [ 0, %_ZN9grpc_core29GetMaxSendSizeFromChannelArgsERKNS_11ChannelArgsE.exit ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.05.0.insert.insert.i9, ptr %16, align 8
   ret void
@@ -854,7 +854,7 @@ define range(i64 0, 8589934592) i64 @_ZN9grpc_core29GetMaxSendSizeFromChannelArg
   br label %9
 
 9:                                                ; preds = %3, %1
-  %.sroa.05.0.insert.insert = phi i64 [ 0, %1 ], [ %8, %3 ]
+  %.sroa.05.0.insert.insert = phi i64 [ %8, %3 ], [ 0, %1 ]
   ret i64 %.sroa.05.0.insert.insert
 }
 
@@ -881,7 +881,7 @@ define range(i64 0, 8589934592) i64 @_ZN9grpc_core29GetMaxRecvSizeFromChannelArg
   br label %10
 
 10:                                               ; preds = %3, %1
-  %.sroa.05.0.insert.insert = phi i64 [ 0, %1 ], [ %9, %3 ]
+  %.sroa.05.0.insert.insert = phi i64 [ %9, %3 ], [ 0, %1 ]
   ret i64 %.sroa.05.0.insert.insert
 }
 
@@ -1117,7 +1117,7 @@ define void @_ZN9grpc_core23ServerMessageSizeFilter6CreateERKNS_11ChannelArgsENS
   br label %_ZN9grpc_core29GetMaxSendSizeFromChannelArgsERKNS_11ChannelArgsE.exit.i.i.i
 
 _ZN9grpc_core29GetMaxSendSizeFromChannelArgsERKNS_11ChannelArgsE.exit.i.i.i: ; preds = %.noexc2.i, %.noexc.i
-  %.sroa.05.0.insert.insert.i.i.i.i = phi i64 [ 0, %.noexc.i ], [ %11, %.noexc2.i ]
+  %.sroa.05.0.insert.insert.i.i.i.i = phi i64 [ %11, %.noexc2.i ], [ 0, %.noexc.i ]
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %.sroa.05.0.insert.insert.i.i.i.i, ptr %12, align 8, !alias.scope !55, !noalias !52
   %13 = invoke noundef zeroext i1 @_ZNK9grpc_core11ChannelArgs16WantMinimalStackEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
@@ -1148,7 +1148,7 @@ _ZN9grpc_core29GetMaxSendSizeFromChannelArgsERKNS_11ChannelArgsE.exit.i.i.i: ; p
   resume { ptr, i32 } %21
 
 _ZNSt10unique_ptrIN9grpc_core23ServerMessageSizeFilterESt14default_deleteIS1_EED2Ev.exit: ; preds = %.noexc3.i, %.noexc4.i
-  %.sroa.05.0.insert.insert.i9.i.i.i = phi i64 [ 0, %.noexc3.i ], [ %19, %.noexc4.i ]
+  %.sroa.05.0.insert.insert.i9.i.i.i = phi i64 [ %19, %.noexc4.i ], [ 0, %.noexc3.i ]
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %.sroa.05.0.insert.insert.i9.i.i.i, ptr %22, align 8, !alias.scope !55, !noalias !52
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1517,7 +1517,7 @@ _ZNKSt14default_deleteIN9grpc_core19ServiceConfigParser6ParserEEclEPS2_.exit.i4.
   br label %common.resume
 
 common.resume:                                    ; preds = %86, %89, %15, %_ZNKSt14default_deleteIN9grpc_core19ServiceConfigParser6ParserEEclEPS2_.exit.i4.i, %73, %50, %32
-  %common.resume.op = phi { ptr, i32 } [ %33, %32 ], [ %51, %50 ], [ %74, %73 ], [ %16, %_ZNKSt14default_deleteIN9grpc_core19ServiceConfigParser6ParserEEclEPS2_.exit.i4.i ], [ %16, %15 ], [ %90, %89 ], [ %87, %86 ]
+  %common.resume.op = phi { ptr, i32 } [ %16, %15 ], [ %33, %32 ], [ %51, %50 ], [ %74, %73 ], [ %16, %_ZNKSt14default_deleteIN9grpc_core19ServiceConfigParser6ParserEEclEPS2_.exit.i4.i ], [ %90, %89 ], [ %87, %86 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN9grpc_core17MessageSizeParser8RegisterEPNS_17CoreConfiguration7BuilderE.exit: ; preds = %10, %_ZNKSt14default_deleteIN9grpc_core19ServiceConfigParser6ParserEEclEPS2_.exit.i.i
@@ -1708,7 +1708,7 @@ define internal noundef zeroext i1 @_ZN9grpc_core12_GLOBAL__N_120HasMessageSizeL
   br label %_ZN9grpc_core29GetMaxSendSizeFromChannelArgsERKNS_11ChannelArgsE.exit.i
 
 _ZN9grpc_core29GetMaxSendSizeFromChannelArgsERKNS_11ChannelArgsE.exit.i: ; preds = %.noexc7.i, %1
-  %.sroa.05.0.insert.insert.i.i = phi i1 [ false, %1 ], [ %.not.i.i, %.noexc7.i ]
+  %.sroa.05.0.insert.insert.i.i = phi i1 [ %.not.i.i, %.noexc7.i ], [ false, %1 ]
   %6 = tail call noundef zeroext i1 @_ZNK9grpc_core11ChannelArgs16WantMinimalStackEv(ptr noundef nonnull align 8 dereferenceable(8) %0), !noalias !106
   br i1 %6, label %_ZN9grpc_core23MessageSizeParsedConfig18GetFromChannelArgsERKNS_11ChannelArgsE.exit, label %.noexc11.i
 
@@ -1719,7 +1719,7 @@ _ZN9grpc_core29GetMaxSendSizeFromChannelArgsERKNS_11ChannelArgsE.exit.i: ; preds
   br label %_ZN9grpc_core23MessageSizeParsedConfig18GetFromChannelArgsERKNS_11ChannelArgsE.exit
 
 _ZN9grpc_core23MessageSizeParsedConfig18GetFromChannelArgsERKNS_11ChannelArgsE.exit: ; preds = %_ZN9grpc_core29GetMaxSendSizeFromChannelArgsERKNS_11ChannelArgsE.exit.i, %.noexc11.i
-  %.sroa.05.0.insert.insert.i9.i = phi i1 [ false, %_ZN9grpc_core29GetMaxSendSizeFromChannelArgsERKNS_11ChannelArgsE.exit.i ], [ %.not, %.noexc11.i ]
+  %.sroa.05.0.insert.insert.i9.i = phi i1 [ %.not, %.noexc11.i ], [ false, %_ZN9grpc_core29GetMaxSendSizeFromChannelArgsERKNS_11ChannelArgsE.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %brmerge = select i1 %.sroa.05.0.insert.insert.i.i, i1 true, i1 %.sroa.05.0.insert.insert.i9.i
   br i1 %brmerge, label %13, label %9
@@ -1732,7 +1732,7 @@ _ZN9grpc_core23MessageSizeParsedConfig18GetFromChannelArgsERKNS_11ChannelArgsE.e
   br label %13
 
 13:                                               ; preds = %_ZN9grpc_core23MessageSizeParsedConfig18GetFromChannelArgsERKNS_11ChannelArgsE.exit, %9
-  %14 = phi i1 [ true, %_ZN9grpc_core23MessageSizeParsedConfig18GetFromChannelArgsERKNS_11ChannelArgsE.exit ], [ %12, %9 ]
+  %14 = phi i1 [ %12, %9 ], [ true, %_ZN9grpc_core23MessageSizeParsedConfig18GetFromChannelArgsERKNS_11ChannelArgsE.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %14
 }
@@ -2688,7 +2688,7 @@ define linkonce_odr void @_ZN9grpc_core21promise_filter_detail29ChannelFilterWit
   br label %_ZN9grpc_core29GetMaxSendSizeFromChannelArgsERKNS_11ChannelArgsE.exit.i.i.i.i
 
 _ZN9grpc_core29GetMaxSendSizeFromChannelArgsERKNS_11ChannelArgsE.exit.i.i.i.i: ; preds = %.noexc2.i.i, %.noexc.i.i
-  %.sroa.05.0.insert.insert.i.i.i.i.i = phi i64 [ 0, %.noexc.i.i ], [ %16, %.noexc2.i.i ]
+  %.sroa.05.0.insert.insert.i.i.i.i.i = phi i64 [ %16, %.noexc2.i.i ], [ 0, %.noexc.i.i ]
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 %.sroa.05.0.insert.insert.i.i.i.i.i, ptr %17, align 8, !alias.scope !181, !noalias !176
   %18 = invoke noundef zeroext i1 @_ZNK9grpc_core11ChannelArgs16WantMinimalStackEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
@@ -2719,7 +2719,7 @@ _ZN9grpc_core29GetMaxSendSizeFromChannelArgsERKNS_11ChannelArgsE.exit.i.i.i.i: ;
   resume { ptr, i32 } %26
 
 _ZNSt10unique_ptrIN9grpc_core23ServerMessageSizeFilterESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %.noexc4.i.i, %.noexc3.i.i
-  %.sroa.05.0.insert.insert.i9.i.i.i.i = phi i64 [ 0, %.noexc3.i.i ], [ %24, %.noexc4.i.i ]
+  %.sroa.05.0.insert.insert.i9.i.i.i.i = phi i64 [ %24, %.noexc4.i.i ], [ 0, %.noexc3.i.i ]
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 %.sroa.05.0.insert.insert.i9.i.i.i.i, ptr %27, align 8, !alias.scope !181, !noalias !176
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2846,7 +2846,7 @@ _ZN9grpc_core17CoreConfiguration3GetEv.exit.i:    ; preds = %4, %2
   br label %_ZN9grpc_core29GetMaxSendSizeFromChannelArgsERKNS_11ChannelArgsE.exit.i
 
 _ZN9grpc_core29GetMaxSendSizeFromChannelArgsERKNS_11ChannelArgsE.exit.i: ; preds = %.noexc7.i, %_ZN9grpc_core17CoreConfiguration3GetEv.exit.i
-  %.sroa.05.0.insert.insert.i.i = phi i64 [ 0, %_ZN9grpc_core17CoreConfiguration3GetEv.exit.i ], [ %15, %.noexc7.i ]
+  %.sroa.05.0.insert.insert.i.i = phi i64 [ %15, %.noexc7.i ], [ 0, %_ZN9grpc_core17CoreConfiguration3GetEv.exit.i ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.05.0.insert.insert.i.i, ptr %16, align 8, !alias.scope !187
   %17 = tail call noundef zeroext i1 @_ZNK9grpc_core11ChannelArgs16WantMinimalStackEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
@@ -2865,7 +2865,7 @@ _ZN9grpc_core29GetMaxSendSizeFromChannelArgsERKNS_11ChannelArgsE.exit.i: ; preds
   br label %24
 
 24:                                               ; preds = %.noexc11.i, %_ZN9grpc_core29GetMaxSendSizeFromChannelArgsERKNS_11ChannelArgsE.exit.i
-  %.sroa.05.0.insert.insert.i9.i = phi i64 [ 0, %_ZN9grpc_core29GetMaxSendSizeFromChannelArgsERKNS_11ChannelArgsE.exit.i ], [ %23, %.noexc11.i ]
+  %.sroa.05.0.insert.insert.i9.i = phi i64 [ %23, %.noexc11.i ], [ 0, %_ZN9grpc_core29GetMaxSendSizeFromChannelArgsERKNS_11ChannelArgsE.exit.i ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %.sroa.05.0.insert.insert.i9.i, ptr %25, align 8, !alias.scope !187
   ret void
@@ -6368,7 +6368,7 @@ _ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt10unique_ptrIN9grpc_co
   br label %68
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %_ZNSt10unique_ptrIN9grpc_core23ClientMessageSizeFilterESt14default_deleteIS1_EED2Ev.exit24
-  %.pn.pn = phi { ptr, i32 } [ %67, %_ZNSt10unique_ptrIN9grpc_core23ClientMessageSizeFilterESt14default_deleteIS1_EED2Ev.exit24 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn.pn = phi { ptr, i32 } [ %67, %_ZNSt10unique_ptrIN9grpc_core23ClientMessageSizeFilterESt14default_deleteIS1_EED2Ev.exit24 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ]
   call void @_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt10unique_ptrIN9grpc_core23ClientMessageSizeFilterESt14default_deleteIS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %common.resume
@@ -6673,7 +6673,7 @@ _ZNSt3mapImmSt4lessImESaISt4pairIKmmEEE11lower_boundERS3_.exit: ; preds = %.lr.p
   br label %.thread.i
 
 .thread.i:                                        ; preds = %23, %21
-  %28 = phi i1 [ true, %21 ], [ %27, %23 ]
+  %28 = phi i1 [ %27, %23 ], [ true, %21 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %28, ptr noundef nonnull %14, ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(32) %5) #33
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load i64, ptr %29, align 8, !tbaa !452
@@ -6902,8 +6902,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmmESt10_Select1stIS2_
   br label %_ZNSt8_Rb_treeImSt4pairIKmmESt10_Select1stIS2_ESt4lessImESaIS2_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeImSt4pairIKmmESt10_Select1stIS2_ESt4lessImESaIS2_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
-  %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
+  %.sroa.070.0 = phi ptr [ null, %63 ], [ %spec.select, %46 ], [ null, %9 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %39, %37 ], [ %1, %61 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i, %28 ], [ %spec.select.i21, %58 ], [ %spec.select.i41, %86 ], [ null, %._crit_edge.thread.i47 ]
+  %.sroa.12.0 = phi ptr [ %65, %63 ], [ %spec.select71, %46 ], [ %11, %9 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %39, %37 ], [ null, %61 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i, %28 ], [ %spec.select21.i22, %58 ], [ %spec.select21.i42, %86 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -7521,7 +7521,7 @@ _ZN9grpc_core24InterceptionChainBuilder12FilterTypeIdINS_23ServerMessageSizeFilt
   br label %_ZN9grpc_core29GetMaxSendSizeFromChannelArgsERKNS_11ChannelArgsE.exit.i.i.i.i
 
 _ZN9grpc_core29GetMaxSendSizeFromChannelArgsERKNS_11ChannelArgsE.exit.i.i.i.i: ; preds = %.noexc2.i.i, %.noexc.i.i
-  %.sroa.05.0.insert.insert.i.i.i.i.i = phi i64 [ 0, %.noexc.i.i ], [ %27, %.noexc2.i.i ]
+  %.sroa.05.0.insert.insert.i.i.i.i.i = phi i64 [ %27, %.noexc2.i.i ], [ 0, %.noexc.i.i ]
   %28 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i64 %.sroa.05.0.insert.insert.i.i.i.i.i, ptr %28, align 8, !alias.scope !479, !noalias !476
   %29 = invoke noundef zeroext i1 @_ZNK9grpc_core11ChannelArgs16WantMinimalStackEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
@@ -7556,7 +7556,7 @@ common.resume:                                    ; preds = %.body, %36
   br label %common.resume
 
 38:                                               ; preds = %.noexc4.i.i, %.noexc3.i.i
-  %.sroa.05.0.insert.insert.i9.i.i.i.i = phi i64 [ 0, %.noexc3.i.i ], [ %35, %.noexc4.i.i ]
+  %.sroa.05.0.insert.insert.i9.i.i.i.i = phi i64 [ %35, %.noexc4.i.i ], [ 0, %.noexc3.i.i ]
   %39 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i64 %.sroa.05.0.insert.insert.i9.i.i.i.i, ptr %39, align 8, !alias.scope !479, !noalias !476
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -7692,7 +7692,7 @@ _ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt10unique_ptrIN9grpc_co
   br label %84
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %_ZNSt10unique_ptrIN9grpc_core23ServerMessageSizeFilterESt14default_deleteIS1_EED2Ev.exit24
-  %.pn.pn = phi { ptr, i32 } [ %83, %_ZNSt10unique_ptrIN9grpc_core23ServerMessageSizeFilterESt14default_deleteIS1_EED2Ev.exit24 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn.pn = phi { ptr, i32 } [ %83, %_ZNSt10unique_ptrIN9grpc_core23ServerMessageSizeFilterESt14default_deleteIS1_EED2Ev.exit24 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ]
   call void @_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt10unique_ptrIN9grpc_core23ServerMessageSizeFilterESt14default_deleteIS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %common.resume

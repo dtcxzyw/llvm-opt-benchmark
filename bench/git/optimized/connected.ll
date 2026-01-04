@@ -118,8 +118,8 @@ strip_suffix.exit:                                ; preds = %27
   br label %.thread158
 
 .thread158:                                       ; preds = %21, %27, %.cont140, %strip_suffix.exit, %17, %14, %11, %10
-  %37 = phi ptr [ %7, %strip_suffix.exit ], [ %7, %17 ], [ %7, %14 ], [ %7, %11 ], [ %7, %10 ], [ %6, %.cont140 ], [ %7, %27 ], [ %7, %21 ]
-  %.049 = phi ptr [ %36, %strip_suffix.exit ], [ null, %17 ], [ null, %14 ], [ null, %11 ], [ null, %10 ], [ null, %.cont140 ], [ null, %27 ], [ null, %21 ]
+  %37 = phi ptr [ %7, %strip_suffix.exit ], [ %6, %.cont140 ], [ %7, %17 ], [ %7, %14 ], [ %7, %11 ], [ %7, %10 ], [ %7, %27 ], [ %7, %21 ]
+  %.049 = phi ptr [ %36, %strip_suffix.exit ], [ null, %.cont140 ], [ null, %17 ], [ null, %14 ], [ null, %11 ], [ null, %10 ], [ null, %27 ], [ null, %21 ]
   %38 = load ptr, ptr @the_repository, align 8, !tbaa !30
   %39 = call i32 @repo_has_promisor_remote(ptr noundef %38) #11
   %.not68 = icmp eq i32 %39, 0
@@ -296,10 +296,10 @@ _.exit:                                           ; preds = %76, %78
   br label %.cont150
 
 .cont150:                                         ; preds = %.thread179, %.else151
-  %98 = phi i16 [ %92, %.else151 ], [ %89, %.thread179 ]
-  %99 = phi ptr [ %91, %.else151 ], [ %88, %.thread179 ]
-  %100 = phi ptr [ %81, %.else151 ], [ %86, %.thread179 ]
-  %101 = phi i16 [ %97, %.else151 ], [ 0, %.thread179 ]
+  %98 = phi i16 [ %89, %.thread179 ], [ %92, %.else151 ]
+  %99 = phi ptr [ %88, %.thread179 ], [ %91, %.else151 ]
+  %100 = phi ptr [ %86, %.thread179 ], [ %81, %.else151 ]
+  %101 = phi i16 [ 0, %.thread179 ], [ %97, %.else151 ]
   %102 = and i16 %98, -5
   %103 = or disjoint i16 %101, %102
   store i16 %103, ptr %100, align 8
@@ -425,7 +425,7 @@ _.exit98:                                         ; preds = %141, %143
   br label %.cont135.thread
 
 .cont135.thread:                                  ; preds = %.cont140, %.cont135, %8, %146, %_.exit92, %55
-  %.048 = phi i32 [ 0, %55 ], [ -1, %_.exit92 ], [ %151, %146 ], [ 0, %8 ], [ 0, %.cont135 ], [ 0, %.cont140 ]
+  %.048 = phi i32 [ 0, %.cont135 ], [ 0, %55 ], [ -1, %_.exit92 ], [ %151, %146 ], [ 0, %8 ], [ 0, %.cont140 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.048
 }

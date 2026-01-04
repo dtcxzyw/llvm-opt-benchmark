@@ -610,7 +610,7 @@ switch.early.test:                                ; preds = %156
   call void @ASN1_STRING_free(ptr noundef nonnull %149) #5
   br label %.thread287
 
-.thread281:                                       ; preds = %146, %.thread261, %110, %266, %265, %228, %134, %131, %115, %118, %.thread292
+.thread281:                                       ; preds = %146, %266, %265, %228, %110, %.thread261, %134, %131, %115, %118, %.thread292
   %279 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.37) #5
   %280 = icmp slt i32 %279, 1
   br i1 %280, label %.thread259, label %.thread287
@@ -628,7 +628,7 @@ switch.early.test:                                ; preds = %156
   br i1 %or.cond19, label %.thread259, label %.loopexit
 
 .loopexit:                                        ; preds = %98, %..loopexit_crit_edge, %.preheader300, %split, %.thread287
-  %288 = phi ptr [ %.pre440, %..loopexit_crit_edge ], [ %73, %.preheader300 ], [ %85, %split ], [ %283, %.thread287 ], [ %99, %98 ]
+  %288 = phi ptr [ %.pre440, %..loopexit_crit_edge ], [ %283, %.thread287 ], [ %73, %.preheader300 ], [ %85, %split ], [ %99, %98 ]
   %289 = load i64, ptr %10, align 8, !tbaa !13
   %290 = sub nsw i64 %40, %289
   %291 = icmp ult ptr %288, %19
@@ -636,9 +636,9 @@ switch.early.test:                                ; preds = %156
   %293 = and i1 %291, %292
   br i1 %293, label %28, label %.thread259, !llvm.loop !28
 
-.thread259:                                       ; preds = %34, %48, %52, %.split, %104, %112, %118, %128, %134, %269, %272, %.thread281, %.thread287, %.loopexit, %142, %60, %.critedge, %164, %170, %185, %188, %196, %203, %222, %225, %233, %240, %259, %262, %.lr.ph, %.preheader484, %251, %214, %.lr.ph324, %17, %69, %32
-  %.1192 = phi ptr [ null, %32 ], [ null, %69 ], [ null, %17 ], [ %149, %.lr.ph324 ], [ null, %214 ], [ null, %251 ], [ null, %.preheader484 ], [ null, %.lr.ph ], [ null, %34 ], [ null, %48 ], [ null, %52 ], [ null, %.split ], [ null, %104 ], [ null, %112 ], [ null, %118 ], [ null, %128 ], [ null, %134 ], [ null, %269 ], [ null, %272 ], [ null, %.thread281 ], [ null, %.thread287 ], [ null, %.loopexit ], [ null, %142 ], [ null, %60 ], [ %149, %.critedge ], [ %149, %164 ], [ %149, %170 ], [ %149, %185 ], [ %149, %188 ], [ null, %196 ], [ null, %203 ], [ null, %222 ], [ null, %225 ], [ null, %233 ], [ null, %240 ], [ null, %259 ], [ null, %262 ]
-  %.1186 = phi i32 [ 0, %32 ], [ 0, %69 ], [ 1, %17 ], [ 0, %.lr.ph324 ], [ 0, %214 ], [ 0, %251 ], [ %82, %.preheader484 ], [ 0, %.lr.ph ], [ 0, %34 ], [ 0, %48 ], [ 0, %52 ], [ 0, %.split ], [ 0, %104 ], [ 0, %112 ], [ 0, %118 ], [ 0, %128 ], [ 0, %134 ], [ 0, %269 ], [ 0, %272 ], [ 0, %.thread281 ], [ 2, %.thread287 ], [ 1, %.loopexit ], [ 0, %142 ], [ 0, %60 ], [ 0, %.critedge ], [ 0, %164 ], [ 0, %170 ], [ 0, %185 ], [ 0, %188 ], [ 0, %196 ], [ 0, %203 ], [ 0, %222 ], [ 0, %225 ], [ 0, %233 ], [ 0, %240 ], [ 0, %259 ], [ 0, %262 ]
+.thread259:                                       ; preds = %34, %48, %52, %.split, %104, %112, %118, %128, %134, %269, %272, %.thread281, %.thread287, %.loopexit, %142, %60, %170, %.critedge, %188, %185, %164, %222, %196, %203, %225, %259, %233, %240, %262, %.lr.ph, %.preheader484, %251, %214, %.lr.ph324, %17, %69, %32
+  %.1192 = phi ptr [ null, %69 ], [ null, %32 ], [ null, %214 ], [ null, %.preheader484 ], [ %149, %.lr.ph324 ], [ null, %251 ], [ null, %.lr.ph ], [ null, %17 ], [ null, %233 ], [ null, %259 ], [ null, %225 ], [ null, %196 ], [ null, %222 ], [ %149, %164 ], [ null, %240 ], [ %149, %188 ], [ %149, %.critedge ], [ %149, %170 ], [ null, %60 ], [ null, %142 ], [ null, %52 ], [ null, %134 ], [ null, %269 ], [ null, %203 ], [ %149, %185 ], [ null, %48 ], [ null, %128 ], [ null, %118 ], [ null, %272 ], [ null, %112 ], [ null, %104 ], [ null, %.split ], [ null, %.loopexit ], [ null, %34 ], [ null, %.thread281 ], [ null, %.thread287 ], [ null, %262 ]
+  %.1186 = phi i32 [ 0, %69 ], [ 0, %32 ], [ 0, %214 ], [ %82, %.preheader484 ], [ 0, %.lr.ph324 ], [ 0, %251 ], [ 0, %.lr.ph ], [ 1, %17 ], [ 0, %233 ], [ 0, %259 ], [ 0, %225 ], [ 0, %196 ], [ 0, %222 ], [ 0, %164 ], [ 0, %240 ], [ 0, %188 ], [ 0, %.critedge ], [ 0, %170 ], [ 0, %60 ], [ 0, %142 ], [ 0, %52 ], [ 0, %134 ], [ 0, %269 ], [ 0, %203 ], [ 0, %185 ], [ 0, %48 ], [ 0, %128 ], [ 0, %118 ], [ 0, %272 ], [ 0, %112 ], [ 0, %104 ], [ 0, %.split ], [ 1, %.loopexit ], [ 0, %34 ], [ 0, %.thread281 ], [ 2, %.thread287 ], [ 0, %262 ]
   %294 = load ptr, ptr %13, align 8, !tbaa !11
   %.not244 = icmp eq ptr %294, null
   br i1 %.not244, label %296, label %295

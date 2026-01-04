@@ -226,7 +226,7 @@ define internal range(i32 -22, 1) i32 @dnxhd_encode_init(ptr noundef %0) #0 {
   br i1 %70, label %.sink.split188, label %72
 
 .sink.split188:                                   ; preds = %68, %63, %65
-  %dnxhd_10bit_dct_quantize.sink = phi ptr [ @dnxhd_10bit_dct_quantize_444, %65 ], [ @dnxhd_10bit_dct_quantize_444, %63 ], [ @dnxhd_10bit_dct_quantize, %68 ]
+  %dnxhd_10bit_dct_quantize.sink = phi ptr [ @dnxhd_10bit_dct_quantize_444, %63 ], [ @dnxhd_10bit_dct_quantize_444, %65 ], [ @dnxhd_10bit_dct_quantize, %68 ]
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 6904
   store ptr %dnxhd_10bit_dct_quantize.sink, ptr %71, align 8, !tbaa !75
   br label %72
@@ -443,7 +443,7 @@ define internal range(i32 -22, 1) i32 @dnxhd_encode_init(ptr noundef %0) #0 {
   br i1 %.not160, label %.loopexit, label %174
 
 .loopexit:                                        ; preds = %.lr.ph, %174, %171, %.thread167, %133, %138, %143, %148, %130, %127, %114, %170, %161, %92, %43, %29, %21, %18, %14
-  %.0132 = phi i32 [ -22, %14 ], [ -22, %18 ], [ -22, %21 ], [ -22, %43 ], [ -22, %92 ], [ -22, %161 ], [ -22, %170 ], [ -22, %29 ], [ %120, %114 ], [ %128, %127 ], [ %131, %130 ], [ -12, %148 ], [ -12, %143 ], [ -12, %138 ], [ -12, %133 ], [ 0, %.thread167 ], [ 0, %171 ], [ -12, %.lr.ph ], [ 0, %174 ]
+  %.0132 = phi i32 [ -22, %14 ], [ -22, %18 ], [ -22, %21 ], [ -22, %43 ], [ -22, %92 ], [ -22, %29 ], [ %120, %114 ], [ %128, %127 ], [ -22, %161 ], [ -22, %170 ], [ -12, %133 ], [ 0, %.thread167 ], [ %131, %130 ], [ -12, %148 ], [ -12, %143 ], [ -12, %138 ], [ 0, %171 ], [ -12, %.lr.ph ], [ 0, %174 ]
   ret i32 %.0132
 }
 
@@ -838,7 +838,7 @@ dnxhd_write_header.exit:                          ; preds = %96, %111
   br i1 %exitcond.not.i76, label %._crit_edge156.loopexit.i, label %228, !llvm.loop !133
 
 ._crit_edge165.i:                                 ; preds = %._crit_edge161.i, %193, %.preheader.lr.ph.i, %187
-  %.1104.i = phi i32 [ 0, %187 ], [ 0, %.preheader.lr.ph.i ], [ %201, %193 ], [ %201, %._crit_edge161.i ]
+  %.1104.i = phi i32 [ 0, %.preheader.lr.ph.i ], [ 0, %187 ], [ %201, %193 ], [ %201, %._crit_edge161.i ]
   %241 = load i32, ptr %64, align 16, !tbaa !128
   br i1 %.not.i71, label %242, label %244
 
@@ -982,7 +982,7 @@ select.unfold127.i:                               ; preds = %246, %242
   br i1 %or.cond.i.i, label %.preheader.us.i.i, label %._crit_edge78.i.i, !llvm.loop !135
 
 ._crit_edge78.i.i:                                ; preds = %._crit_edge.us.i.i, %.preheader.lr.ph.i.i, %276
-  %.166.i.i = phi i32 [ 0, %276 ], [ 0, %.preheader.lr.ph.i.i ], [ %298, %._crit_edge.us.i.i ]
+  %.166.i.i = phi i32 [ 0, %.preheader.lr.ph.i.i ], [ 0, %276 ], [ %298, %._crit_edge.us.i.i ]
   %302 = icmp ult i32 %.166.i.i, %.pre87.i.i
   br i1 %302, label %303, label %313
 
@@ -1474,7 +1474,7 @@ dnxhd_setup_threads_slices.exit:                  ; preds = %._crit_edge.i89
   br label %554
 
 554:                                              ; preds = %4, %550, %dnxhd_encode_rdo.exit
-  %.065 = phi i32 [ -22, %dnxhd_encode_rdo.exit ], [ 0, %550 ], [ %11, %4 ]
+  %.065 = phi i32 [ 0, %550 ], [ -22, %dnxhd_encode_rdo.exit ], [ %11, %4 ]
   ret i32 %.065
 }
 
@@ -2092,9 +2092,9 @@ define internal fastcc range(i32 -12, 1) i32 @dnxhd_init_qmat(ptr noundef initia
   br i1 %exitcond.not, label %128, label %131, !llvm.loop !177
 
 .loopexit:                                        ; preds = %128, %103, %.preheader97, %75
-  %147 = phi ptr [ %.pre129, %.preheader97 ], [ %.pre130, %75 ], [ %.pre130, %103 ], [ %.pre129, %128 ]
-  %148 = phi ptr [ %.pre127, %.preheader97 ], [ %.pre128, %75 ], [ %.pre128, %103 ], [ %.pre127, %128 ]
-  %149 = phi ptr [ %40, %.preheader97 ], [ %.pre, %75 ], [ %.pre, %103 ], [ %40, %128 ]
+  %147 = phi ptr [ %.pre130, %103 ], [ %.pre130, %75 ], [ %.pre129, %.preheader97 ], [ %.pre129, %128 ]
+  %148 = phi ptr [ %.pre128, %103 ], [ %.pre128, %75 ], [ %.pre127, %.preheader97 ], [ %.pre127, %128 ]
+  %149 = phi ptr [ %.pre, %103 ], [ %.pre, %75 ], [ %40, %.preheader97 ], [ %40, %128 ]
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 6696
   store ptr %149, ptr %150, align 8, !tbaa !178
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 6672
@@ -2344,7 +2344,7 @@ define internal fastcc range(i32 -12, 1) i32 @dnxhd_init_vlc(ptr noundef capture
   br i1 %exitcond127.not, label %.loopexit, label %110, !llvm.loop !198
 
 .loopexit:                                        ; preds = %118, %1, %10, %13, %16
-  %.0 = phi i32 [ -12, %16 ], [ -12, %13 ], [ -12, %10 ], [ -12, %1 ], [ 0, %118 ]
+  %.0 = phi i32 [ -12, %1 ], [ -12, %16 ], [ -12, %13 ], [ -12, %10 ], [ 0, %118 ]
   ret i32 %.0
 }
 
@@ -2759,13 +2759,13 @@ put_bits.exit61:                                  ; preds = %136, %143, %129
   br label %.thread
 
 .thread:                                          ; preds = %196, %177, %176, %209, %195, %._crit_edge150
-  %.0250.i = phi ptr [ %59, %._crit_edge150 ], [ %59, %209 ], [ %173, %195 ], [ %173, %176 ], [ %173, %177 ], [ %173, %196 ]
-  %.0249.i = phi ptr [ %58, %._crit_edge150 ], [ %58, %209 ], [ %169, %195 ], [ %169, %176 ], [ %169, %177 ], [ %169, %196 ]
-  %.0248.i = phi ptr [ %57, %._crit_edge150 ], [ %57, %209 ], [ %160, %195 ], [ %160, %176 ], [ %160, %177 ], [ %160, %196 ]
-  %.0247.i = phi i32 [ 8, %._crit_edge150 ], [ %212, %209 ], [ %151, %195 ], [ %151, %176 ], [ %151, %177 ], [ %151, %196 ]
-  %.0246.i = phi i64 [ 16, %._crit_edge150 ], [ 32, %209 ], [ %149, %195 ], [ %149, %176 ], [ %149, %177 ], [ %149, %196 ]
-  %.0245.i = phi i32 [ %194, %._crit_edge150 ], [ %222, %209 ], [ %148, %195 ], [ %148, %176 ], [ %148, %177 ], [ %148, %196 ]
-  %.0.i = phi i32 [ %193, %._crit_edge150 ], [ %220, %209 ], [ %147, %195 ], [ %147, %176 ], [ %147, %177 ], [ %147, %196 ]
+  %.0250.i = phi ptr [ %59, %._crit_edge150 ], [ %59, %209 ], [ %173, %196 ], [ %173, %195 ], [ %173, %177 ], [ %173, %176 ]
+  %.0249.i = phi ptr [ %58, %._crit_edge150 ], [ %58, %209 ], [ %169, %196 ], [ %169, %195 ], [ %169, %177 ], [ %169, %176 ]
+  %.0248.i = phi ptr [ %57, %._crit_edge150 ], [ %57, %209 ], [ %160, %196 ], [ %160, %195 ], [ %160, %177 ], [ %160, %176 ]
+  %.0247.i = phi i32 [ 8, %._crit_edge150 ], [ %212, %209 ], [ %151, %196 ], [ %151, %195 ], [ %151, %177 ], [ %151, %176 ]
+  %.0246.i = phi i64 [ 16, %._crit_edge150 ], [ 32, %209 ], [ %149, %196 ], [ %149, %195 ], [ %149, %177 ], [ %149, %176 ]
+  %.0245.i = phi i32 [ %194, %._crit_edge150 ], [ %222, %209 ], [ %148, %196 ], [ %148, %195 ], [ %148, %177 ], [ %148, %176 ]
+  %.0.i = phi i32 [ %193, %._crit_edge150 ], [ %220, %209 ], [ %147, %196 ], [ %147, %195 ], [ %147, %177 ], [ %147, %176 ]
   %223 = load i32, ptr %52, align 4, !tbaa !64
   %.not254.i = icmp eq i32 %223, 0
   %224 = load ptr, ptr %53, align 8, !tbaa !201
@@ -3416,13 +3416,13 @@ define internal noundef i32 @dnxhd_calc_bits_thread(ptr noundef readonly capture
   br label %.thread
 
 .thread:                                          ; preds = %123, %104, %103, %136, %122, %._crit_edge135
-  %.0250.i = phi ptr [ %41, %._crit_edge135 ], [ %41, %136 ], [ %100, %122 ], [ %100, %103 ], [ %100, %104 ], [ %100, %123 ]
-  %.0249.i = phi ptr [ %40, %._crit_edge135 ], [ %40, %136 ], [ %96, %122 ], [ %96, %103 ], [ %96, %104 ], [ %96, %123 ]
-  %.0248.i = phi ptr [ %39, %._crit_edge135 ], [ %39, %136 ], [ %88, %122 ], [ %88, %103 ], [ %88, %104 ], [ %88, %123 ]
-  %.0247.i = phi i32 [ 8, %._crit_edge135 ], [ %139, %136 ], [ %79, %122 ], [ %79, %103 ], [ %79, %104 ], [ %79, %123 ]
-  %.0246.i = phi i64 [ 16, %._crit_edge135 ], [ 32, %136 ], [ %77, %122 ], [ %77, %103 ], [ %77, %104 ], [ %77, %123 ]
-  %.0245.i = phi i32 [ %121, %._crit_edge135 ], [ %149, %136 ], [ %76, %122 ], [ %76, %103 ], [ %76, %104 ], [ %76, %123 ]
-  %.0.i = phi i32 [ %120, %._crit_edge135 ], [ %147, %136 ], [ %75, %122 ], [ %75, %103 ], [ %75, %104 ], [ %75, %123 ]
+  %.0250.i = phi ptr [ %41, %._crit_edge135 ], [ %41, %136 ], [ %100, %123 ], [ %100, %122 ], [ %100, %104 ], [ %100, %103 ]
+  %.0249.i = phi ptr [ %40, %._crit_edge135 ], [ %40, %136 ], [ %96, %123 ], [ %96, %122 ], [ %96, %104 ], [ %96, %103 ]
+  %.0248.i = phi ptr [ %39, %._crit_edge135 ], [ %39, %136 ], [ %88, %123 ], [ %88, %122 ], [ %88, %104 ], [ %88, %103 ]
+  %.0247.i = phi i32 [ 8, %._crit_edge135 ], [ %139, %136 ], [ %79, %123 ], [ %79, %122 ], [ %79, %104 ], [ %79, %103 ]
+  %.0246.i = phi i64 [ 16, %._crit_edge135 ], [ 32, %136 ], [ %77, %123 ], [ %77, %122 ], [ %77, %104 ], [ %77, %103 ]
+  %.0245.i = phi i32 [ %121, %._crit_edge135 ], [ %149, %136 ], [ %76, %123 ], [ %76, %122 ], [ %76, %104 ], [ %76, %103 ]
+  %.0.i = phi i32 [ %120, %._crit_edge135 ], [ %147, %136 ], [ %75, %123 ], [ %75, %122 ], [ %75, %104 ], [ %75, %103 ]
   %150 = load i32, ptr %34, align 4, !tbaa !64
   %.not254.i = icmp eq i32 %150, 0
   %151 = load ptr, ptr %35, align 8, !tbaa !201

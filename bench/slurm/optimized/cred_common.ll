@@ -2109,7 +2109,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpackstr_and_switch(ptr noundef %
   br label %30
 
 30:                                               ; preds = %.sink.split, %4, %14, %12, %10
-  %.0 = phi i32 [ 0, %10 ], [ 0, %12 ], [ 0, %14 ], [ -1, %4 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ 0, %14 ], [ 0, %12 ], [ 0, %10 ], [ -1, %4 ], [ %.0.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -2360,7 +2360,7 @@ define dso_local ptr @sbcast_cred_unpack(ptr noundef %0, ptr noundef writeonly c
   br label %71
 
 71:                                               ; preds = %54, %56, %70
-  %.0 = phi ptr [ null, %70 ], [ %6, %56 ], [ %6, %54 ]
+  %.0 = phi ptr [ null, %70 ], [ %6, %54 ], [ %6, %56 ]
   ret ptr %.0
 }
 

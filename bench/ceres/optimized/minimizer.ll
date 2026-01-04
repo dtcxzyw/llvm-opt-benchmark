@@ -346,7 +346,7 @@ _ZN4absl12lts_2024011612log_internal10LogMessagelsILi14EEERS2_RAT__Kc.exit47: ; 
   unreachable
 
 .critedge:                                        ; preds = %13, %50, %34, %.critedge41, %_ZN4absl12lts_2024011612log_internal8VLogSite9IsEnabledEi.exit44, %.critedge38, %_ZN4absl12lts_2024011612log_internal8VLogSite9IsEnabledEi.exit, %44, %28
-  %.028 = phi i1 [ false, %28 ], [ false, %44 ], [ false, %_ZN4absl12lts_2024011612log_internal8VLogSite9IsEnabledEi.exit ], [ false, %.critedge38 ], [ false, %_ZN4absl12lts_2024011612log_internal8VLogSite9IsEnabledEi.exit44 ], [ false, %.critedge41 ], [ false, %34 ], [ false, %50 ], [ true, %13 ]
+  %.028 = phi i1 [ false, %28 ], [ false, %44 ], [ false, %50 ], [ false, %.critedge38 ], [ false, %.critedge41 ], [ false, %_ZN4absl12lts_2024011612log_internal8VLogSite9IsEnabledEi.exit ], [ false, %34 ], [ false, %_ZN4absl12lts_2024011612log_internal8VLogSite9IsEnabledEi.exit44 ], [ true, %13 ]
   ret i1 %.028
 
 65:                                               ; preds = %58, %42

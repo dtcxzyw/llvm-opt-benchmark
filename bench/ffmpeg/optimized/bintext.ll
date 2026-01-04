@@ -147,7 +147,7 @@ define internal range(i32 -1094995529, 1) i32 @decode_init(ptr noundef initializ
   br label %68
 
 68:                                               ; preds = %63, %66, %.loopexit, %67
-  %avpriv_cga_font.sink = phi ptr [ @avpriv_vga16_font, %67 ], [ %.2, %.loopexit ], [ @avpriv_cga_font, %66 ], [ @avpriv_cga_font, %63 ]
+  %avpriv_cga_font.sink = phi ptr [ %.2, %.loopexit ], [ @avpriv_vga16_font, %67 ], [ @avpriv_cga_font, %66 ], [ @avpriv_cga_font, %63 ]
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store ptr %avpriv_cga_font.sink, ptr %69, align 8, !tbaa !39
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -164,7 +164,7 @@ define internal range(i32 -1094995529, 1) i32 @decode_init(ptr noundef initializ
   br i1 %78, label %.sink.split, label %79
 
 .sink.split:                                      ; preds = %68, %73, %24, %7
-  %.str.9.sink = phi ptr [ @.str.6, %7 ], [ @.str.7, %24 ], [ @.str.9, %73 ], [ @.str.9, %68 ]
+  %.str.9.sink = phi ptr [ @.str.7, %24 ], [ @.str.6, %7 ], [ @.str.9, %73 ], [ @.str.9, %68 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull %.str.9.sink) #4
   br label %79
 
@@ -518,7 +518,7 @@ default.unreachable177:                           ; preds = %.lr.ph141
   unreachable
 
 .loopexit114:                                     ; preds = %draw_char.exit107, %draw_char.exit106, %draw_char.exit105, %draw_char.exit, %184, %139, %95, %.preheader113
-  %.1 = phi ptr [ %48, %.preheader113 ], [ %43, %95 ], [ %43, %139 ], [ %187, %184 ], [ %89, %draw_char.exit ], [ %99, %draw_char.exit105 ], [ %146, %draw_char.exit106 ], [ %187, %draw_char.exit107 ]
+  %.1 = phi ptr [ %146, %draw_char.exit106 ], [ %187, %184 ], [ %89, %draw_char.exit ], [ %48, %.preheader113 ], [ %43, %95 ], [ %43, %139 ], [ %99, %draw_char.exit105 ], [ %187, %draw_char.exit107 ]
   %226 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   %227 = icmp ult ptr %226, %12
   br i1 %227, label %.lr.ph141, label %.loopexit, !llvm.loop !59
@@ -650,7 +650,7 @@ draw_char.exit108:                                ; preds = %239, %248, %273
   br label %draw_char.exit109
 
 draw_char.exit109:                                ; preds = %draw_char.exit108, %.preheader120, %313, %290, %281
-  %.7 = phi ptr [ %228, %281 ], [ %228, %290 ], [ %228, %313 ], [ %234, %.preheader120 ], [ %234, %draw_char.exit108 ]
+  %.7 = phi ptr [ %228, %313 ], [ %228, %281 ], [ %228, %290 ], [ %234, %.preheader120 ], [ %234, %draw_char.exit108 ]
   %317 = getelementptr inbounds nuw i8, ptr %.7, i64 2
   %318 = icmp ult ptr %317, %12
   br i1 %318, label %.lr.ph125, label %.loopexit, !llvm.loop !61

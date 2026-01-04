@@ -141,7 +141,7 @@ define internal fastcc i32 @i2d_provided(ptr noundef %0, i32 noundef range(i32 1
   br label %.critedge28
 
 .critedge28:                                      ; preds = %32, %12, %.thread, %.critedge, %.critedge27
-  %.2 = phi i32 [ -1, %.critedge27 ], [ -1, %.critedge ], [ %31, %.thread ], [ %15, %12 ], [ %.221, %32 ]
+  %.2 = phi i32 [ -1, %.critedge ], [ -1, %.critedge27 ], [ %15, %12 ], [ %31, %.thread ], [ %.221, %32 ]
   ret i32 %.2
 }
 

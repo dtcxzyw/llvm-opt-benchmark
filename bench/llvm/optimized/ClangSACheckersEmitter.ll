@@ -3054,7 +3054,7 @@ define internal fastcc noundef zeroext i1 @_ZL8isHiddenPKN4llvm6RecordE(ptr noun
   br label %13
 
 13:                                               ; preds = %12, %1
-  %.05 = phi i1 [ true, %1 ], [ %spec.select, %12 ]
+  %.05 = phi i1 [ %spec.select, %12 ], [ true, %1 ]
   ret i1 %.05
 }
 

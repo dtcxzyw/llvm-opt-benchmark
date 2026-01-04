@@ -237,7 +237,7 @@ define dso_local range(i32 0, 4) i32 @restart_get_kv(ptr noundef captures(none) 
   br label %.thread
 
 .thread:                                          ; preds = %48, %46, %._crit_edge, %54, %52
-  %.1 = phi i32 [ 3, %52 ], [ 3, %54 ], [ 2, %48 ], [ 0, %46 ], [ 1, %._crit_edge ]
+  %.1 = phi i32 [ 3, %54 ], [ 3, %52 ], [ 2, %48 ], [ 0, %46 ], [ 1, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1

@@ -342,8 +342,8 @@ _ZN4llvm9StringRefC2EPKc.exit29.us.us:            ; preds = %17
   br label %19
 
 19:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit29.us.us, %17, %_ZN4llvm9StringRefC2EPKc.exit27.us.us, %14, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us
-  %.2.us.us = phi i8 [ %.02237.us.us, %.lr.ph.split.us.split.us ], [ %.02237.us.us, %.lr.ph.split.us.split.us ], [ %.02237.us.us, %.lr.ph.split.us.split.us ], [ %.02237.us.us, %.lr.ph.split.us.split.us ], [ %.02237.us.us, %.lr.ph.split.us.split.us ], [ 0, %_ZN4llvm9StringRefC2EPKc.exit27.us.us ], [ 0, %14 ], [ 1, %17 ], [ 1, %_ZN4llvm9StringRefC2EPKc.exit29.us.us ]
-  %.1.us.us = phi i32 [ %.02138.us.us, %.lr.ph.split.us.split.us ], [ %.02138.us.us, %.lr.ph.split.us.split.us ], [ %.02138.us.us, %.lr.ph.split.us.split.us ], [ %.02138.us.us, %.lr.ph.split.us.split.us ], [ %.02138.us.us, %.lr.ph.split.us.split.us ], [ %.02138.us.us, %_ZN4llvm9StringRefC2EPKc.exit27.us.us ], [ %.02138.us.us, %14 ], [ %.039.us.us, %17 ], [ %.039.us.us, %_ZN4llvm9StringRefC2EPKc.exit29.us.us ]
+  %.2.us.us = phi i8 [ 0, %14 ], [ %.02237.us.us, %.lr.ph.split.us.split.us ], [ %.02237.us.us, %.lr.ph.split.us.split.us ], [ %.02237.us.us, %.lr.ph.split.us.split.us ], [ %.02237.us.us, %.lr.ph.split.us.split.us ], [ %.02237.us.us, %.lr.ph.split.us.split.us ], [ 0, %_ZN4llvm9StringRefC2EPKc.exit27.us.us ], [ 1, %17 ], [ 1, %_ZN4llvm9StringRefC2EPKc.exit29.us.us ]
+  %.1.us.us = phi i32 [ %.02138.us.us, %14 ], [ %.02138.us.us, %.lr.ph.split.us.split.us ], [ %.02138.us.us, %.lr.ph.split.us.split.us ], [ %.02138.us.us, %.lr.ph.split.us.split.us ], [ %.02138.us.us, %.lr.ph.split.us.split.us ], [ %.02138.us.us, %.lr.ph.split.us.split.us ], [ %.02138.us.us, %_ZN4llvm9StringRefC2EPKc.exit27.us.us ], [ %.039.us.us, %17 ], [ %.039.us.us, %_ZN4llvm9StringRefC2EPKc.exit29.us.us ]
   %20 = add i32 %.039.us.us, 1
   %.not.us.us = icmp eq i32 %20, %2
   br i1 %.not.us.us, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !28
@@ -384,8 +384,8 @@ _ZN4llvm9StringRefC2EPKc.exit29.us:               ; preds = %27
   br label %30
 
 30:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit29.us, %27, %_ZN4llvm9StringRefC2EPKc.exit27.us, %24, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split
-  %.2.us = phi i8 [ %.02237.us, %.lr.ph.split.us.split ], [ %.02237.us, %.lr.ph.split.us.split ], [ %.02237.us, %.lr.ph.split.us.split ], [ %.02237.us, %.lr.ph.split.us.split ], [ %.02237.us, %.lr.ph.split.us.split ], [ 0, %_ZN4llvm9StringRefC2EPKc.exit27.us ], [ 0, %24 ], [ 1, %27 ], [ 1, %_ZN4llvm9StringRefC2EPKc.exit29.us ]
-  %.1.us = phi i32 [ %.02138.us, %.lr.ph.split.us.split ], [ %.02138.us, %.lr.ph.split.us.split ], [ %.02138.us, %.lr.ph.split.us.split ], [ %.02138.us, %.lr.ph.split.us.split ], [ %.02138.us, %.lr.ph.split.us.split ], [ %.02138.us, %_ZN4llvm9StringRefC2EPKc.exit27.us ], [ %.02138.us, %24 ], [ %.039.us, %27 ], [ %.039.us, %_ZN4llvm9StringRefC2EPKc.exit29.us ]
+  %.2.us = phi i8 [ 0, %24 ], [ %.02237.us, %.lr.ph.split.us.split ], [ %.02237.us, %.lr.ph.split.us.split ], [ %.02237.us, %.lr.ph.split.us.split ], [ %.02237.us, %.lr.ph.split.us.split ], [ %.02237.us, %.lr.ph.split.us.split ], [ 0, %_ZN4llvm9StringRefC2EPKc.exit27.us ], [ 1, %27 ], [ 1, %_ZN4llvm9StringRefC2EPKc.exit29.us ]
+  %.1.us = phi i32 [ %.02138.us, %24 ], [ %.02138.us, %.lr.ph.split.us.split ], [ %.02138.us, %.lr.ph.split.us.split ], [ %.02138.us, %.lr.ph.split.us.split ], [ %.02138.us, %.lr.ph.split.us.split ], [ %.02138.us, %.lr.ph.split.us.split ], [ %.02138.us, %_ZN4llvm9StringRefC2EPKc.exit27.us ], [ %.039.us, %27 ], [ %.039.us, %_ZN4llvm9StringRefC2EPKc.exit29.us ]
   %31 = add i32 %.039.us, 1
   %.not.us = icmp eq i32 %31, %2
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !28
@@ -429,8 +429,8 @@ _ZN4llvm9StringRefC2EPKc.exit29.us44:             ; preds = %39
   br label %41
 
 41:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit29.us44, %39, %_ZN4llvm9StringRefC2EPKc.exit27.us43, %35, %.lr.ph.split.split.us, %.lr.ph.split.split.us, %.lr.ph.split.split.us, %.lr.ph.split.split.us, %.lr.ph.split.split.us
-  %.2.us45 = phi i8 [ %.02237.us42, %.lr.ph.split.split.us ], [ %.02237.us42, %.lr.ph.split.split.us ], [ %.02237.us42, %.lr.ph.split.split.us ], [ %.02237.us42, %.lr.ph.split.split.us ], [ %.02237.us42, %.lr.ph.split.split.us ], [ 0, %_ZN4llvm9StringRefC2EPKc.exit27.us43 ], [ 0, %35 ], [ 1, %39 ], [ 1, %_ZN4llvm9StringRefC2EPKc.exit29.us44 ]
-  %.1.us46 = phi i32 [ %.02138.us41, %.lr.ph.split.split.us ], [ %.02138.us41, %.lr.ph.split.split.us ], [ %.02138.us41, %.lr.ph.split.split.us ], [ %.02138.us41, %.lr.ph.split.split.us ], [ %.02138.us41, %.lr.ph.split.split.us ], [ %.02138.us41, %_ZN4llvm9StringRefC2EPKc.exit27.us43 ], [ %.02138.us41, %35 ], [ %.039.us40, %39 ], [ %.039.us40, %_ZN4llvm9StringRefC2EPKc.exit29.us44 ]
+  %.2.us45 = phi i8 [ 0, %35 ], [ %.02237.us42, %.lr.ph.split.split.us ], [ %.02237.us42, %.lr.ph.split.split.us ], [ %.02237.us42, %.lr.ph.split.split.us ], [ %.02237.us42, %.lr.ph.split.split.us ], [ %.02237.us42, %.lr.ph.split.split.us ], [ 0, %_ZN4llvm9StringRefC2EPKc.exit27.us43 ], [ 1, %39 ], [ 1, %_ZN4llvm9StringRefC2EPKc.exit29.us44 ]
+  %.1.us46 = phi i32 [ %.02138.us41, %35 ], [ %.02138.us41, %.lr.ph.split.split.us ], [ %.02138.us41, %.lr.ph.split.split.us ], [ %.02138.us41, %.lr.ph.split.split.us ], [ %.02138.us41, %.lr.ph.split.split.us ], [ %.02138.us41, %.lr.ph.split.split.us ], [ %.02138.us41, %_ZN4llvm9StringRefC2EPKc.exit27.us43 ], [ %.039.us40, %39 ], [ %.039.us40, %_ZN4llvm9StringRefC2EPKc.exit29.us44 ]
   %42 = add i32 %.039.us40, 1
   %.not.us47 = icmp eq i32 %42, %2
   br i1 %.not.us47, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !28
@@ -475,8 +475,8 @@ _ZN4llvm9StringRefC2EPKc.exit29:                  ; preds = %50
   br label %53
 
 53:                                               ; preds = %50, %_ZN4llvm9StringRefC2EPKc.exit29, %46, %_ZN4llvm9StringRefC2EPKc.exit27, %.lr.ph.split.split, %.lr.ph.split.split, %.lr.ph.split.split, %.lr.ph.split.split, %.lr.ph.split.split
-  %.2 = phi i8 [ %.02237, %.lr.ph.split.split ], [ %.02237, %.lr.ph.split.split ], [ %.02237, %.lr.ph.split.split ], [ %.02237, %.lr.ph.split.split ], [ %.02237, %.lr.ph.split.split ], [ 0, %_ZN4llvm9StringRefC2EPKc.exit27 ], [ 0, %46 ], [ 1, %50 ], [ 1, %_ZN4llvm9StringRefC2EPKc.exit29 ]
-  %.1 = phi i32 [ %.02138, %.lr.ph.split.split ], [ %.02138, %.lr.ph.split.split ], [ %.02138, %.lr.ph.split.split ], [ %.02138, %.lr.ph.split.split ], [ %.02138, %.lr.ph.split.split ], [ %.02138, %_ZN4llvm9StringRefC2EPKc.exit27 ], [ %.02138, %46 ], [ %.039, %50 ], [ %.039, %_ZN4llvm9StringRefC2EPKc.exit29 ]
+  %.2 = phi i8 [ 0, %46 ], [ %.02237, %.lr.ph.split.split ], [ %.02237, %.lr.ph.split.split ], [ %.02237, %.lr.ph.split.split ], [ %.02237, %.lr.ph.split.split ], [ %.02237, %.lr.ph.split.split ], [ 0, %_ZN4llvm9StringRefC2EPKc.exit27 ], [ 1, %50 ], [ 1, %_ZN4llvm9StringRefC2EPKc.exit29 ]
+  %.1 = phi i32 [ %.02138, %46 ], [ %.02138, %.lr.ph.split.split ], [ %.02138, %.lr.ph.split.split ], [ %.02138, %.lr.ph.split.split ], [ %.02138, %.lr.ph.split.split ], [ %.02138, %.lr.ph.split.split ], [ %.02138, %_ZN4llvm9StringRefC2EPKc.exit27 ], [ %.039, %50 ], [ %.039, %_ZN4llvm9StringRefC2EPKc.exit29 ]
   %54 = add i32 %.039, 1
   %.not = icmp eq i32 %54, %2
   br i1 %.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !28
@@ -614,7 +614,7 @@ _ZNK5clang13SourceManager15getBufferOrFakeENS_6FileIDENS_14SourceLocationE.exit:
   br label %43
 
 43:                                               ; preds = %41, %39, %36, %30, %28, %26, %24, %.lr.ph.split.us, %.lr.ph.split.us
-  %.1.us = phi i32 [ %42, %41 ], [ %40, %39 ], [ 0, %36 ], [ %35, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ 0, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us ]
+  %.1.us = phi i32 [ %42, %41 ], [ %25, %24 ], [ %40, %39 ], [ 0, %36 ], [ %35, %30 ], [ 0, %.lr.ph.split.us ], [ %29, %28 ], [ %27, %26 ], [ 0, %.lr.ph.split.us ]
   %44 = getelementptr inbounds nuw i8, ptr %.055.us, i64 1
   %45 = add i32 %.03653.us, 1
   %.not.us = icmp eq ptr %44, %21
@@ -2950,7 +2950,7 @@ _ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit: ; preds = %_ZNK4llvm11Page
   br label %102
 
 102:                                              ; preds = %50, %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit, %_ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit, %57
-  %.0 = phi i1 [ %60, %57 ], [ %101, %_ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit ], [ false, %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit ], [ true, %50 ]
+  %.0 = phi i1 [ %101, %_ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit ], [ false, %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit ], [ %60, %57 ], [ true, %50 ]
   ret i1 %.0
 }
 
@@ -3197,7 +3197,7 @@ _ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread: ; preds =
   br label %61
 
 _ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit: ; preds = %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i.i, %46
-  %51 = phi ptr [ %50, %46 ], [ %42, %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i.i ]
+  %51 = phi ptr [ %42, %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i.i ], [ %50, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq ptr %51, null
   br i1 %.not, label %61, label %52
@@ -3317,7 +3317,7 @@ _ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread: ; preds = 
   br label %50
 
 _ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit: ; preds = %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i, %40
-  %45 = phi ptr [ %44, %40 ], [ %36, %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i ]
+  %45 = phi ptr [ %36, %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i ], [ %44, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq ptr %45, null
   br i1 %.not, label %50, label %46
@@ -3330,7 +3330,7 @@ _ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit: ; preds = %_ZNK4l
   br label %50
 
 50:                                               ; preds = %46, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread
-  %51 = phi ptr [ null, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread ], [ null, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit ], [ %spec.select, %46 ]
+  %51 = phi ptr [ %spec.select, %46 ], [ null, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread ], [ null, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit ]
   ret ptr %51
 }
 

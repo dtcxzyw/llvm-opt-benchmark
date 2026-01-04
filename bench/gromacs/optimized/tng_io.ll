@@ -716,7 +716,7 @@ define range(i32 0, 2) i32 @tng_molecule_find(ptr noundef readonly captures(none
   br label %.loopexit
 
 .loopexit:                                        ; preds = %30, %.lr.ph.split.us, %14, %._crit_edge
-  %.0 = phi i32 [ 1, %._crit_edge ], [ 0, %14 ], [ 0, %.lr.ph.split.us ], [ 0, %30 ]
+  %.0 = phi i32 [ 1, %._crit_edge ], [ 0, %.lr.ph.split.us ], [ 0, %14 ], [ 0, %30 ]
   ret i32 %.0
 }
 
@@ -1070,7 +1070,7 @@ define range(i32 0, 3) i32 @tng_molecule_system_copy(ptr noundef readonly captur
   br i1 %190, label %47, label %.loopexit104, !llvm.loop !75
 
 .loopexit104:                                     ; preds = %187, %39, %.loopexit, %133, %115, %96, %80, %54, %35, %25
-  %.0 = phi i32 [ %53, %54 ], [ %74, %80 ], [ %90, %96 ], [ %114, %115 ], [ 1, %.loopexit ], [ 2, %133 ], [ 2, %35 ], [ 2, %25 ], [ 0, %39 ], [ 0, %187 ]
+  %.0 = phi i32 [ %53, %54 ], [ %74, %80 ], [ %90, %96 ], [ %114, %115 ], [ 1, %.loopexit ], [ 2, %133 ], [ 2, %25 ], [ 2, %35 ], [ 0, %39 ], [ 0, %187 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1774,7 +1774,7 @@ define range(i32 0, 2) i32 @tng_molecule_chain_find(ptr noundef readnone capture
   br label %.loopexit
 
 .loopexit:                                        ; preds = %31, %.lr.ph.split.us, %15, %._crit_edge
-  %.0 = phi i32 [ 1, %._crit_edge ], [ 0, %15 ], [ 0, %.lr.ph.split.us ], [ 0, %31 ]
+  %.0 = phi i32 [ 1, %._crit_edge ], [ 0, %.lr.ph.split.us ], [ 0, %15 ], [ 0, %31 ]
   ret i32 %.0
 }
 
@@ -1944,7 +1944,7 @@ define range(i32 0, 2) i32 @tng_molecule_atom_find(ptr noundef readnone captures
   br label %.loopexit
 
 .loopexit:                                        ; preds = %31, %.lr.ph.split.us, %15, %._crit_edge
-  %.0 = phi i32 [ 1, %._crit_edge ], [ 0, %15 ], [ 0, %.lr.ph.split.us ], [ 0, %31 ]
+  %.0 = phi i32 [ 1, %._crit_edge ], [ 0, %.lr.ph.split.us ], [ 0, %15 ], [ 0, %31 ]
   ret i32 %.0
 }
 
@@ -2059,7 +2059,7 @@ define range(i32 0, 2) i32 @tng_chain_residue_find(ptr noundef readnone captures
   br label %.loopexit
 
 .loopexit:                                        ; preds = %31, %.lr.ph.split.us, %15, %._crit_edge
-  %.0 = phi i32 [ 1, %._crit_edge ], [ 0, %15 ], [ 0, %.lr.ph.split.us ], [ 0, %31 ]
+  %.0 = phi i32 [ 1, %._crit_edge ], [ 0, %.lr.ph.split.us ], [ 0, %15 ], [ 0, %31 ]
   ret i32 %.0
 }
 
@@ -2305,7 +2305,7 @@ define range(i32 0, 2) i32 @tng_molecule_name_of_particle_nr_get(ptr noundef rea
   br label %.critedge
 
 .critedge:                                        ; preds = %12, %.preheader, %22, %4
-  %.024 = phi i32 [ 1, %4 ], [ %., %22 ], [ 1, %.preheader ], [ 1, %12 ]
+  %.024 = phi i32 [ %., %22 ], [ 1, %4 ], [ 1, %.preheader ], [ 1, %12 ]
   ret i32 %.024
 }
 
@@ -2530,7 +2530,7 @@ define range(i32 0, 3) i32 @tng_molsystem_bonds_get(ptr noundef readonly capture
   br i1 %79, label %42, label %.loopexit, !llvm.loop !99
 
 .loopexit:                                        ; preds = %._crit_edge67, %8, %.preheader58, %._crit_edge, %4, %38, %30
-  %.0 = phi i32 [ 2, %38 ], [ 2, %30 ], [ 1, %4 ], [ 0, %._crit_edge ], [ 0, %.preheader58 ], [ 0, %8 ], [ 0, %._crit_edge67 ]
+  %.0 = phi i32 [ 1, %4 ], [ 0, %._crit_edge ], [ 2, %38 ], [ 2, %30 ], [ 0, %.preheader58 ], [ 0, %8 ], [ 0, %._crit_edge67 ]
   ret i32 %.0
 }
 
@@ -2607,7 +2607,7 @@ define range(i32 0, 2) i32 @tng_chain_name_of_particle_nr_get(ptr noundef readon
   br label %.critedge
 
 .critedge:                                        ; preds = %12, %.preheader, %30, %22, %28, %4
-  %.027 = phi i32 [ 1, %4 ], [ 1, %28 ], [ 1, %22 ], [ %., %30 ], [ 1, %.preheader ], [ 1, %12 ]
+  %.027 = phi i32 [ %., %30 ], [ 1, %22 ], [ 1, %28 ], [ 1, %4 ], [ 1, %.preheader ], [ 1, %12 ]
   ret i32 %.027
 }
 
@@ -2678,7 +2678,7 @@ define range(i32 0, 2) i32 @tng_residue_name_of_particle_nr_get(ptr noundef read
   br label %.critedge
 
 .critedge:                                        ; preds = %12, %.preheader, %28, %22, %4
-  %.026 = phi i32 [ 1, %4 ], [ 1, %22 ], [ %., %28 ], [ 1, %.preheader ], [ 1, %12 ]
+  %.026 = phi i32 [ %., %28 ], [ 1, %22 ], [ 1, %4 ], [ 1, %.preheader ], [ 1, %12 ]
   ret i32 %.026
 }
 
@@ -2738,7 +2738,7 @@ define range(i32 0, 2) i32 @tng_residue_id_of_particle_nr_get(ptr noundef readon
   br label %.critedge
 
 .critedge:                                        ; preds = %11, %.preheader, %21, %3, %27
-  %.021 = phi i32 [ 0, %27 ], [ 1, %3 ], [ 1, %21 ], [ 1, %.preheader ], [ 1, %11 ]
+  %.021 = phi i32 [ 0, %27 ], [ 1, %21 ], [ 1, %3 ], [ 1, %.preheader ], [ 1, %11 ]
   ret i32 %.021
 }
 
@@ -2810,7 +2810,7 @@ define range(i32 0, 2) i32 @tng_global_residue_id_of_particle_nr_get(ptr noundef
   br label %.critedge
 
 .critedge:                                        ; preds = %19, %.preheader, %25, %3, %31
-  %.034 = phi i32 [ 0, %31 ], [ 1, %3 ], [ 1, %25 ], [ 1, %.preheader ], [ 1, %19 ]
+  %.034 = phi i32 [ 0, %31 ], [ 1, %25 ], [ 1, %3 ], [ 1, %.preheader ], [ 1, %19 ]
   ret i32 %.034
 }
 
@@ -2874,7 +2874,7 @@ define range(i32 0, 2) i32 @tng_atom_name_of_particle_nr_get(ptr noundef readonl
   br label %.critedge
 
 .critedge:                                        ; preds = %12, %.preheader, %22, %4
-  %.025 = phi i32 [ 1, %4 ], [ %., %22 ], [ 1, %.preheader ], [ 1, %12 ]
+  %.025 = phi i32 [ %., %22 ], [ 1, %4 ], [ 1, %.preheader ], [ 1, %12 ]
   ret i32 %.025
 }
 
@@ -2938,7 +2938,7 @@ define range(i32 0, 2) i32 @tng_atom_type_of_particle_nr_get(ptr noundef readonl
   br label %.critedge
 
 .critedge:                                        ; preds = %12, %.preheader, %22, %4
-  %.025 = phi i32 [ 1, %4 ], [ %., %22 ], [ 1, %.preheader ], [ 1, %12 ]
+  %.025 = phi i32 [ %., %22 ], [ 1, %4 ], [ 1, %.preheader ], [ 1, %12 ]
   ret i32 %.025
 }
 
@@ -3076,7 +3076,7 @@ define range(i32 0, 3) i32 @tng_particle_mapping_add(ptr noundef captures(none) 
   br i1 %exitcond78.not, label %.loopexit, label %.lr.ph77, !llvm.loop !113
 
 .loopexit:                                        ; preds = %.lr.ph77, %.preheader, %64, %51, %44, %35, %30, %21
-  %.0 = phi i32 [ 1, %21 ], [ 1, %30 ], [ 1, %35 ], [ 1, %44 ], [ 2, %64 ], [ 2, %51 ], [ 0, %.preheader ], [ 0, %.lr.ph77 ]
+  %.0 = phi i32 [ 1, %21 ], [ 1, %30 ], [ 1, %35 ], [ 1, %44 ], [ 2, %51 ], [ 2, %64 ], [ 0, %.preheader ], [ 0, %.lr.ph77 ]
   ret i32 %.0
 }
 
@@ -3610,7 +3610,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
   br i1 %exitcond.not, label %._crit_edge412, label %.lr.ph411.split, !llvm.loop !164
 
 ._crit_edge412:                                   ; preds = %163, %141, %.preheader405
-  %166 = phi ptr [ %103, %.preheader405 ], [ %142, %141 ], [ %164, %163 ]
+  %166 = phi ptr [ %142, %141 ], [ %103, %.preheader405 ], [ %164, %163 ]
   %167 = getelementptr inbounds nuw %struct.tng_data, ptr %166, i64 %.0312413
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 88
   %169 = load ptr, ptr %168, align 8, !tbaa !157
@@ -4072,7 +4072,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
   br i1 %424, label %.lr.ph434.split, label %._crit_edge435, !llvm.loop !173
 
 ._crit_edge435:                                   ; preds = %418, %388, %315, %302
-  %.lcssa408 = phi ptr [ %299, %302 ], [ %318, %315 ], [ %391, %388 ], [ %421, %418 ]
+  %.lcssa408 = phi ptr [ %299, %302 ], [ %391, %388 ], [ %318, %315 ], [ %421, %418 ]
   %425 = getelementptr inbounds nuw i8, ptr %.lcssa408, i64 88
   %426 = load ptr, ptr %425, align 8, !tbaa !157
   tail call void @free(ptr noundef %426) #28
@@ -4833,7 +4833,7 @@ define range(i32 0, 3) i32 @tng_input_file_set(ptr noundef captures(none) %0, pt
   br label %25
 
 25:                                               ; preds = %4, %22, %18
-  %.0 = phi i32 [ %24, %22 ], [ 2, %18 ], [ 0, %4 ]
+  %.0 = phi i32 [ 2, %18 ], [ %24, %22 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -4885,7 +4885,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_input_file_init(ptr noundef capt
   br label %27
 
 27:                                               ; preds = %15, %19, %11, %6
-  %.0 = phi i32 [ 2, %11 ], [ 2, %6 ], [ 0, %19 ], [ 0, %15 ]
+  %.0 = phi i32 [ 2, %6 ], [ 2, %11 ], [ 0, %19 ], [ 0, %15 ]
   ret i32 %.0
 }
 
@@ -4966,7 +4966,7 @@ define range(i32 0, 3) i32 @tng_output_file_set(ptr noundef captures(none) %0, p
   br label %tng_output_file_init.exit
 
 tng_output_file_init.exit:                        ; preds = %28, %26, %23, %5, %19
-  %.0 = phi i32 [ 2, %19 ], [ 0, %5 ], [ 2, %28 ], [ 0, %26 ], [ 0, %23 ]
+  %.0 = phi i32 [ 2, %19 ], [ 0, %5 ], [ 0, %23 ], [ 2, %28 ], [ 0, %26 ]
   ret i32 %.0
 }
 
@@ -5030,7 +5030,7 @@ define range(i32 0, 3) i32 @tng_output_append_file_set(ptr noundef captures(none
   br label %32
 
 32:                                               ; preds = %5, %30, %26, %19
-  %.0 = phi i32 [ 0, %30 ], [ 2, %26 ], [ 2, %19 ], [ 0, %5 ]
+  %.0 = phi i32 [ 2, %19 ], [ 0, %30 ], [ 2, %26 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -5091,7 +5091,7 @@ define range(i32 0, 2) i32 @tng_output_file_endianness_get(ptr noundef readonly 
   br label %26
 
 26:                                               ; preds = %24, %18, %7, %25
-  %.015 = phi i32 [ 0, %25 ], [ 1, %7 ], [ 1, %18 ], [ 1, %24 ]
+  %.015 = phi i32 [ 1, %18 ], [ 0, %25 ], [ 1, %24 ], [ 1, %7 ]
   ret i32 %.015
 }
 
@@ -5155,7 +5155,7 @@ define internal range(i32 0, 2) i32 @tng_swap_byte_order_little_endian_32(ptr no
   br label %16
 
 16:                                               ; preds = %2, %15, %12, %5
-  %.0 = phi i32 [ 1, %15 ], [ 0, %5 ], [ 0, %12 ], [ 0, %2 ]
+  %.0 = phi i32 [ 1, %15 ], [ 0, %12 ], [ 0, %5 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -5279,7 +5279,7 @@ define internal range(i32 0, 2) i32 @tng_swap_byte_order_little_endian_64(ptr no
   br label %46
 
 46:                                               ; preds = %2, %45, %42, %31, %18, %5
-  %.0 = phi i32 [ 1, %45 ], [ 0, %5 ], [ 0, %18 ], [ 0, %31 ], [ 0, %42 ], [ 0, %2 ]
+  %.0 = phi i32 [ 1, %45 ], [ 0, %42 ], [ 0, %5 ], [ 0, %18 ], [ 0, %31 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -5319,7 +5319,7 @@ define range(i32 0, 2) i32 @tng_output_file_endianness_set(ptr noundef captures(
   br label %17
 
 17:                                               ; preds = %.sink.split, %7, %2
-  %.0 = phi i32 [ 1, %2 ], [ 1, %7 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %7 ], [ 1, %2 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -6539,7 +6539,7 @@ tng_frame_set_block_write.exit.thread176:         ; preds = %269
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.preheader119
 
-tng_frame_set_block_write.exit.thread:            ; preds = %85, %278, %66, %tng_file_output_numerical.exit.i, %tng_file_output_numerical.exit83.i, %tng_file_output_numerical.exit88.i, %tng_file_output_numerical.exit93.i, %tng_file_output_numerical.exit98.i, %tng_file_output_numerical.exit98, %tng_file_output_numerical.exit93, %tng_file_output_numerical.exit88, %tng_file_output_numerical.exit, %261, %49, %54
+tng_frame_set_block_write.exit.thread:            ; preds = %66, %85, %tng_file_output_numerical.exit.i, %tng_file_output_numerical.exit83.i, %tng_file_output_numerical.exit88.i, %tng_file_output_numerical.exit93.i, %tng_file_output_numerical.exit98.i, %tng_file_output_numerical.exit98, %tng_file_output_numerical.exit93, %tng_file_output_numerical.exit88, %tng_file_output_numerical.exit, %261, %278, %49, %54
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %287
 
@@ -7243,7 +7243,7 @@ tng_file_input_numerical.exit27.thread:           ; preds = %77, %75, %tng_file_
   br label %tng_block_destroy.exit
 
 tng_block_destroy.exit:                           ; preds = %tng_file_input_numerical.exit27.thread38, %tng_file_input_numerical.exit.thread34, %45, %30, %2, %tng_file_input_numerical.exit27.thread
-  %.0 = phi i32 [ 0, %tng_file_input_numerical.exit27.thread ], [ 1, %2 ], [ 1, %30 ], [ 1, %45 ], [ 2, %tng_file_input_numerical.exit.thread34 ], [ 2, %tng_file_input_numerical.exit27.thread38 ]
+  %.0 = phi i32 [ 0, %tng_file_input_numerical.exit27.thread ], [ 2, %tng_file_input_numerical.exit27.thread38 ], [ 1, %2 ], [ 2, %tng_file_input_numerical.exit.thread34 ], [ 1, %30 ], [ 1, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -7487,7 +7487,7 @@ tng_file_input_numerical.exit55.thread:           ; preds = %101, %99, %tng_file
   br label %109
 
 109:                                              ; preds = %tng_file_input_numerical.exit55.thread65, %tng_file_input_numerical.exit48.thread61, %tng_file_input_numerical.exit.thread57, %2, %tng_file_input_numerical.exit55.thread, %88, %17, %11
-  %.0 = phi i32 [ 2, %11 ], [ 1, %17 ], [ 2, %88 ], [ 0, %tng_file_input_numerical.exit55.thread ], [ 2, %2 ], [ 2, %tng_file_input_numerical.exit.thread57 ], [ 2, %tng_file_input_numerical.exit48.thread61 ], [ 2, %tng_file_input_numerical.exit55.thread65 ]
+  %.0 = phi i32 [ 0, %tng_file_input_numerical.exit55.thread ], [ 2, %11 ], [ 1, %17 ], [ 2, %2 ], [ 2, %tng_file_input_numerical.exit.thread57 ], [ 2, %88 ], [ 2, %tng_file_input_numerical.exit48.thread61 ], [ 2, %tng_file_input_numerical.exit55.thread65 ]
   ret i32 %.0
 }
 
@@ -7593,7 +7593,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_file_input_numerical(ptr noundef
   br label %28
 
 28:                                               ; preds = %.sink.split, %19, %16, %24, %21, %15
-  %.0 = phi i32 [ 0, %15 ], [ 0, %21 ], [ 0, %24 ], [ 0, %16 ], [ 0, %19 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ 0, %16 ], [ 0, %15 ], [ 0, %21 ], [ 0, %24 ], [ 0, %19 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 
@@ -7901,7 +7901,7 @@ tng_chain_residue_add.exit:                       ; preds = %96, %100
   br label %tng_molecule_cnt_set.exit
 
 tng_molecule_cnt_set.exit:                        ; preds = %.thread, %151, %141, %._crit_edge.i51, %55, %48, %._crit_edge.i43, %108, %tng_chain_residue_add.exit, %tng_molecule_chain_add.exit, %tng_molecule_add.exit, %116, %68, %25
-  %.0 = phi i32 [ 1, %25 ], [ 1, %68 ], [ 1, %116 ], [ %83, %tng_molecule_add.exit ], [ %95, %tng_molecule_chain_add.exit ], [ %107, %tng_chain_residue_add.exit ], [ %110, %108 ], [ 1, %._crit_edge.i43 ], [ 0, %55 ], [ 0, %48 ], [ 1, %._crit_edge.i51 ], [ 0, %151 ], [ 0, %141 ], [ 0, %.thread ]
+  %.0 = phi i32 [ 1, %25 ], [ %110, %108 ], [ 1, %116 ], [ 1, %68 ], [ 0, %141 ], [ %83, %tng_molecule_add.exit ], [ %95, %tng_molecule_chain_add.exit ], [ %107, %tng_chain_residue_add.exit ], [ 0, %48 ], [ 1, %._crit_edge.i43 ], [ 0, %55 ], [ 1, %._crit_edge.i51 ], [ 0, %151 ], [ 0, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -8412,7 +8412,7 @@ tng_block_destroy.exit101:                        ; preds = %162, %165
   br label %tng_block_destroy.exit
 
 tng_block_destroy.exit:                           ; preds = %48, %33, %tng_block_destroy.exit101, %tng_block_destroy.exit96, %137, %tng_block_destroy.exit91, %108, %tng_block_destroy.exit86, %79, %tng_block_destroy.exit81, %11
-  %.064 = phi i32 [ 0, %11 ], [ 2, %tng_block_destroy.exit81 ], [ 2, %79 ], [ 2, %tng_block_destroy.exit86 ], [ 2, %108 ], [ 2, %tng_block_destroy.exit91 ], [ 2, %137 ], [ 2, %tng_block_destroy.exit96 ], [ 0, %tng_block_destroy.exit101 ], [ 2, %33 ], [ 2, %48 ]
+  %.064 = phi i32 [ 0, %11 ], [ 0, %tng_block_destroy.exit101 ], [ 2, %tng_block_destroy.exit81 ], [ 2, %79 ], [ 2, %tng_block_destroy.exit86 ], [ 2, %108 ], [ 2, %tng_block_destroy.exit91 ], [ 2, %137 ], [ 2, %tng_block_destroy.exit96 ], [ 2, %33 ], [ 2, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.064
@@ -8537,7 +8537,7 @@ tng_frame_set_particle_mapping_free.exit.i:       ; preds = %._crit_edge.i.i, %3
   br label %.thread109.i
 
 .thread109.i:                                     ; preds = %64, %.thread.i
-  %65 = phi ptr [ %56, %64 ], [ %60, %.thread.i ]
+  %65 = phi ptr [ %60, %.thread.i ], [ %56, %64 ]
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %67 = load ptr, ptr %66, align 8, !tbaa !198
   %.not22.i.i = icmp eq ptr %67, null
@@ -8933,7 +8933,7 @@ tng_file_input_numerical.exit.thread:             ; preds = %207, %205, %tng_fil
   br label %tng_frame_set_block_read.exit
 
 tng_frame_set_block_read.exit:                    ; preds = %tng_file_input_numerical.exit.thread70, %tng_file_input_numerical.exit50.thread66, %28, %tng_file_input_numerical.exit.thread112.i, %tng_file_input_numerical.exit87.thread116.i, %99, %tng_file_input_numerical.exit94.thread120.i, %tng_file_input_numerical.exit101.thread124.i, %tng_file_input_numerical.exit108.thread128.i, %tng_file_input_numerical.exit.thread, %214, %223, %226, %247, %252
-  %.0.i = phi i32 [ 2, %99 ], [ 2, %28 ], [ 2, %tng_file_input_numerical.exit.thread ], [ 2, %214 ], [ 2, %223 ], [ 2, %226 ], [ 0, %252 ], [ 0, %247 ], [ 2, %tng_file_input_numerical.exit.thread112.i ], [ 2, %tng_file_input_numerical.exit87.thread116.i ], [ 2, %tng_file_input_numerical.exit94.thread120.i ], [ 2, %tng_file_input_numerical.exit101.thread124.i ], [ 2, %tng_file_input_numerical.exit108.thread128.i ], [ 2, %tng_file_input_numerical.exit50.thread66 ], [ 2, %tng_file_input_numerical.exit.thread70 ]
+  %.0.i = phi i32 [ 2, %99 ], [ 2, %28 ], [ 2, %tng_file_input_numerical.exit.thread112.i ], [ 2, %tng_file_input_numerical.exit87.thread116.i ], [ 2, %tng_file_input_numerical.exit94.thread120.i ], [ 2, %tng_file_input_numerical.exit101.thread124.i ], [ 2, %tng_file_input_numerical.exit108.thread128.i ], [ 2, %tng_file_input_numerical.exit50.thread66 ], [ 2, %tng_file_input_numerical.exit.thread70 ], [ 2, %tng_file_input_numerical.exit.thread ], [ 2, %214 ], [ 2, %223 ], [ 2, %226 ], [ 0, %252 ], [ 0, %247 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %1214
@@ -9048,7 +9048,7 @@ tng_file_input_numerical.exit72.i:                ; preds = %tng_file_input_nume
   br label %.thread99.i
 
 .thread99.i:                                      ; preds = %306, %.thread.i25
-  %307 = phi ptr [ %298, %306 ], [ %302, %.thread.i25 ]
+  %307 = phi ptr [ %302, %.thread.i25 ], [ %298, %306 ]
   %308 = load ptr, ptr %284, align 8, !tbaa !198
   %.not22.i73.i = icmp eq ptr %308, null
   br i1 %.not22.i73.i, label %tng_file_input_numerical.exit79.thread.i, label %309
@@ -9249,7 +9249,7 @@ tng_file_input_numerical.exit57.thread:           ; preds = %369, %367, %tng_fil
   br label %tng_general_info_block_read.exit
 
 tng_general_info_block_read.exit:                 ; preds = %tng_file_input_numerical.exit57.thread78, %tng_file_input_numerical.exit64.thread74, %257, %tng_file_input_numerical.exit.thread95.i, %tng_file_input_numerical.exit72.i, %tng_file_input_numerical.exit79.thread102.i, %tng_file_input_numerical.exit86.thread106.i, %tng_file_input_numerical.exit93.thread110.i, %376, %381, %383, %385, %388
-  %.0.i20 = phi i32 [ 2, %257 ], [ 2, %tng_file_input_numerical.exit72.i ], [ 2, %376 ], [ 0, %381 ], [ 0, %385 ], [ 0, %383 ], [ 0, %388 ], [ 2, %tng_file_input_numerical.exit.thread95.i ], [ 2, %tng_file_input_numerical.exit79.thread102.i ], [ 2, %tng_file_input_numerical.exit86.thread106.i ], [ 2, %tng_file_input_numerical.exit93.thread110.i ], [ 2, %tng_file_input_numerical.exit64.thread74 ], [ 2, %tng_file_input_numerical.exit57.thread78 ]
+  %.0.i20 = phi i32 [ 2, %376 ], [ 2, %257 ], [ 2, %tng_file_input_numerical.exit.thread95.i ], [ 2, %tng_file_input_numerical.exit72.i ], [ 2, %tng_file_input_numerical.exit79.thread102.i ], [ 2, %tng_file_input_numerical.exit86.thread106.i ], [ 2, %tng_file_input_numerical.exit93.thread110.i ], [ 2, %tng_file_input_numerical.exit64.thread74 ], [ 2, %tng_file_input_numerical.exit57.thread78 ], [ 0, %381 ], [ 0, %385 ], [ 0, %383 ], [ 0, %388 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %1214
@@ -9320,7 +9320,7 @@ tng_general_info_block_read.exit:                 ; preds = %tng_file_input_nume
   br label %.thread322.i
 
 .thread322.i:                                     ; preds = %423, %.thread.i29
-  %424 = phi ptr [ %415, %423 ], [ %419, %.thread.i29 ]
+  %424 = phi ptr [ %419, %.thread.i29 ], [ %415, %423 ]
   %425 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %426 = load ptr, ptr %425, align 8, !tbaa !198
   %.not22.i.i30 = icmp eq ptr %426, null
@@ -10259,7 +10259,7 @@ tng_file_input_numerical.exit315.thread.i:        ; preds = %tng_file_input_nume
   br label %tng_molecules_block_read.exit
 
 tng_molecules_block_read.exit:                    ; preds = %394, %tng_file_input_numerical.exit.thread325.i, %440, %454, %tng_file_input_numerical.exit253.thread329.i, %tng_file_input_numerical.exit260.thread333.i, %tng_file_input_numerical.exit267.thread337.i, %tng_file_input_numerical.exit274.thread341.i, %tng_file_input_numerical.exit281.thread345.i, %tng_file_input_numerical.exit288.thread349.i, %564, %574, %579, %590, %593, %tng_file_input_numerical.exit301.thread353.i, %780, %782, %tng_file_input_numerical.exit308.thread357.i, %tng_file_input_numerical.exit315.thread361.i, %819, %821, %823, %826
-  %.0203.i = phi i32 [ 2, %564 ], [ 2, %454 ], [ 2, %440 ], [ 2, %394 ], [ 2, %579 ], [ 2, %574 ], [ 2, %593 ], [ 2, %590 ], [ 2, %782 ], [ 2, %780 ], [ 0, %819 ], [ 0, %823 ], [ 0, %821 ], [ 0, %826 ], [ 2, %tng_file_input_numerical.exit.thread325.i ], [ 2, %tng_file_input_numerical.exit253.thread329.i ], [ 2, %tng_file_input_numerical.exit260.thread333.i ], [ 2, %tng_file_input_numerical.exit267.thread337.i ], [ 2, %tng_file_input_numerical.exit274.thread341.i ], [ 2, %tng_file_input_numerical.exit281.thread345.i ], [ 2, %tng_file_input_numerical.exit288.thread349.i ], [ 2, %tng_file_input_numerical.exit301.thread353.i ], [ 2, %tng_file_input_numerical.exit308.thread357.i ], [ 2, %tng_file_input_numerical.exit315.thread361.i ]
+  %.0203.i = phi i32 [ 2, %440 ], [ 2, %394 ], [ 2, %tng_file_input_numerical.exit.thread325.i ], [ 2, %tng_file_input_numerical.exit253.thread329.i ], [ 2, %tng_file_input_numerical.exit267.thread337.i ], [ 2, %tng_file_input_numerical.exit274.thread341.i ], [ 2, %tng_file_input_numerical.exit281.thread345.i ], [ 2, %590 ], [ 2, %780 ], [ 2, %tng_file_input_numerical.exit308.thread357.i ], [ 2, %tng_file_input_numerical.exit301.thread353.i ], [ 2, %574 ], [ 2, %tng_file_input_numerical.exit288.thread349.i ], [ 2, %564 ], [ 2, %tng_file_input_numerical.exit260.thread333.i ], [ 2, %tng_file_input_numerical.exit315.thread361.i ], [ 2, %454 ], [ 2, %579 ], [ 2, %593 ], [ 2, %782 ], [ 0, %819 ], [ 0, %823 ], [ 0, %821 ], [ 0, %826 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %1214
@@ -10489,8 +10489,8 @@ tng_molecules_block_read.exit:                    ; preds = %394, %tng_file_inpu
   br i1 %941, label %tng_particle_data_find.exit.i.i, label %.critedge.i224.i.i
 
 tng_particle_data_find.exit.i.i:                  ; preds = %.lr.ph.i.i.i, %.lr.ph32.i.i.i, %.lr.ph.i223.i.i, %930, %.lr.ph49.i.i.i
-  %942 = phi i64 [ %904, %.lr.ph49.i.i.i ], [ %904, %930 ], [ %904, %.lr.ph.i223.i.i ], [ %873, %.lr.ph32.i.i.i ], [ %873, %.lr.ph.i.i.i ]
-  %.0266.i.i = phi ptr [ %935, %.lr.ph49.i.i.i ], [ %931, %930 ], [ %939, %.lr.ph.i223.i.i ], [ %894, %.lr.ph32.i.i.i ], [ %898, %.lr.ph.i.i.i ]
+  %942 = phi i64 [ %904, %.lr.ph49.i.i.i ], [ %904, %930 ], [ %873, %.lr.ph32.i.i.i ], [ %904, %.lr.ph.i223.i.i ], [ %873, %.lr.ph.i.i.i ]
+  %.0266.i.i = phi ptr [ %935, %.lr.ph49.i.i.i ], [ %931, %930 ], [ %894, %.lr.ph32.i.i.i ], [ %939, %.lr.ph.i223.i.i ], [ %898, %.lr.ph.i.i.i ]
   %943 = icmp slt i64 %942, 1
   br label %993
 
@@ -10501,7 +10501,7 @@ tng_particle_data_find.exit.i.i:                  ; preds = %.lr.ph.i.i.i, %.lr.
   br label %.thread281.i.i
 
 .loopexit302.i.i:                                 ; preds = %.critedge.i.i.i, %892, %.critedge.i224.i.i, %.critedge38.i.i.i, %.critedge38.preheader.i.i.i
-  %945 = phi i64 [ %904, %.critedge38.preheader.i.i.i ], [ %904, %.critedge38.i.i.i ], [ %904, %.critedge.i224.i.i ], [ %873, %892 ], [ %873, %.critedge.i.i.i ]
+  %945 = phi i64 [ %873, %892 ], [ %904, %.critedge.i224.i.i ], [ %904, %.critedge38.i.i.i ], [ %904, %.critedge38.preheader.i.i.i ], [ %873, %.critedge.i.i.i ]
   %946 = icmp slt i64 %945, 1
   %not.294.i.i = xor i1 %946, true
   %.273.i.i = zext i1 %not.294.i.i to i8
@@ -10541,9 +10541,9 @@ tng_particle_data_find.exit.i.i:                  ; preds = %.lr.ph.i.i.i, %.lr.
   br label %955
 
 955:                                              ; preds = %.thread409.i.i, %954, %.thread284.i.i
-  %.sink435.i.i = phi i64 [ 472, %.thread409.i.i ], [ %..i.i, %.thread284.i.i ], [ 416, %954 ]
-  %.sink.i.i = phi i64 [ 464, %.thread409.i.i ], [ %.439.i.i, %.thread284.i.i ], [ 408, %954 ]
-  %956 = phi i1 [ true, %.thread409.i.i ], [ %949, %.thread284.i.i ], [ false, %954 ]
+  %.sink435.i.i = phi i64 [ %..i.i, %.thread284.i.i ], [ 472, %.thread409.i.i ], [ 416, %954 ]
+  %.sink.i.i = phi i64 [ %.439.i.i, %.thread284.i.i ], [ 464, %.thread409.i.i ], [ 408, %954 ]
+  %956 = phi i1 [ %949, %.thread284.i.i ], [ true, %.thread409.i.i ], [ false, %954 ]
   %957 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink435.i.i
   %958 = load ptr, ptr %957, align 8, !tbaa !215
   %959 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i.i
@@ -11108,7 +11108,7 @@ tng_data_read.exit.i:                             ; preds = %.loopexit.i.i, %.sp
   br label %tng_data_block_contents_read.exit
 
 tng_data_block_contents_read.exit:                ; preds = %834, %845, %1194, %1196, %1198, %1203
-  %.0.i39 = phi i32 [ 2, %845 ], [ 2, %834 ], [ %.0168.i.i, %1194 ], [ %.0168.i.i, %1198 ], [ %.0168.i.i, %1196 ], [ %.0168.i.i, %1203 ]
+  %.0.i39 = phi i32 [ 2, %834 ], [ 2, %845 ], [ %.0168.i.i, %1194 ], [ %.0168.i.i, %1198 ], [ %.0168.i.i, %1196 ], [ %.0168.i.i, %1203 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -11651,7 +11651,7 @@ tng_block_destroy.exit:                           ; preds = %49, %52
   br label %219
 
 219:                                              ; preds = %8, %6, %2, %._crit_edge, %216, %213, %208, %196, %193, %188, %170, %167, %162, %148, %145, %140, %125, %122, %117, %102, %99, %94, %80, %77, %72, %55, %tng_block_destroy.exit, %36
-  %.0 = phi i32 [ 2, %36 ], [ 2, %tng_block_destroy.exit ], [ 0, %55 ], [ 2, %72 ], [ 2, %77 ], [ 0, %80 ], [ 2, %94 ], [ 2, %99 ], [ 0, %102 ], [ 2, %117 ], [ 2, %122 ], [ 0, %125 ], [ 2, %140 ], [ 2, %145 ], [ 0, %148 ], [ 2, %162 ], [ 2, %167 ], [ 0, %170 ], [ 2, %188 ], [ 2, %193 ], [ 0, %196 ], [ 2, %208 ], [ 2, %213 ], [ 0, %216 ], [ 1, %._crit_edge ], [ %5, %2 ], [ 1, %6 ], [ 1, %8 ]
+  %.0 = phi i32 [ 1, %._crit_edge ], [ %5, %2 ], [ 1, %6 ], [ 2, %36 ], [ 2, %tng_block_destroy.exit ], [ 0, %55 ], [ 2, %72 ], [ 2, %77 ], [ 0, %80 ], [ 2, %94 ], [ 2, %99 ], [ 0, %102 ], [ 2, %117 ], [ 2, %122 ], [ 0, %125 ], [ 2, %140 ], [ 2, %145 ], [ 0, %148 ], [ 2, %162 ], [ 2, %167 ], [ 0, %170 ], [ 2, %188 ], [ 2, %193 ], [ 0, %196 ], [ 2, %208 ], [ 2, %213 ], [ 0, %216 ], [ 1, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -12602,7 +12602,7 @@ tng_block_destroy.exit325:                        ; preds = %163, %166
   br label %tng_block_destroy.exit
 
 tng_block_destroy.exit:                           ; preds = %185, %172, %134, %121, %108, %95, %81, %68, %46, %31, %.critedge12, %391, %384, %379, %363, %357, %352, %.loopexit, %327, %322, %.loopexit582, %301, %296, %282, %276, %271, %.loopexit586, %241, %236, %.loopexit587, %212, %207, %tng_block_destroy.exit325, %150, %tng_block_destroy.exit305
-  %.0 = phi i32 [ 2, %tng_block_destroy.exit305 ], [ 2, %150 ], [ 2, %tng_block_destroy.exit325 ], [ 2, %207 ], [ 2, %212 ], [ 0, %.loopexit587 ], [ 2, %236 ], [ 2, %241 ], [ 0, %.loopexit586 ], [ 2, %271 ], [ 2, %276 ], [ 0, %282 ], [ 2, %296 ], [ 2, %301 ], [ 0, %.loopexit582 ], [ 2, %322 ], [ 2, %327 ], [ 0, %.loopexit ], [ 2, %352 ], [ 2, %357 ], [ 0, %363 ], [ 2, %379 ], [ 2, %384 ], [ 0, %391 ], [ 1, %.critedge12 ], [ 2, %31 ], [ 2, %46 ], [ 0, %68 ], [ 0, %81 ], [ 1, %95 ], [ 1, %108 ], [ 1, %121 ], [ 1, %134 ], [ 0, %172 ], [ 0, %185 ]
+  %.0 = phi i32 [ 1, %.critedge12 ], [ 2, %tng_block_destroy.exit305 ], [ 2, %46 ], [ 0, %81 ], [ 1, %108 ], [ 2, %150 ], [ 2, %tng_block_destroy.exit325 ], [ 1, %134 ], [ 2, %207 ], [ 2, %212 ], [ 0, %.loopexit587 ], [ 2, %236 ], [ 2, %241 ], [ 0, %.loopexit586 ], [ 2, %271 ], [ 2, %276 ], [ 0, %282 ], [ 2, %296 ], [ 2, %301 ], [ 0, %.loopexit582 ], [ 2, %322 ], [ 2, %327 ], [ 0, %.loopexit ], [ 2, %352 ], [ 2, %357 ], [ 0, %363 ], [ 2, %379 ], [ 2, %384 ], [ 0, %391 ], [ 2, %31 ], [ 0, %68 ], [ 1, %95 ], [ 1, %121 ], [ 0, %172 ], [ 0, %185 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -12713,7 +12713,7 @@ tng_block_destroy.exit:                           ; preds = %38, %41
   br label %51
 
 51:                                               ; preds = %2, %48, %45, %27
-  %.0 = phi i32 [ 2, %27 ], [ 2, %45 ], [ 0, %48 ], [ 1, %2 ]
+  %.0 = phi i32 [ 0, %48 ], [ 2, %27 ], [ 2, %45 ], [ 1, %2 ]
   ret i32 %.0
 }
 
@@ -13256,7 +13256,7 @@ tng_block_header_len_calculate.exit98:            ; preds = %154, %158
   br label %tng_data_block_len_calculate.exit
 
 tng_data_block_len_calculate.exit:                ; preds = %.lr.ph.i99, %tng_block_header_len_calculate.exit98, %177, %192
-  %.lcssa201.lcssa207 = phi i64 [ %.lcssa201.lcssa205, %tng_block_header_len_calculate.exit98 ], [ %spec.select, %177 ], [ %197, %192 ], [ %190, %.lr.ph.i99 ]
+  %.lcssa201.lcssa207 = phi i64 [ %197, %192 ], [ %.lcssa201.lcssa205, %tng_block_header_len_calculate.exit98 ], [ %spec.select, %177 ], [ %190, %.lr.ph.i99 ]
   %198 = add nsw i64 %164, %.lcssa201.lcssa207
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %199 = load i32, ptr %135, align 8, !tbaa !124
@@ -13377,7 +13377,7 @@ tng_block_header_len_calculate.exit103:           ; preds = %212, %216
   br label %tng_data_block_len_calculate.exit108
 
 tng_data_block_len_calculate.exit108:             ; preds = %._crit_edge.us.i, %tng_block_header_len_calculate.exit103, %236, %.lr.ph10.split.us.i, %254
-  %.lcssa212.lcssa.lcssa219 = phi i64 [ %.lcssa212.lcssa.lcssa217, %tng_block_header_len_calculate.exit103 ], [ %spec.select231, %236 ], [ %spec.select231, %.lr.ph10.split.us.i ], [ %260, %254 ], [ %252, %._crit_edge.us.i ]
+  %.lcssa212.lcssa.lcssa219 = phi i64 [ %260, %254 ], [ %.lcssa212.lcssa.lcssa217, %tng_block_header_len_calculate.exit103 ], [ %spec.select231, %236 ], [ %spec.select231, %.lr.ph10.split.us.i ], [ %252, %._crit_edge.us.i ]
   %261 = add nsw i64 %222, %.lcssa212.lcssa.lcssa219
   %indvars.iv.next258 = add nuw nsw i64 %indvars.iv257, 1
   %262 = load i32, ptr %139, align 8, !tbaa !123
@@ -14606,7 +14606,7 @@ tng_fwritestr.exit:                               ; preds = %728
   %796 = call i32 @fseeko64(ptr noundef %795, i64 noundef %786, i32 noundef 0)
   br label %801
 
-797:                                              ; preds = %tng_block_destroy.exit85.i, %648, %791, %tng_block_destroy.exit.i, %tng_fwritestr.exit.i, %tng_fwritestr.exit90.i, %tng_fwritestr.exit93.i, %tng_fwritestr.exit96.i, %tng_fwritestr.exit154, %tng_fwritestr.exit151, %tng_fwritestr.exit, %740, %745, %750, %754, %758, %762, %766, %770, %774, %778, %593, %598
+797:                                              ; preds = %tng_block_destroy.exit.i, %tng_block_destroy.exit85.i, %648, %778, %tng_fwritestr.exit.i, %tng_fwritestr.exit90.i, %tng_fwritestr.exit93.i, %tng_fwritestr.exit96.i, %tng_fwritestr.exit154, %tng_fwritestr.exit151, %tng_fwritestr.exit, %740, %745, %750, %754, %758, %762, %766, %770, %774, %791, %593, %598
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %798 = load ptr, ptr @stderr, align 8, !tbaa !14
@@ -15532,7 +15532,7 @@ tng_file_output_numerical.exit186.i:              ; preds = %1150
   call void @free(ptr noundef nonnull %1189) #28
   br label %1195
 
-1191:                                             ; preds = %tng_block_destroy.exit137.i, %861, %1174, %tng_block_destroy.exit.i136, %tng_file_output_numerical.exit143.i, %tng_fwritestr.exit.i127, %tng_file_output_numerical.exit150.i, %tng_file_output_numerical.exit155.i, %tng_file_output_numerical.exit160.i, %tng_file_output_numerical.exit165.i, %tng_file_output_numerical.exit170.i, %tng_file_output_numerical.exit176.i, %tng_file_output_numerical.exit181.i, %tng_file_output_numerical.exit186.i, %806, %811, %tng_file_output_numerical.exit.thread.i
+1191:                                             ; preds = %tng_block_destroy.exit.i136, %tng_block_destroy.exit137.i, %861, %tng_file_output_numerical.exit186.i, %tng_file_output_numerical.exit.thread.i, %tng_file_output_numerical.exit143.i, %tng_fwritestr.exit.i127, %tng_file_output_numerical.exit155.i, %tng_file_output_numerical.exit160.i, %tng_file_output_numerical.exit165.i, %tng_file_output_numerical.exit170.i, %tng_file_output_numerical.exit176.i, %tng_file_output_numerical.exit181.i, %tng_file_output_numerical.exit150.i, %1174, %811, %806
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %1192 = load ptr, ptr @stderr, align 8, !tbaa !14
@@ -15664,7 +15664,7 @@ tng_block_destroy.exit146:                        ; preds = %._crit_edge230, %12
   br label %tng_output_file_init.exit
 
 tng_output_file_init.exit:                        ; preds = %42, %33, %28, %tng_block_destroy.exit146, %1246, %1191, %797, %584, %106
-  %.076 = phi i32 [ 2, %584 ], [ 2, %797 ], [ 2, %1191 ], [ 2, %106 ], [ 0, %1246 ], [ 0, %tng_block_destroy.exit146 ], [ 2, %28 ], [ 2, %33 ], [ 2, %42 ]
+  %.076 = phi i32 [ 2, %106 ], [ 0, %tng_block_destroy.exit146 ], [ 2, %584 ], [ 2, %797 ], [ 2, %1191 ], [ 2, %33 ], [ 0, %1246 ], [ 2, %28 ], [ 2, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   ret i32 %.076
@@ -16326,13 +16326,13 @@ tng_block_init.exit.thread:                       ; preds = %2
   br i1 %.not18.i18, label %tng_block_destroy.exit.sink.split, label %tng_block_destroy.exit.sink.split.sink.split
 
 tng_block_destroy.exit.sink.split.sink.split:     ; preds = %56, %48, %37
-  %.sink = phi ptr [ %39, %37 ], [ %50, %48 ], [ %58, %56 ]
-  %.0.ph.ph = phi i32 [ 1, %37 ], [ 2, %48 ], [ 0, %56 ]
+  %.sink = phi ptr [ %50, %48 ], [ %39, %37 ], [ %58, %56 ]
+  %.0.ph.ph = phi i32 [ 2, %48 ], [ 1, %37 ], [ 0, %56 ]
   tail call void @free(ptr noundef nonnull %.sink) #28
   br label %tng_block_destroy.exit.sink.split
 
 tng_block_destroy.exit.sink.split:                ; preds = %tng_block_destroy.exit.sink.split.sink.split, %56, %48, %37
-  %.0.ph = phi i32 [ 1, %37 ], [ 2, %48 ], [ 0, %56 ], [ %.0.ph.ph, %tng_block_destroy.exit.sink.split.sink.split ]
+  %.0.ph = phi i32 [ 2, %48 ], [ 1, %37 ], [ 0, %56 ], [ %.0.ph.ph, %tng_block_destroy.exit.sink.split.sink.split ]
   tail call void @free(ptr noundef nonnull %3) #28
   br label %tng_block_destroy.exit
 
@@ -17513,7 +17513,7 @@ thread-pre-split:                                 ; preds = %484, %512, %.lr.ph3
   br label %tng_output_file_init.exit
 
 tng_output_file_init.exit:                        ; preds = %.lr.ph377, %.lr.ph386, %tng_file_output_numerical.exit336, %tng_file_output_numerical.exit331, %tng_file_output_numerical.exit329, %tng_file_output_numerical.exit326, %tng_file_output_numerical.exit, %29, %24, %538, %532, %331, %328, %322, %319, %303, %53, %35, %578, %572, %556, %525, %412, %238, %84
-  %.0254 = phi i32 [ 2, %238 ], [ 2, %572 ], [ 0, %578 ], [ 2, %556 ], [ %528, %525 ], [ 2, %412 ], [ 2, %84 ], [ 0, %35 ], [ 0, %53 ], [ 2, %tng_file_output_numerical.exit ], [ 2, %tng_file_output_numerical.exit326 ], [ 2, %tng_file_output_numerical.exit329 ], [ 2, %tng_file_output_numerical.exit331 ], [ 2, %tng_file_output_numerical.exit336 ], [ 2, %303 ], [ 2, %319 ], [ 2, %322 ], [ 2, %328 ], [ 2, %331 ], [ 2, %532 ], [ 2, %538 ], [ 2, %24 ], [ 2, %29 ], [ 2, %.lr.ph386 ], [ 2, %.lr.ph377 ]
+  %.0254 = phi i32 [ 2, %412 ], [ 2, %538 ], [ 0, %35 ], [ 2, %238 ], [ 0, %53 ], [ 2, %tng_file_output_numerical.exit ], [ 2, %tng_file_output_numerical.exit326 ], [ 2, %tng_file_output_numerical.exit329 ], [ 2, %tng_file_output_numerical.exit331 ], [ 2, %tng_file_output_numerical.exit336 ], [ 2, %303 ], [ 2, %319 ], [ 2, %322 ], [ 2, %328 ], [ 2, %331 ], [ 2, %572 ], [ 0, %578 ], [ 2, %.lr.ph386 ], [ 2, %532 ], [ 2, %556 ], [ 2, %84 ], [ %528, %525 ], [ 2, %29 ], [ 2, %24 ], [ 2, %.lr.ph377 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -17781,7 +17781,7 @@ tng_file_input_numerical.exit67.thread:           ; preds = %90, %88, %tng_file_
   br label %120
 
 120:                                              ; preds = %tng_file_input_numerical.exit67.thread79, %tng_file_input_numerical.exit60.thread75, %tng_file_input_numerical.exit.thread71, %.critedge, %110, %112, %108, %3, %101, %61, %18
-  %.0 = phi i32 [ 2, %101 ], [ 2, %61 ], [ 2, %18 ], [ 2, %3 ], [ 0, %108 ], [ 0, %112 ], [ 0, %110 ], [ 0, %.critedge ], [ 2, %tng_file_input_numerical.exit.thread71 ], [ 2, %tng_file_input_numerical.exit60.thread75 ], [ 2, %tng_file_input_numerical.exit67.thread79 ]
+  %.0 = phi i32 [ 2, %18 ], [ 2, %3 ], [ 2, %tng_file_input_numerical.exit.thread71 ], [ 2, %tng_file_input_numerical.exit60.thread75 ], [ 2, %tng_file_input_numerical.exit67.thread79 ], [ 2, %101 ], [ 2, %61 ], [ 0, %108 ], [ 0, %112 ], [ 0, %110 ], [ 0, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -17997,7 +17997,7 @@ tng_block_destroy.exit45:                         ; preds = %86, %89
   br label %tng_block_destroy.exit
 
 tng_block_destroy.exit:                           ; preds = %40, %25, %2, %tng_block_destroy.exit45, %.critedge.thread70
-  %.030 = phi i32 [ 2, %.critedge.thread70 ], [ 0, %tng_block_destroy.exit45 ], [ 2, %2 ], [ 2, %25 ], [ 2, %40 ]
+  %.030 = phi i32 [ 0, %tng_block_destroy.exit45 ], [ 2, %2 ], [ 2, %.critedge.thread70 ], [ 2, %25 ], [ 2, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.030
 }
@@ -18189,9 +18189,9 @@ tng_block_init.exit:                              ; preds = %20, %23
   br label %92
 
 92:                                               ; preds = %.sink.split, %82, %77
-  %.245 = phi i64 [ %79, %77 ], [ %86, %82 ], [ %.245.ph, %.sink.split ]
-  %.142 = phi i32 [ %76, %77 ], [ %.04176, %82 ], [ %91, %.sink.split ]
-  %.2 = phi i32 [ 1, %77 ], [ %.177, %82 ], [ %.2.ph, %.sink.split ]
+  %.245 = phi i64 [ %86, %82 ], [ %79, %77 ], [ %.245.ph, %.sink.split ]
+  %.142 = phi i32 [ %.04176, %82 ], [ %76, %77 ], [ %91, %.sink.split ]
+  %.2 = phi i32 [ %.177, %82 ], [ 1, %77 ], [ %.2.ph, %.sink.split ]
   %93 = load i64, ptr %66, align 8, !tbaa !191
   %94 = icmp slt i64 %.245, %93
   %95 = icmp ne i32 %.142, 2
@@ -18267,7 +18267,7 @@ tng_block_destroy.exit68:                         ; preds = %112, %115
   br label %tng_block_destroy.exit
 
 tng_block_destroy.exit:                           ; preds = %50, %35, %tng_block_destroy.exit68, %13, %3, %.critedge.thread105, %59
-  %.046 = phi i32 [ 2, %.critedge.thread105 ], [ %58, %59 ], [ 2, %3 ], [ 1, %13 ], [ %., %tng_block_destroy.exit68 ], [ 2, %35 ], [ 2, %50 ]
+  %.046 = phi i32 [ 2, %3 ], [ %58, %59 ], [ 2, %.critedge.thread105 ], [ %., %tng_block_destroy.exit68 ], [ 1, %13 ], [ 2, %35 ], [ 2, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.046
 }
@@ -18308,7 +18308,7 @@ define range(i32 0, 3) i32 @tng_frame_set_read_next(ptr noundef %0, i8 noundef s
   br label %.thread
 
 .thread:                                          ; preds = %8, %15, %2, %17
-  %.010 = phi i32 [ %21, %17 ], [ 2, %2 ], [ 1, %15 ], [ 1, %8 ]
+  %.010 = phi i32 [ 2, %2 ], [ %21, %17 ], [ 1, %15 ], [ 1, %8 ]
   ret i32 %.010
 }
 
@@ -18466,7 +18466,7 @@ tng_block_destroy.exit.sink.split:                ; preds = %tng_block_destroy.e
   br label %tng_block_destroy.exit
 
 tng_block_destroy.exit:                           ; preds = %tng_block_destroy.exit.sink.split, %9, %38, %16, %3
-  %.020 = phi i32 [ 2, %3 ], [ 1, %16 ], [ 2, %38 ], [ 1, %9 ], [ %.020.ph, %tng_block_destroy.exit.sink.split ]
+  %.020 = phi i32 [ 2, %3 ], [ 2, %38 ], [ 1, %9 ], [ 1, %16 ], [ %.020.ph, %tng_block_destroy.exit.sink.split ]
   ret i32 %.020
 }
 
@@ -18761,7 +18761,7 @@ tng_block_destroy.exit54:                         ; preds = %121, %124
   br label %tng_block_destroy.exit
 
 tng_block_destroy.exit:                           ; preds = %53, %38, %tng_block_destroy.exit54, %tng_block_destroy.exit49, %tng_block_destroy.exit44, %tng_output_file_init.exit
-  %.0 = phi i32 [ 2, %tng_output_file_init.exit ], [ 2, %tng_block_destroy.exit44 ], [ 2, %tng_block_destroy.exit49 ], [ 0, %tng_block_destroy.exit54 ], [ 2, %38 ], [ 2, %53 ]
+  %.0 = phi i32 [ 2, %tng_output_file_init.exit ], [ 0, %tng_block_destroy.exit54 ], [ 2, %tng_block_destroy.exit44 ], [ 2, %tng_block_destroy.exit49 ], [ 2, %38 ], [ 2, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -19526,7 +19526,7 @@ tng_block_destroy.exit192:                        ; preds = %326, %329
   br label %tng_block_destroy.exit
 
 tng_block_destroy.exit:                           ; preds = %350, %336, %284, %118, %103, %60, %45, %tng_block_destroy.exit192, %297, %251, %tng_block_destroy.exit182, %206, %tng_block_destroy.exit177, %161, %tng_block_destroy.exit172, %tng_block_destroy.exit162, %tng_output_file_init.exit
-  %.0 = phi i32 [ 2, %tng_output_file_init.exit ], [ 2, %tng_block_destroy.exit162 ], [ 2, %tng_block_destroy.exit172 ], [ 2, %161 ], [ 2, %tng_block_destroy.exit177 ], [ 2, %206 ], [ 2, %tng_block_destroy.exit182 ], [ 2, %251 ], [ 2, %297 ], [ 2, %tng_block_destroy.exit192 ], [ 2, %45 ], [ 2, %60 ], [ 2, %103 ], [ 2, %118 ], [ 2, %284 ], [ 0, %336 ], [ 0, %350 ]
+  %.0 = phi i32 [ 2, %tng_output_file_init.exit ], [ 2, %284 ], [ 2, %tng_block_destroy.exit162 ], [ 2, %60 ], [ 2, %tng_block_destroy.exit172 ], [ 2, %161 ], [ 2, %tng_block_destroy.exit177 ], [ 2, %206 ], [ 2, %tng_block_destroy.exit182 ], [ 2, %251 ], [ 2, %118 ], [ 2, %297 ], [ 2, %tng_block_destroy.exit192 ], [ 2, %45 ], [ 2, %103 ], [ 0, %350 ], [ 0, %336 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -19843,7 +19843,7 @@ tng_block_destroy.exit:                           ; preds = %86, %89
   br label %151
 
 151:                                              ; preds = %145, %150, %124, %112, %67, %55
-  %.0 = phi i32 [ 2, %55 ], [ 2, %67 ], [ 2, %112 ], [ 2, %124 ], [ 0, %150 ], [ 0, %145 ]
+  %.0 = phi i32 [ 2, %124 ], [ 2, %55 ], [ 2, %67 ], [ 2, %112 ], [ 0, %150 ], [ 0, %145 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -20034,7 +20034,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr noundef c
   %.not156 = icmp eq i32 %82, 0
   br i1 %.not156, label %88, label %84
 
-.thread197:                                       ; preds = %.loopexit212, %28, %.critedge.preheader.i
+.thread197:                                       ; preds = %.loopexit212, %.critedge.preheader.i, %28
   %83 = tail call fastcc i32 @tng_particle_data_block_create(ptr noundef nonnull %0, i8 noundef signext %5)
   %.not156199 = icmp eq i32 %83, 0
   br i1 %.not156199, label %.thread200, label %84
@@ -20057,8 +20057,8 @@ define internal fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr noundef c
   br label %90
 
 90:                                               ; preds = %88, %.thread200
-  %.sink331 = phi i64 [ %., %.thread200 ], [ %.336, %88 ]
-  %.sink = phi i64 [ %.335, %.thread200 ], [ %.337, %88 ]
+  %.sink331 = phi i64 [ %.336, %88 ], [ %., %.thread200 ]
+  %.sink = phi i64 [ %.337, %88 ], [ %.335, %.thread200 ]
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink331
   %92 = load ptr, ptr %91, align 8, !tbaa !215
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
@@ -20090,7 +20090,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr noundef c
   br label %tng_particle_data_find.exit
 
 tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32.i, %.lr.ph.i170, %69, %.lr.ph49.i, %106
-  %.1189 = phi ptr [ %97, %106 ], [ %74, %.lr.ph49.i ], [ %70, %69 ], [ %78, %.lr.ph.i170 ], [ %37, %.lr.ph32.i ], [ %41, %.lr.ph.i ]
+  %.1189 = phi ptr [ %97, %106 ], [ %74, %.lr.ph49.i ], [ %70, %69 ], [ %37, %.lr.ph32.i ], [ %78, %.lr.ph.i170 ], [ %41, %.lr.ph.i ]
   %110 = getelementptr inbounds nuw i8, ptr %.1189, i64 16
   store i8 %4, ptr %110, align 8, !tbaa !241
   %111 = getelementptr inbounds nuw i8, ptr %.1189, i64 48
@@ -20355,7 +20355,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
   br label %215
 
 215:                                              ; preds = %162, %214
-  %.0143 = phi i64 [ 4, %214 ], [ 8, %162 ]
+  %.0143 = phi i64 [ 8, %162 ], [ 4, %214 ]
   %216 = getelementptr inbounds nuw i8, ptr %.1189, i64 80
   %217 = load ptr, ptr %216, align 8, !tbaa !151
   br i1 %.not, label %222, label %218
@@ -20374,7 +20374,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge238.split.us.us.us, %._crit_edge.us, %.lr.ph252, %.lr.ph, %.thread, %.preheader210, %.preheader, %.thread204, %141, %218, %222, %.split.us253, %.split.us, %154, %103, %84
-  %.0136 = phi i32 [ 2, %84 ], [ 2, %154 ], [ 2, %.split.us ], [ 2, %.split.us253 ], [ 2, %103 ], [ 0, %222 ], [ 0, %218 ], [ 0, %141 ], [ 0, %.thread204 ], [ 0, %.preheader ], [ 0, %.preheader210 ], [ 0, %.thread ], [ 0, %.lr.ph ], [ 0, %.lr.ph252 ], [ 0, %._crit_edge.us ], [ 0, %._crit_edge238.split.us.us.us ]
+  %.0136 = phi i32 [ 2, %84 ], [ 2, %154 ], [ 2, %.split.us ], [ 2, %103 ], [ 2, %.split.us253 ], [ 0, %.thread204 ], [ 0, %.preheader ], [ 0, %222 ], [ 0, %218 ], [ 0, %141 ], [ 0, %.preheader210 ], [ 0, %.lr.ph252 ], [ 0, %.thread ], [ 0, %._crit_edge.us ], [ 0, %.lr.ph ], [ 0, %._crit_edge238.split.us.us.us ]
   ret i32 %.0136
 }
 
@@ -20562,7 +20562,7 @@ define range(i32 0, 3) i32 @tng_data_block_name_get(ptr noundef %0, i64 noundef 
   %78 = icmp eq i64 %77, %1
   br i1 %78, label %.critedge63, label %.critedge.i66
 
-.loopexit101:                                     ; preds = %.critedge.i66, %.critedge38.i, %.critedge38.preheader.i, %.critedge.preheader.i64
+.loopexit101:                                     ; preds = %.critedge.i66, %.critedge38.i, %.critedge.preheader.i64, %.critedge38.preheader.i
   %79 = tail call i32 @tng_frame_set_read_current_only_data_from_block_id(ptr noundef nonnull %0, i8 noundef signext 1, i64 noundef %1)
   %.not = icmp eq i32 %79, 0
   br i1 %.not, label %80, label %tng_data_find.exit91.thread
@@ -20763,8 +20763,8 @@ tng_data_find.exit91.thread.sink.split:           ; preds = %19, %25, %159, %147
   store i8 0, ptr %168, align 1, !tbaa !13
   br label %tng_data_find.exit91.thread
 
-tng_data_find.exit91.thread:                      ; preds = %.critedge.i80, %.critedge38.i86, %157, %145, %tng_data_find.exit91.thread.sink.split, %.critedge63, %.critedge, %.critedge.preheader.i77, %.critedge38.preheader.i83, %.loopexit101
-  %.059 = phi i32 [ %79, %.loopexit101 ], [ 1, %.critedge38.preheader.i83 ], [ 1, %.critedge.preheader.i77 ], [ 1, %.critedge ], [ 1, %.critedge63 ], [ 0, %tng_data_find.exit91.thread.sink.split ], [ 1, %145 ], [ 1, %157 ], [ 1, %.critedge38.i86 ], [ 1, %.critedge.i80 ]
+tng_data_find.exit91.thread:                      ; preds = %.critedge.i80, %.critedge38.i86, %157, %145, %tng_data_find.exit91.thread.sink.split, %.critedge63, %.critedge, %.critedge38.preheader.i83, %.critedge.preheader.i77, %.loopexit101
+  %.059 = phi i32 [ 1, %.critedge ], [ 1, %157 ], [ 0, %tng_data_find.exit91.thread.sink.split ], [ %79, %.loopexit101 ], [ 1, %.critedge38.i86 ], [ 1, %.critedge63 ], [ 1, %145 ], [ 1, %.critedge.preheader.i77 ], [ 1, %.critedge38.preheader.i83 ], [ 1, %.critedge.i80 ]
   ret i32 %.059
 }
 
@@ -20826,7 +20826,7 @@ define internal fastcc range(i32 0, 2) i32 @tng_particle_data_find(ptr noundef r
   br i1 %32, label %.loopexit, label %.critedge
 
 .loopexit:                                        ; preds = %.lr.ph, %.critedge, %.lr.ph32, %22, %.critedge.preheader, %16
-  %33 = phi i32 [ 1, %16 ], [ 1, %.critedge.preheader ], [ 0, %.lr.ph32 ], [ 1, %22 ], [ 0, %.lr.ph ], [ 1, %.critedge ]
+  %33 = phi i32 [ 1, %.critedge.preheader ], [ 1, %22 ], [ 1, %16 ], [ 0, %.lr.ph32 ], [ 0, %.lr.ph ], [ 1, %.critedge ]
   ret i32 %33
 }
 
@@ -20913,7 +20913,7 @@ define internal fastcc range(i32 0, 2) i32 @tng_data_find(ptr noundef readonly c
   br i1 %42, label %.thread, label %.critedge
 
 .thread:                                          ; preds = %.critedge, %.lr.ph, %28, %.critedge38, %.lr.ph49, %.critedge.preheader, %.critedge38.preheader
-  %43 = phi i32 [ 1, %.critedge38.preheader ], [ 1, %.critedge.preheader ], [ 1, %.critedge38 ], [ 0, %.lr.ph49 ], [ 0, %28 ], [ 1, %.critedge ], [ 0, %.lr.ph ]
+  %43 = phi i32 [ 1, %.critedge.preheader ], [ 0, %28 ], [ 0, %.lr.ph49 ], [ 1, %.critedge38.preheader ], [ 1, %.critedge38 ], [ 0, %.lr.ph ], [ 1, %.critedge ]
   ret i32 %43
 }
 
@@ -21095,7 +21095,7 @@ define range(i32 0, 3) i32 @tng_data_block_dependency_get(ptr noundef %0, i64 no
   %77 = icmp eq i64 %76, %1
   br i1 %77, label %tng_data_find.exit63.thread.sink.split, label %.critedge.i38
 
-.loopexit70:                                      ; preds = %.critedge.i38, %.critedge38.i, %.critedge38.preheader.i, %.critedge.preheader.i36
+.loopexit70:                                      ; preds = %.critedge.i38, %.critedge38.i, %.critedge.preheader.i36, %.critedge38.preheader.i
   %78 = tail call i32 @tng_frame_set_read_current_only_data_from_block_id(ptr noundef nonnull %0, i8 noundef signext 1, i64 noundef %1)
   %.not = icmp eq i32 %78, 0
   br i1 %.not, label %79, label %tng_data_find.exit63.thread
@@ -21238,12 +21238,12 @@ define range(i32 0, 3) i32 @tng_data_block_dependency_get(ptr noundef %0, i64 no
   br i1 %137, label %tng_data_find.exit63.thread.sink.split, label %.critedge.i52
 
 tng_data_find.exit63.thread.sink.split:           ; preds = %18, %24, %.lr.ph.i, %.lr.ph32.i, %.lr.ph.i37, %66, %.lr.ph49.i, %.lr.ph.i41, %.lr.ph32.i45, %.lr.ph.i50, %126, %.lr.ph49.i56
-  %.sink = phi i32 [ 1, %.lr.ph49.i56 ], [ 1, %126 ], [ 1, %.lr.ph.i50 ], [ 3, %.lr.ph32.i45 ], [ 3, %.lr.ph.i41 ], [ 1, %.lr.ph49.i ], [ 1, %66 ], [ 1, %.lr.ph.i37 ], [ 3, %.lr.ph32.i ], [ 3, %.lr.ph.i ], [ 0, %24 ], [ 2, %18 ]
+  %.sink = phi i32 [ 0, %24 ], [ 1, %126 ], [ 3, %.lr.ph.i41 ], [ 1, %66 ], [ 1, %.lr.ph.i37 ], [ 1, %.lr.ph49.i ], [ 3, %.lr.ph32.i45 ], [ 1, %.lr.ph.i50 ], [ 1, %.lr.ph49.i56 ], [ 3, %.lr.ph.i ], [ 3, %.lr.ph32.i ], [ 2, %18 ]
   store i32 %.sink, ptr %2, align 4, !tbaa !17
   br label %tng_data_find.exit63.thread
 
-tng_data_find.exit63.thread:                      ; preds = %.critedge.i52, %.critedge38.i58, %tng_data_find.exit63.thread.sink.split, %.critedge.preheader.i49, %.critedge38.preheader.i55, %.loopexit70
-  %.034 = phi i32 [ %78, %.loopexit70 ], [ 1, %.critedge38.preheader.i55 ], [ 1, %.critedge.preheader.i49 ], [ 0, %tng_data_find.exit63.thread.sink.split ], [ 1, %.critedge38.i58 ], [ 1, %.critedge.i52 ]
+tng_data_find.exit63.thread:                      ; preds = %.critedge.i52, %.critedge38.i58, %tng_data_find.exit63.thread.sink.split, %.critedge38.preheader.i55, %.critedge.preheader.i49, %.loopexit70
+  %.034 = phi i32 [ 0, %tng_data_find.exit63.thread.sink.split ], [ 1, %.critedge38.i58 ], [ 1, %.critedge.preheader.i49 ], [ 1, %.critedge38.preheader.i55 ], [ %78, %.loopexit70 ], [ 1, %.critedge.i52 ]
   ret i32 %.034
 }
 
@@ -21425,7 +21425,7 @@ define range(i32 0, 3) i32 @tng_data_block_num_values_per_frame_get(ptr noundef 
   %77 = icmp eq i64 %76, %1
   br i1 %77, label %tng_data_find.exit63.thread.sink.split, label %.critedge.i38
 
-.loopexit88:                                      ; preds = %.critedge.i38, %.critedge38.i, %.critedge38.preheader.i, %.critedge.preheader.i36
+.loopexit88:                                      ; preds = %.critedge.i38, %.critedge38.i, %.critedge.preheader.i36, %.critedge38.preheader.i
   %78 = tail call i32 @tng_frame_set_read_current_only_data_from_block_id(ptr noundef nonnull %0, i8 noundef signext 1, i64 noundef %1)
   %.not = icmp eq i32 %78, 0
   br i1 %.not, label %79, label %tng_data_find.exit63.thread
@@ -21568,14 +21568,14 @@ define range(i32 0, 3) i32 @tng_data_block_num_values_per_frame_get(ptr noundef 
   br i1 %137, label %tng_data_find.exit63.thread.sink.split, label %.critedge.i52
 
 tng_data_find.exit63.thread.sink.split:           ; preds = %18, %24, %.lr.ph.i, %.lr.ph32.i, %.lr.ph.i37, %66, %.lr.ph49.i, %.lr.ph.i41, %.lr.ph32.i45, %.lr.ph.i50, %126, %.lr.ph49.i56
-  %.7.sink = phi ptr [ %131, %.lr.ph49.i56 ], [ %127, %126 ], [ %135, %.lr.ph.i50 ], [ %100, %.lr.ph32.i45 ], [ %104, %.lr.ph.i41 ], [ %71, %.lr.ph49.i ], [ %67, %66 ], [ %75, %.lr.ph.i37 ], [ %46, %.lr.ph32.i ], [ %50, %.lr.ph.i ], [ %25, %24 ], [ %19, %18 ]
+  %.7.sink = phi ptr [ %131, %.lr.ph49.i56 ], [ %100, %.lr.ph32.i45 ], [ %71, %.lr.ph49.i ], [ %67, %66 ], [ %75, %.lr.ph.i37 ], [ %104, %.lr.ph.i41 ], [ %135, %.lr.ph.i50 ], [ %127, %126 ], [ %25, %24 ], [ %46, %.lr.ph32.i ], [ %50, %.lr.ph.i ], [ %19, %18 ]
   %138 = getelementptr inbounds nuw i8, ptr %.7.sink, i64 40
   %139 = load i64, ptr %138, align 8, !tbaa !158
   store i64 %139, ptr %2, align 8, !tbaa !38
   br label %tng_data_find.exit63.thread
 
-tng_data_find.exit63.thread:                      ; preds = %.critedge.i52, %.critedge38.i58, %tng_data_find.exit63.thread.sink.split, %.critedge.preheader.i49, %.critedge38.preheader.i55, %.loopexit88
-  %.034 = phi i32 [ %78, %.loopexit88 ], [ 1, %.critedge38.preheader.i55 ], [ 1, %.critedge.preheader.i49 ], [ 0, %tng_data_find.exit63.thread.sink.split ], [ 1, %.critedge38.i58 ], [ 1, %.critedge.i52 ]
+tng_data_find.exit63.thread:                      ; preds = %.critedge.i52, %.critedge38.i58, %tng_data_find.exit63.thread.sink.split, %.critedge38.preheader.i55, %.critedge.preheader.i49, %.loopexit88
+  %.034 = phi i32 [ 0, %tng_data_find.exit63.thread.sink.split ], [ 1, %.critedge38.i58 ], [ 1, %.critedge.preheader.i49 ], [ 1, %.critedge38.preheader.i55 ], [ %78, %.loopexit88 ], [ 1, %.critedge.i52 ]
   ret i32 %.034
 }
 
@@ -21786,7 +21786,7 @@ tng_block_destroy.exit44:                         ; preds = %61, %64
   br label %.thread
 
 .thread:                                          ; preds = %.thread88, %73, %.thread.sink.split, %65
-  %.264 = phi i32 [ %66, %65 ], [ 0, %.thread.sink.split ], [ %82, %.thread88 ], [ %74, %73 ]
+  %.264 = phi i32 [ 0, %.thread.sink.split ], [ %66, %65 ], [ %82, %.thread88 ], [ %74, %73 ]
   %93 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %94 = load ptr, ptr %93, align 8, !tbaa !187
   %.not16.i46 = icmp eq ptr %94, null
@@ -21823,7 +21823,7 @@ tng_block_destroy.exit49:                         ; preds = %100, %103
   br label %tng_block_destroy.exit
 
 tng_block_destroy.exit:                           ; preds = %46, %33, %tng_block_destroy.exit49, %tng_block_destroy.exit44
-  %.028 = phi i32 [ %52, %tng_block_destroy.exit44 ], [ %.264, %tng_block_destroy.exit49 ], [ %32, %33 ], [ %32, %46 ]
+  %.028 = phi i32 [ %.264, %tng_block_destroy.exit49 ], [ %52, %tng_block_destroy.exit44 ], [ %32, %33 ], [ %32, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -22091,7 +22091,7 @@ tng_file_input_numerical.exit86.thread:           ; preds = %83, %81, %tng_file_
   br label %122
 
 122:                                              ; preds = %tng_file_input_numerical.exit86.thread99, %tng_file_input_numerical.exit79.thread95, %tng_file_input_numerical.exit72.thread91, %tng_file_input_numerical.exit69, %tng_file_input_numerical.exit66, %tng_file_input_numerical.exit, %117, %114, %95, %92, %121
-  %.0 = phi i32 [ 0, %121 ], [ 2, %tng_file_input_numerical.exit ], [ 2, %tng_file_input_numerical.exit66 ], [ 2, %tng_file_input_numerical.exit69 ], [ 2, %92 ], [ 2, %95 ], [ 2, %114 ], [ 2, %117 ], [ 2, %tng_file_input_numerical.exit72.thread91 ], [ 2, %tng_file_input_numerical.exit79.thread95 ], [ 2, %tng_file_input_numerical.exit86.thread99 ]
+  %.0 = phi i32 [ 0, %121 ], [ 2, %tng_file_input_numerical.exit ], [ 2, %tng_file_input_numerical.exit66 ], [ 2, %tng_file_input_numerical.exit69 ], [ 2, %tng_file_input_numerical.exit72.thread91 ], [ 2, %tng_file_input_numerical.exit79.thread95 ], [ 2, %tng_file_input_numerical.exit86.thread99 ], [ 2, %92 ], [ 2, %95 ], [ 2, %114 ], [ 2, %117 ]
   ret i32 %.0
 }
 
@@ -23537,7 +23537,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_gen_data_get(ptr noundef %0, i64
   %76 = icmp eq i64 %75, %1
   br i1 %76, label %.loopexit346, label %.critedge.i253
 
-.loopexit349:                                     ; preds = %.critedge.i, %31, %.critedge.i253, %.critedge38.i, %24, %.critedge.preheader.i, %.critedge38.preheader.i, %.critedge.preheader.i251
+.loopexit349:                                     ; preds = %.critedge.i, %31, %.critedge.i253, %.critedge38.i, %.critedge.preheader.i, %24, %.critedge.preheader.i251, %.critedge38.preheader.i
   %77 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #30
   %.not.i = icmp eq ptr %77, null
   br i1 %.not.i, label %78, label %81
@@ -23712,7 +23712,7 @@ tng_block_destroy.exit:                           ; preds = %.critedge, %121
   br i1 %150, label %.loopexit346, label %145
 
 .loopexit346:                                     ; preds = %.lr.ph.i, %.lr.ph32.i, %.lr.ph.i252, %65, %.lr.ph49.i, %147
-  %.1302 = phi ptr [ %148, %147 ], [ %70, %.lr.ph49.i ], [ %66, %65 ], [ %74, %.lr.ph.i252 ], [ %33, %.lr.ph32.i ], [ %37, %.lr.ph.i ]
+  %.1302 = phi ptr [ %33, %.lr.ph32.i ], [ %66, %65 ], [ %74, %.lr.ph.i252 ], [ %70, %.lr.ph49.i ], [ %148, %147 ], [ %37, %.lr.ph.i ]
   br i1 %.not, label %156, label %151
 
 151:                                              ; preds = %.loopexit346
@@ -23728,8 +23728,8 @@ tng_block_destroy.exit:                           ; preds = %.critedge, %121
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.thread316, %151
-  %.sink = phi i64 [ 232, %151 ], [ %spec.select, %.thread316 ]
-  %.1302314.ph = phi ptr [ %.1302, %151 ], [ %.1302313319, %.thread316 ]
+  %.sink = phi i64 [ %spec.select, %.thread316 ], [ 232, %151 ]
+  %.1302314.ph = phi ptr [ %.1302313319, %.thread316 ], [ %.1302, %151 ]
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %155 = load i64, ptr %154, align 8, !tbaa !38
   store i64 %155, ptr %5, align 8, !tbaa !38
@@ -23860,7 +23860,7 @@ thread-pre-split:                                 ; preds = %167
   br i1 %exitcond.not.i257, label %tng_particle_mapping_get_real_particle.exit, label %197, !llvm.loop !352
 
 tng_particle_mapping_get_real_particle.exit:      ; preds = %211, %.lr.ph415, %205
-  %.sink.i = phi i64 [ %210, %205 ], [ %.0223414, %.lr.ph415 ], [ %.0223414, %211 ]
+  %.sink.i = phi i64 [ %.0223414, %.lr.ph415 ], [ %210, %205 ], [ %.0223414, %211 ]
   %213 = icmp sgt i64 %193, 0
   br i1 %213, label %.lr.ph412, label %._crit_edge413
 
@@ -23980,7 +23980,7 @@ tng_particle_mapping_get_real_particle.exit:      ; preds = %211, %.lr.ph415, %2
   br i1 %exitcond.not.i262, label %tng_particle_mapping_get_real_particle.exit265, label %270, !llvm.loop !352
 
 tng_particle_mapping_get_real_particle.exit265:   ; preds = %284, %264, %278
-  %.sink.i263 = phi i64 [ %283, %278 ], [ %.1224407, %264 ], [ %.1224407, %284 ]
+  %.sink.i263 = phi i64 [ %.1224407, %264 ], [ %283, %278 ], [ %.1224407, %284 ]
   %286 = icmp sgt i64 %266, 0
   br i1 %286, label %.lr.ph405, label %._crit_edge406
 
@@ -24084,7 +24084,7 @@ tng_particle_mapping_get_real_particle.exit265:   ; preds = %284, %264, %278
   br i1 %exitcond.not.i269, label %tng_particle_mapping_get_real_particle.exit272, label %327, !llvm.loop !352
 
 tng_particle_mapping_get_real_particle.exit272:   ; preds = %341, %321, %335
-  %.sink.i270 = phi i64 [ %340, %335 ], [ %.2225400, %321 ], [ %.2225400, %341 ]
+  %.sink.i270 = phi i64 [ %.2225400, %321 ], [ %340, %335 ], [ %.2225400, %341 ]
   %343 = icmp sgt i64 %323, 0
   br i1 %343, label %.lr.ph399, label %._crit_edge
 
@@ -24187,7 +24187,7 @@ tng_particle_mapping_get_real_particle.exit272:   ; preds = %341, %321, %335
   br i1 %exitcond.not.i276, label %tng_particle_mapping_get_real_particle.exit279, label %383, !llvm.loop !352
 
 tng_particle_mapping_get_real_particle.exit279:   ; preds = %397, %377, %391
-  %.sink.i277 = phi i64 [ %396, %391 ], [ %.3226421, %377 ], [ %.3226421, %397 ]
+  %.sink.i277 = phi i64 [ %.3226421, %377 ], [ %396, %391 ], [ %.3226421, %397 ]
   %399 = icmp sgt i64 %379, 0
   br i1 %399, label %.lr.ph419, label %._crit_edge420
 
@@ -24474,7 +24474,7 @@ thread-pre-split321:                              ; preds = %430
   br label %.critedge250
 
 .critedge250:                                     ; preds = %139, %145, %.preheader347, %.preheader345, %430, %167, %.loopexit, %123
-  %.0212 = phi i32 [ 2, %123 ], [ 0, %.loopexit ], [ 2, %167 ], [ 2, %430 ], [ 1, %.preheader345 ], [ 1, %.preheader347 ], [ 1, %145 ], [ 1, %139 ]
+  %.0212 = phi i32 [ 2, %123 ], [ 2, %430 ], [ 2, %167 ], [ 0, %.loopexit ], [ 1, %.preheader345 ], [ 1, %.preheader347 ], [ 1, %145 ], [ 1, %139 ]
   ret i32 %.0212
 }
 
@@ -24631,7 +24631,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_gen_data_vector_get(ptr noundef 
   %77 = icmp eq i64 %76, %1
   br i1 %77, label %tng_particle_data_find.exit, label %.critedge.i112
 
-.loopexit136:                                     ; preds = %.critedge.i, %32, %.critedge.i112, %.critedge38.i, %25, %.critedge.preheader.i, %.critedge38.preheader.i, %.critedge.preheader.i110
+.loopexit136:                                     ; preds = %.critedge.i, %32, %.critedge.i112, %.critedge38.i, %.critedge.preheader.i, %25, %.critedge.preheader.i110, %.critedge38.preheader.i
   %78 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #30
   %.not.i = icmp eq ptr %78, null
   br i1 %.not.i, label %79, label %82
@@ -24779,7 +24779,7 @@ tng_block_destroy.exit:                           ; preds = %.critedge, %122
   br i1 %137, label %tng_particle_data_find.exit, label %132
 
 tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32.i, %.lr.ph.i111, %66, %.lr.ph49.i, %134
-  %.1129 = phi ptr [ %135, %134 ], [ %71, %.lr.ph49.i ], [ %67, %66 ], [ %75, %.lr.ph.i111 ], [ %34, %.lr.ph32.i ], [ %38, %.lr.ph.i ]
+  %.1129 = phi ptr [ %135, %134 ], [ %75, %.lr.ph.i111 ], [ %34, %.lr.ph32.i ], [ %67, %66 ], [ %71, %.lr.ph49.i ], [ %38, %.lr.ph.i ]
   br i1 %.not, label %148, label %138
 
 138:                                              ; preds = %tng_particle_data_find.exit
@@ -24935,7 +24935,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
   br i1 %exitcond.not.i116, label %tng_particle_mapping_get_real_particle.exit, label %201, !llvm.loop !352
 
 tng_particle_mapping_get_real_particle.exit:      ; preds = %215, %197, %209
-  %.sink.i = phi i64 [ %214, %209 ], [ %.090171, %197 ], [ %.090171, %215 ]
+  %.sink.i = phi i64 [ %.090171, %197 ], [ %214, %209 ], [ %.090171, %215 ]
   %217 = load ptr, ptr %3, align 8, !tbaa !375
   %218 = load i64, ptr %7, align 8, !tbaa !38
   %219 = mul nsw i64 %218, %.sink.i
@@ -24976,7 +24976,7 @@ tng_particle_mapping_get_real_particle.exit:      ; preds = %215, %197, %209
   br label %.critedge109
 
 .critedge109:                                     ; preds = %132, %.preheader134, %148, %.loopexit, %173, %129
-  %.085 = phi i32 [ 2, %129 ], [ 0, %.loopexit ], [ 2, %173 ], [ 1, %148 ], [ 1, %.preheader134 ], [ 1, %132 ]
+  %.085 = phi i32 [ 2, %129 ], [ 1, %148 ], [ 0, %.loopexit ], [ 2, %173 ], [ 1, %.preheader134 ], [ 1, %132 ]
   ret i32 %.085
 }
 
@@ -25436,7 +25436,7 @@ tng_frame_set_read_next.exit:                     ; preds = %192
   br i1 %exitcond.not.i, label %tng_particle_mapping_get_real_particle.exit, label %206, !llvm.loop !352
 
 tng_particle_mapping_get_real_particle.exit:      ; preds = %220, %.lr.ph466, %214
-  %.sink.i = phi i64 [ %219, %214 ], [ %.0262465, %.lr.ph466 ], [ %.0262465, %220 ]
+  %.sink.i = phi i64 [ %.0262465, %.lr.ph466 ], [ %219, %214 ], [ %.0262465, %220 ]
   %222 = load i64, ptr %8, align 8, !tbaa !38
   %223 = icmp sgt i64 %222, 0
   br i1 %223, label %.lr.ph463, label %._crit_edge464
@@ -25630,7 +25630,7 @@ tng_frame_set_read_next.exit323:                  ; preds = %306
   br i1 %exitcond.not.i327, label %tng_particle_mapping_get_real_particle.exit330, label %323, !llvm.loop !352
 
 tng_particle_mapping_get_real_particle.exit330:   ; preds = %337, %318, %331
-  %.sink.i328 = phi i64 [ %336, %331 ], [ %.2264452, %318 ], [ %.2264452, %337 ]
+  %.sink.i328 = phi i64 [ %.2264452, %318 ], [ %336, %331 ], [ %.2264452, %337 ]
   %339 = load i64, ptr %8, align 8, !tbaa !38
   %340 = icmp sgt i64 %339, 0
   br i1 %340, label %.lr.ph450, label %._crit_edge451
@@ -25796,7 +25796,7 @@ tng_frame_set_read_next.exit334:                  ; preds = %392
   br i1 %exitcond.not.i338, label %tng_particle_mapping_get_real_particle.exit341, label %409, !llvm.loop !352
 
 tng_particle_mapping_get_real_particle.exit341:   ; preds = %423, %404, %417
-  %.sink.i339 = phi i64 [ %422, %417 ], [ %.4266440, %404 ], [ %.4266440, %423 ]
+  %.sink.i339 = phi i64 [ %.4266440, %404 ], [ %422, %417 ], [ %.4266440, %423 ]
   %425 = load i64, ptr %8, align 8, !tbaa !38
   %426 = icmp sgt i64 %425, 0
   br i1 %426, label %.lr.ph439, label %._crit_edge
@@ -25956,7 +25956,7 @@ tng_frame_set_read_next.exit345:                  ; preds = %476
   br i1 %exitcond.not.i349, label %tng_particle_mapping_get_real_particle.exit352, label %493, !llvm.loop !352
 
 tng_particle_mapping_get_real_particle.exit352:   ; preds = %507, %488, %501
-  %.sink.i350 = phi i64 [ %506, %501 ], [ %.6477, %488 ], [ %.6477, %507 ]
+  %.sink.i350 = phi i64 [ %.6477, %488 ], [ %506, %501 ], [ %.6477, %507 ]
   %509 = load i64, ptr %8, align 8, !tbaa !38
   %510 = icmp sgt i64 %509, 0
   br i1 %510, label %.lr.ph475, label %._crit_edge476
@@ -26023,7 +26023,7 @@ tng_particle_mapping_get_real_particle.exit352:   ; preds = %507, %488, %501
   br label %tng_frame_set_read_next.exit.thread
 
 tng_frame_set_read_next.exit.thread:              ; preds = %387, %392, %382, %tng_frame_set_read_next.exit334, %301, %306, %296, %tng_frame_set_read_next.exit323, %187, %192, %182, %tng_frame_set_read_next.exit, %471, %476, %466, %tng_frame_set_read_next.exit345, %124, %118, %10, %.loopexit382, %.thread362, %74
-  %.0255 = phi i32 [ 2, %74 ], [ 1, %.thread362 ], [ 0, %.loopexit382 ], [ %14, %10 ], [ 2, %118 ], [ 2, %124 ], [ 2, %466 ], [ 1, %476 ], [ 1, %471 ], [ %480, %tng_frame_set_read_next.exit345 ], [ 2, %182 ], [ 1, %192 ], [ 1, %187 ], [ %196, %tng_frame_set_read_next.exit ], [ 2, %296 ], [ 1, %306 ], [ 1, %301 ], [ %310, %tng_frame_set_read_next.exit323 ], [ 2, %382 ], [ 1, %392 ], [ 1, %387 ], [ %396, %tng_frame_set_read_next.exit334 ]
+  %.0255 = phi i32 [ 2, %118 ], [ 2, %74 ], [ 1, %.thread362 ], [ %14, %10 ], [ 1, %301 ], [ 0, %.loopexit382 ], [ 2, %124 ], [ %480, %tng_frame_set_read_next.exit345 ], [ %196, %tng_frame_set_read_next.exit ], [ 2, %466 ], [ 1, %476 ], [ 1, %471 ], [ 1, %192 ], [ 1, %187 ], [ 2, %182 ], [ 2, %296 ], [ 1, %306 ], [ %310, %tng_frame_set_read_next.exit323 ], [ 2, %382 ], [ 1, %392 ], [ 1, %387 ], [ %396, %tng_frame_set_read_next.exit334 ]
   ret i32 %.0255
 }
 
@@ -26230,12 +26230,12 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
   br i1 %.not291, label %176, label %tng_particle_data_find.exit.thread
 
 tng_particle_data_find.exit.thread.sink.split:    ; preds = %.critedge.i, %54, %.critedge.i223, %.critedge38.i
-  %scevgep.sink = phi ptr [ %scevgep419, %.critedge38.i ], [ %scevgep417, %.critedge.i223 ], [ %scevgep416, %54 ], [ %scevgep, %.critedge.i ]
+  %scevgep.sink = phi ptr [ %scevgep417, %.critedge.i223 ], [ %scevgep419, %.critedge38.i ], [ %scevgep416, %54 ], [ %scevgep, %.critedge.i ]
   store ptr %scevgep.sink, ptr %13, align 8, !tbaa !215
   br label %tng_particle_data_find.exit.thread
 
-tng_particle_data_find.exit.thread:               ; preds = %tng_particle_data_find.exit.thread.sink.split, %.critedge.preheader.i221, %.critedge38.preheader.i, %.critedge.preheader.i, %45, %tng_particle_data_find.exit
-  %105 = phi i1 [ false, %tng_particle_data_find.exit ], [ true, %45 ], [ true, %.critedge.preheader.i ], [ true, %.critedge38.preheader.i ], [ true, %.critedge.preheader.i221 ], [ true, %tng_particle_data_find.exit.thread.sink.split ]
+tng_particle_data_find.exit.thread:               ; preds = %tng_particle_data_find.exit.thread.sink.split, %.critedge38.preheader.i, %.critedge.preheader.i221, %45, %.critedge.preheader.i, %tng_particle_data_find.exit
+  %105 = phi i1 [ false, %tng_particle_data_find.exit ], [ true, %.critedge.preheader.i221 ], [ true, %.critedge.preheader.i ], [ true, %.critedge38.preheader.i ], [ true, %45 ], [ true, %tng_particle_data_find.exit.thread.sink.split ]
   %106 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #30
   %.not.i = icmp eq ptr %106, null
   br i1 %.not.i, label %107, label %110
@@ -26539,7 +26539,7 @@ tng_block_destroy.exit:                           ; preds = %.critedge, %171
   br i1 %242, label %tng_particle_data_find.exit234, label %.critedge.i238
 
 tng_particle_data_find.exit234:                   ; preds = %.lr.ph.i227, %.lr.ph32.i231, %.lr.ph.i236, %231, %.lr.ph49.i242
-  %.lcssa511.sink = phi ptr [ %236, %.lr.ph49.i242 ], [ %232, %231 ], [ %240, %.lr.ph.i236 ], [ %199, %.lr.ph32.i231 ], [ %203, %.lr.ph.i227 ]
+  %.lcssa511.sink = phi ptr [ %199, %.lr.ph32.i231 ], [ %240, %.lr.ph.i236 ], [ %232, %231 ], [ %236, %.lr.ph49.i242 ], [ %203, %.lr.ph.i227 ]
   store ptr %.lcssa511.sink, ptr %13, align 8, !tbaa !215
   %243 = call fastcc i32 @tng_gen_data_vector_get(ptr noundef nonnull %0, i64 noundef %1, i32 noundef %2, ptr noundef nonnull %14, ptr noundef nonnull %12, ptr noundef %8, ptr noundef %7, ptr noundef %9, ptr noundef %10)
   %.not204 = icmp eq i32 %243, 0
@@ -26888,7 +26888,7 @@ tng_frame_set_read_next.exit.thread:              ; preds = %tng_frame_set_read_
   br i1 %410, label %tng_particle_data_find.exit260, label %.critedge.i264
 
 tng_particle_data_find.exit260:                   ; preds = %.lr.ph.i253, %.lr.ph32.i257, %.lr.ph.i262, %399, %.lr.ph49.i268
-  %.lcssa356358 = phi ptr [ %404, %.lr.ph49.i268 ], [ %400, %399 ], [ %408, %.lr.ph.i262 ], [ %374, %.lr.ph32.i257 ], [ %378, %.lr.ph.i253 ]
+  %.lcssa356358 = phi ptr [ %374, %.lr.ph32.i257 ], [ %408, %.lr.ph.i262 ], [ %400, %399 ], [ %404, %.lr.ph49.i268 ], [ %378, %.lr.ph.i253 ]
   %411 = call fastcc i32 @tng_gen_data_vector_get(ptr noundef nonnull %0, i64 noundef %1, i32 noundef %2, ptr noundef nonnull %14, ptr noundef nonnull %12, ptr noundef nonnull %8, ptr noundef %7, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %.not210 = icmp eq i32 %411, 0
   br i1 %.not210, label %417, label %412
@@ -26971,8 +26971,8 @@ thread-pre-split:                                 ; preds = %297, %thread-pre-sp
   store i64 %4, ptr %447, align 8, !tbaa !245
   br label %tng_particle_data_find.exit234.thread
 
-tng_particle_data_find.exit234.thread:            ; preds = %.critedge.i229, %197, %.critedge.i238, %.critedge38.i244, %.critedge.preheader.i261, %.critedge38.preheader.i267, %.critedge.preheader.i252, %367, %.critedge.i255, %372, %.critedge.i264, %.critedge38.i270, %.critedge.preheader.i235, %.critedge38.preheader.i241, %.critedge.preheader.i226, %190, %444, %269, %264, %248, %250, %27, %25, %445, %415, %354, %286, %173, %121
-  %.0166 = phi i32 [ %120, %121 ], [ 2, %173 ], [ 0, %445 ], [ %.010.i288, %354 ], [ %411, %415 ], [ 2, %286 ], [ %26, %25 ], [ %28, %27 ], [ %243, %250 ], [ %243, %248 ], [ 1, %264 ], [ 1, %269 ], [ 1, %444 ], [ 1, %190 ], [ 1, %.critedge.preheader.i226 ], [ 1, %.critedge38.preheader.i241 ], [ 1, %.critedge.preheader.i235 ], [ 1, %.critedge38.i270 ], [ 1, %.critedge.i264 ], [ 1, %372 ], [ 1, %.critedge.i255 ], [ 1, %367 ], [ 1, %.critedge.preheader.i252 ], [ 1, %.critedge38.preheader.i267 ], [ 1, %.critedge.preheader.i261 ], [ 1, %.critedge38.i244 ], [ 1, %.critedge.i238 ], [ 1, %197 ], [ 1, %.critedge.i229 ]
+tng_particle_data_find.exit234.thread:            ; preds = %.critedge.i229, %197, %.critedge.i238, %.critedge38.i244, %.critedge38.preheader.i267, %.critedge.preheader.i261, %367, %.critedge.preheader.i252, %.critedge.i255, %372, %.critedge.i264, %.critedge38.i270, %.critedge38.preheader.i241, %.critedge.preheader.i235, %190, %.critedge.preheader.i226, %444, %269, %264, %248, %250, %27, %25, %445, %415, %354, %286, %173, %121
+  %.0166 = phi i32 [ 1, %264 ], [ %26, %25 ], [ %120, %121 ], [ 2, %173 ], [ %28, %27 ], [ 1, %444 ], [ %243, %248 ], [ 1, %.critedge38.i270 ], [ 0, %445 ], [ %.010.i288, %354 ], [ 1, %269 ], [ %411, %415 ], [ 2, %286 ], [ %243, %250 ], [ 1, %372 ], [ 1, %.critedge.preheader.i226 ], [ 1, %.critedge.i264 ], [ 1, %190 ], [ 1, %.critedge.preheader.i235 ], [ 1, %.critedge38.preheader.i241 ], [ 1, %197 ], [ 1, %.critedge38.i244 ], [ 1, %.critedge.i255 ], [ 1, %.critedge38.preheader.i267 ], [ 1, %.critedge.i238 ], [ 1, %.critedge.preheader.i252 ], [ 1, %367 ], [ 1, %.critedge.preheader.i261 ], [ 1, %.critedge.i229 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -27161,7 +27161,7 @@ thread-pre-split:                                 ; preds = %8
   %71 = icmp eq i64 %70, %1
   br i1 %71, label %.critedge54, label %.critedge.i57
 
-.loopexit115:                                     ; preds = %.critedge.i57, %63, %56, %.critedge.preheader.i55
+.loopexit115:                                     ; preds = %.critedge.i57, %63, %.critedge.preheader.i55, %56
   %72 = tail call i32 @tng_frame_set_read_current_only_data_from_block_id(ptr noundef %0, i8 noundef signext 1, i64 noundef %1)
   %73 = icmp slt i64 %spec.select, 0
   br i1 %73, label %74, label %.critedge
@@ -27336,14 +27336,14 @@ thread-pre-split:                                 ; preds = %8
   br i1 %147, label %.critedge54, label %.critedge.i77
 
 .critedge54:                                      ; preds = %.lr.ph.i56, %.lr.ph32.i, %.lr.ph.i75, %.lr.ph32.i79
-  %.0 = phi ptr [ %141, %.lr.ph32.i79 ], [ %145, %.lr.ph.i75 ], [ %65, %.lr.ph32.i ], [ %69, %.lr.ph.i56 ]
+  %.0 = phi ptr [ %65, %.lr.ph32.i ], [ %145, %.lr.ph.i75 ], [ %141, %.lr.ph32.i79 ], [ %69, %.lr.ph.i56 ]
   %148 = getelementptr inbounds nuw i8, ptr %.0, i64 48
   %149 = load i64, ptr %148, align 8, !tbaa !298
   store i64 %149, ptr %3, align 8, !tbaa !38
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.lr.ph.i, %37, %.lr.ph49.i, %81, %.lr.ph.i60, %113, %.lr.ph49.i66, %.critedge.i77, %139, %.lr.ph, %.critedge54, %.critedge.preheader.i74, %132, %.critedge
-  %.041.ph = phi i32 [ %72, %.critedge ], [ 1, %132 ], [ 1, %.critedge.preheader.i74 ], [ 0, %.critedge54 ], [ %72, %.lr.ph ], [ 1, %139 ], [ 1, %.critedge.i77 ], [ 0, %.lr.ph49.i66 ], [ 0, %113 ], [ 0, %.lr.ph.i60 ], [ %84, %81 ], [ 0, %.lr.ph49.i ], [ 0, %37 ], [ 0, %.lr.ph.i ]
+.sink.split:                                      ; preds = %.lr.ph.i, %37, %.lr.ph49.i, %81, %.lr.ph.i60, %113, %.lr.ph49.i66, %.critedge.i77, %139, %.lr.ph, %.critedge54, %132, %.critedge.preheader.i74, %.critedge
+  %.041.ph = phi i32 [ 1, %.critedge.i77 ], [ 1, %132 ], [ %72, %.critedge ], [ %84, %81 ], [ 0, %.critedge54 ], [ 1, %.critedge.preheader.i74 ], [ 0, %.lr.ph.i60 ], [ 0, %113 ], [ 0, %.lr.ph49.i66 ], [ 1, %139 ], [ 0, %37 ], [ 0, %.lr.ph49.i ], [ %72, %.lr.ph ], [ 0, %.lr.ph.i ]
   %150 = tail call fastcc i32 @tng_reread_frame_set_at_file_pos(ptr noundef %0, i64 noundef %11)
   br label %151
 
@@ -27513,7 +27513,7 @@ define range(i32 0, 3) i32 @tng_util_trajectory_open(ptr noundef readonly captur
   br label %78
 
 78:                                               ; preds = %20, %64, %13, %3, %11, %6
-  %.051 = phi i32 [ 2, %6 ], [ %12, %11 ], [ 1, %3 ], [ %19, %13 ], [ %37, %64 ], [ 0, %20 ]
+  %.051 = phi i32 [ %19, %13 ], [ 2, %6 ], [ %12, %11 ], [ 1, %3 ], [ %37, %64 ], [ 0, %20 ]
   ret i32 %.051
 }
 
@@ -27956,7 +27956,7 @@ tng_residue_atom_add.exit:                        ; preds = %tng_chain_residue_f
   br i1 %.not39, label %16, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %tng_molecule_chain_add.exit, %tng_chain_residue_add.exit, %tng_residue_atom_add.exit, %16, %9
-  %.032 = phi i32 [ 0, %9 ], [ 0, %16 ], [ %123, %tng_residue_atom_add.exit ], [ %106, %tng_chain_residue_add.exit ], [ %60, %tng_molecule_chain_add.exit ]
+  %.032 = phi i32 [ 0, %9 ], [ 0, %16 ], [ %106, %tng_chain_residue_add.exit ], [ %123, %tng_residue_atom_add.exit ], [ %60, %tng_molecule_chain_add.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -28157,7 +28157,7 @@ define range(i32 0, 3) i32 @tng_util_particle_data_next_frame_read(ptr noundef %
   %35 = icmp eq i64 %34, %1
   br i1 %35, label %tng_particle_data_find.exit, label %.critedge.i
 
-.loopexit:                                        ; preds = %.critedge.i, %27, %20, %.critedge.preheader.i
+.loopexit:                                        ; preds = %.critedge.i, %27, %.critedge.preheader.i, %20
   %36 = tail call i32 @tng_frame_set_read_current_only_data_from_block_id(ptr noundef %0, i8 noundef signext 1, i64 noundef %1)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !137
@@ -28243,7 +28243,7 @@ define range(i32 0, 3) i32 @tng_util_particle_data_next_frame_read(ptr noundef %
   br i1 %76, label %tng_particle_data_find.exit, label %.critedge.i105
 
 tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32.i, %.lr.ph.i103, %.lr.ph32.i107
-  %.0119 = phi ptr [ %70, %.lr.ph32.i107 ], [ %74, %.lr.ph.i103 ], [ %29, %.lr.ph32.i ], [ %33, %.lr.ph.i ]
+  %.0119 = phi ptr [ %29, %.lr.ph32.i ], [ %74, %.lr.ph.i103 ], [ %70, %.lr.ph32.i107 ], [ %33, %.lr.ph.i ]
   %77 = getelementptr inbounds nuw i8, ptr %.0119, i64 64
   %78 = load i64, ptr %77, align 8, !tbaa !245
   %79 = icmp slt i64 %78, 0
@@ -28325,8 +28325,8 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
   br i1 %.not96, label %121, label %.critedge
 
 121:                                              ; preds = %._crit_edge, %116, %110
-  %122 = phi i64 [ %.pre, %._crit_edge ], [ %108, %110 ], [ %117, %116 ]
-  %.2 = phi i64 [ %.1, %._crit_edge ], [ %.1, %110 ], [ %117, %116 ]
+  %122 = phi i64 [ %108, %110 ], [ %.pre, %._crit_edge ], [ %117, %116 ]
+  %.2 = phi i64 [ %.1, %110 ], [ %.1, %._crit_edge ], [ %117, %116 ]
   %123 = load i64, ptr %77, align 8, !tbaa !245
   %124 = icmp slt i64 %123, %122
   br i1 %124, label %125, label %127
@@ -28427,8 +28427,8 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %167, ptr align 1 %176, i64 %165, i1 false)
   br label %.critedge
 
-.critedge:                                        ; preds = %43, %.critedge.i105, %68, %.lr.ph, %.critedge.preheader.i102, %61, %154, %125, %116, %114, %87, %80, %172, %168
-  %.077 = phi i32 [ 0, %172 ], [ 2, %168 ], [ %86, %80 ], [ %88, %87 ], [ %115, %114 ], [ 1, %116 ], [ %126, %125 ], [ 1, %154 ], [ 1, %61 ], [ 1, %.critedge.preheader.i102 ], [ %36, %.lr.ph ], [ 1, %68 ], [ 1, %.critedge.i105 ], [ %46, %43 ]
+.critedge:                                        ; preds = %43, %.critedge.i105, %68, %.lr.ph, %61, %.critedge.preheader.i102, %154, %125, %116, %114, %87, %80, %172, %168
+  %.077 = phi i32 [ 1, %116 ], [ 1, %154 ], [ 1, %68 ], [ %86, %80 ], [ 0, %172 ], [ 2, %168 ], [ %126, %125 ], [ %88, %87 ], [ %115, %114 ], [ 1, %.critedge.preheader.i102 ], [ 1, %.critedge.i105 ], [ 1, %61 ], [ %36, %.lr.ph ], [ %46, %43 ]
   ret i32 %.077
 }
 
@@ -28517,7 +28517,7 @@ define range(i32 0, 3) i32 @tng_util_non_particle_data_next_frame_read(ptr nound
   %45 = icmp eq i64 %44, %1
   br i1 %45, label %tng_data_find.exit, label %.critedge.i
 
-.loopexit:                                        ; preds = %.critedge.i, %.critedge38.i, %.critedge38.preheader.i, %.critedge.preheader.i
+.loopexit:                                        ; preds = %.critedge.i, %.critedge38.i, %.critedge.preheader.i, %.critedge38.preheader.i
   %46 = tail call i32 @tng_frame_set_read_current_only_data_from_block_id(ptr noundef %0, i8 noundef signext 1, i64 noundef %1)
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %48 = load ptr, ptr %47, align 8, !tbaa !137
@@ -28627,7 +28627,7 @@ define range(i32 0, 3) i32 @tng_util_non_particle_data_next_frame_read(ptr nound
   br i1 %96, label %tng_data_find.exit, label %.critedge.i104
 
 tng_data_find.exit:                               ; preds = %.lr.ph.i, %34, %.lr.ph49.i, %.lr.ph.i102, %85, %.lr.ph49.i108
-  %.0124 = phi ptr [ %90, %.lr.ph49.i108 ], [ %86, %85 ], [ %94, %.lr.ph.i102 ], [ %39, %.lr.ph49.i ], [ %35, %34 ], [ %43, %.lr.ph.i ]
+  %.0124 = phi ptr [ %90, %.lr.ph49.i108 ], [ %35, %34 ], [ %39, %.lr.ph49.i ], [ %86, %85 ], [ %94, %.lr.ph.i102 ], [ %43, %.lr.ph.i ]
   %97 = getelementptr inbounds nuw i8, ptr %.0124, i64 64
   %98 = load i64, ptr %97, align 8, !tbaa !245
   %99 = icmp slt i64 %98, 0
@@ -28709,8 +28709,8 @@ tng_data_find.exit:                               ; preds = %.lr.ph.i, %34, %.lr
   br i1 %.not95, label %141, label %.critedge
 
 141:                                              ; preds = %._crit_edge, %136, %130
-  %142 = phi i64 [ %.pre, %._crit_edge ], [ %128, %130 ], [ %137, %136 ]
-  %.2 = phi i64 [ %.1, %._crit_edge ], [ %.1, %130 ], [ %137, %136 ]
+  %142 = phi i64 [ %128, %130 ], [ %.pre, %._crit_edge ], [ %137, %136 ]
+  %.2 = phi i64 [ %.1, %130 ], [ %.1, %._crit_edge ], [ %137, %136 ]
   %143 = load i64, ptr %97, align 8, !tbaa !245
   %144 = icmp slt i64 %143, %142
   br i1 %144, label %145, label %147
@@ -28804,8 +28804,8 @@ tng_data_find.exit:                               ; preds = %.lr.ph.i, %34, %.lr
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %183, ptr align 1 %192, i64 %181, i1 false)
   br label %.critedge
 
-.critedge:                                        ; preds = %53, %.critedge.i104, %.critedge38.i110, %.lr.ph, %.critedge.preheader.i101, %.critedge38.preheader.i107, %174, %145, %136, %134, %107, %100, %188, %184
-  %.076 = phi i32 [ 0, %188 ], [ 2, %184 ], [ %106, %100 ], [ %108, %107 ], [ %135, %134 ], [ 1, %136 ], [ %146, %145 ], [ 1, %174 ], [ 1, %.critedge38.preheader.i107 ], [ 1, %.critedge.preheader.i101 ], [ %46, %.lr.ph ], [ 1, %.critedge38.i110 ], [ 1, %.critedge.i104 ], [ %56, %53 ]
+.critedge:                                        ; preds = %53, %.critedge.i104, %.critedge38.i110, %.lr.ph, %.critedge38.preheader.i107, %.critedge.preheader.i101, %174, %145, %136, %134, %107, %100, %188, %184
+  %.076 = phi i32 [ 1, %136 ], [ 1, %174 ], [ 1, %.critedge38.i110 ], [ %106, %100 ], [ 0, %188 ], [ 2, %184 ], [ %146, %145 ], [ %108, %107 ], [ %135, %134 ], [ 1, %.critedge.preheader.i101 ], [ 1, %.critedge38.preheader.i107 ], [ 1, %.critedge.i104 ], [ %46, %.lr.ph ], [ %56, %53 ]
   ret i32 %.076
 }
 
@@ -28994,7 +28994,7 @@ define range(i32 0, 3) i32 @tng_util_generic_write_interval_set(ptr noundef %0, 
   %62 = icmp eq i64 %61, %3
   br i1 %62, label %tng_particle_data_find.exit, label %.critedge.i
 
-.loopexit:                                        ; preds = %.critedge.i, %54, %47, %.critedge.preheader.i
+.loopexit:                                        ; preds = %.critedge.i, %54, %.critedge.preheader.i, %47
   %63 = sext i8 %6 to i64
   %64 = tail call fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr noundef nonnull %0, i64 noundef %3, i32 noundef 1, ptr noundef readonly %4, i8 noundef signext 2, i8 noundef signext 1, i64 noundef %.0, i64 noundef %2, i64 noundef %1, i64 noundef 0, i64 noundef %storemerge.i, i64 noundef %63, ptr noundef null)
   %.not86 = icmp eq i32 %64, 0
@@ -29124,7 +29124,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
   %126 = icmp eq i64 %125, %3
   br i1 %126, label %tng_data_find.exit, label %.critedge.i90
 
-.loopexit105:                                     ; preds = %.critedge.i90, %.critedge38.i, %.critedge38.preheader.i, %.critedge.preheader.i88
+.loopexit105:                                     ; preds = %.critedge.i90, %.critedge38.i, %.critedge.preheader.i88, %.critedge38.preheader.i
   %127 = sext i8 %6 to i64
   %128 = tail call fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr noundef nonnull %0, i64 noundef %3, i32 noundef 0, ptr noundef readonly %4, i8 noundef signext 2, i8 noundef signext 1, i64 noundef %.0, i64 noundef %2, i64 noundef %1, i64 noundef 0, i64 noundef 0, i64 noundef %127, ptr noundef null)
   %.not81 = icmp eq i32 %128, 0
@@ -29153,7 +29153,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
   br label %151
 
 tng_data_find.exit:                               ; preds = %.lr.ph.i89, %115, %.lr.ph49.i
-  %.2 = phi ptr [ %120, %.lr.ph49.i ], [ %116, %115 ], [ %124, %.lr.ph.i89 ]
+  %.2 = phi ptr [ %116, %115 ], [ %120, %.lr.ph49.i ], [ %124, %.lr.ph.i89 ]
   %144 = getelementptr inbounds nuw i8, ptr %.2, i64 48
   %145 = load i64, ptr %144, align 8, !tbaa !298
   %.not79 = icmp eq i64 %145, %1
@@ -29171,7 +29171,7 @@ tng_data_find.exit:                               ; preds = %.lr.ph.i89, %115, %
   br label %151
 
 151:                                              ; preds = %tng_particle_data_find.exit, %82, %68, %tng_data_find.exit, %146, %132, %28, %148, %141, %129, %84, %77, %65, %20, %9
-  %.069 = phi i32 [ 1, %9 ], [ %19, %20 ], [ %64, %65 ], [ %76, %77 ], [ %83, %84 ], [ %128, %129 ], [ %140, %141 ], [ %147, %148 ], [ 1, %28 ], [ 0, %132 ], [ 0, %146 ], [ 0, %tng_data_find.exit ], [ 0, %68 ], [ 0, %82 ], [ 0, %tng_particle_data_find.exit ]
+  %.069 = phi i32 [ 1, %9 ], [ %19, %20 ], [ %147, %148 ], [ %64, %65 ], [ %76, %77 ], [ 1, %28 ], [ %83, %84 ], [ %128, %129 ], [ %140, %141 ], [ 0, %132 ], [ 0, %146 ], [ 0, %tng_data_find.exit ], [ 0, %68 ], [ 0, %82 ], [ 0, %tng_particle_data_find.exit ]
   ret i32 %.069
 }
 
@@ -29391,7 +29391,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_allocate_particle_data_mem(ptr n
   br label %91
 
 91:                                               ; preds = %54, %90
-  %.076 = phi i64 [ 4, %90 ], [ 8, %54 ]
+  %.076 = phi i64 [ 8, %54 ], [ 4, %90 ]
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %93 = load ptr, ptr %92, align 8, !tbaa !151
   %94 = mul i64 %4, %3
@@ -29414,7 +29414,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_allocate_particle_data_mem(ptr n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader1, %._crit_edge13.split.us21, %._crit_edge13.split.us.us.us, %65, %102, %5, %98, %.split.us, %.split24.us
-  %.0 = phi i32 [ 2, %.split.us ], [ 2, %.split24.us ], [ 2, %98 ], [ 1, %5 ], [ 0, %102 ], [ 0, %65 ], [ 0, %._crit_edge13.split.us.us.us ], [ 0, %._crit_edge13.split.us21 ], [ 0, %.preheader1 ]
+  %.0 = phi i32 [ 2, %98 ], [ 2, %.split.us ], [ 2, %.split24.us ], [ 1, %5 ], [ 0, %102 ], [ 0, %._crit_edge13.split.us21 ], [ 0, %65 ], [ 0, %._crit_edge13.split.us.us.us ], [ 0, %.preheader1 ]
   ret i32 %.0
 }
 
@@ -29575,7 +29575,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_allocate_data_mem(ptr noundef ca
   br label %73
 
 73:                                               ; preds = %48, %72
-  %.062 = phi i64 [ 4, %72 ], [ 8, %48 ]
+  %.062 = phi i64 [ 8, %48 ], [ 4, %72 ]
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %75 = load ptr, ptr %74, align 8, !tbaa !151
   %76 = mul i64 %56, %3
@@ -29597,7 +29597,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_allocate_data_mem(ptr noundef ca
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.preheader.us.preheader, %59, %83, %4, %79, %.split.us
-  %.0 = phi i32 [ 2, %.split.us ], [ 2, %79 ], [ 1, %4 ], [ 0, %83 ], [ 0, %59 ], [ 0, %.preheader.us.preheader ], [ 0, %.preheader ]
+  %.0 = phi i32 [ 2, %79 ], [ 2, %.split.us ], [ 1, %4 ], [ 0, %83 ], [ 0, %59 ], [ 0, %.preheader.us.preheader ], [ 0, %.preheader ]
   ret i32 %.0
 }
 
@@ -29709,7 +29709,7 @@ define range(i32 0, 3) i32 @tng_util_generic_write_interval_double_set(ptr nound
   %62 = icmp eq i64 %61, %3
   br i1 %62, label %tng_particle_data_find.exit, label %.critedge.i
 
-.loopexit:                                        ; preds = %.critedge.i, %54, %47, %.critedge.preheader.i
+.loopexit:                                        ; preds = %.critedge.i, %54, %.critedge.preheader.i, %47
   %63 = sext i8 %6 to i64
   %64 = tail call fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr noundef nonnull %0, i64 noundef %3, i32 noundef 1, ptr noundef readonly %4, i8 noundef signext 3, i8 noundef signext 1, i64 noundef %.0, i64 noundef %2, i64 noundef %1, i64 noundef 0, i64 noundef %storemerge.i, i64 noundef %63, ptr noundef null)
   %.not66 = icmp eq i32 %64, 0
@@ -29827,7 +29827,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
   %120 = icmp eq i64 %119, %3
   br i1 %120, label %tng_data_find.exit, label %.critedge.i70
 
-.loopexit82:                                      ; preds = %.critedge.i70, %.critedge38.i, %.critedge38.preheader.i, %.critedge.preheader.i68
+.loopexit82:                                      ; preds = %.critedge.i70, %.critedge38.i, %.critedge.preheader.i68, %.critedge38.preheader.i
   %121 = sext i8 %6 to i64
   %122 = tail call fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr noundef nonnull %0, i64 noundef %3, i32 noundef 0, ptr noundef readonly %4, i8 noundef signext 3, i8 noundef signext 1, i64 noundef %.0, i64 noundef %2, i64 noundef %1, i64 noundef 0, i64 noundef 0, i64 noundef %121, ptr noundef null)
   %.not63 = icmp eq i32 %122, 0
@@ -29856,13 +29856,13 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
   br label %139
 
 tng_data_find.exit:                               ; preds = %.lr.ph.i69, %109, %.lr.ph49.i
-  %.2 = phi ptr [ %114, %.lr.ph49.i ], [ %110, %109 ], [ %118, %.lr.ph.i69 ]
+  %.2 = phi ptr [ %110, %109 ], [ %114, %.lr.ph49.i ], [ %118, %.lr.ph.i69 ]
   %138 = getelementptr inbounds nuw i8, ptr %.2, i64 48
   store i64 %1, ptr %138, align 8, !tbaa !298
   br label %139
 
 139:                                              ; preds = %68, %tng_particle_data_find.exit, %126, %tng_data_find.exit, %28, %135, %123, %77, %65, %20, %9
-  %.055 = phi i32 [ 1, %9 ], [ %19, %20 ], [ %64, %65 ], [ %76, %77 ], [ %122, %123 ], [ %134, %135 ], [ 1, %28 ], [ 0, %tng_data_find.exit ], [ 0, %126 ], [ 0, %tng_particle_data_find.exit ], [ 0, %68 ]
+  %.055 = phi i32 [ 1, %9 ], [ %19, %20 ], [ %134, %135 ], [ %64, %65 ], [ %76, %77 ], [ 1, %28 ], [ %122, %123 ], [ 0, %tng_data_find.exit ], [ 0, %126 ], [ 0, %tng_particle_data_find.exit ], [ 0, %68 ]
   ret i32 %.055
 }
 
@@ -30113,7 +30113,7 @@ define range(i32 0, 3) i32 @tng_util_generic_write(ptr noundef %0, i64 noundef %
   %88 = icmp eq i64 %87, %4
   br i1 %88, label %tng_particle_data_find.exit, label %.critedge.i
 
-.loopexit:                                        ; preds = %.critedge.i, %80, %73, %.critedge.preheader.i
+.loopexit:                                        ; preds = %.critedge.i, %80, %.critedge.preheader.i, %73
   %89 = sext i8 %7 to i64
   %90 = tail call fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr noundef nonnull %0, i64 noundef %4, i32 noundef 1, ptr noundef readonly %5, i8 noundef signext 2, i8 noundef signext %.0, i64 noundef %.0124, i64 noundef %3, i64 noundef %.0123, i64 noundef 0, i64 noundef %.0176, i64 noundef %89, ptr noundef null)
   %.not152 = icmp eq i32 %90, 0
@@ -30292,7 +30292,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
   %178 = icmp eq i64 %177, %4
   br i1 %178, label %tng_data_find.exit, label %.critedge.i161
 
-.loopexit184:                                     ; preds = %.critedge.i161, %.critedge38.i, %.critedge38.preheader.i, %.critedge.preheader.i159
+.loopexit184:                                     ; preds = %.critedge.i161, %.critedge38.i, %.critedge.preheader.i159, %.critedge38.preheader.i
   %179 = sext i8 %7 to i64
   %180 = tail call fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr noundef nonnull %0, i64 noundef %4, i32 noundef 0, ptr noundef readonly %5, i8 noundef signext 2, i8 noundef signext %.0, i64 noundef %.0124, i64 noundef %3, i64 noundef %.0123, i64 noundef 0, i64 noundef 0, i64 noundef %179, ptr noundef null)
   %.not145 = icmp eq i32 %180, 0
@@ -30323,7 +30323,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
   br label %230
 
 tng_data_find.exit:                               ; preds = %.lr.ph.i160, %167, %.lr.ph49.i
-  %.4 = phi ptr [ %172, %.lr.ph49.i ], [ %168, %167 ], [ %176, %.lr.ph.i160 ]
+  %.4 = phi ptr [ %168, %167 ], [ %172, %.lr.ph49.i ], [ %176, %.lr.ph.i160 ]
   %195 = getelementptr inbounds nuw i8, ptr %.4, i64 32
   %196 = load i64, ptr %195, align 8, !tbaa !172
   %197 = icmp sgt i64 %.0124, %196
@@ -30388,7 +30388,7 @@ tng_data_find.exit:                               ; preds = %.lr.ph.i160, %167, 
   br label %230
 
 230:                                              ; preds = %137, %133, %226, %222, %14, %202, %192, %181, %112, %102, %91, %47, %38, %26
-  %.0125 = phi i32 [ %90, %91 ], [ %101, %102 ], [ %111, %112 ], [ %180, %181 ], [ %191, %192 ], [ %201, %202 ], [ %25, %26 ], [ %37, %38 ], [ %46, %47 ], [ 1, %14 ], [ 0, %222 ], [ 0, %226 ], [ 0, %133 ], [ 0, %137 ]
+  %.0125 = phi i32 [ %46, %47 ], [ %90, %91 ], [ %101, %102 ], [ 1, %14 ], [ %111, %112 ], [ %180, %181 ], [ %191, %192 ], [ %201, %202 ], [ %25, %26 ], [ %37, %38 ], [ 0, %222 ], [ 0, %226 ], [ 0, %133 ], [ 0, %137 ]
   ret i32 %.0125
 }
 
@@ -30551,7 +30551,7 @@ define range(i32 0, 3) i32 @tng_util_generic_double_write(ptr noundef %0, i64 no
   %88 = icmp eq i64 %87, %4
   br i1 %88, label %tng_particle_data_find.exit, label %.critedge.i
 
-.loopexit:                                        ; preds = %.critedge.i, %80, %73, %.critedge.preheader.i
+.loopexit:                                        ; preds = %.critedge.i, %80, %.critedge.preheader.i, %73
   %89 = sext i8 %7 to i64
   %90 = tail call fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr noundef nonnull %0, i64 noundef %4, i32 noundef 1, ptr noundef readonly %5, i8 noundef signext 3, i8 noundef signext %.0, i64 noundef %.0124, i64 noundef %3, i64 noundef %.0123, i64 noundef 0, i64 noundef %.0176, i64 noundef %89, ptr noundef null)
   %.not152 = icmp eq i32 %90, 0
@@ -30730,7 +30730,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
   %178 = icmp eq i64 %177, %4
   br i1 %178, label %tng_data_find.exit, label %.critedge.i161
 
-.loopexit184:                                     ; preds = %.critedge.i161, %.critedge38.i, %.critedge38.preheader.i, %.critedge.preheader.i159
+.loopexit184:                                     ; preds = %.critedge.i161, %.critedge38.i, %.critedge.preheader.i159, %.critedge38.preheader.i
   %179 = sext i8 %7 to i64
   %180 = tail call fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr noundef nonnull %0, i64 noundef %4, i32 noundef 0, ptr noundef readonly %5, i8 noundef signext 3, i8 noundef signext %.0, i64 noundef %.0124, i64 noundef %3, i64 noundef %.0123, i64 noundef 0, i64 noundef 0, i64 noundef %179, ptr noundef null)
   %.not145 = icmp eq i32 %180, 0
@@ -30761,7 +30761,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
   br label %230
 
 tng_data_find.exit:                               ; preds = %.lr.ph.i160, %167, %.lr.ph49.i
-  %.4 = phi ptr [ %172, %.lr.ph49.i ], [ %168, %167 ], [ %176, %.lr.ph.i160 ]
+  %.4 = phi ptr [ %168, %167 ], [ %172, %.lr.ph49.i ], [ %176, %.lr.ph.i160 ]
   %195 = getelementptr inbounds nuw i8, ptr %.4, i64 32
   %196 = load i64, ptr %195, align 8, !tbaa !172
   %197 = icmp sgt i64 %.0124, %196
@@ -30826,7 +30826,7 @@ tng_data_find.exit:                               ; preds = %.lr.ph.i160, %167, 
   br label %230
 
 230:                                              ; preds = %137, %133, %226, %222, %14, %202, %192, %181, %112, %102, %91, %47, %38, %26
-  %.0125 = phi i32 [ %90, %91 ], [ %101, %102 ], [ %111, %112 ], [ %180, %181 ], [ %191, %192 ], [ %201, %202 ], [ %25, %26 ], [ %37, %38 ], [ %46, %47 ], [ 1, %14 ], [ 0, %222 ], [ 0, %226 ], [ 0, %133 ], [ 0, %137 ]
+  %.0125 = phi i32 [ %46, %47 ], [ %90, %91 ], [ %101, %102 ], [ 1, %14 ], [ %111, %112 ], [ %180, %181 ], [ %191, %192 ], [ %201, %202 ], [ %25, %26 ], [ %37, %38 ], [ 0, %222 ], [ 0, %226 ], [ 0, %133 ], [ 0, %137 ]
   ret i32 %.0125
 }
 
@@ -31380,7 +31380,7 @@ define range(i32 0, 3) i32 @tng_util_frame_current_compression_get(ptr noundef %
   %66 = icmp eq i64 %65, %1
   br i1 %66, label %tng_particle_data_find.exit, label %.critedge.i53
 
-.loopexit101:                                     ; preds = %.critedge.i53, %.critedge38.i, %.critedge38.preheader.i, %.critedge.preheader.i51
+.loopexit101:                                     ; preds = %.critedge.i53, %.critedge38.i, %.critedge.preheader.i51, %.critedge38.preheader.i
   %67 = tail call i32 @tng_frame_set_read_current_only_data_from_block_id(ptr noundef %0, i8 noundef signext 1, i64 noundef %1)
   %.not = icmp eq i32 %67, 0
   br i1 %.not, label %68, label %tng_data_find.exit78.thread
@@ -31526,7 +31526,7 @@ define range(i32 0, 3) i32 @tng_util_frame_current_compression_get(ptr noundef %
   br i1 %129, label %tng_particle_data_find.exit, label %.critedge.i67
 
 tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32.i, %.lr.ph.i52, %55, %.lr.ph49.i, %.lr.ph.i56, %.lr.ph32.i60, %.lr.ph.i65, %118, %.lr.ph49.i71
-  %.0 = phi ptr [ %123, %.lr.ph49.i71 ], [ %119, %118 ], [ %127, %.lr.ph.i65 ], [ %90, %.lr.ph32.i60 ], [ %94, %.lr.ph.i56 ], [ %60, %.lr.ph49.i ], [ %56, %55 ], [ %64, %.lr.ph.i52 ], [ %27, %.lr.ph32.i ], [ %31, %.lr.ph.i ]
+  %.0 = phi ptr [ %90, %.lr.ph32.i60 ], [ %27, %.lr.ph32.i ], [ %56, %55 ], [ %64, %.lr.ph.i52 ], [ %60, %.lr.ph49.i ], [ %94, %.lr.ph.i56 ], [ %127, %.lr.ph.i65 ], [ %123, %.lr.ph49.i71 ], [ %119, %118 ], [ %31, %.lr.ph.i ]
   %130 = getelementptr inbounds nuw i8, ptr %.0, i64 64
   %131 = load i64, ptr %130, align 8, !tbaa !245
   %132 = icmp slt i64 %131, 0
@@ -31575,8 +31575,8 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
   store double %155, ptr %3, align 8, !tbaa !201
   br label %tng_data_find.exit78.thread
 
-tng_data_find.exit78.thread:                      ; preds = %.critedge.i67, %.critedge38.i73, %.critedge.preheader.i64, %.critedge38.preheader.i70, %144, %.loopexit101, %151, %148
-  %.041 = phi i32 [ %147, %148 ], [ 0, %151 ], [ %67, %.loopexit101 ], [ %145, %144 ], [ 1, %.critedge38.preheader.i70 ], [ 1, %.critedge.preheader.i64 ], [ 1, %.critedge38.i73 ], [ 1, %.critedge.i67 ]
+tng_data_find.exit78.thread:                      ; preds = %.critedge.i67, %.critedge38.i73, %.critedge38.preheader.i70, %.critedge.preheader.i64, %144, %.loopexit101, %151, %148
+  %.041 = phi i32 [ %145, %144 ], [ %147, %148 ], [ 0, %151 ], [ %67, %.loopexit101 ], [ 1, %.critedge.preheader.i64 ], [ 1, %.critedge38.preheader.i70 ], [ 1, %.critedge38.i73 ], [ 1, %.critedge.i67 ]
   ret i32 %.041
 }
 
@@ -31940,7 +31940,7 @@ tng_block_destroy.exit:                           ; preds = %.critedge, %91
   br label %.critedge222
 
 .critedge222:                                     ; preds = %113, %146, %125, %162, %143
-  %.1162 = phi i64 [ %.0161251, %143 ], [ %144, %162 ], [ %.0161251, %125 ], [ %.0161251, %146 ], [ %.0161251, %113 ]
+  %.1162 = phi i64 [ %.0161251, %143 ], [ %144, %162 ], [ %.0161251, %146 ], [ %.0161251, %125 ], [ %.0161251, %113 ]
   %167 = add nuw nsw i64 %.0167250, 1
   %168 = load i32, ptr %36, align 8, !tbaa !129
   %169 = sext i32 %168 to i64
@@ -32076,7 +32076,7 @@ tng_block_destroy.exit:                           ; preds = %.critedge, %91
   br label %.critedge225
 
 .critedge225:                                     ; preds = %175, %208, %187, %224, %205
-  %.3 = phi i64 [ %.2256, %205 ], [ %206, %224 ], [ %.2256, %187 ], [ %.2256, %208 ], [ %.2256, %175 ]
+  %.3 = phi i64 [ %.2256, %205 ], [ %206, %224 ], [ %.2256, %208 ], [ %.2256, %187 ], [ %.2256, %175 ]
   %229 = add nuw nsw i64 %.1168255, 1
   %230 = load i32, ptr %102, align 8, !tbaa !130
   %231 = sext i32 %230 to i64
@@ -32094,7 +32094,7 @@ tng_block_destroy.exit:                           ; preds = %.critedge, %91
   br label %236
 
 236:                                              ; preds = %._crit_edge, %30, %26, %234, %219, %189, %157, %127, %93, %12
-  %.0160 = phi i32 [ 2, %93 ], [ 2, %157 ], [ 2, %127 ], [ 2, %219 ], [ 2, %189 ], [ 0, %234 ], [ 2, %12 ], [ %29, %26 ], [ %29, %30 ], [ 1, %._crit_edge ]
+  %.0160 = phi i32 [ 2, %12 ], [ 2, %93 ], [ 2, %157 ], [ 2, %127 ], [ 2, %219 ], [ 2, %189 ], [ %29, %30 ], [ 0, %234 ], [ %29, %26 ], [ 1, %._crit_edge ]
   ret i32 %.0160
 }
 
@@ -32549,7 +32549,7 @@ tng_file_output_numerical.exit38:                 ; preds = %103
   br label %109
 
 109:                                              ; preds = %106, %tng_file_output_numerical.exit38, %tng_fwritestr.exit.thread, %tng_file_output_numerical.exit31.thread, %tng_file_output_numerical.exit26.thread, %tng_file_output_numerical.exit.thread, %84, %29, %tng_output_file_init.exit
-  %.0 = phi i32 [ 2, %tng_output_file_init.exit ], [ 2, %29 ], [ 2, %84 ], [ 2, %tng_file_output_numerical.exit.thread ], [ 2, %tng_file_output_numerical.exit26.thread ], [ 2, %tng_file_output_numerical.exit31.thread ], [ 2, %tng_fwritestr.exit.thread ], [ 2, %106 ], [ 0, %tng_file_output_numerical.exit38 ]
+  %.0 = phi i32 [ 2, %tng_output_file_init.exit ], [ 2, %29 ], [ 2, %tng_fwritestr.exit.thread ], [ 2, %tng_file_output_numerical.exit.thread ], [ 2, %tng_file_output_numerical.exit26.thread ], [ 2, %84 ], [ 2, %tng_file_output_numerical.exit31.thread ], [ 2, %106 ], [ 0, %tng_file_output_numerical.exit38 ]
   ret i32 %.0
 }
 
@@ -32690,7 +32690,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_file_output_numerical(ptr nounde
   br label %58
 
 58:                                               ; preds = %27, %25, %46, %44, %56, %54, %51, %41, %22
-  %.0 = phi i32 [ 2, %51 ], [ 2, %22 ], [ 2, %41 ], [ 0, %54 ], [ 0, %56 ], [ 0, %44 ], [ 0, %46 ], [ 0, %25 ], [ 0, %27 ]
+  %.0 = phi i32 [ 2, %51 ], [ 2, %41 ], [ 2, %22 ], [ 0, %54 ], [ 0, %56 ], [ 0, %44 ], [ 0, %46 ], [ 0, %25 ], [ 0, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
@@ -33593,7 +33593,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_particle_data_block_create(ptr n
   br label %32
 
 32:                                               ; preds = %17, %31, %27, %13
-  %.0 = phi i32 [ 2, %13 ], [ 2, %27 ], [ 0, %31 ], [ 0, %17 ]
+  %.0 = phi i32 [ 2, %27 ], [ 2, %13 ], [ 0, %31 ], [ 0, %17 ]
   ret i32 %.0
 }
 
@@ -33653,7 +33653,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_data_block_create(ptr noundef ca
   br label %32
 
 32:                                               ; preds = %17, %31, %27, %13
-  %.0 = phi i32 [ 2, %13 ], [ 2, %27 ], [ 0, %31 ], [ 0, %17 ]
+  %.0 = phi i32 [ 2, %27 ], [ 2, %13 ], [ 0, %31 ], [ 0, %17 ]
   ret i32 %.0
 }
 
@@ -33757,7 +33757,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_particle_data_values_alloc(ptr n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %._crit_edge.us, %.preheader52, %6, %.split57.us, %.split.us, %27
-  %.0 = phi i32 [ 2, %.split57.us ], [ 2, %.split.us ], [ 2, %27 ], [ 1, %6 ], [ 0, %.preheader52 ], [ 0, %._crit_edge.us ], [ 0, %.preheader ]
+  %.0 = phi i32 [ 1, %6 ], [ 2, %27 ], [ 2, %.split57.us ], [ 2, %.split.us ], [ 0, %.preheader52 ], [ 0, %._crit_edge.us ], [ 0, %.preheader ]
   ret i32 %.0
 }
 
@@ -33813,7 +33813,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_data_values_alloc(ptr noundef re
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %5, %24, %16
-  %.0 = phi i32 [ 2, %24 ], [ 2, %16 ], [ 1, %5 ], [ 0, %19 ]
+  %.0 = phi i32 [ 1, %5 ], [ 2, %16 ], [ 2, %24 ], [ 0, %19 ]
   ret i32 %.0
 }
 

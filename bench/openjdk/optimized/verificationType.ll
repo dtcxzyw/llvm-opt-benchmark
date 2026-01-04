@@ -171,7 +171,7 @@ define hidden noundef ptr @_ZN16VerificationType8from_tagEh(i8 noundef zeroext %
   unreachable
 
 9:                                                ; preds = %1, %6, %5, %4, %3, %2
-  %.sroa.0.0 = phi ptr [ inttoptr (i64 65793 to ptr), %2 ], [ inttoptr (i64 131329 to ptr), %3 ], [ inttoptr (i64 197121 to ptr), %4 ], [ inttoptr (i64 262657 to ptr), %5 ], [ null, %6 ], [ inttoptr (i64 4294901761 to ptr), %1 ]
+  %.sroa.0.0 = phi ptr [ null, %6 ], [ inttoptr (i64 65793 to ptr), %2 ], [ inttoptr (i64 131329 to ptr), %3 ], [ inttoptr (i64 197121 to ptr), %4 ], [ inttoptr (i64 262657 to ptr), %5 ], [ inttoptr (i64 4294901761 to ptr), %1 ]
   ret ptr %.sroa.0.0
 }
 
@@ -289,7 +289,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit42:            ; preds = %_ZN6HandleC2EP6Thre
   br label %63
 
 63:                                               ; preds = %11, %60, %62
-  %.036 = phi ptr [ %57, %62 ], [ %57, %60 ], [ %0, %11 ]
+  %.036 = phi ptr [ %57, %60 ], [ %57, %62 ], [ %0, %11 ]
   %64 = getelementptr inbounds nuw i8, ptr %.036, i64 164
   %65 = load i32, ptr %64, align 4
   %66 = and i32 %65, 512
@@ -427,12 +427,12 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit54:            ; preds = %_ZN6HandleC2EP6Thre
   br label %132
 
 132:                                              ; preds = %80, %129, %131
-  %.0 = phi ptr [ %126, %131 ], [ %126, %129 ], [ %0, %80 ]
+  %.0 = phi ptr [ %126, %129 ], [ %126, %131 ], [ %0, %80 ]
   %133 = call noundef zeroext i1 @_ZNK5Klass14is_subclass_ofEPKS_(ptr noundef nonnull align 8 dereferenceable(196) %.0, ptr noundef nonnull %.036) #9
   br label %134
 
 134:                                              ; preds = %77, %_ZN6HandleC2EP6ThreadP7oopDesc.exit54, %70, %71, %74, %_ZN6HandleC2EP6ThreadP7oopDesc.exit42, %132
-  %.037 = phi i1 [ %133, %132 ], [ false, %_ZN6HandleC2EP6ThreadP7oopDesc.exit42 ], [ true, %71 ], [ true, %70 ], [ %76, %74 ], [ false, %_ZN6HandleC2EP6ThreadP7oopDesc.exit54 ], [ false, %77 ]
+  %.037 = phi i1 [ false, %_ZN6HandleC2EP6ThreadP7oopDesc.exit42 ], [ %133, %132 ], [ %76, %74 ], [ false, %_ZN6HandleC2EP6ThreadP7oopDesc.exit54 ], [ true, %71 ], [ true, %70 ], [ false, %77 ]
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #9
   ret i1 %.037
 }
@@ -615,7 +615,7 @@ _ZNK16VerificationType8is_arrayEv.exit34:         ; preds = %77
   br label %_ZNK16VerificationType8is_arrayEv.exit32.thread
 
 _ZNK16VerificationType8is_arrayEv.exit32.thread:  ; preds = %21, %77, %19, %.thread, %_ZNK16VerificationType8is_arrayEv.exit32, %_ZNK16VerificationType8is_arrayEv.exit34, %84, %_ZNK16VerificationType9is_objectEv.exit25, %26, %17, %13, %5, %89, %_ZNK16VerificationType9is_objectEv.exit30
-  %.0 = phi i1 [ %72, %_ZNK16VerificationType9is_objectEv.exit30 ], [ %90, %89 ], [ true, %5 ], [ false, %13 ], [ true, %17 ], [ true, %26 ], [ true, %_ZNK16VerificationType9is_objectEv.exit25 ], [ false, %84 ], [ false, %_ZNK16VerificationType8is_arrayEv.exit34 ], [ false, %_ZNK16VerificationType8is_arrayEv.exit32 ], [ false, %.thread ], [ false, %19 ], [ false, %77 ], [ false, %21 ]
+  %.0 = phi i1 [ %90, %89 ], [ true, %5 ], [ false, %13 ], [ true, %17 ], [ true, %26 ], [ %72, %_ZNK16VerificationType9is_objectEv.exit30 ], [ true, %_ZNK16VerificationType9is_objectEv.exit25 ], [ false, %84 ], [ false, %21 ], [ false, %_ZNK16VerificationType8is_arrayEv.exit34 ], [ false, %_ZNK16VerificationType8is_arrayEv.exit32 ], [ false, %19 ], [ false, %.thread ], [ false, %77 ]
   ret i1 %.0
 }
 
@@ -696,7 +696,7 @@ _ZN15SignatureStream17skip_array_prefixEi.exit:   ; preds = %15, %2
   br label %29
 
 29:                                               ; preds = %_ZN15SignatureStream17skip_array_prefixEi.exit, %28, %25, %24, %23, %22, %21, %20, %19, %18
-  %.sroa.0.0 = phi ptr [ inttoptr (i64 4294901761 to ptr), %28 ], [ inttoptr (i64 655617 to ptr), %18 ], [ inttoptr (i64 786689 to ptr), %19 ], [ inttoptr (i64 721153 to ptr), %20 ], [ inttoptr (i64 65793 to ptr), %21 ], [ inttoptr (i64 262657 to ptr), %22 ], [ inttoptr (i64 131329 to ptr), %23 ], [ inttoptr (i64 197121 to ptr), %24 ], [ %27, %25 ], [ inttoptr (i64 590081 to ptr), %_ZN15SignatureStream17skip_array_prefixEi.exit ]
+  %.sroa.0.0 = phi ptr [ inttoptr (i64 4294901761 to ptr), %28 ], [ %27, %25 ], [ inttoptr (i64 655617 to ptr), %18 ], [ inttoptr (i64 786689 to ptr), %19 ], [ inttoptr (i64 721153 to ptr), %20 ], [ inttoptr (i64 65793 to ptr), %21 ], [ inttoptr (i64 262657 to ptr), %22 ], [ inttoptr (i64 131329 to ptr), %23 ], [ inttoptr (i64 197121 to ptr), %24 ], [ inttoptr (i64 590081 to ptr), %_ZN15SignatureStream17skip_array_prefixEi.exit ]
   call void @_ZN15SignatureStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #9
   ret ptr %.sroa.0.0
 }
@@ -721,7 +721,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK16VerificationType28is_compon
   br label %15
 
 15:                                               ; preds = %10, %5, %13
-  %.0 = phi i1 [ %14, %13 ], [ true, %5 ], [ false, %10 ]
+  %.0 = phi i1 [ true, %5 ], [ %14, %13 ], [ false, %10 ]
   ret i1 %.0
 }
 
@@ -1152,7 +1152,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
-  %.0.i.i = phi ptr [ null, %1 ], [ %6, %7 ], [ %6, %4 ]
+  %.0.i.i = phi ptr [ null, %1 ], [ %6, %4 ], [ %6, %7 ]
   ret ptr %.0.i.i
 }
 
@@ -1313,7 +1313,7 @@ _ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit:      ; preds = %44, %45, %49, %54
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 _ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %61, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, %5, %11, %24, %31, %2
-  %.0 = phi ptr [ %1, %2 ], [ %.0.i.i.i, %31 ], [ %.0.i.i.i, %24 ], [ %1, %11 ], [ %1, %5 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
+  %.0 = phi ptr [ %1, %5 ], [ %1, %2 ], [ %.0.i.i.i, %24 ], [ %.0.i.i.i, %31 ], [ %1, %11 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
   ret ptr %.0
 }
 
@@ -1491,7 +1491,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
-  %.0.i.i = phi ptr [ null, %1 ], [ %6, %7 ], [ %6, %4 ]
+  %.0.i.i = phi ptr [ null, %1 ], [ %6, %4 ], [ %6, %7 ]
   ret ptr %.0.i.i
 }
 
@@ -1606,7 +1606,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK16VerificationType18is_assign
   br label %33
 
 33:                                               ; preds = %28, %20, %23, %5, %31, %26, %17, %14, %11
-  %.0 = phi i1 [ %32, %31 ], [ %13, %11 ], [ %16, %14 ], [ %19, %17 ], [ %27, %26 ], [ true, %5 ], [ true, %20 ], [ %25, %23 ], [ false, %28 ]
+  %.0 = phi i1 [ %27, %26 ], [ %32, %31 ], [ %25, %23 ], [ %13, %11 ], [ %16, %14 ], [ %19, %17 ], [ true, %5 ], [ false, %28 ], [ true, %20 ]
   ret i1 %.0
 }
 

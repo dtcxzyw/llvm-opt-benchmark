@@ -2149,7 +2149,7 @@ define internal void @_profile_changed(ptr noundef %0, ptr readnone captures(non
   br label %18
 
 18:                                               ; preds = %13, %.critedge18
-  %.sink = phi ptr [ @.str.20, %.critedge18 ], [ %spec.select, %13 ]
+  %.sink = phi ptr [ %spec.select, %13 ], [ @.str.20, %.critedge18 ]
   tail call void @dt_conf_set_string(ptr noundef nonnull @.str.18, ptr noundef nonnull %.sink) #19
   ret void
 }
@@ -3146,8 +3146,8 @@ define void @init_presets(ptr noundef readonly captures(none) %0) local_unnamed_
   br label %220
 
 .loopexit:                                        ; preds = %.lr.ph248, %113, %.lr.ph255, %125, %.lr.ph, %.lr.ph206
-  %.0155 = phi ptr [ null, %.lr.ph206 ], [ null, %.lr.ph ], [ %128, %125 ], [ null, %.lr.ph255 ], [ null, %113 ], [ null, %.lr.ph248 ]
-  %.1154 = phi ptr [ %.0153.lcssa, %.lr.ph206 ], [ null, %.lr.ph ], [ %.0153.lcssa, %125 ], [ %.0153.lcssa, %.lr.ph255 ], [ null, %.lr.ph248 ], [ %116, %113 ]
+  %.0155 = phi ptr [ %128, %125 ], [ null, %.lr.ph ], [ null, %.lr.ph206 ], [ null, %.lr.ph255 ], [ null, %113 ], [ null, %.lr.ph248 ]
+  %.1154 = phi ptr [ %.0153.lcssa, %.lr.ph255 ], [ null, %.lr.ph ], [ %.0153.lcssa, %.lr.ph206 ], [ %.0153.lcssa, %125 ], [ %116, %113 ], [ null, %.lr.ph248 ]
   call void @free(ptr noundef %.1154) #19
   call void @free(ptr noundef %.0155) #19
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.111, ptr noundef %38, i32 noundef %92, i32 noundef %94, i32 noundef %105, i32 noundef %108) #19
@@ -3350,9 +3350,9 @@ define noalias noundef ptr @legacy_params(ptr noundef readnone captures(none) %0
   br label %58
 
 58:                                               ; preds = %56, %54, %50, %52, %48, %43
-  %.0177 = phi ptr [ @.str.20, %43 ], [ @.str.20, %48 ], [ @.str.20, %52 ], [ @.str.20, %50 ], [ @.str.20, %54 ], [ %.str.20., %56 ]
-  %.0176 = phi i32 [ -1, %43 ], [ 1, %48 ], [ 3, %52 ], [ 3, %50 ], [ 4, %54 ], [ %., %56 ]
-  %.0175.in = phi i64 [ %46, %43 ], [ %46, %48 ], [ %46, %52 ], [ %46, %50 ], [ %46, %54 ], [ %.185, %56 ]
+  %.0177 = phi ptr [ @.str.20, %54 ], [ %.str.20., %56 ], [ @.str.20, %50 ], [ @.str.20, %48 ], [ @.str.20, %43 ], [ @.str.20, %52 ]
+  %.0176 = phi i32 [ 4, %54 ], [ %., %56 ], [ 3, %50 ], [ 1, %48 ], [ -1, %43 ], [ 3, %52 ]
+  %.0175.in = phi i64 [ %46, %54 ], [ %.185, %56 ], [ %46, %50 ], [ %46, %48 ], [ %46, %43 ], [ %46, %52 ]
   %.0175 = add i64 %.0175.in, 4
   %59 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %.0175) #24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %59, ptr noundef nonnull align 1 dereferenceable(16) %1, i64 16, i1 false)
@@ -3440,7 +3440,7 @@ define noalias noundef ptr @legacy_params(ptr noundef readnone captures(none) %0
   br label %106
 
 106:                                              ; preds = %6, %22, %23, %97, %91, %75, %69, %58, %36
-  %.1 = phi ptr [ %38, %36 ], [ %59, %58 ], [ %71, %69 ], [ %85, %75 ], [ %93, %91 ], [ %100, %97 ], [ %9, %23 ], [ null, %22 ], [ null, %6 ]
+  %.1 = phi ptr [ null, %22 ], [ %38, %36 ], [ %59, %58 ], [ %71, %69 ], [ %85, %75 ], [ %93, %91 ], [ %100, %97 ], [ %9, %23 ], [ null, %6 ]
   ret ptr %.1
 }
 
@@ -3912,7 +3912,7 @@ define i32 @set_params(ptr noundef readonly captures(none) %0, ptr noundef %1, i
   br label %136
 
 136:                                              ; preds = %74, %104, %98, %131, %130, %.loopexit
-  %.0120 = phi i32 [ 1, %.loopexit ], [ 1, %74 ], [ 1, %104 ], [ 1, %98 ], [ %135, %131 ], [ %.0, %130 ]
+  %.0120 = phi i32 [ 1, %.loopexit ], [ 1, %98 ], [ 1, %74 ], [ 1, %104 ], [ %135, %131 ], [ %.0, %130 ]
   ret i32 %.0120
 }
 
@@ -4263,8 +4263,8 @@ _get_max_output_dimension.exit.i:                 ; preds = %77, %75
   br label %80
 
 80:                                               ; preds = %_get_max_output_dimension.exit.i, %.thread.i
-  %81 = phi ptr [ %54, %.thread.i ], [ %79, %_get_max_output_dimension.exit.i ]
-  %82 = phi i32 [ 65535, %.thread.i ], [ %spec.select17.i, %_get_max_output_dimension.exit.i ]
+  %81 = phi ptr [ %79, %_get_max_output_dimension.exit.i ], [ %54, %.thread.i ]
+  %82 = phi i32 [ %spec.select17.i, %_get_max_output_dimension.exit.i ], [ 65535, %.thread.i ]
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 620
   store i32 %82, ptr %83, align 4, !tbaa !154
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -4470,7 +4470,7 @@ define internal fastcc i32 @print2pixels(ptr noundef readonly captures(none) %0,
   br label %24
 
 24:                                               ; preds = %2, %15, %5
-  %.sink = phi float [ %23, %15 ], [ %14, %5 ], [ %1, %2 ]
+  %.sink = phi float [ %14, %5 ], [ %23, %15 ], [ %1, %2 ]
   %25 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %.sink)
   %.0 = fptoui float %25 to i32
   ret i32 %.0

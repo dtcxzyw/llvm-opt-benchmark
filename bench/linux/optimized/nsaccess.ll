@@ -529,7 +529,7 @@ define dso_local i32 @acpi_ns_lookup(ptr noundef readonly captures(address_is_nu
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.split, %.split.us, %153, %.split35.us
-  %154 = phi i32 [ 5, %153 ], [ 5, %.split35.us ], [ %121, %.split.us ], [ %152, %.split ]
+  %154 = phi i32 [ 5, %.split35.us ], [ 5, %153 ], [ %121, %.split.us ], [ %152, %.split ]
   %155 = load ptr, ptr %9, align 8
   store ptr %155, ptr %6, align 8
   br label %.loopexit21
@@ -605,7 +605,7 @@ define dso_local i32 @acpi_ns_lookup(ptr noundef readonly captures(address_is_nu
   br i1 %.not, label %.thread, label %.split, !llvm.loop !11
 
 .thread:                                          ; preds = %191, %139, %.split33.us, %.split33.us, %.split33.us, %184, %186, %53, %84, %95
-  %194 = phi i32 [ %2, %95 ], [ %2, %53 ], [ %87, %84 ], [ %2, %184 ], [ %190, %186 ], [ %2, %.split33.us ], [ %2, %.split33.us ], [ %2, %.split33.us ], [ %2, %139 ], [ %2, %191 ]
+  %194 = phi i32 [ %2, %95 ], [ %2, %.split33.us ], [ %87, %84 ], [ %2, %53 ], [ %2, %184 ], [ %190, %186 ], [ %2, %.split33.us ], [ %2, %.split33.us ], [ %2, %139 ], [ %2, %191 ]
   %195 = and i32 %4, 2
   %196 = icmp eq i32 %195, 0
   %197 = icmp ne ptr %5, null

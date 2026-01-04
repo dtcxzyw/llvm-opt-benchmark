@@ -334,7 +334,7 @@ define range(i32 -1, 1) i32 @agclose(ptr noundef %0) local_unnamed_addr #0 {
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %._crit_edge72, %33, %25, %21, %17, %13, %._crit_edge69
-  %.0 = phi i32 [ -1, %._crit_edge69 ], [ -1, %13 ], [ -1, %17 ], [ -1, %21 ], [ -1, %25 ], [ -1, %33 ], [ -1, %._crit_edge72 ], [ 0, %.critedge.sink.split ]
+  %.0 = phi i32 [ -1, %._crit_edge72 ], [ -1, %._crit_edge69 ], [ -1, %13 ], [ -1, %17 ], [ -1, %21 ], [ -1, %25 ], [ -1, %33 ], [ 0, %.critedge.sink.split ]
   ret i32 %.0
 }
 
@@ -410,7 +410,7 @@ define i32 @agnedges(ptr noundef %0) local_unnamed_addr #0 {
   br label %agdegree.exit
 
 agdegree.exit:                                    ; preds = %4, %6
-  %.0.i = phi i32 [ %11, %6 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 0, %4 ], [ %11, %6 ]
   %13 = add nsw i32 %.0.i, %.010
   %14 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.079) #14
   %.not = icmp eq ptr %14, null
@@ -567,7 +567,7 @@ define i32 @agcountuniqedges(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
   br i1 %.not20, label %.loopexit, label %.lr.ph, !llvm.loop !63
 
 .loopexit:                                        ; preds = %.lr.ph, %22, %.thread, %14, %6
-  %.1 = phi i32 [ %20, %14 ], [ 0, %6 ], [ %12, %.thread ], [ %12, %22 ], [ %spec.select, %.lr.ph ]
+  %.1 = phi i32 [ %12, %.thread ], [ %20, %14 ], [ 0, %6 ], [ %12, %22 ], [ %spec.select, %.lr.ph ]
   ret i32 %.1
 }
 

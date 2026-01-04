@@ -608,7 +608,7 @@ thread-pre-split:                                 ; preds = %.preheader
   br i1 %375, label %.preheader47, label %.loopexit44, !llvm.loop !21
 
 .loopexit44:                                      ; preds = %369, %312, %.preheader47, %348, %349
-  %376 = phi i32 [ -5, %349 ], [ -12, %348 ], [ -5, %312 ], [ 0, %.preheader47 ], [ 0, %369 ]
+  %376 = phi i32 [ -5, %349 ], [ -12, %348 ], [ 0, %.preheader47 ], [ 0, %369 ], [ -5, %312 ]
   %377 = call i32 @zlib_inflateEnd(ptr noundef nonnull %3) #9
   br label %378
 
@@ -643,7 +643,7 @@ thread-pre-split:                                 ; preds = %.preheader
   br i1 %393, label %.loopexit46, label %385, !llvm.loop !22
 
 .thread41:                                        ; preds = %183, %239, %235
-  %.ph = phi i32 [ -12, %239 ], [ -5, %183 ], [ -12, %235 ]
+  %.ph = phi i32 [ -5, %183 ], [ -12, %239 ], [ -12, %235 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit50
 
@@ -706,7 +706,7 @@ thread-pre-split:                                 ; preds = %.preheader
   br label %.thread43
 
 .thread43:                                        ; preds = %168, %137, %421, %418, %416, %.loopexit50, %182, %128
-  %.fr77 = phi i32 [ -5, %128 ], [ 0, %421 ], [ 0, %418 ], [ 0, %416 ], [ %403, %.loopexit50 ], [ -5, %182 ], [ 0, %137 ], [ -5, %168 ]
+  %.fr77 = phi i32 [ -5, %128 ], [ 0, %421 ], [ 0, %418 ], [ 0, %416 ], [ %403, %.loopexit50 ], [ 0, %137 ], [ -5, %182 ], [ -5, %168 ]
   br i1 %48, label %431, label %.loopexit
 
 431:                                              ; preds = %.thread43

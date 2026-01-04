@@ -485,7 +485,7 @@ _ZN10scoped_ptrI12contains_appEaSEPS0_.exit:      ; preds = %_Z7deallocI12contai
   br label %110
 
 _ZNK8datatype4util14is_constructorEPK3app.exit.thread: ; preds = %29, %.noexc18, %95, %86, %92, %_ZNK8datatype4util14is_constructorEPK3app.exit
-  %.0 = phi i1 [ true, %_ZNK8datatype4util14is_constructorEPK3app.exit ], [ false, %92 ], [ true, %86 ], [ true, %95 ], [ true, %.noexc18 ], [ true, %29 ]
+  %.0 = phi i1 [ false, %92 ], [ true, %_ZNK8datatype4util14is_constructorEPK3app.exit ], [ true, %86 ], [ true, %95 ], [ true, %.noexc18 ], [ true, %29 ]
   %98 = load ptr, ptr %6, align 8, !tbaa !30
   %.not.i.i = icmp eq ptr %98, null
   br i1 %.not.i.i, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %99
@@ -2077,7 +2077,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %102, %104, %111
   resume { ptr, i32 } %116
 
 _ZNK11ast_manager6is_notEPK4exprRPS0_.exit.thread: ; preds = %87, %80, %65, %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread, %_ZNK11ast_manager6is_notEPK4expr.exit.i, %76, %_ZNK11ast_manager11is_distinctEPK4expr.exit, %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %60, %45
-  %.0 = phi i1 [ %101, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ %61, %60 ], [ %46, %45 ], [ false, %_ZNK11ast_manager11is_distinctEPK4expr.exit ], [ false, %76 ], [ false, %_ZNK11ast_manager6is_notEPK4expr.exit.i ], [ false, %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread ], [ false, %65 ], [ false, %80 ], [ false, %87 ]
+  %.0 = phi i1 [ %101, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ %46, %45 ], [ %61, %60 ], [ false, %_ZNK11ast_manager11is_distinctEPK4expr.exit ], [ false, %65 ], [ false, %76 ], [ false, %_ZNK11ast_manager6is_notEPK4expr.exit.i ], [ false, %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread ], [ false, %80 ], [ false, %87 ]
   ret i1 %.0
 }
 
@@ -3693,7 +3693,7 @@ _ZNK11ast_manager5is_eqEPK4expr.exit.i:           ; preds = %80
   br label %123
 
 _ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread: ; preds = %80, %72, %_ZNK11ast_manager5is_eqEPK4expr.exit.i, %91, %102, %101
-  %.2 = phi i1 [ %.156, %101 ], [ true, %102 ], [ %.156, %91 ], [ %.156, %_ZNK11ast_manager5is_eqEPK4expr.exit.i ], [ %.156, %72 ], [ %.156, %80 ]
+  %.2 = phi i1 [ true, %102 ], [ %.156, %101 ], [ %.156, %91 ], [ %.156, %_ZNK11ast_manager5is_eqEPK4expr.exit.i ], [ %.156, %72 ], [ %.156, %80 ]
   %105 = load i32, ptr %6, align 4, !tbaa !69
   %106 = add i32 %105, 1
   store i32 %106, ptr %6, align 4, !tbaa !69
@@ -4009,7 +4009,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   br i1 %145, label %.critedge, label %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit, !llvm.loop !126
 
 .critedge:                                        ; preds = %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit32, %97, %_ZNK8datatype4util14is_constructorEPK3app.exit24.thread, %6, %13
-  %.020 = phi i1 [ false, %13 ], [ false, %6 ], [ false, %_ZNK8datatype4util14is_constructorEPK3app.exit24.thread ], [ true, %97 ], [ true, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit32 ], [ true, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit ]
+  %.020 = phi i1 [ false, %6 ], [ false, %13 ], [ false, %_ZNK8datatype4util14is_constructorEPK3app.exit24.thread ], [ true, %97 ], [ true, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit32 ], [ true, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit ]
   ret i1 %.020
 }
 

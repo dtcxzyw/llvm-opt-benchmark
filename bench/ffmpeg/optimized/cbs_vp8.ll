@@ -969,7 +969,7 @@ cbs_vp8_read_uncompressed_header.exit:            ; preds = %.thread123.i.i, %10
   br label %cbs_vp8_read_update_segmentation.exit.thread.i.i
 
 cbs_vp8_read_update_segmentation.exit.thread.i.i: ; preds = %.critedge150.i.i.i, %.critedge148.i.i.i, %.critedge145.i.i.i, %.critedge143.i.i.i, %.critedge140.i.i.i, %.critedge.i.i.i, %.thread236.i.i.i, %.thread229.i.i.i, %.thread.i.i.i
-  %.1.i.ph.i.i = phi i32 [ %339, %.critedge148.i.i.i ], [ %349, %.critedge150.i.i.i ], [ %318, %.critedge143.i.i.i ], [ %324, %.critedge145.i.i.i ], [ %304, %.critedge.i.i.i ], [ %310, %.critedge140.i.i.i ], [ %280, %.thread236.i.i.i ], [ %258, %.thread229.i.i.i ], [ %234, %.thread.i.i.i ]
+  %.1.i.ph.i.i = phi i32 [ %349, %.critedge150.i.i.i ], [ %324, %.critedge145.i.i.i ], [ %310, %.critedge140.i.i.i ], [ %339, %.critedge148.i.i.i ], [ %258, %.thread229.i.i.i ], [ %280, %.thread236.i.i.i ], [ %304, %.critedge.i.i.i ], [ %318, %.critedge143.i.i.i ], [ %234, %.thread.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
@@ -1563,8 +1563,8 @@ cbs_vp8_read_update_segmentation.exit.thread.i.i: ; preds = %.critedge150.i.i.i,
   %609 = icmp sgt i32 %608, -1
   br i1 %609, label %610, label %cbs_vp8_read_compressed_header.exit.thread
 
-cbs_vp8_read_compressed_header.exit.thread:       ; preds = %.thread477.i.i, %607, %592, %589, %574, %567, %560, %553, %547, %536, %530, %529, %517, %513, %503, %499, %490, %478, %471, %460, %459, %451, %.thread.i.i, %.thread426.i.i, %.thread433.i.i, %cbs_vp8_read_update_segmentation.exit.thread.i.i, %.thread442.i.i, %.thread449.i.i, %.thread456.i.i
-  %.1.i.i40.ph = phi i32 [ %431, %.thread456.i.i ], [ %400, %.thread449.i.i ], [ %376, %.thread442.i.i ], [ %.1.i.ph.i.i, %cbs_vp8_read_update_segmentation.exit.thread.i.i ], [ %210, %.thread433.i.i ], [ %187, %.thread426.i.i ], [ %165, %.thread.i.i ], [ %454, %451 ], [ %457, %459 ], [ %464, %460 ], [ %469, %471 ], [ %476, %478 ], [ %485, %490 ], [ %494, %499 ], [ %501, %503 ], [ %508, %513 ], [ %515, %517 ], [ %524, %529 ], [ %531, %530 ], [ %534, %536 ], [ %542, %547 ], [ %551, %553 ], [ %558, %560 ], [ %565, %567 ], [ %572, %574 ], [ %583, %589 ], [ %590, %592 ], [ %601, %607 ], [ %608, %.thread477.i.i ]
+cbs_vp8_read_compressed_header.exit.thread:       ; preds = %.thread477.i.i, %607, %592, %589, %574, %567, %560, %553, %547, %536, %530, %529, %517, %513, %503, %499, %490, %478, %471, %460, %459, %451, %.thread456.i.i, %.thread449.i.i, %.thread442.i.i, %cbs_vp8_read_update_segmentation.exit.thread.i.i, %.thread433.i.i, %.thread426.i.i, %.thread.i.i
+  %.1.i.i40.ph = phi i32 [ %165, %.thread.i.i ], [ %187, %.thread426.i.i ], [ %210, %.thread433.i.i ], [ %.1.i.ph.i.i, %cbs_vp8_read_update_segmentation.exit.thread.i.i ], [ %376, %.thread442.i.i ], [ %400, %.thread449.i.i ], [ %431, %.thread456.i.i ], [ %454, %451 ], [ %457, %459 ], [ %464, %460 ], [ %469, %471 ], [ %476, %478 ], [ %485, %490 ], [ %494, %499 ], [ %501, %503 ], [ %508, %513 ], [ %515, %517 ], [ %524, %529 ], [ %531, %530 ], [ %534, %536 ], [ %542, %547 ], [ %551, %553 ], [ %558, %560 ], [ %565, %567 ], [ %572, %574 ], [ %583, %589 ], [ %590, %592 ], [ %601, %607 ], [ %608, %.thread477.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
   br label %cbs_vp8_read_uncompressed_header.exit.thread
@@ -1605,8 +1605,8 @@ cbs_vp8_read_compressed_header.exit.thread:       ; preds = %.thread477.i.i, %60
   store i64 %626, ptr %627, align 8, !tbaa !88
   br label %cbs_vp8_read_uncompressed_header.exit.thread
 
-cbs_vp8_read_uncompressed_header.exit.thread:     ; preds = %88, %94, %101, %108, %114, %117, %120, %126, %133, %140, %150, %cbs_vp8_read_compressed_header.exit.thread, %616, %66, %2, %621
-  %.0 = phi i32 [ 0, %621 ], [ %64, %2 ], [ -1094995529, %66 ], [ -12, %616 ], [ %.1.i.i40.ph, %cbs_vp8_read_compressed_header.exit.thread ], [ %86, %88 ], [ %92, %94 ], [ %99, %101 ], [ %106, %108 ], [ %115, %114 ], [ %118, %117 ], [ %121, %120 ], [ %124, %126 ], [ %131, %133 ], [ %138, %140 ], [ %145, %150 ]
+cbs_vp8_read_uncompressed_header.exit.thread:     ; preds = %94, %101, %108, %114, %117, %120, %126, %133, %140, %150, %88, %cbs_vp8_read_compressed_header.exit.thread, %616, %66, %2, %621
+  %.0 = phi i32 [ 0, %621 ], [ %64, %2 ], [ -1094995529, %66 ], [ %.1.i.i40.ph, %cbs_vp8_read_compressed_header.exit.thread ], [ -12, %616 ], [ %92, %94 ], [ %99, %101 ], [ %106, %108 ], [ %115, %114 ], [ %118, %117 ], [ %121, %120 ], [ %124, %126 ], [ %131, %133 ], [ %138, %140 ], [ %145, %150 ], [ %86, %88 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %63)
   call void @llvm.lifetime.end.p0(ptr nonnull %62)
   ret i32 %.0
@@ -2001,7 +2001,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @cbs_vp8_read_mode_ref_lf_d
   br label %.thread141
 
 .thread141:                                       ; preds = %73, %.critedge98, %.critedge96, %.critedge93, %.critedge, %33, %36, %39, %.thread
-  %.1 = phi i32 [ %35, %39 ], [ %18, %.thread ], [ 0, %36 ], [ 0, %33 ], [ %53, %.critedge93 ], [ %47, %.critedge ], [ %67, %.critedge98 ], [ %61, %.critedge96 ], [ 0, %73 ]
+  %.1 = phi i32 [ %18, %.thread ], [ %47, %.critedge ], [ 0, %33 ], [ %35, %39 ], [ %61, %.critedge96 ], [ 0, %36 ], [ %53, %.critedge93 ], [ %67, %.critedge98 ], [ 0, %73 ]
   ret i32 %.1
 }
 
@@ -2275,7 +2275,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @cbs_vp8_read_quantization_
   br label %114
 
 114:                                              ; preds = %103, %.thread170, %113, %102, %98, %87, %83, %72, %68, %61, %55, %48, %.thread
-  %.1 = phi i32 [ %108, %113 ], [ %100, %102 ], [ %93, %98 ], [ %85, %87 ], [ %78, %83 ], [ %70, %72 ], [ %63, %68 ], [ %57, %61 ], [ %50, %55 ], [ %44, %48 ], [ %21, %.thread ], [ 0, %.thread170 ], [ 0, %103 ]
+  %.1 = phi i32 [ %21, %.thread ], [ %108, %113 ], [ %100, %102 ], [ %93, %98 ], [ %85, %87 ], [ %78, %83 ], [ %70, %72 ], [ %63, %68 ], [ %57, %61 ], [ %50, %55 ], [ %44, %48 ], [ 0, %.thread170 ], [ 0, %103 ]
   ret i32 %.1
 }
 
@@ -2607,7 +2607,7 @@ cbs_vp8_bool_decoder_fill_value.exit.i81:         ; preds = %106
   br i1 %exitcond218.not, label %.critedge, label %.preheader168, !llvm.loop !109
 
 .critedge:                                        ; preds = %154, %51, %.critedge68
-  %155 = phi i32 [ -1094995529, %.critedge68 ], [ -1094995529, %51 ], [ 0, %154 ]
+  %155 = phi i32 [ -1094995529, %51 ], [ -1094995529, %.critedge68 ], [ 0, %154 ]
   ret i32 %155
 }
 
@@ -2904,7 +2904,7 @@ cbs_vp8_bool_decoder_fill_value.exit.i57:         ; preds = %93
   br i1 %17, label %.preheader, label %.critedge, !llvm.loop !111
 
 .critedge:                                        ; preds = %.thread, %38, %.critedge44
-  %140 = phi i32 [ -1094995529, %.critedge44 ], [ -1094995529, %38 ], [ 0, %.thread ]
+  %140 = phi i32 [ -1094995529, %38 ], [ -1094995529, %.critedge44 ], [ 0, %.thread ]
   ret i32 %140
 }
 

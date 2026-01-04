@@ -610,7 +610,7 @@ _ZN5zxing12ErrorHandlerD2Ev.exit:                 ; preds = %_ZN5zxing3RefINS_6q
   ret void
 
 295:                                              ; preds = %278, %280, %140, %142
-  %.pn60.pn = phi { ptr, i32 } [ %141, %140 ], [ %143, %142 ], [ %279, %278 ], [ %281, %280 ]
+  %.pn60.pn = phi { ptr, i32 } [ %143, %142 ], [ %279, %278 ], [ %281, %280 ], [ %141, %140 ]
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %4, align 8, !tbaa !8
   %296 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %297 = load ptr, ptr %296, align 8, !tbaa !30

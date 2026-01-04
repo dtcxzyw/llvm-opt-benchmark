@@ -401,7 +401,7 @@ define i32 @of_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unname
   br label %mux_alloc.exit.thread
 
 sub_0:                                            ; preds = %.thread225, %.thread, %63
-  %.0134 = phi i64 [ %51, %63 ], [ %51, %.thread ], [ %69, %.thread225 ]
+  %.0134 = phi i64 [ %69, %.thread225 ], [ %51, %63 ], [ %51, %.thread ]
   %71 = getelementptr inbounds nuw i8, ptr %54, i64 40
   store i64 %.0134, ptr %71, align 8, !tbaa !40
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -618,8 +618,8 @@ check_opt_bitexact.exit:                          ; preds = %113, %124
   br label %191
 
 191:                                              ; preds = %._crit_edge404.i, %174, %167
-  %192 = phi i32 [ %.pre.i, %._crit_edge404.i ], [ %168, %167 ], [ %168, %174 ]
-  %.4128.ph.i = phi i32 [ %181, %._crit_edge404.i ], [ %.2126278.i, %167 ], [ %.2126278.i, %174 ]
+  %192 = phi i32 [ %168, %174 ], [ %.pre.i, %._crit_edge404.i ], [ %168, %167 ]
+  %.4128.ph.i = phi i32 [ %.2126278.i, %174 ], [ %181, %._crit_edge404.i ], [ %.2126278.i, %167 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %193 = sext i32 %192 to i64
   %194 = icmp slt i64 %indvars.iv.next.i, %193
@@ -967,7 +967,7 @@ check_opt_bitexact.exit:                          ; preds = %113, %124
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %328, %318, %344, %336, %324
-  %.059.ph.i.i = phi i32 [ -5, %344 ], [ %334, %336 ], [ -34, %324 ], [ -1094995529, %318 ], [ -12, %328 ]
+  %.059.ph.i.i = phi i32 [ -34, %324 ], [ %334, %336 ], [ -5, %344 ], [ -1094995529, %318 ], [ -12, %328 ]
   %348 = call i32 @avio_closep(ptr noundef nonnull %43) #16
   br label %of_add_attachments.exit.thread.i
 
@@ -1035,7 +1035,7 @@ check_opt_bitexact.exit:                          ; preds = %113, %124
   br label %386
 
 of_add_attachments.exit.thread.i:                 ; preds = %349, %367, %363, %.thread.i.i, %310
-  %.2.ph.i.i = phi i32 [ %.059.ph.i.i, %.thread.i.i ], [ -12, %363 ], [ %365, %367 ], [ %308, %310 ], [ %350, %349 ]
+  %.2.ph.i.i = phi i32 [ %.059.ph.i.i, %.thread.i.i ], [ %308, %310 ], [ %365, %367 ], [ -12, %363 ], [ %350, %349 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
@@ -1155,7 +1155,7 @@ of_add_attachments.exit.i:                        ; preds = %386, %.thread196.i
   br i1 %436, label %406, label %.loopexit.i, !llvm.loop !172
 
 .loopexit.i:                                      ; preds = %432, %.preheader213.i, %398
-  %437 = phi i32 [ 0, %.preheader213.i ], [ %399, %398 ], [ %433, %432 ]
+  %437 = phi i32 [ %399, %398 ], [ 0, %.preheader213.i ], [ %433, %432 ]
   %indvars.iv.next390.i = add nuw nsw i64 %indvars.iv389.i, 1
   %438 = zext i32 %437 to i64
   %439 = icmp samesign ult i64 %indvars.iv.next390.i, %438
@@ -1215,7 +1215,7 @@ of_add_attachments.exit.i:                        ; preds = %386, %.thread196.i
   br i1 %466, label %.lr.ph309.i, label %.critedge.thread.i
 
 .critedge.thread.i:                               ; preds = %440, %463, %._crit_edge294.i
-  %467 = phi i32 [ %.pre413.i, %._crit_edge294.i ], [ %464, %463 ], [ %.pre413.i, %440 ]
+  %467 = phi i32 [ %464, %463 ], [ %.pre413.i, %._crit_edge294.i ], [ %.pre413.i, %440 ]
   %.not316.i = icmp eq i32 %467, 0
   br i1 %.not316.i, label %._crit_edge312.i, label %.lr.ph311.i
 
@@ -1741,7 +1741,7 @@ create_streams.exit:                              ; preds = %475, %._crit_edge31
   br i1 %.not63.i, label %.lr.ph.i178, label %.thread107.loopexit.i, !llvm.loop !207
 
 .thread116.i:                                     ; preds = %582, %571, %667, %653, %635, %621
-  %.076.i.ph.ph.i = phi i32 [ -22, %653 ], [ -22, %667 ], [ -22, %621 ], [ -22, %635 ], [ %583, %582 ], [ %580, %571 ]
+  %.076.i.ph.ph.i = phi i32 [ -22, %635 ], [ -22, %653 ], [ -22, %667 ], [ -22, %621 ], [ %583, %582 ], [ %580, %571 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
@@ -1752,7 +1752,7 @@ create_streams.exit:                              ; preds = %475, %._crit_edge31
   br label %mux_alloc.exit.thread
 
 .loopexit126.i:                                   ; preds = %695, %717, %697
-  %.076.i.ph.i = phi i32 [ -22, %697 ], [ %708, %717 ], [ %689, %695 ]
+  %.076.i.ph.i = phi i32 [ %708, %717 ], [ -22, %697 ], [ %689, %695 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
@@ -1891,8 +1891,8 @@ create_streams.exit:                              ; preds = %475, %._crit_edge31
   br i1 %794, label %copy_chapters.exit.i, label %.thread70.i.i
 
 .thread70.i.i:                                    ; preds = %790, %789, %.thread.i.i177
-  %795 = phi i64 [ %782, %790 ], [ 9223372036854775807, %789 ], [ 9223372036854775807, %.thread.i.i177 ]
-  %796 = phi ptr [ %783, %790 ], [ %783, %789 ], [ %786, %.thread.i.i177 ]
+  %795 = phi i64 [ 9223372036854775807, %789 ], [ %782, %790 ], [ 9223372036854775807, %.thread.i.i177 ]
+  %796 = phi ptr [ %783, %789 ], [ %783, %790 ], [ %786, %.thread.i.i177 ]
   %797 = call noalias ptr @av_mallocz(i64 noundef 40) #16
   %.not66.i.i = icmp eq ptr %797, null
   br i1 %.not66.i.i, label %copy_chapters.exit.i, label %798
@@ -1935,7 +1935,7 @@ create_streams.exit:                              ; preds = %475, %._crit_edge31
   br label %821
 
 821:                                              ; preds = %815, %.thread.i.i177, %781
-  %822 = phi i32 [ %.pre.i.i, %815 ], [ %768, %781 ], [ %768, %.thread.i.i177 ]
+  %822 = phi i32 [ %768, %781 ], [ %.pre.i.i, %815 ], [ %768, %.thread.i.i177 ]
   %indvars.iv.next.i73.i = add nuw nsw i64 %indvars.iv.i72.i, 1
   %823 = zext i32 %822 to i64
   %824 = icmp samesign ult i64 %indvars.iv.next.i73.i, %823
@@ -2730,7 +2730,7 @@ of_serialize_options.exit265.i.i.i:               ; preds = %1163
   br label %.loopexit136.i.i
 
 .loopexit135.i.i:                                 ; preds = %of_serialize_options.exit257.i.i.i, %of_serialize_options.exit251.i.i.i, %of_serialize_options.exit253.i.i.i, %of_serialize_options.exit255.i.i.i, %of_serialize_options.exit259.i.i.i, %of_serialize_options.exit261.i.i.i, %of_serialize_options.exit265.i.i.i, %of_serialize_options.exit263.i.i.i, %of_serialize_options.exit265.thread.i.i.i, %of_serialize_options.exit263.thread.i.i.i, %of_serialize_options.exit261.thread.i.i.i, %get_stream_group_index_from_id.exit.thread.i.i.i, %of_serialize_options.exit259.thread.i.i.i, %of_serialize_options.exit257.thread.i.i.i, %of_serialize_options.exit255.thread.i.i.i, %of_serialize_options.exit253.thread.i.i.i, %997, %of_serialize_options.exit251.thread.i.i.i, %966, %of_serialize_options.exit.i.i.i, %of_serialize_options.exit.thread.i.i.i, %936, %916
-  %.0184.i.ph.i.i = phi i32 [ %1147, %of_serialize_options.exit263.thread.i.i.i ], [ -22, %get_stream_group_index_from_id.exit.thread.i.i.i ], [ %1122, %of_serialize_options.exit261.thread.i.i.i ], [ %1086, %of_serialize_options.exit259.thread.i.i.i ], [ %1058, %of_serialize_options.exit257.thread.i.i.i ], [ %1167, %of_serialize_options.exit265.thread.i.i.i ], [ %999, %997 ], [ %1019, %of_serialize_options.exit253.thread.i.i.i ], [ %968, %966 ], [ %988, %of_serialize_options.exit251.thread.i.i.i ], [ %1036, %of_serialize_options.exit255.thread.i.i.i ], [ %943, %of_serialize_options.exit.thread.i.i.i ], [ %948, %of_serialize_options.exit.i.i.i ], [ -22, %936 ], [ -22, %916 ], [ %1152, %of_serialize_options.exit263.i.i.i ], [ %1172, %of_serialize_options.exit265.i.i.i ], [ %1127, %of_serialize_options.exit261.i.i.i ], [ %1091, %of_serialize_options.exit259.i.i.i ], [ %1041, %of_serialize_options.exit255.i.i.i ], [ %1024, %of_serialize_options.exit253.i.i.i ], [ %993, %of_serialize_options.exit251.i.i.i ], [ %1063, %of_serialize_options.exit257.i.i.i ]
+  %.0184.i.ph.i.i = phi i32 [ %1091, %of_serialize_options.exit259.i.i.i ], [ %993, %of_serialize_options.exit251.i.i.i ], [ %1127, %of_serialize_options.exit261.i.i.i ], [ %1122, %of_serialize_options.exit261.thread.i.i.i ], [ %1086, %of_serialize_options.exit259.thread.i.i.i ], [ %1041, %of_serialize_options.exit255.i.i.i ], [ -22, %916 ], [ %1172, %of_serialize_options.exit265.i.i.i ], [ %1058, %of_serialize_options.exit257.thread.i.i.i ], [ %1167, %of_serialize_options.exit265.thread.i.i.i ], [ %1024, %of_serialize_options.exit253.i.i.i ], [ %1019, %of_serialize_options.exit253.thread.i.i.i ], [ %988, %of_serialize_options.exit251.thread.i.i.i ], [ %968, %966 ], [ %1152, %of_serialize_options.exit263.i.i.i ], [ %1036, %of_serialize_options.exit255.thread.i.i.i ], [ %1147, %of_serialize_options.exit263.thread.i.i.i ], [ -22, %get_stream_group_index_from_id.exit.thread.i.i.i ], [ %948, %of_serialize_options.exit.i.i.i ], [ %943, %of_serialize_options.exit.thread.i.i.i ], [ %999, %997 ], [ -22, %936 ], [ %1063, %of_serialize_options.exit257.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %1178 = call i32 @av_bprint_finalize(ptr noundef nonnull %31, ptr noundef null) #16
   br label %.thread.i.i197
@@ -2985,8 +2985,8 @@ thread-pre-split.i34.i:                           ; preds = %1311
   br label %1287
 
 1287:                                             ; preds = %1284, %1281, %1279
-  %1288 = phi i1 [ false, %1279 ], [ true, %1281 ], [ false, %1284 ]
-  %1289 = phi i1 [ false, %1279 ], [ false, %1281 ], [ %.not47.i.i, %1284 ]
+  %1288 = phi i1 [ false, %1284 ], [ false, %1279 ], [ true, %1281 ]
+  %1289 = phi i1 [ %.not47.i.i, %1284 ], [ false, %1279 ], [ false, %1281 ]
   call void @av_dict_free(ptr noundef nonnull %5) #16
   %1290 = load ptr, ptr %6, align 8, !tbaa !139
   %1291 = call i32 @av_dict_parse_string(ptr noundef nonnull %5, ptr noundef %1290, ptr noundef nonnull @.str.167, ptr noundef nonnull @.str.168, i32 noundef 0) #16
@@ -3197,7 +3197,7 @@ thread-pre-split88.i.i:                           ; preds = %1413
   br label %1362
 
 1362:                                             ; preds = %1359, %1357
-  %.not77.i.i211 = phi i1 [ true, %1357 ], [ %.not75.i.i222, %1359 ]
+  %.not77.i.i211 = phi i1 [ %.not75.i.i222, %1359 ], [ true, %1357 ]
   call void @av_dict_free(ptr noundef nonnull %8) #16
   %1363 = load ptr, ptr %11, align 8, !tbaa !139
   %1364 = call i32 @av_dict_parse_string(ptr noundef nonnull %8, ptr noundef %1363, ptr noundef nonnull @.str.167, ptr noundef nonnull @.str.168, i32 noundef 0) #16
@@ -3333,7 +3333,7 @@ thread-pre-split88.i.i:                           ; preds = %1413
   br label %thread-pre-split.i.i
 
 .thread110.i.i:                                   ; preds = %1345, %1338, %1394, %1416, %.thread97.i.i221, %.thread93.i.i, %1366, %1342, %1337
-  %.151.ph.i.i = phi i32 [ %.050137.i.i, %1337 ], [ -12, %1342 ], [ -12, %.thread97.i.i221 ], [ %.4.ph.i.i, %.thread93.i.i ], [ -22, %1416 ], [ %1364, %1366 ], [ -12, %1394 ], [ %.050137.i.i, %1338 ], [ -12, %1345 ]
+  %.151.ph.i.i = phi i32 [ -12, %.thread97.i.i221 ], [ %.050137.i.i, %1337 ], [ -12, %1342 ], [ -12, %1394 ], [ %1364, %1366 ], [ %.4.ph.i.i, %.thread93.i.i ], [ -22, %1416 ], [ %.050137.i.i, %1338 ], [ -12, %1345 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %of_parse_iamf_submixes.exit.i
@@ -3354,7 +3354,7 @@ of_parse_iamf_submixes.exit.i:                    ; preds = %thread-pre-split.i.
   br label %.loopexit.i198
 
 1423:                                             ; preds = %of_parse_iamf_submixes.exit.i, %of_parse_iamf_audio_element_layers.exit.i
-  %.8.i.i = phi i32 [ %.0.i.i, %of_parse_iamf_audio_element_layers.exit.i ], [ %.9.i.i, %of_parse_iamf_submixes.exit.i ]
+  %.8.i.i = phi i32 [ %.9.i.i, %of_parse_iamf_submixes.exit.i ], [ %.0.i.i, %of_parse_iamf_audio_element_layers.exit.i ]
   %1424 = icmp slt i32 %.8.i.i, 0
   br i1 %1424, label %.loopexit.i198, label %1425
 
@@ -3401,7 +3401,7 @@ sub_1.i.i:                                        ; preds = %sub_0.i.i
   br label %.loopexit.i198
 
 .loopexit.i198:                                   ; preds = %1439, %1442, %1425, %1423, %.thread131.i.i, %.thread128.i.i, %.thread124.i.i, %1195, %1193, %1184, %.thread.i.i197
-  %.178.i.i = phi i32 [ %spec.store.select6.i.i, %1193 ], [ %.8.i.i, %1423 ], [ -22, %1442 ], [ -22, %1184 ], [ -12, %1195 ], [ %.077.ph.i.i, %.thread.i.i197 ], [ %.380.ph.i.i, %.thread124.i.i ], [ %.5.ph.i.i, %.thread128.i.i ], [ -22, %.thread131.i.i ], [ 0, %1425 ], [ 0, %1439 ]
+  %.178.i.i = phi i32 [ %spec.store.select6.i.i, %1193 ], [ %.380.ph.i.i, %.thread124.i.i ], [ %.5.ph.i.i, %.thread128.i.i ], [ %.8.i.i, %1423 ], [ -22, %1442 ], [ -12, %1195 ], [ %.077.ph.i.i, %.thread.i.i197 ], [ -22, %1184 ], [ -22, %.thread131.i.i ], [ 0, %1425 ], [ 0, %1439 ]
   %1443 = load ptr, ptr %26, align 8, !tbaa !139
   call void @av_free(ptr noundef %1443) #16
   call void @av_dict_free(ptr noundef nonnull %24) #16
@@ -3504,8 +3504,8 @@ of_add_groups.exit.thread:                        ; preds = %876, %copy_meta.exi
   %.not167 = icmp slt i64 %indvars.iv.next, %1485
   br i1 %.not167, label %1473, label %mux_alloc.exit.thread, !llvm.loop !294
 
-mux_alloc.exit.thread:                            ; preds = %187, %296, %.thread97.i.i, %204, %460, %.loopexit.i198, %1480, %1483, %1469, %.thread116.i, %.thread102.i, %.loopexit126.i, %744, %._crit_edge115.i.i, %289, %294, %265, %of_add_attachments.exit.thread.i, %481, %3, %of_add_groups.exit.thread230, %70, %1447, %of_add_groups.exit.thread, %531, %514, %create_streams.exit, %126, %1468, %1458, %1454, %523, %504, %92
-  %.0 = phi i32 [ %1452, %1454 ], [ %1456, %1458 ], [ %1466, %1468 ], [ %521, %523 ], [ -22, %504 ], [ %90, %92 ], [ -22, %70 ], [ %135, %126 ], [ %491, %create_streams.exit ], [ %515, %514 ], [ %532, %531 ], [ %1445, %of_add_groups.exit.thread ], [ %1449, %1447 ], [ %896, %of_add_groups.exit.thread230 ], [ -12, %3 ], [ -22, %._crit_edge115.i.i ], [ -22, %289 ], [ -22, %294 ], [ -22, %265 ], [ %.2.ph.i.i, %of_add_attachments.exit.thread.i ], [ -22, %481 ], [ %.076.i.ph.ph.i, %.thread116.i ], [ -22, %.thread102.i ], [ %.076.i.ph.i, %.loopexit126.i ], [ -22, %744 ], [ 0, %1469 ], [ %1481, %1480 ], [ 0, %1483 ], [ %.178.i.i, %.loopexit.i198 ], [ -12, %460 ], [ %207, %204 ], [ %243, %.thread97.i.i ], [ %phi.call.i.i, %296 ], [ %189, %187 ]
+mux_alloc.exit.thread:                            ; preds = %187, %.thread97.i.i, %296, %204, %460, %.loopexit.i198, %1480, %1483, %1469, %.thread102.i, %.thread116.i, %744, %.loopexit126.i, %289, %294, %265, %481, %of_add_attachments.exit.thread.i, %._crit_edge115.i.i, %3, %of_add_groups.exit.thread230, %70, %1447, %of_add_groups.exit.thread, %531, %514, %create_streams.exit, %126, %1468, %1458, %1454, %523, %504, %92
+  %.0 = phi i32 [ %.076.i.ph.i, %.loopexit126.i ], [ %135, %126 ], [ -12, %3 ], [ %532, %531 ], [ -22, %._crit_edge115.i.i ], [ %896, %of_add_groups.exit.thread230 ], [ %1445, %of_add_groups.exit.thread ], [ %1452, %1454 ], [ %1456, %1458 ], [ %1466, %1468 ], [ %1449, %1447 ], [ %207, %204 ], [ %515, %514 ], [ %491, %create_streams.exit ], [ %521, %523 ], [ -22, %504 ], [ %90, %92 ], [ -22, %70 ], [ %.178.i.i, %.loopexit.i198 ], [ -22, %744 ], [ -22, %289 ], [ -22, %294 ], [ -22, %265 ], [ %243, %.thread97.i.i ], [ 0, %1483 ], [ -12, %460 ], [ -22, %481 ], [ %.2.ph.i.i, %of_add_attachments.exit.thread.i ], [ -22, %.thread102.i ], [ %.076.i.ph.ph.i, %.thread116.i ], [ 0, %1469 ], [ %1481, %1480 ], [ %phi.call.i.i, %296 ], [ %189, %187 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   ret i32 %.0
 }
@@ -3856,7 +3856,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @of_add_metadata(ptr nounde
   %89 = icmp slt i64 %indvars.iv.next135, %88
   br i1 %89, label %18, label %.loopexit77, !llvm.loop !304
 
-select.unfold:                                    ; preds = %25, %54, %71, %64, %70, %24
+select.unfold:                                    ; preds = %25, %54, %24, %71, %64, %70
   %.253.ph = phi i32 [ -22, %24 ], [ -22, %70 ], [ -22, %64 ], [ -22, %71 ], [ %40, %54 ], [ %30, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3995,8 +3995,8 @@ define internal fastcc i32 @set_dispositions(ptr noundef nonnull readonly captur
   br label %67
 
 67:                                               ; preds = %._crit_edge93, %.lr.ph74
-  %68 = phi i32 [ %.pre, %._crit_edge93 ], [ %56, %.lr.ph74 ]
-  %.2.ph = phi i32 [ %65, %._crit_edge93 ], [ %.04873, %.lr.ph74 ]
+  %68 = phi i32 [ %56, %.lr.ph74 ], [ %.pre, %._crit_edge93 ]
+  %.2.ph = phi i32 [ %.04873, %.lr.ph74 ], [ %65, %._crit_edge93 ]
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %69 = zext i32 %68 to i64
   %70 = icmp samesign ult i64 %indvars.iv.next88, %69
@@ -4042,12 +4042,12 @@ define internal fastcc i32 @set_dispositions(ptr noundef nonnull readonly captur
   br i1 %exitcond.not, label %.loopexit, label %71, !llvm.loop !309
 
 .loopexit:                                        ; preds = %59, %67, %92, %.preheader68, %.preheader66, %.preheader
-  %.3 = phi i32 [ 0, %.preheader ], [ 0, %.preheader66 ], [ 0, %.preheader68 ], [ 0, %92 ], [ %65, %59 ], [ %.2.ph, %67 ]
+  %.3 = phi i32 [ 0, %.preheader ], [ 0, %.preheader66 ], [ 0, %92 ], [ 0, %.preheader68 ], [ %65, %59 ], [ %.2.ph, %67 ]
   call void @av_freep(ptr noundef nonnull %5) #16
   br label %93
 
 93:                                               ; preds = %2, %.loopexit
-  %.0 = phi i32 [ %.3, %.loopexit ], [ -12, %2 ]
+  %.0 = phi i32 [ -12, %2 ], [ %.3, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -4311,7 +4311,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @process_forced_keyframes(p
   br label %parse_forced_key_frames.exit.thread
 
 parse_forced_key_frames.exit.thread:              ; preds = %56, %72, %.loopexit128.i
-  %.0.i.ph = phi i32 [ %.361.ph.i, %.loopexit128.i ], [ -12, %72 ], [ -12, %56 ]
+  %.0.i.ph = phi i32 [ -12, %72 ], [ %.361.ph.i, %.loopexit128.i ], [ -12, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %122
@@ -4328,7 +4328,7 @@ parse_forced_key_frames.exit:                     ; preds = %._crit_edge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %118
 
-118:                                              ; preds = %22, %12, %parse_forced_key_frames.exit, %.thread, %43, %47
+118:                                              ; preds = %12, %22, %parse_forced_key_frames.exit, %.thread, %43, %47
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %119 = load i32, ptr %6, align 8, !tbaa !163
@@ -4413,7 +4413,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @setup_sync_queues(ptr noun
   br label %40
 
 40:                                               ; preds = %31, %15
-  %41 = phi i32 [ 0, %15 ], [ %39, %31 ]
+  %41 = phi i32 [ %39, %31 ], [ 0, %15 ]
   %42 = add nsw i32 %41, %.0107158
   %43 = getelementptr inbounds nuw i8, ptr %17, i64 528
   %44 = load i64, ptr %43, align 8, !tbaa !337
@@ -4537,8 +4537,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @setup_sync_queues(ptr noun
   %.pre = load i32, ptr %5, align 4, !tbaa !161
   br label %103
 
-103:                                              ; preds = %._crit_edge193, %90, %.lr.ph165.split
-  %104 = phi i32 [ %.pre, %._crit_edge193 ], [ %84, %90 ], [ %84, %.lr.ph165.split ]
+103:                                              ; preds = %._crit_edge193, %.lr.ph165.split, %90
+  %104 = phi i32 [ %.pre, %._crit_edge193 ], [ %84, %.lr.ph165.split ], [ %84, %90 ]
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %105 = zext i32 %104 to i64
   %106 = icmp samesign ult i64 %indvars.iv.next185, %105
@@ -4619,7 +4619,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @setup_sync_queues(ptr noun
   br i1 %.not130, label %116, label %.thread137, !llvm.loop !343
 
 .thread137:                                       ; preds = %93, %72, %139, %129, %.preheader, %56, %.thread140, %111, %108, %50
-  %.0 = phi i32 [ 0, %50 ], [ -12, %108 ], [ -12, %111 ], [ 0, %.thread140 ], [ %59, %56 ], [ 0, %.preheader ], [ 0, %139 ], [ %131, %129 ], [ %78, %72 ], [ %101, %93 ]
+  %.0 = phi i32 [ 0, %.thread140 ], [ %59, %56 ], [ -12, %108 ], [ 0, %50 ], [ %78, %72 ], [ -12, %111 ], [ 0, %.preheader ], [ %131, %129 ], [ 0, %139 ], [ %101, %93 ]
   ret i32 %.0
 }
 
@@ -4756,8 +4756,8 @@ define internal i32 @map_auto_video(ptr noundef %0, ptr noundef %1) #0 {
   br label %58
 
 58:                                               ; preds = %56, %39, %33, %27
-  %.144.us83 = phi ptr [ %.04363.us77, %33 ], [ %.04363.us77, %27 ], [ %.04363.us77, %39 ], [ %spec.select59.us, %56 ]
-  %.1.us84 = phi i32 [ %.04264.us76, %33 ], [ %.04264.us76, %27 ], [ %.042.mux.us82, %39 ], [ %spec.select60.us, %56 ]
+  %.144.us83 = phi ptr [ %.04363.us77, %27 ], [ %spec.select59.us, %56 ], [ %.04363.us77, %33 ], [ %.04363.us77, %39 ]
+  %.1.us84 = phi i32 [ %.04264.us76, %27 ], [ %spec.select60.us, %56 ], [ %.04264.us76, %33 ], [ %.042.mux.us82, %39 ]
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count100
   br i1 %exitcond101.not, label %._crit_edge.split.us85, label %27, !llvm.loop !350
@@ -4836,8 +4836,8 @@ define internal i32 @map_auto_video(ptr noundef %0, ptr noundef %1) #0 {
   br label %98
 
 98:                                               ; preds = %80, %74, %68
-  %.144.us = phi ptr [ %.04363.us, %74 ], [ %.04363.us, %68 ], [ %.043.mux.us, %80 ]
-  %.1.us = phi i32 [ %.04264.us, %74 ], [ %.04264.us, %68 ], [ %.042.mux.us, %80 ]
+  %.144.us = phi ptr [ %.04363.us, %68 ], [ %.043.mux.us, %80 ], [ %.04363.us, %74 ]
+  %.1.us = phi i32 [ %.04264.us, %68 ], [ %.042.mux.us, %80 ], [ %.04264.us, %74 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.split.us, label %68, !llvm.loop !350
@@ -4872,7 +4872,7 @@ define internal i32 @map_auto_video(ptr noundef %0, ptr noundef %1) #0 {
   br label %._crit_edge73.thread
 
 ._crit_edge73.thread:                             ; preds = %11, %._crit_edge73, %2, %108
-  %.040 = phi i32 [ %109, %108 ], [ 0, %2 ], [ 0, %._crit_edge73 ], [ 0, %11 ]
+  %.040 = phi i32 [ 0, %2 ], [ %109, %108 ], [ 0, %._crit_edge73 ], [ 0, %11 ]
   ret i32 %.040
 }
 
@@ -4994,7 +4994,7 @@ define internal i32 @map_auto_audio(ptr noundef %0, ptr noundef %1) #0 {
   br label %._crit_edge57.thread
 
 ._crit_edge57.thread:                             ; preds = %.preheader, %._crit_edge57, %2, %57
-  %.0 = phi i32 [ %58, %57 ], [ 0, %2 ], [ 0, %._crit_edge57 ], [ 0, %.preheader ]
+  %.0 = phi i32 [ 0, %2 ], [ %58, %57 ], [ 0, %._crit_edge57 ], [ 0, %.preheader ]
   ret i32 %.0
 }
 
@@ -5187,7 +5187,7 @@ define internal i32 @map_auto_subtitle(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not43, label %.split, label %.thread
 
 .split:                                           ; preds = %76, %73, %67, %33, %34
-  %.us-phi = phi ptr [ %.03450.us, %34 ], [ %.03450.us, %33 ], [ %.03450, %67 ], [ %.03450, %73 ], [ %.03450, %76 ]
+  %.us-phi = phi ptr [ %.03450.us, %33 ], [ %.03450.us, %34 ], [ %.03450, %67 ], [ %.03450, %73 ], [ %.03450, %76 ]
   %79 = tail call fastcc i32 @ost_add(ptr noundef %0, ptr noundef %1, i32 noundef 3, ptr noundef nonnull %.us-phi, ptr noundef null, ptr noundef null, ptr noundef null)
   br label %.loopexit
 
@@ -5492,7 +5492,7 @@ define internal fastcc i32 @ost_add(ptr noundef %0, ptr noundef %1, i32 noundef 
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %45, i32 noundef 8, ptr noundef nonnull @.str.29) #16
   br label %mux_stream_alloc.exit.thread
 
-159:                                              ; preds = %123, %122, %152, %146
+159:                                              ; preds = %122, %123, %152, %146
   %.pr = load ptr, ptr %9, align 8, !tbaa !371
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not438 = icmp eq ptr %.pr, null
@@ -5699,7 +5699,7 @@ get_line.exit.thread:                             ; preds = %234, %get_line.exit
   br label %250
 
 250:                                              ; preds = %get_line.exit.thread, %218
-  %.1373 = phi i32 [ %.2374, %get_line.exit.thread ], [ %216, %218 ]
+  %.1373 = phi i32 [ %216, %218 ], [ %.2374, %get_line.exit.thread ]
   %.not447 = icmp eq i32 %.1373, 0
   br i1 %.not447, label %252, label %.thread493
 
@@ -5843,7 +5843,7 @@ get_line.exit.thread:                             ; preds = %234, %get_line.exit
   br label %.thread502
 
 308:                                              ; preds = %.thread497, %288, %287
-  %.sroa.073.1 = phi i64 [ 0, %287 ], [ 0, %288 ], [ %.sroa.073.0.copyload, %.thread497 ]
+  %.sroa.073.1 = phi i64 [ 0, %287 ], [ %.sroa.073.0.copyload, %.thread497 ], [ 0, %288 ]
   %309 = load ptr, ptr %11, align 8, !tbaa !205
   %310 = call ptr @av_dict_get(ptr noundef %309, ptr noundef nonnull @.str.45, ptr noundef null, i32 noundef 0) #16
   %.not528 = icmp ne ptr %310, null
@@ -5877,8 +5877,8 @@ get_line.exit.thread:                             ; preds = %234, %get_line.exit
   store i32 0, ptr %327, align 8, !tbaa !386
   br label %.thread509
 
-.thread502:                                       ; preds = %.thread493, %316, %305, %208, %318
-  %.0372.ph = phi i32 [ %320, %318 ], [ %216, %208 ], [ %307, %305 ], [ %314, %316 ], [ %.1373496, %.thread493 ]
+.thread502:                                       ; preds = %.thread493, %316, %208, %318, %305
+  %.0372.ph = phi i32 [ %307, %305 ], [ %320, %318 ], [ %216, %208 ], [ %314, %316 ], [ %.1373496, %.thread493 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
@@ -5887,7 +5887,7 @@ get_line.exit.thread:                             ; preds = %234, %get_line.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %541
 
-.thread509:                                       ; preds = %323, %322
+.thread509:                                       ; preds = %322, %323
   %.0375514 = zext i1 %.not528 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
@@ -5898,7 +5898,7 @@ get_line.exit.thread:                             ; preds = %234, %get_line.exit
   br label %336
 
 328:                                              ; preds = %255, %265, %275
-  %.0372 = phi i32 [ %280, %275 ], [ %270, %265 ], [ %260, %255 ]
+  %.0372 = phi i32 [ %260, %255 ], [ %270, %265 ], [ %280, %275 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
@@ -5917,9 +5917,9 @@ get_line.exit.thread:                             ; preds = %234, %get_line.exit
   br i1 %335, label %541, label %336
 
 336:                                              ; preds = %.thread509, %329
-  %.sroa.073.3 = phi i64 [ 0, %329 ], [ %.sroa.073.1, %.thread509 ]
-  %.1376 = phi i32 [ 0, %329 ], [ %.0375514, %.thread509 ]
-  %.9 = phi i32 [ %334, %329 ], [ %320, %.thread509 ]
+  %.sroa.073.3 = phi i64 [ %.sroa.073.1, %.thread509 ], [ 0, %329 ]
+  %.1376 = phi i32 [ %.0375514, %.thread509 ], [ 0, %329 ]
+  %.9 = phi i32 [ %320, %.thread509 ], [ %334, %329 ]
   %337 = getelementptr inbounds nuw i8, ptr %1, i64 640
   %338 = load i32, ptr %337, align 8, !tbaa !69
   %.not453 = icmp eq i32 %338, 0
@@ -6361,12 +6361,12 @@ get_line.exit.thread:                             ; preds = %234, %get_line.exit
   br label %541
 
 541:                                              ; preds = %328, %366, %.thread502, %.thread524, %540, %521, %503, %495, %477, %473, %329, %489, %391
-  %.8 = phi i32 [ %389, %391 ], [ %.14, %473 ], [ %481, %477 ], [ %509, %503 ], [ %522, %521 ], [ %487, %489 ], [ %499, %495 ], [ -22, %366 ], [ %.0372, %328 ], [ %334, %329 ], [ 0, %540 ], [ 0, %.thread524 ], [ %.0372.ph, %.thread502 ]
+  %.8 = phi i32 [ %389, %391 ], [ %.14, %473 ], [ %481, %477 ], [ %509, %503 ], [ %334, %329 ], [ %522, %521 ], [ %487, %489 ], [ %499, %495 ], [ -22, %366 ], [ %.0372, %328 ], [ 0, %540 ], [ 0, %.thread524 ], [ %.0372.ph, %.thread502 ]
   call void @av_dict_free(ptr noundef nonnull %11) #16
   br label %mux_stream_alloc.exit.thread
 
 mux_stream_alloc.exit.thread:                     ; preds = %41, %350, %202, %168, %160, %109, %.critedge, %72, %65, %7, %541, %179, %158
-  %.0 = phi i32 [ %.0.i, %158 ], [ %.8, %541 ], [ -22, %179 ], [ -12, %7 ], [ %70, %65 ], [ %77, %72 ], [ -22, %.critedge ], [ -12, %109 ], [ %166, %160 ], [ %172, %168 ], [ -12, %202 ], [ %351, %350 ], [ -12, %41 ]
+  %.0 = phi i32 [ -22, %.critedge ], [ %70, %65 ], [ %.0.i, %158 ], [ -12, %109 ], [ %166, %160 ], [ -12, %202 ], [ -12, %7 ], [ %351, %350 ], [ %.8, %541 ], [ %172, %168 ], [ -22, %179 ], [ %77, %72 ], [ -12, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
@@ -6498,7 +6498,7 @@ define internal fastcc i32 @get_preset_file_2(ptr noundef nonnull %0, ptr nounde
   br i1 %31, label %.split, label %.split30.us, !llvm.loop !401
 
 .split30.us:                                      ; preds = %21, %28, %15
-  %.us-phi = phi i32 [ %.1.us, %15 ], [ %24, %21 ], [ %.1, %28 ]
+  %.us-phi = phi i32 [ %.1.us, %15 ], [ %.1, %28 ], [ %24, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.us-phi
@@ -6819,8 +6819,8 @@ thread-pre-split:                                 ; preds = %94, %91, %93
   %.not = icmp eq i8 %103, 0
   br i1 %.not, label %.loopexit, label %13
 
-.thread140:                                       ; preds = %34, %.loopexit162, %unescape.exit, %unescape.exit84, %.thread154
-  %.153.ph = phi i32 [ -12, %unescape.exit84 ], [ -12, %unescape.exit ], [ -22, %.loopexit162 ], [ %32, %34 ], [ %.050.ph, %.thread154 ]
+.thread140:                                       ; preds = %.loopexit162, %34, %unescape.exit84, %unescape.exit, %.thread154
+  %.153.ph = phi i32 [ -22, %.loopexit162 ], [ -12, %unescape.exit ], [ -12, %unescape.exit84 ], [ %32, %34 ], [ %.050.ph, %.thread154 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %137
 
@@ -6907,7 +6907,7 @@ enc_stats_get_file.exit:                          ; preds = %133, %118
   br label %137
 
 137:                                              ; preds = %136, %enc_stats_get_file.exit, %.thread140, %106
-  %.2 = phi i32 [ %107, %106 ], [ %.153.ph, %.thread140 ], [ %.1.i85.ph, %136 ], [ 0, %enc_stats_get_file.exit ]
+  %.2 = phi i32 [ %.153.ph, %.thread140 ], [ %107, %106 ], [ %.1.i85.ph, %136 ], [ 0, %enc_stats_get_file.exit ]
   ret i32 %.2
 }
 
@@ -7265,7 +7265,7 @@ fmt_in_list.exit46.thread.i:                      ; preds = %130, %fmt_in_list.e
   br label %fmt_in_list.exit.i
 
 fmt_in_list.exit.i:                               ; preds = %.lr.ph.i.i, %fmt_in_list.exit46.thread.i, %.tail65.i, %sub_167.i, %.tail.i, %sub_1.i, %sub_0.i, %.loopexit70.i
-  %.027.ph.i = phi i32 [ %86, %.loopexit70.i ], [ %.2.i, %fmt_in_list.exit46.thread.i ], [ %86, %.tail65.i ], [ %86, %sub_167.i ], [ %86, %sub_1.i ], [ %86, %.tail.i ], [ %86, %sub_0.i ], [ %86, %.lr.ph.i.i ]
+  %.027.ph.i = phi i32 [ %86, %.loopexit70.i ], [ %.2.i, %fmt_in_list.exit46.thread.i ], [ %86, %.tail65.i ], [ %86, %.tail.i ], [ %86, %sub_0.i ], [ %86, %sub_167.i ], [ %86, %sub_1.i ], [ %86, %.lr.ph.i.i ]
   %.pr.i = load ptr, ptr %6, align 8, !tbaa !68
   %.not39.i = icmp eq ptr %.pr.i, null
   br i1 %.not39.i, label %pix_fmt_parse.exit, label %135
@@ -7343,7 +7343,7 @@ fmt_in_list.exit.i:                               ; preds = %.lr.ph.i.i, %fmt_in
   br label %choose_pixel_fmt.exit.i
 
 choose_pixel_fmt.exit.i:                          ; preds = %.lr.ph.i54.i, %.loopexit.i.i, %152
-  %.0.i55.i = phi i32 [ %.1.ph.i.i, %.loopexit.i.i ], [ -1, %152 ], [ %.027.ph.i, %.lr.ph.i54.i ]
+  %.0.i55.i = phi i32 [ -1, %152 ], [ %.1.ph.i.i, %.loopexit.i.i ], [ %.027.ph.i, %.lr.ph.i54.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %pix_fmt_parse.exit
 
@@ -7361,7 +7361,7 @@ pix_fmt_parse.exit.thread7:                       ; preds = %.lr.ph.i48.i, %95
   br label %.thread1
 
 pix_fmt_parse.exit:                               ; preds = %fmt_in_list.exit.i, %choose_pixel_fmt.exit.i
-  %.0.i = phi i32 [ %.0.i55.i, %choose_pixel_fmt.exit.i ], [ %.027.ph.i, %fmt_in_list.exit.i ]
+  %.0.i = phi i32 [ %.027.ph.i, %fmt_in_list.exit.i ], [ %.0.i55.i, %choose_pixel_fmt.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %172 = getelementptr inbounds nuw i8, ptr %66, i64 136
   store i32 %.0.i, ptr %172, align 8, !tbaa !423
@@ -7692,7 +7692,7 @@ parse_matrix_coeffs.exit:                         ; preds = %186, %.thread1
   br label %312
 
 311:                                              ; preds = %.thread13, %303
-  %.10 = phi i32 [ %308, %303 ], [ -5, %.thread13 ]
+  %.10 = phi i32 [ -5, %.thread13 ], [ %308, %303 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %.thread25
 
@@ -7840,8 +7840,8 @@ parse_matrix_coeffs.exit:                         ; preds = %186, %.thread1
   store i32 1, ptr %377, align 4, !tbaa !449
   br label %thread-pre-split21.thread
 
-.thread25:                                        ; preds = %74, %341, %311, %pix_fmt_parse.exit, %176, %194, %197, %204, %207, %260, %324, %pix_fmt_parse.exit.thread, %parse_matrix_coeffs.exit.thread, %.thread10
-  %.3.ph = phi i32 [ %.5.ph, %.thread10 ], [ -22, %parse_matrix_coeffs.exit.thread ], [ -22, %pix_fmt_parse.exit.thread ], [ %331, %324 ], [ -12, %260 ], [ %209, %207 ], [ -12, %204 ], [ %199, %197 ], [ -12, %194 ], [ -12, %176 ], [ -22, %pix_fmt_parse.exit ], [ %.10, %311 ], [ -22, %341 ], [ -22, %74 ]
+.thread25:                                        ; preds = %74, %pix_fmt_parse.exit, %176, %194, %204, %.thread10, %260, %324, %341, %311, %207, %197, %parse_matrix_coeffs.exit.thread, %pix_fmt_parse.exit.thread
+  %.3.ph = phi i32 [ -22, %pix_fmt_parse.exit.thread ], [ -22, %parse_matrix_coeffs.exit.thread ], [ %199, %197 ], [ %209, %207 ], [ %.10, %311 ], [ -22, %341 ], [ %331, %324 ], [ -12, %260 ], [ %.5.ph, %.thread10 ], [ -12, %204 ], [ -12, %194 ], [ -12, %176 ], [ -22, %pix_fmt_parse.exit ], [ -22, %74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
@@ -8036,7 +8036,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @new_stream_subtitle(ptr no
   br label %.sink.split
 
 .sink.split:                                      ; preds = %44, %31, %37, %38
-  %.3.ph = phi i32 [ 0, %38 ], [ 0, %37 ], [ -22, %44 ], [ %29, %31 ]
+  %.3.ph = phi i32 [ 0, %37 ], [ 0, %38 ], [ -22, %44 ], [ %29, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %45
 
@@ -8280,7 +8280,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ost_bind_filter(ptr nounde
   br i1 %.not21.i, label %ost_get_filters.exit.thread, label %155
 
 ost_get_filters.exit.thread:                      ; preds = %142, %138, %154
-  %.0.i.ph = phi i32 [ -22, %138 ], [ -22, %142 ], [ -12, %154 ]
+  %.0.i.ph = phi i32 [ -22, %142 ], [ -22, %138 ], [ -12, %154 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.thread106
@@ -8347,7 +8347,7 @@ ost_get_filters.exit.thread:                      ; preds = %142, %138, %154
   br label %.thread106
 
 .thread106:                                       ; preds = %157, %ost_get_filters.exit.thread, %171, %120, %116, %113, %110, %107, %104, %101, %95, %177
-  %.0 = phi i32 [ 0, %177 ], [ %96, %95 ], [ %102, %101 ], [ %105, %104 ], [ %108, %107 ], [ %111, %110 ], [ %114, %113 ], [ %117, %116 ], [ %121, %120 ], [ %175, %171 ], [ %.0.i.ph, %ost_get_filters.exit.thread ], [ %164, %157 ]
+  %.0 = phi i32 [ %102, %101 ], [ %105, %104 ], [ %117, %116 ], [ %121, %120 ], [ %.0.i.ph, %ost_get_filters.exit.thread ], [ 0, %177 ], [ %96, %95 ], [ %114, %113 ], [ %108, %107 ], [ %111, %110 ], [ %175, %171 ], [ %164, %157 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i32 %.0

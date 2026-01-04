@@ -537,7 +537,7 @@ fgetline.exit:                                    ; preds = %166
   br label %fgetline.exit.thread, !llvm.loop !10
 
 fgetline.exit.thread:                             ; preds = %fgetline.exit, %fgetline.exit.preheader, %.fgetline.exit.thread.loopexit_crit_edge, %.fgetline.exit.thread_crit_edge79, %159
-  %.3 = phi i32 [ %174, %.fgetline.exit.thread_crit_edge79 ], [ 1, %159 ], [ 0, %.fgetline.exit.thread.loopexit_crit_edge ], [ 1, %fgetline.exit.preheader ], [ 0, %fgetline.exit ]
+  %.3 = phi i32 [ %174, %.fgetline.exit.thread_crit_edge79 ], [ 1, %159 ], [ 1, %fgetline.exit.preheader ], [ 0, %.fgetline.exit.thread.loopexit_crit_edge ], [ 0, %fgetline.exit ]
   %175 = call i32 @fclose(ptr noundef %.035)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %188
@@ -562,8 +562,8 @@ fgetline.exit.thread:                             ; preds = %fgetline.exit, %fge
   br label %188
 
 188:                                              ; preds = %156, %fgetline.exit.thread, %184, %107
-  %.040 = phi i32 [ %187, %184 ], [ 1, %107 ], [ %.3, %fgetline.exit.thread ], [ 3, %156 ]
-  %.039 = phi ptr [ %186, %184 ], [ null, %107 ], [ null, %fgetline.exit.thread ], [ null, %156 ]
+  %.040 = phi i32 [ 1, %107 ], [ %187, %184 ], [ %.3, %fgetline.exit.thread ], [ 3, %156 ]
+  %.039 = phi ptr [ null, %107 ], [ %186, %184 ], [ null, %fgetline.exit.thread ], [ null, %156 ]
   call void @epan_cleanup()
   call void @g_free(ptr noundef %.039)
   call void @exit(i32 noundef %.040) #15
@@ -905,7 +905,7 @@ compile_filter.exit:                              ; preds = %31, %putloc.exit.i
   br i1 %99, label %.lr.ph26.i, label %.loopexit.i, !llvm.loop !14
 
 .loopexit.i:                                      ; preds = %.lr.ph26.i, %89, %._crit_edge.i
-  %.1.i18 = phi i32 [ %.016.lcssa.i, %89 ], [ %.016.lcssa.i, %._crit_edge.i ], [ %96, %.lr.ph26.i ]
+  %.1.i18 = phi i32 [ %.016.lcssa.i, %._crit_edge.i ], [ %.016.lcssa.i, %89 ], [ %96, %.lr.ph26.i ]
   %.not20.i = icmp eq i32 %.1.i18, 0
   br i1 %.not20.i, label %print_warnings.exit, label %100
 
@@ -925,7 +925,7 @@ print_warnings.exit:                              ; preds = %.loopexit.i, %100
   br label %107
 
 107:                                              ; preds = %71, %expand_filter.exit.thread, %compile_filter.exit, %print_warnings.exit, %102
-  %.012 = phi i32 [ 0, %102 ], [ 0, %print_warnings.exit ], [ 4, %compile_filter.exit ], [ 4, %expand_filter.exit.thread ], [ 4, %71 ]
+  %.012 = phi i32 [ 0, %print_warnings.exit ], [ 0, %102 ], [ 4, %compile_filter.exit ], [ 4, %expand_filter.exit.thread ], [ 4, %71 ]
   call void @g_free(ptr noundef %7)
   %108 = load ptr, ptr %4, align 8
   call void @dfilter_free(ptr noundef %108)

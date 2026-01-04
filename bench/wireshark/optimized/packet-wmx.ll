@@ -302,7 +302,7 @@ cmp_address.exit.thread:                          ; preds = %13, %9, %cmp_addres
   br label %20
 
 20:                                               ; preds = %cmp_address.exit, %1, %cmp_address.exit.thread
-  %.0 = phi i1 [ false, %cmp_address.exit.thread ], [ true, %1 ], [ true, %cmp_address.exit ]
+  %.0 = phi i1 [ true, %1 ], [ false, %cmp_address.exit.thread ], [ true, %cmp_address.exit ]
   ret i1 %.0
 }
 

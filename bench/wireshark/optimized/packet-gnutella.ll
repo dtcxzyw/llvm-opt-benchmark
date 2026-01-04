@@ -288,7 +288,7 @@ define internal i32 @dissect_gnutella_pdu(ptr noundef %0, ptr noundef readonly c
   br label %19
 
 19:                                               ; preds = %11, %18, %17, %16, %15, %14
-  %.0 = phi ptr [ @.str.94, %18 ], [ @.str.3, %14 ], [ @.str.6, %15 ], [ @.str.9, %16 ], [ @.str.12, %17 ], [ @.str.93, %11 ]
+  %.0 = phi ptr [ @.str.94, %18 ], [ @.str.12, %17 ], [ @.str.3, %14 ], [ @.str.6, %15 ], [ @.str.9, %16 ], [ @.str.93, %11 ]
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8
   tail call void @col_append_sep_str(ptr noundef %21, i32 noundef 25, ptr noundef null, ptr noundef nonnull %.0)

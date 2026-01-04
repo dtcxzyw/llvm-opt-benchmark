@@ -204,7 +204,7 @@ flush_put_bits.exit:                              ; preds = %76, %17, %._crit_ed
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph55, %.preheader, %4, %flush_put_bits.exit, %10
-  %.0 = phi i32 [ %spec.select, %10 ], [ %86, %flush_put_bits.exit ], [ -1094995529, %4 ], [ %spec.select, %.preheader ], [ %spec.select, %.lr.ph55 ]
+  %.0 = phi i32 [ -1094995529, %4 ], [ %spec.select, %10 ], [ %86, %flush_put_bits.exit ], [ %spec.select, %.preheader ], [ %spec.select, %.lr.ph55 ]
   ret i32 %.0
 }
 
@@ -659,7 +659,7 @@ define range(i32 -9, 1) i32 @ff_dca_parse_core_frame_header(ptr noundef writeonl
   br label %350
 
 350:                                              ; preds = %263, %263, %149, %126, %110, %96, %81, %54, %29, %2, %313
-  %.0 = phi i32 [ 0, %313 ], [ -1, %2 ], [ -2, %29 ], [ -3, %54 ], [ -4, %81 ], [ -5, %96 ], [ -6, %110 ], [ -7, %126 ], [ -8, %149 ], [ -9, %263 ], [ -9, %263 ]
+  %.0 = phi i32 [ -5, %96 ], [ -1, %2 ], [ -2, %29 ], [ -3, %54 ], [ -4, %81 ], [ -6, %110 ], [ -7, %126 ], [ 0, %313 ], [ -8, %149 ], [ -9, %263 ], [ -9, %263 ]
   ret i32 %.0
 }
 

@@ -114,7 +114,7 @@ define void @_ZN5boost7process2v23ext3cwdEiRNS_6system10error_codeE(ptr dead_on_
   br i1 %29, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !15
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %26, %24, %20, %16, %._crit_edge.i.i.i
-  %.0.i.i = phi i32 [ %17, %16 ], [ %21, %20 ], [ %25, %24 ], [ 1, %._crit_edge.i.i.i ], [ %28, %26 ]
+  %.0.i.i = phi i32 [ %25, %24 ], [ %17, %16 ], [ %21, %20 ], [ 1, %._crit_edge.i.i.i ], [ %28, %26 ]
   %.lobit.i = lshr i32 %1, 31
   %30 = add i32 %.0.i.i, %.lobit.i
   %31 = zext i32 %30 to i64

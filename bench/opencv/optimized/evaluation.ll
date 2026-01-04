@@ -203,8 +203,8 @@ define hidden void @_ZN16EllipticKeyPointC2ERKN2cv6Point_IfEERKNS0_7Scalar_IdEE(
   br label %_ZL14solveQuadraticIdEiT_S0_S0_RS0_S1_.exit
 
 _ZL14solveQuadraticIdEiT_S0_S0_RS0_S1_.exit:      ; preds = %3, %25, %32, %33
-  %.014 = phi double [ %30, %32 ], [ %28, %25 ], [ %34, %33 ], [ 0.000000e+00, %3 ]
-  %.0 = phi double [ %28, %32 ], [ %30, %25 ], [ %34, %33 ], [ 0.000000e+00, %3 ]
+  %.014 = phi double [ %34, %33 ], [ %30, %32 ], [ %28, %25 ], [ 0.000000e+00, %3 ]
+  %.0 = phi double [ %34, %33 ], [ %28, %32 ], [ %30, %25 ], [ 0.000000e+00, %3 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -624,8 +624,8 @@ _ZL21linearizeHomographyAtRKN2cv4Mat_IdEERKNS_6Point_IfEERS1_.exit: ; preds = %.
   br label %210
 
 210:                                              ; preds = %208, %207, %200, %170
-  %.014.i = phi double [ %205, %207 ], [ %203, %200 ], [ %209, %208 ], [ 0.000000e+00, %170 ]
-  %.0.i = phi double [ %203, %207 ], [ %205, %200 ], [ %209, %208 ], [ 0.000000e+00, %170 ]
+  %.014.i = phi double [ %209, %208 ], [ %205, %207 ], [ %203, %200 ], [ 0.000000e+00, %170 ]
+  %.0.i = phi double [ %209, %208 ], [ %203, %207 ], [ %205, %200 ], [ 0.000000e+00, %170 ]
   %211 = call double @sqrt(double noundef %.014.i) #26, !tbaa !7
   %212 = fdiv double 1.000000e+00, %211
   %213 = fptrunc double %212 to float
@@ -911,8 +911,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %44, %
   br label %71
 
 71:                                               ; preds = %69, %68, %61, %49
-  %.014.i = phi double [ %66, %68 ], [ %64, %61 ], [ %70, %69 ], [ 0.000000e+00, %49 ]
-  %.0.i = phi double [ %64, %68 ], [ %66, %61 ], [ %70, %69 ], [ 0.000000e+00, %49 ]
+  %.014.i = phi double [ %70, %69 ], [ %66, %68 ], [ %64, %61 ], [ 0.000000e+00, %49 ]
+  %.0.i = phi double [ %70, %69 ], [ %64, %68 ], [ %66, %61 ], [ 0.000000e+00, %49 ]
   %72 = call double @sqrt(double noundef %.014.i) #26, !tbaa !7
   %73 = fdiv double 1.000000e+00, %72
   %74 = fptrunc double %73 to float
@@ -1688,8 +1688,8 @@ _ZN16EllipticKeyPointC2ERKS_.exit.i.i:            ; preds = %._crit_edge.i.i, %.
   br label %_ZN16EllipticKeyPointC2ERKN2cv6Point_IfEERKNS0_7Scalar_IdEE.exit.i.i
 
 _ZN16EllipticKeyPointC2ERKN2cv6Point_IfEERKNS0_7Scalar_IdEE.exit.i.i: ; preds = %211, %210, %203
-  %.014.i.i.i = phi double [ %208, %210 ], [ %206, %203 ], [ %212, %211 ]
-  %.0.i.i.i = phi double [ %206, %210 ], [ %208, %203 ], [ %212, %211 ]
+  %.014.i.i.i = phi double [ %212, %211 ], [ %208, %210 ], [ %206, %203 ]
+  %.0.i.i.i = phi double [ %212, %211 ], [ %206, %210 ], [ %208, %203 ]
   %213 = fcmp olt double %.014.i.i.i, 0.000000e+00
   br i1 %213, label %cdce.call, label %cdce.end.i, !prof !88
 
@@ -1808,8 +1808,8 @@ _ZN16EllipticKeyPointC2ERKS_.exit88.i.i:          ; preds = %345, %.lr.ph.i.i
   br label %_ZN16EllipticKeyPointC2ERKN2cv6Point_IfEERKNS0_7Scalar_IdEE.exit91.i.i
 
 _ZN16EllipticKeyPointC2ERKN2cv6Point_IfEERKNS0_7Scalar_IdEE.exit91.i.i: ; preds = %273, %272, %265
-  %.014.i89.i.i = phi double [ %270, %272 ], [ %268, %265 ], [ %274, %273 ]
-  %.0.i90.i.i = phi double [ %268, %272 ], [ %270, %265 ], [ %274, %273 ]
+  %.014.i89.i.i = phi double [ %274, %273 ], [ %270, %272 ], [ %268, %265 ]
+  %.0.i90.i.i = phi double [ %274, %273 ], [ %268, %272 ], [ %270, %265 ]
   %275 = fcmp olt double %.014.i89.i.i, 0.000000e+00
   br i1 %275, label %cdce.call57, label %cdce.end28.i, !prof !88
 
@@ -2129,7 +2129,7 @@ _ZL30computeOneToOneMatchedOverlapsRKSt6vectorI16EllipticKeyPointSaIS0_EES4_bRS_
   br label %.loopexit.split-lp.i
 
 .loopexit.split-lp.loopexit.split-lp.i:           ; preds = %331, %.noexc73.i, %167
-  %.sroa.0.8.ph.ph.ph.i = phi ptr [ %.sroa.0.4.i, %331 ], [ %.sroa.0.3.i, %167 ], [ %.sroa.0.3.i, %.noexc73.i ]
+  %.sroa.0.8.ph.ph.ph.i = phi ptr [ %.sroa.0.3.i, %167 ], [ %.sroa.0.3.i, %.noexc73.i ], [ %.sroa.0.4.i, %331 ]
   %lpad.loopexit.split-lp32.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i
@@ -2207,7 +2207,7 @@ _ZNSt6vectorI16EllipticKeyPointSaIS0_EED2Ev.exit86.i: ; preds = %404, %_ZNSt6vec
   br label %416
 
 _ZNSt6vectorI4SIdxSaIS0_EED2Ev.exit.i:            ; preds = %387, %.loopexit.split-lp.i, %.thread.i, %384, %.body65.i, %380
-  %.pn54.pn.i = phi { ptr, i32 } [ %.pn50.i, %.body65.i ], [ %381, %380 ], [ %385, %384 ], [ %lpad.thr_comm.i, %.thread.i ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %lpad.phi.i, %387 ]
+  %.pn54.pn.i = phi { ptr, i32 } [ %381, %380 ], [ %.pn50.i, %.body65.i ], [ %lpad.phi.i, %387 ], [ %385, %384 ], [ %lpad.thr_comm.i, %.thread.i ], [ %lpad.phi.i, %.loopexit.split-lp.i ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %16) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %407
@@ -2349,7 +2349,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZNSt12__shared_ptr
   ret void
 
 .body:                                            ; preds = %_ZNSt6vectorI16EllipticKeyPointSaIS0_EED2Ev.exit96.i, %89, %73, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn31 = phi { ptr, i32 } [ %90, %89 ], [ %74, %73 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn54.pn.pn.i, %_ZNSt6vectorI16EllipticKeyPointSaIS0_EED2Ev.exit96.i ]
+  %.pn31 = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %90, %89 ], [ %74, %73 ], [ %.pn54.pn.pn.i, %_ZNSt6vectorI16EllipticKeyPointSaIS0_EED2Ev.exit96.i ]
   %449 = load ptr, ptr %23, align 8, !tbaa !63
   %.not.i.i.i37 = icmp eq ptr %449, null
   br i1 %.not.i.i.i37, label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit38, label %450
@@ -4869,7 +4869,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIN4SIdx10UsedFinderEEclINS_17__normal_iteratorIPS
   br label %_ZN9__gnu_cxx5__ops10_Iter_predIN4SIdx10UsedFinderEEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit.thread
 
 _ZN9__gnu_cxx5__ops10_Iter_predIN4SIdx10UsedFinderEEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit.thread: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN4SIdx10UsedFinderEEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit, %14, %_ZN9__gnu_cxx5__ops10_Iter_predIN4SIdx10UsedFinderEEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit.thread.loopexit.split.loop.exit41, %_ZN9__gnu_cxx5__ops10_Iter_predIN4SIdx10UsedFinderEEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit.thread.loopexit.split.loop.exit43, %_ZN9__gnu_cxx5__ops10_Iter_predIN4SIdx10UsedFinderEEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit.thread.loopexit.split.loop.exit45, %_ZN9__gnu_cxx5__ops10_Iter_predIN4SIdx10UsedFinderEEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit.thread.loopexit.split.loop.exit49, %_ZN9__gnu_cxx5__ops10_Iter_predIN4SIdx10UsedFinderEEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit.thread.loopexit.split.loop.exit51, %_ZN9__gnu_cxx5__ops10_Iter_predIN4SIdx10UsedFinderEEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit.thread.loopexit.split.loop.exit53, %_ZN9__gnu_cxx5__ops10_Iter_predIN4SIdx10UsedFinderEEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit21, %73, %61, %48, %._crit_edge, %_ZN9__gnu_cxx5__ops10_Iter_predIN4SIdx10UsedFinderEEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit20, %_ZN9__gnu_cxx5__ops10_Iter_predIN4SIdx10UsedFinderEEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit19
-  %.sroa.08.0.in.sroa.speculated = phi ptr [ %.sroa.031.0.lcssa, %_ZN9__gnu_cxx5__ops10_Iter_predIN4SIdx10UsedFinderEEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit19 ], [ %.sroa.031.1, %_ZN9__gnu_cxx5__ops10_Iter_predIN4SIdx10UsedFinderEEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit20 ], [ %1, %._crit_edge ], [ %.sroa.031.0.lcssa, %48 ], [ %.sroa.031.1, %61 ], [ %.sroa.031.2, %73 ], [ %spec.select, %_ZN9__gnu_cxx5__ops10_Iter_predIN4SIdx10UsedFinderEEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit21 ], [ %83, %_ZN9__gnu_cxx5__ops10_Iter_predIN4SIdx10UsedFinderEEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit.thread.loopexit.split.loop.exit41 ], [ %84, %_ZN9__gnu_cxx5__ops10_Iter_predIN4SIdx10UsedFinderEEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit.thread.loopexit.split.loop.exit43 ], [ %85, %_ZN9__gnu_cxx5__ops10_Iter_predIN4SIdx10UsedFinderEEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit.thread.loopexit.split.loop.exit45 ], [ %86, %_ZN9__gnu_cxx5__ops10_Iter_predIN4SIdx10UsedFinderEEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit.thread.loopexit.split.loop.exit49 ], [ %87, %_ZN9__gnu_cxx5__ops10_Iter_predIN4SIdx10UsedFinderEEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit.thread.loopexit.split.loop.exit51 ], [ %88, %_ZN9__gnu_cxx5__ops10_Iter_predIN4SIdx10UsedFinderEEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit.thread.loopexit.split.loop.exit53 ], [ %.sroa.031.061, %14 ], [ %.sroa.031.061, %_ZN9__gnu_cxx5__ops10_Iter_predIN4SIdx10UsedFinderEEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit ]
+  %.sroa.08.0.in.sroa.speculated = phi ptr [ %.sroa.031.1, %_ZN9__gnu_cxx5__ops10_Iter_predIN4SIdx10UsedFinderEEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit20 ], [ %.sroa.031.2, %73 ], [ %1, %._crit_edge ], [ %.sroa.031.1, %61 ], [ %spec.select, %_ZN9__gnu_cxx5__ops10_Iter_predIN4SIdx10UsedFinderEEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit21 ], [ %.sroa.031.0.lcssa, %48 ], [ %.sroa.031.0.lcssa, %_ZN9__gnu_cxx5__ops10_Iter_predIN4SIdx10UsedFinderEEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit19 ], [ %87, %_ZN9__gnu_cxx5__ops10_Iter_predIN4SIdx10UsedFinderEEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit.thread.loopexit.split.loop.exit51 ], [ %86, %_ZN9__gnu_cxx5__ops10_Iter_predIN4SIdx10UsedFinderEEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit.thread.loopexit.split.loop.exit49 ], [ %88, %_ZN9__gnu_cxx5__ops10_Iter_predIN4SIdx10UsedFinderEEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit.thread.loopexit.split.loop.exit53 ], [ %85, %_ZN9__gnu_cxx5__ops10_Iter_predIN4SIdx10UsedFinderEEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit.thread.loopexit.split.loop.exit45 ], [ %84, %_ZN9__gnu_cxx5__ops10_Iter_predIN4SIdx10UsedFinderEEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit.thread.loopexit.split.loop.exit43 ], [ %83, %_ZN9__gnu_cxx5__ops10_Iter_predIN4SIdx10UsedFinderEEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit.thread.loopexit.split.loop.exit41 ], [ %.sroa.031.061, %14 ], [ %.sroa.031.061, %_ZN9__gnu_cxx5__ops10_Iter_predIN4SIdx10UsedFinderEEclINS_17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEbT_.exit ]
   ret ptr %.sroa.08.0.in.sroa.speculated
 }
 

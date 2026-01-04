@@ -177,7 +177,7 @@ mbedtls_xor.exit.i:                               ; preds = %.preheader16.i
   br label %ctr_drbg_update_internal.exit
 
 ctr_drbg_update_internal.exit:                    ; preds = %mbedtls_ctr_increment_counter.exit.i, %mbedtls_xor.exit.i, %29
-  %.0.i = phi i32 [ %28, %mbedtls_xor.exit.i ], [ 0, %29 ], [ %19, %mbedtls_ctr_increment_counter.exit.i ]
+  %.0.i = phi i32 [ 0, %29 ], [ %28, %mbedtls_xor.exit.i ], [ %19, %mbedtls_ctr_increment_counter.exit.i ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 48) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %31
@@ -304,7 +304,7 @@ define internal fastcc i32 @block_cipher_df(ptr noundef nonnull %0, ptr noundef 
   br i1 %47, label %42, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.preheader56, %44, %42, %38, %20
-  %.039 = phi i32 [ %22, %20 ], [ %39, %38 ], [ 0, %44 ], [ %43, %42 ], [ %33, %.preheader56 ]
+  %.039 = phi i32 [ %22, %20 ], [ %43, %42 ], [ %39, %38 ], [ 0, %44 ], [ %33, %.preheader56 ]
   call void @mbedtls_aes_free(ptr noundef nonnull %8) #14
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 416) #14
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %5, i64 noundef 48) #14
@@ -467,12 +467,12 @@ ctr_drbg_update_internal.exit.thread:             ; preds = %mbedtls_ctr_increme
   br label %61
 
 61:                                               ; preds = %ctr_drbg_update_internal.exit.thread, %36, %58
-  %.0 = phi i32 [ %37, %36 ], [ 0, %58 ], [ %.0.i.ph, %ctr_drbg_update_internal.exit.thread ]
+  %.0 = phi i32 [ %37, %36 ], [ %.0.i.ph, %ctr_drbg_update_internal.exit.thread ], [ 0, %58 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %6, i64 noundef 384) #14
   br label %62
 
 62:                                               ; preds = %23, %15, %10, %4, %61
-  %.031 = phi i32 [ %.0, %61 ], [ -56, %4 ], [ -56, %10 ], [ -52, %15 ], [ -52, %23 ]
+  %.031 = phi i32 [ %.0, %61 ], [ -56, %4 ], [ -56, %10 ], [ -52, %23 ], [ -52, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.031
 }
@@ -745,7 +745,7 @@ ctr_drbg_update_internal.exit66.thread:           ; preds = %mbedtls_ctr_increme
   br label %.loopexit
 
 .loopexit:                                        ; preds = %mbedtls_ctr_increment_counter.exit, %ctr_drbg_update_internal.exit66.thread, %ctr_drbg_update_internal.exit.thread, %24, %81
-  %.032 = phi i32 [ %25, %24 ], [ 0, %81 ], [ %.0.i.ph, %ctr_drbg_update_internal.exit.thread ], [ %.0.i58.ph, %ctr_drbg_update_internal.exit66.thread ], [ %57, %mbedtls_ctr_increment_counter.exit ]
+  %.032 = phi i32 [ %25, %24 ], [ %.0.i.ph, %ctr_drbg_update_internal.exit.thread ], [ 0, %81 ], [ %.0.i58.ph, %ctr_drbg_update_internal.exit66.thread ], [ %57, %mbedtls_ctr_increment_counter.exit ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %8, i64 noundef 64) #14
   br label %85
 
@@ -1067,7 +1067,7 @@ mbedtls_ctr_drbg_set_nonce_len.exit41:            ; preds = %.critedge, %40
   br label %.critedge36
 
 .critedge36:                                      ; preds = %60, %59, %57, %58, %54, %55, %50, %51, %46, %47, %42, %43, %34, %35, %31, %32, %27, %28, %22, %23
-  %.0 = phi i32 [ 1, %23 ], [ 1, %22 ], [ 1, %28 ], [ 1, %27 ], [ 1, %32 ], [ 1, %31 ], [ 1, %35 ], [ 1, %34 ], [ 1, %43 ], [ 1, %42 ], [ 1, %47 ], [ 1, %46 ], [ 1, %51 ], [ 1, %50 ], [ 1, %55 ], [ 1, %54 ], [ 1, %58 ], [ 1, %57 ], [ 0, %59 ], [ 0, %60 ]
+  %.0 = phi i32 [ 1, %57 ], [ 1, %22 ], [ 1, %27 ], [ 1, %31 ], [ 1, %34 ], [ 1, %42 ], [ 1, %46 ], [ 1, %50 ], [ 1, %54 ], [ 1, %23 ], [ 1, %28 ], [ 1, %32 ], [ 1, %35 ], [ 1, %43 ], [ 1, %47 ], [ 1, %51 ], [ 1, %55 ], [ 1, %58 ], [ 0, %59 ], [ 0, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

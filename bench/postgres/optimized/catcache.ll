@@ -1451,9 +1451,9 @@ define internal fastcc void @CatalogCacheInitializeCache(ptr noundef initializes
   unreachable
 
 GetCCHashEqFuncs.exit:                            ; preds = %28, %33, %42, %43, %44, %45, %46, %47, %48
-  %oidvectorhashfast.sink.i = phi ptr [ @oidvectorhashfast, %48 ], [ @texthashfast, %46 ], [ @int4hashfast, %45 ], [ @int2hashfast, %44 ], [ @namehashfast, %43 ], [ @charhashfast, %42 ], [ @charhashfast, %33 ], [ @int4hashfast, %47 ], [ @int4hashfast, %28 ]
-  %oidvectoreqfast.sink.i = phi ptr [ @oidvectoreqfast, %48 ], [ @texteqfast, %46 ], [ @int4eqfast, %45 ], [ @int2eqfast, %44 ], [ @nameeqfast, %43 ], [ @chareqfast, %42 ], [ @chareqfast, %33 ], [ @int4eqfast, %47 ], [ @int4eqfast, %28 ]
-  %.sink.i = phi i32 [ 679, %48 ], [ 67, %46 ], [ 65, %45 ], [ 63, %44 ], [ 62, %43 ], [ 61, %42 ], [ 60, %33 ], [ 184, %47 ], [ 184, %28 ]
+  %oidvectorhashfast.sink.i = phi ptr [ @oidvectorhashfast, %48 ], [ @charhashfast, %33 ], [ @texthashfast, %46 ], [ @int4hashfast, %45 ], [ @int2hashfast, %44 ], [ @namehashfast, %43 ], [ @charhashfast, %42 ], [ @int4hashfast, %47 ], [ @int4hashfast, %28 ]
+  %oidvectoreqfast.sink.i = phi ptr [ @oidvectoreqfast, %48 ], [ @chareqfast, %33 ], [ @texteqfast, %46 ], [ @int4eqfast, %45 ], [ @int2eqfast, %44 ], [ @nameeqfast, %43 ], [ @chareqfast, %42 ], [ @int4eqfast, %47 ], [ @int4eqfast, %28 ]
+  %.sink.i = phi i32 [ 679, %48 ], [ 60, %33 ], [ 67, %46 ], [ 65, %45 ], [ 63, %44 ], [ 62, %43 ], [ 61, %42 ], [ 184, %47 ], [ 184, %28 ]
   %52 = getelementptr inbounds nuw ptr, ptr %.pn40, i64 %indvars.iv
   %53 = getelementptr inbounds nuw ptr, ptr %.pn, i64 %indvars.iv
   store ptr %oidvectorhashfast.sink.i, ptr %52, align 8
@@ -1677,7 +1677,7 @@ CatalogCacheCompareTuple.exit:                    ; preds = %.lr.ph.i, %54, %.lr
   br label %91
 
 91:                                               ; preds = %dlist_move_head.exit, %._crit_edge, %80
-  %.0 = phi ptr [ %86, %80 ], [ %90, %._crit_edge ], [ null, %dlist_move_head.exit ]
+  %.0 = phi ptr [ %90, %._crit_edge ], [ %86, %80 ], [ null, %dlist_move_head.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
 }
@@ -2286,7 +2286,7 @@ CatalogCacheCompareTuple.exit:                    ; preds = %.lr.ph.i202, %117, 
   br label %IndexScanOK.exit
 
 IndexScanOK.exit:                                 ; preds = %.critedge, %.critedge, %188, %191, %194
-  %.0.i207 = phi i1 [ true, %194 ], [ false, %188 ], [ false, %.critedge ], [ false, %.critedge ], [ false, %191 ]
+  %.0.i207 = phi i1 [ true, %194 ], [ false, %.critedge ], [ false, %188 ], [ false, %.critedge ], [ false, %191 ]
   %195 = call ptr @systable_beginscan(ptr noundef %160, i32 noundef %187, i1 noundef zeroext %.0.i207, ptr noundef null, i32 noundef %1, ptr noundef nonnull %11) #14
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 8
   %197 = load ptr, ptr %196, align 8
@@ -2871,7 +2871,7 @@ define internal fastcc noundef ptr @CatalogCacheCreateEntry(ptr noundef %0, ptr 
   br label %30
 
 30:                                               ; preds = %10, %.critedge78
-  %.174 = phi ptr [ %26, %.critedge78 ], [ %1, %10 ]
+  %.174 = phi ptr [ %1, %10 ], [ %26, %.critedge78 ]
   %31 = load ptr, ptr @CacheMemoryContext, align 8
   %32 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %31, ptr @CurrentMemoryContext, align 8
@@ -3171,7 +3171,7 @@ RehashCatCache.exit:                              ; preds = %._crit_edge.i, %162
   br label %.critedge80
 
 .critedge80:                                      ; preds = %29, %dlist_push_head.exit, %RehashCatCache.exit
-  %.3 = phi ptr [ %.171, %RehashCatCache.exit ], [ %.171, %dlist_push_head.exit ], [ null, %29 ]
+  %.3 = phi ptr [ %.171, %dlist_push_head.exit ], [ %.171, %RehashCatCache.exit ], [ null, %29 ]
   ret ptr %.3
 }
 
@@ -3530,7 +3530,7 @@ define internal fastcc ptr @SearchCatCacheMiss(ptr noundef %0, i32 noundef %1, i
   br label %IndexScanOK.exit
 
 IndexScanOK.exit:                                 ; preds = %25, %25, %27, %30, %33
-  %.0.i = phi i1 [ true, %33 ], [ false, %27 ], [ false, %25 ], [ false, %25 ], [ false, %30 ]
+  %.0.i = phi i1 [ true, %33 ], [ false, %25 ], [ false, %27 ], [ false, %25 ], [ false, %30 ]
   %34 = call ptr @systable_beginscan(ptr noundef %16, i32 noundef %26, i1 noundef zeroext %.0.i, ptr noundef null, i32 noundef %1, ptr noundef nonnull %9) #14
   %35 = call ptr @systable_getnext(ptr noundef %34) #14
   %.not = icmp eq ptr %35, null
@@ -3575,7 +3575,7 @@ IndexScanOK.exit:                                 ; preds = %25, %25, %27, %30, 
   br label %55
 
 55:                                               ; preds = %48, %53, %51
-  %.032 = phi ptr [ null, %51 ], [ %54, %53 ], [ null, %48 ]
+  %.032 = phi ptr [ %54, %53 ], [ null, %51 ], [ null, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %.032
@@ -3761,7 +3761,7 @@ define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef %1, ptr noun
   br label %fetch_att.exit
 
 fetch_att.exit:                                   ; preds = %46, %41, %38, %35, %32, %48, %61, %60
-  %.1 = phi i64 [ 0, %60 ], [ %62, %61 ], [ %49, %48 ], [ %34, %32 ], [ %37, %35 ], [ %40, %38 ], [ %42, %41 ], [ %47, %46 ]
+  %.1 = phi i64 [ %62, %61 ], [ 0, %60 ], [ %49, %48 ], [ %34, %32 ], [ %37, %35 ], [ %40, %38 ], [ %42, %41 ], [ %47, %46 ]
   ret i64 %.1
 }
 

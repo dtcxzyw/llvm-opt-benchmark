@@ -737,7 +737,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit62:         ; preds = %96, %99
   br label %.loopexit
 
 .outer._crit_edge:                                ; preds = %.outer, %_ZN4absl12lts_202407226StatusD2Ev.exit62, %_ZN4absl12lts_202407226StatusD2Ev.exit62.us, %57
-  %.043.ph.lcssa72 = phi ptr [ null, %57 ], [ null, %_ZN4absl12lts_202407226StatusD2Ev.exit62.us ], [ %.043.ph91, %_ZN4absl12lts_202407226StatusD2Ev.exit62 ], [ %.us-phi82, %.outer ]
+  %.043.ph.lcssa72 = phi ptr [ null, %_ZN4absl12lts_202407226StatusD2Ev.exit62.us ], [ null, %57 ], [ %.043.ph91, %_ZN4absl12lts_202407226StatusD2Ev.exit62 ], [ %.us-phi82, %.outer ]
   %108 = load ptr, ptr %7, align 8, !tbaa !50
   %109 = icmp eq ptr %108, null
   %..043 = select i1 %109, ptr null, ptr %.043.ph.lcssa72
@@ -757,7 +757,7 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %.outer._crit_edge
   ret void
 
 .loopexit:                                        ; preds = %.loopexit.split-lp, %.loopexit.split.us, %.loopexit.split, %107, %51
-  %.pn53 = phi { ptr, i32 } [ %52, %51 ], [ %.us-phi85, %107 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.us, %.loopexit.split.us ]
+  %.pn53 = phi { ptr, i32 } [ %.us-phi85, %107 ], [ %52, %51 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.us, %.loopexit.split.us ]
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit63 unwind label %114
 

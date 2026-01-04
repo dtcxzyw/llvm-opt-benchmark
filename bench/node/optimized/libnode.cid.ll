@@ -222,7 +222,7 @@ if.end9:                                          ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %lor.lhs.false, %if.end, %entry, %if.end9
-  %retval.0 = phi i1 [ %cmp15, %if.end9 ], [ true, %entry ], [ false, %if.end ], [ true, %lor.lhs.false ]
+  %retval.0 = phi i1 [ %cmp15, %if.end9 ], [ true, %entry ], [ true, %lor.lhs.false ], [ false, %if.end ]
   ret i1 %retval.0
 }
 
@@ -265,7 +265,7 @@ if.end9.i:                                        ; preds = %if.end.i
   br label %_ZNK4node4quic3CIDeqERKS1_.exit
 
 _ZNK4node4quic3CIDeqERKS1_.exit:                  ; preds = %entry, %lor.lhs.false.i, %if.end.i, %if.end9.i
-  %retval.0.i = phi i1 [ %cmp15.i, %if.end9.i ], [ false, %entry ], [ true, %if.end.i ], [ false, %lor.lhs.false.i ]
+  %retval.0.i = phi i1 [ %cmp15.i, %if.end9.i ], [ false, %entry ], [ false, %lor.lhs.false.i ], [ true, %if.end.i ]
   ret i1 %retval.0.i
 }
 

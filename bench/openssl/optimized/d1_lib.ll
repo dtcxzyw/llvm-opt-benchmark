@@ -117,7 +117,7 @@ define range(i32 0, 2) i32 @dtls1_new(ptr noundef %0) local_unnamed_addr #1 {
   br label %.thread
 
 .thread:                                          ; preds = %1, %3, %30, %9, %6, %28, %14
-  %.0 = phi i32 [ 0, %14 ], [ 0, %28 ], [ 0, %6 ], [ 0, %9 ], [ %., %30 ], [ 0, %3 ], [ 0, %1 ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %14 ], [ 0, %28 ], [ 0, %9 ], [ %., %30 ], [ 0, %3 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -446,7 +446,7 @@ define range(i32 0, 2) i32 @dtls1_clear(ptr noundef %0) local_unnamed_addr #1 {
   br label %.thread
 
 .thread:                                          ; preds = %1, %3, %44, %53, %51, %37
-  %.0 = phi i32 [ 0, %37 ], [ 1, %51 ], [ 1, %53 ], [ 1, %44 ], [ 0, %3 ], [ 0, %1 ]
+  %.0 = phi i32 [ 1, %44 ], [ 0, %37 ], [ 1, %51 ], [ 1, %53 ], [ 0, %3 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -542,7 +542,7 @@ dtls1_get_timeout.exit.thread:                    ; preds = %10, %15, %39, %25
   br label %.thread
 
 .thread:                                          ; preds = %4, %6, %9, %33, %27, %dtls1_get_timeout.exit.thread, %35, %29
-  %.0 = phi i64 [ %42, %dtls1_get_timeout.exit.thread ], [ 1, %29 ], [ %2, %35 ], [ 0, %27 ], [ 0, %33 ], [ 256, %9 ], [ 0, %6 ], [ 0, %4 ]
+  %.0 = phi i64 [ %2, %35 ], [ %42, %dtls1_get_timeout.exit.thread ], [ 256, %9 ], [ 1, %29 ], [ 0, %33 ], [ 0, %27 ], [ 0, %6 ], [ 0, %4 ]
   ret i64 %.0
 }
 
@@ -682,7 +682,7 @@ dtls1_start_timer.exit:                           ; preds = %._crit_edge.i, %37,
   br label %dtls1_is_timer_expired.exit.thread
 
 dtls1_is_timer_expired.exit.thread:               ; preds = %1, %27, %dtls1_is_timer_expired.exit, %dtls1_start_timer.exit
-  %.0 = phi i32 [ %57, %dtls1_start_timer.exit ], [ 0, %dtls1_is_timer_expired.exit ], [ -1, %27 ], [ 0, %1 ]
+  %.0 = phi i32 [ 0, %dtls1_is_timer_expired.exit ], [ %57, %dtls1_start_timer.exit ], [ -1, %27 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -1485,8 +1485,8 @@ PACKET_forward.exit.thread:                       ; preds = %185, %183, %178, %1
   %..096164 = sext i1 %.not156 to i32
   br label %.thread328
 
-.thread328:                                       ; preds = %213, %265, %257, %279, %285
-  %.298.ph = phi i32 [ %..096164, %285 ], [ %..096, %279 ], [ -1, %257 ], [ 0, %265 ], [ -1, %213 ]
+.thread328:                                       ; preds = %213, %265, %279, %257, %285
+  %.298.ph = phi i32 [ %..096164, %285 ], [ -1, %257 ], [ %..096, %279 ], [ 0, %265 ], [ -1, %213 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %315
@@ -1546,14 +1546,14 @@ PACKET_forward.exit.thread:                       ; preds = %185, %183, %178, %1
   br label %315
 
 315:                                              ; preds = %.thread328, %._crit_edge, %313, %312, %199, %PACKET_forward.exit.thread, %176, %162, %153, %147, %144, %PACKET_get_1.exit185.thread, %101, %98, %87, %85, %71
-  %.197 = phi i32 [ 0, %71 ], [ 0, %85 ], [ 0, %87 ], [ 0, %101 ], [ 0, %PACKET_get_1.exit185.thread ], [ 0, %144 ], [ 0, %147 ], [ 0, %153 ], [ 0, %176 ], [ -1, %312 ], [ -1, %199 ], [ 0, %PACKET_forward.exit.thread ], [ 0, %162 ], [ 0, %98 ], [ %spec.select, %._crit_edge ], [ %.166, %313 ], [ %.298.ph, %.thread328 ]
+  %.197 = phi i32 [ 0, %162 ], [ 0, %98 ], [ 0, %71 ], [ 0, %85 ], [ 0, %87 ], [ 0, %101 ], [ 0, %PACKET_get_1.exit185.thread ], [ 0, %144 ], [ 0, %147 ], [ 0, %153 ], [ 0, %176 ], [ -1, %312 ], [ %spec.select, %._crit_edge ], [ %.166, %313 ], [ %.298.ph, %.thread328 ], [ -1, %199 ], [ 0, %PACKET_forward.exit.thread ]
   call void @BIO_ADDR_free(ptr noundef null) #9
   call void @CRYPTO_free(ptr noundef nonnull %31, ptr noundef nonnull @.str.2, i32 noundef 848) #9
   call void @CRYPTO_free(ptr noundef nonnull %34, ptr noundef nonnull @.str.2, i32 noundef 849) #9
   br label %.thread
 
 .thread:                                          ; preds = %2, %9, %30, %17, %315, %66, %29, %24
-  %.0 = phi i32 [ -1, %29 ], [ -1, %66 ], [ %.197, %315 ], [ -1, %24 ], [ -1, %17 ], [ -1, %30 ], [ -1, %9 ], [ -1, %2 ]
+  %.0 = phi i32 [ -1, %24 ], [ -1, %29 ], [ -1, %17 ], [ -1, %66 ], [ %.197, %315 ], [ -1, %30 ], [ -1, %9 ], [ -1, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1778,7 +1778,7 @@ define i64 @DTLS_get_data_mtu(ptr noundef %0) local_unnamed_addr #1 {
   br label %.thread
 
 .thread:                                          ; preds = %1, %8, %39, %30, %17, %11
-  %.0 = phi i64 [ 0, %11 ], [ 0, %17 ], [ 0, %30 ], [ %spec.select, %39 ], [ 0, %8 ], [ 0, %1 ]
+  %.0 = phi i64 [ 0, %11 ], [ %spec.select, %39 ], [ 0, %17 ], [ 0, %30 ], [ 0, %8 ], [ 0, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

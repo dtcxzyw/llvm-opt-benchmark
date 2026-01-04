@@ -348,7 +348,7 @@ define dso_local i32 @topology_g_topology_pack(ptr noundef readonly captures(add
   br label %13
 
 13:                                               ; preds = %5, %3, %9
-  %.0 = phi i32 [ %12, %9 ], [ 0, %3 ], [ -1, %5 ]
+  %.0 = phi i32 [ 0, %3 ], [ %12, %9 ], [ -1, %5 ]
   ret i32 %.0
 }
 

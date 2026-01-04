@@ -560,7 +560,7 @@ define dso_local i32 @blake2sp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %33, %.split71.us, %16, %6, %102
-  %.0 = phi i32 [ %103, %102 ], [ -1, %6 ], [ -1, %16 ], [ -1, %.split71.us ], [ -1, %33 ]
+  %.0 = phi i32 [ %103, %102 ], [ -1, %6 ], [ -1, %.split71.us ], [ -1, %16 ], [ -1, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

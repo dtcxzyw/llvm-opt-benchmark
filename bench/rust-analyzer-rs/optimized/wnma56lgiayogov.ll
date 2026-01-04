@@ -11521,7 +11521,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h06d
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha41799f1b4944e7bE.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha41799f1b4944e7bE.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -11613,7 +11613,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h118
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha692221bc0234f46E.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha692221bc0234f46E.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -11705,7 +11705,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h119
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3cfa2aa3c80849aaE.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3cfa2aa3c80849aaE.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -11797,7 +11797,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h13a
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc6bd3615d60ae142E.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc6bd3615d60ae142E.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -11889,7 +11889,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h17d
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hbaf408e0e4fbe21dE.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hbaf408e0e4fbe21dE.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -11981,7 +11981,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h183
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hda9954c896c5f8f2E.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hda9954c896c5f8f2E.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -12073,7 +12073,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h188
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he35089233fc9da85E.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he35089233fc9da85E.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -12165,7 +12165,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h194
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h2691cdd6062f00a1E.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h2691cdd6062f00a1E.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -12257,7 +12257,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h19b
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1214ebfef8855eaaE.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1214ebfef8855eaaE.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -12414,7 +12414,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h1fb
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1be76281c92cf1b5E.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1be76281c92cf1b5E.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -12534,7 +12534,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.exit.i.i.i.i: ; preds = %6
   unreachable
 
 common.resume:                                    ; preds = %26, %32, %13, %19
-  %common.resume.op = phi { ptr, i32 } [ %14, %19 ], [ %14, %13 ], [ %27, %32 ], [ %27, %26 ]
+  %common.resume.op = phi { ptr, i32 } [ %14, %13 ], [ %14, %19 ], [ %27, %32 ], [ %27, %26 ]
   resume { ptr, i32 } %common.resume.op
 
 22:                                               ; preds = %_ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.exit.i.i.i.i, %.lr.ph
@@ -12628,7 +12628,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h2ff
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he080afaa50673a2eE.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he080afaa50673a2eE.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -12720,7 +12720,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h388
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hee7deed6a96887eaE.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hee7deed6a96887eaE.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -12812,7 +12812,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h38f
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h6d79dfc1389464b6E.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h6d79dfc1389464b6E.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -12904,7 +12904,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h3aa
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd1e4d7fb51db92b3E.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd1e4d7fb51db92b3E.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -12996,7 +12996,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h3bc
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hacf629603fc22767E.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hacf629603fc22767E.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -13140,7 +13140,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h3e2
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h79347fff120b911eE.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h79347fff120b911eE.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -13232,7 +13232,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h3eb
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7cda189af4b574e3E.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7cda189af4b574e3E.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -13414,7 +13414,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.exit.i.i.i.i.i: ; preds =
   tail call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.sroa.3.0.copyload), !noalias !2603
   br label %"_ZN5rowan6cursor10SyntaxNode23descendants_with_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hb523b32100da6dadE.exit.i.thread"
 
-"_ZN5rowan6cursor10SyntaxNode23descendants_with_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hb523b32100da6dadE.exit.i.thread": ; preds = %"_ZN5rowan6cursor10SyntaxNode23descendants_with_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hb523b32100da6dadE.exit.i.thread.sink.split", %8, %"_ZN5rowan6cursor10SyntaxNode23descendants_with_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hb523b32100da6dadE.exit.i", %"_ZN6syntax3ast4make6tokens14single_newline28_$u7b$$u7b$closure$u7d$$u7d$17had5bdc2bbdc9f298E.exit.thread.i.i.i.i", %17
+"_ZN5rowan6cursor10SyntaxNode23descendants_with_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hb523b32100da6dadE.exit.i.thread": ; preds = %"_ZN5rowan6cursor10SyntaxNode23descendants_with_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hb523b32100da6dadE.exit.i.thread.sink.split", %8, %"_ZN5rowan6cursor10SyntaxNode23descendants_with_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hb523b32100da6dadE.exit.i", %17, %"_ZN6syntax3ast4make6tokens14single_newline28_$u7b$$u7b$closure$u7d$$u7d$17had5bdc2bbdc9f298E.exit.thread.i.i.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @"_ZN92_$LT$rowan..cursor..PreorderWithTokens$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3badc5950d6c614cE"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
@@ -13537,7 +13537,7 @@ define hidden { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h48
   unreachable
 
 common.resume:                                    ; preds = %48, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0ea68b0cbe8ba08bE.exit.sink.split.i.i.i", %33, %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8533055aa7c5dee5E.exit.sink.split.i.i"
-  %common.resume.op = phi { ptr, i32 } [ %.us-phi22, %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8533055aa7c5dee5E.exit.sink.split.i.i" ], [ %.us-phi22, %33 ], [ %49, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0ea68b0cbe8ba08bE.exit.sink.split.i.i.i" ], [ %49, %48 ]
+  %common.resume.op = phi { ptr, i32 } [ %.us-phi22, %33 ], [ %.us-phi22, %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8533055aa7c5dee5E.exit.sink.split.i.i" ], [ %49, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0ea68b0cbe8ba08bE.exit.sink.split.i.i.i" ], [ %49, %48 ]
   resume { ptr, i32 } %common.resume.op
 
 40:                                               ; preds = %.lr.ph.split
@@ -13648,7 +13648,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h489
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h71b949020209e90bE.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h71b949020209e90bE.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -13740,7 +13740,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h4a3
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb8986a9760514271E.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb8986a9760514271E.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -13832,7 +13832,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h4a5
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb1871bb105681988E.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb1871bb105681988E.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -13924,7 +13924,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h4ca
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5df6d71036877c7cE.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5df6d71036877c7cE.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -14016,7 +14016,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h4dc
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h24c4fd20619bfd10E.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h24c4fd20619bfd10E.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -14108,7 +14108,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h541
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hfe747ff264ce0275E.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hfe747ff264ce0275E.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -14200,7 +14200,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h570
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h18c8a7edd5c3f56aE.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h18c8a7edd5c3f56aE.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -14292,7 +14292,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h582
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h2614415d80f3a781E.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h2614415d80f3a781E.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -14419,7 +14419,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h667
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h003af416cdabafd8E.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h003af416cdabafd8E.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -14511,7 +14511,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h6bf
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4dd0fc86b42ab407E.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4dd0fc86b42ab407E.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -14603,7 +14603,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h6f9
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hfa3b5e01d465d48cE.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hfa3b5e01d465d48cE.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -14695,7 +14695,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h6fd
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h383383a54ebfd240E.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h383383a54ebfd240E.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -14787,7 +14787,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h725
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h025fa826a2dd09feE.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h025fa826a2dd09feE.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -14879,7 +14879,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h880
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h6bc562a04b0705ffE.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h6bc562a04b0705ffE.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -14971,7 +14971,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h895
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he3b972e60c820b96E.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he3b972e60c820b96E.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -15145,7 +15145,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h8bd
   tail call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.sroa.3.0.copyload), !noalias !2903
   br label %"_ZN5rowan6cursor10SyntaxNode23descendants_with_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hb523b32100da6dadE.exit.i.thread"
 
-"_ZN5rowan6cursor10SyntaxNode23descendants_with_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hb523b32100da6dadE.exit.i.thread": ; preds = %"_ZN5rowan6cursor10SyntaxNode23descendants_with_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hb523b32100da6dadE.exit.i.thread.sink.split", %10, %"_ZN5rowan6cursor10SyntaxNode23descendants_with_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hb523b32100da6dadE.exit.i", %38, %19
+"_ZN5rowan6cursor10SyntaxNode23descendants_with_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hb523b32100da6dadE.exit.i.thread": ; preds = %"_ZN5rowan6cursor10SyntaxNode23descendants_with_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hb523b32100da6dadE.exit.i.thread.sink.split", %10, %"_ZN5rowan6cursor10SyntaxNode23descendants_with_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hb523b32100da6dadE.exit.i", %19, %38
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @"_ZN92_$LT$rowan..cursor..PreorderWithTokens$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3badc5950d6c614cE"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
@@ -15186,7 +15186,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h8e5
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h323c132c30b2bdc9E.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h323c132c30b2bdc9E.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -15349,7 +15349,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h8f2
   unreachable
 
 common.resume:                                    ; preds = %38, %44, %25, %30
-  %common.resume.op = phi { ptr, i32 } [ %.us-phi, %30 ], [ %.us-phi, %25 ], [ %39, %44 ], [ %39, %38 ]
+  %common.resume.op = phi { ptr, i32 } [ %.us-phi, %25 ], [ %.us-phi, %30 ], [ %39, %44 ], [ %39, %38 ]
   resume { ptr, i32 } %common.resume.op
 
 33:                                               ; preds = %.lr.ph.split
@@ -15547,7 +15547,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h94c
   unreachable
 
 common.resume:                                    ; preds = %61, %67, %40, %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8533055aa7c5dee5E.exit.sink.split.i.i"
-  %common.resume.op = phi { ptr, i32 } [ %.us-phi19, %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8533055aa7c5dee5E.exit.sink.split.i.i" ], [ %.us-phi19, %40 ], [ %62, %67 ], [ %62, %61 ]
+  %common.resume.op = phi { ptr, i32 } [ %.us-phi19, %40 ], [ %.us-phi19, %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8533055aa7c5dee5E.exit.sink.split.i.i" ], [ %62, %67 ], [ %62, %61 ]
   resume { ptr, i32 } %common.resume.op
 
 47:                                               ; preds = %.lr.ph.split
@@ -15628,7 +15628,7 @@ common.resume:                                    ; preds = %61, %67, %40, %"_ZN
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2960
   br label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h42c6dd594d012806E.exit"
 
-77:                                               ; preds = %70, %53, %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h28bea3744a508883E.exit.sink.split.i.i"
+77:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h28bea3744a508883E.exit.sink.split.i.i", %53, %70
   call void @llvm.experimental.noalias.scope.decl(metadata !2981)
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2981
   store i64 2, ptr %0, align 8, !alias.scope !2981
@@ -15667,7 +15667,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h94f
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb61741f48f3f27dbE.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb61741f48f3f27dbE.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -15759,7 +15759,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h953
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h99147d710974f8a8E.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h99147d710974f8a8E.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -15851,7 +15851,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h97d
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h105f48579dc3053fE.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h105f48579dc3053fE.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -16020,7 +16020,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h9d0
   tail call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.sroa.3.0.copyload), !noalias !3057
   br label %"_ZN5rowan6cursor10SyntaxNode23descendants_with_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hb523b32100da6dadE.exit.i.thread"
 
-"_ZN5rowan6cursor10SyntaxNode23descendants_with_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hb523b32100da6dadE.exit.i.thread": ; preds = %"_ZN5rowan6cursor10SyntaxNode23descendants_with_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hb523b32100da6dadE.exit.i.thread.sink.split", %8, %"_ZN5rowan6cursor10SyntaxNode23descendants_with_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hb523b32100da6dadE.exit.i", %35, %17
+"_ZN5rowan6cursor10SyntaxNode23descendants_with_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hb523b32100da6dadE.exit.i.thread": ; preds = %"_ZN5rowan6cursor10SyntaxNode23descendants_with_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hb523b32100da6dadE.exit.i.thread.sink.split", %8, %"_ZN5rowan6cursor10SyntaxNode23descendants_with_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hb523b32100da6dadE.exit.i", %17, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @"_ZN92_$LT$rowan..cursor..PreorderWithTokens$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3badc5950d6c614cE"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
@@ -16061,7 +16061,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h9de
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9f94f9329651ca96E.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9f94f9329651ca96E.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -16243,7 +16243,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.exit.i.i.i.i.i: ; preds =
   tail call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.sroa.3.0.copyload), !noalias !3105
   br label %"_ZN5rowan6cursor10SyntaxNode23descendants_with_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hb523b32100da6dadE.exit.i.thread"
 
-"_ZN5rowan6cursor10SyntaxNode23descendants_with_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hb523b32100da6dadE.exit.i.thread": ; preds = %"_ZN5rowan6cursor10SyntaxNode23descendants_with_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hb523b32100da6dadE.exit.i.thread.sink.split", %8, %"_ZN5rowan6cursor10SyntaxNode23descendants_with_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hb523b32100da6dadE.exit.i", %"_ZN6syntax3ast4make6tokens10blank_line28_$u7b$$u7b$closure$u7d$$u7d$17h44e3a0bf6b589975E.exit.thread.i.i.i.i", %17
+"_ZN5rowan6cursor10SyntaxNode23descendants_with_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hb523b32100da6dadE.exit.i.thread": ; preds = %"_ZN5rowan6cursor10SyntaxNode23descendants_with_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hb523b32100da6dadE.exit.i.thread.sink.split", %8, %"_ZN5rowan6cursor10SyntaxNode23descendants_with_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hb523b32100da6dadE.exit.i", %17, %"_ZN6syntax3ast4make6tokens10blank_line28_$u7b$$u7b$closure$u7d$$u7d$17h44e3a0bf6b589975E.exit.thread.i.i.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @"_ZN92_$LT$rowan..cursor..PreorderWithTokens$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3badc5950d6c614cE"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
@@ -16284,7 +16284,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17haec
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h05bc3645f452bda1E.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h05bc3645f452bda1E.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -16428,7 +16428,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17hb31
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h71cf84ee3067cb30E.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h71cf84ee3067cb30E.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -16520,7 +16520,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17hb90
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h0f8076148c0a3b4bE.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h0f8076148c0a3b4bE.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -16702,7 +16702,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.exit.i.i.i.i.i: ; preds =
   tail call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.sroa.3.0.copyload), !noalias !3191
   br label %"_ZN5rowan6cursor10SyntaxNode23descendants_with_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hb523b32100da6dadE.exit.i.thread"
 
-"_ZN5rowan6cursor10SyntaxNode23descendants_with_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hb523b32100da6dadE.exit.i.thread": ; preds = %"_ZN5rowan6cursor10SyntaxNode23descendants_with_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hb523b32100da6dadE.exit.i.thread.sink.split", %8, %"_ZN5rowan6cursor10SyntaxNode23descendants_with_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hb523b32100da6dadE.exit.i", %"_ZN6syntax3ast4make6tokens12single_space28_$u7b$$u7b$closure$u7d$$u7d$17hba8eb9f619d78563E.exit.thread.i.i.i.i", %17
+"_ZN5rowan6cursor10SyntaxNode23descendants_with_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hb523b32100da6dadE.exit.i.thread": ; preds = %"_ZN5rowan6cursor10SyntaxNode23descendants_with_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hb523b32100da6dadE.exit.i.thread.sink.split", %8, %"_ZN5rowan6cursor10SyntaxNode23descendants_with_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hb523b32100da6dadE.exit.i", %17, %"_ZN6syntax3ast4make6tokens12single_space28_$u7b$$u7b$closure$u7d$$u7d$17hba8eb9f619d78563E.exit.thread.i.i.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @"_ZN92_$LT$rowan..cursor..PreorderWithTokens$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3badc5950d6c614cE"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
@@ -16823,7 +16823,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.exit.i.i.i.i: ; preds = %6
   unreachable
 
 common.resume:                                    ; preds = %26, %32, %13, %19
-  %common.resume.op = phi { ptr, i32 } [ %14, %19 ], [ %14, %13 ], [ %27, %32 ], [ %27, %26 ]
+  %common.resume.op = phi { ptr, i32 } [ %14, %13 ], [ %14, %19 ], [ %27, %32 ], [ %27, %26 ]
   resume { ptr, i32 } %common.resume.op
 
 22:                                               ; preds = %_ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.exit.i.i.i.i, %.lr.ph
@@ -16917,7 +16917,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17hc8c
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9263969c93a598c7E.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9263969c93a598c7E.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -17037,7 +17037,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.exit.i.i.i.i: ; preds = %6
   unreachable
 
 common.resume:                                    ; preds = %26, %32, %13, %19
-  %common.resume.op = phi { ptr, i32 } [ %14, %19 ], [ %14, %13 ], [ %27, %32 ], [ %27, %26 ]
+  %common.resume.op = phi { ptr, i32 } [ %14, %13 ], [ %14, %19 ], [ %27, %32 ], [ %27, %26 ]
   resume { ptr, i32 } %common.resume.op
 
 22:                                               ; preds = %_ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.exit.i.i.i.i, %.lr.ph
@@ -17131,7 +17131,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17hce3
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8f8e497afa87aa24E.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8f8e497afa87aa24E.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -17223,7 +17223,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17hd0d
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he6c184dce0146928E.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he6c184dce0146928E.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -17392,7 +17392,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17hd17
   tail call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.sroa.3.0.copyload), !noalias !3321
   br label %"_ZN5rowan6cursor10SyntaxNode23descendants_with_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hb523b32100da6dadE.exit.i.thread"
 
-"_ZN5rowan6cursor10SyntaxNode23descendants_with_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hb523b32100da6dadE.exit.i.thread": ; preds = %"_ZN5rowan6cursor10SyntaxNode23descendants_with_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hb523b32100da6dadE.exit.i.thread.sink.split", %8, %"_ZN5rowan6cursor10SyntaxNode23descendants_with_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hb523b32100da6dadE.exit.i", %35, %17
+"_ZN5rowan6cursor10SyntaxNode23descendants_with_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hb523b32100da6dadE.exit.i.thread": ; preds = %"_ZN5rowan6cursor10SyntaxNode23descendants_with_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hb523b32100da6dadE.exit.i.thread.sink.split", %8, %"_ZN5rowan6cursor10SyntaxNode23descendants_with_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hb523b32100da6dadE.exit.i", %17, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @"_ZN92_$LT$rowan..cursor..PreorderWithTokens$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3badc5950d6c614cE"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
@@ -17433,7 +17433,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17hd1c
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb48fa7ce4ff7deb2E.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb48fa7ce4ff7deb2E.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -17525,7 +17525,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17hd2e
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h196e9e24249b93faE.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h196e9e24249b93faE.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -17617,7 +17617,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17hd7a
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h65090b465758720aE.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h65090b465758720aE.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -17709,7 +17709,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17hdaf
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h113338441168aecaE.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h113338441168aecaE.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -18073,7 +18073,7 @@ _ZN5rowan6cursor8NodeData3key17hac391177412f5ff8E.exit.i.i.i.i: ; preds = %72, %
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.us-phi72)
           to label %.body.thread32 unwind label %102, !noalias !3409
 
-111:                                              ; preds = %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0ea68b0cbe8ba08bE.exit.sink.split.i.i.i.i.i.i.i", %86, %"_ZN96_$LT$syntax..ast..generated..nodes..UseTree$u20$as$u20$syntax..ast..edit_in_place..Removable$GT$6remove28_$u7b$$u7b$closure$u7d$$u7d$17h8a720297c2ad7764E.exit.thread.i.i"
+111:                                              ; preds = %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0ea68b0cbe8ba08bE.exit.sink.split.i.i.i.i.i.i.i", %"_ZN96_$LT$syntax..ast..generated..nodes..UseTree$u20$as$u20$syntax..ast..edit_in_place..Removable$GT$6remove28_$u7b$$u7b$closure$u7d$$u7d$17h8a720297c2ad7764E.exit.thread.i.i", %86
   call void @llvm.experimental.noalias.scope.decl(metadata !3417)
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !3417
   store i64 2, ptr %1, align 8, !alias.scope !3417
@@ -18098,10 +18098,10 @@ _ZN5rowan6cursor8NodeData3key17hac391177412f5ff8E.exit.i.i.i.i: ; preds = %72, %
   br label %113
 
 .body.thread32:                                   ; preds = %117, %.body.thread, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0ea68b0cbe8ba08bE.exit.sink.split.i.i", %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0ea68b0cbe8ba08bE.exit.sink.split.i.i.i.i", %105, %.noexc20.i.i
-  %eh.lpad-body30 = phi { ptr, i32 } [ %.us-phi74, %.noexc20.i.i ], [ %.us-phi74, %105 ], [ %.us-phi74, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0ea68b0cbe8ba08bE.exit.sink.split.i.i.i.i" ], [ %.us-phi68, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0ea68b0cbe8ba08bE.exit.sink.split.i.i" ], [ %.us-phi68, %.body.thread ], [ %.us-phi68, %117 ]
+  %eh.lpad-body30 = phi { ptr, i32 } [ %.us-phi74, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0ea68b0cbe8ba08bE.exit.sink.split.i.i.i.i" ], [ %.us-phi68, %117 ], [ %.us-phi74, %.noexc20.i.i ], [ %.us-phi74, %105 ], [ %.us-phi68, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0ea68b0cbe8ba08bE.exit.sink.split.i.i" ], [ %.us-phi68, %.body.thread ]
   resume { ptr, i32 } %eh.lpad-body30
 
-.body.thread:                                     ; preds = %53, %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8533055aa7c5dee5E.exit.sink.split.i.i"
+.body.thread:                                     ; preds = %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8533055aa7c5dee5E.exit.sink.split.i.i", %53
   %116 = icmp eq i64 %.us-phi67, 2
   br i1 %116, label %.body.thread32, label %117
 
@@ -18153,7 +18153,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17hdc7
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha1f874b3fe3a55cfE.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha1f874b3fe3a55cfE.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -18245,7 +18245,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17hde5
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1bc55dceaa0bed9cE.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1bc55dceaa0bed9cE.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -18337,7 +18337,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17hde9
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h321d407bc6962023E.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h321d407bc6962023E.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -18429,7 +18429,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17hdfd
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h63c4fa5cdd49a05dE.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h63c4fa5cdd49a05dE.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -18609,7 +18609,7 @@ _ZN4core3ops8function5FnMut8call_mut17hb74e82106fb1148eE.exit.i.i.us: ; preds = 
   unreachable
 
 common.resume:                                    ; preds = %49, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0ea68b0cbe8ba08bE.exit.sink.split.i.i.i", %33, %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8533055aa7c5dee5E.exit.sink.split.i.i"
-  %common.resume.op = phi { ptr, i32 } [ %.us-phi19, %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8533055aa7c5dee5E.exit.sink.split.i.i" ], [ %.us-phi19, %33 ], [ %50, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0ea68b0cbe8ba08bE.exit.sink.split.i.i.i" ], [ %50, %49 ]
+  %common.resume.op = phi { ptr, i32 } [ %.us-phi19, %33 ], [ %.us-phi19, %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8533055aa7c5dee5E.exit.sink.split.i.i" ], [ %50, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0ea68b0cbe8ba08bE.exit.sink.split.i.i.i" ], [ %50, %49 ]
   resume { ptr, i32 } %common.resume.op
 
 40:                                               ; preds = %.lr.ph.split
@@ -18684,7 +18684,7 @@ _ZN4core3ops8function5FnMut8call_mut17hb74e82106fb1148eE.exit.i.i: ; preds = %45
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !3487
   br label %.loopexit
 
-63:                                               ; preds = %56, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0ea68b0cbe8ba08bE.exit.sink.split.i8.i.i"
+63:                                               ; preds = %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0ea68b0cbe8ba08bE.exit.sink.split.i8.i.i", %56
   call void @llvm.experimental.noalias.scope.decl(metadata !3497)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !3497
   store i64 2, ptr %0, align 8, !alias.scope !3497
@@ -18692,7 +18692,7 @@ _ZN4core3ops8function5FnMut8call_mut17hb74e82106fb1148eE.exit.i.i: ; preds = %45
   br i1 %64, label %"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$rowan..utility_types..NodeOrToken$LT$rowan..cursor..SyntaxNode$C$rowan..cursor..SyntaxToken$GT$$GT$$GT$17h03fdea88b6193d7cE.exit", label %.lr.ph.split
 
 .loopexit:                                        ; preds = %_ZN4core3ops8function5FnMut8call_mut17hb74e82106fb1148eE.exit.i.i, %40, %_ZN4core3ops8function5FnMut8call_mut17hb74e82106fb1148eE.exit.i.i.us, %11, %"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$rowan..utility_types..NodeOrToken$LT$rowan..cursor..SyntaxNode$C$rowan..cursor..SyntaxToken$GT$$GT$$GT$17h03fdea88b6193d7cE.exit"
-  %.sroa.3.0 = phi ptr [ undef, %"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$rowan..utility_types..NodeOrToken$LT$rowan..cursor..SyntaxNode$C$rowan..cursor..SyntaxToken$GT$$GT$$GT$17h03fdea88b6193d7cE.exit" ], [ %15, %11 ], [ %15, %_ZN4core3ops8function5FnMut8call_mut17hb74e82106fb1148eE.exit.i.i.us ], [ %44, %40 ], [ %44, %_ZN4core3ops8function5FnMut8call_mut17hb74e82106fb1148eE.exit.i.i ]
+  %.sroa.3.0 = phi ptr [ undef, %"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$rowan..utility_types..NodeOrToken$LT$rowan..cursor..SyntaxNode$C$rowan..cursor..SyntaxToken$GT$$GT$$GT$17h03fdea88b6193d7cE.exit" ], [ %15, %_ZN4core3ops8function5FnMut8call_mut17hb74e82106fb1148eE.exit.i.i.us ], [ %15, %11 ], [ %44, %40 ], [ %44, %_ZN4core3ops8function5FnMut8call_mut17hb74e82106fb1148eE.exit.i.i ]
   %.sroa.0.0 = phi i64 [ 2, %"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$rowan..utility_types..NodeOrToken$LT$rowan..cursor..SyntaxNode$C$rowan..cursor..SyntaxToken$GT$$GT$$GT$17h03fdea88b6193d7cE.exit" ], [ 1, %_ZN4core3ops8function5FnMut8call_mut17hb74e82106fb1148eE.exit.i.i.us ], [ 0, %11 ], [ 1, %_ZN4core3ops8function5FnMut8call_mut17hb74e82106fb1148eE.exit.i.i ], [ 0, %40 ]
   %65 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %66 = insertvalue { i64, ptr } %65, ptr %.sroa.3.0, 1
@@ -18814,7 +18814,7 @@ _ZN4core3ops8function5FnMut8call_mut17hb74e82106fb1148eE.exit.i.i.us: ; preds = 
   unreachable
 
 common.resume:                                    ; preds = %49, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0ea68b0cbe8ba08bE.exit.sink.split.i.i.i", %33, %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8533055aa7c5dee5E.exit.sink.split.i.i"
-  %common.resume.op = phi { ptr, i32 } [ %.us-phi19, %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8533055aa7c5dee5E.exit.sink.split.i.i" ], [ %.us-phi19, %33 ], [ %50, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0ea68b0cbe8ba08bE.exit.sink.split.i.i.i" ], [ %50, %49 ]
+  %common.resume.op = phi { ptr, i32 } [ %.us-phi19, %33 ], [ %.us-phi19, %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8533055aa7c5dee5E.exit.sink.split.i.i" ], [ %50, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0ea68b0cbe8ba08bE.exit.sink.split.i.i.i" ], [ %50, %49 ]
   resume { ptr, i32 } %common.resume.op
 
 40:                                               ; preds = %.lr.ph.split
@@ -18889,7 +18889,7 @@ _ZN4core3ops8function5FnMut8call_mut17hb74e82106fb1148eE.exit.i.i: ; preds = %45
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !3499
   br label %.loopexit
 
-63:                                               ; preds = %56, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0ea68b0cbe8ba08bE.exit.sink.split.i8.i.i"
+63:                                               ; preds = %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0ea68b0cbe8ba08bE.exit.sink.split.i8.i.i", %56
   call void @llvm.experimental.noalias.scope.decl(metadata !3509)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !3509
   store i64 2, ptr %0, align 8, !alias.scope !3509
@@ -18897,7 +18897,7 @@ _ZN4core3ops8function5FnMut8call_mut17hb74e82106fb1148eE.exit.i.i: ; preds = %45
   br i1 %64, label %"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$rowan..utility_types..NodeOrToken$LT$rowan..cursor..SyntaxNode$C$rowan..cursor..SyntaxToken$GT$$GT$$GT$17h03fdea88b6193d7cE.exit", label %.lr.ph.split
 
 .loopexit:                                        ; preds = %_ZN4core3ops8function5FnMut8call_mut17hb74e82106fb1148eE.exit.i.i, %40, %_ZN4core3ops8function5FnMut8call_mut17hb74e82106fb1148eE.exit.i.i.us, %11, %"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$rowan..utility_types..NodeOrToken$LT$rowan..cursor..SyntaxNode$C$rowan..cursor..SyntaxToken$GT$$GT$$GT$17h03fdea88b6193d7cE.exit"
-  %.sroa.3.0 = phi ptr [ undef, %"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$rowan..utility_types..NodeOrToken$LT$rowan..cursor..SyntaxNode$C$rowan..cursor..SyntaxToken$GT$$GT$$GT$17h03fdea88b6193d7cE.exit" ], [ %15, %11 ], [ %15, %_ZN4core3ops8function5FnMut8call_mut17hb74e82106fb1148eE.exit.i.i.us ], [ %44, %40 ], [ %44, %_ZN4core3ops8function5FnMut8call_mut17hb74e82106fb1148eE.exit.i.i ]
+  %.sroa.3.0 = phi ptr [ undef, %"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$rowan..utility_types..NodeOrToken$LT$rowan..cursor..SyntaxNode$C$rowan..cursor..SyntaxToken$GT$$GT$$GT$17h03fdea88b6193d7cE.exit" ], [ %15, %_ZN4core3ops8function5FnMut8call_mut17hb74e82106fb1148eE.exit.i.i.us ], [ %15, %11 ], [ %44, %40 ], [ %44, %_ZN4core3ops8function5FnMut8call_mut17hb74e82106fb1148eE.exit.i.i ]
   %.sroa.0.0 = phi i64 [ 2, %"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$rowan..utility_types..NodeOrToken$LT$rowan..cursor..SyntaxNode$C$rowan..cursor..SyntaxToken$GT$$GT$$GT$17h03fdea88b6193d7cE.exit" ], [ 1, %_ZN4core3ops8function5FnMut8call_mut17hb74e82106fb1148eE.exit.i.i.us ], [ 0, %11 ], [ 1, %_ZN4core3ops8function5FnMut8call_mut17hb74e82106fb1148eE.exit.i.i ], [ 0, %40 ]
   %65 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %66 = insertvalue { i64, ptr } %65, ptr %.sroa.3.0, 1
@@ -18931,7 +18931,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17hedd
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4d7c881d6c0aedbfE.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4d7c881d6c0aedbfE.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -19023,7 +19023,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17hf00
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h186b0eaf8783947cE.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h186b0eaf8783947cE.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -19115,7 +19115,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17hf5c
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h82aeed31f0877468E.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h82aeed31f0877468E.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -19207,7 +19207,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17hfb7
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h63706a2357cba79bE.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h63706a2357cba79bE.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -19299,7 +19299,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17hfd1
   %14 = icmp eq ptr %7, null
   br i1 %14, label %.backedge, label %15
 
-.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %29, %8, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9b9b469e63996e8fE.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i", %8, %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9b9b469e63996e8fE.exit.sink.split.i"
   br label %4
 
 15:                                               ; preds = %"_ZN5rowan6cursor10SyntaxNode11descendants28_$u7b$$u7b$closure$u7d$$u7d$17h231b1106857eaaf0E.exit.i"
@@ -19754,7 +19754,7 @@ define hidden void @_ZN9itertools9Itertools4join17h33c9b37353fa630eE(ptr noalias
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %66, %78
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i.i.i, %66 ], [ %lpad.phi7.i.i.i, %78 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi7.i.i.i, %78 ], [ %lpad.phi.i.i.i, %66 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha534727b09ff09b9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #24
           to label %25 unwind label %102
 
@@ -20090,7 +20090,7 @@ define hidden void @_ZN9itertools9Itertools4join17h39e34fc1022593bfE(ptr noalias
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %66, %78
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i.i.i, %66 ], [ %lpad.phi7.i.i.i, %78 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi7.i.i.i, %78 ], [ %lpad.phi.i.i.i, %66 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha534727b09ff09b9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #24
           to label %25 unwind label %102
 
@@ -20401,7 +20401,7 @@ define hidden void @_ZN9itertools9Itertools4join17h7418c628ee7d05ebE(ptr noalias
   unreachable
 
 common.resume:                                    ; preds = %38, %32, %17, %22
-  %common.resume.op = phi { ptr, i32 } [ %18, %22 ], [ %18, %17 ], [ %.pn, %32 ], [ %.pn, %38 ]
+  %common.resume.op = phi { ptr, i32 } [ %18, %17 ], [ %18, %22 ], [ %.pn, %32 ], [ %.pn, %38 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb015c430466b5a67E.exit": ; preds = %4

@@ -93,7 +93,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc47
   br label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
 
 _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc47
-  %.0.i.i.i.i.i = phi ptr [ %12, %.noexc47 ], [ %15, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ %15, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %12, %.noexc47 ]
   %16 = load ptr, ptr %4, align 8, !tbaa !9
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -142,7 +142,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i50: ; preds = %.noexc55
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit60
 
 _ZNSt6vectorIfSaIfEED2Ev.exit60:                  ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i48, %.noexc55, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i50, %_ZNSt6vectorIfSaIfEED2Ev.exit
-  %.sroa.086.1 = phi ptr [ null, %_ZNSt6vectorIfSaIfEED2Ev.exit ], [ %26, %.noexc55 ], [ %26, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i50 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i48 ]
+  %.sroa.086.1 = phi ptr [ null, %_ZNSt6vectorIfSaIfEED2Ev.exit ], [ %26, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i50 ], [ %26, %.noexc55 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i48 ]
   %30 = sitofp i32 %.pre to float
   %31 = tail call float @llvm.fmuladd.f32(float %30, float 4.000000e+00, float 2.000000e+00)
   %32 = fdiv float 1.000000e+00, %31
@@ -207,6 +207,9 @@ _Z21fed_is_prime_internalRKi.exit.thread:         ; preds = %_Z21fed_is_prime_in
   %64 = icmp slt i32 %storemerge.in, 1
   br i1 %64, label %_Z21fed_is_prime_internalRKi.exit.thread.backedge, label %65
 
+_Z21fed_is_prime_internalRKi.exit.thread.backedge: ; preds = %_Z21fed_is_prime_internalRKi.exit.thread, %66, %_Z21fed_is_prime_internalRKi.exit
+  br label %_Z21fed_is_prime_internalRKi.exit.thread, !llvm.loop !21
+
 65:                                               ; preds = %_Z21fed_is_prime_internalRKi.exit.thread
   switch i32 %storemerge.in, label %66 [
     i32 1, label %.preheader97
@@ -229,9 +232,6 @@ _Z21fed_is_prime_internalRKi.exit.thread:         ; preds = %_Z21fed_is_prime_in
   %or.cond24.i = or i1 %74, %or.cond22.i
   br i1 %or.cond24.i, label %_Z21fed_is_prime_internalRKi.exit.thread.backedge, label %75
 
-_Z21fed_is_prime_internalRKi.exit.thread.backedge: ; preds = %66, %_Z21fed_is_prime_internalRKi.exit.thread, %_Z21fed_is_prime_internalRKi.exit
-  br label %_Z21fed_is_prime_internalRKi.exit.thread, !llvm.loop !21
-
 75:                                               ; preds = %66
   %76 = uitofp nneg i32 %storemerge to float
   %77 = fadd float %76, 1.000000e+00
@@ -253,7 +253,7 @@ _Z21fed_is_prime_internalRKi.exit.thread.backedge: ; preds = %66, %_Z21fed_is_pr
 _Z21fed_is_prime_internalRKi.exit:                ; preds = %.lr.ph.i
   br i1 %spec.select.i, label %.preheader97, label %_Z21fed_is_prime_internalRKi.exit.thread.backedge
 
-.preheader97:                                     ; preds = %_Z21fed_is_prime_internalRKi.exit, %65, %65, %65, %65, %75
+.preheader97:                                     ; preds = %_Z21fed_is_prime_internalRKi.exit, %75, %65, %65, %65, %65
   %82 = icmp sgt i32 %.lcssa101124, 0
   br i1 %82, label %.preheader.lr.ph, label %.loopexit
 
@@ -287,7 +287,7 @@ _Z21fed_is_prime_internalRKi.exit:                ; preds = %.lr.ph.i
   br i1 %exitcond.not, label %.loopexit.thread, label %.preheader, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.preheader97, %._crit_edge
-  %.lcssa101123 = phi i32 [ %.lcssa101124, %.preheader97 ], [ %.pre, %._crit_edge ], [ %60, %.lr.ph.split ]
+  %.lcssa101123 = phi i32 [ %.pre, %._crit_edge ], [ %.lcssa101124, %.preheader97 ], [ %60, %.lr.ph.split ]
   %.not.i.i.i61 = icmp eq ptr %.sroa.086.1, null
   br i1 %.not.i.i.i61, label %_ZNSt6vectorIfSaIfEED2Ev.exit62, label %.loopexit.thread
 
@@ -297,7 +297,7 @@ _Z21fed_is_prime_internalRKi.exit:                ; preds = %.lr.ph.i
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit62
 
 _ZNSt6vectorIfSaIfEED2Ev.exit62:                  ; preds = %5, %.loopexit, %.loopexit.thread
-  %.04196 = phi i32 [ %.lcssa101123, %.loopexit ], [ %.lcssa101123129, %.loopexit.thread ], [ 0, %5 ]
+  %.04196 = phi i32 [ %.lcssa101123129, %.loopexit.thread ], [ %.lcssa101123, %.loopexit ], [ 0, %5 ]
   ret i32 %.04196
 }
 
@@ -357,7 +357,7 @@ define hidden noundef zeroext i1 @_Z21fed_is_prime_internalRKi(ptr noundef nonnu
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.lr.ph, %4, %15, %6, %1
-  %.017 = phi i1 [ false, %1 ], [ false, %6 ], [ true, %15 ], [ true, %4 ], [ %spec.select, %.lr.ph ]
+  %.017 = phi i1 [ false, %6 ], [ false, %1 ], [ true, %4 ], [ true, %15 ], [ %spec.select, %.lr.ph ]
   ret i1 %.017
 }
 

@@ -204,7 +204,7 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16.i.i: ; preds = %.
   br label %"_ZN18ruff_python_trivia7pragmas17is_pragma_comment28_$u7b$$u7b$closure$u7d$$u7d$17h23a237327e2e87a5E.exit"
 
 "_ZN18ruff_python_trivia7pragmas17is_pragma_comment28_$u7b$$u7b$closure$u7d$$u7d$17h23a237327e2e87a5E.exit": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17h1dfe56c58f934227E.exit.thread", %"_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17h1dfe56c58f934227E.exit", %71, %73, %75, %77, %79, %13, %23, %23, %2
-  %.sroa.0.0 = phi i1 [ false, %2 ], [ true, %23 ], [ true, %23 ], [ true, %13 ], [ false, %"_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17h1dfe56c58f934227E.exit.thread" ], [ %80, %79 ], [ true, %77 ], [ true, %75 ], [ true, %73 ], [ true, %71 ], [ true, %"_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17h1dfe56c58f934227E.exit" ]
+  %.sroa.0.0 = phi i1 [ false, %2 ], [ true, %13 ], [ true, %23 ], [ true, %23 ], [ false, %"_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17h1dfe56c58f934227E.exit.thread" ], [ true, %"_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17h1dfe56c58f934227E.exit" ], [ %80, %79 ], [ true, %77 ], [ true, %75 ], [ true, %73 ], [ true, %71 ]
   ret i1 %.sroa.0.0
 }
 

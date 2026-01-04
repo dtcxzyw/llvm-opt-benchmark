@@ -763,8 +763,8 @@ bytestream2_get_le32.exit495.i:                   ; preds = %381, %.lr.ph769.spl
   br label %.thread687.i
 
 .thread687.i:                                     ; preds = %.preheader754.i, %.thread687.loopexit.i, %238
-  %.pre-phi118 = phi i32 [ %.pre117, %.thread687.loopexit.i ], [ %219, %238 ], [ %219, %.preheader754.i ]
-  %.sroa.20.0.copyload660.i = phi ptr [ %.sroa.20.0.copyload660.pre.i, %.thread687.loopexit.i ], [ %.sroa.20.0.copyload.fr.i, %238 ], [ %.sroa.20.0.copyload.fr.i, %.preheader754.i ]
+  %.pre-phi118 = phi i32 [ %219, %238 ], [ %.pre117, %.thread687.loopexit.i ], [ %219, %.preheader754.i ]
+  %.sroa.20.0.copyload660.i = phi ptr [ %.sroa.20.0.copyload.fr.i, %238 ], [ %.sroa.20.0.copyload660.pre.i, %.thread687.loopexit.i ], [ %.sroa.20.0.copyload.fr.i, %.preheader754.i ]
   %392 = load i32, ptr %133, align 4, !tbaa !57
   %393 = icmp slt i32 %392, 0
   %..i558.i = tail call i32 @llvm.smin.i32(i32 %392, i32 %.pre-phi118)
@@ -1640,8 +1640,8 @@ decode_blocks.exit:                               ; preds = %._crit_edge.us839.i
   %773 = load i32, ptr %12, align 8, !tbaa !32
   br label %decode_blocks.exit.thread
 
-decode_blocks.exit.thread:                        ; preds = %bytestream2_get_le32.exit495.i, %bytestream2_get_le32.exit495.us773.i, %433, %bytestream2_get_le32.exit489.us.i, %458, %.lr.ph769.i, %.thread.i, %404, %214, %209, %206, %198, %bytestream2_get_le32.exit497.i, %179, %bytestream2_get_le32.exit499.i, %166, %bytestream2_get_le32.exit501.i, %bytestream2_get_le32.exit503.i, %144, %bytestream2_get_le32.exit505.i, %131, %bytestream2_get_le32.exit507.i, %118, %bytestream2_get_le32.exit509.i, %105, %bytestream2_get_le32.exit511.i, %bytestream2_get_le32.exit513.i, %bytestream2_init_writer.exit, %49, %46, %37, %32, %bytestream2_get_le32.exit61, %bytestream2_init.exit, %4, %decode_blocks.exit
-  %.0 = phi i32 [ %773, %decode_blocks.exit ], [ -1094995529, %4 ], [ -1094995529, %bytestream2_init.exit ], [ -1163346256, %bytestream2_get_le32.exit61 ], [ %35, %32 ], [ -1094995529, %37 ], [ -1094995529, %46 ], [ -12, %49 ], [ -1094995529, %bytestream2_init_writer.exit ], [ -1094995529, %.lr.ph769.i ], [ -1094995529, %.thread.i ], [ -1094995529, %404 ], [ -1094995529, %214 ], [ %212, %209 ], [ -1094995529, %206 ], [ -1094995529, %198 ], [ -1094995529, %bytestream2_get_le32.exit497.i ], [ -1094995529, %179 ], [ -1094995529, %bytestream2_get_le32.exit499.i ], [ -1094995529, %166 ], [ -1094995529, %bytestream2_get_le32.exit501.i ], [ -1094995529, %bytestream2_get_le32.exit503.i ], [ -1094995529, %144 ], [ -1094995529, %bytestream2_get_le32.exit505.i ], [ -1094995529, %131 ], [ -1094995529, %bytestream2_get_le32.exit507.i ], [ -1094995529, %118 ], [ -1094995529, %bytestream2_get_le32.exit509.i ], [ -1094995529, %105 ], [ -1094995529, %bytestream2_get_le32.exit511.i ], [ %91, %bytestream2_get_le32.exit513.i ], [ -1094995529, %458 ], [ -1094995529, %bytestream2_get_le32.exit489.us.i ], [ -1094995529, %433 ], [ -1094995529, %bytestream2_get_le32.exit495.us773.i ], [ -1094995529, %bytestream2_get_le32.exit495.i ]
+decode_blocks.exit.thread:                        ; preds = %bytestream2_get_le32.exit495.i, %bytestream2_get_le32.exit495.us773.i, %bytestream2_get_le32.exit489.us.i, %433, %458, %.lr.ph769.i, %.thread.i, %214, %404, %209, %206, %198, %bytestream2_get_le32.exit497.i, %179, %bytestream2_get_le32.exit499.i, %166, %bytestream2_get_le32.exit501.i, %bytestream2_get_le32.exit503.i, %144, %bytestream2_get_le32.exit505.i, %131, %bytestream2_get_le32.exit507.i, %118, %bytestream2_get_le32.exit509.i, %105, %bytestream2_get_le32.exit511.i, %bytestream2_get_le32.exit513.i, %bytestream2_init_writer.exit, %49, %46, %37, %32, %bytestream2_get_le32.exit61, %bytestream2_init.exit, %4, %decode_blocks.exit
+  %.0 = phi i32 [ -1094995529, %46 ], [ -1094995529, %4 ], [ -1094995529, %bytestream2_init.exit ], [ -1163346256, %bytestream2_get_le32.exit61 ], [ %35, %32 ], [ -1094995529, %bytestream2_init_writer.exit ], [ %773, %decode_blocks.exit ], [ -1094995529, %37 ], [ -12, %49 ], [ -1094995529, %bytestream2_get_le32.exit489.us.i ], [ -1094995529, %bytestream2_get_le32.exit495.us773.i ], [ -1094995529, %bytestream2_get_le32.exit511.i ], [ -1094995529, %.lr.ph769.i ], [ %91, %bytestream2_get_le32.exit513.i ], [ -1094995529, %.thread.i ], [ -1094995529, %458 ], [ -1094995529, %214 ], [ -1094995529, %404 ], [ %212, %209 ], [ -1094995529, %206 ], [ -1094995529, %198 ], [ -1094995529, %bytestream2_get_le32.exit497.i ], [ -1094995529, %179 ], [ -1094995529, %bytestream2_get_le32.exit499.i ], [ -1094995529, %166 ], [ -1094995529, %bytestream2_get_le32.exit501.i ], [ -1094995529, %bytestream2_get_le32.exit503.i ], [ -1094995529, %144 ], [ -1094995529, %bytestream2_get_le32.exit505.i ], [ -1094995529, %131 ], [ -1094995529, %bytestream2_get_le32.exit507.i ], [ -1094995529, %118 ], [ -1094995529, %bytestream2_get_le32.exit509.i ], [ -1094995529, %105 ], [ -1094995529, %433 ], [ -1094995529, %bytestream2_get_le32.exit495.i ]
   ret i32 %.0
 }
 
@@ -2034,8 +2034,8 @@ bytestream2_put_buffer.exit105:                   ; preds = %.thread9, %174
   %184 = trunc i64 %183 to i32
   br label %.thread
 
-.thread:                                          ; preds = %bytestream2_get_le16.exit, %.loopexit19, %bytestream2_get_le16.exit.thread, %bytestream2_put_buffer.exit105
-  %.2 = phi i32 [ %184, %bytestream2_put_buffer.exit105 ], [ 0, %bytestream2_get_le16.exit.thread ], [ -1094995529, %.loopexit19 ], [ 0, %bytestream2_get_le16.exit ]
+.thread:                                          ; preds = %.loopexit19, %bytestream2_get_le16.exit, %bytestream2_get_le16.exit.thread, %bytestream2_put_buffer.exit105
+  %.2 = phi i32 [ %184, %bytestream2_put_buffer.exit105 ], [ 0, %bytestream2_get_le16.exit.thread ], [ 0, %bytestream2_get_le16.exit ], [ -1094995529, %.loopexit19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.2
 }

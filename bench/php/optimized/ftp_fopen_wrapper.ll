@@ -338,13 +338,13 @@ get_ftp_result.exit185:                           ; preds = %85, %.backedge.i183
   br label %195
 
 124:                                              ; preds = %get_ftp_result.exit185, %116, %113
-  %.1130 = phi i32 [ %120, %116 ], [ %94, %113 ], [ %94, %get_ftp_result.exit185 ]
+  %.1130 = phi i32 [ %94, %get_ftp_result.exit185 ], [ %120, %116 ], [ %94, %113 ]
   %125 = call fastcc zeroext i16 @php_fopen_do_pasv(ptr noundef %31, ptr noundef %9, ptr noundef %10)
   %.not164 = icmp eq i16 %125, 0
   br i1 %.not164, label %195, label %144
 
 .thread192:                                       ; preds = %97, %105, %103
-  %.0127.ph = phi i64 [ 0, %97 ], [ %102, %103 ], [ %102, %105 ]
+  %.0127.ph = phi i64 [ 0, %97 ], [ %102, %105 ], [ %102, %103 ]
   %126 = call fastcc zeroext i16 @php_fopen_do_pasv(ptr noundef %31, ptr noundef %9, ptr noundef %10)
   %.not164195 = icmp eq i16 %126, 0
   br i1 %.not164195, label %195, label %.thread198
@@ -501,8 +501,8 @@ get_ftp_result.exit185:                           ; preds = %85, %.backedge.i183
   br label %zend_string_release.exit
 
 195:                                              ; preds = %.thread192.thread, %._crit_edge, %.thread192, %106, %124, %get_ftp_result.exit, %141, %122
-  %196 = phi ptr [ %.pre207, %get_ftp_result.exit ], [ %.pre207, %141 ], [ %.pre207, %124 ], [ %.pre207, %106 ], [ %.pre207, %122 ], [ %.pre, %._crit_edge ], [ %.pre207, %.thread192 ], [ %.pre207, %.thread192.thread ]
-  %.0129 = phi i32 [ %61, %get_ftp_result.exit ], [ %139, %141 ], [ %.1130, %124 ], [ %94, %106 ], [ %94, %122 ], [ 0, %._crit_edge ], [ %94, %.thread192 ], [ %94, %.thread192.thread ]
+  %196 = phi ptr [ %.pre207, %get_ftp_result.exit ], [ %.pre207, %141 ], [ %.pre207, %122 ], [ %.pre, %._crit_edge ], [ %.pre207, %.thread192 ], [ %.pre207, %124 ], [ %.pre207, %106 ], [ %.pre207, %.thread192.thread ]
+  %.0129 = phi i32 [ %61, %get_ftp_result.exit ], [ %139, %141 ], [ %94, %122 ], [ 0, %._crit_edge ], [ %94, %.thread192 ], [ %.1130, %124 ], [ %94, %106 ], [ %94, %.thread192.thread ]
   %.not170 = icmp eq ptr %196, null
   br i1 %.not170, label %198, label %.thread225
 
@@ -873,7 +873,7 @@ get_ftp_result.exit196:                           ; preds = %136, %.backedge.i19
   br label %.thread9
 
 147:                                              ; preds = %get_ftp_result.exit187, %get_ftp_result.exit196
-  %.0139 = phi ptr [ null, %get_ftp_result.exit187 ], [ %45, %get_ftp_result.exit196 ]
+  %.0139 = phi ptr [ %45, %get_ftp_result.exit196 ], [ null, %get_ftp_result.exit187 ]
   %148 = call i32 @php_stream_xport_crypto_setup(ptr noundef nonnull %45, i32 noundef 57, ptr noundef null) #17
   %149 = icmp slt i32 %148, 0
   br i1 %149, label %153, label %150
@@ -1211,7 +1211,7 @@ get_ftp_result.exit223:                           ; preds = %258, %.backedge.i22
   %or.cond11 = icmp ult i32 %268, -100
   br i1 %or.cond11, label %.thread9, label %.thread53
 
-.thread53:                                        ; preds = %311, %312, %314, %315
+.thread53:                                        ; preds = %314, %311, %312, %315
   %.not170 = icmp eq ptr %6, null
   br i1 %.not170, label %317, label %316
 
@@ -1253,7 +1253,7 @@ get_ftp_result.exit223:                           ; preds = %258, %.backedge.i22
   br label %.thread
 
 .thread:                                          ; preds = %8, %.thread14, %.thread9, %321, %322, %17, %18
-  %.0 = phi ptr [ null, %18 ], [ null, %17 ], [ %45, %322 ], [ %45, %321 ], [ null, %.thread9 ], [ null, %.thread14 ], [ null, %8 ]
+  %.0 = phi ptr [ null, %18 ], [ %45, %321 ], [ null, %17 ], [ %45, %322 ], [ null, %.thread9 ], [ null, %8 ], [ null, %.thread14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %.0
@@ -1563,7 +1563,7 @@ get_ftp_result.exit71:                            ; preds = %54, %.backedge.i69,
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %75, %86, %104, %64, %114, %95, %88, %get_ftp_result.exit71, %117
-  %.048 = phi i16 [ %.043, %117 ], [ 0, %get_ftp_result.exit71 ], [ 0, %88 ], [ 0, %95 ], [ 0, %114 ], [ 0, %64 ], [ 0, %104 ], [ 0, %86 ], [ 0, %75 ]
+  %.048 = phi i16 [ 0, %95 ], [ 0, %114 ], [ 0, %64 ], [ 0, %88 ], [ 0, %86 ], [ %.043, %117 ], [ 0, %get_ftp_result.exit71 ], [ 0, %104 ], [ 0, %75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i16 %.048
@@ -2657,7 +2657,7 @@ zend_string_equals.exit79.thread:                 ; preds = %29, %zend_string_eq
   br i1 %9, label %.thread, label %79
 
 .thread:                                          ; preds = %31, %17, %49, %46, %zend_string_equals.exit79, %26, %zend_string_equals.exit.thread, %zend_string_equals.exit, %13, %11, %56, %54, %67, %65, %76, %74, %zend_string_equals.exit79.thread, %78
-  %.085 = phi ptr [ null, %78 ], [ null, %zend_string_equals.exit79.thread ], [ null, %11 ], [ null, %13 ], [ null, %zend_string_equals.exit ], [ null, %zend_string_equals.exit.thread ], [ null, %26 ], [ null, %zend_string_equals.exit79 ], [ null, %46 ], [ null, %49 ], [ null, %54 ], [ null, %56 ], [ %53, %74 ], [ %53, %76 ], [ %53, %65 ], [ %53, %67 ], [ null, %17 ], [ null, %31 ]
+  %.085 = phi ptr [ null, %78 ], [ null, %17 ], [ null, %zend_string_equals.exit79.thread ], [ null, %11 ], [ null, %13 ], [ null, %zend_string_equals.exit ], [ null, %zend_string_equals.exit.thread ], [ null, %26 ], [ null, %zend_string_equals.exit79 ], [ null, %46 ], [ null, %49 ], [ null, %54 ], [ null, %56 ], [ %53, %74 ], [ %53, %76 ], [ %53, %65 ], [ %53, %67 ], [ null, %31 ]
   call void @php_url_free(ptr noundef nonnull %7) #17
   br label %79
 
@@ -3269,7 +3269,7 @@ zend_string_release_ex.exit:                      ; preds = %12, %24, %29
   br i1 %.not25, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %.lr.ph, %.critedge2, %zend_string_release_ex.exit, %10, %8, %3
-  %.0 = phi i64 [ -1, %3 ], [ 0, %8 ], [ -1, %10 ], [ 4097, %zend_string_release_ex.exit ], [ 4097, %.critedge2 ], [ 4097, %.lr.ph ]
+  %.0 = phi i64 [ 0, %8 ], [ -1, %3 ], [ -1, %10 ], [ 4097, %zend_string_release_ex.exit ], [ 4097, %.critedge2 ], [ 4097, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.0
 }

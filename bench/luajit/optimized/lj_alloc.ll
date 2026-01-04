@@ -318,8 +318,8 @@ define internal fastcc void @lj_alloc_free(ptr noundef %0, ptr noundef %1) unnam
   br i1 %.not327, label %66, label %.critedge.preheader
 
 .critedge.preheader:                              ; preds = %57, %54
-  %.1289.ph = phi ptr [ %58, %57 ], [ %55, %54 ]
-  %.3286.ph = phi ptr [ %59, %57 ], [ %56, %54 ]
+  %.1289.ph = phi ptr [ %55, %54 ], [ %58, %57 ]
+  %.3286.ph = phi ptr [ %56, %54 ], [ %59, %57 ]
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.backedge, %.critedge.preheader
@@ -587,7 +587,7 @@ has_segment_link.exit.i:                          ; preds = %164
   br label %has_segment_link.exit.thread54.i
 
 has_segment_link.exit.thread54.i:                 ; preds = %158, %174, %has_segment_link.exit.i, %169, %segment_holding.exit.i, %135
-  %.1.i = phi i64 [ 0, %135 ], [ %140, %174 ], [ 0, %has_segment_link.exit.i ], [ 0, %segment_holding.exit.i ], [ 0, %169 ], [ 0, %158 ]
+  %.1.i = phi i64 [ 0, %135 ], [ %140, %174 ], [ 0, %has_segment_link.exit.i ], [ 0, %169 ], [ 0, %segment_holding.exit.i ], [ 0, %158 ]
   %190 = tail call fastcc i64 @release_unused_segments(ptr noundef %0)
   %191 = sub i64 0, %190
   %192 = icmp eq i64 %.1.i, %191
@@ -681,8 +681,8 @@ has_segment_link.exit.thread54.i:                 ; preds = %158, %174, %has_seg
   br i1 %.not337, label %249, label %.critedge4.preheader
 
 .critedge4.preheader:                             ; preds = %240, %237
-  %.1296.ph = phi ptr [ %241, %240 ], [ %238, %237 ]
-  %.3294.ph = phi ptr [ %242, %240 ], [ %239, %237 ]
+  %.1296.ph = phi ptr [ %238, %237 ], [ %241, %240 ]
+  %.3294.ph = phi ptr [ %239, %237 ], [ %242, %240 ]
   br label %.critedge4
 
 .critedge4:                                       ; preds = %.critedge4.backedge, %.critedge4.preheader
@@ -1203,8 +1203,8 @@ define internal fastcc ptr @lj_alloc_malloc(ptr noundef %0, i64 noundef range(i6
   br i1 %.not120.i, label %153, label %.critedge.i.preheader
 
 .critedge.i.preheader:                            ; preds = %144, %141
-  %.1104.i.ph = phi ptr [ %145, %144 ], [ %142, %141 ]
-  %.3.i.ph = phi ptr [ %146, %144 ], [ %143, %141 ]
+  %.1104.i.ph = phi ptr [ %142, %141 ], [ %145, %144 ]
+  %.3.i.ph = phi ptr [ %143, %141 ], [ %146, %144 ]
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge.i.backedge, %.critedge.i.preheader
@@ -1568,8 +1568,8 @@ tmalloc_small.exit:                               ; preds = %188, %221
   br i1 %.not243.i, label %328, label %.critedge.i178.preheader
 
 .critedge.i178.preheader:                         ; preds = %319, %316
-  %.1215.i.ph = phi ptr [ %320, %319 ], [ %317, %316 ]
-  %.3213.i.ph = phi ptr [ %321, %319 ], [ %318, %316 ]
+  %.1215.i.ph = phi ptr [ %317, %316 ], [ %320, %319 ]
+  %.3213.i.ph = phi ptr [ %318, %316 ], [ %321, %319 ]
   br label %.critedge.i178
 
 .critedge.i178:                                   ; preds = %.critedge.i178.backedge, %.critedge.i178.preheader
@@ -1835,7 +1835,7 @@ tmalloc_large.exit:                               ; preds = %363, %391, %420, %.
   br label %alloc_sys.exit
 
 tmalloc_large.exit.thread:                        ; preds = %277, %._crit_edge.i, %300, %41, %105, %224, %226
-  %.0144 = phi i64 [ %228, %226 ], [ -1, %224 ], [ %8, %105 ], [ %8, %41 ], [ %228, %300 ], [ %228, %._crit_edge.i ], [ %228, %277 ]
+  %.0144 = phi i64 [ -1, %224 ], [ %228, %226 ], [ %8, %41 ], [ %8, %105 ], [ %228, %300 ], [ %228, %._crit_edge.i ], [ %228, %277 ]
   %454 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %455 = load i64, ptr %454, align 8, !tbaa !49
   %.not171 = icmp ugt i64 %.0144, %455
@@ -2112,8 +2112,8 @@ tmalloc_large.exit.thread:                        ; preds = %277, %._crit_edge.i
   br i1 %.not199.i.i, label %619, label %.critedge.i.i.preheader
 
 .critedge.i.i.preheader:                          ; preds = %610, %607
-  %.1179.i.i.ph = phi ptr [ %611, %610 ], [ %608, %607 ]
-  %.3.i.i.ph = phi ptr [ %612, %610 ], [ %609, %607 ]
+  %.1179.i.i.ph = phi ptr [ %608, %607 ], [ %611, %610 ]
+  %.3.i.i.ph = phi ptr [ %609, %607 ], [ %612, %610 ]
   br label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.critedge.i.i.backedge, %.critedge.i.i.preheader
@@ -2618,8 +2618,8 @@ add_segment.exit.i:                               ; preds = %.sink.split.i.i, %7
   %879 = getelementptr inbounds nuw i8, ptr %873, i64 16
   br label %alloc_sys.exit
 
-alloc_sys.exit:                                   ; preds = %tmalloc_small.exit, %73, %103, %33, %870, %add_segment.exit.i, %prepend_alloc.exit.i, %499, %495, %493, %tmalloc_large.exit, %481, %475
-  %.1 = phi ptr [ %476, %475 ], [ %490, %481 ], [ %453, %tmalloc_large.exit ], [ %494, %493 ], [ null, %add_segment.exit.i ], [ null, %495 ], [ null, %499 ], [ %743, %prepend_alloc.exit.i ], [ %879, %870 ], [ %223, %tmalloc_small.exit ], [ %58, %73 ], [ %58, %103 ], [ %23, %33 ]
+alloc_sys.exit:                                   ; preds = %103, %73, %tmalloc_small.exit, %33, %870, %add_segment.exit.i, %prepend_alloc.exit.i, %499, %495, %493, %tmalloc_large.exit, %481, %475
+  %.1 = phi ptr [ %476, %475 ], [ %490, %481 ], [ %453, %tmalloc_large.exit ], [ %879, %870 ], [ %494, %493 ], [ null, %499 ], [ null, %add_segment.exit.i ], [ null, %495 ], [ %743, %prepend_alloc.exit.i ], [ %58, %103 ], [ %58, %73 ], [ %223, %tmalloc_small.exit ], [ %23, %33 ]
   ret ptr %.1
 }
 
@@ -2741,8 +2741,8 @@ define internal fastcc ptr @lj_alloc_realloc(ptr noundef %0, ptr noundef nonnull
   store i64 %70, ptr %65, align 8, !tbaa !25
   br label %76
 
-76:                                               ; preds = %69, %50, %47, %21, %36
-  %.072.ph = phi ptr [ %37, %36 ], [ %6, %21 ], [ %6, %47 ], [ %6, %50 ], [ %6, %69 ]
+76:                                               ; preds = %47, %69, %50, %21, %36
+  %.072.ph = phi ptr [ %37, %36 ], [ %6, %21 ], [ %6, %50 ], [ %6, %69 ], [ %6, %47 ]
   %77 = getelementptr inbounds nuw i8, ptr %.072.ph, i64 16
   br label %88
 
@@ -2873,8 +2873,8 @@ define internal fastcc i64 @release_unused_segments(ptr noundef %0) unnamed_addr
   br i1 %.not156, label %54, label %.critedge.preheader
 
 .critedge.preheader:                              ; preds = %45, %42
-  %.1141.ph = phi ptr [ %46, %45 ], [ %43, %42 ]
-  %.3.ph = phi ptr [ %47, %45 ], [ %44, %42 ]
+  %.1141.ph = phi ptr [ %43, %42 ], [ %46, %45 ]
+  %.3.ph = phi ptr [ %44, %42 ], [ %47, %45 ]
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.backedge, %.critedge.preheader
@@ -3089,8 +3089,8 @@ define internal fastcc i64 @release_unused_segments(ptr noundef %0) unnamed_addr
   br label %153
 
 153:                                              ; preds = %.thread, %93, %146, %120, %9
-  %.1134 = phi ptr [ %.0133174, %9 ], [ %.0132175, %93 ], [ %.0133174, %146 ], [ %.0133174, %120 ], [ %.0133174, %.thread ]
-  %.1 = phi i64 [ %.0177, %9 ], [ %94, %93 ], [ %.0177, %146 ], [ %.0177, %120 ], [ %.0177, %.thread ]
+  %.1134 = phi ptr [ %.0133174, %9 ], [ %.0132175, %93 ], [ %.0133174, %146 ], [ %.0133174, %.thread ], [ %.0133174, %120 ]
+  %.1 = phi i64 [ %.0177, %9 ], [ %94, %93 ], [ %.0177, %146 ], [ %.0177, %.thread ], [ %.0177, %120 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge.loopexit, label %9, !llvm.loop !67
 

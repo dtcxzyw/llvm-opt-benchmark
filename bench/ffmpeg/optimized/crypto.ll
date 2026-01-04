@@ -302,8 +302,8 @@ set_aes_arg.exit82:                               ; preds = %72, %set_aes_arg.ex
   store i32 1, ptr %110, align 8, !tbaa !30
   br label %set_aes_arg.exit.thread
 
-set_aes_arg.exit.thread:                          ; preds = %70, %68, %69, %73, %56, %54, %55, %59, %40, %38, %39, %43, %26, %24, %25, %29, %101, %86, %100, %109, %104, %89, %83, %12
-  %.0 = phi i32 [ %81, %83 ], [ %92, %89 ], [ %107, %104 ], [ %107, %109 ], [ %.1, %100 ], [ -22, %12 ], [ -12, %86 ], [ -12, %101 ], [ -12, %26 ], [ -22, %24 ], [ -22, %25 ], [ -22, %29 ], [ -12, %40 ], [ -22, %38 ], [ -22, %39 ], [ -22, %43 ], [ -12, %56 ], [ -22, %54 ], [ -22, %55 ], [ -22, %59 ], [ -12, %70 ], [ -22, %68 ], [ -22, %69 ], [ -22, %73 ]
+set_aes_arg.exit.thread:                          ; preds = %68, %69, %70, %73, %54, %55, %56, %59, %38, %39, %40, %43, %24, %25, %26, %29, %101, %86, %100, %109, %104, %89, %83, %12
+  %.0 = phi i32 [ -12, %101 ], [ -22, %29 ], [ -22, %43 ], [ -22, %59 ], [ %81, %83 ], [ %92, %89 ], [ %107, %104 ], [ %107, %109 ], [ -12, %86 ], [ %.1, %100 ], [ -22, %12 ], [ -22, %24 ], [ -22, %25 ], [ -12, %26 ], [ -22, %38 ], [ -22, %39 ], [ -12, %40 ], [ -22, %54 ], [ -22, %55 ], [ -12, %56 ], [ -22, %68 ], [ -22, %69 ], [ -12, %70 ], [ -22, %73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -383,8 +383,8 @@ define internal i32 @crypto_read(ptr noundef readonly captures(none) %0, ptr nou
   br i1 %44, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %39, %.preheader, %.thread
-  %.pre-phi = phi i32 [ %20, %.preheader ], [ %.pre82, %.thread ], [ %43, %39 ]
-  %45 = phi i32 [ %18, %.preheader ], [ %.pre79, %.thread ], [ %42, %39 ]
+  %.pre-phi = phi i32 [ %.pre82, %.thread ], [ %20, %.preheader ], [ %43, %39 ]
+  %45 = phi i32 [ %.pre79, %.thread ], [ %18, %.preheader ], [ %42, %39 ]
   %.off = add i32 %.pre-phi, 15
   %.not = icmp ult i32 %.off, 31
   br i1 %.not, label %.loopexit69, label %46
@@ -541,7 +541,7 @@ define internal i32 @crypto_write(ptr noundef readonly captures(none) %0, ptr no
   br label %60
 
 60:                                               ; preds = %31, %12, %59
-  %.0 = phi i32 [ %2, %59 ], [ -12, %12 ], [ %46, %31 ]
+  %.0 = phi i32 [ -12, %12 ], [ %2, %59 ], [ %46, %31 ]
   ret i32 %.0
 }
 
@@ -692,7 +692,7 @@ define internal i64 @crypto_seek(ptr noundef %0, i64 noundef %1, i32 noundef %2)
   br label %69
 
 69:                                               ; preds = %57, %.critedge, %.thread, %56, %30, %26, %23, %11
-  %.057 = phi i64 [ -29, %11 ], [ -22, %30 ], [ %54, %56 ], [ -22, %.thread ], [ %21, %23 ], [ %29, %26 ], [ %.pre, %.critedge ], [ %.059, %57 ]
+  %.057 = phi i64 [ -29, %11 ], [ -22, %30 ], [ %54, %56 ], [ %29, %26 ], [ -22, %.thread ], [ %21, %23 ], [ %.pre, %.critedge ], [ %.059, %57 ]
   ret i64 %.057
 }
 

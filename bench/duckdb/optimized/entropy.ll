@@ -217,12 +217,12 @@ define hidden i32 @mbedtls_entropy_gather(ptr noundef %0) local_unnamed_addr #0 
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %9, %._crit_edge.loopexit.i, %.preheader.i
-  %.119.i = phi i32 [ -61, %.preheader.i ], [ %33, %._crit_edge.loopexit.i ], [ %17, %9 ]
+  %.119.i = phi i32 [ %33, %._crit_edge.loopexit.i ], [ -61, %.preheader.i ], [ %17, %9 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 128)
   br label %_ZL23entropy_gather_internalP23mbedtls_entropy_context.exit
 
 _ZL23entropy_gather_internalP23mbedtls_entropy_context.exit: ; preds = %20, %1, %.loopexit.i
-  %.020.i = phi i32 [ %.119.i, %.loopexit.i ], [ -64, %1 ], [ %22, %20 ]
+  %.020.i = phi i32 [ -64, %1 ], [ %.119.i, %.loopexit.i ], [ %22, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.020.i
@@ -403,7 +403,7 @@ _ZL23entropy_gather_internalP23mbedtls_entropy_context.exit: ; preds = %._crit_e
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.backedge, %_ZL23entropy_gather_internalP23mbedtls_entropy_context.exit.thread51, %_ZL23entropy_gather_internalP23mbedtls_entropy_context.exit.thread, %61, %59, %57, %54, %._crit_edge74
-  %.037 = phi i32 [ %56, %54 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ 0, %._crit_edge74 ], [ %.020.i.ph, %_ZL23entropy_gather_internalP23mbedtls_entropy_context.exit.thread ], [ %.119.i.ph, %_ZL23entropy_gather_internalP23mbedtls_entropy_context.exit.thread51 ], [ -60, %.backedge ]
+  %.037 = phi i32 [ 0, %._crit_edge74 ], [ %.119.i.ph, %_ZL23entropy_gather_internalP23mbedtls_entropy_context.exit.thread51 ], [ %56, %54 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ %.020.i.ph, %_ZL23entropy_gather_internalP23mbedtls_entropy_context.exit.thread ], [ -60, %.backedge ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %6, i64 noundef 32)
   br label %67
 

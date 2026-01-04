@@ -163,14 +163,14 @@ define dso_local range(i32 -1, 1) i32 @common_file_read_uints(ptr noundef %0, pt
   br label %.sink.split.sink.split
 
 .thread91:                                        ; preds = %._crit_edge, %._crit_edge.thread
-  %.037.lcssa8694 = phi i32 [ 0, %._crit_edge.thread ], [ %15, %._crit_edge ]
+  %.037.lcssa8694 = phi i32 [ %15, %._crit_edge ], [ 0, %._crit_edge.thread ]
   call void @slurm_xfree(ptr noundef nonnull %5) #8
   %41 = icmp eq i32 %3, 64
   br i1 %41, label %.sink.split, label %42
 
-.sink.split.sink.split:                           ; preds = %._crit_edge.thread, %20, %.loopexit.loopexit, %.loopexit.loopexit75, %29
-  %.058101.sink.ph = phi ptr [ %31, %29 ], [ %31, %.loopexit.loopexit75 ], [ null, %._crit_edge.thread ], [ %22, %20 ], [ %22, %.loopexit.loopexit ]
-  %.23950.ph.ph = phi i32 [ 0, %29 ], [ %40, %.loopexit.loopexit75 ], [ 0, %._crit_edge.thread ], [ 0, %20 ], [ %39, %.loopexit.loopexit ]
+.sink.split.sink.split:                           ; preds = %._crit_edge.thread, %.loopexit.loopexit, %20, %.loopexit.loopexit75, %29
+  %.058101.sink.ph = phi ptr [ %31, %.loopexit.loopexit75 ], [ %31, %29 ], [ null, %._crit_edge.thread ], [ %22, %.loopexit.loopexit ], [ %22, %20 ]
+  %.23950.ph.ph = phi i32 [ %40, %.loopexit.loopexit75 ], [ 0, %29 ], [ 0, %._crit_edge.thread ], [ %39, %.loopexit.loopexit ], [ 0, %20 ]
   call void @slurm_xfree(ptr noundef nonnull %5) #8
   br label %.sink.split
 
@@ -429,7 +429,7 @@ define dso_local i32 @common_file_write_uints(ptr noundef %0, ptr noundef readon
   br label %.thread67
 
 .thread67:                                        ; preds = %29, %26, %18, %59, %._crit_edge, %8
-  %.0 = phi i32 [ -1, %8 ], [ 0, %._crit_edge ], [ %61, %59 ], [ -1, %18 ], [ -1, %26 ], [ -1, %29 ]
+  %.0 = phi i32 [ -1, %8 ], [ %61, %59 ], [ 0, %._crit_edge ], [ -1, %18 ], [ -1, %26 ], [ -1, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -533,13 +533,13 @@ define dso_local range(i32 -1, 1) i32 @common_file_write_content(ptr noundef %0,
   %27 = tail call i32 @close(i32 noundef %4) #8
   br label %31
 
-28:                                               ; preds = %16, %.split37
+28:                                               ; preds = %.split37, %16
   %29 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.11, ptr noundef nonnull @__func__.common_file_write_content, i64 noundef %2, ptr noundef %0) #8
   %30 = tail call i32 @close(i32 noundef %4) #8
   br label %31
 
 31:                                               ; preds = %28, %.outer._crit_edge, %7
-  %.0 = phi i32 [ -1, %7 ], [ 0, %.outer._crit_edge ], [ -1, %28 ]
+  %.0 = phi i32 [ -1, %7 ], [ -1, %28 ], [ 0, %.outer._crit_edge ]
   ret i32 %.0
 }
 
@@ -752,7 +752,7 @@ _cgroup_procs_writable_path.exit:                 ; preds = %12, %16
   br label %_set_uint32_param.exit
 
 _set_uint32_param.exit:                           ; preds = %25, %28, %31, %36, %37, %40, %41, %42, %45
-  %.0.i = phi i32 [ -1, %28 ], [ -1, %31 ], [ -1, %25 ], [ 0, %41 ], [ 0, %45 ], [ 0, %42 ], [ %33, %36 ], [ %33, %40 ], [ %33, %37 ]
+  %.0.i = phi i32 [ -1, %25 ], [ -1, %28 ], [ -1, %31 ], [ 0, %41 ], [ 0, %45 ], [ 0, %42 ], [ %33, %36 ], [ %33, %40 ], [ %33, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %46
@@ -844,7 +844,7 @@ define dso_local range(i32 -1, 1) i32 @common_cgroup_set_param(ptr noundef reado
   br label %41
 
 41:                                               ; preds = %33, %36, %30, %40, %37, %20, %26, %23, %10, %16, %13, %3
-  %.0 = phi i32 [ -1, %3 ], [ -1, %13 ], [ -1, %16 ], [ -1, %10 ], [ -1, %23 ], [ -1, %26 ], [ -1, %20 ], [ 0, %37 ], [ 0, %40 ], [ -1, %30 ], [ -1, %36 ], [ -1, %33 ]
+  %.0 = phi i32 [ -1, %10 ], [ -1, %20 ], [ -1, %3 ], [ -1, %13 ], [ -1, %16 ], [ -1, %23 ], [ -1, %26 ], [ 0, %37 ], [ 0, %40 ], [ -1, %30 ], [ -1, %36 ], [ -1, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -976,7 +976,7 @@ _is_empty_dir.exit:                               ; preds = %37, %.preheader.i
   %39 = call i32 @closedir(ptr noundef nonnull %17)
   br label %_is_empty_dir.exit.thread
 
-40:                                               ; preds = %.tail16.thread.i, %36, %33
+40:                                               ; preds = %33, %.tail16.thread.i, %36
   %41 = call i32 @closedir(ptr noundef nonnull %17)
   %42 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %43 = and i64 %42, 36028797018963968
@@ -1074,7 +1074,7 @@ _is_empty_dir.exit.thread:                        ; preds = %15, %_is_empty_dir.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %50, %.preheader, %.critedge, %81, %84, %.critedge.thread69, %76, %71, %74, %68, %55, %58, %40, %47, %44, %10
-  %.015 = phi i32 [ 0, %10 ], [ -1, %44 ], [ -1, %47 ], [ -1, %40 ], [ -1, %58 ], [ -1, %55 ], [ -1, %68 ], [ -1, %74 ], [ -1, %71 ], [ -1, %76 ], [ 0, %.critedge.thread69 ], [ 0, %84 ], [ 0, %81 ], [ 0, %.critedge ], [ 0, %.preheader ], [ -1, %50 ]
+  %.015 = phi i32 [ -1, %40 ], [ 0, %.critedge ], [ -1, %55 ], [ 0, %10 ], [ -1, %76 ], [ -1, %44 ], [ -1, %47 ], [ -1, %58 ], [ -1, %68 ], [ -1, %74 ], [ -1, %71 ], [ 0, %.critedge.thread69 ], [ 0, %84 ], [ 0, %81 ], [ 0, %.preheader ], [ -1, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.015
@@ -1160,7 +1160,7 @@ _cgroup_procs_readable_path.exit:                 ; preds = %16, %20
   br label %36
 
 36:                                               ; preds = %3, %9, %35, %23
-  %.0 = phi i32 [ %27, %35 ], [ -1, %23 ], [ -1, %9 ], [ -1, %3 ]
+  %.0 = phi i32 [ -1, %23 ], [ %27, %35 ], [ -1, %9 ], [ -1, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -1341,7 +1341,7 @@ define dso_local i32 @common_cgroup_set_uint64_param(ptr noundef readonly captur
   br label %30
 
 30:                                               ; preds = %22, %25, %19, %29, %26, %10, %16, %13
-  %.0 = phi i32 [ -1, %13 ], [ -1, %16 ], [ -1, %10 ], [ 0, %26 ], [ 0, %29 ], [ %18, %19 ], [ %18, %25 ], [ %18, %22 ]
+  %.0 = phi i32 [ -1, %10 ], [ -1, %13 ], [ -1, %16 ], [ 0, %26 ], [ 0, %29 ], [ %18, %19 ], [ %18, %25 ], [ %18, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1378,7 +1378,7 @@ define dso_local range(i32 -1, 1) i32 @common_cgroup_lock(ptr noundef captures(n
   br label %20
 
 20:                                               ; preds = %15, %12, %1, %9
-  %.010 = phi i32 [ -1, %9 ], [ -1, %1 ], [ -1, %15 ], [ 0, %12 ]
+  %.010 = phi i32 [ -1, %1 ], [ -1, %9 ], [ -1, %15 ], [ 0, %12 ]
   ret i32 %.010
 }
 

@@ -4098,7 +4098,7 @@ define void @_ZN5tokio3net4unix4pipe6Sender13from_owned_fd17h5c6214d5c627ff96E(p
 "_ZN4core3ptr48drop_in_place$LT$std..os..fd..owned..OwnedFd$GT$17he4b47a550e05a9c5E.exit": ; preds = %58
   resume { ptr, i32 } %lpad.thr_comm
 
-58:                                               ; preds = %5, %40, %22, %9, %27, %30, %44, %47
+58:                                               ; preds = %5, %47, %40, %27, %30, %22, %9, %44
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %59 = invoke noundef i32 @close(i32 noundef %1)
@@ -4163,8 +4163,8 @@ define { i64, ptr } @_ZN5tokio3net4unix4pipe6Sender16poll_write_ready17h6e4676bf
   br label %"_ZN4core4task4poll45Poll$LT$core..result..Result$LT$T$C$E$GT$$GT$6map_ok17hd3b03af4e7acf4d3E.exit"
 
 "_ZN4core4task4poll45Poll$LT$core..result..Result$LT$T$C$E$GT$$GT$6map_ok17hd3b03af4e7acf4d3E.exit": ; preds = %2, %6, %7
-  %.sroa.4.0.i = phi ptr [ %8, %7 ], [ null, %6 ], [ undef, %2 ]
-  %.sroa.0.0.i = phi i64 [ 0, %7 ], [ 0, %6 ], [ 1, %2 ]
+  %.sroa.4.0.i = phi ptr [ null, %6 ], [ %8, %7 ], [ undef, %2 ]
+  %.sroa.0.0.i = phi i64 [ 0, %6 ], [ 0, %7 ], [ 1, %2 ]
   %9 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i, 0
   %10 = insertvalue { i64, ptr } %9, ptr %.sroa.4.0.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -4584,7 +4584,7 @@ define void @_ZN5tokio3net4unix4pipe8Receiver13from_owned_fd17hbe545561190f1354E
 "_ZN4core3ptr48drop_in_place$LT$std..os..fd..owned..OwnedFd$GT$17he4b47a550e05a9c5E.exit": ; preds = %57
   resume { ptr, i32 } %lpad.thr_comm
 
-57:                                               ; preds = %5, %39, %22, %9, %27, %30, %43, %46
+57:                                               ; preds = %5, %46, %39, %27, %30, %22, %9, %43
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %58 = invoke noundef i32 @close(i32 noundef %1)
@@ -4649,8 +4649,8 @@ define { i64, ptr } @_ZN5tokio3net4unix4pipe8Receiver15poll_read_ready17hf2794aa
   br label %"_ZN4core4task4poll45Poll$LT$core..result..Result$LT$T$C$E$GT$$GT$6map_ok17hb1b561b1132f5567E.exit"
 
 "_ZN4core4task4poll45Poll$LT$core..result..Result$LT$T$C$E$GT$$GT$6map_ok17hb1b561b1132f5567E.exit": ; preds = %2, %6, %7
-  %.sroa.4.0.i = phi ptr [ %8, %7 ], [ null, %6 ], [ undef, %2 ]
-  %.sroa.0.0.i = phi i64 [ 0, %7 ], [ 0, %6 ], [ 1, %2 ]
+  %.sroa.4.0.i = phi ptr [ null, %6 ], [ %8, %7 ], [ undef, %2 ]
+  %.sroa.0.0.i = phi i64 [ 0, %6 ], [ 0, %7 ], [ 1, %2 ]
   %9 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i, 0
   %10 = insertvalue { i64, ptr } %9, ptr %.sroa.4.0.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -9722,7 +9722,7 @@ define hidden noundef ptr @"_ZN109_$LT$tokio..util..linked_list..DrainFilter$LT$
   br label %36
 
 "_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$6remove17h7a8b6a963c7edb81E.exit": ; preds = %5, %36, %32, %25
-  %.0 = phi ptr [ %6, %36 ], [ null, %25 ], [ null, %32 ], [ null, %5 ]
+  %.0 = phi ptr [ null, %32 ], [ %6, %36 ], [ null, %25 ], [ null, %5 ]
   ret ptr %.0
 }
 

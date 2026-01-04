@@ -800,7 +800,7 @@ Aig_ObjSetRepr_.exit:                             ; preds = %Aig_ObjFindReprTran
   br label %Aig_ObjFindReprTransitive.exit.thread
 
 Aig_ObjFindReprTransitive.exit.thread:            ; preds = %17, %Aig_ObjSetRepr_.exit, %12, %8
-  %.1 = phi i32 [ %.024, %8 ], [ %34, %Aig_ObjSetRepr_.exit ], [ %.024, %12 ], [ %.024, %17 ]
+  %.1 = phi i32 [ %.024, %8 ], [ %.024, %12 ], [ %34, %Aig_ObjSetRepr_.exit ], [ %.024, %17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %8, !llvm.loop !53
@@ -923,7 +923,7 @@ Aig_ObjEquiv.exit:                                ; preds = %26
   br i1 %32, label %._crit_edge, label %7
 
 ._crit_edge:                                      ; preds = %26, %Aig_ObjEquiv.exit, %7, %10, %12, %14, %20, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %26 ], [ 1, %20 ], [ 1, %14 ], [ 0, %12 ], [ 1, %10 ], [ 0, %7 ], [ 0, %Aig_ObjEquiv.exit ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %26 ], [ 0, %7 ], [ 1, %10 ], [ 0, %12 ], [ 1, %14 ], [ 1, %20 ], [ 0, %Aig_ObjEquiv.exit ]
   ret i32 %.0
 }
 
@@ -1015,7 +1015,7 @@ Aig_ObjSetRepr_.exit.i:                           ; preds = %.sink.split.i.i, %A
   br label %Aig_ObjFindReprTransitive.exit.thread.i
 
 Aig_ObjFindReprTransitive.exit.thread.i:          ; preds = %Aig_ObjSetRepr_.exit.i, %18, %13, %9
-  %.1.i = phi i32 [ %.024.i, %9 ], [ %35, %Aig_ObjSetRepr_.exit.i ], [ %.024.i, %13 ], [ %.024.i, %18 ]
+  %.1.i = phi i32 [ %.024.i, %9 ], [ %.024.i, %13 ], [ %35, %Aig_ObjSetRepr_.exit.i ], [ %.024.i, %18 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Aig_ManRemapRepr.exit, label %9, !llvm.loop !53
@@ -1247,7 +1247,7 @@ Aig_ManObj.exit25:                                ; preds = %24
   br label %Aig_ObjSetRepr_.exit
 
 Aig_ObjSetRepr_.exit:                             ; preds = %24, %.sink.split.i, %Aig_ManObj.exit25, %13, %17
-  %.2 = phi i32 [ %.126, %13 ], [ %.126, %17 ], [ %25, %Aig_ManObj.exit25 ], [ %25, %.sink.split.i ], [ %25, %24 ]
+  %.2 = phi i32 [ %.126, %13 ], [ %.126, %17 ], [ %25, %.sink.split.i ], [ %25, %Aig_ManObj.exit25 ], [ %25, %24 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %13, !llvm.loop !61

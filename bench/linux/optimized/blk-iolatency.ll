@@ -679,7 +679,7 @@ define internal i64 @iolatency_set_limit(ptr noundef %0, ptr noundef %1, i64 nou
   br label %.thread15
 
 82:                                               ; preds = %73, %79
-  %83 = phi i64 [ %81, %79 ], [ 0, %73 ]
+  %83 = phi i64 [ 0, %73 ], [ %81, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -775,8 +775,8 @@ iolatency_set_min_lat_nsec.exit:                  ; preds = %109, %113, %129, %.
   call fastcc void @iolatency_clear_scaling(ptr %.val)
   br label %141
 
-.thread15:                                        ; preds = %4, %.loopexit, %47, %.loopexit17, %.thread12, %.thread13
-  %.ph = phi i32 [ -22, %.thread13 ], [ -22, %.thread12 ], [ -12, %.loopexit17 ], [ %48, %47 ], [ %49, %.loopexit ], [ %11, %4 ]
+.thread15:                                        ; preds = %4, %.thread13, %.loopexit, %47, %.loopexit17, %.thread12
+  %.ph = phi i32 [ -22, %.thread12 ], [ -12, %.loopexit17 ], [ %48, %47 ], [ %49, %.loopexit ], [ -22, %.thread13 ], [ %11, %4 ]
   call void @blkg_conf_exit(ptr noundef nonnull %5) #14
   %140 = sext i32 %.ph to i64
   br label %142

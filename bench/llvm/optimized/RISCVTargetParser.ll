@@ -286,7 +286,7 @@ _ZN4llvm5RISCV11getCPUModelENS_9StringRefE.exit:  ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvm5RISCV11getCPUModelENS_9StringRefE.exit.thread
 
 _ZN4llvm5RISCV11getCPUModelENS_9StringRefE.exit.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us.i, %10, %_ZN4llvm5RISCV11getCPUModelENS_9StringRefE.exit
-  %12 = phi i1 [ false, %_ZN4llvm5RISCV11getCPUModelENS_9StringRefE.exit ], [ %11, %10 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us.i ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.i ]
+  %12 = phi i1 [ %11, %10 ], [ false, %_ZN4llvm5RISCV11getCPUModelENS_9StringRefE.exit ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us.i ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.i ]
   ret i1 %12
 }
 
@@ -489,7 +489,7 @@ _ZNK4llvm5RISCV7CPUInfo7is64BitEv.exit.i:         ; preds = %10, %.split11.us.i
   br label %_ZN4llvm5RISCV8parseCPUENS_9StringRefEb.exit
 
 _ZN4llvm5RISCV8parseCPUENS_9StringRefEb.exit:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i9, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i17, %_ZNK4llvm5RISCV7CPUInfo7is64BitEv.exit.i
-  %.0 = phi i1 [ %16, %_ZNK4llvm5RISCV7CPUInfo7is64BitEv.exit.i ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i17 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i9 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.i ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us.i ]
+  %.0 = phi i1 [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ %16, %_ZNK4llvm5RISCV7CPUInfo7is64BitEv.exit.i ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.i ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i17 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i9 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us.i ]
   ret i1 %.0
 }
 

@@ -1409,7 +1409,7 @@ define internal i32 @dissect_zbee_zdp(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %select.unfold
 
 select.unfold:                                    ; preds = %21, %6
-  %.0469 = phi i16 [ %20, %6 ], [ %spec.select, %21 ]
+  %.0469 = phi i16 [ %spec.select, %21 ], [ %20, %6 ]
   %26 = zext i16 %.0469 to i32
   %27 = tail call ptr @val_to_str_const(i32 noundef %26, ptr noundef nonnull @zbee_zdp_cluster_names, ptr noundef nonnull @.str.497)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.496, ptr noundef %27)

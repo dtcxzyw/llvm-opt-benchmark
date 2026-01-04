@@ -1315,8 +1315,8 @@ thread-pre-split11:                               ; preds = %41
   br i1 %57, label %.thread9.sink.split, label %.thread9
 
 .thread9.sink.split:                              ; preds = %34, %.thread, %26, %24, %20, %13, %8, %45, %53
-  %.str.17.sink = phi ptr [ @.str.18, %53 ], [ @.str.19, %45 ], [ @.str.12, %8 ], [ @.str.13, %13 ], [ @.str.12, %20 ], [ @.str.14, %24 ], [ @.str.15, %26 ], [ @.str.16, %.thread ], [ @.str.17, %34 ]
-  %.ph = phi i32 [ -22, %53 ], [ 0, %45 ], [ -22, %8 ], [ -22, %13 ], [ -22, %20 ], [ -22, %24 ], [ -22, %26 ], [ -22, %.thread ], [ -22, %34 ]
+  %.str.17.sink = phi ptr [ @.str.19, %45 ], [ @.str.18, %53 ], [ @.str.16, %.thread ], [ @.str.15, %26 ], [ @.str.14, %24 ], [ @.str.12, %20 ], [ @.str.13, %13 ], [ @.str.12, %8 ], [ @.str.17, %34 ]
+  %.ph = phi i32 [ 0, %45 ], [ -22, %53 ], [ -22, %8 ], [ -22, %13 ], [ -22, %20 ], [ -22, %24 ], [ -22, %26 ], [ -22, %.thread ], [ -22, %34 ]
   %58 = call i32 (ptr, ...) @_printk(ptr noundef nonnull %.str.17.sink) #20
   br label %.thread9
 

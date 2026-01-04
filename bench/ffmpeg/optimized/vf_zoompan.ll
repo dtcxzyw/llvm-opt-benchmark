@@ -347,7 +347,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef %0) #2 {
   br label %141
 
 141:                                              ; preds = %.thread114, %20, %136, %138, %140, %127, %25, %116, %133
-  %.189 = phi i32 [ 0, %133 ], [ %125, %116 ], [ %30, %25 ], [ 0, %20 ], [ %33, %127 ], [ 0, %140 ], [ 0, %138 ], [ 0, %136 ], [ %114, %.thread114 ]
+  %.189 = phi i32 [ 0, %20 ], [ 0, %133 ], [ %33, %127 ], [ %125, %116 ], [ %30, %25 ], [ 0, %140 ], [ 0, %138 ], [ 0, %136 ], [ %114, %.thread114 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.189
@@ -405,7 +405,7 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef capture
   br label %37
 
 37:                                               ; preds = %32, %26, %1
-  %.0 = phi i32 [ %24, %1 ], [ %30, %26 ], [ %., %32 ]
+  %.0 = phi i32 [ %30, %26 ], [ %24, %1 ], [ %., %32 ]
   ret i32 %.0
 }
 

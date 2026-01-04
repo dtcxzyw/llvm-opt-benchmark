@@ -395,7 +395,7 @@ define ptr @Java_sun_net_spi_DefaultProxySelector_getSystemProxies(ptr noundef %
   br i1 %.not95.i, label %.loopexit.i, label %.lr.ph108.i, !llvm.loop !8
 
 .loopexit.i:                                      ; preds = %115, %106, %101, %93, %84, %79, %74, %67, %61, %.preheader.i, %52, %._crit_edge.i, %41
-  %.1.i = phi ptr [ null, %41 ], [ %51, %52 ], [ null, %._crit_edge.i ], [ %51, %.preheader.i ], [ null, %106 ], [ null, %93 ], [ null, %101 ], [ null, %61 ], [ null, %67 ], [ null, %84 ], [ null, %74 ], [ null, %79 ], [ %51, %115 ]
+  %.1.i = phi ptr [ null, %41 ], [ %51, %52 ], [ null, %._crit_edge.i ], [ %51, %.preheader.i ], [ null, %106 ], [ null, %84 ], [ null, %79 ], [ null, %74 ], [ null, %67 ], [ null, %101 ], [ %51, %115 ], [ null, %61 ], [ null, %93 ]
   %118 = load ptr, ptr @g_strfreev, align 8
   call void %118(ptr noundef nonnull %40) #10
   %119 = load ptr, ptr @g_clear_error, align 8
@@ -531,10 +531,10 @@ getProxyByGProxyResolver.exit:                    ; preds = %25, %29, %35, %.loo
   br label %198
 
 198:                                              ; preds = %186, %183
-  %.058.i = phi ptr [ %.462.i, %183 ], [ %189, %186 ]
-  %.053.i = phi i32 [ %.457.i, %183 ], [ %192, %186 ]
-  %.052.i = phi i32 [ %.4.i, %183 ], [ %196, %186 ]
-  %.050.i = phi ptr [ %123, %183 ], [ %spec.select.i, %186 ]
+  %.058.i = phi ptr [ %189, %186 ], [ %.462.i, %183 ]
+  %.053.i = phi i32 [ %192, %186 ], [ %.457.i, %183 ]
+  %.052.i = phi i32 [ %196, %186 ], [ %.4.i, %183 ]
+  %.050.i = phi ptr [ %spec.select.i, %186 ], [ %123, %183 ]
   %.not77.i = icmp eq i32 %.052.i, 0
   br i1 %.not77.i, label %getProxyByGConf.exit, label %.thread98.i
 
@@ -617,7 +617,7 @@ getProxyByGProxyResolver.exit:                    ; preds = %25, %29, %35, %.loo
   br label %getProxyByGConf.exit
 
 getProxyByGConf.exit:                             ; preds = %206, %122, %127, %198, %.critedge85.i, %219, %224, %228, %233
-  %.049.i = phi ptr [ null, %219 ], [ null, %.critedge85.i ], [ null, %228 ], [ null, %224 ], [ null, %198 ], [ %spec.select86.i, %233 ], [ null, %127 ], [ null, %122 ], [ null, %206 ]
+  %.049.i = phi ptr [ %spec.select86.i, %233 ], [ null, %.critedge85.i ], [ null, %224 ], [ null, %219 ], [ null, %228 ], [ null, %198 ], [ null, %122 ], [ null, %127 ], [ null, %206 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %241
 

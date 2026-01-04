@@ -414,7 +414,7 @@ proto_item_set_generated.exit:                    ; preds = %41, %44, %47
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit.sink.split, %4
-  %.0 = phi i32 [ 0, %4 ], [ %210, %.loopexit.sink.split ], [ 0, %.preheader ]
+  %.0 = phi i32 [ %210, %.loopexit.sink.split ], [ 0, %4 ], [ 0, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

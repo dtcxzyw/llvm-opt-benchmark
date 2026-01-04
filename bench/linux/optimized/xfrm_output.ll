@@ -990,7 +990,7 @@ define dso_local i32 @xfrm_output_resume(ptr noundef %0, ptr noundef %1, i32 nou
   %655 = icmp eq i32 %654, 0
   br i1 %655, label %.thread38, label %.loopexit
 
-.thread38:                                        ; preds = %419, %502, %337, %335, %204, %548, %653
+.thread38:                                        ; preds = %419, %337, %335, %502, %204, %548, %653
   %656 = getelementptr inbounds nuw i8, ptr %63, i64 76
   call void @_raw_spin_lock_bh(ptr noundef nonnull %656) #8
   %657 = getelementptr inbounds nuw i8, ptr %63, i64 200
@@ -1166,8 +1166,8 @@ define dso_local i32 @xfrm_output_resume(ptr noundef %0, ptr noundef %1, i32 nou
   br label %.thread40
 
 .thread40:                                        ; preds = %754, %770, %768, %763, %759
-  %771 = phi i1 [ false, %770 ], [ false, %768 ], [ false, %763 ], [ true, %759 ], [ true, %754 ]
-  %772 = phi ptr [ %761, %770 ], [ %761, %768 ], [ %761, %763 ], [ null, %759 ], [ null, %754 ]
+  %771 = phi i1 [ true, %759 ], [ false, %770 ], [ false, %768 ], [ false, %763 ], [ true, %754 ]
+  %772 = phi ptr [ null, %759 ], [ %761, %770 ], [ %761, %768 ], [ %761, %763 ], [ null, %754 ]
   %773 = load i64, ptr %7, align 8
   %774 = icmp eq i64 %773, 0
   br i1 %774, label %781, label %775
@@ -1336,7 +1336,7 @@ define dso_local i32 @xfrm_output_resume(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %850, label %49, label %.loopexit55, !prof !5, !llvm.loop !34
 
 .thread51:                                        ; preds = %703, %781, %512, %118, %121, %339, %652, %651, %338, %511
-  %.ph50 = phi i32 [ -95, %511 ], [ -95, %338 ], [ -95, %651 ], [ -95, %652 ], [ -95, %512 ], [ -95, %118 ], [ %122, %121 ], [ %340, %339 ], [ -113, %703 ], [ -113, %781 ]
+  %.ph50 = phi i32 [ -95, %652 ], [ -95, %338 ], [ -95, %651 ], [ -95, %511 ], [ -95, %512 ], [ -95, %118 ], [ %122, %121 ], [ %340, %339 ], [ -113, %781 ], [ -113, %703 ]
   call void @kfree_skb_reason(ptr noundef %1, i32 noundef 2) #8
   br label %.loopexit55
 
@@ -1351,7 +1351,7 @@ define dso_local i32 @xfrm_output_resume(ptr noundef %0, ptr noundef %1, i32 nou
   br label %.loopexit55
 
 .loopexit55:                                      ; preds = %.thread46, %.thread44, %.thread47, %.loopexit, %.thread51, %834, %832, %828
-  %853 = phi i32 [ %829, %828 ], [ %833, %832 ], [ %835, %834 ], [ 0, %.thread47 ], [ %.fr, %.loopexit ], [ %.ph50, %.thread51 ], [ %849, %.thread46 ], [ %815, %.thread44 ]
+  %853 = phi i32 [ %.fr, %.loopexit ], [ %829, %828 ], [ %833, %832 ], [ %835, %834 ], [ %.ph50, %.thread51 ], [ 0, %.thread47 ], [ %815, %.thread44 ], [ %849, %.thread46 ]
   ret i32 %853
 }
 
@@ -2045,7 +2045,7 @@ define internal fastcc noundef range(i32 -97, 1) i32 @xfrm_inner_extract_output(
   br label %.thread14
 
 .thread14:                                        ; preds = %298, %317, %314, %310, %320, %164, %167, %170, %322, %173, %23, %20, %2
-  %346 = phi i32 [ -97, %2 ], [ 0, %173 ], [ -97, %23 ], [ -97, %20 ], [ 0, %322 ], [ -90, %170 ], [ -90, %164 ], [ -90, %167 ], [ -90, %320 ], [ -90, %310 ], [ -90, %314 ], [ -90, %317 ], [ -90, %298 ]
+  %346 = phi i32 [ -97, %2 ], [ 0, %173 ], [ -97, %23 ], [ -97, %20 ], [ -90, %164 ], [ 0, %322 ], [ -90, %167 ], [ -90, %170 ], [ -90, %320 ], [ -90, %310 ], [ -90, %314 ], [ -90, %317 ], [ -90, %298 ]
   ret i32 %346
 }
 

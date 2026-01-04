@@ -238,7 +238,7 @@ define dso_local i32 @onas_dsresult(ptr noundef %0, i32 noundef %1, i64 noundef 
   br label %.thread.i
 
 .thread.i:                                        ; preds = %95, %.thread46.i, %90, %82, %80, %76, %71, %69
-  %.031.i = phi i32 [ -1, %69 ], [ 1, %.thread46.i ], [ 0, %71 ], [ 0, %76 ], [ -1, %80 ], [ -1, %82 ], [ 1, %90 ], [ 1, %95 ]
+  %.031.i = phi i32 [ -1, %69 ], [ -1, %82 ], [ 0, %71 ], [ 0, %76 ], [ -1, %80 ], [ 1, %.thread46.i ], [ 1, %90 ], [ 1, %95 ]
   br i1 %.not43.i, label %99, label %onas_send_stream.exit
 
 99:                                               ; preds = %.thread.i
@@ -352,7 +352,7 @@ onas_send_fdpass.exit.i:                          ; preds = %115
   br label %276
 
 onas_fdpass.exit:                                 ; preds = %134, %133, %onas_send_stream.exit, %55
-  %.0122 = phi i32 [ %38, %55 ], [ %.032.i, %onas_send_stream.exit ], [ %.011.i, %134 ], [ %.011.i, %133 ]
+  %.0122 = phi i32 [ %.011.i, %134 ], [ %38, %55 ], [ %.032.i, %onas_send_stream.exit ], [ %.011.i, %133 ]
   %136 = icmp slt i32 %.0122, 1
   br i1 %136, label %138, label %.preheader
 
@@ -674,7 +674,7 @@ onas_fdpass.exit:                                 ; preds = %134, %133, %onas_se
   br i1 %.not190, label %.thread221.backedge, label %.thread221.sink.split
 
 .thread221.sink.split:                            ; preds = %253, %242, %220, %.thread209
-  %.sink = phi i32 [ 1, %.thread209 ], [ 34, %253 ], [ 16, %242 ], [ 11, %220 ]
+  %.sink = phi i32 [ 1, %.thread209 ], [ 34, %253 ], [ 11, %220 ], [ 16, %242 ]
   %.2.ph = phi i32 [ %.4208, %.thread209 ], [ %.1.ph, %220 ], [ %.1.ph, %242 ], [ %.1.ph, %253 ]
   store i32 %.sink, ptr %8, align 4, !tbaa !12
   br label %.thread221.outer.backedge
@@ -729,7 +729,7 @@ onas_fdpass.exit:                                 ; preds = %134, %133, %onas_se
   br label %276
 
 276:                                              ; preds = %179, %178, %.thread, %273, %275, %262, %267, %256, %258, %145, %146, %138, %141, %41, %46, %27, %29, %254, %268, %53
-  %.0118 = phi i32 [ %.1.ph, %254 ], [ %.1.ph, %268 ], [ -1, %53 ], [ -1, %29 ], [ -1, %27 ], [ -1, %46 ], [ -1, %41 ], [ %.0122, %141 ], [ %.0122, %138 ], [ -1, %146 ], [ -1, %145 ], [ -1, %258 ], [ -1, %256 ], [ -1, %267 ], [ -1, %262 ], [ -1, %275 ], [ -1, %273 ], [ 0, %.thread ], [ -1, %179 ], [ -1, %178 ]
+  %.0118 = phi i32 [ -1, %41 ], [ %.0122, %138 ], [ 0, %.thread ], [ %.1.ph, %254 ], [ -1, %256 ], [ %.1.ph, %268 ], [ -1, %262 ], [ -1, %145 ], [ -1, %53 ], [ -1, %27 ], [ -1, %29 ], [ -1, %46 ], [ %.0122, %141 ], [ -1, %146 ], [ -1, %258 ], [ -1, %267 ], [ -1, %275 ], [ -1, %273 ], [ -1, %178 ], [ -1, %179 ]
   %277 = icmp sgt i32 %22, 0
   br i1 %277, label %278, label %280
 

@@ -747,12 +747,12 @@ send_response.exit.thread.i:                      ; preds = %52
   br label %on_request_recv.exit
 
 on_request_recv.exit:                             ; preds = %19, %check_path.exit.thread.i, %50, %send_response.exit.thread.i, %58
-  %.021.i = phi i32 [ -902, %58 ], [ %..i, %19 ], [ %.29.i, %check_path.exit.thread.i ], [ %.30.i, %50 ], [ 0, %send_response.exit.thread.i ]
+  %.021.i = phi i32 [ %.30.i, %50 ], [ %..i, %19 ], [ -902, %58 ], [ %.29.i, %check_path.exit.thread.i ], [ 0, %send_response.exit.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %61
 
 61:                                               ; preds = %8, %3, %12, %on_request_recv.exit
-  %.0 = phi i32 [ %.021.i, %on_request_recv.exit ], [ 0, %12 ], [ 0, %3 ], [ 0, %8 ]
+  %.0 = phi i32 [ 0, %12 ], [ %.021.i, %on_request_recv.exit ], [ 0, %3 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -854,7 +854,7 @@ define internal noundef i32 @on_header_callback(ptr noundef %0, ptr noundef read
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !51
 
 .critedge:                                        ; preds = %.lr.ph, %28
-  %.0.lcssa = phi i64 [ %.021, %.lr.ph ], [ %5, %28 ]
+  %.0.lcssa = phi i64 [ %5, %28 ], [ %.021, %.lr.ph ]
   %30 = add i64 %.0.lcssa, 1
   %31 = tail call noalias ptr @malloc(i64 noundef %30) #27
   %32 = icmp ugt i64 %.0.lcssa, 3
@@ -901,7 +901,7 @@ define internal noundef i32 @on_header_callback(ptr noundef %0, ptr noundef read
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %hex_to_uint.exit41.i, %52
-  %.032.be.i = phi i64 [ %53, %52 ], [ %76, %hex_to_uint.exit41.i ]
+  %.032.be.i = phi i64 [ %76, %hex_to_uint.exit41.i ], [ %53, %52 ]
   %.0.be.i = add i64 %.043.i, 1
   %55 = icmp ult i64 %.032.be.i, %33
   br i1 %55, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !56
@@ -928,7 +928,7 @@ define internal noundef i32 @on_header_callback(ptr noundef %0, ptr noundef read
   br label %hex_to_uint.exit.i
 
 hex_to_uint.exit.i:                               ; preds = %62, %60, %56
-  %.0.i.i = phi i8 [ %61, %60 ], [ %spec.select.i.i, %62 ], [ %57, %56 ]
+  %.0.i.i = phi i8 [ %spec.select.i.i, %62 ], [ %61, %60 ], [ %57, %56 ]
   %65 = shl nuw i8 %.0.i.i, 4
   %66 = add i8 %47, -48
   %or.cond.i36.i = icmp ult i8 %66, 10
@@ -951,7 +951,7 @@ hex_to_uint.exit.i:                               ; preds = %62, %60, %56
   br label %hex_to_uint.exit41.i
 
 hex_to_uint.exit41.i:                             ; preds = %71, %69, %hex_to_uint.exit.i
-  %.0.i40.i = phi i8 [ %70, %69 ], [ %spec.select.i39.i, %71 ], [ %66, %hex_to_uint.exit.i ]
+  %.0.i40.i = phi i8 [ %spec.select.i39.i, %71 ], [ %70, %69 ], [ %66, %hex_to_uint.exit.i ]
   %74 = add nuw nsw i8 %.0.i40.i, %65
   %75 = getelementptr inbounds nuw i8, ptr %31, i64 %.043.i
   store i8 %74, ptr %75, align 1, !tbaa !9
@@ -1105,7 +1105,7 @@ send_response.exit.thread:                        ; preds = %22
   br label %32
 
 32:                                               ; preds = %send_response.exit.thread, %7, %28, %20, %11
-  %.0 = phi i32 [ -1, %11 ], [ -1, %20 ], [ -1, %28 ], [ 0, %7 ], [ 0, %send_response.exit.thread ]
+  %.0 = phi i32 [ -1, %11 ], [ 0, %7 ], [ -1, %20 ], [ -1, %28 ], [ 0, %send_response.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -1179,7 +1179,7 @@ define internal range(i64 0, -1) i64 @file_read_callback(ptr readnone captures(n
   br label %.critedge
 
 .critedge:                                        ; preds = %9, %11, %15
-  %.0 = phi i64 [ 0, %15 ], [ %10, %9 ], [ -521, %11 ]
+  %.0 = phi i64 [ 0, %15 ], [ -521, %11 ], [ %10, %9 ]
   ret i64 %.0
 }
 

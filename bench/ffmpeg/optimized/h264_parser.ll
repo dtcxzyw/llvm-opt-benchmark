@@ -319,7 +319,7 @@ get_nalsize.exit.i:                               ; preds = %107
   %143 = getelementptr inbounds nuw i8, ptr %.017.i.i.i, i64 %142
   store ptr %143, ptr %82, align 8, !tbaa !88
   store i32 0, ptr %83, align 8, !tbaa !89
-  br i1 %or.cond3.i.i.i, label %144, label %.sink.split420.i
+  br i1 %or.cond3.i.i.i, label %144, label %.sink.split419.i
 
 144:                                              ; preds = %133
   store i32 1, ptr %83, align 8, !tbaa !89
@@ -337,11 +337,8 @@ get_nalsize.exit.i:                               ; preds = %107
     i32 8, label %152
     i32 6, label %155
     i32 5, label %157
-    i32 1, label %.loopexit341.i
+    i32 1, label %.loopexit340.i
   ]
-
-.outer.backedge:                                  ; preds = %144, %150, %152, %155
-  br label %.outer
 
 150:                                              ; preds = %144
   %151 = call i32 @ff_h264_decode_seq_parameter_set(ptr noundef nonnull %78, ptr noundef %1, ptr noundef nonnull %86, i32 noundef 0) #10
@@ -356,6 +353,9 @@ get_nalsize.exit.i:                               ; preds = %107
   %156 = call i32 @ff_h264_sei_decode(ptr noundef nonnull %64, ptr noundef nonnull %78, ptr noundef nonnull %86, ptr noundef %1) #10
   br label %.outer.backedge
 
+.outer.backedge:                                  ; preds = %155, %144, %150, %152
+  br label %.outer
+
 157:                                              ; preds = %144
   store i32 1, ptr %62, align 8, !tbaa !70
   %158 = getelementptr inbounds nuw i8, ptr %56, i64 2688
@@ -366,9 +366,9 @@ get_nalsize.exit.i:                               ; preds = %107
   store i32 0, ptr %160, align 4, !tbaa !95
   %161 = getelementptr inbounds nuw i8, ptr %56, i64 2672
   store i32 0, ptr %161, align 8, !tbaa !96
-  br label %.loopexit341.i
+  br label %.loopexit340.i
 
-.loopexit341.i:                                   ; preds = %144, %157
+.loopexit340.i:                                   ; preds = %144, %157
   %162 = getelementptr inbounds nuw i8, ptr %135, i64 1
   %163 = load i32, ptr %162, align 1, !tbaa !78
   %164 = call i32 @llvm.bswap.i32(i32 %163)
@@ -422,11 +422,11 @@ get_nalsize.exit.i:                               ; preds = %107
   %203 = icmp sgt i32 %202, -1
   br i1 %203, label %204, label %205
 
-204:                                              ; preds = %.loopexit341.i
+204:                                              ; preds = %.loopexit340.i
   store i32 1, ptr %62, align 8, !tbaa !70
   br label %205
 
-205:                                              ; preds = %204, %.loopexit341.i
+205:                                              ; preds = %204, %.loopexit340.i
   %206 = lshr i32 %193, 3
   %207 = zext nneg i32 %206 to i64
   %208 = getelementptr inbounds nuw i8, ptr %135, i64 %207
@@ -482,7 +482,7 @@ get_ue_golomb.exit.i:                             ; preds = %223
 get_ue_golomb.exit.thread.i:                      ; preds = %get_ue_golomb.exit.i, %223
   %.0.i306.i = phi i32 [ %237, %get_ue_golomb.exit.i ], [ -1094995529, %223 ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1, i32 noundef 16, ptr noundef nonnull @.str.3, i32 noundef %.0.i306.i) #10
-  br label %.sink.split420.i
+  br label %.sink.split419.i
 
 239:                                              ; preds = %get_ue_golomb.exit.i, %get_ue_golomb.exit.thread307.i
   %.0.i309.i = phi i32 [ %222, %get_ue_golomb.exit.thread307.i ], [ %237, %get_ue_golomb.exit.i ]
@@ -495,7 +495,7 @@ get_ue_golomb.exit.thread.i:                      ; preds = %get_ue_golomb.exit.
 
 244:                                              ; preds = %239
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1, i32 noundef 16, ptr noundef nonnull @.str.4, i32 noundef %.0.i309.i) #10
-  br label %.sink.split420.i
+  br label %.sink.split419.i
 
 245:                                              ; preds = %239
   %246 = getelementptr inbounds nuw i8, ptr %56, i64 2352
@@ -702,9 +702,9 @@ get_ue_golomb.exit.thread.i:                      ; preds = %get_ue_golomb.exit.
   br label %362
 
 362:                                              ; preds = %350, %338, %330
-  %.sink412.i = phi i32 [ %361, %350 ], [ 3, %330 ], [ 3, %338 ]
+  %.sink411.i = phi i32 [ %361, %350 ], [ 3, %330 ], [ 3, %338 ]
   %363 = getelementptr inbounds nuw i8, ptr %56, i64 3244
-  store i32 %.sink412.i, ptr %363, align 4, !tbaa !125
+  store i32 %.sink411.i, ptr %363, align 4, !tbaa !125
   %364 = load i32, ptr %85, align 8, !tbaa !91
   %365 = icmp eq i32 %364, 5
   br i1 %365, label %366, label %get_ue_golomb_long.exit280.i
@@ -782,9 +782,9 @@ get_ue_golomb_long.exit280.i:                     ; preds = %393, %366, %362
   %414 = getelementptr inbounds nuw i8, ptr %413, i64 12
   %415 = load i32, ptr %414, align 4, !tbaa !129
   %416 = icmp eq i32 %415, 1
-  %417 = icmp eq i32 %.sink412.i, 3
-  %or.cond414.i = select i1 %416, i1 %417, i1 false
-  br i1 %or.cond414.i, label %418, label %thread-pre-split.thread.i
+  %417 = icmp eq i32 %.sink411.i, 3
+  %or.cond413.i = select i1 %416, i1 %417, i1 false
+  br i1 %or.cond413.i, label %418, label %thread-pre-split.thread.i
 
 418:                                              ; preds = %398
   %419 = call fastcc i32 @get_se_golomb(ptr noundef %78)
@@ -873,9 +873,9 @@ get_se_golomb.exit.i:                             ; preds = %447, %437
   %473 = getelementptr inbounds nuw i8, ptr %472, i64 12
   %474 = load i32, ptr %473, align 4, !tbaa !129
   %475 = icmp eq i32 %474, 1
-  %476 = icmp eq i32 %.sink412.i, 3
-  %or.cond415.i = select i1 %475, i1 %476, i1 false
-  br i1 %or.cond415.i, label %477, label %thread-pre-split.thread.i
+  %476 = icmp eq i32 %.sink411.i, 3
+  %or.cond414.i = select i1 %475, i1 %476, i1 false
+  br i1 %or.cond414.i, label %477, label %thread-pre-split.thread.i
 
 477:                                              ; preds = %get_se_golomb.exit.i
   %478 = call fastcc i32 @get_se_golomb(ptr noundef %78)
@@ -889,9 +889,9 @@ thread-pre-split.thread.i:                        ; preds = %477, %get_se_golomb
   store i32 2147483647, ptr %13, align 4, !tbaa !47
   %481 = getelementptr inbounds nuw i8, ptr %0, i64 308
   %482 = load i32, ptr %84, align 4, !tbaa !90
-  %483 = call i32 @ff_h264_init_poc(ptr noundef nonnull %13, ptr noundef nonnull %481, ptr noundef nonnull %249, ptr noundef nonnull %277, i32 noundef %.sink412.i, i32 noundef %482) #10
+  %483 = call i32 @ff_h264_init_poc(ptr noundef nonnull %13, ptr noundef nonnull %481, ptr noundef nonnull %249, ptr noundef nonnull %277, i32 noundef %.sink411.i, i32 noundef %482) #10
   %484 = icmp slt i32 %483, 0
-  br i1 %484, label %.sink.split420.i, label %485
+  br i1 %484, label %.sink.split419.i, label %485
 
 485:                                              ; preds = %thread-pre-split.thread.i
   %486 = load i32, ptr %84, align 4, !tbaa !90
@@ -1159,7 +1159,7 @@ get_ue_golomb_long.exit.i.i:                      ; preds = %595, %.lr.ph.i296.i
   %637 = lshr exact i32 128, %634
   %638 = and i32 %637, %635
   %.not87.i.i = icmp eq i32 %638, 0
-  br i1 %.not87.i.i, label %.critedge332.i, label %.preheader.i291.i
+  br i1 %.not87.i.i, label %scan_mmco_reset.exit.i, label %.preheader.i291.i
 
 .preheader.i291.i:                                ; preds = %.thread8.i.i, %708
   %639 = phi i32 [ %709, %708 ], [ %636, %.thread8.i.i ]
@@ -1190,8 +1190,8 @@ get_ue_golomb_long.exit.i.i:                      ; preds = %595, %.lr.ph.i296.i
 
 658:                                              ; preds = %.preheader.i291.i
   switch i8 %654, label %659 [
-    i8 0, label %.critedge332.i
-    i8 5, label %scan_mmco_reset.exit.i
+    i8 0, label %scan_mmco_reset.exit.i
+    i8 5, label %.thread.critedge.i
   ]
 
 659:                                              ; preds = %658
@@ -1244,7 +1244,7 @@ get_ue_golomb_long.exit.i.i:                      ; preds = %595, %.lr.ph.i296.i
   br label %get_ue_golomb_long.exit107.i.i
 
 get_ue_golomb_long.exit107.i.i:                   ; preds = %688, %661, %659
-  %691 = phi i32 [ %687, %661 ], [ %652, %659 ], [ %690, %688 ]
+  %691 = phi i32 [ %652, %659 ], [ %690, %688 ], [ %687, %661 ]
   %692 = and i32 %655, 6
   %or.cond10.i.i = icmp eq i32 %692, 2
   %693 = icmp eq i32 %660, 4
@@ -1272,44 +1272,44 @@ get_ue_golomb_long.exit107.i.i:                   ; preds = %688, %661, %659
   %709 = phi i32 [ %691, %get_ue_golomb_long.exit107.i.i ], [ %707, %694 ]
   %710 = add nuw nsw i32 %.07133.i.i, 1
   %exitcond45.i.i = icmp eq i32 %710, 67
-  br i1 %exitcond45.i.i, label %.critedge332.i, label %.preheader.i291.i, !llvm.loop !136
+  br i1 %exitcond45.i.i, label %scan_mmco_reset.exit.i, label %.preheader.i291.i, !llvm.loop !136
 
 scan_mmco_reset.exit.thread.i:                    ; preds = %657, %594, %592, %526
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.sink.split420.i
+  br label %.sink.split419.i
 
-scan_mmco_reset.exit.i:                           ; preds = %658
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %711 = getelementptr inbounds nuw i8, ptr %56, i64 2688
-  store i32 0, ptr %711, align 8, !tbaa !93
-  %712 = getelementptr inbounds nuw i8, ptr %56, i64 2684
-  store i32 0, ptr %712, align 4, !tbaa !94
-  %713 = load i32, ptr %84, align 4, !tbaa !90
-  %.not248311.i = icmp eq i32 %713, 0
-  br i1 %.not248311.i, label %731, label %.thread312.i
-
-.critedge332.i:                                   ; preds = %708, %658, %.thread8.i.i
+scan_mmco_reset.exit.i:                           ; preds = %708, %658, %.thread8.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.pre.i = load i32, ptr %84, align 4, !tbaa !90
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %.critedge332.i, %485
-  %714 = phi i32 [ %486, %485 ], [ %.pre.i, %.critedge332.i ]
-  %715 = load i32, ptr %278, align 4, !tbaa !107
-  %716 = getelementptr inbounds nuw i8, ptr %56, i64 2688
-  store i32 %715, ptr %716, align 8, !tbaa !93
-  %717 = getelementptr inbounds nuw i8, ptr %56, i64 2680
-  %718 = load i32, ptr %717, align 8, !tbaa !137
-  %719 = getelementptr inbounds nuw i8, ptr %56, i64 2684
-  store i32 %718, ptr %719, align 4, !tbaa !94
-  %.not248.i = icmp eq i32 %714, 0
+.critedge.i:                                      ; preds = %scan_mmco_reset.exit.i, %485
+  %711 = phi i32 [ %486, %485 ], [ %.pre.i, %scan_mmco_reset.exit.i ]
+  %712 = load i32, ptr %278, align 4, !tbaa !107
+  %713 = getelementptr inbounds nuw i8, ptr %56, i64 2688
+  store i32 %712, ptr %713, align 8, !tbaa !93
+  %714 = getelementptr inbounds nuw i8, ptr %56, i64 2680
+  %715 = load i32, ptr %714, align 8, !tbaa !137
+  %716 = getelementptr inbounds nuw i8, ptr %56, i64 2684
+  store i32 %715, ptr %716, align 4, !tbaa !94
+  %.not248.i = icmp eq i32 %711, 0
   br i1 %.not248.i, label %731, label %720
+
+.thread.critedge.i:                               ; preds = %658
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  %717 = getelementptr inbounds nuw i8, ptr %56, i64 2688
+  store i32 0, ptr %717, align 8, !tbaa !93
+  %718 = getelementptr inbounds nuw i8, ptr %56, i64 2684
+  store i32 0, ptr %718, align 4, !tbaa !94
+  %719 = load i32, ptr %84, align 4, !tbaa !90
+  %.not248311.i = icmp eq i32 %719, 0
+  br i1 %.not248311.i, label %731, label %.thread312.i
 
 720:                                              ; preds = %.critedge.i
   %721 = getelementptr inbounds nuw i8, ptr %56, i64 2652
@@ -1319,7 +1319,7 @@ scan_mmco_reset.exit.i:                           ; preds = %658
   %724 = load i32, ptr %277, align 8, !tbaa !128
   br label %.sink.split.i
 
-.thread312.i:                                     ; preds = %scan_mmco_reset.exit.i
+.thread312.i:                                     ; preds = %.thread.critedge.i
   %725 = getelementptr inbounds nuw i8, ptr %56, i64 2672
   store i32 0, ptr %725, align 8, !tbaa !96
   %726 = load i32, ptr %363, align 4, !tbaa !125
@@ -1329,12 +1329,12 @@ scan_mmco_reset.exit.i:                           ; preds = %658
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.thread312.i, %720
-  %.sink416.i = phi i32 [ %724, %720 ], [ %729, %.thread312.i ]
+  %.sink415.i = phi i32 [ %724, %720 ], [ %729, %.thread312.i ]
   %730 = getelementptr inbounds nuw i8, ptr %56, i64 2676
-  store i32 %.sink416.i, ptr %730, align 4, !tbaa !95
+  store i32 %.sink415.i, ptr %730, align 4, !tbaa !95
   br label %731
 
-731:                                              ; preds = %.sink.split.i, %.critedge.i, %scan_mmco_reset.exit.i
+731:                                              ; preds = %.sink.split.i, %.thread.critedge.i, %.critedge.i
   %732 = getelementptr inbounds nuw i8, ptr %56, i64 2980
   %733 = load i32, ptr %732, align 4, !tbaa !139
   %.not249.i = icmp eq i32 %733, 0
@@ -1507,7 +1507,7 @@ switch.lookup:                                    ; preds = %744
   %802 = getelementptr inbounds nuw i8, ptr %249, i64 168
   %803 = load i32, ptr %802, align 8, !tbaa !145
   %.not257.i = icmp eq i32 %803, 0
-  br i1 %.not257.i, label %.sink.split420.i, label %804
+  br i1 %.not257.i, label %.sink.split419.i, label %804
 
 804:                                              ; preds = %801
   %805 = getelementptr inbounds nuw i8, ptr %249, i64 176
@@ -1524,20 +1524,20 @@ switch.lookup:                                    ; preds = %744
   %815 = shl i32 %814, 1
   %816 = zext i32 %815 to i64
   %817 = call i32 @av_reduce(ptr noundef nonnull %812, ptr noundef nonnull %811, i64 noundef %816, i64 noundef %spec.select.i, i64 noundef 1073741824) #10
-  br label %.sink.split420.i
+  br label %.sink.split419.i
 
 get_nalsize.exit.thread.i:                        ; preds = %111, %130, %92, %.loopexit.i
-  br i1 %60, label %.sink.split420.i, label %818
+  br i1 %60, label %.sink.split419.i, label %818
 
 818:                                              ; preds = %get_nalsize.exit.thread.i
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1, i32 noundef 16, ptr noundef nonnull @.str.6, i32 noundef %55) #10
-  br label %.sink.split420.i
+  br label %.sink.split419.i
 
-.sink.split420.i:                                 ; preds = %133, %818, %get_nalsize.exit.thread.i, %804, %801, %scan_mmco_reset.exit.thread.i, %thread-pre-split.thread.i, %244, %get_ue_golomb.exit.thread.i
+.sink.split419.i:                                 ; preds = %133, %818, %get_nalsize.exit.thread.i, %804, %801, %scan_mmco_reset.exit.thread.i, %thread-pre-split.thread.i, %244, %get_ue_golomb.exit.thread.i
   call void @av_freep(ptr noundef nonnull %11) #10
   br label %parse_nal_units.exit
 
-parse_nal_units.exit:                             ; preds = %59, %67, %.sink.split420.i
+parse_nal_units.exit:                             ; preds = %59, %67, %.sink.split419.i
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -1974,9 +1974,9 @@ get_ue_golomb_long.exit:                          ; preds = %77, %114, %117
   br label %141
 
 .thread164:                                       ; preds = %get_ue_golomb_long.exit, %135, %69, %71, %73, %44, %54, %58, %60
-  %.1110146 = phi i32 [ %.0109189, %58 ], [ %.0109189, %60 ], [ %.0109189, %44 ], [ %.0109189, %54 ], [ %.1110147154161, %73 ], [ %.1110147154161, %71 ], [ %.1110147154161, %69 ], [ %.0109189, %135 ], [ %.0109189, %get_ue_golomb_long.exit ]
-  %.4116 = phi i32 [ %59, %58 ], [ %61, %60 ], [ %spec.select, %44 ], [ 7, %54 ], [ %74, %73 ], [ 7, %71 ], [ 7, %69 ], [ 7, %135 ], [ %.0112188, %get_ue_golomb_long.exit ]
-  %.4 = phi i32 [ %.0100190, %58 ], [ %.0100190, %60 ], [ %50, %44 ], [ %.0100190, %54 ], [ %.1101148153163, %73 ], [ %.1101148153163, %71 ], [ %.1101148153163, %69 ], [ %.0100190, %135 ], [ %.0100190, %get_ue_golomb_long.exit ]
+  %.1110146 = phi i32 [ %.1110147154161, %69 ], [ %.0109189, %54 ], [ %.0109189, %58 ], [ %.0109189, %44 ], [ %.0109189, %60 ], [ %.1110147154161, %73 ], [ %.1110147154161, %71 ], [ %.0109189, %135 ], [ %.0109189, %get_ue_golomb_long.exit ]
+  %.4116 = phi i32 [ 7, %69 ], [ 7, %54 ], [ %59, %58 ], [ %spec.select, %44 ], [ %61, %60 ], [ %74, %73 ], [ 7, %71 ], [ 7, %135 ], [ %.0112188, %get_ue_golomb_long.exit ]
+  %.4 = phi i32 [ %.1101148153163, %69 ], [ %.0100190, %54 ], [ %.0100190, %58 ], [ %50, %44 ], [ %.0100190, %60 ], [ %.1101148153163, %73 ], [ %.1101148153163, %71 ], [ %.0100190, %135 ], [ %.0100190, %get_ue_golomb_long.exit ]
   %138 = add nsw i32 %.4, 1
   %139 = icmp slt i32 %138, %2
   br i1 %139, label %25, label %._crit_edge193, !llvm.loop !165
@@ -2006,7 +2006,7 @@ get_ue_golomb_long.exit:                          ; preds = %77, %114, %117
   br label %146
 
 146:                                              ; preds = %split, %141, %._crit_edge193, %143
-  %.3 = phi i32 [ %145, %143 ], [ %2, %split ], [ %..0109, %._crit_edge193 ], [ %.1110147154162, %141 ]
+  %.3 = phi i32 [ %2, %split ], [ %..0109, %._crit_edge193 ], [ %145, %143 ], [ %.1110147154162, %141 ]
   ret i32 %.3
 }
 

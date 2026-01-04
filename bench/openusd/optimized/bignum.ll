@@ -385,7 +385,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapac
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt64Em.exit, label %.lr.ph26.i, !llvm.loop !11
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt64Em.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.i, %.lr.ph.split, %.preheader.i
-  %49 = phi i16 [ %23, %.lr.ph.split ], [ %23, %.preheader.i ], [ %47, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.i ]
+  %49 = phi i16 [ %23, %.preheader.i ], [ %23, %.lr.ph.split ], [ %47, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.i ]
   %50 = add nsw i32 %.041, -27
   %51 = icmp sgt i32 %.041, 53
   br i1 %51, label %.lr.ph.split, label %.preheader, !llvm.loop !12
@@ -444,7 +444,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapac
   br i1 %.not.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit, label %.lr.ph20.i, !llvm.loop !15
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.i17, %.lr.ph43.split, %.preheader.i16
-  %73 = phi i16 [ %52, %.lr.ph43.split ], [ %52, %.preheader.i16 ], [ %71, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.i17 ]
+  %73 = phi i16 [ %52, %.preheader.i16 ], [ %52, %.lr.ph43.split ], [ %71, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.i17 ]
   %74 = add nsw i32 %.142, -13
   %75 = icmp sgt i32 %.142, 25
   br i1 %75, label %.lr.ph43.split, label %._crit_edge, !llvm.loop !16
@@ -525,7 +525,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapac
   br i1 %.not.i30, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit31, label %.lr.ph20.i27, !llvm.loop !15
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit31: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.i29, %77, %._crit_edge, %83
-  %106 = phi i16 [ %.pr, %83 ], [ %.pr, %._crit_edge ], [ %.pr, %77 ], [ %104, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.i29 ]
+  %106 = phi i16 [ %.pr, %77 ], [ %.pr, %83 ], [ %.pr, %._crit_edge ], [ %104, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.i29 ]
   %107 = icmp eq i16 %106, 0
   br i1 %107, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum9ShiftLeftEi.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit31.thread76
 
@@ -1748,8 +1748,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapac
   br label %37
 
 37:                                               ; preds = %33, %30
-  %.143 = phi i64 [ %31, %30 ], [ %spec.select, %33 ]
-  %.1 = phi i1 [ %.04186, %30 ], [ %spec.select52, %33 ]
+  %.143 = phi i64 [ %spec.select, %33 ], [ %31, %30 ]
+  %.1 = phi i1 [ %spec.select52, %33 ], [ %.04186, %30 ]
   %38 = ashr i32 %.14584, 1
   %39 = icmp ne i32 %38, 0
   %40 = icmp ult i64 %.143, 4294967296
@@ -2230,7 +2230,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZer
   br label %.preheader, !llvm.loop !35
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum5ClampEv.exit: ; preds = %104, %123, %.lr.ph.i32, %.critedge.thread3.i, %.critedge.i, %85, %2
-  %.0 = phi i16 [ 0, %2 ], [ %89, %85 ], [ %72, %.critedge.i ], [ %72, %.critedge.thread3.i ], [ %72, %.lr.ph.i32 ], [ %.1, %123 ], [ %.1, %104 ]
+  %.0 = phi i16 [ %89, %85 ], [ %72, %.critedge.thread3.i ], [ 0, %2 ], [ %.1, %123 ], [ %72, %.critedge.i ], [ %72, %.lr.ph.i32 ], [ %.1, %104 ]
   ret i16 %.0
 }
 
@@ -2518,7 +2518,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL14SizeInHexCharsIjE
   br i1 %.not37, label %.loopexit, label %.lr.ph56, !llvm.loop !43
 
 .loopexit:                                        ; preds = %.lr.ph56, %._crit_edge, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL14SizeInHexCharsIjEEiT_.exit, %6, %8
-  %.035 = phi i1 [ true, %8 ], [ false, %6 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL14SizeInHexCharsIjEEiT_.exit ], [ true, %._crit_edge ], [ true, %.lr.ph56 ]
+  %.035 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL14SizeInHexCharsIjEEiT_.exit ], [ true, %8 ], [ false, %6 ], [ true, %._crit_edge ], [ true, %.lr.ph56 ]
   ret i1 %.035
 }
 
@@ -2619,7 +2619,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZer
   br i1 %38, label %.loopexit, label %22, !llvm.loop !34
 
 .loopexit:                                        ; preds = %22, %37, %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit27, %16, %2
-  %.0 = phi i32 [ -1, %2 ], [ 1, %16 ], [ 0, %22 ], [ 1, %37 ], [ -1, %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit27 ]
+  %.0 = phi i32 [ 1, %16 ], [ -1, %2 ], [ 0, %22 ], [ -1, %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit27 ], [ 1, %37 ]
   ret i32 %.0
 }
 
@@ -2751,7 +2751,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZer
   br label %.loopexit
 
 .loopexit:                                        ; preds = %62, %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit51, %30, %._crit_edge.loopexit, %28, %26, %16
-  %.0 = phi i32 [ -1, %16 ], [ 1, %26 ], [ -1, %28 ], [ 0, %30 ], [ %66, %._crit_edge.loopexit ], [ -1, %62 ], [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit51 ]
+  %.0 = phi i32 [ %66, %._crit_edge.loopexit ], [ -1, %28 ], [ -1, %16 ], [ 1, %26 ], [ 0, %30 ], [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit51 ], [ -1, %62 ]
   ret i32 %.0
 }
 

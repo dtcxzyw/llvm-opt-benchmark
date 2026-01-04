@@ -64,7 +64,7 @@ define ptr @OPENSSL_LH_new(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1
   br label %21
 
 21:                                               ; preds = %2, %20, %8
-  %.0 = phi ptr [ null, %20 ], [ %3, %8 ], [ null, %2 ]
+  %.0 = phi ptr [ %3, %8 ], [ null, %20 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -641,7 +641,7 @@ getrn.exit:                                       ; preds = %37, %42
   br label %contract.exit
 
 contract.exit:                                    ; preds = %47, %26, %101, %98, %49, %59, %getrn.exit
-  %.0 = phi ptr [ null, %getrn.exit ], [ %52, %59 ], [ %52, %49 ], [ %52, %98 ], [ %52, %101 ], [ null, %26 ], [ null, %47 ]
+  %.0 = phi ptr [ null, %getrn.exit ], [ %52, %101 ], [ %52, %59 ], [ %52, %49 ], [ %52, %98 ], [ null, %26 ], [ null, %47 ]
   ret ptr %.0
 }
 

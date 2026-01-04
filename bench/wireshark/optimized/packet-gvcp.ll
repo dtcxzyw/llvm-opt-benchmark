@@ -1307,7 +1307,7 @@ define internal i32 @dissect_gvcp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %144 = tail call ptr @proto_item_add_subtree(ptr noundef %.sink, i32 noundef %143)
   br label %150
 
-.thread311:                                       ; preds = %134, %113, %120, %98, %109, %91, %93, %115, %136
+.thread311:                                       ; preds = %134, %113, %120, %98, %93, %91, %115, %109, %136
   %145 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %146 = load ptr, ptr %145, align 8
   %147 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc0(ptr noundef %146, i64 noundef 24) #7
@@ -1503,7 +1503,7 @@ proto_item_set_generated.exit303:                 ; preds = %201, %198, %195, %1
   br label %216
 
 216:                                              ; preds = %7, %4, %214
-  %.0 = phi i32 [ %215, %214 ], [ 0, %4 ], [ 0, %7 ]
+  %.0 = phi i32 [ 0, %4 ], [ %215, %214 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -2335,8 +2335,8 @@ switch.lookup:                                    ; preds = %78
   br label %dissect_register_data.exit.sink.split
 
 dissect_register_data.exit.sink.split:            ; preds = %72, %switch.lookup, %54, %56, %58, %60, %62, %64, %66, %68
-  %hf_gvcp_writememcmd_data.sink = phi ptr [ @hf_gvcp_manufacturer_name, %54 ], [ @hf_gvcp_model_name, %56 ], [ @hf_gvcp_device_version, %58 ], [ @hf_gvcp_manufacturer_specific_info, %60 ], [ @hf_gvcp_serial_number, %62 ], [ @hf_gvcp_user_defined_name, %64 ], [ @hf_gvcp_first_xml_device_description_file, %66 ], [ @hf_gvcp_second_xml_device_description_file, %68 ], [ %switch.load, %switch.lookup ], [ @hf_gvcp_writememcmd_data, %72 ]
-  %.sink62 = phi i32 [ -1, %54 ], [ -1, %56 ], [ -1, %58 ], [ -1, %60 ], [ -1, %62 ], [ -1, %64 ], [ -1, %66 ], [ -1, %68 ], [ 4, %switch.lookup ], [ %25, %72 ]
+  %hf_gvcp_writememcmd_data.sink = phi ptr [ %switch.load, %switch.lookup ], [ @hf_gvcp_second_xml_device_description_file, %68 ], [ @hf_gvcp_first_xml_device_description_file, %66 ], [ @hf_gvcp_manufacturer_name, %54 ], [ @hf_gvcp_model_name, %56 ], [ @hf_gvcp_device_version, %58 ], [ @hf_gvcp_manufacturer_specific_info, %60 ], [ @hf_gvcp_serial_number, %62 ], [ @hf_gvcp_user_defined_name, %64 ], [ @hf_gvcp_writememcmd_data, %72 ]
+  %.sink62 = phi i32 [ 4, %switch.lookup ], [ -1, %68 ], [ -1, %66 ], [ -1, %54 ], [ -1, %56 ], [ -1, %58 ], [ -1, %60 ], [ -1, %62 ], [ -1, %64 ], [ %25, %72 ]
   %83 = load i32, ptr %hf_gvcp_writememcmd_data.sink, align 4
   %84 = call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %83, ptr noundef %1, i32 noundef 12, i32 noundef %.sink62, i32 noundef 0)
   br label %dissect_register_data.exit
@@ -2723,8 +2723,8 @@ get_register_name_from_address.exit:              ; preds = %16, %is_extended_bo
   br label %41
 
 41:                                               ; preds = %11, %37, %36
-  %.076111 = phi i32 [ %13, %37 ], [ %13, %36 ], [ 0, %11 ]
-  %.077108 = phi i1 [ true, %37 ], [ true, %36 ], [ false, %11 ]
+  %.076111 = phi i32 [ 0, %11 ], [ %13, %37 ], [ %13, %36 ]
+  %.077108 = phi i1 [ false, %11 ], [ true, %37 ], [ true, %36 ]
   %.not88 = icmp eq ptr %0, null
   br i1 %.not88, label %.loopexit120, label %47
 
@@ -3084,8 +3084,8 @@ switch.lookup:                                    ; preds = %54
   br label %dissect_register_data.exit.sink.split
 
 dissect_register_data.exit.sink.split:            ; preds = %48, %switch.lookup, %30, %32, %34, %36, %38, %40, %42, %44
-  %hf_gvcp_manufacturer_name.sink.i.sink = phi ptr [ @hf_gvcp_manufacturer_name, %30 ], [ @hf_gvcp_model_name, %32 ], [ @hf_gvcp_device_version, %34 ], [ @hf_gvcp_manufacturer_specific_info, %36 ], [ @hf_gvcp_serial_number, %38 ], [ @hf_gvcp_user_defined_name, %40 ], [ @hf_gvcp_first_xml_device_description_file, %42 ], [ @hf_gvcp_second_xml_device_description_file, %44 ], [ %switch.load, %switch.lookup ], [ @hf_gvcp_readmemcmd_data_read, %48 ]
-  %.sink61 = phi i32 [ -1, %30 ], [ -1, %32 ], [ -1, %34 ], [ -1, %36 ], [ -1, %38 ], [ -1, %40 ], [ -1, %42 ], [ -1, %44 ], [ 4, %switch.lookup ], [ %25, %48 ]
+  %hf_gvcp_manufacturer_name.sink.i.sink = phi ptr [ %switch.load, %switch.lookup ], [ @hf_gvcp_second_xml_device_description_file, %44 ], [ @hf_gvcp_first_xml_device_description_file, %42 ], [ @hf_gvcp_manufacturer_name, %30 ], [ @hf_gvcp_model_name, %32 ], [ @hf_gvcp_device_version, %34 ], [ @hf_gvcp_manufacturer_specific_info, %36 ], [ @hf_gvcp_serial_number, %38 ], [ @hf_gvcp_user_defined_name, %40 ], [ @hf_gvcp_readmemcmd_data_read, %48 ]
+  %.sink61 = phi i32 [ 4, %switch.lookup ], [ -1, %44 ], [ -1, %42 ], [ -1, %30 ], [ -1, %32 ], [ -1, %34 ], [ -1, %36 ], [ -1, %38 ], [ -1, %40 ], [ %25, %48 ]
   %59 = load i32, ptr %hf_gvcp_manufacturer_name.sink.i.sink, align 4
   %60 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %59, ptr noundef %1, i32 noundef 12, i32 noundef %.sink61, i32 noundef 0)
   br label %dissect_register_data.exit

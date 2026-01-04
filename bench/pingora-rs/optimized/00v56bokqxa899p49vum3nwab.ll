@@ -1004,7 +1004,7 @@ define hidden void @"_ZN4core3ptr49drop_in_place$LT$pingora_http..ResponseHeader
   unreachable
 
 .body:                                            ; preds = %.body.i, %22
-  %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %eh.lpad-body.i, %.body.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %23, %22 ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 112
   invoke fastcc void @"_ZN4core3ptr131drop_in_place$LT$core..option..Option$LT$http..header..map..HeaderMap$LT$pingora_http..case_header_name..CaseHeaderName$GT$$GT$$GT$17h6ef2bcaf482683bfE"(ptr noalias noundef align 8 dereferenceable(96) %26) #8
           to label %.body5 unwind label %53

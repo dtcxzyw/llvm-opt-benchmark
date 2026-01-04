@@ -618,7 +618,7 @@ test_cltp_var_part.exit:                          ; preds = %17, %12
   br label %test_cltp_var_part.exit.thread
 
 test_cltp_var_part.exit.thread:                   ; preds = %.lr.ph.i, %22, %24, %28, %36, %test_cltp_var_part.exit, %10, %7, %4, %38
-  %.0 = phi i1 [ true, %38 ], [ false, %4 ], [ false, %7 ], [ false, %10 ], [ false, %test_cltp_var_part.exit ], [ false, %36 ], [ false, %28 ], [ false, %24 ], [ false, %22 ], [ false, %.lr.ph.i ]
+  %.0 = phi i1 [ false, %10 ], [ false, %4 ], [ false, %7 ], [ false, %36 ], [ false, %test_cltp_var_part.exit ], [ true, %38 ], [ false, %28 ], [ false, %24 ], [ false, %22 ], [ false, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -1144,9 +1144,9 @@ ositp_decode_CR_CC.exit:                          ; preds = %44, %92, %100
   br label %proto_item_set_generated.exit.i
 
 proto_item_set_generated.exit.i:                  ; preds = %269, %266, %.thread272.i, %262
-  %.0218262.i = phi ptr [ %.0218261266271.i, %262 ], [ %254, %.thread272.i ], [ %254, %266 ], [ %254, %269 ]
-  %.0202.i = phi i8 [ %264, %262 ], [ 1, %.thread272.i ], [ 1, %266 ], [ 1, %269 ]
-  %.0201.i = phi i32 [ %263, %262 ], [ %259, %.thread272.i ], [ %259, %266 ], [ %259, %269 ]
+  %.0218262.i = phi ptr [ %.0218261266271.i, %262 ], [ %254, %269 ], [ %254, %.thread272.i ], [ %254, %266 ]
+  %.0202.i = phi i8 [ %264, %262 ], [ 1, %269 ], [ 1, %.thread272.i ], [ 1, %266 ]
+  %.0201.i = phi i32 [ %263, %262 ], [ %259, %269 ], [ %259, %.thread272.i ], [ %259, %266 ]
   br i1 %.0219252.i, label %274, label %282
 
 proto_item_set_generated.exit.thread.i:           ; preds = %.thread259.i
@@ -1164,9 +1164,9 @@ proto_item_set_generated.exit.thread.i:           ; preds = %.thread259.i
   br label %.thread288.i
 
 .thread288.i:                                     ; preds = %275, %274, %proto_item_set_generated.exit.thread.i
-  %.0218262279294.i = phi ptr [ %.0218262.i, %275 ], [ %.0218262.i, %274 ], [ null, %proto_item_set_generated.exit.thread.i ]
-  %.0202285293.i = phi i8 [ %.0202.i, %275 ], [ %.0202.i, %274 ], [ 1, %proto_item_set_generated.exit.thread.i ]
-  %.0201286292.i = phi i32 [ %.0201.i, %275 ], [ %.0201.i, %274 ], [ %273, %proto_item_set_generated.exit.thread.i ]
+  %.0218262279294.i = phi ptr [ %.0218262.i, %274 ], [ %.0218262.i, %275 ], [ null, %proto_item_set_generated.exit.thread.i ]
+  %.0202285293.i = phi i8 [ %.0202.i, %274 ], [ %.0202.i, %275 ], [ 1, %proto_item_set_generated.exit.thread.i ]
+  %.0201286292.i = phi i32 [ %.0201.i, %274 ], [ %.0201.i, %275 ], [ %273, %proto_item_set_generated.exit.thread.i ]
   %280 = add i32 %.0201286292.i, 4
   %281 = add nsw i8 %.0202285293.i, -4
   br label %290
@@ -1182,9 +1182,9 @@ proto_item_set_generated.exit.thread.i:           ; preds = %.thread259.i
   br label %.thread295.i
 
 .thread295.i:                                     ; preds = %283, %282, %proto_item_set_generated.exit.thread.i
-  %.0218262280301.i = phi ptr [ %.0218262.i, %283 ], [ %.0218262.i, %282 ], [ null, %proto_item_set_generated.exit.thread.i ]
-  %.0202284300.i = phi i8 [ %.0202.i, %283 ], [ %.0202.i, %282 ], [ 1, %proto_item_set_generated.exit.thread.i ]
-  %.0201287299.i = phi i32 [ %.0201.i, %283 ], [ %.0201.i, %282 ], [ %273, %proto_item_set_generated.exit.thread.i ]
+  %.0218262280301.i = phi ptr [ %.0218262.i, %282 ], [ %.0218262.i, %283 ], [ null, %proto_item_set_generated.exit.thread.i ]
+  %.0202284300.i = phi i8 [ %.0202.i, %282 ], [ %.0202.i, %283 ], [ 1, %proto_item_set_generated.exit.thread.i ]
+  %.0201287299.i = phi i32 [ %.0201.i, %282 ], [ %.0201.i, %283 ], [ %273, %proto_item_set_generated.exit.thread.i ]
   %288 = add i32 %.0201287299.i, 1
   %289 = add nsw i8 %.0202284300.i, -1
   br label %290
@@ -1287,7 +1287,7 @@ proto_item_set_generated.exit.thread.i:           ; preds = %.thread259.i
   br label %335
 
 335:                                              ; preds = %.sink.split260, %331, %324, %327
-  %.6 = phi i1 [ %.0155192, %327 ], [ true, %324 ], [ true, %331 ], [ %.0155192, %.sink.split260 ]
+  %.6 = phi i1 [ true, %324 ], [ true, %331 ], [ %.0155192, %327 ], [ %.0155192, %.sink.split260 ]
   %336 = call i32 @tvb_captured_length_remaining(ptr noundef %.1110, i32 noundef %292)
   %337 = add i32 %336, %292
   br label %ositp_decode_DT.exit
@@ -2131,13 +2131,13 @@ ositp_decode_DR.exit.thread.thread:               ; preds = %793
   br label %.loopexit
 
 ositp_decode_DR.exit:                             ; preds = %764, %._crit_edge.i141, %619, %589, %544, %506, %142, %ositp_decode_UD.exit, %ositp_decode_ED.exit, %ositp_decode_DT.exit, %ositp_decode_CR_CC.exit
-  %.1156 = phi i1 [ %.5, %ositp_decode_CR_CC.exit ], [ %.7, %ositp_decode_DT.exit ], [ %.9, %ositp_decode_ED.exit ], [ %.10, %ositp_decode_UD.exit ], [ %.0155192, %142 ], [ %.0155192, %506 ], [ %.0155192, %544 ], [ %.0155192, %589 ], [ %.0155192, %619 ], [ %.0155192, %._crit_edge.i141 ], [ %.0155192, %764 ]
-  %.0106 = phi i32 [ %.0.i, %ositp_decode_CR_CC.exit ], [ %.0.i117, %ositp_decode_DT.exit ], [ %.0.i120, %ositp_decode_ED.exit ], [ %792, %ositp_decode_UD.exit ], [ %149, %142 ], [ %507, %506 ], [ %546, %544 ], [ %591, %589 ], [ %621, %619 ], [ %725, %._crit_edge.i141 ], [ %766, %764 ]
-  %.1 = phi i1 [ %.0199, %ositp_decode_CR_CC.exit ], [ %.0199, %ositp_decode_DT.exit ], [ %.0199, %ositp_decode_ED.exit ], [ true, %ositp_decode_UD.exit ], [ %.0199, %142 ], [ %.0199, %506 ], [ %.0199, %544 ], [ %.0199, %589 ], [ %.0199, %619 ], [ %.0199, %._crit_edge.i141 ], [ %.0199, %764 ]
+  %.1156 = phi i1 [ %.0155192, %589 ], [ %.0155192, %764 ], [ %.5, %ositp_decode_CR_CC.exit ], [ %.10, %ositp_decode_UD.exit ], [ %.7, %ositp_decode_DT.exit ], [ %.9, %ositp_decode_ED.exit ], [ %.0155192, %142 ], [ %.0155192, %506 ], [ %.0155192, %544 ], [ %.0155192, %619 ], [ %.0155192, %._crit_edge.i141 ]
+  %.0106 = phi i32 [ %591, %589 ], [ %766, %764 ], [ %.0.i, %ositp_decode_CR_CC.exit ], [ %792, %ositp_decode_UD.exit ], [ %.0.i117, %ositp_decode_DT.exit ], [ %.0.i120, %ositp_decode_ED.exit ], [ %149, %142 ], [ %507, %506 ], [ %546, %544 ], [ %621, %619 ], [ %725, %._crit_edge.i141 ]
+  %.1 = phi i1 [ %.0199, %589 ], [ %.0199, %764 ], [ %.0199, %ositp_decode_CR_CC.exit ], [ true, %ositp_decode_UD.exit ], [ %.0199, %ositp_decode_DT.exit ], [ %.0199, %ositp_decode_ED.exit ], [ %.0199, %142 ], [ %.0199, %506 ], [ %.0199, %544 ], [ %.0199, %619 ], [ %.0199, %._crit_edge.i141 ]
   %795 = icmp eq i32 %.0106, -1
   br i1 %795, label %ositp_decode_DR.exit.thread, label %798
 
-ositp_decode_DR.exit.thread:                      ; preds = %733, %731, %729, %649, %693, %690, %684, %682, %669, %666, %659, %657, %647, %627, %638, %641, %628, %631, %625, %553, %551, %514, %512, %461, %451, %106, %103, %ositp_decode_DR.exit
+ositp_decode_DR.exit.thread:                      ; preds = %733, %731, %729, %641, %631, %625, %638, %628, %690, %684, %682, %669, %666, %659, %657, %647, %693, %627, %553, %551, %512, %451, %103, %649, %514, %461, %106, %ositp_decode_DR.exit
   br i1 %.0107197, label %.loopexit, label %ositp_decode_DR.exit.thread.thread173
 
 ositp_decode_DR.exit.thread.thread173:            ; preds = %793, %ositp_decode_DR.exit.thread
@@ -2313,7 +2313,7 @@ define internal fastcc void @ositp_decode_var_part(ptr noundef %0, i32 noundef %
   br i1 %43, label %.loopexit, label %35
 
 .loopexit:                                        ; preds = %35, %.lr.ph412, %31, %32
-  %.1387 = phi i32 [ 0, %32 ], [ %.0386418, %31 ], [ 0, %35 ], [ %41, %.lr.ph412 ]
+  %.1387 = phi i32 [ %.0386418, %31 ], [ 0, %32 ], [ 0, %35 ], [ %41, %.lr.ph412 ]
   %44 = load i32, ptr %11, align 4
   %45 = load ptr, ptr %12, align 8
   %46 = load i32, ptr %13, align 4
@@ -2367,7 +2367,7 @@ define internal fastcc void @ositp_decode_var_part(ptr noundef %0, i32 noundef %
   br i1 %75, label %.loopexit405, label %67
 
 .loopexit405:                                     ; preds = %67, %.lr.ph, %63, %64
-  %.4 = phi i32 [ 0, %64 ], [ %.0386418, %63 ], [ 0, %67 ], [ %73, %.lr.ph ]
+  %.4 = phi i32 [ %.0386418, %63 ], [ 0, %64 ], [ 0, %67 ], [ %73, %.lr.ph ]
   %76 = load i32, ptr %11, align 4
   %77 = load ptr, ptr %12, align 8
   %78 = load i32, ptr %13, align 4

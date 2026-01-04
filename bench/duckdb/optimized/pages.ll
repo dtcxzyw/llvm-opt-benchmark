@@ -614,7 +614,7 @@ init_thp_state.exit:                              ; preds = %55
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %init_thp_state.exit, %init_thp_state.exit.thread
-  %65 = phi i32 [ 0, %init_thp_state.exit.thread ], [ %spec.select, %init_thp_state.exit ]
+  %65 = phi i32 [ %spec.select, %init_thp_state.exit ], [ 0, %init_thp_state.exit.thread ]
   %66 = load i32, ptr @mmap_flags, align 4, !tbaa !3
   %67 = call ptr @mmap(ptr noundef null, i64 noundef 4096, i32 noundef %65, i32 noundef %66, i32 noundef -1, i64 noundef 0) #10
   %magicptr = ptrtoint ptr %67 to i64
@@ -659,7 +659,7 @@ duckdb_je_pages_purge_lazy.exit.thread:           ; preds = %68, %duckdb_je_page
   br label %os_pages_unmap.exit
 
 os_pages_unmap.exit:                              ; preds = %._crit_edge.i, %70, %80, %6
-  %.04 = phi i1 [ true, %6 ], [ false, %70 ], [ false, %80 ], [ true, %._crit_edge.i ]
+  %.04 = phi i1 [ true, %6 ], [ true, %._crit_edge.i ], [ false, %80 ], [ false, %70 ]
   ret i1 %.04
 }
 

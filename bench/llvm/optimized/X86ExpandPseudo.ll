@@ -1002,7 +1002,7 @@ _ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.loopexit.s
   br label %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit
 
 _ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit: ; preds = %11, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit20, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit22, %31, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i
-  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %31 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %42, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %43, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit20 ], [ %44, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit22 ], [ %.02946.i.i.i.i, %11 ]
+  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.029.lcssa.i.i.i.i, %31 ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %44, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit22 ], [ %43, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit20 ], [ %42, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i.i, %11 ]
   %.not = icmp eq ptr %.028.i.i.i.i, %8
   br i1 %.not, label %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.thread, label %55
 
@@ -1470,8 +1470,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115X86ExpandPseudo8ex
   br label %130
 
 130:                                              ; preds = %126, %129, %128, %127
-  %or.cond9 = phi i1 [ false, %129 ], [ true, %127 ], [ true, %128 ], [ false, %126 ]
-  %.0372.neg = phi i64 [ -4960, %129 ], [ -4962, %127 ], [ -4961, %128 ], [ -4959, %126 ]
+  %or.cond9 = phi i1 [ false, %129 ], [ true, %128 ], [ true, %127 ], [ false, %126 ]
+  %.0372.neg = phi i64 [ -4960, %129 ], [ -4961, %128 ], [ -4962, %127 ], [ -4959, %126 ]
   %.sroa.0223.0.copyload = load ptr, ptr %27, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %131 = load ptr, ptr %92, align 8, !tbaa !382
@@ -2065,7 +2065,7 @@ _ZN4llvm8DebugLocD2Ev.exit441:                    ; preds = %_ZN4llvm10MIMetadat
   br label %385
 
 385:                                              ; preds = %378, %374, %362
-  %.0376.neg = phi i64 [ -1939, %374 ], [ -1938, %362 ], [ %spec.select.neg, %378 ]
+  %.0376.neg = phi i64 [ -1938, %362 ], [ %spec.select.neg, %378 ], [ -1939, %374 ]
   %.sroa.0201.0.copyload = load ptr, ptr %27, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %386 = load ptr, ptr %92, align 8, !tbaa !382
@@ -3209,7 +3209,7 @@ _ZN4llvm8DebugLocD2Ev.exit543:                    ; preds = %_ZN4llvm10MIMetadat
   unreachable
 
 847:                                              ; preds = %808, %845, %844, %843, %842, %841, %840, %839, %838, %837, %836, %835, %829, %823, %817, %811
-  %.0384.neg = phi i64 [ %.neg773, %811 ], [ %.neg774, %817 ], [ %.neg775, %823 ], [ %.neg776, %829 ], [ -4982, %835 ], [ -4983, %836 ], [ -4984, %837 ], [ -4985, %838 ], [ -4986, %839 ], [ -4987, %840 ], [ -4988, %841 ], [ -4989, %842 ], [ -4990, %843 ], [ -5031, %844 ], [ -5032, %845 ], [ -4981, %808 ]
+  %.0384.neg = phi i64 [ %.neg773, %811 ], [ %.neg774, %817 ], [ %.neg775, %823 ], [ %.neg776, %829 ], [ -5032, %845 ], [ -4982, %835 ], [ -4983, %836 ], [ -4984, %837 ], [ -4985, %838 ], [ -4986, %839 ], [ -4987, %840 ], [ -4988, %841 ], [ -4989, %842 ], [ -4990, %843 ], [ -5031, %844 ], [ -4981, %808 ]
   %848 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %849 = load ptr, ptr %848, align 8, !tbaa !153
   %850 = getelementptr inbounds nuw i8, ptr %849, i64 8
@@ -3939,7 +3939,7 @@ _ZN4llvm12MachineInstr15untieRegOperandEj.exit:   ; preds = %_ZN4llvm12MachineIn
   unreachable
 
 1177:                                             ; preds = %1156, %1175, %1174, %1173, %1172, %1171, %1170, %1169, %1168, %1167, %1166, %1165, %1164, %1163, %1162, %1161, %1160, %1159, %1158
-  %.0388.neg = phi i64 [ -4970, %1158 ], [ -4995, %1159 ], [ -4996, %1160 ], [ -4997, %1161 ], [ -4998, %1162 ], [ -4992, %1163 ], [ -4999, %1164 ], [ -5057, %1165 ], [ -5058, %1166 ], [ -5055, %1167 ], [ -5056, %1168 ], [ -4971, %1169 ], [ -5048, %1170 ], [ -5059, %1171 ], [ -4993, %1172 ], [ -4994, %1173 ], [ -5000, %1174 ], [ -5001, %1175 ], [ -4969, %1156 ]
+  %.0388.neg = phi i64 [ -5001, %1175 ], [ -4970, %1158 ], [ -4995, %1159 ], [ -4996, %1160 ], [ -4997, %1161 ], [ -4998, %1162 ], [ -4992, %1163 ], [ -4999, %1164 ], [ -5057, %1165 ], [ -5058, %1166 ], [ -5055, %1167 ], [ -5056, %1168 ], [ -4971, %1169 ], [ -5048, %1170 ], [ -5059, %1171 ], [ -4993, %1172 ], [ -4994, %1173 ], [ -5000, %1174 ], [ -4969, %1156 ]
   %1178 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %1179 = load ptr, ptr %1178, align 8, !tbaa !153
   %1180 = getelementptr inbounds nuw i8, ptr %1179, i64 8
@@ -4403,7 +4403,7 @@ _ZN12_GLOBAL__N_115X86ExpandPseudo19expandCALL_RVMARKERERN4llvm17MachineBasicBlo
     i32 356, label %_ZN4llvm5X86II7needSIBENS_10MCRegisterES1_b.exit.thread
   ]
 
-_ZN4llvm5X86II7needSIBENS_10MCRegisterES1_b.exit.thread: ; preds = %1356, %1369, %1369, %1369, %1369, %1369, %1369, %1369, %1369
+_ZN4llvm5X86II7needSIBENS_10MCRegisterES1_b.exit.thread: ; preds = %1369, %1369, %1369, %1369, %1369, %1369, %1369, %1369, %1356
   %1370 = select i1 %1367, i32 2, i32 1
   br label %1372
 
@@ -4413,7 +4413,7 @@ _ZN4llvm5X86II7needSIBENS_10MCRegisterES1_b.exit: ; preds = %1369
   br label %1372
 
 1372:                                             ; preds = %_ZN4llvm5X86II7needSIBENS_10MCRegisterES1_b.exit, %_ZN4llvm5X86II7needSIBENS_10MCRegisterES1_b.exit.thread
-  %1373 = phi i32 [ %1370, %_ZN4llvm5X86II7needSIBENS_10MCRegisterES1_b.exit.thread ], [ %spec.select760, %_ZN4llvm5X86II7needSIBENS_10MCRegisterES1_b.exit ]
+  %1373 = phi i32 [ %spec.select760, %_ZN4llvm5X86II7needSIBENS_10MCRegisterES1_b.exit ], [ %1370, %_ZN4llvm5X86II7needSIBENS_10MCRegisterES1_b.exit.thread ]
   %1374 = lshr i32 %1346, 3
   %1375 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm20X86MCRegisterClassesE, i64 1142), align 2, !tbaa !639
   %1376 = zext i16 %1375 to i32
@@ -4519,8 +4519,8 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit599.thread: ; preds = %
   br label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %1397, %1411, %1410, %1409, %1408, %1407, %1406, %1405, %1404, %1403, %1402, %1401, %1400, %1399
-  %.0375.neg = phi i64 [ -637, %1399 ], [ -4782, %1400 ], [ -4823, %1401 ], [ -827, %1402 ], [ -868, %1403 ], [ -2941, %1404 ], [ -2982, %1405 ], [ -22680, %1406 ], [ -22721, %1407 ], [ -466, %1408 ], [ -491, %1409 ], [ -4181, %1410 ], [ -4206, %1411 ], [ -596, %1397 ]
-  %.0374.neg = phi i64 [ -2568, %1399 ], [ -2551, %1400 ], [ -2568, %1401 ], [ -2551, %1402 ], [ -2568, %1403 ], [ -2551, %1404 ], [ -2568, %1405 ], [ -2551, %1406 ], [ -2568, %1407 ], [ -2551, %1408 ], [ -2568, %1409 ], [ -2551, %1410 ], [ -2568, %1411 ], [ -2551, %1397 ]
+  %.0375.neg = phi i64 [ -4206, %1411 ], [ -637, %1399 ], [ -4782, %1400 ], [ -4823, %1401 ], [ -827, %1402 ], [ -868, %1403 ], [ -2941, %1404 ], [ -2982, %1405 ], [ -22680, %1406 ], [ -22721, %1407 ], [ -466, %1408 ], [ -491, %1409 ], [ -4181, %1410 ], [ -596, %1397 ]
+  %.0374.neg = phi i64 [ -2568, %1411 ], [ -2568, %1399 ], [ -2551, %1400 ], [ -2568, %1401 ], [ -2551, %1402 ], [ -2568, %1403 ], [ -2551, %1404 ], [ -2568, %1405 ], [ -2551, %1406 ], [ -2568, %1407 ], [ -2551, %1408 ], [ -2568, %1409 ], [ -2551, %1410 ], [ -2551, %1397 ]
   %1412 = getelementptr inbounds nuw i8, ptr %1340, i64 4
   %1413 = load i32, ptr %1412, align 4, !tbaa !220
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i600 = load i64, ptr %2, align 8
@@ -4640,7 +4640,7 @@ _ZN4llvm8DebugLocD2Ev.exit611:                    ; preds = %_ZN4llvm10MIMetadat
   br i1 %.not397, label %._crit_edge, label %.lr.ph, !llvm.loop !644
 
 _ZN4llvm17MachineBasicBlock5eraseENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit: ; preds = %.lr.ph.i.i.i432, %1351, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit599.thread, %._crit_edge, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i, %1332, %3, %_ZN12_GLOBAL__N_115X86ExpandPseudo19expandCALL_RVMARKERERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit, %1195, %1183, %1177, %1128, %1122, %_ZNK4llvm12MachineInstr11memoperandsEv.exit589, %_ZNK4llvm12MachineInstr11memoperandsEv.exit564, %847, %797, %796, %_ZN4llvm8DebugLocD2Ev.exit543, %_ZNK4llvm12MachineInstr11memoperandsEv.exit534, %_ZNK4llvm12MachineInstr11memoperandsEv.exit, %550, %._crit_edge814, %_ZN4llvm8DebugLocD2Ev.exit449, %_ZN4llvm8DebugLocD2Ev.exit441
-  %.0371 = phi i1 [ true, %_ZN4llvm8DebugLocD2Ev.exit441 ], [ true, %_ZN4llvm8DebugLocD2Ev.exit449 ], [ true, %._crit_edge814 ], [ true, %550 ], [ true, %_ZNK4llvm12MachineInstr11memoperandsEv.exit ], [ true, %_ZNK4llvm12MachineInstr11memoperandsEv.exit534 ], [ true, %_ZN4llvm8DebugLocD2Ev.exit543 ], [ true, %796 ], [ true, %797 ], [ true, %847 ], [ true, %_ZNK4llvm12MachineInstr11memoperandsEv.exit564 ], [ true, %_ZNK4llvm12MachineInstr11memoperandsEv.exit589 ], [ true, %1122 ], [ true, %1128 ], [ true, %1177 ], [ true, %1183 ], [ true, %1195 ], [ true, %_ZN12_GLOBAL__N_115X86ExpandPseudo19expandCALL_RVMARKERERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit ], [ false, %3 ], [ false, %1332 ], [ true, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i ], [ false, %1351 ], [ false, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit599.thread ], [ true, %._crit_edge ], [ true, %.lr.ph.i.i.i432 ]
+  %.0371 = phi i1 [ false, %3 ], [ false, %1332 ], [ true, %_ZN4llvm8DebugLocD2Ev.exit441 ], [ true, %_ZN4llvm8DebugLocD2Ev.exit449 ], [ true, %._crit_edge814 ], [ true, %550 ], [ true, %_ZNK4llvm12MachineInstr11memoperandsEv.exit ], [ true, %_ZNK4llvm12MachineInstr11memoperandsEv.exit534 ], [ true, %_ZN4llvm8DebugLocD2Ev.exit543 ], [ true, %796 ], [ true, %797 ], [ true, %847 ], [ true, %_ZNK4llvm12MachineInstr11memoperandsEv.exit564 ], [ true, %_ZNK4llvm12MachineInstr11memoperandsEv.exit589 ], [ true, %1122 ], [ true, %1128 ], [ true, %1177 ], [ true, %1183 ], [ true, %1195 ], [ true, %_ZN12_GLOBAL__N_115X86ExpandPseudo19expandCALL_RVMARKERERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit ], [ true, %._crit_edge ], [ true, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i ], [ false, %1351 ], [ false, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit599.thread ], [ true, %.lr.ph.i.i.i432 ]
   ret i1 %.0371
 }
 

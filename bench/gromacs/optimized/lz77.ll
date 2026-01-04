@@ -159,8 +159,8 @@ define void @Ptngc_comp_to_lz77(ptr noundef readonly captures(none) %0, i32 noun
   br i1 %exitcond217.not, label %._crit_edge.us.us, label %.preheader.us.us, !llvm.loop !10
 
 65:                                               ; preds = %62, %59, %._crit_edge.us.us, %50
-  %.4122.us.us = phi i32 [ %.0123.lcssa.us.us, %62 ], [ %.3121167.us.us, %59 ], [ %.3121167.us.us, %._crit_edge.us.us ], [ %.3121167.us.us, %50 ]
-  %.4.us.us = phi i32 [ %63, %62 ], [ %.3117168.us.us, %59 ], [ %.3117168.us.us, %._crit_edge.us.us ], [ %.3117168.us.us, %50 ]
+  %.4122.us.us = phi i32 [ %.0123.lcssa.us.us, %62 ], [ %.3121167.us.us, %50 ], [ %.3121167.us.us, %59 ], [ %.3121167.us.us, %._crit_edge.us.us ]
+  %.4.us.us = phi i32 [ %63, %62 ], [ %.3117168.us.us, %50 ], [ %.3117168.us.us, %59 ], [ %.3117168.us.us, %._crit_edge.us.us ]
   %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next219 to i32
   %exitcond221.not = icmp eq i32 %.1131194, %lftr.wideiv

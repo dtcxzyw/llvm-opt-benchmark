@@ -237,8 +237,8 @@ define i64 @av_d2q(double noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   br label %28
 
 28:                                               ; preds = %2, %12, %9
-  %.sroa.0.0 = phi i32 [ %11, %9 ], [ %.sroa.0.0.copyload, %12 ], [ 0, %2 ]
-  %.sroa.4.0 = phi i64 [ 0, %9 ], [ %27, %12 ], [ 0, %2 ]
+  %.sroa.0.0 = phi i32 [ %.sroa.0.0.copyload, %12 ], [ %11, %9 ], [ 0, %2 ]
+  %.sroa.4.0 = phi i64 [ %27, %12 ], [ 0, %9 ], [ 0, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.sroa.0.0.insert.ext = zext i32 %.sroa.0.0 to i64
@@ -301,7 +301,7 @@ define i32 @av_nearer_q(i64 %0, i64 %1, i64 %2) local_unnamed_addr #2 {
   br label %av_cmp_q.exit
 
 av_cmp_q.exit:                                    ; preds = %10, %17, %20, %23
-  %.0.i = phi i32 [ %16, %10 ], [ %25, %23 ], [ 0, %17 ], [ -2147483648, %20 ]
+  %.0.i = phi i32 [ %16, %10 ], [ 0, %17 ], [ %25, %23 ], [ -2147483648, %20 ]
   %26 = add nsw i64 %9, %6
   %27 = ashr i64 %0, 32
   %28 = shl nsw i64 %8, 1
@@ -384,7 +384,7 @@ define i32 @av_find_nearest_q_idx(i64 %0, ptr noundef readonly captures(none) %1
   br label %av_nearer_q.exit
 
 av_nearer_q.exit:                                 ; preds = %19, %26, %29, %32
-  %.0.i.i = phi i32 [ %25, %19 ], [ %34, %32 ], [ 0, %26 ], [ -2147483648, %29 ]
+  %.0.i.i = phi i32 [ %25, %19 ], [ 0, %26 ], [ %34, %32 ], [ -2147483648, %29 ]
   %35 = add nsw i64 %18, %15
   %36 = shl nsw i64 %17, 1
   %37 = mul nsw i64 %36, %14

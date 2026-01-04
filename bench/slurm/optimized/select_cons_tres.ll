@@ -575,7 +575,7 @@ define dso_local range(i32 0, 2) i32 @select_p_job_ready(ptr noundef readonly ca
   br label %20
 
 20:                                               ; preds = %._crit_edge, %1, %6
-  %.07 = phi i32 [ 0, %1 ], [ 1, %6 ], [ %.not10.lcssa, %._crit_edge ]
+  %.07 = phi i32 [ 1, %6 ], [ %.not10.lcssa, %._crit_edge ], [ 0, %1 ]
   ret i32 %.07
 }
 
@@ -1431,7 +1431,7 @@ _dump_job_res.exit:                               ; preds = %31, %34
   br label %178
 
 178:                                              ; preds = %169, %172, %122, %.loopexit107, %57, %60, %._crit_edge.thread, %.critedge, %112, %11
-  %.081 = phi i32 [ -1, %._crit_edge.thread ], [ -1, %.critedge ], [ -1, %112 ], [ -1, %11 ], [ 0, %60 ], [ 0, %57 ], [ 0, %.loopexit107 ], [ 0, %122 ], [ 0, %172 ], [ 0, %169 ]
+  %.081 = phi i32 [ -1, %11 ], [ 0, %57 ], [ -1, %._crit_edge.thread ], [ 0, %122 ], [ 0, %.loopexit107 ], [ -1, %.critedge ], [ -1, %112 ], [ 0, %60 ], [ 0, %172 ], [ 0, %169 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.081
 }
@@ -1726,7 +1726,7 @@ select_p_select_nodeinfo_free.exit:               ; preds = %23, %25
   br label %28
 
 28:                                               ; preds = %3, %17, %select_p_select_nodeinfo_free.exit
-  %.014 = phi i32 [ -1, %select_p_select_nodeinfo_free.exit ], [ 0, %17 ], [ 0, %3 ]
+  %.014 = phi i32 [ -1, %select_p_select_nodeinfo_free.exit ], [ 0, %3 ], [ 0, %17 ]
   ret i32 %.014
 }
 

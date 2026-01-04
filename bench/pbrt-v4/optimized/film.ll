@@ -745,7 +745,7 @@ _ZSt3maxIfET_St16initializer_listIS0_E.exit.i.i:  ; preds = %.lr.ph.i.i.i.i
   br label %_ZN4pbrt3RGBixEi.exit.i.i
 
 _ZN4pbrt3RGBixEi.exit.i.i:                        ; preds = %48, %47, %45
-  %.0.i.sroa.speculated.i.i = phi float [ %.sroa.0.4.vec.extract38.pre-phi.i.i, %47 ], [ %.sroa.11.0.i.i, %48 ], [ %.sroa.0.0.vec.extract33.pre-phi.i.i, %45 ]
+  %.0.i.sroa.speculated.i.i = phi float [ %.sroa.11.0.i.i, %48 ], [ %.sroa.0.4.vec.extract38.pre-phi.i.i, %47 ], [ %.sroa.0.0.vec.extract33.pre-phi.i.i, %45 ]
   %49 = fmul float %13, %.0.i.sroa.speculated.i.i
   %50 = fpext float %49 to double
   %51 = getelementptr inbounds nuw double, ptr %44, i64 %indvars.iv.i.i
@@ -1229,7 +1229,7 @@ _ZNK4pbrt15SampledSpectrum17MaxComponentValueEv.exit: ; preds = %48
   br label %_ZN4pbrt3RGBixEi.exit
 
 _ZN4pbrt3RGBixEi.exit:                            ; preds = %53, %55, %56
-  %.0.i.sroa.speculated = phi float [ %.sroa.0.4.vec.extract59.pre-phi, %55 ], [ %.sroa.11.0, %56 ], [ %.sroa.0.0.vec.extract54.pre-phi, %53 ]
+  %.0.i.sroa.speculated = phi float [ %.sroa.11.0, %56 ], [ %.sroa.0.4.vec.extract59.pre-phi, %55 ], [ %.sroa.0.0.vec.extract54.pre-phi, %53 ]
   %57 = fmul float %6, %.0.i.sroa.speculated
   %58 = fpext float %57 to double
   %59 = getelementptr inbounds nuw double, ptr %42, i64 %indvars.iv

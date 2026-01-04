@@ -257,14 +257,14 @@ lpad.loopexit.split-lp.loopexit:                  ; preds = %_ZNKSt6vectorISt4pa
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %if.then.i.i.i118.invoke, %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i, %if.then.i.i.i66, %if.end.i38, %if.then.i.i.i33
-  %scaledWeights.sroa.0.2172 = phi ptr [ %scaledWeights.sroa.0.2.lcssa222231, %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i ], [ %scaledWeights.sroa.0.2.lcssa, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i ], [ %scaledWeights.sroa.0.2.lcssa, %if.then.i.i.i66 ], [ %scaledWeights.sroa.0.2.lcssa, %if.end.i38 ], [ %scaledWeights.sroa.0.2182, %if.then.i.i.i33 ], [ %scaledWeights.sroa.0.2.lcssa222231, %if.then.i.i.i118.invoke ]
+  %scaledWeights.sroa.0.2172 = phi ptr [ %scaledWeights.sroa.0.2.lcssa222231, %if.then.i.i.i118.invoke ], [ %scaledWeights.sroa.0.2.lcssa222231, %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i ], [ %scaledWeights.sroa.0.2182, %if.then.i.i.i33 ], [ %scaledWeights.sroa.0.2.lcssa, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i ], [ %scaledWeights.sroa.0.2.lcssa, %if.then.i.i.i66 ], [ %scaledWeights.sroa.0.2.lcssa, %if.end.i38 ]
   %lpad.loopexit.split-lp164 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp
-  %scaledWeights.sroa.0.2170 = phi ptr [ %scaledWeights.sroa.0.2182, %lpad.loopexit.split-lp.loopexit ], [ %scaledWeights.sroa.0.2172, %lpad.loopexit.split-lp.loopexit.split-lp ]
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit163, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp164, %lpad.loopexit.split-lp.loopexit.split-lp ]
+  %scaledWeights.sroa.0.2170 = phi ptr [ %scaledWeights.sroa.0.2172, %lpad.loopexit.split-lp.loopexit.split-lp ], [ %scaledWeights.sroa.0.2182, %lpad.loopexit.split-lp.loopexit ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.split-lp164, %lpad.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit163, %lpad.loopexit.split-lp.loopexit ]
   %tobool.not.i.i.i = icmp eq ptr %scaledWeights.sroa.0.2170, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit, label %if.then.i.i.i
 
@@ -440,10 +440,10 @@ _ZNSt6vectorISt4pairIdmESaIS1_EE17_M_realloc_insertIJRdRmEEEvN9__gnu_cxx17__norm
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNSt6vectorISt4pairIdmESaIS1_EE17_M_realloc_insertIJRdRmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %if.then.i30
-  %scaledWeights.sroa.18.2 = phi ptr [ %add.ptr28.i.i, %_ZNSt6vectorISt4pairIdmESaIS1_EE17_M_realloc_insertIJRdRmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %scaledWeights.sroa.18.1180, %if.then.i30 ]
-  %__cur.0.lcssa.i.i.i.i.i.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i, %_ZNSt6vectorISt4pairIdmESaIS1_EE17_M_realloc_insertIJRdRmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %scaledWeights.sroa.11.1181, %if.then.i30 ]
-  %scaledWeights.sroa.0.3 = phi ptr [ %call5.i.i.i.i.i35, %_ZNSt6vectorISt4pairIdmESaIS1_EE17_M_realloc_insertIJRdRmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %scaledWeights.sroa.0.2182, %if.then.i30 ]
-  %scaledWeights.sroa.11.2 = getelementptr inbounds nuw i8, ptr %__cur.0.lcssa.i.i.i.i.i.pn, i64 16
+  %scaledWeights.sroa.18.2 = phi ptr [ %scaledWeights.sroa.18.1180, %if.then.i30 ], [ %add.ptr28.i.i, %_ZNSt6vectorISt4pairIdmESaIS1_EE17_M_realloc_insertIJRdRmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
+  %scaledWeights.sroa.11.1181.pn = phi ptr [ %scaledWeights.sroa.11.1181, %if.then.i30 ], [ %__cur.0.lcssa.i.i.i.i.i, %_ZNSt6vectorISt4pairIdmESaIS1_EE17_M_realloc_insertIJRdRmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
+  %scaledWeights.sroa.0.3 = phi ptr [ %scaledWeights.sroa.0.2182, %if.then.i30 ], [ %call5.i.i.i.i.i35, %_ZNSt6vectorISt4pairIdmESaIS1_EE17_M_realloc_insertIJRdRmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
+  %scaledWeights.sroa.11.2 = getelementptr inbounds nuw i8, ptr %scaledWeights.sroa.11.1181.pn, i64 16
   %inc = add nuw i64 %storemerge183, 1
   %8 = load ptr, ptr %_M_finish.i, align 8
   %9 = load ptr, ptr %weights_, align 8
@@ -696,8 +696,8 @@ for.inc64:                                        ; preds = %_ZNSt6vectorImSaImE
   br i1 %cmp59, label %for.body60, label %if.end68, !llvm.loop !18
 
 if.end68:                                         ; preds = %for.inc64, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i, %if.then.i48, %if.end50
-  %scaledWeights.sroa.0.2.lcssa223 = phi ptr [ %scaledWeights.sroa.0.2.lcssa, %if.end50 ], [ %scaledWeights.sroa.0.2.lcssa, %if.then.i48 ], [ %scaledWeights.sroa.0.2.lcssa, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ], [ %scaledWeights.sroa.0.2.lcssa222231, %for.inc64 ]
-  %storemerge16154 = phi i64 [ %maxWeightIndex.0.lcssa, %if.end50 ], [ %maxWeightIndex.0.lcssa, %if.then.i48 ], [ %maxWeightIndex.0.lcssa, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ], [ %12, %for.inc64 ]
+  %scaledWeights.sroa.0.2.lcssa223 = phi ptr [ %scaledWeights.sroa.0.2.lcssa, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ], [ %scaledWeights.sroa.0.2.lcssa, %if.end50 ], [ %scaledWeights.sroa.0.2.lcssa, %if.then.i48 ], [ %scaledWeights.sroa.0.2.lcssa222231, %for.inc64 ]
+  %storemerge16154 = phi i64 [ %maxWeightIndex.0.lcssa, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ], [ %maxWeightIndex.0.lcssa, %if.end50 ], [ %maxWeightIndex.0.lcssa, %if.then.i48 ], [ %12, %for.inc64 ]
   %tobool.not.i.i.i123 = icmp eq ptr %scaledWeights.sroa.0.2.lcssa223, null
   br i1 %tobool.not.i.i.i123, label %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit125, label %if.then.i.i.i124
 
@@ -1217,8 +1217,8 @@ if.else55.i:                                      ; preds = %_ZN9__gnu_cxx5__ops
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIdmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterISt7greaterIS3_EEEEvT_SE_SE_SE_T0_.exit
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIdmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterISt7greaterIS3_EEEEvT_SE_SE_SE_T0_.exit: ; preds = %if.then.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairIdmEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit8.i, %if.else.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairIdmEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit16.i, %if.else27.i, %if.else33.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairIdmEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit28.i, %if.else44.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairIdmEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit38.i, %if.else55.i
-  %.sink56.i = phi double [ %0, %if.else55.i ], [ %1, %if.else27.i ], [ %0, %if.then.i ], [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairIdmEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit8.i ], [ %4, %if.else.i ], [ %4, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairIdmEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit16.i ], [ %1, %if.else33.i ], [ %1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairIdmEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit28.i ], [ %9, %if.else44.i ], [ %9, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairIdmEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit38.i ]
-  %__a.coerce.sink55.i = phi ptr [ %add.ptr.i, %if.else55.i ], [ %add.ptr.i2, %if.else27.i ], [ %add.ptr.i, %if.then.i ], [ %add.ptr.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairIdmEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit8.i ], [ %add.ptr.i3, %if.else.i ], [ %add.ptr.i3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairIdmEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit16.i ], [ %add.ptr.i2, %if.else33.i ], [ %add.ptr.i2, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairIdmEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit28.i ], [ %add.ptr.i3, %if.else44.i ], [ %add.ptr.i3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairIdmEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit38.i ]
+  %.sink56.i = phi double [ %4, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairIdmEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit16.i ], [ %0, %if.else55.i ], [ %1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairIdmEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit28.i ], [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairIdmEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit8.i ], [ %1, %if.else27.i ], [ %0, %if.then.i ], [ %4, %if.else.i ], [ %1, %if.else33.i ], [ %9, %if.else44.i ], [ %9, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairIdmEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit38.i ]
+  %__a.coerce.sink55.i = phi ptr [ %add.ptr.i3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairIdmEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit16.i ], [ %add.ptr.i, %if.else55.i ], [ %add.ptr.i2, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairIdmEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit28.i ], [ %add.ptr.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairIdmEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit8.i ], [ %add.ptr.i2, %if.else27.i ], [ %add.ptr.i, %if.then.i ], [ %add.ptr.i3, %if.else.i ], [ %add.ptr.i2, %if.else33.i ], [ %add.ptr.i3, %if.else44.i ], [ %add.ptr.i3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairIdmEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit38.i ]
   %14 = load double, ptr %__first.coerce, align 8
   store double %.sink56.i, ptr %__first.coerce, align 8
   store double %14, ptr %__a.coerce.sink55.i, align 8

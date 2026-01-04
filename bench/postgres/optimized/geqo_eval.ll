@@ -293,8 +293,8 @@ list_length.exit.preheader:                       ; preds = %.split.us
   br label %70
 
 .loopexit:                                        ; preds = %tailrecurse, %tailrecurse.us, %4, %.split.us
-  %.tr8898 = phi ptr [ %.us-phi, %.split.us ], [ null, %4 ], [ null, %tailrecurse.us ], [ null, %tailrecurse ]
-  %.tr8996 = phi ptr [ %.us-phi103, %.split.us ], [ %2, %4 ], [ %15, %tailrecurse.us ], [ %38, %tailrecurse ]
+  %.tr8898 = phi ptr [ %.us-phi, %.split.us ], [ null, %tailrecurse.us ], [ null, %4 ], [ null, %tailrecurse ]
+  %.tr8996 = phi ptr [ %.us-phi103, %.split.us ], [ %15, %tailrecurse.us ], [ %2, %4 ], [ %38, %tailrecurse ]
   %69 = tail call ptr @lappend(ptr noundef %.tr8898, ptr noundef %.tr8996) #2
   br label %78
 

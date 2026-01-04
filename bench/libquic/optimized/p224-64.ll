@@ -2729,7 +2729,7 @@ felem_to_BN.exit65:                               ; preds = %2370
   br label %2378
 
 2378:                                             ; preds = %BN_to_felem.exit49.thread, %BN_to_felem.exit33.thread, %BN_to_felem.exit.thread, %2183, %felem_to_BN.exit65, %2377, %2182, %17
-  %.0 = phi i32 [ 0, %17 ], [ 0, %2377 ], [ 0, %2182 ], [ 1, %felem_to_BN.exit65 ], [ 1, %2183 ], [ 0, %BN_to_felem.exit.thread ], [ 0, %BN_to_felem.exit33.thread ], [ 0, %BN_to_felem.exit49.thread ]
+  %.0 = phi i32 [ 0, %17 ], [ 0, %BN_to_felem.exit.thread ], [ 0, %2377 ], [ 0, %2182 ], [ 0, %BN_to_felem.exit49.thread ], [ 0, %BN_to_felem.exit33.thread ], [ 1, %felem_to_BN.exit65 ], [ 1, %2183 ]
   ret i32 %.0
 }
 
@@ -3768,10 +3768,10 @@ felem_to_BN.exit224:                              ; preds = %573
   %584 = call i32 @ec_point_set_Jprojective_coordinates_GFp(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %29, ptr noundef nonnull %32, ptr noundef nonnull %35, ptr noundef nonnull %.0141) #10
   br label %585
 
-585:                                              ; preds = %flip_endian.exit205, %BN_to_felem.exit200.thread, %BN_to_felem.exit184.thread, %BN_to_felem.exit.thread, %70, %28, %31, %34, %37, %583, %582, %46
-  %.0142 = phi i32 [ 0, %28 ], [ 0, %31 ], [ 0, %34 ], [ 0, %37 ], [ 0, %46 ], [ %584, %583 ], [ 0, %582 ], [ 0, %flip_endian.exit205 ], [ 0, %70 ], [ 0, %BN_to_felem.exit.thread ], [ 0, %BN_to_felem.exit184.thread ], [ 0, %BN_to_felem.exit200.thread ]
-  %.0139 = phi ptr [ null, %28 ], [ null, %31 ], [ null, %34 ], [ null, %37 ], [ %42, %46 ], [ %.1140, %583 ], [ %.1140, %582 ], [ %.1140, %flip_endian.exit205 ], [ %42, %70 ], [ %42, %BN_to_felem.exit.thread ], [ %42, %BN_to_felem.exit184.thread ], [ %42, %BN_to_felem.exit200.thread ]
-  %.0137 = phi ptr [ null, %28 ], [ null, %31 ], [ null, %34 ], [ null, %37 ], [ %43, %46 ], [ %.1138, %583 ], [ %.1138, %582 ], [ %.1138, %flip_endian.exit205 ], [ %43, %70 ], [ %43, %BN_to_felem.exit.thread ], [ %43, %BN_to_felem.exit184.thread ], [ %43, %BN_to_felem.exit200.thread ]
+585:                                              ; preds = %flip_endian.exit205, %BN_to_felem.exit184.thread, %BN_to_felem.exit200.thread, %70, %BN_to_felem.exit.thread, %28, %31, %34, %37, %583, %582, %46
+  %.0142 = phi i32 [ 0, %28 ], [ 0, %31 ], [ 0, %34 ], [ 0, %37 ], [ 0, %46 ], [ %584, %583 ], [ 0, %582 ], [ 0, %flip_endian.exit205 ], [ 0, %BN_to_felem.exit.thread ], [ 0, %70 ], [ 0, %BN_to_felem.exit200.thread ], [ 0, %BN_to_felem.exit184.thread ]
+  %.0139 = phi ptr [ null, %28 ], [ null, %31 ], [ null, %34 ], [ null, %37 ], [ %42, %46 ], [ %.1140, %583 ], [ %.1140, %582 ], [ %.1140, %flip_endian.exit205 ], [ %42, %BN_to_felem.exit.thread ], [ %42, %70 ], [ %42, %BN_to_felem.exit200.thread ], [ %42, %BN_to_felem.exit184.thread ]
+  %.0137 = phi ptr [ null, %28 ], [ null, %31 ], [ null, %34 ], [ null, %37 ], [ %43, %46 ], [ %.1138, %583 ], [ %.1138, %582 ], [ %.1138, %flip_endian.exit205 ], [ %43, %BN_to_felem.exit.thread ], [ %43, %70 ], [ %43, %BN_to_felem.exit200.thread ], [ %43, %BN_to_felem.exit184.thread ]
   call void @BN_CTX_end(ptr noundef nonnull %.0141) #10
   call void @BN_CTX_free(ptr noundef %.0143) #10
   call void @free(ptr noundef %.0139) #10
@@ -3779,7 +3779,7 @@ felem_to_BN.exit224:                              ; preds = %573
   br label %586
 
 586:                                              ; preds = %25, %585
-  %.0136 = phi i32 [ %.0142, %585 ], [ 0, %25 ]
+  %.0136 = phi i32 [ 0, %25 ], [ %.0142, %585 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)

@@ -419,7 +419,7 @@ define dso_local noundef ptr @_ZN10Expression11make_randomER9CGContextPK4TypePK1
   br i1 %32, label %.preheader.split, label %.loopexit, !llvm.loop !92
 
 .loopexit:                                        ; preds = %29, %17, %19, %9
-  %.038 = phi ptr [ %1, %9 ], [ %20, %19 ], [ %18, %17 ], [ %30, %29 ]
+  %.038 = phi ptr [ %1, %9 ], [ %18, %17 ], [ %20, %19 ], [ %30, %29 ]
   %33 = icmp eq i32 %5, 5
   br i1 %33, label %34, label %86
 
@@ -586,7 +586,7 @@ unreachable:                                      ; preds = %88
   unreachable
 
 99:                                               ; preds = %97, %95, %93, %91, %89
-  %.039 = phi ptr [ %90, %89 ], [ %92, %91 ], [ %94, %93 ], [ %96, %95 ], [ %98, %97 ]
+  %.039 = phi ptr [ %98, %97 ], [ %90, %89 ], [ %92, %91 ], [ %94, %93 ], [ %96, %95 ]
   %100 = getelementptr inbounds nuw i8, ptr %.039, i64 8
   %101 = load i32, ptr %100, align 8, !tbaa !96
   %switch48 = icmp ult i32 %101, 2
@@ -872,7 +872,7 @@ unreachable:                                      ; preds = %55
   unreachable
 
 66:                                               ; preds = %64, %62, %60, %58, %56
-  %.030 = phi ptr [ %57, %56 ], [ %59, %58 ], [ %61, %60 ], [ %63, %62 ], [ %65, %64 ]
+  %.030 = phi ptr [ %65, %64 ], [ %57, %56 ], [ %59, %58 ], [ %61, %60 ], [ %63, %62 ]
   %67 = getelementptr inbounds nuw i8, ptr %.030, i64 8
   %68 = load i32, ptr %67, align 8, !tbaa !96
   %switch = icmp ult i32 %68, 2

@@ -593,8 +593,8 @@ define hidden void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11insert_fu
   br i1 %73, label %.critedge, label %.invoke, !prof !198
 
 74:                                               ; preds = %64, %60
-  %75 = phi i8 [ %.pre.i, %64 ], [ %62, %60 ]
-  %.sroa.410.0.ph.i = phi i64 [ %70, %64 ], [ %.sroa.6.1.i.i.i, %60 ]
+  %75 = phi i8 [ %62, %60 ], [ %.pre.i, %64 ]
+  %.sroa.410.0.ph.i = phi i64 [ %.sroa.6.1.i.i.i, %60 ], [ %70, %64 ]
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %77 = load i64, ptr %76, align 8, !alias.scope !175, !noalias !178, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !212)
@@ -686,7 +686,7 @@ define hidden void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11insert_fu
   br label %"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$15reserve_entries17h9961f15198030a70E.exit.i"
 
 "_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$15reserve_entries17h9961f15198030a70E.exit.i": ; preds = %._crit_edge.i.i.i, %._crit_edge.i.i.i.i, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17h6da3f297e942286bE.exit.i.i"
-  %111 = phi i64 [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ], [ %.pre.i19, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17h6da3f297e942286bE.exit.i.i" ], [ %.pre.i.i.i, %._crit_edge.i.i.i ]
+  %111 = phi i64 [ %.pre.i19, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17h6da3f297e942286bE.exit.i.i" ], [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ], [ %.pre.i.i.i, %._crit_edge.i.i.i ]
   %.pre14.i = load i64, ptr %13, align 8, !alias.scope !232, !noalias !235
   br label %112
 
@@ -811,7 +811,7 @@ define hidden void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11insert_fu
   unreachable
 
 .critedge17:                                      ; preds = %127, %119, %154
-  %eh.lpad-body24 = phi { ptr, i32 } [ %151, %154 ], [ %124, %127 ], [ %120, %119 ]
+  %eh.lpad-body24 = phi { ptr, i32 } [ %124, %127 ], [ %151, %154 ], [ %120, %119 ]
   resume { ptr, i32 } %eh.lpad-body24
 
 154:                                              ; preds = %150
@@ -1069,8 +1069,8 @@ _ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17hc264633c5b2bdcd4E.ex
   br label %72
 
 _ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17hc264633c5b2bdcd4E.exit.thread: ; preds = %62, %50
-  %.sroa.6.04562.ph = phi i64 [ %3, %62 ], [ 0, %50 ]
-  %.sroa.10.060.ph = phi i64 [ %47, %62 ], [ undef, %50 ]
+  %.sroa.6.04562.ph = phi i64 [ 0, %50 ], [ %3, %62 ]
+  %.sroa.10.060.ph = phi i64 [ undef, %50 ], [ %47, %62 ]
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.6.04562.ph, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1952,7 +1952,7 @@ define void @_ZN10lsp_server6socket16socket_transport17h4282ee007ccca05fE(ptr no
           to label %"_ZN4core3ptr45drop_in_place$LT$std..net..tcp..TcpStream$GT$17h760fae6c14cb15b7E.exit" unwind label %103
 
 .thread31:                                        ; preds = %.body.i9, %95
-  %eh.lpad-body17 = phi { ptr, i32 } [ %eh.lpad-body.i10, %.body.i9 ], [ %96, %95 ]
+  %eh.lpad-body17 = phi { ptr, i32 } [ %96, %95 ], [ %eh.lpad-body.i10, %.body.i9 ]
   invoke void @"_ZN4core3ptr111drop_in_place$LT$std..thread..JoinInner$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$$GT$17h53fdf6bc5088889cE.llvm.12355220772335189349"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
           to label %"_ZN4core3ptr112drop_in_place$LT$std..thread..JoinHandle$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$$GT$17h675261417aa8d4e0E.exit" unwind label %103
 
@@ -1961,7 +1961,7 @@ define void @_ZN10lsp_server6socket16socket_transport17h4282ee007ccca05fE(ptr no
   resume { ptr, i32 } %.pn.pn29
 
 .thread:                                          ; preds = %.body.i, %62, %27, %20
-  %eh.lpad-body = phi { ptr, i32 } [ %21, %20 ], [ %28, %27 ], [ %eh.lpad-body.i, %.body.i ], [ %63, %62 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %28, %27 ], [ %21, %20 ], [ %eh.lpad-body.i, %.body.i ], [ %63, %62 ]
   %105 = load i32, ptr %19, align 4, !alias.scope !391, !noundef !4
   %106 = invoke noundef i32 @close(i32 noundef %105)
           to label %"_ZN4core3ptr45drop_in_place$LT$std..net..tcp..TcpStream$GT$17h760fae6c14cb15b7E.exit" unwind label %103

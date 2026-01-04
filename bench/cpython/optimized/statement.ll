@@ -238,7 +238,7 @@ define internal fastcc noundef ptr @lstrip_sql(ptr noundef readonly captures(ret
   br label %.thread
 
 .thread:                                          ; preds = %20, %10, %14, %4, %2, %.thread.loopexit69
-  %28 = phi ptr [ null, %.thread.loopexit69 ], [ %.026, %2 ], [ %.026, %4 ], [ %.026, %14 ], [ null, %10 ], [ null, %20 ]
+  %28 = phi ptr [ null, %.thread.loopexit69 ], [ null, %10 ], [ %.026, %14 ], [ %.026, %2 ], [ %.026, %4 ], [ null, %20 ]
   ret ptr %28
 }
 

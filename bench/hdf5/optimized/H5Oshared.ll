@@ -700,7 +700,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__shared_link_adj(ptr noundef %0
   br label %42
 
 42:                                               ; preds = %34, %35, %38
-  %.2 = phi i32 [ -1, %38 ], [ 0, %35 ], [ %.126, %34 ]
+  %.2 = phi i32 [ -1, %38 ], [ %.126, %34 ], [ 0, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %61
 
@@ -736,7 +736,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__shared_link_adj(ptr noundef %0
   br label %61
 
 61:                                               ; preds = %5, %52, %53, %45, %57, %48, %42
-  %.025 = phi i32 [ %.2, %42 ], [ -1, %48 ], [ 0, %45 ], [ -1, %57 ], [ 0, %53 ], [ 0, %52 ], [ 0, %5 ]
+  %.025 = phi i32 [ 0, %5 ], [ %.2, %42 ], [ -1, %48 ], [ 0, %45 ], [ -1, %57 ], [ 0, %53 ], [ 0, %52 ]
   ret i32 %.025
 }
 
@@ -821,7 +821,7 @@ define range(i32 -1, 1) i32 @H5O__shared_copy_file(ptr noundef readnone captures
   br label %37
 
 37:                                               ; preds = %9, %29, %28
-  %.018 = phi i32 [ %.1, %28 ], [ 0, %29 ], [ 0, %9 ]
+  %.018 = phi i32 [ 0, %9 ], [ %.1, %28 ], [ 0, %29 ]
   ret i32 %.018
 }
 
@@ -902,7 +902,7 @@ define range(i32 -1, 1) i32 @H5O__shared_post_copy_file(ptr noundef %0, ptr noun
   br label %48
 
 48:                                               ; preds = %6, %40, %44, %39
-  %.020 = phi i32 [ %.1, %39 ], [ -1, %44 ], [ 0, %40 ], [ 0, %6 ]
+  %.020 = phi i32 [ 0, %6 ], [ %.1, %39 ], [ -1, %44 ], [ 0, %40 ]
   ret i32 %.020
 }
 

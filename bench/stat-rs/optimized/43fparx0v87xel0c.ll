@@ -746,7 +746,7 @@ define hidden void @"_ZN8nalgebra6linalg8cholesky21Cholesky$LT$T$C$D$GT$12new_in
   resume { ptr, i32 } %.pn
 
 71:                                               ; preds = %11, %23, %55
-  %.pn = phi { ptr, i32 } [ %56, %55 ], [ %12, %11 ], [ %24, %23 ]
+  %.pn = phi { ptr, i32 } [ %24, %23 ], [ %56, %55 ], [ %12, %11 ]
   invoke void @"_ZN4core3ptr247drop_in_place$LT$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$GT$$GT$$GT$17h3cfcfd743d3219eeE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1) #23
           to label %70 unwind label %72
 
@@ -1151,7 +1151,7 @@ _ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit.i.i: ; preds
   br i1 %exitcond.not.i, label %_ZN4core4iter6traits8iterator8Iterator4fold17hb666c70ed2b734eaE.exit, label %41
 
 _ZN4core4iter6traits8iterator8Iterator4fold17hb666c70ed2b734eaE.exit: ; preds = %"_ZN123_$LT$statrs..distribution..hypergeometric..Hypergeometric$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$3cdf28_$u7b$$u7b$closure$u7d$$u7d$17h385a8ae1c45e71d9E.exit.i", %20, %2
-  %.sroa.0.0 = phi double [ 0.000000e+00, %2 ], [ 1.000000e+00, %20 ], [ %71, %"_ZN123_$LT$statrs..distribution..hypergeometric..Hypergeometric$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$3cdf28_$u7b$$u7b$closure$u7d$$u7d$17h385a8ae1c45e71d9E.exit.i" ]
+  %.sroa.0.0 = phi double [ 1.000000e+00, %20 ], [ 0.000000e+00, %2 ], [ %71, %"_ZN123_$LT$statrs..distribution..hypergeometric..Hypergeometric$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$3cdf28_$u7b$$u7b$closure$u7d$$u7d$17h385a8ae1c45e71d9E.exit.i" ]
   ret double %.sroa.0.0
 }
 
@@ -1676,7 +1676,7 @@ define hidden { i64, double } @_ZN6statrs10statistics6traits12Distribution7std_d
   br label %"_ZN102_$LT$statrs..distribution..chi..Chi$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17h11d04c6d7700476dE.exit.thread.i"
 
 "_ZN102_$LT$statrs..distribution..chi..Chi$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17h11d04c6d7700476dE.exit.thread.i": ; preds = %15, %7
-  %.sroa.4.0.i.ph.i = phi double [ %14, %7 ], [ %27, %15 ]
+  %.sroa.4.0.i.ph.i = phi double [ %27, %15 ], [ %14, %7 ]
   %28 = insertvalue { i64, double } { i64 1, double poison }, double %.sroa.4.0.i.ph.i, 1
   %29 = fmul double %.sroa.4.0.i.ph.i, %.sroa.4.0.i.ph.i
   %30 = fsub double %2, %29

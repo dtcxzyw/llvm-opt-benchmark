@@ -468,7 +468,7 @@ define hidden range(i32 0, 2) i32 @decode_gtcp(ptr noundef readonly captures(non
   br label %108
 
 108:                                              ; preds = %83, %97, %106
-  %.0 = phi i32 [ 1, %106 ], [ 1, %97 ], [ 0, %83 ]
+  %.0 = phi i32 [ 1, %97 ], [ 1, %106 ], [ 0, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

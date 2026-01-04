@@ -759,7 +759,7 @@ define ptr @PyInit_test_make_iterator_ext() local_unnamed_addr #0 personality pt
   br label %.body
 
 .body:                                            ; preds = %184, %179
-  %.pn = phi { ptr, i32 } [ %185, %184 ], [ %.pn32.pn.i, %179 ]
+  %.pn = phi { ptr, i32 } [ %.pn32.pn.i, %179 ], [ %185, %184 ]
   %.05 = extractvalue { ptr, i32 } %.pn, 1
   %186 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %187 = icmp eq i32 %.05, %186
@@ -1814,7 +1814,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4h
   %exitcond.not = icmp eq i64 %34, %13
   br i1 %exitcond.not, label %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S5_EEE7emplaceIJS5_S5_EEESA_INSt8__detail14_Node_iteratorISC_Lb0ELb1EEEbEDpOT_.exit.thread, label %21, !llvm.loop !97
 
-_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S5_EEE7emplaceIJS5_S5_EEESA_INSt8__detail14_Node_iteratorISC_Lb0ELb1EEEbEDpOT_.exit.thread: ; preds = %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S5_EEE7emplaceIJS5_S5_EEESA_INSt8__detail14_Node_iteratorISC_Lb0ELb1EEEbEDpOT_.exit, %21, %30, %11
+_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S5_EEE7emplaceIJS5_S5_EEESA_INSt8__detail14_Node_iteratorISC_Lb0ELb1EEEbEDpOT_.exit.thread: ; preds = %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S5_EEE7emplaceIJS5_S5_EEESA_INSt8__detail14_Node_iteratorISC_Lb0ELb1EEEbEDpOT_.exit, %30, %21, %11
   %.1 = phi i1 [ %14, %11 ], [ false, %30 ], [ false, %21 ], [ %14, %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S5_EEE7emplaceIJS5_S5_EEESA_INSt8__detail14_Node_iteratorISC_Lb0ELb1EEEbEDpOT_.exit ]
   %35 = load i64, ptr %7, align 8, !tbaa !47
   %36 = add nsw i64 %35, -1
@@ -2277,7 +2277,7 @@ define linkonce_odr noundef ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcS
   br label %.loopexit, !llvm.loop !103
 
 .loopexit:                                        ; preds = %.lr.ph, %13, %8, %..loopexit_crit_edge21, %4
-  %.016 = phi ptr [ null, %4 ], [ null, %..loopexit_crit_edge21 ], [ %7, %8 ], [ null, %.lr.ph ], [ %.020, %13 ]
+  %.016 = phi ptr [ null, %4 ], [ %7, %8 ], [ null, %..loopexit_crit_edge21 ], [ null, %.lr.ph ], [ %.020, %13 ]
   ret ptr %.016
 }
 

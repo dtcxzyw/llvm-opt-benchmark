@@ -72,7 +72,7 @@ define noundef i32 @_ZNK7DataMap4utoiERKN6icu_7713UnicodeStringE(ptr noundef non
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %2, %9, %11
-  %.0.i = phi ptr [ %10, %9 ], [ %13, %11 ], [ null, %2 ]
+  %.0.i = phi ptr [ %13, %11 ], [ %10, %9 ], [ null, %2 ]
   tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.0.i) #16, !srcloc !8
   %14 = load i16, ptr %4, align 8, !tbaa !6
   %15 = icmp slt i16 %14, 0
@@ -659,7 +659,7 @@ define noundef i32 @_ZNK9RBDataMap6getIntEPKcR10UErrorCode(ptr noundef nonnull a
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit.i:    ; preds = %19, %17, %11
-  %.0.i.i = phi ptr [ %18, %17 ], [ %21, %19 ], [ null, %11 ]
+  %.0.i.i = phi ptr [ %21, %19 ], [ %18, %17 ], [ null, %11 ]
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.0.i.i) #16, !srcloc !8
   %22 = load i16, ptr %12, align 8, !tbaa !6
   %23 = icmp slt i16 %22, 0
@@ -760,7 +760,7 @@ define noundef ptr @_ZNK9RBDataMap14getStringArrayERiPKcR10UErrorCode(ptr nounde
   br i1 %34, label %.lr.ph, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.lr.ph, %.loopexit36, %4, %12
-  %.1 = phi ptr [ null, %12 ], [ null, %4 ], [ %26, %.loopexit36 ], [ %26, %.lr.ph ]
+  %.1 = phi ptr [ null, %4 ], [ null, %12 ], [ %26, %.loopexit36 ], [ %26, %.lr.ph ]
   ret ptr %.1
 }
 
@@ -874,7 +874,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit.i:    ; preds = %24
   resume { ptr, i32 } %.pn
 
 51:                                               ; preds = %4, %._crit_edge, %14
-  %.1 = phi ptr [ %19, %._crit_edge ], [ null, %14 ], [ null, %4 ]
+  %.1 = phi ptr [ null, %14 ], [ %19, %._crit_edge ], [ null, %4 ]
   ret ptr %.1
 }
 

@@ -106,7 +106,7 @@ define hidden range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_init(ptr nounde
   br label %.loopexit
 
 .loopexit:                                        ; preds = %45, %41, %34, %8, %6, %4, %.loopexit54
-  %.0 = phi i32 [ 0, %.loopexit54 ], [ -22, %4 ], [ -22, %6 ], [ -22, %8 ], [ -22, %34 ], [ -22, %41 ], [ -22, %45 ]
+  %.0 = phi i32 [ -22, %8 ], [ -22, %4 ], [ -22, %6 ], [ 0, %.loopexit54 ], [ -22, %34 ], [ -22, %41 ], [ -22, %45 ]
   ret i32 %.0
 }
 
@@ -331,8 +331,8 @@ switch.lookup:                                    ; preds = %.thread
   br label %114
 
 114:                                              ; preds = %switch.lookup, %.thread289, %97
-  %.3170.shrunk = phi i8 [ %102, %97 ], [ %90, %.thread289 ], [ %switch.masked, %switch.lookup ]
-  %.3162.shrunk = phi i8 [ %.4163.in, %97 ], [ %.4163.in292, %.thread289 ], [ %switch.masked323, %switch.lookup ]
+  %.3170.shrunk = phi i8 [ %102, %97 ], [ %switch.masked, %switch.lookup ], [ %90, %.thread289 ]
+  %.3162.shrunk = phi i8 [ %.4163.in, %97 ], [ %switch.masked323, %switch.lookup ], [ %.4163.in292, %.thread289 ]
   %.3162 = zext nneg i8 %.3162.shrunk to i32
   %.3170 = zext nneg i8 %.3170.shrunk to i32
   %115 = load ptr, ptr %4, align 8
@@ -432,7 +432,7 @@ switch.lookup:                                    ; preds = %.thread
   br i1 %exitcond.not.i152, label %find_ns.exit, label %156, !llvm.loop !9
 
 find_ns.exit:                                     ; preds = %165, %136, %.preheader.i147, %163
-  %.not129 = phi i1 [ true, %136 ], [ true, %.preheader.i147 ], [ %164, %163 ], [ true, %165 ]
+  %.not129 = phi i1 [ %164, %163 ], [ true, %136 ], [ true, %.preheader.i147 ], [ true, %165 ]
   %166 = getelementptr i8, ptr %128, i64 4
   %.val = load i8, ptr %166, align 1
   %167 = getelementptr i8, ptr %128, i64 5
@@ -503,9 +503,9 @@ find_ns.exit:                                     ; preds = %165, %136, %.prehea
   store i32 0, ptr %17, align 8
   br label %.thread220.backedge
 
-.thread209:                                       ; preds = %183, %104, %74
-  %189 = phi i32 [ %.pre, %74 ], [ %106, %104 ], [ %.pre, %183 ]
-  %190 = phi i32 [ %69, %74 ], [ %107, %104 ], [ %69, %183 ]
+.thread209:                                       ; preds = %74, %183, %104
+  %189 = phi i32 [ %106, %104 ], [ %.pre, %183 ], [ %.pre, %74 ]
+  %190 = phi i32 [ %107, %104 ], [ %69, %183 ], [ %69, %74 ]
   %191 = lshr i32 %189, 1
   store i32 %191, ptr %6, align 4
   %192 = add i32 %190, 1
@@ -526,12 +526,12 @@ find_ns.exit:                                     ; preds = %165, %136, %.prehea
   br i1 %.not132.not, label %.thread239, label %.thread220.backedge
 
 .thread220.backedge:                              ; preds = %193, %.thread194, %.thread209
-  %.pre.be = phi i32 [ %195, %193 ], [ %185, %.thread194 ], [ %191, %.thread209 ]
-  %.be = phi i32 [ %196, %193 ], [ %spec.select253, %.thread194 ], [ %192, %.thread209 ]
+  %.pre.be = phi i32 [ %185, %.thread194 ], [ %195, %193 ], [ %191, %.thread209 ]
+  %.be = phi i32 [ %spec.select253, %.thread194 ], [ %196, %193 ], [ %192, %.thread209 ]
   br label %.thread220
 
-.thread239:                                       ; preds = %104, %193, %129, %.thread180, %175, %95, %73, %.thread231, %47, %43, %38, %19
-  %.0 = phi i32 [ -2, %19 ], [ -2, %38 ], [ -22, %43 ], [ %., %47 ], [ 0, %.thread231 ], [ -22, %104 ], [ 0, %193 ], [ -22, %129 ], [ -22, %.thread180 ], [ -2, %73 ], [ -2, %95 ], [ -22, %175 ]
+.thread239:                                       ; preds = %104, %193, %129, %.thread180, %73, %95, %175, %.thread231, %47, %43, %38, %19
+  %.0 = phi i32 [ -22, %43 ], [ %., %47 ], [ -2, %38 ], [ -2, %19 ], [ 0, %.thread231 ], [ -22, %104 ], [ -2, %95 ], [ -22, %129 ], [ -2, %73 ], [ -22, %.thread180 ], [ -22, %175 ], [ 0, %193 ]
   ret i32 %.0
 }
 

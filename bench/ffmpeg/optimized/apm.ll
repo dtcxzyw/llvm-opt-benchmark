@@ -47,7 +47,7 @@ define internal range(i32 0, 100) i32 @apm_probe(ptr noundef readonly captures(n
   br label %15
 
 15:                                               ; preds = %12, %9, %5, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %5 ], [ 0, %9 ], [ %., %12 ]
+  %.0 = phi i32 [ 0, %9 ], [ 0, %1 ], [ 0, %5 ], [ %., %12 ]
   ret i32 %.0
 }
 
@@ -191,7 +191,7 @@ define internal i32 @apm_read_header(ptr noundef %0) #1 {
   br label %85
 
 85:                                               ; preds = %67, %57, %56, %39, %36, %34, %31, %22, %5, %1, %70, %66, %20
-  %.0 = phi i32 [ %21, %20 ], [ -1163346256, %66 ], [ 0, %70 ], [ -12, %1 ], [ -1094995529, %5 ], [ -1094995529, %22 ], [ -1094995529, %31 ], [ -1094995529, %34 ], [ -1094995529, %36 ], [ %54, %39 ], [ -5, %56 ], [ -1094995529, %57 ], [ %68, %67 ]
+  %.0 = phi i32 [ -12, %1 ], [ %21, %20 ], [ -1094995529, %5 ], [ -1094995529, %22 ], [ -1094995529, %31 ], [ -1094995529, %34 ], [ -1094995529, %36 ], [ %54, %39 ], [ -5, %56 ], [ -1163346256, %66 ], [ -1094995529, %57 ], [ 0, %70 ], [ %68, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
@@ -350,7 +350,7 @@ define internal range(i32 -22, 1) i32 @apm_write_init(ptr noundef %0) #1 {
   br i1 %.not9, label %.sink.split, label %23
 
 .sink.split:                                      ; preds = %17, %14, %10, %1
-  %.str.7.sink = phi ptr [ @.str.4, %1 ], [ @.str.5, %10 ], [ @.str.6, %14 ], [ @.str.7, %17 ]
+  %.str.7.sink = phi ptr [ @.str.6, %14 ], [ @.str.5, %10 ], [ @.str.4, %1 ], [ @.str.7, %17 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull %.str.7.sink) #7
   br label %23
 

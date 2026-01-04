@@ -111,8 +111,8 @@ _ZN5clang6format20AffectedRangeManager24affectsLeadingEmptyLinesERKNS0_11FormatT
   br label %.critedge, !llvm.loop !63
 
 .critedge:                                        ; preds = %37, %..critedge_crit_edge51, %.preheader
-  %.pn.lcssa = phi ptr [ %.pn48.lcssa, %..critedge_crit_edge51 ], [ %11, %.preheader ], [ %38, %37 ]
-  %.0.lcssa = phi ptr [ %.049.lcssa, %..critedge_crit_edge51 ], [ %7, %.preheader ], [ %7, %37 ]
+  %.pn.lcssa = phi ptr [ %11, %.preheader ], [ %.pn48.lcssa, %..critedge_crit_edge51 ], [ %38, %37 ]
+  %.0.lcssa = phi ptr [ %7, %.preheader ], [ %.049.lcssa, %..critedge_crit_edge51 ], [ %7, %37 ]
   %.026.in.le = getelementptr inbounds nuw i8, ptr %.pn.lcssa, i64 8
   %.026.le = load ptr, ptr %.026.in.le, align 8, !tbaa !65
   %44 = load ptr, ptr %11, align 8, !tbaa !12
@@ -480,8 +480,8 @@ _ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4
   br label %.thread
 
 .thread:                                          ; preds = %66, %71, %74, %78, %82, %91, %88
-  %98 = phi i1 [ false, %88 ], [ false, %91 ], [ %87, %82 ], [ false, %71 ], [ false, %74 ], [ false, %78 ], [ false, %66 ]
-  %99 = phi i1 [ false, %88 ], [ %97, %91 ], [ false, %82 ], [ false, %71 ], [ false, %74 ], [ false, %78 ], [ false, %66 ]
+  %98 = phi i1 [ false, %88 ], [ false, %66 ], [ false, %91 ], [ false, %71 ], [ false, %74 ], [ %87, %82 ], [ false, %78 ]
+  %99 = phi i1 [ false, %88 ], [ false, %66 ], [ %97, %91 ], [ false, %71 ], [ false, %74 ], [ false, %82 ], [ false, %78 ]
   %or.cond5 = select i1 %.041.lcssa, i1 true, i1 %68
   %or.cond7 = or i1 %or.cond5, %98
   %or.cond9 = select i1 %or.cond7, i1 true, i1 %99

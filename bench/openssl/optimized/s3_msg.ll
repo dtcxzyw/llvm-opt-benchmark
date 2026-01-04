@@ -373,7 +373,7 @@ define i32 @ssl3_dispatch_alert(ptr noundef %0) local_unnamed_addr #0 {
   br label %103
 
 103:                                              ; preds = %.thread, %69, %.thread69, %91, %49, %9, %58, %48, %18
-  %.0 = phi i32 [ 1, %18 ], [ -1, %48 ], [ 1, %58 ], [ -1, %9 ], [ -1, %49 ], [ %67, %91 ], [ %67, %.thread69 ], [ %67, %69 ], [ -1, %.thread ]
+  %.0 = phi i32 [ -1, %49 ], [ 1, %18 ], [ -1, %48 ], [ -1, %9 ], [ 1, %58 ], [ %67, %91 ], [ %67, %.thread69 ], [ %67, %69 ], [ -1, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

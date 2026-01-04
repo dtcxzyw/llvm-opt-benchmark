@@ -339,7 +339,7 @@ define void @gui_init(ptr noundef initializes((280, 288)) %0) local_unnamed_addr
   br i1 %.not6469.i, label %.outer._crit_edge.i, label %.lr.ph.i
 
 .outer._crit_edge.i:                              ; preds = %.outer.i, %.backedge.i, %.preheader.i
-  %.051.ph.lcssa.i = phi ptr [ null, %.preheader.i ], [ %.051.ph80.i, %.backedge.i ], [ %.152.i, %.outer.i ]
+  %.051.ph.lcssa.i = phi ptr [ %.051.ph80.i, %.backedge.i ], [ null, %.preheader.i ], [ %.152.i, %.outer.i ]
   %60 = call i32 @fclose(ptr noundef nonnull %22)
   %61 = call ptr @g_list_sort(ptr noundef %.051.ph.lcssa.i, ptr noundef nonnull @_sort_timezones) #16
   %62 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
@@ -355,7 +355,7 @@ define void @gui_init(ptr noundef initializes((280, 288)) %0) local_unnamed_addr
   br label %_lib_geotagging_get_timezones.exit
 
 _lib_geotagging_get_timezones.exit:               ; preds = %20, %21, %.outer._crit_edge.i, %63
-  %.1.i = phi ptr [ null, %20 ], [ null, %21 ], [ %66, %63 ], [ %61, %.outer._crit_edge.i ]
+  %.1.i = phi ptr [ null, %21 ], [ null, %20 ], [ %66, %63 ], [ %61, %.outer._crit_edge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %67 = getelementptr inbounds nuw i8, ptr %6, i64 272
   store ptr %.1.i, ptr %67, align 8, !tbaa !22
@@ -1076,7 +1076,7 @@ define internal range(i32 0, 2) i32 @_completion_match_func(ptr noundef %0, ptr 
   br label %.critedge
 
 .critedge:                                        ; preds = %4, %32, %.critedge40, %13
-  %.0 = phi i32 [ 0, %13 ], [ %.025, %32 ], [ 0, %.critedge40 ], [ 0, %4 ]
+  %.0 = phi i32 [ 0, %13 ], [ 0, %.critedge40 ], [ %.025, %32 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -2177,7 +2177,7 @@ define internal range(i32 0, 2) i32 @_datetime_scroll_over(ptr noundef readnone 
   br label %60
 
 60:                                               ; preds = %54, %49, %45, %41, %37, %33, %29
-  %.0 = phi ptr [ %32, %29 ], [ %36, %33 ], [ %40, %37 ], [ %44, %41 ], [ %48, %45 ], [ %53, %49 ], [ %59, %54 ]
+  %.0 = phi ptr [ %59, %54 ], [ %32, %29 ], [ %36, %33 ], [ %40, %37 ], [ %44, %41 ], [ %48, %45 ], [ %53, %49 ]
   %61 = load ptr, ptr %7, align 8, !tbaa !6
   %.not.i = icmp eq ptr %.0, null
   br i1 %.not.i, label %_new_datetime.exit, label %62

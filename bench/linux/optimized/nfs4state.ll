@@ -702,7 +702,7 @@ define dso_local ptr @nfs4_get_state_owner(ptr noundef %0, ptr noundef %1, i32 n
   br label %.thread22
 
 .thread22:                                        ; preds = %42, %53, %.thread23, %120, %109, %31
-  %124 = phi ptr [ %18, %31 ], [ %89, %120 ], [ %89, %109 ], [ %46, %.thread23 ], [ null, %53 ], [ null, %42 ]
+  %124 = phi ptr [ %18, %31 ], [ %46, %.thread23 ], [ %89, %120 ], [ %89, %109 ], [ null, %53 ], [ null, %42 ]
   %125 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %4, ptr %4, align 8
@@ -1601,7 +1601,7 @@ define dso_local noundef range(i32 -12, 1) i32 @nfs4_set_lock_state(ptr noundef 
   br i1 %25, label %26, label %.preheader, !llvm.loop !30
 
 26:                                               ; preds = %21, %.preheader
-  %27 = phi ptr [ %23, %21 ], [ %16, %.preheader ]
+  %27 = phi ptr [ %16, %.preheader ], [ %23, %21 ]
   %28 = icmp eq ptr %27, null
   br i1 %28, label %.thread, label %29
 
@@ -1812,7 +1812,7 @@ define dso_local noundef range(i32 -11, 1) i32 @nfs4_select_rw_stateid(ptr nound
   br i1 %39, label %40, label %.preheader11, !llvm.loop !30
 
 40:                                               ; preds = %35, %.preheader11
-  %41 = phi ptr [ %37, %35 ], [ %30, %.preheader11 ]
+  %41 = phi ptr [ %30, %.preheader11 ], [ %37, %35 ]
   %42 = icmp eq ptr %41, null
   br i1 %42, label %.thread, label %43
 
@@ -1856,9 +1856,9 @@ define dso_local noundef range(i32 -11, 1) i32 @nfs4_select_rw_stateid(ptr nound
   br label %.thread
 
 .thread:                                          ; preds = %19, %40, %58, %62
-  %67 = phi ptr [ %41, %62 ], [ %41, %58 ], [ null, %40 ], [ null, %19 ]
-  %.not = phi i1 [ true, %62 ], [ false, %58 ], [ false, %40 ], [ false, %19 ]
-  %68 = phi i32 [ 0, %62 ], [ -2, %58 ], [ -2, %40 ], [ -2, %19 ]
+  %67 = phi ptr [ %41, %62 ], [ %41, %58 ], [ null, %19 ], [ null, %40 ]
+  %.not = phi i1 [ true, %62 ], [ false, %58 ], [ false, %19 ], [ false, %40 ]
+  %68 = phi i32 [ 0, %62 ], [ -2, %58 ], [ -2, %19 ], [ -2, %40 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull %26) #17
   tail call void @nfs4_put_lock_state(ptr noundef %67)
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1919,7 +1919,7 @@ define dso_local noundef range(i32 -11, 1) i32 @nfs4_select_rw_stateid(ptr nound
   br label %96
 
 96:                                               ; preds = %.critedge, %.thread, %.thread9, %94
-  %97 = phi i32 [ %.mux, %.thread ], [ %95, %94 ], [ 0, %.thread9 ], [ -5, %.critedge ]
+  %97 = phi i32 [ -5, %.critedge ], [ 0, %.thread9 ], [ %.mux, %.thread ], [ %95, %94 ]
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 40
@@ -2419,7 +2419,7 @@ nfs4_begin_drain_session.exit.thread:             ; preds = %nfs4_begin_drain_se
   br label %nfs4_begin_drain_session.exit.thread53
 
 nfs4_begin_drain_session.exit.thread53:           ; preds = %75, %99, %91, %nfs4_begin_drain_session.exit
-  %100 = phi i32 [ %87, %nfs4_begin_drain_session.exit ], [ %95, %91 ], [ %95, %99 ], [ %77, %75 ]
+  %100 = phi i32 [ %87, %nfs4_begin_drain_session.exit ], [ %95, %99 ], [ %95, %91 ], [ %77, %75 ]
   %101 = icmp slt i32 %100, 0
   br i1 %101, label %.thread54, label %102
 
@@ -2629,7 +2629,7 @@ nfs4_begin_drain_session.exit40.thread:           ; preds = %nfs4_begin_drain_se
   br label %nfs4_begin_drain_session.exit40.thread56
 
 nfs4_begin_drain_session.exit40.thread56:         ; preds = %169, %193, %185, %nfs4_begin_drain_session.exit40
-  %194 = phi i32 [ %181, %nfs4_begin_drain_session.exit40 ], [ %189, %185 ], [ %189, %193 ], [ %171, %169 ]
+  %194 = phi i32 [ %181, %nfs4_begin_drain_session.exit40 ], [ %189, %193 ], [ %189, %185 ], [ %171, %169 ]
   %195 = icmp slt i32 %194, 0
   br i1 %195, label %.thread58, label %196
 
@@ -3182,8 +3182,8 @@ nfs4_end_drain_session.exit:                      ; preds = %420, %427, %437, %4
   br i1 %478, label %30, label %.critedge, !llvm.loop !56
 
 .thread66:                                        ; preds = %345, %301, %412, %394, %.thread60, %.thread58, %.thread54, %333, %329
-  %479 = phi i32 [ %327, %329 ], [ %327, %333 ], [ -2, %345 ], [ -2, %301 ], [ %410, %412 ], [ %392, %394 ], [ %295, %.thread60 ], [ %247, %.thread58 ], [ %144, %.thread54 ]
-  %480 = phi ptr [ @.str.16, %329 ], [ @.str.16, %333 ], [ @.str.17, %345 ], [ @.str.16, %301 ], [ @.str.20, %412 ], [ @.str.18, %394 ], [ @.str.15, %.thread60 ], [ @.str.12, %.thread58 ], [ @.str.11, %.thread54 ]
+  %479 = phi i32 [ %327, %329 ], [ %327, %333 ], [ -2, %301 ], [ %410, %412 ], [ %392, %394 ], [ -2, %345 ], [ %295, %.thread60 ], [ %247, %.thread58 ], [ %144, %.thread54 ]
+  %480 = phi ptr [ @.str.16, %329 ], [ @.str.16, %333 ], [ @.str.16, %301 ], [ @.str.20, %412 ], [ @.str.18, %394 ], [ @.str.17, %345 ], [ @.str.15, %.thread60 ], [ @.str.12, %.thread58 ], [ @.str.11, %.thread54 ]
   %481 = load i8, ptr %480, align 1
   %482 = icmp eq i8 %481, 0
   %483 = select i1 %482, ptr @.str.10, ptr @.str.21
@@ -4053,14 +4053,14 @@ define dso_local i32 @nfs4_discover_server_trunking(ptr noundef %0, ptr noundef 
   br label %.thread
 
 .thread.loopexit:                                 ; preds = %34, %29, %28
-  %.ph = phi i32 [ -2, %34 ], [ -110, %29 ], [ -93, %28 ]
+  %.ph = phi i32 [ -2, %34 ], [ -93, %28 ], [ -110, %29 ]
   br label %.thread
 
 .thread.loopexit88:                               ; preds = %28, %28
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit, %44, %58, %39, %28, %28, %28, %.thread.loopexit88, %.thread.loopexit, %2, %63, %55
-  %65 = phi i32 [ -5, %63 ], [ %57, %55 ], [ -2, %2 ], [ %.ph, %.thread.loopexit ], [ -127, %.thread.loopexit88 ], [ %23, %28 ], [ %23, %28 ], [ %23, %28 ], [ -2, %39 ], [ -2, %58 ], [ -13, %44 ], [ -1, %.loopexit ]
+  %65 = phi i32 [ -5, %63 ], [ %57, %55 ], [ -127, %.thread.loopexit88 ], [ %.ph, %.thread.loopexit ], [ -2, %39 ], [ %23, %28 ], [ -2, %2 ], [ %23, %28 ], [ %23, %28 ], [ -1, %.loopexit ], [ -2, %58 ], [ -13, %44 ]
   tail call void @mutex_unlock(ptr noundef nonnull @nfs_clid_init_mutex) #17
   ret i32 %65
 }
@@ -4690,8 +4690,8 @@ define internal fastcc noundef range(i32 -10051, -10053) i32 @nfs4_do_reclaim(pt
   br label %.loopexit48
 
 237:                                              ; preds = %.thread161, %228, %221, %218, %.loopexit39
-  %238 = phi i32 [ %73, %.loopexit39 ], [ %73, %218 ], [ %73, %221 ], [ %73, %228 ], [ %191, %.thread161 ]
-  %239 = phi i32 [ %75, %.loopexit39 ], [ %216, %218 ], [ %222, %221 ], [ %222, %228 ], [ 0, %.thread161 ]
+  %238 = phi i32 [ %73, %.loopexit39 ], [ %191, %.thread161 ], [ %73, %218 ], [ %73, %221 ], [ %73, %228 ]
+  %239 = phi i32 [ %75, %.loopexit39 ], [ 0, %.thread161 ], [ %216, %218 ], [ %222, %221 ], [ %222, %228 ]
   call void @nfs4_put_open_state(ptr noundef %77)
   call void @_raw_spin_lock(ptr noundef %66) #17
   %240 = load ptr, ptr %70, align 8

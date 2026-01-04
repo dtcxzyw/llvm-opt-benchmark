@@ -1050,7 +1050,7 @@ _ZL6ehistoPKciPPfPK16gmx_output_env_t.exit:       ; preds = %._crit_edge122.i
   br label %.thread
 
 .thread:                                          ; preds = %144, %_ZL6ehistoPKciPPfPK16gmx_output_env_t.exit, %212
-  %.050127 = phi ptr [ %159, %_ZL6ehistoPKciPPfPK16gmx_output_env_t.exit ], [ %159, %212 ], [ null, %144 ]
+  %.050127 = phi ptr [ %159, %212 ], [ %159, %_ZL6ehistoPKciPPfPK16gmx_output_env_t.exit ], [ null, %144 ]
   %326 = load i32, ptr %12, align 4, !tbaa !4
   %.sroa.speculated109 = call i32 @llvm.smax.i32(i32 %326, i32 3)
   %327 = zext nneg i32 %.sroa.speculated109 to i64
@@ -1305,7 +1305,7 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit92:        ; preds = %_ZL13gmx_snew_implI
   br label %446
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit81.i, %406, %367, %365, %363, %361, %211, %196, %185, %180, %143, %138
-  %.pn69.pn = phi { ptr, i32 } [ %.pn69, %143 ], [ %.pn67, %185 ], [ %.pn65, %211 ], [ %.pn62.pn, %406 ], [ %368, %367 ], [ %366, %365 ], [ %364, %363 ], [ %362, %361 ], [ %.pn58, %196 ], [ %.pn55, %180 ], [ %.pn, %138 ], [ %317, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit81.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn69.pn = phi { ptr, i32 } [ %.pn69, %143 ], [ %.pn67, %185 ], [ %.pn65, %211 ], [ %.pn62.pn, %406 ], [ %.pn, %138 ], [ %368, %367 ], [ %366, %365 ], [ %364, %363 ], [ %362, %361 ], [ %.pn58, %196 ], [ %.pn55, %180 ], [ %317, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit81.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %445 = getelementptr inbounds nuw i8, ptr %21, i64 672
   br label %468
 
@@ -2250,12 +2250,12 @@ _ZL13normalize_p_eiPdPKiPff.exit.thread:          ; preds = %._crit_edge1166
   br label %._crit_edge1175
 
 ._crit_edge1175:                                  ; preds = %_ZL13normalize_p_eiPdPKiPff.exit.thread, %._crit_edge1175.loopexit
-  %.01098.lcssa = phi double [ %.11099, %._crit_edge1175.loopexit ], [ -1.000000e+08, %_ZL13normalize_p_eiPdPKiPff.exit.thread ]
-  %.21097.lcssa = phi double [ %.3, %._crit_edge1175.loopexit ], [ 1.000000e+08, %_ZL13normalize_p_eiPdPKiPff.exit.thread ]
-  %.01093.lcssa = phi double [ %.11094, %._crit_edge1175.loopexit ], [ -1.000000e+08, %_ZL13normalize_p_eiPdPKiPff.exit.thread ]
-  %.0.lcssa = phi float [ %340, %._crit_edge1175.loopexit ], [ 0.000000e+00, %_ZL13normalize_p_eiPdPKiPff.exit.thread ]
-  %.0471.lcssa = phi i32 [ %.2473, %._crit_edge1175.loopexit ], [ -1, %_ZL13normalize_p_eiPdPKiPff.exit.thread ]
-  %.0452.lcssa = phi double [ %.2454, %._crit_edge1175.loopexit ], [ 1.000000e+08, %_ZL13normalize_p_eiPdPKiPff.exit.thread ]
+  %.01098.lcssa = phi double [ -1.000000e+08, %_ZL13normalize_p_eiPdPKiPff.exit.thread ], [ %.11099, %._crit_edge1175.loopexit ]
+  %.21097.lcssa = phi double [ 1.000000e+08, %_ZL13normalize_p_eiPdPKiPff.exit.thread ], [ %.3, %._crit_edge1175.loopexit ]
+  %.01093.lcssa = phi double [ -1.000000e+08, %_ZL13normalize_p_eiPdPKiPff.exit.thread ], [ %.11094, %._crit_edge1175.loopexit ]
+  %.0.lcssa = phi float [ 0.000000e+00, %_ZL13normalize_p_eiPdPKiPff.exit.thread ], [ %340, %._crit_edge1175.loopexit ]
+  %.0471.lcssa = phi i32 [ -1, %_ZL13normalize_p_eiPdPKiPff.exit.thread ], [ %.2473, %._crit_edge1175.loopexit ]
+  %.0452.lcssa = phi double [ 1.000000e+08, %_ZL13normalize_p_eiPdPKiPff.exit.thread ], [ %.2454, %._crit_edge1175.loopexit ]
   %341 = fcmp ogt float %15, 0.000000e+00
   %342 = fcmp ogt float %16, 0.000000e+00
   %343 = fsub double %.01093.lcssa, %.0452.lcssa
@@ -2968,8 +2968,8 @@ _ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit209.thread.i: ; preds = %
   br label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit205.thread267.i
 
 _ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit205.thread267.i: ; preds = %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit209.thread.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit209.i, %665, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit208.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit207.i, %650, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit206.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit205.i, %632, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit204.i
-  %677 = phi i32 [ %.pre.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit209.thread.i ], [ %608, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit209.i ], [ %608, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit208.i ], [ %608, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit207.i ], [ %608, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit206.i ], [ %608, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit205.i ], [ %608, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit204.i ], [ %608, %632 ], [ %608, %650 ], [ %608, %665 ]
-  %.7.i = phi i32 [ %676, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit209.thread.i ], [ %.6284.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit209.i ], [ %.6284.i, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit208.i ], [ %.6284.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit207.i ], [ %.6284.i, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit206.i ], [ %.6284.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit205.i ], [ %.6284.i, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit204.i ], [ %.6284.i, %632 ], [ %.6284.i, %650 ], [ %.6284.i, %665 ]
+  %677 = phi i32 [ %.pre.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit209.thread.i ], [ %608, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit209.i ], [ %608, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit208.i ], [ %608, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit207.i ], [ %608, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit206.i ], [ %608, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit205.i ], [ %608, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit204.i ], [ %608, %650 ], [ %608, %632 ], [ %608, %665 ]
+  %.7.i = phi i32 [ %676, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit209.thread.i ], [ %.6284.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit209.i ], [ %.6284.i, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit208.i ], [ %.6284.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit207.i ], [ %.6284.i, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit206.i ], [ %.6284.i, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit205.i ], [ %.6284.i, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit204.i ], [ %.6284.i, %650 ], [ %.6284.i, %632 ], [ %.6284.i, %665 ]
   %678 = add nuw nsw i32 %.0154285.i, 1
   %679 = icmp slt i32 %678, %677
   br i1 %679, label %607, label %._crit_edge.loopexit.i, !llvm.loop !87
@@ -3263,7 +3263,7 @@ _ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit247.i.thread: ; preds = %
   br label %.loopexit274.i
 
 .loopexit274.i:                                   ; preds = %._crit_edge289.i, %._crit_edge300.i, %._crit_edge321.i, %.preheader272.lr.ph.i, %.preheader273.i, %.preheader276.lr.ph.i, %.preheader277.i, %_ZNSt10filesystem7__cxx114pathD2Ev.exit.i
-  %.0157.i = phi i32 [ %.8.lcssa.i, %._crit_edge321.i ], [ %9, %_ZNSt10filesystem7__cxx114pathD2Ev.exit.i ], [ 0, %.preheader273.i ], [ 0, %.preheader277.i ], [ 0, %.preheader276.lr.ph.i ], [ 0, %.preheader272.lr.ph.i ], [ %.2159.lcssa.i, %._crit_edge300.i ], [ %.5162.lcssa.i, %._crit_edge289.i ]
+  %.0157.i = phi i32 [ %.8.lcssa.i, %._crit_edge321.i ], [ %9, %_ZNSt10filesystem7__cxx114pathD2Ev.exit.i ], [ 0, %.preheader276.lr.ph.i ], [ 0, %.preheader273.i ], [ 0, %.preheader272.lr.ph.i ], [ 0, %.preheader277.i ], [ %.2159.lcssa.i, %._crit_edge300.i ], [ %.5162.lcssa.i, %._crit_edge289.i ]
   %779 = sext i32 %.0157.i to i64
   call void @qsort(ptr noundef %510, i64 noundef %779, i64 noundef 16, ptr noundef nonnull @_ZL11comp_minimaPKvS0_)
   %780 = call i64 @fwrite(ptr nonnull @.str.174, i64 27, i64 1, ptr %511)
@@ -4323,9 +4323,9 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit762:       ; preds = %_ZNSt10filesystem7_
   br label %._crit_edge1214
 
 ._crit_edge1214:                                  ; preds = %.lr.ph1213, %._crit_edge1214.loopexit, %.lr.ph1217
-  %1177 = phi i32 [ %.pre1379, %._crit_edge1214.loopexit ], [ %1116, %.lr.ph1217 ], [ %1116, %.lr.ph1213 ]
-  %1178 = phi i32 [ %1172, %._crit_edge1214.loopexit ], [ %1117, %.lr.ph1217 ], [ %1117, %.lr.ph1213 ]
-  %1179 = phi i32 [ %1172, %._crit_edge1214.loopexit ], [ %1118, %.lr.ph1217 ], [ %1118, %.lr.ph1213 ]
+  %1177 = phi i32 [ %1116, %.lr.ph1217 ], [ %.pre1379, %._crit_edge1214.loopexit ], [ %1116, %.lr.ph1213 ]
+  %1178 = phi i32 [ %1117, %.lr.ph1217 ], [ %1172, %._crit_edge1214.loopexit ], [ %1117, %.lr.ph1213 ]
+  %1179 = phi i32 [ %1118, %.lr.ph1217 ], [ %1172, %._crit_edge1214.loopexit ], [ %1118, %.lr.ph1213 ]
   %1180 = add nuw nsw i32 %.114661215, 1
   %1181 = icmp slt i32 %1180, %1177
   br i1 %1181, label %.lr.ph1217, label %._crit_edge1218, !llvm.loop !99

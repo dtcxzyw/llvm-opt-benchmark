@@ -995,7 +995,7 @@ define dso_local range(i32 -1, 1) i32 @slurm_process_option(ptr noundef %0, i32 
   br label %75
 
 75:                                               ; preds = %70, %66, %63, %74
-  %.1 = phi i1 [ false, %74 ], [ true, %63 ], [ true, %66 ], [ true, %70 ]
+  %.1 = phi i1 [ true, %63 ], [ true, %66 ], [ false, %74 ], [ true, %70 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %79
 
@@ -1006,8 +1006,8 @@ define dso_local range(i32 -1, 1) i32 @slurm_process_option(ptr noundef %0, i32 
   br label %79
 
 79:                                               ; preds = %76, %60, %75, %.critedge144
-  %.098 = phi ptr [ %2, %75 ], [ null, %.critedge144 ], [ %2, %60 ], [ %spec.select, %76 ]
-  %.0 = phi i1 [ %.1, %75 ], [ true, %.critedge144 ], [ true, %60 ], [ true, %76 ]
+  %.098 = phi ptr [ %2, %75 ], [ %2, %60 ], [ null, %.critedge144 ], [ %spec.select, %76 ]
+  %.0 = phi i1 [ %.1, %75 ], [ true, %60 ], [ true, %.critedge144 ], [ true, %76 ]
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %81 = load ptr, ptr %80, align 8
   %.not.i = icmp eq ptr %81, null
@@ -1159,7 +1159,7 @@ _init_state.exit:                                 ; preds = %79, %82
   br label %154
 
 154:                                              ; preds = %42, %94, %120, %141, %143, %146, %133, %107, %.critedge146, %59, %.critedge, %52, %43, %148, %135, %122, %109, %96, %84
-  %.0100 = phi i32 [ 0, %96 ], [ 0, %109 ], [ 0, %122 ], [ 0, %135 ], [ 0, %148 ], [ 0, %84 ], [ %., %43 ], [ 0, %52 ], [ 0, %.critedge ], [ 0, %59 ], [ 0, %.critedge146 ], [ -1, %107 ], [ -1, %133 ], [ -1, %146 ], [ -1, %143 ], [ -1, %141 ], [ -1, %120 ], [ -1, %94 ], [ 0, %42 ]
+  %.0100 = phi i32 [ 0, %.critedge146 ], [ 0, %96 ], [ 0, %109 ], [ 0, %122 ], [ 0, %135 ], [ 0, %148 ], [ 0, %84 ], [ 0, %59 ], [ 0, %.critedge ], [ 0, %52 ], [ -1, %94 ], [ %., %43 ], [ -1, %107 ], [ -1, %133 ], [ -1, %146 ], [ -1, %143 ], [ -1, %141 ], [ -1, %120 ], [ 0, %42 ]
   ret i32 %.0100
 }
 
@@ -1359,7 +1359,7 @@ _find_option_index_from_optval.exit:              ; preds = %9, %.split.loop.exi
   br label %_option_index_set_by_cli.exit
 
 _option_index_set_by_cli.exit:                    ; preds = %11, %14, %15, %18, %22
-  %.0.i = phi i1 [ false, %14 ], [ false, %11 ], [ false, %15 ], [ false, %18 ], [ %26, %22 ]
+  %.0.i = phi i1 [ false, %15 ], [ false, %11 ], [ false, %14 ], [ false, %18 ], [ %26, %22 ]
   ret i1 %.0.i
 }
 
@@ -1414,7 +1414,7 @@ _find_option_index_from_optval.exit:              ; preds = %9, %.split.loop.exi
   br label %_option_index_set_by_env.exit
 
 _option_index_set_by_env.exit:                    ; preds = %11, %14, %15, %18
-  %.0.i = phi i1 [ %22, %18 ], [ false, %14 ], [ false, %11 ], [ false, %15 ]
+  %.0.i = phi i1 [ %22, %18 ], [ false, %11 ], [ false, %14 ], [ false, %15 ]
   ret i1 %.0.i
 }
 
@@ -1584,7 +1584,7 @@ _find_option_idx.exit:                            ; preds = %5
   br i1 %brmerge62, label %_find_option_idx.exit.thread, label %50
 
 50:                                               ; preds = %47, %44, %38, %36, %._crit_edge
-  %.sink = phi ptr [ %32, %._crit_edge ], [ %35, %36 ], [ %40, %38 ], [ %43, %44 ], [ %49, %47 ]
+  %.sink = phi ptr [ %32, %._crit_edge ], [ %40, %38 ], [ %43, %44 ], [ %35, %36 ], [ %49, %47 ]
   %51 = tail call i32 %.sink(ptr noundef nonnull %0, ptr noundef %2) #22
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %53, label %_find_option_idx.exit.thread
@@ -1607,7 +1607,7 @@ _init_state.exit:                                 ; preds = %53, %56
   br label %_find_option_idx.exit.thread
 
 _find_option_idx.exit.thread:                     ; preds = %10, %47, %50, %_init_state.exit, %23, %13
-  %.0 = phi i32 [ 0, %13 ], [ 0, %23 ], [ 0, %_init_state.exit ], [ %51, %50 ], [ -1, %47 ], [ -1, %10 ]
+  %.0 = phi i32 [ -1, %47 ], [ 0, %23 ], [ 0, %13 ], [ 0, %_init_state.exit ], [ %51, %50 ], [ -1, %10 ]
   ret i32 %.0
 }
 
@@ -1679,7 +1679,7 @@ define dso_local noundef zeroext i1 @slurm_option_get_next_set(ptr noundef %0, p
   %.not27 = icmp eq ptr %16, null
   br i1 %.not27, label %.critedge2, label %.critedge
 
-.critedge2:                                       ; preds = %11, %7, %15
+.critedge2:                                       ; preds = %7, %11, %15
   %17 = add nuw nsw i64 %8, 1
   store i64 %17, ptr %3, align 8
   %exitcond.not = icmp eq i64 %17, 163
@@ -1706,7 +1706,7 @@ define dso_local noundef zeroext i1 @slurm_option_get_next_set(ptr noundef %0, p
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.critedge2, %.critedge, %4, %19
-  %.0 = phi i1 [ true, %19 ], [ false, %4 ], [ false, %.critedge ], [ false, %.critedge2 ]
+  %.0 = phi i1 [ false, %4 ], [ true, %19 ], [ false, %.critedge ], [ false, %.critedge2 ]
   ret i1 %.0
 }
 
@@ -1777,7 +1777,7 @@ slurm_option_set_by_cli.exit:                     ; preds = %23
   %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %slurm_option_set_by_cli.exit.thread.preheader, label %.preheader206
 
-slurm_option_set_by_cli.exit.thread.preheader:    ; preds = %_find_option_index_from_optval.exit.i87, %23, %20, %16, %19, %slurm_option_set_by_cli.exit94, %slurm_option_set_by_cli.exit
+slurm_option_set_by_cli.exit.thread.preheader:    ; preds = %_find_option_index_from_optval.exit.i87, %23, %19, %16, %20, %slurm_option_set_by_cli.exit94, %slurm_option_set_by_cli.exit
   br label %slurm_option_set_by_cli.exit.thread
 
 .preheader206:                                    ; preds = %slurm_option_set_by_cli.exit, %35
@@ -2017,7 +2017,7 @@ slurm_option_set_by_cli.exit108:                  ; preds = %117
   %123 = trunc nuw i8 %122 to i1
   br i1 %123, label %slurm_option_set_by_cli.exit108.thread.preheader, label %.preheader
 
-slurm_option_set_by_cli.exit108.thread.preheader: ; preds = %117, %114, %110, %113, %slurm_option_set_by_cli.exit108
+slurm_option_set_by_cli.exit108.thread.preheader: ; preds = %117, %113, %110, %114, %slurm_option_set_by_cli.exit108
   br label %slurm_option_set_by_cli.exit108.thread
 
 .preheader:                                       ; preds = %slurm_option_set_by_cli.exit108, %128
@@ -2222,7 +2222,7 @@ slurm_option_set_by_cli.exit147:                  ; preds = %200
   %206 = trunc nuw i8 %205 to i1
   br i1 %206, label %slurm_option_set_by_cli.exit147.thread.preheader, label %.preheader289
 
-slurm_option_set_by_cli.exit147.thread.preheader: ; preds = %200, %197, %193, %196, %slurm_option_set_by_cli.exit147
+slurm_option_set_by_cli.exit147.thread.preheader: ; preds = %200, %196, %193, %197, %slurm_option_set_by_cli.exit147
   br label %slurm_option_set_by_cli.exit147.thread
 
 slurm_option_set_by_cli.exit147.thread:           ; preds = %slurm_option_set_by_cli.exit147.thread.preheader, %212
@@ -2275,7 +2275,7 @@ slurm_option_set_by_cli.exit158:                  ; preds = %221
   %227 = trunc nuw i8 %226 to i1
   br i1 %227, label %slurm_option_set_by_cli.exit158.thread.preheader, label %.preheader289
 
-slurm_option_set_by_cli.exit158.thread.preheader: ; preds = %221, %218, %214, %217, %slurm_option_set_by_cli.exit158
+slurm_option_set_by_cli.exit158.thread.preheader: ; preds = %221, %217, %214, %218, %slurm_option_set_by_cli.exit158
   br label %slurm_option_set_by_cli.exit158.thread
 
 slurm_option_set_by_cli.exit158.thread:           ; preds = %slurm_option_set_by_cli.exit158.thread.preheader, %233
@@ -2328,7 +2328,7 @@ slurm_option_set_by_cli.exit169:                  ; preds = %242
   %248 = trunc nuw i8 %247 to i1
   br i1 %248, label %slurm_option_set_by_cli.exit169.thread.preheader, label %.preheader289
 
-slurm_option_set_by_cli.exit169.thread.preheader: ; preds = %242, %239, %235, %238, %slurm_option_set_by_cli.exit169
+slurm_option_set_by_cli.exit169.thread.preheader: ; preds = %242, %238, %235, %239, %slurm_option_set_by_cli.exit169
   br label %slurm_option_set_by_cli.exit169.thread
 
 slurm_option_set_by_cli.exit169.thread:           ; preds = %slurm_option_set_by_cli.exit169.thread.preheader, %254
@@ -2375,7 +2375,7 @@ _find_option_index_from_optval.exit.i173:         ; preds = %254, %.split.loop.e
   %266 = trunc nuw i8 %265 to i1
   br i1 %266, label %slurm_option_set_by_cli.exit180, label %slurm_option_set_by_cli.exit180.thread
 
-slurm_option_set_by_cli.exit180.thread:           ; preds = %259, %256, %260, %263
+slurm_option_set_by_cli.exit180.thread:           ; preds = %260, %256, %259, %263
   %.not39202 = icmp ult i32 %.035, 2
   br label %285
 
@@ -2464,7 +2464,7 @@ _find_option_idx.exit.i185:                       ; preds = %270
   br label %slurm_option_reset.exit
 
 slurm_option_reset.exit:                          ; preds = %94, %275, %283, %_find_option_idx.exit.i185, %101, %_find_option_idx.exit.i, %293, %285, %slurm_option_reset.exit129, %181, %179, %slurm_option_reset.exit136, %302
-  %.0 = phi i32 [ -1, %302 ], [ 0, %slurm_option_reset.exit136 ], [ 0, %179 ], [ 0, %181 ], [ 0, %slurm_option_reset.exit129 ], [ 0, %285 ], [ 0, %293 ], [ -1, %_find_option_idx.exit.i ], [ -1, %101 ], [ -1, %_find_option_idx.exit.i185 ], [ -1, %283 ], [ -1, %275 ], [ -1, %94 ]
+  %.0 = phi i32 [ 0, %293 ], [ -1, %302 ], [ -1, %101 ], [ 0, %slurm_option_reset.exit136 ], [ 0, %179 ], [ 0, %181 ], [ 0, %slurm_option_reset.exit129 ], [ 0, %285 ], [ -1, %275 ], [ -1, %_find_option_idx.exit.i ], [ -1, %283 ], [ -1, %_find_option_idx.exit.i185 ], [ -1, %94 ]
   ret i32 %.0
 }
 
@@ -2783,7 +2783,7 @@ _find_option_index_from_optval.exit.i.i:          ; preds = %19, %.split.loop.ex
   br label %slurm_option_set_by_cli.exit.i
 
 slurm_option_set_by_cli.exit.i:                   ; preds = %32, %28, %25, %24, %21
-  %.0.i.i.i = phi i1 [ false, %24 ], [ false, %21 ], [ false, %25 ], [ false, %28 ], [ %36, %32 ]
+  %.0.i.i.i = phi i1 [ false, %25 ], [ false, %21 ], [ false, %24 ], [ false, %28 ], [ %36, %32 ]
   br label %37
 
 37:                                               ; preds = %43, %slurm_option_set_by_cli.exit.i
@@ -2838,7 +2838,7 @@ _find_option_index_from_optval.exit.i56.i:        ; preds = %43, %.split.loop.ex
   br label %slurm_option_set_by_cli.exit63.i
 
 slurm_option_set_by_cli.exit63.i:                 ; preds = %56, %52, %49, %48, %45
-  %.0.i.i60.i = phi i1 [ false, %48 ], [ false, %45 ], [ false, %49 ], [ false, %52 ], [ %60, %56 ]
+  %.0.i.i60.i = phi i1 [ false, %49 ], [ false, %45 ], [ false, %48 ], [ false, %52 ], [ %60, %56 ]
   br label %61
 
 61:                                               ; preds = %67, %slurm_option_set_by_cli.exit63.i
@@ -2887,7 +2887,7 @@ _find_option_index_from_optval.exit.i67.i:        ; preds = %67, %.split.loop.ex
   br label %slurm_option_set_by_env.exit.i
 
 slurm_option_set_by_env.exit.i:                   ; preds = %76, %73, %72, %69
-  %.0.i.i70.i = phi i1 [ %80, %76 ], [ false, %72 ], [ false, %69 ], [ false, %73 ]
+  %.0.i.i70.i = phi i1 [ %80, %76 ], [ false, %69 ], [ false, %72 ], [ false, %73 ]
   br label %81
 
 81:                                               ; preds = %87, %slurm_option_set_by_env.exit.i
@@ -2936,7 +2936,7 @@ _find_option_index_from_optval.exit.i76.i:        ; preds = %87, %.split.loop.ex
   br label %slurm_option_set_by_env.exit83.i
 
 slurm_option_set_by_env.exit83.i:                 ; preds = %96, %93, %92, %89
-  %.0.i.i80.i = phi i1 [ %100, %96 ], [ false, %92 ], [ false, %89 ], [ false, %93 ]
+  %.0.i.i80.i = phi i1 [ %100, %96 ], [ false, %89 ], [ false, %92 ], [ false, %93 ]
   %or.cond.i = select i1 %.0.i.i.i, i1 true, i1 %.0.i.i60.i
   %or.cond3.i = select i1 %or.cond.i, i1 true, i1 %.0.i.i70.i
   %spec.select.i = select i1 %or.cond3.i, i1 true, i1 %.0.i.i80.i
@@ -3625,7 +3625,7 @@ _find_option_index_from_optval.exit.i.i14:        ; preds = %355, %.split.loop.e
   br label %slurm_option_set_by_cli.exit.i17
 
 slurm_option_set_by_cli.exit.i17:                 ; preds = %365, %361, %360, %357
-  %.0.i.i.not.i = phi i1 [ true, %360 ], [ true, %357 ], [ true, %361 ], [ %368, %365 ]
+  %.0.i.i.not.i = phi i1 [ %368, %365 ], [ true, %357 ], [ true, %360 ], [ true, %361 ]
   br label %369
 
 369:                                              ; preds = %375, %slurm_option_set_by_cli.exit.i17
@@ -3732,7 +3732,7 @@ _find_option_index_from_optval.exit.i35.i:        ; preds = %397, %.split.loop.e
   br label %slurm_option_set_by_env.exit.i19
 
 slurm_option_set_by_env.exit.i19:                 ; preds = %406, %403, %402, %399
-  %.0.i.i38.i = phi i1 [ %410, %406 ], [ false, %402 ], [ false, %399 ], [ false, %403 ]
+  %.0.i.i38.i = phi i1 [ %410, %406 ], [ false, %399 ], [ false, %402 ], [ false, %403 ]
   br label %411
 
 411:                                              ; preds = %417, %slurm_option_set_by_env.exit.i19
@@ -4075,7 +4075,7 @@ _find_option_index_from_optval.exit.i.i41:        ; preds = %544, %.split.loop.e
   br label %slurm_option_set_by_cli.exit.i45
 
 slurm_option_set_by_cli.exit.i45:                 ; preds = %557, %553, %550, %549, %546
-  %.0.i.i.i46 = phi i32 [ 0, %549 ], [ 0, %546 ], [ 0, %550 ], [ 0, %553 ], [ %561, %557 ]
+  %.0.i.i.i46 = phi i32 [ 0, %550 ], [ 0, %546 ], [ 0, %549 ], [ 0, %553 ], [ %561, %557 ]
   br label %562
 
 562:                                              ; preds = %568, %slurm_option_set_by_cli.exit.i45
@@ -4130,7 +4130,7 @@ _find_option_index_from_optval.exit.i22.i:        ; preds = %568, %.split.loop.e
   br label %slurm_option_set_by_cli.exit29.i
 
 slurm_option_set_by_cli.exit29.i:                 ; preds = %581, %577, %574, %573, %570
-  %.0.i.i26.i = phi i32 [ 0, %573 ], [ 0, %570 ], [ 0, %574 ], [ 0, %577 ], [ %585, %581 ]
+  %.0.i.i26.i = phi i32 [ 0, %574 ], [ 0, %570 ], [ 0, %573 ], [ 0, %577 ], [ %585, %581 ]
   %586 = add nuw nsw i32 %.0.i.i26.i, %.0.i.i.i46
   br label %587
 
@@ -4186,7 +4186,7 @@ _find_option_index_from_optval.exit.i33.i:        ; preds = %593, %.split.loop.e
   br label %slurm_option_set_by_cli.exit40.i
 
 slurm_option_set_by_cli.exit40.i:                 ; preds = %606, %602, %599, %598, %595
-  %.0.i.i37.i = phi i32 [ 0, %598 ], [ 0, %595 ], [ 0, %599 ], [ 0, %602 ], [ %610, %606 ]
+  %.0.i.i37.i = phi i32 [ 0, %599 ], [ 0, %595 ], [ 0, %598 ], [ 0, %602 ], [ %610, %606 ]
   %611 = add nuw nsw i32 %586, %.0.i.i37.i
   %612 = icmp samesign ugt i32 %611, 1
   br i1 %612, label %613, label %.preheader167.i
@@ -4589,7 +4589,7 @@ _find_option_index_from_optval.exit.i115.i:       ; preds = %760, %.split.loop.e
   br label %slurm_option_set_by_env.exit.i54
 
 slurm_option_set_by_env.exit.i54:                 ; preds = %769, %766, %765, %762
-  %.0.i.i118.i = phi i32 [ %773, %769 ], [ 0, %765 ], [ 0, %762 ], [ 0, %766 ]
+  %.0.i.i118.i = phi i32 [ %773, %769 ], [ 0, %762 ], [ 0, %765 ], [ 0, %766 ]
   br label %774
 
 774:                                              ; preds = %780, %slurm_option_set_by_env.exit.i54
@@ -4638,7 +4638,7 @@ _find_option_index_from_optval.exit.i124.i:       ; preds = %780, %.split.loop.e
   br label %slurm_option_set_by_env.exit131.i
 
 slurm_option_set_by_env.exit131.i:                ; preds = %789, %786, %785, %782
-  %.0.i.i128.i = phi i32 [ %793, %789 ], [ 0, %785 ], [ 0, %782 ], [ 0, %786 ]
+  %.0.i.i128.i = phi i32 [ %793, %789 ], [ 0, %782 ], [ 0, %785 ], [ 0, %786 ]
   %794 = add nuw nsw i32 %.0.i.i128.i, %.0.i.i118.i
   br label %795
 
@@ -4688,7 +4688,7 @@ _find_option_index_from_optval.exit.i135.i:       ; preds = %801, %.split.loop.e
   br label %slurm_option_set_by_env.exit142.i
 
 slurm_option_set_by_env.exit142.i:                ; preds = %810, %807, %806, %803
-  %.0.i.i139.i = phi i32 [ %814, %810 ], [ 0, %806 ], [ 0, %803 ], [ 0, %807 ]
+  %.0.i.i139.i = phi i32 [ %814, %810 ], [ 0, %803 ], [ 0, %806 ], [ 0, %807 ]
   %815 = add nuw nsw i32 %794, %.0.i.i139.i
   %816 = icmp samesign ugt i32 %815, 1
   br i1 %816, label %817, label %slurm_option_reset.exit61.i
@@ -4835,7 +4835,7 @@ _find_option_index_from_optval.exit.i.i77:        ; preds = %856, %.split.loop.e
   br label %slurm_option_set_by_cli.exit.i81
 
 slurm_option_set_by_cli.exit.i81:                 ; preds = %869, %865, %862, %861, %858
-  %.0.i.i.not.i82 = phi i1 [ true, %861 ], [ true, %858 ], [ true, %862 ], [ true, %865 ], [ %872, %869 ]
+  %.0.i.i.not.i82 = phi i1 [ true, %862 ], [ true, %858 ], [ true, %861 ], [ true, %865 ], [ %872, %869 ]
   br label %873
 
 873:                                              ; preds = %879, %slurm_option_set_by_cli.exit.i81
@@ -5229,7 +5229,7 @@ _find_option_index_from_optval.exit.i33.i99:      ; preds = %1020, %.split.loop.
   br label %slurm_option_set_by_cli.exit40.i102
 
 slurm_option_set_by_cli.exit40.i102:              ; preds = %1033, %1029, %1026, %1025, %1022, %slurm_option_set_by_cli.exit.i140
-  %1038 = phi i1 [ true, %slurm_option_set_by_cli.exit.i140 ], [ false, %1025 ], [ false, %1022 ], [ false, %1026 ], [ false, %1029 ], [ %1037, %1033 ]
+  %1038 = phi i1 [ true, %slurm_option_set_by_cli.exit.i140 ], [ false, %1026 ], [ false, %1022 ], [ false, %1025 ], [ false, %1029 ], [ %1037, %1033 ]
   br label %1039
 
 1039:                                             ; preds = %1045, %slurm_option_set_by_cli.exit40.i102
@@ -5377,7 +5377,7 @@ _find_option_index_from_optval.exit.i64.i:        ; preds = %1082, %.split.loop.
   br label %slurm_option_set_by_cli.exit71.i
 
 slurm_option_set_by_cli.exit71.i:                 ; preds = %1095, %1091, %1088, %1087, %1084
-  %.0.i.i68.i = phi i1 [ false, %1087 ], [ false, %1084 ], [ false, %1088 ], [ false, %1091 ], [ %1099, %1095 ]
+  %.0.i.i68.i = phi i1 [ false, %1088 ], [ false, %1084 ], [ false, %1087 ], [ false, %1091 ], [ %1099, %1095 ]
   br label %1100
 
 1100:                                             ; preds = %1106, %slurm_option_set_by_cli.exit71.i
@@ -5426,12 +5426,12 @@ _find_option_index_from_optval.exit.i75.i:        ; preds = %1106, %.split.loop.
   br i1 %.0.i.i68.i, label %1120, label %1143
 
 slurm_option_set_by_env.exit60.i:                 ; preds = %1112, %1108, %1069, %1065, %slurm_option_set_by_env.exit.i109
-  %.025.i = phi i1 [ %1038, %slurm_option_set_by_env.exit.i109 ], [ %1038, %1065 ], [ %1038, %1069 ], [ %.0.i.i68.i, %1108 ], [ %.0.i.i68.i, %1112 ]
-  %.024.i = phi i1 [ true, %slurm_option_set_by_env.exit.i109 ], [ false, %1065 ], [ false, %1069 ], [ false, %1108 ], [ false, %1112 ]
+  %.025.i = phi i1 [ %.0.i.i68.i, %1112 ], [ %1038, %slurm_option_set_by_env.exit.i109 ], [ %1038, %1065 ], [ %.0.i.i68.i, %1108 ], [ %1038, %1069 ]
+  %.024.i = phi i1 [ false, %1112 ], [ true, %slurm_option_set_by_env.exit.i109 ], [ false, %1065 ], [ false, %1108 ], [ false, %1069 ]
   br i1 %.025.i, label %1120, label %1143
 
 1120:                                             ; preds = %slurm_option_set_by_env.exit60.i, %1115, %1111, %1072, %1068
-  %.024142.i = phi i1 [ false, %1068 ], [ %.024.i, %slurm_option_set_by_env.exit60.i ], [ %1076, %1072 ], [ false, %1111 ], [ %1119, %1115 ]
+  %.024142.i = phi i1 [ %1076, %1072 ], [ %.024.i, %slurm_option_set_by_env.exit60.i ], [ %1119, %1115 ], [ false, %1068 ], [ false, %1111 ]
   br label %1121
 
 1121:                                             ; preds = %1127, %1120
@@ -5488,8 +5488,8 @@ slurm_option_set_by_cli.exit93.i:                 ; preds = %1136
   br i1 %1142, label %1143, label %1164
 
 1143:                                             ; preds = %slurm_option_set_by_cli.exit93.i, %slurm_option_set_by_env.exit60.i, %1115, %1072
-  %.024141.i = phi i1 [ %.024142.i, %slurm_option_set_by_cli.exit93.i ], [ %.024.i, %slurm_option_set_by_env.exit60.i ], [ %1076, %1072 ], [ %1119, %1115 ]
-  %.025139.i = phi i1 [ true, %slurm_option_set_by_cli.exit93.i ], [ false, %slurm_option_set_by_env.exit60.i ], [ false, %1072 ], [ false, %1115 ]
+  %.024141.i = phi i1 [ %1076, %1072 ], [ %.024142.i, %slurm_option_set_by_cli.exit93.i ], [ %.024.i, %slurm_option_set_by_env.exit60.i ], [ %1119, %1115 ]
+  %.025139.i = phi i1 [ false, %1072 ], [ true, %slurm_option_set_by_cli.exit93.i ], [ false, %slurm_option_set_by_env.exit60.i ], [ false, %1115 ]
   br i1 %.024141.i, label %1144, label %1165
 
 1144:                                             ; preds = %1143, %slurm_option_set_by_cli.exit93.thread.i
@@ -5549,8 +5549,8 @@ slurm_option_set_by_env.exit104.i:                ; preds = %1157
   unreachable
 
 1165:                                             ; preds = %slurm_option_set_by_env.exit104.i, %1143
-  %.025139147.i = phi i1 [ %.025139149.i, %slurm_option_set_by_env.exit104.i ], [ %.025139.i, %1143 ]
-  %.024141146.i = phi i1 [ true, %slurm_option_set_by_env.exit104.i ], [ false, %1143 ]
+  %.025139147.i = phi i1 [ %.025139.i, %1143 ], [ %.025139149.i, %slurm_option_set_by_env.exit104.i ]
+  %.024141146.i = phi i1 [ false, %1143 ], [ true, %slurm_option_set_by_env.exit104.i ]
   br i1 %.025139147.i, label %.thread.i, label %.thread151.i
 
 .thread.i:                                        ; preds = %1165, %slurm_option_set_by_env.exit104.thread.i, %slurm_option_set_by_cli.exit93.thread.i
@@ -5664,7 +5664,7 @@ _find_option_idx.exit.i.i126:                     ; preds = %1197
   br label %_validate_cpus_per_tres.exit
 
 .thread151.i:                                     ; preds = %slurm_option_set_by_env.exit115.i119, %1178, %1177, %1174, %1165, %slurm_option_set_by_env.exit104.thread.i, %1111, %1068
-  %.024141146154.i = phi i1 [ %.024141146155.i, %slurm_option_set_by_env.exit115.i119 ], [ %.024141146.i, %1165 ], [ true, %slurm_option_set_by_env.exit104.thread.i ], [ false, %1111 ], [ false, %1068 ], [ %.024141146155.i, %1177 ], [ %.024141146155.i, %1174 ], [ %.024141146155.i, %1178 ]
+  %.024141146154.i = phi i1 [ false, %1068 ], [ %.024141146155.i, %slurm_option_set_by_env.exit115.i119 ], [ %.024141146.i, %1165 ], [ true, %slurm_option_set_by_env.exit104.thread.i ], [ false, %1111 ], [ %.024141146155.i, %1174 ], [ %.024141146155.i, %1177 ], [ %.024141146155.i, %1178 ]
   br label %1211
 
 1211:                                             ; preds = %1217, %.thread151.i
@@ -6198,7 +6198,7 @@ slurm_option_isset.exit:                          ; preds = %_find_option_idx.ex
   br label %slurm_option_isset.exit.thread
 
 slurm_option_isset.exit.thread:                   ; preds = %45, %slurm_option_isset.exit, %_find_option_idx.exit.i, %52
-  %.sink505 = phi i16 [ %55, %52 ], [ -2, %_find_option_idx.exit.i ], [ -2, %slurm_option_isset.exit ], [ -2, %45 ]
+  %.sink505 = phi i16 [ %55, %52 ], [ -2, %slurm_option_isset.exit ], [ -2, %_find_option_idx.exit.i ], [ -2, %45 ]
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 128
   store i16 %.sink505, ptr %56, align 8
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 504
@@ -7270,7 +7270,7 @@ slurm_option_isset.exit427.thread:                ; preds = %434, %_find_option_
   br label %.thread434
 
 .thread434:                                       ; preds = %591, %.thread, %631, %632, %326
-  %.1 = phi ptr [ null, %632 ], [ null, %326 ], [ %5, %631 ], [ null, %.thread ], [ %5, %591 ]
+  %.1 = phi ptr [ null, %632 ], [ null, %.thread ], [ null, %326 ], [ %5, %631 ], [ %5, %591 ]
   ret ptr %.1
 }
 
@@ -7328,7 +7328,7 @@ define dso_local void @suggest_completion(ptr noundef readonly captures(address_
   br label %17
 
 17:                                               ; preds = %7, %9
-  %.fr52 = phi i1 [ %16, %9 ], [ true, %7 ]
+  %.fr52 = phi i1 [ true, %7 ], [ %16, %9 ]
   %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %19 = icmp ugt i64 %18, 1
   br i1 %19, label %.split.preheader, label %20
@@ -7478,7 +7478,7 @@ define dso_local void @suggest_completion(ptr noundef readonly captures(address_
   br label %81
 
 81:                                               ; preds = %79, %76
-  %82 = phi i32 [ %.pr48, %79 ], [ %.pr, %76 ]
+  %82 = phi i32 [ %.pr, %76 ], [ %.pr48, %79 ]
   %83 = icmp eq i32 %82, 0
   br i1 %83, label %.thread49, label %.sink.split
 
@@ -7617,7 +7617,7 @@ define internal range(i32 -1, 1) i32 @arg_set_accel_bind_type(ptr noundef readon
   br label %25
 
 25:                                               ; preds = %20, %2, %23
-  %.0 = phi i32 [ -1, %23 ], [ -1, %2 ], [ 0, %20 ]
+  %.0 = phi i32 [ -1, %2 ], [ -1, %23 ], [ 0, %20 ]
   ret i32 %.0
 }
 
@@ -9780,7 +9780,7 @@ define internal range(i32 -1, 1) i32 @arg_set_get_user_env(ptr noundef writeonly
   br label %19
 
 19:                                               ; preds = %13, %15, %11, %6, %17, %4
-  %.0 = phi i32 [ -1, %17 ], [ 0, %4 ], [ 0, %11 ], [ 0, %6 ], [ 0, %15 ], [ 0, %13 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %6 ], [ -1, %17 ], [ 0, %11 ], [ 0, %15 ], [ 0, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -9804,7 +9804,7 @@ define internal ptr @arg_get_get_user_env(ptr noundef readonly captures(none) %0
   br i1 %.not, label %9, label %.sink.split
 
 .sink.split:                                      ; preds = %7, %1, %6
-  %.str.116.sink = phi ptr [ @.str.182, %6 ], [ @.str.181, %1 ], [ @.str.116, %7 ]
+  %.str.116.sink = phi ptr [ @.str.181, %1 ], [ @.str.182, %6 ], [ @.str.116, %7 ]
   %8 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull %.str.116.sink, i32 noundef %5) #22
   br label %9
 
@@ -10179,7 +10179,7 @@ define internal range(i32 -1, 1) i32 @arg_set_gres_flags(ptr noundef captures(no
   br label %45
 
 28:                                               ; preds = %24, %22, %20, %18, %14
-  %.sink49 = phi i64 [ 1099511627776, %14 ], [ 524288, %18 ], [ 16, %20 ], [ 549755813888, %22 ], [ 274877906944, %24 ]
+  %.sink49 = phi i64 [ 1099511627776, %14 ], [ 16, %20 ], [ 549755813888, %22 ], [ 524288, %18 ], [ 274877906944, %24 ]
   %29 = load i64, ptr %5, align 8
   %30 = or i64 %29, %.sink49
   store i64 %30, ptr %5, align 8
@@ -10220,7 +10220,7 @@ define internal range(i32 -1, 1) i32 @arg_set_gres_flags(ptr noundef captures(no
   br label %45
 
 45:                                               ; preds = %40, %2, %43, %38, %34, %26, %16
-  %.021 = phi i32 [ -1, %26 ], [ -1, %16 ], [ -1, %34 ], [ -1, %38 ], [ -1, %43 ], [ -1, %2 ], [ 0, %40 ]
+  %.021 = phi i32 [ -1, %26 ], [ -1, %16 ], [ -1, %34 ], [ -1, %38 ], [ -1, %2 ], [ -1, %43 ], [ 0, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.021
@@ -10789,7 +10789,7 @@ define internal range(i32 -1, 1) i32 @arg_set_kill_command(ptr noundef readonly 
   br label %13
 
 13:                                               ; preds = %7, %2, %11, %5
-  %.0 = phi i32 [ -1, %11 ], [ 0, %5 ], [ -1, %2 ], [ 0, %7 ]
+  %.0 = phi i32 [ -1, %2 ], [ -1, %11 ], [ 0, %5 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -11833,7 +11833,7 @@ define internal ptr @arg_get_requeue(ptr noundef readonly captures(none) %0) #0 
   br label %7
 
 7:                                                ; preds = %4, %1
-  %.str.306.sink = phi ptr [ @.str.55, %1 ], [ %switch.select8, %4 ]
+  %.str.306.sink = phi ptr [ %switch.select8, %4 ], [ @.str.55, %1 ]
   %8 = tail call ptr @xstrdup(ptr noundef nonnull %.str.306.sink) #22
   ret ptr %8
 }
@@ -12563,7 +12563,7 @@ define internal range(i32 -1, 1) i32 @arg_set_priority(ptr noundef writeonly cap
   br label %.thread
 
 .thread:                                          ; preds = %13, %9, %4, %15
-  %.1 = phi i32 [ 0, %15 ], [ 0, %4 ], [ -1, %9 ], [ -1, %13 ]
+  %.1 = phi i32 [ 0, %4 ], [ 0, %15 ], [ -1, %9 ], [ -1, %13 ]
   ret i32 %.1
 }
 
@@ -15088,7 +15088,7 @@ _option_index_set_by_cli.exit60:                  ; preds = %41
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.533, ptr noundef %5, ptr noundef %51) #23
   unreachable
 
-52:                                               ; preds = %30, %27
+52:                                               ; preds = %27, %30
   %53 = tail call i32 @get_log_level() #22
   %54 = icmp sgt i32 %53, 6
   br i1 %54, label %55, label %_option_index_set_by_cli.exit64.thread
@@ -15136,7 +15136,7 @@ _option_index_set_by_env.exit:                    ; preds = %_option_index_set_b
   tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.534, ptr noundef %74, ptr noundef %77) #22
   br label %_option_index_set_by_env.exit78.thread
 
-_option_index_set_by_cli.exit64.thread:           ; preds = %31, %56, %52, %55, %_option_index_set_by_cli.exit64, %_option_index_set_by_env.exit
+_option_index_set_by_cli.exit64.thread:           ; preds = %31, %56, %55, %52, %_option_index_set_by_cli.exit64, %_option_index_set_by_env.exit
   %78 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #25
   %79 = getelementptr inbounds nuw i8, ptr %9, i64 %78
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 1
@@ -15196,7 +15196,7 @@ _option_index_set_by_env.exit74:                  ; preds = %_option_index_set_b
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.536, ptr noundef %109, ptr noundef %3, i32 noundef %2, i32 noundef %82) #23
   unreachable
 
-_option_index_set_by_env.exit70.thread:           ; preds = %90, %86, %89, %101, %_option_index_set_by_env.exit74, %_option_index_set_by_env.exit70
+_option_index_set_by_env.exit70.thread:           ; preds = %90, %89, %86, %101, %_option_index_set_by_env.exit74, %_option_index_set_by_env.exit70
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 364
   %111 = load i32, ptr %110, align 4
   %.not48 = icmp eq i32 %111, 0

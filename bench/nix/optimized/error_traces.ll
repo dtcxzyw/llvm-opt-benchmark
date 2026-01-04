@@ -6264,9 +6264,9 @@ _ZN7testing7MessageD2Ev.exit198:                  ; preds = %397, %_ZNKSt14defau
   br label %407
 
 _ZN7testing7MessageD2Ev.exit171.sink.split:       ; preds = %391, %346, %302, %274
-  %.sink248 = phi ptr [ %275, %274 ], [ %303, %302 ], [ %347, %346 ], [ %392, %391 ]
-  %.sink242.ph = phi ptr [ %22, %274 ], [ %27, %302 ], [ %35, %346 ], [ %43, %391 ]
-  %.sink.ph = phi ptr [ %16, %274 ], [ %24, %302 ], [ %29, %346 ], [ %37, %391 ]
+  %.sink248 = phi ptr [ %347, %346 ], [ %303, %302 ], [ %275, %274 ], [ %392, %391 ]
+  %.sink242.ph = phi ptr [ %35, %346 ], [ %27, %302 ], [ %22, %274 ], [ %43, %391 ]
+  %.sink.ph = phi ptr [ %29, %346 ], [ %24, %302 ], [ %16, %274 ], [ %37, %391 ]
   %404 = load ptr, ptr %.sink248, align 8
   %405 = getelementptr inbounds nuw i8, ptr %404, i64 8
   %406 = load ptr, ptr %405, align 8
@@ -6274,8 +6274,8 @@ _ZN7testing7MessageD2Ev.exit171.sink.split:       ; preds = %391, %346, %302, %2
   br label %_ZN7testing7MessageD2Ev.exit171
 
 _ZN7testing7MessageD2Ev.exit171:                  ; preds = %_ZN7testing7MessageD2Ev.exit171.sink.split, %391, %346, %302, %274
-  %.sink242 = phi ptr [ %22, %274 ], [ %27, %302 ], [ %35, %346 ], [ %43, %391 ], [ %.sink242.ph, %_ZN7testing7MessageD2Ev.exit171.sink.split ]
-  %.sink = phi ptr [ %16, %274 ], [ %24, %302 ], [ %29, %346 ], [ %37, %391 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit171.sink.split ]
+  %.sink242 = phi ptr [ %27, %302 ], [ %35, %346 ], [ %43, %391 ], [ %22, %274 ], [ %.sink242.ph, %_ZN7testing7MessageD2Ev.exit171.sink.split ]
+  %.sink = phi ptr [ %24, %302 ], [ %29, %346 ], [ %37, %391 ], [ %16, %274 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit171.sink.split ]
   store ptr null, ptr %.sink242, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -6448,8 +6448,8 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit208: ; preds = %.critedge154, %_ZNK
   ret void
 
 467:                                              ; preds = %212, %_ZN7testing7MessageD2Ev.exit205, %440, %446, %135, %_ZN7testing7MessageD2Ev.exit164, %172, %178, %58, %_ZN7testing7MessageD2Ev.exit157, %95, %101
-  %.sink243 = phi ptr [ %5, %101 ], [ %5, %95 ], [ %5, %_ZN7testing7MessageD2Ev.exit157 ], [ %5, %58 ], [ %9, %178 ], [ %9, %172 ], [ %9, %_ZN7testing7MessageD2Ev.exit164 ], [ %9, %135 ], [ %13, %446 ], [ %13, %440 ], [ %13, %_ZN7testing7MessageD2Ev.exit205 ], [ %13, %212 ]
-  %.pn139.pn.pn = phi { ptr, i32 } [ %.pn, %101 ], [ %96, %95 ], [ %.pn99, %_ZN7testing7MessageD2Ev.exit157 ], [ %59, %58 ], [ %.pn102, %178 ], [ %173, %172 ], [ %.pn104, %_ZN7testing7MessageD2Ev.exit164 ], [ %136, %135 ], [ %.pn137, %446 ], [ %441, %440 ], [ %.pn139, %_ZN7testing7MessageD2Ev.exit205 ], [ %213, %212 ]
+  %.sink243 = phi ptr [ %9, %135 ], [ %5, %58 ], [ %5, %101 ], [ %5, %95 ], [ %5, %_ZN7testing7MessageD2Ev.exit157 ], [ %9, %178 ], [ %9, %172 ], [ %9, %_ZN7testing7MessageD2Ev.exit164 ], [ %13, %446 ], [ %13, %440 ], [ %13, %_ZN7testing7MessageD2Ev.exit205 ], [ %13, %212 ]
+  %.pn139.pn.pn = phi { ptr, i32 } [ %136, %135 ], [ %59, %58 ], [ %.pn, %101 ], [ %96, %95 ], [ %.pn99, %_ZN7testing7MessageD2Ev.exit157 ], [ %.pn102, %178 ], [ %173, %172 ], [ %.pn104, %_ZN7testing7MessageD2Ev.exit164 ], [ %.pn137, %446 ], [ %441, %440 ], [ %.pn139, %_ZN7testing7MessageD2Ev.exit205 ], [ %213, %212 ]
   call void @_ZN7testing8internal14TrueWithStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink243) #26
   resume { ptr, i32 } %.pn139.pn.pn
 
@@ -7693,9 +7693,9 @@ _ZN7testing7MessageD2Ev.exit69:                   ; preds = %128, %_ZNKSt14defau
   br label %138
 
 .sink.split.sink.split:                           ; preds = %119, %93, %65
-  %.sink86 = phi ptr [ %66, %65 ], [ %94, %93 ], [ %120, %119 ]
-  %.sink81.ph = phi ptr [ %5, %65 ], [ %9, %93 ], [ %13, %119 ]
-  %.sink.ph.ph = phi ptr [ %4, %65 ], [ %8, %93 ], [ %12, %119 ]
+  %.sink86 = phi ptr [ %94, %93 ], [ %66, %65 ], [ %120, %119 ]
+  %.sink81.ph = phi ptr [ %9, %93 ], [ %5, %65 ], [ %13, %119 ]
+  %.sink.ph.ph = phi ptr [ %8, %93 ], [ %4, %65 ], [ %12, %119 ]
   %133 = load ptr, ptr %.sink86, align 8
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %135 = load ptr, ptr %134, align 8
@@ -7703,8 +7703,8 @@ _ZN7testing7MessageD2Ev.exit69:                   ; preds = %128, %_ZNKSt14defau
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %119, %93, %65
-  %.sink81 = phi ptr [ %5, %65 ], [ %9, %93 ], [ %13, %119 ], [ %.sink81.ph, %.sink.split.sink.split ]
-  %.sink.ph = phi ptr [ %4, %65 ], [ %8, %93 ], [ %12, %119 ], [ %.sink.ph.ph, %.sink.split.sink.split ]
+  %.sink81 = phi ptr [ %9, %93 ], [ %13, %119 ], [ %5, %65 ], [ %.sink81.ph, %.sink.split.sink.split ]
+  %.sink.ph = phi ptr [ %8, %93 ], [ %12, %119 ], [ %4, %65 ], [ %.sink.ph.ph, %.sink.split.sink.split ]
   store ptr null, ptr %.sink81, align 8
   br label %136
 
@@ -8879,9 +8879,9 @@ _ZN7testing7MessageD2Ev.exit1014:                 ; preds = %585, %_ZNKSt14defau
   br label %599
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %579, %534, %490, %448
-  %.sink1638 = phi ptr [ %449, %448 ], [ %491, %490 ], [ %535, %534 ], [ %580, %579 ]
-  %.sink1607.ph = phi ptr [ %20, %448 ], [ %25, %490 ], [ %33, %534 ], [ %41, %579 ]
-  %.sink.ph = phi ptr [ %13, %448 ], [ %22, %490 ], [ %27, %534 ], [ %35, %579 ]
+  %.sink1638 = phi ptr [ %535, %534 ], [ %491, %490 ], [ %449, %448 ], [ %580, %579 ]
+  %.sink1607.ph = phi ptr [ %33, %534 ], [ %25, %490 ], [ %20, %448 ], [ %41, %579 ]
+  %.sink.ph = phi ptr [ %27, %534 ], [ %22, %490 ], [ %13, %448 ], [ %35, %579 ]
   %592 = load ptr, ptr %.sink1638, align 8
   %593 = getelementptr inbounds nuw i8, ptr %592, i64 8
   %594 = load ptr, ptr %593, align 8
@@ -8889,8 +8889,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %579, %534, %490, %4
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %579, %534, %490, %448
-  %.sink1607 = phi ptr [ %20, %448 ], [ %25, %490 ], [ %33, %534 ], [ %41, %579 ], [ %.sink1607.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %13, %448 ], [ %22, %490 ], [ %27, %534 ], [ %35, %579 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink1607 = phi ptr [ %25, %490 ], [ %33, %534 ], [ %41, %579 ], [ %20, %448 ], [ %.sink1607.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %22, %490 ], [ %27, %534 ], [ %35, %579 ], [ %13, %448 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink1607, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -9098,7 +9098,7 @@ _ZN7testing7MessageD2Ev.exit1026:                 ; preds = %659, %_ZNKSt14defau
   br label %664
 
 664:                                              ; preds = %612, %.critedge880, %_ZN7testing7MessageD2Ev.exit1023
-  %665 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit1023 ], [ false, %.critedge880 ], [ true, %612 ]
+  %665 = phi i1 [ false, %.critedge880 ], [ false, %_ZN7testing7MessageD2Ev.exit1023 ], [ true, %612 ]
   %666 = load ptr, ptr %6, align 8
   %667 = icmp eq ptr %666, %363
   br i1 %667, label %_ZN7testing8internal14TrueWithStringD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -9857,9 +9857,9 @@ _ZN7testing7MessageD2Ev.exit1078:                 ; preds = %891, %_ZNKSt14defau
   br label %905
 
 _ZN7testing7MessageD2Ev.exit1048.sink.split:      ; preds = %885, %840, %796, %754
-  %.sink1643 = phi ptr [ %755, %754 ], [ %797, %796 ], [ %841, %840 ], [ %886, %885 ]
-  %.sink1610.ph = phi ptr [ %59, %754 ], [ %64, %796 ], [ %72, %840 ], [ %80, %885 ]
-  %.sink1609.ph = phi ptr [ %53, %754 ], [ %61, %796 ], [ %66, %840 ], [ %74, %885 ]
+  %.sink1643 = phi ptr [ %841, %840 ], [ %797, %796 ], [ %755, %754 ], [ %886, %885 ]
+  %.sink1610.ph = phi ptr [ %72, %840 ], [ %64, %796 ], [ %59, %754 ], [ %80, %885 ]
+  %.sink1609.ph = phi ptr [ %66, %840 ], [ %61, %796 ], [ %53, %754 ], [ %74, %885 ]
   %898 = load ptr, ptr %.sink1643, align 8
   %899 = getelementptr inbounds nuw i8, ptr %898, i64 8
   %900 = load ptr, ptr %899, align 8
@@ -9867,8 +9867,8 @@ _ZN7testing7MessageD2Ev.exit1048.sink.split:      ; preds = %885, %840, %796, %7
   br label %_ZN7testing7MessageD2Ev.exit1048
 
 _ZN7testing7MessageD2Ev.exit1048:                 ; preds = %_ZN7testing7MessageD2Ev.exit1048.sink.split, %885, %840, %796, %754
-  %.sink1610 = phi ptr [ %59, %754 ], [ %64, %796 ], [ %72, %840 ], [ %80, %885 ], [ %.sink1610.ph, %_ZN7testing7MessageD2Ev.exit1048.sink.split ]
-  %.sink1609 = phi ptr [ %53, %754 ], [ %61, %796 ], [ %66, %840 ], [ %74, %885 ], [ %.sink1609.ph, %_ZN7testing7MessageD2Ev.exit1048.sink.split ]
+  %.sink1610 = phi ptr [ %64, %796 ], [ %72, %840 ], [ %80, %885 ], [ %59, %754 ], [ %.sink1610.ph, %_ZN7testing7MessageD2Ev.exit1048.sink.split ]
+  %.sink1609 = phi ptr [ %61, %796 ], [ %66, %840 ], [ %74, %885 ], [ %53, %754 ], [ %.sink1609.ph, %_ZN7testing7MessageD2Ev.exit1048.sink.split ]
   store ptr null, ptr %.sink1610, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink1609) #26
   invoke void @__cxa_end_catch()
@@ -10076,7 +10076,7 @@ _ZN7testing7MessageD2Ev.exit1091:                 ; preds = %965, %_ZNKSt14defau
   br label %970
 
 970:                                              ; preds = %918, %.critedge892, %_ZN7testing7MessageD2Ev.exit1088
-  %971 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit1088 ], [ false, %.critedge892 ], [ true, %918 ]
+  %971 = phi i1 [ false, %.critedge892 ], [ false, %_ZN7testing7MessageD2Ev.exit1088 ], [ true, %918 ]
   %972 = load ptr, ptr %46, align 8
   %973 = icmp eq ptr %972, %669
   br i1 %973, label %_ZN7testing8internal14TrueWithStringD2Ev.exit1094, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i1092
@@ -10836,9 +10836,9 @@ _ZN7testing7MessageD2Ev.exit1146:                 ; preds = %1197, %_ZNKSt14defa
   br label %1211
 
 _ZN7testing7MessageD2Ev.exit1116.sink.split:      ; preds = %1191, %1146, %1102, %1060
-  %.sink1648 = phi ptr [ %1061, %1060 ], [ %1103, %1102 ], [ %1147, %1146 ], [ %1192, %1191 ]
-  %.sink1613.ph = phi ptr [ %99, %1060 ], [ %104, %1102 ], [ %112, %1146 ], [ %120, %1191 ]
-  %.sink1612.ph = phi ptr [ %92, %1060 ], [ %101, %1102 ], [ %106, %1146 ], [ %114, %1191 ]
+  %.sink1648 = phi ptr [ %1147, %1146 ], [ %1103, %1102 ], [ %1061, %1060 ], [ %1192, %1191 ]
+  %.sink1613.ph = phi ptr [ %112, %1146 ], [ %104, %1102 ], [ %99, %1060 ], [ %120, %1191 ]
+  %.sink1612.ph = phi ptr [ %106, %1146 ], [ %101, %1102 ], [ %92, %1060 ], [ %114, %1191 ]
   %1204 = load ptr, ptr %.sink1648, align 8
   %1205 = getelementptr inbounds nuw i8, ptr %1204, i64 8
   %1206 = load ptr, ptr %1205, align 8
@@ -10846,8 +10846,8 @@ _ZN7testing7MessageD2Ev.exit1116.sink.split:      ; preds = %1191, %1146, %1102,
   br label %_ZN7testing7MessageD2Ev.exit1116
 
 _ZN7testing7MessageD2Ev.exit1116:                 ; preds = %_ZN7testing7MessageD2Ev.exit1116.sink.split, %1191, %1146, %1102, %1060
-  %.sink1613 = phi ptr [ %99, %1060 ], [ %104, %1102 ], [ %112, %1146 ], [ %120, %1191 ], [ %.sink1613.ph, %_ZN7testing7MessageD2Ev.exit1116.sink.split ]
-  %.sink1612 = phi ptr [ %92, %1060 ], [ %101, %1102 ], [ %106, %1146 ], [ %114, %1191 ], [ %.sink1612.ph, %_ZN7testing7MessageD2Ev.exit1116.sink.split ]
+  %.sink1613 = phi ptr [ %104, %1102 ], [ %112, %1146 ], [ %120, %1191 ], [ %99, %1060 ], [ %.sink1613.ph, %_ZN7testing7MessageD2Ev.exit1116.sink.split ]
+  %.sink1612 = phi ptr [ %101, %1102 ], [ %106, %1146 ], [ %114, %1191 ], [ %92, %1060 ], [ %.sink1612.ph, %_ZN7testing7MessageD2Ev.exit1116.sink.split ]
   store ptr null, ptr %.sink1613, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink1612) #26
   invoke void @__cxa_end_catch()
@@ -11055,7 +11055,7 @@ _ZN7testing7MessageD2Ev.exit1159:                 ; preds = %1271, %_ZNKSt14defa
   br label %1276
 
 1276:                                             ; preds = %1224, %.critedge905, %_ZN7testing7MessageD2Ev.exit1156
-  %1277 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit1156 ], [ false, %.critedge905 ], [ true, %1224 ]
+  %1277 = phi i1 [ false, %.critedge905 ], [ false, %_ZN7testing7MessageD2Ev.exit1156 ], [ true, %1224 ]
   %1278 = load ptr, ptr %85, align 8
   %1279 = icmp eq ptr %1278, %975
   br i1 %1279, label %_ZN7testing8internal14TrueWithStringD2Ev.exit1162, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i1160
@@ -11768,9 +11768,9 @@ _ZN7testing7MessageD2Ev.exit1197:                 ; preds = %1487, %_ZNKSt14defa
   br label %1501
 
 _ZN7testing7MessageD2Ev.exit1167.sink.split:      ; preds = %1481, %1436, %1392, %1350
-  %.sink1653 = phi ptr [ %1351, %1350 ], [ %1393, %1392 ], [ %1437, %1436 ], [ %1482, %1481 ]
-  %.sink1616.ph = phi ptr [ %139, %1350 ], [ %144, %1392 ], [ %152, %1436 ], [ %160, %1481 ]
-  %.sink1615.ph = phi ptr [ %132, %1350 ], [ %141, %1392 ], [ %146, %1436 ], [ %154, %1481 ]
+  %.sink1653 = phi ptr [ %1437, %1436 ], [ %1393, %1392 ], [ %1351, %1350 ], [ %1482, %1481 ]
+  %.sink1616.ph = phi ptr [ %152, %1436 ], [ %144, %1392 ], [ %139, %1350 ], [ %160, %1481 ]
+  %.sink1615.ph = phi ptr [ %146, %1436 ], [ %141, %1392 ], [ %132, %1350 ], [ %154, %1481 ]
   %1494 = load ptr, ptr %.sink1653, align 8
   %1495 = getelementptr inbounds nuw i8, ptr %1494, i64 8
   %1496 = load ptr, ptr %1495, align 8
@@ -11778,8 +11778,8 @@ _ZN7testing7MessageD2Ev.exit1167.sink.split:      ; preds = %1481, %1436, %1392,
   br label %_ZN7testing7MessageD2Ev.exit1167
 
 _ZN7testing7MessageD2Ev.exit1167:                 ; preds = %_ZN7testing7MessageD2Ev.exit1167.sink.split, %1481, %1436, %1392, %1350
-  %.sink1616 = phi ptr [ %139, %1350 ], [ %144, %1392 ], [ %152, %1436 ], [ %160, %1481 ], [ %.sink1616.ph, %_ZN7testing7MessageD2Ev.exit1167.sink.split ]
-  %.sink1615 = phi ptr [ %132, %1350 ], [ %141, %1392 ], [ %146, %1436 ], [ %154, %1481 ], [ %.sink1615.ph, %_ZN7testing7MessageD2Ev.exit1167.sink.split ]
+  %.sink1616 = phi ptr [ %144, %1392 ], [ %152, %1436 ], [ %160, %1481 ], [ %139, %1350 ], [ %.sink1616.ph, %_ZN7testing7MessageD2Ev.exit1167.sink.split ]
+  %.sink1615 = phi ptr [ %141, %1392 ], [ %146, %1436 ], [ %154, %1481 ], [ %132, %1350 ], [ %.sink1615.ph, %_ZN7testing7MessageD2Ev.exit1167.sink.split ]
   store ptr null, ptr %.sink1616, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink1615) #26
   invoke void @__cxa_end_catch()
@@ -11967,7 +11967,7 @@ _ZN7testing7MessageD2Ev.exit1204:                 ; preds = %1555, %_ZNKSt14defa
   br label %1560
 
 1560:                                             ; preds = %1508, %.critedge918, %_ZN7testing7MessageD2Ev.exit1201
-  %1561 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit1201 ], [ false, %.critedge918 ], [ true, %1508 ]
+  %1561 = phi i1 [ false, %.critedge918 ], [ false, %_ZN7testing7MessageD2Ev.exit1201 ], [ true, %1508 ]
   %1562 = load ptr, ptr %125, align 8
   %1563 = icmp eq ptr %1562, %1281
   br i1 %1563, label %_ZN7testing8internal14TrueWithStringD2Ev.exit1207, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i1205
@@ -12670,9 +12670,9 @@ _ZN7testing7MessageD2Ev.exit1242:                 ; preds = %1768, %_ZNKSt14defa
   br label %1782
 
 _ZN7testing7MessageD2Ev.exit1212.sink.split:      ; preds = %1762, %1717, %1673, %1631
-  %.sink1658 = phi ptr [ %1632, %1631 ], [ %1674, %1673 ], [ %1718, %1717 ], [ %1763, %1762 ]
-  %.sink1619.ph = phi ptr [ %179, %1631 ], [ %184, %1673 ], [ %192, %1717 ], [ %200, %1762 ]
-  %.sink1618.ph = phi ptr [ %172, %1631 ], [ %181, %1673 ], [ %186, %1717 ], [ %194, %1762 ]
+  %.sink1658 = phi ptr [ %1718, %1717 ], [ %1674, %1673 ], [ %1632, %1631 ], [ %1763, %1762 ]
+  %.sink1619.ph = phi ptr [ %192, %1717 ], [ %184, %1673 ], [ %179, %1631 ], [ %200, %1762 ]
+  %.sink1618.ph = phi ptr [ %186, %1717 ], [ %181, %1673 ], [ %172, %1631 ], [ %194, %1762 ]
   %1775 = load ptr, ptr %.sink1658, align 8
   %1776 = getelementptr inbounds nuw i8, ptr %1775, i64 8
   %1777 = load ptr, ptr %1776, align 8
@@ -12680,8 +12680,8 @@ _ZN7testing7MessageD2Ev.exit1212.sink.split:      ; preds = %1762, %1717, %1673,
   br label %_ZN7testing7MessageD2Ev.exit1212
 
 _ZN7testing7MessageD2Ev.exit1212:                 ; preds = %_ZN7testing7MessageD2Ev.exit1212.sink.split, %1762, %1717, %1673, %1631
-  %.sink1619 = phi ptr [ %179, %1631 ], [ %184, %1673 ], [ %192, %1717 ], [ %200, %1762 ], [ %.sink1619.ph, %_ZN7testing7MessageD2Ev.exit1212.sink.split ]
-  %.sink1618 = phi ptr [ %172, %1631 ], [ %181, %1673 ], [ %186, %1717 ], [ %194, %1762 ], [ %.sink1618.ph, %_ZN7testing7MessageD2Ev.exit1212.sink.split ]
+  %.sink1619 = phi ptr [ %184, %1673 ], [ %192, %1717 ], [ %200, %1762 ], [ %179, %1631 ], [ %.sink1619.ph, %_ZN7testing7MessageD2Ev.exit1212.sink.split ]
+  %.sink1618 = phi ptr [ %181, %1673 ], [ %186, %1717 ], [ %194, %1762 ], [ %172, %1631 ], [ %.sink1618.ph, %_ZN7testing7MessageD2Ev.exit1212.sink.split ]
   store ptr null, ptr %.sink1619, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink1618) #26
   invoke void @__cxa_end_catch()
@@ -13558,9 +13558,9 @@ _ZN7testing7MessageD2Ev.exit1283:                 ; preds = %2045, %_ZNKSt14defa
   br label %2059
 
 _ZN7testing7MessageD2Ev.exit1253.sink.split:      ; preds = %2039, %1994, %1950, %1908
-  %.sink1663 = phi ptr [ %1909, %1908 ], [ %1951, %1950 ], [ %1995, %1994 ], [ %2040, %2039 ]
-  %.sink1622.ph = phi ptr [ %219, %1908 ], [ %224, %1950 ], [ %232, %1994 ], [ %240, %2039 ]
-  %.sink1621.ph = phi ptr [ %212, %1908 ], [ %221, %1950 ], [ %226, %1994 ], [ %234, %2039 ]
+  %.sink1663 = phi ptr [ %1995, %1994 ], [ %1951, %1950 ], [ %1909, %1908 ], [ %2040, %2039 ]
+  %.sink1622.ph = phi ptr [ %232, %1994 ], [ %224, %1950 ], [ %219, %1908 ], [ %240, %2039 ]
+  %.sink1621.ph = phi ptr [ %226, %1994 ], [ %221, %1950 ], [ %212, %1908 ], [ %234, %2039 ]
   %2052 = load ptr, ptr %.sink1663, align 8
   %2053 = getelementptr inbounds nuw i8, ptr %2052, i64 8
   %2054 = load ptr, ptr %2053, align 8
@@ -13568,8 +13568,8 @@ _ZN7testing7MessageD2Ev.exit1253.sink.split:      ; preds = %2039, %1994, %1950,
   br label %_ZN7testing7MessageD2Ev.exit1253
 
 _ZN7testing7MessageD2Ev.exit1253:                 ; preds = %_ZN7testing7MessageD2Ev.exit1253.sink.split, %2039, %1994, %1950, %1908
-  %.sink1622 = phi ptr [ %219, %1908 ], [ %224, %1950 ], [ %232, %1994 ], [ %240, %2039 ], [ %.sink1622.ph, %_ZN7testing7MessageD2Ev.exit1253.sink.split ]
-  %.sink1621 = phi ptr [ %212, %1908 ], [ %221, %1950 ], [ %226, %1994 ], [ %234, %2039 ], [ %.sink1621.ph, %_ZN7testing7MessageD2Ev.exit1253.sink.split ]
+  %.sink1622 = phi ptr [ %224, %1950 ], [ %232, %1994 ], [ %240, %2039 ], [ %219, %1908 ], [ %.sink1622.ph, %_ZN7testing7MessageD2Ev.exit1253.sink.split ]
+  %.sink1621 = phi ptr [ %221, %1950 ], [ %226, %1994 ], [ %234, %2039 ], [ %212, %1908 ], [ %.sink1621.ph, %_ZN7testing7MessageD2Ev.exit1253.sink.split ]
   store ptr null, ptr %.sink1622, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink1621) #26
   invoke void @__cxa_end_catch()
@@ -14444,9 +14444,9 @@ _ZN7testing7MessageD2Ev.exit1324:                 ; preds = %2321, %_ZNKSt14defa
   br label %2335
 
 _ZN7testing7MessageD2Ev.exit1294.sink.split:      ; preds = %2315, %2270, %2226, %2184
-  %.sink1668 = phi ptr [ %2185, %2184 ], [ %2227, %2226 ], [ %2271, %2270 ], [ %2316, %2315 ]
-  %.sink1625.ph = phi ptr [ %258, %2184 ], [ %263, %2226 ], [ %271, %2270 ], [ %279, %2315 ]
-  %.sink1624.ph = phi ptr [ %252, %2184 ], [ %260, %2226 ], [ %265, %2270 ], [ %273, %2315 ]
+  %.sink1668 = phi ptr [ %2271, %2270 ], [ %2227, %2226 ], [ %2185, %2184 ], [ %2316, %2315 ]
+  %.sink1625.ph = phi ptr [ %271, %2270 ], [ %263, %2226 ], [ %258, %2184 ], [ %279, %2315 ]
+  %.sink1624.ph = phi ptr [ %265, %2270 ], [ %260, %2226 ], [ %252, %2184 ], [ %273, %2315 ]
   %2328 = load ptr, ptr %.sink1668, align 8
   %2329 = getelementptr inbounds nuw i8, ptr %2328, i64 8
   %2330 = load ptr, ptr %2329, align 8
@@ -14454,8 +14454,8 @@ _ZN7testing7MessageD2Ev.exit1294.sink.split:      ; preds = %2315, %2270, %2226,
   br label %_ZN7testing7MessageD2Ev.exit1294
 
 _ZN7testing7MessageD2Ev.exit1294:                 ; preds = %_ZN7testing7MessageD2Ev.exit1294.sink.split, %2315, %2270, %2226, %2184
-  %.sink1625 = phi ptr [ %258, %2184 ], [ %263, %2226 ], [ %271, %2270 ], [ %279, %2315 ], [ %.sink1625.ph, %_ZN7testing7MessageD2Ev.exit1294.sink.split ]
-  %.sink1624 = phi ptr [ %252, %2184 ], [ %260, %2226 ], [ %265, %2270 ], [ %273, %2315 ], [ %.sink1624.ph, %_ZN7testing7MessageD2Ev.exit1294.sink.split ]
+  %.sink1625 = phi ptr [ %263, %2226 ], [ %271, %2270 ], [ %279, %2315 ], [ %258, %2184 ], [ %.sink1625.ph, %_ZN7testing7MessageD2Ev.exit1294.sink.split ]
+  %.sink1624 = phi ptr [ %260, %2226 ], [ %265, %2270 ], [ %273, %2315 ], [ %252, %2184 ], [ %.sink1624.ph, %_ZN7testing7MessageD2Ev.exit1294.sink.split ]
   store ptr null, ptr %.sink1625, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink1624) #26
   invoke void @__cxa_end_catch()
@@ -15330,9 +15330,9 @@ _ZN7testing7MessageD2Ev.exit1365:                 ; preds = %2597, %_ZNKSt14defa
   br label %2611
 
 _ZN7testing7MessageD2Ev.exit1335.sink.split:      ; preds = %2591, %2546, %2502, %2460
-  %.sink1673 = phi ptr [ %2461, %2460 ], [ %2503, %2502 ], [ %2547, %2546 ], [ %2592, %2591 ]
-  %.sink1628.ph = phi ptr [ %297, %2460 ], [ %302, %2502 ], [ %310, %2546 ], [ %318, %2591 ]
-  %.sink1627.ph = phi ptr [ %291, %2460 ], [ %299, %2502 ], [ %304, %2546 ], [ %312, %2591 ]
+  %.sink1673 = phi ptr [ %2547, %2546 ], [ %2503, %2502 ], [ %2461, %2460 ], [ %2592, %2591 ]
+  %.sink1628.ph = phi ptr [ %310, %2546 ], [ %302, %2502 ], [ %297, %2460 ], [ %318, %2591 ]
+  %.sink1627.ph = phi ptr [ %304, %2546 ], [ %299, %2502 ], [ %291, %2460 ], [ %312, %2591 ]
   %2604 = load ptr, ptr %.sink1673, align 8
   %2605 = getelementptr inbounds nuw i8, ptr %2604, i64 8
   %2606 = load ptr, ptr %2605, align 8
@@ -15340,8 +15340,8 @@ _ZN7testing7MessageD2Ev.exit1335.sink.split:      ; preds = %2591, %2546, %2502,
   br label %_ZN7testing7MessageD2Ev.exit1335
 
 _ZN7testing7MessageD2Ev.exit1335:                 ; preds = %_ZN7testing7MessageD2Ev.exit1335.sink.split, %2591, %2546, %2502, %2460
-  %.sink1628 = phi ptr [ %297, %2460 ], [ %302, %2502 ], [ %310, %2546 ], [ %318, %2591 ], [ %.sink1628.ph, %_ZN7testing7MessageD2Ev.exit1335.sink.split ]
-  %.sink1627 = phi ptr [ %291, %2460 ], [ %299, %2502 ], [ %304, %2546 ], [ %312, %2591 ], [ %.sink1627.ph, %_ZN7testing7MessageD2Ev.exit1335.sink.split ]
+  %.sink1628 = phi ptr [ %302, %2502 ], [ %310, %2546 ], [ %318, %2591 ], [ %297, %2460 ], [ %.sink1628.ph, %_ZN7testing7MessageD2Ev.exit1335.sink.split ]
+  %.sink1627 = phi ptr [ %299, %2502 ], [ %304, %2546 ], [ %312, %2591 ], [ %291, %2460 ], [ %.sink1627.ph, %_ZN7testing7MessageD2Ev.exit1335.sink.split ]
   store ptr null, ptr %.sink1628, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink1627) #26
   invoke void @__cxa_end_catch()
@@ -16218,9 +16218,9 @@ _ZN7testing7MessageD2Ev.exit1406:                 ; preds = %2874, %_ZNKSt14defa
   br label %2888
 
 _ZN7testing7MessageD2Ev.exit1376.sink.split:      ; preds = %2868, %2823, %2779, %2737
-  %.sink1678 = phi ptr [ %2738, %2737 ], [ %2780, %2779 ], [ %2824, %2823 ], [ %2869, %2868 ]
-  %.sink1631.ph = phi ptr [ %337, %2737 ], [ %342, %2779 ], [ %350, %2823 ], [ %358, %2868 ]
-  %.sink1630.ph = phi ptr [ %330, %2737 ], [ %339, %2779 ], [ %344, %2823 ], [ %352, %2868 ]
+  %.sink1678 = phi ptr [ %2824, %2823 ], [ %2780, %2779 ], [ %2738, %2737 ], [ %2869, %2868 ]
+  %.sink1631.ph = phi ptr [ %350, %2823 ], [ %342, %2779 ], [ %337, %2737 ], [ %358, %2868 ]
+  %.sink1630.ph = phi ptr [ %344, %2823 ], [ %339, %2779 ], [ %330, %2737 ], [ %352, %2868 ]
   %2881 = load ptr, ptr %.sink1678, align 8
   %2882 = getelementptr inbounds nuw i8, ptr %2881, i64 8
   %2883 = load ptr, ptr %2882, align 8
@@ -16228,8 +16228,8 @@ _ZN7testing7MessageD2Ev.exit1376.sink.split:      ; preds = %2868, %2823, %2779,
   br label %_ZN7testing7MessageD2Ev.exit1376
 
 _ZN7testing7MessageD2Ev.exit1376:                 ; preds = %_ZN7testing7MessageD2Ev.exit1376.sink.split, %2868, %2823, %2779, %2737
-  %.sink1631 = phi ptr [ %337, %2737 ], [ %342, %2779 ], [ %350, %2823 ], [ %358, %2868 ], [ %.sink1631.ph, %_ZN7testing7MessageD2Ev.exit1376.sink.split ]
-  %.sink1630 = phi ptr [ %330, %2737 ], [ %339, %2779 ], [ %344, %2823 ], [ %352, %2868 ], [ %.sink1630.ph, %_ZN7testing7MessageD2Ev.exit1376.sink.split ]
+  %.sink1631 = phi ptr [ %342, %2779 ], [ %350, %2823 ], [ %358, %2868 ], [ %337, %2737 ], [ %.sink1631.ph, %_ZN7testing7MessageD2Ev.exit1376.sink.split ]
+  %.sink1630 = phi ptr [ %339, %2779 ], [ %344, %2823 ], [ %352, %2868 ], [ %330, %2737 ], [ %.sink1630.ph, %_ZN7testing7MessageD2Ev.exit1376.sink.split ]
   store ptr null, ptr %.sink1631, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink1630) #26
   invoke void @__cxa_end_catch()
@@ -16414,8 +16414,8 @@ _ZN7testing7MessageD2Ev.exit1412:                 ; preds = %2941, %_ZNKSt14defa
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %324) #26
   br label %.sink.split
 
-.sink.split:                                      ; preds = %_ZN7testing7MessageD2Ev.exit1409, %.critedge983, %2894, %.critedge970, %_ZN7testing7MessageD2Ev.exit1368, %.critedge957, %_ZN7testing7MessageD2Ev.exit1327, %.critedge944, %_ZN7testing7MessageD2Ev.exit1286, %.critedge931, %_ZN7testing7MessageD2Ev.exit1245
-  %.sink1632 = phi ptr [ %165, %_ZN7testing7MessageD2Ev.exit1245 ], [ %165, %.critedge931 ], [ %205, %_ZN7testing7MessageD2Ev.exit1286 ], [ %205, %.critedge944 ], [ %245, %_ZN7testing7MessageD2Ev.exit1327 ], [ %245, %.critedge957 ], [ %284, %_ZN7testing7MessageD2Ev.exit1368 ], [ %284, %.critedge970 ], [ %323, %2894 ], [ %323, %.critedge983 ], [ %323, %_ZN7testing7MessageD2Ev.exit1409 ]
+.sink.split:                                      ; preds = %_ZN7testing7MessageD2Ev.exit1409, %.critedge983, %2894, %_ZN7testing7MessageD2Ev.exit1368, %.critedge970, %_ZN7testing7MessageD2Ev.exit1327, %.critedge957, %_ZN7testing7MessageD2Ev.exit1286, %.critedge944, %_ZN7testing7MessageD2Ev.exit1245, %.critedge931
+  %.sink1632 = phi ptr [ %245, %_ZN7testing7MessageD2Ev.exit1327 ], [ %205, %_ZN7testing7MessageD2Ev.exit1286 ], [ %165, %_ZN7testing7MessageD2Ev.exit1245 ], [ %284, %_ZN7testing7MessageD2Ev.exit1368 ], [ %165, %.critedge931 ], [ %205, %.critedge944 ], [ %245, %.critedge957 ], [ %284, %.critedge970 ], [ %323, %2894 ], [ %323, %.critedge983 ], [ %323, %_ZN7testing7MessageD2Ev.exit1409 ]
   call void @_ZN7testing8internal14TrueWithStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink1632) #26
   br label %2946
 
@@ -16423,8 +16423,8 @@ _ZN7testing7MessageD2Ev.exit1412:                 ; preds = %2941, %_ZNKSt14defa
   ret void
 
 2947:                                             ; preds = %2680, %_ZN7testing7MessageD2Ev.exit1412, %2921, %2927, %2403, %_ZN7testing7MessageD2Ev.exit1371, %2645, %2651, %2127, %_ZN7testing7MessageD2Ev.exit1330, %2368, %2374, %1851, %_ZN7testing7MessageD2Ev.exit1289, %2092, %2098, %1574, %_ZN7testing7MessageD2Ev.exit1248, %1816, %1822, %1293, %_ZN7testing7MessageD2Ev.exit1204, %1536, %1542, %1003, %_ZN7testing7MessageD2Ev.exit1159, %1252, %1258, %697, %_ZN7testing7MessageD2Ev.exit1091, %946, %952, %391, %_ZN7testing7MessageD2Ev.exit1026, %640, %646
-  %.sink1633 = phi ptr [ %6, %646 ], [ %6, %640 ], [ %6, %_ZN7testing7MessageD2Ev.exit1026 ], [ %6, %391 ], [ %46, %952 ], [ %46, %946 ], [ %46, %_ZN7testing7MessageD2Ev.exit1091 ], [ %46, %697 ], [ %85, %1258 ], [ %85, %1252 ], [ %85, %_ZN7testing7MessageD2Ev.exit1159 ], [ %85, %1003 ], [ %125, %1542 ], [ %125, %1536 ], [ %125, %_ZN7testing7MessageD2Ev.exit1204 ], [ %125, %1293 ], [ %165, %1822 ], [ %165, %1816 ], [ %165, %_ZN7testing7MessageD2Ev.exit1248 ], [ %165, %1574 ], [ %205, %2098 ], [ %205, %2092 ], [ %205, %_ZN7testing7MessageD2Ev.exit1289 ], [ %205, %1851 ], [ %245, %2374 ], [ %245, %2368 ], [ %245, %_ZN7testing7MessageD2Ev.exit1330 ], [ %245, %2127 ], [ %284, %2651 ], [ %284, %2645 ], [ %284, %_ZN7testing7MessageD2Ev.exit1371 ], [ %284, %2403 ], [ %323, %2927 ], [ %323, %2921 ], [ %323, %_ZN7testing7MessageD2Ev.exit1412 ], [ %323, %2680 ]
-  %.pn869.pn.pn = phi { ptr, i32 } [ %.pn587, %646 ], [ %641, %640 ], [ %.pn589, %_ZN7testing7MessageD2Ev.exit1026 ], [ %392, %391 ], [ %.pn622, %952 ], [ %947, %946 ], [ %.pn624, %_ZN7testing7MessageD2Ev.exit1091 ], [ %698, %697 ], [ %.pn657, %1258 ], [ %1253, %1252 ], [ %.pn659, %_ZN7testing7MessageD2Ev.exit1159 ], [ %1004, %1003 ], [ %.pn692, %1542 ], [ %1537, %1536 ], [ %.pn694, %_ZN7testing7MessageD2Ev.exit1204 ], [ %1294, %1293 ], [ %.pn727, %1822 ], [ %1817, %1816 ], [ %.pn729, %_ZN7testing7MessageD2Ev.exit1248 ], [ %1575, %1574 ], [ %.pn762, %2098 ], [ %2093, %2092 ], [ %.pn764, %_ZN7testing7MessageD2Ev.exit1289 ], [ %1852, %1851 ], [ %.pn797, %2374 ], [ %2369, %2368 ], [ %.pn799, %_ZN7testing7MessageD2Ev.exit1330 ], [ %2128, %2127 ], [ %.pn832, %2651 ], [ %2646, %2645 ], [ %.pn834, %_ZN7testing7MessageD2Ev.exit1371 ], [ %2404, %2403 ], [ %.pn867, %2927 ], [ %2922, %2921 ], [ %.pn869, %_ZN7testing7MessageD2Ev.exit1412 ], [ %2681, %2680 ]
+  %.sink1633 = phi ptr [ %284, %2403 ], [ %245, %2127 ], [ %205, %1851 ], [ %165, %1574 ], [ %125, %1293 ], [ %85, %1003 ], [ %46, %697 ], [ %6, %391 ], [ %6, %646 ], [ %6, %640 ], [ %6, %_ZN7testing7MessageD2Ev.exit1026 ], [ %46, %952 ], [ %46, %946 ], [ %46, %_ZN7testing7MessageD2Ev.exit1091 ], [ %85, %1258 ], [ %85, %1252 ], [ %85, %_ZN7testing7MessageD2Ev.exit1159 ], [ %125, %1542 ], [ %125, %1536 ], [ %125, %_ZN7testing7MessageD2Ev.exit1204 ], [ %165, %1822 ], [ %165, %1816 ], [ %165, %_ZN7testing7MessageD2Ev.exit1248 ], [ %205, %2098 ], [ %205, %2092 ], [ %205, %_ZN7testing7MessageD2Ev.exit1289 ], [ %245, %2374 ], [ %245, %2368 ], [ %245, %_ZN7testing7MessageD2Ev.exit1330 ], [ %284, %2651 ], [ %284, %2645 ], [ %284, %_ZN7testing7MessageD2Ev.exit1371 ], [ %323, %2927 ], [ %323, %2921 ], [ %323, %_ZN7testing7MessageD2Ev.exit1412 ], [ %323, %2680 ]
+  %.pn869.pn.pn = phi { ptr, i32 } [ %2404, %2403 ], [ %2128, %2127 ], [ %1852, %1851 ], [ %1575, %1574 ], [ %1294, %1293 ], [ %1004, %1003 ], [ %698, %697 ], [ %392, %391 ], [ %.pn587, %646 ], [ %641, %640 ], [ %.pn589, %_ZN7testing7MessageD2Ev.exit1026 ], [ %.pn622, %952 ], [ %947, %946 ], [ %.pn624, %_ZN7testing7MessageD2Ev.exit1091 ], [ %.pn657, %1258 ], [ %1253, %1252 ], [ %.pn659, %_ZN7testing7MessageD2Ev.exit1159 ], [ %.pn692, %1542 ], [ %1537, %1536 ], [ %.pn694, %_ZN7testing7MessageD2Ev.exit1204 ], [ %.pn727, %1822 ], [ %1817, %1816 ], [ %.pn729, %_ZN7testing7MessageD2Ev.exit1248 ], [ %.pn762, %2098 ], [ %2093, %2092 ], [ %.pn764, %_ZN7testing7MessageD2Ev.exit1289 ], [ %.pn797, %2374 ], [ %2369, %2368 ], [ %.pn799, %_ZN7testing7MessageD2Ev.exit1330 ], [ %.pn832, %2651 ], [ %2646, %2645 ], [ %.pn834, %_ZN7testing7MessageD2Ev.exit1371 ], [ %.pn867, %2927 ], [ %2922, %2921 ], [ %.pn869, %_ZN7testing7MessageD2Ev.exit1412 ], [ %2681, %2680 ]
   call void @_ZN7testing8internal14TrueWithStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink1633) #26
   resume { ptr, i32 } %.pn869.pn.pn
 
@@ -16514,7 +16514,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i:     ; preds = %_ZNSt11char_traitsI
   br i1 %.not33.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm.exit, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i, !llvm.loop !15
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm.exit: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i, %26, %8, %10, %11, %22
-  %.027.i = phi i64 [ %9, %8 ], [ %25, %22 ], [ -1, %10 ], [ -1, %11 ], [ -1, %26 ], [ -1, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ]
+  %.027.i = phi i64 [ %9, %8 ], [ -1, %10 ], [ %25, %22 ], [ -1, %11 ], [ -1, %26 ], [ -1, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ]
   ret i64 %.027.i
 }
 
@@ -18061,9 +18061,9 @@ _ZN7testing7MessageD2Ev.exit667:                  ; preds = %459, %_ZNKSt14defau
   br label %473
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %453, %408, %364, %322
-  %.sink1087 = phi ptr [ %323, %322 ], [ %365, %364 ], [ %409, %408 ], [ %454, %453 ]
-  %.sink1065.ph = phi ptr [ %20, %322 ], [ %25, %364 ], [ %33, %408 ], [ %41, %453 ]
-  %.sink.ph = phi ptr [ %13, %322 ], [ %22, %364 ], [ %27, %408 ], [ %35, %453 ]
+  %.sink1087 = phi ptr [ %409, %408 ], [ %365, %364 ], [ %323, %322 ], [ %454, %453 ]
+  %.sink1065.ph = phi ptr [ %33, %408 ], [ %25, %364 ], [ %20, %322 ], [ %41, %453 ]
+  %.sink.ph = phi ptr [ %27, %408 ], [ %22, %364 ], [ %13, %322 ], [ %35, %453 ]
   %466 = load ptr, ptr %.sink1087, align 8
   %467 = getelementptr inbounds nuw i8, ptr %466, i64 8
   %468 = load ptr, ptr %467, align 8
@@ -18071,8 +18071,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %453, %408, %364, %3
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %453, %408, %364, %322
-  %.sink1065 = phi ptr [ %20, %322 ], [ %25, %364 ], [ %33, %408 ], [ %41, %453 ], [ %.sink1065.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %13, %322 ], [ %22, %364 ], [ %27, %408 ], [ %35, %453 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink1065 = phi ptr [ %25, %364 ], [ %33, %408 ], [ %41, %453 ], [ %20, %322 ], [ %.sink1065.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %22, %364 ], [ %27, %408 ], [ %35, %453 ], [ %13, %322 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink1065, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -18280,7 +18280,7 @@ _ZN7testing7MessageD2Ev.exit679:                  ; preds = %533, %_ZNKSt14defau
   br label %538
 
 538:                                              ; preds = %486, %.critedge574, %_ZN7testing7MessageD2Ev.exit676
-  %539 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit676 ], [ false, %.critedge574 ], [ true, %486 ]
+  %539 = phi i1 [ false, %.critedge574 ], [ false, %_ZN7testing7MessageD2Ev.exit676 ], [ true, %486 ]
   %540 = load ptr, ptr %6, align 8
   %541 = icmp eq ptr %540, %237
   br i1 %541, label %_ZN7testing8internal14TrueWithStringD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -19040,9 +19040,9 @@ _ZN7testing7MessageD2Ev.exit731:                  ; preds = %765, %_ZNKSt14defau
   br label %779
 
 _ZN7testing7MessageD2Ev.exit701.sink.split:       ; preds = %759, %714, %670, %628
-  %.sink1092 = phi ptr [ %629, %628 ], [ %671, %670 ], [ %715, %714 ], [ %760, %759 ]
-  %.sink1068.ph = phi ptr [ %60, %628 ], [ %65, %670 ], [ %73, %714 ], [ %81, %759 ]
-  %.sink1067.ph = phi ptr [ %53, %628 ], [ %62, %670 ], [ %67, %714 ], [ %75, %759 ]
+  %.sink1092 = phi ptr [ %715, %714 ], [ %671, %670 ], [ %629, %628 ], [ %760, %759 ]
+  %.sink1068.ph = phi ptr [ %73, %714 ], [ %65, %670 ], [ %60, %628 ], [ %81, %759 ]
+  %.sink1067.ph = phi ptr [ %67, %714 ], [ %62, %670 ], [ %53, %628 ], [ %75, %759 ]
   %772 = load ptr, ptr %.sink1092, align 8
   %773 = getelementptr inbounds nuw i8, ptr %772, i64 8
   %774 = load ptr, ptr %773, align 8
@@ -19050,8 +19050,8 @@ _ZN7testing7MessageD2Ev.exit701.sink.split:       ; preds = %759, %714, %670, %6
   br label %_ZN7testing7MessageD2Ev.exit701
 
 _ZN7testing7MessageD2Ev.exit701:                  ; preds = %_ZN7testing7MessageD2Ev.exit701.sink.split, %759, %714, %670, %628
-  %.sink1068 = phi ptr [ %60, %628 ], [ %65, %670 ], [ %73, %714 ], [ %81, %759 ], [ %.sink1068.ph, %_ZN7testing7MessageD2Ev.exit701.sink.split ]
-  %.sink1067 = phi ptr [ %53, %628 ], [ %62, %670 ], [ %67, %714 ], [ %75, %759 ], [ %.sink1067.ph, %_ZN7testing7MessageD2Ev.exit701.sink.split ]
+  %.sink1068 = phi ptr [ %65, %670 ], [ %73, %714 ], [ %81, %759 ], [ %60, %628 ], [ %.sink1068.ph, %_ZN7testing7MessageD2Ev.exit701.sink.split ]
+  %.sink1067 = phi ptr [ %62, %670 ], [ %67, %714 ], [ %75, %759 ], [ %53, %628 ], [ %.sink1067.ph, %_ZN7testing7MessageD2Ev.exit701.sink.split ]
   store ptr null, ptr %.sink1068, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink1067) #26
   invoke void @__cxa_end_catch()
@@ -19259,7 +19259,7 @@ _ZN7testing7MessageD2Ev.exit744:                  ; preds = %839, %_ZNKSt14defau
   br label %844
 
 844:                                              ; preds = %792, %.critedge586, %_ZN7testing7MessageD2Ev.exit741
-  %845 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit741 ], [ false, %.critedge586 ], [ true, %792 ]
+  %845 = phi i1 [ false, %.critedge586 ], [ false, %_ZN7testing7MessageD2Ev.exit741 ], [ true, %792 ]
   %846 = load ptr, ptr %46, align 8
   %847 = icmp eq ptr %846, %543
   br i1 %847, label %_ZN7testing8internal14TrueWithStringD2Ev.exit747, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i745
@@ -19864,9 +19864,9 @@ _ZN7testing7MessageD2Ev.exit791:                  ; preds = %1026, %_ZNKSt14defa
   br label %1040
 
 _ZN7testing7MessageD2Ev.exit769.sink.split:       ; preds = %1020, %976, %934
-  %.sink1097 = phi ptr [ %935, %934 ], [ %977, %976 ], [ %1021, %1020 ]
-  %.sink1071.ph = phi ptr [ %99, %934 ], [ %104, %976 ], [ %112, %1020 ]
-  %.sink1070.ph = phi ptr [ %93, %934 ], [ %101, %976 ], [ %106, %1020 ]
+  %.sink1097 = phi ptr [ %977, %976 ], [ %935, %934 ], [ %1021, %1020 ]
+  %.sink1071.ph = phi ptr [ %104, %976 ], [ %99, %934 ], [ %112, %1020 ]
+  %.sink1070.ph = phi ptr [ %101, %976 ], [ %93, %934 ], [ %106, %1020 ]
   %1033 = load ptr, ptr %.sink1097, align 8
   %1034 = getelementptr inbounds nuw i8, ptr %1033, i64 8
   %1035 = load ptr, ptr %1034, align 8
@@ -19874,8 +19874,8 @@ _ZN7testing7MessageD2Ev.exit769.sink.split:       ; preds = %1020, %976, %934
   br label %_ZN7testing7MessageD2Ev.exit769
 
 _ZN7testing7MessageD2Ev.exit769:                  ; preds = %_ZN7testing7MessageD2Ev.exit769.sink.split, %1020, %976, %934
-  %.sink1071 = phi ptr [ %99, %934 ], [ %104, %976 ], [ %112, %1020 ], [ %.sink1071.ph, %_ZN7testing7MessageD2Ev.exit769.sink.split ]
-  %.sink1070 = phi ptr [ %93, %934 ], [ %101, %976 ], [ %106, %1020 ], [ %.sink1070.ph, %_ZN7testing7MessageD2Ev.exit769.sink.split ]
+  %.sink1071 = phi ptr [ %104, %976 ], [ %112, %1020 ], [ %99, %934 ], [ %.sink1071.ph, %_ZN7testing7MessageD2Ev.exit769.sink.split ]
+  %.sink1070 = phi ptr [ %101, %976 ], [ %106, %1020 ], [ %93, %934 ], [ %.sink1070.ph, %_ZN7testing7MessageD2Ev.exit769.sink.split ]
   store ptr null, ptr %.sink1071, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink1070) #26
   invoke void @__cxa_end_catch()
@@ -20083,7 +20083,7 @@ _ZN7testing7MessageD2Ev.exit804:                  ; preds = %1100, %_ZNKSt14defa
   br label %1105
 
 1105:                                             ; preds = %1053, %.critedge597, %_ZN7testing7MessageD2Ev.exit801
-  %1106 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit801 ], [ false, %.critedge597 ], [ true, %1053 ]
+  %1106 = phi i1 [ false, %.critedge597 ], [ false, %_ZN7testing7MessageD2Ev.exit801 ], [ true, %1053 ]
   %1107 = load ptr, ptr %86, align 8
   %1108 = icmp eq ptr %1107, %849
   br i1 %1108, label %_ZN7testing8internal14TrueWithStringD2Ev.exit807, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i805
@@ -20796,9 +20796,9 @@ _ZN7testing7MessageD2Ev.exit842:                  ; preds = %1316, %_ZNKSt14defa
   br label %1330
 
 _ZN7testing7MessageD2Ev.exit812.sink.split:       ; preds = %1310, %1265, %1221, %1179
-  %.sink1102 = phi ptr [ %1180, %1179 ], [ %1222, %1221 ], [ %1266, %1265 ], [ %1311, %1310 ]
-  %.sink1074.ph = phi ptr [ %131, %1179 ], [ %136, %1221 ], [ %144, %1265 ], [ %152, %1310 ]
-  %.sink1073.ph = phi ptr [ %124, %1179 ], [ %133, %1221 ], [ %138, %1265 ], [ %146, %1310 ]
+  %.sink1102 = phi ptr [ %1266, %1265 ], [ %1222, %1221 ], [ %1180, %1179 ], [ %1311, %1310 ]
+  %.sink1074.ph = phi ptr [ %144, %1265 ], [ %136, %1221 ], [ %131, %1179 ], [ %152, %1310 ]
+  %.sink1073.ph = phi ptr [ %138, %1265 ], [ %133, %1221 ], [ %124, %1179 ], [ %146, %1310 ]
   %1323 = load ptr, ptr %.sink1102, align 8
   %1324 = getelementptr inbounds nuw i8, ptr %1323, i64 8
   %1325 = load ptr, ptr %1324, align 8
@@ -20806,8 +20806,8 @@ _ZN7testing7MessageD2Ev.exit812.sink.split:       ; preds = %1310, %1265, %1221,
   br label %_ZN7testing7MessageD2Ev.exit812
 
 _ZN7testing7MessageD2Ev.exit812:                  ; preds = %_ZN7testing7MessageD2Ev.exit812.sink.split, %1310, %1265, %1221, %1179
-  %.sink1074 = phi ptr [ %131, %1179 ], [ %136, %1221 ], [ %144, %1265 ], [ %152, %1310 ], [ %.sink1074.ph, %_ZN7testing7MessageD2Ev.exit812.sink.split ]
-  %.sink1073 = phi ptr [ %124, %1179 ], [ %133, %1221 ], [ %138, %1265 ], [ %146, %1310 ], [ %.sink1073.ph, %_ZN7testing7MessageD2Ev.exit812.sink.split ]
+  %.sink1074 = phi ptr [ %136, %1221 ], [ %144, %1265 ], [ %152, %1310 ], [ %131, %1179 ], [ %.sink1074.ph, %_ZN7testing7MessageD2Ev.exit812.sink.split ]
+  %.sink1073 = phi ptr [ %133, %1221 ], [ %138, %1265 ], [ %146, %1310 ], [ %124, %1179 ], [ %.sink1073.ph, %_ZN7testing7MessageD2Ev.exit812.sink.split ]
   store ptr null, ptr %.sink1074, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink1073) #26
   invoke void @__cxa_end_catch()
@@ -20995,7 +20995,7 @@ _ZN7testing7MessageD2Ev.exit849:                  ; preds = %1384, %_ZNKSt14defa
   br label %1389
 
 1389:                                             ; preds = %1337, %.critedge610, %_ZN7testing7MessageD2Ev.exit846
-  %1390 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit846 ], [ false, %.critedge610 ], [ true, %1337 ]
+  %1390 = phi i1 [ false, %.critedge610 ], [ false, %_ZN7testing7MessageD2Ev.exit846 ], [ true, %1337 ]
   %1391 = load ptr, ptr %117, align 8
   %1392 = icmp eq ptr %1391, %1110
   br i1 %1392, label %_ZN7testing8internal14TrueWithStringD2Ev.exit852, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i850
@@ -21698,9 +21698,9 @@ _ZN7testing7MessageD2Ev.exit887:                  ; preds = %1597, %_ZNKSt14defa
   br label %1611
 
 _ZN7testing7MessageD2Ev.exit857.sink.split:       ; preds = %1591, %1546, %1502, %1460
-  %.sink1107 = phi ptr [ %1461, %1460 ], [ %1503, %1502 ], [ %1547, %1546 ], [ %1592, %1591 ]
-  %.sink1077.ph = phi ptr [ %171, %1460 ], [ %176, %1502 ], [ %184, %1546 ], [ %192, %1591 ]
-  %.sink1076.ph = phi ptr [ %164, %1460 ], [ %173, %1502 ], [ %178, %1546 ], [ %186, %1591 ]
+  %.sink1107 = phi ptr [ %1547, %1546 ], [ %1503, %1502 ], [ %1461, %1460 ], [ %1592, %1591 ]
+  %.sink1077.ph = phi ptr [ %184, %1546 ], [ %176, %1502 ], [ %171, %1460 ], [ %192, %1591 ]
+  %.sink1076.ph = phi ptr [ %178, %1546 ], [ %173, %1502 ], [ %164, %1460 ], [ %186, %1591 ]
   %1604 = load ptr, ptr %.sink1107, align 8
   %1605 = getelementptr inbounds nuw i8, ptr %1604, i64 8
   %1606 = load ptr, ptr %1605, align 8
@@ -21708,8 +21708,8 @@ _ZN7testing7MessageD2Ev.exit857.sink.split:       ; preds = %1591, %1546, %1502,
   br label %_ZN7testing7MessageD2Ev.exit857
 
 _ZN7testing7MessageD2Ev.exit857:                  ; preds = %_ZN7testing7MessageD2Ev.exit857.sink.split, %1591, %1546, %1502, %1460
-  %.sink1077 = phi ptr [ %171, %1460 ], [ %176, %1502 ], [ %184, %1546 ], [ %192, %1591 ], [ %.sink1077.ph, %_ZN7testing7MessageD2Ev.exit857.sink.split ]
-  %.sink1076 = phi ptr [ %164, %1460 ], [ %173, %1502 ], [ %178, %1546 ], [ %186, %1591 ], [ %.sink1076.ph, %_ZN7testing7MessageD2Ev.exit857.sink.split ]
+  %.sink1077 = phi ptr [ %176, %1502 ], [ %184, %1546 ], [ %192, %1591 ], [ %171, %1460 ], [ %.sink1077.ph, %_ZN7testing7MessageD2Ev.exit857.sink.split ]
+  %.sink1076 = phi ptr [ %173, %1502 ], [ %178, %1546 ], [ %186, %1591 ], [ %164, %1460 ], [ %.sink1076.ph, %_ZN7testing7MessageD2Ev.exit857.sink.split ]
   store ptr null, ptr %.sink1077, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink1076) #26
   invoke void @__cxa_end_catch()
@@ -22586,9 +22586,9 @@ _ZN7testing7MessageD2Ev.exit928:                  ; preds = %1874, %_ZNKSt14defa
   br label %1888
 
 _ZN7testing7MessageD2Ev.exit898.sink.split:       ; preds = %1868, %1823, %1779, %1737
-  %.sink1112 = phi ptr [ %1738, %1737 ], [ %1780, %1779 ], [ %1824, %1823 ], [ %1869, %1868 ]
-  %.sink1080.ph = phi ptr [ %211, %1737 ], [ %216, %1779 ], [ %224, %1823 ], [ %232, %1868 ]
-  %.sink1079.ph = phi ptr [ %204, %1737 ], [ %213, %1779 ], [ %218, %1823 ], [ %226, %1868 ]
+  %.sink1112 = phi ptr [ %1824, %1823 ], [ %1780, %1779 ], [ %1738, %1737 ], [ %1869, %1868 ]
+  %.sink1080.ph = phi ptr [ %224, %1823 ], [ %216, %1779 ], [ %211, %1737 ], [ %232, %1868 ]
+  %.sink1079.ph = phi ptr [ %218, %1823 ], [ %213, %1779 ], [ %204, %1737 ], [ %226, %1868 ]
   %1881 = load ptr, ptr %.sink1112, align 8
   %1882 = getelementptr inbounds nuw i8, ptr %1881, i64 8
   %1883 = load ptr, ptr %1882, align 8
@@ -22596,8 +22596,8 @@ _ZN7testing7MessageD2Ev.exit898.sink.split:       ; preds = %1868, %1823, %1779,
   br label %_ZN7testing7MessageD2Ev.exit898
 
 _ZN7testing7MessageD2Ev.exit898:                  ; preds = %_ZN7testing7MessageD2Ev.exit898.sink.split, %1868, %1823, %1779, %1737
-  %.sink1080 = phi ptr [ %211, %1737 ], [ %216, %1779 ], [ %224, %1823 ], [ %232, %1868 ], [ %.sink1080.ph, %_ZN7testing7MessageD2Ev.exit898.sink.split ]
-  %.sink1079 = phi ptr [ %204, %1737 ], [ %213, %1779 ], [ %218, %1823 ], [ %226, %1868 ], [ %.sink1079.ph, %_ZN7testing7MessageD2Ev.exit898.sink.split ]
+  %.sink1080 = phi ptr [ %216, %1779 ], [ %224, %1823 ], [ %232, %1868 ], [ %211, %1737 ], [ %.sink1080.ph, %_ZN7testing7MessageD2Ev.exit898.sink.split ]
+  %.sink1079 = phi ptr [ %213, %1779 ], [ %218, %1823 ], [ %226, %1868 ], [ %204, %1737 ], [ %.sink1079.ph, %_ZN7testing7MessageD2Ev.exit898.sink.split ]
   store ptr null, ptr %.sink1080, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink1079) #26
   invoke void @__cxa_end_catch()
@@ -22782,7 +22782,7 @@ _ZN7testing7MessageD2Ev.exit934:                  ; preds = %1941, %_ZNKSt14defa
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %198) #26
   br label %.sink.split
 
-.sink.split:                                      ; preds = %_ZN7testing7MessageD2Ev.exit931, %.critedge636, %1894, %.critedge623, %_ZN7testing7MessageD2Ev.exit890
+.sink.split:                                      ; preds = %_ZN7testing7MessageD2Ev.exit931, %.critedge636, %1894, %_ZN7testing7MessageD2Ev.exit890, %.critedge623
   %.sink1081 = phi ptr [ %157, %_ZN7testing7MessageD2Ev.exit890 ], [ %157, %.critedge623 ], [ %197, %1894 ], [ %197, %.critedge636 ], [ %197, %_ZN7testing7MessageD2Ev.exit931 ]
   call void @_ZN7testing8internal14TrueWithStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink1081) #26
   br label %1946
@@ -22791,8 +22791,8 @@ _ZN7testing7MessageD2Ev.exit934:                  ; preds = %1941, %_ZNKSt14defa
   ret void
 
 1947:                                             ; preds = %1680, %_ZN7testing7MessageD2Ev.exit934, %1921, %1927, %1403, %_ZN7testing7MessageD2Ev.exit893, %1645, %1651, %1122, %_ZN7testing7MessageD2Ev.exit849, %1365, %1371, %877, %_ZN7testing7MessageD2Ev.exit804, %1081, %1087, %571, %_ZN7testing7MessageD2Ev.exit744, %820, %826, %265, %_ZN7testing7MessageD2Ev.exit679, %514, %520
-  %.sink1082 = phi ptr [ %6, %520 ], [ %6, %514 ], [ %6, %_ZN7testing7MessageD2Ev.exit679 ], [ %6, %265 ], [ %46, %826 ], [ %46, %820 ], [ %46, %_ZN7testing7MessageD2Ev.exit744 ], [ %46, %571 ], [ %86, %1087 ], [ %86, %1081 ], [ %86, %_ZN7testing7MessageD2Ev.exit804 ], [ %86, %877 ], [ %117, %1371 ], [ %117, %1365 ], [ %117, %_ZN7testing7MessageD2Ev.exit849 ], [ %117, %1122 ], [ %157, %1651 ], [ %157, %1645 ], [ %157, %_ZN7testing7MessageD2Ev.exit893 ], [ %157, %1403 ], [ %197, %1927 ], [ %197, %1921 ], [ %197, %_ZN7testing7MessageD2Ev.exit934 ], [ %197, %1680 ]
-  %.pn563.pn.pn = phi { ptr, i32 } [ %.pn393, %520 ], [ %515, %514 ], [ %.pn395, %_ZN7testing7MessageD2Ev.exit679 ], [ %266, %265 ], [ %.pn428, %826 ], [ %821, %820 ], [ %.pn430, %_ZN7testing7MessageD2Ev.exit744 ], [ %572, %571 ], [ %.pn456, %1087 ], [ %1082, %1081 ], [ %.pn458, %_ZN7testing7MessageD2Ev.exit804 ], [ %878, %877 ], [ %.pn491, %1371 ], [ %1366, %1365 ], [ %.pn493, %_ZN7testing7MessageD2Ev.exit849 ], [ %1123, %1122 ], [ %.pn526, %1651 ], [ %1646, %1645 ], [ %.pn528, %_ZN7testing7MessageD2Ev.exit893 ], [ %1404, %1403 ], [ %.pn561, %1927 ], [ %1922, %1921 ], [ %.pn563, %_ZN7testing7MessageD2Ev.exit934 ], [ %1681, %1680 ]
+  %.sink1082 = phi ptr [ %157, %1403 ], [ %117, %1122 ], [ %86, %877 ], [ %46, %571 ], [ %6, %265 ], [ %6, %520 ], [ %6, %514 ], [ %6, %_ZN7testing7MessageD2Ev.exit679 ], [ %46, %826 ], [ %46, %820 ], [ %46, %_ZN7testing7MessageD2Ev.exit744 ], [ %86, %1087 ], [ %86, %1081 ], [ %86, %_ZN7testing7MessageD2Ev.exit804 ], [ %117, %1371 ], [ %117, %1365 ], [ %117, %_ZN7testing7MessageD2Ev.exit849 ], [ %157, %1651 ], [ %157, %1645 ], [ %157, %_ZN7testing7MessageD2Ev.exit893 ], [ %197, %1927 ], [ %197, %1921 ], [ %197, %_ZN7testing7MessageD2Ev.exit934 ], [ %197, %1680 ]
+  %.pn563.pn.pn = phi { ptr, i32 } [ %1404, %1403 ], [ %1123, %1122 ], [ %878, %877 ], [ %572, %571 ], [ %266, %265 ], [ %.pn393, %520 ], [ %515, %514 ], [ %.pn395, %_ZN7testing7MessageD2Ev.exit679 ], [ %.pn428, %826 ], [ %821, %820 ], [ %.pn430, %_ZN7testing7MessageD2Ev.exit744 ], [ %.pn456, %1087 ], [ %1082, %1081 ], [ %.pn458, %_ZN7testing7MessageD2Ev.exit804 ], [ %.pn491, %1371 ], [ %1366, %1365 ], [ %.pn493, %_ZN7testing7MessageD2Ev.exit849 ], [ %.pn526, %1651 ], [ %1646, %1645 ], [ %.pn528, %_ZN7testing7MessageD2Ev.exit893 ], [ %.pn561, %1927 ], [ %1922, %1921 ], [ %.pn563, %_ZN7testing7MessageD2Ev.exit934 ], [ %1681, %1680 ]
   call void @_ZN7testing8internal14TrueWithStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink1082) #26
   resume { ptr, i32 } %.pn563.pn.pn
 
@@ -23805,9 +23805,9 @@ _ZN7testing7MessageD2Ev.exit133:                  ; preds = %265, %_ZNKSt14defau
   br label %279
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %259, %214, %170, %128
-  %.sink175 = phi ptr [ %129, %128 ], [ %171, %170 ], [ %215, %214 ], [ %260, %259 ]
-  %.sink170.ph = phi ptr [ %17, %128 ], [ %22, %170 ], [ %30, %214 ], [ %38, %259 ]
-  %.sink.ph = phi ptr [ %10, %128 ], [ %19, %170 ], [ %24, %214 ], [ %32, %259 ]
+  %.sink175 = phi ptr [ %215, %214 ], [ %171, %170 ], [ %129, %128 ], [ %260, %259 ]
+  %.sink170.ph = phi ptr [ %30, %214 ], [ %22, %170 ], [ %17, %128 ], [ %38, %259 ]
+  %.sink.ph = phi ptr [ %24, %214 ], [ %19, %170 ], [ %10, %128 ], [ %32, %259 ]
   %272 = load ptr, ptr %.sink175, align 8
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 8
   %274 = load ptr, ptr %273, align 8
@@ -23815,8 +23815,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %259, %214, %170, %1
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %259, %214, %170, %128
-  %.sink170 = phi ptr [ %17, %128 ], [ %22, %170 ], [ %30, %214 ], [ %38, %259 ], [ %.sink170.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %10, %128 ], [ %19, %170 ], [ %24, %214 ], [ %32, %259 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink170 = phi ptr [ %22, %170 ], [ %30, %214 ], [ %38, %259 ], [ %17, %128 ], [ %.sink170.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %19, %170 ], [ %24, %214 ], [ %32, %259 ], [ %10, %128 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink170, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -24910,9 +24910,9 @@ _ZN7testing7MessageD2Ev.exit133:                  ; preds = %265, %_ZNKSt14defau
   br label %279
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %259, %214, %170, %128
-  %.sink175 = phi ptr [ %129, %128 ], [ %171, %170 ], [ %215, %214 ], [ %260, %259 ]
-  %.sink170.ph = phi ptr [ %17, %128 ], [ %22, %170 ], [ %30, %214 ], [ %38, %259 ]
-  %.sink.ph = phi ptr [ %10, %128 ], [ %19, %170 ], [ %24, %214 ], [ %32, %259 ]
+  %.sink175 = phi ptr [ %215, %214 ], [ %171, %170 ], [ %129, %128 ], [ %260, %259 ]
+  %.sink170.ph = phi ptr [ %30, %214 ], [ %22, %170 ], [ %17, %128 ], [ %38, %259 ]
+  %.sink.ph = phi ptr [ %24, %214 ], [ %19, %170 ], [ %10, %128 ], [ %32, %259 ]
   %272 = load ptr, ptr %.sink175, align 8
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 8
   %274 = load ptr, ptr %273, align 8
@@ -24920,8 +24920,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %259, %214, %170, %1
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %259, %214, %170, %128
-  %.sink170 = phi ptr [ %17, %128 ], [ %22, %170 ], [ %30, %214 ], [ %38, %259 ], [ %.sink170.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %10, %128 ], [ %19, %170 ], [ %24, %214 ], [ %32, %259 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink170 = phi ptr [ %22, %170 ], [ %30, %214 ], [ %38, %259 ], [ %17, %128 ], [ %.sink170.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %19, %170 ], [ %24, %214 ], [ %32, %259 ], [ %10, %128 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink170, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -25966,9 +25966,9 @@ _ZN7testing7MessageD2Ev.exit133:                  ; preds = %265, %_ZNKSt14defau
   br label %279
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %259, %214, %170, %128
-  %.sink175 = phi ptr [ %129, %128 ], [ %171, %170 ], [ %215, %214 ], [ %260, %259 ]
-  %.sink170.ph = phi ptr [ %17, %128 ], [ %22, %170 ], [ %30, %214 ], [ %38, %259 ]
-  %.sink.ph = phi ptr [ %10, %128 ], [ %19, %170 ], [ %24, %214 ], [ %32, %259 ]
+  %.sink175 = phi ptr [ %215, %214 ], [ %171, %170 ], [ %129, %128 ], [ %260, %259 ]
+  %.sink170.ph = phi ptr [ %30, %214 ], [ %22, %170 ], [ %17, %128 ], [ %38, %259 ]
+  %.sink.ph = phi ptr [ %24, %214 ], [ %19, %170 ], [ %10, %128 ], [ %32, %259 ]
   %272 = load ptr, ptr %.sink175, align 8
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 8
   %274 = load ptr, ptr %273, align 8
@@ -25976,8 +25976,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %259, %214, %170, %1
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %259, %214, %170, %128
-  %.sink170 = phi ptr [ %17, %128 ], [ %22, %170 ], [ %30, %214 ], [ %38, %259 ], [ %.sink170.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %10, %128 ], [ %19, %170 ], [ %24, %214 ], [ %32, %259 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink170 = phi ptr [ %22, %170 ], [ %30, %214 ], [ %38, %259 ], [ %17, %128 ], [ %.sink170.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %19, %170 ], [ %24, %214 ], [ %32, %259 ], [ %10, %128 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink170, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -27101,9 +27101,9 @@ _ZN7testing7MessageD2Ev.exit133:                  ; preds = %265, %_ZNKSt14defau
   br label %279
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %259, %214, %170, %128
-  %.sink175 = phi ptr [ %129, %128 ], [ %171, %170 ], [ %215, %214 ], [ %260, %259 ]
-  %.sink170.ph = phi ptr [ %17, %128 ], [ %22, %170 ], [ %30, %214 ], [ %38, %259 ]
-  %.sink.ph = phi ptr [ %10, %128 ], [ %19, %170 ], [ %24, %214 ], [ %32, %259 ]
+  %.sink175 = phi ptr [ %215, %214 ], [ %171, %170 ], [ %129, %128 ], [ %260, %259 ]
+  %.sink170.ph = phi ptr [ %30, %214 ], [ %22, %170 ], [ %17, %128 ], [ %38, %259 ]
+  %.sink.ph = phi ptr [ %24, %214 ], [ %19, %170 ], [ %10, %128 ], [ %32, %259 ]
   %272 = load ptr, ptr %.sink175, align 8
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 8
   %274 = load ptr, ptr %273, align 8
@@ -27111,8 +27111,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %259, %214, %170, %1
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %259, %214, %170, %128
-  %.sink170 = phi ptr [ %17, %128 ], [ %22, %170 ], [ %30, %214 ], [ %38, %259 ], [ %.sink170.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %10, %128 ], [ %19, %170 ], [ %24, %214 ], [ %32, %259 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink170 = phi ptr [ %22, %170 ], [ %30, %214 ], [ %38, %259 ], [ %17, %128 ], [ %.sink170.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %19, %170 ], [ %24, %214 ], [ %32, %259 ], [ %10, %128 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink170, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -28187,9 +28187,9 @@ _ZN7testing7MessageD2Ev.exit244:                  ; preds = %305, %_ZNKSt14defau
   br label %319
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %299, %254, %210, %168
-  %.sink386 = phi ptr [ %169, %168 ], [ %211, %210 ], [ %255, %254 ], [ %300, %299 ]
-  %.sink377.ph = phi ptr [ %18, %168 ], [ %23, %210 ], [ %31, %254 ], [ %39, %299 ]
-  %.sink.ph = phi ptr [ %11, %168 ], [ %20, %210 ], [ %25, %254 ], [ %33, %299 ]
+  %.sink386 = phi ptr [ %255, %254 ], [ %211, %210 ], [ %169, %168 ], [ %300, %299 ]
+  %.sink377.ph = phi ptr [ %31, %254 ], [ %23, %210 ], [ %18, %168 ], [ %39, %299 ]
+  %.sink.ph = phi ptr [ %25, %254 ], [ %20, %210 ], [ %11, %168 ], [ %33, %299 ]
   %312 = load ptr, ptr %.sink386, align 8
   %313 = getelementptr inbounds nuw i8, ptr %312, i64 8
   %314 = load ptr, ptr %313, align 8
@@ -28197,8 +28197,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %299, %254, %210, %1
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %299, %254, %210, %168
-  %.sink377 = phi ptr [ %18, %168 ], [ %23, %210 ], [ %31, %254 ], [ %39, %299 ], [ %.sink377.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %11, %168 ], [ %20, %210 ], [ %25, %254 ], [ %33, %299 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink377 = phi ptr [ %23, %210 ], [ %31, %254 ], [ %39, %299 ], [ %18, %168 ], [ %.sink377.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %20, %210 ], [ %25, %254 ], [ %33, %299 ], [ %11, %168 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink377, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -28406,7 +28406,7 @@ _ZN7testing7MessageD2Ev.exit256:                  ; preds = %379, %_ZNKSt14defau
   br label %384
 
 384:                                              ; preds = %332, %.critedge201, %_ZN7testing7MessageD2Ev.exit253
-  %385 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit253 ], [ false, %.critedge201 ], [ true, %332 ]
+  %385 = phi i1 [ false, %.critedge201 ], [ false, %_ZN7testing7MessageD2Ev.exit253 ], [ true, %332 ]
   %386 = load ptr, ptr %4, align 8
   %387 = icmp eq ptr %386, %83
   br i1 %387, label %_ZN7testing8internal14TrueWithStringD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -29165,9 +29165,9 @@ _ZN7testing7MessageD2Ev.exit308:                  ; preds = %611, %_ZNKSt14defau
   br label %625
 
 _ZN7testing7MessageD2Ev.exit278.sink.split:       ; preds = %605, %560, %516, %474
-  %.sink391 = phi ptr [ %475, %474 ], [ %517, %516 ], [ %561, %560 ], [ %606, %605 ]
-  %.sink380.ph = phi ptr [ %57, %474 ], [ %62, %516 ], [ %70, %560 ], [ %78, %605 ]
-  %.sink379.ph = phi ptr [ %51, %474 ], [ %59, %516 ], [ %64, %560 ], [ %72, %605 ]
+  %.sink391 = phi ptr [ %561, %560 ], [ %517, %516 ], [ %475, %474 ], [ %606, %605 ]
+  %.sink380.ph = phi ptr [ %70, %560 ], [ %62, %516 ], [ %57, %474 ], [ %78, %605 ]
+  %.sink379.ph = phi ptr [ %64, %560 ], [ %59, %516 ], [ %51, %474 ], [ %72, %605 ]
   %618 = load ptr, ptr %.sink391, align 8
   %619 = getelementptr inbounds nuw i8, ptr %618, i64 8
   %620 = load ptr, ptr %619, align 8
@@ -29175,8 +29175,8 @@ _ZN7testing7MessageD2Ev.exit278.sink.split:       ; preds = %605, %560, %516, %4
   br label %_ZN7testing7MessageD2Ev.exit278
 
 _ZN7testing7MessageD2Ev.exit278:                  ; preds = %_ZN7testing7MessageD2Ev.exit278.sink.split, %605, %560, %516, %474
-  %.sink380 = phi ptr [ %57, %474 ], [ %62, %516 ], [ %70, %560 ], [ %78, %605 ], [ %.sink380.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
-  %.sink379 = phi ptr [ %51, %474 ], [ %59, %516 ], [ %64, %560 ], [ %72, %605 ], [ %.sink379.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
+  %.sink380 = phi ptr [ %62, %516 ], [ %70, %560 ], [ %78, %605 ], [ %57, %474 ], [ %.sink380.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
+  %.sink379 = phi ptr [ %59, %516 ], [ %64, %560 ], [ %72, %605 ], [ %51, %474 ], [ %.sink379.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
   store ptr null, ptr %.sink380, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink379) #26
   invoke void @__cxa_end_catch()
@@ -29400,8 +29400,8 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit324: ; preds = %690, %_ZNKSt7__cxx1
   ret void
 
 694:                                              ; preds = %417, %_ZN7testing7MessageD2Ev.exit321, %666, %672, %111, %_ZN7testing7MessageD2Ev.exit256, %360, %366
-  %.sink381 = phi ptr [ %4, %366 ], [ %4, %360 ], [ %4, %_ZN7testing7MessageD2Ev.exit256 ], [ %4, %111 ], [ %44, %672 ], [ %44, %666 ], [ %44, %_ZN7testing7MessageD2Ev.exit321 ], [ %44, %417 ]
-  %.pn190.pn.pn = phi { ptr, i32 } [ %.pn153, %366 ], [ %361, %360 ], [ %.pn155, %_ZN7testing7MessageD2Ev.exit256 ], [ %112, %111 ], [ %.pn188, %672 ], [ %667, %666 ], [ %.pn190, %_ZN7testing7MessageD2Ev.exit321 ], [ %418, %417 ]
+  %.sink381 = phi ptr [ %4, %111 ], [ %4, %366 ], [ %4, %360 ], [ %4, %_ZN7testing7MessageD2Ev.exit256 ], [ %44, %672 ], [ %44, %666 ], [ %44, %_ZN7testing7MessageD2Ev.exit321 ], [ %44, %417 ]
+  %.pn190.pn.pn = phi { ptr, i32 } [ %112, %111 ], [ %.pn153, %366 ], [ %361, %360 ], [ %.pn155, %_ZN7testing7MessageD2Ev.exit256 ], [ %.pn188, %672 ], [ %667, %666 ], [ %.pn190, %_ZN7testing7MessageD2Ev.exit321 ], [ %418, %417 ]
   call void @_ZN7testing8internal14TrueWithStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink381) #26
   resume { ptr, i32 } %.pn190.pn.pn
 
@@ -30215,9 +30215,9 @@ _ZN7testing7MessageD2Ev.exit133:                  ; preds = %265, %_ZNKSt14defau
   br label %279
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %259, %214, %170, %128
-  %.sink175 = phi ptr [ %129, %128 ], [ %171, %170 ], [ %215, %214 ], [ %260, %259 ]
-  %.sink170.ph = phi ptr [ %17, %128 ], [ %22, %170 ], [ %30, %214 ], [ %38, %259 ]
-  %.sink.ph = phi ptr [ %10, %128 ], [ %19, %170 ], [ %24, %214 ], [ %32, %259 ]
+  %.sink175 = phi ptr [ %215, %214 ], [ %171, %170 ], [ %129, %128 ], [ %260, %259 ]
+  %.sink170.ph = phi ptr [ %30, %214 ], [ %22, %170 ], [ %17, %128 ], [ %38, %259 ]
+  %.sink.ph = phi ptr [ %24, %214 ], [ %19, %170 ], [ %10, %128 ], [ %32, %259 ]
   %272 = load ptr, ptr %.sink175, align 8
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 8
   %274 = load ptr, ptr %273, align 8
@@ -30225,8 +30225,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %259, %214, %170, %1
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %259, %214, %170, %128
-  %.sink170 = phi ptr [ %17, %128 ], [ %22, %170 ], [ %30, %214 ], [ %38, %259 ], [ %.sink170.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %10, %128 ], [ %19, %170 ], [ %24, %214 ], [ %32, %259 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink170 = phi ptr [ %22, %170 ], [ %30, %214 ], [ %38, %259 ], [ %17, %128 ], [ %.sink170.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %19, %170 ], [ %24, %214 ], [ %32, %259 ], [ %10, %128 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink170, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -31301,9 +31301,9 @@ _ZN7testing7MessageD2Ev.exit244:                  ; preds = %305, %_ZNKSt14defau
   br label %319
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %299, %254, %210, %168
-  %.sink386 = phi ptr [ %169, %168 ], [ %211, %210 ], [ %255, %254 ], [ %300, %299 ]
-  %.sink377.ph = phi ptr [ %18, %168 ], [ %23, %210 ], [ %31, %254 ], [ %39, %299 ]
-  %.sink.ph = phi ptr [ %11, %168 ], [ %20, %210 ], [ %25, %254 ], [ %33, %299 ]
+  %.sink386 = phi ptr [ %255, %254 ], [ %211, %210 ], [ %169, %168 ], [ %300, %299 ]
+  %.sink377.ph = phi ptr [ %31, %254 ], [ %23, %210 ], [ %18, %168 ], [ %39, %299 ]
+  %.sink.ph = phi ptr [ %25, %254 ], [ %20, %210 ], [ %11, %168 ], [ %33, %299 ]
   %312 = load ptr, ptr %.sink386, align 8
   %313 = getelementptr inbounds nuw i8, ptr %312, i64 8
   %314 = load ptr, ptr %313, align 8
@@ -31311,8 +31311,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %299, %254, %210, %1
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %299, %254, %210, %168
-  %.sink377 = phi ptr [ %18, %168 ], [ %23, %210 ], [ %31, %254 ], [ %39, %299 ], [ %.sink377.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %11, %168 ], [ %20, %210 ], [ %25, %254 ], [ %33, %299 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink377 = phi ptr [ %23, %210 ], [ %31, %254 ], [ %39, %299 ], [ %18, %168 ], [ %.sink377.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %20, %210 ], [ %25, %254 ], [ %33, %299 ], [ %11, %168 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink377, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -31520,7 +31520,7 @@ _ZN7testing7MessageD2Ev.exit256:                  ; preds = %379, %_ZNKSt14defau
   br label %384
 
 384:                                              ; preds = %332, %.critedge201, %_ZN7testing7MessageD2Ev.exit253
-  %385 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit253 ], [ false, %.critedge201 ], [ true, %332 ]
+  %385 = phi i1 [ false, %.critedge201 ], [ false, %_ZN7testing7MessageD2Ev.exit253 ], [ true, %332 ]
   %386 = load ptr, ptr %4, align 8
   %387 = icmp eq ptr %386, %83
   br i1 %387, label %_ZN7testing8internal14TrueWithStringD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -32279,9 +32279,9 @@ _ZN7testing7MessageD2Ev.exit308:                  ; preds = %611, %_ZNKSt14defau
   br label %625
 
 _ZN7testing7MessageD2Ev.exit278.sink.split:       ; preds = %605, %560, %516, %474
-  %.sink391 = phi ptr [ %475, %474 ], [ %517, %516 ], [ %561, %560 ], [ %606, %605 ]
-  %.sink380.ph = phi ptr [ %57, %474 ], [ %62, %516 ], [ %70, %560 ], [ %78, %605 ]
-  %.sink379.ph = phi ptr [ %51, %474 ], [ %59, %516 ], [ %64, %560 ], [ %72, %605 ]
+  %.sink391 = phi ptr [ %561, %560 ], [ %517, %516 ], [ %475, %474 ], [ %606, %605 ]
+  %.sink380.ph = phi ptr [ %70, %560 ], [ %62, %516 ], [ %57, %474 ], [ %78, %605 ]
+  %.sink379.ph = phi ptr [ %64, %560 ], [ %59, %516 ], [ %51, %474 ], [ %72, %605 ]
   %618 = load ptr, ptr %.sink391, align 8
   %619 = getelementptr inbounds nuw i8, ptr %618, i64 8
   %620 = load ptr, ptr %619, align 8
@@ -32289,8 +32289,8 @@ _ZN7testing7MessageD2Ev.exit278.sink.split:       ; preds = %605, %560, %516, %4
   br label %_ZN7testing7MessageD2Ev.exit278
 
 _ZN7testing7MessageD2Ev.exit278:                  ; preds = %_ZN7testing7MessageD2Ev.exit278.sink.split, %605, %560, %516, %474
-  %.sink380 = phi ptr [ %57, %474 ], [ %62, %516 ], [ %70, %560 ], [ %78, %605 ], [ %.sink380.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
-  %.sink379 = phi ptr [ %51, %474 ], [ %59, %516 ], [ %64, %560 ], [ %72, %605 ], [ %.sink379.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
+  %.sink380 = phi ptr [ %62, %516 ], [ %70, %560 ], [ %78, %605 ], [ %57, %474 ], [ %.sink380.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
+  %.sink379 = phi ptr [ %59, %516 ], [ %64, %560 ], [ %72, %605 ], [ %51, %474 ], [ %.sink379.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
   store ptr null, ptr %.sink380, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink379) #26
   invoke void @__cxa_end_catch()
@@ -32514,8 +32514,8 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit324: ; preds = %690, %_ZNKSt7__cxx1
   ret void
 
 694:                                              ; preds = %417, %_ZN7testing7MessageD2Ev.exit321, %666, %672, %111, %_ZN7testing7MessageD2Ev.exit256, %360, %366
-  %.sink381 = phi ptr [ %4, %366 ], [ %4, %360 ], [ %4, %_ZN7testing7MessageD2Ev.exit256 ], [ %4, %111 ], [ %44, %672 ], [ %44, %666 ], [ %44, %_ZN7testing7MessageD2Ev.exit321 ], [ %44, %417 ]
-  %.pn190.pn.pn = phi { ptr, i32 } [ %.pn153, %366 ], [ %361, %360 ], [ %.pn155, %_ZN7testing7MessageD2Ev.exit256 ], [ %112, %111 ], [ %.pn188, %672 ], [ %667, %666 ], [ %.pn190, %_ZN7testing7MessageD2Ev.exit321 ], [ %418, %417 ]
+  %.sink381 = phi ptr [ %4, %111 ], [ %4, %366 ], [ %4, %360 ], [ %4, %_ZN7testing7MessageD2Ev.exit256 ], [ %44, %672 ], [ %44, %666 ], [ %44, %_ZN7testing7MessageD2Ev.exit321 ], [ %44, %417 ]
+  %.pn190.pn.pn = phi { ptr, i32 } [ %112, %111 ], [ %.pn153, %366 ], [ %361, %360 ], [ %.pn155, %_ZN7testing7MessageD2Ev.exit256 ], [ %.pn188, %672 ], [ %667, %666 ], [ %.pn190, %_ZN7testing7MessageD2Ev.exit321 ], [ %418, %417 ]
   call void @_ZN7testing8internal14TrueWithStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink381) #26
   resume { ptr, i32 } %.pn190.pn.pn
 
@@ -33375,9 +33375,9 @@ _ZN7testing7MessageD2Ev.exit133:                  ; preds = %265, %_ZNKSt14defau
   br label %279
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %259, %214, %170, %128
-  %.sink175 = phi ptr [ %129, %128 ], [ %171, %170 ], [ %215, %214 ], [ %260, %259 ]
-  %.sink170.ph = phi ptr [ %17, %128 ], [ %22, %170 ], [ %30, %214 ], [ %38, %259 ]
-  %.sink.ph = phi ptr [ %10, %128 ], [ %19, %170 ], [ %24, %214 ], [ %32, %259 ]
+  %.sink175 = phi ptr [ %215, %214 ], [ %171, %170 ], [ %129, %128 ], [ %260, %259 ]
+  %.sink170.ph = phi ptr [ %30, %214 ], [ %22, %170 ], [ %17, %128 ], [ %38, %259 ]
+  %.sink.ph = phi ptr [ %24, %214 ], [ %19, %170 ], [ %10, %128 ], [ %32, %259 ]
   %272 = load ptr, ptr %.sink175, align 8
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 8
   %274 = load ptr, ptr %273, align 8
@@ -33385,8 +33385,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %259, %214, %170, %1
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %259, %214, %170, %128
-  %.sink170 = phi ptr [ %17, %128 ], [ %22, %170 ], [ %30, %214 ], [ %38, %259 ], [ %.sink170.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %10, %128 ], [ %19, %170 ], [ %24, %214 ], [ %32, %259 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink170 = phi ptr [ %22, %170 ], [ %30, %214 ], [ %38, %259 ], [ %17, %128 ], [ %.sink170.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %19, %170 ], [ %24, %214 ], [ %32, %259 ], [ %10, %128 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink170, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -34592,9 +34592,9 @@ _ZN7testing7MessageD2Ev.exit354:                  ; preds = %346, %_ZNKSt14defau
   br label %360
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %340, %295, %251, %209
-  %.sink595 = phi ptr [ %210, %209 ], [ %252, %251 ], [ %296, %295 ], [ %341, %340 ]
-  %.sink583.ph = phi ptr [ %19, %209 ], [ %24, %251 ], [ %32, %295 ], [ %40, %340 ]
-  %.sink.ph = phi ptr [ %12, %209 ], [ %21, %251 ], [ %26, %295 ], [ %34, %340 ]
+  %.sink595 = phi ptr [ %296, %295 ], [ %252, %251 ], [ %210, %209 ], [ %341, %340 ]
+  %.sink583.ph = phi ptr [ %32, %295 ], [ %24, %251 ], [ %19, %209 ], [ %40, %340 ]
+  %.sink.ph = phi ptr [ %26, %295 ], [ %21, %251 ], [ %12, %209 ], [ %34, %340 ]
   %353 = load ptr, ptr %.sink595, align 8
   %354 = getelementptr inbounds nuw i8, ptr %353, i64 8
   %355 = load ptr, ptr %354, align 8
@@ -34602,8 +34602,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %340, %295, %251, %2
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %340, %295, %251, %209
-  %.sink583 = phi ptr [ %19, %209 ], [ %24, %251 ], [ %32, %295 ], [ %40, %340 ], [ %.sink583.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %12, %209 ], [ %21, %251 ], [ %26, %295 ], [ %34, %340 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink583 = phi ptr [ %24, %251 ], [ %32, %295 ], [ %40, %340 ], [ %19, %209 ], [ %.sink583.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %21, %251 ], [ %26, %295 ], [ %34, %340 ], [ %12, %209 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink583, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -34811,7 +34811,7 @@ _ZN7testing7MessageD2Ev.exit366:                  ; preds = %420, %_ZNKSt14defau
   br label %425
 
 425:                                              ; preds = %373, %.critedge298, %_ZN7testing7MessageD2Ev.exit363
-  %426 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit363 ], [ false, %.critedge298 ], [ true, %373 ]
+  %426 = phi i1 [ false, %.critedge298 ], [ false, %_ZN7testing7MessageD2Ev.exit363 ], [ true, %373 ]
   %427 = load ptr, ptr %5, align 8
   %428 = icmp eq ptr %427, %124
   br i1 %428, label %_ZN7testing8internal14TrueWithStringD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -35570,9 +35570,9 @@ _ZN7testing7MessageD2Ev.exit418:                  ; preds = %652, %_ZNKSt14defau
   br label %666
 
 _ZN7testing7MessageD2Ev.exit388.sink.split:       ; preds = %646, %601, %557, %515
-  %.sink600 = phi ptr [ %516, %515 ], [ %558, %557 ], [ %602, %601 ], [ %647, %646 ]
-  %.sink586.ph = phi ptr [ %58, %515 ], [ %63, %557 ], [ %71, %601 ], [ %79, %646 ]
-  %.sink585.ph = phi ptr [ %52, %515 ], [ %60, %557 ], [ %65, %601 ], [ %73, %646 ]
+  %.sink600 = phi ptr [ %602, %601 ], [ %558, %557 ], [ %516, %515 ], [ %647, %646 ]
+  %.sink586.ph = phi ptr [ %71, %601 ], [ %63, %557 ], [ %58, %515 ], [ %79, %646 ]
+  %.sink585.ph = phi ptr [ %65, %601 ], [ %60, %557 ], [ %52, %515 ], [ %73, %646 ]
   %659 = load ptr, ptr %.sink600, align 8
   %660 = getelementptr inbounds nuw i8, ptr %659, i64 8
   %661 = load ptr, ptr %660, align 8
@@ -35580,8 +35580,8 @@ _ZN7testing7MessageD2Ev.exit388.sink.split:       ; preds = %646, %601, %557, %5
   br label %_ZN7testing7MessageD2Ev.exit388
 
 _ZN7testing7MessageD2Ev.exit388:                  ; preds = %_ZN7testing7MessageD2Ev.exit388.sink.split, %646, %601, %557, %515
-  %.sink586 = phi ptr [ %58, %515 ], [ %63, %557 ], [ %71, %601 ], [ %79, %646 ], [ %.sink586.ph, %_ZN7testing7MessageD2Ev.exit388.sink.split ]
-  %.sink585 = phi ptr [ %52, %515 ], [ %60, %557 ], [ %65, %601 ], [ %73, %646 ], [ %.sink585.ph, %_ZN7testing7MessageD2Ev.exit388.sink.split ]
+  %.sink586 = phi ptr [ %63, %557 ], [ %71, %601 ], [ %79, %646 ], [ %58, %515 ], [ %.sink586.ph, %_ZN7testing7MessageD2Ev.exit388.sink.split ]
+  %.sink585 = phi ptr [ %60, %557 ], [ %65, %601 ], [ %73, %646 ], [ %52, %515 ], [ %.sink585.ph, %_ZN7testing7MessageD2Ev.exit388.sink.split ]
   store ptr null, ptr %.sink586, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink585) #26
   invoke void @__cxa_end_catch()
@@ -35789,7 +35789,7 @@ _ZN7testing7MessageD2Ev.exit431:                  ; preds = %726, %_ZNKSt14defau
   br label %731
 
 731:                                              ; preds = %679, %.critedge310, %_ZN7testing7MessageD2Ev.exit428
-  %732 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit428 ], [ false, %.critedge310 ], [ true, %679 ]
+  %732 = phi i1 [ false, %.critedge310 ], [ false, %_ZN7testing7MessageD2Ev.exit428 ], [ true, %679 ]
   %733 = load ptr, ptr %45, align 8
   %734 = icmp eq ptr %733, %430
   br i1 %734, label %_ZN7testing8internal14TrueWithStringD2Ev.exit434, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i432
@@ -36549,9 +36549,9 @@ _ZN7testing7MessageD2Ev.exit486:                  ; preds = %958, %_ZNKSt14defau
   br label %972
 
 _ZN7testing7MessageD2Ev.exit456.sink.split:       ; preds = %952, %907, %863, %821
-  %.sink605 = phi ptr [ %822, %821 ], [ %864, %863 ], [ %908, %907 ], [ %953, %952 ]
-  %.sink589.ph = phi ptr [ %98, %821 ], [ %103, %863 ], [ %111, %907 ], [ %119, %952 ]
-  %.sink588.ph = phi ptr [ %91, %821 ], [ %100, %863 ], [ %105, %907 ], [ %113, %952 ]
+  %.sink605 = phi ptr [ %908, %907 ], [ %864, %863 ], [ %822, %821 ], [ %953, %952 ]
+  %.sink589.ph = phi ptr [ %111, %907 ], [ %103, %863 ], [ %98, %821 ], [ %119, %952 ]
+  %.sink588.ph = phi ptr [ %105, %907 ], [ %100, %863 ], [ %91, %821 ], [ %113, %952 ]
   %965 = load ptr, ptr %.sink605, align 8
   %966 = getelementptr inbounds nuw i8, ptr %965, i64 8
   %967 = load ptr, ptr %966, align 8
@@ -36559,8 +36559,8 @@ _ZN7testing7MessageD2Ev.exit456.sink.split:       ; preds = %952, %907, %863, %8
   br label %_ZN7testing7MessageD2Ev.exit456
 
 _ZN7testing7MessageD2Ev.exit456:                  ; preds = %_ZN7testing7MessageD2Ev.exit456.sink.split, %952, %907, %863, %821
-  %.sink589 = phi ptr [ %98, %821 ], [ %103, %863 ], [ %111, %907 ], [ %119, %952 ], [ %.sink589.ph, %_ZN7testing7MessageD2Ev.exit456.sink.split ]
-  %.sink588 = phi ptr [ %91, %821 ], [ %100, %863 ], [ %105, %907 ], [ %113, %952 ], [ %.sink588.ph, %_ZN7testing7MessageD2Ev.exit456.sink.split ]
+  %.sink589 = phi ptr [ %103, %863 ], [ %111, %907 ], [ %119, %952 ], [ %98, %821 ], [ %.sink589.ph, %_ZN7testing7MessageD2Ev.exit456.sink.split ]
+  %.sink588 = phi ptr [ %100, %863 ], [ %105, %907 ], [ %113, %952 ], [ %91, %821 ], [ %.sink588.ph, %_ZN7testing7MessageD2Ev.exit456.sink.split ]
   store ptr null, ptr %.sink589, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink588) #26
   invoke void @__cxa_end_catch()
@@ -36784,8 +36784,8 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit502: ; preds = %1037, %_ZNKSt7__cxx
   ret void
 
 1041:                                             ; preds = %764, %_ZN7testing7MessageD2Ev.exit499, %1013, %1019, %458, %_ZN7testing7MessageD2Ev.exit431, %707, %713, %152, %_ZN7testing7MessageD2Ev.exit366, %401, %407
-  %.sink590 = phi ptr [ %5, %407 ], [ %5, %401 ], [ %5, %_ZN7testing7MessageD2Ev.exit366 ], [ %5, %152 ], [ %45, %713 ], [ %45, %707 ], [ %45, %_ZN7testing7MessageD2Ev.exit431 ], [ %45, %458 ], [ %84, %1019 ], [ %84, %1013 ], [ %84, %_ZN7testing7MessageD2Ev.exit499 ], [ %84, %764 ]
-  %.pn287.pn.pn = phi { ptr, i32 } [ %.pn215, %407 ], [ %402, %401 ], [ %.pn217, %_ZN7testing7MessageD2Ev.exit366 ], [ %153, %152 ], [ %.pn250, %713 ], [ %708, %707 ], [ %.pn252, %_ZN7testing7MessageD2Ev.exit431 ], [ %459, %458 ], [ %.pn285, %1019 ], [ %1014, %1013 ], [ %.pn287, %_ZN7testing7MessageD2Ev.exit499 ], [ %765, %764 ]
+  %.sink590 = phi ptr [ %45, %458 ], [ %5, %152 ], [ %5, %407 ], [ %5, %401 ], [ %5, %_ZN7testing7MessageD2Ev.exit366 ], [ %45, %713 ], [ %45, %707 ], [ %45, %_ZN7testing7MessageD2Ev.exit431 ], [ %84, %1019 ], [ %84, %1013 ], [ %84, %_ZN7testing7MessageD2Ev.exit499 ], [ %84, %764 ]
+  %.pn287.pn.pn = phi { ptr, i32 } [ %459, %458 ], [ %153, %152 ], [ %.pn215, %407 ], [ %402, %401 ], [ %.pn217, %_ZN7testing7MessageD2Ev.exit366 ], [ %.pn250, %713 ], [ %708, %707 ], [ %.pn252, %_ZN7testing7MessageD2Ev.exit431 ], [ %.pn285, %1019 ], [ %1014, %1013 ], [ %.pn287, %_ZN7testing7MessageD2Ev.exit499 ], [ %765, %764 ]
   call void @_ZN7testing8internal14TrueWithStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink590) #26
   resume { ptr, i32 } %.pn287.pn.pn
 
@@ -37609,9 +37609,9 @@ _ZN7testing7MessageD2Ev.exit133:                  ; preds = %265, %_ZNKSt14defau
   br label %279
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %259, %214, %170, %128
-  %.sink175 = phi ptr [ %129, %128 ], [ %171, %170 ], [ %215, %214 ], [ %260, %259 ]
-  %.sink170.ph = phi ptr [ %17, %128 ], [ %22, %170 ], [ %30, %214 ], [ %38, %259 ]
-  %.sink.ph = phi ptr [ %10, %128 ], [ %19, %170 ], [ %24, %214 ], [ %32, %259 ]
+  %.sink175 = phi ptr [ %215, %214 ], [ %171, %170 ], [ %129, %128 ], [ %260, %259 ]
+  %.sink170.ph = phi ptr [ %30, %214 ], [ %22, %170 ], [ %17, %128 ], [ %38, %259 ]
+  %.sink.ph = phi ptr [ %24, %214 ], [ %19, %170 ], [ %10, %128 ], [ %32, %259 ]
   %272 = load ptr, ptr %.sink175, align 8
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 8
   %274 = load ptr, ptr %273, align 8
@@ -37619,8 +37619,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %259, %214, %170, %1
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %259, %214, %170, %128
-  %.sink170 = phi ptr [ %17, %128 ], [ %22, %170 ], [ %30, %214 ], [ %38, %259 ], [ %.sink170.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %10, %128 ], [ %19, %170 ], [ %24, %214 ], [ %32, %259 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink170 = phi ptr [ %22, %170 ], [ %30, %214 ], [ %38, %259 ], [ %17, %128 ], [ %.sink170.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %19, %170 ], [ %24, %214 ], [ %32, %259 ], [ %10, %128 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink170, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -38655,9 +38655,9 @@ _ZN7testing7MessageD2Ev.exit133:                  ; preds = %265, %_ZNKSt14defau
   br label %279
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %259, %214, %170, %128
-  %.sink175 = phi ptr [ %129, %128 ], [ %171, %170 ], [ %215, %214 ], [ %260, %259 ]
-  %.sink170.ph = phi ptr [ %17, %128 ], [ %22, %170 ], [ %30, %214 ], [ %38, %259 ]
-  %.sink.ph = phi ptr [ %10, %128 ], [ %19, %170 ], [ %24, %214 ], [ %32, %259 ]
+  %.sink175 = phi ptr [ %215, %214 ], [ %171, %170 ], [ %129, %128 ], [ %260, %259 ]
+  %.sink170.ph = phi ptr [ %30, %214 ], [ %22, %170 ], [ %17, %128 ], [ %38, %259 ]
+  %.sink.ph = phi ptr [ %24, %214 ], [ %19, %170 ], [ %10, %128 ], [ %32, %259 ]
   %272 = load ptr, ptr %.sink175, align 8
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 8
   %274 = load ptr, ptr %273, align 8
@@ -38665,8 +38665,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %259, %214, %170, %1
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %259, %214, %170, %128
-  %.sink170 = phi ptr [ %17, %128 ], [ %22, %170 ], [ %30, %214 ], [ %38, %259 ], [ %.sink170.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %10, %128 ], [ %19, %170 ], [ %24, %214 ], [ %32, %259 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink170 = phi ptr [ %22, %170 ], [ %30, %214 ], [ %38, %259 ], [ %17, %128 ], [ %.sink170.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %19, %170 ], [ %24, %214 ], [ %32, %259 ], [ %10, %128 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink170, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -39782,9 +39782,9 @@ _ZN7testing7MessageD2Ev.exit354:                  ; preds = %346, %_ZNKSt14defau
   br label %360
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %340, %295, %251, %209
-  %.sink596 = phi ptr [ %210, %209 ], [ %252, %251 ], [ %296, %295 ], [ %341, %340 ]
-  %.sink584.ph = phi ptr [ %19, %209 ], [ %24, %251 ], [ %32, %295 ], [ %40, %340 ]
-  %.sink.ph = phi ptr [ %12, %209 ], [ %21, %251 ], [ %26, %295 ], [ %34, %340 ]
+  %.sink596 = phi ptr [ %296, %295 ], [ %252, %251 ], [ %210, %209 ], [ %341, %340 ]
+  %.sink584.ph = phi ptr [ %32, %295 ], [ %24, %251 ], [ %19, %209 ], [ %40, %340 ]
+  %.sink.ph = phi ptr [ %26, %295 ], [ %21, %251 ], [ %12, %209 ], [ %34, %340 ]
   %353 = load ptr, ptr %.sink596, align 8
   %354 = getelementptr inbounds nuw i8, ptr %353, i64 8
   %355 = load ptr, ptr %354, align 8
@@ -39792,8 +39792,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %340, %295, %251, %2
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %340, %295, %251, %209
-  %.sink584 = phi ptr [ %19, %209 ], [ %24, %251 ], [ %32, %295 ], [ %40, %340 ], [ %.sink584.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %12, %209 ], [ %21, %251 ], [ %26, %295 ], [ %34, %340 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink584 = phi ptr [ %24, %251 ], [ %32, %295 ], [ %40, %340 ], [ %19, %209 ], [ %.sink584.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %21, %251 ], [ %26, %295 ], [ %34, %340 ], [ %12, %209 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink584, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -40001,7 +40001,7 @@ _ZN7testing7MessageD2Ev.exit366:                  ; preds = %420, %_ZNKSt14defau
   br label %425
 
 425:                                              ; preds = %373, %.critedge298, %_ZN7testing7MessageD2Ev.exit363
-  %426 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit363 ], [ false, %.critedge298 ], [ true, %373 ]
+  %426 = phi i1 [ false, %.critedge298 ], [ false, %_ZN7testing7MessageD2Ev.exit363 ], [ true, %373 ]
   %427 = load ptr, ptr %5, align 8
   %428 = icmp eq ptr %427, %124
   br i1 %428, label %_ZN7testing8internal14TrueWithStringD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -40761,9 +40761,9 @@ _ZN7testing7MessageD2Ev.exit418:                  ; preds = %652, %_ZNKSt14defau
   br label %666
 
 _ZN7testing7MessageD2Ev.exit388.sink.split:       ; preds = %646, %601, %557, %515
-  %.sink601 = phi ptr [ %516, %515 ], [ %558, %557 ], [ %602, %601 ], [ %647, %646 ]
-  %.sink587.ph = phi ptr [ %59, %515 ], [ %64, %557 ], [ %72, %601 ], [ %80, %646 ]
-  %.sink586.ph = phi ptr [ %52, %515 ], [ %61, %557 ], [ %66, %601 ], [ %74, %646 ]
+  %.sink601 = phi ptr [ %602, %601 ], [ %558, %557 ], [ %516, %515 ], [ %647, %646 ]
+  %.sink587.ph = phi ptr [ %72, %601 ], [ %64, %557 ], [ %59, %515 ], [ %80, %646 ]
+  %.sink586.ph = phi ptr [ %66, %601 ], [ %61, %557 ], [ %52, %515 ], [ %74, %646 ]
   %659 = load ptr, ptr %.sink601, align 8
   %660 = getelementptr inbounds nuw i8, ptr %659, i64 8
   %661 = load ptr, ptr %660, align 8
@@ -40771,8 +40771,8 @@ _ZN7testing7MessageD2Ev.exit388.sink.split:       ; preds = %646, %601, %557, %5
   br label %_ZN7testing7MessageD2Ev.exit388
 
 _ZN7testing7MessageD2Ev.exit388:                  ; preds = %_ZN7testing7MessageD2Ev.exit388.sink.split, %646, %601, %557, %515
-  %.sink587 = phi ptr [ %59, %515 ], [ %64, %557 ], [ %72, %601 ], [ %80, %646 ], [ %.sink587.ph, %_ZN7testing7MessageD2Ev.exit388.sink.split ]
-  %.sink586 = phi ptr [ %52, %515 ], [ %61, %557 ], [ %66, %601 ], [ %74, %646 ], [ %.sink586.ph, %_ZN7testing7MessageD2Ev.exit388.sink.split ]
+  %.sink587 = phi ptr [ %64, %557 ], [ %72, %601 ], [ %80, %646 ], [ %59, %515 ], [ %.sink587.ph, %_ZN7testing7MessageD2Ev.exit388.sink.split ]
+  %.sink586 = phi ptr [ %61, %557 ], [ %66, %601 ], [ %74, %646 ], [ %52, %515 ], [ %.sink586.ph, %_ZN7testing7MessageD2Ev.exit388.sink.split ]
   store ptr null, ptr %.sink587, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink586) #26
   invoke void @__cxa_end_catch()
@@ -40980,7 +40980,7 @@ _ZN7testing7MessageD2Ev.exit431:                  ; preds = %726, %_ZNKSt14defau
   br label %731
 
 731:                                              ; preds = %679, %.critedge310, %_ZN7testing7MessageD2Ev.exit428
-  %732 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit428 ], [ false, %.critedge310 ], [ true, %679 ]
+  %732 = phi i1 [ false, %.critedge310 ], [ false, %_ZN7testing7MessageD2Ev.exit428 ], [ true, %679 ]
   %733 = load ptr, ptr %45, align 8
   %734 = icmp eq ptr %733, %430
   br i1 %734, label %_ZN7testing8internal14TrueWithStringD2Ev.exit434, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i432
@@ -41739,9 +41739,9 @@ _ZN7testing7MessageD2Ev.exit487:                  ; preds = %958, %_ZNKSt14defau
   br label %972
 
 _ZN7testing7MessageD2Ev.exit456.sink.split:       ; preds = %952, %907, %863, %821
-  %.sink606 = phi ptr [ %822, %821 ], [ %864, %863 ], [ %908, %907 ], [ %953, %952 ]
-  %.sink590.ph = phi ptr [ %98, %821 ], [ %103, %863 ], [ %111, %907 ], [ %119, %952 ]
-  %.sink589.ph = phi ptr [ %92, %821 ], [ %100, %863 ], [ %105, %907 ], [ %113, %952 ]
+  %.sink606 = phi ptr [ %908, %907 ], [ %864, %863 ], [ %822, %821 ], [ %953, %952 ]
+  %.sink590.ph = phi ptr [ %111, %907 ], [ %103, %863 ], [ %98, %821 ], [ %119, %952 ]
+  %.sink589.ph = phi ptr [ %105, %907 ], [ %100, %863 ], [ %92, %821 ], [ %113, %952 ]
   %965 = load ptr, ptr %.sink606, align 8
   %966 = getelementptr inbounds nuw i8, ptr %965, i64 8
   %967 = load ptr, ptr %966, align 8
@@ -41749,8 +41749,8 @@ _ZN7testing7MessageD2Ev.exit456.sink.split:       ; preds = %952, %907, %863, %8
   br label %_ZN7testing7MessageD2Ev.exit456
 
 _ZN7testing7MessageD2Ev.exit456:                  ; preds = %_ZN7testing7MessageD2Ev.exit456.sink.split, %952, %907, %863, %821
-  %.sink590 = phi ptr [ %98, %821 ], [ %103, %863 ], [ %111, %907 ], [ %119, %952 ], [ %.sink590.ph, %_ZN7testing7MessageD2Ev.exit456.sink.split ]
-  %.sink589 = phi ptr [ %92, %821 ], [ %100, %863 ], [ %105, %907 ], [ %113, %952 ], [ %.sink589.ph, %_ZN7testing7MessageD2Ev.exit456.sink.split ]
+  %.sink590 = phi ptr [ %103, %863 ], [ %111, %907 ], [ %119, %952 ], [ %98, %821 ], [ %.sink590.ph, %_ZN7testing7MessageD2Ev.exit456.sink.split ]
+  %.sink589 = phi ptr [ %100, %863 ], [ %105, %907 ], [ %113, %952 ], [ %92, %821 ], [ %.sink589.ph, %_ZN7testing7MessageD2Ev.exit456.sink.split ]
   store ptr null, ptr %.sink590, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink589) #26
   invoke void @__cxa_end_catch()
@@ -41974,8 +41974,8 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit503: ; preds = %1037, %_ZNKSt7__cxx
   ret void
 
 1041:                                             ; preds = %764, %_ZN7testing7MessageD2Ev.exit500, %1013, %1019, %458, %_ZN7testing7MessageD2Ev.exit431, %707, %713, %152, %_ZN7testing7MessageD2Ev.exit366, %401, %407
-  %.sink591 = phi ptr [ %5, %407 ], [ %5, %401 ], [ %5, %_ZN7testing7MessageD2Ev.exit366 ], [ %5, %152 ], [ %45, %713 ], [ %45, %707 ], [ %45, %_ZN7testing7MessageD2Ev.exit431 ], [ %45, %458 ], [ %85, %1019 ], [ %85, %1013 ], [ %85, %_ZN7testing7MessageD2Ev.exit500 ], [ %85, %764 ]
-  %.pn287.pn.pn = phi { ptr, i32 } [ %.pn215, %407 ], [ %402, %401 ], [ %.pn217, %_ZN7testing7MessageD2Ev.exit366 ], [ %153, %152 ], [ %.pn250, %713 ], [ %708, %707 ], [ %.pn252, %_ZN7testing7MessageD2Ev.exit431 ], [ %459, %458 ], [ %.pn285, %1019 ], [ %1014, %1013 ], [ %.pn287, %_ZN7testing7MessageD2Ev.exit500 ], [ %765, %764 ]
+  %.sink591 = phi ptr [ %45, %458 ], [ %5, %152 ], [ %5, %407 ], [ %5, %401 ], [ %5, %_ZN7testing7MessageD2Ev.exit366 ], [ %45, %713 ], [ %45, %707 ], [ %45, %_ZN7testing7MessageD2Ev.exit431 ], [ %85, %1019 ], [ %85, %1013 ], [ %85, %_ZN7testing7MessageD2Ev.exit500 ], [ %85, %764 ]
+  %.pn287.pn.pn = phi { ptr, i32 } [ %459, %458 ], [ %153, %152 ], [ %.pn215, %407 ], [ %402, %401 ], [ %.pn217, %_ZN7testing7MessageD2Ev.exit366 ], [ %.pn250, %713 ], [ %708, %707 ], [ %.pn252, %_ZN7testing7MessageD2Ev.exit431 ], [ %.pn285, %1019 ], [ %1014, %1013 ], [ %.pn287, %_ZN7testing7MessageD2Ev.exit500 ], [ %765, %764 ]
   call void @_ZN7testing8internal14TrueWithStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink591) #26
   resume { ptr, i32 } %.pn287.pn.pn
 
@@ -42840,9 +42840,9 @@ _ZN7testing7MessageD2Ev.exit244:                  ; preds = %306, %_ZNKSt14defau
   br label %320
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %300, %255, %211, %169
-  %.sink386 = phi ptr [ %170, %169 ], [ %212, %211 ], [ %256, %255 ], [ %301, %300 ]
-  %.sink377.ph = phi ptr [ %18, %169 ], [ %23, %211 ], [ %31, %255 ], [ %39, %300 ]
-  %.sink.ph = phi ptr [ %11, %169 ], [ %20, %211 ], [ %25, %255 ], [ %33, %300 ]
+  %.sink386 = phi ptr [ %256, %255 ], [ %212, %211 ], [ %170, %169 ], [ %301, %300 ]
+  %.sink377.ph = phi ptr [ %31, %255 ], [ %23, %211 ], [ %18, %169 ], [ %39, %300 ]
+  %.sink.ph = phi ptr [ %25, %255 ], [ %20, %211 ], [ %11, %169 ], [ %33, %300 ]
   %313 = load ptr, ptr %.sink386, align 8
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 8
   %315 = load ptr, ptr %314, align 8
@@ -42850,8 +42850,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %300, %255, %211, %1
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %300, %255, %211, %169
-  %.sink377 = phi ptr [ %18, %169 ], [ %23, %211 ], [ %31, %255 ], [ %39, %300 ], [ %.sink377.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %11, %169 ], [ %20, %211 ], [ %25, %255 ], [ %33, %300 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink377 = phi ptr [ %23, %211 ], [ %31, %255 ], [ %39, %300 ], [ %18, %169 ], [ %.sink377.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %20, %211 ], [ %25, %255 ], [ %33, %300 ], [ %11, %169 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink377, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -43059,7 +43059,7 @@ _ZN7testing7MessageD2Ev.exit256:                  ; preds = %380, %_ZNKSt14defau
   br label %385
 
 385:                                              ; preds = %333, %.critedge201, %_ZN7testing7MessageD2Ev.exit253
-  %386 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit253 ], [ false, %.critedge201 ], [ true, %333 ]
+  %386 = phi i1 [ false, %.critedge201 ], [ false, %_ZN7testing7MessageD2Ev.exit253 ], [ true, %333 ]
   %387 = load ptr, ptr %4, align 8
   %388 = icmp eq ptr %387, %84
   br i1 %388, label %_ZN7testing8internal14TrueWithStringD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -43819,9 +43819,9 @@ _ZN7testing7MessageD2Ev.exit308:                  ; preds = %612, %_ZNKSt14defau
   br label %626
 
 _ZN7testing7MessageD2Ev.exit278.sink.split:       ; preds = %606, %561, %517, %475
-  %.sink391 = phi ptr [ %476, %475 ], [ %518, %517 ], [ %562, %561 ], [ %607, %606 ]
-  %.sink380.ph = phi ptr [ %58, %475 ], [ %63, %517 ], [ %71, %561 ], [ %79, %606 ]
-  %.sink379.ph = phi ptr [ %51, %475 ], [ %60, %517 ], [ %65, %561 ], [ %73, %606 ]
+  %.sink391 = phi ptr [ %562, %561 ], [ %518, %517 ], [ %476, %475 ], [ %607, %606 ]
+  %.sink380.ph = phi ptr [ %71, %561 ], [ %63, %517 ], [ %58, %475 ], [ %79, %606 ]
+  %.sink379.ph = phi ptr [ %65, %561 ], [ %60, %517 ], [ %51, %475 ], [ %73, %606 ]
   %619 = load ptr, ptr %.sink391, align 8
   %620 = getelementptr inbounds nuw i8, ptr %619, i64 8
   %621 = load ptr, ptr %620, align 8
@@ -43829,8 +43829,8 @@ _ZN7testing7MessageD2Ev.exit278.sink.split:       ; preds = %606, %561, %517, %4
   br label %_ZN7testing7MessageD2Ev.exit278
 
 _ZN7testing7MessageD2Ev.exit278:                  ; preds = %_ZN7testing7MessageD2Ev.exit278.sink.split, %606, %561, %517, %475
-  %.sink380 = phi ptr [ %58, %475 ], [ %63, %517 ], [ %71, %561 ], [ %79, %606 ], [ %.sink380.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
-  %.sink379 = phi ptr [ %51, %475 ], [ %60, %517 ], [ %65, %561 ], [ %73, %606 ], [ %.sink379.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
+  %.sink380 = phi ptr [ %63, %517 ], [ %71, %561 ], [ %79, %606 ], [ %58, %475 ], [ %.sink380.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
+  %.sink379 = phi ptr [ %60, %517 ], [ %65, %561 ], [ %73, %606 ], [ %51, %475 ], [ %.sink379.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
   store ptr null, ptr %.sink380, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink379) #26
   invoke void @__cxa_end_catch()
@@ -44054,8 +44054,8 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit324: ; preds = %691, %_ZNKSt7__cxx1
   ret void
 
 695:                                              ; preds = %418, %_ZN7testing7MessageD2Ev.exit321, %667, %673, %112, %_ZN7testing7MessageD2Ev.exit256, %361, %367
-  %.sink381 = phi ptr [ %4, %367 ], [ %4, %361 ], [ %4, %_ZN7testing7MessageD2Ev.exit256 ], [ %4, %112 ], [ %44, %673 ], [ %44, %667 ], [ %44, %_ZN7testing7MessageD2Ev.exit321 ], [ %44, %418 ]
-  %.pn190.pn.pn = phi { ptr, i32 } [ %.pn153, %367 ], [ %362, %361 ], [ %.pn155, %_ZN7testing7MessageD2Ev.exit256 ], [ %113, %112 ], [ %.pn188, %673 ], [ %668, %667 ], [ %.pn190, %_ZN7testing7MessageD2Ev.exit321 ], [ %419, %418 ]
+  %.sink381 = phi ptr [ %4, %112 ], [ %4, %367 ], [ %4, %361 ], [ %4, %_ZN7testing7MessageD2Ev.exit256 ], [ %44, %673 ], [ %44, %667 ], [ %44, %_ZN7testing7MessageD2Ev.exit321 ], [ %44, %418 ]
+  %.pn190.pn.pn = phi { ptr, i32 } [ %113, %112 ], [ %.pn153, %367 ], [ %362, %361 ], [ %.pn155, %_ZN7testing7MessageD2Ev.exit256 ], [ %.pn188, %673 ], [ %668, %667 ], [ %.pn190, %_ZN7testing7MessageD2Ev.exit321 ], [ %419, %418 ]
   call void @_ZN7testing8internal14TrueWithStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink381) #26
   resume { ptr, i32 } %.pn190.pn.pn
 
@@ -44961,9 +44961,9 @@ _ZN7testing7MessageD2Ev.exit354:                  ; preds = %347, %_ZNKSt14defau
   br label %361
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %341, %296, %252, %210
-  %.sink595 = phi ptr [ %211, %210 ], [ %253, %252 ], [ %297, %296 ], [ %342, %341 ]
-  %.sink583.ph = phi ptr [ %19, %210 ], [ %24, %252 ], [ %32, %296 ], [ %40, %341 ]
-  %.sink.ph = phi ptr [ %12, %210 ], [ %21, %252 ], [ %26, %296 ], [ %34, %341 ]
+  %.sink595 = phi ptr [ %297, %296 ], [ %253, %252 ], [ %211, %210 ], [ %342, %341 ]
+  %.sink583.ph = phi ptr [ %32, %296 ], [ %24, %252 ], [ %19, %210 ], [ %40, %341 ]
+  %.sink.ph = phi ptr [ %26, %296 ], [ %21, %252 ], [ %12, %210 ], [ %34, %341 ]
   %354 = load ptr, ptr %.sink595, align 8
   %355 = getelementptr inbounds nuw i8, ptr %354, i64 8
   %356 = load ptr, ptr %355, align 8
@@ -44971,8 +44971,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %341, %296, %252, %2
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %341, %296, %252, %210
-  %.sink583 = phi ptr [ %19, %210 ], [ %24, %252 ], [ %32, %296 ], [ %40, %341 ], [ %.sink583.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %12, %210 ], [ %21, %252 ], [ %26, %296 ], [ %34, %341 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink583 = phi ptr [ %24, %252 ], [ %32, %296 ], [ %40, %341 ], [ %19, %210 ], [ %.sink583.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %21, %252 ], [ %26, %296 ], [ %34, %341 ], [ %12, %210 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink583, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -45180,7 +45180,7 @@ _ZN7testing7MessageD2Ev.exit366:                  ; preds = %421, %_ZNKSt14defau
   br label %426
 
 426:                                              ; preds = %374, %.critedge298, %_ZN7testing7MessageD2Ev.exit363
-  %427 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit363 ], [ false, %.critedge298 ], [ true, %374 ]
+  %427 = phi i1 [ false, %.critedge298 ], [ false, %_ZN7testing7MessageD2Ev.exit363 ], [ true, %374 ]
   %428 = load ptr, ptr %5, align 8
   %429 = icmp eq ptr %428, %125
   br i1 %429, label %_ZN7testing8internal14TrueWithStringD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -45940,9 +45940,9 @@ _ZN7testing7MessageD2Ev.exit418:                  ; preds = %653, %_ZNKSt14defau
   br label %667
 
 _ZN7testing7MessageD2Ev.exit388.sink.split:       ; preds = %647, %602, %558, %516
-  %.sink600 = phi ptr [ %517, %516 ], [ %559, %558 ], [ %603, %602 ], [ %648, %647 ]
-  %.sink586.ph = phi ptr [ %59, %516 ], [ %64, %558 ], [ %72, %602 ], [ %80, %647 ]
-  %.sink585.ph = phi ptr [ %52, %516 ], [ %61, %558 ], [ %66, %602 ], [ %74, %647 ]
+  %.sink600 = phi ptr [ %603, %602 ], [ %559, %558 ], [ %517, %516 ], [ %648, %647 ]
+  %.sink586.ph = phi ptr [ %72, %602 ], [ %64, %558 ], [ %59, %516 ], [ %80, %647 ]
+  %.sink585.ph = phi ptr [ %66, %602 ], [ %61, %558 ], [ %52, %516 ], [ %74, %647 ]
   %660 = load ptr, ptr %.sink600, align 8
   %661 = getelementptr inbounds nuw i8, ptr %660, i64 8
   %662 = load ptr, ptr %661, align 8
@@ -45950,8 +45950,8 @@ _ZN7testing7MessageD2Ev.exit388.sink.split:       ; preds = %647, %602, %558, %5
   br label %_ZN7testing7MessageD2Ev.exit388
 
 _ZN7testing7MessageD2Ev.exit388:                  ; preds = %_ZN7testing7MessageD2Ev.exit388.sink.split, %647, %602, %558, %516
-  %.sink586 = phi ptr [ %59, %516 ], [ %64, %558 ], [ %72, %602 ], [ %80, %647 ], [ %.sink586.ph, %_ZN7testing7MessageD2Ev.exit388.sink.split ]
-  %.sink585 = phi ptr [ %52, %516 ], [ %61, %558 ], [ %66, %602 ], [ %74, %647 ], [ %.sink585.ph, %_ZN7testing7MessageD2Ev.exit388.sink.split ]
+  %.sink586 = phi ptr [ %64, %558 ], [ %72, %602 ], [ %80, %647 ], [ %59, %516 ], [ %.sink586.ph, %_ZN7testing7MessageD2Ev.exit388.sink.split ]
+  %.sink585 = phi ptr [ %61, %558 ], [ %66, %602 ], [ %74, %647 ], [ %52, %516 ], [ %.sink585.ph, %_ZN7testing7MessageD2Ev.exit388.sink.split ]
   store ptr null, ptr %.sink586, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink585) #26
   invoke void @__cxa_end_catch()
@@ -46159,7 +46159,7 @@ _ZN7testing7MessageD2Ev.exit431:                  ; preds = %727, %_ZNKSt14defau
   br label %732
 
 732:                                              ; preds = %680, %.critedge310, %_ZN7testing7MessageD2Ev.exit428
-  %733 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit428 ], [ false, %.critedge310 ], [ true, %680 ]
+  %733 = phi i1 [ false, %.critedge310 ], [ false, %_ZN7testing7MessageD2Ev.exit428 ], [ true, %680 ]
   %734 = load ptr, ptr %45, align 8
   %735 = icmp eq ptr %734, %431
   br i1 %735, label %_ZN7testing8internal14TrueWithStringD2Ev.exit434, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i432
@@ -46919,9 +46919,9 @@ _ZN7testing7MessageD2Ev.exit486:                  ; preds = %959, %_ZNKSt14defau
   br label %973
 
 _ZN7testing7MessageD2Ev.exit456.sink.split:       ; preds = %953, %908, %864, %822
-  %.sink605 = phi ptr [ %823, %822 ], [ %865, %864 ], [ %909, %908 ], [ %954, %953 ]
-  %.sink589.ph = phi ptr [ %99, %822 ], [ %104, %864 ], [ %112, %908 ], [ %120, %953 ]
-  %.sink588.ph = phi ptr [ %92, %822 ], [ %101, %864 ], [ %106, %908 ], [ %114, %953 ]
+  %.sink605 = phi ptr [ %909, %908 ], [ %865, %864 ], [ %823, %822 ], [ %954, %953 ]
+  %.sink589.ph = phi ptr [ %112, %908 ], [ %104, %864 ], [ %99, %822 ], [ %120, %953 ]
+  %.sink588.ph = phi ptr [ %106, %908 ], [ %101, %864 ], [ %92, %822 ], [ %114, %953 ]
   %966 = load ptr, ptr %.sink605, align 8
   %967 = getelementptr inbounds nuw i8, ptr %966, i64 8
   %968 = load ptr, ptr %967, align 8
@@ -46929,8 +46929,8 @@ _ZN7testing7MessageD2Ev.exit456.sink.split:       ; preds = %953, %908, %864, %8
   br label %_ZN7testing7MessageD2Ev.exit456
 
 _ZN7testing7MessageD2Ev.exit456:                  ; preds = %_ZN7testing7MessageD2Ev.exit456.sink.split, %953, %908, %864, %822
-  %.sink589 = phi ptr [ %99, %822 ], [ %104, %864 ], [ %112, %908 ], [ %120, %953 ], [ %.sink589.ph, %_ZN7testing7MessageD2Ev.exit456.sink.split ]
-  %.sink588 = phi ptr [ %92, %822 ], [ %101, %864 ], [ %106, %908 ], [ %114, %953 ], [ %.sink588.ph, %_ZN7testing7MessageD2Ev.exit456.sink.split ]
+  %.sink589 = phi ptr [ %104, %864 ], [ %112, %908 ], [ %120, %953 ], [ %99, %822 ], [ %.sink589.ph, %_ZN7testing7MessageD2Ev.exit456.sink.split ]
+  %.sink588 = phi ptr [ %101, %864 ], [ %106, %908 ], [ %114, %953 ], [ %92, %822 ], [ %.sink588.ph, %_ZN7testing7MessageD2Ev.exit456.sink.split ]
   store ptr null, ptr %.sink589, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink588) #26
   invoke void @__cxa_end_catch()
@@ -47154,8 +47154,8 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit502: ; preds = %1038, %_ZNKSt7__cxx
   ret void
 
 1042:                                             ; preds = %765, %_ZN7testing7MessageD2Ev.exit499, %1014, %1020, %459, %_ZN7testing7MessageD2Ev.exit431, %708, %714, %153, %_ZN7testing7MessageD2Ev.exit366, %402, %408
-  %.sink590 = phi ptr [ %5, %408 ], [ %5, %402 ], [ %5, %_ZN7testing7MessageD2Ev.exit366 ], [ %5, %153 ], [ %45, %714 ], [ %45, %708 ], [ %45, %_ZN7testing7MessageD2Ev.exit431 ], [ %45, %459 ], [ %85, %1020 ], [ %85, %1014 ], [ %85, %_ZN7testing7MessageD2Ev.exit499 ], [ %85, %765 ]
-  %.pn287.pn.pn = phi { ptr, i32 } [ %.pn215, %408 ], [ %403, %402 ], [ %.pn217, %_ZN7testing7MessageD2Ev.exit366 ], [ %154, %153 ], [ %.pn250, %714 ], [ %709, %708 ], [ %.pn252, %_ZN7testing7MessageD2Ev.exit431 ], [ %460, %459 ], [ %.pn285, %1020 ], [ %1015, %1014 ], [ %.pn287, %_ZN7testing7MessageD2Ev.exit499 ], [ %766, %765 ]
+  %.sink590 = phi ptr [ %45, %459 ], [ %5, %153 ], [ %5, %408 ], [ %5, %402 ], [ %5, %_ZN7testing7MessageD2Ev.exit366 ], [ %45, %714 ], [ %45, %708 ], [ %45, %_ZN7testing7MessageD2Ev.exit431 ], [ %85, %1020 ], [ %85, %1014 ], [ %85, %_ZN7testing7MessageD2Ev.exit499 ], [ %85, %765 ]
+  %.pn287.pn.pn = phi { ptr, i32 } [ %460, %459 ], [ %154, %153 ], [ %.pn215, %408 ], [ %403, %402 ], [ %.pn217, %_ZN7testing7MessageD2Ev.exit366 ], [ %.pn250, %714 ], [ %709, %708 ], [ %.pn252, %_ZN7testing7MessageD2Ev.exit431 ], [ %.pn285, %1020 ], [ %1015, %1014 ], [ %.pn287, %_ZN7testing7MessageD2Ev.exit499 ], [ %766, %765 ]
   call void @_ZN7testing8internal14TrueWithStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink590) #26
   resume { ptr, i32 } %.pn287.pn.pn
 
@@ -48189,9 +48189,9 @@ _ZN7testing7MessageD2Ev.exit574:                  ; preds = %426, %_ZNKSt14defau
   br label %440
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %420, %375, %331, %289
-  %.sink942 = phi ptr [ %290, %289 ], [ %332, %331 ], [ %376, %375 ], [ %421, %420 ]
-  %.sink924.ph = phi ptr [ %20, %289 ], [ %25, %331 ], [ %33, %375 ], [ %41, %420 ]
-  %.sink.ph = phi ptr [ %13, %289 ], [ %22, %331 ], [ %27, %375 ], [ %35, %420 ]
+  %.sink942 = phi ptr [ %376, %375 ], [ %332, %331 ], [ %290, %289 ], [ %421, %420 ]
+  %.sink924.ph = phi ptr [ %33, %375 ], [ %25, %331 ], [ %20, %289 ], [ %41, %420 ]
+  %.sink.ph = phi ptr [ %27, %375 ], [ %22, %331 ], [ %13, %289 ], [ %35, %420 ]
   %433 = load ptr, ptr %.sink942, align 8
   %434 = getelementptr inbounds nuw i8, ptr %433, i64 8
   %435 = load ptr, ptr %434, align 8
@@ -48199,8 +48199,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %420, %375, %331, %2
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %420, %375, %331, %289
-  %.sink924 = phi ptr [ %20, %289 ], [ %25, %331 ], [ %33, %375 ], [ %41, %420 ], [ %.sink924.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %13, %289 ], [ %22, %331 ], [ %27, %375 ], [ %35, %420 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink924 = phi ptr [ %25, %331 ], [ %33, %375 ], [ %41, %420 ], [ %20, %289 ], [ %.sink924.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %22, %331 ], [ %27, %375 ], [ %35, %420 ], [ %13, %289 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink924, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -48408,7 +48408,7 @@ _ZN7testing7MessageD2Ev.exit586:                  ; preds = %500, %_ZNKSt14defau
   br label %505
 
 505:                                              ; preds = %453, %.critedge492, %_ZN7testing7MessageD2Ev.exit583
-  %506 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit583 ], [ false, %.critedge492 ], [ true, %453 ]
+  %506 = phi i1 [ false, %.critedge492 ], [ false, %_ZN7testing7MessageD2Ev.exit583 ], [ true, %453 ]
   %507 = load ptr, ptr %6, align 8
   %508 = icmp eq ptr %507, %204
   br i1 %508, label %_ZN7testing8internal14TrueWithStringD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -49168,9 +49168,9 @@ _ZN7testing7MessageD2Ev.exit638:                  ; preds = %732, %_ZNKSt14defau
   br label %746
 
 _ZN7testing7MessageD2Ev.exit608.sink.split:       ; preds = %726, %681, %637, %595
-  %.sink947 = phi ptr [ %596, %595 ], [ %638, %637 ], [ %682, %681 ], [ %727, %726 ]
-  %.sink927.ph = phi ptr [ %60, %595 ], [ %65, %637 ], [ %73, %681 ], [ %81, %726 ]
-  %.sink926.ph = phi ptr [ %53, %595 ], [ %62, %637 ], [ %67, %681 ], [ %75, %726 ]
+  %.sink947 = phi ptr [ %682, %681 ], [ %638, %637 ], [ %596, %595 ], [ %727, %726 ]
+  %.sink927.ph = phi ptr [ %73, %681 ], [ %65, %637 ], [ %60, %595 ], [ %81, %726 ]
+  %.sink926.ph = phi ptr [ %67, %681 ], [ %62, %637 ], [ %53, %595 ], [ %75, %726 ]
   %739 = load ptr, ptr %.sink947, align 8
   %740 = getelementptr inbounds nuw i8, ptr %739, i64 8
   %741 = load ptr, ptr %740, align 8
@@ -49178,8 +49178,8 @@ _ZN7testing7MessageD2Ev.exit608.sink.split:       ; preds = %726, %681, %637, %5
   br label %_ZN7testing7MessageD2Ev.exit608
 
 _ZN7testing7MessageD2Ev.exit608:                  ; preds = %_ZN7testing7MessageD2Ev.exit608.sink.split, %726, %681, %637, %595
-  %.sink927 = phi ptr [ %60, %595 ], [ %65, %637 ], [ %73, %681 ], [ %81, %726 ], [ %.sink927.ph, %_ZN7testing7MessageD2Ev.exit608.sink.split ]
-  %.sink926 = phi ptr [ %53, %595 ], [ %62, %637 ], [ %67, %681 ], [ %75, %726 ], [ %.sink926.ph, %_ZN7testing7MessageD2Ev.exit608.sink.split ]
+  %.sink927 = phi ptr [ %65, %637 ], [ %73, %681 ], [ %81, %726 ], [ %60, %595 ], [ %.sink927.ph, %_ZN7testing7MessageD2Ev.exit608.sink.split ]
+  %.sink926 = phi ptr [ %62, %637 ], [ %67, %681 ], [ %75, %726 ], [ %53, %595 ], [ %.sink926.ph, %_ZN7testing7MessageD2Ev.exit608.sink.split ]
   store ptr null, ptr %.sink927, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink926) #26
   invoke void @__cxa_end_catch()
@@ -49387,7 +49387,7 @@ _ZN7testing7MessageD2Ev.exit651:                  ; preds = %806, %_ZNKSt14defau
   br label %811
 
 811:                                              ; preds = %759, %.critedge504, %_ZN7testing7MessageD2Ev.exit648
-  %812 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit648 ], [ false, %.critedge504 ], [ true, %759 ]
+  %812 = phi i1 [ false, %.critedge504 ], [ false, %_ZN7testing7MessageD2Ev.exit648 ], [ true, %759 ]
   %813 = load ptr, ptr %46, align 8
   %814 = icmp eq ptr %813, %510
   br i1 %814, label %_ZN7testing8internal14TrueWithStringD2Ev.exit654, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i652
@@ -50146,9 +50146,9 @@ _ZN7testing7MessageD2Ev.exit706:                  ; preds = %1038, %_ZNKSt14defa
   br label %1052
 
 _ZN7testing7MessageD2Ev.exit676.sink.split:       ; preds = %1032, %987, %943, %901
-  %.sink952 = phi ptr [ %902, %901 ], [ %944, %943 ], [ %988, %987 ], [ %1033, %1032 ]
-  %.sink930.ph = phi ptr [ %99, %901 ], [ %104, %943 ], [ %112, %987 ], [ %120, %1032 ]
-  %.sink929.ph = phi ptr [ %93, %901 ], [ %101, %943 ], [ %106, %987 ], [ %114, %1032 ]
+  %.sink952 = phi ptr [ %988, %987 ], [ %944, %943 ], [ %902, %901 ], [ %1033, %1032 ]
+  %.sink930.ph = phi ptr [ %112, %987 ], [ %104, %943 ], [ %99, %901 ], [ %120, %1032 ]
+  %.sink929.ph = phi ptr [ %106, %987 ], [ %101, %943 ], [ %93, %901 ], [ %114, %1032 ]
   %1045 = load ptr, ptr %.sink952, align 8
   %1046 = getelementptr inbounds nuw i8, ptr %1045, i64 8
   %1047 = load ptr, ptr %1046, align 8
@@ -50156,8 +50156,8 @@ _ZN7testing7MessageD2Ev.exit676.sink.split:       ; preds = %1032, %987, %943, %
   br label %_ZN7testing7MessageD2Ev.exit676
 
 _ZN7testing7MessageD2Ev.exit676:                  ; preds = %_ZN7testing7MessageD2Ev.exit676.sink.split, %1032, %987, %943, %901
-  %.sink930 = phi ptr [ %99, %901 ], [ %104, %943 ], [ %112, %987 ], [ %120, %1032 ], [ %.sink930.ph, %_ZN7testing7MessageD2Ev.exit676.sink.split ]
-  %.sink929 = phi ptr [ %93, %901 ], [ %101, %943 ], [ %106, %987 ], [ %114, %1032 ], [ %.sink929.ph, %_ZN7testing7MessageD2Ev.exit676.sink.split ]
+  %.sink930 = phi ptr [ %104, %943 ], [ %112, %987 ], [ %120, %1032 ], [ %99, %901 ], [ %.sink930.ph, %_ZN7testing7MessageD2Ev.exit676.sink.split ]
+  %.sink929 = phi ptr [ %101, %943 ], [ %106, %987 ], [ %114, %1032 ], [ %93, %901 ], [ %.sink929.ph, %_ZN7testing7MessageD2Ev.exit676.sink.split ]
   store ptr null, ptr %.sink930, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink929) #26
   invoke void @__cxa_end_catch()
@@ -50365,7 +50365,7 @@ _ZN7testing7MessageD2Ev.exit719:                  ; preds = %1112, %_ZNKSt14defa
   br label %1117
 
 1117:                                             ; preds = %1065, %.critedge517, %_ZN7testing7MessageD2Ev.exit716
-  %1118 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit716 ], [ false, %.critedge517 ], [ true, %1065 ]
+  %1118 = phi i1 [ false, %.critedge517 ], [ false, %_ZN7testing7MessageD2Ev.exit716 ], [ true, %1065 ]
   %1119 = load ptr, ptr %86, align 8
   %1120 = icmp eq ptr %1119, %816
   br i1 %1120, label %_ZN7testing8internal14TrueWithStringD2Ev.exit722, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i720
@@ -51078,9 +51078,9 @@ _ZN7testing7MessageD2Ev.exit757:                  ; preds = %1328, %_ZNKSt14defa
   br label %1342
 
 _ZN7testing7MessageD2Ev.exit727.sink.split:       ; preds = %1322, %1277, %1233, %1191
-  %.sink957 = phi ptr [ %1192, %1191 ], [ %1234, %1233 ], [ %1278, %1277 ], [ %1323, %1322 ]
-  %.sink933.ph = phi ptr [ %139, %1191 ], [ %144, %1233 ], [ %152, %1277 ], [ %160, %1322 ]
-  %.sink932.ph = phi ptr [ %132, %1191 ], [ %141, %1233 ], [ %146, %1277 ], [ %154, %1322 ]
+  %.sink957 = phi ptr [ %1278, %1277 ], [ %1234, %1233 ], [ %1192, %1191 ], [ %1323, %1322 ]
+  %.sink933.ph = phi ptr [ %152, %1277 ], [ %144, %1233 ], [ %139, %1191 ], [ %160, %1322 ]
+  %.sink932.ph = phi ptr [ %146, %1277 ], [ %141, %1233 ], [ %132, %1191 ], [ %154, %1322 ]
   %1335 = load ptr, ptr %.sink957, align 8
   %1336 = getelementptr inbounds nuw i8, ptr %1335, i64 8
   %1337 = load ptr, ptr %1336, align 8
@@ -51088,8 +51088,8 @@ _ZN7testing7MessageD2Ev.exit727.sink.split:       ; preds = %1322, %1277, %1233,
   br label %_ZN7testing7MessageD2Ev.exit727
 
 _ZN7testing7MessageD2Ev.exit727:                  ; preds = %_ZN7testing7MessageD2Ev.exit727.sink.split, %1322, %1277, %1233, %1191
-  %.sink933 = phi ptr [ %139, %1191 ], [ %144, %1233 ], [ %152, %1277 ], [ %160, %1322 ], [ %.sink933.ph, %_ZN7testing7MessageD2Ev.exit727.sink.split ]
-  %.sink932 = phi ptr [ %132, %1191 ], [ %141, %1233 ], [ %146, %1277 ], [ %154, %1322 ], [ %.sink932.ph, %_ZN7testing7MessageD2Ev.exit727.sink.split ]
+  %.sink933 = phi ptr [ %144, %1233 ], [ %152, %1277 ], [ %160, %1322 ], [ %139, %1191 ], [ %.sink933.ph, %_ZN7testing7MessageD2Ev.exit727.sink.split ]
+  %.sink932 = phi ptr [ %141, %1233 ], [ %146, %1277 ], [ %154, %1322 ], [ %132, %1191 ], [ %.sink932.ph, %_ZN7testing7MessageD2Ev.exit727.sink.split ]
   store ptr null, ptr %.sink933, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink932) #26
   invoke void @__cxa_end_catch()
@@ -51277,7 +51277,7 @@ _ZN7testing7MessageD2Ev.exit764:                  ; preds = %1396, %_ZNKSt14defa
   br label %1401
 
 1401:                                             ; preds = %1349, %.critedge530, %_ZN7testing7MessageD2Ev.exit761
-  %1402 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit761 ], [ false, %.critedge530 ], [ true, %1349 ]
+  %1402 = phi i1 [ false, %.critedge530 ], [ false, %_ZN7testing7MessageD2Ev.exit761 ], [ true, %1349 ]
   %1403 = load ptr, ptr %125, align 8
   %1404 = icmp eq ptr %1403, %1122
   br i1 %1404, label %_ZN7testing8internal14TrueWithStringD2Ev.exit767, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i765
@@ -51979,9 +51979,9 @@ _ZN7testing7MessageD2Ev.exit802:                  ; preds = %1609, %_ZNKSt14defa
   br label %1623
 
 _ZN7testing7MessageD2Ev.exit772.sink.split:       ; preds = %1603, %1558, %1514, %1472
-  %.sink962 = phi ptr [ %1473, %1472 ], [ %1515, %1514 ], [ %1559, %1558 ], [ %1604, %1603 ]
-  %.sink936.ph = phi ptr [ %178, %1472 ], [ %183, %1514 ], [ %191, %1558 ], [ %199, %1603 ]
-  %.sink935.ph = phi ptr [ %172, %1472 ], [ %180, %1514 ], [ %185, %1558 ], [ %193, %1603 ]
+  %.sink962 = phi ptr [ %1559, %1558 ], [ %1515, %1514 ], [ %1473, %1472 ], [ %1604, %1603 ]
+  %.sink936.ph = phi ptr [ %191, %1558 ], [ %183, %1514 ], [ %178, %1472 ], [ %199, %1603 ]
+  %.sink935.ph = phi ptr [ %185, %1558 ], [ %180, %1514 ], [ %172, %1472 ], [ %193, %1603 ]
   %1616 = load ptr, ptr %.sink962, align 8
   %1617 = getelementptr inbounds nuw i8, ptr %1616, i64 8
   %1618 = load ptr, ptr %1617, align 8
@@ -51989,8 +51989,8 @@ _ZN7testing7MessageD2Ev.exit772.sink.split:       ; preds = %1603, %1558, %1514,
   br label %_ZN7testing7MessageD2Ev.exit772
 
 _ZN7testing7MessageD2Ev.exit772:                  ; preds = %_ZN7testing7MessageD2Ev.exit772.sink.split, %1603, %1558, %1514, %1472
-  %.sink936 = phi ptr [ %178, %1472 ], [ %183, %1514 ], [ %191, %1558 ], [ %199, %1603 ], [ %.sink936.ph, %_ZN7testing7MessageD2Ev.exit772.sink.split ]
-  %.sink935 = phi ptr [ %172, %1472 ], [ %180, %1514 ], [ %185, %1558 ], [ %193, %1603 ], [ %.sink935.ph, %_ZN7testing7MessageD2Ev.exit772.sink.split ]
+  %.sink936 = phi ptr [ %183, %1514 ], [ %191, %1558 ], [ %199, %1603 ], [ %178, %1472 ], [ %.sink936.ph, %_ZN7testing7MessageD2Ev.exit772.sink.split ]
+  %.sink935 = phi ptr [ %180, %1514 ], [ %185, %1558 ], [ %193, %1603 ], [ %172, %1472 ], [ %.sink935.ph, %_ZN7testing7MessageD2Ev.exit772.sink.split ]
   store ptr null, ptr %.sink936, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink935) #26
   invoke void @__cxa_end_catch()
@@ -52184,8 +52184,8 @@ _ZN7testing7MessageD2Ev.exit808:                  ; preds = %1677, %_ZNKSt14defa
   ret void
 
 1684:                                             ; preds = %1415, %_ZN7testing7MessageD2Ev.exit808, %1657, %1663, %1134, %_ZN7testing7MessageD2Ev.exit764, %1377, %1383, %844, %_ZN7testing7MessageD2Ev.exit719, %1093, %1099, %538, %_ZN7testing7MessageD2Ev.exit651, %787, %793, %232, %_ZN7testing7MessageD2Ev.exit586, %481, %487
-  %.sink937 = phi ptr [ %6, %487 ], [ %6, %481 ], [ %6, %_ZN7testing7MessageD2Ev.exit586 ], [ %6, %232 ], [ %46, %793 ], [ %46, %787 ], [ %46, %_ZN7testing7MessageD2Ev.exit651 ], [ %46, %538 ], [ %86, %1099 ], [ %86, %1093 ], [ %86, %_ZN7testing7MessageD2Ev.exit719 ], [ %86, %844 ], [ %125, %1383 ], [ %125, %1377 ], [ %125, %_ZN7testing7MessageD2Ev.exit764 ], [ %125, %1134 ], [ %165, %1663 ], [ %165, %1657 ], [ %165, %_ZN7testing7MessageD2Ev.exit808 ], [ %165, %1415 ]
-  %.pn481.pn.pn = phi { ptr, i32 } [ %.pn339, %487 ], [ %482, %481 ], [ %.pn341, %_ZN7testing7MessageD2Ev.exit586 ], [ %233, %232 ], [ %.pn374, %793 ], [ %788, %787 ], [ %.pn376, %_ZN7testing7MessageD2Ev.exit651 ], [ %539, %538 ], [ %.pn409, %1099 ], [ %1094, %1093 ], [ %.pn411, %_ZN7testing7MessageD2Ev.exit719 ], [ %845, %844 ], [ %.pn444, %1383 ], [ %1378, %1377 ], [ %.pn446, %_ZN7testing7MessageD2Ev.exit764 ], [ %1135, %1134 ], [ %.pn479, %1663 ], [ %1658, %1657 ], [ %.pn481, %_ZN7testing7MessageD2Ev.exit808 ], [ %1416, %1415 ]
+  %.sink937 = phi ptr [ %125, %1134 ], [ %86, %844 ], [ %46, %538 ], [ %6, %232 ], [ %6, %487 ], [ %6, %481 ], [ %6, %_ZN7testing7MessageD2Ev.exit586 ], [ %46, %793 ], [ %46, %787 ], [ %46, %_ZN7testing7MessageD2Ev.exit651 ], [ %86, %1099 ], [ %86, %1093 ], [ %86, %_ZN7testing7MessageD2Ev.exit719 ], [ %125, %1383 ], [ %125, %1377 ], [ %125, %_ZN7testing7MessageD2Ev.exit764 ], [ %165, %1663 ], [ %165, %1657 ], [ %165, %_ZN7testing7MessageD2Ev.exit808 ], [ %165, %1415 ]
+  %.pn481.pn.pn = phi { ptr, i32 } [ %1135, %1134 ], [ %845, %844 ], [ %539, %538 ], [ %233, %232 ], [ %.pn339, %487 ], [ %482, %481 ], [ %.pn341, %_ZN7testing7MessageD2Ev.exit586 ], [ %.pn374, %793 ], [ %788, %787 ], [ %.pn376, %_ZN7testing7MessageD2Ev.exit651 ], [ %.pn409, %1099 ], [ %1094, %1093 ], [ %.pn411, %_ZN7testing7MessageD2Ev.exit719 ], [ %.pn444, %1383 ], [ %1378, %1377 ], [ %.pn446, %_ZN7testing7MessageD2Ev.exit764 ], [ %.pn479, %1663 ], [ %1658, %1657 ], [ %.pn481, %_ZN7testing7MessageD2Ev.exit808 ], [ %1416, %1415 ]
   call void @_ZN7testing8internal14TrueWithStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink937) #26
   resume { ptr, i32 } %.pn481.pn.pn
 
@@ -53132,9 +53132,9 @@ _ZN7testing7MessageD2Ev.exit244:                  ; preds = %306, %_ZNKSt14defau
   br label %320
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %300, %255, %211, %169
-  %.sink387 = phi ptr [ %170, %169 ], [ %212, %211 ], [ %256, %255 ], [ %301, %300 ]
-  %.sink378.ph = phi ptr [ %18, %169 ], [ %23, %211 ], [ %31, %255 ], [ %39, %300 ]
-  %.sink.ph = phi ptr [ %11, %169 ], [ %20, %211 ], [ %25, %255 ], [ %33, %300 ]
+  %.sink387 = phi ptr [ %256, %255 ], [ %212, %211 ], [ %170, %169 ], [ %301, %300 ]
+  %.sink378.ph = phi ptr [ %31, %255 ], [ %23, %211 ], [ %18, %169 ], [ %39, %300 ]
+  %.sink.ph = phi ptr [ %25, %255 ], [ %20, %211 ], [ %11, %169 ], [ %33, %300 ]
   %313 = load ptr, ptr %.sink387, align 8
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 8
   %315 = load ptr, ptr %314, align 8
@@ -53142,8 +53142,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %300, %255, %211, %1
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %300, %255, %211, %169
-  %.sink378 = phi ptr [ %18, %169 ], [ %23, %211 ], [ %31, %255 ], [ %39, %300 ], [ %.sink378.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %11, %169 ], [ %20, %211 ], [ %25, %255 ], [ %33, %300 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink378 = phi ptr [ %23, %211 ], [ %31, %255 ], [ %39, %300 ], [ %18, %169 ], [ %.sink378.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %20, %211 ], [ %25, %255 ], [ %33, %300 ], [ %11, %169 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink378, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -53351,7 +53351,7 @@ _ZN7testing7MessageD2Ev.exit256:                  ; preds = %380, %_ZNKSt14defau
   br label %385
 
 385:                                              ; preds = %333, %.critedge201, %_ZN7testing7MessageD2Ev.exit253
-  %386 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit253 ], [ false, %.critedge201 ], [ true, %333 ]
+  %386 = phi i1 [ false, %.critedge201 ], [ false, %_ZN7testing7MessageD2Ev.exit253 ], [ true, %333 ]
   %387 = load ptr, ptr %4, align 8
   %388 = icmp eq ptr %387, %84
   br i1 %388, label %_ZN7testing8internal14TrueWithStringD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -54111,9 +54111,9 @@ _ZN7testing7MessageD2Ev.exit309:                  ; preds = %612, %_ZNKSt14defau
   br label %626
 
 _ZN7testing7MessageD2Ev.exit278.sink.split:       ; preds = %606, %561, %517, %475
-  %.sink392 = phi ptr [ %476, %475 ], [ %518, %517 ], [ %562, %561 ], [ %607, %606 ]
-  %.sink381.ph = phi ptr [ %58, %475 ], [ %63, %517 ], [ %71, %561 ], [ %79, %606 ]
-  %.sink380.ph = phi ptr [ %51, %475 ], [ %60, %517 ], [ %65, %561 ], [ %73, %606 ]
+  %.sink392 = phi ptr [ %562, %561 ], [ %518, %517 ], [ %476, %475 ], [ %607, %606 ]
+  %.sink381.ph = phi ptr [ %71, %561 ], [ %63, %517 ], [ %58, %475 ], [ %79, %606 ]
+  %.sink380.ph = phi ptr [ %65, %561 ], [ %60, %517 ], [ %51, %475 ], [ %73, %606 ]
   %619 = load ptr, ptr %.sink392, align 8
   %620 = getelementptr inbounds nuw i8, ptr %619, i64 8
   %621 = load ptr, ptr %620, align 8
@@ -54121,8 +54121,8 @@ _ZN7testing7MessageD2Ev.exit278.sink.split:       ; preds = %606, %561, %517, %4
   br label %_ZN7testing7MessageD2Ev.exit278
 
 _ZN7testing7MessageD2Ev.exit278:                  ; preds = %_ZN7testing7MessageD2Ev.exit278.sink.split, %606, %561, %517, %475
-  %.sink381 = phi ptr [ %58, %475 ], [ %63, %517 ], [ %71, %561 ], [ %79, %606 ], [ %.sink381.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
-  %.sink380 = phi ptr [ %51, %475 ], [ %60, %517 ], [ %65, %561 ], [ %73, %606 ], [ %.sink380.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
+  %.sink381 = phi ptr [ %63, %517 ], [ %71, %561 ], [ %79, %606 ], [ %58, %475 ], [ %.sink381.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
+  %.sink380 = phi ptr [ %60, %517 ], [ %65, %561 ], [ %73, %606 ], [ %51, %475 ], [ %.sink380.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
   store ptr null, ptr %.sink381, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink380) #26
   invoke void @__cxa_end_catch()
@@ -54346,8 +54346,8 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit325: ; preds = %691, %_ZNKSt7__cxx1
   ret void
 
 695:                                              ; preds = %418, %_ZN7testing7MessageD2Ev.exit322, %667, %673, %112, %_ZN7testing7MessageD2Ev.exit256, %361, %367
-  %.sink382 = phi ptr [ %4, %367 ], [ %4, %361 ], [ %4, %_ZN7testing7MessageD2Ev.exit256 ], [ %4, %112 ], [ %44, %673 ], [ %44, %667 ], [ %44, %_ZN7testing7MessageD2Ev.exit322 ], [ %44, %418 ]
-  %.pn190.pn.pn = phi { ptr, i32 } [ %.pn153, %367 ], [ %362, %361 ], [ %.pn155, %_ZN7testing7MessageD2Ev.exit256 ], [ %113, %112 ], [ %.pn188, %673 ], [ %668, %667 ], [ %.pn190, %_ZN7testing7MessageD2Ev.exit322 ], [ %419, %418 ]
+  %.sink382 = phi ptr [ %4, %112 ], [ %4, %367 ], [ %4, %361 ], [ %4, %_ZN7testing7MessageD2Ev.exit256 ], [ %44, %673 ], [ %44, %667 ], [ %44, %_ZN7testing7MessageD2Ev.exit322 ], [ %44, %418 ]
+  %.pn190.pn.pn = phi { ptr, i32 } [ %113, %112 ], [ %.pn153, %367 ], [ %362, %361 ], [ %.pn155, %_ZN7testing7MessageD2Ev.exit256 ], [ %.pn188, %673 ], [ %668, %667 ], [ %.pn190, %_ZN7testing7MessageD2Ev.exit322 ], [ %419, %418 ]
   call void @_ZN7testing8internal14TrueWithStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink382) #26
   resume { ptr, i32 } %.pn190.pn.pn
 
@@ -55284,9 +55284,9 @@ _ZN7testing7MessageD2Ev.exit464:                  ; preds = %388, %_ZNKSt14defau
   br label %402
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %382, %337, %293, %251
-  %.sink771 = phi ptr [ %252, %251 ], [ %294, %293 ], [ %338, %337 ], [ %383, %382 ]
-  %.sink756.ph = phi ptr [ %20, %251 ], [ %25, %293 ], [ %33, %337 ], [ %41, %382 ]
-  %.sink.ph = phi ptr [ %13, %251 ], [ %22, %293 ], [ %27, %337 ], [ %35, %382 ]
+  %.sink771 = phi ptr [ %338, %337 ], [ %294, %293 ], [ %252, %251 ], [ %383, %382 ]
+  %.sink756.ph = phi ptr [ %33, %337 ], [ %25, %293 ], [ %20, %251 ], [ %41, %382 ]
+  %.sink.ph = phi ptr [ %27, %337 ], [ %22, %293 ], [ %13, %251 ], [ %35, %382 ]
   %395 = load ptr, ptr %.sink771, align 8
   %396 = getelementptr inbounds nuw i8, ptr %395, i64 8
   %397 = load ptr, ptr %396, align 8
@@ -55294,8 +55294,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %382, %337, %293, %2
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %382, %337, %293, %251
-  %.sink756 = phi ptr [ %20, %251 ], [ %25, %293 ], [ %33, %337 ], [ %41, %382 ], [ %.sink756.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %13, %251 ], [ %22, %293 ], [ %27, %337 ], [ %35, %382 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink756 = phi ptr [ %25, %293 ], [ %33, %337 ], [ %41, %382 ], [ %20, %251 ], [ %.sink756.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %22, %293 ], [ %27, %337 ], [ %35, %382 ], [ %13, %251 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink756, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -55503,7 +55503,7 @@ _ZN7testing7MessageD2Ev.exit476:                  ; preds = %462, %_ZNKSt14defau
   br label %467
 
 467:                                              ; preds = %415, %.critedge395, %_ZN7testing7MessageD2Ev.exit473
-  %468 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit473 ], [ false, %.critedge395 ], [ true, %415 ]
+  %468 = phi i1 [ false, %.critedge395 ], [ false, %_ZN7testing7MessageD2Ev.exit473 ], [ true, %415 ]
   %469 = load ptr, ptr %6, align 8
   %470 = icmp eq ptr %469, %166
   br i1 %470, label %_ZN7testing8internal14TrueWithStringD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -56263,9 +56263,9 @@ _ZN7testing7MessageD2Ev.exit528:                  ; preds = %694, %_ZNKSt14defau
   br label %708
 
 _ZN7testing7MessageD2Ev.exit498.sink.split:       ; preds = %688, %643, %599, %557
-  %.sink776 = phi ptr [ %558, %557 ], [ %600, %599 ], [ %644, %643 ], [ %689, %688 ]
-  %.sink759.ph = phi ptr [ %60, %557 ], [ %65, %599 ], [ %73, %643 ], [ %81, %688 ]
-  %.sink758.ph = phi ptr [ %53, %557 ], [ %62, %599 ], [ %67, %643 ], [ %75, %688 ]
+  %.sink776 = phi ptr [ %644, %643 ], [ %600, %599 ], [ %558, %557 ], [ %689, %688 ]
+  %.sink759.ph = phi ptr [ %73, %643 ], [ %65, %599 ], [ %60, %557 ], [ %81, %688 ]
+  %.sink758.ph = phi ptr [ %67, %643 ], [ %62, %599 ], [ %53, %557 ], [ %75, %688 ]
   %701 = load ptr, ptr %.sink776, align 8
   %702 = getelementptr inbounds nuw i8, ptr %701, i64 8
   %703 = load ptr, ptr %702, align 8
@@ -56273,8 +56273,8 @@ _ZN7testing7MessageD2Ev.exit498.sink.split:       ; preds = %688, %643, %599, %5
   br label %_ZN7testing7MessageD2Ev.exit498
 
 _ZN7testing7MessageD2Ev.exit498:                  ; preds = %_ZN7testing7MessageD2Ev.exit498.sink.split, %688, %643, %599, %557
-  %.sink759 = phi ptr [ %60, %557 ], [ %65, %599 ], [ %73, %643 ], [ %81, %688 ], [ %.sink759.ph, %_ZN7testing7MessageD2Ev.exit498.sink.split ]
-  %.sink758 = phi ptr [ %53, %557 ], [ %62, %599 ], [ %67, %643 ], [ %75, %688 ], [ %.sink758.ph, %_ZN7testing7MessageD2Ev.exit498.sink.split ]
+  %.sink759 = phi ptr [ %65, %599 ], [ %73, %643 ], [ %81, %688 ], [ %60, %557 ], [ %.sink759.ph, %_ZN7testing7MessageD2Ev.exit498.sink.split ]
+  %.sink758 = phi ptr [ %62, %599 ], [ %67, %643 ], [ %75, %688 ], [ %53, %557 ], [ %.sink758.ph, %_ZN7testing7MessageD2Ev.exit498.sink.split ]
   store ptr null, ptr %.sink759, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink758) #26
   invoke void @__cxa_end_catch()
@@ -56482,7 +56482,7 @@ _ZN7testing7MessageD2Ev.exit541:                  ; preds = %768, %_ZNKSt14defau
   br label %773
 
 773:                                              ; preds = %721, %.critedge407, %_ZN7testing7MessageD2Ev.exit538
-  %774 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit538 ], [ false, %.critedge407 ], [ true, %721 ]
+  %774 = phi i1 [ false, %.critedge407 ], [ false, %_ZN7testing7MessageD2Ev.exit538 ], [ true, %721 ]
   %775 = load ptr, ptr %46, align 8
   %776 = icmp eq ptr %775, %472
   br i1 %776, label %_ZN7testing8internal14TrueWithStringD2Ev.exit544, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i542
@@ -57242,9 +57242,9 @@ _ZN7testing7MessageD2Ev.exit596:                  ; preds = %1000, %_ZNKSt14defa
   br label %1014
 
 _ZN7testing7MessageD2Ev.exit566.sink.split:       ; preds = %994, %949, %905, %863
-  %.sink781 = phi ptr [ %864, %863 ], [ %906, %905 ], [ %950, %949 ], [ %995, %994 ]
-  %.sink762.ph = phi ptr [ %100, %863 ], [ %105, %905 ], [ %113, %949 ], [ %121, %994 ]
-  %.sink761.ph = phi ptr [ %93, %863 ], [ %102, %905 ], [ %107, %949 ], [ %115, %994 ]
+  %.sink781 = phi ptr [ %950, %949 ], [ %906, %905 ], [ %864, %863 ], [ %995, %994 ]
+  %.sink762.ph = phi ptr [ %113, %949 ], [ %105, %905 ], [ %100, %863 ], [ %121, %994 ]
+  %.sink761.ph = phi ptr [ %107, %949 ], [ %102, %905 ], [ %93, %863 ], [ %115, %994 ]
   %1007 = load ptr, ptr %.sink781, align 8
   %1008 = getelementptr inbounds nuw i8, ptr %1007, i64 8
   %1009 = load ptr, ptr %1008, align 8
@@ -57252,8 +57252,8 @@ _ZN7testing7MessageD2Ev.exit566.sink.split:       ; preds = %994, %949, %905, %8
   br label %_ZN7testing7MessageD2Ev.exit566
 
 _ZN7testing7MessageD2Ev.exit566:                  ; preds = %_ZN7testing7MessageD2Ev.exit566.sink.split, %994, %949, %905, %863
-  %.sink762 = phi ptr [ %100, %863 ], [ %105, %905 ], [ %113, %949 ], [ %121, %994 ], [ %.sink762.ph, %_ZN7testing7MessageD2Ev.exit566.sink.split ]
-  %.sink761 = phi ptr [ %93, %863 ], [ %102, %905 ], [ %107, %949 ], [ %115, %994 ], [ %.sink761.ph, %_ZN7testing7MessageD2Ev.exit566.sink.split ]
+  %.sink762 = phi ptr [ %105, %905 ], [ %113, %949 ], [ %121, %994 ], [ %100, %863 ], [ %.sink762.ph, %_ZN7testing7MessageD2Ev.exit566.sink.split ]
+  %.sink761 = phi ptr [ %102, %905 ], [ %107, %949 ], [ %115, %994 ], [ %93, %863 ], [ %.sink761.ph, %_ZN7testing7MessageD2Ev.exit566.sink.split ]
   store ptr null, ptr %.sink762, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink761) #26
   invoke void @__cxa_end_catch()
@@ -57461,7 +57461,7 @@ _ZN7testing7MessageD2Ev.exit609:                  ; preds = %1074, %_ZNKSt14defa
   br label %1079
 
 1079:                                             ; preds = %1027, %.critedge420, %_ZN7testing7MessageD2Ev.exit606
-  %1080 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit606 ], [ false, %.critedge420 ], [ true, %1027 ]
+  %1080 = phi i1 [ false, %.critedge420 ], [ false, %_ZN7testing7MessageD2Ev.exit606 ], [ true, %1027 ]
   %1081 = load ptr, ptr %86, align 8
   %1082 = icmp eq ptr %1081, %778
   br i1 %1082, label %_ZN7testing8internal14TrueWithStringD2Ev.exit612, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i610
@@ -58174,9 +58174,9 @@ _ZN7testing7MessageD2Ev.exit647:                  ; preds = %1290, %_ZNKSt14defa
   br label %1304
 
 _ZN7testing7MessageD2Ev.exit617.sink.split:       ; preds = %1284, %1239, %1195, %1153
-  %.sink786 = phi ptr [ %1154, %1153 ], [ %1196, %1195 ], [ %1240, %1239 ], [ %1285, %1284 ]
-  %.sink765.ph = phi ptr [ %140, %1153 ], [ %145, %1195 ], [ %153, %1239 ], [ %161, %1284 ]
-  %.sink764.ph = phi ptr [ %133, %1153 ], [ %142, %1195 ], [ %147, %1239 ], [ %155, %1284 ]
+  %.sink786 = phi ptr [ %1240, %1239 ], [ %1196, %1195 ], [ %1154, %1153 ], [ %1285, %1284 ]
+  %.sink765.ph = phi ptr [ %153, %1239 ], [ %145, %1195 ], [ %140, %1153 ], [ %161, %1284 ]
+  %.sink764.ph = phi ptr [ %147, %1239 ], [ %142, %1195 ], [ %133, %1153 ], [ %155, %1284 ]
   %1297 = load ptr, ptr %.sink786, align 8
   %1298 = getelementptr inbounds nuw i8, ptr %1297, i64 8
   %1299 = load ptr, ptr %1298, align 8
@@ -58184,8 +58184,8 @@ _ZN7testing7MessageD2Ev.exit617.sink.split:       ; preds = %1284, %1239, %1195,
   br label %_ZN7testing7MessageD2Ev.exit617
 
 _ZN7testing7MessageD2Ev.exit617:                  ; preds = %_ZN7testing7MessageD2Ev.exit617.sink.split, %1284, %1239, %1195, %1153
-  %.sink765 = phi ptr [ %140, %1153 ], [ %145, %1195 ], [ %153, %1239 ], [ %161, %1284 ], [ %.sink765.ph, %_ZN7testing7MessageD2Ev.exit617.sink.split ]
-  %.sink764 = phi ptr [ %133, %1153 ], [ %142, %1195 ], [ %147, %1239 ], [ %155, %1284 ], [ %.sink764.ph, %_ZN7testing7MessageD2Ev.exit617.sink.split ]
+  %.sink765 = phi ptr [ %145, %1195 ], [ %153, %1239 ], [ %161, %1284 ], [ %140, %1153 ], [ %.sink765.ph, %_ZN7testing7MessageD2Ev.exit617.sink.split ]
+  %.sink764 = phi ptr [ %142, %1195 ], [ %147, %1239 ], [ %155, %1284 ], [ %133, %1153 ], [ %.sink764.ph, %_ZN7testing7MessageD2Ev.exit617.sink.split ]
   store ptr null, ptr %.sink765, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink764) #26
   invoke void @__cxa_end_catch()
@@ -58389,8 +58389,8 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit657: ; preds = %1363, %_ZNKSt7__cxx
   ret void
 
 1367:                                             ; preds = %1096, %_ZN7testing7MessageD2Ev.exit654, %1339, %1345, %806, %_ZN7testing7MessageD2Ev.exit609, %1055, %1061, %500, %_ZN7testing7MessageD2Ev.exit541, %749, %755, %194, %_ZN7testing7MessageD2Ev.exit476, %443, %449
-  %.sink766 = phi ptr [ %6, %449 ], [ %6, %443 ], [ %6, %_ZN7testing7MessageD2Ev.exit476 ], [ %6, %194 ], [ %46, %755 ], [ %46, %749 ], [ %46, %_ZN7testing7MessageD2Ev.exit541 ], [ %46, %500 ], [ %86, %1061 ], [ %86, %1055 ], [ %86, %_ZN7testing7MessageD2Ev.exit609 ], [ %86, %806 ], [ %126, %1345 ], [ %126, %1339 ], [ %126, %_ZN7testing7MessageD2Ev.exit654 ], [ %126, %1096 ]
-  %.pn384.pn.pn = phi { ptr, i32 } [ %.pn277, %449 ], [ %444, %443 ], [ %.pn279, %_ZN7testing7MessageD2Ev.exit476 ], [ %195, %194 ], [ %.pn312, %755 ], [ %750, %749 ], [ %.pn314, %_ZN7testing7MessageD2Ev.exit541 ], [ %501, %500 ], [ %.pn347, %1061 ], [ %1056, %1055 ], [ %.pn349, %_ZN7testing7MessageD2Ev.exit609 ], [ %807, %806 ], [ %.pn382, %1345 ], [ %1340, %1339 ], [ %.pn384, %_ZN7testing7MessageD2Ev.exit654 ], [ %1097, %1096 ]
+  %.sink766 = phi ptr [ %86, %806 ], [ %46, %500 ], [ %6, %194 ], [ %6, %449 ], [ %6, %443 ], [ %6, %_ZN7testing7MessageD2Ev.exit476 ], [ %46, %755 ], [ %46, %749 ], [ %46, %_ZN7testing7MessageD2Ev.exit541 ], [ %86, %1061 ], [ %86, %1055 ], [ %86, %_ZN7testing7MessageD2Ev.exit609 ], [ %126, %1345 ], [ %126, %1339 ], [ %126, %_ZN7testing7MessageD2Ev.exit654 ], [ %126, %1096 ]
+  %.pn384.pn.pn = phi { ptr, i32 } [ %807, %806 ], [ %501, %500 ], [ %195, %194 ], [ %.pn277, %449 ], [ %444, %443 ], [ %.pn279, %_ZN7testing7MessageD2Ev.exit476 ], [ %.pn312, %755 ], [ %750, %749 ], [ %.pn314, %_ZN7testing7MessageD2Ev.exit541 ], [ %.pn347, %1061 ], [ %1056, %1055 ], [ %.pn349, %_ZN7testing7MessageD2Ev.exit609 ], [ %.pn382, %1345 ], [ %1340, %1339 ], [ %.pn384, %_ZN7testing7MessageD2Ev.exit654 ], [ %1097, %1096 ]
   call void @_ZN7testing8internal14TrueWithStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink766) #26
   resume { ptr, i32 } %.pn384.pn.pn
 
@@ -59040,9 +59040,9 @@ _ZN7testing7MessageD2Ev.exit108:                  ; preds = %211, %_ZNKSt14defau
   br label %225
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %205, %161, %119
-  %.sink146 = phi ptr [ %120, %119 ], [ %162, %161 ], [ %206, %205 ]
-  %.sink141.ph = phi ptr [ %16, %119 ], [ %21, %161 ], [ %29, %205 ]
-  %.sink.ph = phi ptr [ %10, %119 ], [ %18, %161 ], [ %23, %205 ]
+  %.sink146 = phi ptr [ %162, %161 ], [ %120, %119 ], [ %206, %205 ]
+  %.sink141.ph = phi ptr [ %21, %161 ], [ %16, %119 ], [ %29, %205 ]
+  %.sink.ph = phi ptr [ %18, %161 ], [ %10, %119 ], [ %23, %205 ]
   %218 = load ptr, ptr %.sink146, align 8
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 8
   %220 = load ptr, ptr %219, align 8
@@ -59050,8 +59050,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %205, %161, %119
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %205, %161, %119
-  %.sink141 = phi ptr [ %16, %119 ], [ %21, %161 ], [ %29, %205 ], [ %.sink141.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %10, %119 ], [ %18, %161 ], [ %23, %205 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink141 = phi ptr [ %21, %161 ], [ %29, %205 ], [ %16, %119 ], [ %.sink141.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %18, %161 ], [ %23, %205 ], [ %10, %119 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink141, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -60086,9 +60086,9 @@ _ZN7testing7MessageD2Ev.exit133:                  ; preds = %265, %_ZNKSt14defau
   br label %279
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %259, %214, %170, %128
-  %.sink175 = phi ptr [ %129, %128 ], [ %171, %170 ], [ %215, %214 ], [ %260, %259 ]
-  %.sink170.ph = phi ptr [ %17, %128 ], [ %22, %170 ], [ %30, %214 ], [ %38, %259 ]
-  %.sink.ph = phi ptr [ %10, %128 ], [ %19, %170 ], [ %24, %214 ], [ %32, %259 ]
+  %.sink175 = phi ptr [ %215, %214 ], [ %171, %170 ], [ %129, %128 ], [ %260, %259 ]
+  %.sink170.ph = phi ptr [ %30, %214 ], [ %22, %170 ], [ %17, %128 ], [ %38, %259 ]
+  %.sink.ph = phi ptr [ %24, %214 ], [ %19, %170 ], [ %10, %128 ], [ %32, %259 ]
   %272 = load ptr, ptr %.sink175, align 8
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 8
   %274 = load ptr, ptr %273, align 8
@@ -60096,8 +60096,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %259, %214, %170, %1
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %259, %214, %170, %128
-  %.sink170 = phi ptr [ %17, %128 ], [ %22, %170 ], [ %30, %214 ], [ %38, %259 ], [ %.sink170.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %10, %128 ], [ %19, %170 ], [ %24, %214 ], [ %32, %259 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink170 = phi ptr [ %22, %170 ], [ %30, %214 ], [ %38, %259 ], [ %17, %128 ], [ %.sink170.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %19, %170 ], [ %24, %214 ], [ %32, %259 ], [ %10, %128 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink170, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -61173,9 +61173,9 @@ _ZN7testing7MessageD2Ev.exit244:                  ; preds = %306, %_ZNKSt14defau
   br label %320
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %300, %255, %211, %169
-  %.sink386 = phi ptr [ %170, %169 ], [ %212, %211 ], [ %256, %255 ], [ %301, %300 ]
-  %.sink377.ph = phi ptr [ %18, %169 ], [ %23, %211 ], [ %31, %255 ], [ %39, %300 ]
-  %.sink.ph = phi ptr [ %11, %169 ], [ %20, %211 ], [ %25, %255 ], [ %33, %300 ]
+  %.sink386 = phi ptr [ %256, %255 ], [ %212, %211 ], [ %170, %169 ], [ %301, %300 ]
+  %.sink377.ph = phi ptr [ %31, %255 ], [ %23, %211 ], [ %18, %169 ], [ %39, %300 ]
+  %.sink.ph = phi ptr [ %25, %255 ], [ %20, %211 ], [ %11, %169 ], [ %33, %300 ]
   %313 = load ptr, ptr %.sink386, align 8
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 8
   %315 = load ptr, ptr %314, align 8
@@ -61183,8 +61183,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %300, %255, %211, %1
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %300, %255, %211, %169
-  %.sink377 = phi ptr [ %18, %169 ], [ %23, %211 ], [ %31, %255 ], [ %39, %300 ], [ %.sink377.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %11, %169 ], [ %20, %211 ], [ %25, %255 ], [ %33, %300 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink377 = phi ptr [ %23, %211 ], [ %31, %255 ], [ %39, %300 ], [ %18, %169 ], [ %.sink377.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %20, %211 ], [ %25, %255 ], [ %33, %300 ], [ %11, %169 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink377, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -61392,7 +61392,7 @@ _ZN7testing7MessageD2Ev.exit256:                  ; preds = %380, %_ZNKSt14defau
   br label %385
 
 385:                                              ; preds = %333, %.critedge201, %_ZN7testing7MessageD2Ev.exit253
-  %386 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit253 ], [ false, %.critedge201 ], [ true, %333 ]
+  %386 = phi i1 [ false, %.critedge201 ], [ false, %_ZN7testing7MessageD2Ev.exit253 ], [ true, %333 ]
   %387 = load ptr, ptr %4, align 8
   %388 = icmp eq ptr %387, %84
   br i1 %388, label %_ZN7testing8internal14TrueWithStringD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -62152,9 +62152,9 @@ _ZN7testing7MessageD2Ev.exit308:                  ; preds = %612, %_ZNKSt14defau
   br label %626
 
 _ZN7testing7MessageD2Ev.exit278.sink.split:       ; preds = %606, %561, %517, %475
-  %.sink391 = phi ptr [ %476, %475 ], [ %518, %517 ], [ %562, %561 ], [ %607, %606 ]
-  %.sink380.ph = phi ptr [ %58, %475 ], [ %63, %517 ], [ %71, %561 ], [ %79, %606 ]
-  %.sink379.ph = phi ptr [ %51, %475 ], [ %60, %517 ], [ %65, %561 ], [ %73, %606 ]
+  %.sink391 = phi ptr [ %562, %561 ], [ %518, %517 ], [ %476, %475 ], [ %607, %606 ]
+  %.sink380.ph = phi ptr [ %71, %561 ], [ %63, %517 ], [ %58, %475 ], [ %79, %606 ]
+  %.sink379.ph = phi ptr [ %65, %561 ], [ %60, %517 ], [ %51, %475 ], [ %73, %606 ]
   %619 = load ptr, ptr %.sink391, align 8
   %620 = getelementptr inbounds nuw i8, ptr %619, i64 8
   %621 = load ptr, ptr %620, align 8
@@ -62162,8 +62162,8 @@ _ZN7testing7MessageD2Ev.exit278.sink.split:       ; preds = %606, %561, %517, %4
   br label %_ZN7testing7MessageD2Ev.exit278
 
 _ZN7testing7MessageD2Ev.exit278:                  ; preds = %_ZN7testing7MessageD2Ev.exit278.sink.split, %606, %561, %517, %475
-  %.sink380 = phi ptr [ %58, %475 ], [ %63, %517 ], [ %71, %561 ], [ %79, %606 ], [ %.sink380.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
-  %.sink379 = phi ptr [ %51, %475 ], [ %60, %517 ], [ %65, %561 ], [ %73, %606 ], [ %.sink379.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
+  %.sink380 = phi ptr [ %63, %517 ], [ %71, %561 ], [ %79, %606 ], [ %58, %475 ], [ %.sink380.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
+  %.sink379 = phi ptr [ %60, %517 ], [ %65, %561 ], [ %73, %606 ], [ %51, %475 ], [ %.sink379.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
   store ptr null, ptr %.sink380, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink379) #26
   invoke void @__cxa_end_catch()
@@ -62387,8 +62387,8 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit324: ; preds = %691, %_ZNKSt7__cxx1
   ret void
 
 695:                                              ; preds = %418, %_ZN7testing7MessageD2Ev.exit321, %667, %673, %112, %_ZN7testing7MessageD2Ev.exit256, %361, %367
-  %.sink381 = phi ptr [ %4, %367 ], [ %4, %361 ], [ %4, %_ZN7testing7MessageD2Ev.exit256 ], [ %4, %112 ], [ %44, %673 ], [ %44, %667 ], [ %44, %_ZN7testing7MessageD2Ev.exit321 ], [ %44, %418 ]
-  %.pn190.pn.pn = phi { ptr, i32 } [ %.pn153, %367 ], [ %362, %361 ], [ %.pn155, %_ZN7testing7MessageD2Ev.exit256 ], [ %113, %112 ], [ %.pn188, %673 ], [ %668, %667 ], [ %.pn190, %_ZN7testing7MessageD2Ev.exit321 ], [ %419, %418 ]
+  %.sink381 = phi ptr [ %4, %112 ], [ %4, %367 ], [ %4, %361 ], [ %4, %_ZN7testing7MessageD2Ev.exit256 ], [ %44, %673 ], [ %44, %667 ], [ %44, %_ZN7testing7MessageD2Ev.exit321 ], [ %44, %418 ]
+  %.pn190.pn.pn = phi { ptr, i32 } [ %113, %112 ], [ %.pn153, %367 ], [ %362, %361 ], [ %.pn155, %_ZN7testing7MessageD2Ev.exit256 ], [ %.pn188, %673 ], [ %668, %667 ], [ %.pn190, %_ZN7testing7MessageD2Ev.exit321 ], [ %419, %418 ]
   call void @_ZN7testing8internal14TrueWithStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink381) #26
   resume { ptr, i32 } %.pn190.pn.pn
 
@@ -63278,9 +63278,9 @@ _ZN7testing7MessageD2Ev.exit320:                  ; preds = %331, %_ZNKSt14defau
   br label %345
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %325, %280, %236, %194
-  %.sink537 = phi ptr [ %195, %194 ], [ %237, %236 ], [ %281, %280 ], [ %326, %325 ]
-  %.sink525.ph = phi ptr [ %19, %194 ], [ %24, %236 ], [ %32, %280 ], [ %40, %325 ]
-  %.sink.ph = phi ptr [ %12, %194 ], [ %21, %236 ], [ %26, %280 ], [ %34, %325 ]
+  %.sink537 = phi ptr [ %281, %280 ], [ %237, %236 ], [ %195, %194 ], [ %326, %325 ]
+  %.sink525.ph = phi ptr [ %32, %280 ], [ %24, %236 ], [ %19, %194 ], [ %40, %325 ]
+  %.sink.ph = phi ptr [ %26, %280 ], [ %21, %236 ], [ %12, %194 ], [ %34, %325 ]
   %338 = load ptr, ptr %.sink537, align 8
   %339 = getelementptr inbounds nuw i8, ptr %338, i64 8
   %340 = load ptr, ptr %339, align 8
@@ -63288,8 +63288,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %325, %280, %236, %1
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %325, %280, %236, %194
-  %.sink525 = phi ptr [ %19, %194 ], [ %24, %236 ], [ %32, %280 ], [ %40, %325 ], [ %.sink525.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %12, %194 ], [ %21, %236 ], [ %26, %280 ], [ %34, %325 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink525 = phi ptr [ %24, %236 ], [ %32, %280 ], [ %40, %325 ], [ %19, %194 ], [ %.sink525.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %21, %236 ], [ %26, %280 ], [ %34, %325 ], [ %12, %194 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink525, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -63497,7 +63497,7 @@ _ZN7testing7MessageD2Ev.exit332:                  ; preds = %405, %_ZNKSt14defau
   br label %410
 
 410:                                              ; preds = %358, %.critedge268, %_ZN7testing7MessageD2Ev.exit329
-  %411 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit329 ], [ false, %.critedge268 ], [ true, %358 ]
+  %411 = phi i1 [ false, %.critedge268 ], [ false, %_ZN7testing7MessageD2Ev.exit329 ], [ true, %358 ]
   %412 = load ptr, ptr %5, align 8
   %413 = icmp eq ptr %412, %109
   br i1 %413, label %_ZN7testing8internal14TrueWithStringD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -64103,9 +64103,9 @@ _ZN7testing7MessageD2Ev.exit376:                  ; preds = %592, %_ZNKSt14defau
   br label %606
 
 _ZN7testing7MessageD2Ev.exit354.sink.split:       ; preds = %586, %542, %500
-  %.sink542 = phi ptr [ %501, %500 ], [ %543, %542 ], [ %587, %586 ]
-  %.sink528.ph = phi ptr [ %59, %500 ], [ %64, %542 ], [ %72, %586 ]
-  %.sink527.ph = phi ptr [ %52, %500 ], [ %61, %542 ], [ %66, %586 ]
+  %.sink542 = phi ptr [ %543, %542 ], [ %501, %500 ], [ %587, %586 ]
+  %.sink528.ph = phi ptr [ %64, %542 ], [ %59, %500 ], [ %72, %586 ]
+  %.sink527.ph = phi ptr [ %61, %542 ], [ %52, %500 ], [ %66, %586 ]
   %599 = load ptr, ptr %.sink542, align 8
   %600 = getelementptr inbounds nuw i8, ptr %599, i64 8
   %601 = load ptr, ptr %600, align 8
@@ -64113,8 +64113,8 @@ _ZN7testing7MessageD2Ev.exit354.sink.split:       ; preds = %586, %542, %500
   br label %_ZN7testing7MessageD2Ev.exit354
 
 _ZN7testing7MessageD2Ev.exit354:                  ; preds = %_ZN7testing7MessageD2Ev.exit354.sink.split, %586, %542, %500
-  %.sink528 = phi ptr [ %59, %500 ], [ %64, %542 ], [ %72, %586 ], [ %.sink528.ph, %_ZN7testing7MessageD2Ev.exit354.sink.split ]
-  %.sink527 = phi ptr [ %52, %500 ], [ %61, %542 ], [ %66, %586 ], [ %.sink527.ph, %_ZN7testing7MessageD2Ev.exit354.sink.split ]
+  %.sink528 = phi ptr [ %64, %542 ], [ %72, %586 ], [ %59, %500 ], [ %.sink528.ph, %_ZN7testing7MessageD2Ev.exit354.sink.split ]
+  %.sink527 = phi ptr [ %61, %542 ], [ %66, %586 ], [ %52, %500 ], [ %.sink527.ph, %_ZN7testing7MessageD2Ev.exit354.sink.split ]
   store ptr null, ptr %.sink528, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink527) #26
   invoke void @__cxa_end_catch()
@@ -64322,7 +64322,7 @@ _ZN7testing7MessageD2Ev.exit389:                  ; preds = %666, %_ZNKSt14defau
   br label %671
 
 671:                                              ; preds = %619, %.critedge278, %_ZN7testing7MessageD2Ev.exit386
-  %672 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit386 ], [ false, %.critedge278 ], [ true, %619 ]
+  %672 = phi i1 [ false, %.critedge278 ], [ false, %_ZN7testing7MessageD2Ev.exit386 ], [ true, %619 ]
   %673 = load ptr, ptr %45, align 8
   %674 = icmp eq ptr %673, %415
   br i1 %674, label %_ZN7testing8internal14TrueWithStringD2Ev.exit392, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i390
@@ -64928,9 +64928,9 @@ _ZN7testing7MessageD2Ev.exit436:                  ; preds = %853, %_ZNKSt14defau
   br label %867
 
 _ZN7testing7MessageD2Ev.exit414.sink.split:       ; preds = %847, %803, %761
-  %.sink547 = phi ptr [ %762, %761 ], [ %804, %803 ], [ %848, %847 ]
-  %.sink531.ph = phi ptr [ %91, %761 ], [ %96, %803 ], [ %104, %847 ]
-  %.sink530.ph = phi ptr [ %84, %761 ], [ %93, %803 ], [ %98, %847 ]
+  %.sink547 = phi ptr [ %804, %803 ], [ %762, %761 ], [ %848, %847 ]
+  %.sink531.ph = phi ptr [ %96, %803 ], [ %91, %761 ], [ %104, %847 ]
+  %.sink530.ph = phi ptr [ %93, %803 ], [ %84, %761 ], [ %98, %847 ]
   %860 = load ptr, ptr %.sink547, align 8
   %861 = getelementptr inbounds nuw i8, ptr %860, i64 8
   %862 = load ptr, ptr %861, align 8
@@ -64938,8 +64938,8 @@ _ZN7testing7MessageD2Ev.exit414.sink.split:       ; preds = %847, %803, %761
   br label %_ZN7testing7MessageD2Ev.exit414
 
 _ZN7testing7MessageD2Ev.exit414:                  ; preds = %_ZN7testing7MessageD2Ev.exit414.sink.split, %847, %803, %761
-  %.sink531 = phi ptr [ %91, %761 ], [ %96, %803 ], [ %104, %847 ], [ %.sink531.ph, %_ZN7testing7MessageD2Ev.exit414.sink.split ]
-  %.sink530 = phi ptr [ %84, %761 ], [ %93, %803 ], [ %98, %847 ], [ %.sink530.ph, %_ZN7testing7MessageD2Ev.exit414.sink.split ]
+  %.sink531 = phi ptr [ %96, %803 ], [ %104, %847 ], [ %91, %761 ], [ %.sink531.ph, %_ZN7testing7MessageD2Ev.exit414.sink.split ]
+  %.sink530 = phi ptr [ %93, %803 ], [ %98, %847 ], [ %84, %761 ], [ %.sink530.ph, %_ZN7testing7MessageD2Ev.exit414.sink.split ]
   store ptr null, ptr %.sink531, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink530) #26
   invoke void @__cxa_end_catch()
@@ -65163,8 +65163,8 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit452: ; preds = %932, %_ZNKSt7__cxx1
   ret void
 
 936:                                              ; preds = %704, %_ZN7testing7MessageD2Ev.exit449, %908, %914, %443, %_ZN7testing7MessageD2Ev.exit389, %647, %653, %137, %_ZN7testing7MessageD2Ev.exit332, %386, %392
-  %.sink532 = phi ptr [ %5, %392 ], [ %5, %386 ], [ %5, %_ZN7testing7MessageD2Ev.exit332 ], [ %5, %137 ], [ %45, %653 ], [ %45, %647 ], [ %45, %_ZN7testing7MessageD2Ev.exit389 ], [ %45, %443 ], [ %77, %914 ], [ %77, %908 ], [ %77, %_ZN7testing7MessageD2Ev.exit449 ], [ %77, %704 ]
-  %.pn257.pn.pn = phi { ptr, i32 } [ %.pn199, %392 ], [ %387, %386 ], [ %.pn201, %_ZN7testing7MessageD2Ev.exit332 ], [ %138, %137 ], [ %.pn227, %653 ], [ %648, %647 ], [ %.pn229, %_ZN7testing7MessageD2Ev.exit389 ], [ %444, %443 ], [ %.pn255, %914 ], [ %909, %908 ], [ %.pn257, %_ZN7testing7MessageD2Ev.exit449 ], [ %705, %704 ]
+  %.sink532 = phi ptr [ %45, %443 ], [ %5, %137 ], [ %5, %392 ], [ %5, %386 ], [ %5, %_ZN7testing7MessageD2Ev.exit332 ], [ %45, %653 ], [ %45, %647 ], [ %45, %_ZN7testing7MessageD2Ev.exit389 ], [ %77, %914 ], [ %77, %908 ], [ %77, %_ZN7testing7MessageD2Ev.exit449 ], [ %77, %704 ]
+  %.pn257.pn.pn = phi { ptr, i32 } [ %444, %443 ], [ %138, %137 ], [ %.pn199, %392 ], [ %387, %386 ], [ %.pn201, %_ZN7testing7MessageD2Ev.exit332 ], [ %.pn227, %653 ], [ %648, %647 ], [ %.pn229, %_ZN7testing7MessageD2Ev.exit389 ], [ %.pn255, %914 ], [ %909, %908 ], [ %.pn257, %_ZN7testing7MessageD2Ev.exit449 ], [ %705, %704 ]
   call void @_ZN7testing8internal14TrueWithStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink532) #26
   resume { ptr, i32 } %.pn257.pn.pn
 
@@ -66057,9 +66057,9 @@ _ZN7testing7MessageD2Ev.exit227:                  ; preds = %298, %_ZNKSt14defau
   br label %312
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %292, %247, %203, %161
-  %.sink357 = phi ptr [ %162, %161 ], [ %204, %203 ], [ %248, %247 ], [ %293, %292 ]
-  %.sink348.ph = phi ptr [ %18, %161 ], [ %23, %203 ], [ %31, %247 ], [ %39, %292 ]
-  %.sink.ph = phi ptr [ %11, %161 ], [ %20, %203 ], [ %25, %247 ], [ %33, %292 ]
+  %.sink357 = phi ptr [ %248, %247 ], [ %204, %203 ], [ %162, %161 ], [ %293, %292 ]
+  %.sink348.ph = phi ptr [ %31, %247 ], [ %23, %203 ], [ %18, %161 ], [ %39, %292 ]
+  %.sink.ph = phi ptr [ %25, %247 ], [ %20, %203 ], [ %11, %161 ], [ %33, %292 ]
   %305 = load ptr, ptr %.sink357, align 8
   %306 = getelementptr inbounds nuw i8, ptr %305, i64 8
   %307 = load ptr, ptr %306, align 8
@@ -66067,8 +66067,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %292, %247, %203, %1
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %292, %247, %203, %161
-  %.sink348 = phi ptr [ %18, %161 ], [ %23, %203 ], [ %31, %247 ], [ %39, %292 ], [ %.sink348.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %11, %161 ], [ %20, %203 ], [ %25, %247 ], [ %33, %292 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink348 = phi ptr [ %23, %203 ], [ %31, %247 ], [ %39, %292 ], [ %18, %161 ], [ %.sink348.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %20, %203 ], [ %25, %247 ], [ %33, %292 ], [ %11, %161 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink348, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -66276,7 +66276,7 @@ _ZN7testing7MessageD2Ev.exit239:                  ; preds = %372, %_ZNKSt14defau
   br label %377
 
 377:                                              ; preds = %325, %.critedge186, %_ZN7testing7MessageD2Ev.exit236
-  %378 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit236 ], [ false, %.critedge186 ], [ true, %325 ]
+  %378 = phi i1 [ false, %.critedge186 ], [ false, %_ZN7testing7MessageD2Ev.exit236 ], [ true, %325 ]
   %379 = load ptr, ptr %4, align 8
   %380 = icmp eq ptr %379, %76
   br i1 %380, label %_ZN7testing8internal14TrueWithStringD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -66882,9 +66882,9 @@ _ZN7testing7MessageD2Ev.exit283:                  ; preds = %559, %_ZNKSt14defau
   br label %573
 
 _ZN7testing7MessageD2Ev.exit261.sink.split:       ; preds = %553, %509, %467
-  %.sink362 = phi ptr [ %468, %467 ], [ %510, %509 ], [ %554, %553 ]
-  %.sink351.ph = phi ptr [ %58, %467 ], [ %63, %509 ], [ %71, %553 ]
-  %.sink350.ph = phi ptr [ %51, %467 ], [ %60, %509 ], [ %65, %553 ]
+  %.sink362 = phi ptr [ %510, %509 ], [ %468, %467 ], [ %554, %553 ]
+  %.sink351.ph = phi ptr [ %63, %509 ], [ %58, %467 ], [ %71, %553 ]
+  %.sink350.ph = phi ptr [ %60, %509 ], [ %51, %467 ], [ %65, %553 ]
   %566 = load ptr, ptr %.sink362, align 8
   %567 = getelementptr inbounds nuw i8, ptr %566, i64 8
   %568 = load ptr, ptr %567, align 8
@@ -66892,8 +66892,8 @@ _ZN7testing7MessageD2Ev.exit261.sink.split:       ; preds = %553, %509, %467
   br label %_ZN7testing7MessageD2Ev.exit261
 
 _ZN7testing7MessageD2Ev.exit261:                  ; preds = %_ZN7testing7MessageD2Ev.exit261.sink.split, %553, %509, %467
-  %.sink351 = phi ptr [ %58, %467 ], [ %63, %509 ], [ %71, %553 ], [ %.sink351.ph, %_ZN7testing7MessageD2Ev.exit261.sink.split ]
-  %.sink350 = phi ptr [ %51, %467 ], [ %60, %509 ], [ %65, %553 ], [ %.sink350.ph, %_ZN7testing7MessageD2Ev.exit261.sink.split ]
+  %.sink351 = phi ptr [ %63, %509 ], [ %71, %553 ], [ %58, %467 ], [ %.sink351.ph, %_ZN7testing7MessageD2Ev.exit261.sink.split ]
+  %.sink350 = phi ptr [ %60, %509 ], [ %65, %553 ], [ %51, %467 ], [ %.sink350.ph, %_ZN7testing7MessageD2Ev.exit261.sink.split ]
   store ptr null, ptr %.sink351, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink350) #26
   invoke void @__cxa_end_catch()
@@ -67117,8 +67117,8 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit299: ; preds = %638, %_ZNKSt7__cxx1
   ret void
 
 642:                                              ; preds = %410, %_ZN7testing7MessageD2Ev.exit296, %614, %620, %104, %_ZN7testing7MessageD2Ev.exit239, %353, %359
-  %.sink352 = phi ptr [ %4, %359 ], [ %4, %353 ], [ %4, %_ZN7testing7MessageD2Ev.exit239 ], [ %4, %104 ], [ %44, %620 ], [ %44, %614 ], [ %44, %_ZN7testing7MessageD2Ev.exit296 ], [ %44, %410 ]
-  %.pn175.pn.pn = phi { ptr, i32 } [ %.pn145, %359 ], [ %354, %353 ], [ %.pn147, %_ZN7testing7MessageD2Ev.exit239 ], [ %105, %104 ], [ %.pn173, %620 ], [ %615, %614 ], [ %.pn175, %_ZN7testing7MessageD2Ev.exit296 ], [ %411, %410 ]
+  %.sink352 = phi ptr [ %4, %104 ], [ %4, %359 ], [ %4, %353 ], [ %4, %_ZN7testing7MessageD2Ev.exit239 ], [ %44, %620 ], [ %44, %614 ], [ %44, %_ZN7testing7MessageD2Ev.exit296 ], [ %44, %410 ]
+  %.pn175.pn.pn = phi { ptr, i32 } [ %105, %104 ], [ %.pn145, %359 ], [ %354, %353 ], [ %.pn147, %_ZN7testing7MessageD2Ev.exit239 ], [ %.pn173, %620 ], [ %615, %614 ], [ %.pn175, %_ZN7testing7MessageD2Ev.exit296 ], [ %411, %410 ]
   call void @_ZN7testing8internal14TrueWithStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink352) #26
   resume { ptr, i32 } %.pn175.pn.pn
 
@@ -67964,9 +67964,9 @@ _ZN7testing7MessageD2Ev.exit227:                  ; preds = %297, %_ZNKSt14defau
   br label %311
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %291, %246, %202, %160
-  %.sink357 = phi ptr [ %161, %160 ], [ %203, %202 ], [ %247, %246 ], [ %292, %291 ]
-  %.sink348.ph = phi ptr [ %18, %160 ], [ %23, %202 ], [ %31, %246 ], [ %39, %291 ]
-  %.sink.ph = phi ptr [ %11, %160 ], [ %20, %202 ], [ %25, %246 ], [ %33, %291 ]
+  %.sink357 = phi ptr [ %247, %246 ], [ %203, %202 ], [ %161, %160 ], [ %292, %291 ]
+  %.sink348.ph = phi ptr [ %31, %246 ], [ %23, %202 ], [ %18, %160 ], [ %39, %291 ]
+  %.sink.ph = phi ptr [ %25, %246 ], [ %20, %202 ], [ %11, %160 ], [ %33, %291 ]
   %304 = load ptr, ptr %.sink357, align 8
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 8
   %306 = load ptr, ptr %305, align 8
@@ -67974,8 +67974,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %291, %246, %202, %1
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %291, %246, %202, %160
-  %.sink348 = phi ptr [ %18, %160 ], [ %23, %202 ], [ %31, %246 ], [ %39, %291 ], [ %.sink348.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %11, %160 ], [ %20, %202 ], [ %25, %246 ], [ %33, %291 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink348 = phi ptr [ %23, %202 ], [ %31, %246 ], [ %39, %291 ], [ %18, %160 ], [ %.sink348.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %20, %202 ], [ %25, %246 ], [ %33, %291 ], [ %11, %160 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink348, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -68183,7 +68183,7 @@ _ZN7testing7MessageD2Ev.exit239:                  ; preds = %371, %_ZNKSt14defau
   br label %376
 
 376:                                              ; preds = %324, %.critedge186, %_ZN7testing7MessageD2Ev.exit236
-  %377 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit236 ], [ false, %.critedge186 ], [ true, %324 ]
+  %377 = phi i1 [ false, %.critedge186 ], [ false, %_ZN7testing7MessageD2Ev.exit236 ], [ true, %324 ]
   %378 = load ptr, ptr %4, align 8
   %379 = icmp eq ptr %378, %75
   br i1 %379, label %_ZN7testing8internal14TrueWithStringD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -68788,9 +68788,9 @@ _ZN7testing7MessageD2Ev.exit283:                  ; preds = %558, %_ZNKSt14defau
   br label %572
 
 _ZN7testing7MessageD2Ev.exit261.sink.split:       ; preds = %552, %508, %466
-  %.sink362 = phi ptr [ %467, %466 ], [ %509, %508 ], [ %553, %552 ]
-  %.sink351.ph = phi ptr [ %57, %466 ], [ %62, %508 ], [ %70, %552 ]
-  %.sink350.ph = phi ptr [ %51, %466 ], [ %59, %508 ], [ %64, %552 ]
+  %.sink362 = phi ptr [ %509, %508 ], [ %467, %466 ], [ %553, %552 ]
+  %.sink351.ph = phi ptr [ %62, %508 ], [ %57, %466 ], [ %70, %552 ]
+  %.sink350.ph = phi ptr [ %59, %508 ], [ %51, %466 ], [ %64, %552 ]
   %565 = load ptr, ptr %.sink362, align 8
   %566 = getelementptr inbounds nuw i8, ptr %565, i64 8
   %567 = load ptr, ptr %566, align 8
@@ -68798,8 +68798,8 @@ _ZN7testing7MessageD2Ev.exit261.sink.split:       ; preds = %552, %508, %466
   br label %_ZN7testing7MessageD2Ev.exit261
 
 _ZN7testing7MessageD2Ev.exit261:                  ; preds = %_ZN7testing7MessageD2Ev.exit261.sink.split, %552, %508, %466
-  %.sink351 = phi ptr [ %57, %466 ], [ %62, %508 ], [ %70, %552 ], [ %.sink351.ph, %_ZN7testing7MessageD2Ev.exit261.sink.split ]
-  %.sink350 = phi ptr [ %51, %466 ], [ %59, %508 ], [ %64, %552 ], [ %.sink350.ph, %_ZN7testing7MessageD2Ev.exit261.sink.split ]
+  %.sink351 = phi ptr [ %62, %508 ], [ %70, %552 ], [ %57, %466 ], [ %.sink351.ph, %_ZN7testing7MessageD2Ev.exit261.sink.split ]
+  %.sink350 = phi ptr [ %59, %508 ], [ %64, %552 ], [ %51, %466 ], [ %.sink350.ph, %_ZN7testing7MessageD2Ev.exit261.sink.split ]
   store ptr null, ptr %.sink351, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink350) #26
   invoke void @__cxa_end_catch()
@@ -69023,8 +69023,8 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit299: ; preds = %637, %_ZNKSt7__cxx1
   ret void
 
 641:                                              ; preds = %409, %_ZN7testing7MessageD2Ev.exit296, %613, %619, %103, %_ZN7testing7MessageD2Ev.exit239, %352, %358
-  %.sink352 = phi ptr [ %4, %358 ], [ %4, %352 ], [ %4, %_ZN7testing7MessageD2Ev.exit239 ], [ %4, %103 ], [ %44, %619 ], [ %44, %613 ], [ %44, %_ZN7testing7MessageD2Ev.exit296 ], [ %44, %409 ]
-  %.pn175.pn.pn = phi { ptr, i32 } [ %.pn145, %358 ], [ %353, %352 ], [ %.pn147, %_ZN7testing7MessageD2Ev.exit239 ], [ %104, %103 ], [ %.pn173, %619 ], [ %614, %613 ], [ %.pn175, %_ZN7testing7MessageD2Ev.exit296 ], [ %410, %409 ]
+  %.sink352 = phi ptr [ %4, %103 ], [ %4, %358 ], [ %4, %352 ], [ %4, %_ZN7testing7MessageD2Ev.exit239 ], [ %44, %619 ], [ %44, %613 ], [ %44, %_ZN7testing7MessageD2Ev.exit296 ], [ %44, %409 ]
+  %.pn175.pn.pn = phi { ptr, i32 } [ %104, %103 ], [ %.pn145, %358 ], [ %353, %352 ], [ %.pn147, %_ZN7testing7MessageD2Ev.exit239 ], [ %.pn173, %619 ], [ %614, %613 ], [ %.pn175, %_ZN7testing7MessageD2Ev.exit296 ], [ %410, %409 ]
   call void @_ZN7testing8internal14TrueWithStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink352) #26
   resume { ptr, i32 } %.pn175.pn.pn
 
@@ -69879,9 +69879,9 @@ _ZN7testing7MessageD2Ev.exit244:                  ; preds = %306, %_ZNKSt14defau
   br label %320
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %300, %255, %211, %169
-  %.sink387 = phi ptr [ %170, %169 ], [ %212, %211 ], [ %256, %255 ], [ %301, %300 ]
-  %.sink378.ph = phi ptr [ %18, %169 ], [ %23, %211 ], [ %31, %255 ], [ %39, %300 ]
-  %.sink.ph = phi ptr [ %11, %169 ], [ %20, %211 ], [ %25, %255 ], [ %33, %300 ]
+  %.sink387 = phi ptr [ %256, %255 ], [ %212, %211 ], [ %170, %169 ], [ %301, %300 ]
+  %.sink378.ph = phi ptr [ %31, %255 ], [ %23, %211 ], [ %18, %169 ], [ %39, %300 ]
+  %.sink.ph = phi ptr [ %25, %255 ], [ %20, %211 ], [ %11, %169 ], [ %33, %300 ]
   %313 = load ptr, ptr %.sink387, align 8
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 8
   %315 = load ptr, ptr %314, align 8
@@ -69889,8 +69889,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %300, %255, %211, %1
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %300, %255, %211, %169
-  %.sink378 = phi ptr [ %18, %169 ], [ %23, %211 ], [ %31, %255 ], [ %39, %300 ], [ %.sink378.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %11, %169 ], [ %20, %211 ], [ %25, %255 ], [ %33, %300 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink378 = phi ptr [ %23, %211 ], [ %31, %255 ], [ %39, %300 ], [ %18, %169 ], [ %.sink378.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %20, %211 ], [ %25, %255 ], [ %33, %300 ], [ %11, %169 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink378, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -70098,7 +70098,7 @@ _ZN7testing7MessageD2Ev.exit256:                  ; preds = %380, %_ZNKSt14defau
   br label %385
 
 385:                                              ; preds = %333, %.critedge201, %_ZN7testing7MessageD2Ev.exit253
-  %386 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit253 ], [ false, %.critedge201 ], [ true, %333 ]
+  %386 = phi i1 [ false, %.critedge201 ], [ false, %_ZN7testing7MessageD2Ev.exit253 ], [ true, %333 ]
   %387 = load ptr, ptr %4, align 8
   %388 = icmp eq ptr %387, %84
   br i1 %388, label %_ZN7testing8internal14TrueWithStringD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -70858,9 +70858,9 @@ _ZN7testing7MessageD2Ev.exit309:                  ; preds = %612, %_ZNKSt14defau
   br label %626
 
 _ZN7testing7MessageD2Ev.exit278.sink.split:       ; preds = %606, %561, %517, %475
-  %.sink392 = phi ptr [ %476, %475 ], [ %518, %517 ], [ %562, %561 ], [ %607, %606 ]
-  %.sink381.ph = phi ptr [ %58, %475 ], [ %63, %517 ], [ %71, %561 ], [ %79, %606 ]
-  %.sink380.ph = phi ptr [ %51, %475 ], [ %60, %517 ], [ %65, %561 ], [ %73, %606 ]
+  %.sink392 = phi ptr [ %562, %561 ], [ %518, %517 ], [ %476, %475 ], [ %607, %606 ]
+  %.sink381.ph = phi ptr [ %71, %561 ], [ %63, %517 ], [ %58, %475 ], [ %79, %606 ]
+  %.sink380.ph = phi ptr [ %65, %561 ], [ %60, %517 ], [ %51, %475 ], [ %73, %606 ]
   %619 = load ptr, ptr %.sink392, align 8
   %620 = getelementptr inbounds nuw i8, ptr %619, i64 8
   %621 = load ptr, ptr %620, align 8
@@ -70868,8 +70868,8 @@ _ZN7testing7MessageD2Ev.exit278.sink.split:       ; preds = %606, %561, %517, %4
   br label %_ZN7testing7MessageD2Ev.exit278
 
 _ZN7testing7MessageD2Ev.exit278:                  ; preds = %_ZN7testing7MessageD2Ev.exit278.sink.split, %606, %561, %517, %475
-  %.sink381 = phi ptr [ %58, %475 ], [ %63, %517 ], [ %71, %561 ], [ %79, %606 ], [ %.sink381.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
-  %.sink380 = phi ptr [ %51, %475 ], [ %60, %517 ], [ %65, %561 ], [ %73, %606 ], [ %.sink380.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
+  %.sink381 = phi ptr [ %63, %517 ], [ %71, %561 ], [ %79, %606 ], [ %58, %475 ], [ %.sink381.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
+  %.sink380 = phi ptr [ %60, %517 ], [ %65, %561 ], [ %73, %606 ], [ %51, %475 ], [ %.sink380.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
   store ptr null, ptr %.sink381, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink380) #26
   invoke void @__cxa_end_catch()
@@ -71093,8 +71093,8 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit325: ; preds = %691, %_ZNKSt7__cxx1
   ret void
 
 695:                                              ; preds = %418, %_ZN7testing7MessageD2Ev.exit322, %667, %673, %112, %_ZN7testing7MessageD2Ev.exit256, %361, %367
-  %.sink382 = phi ptr [ %4, %367 ], [ %4, %361 ], [ %4, %_ZN7testing7MessageD2Ev.exit256 ], [ %4, %112 ], [ %44, %673 ], [ %44, %667 ], [ %44, %_ZN7testing7MessageD2Ev.exit322 ], [ %44, %418 ]
-  %.pn190.pn.pn = phi { ptr, i32 } [ %.pn153, %367 ], [ %362, %361 ], [ %.pn155, %_ZN7testing7MessageD2Ev.exit256 ], [ %113, %112 ], [ %.pn188, %673 ], [ %668, %667 ], [ %.pn190, %_ZN7testing7MessageD2Ev.exit322 ], [ %419, %418 ]
+  %.sink382 = phi ptr [ %4, %112 ], [ %4, %367 ], [ %4, %361 ], [ %4, %_ZN7testing7MessageD2Ev.exit256 ], [ %44, %673 ], [ %44, %667 ], [ %44, %_ZN7testing7MessageD2Ev.exit322 ], [ %44, %418 ]
+  %.pn190.pn.pn = phi { ptr, i32 } [ %113, %112 ], [ %.pn153, %367 ], [ %362, %361 ], [ %.pn155, %_ZN7testing7MessageD2Ev.exit256 ], [ %.pn188, %673 ], [ %668, %667 ], [ %.pn190, %_ZN7testing7MessageD2Ev.exit322 ], [ %419, %418 ]
   call void @_ZN7testing8internal14TrueWithStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink382) #26
   resume { ptr, i32 } %.pn190.pn.pn
 
@@ -71990,9 +71990,9 @@ _ZN7testing7MessageD2Ev.exit354:                  ; preds = %347, %_ZNKSt14defau
   br label %361
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %341, %296, %252, %210
-  %.sink595 = phi ptr [ %211, %210 ], [ %253, %252 ], [ %297, %296 ], [ %342, %341 ]
-  %.sink583.ph = phi ptr [ %19, %210 ], [ %24, %252 ], [ %32, %296 ], [ %40, %341 ]
-  %.sink.ph = phi ptr [ %12, %210 ], [ %21, %252 ], [ %26, %296 ], [ %34, %341 ]
+  %.sink595 = phi ptr [ %297, %296 ], [ %253, %252 ], [ %211, %210 ], [ %342, %341 ]
+  %.sink583.ph = phi ptr [ %32, %296 ], [ %24, %252 ], [ %19, %210 ], [ %40, %341 ]
+  %.sink.ph = phi ptr [ %26, %296 ], [ %21, %252 ], [ %12, %210 ], [ %34, %341 ]
   %354 = load ptr, ptr %.sink595, align 8
   %355 = getelementptr inbounds nuw i8, ptr %354, i64 8
   %356 = load ptr, ptr %355, align 8
@@ -72000,8 +72000,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %341, %296, %252, %2
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %341, %296, %252, %210
-  %.sink583 = phi ptr [ %19, %210 ], [ %24, %252 ], [ %32, %296 ], [ %40, %341 ], [ %.sink583.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %12, %210 ], [ %21, %252 ], [ %26, %296 ], [ %34, %341 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink583 = phi ptr [ %24, %252 ], [ %32, %296 ], [ %40, %341 ], [ %19, %210 ], [ %.sink583.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %21, %252 ], [ %26, %296 ], [ %34, %341 ], [ %12, %210 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink583, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -72209,7 +72209,7 @@ _ZN7testing7MessageD2Ev.exit366:                  ; preds = %421, %_ZNKSt14defau
   br label %426
 
 426:                                              ; preds = %374, %.critedge298, %_ZN7testing7MessageD2Ev.exit363
-  %427 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit363 ], [ false, %.critedge298 ], [ true, %374 ]
+  %427 = phi i1 [ false, %.critedge298 ], [ false, %_ZN7testing7MessageD2Ev.exit363 ], [ true, %374 ]
   %428 = load ptr, ptr %5, align 8
   %429 = icmp eq ptr %428, %125
   br i1 %429, label %_ZN7testing8internal14TrueWithStringD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -72969,9 +72969,9 @@ _ZN7testing7MessageD2Ev.exit418:                  ; preds = %653, %_ZNKSt14defau
   br label %667
 
 _ZN7testing7MessageD2Ev.exit388.sink.split:       ; preds = %647, %602, %558, %516
-  %.sink600 = phi ptr [ %517, %516 ], [ %559, %558 ], [ %603, %602 ], [ %648, %647 ]
-  %.sink586.ph = phi ptr [ %59, %516 ], [ %64, %558 ], [ %72, %602 ], [ %80, %647 ]
-  %.sink585.ph = phi ptr [ %52, %516 ], [ %61, %558 ], [ %66, %602 ], [ %74, %647 ]
+  %.sink600 = phi ptr [ %603, %602 ], [ %559, %558 ], [ %517, %516 ], [ %648, %647 ]
+  %.sink586.ph = phi ptr [ %72, %602 ], [ %64, %558 ], [ %59, %516 ], [ %80, %647 ]
+  %.sink585.ph = phi ptr [ %66, %602 ], [ %61, %558 ], [ %52, %516 ], [ %74, %647 ]
   %660 = load ptr, ptr %.sink600, align 8
   %661 = getelementptr inbounds nuw i8, ptr %660, i64 8
   %662 = load ptr, ptr %661, align 8
@@ -72979,8 +72979,8 @@ _ZN7testing7MessageD2Ev.exit388.sink.split:       ; preds = %647, %602, %558, %5
   br label %_ZN7testing7MessageD2Ev.exit388
 
 _ZN7testing7MessageD2Ev.exit388:                  ; preds = %_ZN7testing7MessageD2Ev.exit388.sink.split, %647, %602, %558, %516
-  %.sink586 = phi ptr [ %59, %516 ], [ %64, %558 ], [ %72, %602 ], [ %80, %647 ], [ %.sink586.ph, %_ZN7testing7MessageD2Ev.exit388.sink.split ]
-  %.sink585 = phi ptr [ %52, %516 ], [ %61, %558 ], [ %66, %602 ], [ %74, %647 ], [ %.sink585.ph, %_ZN7testing7MessageD2Ev.exit388.sink.split ]
+  %.sink586 = phi ptr [ %64, %558 ], [ %72, %602 ], [ %80, %647 ], [ %59, %516 ], [ %.sink586.ph, %_ZN7testing7MessageD2Ev.exit388.sink.split ]
+  %.sink585 = phi ptr [ %61, %558 ], [ %66, %602 ], [ %74, %647 ], [ %52, %516 ], [ %.sink585.ph, %_ZN7testing7MessageD2Ev.exit388.sink.split ]
   store ptr null, ptr %.sink586, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink585) #26
   invoke void @__cxa_end_catch()
@@ -73188,7 +73188,7 @@ _ZN7testing7MessageD2Ev.exit431:                  ; preds = %727, %_ZNKSt14defau
   br label %732
 
 732:                                              ; preds = %680, %.critedge310, %_ZN7testing7MessageD2Ev.exit428
-  %733 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit428 ], [ false, %.critedge310 ], [ true, %680 ]
+  %733 = phi i1 [ false, %.critedge310 ], [ false, %_ZN7testing7MessageD2Ev.exit428 ], [ true, %680 ]
   %734 = load ptr, ptr %45, align 8
   %735 = icmp eq ptr %734, %431
   br i1 %735, label %_ZN7testing8internal14TrueWithStringD2Ev.exit434, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i432
@@ -73948,9 +73948,9 @@ _ZN7testing7MessageD2Ev.exit486:                  ; preds = %959, %_ZNKSt14defau
   br label %973
 
 _ZN7testing7MessageD2Ev.exit456.sink.split:       ; preds = %953, %908, %864, %822
-  %.sink605 = phi ptr [ %823, %822 ], [ %865, %864 ], [ %909, %908 ], [ %954, %953 ]
-  %.sink589.ph = phi ptr [ %99, %822 ], [ %104, %864 ], [ %112, %908 ], [ %120, %953 ]
-  %.sink588.ph = phi ptr [ %92, %822 ], [ %101, %864 ], [ %106, %908 ], [ %114, %953 ]
+  %.sink605 = phi ptr [ %909, %908 ], [ %865, %864 ], [ %823, %822 ], [ %954, %953 ]
+  %.sink589.ph = phi ptr [ %112, %908 ], [ %104, %864 ], [ %99, %822 ], [ %120, %953 ]
+  %.sink588.ph = phi ptr [ %106, %908 ], [ %101, %864 ], [ %92, %822 ], [ %114, %953 ]
   %966 = load ptr, ptr %.sink605, align 8
   %967 = getelementptr inbounds nuw i8, ptr %966, i64 8
   %968 = load ptr, ptr %967, align 8
@@ -73958,8 +73958,8 @@ _ZN7testing7MessageD2Ev.exit456.sink.split:       ; preds = %953, %908, %864, %8
   br label %_ZN7testing7MessageD2Ev.exit456
 
 _ZN7testing7MessageD2Ev.exit456:                  ; preds = %_ZN7testing7MessageD2Ev.exit456.sink.split, %953, %908, %864, %822
-  %.sink589 = phi ptr [ %99, %822 ], [ %104, %864 ], [ %112, %908 ], [ %120, %953 ], [ %.sink589.ph, %_ZN7testing7MessageD2Ev.exit456.sink.split ]
-  %.sink588 = phi ptr [ %92, %822 ], [ %101, %864 ], [ %106, %908 ], [ %114, %953 ], [ %.sink588.ph, %_ZN7testing7MessageD2Ev.exit456.sink.split ]
+  %.sink589 = phi ptr [ %104, %864 ], [ %112, %908 ], [ %120, %953 ], [ %99, %822 ], [ %.sink589.ph, %_ZN7testing7MessageD2Ev.exit456.sink.split ]
+  %.sink588 = phi ptr [ %101, %864 ], [ %106, %908 ], [ %114, %953 ], [ %92, %822 ], [ %.sink588.ph, %_ZN7testing7MessageD2Ev.exit456.sink.split ]
   store ptr null, ptr %.sink589, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink588) #26
   invoke void @__cxa_end_catch()
@@ -74183,8 +74183,8 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit502: ; preds = %1038, %_ZNKSt7__cxx
   ret void
 
 1042:                                             ; preds = %765, %_ZN7testing7MessageD2Ev.exit499, %1014, %1020, %459, %_ZN7testing7MessageD2Ev.exit431, %708, %714, %153, %_ZN7testing7MessageD2Ev.exit366, %402, %408
-  %.sink590 = phi ptr [ %5, %408 ], [ %5, %402 ], [ %5, %_ZN7testing7MessageD2Ev.exit366 ], [ %5, %153 ], [ %45, %714 ], [ %45, %708 ], [ %45, %_ZN7testing7MessageD2Ev.exit431 ], [ %45, %459 ], [ %85, %1020 ], [ %85, %1014 ], [ %85, %_ZN7testing7MessageD2Ev.exit499 ], [ %85, %765 ]
-  %.pn287.pn.pn = phi { ptr, i32 } [ %.pn215, %408 ], [ %403, %402 ], [ %.pn217, %_ZN7testing7MessageD2Ev.exit366 ], [ %154, %153 ], [ %.pn250, %714 ], [ %709, %708 ], [ %.pn252, %_ZN7testing7MessageD2Ev.exit431 ], [ %460, %459 ], [ %.pn285, %1020 ], [ %1015, %1014 ], [ %.pn287, %_ZN7testing7MessageD2Ev.exit499 ], [ %766, %765 ]
+  %.sink590 = phi ptr [ %45, %459 ], [ %5, %153 ], [ %5, %408 ], [ %5, %402 ], [ %5, %_ZN7testing7MessageD2Ev.exit366 ], [ %45, %714 ], [ %45, %708 ], [ %45, %_ZN7testing7MessageD2Ev.exit431 ], [ %85, %1020 ], [ %85, %1014 ], [ %85, %_ZN7testing7MessageD2Ev.exit499 ], [ %85, %765 ]
+  %.pn287.pn.pn = phi { ptr, i32 } [ %460, %459 ], [ %154, %153 ], [ %.pn215, %408 ], [ %403, %402 ], [ %.pn217, %_ZN7testing7MessageD2Ev.exit366 ], [ %.pn250, %714 ], [ %709, %708 ], [ %.pn252, %_ZN7testing7MessageD2Ev.exit431 ], [ %.pn285, %1020 ], [ %1015, %1014 ], [ %.pn287, %_ZN7testing7MessageD2Ev.exit499 ], [ %766, %765 ]
   call void @_ZN7testing8internal14TrueWithStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink590) #26
   resume { ptr, i32 } %.pn287.pn.pn
 
@@ -74998,9 +74998,9 @@ _ZN7testing7MessageD2Ev.exit133:                  ; preds = %265, %_ZNKSt14defau
   br label %279
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %259, %214, %170, %128
-  %.sink175 = phi ptr [ %129, %128 ], [ %171, %170 ], [ %215, %214 ], [ %260, %259 ]
-  %.sink170.ph = phi ptr [ %17, %128 ], [ %22, %170 ], [ %30, %214 ], [ %38, %259 ]
-  %.sink.ph = phi ptr [ %10, %128 ], [ %19, %170 ], [ %24, %214 ], [ %32, %259 ]
+  %.sink175 = phi ptr [ %215, %214 ], [ %171, %170 ], [ %129, %128 ], [ %260, %259 ]
+  %.sink170.ph = phi ptr [ %30, %214 ], [ %22, %170 ], [ %17, %128 ], [ %38, %259 ]
+  %.sink.ph = phi ptr [ %24, %214 ], [ %19, %170 ], [ %10, %128 ], [ %32, %259 ]
   %272 = load ptr, ptr %.sink175, align 8
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 8
   %274 = load ptr, ptr %273, align 8
@@ -75008,8 +75008,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %259, %214, %170, %1
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %259, %214, %170, %128
-  %.sink170 = phi ptr [ %17, %128 ], [ %22, %170 ], [ %30, %214 ], [ %38, %259 ], [ %.sink170.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %10, %128 ], [ %19, %170 ], [ %24, %214 ], [ %32, %259 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink170 = phi ptr [ %22, %170 ], [ %30, %214 ], [ %38, %259 ], [ %17, %128 ], [ %.sink170.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %19, %170 ], [ %24, %214 ], [ %32, %259 ], [ %10, %128 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink170, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -76126,9 +76126,9 @@ _ZN7testing7MessageD2Ev.exit354:                  ; preds = %347, %_ZNKSt14defau
   br label %361
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %341, %296, %252, %210
-  %.sink595 = phi ptr [ %211, %210 ], [ %253, %252 ], [ %297, %296 ], [ %342, %341 ]
-  %.sink583.ph = phi ptr [ %19, %210 ], [ %24, %252 ], [ %32, %296 ], [ %40, %341 ]
-  %.sink.ph = phi ptr [ %12, %210 ], [ %21, %252 ], [ %26, %296 ], [ %34, %341 ]
+  %.sink595 = phi ptr [ %297, %296 ], [ %253, %252 ], [ %211, %210 ], [ %342, %341 ]
+  %.sink583.ph = phi ptr [ %32, %296 ], [ %24, %252 ], [ %19, %210 ], [ %40, %341 ]
+  %.sink.ph = phi ptr [ %26, %296 ], [ %21, %252 ], [ %12, %210 ], [ %34, %341 ]
   %354 = load ptr, ptr %.sink595, align 8
   %355 = getelementptr inbounds nuw i8, ptr %354, i64 8
   %356 = load ptr, ptr %355, align 8
@@ -76136,8 +76136,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %341, %296, %252, %2
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %341, %296, %252, %210
-  %.sink583 = phi ptr [ %19, %210 ], [ %24, %252 ], [ %32, %296 ], [ %40, %341 ], [ %.sink583.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %12, %210 ], [ %21, %252 ], [ %26, %296 ], [ %34, %341 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink583 = phi ptr [ %24, %252 ], [ %32, %296 ], [ %40, %341 ], [ %19, %210 ], [ %.sink583.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %21, %252 ], [ %26, %296 ], [ %34, %341 ], [ %12, %210 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink583, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -76345,7 +76345,7 @@ _ZN7testing7MessageD2Ev.exit366:                  ; preds = %421, %_ZNKSt14defau
   br label %426
 
 426:                                              ; preds = %374, %.critedge298, %_ZN7testing7MessageD2Ev.exit363
-  %427 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit363 ], [ false, %.critedge298 ], [ true, %374 ]
+  %427 = phi i1 [ false, %.critedge298 ], [ false, %_ZN7testing7MessageD2Ev.exit363 ], [ true, %374 ]
   %428 = load ptr, ptr %5, align 8
   %429 = icmp eq ptr %428, %125
   br i1 %429, label %_ZN7testing8internal14TrueWithStringD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -77105,9 +77105,9 @@ _ZN7testing7MessageD2Ev.exit418:                  ; preds = %653, %_ZNKSt14defau
   br label %667
 
 _ZN7testing7MessageD2Ev.exit388.sink.split:       ; preds = %647, %602, %558, %516
-  %.sink600 = phi ptr [ %517, %516 ], [ %559, %558 ], [ %603, %602 ], [ %648, %647 ]
-  %.sink586.ph = phi ptr [ %59, %516 ], [ %64, %558 ], [ %72, %602 ], [ %80, %647 ]
-  %.sink585.ph = phi ptr [ %52, %516 ], [ %61, %558 ], [ %66, %602 ], [ %74, %647 ]
+  %.sink600 = phi ptr [ %603, %602 ], [ %559, %558 ], [ %517, %516 ], [ %648, %647 ]
+  %.sink586.ph = phi ptr [ %72, %602 ], [ %64, %558 ], [ %59, %516 ], [ %80, %647 ]
+  %.sink585.ph = phi ptr [ %66, %602 ], [ %61, %558 ], [ %52, %516 ], [ %74, %647 ]
   %660 = load ptr, ptr %.sink600, align 8
   %661 = getelementptr inbounds nuw i8, ptr %660, i64 8
   %662 = load ptr, ptr %661, align 8
@@ -77115,8 +77115,8 @@ _ZN7testing7MessageD2Ev.exit388.sink.split:       ; preds = %647, %602, %558, %5
   br label %_ZN7testing7MessageD2Ev.exit388
 
 _ZN7testing7MessageD2Ev.exit388:                  ; preds = %_ZN7testing7MessageD2Ev.exit388.sink.split, %647, %602, %558, %516
-  %.sink586 = phi ptr [ %59, %516 ], [ %64, %558 ], [ %72, %602 ], [ %80, %647 ], [ %.sink586.ph, %_ZN7testing7MessageD2Ev.exit388.sink.split ]
-  %.sink585 = phi ptr [ %52, %516 ], [ %61, %558 ], [ %66, %602 ], [ %74, %647 ], [ %.sink585.ph, %_ZN7testing7MessageD2Ev.exit388.sink.split ]
+  %.sink586 = phi ptr [ %64, %558 ], [ %72, %602 ], [ %80, %647 ], [ %59, %516 ], [ %.sink586.ph, %_ZN7testing7MessageD2Ev.exit388.sink.split ]
+  %.sink585 = phi ptr [ %61, %558 ], [ %66, %602 ], [ %74, %647 ], [ %52, %516 ], [ %.sink585.ph, %_ZN7testing7MessageD2Ev.exit388.sink.split ]
   store ptr null, ptr %.sink586, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink585) #26
   invoke void @__cxa_end_catch()
@@ -77324,7 +77324,7 @@ _ZN7testing7MessageD2Ev.exit431:                  ; preds = %727, %_ZNKSt14defau
   br label %732
 
 732:                                              ; preds = %680, %.critedge310, %_ZN7testing7MessageD2Ev.exit428
-  %733 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit428 ], [ false, %.critedge310 ], [ true, %680 ]
+  %733 = phi i1 [ false, %.critedge310 ], [ false, %_ZN7testing7MessageD2Ev.exit428 ], [ true, %680 ]
   %734 = load ptr, ptr %45, align 8
   %735 = icmp eq ptr %734, %431
   br i1 %735, label %_ZN7testing8internal14TrueWithStringD2Ev.exit434, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i432
@@ -78084,9 +78084,9 @@ _ZN7testing7MessageD2Ev.exit486:                  ; preds = %959, %_ZNKSt14defau
   br label %973
 
 _ZN7testing7MessageD2Ev.exit456.sink.split:       ; preds = %953, %908, %864, %822
-  %.sink605 = phi ptr [ %823, %822 ], [ %865, %864 ], [ %909, %908 ], [ %954, %953 ]
-  %.sink589.ph = phi ptr [ %99, %822 ], [ %104, %864 ], [ %112, %908 ], [ %120, %953 ]
-  %.sink588.ph = phi ptr [ %92, %822 ], [ %101, %864 ], [ %106, %908 ], [ %114, %953 ]
+  %.sink605 = phi ptr [ %909, %908 ], [ %865, %864 ], [ %823, %822 ], [ %954, %953 ]
+  %.sink589.ph = phi ptr [ %112, %908 ], [ %104, %864 ], [ %99, %822 ], [ %120, %953 ]
+  %.sink588.ph = phi ptr [ %106, %908 ], [ %101, %864 ], [ %92, %822 ], [ %114, %953 ]
   %966 = load ptr, ptr %.sink605, align 8
   %967 = getelementptr inbounds nuw i8, ptr %966, i64 8
   %968 = load ptr, ptr %967, align 8
@@ -78094,8 +78094,8 @@ _ZN7testing7MessageD2Ev.exit456.sink.split:       ; preds = %953, %908, %864, %8
   br label %_ZN7testing7MessageD2Ev.exit456
 
 _ZN7testing7MessageD2Ev.exit456:                  ; preds = %_ZN7testing7MessageD2Ev.exit456.sink.split, %953, %908, %864, %822
-  %.sink589 = phi ptr [ %99, %822 ], [ %104, %864 ], [ %112, %908 ], [ %120, %953 ], [ %.sink589.ph, %_ZN7testing7MessageD2Ev.exit456.sink.split ]
-  %.sink588 = phi ptr [ %92, %822 ], [ %101, %864 ], [ %106, %908 ], [ %114, %953 ], [ %.sink588.ph, %_ZN7testing7MessageD2Ev.exit456.sink.split ]
+  %.sink589 = phi ptr [ %104, %864 ], [ %112, %908 ], [ %120, %953 ], [ %99, %822 ], [ %.sink589.ph, %_ZN7testing7MessageD2Ev.exit456.sink.split ]
+  %.sink588 = phi ptr [ %101, %864 ], [ %106, %908 ], [ %114, %953 ], [ %92, %822 ], [ %.sink588.ph, %_ZN7testing7MessageD2Ev.exit456.sink.split ]
   store ptr null, ptr %.sink589, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink588) #26
   invoke void @__cxa_end_catch()
@@ -78319,8 +78319,8 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit502: ; preds = %1038, %_ZNKSt7__cxx
   ret void
 
 1042:                                             ; preds = %765, %_ZN7testing7MessageD2Ev.exit499, %1014, %1020, %459, %_ZN7testing7MessageD2Ev.exit431, %708, %714, %153, %_ZN7testing7MessageD2Ev.exit366, %402, %408
-  %.sink590 = phi ptr [ %5, %408 ], [ %5, %402 ], [ %5, %_ZN7testing7MessageD2Ev.exit366 ], [ %5, %153 ], [ %45, %714 ], [ %45, %708 ], [ %45, %_ZN7testing7MessageD2Ev.exit431 ], [ %45, %459 ], [ %85, %1020 ], [ %85, %1014 ], [ %85, %_ZN7testing7MessageD2Ev.exit499 ], [ %85, %765 ]
-  %.pn287.pn.pn = phi { ptr, i32 } [ %.pn215, %408 ], [ %403, %402 ], [ %.pn217, %_ZN7testing7MessageD2Ev.exit366 ], [ %154, %153 ], [ %.pn250, %714 ], [ %709, %708 ], [ %.pn252, %_ZN7testing7MessageD2Ev.exit431 ], [ %460, %459 ], [ %.pn285, %1020 ], [ %1015, %1014 ], [ %.pn287, %_ZN7testing7MessageD2Ev.exit499 ], [ %766, %765 ]
+  %.sink590 = phi ptr [ %45, %459 ], [ %5, %153 ], [ %5, %408 ], [ %5, %402 ], [ %5, %_ZN7testing7MessageD2Ev.exit366 ], [ %45, %714 ], [ %45, %708 ], [ %45, %_ZN7testing7MessageD2Ev.exit431 ], [ %85, %1020 ], [ %85, %1014 ], [ %85, %_ZN7testing7MessageD2Ev.exit499 ], [ %85, %765 ]
+  %.pn287.pn.pn = phi { ptr, i32 } [ %460, %459 ], [ %154, %153 ], [ %.pn215, %408 ], [ %403, %402 ], [ %.pn217, %_ZN7testing7MessageD2Ev.exit366 ], [ %.pn250, %714 ], [ %709, %708 ], [ %.pn252, %_ZN7testing7MessageD2Ev.exit431 ], [ %.pn285, %1020 ], [ %1015, %1014 ], [ %.pn287, %_ZN7testing7MessageD2Ev.exit499 ], [ %766, %765 ]
   call void @_ZN7testing8internal14TrueWithStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink590) #26
   resume { ptr, i32 } %.pn287.pn.pn
 
@@ -79175,9 +79175,9 @@ _ZN7testing7MessageD2Ev.exit244:                  ; preds = %306, %_ZNKSt14defau
   br label %320
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %300, %255, %211, %169
-  %.sink386 = phi ptr [ %170, %169 ], [ %212, %211 ], [ %256, %255 ], [ %301, %300 ]
-  %.sink377.ph = phi ptr [ %18, %169 ], [ %23, %211 ], [ %31, %255 ], [ %39, %300 ]
-  %.sink.ph = phi ptr [ %11, %169 ], [ %20, %211 ], [ %25, %255 ], [ %33, %300 ]
+  %.sink386 = phi ptr [ %256, %255 ], [ %212, %211 ], [ %170, %169 ], [ %301, %300 ]
+  %.sink377.ph = phi ptr [ %31, %255 ], [ %23, %211 ], [ %18, %169 ], [ %39, %300 ]
+  %.sink.ph = phi ptr [ %25, %255 ], [ %20, %211 ], [ %11, %169 ], [ %33, %300 ]
   %313 = load ptr, ptr %.sink386, align 8
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 8
   %315 = load ptr, ptr %314, align 8
@@ -79185,8 +79185,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %300, %255, %211, %1
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %300, %255, %211, %169
-  %.sink377 = phi ptr [ %18, %169 ], [ %23, %211 ], [ %31, %255 ], [ %39, %300 ], [ %.sink377.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %11, %169 ], [ %20, %211 ], [ %25, %255 ], [ %33, %300 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink377 = phi ptr [ %23, %211 ], [ %31, %255 ], [ %39, %300 ], [ %18, %169 ], [ %.sink377.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %20, %211 ], [ %25, %255 ], [ %33, %300 ], [ %11, %169 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink377, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -79394,7 +79394,7 @@ _ZN7testing7MessageD2Ev.exit256:                  ; preds = %380, %_ZNKSt14defau
   br label %385
 
 385:                                              ; preds = %333, %.critedge201, %_ZN7testing7MessageD2Ev.exit253
-  %386 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit253 ], [ false, %.critedge201 ], [ true, %333 ]
+  %386 = phi i1 [ false, %.critedge201 ], [ false, %_ZN7testing7MessageD2Ev.exit253 ], [ true, %333 ]
   %387 = load ptr, ptr %4, align 8
   %388 = icmp eq ptr %387, %84
   br i1 %388, label %_ZN7testing8internal14TrueWithStringD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -80154,9 +80154,9 @@ _ZN7testing7MessageD2Ev.exit308:                  ; preds = %612, %_ZNKSt14defau
   br label %626
 
 _ZN7testing7MessageD2Ev.exit278.sink.split:       ; preds = %606, %561, %517, %475
-  %.sink391 = phi ptr [ %476, %475 ], [ %518, %517 ], [ %562, %561 ], [ %607, %606 ]
-  %.sink380.ph = phi ptr [ %58, %475 ], [ %63, %517 ], [ %71, %561 ], [ %79, %606 ]
-  %.sink379.ph = phi ptr [ %51, %475 ], [ %60, %517 ], [ %65, %561 ], [ %73, %606 ]
+  %.sink391 = phi ptr [ %562, %561 ], [ %518, %517 ], [ %476, %475 ], [ %607, %606 ]
+  %.sink380.ph = phi ptr [ %71, %561 ], [ %63, %517 ], [ %58, %475 ], [ %79, %606 ]
+  %.sink379.ph = phi ptr [ %65, %561 ], [ %60, %517 ], [ %51, %475 ], [ %73, %606 ]
   %619 = load ptr, ptr %.sink391, align 8
   %620 = getelementptr inbounds nuw i8, ptr %619, i64 8
   %621 = load ptr, ptr %620, align 8
@@ -80164,8 +80164,8 @@ _ZN7testing7MessageD2Ev.exit278.sink.split:       ; preds = %606, %561, %517, %4
   br label %_ZN7testing7MessageD2Ev.exit278
 
 _ZN7testing7MessageD2Ev.exit278:                  ; preds = %_ZN7testing7MessageD2Ev.exit278.sink.split, %606, %561, %517, %475
-  %.sink380 = phi ptr [ %58, %475 ], [ %63, %517 ], [ %71, %561 ], [ %79, %606 ], [ %.sink380.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
-  %.sink379 = phi ptr [ %51, %475 ], [ %60, %517 ], [ %65, %561 ], [ %73, %606 ], [ %.sink379.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
+  %.sink380 = phi ptr [ %63, %517 ], [ %71, %561 ], [ %79, %606 ], [ %58, %475 ], [ %.sink380.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
+  %.sink379 = phi ptr [ %60, %517 ], [ %65, %561 ], [ %73, %606 ], [ %51, %475 ], [ %.sink379.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
   store ptr null, ptr %.sink380, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink379) #26
   invoke void @__cxa_end_catch()
@@ -80389,8 +80389,8 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit324: ; preds = %691, %_ZNKSt7__cxx1
   ret void
 
 695:                                              ; preds = %418, %_ZN7testing7MessageD2Ev.exit321, %667, %673, %112, %_ZN7testing7MessageD2Ev.exit256, %361, %367
-  %.sink381 = phi ptr [ %4, %367 ], [ %4, %361 ], [ %4, %_ZN7testing7MessageD2Ev.exit256 ], [ %4, %112 ], [ %44, %673 ], [ %44, %667 ], [ %44, %_ZN7testing7MessageD2Ev.exit321 ], [ %44, %418 ]
-  %.pn190.pn.pn = phi { ptr, i32 } [ %.pn153, %367 ], [ %362, %361 ], [ %.pn155, %_ZN7testing7MessageD2Ev.exit256 ], [ %113, %112 ], [ %.pn188, %673 ], [ %668, %667 ], [ %.pn190, %_ZN7testing7MessageD2Ev.exit321 ], [ %419, %418 ]
+  %.sink381 = phi ptr [ %4, %112 ], [ %4, %367 ], [ %4, %361 ], [ %4, %_ZN7testing7MessageD2Ev.exit256 ], [ %44, %673 ], [ %44, %667 ], [ %44, %_ZN7testing7MessageD2Ev.exit321 ], [ %44, %418 ]
+  %.pn190.pn.pn = phi { ptr, i32 } [ %113, %112 ], [ %.pn153, %367 ], [ %362, %361 ], [ %.pn155, %_ZN7testing7MessageD2Ev.exit256 ], [ %.pn188, %673 ], [ %668, %667 ], [ %.pn190, %_ZN7testing7MessageD2Ev.exit321 ], [ %419, %418 ]
   call void @_ZN7testing8internal14TrueWithStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink381) #26
   resume { ptr, i32 } %.pn190.pn.pn
 
@@ -81319,9 +81319,9 @@ _ZN7testing7MessageD2Ev.exit447:                  ; preds = %380, %_ZNKSt14defau
   br label %394
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %374, %329, %285, %243
-  %.sink742 = phi ptr [ %244, %243 ], [ %286, %285 ], [ %330, %329 ], [ %375, %374 ]
-  %.sink727.ph = phi ptr [ %20, %243 ], [ %25, %285 ], [ %33, %329 ], [ %41, %374 ]
-  %.sink.ph = phi ptr [ %13, %243 ], [ %22, %285 ], [ %27, %329 ], [ %35, %374 ]
+  %.sink742 = phi ptr [ %330, %329 ], [ %286, %285 ], [ %244, %243 ], [ %375, %374 ]
+  %.sink727.ph = phi ptr [ %33, %329 ], [ %25, %285 ], [ %20, %243 ], [ %41, %374 ]
+  %.sink.ph = phi ptr [ %27, %329 ], [ %22, %285 ], [ %13, %243 ], [ %35, %374 ]
   %387 = load ptr, ptr %.sink742, align 8
   %388 = getelementptr inbounds nuw i8, ptr %387, i64 8
   %389 = load ptr, ptr %388, align 8
@@ -81329,8 +81329,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %374, %329, %285, %2
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %374, %329, %285, %243
-  %.sink727 = phi ptr [ %20, %243 ], [ %25, %285 ], [ %33, %329 ], [ %41, %374 ], [ %.sink727.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %13, %243 ], [ %22, %285 ], [ %27, %329 ], [ %35, %374 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink727 = phi ptr [ %25, %285 ], [ %33, %329 ], [ %41, %374 ], [ %20, %243 ], [ %.sink727.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %22, %285 ], [ %27, %329 ], [ %35, %374 ], [ %13, %243 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink727, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -81538,7 +81538,7 @@ _ZN7testing7MessageD2Ev.exit459:                  ; preds = %454, %_ZNKSt14defau
   br label %459
 
 459:                                              ; preds = %407, %.critedge380, %_ZN7testing7MessageD2Ev.exit456
-  %460 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit456 ], [ false, %.critedge380 ], [ true, %407 ]
+  %460 = phi i1 [ false, %.critedge380 ], [ false, %_ZN7testing7MessageD2Ev.exit456 ], [ true, %407 ]
   %461 = load ptr, ptr %6, align 8
   %462 = icmp eq ptr %461, %158
   br i1 %462, label %_ZN7testing8internal14TrueWithStringD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -82298,9 +82298,9 @@ _ZN7testing7MessageD2Ev.exit511:                  ; preds = %686, %_ZNKSt14defau
   br label %700
 
 _ZN7testing7MessageD2Ev.exit481.sink.split:       ; preds = %680, %635, %591, %549
-  %.sink747 = phi ptr [ %550, %549 ], [ %592, %591 ], [ %636, %635 ], [ %681, %680 ]
-  %.sink730.ph = phi ptr [ %60, %549 ], [ %65, %591 ], [ %73, %635 ], [ %81, %680 ]
-  %.sink729.ph = phi ptr [ %53, %549 ], [ %62, %591 ], [ %67, %635 ], [ %75, %680 ]
+  %.sink747 = phi ptr [ %636, %635 ], [ %592, %591 ], [ %550, %549 ], [ %681, %680 ]
+  %.sink730.ph = phi ptr [ %73, %635 ], [ %65, %591 ], [ %60, %549 ], [ %81, %680 ]
+  %.sink729.ph = phi ptr [ %67, %635 ], [ %62, %591 ], [ %53, %549 ], [ %75, %680 ]
   %693 = load ptr, ptr %.sink747, align 8
   %694 = getelementptr inbounds nuw i8, ptr %693, i64 8
   %695 = load ptr, ptr %694, align 8
@@ -82308,8 +82308,8 @@ _ZN7testing7MessageD2Ev.exit481.sink.split:       ; preds = %680, %635, %591, %5
   br label %_ZN7testing7MessageD2Ev.exit481
 
 _ZN7testing7MessageD2Ev.exit481:                  ; preds = %_ZN7testing7MessageD2Ev.exit481.sink.split, %680, %635, %591, %549
-  %.sink730 = phi ptr [ %60, %549 ], [ %65, %591 ], [ %73, %635 ], [ %81, %680 ], [ %.sink730.ph, %_ZN7testing7MessageD2Ev.exit481.sink.split ]
-  %.sink729 = phi ptr [ %53, %549 ], [ %62, %591 ], [ %67, %635 ], [ %75, %680 ], [ %.sink729.ph, %_ZN7testing7MessageD2Ev.exit481.sink.split ]
+  %.sink730 = phi ptr [ %65, %591 ], [ %73, %635 ], [ %81, %680 ], [ %60, %549 ], [ %.sink730.ph, %_ZN7testing7MessageD2Ev.exit481.sink.split ]
+  %.sink729 = phi ptr [ %62, %591 ], [ %67, %635 ], [ %75, %680 ], [ %53, %549 ], [ %.sink729.ph, %_ZN7testing7MessageD2Ev.exit481.sink.split ]
   store ptr null, ptr %.sink730, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink729) #26
   invoke void @__cxa_end_catch()
@@ -82517,7 +82517,7 @@ _ZN7testing7MessageD2Ev.exit524:                  ; preds = %760, %_ZNKSt14defau
   br label %765
 
 765:                                              ; preds = %713, %.critedge392, %_ZN7testing7MessageD2Ev.exit521
-  %766 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit521 ], [ false, %.critedge392 ], [ true, %713 ]
+  %766 = phi i1 [ false, %.critedge392 ], [ false, %_ZN7testing7MessageD2Ev.exit521 ], [ true, %713 ]
   %767 = load ptr, ptr %46, align 8
   %768 = icmp eq ptr %767, %464
   br i1 %768, label %_ZN7testing8internal14TrueWithStringD2Ev.exit527, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i525
@@ -83123,9 +83123,9 @@ _ZN7testing7MessageD2Ev.exit571:                  ; preds = %947, %_ZNKSt14defau
   br label %961
 
 _ZN7testing7MessageD2Ev.exit549.sink.split:       ; preds = %941, %897, %855
-  %.sink752 = phi ptr [ %856, %855 ], [ %898, %897 ], [ %942, %941 ]
-  %.sink733.ph = phi ptr [ %100, %855 ], [ %105, %897 ], [ %113, %941 ]
-  %.sink732.ph = phi ptr [ %93, %855 ], [ %102, %897 ], [ %107, %941 ]
+  %.sink752 = phi ptr [ %898, %897 ], [ %856, %855 ], [ %942, %941 ]
+  %.sink733.ph = phi ptr [ %105, %897 ], [ %100, %855 ], [ %113, %941 ]
+  %.sink732.ph = phi ptr [ %102, %897 ], [ %93, %855 ], [ %107, %941 ]
   %954 = load ptr, ptr %.sink752, align 8
   %955 = getelementptr inbounds nuw i8, ptr %954, i64 8
   %956 = load ptr, ptr %955, align 8
@@ -83133,8 +83133,8 @@ _ZN7testing7MessageD2Ev.exit549.sink.split:       ; preds = %941, %897, %855
   br label %_ZN7testing7MessageD2Ev.exit549
 
 _ZN7testing7MessageD2Ev.exit549:                  ; preds = %_ZN7testing7MessageD2Ev.exit549.sink.split, %941, %897, %855
-  %.sink733 = phi ptr [ %100, %855 ], [ %105, %897 ], [ %113, %941 ], [ %.sink733.ph, %_ZN7testing7MessageD2Ev.exit549.sink.split ]
-  %.sink732 = phi ptr [ %93, %855 ], [ %102, %897 ], [ %107, %941 ], [ %.sink732.ph, %_ZN7testing7MessageD2Ev.exit549.sink.split ]
+  %.sink733 = phi ptr [ %105, %897 ], [ %113, %941 ], [ %100, %855 ], [ %.sink733.ph, %_ZN7testing7MessageD2Ev.exit549.sink.split ]
+  %.sink732 = phi ptr [ %102, %897 ], [ %107, %941 ], [ %93, %855 ], [ %.sink732.ph, %_ZN7testing7MessageD2Ev.exit549.sink.split ]
   store ptr null, ptr %.sink733, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink732) #26
   invoke void @__cxa_end_catch()
@@ -83342,7 +83342,7 @@ _ZN7testing7MessageD2Ev.exit584:                  ; preds = %1021, %_ZNKSt14defa
   br label %1026
 
 1026:                                             ; preds = %974, %.critedge403, %_ZN7testing7MessageD2Ev.exit581
-  %1027 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit581 ], [ false, %.critedge403 ], [ true, %974 ]
+  %1027 = phi i1 [ false, %.critedge403 ], [ false, %_ZN7testing7MessageD2Ev.exit581 ], [ true, %974 ]
   %1028 = load ptr, ptr %86, align 8
   %1029 = icmp eq ptr %1028, %770
   br i1 %1029, label %_ZN7testing8internal14TrueWithStringD2Ev.exit587, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i585
@@ -84055,9 +84055,9 @@ _ZN7testing7MessageD2Ev.exit622:                  ; preds = %1237, %_ZNKSt14defa
   br label %1251
 
 _ZN7testing7MessageD2Ev.exit592.sink.split:       ; preds = %1231, %1186, %1142, %1100
-  %.sink757 = phi ptr [ %1101, %1100 ], [ %1143, %1142 ], [ %1187, %1186 ], [ %1232, %1231 ]
-  %.sink736.ph = phi ptr [ %132, %1100 ], [ %137, %1142 ], [ %145, %1186 ], [ %153, %1231 ]
-  %.sink735.ph = phi ptr [ %125, %1100 ], [ %134, %1142 ], [ %139, %1186 ], [ %147, %1231 ]
+  %.sink757 = phi ptr [ %1187, %1186 ], [ %1143, %1142 ], [ %1101, %1100 ], [ %1232, %1231 ]
+  %.sink736.ph = phi ptr [ %145, %1186 ], [ %137, %1142 ], [ %132, %1100 ], [ %153, %1231 ]
+  %.sink735.ph = phi ptr [ %139, %1186 ], [ %134, %1142 ], [ %125, %1100 ], [ %147, %1231 ]
   %1244 = load ptr, ptr %.sink757, align 8
   %1245 = getelementptr inbounds nuw i8, ptr %1244, i64 8
   %1246 = load ptr, ptr %1245, align 8
@@ -84065,8 +84065,8 @@ _ZN7testing7MessageD2Ev.exit592.sink.split:       ; preds = %1231, %1186, %1142,
   br label %_ZN7testing7MessageD2Ev.exit592
 
 _ZN7testing7MessageD2Ev.exit592:                  ; preds = %_ZN7testing7MessageD2Ev.exit592.sink.split, %1231, %1186, %1142, %1100
-  %.sink736 = phi ptr [ %132, %1100 ], [ %137, %1142 ], [ %145, %1186 ], [ %153, %1231 ], [ %.sink736.ph, %_ZN7testing7MessageD2Ev.exit592.sink.split ]
-  %.sink735 = phi ptr [ %125, %1100 ], [ %134, %1142 ], [ %139, %1186 ], [ %147, %1231 ], [ %.sink735.ph, %_ZN7testing7MessageD2Ev.exit592.sink.split ]
+  %.sink736 = phi ptr [ %137, %1142 ], [ %145, %1186 ], [ %153, %1231 ], [ %132, %1100 ], [ %.sink736.ph, %_ZN7testing7MessageD2Ev.exit592.sink.split ]
+  %.sink735 = phi ptr [ %134, %1142 ], [ %139, %1186 ], [ %147, %1231 ], [ %125, %1100 ], [ %.sink735.ph, %_ZN7testing7MessageD2Ev.exit592.sink.split ]
   store ptr null, ptr %.sink736, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink735) #26
   invoke void @__cxa_end_catch()
@@ -84270,8 +84270,8 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit632: ; preds = %1310, %_ZNKSt7__cxx
   ret void
 
 1314:                                             ; preds = %1043, %_ZN7testing7MessageD2Ev.exit629, %1286, %1292, %798, %_ZN7testing7MessageD2Ev.exit584, %1002, %1008, %492, %_ZN7testing7MessageD2Ev.exit524, %741, %747, %186, %_ZN7testing7MessageD2Ev.exit459, %435, %441
-  %.sink737 = phi ptr [ %6, %441 ], [ %6, %435 ], [ %6, %_ZN7testing7MessageD2Ev.exit459 ], [ %6, %186 ], [ %46, %747 ], [ %46, %741 ], [ %46, %_ZN7testing7MessageD2Ev.exit524 ], [ %46, %492 ], [ %86, %1008 ], [ %86, %1002 ], [ %86, %_ZN7testing7MessageD2Ev.exit584 ], [ %86, %798 ], [ %118, %1292 ], [ %118, %1286 ], [ %118, %_ZN7testing7MessageD2Ev.exit629 ], [ %118, %1043 ]
-  %.pn369.pn.pn = phi { ptr, i32 } [ %.pn269, %441 ], [ %436, %435 ], [ %.pn271, %_ZN7testing7MessageD2Ev.exit459 ], [ %187, %186 ], [ %.pn304, %747 ], [ %742, %741 ], [ %.pn306, %_ZN7testing7MessageD2Ev.exit524 ], [ %493, %492 ], [ %.pn332, %1008 ], [ %1003, %1002 ], [ %.pn334, %_ZN7testing7MessageD2Ev.exit584 ], [ %799, %798 ], [ %.pn367, %1292 ], [ %1287, %1286 ], [ %.pn369, %_ZN7testing7MessageD2Ev.exit629 ], [ %1044, %1043 ]
+  %.sink737 = phi ptr [ %86, %798 ], [ %46, %492 ], [ %6, %186 ], [ %6, %441 ], [ %6, %435 ], [ %6, %_ZN7testing7MessageD2Ev.exit459 ], [ %46, %747 ], [ %46, %741 ], [ %46, %_ZN7testing7MessageD2Ev.exit524 ], [ %86, %1008 ], [ %86, %1002 ], [ %86, %_ZN7testing7MessageD2Ev.exit584 ], [ %118, %1292 ], [ %118, %1286 ], [ %118, %_ZN7testing7MessageD2Ev.exit629 ], [ %118, %1043 ]
+  %.pn369.pn.pn = phi { ptr, i32 } [ %799, %798 ], [ %493, %492 ], [ %187, %186 ], [ %.pn269, %441 ], [ %436, %435 ], [ %.pn271, %_ZN7testing7MessageD2Ev.exit459 ], [ %.pn304, %747 ], [ %742, %741 ], [ %.pn306, %_ZN7testing7MessageD2Ev.exit524 ], [ %.pn332, %1008 ], [ %1003, %1002 ], [ %.pn334, %_ZN7testing7MessageD2Ev.exit584 ], [ %.pn367, %1292 ], [ %1287, %1286 ], [ %.pn369, %_ZN7testing7MessageD2Ev.exit629 ], [ %1044, %1043 ]
   call void @_ZN7testing8internal14TrueWithStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink737) #26
   resume { ptr, i32 } %.pn369.pn.pn
 
@@ -85167,9 +85167,9 @@ _ZN7testing7MessageD2Ev.exit354:                  ; preds = %347, %_ZNKSt14defau
   br label %361
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %341, %296, %252, %210
-  %.sink595 = phi ptr [ %211, %210 ], [ %253, %252 ], [ %297, %296 ], [ %342, %341 ]
-  %.sink583.ph = phi ptr [ %19, %210 ], [ %24, %252 ], [ %32, %296 ], [ %40, %341 ]
-  %.sink.ph = phi ptr [ %12, %210 ], [ %21, %252 ], [ %26, %296 ], [ %34, %341 ]
+  %.sink595 = phi ptr [ %297, %296 ], [ %253, %252 ], [ %211, %210 ], [ %342, %341 ]
+  %.sink583.ph = phi ptr [ %32, %296 ], [ %24, %252 ], [ %19, %210 ], [ %40, %341 ]
+  %.sink.ph = phi ptr [ %26, %296 ], [ %21, %252 ], [ %12, %210 ], [ %34, %341 ]
   %354 = load ptr, ptr %.sink595, align 8
   %355 = getelementptr inbounds nuw i8, ptr %354, i64 8
   %356 = load ptr, ptr %355, align 8
@@ -85177,8 +85177,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %341, %296, %252, %2
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %341, %296, %252, %210
-  %.sink583 = phi ptr [ %19, %210 ], [ %24, %252 ], [ %32, %296 ], [ %40, %341 ], [ %.sink583.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %12, %210 ], [ %21, %252 ], [ %26, %296 ], [ %34, %341 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink583 = phi ptr [ %24, %252 ], [ %32, %296 ], [ %40, %341 ], [ %19, %210 ], [ %.sink583.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %21, %252 ], [ %26, %296 ], [ %34, %341 ], [ %12, %210 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink583, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -85386,7 +85386,7 @@ _ZN7testing7MessageD2Ev.exit366:                  ; preds = %421, %_ZNKSt14defau
   br label %426
 
 426:                                              ; preds = %374, %.critedge298, %_ZN7testing7MessageD2Ev.exit363
-  %427 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit363 ], [ false, %.critedge298 ], [ true, %374 ]
+  %427 = phi i1 [ false, %.critedge298 ], [ false, %_ZN7testing7MessageD2Ev.exit363 ], [ true, %374 ]
   %428 = load ptr, ptr %5, align 8
   %429 = icmp eq ptr %428, %125
   br i1 %429, label %_ZN7testing8internal14TrueWithStringD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -86146,9 +86146,9 @@ _ZN7testing7MessageD2Ev.exit418:                  ; preds = %653, %_ZNKSt14defau
   br label %667
 
 _ZN7testing7MessageD2Ev.exit388.sink.split:       ; preds = %647, %602, %558, %516
-  %.sink600 = phi ptr [ %517, %516 ], [ %559, %558 ], [ %603, %602 ], [ %648, %647 ]
-  %.sink586.ph = phi ptr [ %59, %516 ], [ %64, %558 ], [ %72, %602 ], [ %80, %647 ]
-  %.sink585.ph = phi ptr [ %52, %516 ], [ %61, %558 ], [ %66, %602 ], [ %74, %647 ]
+  %.sink600 = phi ptr [ %603, %602 ], [ %559, %558 ], [ %517, %516 ], [ %648, %647 ]
+  %.sink586.ph = phi ptr [ %72, %602 ], [ %64, %558 ], [ %59, %516 ], [ %80, %647 ]
+  %.sink585.ph = phi ptr [ %66, %602 ], [ %61, %558 ], [ %52, %516 ], [ %74, %647 ]
   %660 = load ptr, ptr %.sink600, align 8
   %661 = getelementptr inbounds nuw i8, ptr %660, i64 8
   %662 = load ptr, ptr %661, align 8
@@ -86156,8 +86156,8 @@ _ZN7testing7MessageD2Ev.exit388.sink.split:       ; preds = %647, %602, %558, %5
   br label %_ZN7testing7MessageD2Ev.exit388
 
 _ZN7testing7MessageD2Ev.exit388:                  ; preds = %_ZN7testing7MessageD2Ev.exit388.sink.split, %647, %602, %558, %516
-  %.sink586 = phi ptr [ %59, %516 ], [ %64, %558 ], [ %72, %602 ], [ %80, %647 ], [ %.sink586.ph, %_ZN7testing7MessageD2Ev.exit388.sink.split ]
-  %.sink585 = phi ptr [ %52, %516 ], [ %61, %558 ], [ %66, %602 ], [ %74, %647 ], [ %.sink585.ph, %_ZN7testing7MessageD2Ev.exit388.sink.split ]
+  %.sink586 = phi ptr [ %64, %558 ], [ %72, %602 ], [ %80, %647 ], [ %59, %516 ], [ %.sink586.ph, %_ZN7testing7MessageD2Ev.exit388.sink.split ]
+  %.sink585 = phi ptr [ %61, %558 ], [ %66, %602 ], [ %74, %647 ], [ %52, %516 ], [ %.sink585.ph, %_ZN7testing7MessageD2Ev.exit388.sink.split ]
   store ptr null, ptr %.sink586, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink585) #26
   invoke void @__cxa_end_catch()
@@ -86365,7 +86365,7 @@ _ZN7testing7MessageD2Ev.exit431:                  ; preds = %727, %_ZNKSt14defau
   br label %732
 
 732:                                              ; preds = %680, %.critedge310, %_ZN7testing7MessageD2Ev.exit428
-  %733 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit428 ], [ false, %.critedge310 ], [ true, %680 ]
+  %733 = phi i1 [ false, %.critedge310 ], [ false, %_ZN7testing7MessageD2Ev.exit428 ], [ true, %680 ]
   %734 = load ptr, ptr %45, align 8
   %735 = icmp eq ptr %734, %431
   br i1 %735, label %_ZN7testing8internal14TrueWithStringD2Ev.exit434, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i432
@@ -87125,9 +87125,9 @@ _ZN7testing7MessageD2Ev.exit486:                  ; preds = %959, %_ZNKSt14defau
   br label %973
 
 _ZN7testing7MessageD2Ev.exit456.sink.split:       ; preds = %953, %908, %864, %822
-  %.sink605 = phi ptr [ %823, %822 ], [ %865, %864 ], [ %909, %908 ], [ %954, %953 ]
-  %.sink589.ph = phi ptr [ %99, %822 ], [ %104, %864 ], [ %112, %908 ], [ %120, %953 ]
-  %.sink588.ph = phi ptr [ %92, %822 ], [ %101, %864 ], [ %106, %908 ], [ %114, %953 ]
+  %.sink605 = phi ptr [ %909, %908 ], [ %865, %864 ], [ %823, %822 ], [ %954, %953 ]
+  %.sink589.ph = phi ptr [ %112, %908 ], [ %104, %864 ], [ %99, %822 ], [ %120, %953 ]
+  %.sink588.ph = phi ptr [ %106, %908 ], [ %101, %864 ], [ %92, %822 ], [ %114, %953 ]
   %966 = load ptr, ptr %.sink605, align 8
   %967 = getelementptr inbounds nuw i8, ptr %966, i64 8
   %968 = load ptr, ptr %967, align 8
@@ -87135,8 +87135,8 @@ _ZN7testing7MessageD2Ev.exit456.sink.split:       ; preds = %953, %908, %864, %8
   br label %_ZN7testing7MessageD2Ev.exit456
 
 _ZN7testing7MessageD2Ev.exit456:                  ; preds = %_ZN7testing7MessageD2Ev.exit456.sink.split, %953, %908, %864, %822
-  %.sink589 = phi ptr [ %99, %822 ], [ %104, %864 ], [ %112, %908 ], [ %120, %953 ], [ %.sink589.ph, %_ZN7testing7MessageD2Ev.exit456.sink.split ]
-  %.sink588 = phi ptr [ %92, %822 ], [ %101, %864 ], [ %106, %908 ], [ %114, %953 ], [ %.sink588.ph, %_ZN7testing7MessageD2Ev.exit456.sink.split ]
+  %.sink589 = phi ptr [ %104, %864 ], [ %112, %908 ], [ %120, %953 ], [ %99, %822 ], [ %.sink589.ph, %_ZN7testing7MessageD2Ev.exit456.sink.split ]
+  %.sink588 = phi ptr [ %101, %864 ], [ %106, %908 ], [ %114, %953 ], [ %92, %822 ], [ %.sink588.ph, %_ZN7testing7MessageD2Ev.exit456.sink.split ]
   store ptr null, ptr %.sink589, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink588) #26
   invoke void @__cxa_end_catch()
@@ -87360,8 +87360,8 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit502: ; preds = %1038, %_ZNKSt7__cxx
   ret void
 
 1042:                                             ; preds = %765, %_ZN7testing7MessageD2Ev.exit499, %1014, %1020, %459, %_ZN7testing7MessageD2Ev.exit431, %708, %714, %153, %_ZN7testing7MessageD2Ev.exit366, %402, %408
-  %.sink590 = phi ptr [ %5, %408 ], [ %5, %402 ], [ %5, %_ZN7testing7MessageD2Ev.exit366 ], [ %5, %153 ], [ %45, %714 ], [ %45, %708 ], [ %45, %_ZN7testing7MessageD2Ev.exit431 ], [ %45, %459 ], [ %85, %1020 ], [ %85, %1014 ], [ %85, %_ZN7testing7MessageD2Ev.exit499 ], [ %85, %765 ]
-  %.pn287.pn.pn = phi { ptr, i32 } [ %.pn215, %408 ], [ %403, %402 ], [ %.pn217, %_ZN7testing7MessageD2Ev.exit366 ], [ %154, %153 ], [ %.pn250, %714 ], [ %709, %708 ], [ %.pn252, %_ZN7testing7MessageD2Ev.exit431 ], [ %460, %459 ], [ %.pn285, %1020 ], [ %1015, %1014 ], [ %.pn287, %_ZN7testing7MessageD2Ev.exit499 ], [ %766, %765 ]
+  %.sink590 = phi ptr [ %45, %459 ], [ %5, %153 ], [ %5, %408 ], [ %5, %402 ], [ %5, %_ZN7testing7MessageD2Ev.exit366 ], [ %45, %714 ], [ %45, %708 ], [ %45, %_ZN7testing7MessageD2Ev.exit431 ], [ %85, %1020 ], [ %85, %1014 ], [ %85, %_ZN7testing7MessageD2Ev.exit499 ], [ %85, %765 ]
+  %.pn287.pn.pn = phi { ptr, i32 } [ %460, %459 ], [ %154, %153 ], [ %.pn215, %408 ], [ %403, %402 ], [ %.pn217, %_ZN7testing7MessageD2Ev.exit366 ], [ %.pn250, %714 ], [ %709, %708 ], [ %.pn252, %_ZN7testing7MessageD2Ev.exit431 ], [ %.pn285, %1020 ], [ %1015, %1014 ], [ %.pn287, %_ZN7testing7MessageD2Ev.exit499 ], [ %766, %765 ]
   call void @_ZN7testing8internal14TrueWithStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink590) #26
   resume { ptr, i32 } %.pn287.pn.pn
 
@@ -88257,9 +88257,9 @@ _ZN7testing7MessageD2Ev.exit354:                  ; preds = %347, %_ZNKSt14defau
   br label %361
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %341, %296, %252, %210
-  %.sink595 = phi ptr [ %211, %210 ], [ %253, %252 ], [ %297, %296 ], [ %342, %341 ]
-  %.sink583.ph = phi ptr [ %19, %210 ], [ %24, %252 ], [ %32, %296 ], [ %40, %341 ]
-  %.sink.ph = phi ptr [ %12, %210 ], [ %21, %252 ], [ %26, %296 ], [ %34, %341 ]
+  %.sink595 = phi ptr [ %297, %296 ], [ %253, %252 ], [ %211, %210 ], [ %342, %341 ]
+  %.sink583.ph = phi ptr [ %32, %296 ], [ %24, %252 ], [ %19, %210 ], [ %40, %341 ]
+  %.sink.ph = phi ptr [ %26, %296 ], [ %21, %252 ], [ %12, %210 ], [ %34, %341 ]
   %354 = load ptr, ptr %.sink595, align 8
   %355 = getelementptr inbounds nuw i8, ptr %354, i64 8
   %356 = load ptr, ptr %355, align 8
@@ -88267,8 +88267,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %341, %296, %252, %2
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %341, %296, %252, %210
-  %.sink583 = phi ptr [ %19, %210 ], [ %24, %252 ], [ %32, %296 ], [ %40, %341 ], [ %.sink583.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %12, %210 ], [ %21, %252 ], [ %26, %296 ], [ %34, %341 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink583 = phi ptr [ %24, %252 ], [ %32, %296 ], [ %40, %341 ], [ %19, %210 ], [ %.sink583.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %21, %252 ], [ %26, %296 ], [ %34, %341 ], [ %12, %210 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink583, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -88476,7 +88476,7 @@ _ZN7testing7MessageD2Ev.exit366:                  ; preds = %421, %_ZNKSt14defau
   br label %426
 
 426:                                              ; preds = %374, %.critedge298, %_ZN7testing7MessageD2Ev.exit363
-  %427 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit363 ], [ false, %.critedge298 ], [ true, %374 ]
+  %427 = phi i1 [ false, %.critedge298 ], [ false, %_ZN7testing7MessageD2Ev.exit363 ], [ true, %374 ]
   %428 = load ptr, ptr %5, align 8
   %429 = icmp eq ptr %428, %125
   br i1 %429, label %_ZN7testing8internal14TrueWithStringD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -89236,9 +89236,9 @@ _ZN7testing7MessageD2Ev.exit418:                  ; preds = %653, %_ZNKSt14defau
   br label %667
 
 _ZN7testing7MessageD2Ev.exit388.sink.split:       ; preds = %647, %602, %558, %516
-  %.sink600 = phi ptr [ %517, %516 ], [ %559, %558 ], [ %603, %602 ], [ %648, %647 ]
-  %.sink586.ph = phi ptr [ %59, %516 ], [ %64, %558 ], [ %72, %602 ], [ %80, %647 ]
-  %.sink585.ph = phi ptr [ %52, %516 ], [ %61, %558 ], [ %66, %602 ], [ %74, %647 ]
+  %.sink600 = phi ptr [ %603, %602 ], [ %559, %558 ], [ %517, %516 ], [ %648, %647 ]
+  %.sink586.ph = phi ptr [ %72, %602 ], [ %64, %558 ], [ %59, %516 ], [ %80, %647 ]
+  %.sink585.ph = phi ptr [ %66, %602 ], [ %61, %558 ], [ %52, %516 ], [ %74, %647 ]
   %660 = load ptr, ptr %.sink600, align 8
   %661 = getelementptr inbounds nuw i8, ptr %660, i64 8
   %662 = load ptr, ptr %661, align 8
@@ -89246,8 +89246,8 @@ _ZN7testing7MessageD2Ev.exit388.sink.split:       ; preds = %647, %602, %558, %5
   br label %_ZN7testing7MessageD2Ev.exit388
 
 _ZN7testing7MessageD2Ev.exit388:                  ; preds = %_ZN7testing7MessageD2Ev.exit388.sink.split, %647, %602, %558, %516
-  %.sink586 = phi ptr [ %59, %516 ], [ %64, %558 ], [ %72, %602 ], [ %80, %647 ], [ %.sink586.ph, %_ZN7testing7MessageD2Ev.exit388.sink.split ]
-  %.sink585 = phi ptr [ %52, %516 ], [ %61, %558 ], [ %66, %602 ], [ %74, %647 ], [ %.sink585.ph, %_ZN7testing7MessageD2Ev.exit388.sink.split ]
+  %.sink586 = phi ptr [ %64, %558 ], [ %72, %602 ], [ %80, %647 ], [ %59, %516 ], [ %.sink586.ph, %_ZN7testing7MessageD2Ev.exit388.sink.split ]
+  %.sink585 = phi ptr [ %61, %558 ], [ %66, %602 ], [ %74, %647 ], [ %52, %516 ], [ %.sink585.ph, %_ZN7testing7MessageD2Ev.exit388.sink.split ]
   store ptr null, ptr %.sink586, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink585) #26
   invoke void @__cxa_end_catch()
@@ -89455,7 +89455,7 @@ _ZN7testing7MessageD2Ev.exit431:                  ; preds = %727, %_ZNKSt14defau
   br label %732
 
 732:                                              ; preds = %680, %.critedge310, %_ZN7testing7MessageD2Ev.exit428
-  %733 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit428 ], [ false, %.critedge310 ], [ true, %680 ]
+  %733 = phi i1 [ false, %.critedge310 ], [ false, %_ZN7testing7MessageD2Ev.exit428 ], [ true, %680 ]
   %734 = load ptr, ptr %45, align 8
   %735 = icmp eq ptr %734, %431
   br i1 %735, label %_ZN7testing8internal14TrueWithStringD2Ev.exit434, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i432
@@ -90215,9 +90215,9 @@ _ZN7testing7MessageD2Ev.exit486:                  ; preds = %959, %_ZNKSt14defau
   br label %973
 
 _ZN7testing7MessageD2Ev.exit456.sink.split:       ; preds = %953, %908, %864, %822
-  %.sink605 = phi ptr [ %823, %822 ], [ %865, %864 ], [ %909, %908 ], [ %954, %953 ]
-  %.sink589.ph = phi ptr [ %99, %822 ], [ %104, %864 ], [ %112, %908 ], [ %120, %953 ]
-  %.sink588.ph = phi ptr [ %92, %822 ], [ %101, %864 ], [ %106, %908 ], [ %114, %953 ]
+  %.sink605 = phi ptr [ %909, %908 ], [ %865, %864 ], [ %823, %822 ], [ %954, %953 ]
+  %.sink589.ph = phi ptr [ %112, %908 ], [ %104, %864 ], [ %99, %822 ], [ %120, %953 ]
+  %.sink588.ph = phi ptr [ %106, %908 ], [ %101, %864 ], [ %92, %822 ], [ %114, %953 ]
   %966 = load ptr, ptr %.sink605, align 8
   %967 = getelementptr inbounds nuw i8, ptr %966, i64 8
   %968 = load ptr, ptr %967, align 8
@@ -90225,8 +90225,8 @@ _ZN7testing7MessageD2Ev.exit456.sink.split:       ; preds = %953, %908, %864, %8
   br label %_ZN7testing7MessageD2Ev.exit456
 
 _ZN7testing7MessageD2Ev.exit456:                  ; preds = %_ZN7testing7MessageD2Ev.exit456.sink.split, %953, %908, %864, %822
-  %.sink589 = phi ptr [ %99, %822 ], [ %104, %864 ], [ %112, %908 ], [ %120, %953 ], [ %.sink589.ph, %_ZN7testing7MessageD2Ev.exit456.sink.split ]
-  %.sink588 = phi ptr [ %92, %822 ], [ %101, %864 ], [ %106, %908 ], [ %114, %953 ], [ %.sink588.ph, %_ZN7testing7MessageD2Ev.exit456.sink.split ]
+  %.sink589 = phi ptr [ %104, %864 ], [ %112, %908 ], [ %120, %953 ], [ %99, %822 ], [ %.sink589.ph, %_ZN7testing7MessageD2Ev.exit456.sink.split ]
+  %.sink588 = phi ptr [ %101, %864 ], [ %106, %908 ], [ %114, %953 ], [ %92, %822 ], [ %.sink588.ph, %_ZN7testing7MessageD2Ev.exit456.sink.split ]
   store ptr null, ptr %.sink589, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink588) #26
   invoke void @__cxa_end_catch()
@@ -90450,8 +90450,8 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit502: ; preds = %1038, %_ZNKSt7__cxx
   ret void
 
 1042:                                             ; preds = %765, %_ZN7testing7MessageD2Ev.exit499, %1014, %1020, %459, %_ZN7testing7MessageD2Ev.exit431, %708, %714, %153, %_ZN7testing7MessageD2Ev.exit366, %402, %408
-  %.sink590 = phi ptr [ %5, %408 ], [ %5, %402 ], [ %5, %_ZN7testing7MessageD2Ev.exit366 ], [ %5, %153 ], [ %45, %714 ], [ %45, %708 ], [ %45, %_ZN7testing7MessageD2Ev.exit431 ], [ %45, %459 ], [ %85, %1020 ], [ %85, %1014 ], [ %85, %_ZN7testing7MessageD2Ev.exit499 ], [ %85, %765 ]
-  %.pn287.pn.pn = phi { ptr, i32 } [ %.pn215, %408 ], [ %403, %402 ], [ %.pn217, %_ZN7testing7MessageD2Ev.exit366 ], [ %154, %153 ], [ %.pn250, %714 ], [ %709, %708 ], [ %.pn252, %_ZN7testing7MessageD2Ev.exit431 ], [ %460, %459 ], [ %.pn285, %1020 ], [ %1015, %1014 ], [ %.pn287, %_ZN7testing7MessageD2Ev.exit499 ], [ %766, %765 ]
+  %.sink590 = phi ptr [ %45, %459 ], [ %5, %153 ], [ %5, %408 ], [ %5, %402 ], [ %5, %_ZN7testing7MessageD2Ev.exit366 ], [ %45, %714 ], [ %45, %708 ], [ %45, %_ZN7testing7MessageD2Ev.exit431 ], [ %85, %1020 ], [ %85, %1014 ], [ %85, %_ZN7testing7MessageD2Ev.exit499 ], [ %85, %765 ]
+  %.pn287.pn.pn = phi { ptr, i32 } [ %460, %459 ], [ %154, %153 ], [ %.pn215, %408 ], [ %403, %402 ], [ %.pn217, %_ZN7testing7MessageD2Ev.exit366 ], [ %.pn250, %714 ], [ %709, %708 ], [ %.pn252, %_ZN7testing7MessageD2Ev.exit431 ], [ %.pn285, %1020 ], [ %1015, %1014 ], [ %.pn287, %_ZN7testing7MessageD2Ev.exit499 ], [ %766, %765 ]
   call void @_ZN7testing8internal14TrueWithStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink590) #26
   resume { ptr, i32 } %.pn287.pn.pn
 
@@ -91339,9 +91339,9 @@ _ZN7testing7MessageD2Ev.exit337:                  ; preds = %339, %_ZNKSt14defau
   br label %353
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %333, %288, %244, %202
-  %.sink566 = phi ptr [ %203, %202 ], [ %245, %244 ], [ %289, %288 ], [ %334, %333 ]
-  %.sink554.ph = phi ptr [ %19, %202 ], [ %24, %244 ], [ %32, %288 ], [ %40, %333 ]
-  %.sink.ph = phi ptr [ %12, %202 ], [ %21, %244 ], [ %26, %288 ], [ %34, %333 ]
+  %.sink566 = phi ptr [ %289, %288 ], [ %245, %244 ], [ %203, %202 ], [ %334, %333 ]
+  %.sink554.ph = phi ptr [ %32, %288 ], [ %24, %244 ], [ %19, %202 ], [ %40, %333 ]
+  %.sink.ph = phi ptr [ %26, %288 ], [ %21, %244 ], [ %12, %202 ], [ %34, %333 ]
   %346 = load ptr, ptr %.sink566, align 8
   %347 = getelementptr inbounds nuw i8, ptr %346, i64 8
   %348 = load ptr, ptr %347, align 8
@@ -91349,8 +91349,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %333, %288, %244, %2
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %333, %288, %244, %202
-  %.sink554 = phi ptr [ %19, %202 ], [ %24, %244 ], [ %32, %288 ], [ %40, %333 ], [ %.sink554.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %12, %202 ], [ %21, %244 ], [ %26, %288 ], [ %34, %333 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink554 = phi ptr [ %24, %244 ], [ %32, %288 ], [ %40, %333 ], [ %19, %202 ], [ %.sink554.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %21, %244 ], [ %26, %288 ], [ %34, %333 ], [ %12, %202 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink554, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -91558,7 +91558,7 @@ _ZN7testing7MessageD2Ev.exit349:                  ; preds = %413, %_ZNKSt14defau
   br label %418
 
 418:                                              ; preds = %366, %.critedge283, %_ZN7testing7MessageD2Ev.exit346
-  %419 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit346 ], [ false, %.critedge283 ], [ true, %366 ]
+  %419 = phi i1 [ false, %.critedge283 ], [ false, %_ZN7testing7MessageD2Ev.exit346 ], [ true, %366 ]
   %420 = load ptr, ptr %5, align 8
   %421 = icmp eq ptr %420, %117
   br i1 %421, label %_ZN7testing8internal14TrueWithStringD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -92318,9 +92318,9 @@ _ZN7testing7MessageD2Ev.exit401:                  ; preds = %645, %_ZNKSt14defau
   br label %659
 
 _ZN7testing7MessageD2Ev.exit371.sink.split:       ; preds = %639, %594, %550, %508
-  %.sink571 = phi ptr [ %509, %508 ], [ %551, %550 ], [ %595, %594 ], [ %640, %639 ]
-  %.sink557.ph = phi ptr [ %59, %508 ], [ %64, %550 ], [ %72, %594 ], [ %80, %639 ]
-  %.sink556.ph = phi ptr [ %52, %508 ], [ %61, %550 ], [ %66, %594 ], [ %74, %639 ]
+  %.sink571 = phi ptr [ %595, %594 ], [ %551, %550 ], [ %509, %508 ], [ %640, %639 ]
+  %.sink557.ph = phi ptr [ %72, %594 ], [ %64, %550 ], [ %59, %508 ], [ %80, %639 ]
+  %.sink556.ph = phi ptr [ %66, %594 ], [ %61, %550 ], [ %52, %508 ], [ %74, %639 ]
   %652 = load ptr, ptr %.sink571, align 8
   %653 = getelementptr inbounds nuw i8, ptr %652, i64 8
   %654 = load ptr, ptr %653, align 8
@@ -92328,8 +92328,8 @@ _ZN7testing7MessageD2Ev.exit371.sink.split:       ; preds = %639, %594, %550, %5
   br label %_ZN7testing7MessageD2Ev.exit371
 
 _ZN7testing7MessageD2Ev.exit371:                  ; preds = %_ZN7testing7MessageD2Ev.exit371.sink.split, %639, %594, %550, %508
-  %.sink557 = phi ptr [ %59, %508 ], [ %64, %550 ], [ %72, %594 ], [ %80, %639 ], [ %.sink557.ph, %_ZN7testing7MessageD2Ev.exit371.sink.split ]
-  %.sink556 = phi ptr [ %52, %508 ], [ %61, %550 ], [ %66, %594 ], [ %74, %639 ], [ %.sink556.ph, %_ZN7testing7MessageD2Ev.exit371.sink.split ]
+  %.sink557 = phi ptr [ %64, %550 ], [ %72, %594 ], [ %80, %639 ], [ %59, %508 ], [ %.sink557.ph, %_ZN7testing7MessageD2Ev.exit371.sink.split ]
+  %.sink556 = phi ptr [ %61, %550 ], [ %66, %594 ], [ %74, %639 ], [ %52, %508 ], [ %.sink556.ph, %_ZN7testing7MessageD2Ev.exit371.sink.split ]
   store ptr null, ptr %.sink557, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink556) #26
   invoke void @__cxa_end_catch()
@@ -92537,7 +92537,7 @@ _ZN7testing7MessageD2Ev.exit414:                  ; preds = %719, %_ZNKSt14defau
   br label %724
 
 724:                                              ; preds = %672, %.critedge295, %_ZN7testing7MessageD2Ev.exit411
-  %725 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit411 ], [ false, %.critedge295 ], [ true, %672 ]
+  %725 = phi i1 [ false, %.critedge295 ], [ false, %_ZN7testing7MessageD2Ev.exit411 ], [ true, %672 ]
   %726 = load ptr, ptr %45, align 8
   %727 = icmp eq ptr %726, %423
   br i1 %727, label %_ZN7testing8internal14TrueWithStringD2Ev.exit417, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i415
@@ -93143,9 +93143,9 @@ _ZN7testing7MessageD2Ev.exit461:                  ; preds = %906, %_ZNKSt14defau
   br label %920
 
 _ZN7testing7MessageD2Ev.exit439.sink.split:       ; preds = %900, %856, %814
-  %.sink576 = phi ptr [ %815, %814 ], [ %857, %856 ], [ %901, %900 ]
-  %.sink560.ph = phi ptr [ %99, %814 ], [ %104, %856 ], [ %112, %900 ]
-  %.sink559.ph = phi ptr [ %92, %814 ], [ %101, %856 ], [ %106, %900 ]
+  %.sink576 = phi ptr [ %857, %856 ], [ %815, %814 ], [ %901, %900 ]
+  %.sink560.ph = phi ptr [ %104, %856 ], [ %99, %814 ], [ %112, %900 ]
+  %.sink559.ph = phi ptr [ %101, %856 ], [ %92, %814 ], [ %106, %900 ]
   %913 = load ptr, ptr %.sink576, align 8
   %914 = getelementptr inbounds nuw i8, ptr %913, i64 8
   %915 = load ptr, ptr %914, align 8
@@ -93153,8 +93153,8 @@ _ZN7testing7MessageD2Ev.exit439.sink.split:       ; preds = %900, %856, %814
   br label %_ZN7testing7MessageD2Ev.exit439
 
 _ZN7testing7MessageD2Ev.exit439:                  ; preds = %_ZN7testing7MessageD2Ev.exit439.sink.split, %900, %856, %814
-  %.sink560 = phi ptr [ %99, %814 ], [ %104, %856 ], [ %112, %900 ], [ %.sink560.ph, %_ZN7testing7MessageD2Ev.exit439.sink.split ]
-  %.sink559 = phi ptr [ %92, %814 ], [ %101, %856 ], [ %106, %900 ], [ %.sink559.ph, %_ZN7testing7MessageD2Ev.exit439.sink.split ]
+  %.sink560 = phi ptr [ %104, %856 ], [ %112, %900 ], [ %99, %814 ], [ %.sink560.ph, %_ZN7testing7MessageD2Ev.exit439.sink.split ]
+  %.sink559 = phi ptr [ %101, %856 ], [ %106, %900 ], [ %92, %814 ], [ %.sink559.ph, %_ZN7testing7MessageD2Ev.exit439.sink.split ]
   store ptr null, ptr %.sink560, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink559) #26
   invoke void @__cxa_end_catch()
@@ -93378,8 +93378,8 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit477: ; preds = %985, %_ZNKSt7__cxx1
   ret void
 
 989:                                              ; preds = %757, %_ZN7testing7MessageD2Ev.exit474, %961, %967, %451, %_ZN7testing7MessageD2Ev.exit414, %700, %706, %145, %_ZN7testing7MessageD2Ev.exit349, %394, %400
-  %.sink561 = phi ptr [ %5, %400 ], [ %5, %394 ], [ %5, %_ZN7testing7MessageD2Ev.exit349 ], [ %5, %145 ], [ %45, %706 ], [ %45, %700 ], [ %45, %_ZN7testing7MessageD2Ev.exit414 ], [ %45, %451 ], [ %85, %967 ], [ %85, %961 ], [ %85, %_ZN7testing7MessageD2Ev.exit474 ], [ %85, %757 ]
-  %.pn272.pn.pn = phi { ptr, i32 } [ %.pn207, %400 ], [ %395, %394 ], [ %.pn209, %_ZN7testing7MessageD2Ev.exit349 ], [ %146, %145 ], [ %.pn242, %706 ], [ %701, %700 ], [ %.pn244, %_ZN7testing7MessageD2Ev.exit414 ], [ %452, %451 ], [ %.pn270, %967 ], [ %962, %961 ], [ %.pn272, %_ZN7testing7MessageD2Ev.exit474 ], [ %758, %757 ]
+  %.sink561 = phi ptr [ %45, %451 ], [ %5, %145 ], [ %5, %400 ], [ %5, %394 ], [ %5, %_ZN7testing7MessageD2Ev.exit349 ], [ %45, %706 ], [ %45, %700 ], [ %45, %_ZN7testing7MessageD2Ev.exit414 ], [ %85, %967 ], [ %85, %961 ], [ %85, %_ZN7testing7MessageD2Ev.exit474 ], [ %85, %757 ]
+  %.pn272.pn.pn = phi { ptr, i32 } [ %452, %451 ], [ %146, %145 ], [ %.pn207, %400 ], [ %395, %394 ], [ %.pn209, %_ZN7testing7MessageD2Ev.exit349 ], [ %.pn242, %706 ], [ %701, %700 ], [ %.pn244, %_ZN7testing7MessageD2Ev.exit414 ], [ %.pn270, %967 ], [ %962, %961 ], [ %.pn272, %_ZN7testing7MessageD2Ev.exit474 ], [ %758, %757 ]
   call void @_ZN7testing8internal14TrueWithStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink561) #26
   resume { ptr, i32 } %.pn272.pn.pn
 
@@ -94308,9 +94308,9 @@ _ZN7testing7MessageD2Ev.exit447:                  ; preds = %380, %_ZNKSt14defau
   br label %394
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %374, %329, %285, %243
-  %.sink742 = phi ptr [ %244, %243 ], [ %286, %285 ], [ %330, %329 ], [ %375, %374 ]
-  %.sink727.ph = phi ptr [ %20, %243 ], [ %25, %285 ], [ %33, %329 ], [ %41, %374 ]
-  %.sink.ph = phi ptr [ %13, %243 ], [ %22, %285 ], [ %27, %329 ], [ %35, %374 ]
+  %.sink742 = phi ptr [ %330, %329 ], [ %286, %285 ], [ %244, %243 ], [ %375, %374 ]
+  %.sink727.ph = phi ptr [ %33, %329 ], [ %25, %285 ], [ %20, %243 ], [ %41, %374 ]
+  %.sink.ph = phi ptr [ %27, %329 ], [ %22, %285 ], [ %13, %243 ], [ %35, %374 ]
   %387 = load ptr, ptr %.sink742, align 8
   %388 = getelementptr inbounds nuw i8, ptr %387, i64 8
   %389 = load ptr, ptr %388, align 8
@@ -94318,8 +94318,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %374, %329, %285, %2
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %374, %329, %285, %243
-  %.sink727 = phi ptr [ %20, %243 ], [ %25, %285 ], [ %33, %329 ], [ %41, %374 ], [ %.sink727.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %13, %243 ], [ %22, %285 ], [ %27, %329 ], [ %35, %374 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink727 = phi ptr [ %25, %285 ], [ %33, %329 ], [ %41, %374 ], [ %20, %243 ], [ %.sink727.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %22, %285 ], [ %27, %329 ], [ %35, %374 ], [ %13, %243 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink727, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -94527,7 +94527,7 @@ _ZN7testing7MessageD2Ev.exit459:                  ; preds = %454, %_ZNKSt14defau
   br label %459
 
 459:                                              ; preds = %407, %.critedge380, %_ZN7testing7MessageD2Ev.exit456
-  %460 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit456 ], [ false, %.critedge380 ], [ true, %407 ]
+  %460 = phi i1 [ false, %.critedge380 ], [ false, %_ZN7testing7MessageD2Ev.exit456 ], [ true, %407 ]
   %461 = load ptr, ptr %6, align 8
   %462 = icmp eq ptr %461, %158
   br i1 %462, label %_ZN7testing8internal14TrueWithStringD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -95287,9 +95287,9 @@ _ZN7testing7MessageD2Ev.exit511:                  ; preds = %686, %_ZNKSt14defau
   br label %700
 
 _ZN7testing7MessageD2Ev.exit481.sink.split:       ; preds = %680, %635, %591, %549
-  %.sink747 = phi ptr [ %550, %549 ], [ %592, %591 ], [ %636, %635 ], [ %681, %680 ]
-  %.sink730.ph = phi ptr [ %60, %549 ], [ %65, %591 ], [ %73, %635 ], [ %81, %680 ]
-  %.sink729.ph = phi ptr [ %53, %549 ], [ %62, %591 ], [ %67, %635 ], [ %75, %680 ]
+  %.sink747 = phi ptr [ %636, %635 ], [ %592, %591 ], [ %550, %549 ], [ %681, %680 ]
+  %.sink730.ph = phi ptr [ %73, %635 ], [ %65, %591 ], [ %60, %549 ], [ %81, %680 ]
+  %.sink729.ph = phi ptr [ %67, %635 ], [ %62, %591 ], [ %53, %549 ], [ %75, %680 ]
   %693 = load ptr, ptr %.sink747, align 8
   %694 = getelementptr inbounds nuw i8, ptr %693, i64 8
   %695 = load ptr, ptr %694, align 8
@@ -95297,8 +95297,8 @@ _ZN7testing7MessageD2Ev.exit481.sink.split:       ; preds = %680, %635, %591, %5
   br label %_ZN7testing7MessageD2Ev.exit481
 
 _ZN7testing7MessageD2Ev.exit481:                  ; preds = %_ZN7testing7MessageD2Ev.exit481.sink.split, %680, %635, %591, %549
-  %.sink730 = phi ptr [ %60, %549 ], [ %65, %591 ], [ %73, %635 ], [ %81, %680 ], [ %.sink730.ph, %_ZN7testing7MessageD2Ev.exit481.sink.split ]
-  %.sink729 = phi ptr [ %53, %549 ], [ %62, %591 ], [ %67, %635 ], [ %75, %680 ], [ %.sink729.ph, %_ZN7testing7MessageD2Ev.exit481.sink.split ]
+  %.sink730 = phi ptr [ %65, %591 ], [ %73, %635 ], [ %81, %680 ], [ %60, %549 ], [ %.sink730.ph, %_ZN7testing7MessageD2Ev.exit481.sink.split ]
+  %.sink729 = phi ptr [ %62, %591 ], [ %67, %635 ], [ %75, %680 ], [ %53, %549 ], [ %.sink729.ph, %_ZN7testing7MessageD2Ev.exit481.sink.split ]
   store ptr null, ptr %.sink730, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink729) #26
   invoke void @__cxa_end_catch()
@@ -95506,7 +95506,7 @@ _ZN7testing7MessageD2Ev.exit524:                  ; preds = %760, %_ZNKSt14defau
   br label %765
 
 765:                                              ; preds = %713, %.critedge392, %_ZN7testing7MessageD2Ev.exit521
-  %766 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit521 ], [ false, %.critedge392 ], [ true, %713 ]
+  %766 = phi i1 [ false, %.critedge392 ], [ false, %_ZN7testing7MessageD2Ev.exit521 ], [ true, %713 ]
   %767 = load ptr, ptr %46, align 8
   %768 = icmp eq ptr %767, %464
   br i1 %768, label %_ZN7testing8internal14TrueWithStringD2Ev.exit527, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i525
@@ -96112,9 +96112,9 @@ _ZN7testing7MessageD2Ev.exit571:                  ; preds = %947, %_ZNKSt14defau
   br label %961
 
 _ZN7testing7MessageD2Ev.exit549.sink.split:       ; preds = %941, %897, %855
-  %.sink752 = phi ptr [ %856, %855 ], [ %898, %897 ], [ %942, %941 ]
-  %.sink733.ph = phi ptr [ %100, %855 ], [ %105, %897 ], [ %113, %941 ]
-  %.sink732.ph = phi ptr [ %93, %855 ], [ %102, %897 ], [ %107, %941 ]
+  %.sink752 = phi ptr [ %898, %897 ], [ %856, %855 ], [ %942, %941 ]
+  %.sink733.ph = phi ptr [ %105, %897 ], [ %100, %855 ], [ %113, %941 ]
+  %.sink732.ph = phi ptr [ %102, %897 ], [ %93, %855 ], [ %107, %941 ]
   %954 = load ptr, ptr %.sink752, align 8
   %955 = getelementptr inbounds nuw i8, ptr %954, i64 8
   %956 = load ptr, ptr %955, align 8
@@ -96122,8 +96122,8 @@ _ZN7testing7MessageD2Ev.exit549.sink.split:       ; preds = %941, %897, %855
   br label %_ZN7testing7MessageD2Ev.exit549
 
 _ZN7testing7MessageD2Ev.exit549:                  ; preds = %_ZN7testing7MessageD2Ev.exit549.sink.split, %941, %897, %855
-  %.sink733 = phi ptr [ %100, %855 ], [ %105, %897 ], [ %113, %941 ], [ %.sink733.ph, %_ZN7testing7MessageD2Ev.exit549.sink.split ]
-  %.sink732 = phi ptr [ %93, %855 ], [ %102, %897 ], [ %107, %941 ], [ %.sink732.ph, %_ZN7testing7MessageD2Ev.exit549.sink.split ]
+  %.sink733 = phi ptr [ %105, %897 ], [ %113, %941 ], [ %100, %855 ], [ %.sink733.ph, %_ZN7testing7MessageD2Ev.exit549.sink.split ]
+  %.sink732 = phi ptr [ %102, %897 ], [ %107, %941 ], [ %93, %855 ], [ %.sink732.ph, %_ZN7testing7MessageD2Ev.exit549.sink.split ]
   store ptr null, ptr %.sink733, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink732) #26
   invoke void @__cxa_end_catch()
@@ -96331,7 +96331,7 @@ _ZN7testing7MessageD2Ev.exit584:                  ; preds = %1021, %_ZNKSt14defa
   br label %1026
 
 1026:                                             ; preds = %974, %.critedge403, %_ZN7testing7MessageD2Ev.exit581
-  %1027 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit581 ], [ false, %.critedge403 ], [ true, %974 ]
+  %1027 = phi i1 [ false, %.critedge403 ], [ false, %_ZN7testing7MessageD2Ev.exit581 ], [ true, %974 ]
   %1028 = load ptr, ptr %86, align 8
   %1029 = icmp eq ptr %1028, %770
   br i1 %1029, label %_ZN7testing8internal14TrueWithStringD2Ev.exit587, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i585
@@ -97044,9 +97044,9 @@ _ZN7testing7MessageD2Ev.exit622:                  ; preds = %1237, %_ZNKSt14defa
   br label %1251
 
 _ZN7testing7MessageD2Ev.exit592.sink.split:       ; preds = %1231, %1186, %1142, %1100
-  %.sink757 = phi ptr [ %1101, %1100 ], [ %1143, %1142 ], [ %1187, %1186 ], [ %1232, %1231 ]
-  %.sink736.ph = phi ptr [ %132, %1100 ], [ %137, %1142 ], [ %145, %1186 ], [ %153, %1231 ]
-  %.sink735.ph = phi ptr [ %125, %1100 ], [ %134, %1142 ], [ %139, %1186 ], [ %147, %1231 ]
+  %.sink757 = phi ptr [ %1187, %1186 ], [ %1143, %1142 ], [ %1101, %1100 ], [ %1232, %1231 ]
+  %.sink736.ph = phi ptr [ %145, %1186 ], [ %137, %1142 ], [ %132, %1100 ], [ %153, %1231 ]
+  %.sink735.ph = phi ptr [ %139, %1186 ], [ %134, %1142 ], [ %125, %1100 ], [ %147, %1231 ]
   %1244 = load ptr, ptr %.sink757, align 8
   %1245 = getelementptr inbounds nuw i8, ptr %1244, i64 8
   %1246 = load ptr, ptr %1245, align 8
@@ -97054,8 +97054,8 @@ _ZN7testing7MessageD2Ev.exit592.sink.split:       ; preds = %1231, %1186, %1142,
   br label %_ZN7testing7MessageD2Ev.exit592
 
 _ZN7testing7MessageD2Ev.exit592:                  ; preds = %_ZN7testing7MessageD2Ev.exit592.sink.split, %1231, %1186, %1142, %1100
-  %.sink736 = phi ptr [ %132, %1100 ], [ %137, %1142 ], [ %145, %1186 ], [ %153, %1231 ], [ %.sink736.ph, %_ZN7testing7MessageD2Ev.exit592.sink.split ]
-  %.sink735 = phi ptr [ %125, %1100 ], [ %134, %1142 ], [ %139, %1186 ], [ %147, %1231 ], [ %.sink735.ph, %_ZN7testing7MessageD2Ev.exit592.sink.split ]
+  %.sink736 = phi ptr [ %137, %1142 ], [ %145, %1186 ], [ %153, %1231 ], [ %132, %1100 ], [ %.sink736.ph, %_ZN7testing7MessageD2Ev.exit592.sink.split ]
+  %.sink735 = phi ptr [ %134, %1142 ], [ %139, %1186 ], [ %147, %1231 ], [ %125, %1100 ], [ %.sink735.ph, %_ZN7testing7MessageD2Ev.exit592.sink.split ]
   store ptr null, ptr %.sink736, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink735) #26
   invoke void @__cxa_end_catch()
@@ -97259,8 +97259,8 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit632: ; preds = %1310, %_ZNKSt7__cxx
   ret void
 
 1314:                                             ; preds = %1043, %_ZN7testing7MessageD2Ev.exit629, %1286, %1292, %798, %_ZN7testing7MessageD2Ev.exit584, %1002, %1008, %492, %_ZN7testing7MessageD2Ev.exit524, %741, %747, %186, %_ZN7testing7MessageD2Ev.exit459, %435, %441
-  %.sink737 = phi ptr [ %6, %441 ], [ %6, %435 ], [ %6, %_ZN7testing7MessageD2Ev.exit459 ], [ %6, %186 ], [ %46, %747 ], [ %46, %741 ], [ %46, %_ZN7testing7MessageD2Ev.exit524 ], [ %46, %492 ], [ %86, %1008 ], [ %86, %1002 ], [ %86, %_ZN7testing7MessageD2Ev.exit584 ], [ %86, %798 ], [ %118, %1292 ], [ %118, %1286 ], [ %118, %_ZN7testing7MessageD2Ev.exit629 ], [ %118, %1043 ]
-  %.pn369.pn.pn = phi { ptr, i32 } [ %.pn269, %441 ], [ %436, %435 ], [ %.pn271, %_ZN7testing7MessageD2Ev.exit459 ], [ %187, %186 ], [ %.pn304, %747 ], [ %742, %741 ], [ %.pn306, %_ZN7testing7MessageD2Ev.exit524 ], [ %493, %492 ], [ %.pn332, %1008 ], [ %1003, %1002 ], [ %.pn334, %_ZN7testing7MessageD2Ev.exit584 ], [ %799, %798 ], [ %.pn367, %1292 ], [ %1287, %1286 ], [ %.pn369, %_ZN7testing7MessageD2Ev.exit629 ], [ %1044, %1043 ]
+  %.sink737 = phi ptr [ %86, %798 ], [ %46, %492 ], [ %6, %186 ], [ %6, %441 ], [ %6, %435 ], [ %6, %_ZN7testing7MessageD2Ev.exit459 ], [ %46, %747 ], [ %46, %741 ], [ %46, %_ZN7testing7MessageD2Ev.exit524 ], [ %86, %1008 ], [ %86, %1002 ], [ %86, %_ZN7testing7MessageD2Ev.exit584 ], [ %118, %1292 ], [ %118, %1286 ], [ %118, %_ZN7testing7MessageD2Ev.exit629 ], [ %118, %1043 ]
+  %.pn369.pn.pn = phi { ptr, i32 } [ %799, %798 ], [ %493, %492 ], [ %187, %186 ], [ %.pn269, %441 ], [ %436, %435 ], [ %.pn271, %_ZN7testing7MessageD2Ev.exit459 ], [ %.pn304, %747 ], [ %742, %741 ], [ %.pn306, %_ZN7testing7MessageD2Ev.exit524 ], [ %.pn332, %1008 ], [ %1003, %1002 ], [ %.pn334, %_ZN7testing7MessageD2Ev.exit584 ], [ %.pn367, %1292 ], [ %1287, %1286 ], [ %.pn369, %_ZN7testing7MessageD2Ev.exit629 ], [ %1044, %1043 ]
   call void @_ZN7testing8internal14TrueWithStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink737) #26
   resume { ptr, i32 } %.pn369.pn.pn
 
@@ -98156,9 +98156,9 @@ _ZN7testing7MessageD2Ev.exit354:                  ; preds = %347, %_ZNKSt14defau
   br label %361
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %341, %296, %252, %210
-  %.sink595 = phi ptr [ %211, %210 ], [ %253, %252 ], [ %297, %296 ], [ %342, %341 ]
-  %.sink583.ph = phi ptr [ %19, %210 ], [ %24, %252 ], [ %32, %296 ], [ %40, %341 ]
-  %.sink.ph = phi ptr [ %12, %210 ], [ %21, %252 ], [ %26, %296 ], [ %34, %341 ]
+  %.sink595 = phi ptr [ %297, %296 ], [ %253, %252 ], [ %211, %210 ], [ %342, %341 ]
+  %.sink583.ph = phi ptr [ %32, %296 ], [ %24, %252 ], [ %19, %210 ], [ %40, %341 ]
+  %.sink.ph = phi ptr [ %26, %296 ], [ %21, %252 ], [ %12, %210 ], [ %34, %341 ]
   %354 = load ptr, ptr %.sink595, align 8
   %355 = getelementptr inbounds nuw i8, ptr %354, i64 8
   %356 = load ptr, ptr %355, align 8
@@ -98166,8 +98166,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %341, %296, %252, %2
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %341, %296, %252, %210
-  %.sink583 = phi ptr [ %19, %210 ], [ %24, %252 ], [ %32, %296 ], [ %40, %341 ], [ %.sink583.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %12, %210 ], [ %21, %252 ], [ %26, %296 ], [ %34, %341 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink583 = phi ptr [ %24, %252 ], [ %32, %296 ], [ %40, %341 ], [ %19, %210 ], [ %.sink583.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %21, %252 ], [ %26, %296 ], [ %34, %341 ], [ %12, %210 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink583, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -98375,7 +98375,7 @@ _ZN7testing7MessageD2Ev.exit366:                  ; preds = %421, %_ZNKSt14defau
   br label %426
 
 426:                                              ; preds = %374, %.critedge298, %_ZN7testing7MessageD2Ev.exit363
-  %427 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit363 ], [ false, %.critedge298 ], [ true, %374 ]
+  %427 = phi i1 [ false, %.critedge298 ], [ false, %_ZN7testing7MessageD2Ev.exit363 ], [ true, %374 ]
   %428 = load ptr, ptr %5, align 8
   %429 = icmp eq ptr %428, %125
   br i1 %429, label %_ZN7testing8internal14TrueWithStringD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -99135,9 +99135,9 @@ _ZN7testing7MessageD2Ev.exit418:                  ; preds = %653, %_ZNKSt14defau
   br label %667
 
 _ZN7testing7MessageD2Ev.exit388.sink.split:       ; preds = %647, %602, %558, %516
-  %.sink600 = phi ptr [ %517, %516 ], [ %559, %558 ], [ %603, %602 ], [ %648, %647 ]
-  %.sink586.ph = phi ptr [ %59, %516 ], [ %64, %558 ], [ %72, %602 ], [ %80, %647 ]
-  %.sink585.ph = phi ptr [ %52, %516 ], [ %61, %558 ], [ %66, %602 ], [ %74, %647 ]
+  %.sink600 = phi ptr [ %603, %602 ], [ %559, %558 ], [ %517, %516 ], [ %648, %647 ]
+  %.sink586.ph = phi ptr [ %72, %602 ], [ %64, %558 ], [ %59, %516 ], [ %80, %647 ]
+  %.sink585.ph = phi ptr [ %66, %602 ], [ %61, %558 ], [ %52, %516 ], [ %74, %647 ]
   %660 = load ptr, ptr %.sink600, align 8
   %661 = getelementptr inbounds nuw i8, ptr %660, i64 8
   %662 = load ptr, ptr %661, align 8
@@ -99145,8 +99145,8 @@ _ZN7testing7MessageD2Ev.exit388.sink.split:       ; preds = %647, %602, %558, %5
   br label %_ZN7testing7MessageD2Ev.exit388
 
 _ZN7testing7MessageD2Ev.exit388:                  ; preds = %_ZN7testing7MessageD2Ev.exit388.sink.split, %647, %602, %558, %516
-  %.sink586 = phi ptr [ %59, %516 ], [ %64, %558 ], [ %72, %602 ], [ %80, %647 ], [ %.sink586.ph, %_ZN7testing7MessageD2Ev.exit388.sink.split ]
-  %.sink585 = phi ptr [ %52, %516 ], [ %61, %558 ], [ %66, %602 ], [ %74, %647 ], [ %.sink585.ph, %_ZN7testing7MessageD2Ev.exit388.sink.split ]
+  %.sink586 = phi ptr [ %64, %558 ], [ %72, %602 ], [ %80, %647 ], [ %59, %516 ], [ %.sink586.ph, %_ZN7testing7MessageD2Ev.exit388.sink.split ]
+  %.sink585 = phi ptr [ %61, %558 ], [ %66, %602 ], [ %74, %647 ], [ %52, %516 ], [ %.sink585.ph, %_ZN7testing7MessageD2Ev.exit388.sink.split ]
   store ptr null, ptr %.sink586, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink585) #26
   invoke void @__cxa_end_catch()
@@ -99354,7 +99354,7 @@ _ZN7testing7MessageD2Ev.exit431:                  ; preds = %727, %_ZNKSt14defau
   br label %732
 
 732:                                              ; preds = %680, %.critedge310, %_ZN7testing7MessageD2Ev.exit428
-  %733 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit428 ], [ false, %.critedge310 ], [ true, %680 ]
+  %733 = phi i1 [ false, %.critedge310 ], [ false, %_ZN7testing7MessageD2Ev.exit428 ], [ true, %680 ]
   %734 = load ptr, ptr %45, align 8
   %735 = icmp eq ptr %734, %431
   br i1 %735, label %_ZN7testing8internal14TrueWithStringD2Ev.exit434, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i432
@@ -100114,9 +100114,9 @@ _ZN7testing7MessageD2Ev.exit486:                  ; preds = %959, %_ZNKSt14defau
   br label %973
 
 _ZN7testing7MessageD2Ev.exit456.sink.split:       ; preds = %953, %908, %864, %822
-  %.sink605 = phi ptr [ %823, %822 ], [ %865, %864 ], [ %909, %908 ], [ %954, %953 ]
-  %.sink589.ph = phi ptr [ %99, %822 ], [ %104, %864 ], [ %112, %908 ], [ %120, %953 ]
-  %.sink588.ph = phi ptr [ %92, %822 ], [ %101, %864 ], [ %106, %908 ], [ %114, %953 ]
+  %.sink605 = phi ptr [ %909, %908 ], [ %865, %864 ], [ %823, %822 ], [ %954, %953 ]
+  %.sink589.ph = phi ptr [ %112, %908 ], [ %104, %864 ], [ %99, %822 ], [ %120, %953 ]
+  %.sink588.ph = phi ptr [ %106, %908 ], [ %101, %864 ], [ %92, %822 ], [ %114, %953 ]
   %966 = load ptr, ptr %.sink605, align 8
   %967 = getelementptr inbounds nuw i8, ptr %966, i64 8
   %968 = load ptr, ptr %967, align 8
@@ -100124,8 +100124,8 @@ _ZN7testing7MessageD2Ev.exit456.sink.split:       ; preds = %953, %908, %864, %8
   br label %_ZN7testing7MessageD2Ev.exit456
 
 _ZN7testing7MessageD2Ev.exit456:                  ; preds = %_ZN7testing7MessageD2Ev.exit456.sink.split, %953, %908, %864, %822
-  %.sink589 = phi ptr [ %99, %822 ], [ %104, %864 ], [ %112, %908 ], [ %120, %953 ], [ %.sink589.ph, %_ZN7testing7MessageD2Ev.exit456.sink.split ]
-  %.sink588 = phi ptr [ %92, %822 ], [ %101, %864 ], [ %106, %908 ], [ %114, %953 ], [ %.sink588.ph, %_ZN7testing7MessageD2Ev.exit456.sink.split ]
+  %.sink589 = phi ptr [ %104, %864 ], [ %112, %908 ], [ %120, %953 ], [ %99, %822 ], [ %.sink589.ph, %_ZN7testing7MessageD2Ev.exit456.sink.split ]
+  %.sink588 = phi ptr [ %101, %864 ], [ %106, %908 ], [ %114, %953 ], [ %92, %822 ], [ %.sink588.ph, %_ZN7testing7MessageD2Ev.exit456.sink.split ]
   store ptr null, ptr %.sink589, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink588) #26
   invoke void @__cxa_end_catch()
@@ -100349,8 +100349,8 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit502: ; preds = %1038, %_ZNKSt7__cxx
   ret void
 
 1042:                                             ; preds = %765, %_ZN7testing7MessageD2Ev.exit499, %1014, %1020, %459, %_ZN7testing7MessageD2Ev.exit431, %708, %714, %153, %_ZN7testing7MessageD2Ev.exit366, %402, %408
-  %.sink590 = phi ptr [ %5, %408 ], [ %5, %402 ], [ %5, %_ZN7testing7MessageD2Ev.exit366 ], [ %5, %153 ], [ %45, %714 ], [ %45, %708 ], [ %45, %_ZN7testing7MessageD2Ev.exit431 ], [ %45, %459 ], [ %85, %1020 ], [ %85, %1014 ], [ %85, %_ZN7testing7MessageD2Ev.exit499 ], [ %85, %765 ]
-  %.pn287.pn.pn = phi { ptr, i32 } [ %.pn215, %408 ], [ %403, %402 ], [ %.pn217, %_ZN7testing7MessageD2Ev.exit366 ], [ %154, %153 ], [ %.pn250, %714 ], [ %709, %708 ], [ %.pn252, %_ZN7testing7MessageD2Ev.exit431 ], [ %460, %459 ], [ %.pn285, %1020 ], [ %1015, %1014 ], [ %.pn287, %_ZN7testing7MessageD2Ev.exit499 ], [ %766, %765 ]
+  %.sink590 = phi ptr [ %45, %459 ], [ %5, %153 ], [ %5, %408 ], [ %5, %402 ], [ %5, %_ZN7testing7MessageD2Ev.exit366 ], [ %45, %714 ], [ %45, %708 ], [ %45, %_ZN7testing7MessageD2Ev.exit431 ], [ %85, %1020 ], [ %85, %1014 ], [ %85, %_ZN7testing7MessageD2Ev.exit499 ], [ %85, %765 ]
+  %.pn287.pn.pn = phi { ptr, i32 } [ %460, %459 ], [ %154, %153 ], [ %.pn215, %408 ], [ %403, %402 ], [ %.pn217, %_ZN7testing7MessageD2Ev.exit366 ], [ %.pn250, %714 ], [ %709, %708 ], [ %.pn252, %_ZN7testing7MessageD2Ev.exit431 ], [ %.pn285, %1020 ], [ %1015, %1014 ], [ %.pn287, %_ZN7testing7MessageD2Ev.exit499 ], [ %766, %765 ]
   call void @_ZN7testing8internal14TrueWithStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink590) #26
   resume { ptr, i32 } %.pn287.pn.pn
 
@@ -101246,9 +101246,9 @@ _ZN7testing7MessageD2Ev.exit354:                  ; preds = %347, %_ZNKSt14defau
   br label %361
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %341, %296, %252, %210
-  %.sink595 = phi ptr [ %211, %210 ], [ %253, %252 ], [ %297, %296 ], [ %342, %341 ]
-  %.sink583.ph = phi ptr [ %19, %210 ], [ %24, %252 ], [ %32, %296 ], [ %40, %341 ]
-  %.sink.ph = phi ptr [ %12, %210 ], [ %21, %252 ], [ %26, %296 ], [ %34, %341 ]
+  %.sink595 = phi ptr [ %297, %296 ], [ %253, %252 ], [ %211, %210 ], [ %342, %341 ]
+  %.sink583.ph = phi ptr [ %32, %296 ], [ %24, %252 ], [ %19, %210 ], [ %40, %341 ]
+  %.sink.ph = phi ptr [ %26, %296 ], [ %21, %252 ], [ %12, %210 ], [ %34, %341 ]
   %354 = load ptr, ptr %.sink595, align 8
   %355 = getelementptr inbounds nuw i8, ptr %354, i64 8
   %356 = load ptr, ptr %355, align 8
@@ -101256,8 +101256,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %341, %296, %252, %2
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %341, %296, %252, %210
-  %.sink583 = phi ptr [ %19, %210 ], [ %24, %252 ], [ %32, %296 ], [ %40, %341 ], [ %.sink583.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %12, %210 ], [ %21, %252 ], [ %26, %296 ], [ %34, %341 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink583 = phi ptr [ %24, %252 ], [ %32, %296 ], [ %40, %341 ], [ %19, %210 ], [ %.sink583.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %21, %252 ], [ %26, %296 ], [ %34, %341 ], [ %12, %210 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink583, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -101465,7 +101465,7 @@ _ZN7testing7MessageD2Ev.exit366:                  ; preds = %421, %_ZNKSt14defau
   br label %426
 
 426:                                              ; preds = %374, %.critedge298, %_ZN7testing7MessageD2Ev.exit363
-  %427 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit363 ], [ false, %.critedge298 ], [ true, %374 ]
+  %427 = phi i1 [ false, %.critedge298 ], [ false, %_ZN7testing7MessageD2Ev.exit363 ], [ true, %374 ]
   %428 = load ptr, ptr %5, align 8
   %429 = icmp eq ptr %428, %125
   br i1 %429, label %_ZN7testing8internal14TrueWithStringD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -102225,9 +102225,9 @@ _ZN7testing7MessageD2Ev.exit418:                  ; preds = %653, %_ZNKSt14defau
   br label %667
 
 _ZN7testing7MessageD2Ev.exit388.sink.split:       ; preds = %647, %602, %558, %516
-  %.sink600 = phi ptr [ %517, %516 ], [ %559, %558 ], [ %603, %602 ], [ %648, %647 ]
-  %.sink586.ph = phi ptr [ %59, %516 ], [ %64, %558 ], [ %72, %602 ], [ %80, %647 ]
-  %.sink585.ph = phi ptr [ %52, %516 ], [ %61, %558 ], [ %66, %602 ], [ %74, %647 ]
+  %.sink600 = phi ptr [ %603, %602 ], [ %559, %558 ], [ %517, %516 ], [ %648, %647 ]
+  %.sink586.ph = phi ptr [ %72, %602 ], [ %64, %558 ], [ %59, %516 ], [ %80, %647 ]
+  %.sink585.ph = phi ptr [ %66, %602 ], [ %61, %558 ], [ %52, %516 ], [ %74, %647 ]
   %660 = load ptr, ptr %.sink600, align 8
   %661 = getelementptr inbounds nuw i8, ptr %660, i64 8
   %662 = load ptr, ptr %661, align 8
@@ -102235,8 +102235,8 @@ _ZN7testing7MessageD2Ev.exit388.sink.split:       ; preds = %647, %602, %558, %5
   br label %_ZN7testing7MessageD2Ev.exit388
 
 _ZN7testing7MessageD2Ev.exit388:                  ; preds = %_ZN7testing7MessageD2Ev.exit388.sink.split, %647, %602, %558, %516
-  %.sink586 = phi ptr [ %59, %516 ], [ %64, %558 ], [ %72, %602 ], [ %80, %647 ], [ %.sink586.ph, %_ZN7testing7MessageD2Ev.exit388.sink.split ]
-  %.sink585 = phi ptr [ %52, %516 ], [ %61, %558 ], [ %66, %602 ], [ %74, %647 ], [ %.sink585.ph, %_ZN7testing7MessageD2Ev.exit388.sink.split ]
+  %.sink586 = phi ptr [ %64, %558 ], [ %72, %602 ], [ %80, %647 ], [ %59, %516 ], [ %.sink586.ph, %_ZN7testing7MessageD2Ev.exit388.sink.split ]
+  %.sink585 = phi ptr [ %61, %558 ], [ %66, %602 ], [ %74, %647 ], [ %52, %516 ], [ %.sink585.ph, %_ZN7testing7MessageD2Ev.exit388.sink.split ]
   store ptr null, ptr %.sink586, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink585) #26
   invoke void @__cxa_end_catch()
@@ -102444,7 +102444,7 @@ _ZN7testing7MessageD2Ev.exit431:                  ; preds = %727, %_ZNKSt14defau
   br label %732
 
 732:                                              ; preds = %680, %.critedge310, %_ZN7testing7MessageD2Ev.exit428
-  %733 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit428 ], [ false, %.critedge310 ], [ true, %680 ]
+  %733 = phi i1 [ false, %.critedge310 ], [ false, %_ZN7testing7MessageD2Ev.exit428 ], [ true, %680 ]
   %734 = load ptr, ptr %45, align 8
   %735 = icmp eq ptr %734, %431
   br i1 %735, label %_ZN7testing8internal14TrueWithStringD2Ev.exit434, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i432
@@ -103204,9 +103204,9 @@ _ZN7testing7MessageD2Ev.exit486:                  ; preds = %959, %_ZNKSt14defau
   br label %973
 
 _ZN7testing7MessageD2Ev.exit456.sink.split:       ; preds = %953, %908, %864, %822
-  %.sink605 = phi ptr [ %823, %822 ], [ %865, %864 ], [ %909, %908 ], [ %954, %953 ]
-  %.sink589.ph = phi ptr [ %99, %822 ], [ %104, %864 ], [ %112, %908 ], [ %120, %953 ]
-  %.sink588.ph = phi ptr [ %92, %822 ], [ %101, %864 ], [ %106, %908 ], [ %114, %953 ]
+  %.sink605 = phi ptr [ %909, %908 ], [ %865, %864 ], [ %823, %822 ], [ %954, %953 ]
+  %.sink589.ph = phi ptr [ %112, %908 ], [ %104, %864 ], [ %99, %822 ], [ %120, %953 ]
+  %.sink588.ph = phi ptr [ %106, %908 ], [ %101, %864 ], [ %92, %822 ], [ %114, %953 ]
   %966 = load ptr, ptr %.sink605, align 8
   %967 = getelementptr inbounds nuw i8, ptr %966, i64 8
   %968 = load ptr, ptr %967, align 8
@@ -103214,8 +103214,8 @@ _ZN7testing7MessageD2Ev.exit456.sink.split:       ; preds = %953, %908, %864, %8
   br label %_ZN7testing7MessageD2Ev.exit456
 
 _ZN7testing7MessageD2Ev.exit456:                  ; preds = %_ZN7testing7MessageD2Ev.exit456.sink.split, %953, %908, %864, %822
-  %.sink589 = phi ptr [ %99, %822 ], [ %104, %864 ], [ %112, %908 ], [ %120, %953 ], [ %.sink589.ph, %_ZN7testing7MessageD2Ev.exit456.sink.split ]
-  %.sink588 = phi ptr [ %92, %822 ], [ %101, %864 ], [ %106, %908 ], [ %114, %953 ], [ %.sink588.ph, %_ZN7testing7MessageD2Ev.exit456.sink.split ]
+  %.sink589 = phi ptr [ %104, %864 ], [ %112, %908 ], [ %120, %953 ], [ %99, %822 ], [ %.sink589.ph, %_ZN7testing7MessageD2Ev.exit456.sink.split ]
+  %.sink588 = phi ptr [ %101, %864 ], [ %106, %908 ], [ %114, %953 ], [ %92, %822 ], [ %.sink588.ph, %_ZN7testing7MessageD2Ev.exit456.sink.split ]
   store ptr null, ptr %.sink589, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink588) #26
   invoke void @__cxa_end_catch()
@@ -103439,8 +103439,8 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit502: ; preds = %1038, %_ZNKSt7__cxx
   ret void
 
 1042:                                             ; preds = %765, %_ZN7testing7MessageD2Ev.exit499, %1014, %1020, %459, %_ZN7testing7MessageD2Ev.exit431, %708, %714, %153, %_ZN7testing7MessageD2Ev.exit366, %402, %408
-  %.sink590 = phi ptr [ %5, %408 ], [ %5, %402 ], [ %5, %_ZN7testing7MessageD2Ev.exit366 ], [ %5, %153 ], [ %45, %714 ], [ %45, %708 ], [ %45, %_ZN7testing7MessageD2Ev.exit431 ], [ %45, %459 ], [ %85, %1020 ], [ %85, %1014 ], [ %85, %_ZN7testing7MessageD2Ev.exit499 ], [ %85, %765 ]
-  %.pn287.pn.pn = phi { ptr, i32 } [ %.pn215, %408 ], [ %403, %402 ], [ %.pn217, %_ZN7testing7MessageD2Ev.exit366 ], [ %154, %153 ], [ %.pn250, %714 ], [ %709, %708 ], [ %.pn252, %_ZN7testing7MessageD2Ev.exit431 ], [ %460, %459 ], [ %.pn285, %1020 ], [ %1015, %1014 ], [ %.pn287, %_ZN7testing7MessageD2Ev.exit499 ], [ %766, %765 ]
+  %.sink590 = phi ptr [ %45, %459 ], [ %5, %153 ], [ %5, %408 ], [ %5, %402 ], [ %5, %_ZN7testing7MessageD2Ev.exit366 ], [ %45, %714 ], [ %45, %708 ], [ %45, %_ZN7testing7MessageD2Ev.exit431 ], [ %85, %1020 ], [ %85, %1014 ], [ %85, %_ZN7testing7MessageD2Ev.exit499 ], [ %85, %765 ]
+  %.pn287.pn.pn = phi { ptr, i32 } [ %460, %459 ], [ %154, %153 ], [ %.pn215, %408 ], [ %403, %402 ], [ %.pn217, %_ZN7testing7MessageD2Ev.exit366 ], [ %.pn250, %714 ], [ %709, %708 ], [ %.pn252, %_ZN7testing7MessageD2Ev.exit431 ], [ %.pn285, %1020 ], [ %1015, %1014 ], [ %.pn287, %_ZN7testing7MessageD2Ev.exit499 ], [ %766, %765 ]
   call void @_ZN7testing8internal14TrueWithStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink590) #26
   resume { ptr, i32 } %.pn287.pn.pn
 
@@ -104377,9 +104377,9 @@ _ZN7testing7MessageD2Ev.exit464:                  ; preds = %388, %_ZNKSt14defau
   br label %402
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %382, %337, %293, %251
-  %.sink771 = phi ptr [ %252, %251 ], [ %294, %293 ], [ %338, %337 ], [ %383, %382 ]
-  %.sink756.ph = phi ptr [ %20, %251 ], [ %25, %293 ], [ %33, %337 ], [ %41, %382 ]
-  %.sink.ph = phi ptr [ %13, %251 ], [ %22, %293 ], [ %27, %337 ], [ %35, %382 ]
+  %.sink771 = phi ptr [ %338, %337 ], [ %294, %293 ], [ %252, %251 ], [ %383, %382 ]
+  %.sink756.ph = phi ptr [ %33, %337 ], [ %25, %293 ], [ %20, %251 ], [ %41, %382 ]
+  %.sink.ph = phi ptr [ %27, %337 ], [ %22, %293 ], [ %13, %251 ], [ %35, %382 ]
   %395 = load ptr, ptr %.sink771, align 8
   %396 = getelementptr inbounds nuw i8, ptr %395, i64 8
   %397 = load ptr, ptr %396, align 8
@@ -104387,8 +104387,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %382, %337, %293, %2
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %382, %337, %293, %251
-  %.sink756 = phi ptr [ %20, %251 ], [ %25, %293 ], [ %33, %337 ], [ %41, %382 ], [ %.sink756.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %13, %251 ], [ %22, %293 ], [ %27, %337 ], [ %35, %382 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink756 = phi ptr [ %25, %293 ], [ %33, %337 ], [ %41, %382 ], [ %20, %251 ], [ %.sink756.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %22, %293 ], [ %27, %337 ], [ %35, %382 ], [ %13, %251 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink756, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -104596,7 +104596,7 @@ _ZN7testing7MessageD2Ev.exit476:                  ; preds = %462, %_ZNKSt14defau
   br label %467
 
 467:                                              ; preds = %415, %.critedge395, %_ZN7testing7MessageD2Ev.exit473
-  %468 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit473 ], [ false, %.critedge395 ], [ true, %415 ]
+  %468 = phi i1 [ false, %.critedge395 ], [ false, %_ZN7testing7MessageD2Ev.exit473 ], [ true, %415 ]
   %469 = load ptr, ptr %6, align 8
   %470 = icmp eq ptr %469, %166
   br i1 %470, label %_ZN7testing8internal14TrueWithStringD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -105356,9 +105356,9 @@ _ZN7testing7MessageD2Ev.exit528:                  ; preds = %694, %_ZNKSt14defau
   br label %708
 
 _ZN7testing7MessageD2Ev.exit498.sink.split:       ; preds = %688, %643, %599, %557
-  %.sink776 = phi ptr [ %558, %557 ], [ %600, %599 ], [ %644, %643 ], [ %689, %688 ]
-  %.sink759.ph = phi ptr [ %60, %557 ], [ %65, %599 ], [ %73, %643 ], [ %81, %688 ]
-  %.sink758.ph = phi ptr [ %53, %557 ], [ %62, %599 ], [ %67, %643 ], [ %75, %688 ]
+  %.sink776 = phi ptr [ %644, %643 ], [ %600, %599 ], [ %558, %557 ], [ %689, %688 ]
+  %.sink759.ph = phi ptr [ %73, %643 ], [ %65, %599 ], [ %60, %557 ], [ %81, %688 ]
+  %.sink758.ph = phi ptr [ %67, %643 ], [ %62, %599 ], [ %53, %557 ], [ %75, %688 ]
   %701 = load ptr, ptr %.sink776, align 8
   %702 = getelementptr inbounds nuw i8, ptr %701, i64 8
   %703 = load ptr, ptr %702, align 8
@@ -105366,8 +105366,8 @@ _ZN7testing7MessageD2Ev.exit498.sink.split:       ; preds = %688, %643, %599, %5
   br label %_ZN7testing7MessageD2Ev.exit498
 
 _ZN7testing7MessageD2Ev.exit498:                  ; preds = %_ZN7testing7MessageD2Ev.exit498.sink.split, %688, %643, %599, %557
-  %.sink759 = phi ptr [ %60, %557 ], [ %65, %599 ], [ %73, %643 ], [ %81, %688 ], [ %.sink759.ph, %_ZN7testing7MessageD2Ev.exit498.sink.split ]
-  %.sink758 = phi ptr [ %53, %557 ], [ %62, %599 ], [ %67, %643 ], [ %75, %688 ], [ %.sink758.ph, %_ZN7testing7MessageD2Ev.exit498.sink.split ]
+  %.sink759 = phi ptr [ %65, %599 ], [ %73, %643 ], [ %81, %688 ], [ %60, %557 ], [ %.sink759.ph, %_ZN7testing7MessageD2Ev.exit498.sink.split ]
+  %.sink758 = phi ptr [ %62, %599 ], [ %67, %643 ], [ %75, %688 ], [ %53, %557 ], [ %.sink758.ph, %_ZN7testing7MessageD2Ev.exit498.sink.split ]
   store ptr null, ptr %.sink759, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink758) #26
   invoke void @__cxa_end_catch()
@@ -105575,7 +105575,7 @@ _ZN7testing7MessageD2Ev.exit541:                  ; preds = %768, %_ZNKSt14defau
   br label %773
 
 773:                                              ; preds = %721, %.critedge407, %_ZN7testing7MessageD2Ev.exit538
-  %774 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit538 ], [ false, %.critedge407 ], [ true, %721 ]
+  %774 = phi i1 [ false, %.critedge407 ], [ false, %_ZN7testing7MessageD2Ev.exit538 ], [ true, %721 ]
   %775 = load ptr, ptr %46, align 8
   %776 = icmp eq ptr %775, %472
   br i1 %776, label %_ZN7testing8internal14TrueWithStringD2Ev.exit544, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i542
@@ -106335,9 +106335,9 @@ _ZN7testing7MessageD2Ev.exit596:                  ; preds = %1000, %_ZNKSt14defa
   br label %1014
 
 _ZN7testing7MessageD2Ev.exit566.sink.split:       ; preds = %994, %949, %905, %863
-  %.sink781 = phi ptr [ %864, %863 ], [ %906, %905 ], [ %950, %949 ], [ %995, %994 ]
-  %.sink762.ph = phi ptr [ %100, %863 ], [ %105, %905 ], [ %113, %949 ], [ %121, %994 ]
-  %.sink761.ph = phi ptr [ %93, %863 ], [ %102, %905 ], [ %107, %949 ], [ %115, %994 ]
+  %.sink781 = phi ptr [ %950, %949 ], [ %906, %905 ], [ %864, %863 ], [ %995, %994 ]
+  %.sink762.ph = phi ptr [ %113, %949 ], [ %105, %905 ], [ %100, %863 ], [ %121, %994 ]
+  %.sink761.ph = phi ptr [ %107, %949 ], [ %102, %905 ], [ %93, %863 ], [ %115, %994 ]
   %1007 = load ptr, ptr %.sink781, align 8
   %1008 = getelementptr inbounds nuw i8, ptr %1007, i64 8
   %1009 = load ptr, ptr %1008, align 8
@@ -106345,8 +106345,8 @@ _ZN7testing7MessageD2Ev.exit566.sink.split:       ; preds = %994, %949, %905, %8
   br label %_ZN7testing7MessageD2Ev.exit566
 
 _ZN7testing7MessageD2Ev.exit566:                  ; preds = %_ZN7testing7MessageD2Ev.exit566.sink.split, %994, %949, %905, %863
-  %.sink762 = phi ptr [ %100, %863 ], [ %105, %905 ], [ %113, %949 ], [ %121, %994 ], [ %.sink762.ph, %_ZN7testing7MessageD2Ev.exit566.sink.split ]
-  %.sink761 = phi ptr [ %93, %863 ], [ %102, %905 ], [ %107, %949 ], [ %115, %994 ], [ %.sink761.ph, %_ZN7testing7MessageD2Ev.exit566.sink.split ]
+  %.sink762 = phi ptr [ %105, %905 ], [ %113, %949 ], [ %121, %994 ], [ %100, %863 ], [ %.sink762.ph, %_ZN7testing7MessageD2Ev.exit566.sink.split ]
+  %.sink761 = phi ptr [ %102, %905 ], [ %107, %949 ], [ %115, %994 ], [ %93, %863 ], [ %.sink761.ph, %_ZN7testing7MessageD2Ev.exit566.sink.split ]
   store ptr null, ptr %.sink762, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink761) #26
   invoke void @__cxa_end_catch()
@@ -106554,7 +106554,7 @@ _ZN7testing7MessageD2Ev.exit609:                  ; preds = %1074, %_ZNKSt14defa
   br label %1079
 
 1079:                                             ; preds = %1027, %.critedge420, %_ZN7testing7MessageD2Ev.exit606
-  %1080 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit606 ], [ false, %.critedge420 ], [ true, %1027 ]
+  %1080 = phi i1 [ false, %.critedge420 ], [ false, %_ZN7testing7MessageD2Ev.exit606 ], [ true, %1027 ]
   %1081 = load ptr, ptr %86, align 8
   %1082 = icmp eq ptr %1081, %778
   br i1 %1082, label %_ZN7testing8internal14TrueWithStringD2Ev.exit612, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i610
@@ -107267,9 +107267,9 @@ _ZN7testing7MessageD2Ev.exit647:                  ; preds = %1290, %_ZNKSt14defa
   br label %1304
 
 _ZN7testing7MessageD2Ev.exit617.sink.split:       ; preds = %1284, %1239, %1195, %1153
-  %.sink786 = phi ptr [ %1154, %1153 ], [ %1196, %1195 ], [ %1240, %1239 ], [ %1285, %1284 ]
-  %.sink765.ph = phi ptr [ %140, %1153 ], [ %145, %1195 ], [ %153, %1239 ], [ %161, %1284 ]
-  %.sink764.ph = phi ptr [ %133, %1153 ], [ %142, %1195 ], [ %147, %1239 ], [ %155, %1284 ]
+  %.sink786 = phi ptr [ %1240, %1239 ], [ %1196, %1195 ], [ %1154, %1153 ], [ %1285, %1284 ]
+  %.sink765.ph = phi ptr [ %153, %1239 ], [ %145, %1195 ], [ %140, %1153 ], [ %161, %1284 ]
+  %.sink764.ph = phi ptr [ %147, %1239 ], [ %142, %1195 ], [ %133, %1153 ], [ %155, %1284 ]
   %1297 = load ptr, ptr %.sink786, align 8
   %1298 = getelementptr inbounds nuw i8, ptr %1297, i64 8
   %1299 = load ptr, ptr %1298, align 8
@@ -107277,8 +107277,8 @@ _ZN7testing7MessageD2Ev.exit617.sink.split:       ; preds = %1284, %1239, %1195,
   br label %_ZN7testing7MessageD2Ev.exit617
 
 _ZN7testing7MessageD2Ev.exit617:                  ; preds = %_ZN7testing7MessageD2Ev.exit617.sink.split, %1284, %1239, %1195, %1153
-  %.sink765 = phi ptr [ %140, %1153 ], [ %145, %1195 ], [ %153, %1239 ], [ %161, %1284 ], [ %.sink765.ph, %_ZN7testing7MessageD2Ev.exit617.sink.split ]
-  %.sink764 = phi ptr [ %133, %1153 ], [ %142, %1195 ], [ %147, %1239 ], [ %155, %1284 ], [ %.sink764.ph, %_ZN7testing7MessageD2Ev.exit617.sink.split ]
+  %.sink765 = phi ptr [ %145, %1195 ], [ %153, %1239 ], [ %161, %1284 ], [ %140, %1153 ], [ %.sink765.ph, %_ZN7testing7MessageD2Ev.exit617.sink.split ]
+  %.sink764 = phi ptr [ %142, %1195 ], [ %147, %1239 ], [ %155, %1284 ], [ %133, %1153 ], [ %.sink764.ph, %_ZN7testing7MessageD2Ev.exit617.sink.split ]
   store ptr null, ptr %.sink765, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink764) #26
   invoke void @__cxa_end_catch()
@@ -107482,8 +107482,8 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit657: ; preds = %1363, %_ZNKSt7__cxx
   ret void
 
 1367:                                             ; preds = %1096, %_ZN7testing7MessageD2Ev.exit654, %1339, %1345, %806, %_ZN7testing7MessageD2Ev.exit609, %1055, %1061, %500, %_ZN7testing7MessageD2Ev.exit541, %749, %755, %194, %_ZN7testing7MessageD2Ev.exit476, %443, %449
-  %.sink766 = phi ptr [ %6, %449 ], [ %6, %443 ], [ %6, %_ZN7testing7MessageD2Ev.exit476 ], [ %6, %194 ], [ %46, %755 ], [ %46, %749 ], [ %46, %_ZN7testing7MessageD2Ev.exit541 ], [ %46, %500 ], [ %86, %1061 ], [ %86, %1055 ], [ %86, %_ZN7testing7MessageD2Ev.exit609 ], [ %86, %806 ], [ %126, %1345 ], [ %126, %1339 ], [ %126, %_ZN7testing7MessageD2Ev.exit654 ], [ %126, %1096 ]
-  %.pn384.pn.pn = phi { ptr, i32 } [ %.pn277, %449 ], [ %444, %443 ], [ %.pn279, %_ZN7testing7MessageD2Ev.exit476 ], [ %195, %194 ], [ %.pn312, %755 ], [ %750, %749 ], [ %.pn314, %_ZN7testing7MessageD2Ev.exit541 ], [ %501, %500 ], [ %.pn347, %1061 ], [ %1056, %1055 ], [ %.pn349, %_ZN7testing7MessageD2Ev.exit609 ], [ %807, %806 ], [ %.pn382, %1345 ], [ %1340, %1339 ], [ %.pn384, %_ZN7testing7MessageD2Ev.exit654 ], [ %1097, %1096 ]
+  %.sink766 = phi ptr [ %86, %806 ], [ %46, %500 ], [ %6, %194 ], [ %6, %449 ], [ %6, %443 ], [ %6, %_ZN7testing7MessageD2Ev.exit476 ], [ %46, %755 ], [ %46, %749 ], [ %46, %_ZN7testing7MessageD2Ev.exit541 ], [ %86, %1061 ], [ %86, %1055 ], [ %86, %_ZN7testing7MessageD2Ev.exit609 ], [ %126, %1345 ], [ %126, %1339 ], [ %126, %_ZN7testing7MessageD2Ev.exit654 ], [ %126, %1096 ]
+  %.pn384.pn.pn = phi { ptr, i32 } [ %807, %806 ], [ %501, %500 ], [ %195, %194 ], [ %.pn277, %449 ], [ %444, %443 ], [ %.pn279, %_ZN7testing7MessageD2Ev.exit476 ], [ %.pn312, %755 ], [ %750, %749 ], [ %.pn314, %_ZN7testing7MessageD2Ev.exit541 ], [ %.pn347, %1061 ], [ %1056, %1055 ], [ %.pn349, %_ZN7testing7MessageD2Ev.exit609 ], [ %.pn382, %1345 ], [ %1340, %1339 ], [ %.pn384, %_ZN7testing7MessageD2Ev.exit654 ], [ %1097, %1096 ]
   call void @_ZN7testing8internal14TrueWithStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink766) #26
   resume { ptr, i32 } %.pn384.pn.pn
 
@@ -108338,9 +108338,9 @@ _ZN7testing7MessageD2Ev.exit244:                  ; preds = %306, %_ZNKSt14defau
   br label %320
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %300, %255, %211, %169
-  %.sink387 = phi ptr [ %170, %169 ], [ %212, %211 ], [ %256, %255 ], [ %301, %300 ]
-  %.sink378.ph = phi ptr [ %18, %169 ], [ %23, %211 ], [ %31, %255 ], [ %39, %300 ]
-  %.sink.ph = phi ptr [ %11, %169 ], [ %20, %211 ], [ %25, %255 ], [ %33, %300 ]
+  %.sink387 = phi ptr [ %256, %255 ], [ %212, %211 ], [ %170, %169 ], [ %301, %300 ]
+  %.sink378.ph = phi ptr [ %31, %255 ], [ %23, %211 ], [ %18, %169 ], [ %39, %300 ]
+  %.sink.ph = phi ptr [ %25, %255 ], [ %20, %211 ], [ %11, %169 ], [ %33, %300 ]
   %313 = load ptr, ptr %.sink387, align 8
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 8
   %315 = load ptr, ptr %314, align 8
@@ -108348,8 +108348,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %300, %255, %211, %1
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %300, %255, %211, %169
-  %.sink378 = phi ptr [ %18, %169 ], [ %23, %211 ], [ %31, %255 ], [ %39, %300 ], [ %.sink378.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %11, %169 ], [ %20, %211 ], [ %25, %255 ], [ %33, %300 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink378 = phi ptr [ %23, %211 ], [ %31, %255 ], [ %39, %300 ], [ %18, %169 ], [ %.sink378.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %20, %211 ], [ %25, %255 ], [ %33, %300 ], [ %11, %169 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink378, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -108557,7 +108557,7 @@ _ZN7testing7MessageD2Ev.exit256:                  ; preds = %380, %_ZNKSt14defau
   br label %385
 
 385:                                              ; preds = %333, %.critedge201, %_ZN7testing7MessageD2Ev.exit253
-  %386 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit253 ], [ false, %.critedge201 ], [ true, %333 ]
+  %386 = phi i1 [ false, %.critedge201 ], [ false, %_ZN7testing7MessageD2Ev.exit253 ], [ true, %333 ]
   %387 = load ptr, ptr %4, align 8
   %388 = icmp eq ptr %387, %84
   br i1 %388, label %_ZN7testing8internal14TrueWithStringD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -109317,9 +109317,9 @@ _ZN7testing7MessageD2Ev.exit309:                  ; preds = %612, %_ZNKSt14defau
   br label %626
 
 _ZN7testing7MessageD2Ev.exit278.sink.split:       ; preds = %606, %561, %517, %475
-  %.sink392 = phi ptr [ %476, %475 ], [ %518, %517 ], [ %562, %561 ], [ %607, %606 ]
-  %.sink381.ph = phi ptr [ %58, %475 ], [ %63, %517 ], [ %71, %561 ], [ %79, %606 ]
-  %.sink380.ph = phi ptr [ %51, %475 ], [ %60, %517 ], [ %65, %561 ], [ %73, %606 ]
+  %.sink392 = phi ptr [ %562, %561 ], [ %518, %517 ], [ %476, %475 ], [ %607, %606 ]
+  %.sink381.ph = phi ptr [ %71, %561 ], [ %63, %517 ], [ %58, %475 ], [ %79, %606 ]
+  %.sink380.ph = phi ptr [ %65, %561 ], [ %60, %517 ], [ %51, %475 ], [ %73, %606 ]
   %619 = load ptr, ptr %.sink392, align 8
   %620 = getelementptr inbounds nuw i8, ptr %619, i64 8
   %621 = load ptr, ptr %620, align 8
@@ -109327,8 +109327,8 @@ _ZN7testing7MessageD2Ev.exit278.sink.split:       ; preds = %606, %561, %517, %4
   br label %_ZN7testing7MessageD2Ev.exit278
 
 _ZN7testing7MessageD2Ev.exit278:                  ; preds = %_ZN7testing7MessageD2Ev.exit278.sink.split, %606, %561, %517, %475
-  %.sink381 = phi ptr [ %58, %475 ], [ %63, %517 ], [ %71, %561 ], [ %79, %606 ], [ %.sink381.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
-  %.sink380 = phi ptr [ %51, %475 ], [ %60, %517 ], [ %65, %561 ], [ %73, %606 ], [ %.sink380.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
+  %.sink381 = phi ptr [ %63, %517 ], [ %71, %561 ], [ %79, %606 ], [ %58, %475 ], [ %.sink381.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
+  %.sink380 = phi ptr [ %60, %517 ], [ %65, %561 ], [ %73, %606 ], [ %51, %475 ], [ %.sink380.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
   store ptr null, ptr %.sink381, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink380) #26
   invoke void @__cxa_end_catch()
@@ -109552,8 +109552,8 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit325: ; preds = %691, %_ZNKSt7__cxx1
   ret void
 
 695:                                              ; preds = %418, %_ZN7testing7MessageD2Ev.exit322, %667, %673, %112, %_ZN7testing7MessageD2Ev.exit256, %361, %367
-  %.sink382 = phi ptr [ %4, %367 ], [ %4, %361 ], [ %4, %_ZN7testing7MessageD2Ev.exit256 ], [ %4, %112 ], [ %44, %673 ], [ %44, %667 ], [ %44, %_ZN7testing7MessageD2Ev.exit322 ], [ %44, %418 ]
-  %.pn190.pn.pn = phi { ptr, i32 } [ %.pn153, %367 ], [ %362, %361 ], [ %.pn155, %_ZN7testing7MessageD2Ev.exit256 ], [ %113, %112 ], [ %.pn188, %673 ], [ %668, %667 ], [ %.pn190, %_ZN7testing7MessageD2Ev.exit322 ], [ %419, %418 ]
+  %.sink382 = phi ptr [ %4, %112 ], [ %4, %367 ], [ %4, %361 ], [ %4, %_ZN7testing7MessageD2Ev.exit256 ], [ %44, %673 ], [ %44, %667 ], [ %44, %_ZN7testing7MessageD2Ev.exit322 ], [ %44, %418 ]
+  %.pn190.pn.pn = phi { ptr, i32 } [ %113, %112 ], [ %.pn153, %367 ], [ %362, %361 ], [ %.pn155, %_ZN7testing7MessageD2Ev.exit256 ], [ %.pn188, %673 ], [ %668, %667 ], [ %.pn190, %_ZN7testing7MessageD2Ev.exit322 ], [ %419, %418 ]
   call void @_ZN7testing8internal14TrueWithStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink382) #26
   resume { ptr, i32 } %.pn190.pn.pn
 
@@ -110408,9 +110408,9 @@ _ZN7testing7MessageD2Ev.exit244:                  ; preds = %306, %_ZNKSt14defau
   br label %320
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %300, %255, %211, %169
-  %.sink387 = phi ptr [ %170, %169 ], [ %212, %211 ], [ %256, %255 ], [ %301, %300 ]
-  %.sink378.ph = phi ptr [ %18, %169 ], [ %23, %211 ], [ %31, %255 ], [ %39, %300 ]
-  %.sink.ph = phi ptr [ %11, %169 ], [ %20, %211 ], [ %25, %255 ], [ %33, %300 ]
+  %.sink387 = phi ptr [ %256, %255 ], [ %212, %211 ], [ %170, %169 ], [ %301, %300 ]
+  %.sink378.ph = phi ptr [ %31, %255 ], [ %23, %211 ], [ %18, %169 ], [ %39, %300 ]
+  %.sink.ph = phi ptr [ %25, %255 ], [ %20, %211 ], [ %11, %169 ], [ %33, %300 ]
   %313 = load ptr, ptr %.sink387, align 8
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 8
   %315 = load ptr, ptr %314, align 8
@@ -110418,8 +110418,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %300, %255, %211, %1
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %300, %255, %211, %169
-  %.sink378 = phi ptr [ %18, %169 ], [ %23, %211 ], [ %31, %255 ], [ %39, %300 ], [ %.sink378.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %11, %169 ], [ %20, %211 ], [ %25, %255 ], [ %33, %300 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink378 = phi ptr [ %23, %211 ], [ %31, %255 ], [ %39, %300 ], [ %18, %169 ], [ %.sink378.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %20, %211 ], [ %25, %255 ], [ %33, %300 ], [ %11, %169 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink378, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -110627,7 +110627,7 @@ _ZN7testing7MessageD2Ev.exit256:                  ; preds = %380, %_ZNKSt14defau
   br label %385
 
 385:                                              ; preds = %333, %.critedge201, %_ZN7testing7MessageD2Ev.exit253
-  %386 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit253 ], [ false, %.critedge201 ], [ true, %333 ]
+  %386 = phi i1 [ false, %.critedge201 ], [ false, %_ZN7testing7MessageD2Ev.exit253 ], [ true, %333 ]
   %387 = load ptr, ptr %4, align 8
   %388 = icmp eq ptr %387, %84
   br i1 %388, label %_ZN7testing8internal14TrueWithStringD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -111387,9 +111387,9 @@ _ZN7testing7MessageD2Ev.exit309:                  ; preds = %612, %_ZNKSt14defau
   br label %626
 
 _ZN7testing7MessageD2Ev.exit278.sink.split:       ; preds = %606, %561, %517, %475
-  %.sink392 = phi ptr [ %476, %475 ], [ %518, %517 ], [ %562, %561 ], [ %607, %606 ]
-  %.sink381.ph = phi ptr [ %58, %475 ], [ %63, %517 ], [ %71, %561 ], [ %79, %606 ]
-  %.sink380.ph = phi ptr [ %51, %475 ], [ %60, %517 ], [ %65, %561 ], [ %73, %606 ]
+  %.sink392 = phi ptr [ %562, %561 ], [ %518, %517 ], [ %476, %475 ], [ %607, %606 ]
+  %.sink381.ph = phi ptr [ %71, %561 ], [ %63, %517 ], [ %58, %475 ], [ %79, %606 ]
+  %.sink380.ph = phi ptr [ %65, %561 ], [ %60, %517 ], [ %51, %475 ], [ %73, %606 ]
   %619 = load ptr, ptr %.sink392, align 8
   %620 = getelementptr inbounds nuw i8, ptr %619, i64 8
   %621 = load ptr, ptr %620, align 8
@@ -111397,8 +111397,8 @@ _ZN7testing7MessageD2Ev.exit278.sink.split:       ; preds = %606, %561, %517, %4
   br label %_ZN7testing7MessageD2Ev.exit278
 
 _ZN7testing7MessageD2Ev.exit278:                  ; preds = %_ZN7testing7MessageD2Ev.exit278.sink.split, %606, %561, %517, %475
-  %.sink381 = phi ptr [ %58, %475 ], [ %63, %517 ], [ %71, %561 ], [ %79, %606 ], [ %.sink381.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
-  %.sink380 = phi ptr [ %51, %475 ], [ %60, %517 ], [ %65, %561 ], [ %73, %606 ], [ %.sink380.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
+  %.sink381 = phi ptr [ %63, %517 ], [ %71, %561 ], [ %79, %606 ], [ %58, %475 ], [ %.sink381.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
+  %.sink380 = phi ptr [ %60, %517 ], [ %65, %561 ], [ %73, %606 ], [ %51, %475 ], [ %.sink380.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
   store ptr null, ptr %.sink381, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink380) #26
   invoke void @__cxa_end_catch()
@@ -111622,8 +111622,8 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit325: ; preds = %691, %_ZNKSt7__cxx1
   ret void
 
 695:                                              ; preds = %418, %_ZN7testing7MessageD2Ev.exit322, %667, %673, %112, %_ZN7testing7MessageD2Ev.exit256, %361, %367
-  %.sink382 = phi ptr [ %4, %367 ], [ %4, %361 ], [ %4, %_ZN7testing7MessageD2Ev.exit256 ], [ %4, %112 ], [ %44, %673 ], [ %44, %667 ], [ %44, %_ZN7testing7MessageD2Ev.exit322 ], [ %44, %418 ]
-  %.pn190.pn.pn = phi { ptr, i32 } [ %.pn153, %367 ], [ %362, %361 ], [ %.pn155, %_ZN7testing7MessageD2Ev.exit256 ], [ %113, %112 ], [ %.pn188, %673 ], [ %668, %667 ], [ %.pn190, %_ZN7testing7MessageD2Ev.exit322 ], [ %419, %418 ]
+  %.sink382 = phi ptr [ %4, %112 ], [ %4, %367 ], [ %4, %361 ], [ %4, %_ZN7testing7MessageD2Ev.exit256 ], [ %44, %673 ], [ %44, %667 ], [ %44, %_ZN7testing7MessageD2Ev.exit322 ], [ %44, %418 ]
+  %.pn190.pn.pn = phi { ptr, i32 } [ %113, %112 ], [ %.pn153, %367 ], [ %362, %361 ], [ %.pn155, %_ZN7testing7MessageD2Ev.exit256 ], [ %.pn188, %673 ], [ %668, %667 ], [ %.pn190, %_ZN7testing7MessageD2Ev.exit322 ], [ %419, %418 ]
   call void @_ZN7testing8internal14TrueWithStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink382) #26
   resume { ptr, i32 } %.pn190.pn.pn
 
@@ -112478,9 +112478,9 @@ _ZN7testing7MessageD2Ev.exit244:                  ; preds = %306, %_ZNKSt14defau
   br label %320
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %300, %255, %211, %169
-  %.sink387 = phi ptr [ %170, %169 ], [ %212, %211 ], [ %256, %255 ], [ %301, %300 ]
-  %.sink378.ph = phi ptr [ %18, %169 ], [ %23, %211 ], [ %31, %255 ], [ %39, %300 ]
-  %.sink.ph = phi ptr [ %11, %169 ], [ %20, %211 ], [ %25, %255 ], [ %33, %300 ]
+  %.sink387 = phi ptr [ %256, %255 ], [ %212, %211 ], [ %170, %169 ], [ %301, %300 ]
+  %.sink378.ph = phi ptr [ %31, %255 ], [ %23, %211 ], [ %18, %169 ], [ %39, %300 ]
+  %.sink.ph = phi ptr [ %25, %255 ], [ %20, %211 ], [ %11, %169 ], [ %33, %300 ]
   %313 = load ptr, ptr %.sink387, align 8
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 8
   %315 = load ptr, ptr %314, align 8
@@ -112488,8 +112488,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %300, %255, %211, %1
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %300, %255, %211, %169
-  %.sink378 = phi ptr [ %18, %169 ], [ %23, %211 ], [ %31, %255 ], [ %39, %300 ], [ %.sink378.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %11, %169 ], [ %20, %211 ], [ %25, %255 ], [ %33, %300 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink378 = phi ptr [ %23, %211 ], [ %31, %255 ], [ %39, %300 ], [ %18, %169 ], [ %.sink378.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %20, %211 ], [ %25, %255 ], [ %33, %300 ], [ %11, %169 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink378, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -112697,7 +112697,7 @@ _ZN7testing7MessageD2Ev.exit256:                  ; preds = %380, %_ZNKSt14defau
   br label %385
 
 385:                                              ; preds = %333, %.critedge201, %_ZN7testing7MessageD2Ev.exit253
-  %386 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit253 ], [ false, %.critedge201 ], [ true, %333 ]
+  %386 = phi i1 [ false, %.critedge201 ], [ false, %_ZN7testing7MessageD2Ev.exit253 ], [ true, %333 ]
   %387 = load ptr, ptr %4, align 8
   %388 = icmp eq ptr %387, %84
   br i1 %388, label %_ZN7testing8internal14TrueWithStringD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -113457,9 +113457,9 @@ _ZN7testing7MessageD2Ev.exit309:                  ; preds = %612, %_ZNKSt14defau
   br label %626
 
 _ZN7testing7MessageD2Ev.exit278.sink.split:       ; preds = %606, %561, %517, %475
-  %.sink392 = phi ptr [ %476, %475 ], [ %518, %517 ], [ %562, %561 ], [ %607, %606 ]
-  %.sink381.ph = phi ptr [ %58, %475 ], [ %63, %517 ], [ %71, %561 ], [ %79, %606 ]
-  %.sink380.ph = phi ptr [ %51, %475 ], [ %60, %517 ], [ %65, %561 ], [ %73, %606 ]
+  %.sink392 = phi ptr [ %562, %561 ], [ %518, %517 ], [ %476, %475 ], [ %607, %606 ]
+  %.sink381.ph = phi ptr [ %71, %561 ], [ %63, %517 ], [ %58, %475 ], [ %79, %606 ]
+  %.sink380.ph = phi ptr [ %65, %561 ], [ %60, %517 ], [ %51, %475 ], [ %73, %606 ]
   %619 = load ptr, ptr %.sink392, align 8
   %620 = getelementptr inbounds nuw i8, ptr %619, i64 8
   %621 = load ptr, ptr %620, align 8
@@ -113467,8 +113467,8 @@ _ZN7testing7MessageD2Ev.exit278.sink.split:       ; preds = %606, %561, %517, %4
   br label %_ZN7testing7MessageD2Ev.exit278
 
 _ZN7testing7MessageD2Ev.exit278:                  ; preds = %_ZN7testing7MessageD2Ev.exit278.sink.split, %606, %561, %517, %475
-  %.sink381 = phi ptr [ %58, %475 ], [ %63, %517 ], [ %71, %561 ], [ %79, %606 ], [ %.sink381.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
-  %.sink380 = phi ptr [ %51, %475 ], [ %60, %517 ], [ %65, %561 ], [ %73, %606 ], [ %.sink380.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
+  %.sink381 = phi ptr [ %63, %517 ], [ %71, %561 ], [ %79, %606 ], [ %58, %475 ], [ %.sink381.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
+  %.sink380 = phi ptr [ %60, %517 ], [ %65, %561 ], [ %73, %606 ], [ %51, %475 ], [ %.sink380.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
   store ptr null, ptr %.sink381, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink380) #26
   invoke void @__cxa_end_catch()
@@ -113692,8 +113692,8 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit325: ; preds = %691, %_ZNKSt7__cxx1
   ret void
 
 695:                                              ; preds = %418, %_ZN7testing7MessageD2Ev.exit322, %667, %673, %112, %_ZN7testing7MessageD2Ev.exit256, %361, %367
-  %.sink382 = phi ptr [ %4, %367 ], [ %4, %361 ], [ %4, %_ZN7testing7MessageD2Ev.exit256 ], [ %4, %112 ], [ %44, %673 ], [ %44, %667 ], [ %44, %_ZN7testing7MessageD2Ev.exit322 ], [ %44, %418 ]
-  %.pn190.pn.pn = phi { ptr, i32 } [ %.pn153, %367 ], [ %362, %361 ], [ %.pn155, %_ZN7testing7MessageD2Ev.exit256 ], [ %113, %112 ], [ %.pn188, %673 ], [ %668, %667 ], [ %.pn190, %_ZN7testing7MessageD2Ev.exit322 ], [ %419, %418 ]
+  %.sink382 = phi ptr [ %4, %112 ], [ %4, %367 ], [ %4, %361 ], [ %4, %_ZN7testing7MessageD2Ev.exit256 ], [ %44, %673 ], [ %44, %667 ], [ %44, %_ZN7testing7MessageD2Ev.exit322 ], [ %44, %418 ]
+  %.pn190.pn.pn = phi { ptr, i32 } [ %113, %112 ], [ %.pn153, %367 ], [ %362, %361 ], [ %.pn155, %_ZN7testing7MessageD2Ev.exit256 ], [ %.pn188, %673 ], [ %668, %667 ], [ %.pn190, %_ZN7testing7MessageD2Ev.exit322 ], [ %419, %418 ]
   call void @_ZN7testing8internal14TrueWithStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink382) #26
   resume { ptr, i32 } %.pn190.pn.pn
 
@@ -114580,9 +114580,9 @@ _ZN7testing7MessageD2Ev.exit337:                  ; preds = %338, %_ZNKSt14defau
   br label %352
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %332, %287, %243, %201
-  %.sink567 = phi ptr [ %202, %201 ], [ %244, %243 ], [ %288, %287 ], [ %333, %332 ]
-  %.sink555.ph = phi ptr [ %19, %201 ], [ %24, %243 ], [ %32, %287 ], [ %40, %332 ]
-  %.sink.ph = phi ptr [ %12, %201 ], [ %21, %243 ], [ %26, %287 ], [ %34, %332 ]
+  %.sink567 = phi ptr [ %288, %287 ], [ %244, %243 ], [ %202, %201 ], [ %333, %332 ]
+  %.sink555.ph = phi ptr [ %32, %287 ], [ %24, %243 ], [ %19, %201 ], [ %40, %332 ]
+  %.sink.ph = phi ptr [ %26, %287 ], [ %21, %243 ], [ %12, %201 ], [ %34, %332 ]
   %345 = load ptr, ptr %.sink567, align 8
   %346 = getelementptr inbounds nuw i8, ptr %345, i64 8
   %347 = load ptr, ptr %346, align 8
@@ -114590,8 +114590,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %332, %287, %243, %2
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %332, %287, %243, %201
-  %.sink555 = phi ptr [ %19, %201 ], [ %24, %243 ], [ %32, %287 ], [ %40, %332 ], [ %.sink555.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %12, %201 ], [ %21, %243 ], [ %26, %287 ], [ %34, %332 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink555 = phi ptr [ %24, %243 ], [ %32, %287 ], [ %40, %332 ], [ %19, %201 ], [ %.sink555.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %21, %243 ], [ %26, %287 ], [ %34, %332 ], [ %12, %201 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink555, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -114799,7 +114799,7 @@ _ZN7testing7MessageD2Ev.exit349:                  ; preds = %412, %_ZNKSt14defau
   br label %417
 
 417:                                              ; preds = %365, %.critedge283, %_ZN7testing7MessageD2Ev.exit346
-  %418 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit346 ], [ false, %.critedge283 ], [ true, %365 ]
+  %418 = phi i1 [ false, %.critedge283 ], [ false, %_ZN7testing7MessageD2Ev.exit346 ], [ true, %365 ]
   %419 = load ptr, ptr %5, align 8
   %420 = icmp eq ptr %419, %116
   br i1 %420, label %_ZN7testing8internal14TrueWithStringD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -115559,9 +115559,9 @@ _ZN7testing7MessageD2Ev.exit401:                  ; preds = %644, %_ZNKSt14defau
   br label %658
 
 _ZN7testing7MessageD2Ev.exit371.sink.split:       ; preds = %638, %593, %549, %507
-  %.sink572 = phi ptr [ %508, %507 ], [ %550, %549 ], [ %594, %593 ], [ %639, %638 ]
-  %.sink558.ph = phi ptr [ %59, %507 ], [ %64, %549 ], [ %72, %593 ], [ %80, %638 ]
-  %.sink557.ph = phi ptr [ %52, %507 ], [ %61, %549 ], [ %66, %593 ], [ %74, %638 ]
+  %.sink572 = phi ptr [ %594, %593 ], [ %550, %549 ], [ %508, %507 ], [ %639, %638 ]
+  %.sink558.ph = phi ptr [ %72, %593 ], [ %64, %549 ], [ %59, %507 ], [ %80, %638 ]
+  %.sink557.ph = phi ptr [ %66, %593 ], [ %61, %549 ], [ %52, %507 ], [ %74, %638 ]
   %651 = load ptr, ptr %.sink572, align 8
   %652 = getelementptr inbounds nuw i8, ptr %651, i64 8
   %653 = load ptr, ptr %652, align 8
@@ -115569,8 +115569,8 @@ _ZN7testing7MessageD2Ev.exit371.sink.split:       ; preds = %638, %593, %549, %5
   br label %_ZN7testing7MessageD2Ev.exit371
 
 _ZN7testing7MessageD2Ev.exit371:                  ; preds = %_ZN7testing7MessageD2Ev.exit371.sink.split, %638, %593, %549, %507
-  %.sink558 = phi ptr [ %59, %507 ], [ %64, %549 ], [ %72, %593 ], [ %80, %638 ], [ %.sink558.ph, %_ZN7testing7MessageD2Ev.exit371.sink.split ]
-  %.sink557 = phi ptr [ %52, %507 ], [ %61, %549 ], [ %66, %593 ], [ %74, %638 ], [ %.sink557.ph, %_ZN7testing7MessageD2Ev.exit371.sink.split ]
+  %.sink558 = phi ptr [ %64, %549 ], [ %72, %593 ], [ %80, %638 ], [ %59, %507 ], [ %.sink558.ph, %_ZN7testing7MessageD2Ev.exit371.sink.split ]
+  %.sink557 = phi ptr [ %61, %549 ], [ %66, %593 ], [ %74, %638 ], [ %52, %507 ], [ %.sink557.ph, %_ZN7testing7MessageD2Ev.exit371.sink.split ]
   store ptr null, ptr %.sink558, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink557) #26
   invoke void @__cxa_end_catch()
@@ -115778,7 +115778,7 @@ _ZN7testing7MessageD2Ev.exit414:                  ; preds = %718, %_ZNKSt14defau
   br label %723
 
 723:                                              ; preds = %671, %.critedge295, %_ZN7testing7MessageD2Ev.exit411
-  %724 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit411 ], [ false, %.critedge295 ], [ true, %671 ]
+  %724 = phi i1 [ false, %.critedge295 ], [ false, %_ZN7testing7MessageD2Ev.exit411 ], [ true, %671 ]
   %725 = load ptr, ptr %45, align 8
   %726 = icmp eq ptr %725, %422
   br i1 %726, label %_ZN7testing8internal14TrueWithStringD2Ev.exit417, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i415
@@ -116383,9 +116383,9 @@ _ZN7testing7MessageD2Ev.exit462:                  ; preds = %905, %_ZNKSt14defau
   br label %919
 
 _ZN7testing7MessageD2Ev.exit439.sink.split:       ; preds = %899, %855, %813
-  %.sink577 = phi ptr [ %814, %813 ], [ %856, %855 ], [ %900, %899 ]
-  %.sink561.ph = phi ptr [ %98, %813 ], [ %103, %855 ], [ %111, %899 ]
-  %.sink560.ph = phi ptr [ %92, %813 ], [ %100, %855 ], [ %105, %899 ]
+  %.sink577 = phi ptr [ %856, %855 ], [ %814, %813 ], [ %900, %899 ]
+  %.sink561.ph = phi ptr [ %103, %855 ], [ %98, %813 ], [ %111, %899 ]
+  %.sink560.ph = phi ptr [ %100, %855 ], [ %92, %813 ], [ %105, %899 ]
   %912 = load ptr, ptr %.sink577, align 8
   %913 = getelementptr inbounds nuw i8, ptr %912, i64 8
   %914 = load ptr, ptr %913, align 8
@@ -116393,8 +116393,8 @@ _ZN7testing7MessageD2Ev.exit439.sink.split:       ; preds = %899, %855, %813
   br label %_ZN7testing7MessageD2Ev.exit439
 
 _ZN7testing7MessageD2Ev.exit439:                  ; preds = %_ZN7testing7MessageD2Ev.exit439.sink.split, %899, %855, %813
-  %.sink561 = phi ptr [ %98, %813 ], [ %103, %855 ], [ %111, %899 ], [ %.sink561.ph, %_ZN7testing7MessageD2Ev.exit439.sink.split ]
-  %.sink560 = phi ptr [ %92, %813 ], [ %100, %855 ], [ %105, %899 ], [ %.sink560.ph, %_ZN7testing7MessageD2Ev.exit439.sink.split ]
+  %.sink561 = phi ptr [ %103, %855 ], [ %111, %899 ], [ %98, %813 ], [ %.sink561.ph, %_ZN7testing7MessageD2Ev.exit439.sink.split ]
+  %.sink560 = phi ptr [ %100, %855 ], [ %105, %899 ], [ %92, %813 ], [ %.sink560.ph, %_ZN7testing7MessageD2Ev.exit439.sink.split ]
   store ptr null, ptr %.sink561, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink560) #26
   invoke void @__cxa_end_catch()
@@ -116618,8 +116618,8 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit478: ; preds = %984, %_ZNKSt7__cxx1
   ret void
 
 988:                                              ; preds = %756, %_ZN7testing7MessageD2Ev.exit475, %960, %966, %450, %_ZN7testing7MessageD2Ev.exit414, %699, %705, %144, %_ZN7testing7MessageD2Ev.exit349, %393, %399
-  %.sink562 = phi ptr [ %5, %399 ], [ %5, %393 ], [ %5, %_ZN7testing7MessageD2Ev.exit349 ], [ %5, %144 ], [ %45, %705 ], [ %45, %699 ], [ %45, %_ZN7testing7MessageD2Ev.exit414 ], [ %45, %450 ], [ %85, %966 ], [ %85, %960 ], [ %85, %_ZN7testing7MessageD2Ev.exit475 ], [ %85, %756 ]
-  %.pn272.pn.pn = phi { ptr, i32 } [ %.pn207, %399 ], [ %394, %393 ], [ %.pn209, %_ZN7testing7MessageD2Ev.exit349 ], [ %145, %144 ], [ %.pn242, %705 ], [ %700, %699 ], [ %.pn244, %_ZN7testing7MessageD2Ev.exit414 ], [ %451, %450 ], [ %.pn270, %966 ], [ %961, %960 ], [ %.pn272, %_ZN7testing7MessageD2Ev.exit475 ], [ %757, %756 ]
+  %.sink562 = phi ptr [ %45, %450 ], [ %5, %144 ], [ %5, %399 ], [ %5, %393 ], [ %5, %_ZN7testing7MessageD2Ev.exit349 ], [ %45, %705 ], [ %45, %699 ], [ %45, %_ZN7testing7MessageD2Ev.exit414 ], [ %85, %966 ], [ %85, %960 ], [ %85, %_ZN7testing7MessageD2Ev.exit475 ], [ %85, %756 ]
+  %.pn272.pn.pn = phi { ptr, i32 } [ %451, %450 ], [ %145, %144 ], [ %.pn207, %399 ], [ %394, %393 ], [ %.pn209, %_ZN7testing7MessageD2Ev.exit349 ], [ %.pn242, %705 ], [ %700, %699 ], [ %.pn244, %_ZN7testing7MessageD2Ev.exit414 ], [ %.pn270, %966 ], [ %961, %960 ], [ %.pn272, %_ZN7testing7MessageD2Ev.exit475 ], [ %757, %756 ]
   call void @_ZN7testing8internal14TrueWithStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink562) #26
   resume { ptr, i32 } %.pn272.pn.pn
 
@@ -117474,9 +117474,9 @@ _ZN7testing7MessageD2Ev.exit244:                  ; preds = %306, %_ZNKSt14defau
   br label %320
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %300, %255, %211, %169
-  %.sink387 = phi ptr [ %170, %169 ], [ %212, %211 ], [ %256, %255 ], [ %301, %300 ]
-  %.sink378.ph = phi ptr [ %18, %169 ], [ %23, %211 ], [ %31, %255 ], [ %39, %300 ]
-  %.sink.ph = phi ptr [ %11, %169 ], [ %20, %211 ], [ %25, %255 ], [ %33, %300 ]
+  %.sink387 = phi ptr [ %256, %255 ], [ %212, %211 ], [ %170, %169 ], [ %301, %300 ]
+  %.sink378.ph = phi ptr [ %31, %255 ], [ %23, %211 ], [ %18, %169 ], [ %39, %300 ]
+  %.sink.ph = phi ptr [ %25, %255 ], [ %20, %211 ], [ %11, %169 ], [ %33, %300 ]
   %313 = load ptr, ptr %.sink387, align 8
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 8
   %315 = load ptr, ptr %314, align 8
@@ -117484,8 +117484,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %300, %255, %211, %1
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %300, %255, %211, %169
-  %.sink378 = phi ptr [ %18, %169 ], [ %23, %211 ], [ %31, %255 ], [ %39, %300 ], [ %.sink378.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %11, %169 ], [ %20, %211 ], [ %25, %255 ], [ %33, %300 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink378 = phi ptr [ %23, %211 ], [ %31, %255 ], [ %39, %300 ], [ %18, %169 ], [ %.sink378.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %20, %211 ], [ %25, %255 ], [ %33, %300 ], [ %11, %169 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink378, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -117693,7 +117693,7 @@ _ZN7testing7MessageD2Ev.exit256:                  ; preds = %380, %_ZNKSt14defau
   br label %385
 
 385:                                              ; preds = %333, %.critedge201, %_ZN7testing7MessageD2Ev.exit253
-  %386 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit253 ], [ false, %.critedge201 ], [ true, %333 ]
+  %386 = phi i1 [ false, %.critedge201 ], [ false, %_ZN7testing7MessageD2Ev.exit253 ], [ true, %333 ]
   %387 = load ptr, ptr %4, align 8
   %388 = icmp eq ptr %387, %84
   br i1 %388, label %_ZN7testing8internal14TrueWithStringD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -118453,9 +118453,9 @@ _ZN7testing7MessageD2Ev.exit309:                  ; preds = %612, %_ZNKSt14defau
   br label %626
 
 _ZN7testing7MessageD2Ev.exit278.sink.split:       ; preds = %606, %561, %517, %475
-  %.sink392 = phi ptr [ %476, %475 ], [ %518, %517 ], [ %562, %561 ], [ %607, %606 ]
-  %.sink381.ph = phi ptr [ %58, %475 ], [ %63, %517 ], [ %71, %561 ], [ %79, %606 ]
-  %.sink380.ph = phi ptr [ %51, %475 ], [ %60, %517 ], [ %65, %561 ], [ %73, %606 ]
+  %.sink392 = phi ptr [ %562, %561 ], [ %518, %517 ], [ %476, %475 ], [ %607, %606 ]
+  %.sink381.ph = phi ptr [ %71, %561 ], [ %63, %517 ], [ %58, %475 ], [ %79, %606 ]
+  %.sink380.ph = phi ptr [ %65, %561 ], [ %60, %517 ], [ %51, %475 ], [ %73, %606 ]
   %619 = load ptr, ptr %.sink392, align 8
   %620 = getelementptr inbounds nuw i8, ptr %619, i64 8
   %621 = load ptr, ptr %620, align 8
@@ -118463,8 +118463,8 @@ _ZN7testing7MessageD2Ev.exit278.sink.split:       ; preds = %606, %561, %517, %4
   br label %_ZN7testing7MessageD2Ev.exit278
 
 _ZN7testing7MessageD2Ev.exit278:                  ; preds = %_ZN7testing7MessageD2Ev.exit278.sink.split, %606, %561, %517, %475
-  %.sink381 = phi ptr [ %58, %475 ], [ %63, %517 ], [ %71, %561 ], [ %79, %606 ], [ %.sink381.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
-  %.sink380 = phi ptr [ %51, %475 ], [ %60, %517 ], [ %65, %561 ], [ %73, %606 ], [ %.sink380.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
+  %.sink381 = phi ptr [ %63, %517 ], [ %71, %561 ], [ %79, %606 ], [ %58, %475 ], [ %.sink381.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
+  %.sink380 = phi ptr [ %60, %517 ], [ %65, %561 ], [ %73, %606 ], [ %51, %475 ], [ %.sink380.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
   store ptr null, ptr %.sink381, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink380) #26
   invoke void @__cxa_end_catch()
@@ -118688,8 +118688,8 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit325: ; preds = %691, %_ZNKSt7__cxx1
   ret void
 
 695:                                              ; preds = %418, %_ZN7testing7MessageD2Ev.exit322, %667, %673, %112, %_ZN7testing7MessageD2Ev.exit256, %361, %367
-  %.sink382 = phi ptr [ %4, %367 ], [ %4, %361 ], [ %4, %_ZN7testing7MessageD2Ev.exit256 ], [ %4, %112 ], [ %44, %673 ], [ %44, %667 ], [ %44, %_ZN7testing7MessageD2Ev.exit322 ], [ %44, %418 ]
-  %.pn190.pn.pn = phi { ptr, i32 } [ %.pn153, %367 ], [ %362, %361 ], [ %.pn155, %_ZN7testing7MessageD2Ev.exit256 ], [ %113, %112 ], [ %.pn188, %673 ], [ %668, %667 ], [ %.pn190, %_ZN7testing7MessageD2Ev.exit322 ], [ %419, %418 ]
+  %.sink382 = phi ptr [ %4, %112 ], [ %4, %367 ], [ %4, %361 ], [ %4, %_ZN7testing7MessageD2Ev.exit256 ], [ %44, %673 ], [ %44, %667 ], [ %44, %_ZN7testing7MessageD2Ev.exit322 ], [ %44, %418 ]
+  %.pn190.pn.pn = phi { ptr, i32 } [ %113, %112 ], [ %.pn153, %367 ], [ %362, %361 ], [ %.pn155, %_ZN7testing7MessageD2Ev.exit256 ], [ %.pn188, %673 ], [ %668, %667 ], [ %.pn190, %_ZN7testing7MessageD2Ev.exit322 ], [ %419, %418 ]
   call void @_ZN7testing8internal14TrueWithStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink382) #26
   resume { ptr, i32 } %.pn190.pn.pn
 
@@ -119603,9 +119603,9 @@ _ZN7testing7MessageD2Ev.exit244:                  ; preds = %306, %_ZNKSt14defau
   br label %320
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %300, %255, %211, %169
-  %.sink387 = phi ptr [ %170, %169 ], [ %212, %211 ], [ %256, %255 ], [ %301, %300 ]
-  %.sink378.ph = phi ptr [ %18, %169 ], [ %23, %211 ], [ %31, %255 ], [ %39, %300 ]
-  %.sink.ph = phi ptr [ %11, %169 ], [ %20, %211 ], [ %25, %255 ], [ %33, %300 ]
+  %.sink387 = phi ptr [ %256, %255 ], [ %212, %211 ], [ %170, %169 ], [ %301, %300 ]
+  %.sink378.ph = phi ptr [ %31, %255 ], [ %23, %211 ], [ %18, %169 ], [ %39, %300 ]
+  %.sink.ph = phi ptr [ %25, %255 ], [ %20, %211 ], [ %11, %169 ], [ %33, %300 ]
   %313 = load ptr, ptr %.sink387, align 8
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 8
   %315 = load ptr, ptr %314, align 8
@@ -119613,8 +119613,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %300, %255, %211, %1
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %300, %255, %211, %169
-  %.sink378 = phi ptr [ %18, %169 ], [ %23, %211 ], [ %31, %255 ], [ %39, %300 ], [ %.sink378.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %11, %169 ], [ %20, %211 ], [ %25, %255 ], [ %33, %300 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink378 = phi ptr [ %23, %211 ], [ %31, %255 ], [ %39, %300 ], [ %18, %169 ], [ %.sink378.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %20, %211 ], [ %25, %255 ], [ %33, %300 ], [ %11, %169 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink378, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -119822,7 +119822,7 @@ _ZN7testing7MessageD2Ev.exit256:                  ; preds = %380, %_ZNKSt14defau
   br label %385
 
 385:                                              ; preds = %333, %.critedge201, %_ZN7testing7MessageD2Ev.exit253
-  %386 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit253 ], [ false, %.critedge201 ], [ true, %333 ]
+  %386 = phi i1 [ false, %.critedge201 ], [ false, %_ZN7testing7MessageD2Ev.exit253 ], [ true, %333 ]
   %387 = load ptr, ptr %4, align 8
   %388 = icmp eq ptr %387, %84
   br i1 %388, label %_ZN7testing8internal14TrueWithStringD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -120582,9 +120582,9 @@ _ZN7testing7MessageD2Ev.exit309:                  ; preds = %612, %_ZNKSt14defau
   br label %626
 
 _ZN7testing7MessageD2Ev.exit278.sink.split:       ; preds = %606, %561, %517, %475
-  %.sink392 = phi ptr [ %476, %475 ], [ %518, %517 ], [ %562, %561 ], [ %607, %606 ]
-  %.sink381.ph = phi ptr [ %58, %475 ], [ %63, %517 ], [ %71, %561 ], [ %79, %606 ]
-  %.sink380.ph = phi ptr [ %51, %475 ], [ %60, %517 ], [ %65, %561 ], [ %73, %606 ]
+  %.sink392 = phi ptr [ %562, %561 ], [ %518, %517 ], [ %476, %475 ], [ %607, %606 ]
+  %.sink381.ph = phi ptr [ %71, %561 ], [ %63, %517 ], [ %58, %475 ], [ %79, %606 ]
+  %.sink380.ph = phi ptr [ %65, %561 ], [ %60, %517 ], [ %51, %475 ], [ %73, %606 ]
   %619 = load ptr, ptr %.sink392, align 8
   %620 = getelementptr inbounds nuw i8, ptr %619, i64 8
   %621 = load ptr, ptr %620, align 8
@@ -120592,8 +120592,8 @@ _ZN7testing7MessageD2Ev.exit278.sink.split:       ; preds = %606, %561, %517, %4
   br label %_ZN7testing7MessageD2Ev.exit278
 
 _ZN7testing7MessageD2Ev.exit278:                  ; preds = %_ZN7testing7MessageD2Ev.exit278.sink.split, %606, %561, %517, %475
-  %.sink381 = phi ptr [ %58, %475 ], [ %63, %517 ], [ %71, %561 ], [ %79, %606 ], [ %.sink381.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
-  %.sink380 = phi ptr [ %51, %475 ], [ %60, %517 ], [ %65, %561 ], [ %73, %606 ], [ %.sink380.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
+  %.sink381 = phi ptr [ %63, %517 ], [ %71, %561 ], [ %79, %606 ], [ %58, %475 ], [ %.sink381.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
+  %.sink380 = phi ptr [ %60, %517 ], [ %65, %561 ], [ %73, %606 ], [ %51, %475 ], [ %.sink380.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
   store ptr null, ptr %.sink381, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink380) #26
   invoke void @__cxa_end_catch()
@@ -120817,8 +120817,8 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit325: ; preds = %691, %_ZNKSt7__cxx1
   ret void
 
 695:                                              ; preds = %418, %_ZN7testing7MessageD2Ev.exit322, %667, %673, %112, %_ZN7testing7MessageD2Ev.exit256, %361, %367
-  %.sink382 = phi ptr [ %4, %367 ], [ %4, %361 ], [ %4, %_ZN7testing7MessageD2Ev.exit256 ], [ %4, %112 ], [ %44, %673 ], [ %44, %667 ], [ %44, %_ZN7testing7MessageD2Ev.exit322 ], [ %44, %418 ]
-  %.pn190.pn.pn = phi { ptr, i32 } [ %.pn153, %367 ], [ %362, %361 ], [ %.pn155, %_ZN7testing7MessageD2Ev.exit256 ], [ %113, %112 ], [ %.pn188, %673 ], [ %668, %667 ], [ %.pn190, %_ZN7testing7MessageD2Ev.exit322 ], [ %419, %418 ]
+  %.sink382 = phi ptr [ %4, %112 ], [ %4, %367 ], [ %4, %361 ], [ %4, %_ZN7testing7MessageD2Ev.exit256 ], [ %44, %673 ], [ %44, %667 ], [ %44, %_ZN7testing7MessageD2Ev.exit322 ], [ %44, %418 ]
+  %.pn190.pn.pn = phi { ptr, i32 } [ %113, %112 ], [ %.pn153, %367 ], [ %362, %361 ], [ %.pn155, %_ZN7testing7MessageD2Ev.exit256 ], [ %.pn188, %673 ], [ %668, %667 ], [ %.pn190, %_ZN7testing7MessageD2Ev.exit322 ], [ %419, %418 ]
   call void @_ZN7testing8internal14TrueWithStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink382) #26
   resume { ptr, i32 } %.pn190.pn.pn
 
@@ -121673,9 +121673,9 @@ _ZN7testing7MessageD2Ev.exit244:                  ; preds = %306, %_ZNKSt14defau
   br label %320
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %300, %255, %211, %169
-  %.sink387 = phi ptr [ %170, %169 ], [ %212, %211 ], [ %256, %255 ], [ %301, %300 ]
-  %.sink378.ph = phi ptr [ %18, %169 ], [ %23, %211 ], [ %31, %255 ], [ %39, %300 ]
-  %.sink.ph = phi ptr [ %11, %169 ], [ %20, %211 ], [ %25, %255 ], [ %33, %300 ]
+  %.sink387 = phi ptr [ %256, %255 ], [ %212, %211 ], [ %170, %169 ], [ %301, %300 ]
+  %.sink378.ph = phi ptr [ %31, %255 ], [ %23, %211 ], [ %18, %169 ], [ %39, %300 ]
+  %.sink.ph = phi ptr [ %25, %255 ], [ %20, %211 ], [ %11, %169 ], [ %33, %300 ]
   %313 = load ptr, ptr %.sink387, align 8
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 8
   %315 = load ptr, ptr %314, align 8
@@ -121683,8 +121683,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %300, %255, %211, %1
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %300, %255, %211, %169
-  %.sink378 = phi ptr [ %18, %169 ], [ %23, %211 ], [ %31, %255 ], [ %39, %300 ], [ %.sink378.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %11, %169 ], [ %20, %211 ], [ %25, %255 ], [ %33, %300 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink378 = phi ptr [ %23, %211 ], [ %31, %255 ], [ %39, %300 ], [ %18, %169 ], [ %.sink378.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %20, %211 ], [ %25, %255 ], [ %33, %300 ], [ %11, %169 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink378, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -121892,7 +121892,7 @@ _ZN7testing7MessageD2Ev.exit256:                  ; preds = %380, %_ZNKSt14defau
   br label %385
 
 385:                                              ; preds = %333, %.critedge201, %_ZN7testing7MessageD2Ev.exit253
-  %386 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit253 ], [ false, %.critedge201 ], [ true, %333 ]
+  %386 = phi i1 [ false, %.critedge201 ], [ false, %_ZN7testing7MessageD2Ev.exit253 ], [ true, %333 ]
   %387 = load ptr, ptr %4, align 8
   %388 = icmp eq ptr %387, %84
   br i1 %388, label %_ZN7testing8internal14TrueWithStringD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -122652,9 +122652,9 @@ _ZN7testing7MessageD2Ev.exit309:                  ; preds = %612, %_ZNKSt14defau
   br label %626
 
 _ZN7testing7MessageD2Ev.exit278.sink.split:       ; preds = %606, %561, %517, %475
-  %.sink392 = phi ptr [ %476, %475 ], [ %518, %517 ], [ %562, %561 ], [ %607, %606 ]
-  %.sink381.ph = phi ptr [ %58, %475 ], [ %63, %517 ], [ %71, %561 ], [ %79, %606 ]
-  %.sink380.ph = phi ptr [ %51, %475 ], [ %60, %517 ], [ %65, %561 ], [ %73, %606 ]
+  %.sink392 = phi ptr [ %562, %561 ], [ %518, %517 ], [ %476, %475 ], [ %607, %606 ]
+  %.sink381.ph = phi ptr [ %71, %561 ], [ %63, %517 ], [ %58, %475 ], [ %79, %606 ]
+  %.sink380.ph = phi ptr [ %65, %561 ], [ %60, %517 ], [ %51, %475 ], [ %73, %606 ]
   %619 = load ptr, ptr %.sink392, align 8
   %620 = getelementptr inbounds nuw i8, ptr %619, i64 8
   %621 = load ptr, ptr %620, align 8
@@ -122662,8 +122662,8 @@ _ZN7testing7MessageD2Ev.exit278.sink.split:       ; preds = %606, %561, %517, %4
   br label %_ZN7testing7MessageD2Ev.exit278
 
 _ZN7testing7MessageD2Ev.exit278:                  ; preds = %_ZN7testing7MessageD2Ev.exit278.sink.split, %606, %561, %517, %475
-  %.sink381 = phi ptr [ %58, %475 ], [ %63, %517 ], [ %71, %561 ], [ %79, %606 ], [ %.sink381.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
-  %.sink380 = phi ptr [ %51, %475 ], [ %60, %517 ], [ %65, %561 ], [ %73, %606 ], [ %.sink380.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
+  %.sink381 = phi ptr [ %63, %517 ], [ %71, %561 ], [ %79, %606 ], [ %58, %475 ], [ %.sink381.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
+  %.sink380 = phi ptr [ %60, %517 ], [ %65, %561 ], [ %73, %606 ], [ %51, %475 ], [ %.sink380.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
   store ptr null, ptr %.sink381, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink380) #26
   invoke void @__cxa_end_catch()
@@ -122887,8 +122887,8 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit325: ; preds = %691, %_ZNKSt7__cxx1
   ret void
 
 695:                                              ; preds = %418, %_ZN7testing7MessageD2Ev.exit322, %667, %673, %112, %_ZN7testing7MessageD2Ev.exit256, %361, %367
-  %.sink382 = phi ptr [ %4, %367 ], [ %4, %361 ], [ %4, %_ZN7testing7MessageD2Ev.exit256 ], [ %4, %112 ], [ %44, %673 ], [ %44, %667 ], [ %44, %_ZN7testing7MessageD2Ev.exit322 ], [ %44, %418 ]
-  %.pn190.pn.pn = phi { ptr, i32 } [ %.pn153, %367 ], [ %362, %361 ], [ %.pn155, %_ZN7testing7MessageD2Ev.exit256 ], [ %113, %112 ], [ %.pn188, %673 ], [ %668, %667 ], [ %.pn190, %_ZN7testing7MessageD2Ev.exit322 ], [ %419, %418 ]
+  %.sink382 = phi ptr [ %4, %112 ], [ %4, %367 ], [ %4, %361 ], [ %4, %_ZN7testing7MessageD2Ev.exit256 ], [ %44, %673 ], [ %44, %667 ], [ %44, %_ZN7testing7MessageD2Ev.exit322 ], [ %44, %418 ]
+  %.pn190.pn.pn = phi { ptr, i32 } [ %113, %112 ], [ %.pn153, %367 ], [ %362, %361 ], [ %.pn155, %_ZN7testing7MessageD2Ev.exit256 ], [ %.pn188, %673 ], [ %668, %667 ], [ %.pn190, %_ZN7testing7MessageD2Ev.exit322 ], [ %419, %418 ]
   call void @_ZN7testing8internal14TrueWithStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink382) #26
   resume { ptr, i32 } %.pn190.pn.pn
 
@@ -123610,9 +123610,9 @@ _ZN7testing7MessageD2Ev.exit312:                  ; preds = %283, %_ZNKSt14defau
   br label %297
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %277, %233, %191
-  %.sink537 = phi ptr [ %192, %191 ], [ %234, %233 ], [ %278, %277 ]
-  %.sink525.ph = phi ptr [ %18, %191 ], [ %23, %233 ], [ %31, %277 ]
-  %.sink.ph = phi ptr [ %12, %191 ], [ %20, %233 ], [ %25, %277 ]
+  %.sink537 = phi ptr [ %234, %233 ], [ %192, %191 ], [ %278, %277 ]
+  %.sink525.ph = phi ptr [ %23, %233 ], [ %18, %191 ], [ %31, %277 ]
+  %.sink.ph = phi ptr [ %20, %233 ], [ %12, %191 ], [ %25, %277 ]
   %290 = load ptr, ptr %.sink537, align 8
   %291 = getelementptr inbounds nuw i8, ptr %290, i64 8
   %292 = load ptr, ptr %291, align 8
@@ -123620,8 +123620,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %277, %233, %191
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %277, %233, %191
-  %.sink525 = phi ptr [ %18, %191 ], [ %23, %233 ], [ %31, %277 ], [ %.sink525.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %12, %191 ], [ %20, %233 ], [ %25, %277 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink525 = phi ptr [ %23, %233 ], [ %31, %277 ], [ %18, %191 ], [ %.sink525.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %20, %233 ], [ %25, %277 ], [ %12, %191 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink525, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -123829,7 +123829,7 @@ _ZN7testing7MessageD2Ev.exit324:                  ; preds = %357, %_ZNKSt14defau
   br label %362
 
 362:                                              ; preds = %310, %.critedge266, %_ZN7testing7MessageD2Ev.exit321
-  %363 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit321 ], [ false, %.critedge266 ], [ true, %310 ]
+  %363 = phi i1 [ false, %.critedge266 ], [ false, %_ZN7testing7MessageD2Ev.exit321 ], [ true, %310 ]
   %364 = load ptr, ptr %5, align 8
   %365 = icmp eq ptr %364, %106
   br i1 %365, label %_ZN7testing8internal14TrueWithStringD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -124434,9 +124434,9 @@ _ZN7testing7MessageD2Ev.exit368:                  ; preds = %544, %_ZNKSt14defau
   br label %558
 
 _ZN7testing7MessageD2Ev.exit346.sink.split:       ; preds = %538, %494, %452
-  %.sink542 = phi ptr [ %453, %452 ], [ %495, %494 ], [ %539, %538 ]
-  %.sink528.ph = phi ptr [ %49, %452 ], [ %54, %494 ], [ %62, %538 ]
-  %.sink527.ph = phi ptr [ %43, %452 ], [ %51, %494 ], [ %56, %538 ]
+  %.sink542 = phi ptr [ %495, %494 ], [ %453, %452 ], [ %539, %538 ]
+  %.sink528.ph = phi ptr [ %54, %494 ], [ %49, %452 ], [ %62, %538 ]
+  %.sink527.ph = phi ptr [ %51, %494 ], [ %43, %452 ], [ %56, %538 ]
   %551 = load ptr, ptr %.sink542, align 8
   %552 = getelementptr inbounds nuw i8, ptr %551, i64 8
   %553 = load ptr, ptr %552, align 8
@@ -124444,8 +124444,8 @@ _ZN7testing7MessageD2Ev.exit346.sink.split:       ; preds = %538, %494, %452
   br label %_ZN7testing7MessageD2Ev.exit346
 
 _ZN7testing7MessageD2Ev.exit346:                  ; preds = %_ZN7testing7MessageD2Ev.exit346.sink.split, %538, %494, %452
-  %.sink528 = phi ptr [ %49, %452 ], [ %54, %494 ], [ %62, %538 ], [ %.sink528.ph, %_ZN7testing7MessageD2Ev.exit346.sink.split ]
-  %.sink527 = phi ptr [ %43, %452 ], [ %51, %494 ], [ %56, %538 ], [ %.sink527.ph, %_ZN7testing7MessageD2Ev.exit346.sink.split ]
+  %.sink528 = phi ptr [ %54, %494 ], [ %62, %538 ], [ %49, %452 ], [ %.sink528.ph, %_ZN7testing7MessageD2Ev.exit346.sink.split ]
+  %.sink527 = phi ptr [ %51, %494 ], [ %56, %538 ], [ %43, %452 ], [ %.sink527.ph, %_ZN7testing7MessageD2Ev.exit346.sink.split ]
   store ptr null, ptr %.sink528, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink527) #26
   invoke void @__cxa_end_catch()
@@ -124653,7 +124653,7 @@ _ZN7testing7MessageD2Ev.exit381:                  ; preds = %618, %_ZNKSt14defau
   br label %623
 
 623:                                              ; preds = %571, %.critedge276, %_ZN7testing7MessageD2Ev.exit378
-  %624 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit378 ], [ false, %.critedge276 ], [ true, %571 ]
+  %624 = phi i1 [ false, %.critedge276 ], [ false, %_ZN7testing7MessageD2Ev.exit378 ], [ true, %571 ]
   %625 = load ptr, ptr %36, align 8
   %626 = icmp eq ptr %625, %367
   br i1 %626, label %_ZN7testing8internal14TrueWithStringD2Ev.exit384, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i382
@@ -125412,9 +125412,9 @@ _ZN7testing7MessageD2Ev.exit436:                  ; preds = %850, %_ZNKSt14defau
   br label %864
 
 _ZN7testing7MessageD2Ev.exit406.sink.split:       ; preds = %844, %799, %755, %713
-  %.sink547 = phi ptr [ %714, %713 ], [ %756, %755 ], [ %800, %799 ], [ %845, %844 ]
-  %.sink531.ph = phi ptr [ %80, %713 ], [ %85, %755 ], [ %93, %799 ], [ %101, %844 ]
-  %.sink530.ph = phi ptr [ %74, %713 ], [ %82, %755 ], [ %87, %799 ], [ %95, %844 ]
+  %.sink547 = phi ptr [ %800, %799 ], [ %756, %755 ], [ %714, %713 ], [ %845, %844 ]
+  %.sink531.ph = phi ptr [ %93, %799 ], [ %85, %755 ], [ %80, %713 ], [ %101, %844 ]
+  %.sink530.ph = phi ptr [ %87, %799 ], [ %82, %755 ], [ %74, %713 ], [ %95, %844 ]
   %857 = load ptr, ptr %.sink547, align 8
   %858 = getelementptr inbounds nuw i8, ptr %857, i64 8
   %859 = load ptr, ptr %858, align 8
@@ -125422,8 +125422,8 @@ _ZN7testing7MessageD2Ev.exit406.sink.split:       ; preds = %844, %799, %755, %7
   br label %_ZN7testing7MessageD2Ev.exit406
 
 _ZN7testing7MessageD2Ev.exit406:                  ; preds = %_ZN7testing7MessageD2Ev.exit406.sink.split, %844, %799, %755, %713
-  %.sink531 = phi ptr [ %80, %713 ], [ %85, %755 ], [ %93, %799 ], [ %101, %844 ], [ %.sink531.ph, %_ZN7testing7MessageD2Ev.exit406.sink.split ]
-  %.sink530 = phi ptr [ %74, %713 ], [ %82, %755 ], [ %87, %799 ], [ %95, %844 ], [ %.sink530.ph, %_ZN7testing7MessageD2Ev.exit406.sink.split ]
+  %.sink531 = phi ptr [ %85, %755 ], [ %93, %799 ], [ %101, %844 ], [ %80, %713 ], [ %.sink531.ph, %_ZN7testing7MessageD2Ev.exit406.sink.split ]
+  %.sink530 = phi ptr [ %82, %755 ], [ %87, %799 ], [ %95, %844 ], [ %74, %713 ], [ %.sink530.ph, %_ZN7testing7MessageD2Ev.exit406.sink.split ]
   store ptr null, ptr %.sink531, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink530) #26
   invoke void @__cxa_end_catch()
@@ -125647,8 +125647,8 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit452: ; preds = %929, %_ZNKSt7__cxx1
   ret void
 
 933:                                              ; preds = %656, %_ZN7testing7MessageD2Ev.exit449, %905, %911, %395, %_ZN7testing7MessageD2Ev.exit381, %599, %605, %134, %_ZN7testing7MessageD2Ev.exit324, %338, %344
-  %.sink532 = phi ptr [ %5, %344 ], [ %5, %338 ], [ %5, %_ZN7testing7MessageD2Ev.exit324 ], [ %5, %134 ], [ %36, %605 ], [ %36, %599 ], [ %36, %_ZN7testing7MessageD2Ev.exit381 ], [ %36, %395 ], [ %67, %911 ], [ %67, %905 ], [ %67, %_ZN7testing7MessageD2Ev.exit449 ], [ %67, %656 ]
-  %.pn257.pn.pn = phi { ptr, i32 } [ %.pn192, %344 ], [ %339, %338 ], [ %.pn194, %_ZN7testing7MessageD2Ev.exit324 ], [ %135, %134 ], [ %.pn220, %605 ], [ %600, %599 ], [ %.pn222, %_ZN7testing7MessageD2Ev.exit381 ], [ %396, %395 ], [ %.pn255, %911 ], [ %906, %905 ], [ %.pn257, %_ZN7testing7MessageD2Ev.exit449 ], [ %657, %656 ]
+  %.sink532 = phi ptr [ %36, %395 ], [ %5, %134 ], [ %5, %344 ], [ %5, %338 ], [ %5, %_ZN7testing7MessageD2Ev.exit324 ], [ %36, %605 ], [ %36, %599 ], [ %36, %_ZN7testing7MessageD2Ev.exit381 ], [ %67, %911 ], [ %67, %905 ], [ %67, %_ZN7testing7MessageD2Ev.exit449 ], [ %67, %656 ]
+  %.pn257.pn.pn = phi { ptr, i32 } [ %396, %395 ], [ %135, %134 ], [ %.pn192, %344 ], [ %339, %338 ], [ %.pn194, %_ZN7testing7MessageD2Ev.exit324 ], [ %.pn220, %605 ], [ %600, %599 ], [ %.pn222, %_ZN7testing7MessageD2Ev.exit381 ], [ %.pn255, %911 ], [ %906, %905 ], [ %.pn257, %_ZN7testing7MessageD2Ev.exit449 ], [ %657, %656 ]
   call void @_ZN7testing8internal14TrueWithStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink532) #26
   resume { ptr, i32 } %.pn257.pn.pn
 
@@ -126586,9 +126586,9 @@ _ZN7testing7MessageD2Ev.exit133:                  ; preds = %265, %_ZNKSt14defau
   br label %279
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %259, %214, %170, %128
-  %.sink175 = phi ptr [ %129, %128 ], [ %171, %170 ], [ %215, %214 ], [ %260, %259 ]
-  %.sink170.ph = phi ptr [ %17, %128 ], [ %22, %170 ], [ %30, %214 ], [ %38, %259 ]
-  %.sink.ph = phi ptr [ %10, %128 ], [ %19, %170 ], [ %24, %214 ], [ %32, %259 ]
+  %.sink175 = phi ptr [ %215, %214 ], [ %171, %170 ], [ %129, %128 ], [ %260, %259 ]
+  %.sink170.ph = phi ptr [ %30, %214 ], [ %22, %170 ], [ %17, %128 ], [ %38, %259 ]
+  %.sink.ph = phi ptr [ %24, %214 ], [ %19, %170 ], [ %10, %128 ], [ %32, %259 ]
   %272 = load ptr, ptr %.sink175, align 8
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 8
   %274 = load ptr, ptr %273, align 8
@@ -126596,8 +126596,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %259, %214, %170, %1
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %259, %214, %170, %128
-  %.sink170 = phi ptr [ %17, %128 ], [ %22, %170 ], [ %30, %214 ], [ %38, %259 ], [ %.sink170.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %10, %128 ], [ %19, %170 ], [ %24, %214 ], [ %32, %259 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink170 = phi ptr [ %22, %170 ], [ %30, %214 ], [ %38, %259 ], [ %17, %128 ], [ %.sink170.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %19, %170 ], [ %24, %214 ], [ %32, %259 ], [ %10, %128 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink170, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -127805,9 +127805,9 @@ _ZN7testing7MessageD2Ev.exit447:                  ; preds = %379, %_ZNKSt14defau
   br label %393
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %373, %328, %284, %242
-  %.sink742 = phi ptr [ %243, %242 ], [ %285, %284 ], [ %329, %328 ], [ %374, %373 ]
-  %.sink727.ph = phi ptr [ %20, %242 ], [ %25, %284 ], [ %33, %328 ], [ %41, %373 ]
-  %.sink.ph = phi ptr [ %13, %242 ], [ %22, %284 ], [ %27, %328 ], [ %35, %373 ]
+  %.sink742 = phi ptr [ %329, %328 ], [ %285, %284 ], [ %243, %242 ], [ %374, %373 ]
+  %.sink727.ph = phi ptr [ %33, %328 ], [ %25, %284 ], [ %20, %242 ], [ %41, %373 ]
+  %.sink.ph = phi ptr [ %27, %328 ], [ %22, %284 ], [ %13, %242 ], [ %35, %373 ]
   %386 = load ptr, ptr %.sink742, align 8
   %387 = getelementptr inbounds nuw i8, ptr %386, i64 8
   %388 = load ptr, ptr %387, align 8
@@ -127815,8 +127815,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %373, %328, %284, %2
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %373, %328, %284, %242
-  %.sink727 = phi ptr [ %20, %242 ], [ %25, %284 ], [ %33, %328 ], [ %41, %373 ], [ %.sink727.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %13, %242 ], [ %22, %284 ], [ %27, %328 ], [ %35, %373 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink727 = phi ptr [ %25, %284 ], [ %33, %328 ], [ %41, %373 ], [ %20, %242 ], [ %.sink727.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %22, %284 ], [ %27, %328 ], [ %35, %373 ], [ %13, %242 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink727, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -128024,7 +128024,7 @@ _ZN7testing7MessageD2Ev.exit459:                  ; preds = %453, %_ZNKSt14defau
   br label %458
 
 458:                                              ; preds = %406, %.critedge380, %_ZN7testing7MessageD2Ev.exit456
-  %459 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit456 ], [ false, %.critedge380 ], [ true, %406 ]
+  %459 = phi i1 [ false, %.critedge380 ], [ false, %_ZN7testing7MessageD2Ev.exit456 ], [ true, %406 ]
   %460 = load ptr, ptr %6, align 8
   %461 = icmp eq ptr %460, %157
   br i1 %461, label %_ZN7testing8internal14TrueWithStringD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -128784,9 +128784,9 @@ _ZN7testing7MessageD2Ev.exit511:                  ; preds = %685, %_ZNKSt14defau
   br label %699
 
 _ZN7testing7MessageD2Ev.exit481.sink.split:       ; preds = %679, %634, %590, %548
-  %.sink747 = phi ptr [ %549, %548 ], [ %591, %590 ], [ %635, %634 ], [ %680, %679 ]
-  %.sink730.ph = phi ptr [ %60, %548 ], [ %65, %590 ], [ %73, %634 ], [ %81, %679 ]
-  %.sink729.ph = phi ptr [ %53, %548 ], [ %62, %590 ], [ %67, %634 ], [ %75, %679 ]
+  %.sink747 = phi ptr [ %635, %634 ], [ %591, %590 ], [ %549, %548 ], [ %680, %679 ]
+  %.sink730.ph = phi ptr [ %73, %634 ], [ %65, %590 ], [ %60, %548 ], [ %81, %679 ]
+  %.sink729.ph = phi ptr [ %67, %634 ], [ %62, %590 ], [ %53, %548 ], [ %75, %679 ]
   %692 = load ptr, ptr %.sink747, align 8
   %693 = getelementptr inbounds nuw i8, ptr %692, i64 8
   %694 = load ptr, ptr %693, align 8
@@ -128794,8 +128794,8 @@ _ZN7testing7MessageD2Ev.exit481.sink.split:       ; preds = %679, %634, %590, %5
   br label %_ZN7testing7MessageD2Ev.exit481
 
 _ZN7testing7MessageD2Ev.exit481:                  ; preds = %_ZN7testing7MessageD2Ev.exit481.sink.split, %679, %634, %590, %548
-  %.sink730 = phi ptr [ %60, %548 ], [ %65, %590 ], [ %73, %634 ], [ %81, %679 ], [ %.sink730.ph, %_ZN7testing7MessageD2Ev.exit481.sink.split ]
-  %.sink729 = phi ptr [ %53, %548 ], [ %62, %590 ], [ %67, %634 ], [ %75, %679 ], [ %.sink729.ph, %_ZN7testing7MessageD2Ev.exit481.sink.split ]
+  %.sink730 = phi ptr [ %65, %590 ], [ %73, %634 ], [ %81, %679 ], [ %60, %548 ], [ %.sink730.ph, %_ZN7testing7MessageD2Ev.exit481.sink.split ]
+  %.sink729 = phi ptr [ %62, %590 ], [ %67, %634 ], [ %75, %679 ], [ %53, %548 ], [ %.sink729.ph, %_ZN7testing7MessageD2Ev.exit481.sink.split ]
   store ptr null, ptr %.sink730, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink729) #26
   invoke void @__cxa_end_catch()
@@ -129003,7 +129003,7 @@ _ZN7testing7MessageD2Ev.exit524:                  ; preds = %759, %_ZNKSt14defau
   br label %764
 
 764:                                              ; preds = %712, %.critedge392, %_ZN7testing7MessageD2Ev.exit521
-  %765 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit521 ], [ false, %.critedge392 ], [ true, %712 ]
+  %765 = phi i1 [ false, %.critedge392 ], [ false, %_ZN7testing7MessageD2Ev.exit521 ], [ true, %712 ]
   %766 = load ptr, ptr %46, align 8
   %767 = icmp eq ptr %766, %463
   br i1 %767, label %_ZN7testing8internal14TrueWithStringD2Ev.exit527, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i525
@@ -129763,9 +129763,9 @@ _ZN7testing7MessageD2Ev.exit579:                  ; preds = %991, %_ZNKSt14defau
   br label %1005
 
 _ZN7testing7MessageD2Ev.exit549.sink.split:       ; preds = %985, %940, %896, %854
-  %.sink752 = phi ptr [ %855, %854 ], [ %897, %896 ], [ %941, %940 ], [ %986, %985 ]
-  %.sink733.ph = phi ptr [ %100, %854 ], [ %105, %896 ], [ %113, %940 ], [ %121, %985 ]
-  %.sink732.ph = phi ptr [ %93, %854 ], [ %102, %896 ], [ %107, %940 ], [ %115, %985 ]
+  %.sink752 = phi ptr [ %941, %940 ], [ %897, %896 ], [ %855, %854 ], [ %986, %985 ]
+  %.sink733.ph = phi ptr [ %113, %940 ], [ %105, %896 ], [ %100, %854 ], [ %121, %985 ]
+  %.sink732.ph = phi ptr [ %107, %940 ], [ %102, %896 ], [ %93, %854 ], [ %115, %985 ]
   %998 = load ptr, ptr %.sink752, align 8
   %999 = getelementptr inbounds nuw i8, ptr %998, i64 8
   %1000 = load ptr, ptr %999, align 8
@@ -129773,8 +129773,8 @@ _ZN7testing7MessageD2Ev.exit549.sink.split:       ; preds = %985, %940, %896, %8
   br label %_ZN7testing7MessageD2Ev.exit549
 
 _ZN7testing7MessageD2Ev.exit549:                  ; preds = %_ZN7testing7MessageD2Ev.exit549.sink.split, %985, %940, %896, %854
-  %.sink733 = phi ptr [ %100, %854 ], [ %105, %896 ], [ %113, %940 ], [ %121, %985 ], [ %.sink733.ph, %_ZN7testing7MessageD2Ev.exit549.sink.split ]
-  %.sink732 = phi ptr [ %93, %854 ], [ %102, %896 ], [ %107, %940 ], [ %115, %985 ], [ %.sink732.ph, %_ZN7testing7MessageD2Ev.exit549.sink.split ]
+  %.sink733 = phi ptr [ %105, %896 ], [ %113, %940 ], [ %121, %985 ], [ %100, %854 ], [ %.sink733.ph, %_ZN7testing7MessageD2Ev.exit549.sink.split ]
+  %.sink732 = phi ptr [ %102, %896 ], [ %107, %940 ], [ %115, %985 ], [ %93, %854 ], [ %.sink732.ph, %_ZN7testing7MessageD2Ev.exit549.sink.split ]
   store ptr null, ptr %.sink733, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink732) #26
   invoke void @__cxa_end_catch()
@@ -129982,7 +129982,7 @@ _ZN7testing7MessageD2Ev.exit592:                  ; preds = %1065, %_ZNKSt14defa
   br label %1070
 
 1070:                                             ; preds = %1018, %.critedge405, %_ZN7testing7MessageD2Ev.exit589
-  %1071 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit589 ], [ false, %.critedge405 ], [ true, %1018 ]
+  %1071 = phi i1 [ false, %.critedge405 ], [ false, %_ZN7testing7MessageD2Ev.exit589 ], [ true, %1018 ]
   %1072 = load ptr, ptr %86, align 8
   %1073 = icmp eq ptr %1072, %769
   br i1 %1073, label %_ZN7testing8internal14TrueWithStringD2Ev.exit595, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i593
@@ -130540,9 +130540,9 @@ _ZN7testing7MessageD2Ev.exit622:                  ; preds = %1236, %_ZNKSt14defa
   br label %1250
 
 _ZN7testing7MessageD2Ev.exit600.sink.split:       ; preds = %1230, %1186, %1144
-  %.sink757 = phi ptr [ %1145, %1144 ], [ %1187, %1186 ], [ %1231, %1230 ]
-  %.sink736.ph = phi ptr [ %139, %1144 ], [ %144, %1186 ], [ %152, %1230 ]
-  %.sink735.ph = phi ptr [ %133, %1144 ], [ %141, %1186 ], [ %146, %1230 ]
+  %.sink757 = phi ptr [ %1187, %1186 ], [ %1145, %1144 ], [ %1231, %1230 ]
+  %.sink736.ph = phi ptr [ %144, %1186 ], [ %139, %1144 ], [ %152, %1230 ]
+  %.sink735.ph = phi ptr [ %141, %1186 ], [ %133, %1144 ], [ %146, %1230 ]
   %1243 = load ptr, ptr %.sink757, align 8
   %1244 = getelementptr inbounds nuw i8, ptr %1243, i64 8
   %1245 = load ptr, ptr %1244, align 8
@@ -130550,8 +130550,8 @@ _ZN7testing7MessageD2Ev.exit600.sink.split:       ; preds = %1230, %1186, %1144
   br label %_ZN7testing7MessageD2Ev.exit600
 
 _ZN7testing7MessageD2Ev.exit600:                  ; preds = %_ZN7testing7MessageD2Ev.exit600.sink.split, %1230, %1186, %1144
-  %.sink736 = phi ptr [ %139, %1144 ], [ %144, %1186 ], [ %152, %1230 ], [ %.sink736.ph, %_ZN7testing7MessageD2Ev.exit600.sink.split ]
-  %.sink735 = phi ptr [ %133, %1144 ], [ %141, %1186 ], [ %146, %1230 ], [ %.sink735.ph, %_ZN7testing7MessageD2Ev.exit600.sink.split ]
+  %.sink736 = phi ptr [ %144, %1186 ], [ %152, %1230 ], [ %139, %1144 ], [ %.sink736.ph, %_ZN7testing7MessageD2Ev.exit600.sink.split ]
+  %.sink735 = phi ptr [ %141, %1186 ], [ %146, %1230 ], [ %133, %1144 ], [ %.sink735.ph, %_ZN7testing7MessageD2Ev.exit600.sink.split ]
   store ptr null, ptr %.sink736, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink735) #26
   invoke void @__cxa_end_catch()
@@ -130755,8 +130755,8 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit632: ; preds = %1309, %_ZNKSt7__cxx
   ret void
 
 1313:                                             ; preds = %1087, %_ZN7testing7MessageD2Ev.exit629, %1285, %1291, %797, %_ZN7testing7MessageD2Ev.exit592, %1046, %1052, %491, %_ZN7testing7MessageD2Ev.exit524, %740, %746, %185, %_ZN7testing7MessageD2Ev.exit459, %434, %440
-  %.sink737 = phi ptr [ %6, %440 ], [ %6, %434 ], [ %6, %_ZN7testing7MessageD2Ev.exit459 ], [ %6, %185 ], [ %46, %746 ], [ %46, %740 ], [ %46, %_ZN7testing7MessageD2Ev.exit524 ], [ %46, %491 ], [ %86, %1052 ], [ %86, %1046 ], [ %86, %_ZN7testing7MessageD2Ev.exit592 ], [ %86, %797 ], [ %126, %1291 ], [ %126, %1285 ], [ %126, %_ZN7testing7MessageD2Ev.exit629 ], [ %126, %1087 ]
-  %.pn369.pn.pn = phi { ptr, i32 } [ %.pn269, %440 ], [ %435, %434 ], [ %.pn271, %_ZN7testing7MessageD2Ev.exit459 ], [ %186, %185 ], [ %.pn304, %746 ], [ %741, %740 ], [ %.pn306, %_ZN7testing7MessageD2Ev.exit524 ], [ %492, %491 ], [ %.pn339, %1052 ], [ %1047, %1046 ], [ %.pn341, %_ZN7testing7MessageD2Ev.exit592 ], [ %798, %797 ], [ %.pn367, %1291 ], [ %1286, %1285 ], [ %.pn369, %_ZN7testing7MessageD2Ev.exit629 ], [ %1088, %1087 ]
+  %.sink737 = phi ptr [ %86, %797 ], [ %46, %491 ], [ %6, %185 ], [ %6, %440 ], [ %6, %434 ], [ %6, %_ZN7testing7MessageD2Ev.exit459 ], [ %46, %746 ], [ %46, %740 ], [ %46, %_ZN7testing7MessageD2Ev.exit524 ], [ %86, %1052 ], [ %86, %1046 ], [ %86, %_ZN7testing7MessageD2Ev.exit592 ], [ %126, %1291 ], [ %126, %1285 ], [ %126, %_ZN7testing7MessageD2Ev.exit629 ], [ %126, %1087 ]
+  %.pn369.pn.pn = phi { ptr, i32 } [ %798, %797 ], [ %492, %491 ], [ %186, %185 ], [ %.pn269, %440 ], [ %435, %434 ], [ %.pn271, %_ZN7testing7MessageD2Ev.exit459 ], [ %.pn304, %746 ], [ %741, %740 ], [ %.pn306, %_ZN7testing7MessageD2Ev.exit524 ], [ %.pn339, %1052 ], [ %1047, %1046 ], [ %.pn341, %_ZN7testing7MessageD2Ev.exit592 ], [ %.pn367, %1291 ], [ %1286, %1285 ], [ %.pn369, %_ZN7testing7MessageD2Ev.exit629 ], [ %1088, %1087 ]
   call void @_ZN7testing8internal14TrueWithStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink737) #26
   resume { ptr, i32 } %.pn369.pn.pn
 
@@ -131570,9 +131570,9 @@ _ZN7testing7MessageD2Ev.exit133:                  ; preds = %265, %_ZNKSt14defau
   br label %279
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %259, %214, %170, %128
-  %.sink175 = phi ptr [ %129, %128 ], [ %171, %170 ], [ %215, %214 ], [ %260, %259 ]
-  %.sink170.ph = phi ptr [ %17, %128 ], [ %22, %170 ], [ %30, %214 ], [ %38, %259 ]
-  %.sink.ph = phi ptr [ %10, %128 ], [ %19, %170 ], [ %24, %214 ], [ %32, %259 ]
+  %.sink175 = phi ptr [ %215, %214 ], [ %171, %170 ], [ %129, %128 ], [ %260, %259 ]
+  %.sink170.ph = phi ptr [ %30, %214 ], [ %22, %170 ], [ %17, %128 ], [ %38, %259 ]
+  %.sink.ph = phi ptr [ %24, %214 ], [ %19, %170 ], [ %10, %128 ], [ %32, %259 ]
   %272 = load ptr, ptr %.sink175, align 8
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 8
   %274 = load ptr, ptr %273, align 8
@@ -131580,8 +131580,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %259, %214, %170, %1
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %259, %214, %170, %128
-  %.sink170 = phi ptr [ %17, %128 ], [ %22, %170 ], [ %30, %214 ], [ %38, %259 ], [ %.sink170.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %10, %128 ], [ %19, %170 ], [ %24, %214 ], [ %32, %259 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink170 = phi ptr [ %22, %170 ], [ %30, %214 ], [ %38, %259 ], [ %17, %128 ], [ %.sink170.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %19, %170 ], [ %24, %214 ], [ %32, %259 ], [ %10, %128 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink170, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -132689,9 +132689,9 @@ _ZN7testing7MessageD2Ev.exit337:                  ; preds = %338, %_ZNKSt14defau
   br label %352
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %332, %287, %243, %201
-  %.sink566 = phi ptr [ %202, %201 ], [ %244, %243 ], [ %288, %287 ], [ %333, %332 ]
-  %.sink554.ph = phi ptr [ %19, %201 ], [ %24, %243 ], [ %32, %287 ], [ %40, %332 ]
-  %.sink.ph = phi ptr [ %12, %201 ], [ %21, %243 ], [ %26, %287 ], [ %34, %332 ]
+  %.sink566 = phi ptr [ %288, %287 ], [ %244, %243 ], [ %202, %201 ], [ %333, %332 ]
+  %.sink554.ph = phi ptr [ %32, %287 ], [ %24, %243 ], [ %19, %201 ], [ %40, %332 ]
+  %.sink.ph = phi ptr [ %26, %287 ], [ %21, %243 ], [ %12, %201 ], [ %34, %332 ]
   %345 = load ptr, ptr %.sink566, align 8
   %346 = getelementptr inbounds nuw i8, ptr %345, i64 8
   %347 = load ptr, ptr %346, align 8
@@ -132699,8 +132699,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %332, %287, %243, %2
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %332, %287, %243, %201
-  %.sink554 = phi ptr [ %19, %201 ], [ %24, %243 ], [ %32, %287 ], [ %40, %332 ], [ %.sink554.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %12, %201 ], [ %21, %243 ], [ %26, %287 ], [ %34, %332 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink554 = phi ptr [ %24, %243 ], [ %32, %287 ], [ %40, %332 ], [ %19, %201 ], [ %.sink554.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %21, %243 ], [ %26, %287 ], [ %34, %332 ], [ %12, %201 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink554, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -132908,7 +132908,7 @@ _ZN7testing7MessageD2Ev.exit349:                  ; preds = %412, %_ZNKSt14defau
   br label %417
 
 417:                                              ; preds = %365, %.critedge283, %_ZN7testing7MessageD2Ev.exit346
-  %418 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit346 ], [ false, %.critedge283 ], [ true, %365 ]
+  %418 = phi i1 [ false, %.critedge283 ], [ false, %_ZN7testing7MessageD2Ev.exit346 ], [ true, %365 ]
   %419 = load ptr, ptr %5, align 8
   %420 = icmp eq ptr %419, %116
   br i1 %420, label %_ZN7testing8internal14TrueWithStringD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -133513,9 +133513,9 @@ _ZN7testing7MessageD2Ev.exit393:                  ; preds = %599, %_ZNKSt14defau
   br label %613
 
 _ZN7testing7MessageD2Ev.exit371.sink.split:       ; preds = %593, %549, %507
-  %.sink571 = phi ptr [ %508, %507 ], [ %550, %549 ], [ %594, %593 ]
-  %.sink557.ph = phi ptr [ %58, %507 ], [ %63, %549 ], [ %71, %593 ]
-  %.sink556.ph = phi ptr [ %52, %507 ], [ %60, %549 ], [ %65, %593 ]
+  %.sink571 = phi ptr [ %550, %549 ], [ %508, %507 ], [ %594, %593 ]
+  %.sink557.ph = phi ptr [ %63, %549 ], [ %58, %507 ], [ %71, %593 ]
+  %.sink556.ph = phi ptr [ %60, %549 ], [ %52, %507 ], [ %65, %593 ]
   %606 = load ptr, ptr %.sink571, align 8
   %607 = getelementptr inbounds nuw i8, ptr %606, i64 8
   %608 = load ptr, ptr %607, align 8
@@ -133523,8 +133523,8 @@ _ZN7testing7MessageD2Ev.exit371.sink.split:       ; preds = %593, %549, %507
   br label %_ZN7testing7MessageD2Ev.exit371
 
 _ZN7testing7MessageD2Ev.exit371:                  ; preds = %_ZN7testing7MessageD2Ev.exit371.sink.split, %593, %549, %507
-  %.sink557 = phi ptr [ %58, %507 ], [ %63, %549 ], [ %71, %593 ], [ %.sink557.ph, %_ZN7testing7MessageD2Ev.exit371.sink.split ]
-  %.sink556 = phi ptr [ %52, %507 ], [ %60, %549 ], [ %65, %593 ], [ %.sink556.ph, %_ZN7testing7MessageD2Ev.exit371.sink.split ]
+  %.sink557 = phi ptr [ %63, %549 ], [ %71, %593 ], [ %58, %507 ], [ %.sink557.ph, %_ZN7testing7MessageD2Ev.exit371.sink.split ]
+  %.sink556 = phi ptr [ %60, %549 ], [ %65, %593 ], [ %52, %507 ], [ %.sink556.ph, %_ZN7testing7MessageD2Ev.exit371.sink.split ]
   store ptr null, ptr %.sink557, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink556) #26
   invoke void @__cxa_end_catch()
@@ -133732,7 +133732,7 @@ _ZN7testing7MessageD2Ev.exit406:                  ; preds = %673, %_ZNKSt14defau
   br label %678
 
 678:                                              ; preds = %626, %.critedge293, %_ZN7testing7MessageD2Ev.exit403
-  %679 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit403 ], [ false, %.critedge293 ], [ true, %626 ]
+  %679 = phi i1 [ false, %.critedge293 ], [ false, %_ZN7testing7MessageD2Ev.exit403 ], [ true, %626 ]
   %680 = load ptr, ptr %45, align 8
   %681 = icmp eq ptr %680, %422
   br i1 %681, label %_ZN7testing8internal14TrueWithStringD2Ev.exit409, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i407
@@ -134492,9 +134492,9 @@ _ZN7testing7MessageD2Ev.exit461:                  ; preds = %905, %_ZNKSt14defau
   br label %919
 
 _ZN7testing7MessageD2Ev.exit431.sink.split:       ; preds = %899, %854, %810, %768
-  %.sink576 = phi ptr [ %769, %768 ], [ %811, %810 ], [ %855, %854 ], [ %900, %899 ]
-  %.sink560.ph = phi ptr [ %90, %768 ], [ %95, %810 ], [ %103, %854 ], [ %111, %899 ]
-  %.sink559.ph = phi ptr [ %83, %768 ], [ %92, %810 ], [ %97, %854 ], [ %105, %899 ]
+  %.sink576 = phi ptr [ %855, %854 ], [ %811, %810 ], [ %769, %768 ], [ %900, %899 ]
+  %.sink560.ph = phi ptr [ %103, %854 ], [ %95, %810 ], [ %90, %768 ], [ %111, %899 ]
+  %.sink559.ph = phi ptr [ %97, %854 ], [ %92, %810 ], [ %83, %768 ], [ %105, %899 ]
   %912 = load ptr, ptr %.sink576, align 8
   %913 = getelementptr inbounds nuw i8, ptr %912, i64 8
   %914 = load ptr, ptr %913, align 8
@@ -134502,8 +134502,8 @@ _ZN7testing7MessageD2Ev.exit431.sink.split:       ; preds = %899, %854, %810, %7
   br label %_ZN7testing7MessageD2Ev.exit431
 
 _ZN7testing7MessageD2Ev.exit431:                  ; preds = %_ZN7testing7MessageD2Ev.exit431.sink.split, %899, %854, %810, %768
-  %.sink560 = phi ptr [ %90, %768 ], [ %95, %810 ], [ %103, %854 ], [ %111, %899 ], [ %.sink560.ph, %_ZN7testing7MessageD2Ev.exit431.sink.split ]
-  %.sink559 = phi ptr [ %83, %768 ], [ %92, %810 ], [ %97, %854 ], [ %105, %899 ], [ %.sink559.ph, %_ZN7testing7MessageD2Ev.exit431.sink.split ]
+  %.sink560 = phi ptr [ %95, %810 ], [ %103, %854 ], [ %111, %899 ], [ %90, %768 ], [ %.sink560.ph, %_ZN7testing7MessageD2Ev.exit431.sink.split ]
+  %.sink559 = phi ptr [ %92, %810 ], [ %97, %854 ], [ %105, %899 ], [ %83, %768 ], [ %.sink559.ph, %_ZN7testing7MessageD2Ev.exit431.sink.split ]
   store ptr null, ptr %.sink560, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink559) #26
   invoke void @__cxa_end_catch()
@@ -134727,8 +134727,8 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit477: ; preds = %984, %_ZNKSt7__cxx1
   ret void
 
 988:                                              ; preds = %711, %_ZN7testing7MessageD2Ev.exit474, %960, %966, %450, %_ZN7testing7MessageD2Ev.exit406, %654, %660, %144, %_ZN7testing7MessageD2Ev.exit349, %393, %399
-  %.sink561 = phi ptr [ %5, %399 ], [ %5, %393 ], [ %5, %_ZN7testing7MessageD2Ev.exit349 ], [ %5, %144 ], [ %45, %660 ], [ %45, %654 ], [ %45, %_ZN7testing7MessageD2Ev.exit406 ], [ %45, %450 ], [ %76, %966 ], [ %76, %960 ], [ %76, %_ZN7testing7MessageD2Ev.exit474 ], [ %76, %711 ]
-  %.pn272.pn.pn = phi { ptr, i32 } [ %.pn207, %399 ], [ %394, %393 ], [ %.pn209, %_ZN7testing7MessageD2Ev.exit349 ], [ %145, %144 ], [ %.pn235, %660 ], [ %655, %654 ], [ %.pn237, %_ZN7testing7MessageD2Ev.exit406 ], [ %451, %450 ], [ %.pn270, %966 ], [ %961, %960 ], [ %.pn272, %_ZN7testing7MessageD2Ev.exit474 ], [ %712, %711 ]
+  %.sink561 = phi ptr [ %45, %450 ], [ %5, %144 ], [ %5, %399 ], [ %5, %393 ], [ %5, %_ZN7testing7MessageD2Ev.exit349 ], [ %45, %660 ], [ %45, %654 ], [ %45, %_ZN7testing7MessageD2Ev.exit406 ], [ %76, %966 ], [ %76, %960 ], [ %76, %_ZN7testing7MessageD2Ev.exit474 ], [ %76, %711 ]
+  %.pn272.pn.pn = phi { ptr, i32 } [ %451, %450 ], [ %145, %144 ], [ %.pn207, %399 ], [ %394, %393 ], [ %.pn209, %_ZN7testing7MessageD2Ev.exit349 ], [ %.pn235, %660 ], [ %655, %654 ], [ %.pn237, %_ZN7testing7MessageD2Ev.exit406 ], [ %.pn270, %966 ], [ %961, %960 ], [ %.pn272, %_ZN7testing7MessageD2Ev.exit474 ], [ %712, %711 ]
   call void @_ZN7testing8internal14TrueWithStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink561) #26
   resume { ptr, i32 } %.pn272.pn.pn
 
@@ -135615,9 +135615,9 @@ _ZN7testing7MessageD2Ev.exit337:                  ; preds = %338, %_ZNKSt14defau
   br label %352
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %332, %287, %243, %201
-  %.sink567 = phi ptr [ %202, %201 ], [ %244, %243 ], [ %288, %287 ], [ %333, %332 ]
-  %.sink555.ph = phi ptr [ %19, %201 ], [ %24, %243 ], [ %32, %287 ], [ %40, %332 ]
-  %.sink.ph = phi ptr [ %12, %201 ], [ %21, %243 ], [ %26, %287 ], [ %34, %332 ]
+  %.sink567 = phi ptr [ %288, %287 ], [ %244, %243 ], [ %202, %201 ], [ %333, %332 ]
+  %.sink555.ph = phi ptr [ %32, %287 ], [ %24, %243 ], [ %19, %201 ], [ %40, %332 ]
+  %.sink.ph = phi ptr [ %26, %287 ], [ %21, %243 ], [ %12, %201 ], [ %34, %332 ]
   %345 = load ptr, ptr %.sink567, align 8
   %346 = getelementptr inbounds nuw i8, ptr %345, i64 8
   %347 = load ptr, ptr %346, align 8
@@ -135625,8 +135625,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %332, %287, %243, %2
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %332, %287, %243, %201
-  %.sink555 = phi ptr [ %19, %201 ], [ %24, %243 ], [ %32, %287 ], [ %40, %332 ], [ %.sink555.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %12, %201 ], [ %21, %243 ], [ %26, %287 ], [ %34, %332 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink555 = phi ptr [ %24, %243 ], [ %32, %287 ], [ %40, %332 ], [ %19, %201 ], [ %.sink555.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %21, %243 ], [ %26, %287 ], [ %34, %332 ], [ %12, %201 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink555, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -135834,7 +135834,7 @@ _ZN7testing7MessageD2Ev.exit349:                  ; preds = %412, %_ZNKSt14defau
   br label %417
 
 417:                                              ; preds = %365, %.critedge283, %_ZN7testing7MessageD2Ev.exit346
-  %418 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit346 ], [ false, %.critedge283 ], [ true, %365 ]
+  %418 = phi i1 [ false, %.critedge283 ], [ false, %_ZN7testing7MessageD2Ev.exit346 ], [ true, %365 ]
   %419 = load ptr, ptr %5, align 8
   %420 = icmp eq ptr %419, %116
   br i1 %420, label %_ZN7testing8internal14TrueWithStringD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -136594,9 +136594,9 @@ _ZN7testing7MessageD2Ev.exit401:                  ; preds = %644, %_ZNKSt14defau
   br label %658
 
 _ZN7testing7MessageD2Ev.exit371.sink.split:       ; preds = %638, %593, %549, %507
-  %.sink572 = phi ptr [ %508, %507 ], [ %550, %549 ], [ %594, %593 ], [ %639, %638 ]
-  %.sink558.ph = phi ptr [ %59, %507 ], [ %64, %549 ], [ %72, %593 ], [ %80, %638 ]
-  %.sink557.ph = phi ptr [ %52, %507 ], [ %61, %549 ], [ %66, %593 ], [ %74, %638 ]
+  %.sink572 = phi ptr [ %594, %593 ], [ %550, %549 ], [ %508, %507 ], [ %639, %638 ]
+  %.sink558.ph = phi ptr [ %72, %593 ], [ %64, %549 ], [ %59, %507 ], [ %80, %638 ]
+  %.sink557.ph = phi ptr [ %66, %593 ], [ %61, %549 ], [ %52, %507 ], [ %74, %638 ]
   %651 = load ptr, ptr %.sink572, align 8
   %652 = getelementptr inbounds nuw i8, ptr %651, i64 8
   %653 = load ptr, ptr %652, align 8
@@ -136604,8 +136604,8 @@ _ZN7testing7MessageD2Ev.exit371.sink.split:       ; preds = %638, %593, %549, %5
   br label %_ZN7testing7MessageD2Ev.exit371
 
 _ZN7testing7MessageD2Ev.exit371:                  ; preds = %_ZN7testing7MessageD2Ev.exit371.sink.split, %638, %593, %549, %507
-  %.sink558 = phi ptr [ %59, %507 ], [ %64, %549 ], [ %72, %593 ], [ %80, %638 ], [ %.sink558.ph, %_ZN7testing7MessageD2Ev.exit371.sink.split ]
-  %.sink557 = phi ptr [ %52, %507 ], [ %61, %549 ], [ %66, %593 ], [ %74, %638 ], [ %.sink557.ph, %_ZN7testing7MessageD2Ev.exit371.sink.split ]
+  %.sink558 = phi ptr [ %64, %549 ], [ %72, %593 ], [ %80, %638 ], [ %59, %507 ], [ %.sink558.ph, %_ZN7testing7MessageD2Ev.exit371.sink.split ]
+  %.sink557 = phi ptr [ %61, %549 ], [ %66, %593 ], [ %74, %638 ], [ %52, %507 ], [ %.sink557.ph, %_ZN7testing7MessageD2Ev.exit371.sink.split ]
   store ptr null, ptr %.sink558, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink557) #26
   invoke void @__cxa_end_catch()
@@ -136813,7 +136813,7 @@ _ZN7testing7MessageD2Ev.exit414:                  ; preds = %718, %_ZNKSt14defau
   br label %723
 
 723:                                              ; preds = %671, %.critedge295, %_ZN7testing7MessageD2Ev.exit411
-  %724 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit411 ], [ false, %.critedge295 ], [ true, %671 ]
+  %724 = phi i1 [ false, %.critedge295 ], [ false, %_ZN7testing7MessageD2Ev.exit411 ], [ true, %671 ]
   %725 = load ptr, ptr %45, align 8
   %726 = icmp eq ptr %725, %422
   br i1 %726, label %_ZN7testing8internal14TrueWithStringD2Ev.exit417, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i415
@@ -137418,9 +137418,9 @@ _ZN7testing7MessageD2Ev.exit462:                  ; preds = %905, %_ZNKSt14defau
   br label %919
 
 _ZN7testing7MessageD2Ev.exit439.sink.split:       ; preds = %899, %855, %813
-  %.sink577 = phi ptr [ %814, %813 ], [ %856, %855 ], [ %900, %899 ]
-  %.sink561.ph = phi ptr [ %98, %813 ], [ %103, %855 ], [ %111, %899 ]
-  %.sink560.ph = phi ptr [ %92, %813 ], [ %100, %855 ], [ %105, %899 ]
+  %.sink577 = phi ptr [ %856, %855 ], [ %814, %813 ], [ %900, %899 ]
+  %.sink561.ph = phi ptr [ %103, %855 ], [ %98, %813 ], [ %111, %899 ]
+  %.sink560.ph = phi ptr [ %100, %855 ], [ %92, %813 ], [ %105, %899 ]
   %912 = load ptr, ptr %.sink577, align 8
   %913 = getelementptr inbounds nuw i8, ptr %912, i64 8
   %914 = load ptr, ptr %913, align 8
@@ -137428,8 +137428,8 @@ _ZN7testing7MessageD2Ev.exit439.sink.split:       ; preds = %899, %855, %813
   br label %_ZN7testing7MessageD2Ev.exit439
 
 _ZN7testing7MessageD2Ev.exit439:                  ; preds = %_ZN7testing7MessageD2Ev.exit439.sink.split, %899, %855, %813
-  %.sink561 = phi ptr [ %98, %813 ], [ %103, %855 ], [ %111, %899 ], [ %.sink561.ph, %_ZN7testing7MessageD2Ev.exit439.sink.split ]
-  %.sink560 = phi ptr [ %92, %813 ], [ %100, %855 ], [ %105, %899 ], [ %.sink560.ph, %_ZN7testing7MessageD2Ev.exit439.sink.split ]
+  %.sink561 = phi ptr [ %103, %855 ], [ %111, %899 ], [ %98, %813 ], [ %.sink561.ph, %_ZN7testing7MessageD2Ev.exit439.sink.split ]
+  %.sink560 = phi ptr [ %100, %855 ], [ %105, %899 ], [ %92, %813 ], [ %.sink560.ph, %_ZN7testing7MessageD2Ev.exit439.sink.split ]
   store ptr null, ptr %.sink561, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink560) #26
   invoke void @__cxa_end_catch()
@@ -137653,8 +137653,8 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit478: ; preds = %984, %_ZNKSt7__cxx1
   ret void
 
 988:                                              ; preds = %756, %_ZN7testing7MessageD2Ev.exit475, %960, %966, %450, %_ZN7testing7MessageD2Ev.exit414, %699, %705, %144, %_ZN7testing7MessageD2Ev.exit349, %393, %399
-  %.sink562 = phi ptr [ %5, %399 ], [ %5, %393 ], [ %5, %_ZN7testing7MessageD2Ev.exit349 ], [ %5, %144 ], [ %45, %705 ], [ %45, %699 ], [ %45, %_ZN7testing7MessageD2Ev.exit414 ], [ %45, %450 ], [ %85, %966 ], [ %85, %960 ], [ %85, %_ZN7testing7MessageD2Ev.exit475 ], [ %85, %756 ]
-  %.pn272.pn.pn = phi { ptr, i32 } [ %.pn207, %399 ], [ %394, %393 ], [ %.pn209, %_ZN7testing7MessageD2Ev.exit349 ], [ %145, %144 ], [ %.pn242, %705 ], [ %700, %699 ], [ %.pn244, %_ZN7testing7MessageD2Ev.exit414 ], [ %451, %450 ], [ %.pn270, %966 ], [ %961, %960 ], [ %.pn272, %_ZN7testing7MessageD2Ev.exit475 ], [ %757, %756 ]
+  %.sink562 = phi ptr [ %45, %450 ], [ %5, %144 ], [ %5, %399 ], [ %5, %393 ], [ %5, %_ZN7testing7MessageD2Ev.exit349 ], [ %45, %705 ], [ %45, %699 ], [ %45, %_ZN7testing7MessageD2Ev.exit414 ], [ %85, %966 ], [ %85, %960 ], [ %85, %_ZN7testing7MessageD2Ev.exit475 ], [ %85, %756 ]
+  %.pn272.pn.pn = phi { ptr, i32 } [ %451, %450 ], [ %145, %144 ], [ %.pn207, %399 ], [ %394, %393 ], [ %.pn209, %_ZN7testing7MessageD2Ev.exit349 ], [ %.pn242, %705 ], [ %700, %699 ], [ %.pn244, %_ZN7testing7MessageD2Ev.exit414 ], [ %.pn270, %966 ], [ %961, %960 ], [ %.pn272, %_ZN7testing7MessageD2Ev.exit475 ], [ %757, %756 ]
   call void @_ZN7testing8internal14TrueWithStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink562) #26
   resume { ptr, i32 } %.pn272.pn.pn
 
@@ -138541,9 +138541,9 @@ _ZN7testing7MessageD2Ev.exit337:                  ; preds = %338, %_ZNKSt14defau
   br label %352
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %332, %287, %243, %201
-  %.sink566 = phi ptr [ %202, %201 ], [ %244, %243 ], [ %288, %287 ], [ %333, %332 ]
-  %.sink554.ph = phi ptr [ %19, %201 ], [ %24, %243 ], [ %32, %287 ], [ %40, %332 ]
-  %.sink.ph = phi ptr [ %12, %201 ], [ %21, %243 ], [ %26, %287 ], [ %34, %332 ]
+  %.sink566 = phi ptr [ %288, %287 ], [ %244, %243 ], [ %202, %201 ], [ %333, %332 ]
+  %.sink554.ph = phi ptr [ %32, %287 ], [ %24, %243 ], [ %19, %201 ], [ %40, %332 ]
+  %.sink.ph = phi ptr [ %26, %287 ], [ %21, %243 ], [ %12, %201 ], [ %34, %332 ]
   %345 = load ptr, ptr %.sink566, align 8
   %346 = getelementptr inbounds nuw i8, ptr %345, i64 8
   %347 = load ptr, ptr %346, align 8
@@ -138551,8 +138551,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %332, %287, %243, %2
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %332, %287, %243, %201
-  %.sink554 = phi ptr [ %19, %201 ], [ %24, %243 ], [ %32, %287 ], [ %40, %332 ], [ %.sink554.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %12, %201 ], [ %21, %243 ], [ %26, %287 ], [ %34, %332 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink554 = phi ptr [ %24, %243 ], [ %32, %287 ], [ %40, %332 ], [ %19, %201 ], [ %.sink554.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %21, %243 ], [ %26, %287 ], [ %34, %332 ], [ %12, %201 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink554, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -138760,7 +138760,7 @@ _ZN7testing7MessageD2Ev.exit349:                  ; preds = %412, %_ZNKSt14defau
   br label %417
 
 417:                                              ; preds = %365, %.critedge283, %_ZN7testing7MessageD2Ev.exit346
-  %418 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit346 ], [ false, %.critedge283 ], [ true, %365 ]
+  %418 = phi i1 [ false, %.critedge283 ], [ false, %_ZN7testing7MessageD2Ev.exit346 ], [ true, %365 ]
   %419 = load ptr, ptr %5, align 8
   %420 = icmp eq ptr %419, %116
   br i1 %420, label %_ZN7testing8internal14TrueWithStringD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -139520,9 +139520,9 @@ _ZN7testing7MessageD2Ev.exit401:                  ; preds = %644, %_ZNKSt14defau
   br label %658
 
 _ZN7testing7MessageD2Ev.exit371.sink.split:       ; preds = %638, %593, %549, %507
-  %.sink571 = phi ptr [ %508, %507 ], [ %550, %549 ], [ %594, %593 ], [ %639, %638 ]
-  %.sink557.ph = phi ptr [ %59, %507 ], [ %64, %549 ], [ %72, %593 ], [ %80, %638 ]
-  %.sink556.ph = phi ptr [ %52, %507 ], [ %61, %549 ], [ %66, %593 ], [ %74, %638 ]
+  %.sink571 = phi ptr [ %594, %593 ], [ %550, %549 ], [ %508, %507 ], [ %639, %638 ]
+  %.sink557.ph = phi ptr [ %72, %593 ], [ %64, %549 ], [ %59, %507 ], [ %80, %638 ]
+  %.sink556.ph = phi ptr [ %66, %593 ], [ %61, %549 ], [ %52, %507 ], [ %74, %638 ]
   %651 = load ptr, ptr %.sink571, align 8
   %652 = getelementptr inbounds nuw i8, ptr %651, i64 8
   %653 = load ptr, ptr %652, align 8
@@ -139530,8 +139530,8 @@ _ZN7testing7MessageD2Ev.exit371.sink.split:       ; preds = %638, %593, %549, %5
   br label %_ZN7testing7MessageD2Ev.exit371
 
 _ZN7testing7MessageD2Ev.exit371:                  ; preds = %_ZN7testing7MessageD2Ev.exit371.sink.split, %638, %593, %549, %507
-  %.sink557 = phi ptr [ %59, %507 ], [ %64, %549 ], [ %72, %593 ], [ %80, %638 ], [ %.sink557.ph, %_ZN7testing7MessageD2Ev.exit371.sink.split ]
-  %.sink556 = phi ptr [ %52, %507 ], [ %61, %549 ], [ %66, %593 ], [ %74, %638 ], [ %.sink556.ph, %_ZN7testing7MessageD2Ev.exit371.sink.split ]
+  %.sink557 = phi ptr [ %64, %549 ], [ %72, %593 ], [ %80, %638 ], [ %59, %507 ], [ %.sink557.ph, %_ZN7testing7MessageD2Ev.exit371.sink.split ]
+  %.sink556 = phi ptr [ %61, %549 ], [ %66, %593 ], [ %74, %638 ], [ %52, %507 ], [ %.sink556.ph, %_ZN7testing7MessageD2Ev.exit371.sink.split ]
   store ptr null, ptr %.sink557, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink556) #26
   invoke void @__cxa_end_catch()
@@ -139739,7 +139739,7 @@ _ZN7testing7MessageD2Ev.exit414:                  ; preds = %718, %_ZNKSt14defau
   br label %723
 
 723:                                              ; preds = %671, %.critedge295, %_ZN7testing7MessageD2Ev.exit411
-  %724 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit411 ], [ false, %.critedge295 ], [ true, %671 ]
+  %724 = phi i1 [ false, %.critedge295 ], [ false, %_ZN7testing7MessageD2Ev.exit411 ], [ true, %671 ]
   %725 = load ptr, ptr %45, align 8
   %726 = icmp eq ptr %725, %422
   br i1 %726, label %_ZN7testing8internal14TrueWithStringD2Ev.exit417, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i415
@@ -140344,9 +140344,9 @@ _ZN7testing7MessageD2Ev.exit461:                  ; preds = %905, %_ZNKSt14defau
   br label %919
 
 _ZN7testing7MessageD2Ev.exit439.sink.split:       ; preds = %899, %855, %813
-  %.sink576 = phi ptr [ %814, %813 ], [ %856, %855 ], [ %900, %899 ]
-  %.sink560.ph = phi ptr [ %98, %813 ], [ %103, %855 ], [ %111, %899 ]
-  %.sink559.ph = phi ptr [ %92, %813 ], [ %100, %855 ], [ %105, %899 ]
+  %.sink576 = phi ptr [ %856, %855 ], [ %814, %813 ], [ %900, %899 ]
+  %.sink560.ph = phi ptr [ %103, %855 ], [ %98, %813 ], [ %111, %899 ]
+  %.sink559.ph = phi ptr [ %100, %855 ], [ %92, %813 ], [ %105, %899 ]
   %912 = load ptr, ptr %.sink576, align 8
   %913 = getelementptr inbounds nuw i8, ptr %912, i64 8
   %914 = load ptr, ptr %913, align 8
@@ -140354,8 +140354,8 @@ _ZN7testing7MessageD2Ev.exit439.sink.split:       ; preds = %899, %855, %813
   br label %_ZN7testing7MessageD2Ev.exit439
 
 _ZN7testing7MessageD2Ev.exit439:                  ; preds = %_ZN7testing7MessageD2Ev.exit439.sink.split, %899, %855, %813
-  %.sink560 = phi ptr [ %98, %813 ], [ %103, %855 ], [ %111, %899 ], [ %.sink560.ph, %_ZN7testing7MessageD2Ev.exit439.sink.split ]
-  %.sink559 = phi ptr [ %92, %813 ], [ %100, %855 ], [ %105, %899 ], [ %.sink559.ph, %_ZN7testing7MessageD2Ev.exit439.sink.split ]
+  %.sink560 = phi ptr [ %103, %855 ], [ %111, %899 ], [ %98, %813 ], [ %.sink560.ph, %_ZN7testing7MessageD2Ev.exit439.sink.split ]
+  %.sink559 = phi ptr [ %100, %855 ], [ %105, %899 ], [ %92, %813 ], [ %.sink559.ph, %_ZN7testing7MessageD2Ev.exit439.sink.split ]
   store ptr null, ptr %.sink560, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink559) #26
   invoke void @__cxa_end_catch()
@@ -140579,8 +140579,8 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit477: ; preds = %984, %_ZNKSt7__cxx1
   ret void
 
 988:                                              ; preds = %756, %_ZN7testing7MessageD2Ev.exit474, %960, %966, %450, %_ZN7testing7MessageD2Ev.exit414, %699, %705, %144, %_ZN7testing7MessageD2Ev.exit349, %393, %399
-  %.sink561 = phi ptr [ %5, %399 ], [ %5, %393 ], [ %5, %_ZN7testing7MessageD2Ev.exit349 ], [ %5, %144 ], [ %45, %705 ], [ %45, %699 ], [ %45, %_ZN7testing7MessageD2Ev.exit414 ], [ %45, %450 ], [ %85, %966 ], [ %85, %960 ], [ %85, %_ZN7testing7MessageD2Ev.exit474 ], [ %85, %756 ]
-  %.pn272.pn.pn = phi { ptr, i32 } [ %.pn207, %399 ], [ %394, %393 ], [ %.pn209, %_ZN7testing7MessageD2Ev.exit349 ], [ %145, %144 ], [ %.pn242, %705 ], [ %700, %699 ], [ %.pn244, %_ZN7testing7MessageD2Ev.exit414 ], [ %451, %450 ], [ %.pn270, %966 ], [ %961, %960 ], [ %.pn272, %_ZN7testing7MessageD2Ev.exit474 ], [ %757, %756 ]
+  %.sink561 = phi ptr [ %45, %450 ], [ %5, %144 ], [ %5, %399 ], [ %5, %393 ], [ %5, %_ZN7testing7MessageD2Ev.exit349 ], [ %45, %705 ], [ %45, %699 ], [ %45, %_ZN7testing7MessageD2Ev.exit414 ], [ %85, %966 ], [ %85, %960 ], [ %85, %_ZN7testing7MessageD2Ev.exit474 ], [ %85, %756 ]
+  %.pn272.pn.pn = phi { ptr, i32 } [ %451, %450 ], [ %145, %144 ], [ %.pn207, %399 ], [ %394, %393 ], [ %.pn209, %_ZN7testing7MessageD2Ev.exit349 ], [ %.pn242, %705 ], [ %700, %699 ], [ %.pn244, %_ZN7testing7MessageD2Ev.exit414 ], [ %.pn270, %966 ], [ %961, %960 ], [ %.pn272, %_ZN7testing7MessageD2Ev.exit474 ], [ %757, %756 ]
   call void @_ZN7testing8internal14TrueWithStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink561) #26
   resume { ptr, i32 } %.pn272.pn.pn
 
@@ -141476,9 +141476,9 @@ _ZN7testing7MessageD2Ev.exit354:                  ; preds = %347, %_ZNKSt14defau
   br label %361
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %341, %296, %252, %210
-  %.sink595 = phi ptr [ %211, %210 ], [ %253, %252 ], [ %297, %296 ], [ %342, %341 ]
-  %.sink583.ph = phi ptr [ %19, %210 ], [ %24, %252 ], [ %32, %296 ], [ %40, %341 ]
-  %.sink.ph = phi ptr [ %12, %210 ], [ %21, %252 ], [ %26, %296 ], [ %34, %341 ]
+  %.sink595 = phi ptr [ %297, %296 ], [ %253, %252 ], [ %211, %210 ], [ %342, %341 ]
+  %.sink583.ph = phi ptr [ %32, %296 ], [ %24, %252 ], [ %19, %210 ], [ %40, %341 ]
+  %.sink.ph = phi ptr [ %26, %296 ], [ %21, %252 ], [ %12, %210 ], [ %34, %341 ]
   %354 = load ptr, ptr %.sink595, align 8
   %355 = getelementptr inbounds nuw i8, ptr %354, i64 8
   %356 = load ptr, ptr %355, align 8
@@ -141486,8 +141486,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %341, %296, %252, %2
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %341, %296, %252, %210
-  %.sink583 = phi ptr [ %19, %210 ], [ %24, %252 ], [ %32, %296 ], [ %40, %341 ], [ %.sink583.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %12, %210 ], [ %21, %252 ], [ %26, %296 ], [ %34, %341 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink583 = phi ptr [ %24, %252 ], [ %32, %296 ], [ %40, %341 ], [ %19, %210 ], [ %.sink583.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %21, %252 ], [ %26, %296 ], [ %34, %341 ], [ %12, %210 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink583, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -141695,7 +141695,7 @@ _ZN7testing7MessageD2Ev.exit366:                  ; preds = %421, %_ZNKSt14defau
   br label %426
 
 426:                                              ; preds = %374, %.critedge298, %_ZN7testing7MessageD2Ev.exit363
-  %427 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit363 ], [ false, %.critedge298 ], [ true, %374 ]
+  %427 = phi i1 [ false, %.critedge298 ], [ false, %_ZN7testing7MessageD2Ev.exit363 ], [ true, %374 ]
   %428 = load ptr, ptr %5, align 8
   %429 = icmp eq ptr %428, %125
   br i1 %429, label %_ZN7testing8internal14TrueWithStringD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -142455,9 +142455,9 @@ _ZN7testing7MessageD2Ev.exit418:                  ; preds = %653, %_ZNKSt14defau
   br label %667
 
 _ZN7testing7MessageD2Ev.exit388.sink.split:       ; preds = %647, %602, %558, %516
-  %.sink600 = phi ptr [ %517, %516 ], [ %559, %558 ], [ %603, %602 ], [ %648, %647 ]
-  %.sink586.ph = phi ptr [ %59, %516 ], [ %64, %558 ], [ %72, %602 ], [ %80, %647 ]
-  %.sink585.ph = phi ptr [ %52, %516 ], [ %61, %558 ], [ %66, %602 ], [ %74, %647 ]
+  %.sink600 = phi ptr [ %603, %602 ], [ %559, %558 ], [ %517, %516 ], [ %648, %647 ]
+  %.sink586.ph = phi ptr [ %72, %602 ], [ %64, %558 ], [ %59, %516 ], [ %80, %647 ]
+  %.sink585.ph = phi ptr [ %66, %602 ], [ %61, %558 ], [ %52, %516 ], [ %74, %647 ]
   %660 = load ptr, ptr %.sink600, align 8
   %661 = getelementptr inbounds nuw i8, ptr %660, i64 8
   %662 = load ptr, ptr %661, align 8
@@ -142465,8 +142465,8 @@ _ZN7testing7MessageD2Ev.exit388.sink.split:       ; preds = %647, %602, %558, %5
   br label %_ZN7testing7MessageD2Ev.exit388
 
 _ZN7testing7MessageD2Ev.exit388:                  ; preds = %_ZN7testing7MessageD2Ev.exit388.sink.split, %647, %602, %558, %516
-  %.sink586 = phi ptr [ %59, %516 ], [ %64, %558 ], [ %72, %602 ], [ %80, %647 ], [ %.sink586.ph, %_ZN7testing7MessageD2Ev.exit388.sink.split ]
-  %.sink585 = phi ptr [ %52, %516 ], [ %61, %558 ], [ %66, %602 ], [ %74, %647 ], [ %.sink585.ph, %_ZN7testing7MessageD2Ev.exit388.sink.split ]
+  %.sink586 = phi ptr [ %64, %558 ], [ %72, %602 ], [ %80, %647 ], [ %59, %516 ], [ %.sink586.ph, %_ZN7testing7MessageD2Ev.exit388.sink.split ]
+  %.sink585 = phi ptr [ %61, %558 ], [ %66, %602 ], [ %74, %647 ], [ %52, %516 ], [ %.sink585.ph, %_ZN7testing7MessageD2Ev.exit388.sink.split ]
   store ptr null, ptr %.sink586, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink585) #26
   invoke void @__cxa_end_catch()
@@ -142674,7 +142674,7 @@ _ZN7testing7MessageD2Ev.exit431:                  ; preds = %727, %_ZNKSt14defau
   br label %732
 
 732:                                              ; preds = %680, %.critedge310, %_ZN7testing7MessageD2Ev.exit428
-  %733 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit428 ], [ false, %.critedge310 ], [ true, %680 ]
+  %733 = phi i1 [ false, %.critedge310 ], [ false, %_ZN7testing7MessageD2Ev.exit428 ], [ true, %680 ]
   %734 = load ptr, ptr %45, align 8
   %735 = icmp eq ptr %734, %431
   br i1 %735, label %_ZN7testing8internal14TrueWithStringD2Ev.exit434, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i432
@@ -143434,9 +143434,9 @@ _ZN7testing7MessageD2Ev.exit486:                  ; preds = %959, %_ZNKSt14defau
   br label %973
 
 _ZN7testing7MessageD2Ev.exit456.sink.split:       ; preds = %953, %908, %864, %822
-  %.sink605 = phi ptr [ %823, %822 ], [ %865, %864 ], [ %909, %908 ], [ %954, %953 ]
-  %.sink589.ph = phi ptr [ %99, %822 ], [ %104, %864 ], [ %112, %908 ], [ %120, %953 ]
-  %.sink588.ph = phi ptr [ %92, %822 ], [ %101, %864 ], [ %106, %908 ], [ %114, %953 ]
+  %.sink605 = phi ptr [ %909, %908 ], [ %865, %864 ], [ %823, %822 ], [ %954, %953 ]
+  %.sink589.ph = phi ptr [ %112, %908 ], [ %104, %864 ], [ %99, %822 ], [ %120, %953 ]
+  %.sink588.ph = phi ptr [ %106, %908 ], [ %101, %864 ], [ %92, %822 ], [ %114, %953 ]
   %966 = load ptr, ptr %.sink605, align 8
   %967 = getelementptr inbounds nuw i8, ptr %966, i64 8
   %968 = load ptr, ptr %967, align 8
@@ -143444,8 +143444,8 @@ _ZN7testing7MessageD2Ev.exit456.sink.split:       ; preds = %953, %908, %864, %8
   br label %_ZN7testing7MessageD2Ev.exit456
 
 _ZN7testing7MessageD2Ev.exit456:                  ; preds = %_ZN7testing7MessageD2Ev.exit456.sink.split, %953, %908, %864, %822
-  %.sink589 = phi ptr [ %99, %822 ], [ %104, %864 ], [ %112, %908 ], [ %120, %953 ], [ %.sink589.ph, %_ZN7testing7MessageD2Ev.exit456.sink.split ]
-  %.sink588 = phi ptr [ %92, %822 ], [ %101, %864 ], [ %106, %908 ], [ %114, %953 ], [ %.sink588.ph, %_ZN7testing7MessageD2Ev.exit456.sink.split ]
+  %.sink589 = phi ptr [ %104, %864 ], [ %112, %908 ], [ %120, %953 ], [ %99, %822 ], [ %.sink589.ph, %_ZN7testing7MessageD2Ev.exit456.sink.split ]
+  %.sink588 = phi ptr [ %101, %864 ], [ %106, %908 ], [ %114, %953 ], [ %92, %822 ], [ %.sink588.ph, %_ZN7testing7MessageD2Ev.exit456.sink.split ]
   store ptr null, ptr %.sink589, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink588) #26
   invoke void @__cxa_end_catch()
@@ -143669,8 +143669,8 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit502: ; preds = %1038, %_ZNKSt7__cxx
   ret void
 
 1042:                                             ; preds = %765, %_ZN7testing7MessageD2Ev.exit499, %1014, %1020, %459, %_ZN7testing7MessageD2Ev.exit431, %708, %714, %153, %_ZN7testing7MessageD2Ev.exit366, %402, %408
-  %.sink590 = phi ptr [ %5, %408 ], [ %5, %402 ], [ %5, %_ZN7testing7MessageD2Ev.exit366 ], [ %5, %153 ], [ %45, %714 ], [ %45, %708 ], [ %45, %_ZN7testing7MessageD2Ev.exit431 ], [ %45, %459 ], [ %85, %1020 ], [ %85, %1014 ], [ %85, %_ZN7testing7MessageD2Ev.exit499 ], [ %85, %765 ]
-  %.pn287.pn.pn = phi { ptr, i32 } [ %.pn215, %408 ], [ %403, %402 ], [ %.pn217, %_ZN7testing7MessageD2Ev.exit366 ], [ %154, %153 ], [ %.pn250, %714 ], [ %709, %708 ], [ %.pn252, %_ZN7testing7MessageD2Ev.exit431 ], [ %460, %459 ], [ %.pn285, %1020 ], [ %1015, %1014 ], [ %.pn287, %_ZN7testing7MessageD2Ev.exit499 ], [ %766, %765 ]
+  %.sink590 = phi ptr [ %45, %459 ], [ %5, %153 ], [ %5, %408 ], [ %5, %402 ], [ %5, %_ZN7testing7MessageD2Ev.exit366 ], [ %45, %714 ], [ %45, %708 ], [ %45, %_ZN7testing7MessageD2Ev.exit431 ], [ %85, %1020 ], [ %85, %1014 ], [ %85, %_ZN7testing7MessageD2Ev.exit499 ], [ %85, %765 ]
+  %.pn287.pn.pn = phi { ptr, i32 } [ %460, %459 ], [ %154, %153 ], [ %.pn215, %408 ], [ %403, %402 ], [ %.pn217, %_ZN7testing7MessageD2Ev.exit366 ], [ %.pn250, %714 ], [ %709, %708 ], [ %.pn252, %_ZN7testing7MessageD2Ev.exit431 ], [ %.pn285, %1020 ], [ %1015, %1014 ], [ %.pn287, %_ZN7testing7MessageD2Ev.exit499 ], [ %766, %765 ]
   call void @_ZN7testing8internal14TrueWithStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink590) #26
   resume { ptr, i32 } %.pn287.pn.pn
 
@@ -144484,9 +144484,9 @@ _ZN7testing7MessageD2Ev.exit133:                  ; preds = %265, %_ZNKSt14defau
   br label %279
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %259, %214, %170, %128
-  %.sink175 = phi ptr [ %129, %128 ], [ %171, %170 ], [ %215, %214 ], [ %260, %259 ]
-  %.sink170.ph = phi ptr [ %17, %128 ], [ %22, %170 ], [ %30, %214 ], [ %38, %259 ]
-  %.sink.ph = phi ptr [ %10, %128 ], [ %19, %170 ], [ %24, %214 ], [ %32, %259 ]
+  %.sink175 = phi ptr [ %215, %214 ], [ %171, %170 ], [ %129, %128 ], [ %260, %259 ]
+  %.sink170.ph = phi ptr [ %30, %214 ], [ %22, %170 ], [ %17, %128 ], [ %38, %259 ]
+  %.sink.ph = phi ptr [ %24, %214 ], [ %19, %170 ], [ %10, %128 ], [ %32, %259 ]
   %272 = load ptr, ptr %.sink175, align 8
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 8
   %274 = load ptr, ptr %273, align 8
@@ -144494,8 +144494,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %259, %214, %170, %1
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %259, %214, %170, %128
-  %.sink170 = phi ptr [ %17, %128 ], [ %22, %170 ], [ %30, %214 ], [ %38, %259 ], [ %.sink170.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %10, %128 ], [ %19, %170 ], [ %24, %214 ], [ %32, %259 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink170 = phi ptr [ %22, %170 ], [ %30, %214 ], [ %38, %259 ], [ %17, %128 ], [ %.sink170.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %19, %170 ], [ %24, %214 ], [ %32, %259 ], [ %10, %128 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink170, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -145571,9 +145571,9 @@ _ZN7testing7MessageD2Ev.exit244:                  ; preds = %306, %_ZNKSt14defau
   br label %320
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %300, %255, %211, %169
-  %.sink386 = phi ptr [ %170, %169 ], [ %212, %211 ], [ %256, %255 ], [ %301, %300 ]
-  %.sink377.ph = phi ptr [ %18, %169 ], [ %23, %211 ], [ %31, %255 ], [ %39, %300 ]
-  %.sink.ph = phi ptr [ %11, %169 ], [ %20, %211 ], [ %25, %255 ], [ %33, %300 ]
+  %.sink386 = phi ptr [ %256, %255 ], [ %212, %211 ], [ %170, %169 ], [ %301, %300 ]
+  %.sink377.ph = phi ptr [ %31, %255 ], [ %23, %211 ], [ %18, %169 ], [ %39, %300 ]
+  %.sink.ph = phi ptr [ %25, %255 ], [ %20, %211 ], [ %11, %169 ], [ %33, %300 ]
   %313 = load ptr, ptr %.sink386, align 8
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 8
   %315 = load ptr, ptr %314, align 8
@@ -145581,8 +145581,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %300, %255, %211, %1
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %300, %255, %211, %169
-  %.sink377 = phi ptr [ %18, %169 ], [ %23, %211 ], [ %31, %255 ], [ %39, %300 ], [ %.sink377.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %11, %169 ], [ %20, %211 ], [ %25, %255 ], [ %33, %300 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink377 = phi ptr [ %23, %211 ], [ %31, %255 ], [ %39, %300 ], [ %18, %169 ], [ %.sink377.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %20, %211 ], [ %25, %255 ], [ %33, %300 ], [ %11, %169 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink377, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -145790,7 +145790,7 @@ _ZN7testing7MessageD2Ev.exit256:                  ; preds = %380, %_ZNKSt14defau
   br label %385
 
 385:                                              ; preds = %333, %.critedge201, %_ZN7testing7MessageD2Ev.exit253
-  %386 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit253 ], [ false, %.critedge201 ], [ true, %333 ]
+  %386 = phi i1 [ false, %.critedge201 ], [ false, %_ZN7testing7MessageD2Ev.exit253 ], [ true, %333 ]
   %387 = load ptr, ptr %4, align 8
   %388 = icmp eq ptr %387, %84
   br i1 %388, label %_ZN7testing8internal14TrueWithStringD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -146550,9 +146550,9 @@ _ZN7testing7MessageD2Ev.exit308:                  ; preds = %612, %_ZNKSt14defau
   br label %626
 
 _ZN7testing7MessageD2Ev.exit278.sink.split:       ; preds = %606, %561, %517, %475
-  %.sink391 = phi ptr [ %476, %475 ], [ %518, %517 ], [ %562, %561 ], [ %607, %606 ]
-  %.sink380.ph = phi ptr [ %58, %475 ], [ %63, %517 ], [ %71, %561 ], [ %79, %606 ]
-  %.sink379.ph = phi ptr [ %51, %475 ], [ %60, %517 ], [ %65, %561 ], [ %73, %606 ]
+  %.sink391 = phi ptr [ %562, %561 ], [ %518, %517 ], [ %476, %475 ], [ %607, %606 ]
+  %.sink380.ph = phi ptr [ %71, %561 ], [ %63, %517 ], [ %58, %475 ], [ %79, %606 ]
+  %.sink379.ph = phi ptr [ %65, %561 ], [ %60, %517 ], [ %51, %475 ], [ %73, %606 ]
   %619 = load ptr, ptr %.sink391, align 8
   %620 = getelementptr inbounds nuw i8, ptr %619, i64 8
   %621 = load ptr, ptr %620, align 8
@@ -146560,8 +146560,8 @@ _ZN7testing7MessageD2Ev.exit278.sink.split:       ; preds = %606, %561, %517, %4
   br label %_ZN7testing7MessageD2Ev.exit278
 
 _ZN7testing7MessageD2Ev.exit278:                  ; preds = %_ZN7testing7MessageD2Ev.exit278.sink.split, %606, %561, %517, %475
-  %.sink380 = phi ptr [ %58, %475 ], [ %63, %517 ], [ %71, %561 ], [ %79, %606 ], [ %.sink380.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
-  %.sink379 = phi ptr [ %51, %475 ], [ %60, %517 ], [ %65, %561 ], [ %73, %606 ], [ %.sink379.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
+  %.sink380 = phi ptr [ %63, %517 ], [ %71, %561 ], [ %79, %606 ], [ %58, %475 ], [ %.sink380.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
+  %.sink379 = phi ptr [ %60, %517 ], [ %65, %561 ], [ %73, %606 ], [ %51, %475 ], [ %.sink379.ph, %_ZN7testing7MessageD2Ev.exit278.sink.split ]
   store ptr null, ptr %.sink380, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink379) #26
   invoke void @__cxa_end_catch()
@@ -146785,8 +146785,8 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit324: ; preds = %691, %_ZNKSt7__cxx1
   ret void
 
 695:                                              ; preds = %418, %_ZN7testing7MessageD2Ev.exit321, %667, %673, %112, %_ZN7testing7MessageD2Ev.exit256, %361, %367
-  %.sink381 = phi ptr [ %4, %367 ], [ %4, %361 ], [ %4, %_ZN7testing7MessageD2Ev.exit256 ], [ %4, %112 ], [ %44, %673 ], [ %44, %667 ], [ %44, %_ZN7testing7MessageD2Ev.exit321 ], [ %44, %418 ]
-  %.pn190.pn.pn = phi { ptr, i32 } [ %.pn153, %367 ], [ %362, %361 ], [ %.pn155, %_ZN7testing7MessageD2Ev.exit256 ], [ %113, %112 ], [ %.pn188, %673 ], [ %668, %667 ], [ %.pn190, %_ZN7testing7MessageD2Ev.exit321 ], [ %419, %418 ]
+  %.sink381 = phi ptr [ %4, %112 ], [ %4, %367 ], [ %4, %361 ], [ %4, %_ZN7testing7MessageD2Ev.exit256 ], [ %44, %673 ], [ %44, %667 ], [ %44, %_ZN7testing7MessageD2Ev.exit321 ], [ %44, %418 ]
+  %.pn190.pn.pn = phi { ptr, i32 } [ %113, %112 ], [ %.pn153, %367 ], [ %362, %361 ], [ %.pn155, %_ZN7testing7MessageD2Ev.exit256 ], [ %.pn188, %673 ], [ %668, %667 ], [ %.pn190, %_ZN7testing7MessageD2Ev.exit321 ], [ %419, %418 ]
   call void @_ZN7testing8internal14TrueWithStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink381) #26
   resume { ptr, i32 } %.pn190.pn.pn
 
@@ -147600,9 +147600,9 @@ _ZN7testing7MessageD2Ev.exit133:                  ; preds = %265, %_ZNKSt14defau
   br label %279
 
 _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %259, %214, %170, %128
-  %.sink175 = phi ptr [ %129, %128 ], [ %171, %170 ], [ %215, %214 ], [ %260, %259 ]
-  %.sink170.ph = phi ptr [ %17, %128 ], [ %22, %170 ], [ %30, %214 ], [ %38, %259 ]
-  %.sink.ph = phi ptr [ %10, %128 ], [ %19, %170 ], [ %24, %214 ], [ %32, %259 ]
+  %.sink175 = phi ptr [ %215, %214 ], [ %171, %170 ], [ %129, %128 ], [ %260, %259 ]
+  %.sink170.ph = phi ptr [ %30, %214 ], [ %22, %170 ], [ %17, %128 ], [ %38, %259 ]
+  %.sink.ph = phi ptr [ %24, %214 ], [ %19, %170 ], [ %10, %128 ], [ %32, %259 ]
   %272 = load ptr, ptr %.sink175, align 8
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 8
   %274 = load ptr, ptr %273, align 8
@@ -147610,8 +147610,8 @@ _ZN7testing7MessageD2Ev.exit.sink.split:          ; preds = %259, %214, %170, %1
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZN7testing7MessageD2Ev.exit.sink.split, %259, %214, %170, %128
-  %.sink170 = phi ptr [ %17, %128 ], [ %22, %170 ], [ %30, %214 ], [ %38, %259 ], [ %.sink170.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
-  %.sink = phi ptr [ %10, %128 ], [ %19, %170 ], [ %24, %214 ], [ %32, %259 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink170 = phi ptr [ %22, %170 ], [ %30, %214 ], [ %38, %259 ], [ %17, %128 ], [ %.sink170.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %19, %170 ], [ %24, %214 ], [ %32, %259 ], [ %10, %128 ], [ %.sink.ph, %_ZN7testing7MessageD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink170, align 8
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #26
   invoke void @__cxa_end_catch()
@@ -174411,7 +174411,7 @@ _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Varia
   br label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJSt9monostateN3nix3Pos5StdinENS6_6StringENS5_10SourcePathEEE8_M_resetEvEUlOT_E_RSt7variantIJS4_S7_S8_S9_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESE_SH_.exit.sink.split
 
 _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJSt9monostateN3nix3Pos5StdinENS6_6StringENS5_10SourcePathEEE8_M_resetEvEUlOT_E_RSt7variantIJS4_S7_S8_S9_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESE_SH_.exit.sink.split: ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJSt9monostateN3nix3Pos5StdinENS6_6StringENS5_10SourcePathEEE8_M_resetEvEUlOT_E_RSt7variantIJS4_S7_S8_S9_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESE_SH_.exit.sink.split.sink.split, %97, %63, %33
-  %.sink28 = phi ptr [ %7, %33 ], [ %37, %63 ], [ %71, %97 ], [ %.sink34, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJSt9monostateN3nix3Pos5StdinENS6_6StringENS5_10SourcePathEEE8_M_resetEvEUlOT_E_RSt7variantIJS4_S7_S8_S9_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESE_SH_.exit.sink.split.sink.split ]
+  %.sink28 = phi ptr [ %37, %63 ], [ %71, %97 ], [ %7, %33 ], [ %.sink34, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJSt9monostateN3nix3Pos5StdinENS6_6StringENS5_10SourcePathEEE8_M_resetEvEUlOT_E_RSt7variantIJS4_S7_S8_S9_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESE_SH_.exit.sink.split.sink.split ]
   %104 = load ptr, ptr %.sink28, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 24
   %106 = load ptr, ptr %105, align 8
@@ -174990,8 +174990,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit: ; preds = %
   br label %.backedge
 
 .backedge:                                        ; preds = %58, %74, %_ZN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEE14compute_statesEv.exit
-  %.083.be = phi i64 [ %63, %58 ], [ %87, %_ZN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEE14compute_statesEv.exit ], [ %.184, %74 ]
-  %.082.be = phi i64 [ %63, %58 ], [ %87, %_ZN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEE14compute_statesEv.exit ], [ %87, %74 ]
+  %.083.be = phi i64 [ %.184, %74 ], [ %63, %58 ], [ %87, %_ZN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEE14compute_statesEv.exit ]
+  %.082.be = phi i64 [ %87, %74 ], [ %63, %58 ], [ %87, %_ZN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEE14compute_statesEv.exit ]
   %64 = load i64, ptr %32, align 8
   %65 = icmp ult i64 %.082.be, %64
   br i1 %65, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread, !llvm.loop !21
@@ -175121,8 +175121,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread.threa
   br label %131
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i, %.backedge
-  %.083.lcssa = phi i64 [ %.083113, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit ], [ %.083113, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ %.083.be, %.backedge ]
-  %.lcssa = phi i64 [ %39, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit ], [ %39, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ %64, %.backedge ]
+  %.083.lcssa = phi i64 [ %.083113, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ %.083.be, %.backedge ], [ %.083113, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit ]
+  %.lcssa = phi i64 [ %39, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ %64, %.backedge ], [ %39, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit ]
   %125 = icmp eq i64 %indvars.iv, 0
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %127 = load ptr, ptr %0, align 8
@@ -175134,13 +175134,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread: ; pr
   br label %131
 
 131:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread.thread211
-  %.lcssa209 = phi i64 [ %119, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread.thread211 ], [ 0, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread.thread ], [ %.lcssa, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread ]
-  %.083.lcssa207 = phi i64 [ %87, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread.thread211 ], [ 0, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread.thread ], [ %.083.lcssa, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread ]
-  %.074.ph.lcssa205 = phi i1 [ %.175, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread.thread211 ], [ true, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread.thread ], [ %.074.ph148, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread ]
-  %.076.ph.lcssa203 = phi i32 [ %.177, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread.thread211 ], [ -1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread.thread ], [ %.076.ph147, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread ]
-  %.078.ph.lcssa201 = phi i32 [ %118, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread.thread211 ], [ 0, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread.thread ], [ %.078.ph146, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread ]
-  %.080.ph.lcssa199 = phi i1 [ %.181, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread.thread211 ], [ false, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread.thread ], [ %.080.ph144, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread ]
-  %132 = phi ptr [ %124, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread.thread211 ], [ %34, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread.thread ], [ %spec.select236, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread ]
+  %.lcssa209 = phi i64 [ %119, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread.thread211 ], [ %.lcssa, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread ], [ 0, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread.thread ]
+  %.083.lcssa207 = phi i64 [ %87, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread.thread211 ], [ %.083.lcssa, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread ], [ 0, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread.thread ]
+  %.074.ph.lcssa205 = phi i1 [ %.175, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread.thread211 ], [ %.074.ph148, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread ], [ true, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread.thread ]
+  %.076.ph.lcssa203 = phi i32 [ %.177, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread.thread211 ], [ %.076.ph147, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread ], [ -1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread.thread ]
+  %.078.ph.lcssa201 = phi i32 [ %118, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread.thread211 ], [ %.078.ph146, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread ], [ 0, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread.thread ]
+  %.080.ph.lcssa199 = phi i1 [ %.181, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread.thread211 ], [ %.080.ph144, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread ], [ false, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread.thread ]
+  %132 = phi ptr [ %124, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread.thread211 ], [ %spec.select236, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread ], [ %34, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread.thread ]
   %133 = load ptr, ptr %1, align 8
   %134 = getelementptr inbounds i8, ptr %133, i64 %.083.lcssa207
   %135 = getelementptr inbounds nuw i8, ptr %132, i64 8
@@ -175634,7 +175634,7 @@ define linkonce_odr { i64, i64 } @_ZN5boost2io18basic_altstringbufIcSt11char_tra
   br label %74
 
 74:                                               ; preds = %.sink.split42, %39, %42, %34, %30, %68, %60, %52, %50, %54, %23, %17
-  %.sroa.0.0 = phi i64 [ -1, %17 ], [ -1, %23 ], [ -1, %54 ], [ %.0, %42 ], [ %.0, %39 ], [ -1, %34 ], [ -1, %30 ], [ -1, %68 ], [ -1, %60 ], [ -1, %52 ], [ -1, %50 ], [ %.sroa.0.0.ph, %.sink.split42 ]
+  %.sroa.0.0 = phi i64 [ -1, %54 ], [ -1, %23 ], [ -1, %17 ], [ -1, %52 ], [ %.0, %42 ], [ %.0, %39 ], [ -1, %60 ], [ -1, %50 ], [ -1, %30 ], [ -1, %34 ], [ -1, %68 ], [ %.sroa.0.0.ph, %.sink.split42 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -175750,7 +175750,7 @@ define linkonce_odr { i64, i64 } @_ZN5boost2io18basic_altstringbufIcSt11char_tra
   br label %64
 
 64:                                               ; preds = %.sink.split, %13, %27, %36, %20, %18, %49, %46, %44
-  %.sroa.021.0 = phi i64 [ %1, %36 ], [ %1, %27 ], [ -1, %20 ], [ -1, %18 ], [ -1, %49 ], [ -1, %46 ], [ -1, %44 ], [ -1, %13 ], [ %1, %.sink.split ]
+  %.sroa.021.0 = phi i64 [ -1, %46 ], [ -1, %49 ], [ %1, %36 ], [ %1, %27 ], [ -1, %44 ], [ -1, %13 ], [ -1, %18 ], [ -1, %20 ], [ %1, %.sink.split ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.021.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -175830,7 +175830,7 @@ define linkonce_odr noundef i32 @_ZN5boost2io18basic_altstringbufIcSt11char_trai
   br label %37
 
 37:                                               ; preds = %.sink.split, %8, %12, %18, %1
-  %.0 = phi i32 [ -1, %1 ], [ -1, %18 ], [ -1, %12 ], [ -1, %8 ], [ %36, %.sink.split ]
+  %.0 = phi i32 [ -1, %1 ], [ -1, %12 ], [ -1, %8 ], [ -1, %18 ], [ %36, %.sink.split ]
   ret i32 %.0
 }
 
@@ -175880,7 +175880,7 @@ define linkonce_odr noundef i32 @_ZN5boost2io18basic_altstringbufIcSt11char_trai
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge2, %19, %13, %2, %4
-  %.0 = phi i32 [ -1, %4 ], [ -1, %2 ], [ -1, %13 ], [ %1, %19 ], [ 0, %.critedge2 ]
+  %.0 = phi i32 [ -1, %13 ], [ -1, %4 ], [ -1, %2 ], [ %1, %19 ], [ 0, %.critedge2 ]
   ret i32 %.0
 }
 
@@ -176198,7 +176198,7 @@ _ZN5boost2io6detail18wrap_scan_notdigitIN9__gnu_cxx17__normal_iteratorIPKcNSt7__
   br i1 %59, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.lr.ph, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread, !llvm.loop !25
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread: ; preds = %.outer, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i, %37, %4, %29
-  %.131 = phi i32 [ %30, %29 ], [ 0, %4 ], [ %.030.ph55, %37 ], [ %.030.ph55, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ %.030.ph55, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit ], [ %58, %.outer ]
+  %.131 = phi i32 [ %30, %29 ], [ %.030.ph55, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit ], [ 0, %4 ], [ %.030.ph55, %37 ], [ %.030.ph55, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ %58, %.outer ]
   ret i32 %.131
 }
 
@@ -177325,7 +177325,7 @@ _ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit250: ; preds = %325
   br label %524
 
 362:                                              ; preds = %356, %350, %344, %338, %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit250, %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit250, %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit250, %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit250, %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit250, %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit250, %337
-  %.1 = phi i8 [ %.0207302, %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit250 ], [ %.0207302, %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit250 ], [ %.0207302, %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit250 ], [ %.0207302, %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit250 ], [ %.0207302, %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit250 ], [ %.0207302, %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit250 ], [ 73, %337 ], [ 51, %338 ], [ 0, %344 ], [ 54, %350 ], [ 0, %356 ]
+  %.1 = phi i8 [ %.0207302, %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit250 ], [ %.0207302, %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit250 ], [ %.0207302, %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit250 ], [ %.0207302, %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit250 ], [ %.0207302, %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit250 ], [ %.0207302, %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit250 ], [ 73, %337 ], [ 54, %350 ], [ 51, %338 ], [ 0, %344 ], [ 0, %356 ]
   %363 = load ptr, ptr %0, align 8
   %364 = getelementptr inbounds nuw i8, ptr %363, i64 1
   store ptr %364, ptr %0, align 8
@@ -177691,7 +177691,7 @@ _ZNKSt5ctypeIcE5widenEc.exit265:                  ; preds = %508, %511
   br label %524
 
 524:                                              ; preds = %499, %519, %124, %128, %517, %461, %395, %_ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit252, %357, %351, %345, %339, %_ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit240, %_ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit227, %_ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit219, %_ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit213, %_ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit
-  %.0 = phi i1 [ false, %_ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit ], [ false, %_ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit213 ], [ true, %_ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit240 ], [ true, %_ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit252 ], [ true, %395 ], [ true, %517 ], [ false, %461 ], [ true, %339 ], [ true, %345 ], [ true, %351 ], [ true, %357 ], [ true, %_ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit227 ], [ false, %_ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit219 ], [ true, %128 ], [ true, %124 ], [ true, %519 ], [ true, %499 ]
+  %.0 = phi i1 [ false, %_ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit ], [ false, %_ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit213 ], [ true, %_ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit240 ], [ true, %_ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit252 ], [ true, %395 ], [ true, %517 ], [ true, %124 ], [ false, %461 ], [ true, %339 ], [ true, %345 ], [ true, %351 ], [ true, %357 ], [ true, %_ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit227 ], [ false, %_ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit219 ], [ true, %128 ], [ true, %519 ], [ true, %499 ]
   ret i1 %.0
 }
 
@@ -178946,7 +178946,7 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEEaSERKS3_.e
   unreachable
 
 _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit: ; preds = %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i.i, %19, %.noexc.i, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEEaSERKS3_.exit, %2
-  %.sroa.0.1 = phi ptr [ null, %2 ], [ %9, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEEaSERKS3_.exit ], [ %9, %.noexc.i ], [ %9, %19 ], [ null, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i.i ]
+  %.sroa.0.1 = phi ptr [ null, %2 ], [ %9, %19 ], [ %9, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEEaSERKS3_.exit ], [ %9, %.noexc.i ], [ null, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i.i ]
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -179012,8 +179012,8 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit1
   br i1 %.not.i.i27, label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit29, label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit17.thread
 
 _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit17.thread: ; preds = %31, %.noexc.i16, %23, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit17.thread43, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit17
-  %.pn38 = phi { ptr, i32 } [ %63, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit17 ], [ %55, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit17.thread43 ], [ %24, %23 ], [ %24, %.noexc.i16 ], [ %24, %31 ]
-  %.sroa.0.337 = phi ptr [ %.sroa.0.1, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit17 ], [ %.sroa.0.1, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit17.thread43 ], [ %9, %23 ], [ %9, %.noexc.i16 ], [ %9, %31 ]
+  %.pn38 = phi { ptr, i32 } [ %55, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit17.thread43 ], [ %63, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit17 ], [ %24, %23 ], [ %24, %.noexc.i16 ], [ %24, %31 ]
+  %.sroa.0.337 = phi ptr [ %.sroa.0.1, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit17.thread43 ], [ %.sroa.0.1, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit17 ], [ %9, %23 ], [ %9, %.noexc.i16 ], [ %9, %31 ]
   %64 = load ptr, ptr %.sroa.0.337, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %66 = load ptr, ptr %65, align 8
@@ -180753,7 +180753,7 @@ _ZN5boost2io6detail8put_lastIcSt11char_traitsIcEEEvRSt13basic_ostreamIT_T0_ERKNS
           to label %86 unwind label %15
 
 86:                                               ; preds = %80, %71, %79, %55
-  %.089 = phi i8 [ 0, %79 ], [ 0, %71 ], [ 0, %55 ], [ %85, %80 ]
+  %.089 = phi i8 [ 0, %55 ], [ 0, %79 ], [ 0, %71 ], [ %85, %80 ]
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %88 = load i64, ptr %87, align 8
   %89 = icmp ne i8 %.089, 0
@@ -182112,7 +182112,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc.exit67: ; preds 
   br label %.thread
 
 .thread:                                          ; preds = %95, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc.exit67, %select.unfold
-  %.04089 = phi i64 [ %.040, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc.exit67 ], [ %.040, %select.unfold ], [ %71, %95 ]
+  %.04089 = phi i64 [ %.040, %select.unfold ], [ %.040, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc.exit67 ], [ %71, %95 ]
   br i1 %70, label %111, label %127
 
 111:                                              ; preds = %.thread
@@ -182263,7 +182263,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_moveEPcPKcm.exit.i.i82:
   br label %.sink.split
 
 .sink.split:                                      ; preds = %165, %164, %68, %67, %65
-  %.sink = phi i64 [ %56, %65 ], [ %56, %67 ], [ %56, %68 ], [ %154, %164 ], [ %154, %165 ]
+  %.sink = phi i64 [ %56, %68 ], [ %56, %65 ], [ %56, %67 ], [ %154, %164 ], [ %154, %165 ]
   store i64 %.sink, ptr %9, align 8
   %166 = load ptr, ptr %0, align 8
   %167 = getelementptr inbounds i8, ptr %166, i64 %.sink
@@ -182589,7 +182589,7 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %7
   br label %_ZNKSt9type_infoeqERKS_.exit.thread4
 
 _ZNKSt9type_infoeqERKS_.exit.thread4:             ; preds = %_ZNKSt9type_infoeqERKS_.exit, %7, %_ZNKSt9type_infoeqERKS_.exit.thread
-  %12 = phi ptr [ %6, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %7 ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
+  %12 = phi ptr [ null, %7 ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ], [ %6, %_ZNKSt9type_infoeqERKS_.exit.thread ]
   ret ptr %12
 }
 
@@ -188051,8 +188051,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %common.resume
 
 common.resume:                                    ; preds = %2425, %2431, %2401, %2407, %2377, %2383, %2353, %2359, %2329, %2335, %2305, %2311, %2281, %2287, %2257, %2263, %2233, %2239, %2209, %2215, %2185, %2191, %2161, %2167, %2137, %2143, %2113, %2119, %2089, %2095, %2065, %2071, %2041, %2047, %2017, %2023, %1993, %1999, %1969, %1975, %1945, %1951, %1921, %1927, %1897, %1903, %1873, %1879, %1849, %1855, %1825, %1831, %1801, %1807, %1777, %1783, %1753, %1759, %1729, %1735, %1705, %1711, %1681, %1687, %1657, %1663, %1633, %1639, %1609, %1615, %1585, %1591, %1561, %1567, %1537, %1543, %1513, %1519, %1489, %1495, %1465, %1471, %1441, %1447, %1417, %1423, %1393, %1399, %1369, %1375, %1345, %1351, %1321, %1327, %1297, %1303, %1273, %1279, %1249, %1255, %1225, %1231, %1201, %1207, %1177, %1183, %1153, %1159, %1129, %1135, %1105, %1111, %1081, %1087, %1057, %1063, %1033, %1039, %1009, %1015, %985, %991, %961, %967, %937, %943, %913, %919, %889, %895, %865, %871, %841, %847, %817, %823, %793, %799, %769, %775, %745, %751, %721, %727, %697, %703, %673, %679, %649, %655, %625, %631, %601, %607, %577, %583, %553, %559, %529, %535, %505, %511, %481, %487, %457, %463, %433, %439, %409, %415, %385, %391, %361, %367, %337, %343, %313, %319, %289, %295
-  %.sink = phi ptr [ %270, %295 ], [ %270, %289 ], [ %267, %319 ], [ %267, %313 ], [ %264, %343 ], [ %264, %337 ], [ %261, %367 ], [ %261, %361 ], [ %258, %391 ], [ %258, %385 ], [ %255, %415 ], [ %255, %409 ], [ %252, %439 ], [ %252, %433 ], [ %249, %463 ], [ %249, %457 ], [ %246, %487 ], [ %246, %481 ], [ %243, %511 ], [ %243, %505 ], [ %240, %535 ], [ %240, %529 ], [ %237, %559 ], [ %237, %553 ], [ %234, %583 ], [ %234, %577 ], [ %231, %607 ], [ %231, %601 ], [ %228, %631 ], [ %228, %625 ], [ %225, %655 ], [ %225, %649 ], [ %222, %679 ], [ %222, %673 ], [ %219, %703 ], [ %219, %697 ], [ %216, %727 ], [ %216, %721 ], [ %213, %751 ], [ %213, %745 ], [ %210, %775 ], [ %210, %769 ], [ %207, %799 ], [ %207, %793 ], [ %204, %823 ], [ %204, %817 ], [ %201, %847 ], [ %201, %841 ], [ %198, %871 ], [ %198, %865 ], [ %195, %895 ], [ %195, %889 ], [ %192, %919 ], [ %192, %913 ], [ %189, %943 ], [ %189, %937 ], [ %186, %967 ], [ %186, %961 ], [ %183, %991 ], [ %183, %985 ], [ %180, %1015 ], [ %180, %1009 ], [ %177, %1039 ], [ %177, %1033 ], [ %174, %1063 ], [ %174, %1057 ], [ %171, %1087 ], [ %171, %1081 ], [ %168, %1111 ], [ %168, %1105 ], [ %165, %1135 ], [ %165, %1129 ], [ %162, %1159 ], [ %162, %1153 ], [ %159, %1183 ], [ %159, %1177 ], [ %156, %1207 ], [ %156, %1201 ], [ %153, %1231 ], [ %153, %1225 ], [ %150, %1255 ], [ %150, %1249 ], [ %147, %1279 ], [ %147, %1273 ], [ %144, %1303 ], [ %144, %1297 ], [ %141, %1327 ], [ %141, %1321 ], [ %138, %1351 ], [ %138, %1345 ], [ %135, %1375 ], [ %135, %1369 ], [ %132, %1399 ], [ %132, %1393 ], [ %129, %1423 ], [ %129, %1417 ], [ %126, %1447 ], [ %126, %1441 ], [ %123, %1471 ], [ %123, %1465 ], [ %120, %1495 ], [ %120, %1489 ], [ %117, %1519 ], [ %117, %1513 ], [ %114, %1543 ], [ %114, %1537 ], [ %111, %1567 ], [ %111, %1561 ], [ %108, %1591 ], [ %108, %1585 ], [ %105, %1615 ], [ %105, %1609 ], [ %102, %1639 ], [ %102, %1633 ], [ %99, %1663 ], [ %99, %1657 ], [ %96, %1687 ], [ %96, %1681 ], [ %93, %1711 ], [ %93, %1705 ], [ %90, %1735 ], [ %90, %1729 ], [ %87, %1759 ], [ %87, %1753 ], [ %84, %1783 ], [ %84, %1777 ], [ %81, %1807 ], [ %81, %1801 ], [ %78, %1831 ], [ %78, %1825 ], [ %75, %1855 ], [ %75, %1849 ], [ %72, %1879 ], [ %72, %1873 ], [ %69, %1903 ], [ %69, %1897 ], [ %66, %1927 ], [ %66, %1921 ], [ %63, %1951 ], [ %63, %1945 ], [ %60, %1975 ], [ %60, %1969 ], [ %57, %1999 ], [ %57, %1993 ], [ %54, %2023 ], [ %54, %2017 ], [ %51, %2047 ], [ %51, %2041 ], [ %48, %2071 ], [ %48, %2065 ], [ %45, %2095 ], [ %45, %2089 ], [ %42, %2119 ], [ %42, %2113 ], [ %39, %2143 ], [ %39, %2137 ], [ %36, %2167 ], [ %36, %2161 ], [ %33, %2191 ], [ %33, %2185 ], [ %30, %2215 ], [ %30, %2209 ], [ %27, %2239 ], [ %27, %2233 ], [ %24, %2263 ], [ %24, %2257 ], [ %21, %2287 ], [ %21, %2281 ], [ %18, %2311 ], [ %18, %2305 ], [ %15, %2335 ], [ %15, %2329 ], [ %12, %2359 ], [ %12, %2353 ], [ %9, %2383 ], [ %9, %2377 ], [ %6, %2407 ], [ %6, %2401 ], [ %3, %2431 ], [ %3, %2425 ]
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i, %295 ], [ %290, %289 ], [ %.pn.i, %319 ], [ %314, %313 ], [ %.pn.i8, %343 ], [ %338, %337 ], [ %.pn.i15, %367 ], [ %362, %361 ], [ %.pn.i22, %391 ], [ %386, %385 ], [ %.pn.i29, %415 ], [ %410, %409 ], [ %.pn.i36, %439 ], [ %434, %433 ], [ %.pn.i43, %463 ], [ %458, %457 ], [ %.pn.i50, %487 ], [ %482, %481 ], [ %.pn.i57, %511 ], [ %506, %505 ], [ %.pn.i64, %535 ], [ %530, %529 ], [ %.pn.i71, %559 ], [ %554, %553 ], [ %.pn.i78, %583 ], [ %578, %577 ], [ %.pn.i85, %607 ], [ %602, %601 ], [ %.pn.i92, %631 ], [ %626, %625 ], [ %.pn.i99, %655 ], [ %650, %649 ], [ %.pn.i106, %679 ], [ %674, %673 ], [ %.pn.i113, %703 ], [ %698, %697 ], [ %.pn.i120, %727 ], [ %722, %721 ], [ %.pn.i127, %751 ], [ %746, %745 ], [ %.pn.i134, %775 ], [ %770, %769 ], [ %.pn.i141, %799 ], [ %794, %793 ], [ %.pn.i148, %823 ], [ %818, %817 ], [ %.pn.i155, %847 ], [ %842, %841 ], [ %.pn.i162, %871 ], [ %866, %865 ], [ %.pn.i169, %895 ], [ %890, %889 ], [ %.pn.i176, %919 ], [ %914, %913 ], [ %.pn.i183, %943 ], [ %938, %937 ], [ %.pn.i190, %967 ], [ %962, %961 ], [ %.pn.i197, %991 ], [ %986, %985 ], [ %.pn.i204, %1015 ], [ %1010, %1009 ], [ %.pn.i211, %1039 ], [ %1034, %1033 ], [ %.pn.i218, %1063 ], [ %1058, %1057 ], [ %.pn.i225, %1087 ], [ %1082, %1081 ], [ %.pn.i232, %1111 ], [ %1106, %1105 ], [ %.pn.i239, %1135 ], [ %1130, %1129 ], [ %.pn.i246, %1159 ], [ %1154, %1153 ], [ %.pn.i253, %1183 ], [ %1178, %1177 ], [ %.pn.i260, %1207 ], [ %1202, %1201 ], [ %.pn.i267, %1231 ], [ %1226, %1225 ], [ %.pn.i274, %1255 ], [ %1250, %1249 ], [ %.pn.i281, %1279 ], [ %1274, %1273 ], [ %.pn.i288, %1303 ], [ %1298, %1297 ], [ %.pn.i295, %1327 ], [ %1322, %1321 ], [ %.pn.i302, %1351 ], [ %1346, %1345 ], [ %.pn.i309, %1375 ], [ %1370, %1369 ], [ %.pn.i316, %1399 ], [ %1394, %1393 ], [ %.pn.i323, %1423 ], [ %1418, %1417 ], [ %.pn.i330, %1447 ], [ %1442, %1441 ], [ %.pn.i337, %1471 ], [ %1466, %1465 ], [ %.pn.i344, %1495 ], [ %1490, %1489 ], [ %.pn.i351, %1519 ], [ %1514, %1513 ], [ %.pn.i358, %1543 ], [ %1538, %1537 ], [ %.pn.i365, %1567 ], [ %1562, %1561 ], [ %.pn.i372, %1591 ], [ %1586, %1585 ], [ %.pn.i379, %1615 ], [ %1610, %1609 ], [ %.pn.i386, %1639 ], [ %1634, %1633 ], [ %.pn.i393, %1663 ], [ %1658, %1657 ], [ %.pn.i400, %1687 ], [ %1682, %1681 ], [ %.pn.i407, %1711 ], [ %1706, %1705 ], [ %.pn.i414, %1735 ], [ %1730, %1729 ], [ %.pn.i421, %1759 ], [ %1754, %1753 ], [ %.pn.i428, %1783 ], [ %1778, %1777 ], [ %.pn.i435, %1807 ], [ %1802, %1801 ], [ %.pn.i442, %1831 ], [ %1826, %1825 ], [ %.pn.i449, %1855 ], [ %1850, %1849 ], [ %.pn.i456, %1879 ], [ %1874, %1873 ], [ %.pn.i463, %1903 ], [ %1898, %1897 ], [ %.pn.i470, %1927 ], [ %1922, %1921 ], [ %.pn.i477, %1951 ], [ %1946, %1945 ], [ %.pn.i484, %1975 ], [ %1970, %1969 ], [ %.pn.i491, %1999 ], [ %1994, %1993 ], [ %.pn.i498, %2023 ], [ %2018, %2017 ], [ %.pn.i505, %2047 ], [ %2042, %2041 ], [ %.pn.i512, %2071 ], [ %2066, %2065 ], [ %.pn.i519, %2095 ], [ %2090, %2089 ], [ %.pn.i526, %2119 ], [ %2114, %2113 ], [ %.pn.i533, %2143 ], [ %2138, %2137 ], [ %.pn.i540, %2167 ], [ %2162, %2161 ], [ %.pn.i547, %2191 ], [ %2186, %2185 ], [ %.pn.i554, %2215 ], [ %2210, %2209 ], [ %.pn.i561, %2239 ], [ %2234, %2233 ], [ %.pn.i568, %2263 ], [ %2258, %2257 ], [ %.pn.i575, %2287 ], [ %2282, %2281 ], [ %.pn.i582, %2311 ], [ %2306, %2305 ], [ %.pn.i589, %2335 ], [ %2330, %2329 ], [ %.pn.i596, %2359 ], [ %2354, %2353 ], [ %.pn.i603, %2383 ], [ %2378, %2377 ], [ %.pn.i610, %2407 ], [ %2402, %2401 ], [ %.pn.i617, %2431 ], [ %2426, %2425 ]
+  %.sink = phi ptr [ %6, %2401 ], [ %9, %2377 ], [ %12, %2353 ], [ %15, %2329 ], [ %18, %2305 ], [ %21, %2281 ], [ %24, %2257 ], [ %27, %2233 ], [ %30, %2209 ], [ %33, %2185 ], [ %36, %2161 ], [ %39, %2137 ], [ %42, %2113 ], [ %45, %2089 ], [ %48, %2065 ], [ %51, %2041 ], [ %54, %2017 ], [ %57, %1993 ], [ %60, %1969 ], [ %63, %1945 ], [ %66, %1921 ], [ %69, %1897 ], [ %72, %1873 ], [ %75, %1849 ], [ %78, %1825 ], [ %81, %1801 ], [ %84, %1777 ], [ %87, %1753 ], [ %90, %1729 ], [ %93, %1705 ], [ %96, %1681 ], [ %99, %1657 ], [ %102, %1633 ], [ %105, %1609 ], [ %108, %1585 ], [ %111, %1561 ], [ %114, %1537 ], [ %117, %1513 ], [ %120, %1489 ], [ %123, %1465 ], [ %126, %1441 ], [ %129, %1417 ], [ %132, %1393 ], [ %135, %1369 ], [ %138, %1345 ], [ %141, %1321 ], [ %144, %1297 ], [ %147, %1273 ], [ %150, %1249 ], [ %153, %1225 ], [ %156, %1201 ], [ %159, %1177 ], [ %162, %1153 ], [ %165, %1129 ], [ %168, %1105 ], [ %171, %1081 ], [ %174, %1057 ], [ %177, %1033 ], [ %180, %1009 ], [ %183, %985 ], [ %186, %961 ], [ %189, %937 ], [ %192, %913 ], [ %195, %889 ], [ %198, %865 ], [ %201, %841 ], [ %204, %817 ], [ %207, %793 ], [ %210, %769 ], [ %213, %745 ], [ %216, %721 ], [ %219, %697 ], [ %222, %673 ], [ %225, %649 ], [ %228, %625 ], [ %231, %601 ], [ %234, %577 ], [ %237, %553 ], [ %240, %529 ], [ %243, %505 ], [ %246, %481 ], [ %249, %457 ], [ %252, %433 ], [ %255, %409 ], [ %258, %385 ], [ %261, %361 ], [ %264, %337 ], [ %267, %313 ], [ %270, %289 ], [ %270, %295 ], [ %267, %319 ], [ %264, %343 ], [ %261, %367 ], [ %258, %391 ], [ %255, %415 ], [ %252, %439 ], [ %249, %463 ], [ %246, %487 ], [ %243, %511 ], [ %240, %535 ], [ %237, %559 ], [ %234, %583 ], [ %231, %607 ], [ %228, %631 ], [ %225, %655 ], [ %222, %679 ], [ %219, %703 ], [ %216, %727 ], [ %213, %751 ], [ %210, %775 ], [ %207, %799 ], [ %204, %823 ], [ %201, %847 ], [ %198, %871 ], [ %195, %895 ], [ %192, %919 ], [ %189, %943 ], [ %186, %967 ], [ %183, %991 ], [ %180, %1015 ], [ %177, %1039 ], [ %174, %1063 ], [ %171, %1087 ], [ %168, %1111 ], [ %165, %1135 ], [ %162, %1159 ], [ %159, %1183 ], [ %156, %1207 ], [ %153, %1231 ], [ %150, %1255 ], [ %147, %1279 ], [ %144, %1303 ], [ %141, %1327 ], [ %138, %1351 ], [ %135, %1375 ], [ %132, %1399 ], [ %129, %1423 ], [ %126, %1447 ], [ %123, %1471 ], [ %120, %1495 ], [ %117, %1519 ], [ %114, %1543 ], [ %111, %1567 ], [ %108, %1591 ], [ %105, %1615 ], [ %102, %1639 ], [ %99, %1663 ], [ %96, %1687 ], [ %93, %1711 ], [ %90, %1735 ], [ %87, %1759 ], [ %84, %1783 ], [ %81, %1807 ], [ %78, %1831 ], [ %75, %1855 ], [ %72, %1879 ], [ %69, %1903 ], [ %66, %1927 ], [ %63, %1951 ], [ %60, %1975 ], [ %57, %1999 ], [ %54, %2023 ], [ %51, %2047 ], [ %48, %2071 ], [ %45, %2095 ], [ %42, %2119 ], [ %39, %2143 ], [ %36, %2167 ], [ %33, %2191 ], [ %30, %2215 ], [ %27, %2239 ], [ %24, %2263 ], [ %21, %2287 ], [ %18, %2311 ], [ %15, %2335 ], [ %12, %2359 ], [ %9, %2383 ], [ %6, %2407 ], [ %3, %2431 ], [ %3, %2425 ]
+  %common.resume.op = phi { ptr, i32 } [ %2402, %2401 ], [ %2378, %2377 ], [ %2354, %2353 ], [ %2330, %2329 ], [ %2306, %2305 ], [ %2282, %2281 ], [ %2258, %2257 ], [ %2234, %2233 ], [ %2210, %2209 ], [ %2186, %2185 ], [ %2162, %2161 ], [ %2138, %2137 ], [ %2114, %2113 ], [ %2090, %2089 ], [ %2066, %2065 ], [ %2042, %2041 ], [ %2018, %2017 ], [ %1994, %1993 ], [ %1970, %1969 ], [ %1946, %1945 ], [ %1922, %1921 ], [ %1898, %1897 ], [ %1874, %1873 ], [ %1850, %1849 ], [ %1826, %1825 ], [ %1802, %1801 ], [ %1778, %1777 ], [ %1754, %1753 ], [ %1730, %1729 ], [ %1706, %1705 ], [ %1682, %1681 ], [ %1658, %1657 ], [ %1634, %1633 ], [ %1610, %1609 ], [ %1586, %1585 ], [ %1562, %1561 ], [ %1538, %1537 ], [ %1514, %1513 ], [ %1490, %1489 ], [ %1466, %1465 ], [ %1442, %1441 ], [ %1418, %1417 ], [ %1394, %1393 ], [ %1370, %1369 ], [ %1346, %1345 ], [ %1322, %1321 ], [ %1298, %1297 ], [ %1274, %1273 ], [ %1250, %1249 ], [ %1226, %1225 ], [ %1202, %1201 ], [ %1178, %1177 ], [ %1154, %1153 ], [ %1130, %1129 ], [ %1106, %1105 ], [ %1082, %1081 ], [ %1058, %1057 ], [ %1034, %1033 ], [ %1010, %1009 ], [ %986, %985 ], [ %962, %961 ], [ %938, %937 ], [ %914, %913 ], [ %890, %889 ], [ %866, %865 ], [ %842, %841 ], [ %818, %817 ], [ %794, %793 ], [ %770, %769 ], [ %746, %745 ], [ %722, %721 ], [ %698, %697 ], [ %674, %673 ], [ %650, %649 ], [ %626, %625 ], [ %602, %601 ], [ %578, %577 ], [ %554, %553 ], [ %530, %529 ], [ %506, %505 ], [ %482, %481 ], [ %458, %457 ], [ %434, %433 ], [ %410, %409 ], [ %386, %385 ], [ %362, %361 ], [ %338, %337 ], [ %314, %313 ], [ %290, %289 ], [ %.pn.pn.i, %295 ], [ %.pn.i, %319 ], [ %.pn.i8, %343 ], [ %.pn.i15, %367 ], [ %.pn.i22, %391 ], [ %.pn.i29, %415 ], [ %.pn.i36, %439 ], [ %.pn.i43, %463 ], [ %.pn.i50, %487 ], [ %.pn.i57, %511 ], [ %.pn.i64, %535 ], [ %.pn.i71, %559 ], [ %.pn.i78, %583 ], [ %.pn.i85, %607 ], [ %.pn.i92, %631 ], [ %.pn.i99, %655 ], [ %.pn.i106, %679 ], [ %.pn.i113, %703 ], [ %.pn.i120, %727 ], [ %.pn.i127, %751 ], [ %.pn.i134, %775 ], [ %.pn.i141, %799 ], [ %.pn.i148, %823 ], [ %.pn.i155, %847 ], [ %.pn.i162, %871 ], [ %.pn.i169, %895 ], [ %.pn.i176, %919 ], [ %.pn.i183, %943 ], [ %.pn.i190, %967 ], [ %.pn.i197, %991 ], [ %.pn.i204, %1015 ], [ %.pn.i211, %1039 ], [ %.pn.i218, %1063 ], [ %.pn.i225, %1087 ], [ %.pn.i232, %1111 ], [ %.pn.i239, %1135 ], [ %.pn.i246, %1159 ], [ %.pn.i253, %1183 ], [ %.pn.i260, %1207 ], [ %.pn.i267, %1231 ], [ %.pn.i274, %1255 ], [ %.pn.i281, %1279 ], [ %.pn.i288, %1303 ], [ %.pn.i295, %1327 ], [ %.pn.i302, %1351 ], [ %.pn.i309, %1375 ], [ %.pn.i316, %1399 ], [ %.pn.i323, %1423 ], [ %.pn.i330, %1447 ], [ %.pn.i337, %1471 ], [ %.pn.i344, %1495 ], [ %.pn.i351, %1519 ], [ %.pn.i358, %1543 ], [ %.pn.i365, %1567 ], [ %.pn.i372, %1591 ], [ %.pn.i379, %1615 ], [ %.pn.i386, %1639 ], [ %.pn.i393, %1663 ], [ %.pn.i400, %1687 ], [ %.pn.i407, %1711 ], [ %.pn.i414, %1735 ], [ %.pn.i421, %1759 ], [ %.pn.i428, %1783 ], [ %.pn.i435, %1807 ], [ %.pn.i442, %1831 ], [ %.pn.i449, %1855 ], [ %.pn.i456, %1879 ], [ %.pn.i463, %1903 ], [ %.pn.i470, %1927 ], [ %.pn.i477, %1951 ], [ %.pn.i484, %1975 ], [ %.pn.i491, %1999 ], [ %.pn.i498, %2023 ], [ %.pn.i505, %2047 ], [ %.pn.i512, %2071 ], [ %.pn.i519, %2095 ], [ %.pn.i526, %2119 ], [ %.pn.i533, %2143 ], [ %.pn.i540, %2167 ], [ %.pn.i547, %2191 ], [ %.pn.i554, %2215 ], [ %.pn.i561, %2239 ], [ %.pn.i568, %2263 ], [ %.pn.i575, %2287 ], [ %.pn.i582, %2311 ], [ %.pn.i589, %2335 ], [ %.pn.i596, %2359 ], [ %.pn.i603, %2383 ], [ %.pn.i610, %2407 ], [ %.pn.i617, %2431 ], [ %2426, %2425 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #26
   resume { ptr, i32 } %common.resume.op
 

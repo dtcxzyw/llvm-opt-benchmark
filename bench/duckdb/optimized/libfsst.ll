@@ -1508,7 +1508,7 @@ _ZNSt13unordered_setI7QSymbolSt4hashIS0_ESt8equal_toIS0_ESaIS0_EED2Ev.exit: ; pr
   br label %"_ZNSt14priority_queueI7QSymbolSt6vectorIS0_SaIS0_EEZZ16buildSymbolTableR8CountersS1_IPhSaIS6_EEPmbENK3$_2clEP11SymbolTableS5_EUlRKS0_SE_E_ED2Ev.exit102"
 
 "_ZNSt14priority_queueI7QSymbolSt6vectorIS0_SaIS0_EEZZ16buildSymbolTableR8CountersS1_IPhSaIS6_EEPmbENK3$_2clEP11SymbolTableS5_EUlRKS0_SE_E_ED2Ev.exit102": ; preds = %199, %299, %65, %111
-  %.pn49.pn = phi { ptr, i32 } [ %112, %111 ], [ %66, %65 ], [ %lpad.phi, %199 ], [ %lpad.phi, %299 ]
+  %.pn49.pn = phi { ptr, i32 } [ %66, %65 ], [ %112, %111 ], [ %lpad.phi, %299 ], [ %lpad.phi, %199 ]
   call void @_ZNSt13unordered_setI7QSymbolSt4hashIS0_ESt8equal_toIS0_ESaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn49.pn
@@ -2144,8 +2144,8 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %_ZNSt6vectorImSaImE
   ret void
 
 159:                                              ; preds = %.loopexit87, %.loopexit.split-lp88, %.loopexit85, %.loopexit.split-lp
-  %160 = phi ptr [ %17, %.loopexit85 ], [ %17, %.loopexit.split-lp ], [ %155, %.loopexit87 ], [ %158, %.loopexit.split-lp88 ]
-  %.pn49 = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit85 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit89, %.loopexit87 ], [ %lpad.loopexit.split-lp90, %.loopexit.split-lp88 ]
+  %160 = phi ptr [ %155, %.loopexit87 ], [ %17, %.loopexit.split-lp ], [ %158, %.loopexit.split-lp88 ], [ %17, %.loopexit85 ]
+  %.pn49 = phi { ptr, i32 } [ %lpad.loopexit89, %.loopexit87 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit.split-lp90, %.loopexit.split-lp88 ], [ %lpad.loopexit, %.loopexit85 ]
   %.not.i.i.i71 = icmp eq ptr %160, null
   br i1 %.not.i.i.i71, label %_ZNSt6vectorIPhSaIS0_EED2Ev.exit, label %161
 
@@ -3134,7 +3134,7 @@ _ZZL12compressBulkR11SymbolTablemPmPPhmS2_S1_S3_bbENKUlbbE_clEbb.exit.i: ; preds
   br i1 %exitcond.not.i, label %_ZL12compressBulkR11SymbolTablemPmPPhmS2_S1_S3_bb.exit, label %.split.i, !llvm.loop !127
 
 _ZL12compressBulkR11SymbolTablemPmPPhmS2_S1_S3_bb.exit: ; preds = %.split123.split.i, %154, %.split123.split.us.us.i, %97, %.split123.us.us.i, %34, %11
-  %.038121.i = phi i64 [ 0, %11 ], [ %.038136.us.i, %34 ], [ %1, %.split123.us.us.i ], [ %.038136.us140.i, %97 ], [ %1, %.split123.split.us.us.i ], [ %.038136.i, %154 ], [ %1, %.split123.split.i ]
+  %.038121.i = phi i64 [ %.038136.us.i, %34 ], [ %1, %.split123.us.us.i ], [ %1, %.split123.split.us.us.i ], [ 0, %11 ], [ %.038136.us140.i, %97 ], [ %.038136.i, %154 ], [ %1, %.split123.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i64 %.038121.i
 }
@@ -3198,8 +3198,8 @@ define hidden noundef i64 @_Z12compressAutoP7EncodermPmPPhmS2_S1_S3_i(ptr nounde
   br label %_Z13_compressAutoP7EncodermPmPPhmS2_S1_S3_i.exit
 
 _Z13_compressAutoP7EncodermPmPPhmS2_S1_S3_i.exit: ; preds = %20, %27, %33, %44, %.thread.i
-  %.021.i = phi i1 [ true, %.thread.i ], [ false, %44 ], [ false, %33 ], [ false, %27 ], [ false, %20 ]
-  %.0.i = phi i1 [ false, %.thread.i ], [ false, %44 ], [ false, %33 ], [ false, %27 ], [ true, %20 ]
+  %.021.i = phi i1 [ false, %27 ], [ true, %.thread.i ], [ false, %44 ], [ false, %33 ], [ false, %20 ]
+  %.0.i = phi i1 [ false, %27 ], [ false, %.thread.i ], [ false, %44 ], [ false, %33 ], [ true, %20 ]
   %48 = tail call noundef i64 @_Z13_compressImplP7EncodermPmPPhmS2_S1_S3_bbi(ptr noundef nonnull %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i1 noundef zeroext %.0.i, i1 noundef zeroext %.021.i, i32 noundef %8)
   ret i64 %48
 }
@@ -3280,8 +3280,8 @@ _ZSt10accumulateIPmiET0_T_S2_S1_.exit:            ; preds = %.lr.ph.i, %8
   br label %_Z13_compressAutoP7EncodermPmPPhmS2_S1_S3_i.exit
 
 _Z13_compressAutoP7EncodermPmPPhmS2_S1_S3_i.exit: ; preds = %24, %31, %37, %48, %.thread.i
-  %.021.i = phi i1 [ true, %.thread.i ], [ false, %48 ], [ false, %37 ], [ false, %31 ], [ false, %24 ]
-  %.0.i = phi i1 [ false, %.thread.i ], [ false, %48 ], [ false, %37 ], [ false, %31 ], [ true, %24 ]
+  %.021.i = phi i1 [ false, %31 ], [ true, %.thread.i ], [ false, %48 ], [ false, %37 ], [ false, %24 ]
+  %.0.i = phi i1 [ false, %31 ], [ false, %.thread.i ], [ false, %48 ], [ false, %37 ], [ true, %24 ]
   %52 = mul i64 %1, 12
   %53 = sext i32 %.0.lcssa.i to i64
   %54 = icmp ult i64 %52, %53
@@ -3927,7 +3927,7 @@ _ZNSt10_HashtableI7QSymbolS0_SaIS0_ENSt8__detail9_IdentityESt8equal_toIS0_ESt4ha
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNKSt8__detail15_Hashtable_baseI7QSymbolS1_NS_9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS1_mRKNS_16_Hash_node_valueIS1_Lb1EEE.exit.thread.i, %68, %_ZNKSt8__detail15_Hashtable_baseI7QSymbolS1_NS_9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS1_RKNS_16_Hash_node_valueIS1_Lb1EEE.exit.thread.i, %29, %5, %_ZNSt10_HashtableI7QSymbolS0_SaIS0_ENSt8__detail9_IdentityESt8equal_toIS0_ESt4hashIS0_ENS2_18_Mod_range_hashingENS2_20_Default_ranged_hashENS2_20_Prime_rehash_policyENS2_17_Hashtable_traitsILb1ELb1ELb1EEEE8_M_eraseEmPNS2_15_Hash_node_baseEPNS2_10_Hash_nodeIS0_Lb1EEE.exit
-  %.0 = phi i64 [ 1, %_ZNSt10_HashtableI7QSymbolS0_SaIS0_ENSt8__detail9_IdentityESt8equal_toIS0_ESt4hashIS0_ENS2_18_Mod_range_hashingENS2_20_Default_ranged_hashENS2_20_Prime_rehash_policyENS2_17_Hashtable_traitsILb1ELb1ELb1EEEE8_M_eraseEmPNS2_15_Hash_node_baseEPNS2_10_Hash_nodeIS0_Lb1EEE.exit ], [ 0, %5 ], [ 0, %29 ], [ 0, %_ZNKSt8__detail15_Hashtable_baseI7QSymbolS1_NS_9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS1_RKNS_16_Hash_node_valueIS1_Lb1EEE.exit.thread.i ], [ 0, %68 ], [ 0, %_ZNKSt8__detail15_Hashtable_baseI7QSymbolS1_NS_9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS1_mRKNS_16_Hash_node_valueIS1_Lb1EEE.exit.thread.i ]
+  %.0 = phi i64 [ 1, %_ZNSt10_HashtableI7QSymbolS0_SaIS0_ENSt8__detail9_IdentityESt8equal_toIS0_ESt4hashIS0_ENS2_18_Mod_range_hashingENS2_20_Default_ranged_hashENS2_20_Prime_rehash_policyENS2_17_Hashtable_traitsILb1ELb1ELb1EEEE8_M_eraseEmPNS2_15_Hash_node_baseEPNS2_10_Hash_nodeIS0_Lb1EEE.exit ], [ 0, %_ZNKSt8__detail15_Hashtable_baseI7QSymbolS1_NS_9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS1_RKNS_16_Hash_node_valueIS1_Lb1EEE.exit.thread.i ], [ 0, %5 ], [ 0, %29 ], [ 0, %68 ], [ 0, %_ZNKSt8__detail15_Hashtable_baseI7QSymbolS1_NS_9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS1_mRKNS_16_Hash_node_valueIS1_Lb1EEE.exit.thread.i ]
   ret i64 %.0
 }
 

@@ -1760,7 +1760,7 @@ define dso_local noundef zeroext i1 @RecheckDataDirLockFile() local_unnamed_addr
   br label %42
 
 42:                                               ; preds = %36, %38, %28, %12, %13, %8, %9, %26
-  %.0 = phi i1 [ true, %26 ], [ false, %9 ], [ false, %8 ], [ true, %13 ], [ true, %12 ], [ true, %28 ], [ false, %38 ], [ false, %36 ]
+  %.0 = phi i1 [ false, %8 ], [ true, %28 ], [ true, %26 ], [ true, %12 ], [ false, %9 ], [ true, %13 ], [ false, %38 ], [ false, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i1 %.0
 }

@@ -577,7 +577,7 @@ if.end13.i.i27.i.i:                               ; preds = %if.end9.i.i21.i.i
   br i1 %cmp.i.i.i37.i.i, label %if.end12.i.i, label %if.end9.i.i21.i.i, !llvm.loop !9
 
 if.end12.i.i:                                     ; preds = %if.end13.i.i.i.i, %if.end13.i.i27.i.i, %if.then12.i.i40.i.i, %if.end.i.i11.i.i, %_ZN4llvh8DenseMapIPN6hermes5ValueENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_EENS4_12DenseSetPairIS3_EEE4growEj.exit.i, %if.then.i74.i, %if.else.i.i, %if.then12.i.i.i.i, %if.end.i.i.i.i, %_ZN4llvh8DenseMapIPN6hermes5ValueENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_EENS4_12DenseSetPairIS3_EEE4growEj.exit165.i, %if.then.i154.i
-  %TheBucket.addr.0.i.i = phi ptr [ %cond.sink.i.i.i.i.i, %if.else.i.i ], [ %cond.i.i.i.i, %if.then12.i.i.i.i ], [ null, %_ZN4llvh8DenseMapIPN6hermes5ValueENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_EENS4_12DenseSetPairIS3_EEE4growEj.exit165.i ], [ %add.ptr21.i.i.i.i, %if.end.i.i.i.i ], [ %cond.i.i42.i.i, %if.then12.i.i40.i.i ], [ null, %_ZN4llvh8DenseMapIPN6hermes5ValueENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_EENS4_12DenseSetPairIS3_EEE4growEj.exit.i ], [ %add.ptr21.i.i19.i.i, %if.end.i.i11.i.i ], [ null, %if.then.i154.i ], [ null, %if.then.i74.i ], [ %add.ptr.i.i36.i.i, %if.end13.i.i27.i.i ], [ %add.ptr.i.i.i31.i, %if.end13.i.i.i.i ]
+  %TheBucket.addr.0.i.i = phi ptr [ %cond.sink.i.i.i.i.i, %if.else.i.i ], [ null, %if.then.i74.i ], [ %cond.i.i.i.i, %if.then12.i.i.i.i ], [ null, %_ZN4llvh8DenseMapIPN6hermes5ValueENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_EENS4_12DenseSetPairIS3_EEE4growEj.exit165.i ], [ %add.ptr21.i.i.i.i, %if.end.i.i.i.i ], [ %cond.i.i42.i.i, %if.then12.i.i40.i.i ], [ null, %_ZN4llvh8DenseMapIPN6hermes5ValueENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_EENS4_12DenseSetPairIS3_EEE4growEj.exit.i ], [ %add.ptr21.i.i19.i.i, %if.end.i.i11.i.i ], [ %add.ptr.i.i36.i.i, %if.end13.i.i27.i.i ], [ null, %if.then.i154.i ], [ %add.ptr.i.i.i31.i, %if.end13.i.i.i.i ]
   %40 = load i32, ptr %NumEntries.i.i.i.i, align 8, !noalias !4
   %add.i.i.i = add i32 %40, 1
   store i32 %add.i.i.i, ptr %NumEntries.i.i.i.i, align 8, !noalias !4
@@ -1052,7 +1052,7 @@ if.end13.i.i27.i.i.i.i:                           ; preds = %if.end9.i.i21.i.i.i
   br i1 %cmp.i.i.i37.i.i.i.i, label %if.end12.i.i.i.i, label %if.end9.i.i21.i.i.i.i, !llvm.loop !15
 
 if.end12.i.i.i.i:                                 ; preds = %if.end13.i.i.i.i.i.i, %if.end13.i.i27.i.i.i.i, %if.then12.i.i40.i.i.i.i, %if.end.i.i11.i.i.i.i, %if.then10.i.i.i.i, %if.else.i115.i.i.i, %if.then12.i.i.i.i.i.i, %if.end.i.i.i108.i.i.i, %if.then.i106.i.i.i
-  %TheBucket.addr.0.i.i.i.i = phi ptr [ %cond.sink.i.i.i.i.i.i.i.i, %if.else.i115.i.i.i ], [ %cond.i.i.i.i.i.i, %if.then12.i.i.i.i.i.i ], [ null, %if.then.i106.i.i.i ], [ %add.ptr21.i.i.i.i.i.i, %if.end.i.i.i108.i.i.i ], [ %cond.i.i42.i.i.i.i, %if.then12.i.i40.i.i.i.i ], [ null, %if.then10.i.i.i.i ], [ %add.ptr21.i.i19.i.i.i.i, %if.end.i.i11.i.i.i.i ], [ %add.ptr.i.i36.i.i.i.i, %if.end13.i.i27.i.i.i.i ], [ %add.ptr.i.i.i111.i.i.i, %if.end13.i.i.i.i.i.i ]
+  %TheBucket.addr.0.i.i.i.i = phi ptr [ %cond.sink.i.i.i.i.i.i.i.i, %if.else.i115.i.i.i ], [ %add.ptr.i.i36.i.i.i.i, %if.end13.i.i27.i.i.i.i ], [ %cond.i.i.i.i.i.i, %if.then12.i.i.i.i.i.i ], [ null, %if.then.i106.i.i.i ], [ %add.ptr21.i.i.i.i.i.i, %if.end.i.i.i108.i.i.i ], [ %cond.i.i42.i.i.i.i, %if.then12.i.i40.i.i.i.i ], [ null, %if.then10.i.i.i.i ], [ %add.ptr21.i.i19.i.i.i.i, %if.end.i.i11.i.i.i.i ], [ %add.ptr.i.i.i111.i.i.i, %if.end13.i.i.i.i.i.i ]
   %98 = load i32, ptr %NumEntries.i.i.i.i.i.i, align 8
   %add.i.i.i.i22.i = add i32 %98, 1
   store i32 %add.i.i.i.i22.i, ptr %NumEntries.i.i.i.i.i.i, align 8
@@ -1212,7 +1212,7 @@ _ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit123.i.i.i.
   br label %for.inc.i.i.i.i
 
 for.inc.i.i.i.i:                                  ; preds = %if.end9.i.i.i52.i.i.i.i, %if.end9.i.i.i.i.i.i.i, %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit123.i.i.i.i, %if.then83.i.i.i.i, %if.else78.i.i.i.i, %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit109.i.i.i.i, %if.then72.i.i.i.i, %if.end61.i.i.i.i, %if.else.i.i.i.i, %if.then.i36.i.i.i, %if.then48.i.i.i.i, %if.then37.i.i.i.i, %if.then31.i.i.i.i, %if.then22.i.i.i.i, %if.else19.i.i.i.i
-  %changed.1.i.i.i.i = phi i1 [ true, %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit109.i.i.i.i ], [ true, %if.then72.i.i.i.i ], [ true, %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit123.i.i.i.i ], [ true, %if.then83.i.i.i.i ], [ %changed.013.i.i.i.i, %if.end61.i.i.i.i ], [ %changed.013.i.i.i.i, %if.then31.i.i.i.i ], [ %changed.013.i.i.i.i, %if.then48.i.i.i.i ], [ true, %if.else78.i.i.i.i ], [ %changed.013.i.i.i.i, %if.then22.i.i.i.i ], [ %changed.013.i.i.i.i, %if.then37.i.i.i.i ], [ %changed.013.i.i.i.i, %if.then.i36.i.i.i ], [ %changed.013.i.i.i.i, %if.else.i.i.i.i ], [ %changed.013.i.i.i.i, %if.else19.i.i.i.i ], [ %changed.013.i.i.i.i, %if.end9.i.i.i.i.i.i.i ], [ %changed.013.i.i.i.i, %if.end9.i.i.i52.i.i.i.i ]
+  %changed.1.i.i.i.i = phi i1 [ true, %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit109.i.i.i.i ], [ true, %if.then72.i.i.i.i ], [ true, %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit123.i.i.i.i ], [ true, %if.then83.i.i.i.i ], [ %changed.013.i.i.i.i, %if.else19.i.i.i.i ], [ %changed.013.i.i.i.i, %if.end61.i.i.i.i ], [ %changed.013.i.i.i.i, %if.else.i.i.i.i ], [ %changed.013.i.i.i.i, %if.then31.i.i.i.i ], [ true, %if.else78.i.i.i.i ], [ %changed.013.i.i.i.i, %if.then48.i.i.i.i ], [ %changed.013.i.i.i.i, %if.end9.i.i.i.i.i.i.i ], [ %changed.013.i.i.i.i, %if.then22.i.i.i.i ], [ %changed.013.i.i.i.i, %if.then37.i.i.i.i ], [ %changed.013.i.i.i.i, %if.then.i36.i.i.i ], [ %changed.013.i.i.i.i, %if.end9.i.i.i52.i.i.i.i ]
   %Next.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.014.i.i.i.i, i64 8
   %__begin2.sroa.0.0.i.i.i.i = load ptr, ptr %Next.i.i.i.i.i.i.i, align 8
   %cmp.i.not.i.i.i.i = icmp eq ptr %__begin2.sroa.0.0.i.i.i.i, %InstList.i.i.i.i.i
@@ -1249,7 +1249,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %for.end.i.i.i.i.i
   br label %_ZN6hermes12_GLOBAL__N_115TDZDedupContext11processNodeEPNS0_9StackNodeE.exit.i.i.i
 
 _ZN6hermes12_GLOBAL__N_115TDZDedupContext11processNodeEPNS0_9StackNodeE.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %for.end.i.i.i.i.i, %if.then.i.i.i
-  %changed.0.lcssa3639.i.i.i.i = phi i1 [ %changed.1.i.i.i.i, %for.end.i.i.i.i.i ], [ %changed.1.i.i.i.i, %if.then.i.i.i.i.i.i.i ], [ false, %if.then.i.i.i ]
+  %changed.0.lcssa3639.i.i.i.i = phi i1 [ %changed.1.i.i.i.i, %if.then.i.i.i.i.i.i.i ], [ %changed.1.i.i.i.i, %for.end.i.i.i.i.i ], [ false, %if.then.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %destroyer.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %tdzStorage.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp32.i.i.i.i)
@@ -1495,7 +1495,7 @@ if.end13.i.i27.i187.i.i.i:                        ; preds = %if.end9.i.i21.i181.
   br i1 %cmp.i.i.i37.i197.i.i.i, label %if.end12.i152.i.i.i, label %if.end9.i.i21.i181.i.i.i, !llvm.loop !15
 
 if.end12.i152.i.i.i:                              ; preds = %if.end13.i.i.i141.i.i.i, %if.end13.i.i27.i187.i.i.i, %if.then12.i.i40.i198.i.i.i, %if.end.i.i11.i171.i.i.i, %if.then10.i169.i.i.i, %if.else.i162.i.i.i, %if.then12.i.i.i159.i.i.i, %if.end.i.i.i125.i.i.i, %if.then.i122.i.i.i
-  %TheBucket.addr.0.i153.i.i.i = phi ptr [ %cond.sink.i.i.i.i.i101.i.i.i, %if.else.i162.i.i.i ], [ %cond.i.i.i161.i.i.i, %if.then12.i.i.i159.i.i.i ], [ null, %if.then.i122.i.i.i ], [ %add.ptr21.i.i.i133.i.i.i, %if.end.i.i.i125.i.i.i ], [ %cond.i.i42.i200.i.i.i, %if.then12.i.i40.i198.i.i.i ], [ null, %if.then10.i169.i.i.i ], [ %add.ptr21.i.i19.i179.i.i.i, %if.end.i.i11.i171.i.i.i ], [ %add.ptr.i.i36.i196.i.i.i, %if.end13.i.i27.i187.i.i.i ], [ %add.ptr.i.i.i150.i.i.i, %if.end13.i.i.i141.i.i.i ]
+  %TheBucket.addr.0.i153.i.i.i = phi ptr [ %cond.sink.i.i.i.i.i101.i.i.i, %if.else.i162.i.i.i ], [ %add.ptr.i.i36.i196.i.i.i, %if.end13.i.i27.i187.i.i.i ], [ %cond.i.i.i161.i.i.i, %if.then12.i.i.i159.i.i.i ], [ null, %if.then.i122.i.i.i ], [ %add.ptr21.i.i.i133.i.i.i, %if.end.i.i.i125.i.i.i ], [ %cond.i.i42.i200.i.i.i, %if.then12.i.i40.i198.i.i.i ], [ null, %if.then10.i169.i.i.i ], [ %add.ptr21.i.i19.i179.i.i.i, %if.end.i.i11.i171.i.i.i ], [ %add.ptr.i.i.i150.i.i.i, %if.end13.i.i.i141.i.i.i ]
   %169 = load i32, ptr %NumEntries.i.i.i116.i.i.i, align 8
   %add.i.i154.i.i.i = add i32 %169, 1
   store i32 %add.i.i154.i.i.i, ptr %NumEntries.i.i.i116.i.i.i, align 8
@@ -2196,7 +2196,7 @@ if.end13.i.i27:                                   ; preds = %if.end9.i.i21
   br i1 %cmp.i.i.i37, label %if.end12, label %if.end9.i.i21, !llvm.loop !15
 
 if.end12:                                         ; preds = %if.end13.i.i, %if.end13.i.i27, %if.then12.i.i40, %if.end.i.i11, %if.then10, %if.then12.i.i, %if.end.i.i, %if.then, %if.else
-  %TheBucket.addr.0 = phi ptr [ %TheBucket, %if.else ], [ %cond.i.i, %if.then12.i.i ], [ null, %if.then ], [ %add.ptr21.i.i, %if.end.i.i ], [ %cond.i.i42, %if.then12.i.i40 ], [ null, %if.then10 ], [ %add.ptr21.i.i19, %if.end.i.i11 ], [ %add.ptr.i.i36, %if.end13.i.i27 ], [ %add.ptr.i.i, %if.end13.i.i ]
+  %TheBucket.addr.0 = phi ptr [ %TheBucket, %if.else ], [ %add.ptr.i.i36, %if.end13.i.i27 ], [ %cond.i.i, %if.then12.i.i ], [ null, %if.then ], [ %add.ptr21.i.i, %if.end.i.i ], [ %cond.i.i42, %if.then12.i.i40 ], [ null, %if.then10 ], [ %add.ptr21.i.i19, %if.end.i.i11 ], [ %add.ptr.i.i, %if.end13.i.i ]
   %17 = load i32, ptr %NumEntries.i.i, align 8
   %add.i = add i32 %17, 1
   store i32 %add.i, ptr %NumEntries.i.i, align 8

@@ -177,7 +177,7 @@ define internal void @_ZNK4ncnn11HardSigmoid15forward_inplaceERNS_3MatERKNS_6Opt
   br label %46
 
 46:                                               ; preds = %33, %38, %41
-  %.sink = phi float [ %45, %41 ], [ 1.000000e+00, %38 ], [ 0.000000e+00, %33 ]
+  %.sink = phi float [ 1.000000e+00, %38 ], [ %45, %41 ], [ 0.000000e+00, %33 ]
   store float %.sink, ptr %34, align 4, !tbaa !48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

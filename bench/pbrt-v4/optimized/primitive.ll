@@ -2135,7 +2135,7 @@ _ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit.i.i: ; preds = %22
   br label %"_ZZNK4pbrt9Primitive10IntersectPERKNS_3RayEfENK3$_0clIPKNS_18GeometricPrimitiveEEEDaT_.exit"
 
 "_ZZNK4pbrt9Primitive10IntersectPERKNS_3RayEfENK3$_0clIPKNS_18GeometricPrimitiveEEEDaT_.exit": ; preds = %29, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit.i.i, %55, %53, %41, %38, %14
-  %.0 = phi i1 [ %56, %55 ], [ %21, %14 ], [ %40, %38 ], [ %52, %41 ], [ %54, %53 ], [ %28, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit.i.i ], [ %37, %29 ]
+  %.0 = phi i1 [ %56, %55 ], [ %21, %14 ], [ %54, %53 ], [ %40, %38 ], [ %52, %41 ], [ %28, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit.i.i ], [ %37, %29 ]
   ret i1 %.0
 }
 
@@ -5885,9 +5885,9 @@ _ZN4pbrt10DivRoundUpEff.exit21.i59:               ; preds = %94, %_ZN4pbrt12DivR
   br label %_ZN4pbrtdvENS_8IntervalEf.exit84
 
 _ZN4pbrtdvENS_8IntervalEf.exit84:                 ; preds = %3, %_ZN4pbrt10DivRoundUpEff.exit.i78, %_ZN4pbrt10DivRoundUpEff.exit21.i59
-  %.sroa.028.0.i2796 = phi <2 x float> [ %.sroa.028.4.vec.insert35.i45, %_ZN4pbrt10DivRoundUpEff.exit.i78 ], [ %.sroa.028.4.vec.insert37.i26, %_ZN4pbrt10DivRoundUpEff.exit21.i59 ], [ <float 0xFFF0000000000000, float 0x7FF0000000000000>, %3 ]
-  %.sroa.028.0.i8894 = phi <2 x float> [ %.sroa.028.4.vec.insert35.i, %_ZN4pbrt10DivRoundUpEff.exit.i78 ], [ %.sroa.028.4.vec.insert37.i, %_ZN4pbrt10DivRoundUpEff.exit21.i59 ], [ <float 0xFFF0000000000000, float 0x7FF0000000000000>, %3 ]
-  %.sroa.028.0.i65 = phi <2 x float> [ %.sroa.028.4.vec.insert35.i83, %_ZN4pbrt10DivRoundUpEff.exit.i78 ], [ %.sroa.028.4.vec.insert37.i64, %_ZN4pbrt10DivRoundUpEff.exit21.i59 ], [ <float 0xFFF0000000000000, float 0x7FF0000000000000>, %3 ]
+  %.sroa.028.0.i2796 = phi <2 x float> [ %.sroa.028.4.vec.insert37.i26, %_ZN4pbrt10DivRoundUpEff.exit21.i59 ], [ %.sroa.028.4.vec.insert35.i45, %_ZN4pbrt10DivRoundUpEff.exit.i78 ], [ <float 0xFFF0000000000000, float 0x7FF0000000000000>, %3 ]
+  %.sroa.028.0.i8894 = phi <2 x float> [ %.sroa.028.4.vec.insert37.i, %_ZN4pbrt10DivRoundUpEff.exit21.i59 ], [ %.sroa.028.4.vec.insert35.i, %_ZN4pbrt10DivRoundUpEff.exit.i78 ], [ <float 0xFFF0000000000000, float 0x7FF0000000000000>, %3 ]
+  %.sroa.028.0.i65 = phi <2 x float> [ %.sroa.028.4.vec.insert37.i64, %_ZN4pbrt10DivRoundUpEff.exit21.i59 ], [ %.sroa.028.4.vec.insert35.i83, %_ZN4pbrt10DivRoundUpEff.exit.i78 ], [ <float 0xFFF0000000000000, float 0x7FF0000000000000>, %3 ]
   store <2 x float> %.sroa.028.0.i8894, ptr %0, align 4
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store <2 x float> %.sroa.028.0.i2796, ptr %101, align 4
@@ -9942,7 +9942,7 @@ _ZZNK4pbrt12FloatTexture8EvaluateENS_18TextureEvalContextEENKUlT_E_clIPKNS_16Flo
   br label %_ZN4pbrt6detail8DispatchIRZNKS_12FloatTexture8EvaluateENS_18TextureEvalContextEEUlT_E_fNS_16FloatDotsTextureENS_10FBmTextureENS_16FloatPtexTextureENS_19GPUFloatPtexTextureENS_12WindyTextureENS_15WrinkledTextureEEET0_OS4_PKvi.exit
 
 _ZN4pbrt6detail8DispatchIRZNKS_12FloatTexture8EvaluateENS_18TextureEvalContextEEUlT_E_fNS_16FloatDotsTextureENS_10FBmTextureENS_16FloatPtexTextureENS_19GPUFloatPtexTextureENS_12WindyTextureENS_15WrinkledTextureEEET0_OS4_PKvi.exit: ; preds = %465, %358, %351, %348, %249, %_ZZNK4pbrt12FloatTexture8EvaluateENS_18TextureEvalContextEENKUlT_E_clIPKNS_16FloatDotsTextureEEEDaS2_.exit, %_ZNK4pbrt24FloatCheckerboardTexture8EvaluateENS_18TextureEvalContextE.exit, %158, %156, %_ZNK4pbrt18FloatScaledTexture8EvaluateENS_18TextureEvalContextE.exit, %_ZNK4pbrt24FloatDirectionMixTexture8EvaluateENS_18TextureEvalContextE.exit, %_ZNK4pbrt15FloatMixTexture8EvaluateENS_18TextureEvalContextE.exit, %42
-  %.0 = phi float [ %66, %42 ], [ %101, %_ZNK4pbrt15FloatMixTexture8EvaluateENS_18TextureEvalContextE.exit ], [ %135, %_ZNK4pbrt24FloatDirectionMixTexture8EvaluateENS_18TextureEvalContextE.exit ], [ %.0.i20, %_ZNK4pbrt18FloatScaledTexture8EvaluateENS_18TextureEvalContextE.exit ], [ %157, %156 ], [ %189, %158 ], [ %220, %_ZNK4pbrt24FloatCheckerboardTexture8EvaluateENS_18TextureEvalContextE.exit ], [ %563, %465 ], [ %248, %_ZZNK4pbrt12FloatTexture8EvaluateENS_18TextureEvalContextEENKUlT_E_clIPKNS_16FloatDotsTextureEEEDaS2_.exit ], [ %347, %249 ], [ %350, %348 ], [ %357, %351 ], [ %464, %358 ]
+  %.0 = phi float [ %220, %_ZNK4pbrt24FloatCheckerboardTexture8EvaluateENS_18TextureEvalContextE.exit ], [ %66, %42 ], [ %464, %358 ], [ %101, %_ZNK4pbrt15FloatMixTexture8EvaluateENS_18TextureEvalContextE.exit ], [ %135, %_ZNK4pbrt24FloatDirectionMixTexture8EvaluateENS_18TextureEvalContextE.exit ], [ %.0.i20, %_ZNK4pbrt18FloatScaledTexture8EvaluateENS_18TextureEvalContextE.exit ], [ %157, %156 ], [ %189, %158 ], [ %563, %465 ], [ %248, %_ZZNK4pbrt12FloatTexture8EvaluateENS_18TextureEvalContextEENKUlT_E_clIPKNS_16FloatDotsTextureEEEDaS2_.exit ], [ %347, %249 ], [ %350, %348 ], [ %357, %351 ]
   ret float %.0
 }
 
@@ -10643,7 +10643,7 @@ define linkonce_odr dso_local { <2 x float>, float } @_ZNK4pbrt11Interaction15Of
   br label %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit.i
 
 _ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit.i:        ; preds = %44, %43, %42
-  %.0.i.sroa.speculated.i = phi float [ %.sroa.03.4.vec.extract.i84.i, %43 ], [ %.sroa.11.0.i, %44 ], [ %.sroa.03.0.vec.extract.i83.i, %42 ]
+  %.0.i.sroa.speculated.i = phi float [ %.sroa.11.0.i, %44 ], [ %.sroa.03.4.vec.extract.i84.i, %43 ], [ %.sroa.03.0.vec.extract.i83.i, %42 ]
   %45 = fcmp ogt float %.0.i.sroa.speculated.i, 0.000000e+00
   br i1 %45, label %46, label %57
 
@@ -10660,7 +10660,7 @@ _ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit.i:        ; preds = %44, %43, %42
   br label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i
 
 _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i:         ; preds = %48, %47, %46
-  %.0.i89.i = phi ptr [ %.sroa.0122.i.4.i.4.i.4..sroa_idx, %47 ], [ %.sroa.10.i, %48 ], [ %.sroa.0122.i, %46 ]
+  %.0.i89.i = phi ptr [ %.sroa.10.i, %48 ], [ %.sroa.0122.i.4.i.4.i.4..sroa_idx, %47 ], [ %.sroa.0122.i, %46 ]
   %49 = load float, ptr %.0.i89.i, align 4, !tbaa !12
   %or.cond.i.i = fcmp oeq float %49, 0x7FF0000000000000
   br i1 %or.cond.i.i, label %_ZN4pbrt11NextFloatUpEf.exit.i, label %50
@@ -10689,7 +10689,7 @@ _ZN4pbrt11NextFloatUpEf.exit.i:                   ; preds = %50, %_ZN4pbrt6Tuple
   br label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit92.i
 
 _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit92.i:       ; preds = %56, %55, %_ZN4pbrt11NextFloatUpEf.exit.i
-  %.0.i91.i = phi ptr [ %.sroa.0122.i.4.i.4.i.4..sroa_idx26, %55 ], [ %.sroa.10.i, %56 ], [ %.sroa.0122.i, %_ZN4pbrt11NextFloatUpEf.exit.i ]
+  %.0.i91.i = phi ptr [ %.sroa.10.i, %56 ], [ %.sroa.0122.i.4.i.4.i.4..sroa_idx26, %55 ], [ %.sroa.0122.i, %_ZN4pbrt11NextFloatUpEf.exit.i ]
   store float %.011.i.i, ptr %.0.i91.i, align 4, !tbaa !12
   br label %72
 
@@ -10706,7 +10706,7 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit92.i:       ; preds = %56, %55, %_ZN4pbrt1
   br label %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit94.i
 
 _ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit94.i:      ; preds = %59, %58, %57
-  %.0.i93.sroa.speculated.i = phi float [ %.sroa.03.4.vec.extract.i84.i, %58 ], [ %.sroa.11.0.i, %59 ], [ %.sroa.03.0.vec.extract.i83.i, %57 ]
+  %.0.i93.sroa.speculated.i = phi float [ %.sroa.11.0.i, %59 ], [ %.sroa.03.4.vec.extract.i84.i, %58 ], [ %.sroa.03.0.vec.extract.i83.i, %57 ]
   %60 = fcmp olt float %.0.i93.sroa.speculated.i, 0.000000e+00
   br i1 %60, label %61, label %72
 
@@ -10723,7 +10723,7 @@ _ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit94.i:      ; preds = %59, %58, %57
   br label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit96.i
 
 _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit96.i:       ; preds = %63, %62, %61
-  %.0.i95.i = phi ptr [ %.sroa.0122.i.4.i.4.i.4..sroa_idx27, %62 ], [ %.sroa.10.i, %63 ], [ %.sroa.0122.i, %61 ]
+  %.0.i95.i = phi ptr [ %.sroa.10.i, %63 ], [ %.sroa.0122.i.4.i.4.i.4..sroa_idx27, %62 ], [ %.sroa.0122.i, %61 ]
   %64 = load float, ptr %.0.i95.i, align 4, !tbaa !12
   %or.cond.i97.i = fcmp oeq float %64, 0xFFF0000000000000
   br i1 %or.cond.i97.i, label %_ZN4pbrt13NextFloatDownEf.exit.i, label %65
@@ -10752,7 +10752,7 @@ _ZN4pbrt13NextFloatDownEf.exit.i:                 ; preds = %65, %_ZN4pbrt6Tuple
   br label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit102.i
 
 _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit102.i:      ; preds = %71, %70, %_ZN4pbrt13NextFloatDownEf.exit.i
-  %.0.i101.i = phi ptr [ %.sroa.0122.i.4.i.4.i.4..sroa_idx28, %70 ], [ %.sroa.10.i, %71 ], [ %.sroa.0122.i, %_ZN4pbrt13NextFloatDownEf.exit.i ]
+  %.0.i101.i = phi ptr [ %.sroa.10.i, %71 ], [ %.sroa.0122.i.4.i.4.i.4..sroa_idx28, %70 ], [ %.sroa.0122.i, %_ZN4pbrt13NextFloatDownEf.exit.i ]
   store float %.010.i100.i, ptr %.0.i101.i, align 4, !tbaa !12
   br label %72
 

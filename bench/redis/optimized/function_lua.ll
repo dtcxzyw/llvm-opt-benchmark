@@ -279,10 +279,10 @@ luaRegisterFunctionReadFlags.exit.i.i:            ; preds = %._crit_edge.loopexi
   br label %63
 
 63:                                               ; preds = %62, %31
-  %.166.i.i = phi i64 [ %.267.i.i, %62 ], [ %.065143.i.i, %31 ]
-  %.245.i.i = phi ptr [ %.346.i.i, %62 ], [ %.144144.i.i, %31 ]
-  %.242.i.i = phi ptr [ %.3.i.i, %62 ], [ %.141145.i.i, %31 ]
-  %.239.i.i = phi ptr [ %.138146.i.i, %62 ], [ %33, %31 ]
+  %.166.i.i = phi i64 [ %.065143.i.i, %31 ], [ %.267.i.i, %62 ]
+  %.245.i.i = phi ptr [ %.144144.i.i, %31 ], [ %.346.i.i, %62 ]
+  %.242.i.i = phi ptr [ %.141145.i.i, %31 ], [ %.3.i.i, %62 ]
+  %.239.i.i = phi ptr [ %33, %31 ], [ %.138146.i.i, %62 ]
   %64 = tail call i32 @lua_next(ptr noundef %0, i32 noundef -2) #9
   %.not.i.i = icmp eq i32 %64, 0
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -300,8 +300,8 @@ luaRegisterFunctionReadFlags.exit.i.i:            ; preds = %._crit_edge.loopexi
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %36, %34, %28, %24, %.lr.ph.i.i, %.thread.sink.split.i.i
-  %.040.i.i = phi ptr [ %.141145.i.i, %.thread.sink.split.i.i ], [ null, %24 ], [ %.141145.i.i, %28 ], [ %.141145.i.i, %36 ], [ %.141145.i.i, %34 ], [ %.141145.i.i, %.lr.ph.i.i ]
-  %.036.i.i = phi ptr [ @.str.23, %.thread.sink.split.i.i ], [ @.str.18, %24 ], [ @.str.20, %28 ], [ @.str.22, %36 ], [ @.str.24, %34 ], [ @.str.14, %.lr.ph.i.i ]
+  %.040.i.i = phi ptr [ %.141145.i.i, %.thread.sink.split.i.i ], [ %.141145.i.i, %34 ], [ %.141145.i.i, %.lr.ph.i.i ], [ %.141145.i.i, %36 ], [ %.141145.i.i, %28 ], [ null, %24 ]
+  %.036.i.i = phi ptr [ @.str.23, %.thread.sink.split.i.i ], [ @.str.24, %34 ], [ @.str.14, %.lr.ph.i.i ], [ @.str.22, %36 ], [ @.str.20, %28 ], [ @.str.18, %24 ]
   %.not61.i.i = icmp eq ptr %.144144.i.i, null
   br i1 %.not61.i.i, label %.thread79.i.i, label %.thread88.i.i
 
@@ -314,9 +314,9 @@ luaRegisterFunctionReadFlags.exit.i.i:            ; preds = %._crit_edge.loopexi
   br label %.thread79.i.i
 
 .thread79.i.i:                                    ; preds = %20, %.thread88.i.i, %.thread.i.i, %._crit_edge.i.i
-  %.03687.i.i = phi ptr [ %.03697.i.i, %.thread88.i.i ], [ %.036.i.i, %.thread.i.i ], [ @.str.25, %._crit_edge.i.i ], [ @.str.16, %20 ]
-  %.03786.i.i = phi ptr [ %.03796.i.i, %.thread88.i.i ], [ %.138146.i.i, %.thread.i.i ], [ %.239.i.i, %._crit_edge.i.i ], [ %.138146.i.i, %20 ]
-  %.04085.i.i = phi ptr [ %.04095.i.i, %.thread88.i.i ], [ %.040.i.i, %.thread.i.i ], [ %.242.i.i, %._crit_edge.i.i ], [ %.141145.i.i, %20 ]
+  %.03687.i.i = phi ptr [ %.036.i.i, %.thread.i.i ], [ %.03697.i.i, %.thread88.i.i ], [ @.str.25, %._crit_edge.i.i ], [ @.str.16, %20 ]
+  %.03786.i.i = phi ptr [ %.138146.i.i, %.thread.i.i ], [ %.03796.i.i, %.thread88.i.i ], [ %.239.i.i, %._crit_edge.i.i ], [ %.138146.i.i, %20 ]
+  %.04085.i.i = phi ptr [ %.040.i.i, %.thread.i.i ], [ %.04095.i.i, %.thread88.i.i ], [ %.242.i.i, %._crit_edge.i.i ], [ %.141145.i.i, %20 ]
   %.not62.i.i = icmp eq ptr %.04085.i.i, null
   br i1 %.not62.i.i, label %67, label %66
 
@@ -355,7 +355,7 @@ luaRegisterFunctionReadFlags.exit.i.i:            ; preds = %._crit_edge.loopexi
   br label %.thread109.i.i
 
 .thread109.i.i:                                   ; preds = %70, %78, %11, %14, %67, %68, %6
-  %.str.12.sink = phi ptr [ @.str.12, %6 ], [ %.03687.i.i, %68 ], [ %.03687.i.i, %67 ], [ @.str.13, %11 ], [ @.str.25, %14 ], [ @.str.28, %78 ], [ @.str.27, %70 ]
+  %.str.12.sink = phi ptr [ @.str.25, %14 ], [ @.str.12, %6 ], [ %.03687.i.i, %67 ], [ %.03687.i.i, %68 ], [ @.str.13, %11 ], [ @.str.28, %78 ], [ @.str.27, %70 ]
   tail call void @luaPushError(ptr noundef %0, ptr noundef %.str.12.sink) #9
   %79 = tail call i32 @luaError(ptr noundef %0) #9
   br label %89
@@ -482,7 +482,7 @@ define internal range(i32 -1, 1) i32 @luaEngineCreate(ptr noundef readonly captu
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %5, %14, %17, %21, %25, %29
-  %.0.i = phi i64 [ %16, %14 ], [ %20, %17 ], [ %24, %21 ], [ %28, %25 ], [ %31, %29 ], [ 0, %5 ]
+  %.0.i = phi i64 [ %31, %29 ], [ %16, %14 ], [ %20, %17 ], [ %24, %21 ], [ %28, %25 ], [ 0, %5 ]
   %32 = tail call i32 @luaL_loadbuffer(ptr noundef %8, ptr noundef nonnull %2, i64 noundef %.0.i, ptr noundef nonnull @.str.29) #9
   %.not = icmp eq i32 %32, 0
   br i1 %.not, label %37, label %33

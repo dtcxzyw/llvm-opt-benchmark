@@ -209,15 +209,15 @@ define nonnull ptr @png_format_number(ptr noundef readnone captures(address) %0,
   br label %48
 
 48:                                               ; preds = %.sink.split, %.thread, %45, %34
-  %49 = phi i32 [ 5, %45 ], [ %36, %34 ], [ %42, %.thread ], [ 5, %.sink.split ]
-  %.251 = phi i32 [ 0, %45 ], [ 0, %34 ], [ 1, %.thread ], [ %.251.ph, %.sink.split ]
-  %.13349 = phi i64 [ %35, %45 ], [ %35, %34 ], [ %33, %.thread ], [ %.13349.ph, %.sink.split ]
-  %.337 = phi ptr [ %.03452, %45 ], [ %.03452, %34 ], [ %41, %.thread ], [ %47, %.sink.split ]
+  %49 = phi i32 [ %36, %34 ], [ %42, %.thread ], [ 5, %45 ], [ 5, %.sink.split ]
+  %.251 = phi i32 [ 0, %34 ], [ 1, %.thread ], [ 0, %45 ], [ %.251.ph, %.sink.split ]
+  %.13349 = phi i64 [ %35, %34 ], [ %33, %.thread ], [ %35, %45 ], [ %.13349.ph, %.sink.split ]
+  %.337 = phi ptr [ %.03452, %34 ], [ %41, %.thread ], [ %.03452, %45 ], [ %47, %.sink.split ]
   %50 = icmp ugt ptr %.337, %0
   br i1 %50, label %.lr.ph.split, label %.critedge, !llvm.loop !27
 
 .critedge:                                        ; preds = %.lr.ph.split.us, %.thread.us, %.lr.ph.split, %48, %4
-  %.034.lcssa = phi ptr [ %5, %4 ], [ %.337, %48 ], [ %.03452, %.lr.ph.split ], [ %.337.us, %.thread.us ], [ %.03452.us, %.lr.ph.split.us ]
+  %.034.lcssa = phi ptr [ %5, %4 ], [ %.337, %48 ], [ %.03452, %.lr.ph.split ], [ %.03452.us, %.lr.ph.split.us ], [ %.337.us, %.thread.us ]
   ret ptr %.034.lcssa
 }
 
@@ -443,17 +443,17 @@ define void @png_warning_parameter_unsigned(ptr noundef writeonly captures(addre
   br label %51
 
 51:                                               ; preds = %.sink.split.i, %48, %.thread.i, %37
-  %52 = phi i8 [ %30, %48 ], [ %30, %37 ], [ %43, %.thread.i ], [ %.sink.i, %.sink.split.i ]
-  %53 = phi i32 [ 5, %48 ], [ %39, %37 ], [ %45, %.thread.i ], [ 5, %.sink.split.i ]
-  %.251.i = phi i32 [ 0, %48 ], [ 0, %37 ], [ 1, %.thread.i ], [ %.251.ph.i, %.sink.split.i ]
-  %.13349.i = phi i64 [ %38, %48 ], [ %38, %37 ], [ %36, %.thread.i ], [ %.13349.ph.i, %.sink.split.i ]
-  %.337.i = phi ptr [ %.03452.i, %48 ], [ %.03452.i, %37 ], [ %44, %.thread.i ], [ %50, %.sink.split.i ]
+  %52 = phi i8 [ %30, %37 ], [ %43, %.thread.i ], [ %30, %48 ], [ %.sink.i, %.sink.split.i ]
+  %53 = phi i32 [ %39, %37 ], [ %45, %.thread.i ], [ 5, %48 ], [ 5, %.sink.split.i ]
+  %.251.i = phi i32 [ 0, %37 ], [ 1, %.thread.i ], [ 0, %48 ], [ %.251.ph.i, %.sink.split.i ]
+  %.13349.i = phi i64 [ %38, %37 ], [ %36, %.thread.i ], [ %38, %48 ], [ %.13349.ph.i, %.sink.split.i ]
+  %.337.i = phi ptr [ %.03452.i, %37 ], [ %44, %.thread.i ], [ %.03452.i, %48 ], [ %50, %.sink.split.i ]
   %54 = icmp ugt ptr %.337.i, %5
   br i1 %54, label %.lr.ph.split.i, label %png_format_number.exit, !llvm.loop !27
 
 png_format_number.exit:                           ; preds = %.lr.ph.split.us.i, %.thread.us.i, %.lr.ph.split.i, %51
-  %55 = phi i8 [ %30, %.lr.ph.split.i ], [ %52, %51 ], [ %8, %.lr.ph.split.us.i ], [ %27, %.thread.us.i ]
-  %.034.lcssa.i = phi ptr [ %.03452.i, %.lr.ph.split.i ], [ %.337.i, %51 ], [ %.03452.us.i, %.lr.ph.split.us.i ], [ %.337.us.i, %.thread.us.i ]
+  %55 = phi i8 [ %52, %51 ], [ %30, %.lr.ph.split.i ], [ %8, %.lr.ph.split.us.i ], [ %27, %.thread.us.i ]
+  %.034.lcssa.i = phi ptr [ %.337.i, %51 ], [ %.03452.i, %.lr.ph.split.i ], [ %.03452.us.i, %.lr.ph.split.us.i ], [ %.337.us.i, %.thread.us.i ]
   %56 = add i32 %1, -1
   %or.cond.i = icmp ult i32 %56, 8
   br i1 %or.cond.i, label %57, label %png_warning_parameter.exit
@@ -616,17 +616,17 @@ define void @png_warning_parameter_signed(ptr noundef writeonly captures(address
   br label %53
 
 53:                                               ; preds = %.sink.split.i, %50, %.thread.i, %39
-  %54 = phi i8 [ %32, %50 ], [ %32, %39 ], [ %45, %.thread.i ], [ %.sink.i, %.sink.split.i ]
-  %55 = phi i32 [ 5, %50 ], [ %41, %39 ], [ %47, %.thread.i ], [ 5, %.sink.split.i ]
-  %.251.i = phi i32 [ 0, %50 ], [ 0, %39 ], [ 1, %.thread.i ], [ %.251.ph.i, %.sink.split.i ]
-  %.13349.i = phi i64 [ %40, %50 ], [ %40, %39 ], [ %38, %.thread.i ], [ %.13349.ph.i, %.sink.split.i ]
-  %.337.i = phi ptr [ %.03452.i, %50 ], [ %.03452.i, %39 ], [ %46, %.thread.i ], [ %52, %.sink.split.i ]
+  %54 = phi i8 [ %32, %39 ], [ %45, %.thread.i ], [ %32, %50 ], [ %.sink.i, %.sink.split.i ]
+  %55 = phi i32 [ %41, %39 ], [ %47, %.thread.i ], [ 5, %50 ], [ 5, %.sink.split.i ]
+  %.251.i = phi i32 [ 0, %39 ], [ 1, %.thread.i ], [ 0, %50 ], [ %.251.ph.i, %.sink.split.i ]
+  %.13349.i = phi i64 [ %40, %39 ], [ %38, %.thread.i ], [ %40, %50 ], [ %.13349.ph.i, %.sink.split.i ]
+  %.337.i = phi ptr [ %.03452.i, %39 ], [ %46, %.thread.i ], [ %.03452.i, %50 ], [ %52, %.sink.split.i ]
   %56 = icmp ugt ptr %.337.i, %5
   br i1 %56, label %.lr.ph.split.i, label %png_format_number.exit, !llvm.loop !27
 
 png_format_number.exit:                           ; preds = %.lr.ph.split.us.i, %.thread.us.i, %.lr.ph.split.i, %53
-  %57 = phi i8 [ %32, %.lr.ph.split.i ], [ %54, %53 ], [ %10, %.lr.ph.split.us.i ], [ %29, %.thread.us.i ]
-  %.034.lcssa.i = phi ptr [ %.03452.i, %.lr.ph.split.i ], [ %.337.i, %53 ], [ %.03452.us.i, %.lr.ph.split.us.i ], [ %.337.us.i, %.thread.us.i ]
+  %57 = phi i8 [ %54, %53 ], [ %32, %.lr.ph.split.i ], [ %10, %.lr.ph.split.us.i ], [ %29, %.thread.us.i ]
+  %.034.lcssa.i = phi ptr [ %.337.i, %53 ], [ %.03452.i, %.lr.ph.split.i ], [ %.03452.us.i, %.lr.ph.split.us.i ], [ %.337.us.i, %.thread.us.i ]
   %58 = icmp ugt ptr %.034.lcssa.i, %5
   %or.cond = and i1 %6, %58
   br i1 %or.cond, label %59, label %61
@@ -759,8 +759,8 @@ define void @png_formatted_warning(ptr noalias noundef %0, ptr noundef readonly 
   br label %.backedge
 
 .thread:                                          ; preds = %.critedge2, %.split, %10
-  %24 = phi i8 [ 64, %10 ], [ %9, %.split ], [ %12, %.critedge2 ]
-  %.1 = phi ptr [ %.03055, %10 ], [ %.03055, %.split ], [ %11, %.critedge2 ]
+  %24 = phi i8 [ %9, %.split ], [ 64, %10 ], [ %12, %.critedge2 ]
+  %.1 = phi ptr [ %.03055, %.split ], [ %.03055, %10 ], [ %11, %.critedge2 ]
   %25 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %26 = add nuw nsw i64 %.03354, 1
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 %.03354
@@ -774,7 +774,7 @@ define void @png_formatted_warning(ptr noalias noundef %0, ptr noundef readonly 
   br i1 %28, label %.split, label %.critedge, !llvm.loop !30
 
 .critedge:                                        ; preds = %.backedge, %.split, %.split.us, %.thread.us
-  %.us-phi = phi i64 [ 191, %.thread.us ], [ %.03354.us, %.split.us ], [ %.033.be, %.backedge ], [ %.03354, %.split ]
+  %.us-phi = phi i64 [ %.03354.us, %.split.us ], [ 191, %.thread.us ], [ %.033.be, %.backedge ], [ %.03354, %.split ]
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 %.us-phi
   store i8 0, ptr %29, align 1, !tbaa !24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
@@ -1566,7 +1566,7 @@ png_warning.exit:                                 ; preds = %22, %12, %16
   br label %png_warning.exit.thread
 
 png_warning.exit.thread:                          ; preds = %.split14.i, %26, %13, %3, %png_warning.exit
-  %.025 = phi ptr [ %27, %png_warning.exit ], [ null, %3 ], [ null, %13 ], [ null, %26 ], [ null, %.split14.i ]
+  %.025 = phi ptr [ null, %13 ], [ %27, %png_warning.exit ], [ null, %3 ], [ null, %26 ], [ null, %.split14.i ]
   ret ptr %.025
 }
 

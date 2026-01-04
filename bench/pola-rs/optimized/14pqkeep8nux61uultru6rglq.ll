@@ -228,7 +228,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h19f1943f05132be6E.exit"
 
 .loopexit.i:                                      ; preds = %27, %30, %35, %21
-  %eh.lpad-body.i = phi { ptr, i32 } [ %36, %35 ], [ %22, %21 ], [ %28, %30 ], [ %28, %27 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %22, %21 ], [ %36, %35 ], [ %28, %30 ], [ %28, %27 ]
   resume { ptr, i32 } %eh.lpad-body.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h19f1943f05132be6E.exit": ; preds = %18, %42
@@ -470,8 +470,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %26 = load i8, ptr %25, align 8, !range !66, !noalias !95, !noundef !3
   switch i8 %26, label %default.unreachable [
     i8 0, label %30
-    i8 1, label %34
-    i8 2, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h8cc0e3cc393c1530E.exit.i.i.i.i.i"
+    i8 1, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h8cc0e3cc393c1530E.exit.i.i.i.i.i"
+    i8 2, label %34
     i8 3, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h8cc0e3cc393c1530E.exit.thread4.i.i.i.i.i"
     i8 4, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h8cc0e3cc393c1530E.exit.thread.i.i.i.i.i"
   ]
@@ -495,27 +495,27 @@ default.unreachable:                              ; preds = %24
 
 34:                                               ; preds = %24
   %35 = getelementptr inbounds nuw i8, ptr %.val21.i.i.i, i64 16
-  %36 = load i64, ptr %35, align 8, !noalias !95, !noundef !3
-  %37 = icmp ult i64 %36, 256
-  %38 = trunc nuw i64 %36 to i8
-  br i1 %37, label %46, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h8cc0e3cc393c1530E.exit.thread.i.i.i.i.i"
+  %36 = load double, ptr %35, align 8, !noalias !95, !noundef !3
+  %37 = fcmp ogt double %36, -1.000000e+00
+  %38 = fcmp olt double %36, 2.560000e+02
+  %or.cond.i.i3.i.i.i.i.i.i = and i1 %37, %38
+  %39 = fptoui double %36 to i8
+  br i1 %or.cond.i.i3.i.i.i.i.i.i, label %46, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h8cc0e3cc393c1530E.exit.thread.i.i.i.i.i"
 
 "_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h8cc0e3cc393c1530E.exit.thread4.i.i.i.i.i": ; preds = %24
-  %39 = getelementptr inbounds nuw i8, ptr %.val21.i.i.i, i64 9
-  %40 = load i8, ptr %39, align 1, !range !68, !noalias !95, !noundef !3
+  %40 = getelementptr inbounds nuw i8, ptr %.val21.i.i.i, i64 9
+  %41 = load i8, ptr %40, align 1, !range !68, !noalias !95, !noundef !3
   br label %46
 
 "_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h8cc0e3cc393c1530E.exit.i.i.i.i.i": ; preds = %24
-  %41 = getelementptr inbounds nuw i8, ptr %.val21.i.i.i, i64 16
-  %42 = load double, ptr %41, align 8, !noalias !95, !noundef !3
-  %43 = fcmp ogt double %42, -1.000000e+00
-  %44 = fcmp olt double %42, 2.560000e+02
-  %or.cond.i.i3.i.i.i.i.i.i = and i1 %43, %44
-  %45 = fptoui double %42 to i8
-  br i1 %or.cond.i.i3.i.i.i.i.i.i, label %46, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h8cc0e3cc393c1530E.exit.thread.i.i.i.i.i"
+  %42 = getelementptr inbounds nuw i8, ptr %.val21.i.i.i, i64 16
+  %43 = load i64, ptr %42, align 8, !noalias !95, !noundef !3
+  %44 = icmp ult i64 %43, 256
+  %45 = trunc nuw i64 %43 to i8
+  br i1 %44, label %46, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h8cc0e3cc393c1530E.exit.thread.i.i.i.i.i"
 
 46:                                               ; preds = %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h8cc0e3cc393c1530E.exit.i.i.i.i.i", %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h8cc0e3cc393c1530E.exit.thread4.i.i.i.i.i", %34, %30
-  %.sroa.7.0.i8.i.i.i.i.i = phi i8 [ %40, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h8cc0e3cc393c1530E.exit.thread4.i.i.i.i.i" ], [ %45, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h8cc0e3cc393c1530E.exit.i.i.i.i.i" ], [ %33, %30 ], [ %38, %34 ]
+  %.sroa.7.0.i8.i.i.i.i.i = phi i8 [ %41, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h8cc0e3cc393c1530E.exit.thread4.i.i.i.i.i" ], [ %45, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h8cc0e3cc393c1530E.exit.i.i.i.i.i" ], [ %33, %30 ], [ %39, %34 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !100)
   %47 = load i64, ptr %13, align 8, !alias.scope !100, !noalias !103, !noundef !3
   %48 = and i64 %47, 7
@@ -656,8 +656,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %26 = load i8, ptr %25, align 8, !range !66, !alias.scope !125, !noalias !126, !noundef !3
   switch i8 %26, label %default.unreachable [
     i8 0, label %30
-    i8 1, label %35
-    i8 2, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h064b7cb3c22496f2E.exit.i.i.i.i.i"
+    i8 1, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h064b7cb3c22496f2E.exit.i.i.i.i.i"
+    i8 2, label %35
     i8 3, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h064b7cb3c22496f2E.exit.thread7.i.i.i.i.i"
     i8 4, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h064b7cb3c22496f2E.exit.thread.i.i.i.i.i"
   ]
@@ -682,28 +682,28 @@ default.unreachable:                              ; preds = %24
 
 35:                                               ; preds = %24
   %36 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %37 = load i64, ptr %36, align 8, !alias.scope !125, !noalias !126, !noundef !3
-  %38 = icmp ult i64 %37, 32768
-  %39 = trunc nuw nsw i64 %37 to i16
-  br i1 %38, label %48, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h064b7cb3c22496f2E.exit.thread.i.i.i.i.i"
+  %37 = load double, ptr %36, align 8, !alias.scope !125, !noalias !126, !noundef !3
+  %38 = fcmp ogt double %37, -3.276900e+04
+  %39 = fcmp olt double %37, 3.276800e+04
+  %or.cond.i.i4.i.i.i.i.i.i = and i1 %38, %39
+  %40 = fptosi double %37 to i16
+  br i1 %or.cond.i.i4.i.i.i.i.i.i, label %48, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h064b7cb3c22496f2E.exit.thread.i.i.i.i.i"
 
 "_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h064b7cb3c22496f2E.exit.thread7.i.i.i.i.i": ; preds = %24
-  %40 = getelementptr inbounds nuw i8, ptr %19, i64 9
-  %41 = load i8, ptr %40, align 1, !range !68, !alias.scope !125, !noalias !126, !noundef !3
-  %42 = zext nneg i8 %41 to i16
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 9
+  %42 = load i8, ptr %41, align 1, !range !68, !alias.scope !125, !noalias !126, !noundef !3
+  %43 = zext nneg i8 %42 to i16
   br label %48
 
 "_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h064b7cb3c22496f2E.exit.i.i.i.i.i": ; preds = %24
-  %43 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %44 = load double, ptr %43, align 8, !alias.scope !125, !noalias !126, !noundef !3
-  %45 = fcmp ogt double %44, -3.276900e+04
-  %46 = fcmp olt double %44, 3.276800e+04
-  %or.cond.i.i4.i.i.i.i.i.i = and i1 %45, %46
-  %47 = fptosi double %44 to i16
-  br i1 %or.cond.i.i4.i.i.i.i.i.i, label %48, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h064b7cb3c22496f2E.exit.thread.i.i.i.i.i"
+  %44 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %45 = load i64, ptr %44, align 8, !alias.scope !125, !noalias !126, !noundef !3
+  %46 = icmp ult i64 %45, 32768
+  %47 = trunc nuw nsw i64 %45 to i16
+  br i1 %46, label %48, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h064b7cb3c22496f2E.exit.thread.i.i.i.i.i"
 
 48:                                               ; preds = %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h064b7cb3c22496f2E.exit.i.i.i.i.i", %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h064b7cb3c22496f2E.exit.thread7.i.i.i.i.i", %35, %30
-  %.sroa.7.0.i12.i.i.i.i.i = phi i16 [ %42, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h064b7cb3c22496f2E.exit.thread7.i.i.i.i.i" ], [ %47, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h064b7cb3c22496f2E.exit.i.i.i.i.i" ], [ %34, %30 ], [ %39, %35 ]
+  %.sroa.7.0.i12.i.i.i.i.i = phi i16 [ %43, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h064b7cb3c22496f2E.exit.thread7.i.i.i.i.i" ], [ %47, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h064b7cb3c22496f2E.exit.i.i.i.i.i" ], [ %34, %30 ], [ %40, %35 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !138)
   %49 = load i64, ptr %13, align 8, !alias.scope !138, !noalias !141, !noundef !3
   %50 = and i64 %49, 7
@@ -1268,9 +1268,9 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %26 = load i8, ptr %25, align 8, !range !66, !alias.scope !275, !noalias !276, !noundef !3
   switch i8 %26, label %default.unreachable [
     i8 0, label %30
-    i8 1, label %33
-    i8 2, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hc29f7badd2ee8029E.exit.i.i.i.i.i"
-    i8 3, label %37
+    i8 1, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hc29f7badd2ee8029E.exit.i.i.i.i.i"
+    i8 2, label %33
+    i8 3, label %39
     i8 4, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hc29f7badd2ee8029E.exit.thread9.i.i.i.i.i"
   ]
 
@@ -1291,27 +1291,27 @@ default.unreachable:                              ; preds = %24
 
 33:                                               ; preds = %24
   %34 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %35 = load i64, ptr %34, align 8, !alias.scope !275, !noalias !276, !noundef !3
-  %36 = icmp sgt i64 %35, -1
-  br i1 %36, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hc29f7badd2ee8029E.exit.thread.i.i.i.i.i", label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hc29f7badd2ee8029E.exit.thread9.i.i.i.i.i"
+  %35 = load double, ptr %34, align 8, !alias.scope !275, !noalias !276, !noundef !3
+  %36 = fcmp oge double %35, 0xC3E0000000000000
+  %37 = fcmp olt double %35, 0x43E0000000000000
+  %or.cond.i.i.i.i.i.i.i.i = and i1 %36, %37
+  %38 = fptosi double %35 to i64
+  br i1 %or.cond.i.i.i.i.i.i.i.i, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hc29f7badd2ee8029E.exit.thread.i.i.i.i.i", label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hc29f7badd2ee8029E.exit.thread9.i.i.i.i.i"
 
-37:                                               ; preds = %24
-  %38 = getelementptr inbounds nuw i8, ptr %19, i64 9
-  %39 = load i8, ptr %38, align 1, !range !68, !alias.scope !275, !noalias !276, !noundef !3
-  %40 = zext nneg i8 %39 to i64
+39:                                               ; preds = %24
+  %40 = getelementptr inbounds nuw i8, ptr %19, i64 9
+  %41 = load i8, ptr %40, align 1, !range !68, !alias.scope !275, !noalias !276, !noundef !3
+  %42 = zext nneg i8 %41 to i64
   br label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hc29f7badd2ee8029E.exit.thread.i.i.i.i.i"
 
 "_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hc29f7badd2ee8029E.exit.i.i.i.i.i": ; preds = %24
-  %41 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %42 = load double, ptr %41, align 8, !alias.scope !275, !noalias !276, !noundef !3
-  %43 = fcmp oge double %42, 0xC3E0000000000000
-  %44 = fcmp olt double %42, 0x43E0000000000000
-  %or.cond.i.i.i.i.i.i.i.i = and i1 %43, %44
-  %45 = fptosi double %42 to i64
-  br i1 %or.cond.i.i.i.i.i.i.i.i, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hc29f7badd2ee8029E.exit.thread.i.i.i.i.i", label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hc29f7badd2ee8029E.exit.thread9.i.i.i.i.i"
+  %43 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %44 = load i64, ptr %43, align 8, !alias.scope !275, !noalias !276, !noundef !3
+  %45 = icmp sgt i64 %44, -1
+  br i1 %45, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hc29f7badd2ee8029E.exit.thread.i.i.i.i.i", label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hc29f7badd2ee8029E.exit.thread9.i.i.i.i.i"
 
-"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hc29f7badd2ee8029E.exit.thread.i.i.i.i.i": ; preds = %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hc29f7badd2ee8029E.exit.i.i.i.i.i", %37, %33, %30
-  %.sroa.7.0.i7.i.i.i.i.i = phi i64 [ %45, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hc29f7badd2ee8029E.exit.i.i.i.i.i" ], [ %35, %33 ], [ %40, %37 ], [ %32, %30 ]
+"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hc29f7badd2ee8029E.exit.thread.i.i.i.i.i": ; preds = %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hc29f7badd2ee8029E.exit.i.i.i.i.i", %39, %33, %30
+  %.sroa.7.0.i7.i.i.i.i.i = phi i64 [ %38, %33 ], [ %44, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hc29f7badd2ee8029E.exit.i.i.i.i.i" ], [ %42, %39 ], [ %32, %30 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !288)
   %46 = load i64, ptr %13, align 8, !alias.scope !288, !noalias !291, !noundef !3
   %47 = and i64 %46, 7
@@ -1629,9 +1629,9 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %26 = load i8, ptr %25, align 8, !range !66, !noalias !344, !noundef !3
   switch i8 %26, label %default.unreachable [
     i8 0, label %30
-    i8 1, label %33
-    i8 2, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17habbf5b106a05b594E.exit.i.i.i.i.i"
-    i8 3, label %37
+    i8 1, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17habbf5b106a05b594E.exit.i.i.i.i.i"
+    i8 2, label %33
+    i8 3, label %39
     i8 4, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17habbf5b106a05b594E.exit.thread7.i.i.i.i.i"
   ]
 
@@ -1652,27 +1652,27 @@ default.unreachable:                              ; preds = %24
 
 33:                                               ; preds = %24
   %34 = getelementptr inbounds nuw i8, ptr %.val21.i.i.i, i64 16
-  %35 = load i64, ptr %34, align 8, !noalias !344, !noundef !3
-  %36 = icmp sgt i64 %35, -1
-  br i1 %36, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17habbf5b106a05b594E.exit.thread.i.i.i.i.i", label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17habbf5b106a05b594E.exit.thread7.i.i.i.i.i"
+  %35 = load double, ptr %34, align 8, !noalias !344, !noundef !3
+  %36 = fcmp oge double %35, 0xC3E0000000000000
+  %37 = fcmp olt double %35, 0x43E0000000000000
+  %or.cond.i.i.i.i.i.i.i.i = and i1 %36, %37
+  %38 = fptosi double %35 to i64
+  br i1 %or.cond.i.i.i.i.i.i.i.i, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17habbf5b106a05b594E.exit.thread.i.i.i.i.i", label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17habbf5b106a05b594E.exit.thread7.i.i.i.i.i"
 
-37:                                               ; preds = %24
-  %38 = getelementptr inbounds nuw i8, ptr %.val21.i.i.i, i64 9
-  %39 = load i8, ptr %38, align 1, !range !68, !noalias !344, !noundef !3
-  %40 = zext nneg i8 %39 to i64
+39:                                               ; preds = %24
+  %40 = getelementptr inbounds nuw i8, ptr %.val21.i.i.i, i64 9
+  %41 = load i8, ptr %40, align 1, !range !68, !noalias !344, !noundef !3
+  %42 = zext nneg i8 %41 to i64
   br label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17habbf5b106a05b594E.exit.thread.i.i.i.i.i"
 
 "_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17habbf5b106a05b594E.exit.i.i.i.i.i": ; preds = %24
-  %41 = getelementptr inbounds nuw i8, ptr %.val21.i.i.i, i64 16
-  %42 = load double, ptr %41, align 8, !noalias !344, !noundef !3
-  %43 = fcmp oge double %42, 0xC3E0000000000000
-  %44 = fcmp olt double %42, 0x43E0000000000000
-  %or.cond.i.i.i.i.i.i.i.i = and i1 %43, %44
-  %45 = fptosi double %42 to i64
-  br i1 %or.cond.i.i.i.i.i.i.i.i, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17habbf5b106a05b594E.exit.thread.i.i.i.i.i", label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17habbf5b106a05b594E.exit.thread7.i.i.i.i.i"
+  %43 = getelementptr inbounds nuw i8, ptr %.val21.i.i.i, i64 16
+  %44 = load i64, ptr %43, align 8, !noalias !344, !noundef !3
+  %45 = icmp sgt i64 %44, -1
+  br i1 %45, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17habbf5b106a05b594E.exit.thread.i.i.i.i.i", label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17habbf5b106a05b594E.exit.thread7.i.i.i.i.i"
 
-"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17habbf5b106a05b594E.exit.thread.i.i.i.i.i": ; preds = %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17habbf5b106a05b594E.exit.i.i.i.i.i", %37, %33, %30
-  %.sroa.7.0.i5.i.i.i.i.i = phi i64 [ %45, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17habbf5b106a05b594E.exit.i.i.i.i.i" ], [ %35, %33 ], [ %40, %37 ], [ %32, %30 ]
+"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17habbf5b106a05b594E.exit.thread.i.i.i.i.i": ; preds = %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17habbf5b106a05b594E.exit.i.i.i.i.i", %39, %33, %30
+  %.sroa.7.0.i5.i.i.i.i.i = phi i64 [ %38, %33 ], [ %44, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17habbf5b106a05b594E.exit.i.i.i.i.i" ], [ %42, %39 ], [ %32, %30 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !349)
   %46 = load i64, ptr %13, align 8, !alias.scope !349, !noalias !352, !noundef !3
   %47 = and i64 %46, 7
@@ -2034,7 +2034,7 @@ default.unreachable:                              ; preds = %24
   br i1 %or.cond.i.i.i.i.i.i.i.i, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h2368c8125905af4fE.exit.thread.i.i.i.i.i", label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h2368c8125905af4fE.exit.thread7.i.i.i.i.i"
 
 "_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h2368c8125905af4fE.exit.thread.i.i.i.i.i": ; preds = %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h2368c8125905af4fE.exit.i.i.i.i.i", %37, %34, %30
-  %.sroa.7.0.i5.i.i.i.i.i = phi i64 [ %45, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h2368c8125905af4fE.exit.i.i.i.i.i" ], [ %32, %30 ], [ %40, %37 ], [ %36, %34 ]
+  %.sroa.7.0.i5.i.i.i.i.i = phi i64 [ %32, %30 ], [ %45, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h2368c8125905af4fE.exit.i.i.i.i.i" ], [ %40, %37 ], [ %36, %34 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !428)
   %46 = load i64, ptr %13, align 8, !alias.scope !428, !noalias !431, !noundef !3
   %47 = and i64 %46, 7
@@ -2363,8 +2363,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %26 = load i8, ptr %25, align 8, !range !66, !noalias !483, !noundef !3
   switch i8 %26, label %default.unreachable [
     i8 0, label %30
-    i8 1, label %35
-    i8 2, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h3740e1749964b07fE.exit.i.i.i.i.i"
+    i8 1, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h3740e1749964b07fE.exit.i.i.i.i.i"
+    i8 2, label %35
     i8 3, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h3740e1749964b07fE.exit.thread5.i.i.i.i.i"
     i8 4, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h3740e1749964b07fE.exit.thread.i.i.i.i.i"
   ]
@@ -2389,28 +2389,28 @@ default.unreachable:                              ; preds = %24
 
 35:                                               ; preds = %24
   %36 = getelementptr inbounds nuw i8, ptr %.val21.i.i.i, i64 16
-  %37 = load i64, ptr %36, align 8, !noalias !483, !noundef !3
-  %38 = icmp ult i64 %37, 2147483648
-  %39 = trunc nuw nsw i64 %37 to i32
-  br i1 %38, label %48, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h3740e1749964b07fE.exit.thread.i.i.i.i.i"
+  %37 = load double, ptr %36, align 8, !noalias !483, !noundef !3
+  %38 = fcmp ogt double %37, 0xC1E0000000200000
+  %39 = fcmp olt double %37, 0x41E0000000000000
+  %or.cond.i.i4.i.i.i.i.i.i = and i1 %38, %39
+  %40 = fptosi double %37 to i32
+  br i1 %or.cond.i.i4.i.i.i.i.i.i, label %48, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h3740e1749964b07fE.exit.thread.i.i.i.i.i"
 
 "_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h3740e1749964b07fE.exit.thread5.i.i.i.i.i": ; preds = %24
-  %40 = getelementptr inbounds nuw i8, ptr %.val21.i.i.i, i64 9
-  %41 = load i8, ptr %40, align 1, !range !68, !noalias !483, !noundef !3
-  %42 = zext nneg i8 %41 to i32
+  %41 = getelementptr inbounds nuw i8, ptr %.val21.i.i.i, i64 9
+  %42 = load i8, ptr %41, align 1, !range !68, !noalias !483, !noundef !3
+  %43 = zext nneg i8 %42 to i32
   br label %48
 
 "_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h3740e1749964b07fE.exit.i.i.i.i.i": ; preds = %24
-  %43 = getelementptr inbounds nuw i8, ptr %.val21.i.i.i, i64 16
-  %44 = load double, ptr %43, align 8, !noalias !483, !noundef !3
-  %45 = fcmp ogt double %44, 0xC1E0000000200000
-  %46 = fcmp olt double %44, 0x41E0000000000000
-  %or.cond.i.i4.i.i.i.i.i.i = and i1 %45, %46
-  %47 = fptosi double %44 to i32
-  br i1 %or.cond.i.i4.i.i.i.i.i.i, label %48, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h3740e1749964b07fE.exit.thread.i.i.i.i.i"
+  %44 = getelementptr inbounds nuw i8, ptr %.val21.i.i.i, i64 16
+  %45 = load i64, ptr %44, align 8, !noalias !483, !noundef !3
+  %46 = icmp ult i64 %45, 2147483648
+  %47 = trunc nuw nsw i64 %45 to i32
+  br i1 %46, label %48, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h3740e1749964b07fE.exit.thread.i.i.i.i.i"
 
 48:                                               ; preds = %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h3740e1749964b07fE.exit.i.i.i.i.i", %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h3740e1749964b07fE.exit.thread5.i.i.i.i.i", %35, %30
-  %.sroa.7.0.i10.i.i.i.i.i = phi i32 [ %42, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h3740e1749964b07fE.exit.thread5.i.i.i.i.i" ], [ %47, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h3740e1749964b07fE.exit.i.i.i.i.i" ], [ %34, %30 ], [ %39, %35 ]
+  %.sroa.7.0.i10.i.i.i.i.i = phi i32 [ %43, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h3740e1749964b07fE.exit.thread5.i.i.i.i.i" ], [ %47, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h3740e1749964b07fE.exit.i.i.i.i.i" ], [ %34, %30 ], [ %40, %35 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !488)
   %49 = load i64, ptr %13, align 8, !alias.scope !488, !noalias !491, !noundef !3
   %50 = and i64 %49, 7
@@ -2608,7 +2608,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h445159697a327406E.exit"
 
 .loopexit.i:                                      ; preds = %27, %30, %35, %21
-  %eh.lpad-body.i = phi { ptr, i32 } [ %36, %35 ], [ %22, %21 ], [ %28, %30 ], [ %28, %27 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %22, %21 ], [ %36, %35 ], [ %28, %30 ], [ %28, %27 ]
   resume { ptr, i32 } %eh.lpad-body.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h445159697a327406E.exit": ; preds = %18, %42
@@ -2669,8 +2669,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %26 = load i8, ptr %25, align 8, !range !66, !noalias !529, !noundef !3
   switch i8 %26, label %default.unreachable [
     i8 0, label %30
-    i8 1, label %34
-    i8 2, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h72aa6fea71e894d4E.exit.i.i.i.i.i"
+    i8 1, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h72aa6fea71e894d4E.exit.i.i.i.i.i"
+    i8 2, label %34
     i8 3, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h72aa6fea71e894d4E.exit.thread5.i.i.i.i.i"
     i8 4, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h72aa6fea71e894d4E.exit.thread.i.i.i.i.i"
   ]
@@ -2694,28 +2694,28 @@ default.unreachable:                              ; preds = %24
 
 34:                                               ; preds = %24
   %35 = getelementptr inbounds nuw i8, ptr %.val21.i.i.i, i64 16
-  %36 = load i64, ptr %35, align 8, !noalias !529, !noundef !3
-  %37 = icmp ult i64 %36, 4294967296
-  %38 = trunc nuw i64 %36 to i32
-  br i1 %37, label %47, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h72aa6fea71e894d4E.exit.thread.i.i.i.i.i"
+  %36 = load double, ptr %35, align 8, !noalias !529, !noundef !3
+  %37 = fcmp ogt double %36, -1.000000e+00
+  %38 = fcmp olt double %36, 0x41F0000000000000
+  %or.cond.i.i4.i.i.i.i.i.i = and i1 %37, %38
+  %39 = fptoui double %36 to i32
+  br i1 %or.cond.i.i4.i.i.i.i.i.i, label %47, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h72aa6fea71e894d4E.exit.thread.i.i.i.i.i"
 
 "_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h72aa6fea71e894d4E.exit.thread5.i.i.i.i.i": ; preds = %24
-  %39 = getelementptr inbounds nuw i8, ptr %.val21.i.i.i, i64 9
-  %40 = load i8, ptr %39, align 1, !range !68, !noalias !529, !noundef !3
-  %41 = zext nneg i8 %40 to i32
+  %40 = getelementptr inbounds nuw i8, ptr %.val21.i.i.i, i64 9
+  %41 = load i8, ptr %40, align 1, !range !68, !noalias !529, !noundef !3
+  %42 = zext nneg i8 %41 to i32
   br label %47
 
 "_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h72aa6fea71e894d4E.exit.i.i.i.i.i": ; preds = %24
-  %42 = getelementptr inbounds nuw i8, ptr %.val21.i.i.i, i64 16
-  %43 = load double, ptr %42, align 8, !noalias !529, !noundef !3
-  %44 = fcmp ogt double %43, -1.000000e+00
-  %45 = fcmp olt double %43, 0x41F0000000000000
-  %or.cond.i.i4.i.i.i.i.i.i = and i1 %44, %45
-  %46 = fptoui double %43 to i32
-  br i1 %or.cond.i.i4.i.i.i.i.i.i, label %47, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h72aa6fea71e894d4E.exit.thread.i.i.i.i.i"
+  %43 = getelementptr inbounds nuw i8, ptr %.val21.i.i.i, i64 16
+  %44 = load i64, ptr %43, align 8, !noalias !529, !noundef !3
+  %45 = icmp ult i64 %44, 4294967296
+  %46 = trunc nuw i64 %44 to i32
+  br i1 %45, label %47, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h72aa6fea71e894d4E.exit.thread.i.i.i.i.i"
 
 47:                                               ; preds = %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h72aa6fea71e894d4E.exit.i.i.i.i.i", %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h72aa6fea71e894d4E.exit.thread5.i.i.i.i.i", %34, %30
-  %.sroa.7.0.i10.i.i.i.i.i = phi i32 [ %41, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h72aa6fea71e894d4E.exit.thread5.i.i.i.i.i" ], [ %46, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h72aa6fea71e894d4E.exit.i.i.i.i.i" ], [ %33, %30 ], [ %38, %34 ]
+  %.sroa.7.0.i10.i.i.i.i.i = phi i32 [ %42, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h72aa6fea71e894d4E.exit.thread5.i.i.i.i.i" ], [ %46, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h72aa6fea71e894d4E.exit.i.i.i.i.i" ], [ %33, %30 ], [ %39, %34 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !534)
   %48 = load i64, ptr %13, align 8, !alias.scope !534, !noalias !537, !noundef !3
   %49 = and i64 %48, 7
@@ -2854,8 +2854,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %26 = load i8, ptr %25, align 8, !range !66, !noalias !559, !noundef !3
   switch i8 %26, label %default.unreachable [
     i8 0, label %30
-    i8 1, label %35
-    i8 2, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hf8e3871598ee3963E.exit.i.i.i.i.i"
+    i8 1, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hf8e3871598ee3963E.exit.i.i.i.i.i"
+    i8 2, label %35
     i8 3, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hf8e3871598ee3963E.exit.thread5.i.i.i.i.i"
     i8 4, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hf8e3871598ee3963E.exit.thread.i.i.i.i.i"
   ]
@@ -2880,28 +2880,28 @@ default.unreachable:                              ; preds = %24
 
 35:                                               ; preds = %24
   %36 = getelementptr inbounds nuw i8, ptr %.val21.i.i.i, i64 16
-  %37 = load i64, ptr %36, align 8, !noalias !559, !noundef !3
-  %38 = icmp ult i64 %37, 32768
-  %39 = trunc nuw nsw i64 %37 to i16
-  br i1 %38, label %48, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hf8e3871598ee3963E.exit.thread.i.i.i.i.i"
+  %37 = load double, ptr %36, align 8, !noalias !559, !noundef !3
+  %38 = fcmp ogt double %37, -3.276900e+04
+  %39 = fcmp olt double %37, 3.276800e+04
+  %or.cond.i.i4.i.i.i.i.i.i = and i1 %38, %39
+  %40 = fptosi double %37 to i16
+  br i1 %or.cond.i.i4.i.i.i.i.i.i, label %48, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hf8e3871598ee3963E.exit.thread.i.i.i.i.i"
 
 "_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hf8e3871598ee3963E.exit.thread5.i.i.i.i.i": ; preds = %24
-  %40 = getelementptr inbounds nuw i8, ptr %.val21.i.i.i, i64 9
-  %41 = load i8, ptr %40, align 1, !range !68, !noalias !559, !noundef !3
-  %42 = zext nneg i8 %41 to i16
+  %41 = getelementptr inbounds nuw i8, ptr %.val21.i.i.i, i64 9
+  %42 = load i8, ptr %41, align 1, !range !68, !noalias !559, !noundef !3
+  %43 = zext nneg i8 %42 to i16
   br label %48
 
 "_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hf8e3871598ee3963E.exit.i.i.i.i.i": ; preds = %24
-  %43 = getelementptr inbounds nuw i8, ptr %.val21.i.i.i, i64 16
-  %44 = load double, ptr %43, align 8, !noalias !559, !noundef !3
-  %45 = fcmp ogt double %44, -3.276900e+04
-  %46 = fcmp olt double %44, 3.276800e+04
-  %or.cond.i.i4.i.i.i.i.i.i = and i1 %45, %46
-  %47 = fptosi double %44 to i16
-  br i1 %or.cond.i.i4.i.i.i.i.i.i, label %48, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hf8e3871598ee3963E.exit.thread.i.i.i.i.i"
+  %44 = getelementptr inbounds nuw i8, ptr %.val21.i.i.i, i64 16
+  %45 = load i64, ptr %44, align 8, !noalias !559, !noundef !3
+  %46 = icmp ult i64 %45, 32768
+  %47 = trunc nuw nsw i64 %45 to i16
+  br i1 %46, label %48, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hf8e3871598ee3963E.exit.thread.i.i.i.i.i"
 
 48:                                               ; preds = %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hf8e3871598ee3963E.exit.i.i.i.i.i", %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hf8e3871598ee3963E.exit.thread5.i.i.i.i.i", %35, %30
-  %.sroa.7.0.i10.i.i.i.i.i = phi i16 [ %42, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hf8e3871598ee3963E.exit.thread5.i.i.i.i.i" ], [ %47, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hf8e3871598ee3963E.exit.i.i.i.i.i" ], [ %34, %30 ], [ %39, %35 ]
+  %.sroa.7.0.i10.i.i.i.i.i = phi i16 [ %43, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hf8e3871598ee3963E.exit.thread5.i.i.i.i.i" ], [ %47, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hf8e3871598ee3963E.exit.i.i.i.i.i" ], [ %34, %30 ], [ %40, %35 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !564)
   %49 = load i64, ptr %13, align 8, !alias.scope !564, !noalias !567, !noundef !3
   %50 = and i64 %49, 7
@@ -3336,8 +3336,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %26 = load i8, ptr %25, align 8, !range !66, !noalias !640, !noundef !3
   switch i8 %26, label %default.unreachable [
     i8 0, label %30
-    i8 1, label %35
-    i8 2, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h2621c54cad5b5deeE.exit.i.i.i.i.i"
+    i8 1, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h2621c54cad5b5deeE.exit.i.i.i.i.i"
+    i8 2, label %35
     i8 3, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h2621c54cad5b5deeE.exit.thread4.i.i.i.i.i"
     i8 4, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h2621c54cad5b5deeE.exit.thread.i.i.i.i.i"
   ]
@@ -3362,27 +3362,27 @@ default.unreachable:                              ; preds = %24
 
 35:                                               ; preds = %24
   %36 = getelementptr inbounds nuw i8, ptr %.val21.i.i.i, i64 16
-  %37 = load i64, ptr %36, align 8, !noalias !640, !noundef !3
-  %38 = icmp ult i64 %37, 128
-  %39 = trunc nuw nsw i64 %37 to i8
-  br i1 %38, label %47, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h2621c54cad5b5deeE.exit.thread.i.i.i.i.i"
+  %37 = load double, ptr %36, align 8, !noalias !640, !noundef !3
+  %38 = fcmp ogt double %37, -1.290000e+02
+  %39 = fcmp olt double %37, 1.280000e+02
+  %or.cond.i.i3.i.i.i.i.i.i = and i1 %38, %39
+  %40 = fptosi double %37 to i8
+  br i1 %or.cond.i.i3.i.i.i.i.i.i, label %47, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h2621c54cad5b5deeE.exit.thread.i.i.i.i.i"
 
 "_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h2621c54cad5b5deeE.exit.thread4.i.i.i.i.i": ; preds = %24
-  %40 = getelementptr inbounds nuw i8, ptr %.val21.i.i.i, i64 9
-  %41 = load i8, ptr %40, align 1, !range !68, !noalias !640, !noundef !3
+  %41 = getelementptr inbounds nuw i8, ptr %.val21.i.i.i, i64 9
+  %42 = load i8, ptr %41, align 1, !range !68, !noalias !640, !noundef !3
   br label %47
 
 "_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h2621c54cad5b5deeE.exit.i.i.i.i.i": ; preds = %24
-  %42 = getelementptr inbounds nuw i8, ptr %.val21.i.i.i, i64 16
-  %43 = load double, ptr %42, align 8, !noalias !640, !noundef !3
-  %44 = fcmp ogt double %43, -1.290000e+02
-  %45 = fcmp olt double %43, 1.280000e+02
-  %or.cond.i.i3.i.i.i.i.i.i = and i1 %44, %45
-  %46 = fptosi double %43 to i8
-  br i1 %or.cond.i.i3.i.i.i.i.i.i, label %47, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h2621c54cad5b5deeE.exit.thread.i.i.i.i.i"
+  %43 = getelementptr inbounds nuw i8, ptr %.val21.i.i.i, i64 16
+  %44 = load i64, ptr %43, align 8, !noalias !640, !noundef !3
+  %45 = icmp ult i64 %44, 128
+  %46 = trunc nuw nsw i64 %44 to i8
+  br i1 %45, label %47, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h2621c54cad5b5deeE.exit.thread.i.i.i.i.i"
 
 47:                                               ; preds = %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h2621c54cad5b5deeE.exit.i.i.i.i.i", %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h2621c54cad5b5deeE.exit.thread4.i.i.i.i.i", %35, %30
-  %.sroa.7.0.i8.i.i.i.i.i = phi i8 [ %41, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h2621c54cad5b5deeE.exit.thread4.i.i.i.i.i" ], [ %46, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h2621c54cad5b5deeE.exit.i.i.i.i.i" ], [ %34, %30 ], [ %39, %35 ]
+  %.sroa.7.0.i8.i.i.i.i.i = phi i8 [ %42, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h2621c54cad5b5deeE.exit.thread4.i.i.i.i.i" ], [ %46, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h2621c54cad5b5deeE.exit.i.i.i.i.i" ], [ %34, %30 ], [ %40, %35 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !645)
   %48 = load i64, ptr %13, align 8, !alias.scope !645, !noalias !648, !noundef !3
   %49 = and i64 %48, 7
@@ -3584,8 +3584,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %26 = load i8, ptr %25, align 8, !range !66, !alias.scope !683, !noalias !684, !noundef !3
   switch i8 %26, label %default.unreachable [
     i8 0, label %30
-    i8 1, label %34
-    i8 2, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hee6f85ca68e78e7cE.exit.i.i.i.i.i"
+    i8 1, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hee6f85ca68e78e7cE.exit.i.i.i.i.i"
+    i8 2, label %34
     i8 3, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hee6f85ca68e78e7cE.exit.thread7.i.i.i.i.i"
     i8 4, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hee6f85ca68e78e7cE.exit.thread.i.i.i.i.i"
   ]
@@ -3609,28 +3609,28 @@ default.unreachable:                              ; preds = %24
 
 34:                                               ; preds = %24
   %35 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %36 = load i64, ptr %35, align 8, !alias.scope !683, !noalias !684, !noundef !3
-  %37 = icmp ult i64 %36, 4294967296
-  %38 = trunc nuw i64 %36 to i32
-  br i1 %37, label %47, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hee6f85ca68e78e7cE.exit.thread.i.i.i.i.i"
+  %36 = load double, ptr %35, align 8, !alias.scope !683, !noalias !684, !noundef !3
+  %37 = fcmp ogt double %36, -1.000000e+00
+  %38 = fcmp olt double %36, 0x41F0000000000000
+  %or.cond.i.i4.i.i.i.i.i.i = and i1 %37, %38
+  %39 = fptoui double %36 to i32
+  br i1 %or.cond.i.i4.i.i.i.i.i.i, label %47, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hee6f85ca68e78e7cE.exit.thread.i.i.i.i.i"
 
 "_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hee6f85ca68e78e7cE.exit.thread7.i.i.i.i.i": ; preds = %24
-  %39 = getelementptr inbounds nuw i8, ptr %19, i64 9
-  %40 = load i8, ptr %39, align 1, !range !68, !alias.scope !683, !noalias !684, !noundef !3
-  %41 = zext nneg i8 %40 to i32
+  %40 = getelementptr inbounds nuw i8, ptr %19, i64 9
+  %41 = load i8, ptr %40, align 1, !range !68, !alias.scope !683, !noalias !684, !noundef !3
+  %42 = zext nneg i8 %41 to i32
   br label %47
 
 "_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hee6f85ca68e78e7cE.exit.i.i.i.i.i": ; preds = %24
-  %42 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %43 = load double, ptr %42, align 8, !alias.scope !683, !noalias !684, !noundef !3
-  %44 = fcmp ogt double %43, -1.000000e+00
-  %45 = fcmp olt double %43, 0x41F0000000000000
-  %or.cond.i.i4.i.i.i.i.i.i = and i1 %44, %45
-  %46 = fptoui double %43 to i32
-  br i1 %or.cond.i.i4.i.i.i.i.i.i, label %47, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hee6f85ca68e78e7cE.exit.thread.i.i.i.i.i"
+  %43 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %44 = load i64, ptr %43, align 8, !alias.scope !683, !noalias !684, !noundef !3
+  %45 = icmp ult i64 %44, 4294967296
+  %46 = trunc nuw i64 %44 to i32
+  br i1 %45, label %47, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hee6f85ca68e78e7cE.exit.thread.i.i.i.i.i"
 
 47:                                               ; preds = %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hee6f85ca68e78e7cE.exit.i.i.i.i.i", %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hee6f85ca68e78e7cE.exit.thread7.i.i.i.i.i", %34, %30
-  %.sroa.7.0.i12.i.i.i.i.i = phi i32 [ %41, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hee6f85ca68e78e7cE.exit.thread7.i.i.i.i.i" ], [ %46, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hee6f85ca68e78e7cE.exit.i.i.i.i.i" ], [ %33, %30 ], [ %38, %34 ]
+  %.sroa.7.0.i12.i.i.i.i.i = phi i32 [ %42, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hee6f85ca68e78e7cE.exit.thread7.i.i.i.i.i" ], [ %46, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hee6f85ca68e78e7cE.exit.i.i.i.i.i" ], [ %33, %30 ], [ %39, %34 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !696)
   %48 = load i64, ptr %13, align 8, !alias.scope !696, !noalias !699, !noundef !3
   %49 = and i64 %48, 7
@@ -3771,8 +3771,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %26 = load i8, ptr %25, align 8, !range !66, !alias.scope !722, !noalias !723, !noundef !3
   switch i8 %26, label %default.unreachable [
     i8 0, label %30
-    i8 1, label %35
-    i8 2, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h5ba0dfaa3fb98892E.exit.i.i.i.i.i"
+    i8 1, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h5ba0dfaa3fb98892E.exit.i.i.i.i.i"
+    i8 2, label %35
     i8 3, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h5ba0dfaa3fb98892E.exit.thread6.i.i.i.i.i"
     i8 4, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h5ba0dfaa3fb98892E.exit.thread.i.i.i.i.i"
   ]
@@ -3797,27 +3797,27 @@ default.unreachable:                              ; preds = %24
 
 35:                                               ; preds = %24
   %36 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %37 = load i64, ptr %36, align 8, !alias.scope !722, !noalias !723, !noundef !3
-  %38 = icmp ult i64 %37, 128
-  %39 = trunc nuw nsw i64 %37 to i8
-  br i1 %38, label %47, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h5ba0dfaa3fb98892E.exit.thread.i.i.i.i.i"
+  %37 = load double, ptr %36, align 8, !alias.scope !722, !noalias !723, !noundef !3
+  %38 = fcmp ogt double %37, -1.290000e+02
+  %39 = fcmp olt double %37, 1.280000e+02
+  %or.cond.i.i3.i.i.i.i.i.i = and i1 %38, %39
+  %40 = fptosi double %37 to i8
+  br i1 %or.cond.i.i3.i.i.i.i.i.i, label %47, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h5ba0dfaa3fb98892E.exit.thread.i.i.i.i.i"
 
 "_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h5ba0dfaa3fb98892E.exit.thread6.i.i.i.i.i": ; preds = %24
-  %40 = getelementptr inbounds nuw i8, ptr %19, i64 9
-  %41 = load i8, ptr %40, align 1, !range !68, !alias.scope !722, !noalias !723, !noundef !3
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 9
+  %42 = load i8, ptr %41, align 1, !range !68, !alias.scope !722, !noalias !723, !noundef !3
   br label %47
 
 "_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h5ba0dfaa3fb98892E.exit.i.i.i.i.i": ; preds = %24
-  %42 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %43 = load double, ptr %42, align 8, !alias.scope !722, !noalias !723, !noundef !3
-  %44 = fcmp ogt double %43, -1.290000e+02
-  %45 = fcmp olt double %43, 1.280000e+02
-  %or.cond.i.i3.i.i.i.i.i.i = and i1 %44, %45
-  %46 = fptosi double %43 to i8
-  br i1 %or.cond.i.i3.i.i.i.i.i.i, label %47, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h5ba0dfaa3fb98892E.exit.thread.i.i.i.i.i"
+  %43 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %44 = load i64, ptr %43, align 8, !alias.scope !722, !noalias !723, !noundef !3
+  %45 = icmp ult i64 %44, 128
+  %46 = trunc nuw nsw i64 %44 to i8
+  br i1 %45, label %47, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h5ba0dfaa3fb98892E.exit.thread.i.i.i.i.i"
 
 47:                                               ; preds = %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h5ba0dfaa3fb98892E.exit.i.i.i.i.i", %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h5ba0dfaa3fb98892E.exit.thread6.i.i.i.i.i", %35, %30
-  %.sroa.7.0.i10.i.i.i.i.i = phi i8 [ %41, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h5ba0dfaa3fb98892E.exit.thread6.i.i.i.i.i" ], [ %46, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h5ba0dfaa3fb98892E.exit.i.i.i.i.i" ], [ %34, %30 ], [ %39, %35 ]
+  %.sroa.7.0.i10.i.i.i.i.i = phi i8 [ %42, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h5ba0dfaa3fb98892E.exit.thread6.i.i.i.i.i" ], [ %46, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h5ba0dfaa3fb98892E.exit.i.i.i.i.i" ], [ %34, %30 ], [ %40, %35 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !735)
   %48 = load i64, ptr %13, align 8, !alias.scope !735, !noalias !738, !noundef !3
   %49 = and i64 %48, 7
@@ -4001,7 +4001,7 @@ default.unreachable:                              ; preds = %24
   br i1 %or.cond.i.i.i.i.i.i.i.i, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h0fcbd32075143123E.exit.thread.i.i.i.i.i", label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h0fcbd32075143123E.exit.thread9.i.i.i.i.i"
 
 "_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h0fcbd32075143123E.exit.thread.i.i.i.i.i": ; preds = %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h0fcbd32075143123E.exit.i.i.i.i.i", %37, %34, %30
-  %.sroa.7.0.i7.i.i.i.i.i = phi i64 [ %45, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h0fcbd32075143123E.exit.i.i.i.i.i" ], [ %32, %30 ], [ %40, %37 ], [ %36, %34 ]
+  %.sroa.7.0.i7.i.i.i.i.i = phi i64 [ %32, %30 ], [ %45, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h0fcbd32075143123E.exit.i.i.i.i.i" ], [ %40, %37 ], [ %36, %34 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !774)
   %46 = load i64, ptr %13, align 8, !alias.scope !774, !noalias !777, !noundef !3
   %47 = and i64 %46, 7
@@ -4140,8 +4140,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %26 = load i8, ptr %25, align 8, !range !66, !noalias !800, !noundef !3
   switch i8 %26, label %default.unreachable [
     i8 0, label %30
-    i8 1, label %34
-    i8 2, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hb688b569533fa290E.exit.i.i.i.i.i"
+    i8 1, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hb688b569533fa290E.exit.i.i.i.i.i"
+    i8 2, label %34
     i8 3, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hb688b569533fa290E.exit.thread5.i.i.i.i.i"
     i8 4, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hb688b569533fa290E.exit.thread.i.i.i.i.i"
   ]
@@ -4165,28 +4165,28 @@ default.unreachable:                              ; preds = %24
 
 34:                                               ; preds = %24
   %35 = getelementptr inbounds nuw i8, ptr %.val21.i.i.i, i64 16
-  %36 = load i64, ptr %35, align 8, !noalias !800, !noundef !3
-  %37 = icmp ult i64 %36, 65536
-  %38 = trunc nuw i64 %36 to i16
-  br i1 %37, label %47, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hb688b569533fa290E.exit.thread.i.i.i.i.i"
+  %36 = load double, ptr %35, align 8, !noalias !800, !noundef !3
+  %37 = fcmp ogt double %36, -1.000000e+00
+  %38 = fcmp olt double %36, 6.553600e+04
+  %or.cond.i.i4.i.i.i.i.i.i = and i1 %37, %38
+  %39 = fptoui double %36 to i16
+  br i1 %or.cond.i.i4.i.i.i.i.i.i, label %47, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hb688b569533fa290E.exit.thread.i.i.i.i.i"
 
 "_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hb688b569533fa290E.exit.thread5.i.i.i.i.i": ; preds = %24
-  %39 = getelementptr inbounds nuw i8, ptr %.val21.i.i.i, i64 9
-  %40 = load i8, ptr %39, align 1, !range !68, !noalias !800, !noundef !3
-  %41 = zext nneg i8 %40 to i16
+  %40 = getelementptr inbounds nuw i8, ptr %.val21.i.i.i, i64 9
+  %41 = load i8, ptr %40, align 1, !range !68, !noalias !800, !noundef !3
+  %42 = zext nneg i8 %41 to i16
   br label %47
 
 "_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hb688b569533fa290E.exit.i.i.i.i.i": ; preds = %24
-  %42 = getelementptr inbounds nuw i8, ptr %.val21.i.i.i, i64 16
-  %43 = load double, ptr %42, align 8, !noalias !800, !noundef !3
-  %44 = fcmp ogt double %43, -1.000000e+00
-  %45 = fcmp olt double %43, 6.553600e+04
-  %or.cond.i.i4.i.i.i.i.i.i = and i1 %44, %45
-  %46 = fptoui double %43 to i16
-  br i1 %or.cond.i.i4.i.i.i.i.i.i, label %47, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hb688b569533fa290E.exit.thread.i.i.i.i.i"
+  %43 = getelementptr inbounds nuw i8, ptr %.val21.i.i.i, i64 16
+  %44 = load i64, ptr %43, align 8, !noalias !800, !noundef !3
+  %45 = icmp ult i64 %44, 65536
+  %46 = trunc nuw i64 %44 to i16
+  br i1 %45, label %47, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hb688b569533fa290E.exit.thread.i.i.i.i.i"
 
 47:                                               ; preds = %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hb688b569533fa290E.exit.i.i.i.i.i", %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hb688b569533fa290E.exit.thread5.i.i.i.i.i", %34, %30
-  %.sroa.7.0.i10.i.i.i.i.i = phi i16 [ %41, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hb688b569533fa290E.exit.thread5.i.i.i.i.i" ], [ %46, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hb688b569533fa290E.exit.i.i.i.i.i" ], [ %33, %30 ], [ %38, %34 ]
+  %.sroa.7.0.i10.i.i.i.i.i = phi i16 [ %42, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hb688b569533fa290E.exit.thread5.i.i.i.i.i" ], [ %46, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17hb688b569533fa290E.exit.i.i.i.i.i" ], [ %33, %30 ], [ %39, %34 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !805)
   %48 = load i64, ptr %13, align 8, !alias.scope !805, !noalias !808, !noundef !3
   %49 = and i64 %48, 7
@@ -4625,8 +4625,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %26 = load i8, ptr %25, align 8, !range !66, !alias.scope !885, !noalias !886, !noundef !3
   switch i8 %26, label %default.unreachable [
     i8 0, label %30
-    i8 1, label %34
-    i8 2, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h5ea09ee69016144bE.exit.i.i.i.i.i"
+    i8 1, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h5ea09ee69016144bE.exit.i.i.i.i.i"
+    i8 2, label %34
     i8 3, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h5ea09ee69016144bE.exit.thread7.i.i.i.i.i"
     i8 4, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h5ea09ee69016144bE.exit.thread.i.i.i.i.i"
   ]
@@ -4650,28 +4650,28 @@ default.unreachable:                              ; preds = %24
 
 34:                                               ; preds = %24
   %35 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %36 = load i64, ptr %35, align 8, !alias.scope !885, !noalias !886, !noundef !3
-  %37 = icmp ult i64 %36, 65536
-  %38 = trunc nuw i64 %36 to i16
-  br i1 %37, label %47, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h5ea09ee69016144bE.exit.thread.i.i.i.i.i"
+  %36 = load double, ptr %35, align 8, !alias.scope !885, !noalias !886, !noundef !3
+  %37 = fcmp ogt double %36, -1.000000e+00
+  %38 = fcmp olt double %36, 6.553600e+04
+  %or.cond.i.i4.i.i.i.i.i.i = and i1 %37, %38
+  %39 = fptoui double %36 to i16
+  br i1 %or.cond.i.i4.i.i.i.i.i.i, label %47, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h5ea09ee69016144bE.exit.thread.i.i.i.i.i"
 
 "_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h5ea09ee69016144bE.exit.thread7.i.i.i.i.i": ; preds = %24
-  %39 = getelementptr inbounds nuw i8, ptr %19, i64 9
-  %40 = load i8, ptr %39, align 1, !range !68, !alias.scope !885, !noalias !886, !noundef !3
-  %41 = zext nneg i8 %40 to i16
+  %40 = getelementptr inbounds nuw i8, ptr %19, i64 9
+  %41 = load i8, ptr %40, align 1, !range !68, !alias.scope !885, !noalias !886, !noundef !3
+  %42 = zext nneg i8 %41 to i16
   br label %47
 
 "_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h5ea09ee69016144bE.exit.i.i.i.i.i": ; preds = %24
-  %42 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %43 = load double, ptr %42, align 8, !alias.scope !885, !noalias !886, !noundef !3
-  %44 = fcmp ogt double %43, -1.000000e+00
-  %45 = fcmp olt double %43, 6.553600e+04
-  %or.cond.i.i4.i.i.i.i.i.i = and i1 %44, %45
-  %46 = fptoui double %43 to i16
-  br i1 %or.cond.i.i4.i.i.i.i.i.i, label %47, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h5ea09ee69016144bE.exit.thread.i.i.i.i.i"
+  %43 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %44 = load i64, ptr %43, align 8, !alias.scope !885, !noalias !886, !noundef !3
+  %45 = icmp ult i64 %44, 65536
+  %46 = trunc nuw i64 %44 to i16
+  br i1 %45, label %47, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h5ea09ee69016144bE.exit.thread.i.i.i.i.i"
 
 47:                                               ; preds = %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h5ea09ee69016144bE.exit.i.i.i.i.i", %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h5ea09ee69016144bE.exit.thread7.i.i.i.i.i", %34, %30
-  %.sroa.7.0.i12.i.i.i.i.i = phi i16 [ %41, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h5ea09ee69016144bE.exit.thread7.i.i.i.i.i" ], [ %46, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h5ea09ee69016144bE.exit.i.i.i.i.i" ], [ %33, %30 ], [ %38, %34 ]
+  %.sroa.7.0.i12.i.i.i.i.i = phi i16 [ %42, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h5ea09ee69016144bE.exit.thread7.i.i.i.i.i" ], [ %46, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h5ea09ee69016144bE.exit.i.i.i.i.i" ], [ %33, %30 ], [ %39, %34 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !898)
   %48 = load i64, ptr %13, align 8, !alias.scope !898, !noalias !901, !noundef !3
   %49 = and i64 %48, 7
@@ -4812,8 +4812,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %26 = load i8, ptr %25, align 8, !range !66, !alias.scope !924, !noalias !925, !noundef !3
   switch i8 %26, label %default.unreachable [
     i8 0, label %30
-    i8 1, label %34
-    i8 2, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h2b8de9a82e586f5eE.exit.i.i.i.i.i"
+    i8 1, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h2b8de9a82e586f5eE.exit.i.i.i.i.i"
+    i8 2, label %34
     i8 3, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h2b8de9a82e586f5eE.exit.thread6.i.i.i.i.i"
     i8 4, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h2b8de9a82e586f5eE.exit.thread.i.i.i.i.i"
   ]
@@ -4837,27 +4837,27 @@ default.unreachable:                              ; preds = %24
 
 34:                                               ; preds = %24
   %35 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %36 = load i64, ptr %35, align 8, !alias.scope !924, !noalias !925, !noundef !3
-  %37 = icmp ult i64 %36, 256
-  %38 = trunc nuw i64 %36 to i8
-  br i1 %37, label %46, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h2b8de9a82e586f5eE.exit.thread.i.i.i.i.i"
+  %36 = load double, ptr %35, align 8, !alias.scope !924, !noalias !925, !noundef !3
+  %37 = fcmp ogt double %36, -1.000000e+00
+  %38 = fcmp olt double %36, 2.560000e+02
+  %or.cond.i.i3.i.i.i.i.i.i = and i1 %37, %38
+  %39 = fptoui double %36 to i8
+  br i1 %or.cond.i.i3.i.i.i.i.i.i, label %46, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h2b8de9a82e586f5eE.exit.thread.i.i.i.i.i"
 
 "_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h2b8de9a82e586f5eE.exit.thread6.i.i.i.i.i": ; preds = %24
-  %39 = getelementptr inbounds nuw i8, ptr %19, i64 9
-  %40 = load i8, ptr %39, align 1, !range !68, !alias.scope !924, !noalias !925, !noundef !3
+  %40 = getelementptr inbounds nuw i8, ptr %19, i64 9
+  %41 = load i8, ptr %40, align 1, !range !68, !alias.scope !924, !noalias !925, !noundef !3
   br label %46
 
 "_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h2b8de9a82e586f5eE.exit.i.i.i.i.i": ; preds = %24
-  %41 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %42 = load double, ptr %41, align 8, !alias.scope !924, !noalias !925, !noundef !3
-  %43 = fcmp ogt double %42, -1.000000e+00
-  %44 = fcmp olt double %42, 2.560000e+02
-  %or.cond.i.i3.i.i.i.i.i.i = and i1 %43, %44
-  %45 = fptoui double %42 to i8
-  br i1 %or.cond.i.i3.i.i.i.i.i.i, label %46, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h2b8de9a82e586f5eE.exit.thread.i.i.i.i.i"
+  %42 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %43 = load i64, ptr %42, align 8, !alias.scope !924, !noalias !925, !noundef !3
+  %44 = icmp ult i64 %43, 256
+  %45 = trunc nuw i64 %43 to i8
+  br i1 %44, label %46, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h2b8de9a82e586f5eE.exit.thread.i.i.i.i.i"
 
 46:                                               ; preds = %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h2b8de9a82e586f5eE.exit.i.i.i.i.i", %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h2b8de9a82e586f5eE.exit.thread6.i.i.i.i.i", %34, %30
-  %.sroa.7.0.i10.i.i.i.i.i = phi i8 [ %40, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h2b8de9a82e586f5eE.exit.thread6.i.i.i.i.i" ], [ %45, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h2b8de9a82e586f5eE.exit.i.i.i.i.i" ], [ %33, %30 ], [ %38, %34 ]
+  %.sroa.7.0.i10.i.i.i.i.i = phi i8 [ %41, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h2b8de9a82e586f5eE.exit.thread6.i.i.i.i.i" ], [ %45, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h2b8de9a82e586f5eE.exit.i.i.i.i.i" ], [ %33, %30 ], [ %39, %34 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !937)
   %47 = load i64, ptr %13, align 8, !alias.scope !937, !noalias !940, !noundef !3
   %48 = and i64 %47, 7
@@ -5062,8 +5062,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %26 = load i8, ptr %25, align 8, !range !66, !alias.scope !988, !noalias !989, !noundef !3
   switch i8 %26, label %default.unreachable [
     i8 0, label %30
-    i8 1, label %35
-    i8 2, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h9de5b9c91c8574a6E.exit.i.i.i.i.i"
+    i8 1, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h9de5b9c91c8574a6E.exit.i.i.i.i.i"
+    i8 2, label %35
     i8 3, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h9de5b9c91c8574a6E.exit.thread7.i.i.i.i.i"
     i8 4, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h9de5b9c91c8574a6E.exit.thread.i.i.i.i.i"
   ]
@@ -5088,28 +5088,28 @@ default.unreachable:                              ; preds = %24
 
 35:                                               ; preds = %24
   %36 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %37 = load i64, ptr %36, align 8, !alias.scope !988, !noalias !989, !noundef !3
-  %38 = icmp ult i64 %37, 2147483648
-  %39 = trunc nuw nsw i64 %37 to i32
-  br i1 %38, label %48, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h9de5b9c91c8574a6E.exit.thread.i.i.i.i.i"
+  %37 = load double, ptr %36, align 8, !alias.scope !988, !noalias !989, !noundef !3
+  %38 = fcmp ogt double %37, 0xC1E0000000200000
+  %39 = fcmp olt double %37, 0x41E0000000000000
+  %or.cond.i.i4.i.i.i.i.i.i = and i1 %38, %39
+  %40 = fptosi double %37 to i32
+  br i1 %or.cond.i.i4.i.i.i.i.i.i, label %48, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h9de5b9c91c8574a6E.exit.thread.i.i.i.i.i"
 
 "_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h9de5b9c91c8574a6E.exit.thread7.i.i.i.i.i": ; preds = %24
-  %40 = getelementptr inbounds nuw i8, ptr %19, i64 9
-  %41 = load i8, ptr %40, align 1, !range !68, !alias.scope !988, !noalias !989, !noundef !3
-  %42 = zext nneg i8 %41 to i32
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 9
+  %42 = load i8, ptr %41, align 1, !range !68, !alias.scope !988, !noalias !989, !noundef !3
+  %43 = zext nneg i8 %42 to i32
   br label %48
 
 "_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h9de5b9c91c8574a6E.exit.i.i.i.i.i": ; preds = %24
-  %43 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %44 = load double, ptr %43, align 8, !alias.scope !988, !noalias !989, !noundef !3
-  %45 = fcmp ogt double %44, 0xC1E0000000200000
-  %46 = fcmp olt double %44, 0x41E0000000000000
-  %or.cond.i.i4.i.i.i.i.i.i = and i1 %45, %46
-  %47 = fptosi double %44 to i32
-  br i1 %or.cond.i.i4.i.i.i.i.i.i, label %48, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h9de5b9c91c8574a6E.exit.thread.i.i.i.i.i"
+  %44 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %45 = load i64, ptr %44, align 8, !alias.scope !988, !noalias !989, !noundef !3
+  %46 = icmp ult i64 %45, 2147483648
+  %47 = trunc nuw nsw i64 %45 to i32
+  br i1 %46, label %48, label %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h9de5b9c91c8574a6E.exit.thread.i.i.i.i.i"
 
 48:                                               ; preds = %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h9de5b9c91c8574a6E.exit.i.i.i.i.i", %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h9de5b9c91c8574a6E.exit.thread7.i.i.i.i.i", %35, %30
-  %.sroa.7.0.i12.i.i.i.i.i = phi i32 [ %42, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h9de5b9c91c8574a6E.exit.thread7.i.i.i.i.i" ], [ %47, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h9de5b9c91c8574a6E.exit.i.i.i.i.i" ], [ %34, %30 ], [ %39, %35 ]
+  %.sroa.7.0.i12.i.i.i.i.i = phi i32 [ %43, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h9de5b9c91c8574a6E.exit.thread7.i.i.i.i.i" ], [ %47, %"_ZN11polars_json4json11deserialize26deserialize_primitive_into28_$u7b$$u7b$closure$u7d$$u7d$17h9de5b9c91c8574a6E.exit.i.i.i.i.i" ], [ %34, %30 ], [ %40, %35 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1001)
   %49 = load i64, ptr %13, align 8, !alias.scope !1001, !noalias !1004, !noundef !3
   %50 = and i64 %49, 7
@@ -5356,12 +5356,12 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br label %46
 
 46:                                               ; preds = %43, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hd54322d274637df2E.exit.i.i.i"
-  %.lcssa35.i.i = phi ptr [ %.lcssa36.i.i, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hd54322d274637df2E.exit.i.i.i" ], [ %44, %43 ]
-  %47 = phi i16 [ %37, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hd54322d274637df2E.exit.i.i.i" ], [ %18, %43 ]
-  %48 = phi i64 [ %40, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hd54322d274637df2E.exit.i.i.i" ], [ %19, %43 ]
-  %49 = phi ptr [ %33, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hd54322d274637df2E.exit.i.i.i" ], [ null, %43 ]
-  %.sroa.5.1.i.i.i = phi ptr [ %42, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hd54322d274637df2E.exit.i.i.i" ], [ %45, %43 ]
-  %.sroa.0.1.i.i.i = phi ptr [ %41, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hd54322d274637df2E.exit.i.i.i" ], [ %.lcssa37.i.i, %43 ]
+  %.lcssa35.i.i = phi ptr [ %44, %43 ], [ %.lcssa36.i.i, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hd54322d274637df2E.exit.i.i.i" ]
+  %47 = phi i16 [ %18, %43 ], [ %37, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hd54322d274637df2E.exit.i.i.i" ]
+  %48 = phi i64 [ %19, %43 ], [ %40, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hd54322d274637df2E.exit.i.i.i" ]
+  %49 = phi ptr [ null, %43 ], [ %33, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hd54322d274637df2E.exit.i.i.i" ]
+  %.sroa.5.1.i.i.i = phi ptr [ %45, %43 ], [ %42, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hd54322d274637df2E.exit.i.i.i" ]
+  %.sroa.0.1.i.i.i = phi ptr [ %.lcssa37.i.i, %43 ], [ %41, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hd54322d274637df2E.exit.i.i.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.04.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.76.i.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1063)
@@ -5454,9 +5454,9 @@ _ZN11compact_str4repr4Repr3new17h9ba9cd93d8af9c19E.exit.thread.i.i.i.i.i.i: ; pr
   br label %_ZN11compact_str4repr4Repr3new17h9ba9cd93d8af9c19E.exit.i.i.i.i.i.i
 
 _ZN11compact_str4repr4Repr3new17h9ba9cd93d8af9c19E.exit.i.i.i.i.i.i: ; preds = %66, %63
-  %.sroa.02.0.i.i.i.i.i.i = phi ptr [ %.0..0..0..0..0..0..0..0..0..0..0..0..0..0..0..sroa.02.0.copyload3.i.i.i.i.i.i, %63 ], [ %.sroa.02.0.i.i.i.i.i.i.i.i, %66 ]
-  %.sroa.6.0.i.i.i.i.i.i = phi i64 [ %.8..8..8..8..8..8..8..8..8..8..8..8..8..8..8..sroa.6.0.copyload6.i.i.i.i.i.i, %63 ], [ %.sroa.317.0.i.i.i.i.i, %66 ]
-  %.sroa.7.0.i.i.i.i.i.i = phi i64 [ %.16..16..16..16..16..16..16..16..16..16..16..16..16..16..16..sroa.7.0.copyload9.i.i.i.i.i.i, %63 ], [ %56, %66 ]
+  %.sroa.02.0.i.i.i.i.i.i = phi ptr [ %.sroa.02.0.i.i.i.i.i.i.i.i, %66 ], [ %.0..0..0..0..0..0..0..0..0..0..0..0..0..0..0..sroa.02.0.copyload3.i.i.i.i.i.i, %63 ]
+  %.sroa.6.0.i.i.i.i.i.i = phi i64 [ %.sroa.317.0.i.i.i.i.i, %66 ], [ %.8..8..8..8..8..8..8..8..8..8..8..8..8..8..8..sroa.6.0.copyload6.i.i.i.i.i.i, %63 ]
+  %.sroa.7.0.i.i.i.i.i.i = phi i64 [ %56, %66 ], [ %.16..16..16..16..16..16..16..16..16..16..16..16..16..16..16..sroa.7.0.copyload9.i.i.i.i.i.i, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %67 = and i64 %.sroa.7.0.i.i.i.i.i.i, -72057594037927936
   %or.cond.i.i.i.i.i = icmp eq i64 %67, -2738188573441261568
@@ -6031,7 +6031,7 @@ define hidden noundef zeroext i1 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$
   br label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h200c67f67ce4209cE.exit.i"
 
 99:                                               ; preds = %92, %88
-  %.sroa.3.0.i.i.ph.i.i.i.i.i.i.i.i = phi i64 [ %.sroa.4.19.i.i.i.i.i.i.i.i.i.i, %88 ], [ %98, %92 ]
+  %.sroa.3.0.i.i.ph.i.i.i.i.i.i.i.i = phi i64 [ %98, %92 ], [ %.sroa.4.19.i.i.i.i.i.i.i.i.i.i, %88 ]
   %100 = load ptr, ptr %.val.i.i.i, align 8, !alias.scope !1255, !noalias !1258, !nonnull !3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !noalias !1265
@@ -9494,7 +9494,7 @@ define internal fastcc noundef zeroext i1 @"_ZN78_$LT$polars_arrow..datatypes..f
   br i1 %brmerge, label %36, label %37
 
 36:                                               ; preds = %30, %37, %2, %22, %24, %39
-  %.sroa.0.0.shrunk = phi i1 [ %42, %39 ], [ false, %24 ], [ false, %22 ], [ false, %2 ], [ true, %37 ], [ %.mux, %30 ]
+  %.sroa.0.0.shrunk = phi i1 [ %.mux, %30 ], [ %42, %39 ], [ false, %2 ], [ true, %37 ], [ false, %24 ], [ false, %22 ]
   ret i1 %.sroa.0.0.shrunk
 
 37:                                               ; preds = %30
@@ -9536,7 +9536,7 @@ define internal fastcc noundef zeroext i1 @"_ZN79_$LT$polars_arrow..datatypes..A
   ]
 
 7:                                                ; preds = %14, %138, %126, %108, %114, %96, %72, %8, %6, %2, %144, %132, %120, %102, %78, %20, %156, %150, %90, %84, %66, %60, %54, %48, %42, %36
-  %.sroa.0.0.shrunk = phi i1 [ %35, %20 ], [ %41, %36 ], [ %47, %42 ], [ %53, %48 ], [ %59, %54 ], [ %65, %60 ], [ %71, %66 ], [ %83, %78 ], [ %89, %84 ], [ %95, %90 ], [ %107, %102 ], [ %125, %120 ], [ %137, %132 ], [ %149, %144 ], [ %155, %150 ], [ %161, %156 ], [ false, %2 ], [ true, %6 ], [ false, %8 ], [ false, %72 ], [ false, %96 ], [ false, %114 ], [ false, %108 ], [ false, %126 ], [ false, %138 ], [ %.mux, %14 ]
+  %.sroa.0.0.shrunk = phi i1 [ false, %2 ], [ %35, %20 ], [ false, %8 ], [ false, %114 ], [ true, %6 ], [ %41, %36 ], [ %47, %42 ], [ %53, %48 ], [ %59, %54 ], [ %65, %60 ], [ %71, %66 ], [ %83, %78 ], [ %.mux, %14 ], [ %89, %84 ], [ %95, %90 ], [ %107, %102 ], [ false, %72 ], [ %125, %120 ], [ false, %96 ], [ %137, %132 ], [ false, %108 ], [ %149, %144 ], [ false, %126 ], [ %155, %150 ], [ %161, %156 ], [ false, %138 ]
   ret i1 %.sroa.0.0.shrunk
 
 8:                                                ; preds = %6
@@ -9800,7 +9800,7 @@ define internal fastcc noundef zeroext i1 @"_ZN79_$LT$polars_arrow..datatypes..E
   br i1 %brmerge, label %30, label %31
 
 30:                                               ; preds = %24, %2, %22, %31
-  %.sroa.0.0.shrunk = phi i1 [ %46, %31 ], [ false, %22 ], [ false, %2 ], [ %.mux, %24 ]
+  %.sroa.0.0.shrunk = phi i1 [ %46, %31 ], [ false, %2 ], [ %.mux, %24 ], [ false, %22 ]
   ret i1 %.sroa.0.0.shrunk
 
 31:                                               ; preds = %24
@@ -10044,7 +10044,7 @@ define internal fastcc void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6in
   ret void
 
 127:                                              ; preds = %114, %110
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.19.i.i, %110 ], [ %120, %114 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %120, %114 ], [ %.sroa.4.19.i.i, %110 ]
   %128 = load ptr, ptr %1, align 8, !alias.scope !1606, !noalias !1609, !nonnull !3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1617)
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 %.sroa.3.0.i.i.ph

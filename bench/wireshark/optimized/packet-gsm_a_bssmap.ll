@@ -1706,7 +1706,7 @@ switch.lookup207:                                 ; preds = %87
   br label %91
 
 91:                                               ; preds = %87, %switch.lookup207, %85, %switch.lookup, %74, %67, %73, %72, %71, %70, %69, %68, %83, %82, %81, %80, %79, %78, %77, %76, %75
-  %.0 = phi ptr [ @.str.28, %73 ], [ @.str.99, %68 ], [ @.str.100, %69 ], [ @.str.101, %70 ], [ @.str.102, %71 ], [ @.str.103, %72 ], [ @.str.28, %83 ], [ @.str.105, %75 ], [ @.str.106, %76 ], [ @.str.107, %77 ], [ @.str.108, %78 ], [ @.str.109, %79 ], [ @.str.110, %80 ], [ @.str.111, %81 ], [ @.str.112, %82 ], [ @.str.98, %67 ], [ @.str.104, %74 ], [ %switch.load, %switch.lookup ], [ @.str.28, %85 ], [ %switch.load209, %switch.lookup207 ], [ @.str.28, %87 ]
+  %.0 = phi ptr [ @.str.28, %73 ], [ %switch.load, %switch.lookup ], [ @.str.99, %68 ], [ @.str.100, %69 ], [ @.str.101, %70 ], [ @.str.102, %71 ], [ @.str.103, %72 ], [ @.str.28, %83 ], [ @.str.98, %67 ], [ @.str.105, %75 ], [ @.str.106, %76 ], [ @.str.107, %77 ], [ @.str.108, %78 ], [ @.str.109, %79 ], [ @.str.110, %80 ], [ @.str.111, %81 ], [ @.str.112, %82 ], [ @.str.28, %85 ], [ @.str.104, %74 ], [ %switch.load209, %switch.lookup207 ], [ @.str.28, %87 ]
   %92 = load i32, ptr @hf_gsm_a_bssmap_rate, align 4
   %93 = and i8 %58, 63
   %94 = zext nneg i8 %93 to i32
@@ -1762,7 +1762,7 @@ switch.lookup207:                                 ; preds = %87
   br label %.loopexit
 
 .loopexit:                                        ; preds = %35, %97, %125, %119
-  %.1 = phi i32 [ %114, %97 ], [ %124, %119 ], [ %129, %125 ], [ %40, %35 ]
+  %.1 = phi i32 [ %129, %125 ], [ %114, %97 ], [ %124, %119 ], [ %40, %35 ]
   %130 = sub i32 %.1, %3
   %131 = icmp ugt i32 %4, %130
   br i1 %131, label %132, label %136
@@ -1780,7 +1780,7 @@ switch.lookup207:                                 ; preds = %87
   br label %138
 
 138:                                              ; preds = %115, %91, %54, %29, %136, %25
-  %.0177 = phi i16 [ %26, %25 ], [ %137, %136 ], [ 2, %29 ], [ 2, %54 ], [ 3, %91 ], [ 2, %115 ]
+  %.0177 = phi i16 [ %26, %25 ], [ 3, %91 ], [ %137, %136 ], [ 2, %29 ], [ 2, %54 ], [ 2, %115 ]
   ret i16 %.0177
 }
 
@@ -1866,7 +1866,7 @@ define hidden noundef zeroext i16 @be_cell_id_type(ptr noundef %0, ptr noundef %
   br label %72
 
 .thread:                                          ; preds = %23, %23, %23, %23, %11
-  %.1114 = phi i32 [ %3, %11 ], [ %18, %23 ], [ %18, %23 ], [ %18, %23 ], [ %18, %23 ]
+  %.1114 = phi i32 [ %18, %23 ], [ %18, %23 ], [ %18, %23 ], [ %18, %23 ], [ %3, %11 ]
   %35 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.1114)
   %36 = zext i16 %35 to i32
   %37 = load i32, ptr @hf_gsm_a_bssmap_be_rnc_id, align 4

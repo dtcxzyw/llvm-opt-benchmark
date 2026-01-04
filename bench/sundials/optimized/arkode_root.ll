@@ -427,7 +427,7 @@ define range(i32 -22, 1) i32 @ARKodeRootInit(ptr noundef %0, i32 noundef %1, ptr
   br label %207
 
 207:                                              ; preds = %85, %._crit_edge, %180, %164, %152, %143, %138, %133, %126, %122, %89, %81, %25, %17, %11, %5
-  %.0 = phi i32 [ -21, %5 ], [ -20, %25 ], [ 0, %81 ], [ -22, %89 ], [ 0, %122 ], [ -22, %126 ], [ -20, %133 ], [ -20, %138 ], [ -20, %143 ], [ -20, %152 ], [ -20, %164 ], [ -20, %180 ], [ 0, %._crit_edge ], [ -20, %17 ], [ -22, %11 ], [ 0, %85 ]
+  %.0 = phi i32 [ -21, %5 ], [ -20, %25 ], [ 0, %81 ], [ -22, %89 ], [ 0, %122 ], [ -22, %11 ], [ -22, %126 ], [ -20, %133 ], [ -20, %138 ], [ -20, %143 ], [ -20, %152 ], [ -20, %164 ], [ -20, %180 ], [ 0, %._crit_edge ], [ -20, %17 ], [ 0, %85 ]
   ret i32 %.0
 }
 
@@ -584,7 +584,7 @@ define range(i32 -21, 1) i32 @arkPrintRootMem(ptr noundef readonly captures(addr
   br i1 %33, label %.lr.ph, label %.loopexit89
 
 .loopexit89:                                      ; preds = %.lr.ph, %.preheader88, %8
-  %34 = phi ptr [ %16, %.preheader88 ], [ %16, %8 ], [ %29, %.lr.ph ]
+  %34 = phi ptr [ %16, %8 ], [ %16, %.preheader88 ], [ %29, %.lr.ph ]
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = load ptr, ptr %35, align 8, !tbaa !35
   %.not75 = icmp eq ptr %36, null
@@ -614,7 +614,7 @@ define range(i32 -21, 1) i32 @arkPrintRootMem(ptr noundef readonly captures(addr
   br i1 %51, label %.lr.ph92, label %.loopexit87
 
 .loopexit87:                                      ; preds = %.lr.ph92, %.preheader86, %.loopexit89
-  %52 = phi ptr [ %34, %.preheader86 ], [ %34, %.loopexit89 ], [ %47, %.lr.ph92 ]
+  %52 = phi ptr [ %34, %.loopexit89 ], [ %34, %.preheader86 ], [ %47, %.lr.ph92 ]
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 96
   %54 = load i32, ptr %53, align 8, !tbaa !38
   %55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.10, i32 noundef %54) #8
@@ -656,7 +656,7 @@ define range(i32 -21, 1) i32 @arkPrintRootMem(ptr noundef readonly captures(addr
   br i1 %81, label %.lr.ph94, label %.loopexit85
 
 .loopexit85:                                      ; preds = %.lr.ph94, %.preheader84, %.loopexit87
-  %82 = phi ptr [ %64, %.preheader84 ], [ %64, %.loopexit87 ], [ %77, %.lr.ph94 ]
+  %82 = phi ptr [ %64, %.loopexit87 ], [ %64, %.preheader84 ], [ %77, %.lr.ph94 ]
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 32
   %84 = load double, ptr %83, align 8, !tbaa !39
   %85 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.14, double noundef %84) #8
@@ -698,7 +698,7 @@ define range(i32 -21, 1) i32 @arkPrintRootMem(ptr noundef readonly captures(addr
   br i1 %111, label %.lr.ph96, label %.loopexit83
 
 .loopexit83:                                      ; preds = %.lr.ph96, %.preheader82, %.loopexit85
-  %112 = phi ptr [ %94, %.preheader82 ], [ %94, %.loopexit85 ], [ %107, %.lr.ph96 ]
+  %112 = phi ptr [ %94, %.loopexit85 ], [ %94, %.preheader82 ], [ %107, %.lr.ph96 ]
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 64
   %114 = load ptr, ptr %113, align 8, !tbaa !32
   %.not78 = icmp eq ptr %114, null
@@ -728,7 +728,7 @@ define range(i32 -21, 1) i32 @arkPrintRootMem(ptr noundef readonly captures(addr
   br i1 %129, label %.lr.ph98, label %.loopexit81
 
 .loopexit81:                                      ; preds = %.lr.ph98, %.preheader80, %.loopexit83
-  %130 = phi ptr [ %112, %.preheader80 ], [ %112, %.loopexit83 ], [ %125, %.lr.ph98 ]
+  %130 = phi ptr [ %112, %.loopexit83 ], [ %112, %.preheader80 ], [ %125, %.lr.ph98 ]
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 72
   %132 = load ptr, ptr %131, align 8, !tbaa !33
   %.not79 = icmp eq ptr %132, null
@@ -758,7 +758,7 @@ define range(i32 -21, 1) i32 @arkPrintRootMem(ptr noundef readonly captures(addr
   br i1 %147, label %.lr.ph100, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph100, %.preheader, %.loopexit81
-  %148 = phi ptr [ %130, %.preheader ], [ %130, %.loopexit81 ], [ %143, %.lr.ph100 ]
+  %148 = phi ptr [ %130, %.loopexit81 ], [ %130, %.preheader ], [ %143, %.lr.ph100 ]
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 80
   %150 = load double, ptr %149, align 8, !tbaa !43
   %151 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.20, double noundef %150) #8
@@ -985,7 +985,7 @@ define range(i32 -21, 1) i32 @arkRootCheck1(ptr noundef %0) local_unnamed_addr #
   br i1 %115, label %100, label %.loopexit
 
 .loopexit:                                        ; preds = %112, %.preheader85, %.preheader, %._crit_edge90, %98, %68, %45, %3
-  %.0 = phi i32 [ -21, %3 ], [ -12, %45 ], [ -12, %98 ], [ -8, %68 ], [ 0, %._crit_edge90 ], [ 0, %.preheader ], [ 0, %.preheader85 ], [ 0, %112 ]
+  %.0 = phi i32 [ -21, %3 ], [ -12, %45 ], [ -12, %98 ], [ 0, %._crit_edge90 ], [ -8, %68 ], [ 0, %.preheader ], [ 0, %.preheader85 ], [ 0, %112 ]
   ret i32 %.0
 }
 
@@ -1207,7 +1207,7 @@ define range(i32 -21, 4) i32 @arkRootCheck2(ptr noundef %0) local_unnamed_addr #
   br i1 %119, label %97, label %.loopexit
 
 .loopexit:                                        ; preds = %110, %116, %.preheader84, %.preheader83, %.preheader, %83, %._crit_edge, %10, %4, %3
-  %.0 = phi i32 [ -21, %3 ], [ 0, %4 ], [ -12, %10 ], [ 0, %._crit_edge ], [ -12, %83 ], [ 0, %.preheader ], [ 0, %.preheader83 ], [ 0, %.preheader84 ], [ 3, %110 ], [ %.3, %116 ]
+  %.0 = phi i32 [ -21, %3 ], [ -12, %10 ], [ 0, %4 ], [ 0, %._crit_edge ], [ -12, %83 ], [ 0, %.preheader83 ], [ 0, %.preheader84 ], [ 0, %.preheader ], [ %.3, %116 ], [ 3, %110 ]
   ret i32 %.0
 }
 
@@ -1506,7 +1506,7 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
   br i1 %58, label %.thread, label %59
 
 59:                                               ; preds = %37, %27, %54, %47, %44, %19
-  %.1224 = phi i32 [ 1, %37 ], [ %.0223279, %27 ], [ %.0223279, %54 ], [ %.0223279, %47 ], [ %.0223279, %44 ], [ %.0223279, %19 ]
+  %.1224 = phi i32 [ 1, %37 ], [ %.0223279, %27 ], [ %.0223279, %44 ], [ %.0223279, %54 ], [ %.0223279, %47 ], [ %.0223279, %19 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %19
@@ -1766,7 +1766,7 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
   br i1 %207, label %.thread419, label %208
 
 208:                                              ; preds = %186, %176, %203, %196, %193, %168
-  %.3226 = phi i32 [ 1, %186 ], [ %.2225287, %176 ], [ %.2225287, %203 ], [ %.2225287, %196 ], [ %.2225287, %193 ], [ %.2225287, %168 ]
+  %.3226 = phi i32 [ 1, %186 ], [ %.2225287, %176 ], [ %.2225287, %193 ], [ %.2225287, %203 ], [ %.2225287, %196 ], [ %.2225287, %168 ]
   %indvars.iv.next334 = add nuw nsw i64 %indvars.iv333, 1
   %exitcond337.not = icmp eq i64 %indvars.iv.next334, %wide.trip.count336
   br i1 %exitcond337.not, label %._crit_edge290, label %168
@@ -1976,7 +1976,7 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
   br i1 %299, label %258, label %.loopexit
 
 .loopexit:                                        ; preds = %154, %296, %111, %._crit_edge323, %._crit_edge323.thread, %.loopexit261.loopexit, %3
-  %.0 = phi i32 [ -21, %3 ], [ %.mux, %._crit_edge323 ], [ 1, %.loopexit261.loopexit ], [ 0, %._crit_edge323.thread ], [ 1, %111 ], [ 1, %296 ], [ -12, %154 ]
+  %.0 = phi i32 [ -21, %3 ], [ 1, %111 ], [ 1, %.loopexit261.loopexit ], [ %.mux, %._crit_edge323 ], [ 1, %296 ], [ 0, %._crit_edge323.thread ], [ -12, %154 ]
   ret i32 %.0
 }
 

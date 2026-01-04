@@ -307,9 +307,9 @@ get_bits_long.exit.i.i:                           ; preds = %56, %51, %43
   br label %get_vlc2.exit
 
 get_vlc2.exit:                                    ; preds = %93, %109
-  %.064.i = phi i32 [ %111, %109 ], [ %34, %93 ]
-  %.062.i = phi i32 [ %125, %109 ], [ %104, %93 ]
-  %.0.i = phi i32 [ %128, %109 ], [ %107, %93 ]
+  %.064.i = phi i32 [ %34, %93 ], [ %111, %109 ]
+  %.062.i = phi i32 [ %104, %93 ], [ %125, %109 ]
+  %.0.i = phi i32 [ %107, %93 ], [ %128, %109 ]
   %129 = add nsw i32 %.0.i, %.064.i
   %130 = tail call i32 @llvm.umin.i32(i32 %25, i32 %129)
   store i32 %130, ptr %30, align 8, !tbaa !48
@@ -416,9 +416,9 @@ mpc8_get_mod_golomb.exit:                         ; preds = %78, %get_bits_long.
   br label %get_vlc2.exit366
 
 get_vlc2.exit366:                                 ; preds = %150, %175
-  %.064.i363 = phi i32 [ %177, %175 ], [ %152, %150 ]
-  %.062.i364 = phi i32 [ %191, %175 ], [ %170, %150 ]
-  %.0.i365 = phi i32 [ %194, %175 ], [ %173, %150 ]
+  %.064.i363 = phi i32 [ %152, %150 ], [ %177, %175 ]
+  %.062.i364 = phi i32 [ %170, %150 ], [ %191, %175 ]
+  %.0.i365 = phi i32 [ %173, %150 ], [ %194, %175 ]
   %195 = add i32 %.0.i365, %.064.i363
   %196 = tail call i32 @llvm.umin.i32(i32 %25, i32 %195)
   %197 = add nsw i32 %.062.i364, %153
@@ -719,7 +719,7 @@ mpc8_get_mod_golomb.exit412:                      ; preds = %._crit_edge448, %ge
   br label %351
 
 351:                                              ; preds = %306, %347, %348, %._crit_edge596
-  %352 = phi i32 [ %342, %347 ], [ %342, %348 ], [ %307, %._crit_edge596 ], [ %307, %306 ]
+  %352 = phi i32 [ %307, %306 ], [ %342, %347 ], [ %342, %348 ], [ %307, %._crit_edge596 ]
   %indvars.iv.next543 = add nuw nsw i64 %indvars.iv542, 1
   %exitcond546.not = icmp eq i64 %indvars.iv.next543, %wide.trip.count545
   br i1 %exitcond546.not, label %.preheader434.lr.ph, label %306, !llvm.loop !64
@@ -811,9 +811,9 @@ mpc8_get_mod_golomb.exit412:                      ; preds = %._crit_edge448, %ge
   br label %get_vlc2.exit373
 
 get_vlc2.exit373:                                 ; preds = %382, %392
-  %.064.i370 = phi i32 [ %394, %392 ], [ %.lcssa464470471, %382 ]
-  %.062.i371 = phi i32 [ %408, %392 ], [ %387, %382 ]
-  %.0.i372 = phi i32 [ %411, %392 ], [ %390, %382 ]
+  %.064.i370 = phi i32 [ %.lcssa464470471, %382 ], [ %394, %392 ]
+  %.062.i371 = phi i32 [ %387, %382 ], [ %408, %392 ]
+  %.0.i372 = phi i32 [ %390, %382 ], [ %411, %392 ]
   %412 = add i32 %.0.i372, %.064.i370
   %413 = tail call i32 @llvm.umin.i32(i32 %304, i32 %412)
   %414 = icmp eq i32 %.062.i371, 64
@@ -911,9 +911,9 @@ get_vlc2.exit373:                                 ; preds = %382, %392
   br label %get_vlc2.exit377
 
 get_vlc2.exit377:                                 ; preds = %448, %465
-  %.064.i374 = phi i32 [ %467, %465 ], [ %441, %448 ]
-  %.062.i375 = phi i32 [ %481, %465 ], [ %460, %448 ]
-  %.0.i376 = phi i32 [ %484, %465 ], [ %463, %448 ]
+  %.064.i374 = phi i32 [ %441, %448 ], [ %467, %465 ]
+  %.062.i375 = phi i32 [ %460, %448 ], [ %481, %465 ]
+  %.0.i376 = phi i32 [ %463, %448 ], [ %484, %465 ]
   %485 = add i32 %.0.i376, %.064.i374
   %486 = tail call i32 @llvm.umin.i32(i32 %304, i32 %485)
   %487 = icmp eq i32 %.062.i375, 31
@@ -1091,9 +1091,9 @@ get_vlc2.exit377:                                 ; preds = %448, %465
   br label %get_vlc2.exit381
 
 get_vlc2.exit381:                                 ; preds = %543, %560
-  %.064.i378 = phi i32 [ %562, %560 ], [ %.lcssa490496497, %543 ]
-  %.062.i379 = phi i32 [ %576, %560 ], [ %555, %543 ]
-  %.0.i380 = phi i32 [ %579, %560 ], [ %558, %543 ]
+  %.064.i378 = phi i32 [ %.lcssa490496497, %543 ], [ %562, %560 ]
+  %.062.i379 = phi i32 [ %555, %543 ], [ %576, %560 ]
+  %.0.i380 = phi i32 [ %558, %543 ], [ %579, %560 ]
   %580 = add i32 %.0.i380, %.064.i378
   %581 = tail call i32 @llvm.umin.i32(i32 %358, i32 %580)
   switch i32 %.062.i379, label %582 [
@@ -1291,9 +1291,9 @@ mpc8_get_mask.exit:                               ; preds = %636, %get_vlc2.exit
   br label %get_vlc2.exit385
 
 get_vlc2.exit385:                                 ; preds = %665, %688
-  %.064.i382 = phi i32 [ %690, %688 ], [ %666, %665 ]
-  %.062.i383 = phi i32 [ %704, %688 ], [ %683, %665 ]
-  %.0.i384 = phi i32 [ %707, %688 ], [ %686, %665 ]
+  %.064.i382 = phi i32 [ %666, %665 ], [ %690, %688 ]
+  %.062.i383 = phi i32 [ %683, %665 ], [ %704, %688 ]
+  %.0.i384 = phi i32 [ %686, %665 ], [ %707, %688 ]
   %708 = add i32 %.0.i384, %.064.i382
   %709 = tail call i32 @llvm.umin.i32(i32 %358, i32 %708)
   %710 = sext i32 %.062.i383 to i64
@@ -1373,9 +1373,9 @@ get_vlc2.exit385:                                 ; preds = %665, %688
   br label %get_vlc2.exit389
 
 get_vlc2.exit389:                                 ; preds = %733, %751
-  %.064.i386 = phi i32 [ %753, %751 ], [ %734, %733 ]
-  %.062.i387 = phi i32 [ %767, %751 ], [ %746, %733 ]
-  %.0.i388 = phi i32 [ %770, %751 ], [ %749, %733 ]
+  %.064.i386 = phi i32 [ %734, %733 ], [ %753, %751 ]
+  %.062.i387 = phi i32 [ %746, %733 ], [ %767, %751 ]
+  %.0.i388 = phi i32 [ %749, %733 ], [ %770, %751 ]
   %771 = add i32 %.0.i388, %.064.i386
   %772 = tail call i32 @llvm.umin.i32(i32 %358, i32 %771)
   %773 = ashr i32 %.062.i387, 4
@@ -1451,9 +1451,9 @@ get_vlc2.exit389:                                 ; preds = %733, %751
   br label %get_vlc2.exit393
 
 get_vlc2.exit393:                                 ; preds = %785, %810
-  %.064.i390 = phi i32 [ %812, %810 ], [ %786, %785 ]
-  %.062.i391 = phi i32 [ %826, %810 ], [ %805, %785 ]
-  %.0.i392 = phi i32 [ %829, %810 ], [ %808, %785 ]
+  %.064.i390 = phi i32 [ %786, %785 ], [ %812, %810 ]
+  %.062.i391 = phi i32 [ %805, %785 ], [ %826, %810 ]
+  %.0.i392 = phi i32 [ %808, %785 ], [ %829, %810 ]
   %830 = add i32 %.0.i392, %.064.i390
   %831 = tail call i32 @llvm.umin.i32(i32 %358, i32 %830)
   %gep633 = getelementptr inbounds nuw i32, ptr %gep645, i64 %indvars.iv558
@@ -1509,9 +1509,9 @@ get_vlc2.exit393:                                 ; preds = %785, %810
   br label %get_vlc2.exit397
 
 get_vlc2.exit397:                                 ; preds = %835, %853
-  %.064.i394 = phi i32 [ %855, %853 ], [ %836, %835 ]
-  %.062.i395 = phi i32 [ %869, %853 ], [ %848, %835 ]
-  %.0.i396 = phi i32 [ %872, %853 ], [ %851, %835 ]
+  %.064.i394 = phi i32 [ %836, %835 ], [ %855, %853 ]
+  %.062.i395 = phi i32 [ %848, %835 ], [ %869, %853 ]
+  %.0.i396 = phi i32 [ %851, %835 ], [ %872, %853 ]
   %873 = add i32 %.0.i396, %.064.i394
   %874 = tail call i32 @llvm.umin.i32(i32 %358, i32 %873)
   %gep643 = getelementptr inbounds nuw i32, ptr %gep655, i64 %indvars.iv579
@@ -1543,8 +1543,8 @@ get_vlc2.exit397:                                 ; preds = %835, %853
   br i1 %exitcond582.not, label %.loopexit424, label %835, !llvm.loop !76
 
 .loopexit424:                                     ; preds = %get_vlc2.exit393, %get_vlc2.exit389, %get_vlc2.exit385, %663, %524, %888, %517
-  %.promoted503509 = phi i32 [ %.promoted503510, %517 ], [ %890, %888 ], [ %.promoted503510, %524 ], [ %660, %663 ], [ %709, %get_vlc2.exit385 ], [ %772, %get_vlc2.exit389 ], [ %831, %get_vlc2.exit393 ]
-  %.lcssa501504 = phi i32 [ %.lcssa501505506, %517 ], [ %890, %888 ], [ %.lcssa501505506, %524 ], [ %660, %663 ], [ %709, %get_vlc2.exit385 ], [ %772, %get_vlc2.exit389 ], [ %831, %get_vlc2.exit393 ]
+  %.promoted503509 = phi i32 [ %890, %888 ], [ %772, %get_vlc2.exit389 ], [ %709, %get_vlc2.exit385 ], [ %.promoted503510, %524 ], [ %.promoted503510, %517 ], [ %660, %663 ], [ %831, %get_vlc2.exit393 ]
+  %.lcssa501504 = phi i32 [ %890, %888 ], [ %772, %get_vlc2.exit389 ], [ %709, %get_vlc2.exit385 ], [ %.lcssa501505506, %524 ], [ %.lcssa501505506, %517 ], [ %660, %663 ], [ %831, %get_vlc2.exit393 ]
   br i1 %518, label %517, label %892, !llvm.loop !77
 
 892:                                              ; preds = %.loopexit424
@@ -1615,7 +1615,7 @@ get_vlc2.exit397:                                 ; preds = %835, %853
   br label %921
 
 921:                                              ; preds = %918, %916, %._crit_edge516, %19, %141, %135
-  %.0 = phi i32 [ %9, %135 ], [ -1094995529, %141 ], [ -1094995529, %19 ], [ %894, %._crit_edge516 ], [ %920, %918 ], [ %9, %916 ]
+  %.0 = phi i32 [ %894, %._crit_edge516 ], [ %9, %135 ], [ -1094995529, %141 ], [ -1094995529, %19 ], [ %920, %918 ], [ %9, %916 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

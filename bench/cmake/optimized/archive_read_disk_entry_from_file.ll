@@ -384,8 +384,8 @@ thread-pre-split.thread:                          ; preds = %59, %thread-pre-spl
   br label %thread-pre-split124
 
 thread-pre-split124:                              ; preds = %.thread.i, %135, %125
-  %136 = phi i32 [ %130, %135 ], [ %.pr125, %125 ], [ %.pr125, %.thread.i ]
-  %.058.i = phi i64 [ 0, %135 ], [ %124, %125 ], [ 0, %.thread.i ]
+  %136 = phi i32 [ %.pr125, %125 ], [ %130, %135 ], [ %.pr125, %.thread.i ]
+  %.058.i = phi i64 [ %124, %125 ], [ 0, %135 ], [ 0, %.thread.i ]
   %137 = call i64 @lseek(i32 noundef %136, i64 noundef 0, i32 noundef 4) #12
   %138 = icmp slt i64 %137, 0
   br i1 %138, label %139, label %196
@@ -599,9 +599,9 @@ setup_sparse_fiemap.exit.i:                       ; preds = %._crit_edge.thread.
   %235 = call i64 @lseek(i32 noundef %136, i64 noundef %.058.i, i32 noundef 0) #12
   br label %setup_sparse.exit.thread
 
-setup_sparse.exit.thread:                         ; preds = %.critedge.i, %setup_sparse_fiemap.exit.i, %127, %132, %112, %114, %117, %108
-  %236 = phi i32 [ %79, %108 ], [ %79, %117 ], [ %79, %114 ], [ %79, %112 ], [ %130, %132 ], [ %.pr.i, %127 ], [ %136, %setup_sparse_fiemap.exit.i ], [ %136, %.critedge.i ]
-  %.3 = phi i32 [ 0, %108 ], [ 0, %117 ], [ 0, %114 ], [ 0, %112 ], [ -25, %132 ], [ -25, %127 ], [ 0, %setup_sparse_fiemap.exit.i ], [ %.056.i, %.critedge.i ]
+setup_sparse.exit.thread:                         ; preds = %.critedge.i, %setup_sparse_fiemap.exit.i, %127, %132, %114, %117, %112, %108
+  %236 = phi i32 [ %79, %108 ], [ %.pr.i, %127 ], [ %130, %132 ], [ %79, %114 ], [ %79, %112 ], [ %79, %117 ], [ %136, %.critedge.i ], [ %136, %setup_sparse_fiemap.exit.i ]
+  %.3 = phi i32 [ 0, %108 ], [ -25, %127 ], [ -25, %132 ], [ 0, %114 ], [ 0, %112 ], [ 0, %117 ], [ %.056.i, %.critedge.i ], [ 0, %setup_sparse_fiemap.exit.i ]
   %.not121 = icmp eq i32 %2, %236
   br i1 %.not121, label %.thread, label %237
 
@@ -610,7 +610,7 @@ setup_sparse.exit.thread:                         ; preds = %.critedge.i, %setup
   br label %.thread
 
 .thread:                                          ; preds = %102, %90, %setup_sparse.exit.thread, %237, %4, %38, %33, %25
-  %.1 = phi i32 [ -25, %25 ], [ -25, %38 ], [ -25, %33 ], [ -30, %4 ], [ %.3, %237 ], [ %.3, %setup_sparse.exit.thread ], [ -25, %90 ], [ -25, %102 ]
+  %.1 = phi i32 [ -25, %25 ], [ -30, %4 ], [ %.3, %setup_sparse.exit.thread ], [ -25, %38 ], [ -25, %33 ], [ %.3, %237 ], [ -25, %90 ], [ -25, %102 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1
 }

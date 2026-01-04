@@ -368,8 +368,8 @@ sw.epilog:                                        ; preds = %entry, %_ZNSt8funct
   ret void
 
 eh.resume:                                        ; preds = %if.then.i.i33, %lpad22, %if.then.i.i19, %lpad
-  %call16.sink = phi ptr [ %call5, %lpad ], [ %call5, %if.then.i.i19 ], [ %call16, %lpad22 ], [ %call16, %if.then.i.i33 ]
-  %.pn = phi { ptr, i32 } [ %11, %lpad ], [ %11, %if.then.i.i19 ], [ %25, %lpad22 ], [ %25, %if.then.i.i33 ]
+  %call16.sink = phi ptr [ %call5, %if.then.i.i19 ], [ %call5, %lpad ], [ %call16, %lpad22 ], [ %call16, %if.then.i.i33 ]
+  %.pn = phi { ptr, i32 } [ %11, %if.then.i.i19 ], [ %11, %lpad ], [ %25, %lpad22 ], [ %25, %if.then.i.i33 ]
   call void @_ZdlPv(ptr noundef nonnull %call16.sink) #19
   resume { ptr, i32 } %.pn
 }
@@ -501,7 +501,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 common.resume:                                    ; preds = %lpad3, %lpad.body, %if.then.i.i13, %lpad.i, %if.then.i.i
-  %common.resume.op = phi { ptr, i32 } [ %3, %if.then.i.i ], [ %3, %lpad.i ], [ %20, %lpad3 ], [ %9, %lpad.body ], [ %9, %if.then.i.i13 ]
+  %common.resume.op = phi { ptr, i32 } [ %3, %lpad.i ], [ %3, %if.then.i.i ], [ %20, %lpad3 ], [ %9, %lpad.body ], [ %9, %if.then.i.i13 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIFvRN8proxygen9ByteEventEEEC2ERKS4_.exit: ; preds = %entry, %invoke.cont.i

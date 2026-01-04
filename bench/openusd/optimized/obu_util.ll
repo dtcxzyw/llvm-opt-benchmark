@@ -105,7 +105,7 @@ define internal fastcc range(i32 0, 9) i32 @read_obu_header(ptr noundef nonnull 
   br label %39
 
 39:                                               ; preds = %28, %36, %26, %14, %12, %4, %3
-  %.0 = phi i32 [ 8, %3 ], [ 7, %4 ], [ 7, %12 ], [ 5, %14 ], [ 7, %26 ], [ 0, %36 ], [ 0, %28 ]
+  %.0 = phi i32 [ 8, %3 ], [ 7, %4 ], [ 5, %14 ], [ 7, %26 ], [ 7, %12 ], [ 0, %36 ], [ 0, %28 ]
   ret i32 %.0
 }
 
@@ -212,7 +212,7 @@ read_obu_size.exit36:                             ; preds = %41
   br label %50
 
 50:                                               ; preds = %read_obu_size.exit36.thread, %read_obu_size.exit.thread, %28, %17, %44
-  %.0 = phi i32 [ 0, %44 ], [ %24, %17 ], [ 7, %28 ], [ 7, %read_obu_size.exit.thread ], [ 7, %read_obu_size.exit36.thread ]
+  %.0 = phi i32 [ %24, %17 ], [ 7, %read_obu_size.exit.thread ], [ 7, %28 ], [ 0, %44 ], [ 7, %read_obu_size.exit36.thread ]
   ret i32 %.0
 }
 

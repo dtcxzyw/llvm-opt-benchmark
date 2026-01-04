@@ -410,7 +410,7 @@ _ZN4absl12lts_2024011612log_internal12Check_GTImplIddEEPNSt7__cxx1112basic_strin
   br label %71
 
 71:                                               ; preds = %63, %69, %54, %60, %42, %48, %33
-  %.pn39.pn = phi { ptr, i32 } [ %34, %33 ], [ %49, %48 ], [ %43, %42 ], [ %61, %60 ], [ %55, %54 ], [ %70, %69 ], [ %64, %63 ]
+  %.pn39.pn = phi { ptr, i32 } [ %34, %33 ], [ %43, %42 ], [ %55, %54 ], [ %49, %48 ], [ %61, %60 ], [ %70, %69 ], [ %64, %63 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %73 = load ptr, ptr %72, align 8, !tbaa !46
   call void @free(ptr noundef %73) #31

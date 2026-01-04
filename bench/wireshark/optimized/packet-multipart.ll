@@ -256,7 +256,7 @@ define internal i32 @dissect_multipart(ptr noundef %0, ptr noundef %1, ptr nound
   store ptr null, ptr %41, align 8
   br label %get_multipart_info.exit
 
-get_multipart_info.exit.thread:                   ; preds = %4, %18, %22, %31
+get_multipart_info.exit.thread:                   ; preds = %18, %4, %31, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %49
 
@@ -576,7 +576,7 @@ find_next_boundary.exit.i:                        ; preds = %179, %161
   br label %202
 
 202:                                              ; preds = %201, %200, %190
-  %.2204.i = phi i32 [ %.0.i.i, %200 ], [ %spec.select.i, %201 ], [ %196, %190 ]
+  %.2204.i = phi i32 [ %spec.select.i, %201 ], [ %.0.i.i, %200 ], [ %196, %190 ]
   %203 = load ptr, ptr %23, align 8
   %204 = sub i32 %.2204.i, %.0194136.i
   %205 = call ptr @tvb_get_string_enc(ptr noundef %203, ptr noundef %0, i32 noundef %.0194136.i, i32 noundef %204, i32 noundef 0)
@@ -770,12 +770,12 @@ is_known_multipart_header.exit.thread.i:          ; preds = %231, %is_known_mult
   br label %.loopexit.i
 
 .critedge.i:                                      ; preds = %293, %290, %287, %281, %275, %264, %255, %236, %234
-  %.2246.i = phi i8 [ %.0244130.i, %234 ], [ %.0244130.i, %293 ], [ %.0244130.i, %290 ], [ %.0244130.i, %287 ], [ %.0244130.i, %281 ], [ %.0244130.i, %255 ], [ %.0244130.i, %236 ], [ 0, %275 ], [ %spec.select286.i, %264 ]
-  %.2238.i = phi ptr [ %.0236131.i, %234 ], [ %.0236131.i, %293 ], [ %.0236131.i, %290 ], [ %.0236131.i, %287 ], [ %.0236131.i, %281 ], [ %.0236131.i, %255 ], [ %.0236131.i, %236 ], [ %268, %275 ], [ %268, %264 ]
-  %.2231.i = phi ptr [ %.0229132.i, %234 ], [ %.0229132.i, %293 ], [ %292, %290 ], [ %.0229132.i, %287 ], [ %.0229132.i, %281 ], [ %.0229132.i, %255 ], [ %.0229132.i, %236 ], [ %.0229132.i, %275 ], [ %.0229132.i, %264 ]
-  %.2224.i = phi ptr [ %.0222133.i, %234 ], [ %.0222133.i, %293 ], [ %.0222133.i, %290 ], [ %.0222133.i, %287 ], [ %283, %281 ], [ %.0222133.i, %255 ], [ %.0222133.i, %236 ], [ %.0222133.i, %275 ], [ %.0222133.i, %264 ]
-  %.2217.i = phi ptr [ %.0215134.i, %234 ], [ %.0215134.i, %293 ], [ %.0215134.i, %290 ], [ %289, %287 ], [ %.0215134.i, %281 ], [ %.0215134.i, %255 ], [ %.0215134.i, %236 ], [ %.0215134.i, %275 ], [ %.0215134.i, %264 ]
-  %.2209.i = phi ptr [ %.0207135.i, %234 ], [ %.0207135.i, %293 ], [ %.0207135.i, %290 ], [ %.0207135.i, %287 ], [ %.0207135.i, %281 ], [ %.0207135.i, %255 ], [ %.0207135.i, %236 ], [ %266, %275 ], [ %266, %264 ]
+  %.2246.i = phi i8 [ %.0244130.i, %281 ], [ %.0244130.i, %255 ], [ %.0244130.i, %236 ], [ %.0244130.i, %287 ], [ %.0244130.i, %234 ], [ %.0244130.i, %293 ], [ %.0244130.i, %290 ], [ 0, %275 ], [ %spec.select286.i, %264 ]
+  %.2238.i = phi ptr [ %.0236131.i, %281 ], [ %.0236131.i, %255 ], [ %.0236131.i, %236 ], [ %.0236131.i, %287 ], [ %.0236131.i, %234 ], [ %.0236131.i, %293 ], [ %.0236131.i, %290 ], [ %268, %275 ], [ %268, %264 ]
+  %.2231.i = phi ptr [ %.0229132.i, %281 ], [ %.0229132.i, %255 ], [ %.0229132.i, %236 ], [ %.0229132.i, %287 ], [ %.0229132.i, %234 ], [ %.0229132.i, %293 ], [ %292, %290 ], [ %.0229132.i, %275 ], [ %.0229132.i, %264 ]
+  %.2224.i = phi ptr [ %283, %281 ], [ %.0222133.i, %255 ], [ %.0222133.i, %236 ], [ %.0222133.i, %287 ], [ %.0222133.i, %234 ], [ %.0222133.i, %293 ], [ %.0222133.i, %290 ], [ %.0222133.i, %275 ], [ %.0222133.i, %264 ]
+  %.2217.i = phi ptr [ %.0215134.i, %281 ], [ %.0215134.i, %255 ], [ %.0215134.i, %236 ], [ %289, %287 ], [ %.0215134.i, %234 ], [ %.0215134.i, %293 ], [ %.0215134.i, %290 ], [ %.0215134.i, %275 ], [ %.0215134.i, %264 ]
+  %.2209.i = phi ptr [ %.0207135.i, %281 ], [ %.0207135.i, %255 ], [ %.0207135.i, %236 ], [ %.0207135.i, %287 ], [ %.0207135.i, %234 ], [ %.0207135.i, %293 ], [ %.0207135.i, %290 ], [ %266, %275 ], [ %266, %264 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %296 = load i8, ptr %8, align 1, !range !9, !noundef !10
   %297 = trunc nuw i8 %296 to i1
@@ -918,7 +918,7 @@ dissect_kerberos_encrypted_message.exit.i:        ; preds = %304
   br label %360
 
 360:                                              ; preds = %359, %357, %354, %341
-  %.3200.i = phi ptr [ %.2199.i, %354 ], [ %.2199.i, %341 ], [ %358, %359 ], [ %.2199.i, %357 ]
+  %.3200.i = phi ptr [ %.2199.i, %341 ], [ %.2199.i, %354 ], [ %358, %359 ], [ %.2199.i, %357 ]
   %361 = load ptr, ptr @multipart_media_subdissector_table, align 8
   %362 = call i32 @dissector_try_string_with_data(ptr noundef %361, ptr noundef nonnull %.7214.i, ptr noundef %.3200.i, ptr noundef %1, ptr noundef %130, i1 noundef zeroext true, ptr noundef nonnull %7)
   %.not103.i = icmp eq i32 %362, 0
@@ -946,7 +946,7 @@ dissect_kerberos_encrypted_message.exit.i:        ; preds = %304
   %371 = call i32 @call_data_dissector(ptr noundef %.0197.i, ptr noundef %1, ptr noundef %130)
   br label %process_body_part.exit
 
-process_body_part.exit.thread:                    ; preds = %find_next_boundary.exit.i, %find_next_boundary.exit.thread.i, %.thread80.i
+process_body_part.exit.thread:                    ; preds = %find_next_boundary.exit.i, %.thread80.i, %find_next_boundary.exit.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
@@ -1134,13 +1134,13 @@ define internal fastcc ptr @unfold_and_compact_mime_header(ptr noundef %0, ptr n
     i8 9, label %37
   ]
 
-.thread139.backedge:                              ; preds = %28, %39, %31, %36, %22, %27, %.thread146, %.thread
-  %.098.be = phi ptr [ %.199128, %.thread ], [ %.4102, %.thread146 ], [ %.098, %27 ], [ %.098, %22 ], [ %.098, %36 ], [ %.098, %31 ], [ %.098, %39 ], [ %.098, %28 ]
-  %.092.be = phi i8 [ %60, %.thread ], [ 0, %.thread146 ], [ 0, %27 ], [ %24, %22 ], [ 0, %36 ], [ %33, %31 ], [ 0, %39 ], [ %30, %28 ]
-  %.088.be = phi ptr [ %.189130, %.thread ], [ %42, %.thread146 ], [ %.088, %27 ], [ %.088, %22 ], [ %.088, %36 ], [ %.088, %31 ], [ %.088, %39 ], [ %.088, %28 ]
-  %.085.be = phi i8 [ %.186132, %.thread ], [ %.085, %.thread146 ], [ %.085, %27 ], [ %.085, %22 ], [ %.085, %36 ], [ %.085, %31 ], [ %.085, %39 ], [ %.085, %28 ]
-  %.083.be = phi i8 [ %.184134, %.thread ], [ 0, %.thread146 ], [ 0, %27 ], [ %24, %22 ], [ 0, %36 ], [ %33, %31 ], [ 0, %39 ], [ %30, %28 ]
-  %.0.be = phi i32 [ %.2136, %.thread ], [ %.0, %.thread146 ], [ %.0, %27 ], [ %.0, %22 ], [ %.0, %36 ], [ %.0, %31 ], [ %.0, %39 ], [ %.0, %28 ]
+.thread139.backedge:                              ; preds = %28, %22, %27, %39, %31, %36, %.thread146, %.thread
+  %.098.be = phi ptr [ %.199128, %.thread ], [ %.4102, %.thread146 ], [ %.098, %36 ], [ %.098, %31 ], [ %.098, %39 ], [ %.098, %27 ], [ %.098, %22 ], [ %.098, %28 ]
+  %.092.be = phi i8 [ %60, %.thread ], [ 0, %.thread146 ], [ 0, %36 ], [ %33, %31 ], [ 0, %39 ], [ 0, %27 ], [ %24, %22 ], [ %30, %28 ]
+  %.088.be = phi ptr [ %.189130, %.thread ], [ %42, %.thread146 ], [ %.088, %36 ], [ %.088, %31 ], [ %.088, %39 ], [ %.088, %27 ], [ %.088, %22 ], [ %.088, %28 ]
+  %.085.be = phi i8 [ %.186132, %.thread ], [ %.085, %.thread146 ], [ %.085, %36 ], [ %.085, %31 ], [ %.085, %39 ], [ %.085, %27 ], [ %.085, %22 ], [ %.085, %28 ]
+  %.083.be = phi i8 [ %.184134, %.thread ], [ 0, %.thread146 ], [ 0, %36 ], [ %33, %31 ], [ 0, %39 ], [ 0, %27 ], [ %24, %22 ], [ %30, %28 ]
+  %.0.be = phi i32 [ %.2136, %.thread ], [ %.0, %.thread146 ], [ %.0, %36 ], [ %.0, %31 ], [ %.0, %39 ], [ %.0, %27 ], [ %.0, %22 ], [ %.0, %28 ]
   br label %.thread139, !llvm.loop !13
 
 31:                                               ; preds = %28
@@ -1215,7 +1215,7 @@ define internal fastcc ptr @unfold_and_compact_mime_header(ptr noundef %0, ptr n
   br label %55
 
 55:                                               ; preds = %52, %53
-  %.5 = phi ptr [ %54, %53 ], [ %.088, %52 ]
+  %.5 = phi ptr [ %.088, %52 ], [ %54, %53 ]
   %56 = getelementptr i8, ptr %.5, i64 1
   store i8 %.092, ptr %.5, align 1
   %57 = getelementptr i8, ptr %.098, i64 1

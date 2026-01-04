@@ -683,7 +683,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %121
 
 .body52:                                          ; preds = %95, %59, %88, %109
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn42.pn, %88 ], [ %60, %59 ], [ %110, %109 ], [ %96, %95 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %96, %95 ], [ %60, %59 ], [ %.pn42.pn, %88 ], [ %110, %109 ]
   %.030 = extractvalue { ptr, i32 } %.pn.pn.pn.pn, 1
   br i1 %8, label %121, label %_ZN10z3_log_ctxD2Ev.exit58, !prof !203
 
@@ -1065,7 +1065,7 @@ define noundef ptr @Z3_mk_probe(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   br label %44
 
 43:                                               ; preds = %18, %20, %38
-  %.pn34.pn = phi { ptr, i32 } [ %19, %18 ], [ %21, %20 ], [ %39, %38 ]
+  %.pn34.pn = phi { ptr, i32 } [ %21, %20 ], [ %39, %38 ], [ %19, %18 ]
   %.026 = extractvalue { ptr, i32 } %.pn34.pn, 1
   br i1 %5, label %44, label %_ZN10z3_log_ctxD2Ev.exit37, !prof !203
 
@@ -1392,7 +1392,7 @@ _Z13to_tactic_refP10_Z3_tactic.exit30:            ; preds = %17, %_Z13to_tactic_
   br label %42
 
 41:                                               ; preds = %34, %36
-  %.pn.pn.pn = phi { ptr, i32 } [ %35, %34 ], [ %37, %36 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %37, %36 ], [ %35, %34 ]
   %.023 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
   br i1 %5, label %42, label %_ZN10z3_log_ctxD2Ev.exit31, !prof !203
 
@@ -1549,7 +1549,7 @@ _Z13to_tactic_refP10_Z3_tactic.exit30:            ; preds = %17, %_Z13to_tactic_
   br label %42
 
 41:                                               ; preds = %34, %36
-  %.pn.pn.pn = phi { ptr, i32 } [ %35, %34 ], [ %37, %36 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %37, %36 ], [ %35, %34 ]
   %.023 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
   br i1 %5, label %42, label %_ZN10z3_log_ctxD2Ev.exit31, !prof !203
 
@@ -1993,7 +1993,7 @@ _Z13to_tactic_refP10_Z3_tactic.exit30:            ; preds = %17, %_Z13to_tactic_
   br label %42
 
 41:                                               ; preds = %34, %36
-  %.pn.pn.pn = phi { ptr, i32 } [ %35, %34 ], [ %37, %36 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %37, %36 ], [ %35, %34 ]
   %.023 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
   br i1 %5, label %42, label %_ZN10z3_log_ctxD2Ev.exit31, !prof !203
 
@@ -2140,7 +2140,7 @@ _Z13to_tactic_refP10_Z3_tactic.exit:              ; preds = %12, %9
   br label %37
 
 36:                                               ; preds = %29, %31
-  %.pn.pn.pn = phi { ptr, i32 } [ %30, %29 ], [ %32, %31 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %32, %31 ], [ %30, %29 ]
   %.023 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
   br i1 %5, label %37, label %_ZN10z3_log_ctxD2Ev.exit30, !prof !203
 
@@ -2297,7 +2297,7 @@ _Z13to_tactic_refP10_Z3_tactic.exit:              ; preds = %17, %_Z12to_probe_r
   br label %42
 
 41:                                               ; preds = %34, %36
-  %.pn.pn.pn = phi { ptr, i32 } [ %35, %34 ], [ %37, %36 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %37, %36 ], [ %35, %34 ]
   %.023 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
   br i1 %5, label %42, label %_ZN10z3_log_ctxD2Ev.exit30, !prof !203
 
@@ -2464,7 +2464,7 @@ _Z13to_tactic_refP10_Z3_tactic.exit32:            ; preds = %23, %_Z13to_tactic_
   br label %48
 
 47:                                               ; preds = %40, %42
-  %.pn.pn.pn = phi { ptr, i32 } [ %41, %40 ], [ %43, %42 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %43, %42 ], [ %41, %40 ]
   %.025 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
   br i1 %6, label %48, label %_ZN10z3_log_ctxD2Ev.exit33, !prof !203
 
@@ -2611,7 +2611,7 @@ _Z13to_tactic_refP10_Z3_tactic.exit:              ; preds = %12, %9
   br label %37
 
 36:                                               ; preds = %29, %31
-  %.pn.pn.pn = phi { ptr, i32 } [ %30, %29 ], [ %32, %31 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %32, %31 ], [ %30, %29 ]
   %.023 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
   br i1 %5, label %37, label %_ZN10z3_log_ctxD2Ev.exit30, !prof !203
 
@@ -2748,7 +2748,7 @@ define noundef ptr @Z3_tactic_skip(ptr noundef %0) local_unnamed_addr #3 persona
   br label %30
 
 29:                                               ; preds = %22, %24
-  %.pn.pn.pn = phi { ptr, i32 } [ %23, %22 ], [ %25, %24 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %25, %24 ], [ %23, %22 ]
   %.019 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
   br i1 %3, label %30, label %_ZN10z3_log_ctxD2Ev.exit26, !prof !203
 
@@ -2885,7 +2885,7 @@ define noundef ptr @Z3_tactic_fail(ptr noundef %0) local_unnamed_addr #3 persona
   br label %30
 
 29:                                               ; preds = %22, %24
-  %.pn.pn.pn = phi { ptr, i32 } [ %23, %22 ], [ %25, %24 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %25, %24 ], [ %23, %22 ]
   %.019 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
   br i1 %3, label %30, label %_ZN10z3_log_ctxD2Ev.exit26, !prof !203
 
@@ -3032,7 +3032,7 @@ _Z12to_probe_refP9_Z3_probe.exit:                 ; preds = %8, %11
   br label %36
 
 35:                                               ; preds = %28, %30
-  %.pn.pn.pn = phi { ptr, i32 } [ %29, %28 ], [ %31, %30 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %31, %30 ], [ %29, %28 ]
   %.021 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
   br i1 %4, label %36, label %_ZN10z3_log_ctxD2Ev.exit28, !prof !203
 
@@ -3169,7 +3169,7 @@ define noundef ptr @Z3_tactic_fail_if_not_decided(ptr noundef %0) local_unnamed_
   br label %30
 
 29:                                               ; preds = %22, %24
-  %.pn.pn.pn = phi { ptr, i32 } [ %23, %22 ], [ %25, %24 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %25, %24 ], [ %23, %22 ]
   %.019 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
   br i1 %3, label %30, label %_ZN10z3_log_ctxD2Ev.exit26, !prof !203
 
@@ -3502,7 +3502,7 @@ define noundef ptr @Z3_probe_const(ptr noundef %0, double noundef %1) local_unna
   br label %31
 
 30:                                               ; preds = %23, %25
-  %.pn.pn.pn = phi { ptr, i32 } [ %24, %23 ], [ %26, %25 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %26, %25 ], [ %24, %23 ]
   %.021 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
   br i1 %4, label %31, label %_ZN10z3_log_ctxD2Ev.exit28, !prof !203
 
@@ -3659,7 +3659,7 @@ _Z12to_probe_refP9_Z3_probe.exit30:               ; preds = %_Z12to_probe_refP9_
   br label %42
 
 41:                                               ; preds = %34, %36
-  %.pn.pn.pn = phi { ptr, i32 } [ %35, %34 ], [ %37, %36 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %37, %36 ], [ %35, %34 ]
   %.023 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
   br i1 %5, label %42, label %_ZN10z3_log_ctxD2Ev.exit31, !prof !203
 
@@ -3816,7 +3816,7 @@ _Z12to_probe_refP9_Z3_probe.exit30:               ; preds = %_Z12to_probe_refP9_
   br label %42
 
 41:                                               ; preds = %34, %36
-  %.pn.pn.pn = phi { ptr, i32 } [ %35, %34 ], [ %37, %36 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %37, %36 ], [ %35, %34 ]
   %.023 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
   br i1 %5, label %42, label %_ZN10z3_log_ctxD2Ev.exit31, !prof !203
 
@@ -3973,7 +3973,7 @@ _Z12to_probe_refP9_Z3_probe.exit30:               ; preds = %_Z12to_probe_refP9_
   br label %42
 
 41:                                               ; preds = %34, %36
-  %.pn.pn.pn = phi { ptr, i32 } [ %35, %34 ], [ %37, %36 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %37, %36 ], [ %35, %34 ]
   %.023 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
   br i1 %5, label %42, label %_ZN10z3_log_ctxD2Ev.exit31, !prof !203
 
@@ -4130,7 +4130,7 @@ _Z12to_probe_refP9_Z3_probe.exit30:               ; preds = %_Z12to_probe_refP9_
   br label %42
 
 41:                                               ; preds = %34, %36
-  %.pn.pn.pn = phi { ptr, i32 } [ %35, %34 ], [ %37, %36 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %37, %36 ], [ %35, %34 ]
   %.023 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
   br i1 %5, label %42, label %_ZN10z3_log_ctxD2Ev.exit31, !prof !203
 
@@ -4287,7 +4287,7 @@ _Z12to_probe_refP9_Z3_probe.exit30:               ; preds = %_Z12to_probe_refP9_
   br label %42
 
 41:                                               ; preds = %34, %36
-  %.pn.pn.pn = phi { ptr, i32 } [ %35, %34 ], [ %37, %36 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %37, %36 ], [ %35, %34 ]
   %.023 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
   br i1 %5, label %42, label %_ZN10z3_log_ctxD2Ev.exit31, !prof !203
 
@@ -4444,7 +4444,7 @@ _Z12to_probe_refP9_Z3_probe.exit30:               ; preds = %_Z12to_probe_refP9_
   br label %42
 
 41:                                               ; preds = %34, %36
-  %.pn.pn.pn = phi { ptr, i32 } [ %35, %34 ], [ %37, %36 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %37, %36 ], [ %35, %34 ]
   %.023 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
   br i1 %5, label %42, label %_ZN10z3_log_ctxD2Ev.exit31, !prof !203
 
@@ -4601,7 +4601,7 @@ _Z12to_probe_refP9_Z3_probe.exit30:               ; preds = %_Z12to_probe_refP9_
   br label %42
 
 41:                                               ; preds = %34, %36
-  %.pn.pn.pn = phi { ptr, i32 } [ %35, %34 ], [ %37, %36 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %37, %36 ], [ %35, %34 ]
   %.023 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
   br i1 %5, label %42, label %_ZN10z3_log_ctxD2Ev.exit31, !prof !203
 
@@ -4748,7 +4748,7 @@ _Z12to_probe_refP9_Z3_probe.exit:                 ; preds = %8, %11
   br label %36
 
 35:                                               ; preds = %28, %30
-  %.pn.pn.pn = phi { ptr, i32 } [ %29, %28 ], [ %31, %30 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %31, %30 ], [ %29, %28 ]
   %.021 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
   br i1 %4, label %36, label %_ZN10z3_log_ctxD2Ev.exit28, !prof !203
 
@@ -5729,7 +5729,7 @@ define ptr @Z3_tactic_get_descr(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   br label %_ZN10z3_log_ctxD2Ev.exit
 
 24:                                               ; preds = %15, %17
-  %.pn.pn = phi { ptr, i32 } [ %16, %15 ], [ %18, %17 ]
+  %.pn.pn = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ]
   %.016 = extractvalue { ptr, i32 } %.pn.pn, 1
   br i1 %5, label %25, label %_ZN10z3_log_ctxD2Ev.exit22, !prof !203
 
@@ -5845,7 +5845,7 @@ define ptr @Z3_probe_get_descr(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br label %_ZN10z3_log_ctxD2Ev.exit
 
 24:                                               ; preds = %15, %17
-  %.pn.pn = phi { ptr, i32 } [ %16, %15 ], [ %18, %17 ]
+  %.pn.pn = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ]
   %.016 = extractvalue { ptr, i32 } %.pn.pn, 1
   br i1 %5, label %25, label %_ZN10z3_log_ctxD2Ev.exit22, !prof !203
 
@@ -6145,7 +6145,7 @@ define noundef ptr @Z3_tactic_apply(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %_ZN10z3_log_ctxD2Ev.exit
 
 23:                                               ; preds = %16, %18
-  %.pn = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ]
+  %.pn = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ]
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.017 = extractvalue { ptr, i32 } %.pn, 1
@@ -6604,7 +6604,7 @@ _ZN3refI4goalED2Ev.exit59:                        ; preds = %_ZN9cancel_ehI8resl
   br label %168
 
 168:                                              ; preds = %113, %117, %167, %115, %111, %109
-  %.merged = phi { ptr, i32 } [ %112, %111 ], [ %110, %109 ], [ %114, %113 ], [ %116, %115 ], [ %.merged44, %167 ], [ %118, %117 ]
+  %.merged = phi { ptr, i32 } [ %110, %109 ], [ %112, %111 ], [ %114, %113 ], [ %116, %115 ], [ %.merged44, %167 ], [ %118, %117 ]
   call void @_ZN3refI4goalED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.merged
@@ -7433,7 +7433,7 @@ define noundef ptr @Z3_apply_result_get_subgoal(ptr noundef %0, ptr noundef %1, 
   br label %42
 
 41:                                               ; preds = %36, %7
-  %.pn30 = phi { ptr, i32 } [ %8, %7 ], [ %37, %36 ]
+  %.pn30 = phi { ptr, i32 } [ %37, %36 ], [ %8, %7 ]
   %.025 = extractvalue { ptr, i32 } %.pn30, 1
   br i1 %5, label %42, label %_ZN10z3_log_ctxD2Ev.exit32, !prof !285
 
@@ -7911,12 +7911,12 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %155, %157
   unreachable
 
 .body50:                                          ; preds = %165, %.body57, %112, %109
-  %.pn.pn = phi { ptr, i32 } [ %110, %112 ], [ %110, %109 ], [ %.pn, %.body57 ], [ %.pn, %165 ]
+  %.pn.pn = phi { ptr, i32 } [ %110, %109 ], [ %.pn, %165 ], [ %110, %112 ], [ %.pn, %.body57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %170
 
 170:                                              ; preds = %59, %96, %.body50
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body50 ], [ %.pn40.pn, %96 ], [ %60, %59 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %60, %59 ], [ %.pn.pn, %.body50 ], [ %.pn40.pn, %96 ]
   %.028 = extractvalue { ptr, i32 } %.pn.pn.pn.pn, 1
   br i1 %9, label %171, label %_ZN10z3_log_ctxD2Ev.exit62, !prof !203
 
@@ -8669,7 +8669,7 @@ _ZNSt8functionIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20depen
   unreachable
 
 .body.i.i:                                        ; preds = %129, %.body.i.i.i.i.i, %106, %103
-  %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %104, %106 ], [ %104, %103 ], [ %121, %.body.i.i.i.i.i ], [ %121, %129 ]
+  %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %121, %129 ], [ %104, %103 ], [ %104, %106 ], [ %121, %.body.i.i.i.i.i ]
   call void @_ZdlPvm(ptr noundef nonnull %94, i64 noundef 64) #23
   %.pr.i.i = load ptr, ptr %93, align 8, !tbaa !296
   %.not.i.i.i = icmp eq ptr %.pr.i.i, null
@@ -8836,7 +8836,7 @@ _ZNSt14_Function_baseD2Ev.exit61:                 ; preds = %_ZNSt14_Function_ba
   br label %.body43
 
 .body43:                                          ; preds = %153, %.body49, %67, %64, %.body54
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body54 ], [ %65, %67 ], [ %65, %64 ], [ %82, %.body49 ], [ %82, %153 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body54 ], [ %65, %64 ], [ %82, %153 ], [ %65, %67 ], [ %82, %.body49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %188 = load ptr, ptr %37, align 8, !tbaa !296
   %.not.i62 = icmp eq ptr %188, null
@@ -8854,7 +8854,7 @@ _ZNSt14_Function_baseD2Ev.exit61:                 ; preds = %_ZNSt14_Function_ba
   unreachable
 
 .body37:                                          ; preds = %189, %.body43, %50, %47
-  %.pn.pn.pn = phi { ptr, i32 } [ %48, %50 ], [ %48, %47 ], [ %.pn.pn, %.body43 ], [ %.pn.pn, %189 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %48, %47 ], [ %.pn.pn, %189 ], [ %48, %50 ], [ %.pn.pn, %.body43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %194 = load ptr, ptr %16, align 8, !tbaa !296
   %.not.i64 = icmp eq ptr %194, null
@@ -8872,7 +8872,7 @@ _ZNSt14_Function_baseD2Ev.exit61:                 ; preds = %_ZNSt14_Function_ba
   unreachable
 
 200:                                              ; preds = %26, %29, %.body37, %195
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %27, %29 ], [ %27, %26 ], [ %.pn.pn.pn, %.body37 ], [ %.pn.pn.pn, %195 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %27, %26 ], [ %.pn.pn.pn, %195 ], [ %27, %29 ], [ %.pn.pn.pn, %.body37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.022 = extractvalue { ptr, i32 } %.pn.pn.pn.pn, 1
   br i1 %9, label %201, label %_ZN10z3_log_ctxD2Ev.exit66, !prof !203
@@ -9456,7 +9456,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN10scoped_ptrI25d
   unreachable
 
 .body48:                                          ; preds = %170, %168, %52, %49
-  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %50, %52 ], [ %50, %49 ], [ %.pn.pn.pn.pn.pn.pn, %168 ], [ %.pn.pn.pn.pn.pn.pn, %170 ]
+  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %50, %49 ], [ %.pn.pn.pn.pn.pn.pn, %170 ], [ %50, %52 ], [ %.pn.pn.pn.pn.pn.pn, %168 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -10286,7 +10286,7 @@ _ZN10scoped_ptrI25dependent_expr_simplifierED2Ev.exit: ; preds = %55
   br label %64
 
 64:                                               ; preds = %47, %.body
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %48, %47 ], [ %.pn.pn.pn, %.body ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %.body ], [ %48, %47 ]
   %.022 = extractvalue { ptr, i32 } %.pn.pn.pn.pn.pn.pn, 1
   br i1 %7, label %65, label %_ZN10z3_log_ctxD2Ev.exit38, !prof !203
 
@@ -10402,7 +10402,7 @@ define ptr @Z3_simplifier_get_descr(ptr noundef %0, ptr noundef %1) local_unname
   br label %_ZN10z3_log_ctxD2Ev.exit
 
 24:                                               ; preds = %15, %17
-  %.pn.pn = phi { ptr, i32 } [ %16, %15 ], [ %18, %17 ]
+  %.pn.pn = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ]
   %.016 = extractvalue { ptr, i32 } %.pn.pn, 1
   br i1 %5, label %25, label %_ZN10z3_log_ctxD2Ev.exit22, !prof !203
 
@@ -10817,7 +10817,7 @@ default.unreachable:                              ; preds = %32
   unreachable
 
 _ZNK11ast_manager4sizeERKN14parray_managerINS_17expr_array_configEE3refE.exit.i: ; preds = %23, %19, %15
-  %.07.i.i.i = phi i32 [ %18, %15 ], [ %22, %19 ], [ %25, %23 ]
+  %.07.i.i.i = phi i32 [ %25, %23 ], [ %18, %15 ], [ %22, %19 ]
   %.not1 = icmp eq i32 %.07.i.i.i, 0
   br i1 %.not1, label %_ZNK4goal2prEj.exit, label %26
 
@@ -11060,7 +11060,7 @@ default.unreachable92:                            ; preds = %65
   unreachable
 
 _ZNK14parray_managerIN11ast_manager17expr_array_configEE4sizeERKNS2_3refE.exit: ; preds = %16, %20, %24
-  %.07.i = phi i32 [ %19, %16 ], [ %23, %20 ], [ %26, %24 ]
+  %.07.i = phi i32 [ %26, %24 ], [ %19, %16 ], [ %23, %20 ]
   %27 = lshr i32 %.07.i, 1
   %28 = load i32, ptr %3, align 8
   %29 = lshr i32 %28, 30
@@ -11233,7 +11233,7 @@ _ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i.
   br i1 %exitcond.not.i, label %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i.i, label %.preheader.i36, !llvm.loop !370
 
 _ZN14parray_managerIN11ast_manager17expr_array_configEE6expandERPP4expr.exit: ; preds = %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i.i, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.thread
-  %.163 = phi ptr [ %73, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.thread ], [ %110, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i ], [ %110, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i.i ]
+  %.163 = phi ptr [ %73, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.thread ], [ %110, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i.i ], [ %110, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i ]
   %120 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %121 = load ptr, ptr %120, align 8, !tbaa !363
   %122 = getelementptr inbounds nuw ptr, ptr %.163, i64 %94
@@ -11905,7 +11905,7 @@ default.unreachable54:                            ; preds = %.lr.ph36
   unreachable
 
 _ZN14parray_managerIN11ast_manager17expr_array_configEE9rpop_backEPP4exprRj.exit: ; preds = %93, %88, %81, %135, %_ZN14parray_managerIN11ast_manager17expr_array_configEE10rpush_backERPP4exprRjRKS4_.exit, %_ZN14parray_managerIN11ast_manager17expr_array_configEE4rsetEPP4exprjRKS4_.exit
-  %.1 = phi i32 [ %.03035, %_ZN14parray_managerIN11ast_manager17expr_array_configEE4rsetEPP4exprjRKS4_.exit ], [ %134, %_ZN14parray_managerIN11ast_manager17expr_array_configEE10rpush_backERPP4exprRjRKS4_.exit ], [ %.03035, %135 ], [ %83, %81 ], [ %83, %88 ], [ %83, %93 ]
+  %.1 = phi i32 [ %83, %93 ], [ %.03035, %_ZN14parray_managerIN11ast_manager17expr_array_configEE4rsetEPP4exprjRKS4_.exit ], [ %.03035, %135 ], [ %134, %_ZN14parray_managerIN11ast_manager17expr_array_configEE10rpush_backERPP4exprRjRKS4_.exit ], [ %83, %81 ], [ %83, %88 ]
   %.not16.wide = icmp eq i64 %54, 0
   br i1 %.not16.wide, label %._crit_edge37, label %.lr.ph36, !llvm.loop !377
 }
@@ -13249,7 +13249,7 @@ _ZNSt8functionIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20depen
   unreachable
 
 .body.i.i.i:                                      ; preds = %48, %.body.i.i.i.i, %22, %19
-  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %20, %22 ], [ %20, %19 ], [ %40, %.body.i.i.i.i ], [ %40, %48 ]
+  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %40, %48 ], [ %20, %19 ], [ %20, %22 ], [ %40, %.body.i.i.i.i ]
   tail call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef 64) #23
   resume { ptr, i32 } %eh.lpad-body.i.i.i
 

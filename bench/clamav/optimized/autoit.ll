@@ -788,7 +788,7 @@ define i32 @cli_scanautoit(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %422, %166, %159, %144, %139, %125
-  %.1116.be.i = phi ptr [ %140, %139 ], [ %136, %144 ], [ %156, %159 ], [ %156, %166 ], [ %156, %422 ], [ %126, %125 ]
+  %.1116.be.i = phi ptr [ %126, %125 ], [ %140, %139 ], [ %136, %144 ], [ %156, %159 ], [ %156, %166 ], [ %156, %422 ]
   %127 = call i32 @cli_checklimits(ptr noundef nonnull @.str.457, ptr noundef nonnull %0, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
   %128 = icmp eq i32 %127, 0
   br i1 %128, label %50, label %ea05.exit
@@ -1271,11 +1271,11 @@ getbits.exit225.i:                                ; preds = %343
   br i1 %or.cond578.i, label %.thread525.sink.split.i, label %.preheader.i
 
 .loopexit597.i:                                   ; preds = %getbits.exit225.i, %getbits.exit220.i, %getbits.exit215.i, %getbits.exit210.i, %getbits.exit205.i
-  %.sroa.46.1.i = phi i32 [ %.sroa.46.20.i, %getbits.exit220.i ], [ %.sroa.46.17.i, %getbits.exit215.i ], [ %.sroa.46.14.i, %getbits.exit210.i ], [ %.sroa.46.11.i, %getbits.exit205.i ], [ %.sroa.46.23.i, %getbits.exit225.i ]
-  %.sroa.108.1.i = phi i32 [ %321, %getbits.exit220.i ], [ %294, %getbits.exit215.i ], [ %267, %getbits.exit210.i ], [ %241, %getbits.exit205.i ], [ %348, %getbits.exit225.i ]
-  %.sroa.125.sroa.0.1.i = phi i16 [ %.sroa.125.sroa.0.0.extract.trunc348.i, %getbits.exit220.i ], [ %.sroa.125.sroa.0.0.extract.trunc344.i, %getbits.exit215.i ], [ %.sroa.125.sroa.0.0.extract.trunc340.i, %getbits.exit210.i ], [ %.sroa.125.sroa.0.0.extract.trunc336.i, %getbits.exit205.i ], [ %.sroa.125.sroa.0.0.extract.trunc352.i, %getbits.exit225.i ]
-  %.0113.i = phi i32 [ %.sroa.125.sroa.44.0.extract.shift385.i, %getbits.exit220.i ], [ %.sroa.125.sroa.44.0.extract.shift379.i, %getbits.exit215.i ], [ %.sroa.125.sroa.44.0.extract.shift373.i, %getbits.exit210.i ], [ %.sroa.125.sroa.44.0.extract.shift367.i, %getbits.exit205.i ], [ %.sroa.125.sroa.44.0.extract.shift391.i, %getbits.exit225.i ]
-  %.0112.i = phi i32 [ 41, %getbits.exit220.i ], [ 10, %getbits.exit215.i ], [ 3, %getbits.exit210.i ], [ 0, %getbits.exit205.i ], [ %.1656.i, %getbits.exit225.i ]
+  %.sroa.46.1.i = phi i32 [ %.sroa.46.11.i, %getbits.exit205.i ], [ %.sroa.46.20.i, %getbits.exit220.i ], [ %.sroa.46.17.i, %getbits.exit215.i ], [ %.sroa.46.14.i, %getbits.exit210.i ], [ %.sroa.46.23.i, %getbits.exit225.i ]
+  %.sroa.108.1.i = phi i32 [ %241, %getbits.exit205.i ], [ %321, %getbits.exit220.i ], [ %294, %getbits.exit215.i ], [ %267, %getbits.exit210.i ], [ %348, %getbits.exit225.i ]
+  %.sroa.125.sroa.0.1.i = phi i16 [ %.sroa.125.sroa.0.0.extract.trunc336.i, %getbits.exit205.i ], [ %.sroa.125.sroa.0.0.extract.trunc348.i, %getbits.exit220.i ], [ %.sroa.125.sroa.0.0.extract.trunc344.i, %getbits.exit215.i ], [ %.sroa.125.sroa.0.0.extract.trunc340.i, %getbits.exit210.i ], [ %.sroa.125.sroa.0.0.extract.trunc352.i, %getbits.exit225.i ]
+  %.0113.i = phi i32 [ %.sroa.125.sroa.44.0.extract.shift367.i, %getbits.exit205.i ], [ %.sroa.125.sroa.44.0.extract.shift385.i, %getbits.exit220.i ], [ %.sroa.125.sroa.44.0.extract.shift379.i, %getbits.exit215.i ], [ %.sroa.125.sroa.44.0.extract.shift373.i, %getbits.exit210.i ], [ %.sroa.125.sroa.44.0.extract.shift391.i, %getbits.exit225.i ]
+  %.0112.i = phi i32 [ 0, %getbits.exit205.i ], [ 41, %getbits.exit220.i ], [ 10, %getbits.exit215.i ], [ 3, %getbits.exit210.i ], [ %.1656.i, %getbits.exit225.i ]
   %356 = add nuw nsw i32 %.0113.i, 3
   %357 = add i32 %356, %.0112.i
   br i1 %or.cond568.not.i, label %358, label %.sink.split
@@ -1524,7 +1524,7 @@ getbits.exit225.i:                                ; preds = %343
   br label %ea05.exit
 
 .thread546.thread559.i:                           ; preds = %441, %440, %.thread546.thread787.i
-  %.0117537543563.i = phi i32 [ 13, %440 ], [ 14, %.thread546.thread787.i ], [ %442, %441 ]
+  %.0117537543563.i = phi i32 [ 14, %.thread546.thread787.i ], [ 13, %440 ], [ %442, %441 ]
   %452 = call i32 @close(i32 noundef %426) #14
   %453 = load ptr, ptr %22, align 8, !tbaa !26
   %454 = getelementptr inbounds nuw i8, ptr %453, i64 40
@@ -1537,7 +1537,7 @@ getbits.exit225.i:                                ; preds = %343
   br label %ea05.exit
 
 ea05.exit:                                        ; preds = %.outer.i, %50, %60, %71, %81, %89, %99, %109, %.backedge.i, %145, %29, %.preheader604.i, %59, %123, %.thread551.i, %.thread546.i, %.thread546.thread559.i, %456
-  %.0117537543554.i = phi i32 [ %.0117.i, %.thread551.i ], [ %.0117537543563.i, %.thread546.thread559.i ], [ %.0117537543563.i, %456 ], [ 9, %.thread546.i ], [ 0, %29 ], [ 0, %123 ], [ 0, %59 ], [ %41, %.preheader604.i ], [ 20, %145 ], [ %127, %.backedge.i ], [ 0, %50 ], [ 0, %71 ], [ 0, %81 ], [ 0, %99 ], [ 0, %109 ], [ 0, %89 ], [ 0, %60 ], [ %450, %.outer.i ]
+  %.0117537543554.i = phi i32 [ %.0117.i, %.thread551.i ], [ %.0117537543563.i, %.thread546.thread559.i ], [ %.0117537543563.i, %456 ], [ 9, %.thread546.i ], [ 0, %29 ], [ 0, %59 ], [ 0, %123 ], [ 0, %60 ], [ %41, %.preheader604.i ], [ %127, %.backedge.i ], [ 0, %50 ], [ 0, %71 ], [ 0, %81 ], [ 0, %99 ], [ 0, %109 ], [ 20, %145 ], [ 0, %89 ], [ %450, %.outer.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %1174
@@ -2069,8 +2069,8 @@ u2a.exit382.i:                                    ; preds = %.lr.ph49.i377.i, %.
   br label %.loopexit442.i
 
 .loopexit442.i:                                   ; preds = %.loopexit442.loopexit.i, %707, %704, %701, %697
-  %.0236.i = phi i32 [ 44, %707 ], [ 13, %704 ], [ 6, %701 ], [ 3, %697 ], [ %713, %.loopexit442.loopexit.i ]
-  %.0234.i = phi i32 [ %708, %707 ], [ %705, %704 ], [ %702, %701 ], [ %699, %697 ], [ %710, %.loopexit442.loopexit.i ]
+  %.0236.i = phi i32 [ 3, %697 ], [ 44, %707 ], [ 13, %704 ], [ 6, %701 ], [ %713, %.loopexit442.loopexit.i ]
+  %.0234.i = phi i32 [ %699, %697 ], [ %708, %707 ], [ %705, %704 ], [ %702, %701 ], [ %710, %.loopexit442.loopexit.i ]
   %714 = add i32 %.0234.i, %.0236.i
   %715 = load i32, ptr %484, align 8, !tbaa !58
   %.not303.i = icmp eq i32 %715, 0
@@ -2907,7 +2907,7 @@ u2a.exit382.i:                                    ; preds = %.lr.ph49.i377.i, %.
   br label %1122
 
 1122:                                             ; preds = %1120, %.thread405.i, %1116, %.thread402.i, %1096, %1083, %1077, %.thread400.i, %1017, %1008, %989, %959, %950, %925, %.thread395.i, %916, %.thread392.i, %899, %890, %877, %.thread390.i, %854, %848, %835, %.thread388.i, %812, %806
-  %.4.i = phi ptr [ %.0217488.i, %1120 ], [ %.0217488.i, %890 ], [ %.8.i, %.thread392.i ], [ %.0217488.i, %899 ], [ %.0217488.i, %950 ], [ %.13.i, %989 ], [ %.0217488.i, %959 ], [ %.18.i, %.thread402.i ], [ %.0217488.i, %1096 ], [ %.20.i, %.thread405.i ], [ %.0217488.i, %1116 ], [ %.0217488.i, %806 ], [ %.0217488.i, %812 ], [ %.2219.i, %835 ], [ %.0217488.i, %848 ], [ %.0217488.i, %854 ], [ %.6.i, %877 ], [ %.0217488.i, %916 ], [ %.11.i, %925 ], [ %.0217488.i, %1008 ], [ %.0217488.i, %1017 ], [ %.16.i, %1077 ], [ %.16.i, %1083 ], [ %.0217488.i, %.thread388.i ], [ %.0217488.i, %.thread390.i ], [ %.0217488.i, %.thread395.i ], [ %.0217488.i, %.thread400.i ]
+  %.4.i = phi ptr [ %.0217488.i, %1120 ], [ %.0217488.i, %1116 ], [ %.0217488.i, %.thread388.i ], [ %.0217488.i, %890 ], [ %.8.i, %.thread392.i ], [ %.0217488.i, %899 ], [ %.0217488.i, %.thread390.i ], [ %.0217488.i, %950 ], [ %.13.i, %989 ], [ %.0217488.i, %959 ], [ %.0217488.i, %.thread395.i ], [ %.18.i, %.thread402.i ], [ %.0217488.i, %1096 ], [ %.20.i, %.thread405.i ], [ %.0217488.i, %806 ], [ %.0217488.i, %812 ], [ %.2219.i, %835 ], [ %.0217488.i, %848 ], [ %.0217488.i, %854 ], [ %.6.i, %877 ], [ %.0217488.i, %916 ], [ %.11.i, %925 ], [ %.0217488.i, %1008 ], [ %.0217488.i, %1017 ], [ %.0217488.i, %.thread400.i ], [ %.16.i, %1077 ], [ %.16.i, %1083 ]
   %1123 = load i32, ptr %484, align 8, !tbaa !58
   %1124 = icmp eq i32 %1123, 0
   %1125 = load i32, ptr %483, align 8
@@ -2925,7 +2925,7 @@ u2a.exit382.i:                                    ; preds = %.lr.ph49.i377.i, %.
   br label %.critedge.thread.i
 
 .critedge.thread.i:                               ; preds = %.lr.ph490.i, %1127, %.critedge.i
-  %.0217448.i = phi ptr [ %.0217.lcssa.i, %1127 ], [ %.0217.lcssa.i, %.critedge.i ], [ %.0217488.i, %.lr.ph490.i ]
+  %.0217448.i = phi ptr [ %.0217.lcssa.i, %.critedge.i ], [ %.0217.lcssa.i, %1127 ], [ %.0217488.i, %.lr.ph490.i ]
   %1128 = load ptr, ptr %5, align 8, !tbaa !54
   call void @free(ptr noundef %1128) #14
   br label %1131
@@ -3021,14 +3021,14 @@ u2a.exit382.i:                                    ; preds = %.lr.ph49.i377.i, %.
   br i1 %.not317.i, label %1170, label %ea06.exit
 
 1170:                                             ; preds = %1168, %1167, %779, %685, %673, %646, %638, %625
-  %.1222.i = phi i32 [ %.0221492.i, %638 ], [ %.0221492.i, %646 ], [ %649, %673 ], [ %649, %685 ], [ %649, %779 ], [ %.0221492.i, %625 ], [ %649, %1168 ], [ %649, %1167 ]
-  %.1215.i = phi ptr [ %641, %638 ], [ %634, %646 ], [ %668, %673 ], [ %668, %685 ], [ %668, %779 ], [ %626, %625 ], [ %668, %1168 ], [ %668, %1167 ]
+  %.1222.i = phi i32 [ %649, %685 ], [ %649, %779 ], [ %.0221492.i, %625 ], [ %649, %673 ], [ %.0221492.i, %638 ], [ %.0221492.i, %646 ], [ %649, %1168 ], [ %649, %1167 ]
+  %.1215.i = phi ptr [ %668, %685 ], [ %668, %779 ], [ %626, %625 ], [ %668, %673 ], [ %641, %638 ], [ %634, %646 ], [ %668, %1168 ], [ %668, %1167 ]
   %1171 = call i32 @cli_checklimits(ptr noundef nonnull @.str.506, ptr noundef nonnull %0, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
   %1172 = icmp eq i32 %1171, 0
   br i1 %1172, label %486, label %ea06.exit
 
 ea06.exit:                                        ; preds = %486, %496, %505, %549, %557, %568, %._crit_edge580.i, %647, %1168, %1170, %467, %495, %623, %660, %691, %785, %1135, %1142, %1155, %1164, %1166
-  %.2.i = phi i32 [ 10, %1164 ], [ 0, %660 ], [ 20, %691 ], [ 20, %785 ], [ 1, %1166 ], [ 13, %1155 ], [ 14, %1142 ], [ 9, %1135 ], [ 0, %623 ], [ 0, %495 ], [ %469, %467 ], [ 10, %1168 ], [ 20, %647 ], [ 0, %._crit_edge580.i ], [ 0, %568 ], [ 0, %557 ], [ 0, %549 ], [ 0, %505 ], [ 0, %496 ], [ 0, %486 ], [ %1171, %1170 ]
+  %.2.i = phi i32 [ 10, %1164 ], [ 0, %495 ], [ 1, %1166 ], [ 13, %1155 ], [ 14, %1142 ], [ 9, %1135 ], [ 0, %623 ], [ 0, %660 ], [ 20, %691 ], [ 20, %785 ], [ %469, %467 ], [ 10, %1168 ], [ 0, %496 ], [ 0, %505 ], [ 0, %557 ], [ 0, %568 ], [ 0, %._crit_edge580.i ], [ 20, %647 ], [ 0, %549 ], [ 0, %486 ], [ %1171, %1170 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

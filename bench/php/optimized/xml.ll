@@ -3057,7 +3057,7 @@ define internal fastcc ptr @xml_get_ctag(ptr noundef nonnull readonly captures(n
   br label %zend_gc_try_delref.exit
 
 zend_gc_try_delref.exit:                          ; preds = %1, %34, %20, %38, %42, %47
-  %.1 = phi ptr [ %.0.i.ph, %47 ], [ %.0.i.ph, %42 ], [ %.0.i.ph, %38 ], [ null, %20 ], [ null, %34 ], [ null, %1 ]
+  %.1 = phi ptr [ %.0.i.ph, %38 ], [ %.0.i.ph, %47 ], [ %.0.i.ph, %42 ], [ null, %20 ], [ null, %34 ], [ null, %1 ]
   ret ptr %.1
 }
 
@@ -3787,7 +3787,7 @@ define hidden void @xml_processingInstructionHandler(ptr noundef readonly captur
   br label %xml_xmlcharlen.exit.i
 
 xml_xmlcharlen.exit.i:                            ; preds = %.lr.ph.preheader.i.i, %23
-  %.0.i20 = phi i64 [ 0, %23 ], [ %26, %.lr.ph.preheader.i.i ]
+  %.0.i20 = phi i64 [ %26, %.lr.ph.preheader.i.i ], [ 0, %23 ]
   %27 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %1, i64 noundef %.0.i20, ptr noundef readonly %20)
   store ptr %27, ptr %21, align 16, !tbaa !28
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
@@ -3821,7 +3821,7 @@ xml_xmlchar_zval.exit:                            ; preds = %18, %xml_xmlcharlen
   br label %xml_xmlcharlen.exit.i26
 
 xml_xmlcharlen.exit.i26:                          ; preds = %.lr.ph.preheader.i.i23, %36
-  %.0.i27 = phi i64 [ 0, %36 ], [ %39, %.lr.ph.preheader.i.i23 ]
+  %.0.i27 = phi i64 [ %39, %.lr.ph.preheader.i.i23 ], [ 0, %36 ]
   %40 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %2, i64 noundef %.0.i27, ptr noundef readonly %32)
   store ptr %40, ptr %34, align 16, !tbaa !28
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
@@ -4040,7 +4040,7 @@ define hidden void @xml_unparsedEntityDeclHandler(ptr noundef readonly captures(
   br label %xml_xmlcharlen.exit.i
 
 xml_xmlcharlen.exit.i:                            ; preds = %.lr.ph.preheader.i.i, %26
-  %.0.i26 = phi i64 [ 0, %26 ], [ %29, %.lr.ph.preheader.i.i ]
+  %.0.i26 = phi i64 [ %29, %.lr.ph.preheader.i.i ], [ 0, %26 ]
   %30 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %1, i64 noundef %.0.i26, ptr noundef readonly %23)
   store ptr %30, ptr %24, align 16, !tbaa !28
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
@@ -4074,7 +4074,7 @@ xml_xmlchar_zval.exit:                            ; preds = %21, %xml_xmlcharlen
   br label %xml_xmlcharlen.exit.i32
 
 xml_xmlcharlen.exit.i32:                          ; preds = %.lr.ph.preheader.i.i29, %39
-  %.0.i33 = phi i64 [ 0, %39 ], [ %42, %.lr.ph.preheader.i.i29 ]
+  %.0.i33 = phi i64 [ %42, %.lr.ph.preheader.i.i29 ], [ 0, %39 ]
   %43 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %2, i64 noundef %.0.i33, ptr noundef readonly %35)
   store ptr %43, ptr %37, align 16, !tbaa !28
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
@@ -4108,7 +4108,7 @@ xml_xmlchar_zval.exit36:                          ; preds = %xml_xmlchar_zval.ex
   br label %xml_xmlcharlen.exit.i41
 
 xml_xmlcharlen.exit.i41:                          ; preds = %.lr.ph.preheader.i.i38, %52
-  %.0.i42 = phi i64 [ 0, %52 ], [ %55, %.lr.ph.preheader.i.i38 ]
+  %.0.i42 = phi i64 [ %55, %.lr.ph.preheader.i.i38 ], [ 0, %52 ]
   %56 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %3, i64 noundef %.0.i42, ptr noundef readonly %48)
   store ptr %56, ptr %50, align 16, !tbaa !28
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
@@ -4142,7 +4142,7 @@ xml_xmlchar_zval.exit45:                          ; preds = %xml_xmlchar_zval.ex
   br label %xml_xmlcharlen.exit.i50
 
 xml_xmlcharlen.exit.i50:                          ; preds = %.lr.ph.preheader.i.i47, %65
-  %.0.i51 = phi i64 [ 0, %65 ], [ %68, %.lr.ph.preheader.i.i47 ]
+  %.0.i51 = phi i64 [ %68, %.lr.ph.preheader.i.i47 ], [ 0, %65 ]
   %69 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %4, i64 noundef %.0.i51, ptr noundef readonly %61)
   store ptr %69, ptr %63, align 16, !tbaa !28
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
@@ -4176,7 +4176,7 @@ xml_xmlchar_zval.exit54:                          ; preds = %xml_xmlchar_zval.ex
   br label %xml_xmlcharlen.exit.i59
 
 xml_xmlcharlen.exit.i59:                          ; preds = %.lr.ph.preheader.i.i56, %78
-  %.0.i60 = phi i64 [ 0, %78 ], [ %81, %.lr.ph.preheader.i.i56 ]
+  %.0.i60 = phi i64 [ %81, %.lr.ph.preheader.i.i56 ], [ 0, %78 ]
   %82 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %5, i64 noundef %.0.i60, ptr noundef readonly %74)
   store ptr %82, ptr %76, align 16, !tbaa !28
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 4
@@ -4287,7 +4287,7 @@ define hidden void @xml_notationDeclHandler(ptr noundef readonly captures(addres
   br label %xml_xmlcharlen.exit.i
 
 xml_xmlcharlen.exit.i:                            ; preds = %.lr.ph.preheader.i.i, %25
-  %.0.i24 = phi i64 [ 0, %25 ], [ %28, %.lr.ph.preheader.i.i ]
+  %.0.i24 = phi i64 [ %28, %.lr.ph.preheader.i.i ], [ 0, %25 ]
   %29 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %1, i64 noundef %.0.i24, ptr noundef readonly %22)
   store ptr %29, ptr %23, align 16, !tbaa !28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
@@ -4321,7 +4321,7 @@ xml_xmlchar_zval.exit:                            ; preds = %20, %xml_xmlcharlen
   br label %xml_xmlcharlen.exit.i30
 
 xml_xmlcharlen.exit.i30:                          ; preds = %.lr.ph.preheader.i.i27, %38
-  %.0.i31 = phi i64 [ 0, %38 ], [ %41, %.lr.ph.preheader.i.i27 ]
+  %.0.i31 = phi i64 [ %41, %.lr.ph.preheader.i.i27 ], [ 0, %38 ]
   %42 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %2, i64 noundef %.0.i31, ptr noundef readonly %34)
   store ptr %42, ptr %36, align 16, !tbaa !28
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
@@ -4355,7 +4355,7 @@ xml_xmlchar_zval.exit34:                          ; preds = %xml_xmlchar_zval.ex
   br label %xml_xmlcharlen.exit.i39
 
 xml_xmlcharlen.exit.i39:                          ; preds = %.lr.ph.preheader.i.i36, %51
-  %.0.i40 = phi i64 [ 0, %51 ], [ %54, %.lr.ph.preheader.i.i36 ]
+  %.0.i40 = phi i64 [ %54, %.lr.ph.preheader.i.i36 ], [ 0, %51 ]
   %55 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %3, i64 noundef %.0.i40, ptr noundef readonly %47)
   store ptr %55, ptr %49, align 16, !tbaa !28
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
@@ -4389,7 +4389,7 @@ xml_xmlchar_zval.exit43:                          ; preds = %xml_xmlchar_zval.ex
   br label %xml_xmlcharlen.exit.i48
 
 xml_xmlcharlen.exit.i48:                          ; preds = %.lr.ph.preheader.i.i45, %64
-  %.0.i49 = phi i64 [ 0, %64 ], [ %67, %.lr.ph.preheader.i.i45 ]
+  %.0.i49 = phi i64 [ %67, %.lr.ph.preheader.i.i45 ], [ 0, %64 ]
   %68 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %4, i64 noundef %.0.i49, ptr noundef readonly %60)
   store ptr %68, ptr %62, align 16, !tbaa !28
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
@@ -4502,7 +4502,7 @@ define hidden i32 @xml_externalEntityRefHandler(ptr noundef %0, ptr noundef %1, 
   br label %xml_xmlcharlen.exit.i
 
 xml_xmlcharlen.exit.i:                            ; preds = %.lr.ph.preheader.i.i, %27
-  %.0.i28 = phi i64 [ 0, %27 ], [ %30, %.lr.ph.preheader.i.i ]
+  %.0.i28 = phi i64 [ %30, %.lr.ph.preheader.i.i ], [ 0, %27 ]
   %31 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %1, i64 noundef %.0.i28, ptr noundef readonly %24)
   store ptr %31, ptr %25, align 16, !tbaa !28
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
@@ -4536,7 +4536,7 @@ xml_xmlchar_zval.exit:                            ; preds = %22, %xml_xmlcharlen
   br label %xml_xmlcharlen.exit.i34
 
 xml_xmlcharlen.exit.i34:                          ; preds = %.lr.ph.preheader.i.i31, %40
-  %.0.i35 = phi i64 [ 0, %40 ], [ %43, %.lr.ph.preheader.i.i31 ]
+  %.0.i35 = phi i64 [ %43, %.lr.ph.preheader.i.i31 ], [ 0, %40 ]
   %44 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %2, i64 noundef %.0.i35, ptr noundef readonly %36)
   store ptr %44, ptr %38, align 16, !tbaa !28
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
@@ -4570,7 +4570,7 @@ xml_xmlchar_zval.exit38:                          ; preds = %xml_xmlchar_zval.ex
   br label %xml_xmlcharlen.exit.i43
 
 xml_xmlcharlen.exit.i43:                          ; preds = %.lr.ph.preheader.i.i40, %53
-  %.0.i44 = phi i64 [ 0, %53 ], [ %56, %.lr.ph.preheader.i.i40 ]
+  %.0.i44 = phi i64 [ %56, %.lr.ph.preheader.i.i40 ], [ 0, %53 ]
   %57 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %3, i64 noundef %.0.i44, ptr noundef readonly %49)
   store ptr %57, ptr %51, align 16, !tbaa !28
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
@@ -4604,7 +4604,7 @@ xml_xmlchar_zval.exit47:                          ; preds = %xml_xmlchar_zval.ex
   br label %xml_xmlcharlen.exit.i52
 
 xml_xmlcharlen.exit.i52:                          ; preds = %.lr.ph.preheader.i.i49, %66
-  %.0.i53 = phi i64 [ 0, %66 ], [ %69, %.lr.ph.preheader.i.i49 ]
+  %.0.i53 = phi i64 [ %69, %.lr.ph.preheader.i.i49 ], [ 0, %66 ]
   %70 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %4, i64 noundef %.0.i53, ptr noundef readonly %62)
   store ptr %70, ptr %64, align 16, !tbaa !28
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
@@ -4733,7 +4733,7 @@ define hidden void @xml_startNamespaceDeclHandler(ptr noundef readonly captures(
   br label %xml_xmlcharlen.exit.i
 
 xml_xmlcharlen.exit.i:                            ; preds = %.lr.ph.preheader.i.i, %23
-  %.0.i20 = phi i64 [ 0, %23 ], [ %26, %.lr.ph.preheader.i.i ]
+  %.0.i20 = phi i64 [ %26, %.lr.ph.preheader.i.i ], [ 0, %23 ]
   %27 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %1, i64 noundef %.0.i20, ptr noundef readonly %20)
   store ptr %27, ptr %21, align 16, !tbaa !28
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
@@ -4767,7 +4767,7 @@ xml_xmlchar_zval.exit:                            ; preds = %18, %xml_xmlcharlen
   br label %xml_xmlcharlen.exit.i26
 
 xml_xmlcharlen.exit.i26:                          ; preds = %.lr.ph.preheader.i.i23, %36
-  %.0.i27 = phi i64 [ 0, %36 ], [ %39, %.lr.ph.preheader.i.i23 ]
+  %.0.i27 = phi i64 [ %39, %.lr.ph.preheader.i.i23 ], [ 0, %36 ]
   %40 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %2, i64 noundef %.0.i27, ptr noundef readonly %32)
   store ptr %40, ptr %34, align 16, !tbaa !28
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
@@ -4875,7 +4875,7 @@ define hidden void @xml_endNamespaceDeclHandler(ptr noundef readonly captures(ad
   br label %xml_xmlcharlen.exit.i
 
 xml_xmlcharlen.exit.i:                            ; preds = %.lr.ph.preheader.i.i, %22
-  %.0.i18 = phi i64 [ 0, %22 ], [ %25, %.lr.ph.preheader.i.i ]
+  %.0.i18 = phi i64 [ %25, %.lr.ph.preheader.i.i ], [ 0, %22 ]
   %26 = tail call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %1, i64 noundef %.0.i18, ptr noundef readonly %19)
   store ptr %26, ptr %20, align 16, !tbaa !28
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
@@ -5023,8 +5023,8 @@ define internal fastcc void @php_xml_parser_create_impl(i32 %.44.val, ptr nounde
   br label %37
 
 37:                                               ; preds = %31, %24, %17, %15, %35
-  %.023 = phi ptr [ %16, %15 ], [ %36, %35 ], [ @.str.135, %17 ], [ @.str.101, %24 ], [ @.str.136, %31 ]
-  %.not31 = phi ptr [ null, %15 ], [ %36, %35 ], [ @.str.135, %17 ], [ @.str.101, %24 ], [ @.str.136, %31 ]
+  %.023 = phi ptr [ %16, %15 ], [ @.str.101, %24 ], [ @.str.135, %17 ], [ %36, %35 ], [ @.str.136, %31 ]
+  %.not31 = phi ptr [ null, %15 ], [ @.str.101, %24 ], [ @.str.135, %17 ], [ %36, %35 ], [ @.str.136, %31 ]
   %38 = load ptr, ptr %4, align 8
   %39 = icmp eq ptr %38, null
   %or.cond = select i1 %6, i1 %39, i1 false
@@ -7519,7 +7519,7 @@ php_xml_check_string_method_arg.exit33:           ; preds = %80, %74
   br label %.critedge29
 
 .critedge:                                        ; preds = %122, %140, %66, %85, %32, %51, %17
-  %.0 = phi ptr [ %20, %17 ], [ %29, %51 ], [ %29, %32 ], [ %63, %85 ], [ %63, %66 ], [ %99, %140 ], [ %99, %122 ]
+  %.0 = phi ptr [ %20, %17 ], [ %29, %32 ], [ %63, %66 ], [ %29, %51 ], [ %63, %85 ], [ %99, %140 ], [ %99, %122 ]
   %154 = getelementptr inbounds nuw i8, ptr %.0, i64 40
   call fastcc void @xml_set_handler(ptr noundef nonnull %154, ptr noundef %5)
   %155 = getelementptr inbounds nuw i8, ptr %.0, i64 80
@@ -8174,7 +8174,7 @@ define hidden void @zif_xml_parse_into_struct(ptr noundef readonly captures(none
   br i1 %35, label %zend_try_array_init_size.exit43, label %zend_try_array_init_size.exit43.thread
 
 36:                                               ; preds = %.thread, %23
-  %.019.i37 = phi ptr [ %22, %23 ], [ %32, %.thread ]
+  %.019.i37 = phi ptr [ %32, %.thread ], [ %22, %23 ]
   call void @zval_ptr_safe_dtor(ptr noundef nonnull %.019.i37) #16
   store ptr %24, ptr %.019.i37, align 8, !tbaa !28
   %37 = getelementptr inbounds nuw i8, ptr %.019.i37, i64 8
@@ -8206,7 +8206,7 @@ zend_try_array_init_size.exit43.thread:           ; preds = %33, %36, %21
   br i1 %50, label %zend_try_array_init_size.exit43, label %53
 
 51:                                               ; preds = %.thread49, %zend_try_array_init_size.exit43.thread
-  %.019.i = phi ptr [ %38, %zend_try_array_init_size.exit43.thread ], [ %47, %.thread49 ]
+  %.019.i = phi ptr [ %47, %.thread49 ], [ %38, %zend_try_array_init_size.exit43.thread ]
   call void @zval_ptr_safe_dtor(ptr noundef nonnull %.019.i) #16
   store ptr %39, ptr %.019.i, align 8, !tbaa !28
   %52 = getelementptr inbounds nuw i8, ptr %.019.i, i64 8

@@ -588,7 +588,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIbEERKT_v.exit: ; p
   br label %common.resume
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIbEEbv.exit.thread: ; preds = %41, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIbEERKT_v.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIbEEbv.exit
-  %58 = phi ptr [ %33, %41 ], [ %.pre114, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIbEERKT_v.exit ], [ %.pre115, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIbEEbv.exit ]
+  %58 = phi ptr [ %33, %41 ], [ %.pre115, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIbEEbv.exit ], [ %.pre114, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIbEERKT_v.exit ]
   %59 = ptrtoint ptr %58 to i64
   %.not.i.i31 = icmp eq ptr %58, null
   %60 = and i64 %59, 3
@@ -1930,7 +1930,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2feqERKS0_.exit: ; preds = %85
   br label %_ZSteqIN32pxrInternal_v0_24__pxrReserved__16HdRenderSettings13RenderProduct9RenderVarESaIS3_EEbRKSt6vectorIT_T0_ESA_.exit
 
 _ZSteqIN32pxrInternal_v0_24__pxrReserved__16HdRenderSettings13RenderProduct9RenderVarESaIS3_EEbRKSt6vectorIT_T0_ESA_.exit: ; preds = %.lr.ph.i.i.i.i.i, %85, %34, %124, %116, %108, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2feqERKS0_.exit, %73, %64, %58, %.loopexit, %22, %13, %4, %2
-  %128 = phi i1 [ false, %116 ], [ false, %108 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2feqERKS0_.exit ], [ false, %73 ], [ false, %64 ], [ false, %58 ], [ false, %.loopexit ], [ false, %22 ], [ false, %13 ], [ false, %4 ], [ false, %2 ], [ %127, %124 ], [ false, %34 ], [ false, %85 ], [ false, %.lr.ph.i.i.i.i.i ]
+  %128 = phi i1 [ false, %116 ], [ false, %108 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2feqERKS0_.exit ], [ false, %73 ], [ false, %64 ], [ false, %58 ], [ false, %.loopexit ], [ %127, %124 ], [ false, %22 ], [ false, %13 ], [ false, %4 ], [ false, %2 ], [ false, %34 ], [ false, %85 ], [ false, %.lr.ph.i.i.i.i.i ]
   ret i1 %128
 }
 

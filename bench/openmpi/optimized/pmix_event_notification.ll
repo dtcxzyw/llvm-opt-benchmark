@@ -250,7 +250,7 @@ define noundef i32 @PMIx_Notify_event(i32 noundef %0, ptr noundef %1, i8 noundef
   br label %79
 
 79:                                               ; preds = %56, %77, %75, %75, %43, %16
-  %.0 = phi i32 [ -31, %16 ], [ 0, %43 ], [ %76, %75 ], [ %76, %75 ], [ %76, %77 ], [ -25, %56 ]
+  %.0 = phi i32 [ -31, %16 ], [ %76, %77 ], [ 0, %43 ], [ %76, %75 ], [ %76, %75 ], [ -25, %56 ]
   ret i32 %.0
 }
 
@@ -1384,8 +1384,8 @@ pmix_obj_run_destructors.exit273:                 ; preds = %.lr.ph.i270, %491
   br label %pmix_obj_new_tma.exit
 
 509:                                              ; preds = %pmix_obj_update.exit231, %504, %502, %pmix_obj_update.exit, %367, %365, %221, %185, %151, %117, %83, %.thread292, %.thread289, %.thread286, %.thread283, %.thread, %335
-  %.1181 = phi ptr [ %40, %.thread ], [ %40, %.thread283 ], [ %40, %.thread286 ], [ %40, %.thread289 ], [ %40, %.thread292 ], [ %.0180, %335 ], [ %40, %83 ], [ %40, %117 ], [ %40, %151 ], [ %40, %185 ], [ %40, %221 ], [ %.0180, %365 ], [ %.0180, %367 ], [ %.0180, %pmix_obj_update.exit ], [ %.0180, %502 ], [ %.0180, %504 ], [ %.0180, %pmix_obj_update.exit231 ]
-  %.1 = phi i32 [ %.0179282, %.thread ], [ %.2285, %.thread283 ], [ %.3288, %.thread286 ], [ %.4291, %.thread289 ], [ %.5294, %.thread292 ], [ -32, %335 ], [ %88, %83 ], [ %122, %117 ], [ %156, %151 ], [ %190, %185 ], [ %228, %221 ], [ %341, %365 ], [ %341, %367 ], [ %341, %pmix_obj_update.exit ], [ -25, %502 ], [ -25, %504 ], [ -25, %pmix_obj_update.exit231 ]
+  %.1181 = phi ptr [ %40, %.thread ], [ %40, %83 ], [ %40, %.thread283 ], [ %40, %117 ], [ %40, %.thread286 ], [ %40, %151 ], [ %40, %.thread289 ], [ %40, %185 ], [ %40, %.thread292 ], [ %40, %221 ], [ %.0180, %335 ], [ %.0180, %pmix_obj_update.exit ], [ %.0180, %365 ], [ %.0180, %367 ], [ %.0180, %502 ], [ %.0180, %504 ], [ %.0180, %pmix_obj_update.exit231 ]
+  %.1 = phi i32 [ %.0179282, %.thread ], [ %88, %83 ], [ %.2285, %.thread283 ], [ %122, %117 ], [ %.3288, %.thread286 ], [ %156, %151 ], [ %.4291, %.thread289 ], [ %190, %185 ], [ %.5294, %.thread292 ], [ %228, %221 ], [ -32, %335 ], [ %341, %pmix_obj_update.exit ], [ %341, %365 ], [ %341, %367 ], [ -25, %502 ], [ -25, %504 ], [ -25, %pmix_obj_update.exit231 ]
   %510 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_client_globals, i64 760), align 8, !tbaa !59
   %or.cond19 = icmp ult i32 %510, 64
   br i1 %or.cond19, label %511, label %518
@@ -1461,7 +1461,7 @@ pmix_obj_run_destructors.exit279:                 ; preds = %.lr.ph.i276, %529
   br label %pmix_obj_new_tma.exit
 
 pmix_obj_new_tma.exit:                            ; preds = %44, %518, %540, %542, %pmix_obj_update.exit232, %507, %508
-  %.0 = phi i32 [ 0, %508 ], [ 0, %507 ], [ %.1, %pmix_obj_update.exit232 ], [ %.1, %542 ], [ %.1, %540 ], [ %.1, %518 ], [ -32, %44 ]
+  %.0 = phi i32 [ %.1, %518 ], [ 0, %507 ], [ 0, %508 ], [ %.1, %pmix_obj_update.exit232 ], [ %.1, %542 ], [ %.1, %540 ], [ -32, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.0
 }
@@ -1558,8 +1558,8 @@ pmix_hotel_knock.exit.thread:                     ; preds = %.lr.ph, %pmix_hotel
   br label %47
 
 47:                                               ; preds = %39, %46, %43
-  %.123 = phi i32 [ %23, %46 ], [ %.02248, %43 ], [ 0, %39 ]
-  %.1 = phi i64 [ %42, %46 ], [ %.02149, %43 ], [ %42, %39 ]
+  %.123 = phi i32 [ %.02248, %43 ], [ %23, %46 ], [ 0, %39 ]
+  %.1 = phi i64 [ %.02149, %43 ], [ %42, %46 ], [ %42, %39 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 2088), align 8, !tbaa !146
   %49 = sext i32 %48 to i64
@@ -1687,7 +1687,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %78
   br label %pmix_hotel_checkin_with_res.exit
 
 pmix_hotel_checkin_with_res.exit:                 ; preds = %pmix_hotel_checkin.exit, %5, %15, %106, %96, %95, %36, %pmix_hotel_knock.exit.thread, %._crit_edge
-  %.0 = phi i32 [ -29, %._crit_edge ], [ 0, %pmix_hotel_knock.exit.thread ], [ 0, %36 ], [ -29, %95 ], [ 0, %106 ], [ 0, %96 ], [ 0, %15 ], [ 0, %5 ], [ -29, %pmix_hotel_checkin.exit ]
+  %.0 = phi i32 [ 0, %96 ], [ 0, %36 ], [ -29, %._crit_edge ], [ 0, %pmix_hotel_knock.exit.thread ], [ -29, %95 ], [ 0, %106 ], [ 0, %15 ], [ 0, %5 ], [ -29, %pmix_hotel_checkin.exit ]
   ret i32 %.0
 }
 
@@ -1912,7 +1912,7 @@ define range(i32 -32, 1) i32 @pmix_prep_event_chain(ptr noundef captures(none) %
   br i1 %exitcond.not, label %.loopexit, label %20, !llvm.loop !154
 
 .loopexit:                                        ; preds = %83, %61, %4, %76, %.thread
-  %.067 = phi i32 [ -27, %.thread ], [ -32, %76 ], [ 0, %4 ], [ 0, %83 ], [ -32, %61 ]
+  %.067 = phi i32 [ -27, %.thread ], [ 0, %4 ], [ -32, %76 ], [ 0, %83 ], [ -32, %61 ]
   ret i32 %.067
 }
 
@@ -2848,7 +2848,7 @@ pmix_notify_check_affected.exit226:               ; preds = %._crit_edge.us.i223
   br label %384
 
 384:                                              ; preds = %.loopexit, %376, %382, %.critedge, %54, %60, %18, %20, %26
-  %.0144 = phi i32 [ -27, %26 ], [ -27, %20 ], [ -27, %18 ], [ 0, %60 ], [ 0, %54 ], [ 0, %.critedge ], [ -46, %382 ], [ -46, %376 ], [ -46, %.loopexit ]
+  %.0144 = phi i32 [ -27, %26 ], [ -27, %20 ], [ -27, %18 ], [ 0, %.critedge ], [ 0, %60 ], [ 0, %54 ], [ -46, %382 ], [ -46, %376 ], [ -46, %.loopexit ]
   %385 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %386 = load ptr, ptr %385, align 8, !tbaa !177
   %.not184 = icmp eq ptr %386, null
@@ -3116,7 +3116,7 @@ define noundef zeroext i1 @pmix_notify_check_range(ptr noundef readonly captures
   br label %.loopexit
 
 .loopexit:                                        ; preds = %38, %34, %41, %27, %23, %19, %15, %.preheader36, %.preheader33, %.preheader, %2, %2, %2, %2, %43
-  %.030 = phi i1 [ false, %43 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ false, %.preheader ], [ false, %.preheader33 ], [ false, %.preheader36 ], [ %22, %15 ], [ %22, %19 ], [ %30, %23 ], [ %30, %27 ], [ true, %38 ], [ true, %34 ], [ false, %41 ]
+  %.030 = phi i1 [ false, %43 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ false, %.preheader33 ], [ false, %.preheader36 ], [ %22, %19 ], [ false, %.preheader ], [ %30, %27 ], [ %22, %15 ], [ %30, %23 ], [ true, %38 ], [ false, %41 ], [ true, %34 ]
   ret i1 %.030
 }
 
@@ -3155,7 +3155,7 @@ define noundef zeroext i1 @pmix_notify_check_affected(ptr noundef %0, i64 nounde
   br i1 %exitcond23.not, label %.loopexit, label %.preheader.us, !llvm.loop !166
 
 .loopexit:                                        ; preds = %._crit_edge.us, %10, %.preheader16, %4
-  %.013 = phi i1 [ true, %4 ], [ false, %.preheader16 ], [ true, %10 ], [ false, %._crit_edge.us ]
+  %.013 = phi i1 [ false, %.preheader16 ], [ true, %4 ], [ true, %10 ], [ false, %._crit_edge.us ]
   ret i1 %.013
 }
 
@@ -3471,7 +3471,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %66, %6
   br i1 %147, label %.lr.ph634, label %.thread591, !llvm.loop !199
 
 .thread591:                                       ; preds = %144, %138, %.preheader621, %136, %112
-  %.1381 = phi i64 [ 0, %112 ], [ -1, %136 ], [ -1, %.preheader621 ], [ %.2, %144 ], [ -1, %138 ]
+  %.1381 = phi i64 [ -1, %136 ], [ 0, %112 ], [ -1, %138 ], [ %.2, %144 ], [ -1, %.preheader621 ]
   %148 = getelementptr inbounds nuw i8, ptr %2, i64 768
   store i64 %.1381, ptr %148, align 8, !tbaa !200
   br label %149
@@ -5074,7 +5074,7 @@ pmix_obj_run_destructors.exit581:                 ; preds = %.lr.ph.i578, %._cri
   call void @pmix_invoke_local_event_hdlr(ptr noundef %62)
   br i1 %940, label %972, label %942
 
-.thread616:                                       ; preds = %926, %930, %pmix_obj_run_destructors.exit581, %277
+.thread616:                                       ; preds = %926, %277, %930, %pmix_obj_run_destructors.exit581
   call void @pmix_invoke_local_event_hdlr(ptr noundef %62)
   br label %942
 

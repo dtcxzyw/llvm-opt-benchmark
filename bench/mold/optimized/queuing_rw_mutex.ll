@@ -135,7 +135,7 @@ _ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit: ; 
   br label %_ZN3tbb6detail2d015spin_wait_whileIhZNS1_18spin_wait_until_eqIhjEET_RKSt6atomicIS4_ET0_St12memory_orderEUlhE_EES4_S8_S9_SA_.exit49
 
 _ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.thread: ; preds = %41, %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit, %34
-  %.081.ph = phi ptr [ %36, %34 ], [ %.0.i.i, %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit ], [ %.0.i.i, %41 ]
+  %.081.ph = phi ptr [ %.0.i.i, %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit ], [ %36, %34 ], [ %.0.i.i, %41 ]
   %50 = ptrtoint ptr %.081.ph to i64
   store atomic i64 %50, ptr %4 monotonic, align 8
   %51 = getelementptr inbounds nuw i8, ptr %.081.ph, i64 16
@@ -638,7 +638,7 @@ _ZN3tbb6detail2d015spin_wait_whileImZNS1_18spin_wait_while_eqImjEET_RKSt6atomicI
   br label %.critedge66
 
 .critedge66:                                      ; preds = %134, %106
-  %.2 = phi i64 [ %137, %134 ], [ %.1, %106 ]
+  %.2 = phi i64 [ %.1, %106 ], [ %137, %134 ]
   %138 = and i64 %.2, 1
   %.not.i77 = icmp eq i64 %138, 0
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 26
@@ -1189,7 +1189,7 @@ _ZN3tbb6detail2d015spin_wait_whileIhZNS1_18spin_wait_while_eqIhjEET_RKSt6atomicI
   br label %.thread138
 
 .thread138:                                       ; preds = %164, %_ZN3tbb6detail2d015spin_wait_whileIhZNS1_18spin_wait_while_eqIhjEET_RKSt6atomicIS4_ET0_St12memory_orderEUlhE_EES4_S8_S9_SA_.exit, %1
-  %.0 = phi i1 [ true, %1 ], [ %162, %_ZN3tbb6detail2d015spin_wait_whileIhZNS1_18spin_wait_while_eqIhjEET_RKSt6atomicIS4_ET0_St12memory_orderEUlhE_EES4_S8_S9_SA_.exit ], [ %162, %164 ]
+  %.0 = phi i1 [ true, %1 ], [ %162, %164 ], [ %162, %_ZN3tbb6detail2d015spin_wait_whileIhZNS1_18spin_wait_while_eqIhjEET_RKSt6atomicIS4_ET0_St12memory_orderEUlhE_EES4_S8_S9_SA_.exit ]
   ret i1 %.0
 }
 

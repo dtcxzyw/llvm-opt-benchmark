@@ -300,18 +300,18 @@ default.unreachable197:                           ; preds = %bytestream2_get_byt
   unreachable
 
 .loopexit.sink.split:                             ; preds = %72, %76, %.preheader, %49, %31
-  %.sroa.0.2.ph = phi ptr [ %.sroa.0.1, %49 ], [ %23, %31 ], [ %.sroa.0.1, %.preheader ], [ %.sroa.0.6, %76 ], [ %.sroa.0.6, %72 ]
-  %.9118.ph = phi i32 [ %.0109188, %49 ], [ %.0109188, %31 ], [ %spec.select, %.preheader ], [ %.6115, %72 ], [ 160, %76 ]
-  %.9.ph = phi i32 [ %.0104189, %49 ], [ %.0104189, %31 ], [ %spec.select137, %.preheader ], [ %.6, %72 ], [ %spec.select139, %76 ]
+  %.sroa.0.2.ph = phi ptr [ %.sroa.0.1, %.preheader ], [ %23, %31 ], [ %.sroa.0.1, %49 ], [ %.sroa.0.6, %76 ], [ %.sroa.0.6, %72 ]
+  %.9118.ph = phi i32 [ %spec.select, %.preheader ], [ %.0109188, %31 ], [ %.0109188, %49 ], [ 160, %76 ], [ %.6115, %72 ]
+  %.9.ph = phi i32 [ %spec.select137, %.preheader ], [ %.0104189, %31 ], [ %.0104189, %49 ], [ %spec.select139, %76 ], [ %.6, %72 ]
   %134 = load i32, ptr %30, align 4, !tbaa !33
   %135 = and i32 %134, -3
   store i32 %135, ptr %30, align 4, !tbaa !33
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader185, %108, %.loopexit.sink.split, %bytestream2_get_byte.exit154
-  %.sroa.0.2 = phi ptr [ %.sroa.0.8, %bytestream2_get_byte.exit154 ], [ %.sroa.0.2.ph, %.loopexit.sink.split ], [ %.sroa.0.7, %108 ], [ %.sroa.0.8, %.preheader185 ]
-  %.9118 = phi i32 [ %.0109188, %bytestream2_get_byte.exit154 ], [ %.9118.ph, %.loopexit.sink.split ], [ %spec.select140, %108 ], [ %spec.select142, %.preheader185 ]
-  %.9 = phi i32 [ %.0104189, %bytestream2_get_byte.exit154 ], [ %.9.ph, %.loopexit.sink.split ], [ %spec.select141, %108 ], [ %spec.select143, %.preheader185 ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.8, %bytestream2_get_byte.exit154 ], [ %.sroa.0.7, %108 ], [ %.sroa.0.2.ph, %.loopexit.sink.split ], [ %.sroa.0.8, %.preheader185 ]
+  %.9118 = phi i32 [ %.0109188, %bytestream2_get_byte.exit154 ], [ %spec.select140, %108 ], [ %.9118.ph, %.loopexit.sink.split ], [ %spec.select142, %.preheader185 ]
+  %.9 = phi i32 [ %.0104189, %bytestream2_get_byte.exit154 ], [ %spec.select141, %108 ], [ %.9.ph, %.loopexit.sink.split ], [ %spec.select143, %.preheader185 ]
   %136 = ptrtoint ptr %.sroa.0.2 to i64
   %137 = sub i64 %26, %136
   %138 = trunc i64 %137 to i32
@@ -340,7 +340,7 @@ default.unreachable197:                           ; preds = %bytestream2_get_byt
   br label %.critedge145
 
 .critedge145:                                     ; preds = %bytestream2_get_le16.exit, %.critedge, %4, %149
-  %.096 = phi i32 [ %150, %149 ], [ %8, %4 ], [ %147, %.critedge ], [ -1094995529, %bytestream2_get_le16.exit ]
+  %.096 = phi i32 [ %150, %149 ], [ %147, %.critedge ], [ %8, %4 ], [ -1094995529, %bytestream2_get_le16.exit ]
   ret i32 %.096
 }
 

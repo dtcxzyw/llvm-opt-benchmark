@@ -507,7 +507,7 @@ define hidden void @_ZN11opencv_test31Undistort_InitUndistortMap_Test12PerfTestB
   br label %56
 
 56:                                               ; preds = %52, %54
-  %.pn.pn.pn = phi { ptr, i32 } [ %55, %54 ], [ %53, %52 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %53, %52 ], [ %55, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %65
@@ -530,7 +530,7 @@ define hidden void @_ZN11opencv_test31Undistort_InitUndistortMap_Test12PerfTestB
   br label %63
 
 63:                                               ; preds = %59, %61
-  %.pn19.pn.pn.pn = phi { ptr, i32 } [ %62, %61 ], [ %60, %59 ]
+  %.pn19.pn.pn.pn = phi { ptr, i32 } [ %60, %59 ], [ %62, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %65
@@ -846,7 +846,7 @@ define hidden void @_ZN11opencv_test51Undistort_DISABLED_InitInverseRectificatio
   br label %58
 
 58:                                               ; preds = %54, %56
-  %.pn.pn.pn = phi { ptr, i32 } [ %57, %56 ], [ %55, %54 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %55, %54 ], [ %57, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %67
@@ -869,7 +869,7 @@ define hidden void @_ZN11opencv_test51Undistort_DISABLED_InitInverseRectificatio
   br label %65
 
 65:                                               ; preds = %61, %63
-  %.pn18.pn.pn.pn = phi { ptr, i32 } [ %64, %63 ], [ %62, %61 ]
+  %.pn18.pn.pn.pn = phi { ptr, i32 } [ %62, %61 ], [ %64, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %67

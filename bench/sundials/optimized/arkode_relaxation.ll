@@ -117,8 +117,8 @@ arkRelaxAccessMem.exit:                           ; preds = %4
   store double 2.500000e-01, ptr %14, align 8, !tbaa !19
   br label %arkRelaxAccessMem.exit.thread
 
-arkRelaxAccessMem.exit.thread:                    ; preds = %3, %7, %15, %16, %10
-  %.0 = phi i32 [ -48, %10 ], [ 0, %16 ], [ 0, %15 ], [ -21, %3 ], [ -44, %7 ]
+arkRelaxAccessMem.exit.thread:                    ; preds = %7, %3, %15, %16, %10
+  %.0 = phi i32 [ -48, %10 ], [ 0, %15 ], [ 0, %16 ], [ -44, %7 ], [ -21, %3 ]
   ret i32 %.0
 }
 
@@ -166,8 +166,8 @@ arkRelaxAccessMem.exit:                           ; preds = %4
   store double 8.000000e-01, ptr %14, align 8, !tbaa !21
   br label %arkRelaxAccessMem.exit.thread
 
-arkRelaxAccessMem.exit.thread:                    ; preds = %3, %7, %15, %16, %10
-  %.0 = phi i32 [ -48, %10 ], [ 0, %16 ], [ 0, %15 ], [ -21, %3 ], [ -44, %7 ]
+arkRelaxAccessMem.exit.thread:                    ; preds = %7, %3, %15, %16, %10
+  %.0 = phi i32 [ -48, %10 ], [ 0, %15 ], [ 0, %16 ], [ -44, %7 ], [ -21, %3 ]
   ret i32 %.0
 }
 
@@ -213,8 +213,8 @@ arkRelaxAccessMem.exit:                           ; preds = %4
   store i32 10, ptr %13, align 8, !tbaa !22
   br label %arkRelaxAccessMem.exit.thread
 
-arkRelaxAccessMem.exit.thread:                    ; preds = %3, %7, %14, %15, %10
-  %.0 = phi i32 [ -48, %10 ], [ 0, %15 ], [ 0, %14 ], [ -21, %3 ], [ -44, %7 ]
+arkRelaxAccessMem.exit.thread:                    ; preds = %7, %3, %14, %15, %10
+  %.0 = phi i32 [ -48, %10 ], [ 0, %14 ], [ 0, %15 ], [ -44, %7 ], [ -21, %3 ]
   ret i32 %.0
 }
 
@@ -260,8 +260,8 @@ arkRelaxAccessMem.exit:                           ; preds = %4
   store i32 10, ptr %13, align 8, !tbaa !23
   br label %arkRelaxAccessMem.exit.thread
 
-arkRelaxAccessMem.exit.thread:                    ; preds = %3, %7, %14, %15, %10
-  %.0 = phi i32 [ -48, %10 ], [ 0, %15 ], [ 0, %14 ], [ -21, %3 ], [ -44, %7 ]
+arkRelaxAccessMem.exit.thread:                    ; preds = %7, %3, %14, %15, %10
+  %.0 = phi i32 [ -48, %10 ], [ 0, %14 ], [ 0, %15 ], [ -44, %7 ], [ -21, %3 ]
   ret i32 %.0
 }
 
@@ -307,8 +307,8 @@ arkRelaxAccessMem.exit:                           ; preds = %4
   store i32 %1, ptr %14, align 8, !tbaa !24
   br label %arkRelaxAccessMem.exit.thread
 
-arkRelaxAccessMem.exit.thread:                    ; preds = %3, %7, %13, %12, %10
-  %.0 = phi i32 [ -22, %12 ], [ 0, %13 ], [ -48, %10 ], [ -21, %3 ], [ -44, %7 ]
+arkRelaxAccessMem.exit.thread:                    ; preds = %7, %3, %13, %12, %10
+  %.0 = phi i32 [ -48, %10 ], [ -22, %12 ], [ 0, %13 ], [ -44, %7 ], [ -21, %3 ]
   ret i32 %.0
 }
 
@@ -354,8 +354,8 @@ arkRelaxAccessMem.exit:                           ; preds = %4
   store double 0x3CE4000000000000, ptr %13, align 8, !tbaa !25
   br label %arkRelaxAccessMem.exit.thread
 
-arkRelaxAccessMem.exit.thread:                    ; preds = %3, %7, %14, %15, %10
-  %.0 = phi i32 [ -48, %10 ], [ 0, %15 ], [ 0, %14 ], [ -21, %3 ], [ -44, %7 ]
+arkRelaxAccessMem.exit.thread:                    ; preds = %7, %3, %14, %15, %10
+  %.0 = phi i32 [ -48, %10 ], [ 0, %14 ], [ 0, %15 ], [ -44, %7 ], [ -21, %3 ]
   ret i32 %.0
 }
 
@@ -405,8 +405,8 @@ arkRelaxAccessMem.exit:                           ; preds = %5
   store double 0x3D06849B86A12B9B, ptr %16, align 8, !tbaa !27
   br label %arkRelaxAccessMem.exit.thread
 
-arkRelaxAccessMem.exit.thread:                    ; preds = %4, %8, %17, %18, %11
-  %.0 = phi i32 [ -48, %11 ], [ 0, %18 ], [ 0, %17 ], [ -21, %4 ], [ -44, %8 ]
+arkRelaxAccessMem.exit.thread:                    ; preds = %8, %4, %17, %18, %11
+  %.0 = phi i32 [ -48, %11 ], [ 0, %17 ], [ 0, %18 ], [ -44, %8 ], [ -21, %4 ]
   ret i32 %.0
 }
 
@@ -452,8 +452,8 @@ arkRelaxAccessMem.exit:                           ; preds = %4
   store double 1.200000e+00, ptr %13, align 8, !tbaa !28
   br label %arkRelaxAccessMem.exit.thread
 
-arkRelaxAccessMem.exit.thread:                    ; preds = %3, %7, %14, %15, %10
-  %.0 = phi i32 [ -48, %10 ], [ 0, %15 ], [ 0, %14 ], [ -21, %3 ], [ -44, %7 ]
+arkRelaxAccessMem.exit.thread:                    ; preds = %7, %3, %14, %15, %10
+  %.0 = phi i32 [ -48, %10 ], [ 0, %14 ], [ 0, %15 ], [ -44, %7 ], [ -21, %3 ]
   ret i32 %.0
 }
 
@@ -492,8 +492,8 @@ arkRelaxAccessMem.exit:                           ; preds = %4
   store i64 %13, ptr %1, align 8, !tbaa !30
   br label %arkRelaxAccessMem.exit.thread
 
-arkRelaxAccessMem.exit.thread:                    ; preds = %3, %7, %11, %10
-  %.0 = phi i32 [ 0, %11 ], [ -48, %10 ], [ -21, %3 ], [ -44, %7 ]
+arkRelaxAccessMem.exit.thread:                    ; preds = %7, %3, %11, %10
+  %.0 = phi i32 [ -48, %10 ], [ 0, %11 ], [ -44, %7 ], [ -21, %3 ]
   ret i32 %.0
 }
 
@@ -532,8 +532,8 @@ arkRelaxAccessMem.exit:                           ; preds = %4
   store i64 %13, ptr %1, align 8, !tbaa !30
   br label %arkRelaxAccessMem.exit.thread
 
-arkRelaxAccessMem.exit.thread:                    ; preds = %3, %7, %11, %10
-  %.0 = phi i32 [ 0, %11 ], [ -48, %10 ], [ -21, %3 ], [ -44, %7 ]
+arkRelaxAccessMem.exit.thread:                    ; preds = %7, %3, %11, %10
+  %.0 = phi i32 [ -48, %10 ], [ 0, %11 ], [ -44, %7 ], [ -21, %3 ]
   ret i32 %.0
 }
 
@@ -572,8 +572,8 @@ arkRelaxAccessMem.exit:                           ; preds = %4
   store i64 %13, ptr %1, align 8, !tbaa !30
   br label %arkRelaxAccessMem.exit.thread
 
-arkRelaxAccessMem.exit.thread:                    ; preds = %3, %7, %11, %10
-  %.0 = phi i32 [ 0, %11 ], [ -48, %10 ], [ -21, %3 ], [ -44, %7 ]
+arkRelaxAccessMem.exit.thread:                    ; preds = %7, %3, %11, %10
+  %.0 = phi i32 [ -48, %10 ], [ 0, %11 ], [ -44, %7 ], [ -21, %3 ]
   ret i32 %.0
 }
 
@@ -612,8 +612,8 @@ arkRelaxAccessMem.exit:                           ; preds = %4
   store i64 %13, ptr %1, align 8, !tbaa !30
   br label %arkRelaxAccessMem.exit.thread
 
-arkRelaxAccessMem.exit.thread:                    ; preds = %3, %7, %11, %10
-  %.0 = phi i32 [ 0, %11 ], [ -48, %10 ], [ -21, %3 ], [ -44, %7 ]
+arkRelaxAccessMem.exit.thread:                    ; preds = %7, %3, %11, %10
+  %.0 = phi i32 [ -48, %10 ], [ 0, %11 ], [ -44, %7 ], [ -21, %3 ]
   ret i32 %.0
 }
 
@@ -652,8 +652,8 @@ arkRelaxAccessMem.exit:                           ; preds = %4
   store i64 %13, ptr %1, align 8, !tbaa !30
   br label %arkRelaxAccessMem.exit.thread
 
-arkRelaxAccessMem.exit.thread:                    ; preds = %3, %7, %11, %10
-  %.0 = phi i32 [ 0, %11 ], [ -48, %10 ], [ -21, %3 ], [ -44, %7 ]
+arkRelaxAccessMem.exit.thread:                    ; preds = %7, %3, %11, %10
+  %.0 = phi i32 [ -48, %10 ], [ 0, %11 ], [ -44, %7 ], [ -21, %3 ]
   ret i32 %.0
 }
 
@@ -692,8 +692,8 @@ arkRelaxAccessMem.exit:                           ; preds = %4
   store i64 %13, ptr %1, align 8, !tbaa !30
   br label %arkRelaxAccessMem.exit.thread
 
-arkRelaxAccessMem.exit.thread:                    ; preds = %3, %7, %11, %10
-  %.0 = phi i32 [ 0, %11 ], [ -48, %10 ], [ -21, %3 ], [ -44, %7 ]
+arkRelaxAccessMem.exit.thread:                    ; preds = %7, %3, %11, %10
+  %.0 = phi i32 [ -48, %10 ], [ 0, %11 ], [ -44, %7 ], [ -21, %3 ]
   ret i32 %.0
 }
 
@@ -790,7 +790,7 @@ define range(i32 -22, 1) i32 @arkRelaxCreate(ptr noundef %0, ptr noundef %1, ptr
   br label %45
 
 45:                                               ; preds = %21, %39, %17, %13, %11, %8
-  %.0 = phi i32 [ 0, %39 ], [ -22, %17 ], [ -22, %13 ], [ -22, %11 ], [ 0, %8 ], [ -20, %21 ]
+  %.0 = phi i32 [ 0, %39 ], [ 0, %8 ], [ -22, %17 ], [ -22, %13 ], [ -22, %11 ], [ -20, %21 ]
   ret i32 %.0
 }
 
@@ -1321,23 +1321,23 @@ define range(i32 -2147483648, 6) i32 @arkRelax(ptr noundef %0, ptr noundef captu
   br i1 %319, label %arkRelaxNewtonSolve.exit.thread48.i, label %253
 
 arkRelaxNewtonSolve.exit.thread52.sink.split.i:   ; preds = %66, %48, %99, %.preheader.i.i, %228, %211
-  %.lcssa197.sink.i = phi i64 [ %225, %211 ], [ %225, %228 ], [ %96, %.preheader.i.i ], [ %96, %99 ], [ %63, %48 ], [ %63, %66 ]
-  %.lcssa201.sink.i = phi ptr [ %224, %211 ], [ %224, %228 ], [ %95, %.preheader.i.i ], [ %95, %99 ], [ %62, %48 ], [ %62, %66 ]
-  %.0.i.ph.ph.i = phi i32 [ 1, %228 ], [ -45, %211 ], [ 1, %99 ], [ -45, %.preheader.i.i ], [ 1, %66 ], [ -45, %48 ]
-  %320 = add nsw i64 %.lcssa197.sink.i, 2
-  store i64 %320, ptr %.lcssa201.sink.i, align 8, !tbaa !29
+  %.lcssa175.sink.i = phi i64 [ %225, %228 ], [ %96, %99 ], [ %225, %211 ], [ %96, %.preheader.i.i ], [ %63, %48 ], [ %63, %66 ]
+  %.lcssa178.sink.i = phi ptr [ %224, %228 ], [ %95, %99 ], [ %224, %211 ], [ %95, %.preheader.i.i ], [ %62, %48 ], [ %62, %66 ]
+  %.0.i.ph.ph.i = phi i32 [ 1, %228 ], [ 1, %99 ], [ -45, %211 ], [ -45, %.preheader.i.i ], [ 1, %66 ], [ -45, %48 ]
+  %320 = add nsw i64 %.lcssa175.sink.i, 2
+  store i64 %320, ptr %.lcssa178.sink.i, align 8, !tbaa !29
   br label %arkRelaxNewtonSolve.exit.thread52.i
 
 arkRelaxNewtonSolve.exit.thread52.i:              ; preds = %229, %arkRelaxNewtonSolve.exit.thread52.sink.split.i, %116, %114, %80
-  %.0.i.ph.i = phi i32 [ 3, %116 ], [ 3, %114 ], [ 3, %80 ], [ %.0.i.ph.ph.i, %arkRelaxNewtonSolve.exit.thread52.sink.split.i ], [ 3, %229 ]
+  %.0.i.ph.i = phi i32 [ 3, %80 ], [ 3, %116 ], [ %.0.i.ph.ph.i, %arkRelaxNewtonSolve.exit.thread52.sink.split.i ], [ 3, %114 ], [ 3, %229 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %arkRelaxNewtonSolve.exit.thread.i
 
 arkRelaxNewtonSolve.exit.i:                       ; preds = %67, %100, %150, %139
-  %.lcssa170.sink.i = phi double [ %140, %139 ], [ %140, %150 ], [ %104, %100 ], [ %71, %67 ]
-  %.3.i.lcssa.sink.i = phi double [ %.3.i.i, %139 ], [ %.3.i.i, %150 ], [ %.1131202.i.i, %100 ], [ %.0133200.i.i, %67 ]
-  %321 = phi ptr [ %125, %139 ], [ %125, %150 ], [ %94, %100 ], [ %61, %67 ]
+  %.lcssa170.sink.i = phi double [ %104, %100 ], [ %140, %150 ], [ %140, %139 ], [ %71, %67 ]
+  %.3.i.lcssa.sink.i = phi double [ %.1131202.i.i, %100 ], [ %.3.i.i, %150 ], [ %.3.i.i, %139 ], [ %.0133200.i.i, %67 ]
+  %321 = phi ptr [ %94, %100 ], [ %125, %150 ], [ %125, %139 ], [ %61, %67 ]
   %322 = getelementptr inbounds nuw i8, ptr %42, i64 80
   store double %.lcssa170.sink.i, ptr %322, align 8, !tbaa !54
   store double %.3.i.lcssa.sink.i, ptr %43, align 8, !tbaa !48
@@ -1346,7 +1346,7 @@ arkRelaxNewtonSolve.exit.i:                       ; preds = %67, %100, %150, %13
   br label %arkRelaxNewtonSolve.exit.thread48.i
 
 arkRelaxNewtonSolve.exit.thread.i:                ; preds = %304, %286, %277, %258, %253, %arkRelaxNewtonSolve.exit.thread52.i, %239
-  %.046.i = phi i32 [ %.0.i.ph.i, %arkRelaxNewtonSolve.exit.thread52.i ], [ 3, %239 ], [ 3, %253 ], [ -45, %258 ], [ 1, %277 ], [ -46, %286 ], [ 2, %304 ]
+  %.046.i = phi i32 [ %.0.i.ph.i, %arkRelaxNewtonSolve.exit.thread52.i ], [ 3, %239 ], [ 2, %304 ], [ -46, %286 ], [ 1, %277 ], [ -45, %258 ], [ 3, %253 ]
   %323 = getelementptr inbounds nuw i8, ptr %7, i64 184
   %324 = load i64, ptr %323, align 8, !tbaa !33
   %325 = add nsw i64 %324, 1
@@ -1354,7 +1354,7 @@ arkRelaxNewtonSolve.exit.thread.i:                ; preds = %304, %286, %277, %2
   br label %arkRelaxSolve.exit
 
 arkRelaxNewtonSolve.exit.thread48.i:              ; preds = %305, %278, %arkRelaxNewtonSolve.exit.i
-  %326 = phi ptr [ %321, %arkRelaxNewtonSolve.exit.i ], [ %.pre.pre.i, %305 ], [ %272, %278 ]
+  %326 = phi ptr [ %321, %arkRelaxNewtonSolve.exit.i ], [ %272, %278 ], [ %.pre.pre.i, %305 ]
   %327 = getelementptr inbounds nuw i8, ptr %326, i64 96
   %328 = load double, ptr %327, align 8, !tbaa !48
   %329 = getelementptr inbounds nuw i8, ptr %7, i64 112
@@ -1389,7 +1389,7 @@ arkRelaxSolve.exit.thread:                        ; preds = %arkRelaxSolve.exit
   %.not26 = icmp eq i32 %.034.i, 0
   br i1 %.not26, label %365, label %arkRelaxSolve.exit.thread.thread
 
-arkRelaxSolve.exit.thread.thread:                 ; preds = %336, %34, %arkRelaxSolve.exit.thread
+arkRelaxSolve.exit.thread.thread:                 ; preds = %34, %336, %arkRelaxSolve.exit.thread
   %342 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %343 = load i64, ptr %342, align 8, !tbaa !32
   %344 = add nsw i64 %343, 1
@@ -1447,7 +1447,7 @@ arkRelaxSolve.exit.thread.thread:                 ; preds = %336, %34, %arkRelax
   br label %arkRelaxSolve.exit.thread36
 
 arkRelaxSolve.exit.thread36:                      ; preds = %35, %17, %358, %350, %arkRelaxSolve.exit.thread.thread, %arkRelaxSolve.exit, %365, %361, %8
-  %.0 = phi i32 [ 5, %361 ], [ 0, %365 ], [ -44, %8 ], [ %.034.i, %arkRelaxSolve.exit ], [ -43, %arkRelaxSolve.exit.thread.thread ], [ -43, %350 ], [ -43, %358 ], [ -22, %35 ], [ -45, %17 ]
+  %.0 = phi i32 [ -44, %8 ], [ %.034.i, %arkRelaxSolve.exit ], [ -43, %arkRelaxSolve.exit.thread.thread ], [ -43, %350 ], [ 5, %361 ], [ 0, %365 ], [ -43, %358 ], [ -22, %35 ], [ -45, %17 ]
   ret i32 %.0
 }
 
@@ -1529,8 +1529,8 @@ arkRelaxAccessMem.exit:                           ; preds = %5
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 942, ptr noundef nonnull @__func__.arkRelaxPrintAllStats, ptr noundef nonnull @.str, ptr noundef nonnull @.str.20) #8
   br label %arkRelaxAccessMem.exit.thread
 
-arkRelaxAccessMem.exit.thread:                    ; preds = %4, %8, %9, %28, %47
-  %.0 = phi i32 [ -22, %47 ], [ 0, %28 ], [ 0, %9 ], [ -21, %4 ], [ -44, %8 ]
+arkRelaxAccessMem.exit.thread:                    ; preds = %8, %4, %9, %28, %47
+  %.0 = phi i32 [ 0, %9 ], [ -22, %47 ], [ 0, %28 ], [ -44, %8 ], [ -21, %4 ]
   ret i32 %.0
 }
 

@@ -60,7 +60,7 @@ define internal i32 @flashsv_decode_init(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 4, 1) i32 @flashsv_decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #1 {
+define internal i32 @flashsv_decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = alloca [5 x i8], align 1
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8, !tbaa !37
@@ -338,7 +338,7 @@ define internal range(i32 4, 1) i32 @flashsv_decode_frame(ptr noundef %0, ptr no
   br label %.thread331
 
 .thread331:                                       ; preds = %136, %.thread329, %162, %165
-  %176 = phi ptr [ %.ph, %.thread329 ], [ %.ph, %162 ], [ %.ph, %165 ], [ %140, %136 ]
+  %176 = phi ptr [ %.ph, %165 ], [ %.ph, %.thread329 ], [ %.ph, %162 ], [ %140, %136 ]
   %177 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %178 = load ptr, ptr %177, align 8, !tbaa !36
   %179 = tail call i32 @ff_reget_buffer(ptr noundef nonnull %0, ptr noundef %178, i32 noundef 0) #7
@@ -918,7 +918,7 @@ flashsv_decode_block.exit.us:                     ; preds = %485, %.preheader.i.
   br label %505
 
 505:                                              ; preds = %flashsv_decode_block.exit.us, %476, %.thread332.us
-  %.sroa.19.3.us = phi i32 [ %.sroa.19.4336.us, %.thread332.us ], [ %504, %flashsv_decode_block.exit.us ], [ %.sroa.19.4336.us, %476 ]
+  %.sroa.19.3.us = phi i32 [ %504, %flashsv_decode_block.exit.us ], [ %.sroa.19.4336.us, %476 ], [ %.sroa.19.4336.us, %.thread332.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond462.not = icmp eq i64 %indvars.iv.next, %198
   br i1 %exitcond462.not, label %._crit_edge.us, label %206, !llvm.loop !77
@@ -1058,8 +1058,8 @@ flashsv_decode_block.exit.us:                     ; preds = %485, %.preheader.i.
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.21, i32 noundef %7, i32 noundef %568) #7
   br label %.thread347
 
-.thread347:                                       ; preds = %.split.us, %.split409.us, %.split414.us, %.split418.us, %.split429.us, %.split416.us, %537, %536, %141, %105, %567, %569, %563, %.thread331, %113, %17, %15, %4, %553, %125, %85, %71
-  %.0 = phi i32 [ -1163346256, %71 ], [ -1163346256, %85 ], [ -1094995529, %125 ], [ -12, %553 ], [ %103, %105 ], [ 0, %4 ], [ -1, %15 ], [ -1094995529, %17 ], [ %116, %113 ], [ %179, %.thread331 ], [ %565, %563 ], [ %7, %569 ], [ %7, %567 ], [ %144, %141 ], [ -1163346256, %537 ], [ -1094995529, %536 ], [ -1094995529, %.split416.us ], [ -1094995529, %.split429.us ], [ -1094995529, %.split418.us ], [ -1094995529, %.split414.us ], [ -1094995529, %.split409.us ], [ -1094995529, %.split.us ]
+.thread347:                                       ; preds = %.split.us, %.split409.us, %.split414.us, %.split418.us, %.split416.us, %536, %.split429.us, %537, %141, %105, %567, %569, %563, %.thread331, %113, %17, %15, %4, %553, %125, %85, %71
+  %.0 = phi i32 [ %103, %105 ], [ 0, %4 ], [ -1, %15 ], [ -1163346256, %71 ], [ -1163346256, %85 ], [ -1094995529, %17 ], [ -1094995529, %125 ], [ %116, %113 ], [ %144, %141 ], [ %179, %.thread331 ], [ %565, %563 ], [ -12, %553 ], [ %7, %567 ], [ %7, %569 ], [ -1094995529, %536 ], [ -1094995529, %.split429.us ], [ -1163346256, %537 ], [ -1094995529, %.split416.us ], [ -1094995529, %.split418.us ], [ -1094995529, %.split414.us ], [ -1094995529, %.split409.us ], [ -1094995529, %.split.us ]
   ret i32 %.0
 }
 

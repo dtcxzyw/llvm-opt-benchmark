@@ -859,7 +859,7 @@ proto_item_set_generated.exit.i:                  ; preds = %189, %186, %aeron_i
   br label %dissect_aeron_pad.exit
 
 dissect_aeron_pad.exit:                           ; preds = %141, %146, %proto_item_set_generated.exit.i, %212
-  %.0.i113 = phi i32 [ %214, %212 ], [ 0, %141 ], [ 0, %146 ], [ %144, %proto_item_set_generated.exit.i ]
+  %.0.i113 = phi i32 [ 0, %146 ], [ 0, %141 ], [ %214, %212 ], [ %144, %proto_item_set_generated.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %dissect_aeron_rtt.exit
 
@@ -987,7 +987,7 @@ proto_item_set_generated.exit.i119:               ; preds = %261, %258, %aeron_i
   br label %dissect_aeron_heartbeat.exit
 
 dissect_aeron_heartbeat.exit:                     ; preds = %218, %proto_item_set_generated.exit.i119, %283
-  %.0.i120 = phi i32 [ -24, %283 ], [ 0, %218 ], [ 24, %proto_item_set_generated.exit.i119 ]
+  %.0.i120 = phi i32 [ 0, %218 ], [ -24, %283 ], [ 24, %proto_item_set_generated.exit.i119 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %dissect_aeron_rtt.exit
 
@@ -1195,7 +1195,7 @@ proto_item_set_generated.exit.i127:               ; preds = %337, %334, %aeron_i
   br i1 %.not50.i.i, label %393, label %aeron_msg_process.exit.i
 
 393:                                              ; preds = %391, %387, %386, %384, %381
-  %.139.i.i = phi ptr [ %385, %384 ], [ %379, %387 ], [ null, %386 ], [ null, %391 ], [ %379, %381 ]
+  %.139.i.i = phi ptr [ %385, %384 ], [ null, %391 ], [ %379, %387 ], [ null, %386 ], [ %379, %381 ]
   %394 = call ptr @wmem_file_scope()
   %395 = call noalias dereferenceable_or_null(32) ptr @wmem_alloc0(ptr noundef %394, i64 noundef 32) #12
   %396 = getelementptr inbounds nuw i8, ptr %395, i64 8
@@ -1397,7 +1397,7 @@ dissect_aeron_reassembled_data.exit.i:            ; preds = %470, %467, %._crit_
   br label %dissect_aeron_data.exit
 
 dissect_aeron_data.exit:                          ; preds = %288, %294, %491, %493
-  %.0130.i = phi i32 [ %495, %493 ], [ 0, %288 ], [ 0, %294 ], [ %.0128.i, %491 ]
+  %.0130.i = phi i32 [ 0, %288 ], [ %495, %493 ], [ 0, %294 ], [ %.0128.i, %491 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %dissect_aeron_rtt.exit
 
@@ -1491,7 +1491,7 @@ proto_item_set_generated.exit.i135:               ; preds = %527, %524, %515
   br label %dissect_aeron_nak.exit
 
 dissect_aeron_nak.exit:                           ; preds = %496, %499, %proto_item_set_generated.exit.i135, %551
-  %.0.i137 = phi i32 [ %553, %551 ], [ 0, %496 ], [ 0, %499 ], [ 28, %proto_item_set_generated.exit.i135 ]
+  %.0.i137 = phi i32 [ 0, %499 ], [ 0, %496 ], [ %553, %551 ], [ 28, %proto_item_set_generated.exit.i135 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %dissect_aeron_rtt.exit
 
@@ -1702,7 +1702,7 @@ aeron_window_resize_report.exit.i:                ; preds = %657, %654, %651, %p
   br label %dissect_aeron_sm.exit
 
 dissect_aeron_sm.exit:                            ; preds = %554, %576, %665, %667
-  %.0.i144 = phi i32 [ %669, %667 ], [ 0, %554 ], [ 0, %576 ], [ %555, %665 ]
+  %.0.i144 = phi i32 [ 0, %576 ], [ 0, %554 ], [ %669, %667 ], [ %555, %665 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %dissect_aeron_rtt.exit
 
@@ -1953,7 +1953,7 @@ proto_item_set_generated.exit.i155:               ; preds = %805, %802, %aeron_s
   br label %dissect_aeron_setup.exit
 
 dissect_aeron_setup.exit:                         ; preds = %759, %762, %proto_item_set_generated.exit.i155, %834
-  %.0.i157 = phi i32 [ %836, %834 ], [ 0, %759 ], [ 0, %762 ], [ 40, %proto_item_set_generated.exit.i155 ]
+  %.0.i157 = phi i32 [ 0, %762 ], [ 0, %759 ], [ %836, %834 ], [ 40, %proto_item_set_generated.exit.i155 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %dissect_aeron_rtt.exit
 
@@ -1963,7 +1963,7 @@ dissect_aeron_rtt.exit:                           ; preds = %dissect_aeron_heart
   br i1 %837, label %dissect_aeron_rtt.exit.thread, label %dissect_aeron_rtt.exit.thread164
 
 dissect_aeron_rtt.exit.thread:                    ; preds = %752, %670, %dissect_aeron_rtt.exit, %756, %718
-  %.0105161 = phi i32 [ %758, %756 ], [ %720, %718 ], [ 0, %670 ], [ 0, %752 ], [ %.0105, %dissect_aeron_rtt.exit ]
+  %.0105161 = phi i32 [ %720, %718 ], [ %758, %756 ], [ 0, %670 ], [ 0, %752 ], [ %.0105, %dissect_aeron_rtt.exit ]
   %838 = sub i32 %.0108186, %.0105161
   call void @proto_item_set_len(ptr noundef %49, i32 noundef %838)
   br label %.thread
@@ -1978,7 +1978,7 @@ dissect_aeron_rtt.exit.thread164:                 ; preds = %754, %proto_item_se
   br i1 %842, label %100, label %.thread
 
 .thread:                                          ; preds = %dissect_aeron_rtt.exit.thread164, %100, %aeron_frame_info_add.exit, %aeron_format_transport_uri.exit, %dissect_aeron_rtt.exit.thread, %17, %4
-  %.0106 = phi i32 [ 0, %4 ], [ 0, %17 ], [ %838, %dissect_aeron_rtt.exit.thread ], [ 0, %aeron_format_transport_uri.exit ], [ %839, %dissect_aeron_rtt.exit.thread164 ], [ %.0108186, %100 ], [ %.0108186, %aeron_frame_info_add.exit ]
+  %.0106 = phi i32 [ 0, %4 ], [ %838, %dissect_aeron_rtt.exit.thread ], [ 0, %17 ], [ 0, %aeron_format_transport_uri.exit ], [ %839, %dissect_aeron_rtt.exit.thread164 ], [ %.0108186, %100 ], [ %.0108186, %aeron_frame_info_add.exit ]
   ret i32 %.0106
 }
 
@@ -2064,7 +2064,7 @@ define internal noundef zeroext i1 @test_aeron_packet(ptr noundef %0, ptr nounde
   br label %26
 
 26:                                               ; preds = %23, %21, %11, %9, %7, %4, %19
-  %.0 = phi i1 [ false, %19 ], [ false, %4 ], [ false, %7 ], [ false, %9 ], [ false, %11 ], [ false, %21 ], [ %25, %23 ]
+  %.0 = phi i1 [ false, %11 ], [ false, %4 ], [ false, %7 ], [ false, %9 ], [ %25, %23 ], [ false, %21 ], [ false, %19 ]
   ret i1 %.0
 }
 
@@ -2493,7 +2493,7 @@ copy_address_wmem.exit116:                        ; preds = %copy_address_wmem.e
   br label %221
 
 221:                                              ; preds = %.sink.split, %aeron_is_address_multicast.exit, %aeron_is_address_multicast.exit112, %2
-  %.0 = phi ptr [ null, %2 ], [ %8, %aeron_is_address_multicast.exit112 ], [ %8, %aeron_is_address_multicast.exit ], [ %8, %.sink.split ]
+  %.0 = phi ptr [ null, %2 ], [ %8, %aeron_is_address_multicast.exit ], [ %8, %aeron_is_address_multicast.exit112 ], [ %8, %.sink.split ]
   ret ptr %.0
 }
 
@@ -3240,7 +3240,7 @@ aeron_stream_rcv_add.exit.i:                      ; preds = %aeron_stream_rcv_ad
   br label %aeron_pos_delta.exit.i
 
 aeron_pos_delta.exit.i:                           ; preds = %279, %276, %270
-  %.0.i.i.i = phi i32 [ %278, %276 ], [ %281, %279 ], [ 0, %270 ]
+  %.0.i.i.i = phi i32 [ %281, %279 ], [ %278, %276 ], [ 0, %270 ]
   %282 = icmp sgt i32 %.0.i.i.i, -1
   %..i.i = select i1 %282, ptr %264, ptr %263
   %.16.i.i = select i1 %282, ptr %263, ptr %264
@@ -3528,7 +3528,7 @@ aeron_pos_add_length.exit149.thread211.i:         ; preds = %aeron_frame_nak_rx_
   br i1 %424, label %.sink.split.i, label %428
 
 .sink.split.i:                                    ; preds = %423, %421, %419
-  %.sink274.i = phi i32 [ 256, %419 ], [ 128, %421 ], [ 128, %423 ]
+  %.sink274.i = phi i32 [ 256, %419 ], [ 128, %423 ], [ 128, %421 ]
   %425 = load ptr, ptr %234, align 8
   %426 = load i32, ptr %425, align 4
   %427 = or i32 %426, %.sink274.i
@@ -3552,7 +3552,7 @@ aeron_pos_add_length.exit149.thread211.i:         ; preds = %aeron_frame_nak_rx_
   br label %434
 
 434:                                              ; preds = %.sink.split275.i, %428, %416, %410, %aeron_pos_add_length.exit149.thread211.i, %308, %233
-  %.0121.i = phi i32 [ 0, %308 ], [ %.1122.i, %410 ], [ %.1122.i, %aeron_pos_add_length.exit149.thread211.i ], [ 0, %416 ], [ 0, %233 ], [ 0, %428 ], [ %.0121.ph.i, %.sink.split275.i ]
+  %.0121.i = phi i32 [ 0, %308 ], [ 0, %428 ], [ %.1122.i, %410 ], [ %.1122.i, %aeron_pos_add_length.exit149.thread211.i ], [ 0, %233 ], [ 0, %416 ], [ %.0121.ph.i, %.sink.split275.i ]
   %435 = load i16, ptr %87, align 8
   %switch.i = icmp ult i16 %435, 2
   br i1 %switch.i, label %436, label %526
@@ -3934,8 +3934,8 @@ aeron_transport_frame_add.exit:                   ; preds = %618, %621
   store ptr %3, ptr %619, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %596, %aeron_term_frame_add.exit, %aeron_fragment_frame_add.exit.i, %aeron_term_frame_add.exit.i, %aeron_stream_frame_add.exit, %aeron_transport_frame_add.exit, %339, %334, %182, %172, %4, %15
-  %.040 = phi i32 [ 0, %15 ], [ 0, %4 ], [ -1, %172 ], [ -1, %182 ], [ -1, %334 ], [ -1, %339 ], [ 0, %aeron_transport_frame_add.exit ], [ 0, %aeron_stream_frame_add.exit ], [ 0, %aeron_term_frame_add.exit.i ], [ 0, %aeron_fragment_frame_add.exit.i ], [ 0, %aeron_term_frame_add.exit ], [ 0, %596 ]
+.critedge:                                        ; preds = %596, %aeron_term_frame_add.exit, %aeron_fragment_frame_add.exit.i, %aeron_term_frame_add.exit.i, %aeron_stream_frame_add.exit, %aeron_transport_frame_add.exit, %339, %334, %172, %182, %4, %15
+  %.040 = phi i32 [ 0, %4 ], [ -1, %339 ], [ 0, %15 ], [ -1, %182 ], [ -1, %172 ], [ -1, %334 ], [ 0, %aeron_transport_frame_add.exit ], [ 0, %aeron_stream_frame_add.exit ], [ 0, %aeron_term_frame_add.exit.i ], [ 0, %aeron_fragment_frame_add.exit.i ], [ 0, %aeron_term_frame_add.exit ], [ 0, %596 ]
   ret i32 %.040
 }
 

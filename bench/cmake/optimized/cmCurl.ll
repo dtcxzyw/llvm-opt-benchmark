@@ -91,7 +91,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit37.thread: ; pre
   br label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit
 
 _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i34, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit37.thread, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i30, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i26, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
-  %.sroa.5.0 = phi i64 [ 4294967300, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 4294967301, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i26 ], [ 4294967302, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i30 ], [ 0, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit37.thread ], [ 4294967303, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i34 ]
+  %.sroa.5.0 = phi i64 [ 0, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit37.thread ], [ 4294967300, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 4294967301, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i26 ], [ 4294967302, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i30 ], [ 4294967303, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i34 ]
   ret i64 %.sroa.5.0
 }
 

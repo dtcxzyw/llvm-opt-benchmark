@@ -147,7 +147,7 @@ define range(i32 -1, 1) i32 @H5MF_sects_debug(ptr noundef %0, i64 noundef %1, pt
   br i1 %exitcond.not, label %.loopexit, label %20, !llvm.loop !30
 
 .loopexit:                                        ; preds = %59, %58, %32, %36, %13
-  %.029 = phi i32 [ %.1, %58 ], [ 0, %36 ], [ -1, %32 ], [ 0, %13 ], [ 0, %59 ]
+  %.029 = phi i32 [ 0, %13 ], [ %.1, %58 ], [ 0, %36 ], [ -1, %32 ], [ 0, %59 ]
   %60 = load i64, ptr %6, align 8, !tbaa !3
   call void @H5AC_tag(i64 noundef %60, ptr noundef null) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

@@ -2760,12 +2760,12 @@ define internal fastcc range(i32 0, 2) i32 @Ivy_FastMapMerge(ptr noundef readonl
   br i1 %98, label %.loopexit, label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %52, %33, %95, %.preheader103, %.preheader102, %60
-  %.0.lcssa.sink = phi i8 [ %61, %60 ], [ %5, %.preheader102 ], [ %5, %.preheader103 ], [ %.0.lcssa, %95 ], [ %5, %33 ], [ %5, %52 ]
+  %.0.lcssa.sink = phi i8 [ %5, %.preheader103 ], [ %61, %60 ], [ %.0.lcssa, %95 ], [ %5, %33 ], [ %5, %.preheader102 ], [ %5, %52 ]
   store i8 %.0.lcssa.sink, ptr %2, align 4, !tbaa !40
   br label %.loopexit
 
 .loopexit:                                        ; preds = %50, %28, %.loopexit.sink.split, %.critedge._crit_edge, %95
-  %.096 = phi i32 [ 0, %95 ], [ 0, %.critedge._crit_edge ], [ 1, %.loopexit.sink.split ], [ 0, %28 ], [ 0, %50 ]
+  %.096 = phi i32 [ 1, %.loopexit.sink.split ], [ 0, %95 ], [ 0, %.critedge._crit_edge ], [ 0, %28 ], [ 0, %50 ]
   ret i32 %.096
 }
 
@@ -4047,7 +4047,7 @@ define void @Ivy_FastMapNodeRecover2(ptr noundef %0, ptr noundef captures(none) 
   br label %Ivy_FastMapNodeAreaDerefed.exit
 
 Ivy_FastMapNodeAreaDerefed.exit:                  ; preds = %22, %18
-  %.0 = phi i32 [ %20, %18 ], [ %23, %22 ]
+  %.0 = phi i32 [ %23, %22 ], [ %20, %18 ]
   %25 = icmp eq i32 %.0, 1
   br i1 %25, label %90, label %Ivy_FastMapNodeAreaDerefed.exit.thread
 
@@ -4312,7 +4312,7 @@ Ivy_FastMapNodeDelay.exit:                        ; preds = %5, %._crit_edge.loo
   br label %Ivy_FastMapNodeAreaDerefed.exit
 
 Ivy_FastMapNodeAreaDerefed.exit:                  ; preds = %42, %38
-  %.0 = phi i32 [ %40, %38 ], [ %43, %42 ]
+  %.0 = phi i32 [ %43, %42 ], [ %40, %38 ]
   %45 = icmp eq i32 %.0, 1
   br i1 %45, label %140, label %Ivy_FastMapNodeAreaDerefed.exit.thread
 

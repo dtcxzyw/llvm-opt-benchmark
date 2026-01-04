@@ -205,7 +205,7 @@ read_pem.exit:                                    ; preds = %7
   br label %read_pem.exit.thread
 
 read_pem.exit.thread:                             ; preds = %7, %read_pem.exit, %.critedge
-  %.0 = phi i32 [ %.029, %.critedge ], [ 1, %read_pem.exit ], [ 1, %7 ]
+  %.0 = phi i32 [ 1, %read_pem.exit ], [ %.029, %.critedge ], [ 1, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

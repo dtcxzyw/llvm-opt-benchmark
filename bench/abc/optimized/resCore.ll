@@ -1571,7 +1571,7 @@ Abc_Clock.exit243:                                ; preds = %Abc_Clock.exit241, 
   br label %498
 
 498:                                              ; preds = %Abc_Clock.exit243, %495, %41
-  %.0 = phi i32 [ 0, %495 ], [ 0, %41 ], [ 1, %Abc_Clock.exit243 ]
+  %.0 = phi i32 [ 0, %41 ], [ 0, %495 ], [ 1, %Abc_Clock.exit243 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   ret i32 %.0
 }

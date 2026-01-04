@@ -608,8 +608,8 @@ namelist_add.exit:                                ; preds = %10, %14
   br i1 %exitcond.not19.i, label %dump_hex.exit, label %.lr.ph.i.backedge
 
 .lr.ph.i.backedge:                                ; preds = %.thread.i, %42
-  %.013.i.be = phi i64 [ %40, %42 ], [ 0, %.thread.i ]
-  %.0912.i.be = phi i64 [ %43, %42 ], [ %44, %.thread.i ]
+  %.013.i.be = phi i64 [ 0, %.thread.i ], [ %40, %42 ]
+  %.0912.i.be = phi i64 [ %44, %.thread.i ], [ %43, %42 ]
   br label %.lr.ph.i, !llvm.loop !32
 
 ._crit_edge.i:                                    ; preds = %42
@@ -881,7 +881,7 @@ split:                                            ; preds = %76, %._crit_edge253
   unreachable
 
 82:                                               ; preds = %.thread, %76, %61
-  %.2105 = phi i32 [ %.0103, %61 ], [ 1, %76 ], [ %.0103, %.thread ]
+  %.2105 = phi i32 [ %.0103, %.thread ], [ %.0103, %61 ], [ 1, %76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.backedge
 

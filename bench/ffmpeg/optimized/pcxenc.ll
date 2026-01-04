@@ -70,12 +70,12 @@ define internal range(i32 -2147483648, 1) i32 @pcx_encode_frame(ptr noundef %0, 
   br label %179
 
 26:                                               ; preds = %16, %24, %21, %19
-  %27 = phi i32 [ %.pre139, %19 ], [ %13, %21 ], [ %13, %24 ], [ %13, %16 ]
-  %28 = phi i32 [ %.pre, %19 ], [ %9, %21 ], [ %9, %24 ], [ %9, %16 ]
-  %or.cond3 = phi i1 [ true, %19 ], [ true, %21 ], [ false, %24 ], [ false, %16 ]
-  %.063 = phi i32 [ 1, %19 ], [ 1, %21 ], [ 1, %24 ], [ 3, %16 ]
-  %.062 = phi i32 [ 8, %19 ], [ 8, %21 ], [ 1, %24 ], [ 8, %16 ]
-  %.060 = phi ptr [ %7, %19 ], [ %23, %21 ], [ @monoblack_pal, %24 ], [ null, %16 ]
+  %27 = phi i32 [ %13, %24 ], [ %.pre139, %19 ], [ %13, %21 ], [ %13, %16 ]
+  %28 = phi i32 [ %9, %24 ], [ %.pre, %19 ], [ %9, %21 ], [ %9, %16 ]
+  %or.cond3 = phi i1 [ false, %24 ], [ true, %19 ], [ true, %21 ], [ false, %16 ]
+  %.063 = phi i32 [ 1, %24 ], [ 1, %19 ], [ 1, %21 ], [ 3, %16 ]
+  %.062 = phi i32 [ 1, %24 ], [ 8, %19 ], [ 8, %21 ], [ 8, %16 ]
+  %.060 = phi ptr [ @monoblack_pal, %24 ], [ %7, %19 ], [ %23, %21 ], [ null, %16 ]
   %.fr127 = freeze i32 %28
   %29 = mul i32 %.fr127, %.062
   %30 = add i32 %29, 7
@@ -366,7 +366,7 @@ pcx_rle_encode.exit.thread.split:                 ; preds = %pcx_rle_encode.exit
   br label %179
 
 179:                                              ; preds = %26, %.loopexit, %160, %pcx_rle_encode.exit.thread.split, %25, %15
-  %.061 = phi i32 [ -22, %15 ], [ -22, %25 ], [ -558323010, %pcx_rle_encode.exit.thread.split ], [ -558323010, %160 ], [ 0, %.loopexit ], [ %40, %26 ]
+  %.061 = phi i32 [ -22, %15 ], [ -22, %25 ], [ 0, %.loopexit ], [ -558323010, %pcx_rle_encode.exit.thread.split ], [ -558323010, %160 ], [ %40, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

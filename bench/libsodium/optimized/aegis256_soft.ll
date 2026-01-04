@@ -462,7 +462,7 @@ define internal i32 @decrypt_detached(ptr noundef %0, ptr noundef readonly captu
   br i1 %.not66, label %.loopexit, label %.lr.ph90, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.lr.ph90, %.lr.ph94, %.preheader79, %.preheader
-  %.3 = phi i64 [ 0, %.preheader ], [ 0, %.preheader79 ], [ %130, %.lr.ph94 ], [ %135, %.lr.ph90 ]
+  %.3 = phi i64 [ %130, %.lr.ph94 ], [ 0, %.preheader ], [ 0, %.preheader79 ], [ %135, %.lr.ph90 ]
   %139 = and i64 %2, 15
   %.not68 = icmp eq i64 %139, 0
   br i1 %.not68, label %142, label %.sink.split
@@ -494,7 +494,7 @@ define internal i32 @decrypt_detached(ptr noundef %0, ptr noundef readonly captu
   br label %150
 
 150:                                              ; preds = %145, %146, %148, %142
-  %.0 = phi i32 [ %147, %146 ], [ %149, %148 ], [ -1, %142 ], [ -1, %145 ]
+  %.0 = phi i32 [ %147, %146 ], [ %149, %148 ], [ -1, %145 ], [ -1, %142 ]
   %151 = icmp ne i32 %.0, 0
   %or.cond = and i1 %129, %151
   br i1 %or.cond, label %152, label %153

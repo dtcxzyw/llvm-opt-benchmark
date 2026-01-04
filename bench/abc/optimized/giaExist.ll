@@ -333,8 +333,8 @@ Vec_WrdAlloc.exit:                                ; preds = %9, %18
   br label %Vec_WrdPush.exit.sink.split
 
 Vec_WrdPush.exit.sink.split:                      ; preds = %45, %47, %37, %39
-  %.sink66 = phi ptr [ %38, %37 ], [ %40, %39 ], [ %46, %45 ], [ %48, %47 ]
-  %.sink = phi i32 [ 16, %37 ], [ 16, %39 ], [ %42, %45 ], [ %42, %47 ]
+  %.sink66 = phi ptr [ %40, %39 ], [ %38, %37 ], [ %46, %45 ], [ %48, %47 ]
+  %.sink = phi i32 [ 16, %39 ], [ 16, %37 ], [ %42, %45 ], [ %42, %47 ]
   store ptr %.sink66, ptr %23, align 8, !tbaa !33
   store i32 %.sink, ptr %15, align 8, !tbaa !42
   br label %Vec_WrdPush.exit
@@ -391,8 +391,8 @@ Vec_WrdPush.exit:                                 ; preds = %Vec_WrdPush.exit.si
   br label %Vec_WrdPush.exit34.sink.split
 
 Vec_WrdPush.exit34.sink.split:                    ; preds = %72, %74, %64, %66
-  %.sink69 = phi ptr [ %65, %64 ], [ %67, %66 ], [ %73, %72 ], [ %75, %74 ]
-  %.sink68 = phi i32 [ 16, %64 ], [ 16, %66 ], [ %69, %72 ], [ %69, %74 ]
+  %.sink69 = phi ptr [ %67, %66 ], [ %65, %64 ], [ %73, %72 ], [ %75, %74 ]
+  %.sink68 = phi i32 [ 16, %66 ], [ 16, %64 ], [ %69, %72 ], [ %69, %74 ]
   store ptr %.sink69, ptr %23, align 8, !tbaa !33
   store i32 %.sink68, ptr %15, align 8, !tbaa !42
   br label %Vec_WrdPush.exit34
@@ -1803,8 +1803,8 @@ Vec_IntPush.exit:                                 ; preds = %21
   br label %Vec_IntGrow.exit.sink.split.i
 
 Vec_IntGrow.exit.sink.split.i:                    ; preds = %72, %74, %63, %65
-  %storemerge = phi ptr [ %64, %63 ], [ %66, %65 ], [ %73, %72 ], [ %75, %74 ]
-  %.sink.i = phi i32 [ %52, %63 ], [ %52, %65 ], [ %56, %72 ], [ %56, %74 ]
+  %storemerge = phi ptr [ %66, %65 ], [ %64, %63 ], [ %73, %72 ], [ %75, %74 ]
+  %.sink.i = phi i32 [ %52, %65 ], [ %52, %63 ], [ %56, %72 ], [ %56, %74 ]
   store ptr %storemerge, ptr %46, align 8, !tbaa !37
   store i32 %.sink.i, ptr %44, align 8, !tbaa !46
   %.pre = load i32, ptr %45, align 4, !tbaa !36
@@ -2034,7 +2034,7 @@ Vec_IntPushUnique.exit:                           ; preds = %114, %Vec_IntPush.e
   br label %162
 
 162:                                              ; preds = %4, %.critedge2, %Vec_IntFree.exit97, %Vec_IntFree.exit, %15
-  %.0 = phi i32 [ %20, %15 ], [ %1, %Vec_IntFree.exit ], [ 1, %Vec_IntFree.exit97 ], [ %161, %.critedge2 ], [ %1, %4 ]
+  %.0 = phi i32 [ %161, %.critedge2 ], [ %20, %15 ], [ %1, %Vec_IntFree.exit ], [ 1, %Vec_IntFree.exit97 ], [ %1, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

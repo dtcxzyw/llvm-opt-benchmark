@@ -1938,7 +1938,7 @@ define void @_ZN16meilisearch_auth14AuthController10create_key17he99a0e50c5def0b
 .noexc:                                           ; preds = %42, %.body
   br i1 %.not, label %56, label %57
 
-.thread:                                          ; preds = %3, %53
+.thread:                                          ; preds = %53, %3
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %57
@@ -2092,11 +2092,11 @@ define void @_ZN16meilisearch_auth14AuthController10create_key17he99a0e50c5def0b
   unreachable
 
 56:                                               ; preds = %57, %.noexc
-  %.pn19 = phi { ptr, i32 } [ %.pn20, %57 ], [ %eh.lpad-body, %.noexc ]
+  %.pn19 = phi { ptr, i32 } [ %eh.lpad-body, %.noexc ], [ %.pn20, %57 ]
   resume { ptr, i32 } %.pn19
 
 57:                                               ; preds = %.thread, %.noexc
-  %.pn20 = phi { ptr, i32 } [ %eh.lpad-body, %.noexc ], [ %lpad.thr_comm, %.thread ]
+  %.pn20 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %eh.lpad-body, %.noexc ]
   invoke void @"_ZN4core3ptr58drop_in_place$LT$meilisearch_types..keys..CreateApiKey$GT$17h97cb477fb8334cd6E"(ptr noalias noundef nonnull align 8 dereferenceable(128) %2) #18
           to label %56 unwind label %54
 }
@@ -2697,7 +2697,7 @@ define void @_ZN16meilisearch_auth14AuthController15get_key_filters17ha3f219d762
   invoke void @_ZN16meilisearch_auth14AuthController7get_key17h95ad038259b3d42eE(ptr noalias noundef nonnull sret([160 x i8]) align 8 captures(none) dereferenceable(160) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %14)
           to label %20 unwind label %.thread62
 
-.thread62:                                        ; preds = %4, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h142f1041b57afb0cE.exit47"
+.thread62:                                        ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h142f1041b57afb0cE.exit47", %4
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -3101,7 +3101,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h4b052c8f88cfae3bE.exit.i.i.i
           to label %.thread unwind label %104
 
 .thread58:                                        ; preds = %.thread, %157, %91
-  %.pn3656 = phi { ptr, i32 } [ %.pn34, %91 ], [ %.pn3657, %157 ], [ %.pn3657, %.thread ]
+  %.pn3656 = phi { ptr, i32 } [ %.pn34, %91 ], [ %.pn3657, %.thread ], [ %.pn3657, %157 ]
   resume { ptr, i32 } %.pn3656
 
 .thread:                                          ; preds = %154, %136, %.thread62
@@ -3756,7 +3756,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h393fa7cb0b7d6c46E.exit.i.i: ; pr
   br label %"_ZN63_$LT$serde_json..value..Value$u20$as$u20$core..clone..Clone$GT$5clone17had9fa88c416c23edE.exit.i.i"
 
 "_ZN63_$LT$serde_json..value..Value$u20$as$u20$core..clone..Clone$GT$5clone17had9fa88c416c23edE.exit.i.i": ; preds = %73, %67, %64, %61, %57, %55
-  %.sroa.0.0.copyload.i.i = phi i64 [ -9223372036854775807, %57 ], [ -9223372036854775806, %61 ], [ -9223372036854775805, %64 ], [ -9223372036854775804, %67 ], [ %.sroa.0.0.copyload.pre.i.i, %73 ], [ -9223372036854775808, %55 ]
+  %.sroa.0.0.copyload.i.i = phi i64 [ %.sroa.0.0.copyload.pre.i.i, %73 ], [ -9223372036854775807, %57 ], [ -9223372036854775806, %61 ], [ -9223372036854775805, %64 ], [ -9223372036854775804, %67 ], [ -9223372036854775808, %55 ]
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5.i.i, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5.0..sroa_idx.i.i, i64 64, i1 false), !noalias !743
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !743
@@ -3959,12 +3959,12 @@ thread-pre-split:                                 ; preds = %47
   br i1 %48, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf862a08be39472f5E.exit, label %thread-pre-split
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hf862a08be39472f5E.exit: ; preds = %47, %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h24b28a24ec1608c6E.exit.i", %thread-pre-split, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17h70583bacc4269982E.exit11.thread"
-  %49 = phi i1 [ false, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17h70583bacc4269982E.exit11.thread" ], [ false, %thread-pre-split ], [ false, %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h24b28a24ec1608c6E.exit.i" ], [ true, %47 ]
+  %49 = phi i1 [ false, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17h70583bacc4269982E.exit11.thread" ], [ false, %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h24b28a24ec1608c6E.exit.i" ], [ false, %thread-pre-split ], [ true, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %50
 
 50:                                               ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17ha757cdf57830e382E.exit", %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17ha757cdf57830e382E.exit13", %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17h70583bacc4269982E.exit", %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17h70583bacc4269982E.exit11", %_ZN4core4iter6traits8iterator8Iterator8try_fold17h2228238c11173ef8E.exit, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf862a08be39472f5E.exit
-  %.sroa.0.0.shrunk = phi i1 [ %49, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf862a08be39472f5E.exit ], [ %71, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h2228238c11173ef8E.exit ], [ true, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17h70583bacc4269982E.exit11" ], [ true, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17h70583bacc4269982E.exit" ], [ true, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17ha757cdf57830e382E.exit13" ], [ true, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17ha757cdf57830e382E.exit" ]
+  %.sroa.0.0.shrunk = phi i1 [ %71, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h2228238c11173ef8E.exit ], [ %49, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf862a08be39472f5E.exit ], [ true, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17h70583bacc4269982E.exit" ], [ true, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17h70583bacc4269982E.exit11" ], [ true, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17ha757cdf57830e382E.exit13" ], [ true, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17ha757cdf57830e382E.exit" ]
   ret i1 %.sroa.0.0.shrunk
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17ha757cdf57830e382E.exit13": ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17ha757cdf57830e382E.exit"
@@ -4024,7 +4024,7 @@ thread-pre-split50:                               ; preds = %69
   br i1 %70, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h2228238c11173ef8E.exit, label %thread-pre-split50
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h2228238c11173ef8E.exit: ; preds = %69, %"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd3d01fcade7ca9e4E.exit.i", %thread-pre-split50, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17ha757cdf57830e382E.exit13.thread"
-  %71 = phi i1 [ false, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17ha757cdf57830e382E.exit13.thread" ], [ false, %thread-pre-split50 ], [ false, %"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd3d01fcade7ca9e4E.exit.i" ], [ true, %69 ]
+  %71 = phi i1 [ false, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17ha757cdf57830e382E.exit13.thread" ], [ false, %"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd3d01fcade7ca9e4E.exit.i" ], [ false, %thread-pre-split50 ], [ true, %69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %50
 }
@@ -4085,7 +4085,7 @@ define internal fastcc noundef zeroext i1 @_ZN16meilisearch_auth11SearchRules22a
   br label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17h70583bacc4269982E.exit"
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17h70583bacc4269982E.exit": ; preds = %20, %17, %11, %8
-  %.sroa.0.0.in = phi i1 [ %16, %11 ], [ false, %8 ], [ %25, %20 ], [ false, %17 ]
+  %.sroa.0.0.in = phi i1 [ false, %8 ], [ %16, %11 ], [ %25, %20 ], [ false, %17 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -4394,7 +4394,7 @@ define void @_ZN16meilisearch_auth19generate_master_key17h263ab2d9aba706c7E(ptr 
   ret void
 
 .body.thread:                                     ; preds = %21, %35
-  %eh.lpad-body4 = phi { ptr, i32 } [ %36, %35 ], [ %22, %21 ]
+  %eh.lpad-body4 = phi { ptr, i32 } [ %22, %21 ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body4
 
 35:                                               ; preds = %"_ZN63_$LT$u8$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h368976a5e6534fdeE.exit"

@@ -2028,7 +2028,7 @@ define internal fastcc ptr @type_lowering(ptr noundef readonly captures(none) %0
   unreachable
 
 .loopexit:                                        ; preds = %.backedge, %44, %37, %61, %57, %53, %51, %42, %26, %24
-  %.0 = phi ptr [ %25, %24 ], [ %29, %26 ], [ %43, %42 ], [ %52, %51 ], [ %56, %53 ], [ %60, %57 ], [ %62, %61 ], [ %4, %37 ], [ %4, %44 ], [ %4, %.backedge ]
+  %.0 = phi ptr [ %4, %44 ], [ %25, %24 ], [ %29, %26 ], [ %62, %61 ], [ %43, %42 ], [ %4, %37 ], [ %52, %51 ], [ %56, %53 ], [ %60, %57 ], [ %4, %.backedge ]
   ret ptr %.0
 }
 
@@ -2809,7 +2809,7 @@ tailrecurse:                                      ; preds = %69, %2
   br i1 %23, label %24, label %28
 
 common.ret167:                                    ; preds = %66, %68, %44, %37, %75, %72, %6, %8, %24
-  %common.ret167.op = phi ptr [ %27, %24 ], [ %38, %37 ], [ %46, %44 ], [ %55, %68 ], [ %55, %66 ], [ %.pre, %75 ], [ %74, %72 ], [ %5, %6 ], [ %5, %8 ]
+  %common.ret167.op = phi ptr [ %27, %24 ], [ %74, %72 ], [ %.pre, %75 ], [ %55, %66 ], [ %38, %37 ], [ %46, %44 ], [ %55, %68 ], [ %5, %6 ], [ %5, %8 ]
   ret ptr %common.ret167.op
 
 24:                                               ; preds = %18
@@ -6163,7 +6163,7 @@ llvm_emit_type_decls.exit338:                     ; preds = %.lr.ph363, %124, %.
   br i1 %exitcond462.not, label %._crit_edge384, label %.lr.ph383.split, !llvm.loop !31
 
 ._crit_edge384:                                   ; preds = %.lr.ph383.split.us, %274, %261
-  %.5.lcssa.ph = phi i1 [ %.4411, %261 ], [ %.6, %274 ], [ true, %.lr.ph383.split.us ]
+  %.5.lcssa.ph = phi i1 [ %.6, %274 ], [ %.4411, %261 ], [ true, %.lr.ph383.split.us ]
   %.pr = load ptr, ptr %259, align 8
   %.not300 = icmp eq ptr %.pr, null
   br i1 %.not300, label %._crit_edge390, label %275
@@ -6203,7 +6203,7 @@ llvm_emit_type_decls.exit338:                     ; preds = %.lr.ph363, %124, %.
   br i1 %exitcond471.not, label %._crit_edge390, label %.lr.ph389, !llvm.loop !32
 
 ._crit_edge390:                                   ; preds = %285, %249, %._crit_edge384, %275
-  %.7.lcssa = phi i1 [ %.5.lcssa.ph, %275 ], [ %.5.lcssa.ph, %._crit_edge384 ], [ %.4411, %249 ], [ %.8, %285 ]
+  %.7.lcssa = phi i1 [ %.5.lcssa.ph, %275 ], [ %.4411, %249 ], [ %.5.lcssa.ph, %._crit_edge384 ], [ %.8, %285 ]
   %286 = getelementptr inbounds nuw i8, ptr %251, i64 32
   %287 = load ptr, ptr %286, align 8
   %.not301 = icmp eq ptr %287, null
@@ -6264,8 +6264,8 @@ llvm_emit_type_decls.exit338:                     ; preds = %.lr.ph363, %124, %.
   br label %311
 
 311:                                              ; preds = %298, %.lr.ph395, %307, %310, %303
-  %312 = phi i8 [ %.pre492, %310 ], [ %291, %307 ], [ %291, %303 ], [ %291, %.lr.ph395 ], [ %291, %298 ]
-  %.10 = phi i1 [ true, %310 ], [ %.9392, %307 ], [ %.9392, %303 ], [ %.9392, %.lr.ph395 ], [ %.9392, %298 ]
+  %312 = phi i8 [ %.pre492, %310 ], [ %291, %307 ], [ %291, %303 ], [ %291, %298 ], [ %291, %.lr.ph395 ]
+  %.10 = phi i1 [ true, %310 ], [ %.9392, %307 ], [ %.9392, %303 ], [ %.9392, %298 ], [ %.9392, %.lr.ph395 ]
   %indvars.iv.next473 = add nuw nsw i64 %indvars.iv472, 1
   %exitcond475.not = icmp eq i64 %indvars.iv.next473, %wide.trip.count474
   br i1 %exitcond475.not, label %._crit_edge396, label %.lr.ph395, !llvm.loop !33
@@ -6390,7 +6390,7 @@ llvm_emit_type_decls.exit338:                     ; preds = %.lr.ph363, %124, %.
   br i1 %exitcond487.not, label %._crit_edge414, label %249, !llvm.loop !36
 
 ._crit_edge414:                                   ; preds = %._crit_edge408, %gencontext_init.exit, %._crit_edge378, %._crit_edge378.thread542
-  %.4.lcssa = phi i1 [ %.0268.lcssa545, %._crit_edge378.thread542 ], [ %.3, %._crit_edge378 ], [ false, %gencontext_init.exit ], [ %.14.lcssa, %._crit_edge408 ]
+  %.4.lcssa = phi i1 [ %.0268.lcssa545, %._crit_edge378.thread542 ], [ false, %gencontext_init.exit ], [ %.3, %._crit_edge378 ], [ %.14.lcssa, %._crit_edge408 ]
   %353 = getelementptr inbounds nuw i8, ptr %43, i64 440
   %354 = load ptr, ptr %353, align 8
   tail call void @llvm_emit_dynamic_functions(ptr noundef nonnull %43, ptr noundef %354) #10
@@ -6597,7 +6597,7 @@ gencontext_verify_ir.exit:                        ; preds = %gencontext_print_ll
   br label %.critedge
 
 .critedge:                                        ; preds = %41, %35, %29, %22, %2, %459, %9
-  %.0267 = phi ptr [ null, %9 ], [ %., %459 ], [ null, %2 ], [ null, %22 ], [ null, %29 ], [ null, %35 ], [ null, %41 ]
+  %.0267 = phi ptr [ null, %9 ], [ null, %2 ], [ %., %459 ], [ null, %22 ], [ null, %29 ], [ null, %35 ], [ null, %41 ]
   ret ptr %.0267
 }
 

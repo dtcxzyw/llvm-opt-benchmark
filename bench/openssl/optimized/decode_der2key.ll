@@ -189,7 +189,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2dh_does_selection(ptr re
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %11, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -280,7 +280,7 @@ define internal i32 @der2key_decode(ptr noundef initializes((272, 276)) %0, ptr 
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %51, %40
-  %54 = phi ptr [ %53, %51 ], [ %42, %40 ]
+  %54 = phi ptr [ %42, %40 ], [ %53, %51 ]
   %55 = icmp eq ptr %54, null
   br i1 %55, label %thread-pre-split.thread, label %.thread109
 
@@ -603,7 +603,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2dh_does_selection(
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %11, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -647,7 +647,7 @@ define internal range(i32 0, 2) i32 @type_specific_params_der2dh_does_selection(
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %11, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -691,7 +691,7 @@ define internal range(i32 0, 2) i32 @DH_der2dh_does_selection(ptr readnone captu
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %11, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -735,7 +735,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2dhx_does_selection(ptr r
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %11, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -779,7 +779,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2dhx_does_selection
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %11, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -823,7 +823,7 @@ define internal range(i32 0, 2) i32 @type_specific_params_der2dhx_does_selection
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %11, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -867,7 +867,7 @@ define internal range(i32 0, 2) i32 @DHX_der2dhx_does_selection(ptr readnone cap
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %11, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -911,7 +911,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2dsa_does_selection(ptr r
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %11, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -955,7 +955,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2dsa_does_selection
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %11, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -1077,7 +1077,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2ec_does_selection(ptr re
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %11, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -1121,7 +1121,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2ec_does_selection(
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %11, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -1166,7 +1166,7 @@ define internal range(i32 0, 2) i32 @type_specific_no_pub_der2ec_does_selection(
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %12, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %12, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -1211,7 +1211,7 @@ define internal range(i32 0, 2) i32 @EC_der2ec_does_selection(ptr readnone captu
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %12, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %12, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -1255,7 +1255,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2x25519_does_selection(pt
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %11, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -1299,7 +1299,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2x25519_does_select
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %11, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -1343,7 +1343,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2x448_does_selection(ptr 
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %11, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -1387,7 +1387,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2x448_does_selectio
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %11, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -1431,7 +1431,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2ed25519_does_selection(p
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %11, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -1475,7 +1475,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2ed25519_does_selec
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %11, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -1519,7 +1519,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2ed448_does_selection(ptr
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %11, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -1563,7 +1563,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2ed448_does_selecti
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %11, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -1607,7 +1607,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2sm2_does_selection(ptr r
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %11, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -1651,7 +1651,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2sm2_does_selection
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %11, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -1696,7 +1696,7 @@ define internal range(i32 0, 2) i32 @type_specific_no_pub_der2sm2_does_selection
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %12, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %12, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -1740,7 +1740,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2ml_kem_512_does_selectio
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %11, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -1784,7 +1784,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2ml_kem_512_does_se
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %11, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -1828,7 +1828,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2ml_kem_768_does_selectio
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %11, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -1872,7 +1872,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2ml_kem_768_does_se
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %11, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -1916,7 +1916,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2ml_kem_1024_does_selecti
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %11, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -1960,7 +1960,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2ml_kem_1024_does_s
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %11, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -2004,7 +2004,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2rsa_does_selection(ptr r
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %11, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -2048,7 +2048,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2rsa_does_selection
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %11, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -2092,7 +2092,7 @@ define internal range(i32 0, 2) i32 @type_specific_keypair_der2rsa_does_selectio
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %11, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -2136,7 +2136,7 @@ define internal range(i32 0, 2) i32 @RSA_der2rsa_does_selection(ptr readnone cap
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %11, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -2180,7 +2180,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2rsapss_does_selection(pt
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %11, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -2224,7 +2224,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2rsapss_does_select
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %11, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -2268,7 +2268,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2ml_dsa_44_does_selection
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %11, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -2312,7 +2312,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2ml_dsa_44_does_sel
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %11, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -2356,7 +2356,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2ml_dsa_65_does_selection
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %11, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -2400,7 +2400,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2ml_dsa_65_does_sel
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %11, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -2444,7 +2444,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2ml_dsa_87_does_selection
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %11, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -2488,7 +2488,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2ml_dsa_87_does_sel
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %11, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -3076,8 +3076,8 @@ der2key_decode_p8.exit:                           ; preds = %3, %6, %17, %22, %2
 define internal range(i32 0, 2) i32 @rsa_check(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = tail call i32 @RSA_test_flags(ptr noundef %0, i32 noundef 61440) #7
   switch i32 %3, label %.critedge [
-    i32 0, label %4
-    i32 4096, label %10
+    i32 0, label %10
+    i32 4096, label %4
   ]
 
 4:                                                ; preds = %2
@@ -3085,7 +3085,7 @@ define internal range(i32 0, 2) i32 @rsa_check(ptr noundef %0, ptr noundef reado
   %6 = load ptr, ptr %5, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i32, ptr %7, align 8, !tbaa !41
-  %9 = icmp eq i32 %8, 6
+  %9 = icmp eq i32 %8, 912
   br i1 %9, label %16, label %.critedge
 
 10:                                               ; preds = %2
@@ -3093,7 +3093,7 @@ define internal range(i32 0, 2) i32 @rsa_check(ptr noundef %0, ptr noundef reado
   %12 = load ptr, ptr %11, align 8, !tbaa !11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load i32, ptr %13, align 8, !tbaa !41
-  %15 = icmp eq i32 %14, 912
+  %15 = icmp eq i32 %14, 6
   br i1 %15, label %16, label %.critedge
 
 16:                                               ; preds = %4, %10

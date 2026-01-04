@@ -277,7 +277,7 @@ define internal fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenC
   unreachable
 
 .body.i.i.i.i.i.i:                                ; preds = %128, %.body14.i.i.i.i.i.i, %75, %71
-  %.pn.pn.i.i.i.i.i.i = phi { ptr, i32 } [ %lpad.phi.i.i, %128 ], [ %lpad.thr_comm.split-lp.i.i.i.i.i.i, %75 ], [ %72, %71 ], [ %95, %.body14.i.i.i.i.i.i ]
+  %.pn.pn.i.i.i.i.i.i = phi { ptr, i32 } [ %lpad.phi.i.i, %128 ], [ %lpad.thr_comm.split-lp.i.i.i.i.i.i, %75 ], [ %95, %.body14.i.i.i.i.i.i ], [ %72, %71 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6421d5db9f27fe7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #16
           to label %117 unwind label %126, !noalias !55
 
@@ -448,7 +448,7 @@ define internal fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenC
           to label %.body.i.i.i.i.i.i unwind label %126, !noalias !55
 
 common.resume.i.i.i.i.i:                          ; preds = %136, %117, %56
-  %common.resume.op.i.i.i.i.i = phi { ptr, i32 } [ %.pn4.i.i.i.i.i.i, %117 ], [ %57, %56 ], [ %lpad.phi11.i.i, %136 ]
+  %common.resume.op.i.i.i.i.i = phi { ptr, i32 } [ %57, %56 ], [ %.pn4.i.i.i.i.i.i, %117 ], [ %lpad.phi11.i.i, %136 ]
   resume { ptr, i32 } %common.resume.op.i.i.i.i.i
 
 "_ZN17uv_build_frontend13Pep517Backend14backend_import28_$u7b$$u7b$closure$u7d$$u7d$17h84be327cf24dc667E.exit.i.i.i.i.i": ; preds = %123, %120
@@ -979,7 +979,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   br label %_ZN4core4char7methods15encode_utf8_raw17ha4c6f67d3ae98f5fE.exit.i
 
 _ZN4core4char7methods15encode_utf8_raw17ha4c6f67d3ae98f5fE.exit.i: ; preds = %34, %23, %8
-  %.sroa.0.1.i.i = phi i64 [ 2, %34 ], [ 3, %23 ], [ 4, %8 ]
+  %.sroa.0.1.i.i = phi i64 [ 4, %8 ], [ 2, %34 ], [ 3, %23 ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %42 = load i64, ptr %41, align 8, !alias.scope !246, !noundef !3
   %43 = load i64, ptr %0, align 8, !range !69, !alias.scope !246, !noundef !3
@@ -1167,7 +1167,7 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread19.i: ; preds = %.lr
   br label %14
 
 .critedge:                                        ; preds = %69, %36, %.noexc34, %.preheader.i.i, %27
-  %.promoted.i71108 = phi i64 [ %.promoted.i71124, %27 ], [ %.promoted.i71124, %.preheader.i.i ], [ %.promoted.i71124, %.noexc34 ], [ %.promoted.i71124, %36 ], [ %34, %69 ]
+  %.promoted.i71108 = phi i64 [ %.promoted.i71124, %27 ], [ %.promoted.i71124, %36 ], [ %.promoted.i71124, %.preheader.i.i ], [ %.promoted.i71124, %.noexc34 ], [ %34, %69 ]
   %gepdiff96 = sub nsw i64 %2, %.promoted.i71108
   %39 = load i64, ptr %.sroa.515.0..sroa_idx, align 8, !alias.scope !279, !noundef !3
   %40 = load i64, ptr %7, align 8, !range !69, !alias.scope !279, !noundef !3

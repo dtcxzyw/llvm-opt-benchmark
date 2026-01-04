@@ -10953,7 +10953,7 @@ define hidden void @"_ZN11ruff_linter5rules5isort8settings1_110_$LT$impl$u20$ser
           to label %.thread17 unwind label %68, !noalias !12
 
 .thread17:                                        ; preds = %67, %80, %79
-  %.pn.i4 = phi { ptr, i32 } [ %78, %80 ], [ %78, %79 ], [ %lpad.thr_comm.i, %67 ]
+  %.pn.i4 = phi { ptr, i32 } [ %lpad.thr_comm.i, %67 ], [ %78, %80 ], [ %78, %79 ]
   resume { ptr, i32 } %.pn.i4
 
 80:                                               ; preds = %77
@@ -14918,7 +14918,7 @@ define internal fastcc void @"_ZN4core3ptr63drop_in_place$LT$ruff..commands..for
           to label %"_ZN4core3ptr72drop_in_place$LT$alloc..boxed..Box$LT$ruff_db..panic..PanicError$GT$$GT$17h436debabe6a6b29cE.exit" unwind label %43
 
 common.resume:                                    ; preds = %47, %72, %87, %39, %67, %62, %43
-  %common.resume.op = phi { ptr, i32 } [ %44, %43 ], [ %40, %39 ], [ %48, %47 ], [ %73, %72 ], [ %88, %87 ], [ %63, %67 ], [ %63, %62 ]
+  %common.resume.op = phi { ptr, i32 } [ %44, %43 ], [ %40, %39 ], [ %48, %47 ], [ %88, %87 ], [ %73, %72 ], [ %63, %67 ], [ %63, %62 ]
   resume { ptr, i32 } %common.resume.op
 
 43:                                               ; preds = %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h459f41316235da3dE.exit3"
@@ -15299,8 +15299,8 @@ define hidden { ptr, ptr } @_ZN4core5error5Error5cause17h48a62e7b738e0111E(ptr n
   br label %"_ZN57_$LT$clearscreen..Error$u20$as$u20$core..error..Error$GT$6source17h1c875998bce73e99E.exit"
 
 "_ZN57_$LT$clearscreen..Error$u20$as$u20$core..error..Error$GT$6source17h1c875998bce73e99E.exit": ; preds = %1, %1, %1, %7, %9, %11
-  %.sroa.7.0.i = phi ptr [ @anon.5bc7f885d7c4a73c810aa79227528d26.1008, %7 ], [ @anon.5bc7f885d7c4a73c810aa79227528d26.1025, %9 ], [ @anon.5bc7f885d7c4a73c810aa79227528d26.1027, %11 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0.i = phi ptr [ %8, %7 ], [ %10, %9 ], [ %0, %11 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
+  %.sroa.7.0.i = phi ptr [ @anon.5bc7f885d7c4a73c810aa79227528d26.1008, %7 ], [ undef, %1 ], [ @anon.5bc7f885d7c4a73c810aa79227528d26.1025, %9 ], [ @anon.5bc7f885d7c4a73c810aa79227528d26.1027, %11 ], [ undef, %1 ], [ undef, %1 ]
+  %.sroa.0.0.i = phi ptr [ %8, %7 ], [ null, %1 ], [ %10, %9 ], [ %0, %11 ], [ null, %1 ], [ null, %1 ]
   %12 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
   %13 = insertvalue { ptr, ptr } %12, ptr %.sroa.7.0.i, 1
   ret { ptr, ptr } %13
@@ -15401,8 +15401,8 @@ define hidden { ptr, ptr } @_ZN4core5error5Error5cause17h736d85e30bbd9de4E(ptr n
   br label %"_ZN7bincode8features8impl_std76_$LT$impl$u20$core..error..Error$u20$for$u20$bincode..error..EncodeError$GT$6source17h59f5a31a5d783f4aE.exit"
 
 "_ZN7bincode8features8impl_std76_$LT$impl$u20$core..error..Error$u20$for$u20$bincode..error..EncodeError$GT$6source17h59f5a31a5d783f4aE.exit": ; preds = %1, %3, %5, %7
-  %.sroa.5.0.i = phi ptr [ @anon.5bc7f885d7c4a73c810aa79227528d26.1162, %3 ], [ @anon.5bc7f885d7c4a73c810aa79227528d26.1008, %5 ], [ @anon.5bc7f885d7c4a73c810aa79227528d26.1164, %7 ], [ undef, %1 ]
-  %.sroa.0.0.i = phi ptr [ %4, %3 ], [ %6, %5 ], [ %8, %7 ], [ null, %1 ]
+  %.sroa.5.0.i = phi ptr [ @anon.5bc7f885d7c4a73c810aa79227528d26.1164, %7 ], [ @anon.5bc7f885d7c4a73c810aa79227528d26.1162, %3 ], [ @anon.5bc7f885d7c4a73c810aa79227528d26.1008, %5 ], [ undef, %1 ]
+  %.sroa.0.0.i = phi ptr [ %8, %7 ], [ %4, %3 ], [ %6, %5 ], [ null, %1 ]
   %9 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
   %10 = insertvalue { ptr, ptr } %9, ptr %.sroa.5.0.i, 1
   ret { ptr, ptr } %10
@@ -16244,8 +16244,8 @@ define internal { ptr, ptr } @"_ZN57_$LT$clearscreen..Error$u20$as$u20$core..err
   br label %12
 
 12:                                               ; preds = %1, %1, %1, %11, %9, %7
-  %.sroa.7.0 = phi ptr [ @anon.5bc7f885d7c4a73c810aa79227528d26.1008, %7 ], [ @anon.5bc7f885d7c4a73c810aa79227528d26.1025, %9 ], [ @anon.5bc7f885d7c4a73c810aa79227528d26.1027, %11 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %8, %7 ], [ %10, %9 ], [ %0, %11 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ @anon.5bc7f885d7c4a73c810aa79227528d26.1008, %7 ], [ undef, %1 ], [ @anon.5bc7f885d7c4a73c810aa79227528d26.1025, %9 ], [ @anon.5bc7f885d7c4a73c810aa79227528d26.1027, %11 ], [ undef, %1 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %8, %7 ], [ null, %1 ], [ %10, %9 ], [ %0, %11 ], [ null, %1 ], [ null, %1 ]
   %13 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %14 = insertvalue { ptr, ptr } %13, ptr %.sroa.7.0, 1
   ret { ptr, ptr } %14
@@ -27796,8 +27796,8 @@ define internal { ptr, ptr } @"_ZN7bincode8features8impl_std76_$LT$impl$u20$core
   br label %9
 
 9:                                                ; preds = %1, %7, %5, %3
-  %.sroa.5.0 = phi ptr [ @anon.5bc7f885d7c4a73c810aa79227528d26.1162, %3 ], [ @anon.5bc7f885d7c4a73c810aa79227528d26.1008, %5 ], [ @anon.5bc7f885d7c4a73c810aa79227528d26.1164, %7 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %4, %3 ], [ %6, %5 ], [ %8, %7 ], [ null, %1 ]
+  %.sroa.5.0 = phi ptr [ @anon.5bc7f885d7c4a73c810aa79227528d26.1164, %7 ], [ @anon.5bc7f885d7c4a73c810aa79227528d26.1162, %3 ], [ @anon.5bc7f885d7c4a73c810aa79227528d26.1008, %5 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %8, %7 ], [ %4, %3 ], [ %6, %5 ], [ null, %1 ]
   %10 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %11 = insertvalue { ptr, ptr } %10, ptr %.sroa.5.0, 1
   ret { ptr, ptr } %11
@@ -28786,7 +28786,7 @@ define hidden noundef ptr @_ZN4ruff8commands7version7version17hac0edb03a0f9c669E
           to label %32 unwind label %30
 
 30:                                               ; preds = %21, %40, %33, %24
-  %.sroa.09.2 = phi i8 [ 0, %40 ], [ 1, %33 ], [ 1, %24 ], [ 0, %21 ]
+  %.sroa.09.2 = phi i8 [ 0, %40 ], [ 0, %21 ], [ 1, %33 ], [ 1, %24 ]
   %31 = landingpad { ptr, i32 }
           cleanup
   br label %.body

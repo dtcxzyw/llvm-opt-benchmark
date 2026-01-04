@@ -1554,7 +1554,7 @@ _ZN7QStringD2Ev.exit50:                           ; preds = %80, %_ZN17QArrayDat
   ret void
 
 94:                                               ; preds = %42, %44, %72, %_ZN7QStringD2Ev.exit50, %46, %40
-  %.pn41.pn.pn.pn = phi { ptr, i32 } [ %41, %40 ], [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ %73, %72 ], [ %.pn, %_ZN7QStringD2Ev.exit50 ]
+  %.pn41.pn.pn.pn = phi { ptr, i32 } [ %41, %40 ], [ %45, %44 ], [ %43, %42 ], [ %47, %46 ], [ %73, %72 ], [ %.pn, %_ZN7QStringD2Ev.exit50 ]
   call void @_ZN23QTreeWidgetItemIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(20) %4) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn41.pn.pn.pn

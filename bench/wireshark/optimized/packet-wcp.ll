@@ -530,9 +530,9 @@ get_wcp_window_ptr.exit.i69:                      ; preds = %147, %141
   br label %222
 
 222:                                              ; preds = %210, %207, %197, %193
-  %.sink254.i = phi i64 [ 3, %197 ], [ 3, %193 ], [ 2, %210 ], [ 2, %207 ]
-  %.sink.i = phi i32 [ 3, %197 ], [ 3, %193 ], [ 2, %210 ], [ 2, %207 ]
-  %.0126.in.i = phi i16 [ %196, %197 ], [ %196, %193 ], [ %209, %210 ], [ %209, %207 ]
+  %.sink254.i = phi i64 [ 3, %193 ], [ 3, %197 ], [ 2, %210 ], [ 2, %207 ]
+  %.sink.i = phi i32 [ 3, %193 ], [ 3, %197 ], [ 2, %210 ], [ 2, %207 ]
+  %.0126.in.i = phi i16 [ %196, %193 ], [ %196, %197 ], [ %209, %210 ], [ %209, %207 ]
   %223 = getelementptr i8, ptr %.0130206.i, i64 %.sink254.i
   %224 = add nsw i32 %.sink.i, %.0127208.i
   %.0126.i = add nuw nsw i16 %.0126.in.i, 1
@@ -732,7 +732,7 @@ decompressed_entry.exit.thread.i:                 ; preds = %decompressed_entry.
   store ptr %.0134.lcssa.i, ptr %.013.i.i73, align 8
   br label %wcp_uncompress.exit
 
-wcp_uncompress.exit.thread:                       ; preds = %178, %190, %165, %226, %232, %decompressed_entry.exit.thread.i, %267, %311
+wcp_uncompress.exit.thread:                       ; preds = %178, %190, %165, %226, %232, %decompressed_entry.exit.thread.i, %311, %267
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.sink.split
 

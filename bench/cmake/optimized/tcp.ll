@@ -176,7 +176,7 @@ define dso_local i32 @uv__tcp_bind(ptr noundef %0, ptr noundef %1, i32 noundef %
   br label %maybe_new_socket.exit
 
 maybe_new_socket.exit:                            ; preds = %19, %14, %.critedge, %56, %45, %7, %47, %36, %25
-  %.0 = phi i32 [ %28, %25 ], [ %39, %36 ], [ %48, %47 ], [ -22, %7 ], [ -22, %45 ], [ 0, %56 ], [ 0, %.critedge ], [ %18, %19 ], [ %15, %14 ]
+  %.0 = phi i32 [ -22, %45 ], [ -22, %7 ], [ %28, %25 ], [ %39, %36 ], [ 0, %.critedge ], [ %48, %47 ], [ 0, %56 ], [ %15, %14 ], [ %18, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -295,8 +295,8 @@ maybe_new_socket.exit:                            ; preds = %maybe_new_socket.ex
   tail call void @uv__io_feed(ptr noundef %53, ptr noundef nonnull %50) #8
   br label %maybe_new_socket.exit.thread
 
-maybe_new_socket.exit.thread:                     ; preds = %18, %23, %.critedge35, %52, %5, %37
-  %.0 = phi i32 [ %38, %37 ], [ -114, %5 ], [ 0, %52 ], [ 0, %.critedge35 ], [ %19, %18 ], [ %22, %23 ]
+maybe_new_socket.exit.thread:                     ; preds = %23, %18, %.critedge35, %52, %5, %37
+  %.0 = phi i32 [ %38, %37 ], [ 0, %.critedge35 ], [ -114, %5 ], [ 0, %52 ], [ %22, %23 ], [ %19, %18 ]
   ret i32 %.0
 }
 
@@ -411,7 +411,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_tcp_close_reset(ptr
   br label %19
 
 19:                                               ; preds = %2, %18, %16
-  %.0 = phi i32 [ 0, %18 ], [ %17, %16 ], [ -22, %2 ]
+  %.0 = phi i32 [ %17, %16 ], [ 0, %18 ], [ -22, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -510,7 +510,7 @@ define dso_local i32 @uv__tcp_listen(ptr noundef %0, i32 noundef %1, ptr noundef
   br label %maybe_new_socket.exit
 
 maybe_new_socket.exit:                            ; preds = %31, %26, %3, %40, %36
-  %.0 = phi i32 [ %39, %36 ], [ 0, %40 ], [ %5, %3 ], [ %30, %31 ], [ %27, %26 ]
+  %.0 = phi i32 [ 0, %40 ], [ %5, %3 ], [ %39, %36 ], [ %30, %31 ], [ %27, %26 ]
   ret i32 %.0
 }
 

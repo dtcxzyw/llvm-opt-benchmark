@@ -87,8 +87,8 @@ define hidden ptr @EC_KEY_parse_private_key(ptr noundef %0, ptr noundef %1) loca
   call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 128, ptr noundef nonnull @.str, i32 noundef 110) #7
   br label %.thread
 
-.thread:                                          ; preds = %34, %31, %23, %24
-  %.1.ph = phi ptr [ null, %24 ], [ null, %23 ], [ %25, %31 ], [ %25, %34 ]
+.thread:                                          ; preds = %23, %34, %24, %31
+  %.1.ph = phi ptr [ %25, %31 ], [ null, %24 ], [ %25, %34 ], [ null, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %99
 
@@ -237,14 +237,14 @@ define hidden ptr @EC_KEY_parse_private_key(ptr noundef %0, ptr noundef %1) loca
   br label %100
 
 99:                                               ; preds = %84, %.thread, %96, %85, %43, %38, %41, %95, %57, %37
-  %.2 = phi ptr [ null, %37 ], [ %.03574, %38 ], [ %.03574, %43 ], [ %.03574, %57 ], [ %.03574, %95 ], [ %.03574, %96 ], [ %.03574, %84 ], [ %.03574, %85 ], [ %.03574, %41 ], [ %.1.ph, %.thread ]
-  %.0 = phi ptr [ null, %37 ], [ null, %38 ], [ %39, %43 ], [ %39, %57 ], [ %39, %95 ], [ %39, %96 ], [ %39, %84 ], [ %39, %85 ], [ %39, %41 ], [ null, %.thread ]
+  %.2 = phi ptr [ null, %37 ], [ %.03574, %38 ], [ %.03574, %43 ], [ %.1.ph, %.thread ], [ %.03574, %57 ], [ %.03574, %95 ], [ %.03574, %96 ], [ %.03574, %84 ], [ %.03574, %85 ], [ %.03574, %41 ]
+  %.0 = phi ptr [ null, %37 ], [ null, %38 ], [ %39, %43 ], [ null, %.thread ], [ %39, %57 ], [ %39, %95 ], [ %39, %96 ], [ %39, %84 ], [ %39, %85 ], [ %39, %41 ]
   call void @EC_KEY_free(ptr noundef %.0) #7
   call void @EC_GROUP_free(ptr noundef %.2) #7
   br label %100
 
 100:                                              ; preds = %98, %99, %18
-  %.041 = phi ptr [ null, %18 ], [ null, %99 ], [ %39, %98 ]
+  %.041 = phi ptr [ null, %18 ], [ %39, %98 ], [ null, %99 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -764,7 +764,7 @@ integers_equal.exit106:                           ; preds = %.lr.ph15.i99, %174,
   br label %185
 
 185:                                              ; preds = %178, %parse_explicit_prime_curve.exit.thread109, %parse_explicit_prime_curve.exit.thread, %._crit_edge
-  %.1 = phi ptr [ %179, %178 ], [ null, %._crit_edge ], [ null, %parse_explicit_prime_curve.exit.thread ], [ null, %parse_explicit_prime_curve.exit.thread109 ]
+  %.1 = phi ptr [ null, %parse_explicit_prime_curve.exit.thread109 ], [ %179, %178 ], [ null, %._crit_edge ], [ null, %parse_explicit_prime_curve.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
@@ -958,7 +958,7 @@ define hidden range(i32 0, 2) i32 @EC_KEY_marshal_private_key(ptr noundef %0, pt
   br label %65
 
 65:                                               ; preds = %62, %.critedge36, %.critedge, %64, %31
-  %.118 = phi i32 [ 0, %64 ], [ 0, %31 ], [ 0, %.critedge ], [ 0, %.critedge36 ], [ 1, %62 ]
+  %.118 = phi i32 [ 0, %31 ], [ 0, %64 ], [ 0, %.critedge36 ], [ 0, %.critedge ], [ 1, %62 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %66
@@ -1041,7 +1041,7 @@ define hidden range(i32 0, 2) i32 @EC_KEY_marshal_curve_name(ptr noundef %0, ptr
   br label %24
 
 24:                                               ; preds = %.thread, %._crit_edge, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %._crit_edge ], [ %23, %.thread ]
+  %.0 = phi i32 [ 0, %7 ], [ %23, %.thread ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 

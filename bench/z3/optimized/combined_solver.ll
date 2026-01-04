@@ -1612,8 +1612,8 @@ _ZNK15combined_solver22use_solver1_when_undefEv.exit: ; preds = %67, %49, %52
   invoke void @_Z18invoke_exit_actionj(i32 noundef 114)
           to label %_ZNK15combined_solver22use_solver1_when_undefEv.exit48.thread unwind label %.loopexit.split-lp
 
-_ZNK15combined_solver22use_solver1_when_undefEv.exit48.thread: ; preds = %.noexc45, %126, %.noexc46, %.thread51, %112
-  %.02756 = phi i32 [ %96, %112 ], [ %114, %.thread51 ], [ 0, %.noexc46 ], [ 0, %126 ], [ 0, %.noexc45 ]
+_ZNK15combined_solver22use_solver1_when_undefEv.exit48.thread: ; preds = %126, %.noexc45, %.noexc46, %.thread51, %112
+  %.02756 = phi i32 [ %96, %112 ], [ 0, %.noexc46 ], [ %114, %.thread51 ], [ 0, %.noexc45 ], [ 0, %126 ]
   %133 = load atomic i8, ptr %89 seq_cst, align 8
   %134 = trunc i8 %133 to i1
   br label %_ZNK15combined_solver22use_solver1_when_undefEv.exit48
@@ -1634,8 +1634,8 @@ _ZNK15combined_solver22use_solver1_when_undefEv.exit48.thread: ; preds = %.noexc
   br label %150
 
 _ZNK15combined_solver22use_solver1_when_undefEv.exit48: ; preds = %130, %_ZNK15combined_solver22use_solver1_when_undefEv.exit48.thread, %.thread51, %.noexc
-  %.02754 = phi i32 [ 0, %.noexc ], [ 0, %.thread51 ], [ %.02756, %_ZNK15combined_solver22use_solver1_when_undefEv.exit48.thread ], [ 0, %130 ]
-  %137 = phi i1 [ true, %.noexc ], [ true, %.thread51 ], [ %134, %_ZNK15combined_solver22use_solver1_when_undefEv.exit48.thread ], [ true, %130 ]
+  %.02754 = phi i32 [ %.02756, %_ZNK15combined_solver22use_solver1_when_undefEv.exit48.thread ], [ 0, %.thread51 ], [ 0, %.noexc ], [ 0, %130 ]
+  %137 = phi i1 [ %134, %_ZNK15combined_solver22use_solver1_when_undefEv.exit48.thread ], [ true, %.thread51 ], [ true, %.noexc ], [ true, %130 ]
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN15combined_solver14aux_timeout_ehE, i64 16), ptr %4, align 8, !tbaa !3
   %138 = load atomic i8, ptr %89 seq_cst, align 8
   %139 = trunc i8 %138 to i1
@@ -1665,7 +1665,7 @@ _ZN15combined_solver14aux_timeout_ehD2Ev.exit:    ; preds = %_ZNK15combined_solv
   br i1 %137, label %151, label %.thread
 
 150:                                              ; preds = %.loopexit, %.loopexit.split-lp, %135, %109, %101
-  %.merged = phi { ptr, i32 } [ %.pn, %101 ], [ %136, %135 ], [ %110, %109 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.merged = phi { ptr, i32 } [ %110, %109 ], [ %.pn, %101 ], [ %136, %135 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN15combined_solver14aux_timeout_ehD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %4) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.merged

@@ -215,8 +215,8 @@ dissect_caneth_can.exit:                          ; preds = %61, %66
   %81 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %test_caneth.exit.thread
 
-test_caneth.exit.thread:                          ; preds = %12, %10, %4, %test_caneth.exit, %80
-  %.0 = phi i32 [ %81, %80 ], [ 0, %test_caneth.exit ], [ 0, %4 ], [ 0, %10 ], [ 0, %12 ]
+test_caneth.exit.thread:                          ; preds = %10, %4, %12, %test_caneth.exit, %80
+  %.0 = phi i32 [ %81, %80 ], [ 0, %test_caneth.exit ], [ 0, %12 ], [ 0, %4 ], [ 0, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -272,7 +272,7 @@ define internal zeroext i1 @test_caneth(ptr readnone captures(none) %0, ptr noun
   br label %16
 
 16:                                               ; preds = %12, %9, %7, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %7 ], [ false, %9 ], [ %15, %12 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %4 ], [ false, %7 ], [ %15, %12 ]
   ret i1 %.0
 }
 

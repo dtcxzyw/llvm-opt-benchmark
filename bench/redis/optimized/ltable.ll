@@ -139,7 +139,7 @@ define hidden range(i32 0, 2) i32 @luaH_next(ptr noundef %0, ptr noundef readonl
   br label %mainposition.exit.i.preheader
 
 mainposition.exit.i.preheader:                    ; preds = %71, %57, %46, %33, %.preheader.i.i.i, %18
-  %.0.i.ph = phi ptr [ %32, %.preheader.i.i.i ], [ %20, %18 ], [ %70, %57 ], [ %56, %46 ], [ %45, %33 ], [ %84, %71 ]
+  %.0.i.ph = phi ptr [ %32, %.preheader.i.i.i ], [ %20, %18 ], [ %56, %46 ], [ %45, %33 ], [ %70, %57 ], [ %84, %71 ]
   br label %mainposition.exit.i
 
 mainposition.exit.i:                              ; preds = %mainposition.exit.i.preheader, %109
@@ -190,7 +190,7 @@ mainposition.exit.i:                              ; preds = %mainposition.exit.i
   br label %findindex.exit
 
 findindex.exit:                                   ; preds = %3, %15, %98, %112
-  %.021.i = phi i32 [ %16, %15 ], [ -1, %3 ], [ %108, %98 ], [ 0, %112 ]
+  %.021.i = phi i32 [ -1, %3 ], [ %16, %15 ], [ %108, %98 ], [ 0, %112 ]
   %113 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %114 = load i32, ptr %113, align 8, !tbaa !10
   %115 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1049,7 +1049,7 @@ hashnum.exit.i:                                   ; preds = %hashnum.exit.i.preh
   br label %mainposition.exit.preheader
 
 mainposition.exit.preheader:                      ; preds = %71, %.preheader.i.i26, %86, %97, %111
-  %.0.ph = phi ptr [ %85, %.preheader.i.i26 ], [ %73, %71 ], [ %110, %97 ], [ %96, %86 ], [ %124, %111 ]
+  %.0.ph = phi ptr [ %73, %71 ], [ %96, %86 ], [ %85, %.preheader.i.i26 ], [ %110, %97 ], [ %124, %111 ]
   br label %mainposition.exit
 
 mainposition.exit:                                ; preds = %mainposition.exit.preheader, %127
@@ -1066,7 +1066,7 @@ mainposition.exit:                                ; preds = %mainposition.exit.p
   br i1 %.not20, label %luaH_getstr.exit, label %mainposition.exit, !llvm.loop !36
 
 luaH_getstr.exit:                                 ; preds = %63, %67, %26, %22, %mainposition.exit, %127, %2, %luaH_getnum.exit.thread31
-  %.018 = phi ptr [ @luaO_nilobject_, %2 ], [ %42, %luaH_getnum.exit.thread31 ], [ @luaO_nilobject_, %127 ], [ %.0, %mainposition.exit ], [ @luaO_nilobject_, %26 ], [ %.0.i, %22 ], [ %.0.i21, %63 ], [ @luaO_nilobject_, %67 ]
+  %.018 = phi ptr [ @luaO_nilobject_, %2 ], [ %42, %luaH_getnum.exit.thread31 ], [ %.0.i, %22 ], [ @luaO_nilobject_, %127 ], [ %.0, %mainposition.exit ], [ @luaO_nilobject_, %26 ], [ @luaO_nilobject_, %67 ], [ %.0.i21, %63 ]
   ret ptr %.018
 }
 
@@ -1212,8 +1212,8 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br label %mainposition.exit
 
 mainposition.exit:                                ; preds = %16, %.preheader.i.i, %28, %39, %48, %60
-  %72 = phi ptr [ %61, %60 ], [ %29, %28 ], [ %40, %39 ], [ %49, %48 ], [ %17, %16 ], [ %20, %.preheader.i.i ]
-  %.0.i = phi ptr [ %71, %60 ], [ %38, %28 ], [ %47, %39 ], [ %59, %48 ], [ %17, %16 ], [ %27, %.preheader.i.i ]
+  %72 = phi ptr [ %61, %60 ], [ %49, %48 ], [ %29, %28 ], [ %40, %39 ], [ %17, %16 ], [ %20, %.preheader.i.i ]
+  %.0.i = phi ptr [ %71, %60 ], [ %59, %48 ], [ %38, %28 ], [ %47, %39 ], [ %17, %16 ], [ %27, %.preheader.i.i ]
   %73 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %74 = load i32, ptr %73, align 8, !tbaa !24
   %75 = icmp ne i32 %74, 0
@@ -1537,7 +1537,7 @@ getfreepos.exit:                                  ; preds = %82
   br label %mainposition.exit67
 
 mainposition.exit67:                              ; preds = %182, %.preheader.i.i62, %194, %204, %212, %223
-  %.0.i59 = phi ptr [ %233, %223 ], [ %203, %194 ], [ %211, %204 ], [ %222, %212 ], [ %193, %.preheader.i.i62 ], [ %72, %182 ]
+  %.0.i59 = phi ptr [ %233, %223 ], [ %222, %212 ], [ %203, %194 ], [ %211, %204 ], [ %193, %.preheader.i.i62 ], [ %72, %182 ]
   %.not = icmp eq ptr %.0.i59, %.0.i
   br i1 %.not, label %239, label %.preheader
 
@@ -1596,7 +1596,7 @@ luaH_set.exit:                                    ; preds = %mainposition.exit, 
   br label %luaH_set.exit.thread
 
 luaH_set.exit.thread:                             ; preds = %computesizes.exit, %luaH_set.exit, %248, %253, %257
-  %.1 = phi ptr [ %.044, %257 ], [ %.044, %253 ], [ %.044, %248 ], [ %.044, %luaH_set.exit ], [ %172, %computesizes.exit ]
+  %.1 = phi ptr [ %.044, %luaH_set.exit ], [ %.044, %257 ], [ %.044, %253 ], [ %.044, %248 ], [ %172, %computesizes.exit ]
   ret ptr %.1
 }
 
@@ -2002,7 +2002,7 @@ luaH_getnum.exit45.i:                             ; preds = %125, %121, %102
   br i1 %132, label %.lr.ph.i, label %unbound_search.exit, !llvm.loop !48
 
 unbound_search.exit:                              ; preds = %.lr.ph, %luaH_getnum.exit35.i, %luaH_getnum.exit45.i, %.preheader, %.preheader.i, %23
-  %.0 = phi i32 [ %3, %23 ], [ %.020.i, %.preheader.i ], [ 0, %.preheader ], [ %.2..i, %luaH_getnum.exit45.i ], [ %67, %luaH_getnum.exit35.i ], [ %.017., %.lr.ph ]
+  %.0 = phi i32 [ %3, %23 ], [ %.2..i, %luaH_getnum.exit45.i ], [ %67, %luaH_getnum.exit35.i ], [ %.020.i, %.preheader.i ], [ 0, %.preheader ], [ %.017., %.lr.ph ]
   ret i32 %.0
 }
 

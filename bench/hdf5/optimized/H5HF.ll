@@ -365,7 +365,7 @@ define range(i32 -1, 1) i32 @H5HF_close(ptr noundef %0) local_unnamed_addr #2 {
   br label %77
 
 77:                                               ; preds = %50, %66, %73, %70, %58, %41, %33, %20
-  %.1 = phi i32 [ -1, %20 ], [ -1, %33 ], [ -1, %41 ], [ -1, %58 ], [ -1, %66 ], [ -1, %73 ], [ 0, %70 ], [ 0, %50 ]
+  %.1 = phi i32 [ -1, %20 ], [ -1, %33 ], [ -1, %41 ], [ -1, %58 ], [ 0, %70 ], [ -1, %66 ], [ -1, %73 ], [ 0, %50 ]
   %78 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5HF_t_reg_free_list, ptr noundef nonnull %0) #5
   br label %79
 
@@ -1271,7 +1271,7 @@ define range(i32 -1, 1) i32 @H5HF_delete(ptr noundef %0, i64 noundef %1) local_u
   br label %30
 
 30:                                               ; preds = %26, %21
-  %.1 = phi i32 [ 0, %21 ], [ -1, %26 ]
+  %.1 = phi i32 [ -1, %26 ], [ 0, %21 ]
   %31 = tail call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_FHEAP_HDR, i64 noundef %1, ptr noundef nonnull %12, i32 noundef 0) #5
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %33, label %.thread16

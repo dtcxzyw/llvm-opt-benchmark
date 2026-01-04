@@ -152,7 +152,7 @@ define noundef nonnull ptr @l_Std_Time_Weekday_toCtorIdx(i8 noundef zeroext %0) 
   br label %8
 
 8:                                                ; preds = %1, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ inttoptr (i64 13 to ptr), %7 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 9 to ptr), %5 ], [ inttoptr (i64 11 to ptr), %6 ], [ inttoptr (i64 1 to ptr), %1 ]
+  %.0 = phi ptr [ inttoptr (i64 13 to ptr), %7 ], [ inttoptr (i64 11 to ptr), %6 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 9 to ptr), %5 ], [ inttoptr (i64 1 to ptr), %1 ]
   ret ptr %.0
 }
 
@@ -212,7 +212,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
   br label %l_Std_Time_Weekday_toCtorIdx.exit
 
 l_Std_Time_Weekday_toCtorIdx.exit:                ; preds = %lean_dec.exit, %13, %14, %15, %16, %17, %18
-  %.0.i = phi ptr [ inttoptr (i64 13 to ptr), %18 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 9 to ptr), %16 ], [ inttoptr (i64 11 to ptr), %17 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
+  %.0.i = phi ptr [ inttoptr (i64 13 to ptr), %18 ], [ inttoptr (i64 11 to ptr), %17 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 9 to ptr), %16 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
   ret ptr %.0.i
 }
 
@@ -490,7 +490,7 @@ lean_nat_le.exit81:                               ; preds = %29
   br label %33
 
 33:                                               ; preds = %lean_nat_le.exit81, %30, %lean_nat_le.exit78, %26, %lean_nat_le.exit75, %22, %lean_nat_le.exit72, %18, %lean_nat_le.exit69, %14, %lean_nat_le.exit66, %10, %lean_nat_le.exit, %6, %32, %28, %24, %20, %16, %12, %8
-  %l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_Time_Date_Unit_Weekday___hyg_13____closed__42.sink = phi ptr [ @l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_Time_Date_Unit_Weekday___hyg_13____closed__44, %32 ], [ @l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_Time_Date_Unit_Weekday___hyg_13____closed__38, %28 ], [ @l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_Time_Date_Unit_Weekday___hyg_13____closed__32, %24 ], [ @l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_Time_Date_Unit_Weekday___hyg_13____closed__26, %20 ], [ @l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_Time_Date_Unit_Weekday___hyg_13____closed__20, %16 ], [ @l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_Time_Date_Unit_Weekday___hyg_13____closed__14, %12 ], [ @l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_Time_Date_Unit_Weekday___hyg_13____closed__8, %8 ], [ @l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_Time_Date_Unit_Weekday___hyg_13____closed__5, %6 ], [ @l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_Time_Date_Unit_Weekday___hyg_13____closed__5, %lean_nat_le.exit ], [ @l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_Time_Date_Unit_Weekday___hyg_13____closed__12, %10 ], [ @l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_Time_Date_Unit_Weekday___hyg_13____closed__12, %lean_nat_le.exit66 ], [ @l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_Time_Date_Unit_Weekday___hyg_13____closed__18, %14 ], [ @l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_Time_Date_Unit_Weekday___hyg_13____closed__18, %lean_nat_le.exit69 ], [ @l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_Time_Date_Unit_Weekday___hyg_13____closed__24, %18 ], [ @l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_Time_Date_Unit_Weekday___hyg_13____closed__24, %lean_nat_le.exit72 ], [ @l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_Time_Date_Unit_Weekday___hyg_13____closed__30, %22 ], [ @l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_Time_Date_Unit_Weekday___hyg_13____closed__30, %lean_nat_le.exit75 ], [ @l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_Time_Date_Unit_Weekday___hyg_13____closed__36, %26 ], [ @l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_Time_Date_Unit_Weekday___hyg_13____closed__36, %lean_nat_le.exit78 ], [ @l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_Time_Date_Unit_Weekday___hyg_13____closed__42, %30 ], [ @l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_Time_Date_Unit_Weekday___hyg_13____closed__42, %lean_nat_le.exit81 ]
+  %l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_Time_Date_Unit_Weekday___hyg_13____closed__42.sink = phi ptr [ @l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_Time_Date_Unit_Weekday___hyg_13____closed__36, %lean_nat_le.exit78 ], [ @l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_Time_Date_Unit_Weekday___hyg_13____closed__44, %32 ], [ @l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_Time_Date_Unit_Weekday___hyg_13____closed__30, %lean_nat_le.exit75 ], [ @l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_Time_Date_Unit_Weekday___hyg_13____closed__38, %28 ], [ @l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_Time_Date_Unit_Weekday___hyg_13____closed__24, %lean_nat_le.exit72 ], [ @l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_Time_Date_Unit_Weekday___hyg_13____closed__32, %24 ], [ @l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_Time_Date_Unit_Weekday___hyg_13____closed__18, %lean_nat_le.exit69 ], [ @l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_Time_Date_Unit_Weekday___hyg_13____closed__26, %20 ], [ @l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_Time_Date_Unit_Weekday___hyg_13____closed__12, %lean_nat_le.exit66 ], [ @l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_Time_Date_Unit_Weekday___hyg_13____closed__20, %16 ], [ @l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_Time_Date_Unit_Weekday___hyg_13____closed__5, %lean_nat_le.exit ], [ @l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_Time_Date_Unit_Weekday___hyg_13____closed__14, %12 ], [ @l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_Time_Date_Unit_Weekday___hyg_13____closed__8, %8 ], [ @l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_Time_Date_Unit_Weekday___hyg_13____closed__5, %6 ], [ @l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_Time_Date_Unit_Weekday___hyg_13____closed__12, %10 ], [ @l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_Time_Date_Unit_Weekday___hyg_13____closed__18, %14 ], [ @l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_Time_Date_Unit_Weekday___hyg_13____closed__24, %18 ], [ @l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_Time_Date_Unit_Weekday___hyg_13____closed__30, %22 ], [ @l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_Time_Date_Unit_Weekday___hyg_13____closed__36, %26 ], [ @l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_Time_Date_Unit_Weekday___hyg_13____closed__42, %30 ], [ @l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_Time_Date_Unit_Weekday___hyg_13____closed__42, %lean_nat_le.exit81 ]
   %34 = load ptr, ptr %l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekday____x40_Std_Time_Date_Unit_Weekday___hyg_13____closed__42.sink, align 8, !tbaa !10
   %35 = tail call ptr @l_Repr_addAppParen(ptr noundef %34, ptr noundef %1) #7
   ret ptr %35
@@ -625,7 +625,7 @@ lean_nat_eq.exit40:                               ; preds = %16, %.critedge.i38
   br label %19
 
 19:                                               ; preds = %6, %lean_nat_eq.exit37, %lean_nat_eq.exit40, %lean_nat_eq.exit, %lean_nat_le.exit29
-  %.2 = phi i8 [ %., %lean_nat_eq.exit ], [ 0, %lean_nat_le.exit29 ], [ %.25, %lean_nat_eq.exit37 ], [ %.26, %lean_nat_eq.exit40 ], [ 0, %6 ]
+  %.2 = phi i8 [ 0, %lean_nat_le.exit29 ], [ %., %lean_nat_eq.exit ], [ %.25, %lean_nat_eq.exit37 ], [ %.26, %lean_nat_eq.exit40 ], [ 0, %6 ]
   ret i8 %.2
 }
 
@@ -693,7 +693,7 @@ define zeroext range(i8 0, 2) i8 @l_Std_Time_instDecidableEqWeekday(i8 noundef z
   br label %l_Std_Time_Weekday_toCtorIdx.exit
 
 l_Std_Time_Weekday_toCtorIdx.exit:                ; preds = %2, %3, %4, %5, %6, %7, %8
-  %.0.i9 = phi ptr [ inttoptr (i64 13 to ptr), %8 ], [ inttoptr (i64 3 to ptr), %3 ], [ inttoptr (i64 5 to ptr), %4 ], [ inttoptr (i64 7 to ptr), %5 ], [ inttoptr (i64 9 to ptr), %6 ], [ inttoptr (i64 11 to ptr), %7 ], [ inttoptr (i64 1 to ptr), %2 ]
+  %.0.i9 = phi ptr [ inttoptr (i64 13 to ptr), %8 ], [ inttoptr (i64 11 to ptr), %7 ], [ inttoptr (i64 3 to ptr), %3 ], [ inttoptr (i64 5 to ptr), %4 ], [ inttoptr (i64 7 to ptr), %5 ], [ inttoptr (i64 9 to ptr), %6 ], [ inttoptr (i64 1 to ptr), %2 ]
   switch i8 %1, label %14 [
     i8 0, label %lean_dec.exit
     i8 1, label %9
@@ -722,7 +722,7 @@ l_Std_Time_Weekday_toCtorIdx.exit:                ; preds = %2, %3, %4, %5, %6, 
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %14, %13, %12, %11, %10, %9, %l_Std_Time_Weekday_toCtorIdx.exit
-  %.0.i10 = phi ptr [ inttoptr (i64 13 to ptr), %14 ], [ inttoptr (i64 3 to ptr), %9 ], [ inttoptr (i64 5 to ptr), %10 ], [ inttoptr (i64 7 to ptr), %11 ], [ inttoptr (i64 9 to ptr), %12 ], [ inttoptr (i64 11 to ptr), %13 ], [ inttoptr (i64 1 to ptr), %l_Std_Time_Weekday_toCtorIdx.exit ]
+  %.0.i10 = phi ptr [ inttoptr (i64 13 to ptr), %14 ], [ inttoptr (i64 11 to ptr), %13 ], [ inttoptr (i64 3 to ptr), %9 ], [ inttoptr (i64 5 to ptr), %10 ], [ inttoptr (i64 7 to ptr), %11 ], [ inttoptr (i64 9 to ptr), %12 ], [ inttoptr (i64 1 to ptr), %l_Std_Time_Weekday_toCtorIdx.exit ]
   %15 = icmp eq ptr %.0.i9, %.0.i10
   %16 = zext i1 %15 to i8
   ret i8 %16
@@ -810,7 +810,7 @@ lean_dec.exit:                                    ; preds = %24, %23, %21, %lean
   br label %l_Std_Time_Weekday_toCtorIdx.exit.i
 
 l_Std_Time_Weekday_toCtorIdx.exit.i:              ; preds = %30, %29, %28, %27, %26, %25, %lean_dec.exit
-  %.0.i9.i = phi ptr [ inttoptr (i64 13 to ptr), %30 ], [ inttoptr (i64 3 to ptr), %25 ], [ inttoptr (i64 5 to ptr), %26 ], [ inttoptr (i64 7 to ptr), %27 ], [ inttoptr (i64 9 to ptr), %28 ], [ inttoptr (i64 11 to ptr), %29 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
+  %.0.i9.i = phi ptr [ inttoptr (i64 13 to ptr), %30 ], [ inttoptr (i64 11 to ptr), %29 ], [ inttoptr (i64 3 to ptr), %25 ], [ inttoptr (i64 5 to ptr), %26 ], [ inttoptr (i64 7 to ptr), %27 ], [ inttoptr (i64 9 to ptr), %28 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
   switch i8 %16, label %36 [
     i8 0, label %l_Std_Time_instDecidableEqWeekday.exit
     i8 1, label %31
@@ -839,7 +839,7 @@ l_Std_Time_Weekday_toCtorIdx.exit.i:              ; preds = %30, %29, %28, %27, 
   br label %l_Std_Time_instDecidableEqWeekday.exit
 
 l_Std_Time_instDecidableEqWeekday.exit:           ; preds = %l_Std_Time_Weekday_toCtorIdx.exit.i, %31, %32, %33, %34, %35, %36
-  %.0.i10.i = phi ptr [ inttoptr (i64 13 to ptr), %36 ], [ inttoptr (i64 3 to ptr), %31 ], [ inttoptr (i64 5 to ptr), %32 ], [ inttoptr (i64 7 to ptr), %33 ], [ inttoptr (i64 9 to ptr), %34 ], [ inttoptr (i64 11 to ptr), %35 ], [ inttoptr (i64 1 to ptr), %l_Std_Time_Weekday_toCtorIdx.exit.i ]
+  %.0.i10.i = phi ptr [ inttoptr (i64 13 to ptr), %36 ], [ inttoptr (i64 11 to ptr), %35 ], [ inttoptr (i64 3 to ptr), %31 ], [ inttoptr (i64 5 to ptr), %32 ], [ inttoptr (i64 7 to ptr), %33 ], [ inttoptr (i64 9 to ptr), %34 ], [ inttoptr (i64 1 to ptr), %l_Std_Time_Weekday_toCtorIdx.exit.i ]
   %37 = icmp eq ptr %.0.i9.i, %.0.i10.i
   %38 = select i1 %37, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
   ret ptr %38
@@ -1263,7 +1263,7 @@ lean_nat_abs.exit:                                ; preds = %4, %lean_int_neg.ex
   br label %lean_dec.exit75
 
 lean_dec.exit75:                                  ; preds = %31, %41, %40, %38
-  %.1.i63117 = phi ptr [ %35, %38 ], [ %35, %40 ], [ %35, %41 ], [ %33, %31 ]
+  %.1.i63117 = phi ptr [ %35, %41 ], [ %35, %38 ], [ %35, %40 ], [ %33, %31 ]
   %42 = ptrtoint ptr %.1.i63117 to i64
   %43 = and i64 %42, 1
   %.not143 = icmp eq i64 %43, 0
@@ -1306,7 +1306,7 @@ lean_nat_eq.exit.thread:                          ; preds = %lean_dec.exit75
   br label %lean_dec.exit74
 
 lean_dec.exit74:                                  ; preds = %47, %56, %55, %53
-  %.1.i60120 = phi ptr [ %50, %53 ], [ %50, %55 ], [ %50, %56 ], [ %49, %47 ]
+  %.1.i60120 = phi ptr [ %50, %56 ], [ %50, %53 ], [ %50, %55 ], [ %49, %47 ]
   %57 = ptrtoint ptr %.1.i60120 to i64
   %58 = and i64 %57, 1
   %.not145 = icmp eq i64 %58, 0
@@ -1349,7 +1349,7 @@ lean_nat_eq.exit101.thread:                       ; preds = %lean_dec.exit74
   br label %lean_dec.exit73
 
 lean_dec.exit73:                                  ; preds = %62, %71, %70, %68
-  %.1.i57124 = phi ptr [ %65, %68 ], [ %65, %70 ], [ %65, %71 ], [ %64, %62 ]
+  %.1.i57124 = phi ptr [ %65, %71 ], [ %65, %68 ], [ %65, %70 ], [ %64, %62 ]
   %72 = ptrtoint ptr %.1.i57124 to i64
   %73 = and i64 %72, 1
   %.not147 = icmp eq i64 %73, 0
@@ -1392,7 +1392,7 @@ lean_nat_eq.exit104.thread:                       ; preds = %lean_dec.exit73
   br label %lean_dec.exit72
 
 lean_dec.exit72:                                  ; preds = %77, %86, %85, %83
-  %.1.i54128 = phi ptr [ %80, %83 ], [ %80, %85 ], [ %80, %86 ], [ %79, %77 ]
+  %.1.i54128 = phi ptr [ %80, %86 ], [ %80, %83 ], [ %80, %85 ], [ %79, %77 ]
   %87 = ptrtoint ptr %.1.i54128 to i64
   %88 = and i64 %87, 1
   %.not149 = icmp eq i64 %88, 0
@@ -1435,7 +1435,7 @@ lean_nat_eq.exit107.thread:                       ; preds = %lean_dec.exit72
   br label %lean_dec.exit71
 
 lean_dec.exit71:                                  ; preds = %92, %101, %100, %98
-  %.1.i51132 = phi ptr [ %95, %98 ], [ %95, %100 ], [ %95, %101 ], [ %94, %92 ]
+  %.1.i51132 = phi ptr [ %95, %101 ], [ %95, %98 ], [ %95, %100 ], [ %94, %92 ]
   %102 = ptrtoint ptr %.1.i51132 to i64
   %103 = and i64 %102, 1
   %.not151 = icmp eq i64 %103, 0
@@ -1478,7 +1478,7 @@ lean_nat_eq.exit110.thread:                       ; preds = %lean_dec.exit71
   br label %lean_dec.exit70
 
 lean_dec.exit70:                                  ; preds = %107, %105, %116, %115, %113
-  %.1.i136 = phi ptr [ %110, %113 ], [ %110, %115 ], [ %110, %116 ], [ inttoptr (i64 1 to ptr), %105 ], [ %109, %107 ]
+  %.1.i136 = phi ptr [ %110, %116 ], [ %110, %113 ], [ %110, %115 ], [ inttoptr (i64 1 to ptr), %105 ], [ %109, %107 ]
   %117 = ptrtoint ptr %.1.i136 to i64
   %118 = and i64 %117, 1
   %.not153 = icmp eq i64 %118, 0
@@ -1603,7 +1603,7 @@ lean_dec.exit69:                                  ; preds = %127, %126, %124, %l
   br label %lean_dec.exit68
 
 lean_dec.exit68:                                  ; preds = %90, %75, %60, %45, %29, %lean_nat_eq.exit, %lean_nat_eq.exit101, %lean_nat_eq.exit104, %lean_nat_eq.exit107, %lean_nat_eq.exit110, %154, %156, %157, %148, %150, %151, %142, %144, %145, %136, %138, %139, %130, %132, %133, %lean_dec.exit69
-  %.5 = phi i8 [ %., %lean_dec.exit69 ], [ 4, %133 ], [ 4, %132 ], [ 4, %130 ], [ 3, %139 ], [ 3, %138 ], [ 3, %136 ], [ 2, %145 ], [ 2, %144 ], [ 2, %142 ], [ 1, %151 ], [ 1, %150 ], [ 1, %148 ], [ 0, %157 ], [ 0, %156 ], [ 0, %154 ], [ 4, %lean_nat_eq.exit110 ], [ 3, %lean_nat_eq.exit107 ], [ 2, %lean_nat_eq.exit104 ], [ 1, %lean_nat_eq.exit101 ], [ 0, %lean_nat_eq.exit ], [ 0, %29 ], [ 1, %45 ], [ 2, %60 ], [ 3, %75 ], [ 4, %90 ]
+  %.5 = phi i8 [ 2, %lean_nat_eq.exit104 ], [ 3, %lean_nat_eq.exit107 ], [ 4, %lean_nat_eq.exit110 ], [ 1, %lean_nat_eq.exit101 ], [ %., %lean_dec.exit69 ], [ 4, %133 ], [ 4, %132 ], [ 4, %130 ], [ 3, %139 ], [ 3, %138 ], [ 3, %136 ], [ 2, %145 ], [ 2, %144 ], [ 2, %142 ], [ 1, %151 ], [ 1, %150 ], [ 1, %148 ], [ 0, %157 ], [ 0, %156 ], [ 0, %154 ], [ 0, %lean_nat_eq.exit ], [ 3, %75 ], [ 0, %29 ], [ 1, %45 ], [ 2, %60 ], [ 4, %90 ]
   ret i8 %.5
 }
 
@@ -2117,7 +2117,7 @@ define noundef ptr @l___private_Std_Time_Date_Unit_Weekday_0__Std_Time_reprWeekd
   br label %lean_inc.exit20
 
 lean_inc.exit20:                                  ; preds = %63, %68, %70, %71, %54, %59, %61, %62, %45, %50, %52, %53, %36, %41, %43, %44, %27, %32, %34, %35, %18, %23, %25, %26, %9, %14, %16, %17
-  %.0 = phi ptr [ %1, %17 ], [ %1, %16 ], [ %1, %14 ], [ %1, %9 ], [ %2, %26 ], [ %2, %25 ], [ %2, %23 ], [ %2, %18 ], [ %3, %35 ], [ %3, %34 ], [ %3, %32 ], [ %3, %27 ], [ %4, %44 ], [ %4, %43 ], [ %4, %41 ], [ %4, %36 ], [ %5, %53 ], [ %5, %52 ], [ %5, %50 ], [ %5, %45 ], [ %6, %62 ], [ %6, %61 ], [ %6, %59 ], [ %6, %54 ], [ %7, %71 ], [ %7, %70 ], [ %7, %68 ], [ %7, %63 ]
+  %.0 = phi ptr [ %6, %54 ], [ %5, %45 ], [ %1, %9 ], [ %2, %18 ], [ %3, %27 ], [ %4, %36 ], [ %1, %17 ], [ %1, %16 ], [ %1, %14 ], [ %2, %26 ], [ %2, %25 ], [ %2, %23 ], [ %3, %35 ], [ %3, %34 ], [ %3, %32 ], [ %4, %44 ], [ %4, %43 ], [ %4, %41 ], [ %5, %53 ], [ %5, %52 ], [ %5, %50 ], [ %6, %62 ], [ %6, %61 ], [ %6, %59 ], [ %7, %71 ], [ %7, %70 ], [ %7, %68 ], [ %7, %63 ]
   ret ptr %.0
 }
 
@@ -2375,7 +2375,7 @@ define noundef nonnull ptr @l_Std_Time_Weekday_toNat(i8 noundef zeroext %0) loca
   br label %8
 
 8:                                                ; preds = %1, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ inttoptr (i64 15 to ptr), %7 ], [ inttoptr (i64 5 to ptr), %2 ], [ inttoptr (i64 7 to ptr), %3 ], [ inttoptr (i64 9 to ptr), %4 ], [ inttoptr (i64 11 to ptr), %5 ], [ inttoptr (i64 13 to ptr), %6 ], [ inttoptr (i64 3 to ptr), %1 ]
+  %.0 = phi ptr [ inttoptr (i64 15 to ptr), %7 ], [ inttoptr (i64 13 to ptr), %6 ], [ inttoptr (i64 5 to ptr), %2 ], [ inttoptr (i64 7 to ptr), %3 ], [ inttoptr (i64 9 to ptr), %4 ], [ inttoptr (i64 11 to ptr), %5 ], [ inttoptr (i64 3 to ptr), %1 ]
   ret ptr %.0
 }
 
@@ -2435,7 +2435,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
   br label %l_Std_Time_Weekday_toNat.exit
 
 l_Std_Time_Weekday_toNat.exit:                    ; preds = %lean_dec.exit, %13, %14, %15, %16, %17, %18
-  %.0.i = phi ptr [ inttoptr (i64 15 to ptr), %18 ], [ inttoptr (i64 5 to ptr), %13 ], [ inttoptr (i64 7 to ptr), %14 ], [ inttoptr (i64 9 to ptr), %15 ], [ inttoptr (i64 11 to ptr), %16 ], [ inttoptr (i64 13 to ptr), %17 ], [ inttoptr (i64 3 to ptr), %lean_dec.exit ]
+  %.0.i = phi ptr [ inttoptr (i64 15 to ptr), %18 ], [ inttoptr (i64 13 to ptr), %17 ], [ inttoptr (i64 5 to ptr), %13 ], [ inttoptr (i64 7 to ptr), %14 ], [ inttoptr (i64 9 to ptr), %15 ], [ inttoptr (i64 11 to ptr), %16 ], [ inttoptr (i64 3 to ptr), %lean_dec.exit ]
   ret ptr %.0.i
 }
 

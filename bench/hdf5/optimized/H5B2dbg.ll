@@ -160,7 +160,7 @@ define range(i32 -1, 1) i32 @H5B2__hdr_debug(ptr noundef %0, i64 noundef %1, ptr
   br label %88
 
 88:                                               ; preds = %.thread, %81, %84, %7
-  %.0 = phi i32 [ -1, %84 ], [ 0, %81 ], [ 0, %7 ], [ -1, %.thread ]
+  %.0 = phi i32 [ -1, %84 ], [ 0, %81 ], [ -1, %.thread ], [ 0, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }

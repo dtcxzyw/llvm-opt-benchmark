@@ -118,7 +118,7 @@ _ZNK4decl13get_decl_kindEv.exit:                  ; preds = %5
   br label %_ZNK4decl13get_decl_kindEv.exit.thread
 
 _ZNK4decl13get_decl_kindEv.exit.thread:           ; preds = %5, %22, %19, %16, %11, %_ZNK4decl13get_decl_kindEv.exit
-  %.0 = phi i32 [ %24, %22 ], [ %15, %11 ], [ %18, %16 ], [ %21, %19 ], [ 5, %_ZNK4decl13get_decl_kindEv.exit ], [ 5, %5 ]
+  %.0 = phi i32 [ 5, %5 ], [ %24, %22 ], [ %15, %11 ], [ %18, %16 ], [ 5, %_ZNK4decl13get_decl_kindEv.exit ], [ %21, %19 ]
   ret i32 %.0
 }
 
@@ -329,12 +329,12 @@ _ZN11ast_manager7inc_refEP3ast.exit.i18:          ; preds = %96
   br label %_ZNK16char_decl_plugin13is_const_charEPK4exprRj.exit12.thread.sink.split
 
 _ZNK16char_decl_plugin13is_const_charEPK4exprRj.exit12.thread.sink.split: ; preds = %112, %105, %103, %92, %85, %83, %50, %43, %41
-  %.sink = phi ptr [ %37, %41 ], [ %37, %43 ], [ %37, %50 ], [ %79, %83 ], [ %79, %85 ], [ %79, %92 ], [ %99, %103 ], [ %99, %105 ], [ %99, %112 ]
+  %.sink = phi ptr [ %79, %92 ], [ %37, %50 ], [ %37, %41 ], [ %37, %43 ], [ %79, %83 ], [ %79, %85 ], [ %99, %103 ], [ %99, %105 ], [ %99, %112 ]
   store ptr %.sink, ptr %3, align 8, !tbaa !108
   br label %_ZNK16char_decl_plugin13is_const_charEPK4exprRj.exit12.thread
 
 _ZNK16char_decl_plugin13is_const_charEPK4exprRj.exit12.thread: ; preds = %_ZNK16char_decl_plugin13is_const_charEPK4exprRj.exit12.thread.sink.split, %56, %_ZNK16char_decl_plugin13is_const_charEPK4exprRj.exit.thread, %_Z9is_app_ofPK4exprii.exit.i9, %93
-  %.0 = phi i32 [ 5, %93 ], [ 5, %_Z9is_app_ofPK4exprii.exit.i9 ], [ 5, %_ZNK16char_decl_plugin13is_const_charEPK4exprRj.exit.thread ], [ 5, %56 ], [ 4, %_ZNK16char_decl_plugin13is_const_charEPK4exprRj.exit12.thread.sink.split ]
+  %.0 = phi i32 [ 5, %_Z9is_app_ofPK4exprii.exit.i9 ], [ 5, %_ZNK16char_decl_plugin13is_const_charEPK4exprRj.exit.thread ], [ 5, %56 ], [ 5, %93 ], [ 4, %_ZNK16char_decl_plugin13is_const_charEPK4exprRj.exit12.thread.sink.split ]
   ret i32 %.0
 }
 
@@ -738,7 +738,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZleRK8rationali(ptr noundef nonn
           to label %39 unwind label %45
 
 39:                                               ; preds = %.noexc, %30, %37
-  %.0.i.i.i.i = phi i1 [ %33, %30 ], [ %36, %.noexc ], [ %38, %37 ]
+  %.0.i.i.i.i = phi i1 [ %36, %.noexc ], [ %33, %30 ], [ %38, %37 ]
   %40 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !116
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %40, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %.noexc.i unwind label %41

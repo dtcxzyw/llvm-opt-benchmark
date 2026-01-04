@@ -192,7 +192,7 @@ define internal noundef i32 @gray_raster_render(ptr noundef readnone captures(ad
   br label %75
 
 75:                                               ; preds = %61, %68, %46, %41, %44, %40, %37, %27, %21, %24, %12, %17, %11, %7, %2, %73
-  %.0 = phi i32 [ %74, %73 ], [ 6, %2 ], [ 19, %7 ], [ 20, %11 ], [ 0, %17 ], [ 0, %12 ], [ 20, %24 ], [ 20, %21 ], [ 20, %27 ], [ 0, %37 ], [ 6, %40 ], [ 0, %44 ], [ 0, %41 ], [ 6, %46 ], [ 0, %68 ], [ 0, %61 ]
+  %.0 = phi i32 [ 20, %11 ], [ 20, %21 ], [ 6, %46 ], [ %74, %73 ], [ 20, %27 ], [ 0, %41 ], [ 6, %40 ], [ 0, %37 ], [ 0, %12 ], [ 19, %7 ], [ 6, %2 ], [ 0, %17 ], [ 20, %24 ], [ 0, %44 ], [ 0, %68 ], [ 0, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -399,7 +399,7 @@ define internal i32 @ft_smooth_render(ptr noundef readonly captures(none) %0, pt
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %.thread-pre-split_crit_edge, %76, %74, %87, %85
-  %89 = phi i32 [ %83, %76 ], [ %75, %74 ], [ %88, %87 ], [ %86, %85 ], [ %.pr.pre, %.thread-pre-split_crit_edge ]
+  %89 = phi i32 [ %86, %85 ], [ %83, %76 ], [ %75, %74 ], [ %88, %87 ], [ %.pr.pre, %.thread-pre-split_crit_edge ]
   %.not94 = icmp eq i32 %89, 0
   br i1 %.not94, label %thread-pre-split.thread, label %.thread
 
@@ -410,7 +410,7 @@ thread-pre-split.thread:                          ; preds = %33, %31, %thread-pr
   br label %102
 
 .thread.sink.split:                               ; preds = %29, %15, %4
-  %.sink = phi i32 [ 6, %4 ], [ 19, %15 ], [ 98, %29 ]
+  %.sink = phi i32 [ 19, %15 ], [ 6, %4 ], [ 98, %29 ]
   store i32 %.sink, ptr %5, align 4, !tbaa !3
   br label %.thread
 
@@ -488,7 +488,7 @@ define internal range(i32 0, 7) i32 @ft_smooth_transform(ptr noundef readonly ca
   br label %18
 
 18:                                               ; preds = %4, %12, %13
-  %.0 = phi i32 [ 0, %13 ], [ 0, %12 ], [ 6, %4 ]
+  %.0 = phi i32 [ 0, %12 ], [ 0, %13 ], [ 6, %4 ]
   ret i32 %.0
 }
 
@@ -1149,7 +1149,7 @@ gray_sweep.exit:                                  ; preds = %._crit_edge.thread.
   br label %274
 
 274:                                              ; preds = %gray_sweep.exit, %271
-  %.178 = phi ptr [ %54, %271 ], [ %264, %gray_sweep.exit ]
+  %.178 = phi ptr [ %264, %gray_sweep.exit ], [ %54, %271 ]
   %.not92 = icmp ult ptr %.178, %4
   br i1 %.not92, label %275, label %53, !llvm.loop !122
 
@@ -1159,7 +1159,7 @@ gray_sweep.exit:                                  ; preds = %._crit_edge.thread.
   br i1 %277, label %42, label %.thread, !llvm.loop !123
 
 .thread:                                          ; preds = %275, %265, %._crit_edge, %23
-  %.2 = phi i32 [ 0, %23 ], [ %68, %._crit_edge ], [ 98, %265 ], [ %68, %275 ]
+  %.2 = phi i32 [ 0, %23 ], [ 98, %265 ], [ %68, %._crit_edge ], [ %68, %275 ]
   %278 = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %278, i8 0, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1593,8 +1593,8 @@ define internal noundef i32 @gray_cubic_to(ptr noundef readonly captures(none) %
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %85, %83
-  %.pre.i = phi i64 [ %104, %85 ], [ %.pre.pre.i, %83 ]
-  %.0.be.i = phi ptr [ %48, %85 ], [ %84, %83 ]
+  %.pre.i = phi i64 [ %.pre.pre.i, %83 ], [ %104, %85 ]
+  %.0.be.i = phi ptr [ %84, %83 ], [ %48, %85 ]
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.0.be.i, i64 16
   %.pre20.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !63
   %.phi.trans.insert21.i = getelementptr inbounds nuw i8, ptr %.0.be.i, i64 48

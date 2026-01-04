@@ -2495,7 +2495,7 @@ define internal fastcc void @pci_bus_release_bridge_resources(ptr noundef %0, i6
   br label %60
 
 60:                                               ; preds = %53, %._crit_edge, %50, %46
-  %61 = phi i32 [ 0, %46 ], [ 1, %50 ], [ %59, %._crit_edge ], [ 2, %53 ]
+  %61 = phi i32 [ 0, %46 ], [ 1, %50 ], [ 2, %53 ], [ %59, %._crit_edge ]
   %62 = zext nneg i32 %61 to i64
   %63 = getelementptr %struct.resource, ptr %47, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 40
@@ -3194,7 +3194,7 @@ define dso_local range(i32 -28, 1) i32 @pci_reassign_bridge_resources(ptr nounde
   br i1 %153, label %free_list.exit, label %.preheader, !llvm.loop !32
 
 free_list.exit:                                   ; preds = %.preheader.i, %.preheader, %.loopexit23, %.loopexit, %.critedge
-  %154 = phi i32 [ -2, %.critedge ], [ %97, %.loopexit ], [ 0, %.loopexit23 ], [ %97, %.preheader ], [ 0, %.preheader.i ]
+  %154 = phi i32 [ %97, %.preheader ], [ -2, %.critedge ], [ %97, %.loopexit ], [ 0, %.loopexit23 ], [ 0, %.preheader.i ]
   call void @up_read(ptr noundef nonnull @pci_bus_sem) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

@@ -1988,10 +1988,10 @@ _ZN4ncnn3MatD2Ev.exit250.us.i:                    ; preds = %161, %160
   br i1 %127, label %.lr.ph419.us.i, label %._crit_edge.us.i
 
 ._crit_edge.us.i:                                 ; preds = %.loopexit394.us.i.loopexit39, %.loopexit394.us.i.us, %.lr.ph419.us.i.split, %_ZN4ncnn3MatD2Ev.exit250.us.i
-  %.0363.lcssa.us.i = phi <4 x float> [ zeroinitializer, %_ZN4ncnn3MatD2Ev.exit250.us.i ], [ zeroinitializer, %.lr.ph419.us.i.split ], [ %.3366.us.i.us, %.loopexit394.us.i.us ], [ %258, %.loopexit394.us.i.loopexit39 ]
-  %.0358.lcssa.us.i = phi <4 x float> [ zeroinitializer, %_ZN4ncnn3MatD2Ev.exit250.us.i ], [ zeroinitializer, %.lr.ph419.us.i.split ], [ %.3361.us.i.us, %.loopexit394.us.i.us ], [ %260, %.loopexit394.us.i.loopexit39 ]
-  %.0222.lcssa.us.i = phi ptr [ %149, %_ZN4ncnn3MatD2Ev.exit250.us.i ], [ %149, %.lr.ph419.us.i.split ], [ %.3225.us.i.us, %.loopexit394.us.i.us ], [ %262, %.loopexit394.us.i.loopexit39 ]
-  %.0219.lcssa.us.i = phi i32 [ 0, %_ZN4ncnn3MatD2Ev.exit250.us.i ], [ %131, %.lr.ph419.us.i.split ], [ %131, %.loopexit394.us.i.us ], [ %131, %.loopexit394.us.i.loopexit39 ]
+  %.0363.lcssa.us.i = phi <4 x float> [ zeroinitializer, %_ZN4ncnn3MatD2Ev.exit250.us.i ], [ %.3366.us.i.us, %.loopexit394.us.i.us ], [ zeroinitializer, %.lr.ph419.us.i.split ], [ %258, %.loopexit394.us.i.loopexit39 ]
+  %.0358.lcssa.us.i = phi <4 x float> [ zeroinitializer, %_ZN4ncnn3MatD2Ev.exit250.us.i ], [ %.3361.us.i.us, %.loopexit394.us.i.us ], [ zeroinitializer, %.lr.ph419.us.i.split ], [ %260, %.loopexit394.us.i.loopexit39 ]
+  %.0222.lcssa.us.i = phi ptr [ %149, %_ZN4ncnn3MatD2Ev.exit250.us.i ], [ %.3225.us.i.us, %.loopexit394.us.i.us ], [ %149, %.lr.ph419.us.i.split ], [ %262, %.loopexit394.us.i.loopexit39 ]
+  %.0219.lcssa.us.i = phi i32 [ 0, %_ZN4ncnn3MatD2Ev.exit250.us.i ], [ %131, %.loopexit394.us.i.us ], [ %131, %.lr.ph419.us.i.split ], [ %131, %.loopexit394.us.i.loopexit39 ]
   %164 = shufflevector <4 x float> %.0363.lcssa.us.i, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %165 = fadd fast <4 x float> %164, %.0363.lcssa.us.i
   %166 = extractelement <4 x float> %165, i64 1
@@ -2009,8 +2009,8 @@ _ZN4ncnn3MatD2Ev.exit250.us.i:                    ; preds = %161, %160
   br i1 %177, label %.lr.ph440.us.i, label %.preheader397.us.i
 
 ._crit_edge468.us.i:                              ; preds = %._crit_edge459.us.us.i, %.lr.ph467.us.i, %.lr.ph440.us.i, %.preheader397.us.i
-  %.3239.lcssa.us.i = phi float [ %.1237.lcssa.us.i, %.preheader397.us.i ], [ %.1237.lcssa.us.i, %.lr.ph467.us.i ], [ %169, %.lr.ph440.us.i ], [ %335, %._crit_edge459.us.us.i ]
-  %.3234.lcssa.us.i = phi float [ %.1232.lcssa.us.i, %.preheader397.us.i ], [ %.1232.lcssa.us.i, %.lr.ph467.us.i ], [ %175, %.lr.ph440.us.i ], [ %339, %._crit_edge459.us.us.i ]
+  %.3239.lcssa.us.i = phi float [ %.1237.lcssa.us.i, %.preheader397.us.i ], [ %169, %.lr.ph440.us.i ], [ %.1237.lcssa.us.i, %.lr.ph467.us.i ], [ %335, %._crit_edge459.us.us.i ]
+  %.3234.lcssa.us.i = phi float [ %.1232.lcssa.us.i, %.preheader397.us.i ], [ %175, %.lr.ph440.us.i ], [ %.1232.lcssa.us.i, %.lr.ph467.us.i ], [ %339, %._crit_edge459.us.us.i ]
   switch i32 %130, label %_ZL13activation_ssfiRKN4ncnn3MatE.exit259.us.i [
     i32 1, label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread376.us.i
     i32 2, label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread379.us.i
@@ -2041,7 +2041,7 @@ _ZN4ncnn3MatD2Ev.exit250.us.i:                    ; preds = %161, %160
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread.us.i
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit.thread.us.i: ; preds = %188, %184, %178
-  %.1352369.us.i = phi float [ 0.000000e+00, %178 ], [ %191, %188 ], [ %.3239.lcssa.us.i, %184 ]
+  %.1352369.us.i = phi float [ %191, %188 ], [ 0.000000e+00, %178 ], [ %.3239.lcssa.us.i, %184 ]
   %192 = fcmp fast olt float %.3234.lcssa.us.i, %182
   br i1 %192, label %_ZL13activation_ssfiRKN4ncnn3MatE.exit259.us.i, label %193
 
@@ -2120,8 +2120,8 @@ _ZL13activation_ssfiRKN4ncnn3MatE.exit.thread376.us.i: ; preds = %._crit_edge468
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit259.us.i
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit259.us.i:   ; preds = %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread376.us.i, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread379.us.i, %229, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread373.us.i, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread382.us.i, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread385.us.i, %197, %193, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread.us.i, %._crit_edge468.us.i
-  %.1352370.us.i = phi float [ %237, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread376.us.i ], [ %233, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread379.us.i ], [ %.1352375.us.i, %229 ], [ %.1352375.us.i, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread373.us.i ], [ %216, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread382.us.i ], [ %205, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread385.us.i ], [ %.1352369.us.i, %193 ], [ %.1352369.us.i, %197 ], [ %.1352369.us.i, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread.us.i ], [ %.3239.lcssa.us.i, %._crit_edge468.us.i ]
-  %.1350.us.i = phi nsz float [ %238, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread376.us.i ], [ %236, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread379.us.i ], [ %224, %229 ], [ %.0349.us.i, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread373.us.i ], [ %222, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread382.us.i ], [ %210, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread385.us.i ], [ %.3234.lcssa.us.i, %193 ], [ %200, %197 ], [ 0.000000e+00, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread.us.i ], [ %.3234.lcssa.us.i, %._crit_edge468.us.i ]
+  %.1352370.us.i = phi float [ %.1352369.us.i, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread.us.i ], [ %237, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread376.us.i ], [ %233, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread379.us.i ], [ %.1352375.us.i, %229 ], [ %.1352375.us.i, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread373.us.i ], [ %216, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread382.us.i ], [ %205, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread385.us.i ], [ %.1352369.us.i, %197 ], [ %.1352369.us.i, %193 ], [ %.3239.lcssa.us.i, %._crit_edge468.us.i ]
+  %.1350.us.i = phi nsz float [ 0.000000e+00, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread.us.i ], [ %238, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread376.us.i ], [ %236, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread379.us.i ], [ %224, %229 ], [ %.0349.us.i, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread373.us.i ], [ %222, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread382.us.i ], [ %210, %_ZL13activation_ssfiRKN4ncnn3MatE.exit.thread385.us.i ], [ %200, %197 ], [ %.3234.lcssa.us.i, %193 ], [ %.3234.lcssa.us.i, %._crit_edge468.us.i ]
   store float %.1352370.us.i, ptr %.0243477.us.i, align 4, !tbaa !47
   store float %.1350.us.i, ptr %.0242478.us.i, align 4, !tbaa !47
   %239 = getelementptr inbounds nuw i8, ptr %.0243477.us.i, i64 4
@@ -2457,7 +2457,7 @@ _ZN4ncnn3MatD2Ev.exit.us.i:                       ; preds = %392, %391
   br i1 %401, label %.lr.ph533.us.i, label %.preheader392.us.i
 
 ._crit_edge556.us.i:                              ; preds = %._crit_edge549.us.us.i, %.lr.ph555.us.i, %.lr.ph533.us.i, %.preheader392.us.i
-  %.3205.lcssa.us.i = phi float [ %.1203.lcssa.us.i, %.preheader392.us.i ], [ %.1203.lcssa.us.i, %.lr.ph555.us.i ], [ %399, %.lr.ph533.us.i ], [ %520, %._crit_edge549.us.us.i ]
+  %.3205.lcssa.us.i = phi float [ %.1203.lcssa.us.i, %.preheader392.us.i ], [ %399, %.lr.ph533.us.i ], [ %.1203.lcssa.us.i, %.lr.ph555.us.i ], [ %520, %._crit_edge549.us.us.i ]
   switch i32 %363, label %_ZL13activation_ssfiRKN4ncnn3MatE.exit260.us.i [
     i32 1, label %440
     i32 2, label %435
@@ -2529,7 +2529,7 @@ _ZN4ncnn3MatD2Ev.exit.us.i:                       ; preds = %392, %391
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit260.us.i
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit260.us.i:   ; preds = %440, %435, %434, %429, %422, %416, %412, %408, %402, %._crit_edge556.us.i
-  %.1348.us.i = phi nsz float [ %.3205.lcssa.us.i, %._crit_edge556.us.i ], [ %441, %440 ], [ %439, %435 ], [ %431, %434 ], [ %.0347.us.i, %429 ], [ %428, %422 ], [ %421, %416 ], [ %.3205.lcssa.us.i, %408 ], [ %415, %412 ], [ 0.000000e+00, %402 ]
+  %.1348.us.i = phi nsz float [ %.3205.lcssa.us.i, %._crit_edge556.us.i ], [ %441, %440 ], [ %439, %435 ], [ %431, %434 ], [ %.0347.us.i, %429 ], [ %428, %422 ], [ %421, %416 ], [ %415, %412 ], [ %.3205.lcssa.us.i, %408 ], [ 0.000000e+00, %402 ]
   store float %.1348.us.i, ptr %.0208563.us.i, align 4, !tbaa !47
   %442 = getelementptr inbounds nuw i8, ptr %.0208563.us.i, i64 4
   %indvars.iv.next661.i = add nuw nsw i64 %indvars.iv660.i, 1
@@ -3347,11 +3347,11 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %65, %63
   br i1 %exitcond426.not, label %.loopexit, label %.lr.ph334, !llvm.loop !128
 
 .loopexit:                                        ; preds = %.lr.ph334, %.lr.ph, %136, %.preheader311, %.preheader
-  %.3305 = phi nsz <4 x float> [ %.0302340, %.preheader ], [ %.0302340, %.preheader311 ], [ %.0302340, %136 ], [ %168, %.lr.ph ], [ %201, %.lr.ph334 ]
-  %.3300 = phi nsz <4 x float> [ %.0297341, %.preheader ], [ %.0297341, %.preheader311 ], [ %.0297341, %136 ], [ %162, %.lr.ph ], [ %195, %.lr.ph334 ]
-  %.3293 = phi nsz <4 x float> [ %.0290342, %.preheader ], [ %.0290342, %.preheader311 ], [ %.0290342, %136 ], [ %156, %.lr.ph ], [ %189, %.lr.ph334 ]
-  %.4285 = phi nsz <4 x float> [ %.1282343, %.preheader ], [ %.1282343, %.preheader311 ], [ %.1282343, %136 ], [ %150, %.lr.ph ], [ %183, %.lr.ph334 ]
-  %.3 = phi ptr [ %.0116344, %.preheader ], [ %.0116344, %.preheader311 ], [ %.0116344, %136 ], [ %170, %.lr.ph ], [ %203, %.lr.ph334 ]
+  %.3305 = phi nsz <4 x float> [ %.0302340, %136 ], [ %.0302340, %.preheader ], [ %168, %.lr.ph ], [ %.0302340, %.preheader311 ], [ %201, %.lr.ph334 ]
+  %.3300 = phi nsz <4 x float> [ %.0297341, %136 ], [ %.0297341, %.preheader ], [ %162, %.lr.ph ], [ %.0297341, %.preheader311 ], [ %195, %.lr.ph334 ]
+  %.3293 = phi nsz <4 x float> [ %.0290342, %136 ], [ %.0290342, %.preheader ], [ %156, %.lr.ph ], [ %.0290342, %.preheader311 ], [ %189, %.lr.ph334 ]
+  %.4285 = phi nsz <4 x float> [ %.1282343, %136 ], [ %.1282343, %.preheader ], [ %150, %.lr.ph ], [ %.1282343, %.preheader311 ], [ %183, %.lr.ph334 ]
+  %.3 = phi ptr [ %.0116344, %136 ], [ %.0116344, %.preheader ], [ %170, %.lr.ph ], [ %.0116344, %.preheader311 ], [ %203, %.lr.ph334 ]
   %205 = add nuw nsw i32 %.0113345, 4
   %206 = or disjoint i32 %205, 3
   %207 = icmp slt i32 %206, %43
@@ -3623,7 +3623,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %65, %63
   br label %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit
 
 _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit:      ; preds = %392, %.noexc129, %.noexc128, %247, %.noexc127, %237, %._crit_edge389
-  %.0.i = phi nsz <4 x float> [ %238, %237 ], [ %246, %.noexc127 ], [ %257, %247 ], [ %290, %.noexc128 ], [ %391, %.noexc129 ], [ %405, %392 ], [ %235, %._crit_edge389 ]
+  %.0.i = phi nsz <4 x float> [ %405, %392 ], [ %238, %237 ], [ %246, %.noexc127 ], [ %257, %247 ], [ %290, %.noexc128 ], [ %391, %.noexc129 ], [ %235, %._crit_edge389 ]
   switch i32 %44, label %418 [
     i32 4, label %.thread
     i32 1, label %407
@@ -3656,7 +3656,7 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit:      ; preds = %392, %.noexc129, %.
   br label %418
 
 418:                                              ; preds = %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit, %.thread, %407
-  %.2122 = phi ptr [ %417, %407 ], [ %406, %.thread ], [ %.0120397, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit ]
+  %.2122 = phi ptr [ %417, %407 ], [ %.0120397, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit ], [ %406, %.thread ]
   %419 = add nuw nsw i32 %.0119398, 1
   %exitcond433.not = icmp eq i32 %419, %40
   br i1 %exitcond433.not, label %._crit_edge, label %63, !llvm.loop !132

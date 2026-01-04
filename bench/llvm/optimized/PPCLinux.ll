@@ -343,7 +343,7 @@ define hidden noundef zeroext i1 @_ZNK5clang6driver10toolchains17PPCLinuxToolCha
   br label %_ZN4llvmplERKNS_5TwineES2_.exit
 
 _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %19, %21, %17
-  %24 = phi i1 [ %23, %21 ], [ false, %17 ], [ %not., %19 ]
+  %24 = phi i1 [ %not., %19 ], [ false, %17 ], [ %23, %21 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZNK5clang6driver10toolchains5Linux16getDynamicLinkerB5cxx11ERKN4llvm3opt7ArgListE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(5040) %0, ptr noundef nonnull align 8 dereferenceable(176) %3) #13
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -413,7 +413,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit4.thread.i: ; preds = %_ZNK4llvm9String
   br label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit4.thread.i, %_ZNK4llvm9StringRef11starts_withES0_.exit4.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread16.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %_ZN4llvmplERKNS_5TwineES2_.exit
-  %.0.i = phi i1 [ false, %_ZN4llvmplERKNS_5TwineES2_.exit ], [ %53, %_ZNK4llvm9StringRef11starts_withES0_.exit4.thread.i ], [ true, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit4.i ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread16.i ]
+  %.0.i = phi i1 [ false, %_ZN4llvmplERKNS_5TwineES2_.exit ], [ true, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ %53, %_ZNK4llvm9StringRef11starts_withES0_.exit4.thread.i ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit4.i ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread16.i ]
   %54 = load ptr, ptr %5, align 8, !tbaa !126
   %55 = icmp eq ptr %54, %29
   br i1 %55, label %_ZL21GlibcSupportsFloat128RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %56
@@ -460,7 +460,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13: ; preds = %_ZN
   br label %73
 
 73:                                               ; preds = %15, %4, %11, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13
-  %.0 = phi i1 [ %62, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13 ], [ false, %11 ], [ false, %4 ], [ true, %15 ]
+  %.0 = phi i1 [ false, %4 ], [ %62, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13 ], [ false, %11 ], [ true, %15 ]
   ret i1 %.0
 }
 

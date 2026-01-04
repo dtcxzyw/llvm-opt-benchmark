@@ -409,7 +409,7 @@ define noundef i64 @"_ZN65_$LT$thin_vec..ThinVec$LT$T$GT$$u20$as$u20$core..clone
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %1, %16, %._crit_edge
-  %.sroa.0.0.i1315 = phi i64 [ %7, %16 ], [ ptrtoint (ptr @_ZN8thin_vec12EMPTY_HEADER17h7d37299671e5afb2E to i64), %._crit_edge ], [ ptrtoint (ptr @_ZN8thin_vec12EMPTY_HEADER17h7d37299671e5afb2E to i64), %1 ]
+  %.sroa.0.0.i1315 = phi i64 [ ptrtoint (ptr @_ZN8thin_vec12EMPTY_HEADER17h7d37299671e5afb2E to i64), %._crit_edge ], [ %7, %16 ], [ ptrtoint (ptr @_ZN8thin_vec12EMPTY_HEADER17h7d37299671e5afb2E to i64), %1 ]
   ret i64 %.sroa.0.0.i1315
 }
 
@@ -588,7 +588,7 @@ define hidden void @"_ZN8thin_vec16ThinVec$LT$T$GT$7reserve17h42c642f56418d002E"
   unreachable
 
 .split7.i.i:                                      ; preds = %.thread13, %.thread
-  %.sroa.0.0.sroa.speculated.i610 = phi i64 [ %.sroa.0.0.sroa.speculated.i4, %.thread ], [ %.sroa.0.0.sroa.speculated.i15, %.thread13 ]
+  %.sroa.0.0.sroa.speculated.i610 = phi i64 [ %.sroa.0.0.sroa.speculated.i15, %.thread13 ], [ %.sroa.0.0.sroa.speculated.i4, %.thread ]
   %21 = tail call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %7, i64 12)
   %22 = extractvalue { i64, i1 } %21, 1
   br i1 %22, label %27, label %23, !prof !52

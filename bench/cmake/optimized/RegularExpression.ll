@@ -322,7 +322,7 @@ define dso_local noundef zeroext i1 @_ZNK5cmsys17RegularExpression10deep_equalER
   br label %.loopexit
 
 .loopexit:                                        ; preds = %14, %19, %33, %2
-  %.09 = phi i1 [ false, %2 ], [ false, %19 ], [ %42, %33 ], [ false, %14 ]
+  %.09 = phi i1 [ %42, %33 ], [ false, %2 ], [ false, %19 ], [ false, %14 ]
   ret i1 %.09
 }
 
@@ -499,7 +499,7 @@ _ZN5cmsysL7regnextEPKc.exit39:                    ; preds = %69
   br label %84
 
 84:                                               ; preds = %_ZN5cmsys13RegExpCompile4regcEc.exit37, %83, %59, %16, %10
-  %.122 = phi i1 [ false, %16 ], [ false, %10 ], [ true, %59 ], [ true, %83 ], [ true, %_ZN5cmsys13RegExpCompile4regcEc.exit37 ]
+  %.122 = phi i1 [ false, %16 ], [ false, %10 ], [ true, %_ZN5cmsys13RegExpCompile4regcEc.exit37 ], [ true, %59 ], [ true, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %85
 
@@ -695,7 +695,7 @@ _ZN5cmsysL7regnextEPc.exit.thread.i83:            ; preds = %_ZN5cmsysL7regnextE
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit88.backedge
 
 _ZN5cmsys13RegExpCompile7regnodeEc.exit88.backedge: ; preds = %_ZN5cmsysL7regnextEPc.exit.thread.i83, %52, %49
-  %.0.be = phi i32 [ %51, %49 ], [ %48, %52 ], [ %48, %_ZN5cmsysL7regnextEPc.exit.thread.i83 ]
+  %.0.be = phi i32 [ %48, %52 ], [ %48, %_ZN5cmsysL7regnextEPc.exit.thread.i83 ], [ %51, %49 ]
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit88, !llvm.loop !36
 
 .critedge.i:                                      ; preds = %_ZN5cmsys13RegExpCompile7regnodeEc.exit88, %_ZN5cmsys13RegExpCompile7regnodeEc.exit88, %_ZN5cmsys13RegExpCompile7regnodeEc.exit88
@@ -904,7 +904,7 @@ _ZN5cmsysL7regnextEPc.exit.thread.i95:            ; preds = %_ZN5cmsysL7regnextE
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit100.backedge
 
 _ZN5cmsys13RegExpCompile7regnodeEc.exit100.backedge: ; preds = %_ZN5cmsysL7regnextEPc.exit.thread.i95, %148, %145
-  %.2.be = phi i32 [ %147, %145 ], [ %144, %148 ], [ %144, %_ZN5cmsysL7regnextEPc.exit.thread.i95 ]
+  %.2.be = phi i32 [ %144, %148 ], [ %144, %_ZN5cmsysL7regnextEPc.exit.thread.i95 ], [ %147, %145 ]
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit100, !llvm.loop !36
 
 .critedge.i48:                                    ; preds = %_ZN5cmsys13RegExpCompile7regnodeEc.exit100, %_ZN5cmsys13RegExpCompile7regnodeEc.exit100, %_ZN5cmsys13RegExpCompile7regnodeEc.exit100
@@ -1142,7 +1142,7 @@ _ZN5cmsysL7regnextEPc.exit:                       ; preds = %_ZN5cmsys13RegExpCo
   %292 = icmp eq ptr %291, @_ZN5cmsysL8regdummyE
   br i1 %292, label %_ZN5cmsysL7regnextEPc.exit.thread, label %.lr.ph156, !llvm.loop !38
 
-_ZN5cmsysL7regnextEPc.exit.thread:                ; preds = %_ZN5cmsys13RegExpCompile9regoptailEPcPKc.exit.thread111, %_ZN5cmsysL7regnextEPc.exit, %_ZN5cmsys13RegExpCompile7regtailEPcPKc.exit74
+_ZN5cmsysL7regnextEPc.exit.thread:                ; preds = %_ZN5cmsysL7regnextEPc.exit, %_ZN5cmsys13RegExpCompile9regoptailEPcPKc.exit.thread111, %_ZN5cmsys13RegExpCompile7regtailEPcPKc.exit74
   %293 = load ptr, ptr %0, align 8, !tbaa !27
   br i1 %.not, label %.critedge, label %294
 
@@ -1173,7 +1173,7 @@ _ZN5cmsysL7regnextEPc.exit.thread:                ; preds = %_ZN5cmsys13RegExpCo
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN5cmsys13RegExpCompile9regbranchEPi.exit53, %294, %_ZN5cmsys13RegExpCompile9regbranchEPi.exit53.thread, %_ZN5cmsys13RegExpCompile9regbranchEPi.exit.thread, %.critedge, %_ZN5cmsys13RegExpCompile9regbranchEPi.exit, %300, %299, %297, %10
-  %.028 = phi ptr [ null, %10 ], [ null, %297 ], [ null, %299 ], [ null, %300 ], [ null, %_ZN5cmsys13RegExpCompile9regbranchEPi.exit ], [ %.1, %.critedge ], [ null, %_ZN5cmsys13RegExpCompile9regbranchEPi.exit.thread ], [ null, %_ZN5cmsys13RegExpCompile9regbranchEPi.exit53.thread ], [ %.1, %294 ], [ null, %_ZN5cmsys13RegExpCompile9regbranchEPi.exit53 ]
+  %.028 = phi ptr [ null, %10 ], [ null, %_ZN5cmsys13RegExpCompile9regbranchEPi.exit ], [ null, %297 ], [ %.1, %294 ], [ null, %299 ], [ null, %300 ], [ %.1, %.critedge ], [ null, %_ZN5cmsys13RegExpCompile9regbranchEPi.exit53.thread ], [ null, %_ZN5cmsys13RegExpCompile9regbranchEPi.exit.thread ], [ null, %_ZN5cmsys13RegExpCompile9regbranchEPi.exit53 ]
   ret ptr %.028
 }
 
@@ -1343,7 +1343,7 @@ _ZN5cmsys13RegExpCompile7regnodeEc.exit.backedge: ; preds = %_ZN5cmsysL7regnextE
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit20
 
 _ZN5cmsys13RegExpCompile7regnodeEc.exit20:        ; preds = %17, %60, %56, %.critedge
-  %.0 = phi ptr [ %5, %.critedge ], [ %5, %56 ], [ %5, %60 ], [ null, %17 ]
+  %.0 = phi ptr [ %5, %60 ], [ %5, %.critedge ], [ %5, %56 ], [ null, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -2379,7 +2379,7 @@ _ZN5cmsys13RegExpCompile9reginsertEcPc.exit:      ; preds = %_ZN5cmsysL7regnextE
   br label %456
 
 456:                                              ; preds = %_ZN5cmsys13RegExpCompile9reginsertEcPc.exit, %2, %455, %17, %12
-  %.0 = phi ptr [ null, %17 ], [ null, %455 ], [ %4, %12 ], [ null, %2 ], [ %4, %_ZN5cmsys13RegExpCompile9reginsertEcPc.exit ]
+  %.0 = phi ptr [ null, %17 ], [ null, %455 ], [ null, %2 ], [ %4, %12 ], [ %4, %_ZN5cmsys13RegExpCompile9reginsertEcPc.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -2867,8 +2867,8 @@ _ZN5cmsys13RegExpCompile4regcEc.exit76:           ; preds = %174, %176
   br label %.thread
 
 .thread:                                          ; preds = %192, %188, %187
-  %.03484 = phi i32 [ 1, %187 ], [ %184, %188 ], [ %193, %192 ]
-  %195 = phi i32 [ 3, %187 ], [ 1, %188 ], [ %spec.select, %192 ]
+  %.03484 = phi i32 [ 1, %187 ], [ %193, %192 ], [ %184, %188 ]
+  %195 = phi i32 [ 3, %187 ], [ %spec.select, %192 ], [ 1, %188 ]
   store i32 %195, ptr %1, align 4, !tbaa !33
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %197 = load ptr, ptr %196, align 8, !tbaa !30
@@ -2955,7 +2955,7 @@ _ZN5cmsys13RegExpCompile4regcEc.exit79:           ; preds = %217, %220
   br label %.critedge58
 
 .critedge58:                                      ; preds = %186, %225, %227, %27, %23, %15, %11, %112, %139, %_ZN5cmsys13RegExpCompile7regnodeEc.exit61, %146, %_ZN5cmsys13RegExpCompile4regcEc.exit76, %140, %144, %156, %152, %151
-  %.1 = phi ptr [ null, %151 ], [ null, %152 ], [ null, %156 ], [ null, %144 ], [ %33, %_ZN5cmsys13RegExpCompile7regnodeEc.exit61 ], [ %.139, %140 ], [ %145, %146 ], [ %159, %_ZN5cmsys13RegExpCompile4regcEc.exit76 ], [ null, %139 ], [ null, %112 ], [ @_ZN5cmsysL8regdummyE, %11 ], [ %9, %15 ], [ @_ZN5cmsysL8regdummyE, %23 ], [ %21, %27 ], [ null, %186 ], [ %197, %225 ], [ %197, %227 ]
+  %.1 = phi ptr [ null, %144 ], [ %21, %27 ], [ null, %112 ], [ null, %156 ], [ null, %151 ], [ null, %152 ], [ null, %139 ], [ %9, %15 ], [ %33, %_ZN5cmsys13RegExpCompile7regnodeEc.exit61 ], [ %.139, %140 ], [ %145, %146 ], [ %159, %_ZN5cmsys13RegExpCompile4regcEc.exit76 ], [ @_ZN5cmsysL8regdummyE, %11 ], [ @_ZN5cmsysL8regdummyE, %23 ], [ null, %186 ], [ %197, %225 ], [ %197, %227 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.1
 }
@@ -3198,7 +3198,7 @@ _ZN5cmsys10RegExpFind6regtryEPKcPS2_S3_S2_.exit.sink.split: ; preds = %68, %83, 
   br label %_ZN5cmsys10RegExpFind6regtryEPKcPS2_S3_S2_.exit
 
 _ZN5cmsys10RegExpFind6regtryEPKcPS2_S3_S2_.exit:  ; preds = %71, %86, %_ZN5cmsys10RegExpFind6regtryEPKcPS2_S3_S2_.exit.sink.split, %.preheader61, %48
-  %.130 = phi i1 [ false, %48 ], [ false, %.preheader61 ], [ true, %_ZN5cmsys10RegExpFind6regtryEPKcPS2_S3_S2_.exit.sink.split ], [ false, %86 ], [ false, %71 ]
+  %.130 = phi i1 [ false, %.preheader61 ], [ false, %48 ], [ true, %_ZN5cmsys10RegExpFind6regtryEPKcPS2_S3_S2_.exit.sink.split ], [ false, %86 ], [ false, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge
 
@@ -3296,7 +3296,7 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN5cmsys10RegExpFind8regmatchEPKc
   br label %_ZN5cmsysL7regnextEPKc.exit
 
 _ZN5cmsysL7regnextEPKc.exitthread-pre-split:      ; preds = %22, %8, %5
-  %.0.i.ph = phi ptr [ null, %8 ], [ null, %5 ], [ %24, %22 ]
+  %.0.i.ph = phi ptr [ null, %8 ], [ %24, %22 ], [ null, %5 ]
   %.pr = load i8, ptr %.047107, align 1, !tbaa !14
   br label %_ZN5cmsysL7regnextEPKc.exit
 
@@ -3624,7 +3624,7 @@ _ZN5cmsysL7regnextEPKc.exit77:                    ; preds = %92
   br label %.thread
 
 .thread:                                          ; preds = %43, %36, %56, %59, %47, %50, %31, %29, %28, %132, %130, %124, %.lr.ph111.split.us, %.preheader, %_ZN5cmsysL7regnextEPKc.exit77, %90, %92, %115, %134, %84, %77, %75, %74, %67, %65, %._crit_edge, %138
-  %.2 = phi i32 [ 0, %138 ], [ 0, %._crit_edge ], [ 1, %74 ], [ 1, %67 ], [ 0, %65 ], [ 1, %84 ], [ 1, %77 ], [ 0, %75 ], [ %., %134 ], [ 0, %115 ], [ 0, %92 ], [ 0, %90 ], [ 0, %_ZN5cmsysL7regnextEPKc.exit77 ], [ 1, %.preheader ], [ 0, %124 ], [ 1, %.lr.ph111.split.us ], [ 0, %132 ], [ 1, %130 ], [ 0, %28 ], [ 0, %29 ], [ 0, %31 ], [ 0, %50 ], [ 0, %47 ], [ 0, %59 ], [ 0, %56 ], [ 0, %36 ], [ 0, %43 ]
+  %.2 = phi i32 [ 0, %138 ], [ 0, %._crit_edge ], [ %., %134 ], [ 1, %130 ], [ 1, %84 ], [ 0, %115 ], [ 1, %67 ], [ 1, %74 ], [ 0, %65 ], [ 1, %77 ], [ 0, %75 ], [ 0, %_ZN5cmsysL7regnextEPKc.exit77 ], [ 0, %124 ], [ 0, %90 ], [ 0, %92 ], [ 1, %.preheader ], [ 1, %.lr.ph111.split.us ], [ 0, %132 ], [ 0, %28 ], [ 0, %29 ], [ 0, %31 ], [ 0, %50 ], [ 0, %47 ], [ 0, %59 ], [ 0, %56 ], [ 0, %36 ], [ 0, %43 ]
   ret i32 %.2
 }
 
@@ -3710,8 +3710,8 @@ define dso_local noundef i32 @_ZN5cmsys10RegExpFind9regrepeatEPKc(ptr noundef no
   br label %35
 
 .critedge:                                        ; preds = %30, %.lr.ph, %23, %.lr.ph48, %.lr.ph56, %.preheader36, %.preheader34, %.preheader, %11
-  %.025 = phi i32 [ %13, %11 ], [ 0, %.preheader ], [ 0, %.preheader34 ], [ 0, %.preheader36 ], [ %16, %.lr.ph56 ], [ %24, %23 ], [ %.22746, %.lr.ph48 ], [ %31, %30 ], [ %.32839, %.lr.ph ]
-  %.024 = phi ptr [ %15, %11 ], [ %3, %.preheader ], [ %3, %.preheader34 ], [ %3, %.preheader36 ], [ %17, %.lr.ph56 ], [ %25, %23 ], [ %.247, %.lr.ph48 ], [ %32, %30 ], [ %.340, %.lr.ph ]
+  %.025 = phi i32 [ %13, %11 ], [ 0, %.preheader36 ], [ %.22746, %.lr.ph48 ], [ 0, %.preheader ], [ 0, %.preheader34 ], [ %16, %.lr.ph56 ], [ %24, %23 ], [ %.32839, %.lr.ph ], [ %31, %30 ]
+  %.024 = phi ptr [ %15, %11 ], [ %3, %.preheader36 ], [ %.247, %.lr.ph48 ], [ %3, %.preheader ], [ %3, %.preheader34 ], [ %17, %.lr.ph56 ], [ %25, %23 ], [ %.340, %.lr.ph ], [ %32, %30 ]
   store ptr %.024, ptr %0, align 8, !tbaa !49
   br label %35
 

@@ -613,7 +613,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfRotation19RotateOntoProjec
   br label %82
 
 82:                                               ; preds = %4, %79
-  %.0 = phi double [ %81, %79 ], [ 0.000000e+00, %4 ]
+  %.0 = phi double [ 0.000000e+00, %4 ], [ %81, %79 ]
   store double %11, ptr %0, align 8
   %.sroa.9.0..sroa_idx52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %12, ptr %.sroa.9.0..sroa_idx52, align 8
@@ -979,14 +979,14 @@ default.unreachable275:                           ; preds = %.cont151
   unreachable
 
 .cont157:                                         ; preds = %.else159, %72, %.cont161.cont.cont, %.cont179, %.cont217
-  %.sink287.sroa.phi = phi ptr [ %.sink287.sroa.gep, %.cont161.cont.cont ], [ %.sink287.sroa.gep309, %.cont179 ], [ %.sink287.sroa.gep310, %.cont217 ], [ %.sink287.sroa.gep311, %72 ], [ %.sink287.sroa.gep312, %.else159 ]
-  %.sink285 = phi double [ %83, %.cont161.cont.cont ], [ %59, %.cont179 ], [ %65, %.cont217 ], [ %59, %72 ], [ %59, %.else159 ]
-  %.sink284.sroa.phi = phi ptr [ %.sink284.sroa.gep, %.cont161.cont.cont ], [ %.sink284.sroa.gep305, %.cont179 ], [ %.sink284.sroa.gep306, %.cont217 ], [ %.sink284.sroa.gep307, %72 ], [ %.sink284.sroa.gep308, %.else159 ]
-  %.sink283 = phi double [ %55, %.cont161.cont.cont ], [ %69, %.cont179 ], [ %55, %.cont217 ], [ %73, %72 ], [ %73, %.else159 ]
-  %.sink282.sroa.phi = phi ptr [ %.sink282.sroa.gep, %.cont161.cont.cont ], [ %.sink282.sroa.gep301, %.cont179 ], [ %.sink282.sroa.gep302, %.cont217 ], [ %.sink282.sroa.gep303, %72 ], [ %.sink282.sroa.gep304, %.else159 ]
-  %.sink281 = phi double [ %84, %.cont161.cont.cont ], [ %71, %.cont179 ], [ %66, %.cont217 ], [ %51, %72 ], [ %51, %.else159 ]
-  %.sink280.sroa.phi = phi ptr [ %.sink280.sroa.gep, %.cont161.cont.cont ], [ %.sink280.sroa.gep297, %.cont179 ], [ %.sink280.sroa.gep298, %.cont217 ], [ %.sink280.sroa.gep299, %72 ], [ %.sink280.sroa.gep300, %.else159 ]
-  %.sink = phi double [ %63, %.cont161.cont.cont ], [ %63, %.cont179 ], [ %63, %.cont217 ], [ 0.000000e+00, %72 ], [ %.else.val160, %.else159 ]
+  %.sink287.sroa.phi = phi ptr [ %.sink287.sroa.gep, %.cont161.cont.cont ], [ %.sink287.sroa.gep309, %.cont217 ], [ %.sink287.sroa.gep310, %.cont179 ], [ %.sink287.sroa.gep311, %72 ], [ %.sink287.sroa.gep312, %.else159 ]
+  %.sink285 = phi double [ %83, %.cont161.cont.cont ], [ %65, %.cont217 ], [ %59, %.cont179 ], [ %59, %72 ], [ %59, %.else159 ]
+  %.sink284.sroa.phi = phi ptr [ %.sink284.sroa.gep, %.cont161.cont.cont ], [ %.sink284.sroa.gep305, %.cont217 ], [ %.sink284.sroa.gep306, %.cont179 ], [ %.sink284.sroa.gep307, %72 ], [ %.sink284.sroa.gep308, %.else159 ]
+  %.sink283 = phi double [ %55, %.cont161.cont.cont ], [ %55, %.cont217 ], [ %69, %.cont179 ], [ %73, %72 ], [ %73, %.else159 ]
+  %.sink282.sroa.phi = phi ptr [ %.sink282.sroa.gep, %.cont161.cont.cont ], [ %.sink282.sroa.gep301, %.cont217 ], [ %.sink282.sroa.gep302, %.cont179 ], [ %.sink282.sroa.gep303, %72 ], [ %.sink282.sroa.gep304, %.else159 ]
+  %.sink281 = phi double [ %84, %.cont161.cont.cont ], [ %66, %.cont217 ], [ %71, %.cont179 ], [ %51, %72 ], [ %51, %.else159 ]
+  %.sink280.sroa.phi = phi ptr [ %.sink280.sroa.gep, %.cont161.cont.cont ], [ %.sink280.sroa.gep297, %.cont217 ], [ %.sink280.sroa.gep298, %.cont179 ], [ %.sink280.sroa.gep299, %72 ], [ %.sink280.sroa.gep300, %.else159 ]
+  %.sink = phi double [ %63, %.cont161.cont.cont ], [ %63, %.cont217 ], [ %63, %.cont179 ], [ 0.000000e+00, %72 ], [ %.else.val160, %.else159 ]
   store double %.sink285, ptr %.sink287.sroa.phi, align 16
   store double %.sink283, ptr %.sink284.sroa.phi, align 8
   store double %.sink281, ptr %.sink282.sroa.phi, align 16

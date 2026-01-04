@@ -861,7 +861,7 @@ define dso_local noundef range(i32 -19, 1) i32 @trace_event_raw_init(ptr noundef
   br label %.loopexit25
 
 .loopexit25:                                      ; preds = %130, %76, %49, %38, %26, %.thread18, %.thread17, %271, %247, %5, %1
-  %275 = phi i32 [ -19, %1 ], [ 0, %5 ], [ 0, %247 ], [ 0, %271 ], [ 0, %.thread17 ], [ 0, %.thread18 ], [ 0, %26 ], [ 0, %38 ], [ 0, %49 ], [ 0, %76 ], [ 0, %130 ]
+  %275 = phi i32 [ -19, %1 ], [ 0, %5 ], [ 0, %247 ], [ 0, %271 ], [ 0, %.thread18 ], [ 0, %.thread17 ], [ 0, %26 ], [ 0, %38 ], [ 0, %49 ], [ 0, %76 ], [ 0, %130 ]
   ret i32 %275
 }
 
@@ -2147,7 +2147,7 @@ define dso_local range(i32 -2147483648, 1) i32 @trace_add_event_call(ptr noundef
   br label %18
 
 18:                                               ; preds = %15, %8
-  %19 = phi ptr [ %12, %8 ], [ %17, %15 ]
+  %19 = phi ptr [ %17, %15 ], [ %12, %8 ]
   %20 = icmp eq ptr %19, null
   br i1 %20, label %.thread.i, label %21, !prof !60
 
@@ -2234,7 +2234,7 @@ __register_event.exit:                            ; preds = %42, %43
   br i1 %61, label %__register_event.exit.thread, label %.preheader, !llvm.loop !87
 
 __register_event.exit.thread:                     ; preds = %59, %.thread.i, %32, %34, %__register_event.exit
-  %62 = phi i32 [ 0, %__register_event.exit ], [ -22, %.thread.i ], [ %28, %32 ], [ %28, %34 ], [ 0, %59 ]
+  %62 = phi i32 [ 0, %__register_event.exit ], [ %28, %34 ], [ -22, %.thread.i ], [ %28, %32 ], [ 0, %59 ]
   tail call void @mutex_unlock(ptr noundef nonnull @trace_types_lock) #20
   ret i32 %62
 }
@@ -2355,7 +2355,7 @@ define dso_local ptr @__find_event_file(ptr noundef readonly captures(address) %
   br label %26
 
 26:                                               ; preds = %23, %16
-  %27 = phi ptr [ %20, %16 ], [ %25, %23 ]
+  %27 = phi ptr [ %25, %23 ], [ %20, %16 ]
   %28 = icmp eq ptr %27, null
   br i1 %28, label %.thread, label %29
 
@@ -2424,7 +2424,7 @@ define dso_local ptr @find_event_file(ptr noundef readonly captures(address) %0,
   br label %26
 
 26:                                               ; preds = %23, %16
-  %27 = phi ptr [ %20, %16 ], [ %25, %23 ]
+  %27 = phi ptr [ %25, %23 ], [ %20, %16 ]
   %28 = icmp eq ptr %27, null
   br i1 %28, label %.thread, label %29
 
@@ -2550,7 +2550,7 @@ define dso_local ptr @trace_get_event_file(ptr noundef %0, ptr noundef readonly 
   br label %49
 
 49:                                               ; preds = %46, %39
-  %50 = phi ptr [ %43, %39 ], [ %48, %46 ]
+  %50 = phi ptr [ %48, %46 ], [ %43, %39 ]
   %51 = icmp eq ptr %50, null
   br i1 %51, label %.thread.i, label %52
 
@@ -2605,7 +2605,7 @@ find_event_file.exit:                             ; preds = %67
   br i1 %80, label %83, label %find_event_file.exit.thread
 
 find_event_file.exit.thread:                      ; preds = %.thread.i, %25, %65, %67, %75, %77
-  %81 = phi i64 [ -16, %77 ], [ -16, %75 ], [ -22, %67 ], [ -22, %65 ], [ -22, %25 ], [ -22, %.thread.i ]
+  %81 = phi i64 [ -16, %75 ], [ -16, %77 ], [ -22, %67 ], [ -22, %65 ], [ -22, %25 ], [ -22, %.thread.i ]
   tail call void @trace_array_put(ptr noundef %26) #20
   %82 = inttoptr i64 %81 to ptr
   br label %83
@@ -3031,7 +3031,7 @@ define dso_local noundef i32 @event_trace_del_tracer(ptr noundef %0) local_unnam
   br label %24
 
 24:                                               ; preds = %21, %14
-  %25 = phi ptr [ %18, %14 ], [ %23, %21 ]
+  %25 = phi ptr [ %23, %21 ], [ %18, %14 ]
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.thread, label %27
 
@@ -3253,7 +3253,7 @@ define internal fastcc i32 @__ftrace_set_clr_event_nolock(ptr noundef readonly c
   br label %35
 
 35:                                               ; preds = %32, %25
-  %36 = phi ptr [ %29, %25 ], [ %34, %32 ]
+  %36 = phi ptr [ %34, %32 ], [ %29, %25 ]
   %37 = icmp eq ptr %36, null
   br i1 %37, label %.thread, label %38
 
@@ -3569,7 +3569,7 @@ define internal fastcc void @event_trace_enable() unnamed_addr #4 section ".init
   br label %32
 
 32:                                               ; preds = %29, %22
-  %33 = phi ptr [ %26, %22 ], [ %31, %29 ]
+  %33 = phi ptr [ %31, %29 ], [ %26, %22 ]
   %34 = icmp eq ptr %33, null
   br i1 %34, label %.thread5, label %35, !prof !60
 
@@ -6063,7 +6063,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @system_enable_read(ptr n
   br label %45
 
 45:                                               ; preds = %42, %35
-  %46 = phi ptr [ %39, %35 ], [ %44, %42 ]
+  %46 = phi ptr [ %44, %42 ], [ %39, %35 ]
   %47 = icmp eq ptr %46, null
   br i1 %47, label %.thread.us, label %48
 
@@ -6090,7 +6090,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @system_enable_read(ptr n
   br i1 %63, label %.split7.us, label %.thread.us
 
 .thread.us:                                       ; preds = %56, %52, %48, %45, %40, %.split.us
-  %64 = phi i32 [ %23, %.split.us ], [ %62, %56 ], [ %23, %52 ], [ %23, %48 ], [ %23, %45 ], [ %23, %40 ]
+  %64 = phi i32 [ %23, %.split.us ], [ %23, %40 ], [ %62, %56 ], [ %23, %52 ], [ %23, %48 ], [ %23, %45 ]
   %65 = load ptr, ptr %22, align 8
   %66 = icmp eq ptr %65, %16
   br i1 %66, label %.split7.us, label %.split.us, !llvm.loop !143
@@ -6132,7 +6132,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @system_enable_read(ptr n
   br label %90
 
 90:                                               ; preds = %87, %80
-  %91 = phi ptr [ %84, %80 ], [ %89, %87 ]
+  %91 = phi ptr [ %89, %87 ], [ %84, %80 ]
   %92 = icmp eq ptr %91, null
   br i1 %92, label %.thread, label %93
 
@@ -6172,7 +6172,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @system_enable_read(ptr n
   br i1 %116, label %.split7.us, label %.split, !llvm.loop !143
 
 .split7.us:                                       ; preds = %106, %.thread, %56, %.thread.us
-  %.us-phi = phi i32 [ %64, %.thread.us ], [ 3, %56 ], [ %114, %.thread ], [ 3, %106 ]
+  %.us-phi = phi i32 [ 3, %56 ], [ %64, %.thread.us ], [ %114, %.thread ], [ 3, %106 ]
   %117 = zext nneg i32 %.us-phi to i64
   br label %118
 
@@ -6286,7 +6286,7 @@ __ftrace_set_clr_event_nolock.exit.thread:        ; preds = %30
   br label %59
 
 59:                                               ; preds = %56, %49
-  %60 = phi ptr [ %53, %49 ], [ %58, %56 ]
+  %60 = phi ptr [ %58, %56 ], [ %53, %49 ]
   %61 = icmp eq ptr %60, null
   br i1 %61, label %.thread.i.us, label %62
 
@@ -6315,8 +6315,8 @@ __ftrace_set_clr_event_nolock.exit.thread:        ; preds = %30
   br label %.thread.i.us
 
 .thread.i.us:                                     ; preds = %73, %66, %62, %59, %54
-  %79 = phi i32 [ %78, %73 ], [ %40, %66 ], [ %40, %62 ], [ %40, %59 ], [ %40, %54 ]
-  %.fr.us = phi i32 [ %78, %73 ], [ %39, %66 ], [ %39, %62 ], [ %39, %59 ], [ %39, %54 ]
+  %79 = phi i32 [ %40, %59 ], [ %40, %62 ], [ %40, %54 ], [ %78, %73 ], [ %40, %66 ]
+  %.fr.us = phi i32 [ %39, %59 ], [ %39, %62 ], [ %39, %54 ], [ %78, %73 ], [ %39, %66 ]
   %80 = load ptr, ptr %38, align 8
   %81 = icmp eq ptr %80, %33
   br i1 %81, label %__ftrace_set_clr_event_nolock.exit, label %.split.us, !llvm.loop !99
@@ -6354,7 +6354,7 @@ __ftrace_set_clr_event_nolock.exit.thread:        ; preds = %30
   br label %103
 
 103:                                              ; preds = %100, %93
-  %104 = phi ptr [ %97, %93 ], [ %102, %100 ]
+  %104 = phi ptr [ %102, %100 ], [ %97, %93 ]
   %105 = icmp eq ptr %104, null
   br i1 %105, label %.thread.i, label %106
 
@@ -6389,8 +6389,8 @@ __ftrace_set_clr_event_nolock.exit.thread:        ; preds = %30
   br label %.thread.i
 
 .thread.i:                                        ; preds = %121, %117, %110, %106, %103, %98
-  %127 = phi i32 [ %84, %117 ], [ %126, %121 ], [ %84, %110 ], [ %84, %106 ], [ %84, %103 ], [ %84, %98 ]
-  %.fr = phi i32 [ %83, %117 ], [ %126, %121 ], [ %83, %110 ], [ %83, %106 ], [ %83, %103 ], [ %83, %98 ]
+  %127 = phi i32 [ %84, %103 ], [ %84, %117 ], [ %84, %98 ], [ %126, %121 ], [ %84, %110 ], [ %84, %106 ]
+  %.fr = phi i32 [ %83, %103 ], [ %83, %117 ], [ %83, %98 ], [ %126, %121 ], [ %83, %110 ], [ %83, %106 ]
   %128 = load ptr, ptr %82, align 8
   %129 = icmp eq ptr %128, %33
   br i1 %129, label %__ftrace_set_clr_event_nolock.exit, label %.split, !llvm.loop !99
@@ -7512,7 +7512,7 @@ define internal noundef i32 @trace_module_notify(ptr readnone captures(none) %0,
   br label %39
 
 39:                                               ; preds = %36, %29
-  %40 = phi ptr [ %33, %29 ], [ %38, %36 ]
+  %40 = phi ptr [ %38, %36 ], [ %33, %29 ]
   %41 = icmp eq ptr %40, null
   br i1 %41, label %.thread.i, label %42, !prof !60
 

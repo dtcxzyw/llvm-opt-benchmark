@@ -293,7 +293,7 @@ copy_address.exit.i61:                            ; preds = %98, %92
   store ptr %121, ptr %91, align 8
   br label %.thread79.sink.split
 
-.thread87:                                        ; preds = %21, %22
+.thread87:                                        ; preds = %22, %21
   store ptr null, ptr %10, align 8
   br label %.thread83
 
@@ -365,8 +365,8 @@ copy_address.exit.i61:                            ; preds = %98, %92
   %155 = icmp samesign ult i64 %indvars.iv.next, %154
   br i1 %155, label %145, label %.thread83, !llvm.loop !9
 
-.thread83:                                        ; preds = %145, %.preheader, %89, %90, %.thread87, %.thread79, %139, %5
-  %.0 = phi i32 [ 0, %5 ], [ 1, %139 ], [ 1, %.thread79 ], [ 0, %.thread87 ], [ 0, %90 ], [ 0, %89 ], [ 1, %.preheader ], [ 1, %145 ]
+.thread83:                                        ; preds = %145, %.preheader, %90, %89, %.thread87, %.thread79, %139, %5
+  %.0 = phi i32 [ 0, %.thread87 ], [ 0, %5 ], [ 1, %139 ], [ 0, %90 ], [ 1, %.thread79 ], [ 0, %89 ], [ 1, %.preheader ], [ 1, %145 ]
   ret i32 %.0
 }
 

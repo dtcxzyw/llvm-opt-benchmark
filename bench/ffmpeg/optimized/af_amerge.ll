@@ -84,7 +84,7 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
   br i1 %22, label %14, label %.loopexit
 
 .loopexit:                                        ; preds = %20, %14, %.preheader, %.thread, %1
-  %.0 = phi i32 [ -12, %1 ], [ -12, %.thread ], [ 0, %.preheader ], [ %21, %20 ], [ 0, %14 ]
+  %.0 = phi i32 [ -12, %.thread ], [ -12, %1 ], [ 0, %.preheader ], [ %21, %20 ], [ 0, %14 ]
   ret i32 %.0
 }
 
@@ -948,7 +948,7 @@ copy_samples.exit.i:                              ; preds = %._crit_edge41.us.i1
   br i1 %exitcond.not.i154.i, label %try_push_frame.exit, label %.lr.ph.i151.i, !llvm.loop !68
 
 try_push_frame.exit.thread:                       ; preds = %.lr.ph.i.i, %.lr.ph.i53.i, %free_frames.exit64.i, %58, %68
-  %.0.i.ph = phi i32 [ -12, %68 ], [ %56, %58 ], [ %89, %free_frames.exit64.i ], [ -12, %.lr.ph.i53.i ], [ %56, %.lr.ph.i.i ]
+  %.0.i.ph = phi i32 [ -12, %.lr.ph.i53.i ], [ -12, %68 ], [ %56, %58 ], [ %89, %free_frames.exit64.i ], [ %56, %.lr.ph.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -1016,7 +1016,7 @@ try_push_frame.exit._crit_edge:                   ; preds = %try_push_frame.exit
   br i1 %227, label %.lr.ph77, label %.loopexit, !llvm.loop !88
 
 .loopexit:                                        ; preds = %14, %224, %.preheader, %202, %try_push_frame.exit.thread, %try_push_frame.exit, %220, %215
-  %.1 = phi i32 [ 0, %215 ], [ 0, %220 ], [ %200, %try_push_frame.exit ], [ %.0.i.ph, %try_push_frame.exit.thread ], [ 0, %202 ], [ 0, %.preheader ], [ 0, %224 ], [ 0, %14 ]
+  %.1 = phi i32 [ %.0.i.ph, %try_push_frame.exit.thread ], [ 0, %215 ], [ 0, %220 ], [ %200, %try_push_frame.exit ], [ 0, %202 ], [ 0, %.preheader ], [ 0, %224 ], [ 0, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.1

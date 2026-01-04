@@ -415,7 +415,7 @@ Mpm_CutIsContained.exit.thread:                   ; preds = %211, %.lr.ph.i93, %
   br label %220
 
 220:                                              ; preds = %216, %._crit_edge
-  %.179 = phi i32 [ %.078.in.lcssa179, %._crit_edge ], [ %spec.select, %216 ]
+  %.179 = phi i32 [ %spec.select, %216 ], [ %.078.in.lcssa179, %._crit_edge ]
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 3248
   %222 = load i32, ptr %9, align 4, !tbaa !13
   %223 = add nsw i32 %222, -1
@@ -679,7 +679,7 @@ Vec_PtrPush.exit120:                              ; preds = %.Vec_PtrGrow.exit11
   br label %Mpm_CutIsContained.exit
 
 Mpm_CutIsContained.exit:                          ; preds = %202, %205, %._crit_edge140, %Vec_PtrPush.exit120, %162, %153
-  %.082 = phi i32 [ 1, %153 ], [ 0, %162 ], [ 1, %Vec_PtrPush.exit120 ], [ 1, %._crit_edge140 ], [ 0, %205 ], [ 0, %202 ]
+  %.082 = phi i32 [ 1, %153 ], [ 1, %._crit_edge140 ], [ 0, %162 ], [ 1, %Vec_PtrPush.exit120 ], [ 0, %205 ], [ 0, %202 ]
   ret i32 %.082
 }
 
@@ -1223,7 +1223,7 @@ Mpm_CutFindLeaf.exit101:                          ; preds = %102, %92, %._crit_e
   br i1 %exitcond36.not.i, label %Vec_IntSelectSort.exit, label %.lr.ph.preheader.i103, !llvm.loop !75
 
 Vec_IntSelectSort.exit:                           ; preds = %Mpm_CutFindLeaf.exit.thread, %106, %._crit_edge.i, %153, %143
-  %.084 = phi ptr [ %11, %143 ], [ %11, %153 ], [ %11, %._crit_edge.i ], [ null, %106 ], [ null, %Mpm_CutFindLeaf.exit.thread ]
+  %.084 = phi ptr [ null, %106 ], [ %11, %._crit_edge.i ], [ %11, %143 ], [ %11, %153 ], [ null, %Mpm_CutFindLeaf.exit.thread ]
   ret ptr %.084
 }
 
@@ -1372,7 +1372,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %84, label %97, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %2, %80, %._crit_edge
-  %.0.lcssa32 = phi ptr [ %25, %80 ], [ %25, %._crit_edge ], [ %9, %2 ]
+  %.0.lcssa32 = phi ptr [ %25, %._crit_edge ], [ %25, %80 ], [ %9, %2 ]
   %.val = load i32, ptr %6, align 4
   %85 = and i32 %.val, -2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -4067,7 +4067,7 @@ Vec_IntPush.exit.i.i:                             ; preds = %89, %Vec_IntGrow.ex
   br i1 %121, label %104, label %Mmr_StepFetch.exit, !llvm.loop !140
 
 Mmr_StepFetch.exit:                               ; preds = %104, %3, %._crit_edge.i.i
-  %122 = phi i32 [ %100, %._crit_edge.i.i ], [ %.val.i.i, %3 ], [ %118, %104 ]
+  %122 = phi i32 [ %.val.i.i, %3 ], [ %100, %._crit_edge.i.i ], [ %118, %104 ]
   %123 = getelementptr inbounds nuw i8, ptr %19, i64 12
   %124 = load i32, ptr %123, align 4, !tbaa !105
   %125 = add nsw i32 %124, 1

@@ -574,7 +574,7 @@ define hidden zeroext i1 @SDL_SW_UpdateYUVTexture(ptr noundef readonly captures(
   br label %.loopexit
 
 .loopexit:                                        ; preds = %265, %171, %135, %211, %38, %._crit_edge188, %._crit_edge, %147, %._crit_edge195, %25, %198, %278
-  %.0144 = phi i1 [ %279, %278 ], [ true, %198 ], [ true, %25 ], [ true, %._crit_edge195 ], [ true, %147 ], [ true, %._crit_edge ], [ true, %._crit_edge188 ], [ true, %38 ], [ true, %211 ], [ true, %135 ], [ true, %171 ], [ true, %265 ]
+  %.0144 = phi i1 [ %279, %278 ], [ true, %._crit_edge195 ], [ true, %147 ], [ true, %25 ], [ true, %198 ], [ true, %._crit_edge ], [ true, %38 ], [ true, %211 ], [ true, %171 ], [ true, %135 ], [ true, %._crit_edge188 ], [ true, %265 ]
   ret i1 %.0144
 }
 
@@ -971,7 +971,7 @@ define hidden zeroext i1 @SDL_SW_CopyYUVToRGB(ptr noundef captures(none) %0, ptr
   %or.cond = and i1 %.not65, %.not66
   br i1 %or.cond, label %61, label %.thread
 
-.thread:                                          ; preds = %15, %17, %20, %26, %32
+.thread:                                          ; preds = %17, %20, %26, %15, %32
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %34 = load ptr, ptr %33, align 8
   %.not68 = icmp eq ptr %34, null
@@ -1058,7 +1058,7 @@ define hidden zeroext i1 @SDL_SW_CopyYUVToRGB(ptr noundef captures(none) %0, ptr
   br label %78
 
 78:                                               ; preds = %61, %49, %43, %72
-  %.057 = phi i1 [ %77, %72 ], [ false, %43 ], [ false, %49 ], [ %71, %61 ]
+  %.057 = phi i1 [ %77, %72 ], [ %71, %61 ], [ false, %49 ], [ false, %43 ]
   ret i1 %.057
 }
 

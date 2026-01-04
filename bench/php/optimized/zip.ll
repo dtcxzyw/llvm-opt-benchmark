@@ -379,7 +379,7 @@ phar_find_eocd.exit:                              ; preds = %zend_memnrstr.exit.
   store i32 0, ptr %132, align 8, !tbaa !5
   br label %136
 
-.loopexit1729:                                    ; preds = %41, %zend_memnrstr.exit.i, %74, %49, %59
+.loopexit1729:                                    ; preds = %41, %zend_memnrstr.exit.i, %74, %59, %49
   %133 = call i32 @_php_stream_free(ptr noundef %0, i32 noundef 3) #16
   %.not1310 = icmp eq ptr %6, null
   br i1 %.not1310, label %.critedge1584, label %134
@@ -4806,16 +4806,16 @@ zend_string_equals_cstr.exit1599.thread:          ; preds = %1695, %2083, %zend_
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %2097
 
-.thread1683:                                      ; preds = %279, %278, %314, %313, %388, %387, %429, %428, %489, %488
+.thread1683:                                      ; preds = %387, %278, %313, %428, %279, %314, %388, %429, %489, %488
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.critedge1584
 
-.thread1687:                                      ; preds = %607, %608, %559, %560, %999, %998, %1052, %1051, %1100, %1099, %1148, %1147, %1196, %1195, %1244, %1243, %1292, %1291, %1340, %1339, %1388, %1387, %1436, %1435, %1484, %1483, %1532, %1531, %1580, %1579, %1628, %1627, %1686, %1685, %938, %939, %1757, %1756, %1819, %1818, %1888, %1887, %1943, %1942, %2012, %2011, %2080, %2079
+.thread1687:                                      ; preds = %1579, %1627, %560, %998, %1051, %1099, %1147, %1195, %1243, %1291, %1339, %1387, %1435, %1483, %1531, %607, %608, %559, %999, %1052, %1100, %1148, %1196, %1244, %1292, %1340, %1388, %1436, %1484, %1532, %1580, %1628, %1686, %1685, %938, %939, %1756, %1757, %1818, %2011, %1942, %1887, %1819, %1888, %1943, %2012, %2080, %2079
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.critedge1584
 
-.thread1695:                                      ; preds = %815, %673, %672, %709, %708, %766, %765, %847, %846, %885, %884
+.thread1695:                                      ; preds = %672, %708, %815, %765, %846, %884, %673, %709, %766, %847, %885
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -5132,7 +5132,7 @@ zend_hash_str_find_ptr.exit1662.thread:           ; preds = %2186, %2188
   br label %.critedge1584
 
 .critedge1584:                                    ; preds = %.thread1695, %.thread1687, %.thread1683, %2167, %2152, %2223, %2224, %.critedge1586, %2138, %2139, %.loopexit1729, %134, %125, %126, %80, %82, %33, %35, %25, %27, %92
-  %.0 = phi i32 [ -1, %92 ], [ -1, %27 ], [ -1, %25 ], [ -1, %35 ], [ -1, %33 ], [ -1, %82 ], [ -1, %80 ], [ -1, %126 ], [ -1, %125 ], [ -1, %134 ], [ -1, %.loopexit1729 ], [ -1, %2139 ], [ -1, %2138 ], [ -1, %.critedge1586 ], [ 0, %2224 ], [ 0, %2223 ], [ -1, %2152 ], [ -1, %2167 ], [ -1, %.thread1683 ], [ -1, %.thread1687 ], [ -1, %.thread1695 ]
+  %.0 = phi i32 [ -1, %25 ], [ -1, %33 ], [ -1, %92 ], [ -1, %80 ], [ -1, %.thread1695 ], [ -1, %2138 ], [ 0, %2223 ], [ -1, %.critedge1586 ], [ -1, %.loopexit1729 ], [ -1, %125 ], [ -1, %27 ], [ -1, %35 ], [ -1, %82 ], [ -1, %126 ], [ -1, %134 ], [ -1, %2139 ], [ 0, %2224 ], [ -1, %2152 ], [ -1, %2167 ], [ -1, %.thread1683 ], [ -1, %.thread1687 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i32 %.0
@@ -5314,15 +5314,15 @@ define internal fastcc range(i32 -1, 1) i32 @phar_zip_process_extra(ptr noundef 
   store i32 %70, ptr %9, align 8, !tbaa !50
   br label %.thread
 
-.thread:                                          ; preds = %61, %37, %38, %.thread55
-  %.pn.in = phi i16 [ %47, %.thread55 ], [ %27, %38 ], [ 5, %37 ], [ 14, %61 ]
+.thread:                                          ; preds = %61, %38, %37, %.thread55
+  %.pn.in = phi i16 [ %47, %.thread55 ], [ 14, %61 ], [ %27, %38 ], [ 5, %37 ]
   %.pn.neg = add i16 %.034, -4
   %.337 = sub i16 %.pn.neg, %.pn.in
   %.not48 = icmp eq i16 %.337, 0
   br i1 %.not48, label %.thread51, label %14
 
 .thread51:                                        ; preds = %30, %.thread, %48, %14
-  %.1 = phi i32 [ -1, %14 ], [ -1, %48 ], [ 0, %.thread ], [ -1, %30 ]
+  %.1 = phi i32 [ -1, %14 ], [ 0, %.thread ], [ -1, %48 ], [ -1, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1
 }
@@ -5468,7 +5468,7 @@ define hidden i32 @phar_open_or_create_zip(ptr noundef %0, i64 noundef %1, ptr n
   br label %32
 
 32:                                               ; preds = %29, %30, %15, %8, %26
-  %.0 = phi i32 [ 0, %26 ], [ -1, %8 ], [ %11, %15 ], [ -1, %30 ], [ -1, %29 ]
+  %.0 = phi i32 [ %11, %15 ], [ -1, %8 ], [ 0, %26 ], [ -1, %30 ], [ -1, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
@@ -6175,7 +6175,7 @@ zend_hash_update_mem.exit126:                     ; preds = %197, %199
   %304 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %3, i64 noundef 4096, ptr noundef nonnull @.str.66, ptr noundef %303) #16
   br label %.thread
 
-.thread:                                          ; preds = %301, %300
+.thread:                                          ; preds = %300, %301
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %271
 
@@ -7034,8 +7034,8 @@ phar_zip_u2d_time.exit:                           ; preds = %63, %73
   %276 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef %271, i64 noundef 0, ptr noundef nonnull @.str.78, ptr noundef nonnull %273, ptr noundef %275) #16
   br label %.thread
 
-.thread292:                                       ; preds = %181, %235, %264, %254
-  %.2 = phi i32 [ %.1229, %264 ], [ %.1229, %254 ], [ 0, %235 ], [ 0, %181 ]
+.thread292:                                       ; preds = %235, %181, %264, %254
+  %.2 = phi i32 [ %.1229, %264 ], [ %.1229, %254 ], [ 0, %181 ], [ 0, %235 ]
   %277 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %278 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %279 = load i32, ptr %278, align 4, !tbaa !40
@@ -7045,8 +7045,8 @@ phar_zip_u2d_time.exit:                           ; preds = %63, %73
   %281 = icmp ne i32 %.2, 0
   br label %.thread288
 
-.thread288:                                       ; preds = %123, %128, %134, %137, %.thread292
-  %.3 = phi i1 [ %281, %.thread292 ], [ false, %137 ], [ false, %134 ], [ false, %128 ], [ false, %123 ]
+.thread288:                                       ; preds = %134, %137, %123, %128, %.thread292
+  %.3 = phi i1 [ %281, %.thread292 ], [ false, %128 ], [ false, %123 ], [ false, %137 ], [ false, %134 ]
   %282 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %283 = load i16, ptr %9, align 2
   %284 = and i16 %283, 256
@@ -7458,7 +7458,7 @@ phar_zip_u2d_time.exit:                           ; preds = %63, %73
   br label %.thread
 
 .thread:                                          ; preds = %196, %198, %203, %228, %214, %161, %144, %530, %537, %458, %14, %2, %543, %522, %470, %447, %428, %417, %406, %391, %382, %371, %356, %345, %327, %315, %269
-  %.0 = phi i32 [ 2, %269 ], [ 2, %315 ], [ 2, %327 ], [ 2, %345 ], [ 2, %356 ], [ 2, %371 ], [ 2, %382 ], [ 2, %417 ], [ 2, %428 ], [ 2, %543 ], [ 2, %522 ], [ 2, %447 ], [ 2, %470 ], [ 2, %391 ], [ 2, %406 ], [ 0, %2 ], [ %., %14 ], [ 2, %458 ], [ 0, %537 ], [ 0, %530 ], [ 2, %144 ], [ 2, %161 ], [ 2, %214 ], [ 2, %228 ], [ 2, %203 ], [ 2, %198 ], [ 2, %196 ]
+  %.0 = phi i32 [ 2, %406 ], [ %., %14 ], [ 0, %2 ], [ 0, %530 ], [ 2, %269 ], [ 2, %315 ], [ 2, %327 ], [ 2, %345 ], [ 2, %356 ], [ 2, %371 ], [ 2, %382 ], [ 2, %417 ], [ 2, %428 ], [ 2, %543 ], [ 2, %458 ], [ 2, %522 ], [ 2, %447 ], [ 2, %391 ], [ 2, %470 ], [ 0, %537 ], [ 2, %144 ], [ 2, %161 ], [ 2, %214 ], [ 2, %228 ], [ 2, %203 ], [ 2, %198 ], [ 2, %196 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

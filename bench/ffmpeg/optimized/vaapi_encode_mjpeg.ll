@@ -903,7 +903,7 @@ define internal range(i32 -541478725, 1) i32 @vaapi_encode_mjpeg_write_extra_buf
   br i1 %91, label %49, label %.critedge, !llvm.loop !142
 
 .critedge:                                        ; preds = %._crit_edge, %33, %25, %42, %9, %6
-  %.1 = phi i32 [ -541478725, %6 ], [ -28, %9 ], [ -28, %42 ], [ 0, %25 ], [ 0, %33 ], [ 0, %._crit_edge ]
+  %.1 = phi i32 [ -28, %9 ], [ -28, %42 ], [ -541478725, %6 ], [ 0, %33 ], [ 0, %25 ], [ 0, %._crit_edge ]
   ret i32 %.1
 }
 

@@ -708,7 +708,7 @@ define hidden void @freeCKMechanismPtr(ptr noundef captures(address_is_null) %0)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %100, %101, %18, %23, %27, %35, %55, %75, %111, %14, %10, %48, %68, %96
-  %.sink = phi ptr [ %99, %96 ], [ %74, %68 ], [ %54, %48 ], [ %13, %10 ], [ %17, %14 ], [ %114, %111 ], [ %79, %75 ], [ %60, %55 ], [ %40, %35 ], [ %34, %27 ], [ %26, %23 ], [ %22, %18 ], [ %.pre, %101 ], [ null, %100 ]
+  %.sink = phi ptr [ %22, %18 ], [ %99, %96 ], [ %74, %68 ], [ %54, %48 ], [ %13, %10 ], [ %17, %14 ], [ %114, %111 ], [ %79, %75 ], [ %60, %55 ], [ %40, %35 ], [ %34, %27 ], [ %26, %23 ], [ %.pre, %101 ], [ null, %100 ]
   tail call void @free(ptr noundef %.sink) #16
   br label %115
 
@@ -2473,7 +2473,7 @@ p11ThrowPKCS11RuntimeException.exit:              ; preds = %271, %280
   br label %p11ThrowOutOfMemoryError.exit
 
 p11ThrowOutOfMemoryError.exit:                    ; preds = %266, %258, %243, %237, %227, %221, %215, %202, %189, %176, %163, %150, %137, %124, %111, %98, %88, %48, %7, %p11ThrowPKCS11RuntimeException.exit, %213, %200, %187, %174, %161, %148, %135, %122, %109, %96, %jBooleanObjectToCKBBoolPtr.exit, %jLongObjectToCKULongPtr.exit, %6
-  %.0 = phi ptr [ null, %6 ], [ %.0.i, %jLongObjectToCKULongPtr.exit ], [ %.0.i199, %jBooleanObjectToCKBBoolPtr.exit ], [ %97, %96 ], [ %110, %109 ], [ %123, %122 ], [ %136, %135 ], [ %149, %148 ], [ %162, %161 ], [ %175, %174 ], [ %188, %187 ], [ %201, %200 ], [ %214, %213 ], [ null, %p11ThrowPKCS11RuntimeException.exit ], [ null, %7 ], [ null, %48 ], [ null, %88 ], [ null, %98 ], [ null, %111 ], [ null, %124 ], [ null, %137 ], [ null, %150 ], [ null, %163 ], [ null, %176 ], [ null, %189 ], [ null, %202 ], [ null, %215 ], [ null, %221 ], [ null, %227 ], [ null, %237 ], [ null, %243 ], [ null, %258 ], [ null, %266 ]
+  %.0 = phi ptr [ null, %6 ], [ null, %p11ThrowPKCS11RuntimeException.exit ], [ %.0.i, %jLongObjectToCKULongPtr.exit ], [ null, %7 ], [ %.0.i199, %jBooleanObjectToCKBBoolPtr.exit ], [ null, %48 ], [ %97, %96 ], [ null, %88 ], [ %110, %109 ], [ null, %98 ], [ %123, %122 ], [ null, %111 ], [ %136, %135 ], [ null, %124 ], [ %149, %148 ], [ null, %137 ], [ %162, %161 ], [ null, %150 ], [ %175, %174 ], [ null, %163 ], [ %188, %187 ], [ null, %176 ], [ %201, %200 ], [ null, %189 ], [ %214, %213 ], [ null, %202 ], [ null, %215 ], [ null, %221 ], [ null, %227 ], [ null, %237 ], [ null, %243 ], [ null, %258 ], [ null, %266 ]
   ret ptr %.0
 }
 

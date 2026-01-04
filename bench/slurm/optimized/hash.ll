@@ -150,7 +150,7 @@ define dso_local range(i32 -1, 1) i32 @hash_g_init() local_unnamed_addr #0 {
   br label %55
 
 55:                                               ; preds = %.thread, %._crit_edge, %8
-  %.2 = phi i32 [ 0, %8 ], [ 0, %._crit_edge ], [ -1, %.thread ]
+  %.2 = phi i32 [ 0, %8 ], [ -1, %.thread ], [ 0, %._crit_edge ]
   %56 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #8
   %.not22 = icmp eq i32 %56, 0
   br i1 %.not22, label %59, label %57

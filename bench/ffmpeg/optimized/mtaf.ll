@@ -29,7 +29,7 @@ define internal range(i32 0, 101) i32 @mtaf_probe(ptr noundef readonly captures(
   br label %12
 
 12:                                               ; preds = %9, %5, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %5 ], [ %spec.select, %9 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %1 ], [ %spec.select, %9 ]
   ret i32 %.0
 }
 

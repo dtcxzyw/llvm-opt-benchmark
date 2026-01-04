@@ -477,7 +477,7 @@ convolve_sobel.exit.thread89..preheader74.lr.ph.i_crit_edge: ; preds = %convolve
   br label %.preheader74.lr.ph.i
 
 convolve_sobel.exit:                              ; preds = %._crit_edge.split.us115.i, %._crit_edge.split.us.us.us.i, %._crit_edge.split.us129.i, %._crit_edge.split.us.us.us132.i
-  %213 = phi i32 [ %123, %._crit_edge.split.us.us.us132.i ], [ %123, %._crit_edge.split.us129.i ], [ %37, %._crit_edge.split.us.us.us.i ], [ %37, %._crit_edge.split.us115.i ]
+  %213 = phi i32 [ %37, %._crit_edge.split.us.us.us.i ], [ %123, %._crit_edge.split.us129.i ], [ %123, %._crit_edge.split.us.us.us132.i ], [ %37, %._crit_edge.split.us115.i ]
   %214 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %215 = load ptr, ptr %214, align 8, !tbaa !54
   %216 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -745,8 +745,8 @@ calculate_motion.exit.loopexit112:                ; preds = %._crit_edge.i
   %.pre130 = load ptr, ptr %22, align 8, !tbaa !49
   br label %calculate_motion.exit
 
-calculate_motion.exit.thread:                     ; preds = %219, %284, %convolve_sobel.exit.thread, %convolve_sobel.exit.thread89
-  %.ph = phi ptr [ %208, %convolve_sobel.exit.thread89 ], [ %203, %convolve_sobel.exit.thread ], [ %214, %284 ], [ %214, %219 ]
+calculate_motion.exit.thread:                     ; preds = %219, %convolve_sobel.exit.thread89, %284, %convolve_sobel.exit.thread
+  %.ph = phi ptr [ %203, %convolve_sobel.exit.thread ], [ %214, %284 ], [ %208, %convolve_sobel.exit.thread89 ], [ %214, %219 ]
   %344 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %345 = load i32, ptr %344, align 4, !tbaa !53
   %346 = add nsw i32 %345, -2
@@ -755,9 +755,9 @@ calculate_motion.exit.thread:                     ; preds = %219, %284, %convolv
   br label %._crit_edge45.thread78.i
 
 calculate_motion.exit:                            ; preds = %._crit_edge80.split.split.us85.i, %._crit_edge80.split.split.us.us.us.i, %._crit_edge80.split.us.us.us.split.i, %._crit_edge80.split.us.us.us.split.us.us.i, %calculate_motion.exit.loopexit112, %.preheader.lr.ph.i, %.preheader74.lr.ph.i
-  %349 = phi i32 [ %33, %.preheader.lr.ph.i ], [ %33, %.preheader74.lr.ph.i ], [ %301, %calculate_motion.exit.loopexit112 ], [ %33, %._crit_edge80.split.us.us.us.split.us.us.i ], [ %33, %._crit_edge80.split.us.us.us.split.i ], [ %33, %._crit_edge80.split.split.us.us.us.i ], [ %33, %._crit_edge80.split.split.us85.i ]
-  %350 = phi ptr [ %23, %.preheader.lr.ph.i ], [ %23, %.preheader74.lr.ph.i ], [ %.pre130, %calculate_motion.exit.loopexit112 ], [ %23, %._crit_edge80.split.us.us.us.split.us.us.i ], [ %23, %._crit_edge80.split.us.us.us.split.i ], [ %23, %._crit_edge80.split.split.us.us.us.i ], [ %23, %._crit_edge80.split.split.us85.i ]
-  %351 = phi ptr [ %221, %.preheader.lr.ph.i ], [ %286, %.preheader74.lr.ph.i ], [ %286, %calculate_motion.exit.loopexit112 ], [ %221, %._crit_edge80.split.us.us.us.split.us.us.i ], [ %221, %._crit_edge80.split.us.us.us.split.i ], [ %221, %._crit_edge80.split.split.us.us.us.i ], [ %221, %._crit_edge80.split.split.us85.i ]
+  %349 = phi i32 [ %33, %.preheader74.lr.ph.i ], [ %33, %.preheader.lr.ph.i ], [ %33, %._crit_edge80.split.us.us.us.split.us.us.i ], [ %33, %._crit_edge80.split.us.us.us.split.i ], [ %33, %._crit_edge80.split.split.us.us.us.i ], [ %301, %calculate_motion.exit.loopexit112 ], [ %33, %._crit_edge80.split.split.us85.i ]
+  %350 = phi ptr [ %23, %.preheader74.lr.ph.i ], [ %23, %.preheader.lr.ph.i ], [ %23, %._crit_edge80.split.us.us.us.split.us.us.i ], [ %23, %._crit_edge80.split.us.us.us.split.i ], [ %23, %._crit_edge80.split.split.us.us.us.i ], [ %.pre130, %calculate_motion.exit.loopexit112 ], [ %23, %._crit_edge80.split.split.us85.i ]
+  %351 = phi ptr [ %286, %.preheader74.lr.ph.i ], [ %221, %.preheader.lr.ph.i ], [ %221, %._crit_edge80.split.us.us.us.split.us.us.i ], [ %221, %._crit_edge80.split.us.us.us.split.i ], [ %221, %._crit_edge80.split.split.us.us.us.i ], [ %286, %calculate_motion.exit.loopexit112 ], [ %221, %._crit_edge80.split.split.us85.i ]
   %352 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %353 = load i32, ptr %352, align 4, !tbaa !53
   %354 = add nsw i32 %353, -2

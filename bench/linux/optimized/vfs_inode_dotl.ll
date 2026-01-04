@@ -401,7 +401,7 @@ define dso_local i32 @v9fs_vfs_setattr_dotl(ptr readnone captures(none) %0, ptr 
   br label %.thread12
 
 .thread12:                                        ; preds = %147, %149, %113, %115, %150, %135, %116, %104, %91, %3
-  %152 = phi i32 [ %93, %91 ], [ %9, %3 ], [ %102, %104 ], [ 0, %135 ], [ %102, %116 ], [ 0, %150 ], [ %102, %115 ], [ %102, %113 ], [ 0, %149 ], [ 0, %147 ]
+  %152 = phi i32 [ %93, %91 ], [ %9, %3 ], [ %102, %104 ], [ 0, %135 ], [ 0, %150 ], [ %102, %116 ], [ %102, %113 ], [ %102, %115 ], [ 0, %149 ], [ 0, %147 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %152
 }
@@ -1109,7 +1109,7 @@ define internal i32 @v9fs_vfs_symlink_dotl(ptr readnone captures(none) %0, ptr n
   br label %.thread
 
 .thread:                                          ; preds = %36, %78, %75, %91, %93, %94, %79
-  %96 = phi i32 [ %81, %91 ], [ %81, %93 ], [ %81, %94 ], [ %81, %79 ], [ %39, %36 ], [ %39, %78 ], [ %77, %75 ]
+  %96 = phi i32 [ %81, %79 ], [ %81, %91 ], [ %81, %93 ], [ %81, %94 ], [ %39, %36 ], [ %39, %78 ], [ %77, %75 ]
   %97 = icmp eq ptr %16, null
   br i1 %97, label %.thread14, label %98
 
@@ -1285,8 +1285,8 @@ define internal i32 @v9fs_vfs_mkdir_dotl(ptr readnone captures(none) %0, ptr nou
   br label %84
 
 84:                                               ; preds = %78, %75, %68, %48
-  %85 = phi ptr [ %46, %48 ], [ %46, %68 ], [ %.pre, %78 ], [ %46, %75 ]
-  %86 = phi i32 [ %50, %48 ], [ %70, %68 ], [ %80, %78 ], [ %77, %75 ]
+  %85 = phi ptr [ %.pre, %78 ], [ %46, %75 ], [ %46, %48 ], [ %46, %68 ]
+  %86 = phi i32 [ %80, %78 ], [ %77, %75 ], [ %50, %48 ], [ %70, %68 ]
   %87 = icmp eq ptr %85, null
   %88 = icmp ugt ptr %85, inttoptr (i64 -4096 to ptr)
   %89 = or i1 %87, %88
@@ -1320,7 +1320,7 @@ define internal i32 @v9fs_vfs_mkdir_dotl(ptr readnone captures(none) %0, ptr nou
   br label %.thread
 
 .thread:                                          ; preds = %37, %96, %98, %99, %84
-  %101 = phi i32 [ %86, %96 ], [ %86, %98 ], [ %86, %99 ], [ %86, %84 ], [ %43, %37 ]
+  %101 = phi i32 [ %86, %84 ], [ %86, %96 ], [ %86, %98 ], [ %86, %99 ], [ %43, %37 ]
   %102 = icmp eq ptr %18, null
   br i1 %102, label %.thread14, label %103
 
@@ -1493,8 +1493,8 @@ define internal i32 @v9fs_vfs_mknod_dotl(ptr readnone captures(none) %0, ptr nou
   br label %79
 
 79:                                               ; preds = %78, %75, %71, %68, %48
-  %80 = phi ptr [ %46, %48 ], [ %46, %68 ], [ %.pre, %71 ], [ %46, %75 ], [ %46, %78 ]
-  %81 = phi i32 [ %50, %48 ], [ %70, %68 ], [ 0, %71 ], [ %77, %75 ], [ %40, %78 ]
+  %80 = phi ptr [ %46, %75 ], [ %46, %78 ], [ %46, %48 ], [ %46, %68 ], [ %.pre, %71 ]
+  %81 = phi i32 [ %77, %75 ], [ %40, %78 ], [ %50, %48 ], [ %70, %68 ], [ 0, %71 ]
   %82 = icmp eq ptr %80, null
   %83 = icmp ugt ptr %80, inttoptr (i64 -4096 to ptr)
   %84 = or i1 %82, %83
@@ -1528,7 +1528,7 @@ define internal i32 @v9fs_vfs_mknod_dotl(ptr readnone captures(none) %0, ptr nou
   br label %.thread
 
 .thread:                                          ; preds = %34, %91, %93, %94, %79
-  %96 = phi i32 [ %81, %91 ], [ %81, %93 ], [ %81, %94 ], [ %81, %79 ], [ %40, %34 ]
+  %96 = phi i32 [ %81, %79 ], [ %81, %91 ], [ %81, %93 ], [ %81, %94 ], [ %40, %34 ]
   %97 = icmp eq ptr %15, null
   br i1 %97, label %.thread14, label %98
 
@@ -1875,7 +1875,7 @@ define internal i32 @v9fs_vfs_atomic_open_dotl(ptr noundef %0, ptr noundef %1, p
   br label %127
 
 127:                                              ; preds = %120, %117, %114, %107, %85, %67
-  %128 = phi i32 [ %69, %67 ], [ %109, %107 ], [ %116, %114 ], [ %118, %117 ], [ 0, %120 ], [ %99, %85 ]
+  %128 = phi i32 [ %99, %85 ], [ %69, %67 ], [ %109, %107 ], [ %116, %114 ], [ %118, %117 ], [ 0, %120 ]
   %129 = icmp eq ptr %60, null
   br i1 %129, label %.thread18, label %130
 

@@ -31,7 +31,7 @@ define range(i32 0, 2) i32 @SSL_set_quic_tls_cbs(ptr noundef %0, ptr noundef rea
   br label %13
 
 13:                                               ; preds = %6, %9, %11, %3
-  %14 = phi ptr [ null, %3 ], [ %12, %11 ], [ null, %9 ], [ %0, %6 ]
+  %14 = phi ptr [ null, %3 ], [ null, %9 ], [ %12, %11 ], [ %0, %6 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = tail call i32 @SSL_is_tls(ptr noundef %0) #5
   %.not25 = icmp eq i32 %15, 0
@@ -222,7 +222,7 @@ tls_callbacks_from_dispatch.exit:                 ; preds = %73
   br label %100
 
 100:                                              ; preds = %tls_callbacks_from_dispatch.exit.thread, %98, %tls_callbacks_from_dispatch.exit, %16
-  %.0 = phi i32 [ 0, %16 ], [ 0, %tls_callbacks_from_dispatch.exit ], [ %., %98 ], [ 0, %tls_callbacks_from_dispatch.exit.thread ]
+  %.0 = phi i32 [ 0, %tls_callbacks_from_dispatch.exit.thread ], [ 0, %tls_callbacks_from_dispatch.exit ], [ %., %98 ], [ 0, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -463,7 +463,7 @@ define i32 @SSL_set_quic_tls_transport_params(ptr noundef %0, ptr noundef %1, i6
   br label %10
 
 10:                                               ; preds = %3, %7
-  %11 = phi ptr [ %9, %7 ], [ %0, %3 ]
+  %11 = phi ptr [ %0, %3 ], [ %9, %7 ]
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 344
   %13 = load ptr, ptr %12, align 8, !tbaa !81
   %14 = icmp eq ptr %13, null

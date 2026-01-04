@@ -516,7 +516,7 @@ define void @_Z9PrintDealB5cxx11PA4_Kti(ptr dead_on_unwind noalias writable sret
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %93, %87, %68, %33
-  %.pn30 = phi { ptr, i32 } [ %34, %33 ], [ %.pn, %68 ], [ %88, %87 ], [ %94, %93 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit33, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit36, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn30 = phi { ptr, i32 } [ %34, %33 ], [ %94, %93 ], [ %.pn, %68 ], [ %88, %87 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit33, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit36, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %4) #12
   resume { ptr, i32 } %.pn30
 }
@@ -941,7 +941,7 @@ define void @_Z14RankToDiagramsB5cxx11PA4_KtRK13nodeCardsType(ptr dead_on_unwind
   ret void
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %172, %129, %63
-  %.pn63.pn = phi { ptr, i32 } [ %.pn63, %63 ], [ %.pn59.pn.pn, %129 ], [ %.pn, %172 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit67, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit70, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn63.pn = phi { ptr, i32 } [ %.pn63, %63 ], [ %.pn, %172 ], [ %.pn59.pn.pn, %129 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit67, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit70, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %4) #12
   resume { ptr, i32 } %.pn63.pn
 }
@@ -1935,7 +1935,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br label %.body
 
 .body:                                            ; preds = %198, %178, %.body86, %175, %137, %49
-  %.pn49.pn.pn = phi { ptr, i32 } [ %.pn49.pn, %.body86 ], [ %.pn46.pn, %49 ], [ %.pn36.pn.pn.pn.pn.pn.pn.pn.pn, %137 ], [ %.pn.pn.pn, %175 ], [ %199, %198 ], [ %179, %178 ]
+  %.pn49.pn.pn = phi { ptr, i32 } [ %.pn49.pn, %.body86 ], [ %.pn.pn.pn, %175 ], [ %.pn46.pn, %49 ], [ %.pn36.pn.pn.pn.pn.pn.pn.pn.pn, %137 ], [ %199, %198 ], [ %179, %178 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
   resume { ptr, i32 } %.pn49.pn.pn
 }
@@ -1980,7 +1980,7 @@ define linkonce_odr void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind noalias w
   br i1 %20, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !33
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %15
-  %.0.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
+  %.0.i = phi i32 [ %16, %15 ], [ %8, %7 ], [ %12, %11 ], [ 1, %2 ], [ %19, %17 ]
   %.lobit = lshr i32 %1, 31
   %21 = add i32 %.0.i, %.lobit
   %22 = zext i32 %21 to i64

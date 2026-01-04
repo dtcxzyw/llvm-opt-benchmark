@@ -8838,7 +8838,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %50, %52, %56
   %62 = fptoui float %61 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %63 = icmp slt i32 %59, 24
-  br i1 %63, label %64, label %132
+  br i1 %63, label %64, label %130
 
 64:                                               ; preds = %57
   %65 = sub nsw i32 24, %59
@@ -8867,127 +8867,127 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %50, %52, %56
   br label %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit
 
 _ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit: ; preds = %67, %77
-  %.sink = phi i64 [ %80, %77 ], [ 1, %67 ]
-  %81 = add nsw i64 %.0.i, %.sink
-  store i64 %81, ptr %16, align 8
-  br label %139
+  %.pn91 = phi i64 [ %80, %77 ], [ 1, %67 ]
+  %.sroa.0.0.i = add nsw i64 %.pn91, %.0.i
+  store i64 %.sroa.0.0.i, ptr %16, align 8
+  br label %137
 
 .lr.ph.preheader:                                 ; preds = %64
-  %82 = mul i64 %62, 10000000000
-  %83 = sub nsw i32 18, %2
-  %.sroa.speculated68 = tail call i32 @llvm.smax.i32(i32 %83, i32 1)
-  %84 = add nsw i32 %3, -10
+  %81 = mul i64 %62, 10000000000
+  %82 = sub nsw i32 18, %2
+  %.sroa.speculated68 = tail call i32 @llvm.smax.i32(i32 %82, i32 1)
+  %83 = add nsw i32 %3, -10
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit55
-  %.096 = phi i32 [ %86, %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit55 ], [ 0, %.lr.ph.preheader ]
-  %.03595 = phi i32 [ %91, %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit55 ], [ 0, %.lr.ph.preheader ]
-  %.08994 = phi i32 [ %106, %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit55 ], [ %65, %.lr.ph.preheader ]
-  %.09093 = phi i32 [ %111, %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit55 ], [ %84, %.lr.ph.preheader ]
-  %85 = phi i64 [ %110, %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit55 ], [ %82, %.lr.ph.preheader ]
-  %.sroa.speculated74 = tail call i32 @llvm.smin.i32(i32 %.sroa.speculated68, i32 %.09093)
-  %86 = add nuw nsw i32 %.096, %.sroa.speculated74
-  %87 = zext nneg i32 %86 to i64
-  %88 = getelementptr inbounds nuw i32, ptr @_ZN5arrowL20kCeilLog2PowersOfTenE, i64 %87
-  %89 = load i32, ptr %88, align 4, !tbaa !63
-  %90 = sub nsw i32 %89, %.03595
-  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %90, i32 %.08994)
-  %91 = add nsw i32 %.sroa.speculated, %.03595
-  %92 = icmp eq i32 %89, %.03595
-  br i1 %92, label %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit55, label %93
+  %.097 = phi i32 [ %85, %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit55 ], [ 0, %.lr.ph.preheader ]
+  %.03596 = phi i32 [ %90, %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit55 ], [ 0, %.lr.ph.preheader ]
+  %.08995 = phi i32 [ %105, %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit55 ], [ %65, %.lr.ph.preheader ]
+  %.09094 = phi i32 [ %110, %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit55 ], [ %83, %.lr.ph.preheader ]
+  %84 = phi i64 [ %109, %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit55 ], [ %81, %.lr.ph.preheader ]
+  %.sroa.speculated74 = tail call i32 @llvm.smin.i32(i32 %.sroa.speculated68, i32 %.09094)
+  %85 = add nuw nsw i32 %.097, %.sroa.speculated74
+  %86 = zext nneg i32 %85 to i64
+  %87 = getelementptr inbounds nuw i32, ptr @_ZN5arrowL20kCeilLog2PowersOfTenE, i64 %86
+  %88 = load i32, ptr %87, align 4, !tbaa !63
+  %89 = sub nsw i32 %88, %.03596
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %89, i32 %.08995)
+  %90 = add nsw i32 %.sroa.speculated, %.03596
+  %91 = icmp eq i32 %88, %.03596
+  br i1 %91, label %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit55, label %92
 
-93:                                               ; preds = %.lr.ph
-  %94 = icmp sgt i32 %90, 0
-  %95 = sub nsw i32 64, %.sroa.speculated
-  %96 = zext nneg i32 %95 to i64
-  %97 = shl i64 %85, %96
-  %.013.i48 = select i1 %94, i64 %97, i64 0
+92:                                               ; preds = %.lr.ph
+  %93 = icmp sgt i32 %89, 0
+  %94 = sub nsw i32 64, %.sroa.speculated
+  %95 = zext nneg i32 %94 to i64
+  %96 = shl i64 %84, %95
+  %.013.i48 = select i1 %93, i64 %96, i64 0
   %narrow.i49 = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated, i32 0)
-  %98 = zext nneg i32 %narrow.i49 to i64
-  %.0.i50 = ashr i64 %85, %98
-  %99 = icmp ugt i64 %.013.i48, -9223372036854775808
-  br i1 %99, label %100, label %102
+  %97 = zext nneg i32 %narrow.i49 to i64
+  %.0.i50 = ashr i64 %84, %97
+  %98 = icmp ugt i64 %.013.i48, -9223372036854775808
+  br i1 %98, label %99, label %101
 
-100:                                              ; preds = %93
-  %101 = add nsw i64 %.0.i50, 1
+99:                                               ; preds = %92
+  %100 = add nsw i64 %.0.i50, 1
   br label %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit55
 
-102:                                              ; preds = %93
-  %103 = icmp eq i64 %.013.i48, -9223372036854775808
-  %104 = and i64 %.0.i50, 1
-  %.not.i51 = icmp ne i64 %104, 0
-  %or.cond.not.i52 = select i1 %103, i1 %.not.i51, i1 false
-  %105 = zext i1 %or.cond.not.i52 to i64
-  %spec.select.i53 = add nsw i64 %.0.i50, %105
+101:                                              ; preds = %92
+  %102 = icmp eq i64 %.013.i48, -9223372036854775808
+  %103 = and i64 %.0.i50, 1
+  %.not.i51 = icmp ne i64 %103, 0
+  %or.cond.not.i52 = select i1 %102, i1 %.not.i51, i1 false
+  %104 = zext i1 %or.cond.not.i52 to i64
+  %spec.select.i53 = add nsw i64 %.0.i50, %104
   br label %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit55
 
-_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit55: ; preds = %.lr.ph, %100, %102
-  %.sroa.0.0.i54 = phi i64 [ %85, %.lr.ph ], [ %101, %100 ], [ %spec.select.i53, %102 ]
-  %106 = sub nsw i32 %.08994, %.sroa.speculated
-  %107 = zext nneg i32 %.sroa.speculated74 to i64
-  %108 = getelementptr inbounds nuw %"class.arrow::BasicDecimal64", ptr @_ZN5arrowL21kDecimal64PowersOfTenE, i64 %107
-  %109 = load i64, ptr %108, align 8, !tbaa !106
-  %110 = mul i64 %109, %.sroa.0.0.i54
-  %111 = sub nsw i32 %.09093, %.sroa.speculated74
-  %112 = icmp sgt i32 %111, 0
-  %113 = icmp sgt i32 %106, 0
-  %114 = select i1 %112, i1 %113, i1 false
-  br i1 %114, label %.lr.ph, label %._crit_edge, !llvm.loop !391
+_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit55: ; preds = %.lr.ph, %99, %101
+  %.sroa.0.0.i54 = phi i64 [ %84, %.lr.ph ], [ %100, %99 ], [ %spec.select.i53, %101 ]
+  %105 = sub nsw i32 %.08995, %.sroa.speculated
+  %106 = zext nneg i32 %.sroa.speculated74 to i64
+  %107 = getelementptr inbounds nuw %"class.arrow::BasicDecimal64", ptr @_ZN5arrowL21kDecimal64PowersOfTenE, i64 %106
+  %108 = load i64, ptr %107, align 8, !tbaa !106
+  %109 = mul i64 %108, %.sroa.0.0.i54
+  %110 = sub nsw i32 %.09094, %.sroa.speculated74
+  %111 = icmp sgt i32 %110, 0
+  %112 = icmp sgt i32 %105, 0
+  %113 = select i1 %111, i1 %112, i1 false
+  br i1 %113, label %.lr.ph, label %._crit_edge, !llvm.loop !391
 
 ._crit_edge:                                      ; preds = %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit55
-  store i64 %110, ptr %16, align 8
-  br i1 %112, label %115, label %120
+  store i64 %109, ptr %16, align 8
+  br i1 %111, label %114, label %119
 
-115:                                              ; preds = %._crit_edge
-  %116 = zext nneg i32 %111 to i64
-  %117 = getelementptr inbounds nuw %"class.arrow::BasicDecimal64", ptr @_ZN5arrowL21kDecimal64PowersOfTenE, i64 %116
-  %118 = load i64, ptr %117, align 8, !tbaa !106
-  %119 = mul i64 %110, %118
-  store i64 %119, ptr %16, align 8, !tbaa !106
-  br label %120
+114:                                              ; preds = %._crit_edge
+  %115 = zext nneg i32 %110 to i64
+  %116 = getelementptr inbounds nuw %"class.arrow::BasicDecimal64", ptr @_ZN5arrowL21kDecimal64PowersOfTenE, i64 %115
+  %117 = load i64, ptr %116, align 8, !tbaa !106
+  %118 = mul i64 %109, %117
+  store i64 %118, ptr %16, align 8, !tbaa !106
+  br label %119
 
-120:                                              ; preds = %115, %._crit_edge
-  %.val44 = phi i64 [ %119, %115 ], [ %110, %._crit_edge ]
-  br i1 %113, label %121, label %139
+119:                                              ; preds = %114, %._crit_edge
+  %.val44 = phi i64 [ %118, %114 ], [ %109, %._crit_edge ]
+  br i1 %112, label %120, label %137
 
-121:                                              ; preds = %120
-  %122 = sub nsw i32 64, %106
-  %123 = zext nneg i32 %122 to i64
-  %124 = shl i64 %.val44, %123
-  %125 = zext nneg i32 %106 to i64
-  %.0.i58 = ashr i64 %.val44, %125
-  %126 = icmp ugt i64 %124, -9223372036854775808
-  br i1 %126, label %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit63, label %127
+120:                                              ; preds = %119
+  %121 = sub nsw i32 64, %105
+  %122 = zext nneg i32 %121 to i64
+  %123 = shl i64 %.val44, %122
+  %124 = zext nneg i32 %105 to i64
+  %.0.i58 = ashr i64 %.val44, %124
+  %125 = icmp ugt i64 %123, -9223372036854775808
+  br i1 %125, label %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit63, label %126
 
-127:                                              ; preds = %121
-  %128 = icmp eq i64 %124, -9223372036854775808
-  %129 = and i64 %.0.i58, 1
-  %.not.i59 = icmp ne i64 %129, 0
-  %or.cond.not.i60 = select i1 %128, i1 %.not.i59, i1 false
-  %130 = zext i1 %or.cond.not.i60 to i64
+126:                                              ; preds = %120
+  %127 = icmp eq i64 %123, -9223372036854775808
+  %128 = and i64 %.0.i58, 1
+  %.not.i59 = icmp ne i64 %128, 0
+  %or.cond.not.i60 = select i1 %127, i1 %.not.i59, i1 false
+  %129 = zext i1 %or.cond.not.i60 to i64
   br label %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit63
 
-_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit63: ; preds = %121, %127
-  %.sink123 = phi i64 [ %130, %127 ], [ 1, %121 ]
-  %131 = add nsw i64 %.0.i58, %.sink123
-  store i64 %131, ptr %16, align 8
-  br label %139
+_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit63: ; preds = %120, %126
+  %.pn = phi i64 [ %129, %126 ], [ 1, %120 ]
+  %.sroa.0.0.i62 = add nsw i64 %.pn, %.0.i58
+  store i64 %.sroa.0.0.i62, ptr %16, align 8
+  br label %137
 
-132:                                              ; preds = %57
-  %133 = add nsw i32 %59, -24
-  %134 = zext nneg i32 %3 to i64
-  %135 = getelementptr inbounds nuw %"class.arrow::BasicDecimal64", ptr @_ZN5arrowL21kDecimal64PowersOfTenE, i64 %134
-  %136 = load i64, ptr %135, align 8, !tbaa !106
-  %137 = mul i64 %136, %62
-  store i64 %137, ptr %16, align 8, !tbaa !106
-  %138 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5arrow14BasicDecimal64lSEj(ptr noundef nonnull align 8 dereferenceable(8) %16, i32 noundef %133)
-  br label %139
+130:                                              ; preds = %57
+  %131 = add nsw i32 %59, -24
+  %132 = zext nneg i32 %3 to i64
+  %133 = getelementptr inbounds nuw %"class.arrow::BasicDecimal64", ptr @_ZN5arrowL21kDecimal64PowersOfTenE, i64 %132
+  %134 = load i64, ptr %133, align 8, !tbaa !106
+  %135 = mul i64 %134, %62
+  store i64 %135, ptr %16, align 8, !tbaa !106
+  %136 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5arrow14BasicDecimal64lSEj(ptr noundef nonnull align 8 dereferenceable(8) %16, i32 noundef %131)
+  br label %137
 
-139:                                              ; preds = %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit, %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit63, %120, %132
-  %140 = call noundef zeroext i1 @_ZNK5arrow14BasicDecimal6415FitsInPrecisionEi(ptr noundef nonnull align 8 dereferenceable(8) %16, i32 noundef %2)
-  br i1 %140, label %148, label %141
+137:                                              ; preds = %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit, %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit63, %119, %130
+  %138 = call noundef zeroext i1 @_ZNK5arrow14BasicDecimal6415FitsInPrecisionEi(ptr noundef nonnull align 8 dereferenceable(8) %16, i32 noundef %2)
+  br i1 %138, label %146, label %139
 
-141:                                              ; preds = %139
+139:                                              ; preds = %137
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -9000,36 +9000,36 @@ _ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decima
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN5arrow6ResultINS_9Decimal64EEC2ERKNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %17) #26
-  %142 = load ptr, ptr %17, align 8, !tbaa !24
-  %.not.i64 = icmp eq ptr %142, null
-  br i1 %.not.i64, label %_ZN5arrow6StatusD2Ev.exit65, label %143, !prof !28
+  %140 = load ptr, ptr %17, align 8, !tbaa !24
+  %.not.i64 = icmp eq ptr %140, null
+  br i1 %.not.i64, label %_ZN5arrow6StatusD2Ev.exit65, label %141, !prof !28
 
-143:                                              ; preds = %141
-  %144 = getelementptr inbounds nuw i8, ptr %142, i64 1
-  %145 = load i8, ptr %144, align 1, !tbaa !29, !range !38, !noundef !39
-  %146 = trunc nuw i8 %145 to i1
-  br i1 %146, label %_ZN5arrow6StatusD2Ev.exit65, label %147
+141:                                              ; preds = %139
+  %142 = getelementptr inbounds nuw i8, ptr %140, i64 1
+  %143 = load i8, ptr %142, align 1, !tbaa !29, !range !38, !noundef !39
+  %144 = trunc nuw i8 %143 to i1
+  br i1 %144, label %_ZN5arrow6StatusD2Ev.exit65, label %145
 
-147:                                              ; preds = %143
+145:                                              ; preds = %141
   call void @_ZN5arrow6Status11DeleteStateEv(ptr noundef nonnull align 8 dereferenceable(8) %17) #26
   br label %_ZN5arrow6StatusD2Ev.exit65
 
-_ZN5arrow6StatusD2Ev.exit65:                      ; preds = %141, %143, %147
+_ZN5arrow6StatusD2Ev.exit65:                      ; preds = %139, %141, %145
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br label %151
+  br label %149
 
-148:                                              ; preds = %139
+146:                                              ; preds = %137
   store ptr null, ptr %0, align 8, !tbaa !24
-  %149 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %150 = load i64, ptr %16, align 8
-  store i64 %150, ptr %149, align 8
-  br label %151
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %148 = load i64, ptr %16, align 8
+  store i64 %148, ptr %147, align 8
+  br label %149
 
-151:                                              ; preds = %148, %_ZN5arrow6StatusD2Ev.exit65
+149:                                              ; preds = %146, %_ZN5arrow6StatusD2Ev.exit65
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion22FromPositiveRealApproxIfEENS_6ResultINS_9Decimal64EEET_ii.exit
 
-_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion22FromPositiveRealApproxIfEENS_6ResultINS_9Decimal64EEET_ii.exit: ; preds = %40, %_ZN5arrow6StatusD2Ev.exit.i, %_ZN5arrow6StatusD2Ev.exit, %151
+_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion22FromPositiveRealApproxIfEENS_6ResultINS_9Decimal64EEET_ii.exit: ; preds = %40, %_ZN5arrow6StatusD2Ev.exit.i, %_ZN5arrow6StatusD2Ev.exit, %149
   ret void
 }
 
@@ -9169,7 +9169,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %51, %53, %57
   %62 = load i32, ptr %16, align 4, !tbaa !63
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %63 = icmp slt i32 %62, 53
-  br i1 %63, label %64, label %132
+  br i1 %63, label %64, label %130
 
 64:                                               ; preds = %58
   %65 = sub nsw i32 53, %62
@@ -9198,127 +9198,127 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %51, %53, %57
   br label %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit
 
 _ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit: ; preds = %67, %77
-  %.sink = phi i64 [ %80, %77 ], [ 1, %67 ]
-  %81 = add nsw i64 %.0.i, %.sink
-  store i64 %81, ptr %17, align 8
-  br label %139
+  %.pn90 = phi i64 [ %80, %77 ], [ 1, %67 ]
+  %.sroa.0.0.i = add nsw i64 %.pn90, %.0.i
+  store i64 %.sroa.0.0.i, ptr %17, align 8
+  br label %137
 
 .lr.ph.preheader:                                 ; preds = %64
-  %82 = mul i64 %61, 100
-  %83 = sub nsw i32 18, %2
-  %.sroa.speculated68 = tail call i32 @llvm.smax.i32(i32 %83, i32 1)
-  %84 = add nsw i32 %3, -2
+  %81 = mul i64 %61, 100
+  %82 = sub nsw i32 18, %2
+  %.sroa.speculated68 = tail call i32 @llvm.smax.i32(i32 %82, i32 1)
+  %83 = add nsw i32 %3, -2
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit55
-  %.095 = phi i32 [ %86, %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit55 ], [ 0, %.lr.ph.preheader ]
-  %.03594 = phi i32 [ %91, %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit55 ], [ 0, %.lr.ph.preheader ]
-  %.08893 = phi i32 [ %106, %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit55 ], [ %65, %.lr.ph.preheader ]
-  %.08992 = phi i32 [ %111, %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit55 ], [ %84, %.lr.ph.preheader ]
-  %85 = phi i64 [ %110, %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit55 ], [ %82, %.lr.ph.preheader ]
-  %.sroa.speculated74 = tail call i32 @llvm.smin.i32(i32 %.sroa.speculated68, i32 %.08992)
-  %86 = add nuw nsw i32 %.095, %.sroa.speculated74
-  %87 = zext nneg i32 %86 to i64
-  %88 = getelementptr inbounds nuw i32, ptr @_ZN5arrowL20kCeilLog2PowersOfTenE, i64 %87
-  %89 = load i32, ptr %88, align 4, !tbaa !63
-  %90 = sub nsw i32 %89, %.03594
-  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %90, i32 %.08893)
-  %91 = add nsw i32 %.sroa.speculated, %.03594
-  %92 = icmp eq i32 %89, %.03594
-  br i1 %92, label %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit55, label %93
+  %.096 = phi i32 [ %85, %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit55 ], [ 0, %.lr.ph.preheader ]
+  %.03595 = phi i32 [ %90, %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit55 ], [ 0, %.lr.ph.preheader ]
+  %.08894 = phi i32 [ %105, %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit55 ], [ %65, %.lr.ph.preheader ]
+  %.08993 = phi i32 [ %110, %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit55 ], [ %83, %.lr.ph.preheader ]
+  %84 = phi i64 [ %109, %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit55 ], [ %81, %.lr.ph.preheader ]
+  %.sroa.speculated74 = tail call i32 @llvm.smin.i32(i32 %.sroa.speculated68, i32 %.08993)
+  %85 = add nuw nsw i32 %.096, %.sroa.speculated74
+  %86 = zext nneg i32 %85 to i64
+  %87 = getelementptr inbounds nuw i32, ptr @_ZN5arrowL20kCeilLog2PowersOfTenE, i64 %86
+  %88 = load i32, ptr %87, align 4, !tbaa !63
+  %89 = sub nsw i32 %88, %.03595
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %89, i32 %.08894)
+  %90 = add nsw i32 %.sroa.speculated, %.03595
+  %91 = icmp eq i32 %88, %.03595
+  br i1 %91, label %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit55, label %92
 
-93:                                               ; preds = %.lr.ph
-  %94 = icmp sgt i32 %90, 0
-  %95 = sub nsw i32 64, %.sroa.speculated
-  %96 = zext nneg i32 %95 to i64
-  %97 = shl i64 %85, %96
-  %.013.i48 = select i1 %94, i64 %97, i64 0
+92:                                               ; preds = %.lr.ph
+  %93 = icmp sgt i32 %89, 0
+  %94 = sub nsw i32 64, %.sroa.speculated
+  %95 = zext nneg i32 %94 to i64
+  %96 = shl i64 %84, %95
+  %.013.i48 = select i1 %93, i64 %96, i64 0
   %narrow.i49 = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated, i32 0)
-  %98 = zext nneg i32 %narrow.i49 to i64
-  %.0.i50 = ashr i64 %85, %98
-  %99 = icmp ugt i64 %.013.i48, -9223372036854775808
-  br i1 %99, label %100, label %102
+  %97 = zext nneg i32 %narrow.i49 to i64
+  %.0.i50 = ashr i64 %84, %97
+  %98 = icmp ugt i64 %.013.i48, -9223372036854775808
+  br i1 %98, label %99, label %101
 
-100:                                              ; preds = %93
-  %101 = add nsw i64 %.0.i50, 1
+99:                                               ; preds = %92
+  %100 = add nsw i64 %.0.i50, 1
   br label %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit55
 
-102:                                              ; preds = %93
-  %103 = icmp eq i64 %.013.i48, -9223372036854775808
-  %104 = and i64 %.0.i50, 1
-  %.not.i51 = icmp ne i64 %104, 0
-  %or.cond.not.i52 = select i1 %103, i1 %.not.i51, i1 false
-  %105 = zext i1 %or.cond.not.i52 to i64
-  %spec.select.i53 = add nsw i64 %.0.i50, %105
+101:                                              ; preds = %92
+  %102 = icmp eq i64 %.013.i48, -9223372036854775808
+  %103 = and i64 %.0.i50, 1
+  %.not.i51 = icmp ne i64 %103, 0
+  %or.cond.not.i52 = select i1 %102, i1 %.not.i51, i1 false
+  %104 = zext i1 %or.cond.not.i52 to i64
+  %spec.select.i53 = add nsw i64 %.0.i50, %104
   br label %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit55
 
-_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit55: ; preds = %.lr.ph, %100, %102
-  %.sroa.0.0.i54 = phi i64 [ %85, %.lr.ph ], [ %101, %100 ], [ %spec.select.i53, %102 ]
-  %106 = sub nsw i32 %.08893, %.sroa.speculated
-  %107 = zext nneg i32 %.sroa.speculated74 to i64
-  %108 = getelementptr inbounds nuw %"class.arrow::BasicDecimal64", ptr @_ZN5arrowL21kDecimal64PowersOfTenE, i64 %107
-  %109 = load i64, ptr %108, align 8, !tbaa !106
-  %110 = mul i64 %109, %.sroa.0.0.i54
-  %111 = sub nsw i32 %.08992, %.sroa.speculated74
-  %112 = icmp sgt i32 %111, 0
-  %113 = icmp sgt i32 %106, 0
-  %114 = select i1 %112, i1 %113, i1 false
-  br i1 %114, label %.lr.ph, label %._crit_edge, !llvm.loop !404
+_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit55: ; preds = %.lr.ph, %99, %101
+  %.sroa.0.0.i54 = phi i64 [ %84, %.lr.ph ], [ %100, %99 ], [ %spec.select.i53, %101 ]
+  %105 = sub nsw i32 %.08894, %.sroa.speculated
+  %106 = zext nneg i32 %.sroa.speculated74 to i64
+  %107 = getelementptr inbounds nuw %"class.arrow::BasicDecimal64", ptr @_ZN5arrowL21kDecimal64PowersOfTenE, i64 %106
+  %108 = load i64, ptr %107, align 8, !tbaa !106
+  %109 = mul i64 %108, %.sroa.0.0.i54
+  %110 = sub nsw i32 %.08993, %.sroa.speculated74
+  %111 = icmp sgt i32 %110, 0
+  %112 = icmp sgt i32 %105, 0
+  %113 = select i1 %111, i1 %112, i1 false
+  br i1 %113, label %.lr.ph, label %._crit_edge, !llvm.loop !404
 
 ._crit_edge:                                      ; preds = %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit55
-  store i64 %110, ptr %17, align 8
-  br i1 %112, label %115, label %120
+  store i64 %109, ptr %17, align 8
+  br i1 %111, label %114, label %119
 
-115:                                              ; preds = %._crit_edge
-  %116 = zext nneg i32 %111 to i64
-  %117 = getelementptr inbounds nuw %"class.arrow::BasicDecimal64", ptr @_ZN5arrowL21kDecimal64PowersOfTenE, i64 %116
-  %118 = load i64, ptr %117, align 8, !tbaa !106
-  %119 = mul i64 %110, %118
-  store i64 %119, ptr %17, align 8, !tbaa !106
-  br label %120
+114:                                              ; preds = %._crit_edge
+  %115 = zext nneg i32 %110 to i64
+  %116 = getelementptr inbounds nuw %"class.arrow::BasicDecimal64", ptr @_ZN5arrowL21kDecimal64PowersOfTenE, i64 %115
+  %117 = load i64, ptr %116, align 8, !tbaa !106
+  %118 = mul i64 %109, %117
+  store i64 %118, ptr %17, align 8, !tbaa !106
+  br label %119
 
-120:                                              ; preds = %115, %._crit_edge
-  %.val = phi i64 [ %119, %115 ], [ %110, %._crit_edge ]
-  br i1 %113, label %121, label %139
+119:                                              ; preds = %114, %._crit_edge
+  %.val = phi i64 [ %118, %114 ], [ %109, %._crit_edge ]
+  br i1 %112, label %120, label %137
 
-121:                                              ; preds = %120
-  %122 = sub nsw i32 64, %106
-  %123 = zext nneg i32 %122 to i64
-  %124 = shl i64 %.val, %123
-  %125 = zext nneg i32 %106 to i64
-  %.0.i58 = ashr i64 %.val, %125
-  %126 = icmp ugt i64 %124, -9223372036854775808
-  br i1 %126, label %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit63, label %127
+120:                                              ; preds = %119
+  %121 = sub nsw i32 64, %105
+  %122 = zext nneg i32 %121 to i64
+  %123 = shl i64 %.val, %122
+  %124 = zext nneg i32 %105 to i64
+  %.0.i58 = ashr i64 %.val, %124
+  %125 = icmp ugt i64 %123, -9223372036854775808
+  br i1 %125, label %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit63, label %126
 
-127:                                              ; preds = %121
-  %128 = icmp eq i64 %124, -9223372036854775808
-  %129 = and i64 %.0.i58, 1
-  %.not.i59 = icmp ne i64 %129, 0
-  %or.cond.not.i60 = select i1 %128, i1 %.not.i59, i1 false
-  %130 = zext i1 %or.cond.not.i60 to i64
+126:                                              ; preds = %120
+  %127 = icmp eq i64 %123, -9223372036854775808
+  %128 = and i64 %.0.i58, 1
+  %.not.i59 = icmp ne i64 %128, 0
+  %or.cond.not.i60 = select i1 %127, i1 %.not.i59, i1 false
+  %129 = zext i1 %or.cond.not.i60 to i64
   br label %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit63
 
-_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit63: ; preds = %121, %127
-  %.sink122 = phi i64 [ %130, %127 ], [ 1, %121 ]
-  %131 = add nsw i64 %.0.i58, %.sink122
-  store i64 %131, ptr %17, align 8
-  br label %139
+_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit63: ; preds = %120, %126
+  %.pn = phi i64 [ %129, %126 ], [ 1, %120 ]
+  %.sroa.0.0.i62 = add nsw i64 %.pn, %.0.i58
+  store i64 %.sroa.0.0.i62, ptr %17, align 8
+  br label %137
 
-132:                                              ; preds = %58
-  %133 = add nsw i32 %62, -53
-  %134 = zext nneg i32 %3 to i64
-  %135 = getelementptr inbounds nuw %"class.arrow::BasicDecimal64", ptr @_ZN5arrowL21kDecimal64PowersOfTenE, i64 %134
-  %136 = load i64, ptr %135, align 8, !tbaa !106
-  %137 = mul i64 %136, %61
-  store i64 %137, ptr %17, align 8, !tbaa !106
-  %138 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5arrow14BasicDecimal64lSEj(ptr noundef nonnull align 8 dereferenceable(8) %17, i32 noundef %133)
-  br label %139
+130:                                              ; preds = %58
+  %131 = add nsw i32 %62, -53
+  %132 = zext nneg i32 %3 to i64
+  %133 = getelementptr inbounds nuw %"class.arrow::BasicDecimal64", ptr @_ZN5arrowL21kDecimal64PowersOfTenE, i64 %132
+  %134 = load i64, ptr %133, align 8, !tbaa !106
+  %135 = mul i64 %134, %61
+  store i64 %135, ptr %17, align 8, !tbaa !106
+  %136 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5arrow14BasicDecimal64lSEj(ptr noundef nonnull align 8 dereferenceable(8) %17, i32 noundef %131)
+  br label %137
 
-139:                                              ; preds = %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit, %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit63, %120, %132
-  %140 = call noundef zeroext i1 @_ZNK5arrow14BasicDecimal6415FitsInPrecisionEi(ptr noundef nonnull align 8 dereferenceable(8) %17, i32 noundef %2)
-  br i1 %140, label %148, label %141
+137:                                              ; preds = %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit, %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit63, %119, %130
+  %138 = call noundef zeroext i1 @_ZNK5arrow14BasicDecimal6415FitsInPrecisionEi(ptr noundef nonnull align 8 dereferenceable(8) %17, i32 noundef %2)
+  br i1 %138, label %146, label %139
 
-141:                                              ; preds = %139
+139:                                              ; preds = %137
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -9331,37 +9331,37 @@ _ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decima
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN5arrow6ResultINS_9Decimal64EEC2ERKNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %18) #26
-  %142 = load ptr, ptr %18, align 8, !tbaa !24
-  %.not.i64 = icmp eq ptr %142, null
-  br i1 %.not.i64, label %_ZN5arrow6StatusD2Ev.exit65, label %143, !prof !28
+  %140 = load ptr, ptr %18, align 8, !tbaa !24
+  %.not.i64 = icmp eq ptr %140, null
+  br i1 %.not.i64, label %_ZN5arrow6StatusD2Ev.exit65, label %141, !prof !28
 
-143:                                              ; preds = %141
-  %144 = getelementptr inbounds nuw i8, ptr %142, i64 1
-  %145 = load i8, ptr %144, align 1, !tbaa !29, !range !38, !noundef !39
-  %146 = trunc nuw i8 %145 to i1
-  br i1 %146, label %_ZN5arrow6StatusD2Ev.exit65, label %147
+141:                                              ; preds = %139
+  %142 = getelementptr inbounds nuw i8, ptr %140, i64 1
+  %143 = load i8, ptr %142, align 1, !tbaa !29, !range !38, !noundef !39
+  %144 = trunc nuw i8 %143 to i1
+  br i1 %144, label %_ZN5arrow6StatusD2Ev.exit65, label %145
 
-147:                                              ; preds = %143
+145:                                              ; preds = %141
   call void @_ZN5arrow6Status11DeleteStateEv(ptr noundef nonnull align 8 dereferenceable(8) %18) #26
   br label %_ZN5arrow6StatusD2Ev.exit65
 
-_ZN5arrow6StatusD2Ev.exit65:                      ; preds = %141, %143, %147
+_ZN5arrow6StatusD2Ev.exit65:                      ; preds = %139, %141, %145
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %151
+  br label %149
 
-148:                                              ; preds = %139
+146:                                              ; preds = %137
   store ptr null, ptr %0, align 8, !tbaa !24
-  %149 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %150 = load i64, ptr %17, align 8
-  store i64 %150, ptr %149, align 8
-  br label %151
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %148 = load i64, ptr %17, align 8
+  store i64 %148, ptr %147, align 8
+  br label %149
 
-151:                                              ; preds = %148, %_ZN5arrow6StatusD2Ev.exit65
+149:                                              ; preds = %146, %_ZN5arrow6StatusD2Ev.exit65
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion22FromPositiveRealApproxIdEENS_6ResultINS_9Decimal64EEET_ii.exit
 
-_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion22FromPositiveRealApproxIdEENS_6ResultINS_9Decimal64EEET_ii.exit: ; preds = %41, %_ZN5arrow6StatusD2Ev.exit.i, %_ZN5arrow6StatusD2Ev.exit, %151
+_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion22FromPositiveRealApproxIdEENS_6ResultINS_9Decimal64EEET_ii.exit: ; preds = %41, %_ZN5arrow6StatusD2Ev.exit.i, %_ZN5arrow6StatusD2Ev.exit, %149
   ret void
 }
 
@@ -9586,8 +9586,8 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %56, %58, %62
   br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion17RoundedRightShiftERKNS_10Decimal128Ei.exit
 
 _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion17RoundedRightShiftERKNS_10Decimal128Ei.exit: ; preds = %100, %105, %108
-  %.sroa.3.0.i = phi i64 [ %104, %100 ], [ %112, %108 ], [ %.135.i, %105 ]
-  %.sroa.0.0.i = phi i64 [ %101, %100 ], [ %109, %108 ], [ %.133.i, %105 ]
+  %.sroa.3.0.i = phi i64 [ %.135.i, %105 ], [ %104, %100 ], [ %112, %108 ]
+  %.sroa.0.0.i = phi i64 [ %.133.i, %105 ], [ %101, %100 ], [ %109, %108 ]
   store i64 %.sroa.0.0.i, ptr %16, align 8
   store i64 %.sroa.3.0.i, ptr %69, align 8
   br label %217
@@ -9786,8 +9786,8 @@ _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion17RoundedRightShiftERKNS_10Deci
   br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion17RoundedRightShiftERKNS_10Decimal128Ei.exit94
 
 _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion17RoundedRightShiftERKNS_10Decimal128Ei.exit94: ; preds = %198, %203, %206
-  %.sroa.3.0.i82 = phi i64 [ %202, %198 ], [ %210, %206 ], [ %.135.i77, %203 ]
-  %.sroa.0.0.i83 = phi i64 [ %199, %198 ], [ %207, %206 ], [ %.133.i78, %203 ]
+  %.sroa.3.0.i82 = phi i64 [ %.135.i77, %203 ], [ %202, %198 ], [ %210, %206 ]
+  %.sroa.0.0.i83 = phi i64 [ %.133.i78, %203 ], [ %199, %198 ], [ %207, %206 ]
   store i64 %.sroa.0.0.i83, ptr %16, align 8
   store i64 %.sroa.3.0.i82, ptr %69, align 8
   br label %217
@@ -10072,8 +10072,8 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %56, %58, %62
   br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion17RoundedRightShiftERKNS_10Decimal128Ei.exit
 
 _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion17RoundedRightShiftERKNS_10Decimal128Ei.exit: ; preds = %99, %104, %107
-  %.sroa.3.0.i = phi i64 [ %103, %99 ], [ %111, %107 ], [ %.135.i, %104 ]
-  %.sroa.0.0.i = phi i64 [ %100, %99 ], [ %108, %107 ], [ %.133.i, %104 ]
+  %.sroa.3.0.i = phi i64 [ %.135.i, %104 ], [ %103, %99 ], [ %111, %107 ]
+  %.sroa.0.0.i = phi i64 [ %.133.i, %104 ], [ %100, %99 ], [ %108, %107 ]
   store i64 %.sroa.0.0.i, ptr %17, align 8
   store i64 %.sroa.3.0.i, ptr %68, align 8
   br label %216
@@ -10272,8 +10272,8 @@ _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion17RoundedRightShiftERKNS_10Deci
   br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion17RoundedRightShiftERKNS_10Decimal128Ei.exit94
 
 _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion17RoundedRightShiftERKNS_10Decimal128Ei.exit94: ; preds = %197, %202, %205
-  %.sroa.3.0.i82 = phi i64 [ %201, %197 ], [ %209, %205 ], [ %.135.i77, %202 ]
-  %.sroa.0.0.i83 = phi i64 [ %198, %197 ], [ %206, %205 ], [ %.133.i78, %202 ]
+  %.sroa.3.0.i82 = phi i64 [ %.135.i77, %202 ], [ %201, %197 ], [ %209, %205 ]
+  %.sroa.0.0.i83 = phi i64 [ %.133.i78, %202 ], [ %198, %197 ], [ %206, %205 ]
   store i64 %.sroa.0.0.i83, ptr %17, align 8
   store i64 %.sroa.3.0.i82, ptr %68, align 8
   br label %216
@@ -10394,9 +10394,9 @@ _ZN5arrow12_GLOBAL__N_114ParseDigitsRunEPKcmmPSt17basic_string_viewIcSt11char_tr
   br label %_ZN5arrow12_GLOBAL__N_114ParseDigitsRunEPKcmmPSt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN5arrow12_GLOBAL__N_114ParseDigitsRunEPKcmmPSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %12, %.lr.ph.i, %_ZN5arrow12_GLOBAL__N_114ParseDigitsRunEPKcmmPSt17basic_string_viewIcSt11char_traitsIcEE.exit53
-  %.0.lcssa.i.sink = phi i64 [ %22, %_ZN5arrow12_GLOBAL__N_114ParseDigitsRunEPKcmmPSt17basic_string_viewIcSt11char_traitsIcEE.exit53 ], [ %.011.i, %.lr.ph.i ], [ %1, %12 ]
+  %.0.lcssa.i.sink = phi i64 [ %22, %_ZN5arrow12_GLOBAL__N_114ParseDigitsRunEPKcmmPSt17basic_string_viewIcSt11char_traitsIcEE.exit53 ], [ %1, %12 ], [ %.011.i, %.lr.ph.i ]
   %.sink = phi ptr [ %21, %_ZN5arrow12_GLOBAL__N_114ParseDigitsRunEPKcmmPSt17basic_string_viewIcSt11char_traitsIcEE.exit53 ], [ %0, %.lr.ph.i ], [ %0, %12 ]
-  %phi.call = phi i64 [ %.0.lcssa.i48, %_ZN5arrow12_GLOBAL__N_114ParseDigitsRunEPKcmmPSt17basic_string_viewIcSt11char_traitsIcEE.exit53 ], [ %.011.i, %.lr.ph.i ], [ %1, %12 ]
+  %phi.call = phi i64 [ %.0.lcssa.i48, %_ZN5arrow12_GLOBAL__N_114ParseDigitsRunEPKcmmPSt17basic_string_viewIcSt11char_traitsIcEE.exit53 ], [ %1, %12 ], [ %.011.i, %.lr.ph.i ]
   store i64 %.0.lcssa.i.sink, ptr %2, align 8, !tbaa !155
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.sink, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !171
@@ -10508,7 +10508,7 @@ _ZN5arrow8internal10ParseValueINS_9Int32TypeEEENSt9enable_ifIXsr22is_parameter_f
   br label %74
 
 74:                                               ; preds = %_ZN5arrow8internal10ParseValueINS_9Int32TypeEEENSt9enable_ifIXsr22is_parameter_free_typeIT_EE5valueEbE4typeEPKcmPNS0_15StringConverterIS4_vE10value_typeE.exit, %44, %48, %50, %3, %24
-  %.0 = phi i1 [ %25, %24 ], [ false, %3 ], [ %73, %_ZN5arrow8internal10ParseValueINS_9Int32TypeEEENSt9enable_ifIXsr22is_parameter_free_typeIT_EE5valueEbE4typeEPKcmPNS0_15StringConverterIS4_vE10value_typeE.exit ], [ false, %44 ], [ true, %48 ], [ false, %50 ]
+  %.0 = phi i1 [ false, %3 ], [ %25, %24 ], [ true, %48 ], [ false, %44 ], [ %73, %_ZN5arrow8internal10ParseValueINS_9Int32TypeEEENSt9enable_ifIXsr22is_parameter_free_typeIT_EE5valueEbE4typeEPKcmPNS0_15StringConverterIS4_vE10value_typeE.exit ], [ false, %50 ]
   ret i1 %.0
 }
 
@@ -10695,12 +10695,12 @@ thread-pre-split:                                 ; preds = %8
   br i1 %57, label %_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread, label %_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread.sink.split, !prof !167
 
 _ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread.sink.split: ; preds = %35, %54, %56
-  %storemerge.sink = phi i32 [ %55, %54 ], [ %51, %56 ], [ %.2.i, %35 ]
+  %storemerge.sink = phi i32 [ %51, %56 ], [ %55, %54 ], [ %.2.i, %35 ]
   store i32 %storemerge.sink, ptr %4, align 4, !tbaa !63
   br label %_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread
 
 _ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread: ; preds = %30, %_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread.sink.split, %15, %56, %52, %.critedge, %38, %5
-  %.022 = phi i1 [ false, %5 ], [ false, %38 ], [ false, %.critedge ], [ false, %52 ], [ false, %56 ], [ false, %15 ], [ true, %_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread.sink.split ], [ false, %30 ]
+  %.022 = phi i1 [ false, %38 ], [ false, %15 ], [ false, %5 ], [ false, %56 ], [ false, %.critedge ], [ true, %_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread.sink.split ], [ false, %52 ], [ false, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.022
 }
@@ -10861,7 +10861,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj
   br label %.critedge
 
 .critedge:                                        ; preds = %86, %84, %90, %74, %65, %56, %47, %38, %29, %20, %11, %4, %94
-  %.1 = phi i1 [ true, %94 ], [ false, %90 ], [ false, %74 ], [ false, %65 ], [ false, %56 ], [ false, %47 ], [ false, %38 ], [ false, %29 ], [ false, %20 ], [ false, %11 ], [ false, %4 ], [ false, %84 ], [ false, %86 ]
+  %.1 = phi i1 [ false, %4 ], [ true, %94 ], [ false, %90 ], [ false, %74 ], [ false, %65 ], [ false, %56 ], [ false, %47 ], [ false, %38 ], [ false, %29 ], [ false, %20 ], [ false, %11 ], [ false, %84 ], [ false, %86 ]
   ret i1 %.1
 }
 
@@ -11012,7 +11012,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal10ParseValueINS_10UInt
   br label %36
 
 36:                                               ; preds = %34, %30, %.lr.ph.i.i
-  %.pn.in.i.i = phi i8 [ %31, %30 ], [ %35, %34 ], [ %27, %.lr.ph.i.i ]
+  %.pn.in.i.i = phi i8 [ %35, %34 ], [ %31, %30 ], [ %27, %.lr.ph.i.i ]
   %.pn.i.i = zext nneg i8 %.pn.in.i.i to i64
   %.2.i.i = or i64 %24, %.pn.i.i
   %37 = add nuw nsw i64 %.03049.i.i, 1
@@ -11376,7 +11376,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPm
   br label %.thread
 
 .thread:                                          ; preds = %176, %174, %180, %164, %155, %146, %137, %128, %119, %110, %101, %92, %83, %74, %65, %56, %47, %38, %29, %20, %11, %4, %184
-  %.1 = phi i1 [ true, %184 ], [ false, %180 ], [ false, %164 ], [ false, %155 ], [ false, %146 ], [ false, %137 ], [ false, %128 ], [ false, %119 ], [ false, %110 ], [ false, %101 ], [ false, %92 ], [ false, %83 ], [ false, %74 ], [ false, %65 ], [ false, %56 ], [ false, %47 ], [ false, %38 ], [ false, %29 ], [ false, %20 ], [ false, %11 ], [ false, %4 ], [ false, %174 ], [ false, %176 ]
+  %.1 = phi i1 [ false, %4 ], [ true, %184 ], [ false, %180 ], [ false, %164 ], [ false, %155 ], [ false, %146 ], [ false, %137 ], [ false, %128 ], [ false, %119 ], [ false, %110 ], [ false, %101 ], [ false, %92 ], [ false, %83 ], [ false, %74 ], [ false, %65 ], [ false, %56 ], [ false, %47 ], [ false, %38 ], [ false, %29 ], [ false, %20 ], [ false, %11 ], [ false, %174 ], [ false, %176 ]
   ret i1 %.1
 }
 

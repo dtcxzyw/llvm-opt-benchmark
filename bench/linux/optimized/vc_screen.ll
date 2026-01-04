@@ -194,7 +194,7 @@ define internal i64 @vcs_lseek(ptr noundef %0, i64 noundef %1, i32 noundef %2) #
   br label %56
 
 56:                                               ; preds = %53, %50
-  %57 = phi i32 [ %52, %50 ], [ %55, %53 ]
+  %57 = phi i32 [ %55, %53 ], [ %52, %50 ]
   tail call void @console_unlock() #9
   %58 = icmp slt i32 %57, 0
   br i1 %58, label %59, label %62
@@ -344,7 +344,7 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_read(ptr noundef rea
   br label %83
 
 83:                                               ; preds = %81, %78
-  %84 = phi i32 [ %80, %78 ], [ %82, %81 ]
+  %84 = phi i32 [ %82, %81 ], [ %80, %78 ]
   %85 = icmp slt i32 %84, 0
   br i1 %85, label %.thread, label %88
 
@@ -543,8 +543,8 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_read(ptr noundef rea
   br i1 %217, label %.thread24, label %198, !llvm.loop !16
 
 .thread24:                                        ; preds = %107, %213, %148, %.thread26, %176
-  %218 = phi i32 [ %177, %176 ], [ %187, %.thread26 ], [ 0, %148 ], [ %187, %213 ], [ 0, %107 ]
-  %219 = phi i32 [ %178, %176 ], [ %186, %.thread26 ], [ %97, %148 ], [ %186, %213 ], [ %97, %107 ]
+  %218 = phi i32 [ 0, %148 ], [ %187, %213 ], [ %177, %176 ], [ %187, %.thread26 ], [ 0, %107 ]
+  %219 = phi i32 [ %97, %148 ], [ %186, %213 ], [ %178, %176 ], [ %186, %.thread26 ], [ %97, %107 ]
   tail call void @console_unlock() #9
   %220 = zext nneg i32 %219 to i64
   %221 = icmp slt i32 %219, 0
@@ -588,8 +588,8 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_read(ptr noundef rea
   br i1 %240, label %.thread33, label %.lr.ph
 
 .thread33:                                        ; preds = %235, %52, %88, %.loopexit, %121, %.thread
-  %241 = phi i32 [ %234, %.loopexit ], [ %38, %121 ], [ %38, %.thread ], [ %238, %235 ], [ %38, %52 ], [ %38, %88 ]
-  %242 = phi i64 [ -14, %.loopexit ], [ %122, %121 ], [ %87, %.thread ], [ 0, %235 ], [ -6, %52 ], [ 0, %88 ]
+  %241 = phi i32 [ %234, %.loopexit ], [ %38, %121 ], [ %38, %.thread ], [ %38, %52 ], [ %38, %88 ], [ %238, %235 ]
+  %242 = phi i64 [ -14, %.loopexit ], [ %122, %121 ], [ %87, %.thread ], [ -6, %52 ], [ 0, %88 ], [ 0, %235 ]
   %.fr = freeze i32 %241
   %243 = zext i32 %.fr to i64
   %244 = load i64, ptr %3, align 8
@@ -600,7 +600,7 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_read(ptr noundef rea
   br label %.thread33.thread
 
 .thread33.thread:                                 ; preds = %.thread33, %31, %20, %10
-  %247 = phi i64 [ -22, %10 ], [ -22, %20 ], [ 0, %31 ], [ %spec.select, %.thread33 ]
+  %247 = phi i64 [ -22, %10 ], [ -22, %20 ], [ %spec.select, %.thread33 ], [ 0, %31 ]
   tail call void @console_unlock() #9
   tail call void @free_pages(i64 noundef %7, i32 noundef 0) #9
   br label %248
@@ -1030,8 +1030,8 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_write(ptr noundef re
   br i1 %276, label %.loopexit, label %253, !llvm.loop !24
 
 .loopexit:                                        ; preds = %272, %246, %240, %.loopexit48
-  %277 = phi ptr [ %186, %.loopexit48 ], [ %186, %240 ], [ %247, %246 ], [ %247, %272 ]
-  %278 = phi ptr [ %237, %.loopexit48 ], [ %237, %240 ], [ %247, %246 ], [ %274, %272 ]
+  %277 = phi ptr [ %247, %246 ], [ %186, %.loopexit48 ], [ %186, %240 ], [ %247, %272 ]
+  %278 = phi ptr [ %247, %246 ], [ %237, %.loopexit48 ], [ %237, %240 ], [ %274, %272 ]
   %279 = icmp eq ptr %278, null
   br i1 %279, label %.thread36, label %280
 
@@ -1062,7 +1062,7 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_write(ptr noundef re
   br label %298
 
 .thread39:                                        ; preds = %.thread36, %142
-  %.lcssa55 = phi i32 [ %287, %.thread36 ], [ %74, %142 ]
+  %.lcssa55 = phi i32 [ %74, %142 ], [ %287, %.thread36 ]
   %294 = zext i32 %.lcssa55 to i64
   %295 = load i64, ptr %3, align 8
   %296 = add i64 %295, %294
@@ -1077,7 +1077,7 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_write(ptr noundef re
   br label %.thread44
 
 .thread44:                                        ; preds = %67, %92, %116, %140, %298, %.thread39, %64, %62, %60, %31
-  %301 = phi i64 [ %61, %60 ], [ -22, %62 ], [ -22, %64 ], [ %299, %298 ], [ 0, %.thread39 ], [ -6, %31 ], [ %141, %140 ], [ -6, %116 ], [ -14, %92 ], [ 0, %67 ]
+  %301 = phi i64 [ %61, %60 ], [ -22, %62 ], [ -22, %64 ], [ %299, %298 ], [ 0, %.thread39 ], [ -6, %31 ], [ -6, %116 ], [ %141, %140 ], [ -14, %92 ], [ 0, %67 ]
   call void @console_unlock() #9
   call void @free_pages(i64 noundef %13, i32 noundef 0) #9
   br label %302
@@ -1308,7 +1308,7 @@ define internal fastcc ptr @vcs_poll_data_get(ptr noundef %0) unnamed_addr #0 al
   br label %28
 
 28:                                               ; preds = %.thread, %26, %5, %1
-  %29 = phi ptr [ %3, %1 ], [ null, %5 ], [ %27, %26 ], [ %7, %.thread ]
+  %29 = phi ptr [ %3, %1 ], [ null, %5 ], [ %7, %.thread ], [ %27, %26 ]
   ret ptr %29
 }
 

@@ -271,7 +271,7 @@ define internal fastcc void @findDependentObjects(ptr noundef %0, i32 noundef %1
   br label %54
 
 54:                                               ; preds = %.sink.split.i, %49, %47, %37, %.lr.ph.split.i
-  %.1.i = phi i1 [ %.024.i, %49 ], [ %.024.i, %37 ], [ %.024.i, %.lr.ph.split.i ], [ true, %47 ], [ %.1.ph.i, %.sink.split.i ]
+  %.1.i = phi i1 [ %.024.i, %37 ], [ %.024.i, %.lr.ph.split.i ], [ true, %47 ], [ %.024.i, %49 ], [ %.1.ph.i, %.sink.split.i ]
   %55 = getelementptr inbounds nuw i8, ptr %.01823.i, i64 16
   %56 = load ptr, ptr %55, align 8
   %.not.i = icmp eq ptr %56, null
@@ -382,7 +382,7 @@ stack_address_present_add_flags.exit.thread:      ; preds = %7, %stack_address_p
   br label %102
 
 102:                                              ; preds = %.sink.split.i152, %98, %96, %86, %.lr.ph.split.i150
-  %.1.i151 = phi i1 [ %.027.i, %98 ], [ %.027.i, %86 ], [ %.027.i, %.lr.ph.split.i150 ], [ true, %96 ], [ %.1.ph.i153, %.sink.split.i152 ]
+  %.1.i151 = phi i1 [ %.027.i, %86 ], [ %.027.i, %.lr.ph.split.i150 ], [ true, %96 ], [ %.027.i, %98 ], [ %.1.ph.i153, %.sink.split.i152 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %103 = icmp sgt i64 %indvars.iv.i, 0
   br i1 %103, label %.lr.ph.split.i150, label %object_address_present_add_flags.exit, !llvm.loop !6
@@ -608,8 +608,8 @@ object_address_present.exit.thread:               ; preds = %.critedge.i, %165, 
   br i1 %.not.us.i170, label %stack_address_present_add_flags.exit173, label %.lr.ph.split.us.i166.backedge
 
 .lr.ph.split.us.i166.backedge:                    ; preds = %205, %.thread
-  %.024.us.i167.be = phi i1 [ %.1.us.i169, %205 ], [ true, %.thread ]
-  %.01823.us.i168.be = phi ptr [ %207, %205 ], [ %209, %.thread ]
+  %.024.us.i167.be = phi i1 [ true, %.thread ], [ %.1.us.i169, %205 ]
+  %.01823.us.i168.be = phi ptr [ %209, %.thread ], [ %207, %205 ]
   br label %.lr.ph.split.us.i166, !llvm.loop !4
 
 .thread:                                          ; preds = %199
@@ -767,7 +767,7 @@ AcquireDeletionLock.exit:                         ; preds = %215, %216, %217
   br label %266
 
 266:                                              ; preds = %.sink.split.i188, %262, %260, %250, %.lr.ph.split.i182
-  %.1.i185 = phi i1 [ %.027.i184, %262 ], [ %.027.i184, %250 ], [ %.027.i184, %.lr.ph.split.i182 ], [ true, %260 ], [ %.1.ph.i190, %.sink.split.i188 ]
+  %.1.i185 = phi i1 [ %.027.i184, %250 ], [ %.027.i184, %.lr.ph.split.i182 ], [ true, %260 ], [ %.027.i184, %262 ], [ %.1.ph.i190, %.sink.split.i188 ]
   %indvars.iv.next.i186 = add nsw i64 %indvars.iv.i183, -1
   %267 = icmp sgt i64 %indvars.iv.i183, 0
   br i1 %267, label %.lr.ph.split.i182, label %object_address_present_add_flags.exit201, !llvm.loop !6
@@ -813,7 +813,7 @@ object_address_present_add_flags.exit201.thread:  ; preds = %223, %object_addres
   unreachable
 
 ReleaseDeletionLock.exit:                         ; preds = %.thread, %object_address_present.exit.thread, %157, %272, %277, %153, %153, %153, %156, %191, %stack_address_present_add_flags.exit173, %150
-  %.1 = phi i32 [ %.0242, %150 ], [ %.0242, %153 ], [ %.0242, %153 ], [ %.0242, %153 ], [ %.0242, %156 ], [ %.0242, %191 ], [ %.0242, %stack_address_present_add_flags.exit173 ], [ %273, %272 ], [ %278, %277 ], [ %.0242, %157 ], [ %.0242, %object_address_present.exit.thread ], [ %.0242, %.thread ]
+  %.1 = phi i32 [ %.0242, %stack_address_present_add_flags.exit173 ], [ %273, %272 ], [ %278, %277 ], [ %.0242, %150 ], [ %.0242, %153 ], [ %.0242, %153 ], [ %.0242, %153 ], [ %.0242, %156 ], [ %.0242, %157 ], [ %.0242, %191 ], [ %.0242, %object_address_present.exit.thread ], [ %.0242, %.thread ]
   %286 = call ptr @systable_getnext(ptr noundef %126) #8
   %.not132 = icmp eq ptr %286, null
   br i1 %.not132, label %._crit_edge, label %132
@@ -980,7 +980,7 @@ AcquireDeletionLock.exit202.thread:               ; preds = %334
   unreachable
 
 354:                                              ; preds = %340, %346, %345, %344, %343
-  %.0112 = phi i32 [ 4, %343 ], [ 8, %344 ], [ 16, %345 ], [ 32, %346 ], [ 2, %340 ]
+  %.0112 = phi i32 [ 32, %346 ], [ 4, %343 ], [ 8, %344 ], [ 16, %345 ], [ 2, %340 ]
   %.not138 = icmp slt i32 %.0120246, %.0117247
   br i1 %.not138, label %360, label %355
 
@@ -1003,9 +1003,9 @@ AcquireDeletionLock.exit202.thread:               ; preds = %334
   br label %ReleaseDeletionLock.exit203
 
 ReleaseDeletionLock.exit203:                      ; preds = %.thread310, %.thread312, %331, %360
-  %.1123 = phi ptr [ %.2124, %360 ], [ %.0122245, %331 ], [ %.0122245, %.thread312 ], [ %.0122245, %.thread310 ]
-  %.1121 = phi i32 [ %364, %360 ], [ %.0120246, %331 ], [ %.0120246, %.thread312 ], [ %.0120246, %.thread310 ]
-  %.1118 = phi i32 [ %.2119, %360 ], [ %.0117247, %331 ], [ %.0117247, %.thread312 ], [ %.0117247, %.thread310 ]
+  %.1123 = phi ptr [ %.0122245, %331 ], [ %.2124, %360 ], [ %.0122245, %.thread312 ], [ %.0122245, %.thread310 ]
+  %.1121 = phi i32 [ %.0120246, %331 ], [ %364, %360 ], [ %.0120246, %.thread312 ], [ %.0120246, %.thread310 ]
+  %.1118 = phi i32 [ %.0117247, %331 ], [ %.2119, %360 ], [ %.0117247, %.thread312 ], [ %.0117247, %.thread310 ]
   %365 = call ptr @systable_getnext(ptr noundef %308) #8
   %.not135 = icmp eq ptr %365, null
   br i1 %.not135, label %._crit_edge250, label %314
@@ -1041,8 +1041,8 @@ ReleaseDeletionLock.exit203:                      ; preds = %.thread310, %.threa
   br label %.lr.ph255
 
 ._crit_edge256:                                   ; preds = %.lr.ph255, %.thread323, %371
-  %376 = phi ptr [ %372, %371 ], [ %310, %.thread323 ], [ %375, %.lr.ph255 ]
-  %.0122.lcssa315321 = phi ptr [ %.1123, %371 ], [ %297, %.thread323 ], [ %.1123, %.lr.ph255 ]
+  %376 = phi ptr [ %310, %.thread323 ], [ %372, %371 ], [ %375, %.lr.ph255 ]
+  %.0122.lcssa315321 = phi ptr [ %297, %.thread323 ], [ %.1123, %371 ], [ %.1123, %.lr.ph255 ]
   call void @pfree(ptr noundef %.0122.lcssa315321) #8
   %377 = load i32, ptr %376, align 8
   %378 = and i32 %377, 128
@@ -1295,9 +1295,9 @@ define internal fastcc void @reportDependentObjects(ptr noundef readonly capture
   br label %74
 
 74:                                               ; preds = %72, %71, %54, %52
-  %.282.us = phi i32 [ %.080108.us, %54 ], [ %.080108.us, %52 ], [ %.383.us, %71 ], [ %73, %72 ]
-  %.279.us = phi i32 [ %.077109.us, %54 ], [ %.077109.us, %52 ], [ %.3.us, %71 ], [ %.077109.us, %72 ]
-  %.2.us = phi i1 [ %.0110.us, %54 ], [ %.0110.us, %52 ], [ false, %71 ], [ false, %72 ]
+  %.282.us = phi i32 [ %.080108.us, %54 ], [ %.080108.us, %52 ], [ %73, %72 ], [ %.383.us, %71 ]
+  %.279.us = phi i32 [ %.077109.us, %54 ], [ %.077109.us, %52 ], [ %.077109.us, %72 ], [ %.3.us, %71 ]
+  %.2.us = phi i1 [ %.0110.us, %54 ], [ %.0110.us, %52 ], [ false, %72 ], [ false, %71 ]
   call void @pfree(ptr noundef nonnull %47) #8
   br label %75
 
@@ -1946,8 +1946,8 @@ define dso_local void @recordDependencyOnExpr(ptr noundef %0, ptr noundef %1, pt
   br label %47
 
 47:                                               ; preds = %44, %43, %35
-  %.124.i = phi i32 [ %.02330.i, %43 ], [ %46, %44 ], [ %.02330.i, %35 ]
-  %.1.i = phi ptr [ %.031.i, %43 ], [ %45, %44 ], [ %.031.i, %35 ]
+  %.124.i = phi i32 [ %46, %44 ], [ %.02330.i, %43 ], [ %.02330.i, %35 ]
+  %.1.i = phi ptr [ %45, %44 ], [ %.031.i, %43 ], [ %.031.i, %35 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %48 = load i32, ptr %15, align 8
   %49 = sext i32 %48 to i64
@@ -3324,7 +3324,7 @@ add_object_address.exit522:                       ; preds = %667, %673
   br label %695
 
 695:                                              ; preds = %347, %353, %56, %118, %123, %110, %115, %102, %107, %94, %99, %86, %91, %78, %83, %70, %75, %62, %67, %60, %30, %40, %47, %43, %2, %.critedge, %.critedge470
-  %.0 = phi i1 [ %694, %.critedge ], [ %555, %.critedge470 ], [ false, %2 ], [ false, %43 ], [ false, %47 ], [ false, %40 ], [ false, %30 ], [ false, %60 ], [ false, %67 ], [ false, %62 ], [ false, %75 ], [ false, %70 ], [ false, %83 ], [ false, %78 ], [ false, %91 ], [ false, %86 ], [ false, %99 ], [ false, %94 ], [ false, %107 ], [ false, %102 ], [ false, %115 ], [ false, %110 ], [ false, %123 ], [ false, %118 ], [ false, %56 ], [ false, %353 ], [ false, %347 ]
+  %.0 = phi i1 [ %555, %.critedge470 ], [ false, %2 ], [ false, %30 ], [ %694, %.critedge ], [ false, %56 ], [ false, %43 ], [ false, %47 ], [ false, %40 ], [ false, %60 ], [ false, %67 ], [ false, %62 ], [ false, %75 ], [ false, %70 ], [ false, %83 ], [ false, %78 ], [ false, %91 ], [ false, %86 ], [ false, %99 ], [ false, %94 ], [ false, %107 ], [ false, %102 ], [ false, %115 ], [ false, %110 ], [ false, %123 ], [ false, %118 ], [ false, %353 ], [ false, %347 ]
   ret i1 %.0
 }
 
@@ -3421,8 +3421,8 @@ define dso_local void @recordDependencyOnSingleRelExpr(ptr noundef %0, ptr nound
   br label %55
 
 55:                                               ; preds = %52, %51, %43
-  %.124.i = phi i32 [ %.02330.i, %51 ], [ %54, %52 ], [ %.02330.i, %43 ]
-  %.1.i = phi ptr [ %.031.i, %51 ], [ %53, %52 ], [ %.031.i, %43 ]
+  %.124.i = phi i32 [ %54, %52 ], [ %.02330.i, %51 ], [ %.02330.i, %43 ]
+  %.1.i = phi ptr [ %53, %52 ], [ %.031.i, %51 ], [ %.031.i, %43 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %56 = load i32, ptr %23, align 8
   %57 = sext i32 %56 to i64
@@ -3750,8 +3750,8 @@ define dso_local void @record_object_address_dependencies(ptr noundef %0, ptr no
   br label %34
 
 34:                                               ; preds = %31, %30, %22
-  %.124.i = phi i32 [ %.02330.i, %30 ], [ %33, %31 ], [ %.02330.i, %22 ]
-  %.1.i = phi ptr [ %.031.i, %30 ], [ %32, %31 ], [ %.031.i, %22 ]
+  %.124.i = phi i32 [ %33, %31 ], [ %.02330.i, %30 ], [ %.02330.i, %22 ]
+  %.1.i = phi ptr [ %32, %31 ], [ %.031.i, %30 ], [ %.031.i, %22 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %35 = load i32, ptr %4, align 8
   %36 = sext i32 %35 to i64
@@ -3831,7 +3831,7 @@ define internal range(i32 -1, 2) i32 @object_address_comparator(ptr noundef read
   br label %24
 
 24:                                               ; preds = %22, %16, %14, %10, %8, %2
-  %.0 = phi i32 [ -1, %2 ], [ 1, %8 ], [ -1, %10 ], [ 1, %14 ], [ -1, %16 ], [ %., %22 ]
+  %.0 = phi i32 [ -1, %16 ], [ -1, %2 ], [ 1, %8 ], [ -1, %10 ], [ 1, %14 ], [ %., %22 ]
   ret i32 %.0
 }
 

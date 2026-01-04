@@ -495,7 +495,7 @@ _ZN9Bytecodes10length_forENS_4CodeE.exit.i:       ; preds = %171
   br label %_ZN16ciBytecodeStream4nextEv.exit
 
 _ZN16ciBytecodeStream4nextEv.exit:                ; preds = %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i, %_ZN9Bytecodes10length_forENS_4CodeE.exit.i, %186
-  %.0.i = phi i32 [ %176, %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i ], [ %187, %186 ], [ %176, %_ZN9Bytecodes10length_forENS_4CodeE.exit.i ]
+  %.0.i = phi i32 [ %176, %_ZN9Bytecodes10length_forENS_4CodeE.exit.i ], [ %176, %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i ], [ %187, %186 ]
   switch i32 %.0.i, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit [
     i32 153, label %188
     i32 154, label %188
@@ -598,8 +598,8 @@ _ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS
   br label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit115
 
 _ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit115: ; preds = %209, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i106, %188
-  %230 = phi ptr [ %.pre383, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i106 ], [ %190, %188 ], [ %190, %209 ]
-  %231 = phi ptr [ %.pre381, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i106 ], [ %.pre382, %188 ], [ %.pre382, %209 ]
+  %230 = phi ptr [ %190, %188 ], [ %.pre383, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i106 ], [ %190, %209 ]
+  %231 = phi ptr [ %.pre382, %188 ], [ %.pre381, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i106 ], [ %.pre382, %209 ]
   %232 = load ptr, ptr %114, align 8
   %233 = load i8, ptr %232, align 1
   %.not.i.i.i.i = icmp eq i8 %233, -54
@@ -2616,7 +2616,7 @@ _ZN9Bytecodes10length_forENS_4CodeE.exit.i:       ; preds = %24
   br label %_ZN16ciBytecodeStream4nextEv.exit
 
 _ZN16ciBytecodeStream4nextEv.exit:                ; preds = %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i, %40
-  %.0.i = phi i32 [ %30, %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i ], [ %41, %40 ]
+  %.0.i = phi i32 [ %41, %40 ], [ %30, %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i ]
   %.not = icmp eq i32 %.0.i, -1
   br i1 %.not, label %_ZN16ciBytecodeStream4nextEv.exit.thread, label %_ZN16ciBytecodeStream4nextEv.exit.thread9
 

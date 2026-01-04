@@ -281,7 +281,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail21from_chars_f
   br label %83
 
 83:                                               ; preds = %4, %82, %31, %26, %12
-  %.fca.1.insert.merged = phi { ptr, i32 } [ %16, %12 ], [ %27, %26 ], [ %35, %31 ], [ %.merged, %82 ], [ %9, %4 ]
+  %.fca.1.insert.merged = phi { ptr, i32 } [ %16, %12 ], [ %27, %26 ], [ %.merged, %82 ], [ %35, %31 ], [ %9, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -445,7 +445,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail21from_chars_f
   br label %72
 
 72:                                               ; preds = %4, %71, %31, %26, %12
-  %.fca.1.insert.merged = phi { ptr, i32 } [ %16, %12 ], [ %27, %26 ], [ %35, %31 ], [ %.merged, %71 ], [ %9, %4 ]
+  %.fca.1.insert.merged = phi { ptr, i32 } [ %16, %12 ], [ %27, %26 ], [ %.merged, %71 ], [ %35, %31 ], [ %9, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -572,7 +572,7 @@ _ZN5boost8charconv6detail15compute_float80IeoEET_lT0_bRSt4errc.exit: ; preds = %
   br label %63
 
 63:                                               ; preds = %4, %61, %26, %15, %10
-  %.fca.1.insert.merged = phi { ptr, i32 } [ %14, %10 ], [ %22, %15 ], [ %30, %26 ], [ %62, %61 ], [ %8, %4 ]
+  %.fca.1.insert.merged = phi { ptr, i32 } [ %14, %10 ], [ %22, %15 ], [ %62, %61 ], [ %30, %26 ], [ %8, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -994,9 +994,9 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail6parserIolEENS
   br label %.critedge363
 
 .critedge363:                                     ; preds = %147, %141, %146
-  %149 = phi i1 [ false, %146 ], [ true, %147 ], [ true, %141 ]
-  %.4288 = phi i64 [ 1, %146 ], [ 0, %147 ], [ 0, %141 ]
-  %.11 = phi ptr [ %145, %146 ], [ %spec.select364, %147 ], [ %125, %141 ]
+  %149 = phi i1 [ false, %146 ], [ true, %141 ], [ true, %147 ]
+  %.4288 = phi i64 [ 1, %146 ], [ 0, %141 ], [ 0, %147 ]
+  %.11 = phi ptr [ %145, %146 ], [ %125, %141 ], [ %spec.select364, %147 ]
   %.not343421 = icmp eq ptr %.11, %1
   br i1 %.not343421, label %.critedge16, label %.lr.ph423.preheader
 
@@ -1111,20 +1111,20 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail6parserIolEENS
   br label %187
 
 187:                                              ; preds = %.critedge18, %174, %168, %177, %183, %185, %166
-  %.sroa.0278.9 = phi ptr [ %.13379, %166 ], [ %.13429, %.critedge18 ], [ %.13378, %174 ], [ %0, %168 ], [ %.13378, %177 ], [ %.13378, %183 ], [ %.13378, %185 ]
-  %.sroa.29.9 = phi i32 [ 0, %166 ], [ 34, %.critedge18 ], [ %171, %174 ], [ %171, %168 ], [ 0, %177 ], [ 0, %183 ], [ 0, %185 ]
+  %.sroa.0278.9 = phi ptr [ %.13429, %.critedge18 ], [ %.13379, %166 ], [ %0, %168 ], [ %.13378, %174 ], [ %.13378, %177 ], [ %.13378, %183 ], [ %.13378, %185 ]
+  %.sroa.29.9 = phi i32 [ 34, %.critedge18 ], [ 0, %166 ], [ %171, %168 ], [ %171, %174 ], [ 0, %177 ], [ 0, %183 ], [ 0, %185 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.critedge5.thread
 
 .critedge5.thread:                                ; preds = %79, %.preheader376, %132, %136, %117, %124, %122, %115, %116, %108, %106, %71, %72, %67, %._crit_edge, %187
-  %.sroa.0278.3 = phi ptr [ %.sroa.0278.9, %187 ], [ %0, %._crit_edge ], [ %64, %72 ], [ %64, %71 ], [ %0, %67 ], [ %0, %106 ], [ %.9483, %116 ], [ %.9483, %115 ], [ %0, %108 ], [ %.9482, %122 ], [ %0, %124 ], [ %0, %117 ], [ %125, %136 ], [ %0, %132 ], [ %1, %.preheader376 ], [ %1, %79 ]
-  %.sroa.29.3 = phi i32 [ %.sroa.29.9, %187 ], [ 22, %._crit_edge ], [ 0, %72 ], [ %70, %71 ], [ %70, %67 ], [ 22, %106 ], [ 0, %116 ], [ %114, %115 ], [ %114, %108 ], [ 22, %122 ], [ 22, %124 ], [ 22, %117 ], [ %135, %136 ], [ %135, %132 ], [ 0, %.preheader376 ], [ 0, %79 ]
+  %.sroa.0278.3 = phi ptr [ %0, %124 ], [ %0, %._crit_edge ], [ %0, %67 ], [ %0, %132 ], [ %0, %106 ], [ %0, %108 ], [ %.9482, %122 ], [ %.sroa.0278.9, %187 ], [ %0, %117 ], [ %64, %72 ], [ %64, %71 ], [ %.9483, %116 ], [ %.9483, %115 ], [ %125, %136 ], [ %1, %.preheader376 ], [ %1, %79 ]
+  %.sroa.29.3 = phi i32 [ 22, %124 ], [ 22, %._crit_edge ], [ %70, %67 ], [ %135, %132 ], [ 22, %106 ], [ %114, %108 ], [ 22, %122 ], [ %.sroa.29.9, %187 ], [ 22, %117 ], [ 0, %72 ], [ %70, %71 ], [ 0, %116 ], [ %114, %115 ], [ %135, %136 ], [ 0, %.preheader376 ], [ 0, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge356
 
 .critedge356:                                     ; preds = %43, %27, %45, %46, %47, %11, %25, %21, %23, %19, %41, %34, %30, %32, %28, %.critedge5.thread, %.critedge.thread, %6
-  %.sroa.0278.0 = phi ptr [ %0, %6 ], [ %24, %27 ], [ %42, %45 ], [ %42, %46 ], [ %37, %47 ], [ %0, %11 ], [ %24, %23 ], [ %20, %19 ], [ %20, %21 ], [ %24, %25 ], [ %33, %32 ], [ %29, %28 ], [ %29, %30 ], [ %33, %34 ], [ %42, %41 ], [ %.3388, %.critedge.thread ], [ %.sroa.0278.3, %.critedge5.thread ], [ %42, %43 ]
-  %.sroa.29.0 = phi i32 [ 22, %6 ], [ 75, %27 ], [ 95, %45 ], [ 95, %46 ], [ 95, %47 ], [ 22, %11 ], [ 22, %23 ], [ 22, %19 ], [ 22, %21 ], [ 22, %25 ], [ 22, %32 ], [ 22, %28 ], [ 22, %30 ], [ 22, %34 ], [ 22, %41 ], [ 0, %.critedge.thread ], [ %.sroa.29.3, %.critedge5.thread ], [ 22, %43 ]
+  %.sroa.0278.0 = phi ptr [ %0, %6 ], [ %24, %27 ], [ %0, %11 ], [ %42, %45 ], [ %42, %46 ], [ %20, %19 ], [ %37, %47 ], [ %42, %41 ], [ %24, %25 ], [ %24, %23 ], [ %20, %21 ], [ %42, %43 ], [ %.sroa.0278.3, %.critedge5.thread ], [ %33, %34 ], [ %33, %32 ], [ %29, %30 ], [ %29, %28 ], [ %.3388, %.critedge.thread ]
+  %.sroa.29.0 = phi i32 [ 22, %6 ], [ 75, %27 ], [ 22, %11 ], [ 95, %45 ], [ 95, %46 ], [ 22, %19 ], [ 95, %47 ], [ 22, %41 ], [ 22, %25 ], [ 22, %23 ], [ 22, %21 ], [ 22, %43 ], [ %.sroa.29.3, %.critedge5.thread ], [ 22, %34 ], [ 22, %32 ], [ 22, %30 ], [ 22, %28 ], [ 0, %.critedge.thread ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.0278.0, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.29.0, 1
   ret { ptr, i32 } %.fca.1.insert
@@ -1695,8 +1695,8 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail10fast_float19
   br label %.critedge171.i
 
 .critedge171.i:                                   ; preds = %97, %95, %90
-  %.0139.i = phi i1 [ true, %95 ], [ false, %97 ], [ false, %90 ]
-  %.5.i = phi ptr [ %96, %95 ], [ %spec.select.i, %97 ], [ %91, %90 ]
+  %.0139.i = phi i1 [ true, %95 ], [ false, %90 ], [ false, %97 ]
+  %.5.i = phi ptr [ %96, %95 ], [ %91, %90 ], [ %spec.select.i, %97 ]
   %.5.i280 = ptrtoint ptr %.5.i to i64
   %100 = icmp eq ptr %.5.i, %1
   br i1 %100, label %117, label %101
@@ -2029,8 +2029,8 @@ _ZN5boost8charconv6detail10fast_float29compute_product_approximationILi26EEENS2_
   br label %_ZN5boost8charconv6detail10fast_float13compute_floatINS2_13binary_formatIfEEEENS2_17adjusted_mantissaElm.exit
 
 _ZN5boost8charconv6detail10fast_float13compute_floatINS2_13binary_formatIfEEEENS2_17adjusted_mantissaElm.exit: ; preds = %255, %244, %206, %202, %247
-  %.sroa.19.1 = phi i32 [ %254, %247 ], [ 0, %202 ], [ 255, %206 ], [ 0, %244 ], [ %spec.select196, %255 ]
-  %.sroa.0139.2 = phi i64 [ %252, %247 ], [ 0, %202 ], [ 0, %206 ], [ 0, %244 ], [ %spec.select197, %255 ]
+  %.sroa.19.1 = phi i32 [ 0, %244 ], [ 0, %202 ], [ 255, %206 ], [ %254, %247 ], [ %spec.select196, %255 ]
+  %.sroa.0139.2 = phi i64 [ 0, %244 ], [ 0, %202 ], [ 0, %206 ], [ %252, %247 ], [ %spec.select197, %255 ]
   br i1 %161, label %270, label %.thread177
 
 270:                                              ; preds = %_ZN5boost8charconv6detail10fast_float13compute_floatINS2_13binary_formatIfEEEENS2_17adjusted_mantissaElm.exit
@@ -2133,8 +2133,8 @@ _ZN5boost8charconv6detail10fast_float29compute_product_approximationILi26EEENS2_
   br label %_ZN5boost8charconv6detail10fast_float13compute_floatINS2_13binary_formatIfEEEENS2_17adjusted_mantissaElm.exit96
 
 _ZN5boost8charconv6detail10fast_float13compute_floatINS2_13binary_formatIfEEEENS2_17adjusted_mantissaElm.exit96: ; preds = %322, %311, %273, %270, %314
-  %.sroa.19153.1 = phi i32 [ %321, %314 ], [ 0, %270 ], [ 255, %273 ], [ 0, %311 ], [ %spec.select198, %322 ]
-  %.sroa.0147.2 = phi i64 [ %319, %314 ], [ 0, %270 ], [ 0, %273 ], [ 0, %311 ], [ %spec.select199, %322 ]
+  %.sroa.19153.1 = phi i32 [ 0, %311 ], [ 0, %270 ], [ 255, %273 ], [ %321, %314 ], [ %spec.select198, %322 ]
+  %.sroa.0147.2 = phi i64 [ 0, %311 ], [ 0, %270 ], [ 0, %273 ], [ %319, %314 ], [ %spec.select199, %322 ]
   %.not.i126 = icmp ne i64 %.sroa.0139.2, %.sroa.0147.2
   %337 = icmp ne i32 %.sroa.19.1, %.sroa.19153.1
   %338 = select i1 %.not.i126, i1 true, i1 %337
@@ -2285,8 +2285,8 @@ _ZN5boost8charconv6detail10fast_float10digit_compIfcEENS2_17adjusted_mantissaERN
   br label %412
 
 412:                                              ; preds = %.thread177, %195, %200, %183, %184, %193, %156
-  %.sroa.075.1 = phi ptr [ %.9.i, %193 ], [ %158, %156 ], [ %.9.i, %184 ], [ %.9.i, %183 ], [ %.9.i, %200 ], [ %.9.i, %195 ], [ %.9.i, %.thread177 ]
-  %.sroa.7.1 = phi i32 [ 0, %193 ], [ %159, %156 ], [ 0, %184 ], [ 0, %183 ], [ 0, %200 ], [ 0, %195 ], [ %spec.select, %.thread177 ]
+  %.sroa.075.1 = phi ptr [ %.9.i, %195 ], [ %158, %156 ], [ %.9.i, %193 ], [ %.9.i, %183 ], [ %.9.i, %184 ], [ %.9.i, %200 ], [ %.9.i, %.thread177 ]
+  %.sroa.7.1 = phi i32 [ 0, %195 ], [ %159, %156 ], [ 0, %193 ], [ 0, %183 ], [ 0, %184 ], [ 0, %200 ], [ %spec.select, %.thread177 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %413
 
@@ -2439,8 +2439,8 @@ _ZN5boost8charconv6detail10fast_float21fastfloat_strncasecmpIcEEbPKT_S6_m.exit52
   br label %.loopexit
 
 .loopexit:                                        ; preds = %36, %32, %3, %_ZN5boost8charconv6detail10fast_float21fastfloat_strncasecmpIcEEbPKT_S6_m.exit47, %19, %22, %.lr.ph._crit_edge, %62
-  %.sroa.7.0 = phi i32 [ 0, %62 ], [ 0, %.lr.ph._crit_edge ], [ 0, %22 ], [ 0, %19 ], [ 22, %_ZN5boost8charconv6detail10fast_float21fastfloat_strncasecmpIcEEbPKT_S6_m.exit47 ], [ 22, %3 ], [ 0, %32 ], [ 0, %36 ]
-  %.sroa.0.2 = phi ptr [ %63, %62 ], [ %28, %.lr.ph._crit_edge ], [ %20, %22 ], [ %20, %19 ], [ %0, %_ZN5boost8charconv6detail10fast_float21fastfloat_strncasecmpIcEEbPKT_S6_m.exit47 ], [ %0, %3 ], [ %20, %32 ], [ %20, %36 ]
+  %.sroa.7.0 = phi i32 [ 0, %19 ], [ 0, %62 ], [ 0, %.lr.ph._crit_edge ], [ 22, %_ZN5boost8charconv6detail10fast_float21fastfloat_strncasecmpIcEEbPKT_S6_m.exit47 ], [ 22, %3 ], [ 0, %22 ], [ 0, %32 ], [ 0, %36 ]
+  %.sroa.0.2 = phi ptr [ %20, %19 ], [ %63, %62 ], [ %28, %.lr.ph._crit_edge ], [ %0, %_ZN5boost8charconv6detail10fast_float21fastfloat_strncasecmpIcEEbPKT_S6_m.exit47 ], [ %0, %3 ], [ %20, %22 ], [ %20, %32 ], [ %20, %36 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.0.2, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.7.0, 1
   ret { ptr, i32 } %.fca.1.insert
@@ -2665,7 +2665,7 @@ _ZN5boost8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i
   br label %_ZN5boost8charconv6detail10fast_float6bigint3addEm.exit
 
 _ZN5boost8charconv6detail10fast_float6bigint3addEm.exit: ; preds = %84, %_ZN5boost8charconv6detail10fast_float6bigint3mulEm.exit, %.critedge.i.i, %_ZN5boost8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i87
-  %.pr = phi i16 [ %81, %_ZN5boost8charconv6detail10fast_float6bigint3mulEm.exit ], [ %81, %.critedge.i.i ], [ %93, %_ZN5boost8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i87 ], [ %81, %84 ]
+  %.pr = phi i16 [ %93, %_ZN5boost8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i87 ], [ %81, %_ZN5boost8charconv6detail10fast_float6bigint3mulEm.exit ], [ %81, %.critedge.i.i ], [ %81, %84 ]
   %94 = ptrtoint ptr %.2.lcssa to i64
   %95 = sub i64 %10, %94
   %96 = icmp sgt i64 %95, 7
@@ -2792,7 +2792,7 @@ _ZN5boost8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i
   br label %_ZN5boost8charconv6detail10fast_float6bigint3mulEm.exit97
 
 _ZN5boost8charconv6detail10fast_float6bigint3mulEm.exit97: ; preds = %._crit_edge.i.i93, %_ZN5boost8charconv6detail10fast_float12is_truncatedIcEEbNS2_4spanIKT_EE.exit.thread, %_ZN5boost8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i96
-  %136 = phi i16 [ 0, %_ZN5boost8charconv6detail10fast_float12is_truncatedIcEEbNS2_4spanIKT_EE.exit.thread ], [ %135, %_ZN5boost8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i96 ], [ %.pr, %._crit_edge.i.i93 ]
+  %136 = phi i16 [ %135, %_ZN5boost8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i96 ], [ 0, %_ZN5boost8charconv6detail10fast_float12is_truncatedIcEEbNS2_4spanIKT_EE.exit.thread ], [ %.pr, %._crit_edge.i.i93 ]
   %137 = zext i16 %136 to i64
   br label %138
 
@@ -3123,7 +3123,7 @@ _ZN5boost8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i
   br label %_ZN5boost8charconv6detail10fast_float6bigint3addEm.exit143
 
 _ZN5boost8charconv6detail10fast_float6bigint3addEm.exit143: ; preds = %263, %_ZN5boost8charconv6detail10fast_float6bigint3mulEm.exit134, %.critedge.i.i141, %_ZN5boost8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i142
-  %.pr257 = phi i16 [ %260, %_ZN5boost8charconv6detail10fast_float6bigint3mulEm.exit134 ], [ %260, %.critedge.i.i141 ], [ %272, %_ZN5boost8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i142 ], [ %260, %263 ]
+  %.pr257 = phi i16 [ %272, %_ZN5boost8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i142 ], [ %260, %_ZN5boost8charconv6detail10fast_float6bigint3mulEm.exit134 ], [ %260, %.critedge.i.i141 ], [ %260, %263 ]
   %273 = ptrtoint ptr %.6.lcssa to i64
   %274 = sub i64 %198, %273
   %275 = icmp sgt i64 %274, 7
@@ -3194,7 +3194,7 @@ _ZN5boost8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i
   br label %_ZN5boost8charconv6detail10fast_float6bigint3mulEm.exit153
 
 _ZN5boost8charconv6detail10fast_float6bigint3mulEm.exit153: ; preds = %._crit_edge.i.i149, %.loopexit, %_ZN5boost8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i152
-  %298 = phi i16 [ 0, %.loopexit ], [ %297, %_ZN5boost8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i152 ], [ %.pr257, %._crit_edge.i.i149 ]
+  %298 = phi i16 [ %297, %_ZN5boost8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i152 ], [ 0, %.loopexit ], [ %.pr257, %._crit_edge.i.i149 ]
   %299 = zext i16 %298 to i64
   br label %300
 
@@ -3510,8 +3510,8 @@ define linkonce_odr hidden { i64, i32 } @_ZN5boost8charconv6detail10fast_float19
   br label %17
 
 17:                                               ; preds = %13, %6
-  %.sroa.14.1 = phi i32 [ %12, %6 ], [ %spec.select, %13 ]
-  %.sroa.0.1 = phi i64 [ %storemerge.i.i, %6 ], [ %spec.select97, %13 ]
+  %.sroa.14.1 = phi i32 [ %spec.select, %13 ], [ %12, %6 ]
+  %.sroa.0.1 = phi i64 [ %spec.select97, %13 ], [ %storemerge.i.i, %6 ]
   %18 = trunc i64 %.sroa.0.1 to i32
   %19 = shl nuw nsw i32 %.sroa.14.1, 23
   %.masked = and i32 %18, 2139095040
@@ -3731,8 +3731,8 @@ _ZN5boost8charconv6detail10fast_float6bigint4pow2Ej.exit: ; preds = %93, %59, %8
   br i1 %.not24.i, label %_ZNK5boost8charconv6detail10fast_float6bigint7compareERKS3_.exit, label %.preheader.i, !llvm.loop !75
 
 _ZNK5boost8charconv6detail10fast_float6bigint7compareERKS3_.exit: ; preds = %.preheader.i, %111, %118, %_ZN5boost8charconv6detail10fast_float6bigint4pow2Ej.exit, %108
-  %119 = phi i1 [ true, %_ZN5boost8charconv6detail10fast_float6bigint4pow2Ej.exit ], [ false, %108 ], [ false, %.preheader.i ], [ false, %118 ], [ true, %111 ]
-  %.not.i.i53 = phi i1 [ false, %_ZN5boost8charconv6detail10fast_float6bigint4pow2Ej.exit ], [ false, %108 ], [ %.not.i50, %118 ], [ %.not.i50, %111 ], [ %.not.i50, %.preheader.i ]
+  %119 = phi i1 [ false, %108 ], [ true, %_ZN5boost8charconv6detail10fast_float6bigint4pow2Ej.exit ], [ false, %.preheader.i ], [ false, %118 ], [ true, %111 ]
+  %.not.i.i53 = phi i1 [ false, %108 ], [ false, %_ZN5boost8charconv6detail10fast_float6bigint4pow2Ej.exit ], [ %.not.i50, %118 ], [ %.not.i50, %111 ], [ %.not.i50, %.preheader.i ]
   br i1 %.not.i, label %_ZZN5boost8charconv6detail10fast_float19negative_digit_compIfEENS2_17adjusted_mantissaERNS2_6bigintES4_iENKUlRS4_iE0_clES7_i.exit59, label %_ZZN5boost8charconv6detail10fast_float19negative_digit_compIfEENS2_17adjusted_mantissaERNS2_6bigintES4_iENKUlRS4_iE0_clES7_i.exit
 
 _ZZN5boost8charconv6detail10fast_float19negative_digit_compIfEENS2_17adjusted_mantissaERNS2_6bigintES4_iENKUlRS4_iE0_clES7_i.exit: ; preds = %_ZNK5boost8charconv6detail10fast_float6bigint7compareERKS3_.exit
@@ -3771,8 +3771,8 @@ _ZZN5boost8charconv6detail10fast_float19negative_digit_compIfEENS2_17adjusted_ma
   br label %_ZN5boost8charconv6detail10fast_float5roundIfZNS2_19negative_digit_compIfEENS2_17adjusted_mantissaERNS2_6bigintES5_iEUlRS5_iE0_EEvS8_T0_.exit
 
 _ZN5boost8charconv6detail10fast_float5roundIfZNS2_19negative_digit_compIfEENS2_17adjusted_mantissaERNS2_6bigintES5_iEUlRS5_iE0_EEvS8_T0_.exit: ; preds = %_ZZN5boost8charconv6detail10fast_float19negative_digit_compIfEENS2_17adjusted_mantissaERNS2_6bigintES4_iENKUlRS4_iE0_clES7_i.exit59, %_ZZN5boost8charconv6detail10fast_float19negative_digit_compIfEENS2_17adjusted_mantissaERNS2_6bigintES4_iENKUlRS4_iE0_clES7_i.exit
-  %.sroa.12.1 = phi i32 [ %128, %_ZZN5boost8charconv6detail10fast_float19negative_digit_compIfEENS2_17adjusted_mantissaERNS2_6bigintES4_iENKUlRS4_iE0_clES7_i.exit ], [ %134, %_ZZN5boost8charconv6detail10fast_float19negative_digit_compIfEENS2_17adjusted_mantissaERNS2_6bigintES4_iENKUlRS4_iE0_clES7_i.exit59 ]
-  %.sroa.071.1 = phi i64 [ %126, %_ZZN5boost8charconv6detail10fast_float19negative_digit_compIfEENS2_17adjusted_mantissaERNS2_6bigintES4_iENKUlRS4_iE0_clES7_i.exit ], [ %spec.select101, %_ZZN5boost8charconv6detail10fast_float19negative_digit_compIfEENS2_17adjusted_mantissaERNS2_6bigintES4_iENKUlRS4_iE0_clES7_i.exit59 ]
+  %.sroa.12.1 = phi i32 [ %134, %_ZZN5boost8charconv6detail10fast_float19negative_digit_compIfEENS2_17adjusted_mantissaERNS2_6bigintES4_iENKUlRS4_iE0_clES7_i.exit59 ], [ %128, %_ZZN5boost8charconv6detail10fast_float19negative_digit_compIfEENS2_17adjusted_mantissaERNS2_6bigintES4_iENKUlRS4_iE0_clES7_i.exit ]
+  %.sroa.071.1 = phi i64 [ %spec.select101, %_ZZN5boost8charconv6detail10fast_float19negative_digit_compIfEENS2_17adjusted_mantissaERNS2_6bigintES4_iENKUlRS4_iE0_clES7_i.exit59 ], [ %126, %_ZZN5boost8charconv6detail10fast_float19negative_digit_compIfEENS2_17adjusted_mantissaERNS2_6bigintES4_iENKUlRS4_iE0_clES7_i.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.071.1, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.12.1, 1
@@ -3904,7 +3904,7 @@ _ZN5boost8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i17
   br label %_ZN5boost8charconv6detail10fast_float9large_mulILt62EEEbRNS2_8stackvecIXT_EEENS2_4spanImEE.exit
 
 _ZN5boost8charconv6detail10fast_float9large_mulILt62EEEbRNS2_8stackvecIXT_EEENS2_4spanImEE.exit: ; preds = %.lr.ph, %23, %31, %._crit_edge.i14, %_ZN5boost8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i17, %._crit_edge, %50
-  %.0 = phi i1 [ false, %50 ], [ true, %._crit_edge ], [ true, %_ZN5boost8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i17 ], [ true, %._crit_edge.i14 ], [ true, %31 ], [ false, %23 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ true, %31 ], [ false, %23 ], [ false, %50 ], [ true, %._crit_edge ], [ true, %_ZN5boost8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i17 ], [ true, %._crit_edge.i14 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -4162,7 +4162,7 @@ _ZN5boost8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i
   br i1 %100, label %91, label %.critedge.us, !llvm.loop !65
 
 .critedge.us:                                     ; preds = %96, %_ZN5boost8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i.us, %._crit_edge.i49.us, %73, %.lr.ph.split.us
-  %103 = phi i16 [ %74, %73 ], [ %95, %_ZN5boost8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i.us ], [ %74, %._crit_edge.i49.us ], [ %34, %.lr.ph.split.us ], [ %74, %96 ]
+  %103 = phi i16 [ %34, %.lr.ph.split.us ], [ %74, %73 ], [ %95, %_ZN5boost8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i.us ], [ %74, %._crit_edge.i49.us ], [ %74, %96 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %104 = add nuw i64 %.02769.us, 1
   %exitcond75.not = icmp eq i64 %104, %2
@@ -4210,7 +4210,7 @@ _ZN5boost8charconv6detail10fast_float8stackvecILt62EE10try_extendENS2_4spanImEE.
   br i1 %.not.i51, label %.critedge32, label %109, !llvm.loop !80
 
 .critedge32:                                      ; preds = %115, %109, %27, %.critedge34, %_ZN5boost8charconv6detail10fast_float8stackvecILt62EE10try_extendENS2_4spanImEE.exit
-  %.6 = phi i1 [ false, %_ZN5boost8charconv6detail10fast_float8stackvecILt62EE10try_extendENS2_4spanImEE.exit ], [ true, %.critedge34 ], [ false, %27 ], [ true, %109 ], [ true, %115 ]
+  %.6 = phi i1 [ false, %27 ], [ false, %_ZN5boost8charconv6detail10fast_float8stackvecILt62EE10try_extendENS2_4spanImEE.exit ], [ true, %.critedge34 ], [ true, %109 ], [ true, %115 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.6
 }
@@ -4633,9 +4633,9 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail6parserImlEENS
   br label %.critedge362
 
 .critedge362:                                     ; preds = %147, %141, %146
-  %149 = phi i1 [ false, %146 ], [ true, %147 ], [ true, %141 ]
-  %.4287 = phi i64 [ 1, %146 ], [ 0, %147 ], [ 0, %141 ]
-  %.11 = phi ptr [ %145, %146 ], [ %spec.select363, %147 ], [ %125, %141 ]
+  %149 = phi i1 [ false, %146 ], [ true, %141 ], [ true, %147 ]
+  %.4287 = phi i64 [ 1, %146 ], [ 0, %141 ], [ 0, %147 ]
+  %.11 = phi ptr [ %145, %146 ], [ %125, %141 ], [ %spec.select363, %147 ]
   %.not342420 = icmp eq ptr %.11, %1
   br i1 %.not342420, label %.critedge16, label %.lr.ph422.preheader
 
@@ -4747,20 +4747,20 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail6parserImlEENS
   br label %187
 
 187:                                              ; preds = %.critedge18, %174, %168, %177, %183, %185, %166
-  %.sroa.0277.9 = phi ptr [ %.13378, %166 ], [ %.13428, %.critedge18 ], [ %.13377, %174 ], [ %0, %168 ], [ %.13377, %177 ], [ %.13377, %183 ], [ %.13377, %185 ]
-  %.sroa.29.9 = phi i32 [ 0, %166 ], [ 34, %.critedge18 ], [ %171, %174 ], [ %171, %168 ], [ 0, %177 ], [ 0, %183 ], [ 0, %185 ]
+  %.sroa.0277.9 = phi ptr [ %.13428, %.critedge18 ], [ %.13378, %166 ], [ %0, %168 ], [ %.13377, %174 ], [ %.13377, %177 ], [ %.13377, %183 ], [ %.13377, %185 ]
+  %.sroa.29.9 = phi i32 [ 34, %.critedge18 ], [ 0, %166 ], [ %171, %168 ], [ %171, %174 ], [ 0, %177 ], [ 0, %183 ], [ 0, %185 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.critedge5.thread
 
 .critedge5.thread:                                ; preds = %79, %.preheader375, %132, %136, %117, %124, %122, %115, %116, %108, %106, %71, %72, %67, %._crit_edge, %187
-  %.sroa.0277.3 = phi ptr [ %.sroa.0277.9, %187 ], [ %0, %._crit_edge ], [ %64, %72 ], [ %64, %71 ], [ %0, %67 ], [ %0, %106 ], [ %.9482, %116 ], [ %.9482, %115 ], [ %0, %108 ], [ %.9481, %122 ], [ %0, %124 ], [ %0, %117 ], [ %125, %136 ], [ %0, %132 ], [ %1, %.preheader375 ], [ %1, %79 ]
-  %.sroa.29.3 = phi i32 [ %.sroa.29.9, %187 ], [ 22, %._crit_edge ], [ 0, %72 ], [ %70, %71 ], [ %70, %67 ], [ 22, %106 ], [ 0, %116 ], [ %114, %115 ], [ %114, %108 ], [ 22, %122 ], [ 22, %124 ], [ 22, %117 ], [ %135, %136 ], [ %135, %132 ], [ 0, %.preheader375 ], [ 0, %79 ]
+  %.sroa.0277.3 = phi ptr [ %0, %124 ], [ %0, %._crit_edge ], [ %0, %67 ], [ %0, %132 ], [ %0, %106 ], [ %0, %108 ], [ %.9481, %122 ], [ %.sroa.0277.9, %187 ], [ %0, %117 ], [ %64, %72 ], [ %64, %71 ], [ %.9482, %116 ], [ %.9482, %115 ], [ %125, %136 ], [ %1, %.preheader375 ], [ %1, %79 ]
+  %.sroa.29.3 = phi i32 [ 22, %124 ], [ 22, %._crit_edge ], [ %70, %67 ], [ %135, %132 ], [ 22, %106 ], [ %114, %108 ], [ 22, %122 ], [ %.sroa.29.9, %187 ], [ 22, %117 ], [ 0, %72 ], [ %70, %71 ], [ 0, %116 ], [ %114, %115 ], [ %135, %136 ], [ 0, %.preheader375 ], [ 0, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge355
 
 .critedge355:                                     ; preds = %43, %27, %45, %46, %47, %11, %25, %21, %23, %19, %41, %34, %30, %32, %28, %.critedge5.thread, %.critedge.thread, %6
-  %.sroa.0277.0 = phi ptr [ %0, %6 ], [ %24, %27 ], [ %42, %45 ], [ %42, %46 ], [ %37, %47 ], [ %0, %11 ], [ %24, %23 ], [ %20, %19 ], [ %20, %21 ], [ %24, %25 ], [ %33, %32 ], [ %29, %28 ], [ %29, %30 ], [ %33, %34 ], [ %42, %41 ], [ %.3387, %.critedge.thread ], [ %.sroa.0277.3, %.critedge5.thread ], [ %42, %43 ]
-  %.sroa.29.0 = phi i32 [ 22, %6 ], [ 75, %27 ], [ 95, %45 ], [ 95, %46 ], [ 95, %47 ], [ 22, %11 ], [ 22, %23 ], [ 22, %19 ], [ 22, %21 ], [ 22, %25 ], [ 22, %32 ], [ 22, %28 ], [ 22, %30 ], [ 22, %34 ], [ 22, %41 ], [ 0, %.critedge.thread ], [ %.sroa.29.3, %.critedge5.thread ], [ 22, %43 ]
+  %.sroa.0277.0 = phi ptr [ %0, %6 ], [ %24, %27 ], [ %0, %11 ], [ %42, %45 ], [ %42, %46 ], [ %20, %19 ], [ %37, %47 ], [ %42, %41 ], [ %24, %25 ], [ %24, %23 ], [ %20, %21 ], [ %42, %43 ], [ %.sroa.0277.3, %.critedge5.thread ], [ %33, %34 ], [ %33, %32 ], [ %29, %30 ], [ %29, %28 ], [ %.3387, %.critedge.thread ]
+  %.sroa.29.0 = phi i32 [ 22, %6 ], [ 75, %27 ], [ 22, %11 ], [ 95, %45 ], [ 95, %46 ], [ 22, %19 ], [ 95, %47 ], [ 22, %41 ], [ 22, %25 ], [ 22, %23 ], [ 22, %21 ], [ 22, %43 ], [ %.sroa.29.3, %.critedge5.thread ], [ 22, %34 ], [ 22, %32 ], [ 22, %30 ], [ 22, %28 ], [ 0, %.critedge.thread ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.0277.0, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.29.0, 1
   ret { ptr, i32 } %.fca.1.insert
@@ -5024,9 +5024,9 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail19from_chars_d
   br i1 %52, label %.lr.ph131.i.i, label %._crit_edge132.i.i, !llvm.loop !88
 
 ._crit_edge132.i.i:                               ; preds = %49, %.lr.ph131.i.i
-  %.483.lcssa.i.i = phi ptr [ %.483126.i.i, %.lr.ph131.i.i ], [ %50, %49 ]
-  %.175.lcssa.i.i = phi i1 [ %.175127.i.i, %.lr.ph131.i.i ], [ %.478.i.i, %49 ]
-  %.4.lcssa.i.i = phi i64 [ %.4128.i.i, %.lr.ph131.i.i ], [ %.7.i.i, %49 ]
+  %.483.lcssa.i.i = phi ptr [ %50, %49 ], [ %.483126.i.i, %.lr.ph131.i.i ]
+  %.175.lcssa.i.i = phi i1 [ %.478.i.i, %49 ], [ %.175127.i.i, %.lr.ph131.i.i ]
+  %.4.lcssa.i.i = phi i64 [ %.7.i.i, %49 ], [ %.4128.i.i, %.lr.ph131.i.i ]
   br i1 %.175.lcssa.i.i, label %_ZN5boost8charconv6detail10from_charsImEENS0_19from_chars_result_tIcEEPKcS6_RT_i.exit, label %._crit_edge132.thread.i.i
 
 ._crit_edge132.thread.i.i:                        ; preds = %._crit_edge132.i.i, %._crit_edge.i.i
@@ -5036,8 +5036,8 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail19from_chars_d
   br label %_ZN5boost8charconv6detail10from_charsImEENS0_19from_chars_result_tIcEEPKcS6_RT_i.exit
 
 _ZN5boost8charconv6detail10from_charsImEENS0_19from_chars_result_tIcEEPKcS6_RT_i.exit: ; preds = %4, %8, %10, %10, %10, %12, %._crit_edge132.i.i, %._crit_edge132.thread.i.i
-  %.sroa.0.0.i.i = phi ptr [ %0, %4 ], [ %0, %10 ], [ %0, %10 ], [ %0, %10 ], [ %.483.lcssa152.i.i, %._crit_edge132.thread.i.i ], [ %.483.lcssa.i.i, %._crit_edge132.i.i ], [ %0, %8 ], [ %0, %12 ]
-  %.sroa.7.0.i.i = phi i32 [ 22, %4 ], [ 22, %10 ], [ 22, %10 ], [ 22, %10 ], [ 0, %._crit_edge132.thread.i.i ], [ 34, %._crit_edge132.i.i ], [ 22, %8 ], [ 22, %12 ]
+  %.sroa.0.0.i.i = phi ptr [ %0, %4 ], [ %0, %8 ], [ %0, %10 ], [ %0, %10 ], [ %0, %10 ], [ %.483.lcssa.i.i, %._crit_edge132.i.i ], [ %.483.lcssa152.i.i, %._crit_edge132.thread.i.i ], [ %0, %12 ]
+  %.sroa.7.0.i.i = phi i32 [ 22, %4 ], [ 22, %8 ], [ 22, %10 ], [ 22, %10 ], [ 22, %10 ], [ 34, %._crit_edge132.i.i ], [ 0, %._crit_edge132.thread.i.i ], [ 22, %12 ]
   %.fca.0.insert.i.i = insertvalue { ptr, i32 } poison, ptr %.sroa.0.0.i.i, 0
   %.fca.1.insert.i.i = insertvalue { ptr, i32 } %.fca.0.insert.i.i, i32 %.sroa.7.0.i.i, 1
   ret { ptr, i32 } %.fca.1.insert.i.i
@@ -5169,7 +5169,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost8charconv6detail10num_digitsImE
   br label %39
 
 39:                                               ; preds = %37, %33, %35, %29, %25, %27, %19, %17, %13, %7, %9, %11
-  %.0 = phi i32 [ %., %11 ], [ 18, %9 ], [ 17, %7 ], [ %.21, %13 ], [ %.22, %17 ], [ %.23, %19 ], [ %.24, %27 ], [ 8, %25 ], [ %.25, %29 ], [ %.26, %35 ], [ 3, %33 ], [ %.27, %37 ]
+  %.0 = phi i32 [ %., %11 ], [ 3, %33 ], [ %.27, %37 ], [ 18, %9 ], [ %.21, %13 ], [ 17, %7 ], [ %.22, %17 ], [ 8, %25 ], [ %.23, %19 ], [ %.25, %29 ], [ %.24, %27 ], [ %.26, %35 ]
   ret i32 %.0
 }
 
@@ -5198,10 +5198,10 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail23from_chars_i
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1
   br label %.thread
 
-.thread:                                          ; preds = %10, %8, %12
-  %.088114 = phi ptr [ %13, %12 ], [ %0, %8 ], [ %0, %10 ]
-  %.096113 = phi i1 [ true, %12 ], [ false, %8 ], [ false, %10 ]
-  %14 = phi i64 [ -9223372036854775808, %12 ], [ 9223372036854775807, %8 ], [ 9223372036854775807, %10 ]
+.thread:                                          ; preds = %8, %10, %12
+  %.088114 = phi ptr [ %13, %12 ], [ %0, %10 ], [ %0, %8 ]
+  %.096113 = phi i1 [ true, %12 ], [ false, %10 ], [ false, %8 ]
+  %14 = phi i64 [ -9223372036854775808, %12 ], [ 9223372036854775807, %10 ], [ 9223372036854775807, %8 ]
   %15 = udiv i64 %14, %9
   %16 = urem i64 %14, %9
   %17 = icmp eq ptr %.088114, %1
@@ -5297,9 +5297,9 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail23from_chars_i
   br i1 %57, label %.lr.ph146, label %._crit_edge147, !llvm.loop !90
 
 ._crit_edge147:                                   ; preds = %.lr.ph146, %54
-  %.593.lcssa = phi ptr [ %.593141, %.lr.ph146 ], [ %55, %54 ]
-  %.184.lcssa = phi i1 [ %.184142, %.lr.ph146 ], [ %.487, %54 ]
-  %.4.lcssa = phi i64 [ %.4143, %.lr.ph146 ], [ %.7, %54 ]
+  %.593.lcssa = phi ptr [ %55, %54 ], [ %.593141, %.lr.ph146 ]
+  %.184.lcssa = phi i1 [ %.487, %54 ], [ %.184142, %.lr.ph146 ]
+  %.4.lcssa = phi i64 [ %.7, %54 ], [ %.4143, %.lr.ph146 ]
   br i1 %.184.lcssa, label %.thread123, label %._crit_edge147.thread
 
 ._crit_edge147.thread:                            ; preds = %._crit_edge, %._crit_edge147
@@ -5311,8 +5311,8 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail23from_chars_i
   br label %.thread123
 
 .thread123:                                       ; preds = %18, %._crit_edge147, %10, %10, %.thread, %._crit_edge147.thread, %4
-  %.sroa.0.0 = phi ptr [ %0, %4 ], [ %0, %10 ], [ %0, %10 ], [ %0, %.thread ], [ %.593.lcssa167, %._crit_edge147.thread ], [ %.593.lcssa, %._crit_edge147 ], [ %0, %18 ]
-  %.sroa.7.0 = phi i32 [ 22, %4 ], [ 22, %10 ], [ 22, %10 ], [ 22, %.thread ], [ 0, %._crit_edge147.thread ], [ 34, %._crit_edge147 ], [ 22, %18 ]
+  %.sroa.0.0 = phi ptr [ %0, %4 ], [ %0, %10 ], [ %0, %.thread ], [ %0, %10 ], [ %.593.lcssa, %._crit_edge147 ], [ %.593.lcssa167, %._crit_edge147.thread ], [ %0, %18 ]
+  %.sroa.7.0 = phi i32 [ 22, %4 ], [ 22, %10 ], [ 22, %.thread ], [ 22, %10 ], [ 34, %._crit_edge147 ], [ 0, %._crit_edge147.thread ], [ 22, %18 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.7.0, 1
   ret { ptr, i32 } %.fca.1.insert
@@ -5448,8 +5448,8 @@ define linkonce_odr hidden noundef double @_ZN5boost8charconv6detail15compute_fl
   br label %87
 
 87:                                               ; preds = %60, %78, %.critedge
-  %storemerge86 = phi i8 [ 1, %78 ], [ 0, %.critedge ], [ 0, %60 ]
-  %.1 = phi double [ %86, %78 ], [ 0.000000e+00, %.critedge ], [ 0.000000e+00, %60 ]
+  %storemerge86 = phi i8 [ 0, %60 ], [ 1, %78 ], [ 0, %.critedge ]
+  %.1 = phi double [ 0.000000e+00, %60 ], [ %86, %78 ], [ 0.000000e+00, %.critedge ]
   store i8 %storemerge86, ptr %3, align 1, !tbaa !3
   br label %88
 
@@ -5687,8 +5687,8 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail10fast_float19
   br label %.critedge171.i
 
 .critedge171.i:                                   ; preds = %97, %95, %90
-  %.0139.i = phi i1 [ true, %95 ], [ false, %97 ], [ false, %90 ]
-  %.5.i = phi ptr [ %96, %95 ], [ %spec.select.i, %97 ], [ %91, %90 ]
+  %.0139.i = phi i1 [ true, %95 ], [ false, %90 ], [ false, %97 ]
+  %.5.i = phi ptr [ %96, %95 ], [ %91, %90 ], [ %spec.select.i, %97 ]
   %.5.i271 = ptrtoint ptr %.5.i to i64
   %100 = icmp eq ptr %.5.i, %1
   br i1 %100, label %117, label %101
@@ -6021,8 +6021,8 @@ _ZN5boost8charconv6detail10fast_float29compute_product_approximationILi55EEENS2_
   br label %_ZN5boost8charconv6detail10fast_float13compute_floatINS2_13binary_formatIdEEEENS2_17adjusted_mantissaElm.exit
 
 _ZN5boost8charconv6detail10fast_float13compute_floatINS2_13binary_formatIdEEEENS2_17adjusted_mantissaElm.exit: ; preds = %257, %246, %206, %202, %249
-  %.sroa.19.1 = phi i32 [ %256, %249 ], [ 0, %202 ], [ 2047, %206 ], [ 0, %246 ], [ %spec.select187, %257 ]
-  %.sroa.0130.2 = phi i64 [ %254, %249 ], [ 0, %202 ], [ 0, %206 ], [ 0, %246 ], [ %spec.select188, %257 ]
+  %.sroa.19.1 = phi i32 [ 0, %246 ], [ 0, %202 ], [ 2047, %206 ], [ %256, %249 ], [ %spec.select187, %257 ]
+  %.sroa.0130.2 = phi i64 [ 0, %246 ], [ 0, %202 ], [ 0, %206 ], [ %254, %249 ], [ %spec.select188, %257 ]
   br i1 %161, label %272, label %.thread168
 
 272:                                              ; preds = %_ZN5boost8charconv6detail10fast_float13compute_floatINS2_13binary_formatIdEEEENS2_17adjusted_mantissaElm.exit
@@ -6125,8 +6125,8 @@ _ZN5boost8charconv6detail10fast_float29compute_product_approximationILi55EEENS2_
   br label %_ZN5boost8charconv6detail10fast_float13compute_floatINS2_13binary_formatIdEEEENS2_17adjusted_mantissaElm.exit98
 
 _ZN5boost8charconv6detail10fast_float13compute_floatINS2_13binary_formatIdEEEENS2_17adjusted_mantissaElm.exit98: ; preds = %326, %315, %275, %272, %318
-  %.sroa.19144.1 = phi i32 [ %325, %318 ], [ 0, %272 ], [ 2047, %275 ], [ 0, %315 ], [ %spec.select189, %326 ]
-  %.sroa.0138.2 = phi i64 [ %323, %318 ], [ 0, %272 ], [ 0, %275 ], [ 0, %315 ], [ %spec.select190, %326 ]
+  %.sroa.19144.1 = phi i32 [ 0, %315 ], [ 0, %272 ], [ 2047, %275 ], [ %325, %318 ], [ %spec.select189, %326 ]
+  %.sroa.0138.2 = phi i64 [ 0, %315 ], [ 0, %272 ], [ 0, %275 ], [ %323, %318 ], [ %spec.select190, %326 ]
   %.not.i117 = icmp ne i64 %.sroa.0130.2, %.sroa.0138.2
   %341 = icmp ne i32 %.sroa.19.1, %.sroa.19144.1
   %342 = select i1 %.not.i117, i1 true, i1 %341
@@ -6277,8 +6277,8 @@ _ZN5boost8charconv6detail10fast_float10digit_compIdcEENS2_17adjusted_mantissaERN
   br label %418
 
 418:                                              ; preds = %.thread168, %195, %200, %183, %184, %193, %156
-  %.sroa.075.1 = phi ptr [ %.9.i, %193 ], [ %158, %156 ], [ %.9.i, %184 ], [ %.9.i, %183 ], [ %.9.i, %200 ], [ %.9.i, %195 ], [ %.9.i, %.thread168 ]
-  %.sroa.7.1 = phi i32 [ 0, %193 ], [ %159, %156 ], [ 0, %184 ], [ 0, %183 ], [ 0, %200 ], [ 0, %195 ], [ %spec.select, %.thread168 ]
+  %.sroa.075.1 = phi ptr [ %.9.i, %195 ], [ %158, %156 ], [ %.9.i, %193 ], [ %.9.i, %183 ], [ %.9.i, %184 ], [ %.9.i, %200 ], [ %.9.i, %.thread168 ]
+  %.sroa.7.1 = phi i32 [ 0, %195 ], [ %159, %156 ], [ 0, %193 ], [ 0, %183 ], [ 0, %184 ], [ 0, %200 ], [ %spec.select, %.thread168 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %419
 
@@ -6429,8 +6429,8 @@ _ZN5boost8charconv6detail10fast_float21fastfloat_strncasecmpIcEEbPKT_S6_m.exit52
   br label %.loopexit
 
 .loopexit:                                        ; preds = %36, %32, %3, %_ZN5boost8charconv6detail10fast_float21fastfloat_strncasecmpIcEEbPKT_S6_m.exit47, %19, %22, %.lr.ph._crit_edge, %62
-  %.sroa.7.0 = phi i32 [ 0, %62 ], [ 0, %.lr.ph._crit_edge ], [ 0, %22 ], [ 0, %19 ], [ 22, %_ZN5boost8charconv6detail10fast_float21fastfloat_strncasecmpIcEEbPKT_S6_m.exit47 ], [ 22, %3 ], [ 0, %32 ], [ 0, %36 ]
-  %.sroa.0.2 = phi ptr [ %63, %62 ], [ %28, %.lr.ph._crit_edge ], [ %20, %22 ], [ %20, %19 ], [ %0, %_ZN5boost8charconv6detail10fast_float21fastfloat_strncasecmpIcEEbPKT_S6_m.exit47 ], [ %0, %3 ], [ %20, %32 ], [ %20, %36 ]
+  %.sroa.7.0 = phi i32 [ 0, %19 ], [ 0, %62 ], [ 0, %.lr.ph._crit_edge ], [ 22, %_ZN5boost8charconv6detail10fast_float21fastfloat_strncasecmpIcEEbPKT_S6_m.exit47 ], [ 22, %3 ], [ 0, %22 ], [ 0, %32 ], [ 0, %36 ]
+  %.sroa.0.2 = phi ptr [ %20, %19 ], [ %63, %62 ], [ %28, %.lr.ph._crit_edge ], [ %0, %_ZN5boost8charconv6detail10fast_float21fastfloat_strncasecmpIcEEbPKT_S6_m.exit47 ], [ %0, %3 ], [ %20, %22 ], [ %20, %32 ], [ %20, %36 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.0.2, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.7.0, 1
   ret { ptr, i32 } %.fca.1.insert
@@ -6633,8 +6633,8 @@ define linkonce_odr hidden { i64, i32 } @_ZN5boost8charconv6detail10fast_float19
   br label %17
 
 17:                                               ; preds = %13, %6
-  %.sroa.14.1 = phi i32 [ %12, %6 ], [ %spec.select, %13 ]
-  %.sroa.0.1 = phi i64 [ %storemerge.i.i, %6 ], [ %spec.select97, %13 ]
+  %.sroa.14.1 = phi i32 [ %spec.select, %13 ], [ %12, %6 ]
+  %.sroa.0.1 = phi i64 [ %spec.select97, %13 ], [ %storemerge.i.i, %6 ]
   %18 = zext nneg i32 %.sroa.14.1 to i64
   %19 = shl nuw nsw i64 %18, 52
   %.sroa.0.1.masked = and i64 %.sroa.0.1, 9218868437227405312
@@ -6855,8 +6855,8 @@ _ZN5boost8charconv6detail10fast_float6bigint4pow2Ej.exit: ; preds = %94, %60, %8
   br i1 %.not24.i, label %_ZNK5boost8charconv6detail10fast_float6bigint7compareERKS3_.exit, label %.preheader.i, !llvm.loop !75
 
 _ZNK5boost8charconv6detail10fast_float6bigint7compareERKS3_.exit: ; preds = %.preheader.i, %112, %119, %_ZN5boost8charconv6detail10fast_float6bigint4pow2Ej.exit, %109
-  %120 = phi i1 [ true, %_ZN5boost8charconv6detail10fast_float6bigint4pow2Ej.exit ], [ false, %109 ], [ false, %.preheader.i ], [ false, %119 ], [ true, %112 ]
-  %.not.i.i53 = phi i1 [ false, %_ZN5boost8charconv6detail10fast_float6bigint4pow2Ej.exit ], [ false, %109 ], [ %.not.i50, %119 ], [ %.not.i50, %112 ], [ %.not.i50, %.preheader.i ]
+  %120 = phi i1 [ false, %109 ], [ true, %_ZN5boost8charconv6detail10fast_float6bigint4pow2Ej.exit ], [ false, %.preheader.i ], [ false, %119 ], [ true, %112 ]
+  %.not.i.i53 = phi i1 [ false, %109 ], [ false, %_ZN5boost8charconv6detail10fast_float6bigint4pow2Ej.exit ], [ %.not.i50, %119 ], [ %.not.i50, %112 ], [ %.not.i50, %.preheader.i ]
   br i1 %.not.i, label %_ZZN5boost8charconv6detail10fast_float19negative_digit_compIdEENS2_17adjusted_mantissaERNS2_6bigintES4_iENKUlRS4_iE0_clES7_i.exit59, label %_ZZN5boost8charconv6detail10fast_float19negative_digit_compIdEENS2_17adjusted_mantissaERNS2_6bigintES4_iENKUlRS4_iE0_clES7_i.exit
 
 _ZZN5boost8charconv6detail10fast_float19negative_digit_compIdEENS2_17adjusted_mantissaERNS2_6bigintES4_iENKUlRS4_iE0_clES7_i.exit: ; preds = %_ZNK5boost8charconv6detail10fast_float6bigint7compareERKS3_.exit
@@ -6895,8 +6895,8 @@ _ZZN5boost8charconv6detail10fast_float19negative_digit_compIdEENS2_17adjusted_ma
   br label %_ZN5boost8charconv6detail10fast_float5roundIdZNS2_19negative_digit_compIdEENS2_17adjusted_mantissaERNS2_6bigintES5_iEUlRS5_iE0_EEvS8_T0_.exit
 
 _ZN5boost8charconv6detail10fast_float5roundIdZNS2_19negative_digit_compIdEENS2_17adjusted_mantissaERNS2_6bigintES5_iEUlRS5_iE0_EEvS8_T0_.exit: ; preds = %_ZZN5boost8charconv6detail10fast_float19negative_digit_compIdEENS2_17adjusted_mantissaERNS2_6bigintES4_iENKUlRS4_iE0_clES7_i.exit59, %_ZZN5boost8charconv6detail10fast_float19negative_digit_compIdEENS2_17adjusted_mantissaERNS2_6bigintES4_iENKUlRS4_iE0_clES7_i.exit
-  %.sroa.12.1 = phi i32 [ %129, %_ZZN5boost8charconv6detail10fast_float19negative_digit_compIdEENS2_17adjusted_mantissaERNS2_6bigintES4_iENKUlRS4_iE0_clES7_i.exit ], [ %135, %_ZZN5boost8charconv6detail10fast_float19negative_digit_compIdEENS2_17adjusted_mantissaERNS2_6bigintES4_iENKUlRS4_iE0_clES7_i.exit59 ]
-  %.sroa.071.1 = phi i64 [ %127, %_ZZN5boost8charconv6detail10fast_float19negative_digit_compIdEENS2_17adjusted_mantissaERNS2_6bigintES4_iENKUlRS4_iE0_clES7_i.exit ], [ %spec.select101, %_ZZN5boost8charconv6detail10fast_float19negative_digit_compIdEENS2_17adjusted_mantissaERNS2_6bigintES4_iENKUlRS4_iE0_clES7_i.exit59 ]
+  %.sroa.12.1 = phi i32 [ %135, %_ZZN5boost8charconv6detail10fast_float19negative_digit_compIdEENS2_17adjusted_mantissaERNS2_6bigintES4_iENKUlRS4_iE0_clES7_i.exit59 ], [ %129, %_ZZN5boost8charconv6detail10fast_float19negative_digit_compIdEENS2_17adjusted_mantissaERNS2_6bigintES4_iENKUlRS4_iE0_clES7_i.exit ]
+  %.sroa.071.1 = phi i64 [ %spec.select101, %_ZZN5boost8charconv6detail10fast_float19negative_digit_compIdEENS2_17adjusted_mantissaERNS2_6bigintES4_iENKUlRS4_iE0_clES7_i.exit59 ], [ %127, %_ZZN5boost8charconv6detail10fast_float19negative_digit_compIdEENS2_17adjusted_mantissaERNS2_6bigintES4_iENKUlRS4_iE0_clES7_i.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.071.1, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.12.1, 1
@@ -7140,9 +7140,9 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail19from_chars_d
   br i1 %53, label %.lr.ph138.i.i, label %._crit_edge139.i.i, !llvm.loop !98
 
 ._crit_edge139.i.i:                               ; preds = %50, %.lr.ph138.i.i
-  %.483.lcssa.i.i = phi ptr [ %.483133.i.i, %.lr.ph138.i.i ], [ %51, %50 ]
-  %.175.lcssa.i.i = phi i1 [ %.175134.i.i, %.lr.ph138.i.i ], [ %.478.i.i, %50 ]
-  %.4.lcssa.i.i = phi i128 [ %.4135.i.i, %.lr.ph138.i.i ], [ %.7.i.i, %50 ]
+  %.483.lcssa.i.i = phi ptr [ %51, %50 ], [ %.483133.i.i, %.lr.ph138.i.i ]
+  %.175.lcssa.i.i = phi i1 [ %.478.i.i, %50 ], [ %.175134.i.i, %.lr.ph138.i.i ]
+  %.4.lcssa.i.i = phi i128 [ %.7.i.i, %50 ], [ %.4135.i.i, %.lr.ph138.i.i ]
   br i1 %.175.lcssa.i.i, label %_ZN5boost8charconv6detail13from_chars128IoEENS0_19from_chars_result_tIcEEPKcS6_RT_i.exit, label %._crit_edge139.thread.i.i
 
 ._crit_edge139.thread.i.i:                        ; preds = %._crit_edge139.i.i, %._crit_edge.i.i
@@ -7152,8 +7152,8 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail19from_chars_d
   br label %_ZN5boost8charconv6detail13from_chars128IoEENS0_19from_chars_result_tIcEEPKcS6_RT_i.exit
 
 _ZN5boost8charconv6detail13from_chars128IoEENS0_19from_chars_result_tIcEEPKcS6_RT_i.exit: ; preds = %4, %8, %10, %10, %10, %12, %._crit_edge139.i.i, %._crit_edge139.thread.i.i
-  %.sroa.0.0.i.i = phi ptr [ %0, %4 ], [ %0, %10 ], [ %0, %10 ], [ %0, %10 ], [ %.483.lcssa159.i.i, %._crit_edge139.thread.i.i ], [ %.483.lcssa.i.i, %._crit_edge139.i.i ], [ %0, %8 ], [ %0, %12 ]
-  %.sroa.7.0.i.i = phi i32 [ 22, %4 ], [ 22, %10 ], [ 22, %10 ], [ 22, %10 ], [ 0, %._crit_edge139.thread.i.i ], [ 34, %._crit_edge139.i.i ], [ 22, %8 ], [ 22, %12 ]
+  %.sroa.0.0.i.i = phi ptr [ %0, %4 ], [ %0, %8 ], [ %0, %10 ], [ %0, %10 ], [ %0, %10 ], [ %.483.lcssa.i.i, %._crit_edge139.i.i ], [ %.483.lcssa159.i.i, %._crit_edge139.thread.i.i ], [ %0, %12 ]
+  %.sroa.7.0.i.i = phi i32 [ 22, %4 ], [ 22, %8 ], [ 22, %10 ], [ 22, %10 ], [ 22, %10 ], [ 34, %._crit_edge139.i.i ], [ 0, %._crit_edge139.thread.i.i ], [ 22, %12 ]
   %.fca.0.insert.i.i = insertvalue { ptr, i32 } poison, ptr %.sroa.0.0.i.i, 0
   %.fca.1.insert.i.i = insertvalue { ptr, i32 } %.fca.0.insert.i.i, i32 %.sroa.7.0.i.i, 1
   ret { ptr, i32 } %.fca.1.insert.i.i

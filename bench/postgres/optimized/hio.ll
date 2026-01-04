@@ -434,8 +434,8 @@ BufferGetPage.exit203:                            ; preds = %163, %169
   br label %179
 
 179:                                              ; preds = %BufferGetPage.exit199, %140, %106, %BufferGetPage.exit196, %127, %178, %161
-  %.sink = phi i32 [ %2, %178 ], [ %143, %161 ], [ %.0.i, %127 ], [ %.0.i, %BufferGetPage.exit196 ], [ %.0.i, %106 ], [ %2, %140 ], [ %2, %BufferGetPage.exit199 ]
-  %.0158 = phi i32 [ %143, %178 ], [ %143, %161 ], [ %.0.i, %127 ], [ %.0.i, %BufferGetPage.exit196 ], [ %.0.i, %106 ], [ %2, %140 ], [ %2, %BufferGetPage.exit199 ]
+  %.sink = phi i32 [ %.0.i, %106 ], [ %2, %178 ], [ %143, %161 ], [ %.0.i, %127 ], [ %.0.i, %BufferGetPage.exit196 ], [ %2, %140 ], [ %2, %BufferGetPage.exit199 ]
+  %.0158 = phi i32 [ %.0.i, %106 ], [ %143, %178 ], [ %143, %161 ], [ %.0.i, %127 ], [ %.0.i, %BufferGetPage.exit196 ], [ %2, %140 ], [ %2, %BufferGetPage.exit199 ]
   call void @LockBuffer(i32 noundef %.sink, i32 noundef 2) #7
   %180 = call fastcc zeroext i1 @GetVisibilityMapPins(ptr noundef %0, i32 noundef %.0158, i32 noundef %2, i32 noundef %.5239, i32 noundef %.0155, ptr noundef %5, ptr noundef %6)
   %181 = icmp slt i32 %.0158, 0
@@ -860,9 +860,9 @@ BufferGetPage.exit209:                            ; preds = %306, %312
   br label %RelationGetSmgr.exit
 
 RelationGetSmgr.exit:                             ; preds = %345, %.loopexit, %203, %199
-  %.sink302 = phi ptr [ %.pre.i, %203 ], [ %201, %199 ], [ %.pre.i213, %345 ], [ %343, %.loopexit ]
-  %.sink300 = phi i32 [ %.5239, %203 ], [ %.5239, %199 ], [ %305, %345 ], [ %305, %.loopexit ]
-  %.0 = phi i32 [ %.0158, %203 ], [ %.0158, %199 ], [ %248, %345 ], [ %248, %.loopexit ]
+  %.sink302 = phi ptr [ %201, %199 ], [ %.pre.i, %203 ], [ %.pre.i213, %345 ], [ %343, %.loopexit ]
+  %.sink300 = phi i32 [ %.5239, %199 ], [ %.5239, %203 ], [ %305, %345 ], [ %305, %.loopexit ]
+  %.0 = phi i32 [ %.0158, %199 ], [ %.0158, %203 ], [ %248, %345 ], [ %248, %.loopexit ]
   %349 = getelementptr inbounds nuw i8, ptr %.sink302, i64 16
   store i32 %.sink300, ptr %349, align 8
   ret i32 %.0
@@ -1053,7 +1053,7 @@ BufferGetPage.exit65:                             ; preds = %55, %59
   br label %.thread
 
 .thread:                                          ; preds = %68, %77, %76, %.thread.sink.split, %30, %BufferGetPage.exit.us.us.us, %37, %BufferGetPage.exit.us.us72
-  %.us-phi = phi i1 [ false, %30 ], [ false, %BufferGetPage.exit.us.us.us ], [ false, %37 ], [ false, %BufferGetPage.exit.us.us72 ], [ true, %.thread.sink.split ], [ true, %77 ], [ %.050, %68 ], [ true, %76 ]
+  %.us-phi = phi i1 [ false, %37 ], [ false, %BufferGetPage.exit.us.us72 ], [ false, %BufferGetPage.exit.us.us.us ], [ true, %.thread.sink.split ], [ false, %30 ], [ %.050, %68 ], [ true, %76 ], [ true, %77 ]
   ret i1 %.us-phi
 }
 

@@ -354,7 +354,7 @@ define range(i32 0, 2) i32 @CMS_RecipientEncryptedKey_get0_id(ptr noundef readon
   br label %45
 
 45:                                               ; preds = %.sink.split, %24, %44, %6
-  %.0 = phi i32 [ 0, %6 ], [ 1, %44 ], [ 1, %24 ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ 0, %6 ], [ 1, %24 ], [ 1, %44 ], [ 1, %.sink.split ]
   ret i32 %.0
 }
 
@@ -430,7 +430,7 @@ define range(i32 0, 2) i32 @CMS_RecipientInfo_kari_set0_pkey_and_peer(ptr nounde
   br label %27
 
 27:                                               ; preds = %3, %26, %25
-  %.0 = phi i32 [ 0, %26 ], [ 1, %25 ], [ 1, %3 ]
+  %.0 = phi i32 [ 1, %25 ], [ 0, %26 ], [ 1, %3 ]
   ret i32 %.0
 }
 
@@ -483,7 +483,7 @@ define range(i32 0, 2) i32 @CMS_RecipientInfo_kari_set0_pkey(ptr noundef readonl
   br label %CMS_RecipientInfo_kari_set0_pkey_and_peer.exit
 
 CMS_RecipientInfo_kari_set0_pkey_and_peer.exit:   ; preds = %2, %19, %20
-  %.0.i = phi i32 [ 0, %20 ], [ 1, %19 ], [ 1, %2 ]
+  %.0.i = phi i32 [ 1, %19 ], [ 0, %20 ], [ 1, %2 ]
   ret i32 %.0.i
 }
 
@@ -805,8 +805,8 @@ cms_kari_create_ephemeral_key.exit:               ; preds = %60
   store ptr %2, ptr %85, align 8, !tbaa !66
   br label %.critedge
 
-.critedge:                                        ; preds = %cms_kari_create_ephemeral_key.exit.thread, %66, %72, %76, %78, %38, %36, %27, %13, %7, %81, %83, %22
-  %.0 = phi i32 [ 1, %83 ], [ 0, %81 ], [ 0, %22 ], [ 0, %7 ], [ 0, %13 ], [ 0, %27 ], [ 0, %36 ], [ 0, %38 ], [ 0, %78 ], [ 0, %76 ], [ 0, %72 ], [ 0, %66 ], [ 0, %cms_kari_create_ephemeral_key.exit.thread ]
+.critedge:                                        ; preds = %cms_kari_create_ephemeral_key.exit.thread, %76, %66, %78, %72, %38, %36, %27, %13, %7, %81, %83, %22
+  %.0 = phi i32 [ 0, %22 ], [ 0, %7 ], [ 0, %13 ], [ 1, %83 ], [ 0, %38 ], [ 0, %81 ], [ 0, %27 ], [ 0, %36 ], [ 0, %cms_kari_create_ephemeral_key.exit.thread ], [ 0, %72 ], [ 0, %78 ], [ 0, %66 ], [ 0, %76 ]
   ret i32 %.0
 }
 
@@ -890,81 +890,81 @@ define range(i32 0, 2) i32 @ossl_cms_RecipientInfo_kari_encrypt(ptr noundef %0, 
   %18 = tail call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef %.val) #5
   store ptr %18, ptr %3, align 8, !tbaa !68
   %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %19, label %cms_wrap_init.exit
+  br i1 %.not.i, label %22, label %19
 
 19:                                               ; preds = %8
-  %20 = icmp eq ptr %15, null
-  br i1 %20, label %cms_wrap_init.exit.thread, label %21
-
-21:                                               ; preds = %19
-  %22 = tail call i32 @EVP_CIPHER_get_key_length(ptr noundef nonnull %15) #5
-  %23 = tail call i64 @EVP_CIPHER_get_flags(ptr noundef nonnull %15) #5
-  %24 = and i64 %23, 67108864
-  %.not25.i = icmp eq i64 %24, 0
-  br i1 %.not25.i, label %36, label %25
-
-25:                                               ; preds = %21
-  %26 = tail call ptr @EVP_CIPHER_meth_get_ctrl(ptr noundef nonnull %15) #5
-  %27 = call i32 %26(ptr noundef null, i32 noundef 41, i32 noundef 0, ptr noundef nonnull %3) #5
-  %28 = icmp slt i32 %27, 1
-  br i1 %28, label %cms_wrap_init.exit.thread, label %29
-
-29:                                               ; preds = %25
-  %30 = load ptr, ptr %3, align 8, !tbaa !68
-  %.not26.i = icmp eq ptr %30, null
-  br i1 %.not26.i, label %36, label %31
-
-31:                                               ; preds = %29
-  %32 = call i32 @EVP_CIPHER_get_mode(ptr noundef nonnull %30) #5
-  %.not27.i = icmp eq i32 %32, 65538
-  br i1 %.not27.i, label %33, label %cms_wrap_init.exit.thread
-
-33:                                               ; preds = %31
-  %34 = load ptr, ptr %3, align 8, !tbaa !68
-  %35 = call ptr @EVP_CIPHER_get0_name(ptr noundef %34) #5
-  br label %43
-
-36:                                               ; preds = %29, %21
-  %37 = call i32 @EVP_CIPHER_get_type(ptr noundef nonnull %15) #5
-  %38 = icmp eq i32 %37, 44
-  br i1 %38, label %43, label %39
-
-39:                                               ; preds = %36
-  %40 = icmp slt i32 %22, 17
-  br i1 %40, label %43, label %41
-
-41:                                               ; preds = %39
-  %42 = icmp samesign ult i32 %22, 25
-  %.str.3..str.4.i = select i1 %42, ptr @.str.3, ptr @.str.4
-  br label %43
-
-43:                                               ; preds = %41, %39, %36, %33
-  %.020.i = phi ptr [ %35, %33 ], [ @.str.1, %36 ], [ @.str.2, %39 ], [ %.str.3..str.4.i, %41 ]
-  %44 = call ptr @ossl_cms_ctx_get0_libctx(ptr noundef %.val33) #5
-  %45 = call ptr @ossl_cms_ctx_get0_propq(ptr noundef %.val33) #5
-  %46 = call ptr @EVP_CIPHER_fetch(ptr noundef %44, ptr noundef %.020.i, ptr noundef %45) #5
-  %47 = icmp eq ptr %46, null
-  br i1 %47, label %cms_wrap_init.exit.thread, label %48
-
-48:                                               ; preds = %43
-  %49 = call i32 @EVP_EncryptInit_ex(ptr noundef %.val, ptr noundef nonnull %46, ptr noundef null, ptr noundef null, ptr noundef null) #5
-  call void @EVP_CIPHER_free(ptr noundef nonnull %46) #5
-  %50 = icmp eq i32 %49, 0
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %50, label %.loopexit, label %53
-
-cms_wrap_init.exit.thread:                        ; preds = %19, %25, %31, %43
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.loopexit
-
-cms_wrap_init.exit:                               ; preds = %8
-  %51 = tail call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef %.val) #5
-  %52 = tail call i32 @EVP_CIPHER_get_mode(ptr noundef %51) #5
-  %.not28.i.not = icmp eq i32 %52, 65538
+  %20 = tail call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef %.val) #5
+  %21 = tail call i32 @EVP_CIPHER_get_mode(ptr noundef %20) #5
+  %.not28.i.not = icmp eq i32 %21, 65538
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not28.i.not, label %53, label %.loopexit
 
-53:                                               ; preds = %48, %cms_wrap_init.exit
+22:                                               ; preds = %8
+  %23 = icmp eq ptr %15, null
+  br i1 %23, label %cms_wrap_init.exit.thread, label %24
+
+24:                                               ; preds = %22
+  %25 = tail call i32 @EVP_CIPHER_get_key_length(ptr noundef nonnull %15) #5
+  %26 = tail call i64 @EVP_CIPHER_get_flags(ptr noundef nonnull %15) #5
+  %27 = and i64 %26, 67108864
+  %.not25.i = icmp eq i64 %27, 0
+  br i1 %.not25.i, label %39, label %28
+
+28:                                               ; preds = %24
+  %29 = tail call ptr @EVP_CIPHER_meth_get_ctrl(ptr noundef nonnull %15) #5
+  %30 = call i32 %29(ptr noundef null, i32 noundef 41, i32 noundef 0, ptr noundef nonnull %3) #5
+  %31 = icmp slt i32 %30, 1
+  br i1 %31, label %cms_wrap_init.exit.thread, label %32
+
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %3, align 8, !tbaa !68
+  %.not26.i = icmp eq ptr %33, null
+  br i1 %.not26.i, label %39, label %34
+
+34:                                               ; preds = %32
+  %35 = call i32 @EVP_CIPHER_get_mode(ptr noundef nonnull %33) #5
+  %.not27.i = icmp eq i32 %35, 65538
+  br i1 %.not27.i, label %36, label %cms_wrap_init.exit.thread
+
+36:                                               ; preds = %34
+  %37 = load ptr, ptr %3, align 8, !tbaa !68
+  %38 = call ptr @EVP_CIPHER_get0_name(ptr noundef %37) #5
+  br label %46
+
+39:                                               ; preds = %32, %24
+  %40 = call i32 @EVP_CIPHER_get_type(ptr noundef nonnull %15) #5
+  %41 = icmp eq i32 %40, 44
+  br i1 %41, label %46, label %42
+
+42:                                               ; preds = %39
+  %43 = icmp slt i32 %25, 17
+  br i1 %43, label %46, label %44
+
+44:                                               ; preds = %42
+  %45 = icmp samesign ult i32 %25, 25
+  %.str.3..str.4.i = select i1 %45, ptr @.str.3, ptr @.str.4
+  br label %46
+
+46:                                               ; preds = %44, %42, %39, %36
+  %.020.i = phi ptr [ %38, %36 ], [ @.str.2, %42 ], [ @.str.1, %39 ], [ %.str.3..str.4.i, %44 ]
+  %47 = call ptr @ossl_cms_ctx_get0_libctx(ptr noundef %.val33) #5
+  %48 = call ptr @ossl_cms_ctx_get0_propq(ptr noundef %.val33) #5
+  %49 = call ptr @EVP_CIPHER_fetch(ptr noundef %47, ptr noundef %.020.i, ptr noundef %48) #5
+  %50 = icmp eq ptr %49, null
+  br i1 %50, label %cms_wrap_init.exit.thread, label %cms_wrap_init.exit
+
+cms_wrap_init.exit.thread:                        ; preds = %34, %22, %28, %46
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  br label %.loopexit
+
+cms_wrap_init.exit:                               ; preds = %46
+  %51 = call i32 @EVP_EncryptInit_ex(ptr noundef %.val, ptr noundef nonnull %49, ptr noundef null, ptr noundef null, ptr noundef null) #5
+  call void @EVP_CIPHER_free(ptr noundef nonnull %49) #5
+  %52 = icmp eq i32 %51, 0
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  br i1 %52, label %.loopexit, label %53
+
+53:                                               ; preds = %19, %cms_wrap_init.exit
   %54 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !23
   %56 = load i32, ptr %55, align 8, !tbaa !26
@@ -1002,8 +1002,8 @@ cms_wrap_init.exit:                               ; preds = %8
   %69 = getelementptr inbounds nuw i8, ptr %13, i64 40
   br label %70
 
-70:                                               ; preds = %.lr.ph, %.critedge
-  %.02836 = phi i32 [ 0, %.lr.ph ], [ %86, %.critedge ]
+70:                                               ; preds = %.lr.ph, %81
+  %.02836 = phi i32 [ 0, %.lr.ph ], [ %87, %81 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %71 = call ptr @OPENSSL_sk_value(ptr noundef %12, i32 noundef %.02836) #5
@@ -1012,36 +1012,36 @@ cms_wrap_init.exit:                               ; preds = %8
   %74 = load ptr, ptr %73, align 8, !tbaa !66
   %75 = call i32 @EVP_PKEY_derive_set_peer(ptr noundef %72, ptr noundef %74) #5
   %76 = icmp slt i32 %75, 1
-  br i1 %76, label %89, label %77
+  br i1 %76, label %.critedge, label %77
 
 77:                                               ; preds = %70
   %78 = load ptr, ptr %68, align 8, !tbaa !57
   %79 = load i64, ptr %69, align 8, !tbaa !61
   %80 = call fastcc i32 @cms_kek_cipher(ptr noundef %4, ptr noundef %5, ptr noundef %78, i64 noundef %79, ptr noundef nonnull %10, i32 noundef 1)
   %.not32 = icmp eq i32 %80, 0
-  br i1 %.not32, label %89, label %.critedge
+  br i1 %.not32, label %.critedge, label %81
 
-.critedge:                                        ; preds = %77
-  %81 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %82 = load ptr, ptr %81, align 8, !tbaa !52
-  %83 = load ptr, ptr %4, align 8, !tbaa !50
-  %84 = load i64, ptr %5, align 8, !tbaa !62
-  %85 = trunc i64 %84 to i32
-  call void @ASN1_STRING_set0(ptr noundef %82, ptr noundef %83, i32 noundef %85) #5
+81:                                               ; preds = %77
+  %82 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %83 = load ptr, ptr %82, align 8, !tbaa !52
+  %84 = load ptr, ptr %4, align 8, !tbaa !50
+  %85 = load i64, ptr %5, align 8, !tbaa !62
+  %86 = trunc i64 %85 to i32
+  call void @ASN1_STRING_set0(ptr noundef %83, ptr noundef %84, i32 noundef %86) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %86 = add nuw nsw i32 %.02836, 1
-  %87 = call i32 @OPENSSL_sk_num(ptr noundef %12) #5
-  %88 = icmp slt i32 %86, %87
-  br i1 %88, label %70, label %.loopexit, !llvm.loop !69
+  %87 = add nuw nsw i32 %.02836, 1
+  %88 = call i32 @OPENSSL_sk_num(ptr noundef %12) #5
+  %89 = icmp slt i32 %87, %88
+  br i1 %89, label %70, label %.loopexit, !llvm.loop !69
 
-89:                                               ; preds = %77, %70
+.critedge:                                        ; preds = %77, %70
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.critedge, %48, %.preheader, %cms_wrap_init.exit.thread, %89, %63, %cms_wrap_init.exit, %58, %62, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %89 ], [ 0, %58 ], [ 0, %62 ], [ 0, %cms_wrap_init.exit ], [ 0, %63 ], [ 0, %cms_wrap_init.exit.thread ], [ 1, %.preheader ], [ 0, %48 ], [ 1, %.critedge ]
+.loopexit:                                        ; preds = %81, %19, %.preheader, %cms_wrap_init.exit.thread, %.critedge, %63, %cms_wrap_init.exit, %58, %62, %7
+  %.0 = phi i32 [ 0, %7 ], [ 0, %.critedge ], [ 0, %63 ], [ 0, %cms_wrap_init.exit ], [ 0, %58 ], [ 0, %62 ], [ 0, %cms_wrap_init.exit.thread ], [ 1, %.preheader ], [ 0, %19 ], [ 1, %81 ]
   ret i32 %.0
 }
 

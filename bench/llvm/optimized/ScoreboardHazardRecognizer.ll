@@ -384,7 +384,7 @@ _ZNK4llvm11ScheduleDAG12getInstrDescEPKNS_5SUnitE.exit: ; preds = %17, %20
   br i1 %.not43.not, label %.loopexit, label %.preheader, !llvm.loop !75
 
 .loopexit:                                        ; preds = %.thread47, %83, %24, %_ZNK4llvm11ScheduleDAG12getInstrDescEPKNS_5SUnitE.exit, %3, %6
-  %.030 = phi i32 [ 0, %6 ], [ 0, %3 ], [ 0, %_ZNK4llvm11ScheduleDAG12getInstrDescEPKNS_5SUnitE.exit ], [ 0, %24 ], [ 1, %83 ], [ 0, %.thread47 ]
+  %.030 = phi i32 [ 0, %3 ], [ 0, %6 ], [ 0, %_ZNK4llvm11ScheduleDAG12getInstrDescEPKNS_5SUnitE.exit ], [ 1, %83 ], [ 0, %24 ], [ 0, %.thread47 ]
   ret i32 %.030
 }
 

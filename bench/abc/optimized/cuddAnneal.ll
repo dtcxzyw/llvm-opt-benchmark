@@ -372,7 +372,7 @@ siftBackwardProb.exit.thread.i:                   ; preds = %103, %100, %96, %93
   br i1 %.not187196.i, label %ddExchange.exit.thread, label %.lr.ph.i130
 
 .lr.ph.i130:                                      ; preds = %133, %130, %112, %106, %87, %81, %78, %72, %.lr.ph.i.i, %siftBackwardProb.exit.thread.i
-  %.1168221.i = phi ptr [ %.0167.i, %siftBackwardProb.exit.thread.i ], [ %.3.i, %.lr.ph.i.i ], [ %104, %112 ], [ %104, %106 ], [ %79, %87 ], [ %79, %81 ], [ %70, %78 ], [ %70, %72 ], [ %.sink229.i, %130 ], [ %.sink229.i, %133 ]
+  %.1168221.i = phi ptr [ %.0167.i, %siftBackwardProb.exit.thread.i ], [ %104, %106 ], [ %.3.i, %.lr.ph.i.i ], [ %104, %112 ], [ %79, %87 ], [ %79, %81 ], [ %70, %78 ], [ %70, %72 ], [ %.sink229.i, %130 ], [ %.sink229.i, %133 ]
   %.promoted198.i = load ptr, ptr %31, align 8, !tbaa !38
   br label %180
 
@@ -492,7 +492,7 @@ restoreOrder.exit.thread:                         ; preds = %._crit_edge.i, %204
   br label %222
 
 222:                                              ; preds = %221, %restoreOrder.exit.thread, %3, %ddExchange.exit.thread, %17
-  %.0 = phi i32 [ 0, %17 ], [ 0, %ddExchange.exit.thread ], [ 0, %3 ], [ 0, %221 ], [ 1, %restoreOrder.exit.thread ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %17 ], [ 0, %ddExchange.exit.thread ], [ 0, %221 ], [ 1, %restoreOrder.exit.thread ]
   ret i32 %.0
 }
 
@@ -781,7 +781,7 @@ ddJumpingUp.exit:                                 ; preds = %ddJumpingUp.exit.pr
   br label %.loopexit
 
 siftBackwardProb.exit.thread:                     ; preds = %133, %72, %124, %111, %63, %50
-  %.1 = phi ptr [ %23, %50 ], [ %23, %63 ], [ %84, %111 ], [ %84, %124 ], [ %23, %72 ], [ %84, %133 ]
+  %.1 = phi ptr [ %23, %72 ], [ %23, %50 ], [ %23, %63 ], [ %84, %111 ], [ %84, %124 ], [ %84, %133 ]
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %.promoted = load ptr, ptr %141, align 8, !tbaa !38
   br label %142
@@ -824,8 +824,8 @@ siftBackwardProb.exit.thread:                     ; preds = %133, %72, %124, %11
   store ptr %.2104, ptr %141, align 8, !tbaa !38
   br label %.loopexit
 
-.loopexit:                                        ; preds = %77, %97, %..loopexit_crit_edge.i75, %16, %36, %..loopexit_crit_edge.i, %137, %..loopexit_crit_edge, %.loopexit97, %15
-  %.0 = phi i32 [ 1, %15 ], [ 1, %.loopexit97 ], [ 0, %..loopexit_crit_edge ], [ 0, %137 ], [ 0, %..loopexit_crit_edge.i ], [ 0, %36 ], [ 0, %16 ], [ 0, %..loopexit_crit_edge.i75 ], [ 0, %97 ], [ 0, %77 ]
+.loopexit:                                        ; preds = %..loopexit_crit_edge.i75, %97, %..loopexit_crit_edge.i, %36, %77, %16, %137, %..loopexit_crit_edge, %.loopexit97, %15
+  %.0 = phi i32 [ 1, %15 ], [ 1, %.loopexit97 ], [ 0, %..loopexit_crit_edge ], [ 0, %..loopexit_crit_edge.i75 ], [ 0, %137 ], [ 0, %16 ], [ 0, %77 ], [ 0, %36 ], [ 0, %..loopexit_crit_edge.i ], [ 0, %97 ]
   ret i32 %.0
 }
 

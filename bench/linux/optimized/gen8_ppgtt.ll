@@ -253,7 +253,7 @@ define dso_local ptr @gen8_ppgtt_create(ptr noundef %0, i64 noundef %1) local_un
   br label %.thread39
 
 .thread39:                                        ; preds = %82, %130, %..thread39_crit_edge, %91
-  %157 = phi i8 [ %.pre, %..thread39_crit_edge ], [ 0, %91 ], [ %140, %130 ], [ %85, %82 ]
+  %157 = phi i8 [ %.pre, %..thread39_crit_edge ], [ %140, %130 ], [ 0, %91 ], [ %85, %82 ]
   %158 = zext i8 %157 to i64
   %159 = mul nuw nsw i64 %158, 9
   %160 = add nuw nsw i64 %159, 12
@@ -500,7 +500,7 @@ define dso_local ptr @gen8_ppgtt_create(ptr noundef %0, i64 noundef %1) local_un
   br label %296
 
 296:                                              ; preds = %294, %282
-  %297 = phi i32 [ %295, %294 ], [ %267, %282 ]
+  %297 = phi i32 [ %267, %282 ], [ %295, %294 ]
   %298 = icmp eq i32 %297, -35
   br i1 %298, label %299, label %302
 
@@ -854,7 +854,7 @@ define internal void @gen8_ppgtt_insert(ptr noundef readonly captures(none) %0, 
   br label %167
 
 167:                                              ; preds = %164, %159
-  %168 = phi ptr [ %166, %164 ], [ %160, %159 ]
+  %168 = phi ptr [ %160, %159 ], [ %166, %164 ]
   %169 = icmp eq ptr %168, null
   br i1 %169, label %.thread, label %170
 
@@ -1043,7 +1043,7 @@ define internal void @gen8_ppgtt_insert(ptr noundef readonly captures(none) %0, 
   br label %314
 
 314:                                              ; preds = %311, %306
-  %315 = phi ptr [ %313, %311 ], [ %307, %306 ]
+  %315 = phi ptr [ %307, %306 ], [ %313, %311 ]
   %316 = icmp eq ptr %315, null
   br i1 %316, label %.thread33, label %317
 
@@ -1147,7 +1147,7 @@ define internal void @gen8_ppgtt_insert(ptr noundef readonly captures(none) %0, 
   br label %382
 
 382:                                              ; preds = %375, %362, %.thread33
-  %383 = phi i32 [ 65536, %375 ], [ %278, %362 ], [ %278, %.thread33 ]
+  %383 = phi i32 [ 65536, %375 ], [ %278, %.thread33 ], [ %278, %362 ]
   %384 = load i32, ptr %207, align 4
   %385 = or i32 %384, %383
   store i32 %385, ptr %207, align 4
@@ -1251,7 +1251,7 @@ define internal void @gen8_ppgtt_insert(ptr noundef readonly captures(none) %0, 
   br label %462
 
 462:                                              ; preds = %459, %454
-  %463 = phi ptr [ %461, %459 ], [ %455, %454 ]
+  %463 = phi ptr [ %455, %454 ], [ %461, %459 ]
   %464 = icmp eq ptr %463, null
   br i1 %464, label %.thread36, label %465
 

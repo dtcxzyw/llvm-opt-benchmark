@@ -315,7 +315,7 @@ define noundef ptr @dt_get_paper(ptr noundef readonly captures(address_is_null) 
   br i1 %.not, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %5, %8, %.lr.ph, %2
-  %.1 = phi ptr [ null, %2 ], [ %3, %.lr.ph ], [ null, %8 ], [ %3, %5 ]
+  %.1 = phi ptr [ null, %2 ], [ null, %8 ], [ %3, %.lr.ph ], [ %3, %5 ]
   ret ptr %.1
 }
 
@@ -446,7 +446,7 @@ paper_exists.exit:                                ; preds = %.critedge.i, %.preh
   br label %paper_exists.exit.thread
 
 paper_exists.exit.thread:                         ; preds = %28, %.lr.ph.i, %25, %18, %55, %20
-  %.2 = phi ptr [ %49, %55 ], [ %.1102, %20 ], [ %.1102, %18 ], [ %.1102, %25 ], [ %.1102, %.lr.ph.i ], [ %.1102, %28 ]
+  %.2 = phi ptr [ %.1102, %18 ], [ %49, %55 ], [ %.1102, %20 ], [ %.1102, %25 ], [ %.1102, %.lr.ph.i ], [ %.1102, %28 ]
   %56 = add nuw nsw i32 %.070100, 1
   %exitcond.not = icmp eq i32 %56, %14
   br i1 %exitcond.not, label %._crit_edge, label %18
@@ -463,7 +463,7 @@ paper_exists.exit.thread:                         ; preds = %28, %.lr.ph.i, %25,
   br label %62
 
 62:                                               ; preds = %._crit_edge, %60, %57, %1
-  %.0 = phi ptr [ null, %1 ], [ %.1.lcssa, %._crit_edge ], [ null, %60 ], [ null, %57 ]
+  %.0 = phi ptr [ null, %1 ], [ %.1.lcssa, %._crit_edge ], [ null, %57 ], [ null, %60 ]
   %63 = load ptr, ptr %2, align 8, !tbaa !16
   call void @cupsFreeDests(i32 noundef %7, ptr noundef %63) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -563,7 +563,7 @@ paper_exists.exit95:                              ; preds = %.critedge.i92, %.pr
   br label %paper_exists.exit95.thread
 
 paper_exists.exit95.thread:                       ; preds = %84, %.lr.ph.i88, %80, %paper_exists.exit95, %104, %76, %.lr.ph108
-  %.6 = phi ptr [ %.5106, %76 ], [ %.5106, %.lr.ph108 ], [ %101, %104 ], [ %101, %paper_exists.exit95 ], [ %.5106, %80 ], [ %.5106, %.lr.ph.i88 ], [ %.5106, %84 ]
+  %.6 = phi ptr [ %101, %paper_exists.exit95 ], [ %.5106, %.lr.ph108 ], [ %.5106, %76 ], [ %101, %104 ], [ %.5106, %80 ], [ %.5106, %.lr.ph.i88 ], [ %.5106, %84 ]
   %107 = getelementptr inbounds nuw i8, ptr %.069103, i64 72
   %108 = add nuw nsw i32 %.068104, 1
   %109 = load i32, ptr %67, align 8, !tbaa !100
@@ -713,7 +713,7 @@ define noundef ptr @dt_get_medium(ptr noundef readonly captures(address_is_null)
   br i1 %.not, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %5, %8, %.lr.ph, %2
-  %.1 = phi ptr [ null, %2 ], [ %3, %.lr.ph ], [ null, %8 ], [ %3, %5 ]
+  %.1 = phi ptr [ null, %2 ], [ null, %8 ], [ %3, %.lr.ph ], [ %3, %5 ]
   ret ptr %.1
 }
 

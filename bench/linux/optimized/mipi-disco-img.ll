@@ -489,8 +489,8 @@ define dso_local void @acpi_mipi_scan_crs_csi2() local_unnamed_addr #0 align 16 
   br label %.thread30
 
 .thread30:                                        ; preds = %144, %.thread30.loopexit.split.loop.exit47, %154
-  %158 = phi i32 [ %.pre66, %154 ], [ %140, %.thread30.loopexit.split.loop.exit47 ], [ %140, %144 ]
-  %159 = phi i32 [ %156, %154 ], [ %157, %.thread30.loopexit.split.loop.exit47 ], [ -2, %144 ]
+  %158 = phi i32 [ %140, %.thread30.loopexit.split.loop.exit47 ], [ %.pre66, %154 ], [ %140, %144 ]
+  %159 = phi i32 [ %157, %.thread30.loopexit.split.loop.exit47 ], [ %156, %154 ], [ -2, %144 ]
   %160 = icmp ult i32 %159, %158
   br i1 %160, label %161, label %.thread30.thread, !prof !15
 
@@ -544,8 +544,8 @@ define dso_local void @acpi_mipi_scan_crs_csi2() local_unnamed_addr #0 align 16 
   br label %.thread32
 
 .thread32:                                        ; preds = %172, %.thread32.loopexit.split.loop.exit51, %182
-  %186 = phi i32 [ %.pre67, %182 ], [ %166, %.thread32.loopexit.split.loop.exit51 ], [ %166, %172 ]
-  %187 = phi i32 [ %184, %182 ], [ %185, %.thread32.loopexit.split.loop.exit51 ], [ -2, %172 ]
+  %186 = phi i32 [ %166, %.thread32.loopexit.split.loop.exit51 ], [ %.pre67, %182 ], [ %166, %172 ]
+  %187 = phi i32 [ %185, %.thread32.loopexit.split.loop.exit51 ], [ %184, %182 ], [ -2, %172 ]
   %188 = icmp ult i32 %187, %186
   br i1 %188, label %189, label %.thread32.thread, !prof !15
 

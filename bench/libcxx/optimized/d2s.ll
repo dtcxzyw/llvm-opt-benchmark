@@ -119,8 +119,8 @@ _ZNSt3__115__d2d_small_intB8ne210000EmjPNS_21__floating_decimal_64E.exit: ; pred
   br label %53
 
 53:                                               ; preds = %26, %.thread46, %16, %9, %18, %14
-  %.sroa.035.0 = phi ptr [ %15, %14 ], [ %19, %18 ], [ %1, %9 ], [ %1, %16 ], [ %51, %.thread46 ], [ %28, %26 ]
-  %.sroa.7.0 = phi i32 [ 0, %14 ], [ 0, %18 ], [ 75, %9 ], [ 75, %16 ], [ %52, %.thread46 ], [ %29, %26 ]
+  %.sroa.035.0 = phi ptr [ %1, %16 ], [ %15, %14 ], [ %1, %9 ], [ %19, %18 ], [ %51, %.thread46 ], [ %28, %26 ]
+  %.sroa.7.0 = phi i32 [ 75, %16 ], [ 0, %14 ], [ 75, %9 ], [ 0, %18 ], [ %52, %.thread46 ], [ %29, %26 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.035.0, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.7.0, 1
   ret { ptr, i32 } %.fca.1.insert
@@ -409,12 +409,12 @@ _ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit202: ; preds = %.preheader287
   br label %207
 
 207:                                              ; preds = %201, %199, %13, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit196, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit202, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit
-  %.0240 = phi i64 [ %48, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit ], [ %48, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit196 ], [ %122, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit202 ], [ %48, %13 ], [ %159, %201 ], [ %159, %199 ]
-  %.0231 = phi i64 [ %68, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit ], [ %68, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit196 ], [ %68, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit202 ], [ %68, %13 ], [ %179, %201 ], [ %179, %199 ]
-  %.2137.shrunk = phi i1 [ %100, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit ], [ false, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit196 ], [ false, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit202 ], [ false, %13 ], [ %206, %201 ], [ false, %199 ]
-  %.2131.shrunk = phi i1 [ false, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit ], [ %113, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit196 ], [ false, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit202 ], [ false, %13 ], [ false, %201 ], [ false, %199 ]
-  %.0128 = phi i32 [ %17, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit ], [ %17, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit196 ], [ %17, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit202 ], [ %17, %13 ], [ %128, %201 ], [ %128, %199 ]
-  %.0127 = phi i64 [ %85, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit ], [ %85, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit196 ], [ %85, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit202 ], [ %85, %13 ], [ %196, %201 ], [ %196, %199 ]
+  %.0240 = phi i64 [ %48, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit ], [ %48, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit196 ], [ %122, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit202 ], [ %48, %13 ], [ %159, %199 ], [ %159, %201 ]
+  %.0231 = phi i64 [ %68, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit ], [ %68, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit196 ], [ %68, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit202 ], [ %68, %13 ], [ %179, %199 ], [ %179, %201 ]
+  %.2137.shrunk = phi i1 [ %100, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit ], [ false, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit196 ], [ false, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit202 ], [ false, %13 ], [ false, %199 ], [ %206, %201 ]
+  %.2131.shrunk = phi i1 [ false, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit ], [ %113, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit196 ], [ false, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit202 ], [ false, %13 ], [ false, %199 ], [ false, %201 ]
+  %.0128 = phi i32 [ %17, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit ], [ %17, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit196 ], [ %17, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit202 ], [ %17, %13 ], [ %128, %199 ], [ %128, %201 ]
+  %.0127 = phi i64 [ %85, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit ], [ %85, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit196 ], [ %85, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit202 ], [ %85, %13 ], [ %196, %199 ], [ %196, %201 ]
   %208 = or i1 %.2131.shrunk, %.2137.shrunk
   br i1 %208, label %.preheader285, label %263
 
@@ -715,7 +715,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNSt3__110__to_charsB8ne210000EPcS0_NS
   br label %_ZNSt3__117__decimalLength17B8ne210000Em.exit
 
 _ZNSt3__117__decimalLength17B8ne210000Em.exit:    ; preds = %6, %8, %10, %12, %14, %16, %18, %20, %22, %24, %26, %28, %30, %32, %34, %36
-  %.0.i = phi i32 [ 17, %6 ], [ 16, %8 ], [ 15, %10 ], [ 14, %12 ], [ 13, %14 ], [ 12, %16 ], [ 11, %18 ], [ 10, %20 ], [ 9, %22 ], [ 8, %24 ], [ 7, %26 ], [ 6, %28 ], [ 5, %30 ], [ 4, %32 ], [ 3, %34 ], [ %..i, %36 ]
+  %.0.i = phi i32 [ 3, %34 ], [ 17, %6 ], [ 16, %8 ], [ 15, %10 ], [ 14, %12 ], [ 13, %14 ], [ 12, %16 ], [ 11, %18 ], [ 10, %20 ], [ 9, %22 ], [ 8, %24 ], [ 7, %26 ], [ 6, %28 ], [ 5, %30 ], [ 4, %32 ], [ %..i, %36 ]
   %38 = add nsw i32 %.0.i, %3
   %39 = add nsw i32 %38, -1
   switch i32 %4, label %.thread254 [
@@ -1202,8 +1202,8 @@ _ZNSt3__115_BitScanForwardB8ne210000EPmj.exit245: ; preds = %70
   br label %323
 
 323:                                              ; preds = %.thread256, %321, %.thread254, %60, %181
-  %.sroa.0202.3 = phi ptr [ %1, %60 ], [ %182, %181 ], [ %88, %.thread256 ], [ %322, %321 ], [ %1, %.thread254 ]
-  %.sroa.6.3 = phi i32 [ 75, %60 ], [ 0, %181 ], [ %89, %.thread256 ], [ 0, %321 ], [ 75, %.thread254 ]
+  %.sroa.0202.3 = phi ptr [ %88, %.thread256 ], [ %1, %60 ], [ %182, %181 ], [ %322, %321 ], [ %1, %.thread254 ]
+  %.sroa.6.3 = phi i32 [ %89, %.thread256 ], [ 75, %60 ], [ 0, %181 ], [ 0, %321 ], [ 75, %.thread254 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.0202.3, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.6.3, 1
   ret { ptr, i32 } %.fca.1.insert

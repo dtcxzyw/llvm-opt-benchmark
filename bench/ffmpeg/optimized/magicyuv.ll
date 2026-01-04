@@ -433,7 +433,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %.loopexit
 
 .loopexit:                                        ; preds = %124, %131, %._crit_edge, %.lr.ph, %143, %81, %92, %100, %107, %112, %204, %switch.lookup, %113, %._crit_edge255, %157, %169, %176, %10, %4, %28, %22, %18
-  %.0 = phi i32 [ -1094995529, %18 ], [ -1163346256, %22 ], [ -1163346256, %28 ], [ -1094995529, %4 ], [ -1094995529, %10 ], [ -1163346256, %81 ], [ -1094995529, %92 ], [ -1094995529, %100 ], [ -1094995529, %107 ], [ -1094995529, %112 ], [ %205, %204 ], [ %74, %switch.lookup ], [ -1094995529, %113 ], [ -1094995529, %._crit_edge255 ], [ -1094995529, %157 ], [ %174, %169 ], [ %177, %176 ], [ -1094995529, %143 ], [ -1094995529, %.lr.ph ], [ -1094995529, %._crit_edge ], [ -1094995529, %131 ], [ -12, %124 ]
+  %.0 = phi i32 [ -1094995529, %10 ], [ -1094995529, %4 ], [ -1094995529, %18 ], [ -1163346256, %22 ], [ -1163346256, %28 ], [ %205, %204 ], [ -1163346256, %81 ], [ -1094995529, %92 ], [ -1094995529, %100 ], [ -1094995529, %107 ], [ -1094995529, %112 ], [ %74, %switch.lookup ], [ -1094995529, %._crit_edge255 ], [ -1094995529, %157 ], [ %174, %169 ], [ %177, %176 ], [ -1094995529, %113 ], [ -1094995529, %.lr.ph ], [ -1094995529, %143 ], [ -1094995529, %._crit_edge ], [ -1094995529, %131 ], [ -12, %124 ]
   ret i32 %.0
 }
 
@@ -2001,7 +2001,7 @@ bits_read_vlc_be.exit:                            ; preds = %bits_peek_be.exit.i
   br label %mid_pred.exit.i.us
 
 mid_pred.exit.i.us:                               ; preds = %430, %428, %427, %425
-  %.0.i.i342.us = phi i32 [ %420, %428 ], [ %420, %425 ], [ %..i.i.us, %430 ], [ %.20.i.i.us, %427 ]
+  %.0.i.i342.us = phi i32 [ %..i.i.us, %430 ], [ %420, %425 ], [ %420, %428 ], [ %.20.i.i.us, %427 ]
   %431 = getelementptr inbounds nuw i16, ptr %.7498.us, i64 %indvars.iv.i.us
   %432 = load i16, ptr %431, align 2, !tbaa !97
   %433 = trunc nuw i32 %.0.i.i342.us to i16
@@ -2126,7 +2126,7 @@ magicyuv_median_pred16.exit.loopexit.us:          ; preds = %mid_pred.exit.i.us
   br i1 %exitcond557.not, label %bits_init8_be.exit.thread, label %.preheader.us, !llvm.loop !112
 
 bits_init8_be.exit.thread:                        ; preds = %35, %103, %bits_read_vlc_multi_be.exit, %._crit_edge519.us, %.preheader.lr.ph, %444, %._crit_edge516
-  %.2 = phi i32 [ 0, %._crit_edge516 ], [ 0, %444 ], [ 0, %.preheader.lr.ph ], [ 0, %._crit_edge519.us ], [ -1094995529, %bits_read_vlc_multi_be.exit ], [ -1094995529, %103 ], [ -1094995529, %35 ]
+  %.2 = phi i32 [ 0, %._crit_edge516 ], [ -1094995529, %bits_read_vlc_multi_be.exit ], [ 0, %444 ], [ 0, %._crit_edge519.us ], [ 0, %.preheader.lr.ph ], [ -1094995529, %103 ], [ -1094995529, %35 ]
   ret i32 %.2
 }
 
@@ -2286,15 +2286,15 @@ huff_build.exit:                                  ; preds = %.preheader.i
   br label %80
 
 80:                                               ; preds = %49, %79
-  %.148 = phi i32 [ 0, %79 ], [ %50, %49 ]
-  %.246 = phi i32 [ %76, %79 ], [ %.04476, %49 ]
+  %.148 = phi i32 [ %50, %49 ], [ 0, %79 ]
+  %.246 = phi i32 [ %.04476, %49 ], [ %76, %79 ]
   %81 = ptrtoint ptr %.sroa.0.1 to i64
   %82 = sub i64 %10, %81
   %83 = trunc i64 %82 to i32
   %84 = icmp sgt i32 %83, 0
   br i1 %84, label %15, label %.thread68
 
-.thread68:                                        ; preds = %80, %19, %75
+.thread68:                                        ; preds = %80, %75, %19
   %.145.ph = phi i32 [ %.246, %80 ], [ %.04476, %19 ], [ %76, %75 ]
   %85 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %86 = load i32, ptr %85, align 8, !tbaa !46

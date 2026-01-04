@@ -289,14 +289,14 @@ _ZN6icu_7710UCharsTrie5firstEi.exit20:            ; preds = %._crit_edge.i.i17, 
   %.not = icmp eq i32 %95, 0
   br i1 %.not, label %_ZN6icu_7710UCharsTrie5firstEi.exit, label %_ZN6icu_7710UCharsTrie5firstEi.exit20.thread
 
-_ZN6icu_7710UCharsTrie5firstEi.exit20.thread:     ; preds = %87, %83, %_ZN6icu_7710UCharsTrie5firstEi.exit20
+_ZN6icu_7710UCharsTrie5firstEi.exit20.thread:     ; preds = %83, %87, %_ZN6icu_7710UCharsTrie5firstEi.exit20
   %96 = and i32 %1, 1023
   %97 = or disjoint i32 %96, 56320
   %98 = tail call noundef i32 @_ZN6icu_7710UCharsTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef %97)
   br label %_ZN6icu_7710UCharsTrie5firstEi.exit
 
 _ZN6icu_7710UCharsTrie5firstEi.exit:              ; preds = %_ZN6icu_7710UCharsTrie5firstEi.exit20.thread23, %.loopexit.i.i, %43, %40, %36, %._crit_edge.i.i, %_ZN6icu_7710UCharsTrie5firstEi.exit20.thread, %_ZN6icu_7710UCharsTrie5firstEi.exit20
-  %99 = phi i32 [ %98, %_ZN6icu_7710UCharsTrie5firstEi.exit20.thread ], [ 0, %_ZN6icu_7710UCharsTrie5firstEi.exit20 ], [ %32, %._crit_edge.i.i ], [ 0, %.loopexit.i.i ], [ 1, %36 ], [ 1, %40 ], [ %46, %43 ], [ 0, %_ZN6icu_7710UCharsTrie5firstEi.exit20.thread23 ]
+  %99 = phi i32 [ 0, %_ZN6icu_7710UCharsTrie5firstEi.exit20 ], [ %98, %_ZN6icu_7710UCharsTrie5firstEi.exit20.thread ], [ %32, %._crit_edge.i.i ], [ 0, %.loopexit.i.i ], [ 1, %40 ], [ %46, %43 ], [ 1, %36 ], [ 0, %_ZN6icu_7710UCharsTrie5firstEi.exit20.thread23 ]
   ret i32 %99
 }
 
@@ -437,7 +437,7 @@ define noundef range(i32 0, 4) i32 @_ZN6icu_7710UCharsTrie4nextEi(ptr noundef no
   br label %_ZN6icu_7710UCharsTrie8nextImplEPKDsi.exit
 
 _ZN6icu_7710UCharsTrie8nextImplEPKDsi.exit:       ; preds = %.loopexit.i, %58, %55, %52, %._crit_edge.i, %25, %15, %18, %21, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %25 ], [ %24, %21 ], [ 1, %18 ], [ 1, %15 ], [ %48, %._crit_edge.i ], [ 0, %.loopexit.i ], [ 1, %52 ], [ 1, %55 ], [ %61, %58 ]
+  %.0 = phi i32 [ 0, %2 ], [ 1, %15 ], [ 0, %25 ], [ %24, %21 ], [ 1, %18 ], [ %48, %._crit_edge.i ], [ 0, %.loopexit.i ], [ 1, %55 ], [ %61, %58 ], [ 1, %52 ]
   ret i32 %.0
 }
 
@@ -611,8 +611,8 @@ _ZN6icu_7710UCharsTrie9skipDeltaEPKDs.exit:       ; preds = %52, %50, %43, %_ZN6
   br label %82
 
 82:                                               ; preds = %62, %66, %73
-  %.5 = phi ptr [ %69, %66 ], [ %81, %73 ], [ %63, %62 ]
-  %.041 = phi i32 [ %72, %66 ], [ %80, %73 ], [ %61, %62 ]
+  %.5 = phi ptr [ %81, %73 ], [ %69, %66 ], [ %63, %62 ]
+  %.041 = phi i32 [ %80, %73 ], [ %72, %66 ], [ %61, %62 ]
   %83 = sext i32 %.041 to i64
   %84 = getelementptr inbounds i16, ptr %.5, i64 %83
   %85 = load i16, ptr %84, align 2, !tbaa !12
@@ -789,7 +789,7 @@ define noundef range(i32 0, 4) i32 @_ZN6icu_7710UCharsTrie8nextImplEPKDsi(ptr no
   br label %.thread
 
 .thread:                                          ; preds = %32, %37, %40, %.loopexit, %._crit_edge
-  %.021 = phi i32 [ %28, %._crit_edge ], [ 0, %.loopexit ], [ 1, %32 ], [ 1, %37 ], [ %43, %40 ]
+  %.021 = phi i32 [ %28, %._crit_edge ], [ 0, %.loopexit ], [ 1, %37 ], [ %43, %40 ], [ 1, %32 ]
   ret i32 %.021
 }
 
@@ -1071,8 +1071,8 @@ _ZN6icu_7710UCharsTrie13skipNodeValueEPKDsi.exit: ; preds = %105, %109, %111
   %115 = add nsw i32 %.060, -49
   br label %33, !llvm.loop !24
 
-_ZNK6icu_7710UCharsTrie7currentEv.exit:           ; preds = %88, %85, %80, %95, %104, %102, %62, %59, %.preheader130._crit_edge, %42, %39, %.preheader._crit_edge, %72, %51, %22, %19, %15, %11, %26
-  %.0 = phi i32 [ 0, %26 ], [ 0, %11 ], [ %25, %22 ], [ 1, %19 ], [ 1, %15 ], [ 0, %104 ], [ 0, %102 ], [ 1, %.preheader130._crit_edge ], [ 1, %59 ], [ %65, %62 ], [ 1, %.preheader._crit_edge ], [ 1, %39 ], [ %45, %42 ], [ 0, %72 ], [ 0, %51 ], [ 0, %95 ], [ 0, %80 ], [ %81, %85 ], [ %81, %88 ]
+_ZNK6icu_7710UCharsTrie7currentEv.exit:           ; preds = %88, %80, %85, %95, %104, %102, %59, %.preheader130._crit_edge, %39, %.preheader._crit_edge, %42, %51, %62, %72, %22, %19, %15, %11, %26
+  %.0 = phi i32 [ 1, %15 ], [ 0, %26 ], [ 0, %11 ], [ %25, %22 ], [ 1, %19 ], [ 0, %104 ], [ 0, %102 ], [ 0, %72 ], [ 1, %59 ], [ %65, %62 ], [ 1, %39 ], [ %45, %42 ], [ 1, %.preheader._crit_edge ], [ 0, %51 ], [ 1, %.preheader130._crit_edge ], [ 0, %95 ], [ %81, %85 ], [ 0, %80 ], [ %81, %88 ]
   ret i32 %.0
 }
 
@@ -1226,7 +1226,7 @@ _ZN6icu_7710UCharsTrie9skipValueEPKDsi.exit:      ; preds = %.preheader, %52, %5
   br label %.thread50
 
 .thread50:                                        ; preds = %_ZN6icu_7710UCharsTrie11jumpByDeltaEPKDs.exit, %72, %69, %79
-  %.030 = phi ptr [ %80, %79 ], [ null, %69 ], [ null, %72 ], [ null, %_ZN6icu_7710UCharsTrie11jumpByDeltaEPKDs.exit ]
+  %.030 = phi ptr [ null, %72 ], [ %80, %79 ], [ null, %69 ], [ null, %_ZN6icu_7710UCharsTrie11jumpByDeltaEPKDs.exit ]
   ret ptr %.030
 }
 
@@ -1356,7 +1356,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7710UCharsTrie15findUniqueValu
   br label %_ZN6icu_7710UCharsTrie9readValueEPKDsi.exit
 
 _ZN6icu_7710UCharsTrie9readValueEPKDsi.exit:      ; preds = %65, %58, %53, %43, %37, %33
-  %.0 = phi i32 [ %42, %37 ], [ %50, %43 ], [ %34, %33 ], [ %55, %53 ], [ %64, %58 ], [ %72, %65 ]
+  %.0 = phi i32 [ %34, %33 ], [ %50, %43 ], [ %42, %37 ], [ %55, %53 ], [ %64, %58 ], [ %72, %65 ]
   %.not45 = icmp eq i8 %.040.ph, 0
   br i1 %.not45, label %75, label %73
 
@@ -1488,7 +1488,7 @@ _ZN6icu_7710UCharsTrie13skipNodeValueEPKDsi.exit: ; preds = %22, %26, %28
   br label %51
 
 51:                                               ; preds = %39, %45, %21, %2, %10
-  %.023 = phi i32 [ 1, %10 ], [ 0, %2 ], [ %40, %39 ], [ 1, %45 ], [ 0, %21 ]
+  %.023 = phi i32 [ 0, %2 ], [ 1, %10 ], [ 1, %45 ], [ %40, %39 ], [ 0, %21 ]
   ret i32 %.023
 }
 

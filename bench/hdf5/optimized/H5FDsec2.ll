@@ -436,8 +436,8 @@ define internal ptr @H5FD__sec2_open(ptr noundef %0, i32 noundef %1, i64 noundef
   %116 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5FD_sec2_t_reg_free_list, ptr noundef nonnull %60) #15
   br label %.thread91
 
-.thread91:                                        ; preds = %21, %27, %42, %15, %112, %101, %104, %96, %4, %114
-  %.059 = phi ptr [ null, %114 ], [ null, %112 ], [ null, %4 ], [ %60, %101 ], [ %60, %104 ], [ %60, %96 ], [ null, %15 ], [ null, %42 ], [ null, %27 ], [ null, %21 ]
+.thread91:                                        ; preds = %15, %27, %21, %42, %112, %101, %104, %96, %4, %114
+  %.059 = phi ptr [ null, %114 ], [ null, %112 ], [ null, %4 ], [ %60, %101 ], [ %60, %104 ], [ %60, %96 ], [ null, %42 ], [ null, %21 ], [ null, %27 ], [ null, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.059
 }
@@ -704,7 +704,7 @@ define internal range(i32 -1, 1) i32 @H5FD__sec2_read(ptr noundef %0, i32 %1, i6
   br i1 %.not66, label %.thread, label %28
 
 .thread:                                          ; preds = %46, %.preheader, %.critedge, %45, %6, %24, %15
-  %.050 = phi i32 [ -1, %24 ], [ -1, %15 ], [ 0, %6 ], [ -1, %.critedge ], [ 0, %45 ], [ 0, %.preheader ], [ 0, %46 ]
+  %.050 = phi i32 [ -1, %24 ], [ 0, %6 ], [ -1, %15 ], [ 0, %45 ], [ -1, %.critedge ], [ 0, %.preheader ], [ 0, %46 ]
   ret i32 %.050
 }
 
@@ -808,7 +808,7 @@ define internal range(i32 -1, 1) i32 @H5FD__sec2_write(ptr noundef %0, i32 %1, i
   br label %54
 
 54:                                               ; preds = %.thread, %6, %._crit_edge, %53, %24, %15
-  %.052 = phi i32 [ -1, %24 ], [ 0, %53 ], [ 0, %._crit_edge ], [ -1, %15 ], [ 0, %6 ], [ -1, %.thread ]
+  %.052 = phi i32 [ -1, %24 ], [ -1, %.thread ], [ 0, %53 ], [ 0, %._crit_edge ], [ -1, %15 ], [ 0, %6 ]
   ret i32 %.052
 }
 
@@ -904,7 +904,7 @@ define internal range(i32 -1, 1) i32 @H5FD__sec2_lock(ptr noundef readonly captu
   br label %29
 
 29:                                               ; preds = %2, %9, %23, %._crit_edge
-  %.010 = phi i32 [ 0, %23 ], [ -1, %._crit_edge ], [ 0, %9 ], [ 0, %2 ]
+  %.010 = phi i32 [ 0, %23 ], [ 0, %2 ], [ -1, %._crit_edge ], [ 0, %9 ]
   ret i32 %.010
 }
 
@@ -950,7 +950,7 @@ define internal range(i32 -1, 1) i32 @H5FD__sec2_unlock(ptr noundef readonly cap
   br label %27
 
 27:                                               ; preds = %1, %8, %21, %._crit_edge
-  %.08 = phi i32 [ 0, %21 ], [ -1, %._crit_edge ], [ 0, %8 ], [ 0, %1 ]
+  %.08 = phi i32 [ 0, %21 ], [ 0, %1 ], [ -1, %._crit_edge ], [ 0, %8 ]
   ret i32 %.08
 }
 
@@ -979,7 +979,7 @@ define internal range(i32 -1, 1) i32 @H5FD__sec2_delete(ptr noundef readonly cap
   br label %19
 
 19:                                               ; preds = %2, %9, %12
-  %.06 = phi i32 [ -1, %12 ], [ 0, %9 ], [ 0, %2 ]
+  %.06 = phi i32 [ 0, %2 ], [ -1, %12 ], [ 0, %9 ]
   ret i32 %.06
 }
 

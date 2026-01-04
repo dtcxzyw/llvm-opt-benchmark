@@ -1162,7 +1162,7 @@ define dso_local range(i32 -2147483648, 1) i32 @genphy_c45_read_pma(ptr noundef 
   br label %.thread
 
 .thread:                                          ; preds = %28, %20, %24, %33, %1
-  %38 = phi i32 [ %3, %1 ], [ 0, %33 ], [ 0, %24 ], [ 0, %20 ], [ %31, %28 ]
+  %38 = phi i32 [ 0, %20 ], [ %3, %1 ], [ 0, %33 ], [ 0, %24 ], [ %31, %28 ]
   ret i32 %38
 }
 
@@ -1514,7 +1514,7 @@ mii_eee_cap1_mod_linkmode_t.exit:                 ; preds = %38, %39
   br label %54
 
 54:                                               ; preds = %4, %53, %52, %45, %.thread
-  %55 = phi i32 [ %46, %45 ], [ 0, %.thread ], [ 0, %52 ], [ 0, %53 ], [ %5, %4 ]
+  %55 = phi i32 [ 0, %53 ], [ %46, %45 ], [ 0, %.thread ], [ 0, %52 ], [ %5, %4 ]
   ret i32 %55
 }
 
@@ -1959,7 +1959,7 @@ define dso_local range(i32 -2147483648, 1) i32 @genphy_c45_read_status(ptr nound
   br label %.thread
 
 .thread:                                          ; preds = %33, %28, %45, %44, %13, %1
-  %47 = phi i32 [ %2, %1 ], [ %14, %13 ], [ 0, %44 ], [ %46, %45 ], [ %34, %33 ], [ %31, %28 ]
+  %47 = phi i32 [ %2, %1 ], [ %14, %13 ], [ %46, %45 ], [ 0, %44 ], [ %34, %33 ], [ %31, %28 ]
   ret i32 %47
 }
 
@@ -2436,7 +2436,7 @@ define dso_local range(i32 -2147483648, 2) i32 @genphy_c45_eee_is_active(ptr nou
   br label %84
 
 84:                                               ; preds = %13, %51, %83, %81, %4
-  %85 = phi i32 [ %8, %4 ], [ %75, %83 ], [ %75, %81 ], [ %14, %13 ], [ %52, %51 ]
+  %85 = phi i32 [ %8, %4 ], [ %75, %81 ], [ %75, %83 ], [ %14, %13 ], [ %52, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

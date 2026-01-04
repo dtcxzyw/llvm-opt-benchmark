@@ -287,7 +287,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7716CollationWeights15getWeigh
   br label %_ZN6icu_7716CollationWeights14lengthOfWeightEj.exit
 
 _ZN6icu_7716CollationWeights14lengthOfWeightEj.exit: ; preds = %3, %8, %11
-  %.0.i = phi i32 [ 1, %3 ], [ 2, %8 ], [ %..i, %11 ]
+  %.0.i = phi i32 [ 2, %8 ], [ 1, %3 ], [ %..i, %11 ]
   %14 = and i32 %2, 16777215
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %_ZN6icu_7716CollationWeights14lengthOfWeightEj.exit124, label %16
@@ -304,7 +304,7 @@ _ZN6icu_7716CollationWeights14lengthOfWeightEj.exit: ; preds = %3, %8, %11
   br label %_ZN6icu_7716CollationWeights14lengthOfWeightEj.exit124
 
 _ZN6icu_7716CollationWeights14lengthOfWeightEj.exit124: ; preds = %_ZN6icu_7716CollationWeights14lengthOfWeightEj.exit, %16, %19
-  %.0.i123 = phi i32 [ 1, %_ZN6icu_7716CollationWeights14lengthOfWeightEj.exit ], [ 2, %16 ], [ %..i122, %19 ]
+  %.0.i123 = phi i32 [ 2, %16 ], [ 1, %_ZN6icu_7716CollationWeights14lengthOfWeightEj.exit ], [ %..i122, %19 ]
   %.not = icmp ult i32 %1, %2
   br i1 %.not, label %22, label %240
 
@@ -752,8 +752,8 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7716CollationWeights25allocWei
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %10, !llvm.loop !26
 
-.critedge:                                        ; preds = %25, %10, %3, %24, %22
-  %27 = phi i8 [ 1, %22 ], [ 1, %24 ], [ 0, %3 ], [ 0, %10 ], [ 0, %25 ]
+.critedge:                                        ; preds = %10, %25, %3, %24, %22
+  %27 = phi i8 [ 1, %24 ], [ 1, %22 ], [ 0, %3 ], [ 0, %25 ], [ 0, %10 ]
   ret i8 %27
 }
 
@@ -1125,7 +1125,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7716CollationWeights12allocWei
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.loopexit, label %16, !llvm.loop !26
 
-.loopexit:                                        ; preds = %16, %31, %.critedge
+.loopexit:                                        ; preds = %31, %16, %.critedge
   %33 = icmp eq i32 %13, 4
   br i1 %33, label %.critedge.thread21, label %34
 

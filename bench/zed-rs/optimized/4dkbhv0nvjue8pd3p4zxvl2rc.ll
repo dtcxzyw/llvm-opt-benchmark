@@ -124,7 +124,7 @@ define hidden noundef zeroext i1 @_ZN13feature_flags12FeatureFlags8has_flag17h8c
   br i1 %.not9.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h30400c82a9fc0e92E.llvm.8607022634194221566.exit", label %.lr.ph.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h30400c82a9fc0e92E.llvm.8607022634194221566.exit": ; preds = %"_ZN13feature_flags12FeatureFlags8has_flag28_$u7b$$u7b$closure$u7d$$u7d$17h327c78359ac3c6fcE.llvm.8607022634194221566.exit.backedge.i", %15, %1, %5
-  %.sroa.0.0 = phi i1 [ false, %5 ], [ true, %1 ], [ false, %"_ZN13feature_flags12FeatureFlags8has_flag28_$u7b$$u7b$closure$u7d$$u7d$17h327c78359ac3c6fcE.llvm.8607022634194221566.exit.backedge.i" ], [ true, %15 ]
+  %.sroa.0.0 = phi i1 [ true, %1 ], [ false, %5 ], [ true, %15 ], [ false, %"_ZN13feature_flags12FeatureFlags8has_flag28_$u7b$$u7b$closure$u7d$$u7d$17h327c78359ac3c6fcE.llvm.8607022634194221566.exit.backedge.i" ]
   ret i1 %.sroa.0.0
 }
 
@@ -854,14 +854,14 @@ define hidden void @"_ZN4gpui12subscription42SubscriberSet$LT$EmitterKey$C$Callb
   br label %.thread41
 
 34:                                               ; preds = %96, %67, %57, %39
-  %.sroa.02.3 = phi i1 [ true, %39 ], [ true, %57 ], [ true, %67 ], [ false, %96 ]
+  %.sroa.02.3 = phi i1 [ true, %39 ], [ true, %57 ], [ false, %96 ], [ true, %67 ]
   %35 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .body:                                            ; preds = %147, %143, %127, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.5515369594646907350.exit.i1.i.i.i", %98, %79, %34
-  %.sroa.02.3.lpad-body = phi i1 [ %.sroa.02.3, %34 ], [ true, %79 ], [ false, %98 ], [ false, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.5515369594646907350.exit.i1.i.i.i" ], [ false, %127 ], [ false, %143 ], [ false, %147 ]
-  %eh.lpad-body = phi { ptr, i32 } [ %35, %34 ], [ %80, %79 ], [ %99, %98 ], [ %128, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.5515369594646907350.exit.i1.i.i.i" ], [ %128, %127 ], [ %144, %143 ], [ %144, %147 ]
+  %.sroa.02.3.lpad-body = phi i1 [ false, %127 ], [ false, %98 ], [ true, %79 ], [ %.sroa.02.3, %34 ], [ false, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.5515369594646907350.exit.i1.i.i.i" ], [ false, %143 ], [ false, %147 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %128, %127 ], [ %99, %98 ], [ %80, %79 ], [ %35, %34 ], [ %128, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.5515369594646907350.exit.i1.i.i.i" ], [ %144, %143 ], [ %144, %147 ]
   %36 = cmpxchg ptr %28, i8 1, i8 0 release monotonic, align 1
   %37 = extractvalue { i8, i1 } %36, 1
   br i1 %37, label %.thread41, label %38
@@ -1573,7 +1573,7 @@ define hidden void @_ZN4gpui5arena5Arena5alloc4drop17h79bc99a646985d7eE(ptr noun
   ]
 
 "_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17h7a271cb094e05424E.llvm.5515369594646907350.exit.sink.split.i.i": ; preds = %25, %21, %17
-  %.sink3.i.i = phi i64 [ 24, %17 ], [ 40, %21 ], [ 40, %25 ]
+  %.sink3.i.i = phi i64 [ 40, %21 ], [ 24, %17 ], [ 40, %25 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink3.i.i
   tail call void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7d492b054329d74fE.llvm.5515369594646907350"(ptr noalias noundef nonnull align 8 dereferenceable(1032) %16)
   br label %"_ZN4core3ptr86drop_in_place$LT$gpui..element..Drawable$LT$gpui..elements..deferred..Deferred$GT$$GT$17hbdf7bcc7b08a3467E.exit"

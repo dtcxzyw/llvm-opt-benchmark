@@ -97,7 +97,7 @@ define internal range(i32 -22, 1) i32 @config_props(ptr noundef %0) #1 {
   br label %35
 
 35:                                               ; preds = %1, %31, %30
-  %.0 = phi i32 [ -22, %30 ], [ 0, %31 ], [ -22, %1 ]
+  %.0 = phi i32 [ 0, %31 ], [ -22, %30 ], [ -22, %1 ]
   ret i32 %.0
 }
 

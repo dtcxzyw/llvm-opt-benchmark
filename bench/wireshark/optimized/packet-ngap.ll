@@ -24435,7 +24435,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %41, %47, %
   br label %119
 
 119:                                              ; preds = %104, %108, %117
-  %.0115 = phi ptr [ %112, %117 ], [ %112, %108 ], [ %2, %104 ]
+  %.0115 = phi ptr [ %112, %117 ], [ %2, %104 ], [ %112, %108 ]
   %120 = load ptr, ptr %105, align 8
   %121 = tail call zeroext i1 @col_get_writable(ptr noundef %120, i32 noundef 35)
   %122 = load ptr, ptr %105, align 8
@@ -24447,7 +24447,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %41, %47, %
   br label %126
 
 126:                                              ; preds = %102, %21, %15, %4, %12, %119
-  %.0 = phi i32 [ %125, %119 ], [ 0, %12 ], [ 0, %4 ], [ 0, %15 ], [ 0, %21 ], [ 0, %102 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %15 ], [ 0, %21 ], [ %125, %119 ], [ 0, %12 ], [ 0, %102 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -26650,7 +26650,7 @@ addresses_equal.exit16.sink.split:                ; preds = %57, %35
   br label %addresses_equal.exit16
 
 addresses_equal.exit16:                           ; preds = %addresses_equal.exit16.sink.split, %50, %42, %addresses_equal.exit, %57, %ngap_get_private_data.exit
-  %.0 = phi i32 [ -1, %57 ], [ -1, %ngap_get_private_data.exit ], [ -1, %addresses_equal.exit ], [ -1, %42 ], [ -1, %50 ], [ %62, %addresses_equal.exit16.sink.split ]
+  %.0 = phi i32 [ -1, %42 ], [ -1, %50 ], [ -1, %57 ], [ -1, %ngap_get_private_data.exit ], [ -1, %addresses_equal.exit ], [ %62, %addresses_equal.exit16.sink.split ]
   ret i32 %.0
 }
 
@@ -27973,7 +27973,7 @@ ngap_get_private_data.exit:                       ; preds = %15, %22
   br label %103
 
 103:                                              ; preds = %99, %42, %41, %40, %5
-  %.0 = phi i32 [ %12, %5 ], [ %.0..0..0..0.18, %99 ], [ %12, %42 ], [ %12, %41 ], [ %12, %40 ]
+  %.0 = phi i32 [ %12, %5 ], [ %12, %42 ], [ %.0..0..0..0.18, %99 ], [ %12, %41 ], [ %12, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -29144,7 +29144,7 @@ ngap_get_private_data.exit:                       ; preds = %21, %27
   br label %50
 
 50:                                               ; preds = %44, %36
-  %lte_rrc_ue_radio_access_cap_info_nb_handle.sink = phi ptr [ @lte_rrc_ue_radio_access_cap_info_handle, %36 ], [ %lte_rrc_ue_radio_access_cap_info_nb_handle.nr_rrc_ue_radio_access_cap_info_handle, %44 ]
+  %lte_rrc_ue_radio_access_cap_info_nb_handle.sink = phi ptr [ %lte_rrc_ue_radio_access_cap_info_nb_handle.nr_rrc_ue_radio_access_cap_info_handle, %44 ], [ @lte_rrc_ue_radio_access_cap_info_handle, %36 ]
   %51 = load ptr, ptr %lte_rrc_ue_radio_access_cap_info_nb_handle.sink, align 8
   store volatile ptr %51, ptr %6, align 8
   %.0..0..0..0.21 = load volatile ptr, ptr %6, align 8
@@ -33767,7 +33767,7 @@ define internal fastcc noundef zeroext i1 @find_n2_info_content(ptr noundef %0, 
   br label %29
 
 29:                                               ; preds = %.sink.split, %10, %12, %8, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %8 ], [ false, %12 ], [ false, %10 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %8 ], [ false, %10 ], [ false, %5 ], [ false, %12 ], [ true, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }

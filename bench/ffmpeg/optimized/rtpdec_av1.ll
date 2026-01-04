@@ -248,8 +248,8 @@ define internal i32 @av1_handle_packet(ptr noundef %0, ptr noundef captures(none
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %73, %77, %.thread344, %40
-  %83 = phi i32 [ %76, %77 ], [ %76, %73 ], [ %70, %.thread344 ], [ %39, %40 ]
-  %84 = phi ptr [ %75, %77 ], [ %75, %73 ], [ %69, %.thread344 ], [ %38, %40 ]
+  %83 = phi i32 [ %70, %.thread344 ], [ %76, %77 ], [ %76, %73 ], [ %39, %40 ]
+  %84 = phi ptr [ %69, %.thread344 ], [ %75, %77 ], [ %75, %73 ], [ %38, %40 ]
   %85 = icmp eq i32 %27, 0
   %86 = add nsw i32 %27, -1
   %87 = icmp ne i32 %25, 0
@@ -315,7 +315,7 @@ define internal i32 @av1_handle_packet(ptr noundef %0, ptr noundef captures(none
   br i1 %110, label %.preheader, label %parse_leb.exit, !llvm.loop !47
 
 parse_leb.exit.thread:                            ; preds = %.preheader, %97, %105, %108
-  %.str.26.sink.i = phi ptr [ @.str.26, %.preheader ], [ @.str.27, %105 ], [ @.str.27, %97 ], [ @.str.28, %108 ]
+  %.str.26.sink.i = phi ptr [ @.str.26, %.preheader ], [ @.str.27, %97 ], [ @.str.27, %105 ], [ @.str.28, %108 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull %.str.26.sink.i) #8
   br label %.thread432
 
@@ -609,9 +609,9 @@ calc_leb_size.exit323:                            ; preds = %226
   br label %247
 
 247:                                              ; preds = %.thread422, %calc_leb_size.exit323
-  %.8263 = phi i32 [ %215, %calc_leb_size.exit323 ], [ %246, %.thread422 ]
-  %.4231 = phi i32 [ %.3230421, %calc_leb_size.exit323 ], [ %234, %.thread422 ]
-  %.0225 = phi ptr [ %230, %calc_leb_size.exit323 ], [ %239, %.thread422 ]
+  %.8263 = phi i32 [ %246, %.thread422 ], [ %215, %calc_leb_size.exit323 ]
+  %.4231 = phi i32 [ %234, %.thread422 ], [ %.3230421, %calc_leb_size.exit323 ]
+  %.0225 = phi ptr [ %239, %.thread422 ], [ %230, %calc_leb_size.exit323 ]
   %248 = icmp ult i32 %223, 128
   br i1 %248, label %.thread426, label %.lr.ph.i324
 
@@ -724,8 +724,8 @@ calc_leb_size.exit323:                            ; preds = %226
   tail call void @av_shrink_packet(ptr noundef nonnull %3, i32 noundef 0) #8
   br label %.thread432
 
-.thread432:                                       ; preds = %232, %.thread389, %157, %154, %parse_leb.exit, %.thread389.thread, %128, %135, %parse_leb.exit.thread, %125, %188, %121, %272, %279, %30, %268, %71, %34, %18, %15
-  %.0 = phi i32 [ -1094995529, %18 ], [ -1094995529, %34 ], [ %.7234, %268 ], [ -1094995529, %71 ], [ -1094995529, %15 ], [ -1094995529, %30 ], [ -1094995529, %279 ], [ -1094995529, %272 ], [ -1094995529, %parse_leb.exit.thread ], [ -1094995529, %125 ], [ -1094995529, %188 ], [ -1094995529, %121 ], [ -1094995529, %128 ], [ -1163346256, %135 ], [ %174, %.thread389.thread ], [ -1094995529, %parse_leb.exit ], [ %155, %154 ], [ %.lobit307, %157 ], [ %172, %.thread389 ], [ %234, %232 ]
+.thread432:                                       ; preds = %232, %.thread389, %157, %154, %parse_leb.exit, %.thread389.thread, %128, %135, %125, %188, %parse_leb.exit.thread, %121, %272, %279, %30, %268, %71, %34, %18, %15
+  %.0 = phi i32 [ -1094995529, %18 ], [ -1094995529, %15 ], [ -1094995529, %34 ], [ -1094995529, %30 ], [ -1094995529, %121 ], [ %.7234, %268 ], [ -1094995529, %71 ], [ -1094995529, %279 ], [ -1094995529, %272 ], [ -1094995529, %188 ], [ -1094995529, %parse_leb.exit.thread ], [ -1094995529, %125 ], [ -1163346256, %135 ], [ -1094995529, %128 ], [ %174, %.thread389.thread ], [ -1094995529, %parse_leb.exit ], [ %155, %154 ], [ %.lobit307, %157 ], [ %172, %.thread389 ], [ %234, %232 ]
   ret i32 %.0
 }
 

@@ -459,7 +459,7 @@ _ZNK4pbrt6MIPMap15LevelResolutionEi.exit:         ; preds = %42
   br label %121
 
 121:                                              ; preds = %31, %69, %67, %63, %_ZNK4pbrt6MIPMap15LevelResolutionEi.exit, %98, %100
-  %.2 = phi float [ %99, %98 ], [ %120, %100 ], [ %38, %31 ], [ %62, %_ZNK4pbrt6MIPMap15LevelResolutionEi.exit ], [ %64, %63 ], [ %68, %67 ], [ %78, %69 ]
+  %.2 = phi float [ %120, %100 ], [ %99, %98 ], [ %38, %31 ], [ %62, %_ZNK4pbrt6MIPMap15LevelResolutionEi.exit ], [ %64, %63 ], [ %68, %67 ], [ %78, %69 ]
   ret float %.2
 }
 
@@ -981,8 +981,8 @@ _ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit: ; preds = %1
   br label %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit
 
 .sink.split91.i.cont.thread:                      ; preds = %.sink.split91.i, %.sink.split91.i.cont, %.sink.split.i
-  %.sroa.13.4.ph = phi i32 [ %spec.select156, %.sink.split.i ], [ %.sink92.i, %.sink.split91.i ], [ %.059175, %.sink.split91.i.cont ]
-  %.sroa.0120.6.ph = phi i32 [ %spec.select, %.sink.split.i ], [ %.sroa.0120.0, %.sink.split91.i ], [ %.sroa.0120.1, %.sink.split91.i.cont ]
+  %.sroa.13.4.ph = phi i32 [ %spec.select156, %.sink.split.i ], [ %.059175, %.sink.split91.i.cont ], [ %.sink92.i, %.sink.split91.i ]
+  %.sroa.0120.6.ph = phi i32 [ %spec.select, %.sink.split.i ], [ %.sroa.0120.1, %.sink.split91.i.cont ], [ %.sroa.0120.0, %.sink.split91.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0148)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4)
   %151 = load i32, ptr %108, align 8, !tbaa !48
@@ -1360,7 +1360,7 @@ _ZNK4pbrt6MIPMap15LevelResolutionEi.exit:         ; preds = %36
   br label %125
 
 125:                                              ; preds = %31, %61, %59, %55, %_ZNK4pbrt6MIPMap15LevelResolutionEi.exit, %96, %98
-  %.pn113.pn = phi { <2 x float>, float } [ %97, %96 ], [ %.fca.1.insert.i.i132, %98 ], [ %32, %31 ], [ %54, %_ZNK4pbrt6MIPMap15LevelResolutionEi.exit ], [ %56, %55 ], [ %60, %59 ], [ %.fca.1.insert.i.i, %61 ]
+  %.pn113.pn = phi { <2 x float>, float } [ %.fca.1.insert.i.i132, %98 ], [ %97, %96 ], [ %32, %31 ], [ %54, %_ZNK4pbrt6MIPMap15LevelResolutionEi.exit ], [ %56, %55 ], [ %60, %59 ], [ %.fca.1.insert.i.i, %61 ]
   ret { <2 x float>, float } %.pn113.pn
 }
 
@@ -1931,8 +1931,8 @@ _ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit214: ; preds =
   br label %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit150
 
 .sink.split91.i205.cont.thread:                   ; preds = %.sink.split91.i205, %.sink.split91.i205.cont, %.sink.split.i209
-  %.sroa.13364.4.ph = phi i32 [ %spec.select427, %.sink.split.i209 ], [ %.sink92.i206, %.sink.split91.i205 ], [ %.077503, %.sink.split91.i205.cont ]
-  %.sroa.0357.6.ph = phi i32 [ %spec.select, %.sink.split.i209 ], [ %.sroa.0357.0, %.sink.split91.i205 ], [ %.sroa.0357.1, %.sink.split91.i205.cont ]
+  %.sroa.13364.4.ph = phi i32 [ %spec.select427, %.sink.split.i209 ], [ %.077503, %.sink.split91.i205.cont ], [ %.sink92.i206, %.sink.split91.i205 ]
+  %.sroa.0357.6.ph = phi i32 [ %spec.select, %.sink.split.i209 ], [ %.sroa.0357.1, %.sink.split91.i205.cont ], [ %.sroa.0357.0, %.sink.split91.i205 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0394)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4395)
   %157 = load i32, ptr %109, align 8, !tbaa !48
@@ -2164,8 +2164,8 @@ _ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit193: ; preds =
   br label %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit130
 
 .sink.split91.i184.cont.thread:                   ; preds = %.sink.split91.i184, %.sink.split91.i184.cont, %.sink.split.i188
-  %.sroa.13335.4.ph = phi i32 [ %spec.select428, %.sink.split.i188 ], [ %.sink92.i185, %.sink.split91.i184 ], [ %.077503, %.sink.split91.i184.cont ]
-  %.sroa.0328.6.ph = phi i32 [ %spec.select424, %.sink.split.i188 ], [ %.sroa.0328.0, %.sink.split91.i184 ], [ %.sroa.0328.1, %.sink.split91.i184.cont ]
+  %.sroa.13335.4.ph = phi i32 [ %spec.select428, %.sink.split.i188 ], [ %.077503, %.sink.split91.i184.cont ], [ %.sink92.i185, %.sink.split91.i184 ]
+  %.sroa.0328.6.ph = phi i32 [ %spec.select424, %.sink.split.i188 ], [ %.sroa.0328.1, %.sink.split91.i184.cont ], [ %.sroa.0328.0, %.sink.split91.i184 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0391)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4392)
   %259 = load i32, ptr %218, align 8, !tbaa !48
@@ -2410,8 +2410,8 @@ _ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit172: ; preds =
   br label %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit110
 
 .sink.split91.i163.cont.thread:                   ; preds = %.sink.split91.i163, %.sink.split91.i163.cont, %.sink.split.i167
-  %.sroa.13306.4.ph = phi i32 [ %spec.select429, %.sink.split.i167 ], [ %.sink92.i164, %.sink.split91.i163 ], [ %.077503, %.sink.split91.i163.cont ]
-  %.sroa.0299.6.ph = phi i32 [ %spec.select425, %.sink.split.i167 ], [ %.sroa.0299.0, %.sink.split91.i163 ], [ %.sroa.0299.1, %.sink.split91.i163.cont ]
+  %.sroa.13306.4.ph = phi i32 [ %spec.select429, %.sink.split.i167 ], [ %.077503, %.sink.split91.i163.cont ], [ %.sink92.i164, %.sink.split91.i163 ]
+  %.sroa.0299.6.ph = phi i32 [ %spec.select425, %.sink.split.i167 ], [ %.sroa.0299.1, %.sink.split91.i163.cont ], [ %.sroa.0299.0, %.sink.split91.i163 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0388)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4389)
   %373 = load i32, ptr %331, align 8, !tbaa !48
@@ -2669,8 +2669,8 @@ _ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit: ; preds = %4
   br label %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit
 
 .sink.split91.i.cont.thread:                      ; preds = %.sink.split91.i, %.sink.split91.i.cont, %.sink.split.i
-  %.sroa.13.4.ph = phi i32 [ %spec.select430, %.sink.split.i ], [ %.sink92.i, %.sink.split91.i ], [ %.077503, %.sink.split91.i.cont ]
-  %.sroa.0271.6.ph = phi i32 [ %spec.select426, %.sink.split.i ], [ %.sroa.0271.0, %.sink.split91.i ], [ %.sroa.0271.1, %.sink.split91.i.cont ]
+  %.sroa.13.4.ph = phi i32 [ %spec.select430, %.sink.split.i ], [ %.077503, %.sink.split91.i.cont ], [ %.sink92.i, %.sink.split91.i ]
+  %.sroa.0271.6.ph = phi i32 [ %spec.select426, %.sink.split.i ], [ %.sroa.0271.1, %.sink.split91.i.cont ], [ %.sroa.0271.0, %.sink.split91.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0386)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4)
   %492 = load i32, ptr %109, align 8, !tbaa !48
@@ -3857,7 +3857,7 @@ _ZN4pstd6vectorIN4pbrt4HalfENS_3pmr21polymorphic_allocatorIS2_EEE7reserveEm.exit
   br i1 %exitcond.not.i, label %.loopexit61, label %102, !llvm.loop !117
 
 .loopexit61:                                      ; preds = %102, %_ZN4pstd6vectorIN4pbrt4HalfENS_3pmr21polymorphic_allocatorIS2_EEE7reserveEm.exit.i, %.loopexit62
-  %107 = phi i64 [ 0, %_ZN4pstd6vectorIN4pbrt4HalfENS_3pmr21polymorphic_allocatorIS2_EEE7reserveEm.exit.i ], [ 0, %.loopexit62 ], [ %.pre11.i54, %102 ]
+  %107 = phi i64 [ 0, %.loopexit62 ], [ 0, %_ZN4pstd6vectorIN4pbrt4HalfENS_3pmr21polymorphic_allocatorIS2_EEE7reserveEm.exit.i ], [ %.pre11.i54, %102 ]
   store i64 %107, ptr %81, align 8, !tbaa !86
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %109 = call noundef ptr @_ZN4pstd3pmr19new_delete_resourceEv() #25
@@ -3944,7 +3944,7 @@ _ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit.i: ; preds =
   br i1 %exitcond.not.i43, label %.loopexit, label %134, !llvm.loop !119
 
 .loopexit:                                        ; preds = %134, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit.i, %.loopexit61
-  %139 = phi i64 [ 0, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit.i ], [ 0, %.loopexit61 ], [ %.pre11.i3959, %134 ]
+  %139 = phi i64 [ 0, %.loopexit61 ], [ 0, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit.i ], [ %.pre11.i3959, %134 ]
   store i64 %139, ptr %113, align 8, !tbaa !88
   ret void
 
@@ -4778,7 +4778,7 @@ _ZN4pbrt16ImageChannelDescD2Ev.exit158:           ; preds = %_ZN4pbrt16ImageChan
   br label %256
 
 253:                                              ; preds = %153, %175, %197, %222, %132
-  %.pn88.pn = phi { ptr, i32 } [ %.pn82, %222 ], [ %133, %132 ], [ %154, %153 ], [ %.pn86, %175 ], [ %.pn84, %197 ]
+  %.pn88.pn = phi { ptr, i32 } [ %133, %132 ], [ %.pn82, %222 ], [ %154, %153 ], [ %.pn86, %175 ], [ %.pn84, %197 ]
   call void @_ZN4pbrt16ImageChannelDescD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %14) #25
   br label %254
 
@@ -15050,7 +15050,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   br label %.body
 
 .body:                                            ; preds = %25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i, %.body26
-  %.pn19.pn.pn = phi { ptr, i32 } [ %.pn19.pn, %.body26 ], [ %39, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i ], [ %26, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i ], [ %26, %25 ]
+  %.pn19.pn.pn = phi { ptr, i32 } [ %.pn19.pn, %.body26 ], [ %26, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i ], [ %39, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i ], [ %26, %25 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %9) #25
   br label %132
 

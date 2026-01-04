@@ -1186,7 +1186,7 @@ indev_reset_check.exit175.i:                      ; preds = %450
 456:                                              ; preds = %454
   %457 = load i32, ptr %36, align 8, !tbaa !82
   %458 = icmp eq i32 %457, 10
-  br i1 %458, label %459, label %.critedge151.i
+  br i1 %458, label %459, label %indev_reset_check.exit180.thread.i
 
 459:                                              ; preds = %456
   %460 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
@@ -1199,7 +1199,7 @@ indev_reset_check.exit175.i:                      ; preds = %450
   br i1 %464, label %.critedge149.i, label %465
 
 465:                                              ; preds = %462
-  br i1 %343, label %.critedge151.i, label %466
+  br i1 %343, label %indev_reset_check.exit180.thread.i, label %466
 
 466:                                              ; preds = %465
   %467 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 152), align 8, !tbaa !40
@@ -1222,7 +1222,7 @@ indev_reset_check.exit175.i:                      ; preds = %450
   %477 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 152), align 8, !tbaa !40
   %478 = call fastcc i32 @send_event(i32 noundef 10, ptr noundef %477)
   %479 = icmp eq i32 %478, 0
-  br i1 %479, label %indev_keypad_proc.exit, label %.critedge151.i
+  br i1 %479, label %indev_keypad_proc.exit, label %indev_reset_check.exit180.thread.i
 
 .critedge149.i:                                   ; preds = %462, %459
   %480 = call zeroext i1 @lv_group_get_editing(ptr noundef nonnull %334) #12
@@ -1264,35 +1264,35 @@ indev_reset_check.exit175.i:                      ; preds = %450
   %501 = load i8, ptr %10, align 4
   %502 = and i8 %501, 2
   %.not.i176.i = icmp eq i8 %502, 0
-  br i1 %.not.i176.i, label %.critedge151.i, label %indev_reset_check.exit180.i
+  br i1 %.not.i176.i, label %indev_reset_check.exit180.thread.i, label %indev_reset_check.exit180.i
 
 indev_reset_check.exit180.i:                      ; preds = %499
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
   %.pre.i177.i = load i8, ptr %10, align 4
   %.pre2.i178.i = and i8 %.pre.i177.i, 2
   %.not220.i = icmp eq i8 %.pre2.i178.i, 0
-  br i1 %.not220.i, label %.critedge151.i, label %indev_keypad_proc.exit
+  br i1 %.not220.i, label %indev_reset_check.exit180.thread.i, label %indev_keypad_proc.exit
 
 503:                                              ; preds = %484
   %504 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
   call void @lv_obj_remove_state(ptr noundef %504, i16 noundef zeroext 32) #12
-  br label %.critedge151.i
+  br label %indev_reset_check.exit180.thread.i
 
 505:                                              ; preds = %.critedge149.i
-  br i1 %.not138.i, label %506, label %.critedge151.i
+  br i1 %.not138.i, label %506, label %indev_reset_check.exit180.thread.i
 
 506:                                              ; preds = %505
   call void @lv_group_set_editing(ptr noundef nonnull %334, i1 noundef zeroext true) #12
-  br label %.critedge151.i
+  br label %indev_reset_check.exit180.thread.i
 
-.critedge151.i:                                   ; preds = %506, %505, %503, %indev_reset_check.exit180.i, %499, %476, %465, %456
+indev_reset_check.exit180.thread.i:               ; preds = %506, %505, %503, %indev_reset_check.exit180.i, %499, %476, %465, %456
   store i32 0, ptr %47, align 8, !tbaa !57
   %507 = load i8, ptr %10, align 4
   %508 = and i8 %507, -2
   br label %.critedge.ithread-pre-split.sink.split
 
-.critedge.ithread-pre-split.sink.split:           ; preds = %.critedge151.i, %.critedge147.i
-  %.sink = phi i8 [ %428, %.critedge147.i ], [ %508, %.critedge151.i ]
+.critedge.ithread-pre-split.sink.split:           ; preds = %indev_reset_check.exit180.thread.i, %.critedge147.i
+  %.sink = phi i8 [ %428, %.critedge147.i ], [ %508, %indev_reset_check.exit180.thread.i ]
   store i8 %.sink, ptr %10, align 4
   br label %.critedge.ithread-pre-split
 
@@ -3431,7 +3431,7 @@ indev_reset_check.exit189.thread:                 ; preds = %indev_gesture.exit,
   store i32 %360, ptr %347, align 4, !tbaa !58
   br label %.critedge136
 
-.critedge136:                                     ; preds = %316, %indev_reset_check.exit152, %indev_reset_check.exit, %indev_reset_check.exit141, %indev_reset_check.exit147, %100, %96, %.critedge134, %indev_reset_check.exit159, %346, %359, %343, %341, %206, %356, %333, %indev_reset_check.exit189, %indev_reset_check.exit177, %send_event.exit172.thread, %send_event.exit172, %send_event.exit, %1
+.critedge136:                                     ; preds = %316, %indev_reset_check.exit152, %indev_reset_check.exit, %indev_reset_check.exit141, %indev_reset_check.exit147, %100, %96, %.critedge134, %indev_reset_check.exit159, %346, %359, %343, %341, %206, %333, %indev_reset_check.exit189, %indev_reset_check.exit177, %send_event.exit172.thread, %send_event.exit172, %send_event.exit, %356, %1
   ret void
 }
 
@@ -3879,7 +3879,7 @@ indev_reset_check.exit151:                        ; preds = %125
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
   br label %.critedge118
 
-.critedge118:                                     ; preds = %.critedge116.thread, %indev_reset_check.exit137, %indev_reset_check.exit129, %indev_reset_check.exit124, %indev_reset_check.exit, %181, %178, %.critedge116, %172, %indev_reset_check.exit151, %121, %118, %send_event.exit.thread, %send_event.exit, %61
+.critedge118:                                     ; preds = %.critedge116.thread, %indev_reset_check.exit129, %indev_reset_check.exit124, %indev_reset_check.exit, %indev_reset_check.exit137, %181, %178, %.critedge116, %172, %indev_reset_check.exit151, %118, %send_event.exit.thread, %send_event.exit, %121, %61
   ret void
 }
 
@@ -3965,7 +3965,7 @@ indev_reset_check.exit31:                         ; preds = %22
   br label %indev_reset_check.exit31.thread
 
 indev_reset_check.exit31.thread:                  ; preds = %indev_reset_check.exit31, %22, %indev_reset_check.exit, %20
-  %.0 = phi i32 [ 1, %20 ], [ 0, %indev_reset_check.exit ], [ 1, %22 ], [ %spec.select, %indev_reset_check.exit31 ]
+  %.0 = phi i32 [ 0, %indev_reset_check.exit ], [ 1, %20 ], [ 1, %22 ], [ %spec.select, %indev_reset_check.exit31 ]
   ret i32 %.0
 }
 
@@ -4213,7 +4213,7 @@ indev_reset_check.exit31.i36:                     ; preds = %64
   br label %send_event.exit
 
 send_event.exit:                                  ; preds = %indev_reset_check.exit31.i36, %64, %indev_reset_check.exit31.i27, %57, %indev_reset_check.exit31.i, %50, %46, %lv_indev_get_point.exit
-  %.0.shrunk = phi i1 [ false, %lv_indev_get_point.exit ], [ true, %46 ], [ true, %50 ], [ %.not36.i, %indev_reset_check.exit31.i ], [ true, %57 ], [ %.not36.i31, %indev_reset_check.exit31.i27 ], [ true, %64 ], [ %.not36.i40, %indev_reset_check.exit31.i36 ]
+  %.0.shrunk = phi i1 [ %.not36.i31, %indev_reset_check.exit31.i27 ], [ false, %lv_indev_get_point.exit ], [ true, %46 ], [ %.not36.i, %indev_reset_check.exit31.i ], [ true, %50 ], [ true, %57 ], [ true, %64 ], [ %.not36.i40, %indev_reset_check.exit31.i36 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }

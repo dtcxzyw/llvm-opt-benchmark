@@ -1410,7 +1410,7 @@ define dso_local void @spr_uncore_cpu_init() local_unnamed_addr #1 align 16 {
   br label %.thread8
 
 .thread8:                                         ; preds = %28, %.thread, %53, %37
-  %55 = phi i32 [ 1, %37 ], [ %54, %53 ], [ 0, %.thread ], [ 0, %28 ]
+  %55 = phi i32 [ %54, %53 ], [ 1, %37 ], [ 0, %.thread ], [ 0, %28 ]
   store i32 %55, ptr getelementptr inbounds nuw (i8, ptr @spr_uncore_iio_free_running, i64 12), align 4
   ret void
 }
@@ -1828,7 +1828,7 @@ define dso_local void @spr_uncore_mmio_init() local_unnamed_addr #1 align 16 {
   br label %.thread
 
 .thread:                                          ; preds = %9, %5, %34, %18
-  %37 = phi i32 [ 0, %18 ], [ %36, %34 ], [ 0, %5 ], [ 0, %9 ]
+  %37 = phi i32 [ %36, %34 ], [ 0, %18 ], [ 0, %5 ], [ 0, %9 ]
   store i32 %37, ptr getelementptr inbounds nuw (i8, ptr @spr_uncore_imc_free_running, i64 12), align 4
   br label %38
 
@@ -1885,7 +1885,7 @@ define dso_local void @gnr_uncore_cpu_init() local_unnamed_addr #1 align 16 {
   br label %.thread
 
 .thread:                                          ; preds = %4, %0, %29, %13
-  %31 = phi i32 [ 1, %13 ], [ %30, %29 ], [ 0, %0 ], [ 0, %4 ]
+  %31 = phi i32 [ %30, %29 ], [ 1, %13 ], [ 0, %0 ], [ 0, %4 ]
   store i32 %31, ptr getelementptr inbounds nuw (i8, ptr @spr_uncore_iio_free_running, i64 12), align 4
   store ptr @gnr_iio_freerunning, ptr getelementptr inbounds nuw (i8, ptr @spr_uncore_iio_free_running, i64 176), align 8
   ret void
@@ -5730,7 +5730,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @snr_uncore_mmio_map(ptr no
   br label %43
 
 43:                                               ; preds = %.critedge, %40, %16
-  %44 = phi i32 [ -22, %40 ], [ 0, %16 ], [ -19, %.critedge ]
+  %44 = phi i32 [ -22, %40 ], [ -19, %.critedge ], [ 0, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %44
 }
@@ -6076,9 +6076,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @discover_upi_topology(ptr 
   br i1 %87, label %60, label %.loopexit, !llvm.loop !69
 
 .thread9:                                         ; preds = %48, %.loopexit, %51, %79, %35, %34, %33, %32, %31, %30, %29, %.thread, %8, %3
-  %88 = phi ptr [ null, %3 ], [ %18, %.thread ], [ %18, %29 ], [ %18, %30 ], [ %18, %31 ], [ %18, %32 ], [ %18, %33 ], [ %18, %34 ], [ %18, %35 ], [ null, %8 ], [ %18, %79 ], [ %18, %51 ], [ %18, %48 ], [ null, %.loopexit ]
-  %89 = phi ptr [ null, %3 ], [ %19, %.thread ], [ %19, %29 ], [ %19, %30 ], [ %19, %31 ], [ %19, %32 ], [ %19, %33 ], [ %19, %34 ], [ %19, %35 ], [ null, %8 ], [ %77, %79 ], [ %19, %51 ], [ %19, %48 ], [ %14, %.loopexit ]
-  %90 = phi i32 [ -1, %3 ], [ %27, %.thread ], [ -2, %29 ], [ -25, %30 ], [ -19, %31 ], [ -14, %32 ], [ -5, %33 ], [ -28, %34 ], [ -34, %35 ], [ -1, %8 ], [ %81, %79 ], [ -1, %51 ], [ -1, %48 ], [ 0, %.loopexit ]
+  %88 = phi ptr [ null, %3 ], [ %18, %.thread ], [ %18, %29 ], [ %18, %30 ], [ %18, %31 ], [ %18, %32 ], [ %18, %33 ], [ %18, %34 ], [ %18, %35 ], [ null, %8 ], [ %18, %51 ], [ %18, %79 ], [ null, %.loopexit ], [ %18, %48 ]
+  %89 = phi ptr [ null, %3 ], [ %19, %.thread ], [ %19, %29 ], [ %19, %30 ], [ %19, %31 ], [ %19, %32 ], [ %19, %33 ], [ %19, %34 ], [ %19, %35 ], [ null, %8 ], [ %19, %51 ], [ %77, %79 ], [ %14, %.loopexit ], [ %19, %48 ]
+  %90 = phi i32 [ -1, %3 ], [ %27, %.thread ], [ -2, %29 ], [ -25, %30 ], [ -19, %31 ], [ -14, %32 ], [ -5, %33 ], [ -28, %34 ], [ -34, %35 ], [ -1, %8 ], [ -1, %51 ], [ %81, %79 ], [ 0, %.loopexit ], [ -1, %48 ]
   call void @pci_dev_put(ptr noundef %88) #20
   call void @pci_dev_put(ptr noundef %89) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

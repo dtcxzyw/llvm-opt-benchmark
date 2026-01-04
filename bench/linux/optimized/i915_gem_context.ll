@@ -549,7 +549,7 @@ define internal fastcc ptr @i915_gem_create_context(ptr noundef %0, ptr noundef 
   br i1 %209, label %.preheader, label %.thread71, !llvm.loop !23
 
 .thread71:                                        ; preds = %._crit_edge, %.loopexit91, %171
-  %210 = phi i32 [ %165, %171 ], [ %165, %.loopexit91 ], [ %146, %._crit_edge ]
+  %210 = phi i32 [ %165, %.loopexit91 ], [ %165, %171 ], [ %146, %._crit_edge ]
   %211 = sext i32 %210 to i64
   %212 = inttoptr i64 %211 to ptr
   br label %.loopexit93
@@ -560,7 +560,7 @@ define internal fastcc ptr @i915_gem_create_context(ptr noundef %0, ptr noundef 
   br i1 %215, label %.loopexit95, label %78, !llvm.loop !24
 
 .loopexit93:                                      ; preds = %105, %113, %127, %.thread71
-  %.ph74 = phi ptr [ %212, %.thread71 ], [ %129, %127 ], [ %115, %113 ], [ %106, %105 ]
+  %.ph74 = phi ptr [ %115, %113 ], [ %212, %.thread71 ], [ %129, %127 ], [ %106, %105 ]
   %216 = load i32, ptr %73, align 8
   %217 = icmp eq i32 %216, 0
   br i1 %217, label %.loopexit90, label %218
@@ -724,7 +724,7 @@ define internal fastcc ptr @i915_gem_create_context(ptr noundef %0, ptr noundef 
   br label %.loopexit95
 
 .loopexit95:                                      ; preds = %281, %213, %.loopexit90, %244, %71
-  %312 = phi ptr [ %69, %71 ], [ %242, %244 ], [ %311, %.loopexit90 ], [ %69, %213 ], [ %242, %281 ]
+  %312 = phi ptr [ %69, %213 ], [ %69, %71 ], [ %311, %.loopexit90 ], [ %242, %244 ], [ %242, %281 ]
   %313 = icmp ugt ptr %312, inttoptr (i64 -4096 to ptr)
   br i1 %313, label %.thread85, label %317
 
@@ -934,7 +934,7 @@ define internal fastcc ptr @i915_gem_create_context(ptr noundef %0, ptr noundef 
   br label %427
 
 427:                                              ; preds = %.thread89, %384, %380, %367, %366, %2
-  %428 = phi ptr [ %426, %.thread89 ], [ inttoptr (i64 -12 to ptr), %2 ], [ %4, %366 ], [ %4, %367 ], [ %4, %380 ], [ %4, %384 ]
+  %428 = phi ptr [ %426, %.thread89 ], [ %4, %384 ], [ inttoptr (i64 -12 to ptr), %2 ], [ %4, %366 ], [ %4, %367 ], [ %4, %380 ]
   ret ptr %428
 }
 
@@ -3286,7 +3286,7 @@ define dso_local i32 @i915_gem_context_setparam_ioctl(ptr noundef readnone captu
   br label %.thread20
 
 .thread20:                                        ; preds = %109, %104, %98, %92, %228, %224, %219, %218, %214, %203, %199, %197, %.loopexit, %90, %86, %84, %76, %74, %70, %.thread45, %67, %60, %59, %58, %49, %38
-  %229 = phi i32 [ %198, %197 ], [ 0, %90 ], [ 0, %84 ], [ 0, %.thread45 ], [ 0, %74 ], [ 0, %58 ], [ 0, %59 ], [ -22, %49 ], [ -22, %60 ], [ -1, %67 ], [ -1, %70 ], [ -22, %76 ], [ -1, %86 ], [ -22, %38 ], [ 0, %.loopexit ], [ -22, %199 ], [ 0, %203 ], [ -22, %214 ], [ -19, %219 ], [ -19, %224 ], [ 0, %228 ], [ 0, %218 ], [ -1, %109 ], [ -22, %104 ], [ -19, %98 ], [ -22, %92 ]
+  %229 = phi i32 [ %198, %197 ], [ 0, %90 ], [ 0, %84 ], [ 0, %.thread45 ], [ 0, %74 ], [ 0, %58 ], [ 0, %59 ], [ -22, %49 ], [ -22, %60 ], [ -1, %67 ], [ -1, %70 ], [ -22, %76 ], [ -1, %86 ], [ -22, %38 ], [ 0, %.loopexit ], [ 0, %218 ], [ -22, %199 ], [ 0, %203 ], [ -22, %214 ], [ -19, %219 ], [ -19, %224 ], [ 0, %228 ], [ -1, %109 ], [ -22, %104 ], [ -19, %98 ], [ -22, %92 ]
   %230 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %15, i32 -1, ptr nonnull elementtype(i32) %15) #17, !srcloc !25
   %231 = icmp eq i32 %230, 1
   br i1 %231, label %235, label %232
@@ -3309,7 +3309,7 @@ define dso_local i32 @i915_gem_context_setparam_ioctl(ptr noundef readnone captu
   br label %.thread25
 
 .thread25:                                        ; preds = %232, %234, %.thread17, %235
-  %241 = phi i32 [ %229, %235 ], [ %.ph, %.thread17 ], [ %229, %234 ], [ %229, %232 ]
+  %241 = phi i32 [ %.ph, %.thread17 ], [ %229, %235 ], [ %229, %234 ], [ %229, %232 ]
   ret i32 %241
 }
 
@@ -3921,7 +3921,7 @@ define internal fastcc i32 @set_proto_ctx_param(ptr noundef %0, ptr noundef capt
   br label %.thread
 
 .thread:                                          ; preds = %80, %75, %69, %63, %352, %345, %340, %336, %334, %325, %321, %316, %312, %308, %299, %297, %189, %.thread14, %161, %156, %152, %.critedge, %82, %59, %55, %51, %43, %39, %35, %.thread49, %30, %23, %21, %19, %9, %3
-  %355 = phi i32 [ %298, %297 ], [ %151, %.critedge ], [ 0, %82 ], [ 0, %59 ], [ 0, %51 ], [ 0, %.thread49 ], [ 0, %39 ], [ 0, %19 ], [ 0, %21 ], [ -22, %9 ], [ -22, %23 ], [ -1, %30 ], [ -1, %35 ], [ -22, %43 ], [ -1, %55 ], [ -22, %299 ], [ -22, %3 ], [ 0, %.thread14 ], [ -22, %152 ], [ -19, %156 ], [ -2, %161 ], [ -2, %189 ], [ -22, %308 ], [ -19, %316 ], [ -19, %321 ], [ 0, %325 ], [ 0, %312 ], [ 0, %345 ], [ %354, %352 ], [ 0, %334 ], [ -19, %336 ], [ -1, %340 ], [ -1, %80 ], [ -22, %75 ], [ -19, %69 ], [ -22, %63 ]
+  %355 = phi i32 [ %298, %297 ], [ %151, %.critedge ], [ -1, %340 ], [ 0, %82 ], [ 0, %59 ], [ 0, %51 ], [ 0, %.thread49 ], [ 0, %39 ], [ 0, %19 ], [ 0, %21 ], [ -22, %9 ], [ -22, %23 ], [ -1, %30 ], [ -1, %35 ], [ -22, %43 ], [ -1, %55 ], [ -22, %299 ], [ -22, %3 ], [ 0, %.thread14 ], [ -22, %152 ], [ -19, %156 ], [ -2, %161 ], [ -2, %189 ], [ -22, %308 ], [ -19, %316 ], [ -19, %321 ], [ 0, %325 ], [ 0, %312 ], [ 0, %345 ], [ %354, %352 ], [ 0, %334 ], [ -19, %336 ], [ -1, %80 ], [ -22, %75 ], [ -19, %69 ], [ -22, %63 ]
   ret i32 %355
 }
 
@@ -5047,7 +5047,7 @@ define internal fastcc ptr @lookup_user_engine(ptr noundef %0, i64 noundef range
   br label %.critedge
 
 .critedge:                                        ; preds = %14, %54, %3
-  %56 = phi ptr [ %55, %54 ], [ inttoptr (i64 -22 to ptr), %3 ], [ inttoptr (i64 -22 to ptr), %14 ]
+  %56 = phi ptr [ %55, %54 ], [ inttoptr (i64 -22 to ptr), %14 ], [ inttoptr (i64 -22 to ptr), %3 ]
   ret ptr %56
 }
 
@@ -5884,7 +5884,7 @@ define internal range(i32 -22, 1) i32 @set_proto_ctx_engines_parallel_submit(ptr
   br label %.thread18
 
 .thread18:                                        ; preds = %164, %192, %192, %203, %185
-  %.ph = phi i32 [ -22, %185 ], [ -22, %203 ], [ -14, %164 ], [ -22, %192 ], [ -22, %192 ]
+  %.ph = phi i32 [ -22, %203 ], [ -22, %185 ], [ -14, %164 ], [ -22, %192 ], [ -22, %192 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %228
 

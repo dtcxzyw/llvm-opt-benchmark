@@ -290,8 +290,8 @@ define void @_ZN3gmx22makeClusterListSimd4xMERKNS_4GridEPNS_16NbnxnPairlistCpuEi
   br i1 %101, label %98, label %97, !llvm.loop !37
 
 102:                                              ; preds = %86, %50
-  %103 = phi i32 [ %91, %86 ], [ %48, %50 ]
-  %.1174.i = phi i8 [ %90, %86 ], [ 0, %50 ]
+  %103 = phi i32 [ %48, %50 ], [ %91, %86 ]
+  %.1174.i = phi i8 [ 0, %50 ], [ %90, %86 ]
   %104 = xor i8 %.1174.i, 1
   %105 = zext nneg i8 %104 to i32
   %spec.select.i = add nsw i32 %.0170242.i, %105
@@ -448,8 +448,8 @@ define void @_ZN3gmx22makeClusterListSimd4xMERKNS_4GridEPNS_16NbnxnPairlistCpuEi
   br i1 %175, label %172, label %171, !llvm.loop !43
 
 176:                                              ; preds = %160, %124
-  %177 = phi i32 [ %165, %160 ], [ %122, %124 ]
-  %.3.i = phi i8 [ %164, %160 ], [ 0, %124 ]
+  %177 = phi i32 [ %122, %124 ], [ %165, %160 ]
+  %.3.i = phi i8 [ 0, %124 ], [ %164, %160 ]
   %178 = xor i8 %.3.i, 1
   %179 = zext nneg i8 %178 to i32
   %spec.select190.i = sub nsw i32 %.0171250.i, %179
@@ -742,8 +742,8 @@ define void @_ZN3gmx23makeClusterListSimd2xMMERKNS_4GridEPNS_16NbnxnPairlistCpuE
   br i1 %74, label %73, label %.loopexit237.i.critedge, !llvm.loop !99
 
 82:                                               ; preds = %.loopexit237.i.critedge, %43
-  %.promoted255.i = phi i32 [ %72, %.loopexit237.i.critedge ], [ %41, %43 ]
-  %.1174.i = phi i8 [ %71, %.loopexit237.i.critedge ], [ 0, %43 ]
+  %.promoted255.i = phi i32 [ %41, %43 ], [ %72, %.loopexit237.i.critedge ]
+  %.1174.i = phi i8 [ 0, %43 ], [ %71, %.loopexit237.i.critedge ]
   %83 = xor i8 %.1174.i, 1
   %84 = zext nneg i8 %83 to i32
   %spec.select.i = add nsw i32 %.0170244.i, %84
@@ -862,8 +862,8 @@ define void @_ZN3gmx23makeClusterListSimd2xMMERKNS_4GridEPNS_16NbnxnPairlistCpuE
   br i1 %133, label %132, label %.loopexit.i.critedge, !llvm.loop !102
 
 141:                                              ; preds = %.loopexit.i.critedge, %102
-  %142 = phi i32 [ %131, %.loopexit.i.critedge ], [ %100, %102 ]
-  %.3.i = phi i8 [ %130, %.loopexit.i.critedge ], [ 0, %102 ]
+  %142 = phi i32 [ %100, %102 ], [ %131, %.loopexit.i.critedge ]
+  %.3.i = phi i8 [ 0, %102 ], [ %130, %.loopexit.i.critedge ]
   %143 = xor i8 %.3.i, 1
   %144 = zext nneg i8 %143 to i32
   %spec.select190.i = sub nsw i32 %.0171251.i, %144

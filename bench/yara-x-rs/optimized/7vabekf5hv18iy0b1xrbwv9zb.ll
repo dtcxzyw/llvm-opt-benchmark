@@ -827,7 +827,7 @@ define void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFieldAcce
   ret void
 
 .body.thread:                                     ; preds = %18, %15, %25
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %25 ], [ %19, %18 ], [ %16, %15 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %16, %15 ], [ %lpad.thr_comm, %25 ], [ %19, %18 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 25:                                               ; preds = %22, %4
@@ -955,7 +955,7 @@ define void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFieldAcce
   ret void
 
 .body.thread:                                     ; preds = %18, %15, %25
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %25 ], [ %19, %18 ], [ %16, %15 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %16, %15 ], [ %lpad.thr_comm, %25 ], [ %19, %18 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 25:                                               ; preds = %22, %4
@@ -1036,7 +1036,7 @@ define void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFieldAcce
   ret void
 
 .body.thread:                                     ; preds = %18, %15, %25
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %25 ], [ %19, %18 ], [ %16, %15 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %16, %15 ], [ %lpad.thr_comm, %25 ], [ %19, %18 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 25:                                               ; preds = %22, %4
@@ -1117,7 +1117,7 @@ define void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFieldAcce
   ret void
 
 .body.thread:                                     ; preds = %18, %15, %25
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %25 ], [ %19, %18 ], [ %16, %15 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %16, %15 ], [ %lpad.thr_comm, %25 ], [ %19, %18 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 25:                                               ; preds = %22, %4
@@ -1247,7 +1247,7 @@ define void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFieldAcce
   ret void
 
 .body.thread:                                     ; preds = %18, %15, %25
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %25 ], [ %19, %18 ], [ %16, %15 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %16, %15 ], [ %lpad.thr_comm, %25 ], [ %19, %18 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 25:                                               ; preds = %22, %4

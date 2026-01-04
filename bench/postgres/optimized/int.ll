@@ -293,8 +293,8 @@ define dso_local noundef i64 @int2vectorin(ptr noundef readonly captures(none) %
   br i1 %.not84, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %55, %19, %1
-  %.055.lcssa = phi i32 [ 0, %1 ], [ %.05591, %19 ], [ %61, %55 ]
-  %.048.lcssa = phi ptr [ %8, %1 ], [ %.04893, %19 ], [ %.250, %55 ]
+  %.055.lcssa = phi i32 [ %.05591, %19 ], [ 0, %1 ], [ %61, %55 ]
+  %.048.lcssa = phi ptr [ %.04893, %19 ], [ %8, %1 ], [ %.250, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %63 = shl i32 %.055.lcssa, 3
   %64 = add i32 %63, 96
@@ -313,7 +313,7 @@ define dso_local noundef i64 @int2vectorin(ptr noundef readonly captures(none) %
   br label %71
 
 71:                                               ; preds = %.thread, %._crit_edge
-  %.2 = phi i64 [ %70, %._crit_edge ], [ 0, %.thread ]
+  %.2 = phi i64 [ 0, %.thread ], [ %70, %._crit_edge ]
   ret i64 %.2
 }
 
@@ -2392,7 +2392,7 @@ is_funcclause.exit.thread.sink.split:             ; preds = %34, %41, %49, %.thr
   br label %is_funcclause.exit.thread
 
 is_funcclause.exit.thread:                        ; preds = %is_funcclause.exit.thread.sink.split, %.thread, %53, %7, %is_funcclause.exit, %57, %54, %1
-  %.0 = phi i64 [ 0, %1 ], [ 0, %is_funcclause.exit ], [ 0, %54 ], [ 0, %53 ], [ 0, %57 ], [ 0, %7 ], [ 0, %.thread ], [ %3, %is_funcclause.exit.thread.sink.split ]
+  %.0 = phi i64 [ 0, %1 ], [ 0, %is_funcclause.exit ], [ 0, %57 ], [ 0, %53 ], [ 0, %54 ], [ 0, %7 ], [ 0, %.thread ], [ %3, %is_funcclause.exit.thread.sink.split ]
   ret i64 %.0
 }
 

@@ -413,7 +413,7 @@ for.body18.i:                                     ; preds = %.noexc7, %if.end.i
   br i1 %exitcond.not.i, label %for.inc19.i, label %for.body18.i, !llvm.loop !6
 
 for.inc19.i:                                      ; preds = %.noexc7, %lor.lhs.false.i, %.noexc6
-  %state.1.i = phi i64 [ %add.i16.i, %lor.lhs.false.i ], [ %state.037.i, %.noexc6 ], [ %add.i23.i, %.noexc7 ]
+  %state.1.i = phi i64 [ %state.037.i, %.noexc6 ], [ %add.i16.i, %lor.lhs.false.i ], [ %add.i23.i, %.noexc7 ]
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin3.038.i, i64 1
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i.i.i.i
   br i1 %cmp.not.i, label %invoke.cont16, label %for.body.i
@@ -1291,8 +1291,8 @@ invoke.cont131.i:                                 ; preds = %nrvo.unused124.i
   br label %cleanup133.i
 
 cleanup133.i:                                     ; preds = %if.else63.i, %invoke.cont131.i, %cleanup122.i, %cleanup102.i, %cleanup82.i
-  %45 = phi i1 [ true, %invoke.cont131.i ], [ false, %cleanup82.i ], [ false, %cleanup102.i ], [ false, %cleanup122.i ], [ false, %if.else63.i ]
-  %has_comma.1.i = phi i8 [ %frombool.i, %invoke.cont131.i ], [ 1, %cleanup82.i ], [ 1, %cleanup102.i ], [ 1, %cleanup122.i ], [ 1, %if.else63.i ]
+  %45 = phi i1 [ true, %invoke.cont131.i ], [ false, %cleanup102.i ], [ false, %cleanup82.i ], [ false, %cleanup122.i ], [ false, %if.else63.i ]
+  %has_comma.1.i = phi i8 [ %frombool.i, %invoke.cont131.i ], [ 1, %cleanup102.i ], [ 1, %cleanup82.i ], [ 1, %cleanup122.i ], [ 1, %if.else63.i ]
   %46 = load i64, ptr %key.i, align 8
   %cmp.i.i.i.i84 = icmp eq i64 %46, 0
   br i1 %cmp.i.i.i.i84, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i90, label %if.else.i.i85
@@ -2815,7 +2815,7 @@ _ZN6google8protobuf13json_internal12LocationWithINS1_4MarkEED2Ev.exit: ; preds =
   br label %return
 
 ehcleanup342:                                     ; preds = %lpad34.loopexit, %lpad34.loopexit.split-lp.loopexit.split-lp, %lpad34.loopexit.split-lp.loopexit, %lpad.i.i342, %lpad.i.i293, %lpad.i.i249, %lpad268, %ehcleanup254, %ehcleanup225, %ehcleanup201, %lpad143, %lpad122, %ehcleanup110, %lpad91, %lpad83, %lpad.i.i132, %lpad.i.i85
-  %.pn35 = phi { ptr, i32 } [ %101, %lpad268 ], [ %118, %lpad.i.i293 ], [ %132, %lpad.i.i342 ], [ %108, %lpad.i.i249 ], [ %.pn33, %ehcleanup254 ], [ %59, %lpad91 ], [ %58, %lpad83 ], [ %.pn29, %ehcleanup201 ], [ %.pn27, %ehcleanup225 ], [ %76, %lpad143 ], [ %68, %lpad122 ], [ %.pn, %ehcleanup110 ], [ %52, %lpad.i.i132 ], [ %40, %lpad.i.i85 ], [ %lpad.loopexit, %lpad34.loopexit ], [ %lpad.loopexit386, %lpad34.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp387, %lpad34.loopexit.split-lp.loopexit.split-lp ]
+  %.pn35 = phi { ptr, i32 } [ %101, %lpad268 ], [ %.pn, %ehcleanup110 ], [ %118, %lpad.i.i293 ], [ %132, %lpad.i.i342 ], [ %108, %lpad.i.i249 ], [ %52, %lpad.i.i132 ], [ %.pn33, %ehcleanup254 ], [ %59, %lpad91 ], [ %58, %lpad83 ], [ %.pn29, %ehcleanup201 ], [ %.pn27, %ehcleanup225 ], [ %76, %lpad143 ], [ %68, %lpad122 ], [ %40, %lpad.i.i85 ], [ %lpad.loopexit, %lpad34.loopexit ], [ %lpad.loopexit386, %lpad34.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp387, %lpad34.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN6google8protobuf13json_internal12LocationWithINS1_4MarkEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %mark) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %on_heap) #21
   br label %eh.resume
@@ -3551,7 +3551,7 @@ terminate.lpad.i36:                               ; preds = %if.then.i.i35
   unreachable
 
 if.end48:                                         ; preds = %for.body, %if.then24, %if.then34
-  %c.0 = phi i8 [ %add, %if.then24 ], [ %add37, %if.then34 ], [ %14, %for.body ]
+  %c.0 = phi i8 [ %add37, %if.then34 ], [ %add, %if.then24 ], [ %14, %for.body ]
   %shl = shl i16 %u16.044, 4
   %21 = zext nneg i8 %c.0 to i16
   %or16 = or i16 %shl, %21
@@ -3888,7 +3888,7 @@ _ZN4absl12lts_202308028StatusOrIN6google8protobuf13json_internal16MaybeOwnedStri
   ret void
 
 ehcleanup:                                        ; preds = %lpad.i.i, %lpad
-  %.pn = phi { ptr, i32 } [ %6, %lpad ], [ %5, %lpad.i.i ]
+  %.pn = phi { ptr, i32 } [ %5, %lpad.i.i ], [ %6, %lpad ]
   call void @_ZN4absl12lts_202308028StatusOrIN6google8protobuf13json_internal16MaybeOwnedStringEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %taken) #21
   resume { ptr, i32 } %.pn
 }
@@ -4250,10 +4250,7 @@ if.end.i.i.i:                                     ; preds = %invoke.cont5.i.i
   %cmp.i.i.i12 = icmp eq i32 %p.sroa.0.0.i.i, 0
   %cmp3.i.i.i = icmp eq i8 %21, 45
   %or.cond.i.i.i = and i1 %cmp.i.i.i12, %cmp3.i.i.i
-  br i1 %or.cond.i.i.i, label %if.then4.i.i.i, label %if.end5.i.i.i
-
-if.then4.i.i.i:                                   ; preds = %if.end.i.i.i
-  br i1 %25, label %if.then.i.i16.i.i, label %do.body.i.i
+  br i1 %or.cond.i.i.i, label %"_ZZN6google8protobuf13json_internal9JsonLexer14ParseRawNumberEvEN3$_0clEmc.exit.i.i", label %if.end5.i.i.i
 
 if.end5.i.i.i:                                    ; preds = %if.end.i.i.i
   %cmp11.i.i.i = icmp eq i8 %21, 46
@@ -4272,16 +4269,19 @@ if.end13.i.i.i:                                   ; preds = %if.end5.i.i.i
 if.end23.i.i.i:                                   ; preds = %if.end13.i.i.i
   %29 = and i8 %p.sroa.4.0.i.i, -33
   %or.cond5.i.i.i = icmp eq i8 %29, 69
-  br i1 %or.cond5.i.i.i, label %"_ZZN6google8protobuf13json_internal9JsonLexer14ParseRawNumberEvEN3$_0clEmc.exit.i.i", label %if.then.i.i16.i.i
+  br i1 %or.cond5.i.i.i, label %land.lhs.true29.i.i.i, label %if.then.i.i16.i.i
 
-"_ZZN6google8protobuf13json_internal9JsonLexer14ParseRawNumberEvEN3$_0clEmc.exit.i.i": ; preds = %if.end23.i.i.i
+land.lhs.true29.i.i.i:                            ; preds = %if.end23.i.i.i
   %30 = add i8 %21, -43
   %switch.and.i.i.i = and i8 %30, -3
   %switch.selectcmp.i.i.i = icmp eq i8 %switch.and.i.i.i, 0
   br i1 %switch.selectcmp.i.i.i, label %do.body.i.i, label %if.then.i.i16.i.i
 
-do.body.i.i:                                      ; preds = %"_ZZN6google8protobuf13json_internal9JsonLexer14ParseRawNumberEvEN3$_0clEmc.exit.i.i", %if.end13.i.i.i, %if.end5.i.i.i, %if.then4.i.i.i, %invoke.cont5.i.i
-  %p.sroa.0.138.i.i = phi i32 [ %p.sroa.0.0.i.i, %"_ZZN6google8protobuf13json_internal9JsonLexer14ParseRawNumberEvEN3$_0clEmc.exit.i.i" ], [ 0, %if.then4.i.i.i ], [ 2, %if.end13.i.i.i ], [ 1, %if.end5.i.i.i ], [ %p.sroa.0.0.i.i, %invoke.cont5.i.i ]
+"_ZZN6google8protobuf13json_internal9JsonLexer14ParseRawNumberEvEN3$_0clEmc.exit.i.i": ; preds = %if.end.i.i.i
+  br i1 %25, label %if.then.i.i16.i.i, label %do.body.i.i
+
+do.body.i.i:                                      ; preds = %"_ZZN6google8protobuf13json_internal9JsonLexer14ParseRawNumberEvEN3$_0clEmc.exit.i.i", %land.lhs.true29.i.i.i, %if.end13.i.i.i, %if.end5.i.i.i, %invoke.cont5.i.i
+  %p.sroa.0.138.i.i = phi i32 [ %p.sroa.0.0.i.i, %land.lhs.true29.i.i.i ], [ 0, %"_ZZN6google8protobuf13json_internal9JsonLexer14ParseRawNumberEvEN3$_0clEmc.exit.i.i" ], [ 2, %if.end13.i.i.i ], [ 1, %if.end5.i.i.i ], [ %p.sroa.0.0.i.i, %invoke.cont5.i.i ]
   invoke void @_ZN6google8protobuf13json_internal22ZeroCopyBufferedStream7AdvanceEm(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %_status.i.i, ptr noundef nonnull align 8 dereferenceable(136) %this, i64 noundef 1)
           to label %invoke.cont13.i.i unwind label %lpad.loopexit.i.i, !noalias !100
 
@@ -4316,7 +4316,7 @@ terminate.lpad.i14.i.i:                           ; preds = %if.then.i.i13.i.i
   call void @__clang_call_terminate(ptr %36) #22, !noalias !100
   unreachable
 
-if.then.i.i16.i.i:                                ; preds = %"_ZZN6google8protobuf13json_internal9JsonLexer14ParseRawNumberEvEN3$_0clEmc.exit.i.i", %if.end23.i.i.i, %if.then4.i.i.i, %if.then.i.i4.i.i.i.i, %if.else.i.i.i.i
+if.then.i.i16.i.i:                                ; preds = %"_ZZN6google8protobuf13json_internal9JsonLexer14ParseRawNumberEvEN3$_0clEmc.exit.i.i", %land.lhs.true29.i.i.i, %if.end23.i.i.i, %if.then.i.i4.i.i.i.i, %if.else.i.i.i.i
   %37 = load i64, ptr %cursor_.i.i, align 8, !noalias !100
   %38 = load i32, ptr %outstanding_buffer_borrows_.i.i.i.i, align 4, !noalias !100
   %inc.i.i.i.i.i = add nsw i32 %38, 1
@@ -4414,7 +4414,7 @@ common.resume:                                    ; preds = %lpad.i.i, %ehcleanu
   resume { ptr, i32 } %common.resume.op
 
 common.resume.i:                                  ; preds = %lpad.loopexit.i.i, %lpad.loopexit.split-lp.i.i
-  %.pn.pn.i.i = phi { ptr, i32 } [ %lpad.loopexit52.i.i, %lpad.loopexit.i.i ], [ %lpad.loopexit.split-lp53.i.i, %lpad.loopexit.split-lp.i.i ]
+  %.pn.pn.i.i = phi { ptr, i32 } [ %lpad.loopexit.split-lp53.i.i, %lpad.loopexit.split-lp.i.i ], [ %lpad.loopexit52.i.i, %lpad.loopexit.i.i ]
   call void @_ZN6google8protobuf13json_internal14BufferingGuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %guard.i.i) #21, !noalias !100
   br label %common.resume
 
@@ -5697,7 +5697,7 @@ _ZN4absl12lts_202308028StatusOrItED2Ev.exit147:   ; preds = %cleanup157, %if.the
   ret void
 
 ehcleanup158:                                     ; preds = %lpad.i.i127, %ehcleanup, %lpad.i.i61, %lpad.i.i, %lpad
-  %.pn41 = phi { ptr, i32 } [ %6, %lpad ], [ %.pn, %ehcleanup ], [ %16, %lpad.i.i61 ], [ %38, %lpad.i.i127 ], [ %5, %lpad.i.i ]
+  %.pn41 = phi { ptr, i32 } [ %6, %lpad ], [ %5, %lpad.i.i ], [ %.pn, %ehcleanup ], [ %16, %lpad.i.i61 ], [ %38, %lpad.i.i127 ]
   call void @_ZN4absl12lts_202308028StatusOrItED2Ev(ptr noundef nonnull align 8 dereferenceable(10) %hex) #21
   resume { ptr, i32 } %.pn41
 }
@@ -6026,7 +6026,7 @@ sw.default:                                       ; preds = %sw.bb8, %entry
   br label %return
 
 return:                                           ; preds = %entry, %entry, %sw.bb8, %entry, %sw.default, %sw.bb7, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3
-  %retval.0 = phi i8 [ 0, %sw.default ], [ 8, %sw.bb3 ], [ 12, %sw.bb4 ], [ 10, %sw.bb5 ], [ 13, %sw.bb6 ], [ 9, %sw.bb7 ], [ %c, %entry ], [ 39, %sw.bb8 ], [ %c, %entry ], [ %c, %entry ]
+  %retval.0 = phi i8 [ 0, %sw.default ], [ %c, %entry ], [ 39, %sw.bb8 ], [ %c, %entry ], [ 8, %sw.bb3 ], [ 12, %sw.bb4 ], [ 10, %sw.bb5 ], [ 13, %sw.bb6 ], [ 9, %sw.bb7 ], [ %c, %entry ]
   ret i8 %retval.0
 }
 
@@ -6392,7 +6392,7 @@ common.resume:                                    ; preds = %lpad.i.i, %ehcleanu
   resume { ptr, i32 } %common.resume.op
 
 common.resume.i:                                  ; preds = %lpad.loopexit.i.i, %lpad.loopexit.split-lp.i.i
-  %.pn.pn.i.i = phi { ptr, i32 } [ %lpad.loopexit45.i.i, %lpad.loopexit.i.i ], [ %lpad.loopexit.split-lp46.i.i, %lpad.loopexit.split-lp.i.i ]
+  %.pn.pn.i.i = phi { ptr, i32 } [ %lpad.loopexit.split-lp46.i.i, %lpad.loopexit.split-lp.i.i ], [ %lpad.loopexit45.i.i, %lpad.loopexit.i.i ]
   call void @_ZN6google8protobuf13json_internal14BufferingGuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %guard.i.i) #21, !noalias !114
   br label %common.resume
 
@@ -7135,7 +7135,7 @@ _ZN4absl12lts_202308028StatusOrIN6google8protobuf13json_internal14BufferingGuard
   ret void
 
 ehcleanup29:                                      ; preds = %lpad.i.i24, %lpad.i.i, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %6, %lpad ], [ %13, %lpad.i.i24 ], [ %5, %lpad.i.i ]
+  %.pn.pn = phi { ptr, i32 } [ %5, %lpad.i.i ], [ %6, %lpad ], [ %13, %lpad.i.i24 ]
   call void @_ZN4absl12lts_202308028StatusOrIN6google8protobuf13json_internal14BufferingGuardEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %buffering) #21
   resume { ptr, i32 } %.pn.pn
 }
@@ -7510,7 +7510,7 @@ terminate.lpad.i6:                                ; preds = %if.then.i.i5
   unreachable
 
 cleanup:                                          ; preds = %lor.rhs.i, %if.then.i.i5, %invoke.cont8, %invoke.cont8.thread, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit
-  %14 = phi i1 [ false, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit ], [ true, %invoke.cont8.thread ], [ true, %invoke.cont8 ], [ true, %if.then.i.i5 ], [ false, %lor.rhs.i ]
+  %14 = phi i1 [ false, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit ], [ true, %if.then.i.i5 ], [ true, %invoke.cont8.thread ], [ true, %invoke.cont8 ], [ false, %lor.rhs.i ]
   %15 = load i64, ptr %ignored, align 8
   %cmp.i.i.i.i8 = icmp eq i64 %15, 0
   br i1 %cmp.i.i.i.i8, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, label %if.else.i.i

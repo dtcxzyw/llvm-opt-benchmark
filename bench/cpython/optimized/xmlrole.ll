@@ -88,8 +88,8 @@ define internal range(i32 -1, 60) i32 @prolog0(ptr noundef captures(none) %0, i3
   br label %common.exit.sink.split
 
 common.exit.sink.split:                           ; preds = %9, %5, %6, %7, %8, %18, %.thread
-  %error.sink = phi ptr [ @error, %.thread ], [ @error, %18 ], [ @prolog1, %8 ], [ @prolog1, %7 ], [ @prolog1, %6 ], [ @prolog1, %5 ], [ @doctype0, %9 ]
-  %.0.ph = phi i32 [ -1, %.thread ], [ 2, %18 ], [ 56, %8 ], [ 55, %7 ], [ 1, %6 ], [ 0, %5 ], [ 3, %9 ]
+  %error.sink = phi ptr [ @error, %.thread ], [ @error, %18 ], [ @prolog1, %5 ], [ @prolog1, %8 ], [ @prolog1, %7 ], [ @prolog1, %6 ], [ @doctype0, %9 ]
+  %.0.ph = phi i32 [ -1, %.thread ], [ 2, %18 ], [ 0, %5 ], [ 56, %8 ], [ 55, %7 ], [ 1, %6 ], [ 3, %9 ]
   store ptr %error.sink, ptr %0, align 8, !tbaa !3
   br label %common.exit
 
@@ -173,7 +173,7 @@ define internal range(i32 -1, 60) i32 @prolog1(ptr noundef captures(none) %0, i3
   br label %common.exit
 
 common.exit:                                      ; preds = %.thread, %19, %5, %5, %18, %17, %7, %6
-  %.0 = phi i32 [ 55, %6 ], [ 56, %7 ], [ 3, %17 ], [ 2, %18 ], [ 0, %5 ], [ 0, %5 ], [ -1, %.thread ], [ 59, %19 ]
+  %.0 = phi i32 [ 0, %5 ], [ 2, %18 ], [ 55, %6 ], [ 56, %7 ], [ 0, %5 ], [ 3, %17 ], [ -1, %.thread ], [ 59, %19 ]
   ret i32 %.0
 }
 
@@ -246,8 +246,8 @@ define internal range(i32 -1, 60) i32 @doctype1(ptr noundef captures(none) %0, i
   br label %common.exit.sink.split
 
 common.exit.sink.split:                           ; preds = %11, %7, %5, %6, %.thread
-  %error.sink = phi ptr [ @error, %.thread ], [ @prolog2, %6 ], [ @internalSubset, %5 ], [ @doctype3, %7 ], [ @doctype2, %11 ]
-  %.0.ph = phi i32 [ -1, %.thread ], [ 8, %6 ], [ 7, %5 ], [ 3, %7 ], [ 3, %11 ]
+  %error.sink = phi ptr [ @error, %.thread ], [ @doctype3, %7 ], [ @internalSubset, %5 ], [ @prolog2, %6 ], [ @doctype2, %11 ]
+  %.0.ph = phi i32 [ -1, %.thread ], [ 3, %7 ], [ 7, %5 ], [ 8, %6 ], [ 3, %11 ]
   store ptr %error.sink, ptr %0, align 8, !tbaa !3
   br label %common.exit
 
@@ -352,7 +352,7 @@ define internal range(i32 -1, 61) i32 @internalSubset(ptr noundef captures(none)
   br label %common.exit
 
 common.exit:                                      ; preds = %.thread, %44, %5, %5, %43, %42, %41, %40, %39, %31, %23, %15
-  %.0 = phi i32 [ 11, %15 ], [ 33, %23 ], [ 39, %31 ], [ 17, %39 ], [ 55, %40 ], [ 56, %41 ], [ 60, %42 ], [ 3, %43 ], [ 0, %5 ], [ 0, %5 ], [ -1, %.thread ], [ 59, %44 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %5 ], [ 11, %15 ], [ 33, %23 ], [ 39, %31 ], [ 17, %39 ], [ 55, %40 ], [ 56, %41 ], [ 60, %42 ], [ 3, %43 ], [ -1, %.thread ], [ 59, %44 ]
   ret i32 %.0
 }
 
@@ -390,7 +390,7 @@ define internal range(i32 -1, 60) i32 @prolog2(ptr noundef captures(none) %0, i3
   br label %common.exit
 
 common.exit:                                      ; preds = %16, %11, %5, %10, %9, %8
-  %.0 = phi i32 [ 55, %8 ], [ 56, %9 ], [ 2, %10 ], [ 0, %5 ], [ -1, %16 ], [ 59, %11 ]
+  %.0 = phi i32 [ 0, %5 ], [ 2, %10 ], [ 55, %8 ], [ 56, %9 ], [ -1, %16 ], [ 59, %11 ]
   ret i32 %.0
 }
 
@@ -466,8 +466,8 @@ define internal range(i32 -1, 60) i32 @entity0(ptr noundef captures(none) %0, i3
   br i1 %or.cond.i, label %common.exit, label %common.exit.sink.split
 
 common.exit.sink.split:                           ; preds = %7, %5, %6
-  %error.sink = phi ptr [ @entity2, %6 ], [ @entity1, %5 ], [ @error, %7 ]
-  %.0.ph = phi i32 [ 9, %6 ], [ 11, %5 ], [ -1, %7 ]
+  %error.sink = phi ptr [ @entity1, %5 ], [ @entity2, %6 ], [ @error, %7 ]
+  %.0.ph = phi i32 [ 11, %5 ], [ 9, %6 ], [ -1, %7 ]
   store ptr %error.sink, ptr %0, align 8, !tbaa !3
   br label %common.exit
 
@@ -656,7 +656,7 @@ define internal range(i32 -1, 60) i32 @entity2(ptr noundef captures(none) %0, i3
   br label %common.exit
 
 common.exit:                                      ; preds = %.thread, %17, %5, %15, %14, %10
-  %.0 = phi i32 [ 11, %10 ], [ 11, %14 ], [ 12, %15 ], [ 11, %5 ], [ -1, %.thread ], [ 59, %17 ]
+  %.0 = phi i32 [ 11, %5 ], [ 12, %15 ], [ 11, %10 ], [ 11, %14 ], [ -1, %.thread ], [ 59, %17 ]
   ret i32 %.0
 }
 
@@ -708,7 +708,7 @@ define internal range(i32 -1, 60) i32 @entity7(ptr noundef captures(none) %0, i3
   br label %common.exit
 
 common.exit:                                      ; preds = %.thread, %17, %5, %15, %14, %10
-  %.0 = phi i32 [ 11, %10 ], [ 11, %14 ], [ 12, %15 ], [ 11, %5 ], [ -1, %.thread ], [ 59, %17 ]
+  %.0 = phi i32 [ 11, %5 ], [ 12, %15 ], [ 11, %10 ], [ 11, %14 ], [ -1, %.thread ], [ 59, %17 ]
   ret i32 %.0
 }
 
@@ -799,7 +799,7 @@ define internal i32 @declClose(ptr noundef captures(none) %0, i32 noundef %1, pt
   br label %common.exit
 
 common.exit:                                      ; preds = %20, %15, %9, %6
-  %.0 = phi i32 [ %8, %6 ], [ %14, %9 ], [ -1, %20 ], [ 59, %15 ]
+  %.0 = phi i32 [ %14, %9 ], [ %8, %6 ], [ -1, %20 ], [ 59, %15 ]
   ret i32 %.0
 }
 
@@ -950,7 +950,7 @@ define internal range(i32 -1, 60) i32 @condSect1(ptr noundef captures(none) %0, 
   br label %common.exit
 
 common.exit:                                      ; preds = %15, %10, %5, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %5 ], [ -1, %15 ], [ 59, %10 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %6 ], [ -1, %15 ], [ 59, %10 ]
   ret i32 %.0
 }
 
@@ -1102,7 +1102,7 @@ define internal range(i32 -1, 60) i32 @entity6(ptr noundef captures(none) %0, i3
   br label %common.exit
 
 common.exit:                                      ; preds = %13, %8, %5, %6
-  %.0 = phi i32 [ 16, %6 ], [ 11, %5 ], [ -1, %13 ], [ 59, %8 ]
+  %.0 = phi i32 [ 11, %5 ], [ 16, %6 ], [ -1, %13 ], [ 59, %8 ]
   ret i32 %.0
 }
 
@@ -1131,8 +1131,8 @@ define internal range(i32 -1, 60) i32 @attlist1(ptr noundef captures(none) %0, i
   br i1 %or.cond.i, label %common.exit, label %common.exit.sink.split
 
 common.exit.sink.split:                           ; preds = %10, %5, %5, %6
-  %error.sink = phi ptr [ %9, %6 ], [ @attlist2, %5 ], [ @attlist2, %5 ], [ @error, %10 ]
-  %.0.ph = phi i32 [ 33, %6 ], [ 22, %5 ], [ 22, %5 ], [ -1, %10 ]
+  %error.sink = phi ptr [ @attlist2, %5 ], [ %9, %6 ], [ @attlist2, %5 ], [ @error, %10 ]
+  %.0.ph = phi i32 [ 22, %5 ], [ 33, %6 ], [ 22, %5 ], [ -1, %10 ]
   store ptr %error.sink, ptr %0, align 8, !tbaa !3
   br label %common.exit
 
@@ -1200,7 +1200,7 @@ define internal range(i32 -1, 60) i32 @attlist2(ptr noundef captures(none) %0, i
   br label %common.exit
 
 common.exit:                                      ; preds = %26, %21, %13, %5, %20, %19
-  %.020 = phi i32 [ 33, %19 ], [ %15, %13 ], [ 33, %20 ], [ 33, %5 ], [ -1, %26 ], [ 59, %21 ]
+  %.020 = phi i32 [ 33, %5 ], [ 33, %20 ], [ 33, %19 ], [ %15, %13 ], [ -1, %26 ], [ 59, %21 ]
   ret i32 %.020
 }
 
@@ -1253,8 +1253,8 @@ define internal range(i32 -1, 60) i32 @attlist8(ptr noundef captures(none) %0, i
   br label %common.exit.sink.split
 
 common.exit.sink.split:                           ; preds = %5, %20, %14, %6, %.thread
-  %error.sink = phi ptr [ @error, %.thread ], [ @attlist1, %6 ], [ @attlist1, %14 ], [ @attlist9, %20 ], [ @attlist1, %5 ]
-  %.0.ph = phi i32 [ -1, %.thread ], [ 35, %6 ], [ 36, %14 ], [ 33, %20 ], [ 37, %5 ]
+  %error.sink = phi ptr [ @error, %.thread ], [ @attlist9, %20 ], [ @attlist1, %14 ], [ @attlist1, %6 ], [ @attlist1, %5 ]
+  %.0.ph = phi i32 [ -1, %.thread ], [ 33, %20 ], [ 36, %14 ], [ 35, %6 ], [ 37, %5 ]
   store ptr %error.sink, ptr %0, align 8, !tbaa !3
   br label %common.exit
 
@@ -1389,8 +1389,8 @@ define internal range(i32 -1, 60) i32 @attlist7(ptr noundef captures(none) %0, i
   br i1 %or.cond.i, label %common.exit, label %common.exit.sink.split
 
 common.exit.sink.split:                           ; preds = %7, %5, %6
-  %error.sink = phi ptr [ @attlist6, %6 ], [ @attlist8, %5 ], [ @error, %7 ]
-  %.0.ph = phi i32 [ 33, %6 ], [ 33, %5 ], [ -1, %7 ]
+  %error.sink = phi ptr [ @attlist8, %5 ], [ @attlist6, %6 ], [ @error, %7 ]
+  %.0.ph = phi i32 [ 33, %5 ], [ 33, %6 ], [ -1, %7 ]
   store ptr %error.sink, ptr %0, align 8, !tbaa !3
   br label %common.exit
 
@@ -1419,8 +1419,8 @@ define internal range(i32 -1, 60) i32 @attlist4(ptr noundef captures(none) %0, i
   br i1 %or.cond.i, label %common.exit, label %common.exit.sink.split
 
 common.exit.sink.split:                           ; preds = %7, %5, %6
-  %error.sink = phi ptr [ @attlist3, %6 ], [ @attlist8, %5 ], [ @error, %7 ]
-  %.0.ph = phi i32 [ 33, %6 ], [ 33, %5 ], [ -1, %7 ]
+  %error.sink = phi ptr [ @attlist8, %5 ], [ @attlist3, %6 ], [ @error, %7 ]
+  %.0.ph = phi i32 [ 33, %5 ], [ 33, %6 ], [ -1, %7 ]
   store ptr %error.sink, ptr %0, align 8, !tbaa !3
   br label %common.exit
 
@@ -1481,7 +1481,7 @@ define internal range(i32 -1, 60) i32 @element1(ptr noundef captures(none) %0, i
   br label %common.exit
 
 common.exit:                                      ; preds = %.thread, %19, %5, %17, %15, %10
-  %.0 = phi i32 [ 42, %10 ], [ 41, %15 ], [ 44, %17 ], [ 39, %5 ], [ -1, %.thread ], [ 59, %19 ]
+  %.0 = phi i32 [ 39, %5 ], [ 44, %17 ], [ 42, %10 ], [ 41, %15 ], [ -1, %.thread ], [ 59, %19 ]
   ret i32 %.0
 }
 
@@ -1535,8 +1535,8 @@ define internal range(i32 -1, 60) i32 @element2(ptr noundef captures(none) %0, i
   br label %common.exit.sink.split
 
 common.exit.sink.split:                           ; preds = %5, %5, %6, %14, %16, %17, %18, %.thread
-  %error.sink = phi ptr [ @error, %.thread ], [ @element7, %18 ], [ @element7, %17 ], [ @element7, %16 ], [ @element6, %14 ], [ @element3, %6 ], [ @element7, %5 ], [ @element7, %5 ]
-  %.0.ph = phi i32 [ -1, %.thread ], [ 54, %18 ], [ 52, %17 ], [ 53, %16 ], [ 44, %14 ], [ 43, %6 ], [ 51, %5 ], [ 51, %5 ]
+  %error.sink = phi ptr [ @error, %.thread ], [ @element7, %18 ], [ @element7, %17 ], [ @element7, %16 ], [ @element3, %6 ], [ @element6, %14 ], [ @element7, %5 ], [ @element7, %5 ]
+  %.0.ph = phi i32 [ -1, %.thread ], [ 54, %18 ], [ 52, %17 ], [ 53, %16 ], [ 43, %6 ], [ 44, %14 ], [ 51, %5 ], [ 51, %5 ]
   store ptr %error.sink, ptr %0, align 8, !tbaa !3
   br label %common.exit
 
@@ -1583,7 +1583,7 @@ define internal range(i32 -1, 60) i32 @element3(ptr noundef captures(none) %0, i
   br label %common.exit
 
 common.exit:                                      ; preds = %16, %11, %5, %10, %8, %6
-  %.0 = phi i32 [ 45, %6 ], [ 46, %8 ], [ 39, %10 ], [ 39, %5 ], [ -1, %16 ], [ 59, %11 ]
+  %.0 = phi i32 [ 39, %5 ], [ 39, %10 ], [ 45, %6 ], [ 46, %8 ], [ -1, %16 ], [ 59, %11 ]
   ret i32 %.0
 }
 
@@ -1635,7 +1635,7 @@ define internal range(i32 -1, 60) i32 @element6(ptr noundef captures(none) %0, i
   br label %common.exit
 
 common.exit:                                      ; preds = %19, %14, %5, %13, %12, %11, %10, %6
-  %.0 = phi i32 [ 44, %6 ], [ 51, %10 ], [ 53, %11 ], [ 52, %12 ], [ 54, %13 ], [ 39, %5 ], [ -1, %19 ], [ 59, %14 ]
+  %.0 = phi i32 [ 39, %5 ], [ 54, %13 ], [ 44, %6 ], [ 51, %10 ], [ 53, %11 ], [ 52, %12 ], [ -1, %19 ], [ 59, %14 ]
   ret i32 %.0
 }
 
@@ -1728,7 +1728,7 @@ define internal range(i32 -1, 60) i32 @element7(ptr noundef captures(none) %0, i
   br label %common.exit
 
 common.exit:                                      ; preds = %41, %36, %27, %32, %20, %25, %13, %18, %6, %11, %5, %35, %34
-  %.0 = phi i32 [ 50, %34 ], [ 49, %35 ], [ 39, %5 ], [ 45, %11 ], [ 45, %6 ], [ 46, %18 ], [ 46, %13 ], [ 47, %25 ], [ 47, %20 ], [ 48, %32 ], [ 48, %27 ], [ -1, %41 ], [ 59, %36 ]
+  %.0 = phi i32 [ 48, %27 ], [ 49, %35 ], [ 39, %5 ], [ 45, %6 ], [ 46, %13 ], [ 47, %20 ], [ 50, %34 ], [ 45, %11 ], [ 46, %18 ], [ 47, %25 ], [ 48, %32 ], [ -1, %41 ], [ 59, %36 ]
   ret i32 %.0
 }
 
@@ -1790,7 +1790,7 @@ define internal range(i32 -1, 60) i32 @element5(ptr noundef captures(none) %0, i
   br label %common.exit
 
 common.exit:                                      ; preds = %14, %9, %5, %8, %6
-  %.0 = phi i32 [ 46, %6 ], [ 39, %8 ], [ 39, %5 ], [ -1, %14 ], [ 59, %9 ]
+  %.0 = phi i32 [ 39, %5 ], [ 39, %8 ], [ 46, %6 ], [ -1, %14 ], [ 59, %9 ]
   ret i32 %.0
 }
 
@@ -1862,7 +1862,7 @@ define internal range(i32 -1, 60) i32 @notation3(ptr noundef captures(none) %0, 
   br label %common.exit
 
 common.exit:                                      ; preds = %13, %8, %5, %6
-  %.0 = phi i32 [ 19, %6 ], [ 17, %5 ], [ -1, %13 ], [ 59, %8 ]
+  %.0 = phi i32 [ 17, %5 ], [ 19, %6 ], [ -1, %13 ], [ 59, %8 ]
   ret i32 %.0
 }
 
@@ -1927,7 +1927,7 @@ define internal range(i32 -1, 60) i32 @notation4(ptr noundef captures(none) %0, 
   br label %common.exit
 
 common.exit:                                      ; preds = %17, %12, %5, %8, %6
-  %.0 = phi i32 [ 19, %6 ], [ 20, %8 ], [ 17, %5 ], [ -1, %17 ], [ 59, %12 ]
+  %.0 = phi i32 [ 17, %5 ], [ 20, %8 ], [ 19, %6 ], [ -1, %17 ], [ 59, %12 ]
   ret i32 %.0
 }
 
@@ -1951,8 +1951,8 @@ define internal range(i32 -1, 60) i32 @doctype4(ptr noundef captures(none) %0, i
   br i1 %or.cond.i, label %common.exit, label %common.exit.sink.split
 
 common.exit.sink.split:                           ; preds = %7, %5, %6
-  %error.sink = phi ptr [ @prolog2, %6 ], [ @internalSubset, %5 ], [ @error, %7 ]
-  %.0.ph = phi i32 [ 8, %6 ], [ 7, %5 ], [ -1, %7 ]
+  %error.sink = phi ptr [ @internalSubset, %5 ], [ @prolog2, %6 ], [ @error, %7 ]
+  %.0.ph = phi i32 [ 7, %5 ], [ 8, %6 ], [ -1, %7 ]
   store ptr %error.sink, ptr %0, align 8, !tbaa !3
   br label %common.exit
 

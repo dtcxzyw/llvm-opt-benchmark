@@ -285,8 +285,8 @@ define dso_local noundef zeroext i1 @_ZNK18btConvexPolyhedron15testContainmentEv
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.split.us, %30, %29, %28, %27, %26, %25, %24
-  %.sroa.0121.1.us = phi <2 x float> [ %.sroa.0.4.vec.insert.i44, %30 ], [ %.sroa.0.4.vec.insert.i44, %29 ], [ %.sroa.0.4.vec.insert.i54, %28 ], [ %.sroa.0.4.vec.insert.i54, %27 ], [ %.sroa.0.4.vec.insert.i64, %26 ], [ %.sroa.0.4.vec.insert.i64, %25 ], [ %.sroa.0.4.vec.insert.i74, %24 ], [ %.sroa.0.4.vec.insert.i74, %.split.us ]
-  %.sroa.12.1.us = phi <2 x float> [ %.sroa.3.12.vec.insert.i70, %30 ], [ %.sroa.3.12.vec.insert.i75, %29 ], [ %.sroa.3.12.vec.insert.i70, %28 ], [ %.sroa.3.12.vec.insert.i75, %27 ], [ %.sroa.3.12.vec.insert.i70, %26 ], [ %.sroa.3.12.vec.insert.i75, %25 ], [ %.sroa.3.12.vec.insert.i70, %24 ], [ %.sroa.3.12.vec.insert.i75, %.split.us ]
+  %.sroa.0121.1.us = phi <2 x float> [ %.sroa.0.4.vec.insert.i74, %24 ], [ %.sroa.0.4.vec.insert.i44, %30 ], [ %.sroa.0.4.vec.insert.i44, %29 ], [ %.sroa.0.4.vec.insert.i54, %28 ], [ %.sroa.0.4.vec.insert.i54, %27 ], [ %.sroa.0.4.vec.insert.i64, %26 ], [ %.sroa.0.4.vec.insert.i64, %25 ], [ %.sroa.0.4.vec.insert.i74, %.split.us ]
+  %.sroa.12.1.us = phi <2 x float> [ %.sroa.3.12.vec.insert.i70, %24 ], [ %.sroa.3.12.vec.insert.i70, %30 ], [ %.sroa.3.12.vec.insert.i75, %29 ], [ %.sroa.3.12.vec.insert.i70, %28 ], [ %.sroa.3.12.vec.insert.i75, %27 ], [ %.sroa.3.12.vec.insert.i70, %26 ], [ %.sroa.3.12.vec.insert.i75, %25 ], [ %.sroa.3.12.vec.insert.i75, %.split.us ]
   %.sroa.0121.0.vec.extract.us = extractelement <2 x float> %.sroa.0121.1.us, i64 0
   %.sroa.0121.4.vec.extract.us = extractelement <2 x float> %.sroa.0121.1.us, i64 1
   %.sroa.12.8.vec.extract.us = extractelement <2 x float> %.sroa.12.1.us, i64 0
@@ -324,7 +324,7 @@ default.unreachable:                              ; preds = %.split.us
   unreachable
 
 .thread:                                          ; preds = %._crit_edge.us, %32, %1
-  %48 = phi i1 [ true, %1 ], [ false, %32 ], [ true, %._crit_edge.us ]
+  %48 = phi i1 [ false, %32 ], [ true, %1 ], [ true, %._crit_edge.us ]
   ret i1 %48
 }
 
@@ -1295,8 +1295,8 @@ define dso_local void @_ZN18btConvexPolyhedron11initialize2Ev(ptr noundef nonnul
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %185, %184, %183, %182, %181, %180, %179, %.split.us.i
-  %.sroa.0121.1.us.i = phi <2 x float> [ %.sroa.0.4.vec.insert.i44.i, %185 ], [ %.sroa.0.4.vec.insert.i44.i, %184 ], [ %.sroa.0.4.vec.insert.i54.i, %183 ], [ %.sroa.0.4.vec.insert.i54.i, %182 ], [ %.sroa.0.4.vec.insert.i64.i, %181 ], [ %.sroa.0.4.vec.insert.i64.i, %180 ], [ %.sroa.0.4.vec.insert.i74.i, %179 ], [ %.sroa.0.4.vec.insert.i74.i, %.split.us.i ]
-  %.sroa.12.1.us.i = phi <2 x float> [ %.sroa.3.12.vec.insert.i70.i, %185 ], [ %.sroa.3.12.vec.insert.i75.i, %184 ], [ %.sroa.3.12.vec.insert.i70.i, %183 ], [ %.sroa.3.12.vec.insert.i75.i, %182 ], [ %.sroa.3.12.vec.insert.i70.i, %181 ], [ %.sroa.3.12.vec.insert.i75.i, %180 ], [ %.sroa.3.12.vec.insert.i70.i, %179 ], [ %.sroa.3.12.vec.insert.i75.i, %.split.us.i ]
+  %.sroa.0121.1.us.i = phi <2 x float> [ %.sroa.0.4.vec.insert.i74.i, %179 ], [ %.sroa.0.4.vec.insert.i44.i, %185 ], [ %.sroa.0.4.vec.insert.i44.i, %184 ], [ %.sroa.0.4.vec.insert.i54.i, %183 ], [ %.sroa.0.4.vec.insert.i54.i, %182 ], [ %.sroa.0.4.vec.insert.i64.i, %181 ], [ %.sroa.0.4.vec.insert.i64.i, %180 ], [ %.sroa.0.4.vec.insert.i74.i, %.split.us.i ]
+  %.sroa.12.1.us.i = phi <2 x float> [ %.sroa.3.12.vec.insert.i70.i, %179 ], [ %.sroa.3.12.vec.insert.i70.i, %185 ], [ %.sroa.3.12.vec.insert.i75.i, %184 ], [ %.sroa.3.12.vec.insert.i70.i, %183 ], [ %.sroa.3.12.vec.insert.i75.i, %182 ], [ %.sroa.3.12.vec.insert.i70.i, %181 ], [ %.sroa.3.12.vec.insert.i75.i, %180 ], [ %.sroa.3.12.vec.insert.i75.i, %.split.us.i ]
   %.sroa.0121.0.vec.extract.us.i = extractelement <2 x float> %.sroa.0121.1.us.i, i64 0
   %.sroa.0121.4.vec.extract.us.i = extractelement <2 x float> %.sroa.0121.1.us.i, i64 1
   %.sroa.12.8.vec.extract.us.i = extractelement <2 x float> %.sroa.12.1.us.i, i64 0
@@ -1423,8 +1423,8 @@ _ZNK18btConvexPolyhedron15testContainmentEv.exit: ; preds = %187
   br label %.lr.ph.us.i149
 
 .lr.ph.us.i149:                                   ; preds = %236, %235, %234, %233, %232, %231, %230, %.split.us.i147
-  %.sroa.0121.1.us.i150 = phi <2 x float> [ %.sroa.0.4.vec.insert.i44.i142, %236 ], [ %.sroa.0.4.vec.insert.i44.i142, %235 ], [ %.sroa.0.4.vec.insert.i54.i141, %234 ], [ %.sroa.0.4.vec.insert.i54.i141, %233 ], [ %.sroa.0.4.vec.insert.i64.i139, %232 ], [ %.sroa.0.4.vec.insert.i64.i139, %231 ], [ %.sroa.0.4.vec.insert.i74.i136, %230 ], [ %.sroa.0.4.vec.insert.i74.i136, %.split.us.i147 ]
-  %.sroa.12.1.us.i151 = phi <2 x float> [ %.sroa.3.12.vec.insert.i70.i138, %236 ], [ %.sroa.3.12.vec.insert.i75.i137, %235 ], [ %.sroa.3.12.vec.insert.i70.i138, %234 ], [ %.sroa.3.12.vec.insert.i75.i137, %233 ], [ %.sroa.3.12.vec.insert.i70.i138, %232 ], [ %.sroa.3.12.vec.insert.i75.i137, %231 ], [ %.sroa.3.12.vec.insert.i70.i138, %230 ], [ %.sroa.3.12.vec.insert.i75.i137, %.split.us.i147 ]
+  %.sroa.0121.1.us.i150 = phi <2 x float> [ %.sroa.0.4.vec.insert.i74.i136, %230 ], [ %.sroa.0.4.vec.insert.i44.i142, %236 ], [ %.sroa.0.4.vec.insert.i44.i142, %235 ], [ %.sroa.0.4.vec.insert.i54.i141, %234 ], [ %.sroa.0.4.vec.insert.i54.i141, %233 ], [ %.sroa.0.4.vec.insert.i64.i139, %232 ], [ %.sroa.0.4.vec.insert.i64.i139, %231 ], [ %.sroa.0.4.vec.insert.i74.i136, %.split.us.i147 ]
+  %.sroa.12.1.us.i151 = phi <2 x float> [ %.sroa.3.12.vec.insert.i70.i138, %230 ], [ %.sroa.3.12.vec.insert.i70.i138, %236 ], [ %.sroa.3.12.vec.insert.i75.i137, %235 ], [ %.sroa.3.12.vec.insert.i70.i138, %234 ], [ %.sroa.3.12.vec.insert.i75.i137, %233 ], [ %.sroa.3.12.vec.insert.i70.i138, %232 ], [ %.sroa.3.12.vec.insert.i75.i137, %231 ], [ %.sroa.3.12.vec.insert.i75.i137, %.split.us.i147 ]
   %.sroa.0121.0.vec.extract.us.i152 = extractelement <2 x float> %.sroa.0121.1.us.i150, i64 0
   %.sroa.0121.4.vec.extract.us.i153 = extractelement <2 x float> %.sroa.0121.1.us.i150, i64 1
   %.sroa.12.8.vec.extract.us.i154 = extractelement <2 x float> %.sroa.12.1.us.i151, i64 0

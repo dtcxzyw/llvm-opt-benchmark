@@ -125,7 +125,7 @@ define hidden range(i32 0, 2) i32 @luaO_rawequalObj(ptr noundef readonly capture
   br label %24
 
 24:                                               ; preds = %7, %2, %20, %16, %12, %8
-  %.0.shrunk = phi i1 [ %23, %20 ], [ %11, %8 ], [ %15, %12 ], [ %19, %16 ], [ false, %2 ], [ true, %7 ]
+  %.0.shrunk = phi i1 [ %19, %16 ], [ %23, %20 ], [ false, %2 ], [ %11, %8 ], [ %15, %12 ], [ true, %7 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -183,7 +183,7 @@ define hidden range(i32 0, 2) i32 @luaO_str2d(ptr noundef %0, ptr noundef writeo
   br label %26
 
 26:                                               ; preds = %25, %12, %2
-  %.0 = phi i32 [ 0, %2 ], [ 1, %12 ], [ %., %25 ]
+  %.0 = phi i32 [ 1, %12 ], [ 0, %2 ], [ %., %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

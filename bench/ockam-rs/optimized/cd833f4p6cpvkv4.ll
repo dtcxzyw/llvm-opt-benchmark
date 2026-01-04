@@ -81,7 +81,7 @@ define hidden void @"_ZN10ockam_core12flow_control13flow_controls17flow_controls
 41:                                               ; preds = %.body116
   br i1 %.2.lpad-body, label %.body.thread, label %237
 
-.body.thread156:                                  ; preds = %.invoke, %100, %81, %74, %71, %51, %48, %116, %120, %124, %.critedge9.i, %.noexc89, %.noexc90, %150
+.body.thread156:                                  ; preds = %.invoke, %.noexc90, %120, %150, %116, %51, %100, %71, %48, %81, %74, %124, %.critedge9.i, %.noexc89
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -497,7 +497,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ;
   br label %.body116
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %222, %.loopexit168, %.noexc118, %213, %207, %188, %168, %217, %182
-  %.2.ph.ph = phi i1 [ true, %217 ], [ true, %182 ], [ true, %168 ], [ true, %188 ], [ true, %207 ], [ true, %213 ], [ true, %.noexc118 ], [ false, %.loopexit168 ], [ false, %222 ]
+  %.2.ph.ph = phi i1 [ true, %213 ], [ true, %.noexc118 ], [ true, %207 ], [ true, %182 ], [ true, %217 ], [ true, %168 ], [ false, %222 ], [ true, %188 ], [ false, %.loopexit168 ]
   %lpad.loopexit.split-lp170 = landingpad { ptr, i32 }
           cleanup
   br label %.body116
@@ -730,11 +730,11 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.10142834908956157465.exit.t
   unreachable
 
 237:                                              ; preds = %.body.thread, %41
-  %.pn152 = phi { ptr, i32 } [ %.pn153, %.body.thread ], [ %eh.lpad-body117, %41 ]
+  %.pn152 = phi { ptr, i32 } [ %eh.lpad-body117, %41 ], [ %.pn153, %.body.thread ]
   resume { ptr, i32 } %.pn152
 
 .body.thread:                                     ; preds = %158, %.body.thread156, %41
-  %.pn153 = phi { ptr, i32 } [ %eh.lpad-body117, %41 ], [ %lpad.thr_comm, %.body.thread156 ], [ %159, %158 ]
+  %.pn153 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread156 ], [ %eh.lpad-body117, %41 ], [ %159, %158 ]
   invoke void @"_ZN4core3ptr58drop_in_place$LT$ockam_core..routing..address..Address$GT$17h359892fb47a843e7E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %37) #18
           to label %237 unwind label %235
 }
@@ -783,7 +783,7 @@ define hidden noundef nonnull align 8 ptr @_ZN10ockam_node5error9NodeError13from
           to label %.body.thread unwind label %11
 
 .body.thread:                                     ; preds = %13, %14
-  %eh.lpad-body3 = phi { ptr, i32 } [ %15, %14 ], [ %10, %13 ]
+  %eh.lpad-body3 = phi { ptr, i32 } [ %10, %13 ], [ %15, %14 ]
   resume { ptr, i32 } %eh.lpad-body3
 
 14:                                               ; preds = %2
@@ -843,7 +843,7 @@ define hidden noundef nonnull align 8 ptr @_ZN10ockam_node5error9NodeError13from
           to label %.body.thread unwind label %11
 
 .body.thread:                                     ; preds = %13, %14
-  %eh.lpad-body3 = phi { ptr, i32 } [ %15, %14 ], [ %10, %13 ]
+  %eh.lpad-body3 = phi { ptr, i32 } [ %10, %13 ], [ %15, %14 ]
   resume { ptr, i32 } %eh.lpad-body3
 
 14:                                               ; preds = %2

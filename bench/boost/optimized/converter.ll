@@ -1197,7 +1197,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit54: ; preds = %_ZN
   ret void
 
 189:                                              ; preds = %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit54, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit36
-  %.pn26 = phi { ptr, i32 } [ %.pn23.pn, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit36 ], [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit54 ]
+  %.pn26 = phi { ptr, i32 } [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit54 ], [ %.pn23.pn, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit36 ]
   resume { ptr, i32 } %.pn26
 }
 
@@ -1507,13 +1507,13 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6locale3utf10utf_traitsIcLi1EE6
   br label %_ZN5boost6locale3utf10utf_traitsIcLi1EE5widthEj.exit
 
 _ZN5boost6locale3utf10utf_traitsIcLi1EE5widthEj.exit: ; preds = %63, %65, %67
-  %.0.i43 = phi i32 [ 1, %63 ], [ 2, %65 ], [ %..i42, %67 ]
+  %.0.i43 = phi i32 [ 2, %65 ], [ 1, %63 ], [ %..i42, %67 ]
   %.not = icmp eq i32 %.0.i43, %.0.i.ph.ph51
   %.0. = select i1 %.not, i32 %60, i32 -1, !prof !55
   br label %_ZN5boost6locale3utf10utf_traitsIcLi1EE12trail_lengthEc.exit
 
 _ZN5boost6locale3utf10utf_traitsIcLi1EE12trail_lengthEc.exit: ; preds = %9, %17, %19, %_ZN5boost6locale3utf10utf_traitsIcLi1EE5widthEj.exit, %56, %52, %49, %40, %37, %28, %24, %2
-  %.032 = phi i32 [ -2, %2 ], [ %20, %19 ], [ -2, %24 ], [ -1, %28 ], [ -2, %37 ], [ -1, %40 ], [ -2, %49 ], [ -1, %52 ], [ -1, %56 ], [ %.0., %_ZN5boost6locale3utf10utf_traitsIcLi1EE5widthEj.exit ], [ -1, %17 ], [ -1, %9 ]
+  %.032 = phi i32 [ -2, %2 ], [ -2, %37 ], [ %20, %19 ], [ -1, %52 ], [ %.0., %_ZN5boost6locale3utf10utf_traitsIcLi1EE5widthEj.exit ], [ -1, %56 ], [ -2, %24 ], [ -1, %28 ], [ -1, %40 ], [ -2, %49 ], [ -1, %17 ], [ -1, %9 ]
   ret i32 %.032
 }
 

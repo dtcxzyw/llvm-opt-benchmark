@@ -586,7 +586,7 @@ _ZNSt6vectorIN8rawspeed21SamsungV1Decompressor12encTableItemESaIS2_EED2Ev.exit: 
   br label %140
 
 140:                                              ; preds = %136, %138
-  %.pn.pn = phi { ptr, i32 } [ %139, %138 ], [ %137, %136 ]
+  %.pn.pn = phi { ptr, i32 } [ %137, %136 ], [ %139, %138 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %_ZNSt6vectorIN8rawspeed21SamsungV1Decompressor12encTableItemESaIS2_EED2Ev.exit64
 

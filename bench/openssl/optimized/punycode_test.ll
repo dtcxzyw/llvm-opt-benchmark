@@ -231,8 +231,8 @@ define internal range(i32 0, 2) i32 @test_dotted_overflow() #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %13, %49, %44, %32, %39, %28, %23
-  %.019 = phi ptr [ %30, %44 ], [ %30, %39 ], [ %30, %32 ], [ %30, %28 ], [ null, %23 ], [ %30, %49 ], [ null, %13 ], [ null, %18 ]
-  %.0 = phi i32 [ 0, %44 ], [ 0, %39 ], [ 0, %32 ], [ 0, %28 ], [ 0, %23 ], [ %spec.select, %49 ], [ 0, %13 ], [ 0, %18 ]
+  %.019 = phi ptr [ %30, %32 ], [ %30, %28 ], [ null, %23 ], [ %30, %49 ], [ %30, %44 ], [ %30, %39 ], [ null, %13 ], [ null, %18 ]
+  %.0 = phi i32 [ 0, %32 ], [ 0, %28 ], [ 0, %23 ], [ %spec.select, %49 ], [ 0, %44 ], [ 0, %39 ], [ 0, %13 ], [ 0, %18 ]
   call void @WPACKET_cleanup(ptr noundef nonnull %1) #6
   call void @BUF_MEM_free(ptr noundef %2) #6
   call void @CRYPTO_free(ptr noundef %.019, ptr noundef nonnull @.str.5, i32 noundef 282) #6
@@ -299,7 +299,7 @@ define internal range(i32 0, 2) i32 @test_a2ulabel() #0 {
   br label %25
 
 25:                                               ; preds = %20, %17, %9, %12, %15, %0, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %0 ], [ 0, %15 ], [ 0, %12 ], [ 0, %9 ], [ 0, %17 ], [ %., %20 ]
+  %.0 = phi i32 [ 0, %17 ], [ %., %20 ], [ 0, %9 ], [ 0, %0 ], [ 0, %6 ], [ 0, %15 ], [ 0, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
@@ -332,7 +332,7 @@ define internal range(i32 0, 2) i32 @test_puny_overrun() #0 {
   br label %13
 
 13:                                               ; preds = %0, %7, %12
-  %.0 = phi i32 [ 0, %12 ], [ 0, %7 ], [ 1, %0 ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %12 ], [ 1, %0 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0

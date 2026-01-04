@@ -1020,8 +1020,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i95: ; 
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i99.invoke: ; preds = %396, %383, %372, %359
-  %403 = phi ptr [ @.str.8, %359 ], [ @.str.8, %372 ], [ @.str.9, %383 ], [ @.str.9, %396 ]
-  %404 = phi i64 [ 11, %359 ], [ 11, %372 ], [ 9, %383 ], [ 9, %396 ]
+  %403 = phi ptr [ @.str.8, %372 ], [ @.str.8, %359 ], [ @.str.9, %383 ], [ @.str.9, %396 ]
+  %404 = phi i64 [ 11, %372 ], [ 11, %359 ], [ 9, %383 ], [ 9, %396 ]
   %405 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull %403, i64 noundef %404)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit unwind label %219
 
@@ -1154,7 +1154,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit114: ; preds = %_Z
   ret void
 
 456:                                              ; preds = %119, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48, %219, %221, %265, %305, %345, %447, %100
-  %.pn28.pn.pn.pn = phi { ptr, i32 } [ %101, %100 ], [ %448, %447 ], [ %220, %219 ], [ %346, %345 ], [ %306, %305 ], [ %266, %265 ], [ %222, %221 ], [ %.pn28, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38 ], [ %120, %119 ]
+  %.pn28.pn.pn.pn = phi { ptr, i32 } [ %101, %100 ], [ %222, %221 ], [ %448, %447 ], [ %220, %219 ], [ %346, %345 ], [ %306, %305 ], [ %266, %265 ], [ %.pn28, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38 ], [ %120, %119 ]
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9benchmark7CounterESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %63) #17
   br label %457
 

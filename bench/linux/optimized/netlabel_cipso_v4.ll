@@ -704,7 +704,7 @@ define internal i32 @netlbl_cipsov4_add(ptr readnone captures(none) %0, ptr noun
   br i1 %434, label %572, label %.loopexit
 
 .loopexit:                                        ; preds = %75, %106, %95, %203, %267, %298, %287, %398, %.critedge46, %338, %.critedge42, %241, %146, %.critedge, %52
-  %435 = phi i32 [ %54, %52 ], [ -22, %241 ], [ %433, %.critedge46 ], [ -12, %.critedge ], [ -12, %146 ], [ -12, %.critedge42 ], [ -12, %338 ], [ -22, %398 ], [ -22, %287 ], [ -22, %298 ], [ -22, %267 ], [ -22, %203 ], [ -22, %95 ], [ -22, %106 ], [ -22, %75 ]
+  %435 = phi i32 [ %54, %52 ], [ -22, %241 ], [ %433, %.critedge46 ], [ -12, %.critedge ], [ -12, %146 ], [ -12, %.critedge42 ], [ -12, %338 ], [ -22, %106 ], [ -22, %267 ], [ -22, %203 ], [ -22, %398 ], [ -22, %298 ], [ -22, %287 ], [ -22, %95 ], [ -22, %75 ]
   call void @cipso_v4_doi_free(ptr noundef nonnull %44) #8
   br label %.thread
 
@@ -766,7 +766,7 @@ define internal i32 @netlbl_cipsov4_add(ptr readnone captures(none) %0, ptr noun
   br i1 %or.cond.i, label %.critedge.i, label %479
 
 .critedge.i:                                      ; preds = %492, %.lr.ph.i
-  %.lcssa.i = phi i32 [ %493, %492 ], [ %469, %.lr.ph.i ]
+  %.lcssa.i = phi i32 [ %469, %.lr.ph.i ], [ %493, %492 ]
   %475 = icmp ult i32 %.lcssa.i, 5
   br i1 %475, label %.critedge.thread.i, label %500
 
@@ -880,7 +880,7 @@ netlbl_cipsov4_add_common.exit:                   ; preds = %484, %444, %500
   br i1 %or.cond.i58, label %.critedge.i60, label %547
 
 .critedge.i60:                                    ; preds = %560, %.lr.ph.i56
-  %.lcssa.i61 = phi i32 [ %561, %560 ], [ %537, %.lr.ph.i56 ]
+  %.lcssa.i61 = phi i32 [ %537, %.lr.ph.i56 ], [ %561, %560 ]
   %543 = icmp ult i32 %.lcssa.i61, 5
   br i1 %543, label %.critedge.thread.i52, label %568
 
@@ -1329,7 +1329,7 @@ define internal i32 @netlbl_cipsov4_list(ptr readnone captures(none) %0, ptr nou
   br label %233
 
 .loopexit:                                        ; preds = %109, %105, %96, %174, %170, %161, %.loopexit24
-  %222 = phi i32 [ -12, %.loopexit24 ], [ -12, %161 ], [ %180, %174 ], [ %172, %170 ], [ -12, %96 ], [ %115, %109 ], [ %107, %105 ]
+  %222 = phi i32 [ -12, %.loopexit24 ], [ %172, %170 ], [ -12, %161 ], [ %180, %174 ], [ -12, %96 ], [ %115, %109 ], [ %107, %105 ]
   %223 = icmp samesign ult i32 %21, 4
   br i1 %223, label %224, label %.loopexit25
 
@@ -1345,7 +1345,7 @@ define internal i32 @netlbl_cipsov4_list(ptr readnone captures(none) %0, ptr nou
   br i1 %229, label %.loopexit26, label %19
 
 .loopexit25:                                      ; preds = %.loopexit, %74, %39, %34, %26, %60
-  %230 = phi i32 [ %61, %60 ], [ %222, %.loopexit ], [ -12, %74 ], [ -12, %39 ], [ %37, %34 ], [ -22, %26 ]
+  %230 = phi i32 [ %61, %60 ], [ -12, %74 ], [ -12, %39 ], [ %37, %34 ], [ -22, %26 ], [ %222, %.loopexit ]
   call void @cipso_v4_doi_putdef(ptr noundef %32) #8
   call void @__rcu_read_unlock() #8
   br label %.loopexit26
@@ -1449,7 +1449,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @netlbl_cipsov4_add_common(
   br i1 %or.cond, label %.critedge, label %38
 
 .critedge:                                        ; preds = %51, %.lr.ph
-  %.lcssa = phi i32 [ %52, %51 ], [ %28, %.lr.ph ]
+  %.lcssa = phi i32 [ %28, %.lr.ph ], [ %52, %51 ]
   %34 = icmp ult i32 %.lcssa, 5
   br i1 %34, label %.critedge.thread, label %.loopexit
 
@@ -1666,7 +1666,7 @@ define internal i32 @netlbl_cipsov4_listall_cb(ptr noundef readonly captures(non
   br label %54
 
 54:                                               ; preds = %2, %48, %39, %26
-  %55 = phi i32 [ 0, %26 ], [ %.ph, %39 ], [ %.ph, %48 ], [ -12, %2 ]
+  %55 = phi i32 [ 0, %26 ], [ %.ph, %48 ], [ %.ph, %39 ], [ -12, %2 ]
   ret i32 %55
 }
 

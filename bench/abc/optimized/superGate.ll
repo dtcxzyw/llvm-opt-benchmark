@@ -1095,8 +1095,8 @@ Super_AddGateToTable.exit854.i:                   ; preds = %465, %._crit_edge.i
   br i1 %exitcond1370.not.i, label %.critedge4.i, label %418, !llvm.loop !66
 
 .critedge4.i:                                     ; preds = %474, %423, %418
-  %.7650.i = phi float [ %427, %423 ], [ %.56481138.i, %418 ], [ %.6649.i, %474 ]
-  %.6.i = phi i32 [ %424, %423 ], [ %.41140.i, %418 ], [ %.5.i, %474 ]
+  %.7650.i = phi float [ %.56481138.i, %418 ], [ %427, %423 ], [ %.6649.i, %474 ]
+  %.6.i = phi i32 [ %.41140.i, %418 ], [ %424, %423 ], [ %.5.i, %474 ]
   %indvars.iv.next1372.i = add nuw nsw i64 %indvars.iv1371.i, 1
   %exitcond1375.not.i = icmp eq i64 %indvars.iv.next1372.i, %wide.trip.count1374.i
   br i1 %exitcond1375.not.i, label %.critedge.i, label %.lr.ph1154.i, !llvm.loop !67
@@ -2003,8 +2003,8 @@ Super_AddGateToTable.exit869.us.us.us.i:          ; preds = %774, %._crit_edge.i
   br label %846
 
 .critedge38.us.us.us.i:                           ; preds = %.critedge40.us.us.us.us.i, %851, %850, %846, %833
-  %.37680.us.us.us.i = phi float [ %.326751212.us.us.us.i, %833 ], [ %.36679.us.us.us.us.i, %.critedge40.us.us.us.us.i ], [ %.336761188.us.us.us.us.i, %851 ], [ %.336761188.us.us.us.us.i, %850 ], [ %.336761188.us.us.us.us.i, %846 ]
-  %.36.us.us.us.i = phi i32 [ %.311215.us.us.us.i, %833 ], [ %.35.us.us.us.us.i, %.critedge40.us.us.us.us.i ], [ %852, %851 ], [ 1, %850 ], [ %.321191.us.us.us.us.i, %846 ]
+  %.37680.us.us.us.i = phi float [ %.326751212.us.us.us.i, %833 ], [ %.36679.us.us.us.us.i, %.critedge40.us.us.us.us.i ], [ %.336761188.us.us.us.us.i, %851 ], [ %.336761188.us.us.us.us.i, %846 ], [ %.336761188.us.us.us.us.i, %850 ]
+  %.36.us.us.us.i = phi i32 [ %.311215.us.us.us.i, %833 ], [ %.35.us.us.us.us.i, %.critedge40.us.us.us.us.i ], [ %852, %851 ], [ %.321191.us.us.us.us.i, %846 ], [ 1, %850 ]
   %indvars.iv.next1392.i = add nuw nsw i64 %indvars.iv1391.i, 1
   %exitcond1395.not.i = icmp eq i64 %indvars.iv.next1392.i, %wide.trip.count1409.i
   br i1 %exitcond1395.not.i, label %.critedge36.us.us.i, label %830, !llvm.loop !82
@@ -2205,8 +2205,8 @@ Super_AddGateToTable.exit874.us.us.us.us.i:       ; preds = %911, %._crit_edge.i
   br i1 %exitcond1410.not.i, label %.critedge.i, label %.lr.ph1272.i, !llvm.loop !85
 
 .critedge.i:                                      ; preds = %.critedge22.i, %667, %.lr.ph1022.i, %.critedge14.i, %564, %.lr.ph1085.i, %.critedge8.i, %477, %.lr.ph1129.i, %.critedge4.i, %406, %.lr.ph1154.i, %403, %353, %.lr.ph1166.i, %.critedge32.i, %786, %.lr.ph1272.i, %.preheader.i98, %.preheader905.i, %.preheader908.i, %.preheader910.i, %.preheader912.i, %.preheader914.i, %331, %287
-  %.1644.i = phi float [ %.06431281.i, %287 ], [ %.06431281.i, %331 ], [ %.06431281.i, %.preheader.i98 ], [ %.06431281.i, %.preheader905.i ], [ %.06431281.i, %.preheader908.i ], [ %.06431281.i, %.preheader910.i ], [ %.06431281.i, %.preheader912.i ], [ %.06431281.i, %.preheader914.i ], [ %.296721269.i, %786 ], [ %.30673.lcssa.i, %.critedge32.i ], [ %.296721269.i, %.lr.ph1272.i ], [ %356, %353 ], [ %.3646.i, %403 ], [ %.26451163.i, %.lr.ph1166.i ], [ %.46471151.i, %406 ], [ %.7650.i, %.critedge4.i ], [ %.46471151.i, %.lr.ph1154.i ], [ %.86511126.i, %477 ], [ %.9652.lcssa.i, %.critedge8.i ], [ %.86511126.i, %.lr.ph1129.i ], [ %.136561082.i, %564 ], [ %.14657.lcssa.i, %.critedge14.i ], [ %.136561082.i, %.lr.ph1085.i ], [ %.206631019.i, %667 ], [ %.21664.lcssa.i, %.critedge22.i ], [ %.206631019.i, %.lr.ph1022.i ]
-  %.1.i = phi i32 [ 0, %287 ], [ 0, %331 ], [ 0, %.preheader.i98 ], [ 0, %.preheader905.i ], [ 0, %.preheader908.i ], [ 0, %.preheader910.i ], [ 0, %.preheader912.i ], [ 0, %.preheader914.i ], [ %.281271.i, %786 ], [ %.29.lcssa.i, %.critedge32.i ], [ %.281271.i, %.lr.ph1272.i ], [ %348, %353 ], [ %348, %403 ], [ %.21165.i, %.lr.ph1166.i ], [ %.31153.i, %406 ], [ %.6.i, %.critedge4.i ], [ %.31153.i, %.lr.ph1154.i ], [ %.71128.i, %477 ], [ %.8.lcssa.i, %.critedge8.i ], [ %.71128.i, %.lr.ph1129.i ], [ %.121084.i, %564 ], [ %.13.lcssa.i, %.critedge14.i ], [ %.121084.i, %.lr.ph1085.i ], [ %.191021.i, %667 ], [ %.20.lcssa.i, %.critedge22.i ], [ %.191021.i, %.lr.ph1022.i ]
+  %.1644.i = phi float [ %.06431281.i, %287 ], [ %.06431281.i, %331 ], [ %356, %353 ], [ %.06431281.i, %.preheader910.i ], [ %.296721269.i, %786 ], [ %.06431281.i, %.preheader912.i ], [ %.06431281.i, %.preheader908.i ], [ %.06431281.i, %.preheader.i98 ], [ %.46471151.i, %406 ], [ %.86511126.i, %477 ], [ %.06431281.i, %.preheader914.i ], [ %.136561082.i, %564 ], [ %.06431281.i, %.preheader905.i ], [ %.30673.lcssa.i, %.critedge32.i ], [ %.296721269.i, %.lr.ph1272.i ], [ %.3646.i, %403 ], [ %.26451163.i, %.lr.ph1166.i ], [ %.7650.i, %.critedge4.i ], [ %.46471151.i, %.lr.ph1154.i ], [ %.86511126.i, %.lr.ph1129.i ], [ %.9652.lcssa.i, %.critedge8.i ], [ %.136561082.i, %.lr.ph1085.i ], [ %.14657.lcssa.i, %.critedge14.i ], [ %.206631019.i, %667 ], [ %.21664.lcssa.i, %.critedge22.i ], [ %.206631019.i, %.lr.ph1022.i ]
+  %.1.i = phi i32 [ 0, %287 ], [ 0, %331 ], [ %348, %353 ], [ 0, %.preheader910.i ], [ %.281271.i, %786 ], [ 0, %.preheader912.i ], [ 0, %.preheader908.i ], [ 0, %.preheader.i98 ], [ %.31153.i, %406 ], [ %.71128.i, %477 ], [ 0, %.preheader914.i ], [ %.121084.i, %564 ], [ 0, %.preheader905.i ], [ %.29.lcssa.i, %.critedge32.i ], [ %.281271.i, %.lr.ph1272.i ], [ %348, %403 ], [ %.21165.i, %.lr.ph1166.i ], [ %.6.i, %.critedge4.i ], [ %.31153.i, %.lr.ph1154.i ], [ %.71128.i, %.lr.ph1129.i ], [ %.8.lcssa.i, %.critedge8.i ], [ %.121084.i, %.lr.ph1085.i ], [ %.13.lcssa.i, %.critedge14.i ], [ %.191021.i, %667 ], [ %.20.lcssa.i, %.critedge22.i ], [ %.191021.i, %.lr.ph1022.i ]
   %indvars.iv.next1412.i = add nuw nsw i64 %indvars.iv1411.i, 1
   %921 = icmp samesign uge i64 %indvars.iv.next1412.i, %283
   %922 = icmp ne i32 %.1.i, 0
@@ -2775,7 +2775,7 @@ Super_ManStop.exit126:                            ; preds = %1191, %1193
   br label %1195
 
 1195:                                             ; preds = %1194, %Super_ManStop.exit126, %102, %Super_ManStop.exit, %41
-  %.0 = phi ptr [ null, %41 ], [ null, %Super_ManStop.exit ], [ null, %102 ], [ %.037.i, %Super_ManStop.exit126 ], [ %.037.i, %1194 ]
+  %.0 = phi ptr [ null, %41 ], [ null, %102 ], [ null, %Super_ManStop.exit ], [ %.037.i, %Super_ManStop.exit126 ], [ %.037.i, %1194 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   ret ptr %.0
 }
@@ -5956,8 +5956,8 @@ define internal fastcc range(i32 0, 2) i32 @Super_CompareGates(ptr noundef captu
   br label %62
 
 62:                                               ; preds = %53, %59, %61
-  %.059 = phi i32 [ 1, %61 ], [ 0, %59 ], [ 0, %53 ]
-  %.058 = phi i32 [ 0, %61 ], [ 0, %59 ], [ 1, %53 ]
+  %.059 = phi i32 [ 0, %59 ], [ 1, %61 ], [ 0, %53 ]
+  %.058 = phi i32 [ 0, %59 ], [ 0, %61 ], [ 1, %53 ]
   br i1 %37, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %62
@@ -5995,8 +5995,8 @@ define internal fastcc range(i32 0, 2) i32 @Super_CompareGates(ptr noundef captu
   br label %81
 
 81:                                               ; preds = %74, %77, %80
-  %.463 = phi i32 [ 1, %80 ], [ %.16080, %77 ], [ %.16080, %74 ]
-  %.4 = phi i32 [ %.181, %80 ], [ %.181, %77 ], [ 1, %74 ]
+  %.463 = phi i32 [ %.16080, %77 ], [ 1, %80 ], [ %.16080, %74 ]
+  %.4 = phi i32 [ %.181, %77 ], [ %.181, %80 ], [ 1, %74 ]
   %82 = icmp ne i32 %.4, 0
   %83 = icmp ne i32 %.463, 0
   %or.cond = select i1 %82, i1 %83, i1 false
@@ -6050,7 +6050,7 @@ define internal fastcc range(i32 0, 2) i32 @Super_CompareGates(ptr noundef captu
   br i1 %.not78, label %.loopexit, label %40, !llvm.loop !120
 
 .loopexit:                                        ; preds = %100, %87, %30, %11, %.thread, %13, %17
-  %.0 = phi i32 [ 0, %11 ], [ 0, %17 ], [ 0, %13 ], [ 1, %.thread ], [ 1, %30 ], [ 1, %100 ], [ 0, %87 ]
+  %.0 = phi i32 [ 0, %11 ], [ 1, %.thread ], [ 0, %17 ], [ 0, %13 ], [ 1, %30 ], [ 1, %100 ], [ 0, %87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -6113,7 +6113,7 @@ define internal range(i32 -1, 2) i32 @Super_WriteCompare(ptr noundef readonly ca
   br label %20
 
 20:                                               ; preds = %18, %14, %12, %2
-  %.0 = phi i32 [ -1, %2 ], [ 1, %12 ], [ -1, %14 ], [ %., %18 ]
+  %.0 = phi i32 [ -1, %14 ], [ -1, %2 ], [ 1, %12 ], [ %., %18 ]
   ret i32 %.0
 }
 

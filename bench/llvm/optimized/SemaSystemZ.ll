@@ -293,14 +293,14 @@ _ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit: ; preds = %9, %68, %.thr
   br label %90
 
 90:                                               ; preds = %3, %3, %3, %3, %3, %3, %89, %88, %87, %80, %79
-  %.016 = phi i32 [ 3, %79 ], [ 2, %80 ], [ 1, %87 ], [ 3, %88 ], [ 2, %89 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ]
-  %.0 = phi i32 [ 255, %79 ], [ 15, %80 ], [ 4095, %87 ], [ 15, %88 ], [ 7, %89 ], [ 15, %3 ], [ 15, %3 ], [ 15, %3 ], [ 15, %3 ], [ 15, %3 ], [ 15, %3 ]
+  %.016 = phi i32 [ 1, %3 ], [ 3, %79 ], [ 2, %80 ], [ 1, %87 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 3, %88 ], [ 1, %3 ], [ 1, %3 ], [ 2, %89 ]
+  %.0 = phi i32 [ 15, %3 ], [ 255, %79 ], [ 15, %80 ], [ 4095, %87 ], [ 15, %3 ], [ 15, %3 ], [ 15, %3 ], [ 15, %88 ], [ 15, %3 ], [ 15, %3 ], [ 7, %89 ]
   %91 = load ptr, ptr %0, align 8, !tbaa !43
   %92 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %91, ptr noundef %2, i32 noundef %.016, i32 noundef 0, i32 noundef %.0, i1 noundef zeroext true) #10
   br label %.thread29
 
 .thread29:                                        ; preds = %_ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit, %3, %90, %84, %81
-  %.1 = phi i1 [ %92, %90 ], [ true, %81 ], [ %86, %84 ], [ %not.37, %_ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit ], [ false, %3 ]
+  %.1 = phi i1 [ %not.37, %_ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit ], [ false, %3 ], [ %92, %90 ], [ true, %81 ], [ %86, %84 ]
   ret i1 %.1
 }
 

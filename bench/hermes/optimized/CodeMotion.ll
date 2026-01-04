@@ -317,7 +317,7 @@ if.end30.i:                                       ; preds = %while.body.i.i, %wh
   br i1 %50, label %_ZL8hoistCBIPN6hermes14CondBranchInstE.exit, label %lor.lhs.false17.i, !llvm.loop !8
 
 _ZL8hoistCBIPN6hermes14CondBranchInstE.exit:      ; preds = %lor.lhs.false17.i, %if.else.i, %lor.lhs.false.i57.i, %if.end30.i, %while.cond.i59.i, %land.lhs.true.i68.i, %if.end8.i72.i, %if.then, %if.end.i, %_ZN6hermes10pred_beginEPKNS_10BasicBlockE.exit.i.i, %_ZN6hermes10pred_countEPKNS_10BasicBlockE.exit.i, %_ZN6hermes10pred_beginEPKNS_10BasicBlockE.exit.i27.i, %_ZN6hermes10pred_countEPKNS_10BasicBlockE.exit52.i, %while.body.preheader.i
-  %retval.0.i = phi i1 [ false, %if.then ], [ false, %_ZN6hermes10pred_countEPKNS_10BasicBlockE.exit52.i ], [ false, %_ZN6hermes10pred_countEPKNS_10BasicBlockE.exit.i ], [ false, %if.end.i ], [ false, %_ZN6hermes10pred_beginEPKNS_10BasicBlockE.exit.i.i ], [ false, %_ZN6hermes10pred_beginEPKNS_10BasicBlockE.exit.i27.i ], [ false, %while.body.preheader.i ], [ %changed.097.i, %if.end8.i72.i ], [ %changed.097.i, %land.lhs.true.i68.i ], [ %changed.097.i, %while.cond.i59.i ], [ %changed.097.i, %if.else.i ], [ %changed.097.i, %lor.lhs.false.i57.i ], [ true, %if.end30.i ], [ %changed.097.i, %lor.lhs.false17.i ]
+  %retval.0.i = phi i1 [ false, %_ZN6hermes10pred_beginEPKNS_10BasicBlockE.exit.i.i ], [ false, %if.then ], [ false, %if.end.i ], [ false, %_ZN6hermes10pred_countEPKNS_10BasicBlockE.exit52.i ], [ false, %_ZN6hermes10pred_countEPKNS_10BasicBlockE.exit.i ], [ %changed.097.i, %while.cond.i59.i ], [ false, %_ZN6hermes10pred_beginEPKNS_10BasicBlockE.exit.i27.i ], [ false, %while.body.preheader.i ], [ %changed.097.i, %if.end8.i72.i ], [ %changed.097.i, %land.lhs.true.i68.i ], [ %changed.097.i, %lor.lhs.false17.i ], [ %changed.097.i, %lor.lhs.false.i57.i ], [ %changed.097.i, %if.else.i ], [ true, %if.end30.i ]
   %or12 = or i1 %changed.070, %retval.0.i
   br label %for.inc
 
@@ -469,7 +469,7 @@ if.end23.us.us.i:                                 ; preds = %switch.early.test.u
   br label %for.inc.us.us.i
 
 for.inc.us.us.i:                                  ; preds = %if.end23.us.us.i, %switch.early.test.us.us.i, %switch.early.test.us.us.i, %lor.lhs.false16.us.us.i, %lor.lhs.false14.us.us.i, %lor.lhs.false.us.us.i, %for.body10.us.us.i
-  %changed.3.us.us.i = phi i1 [ %changed.216.us.us.i, %lor.lhs.false14.us.us.i ], [ %changed.216.us.us.i, %switch.early.test.us.us.i ], [ true, %if.end23.us.us.i ], [ %changed.216.us.us.i, %lor.lhs.false.us.us.i ], [ %changed.216.us.us.i, %for.body10.us.us.i ], [ %changed.216.us.us.i, %lor.lhs.false16.us.us.i ], [ %changed.216.us.us.i, %switch.early.test.us.us.i ]
+  %changed.3.us.us.i = phi i1 [ %changed.216.us.us.i, %lor.lhs.false14.us.us.i ], [ %changed.216.us.us.i, %switch.early.test.us.us.i ], [ %changed.216.us.us.i, %for.body10.us.us.i ], [ %changed.216.us.us.i, %lor.lhs.false.us.us.i ], [ %changed.216.us.us.i, %switch.early.test.us.us.i ], [ true, %if.end23.us.us.i ], [ %changed.216.us.us.i, %lor.lhs.false16.us.us.i ]
   %inc.us.us.i = add nuw nsw i32 %i.015.us.us.i, 1
   %exitcond24.not.i = icmp eq i32 %inc.us.us.i, %call8.us.i
   br i1 %exitcond24.not.i, label %for.inc34.us.i, label %for.body10.us.us.i, !llvm.loop !11
@@ -535,7 +535,7 @@ if.end31.i:                                       ; preds = %land.lhs.true27.i, 
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end31.i, %land.lhs.true27.i, %switch.early.test.i, %switch.early.test.i, %lor.lhs.false16.i, %lor.lhs.false14.i, %lor.lhs.false.i24, %for.body10.i
-  %changed.3.i = phi i1 [ %changed.216.i, %lor.lhs.false14.i ], [ %changed.216.i, %switch.early.test.i ], [ %changed.216.i, %land.lhs.true27.i ], [ true, %if.end31.i ], [ %changed.216.i, %lor.lhs.false.i24 ], [ %changed.216.i, %for.body10.i ], [ %changed.216.i, %lor.lhs.false16.i ], [ %changed.216.i, %switch.early.test.i ]
+  %changed.3.i = phi i1 [ %changed.216.i, %lor.lhs.false14.i ], [ %changed.216.i, %switch.early.test.i ], [ %changed.216.i, %for.body10.i ], [ %changed.216.i, %lor.lhs.false.i24 ], [ %changed.216.i, %land.lhs.true27.i ], [ true, %if.end31.i ], [ %changed.216.i, %lor.lhs.false16.i ], [ %changed.216.i, %switch.early.test.i ]
   %inc.i = add nuw nsw i32 %i.015.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %call8.i
   br i1 %exitcond.not.i, label %for.inc34.i, label %for.body10.i, !llvm.loop !11

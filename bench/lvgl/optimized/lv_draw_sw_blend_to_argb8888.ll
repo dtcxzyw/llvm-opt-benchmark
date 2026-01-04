@@ -286,8 +286,8 @@ lv_color_32_32_mix.exit.us248.us.us:              ; preds = %lv_color_32_32_mix.
   br label %lv_color_32_32_mix.exit.us261
 
 lv_color_32_32_mix.exit.us261:                    ; preds = %108, %._crit_edge.i.us, %103, %78
-  %.sroa.074.0.i.us = phi i24 [ %.sroa.074.0.extract.trunc.i.us, %108 ], [ %.sroa.045.0.extract.trunc.i, %78 ], [ %.sroa.074.0.copyload.pre.i.us, %._crit_edge.i.us ], [ %107, %103 ]
-  %.sroa.5.0.i.us = phi i8 [ %.sroa.5.0.extract.trunc.i.us, %108 ], [ %.sroa.654.0.extract.trunc.i, %78 ], [ %.sroa.5.0.copyload.pre.i.us, %._crit_edge.i.us ], [ %106, %103 ]
+  %.sroa.074.0.i.us = phi i24 [ %107, %103 ], [ %.sroa.045.0.extract.trunc.i, %78 ], [ %.sroa.074.0.extract.trunc.i.us, %108 ], [ %.sroa.074.0.copyload.pre.i.us, %._crit_edge.i.us ]
+  %.sroa.5.0.i.us = phi i8 [ %106, %103 ], [ %.sroa.654.0.extract.trunc.i, %78 ], [ %.sroa.5.0.extract.trunc.i.us, %108 ], [ %.sroa.5.0.copyload.pre.i.us, %._crit_edge.i.us ]
   %.sroa.5.0.insert.ext.i.us262 = zext i8 %.sroa.5.0.i.us to i32
   %.sroa.5.0.insert.shift.i.us263 = shl nuw i32 %.sroa.5.0.insert.ext.i.us262, 24
   %.sroa.074.0.insert.ext.i.us264 = zext i24 %.sroa.074.0.i.us to i32
@@ -424,8 +424,8 @@ lv_color_32_32_mix.exit.us261:                    ; preds = %108, %._crit_edge.i
   br label %lv_color_32_32_mix.exit189.us
 
 lv_color_32_32_mix.exit189.us:                    ; preds = %161, %._crit_edge.i180.us, %156, %132, %125
-  %.sroa.074.0.i174.us = phi i24 [ %.sroa.074.0.extract.trunc.i186.us, %161 ], [ %.sroa.045.0.extract.trunc.i160, %125 ], [ %.sroa.018.0.extract.trunc.i166.us, %132 ], [ %.sroa.074.0.copyload.pre.i182.us, %._crit_edge.i180.us ], [ %160, %156 ]
-  %.sroa.5.0.i175.us = phi i8 [ %.sroa.5.0.extract.trunc.i188.us, %161 ], [ %127, %125 ], [ %.sroa.6.0.extract.trunc.i165.us, %132 ], [ %.sroa.5.0.copyload.pre.i184.us, %._crit_edge.i180.us ], [ %159, %156 ]
+  %.sroa.074.0.i174.us = phi i24 [ %.sroa.018.0.extract.trunc.i166.us, %132 ], [ %.sroa.045.0.extract.trunc.i160, %125 ], [ %.sroa.074.0.extract.trunc.i186.us, %161 ], [ %.sroa.074.0.copyload.pre.i182.us, %._crit_edge.i180.us ], [ %160, %156 ]
+  %.sroa.5.0.i175.us = phi i8 [ %.sroa.6.0.extract.trunc.i165.us, %132 ], [ %127, %125 ], [ %.sroa.5.0.extract.trunc.i188.us, %161 ], [ %.sroa.5.0.copyload.pre.i184.us, %._crit_edge.i180.us ], [ %159, %156 ]
   %.sroa.5.0.insert.ext.i176.us = zext i8 %.sroa.5.0.i175.us to i32
   %.sroa.5.0.insert.shift.i177.us = shl nuw i32 %.sroa.5.0.insert.ext.i176.us, 24
   %.sroa.074.0.insert.ext.i178.us = zext i24 %.sroa.074.0.i174.us to i32
@@ -560,8 +560,8 @@ lv_color_32_32_mix.exit189.us:                    ; preds = %161, %._crit_edge.i
   br label %lv_color_32_32_mix.exit219.us
 
 lv_color_32_32_mix.exit219.us:                    ; preds = %215, %._crit_edge.i210.us, %210, %185, %175
-  %.sroa.074.0.i204.us = phi i24 [ %.sroa.074.0.extract.trunc.i216.us, %215 ], [ %.sroa.045.0.extract.trunc.i190, %175 ], [ %.sroa.018.0.extract.trunc.i196.us, %185 ], [ %.sroa.074.0.copyload.pre.i212.us, %._crit_edge.i210.us ], [ %214, %210 ]
-  %.sroa.5.0.i205.us = phi i8 [ %.sroa.5.0.extract.trunc.i218.us, %215 ], [ %.sroa.654.0.extract.trunc.i192.us, %175 ], [ %.sroa.6.0.extract.trunc.i195.us, %185 ], [ %.sroa.5.0.copyload.pre.i214.us, %._crit_edge.i210.us ], [ %213, %210 ]
+  %.sroa.074.0.i204.us = phi i24 [ %.sroa.018.0.extract.trunc.i196.us, %185 ], [ %.sroa.045.0.extract.trunc.i190, %175 ], [ %.sroa.074.0.extract.trunc.i216.us, %215 ], [ %.sroa.074.0.copyload.pre.i212.us, %._crit_edge.i210.us ], [ %214, %210 ]
+  %.sroa.5.0.i205.us = phi i8 [ %.sroa.6.0.extract.trunc.i195.us, %185 ], [ %.sroa.654.0.extract.trunc.i192.us, %175 ], [ %.sroa.5.0.extract.trunc.i218.us, %215 ], [ %.sroa.5.0.copyload.pre.i214.us, %._crit_edge.i210.us ], [ %213, %210 ]
   %.sroa.5.0.insert.ext.i206.us = zext i8 %.sroa.5.0.i205.us to i32
   %.sroa.5.0.insert.shift.i207.us = shl nuw i32 %.sroa.5.0.insert.ext.i206.us, 24
   %.sroa.074.0.insert.ext.i208.us = zext i24 %.sroa.074.0.i204.us to i32
@@ -862,8 +862,8 @@ define void @lv_draw_sw_blend_image_to_argb8888(ptr noundef readonly %0) local_u
   br label %lv_color_32_32_mix.exit272.us.i
 
 lv_color_32_32_mix.exit272.us.i:                  ; preds = %148, %._crit_edge.i263.us.i, %143, %118, %112
-  %.sroa.074.0.i257.us.i = phi i24 [ %.sroa.074.0.extract.trunc.i269.us.i, %148 ], [ %.sroa.045.0.extract.trunc.i243.us.i, %112 ], [ %.sroa.018.0.extract.trunc.i249.us.i, %118 ], [ %.sroa.074.0.copyload.pre.i265.us.i, %._crit_edge.i263.us.i ], [ %147, %143 ]
-  %.sroa.5.0.i258.us.i = phi i8 [ %.sroa.5.0.extract.trunc.i271.us.i, %148 ], [ %.sroa.654.0.extract.trunc.i245.us.i, %112 ], [ %.sroa.6.0.extract.trunc.i248.us.i, %118 ], [ %.sroa.5.0.copyload.pre.i267.us.i, %._crit_edge.i263.us.i ], [ %146, %143 ]
+  %.sroa.074.0.i257.us.i = phi i24 [ %.sroa.018.0.extract.trunc.i249.us.i, %118 ], [ %.sroa.045.0.extract.trunc.i243.us.i, %112 ], [ %.sroa.074.0.extract.trunc.i269.us.i, %148 ], [ %.sroa.074.0.copyload.pre.i265.us.i, %._crit_edge.i263.us.i ], [ %147, %143 ]
+  %.sroa.5.0.i258.us.i = phi i8 [ %.sroa.6.0.extract.trunc.i248.us.i, %118 ], [ %.sroa.654.0.extract.trunc.i245.us.i, %112 ], [ %.sroa.5.0.extract.trunc.i271.us.i, %148 ], [ %.sroa.5.0.copyload.pre.i267.us.i, %._crit_edge.i263.us.i ], [ %146, %143 ]
   %.sroa.5.0.insert.ext.i259.us.i = zext i8 %.sroa.5.0.i258.us.i to i32
   %.sroa.5.0.insert.shift.i260.us.i = shl nuw i32 %.sroa.5.0.insert.ext.i259.us.i, 24
   %.sroa.074.0.insert.ext.i261.us.i = zext i24 %.sroa.074.0.i257.us.i to i32
@@ -1099,8 +1099,8 @@ lv_color_32_32_mix.exit.us.us.us.i:               ; preds = %lv_color_32_32_mix.
   br label %lv_color_32_32_mix.exit.us324.i
 
 lv_color_32_32_mix.exit.us324.i:                  ; preds = %242, %._crit_edge.i.us.i, %237, %201
-  %.sroa.074.0.i.us.i = phi i24 [ %.sroa.074.0.extract.trunc.i.us.i, %242 ], [ %.sroa.045.0.extract.trunc.i.us323.i, %201 ], [ %.sroa.074.0.copyload.pre.i.us.i, %._crit_edge.i.us.i ], [ %241, %237 ]
-  %.sroa.5.0.i.us.i = phi i8 [ %.sroa.5.0.extract.trunc.i.us.i, %242 ], [ %.fr332.i, %201 ], [ %.sroa.5.0.copyload.pre.i.us.i, %._crit_edge.i.us.i ], [ %240, %237 ]
+  %.sroa.074.0.i.us.i = phi i24 [ %241, %237 ], [ %.sroa.045.0.extract.trunc.i.us323.i, %201 ], [ %.sroa.074.0.extract.trunc.i.us.i, %242 ], [ %.sroa.074.0.copyload.pre.i.us.i, %._crit_edge.i.us.i ]
+  %.sroa.5.0.i.us.i = phi i8 [ %240, %237 ], [ %.fr332.i, %201 ], [ %.sroa.5.0.extract.trunc.i.us.i, %242 ], [ %.sroa.5.0.copyload.pre.i.us.i, %._crit_edge.i.us.i ]
   %.sroa.5.0.insert.ext.i.us325.i = zext i8 %.sroa.5.0.i.us.i to i32
   %.sroa.5.0.insert.shift.i.us326.i = shl nuw i32 %.sroa.5.0.insert.ext.i.us325.i, 24
   %.sroa.074.0.insert.ext.i.us327.i = zext i24 %.sroa.074.0.i.us.i to i32
@@ -1257,8 +1257,8 @@ lv_color_32_32_mix.exit.us324.i:                  ; preds = %242, %._crit_edge.i
   br label %lv_color_32_32_mix.exit242.us.i
 
 lv_color_32_32_mix.exit242.us.i:                  ; preds = %310, %._crit_edge.i233.us.i, %305, %280, %258
-  %.sroa.074.0.i227.us.i = phi i24 [ %.sroa.074.0.extract.trunc.i239.us.i, %310 ], [ %.sroa.045.0.extract.trunc.i213.us.i, %258 ], [ %.sroa.018.0.extract.trunc.i219.us.i, %280 ], [ %.sroa.074.0.copyload.pre.i235.us.i, %._crit_edge.i233.us.i ], [ %309, %305 ]
-  %.sroa.5.0.i228.us.i = phi i8 [ %.sroa.5.0.extract.trunc.i241.us.i, %310 ], [ %.sroa.654.0.extract.trunc.i215.us.i, %258 ], [ %.sroa.6.0.extract.trunc.i218.us.i, %280 ], [ %.sroa.5.0.copyload.pre.i237.us.i, %._crit_edge.i233.us.i ], [ %308, %305 ]
+  %.sroa.074.0.i227.us.i = phi i24 [ %.sroa.018.0.extract.trunc.i219.us.i, %280 ], [ %.sroa.045.0.extract.trunc.i213.us.i, %258 ], [ %.sroa.074.0.extract.trunc.i239.us.i, %310 ], [ %.sroa.074.0.copyload.pre.i235.us.i, %._crit_edge.i233.us.i ], [ %309, %305 ]
+  %.sroa.5.0.i228.us.i = phi i8 [ %.sroa.6.0.extract.trunc.i218.us.i, %280 ], [ %.sroa.654.0.extract.trunc.i215.us.i, %258 ], [ %.sroa.5.0.extract.trunc.i241.us.i, %310 ], [ %.sroa.5.0.copyload.pre.i237.us.i, %._crit_edge.i233.us.i ], [ %308, %305 ]
   %.sroa.5.0.insert.ext.i229.us.i = zext i8 %.sroa.5.0.i228.us.i to i32
   %.sroa.5.0.insert.shift.i230.us.i = shl nuw i32 %.sroa.5.0.insert.ext.i229.us.i, 24
   %.sroa.074.0.insert.ext.i231.us.i = zext i24 %.sroa.074.0.i227.us.i to i32
@@ -1405,8 +1405,8 @@ lv_color_32_32_mix.exit242.us.i:                  ; preds = %310, %._crit_edge.i
   br label %lv_color_32_32_mix.exit212.us.i
 
 lv_color_32_32_mix.exit212.us.i:                  ; preds = %371, %._crit_edge.i203.us.i, %366, %342, %323
-  %.sroa.074.0.i197.us.i = phi i24 [ %.sroa.074.0.extract.trunc.i209.us.i, %371 ], [ %.sroa.045.0.extract.trunc.i183.us.i, %323 ], [ %.sroa.018.0.extract.trunc.i189.us.i, %342 ], [ %.sroa.074.0.copyload.pre.i205.us.i, %._crit_edge.i203.us.i ], [ %370, %366 ]
-  %.sroa.5.0.i198.us.i = phi i8 [ %.sroa.5.0.extract.trunc.i211.us.i, %371 ], [ %325, %323 ], [ %.sroa.6.0.extract.trunc.i188.us.i, %342 ], [ %.sroa.5.0.copyload.pre.i207.us.i, %._crit_edge.i203.us.i ], [ %369, %366 ]
+  %.sroa.074.0.i197.us.i = phi i24 [ %.sroa.018.0.extract.trunc.i189.us.i, %342 ], [ %.sroa.045.0.extract.trunc.i183.us.i, %323 ], [ %.sroa.074.0.extract.trunc.i209.us.i, %371 ], [ %.sroa.074.0.copyload.pre.i205.us.i, %._crit_edge.i203.us.i ], [ %370, %366 ]
+  %.sroa.5.0.i198.us.i = phi i8 [ %.sroa.6.0.extract.trunc.i188.us.i, %342 ], [ %325, %323 ], [ %.sroa.5.0.extract.trunc.i211.us.i, %371 ], [ %.sroa.5.0.copyload.pre.i207.us.i, %._crit_edge.i203.us.i ], [ %369, %366 ]
   %.sroa.5.0.insert.ext.i199.us.i = zext i8 %.sroa.5.0.i198.us.i to i32
   %.sroa.5.0.insert.shift.i200.us.i = shl nuw i32 %.sroa.5.0.insert.ext.i199.us.i, 24
   %.sroa.074.0.insert.ext.i201.us.i = zext i24 %.sroa.074.0.i197.us.i to i32
@@ -1688,8 +1688,8 @@ rgb565_image_blend.exit:                          ; preds = %._crit_edge.us.i, %
   br label %lv_color_32_32_mix.exit314.us.i
 
 lv_color_32_32_mix.exit314.us.i:                  ; preds = %518, %._crit_edge.i305.us.i, %513, %488, %482
-  %.sroa.074.0.i299.us.i = phi i24 [ %.sroa.074.0.extract.trunc.i311.us.i, %518 ], [ %.sroa.045.0.extract.trunc.i285.us.i, %482 ], [ %.sroa.018.0.extract.trunc.i291.us.i, %488 ], [ %.sroa.074.0.copyload.pre.i307.us.i, %._crit_edge.i305.us.i ], [ %517, %513 ]
-  %.sroa.5.0.i300.us.i = phi i8 [ %.sroa.5.0.extract.trunc.i313.us.i, %518 ], [ %.sroa.654.0.extract.trunc.i287.us.i, %482 ], [ %.sroa.6.0.extract.trunc.i290.us.i, %488 ], [ %.sroa.5.0.copyload.pre.i309.us.i, %._crit_edge.i305.us.i ], [ %516, %513 ]
+  %.sroa.074.0.i299.us.i = phi i24 [ %.sroa.018.0.extract.trunc.i291.us.i, %488 ], [ %.sroa.045.0.extract.trunc.i285.us.i, %482 ], [ %.sroa.074.0.extract.trunc.i311.us.i, %518 ], [ %.sroa.074.0.copyload.pre.i307.us.i, %._crit_edge.i305.us.i ], [ %517, %513 ]
+  %.sroa.5.0.i300.us.i = phi i8 [ %.sroa.6.0.extract.trunc.i290.us.i, %488 ], [ %.sroa.654.0.extract.trunc.i287.us.i, %482 ], [ %.sroa.5.0.extract.trunc.i313.us.i, %518 ], [ %.sroa.5.0.copyload.pre.i309.us.i, %._crit_edge.i305.us.i ], [ %516, %513 ]
   %.sroa.5.0.insert.ext.i301.us.i = zext i8 %.sroa.5.0.i300.us.i to i32
   %.sroa.5.0.insert.shift.i302.us.i = shl nuw i32 %.sroa.5.0.insert.ext.i301.us.i, 24
   %.sroa.074.0.insert.ext.i303.us.i = zext i24 %.sroa.074.0.i299.us.i to i32
@@ -1830,8 +1830,8 @@ blend_non_normal_pixel.exit.us.i20:               ; preds = %lv_color_32_32_mix.
   br label %lv_color_32_32_mix.exit.us.i
 
 lv_color_32_32_mix.exit.us.i:                     ; preds = %572, %._crit_edge.i.us.i39, %567, %542, %535
-  %.sroa.074.0.i.us.i37 = phi i24 [ %.sroa.074.0.extract.trunc.i.us.i42, %572 ], [ %.sroa.045.0.extract.trunc.i.us.i, %535 ], [ %.sroa.018.0.extract.trunc.i.us.i30, %542 ], [ %.sroa.074.0.copyload.pre.i.us.i40, %._crit_edge.i.us.i39 ], [ %571, %567 ]
-  %.sroa.5.0.i.us.i38 = phi i8 [ %.sroa.5.0.extract.trunc.i.us.i44, %572 ], [ %.sroa.654.0.extract.trunc.i.us.i, %535 ], [ %.sroa.6.0.extract.trunc.i.us.i29, %542 ], [ %.sroa.5.0.copyload.pre.i.us.i41, %._crit_edge.i.us.i39 ], [ %570, %567 ]
+  %.sroa.074.0.i.us.i37 = phi i24 [ %.sroa.018.0.extract.trunc.i.us.i30, %542 ], [ %.sroa.045.0.extract.trunc.i.us.i, %535 ], [ %.sroa.074.0.extract.trunc.i.us.i42, %572 ], [ %.sroa.074.0.copyload.pre.i.us.i40, %._crit_edge.i.us.i39 ], [ %571, %567 ]
+  %.sroa.5.0.i.us.i38 = phi i8 [ %.sroa.6.0.extract.trunc.i.us.i29, %542 ], [ %.sroa.654.0.extract.trunc.i.us.i, %535 ], [ %.sroa.5.0.extract.trunc.i.us.i44, %572 ], [ %.sroa.5.0.copyload.pre.i.us.i41, %._crit_edge.i.us.i39 ], [ %570, %567 ]
   %.sroa.5.0.insert.ext.i.us.i = zext i8 %.sroa.5.0.i.us.i38 to i32
   %.sroa.5.0.insert.shift.i.us.i = shl nuw i32 %.sroa.5.0.insert.ext.i.us.i, 24
   %.sroa.074.0.insert.ext.i.us.i = zext i24 %.sroa.074.0.i.us.i37 to i32
@@ -1971,8 +1971,8 @@ lv_color_32_32_mix.exit.us.i:                     ; preds = %572, %._crit_edge.i
   br label %lv_color_32_32_mix.exit224.us.i
 
 lv_color_32_32_mix.exit224.us.i:                  ; preds = %625, %._crit_edge.i215.us.i, %620, %595, %586
-  %.sroa.074.0.i209.us.i = phi i24 [ %.sroa.074.0.extract.trunc.i221.us.i, %625 ], [ %.sroa.051.sroa.0.0.copyload.us.i, %586 ], [ %.sroa.018.0.extract.trunc.i201.us.i, %595 ], [ %.sroa.074.0.copyload.pre.i217.us.i, %._crit_edge.i215.us.i ], [ %624, %620 ]
-  %.sroa.5.0.i210.us.i = phi i8 [ %.sroa.5.0.extract.trunc.i223.us.i, %625 ], [ %.sroa.654.0.extract.trunc.i197.us.i, %586 ], [ %.sroa.6.0.extract.trunc.i200.us.i, %595 ], [ %.sroa.5.0.copyload.pre.i219.us.i, %._crit_edge.i215.us.i ], [ %623, %620 ]
+  %.sroa.074.0.i209.us.i = phi i24 [ %.sroa.018.0.extract.trunc.i201.us.i, %595 ], [ %.sroa.051.sroa.0.0.copyload.us.i, %586 ], [ %.sroa.074.0.extract.trunc.i221.us.i, %625 ], [ %.sroa.074.0.copyload.pre.i217.us.i, %._crit_edge.i215.us.i ], [ %624, %620 ]
+  %.sroa.5.0.i210.us.i = phi i8 [ %.sroa.6.0.extract.trunc.i200.us.i, %595 ], [ %.sroa.654.0.extract.trunc.i197.us.i, %586 ], [ %.sroa.5.0.extract.trunc.i223.us.i, %625 ], [ %.sroa.5.0.copyload.pre.i219.us.i, %._crit_edge.i215.us.i ], [ %623, %620 ]
   %.sroa.5.0.insert.ext.i211.us.i = zext i8 %.sroa.5.0.i210.us.i to i32
   %.sroa.5.0.insert.shift.i212.us.i = shl nuw i32 %.sroa.5.0.insert.ext.i211.us.i, 24
   %.sroa.074.0.insert.ext.i213.us.i = zext i24 %.sroa.074.0.i209.us.i to i32
@@ -2117,8 +2117,8 @@ lv_color_32_32_mix.exit224.us.i:                  ; preds = %625, %._crit_edge.i
   br label %lv_color_32_32_mix.exit254.us.i
 
 lv_color_32_32_mix.exit254.us.i:                  ; preds = %682, %._crit_edge.i245.us.i, %677, %652, %640
-  %.sroa.074.0.i239.us.i = phi i24 [ %.sroa.074.0.extract.trunc.i251.us.i, %682 ], [ %.sroa.051.sroa.0.0.copyload89.us.i, %640 ], [ %.sroa.018.0.extract.trunc.i231.us.i, %652 ], [ %.sroa.074.0.copyload.pre.i247.us.i, %._crit_edge.i245.us.i ], [ %681, %677 ]
-  %.sroa.5.0.i240.us.i = phi i8 [ %.sroa.5.0.extract.trunc.i253.us.i, %682 ], [ %.sroa.654.0.extract.trunc.i227.us.i, %640 ], [ %.sroa.6.0.extract.trunc.i230.us.i, %652 ], [ %.sroa.5.0.copyload.pre.i249.us.i, %._crit_edge.i245.us.i ], [ %680, %677 ]
+  %.sroa.074.0.i239.us.i = phi i24 [ %.sroa.018.0.extract.trunc.i231.us.i, %652 ], [ %.sroa.051.sroa.0.0.copyload89.us.i, %640 ], [ %.sroa.074.0.extract.trunc.i251.us.i, %682 ], [ %.sroa.074.0.copyload.pre.i247.us.i, %._crit_edge.i245.us.i ], [ %681, %677 ]
+  %.sroa.5.0.i240.us.i = phi i8 [ %.sroa.6.0.extract.trunc.i230.us.i, %652 ], [ %.sroa.654.0.extract.trunc.i227.us.i, %640 ], [ %.sroa.5.0.extract.trunc.i253.us.i, %682 ], [ %.sroa.5.0.copyload.pre.i249.us.i, %._crit_edge.i245.us.i ], [ %680, %677 ]
   %.sroa.5.0.insert.ext.i241.us.i = zext i8 %.sroa.5.0.i240.us.i to i32
   %.sroa.5.0.insert.shift.i242.us.i = shl nuw i32 %.sroa.5.0.insert.ext.i241.us.i, 24
   %.sroa.074.0.insert.ext.i243.us.i = zext i24 %.sroa.074.0.i239.us.i to i32
@@ -2262,8 +2262,8 @@ lv_color_32_32_mix.exit254.us.i:                  ; preds = %682, %._crit_edge.i
   br label %lv_color_32_32_mix.exit284.us.i
 
 lv_color_32_32_mix.exit284.us.i:                  ; preds = %740, %._crit_edge.i275.us.i, %735, %710, %697
-  %.sroa.074.0.i269.us.i = phi i24 [ %.sroa.074.0.extract.trunc.i281.us.i, %740 ], [ %.sroa.051.sroa.0.0.copyload91.us.i, %697 ], [ %.sroa.018.0.extract.trunc.i261.us.i, %710 ], [ %.sroa.074.0.copyload.pre.i277.us.i, %._crit_edge.i275.us.i ], [ %739, %735 ]
-  %.sroa.5.0.i270.us.i = phi i8 [ %.sroa.5.0.extract.trunc.i283.us.i, %740 ], [ %.sroa.654.0.extract.trunc.i257.us.i, %697 ], [ %.sroa.6.0.extract.trunc.i260.us.i, %710 ], [ %.sroa.5.0.copyload.pre.i279.us.i, %._crit_edge.i275.us.i ], [ %738, %735 ]
+  %.sroa.074.0.i269.us.i = phi i24 [ %.sroa.018.0.extract.trunc.i261.us.i, %710 ], [ %.sroa.051.sroa.0.0.copyload91.us.i, %697 ], [ %.sroa.074.0.extract.trunc.i281.us.i, %740 ], [ %.sroa.074.0.copyload.pre.i277.us.i, %._crit_edge.i275.us.i ], [ %739, %735 ]
+  %.sroa.5.0.i270.us.i = phi i8 [ %.sroa.6.0.extract.trunc.i260.us.i, %710 ], [ %.sroa.654.0.extract.trunc.i257.us.i, %697 ], [ %.sroa.5.0.extract.trunc.i283.us.i, %740 ], [ %.sroa.5.0.copyload.pre.i279.us.i, %._crit_edge.i275.us.i ], [ %738, %735 ]
   %.sroa.5.0.insert.ext.i271.us.i = zext i8 %.sroa.5.0.i270.us.i to i32
   %.sroa.5.0.insert.shift.i272.us.i = shl nuw i32 %.sroa.5.0.insert.ext.i271.us.i, 24
   %.sroa.074.0.insert.ext.i273.us.i = zext i24 %.sroa.074.0.i269.us.i to i32
@@ -2839,8 +2839,8 @@ lv_color_8_32_mix.exit170.us.i:                   ; preds = %.sink.split.i168.us
   br label %lv_color_32_32_mix.exit.us.i74
 
 lv_color_32_32_mix.exit.us.i74:                   ; preds = %1033, %._crit_edge.i.us.i85, %1028, %1003, %998
-  %.sroa.074.0.i.us.i75 = phi i24 [ %.sroa.074.0.extract.trunc.i.us.i88, %1033 ], [ %.sroa.045.0.extract.trunc.i.us.i59, %998 ], [ %.sroa.018.0.extract.trunc.i.us.i65, %1003 ], [ %.sroa.074.0.copyload.pre.i.us.i86, %._crit_edge.i.us.i85 ], [ %1032, %1028 ]
-  %.sroa.5.0.i.us.i76 = phi i8 [ %.sroa.5.0.extract.trunc.i.us.i90, %1033 ], [ %.sroa.654.0.extract.trunc.i.us.i61, %998 ], [ %.sroa.6.0.extract.trunc.i.us.i64, %1003 ], [ %.sroa.5.0.copyload.pre.i.us.i87, %._crit_edge.i.us.i85 ], [ %1031, %1028 ]
+  %.sroa.074.0.i.us.i75 = phi i24 [ %.sroa.018.0.extract.trunc.i.us.i65, %1003 ], [ %.sroa.045.0.extract.trunc.i.us.i59, %998 ], [ %.sroa.074.0.extract.trunc.i.us.i88, %1033 ], [ %.sroa.074.0.copyload.pre.i.us.i86, %._crit_edge.i.us.i85 ], [ %1032, %1028 ]
+  %.sroa.5.0.i.us.i76 = phi i8 [ %.sroa.6.0.extract.trunc.i.us.i64, %1003 ], [ %.sroa.654.0.extract.trunc.i.us.i61, %998 ], [ %.sroa.5.0.extract.trunc.i.us.i90, %1033 ], [ %.sroa.5.0.copyload.pre.i.us.i87, %._crit_edge.i.us.i85 ], [ %1031, %1028 ]
   %.sroa.5.0.insert.ext.i.us.i77 = zext i8 %.sroa.5.0.i.us.i76 to i32
   %.sroa.5.0.insert.shift.i.us.i78 = shl nuw i32 %.sroa.5.0.insert.ext.i.us.i77, 24
   %.sroa.074.0.insert.ext.i.us.i79 = zext i24 %.sroa.074.0.i.us.i75 to i32
@@ -3504,8 +3504,8 @@ lv_color_8_32_mix.exit174.us.i:                   ; preds = %.sink.split.i172.us
   br label %lv_color_32_32_mix.exit.us.i129
 
 lv_color_32_32_mix.exit.us.i129:                  ; preds = %1381, %._crit_edge.i.us.i141, %1376, %1351, %1346
-  %.sroa.074.0.i.us.i130 = phi i24 [ %.sroa.074.0.extract.trunc.i.us.i144, %1381 ], [ %.sroa.045.0.extract.trunc.i.us.i114, %1346 ], [ %.sroa.018.0.extract.trunc.i.us.i120, %1351 ], [ %.sroa.074.0.copyload.pre.i.us.i142, %._crit_edge.i.us.i141 ], [ %1380, %1376 ]
-  %.sroa.5.0.i.us.i131 = phi i8 [ %.sroa.5.0.extract.trunc.i.us.i146, %1381 ], [ %.sroa.654.0.extract.trunc.i.us.i116, %1346 ], [ %.sroa.6.0.extract.trunc.i.us.i119, %1351 ], [ %.sroa.5.0.copyload.pre.i.us.i143, %._crit_edge.i.us.i141 ], [ %1379, %1376 ]
+  %.sroa.074.0.i.us.i130 = phi i24 [ %.sroa.018.0.extract.trunc.i.us.i120, %1351 ], [ %.sroa.045.0.extract.trunc.i.us.i114, %1346 ], [ %.sroa.074.0.extract.trunc.i.us.i144, %1381 ], [ %.sroa.074.0.copyload.pre.i.us.i142, %._crit_edge.i.us.i141 ], [ %1380, %1376 ]
+  %.sroa.5.0.i.us.i131 = phi i8 [ %.sroa.6.0.extract.trunc.i.us.i119, %1351 ], [ %.sroa.654.0.extract.trunc.i.us.i116, %1346 ], [ %.sroa.5.0.extract.trunc.i.us.i146, %1381 ], [ %.sroa.5.0.copyload.pre.i.us.i143, %._crit_edge.i.us.i141 ], [ %1379, %1376 ]
   %.sroa.5.0.insert.ext.i.us.i132 = zext i8 %.sroa.5.0.i.us.i131 to i32
   %.sroa.5.0.insert.shift.i.us.i133 = shl nuw i32 %.sroa.5.0.insert.ext.i.us.i132, 24
   %.sroa.074.0.insert.ext.i.us.i134 = zext i24 %.sroa.074.0.i.us.i130 to i32
@@ -4120,8 +4120,8 @@ lv_color_8_32_mix.exit172.us.i:                   ; preds = %.sink.split.i170.us
   br label %lv_color_32_32_mix.exit.us.i193
 
 lv_color_32_32_mix.exit.us.i193:                  ; preds = %1706, %._crit_edge.i.us.i204, %1701, %1676, %1671
-  %.sroa.074.0.i.us.i194 = phi i24 [ %.sroa.074.0.extract.trunc.i.us.i207, %1706 ], [ %.sroa.045.0.extract.trunc.i.us.i178, %1671 ], [ %.sroa.018.0.extract.trunc.i.us.i184, %1676 ], [ %.sroa.074.0.copyload.pre.i.us.i205, %._crit_edge.i.us.i204 ], [ %1705, %1701 ]
-  %.sroa.5.0.i.us.i195 = phi i8 [ %.sroa.5.0.extract.trunc.i.us.i209, %1706 ], [ %.sroa.654.0.extract.trunc.i.us.i180, %1671 ], [ %.sroa.6.0.extract.trunc.i.us.i183, %1676 ], [ %.sroa.5.0.copyload.pre.i.us.i206, %._crit_edge.i.us.i204 ], [ %1704, %1701 ]
+  %.sroa.074.0.i.us.i194 = phi i24 [ %.sroa.018.0.extract.trunc.i.us.i184, %1676 ], [ %.sroa.045.0.extract.trunc.i.us.i178, %1671 ], [ %.sroa.074.0.extract.trunc.i.us.i207, %1706 ], [ %.sroa.074.0.copyload.pre.i.us.i205, %._crit_edge.i.us.i204 ], [ %1705, %1701 ]
+  %.sroa.5.0.i.us.i195 = phi i8 [ %.sroa.6.0.extract.trunc.i.us.i183, %1676 ], [ %.sroa.654.0.extract.trunc.i.us.i180, %1671 ], [ %.sroa.5.0.extract.trunc.i.us.i209, %1706 ], [ %.sroa.5.0.copyload.pre.i.us.i206, %._crit_edge.i.us.i204 ], [ %1704, %1701 ]
   %.sroa.5.0.insert.ext.i.us.i196 = zext i8 %.sroa.5.0.i.us.i195 to i32
   %.sroa.5.0.insert.shift.i.us.i197 = shl nuw i32 %.sroa.5.0.insert.ext.i.us.i196, 24
   %.sroa.074.0.insert.ext.i.us.i198 = zext i24 %.sroa.074.0.i.us.i194 to i32
@@ -4396,8 +4396,8 @@ define internal fastcc void @rgb888_image_blend(ptr noundef readonly captures(no
   br label %lv_color_32_32_mix.exit336.us
 
 lv_color_32_32_mix.exit336.us:                    ; preds = %134, %._crit_edge.i327.us, %129, %104, %99
-  %.sroa.074.0.i321.us = phi i24 [ %.sroa.074.0.extract.trunc.i333.us, %134 ], [ %.sroa.045.0.extract.trunc.i307.us, %99 ], [ %.sroa.018.0.extract.trunc.i313.us, %104 ], [ %.sroa.074.0.copyload.pre.i329.us, %._crit_edge.i327.us ], [ %133, %129 ]
-  %.sroa.5.0.i322.us = phi i8 [ %.sroa.5.0.extract.trunc.i335.us, %134 ], [ %.sroa.654.0.extract.trunc.i309.us, %99 ], [ %.sroa.6.0.extract.trunc.i312.us, %104 ], [ %.sroa.5.0.copyload.pre.i331.us, %._crit_edge.i327.us ], [ %132, %129 ]
+  %.sroa.074.0.i321.us = phi i24 [ %.sroa.018.0.extract.trunc.i313.us, %104 ], [ %.sroa.045.0.extract.trunc.i307.us, %99 ], [ %.sroa.074.0.extract.trunc.i333.us, %134 ], [ %.sroa.074.0.copyload.pre.i329.us, %._crit_edge.i327.us ], [ %133, %129 ]
+  %.sroa.5.0.i322.us = phi i8 [ %.sroa.6.0.extract.trunc.i312.us, %104 ], [ %.sroa.654.0.extract.trunc.i309.us, %99 ], [ %.sroa.5.0.extract.trunc.i335.us, %134 ], [ %.sroa.5.0.copyload.pre.i331.us, %._crit_edge.i327.us ], [ %132, %129 ]
   %.sroa.5.0.insert.ext.i323.us = zext i8 %.sroa.5.0.i322.us to i32
   %.sroa.5.0.insert.shift.i324.us = shl nuw i32 %.sroa.5.0.insert.ext.i323.us, 24
   %.sroa.074.0.insert.ext.i325.us = zext i24 %.sroa.074.0.i321.us to i32
@@ -4658,8 +4658,8 @@ lv_color_32_32_mix.exit.us.us.us:                 ; preds = %lv_color_32_32_mix.
   br label %lv_color_32_32_mix.exit.us400
 
 lv_color_32_32_mix.exit.us400:                    ; preds = %233, %._crit_edge.i.us, %228, %198
-  %.sroa.074.0.i.us401 = phi i24 [ %.sroa.074.0.extract.trunc.i.us, %233 ], [ %.sroa.045.0.extract.trunc.i.us398, %198 ], [ %.sroa.074.0.copyload.pre.i.us, %._crit_edge.i.us ], [ %232, %228 ]
-  %.sroa.5.0.i.us402 = phi i8 [ %.sroa.5.0.extract.trunc.i.us, %233 ], [ %.fr439, %198 ], [ %.sroa.5.0.copyload.pre.i.us, %._crit_edge.i.us ], [ %231, %228 ]
+  %.sroa.074.0.i.us401 = phi i24 [ %232, %228 ], [ %.sroa.045.0.extract.trunc.i.us398, %198 ], [ %.sroa.074.0.extract.trunc.i.us, %233 ], [ %.sroa.074.0.copyload.pre.i.us, %._crit_edge.i.us ]
+  %.sroa.5.0.i.us402 = phi i8 [ %231, %228 ], [ %.fr439, %198 ], [ %.sroa.5.0.extract.trunc.i.us, %233 ], [ %.sroa.5.0.copyload.pre.i.us, %._crit_edge.i.us ]
   %.sroa.5.0.insert.ext.i.us403 = zext i8 %.sroa.5.0.i.us402 to i32
   %.sroa.5.0.insert.shift.i.us404 = shl nuw i32 %.sroa.5.0.insert.ext.i.us403, 24
   %.sroa.074.0.insert.ext.i.us405 = zext i24 %.sroa.074.0.i.us401 to i32
@@ -4815,8 +4815,8 @@ lv_color_32_32_mix.exit.us400:                    ; preds = %233, %._crit_edge.i
   br label %lv_color_32_32_mix.exit276.us
 
 lv_color_32_32_mix.exit276.us:                    ; preds = %292, %._crit_edge.i267.us, %287, %263, %251
-  %.sroa.074.0.i261.us = phi i24 [ %.sroa.074.0.extract.trunc.i273.us, %292 ], [ %.sroa.045.0.extract.trunc.i247.us, %251 ], [ %.sroa.018.0.extract.trunc.i253.us, %263 ], [ %.sroa.074.0.copyload.pre.i269.us, %._crit_edge.i267.us ], [ %291, %287 ]
-  %.sroa.5.0.i262.us = phi i8 [ %.sroa.5.0.extract.trunc.i275.us, %292 ], [ %253, %251 ], [ %.sroa.6.0.extract.trunc.i252.us, %263 ], [ %.sroa.5.0.copyload.pre.i271.us, %._crit_edge.i267.us ], [ %290, %287 ]
+  %.sroa.074.0.i261.us = phi i24 [ %.sroa.018.0.extract.trunc.i253.us, %263 ], [ %.sroa.045.0.extract.trunc.i247.us, %251 ], [ %.sroa.074.0.extract.trunc.i273.us, %292 ], [ %.sroa.074.0.copyload.pre.i269.us, %._crit_edge.i267.us ], [ %291, %287 ]
+  %.sroa.5.0.i262.us = phi i8 [ %.sroa.6.0.extract.trunc.i252.us, %263 ], [ %253, %251 ], [ %.sroa.5.0.extract.trunc.i275.us, %292 ], [ %.sroa.5.0.copyload.pre.i271.us, %._crit_edge.i267.us ], [ %290, %287 ]
   %.sroa.5.0.insert.ext.i263.us = zext i8 %.sroa.5.0.i262.us to i32
   %.sroa.5.0.insert.shift.i264.us = shl nuw i32 %.sroa.5.0.insert.ext.i263.us, 24
   %.sroa.074.0.insert.ext.i265.us = zext i24 %.sroa.074.0.i261.us to i32
@@ -4968,8 +4968,8 @@ lv_color_32_32_mix.exit276.us:                    ; preds = %292, %._crit_edge.i
   br label %lv_color_32_32_mix.exit306.us
 
 lv_color_32_32_mix.exit306.us:                    ; preds = %353, %._crit_edge.i297.us, %348, %323, %307
-  %.sroa.074.0.i291.us = phi i24 [ %.sroa.074.0.extract.trunc.i303.us, %353 ], [ %.sroa.045.0.extract.trunc.i277.us, %307 ], [ %.sroa.018.0.extract.trunc.i283.us, %323 ], [ %.sroa.074.0.copyload.pre.i299.us, %._crit_edge.i297.us ], [ %352, %348 ]
-  %.sroa.5.0.i292.us = phi i8 [ %.sroa.5.0.extract.trunc.i305.us, %353 ], [ %.sroa.654.0.extract.trunc.i279.us, %307 ], [ %.sroa.6.0.extract.trunc.i282.us, %323 ], [ %.sroa.5.0.copyload.pre.i301.us, %._crit_edge.i297.us ], [ %351, %348 ]
+  %.sroa.074.0.i291.us = phi i24 [ %.sroa.018.0.extract.trunc.i283.us, %323 ], [ %.sroa.045.0.extract.trunc.i277.us, %307 ], [ %.sroa.074.0.extract.trunc.i303.us, %353 ], [ %.sroa.074.0.copyload.pre.i299.us, %._crit_edge.i297.us ], [ %352, %348 ]
+  %.sroa.5.0.i292.us = phi i8 [ %.sroa.6.0.extract.trunc.i282.us, %323 ], [ %.sroa.654.0.extract.trunc.i279.us, %307 ], [ %.sroa.5.0.extract.trunc.i305.us, %353 ], [ %.sroa.5.0.copyload.pre.i301.us, %._crit_edge.i297.us ], [ %351, %348 ]
   %.sroa.5.0.insert.ext.i293.us = zext i8 %.sroa.5.0.i292.us to i32
   %.sroa.5.0.insert.shift.i294.us = shl nuw i32 %.sroa.5.0.insert.ext.i293.us, 24
   %.sroa.074.0.insert.ext.i295.us = zext i24 %.sroa.074.0.i291.us to i32

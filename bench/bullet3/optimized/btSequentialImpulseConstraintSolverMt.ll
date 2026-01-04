@@ -1856,7 +1856,7 @@ _ZN20btAlignedObjectArrayI12btSolverBodyE6expandERKS0_.exit61: ; preds = %132, %
   br label %177
 
 177:                                              ; preds = %.critedge, %176, %103, %124, %12, %64
-  %.1 = phi i32 [ %.0, %64 ], [ %14, %12 ], [ %.3, %124 ], [ %108, %103 ], [ %.pre64, %176 ], [ %126, %.critedge ]
+  %.1 = phi i32 [ %14, %12 ], [ %108, %103 ], [ %.0, %64 ], [ %.3, %124 ], [ %.pre64, %176 ], [ %126, %.critedge ]
   ret i32 %.1
 }
 
@@ -3855,7 +3855,7 @@ define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt21internalConve
   br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !214
 
 123:                                              ; preds = %80, %100, %120, %78
-  %.pn.pn.pn = phi { ptr, i32 } [ %79, %78 ], [ %121, %120 ], [ %101, %100 ], [ %81, %80 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %79, %78 ], [ %81, %80 ], [ %121, %120 ], [ %101, %100 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn.pn.pn

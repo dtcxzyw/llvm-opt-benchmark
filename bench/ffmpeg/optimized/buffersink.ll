@@ -268,7 +268,7 @@ return_or_keep_frame.exit38:                      ; preds = %66, %67, %69
   br label %.loopexit
 
 .loopexit:                                        ; preds = %42, %47, %27, %32, %.preheader.split.us.split, %.preheader.split.us.split.us, %70, %60, %.split40.us, %return_or_keep_frame.exit38, %return_or_keep_frame.exit
-  %.0 = phi i32 [ %.0.i, %return_or_keep_frame.exit ], [ %.0.i37, %return_or_keep_frame.exit38 ], [ %72, %.split40.us ], [ %20, %.preheader.split.us.split.us ], [ %35, %.preheader.split.us.split ], [ %61, %60 ], [ -11, %70 ], [ %29, %27 ], [ %33, %32 ], [ %44, %42 ], [ %48, %47 ]
+  %.0 = phi i32 [ %.0.i, %return_or_keep_frame.exit ], [ %72, %.split40.us ], [ %.0.i37, %return_or_keep_frame.exit38 ], [ %33, %32 ], [ %61, %60 ], [ %20, %.preheader.split.us.split.us ], [ -11, %70 ], [ %35, %.preheader.split.us.split ], [ %29, %27 ], [ %48, %47 ], [ %44, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -773,7 +773,7 @@ define internal range(i32 -2147483648, 1) i32 @init_video(ptr noundef %0) #0 {
   br label %.critedge
 
 .critedge:                                        ; preds = %32, %19, %6, %42
-  %.2 = phi i32 [ %43, %42 ], [ -12, %6 ], [ -12, %19 ], [ -12, %32 ]
+  %.2 = phi i32 [ %43, %42 ], [ -12, %19 ], [ -12, %6 ], [ -12, %32 ]
   ret i32 %.2
 }
 
@@ -999,8 +999,8 @@ define internal range(i32 -2147483648, 1) i32 @vsink_query_formats(ptr noundef %
 .thread105:                                       ; preds = %80, %._crit_edge121, %.thread.thread, %29
   br label %.thread102
 
-.thread102:                                       ; preds = %.thread98, %.thread95, %._crit_edge, %._crit_edge117, %.thread108, %29, %.thread.thread147, %17, %._crit_edge121, %.thread105
-  %.068 = phi i32 [ 0, %.thread105 ], [ %101, %._crit_edge121 ], [ %20, %17 ], [ %25, %.thread.thread147 ], [ %32, %29 ], [ %98, %.thread108 ], [ %75, %.thread98 ], [ %52, %.thread95 ], [ %55, %._crit_edge ], [ %78, %._crit_edge117 ]
+.thread102:                                       ; preds = %.thread98, %.thread95, %._crit_edge117, %._crit_edge, %.thread108, %29, %.thread.thread147, %17, %._crit_edge121, %.thread105
+  %.068 = phi i32 [ %101, %._crit_edge121 ], [ %20, %17 ], [ %25, %.thread.thread147 ], [ 0, %.thread105 ], [ %32, %29 ], [ %98, %.thread108 ], [ %75, %.thread98 ], [ %52, %.thread95 ], [ %78, %._crit_edge117 ], [ %55, %._crit_edge ]
   ret i32 %.068
 }
 
@@ -1081,7 +1081,7 @@ define internal range(i32 -2147483648, 1) i32 @init_audio(ptr noundef %0) #0 {
   br label %.critedge
 
 .critedge:                                        ; preds = %32, %19, %6, %42
-  %.2 = phi i32 [ %43, %42 ], [ -12, %6 ], [ -12, %19 ], [ -12, %32 ]
+  %.2 = phi i32 [ %43, %42 ], [ -12, %19 ], [ -12, %6 ], [ -12, %32 ]
   ret i32 %.2
 }
 
@@ -1244,7 +1244,7 @@ define internal range(i32 -2147483648, 1) i32 @asink_query_formats(ptr noundef %
   br i1 %82, label %.thread77, label %83
 
 .thread77:                                        ; preds = %43, %72, %._crit_edge, %56, %._crit_edge86
-  %.157.ph = phi i32 [ %81, %._crit_edge86 ], [ %59, %56 ], [ %52, %._crit_edge ], [ %78, %72 ], [ %49, %43 ]
+  %.157.ph = phi i32 [ %81, %._crit_edge86 ], [ %78, %72 ], [ %59, %56 ], [ %52, %._crit_edge ], [ %49, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %85
 
@@ -1256,7 +1256,7 @@ define internal range(i32 -2147483648, 1) i32 @asink_query_formats(ptr noundef %
   br label %85
 
 85:                                               ; preds = %.thread77, %27, %.thread.thread109, %15, %84
-  %.056 = phi i32 [ 0, %84 ], [ %18, %15 ], [ %23, %.thread.thread109 ], [ %30, %27 ], [ %.157.ph, %.thread77 ]
+  %.056 = phi i32 [ %.157.ph, %.thread77 ], [ %18, %15 ], [ %23, %.thread.thread109 ], [ 0, %84 ], [ %30, %27 ]
   ret i32 %.056
 }
 

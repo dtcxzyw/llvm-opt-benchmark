@@ -475,7 +475,7 @@ _ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread38:  ; preds = %_ZNK4llvm8MCSymbol1
   br label %_ZNK4llvm8MCSymbol11getFragmentEb.exit
 
 _ZNK4llvm8MCSymbol11getFragmentEb.exit:           ; preds = %_ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread38.thread, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread38, %39, %43
-  %.0.i = phi ptr [ %46, %43 ], [ null, %39 ], [ %.pre42, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread38 ], [ %15, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread38.thread ]
+  %.0.i = phi ptr [ %46, %43 ], [ %.pre42, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread38 ], [ null, %39 ], [ %15, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread38.thread ]
   %47 = getelementptr inbounds nuw i8, ptr %.041, i64 8
   %48 = getelementptr inbounds nuw i8, ptr %.0.i, i64 28
   %49 = load i8, ptr %48, align 4, !tbaa !284
@@ -664,7 +664,7 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm8MCSymbol11getFragmentEb(ptr no
   br label %15
 
 15:                                               ; preds = %2, %4, %8
-  %.0 = phi ptr [ %14, %8 ], [ null, %4 ], [ %3, %2 ]
+  %.0 = phi ptr [ %14, %8 ], [ %3, %2 ], [ null, %4 ]
   ret ptr %.0
 }
 
@@ -772,7 +772,7 @@ _ZNK4llvm8MCSymbol11getFragmentEb.exit12.i:       ; preds = %_ZNK4llvm8MCSymbol1
   br label %_ZNK4llvm8MCSymbol11getFragmentEb.exit17.i
 
 _ZNK4llvm8MCSymbol11getFragmentEb.exit17.i:       ; preds = %26, %22, %_ZNK4llvm8MCSymbol11getFragmentEb.exit12.i
-  %.0.i14.i = phi ptr [ %30, %26 ], [ null, %22 ], [ %21, %_ZNK4llvm8MCSymbol11getFragmentEb.exit12.i ]
+  %.0.i14.i = phi ptr [ %30, %26 ], [ %21, %_ZNK4llvm8MCSymbol11getFragmentEb.exit12.i ], [ null, %22 ]
   %.not7.i = icmp eq ptr %.0.i9.i, %.0.i14.i
   br i1 %.not7.i, label %31, label %.thread
 
@@ -802,7 +802,7 @@ _ZNK4llvm8MCSymbol11getFragmentEb.exit17.i:       ; preds = %26, %22, %_ZNK4llvm
   tail call void %49(ptr noundef nonnull align 8 dereferenceable(296) %0, i64 noundef %46, i32 noundef %3) #22
   br label %50
 
-.thread:                                          ; preds = %36, %31, %_ZNK4llvm8MCSymbol11getFragmentEb.exit17.i, %_ZNK4llvm8MCSymbol11getFragmentEb.exit.i, %13, %4
+.thread:                                          ; preds = %_ZNK4llvm8MCSymbol11getFragmentEb.exit.i, %36, %31, %_ZNK4llvm8MCSymbol11getFragmentEb.exit17.i, %13, %4
   tail call void @_ZN4llvm10MCStreamer22emitAbsoluteSymbolDiffEPKNS_8MCSymbolES3_j(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #22
   br label %50
 
@@ -868,7 +868,7 @@ _ZNK4llvm8MCSymbol11getFragmentEb.exit12.i:       ; preds = %_ZNK4llvm8MCSymbol1
   br label %_ZNK4llvm8MCSymbol11getFragmentEb.exit17.i
 
 _ZNK4llvm8MCSymbol11getFragmentEb.exit17.i:       ; preds = %25, %21, %_ZNK4llvm8MCSymbol11getFragmentEb.exit12.i
-  %.0.i14.i = phi ptr [ %29, %25 ], [ null, %21 ], [ %20, %_ZNK4llvm8MCSymbol11getFragmentEb.exit12.i ]
+  %.0.i14.i = phi ptr [ %29, %25 ], [ %20, %_ZNK4llvm8MCSymbol11getFragmentEb.exit12.i ], [ null, %21 ]
   %.not7.i = icmp eq ptr %.0.i9.i, %.0.i14.i
   br i1 %.not7.i, label %30, label %.thread
 
@@ -895,7 +895,7 @@ _ZNK4llvm8MCSymbol11getFragmentEb.exit17.i:       ; preds = %25, %21, %_ZNK4llvm
   %46 = tail call noundef i32 @_ZN4llvm10MCStreamer19emitULEB128IntValueEmj(ptr noundef nonnull align 8 dereferenceable(296) %0, i64 noundef %45, i32 noundef 0) #22
   br label %47
 
-.thread:                                          ; preds = %35, %30, %_ZNK4llvm8MCSymbol11getFragmentEb.exit17.i, %_ZNK4llvm8MCSymbol11getFragmentEb.exit.i, %12, %3
+.thread:                                          ; preds = %_ZNK4llvm8MCSymbol11getFragmentEb.exit.i, %35, %30, %_ZNK4llvm8MCSymbol11getFragmentEb.exit17.i, %12, %3
   tail call void @_ZN4llvm10MCStreamer31emitAbsoluteSymbolDiffAsULEB128EPKNS_8MCSymbolES3_(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef %1, ptr noundef %2) #22
   br label %47
 

@@ -186,7 +186,7 @@ fread.inline.exit:                                ; preds = %8
   br label %40
 
 40:                                               ; preds = %31, %38, %39, %2, %29, %22
-  %.030 = phi ptr [ null, %29 ], [ null, %22 ], [ null, %2 ], [ null, %39 ], [ null, %38 ], [ %37, %31 ]
+  %.030 = phi ptr [ null, %22 ], [ null, %29 ], [ null, %2 ], [ null, %38 ], [ null, %39 ], [ %37, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.030
 }
@@ -391,9 +391,9 @@ FLAC__metadata_simple_iterator_delete.exit:       ; preds = %38, %41
   call void @FLAC__metadata_object_delete(ptr noundef nonnull %46) #33
   br label %.thread
 
-.thread:                                          ; preds = %85, %88, %42
-  %.349 = phi i64 [ %.046, %42 ], [ %.046, %88 ], [ %87, %85 ]
-  %.3 = phi i64 [ %.044, %42 ], [ %.044, %88 ], [ %54, %85 ]
+.thread:                                          ; preds = %88, %85, %42
+  %.349 = phi i64 [ %.046, %42 ], [ %87, %85 ], [ %.046, %88 ]
+  %.3 = phi i64 [ %.044, %42 ], [ %54, %85 ], [ %.044, %88 ]
   %89 = load i32, ptr %20, align 4, !tbaa !28
   %.not.i68 = icmp eq i32 %89, 0
   %.pre82.pre83 = load ptr, ptr %11, align 8, !tbaa !24
@@ -457,7 +457,7 @@ FLAC__metadata_simple_iterator_next.exit:         ; preds = %.lr.ph.i.i.i.i
   br label %42, !llvm.loop !34
 
 FLAC__metadata_simple_iterator_next.exit.thread:  ; preds = %.thread, %.FLAC__metadata_simple_iterator_next.exit.thread.loopexit_crit_edge, %113, %94
-  %115 = phi ptr [ %.pre82.pre83, %113 ], [ %.pre82.pre83, %94 ], [ %.pre82.pre, %.FLAC__metadata_simple_iterator_next.exit.thread.loopexit_crit_edge ], [ %.pre82.pre83, %.thread ]
+  %115 = phi ptr [ %.pre82.pre83, %94 ], [ %.pre82.pre83, %113 ], [ %.pre82.pre, %.FLAC__metadata_simple_iterator_next.exit.thread.loopexit_crit_edge ], [ %.pre82.pre83, %.thread ]
   %.not.i.i69 = icmp eq ptr %115, null
   br i1 %.not.i.i69, label %124, label %116
 
@@ -504,7 +504,7 @@ FLAC__metadata_simple_iterator_delete.exit73:     ; preds = %128, %131
   br label %FLAC__metadata_simple_iterator_new.exit.thread
 
 FLAC__metadata_simple_iterator_new.exit.thread:   ; preds = %9, %FLAC__metadata_simple_iterator_delete.exit73, %FLAC__metadata_simple_iterator_delete.exit
-  %.0 = phi i32 [ %134, %FLAC__metadata_simple_iterator_delete.exit73 ], [ 0, %FLAC__metadata_simple_iterator_delete.exit ], [ 0, %9 ]
+  %.0 = phi i32 [ 0, %FLAC__metadata_simple_iterator_delete.exit ], [ %134, %FLAC__metadata_simple_iterator_delete.exit73 ], [ 0, %9 ]
   ret i32 %.0
 }
 
@@ -1303,8 +1303,8 @@ read_metadata_block_data_vorbis_comment_entry_cb_.exit.thread.i: ; preds = %268,
   br i1 %287, label %.lr.ph.i45.i.i, label %.loopexit.i.i.i, !llvm.loop !67
 
 .loopexit.i.i.i:                                  ; preds = %275, %.loopexit.i, %233, %.thread.i.i.i, %205, %read_metadata_block_data_vorbis_comment_entry_cb_.exit32.thread36.i
-  %.155.i.i.i = phi i32 [ %212, %205 ], [ %spec.select70.i.i44.i, %.loopexit.i ], [ %215, %233 ], [ %215, %.thread.i.i.i ], [ %spec.select.i.i38.i, %read_metadata_block_data_vorbis_comment_entry_cb_.exit32.thread36.i ], [ %284, %275 ]
-  %.052.i.i.i = phi i32 [ 0, %205 ], [ 5, %.loopexit.i ], [ 5, %233 ], [ 0, %.thread.i.i.i ], [ 5, %read_metadata_block_data_vorbis_comment_entry_cb_.exit32.thread36.i ], [ 0, %275 ]
+  %.155.i.i.i = phi i32 [ %spec.select.i.i38.i, %read_metadata_block_data_vorbis_comment_entry_cb_.exit32.thread36.i ], [ %212, %205 ], [ %spec.select70.i.i44.i, %.loopexit.i ], [ %215, %233 ], [ %215, %.thread.i.i.i ], [ %284, %275 ]
+  %.052.i.i.i = phi i32 [ 5, %read_metadata_block_data_vorbis_comment_entry_cb_.exit32.thread36.i ], [ 0, %205 ], [ 5, %.loopexit.i ], [ 5, %233 ], [ 0, %.thread.i.i.i ], [ 0, %275 ]
   %.not68.i.i.i = icmp eq i32 %.155.i.i.i, 0
   br i1 %.not68.i.i.i, label %291, label %288
 
@@ -1318,7 +1318,7 @@ read_metadata_block_data_vorbis_comment_entry_cb_.exit.thread.i: ; preds = %268,
   br label %read_metadata_block_data_vorbis_comment_cb_.exit.i.i
 
 read_metadata_block_data_vorbis_comment_cb_.exit.i.i: ; preds = %291, %288, %read_metadata_block_data_vorbis_comment_entry_cb_.exit.thread.i, %240, %214, %read_metadata_block_data_vorbis_comment_entry_cb_.exit32.thread.i
-  %.0.i42.i.i = phi i32 [ %.052.i.i.i, %291 ], [ 11, %240 ], [ 6, %214 ], [ 7, %288 ], [ %.0.i15.ph.i, %read_metadata_block_data_vorbis_comment_entry_cb_.exit32.thread.i ], [ %.0.i8.ph.i, %read_metadata_block_data_vorbis_comment_entry_cb_.exit.thread.i ]
+  %.0.i42.i.i = phi i32 [ 7, %288 ], [ %.052.i.i.i, %291 ], [ 11, %240 ], [ %.0.i15.ph.i, %read_metadata_block_data_vorbis_comment_entry_cb_.exit32.thread.i ], [ 6, %214 ], [ %.0.i8.ph.i, %read_metadata_block_data_vorbis_comment_entry_cb_.exit.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %read_metadata_block_data_.exit
 
@@ -1616,7 +1616,7 @@ unpack_uint32_.exit92.i.i.i.i:                    ; preds = %.lr.ph.i86.i.prehea
   br i1 %.not61.i.i.i.i, label %415, label %read_metadata_block_data_cuesheet_track_cb_.exit.thread.i.i.i
 
 read_metadata_block_data_cuesheet_track_cb_.exit.thread.i.i.i: ; preds = %410, %393, %391, %unpack_uint32_.exit.i.i.i.i, %unpack_uint64_.exit.i.i.i.i, %374, %unpack_uint32_.exit92.i.i.i.i, %unpack_uint64_.exit84.i.i.i.i, %.lr.ph.i49.i.i.i
-  %.054.i.ph.i.i.i = phi i32 [ 6, %.lr.ph.i49.i.i.i ], [ 6, %unpack_uint64_.exit84.i.i.i.i ], [ 6, %unpack_uint32_.exit92.i.i.i.i ], [ 11, %410 ], [ 6, %393 ], [ 6, %391 ], [ 6, %unpack_uint32_.exit.i.i.i.i ], [ 6, %unpack_uint64_.exit.i.i.i.i ], [ 6, %374 ]
+  %.054.i.ph.i.i.i = phi i32 [ 6, %unpack_uint32_.exit92.i.i.i.i ], [ 6, %.lr.ph.i49.i.i.i ], [ 6, %unpack_uint64_.exit84.i.i.i.i ], [ 11, %410 ], [ 6, %391 ], [ 6, %unpack_uint32_.exit.i.i.i.i ], [ 6, %unpack_uint64_.exit.i.i.i.i ], [ 6, %374 ], [ 6, %393 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %read_metadata_block_data_cuesheet_cb_.exit.i.i
 
@@ -1629,7 +1629,7 @@ read_metadata_block_data_cuesheet_track_cb_.exit.thread.i.i.i: ; preds = %410, %
   br i1 %438, label %374, label %read_metadata_block_data_cuesheet_cb_.exit.i.i, !llvm.loop !82
 
 read_metadata_block_data_cuesheet_cb_.exit.i.i:   ; preds = %.loopexit.i61.i.i, %read_metadata_block_data_cuesheet_track_cb_.exit.thread.i.i.i, %335, %unpack_uint32_.exit.i58.i.i, %unpack_uint32_.exit.thread.i.i.i, %317, %unpack_uint64_.exit.i56.i.i, %298, %292
-  %.0.i49.i.i = phi i32 [ 6, %292 ], [ 6, %298 ], [ 6, %unpack_uint64_.exit.i56.i.i ], [ 6, %317 ], [ 5, %unpack_uint32_.exit.i58.i.i ], [ 11, %335 ], [ 5, %unpack_uint32_.exit.thread.i.i.i ], [ %.054.i.ph.i.i.i, %read_metadata_block_data_cuesheet_track_cb_.exit.thread.i.i.i ], [ 0, %.loopexit.i61.i.i ]
+  %.0.i49.i.i = phi i32 [ %.054.i.ph.i.i.i, %read_metadata_block_data_cuesheet_track_cb_.exit.thread.i.i.i ], [ 6, %292 ], [ 6, %298 ], [ 6, %unpack_uint64_.exit.i56.i.i ], [ 6, %317 ], [ 5, %unpack_uint32_.exit.i58.i.i ], [ 11, %335 ], [ 5, %unpack_uint32_.exit.thread.i.i.i ], [ 0, %.loopexit.i61.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %read_metadata_block_data_.exit
 
@@ -2007,7 +2007,7 @@ read_metadata_block_data_picture_cstring_cb_.exit.i: ; preds = %._crit_edge28.i.
   br label %read_metadata_block_data_picture_cb_.exit.i.i
 
 read_metadata_block_data_picture_cb_.exit.i.i:    ; preds = %read_metadata_block_data_picture_cstring_cb_.exit.i, %unpack_uint32_.exit83.i.i.i, %unpack_uint32_.exit74.i.i.i, %unpack_uint32_.exit65.i.i.i, %505, %read_metadata_block_data_picture_cstring_cb_.exit56.thread.i.i.i, %read_metadata_block_data_picture_cstring_cb_.exit.thread.i.i.i, %439
-  %.0.i64.i.i = phi i32 [ 6, %439 ], [ 6, %505 ], [ 6, %unpack_uint32_.exit65.i.i.i ], [ 6, %unpack_uint32_.exit74.i.i.i ], [ 6, %unpack_uint32_.exit83.i.i.i ], [ %.0.i4.i, %read_metadata_block_data_picture_cstring_cb_.exit.i ], [ %.0.i.ph.i.i.i, %read_metadata_block_data_picture_cstring_cb_.exit.thread.i.i.i ], [ %.0.i40.ph.i.i.i, %read_metadata_block_data_picture_cstring_cb_.exit56.thread.i.i.i ]
+  %.0.i64.i.i = phi i32 [ 6, %unpack_uint32_.exit83.i.i.i ], [ 6, %439 ], [ %.0.i.ph.i.i.i, %read_metadata_block_data_picture_cstring_cb_.exit.thread.i.i.i ], [ %.0.i40.ph.i.i.i, %read_metadata_block_data_picture_cstring_cb_.exit56.thread.i.i.i ], [ 6, %505 ], [ 6, %unpack_uint32_.exit65.i.i.i ], [ 6, %unpack_uint32_.exit74.i.i.i ], [ %.0.i4.i, %read_metadata_block_data_picture_cstring_cb_.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %read_metadata_block_data_.exit
 
@@ -2032,8 +2032,8 @@ read_metadata_block_data_picture_cb_.exit.i.i:    ; preds = %read_metadata_block
   %.not.i81.i.i = icmp eq i64 %599, %595
   br i1 %.not.i81.i.i, label %read_metadata_block_data_.exit.thread23, label %read_metadata_block_data_.exit.thread
 
-read_metadata_block_data_.exit.thread:            ; preds = %102, %113, %119, %594, %598
-  %.0.i.i.ph = phi i32 [ 6, %598 ], [ 11, %594 ], [ 6, %119 ], [ 11, %113 ], [ 6, %102 ]
+read_metadata_block_data_.exit.thread:            ; preds = %119, %113, %102, %594, %598
+  %.0.i.i.ph = phi i32 [ 6, %598 ], [ 11, %594 ], [ 6, %102 ], [ 11, %113 ], [ 6, %119 ]
   %600 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i32 %.0.i.i.ph, ptr %600, align 8, !tbaa !30
   br label %603
@@ -2048,7 +2048,7 @@ read_metadata_block_data_.exit.thread146:         ; preds = %98
   br label %604
 
 read_metadata_block_data_.exit:                   ; preds = %read_metadata_block_data_streaminfo_cb_.exit.i.i, %read_metadata_block_data_seektable_cb_.exit.i.i, %read_metadata_block_data_vorbis_comment_cb_.exit.i.i, %read_metadata_block_data_cuesheet_cb_.exit.i.i, %read_metadata_block_data_picture_cb_.exit.i.i
-  %.0.i.i = phi i32 [ %.0.i.i.i, %read_metadata_block_data_streaminfo_cb_.exit.i.i ], [ %.018.i.i.i, %read_metadata_block_data_seektable_cb_.exit.i.i ], [ %.0.i42.i.i, %read_metadata_block_data_vorbis_comment_cb_.exit.i.i ], [ %.0.i49.i.i, %read_metadata_block_data_cuesheet_cb_.exit.i.i ], [ %.0.i64.i.i, %read_metadata_block_data_picture_cb_.exit.i.i ]
+  %.0.i.i = phi i32 [ %.0.i49.i.i, %read_metadata_block_data_cuesheet_cb_.exit.i.i ], [ %.0.i.i.i, %read_metadata_block_data_streaminfo_cb_.exit.i.i ], [ %.0.i42.i.i, %read_metadata_block_data_vorbis_comment_cb_.exit.i.i ], [ %.0.i64.i.i, %read_metadata_block_data_picture_cb_.exit.i.i ], [ %.018.i.i.i, %read_metadata_block_data_seektable_cb_.exit.i.i ]
   %602 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i32 %.0.i.i, ptr %602, align 8, !tbaa !30
   %.not26 = icmp eq i32 %.0.i.i, 0
@@ -2164,7 +2164,7 @@ read_metadata_block_header_cb_.exit.i:            ; preds = %.lr.ph.i.i.i
   br label %read_metadata_block_header_.exit
 
 read_metadata_block_header_.exit:                 ; preds = %36, %read_metadata_block_header_cb_.exit.i, %1, %11
-  %.0 = phi i32 [ 0, %11 ], [ 0, %1 ], [ 0, %36 ], [ 1, %read_metadata_block_header_cb_.exit.i ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %11 ], [ 0, %36 ], [ 1, %read_metadata_block_header_cb_.exit.i ]
   ret i32 %.0
 }
 
@@ -2356,13 +2356,13 @@ read_metadata_block_header_.exit:                 ; preds = %read_metadata_block
   %.not24 = icmp eq i32 %80, 0
   br i1 %.not24, label %82, label %.sink.split
 
-.sink.split.sink.split:                           ; preds = %.preheader.i.i, %35, %50, %27, %49, %30, %42, %46, %22
-  %.sink.ph = phi i32 [ 6, %22 ], [ 6, %46 ], [ 7, %42 ], [ 7, %30 ], [ 3, %49 ], [ 3, %27 ], [ 3, %50 ], [ 6, %35 ], [ 6, %.preheader.i.i ]
+.sink.split.sink.split:                           ; preds = %.preheader.i.i, %35, %27, %50, %49, %30, %42, %46, %22
+  %.sink.ph = phi i32 [ 7, %30 ], [ 6, %46 ], [ 3, %50 ], [ 3, %27 ], [ 6, %22 ], [ 7, %42 ], [ 3, %49 ], [ 6, %35 ], [ 6, %.preheader.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %read_metadata_block_header_.exit, %11, %16
-  %.sink = phi i32 [ 2, %16 ], [ 2, %11 ], [ 5, %read_metadata_block_header_.exit ], [ %.sink.ph, %.sink.split.sink.split ]
+  %.sink = phi i32 [ 2, %11 ], [ 2, %16 ], [ 5, %read_metadata_block_header_.exit ], [ %.sink.ph, %.sink.split.sink.split ]
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i32 %.sink, ptr %81, align 8, !tbaa !30
   br label %82
@@ -2596,7 +2596,7 @@ read_metadata_block_header_.exit34:               ; preds = %.lr.ph.i.i.i28
   br label %83
 
 83:                                               ; preds = %read_metadata_block_header_.exit34.thread, %read_metadata_block_header_.exit.thread, %1, %._crit_edge, %53, %16
-  %.020 = phi i32 [ 0, %16 ], [ 0, %53 ], [ 1, %._crit_edge ], [ 0, %1 ], [ 0, %read_metadata_block_header_.exit.thread ], [ 0, %read_metadata_block_header_.exit34.thread ]
+  %.020 = phi i32 [ 0, %1 ], [ 0, %16 ], [ 0, %53 ], [ 0, %read_metadata_block_header_.exit.thread ], [ 1, %._crit_edge ], [ 0, %read_metadata_block_header_.exit34.thread ]
   ret i32 %.020
 }
 
@@ -2650,7 +2650,7 @@ fread.inline.exit:                                ; preds = %2
   br i1 %.not11, label %16, label %.sink.split
 
 .sink.split:                                      ; preds = %10, %fread.inline.exit, %2
-  %.sink = phi i32 [ 1, %2 ], [ 6, %fread.inline.exit ], [ 7, %10 ]
+  %.sink = phi i32 [ 6, %fread.inline.exit ], [ 1, %2 ], [ 7, %10 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i32 %.sink, ptr %15, align 8, !tbaa !30
   br label %16
@@ -3152,7 +3152,7 @@ write_metadata_block_header_.exit47:              ; preds = %write_metadata_bloc
   br label %66
 
 66:                                               ; preds = %write_metadata_block_header_.exit47, %write_metadata_block_header_.exit.thread, %35, %write_metadata_block_header_.exit, %64, %63, %53, %15
-  %.0 = phi i32 [ 0, %15 ], [ 0, %63 ], [ %65, %64 ], [ 0, %53 ], [ 0, %write_metadata_block_header_.exit ], [ 11, %35 ], [ 0, %write_metadata_block_header_.exit.thread ], [ 0, %write_metadata_block_header_.exit47 ]
+  %.0 = phi i32 [ 0, %15 ], [ 0, %write_metadata_block_header_.exit ], [ 0, %63 ], [ %65, %64 ], [ 11, %35 ], [ 0, %53 ], [ 0, %write_metadata_block_header_.exit.thread ], [ 0, %write_metadata_block_header_.exit47 ]
   ret i32 %.0
 }
 
@@ -3833,7 +3833,7 @@ FLAC__metadata_simple_iterator_next.exit.i:       ; preds = %.lr.ph.i.i.i.i.i
   br i1 %318, label %284, label %simple_iterator_copy_file_postfix_.exit.thread92, !llvm.loop !99
 
 .critedge.i:                                      ; preds = %254, %251, %244, %242, %235, %233
-  %.sink.i = phi i32 [ 8, %254 ], [ 7, %251 ], [ 7, %233 ], [ 7, %235 ], [ 6, %242 ], [ 6, %244 ]
+  %.sink.i = phi i32 [ 8, %254 ], [ 7, %251 ], [ 7, %235 ], [ 7, %233 ], [ 6, %242 ], [ 6, %244 ]
   store i32 %.sink.i, ptr %131, align 8, !tbaa !30
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %simple_iterator_pop_.exit
@@ -3918,8 +3918,8 @@ read_metadata_block_header_cb_.exit.i.i69:        ; preds = %.lr.ph.i.i.i.i64
   store i32 6, ptr %131, align 8, !tbaa !30
   br label %simple_iterator_pop_.exit
 
-simple_iterator_pop_.exit:                        ; preds = %284, %simple_iterator_copy_file_postfix_.exit, %310, %290, %226, %224, %267, %256, %.critedge.i, %cleanup_tempfile_.exit.i, %158, %156, %139, %137, %124, %94, %75, %351, %read_metadata_block_header_cb_.exit.i.i69, %329, %322, %190, %188, %182, %180, %63, %read_metadata_block_header_cb_.exit.i.i, %44, %simple_iterator_copy_file_postfix_.exit.thread92
-  %.025 = phi i32 [ %.mux, %simple_iterator_copy_file_postfix_.exit ], [ 1, %simple_iterator_copy_file_postfix_.exit.thread92 ], [ 0, %44 ], [ 0, %read_metadata_block_header_cb_.exit.i.i ], [ 0, %63 ], [ 0, %180 ], [ 0, %182 ], [ 0, %188 ], [ 0, %190 ], [ 0, %329 ], [ 0, %322 ], [ 0, %351 ], [ 1, %read_metadata_block_header_cb_.exit.i.i69 ], [ 0, %75 ], [ 0, %94 ], [ 0, %124 ], [ 0, %137 ], [ 0, %139 ], [ 0, %156 ], [ 0, %158 ], [ 0, %cleanup_tempfile_.exit.i ], [ 0, %.critedge.i ], [ 0, %256 ], [ 0, %267 ], [ 0, %224 ], [ 0, %226 ], [ 0, %290 ], [ 0, %310 ], [ 0, %284 ]
+simple_iterator_pop_.exit:                        ; preds = %284, %simple_iterator_copy_file_postfix_.exit, %310, %224, %.critedge.i, %290, %256, %226, %267, %cleanup_tempfile_.exit.i, %158, %156, %137, %139, %124, %94, %75, %351, %read_metadata_block_header_cb_.exit.i.i69, %329, %322, %190, %188, %182, %180, %63, %read_metadata_block_header_cb_.exit.i.i, %44, %simple_iterator_copy_file_postfix_.exit.thread92
+  %.025 = phi i32 [ 0, %158 ], [ %.mux, %simple_iterator_copy_file_postfix_.exit ], [ 0, %94 ], [ 0, %182 ], [ 0, %63 ], [ 1, %read_metadata_block_header_cb_.exit.i.i69 ], [ 1, %simple_iterator_copy_file_postfix_.exit.thread92 ], [ 0, %44 ], [ 0, %read_metadata_block_header_cb_.exit.i.i ], [ 0, %180 ], [ 0, %188 ], [ 0, %190 ], [ 0, %322 ], [ 0, %329 ], [ 0, %351 ], [ 0, %75 ], [ 0, %124 ], [ 0, %139 ], [ 0, %137 ], [ 0, %156 ], [ 0, %cleanup_tempfile_.exit.i ], [ 0, %267 ], [ 0, %226 ], [ 0, %256 ], [ 0, %290 ], [ 0, %.critedge.i ], [ 0, %224 ], [ 0, %310 ], [ 0, %284 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.025
@@ -4325,8 +4325,8 @@ read_metadata_block_header_cb_.exit.i.i62:        ; preds = %.lr.ph.i.i.i.i57
   %161 = call fastcc i32 @rewrite_whole_file_(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 1)
   br label %simple_iterator_pop_.exit
 
-simple_iterator_pop_.exit:                        ; preds = %152, %125, %130, %122, %105, %85, %read_metadata_block_header_cb_.exit.i.i62, %67, %.thread, %158, %156, %15, %10
-  %.041 = phi i32 [ 0, %15 ], [ %157, %156 ], [ %160, %158 ], [ %161, %.thread ], [ 0, %10 ], [ 0, %67 ], [ 0, %read_metadata_block_header_cb_.exit.i.i62 ], [ 0, %85 ], [ 0, %105 ], [ 0, %122 ], [ 0, %130 ], [ 0, %125 ], [ 0, %152 ]
+simple_iterator_pop_.exit:                        ; preds = %152, %130, %125, %122, %105, %85, %read_metadata_block_header_cb_.exit.i.i62, %67, %.thread, %158, %156, %15, %10
+  %.041 = phi i32 [ 0, %15 ], [ %157, %156 ], [ %160, %158 ], [ 0, %85 ], [ %161, %.thread ], [ 0, %10 ], [ 0, %122 ], [ 0, %67 ], [ 0, %read_metadata_block_header_cb_.exit.i.i62 ], [ 0, %105 ], [ 0, %125 ], [ 0, %130 ], [ 0, %152 ]
   ret i32 %.041
 }
 
@@ -4415,7 +4415,7 @@ FLAC__metadata_simple_iterator_set_block.exit.thread: ; preds = %FLAC__metadata_
   br label %37
 
 37:                                               ; preds = %17, %FLAC__metadata_simple_iterator_set_block.exit.thread, %33, %35, %11, %5
-  %.0 = phi i32 [ 0, %11 ], [ %36, %35 ], [ 0, %5 ], [ 0, %17 ], [ 0, %FLAC__metadata_simple_iterator_set_block.exit.thread ], [ %34, %33 ]
+  %.0 = phi i32 [ 0, %11 ], [ 0, %5 ], [ %36, %35 ], [ 0, %17 ], [ 0, %FLAC__metadata_simple_iterator_set_block.exit.thread ], [ %34, %33 ]
   ret i32 %.0
 }
 
@@ -5233,7 +5233,7 @@ read_metadata_block_data_vorbis_comment_entry_cb_.exit50.thread: ; preds = %338,
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %read_metadata_block_data_vorbis_comment_cb_.exit.i.i
 
-read_metadata_block_data_vorbis_comment_entry_cb_.exit50.thread54: ; preds = %349, %335
+read_metadata_block_data_vorbis_comment_entry_cb_.exit50.thread54: ; preds = %335, %349
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %366 = icmp ugt i32 %193, 3
   %367 = add i32 %193, -4
@@ -5427,8 +5427,8 @@ read_metadata_block_data_vorbis_comment_entry_cb_.exit.thread: ; preds = %404, %
   br i1 %447, label %.lr.ph.i45.i.i, label %.loopexit.i.i.i, !llvm.loop !67
 
 .loopexit.i.i.i:                                  ; preds = %435, %read_metadata_block_data_vorbis_comment_entry_cb_.exit50.thread54, %.loopexit, %394, %.thread.i.i.i, %368
-  %.155.i.i.i = phi i32 [ %375, %368 ], [ %spec.select70.i.i.i62, %.loopexit ], [ %378, %394 ], [ %378, %.thread.i.i.i ], [ %spec.select.i.i.i56, %read_metadata_block_data_vorbis_comment_entry_cb_.exit50.thread54 ], [ %444, %435 ]
-  %.052.i.i.i = phi i32 [ 0, %368 ], [ 5, %.loopexit ], [ 5, %394 ], [ 0, %.thread.i.i.i ], [ 5, %read_metadata_block_data_vorbis_comment_entry_cb_.exit50.thread54 ], [ 0, %435 ]
+  %.155.i.i.i = phi i32 [ %spec.select.i.i.i56, %read_metadata_block_data_vorbis_comment_entry_cb_.exit50.thread54 ], [ %375, %368 ], [ %spec.select70.i.i.i62, %.loopexit ], [ %378, %394 ], [ %378, %.thread.i.i.i ], [ %444, %435 ]
+  %.052.i.i.i = phi i32 [ 5, %read_metadata_block_data_vorbis_comment_entry_cb_.exit50.thread54 ], [ 0, %368 ], [ 5, %.loopexit ], [ 5, %394 ], [ 0, %.thread.i.i.i ], [ 0, %435 ]
   %.not68.i.i.i = icmp eq i32 %.155.i.i.i, 0
   br i1 %.not68.i.i.i, label %451, label %448
 
@@ -5442,7 +5442,7 @@ read_metadata_block_data_vorbis_comment_entry_cb_.exit.thread: ; preds = %404, %
   br label %read_metadata_block_data_vorbis_comment_cb_.exit.i.i
 
 read_metadata_block_data_vorbis_comment_cb_.exit.i.i: ; preds = %read_metadata_block_data_vorbis_comment_entry_cb_.exit.thread, %read_metadata_block_data_vorbis_comment_entry_cb_.exit50.thread, %451, %448, %400, %377
-  %.0.i42.i.i = phi i32 [ %.052.i.i.i, %451 ], [ 11, %400 ], [ 6, %377 ], [ 7, %448 ], [ %.0.i33.ph, %read_metadata_block_data_vorbis_comment_entry_cb_.exit50.thread ], [ %.0.i26.ph, %read_metadata_block_data_vorbis_comment_entry_cb_.exit.thread ]
+  %.0.i42.i.i = phi i32 [ 7, %448 ], [ %.052.i.i.i, %451 ], [ 11, %400 ], [ %.0.i33.ph, %read_metadata_block_data_vorbis_comment_entry_cb_.exit50.thread ], [ 6, %377 ], [ %.0.i26.ph, %read_metadata_block_data_vorbis_comment_entry_cb_.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %read_metadata_block_data_cb_.exit.i
 
@@ -5679,7 +5679,7 @@ unpack_uint32_.exit92.i.i.i.i:                    ; preds = %.lr.ph.i86.i.prehea
   br i1 %.not61.i.i.i.i, label %526, label %read_metadata_block_data_cuesheet_track_cb_.exit.thread.i.i.i
 
 read_metadata_block_data_cuesheet_track_cb_.exit.thread.i.i.i: ; preds = %521, %504, %502, %unpack_uint32_.exit.i.i.i.i, %unpack_uint64_.exit.i.i.i.i, %.lr.ph.i59.i.i, %unpack_uint32_.exit92.i.i.i.i, %unpack_uint64_.exit84.i.i.i.i, %.lr.ph.i49.i.i.i
-  %.054.i.ph.i.i.i = phi i32 [ 6, %.lr.ph.i49.i.i.i ], [ 6, %unpack_uint64_.exit84.i.i.i.i ], [ 6, %unpack_uint32_.exit92.i.i.i.i ], [ 11, %521 ], [ 6, %504 ], [ 6, %502 ], [ 6, %unpack_uint32_.exit.i.i.i.i ], [ 6, %unpack_uint64_.exit.i.i.i.i ], [ 6, %.lr.ph.i59.i.i ]
+  %.054.i.ph.i.i.i = phi i32 [ 6, %unpack_uint32_.exit92.i.i.i.i ], [ 6, %.lr.ph.i49.i.i.i ], [ 6, %unpack_uint64_.exit84.i.i.i.i ], [ 11, %521 ], [ 6, %502 ], [ 6, %unpack_uint32_.exit.i.i.i.i ], [ 6, %unpack_uint64_.exit.i.i.i.i ], [ 6, %.lr.ph.i59.i.i ], [ 6, %504 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %read_metadata_block_data_cuesheet_cb_.exit.i.i
 
@@ -5692,7 +5692,7 @@ read_metadata_block_data_cuesheet_track_cb_.exit.thread.i.i.i: ; preds = %521, %
   br i1 %549, label %.lr.ph.i59.i.i, label %read_metadata_block_data_cuesheet_cb_.exit.i.i, !llvm.loop !82
 
 read_metadata_block_data_cuesheet_cb_.exit.i.i:   ; preds = %.loopexit.i61.i.i, %read_metadata_block_data_cuesheet_track_cb_.exit.thread.i.i.i, %481, %unpack_uint32_.exit.i58.i.i, %unpack_uint32_.exit.thread.i.i.i, %466, %unpack_uint64_.exit.i56.i.i, %455, %452
-  %.0.i49.i.i = phi i32 [ 6, %452 ], [ 6, %455 ], [ 6, %unpack_uint64_.exit.i56.i.i ], [ 6, %466 ], [ 5, %unpack_uint32_.exit.i58.i.i ], [ 11, %481 ], [ 5, %unpack_uint32_.exit.thread.i.i.i ], [ %.054.i.ph.i.i.i, %read_metadata_block_data_cuesheet_track_cb_.exit.thread.i.i.i ], [ 0, %.loopexit.i61.i.i ]
+  %.0.i49.i.i = phi i32 [ %.054.i.ph.i.i.i, %read_metadata_block_data_cuesheet_track_cb_.exit.thread.i.i.i ], [ 6, %452 ], [ 6, %455 ], [ 6, %unpack_uint64_.exit.i56.i.i ], [ 6, %466 ], [ 5, %unpack_uint32_.exit.i58.i.i ], [ 11, %481 ], [ 5, %unpack_uint32_.exit.thread.i.i.i ], [ 0, %.loopexit.i61.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %read_metadata_block_data_cb_.exit.i
 
@@ -6032,7 +6032,7 @@ read_metadata_block_data_picture_cstring_cb_.exit: ; preds = %unpack_uint32_.exi
   br label %read_metadata_block_data_picture_cb_.exit.i.i
 
 read_metadata_block_data_picture_cb_.exit.i.i:    ; preds = %read_metadata_block_data_picture_cstring_cb_.exit, %unpack_uint32_.exit83.i.i.i, %unpack_uint32_.exit74.i.i.i, %unpack_uint32_.exit65.i.i.i, %603, %read_metadata_block_data_picture_cstring_cb_.exit56.thread.i.i.i, %read_metadata_block_data_picture_cstring_cb_.exit.thread.i.i.i, %550
-  %.0.i64.i.i = phi i32 [ 6, %550 ], [ 6, %603 ], [ 6, %unpack_uint32_.exit65.i.i.i ], [ 6, %unpack_uint32_.exit74.i.i.i ], [ 6, %unpack_uint32_.exit83.i.i.i ], [ %.0.i19, %read_metadata_block_data_picture_cstring_cb_.exit ], [ %.0.i.ph.i.i.i, %read_metadata_block_data_picture_cstring_cb_.exit.thread.i.i.i ], [ %.0.i40.ph.i.i.i, %read_metadata_block_data_picture_cstring_cb_.exit56.thread.i.i.i ]
+  %.0.i64.i.i = phi i32 [ 6, %unpack_uint32_.exit83.i.i.i ], [ 6, %550 ], [ %.0.i.ph.i.i.i, %read_metadata_block_data_picture_cstring_cb_.exit.thread.i.i.i ], [ %.0.i40.ph.i.i.i, %read_metadata_block_data_picture_cstring_cb_.exit56.thread.i.i.i ], [ 6, %603 ], [ 6, %unpack_uint32_.exit65.i.i.i ], [ 6, %unpack_uint32_.exit74.i.i.i ], [ %.0.i19, %read_metadata_block_data_picture_cstring_cb_.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %read_metadata_block_data_cb_.exit.i
 
@@ -6058,7 +6058,7 @@ read_metadata_block_data_picture_cb_.exit.i.i:    ; preds = %read_metadata_block
   br i1 %.not.i81.i.i, label %read_metadata_block_data_cb_.exit.thread92.i, label %read_metadata_block_data_cb_.exit.thread.i
 
 read_metadata_block_data_cb_.exit.thread.i:       ; preds = %679, %675, %290, %284, %276, %273
-  %.0.i62.ph.i = phi i32 [ 6, %679 ], [ 11, %675 ], [ 6, %290 ], [ 11, %284 ], [ 6, %276 ], [ 7, %273 ]
+  %.0.i62.ph.i = phi i32 [ 6, %679 ], [ 11, %675 ], [ 6, %276 ], [ 11, %284 ], [ 7, %273 ], [ 6, %290 ]
   store i32 %.0.i62.ph.i, ptr %171, align 4, !tbaa !108
   br label %.loopexit.i
 
@@ -6067,7 +6067,7 @@ read_metadata_block_data_cb_.exit.thread92.i:     ; preds = %679, %674, %290, %2
   br label %683
 
 read_metadata_block_data_cb_.exit.i:              ; preds = %read_metadata_block_data_picture_cb_.exit.i.i, %read_metadata_block_data_cuesheet_cb_.exit.i.i, %read_metadata_block_data_vorbis_comment_cb_.exit.i.i, %read_metadata_block_data_seektable_cb_.exit.i.i, %read_metadata_block_data_streaminfo_cb_.exit.i.i
-  %.0.i62.i = phi i32 [ %.0.i.i.i, %read_metadata_block_data_streaminfo_cb_.exit.i.i ], [ %.018.i.i.i, %read_metadata_block_data_seektable_cb_.exit.i.i ], [ %.0.i42.i.i, %read_metadata_block_data_vorbis_comment_cb_.exit.i.i ], [ %.0.i49.i.i, %read_metadata_block_data_cuesheet_cb_.exit.i.i ], [ %.0.i64.i.i, %read_metadata_block_data_picture_cb_.exit.i.i ]
+  %.0.i62.i = phi i32 [ %.0.i42.i.i, %read_metadata_block_data_vorbis_comment_cb_.exit.i.i ], [ %.0.i.i.i, %read_metadata_block_data_streaminfo_cb_.exit.i.i ], [ %.0.i49.i.i, %read_metadata_block_data_cuesheet_cb_.exit.i.i ], [ %.0.i64.i.i, %read_metadata_block_data_picture_cb_.exit.i.i ], [ %.018.i.i.i, %read_metadata_block_data_seektable_cb_.exit.i.i ]
   store i32 %.0.i62.i, ptr %171, align 4, !tbaa !108
   %.not55.i = icmp eq i32 %.0.i62.i, 0
   br i1 %.not55.i, label %683, label %.loopexit.i
@@ -6165,7 +6165,7 @@ chain_calculate_length_.exit.i:                   ; preds = %.lr.ph.i.i
   br label %chain_read_cb_.exit
 
 chain_read_cb_.exit:                              ; preds = %chain_calculate_length_.exit.i, %708, %702, %node_delete_.exit65.i, %node_delete_.exit61.i, %node_delete_.exit.i17, %184, %77, %72, %70, %.loopexit97.i, %38
-  %715 = phi i32 [ %39, %38 ], [ 0, %708 ], [ 1, %chain_calculate_length_.exit.i ], [ 0, %702 ], [ 0, %77 ], [ 0, %.loopexit97.i ], [ 0, %70 ], [ 0, %72 ], [ 0, %node_delete_.exit.i17 ], [ 0, %node_delete_.exit65.i ], [ 0, %node_delete_.exit61.i ], [ 0, %184 ]
+  %715 = phi i32 [ %39, %38 ], [ 0, %72 ], [ 0, %708 ], [ 1, %chain_calculate_length_.exit.i ], [ 0, %702 ], [ 0, %70 ], [ 0, %77 ], [ 0, %.loopexit97.i ], [ 0, %node_delete_.exit.i17 ], [ 0, %node_delete_.exit65.i ], [ 0, %node_delete_.exit61.i ], [ 0, %184 ]
   %716 = call i32 @fclose(ptr noundef nonnull %33)
   br label %717
 
@@ -6977,7 +6977,7 @@ unpack_uint32_little_endian_.exit.i.i.i:          ; preds = %.lr.ph.i.i43.i.i
   br label %read_metadata_block_data_vorbis_comment_cb_.exit.i.i
 
 read_metadata_block_data_vorbis_comment_cb_.exit.i.i: ; preds = %.lr.ph.i45.i.i, %382, %379, %363, %340, %331
-  %.0.i42.i.i = phi i32 [ %.052.i.i.i, %382 ], [ 11, %363 ], [ %333, %331 ], [ 6, %340 ], [ 7, %379 ], [ %366, %.lr.ph.i45.i.i ]
+  %.0.i42.i.i = phi i32 [ 7, %379 ], [ %.052.i.i.i, %382 ], [ 11, %363 ], [ %333, %331 ], [ 6, %340 ], [ %366, %.lr.ph.i45.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %read_metadata_block_data_cb_.exit.i
 
@@ -7214,7 +7214,7 @@ unpack_uint32_.exit92.i.i.i.i:                    ; preds = %.lr.ph.i86.i.prehea
   br i1 %.not61.i.i.i.i, label %457, label %read_metadata_block_data_cuesheet_track_cb_.exit.thread.i.i.i
 
 read_metadata_block_data_cuesheet_track_cb_.exit.thread.i.i.i: ; preds = %452, %435, %433, %unpack_uint32_.exit.i.i.i.i, %unpack_uint64_.exit.i.i.i.i, %.lr.ph.i59.i.i, %unpack_uint32_.exit92.i.i.i.i, %unpack_uint64_.exit84.i.i.i.i, %.lr.ph.i49.i.i.i
-  %.054.i.ph.i.i.i = phi i32 [ 6, %.lr.ph.i49.i.i.i ], [ 6, %unpack_uint64_.exit84.i.i.i.i ], [ 6, %unpack_uint32_.exit92.i.i.i.i ], [ 11, %452 ], [ 6, %435 ], [ 6, %433 ], [ 6, %unpack_uint32_.exit.i.i.i.i ], [ 6, %unpack_uint64_.exit.i.i.i.i ], [ 6, %.lr.ph.i59.i.i ]
+  %.054.i.ph.i.i.i = phi i32 [ 6, %unpack_uint32_.exit92.i.i.i.i ], [ 6, %.lr.ph.i49.i.i.i ], [ 6, %unpack_uint64_.exit84.i.i.i.i ], [ 11, %452 ], [ 6, %433 ], [ 6, %unpack_uint32_.exit.i.i.i.i ], [ 6, %unpack_uint64_.exit.i.i.i.i ], [ 6, %.lr.ph.i59.i.i ], [ 6, %435 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %read_metadata_block_data_cuesheet_cb_.exit.i.i
 
@@ -7227,7 +7227,7 @@ read_metadata_block_data_cuesheet_track_cb_.exit.thread.i.i.i: ; preds = %452, %
   br i1 %480, label %.lr.ph.i59.i.i, label %read_metadata_block_data_cuesheet_cb_.exit.i.i, !llvm.loop !82
 
 read_metadata_block_data_cuesheet_cb_.exit.i.i:   ; preds = %.loopexit.i61.i.i, %read_metadata_block_data_cuesheet_track_cb_.exit.thread.i.i.i, %412, %unpack_uint32_.exit.i58.i.i, %unpack_uint32_.exit.thread.i.i.i, %397, %unpack_uint64_.exit.i56.i.i, %386, %383
-  %.0.i49.i.i = phi i32 [ 6, %383 ], [ 6, %386 ], [ 6, %unpack_uint64_.exit.i56.i.i ], [ 6, %397 ], [ 5, %unpack_uint32_.exit.i58.i.i ], [ 11, %412 ], [ 5, %unpack_uint32_.exit.thread.i.i.i ], [ %.054.i.ph.i.i.i, %read_metadata_block_data_cuesheet_track_cb_.exit.thread.i.i.i ], [ 0, %.loopexit.i61.i.i ]
+  %.0.i49.i.i = phi i32 [ %.054.i.ph.i.i.i, %read_metadata_block_data_cuesheet_track_cb_.exit.thread.i.i.i ], [ 6, %383 ], [ 6, %386 ], [ 6, %unpack_uint64_.exit.i56.i.i ], [ 6, %397 ], [ 5, %unpack_uint32_.exit.i58.i.i ], [ 11, %412 ], [ 5, %unpack_uint32_.exit.thread.i.i.i ], [ 0, %.loopexit.i61.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %read_metadata_block_data_cb_.exit.i
 
@@ -7493,7 +7493,7 @@ unpack_uint32_.exit92.i.i.i:                      ; preds = %.lr.ph.i85.i.i.i, %
   br label %read_metadata_block_data_picture_cb_.exit.i.i
 
 read_metadata_block_data_picture_cb_.exit.i.i:    ; preds = %unpack_uint32_.exit92.i.i.i, %unpack_uint32_.exit83.i.i.i, %unpack_uint32_.exit74.i.i.i, %unpack_uint32_.exit65.i.i.i, %534, %read_metadata_block_data_picture_cstring_cb_.exit56.thread.i.i.i, %read_metadata_block_data_picture_cstring_cb_.exit.thread.i.i.i, %481
-  %.0.i64.i.i = phi i32 [ 6, %481 ], [ 6, %534 ], [ 6, %unpack_uint32_.exit65.i.i.i ], [ 6, %unpack_uint32_.exit74.i.i.i ], [ 6, %unpack_uint32_.exit83.i.i.i ], [ %575, %unpack_uint32_.exit92.i.i.i ], [ %.0.i.ph.i.i.i, %read_metadata_block_data_picture_cstring_cb_.exit.thread.i.i.i ], [ %.0.i40.ph.i.i.i, %read_metadata_block_data_picture_cstring_cb_.exit56.thread.i.i.i ]
+  %.0.i64.i.i = phi i32 [ 6, %unpack_uint32_.exit83.i.i.i ], [ 6, %481 ], [ %.0.i.ph.i.i.i, %read_metadata_block_data_picture_cstring_cb_.exit.thread.i.i.i ], [ %.0.i40.ph.i.i.i, %read_metadata_block_data_picture_cstring_cb_.exit56.thread.i.i.i ], [ 6, %534 ], [ 6, %unpack_uint32_.exit65.i.i.i ], [ 6, %unpack_uint32_.exit74.i.i.i ], [ %575, %unpack_uint32_.exit92.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %read_metadata_block_data_cb_.exit.i
 
@@ -7519,7 +7519,7 @@ read_metadata_block_data_picture_cb_.exit.i.i:    ; preds = %unpack_uint32_.exit
   br i1 %.not.i81.i.i, label %read_metadata_block_data_cb_.exit.thread92.i, label %read_metadata_block_data_cb_.exit.thread.i
 
 read_metadata_block_data_cb_.exit.thread.i:       ; preds = %584, %580, %286, %280, %272, %269
-  %.0.i62.ph.i = phi i32 [ 6, %584 ], [ 11, %580 ], [ 6, %286 ], [ 11, %280 ], [ 6, %272 ], [ 7, %269 ]
+  %.0.i62.ph.i = phi i32 [ 6, %584 ], [ 11, %580 ], [ 6, %272 ], [ 11, %280 ], [ 7, %269 ], [ 6, %286 ]
   store i32 %.0.i62.ph.i, ptr %174, align 4, !tbaa !108
   br label %.loopexit.i
 
@@ -7528,7 +7528,7 @@ read_metadata_block_data_cb_.exit.thread92.i:     ; preds = %584, %579, %286, %2
   br label %588
 
 read_metadata_block_data_cb_.exit.i:              ; preds = %read_metadata_block_data_picture_cb_.exit.i.i, %read_metadata_block_data_cuesheet_cb_.exit.i.i, %read_metadata_block_data_vorbis_comment_cb_.exit.i.i, %read_metadata_block_data_seektable_cb_.exit.i.i, %read_metadata_block_data_streaminfo_cb_.exit.i.i
-  %.0.i62.i = phi i32 [ %.0.i.i.i, %read_metadata_block_data_streaminfo_cb_.exit.i.i ], [ %.018.i.i.i, %read_metadata_block_data_seektable_cb_.exit.i.i ], [ %.0.i42.i.i, %read_metadata_block_data_vorbis_comment_cb_.exit.i.i ], [ %.0.i49.i.i, %read_metadata_block_data_cuesheet_cb_.exit.i.i ], [ %.0.i64.i.i, %read_metadata_block_data_picture_cb_.exit.i.i ]
+  %.0.i62.i = phi i32 [ %.0.i42.i.i, %read_metadata_block_data_vorbis_comment_cb_.exit.i.i ], [ %.0.i.i.i, %read_metadata_block_data_streaminfo_cb_.exit.i.i ], [ %.0.i49.i.i, %read_metadata_block_data_cuesheet_cb_.exit.i.i ], [ %.0.i64.i.i, %read_metadata_block_data_picture_cb_.exit.i.i ], [ %.018.i.i.i, %read_metadata_block_data_seektable_cb_.exit.i.i ]
   store i32 %.0.i62.i, ptr %174, align 4, !tbaa !108
   %.not55.i = icmp eq i32 %.0.i62.i, 0
   br i1 %.not55.i, label %588, label %.loopexit.i
@@ -7626,7 +7626,7 @@ chain_calculate_length_.exit.i:                   ; preds = %.lr.ph.i.i
   br label %chain_read_cb_.exit
 
 chain_read_cb_.exit:                              ; preds = %chain_calculate_length_.exit.i, %613, %607, %node_delete_.exit65.i, %node_delete_.exit61.i, %node_delete_.exit.i19, %180, %80, %75, %73, %.loopexit97.i, %41, %38, %34
-  %.0 = phi i32 [ 0, %34 ], [ 0, %38 ], [ %42, %41 ], [ 0, %613 ], [ 1, %chain_calculate_length_.exit.i ], [ 0, %607 ], [ 0, %80 ], [ 0, %.loopexit97.i ], [ 0, %73 ], [ 0, %75 ], [ 0, %node_delete_.exit.i19 ], [ 0, %node_delete_.exit65.i ], [ 0, %node_delete_.exit61.i ], [ 0, %180 ]
+  %.0 = phi i32 [ 0, %34 ], [ 0, %38 ], [ %42, %41 ], [ 0, %75 ], [ 0, %613 ], [ 1, %chain_calculate_length_.exit.i ], [ 0, %607 ], [ 0, %73 ], [ 0, %80 ], [ 0, %.loopexit97.i ], [ 0, %node_delete_.exit.i19 ], [ 0, %node_delete_.exit65.i ], [ 0, %node_delete_.exit61.i ], [ 0, %180 ]
   ret i32 %.0
 }
 
@@ -7723,9 +7723,9 @@ chain_calculate_length_.exit:                     ; preds = %.lr.ph.i, %2
   br label %47
 
 47:                                               ; preds = %19, %30, %27, %37, %44, %43, %32, %chain_calculate_length_.exit
-  %48 = phi i1 [ false, %chain_calculate_length_.exit ], [ false, %19 ], [ true, %27 ], [ false, %30 ], [ false, %44 ], [ false, %43 ], [ false, %32 ], [ false, %37 ]
-  %.059 = phi i32 [ 0, %chain_calculate_length_.exit ], [ 1, %19 ], [ 2, %27 ], [ 0, %30 ], [ 1, %44 ], [ 0, %43 ], [ 0, %32 ], [ 3, %37 ]
-  %.056 = phi i32 [ 0, %chain_calculate_length_.exit ], [ %24, %19 ], [ %29, %27 ], [ 0, %30 ], [ %46, %44 ], [ 0, %43 ], [ 0, %32 ], [ 0, %37 ]
+  %48 = phi i1 [ false, %chain_calculate_length_.exit ], [ false, %19 ], [ true, %27 ], [ false, %30 ], [ false, %32 ], [ false, %44 ], [ false, %43 ], [ false, %37 ]
+  %.059 = phi i32 [ 0, %chain_calculate_length_.exit ], [ 1, %19 ], [ 2, %27 ], [ 0, %30 ], [ 0, %32 ], [ 1, %44 ], [ 0, %43 ], [ 3, %37 ]
+  %.056 = phi i32 [ 0, %chain_calculate_length_.exit ], [ %24, %19 ], [ %29, %27 ], [ 0, %30 ], [ 0, %32 ], [ %46, %44 ], [ 0, %43 ], [ 0, %37 ]
   br i1 %.not8.i, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %47
@@ -7822,7 +7822,7 @@ chain_calculate_length_.exit:                     ; preds = %.lr.ph.i, %2
   br i1 %.not74, label %._crit_edge, label %.lr.ph.split, !llvm.loop !122
 
 ._crit_edge:                                      ; preds = %74, %66, %84, %47
-  %.052.lcssa = phi i64 [ 0, %47 ], [ %87, %84 ], [ %.153.ph.us, %66 ], [ %77, %74 ]
+  %.052.lcssa = phi i64 [ 0, %47 ], [ %.153.ph.us, %66 ], [ %87, %84 ], [ %77, %74 ]
   br i1 %48, label %88, label %94
 
 88:                                               ; preds = %._crit_edge
@@ -7835,8 +7835,8 @@ chain_calculate_length_.exit:                     ; preds = %.lr.ph.i, %2
   %93 = add nsw i64 %.052.lcssa, %92
   br label %94
 
-94:                                               ; preds = %88, %._crit_edge
-  %.254.ph = phi i64 [ %.052.lcssa, %._crit_edge ], [ %93, %88 ]
+94:                                               ; preds = %._crit_edge, %88
+  %.254.ph = phi i64 [ %93, %88 ], [ %.052.lcssa, %._crit_edge ]
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %96 = load i64, ptr %95, align 8, !tbaa !110
   %97 = icmp ne i64 %.254.ph, %96
@@ -8508,7 +8508,7 @@ pack_uint32_little_endian_.exit54.loopexit.i.i.i: ; preds = %.lr.ph.i49.i.i.i
   br i1 %.not40.i.i.i, label %315, label %write_metadata_block_data_vorbis_comment_cb_.exit.i.i
 
 write_metadata_block_data_vorbis_comment_cb_.exit.i.i: ; preds = %327, %pack_uint32_little_endian_.exit54.loopexit.i.i.i, %315, %303, %299, %pack_uint32_little_endian_.exit54.us.i.i.i, %.preheader.i.i.i, %pack_uint32_little_endian_.exit47.i.i.i, %280, %pack_uint32_little_endian_.exit.i.i.i
-  %.0.i46.i.i = phi i32 [ 0, %pack_uint32_little_endian_.exit.i.i.i ], [ 0, %280 ], [ 0, %pack_uint32_little_endian_.exit47.i.i.i ], [ 1, %.preheader.i.i.i ], [ 1, %299 ], [ 0, %303 ], [ 0, %pack_uint32_little_endian_.exit54.us.i.i.i ], [ 1, %315 ], [ 0, %327 ], [ 0, %pack_uint32_little_endian_.exit54.loopexit.i.i.i ]
+  %.0.i46.i.i = phi i32 [ 0, %pack_uint32_little_endian_.exit47.i.i.i ], [ 0, %pack_uint32_little_endian_.exit.i.i.i ], [ 0, %280 ], [ 0, %pack_uint32_little_endian_.exit54.us.i.i.i ], [ 1, %.preheader.i.i.i ], [ 1, %299 ], [ 0, %303 ], [ 1, %315 ], [ 0, %pack_uint32_little_endian_.exit54.loopexit.i.i.i ], [ 0, %327 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %write_metadata_block_data_cb_.exit.i
 
@@ -8598,8 +8598,8 @@ pack_uint32_.exit.i59.i.i:                        ; preds = %.lr.ph.i102.i.i.i, 
   %368 = getelementptr inbounds nuw i8, ptr %162, i64 168
   br label %369
 
-369:                                              ; preds = %.critedge.i.i.i, %.lr.ph151.i.i.i
-  %indvars.iv163.i.i.i = phi i64 [ 0, %.lr.ph151.i.i.i ], [ %indvars.iv.next164.i.i.i, %.critedge.i.i.i ]
+369:                                              ; preds = %.critedge99.i.i.i, %.lr.ph151.i.i.i
+  %indvars.iv163.i.i.i = phi i64 [ 0, %.lr.ph151.i.i.i ], [ %indvars.iv.next164.i.i.i, %.critedge99.i.i.i ]
   %370 = load ptr, ptr %368, align 8, !tbaa !72
   %371 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %370, i64 %indvars.iv163.i.i.i
   br i1 %.not.i107.i.i.i, label %pack_uint64_.exit114.i.i.i, label %.lr.ph.preheader.i108.i.i.i
@@ -8691,7 +8691,7 @@ pack_uint32_.exit130.i.i.i:                       ; preds = %.lr.ph.i125.i.i.i, 
 .preheader.i60.i.i:                               ; preds = %pack_uint32_.exit130.i.i.i
   %399 = load i8, ptr %394, align 1, !tbaa !76
   %.not160.i.i.i = icmp eq i8 %399, 0
-  br i1 %.not160.i.i.i, label %.critedge.i.i.i, label %.lr.ph.i61.i.i
+  br i1 %.not160.i.i.i, label %.critedge99.i.i.i, label %.lr.ph.i61.i.i
 
 .lr.ph.i61.i.i:                                   ; preds = %.preheader.i60.i.i
   %400 = getelementptr inbounds nuw i8, ptr %371, i64 24
@@ -8702,7 +8702,7 @@ pack_uint32_.exit130.i.i.i:                       ; preds = %.lr.ph.i125.i.i.i, 
   %402 = load i8, ptr %394, align 1, !tbaa !76
   %403 = zext i8 %402 to i64
   %404 = icmp samesign ult i64 %indvars.iv.next.i63.i.i, %403
-  br i1 %404, label %405, label %.critedge.i.i.i, !llvm.loop !129
+  br i1 %404, label %405, label %.critedge99.i.i.i, !llvm.loop !129
 
 405:                                              ; preds = %401, %.lr.ph.i61.i.i
   %indvars.iv.i62.i.i = phi i64 [ 0, %.lr.ph.i61.i.i ], [ %indvars.iv.next.i63.i.i, %401 ]
@@ -8760,15 +8760,15 @@ pack_uint32_.exit146.i.i.i:                       ; preds = %.lr.ph.i141.i.i.i, 
   %.not98.i.i.i = icmp eq i64 %422, %123
   br i1 %.not98.i.i.i, label %401, label %write_metadata_block_data_cuesheet_cb_.exit.i.i
 
-.critedge.i.i.i:                                  ; preds = %401, %.preheader.i60.i.i
+.critedge99.i.i.i:                                ; preds = %401, %.preheader.i60.i.i
   %indvars.iv.next164.i.i.i = add nuw nsw i64 %indvars.iv163.i.i.i, 1
   %423 = load i32, ptr %360, align 4, !tbaa !71
   %424 = zext i32 %423 to i64
   %425 = icmp samesign ult i64 %indvars.iv.next164.i.i.i, %424
   br i1 %425, label %369, label %write_metadata_block_data_cuesheet_cb_.exit.i.i, !llvm.loop !130
 
-write_metadata_block_data_cuesheet_cb_.exit.i.i:  ; preds = %.critedge.i.i.i, %pack_uint32_.exit130.i.i.i, %387, %384, %pack_uint32_.exit122.i.i.i, %pack_uint64_.exit114.i.i.i, %420, %pack_uint32_.exit146.i.i.i, %pack_uint64_.exit138.i.i.i, %.preheader147.i.i.i, %pack_uint32_.exit.i59.i.i, %357, %pack_uint64_.exit.i58.i.i, %339
-  %.0.i51.i.i = phi i32 [ 0, %339 ], [ 0, %pack_uint64_.exit.i58.i.i ], [ 0, %357 ], [ 0, %pack_uint32_.exit.i59.i.i ], [ 1, %.preheader147.i.i.i ], [ 0, %pack_uint64_.exit138.i.i.i ], [ 0, %pack_uint32_.exit146.i.i.i ], [ 0, %420 ], [ 0, %pack_uint64_.exit114.i.i.i ], [ 0, %pack_uint32_.exit122.i.i.i ], [ 0, %384 ], [ 0, %387 ], [ 0, %pack_uint32_.exit130.i.i.i ], [ 1, %.critedge.i.i.i ]
+write_metadata_block_data_cuesheet_cb_.exit.i.i:  ; preds = %.critedge99.i.i.i, %pack_uint32_.exit130.i.i.i, %387, %384, %pack_uint32_.exit122.i.i.i, %pack_uint64_.exit114.i.i.i, %420, %pack_uint32_.exit146.i.i.i, %pack_uint64_.exit138.i.i.i, %.preheader147.i.i.i, %pack_uint32_.exit.i59.i.i, %357, %pack_uint64_.exit.i58.i.i, %339
+  %.0.i51.i.i = phi i32 [ 0, %420 ], [ 0, %339 ], [ 0, %pack_uint64_.exit.i58.i.i ], [ 0, %357 ], [ 0, %pack_uint32_.exit.i59.i.i ], [ 1, %.preheader147.i.i.i ], [ 0, %pack_uint64_.exit138.i.i.i ], [ 0, %pack_uint32_.exit146.i.i.i ], [ 0, %pack_uint64_.exit114.i.i.i ], [ 0, %pack_uint32_.exit130.i.i.i ], [ 0, %387 ], [ 1, %.critedge99.i.i.i ], [ 0, %384 ], [ 0, %pack_uint32_.exit122.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %write_metadata_block_data_cb_.exit.i
 
@@ -9010,7 +9010,7 @@ pack_uint32_.exit130.i97.i.i:                     ; preds = %.lr.ph.i125.i92.i.i
   br label %write_metadata_block_data_picture_cb_.exit.i.i
 
 write_metadata_block_data_picture_cb_.exit.i.i:   ; preds = %500, %pack_uint32_.exit130.i97.i.i, %pack_uint32_.exit122.i89.i.i, %pack_uint32_.exit114.i.i.i, %pack_uint32_.exit106.i.i.i, %pack_uint32_.exit98.i.i.i, %457, %pack_uint32_.exit90.i.i.i, %444, %pack_uint32_.exit82.i.i.i, %pack_uint32_.exit.i71.i.i
-  %.0.i74.i.i = phi i32 [ 0, %pack_uint32_.exit.i71.i.i ], [ 0, %pack_uint32_.exit82.i.i.i ], [ 0, %444 ], [ 0, %pack_uint32_.exit90.i.i.i ], [ 0, %457 ], [ 0, %pack_uint32_.exit98.i.i.i ], [ 0, %pack_uint32_.exit106.i.i.i ], [ 0, %pack_uint32_.exit114.i.i.i ], [ 0, %pack_uint32_.exit122.i89.i.i ], [ 0, %pack_uint32_.exit130.i97.i.i ], [ %..i98.i.i, %500 ]
+  %.0.i74.i.i = phi i32 [ 0, %pack_uint32_.exit130.i97.i.i ], [ 0, %pack_uint32_.exit.i71.i.i ], [ 0, %pack_uint32_.exit82.i.i.i ], [ 0, %444 ], [ 0, %pack_uint32_.exit90.i.i.i ], [ 0, %457 ], [ 0, %pack_uint32_.exit98.i.i.i ], [ 0, %pack_uint32_.exit106.i.i.i ], [ 0, %pack_uint32_.exit114.i.i.i ], [ 0, %pack_uint32_.exit122.i89.i.i ], [ %..i98.i.i, %500 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %write_metadata_block_data_cb_.exit.i
 
@@ -9026,12 +9026,12 @@ write_metadata_block_data_picture_cb_.exit.i.i:   ; preds = %500, %pack_uint32_.
   br label %write_metadata_block_data_cb_.exit.i
 
 write_metadata_block_data_cb_.exit.i:             ; preds = %508, %write_metadata_block_data_picture_cb_.exit.i.i, %write_metadata_block_data_cuesheet_cb_.exit.i.i, %write_metadata_block_data_vorbis_comment_cb_.exit.i.i, %write_metadata_block_data_seektable_cb_.exit.i.i, %237, %write_metadata_block_data_padding_cb_.exit.i.i, %write_metadata_block_data_streaminfo_cb_.exit.i.i
-  %.0.i7.i = phi i32 [ %..i100.i.i, %508 ], [ %..i.i.i, %write_metadata_block_data_streaminfo_cb_.exit.i.i ], [ %.011.i.i.i, %write_metadata_block_data_padding_cb_.exit.i.i ], [ %.011.i42.i.i, %write_metadata_block_data_seektable_cb_.exit.i.i ], [ %.0.i46.i.i, %write_metadata_block_data_vorbis_comment_cb_.exit.i.i ], [ %.0.i51.i.i, %write_metadata_block_data_cuesheet_cb_.exit.i.i ], [ %.0.i74.i.i, %write_metadata_block_data_picture_cb_.exit.i.i ], [ %..i32.i.i, %237 ]
+  %.0.i7.i = phi i32 [ %..i100.i.i, %508 ], [ %..i.i.i, %write_metadata_block_data_streaminfo_cb_.exit.i.i ], [ %.011.i.i.i, %write_metadata_block_data_padding_cb_.exit.i.i ], [ %.0.i74.i.i, %write_metadata_block_data_picture_cb_.exit.i.i ], [ %.011.i42.i.i, %write_metadata_block_data_seektable_cb_.exit.i.i ], [ %.0.i46.i.i, %write_metadata_block_data_vorbis_comment_cb_.exit.i.i ], [ %.0.i51.i.i, %write_metadata_block_data_cuesheet_cb_.exit.i.i ], [ %..i32.i.i, %237 ]
   %.not19.i.i = icmp eq i32 %.0.i7.i, 0
   br i1 %.not19.i.i, label %chain_rewrite_metadata_in_place_.exit, label %144, !llvm.loop !135
 
 chain_rewrite_metadata_in_place_.exit:            ; preds = %144, %write_metadata_block_header_cb_.exit.i.i, %232, %write_metadata_block_data_cb_.exit.i, %37, %write_metadata_block_header_cb_.exit.thread.i.i
-  %.sink.i.i = phi i32 [ 7, %37 ], [ 8, %write_metadata_block_header_cb_.exit.thread.i.i ], [ 8, %write_metadata_block_header_cb_.exit.i.i ], [ 8, %write_metadata_block_data_cb_.exit.i ], [ 0, %144 ], [ 8, %232 ]
+  %.sink.i.i = phi i32 [ 7, %37 ], [ 8, %write_metadata_block_header_cb_.exit.thread.i.i ], [ 8, %write_metadata_block_data_cb_.exit.i ], [ 8, %write_metadata_block_header_cb_.exit.i.i ], [ 0, %144 ], [ 8, %232 ]
   %.not30 = phi i1 [ true, %37 ], [ true, %write_metadata_block_header_cb_.exit.thread.i.i ], [ %.not17.i.i.not.not, %write_metadata_block_data_cb_.exit.i ], [ %.not17.i.i.not.not, %232 ], [ %.not17.i.i.not.not, %write_metadata_block_header_cb_.exit.i.i ], [ %.not17.i.i.not.not, %144 ]
   %514 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %.sink.i.i, ptr %514, align 4, !tbaa !108
@@ -9081,7 +9081,7 @@ chain_rewrite_metadata_in_place_.exit:            ; preds = %144, %write_metadat
   br label %530
 
 530:                                              ; preds = %chain_rewrite_metadata_in_place_.exit.thread, %chain_rewrite_metadata_in_place_.exit, %._crit_edge, %528, %516, %21, %19, %14
-  %.025 = phi i32 [ 0, %14 ], [ 0, %19 ], [ 0, %21 ], [ %.mux, %chain_rewrite_metadata_in_place_.exit ], [ 0, %516 ], [ 1, %528 ], [ 1, %._crit_edge ], [ 0, %chain_rewrite_metadata_in_place_.exit.thread ]
+  %.025 = phi i32 [ 0, %14 ], [ 0, %19 ], [ %.mux, %chain_rewrite_metadata_in_place_.exit ], [ 0, %516 ], [ 0, %21 ], [ 1, %528 ], [ 1, %._crit_edge ], [ 0, %chain_rewrite_metadata_in_place_.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.025
 }
@@ -9321,7 +9321,7 @@ chain_delete_node_.exit:                          ; preds = %88, %87
   br label %chain_calculate_length_.exit91
 
 chain_calculate_length_.exit91:                   ; preds = %.lr.ph.i84, %.lr.ph.i95, %chain_append_node_.exit, %70, %101, %102, %26, %68, %._crit_edge
-  %.060.ph = phi i64 [ 0, %chain_append_node_.exit ], [ %.0.lcssa.i, %70 ], [ %.0.lcssa.i, %101 ], [ %21, %102 ], [ %.0.lcssa.i, %._crit_edge ], [ %.0.lcssa.i, %68 ], [ %21, %26 ], [ %100, %.lr.ph.i95 ], [ %67, %.lr.ph.i84 ]
+  %.060.ph = phi i64 [ %100, %.lr.ph.i95 ], [ 0, %chain_append_node_.exit ], [ %.0.lcssa.i, %101 ], [ %21, %102 ], [ %21, %26 ], [ %.0.lcssa.i, %68 ], [ %.0.lcssa.i, %._crit_edge ], [ %.0.lcssa.i, %70 ], [ %67, %.lr.ph.i84 ]
   %.0123.pr = load ptr, ptr %.05.in6.i, align 8, !tbaa !118
   %.not78124 = icmp eq ptr %.0123.pr, null
   br i1 %.not78124, label %.critedge, label %.lr.ph127
@@ -9372,7 +9372,7 @@ chain_calculate_length_.exit113:                  ; preds = %.lr.ph.i106, %108
   br i1 %.not78, label %.critedge, label %108, !llvm.loop !138
 
 .critedge.sink.split:                             ; preds = %112, %34, %44
-  %.sink = phi i32 [ 11, %44 ], [ 11, %34 ], [ 5, %112 ]
+  %.sink = phi i32 [ 11, %34 ], [ 11, %44 ], [ 5, %112 ]
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %.sink, ptr %122, align 4, !tbaa !108
   br label %.critedge
@@ -9601,7 +9601,7 @@ fread.inline.exit.i46:                            ; preds = %72, %79
   br label %cleanup_tempfile_.exit
 
 .loopexit9:                                       ; preds = %write_metadata_block_header_cb_.exit.i, %68, %write_metadata_block_header_cb_.exit.thread.i, %81, %66, %46
-  %.sink.i48.sink = phi i32 [ %.sink.i48, %81 ], [ %..i44, %66 ], [ %.sink.i40, %46 ], [ 8, %write_metadata_block_header_cb_.exit.thread.i ], [ 7, %68 ], [ 8, %write_metadata_block_header_cb_.exit.i ]
+  %.sink.i48.sink = phi i32 [ %.sink.i48, %81 ], [ 8, %write_metadata_block_header_cb_.exit.thread.i ], [ %..i44, %66 ], [ %.sink.i40, %46 ], [ 7, %68 ], [ 8, %write_metadata_block_header_cb_.exit.i ]
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %.sink.i48.sink, ptr %91, align 4, !tbaa !108
   %92 = call i32 @fclose(ptr noundef nonnull %10)
@@ -9623,7 +9623,7 @@ fread.inline.exit.i46:                            ; preds = %72, %79
   br label %cleanup_tempfile_.exit
 
 cleanup_tempfile_.exit:                           ; preds = %.loopexit9, %97, %95, %89, %83, %86, %29, %12
-  %.030 = phi i32 [ 0, %12 ], [ 0, %86 ], [ 0, %29 ], [ 1, %83 ], [ 1, %89 ], [ 0, %95 ], [ 0, %97 ], [ 0, %.loopexit9 ]
+  %.030 = phi i32 [ 0, %12 ], [ 1, %89 ], [ 0, %29 ], [ 0, %86 ], [ 1, %83 ], [ 0, %97 ], [ 0, %95 ], [ 0, %.loopexit9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -9887,8 +9887,8 @@ write_metadata_block_header_cb_.exit:             ; preds = %.lr.ph.i.i
   br i1 %.not19, label %.loopexit, label %11, !llvm.loop !135
 
 .loopexit:                                        ; preds = %11, %28, %write_metadata_block_header_cb_.exit, %write_metadata_block_header_cb_.exit.thread, %4
-  %.sink = phi i32 [ 7, %4 ], [ 8, %write_metadata_block_header_cb_.exit.thread ], [ 8, %write_metadata_block_header_cb_.exit ], [ 8, %28 ], [ 0, %11 ]
-  %.016 = phi i32 [ 0, %4 ], [ 0, %write_metadata_block_header_cb_.exit.thread ], [ 0, %write_metadata_block_header_cb_.exit ], [ 0, %28 ], [ 1, %11 ]
+  %.sink = phi i32 [ 7, %4 ], [ 8, %write_metadata_block_header_cb_.exit.thread ], [ 8, %28 ], [ 8, %write_metadata_block_header_cb_.exit ], [ 0, %11 ]
+  %.016 = phi i32 [ 0, %4 ], [ 0, %write_metadata_block_header_cb_.exit.thread ], [ 0, %28 ], [ 0, %write_metadata_block_header_cb_.exit ], [ 1, %11 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %.sink, ptr %31, align 4, !tbaa !108
   ret i32 %.016
@@ -9996,7 +9996,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_chain_write_with_callbacks_and_tempfi
   br label %52
 
 52:                                               ; preds = %.loopexit, %39, %32, %37, %30, %24, %13, %9
-  %.028 = phi i32 [ 0, %9 ], [ 0, %13 ], [ 0, %24 ], [ 0, %30 ], [ 0, %37 ], [ 0, %32 ], [ 0, %39 ], [ 1, %.loopexit ]
+  %.028 = phi i32 [ 0, %9 ], [ 0, %13 ], [ 0, %24 ], [ 0, %30 ], [ 0, %32 ], [ 0, %37 ], [ 0, %39 ], [ 1, %.loopexit ]
   ret i32 %.028
 }
 
@@ -10156,7 +10156,7 @@ copy_remaining_bytes_from_file_cb_.exit:          ; preds = %61, %54
   br label %65
 
 65:                                               ; preds = %copy_remaining_bytes_from_file_cb_.exit, %63, %52, %46, %.loopexit, %23
-  %.027 = phi i32 [ 0, %46 ], [ 0, %.loopexit ], [ 0, %52 ], [ 0, %63 ], [ 0, %23 ], [ 1, %copy_remaining_bytes_from_file_cb_.exit ]
+  %.027 = phi i32 [ 0, %46 ], [ 0, %.loopexit ], [ 0, %52 ], [ 0, %23 ], [ 0, %63 ], [ 1, %copy_remaining_bytes_from_file_cb_.exit ]
   ret i32 %.027
 }
 
@@ -10675,7 +10675,7 @@ iterator_insert_node_after_.exit.i:               ; preds = %50, %47
   br label %FLAC__metadata_iterator_insert_block_after.exit
 
 FLAC__metadata_iterator_insert_block_after.exit:  ; preds = %2, %iterator_insert_node_after_.exit.i, %36, %33
-  %58 = phi i32 [ 1, %iterator_insert_node_after_.exit.i ], [ 0, %33 ], [ 0, %36 ], [ 0, %2 ]
+  %58 = phi i32 [ 0, %36 ], [ 1, %iterator_insert_node_after_.exit.i ], [ 0, %33 ], [ 0, %2 ]
   ret i32 %58
 }
 
@@ -11253,7 +11253,7 @@ unpack_uint32_little_endian_.exit:                ; preds = %.lr.ph.i
   br label %43
 
 43:                                               ; preds = %35, %28, %9, %4, %._crit_edge35, %22
-  %.0 = phi i32 [ 5, %22 ], [ 0, %._crit_edge35 ], [ 5, %4 ], [ 6, %9 ], [ 11, %28 ], [ 6, %35 ]
+  %.0 = phi i32 [ 0, %._crit_edge35 ], [ 5, %4 ], [ 5, %22 ], [ 6, %9 ], [ 11, %28 ], [ 6, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -11849,7 +11849,7 @@ pack_uint32_little_endian_.exit54.loopexit.i.i:   ; preds = %.lr.ph.i49.i.i
   br i1 %.not40.i.i, label %182, label %write_metadata_block_data_vorbis_comment_cb_.exit.i
 
 write_metadata_block_data_vorbis_comment_cb_.exit.i: ; preds = %194, %pack_uint32_little_endian_.exit54.loopexit.i.i, %182, %170, %166, %pack_uint32_little_endian_.exit54.us.i.i, %.preheader.i.i, %pack_uint32_little_endian_.exit47.i.i, %146, %pack_uint32_little_endian_.exit.i.i
-  %.0.i46.i = phi i32 [ 0, %pack_uint32_little_endian_.exit.i.i ], [ 0, %146 ], [ 0, %pack_uint32_little_endian_.exit47.i.i ], [ 1, %.preheader.i.i ], [ 0, %pack_uint32_little_endian_.exit54.us.i.i ], [ 0, %170 ], [ 1, %166 ], [ 0, %pack_uint32_little_endian_.exit54.loopexit.i.i ], [ 0, %194 ], [ 1, %182 ]
+  %.0.i46.i = phi i32 [ 0, %pack_uint32_little_endian_.exit47.i.i ], [ 0, %pack_uint32_little_endian_.exit.i.i ], [ 0, %146 ], [ 0, %pack_uint32_little_endian_.exit54.us.i.i ], [ 1, %.preheader.i.i ], [ 0, %170 ], [ 1, %166 ], [ 0, %194 ], [ 0, %pack_uint32_little_endian_.exit54.loopexit.i.i ], [ 1, %182 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %write_metadata_block_data_cb_.exit
 
@@ -11995,8 +11995,8 @@ pack_uint32_.exit.i59.i:                          ; preds = %.lr.ph.i102.i.i, %2
   %284 = zext nneg i32 %283 to i64
   br label %285
 
-285:                                              ; preds = %.critedge.i.i, %.lr.ph151.i.i
-  %indvars.iv163.i.i = phi i64 [ 0, %.lr.ph151.i.i ], [ %indvars.iv.next164.i.i, %.critedge.i.i ]
+285:                                              ; preds = %.critedge99.i.i, %.lr.ph151.i.i
+  %indvars.iv163.i.i = phi i64 [ 0, %.lr.ph151.i.i ], [ %indvars.iv.next164.i.i, %.critedge99.i.i ]
   %286 = load ptr, ptr %251, align 8, !tbaa !72
   %287 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %286, i64 %indvars.iv163.i.i
   br i1 %.not.i107.i.i, label %pack_uint64_.exit114.i.i, label %.lr.ph.preheader.i108.i.i
@@ -12088,7 +12088,7 @@ pack_uint32_.exit130.i.i:                         ; preds = %.lr.ph.i125.i.i, %3
 .preheader.i60.i:                                 ; preds = %pack_uint32_.exit130.i.i
   %315 = load i8, ptr %310, align 1, !tbaa !76
   %.not160.i.i = icmp eq i8 %315, 0
-  br i1 %.not160.i.i, label %.critedge.i.i, label %.lr.ph.i61.i
+  br i1 %.not160.i.i, label %.critedge99.i.i, label %.lr.ph.i61.i
 
 .lr.ph.i61.i:                                     ; preds = %.preheader.i60.i
   %316 = getelementptr inbounds nuw i8, ptr %287, i64 24
@@ -12099,7 +12099,7 @@ pack_uint32_.exit130.i.i:                         ; preds = %.lr.ph.i125.i.i, %3
   %318 = load i8, ptr %310, align 1, !tbaa !76
   %319 = zext i8 %318 to i64
   %320 = icmp samesign ult i64 %indvars.iv.next.i63.i, %319
-  br i1 %320, label %321, label %.critedge.i.i, !llvm.loop !129
+  br i1 %320, label %321, label %.critedge99.i.i, !llvm.loop !129
 
 321:                                              ; preds = %317, %.lr.ph.i61.i
   %indvars.iv.i62.i = phi i64 [ 0, %.lr.ph.i61.i ], [ %indvars.iv.next.i63.i, %317 ]
@@ -12157,15 +12157,15 @@ pack_uint32_.exit146.i.i:                         ; preds = %.lr.ph.i141.i.i, %3
   %.not98.i.i = icmp eq i64 %338, %284
   br i1 %.not98.i.i, label %317, label %write_metadata_block_data_cuesheet_cb_.exit.i
 
-.critedge.i.i:                                    ; preds = %317, %.preheader.i60.i
+.critedge99.i.i:                                  ; preds = %317, %.preheader.i60.i
   %indvars.iv.next164.i.i = add nuw nsw i64 %indvars.iv163.i.i, 1
   %339 = load i32, ptr %241, align 4, !tbaa !71
   %340 = zext i32 %339 to i64
   %341 = icmp samesign ult i64 %indvars.iv.next164.i.i, %340
   br i1 %341, label %285, label %write_metadata_block_data_cuesheet_cb_.exit.i, !llvm.loop !130
 
-write_metadata_block_data_cuesheet_cb_.exit.i:    ; preds = %.critedge.i.i, %pack_uint32_.exit130.i.i, %303, %300, %pack_uint32_.exit122.i.i, %pack_uint64_.exit114.i.i, %336, %pack_uint32_.exit146.i.i, %pack_uint64_.exit138.i.i, %.preheader147.i.i, %pack_uint32_.exit.i59.i, %236, %pack_uint64_.exit.i58.i, %206
-  %.0.i51.i = phi i32 [ 0, %206 ], [ 0, %pack_uint64_.exit.i58.i ], [ 0, %236 ], [ 0, %pack_uint32_.exit.i59.i ], [ 1, %.preheader147.i.i ], [ 0, %pack_uint64_.exit138.i.i ], [ 0, %pack_uint32_.exit146.i.i ], [ 0, %336 ], [ 1, %.critedge.i.i ], [ 0, %pack_uint32_.exit130.i.i ], [ 0, %303 ], [ 0, %300 ], [ 0, %pack_uint32_.exit122.i.i ], [ 0, %pack_uint64_.exit114.i.i ]
+write_metadata_block_data_cuesheet_cb_.exit.i:    ; preds = %.critedge99.i.i, %pack_uint32_.exit130.i.i, %303, %300, %pack_uint32_.exit122.i.i, %pack_uint64_.exit114.i.i, %336, %pack_uint32_.exit146.i.i, %pack_uint64_.exit138.i.i, %.preheader147.i.i, %pack_uint32_.exit.i59.i, %236, %pack_uint64_.exit.i58.i, %206
+  %.0.i51.i = phi i32 [ 0, %336 ], [ 0, %206 ], [ 0, %pack_uint64_.exit.i58.i ], [ 0, %236 ], [ 0, %pack_uint32_.exit.i59.i ], [ 1, %.preheader147.i.i ], [ 0, %pack_uint64_.exit138.i.i ], [ 0, %pack_uint32_.exit146.i.i ], [ 0, %303 ], [ 0, %pack_uint32_.exit130.i.i ], [ 0, %pack_uint64_.exit114.i.i ], [ 0, %pack_uint32_.exit122.i.i ], [ 0, %300 ], [ 1, %.critedge99.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %write_metadata_block_data_cb_.exit
 
@@ -12447,7 +12447,7 @@ pack_uint32_.exit130.i97.i:                       ; preds = %.lr.ph.i125.i92.i, 
   br label %write_metadata_block_data_picture_cb_.exit.i
 
 write_metadata_block_data_picture_cb_.exit.i:     ; preds = %448, %pack_uint32_.exit130.i97.i, %pack_uint32_.exit122.i89.i, %pack_uint32_.exit114.i.i, %pack_uint32_.exit106.i.i, %pack_uint32_.exit98.i.i, %385, %pack_uint32_.exit90.i.i, %368, %pack_uint32_.exit82.i.i, %pack_uint32_.exit.i71.i
-  %.0.i74.i = phi i32 [ 0, %pack_uint32_.exit.i71.i ], [ 0, %pack_uint32_.exit82.i.i ], [ 0, %368 ], [ 0, %pack_uint32_.exit90.i.i ], [ 0, %385 ], [ 0, %pack_uint32_.exit98.i.i ], [ 0, %pack_uint32_.exit106.i.i ], [ 0, %pack_uint32_.exit114.i.i ], [ 0, %pack_uint32_.exit122.i89.i ], [ 0, %pack_uint32_.exit130.i97.i ], [ %..i98.i, %448 ]
+  %.0.i74.i = phi i32 [ 0, %pack_uint32_.exit130.i97.i ], [ 0, %pack_uint32_.exit.i71.i ], [ 0, %pack_uint32_.exit82.i.i ], [ 0, %368 ], [ 0, %pack_uint32_.exit90.i.i ], [ 0, %385 ], [ 0, %pack_uint32_.exit98.i.i ], [ 0, %pack_uint32_.exit106.i.i ], [ 0, %pack_uint32_.exit114.i.i ], [ 0, %pack_uint32_.exit122.i89.i ], [ %..i98.i, %448 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %write_metadata_block_data_cb_.exit
 
@@ -12463,7 +12463,7 @@ write_metadata_block_data_picture_cb_.exit.i:     ; preds = %448, %pack_uint32_.
   br label %write_metadata_block_data_cb_.exit
 
 write_metadata_block_data_cb_.exit:               ; preds = %write_metadata_block_data_streaminfo_cb_.exit.i, %write_metadata_block_data_padding_cb_.exit.i, %87, %95, %write_metadata_block_data_seektable_cb_.exit.i, %write_metadata_block_data_vorbis_comment_cb_.exit.i, %write_metadata_block_data_cuesheet_cb_.exit.i, %write_metadata_block_data_picture_cb_.exit.i, %456
-  %.0.i = phi i32 [ %..i100.i, %456 ], [ %..i.i, %write_metadata_block_data_streaminfo_cb_.exit.i ], [ %.011.i.i, %write_metadata_block_data_padding_cb_.exit.i ], [ %.011.i42.i, %write_metadata_block_data_seektable_cb_.exit.i ], [ %.0.i46.i, %write_metadata_block_data_vorbis_comment_cb_.exit.i ], [ %.0.i51.i, %write_metadata_block_data_cuesheet_cb_.exit.i ], [ %.0.i74.i, %write_metadata_block_data_picture_cb_.exit.i ], [ 0, %87 ], [ %..i32.i, %95 ]
+  %.0.i = phi i32 [ %..i100.i, %456 ], [ %..i.i, %write_metadata_block_data_streaminfo_cb_.exit.i ], [ %.011.i.i, %write_metadata_block_data_padding_cb_.exit.i ], [ %.0.i74.i, %write_metadata_block_data_picture_cb_.exit.i ], [ %.011.i42.i, %write_metadata_block_data_seektable_cb_.exit.i ], [ %.0.i46.i, %write_metadata_block_data_vorbis_comment_cb_.exit.i ], [ %.0.i51.i, %write_metadata_block_data_cuesheet_cb_.exit.i ], [ 0, %87 ], [ %..i32.i, %95 ]
   %.not = icmp ne i32 %.0.i, 0
   %. = select i1 %.not, i32 0, i32 8
   %.4 = zext i1 %.not to i32
@@ -13140,7 +13140,7 @@ pack_uint32_little_endian_.exit54.loopexit.i:     ; preds = %.lr.ph.i49.i
   br i1 %.not40.i, label %182, label %write_metadata_block_data_vorbis_comment_cb_.exit
 
 write_metadata_block_data_vorbis_comment_cb_.exit: ; preds = %182, %pack_uint32_little_endian_.exit54.loopexit.i, %194, %pack_uint32_little_endian_.exit54.us.i, %166, %170, %pack_uint32_little_endian_.exit.i, %146, %pack_uint32_little_endian_.exit47.i, %.preheader.i
-  %.0.i46 = phi i32 [ 0, %pack_uint32_little_endian_.exit.i ], [ 0, %146 ], [ 0, %pack_uint32_little_endian_.exit47.i ], [ 1, %.preheader.i ], [ 1, %166 ], [ 0, %170 ], [ 0, %pack_uint32_little_endian_.exit54.us.i ], [ 1, %182 ], [ 0, %194 ], [ 0, %pack_uint32_little_endian_.exit54.loopexit.i ]
+  %.0.i46 = phi i32 [ 0, %pack_uint32_little_endian_.exit47.i ], [ 0, %pack_uint32_little_endian_.exit.i ], [ 0, %146 ], [ 0, %pack_uint32_little_endian_.exit54.us.i ], [ 1, %.preheader.i ], [ 1, %166 ], [ 0, %170 ], [ 1, %182 ], [ 0, %pack_uint32_little_endian_.exit54.loopexit.i ], [ 0, %194 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %write_metadata_block_data_application_cb_.exit
 
@@ -13286,8 +13286,8 @@ pack_uint32_.exit.i59:                            ; preds = %.lr.ph.i102.i, %238
   %284 = zext nneg i32 %283 to i64
   br label %285
 
-285:                                              ; preds = %.critedge.i, %.lr.ph151.i
-  %indvars.iv163.i = phi i64 [ 0, %.lr.ph151.i ], [ %indvars.iv.next164.i, %.critedge.i ]
+285:                                              ; preds = %.critedge99.i, %.lr.ph151.i
+  %indvars.iv163.i = phi i64 [ 0, %.lr.ph151.i ], [ %indvars.iv.next164.i, %.critedge99.i ]
   %286 = load ptr, ptr %251, align 8, !tbaa !72
   %287 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %286, i64 %indvars.iv163.i
   br i1 %.not.i107.i, label %pack_uint64_.exit114.i, label %.lr.ph.preheader.i108.i
@@ -13379,7 +13379,7 @@ pack_uint32_.exit130.i:                           ; preds = %.lr.ph.i125.i, %309
 .preheader.i60:                                   ; preds = %pack_uint32_.exit130.i
   %315 = load i8, ptr %310, align 1, !tbaa !76
   %.not160.i = icmp eq i8 %315, 0
-  br i1 %.not160.i, label %.critedge.i, label %.lr.ph.i61
+  br i1 %.not160.i, label %.critedge99.i, label %.lr.ph.i61
 
 .lr.ph.i61:                                       ; preds = %.preheader.i60
   %316 = getelementptr inbounds nuw i8, ptr %287, i64 24
@@ -13390,7 +13390,7 @@ pack_uint32_.exit130.i:                           ; preds = %.lr.ph.i125.i, %309
   %318 = load i8, ptr %310, align 1, !tbaa !76
   %319 = zext i8 %318 to i64
   %320 = icmp samesign ult i64 %indvars.iv.next.i63, %319
-  br i1 %320, label %321, label %.critedge.i, !llvm.loop !129
+  br i1 %320, label %321, label %.critedge99.i, !llvm.loop !129
 
 321:                                              ; preds = %317, %.lr.ph.i61
   %indvars.iv.i62 = phi i64 [ 0, %.lr.ph.i61 ], [ %indvars.iv.next.i63, %317 ]
@@ -13448,15 +13448,15 @@ pack_uint32_.exit146.i:                           ; preds = %.lr.ph.i141.i, %330
   %.not98.i = icmp eq i64 %338, %284
   br i1 %.not98.i, label %317, label %write_metadata_block_data_cuesheet_cb_.exit
 
-.critedge.i:                                      ; preds = %317, %.preheader.i60
+.critedge99.i:                                    ; preds = %317, %.preheader.i60
   %indvars.iv.next164.i = add nuw nsw i64 %indvars.iv163.i, 1
   %339 = load i32, ptr %241, align 4, !tbaa !71
   %340 = zext i32 %339 to i64
   %341 = icmp samesign ult i64 %indvars.iv.next164.i, %340
   br i1 %341, label %285, label %write_metadata_block_data_cuesheet_cb_.exit, !llvm.loop !130
 
-write_metadata_block_data_cuesheet_cb_.exit:      ; preds = %pack_uint64_.exit114.i, %pack_uint32_.exit122.i, %300, %303, %pack_uint32_.exit130.i, %.critedge.i, %pack_uint64_.exit138.i, %pack_uint32_.exit146.i, %336, %206, %pack_uint64_.exit.i58, %236, %pack_uint32_.exit.i59, %.preheader147.i
-  %.0.i51 = phi i32 [ 0, %206 ], [ 0, %pack_uint64_.exit.i58 ], [ 0, %236 ], [ 0, %pack_uint32_.exit.i59 ], [ 1, %.preheader147.i ], [ 0, %336 ], [ 0, %pack_uint32_.exit146.i ], [ 0, %pack_uint64_.exit138.i ], [ 0, %pack_uint64_.exit114.i ], [ 0, %pack_uint32_.exit122.i ], [ 0, %300 ], [ 0, %303 ], [ 0, %pack_uint32_.exit130.i ], [ 1, %.critedge.i ]
+write_metadata_block_data_cuesheet_cb_.exit:      ; preds = %pack_uint64_.exit114.i, %pack_uint32_.exit122.i, %300, %303, %pack_uint32_.exit130.i, %.critedge99.i, %pack_uint64_.exit138.i, %pack_uint32_.exit146.i, %336, %206, %pack_uint64_.exit.i58, %236, %pack_uint32_.exit.i59, %.preheader147.i
+  %.0.i51 = phi i32 [ 0, %pack_uint64_.exit138.i ], [ 0, %206 ], [ 0, %pack_uint64_.exit.i58 ], [ 0, %236 ], [ 0, %pack_uint32_.exit.i59 ], [ 1, %.preheader147.i ], [ 0, %336 ], [ 0, %pack_uint32_.exit146.i ], [ 0, %pack_uint64_.exit114.i ], [ 0, %pack_uint32_.exit130.i ], [ 0, %303 ], [ 1, %.critedge99.i ], [ 0, %300 ], [ 0, %pack_uint32_.exit122.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %write_metadata_block_data_application_cb_.exit
 
@@ -13738,7 +13738,7 @@ pack_uint32_.exit130.i97:                         ; preds = %.lr.ph.i125.i92, %4
   br label %write_metadata_block_data_picture_cb_.exit
 
 write_metadata_block_data_picture_cb_.exit:       ; preds = %pack_uint32_.exit.i71, %pack_uint32_.exit82.i, %368, %pack_uint32_.exit90.i, %385, %pack_uint32_.exit98.i, %pack_uint32_.exit106.i, %pack_uint32_.exit114.i, %pack_uint32_.exit122.i89, %pack_uint32_.exit130.i97, %448
-  %.0.i74 = phi i32 [ 0, %pack_uint32_.exit.i71 ], [ 0, %pack_uint32_.exit82.i ], [ 0, %368 ], [ 0, %pack_uint32_.exit90.i ], [ 0, %385 ], [ 0, %pack_uint32_.exit98.i ], [ 0, %pack_uint32_.exit106.i ], [ 0, %pack_uint32_.exit114.i ], [ 0, %pack_uint32_.exit122.i89 ], [ 0, %pack_uint32_.exit130.i97 ], [ %..i98, %448 ]
+  %.0.i74 = phi i32 [ 0, %pack_uint32_.exit130.i97 ], [ 0, %pack_uint32_.exit.i71 ], [ 0, %pack_uint32_.exit82.i ], [ 0, %368 ], [ 0, %pack_uint32_.exit90.i ], [ 0, %385 ], [ 0, %pack_uint32_.exit98.i ], [ 0, %pack_uint32_.exit106.i ], [ 0, %pack_uint32_.exit114.i ], [ 0, %pack_uint32_.exit122.i89 ], [ %..i98, %448 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %write_metadata_block_data_application_cb_.exit
 
@@ -13754,7 +13754,7 @@ write_metadata_block_data_picture_cb_.exit:       ; preds = %pack_uint32_.exit.i
   br label %write_metadata_block_data_application_cb_.exit
 
 write_metadata_block_data_application_cb_.exit:   ; preds = %95, %87, %456, %write_metadata_block_data_picture_cb_.exit, %write_metadata_block_data_cuesheet_cb_.exit, %write_metadata_block_data_vorbis_comment_cb_.exit, %write_metadata_block_data_seektable_cb_.exit, %write_metadata_block_data_padding_cb_.exit, %write_metadata_block_data_streaminfo_cb_.exit
-  %.0 = phi i32 [ %..i100, %456 ], [ %..i, %write_metadata_block_data_streaminfo_cb_.exit ], [ %.011.i, %write_metadata_block_data_padding_cb_.exit ], [ %.011.i42, %write_metadata_block_data_seektable_cb_.exit ], [ %.0.i46, %write_metadata_block_data_vorbis_comment_cb_.exit ], [ %.0.i51, %write_metadata_block_data_cuesheet_cb_.exit ], [ %.0.i74, %write_metadata_block_data_picture_cb_.exit ], [ 0, %87 ], [ %..i32, %95 ]
+  %.0 = phi i32 [ %..i100, %456 ], [ %..i, %write_metadata_block_data_streaminfo_cb_.exit ], [ %.011.i, %write_metadata_block_data_padding_cb_.exit ], [ %.0.i74, %write_metadata_block_data_picture_cb_.exit ], [ %.011.i42, %write_metadata_block_data_seektable_cb_.exit ], [ %.0.i46, %write_metadata_block_data_vorbis_comment_cb_.exit ], [ %.0.i51, %write_metadata_block_data_cuesheet_cb_.exit ], [ 0, %87 ], [ %..i32, %95 ]
   ret i32 %.0
 }
 

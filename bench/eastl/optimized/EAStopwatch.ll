@@ -638,7 +638,7 @@ sw.bb4:                                           ; preds = %entry
   br label %return
 
 return:                                           ; preds = %entry, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1, %sw.bb
-  %retval.0 = phi float [ %0, %sw.bb ], [ %1, %sw.bb1 ], [ %2, %sw.bb2 ], [ %3, %sw.bb3 ], [ %4, %sw.bb4 ], [ 1.000000e+00, %entry ]
+  %retval.0 = phi float [ %4, %sw.bb4 ], [ %0, %sw.bb ], [ %1, %sw.bb1 ], [ %2, %sw.bb2 ], [ %3, %sw.bb3 ], [ 1.000000e+00, %entry ]
   ret float %retval.0
 }
 
@@ -674,7 +674,7 @@ sw.bb4:                                           ; preds = %entry
   br label %return
 
 return:                                           ; preds = %entry, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1, %sw.bb
-  %retval.0 = phi float [ %0, %sw.bb ], [ %1, %sw.bb1 ], [ %2, %sw.bb2 ], [ %3, %sw.bb3 ], [ %4, %sw.bb4 ], [ 1.000000e+00, %entry ]
+  %retval.0 = phi float [ %4, %sw.bb4 ], [ %0, %sw.bb ], [ %1, %sw.bb1 ], [ %2, %sw.bb2 ], [ %3, %sw.bb3 ], [ 1.000000e+00, %entry ]
   ret float %retval.0
 }
 

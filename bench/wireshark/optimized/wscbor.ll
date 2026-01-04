@@ -763,7 +763,7 @@ wscbor_is_indefinite_break.exit:                  ; preds = %.critedge67, %63
   br label %.loopexit
 
 .loopexit:                                        ; preds = %37, %57, %59, %15, %71, %.critedge, %.critedge69, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %15 ], [ %73, %71 ], [ false, %.critedge ], [ false, %.critedge69 ], [ false, %59 ], [ false, %57 ], [ false, %37 ]
+  %.0 = phi i1 [ false, %5 ], [ false, %15 ], [ %73, %71 ], [ false, %57 ], [ false, %.critedge ], [ false, %.critedge69 ], [ false, %59 ], [ false, %37 ]
   ret i1 %.0
 }
 

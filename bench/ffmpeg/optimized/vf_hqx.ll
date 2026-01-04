@@ -1194,7 +1194,7 @@ yuv_diff.exit218.i136.thread.us:                  ; preds = %yuv_diff.exit218.i1
   br label %hq2x_interp_1x1.exit138.us
 
 hq2x_interp_1x1.exit138.us:                       ; preds = %yuv_diff.exit218.i136.thread.us, %yuv_diff.exit217.i134.thread.us, %yuv_diff.exit.i132.thread.us, %677, %655, %633, %617, %601, %583, %567, %547, %526, %456, %436, %yuv_diff.exit216.i99.us, %374, %360
-  %.0.i101.us = phi i32 [ %742, %yuv_diff.exit218.i136.thread.us ], [ %727, %yuv_diff.exit217.i134.thread.us ], [ %712, %yuv_diff.exit.i132.thread.us ], [ %475, %456 ], [ %455, %436 ], [ %697, %677 ], [ %676, %655 ], [ %654, %633 ], [ %632, %617 ], [ %616, %601 ], [ %600, %583 ], [ %582, %567 ], [ %566, %547 ], [ %546, %526 ], [ %66, %yuv_diff.exit216.i99.us ], [ %66, %374 ], [ %66, %360 ]
+  %.0.i101.us = phi i32 [ %742, %yuv_diff.exit218.i136.thread.us ], [ %727, %yuv_diff.exit217.i134.thread.us ], [ %546, %526 ], [ %712, %yuv_diff.exit.i132.thread.us ], [ %475, %456 ], [ %455, %436 ], [ %697, %677 ], [ %676, %655 ], [ %654, %633 ], [ %632, %617 ], [ %616, %601 ], [ %600, %583 ], [ %582, %567 ], [ %566, %547 ], [ %66, %yuv_diff.exit216.i99.us ], [ %66, %374 ], [ %66, %360 ]
   store i32 %.0.i101.us, ptr %.0145.i211.us, align 4, !tbaa !20
   %743 = shl nuw nsw i32 %179, 1
   %744 = or disjoint i32 %227, %107
@@ -1794,7 +1794,7 @@ yuv_diff.exit218.i94.thread.us:                   ; preds = %yuv_diff.exit218.i9
   br label %hq2x_interp_1x1.exit96.us
 
 hq2x_interp_1x1.exit96.us:                        ; preds = %yuv_diff.exit218.i94.thread.us, %yuv_diff.exit217.i92.thread.us, %yuv_diff.exit.i90.thread.us, %1133, %1111, %1089, %1073, %1057, %1039, %1023, %1003, %982, %912, %892, %yuv_diff.exit216.i57.us, %830, %816
-  %.0.i59.us = phi i32 [ %1198, %yuv_diff.exit218.i94.thread.us ], [ %1183, %yuv_diff.exit217.i92.thread.us ], [ %1168, %yuv_diff.exit.i90.thread.us ], [ %931, %912 ], [ %911, %892 ], [ %1153, %1133 ], [ %1132, %1111 ], [ %1110, %1089 ], [ %1088, %1073 ], [ %1072, %1057 ], [ %1056, %1039 ], [ %1038, %1023 ], [ %1022, %1003 ], [ %1002, %982 ], [ %66, %yuv_diff.exit216.i57.us ], [ %66, %830 ], [ %66, %816 ]
+  %.0.i59.us = phi i32 [ %1198, %yuv_diff.exit218.i94.thread.us ], [ %1183, %yuv_diff.exit217.i92.thread.us ], [ %1002, %982 ], [ %1168, %yuv_diff.exit.i90.thread.us ], [ %931, %912 ], [ %911, %892 ], [ %1153, %1133 ], [ %1132, %1111 ], [ %1110, %1089 ], [ %1088, %1073 ], [ %1072, %1057 ], [ %1056, %1039 ], [ %1038, %1023 ], [ %1022, %1003 ], [ %66, %yuv_diff.exit216.i57.us ], [ %66, %830 ], [ %66, %816 ]
   %1199 = getelementptr inbounds nuw i8, ptr %.0145.i211.us, i64 4
   store i32 %.0.i59.us, ptr %1199, align 4, !tbaa !20
   %1200 = shl nuw nsw i32 %131, 5
@@ -2396,7 +2396,7 @@ yuv_diff.exit218.i52.thread.us:                   ; preds = %yuv_diff.exit218.i5
   br label %hq2x_interp_1x1.exit54.us
 
 hq2x_interp_1x1.exit54.us:                        ; preds = %yuv_diff.exit218.i52.thread.us, %yuv_diff.exit217.i50.thread.us, %yuv_diff.exit.i48.thread.us, %1591, %1569, %1547, %1531, %1515, %1497, %1481, %1461, %1440, %1370, %1350, %yuv_diff.exit216.i15.us, %1288, %1274
-  %.0.i17.us = phi i32 [ %1656, %yuv_diff.exit218.i52.thread.us ], [ %1641, %yuv_diff.exit217.i50.thread.us ], [ %1626, %yuv_diff.exit.i48.thread.us ], [ %1389, %1370 ], [ %1369, %1350 ], [ %1611, %1591 ], [ %1590, %1569 ], [ %1568, %1547 ], [ %1546, %1531 ], [ %1530, %1515 ], [ %1514, %1497 ], [ %1496, %1481 ], [ %1480, %1461 ], [ %1460, %1440 ], [ %66, %yuv_diff.exit216.i15.us ], [ %66, %1288 ], [ %66, %1274 ]
+  %.0.i17.us = phi i32 [ %1656, %yuv_diff.exit218.i52.thread.us ], [ %1641, %yuv_diff.exit217.i50.thread.us ], [ %1460, %1440 ], [ %1626, %yuv_diff.exit.i48.thread.us ], [ %1389, %1370 ], [ %1369, %1350 ], [ %1611, %1591 ], [ %1590, %1569 ], [ %1568, %1547 ], [ %1546, %1531 ], [ %1530, %1515 ], [ %1514, %1497 ], [ %1496, %1481 ], [ %1480, %1461 ], [ %66, %yuv_diff.exit216.i15.us ], [ %66, %1288 ], [ %66, %1274 ]
   %1657 = getelementptr inbounds i32, ptr %.0145.i211.us, i64 %30
   store i32 %.0.i17.us, ptr %1657, align 4, !tbaa !20
   %1658 = shl nuw nsw i32 %107, 7
@@ -2997,7 +2997,7 @@ yuv_diff.exit218.i.thread.us:                     ; preds = %yuv_diff.exit218.i.
   br label %hq2x_interp_1x1.exit.us
 
 hq2x_interp_1x1.exit.us:                          ; preds = %yuv_diff.exit218.i.thread.us, %yuv_diff.exit217.i.thread.us, %yuv_diff.exit.i.thread.us, %2048, %2026, %2004, %1988, %1972, %1954, %1938, %1918, %1897, %1827, %1807, %yuv_diff.exit216.i.us, %1745, %1731
-  %.0.i10.us = phi i32 [ %2113, %yuv_diff.exit218.i.thread.us ], [ %2098, %yuv_diff.exit217.i.thread.us ], [ %2083, %yuv_diff.exit.i.thread.us ], [ %1846, %1827 ], [ %1826, %1807 ], [ %2068, %2048 ], [ %2047, %2026 ], [ %2025, %2004 ], [ %2003, %1988 ], [ %1987, %1972 ], [ %1971, %1954 ], [ %1953, %1938 ], [ %1937, %1918 ], [ %1917, %1897 ], [ %66, %yuv_diff.exit216.i.us ], [ %66, %1745 ], [ %66, %1731 ]
+  %.0.i10.us = phi i32 [ %2113, %yuv_diff.exit218.i.thread.us ], [ %2098, %yuv_diff.exit217.i.thread.us ], [ %1917, %1897 ], [ %2083, %yuv_diff.exit.i.thread.us ], [ %1846, %1827 ], [ %1826, %1807 ], [ %2068, %2048 ], [ %2047, %2026 ], [ %2025, %2004 ], [ %2003, %1988 ], [ %1987, %1972 ], [ %1971, %1954 ], [ %1953, %1938 ], [ %1937, %1918 ], [ %66, %yuv_diff.exit216.i.us ], [ %66, %1745 ], [ %66, %1731 ]
   %2114 = getelementptr i8, ptr %1657, i64 4
   store i32 %.0.i10.us, ptr %2114, align 4, !tbaa !20
   %2115 = getelementptr inbounds nuw i8, ptr %.0144.i212.us, i64 4
@@ -3887,7 +3887,7 @@ yuv_diff.exit353.i243.thread.us:                  ; preds = %yuv_diff.exit353.i2
   br label %yuv_diff.exit351.i169.thread.us
 
 yuv_diff.exit351.i169.thread.us:                  ; preds = %362, %376, %yuv_diff.exit351.i169.us, %yuv_diff.exit353.i243.thread.us, %yuv_diff.exit352.i241.thread.us, %yuv_diff.exit350.i239.thread.us, %586, %570, %556, %538, %522, %502
-  %.sink = phi i32 [ %646, %yuv_diff.exit353.i243.thread.us ], [ %631, %yuv_diff.exit352.i241.thread.us ], [ %616, %yuv_diff.exit350.i239.thread.us ], [ %601, %586 ], [ %585, %570 ], [ %569, %556 ], [ %555, %538 ], [ %537, %522 ], [ %521, %502 ], [ %67, %yuv_diff.exit351.i169.us ], [ %67, %376 ], [ %67, %362 ]
+  %.sink = phi i32 [ %646, %yuv_diff.exit353.i243.thread.us ], [ %631, %yuv_diff.exit352.i241.thread.us ], [ %521, %502 ], [ %616, %yuv_diff.exit350.i239.thread.us ], [ %601, %586 ], [ %585, %570 ], [ %569, %556 ], [ %555, %538 ], [ %537, %522 ], [ %67, %yuv_diff.exit351.i169.us ], [ %67, %376 ], [ %67, %362 ]
   store i32 %.sink, ptr %.0145.i320.us, align 4, !tbaa !20
   %647 = and i32 %296, 254
   %648 = icmp eq i32 %647, 222
@@ -4114,7 +4114,7 @@ yuv_diff.exit.i201.us:                            ; preds = %717
   br label %hq3x_interp_2x1.exit245.us
 
 hq3x_interp_2x1.exit245.us:                       ; preds = %662, %676, %yuv_diff.exit349.i203.us, %703, %717, %yuv_diff.exit.i201.us, %748, %809, %793, %777
-  %.sink382 = phi i32 [ %824, %809 ], [ %808, %793 ], [ %792, %777 ], [ %67, %748 ], [ %67, %yuv_diff.exit.i201.us ], [ %67, %717 ], [ %67, %703 ], [ %67, %yuv_diff.exit349.i203.us ], [ %67, %676 ], [ %67, %662 ]
+  %.sink382 = phi i32 [ %67, %703 ], [ %67, %748 ], [ %824, %809 ], [ %808, %793 ], [ %792, %777 ], [ %67, %yuv_diff.exit.i201.us ], [ %67, %717 ], [ %67, %yuv_diff.exit349.i203.us ], [ %67, %676 ], [ %67, %662 ]
   store i32 %.sink382, ptr %298, align 4, !tbaa !20
   %825 = shl nuw nsw i32 %287, 4
   %826 = or i32 %294, %228
@@ -4607,7 +4607,7 @@ yuv_diff.exit353.i164.thread.us:                  ; preds = %yuv_diff.exit353.i1
   br label %yuv_diff.exit351.i90.thread.us
 
 yuv_diff.exit351.i90.thread.us:                   ; preds = %903, %917, %yuv_diff.exit351.i90.us, %yuv_diff.exit353.i164.thread.us, %yuv_diff.exit352.i162.thread.us, %yuv_diff.exit350.i160.thread.us, %1127, %1111, %1097, %1079, %1063, %1043
-  %.sink383 = phi i32 [ %1187, %yuv_diff.exit353.i164.thread.us ], [ %1172, %yuv_diff.exit352.i162.thread.us ], [ %1157, %yuv_diff.exit350.i160.thread.us ], [ %1142, %1127 ], [ %1126, %1111 ], [ %1110, %1097 ], [ %1096, %1079 ], [ %1078, %1063 ], [ %1062, %1043 ], [ %67, %yuv_diff.exit351.i90.us ], [ %67, %917 ], [ %67, %903 ]
+  %.sink383 = phi i32 [ %1187, %yuv_diff.exit353.i164.thread.us ], [ %1172, %yuv_diff.exit352.i162.thread.us ], [ %1062, %1043 ], [ %1157, %yuv_diff.exit350.i160.thread.us ], [ %1142, %1127 ], [ %1126, %1111 ], [ %1110, %1097 ], [ %1096, %1079 ], [ %1078, %1063 ], [ %67, %yuv_diff.exit351.i90.us ], [ %67, %917 ], [ %67, %903 ]
   store i32 %.sink383, ptr %838, align 4, !tbaa !20
   %1188 = and i32 %836, 254
   %1189 = icmp eq i32 %1188, 222
@@ -4835,7 +4835,7 @@ yuv_diff.exit.i122.us:                            ; preds = %1258
   br label %hq3x_interp_2x1.exit166.us
 
 hq3x_interp_2x1.exit166.us:                       ; preds = %1203, %1217, %yuv_diff.exit349.i124.us, %1244, %1258, %yuv_diff.exit.i122.us, %1290, %1351, %1335, %1319
-  %.sink384 = phi i32 [ %1366, %1351 ], [ %1350, %1335 ], [ %1334, %1319 ], [ %67, %1290 ], [ %67, %yuv_diff.exit.i122.us ], [ %67, %1258 ], [ %67, %1244 ], [ %67, %yuv_diff.exit349.i124.us ], [ %67, %1217 ], [ %67, %1203 ]
+  %.sink384 = phi i32 [ %67, %1244 ], [ %67, %1290 ], [ %1366, %1351 ], [ %1350, %1335 ], [ %1334, %1319 ], [ %67, %yuv_diff.exit.i122.us ], [ %67, %1258 ], [ %67, %yuv_diff.exit349.i124.us ], [ %67, %1217 ], [ %67, %1203 ]
   store i32 %.sink384, ptr %839, align 4, !tbaa !20
   %1367 = getelementptr i32, ptr %.0145.i320.us, i64 %33
   %1368 = shl nuw nsw i32 %294, 5
@@ -5329,7 +5329,7 @@ yuv_diff.exit353.i85.thread.us:                   ; preds = %yuv_diff.exit353.i8
   br label %yuv_diff.exit351.i11.thread.us
 
 yuv_diff.exit351.i11.thread.us:                   ; preds = %1446, %1460, %yuv_diff.exit351.i11.us, %yuv_diff.exit353.i85.thread.us, %yuv_diff.exit352.i83.thread.us, %yuv_diff.exit350.i81.thread.us, %1670, %1654, %1640, %1622, %1606, %1586
-  %.sink385 = phi i32 [ %1730, %yuv_diff.exit353.i85.thread.us ], [ %1715, %yuv_diff.exit352.i83.thread.us ], [ %1700, %yuv_diff.exit350.i81.thread.us ], [ %1685, %1670 ], [ %1669, %1654 ], [ %1653, %1640 ], [ %1639, %1622 ], [ %1621, %1606 ], [ %1605, %1586 ], [ %67, %yuv_diff.exit351.i11.us ], [ %67, %1460 ], [ %67, %1446 ]
+  %.sink385 = phi i32 [ %1730, %yuv_diff.exit353.i85.thread.us ], [ %1715, %yuv_diff.exit352.i83.thread.us ], [ %1605, %1586 ], [ %1700, %yuv_diff.exit350.i81.thread.us ], [ %1685, %1670 ], [ %1669, %1654 ], [ %1653, %1640 ], [ %1639, %1622 ], [ %1621, %1606 ], [ %67, %yuv_diff.exit351.i11.us ], [ %67, %1460 ], [ %67, %1446 ]
   store i32 %.sink385, ptr %1382, align 4, !tbaa !20
   %1731 = and i32 %1380, 254
   %1732 = icmp eq i32 %1731, 222
@@ -5557,7 +5557,7 @@ yuv_diff.exit.i43.us:                             ; preds = %1801
   br label %hq3x_interp_2x1.exit87.us
 
 hq3x_interp_2x1.exit87.us:                        ; preds = %1746, %1760, %yuv_diff.exit349.i45.us, %1787, %1801, %yuv_diff.exit.i43.us, %1833, %1894, %1878, %1862
-  %.sink386 = phi i32 [ %1909, %1894 ], [ %1893, %1878 ], [ %1877, %1862 ], [ %67, %1833 ], [ %67, %yuv_diff.exit.i43.us ], [ %67, %1801 ], [ %67, %1787 ], [ %67, %yuv_diff.exit349.i45.us ], [ %67, %1760 ], [ %67, %1746 ]
+  %.sink386 = phi i32 [ %67, %1787 ], [ %67, %1833 ], [ %1909, %1894 ], [ %1893, %1878 ], [ %1877, %1862 ], [ %67, %yuv_diff.exit.i43.us ], [ %67, %1801 ], [ %67, %yuv_diff.exit349.i45.us ], [ %67, %1760 ], [ %67, %1746 ]
   store i32 %.sink386, ptr %1367, align 4, !tbaa !20
   %1910 = getelementptr i8, ptr %1367, i64 4
   %1911 = shl nuw nsw i32 %108, 7
@@ -6051,7 +6051,7 @@ yuv_diff.exit353.i.thread.us:                     ; preds = %yuv_diff.exit353.i.
   br label %yuv_diff.exit351.i.thread.us
 
 yuv_diff.exit351.i.thread.us:                     ; preds = %1989, %2003, %yuv_diff.exit351.i.us, %yuv_diff.exit353.i.thread.us, %yuv_diff.exit352.i.thread.us, %yuv_diff.exit350.i.thread.us, %2213, %2197, %2183, %2165, %2149, %2129
-  %.sink387 = phi i32 [ %2273, %yuv_diff.exit353.i.thread.us ], [ %2258, %yuv_diff.exit352.i.thread.us ], [ %2243, %yuv_diff.exit350.i.thread.us ], [ %2228, %2213 ], [ %2212, %2197 ], [ %2196, %2183 ], [ %2182, %2165 ], [ %2164, %2149 ], [ %2148, %2129 ], [ %67, %yuv_diff.exit351.i.us ], [ %67, %2003 ], [ %67, %1989 ]
+  %.sink387 = phi i32 [ %2273, %yuv_diff.exit353.i.thread.us ], [ %2258, %yuv_diff.exit352.i.thread.us ], [ %2148, %2129 ], [ %2243, %yuv_diff.exit350.i.thread.us ], [ %2228, %2213 ], [ %2212, %2197 ], [ %2196, %2183 ], [ %2182, %2165 ], [ %2164, %2149 ], [ %67, %yuv_diff.exit351.i.us ], [ %67, %2003 ], [ %67, %1989 ]
   store i32 %.sink387, ptr %1924, align 4, !tbaa !20
   %2274 = and i32 %1923, 254
   %2275 = icmp eq i32 %2274, 222
@@ -6280,7 +6280,7 @@ yuv_diff.exit.i.us:                               ; preds = %2344
   br label %hq3x_interp_2x1.exit.us
 
 hq3x_interp_2x1.exit.us:                          ; preds = %2289, %2303, %yuv_diff.exit349.i.us, %2330, %2344, %yuv_diff.exit.i.us, %2377, %2438, %2422, %2406
-  %.sink388 = phi i32 [ %2453, %2438 ], [ %2437, %2422 ], [ %2421, %2406 ], [ %67, %2377 ], [ %67, %yuv_diff.exit.i.us ], [ %67, %2344 ], [ %67, %2330 ], [ %67, %yuv_diff.exit349.i.us ], [ %67, %2303 ], [ %67, %2289 ]
+  %.sink388 = phi i32 [ %67, %2330 ], [ %67, %2377 ], [ %2453, %2438 ], [ %2437, %2422 ], [ %2421, %2406 ], [ %67, %yuv_diff.exit.i.us ], [ %67, %2344 ], [ %67, %yuv_diff.exit349.i.us ], [ %67, %2303 ], [ %67, %2289 ]
   store i32 %.sink388, ptr %1925, align 4, !tbaa !20
   store i32 %67, ptr %1910, align 4, !tbaa !20
   %2454 = getelementptr inbounds nuw i8, ptr %.0144.i321.us, i64 4
@@ -6943,7 +6943,7 @@ switch.early.test.i152.us:                        ; preds = %switch.early.test.u
   br label %450
 
 450:                                              ; preds = %448, %switch.early.test.i152.us, %switch.early.test.i152.us, %switch.early.test.us, %switch.early.test.us, %434, %431, %427
-  %451 = phi i1 [ true, %switch.early.test.i152.us ], [ true, %switch.early.test.us ], [ true, %434 ], [ true, %431 ], [ true, %427 ], [ %449, %448 ], [ true, %switch.early.test.i152.us ], [ true, %switch.early.test.us ]
+  %451 = phi i1 [ true, %434 ], [ true, %431 ], [ true, %switch.early.test.i152.us ], [ true, %427 ], [ true, %switch.early.test.us ], [ %449, %448 ], [ true, %switch.early.test.i152.us ], [ true, %switch.early.test.us ]
   %452 = and i32 %290, 15
   %453 = icmp eq i32 %452, 11
   %454 = and i32 %290, 43
@@ -7265,7 +7265,7 @@ yuv_diff.exit449.i161.us:                         ; preds = %534
   br i1 %484, label %.thread223.us.sink.split, label %.thread221.us
 
 yuv_diff.exit449.i161.thread.us:                  ; preds = %520, %534, %yuv_diff.exit449.i161.us, %663, %647, %629, %611, %597, %579, %559
-  %.sink = phi i32 [ %678, %663 ], [ %662, %647 ], [ %646, %629 ], [ %628, %611 ], [ %610, %597 ], [ %596, %579 ], [ %578, %559 ], [ %70, %yuv_diff.exit449.i161.us ], [ %70, %534 ], [ %70, %520 ]
+  %.sink = phi i32 [ %578, %559 ], [ %678, %663 ], [ %662, %647 ], [ %646, %629 ], [ %628, %611 ], [ %610, %597 ], [ %596, %579 ], [ %70, %yuv_diff.exit449.i161.us ], [ %70, %534 ], [ %70, %520 ]
   store i32 %.sink, ptr %.0145.i297.us, align 4, !tbaa !20
   br i1 %484, label %.thread223.us.sink.split, label %713
 
@@ -7602,7 +7602,7 @@ yuv_diff.exit449.i161.thread.us:                  ; preds = %520, %534, %yuv_dif
   br label %948
 
 948:                                              ; preds = %714, %921, %.thread221.us, %890, %868, %850, %834, %814, %796, %780, %764, %751, %736
-  %.sink430 = phi i32 [ %947, %921 ], [ %920, %.thread221.us ], [ %911, %890 ], [ %889, %868 ], [ %867, %850 ], [ %849, %834 ], [ %833, %814 ], [ %813, %796 ], [ %795, %780 ], [ %779, %764 ], [ %763, %751 ], [ %750, %736 ], [ %70, %714 ]
+  %.sink430 = phi i32 [ %947, %921 ], [ %920, %.thread221.us ], [ %750, %736 ], [ %911, %890 ], [ %889, %868 ], [ %867, %850 ], [ %849, %834 ], [ %833, %814 ], [ %813, %796 ], [ %795, %780 ], [ %779, %764 ], [ %763, %751 ], [ %70, %714 ]
   store i32 %.sink430, ptr %293, align 4, !tbaa !20
   br i1 %356, label %._crit_edge312, label %949
 
@@ -7909,7 +7909,7 @@ yuv_diff.exit449.i161.thread.us:                  ; preds = %520, %534, %yuv_dif
   br label %.thread223.us
 
 .thread223.us:                                    ; preds = %949, %.thread223.us.sink.split, %951, %1165, %1149, %1127, %1105, %1087, %1071, %1051, %1033, %1017, %1001, %988, %973
-  %.sink431 = phi i32 [ %1174, %1165 ], [ %1164, %1149 ], [ %1148, %1127 ], [ %1126, %1105 ], [ %1104, %1087 ], [ %1086, %1071 ], [ %1070, %1051 ], [ %1050, %1033 ], [ %1032, %1017 ], [ %1016, %1001 ], [ %1000, %988 ], [ %987, %973 ], [ %70, %951 ], [ %70, %.thread223.us.sink.split ], [ %70, %949 ]
+  %.sink431 = phi i32 [ %1174, %1165 ], [ %70, %951 ], [ %1164, %1149 ], [ %987, %973 ], [ %1148, %1127 ], [ %1126, %1105 ], [ %1104, %1087 ], [ %1086, %1071 ], [ %1070, %1051 ], [ %1050, %1033 ], [ %1032, %1017 ], [ %1016, %1001 ], [ %1000, %988 ], [ %70, %.thread223.us.sink.split ], [ %70, %949 ]
   store i32 %.sink431, ptr %294, align 4, !tbaa !20
   %1175 = icmp eq i32 %375, 43
   %1176 = icmp eq i32 %375, 15
@@ -8065,7 +8065,7 @@ yuv_diff.exit.i176.us:                            ; preds = %1193
   br label %hq4x_interp_2x2.exit186.us
 
 hq4x_interp_2x2.exit186.us:                       ; preds = %1179, %1193, %yuv_diff.exit.i176.us, %1208, %1278, %1262, %1246, %1225, %1209
-  %.sink432 = phi i32 [ %1293, %1278 ], [ %1277, %1262 ], [ %1261, %1246 ], [ %1245, %1225 ], [ %1224, %1209 ], [ %70, %1208 ], [ %70, %yuv_diff.exit.i176.us ], [ %70, %1193 ], [ %70, %1179 ]
+  %.sink432 = phi i32 [ %70, %1208 ], [ %1293, %1278 ], [ %1277, %1262 ], [ %1261, %1246 ], [ %1245, %1225 ], [ %1224, %1209 ], [ %70, %yuv_diff.exit.i176.us ], [ %70, %1193 ], [ %70, %1179 ]
   store i32 %.sink432, ptr %295, align 4, !tbaa !20
   %1294 = getelementptr inbounds nuw i8, ptr %.0145.i297.us, i64 8
   %1295 = shl nuw nsw i32 %.fr258.us, 1
@@ -8317,7 +8317,7 @@ switch.early.test.i93.us:                         ; preds = %switch.early.test29
   br label %1462
 
 1462:                                             ; preds = %1460, %switch.early.test.i93.us, %switch.early.test.i93.us, %switch.early.test294.us, %switch.early.test294.us, %1446, %1443, %1439
-  %1463 = phi i1 [ true, %switch.early.test.i93.us ], [ true, %switch.early.test294.us ], [ true, %1446 ], [ true, %1443 ], [ true, %1439 ], [ %1461, %1460 ], [ true, %switch.early.test.i93.us ], [ true, %switch.early.test294.us ]
+  %1463 = phi i1 [ true, %1446 ], [ true, %1443 ], [ true, %switch.early.test.i93.us ], [ true, %1439 ], [ true, %switch.early.test294.us ], [ %1461, %1460 ], [ true, %switch.early.test.i93.us ], [ true, %switch.early.test294.us ]
   %1464 = and i32 %1303, 15
   %1465 = icmp eq i32 %1464, 11
   %1466 = and i32 %1303, 43
@@ -8639,7 +8639,7 @@ yuv_diff.exit449.i102.us:                         ; preds = %1546
   br i1 %1496, label %.thread231.us.sink.split, label %.thread229.us
 
 yuv_diff.exit449.i102.thread.us:                  ; preds = %1532, %1546, %yuv_diff.exit449.i102.us, %1675, %1659, %1641, %1623, %1609, %1591, %1571
-  %.sink434 = phi i32 [ %1690, %1675 ], [ %1674, %1659 ], [ %1658, %1641 ], [ %1640, %1623 ], [ %1622, %1609 ], [ %1608, %1591 ], [ %1590, %1571 ], [ %70, %yuv_diff.exit449.i102.us ], [ %70, %1546 ], [ %70, %1532 ]
+  %.sink434 = phi i32 [ %1590, %1571 ], [ %1690, %1675 ], [ %1674, %1659 ], [ %1658, %1641 ], [ %1640, %1623 ], [ %1622, %1609 ], [ %1608, %1591 ], [ %70, %yuv_diff.exit449.i102.us ], [ %70, %1546 ], [ %70, %1532 ]
   store i32 %.sink434, ptr %1305, align 4, !tbaa !20
   br i1 %1496, label %.thread231.us.sink.split, label %1725
 
@@ -8976,7 +8976,7 @@ yuv_diff.exit449.i102.thread.us:                  ; preds = %1532, %1546, %yuv_d
   br label %1960
 
 1960:                                             ; preds = %1726, %1933, %.thread229.us, %1902, %1880, %1862, %1846, %1826, %1808, %1792, %1776, %1763, %1748
-  %.sink435 = phi i32 [ %1959, %1933 ], [ %1932, %.thread229.us ], [ %1923, %1902 ], [ %1901, %1880 ], [ %1879, %1862 ], [ %1861, %1846 ], [ %1845, %1826 ], [ %1825, %1808 ], [ %1807, %1792 ], [ %1791, %1776 ], [ %1775, %1763 ], [ %1762, %1748 ], [ %70, %1726 ]
+  %.sink435 = phi i32 [ %1959, %1933 ], [ %1932, %.thread229.us ], [ %1762, %1748 ], [ %1923, %1902 ], [ %1901, %1880 ], [ %1879, %1862 ], [ %1861, %1846 ], [ %1845, %1826 ], [ %1825, %1808 ], [ %1807, %1792 ], [ %1791, %1776 ], [ %1775, %1763 ], [ %70, %1726 ]
   store i32 %.sink435, ptr %1294, align 4, !tbaa !20
   br i1 %1368, label %._crit_edge311, label %1961
 
@@ -9283,7 +9283,7 @@ yuv_diff.exit449.i102.thread.us:                  ; preds = %1532, %1546, %yuv_d
   br label %.thread231.us
 
 .thread231.us:                                    ; preds = %1961, %.thread231.us.sink.split, %1963, %2177, %2161, %2139, %2117, %2099, %2083, %2063, %2045, %2029, %2013, %2000, %1985
-  %.sink436 = phi i32 [ %2186, %2177 ], [ %2176, %2161 ], [ %2160, %2139 ], [ %2138, %2117 ], [ %2116, %2099 ], [ %2098, %2083 ], [ %2082, %2063 ], [ %2062, %2045 ], [ %2044, %2029 ], [ %2028, %2013 ], [ %2012, %2000 ], [ %1999, %1985 ], [ %70, %1963 ], [ %70, %.thread231.us.sink.split ], [ %70, %1961 ]
+  %.sink436 = phi i32 [ %2186, %2177 ], [ %70, %1963 ], [ %2176, %2161 ], [ %1999, %1985 ], [ %2160, %2139 ], [ %2138, %2117 ], [ %2116, %2099 ], [ %2098, %2083 ], [ %2082, %2063 ], [ %2062, %2045 ], [ %2044, %2029 ], [ %2028, %2013 ], [ %2012, %2000 ], [ %70, %.thread231.us.sink.split ], [ %70, %1961 ]
   store i32 %.sink436, ptr %1306, align 4, !tbaa !20
   %2187 = icmp eq i32 %1387, 43
   %2188 = icmp eq i32 %1387, 15
@@ -9439,7 +9439,7 @@ yuv_diff.exit.i117.us:                            ; preds = %2205
   br label %hq4x_interp_2x2.exit127.us
 
 hq4x_interp_2x2.exit127.us:                       ; preds = %2191, %2205, %yuv_diff.exit.i117.us, %2220, %2290, %2274, %2258, %2237, %2221
-  %.sink437 = phi i32 [ %2305, %2290 ], [ %2289, %2274 ], [ %2273, %2258 ], [ %2257, %2237 ], [ %2236, %2221 ], [ %70, %2220 ], [ %70, %yuv_diff.exit.i117.us ], [ %70, %2205 ], [ %70, %2191 ]
+  %.sink437 = phi i32 [ %70, %2220 ], [ %2305, %2290 ], [ %2289, %2274 ], [ %2273, %2258 ], [ %2257, %2237 ], [ %2236, %2221 ], [ %70, %yuv_diff.exit.i117.us ], [ %70, %2205 ], [ %70, %2191 ]
   store i32 %.sink437, ptr %1307, align 4, !tbaa !20
   %2306 = getelementptr inbounds i32, ptr %.0145.i297.us, i64 %34
   %2307 = shl nuw nsw i32 %.fr.us, 5
@@ -9693,7 +9693,7 @@ switch.early.test.i34.us:                         ; preds = %switch.early.test29
   br label %2476
 
 2476:                                             ; preds = %2474, %switch.early.test.i34.us, %switch.early.test.i34.us, %switch.early.test295.us, %switch.early.test295.us, %2459, %2456, %2452
-  %2477 = phi i1 [ true, %switch.early.test.i34.us ], [ true, %switch.early.test295.us ], [ true, %2459 ], [ true, %2456 ], [ true, %2452 ], [ %2475, %2474 ], [ true, %switch.early.test.i34.us ], [ true, %switch.early.test295.us ]
+  %2477 = phi i1 [ true, %2459 ], [ true, %2456 ], [ true, %switch.early.test.i34.us ], [ true, %2452 ], [ true, %switch.early.test295.us ], [ %2475, %2474 ], [ true, %switch.early.test.i34.us ], [ true, %switch.early.test295.us ]
   %2478 = and i32 %2317, 15
   %2479 = icmp eq i32 %2478, 11
   %2480 = and i32 %2317, 43
@@ -10015,7 +10015,7 @@ yuv_diff.exit449.i43.us:                          ; preds = %2560
   br i1 %2510, label %.thread239.us.sink.split, label %.thread237.us
 
 yuv_diff.exit449.i43.thread.us:                   ; preds = %2546, %2560, %yuv_diff.exit449.i43.us, %2689, %2673, %2655, %2637, %2623, %2605, %2585
-  %.sink439 = phi i32 [ %2704, %2689 ], [ %2688, %2673 ], [ %2672, %2655 ], [ %2654, %2637 ], [ %2636, %2623 ], [ %2622, %2605 ], [ %2604, %2585 ], [ %70, %yuv_diff.exit449.i43.us ], [ %70, %2560 ], [ %70, %2546 ]
+  %.sink439 = phi i32 [ %2604, %2585 ], [ %2704, %2689 ], [ %2688, %2673 ], [ %2672, %2655 ], [ %2654, %2637 ], [ %2636, %2623 ], [ %2622, %2605 ], [ %70, %yuv_diff.exit449.i43.us ], [ %70, %2560 ], [ %70, %2546 ]
   store i32 %.sink439, ptr %2318, align 4, !tbaa !20
   br i1 %2510, label %.thread239.us.sink.split, label %2739
 
@@ -10352,7 +10352,7 @@ yuv_diff.exit449.i43.thread.us:                   ; preds = %2546, %2560, %yuv_d
   br label %2974
 
 2974:                                             ; preds = %2740, %2947, %.thread237.us, %2916, %2894, %2876, %2860, %2840, %2822, %2806, %2790, %2777, %2762
-  %.sink440 = phi i32 [ %2973, %2947 ], [ %2946, %.thread237.us ], [ %2937, %2916 ], [ %2915, %2894 ], [ %2893, %2876 ], [ %2875, %2860 ], [ %2859, %2840 ], [ %2839, %2822 ], [ %2821, %2806 ], [ %2805, %2790 ], [ %2789, %2777 ], [ %2776, %2762 ], [ %70, %2740 ]
+  %.sink440 = phi i32 [ %2973, %2947 ], [ %2946, %.thread237.us ], [ %2776, %2762 ], [ %2937, %2916 ], [ %2915, %2894 ], [ %2893, %2876 ], [ %2875, %2860 ], [ %2859, %2840 ], [ %2839, %2822 ], [ %2821, %2806 ], [ %2805, %2790 ], [ %2789, %2777 ], [ %70, %2740 ]
   store i32 %.sink440, ptr %2319, align 4, !tbaa !20
   br i1 %2381, label %._crit_edge310, label %2975
 
@@ -10659,7 +10659,7 @@ yuv_diff.exit449.i43.thread.us:                   ; preds = %2546, %2560, %yuv_d
   br label %.thread239.us
 
 .thread239.us:                                    ; preds = %2975, %.thread239.us.sink.split, %2977, %3191, %3175, %3153, %3131, %3113, %3097, %3077, %3059, %3043, %3027, %3014, %2999
-  %.sink441 = phi i32 [ %3200, %3191 ], [ %3190, %3175 ], [ %3174, %3153 ], [ %3152, %3131 ], [ %3130, %3113 ], [ %3112, %3097 ], [ %3096, %3077 ], [ %3076, %3059 ], [ %3058, %3043 ], [ %3042, %3027 ], [ %3026, %3014 ], [ %3013, %2999 ], [ %70, %2977 ], [ %70, %.thread239.us.sink.split ], [ %70, %2975 ]
+  %.sink441 = phi i32 [ %3200, %3191 ], [ %70, %2977 ], [ %3190, %3175 ], [ %3013, %2999 ], [ %3174, %3153 ], [ %3152, %3131 ], [ %3130, %3113 ], [ %3112, %3097 ], [ %3096, %3077 ], [ %3076, %3059 ], [ %3058, %3043 ], [ %3042, %3027 ], [ %3026, %3014 ], [ %70, %.thread239.us.sink.split ], [ %70, %2975 ]
   store i32 %.sink441, ptr %2306, align 4, !tbaa !20
   %3201 = icmp eq i32 %2400, 43
   %3202 = icmp eq i32 %2400, 15
@@ -10815,7 +10815,7 @@ yuv_diff.exit.i58.us:                             ; preds = %3219
   br label %hq4x_interp_2x2.exit68.us
 
 hq4x_interp_2x2.exit68.us:                        ; preds = %3205, %3219, %yuv_diff.exit.i58.us, %3234, %3304, %3288, %3272, %3251, %3235
-  %.sink442 = phi i32 [ %3319, %3304 ], [ %3303, %3288 ], [ %3287, %3272 ], [ %3271, %3251 ], [ %3250, %3235 ], [ %70, %3234 ], [ %70, %yuv_diff.exit.i58.us ], [ %70, %3219 ], [ %70, %3205 ]
+  %.sink442 = phi i32 [ %70, %3234 ], [ %3319, %3304 ], [ %3303, %3288 ], [ %3287, %3272 ], [ %3271, %3251 ], [ %3250, %3235 ], [ %70, %yuv_diff.exit.i58.us ], [ %70, %3219 ], [ %70, %3205 ]
   store i32 %.sink442, ptr %2320, align 4, !tbaa !20
   %3320 = getelementptr inbounds nuw i8, ptr %2306, i64 8
   %3321 = shl nuw nsw i32 %.fr263.us, 7
@@ -11067,7 +11067,7 @@ switch.early.test.i.us:                           ; preds = %switch.early.test29
   br label %3488
 
 3488:                                             ; preds = %3486, %switch.early.test.i.us, %switch.early.test.i.us, %switch.early.test296.us, %switch.early.test296.us, %3472, %3469, %3465
-  %3489 = phi i1 [ true, %switch.early.test.i.us ], [ true, %switch.early.test296.us ], [ true, %3472 ], [ true, %3469 ], [ true, %3465 ], [ %3487, %3486 ], [ true, %switch.early.test.i.us ], [ true, %switch.early.test296.us ]
+  %3489 = phi i1 [ true, %3472 ], [ true, %3469 ], [ true, %switch.early.test.i.us ], [ true, %3465 ], [ true, %switch.early.test296.us ], [ %3487, %3486 ], [ true, %switch.early.test.i.us ], [ true, %switch.early.test296.us ]
   %3490 = and i32 %3330, 15
   %3491 = icmp eq i32 %3490, 11
   %3492 = and i32 %3330, 43
@@ -11389,7 +11389,7 @@ yuv_diff.exit449.i.us:                            ; preds = %3572
   br i1 %3522, label %.thread247.us.sink.split, label %.thread245.us
 
 yuv_diff.exit449.i.thread.us:                     ; preds = %3558, %3572, %yuv_diff.exit449.i.us, %3701, %3685, %3667, %3649, %3635, %3617, %3597
-  %.sink444 = phi i32 [ %3716, %3701 ], [ %3700, %3685 ], [ %3684, %3667 ], [ %3666, %3649 ], [ %3648, %3635 ], [ %3634, %3617 ], [ %3616, %3597 ], [ %70, %yuv_diff.exit449.i.us ], [ %70, %3572 ], [ %70, %3558 ]
+  %.sink444 = phi i32 [ %3616, %3597 ], [ %3716, %3701 ], [ %3700, %3685 ], [ %3684, %3667 ], [ %3666, %3649 ], [ %3648, %3635 ], [ %3634, %3617 ], [ %70, %yuv_diff.exit449.i.us ], [ %70, %3572 ], [ %70, %3558 ]
   store i32 %.sink444, ptr %3331, align 4, !tbaa !20
   br i1 %3522, label %.thread247.us.sink.split, label %3751
 
@@ -11726,7 +11726,7 @@ yuv_diff.exit449.i.thread.us:                     ; preds = %3558, %3572, %yuv_d
   br label %3986
 
 3986:                                             ; preds = %3752, %3959, %.thread245.us, %3928, %3906, %3888, %3872, %3852, %3834, %3818, %3802, %3789, %3774
-  %.sink445 = phi i32 [ %3985, %3959 ], [ %3958, %.thread245.us ], [ %3949, %3928 ], [ %3927, %3906 ], [ %3905, %3888 ], [ %3887, %3872 ], [ %3871, %3852 ], [ %3851, %3834 ], [ %3833, %3818 ], [ %3817, %3802 ], [ %3801, %3789 ], [ %3788, %3774 ], [ %70, %3752 ]
+  %.sink445 = phi i32 [ %3985, %3959 ], [ %3958, %.thread245.us ], [ %3788, %3774 ], [ %3949, %3928 ], [ %3927, %3906 ], [ %3905, %3888 ], [ %3887, %3872 ], [ %3871, %3852 ], [ %3851, %3834 ], [ %3833, %3818 ], [ %3817, %3802 ], [ %3801, %3789 ], [ %70, %3752 ]
   store i32 %.sink445, ptr %3332, align 4, !tbaa !20
   br i1 %3394, label %._crit_edge, label %3987
 
@@ -12033,7 +12033,7 @@ yuv_diff.exit449.i.thread.us:                     ; preds = %3558, %3572, %yuv_d
   br label %.thread247.us
 
 .thread247.us:                                    ; preds = %3987, %.thread247.us.sink.split, %3989, %4203, %4187, %4165, %4143, %4125, %4109, %4089, %4071, %4055, %4039, %4026, %4011
-  %.sink446 = phi i32 [ %4212, %4203 ], [ %4202, %4187 ], [ %4186, %4165 ], [ %4164, %4143 ], [ %4142, %4125 ], [ %4124, %4109 ], [ %4108, %4089 ], [ %4088, %4071 ], [ %4070, %4055 ], [ %4054, %4039 ], [ %4038, %4026 ], [ %4025, %4011 ], [ %70, %3989 ], [ %70, %.thread247.us.sink.split ], [ %70, %3987 ]
+  %.sink446 = phi i32 [ %4212, %4203 ], [ %70, %3989 ], [ %4202, %4187 ], [ %4025, %4011 ], [ %4186, %4165 ], [ %4164, %4143 ], [ %4142, %4125 ], [ %4124, %4109 ], [ %4108, %4089 ], [ %4088, %4071 ], [ %4070, %4055 ], [ %4054, %4039 ], [ %4038, %4026 ], [ %70, %.thread247.us.sink.split ], [ %70, %3987 ]
   store i32 %.sink446, ptr %3333, align 4, !tbaa !20
   %4213 = icmp eq i32 %3413, 43
   %4214 = icmp eq i32 %3413, 15
@@ -12189,7 +12189,7 @@ yuv_diff.exit.i.us:                               ; preds = %4231
   br label %hq4x_interp_2x2.exit.us
 
 hq4x_interp_2x2.exit.us:                          ; preds = %4217, %4231, %yuv_diff.exit.i.us, %4246, %4316, %4300, %4284, %4263, %4247
-  %.sink447 = phi i32 [ %4331, %4316 ], [ %4315, %4300 ], [ %4299, %4284 ], [ %4283, %4263 ], [ %4262, %4247 ], [ %70, %4246 ], [ %70, %yuv_diff.exit.i.us ], [ %70, %4231 ], [ %70, %4217 ]
+  %.sink447 = phi i32 [ %70, %4246 ], [ %4331, %4316 ], [ %4315, %4300 ], [ %4299, %4284 ], [ %4283, %4263 ], [ %4262, %4247 ], [ %70, %yuv_diff.exit.i.us ], [ %70, %4231 ], [ %70, %4217 ]
   store i32 %.sink447, ptr %3320, align 4, !tbaa !20
   %4332 = getelementptr inbounds nuw i8, ptr %.0144.i298.us, i64 4
   %4333 = getelementptr inbounds nuw i8, ptr %.0145.i297.us, i64 16

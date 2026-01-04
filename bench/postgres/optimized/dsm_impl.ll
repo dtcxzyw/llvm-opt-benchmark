@@ -296,7 +296,7 @@ errcode_for_dynamic_shared_memory.exit114.i:      ; preds = %114, %112
   br label %dsm_impl_posix.exit
 
 117:                                              ; preds = %dsm_impl_posix_resize.exit.i, %.thread.i
-  %.195.i = phi i64 [ %2, %dsm_impl_posix_resize.exit.i ], [ %85, %.thread.i ]
+  %.195.i = phi i64 [ %85, %.thread.i ], [ %2, %dsm_impl_posix_resize.exit.i ]
   %118 = call ptr @mmap(ptr noundef null, i64 noundef %.195.i, i32 noundef 3, i32 noundef 1, i32 noundef %51, i64 noundef 0) #11
   %119 = icmp eq ptr %118, inttoptr (i64 -1 to ptr)
   br i1 %119, label %120, label %135
@@ -345,7 +345,7 @@ errcode_for_dynamic_shared_memory.exit116.i:      ; preds = %132, %130
   br label %dsm_impl_posix.exit
 
 dsm_impl_posix.exit:                              ; preds = %126, %errcode_for_dynamic_shared_memory.exit116.i, %105, %errcode_for_dynamic_shared_memory.exit114.i, %58, %errcode_for_dynamic_shared_memory.exit110.i, %38, %errcode_for_dynamic_shared_memory.exit108.i, %25, %errcode_for_dynamic_shared_memory.exit.i, %35, %36, %55, %86, %135
-  %.0.i = phi i1 [ true, %135 ], [ false, %86 ], [ true, %36 ], [ true, %35 ], [ false, %55 ], [ false, %errcode_for_dynamic_shared_memory.exit.i ], [ false, %25 ], [ false, %errcode_for_dynamic_shared_memory.exit108.i ], [ false, %38 ], [ false, %errcode_for_dynamic_shared_memory.exit110.i ], [ false, %58 ], [ false, %errcode_for_dynamic_shared_memory.exit114.i ], [ false, %105 ], [ false, %errcode_for_dynamic_shared_memory.exit116.i ], [ false, %126 ]
+  %.0.i = phi i1 [ false, %55 ], [ false, %25 ], [ false, %58 ], [ true, %35 ], [ false, %105 ], [ true, %135 ], [ false, %86 ], [ true, %36 ], [ false, %38 ], [ false, %errcode_for_dynamic_shared_memory.exit.i ], [ false, %errcode_for_dynamic_shared_memory.exit108.i ], [ false, %errcode_for_dynamic_shared_memory.exit110.i ], [ false, %errcode_for_dynamic_shared_memory.exit114.i ], [ false, %errcode_for_dynamic_shared_memory.exit116.i ], [ false, %126 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %349
 
@@ -543,7 +543,7 @@ errcode_for_dynamic_shared_memory.exit125.i:      ; preds = %203, %201
   br label %dsm_impl_sysv.exit
 
 209:                                              ; preds = %.thread128.i, %192
-  %.097.i = phi i64 [ %2, %192 ], [ %207, %.thread128.i ]
+  %.097.i = phi i64 [ %207, %.thread128.i ], [ %2, %192 ]
   %210 = call ptr @shmat(i32 noundef %.0105.i, ptr noundef null, i32 noundef 0) #11
   %211 = icmp eq ptr %210, inttoptr (i64 -1 to ptr)
   br i1 %211, label %212, label %227
@@ -589,7 +589,7 @@ errcode_for_dynamic_shared_memory.exit127.i:      ; preds = %224, %222
   br label %dsm_impl_sysv.exit
 
 dsm_impl_sysv.exit:                               ; preds = %218, %errcode_for_dynamic_shared_memory.exit127.i, %188, %190, %174, %errcode_for_dynamic_shared_memory.exit123.i, %._crit_edge.i, %errcode_for_dynamic_shared_memory.exit.i25, %156, %145, %184, %185, %208, %227
-  %.0.i23 = phi i1 [ false, %145 ], [ true, %227 ], [ false, %208 ], [ true, %185 ], [ true, %184 ], [ false, %156 ], [ false, %errcode_for_dynamic_shared_memory.exit.i25 ], [ false, %._crit_edge.i ], [ false, %errcode_for_dynamic_shared_memory.exit123.i ], [ false, %174 ], [ false, %190 ], [ false, %188 ], [ false, %errcode_for_dynamic_shared_memory.exit127.i ], [ false, %218 ]
+  %.0.i23 = phi i1 [ false, %145 ], [ false, %._crit_edge.i ], [ false, %174 ], [ true, %184 ], [ false, %188 ], [ true, %227 ], [ false, %208 ], [ true, %185 ], [ false, %156 ], [ false, %errcode_for_dynamic_shared_memory.exit.i25 ], [ false, %errcode_for_dynamic_shared_memory.exit123.i ], [ false, %190 ], [ false, %errcode_for_dynamic_shared_memory.exit127.i ], [ false, %218 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %349
 
@@ -816,7 +816,7 @@ errcode_for_dynamic_shared_memory.exit143.i:      ; preds = %318, %316
   br label %dsm_impl_mmap.exit
 
 .critedge.i:                                      ; preds = %._crit_edge.i27, %298, %.thread.i34
-  %.1118.i = phi i64 [ %2, %._crit_edge.i27 ], [ %296, %.thread.i34 ], [ 0, %298 ]
+  %.1118.i = phi i64 [ %296, %.thread.i34 ], [ %2, %._crit_edge.i27 ], [ 0, %298 ]
   %321 = call ptr @mmap(ptr noundef null, i64 noundef %.1118.i, i32 noundef 3, i32 noundef 1, i32 noundef %263, i64 noundef 0) #11
   %322 = icmp eq ptr %321, inttoptr (i64 -1 to ptr)
   br i1 %322, label %323, label %338
@@ -874,7 +874,7 @@ errcode_for_dynamic_shared_memory.exit145.i:      ; preds = %335, %333
   br label %dsm_impl_mmap.exit
 
 dsm_impl_mmap.exit:                               ; preds = %340, %342, %329, %errcode_for_dynamic_shared_memory.exit145.i, %307, %errcode_for_dynamic_shared_memory.exit143.i, %270, %errcode_for_dynamic_shared_memory.exit139.i, %250, %errcode_for_dynamic_shared_memory.exit137.i, %237, %errcode_for_dynamic_shared_memory.exit.i39, %247, %248, %267, %297, %338
-  %.0.i31 = phi i1 [ false, %297 ], [ true, %248 ], [ true, %247 ], [ false, %267 ], [ true, %338 ], [ false, %errcode_for_dynamic_shared_memory.exit.i39 ], [ false, %237 ], [ false, %errcode_for_dynamic_shared_memory.exit137.i ], [ false, %250 ], [ false, %errcode_for_dynamic_shared_memory.exit139.i ], [ false, %270 ], [ false, %errcode_for_dynamic_shared_memory.exit143.i ], [ false, %307 ], [ false, %errcode_for_dynamic_shared_memory.exit145.i ], [ false, %329 ], [ false, %342 ], [ false, %340 ]
+  %.0.i31 = phi i1 [ true, %338 ], [ false, %237 ], [ false, %270 ], [ true, %247 ], [ false, %307 ], [ false, %329 ], [ false, %267 ], [ false, %297 ], [ true, %248 ], [ false, %250 ], [ false, %errcode_for_dynamic_shared_memory.exit.i39 ], [ false, %errcode_for_dynamic_shared_memory.exit137.i ], [ false, %errcode_for_dynamic_shared_memory.exit139.i ], [ false, %errcode_for_dynamic_shared_memory.exit143.i ], [ false, %errcode_for_dynamic_shared_memory.exit145.i ], [ false, %342 ], [ false, %340 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %349
 

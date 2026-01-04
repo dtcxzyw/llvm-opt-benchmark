@@ -389,7 +389,7 @@ _ZNK4QMapI7QStringN6QStyle14StandardPixmapEE8containsERKS0_.exit: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %577
 
-_ZNK4QMapI7QStringN6QStyle14StandardPixmapEE8containsERKS0_.exit.thread: ; preds = %83, %_ZNKSt8_Rb_treeI7QStringSt4pairIKS0_N6QStyle14StandardPixmapEESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i, %81, %_ZNK4QMapI7QStringN6QStyle14StandardPixmapEE8containsERKS0_.exit
+_ZNK4QMapI7QStringN6QStyle14StandardPixmapEE8containsERKS0_.exit.thread: ; preds = %_ZNKSt8_Rb_treeI7QStringSt4pairIKS0_N6QStyle14StandardPixmapEESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i, %83, %81, %_ZNK4QMapI7QStringN6QStyle14StandardPixmapEE8containsERKS0_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
@@ -1447,7 +1447,7 @@ _ZN17QArrayDataPointerIN5QIcon4ModeEE5derefEv.exit.i.i.i200: ; preds = %451
   br label %_ZN9QtPrivate17QForeachContainerI5QListIN5QIcon4ModeEEED2Ev.exit202
 
 _ZN9QtPrivate17QForeachContainerI5QListIN5QIcon4ModeEEED2Ev.exit202: ; preds = %451, %_ZN17QArrayDataPointerIN5QIcon4ModeEE5derefEv.exit.i.i.i200, %453, %435
-  %.pn70.pn.pn = phi { ptr, i32 } [ %436, %435 ], [ %.pn70, %451 ], [ %.pn70, %_ZN17QArrayDataPointerIN5QIcon4ModeEE5derefEv.exit.i.i.i200 ], [ %.pn70, %453 ]
+  %.pn70.pn.pn = phi { ptr, i32 } [ %436, %435 ], [ %.pn70, %453 ], [ %.pn70, %451 ], [ %.pn70, %_ZN17QArrayDataPointerIN5QIcon4ModeEE5derefEv.exit.i.i.i200 ]
   call void @_ZN12QStyleOptionD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(64) %55) #20
   br label %454
 
@@ -3040,7 +3040,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit54.thread: ; preds = %132, %
   br label %_ZN5QListIiED2Ev.exit58
 
 _ZN5QListIiED2Ev.exit58:                          ; preds = %134, %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit54.thread, %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit54.thread80, %_ZN5QListIiED2Ev.exit50
-  %.pn31.pn.pn.pn.pn = phi { ptr, i32 } [ %55, %_ZN5QListIiED2Ev.exit50 ], [ %.pn31.pn.pn, %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit54.thread ], [ %.pn31.pn.pn, %134 ], [ %.pn31.pn.pn, %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit54.thread80 ]
+  %.pn31.pn.pn.pn.pn = phi { ptr, i32 } [ %55, %_ZN5QListIiED2Ev.exit50 ], [ %.pn31.pn.pn, %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit54.thread80 ], [ %.pn31.pn.pn, %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit54.thread ], [ %.pn31.pn.pn, %134 ]
   resume { ptr, i32 } %.pn31.pn.pn.pn.pn
 }
 
@@ -3464,7 +3464,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit47.thread: ; preds = %107, %
   br label %_ZN5QListIiED2Ev.exit51
 
 _ZN5QListIiED2Ev.exit51:                          ; preds = %109, %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit47.thread, %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit47.thread66, %_ZN5QListIiED2Ev.exit42
-  %.pn23.pn.pn.pn.pn = phi { ptr, i32 } [ %56, %_ZN5QListIiED2Ev.exit42 ], [ %.pn23.pn.pn, %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit47.thread ], [ %.pn23.pn.pn, %109 ], [ %.pn23.pn.pn, %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit47.thread66 ]
+  %.pn23.pn.pn.pn.pn = phi { ptr, i32 } [ %56, %_ZN5QListIiED2Ev.exit42 ], [ %.pn23.pn.pn, %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit47.thread66 ], [ %.pn23.pn.pn, %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit47.thread ], [ %.pn23.pn.pn, %109 ]
   resume { ptr, i32 } %.pn23.pn.pn.pn.pn
 }
 
@@ -3875,7 +3875,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit49.thread: ; preds = %108, %
   br label %_ZN5QListIiED2Ev.exit53
 
 _ZN5QListIiED2Ev.exit53:                          ; preds = %110, %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit49.thread, %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit49.thread68, %_ZN5QListIiED2Ev.exit43
-  %.pn24.pn.pn.pn.pn = phi { ptr, i32 } [ %57, %_ZN5QListIiED2Ev.exit43 ], [ %.pn24.pn.pn, %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit49.thread ], [ %.pn24.pn.pn, %110 ], [ %.pn24.pn.pn, %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit49.thread68 ]
+  %.pn24.pn.pn.pn.pn = phi { ptr, i32 } [ %57, %_ZN5QListIiED2Ev.exit43 ], [ %.pn24.pn.pn, %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit49.thread68 ], [ %.pn24.pn.pn, %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit49.thread ], [ %.pn24.pn.pn, %110 ]
   resume { ptr, i32 } %.pn24.pn.pn.pn.pn
 }
 
@@ -4277,7 +4277,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit49.thread: ; preds = %107, %
   br label %_ZN5QListIiED2Ev.exit53
 
 _ZN5QListIiED2Ev.exit53:                          ; preds = %109, %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit49.thread, %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit49.thread68, %_ZN5QListIiED2Ev.exit45
-  %.pn26.pn.pn.pn.pn = phi { ptr, i32 } [ %55, %_ZN5QListIiED2Ev.exit45 ], [ %.pn26.pn.pn, %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit49.thread ], [ %.pn26.pn.pn, %109 ], [ %.pn26.pn.pn, %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit49.thread68 ]
+  %.pn26.pn.pn.pn.pn = phi { ptr, i32 } [ %55, %_ZN5QListIiED2Ev.exit45 ], [ %.pn26.pn.pn, %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit49.thread68 ], [ %.pn26.pn.pn, %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit49.thread ], [ %.pn26.pn.pn, %109 ]
   resume { ptr, i32 } %.pn26.pn.pn.pn.pn
 }
 

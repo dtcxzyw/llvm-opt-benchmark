@@ -373,7 +373,7 @@ tailrecurse:                                      ; preds = %49, %1
   br label %common.ret118
 
 common.ret118:                                    ; preds = %57, %48, %47, %31, %28, %18, %15, %3, %tailrecurse, %76, %71, %63, %60, %54, %39, %34
-  %common.ret118.op = phi ptr [ %38, %34 ], [ %46, %39 ], [ %56, %54 ], [ %62, %60 ], [ %70, %63 ], [ %75, %71 ], [ %80, %76 ], [ %5, %3 ], [ %24, %18 ], [ %17, %15 ], [ %33, %31 ], [ %30, %28 ], [ @.str.9, %47 ], [ @.str.10, %48 ], [ @.str.12, %57 ], [ @.str.5, %tailrecurse ]
+  %common.ret118.op = phi ptr [ %80, %76 ], [ %38, %34 ], [ %46, %39 ], [ %56, %54 ], [ %62, %60 ], [ %70, %63 ], [ %75, %71 ], [ %5, %3 ], [ @.str.9, %47 ], [ @.str.12, %57 ], [ %30, %28 ], [ %33, %31 ], [ %17, %15 ], [ %24, %18 ], [ @.str.10, %48 ], [ @.str.5, %tailrecurse ]
   ret ptr %common.ret118.op
 
 34:                                               ; preds = %tailrecurse
@@ -709,7 +709,7 @@ common.ret.loopexit:                              ; preds = %4
   br label %common.ret82
 
 common.ret82:                                     ; preds = %18, %26, %84, %71, %65, %60, %55, %common.ret.loopexit, %4, %4, %4, %77
-  %common.ret82.op = phi i32 [ %83, %77 ], [ %59, %55 ], [ %64, %60 ], [ %70, %65 ], [ %76, %71 ], [ %85, %84 ], [ %41, %26 ], [ %24, %18 ], [ 0, %common.ret.loopexit ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ]
+  %common.ret82.op = phi i32 [ %83, %77 ], [ 0, %common.ret.loopexit ], [ %85, %84 ], [ %24, %18 ], [ %59, %55 ], [ %41, %26 ], [ %64, %60 ], [ %70, %65 ], [ %76, %71 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ]
   ret i32 %common.ret82.op
 
 77:                                               ; preds = %4
@@ -1617,7 +1617,7 @@ define dso_local noundef zeroext i1 @type_func_match(ptr noundef readonly captur
   br label %59
 
 59:                                               ; preds = %.sink.split, %27, %3
-  %.026 = phi i1 [ false, %3 ], [ false, %27 ], [ %.026.ph, %.sink.split ]
+  %.026 = phi i1 [ false, %27 ], [ false, %3 ], [ %.026.ph, %.sink.split ]
   ret i1 %.026
 }
 
@@ -1802,7 +1802,7 @@ define dso_local i32 @type_abi_alignment(ptr noundef readonly captures(none) %0)
   unreachable
 
 .loopexit:                                        ; preds = %2, %2, %2, %77, %69, %64, %59, %53, %32
-  %.019 = phi i32 [ %.1, %32 ], [ %58, %53 ], [ %63, %59 ], [ %68, %64 ], [ %74, %69 ], [ %78, %77 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ]
+  %.019 = phi i32 [ %.1, %32 ], [ %78, %77 ], [ %58, %53 ], [ %63, %59 ], [ %68, %64 ], [ %74, %69 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ]
   ret i32 %.019
 }
 
@@ -2815,7 +2815,7 @@ type_flatten.exit86:                              ; preds = %type_flatten.exit
   br i1 %.not80, label %94, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph104, %104, %94, %.lr.ph111, %86, %74, %33, %75, %91, %38, %.thread, %83, %56, %type_flatten.exit86, %52, %48
-  %.072 = phi i1 [ %49, %48 ], [ %53, %52 ], [ true, %type_flatten.exit86 ], [ false, %56 ], [ false, %83 ], [ false, %.thread ], [ false, %38 ], [ true, %91 ], [ false, %75 ], [ false, %33 ], [ false, %74 ], [ true, %86 ], [ %45, %.lr.ph111 ], [ false, %.lr.ph104 ], [ false, %104 ], [ true, %94 ], [ %82, %.lr.ph ]
+  %.072 = phi i1 [ false, %74 ], [ true, %type_flatten.exit86 ], [ false, %.thread ], [ %49, %48 ], [ %53, %52 ], [ false, %56 ], [ false, %83 ], [ false, %75 ], [ false, %38 ], [ true, %91 ], [ true, %86 ], [ true, %94 ], [ %45, %.lr.ph111 ], [ false, %33 ], [ false, %.lr.ph104 ], [ false, %104 ], [ %82, %.lr.ph ]
   ret i1 %.072
 }
 
@@ -2901,7 +2901,7 @@ define internal fastcc zeroext i1 @array_structurally_equivalent_to_struct(ptr n
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph, %37, %42, %22, %29, %19, %9, %6
-  %.034 = phi i1 [ %8, %6 ], [ true, %9 ], [ false, %19 ], [ true, %29 ], [ true, %22 ], [ false, %.lr.ph ], [ false, %37 ], [ true, %42 ]
+  %.034 = phi i1 [ %8, %6 ], [ true, %9 ], [ false, %19 ], [ true, %29 ], [ true, %22 ], [ false, %.lr.ph ], [ true, %42 ], [ false, %37 ]
   ret i1 %.034
 }
 
@@ -4053,7 +4053,7 @@ compare_func_param.exit52.thread.i:               ; preds = %tailrecurse.backedg
 compare_function.exit:                            ; preds = %compare_func_param.exit.i
   br i1 %270, label %compare_function.exit.thread, label %func_create_new_func_proto.exit
 
-compare_function.exit.thread:                     ; preds = %255, %257, %252, %compare_func_param.exit52.i, %291, %293, %288, %237, %214, %compare_function.exit, %210
+compare_function.exit.thread:                     ; preds = %257, %255, %252, %compare_func_param.exit52.i, %291, %288, %293, %214, %237, %compare_function.exit, %210
   %307 = add i32 %.01762, 1
   %.017 = and i32 %307, %36
   %308 = zext i32 %.017 to i64
@@ -4063,7 +4063,7 @@ compare_function.exit.thread:                     ; preds = %255, %257, %252, %c
   br i1 %.not, label %._crit_edge, label %210
 
 func_create_new_func_proto.exit:                  ; preds = %compare_func_param.exit.thread.i, %271, %compare_function.exit, %compare_func_param.exit52.thread.i, %._crit_edge177.i, %._crit_edge.i
-  %.0 = phi ptr [ %173, %._crit_edge.i ], [ %173, %._crit_edge177.i ], [ %217, %compare_func_param.exit52.thread.i ], [ %217, %compare_function.exit ], [ %217, %271 ], [ %217, %compare_func_param.exit.thread.i ]
+  %.0 = phi ptr [ %173, %._crit_edge177.i ], [ %173, %._crit_edge.i ], [ %217, %compare_func_param.exit52.thread.i ], [ %217, %compare_function.exit ], [ %217, %271 ], [ %217, %compare_func_param.exit.thread.i ]
   ret ptr %.0
 }
 
@@ -4947,7 +4947,7 @@ define dso_local ptr @type_find_parent_type(ptr noundef readonly captures(none) 
   br label %26
 
 26:                                               ; preds = %1, %20, %14, %9, %3
-  %.0 = phi ptr [ %13, %9 ], [ null, %3 ], [ %25, %20 ], [ null, %14 ], [ null, %1 ]
+  %.0 = phi ptr [ null, %14 ], [ null, %3 ], [ %13, %9 ], [ %25, %20 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -5007,8 +5007,8 @@ type_find_parent_type.exit:                       ; preds = %14, %24
   %.not.not = icmp eq ptr %.0.i, null
   br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
-._crit_edge:                                      ; preds = %6, %18, %8, %.lr.ph, %type_find_parent_type.exit, %2
-  %.not.lcssa = phi i1 [ false, %2 ], [ %5, %type_find_parent_type.exit ], [ %5, %.lr.ph ], [ %5, %8 ], [ %5, %18 ], [ %5, %6 ]
+._crit_edge:                                      ; preds = %6, %8, %18, %.lr.ph, %type_find_parent_type.exit, %2
+  %.not.lcssa = phi i1 [ false, %2 ], [ %5, %type_find_parent_type.exit ], [ %5, %.lr.ph ], [ %5, %18 ], [ %5, %8 ], [ %5, %6 ]
   ret i1 %.not.lcssa
 }
 
@@ -5180,23 +5180,23 @@ type_flatten.exit34:                              ; preds = %type_flatten.exit, 
 
 65:                                               ; preds = %62
   %66 = icmp samesign ult i32 %51, 8
-  br i1 %66, label %67, label %type_is_matching_int.exit
+  br i1 %66, label %type_is_matching_int.exit, label %67
 
 67:                                               ; preds = %65
-  %68 = add nuw nsw i32 %51, 5
-  %69 = icmp eq i32 %68, %63
+  %68 = add i32 %63, 5
+  %69 = icmp eq i32 %68, %51
   br i1 %69, label %73, label %72
 
 type_is_matching_int.exit:                        ; preds = %65
-  %70 = add i32 %63, 5
-  %71 = icmp eq i32 %70, %51
+  %70 = add nuw nsw i32 %51, 5
+  %71 = icmp eq i32 %70, %63
   br i1 %71, label %73, label %72
 
 72:                                               ; preds = %67, %type_is_matching_int.exit, %50
   br label %73
 
 73:                                               ; preds = %62, %67, %type_is_matching_int.exit, %56, %52, %46, %37, %type_flatten.exit34, %72, %60, %57, %54
-  %.0 = phi i32 [ 0, %72 ], [ %55, %54 ], [ %59, %57 ], [ %61, %60 ], [ 1, %type_flatten.exit34 ], [ 1, %37 ], [ 1, %46 ], [ 0, %52 ], [ 0, %56 ], [ 2, %type_is_matching_int.exit ], [ 2, %67 ], [ 2, %62 ]
+  %.0 = phi i32 [ 0, %56 ], [ 1, %type_flatten.exit34 ], [ 0, %72 ], [ 1, %46 ], [ %55, %54 ], [ %59, %57 ], [ 0, %52 ], [ %61, %60 ], [ 1, %37 ], [ 2, %type_is_matching_int.exit ], [ 2, %67 ], [ 2, %62 ]
   ret i32 %.0
 }
 
@@ -5204,15 +5204,15 @@ type_is_matching_int.exit:                        ; preds = %65
 define dso_local i32 @type_is_pointer_equivalent(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %132, %4
-  %.tr85 = phi ptr [ %1, %4 ], [ %135, %132 ]
-  %.tr86 = phi ptr [ %2, %4 ], [ %.158, %132 ]
+tailrecurse:                                      ; preds = %131, %4
+  %.tr85 = phi ptr [ %1, %4 ], [ %134, %131 ]
+  %.tr86 = phi ptr [ %2, %4 ], [ %.158, %131 ]
   %5 = load ptr, ptr @type_voidptr, align 8
   br label %6
 
-6:                                                ; preds = %136, %tailrecurse
-  %.057 = phi ptr [ %.tr85, %tailrecurse ], [ %.054, %136 ]
-  %.056 = phi ptr [ %.tr86, %tailrecurse ], [ %.053, %136 ]
+6:                                                ; preds = %135, %tailrecurse
+  %.057 = phi ptr [ %.tr85, %tailrecurse ], [ %.054, %135 ]
+  %.056 = phi ptr [ %.tr86, %tailrecurse ], [ %.053, %135 ]
   br i1 %3, label %.preheader88, label %type_flatten.exit71
 
 .preheader88:                                     ; preds = %6, %19
@@ -5427,102 +5427,102 @@ type_find_parent_type.exit.i:                     ; preds = %95, %85
   %.not.not.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !23
 
-.loopexit:                                        ; preds = %77, %89, %79, %type_find_parent_type.exit.i, %73
+.loopexit:                                        ; preds = %77, %79, %89, %type_find_parent_type.exit.i, %73
   %100 = load i32, ptr %.054, align 8
   %101 = load i32, ptr %.053, align 8
   %.not = icmp eq i32 %100, %101
-  br i1 %.not, label %136, label %102
+  br i1 %.not, label %135, label %102
 
 102:                                              ; preds = %.loopexit
   %103 = add i32 %100, -3
   %104 = icmp ult i32 %103, 5
-  br i1 %104, label %105, label %108
+  br i1 %104, label %type_is_matching_int.exit, label %105
 
 105:                                              ; preds = %102
-  %106 = add nuw nsw i32 %100, 5
-  %107 = icmp eq i32 %106, %101
-  br i1 %107, label %type_is_subtype.exit, label %type_is_matching_int.exit.thread
-
-108:                                              ; preds = %102
-  %109 = add i32 %100, -8
-  %110 = icmp ult i32 %109, 5
-  %111 = add i32 %101, 5
-  %112 = icmp eq i32 %111, %100
-  %or.cond84 = and i1 %110, %112
+  %106 = add i32 %100, -8
+  %107 = icmp ult i32 %106, 5
+  %108 = add i32 %101, 5
+  %109 = icmp eq i32 %108, %100
+  %or.cond84 = and i1 %107, %109
   br i1 %or.cond84, label %type_is_subtype.exit, label %type_is_matching_int.exit.thread
 
-type_is_matching_int.exit.thread:                 ; preds = %108, %105
-  %113 = icmp eq i32 %101, 31
-  br i1 %113, label %114, label %118
+type_is_matching_int.exit:                        ; preds = %102
+  %110 = add nuw nsw i32 %100, 5
+  %111 = icmp eq i32 %110, %101
+  br i1 %111, label %type_is_subtype.exit, label %type_is_matching_int.exit.thread
 
-114:                                              ; preds = %type_is_matching_int.exit.thread
-  %115 = getelementptr inbounds nuw i8, ptr %.053, i64 8
-  %116 = load ptr, ptr %115, align 8
-  %117 = load i32, ptr %116, align 8
-  br label %118
+type_is_matching_int.exit.thread:                 ; preds = %105, %type_is_matching_int.exit
+  %112 = icmp eq i32 %101, 31
+  br i1 %112, label %113, label %117
 
-118:                                              ; preds = %114, %type_is_matching_int.exit.thread
-  %.0 = phi i32 [ %117, %114 ], [ %101, %type_is_matching_int.exit.thread ]
-  %119 = add i32 %.0, -33
-  %120 = icmp ult i32 %119, 6
-  br i1 %120, label %121, label %type_is_subtype.exit
+113:                                              ; preds = %type_is_matching_int.exit.thread
+  %114 = getelementptr inbounds nuw i8, ptr %.053, i64 8
+  %115 = load ptr, ptr %114, align 8
+  %116 = load i32, ptr %115, align 8
+  br label %117
 
-121:                                              ; preds = %118
-  %122 = icmp eq i32 %100, 31
-  br i1 %122, label %123, label %127
+117:                                              ; preds = %113, %type_is_matching_int.exit.thread
+  %.0 = phi i32 [ %116, %113 ], [ %101, %type_is_matching_int.exit.thread ]
+  %118 = add i32 %.0, -33
+  %119 = icmp ult i32 %118, 6
+  br i1 %119, label %120, label %type_is_subtype.exit
 
-123:                                              ; preds = %121
-  %124 = getelementptr inbounds nuw i8, ptr %.054, i64 8
-  %125 = load ptr, ptr %124, align 8
-  %126 = load i32, ptr %125, align 8
-  br label %127
+120:                                              ; preds = %117
+  %121 = icmp eq i32 %100, 31
+  br i1 %121, label %122, label %126
 
-127:                                              ; preds = %123, %121
-  %.055 = phi i32 [ %126, %123 ], [ %100, %121 ]
-  %128 = add i32 %.055, -33
-  %129 = icmp ult i32 %128, 6
-  br i1 %129, label %130, label %132
+122:                                              ; preds = %120
+  %123 = getelementptr inbounds nuw i8, ptr %.054, i64 8
+  %124 = load ptr, ptr %123, align 8
+  %125 = load i32, ptr %124, align 8
+  br label %126
 
-130:                                              ; preds = %127
-  %131 = tail call fastcc i32 @type_array_is_equivalent(ptr noundef %0, ptr noundef nonnull %.054, ptr noundef nonnull %.053, i1 noundef zeroext %3)
-  %.not66 = icmp eq i32 %131, 0
-  br i1 %.not66, label %132, label %type_is_subtype.exit
+126:                                              ; preds = %122, %120
+  %.055 = phi i32 [ %125, %122 ], [ %100, %120 ]
+  %127 = add i32 %.055, -33
+  %128 = icmp ult i32 %127, 6
+  br i1 %128, label %129, label %131
 
-132:                                              ; preds = %130, %127
-  %133 = getelementptr inbounds nuw i8, ptr %.053, i64 56
-  %134 = load ptr, ptr %133, align 8
-  %135 = tail call fastcc ptr @type_generate_ptr(ptr noundef %134, i1 noundef zeroext false)
+129:                                              ; preds = %126
+  %130 = tail call fastcc i32 @type_array_is_equivalent(ptr noundef %0, ptr noundef nonnull %.054, ptr noundef nonnull %.053, i1 noundef zeroext %3)
+  %.not66 = icmp eq i32 %130, 0
+  br i1 %.not66, label %131, label %type_is_subtype.exit
+
+131:                                              ; preds = %129, %126
+  %132 = getelementptr inbounds nuw i8, ptr %.053, i64 56
+  %133 = load ptr, ptr %132, align 8
+  %134 = tail call fastcc ptr @type_generate_ptr(ptr noundef %133, i1 noundef zeroext false)
   br label %tailrecurse
 
-136:                                              ; preds = %.loopexit
+135:                                              ; preds = %.loopexit
   switch i32 %100, label %type_is_subtype.exit [
-    i32 25, label %137
+    i32 25, label %136
     i32 23, label %6
   ]
 
-137:                                              ; preds = %136
-  %138 = tail call zeroext i1 @sema_resolve_type_decl(ptr noundef %0, ptr noundef nonnull %.054) #15
-  br i1 %138, label %139, label %type_is_subtype.exit
+136:                                              ; preds = %135
+  %137 = tail call zeroext i1 @sema_resolve_type_decl(ptr noundef %0, ptr noundef nonnull %.054) #15
+  br i1 %137, label %138, label %type_is_subtype.exit
 
-139:                                              ; preds = %137
-  %140 = tail call zeroext i1 @sema_resolve_type_decl(ptr noundef %0, ptr noundef nonnull %.053) #15
-  br i1 %140, label %141, label %type_is_subtype.exit
+138:                                              ; preds = %136
+  %139 = tail call zeroext i1 @sema_resolve_type_decl(ptr noundef %0, ptr noundef nonnull %.053) #15
+  br i1 %139, label %140, label %type_is_subtype.exit
 
-141:                                              ; preds = %139
-  %142 = getelementptr inbounds nuw i8, ptr %.054, i64 72
-  %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds nuw i8, ptr %143, i64 88
-  %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds nuw i8, ptr %.053, i64 72
-  %147 = load ptr, ptr %146, align 8
-  %148 = getelementptr inbounds nuw i8, ptr %147, i64 88
-  %149 = load ptr, ptr %148, align 8
-  %150 = icmp eq ptr %145, %149
-  %151 = zext i1 %150 to i32
+140:                                              ; preds = %138
+  %141 = getelementptr inbounds nuw i8, ptr %.054, i64 72
+  %142 = load ptr, ptr %141, align 8
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 88
+  %144 = load ptr, ptr %143, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %.053, i64 72
+  %146 = load ptr, ptr %145, align 8
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 88
+  %148 = load ptr, ptr %147, align 8
+  %149 = icmp eq ptr %144, %148
+  %150 = zext i1 %149 to i32
   br label %type_is_subtype.exit
 
-type_is_subtype.exit:                             ; preds = %108, %105, %118, %130, %type_flatten.exit79, %34, %type_flatten.exit71, %136, %.lr.ph.i, %139, %137, %141
-  %.059 = phi i32 [ %151, %141 ], [ -1, %137 ], [ -1, %139 ], [ 1, %.lr.ph.i ], [ 1, %type_flatten.exit79 ], [ 1, %34 ], [ 1, %type_flatten.exit71 ], [ 0, %136 ], [ 2, %108 ], [ 2, %105 ], [ 0, %118 ], [ %131, %130 ]
+type_is_subtype.exit:                             ; preds = %105, %117, %129, %type_is_matching_int.exit, %type_flatten.exit79, %34, %type_flatten.exit71, %135, %.lr.ph.i, %138, %136, %140
+  %.059 = phi i32 [ -1, %138 ], [ %150, %140 ], [ -1, %136 ], [ 1, %type_flatten.exit71 ], [ 1, %.lr.ph.i ], [ 0, %135 ], [ 1, %type_flatten.exit79 ], [ 1, %34 ], [ 2, %type_is_matching_int.exit ], [ 2, %105 ], [ %130, %129 ], [ 0, %117 ]
   ret i32 %.059
 }
 
@@ -5585,7 +5585,7 @@ define internal fastcc i32 @type_array_is_equivalent(ptr noundef captures(none) 
   br label %29
 
 29:                                               ; preds = %.sink.split, %4, %19, %15, %14, %9, %8, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %8 ], [ 0, %9 ], [ 0, %14 ], [ 0, %15 ], [ 0, %19 ], [ 0, %4 ], [ %28, %.sink.split ]
+  %.0 = phi i32 [ 0, %19 ], [ 0, %4 ], [ 0, %14 ], [ 0, %7 ], [ 0, %8 ], [ 0, %15 ], [ 0, %9 ], [ %28, %.sink.split ]
   ret i32 %.0
 }
 
@@ -5669,7 +5669,7 @@ define dso_local zeroext i1 @type_may_have_method(ptr noundef readonly captures(
   unreachable
 
 15:                                               ; preds = %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %13, %10
-  %.05 = phi i1 [ %12, %10 ], [ false, %13 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ]
+  %.05 = phi i1 [ false, %13 ], [ %12, %10 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ]
   ret i1 %.05
 }
 
@@ -5759,7 +5759,7 @@ switch.lookup:                                    ; preds = %.split.i
   br label %28
 
 28:                                               ; preds = %10, %switch.lookup, %17, %8, %8, %8, %8, %2
-  %.0 = phi ptr [ null, %2 ], [ %1, %8 ], [ %1, %8 ], [ %1, %8 ], [ %1, %8 ], [ %.0.i, %switch.lookup ], [ %0, %17 ], [ %1, %10 ]
+  %.0 = phi ptr [ %1, %10 ], [ null, %2 ], [ %1, %8 ], [ %0, %17 ], [ %1, %8 ], [ %1, %8 ], [ %1, %8 ], [ %.0.i, %switch.lookup ]
   ret ptr %.0
 }
 
@@ -6187,7 +6187,7 @@ tailrecurse:                                      ; preds = %48
   unreachable
 
 .critedge120:                                     ; preds = %tailrecurse, %9, %13, %.critedge2, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %48, %.lr.ph176, %.thread, %2, %90, %169, %188, %188, %188, %188, %175, %152, %130, %109, %105, %190, %177, %173, %167, %147, %116, %112, %.thread124, %.thread123
-  %.0106 = phi ptr [ %89, %.thread123 ], [ %108, %.thread124 ], [ %115, %112 ], [ %119, %116 ], [ %148, %147 ], [ %168, %167 ], [ %174, %173 ], [ %187, %177 ], [ null, %190 ], [ %spec.select118, %105 ], [ %spec.select118, %109 ], [ %spec.select118, %130 ], [ %spec.select118, %152 ], [ null, %175 ], [ %spec.select118, %188 ], [ %spec.select118, %188 ], [ %spec.select118, %188 ], [ %spec.select118, %188 ], [ %spec.select121, %169 ], [ %spec.select118, %90 ], [ %4, %2 ], [ %spec.select118, %.thread ], [ %spec.select118, %.lr.ph176 ], [ %85, %tailrecurse ], [ %10, %9 ], [ %11, %13 ], [ %.0104.lcssa, %.critedge2 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ %spec.select118, %48 ]
+  %.0106 = phi ptr [ %spec.select118, %188 ], [ %4, %2 ], [ %174, %173 ], [ %spec.select121, %169 ], [ %187, %177 ], [ null, %175 ], [ %spec.select118, %188 ], [ %spec.select118, %188 ], [ %spec.select118, %188 ], [ %89, %.thread123 ], [ null, %190 ], [ %spec.select118, %105 ], [ %108, %.thread124 ], [ %spec.select118, %90 ], [ %115, %112 ], [ %119, %116 ], [ %spec.select118, %109 ], [ %148, %147 ], [ %spec.select118, %130 ], [ %168, %167 ], [ %spec.select118, %152 ], [ %spec.select118, %.lr.ph176 ], [ %spec.select118, %.thread ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ %.0104.lcssa, %.critedge2 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ %11, %13 ], [ %10, %9 ], [ %85, %tailrecurse ], [ null, %44 ], [ %spec.select118, %48 ]
   ret ptr %.0106
 }
 
@@ -6306,7 +6306,7 @@ type_find_parent_type.exit.i:                     ; preds = %60, %50
   %.not.not.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.not.i, label %.loopexit50, label %.lr.ph.i, !llvm.loop !23
 
-.loopexit50:                                      ; preds = %42, %54, %44, %type_find_parent_type.exit.i, %35
+.loopexit50:                                      ; preds = %42, %44, %54, %type_find_parent_type.exit.i, %35
   %.not8.not.i36 = icmp eq ptr %36, null
   br i1 %.not8.not.i36, label %.loopexit, label %.lr.ph.i37
 
@@ -6361,7 +6361,7 @@ type_find_parent_type.exit.i40:                   ; preds = %86, %76
   %.not.not.i43 = icmp eq ptr %.0.i.i42, null
   br i1 %.not.not.i43, label %.loopexit, label %.lr.ph.i37, !llvm.loop !23
 
-.loopexit:                                        ; preds = %68, %80, %70, %type_find_parent_type.exit.i40, %.loopexit50
+.loopexit:                                        ; preds = %68, %70, %80, %type_find_parent_type.exit.i40, %.loopexit50
   %91 = tail call ptr @type_find_max_type(ptr noundef nonnull %spec.select35, ptr noundef %.1)
   %.not33 = icmp eq ptr %91, null
   br i1 %.not33, label %type_is_subtype.exit, label %92
@@ -6371,7 +6371,7 @@ type_find_parent_type.exit.i40:                   ; preds = %86, %76
   br label %type_is_subtype.exit
 
 type_is_subtype.exit:                             ; preds = %.lr.ph.i, %.lr.ph.i37, %.loopexit, %2, %4, %92, %24, %10
-  %.0 = phi ptr [ %11, %10 ], [ %25, %24 ], [ %93, %92 ], [ null, %4 ], [ null, %2 ], [ null, %.loopexit ], [ %1, %.lr.ph.i37 ], [ %0, %.lr.ph.i ]
+  %.0 = phi ptr [ %11, %10 ], [ %1, %.lr.ph.i37 ], [ null, %4 ], [ %25, %24 ], [ null, %2 ], [ null, %.loopexit ], [ %93, %92 ], [ %0, %.lr.ph.i ]
   ret ptr %.0
 }
 
@@ -6529,7 +6529,7 @@ define dso_local ptr @type_find_common_ancestor(ptr noundef readonly captures(ad
   br i1 %.not55, label %.loopexit58, label %.lr.ph67.split
 
 .loopexit58:                                      ; preds = %31, %..loopexit_crit_edge.us, %.lr.ph67.split.us, %56, %.loopexit, %.lr.ph67.split, %.preheader, %13, %20, %14, %10, %4, %2
-  %.037 = phi ptr [ %0, %2 ], [ %6, %4 ], [ null, %10 ], [ %21, %20 ], [ null, %14 ], [ null, %13 ], [ null, %.preheader ], [ null, %.lr.ph67.split ], [ null, %.loopexit ], [ %54, %56 ], [ null, %.lr.ph67.split.us ], [ null, %..loopexit_crit_edge.us ], [ %8, %31 ]
+  %.037 = phi ptr [ null, %13 ], [ %0, %2 ], [ %6, %4 ], [ null, %10 ], [ null, %14 ], [ %21, %20 ], [ null, %.preheader ], [ %54, %56 ], [ null, %..loopexit_crit_edge.us ], [ null, %.loopexit ], [ null, %.lr.ph67.split ], [ null, %.lr.ph67.split.us ], [ %8, %31 ]
   ret ptr %.037
 }
 
@@ -6655,7 +6655,7 @@ define dso_local range(i32 0, 21) i32 @type_get_introspection_kind(i32 noundef %
   unreachable
 
 25:                                               ; preds = %1, %1, %22, %21, %20, %19, %18, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi i32 [ 1, %2 ], [ 2, %3 ], [ 3, %4 ], [ 4, %5 ], [ 7, %6 ], [ 6, %7 ], [ 20, %8 ], [ 5, %9 ], [ 19, %10 ], [ 8, %11 ], [ 13, %12 ], [ 10, %13 ], [ 11, %14 ], [ 12, %15 ], [ 9, %16 ], [ 18, %18 ], [ 15, %19 ], [ 16, %20 ], [ 17, %21 ], [ 14, %22 ], [ 0, %1 ], [ 0, %1 ]
+  %.0 = phi i32 [ 14, %22 ], [ 0, %1 ], [ 1, %2 ], [ 2, %3 ], [ 3, %4 ], [ 4, %5 ], [ 7, %6 ], [ 6, %7 ], [ 20, %8 ], [ 5, %9 ], [ 19, %10 ], [ 8, %11 ], [ 13, %12 ], [ 10, %13 ], [ 11, %14 ], [ 12, %15 ], [ 9, %16 ], [ 18, %18 ], [ 15, %19 ], [ 16, %20 ], [ 17, %21 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -6763,7 +6763,7 @@ define dso_local ptr @type_base_module(ptr noundef readonly captures(none) %0) l
   unreachable
 
 .loopexit:                                        ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %21, %16, %14, %12, %6
-  %.012 = phi ptr [ %13, %12 ], [ %15, %14 ], [ null, %6 ], [ %22, %21 ], [ null, %16 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ]
+  %.012 = phi ptr [ null, %6 ], [ %13, %12 ], [ %22, %21 ], [ null, %16 ], [ %15, %14 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ]
   ret ptr %.012
 }
 
@@ -7005,7 +7005,7 @@ tailrecurse:                                      ; preds = %3, %1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse, %53, %48, %46, %41, %39, %34, %30, %25, %23, %18, %16, %11, %6
-  %.0 = phi ptr [ %10, %6 ], [ %17, %16 ], [ %.tr, %11 ], [ %24, %23 ], [ %.tr, %18 ], [ %33, %30 ], [ %.tr, %25 ], [ %40, %39 ], [ %.tr, %34 ], [ %47, %46 ], [ %.tr, %41 ], [ %54, %53 ], [ %.tr, %48 ], [ %.tr, %tailrecurse ]
+  %.0 = phi ptr [ %.tr, %48 ], [ %54, %53 ], [ %10, %6 ], [ %.tr, %41 ], [ %.tr, %11 ], [ %.tr, %18 ], [ %.tr, %25 ], [ %.tr, %34 ], [ %17, %16 ], [ %24, %23 ], [ %33, %30 ], [ %40, %39 ], [ %47, %46 ], [ %.tr, %tailrecurse ]
   ret ptr %.0
 }
 

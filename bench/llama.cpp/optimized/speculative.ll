@@ -872,7 +872,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74: ; preds = %_ZN
   br i1 %exitcond.not, label %.thread81, label %.lr.ph, !llvm.loop !112
 
 .thread81:                                        ; preds = %.critedge, %.preheader, %46, %49, %78, %75, %84, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68, %52, %61, %27, %30
-  %.054 = phi i1 [ false, %30 ], [ false, %27 ], [ false, %61 ], [ false, %52 ], [ false, %78 ], [ false, %75 ], [ false, %84 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68 ], [ false, %49 ], [ false, %46 ], [ true, %.preheader ], [ true, %.critedge ]
+  %.054 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68 ], [ false, %27 ], [ false, %52 ], [ false, %30 ], [ false, %61 ], [ false, %75 ], [ false, %78 ], [ false, %46 ], [ false, %84 ], [ false, %49 ], [ true, %.preheader ], [ true, %.critedge ]
   ret i1 %.054
 }
 
@@ -2019,17 +2019,17 @@ _ZNSt6vectorIiSaIiEED2Ev.exit256:                 ; preds = %476, %473, %471
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %481
 
-.critedge182:                                     ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, %98, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit254, %426, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit240, %.preheader291
-  %storemerge371 = phi ptr [ %.promoted343, %.preheader291 ], [ %416, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit240 ], [ %416, %426 ], [ %416, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit254 ], [ %136, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ %101, %98 ]
-  %storemerge = phi ptr [ %.promoted353, %.preheader291 ], [ %415, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit240 ], [ %415, %426 ], [ %415, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit254 ], [ %135, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ %100, %98 ]
+.critedge182:                                     ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, %98, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit254, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit240, %426, %.preheader291
+  %storemerge371 = phi ptr [ %416, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit254 ], [ %.promoted343, %.preheader291 ], [ %416, %426 ], [ %416, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit240 ], [ %101, %98 ], [ %136, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
+  %storemerge = phi ptr [ %415, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit254 ], [ %.promoted353, %.preheader291 ], [ %415, %426 ], [ %415, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit240 ], [ %100, %98 ], [ %135, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
   store ptr %storemerge371, ptr %67, align 8
   store ptr %storemerge, ptr %0, align 8
   ret void
 
 481:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit292, %.loopexit.split-lp293, %.loopexit299, %.loopexit.split-lp300, %_ZNSt6vectorIiSaIiEED2Ev.exit256, %271, %_ZNSt6vectorIiSaIiEED2Ev.exit226, %354, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit230, %377, %352, %_ZNSt6vectorIiSaIiEED2Ev.exit210, %78
-  %482 = phi ptr [ %79, %78 ], [ %.promoted343, %_ZNSt6vectorIiSaIiEED2Ev.exit210 ], [ %.promoted343, %271 ], [ %.promoted343, %_ZNSt6vectorIiSaIiEED2Ev.exit226 ], [ %334, %352 ], [ %334, %354 ], [ %334, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit230 ], [ %334, %377 ], [ %416, %_ZNSt6vectorIiSaIiEED2Ev.exit256 ], [ %99, %.loopexit299 ], [ %99, %.loopexit.split-lp300 ], [ %.promoted343, %.loopexit292 ], [ %.promoted343, %.loopexit.split-lp293 ], [ %423, %.loopexit ], [ %424, %.loopexit.split-lp ]
-  %483 = phi ptr [ %80, %78 ], [ %.promoted353, %_ZNSt6vectorIiSaIiEED2Ev.exit210 ], [ %.promoted353, %271 ], [ %.promoted353, %_ZNSt6vectorIiSaIiEED2Ev.exit226 ], [ %335, %352 ], [ %335, %354 ], [ %335, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit230 ], [ %335, %377 ], [ %415, %_ZNSt6vectorIiSaIiEED2Ev.exit256 ], [ %100, %.loopexit299 ], [ %100, %.loopexit.split-lp300 ], [ %.promoted353, %.loopexit292 ], [ %.promoted353, %.loopexit.split-lp293 ], [ %422, %.loopexit ], [ %425, %.loopexit.split-lp ]
-  %.pn176.pn = phi { ptr, i32 } [ %81, %78 ], [ %.pn174, %_ZNSt6vectorIiSaIiEED2Ev.exit210 ], [ %272, %271 ], [ %.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit226 ], [ %353, %352 ], [ %355, %354 ], [ %.pn168, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit230 ], [ %378, %377 ], [ %.pn164, %_ZNSt6vectorIiSaIiEED2Ev.exit256 ], [ %lpad.loopexit301, %.loopexit299 ], [ %lpad.loopexit.split-lp302, %.loopexit.split-lp300 ], [ %lpad.loopexit294, %.loopexit292 ], [ %lpad.loopexit.split-lp295, %.loopexit.split-lp293 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %482 = phi ptr [ %416, %_ZNSt6vectorIiSaIiEED2Ev.exit256 ], [ %.promoted343, %_ZNSt6vectorIiSaIiEED2Ev.exit210 ], [ %79, %78 ], [ %334, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit230 ], [ %.promoted343, %.loopexit.split-lp293 ], [ %99, %.loopexit.split-lp300 ], [ %.promoted343, %_ZNSt6vectorIiSaIiEED2Ev.exit226 ], [ %.promoted343, %271 ], [ %334, %352 ], [ %334, %354 ], [ %334, %377 ], [ %99, %.loopexit299 ], [ %.promoted343, %.loopexit292 ], [ %423, %.loopexit ], [ %424, %.loopexit.split-lp ]
+  %483 = phi ptr [ %415, %_ZNSt6vectorIiSaIiEED2Ev.exit256 ], [ %.promoted353, %_ZNSt6vectorIiSaIiEED2Ev.exit210 ], [ %80, %78 ], [ %335, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit230 ], [ %.promoted353, %.loopexit.split-lp293 ], [ %100, %.loopexit.split-lp300 ], [ %.promoted353, %_ZNSt6vectorIiSaIiEED2Ev.exit226 ], [ %.promoted353, %271 ], [ %335, %352 ], [ %335, %354 ], [ %335, %377 ], [ %100, %.loopexit299 ], [ %.promoted353, %.loopexit292 ], [ %422, %.loopexit ], [ %425, %.loopexit.split-lp ]
+  %.pn176.pn = phi { ptr, i32 } [ %.pn164, %_ZNSt6vectorIiSaIiEED2Ev.exit256 ], [ %.pn174, %_ZNSt6vectorIiSaIiEED2Ev.exit210 ], [ %81, %78 ], [ %.pn168, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit230 ], [ %lpad.loopexit.split-lp295, %.loopexit.split-lp293 ], [ %lpad.loopexit.split-lp302, %.loopexit.split-lp300 ], [ %.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit226 ], [ %272, %271 ], [ %353, %352 ], [ %355, %354 ], [ %378, %377 ], [ %lpad.loopexit301, %.loopexit299 ], [ %lpad.loopexit294, %.loopexit292 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i257 = icmp eq ptr %483, null
   br i1 %.not.i.i.i257, label %_ZNSt6vectorIiSaIiEED2Ev.exit258, label %484
 

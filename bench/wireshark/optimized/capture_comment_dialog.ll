@@ -2082,7 +2082,7 @@ _ZNK11CaptureFile7capFileEv.exit18:               ; preds = %.lr.ph29, %48
   br i1 %.not16, label %.lr.ph, label %.critedge, !llvm.loop !32
 
 .critedge:                                        ; preds = %_ZNK11CaptureFile7capFileEv.exit18, %_ZNK11CaptureFile7capFileEv.exit17, %.preheader, %1, %_ZNK11CaptureFile7capFileEv.exit, %.lr.ph._crit_edge
-  %.121.lcssa.sink = phi i32 [ %.121.lcssa, %.lr.ph._crit_edge ], [ 0, %_ZNK11CaptureFile7capFileEv.exit ], [ 0, %1 ], [ 0, %_ZNK11CaptureFile7capFileEv.exit17 ], [ 0, %.preheader ], [ 1, %_ZNK11CaptureFile7capFileEv.exit18 ]
+  %.121.lcssa.sink = phi i32 [ %.121.lcssa, %.lr.ph._crit_edge ], [ 0, %1 ], [ 0, %_ZNK11CaptureFile7capFileEv.exit ], [ 0, %_ZNK11CaptureFile7capFileEv.exit17 ], [ 0, %.preheader ], [ 1, %_ZNK11CaptureFile7capFileEv.exit18 ]
   %57 = load ptr, ptr %0, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 432
   %59 = load ptr, ptr %58, align 8

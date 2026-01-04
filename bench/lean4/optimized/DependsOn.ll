@@ -44,7 +44,7 @@ lean_obj_tag.exit.thread:                         ; preds = %2
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %lean_obj_tag.exit, %12, %14, %15, %lean_obj_tag.exit.thread
-  %.0 = phi i8 [ 0, %lean_obj_tag.exit.thread ], [ 1, %15 ], [ 1, %14 ], [ 1, %12 ], [ %spec.select, %lean_obj_tag.exit ]
+  %.0 = phi i8 [ 0, %lean_obj_tag.exit.thread ], [ %spec.select, %lean_obj_tag.exit ], [ 1, %15 ], [ 1, %14 ], [ 1, %12 ]
   ret i8 %.0
 }
 
@@ -89,7 +89,7 @@ lean_obj_tag.exit.thread.i:                       ; preds = %2
   br label %l___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_fvarDepOn.exit
 
 l___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_fvarDepOn.exit: ; preds = %lean_obj_tag.exit.i, %lean_obj_tag.exit.thread.i, %12, %14, %15
-  %.0.i = phi i64 [ 1, %lean_obj_tag.exit.thread.i ], [ 3, %15 ], [ 3, %14 ], [ 3, %12 ], [ %7, %lean_obj_tag.exit.i ]
+  %.0.i = phi i64 [ 1, %lean_obj_tag.exit.thread.i ], [ %7, %lean_obj_tag.exit.i ], [ 3, %15 ], [ 3, %14 ], [ 3, %12 ]
   %16 = ptrtoint ptr %1 to i64
   %17 = and i64 %16, 1
   %.not = icmp eq i64 %17, 0
@@ -270,13 +270,13 @@ lean_dec.exit.sink.split:                         ; preds = %lean_obj_tag.exit, 
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %lean_dec.exit.sink.split, %59, %43, %36, %29
-  %.151 = phi ptr [ %33, %29 ], [ %40, %36 ], [ %47, %43 ], [ %56, %59 ], [ %64, %lean_dec.exit.sink.split ]
+  %.151 = phi ptr [ %40, %36 ], [ %47, %43 ], [ %56, %59 ], [ %33, %29 ], [ %64, %lean_dec.exit.sink.split ]
   %65 = tail call zeroext i8 @l_Lean_Expr_hasFVar(ptr noundef %.151) #3
   %66 = icmp eq i8 %65, 0
   br i1 %66, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %lean_obj_tag.exit, %50, %59, %lean_dec.exit, %43, %36, %29, %2, %lean_obj_tag.exit77, %lean_obj_tag.exit77.thread, %28, %27, %25
-  %.1.ph = phi i8 [ 1, %25 ], [ 1, %27 ], [ 1, %28 ], [ 0, %lean_obj_tag.exit77.thread ], [ %spec.select, %lean_obj_tag.exit77 ], [ 0, %2 ], [ 0, %lean_obj_tag.exit ], [ 1, %50 ], [ 1, %59 ], [ 0, %lean_dec.exit ], [ 1, %43 ], [ 1, %36 ], [ 1, %29 ]
+.loopexit:                                        ; preds = %lean_obj_tag.exit, %59, %43, %36, %29, %lean_dec.exit, %50, %2, %lean_obj_tag.exit77, %lean_obj_tag.exit77.thread, %28, %27, %25
+  %.1.ph = phi i8 [ %spec.select, %lean_obj_tag.exit77 ], [ 1, %25 ], [ 1, %27 ], [ 1, %28 ], [ 0, %lean_obj_tag.exit77.thread ], [ 0, %2 ], [ 1, %29 ], [ 1, %36 ], [ 1, %43 ], [ 1, %59 ], [ 0, %lean_obj_tag.exit ], [ 0, %lean_dec.exit ], [ 1, %50 ]
   ret i8 %.1.ph
 }
 
@@ -475,7 +475,7 @@ lean_obj_tag.exit.thread.i:                       ; preds = %11
   br label %l___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_fvarDepOn.exit
 
 l___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_fvarDepOn.exit: ; preds = %26, %25, %23, %lean_obj_tag.exit.thread.i, %lean_obj_tag.exit.i, %lean_obj_tag.exit, %27
-  %.0 = phi i8 [ %30, %27 ], [ 0, %lean_obj_tag.exit ], [ 0, %lean_obj_tag.exit.thread.i ], [ 1, %26 ], [ 1, %25 ], [ 1, %23 ], [ %spec.select.i, %lean_obj_tag.exit.i ]
+  %.0 = phi i8 [ %30, %27 ], [ 0, %lean_obj_tag.exit ], [ 0, %lean_obj_tag.exit.thread.i ], [ %spec.select.i, %lean_obj_tag.exit.i ], [ 1, %26 ], [ 1, %25 ], [ 1, %23 ]
   ret i8 %.0
 }
 
@@ -550,7 +550,7 @@ lean_obj_tag.exit.thread.i.i:                     ; preds = %11
   br label %l___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_argDepOn.exit
 
 l___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_argDepOn.exit: ; preds = %lean_obj_tag.exit.i, %lean_obj_tag.exit.i.i, %lean_obj_tag.exit.thread.i.i, %23, %25, %26, %27
-  %.0.i = phi i8 [ %30, %27 ], [ 0, %lean_obj_tag.exit.i ], [ 0, %lean_obj_tag.exit.thread.i.i ], [ 1, %26 ], [ 1, %25 ], [ 1, %23 ], [ %spec.select.i.i, %lean_obj_tag.exit.i.i ]
+  %.0.i = phi i8 [ %30, %27 ], [ 0, %lean_obj_tag.exit.i ], [ 0, %lean_obj_tag.exit.thread.i.i ], [ %spec.select.i.i, %lean_obj_tag.exit.i.i ], [ 1, %26 ], [ 1, %25 ], [ 1, %23 ]
   %31 = ptrtoint ptr %1 to i64
   %32 = and i64 %31, 1
   %.not = icmp eq i64 %32, 0
@@ -708,7 +708,7 @@ lean_obj_tag.exit.thread.i.i:                     ; preds = %24
   br label %l___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_argDepOn.exit
 
 l___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_argDepOn.exit: ; preds = %lean_obj_tag.exit.i, %lean_obj_tag.exit.i.i, %lean_obj_tag.exit.thread.i.i, %35, %37, %38, %39
-  %.0.i = phi i1 [ %43, %39 ], [ true, %lean_obj_tag.exit.i ], [ true, %lean_obj_tag.exit.thread.i.i ], [ false, %38 ], [ false, %37 ], [ false, %35 ], [ %.not28, %lean_obj_tag.exit.i.i ]
+  %.0.i = phi i1 [ %43, %39 ], [ true, %lean_obj_tag.exit.i ], [ true, %lean_obj_tag.exit.thread.i.i ], [ %.not28, %lean_obj_tag.exit.i.i ], [ false, %38 ], [ false, %37 ], [ false, %35 ]
   br i1 %.not.i20, label %44, label %lean_dec.exit
 
 44:                                               ; preds = %l___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_argDepOn.exit
@@ -867,7 +867,7 @@ lean_dec.exit:                                    ; preds = %lean_nat_lt.exit50
   br label %l___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_fvarDepOn.exit
 
 l___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_fvarDepOn.exit: ; preds = %43, %45, %46, %lean_nat_lt.exit50, %lean_nat_lt.exit, %26, %25, %23, %lean_obj_tag.exit.thread.i, %lean_obj_tag.exit.i, %lean_obj_tag.exit, %lean_dec.exit, %l___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_fvarDepOn.exit64, %lean_dec.exit40
-  %.0 = phi i8 [ %30, %lean_dec.exit40 ], [ %49, %lean_dec.exit ], [ 1, %l___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_fvarDepOn.exit64 ], [ 0, %lean_obj_tag.exit ], [ 0, %lean_obj_tag.exit.thread.i ], [ 1, %26 ], [ 1, %25 ], [ 1, %23 ], [ %spec.select.i, %lean_obj_tag.exit.i ], [ 0, %lean_nat_lt.exit ], [ 0, %lean_nat_lt.exit50 ], [ 1, %46 ], [ 1, %45 ], [ 1, %43 ]
+  %.0 = phi i8 [ 1, %l___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_fvarDepOn.exit64 ], [ 0, %lean_obj_tag.exit ], [ %30, %lean_dec.exit40 ], [ 1, %23 ], [ %49, %lean_dec.exit ], [ 0, %lean_nat_lt.exit50 ], [ 0, %lean_obj_tag.exit.thread.i ], [ %spec.select.i, %lean_obj_tag.exit.i ], [ 1, %26 ], [ 1, %25 ], [ 0, %lean_nat_lt.exit ], [ 1, %46 ], [ 1, %45 ], [ 1, %43 ]
   ret i8 %.0
 }
 
@@ -1441,7 +1441,7 @@ lean_obj_tag.exit.thread.i114:                    ; preds = %69
   br i1 %98, label %.backedge.backedge, label %lean_dec.exit84
 
 lean_dec.exit84:                                  ; preds = %85, %94, %11, %l___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_LetDecl_depOn.exit, %lean_obj_tag.exit, %60, %62, %63, %36, %38, %39, %84, %83, %81, %lean_obj_tag.exit.thread.i114, %lean_obj_tag.exit.i111, %lean_nat_lt.exit93, %lean_nat_lt.exit, %l___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_fvarDepOn.exit108, %lean_dec.exit, %43, %lean_dec.exit83, %l___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_fvarDepOn.exit
-  %.2 = phi i8 [ %42, %lean_dec.exit83 ], [ 1, %l___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_fvarDepOn.exit ], [ %68, %lean_dec.exit ], [ 1, %l___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_fvarDepOn.exit108 ], [ 1, %43 ], [ 0, %lean_nat_lt.exit ], [ 0, %lean_nat_lt.exit93 ], [ 0, %lean_obj_tag.exit.thread.i114 ], [ 1, %84 ], [ 1, %83 ], [ 1, %81 ], [ %spec.select.i112, %lean_obj_tag.exit.i111 ], [ 1, %39 ], [ 1, %38 ], [ 1, %36 ], [ 1, %63 ], [ 1, %62 ], [ 1, %60 ], [ 1, %94 ], [ 1, %85 ], [ 1, %11 ], [ 0, %lean_obj_tag.exit ], [ 1, %l___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_LetDecl_depOn.exit ]
+  %.2 = phi i8 [ 1, %60 ], [ 1, %38 ], [ 1, %43 ], [ 1, %l___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_fvarDepOn.exit ], [ 0, %lean_nat_lt.exit93 ], [ %42, %lean_dec.exit83 ], [ 1, %63 ], [ 1, %l___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_fvarDepOn.exit108 ], [ %68, %lean_dec.exit ], [ 1, %36 ], [ 1, %62 ], [ 1, %81 ], [ 0, %lean_nat_lt.exit ], [ 0, %lean_obj_tag.exit.thread.i114 ], [ %spec.select.i112, %lean_obj_tag.exit.i111 ], [ 1, %84 ], [ 1, %83 ], [ 1, %39 ], [ 1, %94 ], [ 1, %85 ], [ 0, %lean_obj_tag.exit ], [ 1, %11 ], [ 1, %l___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_LetDecl_depOn.exit ]
   ret i8 %.2
 }
 
@@ -1833,7 +1833,7 @@ lean_obj_tag.exit:                                ; preds = %5, %8
   br label %l___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_LetDecl_depOn.exit
 
 l___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_LetDecl_depOn.exit: ; preds = %19, %14, %28, %23
-  %.0 = phi i8 [ %31, %28 ], [ 1, %23 ], [ %22, %19 ], [ 1, %14 ]
+  %.0 = phi i8 [ 1, %23 ], [ %31, %28 ], [ %22, %19 ], [ 1, %14 ]
   ret i8 %.0
 }
 
@@ -1889,7 +1889,7 @@ lean_obj_tag.exit.i:                              ; preds = %8, %5
   br label %l_Lean_Compiler_LCNF_CodeDecl_dependsOn.exit
 
 l_Lean_Compiler_LCNF_CodeDecl_dependsOn.exit:     ; preds = %14, %19, %23, %28
-  %.0.i = phi i8 [ %31, %28 ], [ 1, %23 ], [ %22, %19 ], [ 1, %14 ]
+  %.0.i = phi i8 [ 1, %23 ], [ %31, %28 ], [ %22, %19 ], [ 1, %14 ]
   %32 = ptrtoint ptr %1 to i64
   %33 = and i64 %32, 1
   %.not = icmp eq i64 %33, 0

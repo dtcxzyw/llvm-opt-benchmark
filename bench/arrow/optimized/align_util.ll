@@ -504,7 +504,7 @@ _ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit33.i: ; preds = %.lr.ph.split.
   %.not41.i = icmp eq ptr %44, %35
   br i1 %.not41.i, label %.loopexit, label %.lr.ph.split.i
 
-.loopexit:                                        ; preds = %.critedge.i, %_ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit.thread.i, %5, %32
+.loopexit:                                        ; preds = %.critedge.i, %_ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit.thread.i, %32, %5
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %46 = load ptr, ptr %45, align 8, !tbaa !54
   %.not = icmp eq ptr %46, null
@@ -538,7 +538,7 @@ _ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit33.i: ; preds = %.lr.ph.split.
   br i1 %.not19, label %_ZN5arrow4util12_GLOBAL__N_118CheckSelfAlignmentERKNS_9ArrayDataEl.exit, label %.lr.ph
 
 _ZN5arrow4util12_GLOBAL__N_118CheckSelfAlignmentERKNS_9ArrayDataEl.exit: ; preds = %_ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit33.i, %_ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit.i, %55, %.critedge, %49, %47
-  %.0 = phi i1 [ false, %47 ], [ true, %49 ], [ false, %55 ], [ true, %.critedge ], [ false, %_ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit.i ], [ false, %_ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit33.i ]
+  %.0 = phi i1 [ false, %47 ], [ true, %.critedge ], [ false, %_ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit.i ], [ true, %49 ], [ false, %55 ], [ false, %_ZN5arrow4util14CheckAlignmentERKNS_6BufferEl.exit33.i ]
   ret i1 %.0
 }
 
@@ -3008,7 +3008,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EED2Ev.exit173: ; preds = %_ZS
   br label %600
 
 593:                                              ; preds = %213, %307, %73, %105, %560, %60
-  %.pn61.pn = phi { ptr, i32 } [ %.pn61, %560 ], [ %61, %60 ], [ %74, %73 ], [ %106, %105 ], [ %308, %307 ], [ %214, %213 ]
+  %.pn61.pn = phi { ptr, i32 } [ %.pn61, %560 ], [ %106, %105 ], [ %308, %307 ], [ %61, %60 ], [ %74, %73 ], [ %214, %213 ]
   call void @_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn61.pn
@@ -6366,8 +6366,8 @@ _ZN5arrow6ResultISt10shared_ptrINS_5ArrayEEED2Ev.exit..critedge5_crit_edge: ; pr
   br i1 %.not55, label %.lr.ph, label %.critedge66, !llvm.loop !229
 
 .critedge66:                                      ; preds = %.critedge5, %.noexc84, %_ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EEC2ERKS5_.exit
-  %253 = phi ptr [ %129, %_ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EEC2ERKS5_.exit ], [ %112, %.noexc84 ], [ %247, %.critedge5 ]
-  %254 = phi ptr [ %.pre195, %_ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EEC2ERKS5_.exit ], [ %112, %.noexc84 ], [ %246, %.critedge5 ]
+  %253 = phi ptr [ %112, %.noexc84 ], [ %129, %_ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EEC2ERKS5_.exit ], [ %247, %.critedge5 ]
+  %254 = phi ptr [ %112, %.noexc84 ], [ %.pre195, %_ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EEC2ERKS5_.exit ], [ %246, %.critedge5 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %254, ptr %11, align 8, !tbaa !66
   store ptr %253, ptr %64, align 8, !tbaa !63

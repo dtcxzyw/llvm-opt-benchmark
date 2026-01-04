@@ -1372,7 +1372,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo100(ptr noundef %0, i32 nou
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
+  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %27, %25 ], [ %1, %23 ]
   %.not60 = icmp eq ptr %3, null
   br i1 %.not60, label %33, label %29
 
@@ -1463,7 +1463,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo101(ptr noundef %0, i32 nou
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
+  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %27, %25 ], [ %1, %23 ]
   %.not66 = icmp eq ptr %3, null
   br i1 %.not66, label %33, label %29
 
@@ -1556,7 +1556,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo102(ptr noundef %0, i32 nou
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
+  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %27, %25 ], [ %1, %23 ]
   %.not72 = icmp eq ptr %3, null
   br i1 %.not72, label %33, label %29
 
@@ -3467,7 +3467,7 @@ define hidden i32 @wkssvc_dissect_struct_NetrWkstaUserInfo0(ptr noundef %0, i32 
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not36 = icmp eq ptr %3, null
   br i1 %.not36, label %32, label %28
 
@@ -3546,7 +3546,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaEnumUsersCtr0(ptr noundef %0, i
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -3627,7 +3627,7 @@ define hidden i32 @wkssvc_dissect_struct_NetrWkstaUserInfo1(ptr noundef %0, i32 
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not54 = icmp eq ptr %3, null
   br i1 %.not54, label %32, label %28
 
@@ -3712,7 +3712,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaEnumUsersCtr1(ptr noundef %0, i
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -3795,7 +3795,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaEnumUsersInfo(ptr noundef %0, i
   br label %29
 
 29:                                               ; preds = %24, %26, %19, %21
-  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %1, %24 ], [ %28, %26 ]
+  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %28, %26 ], [ %1, %24 ]
   %.not49 = icmp eq ptr %3, null
   br i1 %.not49, label %34, label %30
 
@@ -3843,7 +3843,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaEnumUsersInfo(ptr noundef %0, i
   br label %54
 
 54:                                               ; preds = %49, %51, %44, %46
-  %.1 = phi i32 [ %36, %44 ], [ %48, %46 ], [ %36, %49 ], [ %53, %51 ]
+  %.1 = phi i32 [ %36, %44 ], [ %48, %46 ], [ %53, %51 ], [ %36, %49 ]
   %55 = load i32, ptr @hf_wkssvc_wkssvc_NetWkstaEnumUsersInfo_ctr, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
@@ -3892,7 +3892,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaEnumUsersInfo(ptr noundef %0, i
   br label %78
 
 78:                                               ; preds = %75, %73, %70, %68
-  %.0.i.i = phi i32 [ %60, %68 ], [ %72, %70 ], [ %60, %73 ], [ %77, %75 ]
+  %.0.i.i = phi i32 [ %60, %68 ], [ %72, %70 ], [ %77, %75 ], [ %60, %73 ]
   %79 = load i32, ptr %10, align 4
   switch i32 %79, label %wkssvc_dissect_element_NetWkstaEnumUsersInfo_ctr.exit [
     i32 0, label %80
@@ -3979,7 +3979,7 @@ define hidden i32 @wkssvc_dissect_struct_NetrWkstaUserInfo1101(ptr noundef %0, i
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not36 = icmp eq ptr %3, null
   br i1 %.not36, label %32, label %28
 
@@ -4058,7 +4058,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaTransportInfo0(ptr noundef %0, 
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not60 = icmp eq ptr %3, null
   br i1 %.not60, label %32, label %28
 
@@ -4145,7 +4145,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaTransportCtr0(ptr noundef %0, i
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -4228,7 +4228,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaTransportInfo(ptr noundef %0, i
   br label %29
 
 29:                                               ; preds = %24, %26, %19, %21
-  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %1, %24 ], [ %28, %26 ]
+  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %28, %26 ], [ %1, %24 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %34, label %30
 
@@ -4291,7 +4291,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaTransportInfo(ptr noundef %0, i
   br label %60
 
 60:                                               ; preds = %57, %55, %52, %50
-  %.0.i.i = phi i32 [ %42, %50 ], [ %54, %52 ], [ %42, %55 ], [ %59, %57 ]
+  %.0.i.i = phi i32 [ %42, %50 ], [ %54, %52 ], [ %59, %57 ], [ %42, %55 ]
   %61 = load i32, ptr %10, align 4
   %cond.i.i = icmp eq i32 %61, 0
   br i1 %cond.i.i, label %62, label %wkssvc_dissect_element_NetWkstaTransportInfo_ctr.exit
@@ -4371,7 +4371,7 @@ define hidden i32 @wkssvc_dissect_struct_NetrUseInfo3(ptr noundef %0, i32 nounde
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -4452,7 +4452,7 @@ define hidden i32 @wkssvc_dissect_struct_NetrUseInfo2(ptr noundef %0, i32 nounde
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not84 = icmp eq ptr %3, null
   br i1 %.not84, label %32, label %28
 
@@ -4547,7 +4547,7 @@ define hidden i32 @wkssvc_dissect_struct_NetrUseInfo1(ptr noundef %0, i32 nounde
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not72 = icmp eq ptr %3, null
   br i1 %.not72, label %32, label %28
 
@@ -4638,7 +4638,7 @@ define hidden i32 @wkssvc_dissect_struct_NetrUseInfo0(ptr noundef %0, i32 nounde
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -4719,7 +4719,7 @@ define hidden i32 @wkssvc_dissect_struct_NetrUseEnumCtr2(ptr noundef %0, i32 nou
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -4800,7 +4800,7 @@ define hidden i32 @wkssvc_dissect_struct_NetrUseEnumCtr1(ptr noundef %0, i32 nou
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -4881,7 +4881,7 @@ define hidden i32 @wkssvc_dissect_struct_NetrUseEnumCtr0(ptr noundef %0, i32 nou
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -4964,7 +4964,7 @@ define hidden i32 @wkssvc_dissect_struct_NetrUseEnumInfo(ptr noundef %0, i32 nou
   br label %29
 
 29:                                               ; preds = %24, %26, %19, %21
-  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %1, %24 ], [ %28, %26 ]
+  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %28, %26 ], [ %1, %24 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %34, label %30
 
@@ -5027,7 +5027,7 @@ define hidden i32 @wkssvc_dissect_struct_NetrUseEnumInfo(ptr noundef %0, i32 nou
   br label %60
 
 60:                                               ; preds = %57, %55, %52, %50
-  %.0.i.i = phi i32 [ %42, %50 ], [ %54, %52 ], [ %42, %55 ], [ %59, %57 ]
+  %.0.i.i = phi i32 [ %42, %50 ], [ %54, %52 ], [ %59, %57 ], [ %42, %55 ]
   %61 = load i32, ptr %10, align 4
   switch i32 %61, label %wkssvc_dissect_element_NetrUseEnumInfo_ctr.exit [
     i32 0, label %62
@@ -5459,7 +5459,7 @@ define hidden i32 @wkssvc_dissect_struct_ComputerNamesCtr(ptr noundef %0, i32 no
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -7581,7 +7581,7 @@ define internal fastcc i32 @wkssvc_dissect_NetWkstaInfo(ptr noundef %0, i32 noun
   br label %33
 
 33:                                               ; preds = %28, %30, %23, %25
-  %.0 = phi i32 [ %14, %23 ], [ %27, %25 ], [ %14, %28 ], [ %32, %30 ]
+  %.0 = phi i32 [ %14, %23 ], [ %27, %25 ], [ %32, %30 ], [ %14, %28 ]
   %34 = load i32, ptr %9, align 4
   switch i32 %34, label %143 [
     i32 100, label %35
@@ -8194,7 +8194,7 @@ define internal fastcc i32 @wkssvc_dissect_NetrWkstaUserInfo(ptr noundef %0, i32
   br label %33
 
 33:                                               ; preds = %28, %30, %23, %25
-  %.0 = phi i32 [ %14, %23 ], [ %27, %25 ], [ %14, %28 ], [ %32, %30 ]
+  %.0 = phi i32 [ %14, %23 ], [ %27, %25 ], [ %32, %30 ], [ %14, %28 ]
   %34 = load i32, ptr %9, align 4
   switch i32 %34, label %44 [
     i32 0, label %35
@@ -8428,7 +8428,7 @@ define internal fastcc i32 @wkssvc_dissect_NetrUseGetInfoCtr(ptr noundef %0, i32
   br label %33
 
 33:                                               ; preds = %28, %30, %23, %25
-  %.0 = phi i32 [ %14, %23 ], [ %27, %25 ], [ %14, %28 ], [ %32, %30 ]
+  %.0 = phi i32 [ %14, %23 ], [ %27, %25 ], [ %32, %30 ], [ %14, %28 ]
   %34 = load i32, ptr %9, align 4
   switch i32 %34, label %47 [
     i32 0, label %35

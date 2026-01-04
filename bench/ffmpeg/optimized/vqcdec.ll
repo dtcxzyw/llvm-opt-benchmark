@@ -85,7 +85,7 @@ define internal range(i32 -1163346256, 1) i32 @vqc_decode_init(ptr noundef captu
   br label %39
 
 39:                                               ; preds = %34, %28, %22, %16, %7, %1, %37
-  %.0 = phi i32 [ 0, %37 ], [ -1163346256, %1 ], [ -12, %7 ], [ -12, %16 ], [ -12, %22 ], [ -12, %28 ], [ -12, %34 ]
+  %.0 = phi i32 [ -1163346256, %1 ], [ 0, %37 ], [ -12, %28 ], [ -12, %22 ], [ -12, %16 ], [ -12, %7 ], [ -12, %34 ]
   ret i32 %.0
 }
 
@@ -538,7 +538,7 @@ decode_frame.exit:                                ; preds = %249, %.loopexit
   br label %decode_vectors.exit
 
 decode_vectors.exit:                              ; preds = %167, %seed_codebooks.exit, %decode_frame.exit, %12, %4, %294, %23
-  %.0 = phi i32 [ -1163346256, %23 ], [ %295, %294 ], [ -1094995529, %4 ], [ %14, %12 ], [ %292, %decode_frame.exit ], [ -1094995529, %seed_codebooks.exit ], [ -1094995529, %167 ]
+  %.0 = phi i32 [ %295, %294 ], [ -1094995529, %4 ], [ -1163346256, %23 ], [ %14, %12 ], [ %292, %decode_frame.exit ], [ -1094995529, %seed_codebooks.exit ], [ -1094995529, %167 ]
   ret i32 %.0
 }
 

@@ -283,10 +283,10 @@ _ZN6icu_77L12binarySearchEPKtit.exit.thread:      ; preds = %56, %_ZN6icu_77L12b
   br label %.split60.us
 
 .split60.us:                                      ; preds = %.split.split.us, %.split.us, %.split60.us.loopexit88
-  %.us-phi = phi double [ %66, %.split60.us.loopexit88 ], [ 1.000000e+00, %.split.us ], [ 1.000000e+00, %.split.split.us ]
-  %.us-phi61 = phi i32 [ %.041, %.split60.us.loopexit88 ], [ %.041.us, %.split.us ], [ %.041.us65, %.split.split.us ]
-  %.us-phi62 = phi i32 [ %.040, %.split60.us.loopexit88 ], [ %.040.us, %.split.us ], [ %.040.us66, %.split.split.us ]
-  %.us-phi63 = phi i32 [ %.037, %.split60.us.loopexit88 ], [ %.037.us, %.split.us ], [ %.037.us67, %.split.split.us ]
+  %.us-phi = phi double [ 1.000000e+00, %.split.us ], [ %66, %.split60.us.loopexit88 ], [ 1.000000e+00, %.split.split.us ]
+  %.us-phi61 = phi i32 [ %.041.us, %.split.us ], [ %.041, %.split60.us.loopexit88 ], [ %.041.us65, %.split.split.us ]
+  %.us-phi62 = phi i32 [ %.040.us, %.split.us ], [ %.040, %.split60.us.loopexit88 ], [ %.040.us66, %.split.split.us ]
+  %.us-phi63 = phi i32 [ %.037.us, %.split.us ], [ %.037, %.split60.us.loopexit88 ], [ %.037.us67, %.split.split.us ]
   %67 = icmp slt i32 %.us-phi63, 11
   %68 = icmp eq i32 %.us-phi61, 0
   %or.cond = and i1 %68, %67
@@ -329,7 +329,7 @@ _ZN6icu_77L12binarySearchEPKtit.exit.thread:      ; preds = %56, %_ZN6icu_77L12b
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN6icu_77L12binarySearchEPKtit.exit.thread, %_ZN6icu_77L12binarySearchEPKtit.exit.thread.us70, %_ZN6icu_77L12binarySearchEPKtit.exit.thread.us, %72, %86, %69
-  %.0 = phi i32 [ %., %69 ], [ %spec.store.select4, %86 ], [ 0, %72 ], [ 0, %_ZN6icu_77L12binarySearchEPKtit.exit.thread.us ], [ 0, %_ZN6icu_77L12binarySearchEPKtit.exit.thread.us70 ], [ 0, %_ZN6icu_77L12binarySearchEPKtit.exit.thread ]
+  %.0 = phi i32 [ %spec.store.select4, %86 ], [ %., %69 ], [ 0, %72 ], [ 0, %_ZN6icu_77L12binarySearchEPKtit.exit.thread.us70 ], [ 0, %_ZN6icu_77L12binarySearchEPKtit.exit.thread.us ], [ 0, %_ZN6icu_77L12binarySearchEPKtit.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -413,7 +413,7 @@ _ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit32: ; preds = %20
   br label %33
 
 33:                                               ; preds = %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit.thread, %32, %22, %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit
-  %.0 = phi i8 [ 1, %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit ], [ 1, %22 ], [ 1, %32 ], [ 0, %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit.thread ]
+  %.0 = phi i8 [ 1, %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit ], [ 0, %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit.thread ], [ 1, %22 ], [ 1, %32 ]
   ret i8 %.0
 }
 
@@ -554,7 +554,7 @@ _ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit37: ; preds = %39
   br label %50
 
 50:                                               ; preds = %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit.thread, %49, %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit37, %33, %36, %38, %31, %.thread46, %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit
-  %.0 = phi i8 [ 1, %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit ], [ 1, %.thread46 ], [ 1, %31 ], [ 1, %38 ], [ 1, %36 ], [ 1, %33 ], [ 1, %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit37 ], [ 1, %49 ], [ 0, %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit.thread ]
+  %.0 = phi i8 [ 1, %36 ], [ 0, %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit.thread ], [ 1, %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit ], [ 1, %31 ], [ 1, %.thread46 ], [ 1, %38 ], [ 1, %33 ], [ 1, %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit37 ], [ 1, %49 ]
   ret i8 %.0
 }
 
@@ -679,7 +679,7 @@ _ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit: ; preds = %3
   br label %32
 
 32:                                               ; preds = %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit.thread, %31, %20, %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit
-  %.0 = phi i8 [ 1, %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit ], [ 1, %20 ], [ 1, %31 ], [ 0, %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit.thread ]
+  %.0 = phi i8 [ 1, %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit ], [ 0, %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit.thread ], [ 1, %20 ], [ 1, %31 ]
   ret i8 %.0
 }
 
@@ -825,7 +825,7 @@ _ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit58: ; preds = %42
   br label %56
 
 56:                                               ; preds = %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit.thread, %29, %55, %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit, %48
-  %.0 = phi i8 [ 1, %48 ], [ 1, %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit ], [ 1, %55 ], [ 1, %29 ], [ 0, %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit.thread ]
+  %.0 = phi i8 [ 1, %29 ], [ 0, %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit.thread ], [ 1, %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit ], [ 1, %48 ], [ 1, %55 ]
   ret i8 %.0
 }
 

@@ -248,7 +248,7 @@ Io_ReadBlifNetwork.exit.thread:                   ; preds = %5, %42
   br i1 %87, label %.split.us.i, label %.lr.ph
 
 .split.us.i:                                      ; preds = %.lr.ph.backedge.i, %.lr.ph, %61, %65, %.lr.ph.preheader.i, %.split32.us.i, %81, %.split32.us.thread.i, %69
-  %.us-phi.i = phi ptr [ %71, %.split32.us.i ], [ %71, %.split32.us.thread.i ], [ null, %81 ], [ null, %69 ], [ %71, %.lr.ph.preheader.i ], [ %71, %65 ], [ %71, %61 ], [ %71, %.lr.ph ], [ %71, %.lr.ph.backedge.i ]
+  %.us-phi.i = phi ptr [ %71, %.split32.us.thread.i ], [ %71, %.split32.us.i ], [ null, %69 ], [ null, %81 ], [ %71, %.lr.ph.preheader.i ], [ %71, %65 ], [ %71, %61 ], [ %71, %.lr.ph ], [ %71, %.lr.ph.backedge.i ]
   %88 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 1152
   %89 = load i32, ptr %88, align 8, !tbaa !42
   %.not30.i = icmp eq i32 %89, 0
@@ -453,7 +453,7 @@ Io_ReadBlifCreateTiming.exit:                     ; preds = %.critedge4.i, %.cri
   br label %Io_ReadBlifFile.exit.thread
 
 Io_ReadBlifFile.exit.thread:                      ; preds = %2, %Io_ReadBlifCreateTiming.exit, %192, %194, %92
-  %.0 = phi ptr [ null, %92 ], [ null, %194 ], [ %.us-phi.i, %192 ], [ %.us-phi.i, %Io_ReadBlifCreateTiming.exit ], [ null, %2 ]
+  %.0 = phi ptr [ null, %194 ], [ null, %92 ], [ null, %2 ], [ %.us-phi.i, %192 ], [ %.us-phi.i, %Io_ReadBlifCreateTiming.exit ]
   ret ptr %.0
 }
 
@@ -918,7 +918,7 @@ Vec_PtrPush.exit160:                              ; preds = %Vec_PtrPush.exit160
   br label %173
 
 173:                                              ; preds = %169, %.critedge, %143, %161, %147, %157, %126, %133, %106, %.loopexit, %32, %10, %8, %137, %125
-  %.0 = phi i32 [ 1, %137 ], [ 1, %125 ], [ 0, %8 ], [ 0, %10 ], [ 1, %32 ], [ 0, %.loopexit ], [ 0, %106 ], [ 0, %133 ], [ 0, %126 ], [ 0, %157 ], [ 0, %147 ], [ 0, %161 ], [ 1, %143 ], [ 1, %.critedge ], [ %spec.select, %169 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %10 ], [ 1, %32 ], [ 0, %161 ], [ 0, %.loopexit ], [ 0, %106 ], [ 1, %137 ], [ 1, %125 ], [ 0, %126 ], [ 0, %147 ], [ 1, %.critedge ], [ 0, %133 ], [ 0, %157 ], [ %spec.select, %169 ], [ 1, %143 ]
   ret i32 %.0
 }
 
@@ -1339,10 +1339,10 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0,
   br i1 %144, label %.lr.ph270, label %.critedge2, !llvm.loop !92
 
 .critedge2:                                       ; preds = %142, %.preheader, %.critedge, %109, %139
-  %.val193273 = phi ptr [ %.val192, %139 ], [ %.val193273.pre, %109 ], [ %.val193273370, %.critedge ], [ %.val193273370, %.preheader ], [ %.val192, %142 ]
-  %145 = phi ptr [ %134, %139 ], [ %.pre, %109 ], [ %10, %.critedge ], [ %10, %.preheader ], [ %134, %142 ]
-  %.0153 = phi ptr [ %44, %139 ], [ %44, %109 ], [ null, %.critedge ], [ null, %.preheader ], [ %44, %142 ]
-  %.0 = phi i32 [ %141, %139 ], [ %111, %109 ], [ 1, %.critedge ], [ -1, %.preheader ], [ -1, %142 ]
+  %.val193273 = phi ptr [ %.val193273370, %.critedge ], [ %.val192, %139 ], [ %.val193273.pre, %109 ], [ %.val193273370, %.preheader ], [ %.val192, %142 ]
+  %145 = phi ptr [ %10, %.critedge ], [ %134, %139 ], [ %.pre, %109 ], [ %10, %.preheader ], [ %134, %142 ]
+  %.0153 = phi ptr [ null, %.critedge ], [ %44, %139 ], [ %44, %109 ], [ null, %.preheader ], [ %44, %142 ]
+  %.0 = phi i32 [ 1, %.critedge ], [ %141, %139 ], [ %111, %109 ], [ -1, %.preheader ], [ -1, %142 ]
   %146 = getelementptr i8, ptr %.val193273, i64 4
   %.val193.val274 = load i32, ptr %146, align 4, !tbaa !20
   %147 = icmp sgt i32 %.val193.val274, 0
@@ -1408,7 +1408,7 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0,
   br i1 %182, label %.lr.ph277, label %.critedge4.preheader, !llvm.loop !93
 
 .critedge6.preheader:                             ; preds = %.critedge4, %.critedge2, %.critedge4.preheader
-  %.lcssa272398 = phi ptr [ %178, %.critedge4.preheader ], [ %145, %.critedge2 ], [ %178, %.critedge4 ]
+  %.lcssa272398 = phi ptr [ %145, %.critedge2 ], [ %178, %.critedge4.preheader ], [ %178, %.critedge4 ]
   %183 = getelementptr i8, ptr %.lcssa272398, i64 48
   %.val186285 = load ptr, ptr %183, align 8, !tbaa !81
   %184 = getelementptr i8, ptr %.val186285, i64 4
@@ -1747,7 +1747,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge16, %346
   br label %Io_ReadBlifPrintErrorMessage.exit
 
 Io_ReadBlifPrintErrorMessage.exit:                ; preds = %316, %314, %287, %285, %260, %258, %229, %227, %173, %171, %131, %129, %98, %96, %67, %65, %31, %29, %Vec_PtrFree.exit
-  %.0156 = phi i32 [ 0, %Vec_PtrFree.exit ], [ 1, %29 ], [ 1, %31 ], [ 1, %65 ], [ 1, %67 ], [ 1, %96 ], [ 1, %98 ], [ 1, %129 ], [ 1, %131 ], [ 1, %171 ], [ 1, %173 ], [ 1, %227 ], [ 1, %229 ], [ 1, %258 ], [ 1, %260 ], [ 1, %285 ], [ 1, %287 ], [ 1, %314 ], [ 1, %316 ]
+  %.0156 = phi i32 [ 1, %131 ], [ 1, %173 ], [ 1, %229 ], [ 1, %260 ], [ 1, %287 ], [ 0, %Vec_PtrFree.exit ], [ 1, %31 ], [ 1, %67 ], [ 1, %98 ], [ 1, %29 ], [ 1, %65 ], [ 1, %96 ], [ 1, %129 ], [ 1, %171 ], [ 1, %227 ], [ 1, %258 ], [ 1, %285 ], [ 1, %314 ], [ 1, %316 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0156
 }
@@ -2196,7 +2196,7 @@ Vec_PtrPush.exit72:                               ; preds = %.Vec_PtrGrow.exit11
   br label %201
 
 201:                                              ; preds = %.sink.split, %29, %24
-  %.053 = phi ptr [ null, %24 ], [ %27, %29 ], [ %200, %.sink.split ]
+  %.053 = phi ptr [ %27, %29 ], [ null, %24 ], [ %200, %.sink.split ]
   ret ptr %.053
 }
 
@@ -3025,7 +3025,7 @@ Vec_StrPush.exit130.i:                            ; preds = %405, %Vec_StrGrow.e
   br i1 %.not.i130, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !113
 
 .loopexit.i:                                      ; preds = %Vec_StrPush.exit130.i, %.lr.ph.i, %Vec_StrPush.exit108.i, %.lr.ph167.i, %.preheader.i, %.preheader160.i
-  %.080.i = phi ptr [ null, %.preheader.i ], [ null, %.preheader160.i ], [ null, %Vec_StrPush.exit108.i ], [ %135, %.lr.ph167.i ], [ null, %Vec_StrPush.exit130.i ], [ %249, %.lr.ph.i ]
+  %.080.i = phi ptr [ null, %.preheader160.i ], [ null, %Vec_StrPush.exit108.i ], [ null, %.preheader.i ], [ %135, %.lr.ph167.i ], [ %249, %.lr.ph.i ], [ null, %Vec_StrPush.exit130.i ]
   %413 = load ptr, ptr %88, align 8, !tbaa !29
   %414 = getelementptr inbounds nuw i8, ptr %413, i64 4
   %415 = load i32, ptr %414, align 4, !tbaa !25
@@ -4075,7 +4075,7 @@ Vec_IntPush.exit54.i:                             ; preds = %957, %Vec_IntGrow.e
   br label %Io_ReadBlifNetworkInputArrival.exit
 
 Io_ReadBlifNetworkInputArrival.exit:              ; preds = %790, %792, %811, %813, %842, %844, %846, %Vec_IntPush.exit54.i
-  %.0.i151 = phi i32 [ 0, %Vec_IntPush.exit54.i ], [ 0, %846 ], [ 1, %790 ], [ 1, %792 ], [ 1, %811 ], [ 1, %813 ], [ 1, %842 ], [ 1, %844 ]
+  %.0.i151 = phi i32 [ 0, %846 ], [ 1, %792 ], [ 1, %813 ], [ 0, %Vec_IntPush.exit54.i ], [ 1, %790 ], [ 1, %811 ], [ 1, %842 ], [ 1, %844 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %Io_ReadBlifNetworkNames.exit
@@ -4422,7 +4422,7 @@ Vec_IntPush.exit52.i:                             ; preds = %1139, %Vec_IntGrow.
   br label %Io_ReadBlifNetworkOutputRequired.exit
 
 Io_ReadBlifNetworkOutputRequired.exit:            ; preds = %975, %977, %996, %998, %1027, %1029, %Vec_IntPush.exit52.i
-  %.0.i158 = phi i32 [ 0, %Vec_IntPush.exit52.i ], [ 1, %975 ], [ 1, %977 ], [ 1, %996 ], [ 1, %998 ], [ 1, %1027 ], [ 1, %1029 ]
+  %.0.i158 = phi i32 [ 0, %Vec_IntPush.exit52.i ], [ 1, %977 ], [ 1, %998 ], [ 1, %975 ], [ 1, %996 ], [ 1, %1027 ], [ 1, %1029 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %Io_ReadBlifNetworkNames.exit
@@ -4512,7 +4512,7 @@ Io_ReadBlifNetworkOutputRequired.exit:            ; preds = %975, %977, %996, %9
   br label %Io_ReadBlifNetworkDefaultInputArrival.exit
 
 Io_ReadBlifNetworkDefaultInputArrival.exit:       ; preds = %1157, %1159, %1187, %1189, %1191
-  %.0.i174 = phi i32 [ 0, %1191 ], [ 1, %1157 ], [ 1, %1159 ], [ 1, %1187 ], [ 1, %1189 ]
+  %.0.i174 = phi i32 [ 0, %1191 ], [ 1, %1159 ], [ 1, %1157 ], [ 1, %1187 ], [ 1, %1189 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %Io_ReadBlifNetworkNames.exit
@@ -4602,7 +4602,7 @@ Io_ReadBlifNetworkDefaultInputArrival.exit:       ; preds = %1157, %1159, %1187,
   br label %Io_ReadBlifNetworkDefaultOutputRequired.exit
 
 Io_ReadBlifNetworkDefaultOutputRequired.exit:     ; preds = %1205, %1207, %1235, %1237, %1239
-  %.0.i176 = phi i32 [ 0, %1239 ], [ 1, %1205 ], [ 1, %1207 ], [ 1, %1235 ], [ 1, %1237 ]
+  %.0.i176 = phi i32 [ 0, %1239 ], [ 1, %1207 ], [ 1, %1205 ], [ 1, %1235 ], [ 1, %1237 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %Io_ReadBlifNetworkNames.exit
@@ -4974,7 +4974,7 @@ Vec_IntPush.exit49.i:                             ; preds = %1425, %Vec_IntGrow.
   br label %Io_ReadBlifNetworkInputDrive.exit
 
 Io_ReadBlifNetworkInputDrive.exit:                ; preds = %1253, %1255, %1274, %1276, %1305, %1307, %Vec_IntPush.exit49.i
-  %.0.i180 = phi i32 [ 0, %Vec_IntPush.exit49.i ], [ 1, %1253 ], [ 1, %1255 ], [ 1, %1274 ], [ 1, %1276 ], [ 1, %1305 ], [ 1, %1307 ]
+  %.0.i180 = phi i32 [ 0, %Vec_IntPush.exit49.i ], [ 1, %1255 ], [ 1, %1276 ], [ 1, %1253 ], [ 1, %1274 ], [ 1, %1305 ], [ 1, %1307 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %Io_ReadBlifNetworkNames.exit
@@ -5051,8 +5051,8 @@ Io_ReadBlifNetworkInputDrive.exit:                ; preds = %1253, %1255, %1274,
   br label %Io_ReadBlifNetworkNames.exit
 
 Io_ReadBlifNetworkNames.exit:                     ; preds = %.lr.ph.i147, %.lr.ph.i143, %767, %753, %750, %749, %748, %744, %742, %721, %710, %708, %691, %686, %669, %662, %660, %634, %632, %604, %602, %583, %581, %569, %567, %554, %552, %266, %264, %152, %150, %121, %119, %314, %316, %Io_ReadBlifNetworkInputArrival.exit, %Io_ReadBlifNetworkDefaultInputArrival.exit, %Io_ReadBlifNetworkInputDrive.exit, %1438, %1446, %1458, %1456, %1442, %1434, %Io_ReadBlifNetworkDefaultOutputRequired.exit, %Io_ReadBlifNetworkOutputRequired.exit
-  %.199.ph = phi i32 [ 0, %767 ], [ 0, %753 ], [ 0, %750 ], [ 0, %749 ], [ 0, %748 ], [ 0, %744 ], [ 0, %742 ], [ 0, %721 ], [ 0, %710 ], [ 0, %708 ], [ 0, %691 ], [ 0, %686 ], [ 0, %669 ], [ 0, %662 ], [ 0, %660 ], [ 0, %634 ], [ 0, %632 ], [ 0, %604 ], [ 0, %602 ], [ 0, %583 ], [ 0, %581 ], [ 0, %569 ], [ 0, %567 ], [ 1, %554 ], [ 1, %552 ], [ 1, %266 ], [ 1, %264 ], [ 1, %152 ], [ 1, %150 ], [ 1, %121 ], [ 1, %119 ], [ 1, %314 ], [ 1, %316 ], [ 0, %Io_ReadBlifNetworkInputArrival.exit ], [ 0, %Io_ReadBlifNetworkOutputRequired.exit ], [ 0, %Io_ReadBlifNetworkDefaultInputArrival.exit ], [ 0, %Io_ReadBlifNetworkDefaultOutputRequired.exit ], [ 0, %Io_ReadBlifNetworkInputDrive.exit ], [ 0, %1434 ], [ 0, %1438 ], [ 0, %1442 ], [ 0, %1446 ], [ 0, %1456 ], [ 0, %1458 ], [ 0, %.lr.ph.i143 ], [ 0, %.lr.ph.i147 ]
-  %.197.ph = phi i32 [ 0, %767 ], [ 0, %753 ], [ 0, %750 ], [ 0, %749 ], [ 0, %748 ], [ 1, %744 ], [ 1, %742 ], [ 0, %721 ], [ 1, %710 ], [ 1, %708 ], [ 0, %691 ], [ 0, %686 ], [ 0, %669 ], [ 1, %662 ], [ 1, %660 ], [ 1, %634 ], [ 1, %632 ], [ 1, %604 ], [ 1, %602 ], [ 1, %583 ], [ 1, %581 ], [ 1, %569 ], [ 1, %567 ], [ 1, %554 ], [ 1, %552 ], [ 1, %266 ], [ 1, %264 ], [ 1, %152 ], [ 1, %150 ], [ 1, %121 ], [ 1, %119 ], [ 1, %314 ], [ 1, %316 ], [ %.0.i151, %Io_ReadBlifNetworkInputArrival.exit ], [ %.0.i158, %Io_ReadBlifNetworkOutputRequired.exit ], [ %.0.i174, %Io_ReadBlifNetworkDefaultInputArrival.exit ], [ %.0.i176, %Io_ReadBlifNetworkDefaultOutputRequired.exit ], [ %.0.i180, %Io_ReadBlifNetworkInputDrive.exit ], [ %1435, %1434 ], [ %1439, %1438 ], [ %1443, %1442 ], [ %1447, %1446 ], [ 0, %1456 ], [ 0, %1458 ], [ 0, %.lr.ph.i143 ], [ 0, %.lr.ph.i147 ]
+  %.199.ph = phi i32 [ 0, %.lr.ph.i143 ], [ 0, %767 ], [ 0, %753 ], [ 0, %749 ], [ 0, %748 ], [ 0, %744 ], [ 0, %742 ], [ 0, %721 ], [ 0, %710 ], [ 0, %708 ], [ 0, %686 ], [ 0, %669 ], [ 0, %662 ], [ 0, %660 ], [ 0, %634 ], [ 0, %632 ], [ 0, %604 ], [ 0, %602 ], [ 0, %583 ], [ 0, %581 ], [ 0, %569 ], [ 0, %567 ], [ 1, %554 ], [ 1, %552 ], [ 1, %266 ], [ 1, %264 ], [ 1, %152 ], [ 1, %150 ], [ 1, %121 ], [ 1, %119 ], [ 1, %314 ], [ 1, %316 ], [ 0, %691 ], [ 0, %750 ], [ 0, %1458 ], [ 0, %Io_ReadBlifNetworkInputArrival.exit ], [ 0, %Io_ReadBlifNetworkOutputRequired.exit ], [ 0, %Io_ReadBlifNetworkDefaultInputArrival.exit ], [ 0, %Io_ReadBlifNetworkDefaultOutputRequired.exit ], [ 0, %Io_ReadBlifNetworkInputDrive.exit ], [ 0, %1434 ], [ 0, %1438 ], [ 0, %1442 ], [ 0, %1446 ], [ 0, %1456 ], [ 0, %.lr.ph.i147 ]
+  %.197.ph = phi i32 [ 0, %.lr.ph.i143 ], [ 0, %767 ], [ 0, %753 ], [ 0, %749 ], [ 0, %748 ], [ 1, %744 ], [ 1, %742 ], [ 0, %721 ], [ 1, %710 ], [ 1, %708 ], [ 0, %686 ], [ 0, %669 ], [ 1, %662 ], [ 1, %660 ], [ 1, %634 ], [ 1, %632 ], [ 1, %604 ], [ 1, %602 ], [ 1, %583 ], [ 1, %581 ], [ 1, %569 ], [ 1, %567 ], [ 1, %554 ], [ 1, %552 ], [ 1, %266 ], [ 1, %264 ], [ 1, %152 ], [ 1, %150 ], [ 1, %121 ], [ 1, %119 ], [ 1, %314 ], [ 1, %316 ], [ 0, %691 ], [ 0, %750 ], [ 0, %1458 ], [ %.0.i151, %Io_ReadBlifNetworkInputArrival.exit ], [ %.0.i158, %Io_ReadBlifNetworkOutputRequired.exit ], [ %.0.i174, %Io_ReadBlifNetworkDefaultInputArrival.exit ], [ %.0.i176, %Io_ReadBlifNetworkDefaultOutputRequired.exit ], [ %.0.i180, %Io_ReadBlifNetworkInputDrive.exit ], [ %1435, %1434 ], [ %1439, %1438 ], [ %1443, %1442 ], [ %1447, %1446 ], [ 0, %1456 ], [ 0, %.lr.ph.i147 ]
   %.pr = load ptr, ptr %14, align 8, !tbaa !39
   %1463 = icmp eq ptr %.pr, null
   br i1 %1463, label %.loopexit, label %1465
@@ -5086,7 +5086,7 @@ Io_ReadBlifNetworkNames.exit.thread:              ; preds = %Vec_StrPush.exit158
   br label %Io_ReadBlifPrintErrorMessage.exit.thread
 
 Io_ReadBlifPrintErrorMessage.exit.thread:         ; preds = %34, %36, %.loopexit, %1470, %1466, %51
-  %.1102 = phi ptr [ null, %1466 ], [ null, %51 ], [ %12, %1470 ], [ %12, %.loopexit ], [ null, %36 ], [ null, %34 ]
+  %.1102 = phi ptr [ null, %51 ], [ null, %1466 ], [ null, %34 ], [ %12, %1470 ], [ %12, %.loopexit ], [ null, %36 ]
   ret ptr %.1102
 }
 
@@ -5486,7 +5486,7 @@ Vec_IntPush.exit49:                               ; preds = %.Vec_IntGrow.exit10
   br label %Io_ReadBlifPrintErrorMessage.exit
 
 Io_ReadBlifPrintErrorMessage.exit:                ; preds = %85, %83, %49, %47, %20, %18, %Vec_IntPush.exit49
-  %.0 = phi i32 [ 0, %Vec_IntPush.exit49 ], [ 1, %18 ], [ 1, %20 ], [ 1, %47 ], [ 1, %49 ], [ 1, %83 ], [ 1, %85 ]
+  %.0 = phi i32 [ 0, %Vec_IntPush.exit49 ], [ 1, %20 ], [ 1, %49 ], [ 1, %18 ], [ 1, %47 ], [ 1, %83 ], [ 1, %85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -5590,7 +5590,7 @@ define internal fastcc range(i32 0, 2) i32 @Io_ReadBlifNetworkDefaultInputDrive(
   br label %Io_ReadBlifPrintErrorMessage.exit
 
 Io_ReadBlifPrintErrorMessage.exit:                ; preds = %57, %55, %20, %18, %59
-  %.0 = phi i32 [ 0, %59 ], [ 1, %18 ], [ 1, %20 ], [ 1, %55 ], [ 1, %57 ]
+  %.0 = phi i32 [ 0, %59 ], [ 1, %20 ], [ 1, %18 ], [ 1, %55 ], [ 1, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -5694,7 +5694,7 @@ define internal fastcc range(i32 0, 2) i32 @Io_ReadBlifNetworkDefaultOutputLoad(
   br label %Io_ReadBlifPrintErrorMessage.exit
 
 Io_ReadBlifPrintErrorMessage.exit:                ; preds = %57, %55, %20, %18, %59
-  %.0 = phi i32 [ 0, %59 ], [ 1, %18 ], [ 1, %20 ], [ 1, %55 ], [ 1, %57 ]
+  %.0 = phi i32 [ 0, %59 ], [ 1, %20 ], [ 1, %18 ], [ 1, %55 ], [ 1, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -5784,7 +5784,7 @@ define internal fastcc range(i32 0, 2) i32 @Io_ReadBlifNetworkAndGateDelay(ptr n
   br label %Io_ReadBlifPrintErrorMessage.exit
 
 Io_ReadBlifPrintErrorMessage.exit:                ; preds = %51, %49, %23, %21, %53
-  %.0 = phi i32 [ 0, %53 ], [ 1, %21 ], [ 1, %23 ], [ 1, %49 ], [ 1, %51 ]
+  %.0 = phi i32 [ 0, %53 ], [ 1, %23 ], [ 1, %21 ], [ 1, %49 ], [ 1, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

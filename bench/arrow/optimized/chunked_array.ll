@@ -1557,7 +1557,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EED2Ev.exit: ; preds = %_ZSt8_D
   ret void
 
 .body:                                            ; preds = %88, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow12ChunkedArrayESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i
-  %.pn = phi { ptr, i32 } [ %89, %88 ], [ %85, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow12ChunkedArrayESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i ]
+  %.pn = phi { ptr, i32 } [ %85, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow12ChunkedArrayESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i ], [ %89, %88 ]
   call void @_ZN5arrow6ResultISt10shared_ptrINS_5ArrayEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %154
@@ -1910,7 +1910,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %"_ZN5arrow8internal
   br label %96
 
 96:                                               ; preds = %18, %13, %3, %_ZN5arrow6StatusD2Ev.exit
-  %.0 = phi i1 [ %90, %_ZN5arrow6StatusD2Ev.exit ], [ false, %3 ], [ false, %13 ], [ false, %18 ]
+  %.0 = phi i1 [ false, %13 ], [ false, %3 ], [ %90, %_ZN5arrow6StatusD2Ev.exit ], [ false, %18 ]
   ret i1 %.0
 }
 
@@ -2207,7 +2207,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %"_ZN5arrow8internal
   br label %96
 
 96:                                               ; preds = %18, %13, %3, %_ZN5arrow6StatusD2Ev.exit
-  %.0 = phi i1 [ %90, %_ZN5arrow6StatusD2Ev.exit ], [ false, %3 ], [ false, %13 ], [ false, %18 ]
+  %.0 = phi i1 [ false, %13 ], [ false, %3 ], [ %90, %_ZN5arrow6StatusD2Ev.exit ], [ false, %18 ]
   ret i1 %.0
 }
 
@@ -2901,7 +2901,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EED2Ev.exit: ; preds = %_ZSt8_D
   ret void
 
 .body:                                            ; preds = %85, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow12ChunkedArrayESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i, %149, %91
-  %.pn31 = phi { ptr, i32 } [ %.pn29, %91 ], [ %.pn, %149 ], [ %86, %85 ], [ %155, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow12ChunkedArrayESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i ]
+  %.pn31 = phi { ptr, i32 } [ %.pn, %149 ], [ %.pn29, %91 ], [ %86, %85 ], [ %155, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow12ChunkedArrayESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i ]
   call void @_ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %192
@@ -3101,7 +3101,7 @@ _ZNSt12__shared_ptrIN5arrow12ChunkedArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev.exi
   br label %.body
 
 .body:                                            ; preds = %.body.loopexit, %55, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow12ChunkedArrayESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i
-  %.pn41 = phi { ptr, i32 } [ %56, %55 ], [ %19, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow12ChunkedArrayESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i ], [ %57, %.body.loopexit ]
+  %.pn41 = phi { ptr, i32 } [ %19, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow12ChunkedArrayESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i ], [ %56, %55 ], [ %57, %.body.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %301
 
@@ -4481,7 +4481,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EED2Ev.exit: ; preds = %_ZSt8_D
   ret void
 
 .body:                                            ; preds = %105, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow12ChunkedArrayESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i, %38
-  %.pn23 = phi { ptr, i32 } [ %39, %38 ], [ %106, %105 ], [ %102, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow12ChunkedArrayESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i ]
+  %.pn23 = phi { ptr, i32 } [ %39, %38 ], [ %102, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow12ChunkedArrayESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i ], [ %106, %105 ]
   call void @_ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn23

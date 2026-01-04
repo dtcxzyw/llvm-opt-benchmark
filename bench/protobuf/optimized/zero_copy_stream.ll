@@ -469,7 +469,7 @@ cleanup.sink.split:                               ; preds = %invoke.cont28, %inv
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %if.then3.i54, %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.thread.i47, %if.then3.i, %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.thread.i, %invoke.cont28, %invoke.cont8
-  %retval.1 = phi i1 [ false, %invoke.cont8 ], [ true, %invoke.cont28 ], [ false, %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.thread.i ], [ false, %if.then3.i ], [ true, %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.thread.i47 ], [ true, %if.then3.i54 ], [ %retval.1.ph, %cleanup.sink.split ]
+  %retval.1 = phi i1 [ true, %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.thread.i47 ], [ false, %invoke.cont8 ], [ true, %invoke.cont28 ], [ true, %if.then3.i54 ], [ false, %if.then3.i ], [ false, %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.thread.i ], [ %retval.1.ph, %cleanup.sink.split ]
   %71 = load i8, ptr %cord_buffer, align 8
   %72 = and i8 %71, 1
   %cmp.i.not.i66 = icmp eq i8 %72, 0
@@ -481,7 +481,7 @@ if.then.i68:                                      ; preds = %cleanup
   br label %return
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %if.then.i64, %lpad27, %if.then.i21, %lpad7
-  %.pn = phi { ptr, i32 } [ %36, %lpad7 ], [ %36, %if.then.i21 ], [ %66, %lpad27 ], [ %66, %if.then.i64 ], [ %lpad.loopexit95, %lpad.loopexit ], [ %lpad.loopexit.split-lp96, %lpad.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %36, %if.then.i21 ], [ %66, %if.then.i64 ], [ %36, %lpad7 ], [ %66, %lpad27 ], [ %lpad.loopexit95, %lpad.loopexit ], [ %lpad.loopexit.split-lp96, %lpad.loopexit.split-lp ]
   %74 = load i8, ptr %cord_buffer, align 8
   %75 = and i8 %74, 1
   %cmp.i.not.i70 = icmp eq i8 %75, 0
@@ -767,7 +767,7 @@ for.end:                                          ; preds = %while.end, %if.end4
   br label %return
 
 return:                                           ; preds = %while.body, %if.end, %_ZNK4absl12lts_202308024Cord5emptyEv.exit, %for.end
-  %retval.0 = phi i1 [ true, %for.end ], [ true, %_ZNK4absl12lts_202308024Cord5emptyEv.exit ], [ false, %if.end ], [ false, %while.body ]
+  %retval.0 = phi i1 [ true, %_ZNK4absl12lts_202308024Cord5emptyEv.exit ], [ false, %if.end ], [ true, %for.end ], [ false, %while.body ]
   ret i1 %retval.0
 }
 

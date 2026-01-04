@@ -417,7 +417,7 @@ define range(i32 -2147483647, -2147483648) i32 @dotneato_args_initialize(ptr nou
   br label %dotneato_basename.exit
 
 dotneato_basename.exit:                           ; preds = %.critedge2.i, %9, %.critedge.i, %.critedge4.i, %25
-  %.030.i = phi ptr [ %10, %9 ], [ %26, %25 ], [ %10, %.critedge.i ], [ %10, %.critedge4.i ], [ %10, %.critedge2.i ]
+  %.030.i = phi ptr [ %10, %9 ], [ %10, %.critedge.i ], [ %26, %25 ], [ %10, %.critedge4.i ], [ %10, %.critedge2.i ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.030.i, ptr %27, align 8, !tbaa !45
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1036,8 +1036,8 @@ getFlagOpt.exit174:                               ; preds = %262, %258
   br label %.thread205
 
 .thread205:                                       ; preds = %70, %gv_strdup.exit, %314, %125, %133, %141, %214, %use_library.exit, %307, %308, %getFlagOpt.exit, %275, %getFlagOpt.exit174, %282, %289, %287, %291, %305, %303, %306
-  %.0187 = phi i32 [ %storemerge139262, %314 ], [ %storemerge139262, %125 ], [ %storemerge139262, %133 ], [ %storemerge139262, %141 ], [ %.1188, %getFlagOpt.exit ], [ %storemerge139262, %214 ], [ %.3190, %use_library.exit ], [ %.4, %getFlagOpt.exit174 ], [ %.4, %275 ], [ %storemerge139262, %291 ], [ %storemerge139262, %282 ], [ %storemerge139262, %287 ], [ %storemerge139262, %289 ], [ %storemerge139262, %306 ], [ %storemerge139262, %305 ], [ %storemerge139262, %303 ], [ %storemerge139262, %307 ], [ %storemerge139262, %308 ], [ %storemerge139262, %gv_strdup.exit ], [ %storemerge139262, %70 ]
-  %.3 = phi i64 [ %316, %314 ], [ %.2264.ph, %125 ], [ %.2264.ph, %133 ], [ %.2264.ph, %141 ], [ %.2264.ph, %getFlagOpt.exit ], [ %.2264.ph, %214 ], [ %.2264.ph, %use_library.exit ], [ %.2264.ph, %getFlagOpt.exit174 ], [ %.2264.ph, %275 ], [ %.2264.ph, %291 ], [ %.2264.ph, %282 ], [ %.2264.ph, %287 ], [ %.2264.ph, %289 ], [ %.2264.ph, %306 ], [ %.2264.ph, %305 ], [ %.2264.ph, %303 ], [ %.2264.ph, %307 ], [ %.2264.ph, %308 ], [ %.2264.ph, %gv_strdup.exit ], [ %.2264.ph, %70 ]
+  %.0187 = phi i32 [ %storemerge139262, %gv_strdup.exit ], [ %storemerge139262, %314 ], [ %storemerge139262, %125 ], [ %storemerge139262, %133 ], [ %storemerge139262, %141 ], [ %.1188, %getFlagOpt.exit ], [ %storemerge139262, %308 ], [ %storemerge139262, %214 ], [ %.3190, %use_library.exit ], [ %.4, %getFlagOpt.exit174 ], [ %.4, %275 ], [ %storemerge139262, %291 ], [ %storemerge139262, %282 ], [ %storemerge139262, %287 ], [ %storemerge139262, %289 ], [ %storemerge139262, %306 ], [ %storemerge139262, %305 ], [ %storemerge139262, %303 ], [ %storemerge139262, %307 ], [ %storemerge139262, %70 ]
+  %.3 = phi i64 [ %.2264.ph, %gv_strdup.exit ], [ %316, %314 ], [ %.2264.ph, %125 ], [ %.2264.ph, %133 ], [ %.2264.ph, %141 ], [ %.2264.ph, %getFlagOpt.exit ], [ %.2264.ph, %308 ], [ %.2264.ph, %214 ], [ %.2264.ph, %use_library.exit ], [ %.2264.ph, %getFlagOpt.exit174 ], [ %.2264.ph, %275 ], [ %.2264.ph, %291 ], [ %.2264.ph, %282 ], [ %.2264.ph, %287 ], [ %.2264.ph, %289 ], [ %.2264.ph, %306 ], [ %.2264.ph, %305 ], [ %.2264.ph, %303 ], [ %.2264.ph, %307 ], [ %.2264.ph, %70 ]
   %318 = add nsw i32 %.0187, 1
   %319 = icmp slt i32 %318, %1
   br i1 %319, label %.outer, label %._crit_edge266, !llvm.loop !60
@@ -1153,7 +1153,7 @@ getFlagOpt.exit174:                               ; preds = %262, %258
   br label %375
 
 375:                                              ; preds = %371, %373, %358, %211, %174, %83, %368, %309, %298, %268, %226, %187, %157, %142, %134, %126, %100
-  %.0 = phi i32 [ %102, %100 ], [ %313, %309 ], [ %130, %126 ], [ %138, %134 ], [ %146, %142 ], [ %161, %157 ], [ %191, %187 ], [ %230, %226 ], [ %272, %268 ], [ %302, %298 ], [ 2, %368 ], [ 1, %83 ], [ 2, %174 ], [ 2, %211 ], [ 2, %358 ], [ 0, %373 ], [ 0, %371 ]
+  %.0 = phi i32 [ 2, %211 ], [ %102, %100 ], [ %313, %309 ], [ %130, %126 ], [ %138, %134 ], [ %146, %142 ], [ 1, %83 ], [ %161, %157 ], [ 2, %174 ], [ %191, %187 ], [ %230, %226 ], [ %272, %268 ], [ %302, %298 ], [ 2, %358 ], [ 2, %368 ], [ 0, %373 ], [ 0, %371 ]
   ret i32 %.0
 }
 
@@ -1774,7 +1774,7 @@ agxbfree.exit:                                    ; preds = %agxbuse.exit, %44
   br label %findCharset.exit
 
 findCharset.exit:                                 ; preds = %51, %55, %57, %59, %61, %63, %65, %67, %69, %71, %73, %75
-  %.0.i = phi i8 [ 0, %75 ], [ 1, %65 ], [ 1, %63 ], [ 1, %61 ], [ 1, %59 ], [ 1, %57 ], [ 1, %55 ], [ 1, %51 ], [ 2, %69 ], [ 2, %67 ], [ 0, %73 ], [ 0, %71 ]
+  %.0.i = phi i8 [ 0, %75 ], [ 2, %67 ], [ 1, %51 ], [ 1, %65 ], [ 1, %63 ], [ 1, %61 ], [ 1, %59 ], [ 1, %57 ], [ 1, %55 ], [ 2, %69 ], [ 0, %73 ], [ 0, %71 ]
   %76 = load ptr, ptr %10, align 8, !tbaa !83
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 131
   store i8 %.0.i, ptr %77, align 1, !tbaa !100
@@ -1854,7 +1854,7 @@ sub_2181:                                         ; preds = %sub_1180
   br label %.tail178
 
 .tail178:                                         ; preds = %.tail173, %sub_0, %sub_2181, %sub_1180, %sub_0179.thread211, %.tail, %83
-  %.0139 = phi i32 [ 0, %83 ], [ 1, %.tail ], [ 0, %sub_1180 ], [ %106, %sub_2181 ], [ 0, %sub_0179.thread211 ], [ %spec.select, %.tail173 ], [ 0, %sub_0 ]
+  %.0139 = phi i32 [ 0, %83 ], [ 1, %.tail ], [ %spec.select, %.tail173 ], [ 0, %sub_0 ], [ 0, %sub_1180 ], [ %106, %sub_2181 ], [ 0, %sub_0179.thread211 ]
   %107 = load ptr, ptr %10, align 8, !tbaa !83
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 132
   %109 = shl nuw nsw i32 %.0139, 2
@@ -2573,7 +2573,7 @@ define void @do_graph_label(ptr noundef %0) local_unnamed_addr #3 {
   br label %37
 
 37:                                               ; preds = %33, %28, %36, %31
-  %.045 = phi i8 [ 1, %31 ], [ 0, %36 ], [ 0, %28 ], [ 1, %33 ]
+  %.045 = phi i8 [ 0, %36 ], [ 1, %31 ], [ 0, %28 ], [ 1, %33 ]
   %38 = tail call ptr @agget(ptr noundef nonnull %0, ptr noundef nonnull @.str.125) #24
   %.not59 = icmp eq ptr %38, null
   br i1 %.not59, label %45, label %39
@@ -2594,7 +2594,7 @@ define void @do_graph_label(ptr noundef %0) local_unnamed_addr #3 {
   br label %45
 
 45:                                               ; preds = %39, %41, %43, %37
-  %.1 = phi i8 [ %42, %41 ], [ %44, %43 ], [ %.045, %37 ], [ %.045, %39 ]
+  %.1 = phi i8 [ %42, %41 ], [ %44, %43 ], [ %.045, %39 ], [ %.045, %37 ]
   %46 = load ptr, ptr %22, align 8, !tbaa !83
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 395
   store i8 %.1, ptr %47, align 1, !tbaa !128

@@ -221,7 +221,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %.pn33 = phi { ptr, i32 } [ %lpad.thr_comm, %62 ], [ %lpad.thr_comm, %59 ], [ %43, %42 ]
   resume { ptr, i32 } %.pn33
 
-59:                                               ; preds = %27, %.thread42, %22
+59:                                               ; preds = %.thread42, %22, %27
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %60 = load ptr, ptr %4, align 8, !alias.scope !38, !noundef !8
@@ -258,7 +258,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %.not.i = icmp ult i64 %17, %11
   br i1 %.not.i, label %18, label %.thread47
 
-.thread40:                                        ; preds = %27, %.thread44, %32
+.thread40:                                        ; preds = %32, %27, %.thread44
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %82
@@ -501,7 +501,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   br label %"_ZN4core3ptr317drop_in_place$LT$core..iter..adapters..map..Map$LT$core..option..IntoIter$LT$gpui..element..AnyElement$GT$$C$$LT$gpui..elements..div..Div$u20$as$u20$gpui..element..ParentElement$GT$..children$LT$gpui..element..AnyElement$C$core..option..Option$LT$gpui..element..AnyElement$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h6d97fb085bdfb4e7E.exit23"
 
 .thread37:                                        ; preds = %82, %85, %48, %.body
-  %.pn35 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %48 ], [ %.pn36, %85 ], [ %.pn36, %82 ]
+  %.pn35 = phi { ptr, i32 } [ %eh.lpad-body, %48 ], [ %.pn36, %82 ], [ %eh.lpad-body, %.body ], [ %.pn36, %85 ]
   resume { ptr, i32 } %.pn35
 
 82:                                               ; preds = %.thread40, %.thread
@@ -884,7 +884,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %.not.i = icmp ult i64 %19, %13
   br i1 %.not.i, label %20, label %.thread49
 
-.thread42:                                        ; preds = %29, %.thread46, %34
+.thread42:                                        ; preds = %34, %29, %.thread46
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %84
@@ -1139,7 +1139,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   br label %"_ZN4core3ptr402drop_in_place$LT$core..iter..adapters..map..Map$LT$core..option..IntoIter$LT$ui..components..list..list_item..ListItem$GT$$C$$LT$gpui..elements..div..Stateful$LT$gpui..elements..div..Div$GT$$u20$as$u20$gpui..element..ParentElement$GT$..children$LT$ui..components..list..list_item..ListItem$C$core..option..Option$LT$ui..components..list..list_item..ListItem$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hb400e9f46ea503caE.exit25"
 
 .thread39:                                        ; preds = %84, %87, %50, %.body
-  %.pn37 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %50 ], [ %.pn38, %87 ], [ %.pn38, %84 ]
+  %.pn37 = phi { ptr, i32 } [ %eh.lpad-body, %50 ], [ %.pn38, %84 ], [ %eh.lpad-body, %.body ], [ %.pn38, %87 ]
   resume { ptr, i32 } %.pn37
 
 84:                                               ; preds = %.thread42, %.thread
@@ -1185,7 +1185,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %.not.i = icmp ult i64 %23, %17
   br i1 %.not.i, label %24, label %.thread53
 
-.thread46:                                        ; preds = %33, %.thread50, %38
+.thread46:                                        ; preds = %38, %33, %.thread50
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %110
@@ -1488,7 +1488,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   unreachable
 
 common.resume:                                    ; preds = %110, %.body23, %69, %105
-  %common.resume.op = phi { ptr, i32 } [ %106, %105 ], [ %.pn39, %110 ], [ %eh.lpad-body24, %.body23 ], [ %70, %69 ]
+  %common.resume.op = phi { ptr, i32 } [ %106, %105 ], [ %.pn39, %110 ], [ %70, %69 ], [ %eh.lpad-body24, %.body23 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr561drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$gpui..elements..div..Stateful$LT$gpui..elements..div..Div$GT$$GT$$C$gpui..elements..uniform_list..uniform_list$LT$$RF$str$C$gpui..elements..div..Stateful$LT$gpui..elements..div..Div$GT$$C$picker..Picker$LT$language_selector..LanguageSelectorDelegate$GT$$C$picker..Picker$LT$language_selector..LanguageSelectorDelegate$GT$..render_element_container..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hd44c8e8dc2725283E.exit28": ; preds = %107
@@ -1529,7 +1529,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %.not.i = icmp ult i64 %19, %13
   br i1 %.not.i, label %20, label %.thread49
 
-.thread42:                                        ; preds = %29, %.thread46, %34
+.thread42:                                        ; preds = %34, %29, %.thread46
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %84
@@ -1784,7 +1784,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   br label %"_ZN4core3ptr314drop_in_place$LT$core..iter..adapters..map..Map$LT$core..option..IntoIter$LT$gpui..elements..div..Div$GT$$C$$LT$gpui..elements..div..Div$u20$as$u20$gpui..element..ParentElement$GT$..children$LT$gpui..elements..div..Div$C$core..option..Option$LT$gpui..elements..div..Div$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h6a1241ab8b6d3444E.exit25"
 
 .thread39:                                        ; preds = %84, %87, %50, %.body
-  %.pn37 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %50 ], [ %.pn38, %87 ], [ %.pn38, %84 ]
+  %.pn37 = phi { ptr, i32 } [ %eh.lpad-body, %50 ], [ %.pn38, %84 ], [ %eh.lpad-body, %.body ], [ %.pn38, %87 ]
   resume { ptr, i32 } %.pn37
 
 84:                                               ; preds = %.thread42, %.thread
@@ -2477,7 +2477,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   unreachable
 
 common.resume.i:                                  ; preds = %28, %22, %19
-  %common.resume.op.i = phi { ptr, i32 } [ %23, %28 ], [ %23, %22 ], [ %20, %19 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %23, %22 ], [ %23, %28 ], [ %20, %19 ]
   resume { ptr, i32 } %common.resume.op.i
 
 36:                                               ; preds = %19
@@ -9171,8 +9171,8 @@ _ZN8smallvec10deallocate17h2eaff06fa3636ab5E.exit: ; preds = %33
   br label %_ZN8smallvec12layout_array17hc58606ffeb110f23E.exit78.thread
 
 _ZN8smallvec12layout_array17hc58606ffeb110f23E.exit78.thread: ; preds = %21, %16, %15, %_ZN8smallvec10deallocate17h2eaff06fa3636ab5E.exit, %30, %14, %25, %28
-  %.sroa.7.0 = phi i64 [ %17, %28 ], [ %17, %25 ], [ undef, %14 ], [ undef, %30 ], [ undef, %_ZN8smallvec10deallocate17h2eaff06fa3636ab5E.exit ], [ undef, %15 ], [ %17, %16 ], [ %22, %21 ]
-  %.sroa.0.0 = phi i64 [ 4, %28 ], [ 4, %25 ], [ -9223372036854775807, %14 ], [ -9223372036854775807, %30 ], [ -9223372036854775807, %_ZN8smallvec10deallocate17h2eaff06fa3636ab5E.exit ], [ -9223372036854775807, %15 ], [ 0, %16 ], [ 0, %21 ]
+  %.sroa.7.0 = phi i64 [ undef, %_ZN8smallvec10deallocate17h2eaff06fa3636ab5E.exit ], [ %17, %25 ], [ %17, %28 ], [ %22, %21 ], [ undef, %15 ], [ undef, %14 ], [ undef, %30 ], [ %17, %16 ]
+  %.sroa.0.0 = phi i64 [ -9223372036854775807, %_ZN8smallvec10deallocate17h2eaff06fa3636ab5E.exit ], [ 4, %25 ], [ 4, %28 ], [ 0, %21 ], [ -9223372036854775807, %15 ], [ -9223372036854775807, %14 ], [ -9223372036854775807, %30 ], [ 0, %16 ]
   %40 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %41 = insertvalue { i64, i64 } %40, i64 %.sroa.7.0, 1
   ret { i64, i64 } %41
@@ -9271,8 +9271,8 @@ _ZN8smallvec10deallocate17h260ca409f6016858E.exit: ; preds = %33
   br label %_ZN8smallvec12layout_array17hadfaea9d0df0cf9bE.exit78.thread
 
 _ZN8smallvec12layout_array17hadfaea9d0df0cf9bE.exit78.thread: ; preds = %21, %16, %15, %_ZN8smallvec10deallocate17h260ca409f6016858E.exit, %30, %14, %25, %28
-  %.sroa.7.0 = phi i64 [ %17, %28 ], [ %17, %25 ], [ undef, %14 ], [ undef, %30 ], [ undef, %_ZN8smallvec10deallocate17h260ca409f6016858E.exit ], [ undef, %15 ], [ %17, %16 ], [ %22, %21 ]
-  %.sroa.0.0 = phi i64 [ 8, %28 ], [ 8, %25 ], [ -9223372036854775807, %14 ], [ -9223372036854775807, %30 ], [ -9223372036854775807, %_ZN8smallvec10deallocate17h260ca409f6016858E.exit ], [ -9223372036854775807, %15 ], [ 0, %16 ], [ 0, %21 ]
+  %.sroa.7.0 = phi i64 [ undef, %_ZN8smallvec10deallocate17h260ca409f6016858E.exit ], [ %17, %25 ], [ %17, %28 ], [ %22, %21 ], [ undef, %15 ], [ undef, %14 ], [ undef, %30 ], [ %17, %16 ]
+  %.sroa.0.0 = phi i64 [ -9223372036854775807, %_ZN8smallvec10deallocate17h260ca409f6016858E.exit ], [ 8, %25 ], [ 8, %28 ], [ 0, %21 ], [ -9223372036854775807, %15 ], [ -9223372036854775807, %14 ], [ -9223372036854775807, %30 ], [ 0, %16 ]
   %40 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %41 = insertvalue { i64, i64 } %40, i64 %.sroa.7.0, 1
   ret { i64, i64 } %41
@@ -9371,8 +9371,8 @@ _ZN8smallvec10deallocate17h8cfe6febefe965bcE.exit: ; preds = %33
   br label %_ZN8smallvec12layout_array17hfdcfe876f99d5f3cE.exit78.thread
 
 _ZN8smallvec12layout_array17hfdcfe876f99d5f3cE.exit78.thread: ; preds = %21, %16, %15, %_ZN8smallvec10deallocate17h8cfe6febefe965bcE.exit, %30, %14, %25, %28
-  %.sroa.7.0 = phi i64 [ %17, %28 ], [ %17, %25 ], [ undef, %14 ], [ undef, %30 ], [ undef, %_ZN8smallvec10deallocate17h8cfe6febefe965bcE.exit ], [ undef, %15 ], [ %17, %16 ], [ %22, %21 ]
-  %.sroa.0.0 = phi i64 [ 8, %28 ], [ 8, %25 ], [ -9223372036854775807, %14 ], [ -9223372036854775807, %30 ], [ -9223372036854775807, %_ZN8smallvec10deallocate17h8cfe6febefe965bcE.exit ], [ -9223372036854775807, %15 ], [ 0, %16 ], [ 0, %21 ]
+  %.sroa.7.0 = phi i64 [ undef, %_ZN8smallvec10deallocate17h8cfe6febefe965bcE.exit ], [ %17, %25 ], [ %17, %28 ], [ %22, %21 ], [ undef, %15 ], [ undef, %14 ], [ undef, %30 ], [ %17, %16 ]
+  %.sroa.0.0 = phi i64 [ -9223372036854775807, %_ZN8smallvec10deallocate17h8cfe6febefe965bcE.exit ], [ 8, %25 ], [ 8, %28 ], [ 0, %21 ], [ -9223372036854775807, %15 ], [ -9223372036854775807, %14 ], [ -9223372036854775807, %30 ], [ 0, %16 ]
   %40 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %41 = insertvalue { i64, i64 } %40, i64 %.sroa.7.0, 1
   ret { i64, i64 } %41
@@ -9465,8 +9465,8 @@ _ZN8smallvec10deallocate17hf40d00b9fb9c6ad3E.exit: ; preds = %29
   br label %_ZN8smallvec12layout_array17hd90a8eb61d7e7779E.exit78.thread
 
 _ZN8smallvec12layout_array17hd90a8eb61d7e7779E.exit78.thread: ; preds = %19, %16, %15, %_ZN8smallvec10deallocate17hf40d00b9fb9c6ad3E.exit, %26, %14, %21, %24
-  %.sroa.7.0 = phi i64 [ %17, %24 ], [ %17, %21 ], [ undef, %14 ], [ undef, %26 ], [ undef, %_ZN8smallvec10deallocate17hf40d00b9fb9c6ad3E.exit ], [ undef, %15 ], [ %17, %16 ], [ %20, %19 ]
-  %.sroa.0.0 = phi i64 [ 8, %24 ], [ 8, %21 ], [ -9223372036854775807, %14 ], [ -9223372036854775807, %26 ], [ -9223372036854775807, %_ZN8smallvec10deallocate17hf40d00b9fb9c6ad3E.exit ], [ -9223372036854775807, %15 ], [ 0, %16 ], [ 0, %19 ]
+  %.sroa.7.0 = phi i64 [ undef, %_ZN8smallvec10deallocate17hf40d00b9fb9c6ad3E.exit ], [ %17, %21 ], [ %17, %24 ], [ %20, %19 ], [ undef, %15 ], [ undef, %14 ], [ undef, %26 ], [ %17, %16 ]
+  %.sroa.0.0 = phi i64 [ -9223372036854775807, %_ZN8smallvec10deallocate17hf40d00b9fb9c6ad3E.exit ], [ 8, %21 ], [ 8, %24 ], [ 0, %19 ], [ -9223372036854775807, %15 ], [ -9223372036854775807, %14 ], [ -9223372036854775807, %26 ], [ 0, %16 ]
   %34 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %35 = insertvalue { i64, i64 } %34, i64 %.sroa.7.0, 1
   ret { i64, i64 } %35
@@ -9559,8 +9559,8 @@ _ZN8smallvec10deallocate17hf40d00b9fb9c6ad3E.exit: ; preds = %29
   br label %_ZN8smallvec12layout_array17hd90a8eb61d7e7779E.exit78.thread
 
 _ZN8smallvec12layout_array17hd90a8eb61d7e7779E.exit78.thread: ; preds = %19, %16, %15, %_ZN8smallvec10deallocate17hf40d00b9fb9c6ad3E.exit, %26, %14, %21, %24
-  %.sroa.7.0 = phi i64 [ %17, %24 ], [ %17, %21 ], [ undef, %14 ], [ undef, %26 ], [ undef, %_ZN8smallvec10deallocate17hf40d00b9fb9c6ad3E.exit ], [ undef, %15 ], [ %17, %16 ], [ %20, %19 ]
-  %.sroa.0.0 = phi i64 [ 8, %24 ], [ 8, %21 ], [ -9223372036854775807, %14 ], [ -9223372036854775807, %26 ], [ -9223372036854775807, %_ZN8smallvec10deallocate17hf40d00b9fb9c6ad3E.exit ], [ -9223372036854775807, %15 ], [ 0, %16 ], [ 0, %19 ]
+  %.sroa.7.0 = phi i64 [ undef, %_ZN8smallvec10deallocate17hf40d00b9fb9c6ad3E.exit ], [ %17, %21 ], [ %17, %24 ], [ %20, %19 ], [ undef, %15 ], [ undef, %14 ], [ undef, %26 ], [ %17, %16 ]
+  %.sroa.0.0 = phi i64 [ -9223372036854775807, %_ZN8smallvec10deallocate17hf40d00b9fb9c6ad3E.exit ], [ 8, %21 ], [ 8, %24 ], [ 0, %19 ], [ -9223372036854775807, %15 ], [ -9223372036854775807, %14 ], [ -9223372036854775807, %26 ], [ 0, %16 ]
   %34 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %35 = insertvalue { i64, i64 } %34, i64 %.sroa.7.0, 1
   ret { i64, i64 } %35
@@ -9659,8 +9659,8 @@ _ZN8smallvec10deallocate17hefd0542f34876f48E.exit: ; preds = %33
   br label %_ZN8smallvec12layout_array17h57ba82c6e91a9777E.exit78.thread
 
 _ZN8smallvec12layout_array17h57ba82c6e91a9777E.exit78.thread: ; preds = %21, %16, %15, %_ZN8smallvec10deallocate17hefd0542f34876f48E.exit, %30, %14, %25, %28
-  %.sroa.7.0 = phi i64 [ %17, %28 ], [ %17, %25 ], [ undef, %14 ], [ undef, %30 ], [ undef, %_ZN8smallvec10deallocate17hefd0542f34876f48E.exit ], [ undef, %15 ], [ %17, %16 ], [ %22, %21 ]
-  %.sroa.0.0 = phi i64 [ 4, %28 ], [ 4, %25 ], [ -9223372036854775807, %14 ], [ -9223372036854775807, %30 ], [ -9223372036854775807, %_ZN8smallvec10deallocate17hefd0542f34876f48E.exit ], [ -9223372036854775807, %15 ], [ 0, %16 ], [ 0, %21 ]
+  %.sroa.7.0 = phi i64 [ undef, %_ZN8smallvec10deallocate17hefd0542f34876f48E.exit ], [ %17, %25 ], [ %17, %28 ], [ %22, %21 ], [ undef, %15 ], [ undef, %14 ], [ undef, %30 ], [ %17, %16 ]
+  %.sroa.0.0 = phi i64 [ -9223372036854775807, %_ZN8smallvec10deallocate17hefd0542f34876f48E.exit ], [ 4, %25 ], [ 4, %28 ], [ 0, %21 ], [ -9223372036854775807, %15 ], [ -9223372036854775807, %14 ], [ -9223372036854775807, %30 ], [ 0, %16 ]
   %40 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %41 = insertvalue { i64, i64 } %40, i64 %.sroa.7.0, 1
   ret { i64, i64 } %41

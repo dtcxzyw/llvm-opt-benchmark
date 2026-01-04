@@ -395,7 +395,7 @@ PACKET_buf_init.exit35:                           ; preds = %47, %49
   %exitcond.not = icmp eq i64 %55, %umax
   br i1 %exitcond.not, label %.loopexit, label %47, !llvm.loop !20
 
-.loopexit:                                        ; preds = %54, %41, %36, %PACKET_buf_init.exit, %20, %17, %13, %.thread
+.loopexit:                                        ; preds = %54, %.thread, %41, %36, %PACKET_buf_init.exit, %20, %17, %13
   %.022.ph = phi i32 [ 0, %.thread ], [ 0, %13 ], [ 0, %17 ], [ 0, %20 ], [ 0, %PACKET_buf_init.exit ], [ 0, %36 ], [ 0, %41 ], [ 1, %54 ]
   %56 = call i32 @WPACKET_finish(ptr noundef nonnull %2) #5
   br label %57
@@ -513,7 +513,7 @@ define internal range(i32 0, 2) i32 @test_wire_pkt_hdr_pn(i32 noundef %0) #0 {
   br label %34
 
 34:                                               ; preds = %31, %24, %20, %14, %1
-  %.0 = phi i32 [ 0, %24 ], [ 0, %20 ], [ 0, %14 ], [ 0, %1 ], [ %spec.select, %31 ]
+  %.0 = phi i32 [ 0, %1 ], [ %spec.select, %31 ], [ 0, %24 ], [ 0, %20 ], [ 0, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
@@ -576,7 +576,7 @@ define internal range(i32 0, 2) i32 @test_wire_retry_integrity_tag() #0 {
   br label %27
 
 27:                                               ; preds = %22, %20, %15, %11, %6, %0
-  %.0 = phi i32 [ 0, %20 ], [ 0, %15 ], [ 0, %11 ], [ 0, %6 ], [ 0, %0 ], [ %spec.select, %22 ]
+  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %22 ], [ 0, %20 ], [ 0, %15 ], [ 0, %11 ], [ 0, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -622,7 +622,7 @@ PACKET_buf_init.exit:
   br label %21
 
 21:                                               ; preds = %16, %11, %PACKET_buf_init.exit
-  %.0 = phi i32 [ 0, %11 ], [ 0, %PACKET_buf_init.exit ], [ %spec.select, %16 ]
+  %.0 = phi i32 [ 0, %PACKET_buf_init.exit ], [ %spec.select, %16 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -670,7 +670,7 @@ define internal range(i32 0, 2) i32 @encode_case_1_dec(ptr noundef %0, i64 nound
   br label %8
 
 8:                                                ; preds = %4, %2
-  %.0 = phi i32 [ 1, %2 ], [ %., %4 ]
+  %.0 = phi i32 [ %., %4 ], [ 1, %2 ]
   ret i32 %.0
 }
 
@@ -818,7 +818,7 @@ define internal range(i32 0, 2) i32 @encode_case_3_dec(ptr noundef %0, i64 nound
   br label %61
 
 61:                                               ; preds = %57, %53, %49, %43, %39, %34, %28, %32, %24, %22, %19, %13, %11
-  %.0 = phi i32 [ 0, %11 ], [ 0, %13 ], [ 0, %19 ], [ 1, %22 ], [ 0, %24 ], [ 0, %32 ], [ 0, %28 ], [ 0, %34 ], [ 0, %39 ], [ 0, %43 ], [ 0, %49 ], [ 0, %53 ], [ %., %57 ]
+  %.0 = phi i32 [ 0, %19 ], [ 0, %53 ], [ %., %57 ], [ 0, %49 ], [ 0, %43 ], [ 0, %39 ], [ 0, %34 ], [ 0, %28 ], [ 0, %24 ], [ 1, %22 ], [ 0, %13 ], [ 0, %11 ], [ 0, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -948,7 +948,7 @@ define internal range(i32 0, 2) i32 @encode_case_6_dec(ptr noundef %0, i64 nound
   br label %21
 
 21:                                               ; preds = %16, %12, %9, %7, %2
-  %.0 = phi i32 [ 0, %2 ], [ 1, %7 ], [ 0, %9 ], [ 0, %12 ], [ %., %16 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %12 ], [ %., %16 ], [ 0, %9 ], [ 1, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -1073,7 +1073,7 @@ define internal range(i32 0, 2) i32 @encode_case_8_dec(ptr noundef %0, i64 nound
   br label %39
 
 39:                                               ; preds = %33, %27, %23, %20, %15, %11, %9, %5, %2
-  %.0 = phi i32 [ 1, %2 ], [ 0, %5 ], [ 1, %9 ], [ 0, %11 ], [ 0, %15 ], [ 0, %20 ], [ 0, %23 ], [ 0, %27 ], [ %., %33 ]
+  %.0 = phi i32 [ 1, %2 ], [ 0, %5 ], [ 0, %27 ], [ %., %33 ], [ 0, %23 ], [ 0, %20 ], [ 0, %15 ], [ 0, %11 ], [ 1, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -1151,7 +1151,7 @@ define internal range(i32 0, 2) i32 @encode_case_9_dec(ptr noundef %0, i64 nound
   br label %37
 
 37:                                               ; preds = %31, %25, %21, %18, %13, %9, %7, %2
-  %.0 = phi i32 [ 0, %2 ], [ 1, %7 ], [ 0, %9 ], [ 0, %13 ], [ 0, %18 ], [ 0, %21 ], [ 0, %25 ], [ %., %31 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %25 ], [ %., %31 ], [ 0, %21 ], [ 0, %18 ], [ 0, %13 ], [ 0, %9 ], [ 1, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -1236,7 +1236,7 @@ define internal range(i32 0, 2) i32 @encode_case_11_dec(ptr noundef %0, i64 noun
   br label %16
 
 16:                                               ; preds = %13, %10, %8, %2
-  %.0 = phi i32 [ 0, %2 ], [ 1, %8 ], [ 0, %10 ], [ %., %13 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %10 ], [ %., %13 ], [ 1, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -1364,7 +1364,7 @@ define internal range(i32 0, 2) i32 @encode_case_12_dec(ptr noundef %0, i64 noun
   br label %51
 
 51:                                               ; preds = %48, %45, %42, %39, %34, %28, %23, %18, %12, %2, %.critedge43
-  %.0 = phi i32 [ 1, %.critedge43 ], [ 0, %2 ], [ 0, %12 ], [ 0, %18 ], [ 0, %23 ], [ 0, %28 ], [ 0, %34 ], [ 0, %39 ], [ 0, %42 ], [ 0, %45 ], [ 0, %48 ]
+  %.0 = phi i32 [ 1, %.critedge43 ], [ 0, %45 ], [ 0, %42 ], [ 0, %39 ], [ 0, %34 ], [ 0, %28 ], [ 0, %23 ], [ 0, %18 ], [ 0, %12 ], [ 0, %2 ], [ 0, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1453,7 +1453,7 @@ define internal range(i32 0, 2) i32 @encode_case_14_dec(ptr noundef %0, i64 noun
   br label %16
 
 16:                                               ; preds = %13, %10, %8, %2
-  %.0 = phi i32 [ 0, %2 ], [ 1, %8 ], [ 0, %10 ], [ %., %13 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %10 ], [ %., %13 ], [ 1, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -1586,7 +1586,7 @@ define internal range(i32 0, 2) i32 @encode_case_15_dec(ptr noundef %0, i64 noun
   br label %55
 
 55:                                               ; preds = %52, %48, %44, %40, %34, %28, %23, %18, %12, %2, %.thread44
-  %.0 = phi i32 [ 1, %.thread44 ], [ 0, %2 ], [ 0, %12 ], [ 0, %18 ], [ 0, %23 ], [ 0, %28 ], [ 0, %34 ], [ 0, %40 ], [ 0, %44 ], [ 0, %48 ], [ 0, %52 ]
+  %.0 = phi i32 [ 1, %.thread44 ], [ 0, %48 ], [ 0, %44 ], [ 0, %40 ], [ 0, %34 ], [ 0, %28 ], [ 0, %23 ], [ 0, %18 ], [ 0, %12 ], [ 0, %2 ], [ 0, %52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1657,7 +1657,7 @@ define internal range(i32 0, 2) i32 @encode_case_16_dec(ptr noundef %0, i64 noun
   br label %29
 
 29:                                               ; preds = %26, %21, %16, %12, %9, %7, %2
-  %.0 = phi i32 [ 0, %2 ], [ 1, %7 ], [ 0, %9 ], [ 0, %12 ], [ 0, %16 ], [ 0, %21 ], [ %., %26 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %21 ], [ %., %26 ], [ 0, %16 ], [ 0, %12 ], [ 0, %9 ], [ 1, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -1877,7 +1877,7 @@ define internal range(i32 0, 2) i32 @encode_case_20_dec(ptr noundef %0, i64 noun
   br label %31
 
 31:                                               ; preds = %26, %22, %18, %14, %9, %7, %2
-  %.0 = phi i32 [ 0, %2 ], [ 1, %7 ], [ 0, %9 ], [ 0, %14 ], [ 0, %18 ], [ 0, %22 ], [ %., %26 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %22 ], [ %., %26 ], [ 0, %18 ], [ 0, %14 ], [ 0, %9 ], [ 1, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -2039,7 +2039,7 @@ define internal range(i32 0, 2) i32 @encode_case_22_dec(ptr noundef %0, i64 noun
   br label %47
 
 47:                                               ; preds = %44, %.thread73, %39, %37, %31, %.critedge, %24, %21, %18, %16, %11, %2, %.critedge62
-  %.0 = phi i32 [ 1, %.critedge62 ], [ 0, %2 ], [ 0, %11 ], [ 0, %16 ], [ 0, %18 ], [ 0, %21 ], [ 0, %24 ], [ 0, %.critedge ], [ 0, %31 ], [ 0, %37 ], [ 0, %39 ], [ 0, %.thread73 ], [ 0, %44 ]
+  %.0 = phi i32 [ 1, %.critedge62 ], [ 0, %.thread73 ], [ 0, %39 ], [ 0, %31 ], [ 0, %37 ], [ 0, %.critedge ], [ 0, %24 ], [ 0, %21 ], [ 0, %18 ], [ 0, %11 ], [ 0, %16 ], [ 0, %2 ], [ 0, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -2121,7 +2121,7 @@ define internal range(i32 0, 2) i32 @encode_case_23_dec(ptr noundef %0, i64 noun
   br label %27
 
 27:                                               ; preds = %24, %21, %.critedge, %13, %10, %2, %.critedge27
-  %.0 = phi i32 [ 1, %.critedge27 ], [ 0, %2 ], [ 0, %10 ], [ 0, %13 ], [ 0, %.critedge ], [ 0, %21 ], [ 0, %24 ]
+  %.0 = phi i32 [ 1, %.critedge27 ], [ 0, %21 ], [ 0, %.critedge ], [ 0, %13 ], [ 0, %10 ], [ 0, %2 ], [ 0, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -2301,7 +2301,7 @@ define internal range(i32 0, 2) i32 @ack_generic_decode(ptr noundef %0) #0 {
   br i1 %.not11, label %.loopexit, label %18
 
 .loopexit:                                        ; preds = %.lr.ph, %28, %18, %.preheader, %13, %10, %1
-  %.08 = phi i32 [ 0, %1 ], [ 0, %10 ], [ 0, %13 ], [ 1, %.preheader ], [ 0, %.lr.ph ], [ 0, %28 ], [ 1, %18 ]
+  %.08 = phi i32 [ 0, %1 ], [ 0, %10 ], [ 0, %13 ], [ 1, %.preheader ], [ 0, %28 ], [ 0, %.lr.ph ], [ 1, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

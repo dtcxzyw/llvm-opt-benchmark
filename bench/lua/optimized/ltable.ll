@@ -389,7 +389,7 @@ resizearray.exit.thread:                          ; preds = %90
   br label %resizearray.exit
 
 resizearray.exit:                                 ; preds = %87, %100, %106, %108
-  %.0.i = phi ptr [ %89, %87 ], [ null, %100 ], [ %107, %108 ], [ %107, %106 ]
+  %.0.i = phi ptr [ %89, %87 ], [ %107, %106 ], [ null, %100 ], [ %107, %108 ]
   %123 = icmp eq ptr %.0.i, null
   %124 = icmp ne i32 %2, 0
   %125 = and i1 %124, %123
@@ -1343,7 +1343,7 @@ equalkey.exit.us:                                 ; preds = %9
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %equalkey.exit.thread.us, label %equalkey.exit.thread18
 
-equalkey.exit.thread.us:                          ; preds = %10, %14, %18, %23, %.thread.i.us, %.split.us, %equalkey.exit.us
+equalkey.exit.thread.us:                          ; preds = %23, %18, %14, %10, %.thread.i.us, %.split.us, %equalkey.exit.us
   %35 = getelementptr inbounds nuw i8, ptr %.012.us, i64 12
   %36 = load i32, ptr %35, align 4, !tbaa !16
   %.not15.us = icmp eq i32 %36, 0
@@ -1421,7 +1421,7 @@ equalkey.exit:                                    ; preds = %45
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %equalkey.exit.thread, label %equalkey.exit.thread18
 
-equalkey.exit.thread:                             ; preds = %59, %55, %50, %46, %.thread.i, %42, %equalkey.exit
+equalkey.exit.thread:                             ; preds = %46, %50, %55, %59, %.thread.i, %42, %equalkey.exit
   %71 = getelementptr inbounds nuw i8, ptr %.012, i64 12
   %72 = load i32, ptr %71, align 4, !tbaa !16
   %.not15 = icmp eq i32 %72, 0
@@ -1429,8 +1429,8 @@ equalkey.exit.thread:                             ; preds = %59, %55, %50, %46, 
   %74 = getelementptr inbounds %union.Node, ptr %.012, i64 %73
   br i1 %.not15, label %equalkey.exit.thread18, label %.split
 
-equalkey.exit.thread18:                           ; preds = %equalkey.exit.thread, %equalkey.exit, %45, %45, %45, %.thread.i, %46, %50, %55, %59, %9, %9, %9, %equalkey.exit.us, %equalkey.exit.thread.us, %.thread.i.us, %23, %18, %14, %10
-  %.us-phi = phi ptr [ %.012.us, %10 ], [ %.012.us, %14 ], [ %.012.us, %18 ], [ %.012.us, %23 ], [ %.012.us, %.thread.i.us ], [ @absentkey, %equalkey.exit.thread.us ], [ %.012.us, %equalkey.exit.us ], [ %.012.us, %9 ], [ %.012.us, %9 ], [ %.012.us, %9 ], [ %.012, %59 ], [ %.012, %55 ], [ %.012, %50 ], [ %.012, %46 ], [ %.012, %.thread.i ], [ @absentkey, %equalkey.exit.thread ], [ %.012, %equalkey.exit ], [ %.012, %45 ], [ %.012, %45 ], [ %.012, %45 ]
+equalkey.exit.thread18:                           ; preds = %equalkey.exit.thread, %equalkey.exit, %45, %45, %45, %.thread.i, %59, %55, %50, %46, %9, %9, %9, %equalkey.exit.us, %equalkey.exit.thread.us, %.thread.i.us, %10, %14, %18, %23
+  %.us-phi = phi ptr [ %.012.us, %23 ], [ %.012.us, %18 ], [ %.012.us, %14 ], [ %.012.us, %10 ], [ %.012.us, %.thread.i.us ], [ %.012.us, %9 ], [ @absentkey, %equalkey.exit.thread.us ], [ %.012.us, %equalkey.exit.us ], [ %.012.us, %9 ], [ %.012.us, %9 ], [ %.012, %46 ], [ %.012, %50 ], [ %.012, %55 ], [ %.012, %59 ], [ %.012, %.thread.i ], [ @absentkey, %equalkey.exit.thread ], [ %.012, %equalkey.exit ], [ %.012, %45 ], [ %.012, %45 ], [ %.012, %45 ]
   ret ptr %.us-phi
 }
 
@@ -1657,7 +1657,7 @@ luaH_Hgetshortstr.exit:                           ; preds = %20, %24
   br label %retpsetcode.exit
 
 retpsetcode.exit:                                 ; preds = %56, %73, %70, %66, %45, %33
-  %.0 = phi i32 [ 0, %66 ], [ 0, %33 ], [ 0, %45 ], [ %80, %73 ], [ 1, %70 ], [ 1, %56 ]
+  %.0 = phi i32 [ 0, %33 ], [ 0, %45 ], [ 0, %66 ], [ %80, %73 ], [ 1, %70 ], [ 1, %56 ]
   ret i32 %.0
 }
 
@@ -1814,7 +1814,7 @@ getfreepos.exit:                                  ; preds = %35, %getfreepos.exi
   br label %84
 
 84:                                               ; preds = %79, %66, %10
-  %.048 = phi ptr [ %5, %10 ], [ %5, %66 ], [ %.2.i, %79 ]
+  %.048 = phi ptr [ %5, %10 ], [ %.2.i, %79 ], [ %5, %66 ]
   %85 = getelementptr inbounds nuw i8, ptr %.048, i64 16
   %86 = load i64, ptr %1, align 8, !tbaa !16
   store i64 %86, ptr %85, align 8, !tbaa !16
@@ -1963,7 +1963,7 @@ define hidden i32 @luaH_pset(ptr noundef captures(none) %0, ptr noundef readonly
   br label %finishnodeset.exit
 
 finishnodeset.exit:                               ; preds = %32, %30, %26, %17, %3, %11, %8
-  %.015 = phi i32 [ %10, %8 ], [ %13, %11 ], [ %19, %17 ], [ 1, %3 ], [ 0, %26 ], [ %40, %32 ], [ 1, %30 ]
+  %.015 = phi i32 [ 1, %3 ], [ %10, %8 ], [ %13, %11 ], [ %19, %17 ], [ 0, %26 ], [ %40, %32 ], [ 1, %30 ]
   ret i32 %.015
 }
 
@@ -2101,7 +2101,7 @@ getintfromhash.exit.i:                            ; preds = %66, %62
   br label %luaH_psetint.exit
 
 luaH_psetint.exit:                                ; preds = %82, %80, %76, %25, %33
-  %.1 = phi i32 [ 0, %25 ], [ %35, %33 ], [ 0, %76 ], [ %88, %82 ], [ 1, %80 ]
+  %.1 = phi i32 [ %35, %33 ], [ 0, %25 ], [ 0, %76 ], [ %88, %82 ], [ 1, %80 ]
   ret i32 %.1
 }
 
@@ -2291,9 +2291,9 @@ countint.exit.i:                                  ; preds = %22, %18, %12
   br label %countint.exit.i.i
 
 countint.exit.i.i:                                ; preds = %54, %49, %44, %35
-  %62 = phi i32 [ %36, %44 ], [ %36, %49 ], [ %36, %54 ], [ 1, %35 ]
-  %63 = phi i32 [ %37, %44 ], [ %37, %49 ], [ %61, %54 ], [ %37, %35 ]
-  %.1.i.i = phi i32 [ %45, %44 ], [ %45, %49 ], [ %45, %54 ], [ %.01112.i.i, %35 ]
+  %62 = phi i32 [ %36, %54 ], [ %36, %44 ], [ %36, %49 ], [ 1, %35 ]
+  %63 = phi i32 [ %61, %54 ], [ %37, %44 ], [ %37, %49 ], [ %37, %35 ]
+  %.1.i.i = phi i32 [ %45, %54 ], [ %45, %44 ], [ %45, %49 ], [ %.01112.i.i, %35 ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %.not.i.i = icmp eq i64 %indvars.iv.i.i, 0
   br i1 %.not.i.i, label %numusehash.exit.i, label %35
@@ -2986,7 +2986,7 @@ hashkeyisempty.exit38.i:                          ; preds = %182, %178
   br i1 %192, label %163, label %hash_search.exit
 
 hash_search.exit:                                 ; preds = %hashkeyisempty.exit38.i, %binsearch.exit72, %43, %27, %binsearch.exit, %.loopexit41.i, %hashkeyisempty.exit31.i, %96
-  %.3 = phi i64 [ %97, %96 ], [ 9223372036854775807, %hashkeyisempty.exit31.i ], [ %.121.i, %.loopexit41.i ], [ %39, %binsearch.exit ], [ %28, %27 ], [ %68, %binsearch.exit72 ], [ %indvars.iv, %43 ], [ %..019.i, %hashkeyisempty.exit38.i ]
+  %.3 = phi i64 [ %97, %96 ], [ %indvars.iv, %43 ], [ 9223372036854775807, %hashkeyisempty.exit31.i ], [ %.121.i, %.loopexit41.i ], [ %39, %binsearch.exit ], [ %28, %27 ], [ %68, %binsearch.exit72 ], [ %..019.i, %hashkeyisempty.exit38.i ]
   ret i64 %.3
 }
 

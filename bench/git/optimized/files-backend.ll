@@ -905,8 +905,8 @@ strbuf_setlen.exit.i.i:                           ; preds = %127, %123
   br label %.loopexit113
 
 .loopexit113:                                     ; preds = %.loopexit113.loopexit, %.loopexit, %169, %163, %160, %156, %153, %.thread.i.i, %132, %128, %strbuf_setlen.exit.i.i, %122
-  %177 = phi ptr [ %133, %132 ], [ %154, %153 ], [ %157, %156 ], [ %161, %163 ], [ %166, %169 ], [ %171, %.loopexit ], [ %120, %strbuf_setlen.exit.i.i ], [ %120, %128 ], [ %120, %122 ], [ %161, %160 ], [ %145, %.thread.i.i ], [ %176, %.loopexit113.loopexit ]
-  %.055.i.i = phi i32 [ -3, %132 ], [ -3, %153 ], [ -3, %156 ], [ -3, %163 ], [ -3, %169 ], [ -3, %.loopexit ], [ -3, %strbuf_setlen.exit.i.i ], [ -3, %128 ], [ -1, %122 ], [ -1, %160 ], [ -3, %.thread.i.i ], [ -1, %.loopexit113.loopexit ]
+  %177 = phi ptr [ %133, %132 ], [ %145, %.thread.i.i ], [ %154, %153 ], [ %161, %160 ], [ %157, %156 ], [ %120, %122 ], [ %161, %163 ], [ %166, %169 ], [ %171, %.loopexit ], [ %120, %strbuf_setlen.exit.i.i ], [ %120, %128 ], [ %176, %.loopexit113.loopexit ]
+  %.055.i.i = phi i32 [ -3, %132 ], [ -3, %.thread.i.i ], [ -3, %153 ], [ -1, %160 ], [ -3, %156 ], [ -1, %122 ], [ -3, %163 ], [ -3, %169 ], [ -3, %.loopexit ], [ -3, %strbuf_setlen.exit.i.i ], [ -3, %128 ], [ -1, %.loopexit113.loopexit ]
   %178 = load i32, ptr %177, align 4, !tbaa !50
   %179 = add i32 %178, -1
   store i32 %179, ptr %177, align 4, !tbaa !50
@@ -1187,8 +1187,8 @@ create_symref_lock.exit.i:                        ; preds = %264, %261
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %2, ptr noundef nonnull @.str.31, ptr noundef nonnull %102) #20
   br label %lock_ref_for_update.exit.thread
 
-lock_ref_for_update.exit.thread:                  ; preds = %211, %208, %248, %split_head_update.exit.i, %296, %285, %274, %203, %split_symref_update.exit.i, %183, %create_symref_lock.exit.i, %_.exit.i
-  %.1.i.ph = phi i32 [ -3, %_.exit.i ], [ -3, %create_symref_lock.exit.i ], [ %.055.i.i, %183 ], [ -1, %split_symref_update.exit.i ], [ -3, %203 ], [ -3, %274 ], [ -3, %285 ], [ -3, %296 ], [ -1, %split_head_update.exit.i ], [ %212, %211 ], [ -3, %208 ], [ %250, %248 ]
+lock_ref_for_update.exit.thread:                  ; preds = %208, %211, %248, %split_head_update.exit.i, %183, %296, %285, %274, %203, %split_symref_update.exit.i, %create_symref_lock.exit.i, %_.exit.i
+  %.1.i.ph = phi i32 [ -3, %_.exit.i ], [ -3, %296 ], [ -3, %create_symref_lock.exit.i ], [ -1, %split_symref_update.exit.i ], [ -3, %203 ], [ %.055.i.i, %183 ], [ -3, %274 ], [ -1, %split_head_update.exit.i ], [ -3, %285 ], [ -3, %208 ], [ %212, %211 ], [ %250, %248 ]
   call void @strbuf_release(ptr noundef nonnull %6) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %select.unfold
@@ -1222,7 +1222,7 @@ lock_ref_for_update.exit.thread:                  ; preds = %211, %208, %248, %s
   br label %308
 
 308:                                              ; preds = %306, %297
-  %.171.ph = phi ptr [ %.070285, %297 ], [ %.3, %306 ]
+  %.171.ph = phi ptr [ %.3, %306 ], [ %.070285, %297 ]
   %309 = add nuw i64 %.1286, 1
   %310 = load i64, ptr %21, align 8, !tbaa !42
   %311 = icmp ult i64 %309, %310
@@ -1265,8 +1265,8 @@ lock_ref_for_update.exit.thread:                  ; preds = %211, %208, %248, %s
   br label %select.unfold
 
 select.unfold:                                    ; preds = %301, %323, %55, %lock_ref_for_update.exit.thread, %312, %._crit_edge, %._crit_edge289, %320, %322, %20, %files_downcast.exit
-  %.073 = phi ptr [ null, %files_downcast.exit ], [ %.174, %322 ], [ %.174, %320 ], [ %.174, %._crit_edge289 ], [ null, %20 ], [ null, %._crit_edge ], [ %.174, %312 ], [ %.174, %lock_ref_for_update.exit.thread ], [ %.174, %55 ], [ %.174, %323 ], [ %.174, %301 ]
-  %.068 = phi i32 [ 0, %files_downcast.exit ], [ %321, %322 ], [ 0, %320 ], [ 0, %._crit_edge289 ], [ 0, %20 ], [ -3, %._crit_edge ], [ -3, %312 ], [ %.1.i.ph, %lock_ref_for_update.exit.thread ], [ 0, %55 ], [ %spec.select, %323 ], [ -3, %301 ]
+  %.073 = phi ptr [ null, %files_downcast.exit ], [ null, %20 ], [ %.174, %._crit_edge289 ], [ null, %._crit_edge ], [ %.174, %322 ], [ %.174, %320 ], [ %.174, %312 ], [ %.174, %55 ], [ %.174, %lock_ref_for_update.exit.thread ], [ %.174, %323 ], [ %.174, %301 ]
+  %.068 = phi i32 [ 0, %files_downcast.exit ], [ 0, %20 ], [ 0, %._crit_edge289 ], [ -3, %._crit_edge ], [ %321, %322 ], [ 0, %320 ], [ -3, %312 ], [ 0, %55 ], [ %.1.i.ph, %lock_ref_for_update.exit.thread ], [ %spec.select, %323 ], [ -3, %301 ]
   call void @free(ptr noundef %.073) #20
   call void @string_list_clear(ptr noundef nonnull %7, i32 noundef 0) #20
   %.not101 = icmp eq i32 %.068, 0
@@ -1526,12 +1526,12 @@ files_downcast.exit:                              ; preds = %3
   br label %.thread109.thread130.i
 
 .thread109.thread130.i:                           ; preds = %67, %.thread118.i, %.loopexit.i, %100
-  %.072114135.i = phi i32 [ 0, %100 ], [ %.072123.i, %.thread118.i ], [ %.072.i, %.loopexit.i ], [ -3, %67 ]
+  %.072114135.i = phi i32 [ 0, %100 ], [ %.072.i, %.loopexit.i ], [ %.072123.i, %.thread118.i ], [ -3, %67 ]
   call void @ref_transaction_free(ptr noundef nonnull %42) #20
   br label %files_transaction_finish_initial.exit
 
 files_transaction_finish_initial.exit:            ; preds = %._crit_edge.i, %38, %.thread109.thread130.i
-  %.072114129.i = phi i32 [ %.072114135.i, %.thread109.thread130.i ], [ -3, %38 ], [ -3, %._crit_edge.i ]
+  %.072114129.i = phi i32 [ -3, %._crit_edge.i ], [ %.072114135.i, %.thread109.thread130.i ], [ -3, %38 ]
   store i32 2, ptr %13, align 8, !tbaa !69
   call void @string_list_clear(ptr noundef nonnull %4, i32 noundef 0) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1836,7 +1836,7 @@ strbuf_setlen.exit124._crit_edge:                 ; preds = %strbuf_setlen.exit1
   br label %clear_loose_ref_cache.exit126
 
 clear_loose_ref_cache.exit126:                    ; preds = %strbuf_setlen.exit124, %239, %._crit_edge150, %unlock_ref.exit, %parse_and_write_reflog.exit, %205
-  %.281 = phi i32 [ %206, %205 ], [ -3, %unlock_ref.exit ], [ -3, %parse_and_write_reflog.exit ], [ 0, %._crit_edge150 ], [ 0, %239 ], [ -3, %strbuf_setlen.exit124 ]
+  %.281 = phi i32 [ 0, %239 ], [ %206, %205 ], [ -3, %unlock_ref.exit ], [ -3, %parse_and_write_reflog.exit ], [ 0, %._crit_edge150 ], [ -3, %strbuf_setlen.exit124 ]
   call fastcc void @files_transaction_cleanup(ptr noundef nonnull %0, ptr noundef nonnull %1)
   %240 = load i64, ptr %108, align 8, !tbaa !42
   %.not157 = icmp eq i64 %240, 0
@@ -1875,7 +1875,7 @@ clear_loose_ref_cache.exit126:                    ; preds = %strbuf_setlen.exit1
   br label %256
 
 256:                                              ; preds = %._crit_edge153, %110, %files_transaction_finish_initial.exit
-  %.0 = phi i32 [ %.072114129.i, %files_transaction_finish_initial.exit ], [ %.281, %._crit_edge153 ], [ 0, %110 ]
+  %.0 = phi i32 [ %.072114129.i, %files_transaction_finish_initial.exit ], [ 0, %110 ], [ %.281, %._crit_edge153 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -2709,7 +2709,7 @@ strbuf_setlen.exit:                               ; preds = %find_beginning_of_l
   br label %97
 
 strbuf_setlen.exit83.thread.thread:               ; preds = %strbuf_setlen.exit, %strbuf_setlen.exit.us, %strbuf_setlen.exit83.us, %87, %.split107.us
-  %.361.ph = phi i32 [ %60, %.split107.us ], [ %60, %87 ], [ 0, %strbuf_setlen.exit83.us ], [ %69, %strbuf_setlen.exit.us ], [ %84, %strbuf_setlen.exit ]
+  %.361.ph = phi i32 [ %69, %strbuf_setlen.exit.us ], [ %60, %.split107.us ], [ %60, %87 ], [ 0, %strbuf_setlen.exit83.us ], [ %84, %strbuf_setlen.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %._crit_edge
 
@@ -3140,7 +3140,7 @@ files_downcast.exit:                              ; preds = %17
   br label %unlock_ref.exit
 
 unlock_ref.exit:                                  ; preds = %139, %134, %130, %126, %43, %39, %32
-  %.0 = phi i32 [ -1, %32 ], [ 0, %39 ], [ 0, %43 ], [ %.049, %126 ], [ %.049, %130 ], [ -1, %134 ], [ -1, %139 ]
+  %.0 = phi i32 [ 0, %43 ], [ %.049, %130 ], [ -1, %32 ], [ 0, %39 ], [ %.049, %126 ], [ -1, %134 ], [ -1, %139 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -3557,7 +3557,7 @@ strbuf_setlen.exit.thread:                        ; preds = %strbuf_setlen.exit,
   br label %47
 
 47:                                               ; preds = %strbuf_setlen.exit.thread, %13
-  %.0 = phi i32 [ %.3, %strbuf_setlen.exit.thread ], [ -1, %13 ]
+  %.0 = phi i32 [ -1, %13 ], [ %.3, %strbuf_setlen.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -3796,7 +3796,7 @@ define internal fastcc range(i32 -3, 1) i32 @check_old_oid(ptr noundef %0, ptr n
   br label %19
 
 19:                                               ; preds = %10, %16, %14, %3, %7
-  %.015 = phi i32 [ 0, %7 ], [ 0, %3 ], [ -2, %10 ], [ -3, %14 ], [ -3, %16 ]
+  %.015 = phi i32 [ 0, %3 ], [ 0, %7 ], [ -2, %10 ], [ -3, %14 ], [ -3, %16 ]
   ret i32 %.015
 }
 
@@ -3899,7 +3899,7 @@ define internal fastcc range(i32 -1, 1) i32 @write_ref_to_lockfile(ptr noundef r
   br i1 %.not.i34, label %unlock_ref.exit.sink.split, label %unlock_ref.exit
 
 unlock_ref.exit.sink.split:                       ; preds = %53, %16, %30
-  %.sink = phi ptr [ %31, %30 ], [ %17, %16 ], [ %33, %53 ]
+  %.sink = phi ptr [ %17, %16 ], [ %31, %30 ], [ %33, %53 ]
   %58 = tail call i32 @delete_tempfile(ptr noundef nonnull %.sink) #20
   %59 = load ptr, ptr %1, align 8, !tbaa !55
   tail call void @free(ptr noundef %59) #20
@@ -3907,7 +3907,7 @@ unlock_ref.exit.sink.split:                       ; preds = %53, %16, %30
   br label %unlock_ref.exit
 
 unlock_ref.exit:                                  ; preds = %unlock_ref.exit.sink.split, %53, %24, %10, %51
-  %.0 = phi i32 [ 0, %51 ], [ -1, %10 ], [ -1, %24 ], [ -1, %53 ], [ -1, %unlock_ref.exit.sink.split ]
+  %.0 = phi i32 [ -1, %24 ], [ 0, %51 ], [ -1, %53 ], [ -1, %10 ], [ -1, %unlock_ref.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -4401,7 +4401,7 @@ log_ref_write_fd.exit:                            ; preds = %strbuf_avail.exit.i
   br label %73
 
 73:                                               ; preds = %64, %17, %14, %8, %67, %56
-  %.0 = phi i32 [ -1, %56 ], [ -1, %67 ], [ 0, %8 ], [ -1, %14 ], [ 0, %17 ], [ 0, %64 ]
+  %.0 = phi i32 [ 0, %17 ], [ 0, %8 ], [ -1, %14 ], [ -1, %56 ], [ -1, %67 ], [ 0, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
 }
@@ -4490,7 +4490,7 @@ define internal fastcc range(i32 -1, 1) i32 @log_ref_setup(ptr noundef readonly 
   br label %.thread31
 
 .thread31:                                        ; preds = %33, %24, %25, %22, %35, %.thread, %30, %30
-  %.0 = phi i32 [ 0, %30 ], [ 0, %30 ], [ 0, %.thread ], [ 0, %35 ], [ -1, %22 ], [ -1, %25 ], [ -1, %24 ], [ -1, %33 ]
+  %.0 = phi i32 [ 0, %35 ], [ 0, %30 ], [ 0, %30 ], [ 0, %.thread ], [ -1, %22 ], [ -1, %25 ], [ -1, %24 ], [ -1, %33 ]
   call void @free(ptr noundef %14) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -4582,7 +4582,7 @@ define internal fastcc i32 @raceproof_create_file(ptr noundef %0, ptr noundef re
   br i1 %31, label %27, label %.thread, !llvm.loop !162
 
 .thread:                                          ; preds = %21, %11, %12, %19, %7, %27, %30
-  %32 = phi i32 [ 2, %30 ], [ 2, %27 ], [ %10, %11 ], [ 21, %12 ], [ 21, %19 ], [ %10, %7 ], [ 2, %21 ]
+  %32 = phi i32 [ 2, %27 ], [ %10, %11 ], [ 2, %30 ], [ 21, %19 ], [ %10, %7 ], [ 21, %12 ], [ 2, %21 ]
   call void @strbuf_release(ptr noundef nonnull %4) #20
   store i32 %32, ptr %9, align 4, !tbaa !16
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -4679,7 +4679,7 @@ define internal fastcc range(i32 0, 2) i32 @should_pack_ref(ptr noundef readonly
   br i1 %.not21, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph29, %.lr.ph.preheader, %16, %12, %8, %5
-  %.016 = phi i32 [ 0, %5 ], [ 0, %8 ], [ 0, %12 ], [ 0, %16 ], [ 0, %.lr.ph.preheader ], [ 1, %.lr.ph29 ], [ 0, %.lr.ph ]
+  %.016 = phi i32 [ 0, %12 ], [ 0, %5 ], [ 0, %8 ], [ 0, %16 ], [ 0, %.lr.ph.preheader ], [ 1, %.lr.ph29 ], [ 0, %.lr.ph ]
   ret i32 %.016
 }
 
@@ -5391,7 +5391,7 @@ rename_tmp_log.exit:                              ; preds = %106, %109
   br label %.thread108
 
 .thread108:                                       ; preds = %refs_rename_ref_available.exit, %144, %149, %154, %155, %160, %128, %45, %47, %73, %61, %39, %35
-  %.080 = phi i32 [ -1, %35 ], [ -1, %45 ], [ -1, %47 ], [ -1, %61 ], [ -1, %73 ], [ -1, %39 ], [ 1, %refs_rename_ref_available.exit ], [ 0, %128 ], [ 1, %160 ], [ 1, %155 ], [ 1, %154 ], [ 1, %149 ], [ 1, %144 ]
+  %.080 = phi i32 [ -1, %35 ], [ -1, %45 ], [ -1, %47 ], [ -1, %61 ], [ -1, %73 ], [ 0, %128 ], [ 1, %refs_rename_ref_available.exit ], [ -1, %39 ], [ 1, %160 ], [ 1, %155 ], [ 1, %154 ], [ 1, %149 ], [ 1, %144 ]
   call void @strbuf_release(ptr noundef nonnull %15) #20
   call void @strbuf_release(ptr noundef nonnull %14) #20
   call void @strbuf_release(ptr noundef nonnull %16) #20
@@ -5513,7 +5513,7 @@ oidclr.exit:                                      ; preds = %35, %.split.loop.ex
   br label %unlock_ref.exit
 
 unlock_ref.exit:                                  ; preds = %43, %39, %25, %oidclr.exit
-  %.0 = phi ptr [ %8, %25 ], [ %8, %oidclr.exit ], [ null, %39 ], [ null, %43 ]
+  %.0 = phi ptr [ %8, %oidclr.exit ], [ %8, %25 ], [ null, %39 ], [ null, %43 ]
   call void @strbuf_release(ptr noundef nonnull %4) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
@@ -5657,7 +5657,7 @@ clear_loose_ref_cache.exit:                       ; preds = %files_assert_main_r
   br label %unlock_ref.exit
 
 unlock_ref.exit:                                  ; preds = %62, %58, %54, %49, %24, %18
-  %.0 = phi i32 [ -1, %18 ], [ -1, %24 ], [ -1, %49 ], [ -1, %54 ], [ 0, %58 ], [ 0, %62 ]
+  %.0 = phi i32 [ -1, %54 ], [ -1, %24 ], [ -1, %18 ], [ -1, %49 ], [ 0, %58 ], [ 0, %62 ]
   ret i32 %.0
 }
 
@@ -5681,7 +5681,7 @@ define internal range(i32 -1, 1) i32 @rename_tmp_log_callback(ptr noundef readon
   br label %11
 
 11:                                               ; preds = %2, %5, %10
-  %.0 = phi i32 [ -1, %10 ], [ -1, %5 ], [ 0, %2 ]
+  %.0 = phi i32 [ -1, %5 ], [ -1, %10 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -6119,8 +6119,8 @@ parse_loose_ref_contents.exit:                    ; preds = %parse_loose_ref_con
   br label %.loopexit
 
 .loopexit:                                        ; preds = %54, %77, %74, %43, %parse_loose_ref_contents.exit, %89
-  %.1 = phi i32 [ %36, %43 ], [ %.3, %74 ], [ %91, %89 ], [ %.4, %parse_loose_ref_contents.exit ], [ %79, %77 ], [ %56, %54 ]
-  %.044 = phi i32 [ %.145, %43 ], [ %.2, %74 ], [ -1, %89 ], [ %.0.i, %parse_loose_ref_contents.exit ], [ -1, %77 ], [ -1, %54 ]
+  %.1 = phi i32 [ %.4, %parse_loose_ref_contents.exit ], [ %36, %43 ], [ %91, %89 ], [ %.3, %74 ], [ %56, %54 ], [ %79, %77 ]
+  %.044 = phi i32 [ %.0.i, %parse_loose_ref_contents.exit ], [ %.145, %43 ], [ -1, %89 ], [ %.2, %74 ], [ -1, %77 ], [ -1, %54 ]
   %130 = icmp eq i32 %.044, 0
   %131 = icmp ne i32 %.1, 0
   %or.cond6 = select i1 %130, i1 true, i1 %131
@@ -6892,7 +6892,7 @@ define internal fastcc i32 @files_fsck_symref_target(ptr noundef %0, ptr noundef
   br label %44
 
 44:                                               ; preds = %40, %42, %31, %28
-  %.1 = phi i32 [ %.044, %31 ], [ %43, %42 ], [ %.2, %40 ], [ %30, %28 ]
+  %.1 = phi i32 [ %.044, %31 ], [ %43, %42 ], [ %30, %28 ], [ %.2, %40 ]
   ret i32 %.1
 }
 

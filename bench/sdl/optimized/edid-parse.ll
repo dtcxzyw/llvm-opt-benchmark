@@ -750,7 +750,7 @@ default.unreachable:                              ; preds = %369
   unreachable
 
 386:                                              ; preds = %383, %379, %376, %373
-  %.0.i = phi i32 [ %375, %373 ], [ %378, %376 ], [ %382, %379 ], [ %385, %383 ]
+  %.0.i = phi i32 [ %385, %383 ], [ %375, %373 ], [ %378, %376 ], [ %382, %379 ]
   %387 = getelementptr inbounds nuw %struct.Timing, ptr %359, i64 %indvars.iv.i25
   store i32 %372, ptr %387, align 4
   %388 = getelementptr inbounds nuw i8, ptr %387, i64 4
@@ -875,7 +875,7 @@ decode_standard_timings.exit:                     ; preds = %392
   br i1 %exitcond.not.i19.i.i, label %decode_display_descriptor.exit.i, label %426, !llvm.loop !9
 
 decode_lf_string.exit.sink.split.i.i:             ; preds = %426, %419, %412
-  %.01114.i15.lcssa.sink.i.i = phi ptr [ %.01114.i.i.i, %412 ], [ %.01114.i8.i.i, %419 ], [ %.01114.i15.i.i, %426 ]
+  %.01114.i15.lcssa.sink.i.i = phi ptr [ %.01114.i8.i.i, %419 ], [ %.01114.i.i.i, %412 ], [ %.01114.i15.i.i, %426 ]
   store i8 0, ptr %.01114.i15.lcssa.sink.i.i, align 1
   br label %decode_display_descriptor.exit.i
 
@@ -1054,7 +1054,7 @@ decode_detailed_timing.exit.i:                    ; preds = %556, %549
   br label %decode_display_descriptor.exit.i
 
 decode_display_descriptor.exit.i:                 ; preds = %430, %423, %416, %decode_detailed_timing.exit.i, %decode_lf_string.exit.sink.split.i.i, %407
-  %.1.i = phi i32 [ %432, %decode_detailed_timing.exit.i ], [ %.01523.i, %407 ], [ %.01523.i, %decode_lf_string.exit.sink.split.i.i ], [ %.01523.i, %416 ], [ %.01523.i, %423 ], [ %.01523.i, %430 ]
+  %.1.i = phi i32 [ %432, %decode_detailed_timing.exit.i ], [ %.01523.i, %407 ], [ %.01523.i, %decode_lf_string.exit.sink.split.i.i ], [ %.01523.i, %423 ], [ %.01523.i, %416 ], [ %.01523.i, %430 ]
   %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i28, 1
   %exitcond.not.i31 = icmp eq i64 %indvars.iv.next.i30, 4
   br i1 %exitcond.not.i31, label %decode_descriptors.exit, label %397, !llvm.loop !10

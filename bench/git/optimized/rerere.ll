@@ -308,7 +308,7 @@ diff_two.exit:                                    ; preds = %110
   br label %121
 
 121:                                              ; preds = %90, %55, %.loopexit, %38, %26
-  %.0 = phi i32 [ %28, %26 ], [ 0, %.loopexit ], [ %41, %38 ], [ 0, %55 ], [ 0, %90 ]
+  %.0 = phi i32 [ %28, %26 ], [ 0, %55 ], [ 0, %.loopexit ], [ %41, %38 ], [ 0, %90 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

@@ -120,7 +120,7 @@ define hidden noundef zeroext i1 @X11_InitXinput2(ptr noundef readonly captures(
   br label %56
 
 56:                                               ; preds = %16, %12, %1, %33
-  %.0 = phi i1 [ true, %33 ], [ false, %1 ], [ false, %12 ], [ false, %16 ]
+  %.0 = phi i1 [ true, %33 ], [ false, %16 ], [ false, %1 ], [ false, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -346,10 +346,10 @@ AddDeviceID.exit68:                               ; preds = %57, %63
   br label %HasDeviceID.exit
 
 HasDeviceID.exit:                                 ; preds = %.lr.ph.i72, %.lr.ph.i, %.loopexit150, %.loopexit148, %34
-  %.1137 = phi i32 [ %.0136155, %34 ], [ %.2138, %.loopexit148 ], [ %.0136155, %.loopexit150 ], [ %.2138, %.lr.ph.i ], [ %.0136155, %.lr.ph.i72 ]
-  %.1134 = phi ptr [ %.0133156, %34 ], [ %.2135, %.loopexit148 ], [ %.0133156, %.loopexit150 ], [ %.2135, %.lr.ph.i ], [ %.0133156, %.lr.ph.i72 ]
-  %.1131 = phi i32 [ %.0130157, %34 ], [ %.0130157, %.loopexit148 ], [ %.2132, %.loopexit150 ], [ %.0130157, %.lr.ph.i ], [ %.2132, %.lr.ph.i72 ]
-  %.1128 = phi ptr [ %.0127158, %34 ], [ %.0127158, %.loopexit148 ], [ %.2129, %.loopexit150 ], [ %.0127158, %.lr.ph.i ], [ %.2129, %.lr.ph.i72 ]
+  %.1137 = phi i32 [ %.0136155, %34 ], [ %.0136155, %.loopexit150 ], [ %.2138, %.loopexit148 ], [ %.2138, %.lr.ph.i ], [ %.0136155, %.lr.ph.i72 ]
+  %.1134 = phi ptr [ %.0133156, %34 ], [ %.0133156, %.loopexit150 ], [ %.2135, %.loopexit148 ], [ %.2135, %.lr.ph.i ], [ %.0133156, %.lr.ph.i72 ]
+  %.1131 = phi i32 [ %.0130157, %34 ], [ %.2132, %.loopexit150 ], [ %.0130157, %.loopexit148 ], [ %.0130157, %.lr.ph.i ], [ %.2132, %.lr.ph.i72 ]
+  %.1128 = phi ptr [ %.0127158, %34 ], [ %.2129, %.loopexit150 ], [ %.0127158, %.loopexit148 ], [ %.0127158, %.lr.ph.i ], [ %.2129, %.lr.ph.i72 ]
   %74 = getelementptr inbounds nuw i8, ptr %35, i64 28
   %75 = load i32, ptr %74, align 4
   %76 = icmp sgt i32 %75, 0
@@ -430,8 +430,8 @@ AddDeviceID64.exit:                               ; preds = %87, %95
   br label %HasDeviceID64.exit
 
 HasDeviceID64.exit:                               ; preds = %.lr.ph.i81, %.loopexit147, %82
-  %.2125 = phi i32 [ %.3126, %.loopexit147 ], [ %.1124151, %82 ], [ %.3126, %.lr.ph.i81 ]
-  %.2 = phi ptr [ %.3, %.loopexit147 ], [ %.1152, %82 ], [ %.3, %.lr.ph.i81 ]
+  %.2125 = phi i32 [ %.1124151, %82 ], [ %.3126, %.loopexit147 ], [ %.3126, %.lr.ph.i81 ]
+  %.2 = phi ptr [ %.1152, %82 ], [ %.3, %.loopexit147 ], [ %.3, %.lr.ph.i81 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %109 = load i32, ptr %74, align 4
   %110 = sext i32 %109 to i64
@@ -439,11 +439,11 @@ HasDeviceID64.exit:                               ; preds = %.lr.ph.i81, %.loope
   br i1 %111, label %82, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge174:                                   ; preds = %HasDeviceID.exit92, %HasDeviceID.exit92.us, %._crit_edge164
-  %.0122.lcssa238 = phi ptr [ %.1.lcssa, %._crit_edge164 ], [ %.1.lcssa, %HasDeviceID.exit92.us ], [ %.0122.lcssa237246, %HasDeviceID.exit92 ]
-  %.0123.lcssa236 = phi i32 [ %.1124.lcssa, %._crit_edge164 ], [ %.1124.lcssa, %HasDeviceID.exit92.us ], [ %.0123.lcssa235247, %HasDeviceID.exit92 ]
-  %.0127.lcssa234 = phi ptr [ %.1128, %._crit_edge164 ], [ %.1128, %HasDeviceID.exit92.us ], [ %.0127.lcssa233248, %HasDeviceID.exit92 ]
-  %.0130.lcssa232 = phi i32 [ %.1131, %._crit_edge164 ], [ %.1131, %HasDeviceID.exit92.us ], [ %.0130.lcssa231249, %HasDeviceID.exit92 ]
-  %.0133.lcssa230 = phi ptr [ %.1134, %._crit_edge164 ], [ %.1134, %HasDeviceID.exit92.us ], [ %.0133.lcssa229250, %HasDeviceID.exit92 ]
+  %.0122.lcssa238 = phi ptr [ %.1.lcssa, %HasDeviceID.exit92.us ], [ %.1.lcssa, %._crit_edge164 ], [ %.0122.lcssa237246, %HasDeviceID.exit92 ]
+  %.0123.lcssa236 = phi i32 [ %.1124.lcssa, %HasDeviceID.exit92.us ], [ %.1124.lcssa, %._crit_edge164 ], [ %.0123.lcssa235247, %HasDeviceID.exit92 ]
+  %.0127.lcssa234 = phi ptr [ %.1128, %HasDeviceID.exit92.us ], [ %.1128, %._crit_edge164 ], [ %.0127.lcssa233248, %HasDeviceID.exit92 ]
+  %.0130.lcssa232 = phi i32 [ %.1131, %HasDeviceID.exit92.us ], [ %.1131, %._crit_edge164 ], [ %.0130.lcssa231249, %HasDeviceID.exit92 ]
+  %.0133.lcssa230 = phi ptr [ %.1134, %HasDeviceID.exit92.us ], [ %.1134, %._crit_edge164 ], [ %.0133.lcssa229250, %HasDeviceID.exit92 ]
   %112 = load i32, ptr %5, align 4
   %.not64175 = icmp eq i32 %112, 0
   br i1 %.not64175, label %._crit_edge178, label %.lr.ph177
@@ -513,10 +513,10 @@ HasDeviceID.exit92:                               ; preds = %HasDeviceID.exit92.
   br i1 %129, label %._crit_edge174, label %HasDeviceID.exit92, !llvm.loop !6
 
 ._crit_edge178:                                   ; preds = %HasDeviceID.exit100, %HasDeviceID.exit100.us, %._crit_edge174
-  %.0133.lcssa230265 = phi ptr [ %.0133.lcssa230, %._crit_edge174 ], [ %.0133.lcssa230, %HasDeviceID.exit100.us ], [ %.0133.lcssa230264272, %HasDeviceID.exit100 ]
-  %.0127.lcssa234262 = phi ptr [ %.0127.lcssa234, %._crit_edge174 ], [ %.0127.lcssa234, %HasDeviceID.exit100.us ], [ %.0127.lcssa234261273, %HasDeviceID.exit100 ]
-  %.0123.lcssa236260 = phi i32 [ %.0123.lcssa236, %._crit_edge174 ], [ %.0123.lcssa236, %HasDeviceID.exit100.us ], [ %.0123.lcssa236259274, %HasDeviceID.exit100 ]
-  %.0122.lcssa238258 = phi ptr [ %.0122.lcssa238, %._crit_edge174 ], [ %.0122.lcssa238, %HasDeviceID.exit100.us ], [ %.0122.lcssa238257275, %HasDeviceID.exit100 ]
+  %.0133.lcssa230265 = phi ptr [ %.0133.lcssa230, %HasDeviceID.exit100.us ], [ %.0133.lcssa230, %._crit_edge174 ], [ %.0133.lcssa230264272, %HasDeviceID.exit100 ]
+  %.0127.lcssa234262 = phi ptr [ %.0127.lcssa234, %HasDeviceID.exit100.us ], [ %.0127.lcssa234, %._crit_edge174 ], [ %.0127.lcssa234261273, %HasDeviceID.exit100 ]
+  %.0123.lcssa236260 = phi i32 [ %.0123.lcssa236, %HasDeviceID.exit100.us ], [ %.0123.lcssa236, %._crit_edge174 ], [ %.0123.lcssa236259274, %HasDeviceID.exit100 ]
+  %.0122.lcssa238258 = phi ptr [ %.0122.lcssa238, %HasDeviceID.exit100.us ], [ %.0122.lcssa238, %._crit_edge174 ], [ %.0122.lcssa238257275, %HasDeviceID.exit100 ]
   %130 = load i32, ptr %6, align 4
   %.not65179 = icmp eq i32 %130, 0
   br i1 %.not65179, label %._crit_edge182, label %.lr.ph181
@@ -585,9 +585,9 @@ HasDeviceID.exit100:                              ; preds = %HasDeviceID.exit100
   br i1 %147, label %._crit_edge178, label %HasDeviceID.exit100, !llvm.loop !10
 
 ._crit_edge182:                                   ; preds = %HasDeviceID64.exit108, %HasDeviceID64.exit108.us, %._crit_edge178.thread, %._crit_edge178
-  %.0122.lcssa238258287 = phi ptr [ null, %._crit_edge178.thread ], [ %.0122.lcssa238258, %._crit_edge178 ], [ %.0122.lcssa238258, %HasDeviceID64.exit108.us ], [ %.0122.lcssa238258286293, %HasDeviceID64.exit108 ]
-  %.0127.lcssa234262284 = phi ptr [ null, %._crit_edge178.thread ], [ %.0127.lcssa234262, %._crit_edge178 ], [ %.0127.lcssa234262, %HasDeviceID64.exit108.us ], [ %.0127.lcssa234262283294, %HasDeviceID64.exit108 ]
-  %.0133.lcssa230265282 = phi ptr [ null, %._crit_edge178.thread ], [ %.0133.lcssa230265, %._crit_edge178 ], [ %.0133.lcssa230265, %HasDeviceID64.exit108.us ], [ %.0133.lcssa230265281295, %HasDeviceID64.exit108 ]
+  %.0122.lcssa238258287 = phi ptr [ null, %._crit_edge178.thread ], [ %.0122.lcssa238258, %HasDeviceID64.exit108.us ], [ %.0122.lcssa238258, %._crit_edge178 ], [ %.0122.lcssa238258286293, %HasDeviceID64.exit108 ]
+  %.0127.lcssa234262284 = phi ptr [ null, %._crit_edge178.thread ], [ %.0127.lcssa234262, %HasDeviceID64.exit108.us ], [ %.0127.lcssa234262, %._crit_edge178 ], [ %.0127.lcssa234262283294, %HasDeviceID64.exit108 ]
+  %.0133.lcssa230265282 = phi ptr [ null, %._crit_edge178.thread ], [ %.0133.lcssa230265, %HasDeviceID64.exit108.us ], [ %.0133.lcssa230265, %._crit_edge178 ], [ %.0133.lcssa230265281295, %HasDeviceID64.exit108 ]
   call void @SDL_free_REAL(ptr noundef %13) #8
   call void @SDL_free_REAL(ptr noundef %.0133.lcssa230265282) #8
   call void @SDL_free_REAL(ptr noundef %14) #8
@@ -1636,8 +1636,8 @@ define internal fastcc noundef ptr @xinput2_get_device_info(ptr noundef captures
   %49 = icmp sgt i32 %.04263, 0
   br i1 %49, label %._crit_edge66, label %50
 
-50:                                               ; preds = %30, %35
-  %.2.ph = phi i32 [ %48, %35 ], [ %.04263, %30 ]
+50:                                               ; preds = %35, %30
+  %.2.ph = phi i32 [ %.04263, %30 ], [ %48, %35 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = trunc nuw nsw i64 %indvars.iv.next to i32
   store i32 %51, ptr %3, align 4
@@ -1654,7 +1654,7 @@ define internal fastcc noundef ptr @xinput2_get_device_info(ptr noundef captures
   br label %56
 
 56:                                               ; preds = %._crit_edge, %.lr.ph._crit_edge, %9, %._crit_edge66, %20
-  %.0 = phi ptr [ %15, %._crit_edge66 ], [ null, %20 ], [ %.04461.lcssa, %9 ], [ %.04461.lcssa, %.lr.ph._crit_edge ], [ null, %._crit_edge ]
+  %.0 = phi ptr [ %.04461.lcssa, %.lr.ph._crit_edge ], [ %15, %._crit_edge66 ], [ null, %20 ], [ %.04461.lcssa, %9 ], [ null, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }

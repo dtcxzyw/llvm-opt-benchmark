@@ -1709,7 +1709,7 @@ define dso_local noundef range(i32 -22, 1) i32 @scsi_get_vpd_page(ptr noundef %0
   br label %52
 
 52:                                               ; preds = %.thread, %49, %47, %42, %17, %10
-  %53 = phi i32 [ -22, %10 ], [ -22, %17 ], [ 0, %42 ], [ 0, %49 ], [ 0, %47 ], [ -22, %.thread ]
+  %53 = phi i32 [ -22, %10 ], [ -22, %17 ], [ -22, %.thread ], [ 0, %42 ], [ 0, %49 ], [ 0, %47 ]
   ret i32 %53
 }
 
@@ -1804,7 +1804,7 @@ define internal fastcc range(i32 0, 65540) i32 @scsi_get_vpd_size(ptr noundef %0
   br label %51
 
 51:                                               ; preds = %47, %.thread5, %.thread, %27, %2
-  %52 = phi i32 [ 255, %2 ], [ 0, %27 ], [ %50, %47 ], [ 0, %.thread ], [ 0, %.thread5 ]
+  %52 = phi i32 [ 255, %2 ], [ %50, %47 ], [ 0, %27 ], [ 0, %.thread5 ], [ 0, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %52
 }
@@ -2866,7 +2866,7 @@ define dso_local ptr @scsi_device_lookup_by_target(ptr noundef readonly captures
   br label %.thread
 
 .thread:                                          ; preds = %30, %.loopexit, %48, %44, %37, %33
-  %54 = phi ptr [ null, %33 ], [ %34, %44 ], [ null, %37 ], [ null, %48 ], [ null, %.loopexit ], [ null, %30 ]
+  %54 = phi ptr [ null, %33 ], [ %34, %44 ], [ null, %.loopexit ], [ null, %37 ], [ null, %48 ], [ null, %30 ]
   %55 = load ptr, ptr %16, align 8
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %55, i64 noundef %18) #15
   ret ptr %54
@@ -2988,7 +2988,7 @@ define dso_local ptr @scsi_device_lookup(ptr noundef readonly captures(address) 
   br label %.thread
 
 .thread:                                          ; preds = %26, %4, %44, %40, %33, %29
-  %50 = phi ptr [ null, %29 ], [ %30, %40 ], [ null, %33 ], [ null, %44 ], [ null, %4 ], [ null, %26 ]
+  %50 = phi ptr [ null, %29 ], [ %30, %40 ], [ null, %4 ], [ null, %33 ], [ null, %44 ], [ null, %26 ]
   %51 = load ptr, ptr %5, align 8
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %51, i64 noundef %7) #15
   ret ptr %50

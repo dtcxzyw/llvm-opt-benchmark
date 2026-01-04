@@ -94,8 +94,8 @@ define hidden i64 @luaC_separateudata(ptr noundef readonly captures(none) %0, i3
   br label %46
 
 46:                                               ; preds = %9, %.critedge, %43, %42
-  %.130 = phi ptr [ %10, %.critedge ], [ %.02937, %42 ], [ %.02937, %43 ], [ %10, %9 ]
-  %.1 = phi i64 [ %.038, %.critedge ], [ %37, %42 ], [ %37, %43 ], [ %.038, %9 ]
+  %.130 = phi ptr [ %.02937, %43 ], [ %10, %.critedge ], [ %.02937, %42 ], [ %10, %9 ]
+  %.1 = phi i64 [ %37, %43 ], [ %.038, %.critedge ], [ %37, %42 ], [ %.038, %9 ]
   %47 = load ptr, ptr %.130, align 8, !tbaa !27
   %.not = icmp eq ptr %47, null
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !36
@@ -663,8 +663,8 @@ propagateall.exit42.i:                            ; preds = %.lr.ph.i38.i, %prop
   br label %100
 
 100:                                              ; preds = %97, %96, %.critedge.i.i, %64
-  %.130.i.i = phi ptr [ %65, %.critedge.i.i ], [ %.02937.i.i, %96 ], [ %.02937.i.i, %97 ], [ %65, %64 ]
-  %.1.i.i = phi i64 [ %.038.i.i, %.critedge.i.i ], [ %91, %96 ], [ %91, %97 ], [ %.038.i.i, %64 ]
+  %.130.i.i = phi ptr [ %.02937.i.i, %97 ], [ %65, %.critedge.i.i ], [ %.02937.i.i, %96 ], [ %65, %64 ]
+  %.1.i.i = phi i64 [ %91, %97 ], [ %.038.i.i, %.critedge.i.i ], [ %91, %96 ], [ %.038.i.i, %64 ]
   %101 = load ptr, ptr %.130.i.i, align 8, !tbaa !27
   %.not.i45.i = icmp eq ptr %101, null
   br i1 %.not.i45.i, label %luaC_separateudata.exit.i, label %64, !llvm.loop !36
@@ -1001,7 +1001,7 @@ checkSizes.exit:                                  ; preds = %241, %245
   br label %266
 
 266:                                              ; preds = %1, %258, %262, %264, %250, %217, %atomic.exit, %10, %6
-  %.0 = phi i64 [ 0, %6 ], [ %11, %10 ], [ 0, %atomic.exit ], [ 10, %217 ], [ 400, %250 ], [ 0, %264 ], [ 100, %262 ], [ 100, %258 ], [ 0, %1 ]
+  %.0 = phi i64 [ 100, %258 ], [ 0, %6 ], [ %11, %10 ], [ 0, %atomic.exit ], [ 10, %217 ], [ 400, %250 ], [ 0, %264 ], [ 100, %262 ], [ 0, %1 ]
   ret i64 %.0
 }
 
@@ -1858,7 +1858,7 @@ traversetable.exit:                               ; preds = %removeentry.exit.i,
   br i1 %221, label %210, label %traverseclosure.exit, !llvm.loop !90
 
 traverseclosure.exit:                             ; preds = %195, %218, %.preheader.i, %206
-  %222 = phi i8 [ 0, %.preheader.i ], [ 0, %206 ], [ %219, %218 ], [ %196, %195 ]
+  %222 = phi i8 [ %219, %218 ], [ 0, %206 ], [ 0, %.preheader.i ], [ %196, %195 ]
   %223 = load i8, ptr %178, align 2, !tbaa !28
   %.not = icmp eq i8 %223, 0
   %224 = zext i8 %222 to i64
@@ -2219,7 +2219,7 @@ traverseproto.exit:                               ; preds = %.preheader.i54.trav
   br label %411
 
 411:                                              ; preds = %1, %traverseproto.exit, %traversestack.exit, %traverseclosure.exit, %traversetable.exit
-  %.0 = phi i64 [ %167, %traversetable.exit ], [ %227, %traverseclosure.exit ], [ %311, %traversestack.exit ], [ %410, %traverseproto.exit ], [ 0, %1 ]
+  %.0 = phi i64 [ %410, %traverseproto.exit ], [ %167, %traversetable.exit ], [ %227, %traverseclosure.exit ], [ %311, %traversestack.exit ], [ 0, %1 ]
   ret i64 %.0
 }
 

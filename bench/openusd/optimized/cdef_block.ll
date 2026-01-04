@@ -737,7 +737,7 @@ define hidden void @av1_cdef_filter_fb(ptr noundef writeonly captures(address_is
   br label %adjust_strength.exit166.us
 
 adjust_strength.exit166.us:                       ; preds = %123, %116
-  %128 = phi i32 [ 4, %116 ], [ %spec.select.i164.us, %123 ]
+  %128 = phi i32 [ %spec.select.i164.us, %123 ], [ 4, %116 ]
   %.not6.i165.us = icmp eq i32 %121, 0
   %129 = mul nsw i32 %128, %17
   %130 = add nsw i32 %129, 8
@@ -804,7 +804,7 @@ adjust_strength.exit166.us:                       ; preds = %123, %116
   br label %adjust_strength.exit
 
 adjust_strength.exit:                             ; preds = %160, %167
-  %172 = phi i32 [ 4, %160 ], [ %spec.select.i, %167 ]
+  %172 = phi i32 [ %spec.select.i, %167 ], [ 4, %160 ]
   %.not6.i = icmp eq i32 %165, 0
   %173 = mul nsw i32 %172, %17
   %174 = add nsw i32 %173, 8

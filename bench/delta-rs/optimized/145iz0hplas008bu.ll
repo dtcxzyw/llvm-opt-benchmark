@@ -515,7 +515,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr45drop
   unreachable
 
 common.resume:                                    ; preds = %25, %.body, %31
-  %common.resume.op = phi { ptr, i32 } [ %32, %31 ], [ %26, %25 ], [ %eh.lpad-body, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %32, %31 ], [ %eh.lpad-body, %.body ], [ %26, %25 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr45drop_in_place$LT$object_store..PutOptions$GT$17hc745a2b017657aeaE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$object_store..PutMode$GT$17h52da671f33101c5cE.llvm.16543861533300112609.exit.i", %35
@@ -2209,7 +2209,7 @@ common.ret:                                       ; preds = %60, %"_ZN4core3ptr2
   br label %41
 
 .body7:                                           ; preds = %26, %61, %56, %48
-  %.pn2 = phi { ptr, i32 } [ %49, %48 ], [ %62, %61 ], [ %57, %56 ], [ %27, %26 ]
+  %.pn2 = phi { ptr, i32 } [ %57, %56 ], [ %49, %48 ], [ %62, %61 ], [ %27, %26 ]
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %34 = load i8, ptr %33, align 8, !range !317, !noundef !4
   %35 = trunc nuw i8 %34 to i1
@@ -2475,7 +2475,7 @@ common.ret:                                       ; preds = %62, %"_ZN4core3ptr2
   br label %43
 
 .body:                                            ; preds = %63, %58, %28, %50
-  %.pn2 = phi { ptr, i32 } [ %51, %50 ], [ %29, %28 ], [ %64, %63 ], [ %59, %58 ]
+  %.pn2 = phi { ptr, i32 } [ %59, %58 ], [ %51, %50 ], [ %64, %63 ], [ %29, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 137
   %36 = load i8, ptr %35, align 1, !range !317, !noundef !4
   %37 = trunc nuw i8 %36 to i1
@@ -2748,7 +2748,7 @@ common.ret:                                       ; preds = %49, %9
   br label %30
 
 .body5:                                           ; preds = %50, %45, %21, %37
-  %.pn2 = phi { ptr, i32 } [ %38, %37 ], [ %22, %21 ], [ %51, %50 ], [ %46, %45 ]
+  %.pn2 = phi { ptr, i32 } [ %22, %21 ], [ %38, %37 ], [ %46, %45 ], [ %51, %50 ]
   store i8 2, ptr %7, align 8
   resume { ptr, i32 } %.pn2
 
@@ -2945,7 +2945,7 @@ common.ret:                                       ; preds = %56, %"_ZN4core3ptr2
   br label %37
 
 .body7:                                           ; preds = %57, %52, %21, %44
-  %.pn2 = phi { ptr, i32 } [ %45, %44 ], [ %22, %21 ], [ %58, %57 ], [ %53, %52 ]
+  %.pn2 = phi { ptr, i32 } [ %53, %52 ], [ %45, %44 ], [ %58, %57 ], [ %22, %21 ]
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 161
   %29 = load i8, ptr %28, align 1, !range !317, !noundef !4
   %30 = trunc nuw i8 %29 to i1
@@ -3159,7 +3159,7 @@ common.ret:                                       ; preds = %47, %8
   br label %28
 
 .body:                                            ; preds = %48, %43, %35, %19
-  %.pn2 = phi { ptr, i32 } [ %36, %35 ], [ %20, %19 ], [ %49, %48 ], [ %44, %43 ]
+  %.pn2 = phi { ptr, i32 } [ %44, %43 ], [ %36, %35 ], [ %20, %19 ], [ %49, %48 ]
   store i8 2, ptr %6, align 8
   resume { ptr, i32 } %.pn2
 
@@ -3365,7 +3365,7 @@ common.ret:                                       ; preds = %49, %9
   br label %30
 
 .body:                                            ; preds = %50, %45, %21, %37
-  %.pn2 = phi { ptr, i32 } [ %38, %37 ], [ %22, %21 ], [ %51, %50 ], [ %46, %45 ]
+  %.pn2 = phi { ptr, i32 } [ %22, %21 ], [ %38, %37 ], [ %46, %45 ], [ %51, %50 ]
   store i8 2, ptr %7, align 8
   resume { ptr, i32 } %.pn2
 
@@ -3545,7 +3545,7 @@ common.ret:                                       ; preds = %43, %8
   br label %24
 
 .body:                                            ; preds = %44, %39, %31, %15
-  %.pn2 = phi { ptr, i32 } [ %32, %31 ], [ %16, %15 ], [ %45, %44 ], [ %40, %39 ]
+  %.pn2 = phi { ptr, i32 } [ %40, %39 ], [ %32, %31 ], [ %16, %15 ], [ %45, %44 ]
   store i8 2, ptr %6, align 8
   resume { ptr, i32 } %.pn2
 
@@ -3741,7 +3741,7 @@ common.ret:                                       ; preds = %43, %8
   br label %24
 
 .body:                                            ; preds = %44, %39, %31, %15
-  %.pn2 = phi { ptr, i32 } [ %32, %31 ], [ %16, %15 ], [ %45, %44 ], [ %40, %39 ]
+  %.pn2 = phi { ptr, i32 } [ %40, %39 ], [ %32, %31 ], [ %16, %15 ], [ %45, %44 ]
   store i8 2, ptr %6, align 8
   resume { ptr, i32 } %.pn2
 
@@ -3925,7 +3925,7 @@ common.ret:                                       ; preds = %45, %8
   br label %26
 
 .body:                                            ; preds = %46, %41, %33, %17
-  %.pn2 = phi { ptr, i32 } [ %34, %33 ], [ %18, %17 ], [ %47, %46 ], [ %42, %41 ]
+  %.pn2 = phi { ptr, i32 } [ %42, %41 ], [ %34, %33 ], [ %18, %17 ], [ %47, %46 ]
   store i8 2, ptr %6, align 8
   resume { ptr, i32 } %.pn2
 
@@ -4109,7 +4109,7 @@ common.ret:                                       ; preds = %45, %8
   br label %26
 
 .body:                                            ; preds = %46, %41, %33, %17
-  %.pn2 = phi { ptr, i32 } [ %34, %33 ], [ %18, %17 ], [ %47, %46 ], [ %42, %41 ]
+  %.pn2 = phi { ptr, i32 } [ %42, %41 ], [ %34, %33 ], [ %18, %17 ], [ %47, %46 ]
   store i8 2, ptr %6, align 8
   resume { ptr, i32 } %.pn2
 
@@ -4289,7 +4289,7 @@ common.ret:                                       ; preds = %121, %17
           to label %27 unwind label %25
 
 24:                                               ; preds = %136, %149, %175, %31, %25
-  %.pn8.pn = phi { ptr, i32 } [ %32, %31 ], [ %26, %25 ], [ %150, %149 ], [ %.pn6, %136 ], [ %.pn2, %175 ]
+  %.pn8.pn = phi { ptr, i32 } [ %26, %25 ], [ %32, %31 ], [ %150, %149 ], [ %.pn6, %136 ], [ %.pn2, %175 ]
   store i8 2, ptr %15, align 8
   resume { ptr, i32 } %.pn8.pn
 
@@ -4385,9 +4385,9 @@ common.ret:                                       ; preds = %121, %17
           to label %63 unwind label %61, !noalias !548
 
 .body.i:                                          ; preds = %114, %110, %101, %88, %69, %61
-  %59 = phi ptr [ %98, %101 ], [ %48, %88 ], [ %48, %69 ], [ %48, %61 ], [ %98, %110 ], [ %98, %114 ]
-  %60 = phi ptr [ %99, %101 ], [ %49, %88 ], [ %49, %69 ], [ %49, %61 ], [ %99, %110 ], [ %99, %114 ]
-  %.pn6.i = phi { ptr, i32 } [ %102, %101 ], [ %89, %88 ], [ %.pn.pn.pn.i, %69 ], [ %62, %61 ], [ %111, %110 ], [ %115, %114 ]
+  %59 = phi ptr [ %48, %61 ], [ %98, %101 ], [ %98, %114 ], [ %48, %88 ], [ %48, %69 ], [ %98, %110 ]
+  %60 = phi ptr [ %49, %61 ], [ %99, %101 ], [ %99, %114 ], [ %49, %88 ], [ %49, %69 ], [ %99, %110 ]
+  %.pn6.i = phi { ptr, i32 } [ %62, %61 ], [ %102, %101 ], [ %115, %114 ], [ %89, %88 ], [ %.pn.pn.pn.i, %69 ], [ %111, %110 ]
   store i8 2, ptr %59, align 8, !noalias !548
   br label %.body
 
@@ -4732,8 +4732,8 @@ common.ret:                                       ; preds = %121, %17
   br label %17
 
 .body:                                            ; preds = %119, %.body.i
-  %174 = phi ptr [ %45, %119 ], [ %60, %.body.i ]
-  %.pn2 = phi { ptr, i32 } [ %120, %119 ], [ %.pn6.i, %.body.i ]
+  %174 = phi ptr [ %60, %.body.i ], [ %45, %119 ]
+  %.pn2 = phi { ptr, i32 } [ %.pn6.i, %.body.i ], [ %120, %119 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.845)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.946)
   invoke fastcc void @"_ZN4core3ptr87drop_in_place$LT$deltalake_mount..file..regular_rename..$u7b$$u7b$closure$u7d$$u7d$$GT$17head06075f505df86E"(ptr noundef nonnull align 8 %174) #16
@@ -4845,7 +4845,7 @@ common.ret:                                       ; preds = %43, %8
   br label %24
 
 .body5:                                           ; preds = %44, %39, %31, %15
-  %.pn2 = phi { ptr, i32 } [ %32, %31 ], [ %16, %15 ], [ %45, %44 ], [ %40, %39 ]
+  %.pn2 = phi { ptr, i32 } [ %40, %39 ], [ %32, %31 ], [ %16, %15 ], [ %45, %44 ]
   store i8 2, ptr %6, align 8
   resume { ptr, i32 } %.pn2
 
@@ -5029,7 +5029,7 @@ common.ret:                                       ; preds = %45, %8
   br label %26
 
 .body:                                            ; preds = %46, %41, %33, %17
-  %.pn2 = phi { ptr, i32 } [ %34, %33 ], [ %18, %17 ], [ %47, %46 ], [ %42, %41 ]
+  %.pn2 = phi { ptr, i32 } [ %42, %41 ], [ %34, %33 ], [ %18, %17 ], [ %47, %46 ]
   store i8 2, ptr %6, align 8
   resume { ptr, i32 } %.pn2
 

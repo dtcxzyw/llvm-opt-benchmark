@@ -381,7 +381,7 @@ _ZN12PackageEntry32set_defined_by_cds_in_class_pathEi.exit: ; preds = %76, %_ZN1
   br label %107
 
 107:                                              ; preds = %_ZN19CDSProtectionDomain21define_shared_packageEP6Symbol6HandleS2_S2_P10JavaThread.exit41, %_ZN19CDSProtectionDomain21define_shared_packageEP6Symbol6HandleS2_S2_P10JavaThread.exit, %29, %25, %_ZN12PackageEntry32set_defined_by_cds_in_class_pathEi.exit, %21
-  %.sroa.0.0 = phi ptr [ %24, %21 ], [ %106, %_ZN12PackageEntry32set_defined_by_cds_in_class_pathEi.exit ], [ null, %25 ], [ null, %29 ], [ null, %_ZN19CDSProtectionDomain21define_shared_packageEP6Symbol6HandleS2_S2_P10JavaThread.exit ], [ null, %_ZN19CDSProtectionDomain21define_shared_packageEP6Symbol6HandleS2_S2_P10JavaThread.exit41 ]
+  %.sroa.0.0 = phi ptr [ %24, %21 ], [ null, %_ZN19CDSProtectionDomain21define_shared_packageEP6Symbol6HandleS2_S2_P10JavaThread.exit ], [ null, %25 ], [ null, %29 ], [ %106, %_ZN12PackageEntry32set_defined_by_cds_in_class_pathEi.exit ], [ null, %_ZN19CDSProtectionDomain21define_shared_packageEP6Symbol6HandleS2_S2_P10JavaThread.exit41 ]
   ret ptr %.sroa.0.0
 }
 
@@ -573,7 +573,7 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i29: ; preds = %94, %92
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit32
 
 _ZN6HandleC2EP6ThreadP7oopDesc.exit32:            ; preds = %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i29, %79, %_ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10JavaThread.exit, %_ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10JavaThread.exit.thread, %_ZNK6Symbol11starts_withEPKc.exit.thread, %23, %13
-  %.sroa.034.0 = phi ptr [ null, %13 ], [ null, %23 ], [ null, %_ZNK6Symbol11starts_withEPKc.exit.thread ], [ null, %_ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10JavaThread.exit.thread ], [ null, %_ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10JavaThread.exit ], [ %.0.i.i.i.i30, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i29 ], [ null, %79 ]
+  %.sroa.034.0 = phi ptr [ null, %_ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10JavaThread.exit ], [ null, %23 ], [ null, %13 ], [ null, %_ZNK6Symbol11starts_withEPKc.exit.thread ], [ null, %_ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10JavaThread.exit.thread ], [ %.0.i.i.i.i30, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i29 ], [ null, %79 ]
   ret ptr %.sroa.034.0
 }
 
@@ -683,7 +683,7 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %68, %66
   br label %_ZNK20SharedClassPathEntry13manifest_sizeEv.exit.thread
 
 _ZNK20SharedClassPathEntry13manifest_sizeEv.exit.thread: ; preds = %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i, %42, %17, %27, %_ZNK20SharedClassPathEntry13manifest_sizeEv.exit
-  %.sroa.014.0 = phi ptr [ null, %_ZNK20SharedClassPathEntry13manifest_sizeEv.exit ], [ null, %27 ], [ null, %17 ], [ %.0.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i ], [ null, %42 ]
+  %.sroa.014.0 = phi ptr [ null, %17 ], [ null, %_ZNK20SharedClassPathEntry13manifest_sizeEv.exit ], [ null, %27 ], [ %.0.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i ], [ null, %42 ]
   ret ptr %.sroa.014.0
 }
 
@@ -987,7 +987,7 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %82, %80
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
 _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i, %56, %_ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10JavaThread.exit, %_ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10JavaThread.exit.thread
-  %.sroa.012.0 = phi ptr [ null, %_ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10JavaThread.exit.thread ], [ null, %_ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10JavaThread.exit ], [ %.0.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i ], [ null, %56 ]
+  %.sroa.012.0 = phi ptr [ null, %56 ], [ null, %_ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10JavaThread.exit.thread ], [ null, %_ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10JavaThread.exit ], [ %.0.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i ]
   ret ptr %.sroa.012.0
 }
 
@@ -1191,7 +1191,7 @@ _ZN15typeArrayHandleC2EP6ThreadP16typeArrayOopDesc.exit: ; preds = %8, %_ZN10Han
   br label %37
 
 37:                                               ; preds = %32, %_ZN15typeArrayHandleC2EP6ThreadP16typeArrayOopDesc.exit, %3
-  %.sroa.014.0 = phi ptr [ null, %3 ], [ null, %_ZN15typeArrayHandleC2EP6ThreadP16typeArrayOopDesc.exit ], [ %spec.select, %32 ]
+  %.sroa.014.0 = phi ptr [ %spec.select, %32 ], [ null, %3 ], [ null, %_ZN15typeArrayHandleC2EP6ThreadP16typeArrayOopDesc.exit ]
   ret ptr %.sroa.014.0
 }
 
@@ -1298,7 +1298,7 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %31, %29
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
 _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i, %15, %10, %3
-  %.sroa.011.0 = phi ptr [ null, %3 ], [ null, %10 ], [ %.0.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i ], [ null, %15 ]
+  %.sroa.011.0 = phi ptr [ null, %10 ], [ null, %3 ], [ %.0.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i ], [ null, %15 ]
   ret ptr %.sroa.011.0
 }
 
@@ -1659,7 +1659,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
-  %.0.i.i = phi ptr [ null, %1 ], [ %6, %7 ], [ %6, %4 ]
+  %.0.i.i = phi ptr [ null, %1 ], [ %6, %4 ], [ %6, %7 ]
   ret ptr %.0.i.i
 }
 
@@ -1822,7 +1822,7 @@ _ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit:      ; preds = %44, %45, %49, %54
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 _ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %61, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, %5, %11, %24, %31, %2
-  %.0 = phi ptr [ %1, %2 ], [ %.0.i.i.i, %31 ], [ %.0.i.i.i, %24 ], [ %1, %11 ], [ %1, %5 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
+  %.0 = phi ptr [ %1, %5 ], [ %1, %2 ], [ %.0.i.i.i, %24 ], [ %.0.i.i.i, %31 ], [ %1, %11 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
   ret ptr %.0
 }
 
@@ -2000,7 +2000,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
-  %.0.i.i = phi ptr [ null, %1 ], [ %6, %7 ], [ %6, %4 ]
+  %.0.i.i = phi ptr [ null, %1 ], [ %6, %4 ], [ %6, %7 ]
   ret ptr %.0.i.i
 }
 
@@ -2191,7 +2191,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm2383974ES_E19oop_load_in_heap_atEP7oopDescl.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm2383974ES_E19oop_load_in_heap_atEP7oopDescl.exit: ; preds = %2, %17, %21
-  %.0.i.i = phi ptr [ null, %2 ], [ %20, %21 ], [ %20, %17 ]
+  %.0.i.i = phi ptr [ null, %2 ], [ %20, %17 ], [ %20, %21 ]
   ret ptr %.0.i.i
 }
 
@@ -2306,7 +2306,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm2383942ES_E19oop_load_in_heap_atEP7oopDescl.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm2383942ES_E19oop_load_in_heap_atEP7oopDescl.exit: ; preds = %2, %8, %11
-  %.0.i.i = phi ptr [ null, %2 ], [ %10, %11 ], [ %10, %8 ]
+  %.0.i.i = phi ptr [ null, %2 ], [ %10, %8 ], [ %10, %11 ]
   ret ptr %.0.i.i
 }
 

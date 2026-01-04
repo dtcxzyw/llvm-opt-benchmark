@@ -1719,7 +1719,7 @@ if.then.i.i341:                                   ; preds = %lpad33
   br label %ehcleanup36
 
 ehcleanup36:                                      ; preds = %lpad33, %if.then.i.i341, %lpad30.loopexit.split-lp, %lpad30.loopexit
-  %.pn223 = phi { ptr, i32 } [ %lpad.phi518, %if.then.i.i341 ], [ %lpad.loopexit513, %lpad30.loopexit ], [ %lpad.loopexit.split-lp514, %lpad30.loopexit.split-lp ], [ %lpad.phi518, %lpad33 ]
+  %.pn223 = phi { ptr, i32 } [ %lpad.loopexit.split-lp514, %lpad30.loopexit.split-lp ], [ %lpad.phi518, %if.then.i.i341 ], [ %lpad.loopexit513, %lpad30.loopexit ], [ %lpad.phi518, %lpad33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp28)
   br label %ehcleanup76
 
@@ -1754,7 +1754,7 @@ if.then.i.i347:                                   ; preds = %lpad41
   br label %ehcleanup46
 
 ehcleanup46:                                      ; preds = %lpad41, %if.then.i.i347, %lpad39.loopexit.split-lp, %lpad39.loopexit
-  %.pn225 = phi { ptr, i32 } [ %lpad.phi524, %if.then.i.i347 ], [ %lpad.loopexit519, %lpad39.loopexit ], [ %lpad.loopexit.split-lp520, %lpad39.loopexit.split-lp ], [ %lpad.phi524, %lpad41 ]
+  %.pn225 = phi { ptr, i32 } [ %lpad.loopexit.split-lp520, %lpad39.loopexit.split-lp ], [ %lpad.phi524, %if.then.i.i347 ], [ %lpad.loopexit519, %lpad39.loopexit ], [ %lpad.phi524, %lpad41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp37)
   br label %ehcleanup75
 
@@ -1794,7 +1794,7 @@ if.then.i.i353:                                   ; preds = %lpad54
   br label %ehcleanup62
 
 ehcleanup62:                                      ; preds = %lpad54, %if.then.i.i353, %lpad52.loopexit.split-lp, %lpad52.loopexit
-  %.pn227 = phi { ptr, i32 } [ %lpad.phi, %if.then.i.i353 ], [ %lpad.loopexit525, %lpad52.loopexit ], [ %lpad.loopexit.split-lp526, %lpad52.loopexit.split-lp ], [ %lpad.phi, %lpad54 ]
+  %.pn227 = phi { ptr, i32 } [ %lpad.loopexit.split-lp526, %lpad52.loopexit.split-lp ], [ %lpad.phi, %if.then.i.i353 ], [ %lpad.loopexit525, %lpad52.loopexit ], [ %lpad.phi, %lpad54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp50)
   br label %ehcleanup75
 
@@ -1876,7 +1876,7 @@ if.then.i.i376:                                   ; preds = %lpad72
   br label %ehcleanup75
 
 ehcleanup75:                                      ; preds = %lpad72, %if.then.i.i376, %lpad70.loopexit.split-lp, %lpad70.loopexit, %ehcleanup62, %ehcleanup46
-  %.pn229 = phi { ptr, i32 } [ %.pn227, %ehcleanup62 ], [ %.pn225, %ehcleanup46 ], [ %lpad.phi535, %if.then.i.i376 ], [ %lpad.loopexit, %lpad70.loopexit ], [ %lpad.loopexit.split-lp531, %lpad70.loopexit.split-lp ], [ %lpad.phi535, %lpad72 ]
+  %.pn229 = phi { ptr, i32 } [ %.pn227, %ehcleanup62 ], [ %.pn225, %ehcleanup46 ], [ %lpad.loopexit.split-lp531, %lpad70.loopexit.split-lp ], [ %lpad.phi535, %if.then.i.i376 ], [ %lpad.loopexit, %lpad70.loopexit ], [ %lpad.phi535, %lpad72 ]
   %89 = load ptr, ptr %error_message, align 8, !tbaa !125
   %cmp.i.i.i381 = icmp eq ptr %89, %11
   br i1 %cmp.i.i.i381, label %ehcleanup76, label %if.then.i.i382

@@ -844,7 +844,7 @@ define internal range(i32 -1, 2) i32 @comp_codes(ptr noundef readonly captures(n
   br label %17
 
 17:                                               ; preds = %11, %9, %3
-  %.0 = phi i32 [ 1, %3 ], [ -1, %9 ], [ %., %11 ]
+  %.0 = phi i32 [ -1, %9 ], [ 1, %3 ], [ %., %11 ]
   ret i32 %.0
 }
 

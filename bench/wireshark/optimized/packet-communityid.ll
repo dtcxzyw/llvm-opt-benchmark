@@ -178,7 +178,7 @@ select.unfold:                                    ; preds = %.thread, %30
   %59 = icmp eq i32 %58, 16
   br i1 %59, label %communityid_calc_wrapper.exit, label %communityid_calc_wrapper.exit.thread
 
-communityid_calc_wrapper.exit.thread:             ; preds = %56, %52, %42
+communityid_calc_wrapper.exit.thread:             ; preds = %42, %52, %56
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread97
@@ -244,7 +244,7 @@ communityid_calc_wrapper.exit._crit_edge:         ; preds = %communityid_calc_wr
   %91 = icmp eq i32 %90, 16
   br i1 %91, label %communityid_calc_wrapper.exit87, label %communityid_calc_wrapper.exit87.thread
 
-communityid_calc_wrapper.exit87.thread:           ; preds = %88, %84, %74
+communityid_calc_wrapper.exit87.thread:           ; preds = %74, %84, %88
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread97
@@ -326,7 +326,7 @@ communityid_calc_wrapper.exit91:                  ; preds = %107, %111
   %119 = call fastcc zeroext i1 @communityid_calc(i8 noundef zeroext %switch.masked, i8 noundef zeroext %.sink.i90, ptr noundef %116, ptr noundef %118, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %5)
   br i1 %119, label %120, label %communityid_calc_wrapper.exit91.thread
 
-communityid_calc_wrapper.exit91.thread:           ; preds = %switch.lookup, %107, %111, %communityid_calc_wrapper.exit91
+communityid_calc_wrapper.exit91.thread:           ; preds = %111, %107, %switch.lookup, %communityid_calc_wrapper.exit91
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread97
@@ -436,8 +436,8 @@ proto_item_set_generated.exit:                    ; preds = %.critedge83.thread,
   %165 = call i32 @tvb_reported_length(ptr noundef %0)
   br label %.thread97
 
-.thread97:                                        ; preds = %24, %.thread, %139, %142, %146, %30, %communityid_calc_wrapper.exit87.thread, %communityid_calc_wrapper.exit.thread, %communityid_calc_wrapper.exit95, %communityid_calc_wrapper.exit91.thread, %select.unfold, %4, %communityid_calc_wrapper.exit, %communityid_calc_wrapper.exit87, %.critedge83.thread139
-  %.0 = phi i32 [ %165, %.critedge83.thread139 ], [ 0, %communityid_calc_wrapper.exit91.thread ], [ 0, %communityid_calc_wrapper.exit87 ], [ 0, %communityid_calc_wrapper.exit ], [ 0, %4 ], [ 0, %select.unfold ], [ 0, %communityid_calc_wrapper.exit95 ], [ 0, %communityid_calc_wrapper.exit.thread ], [ 0, %communityid_calc_wrapper.exit87.thread ], [ 0, %30 ], [ 0, %146 ], [ 0, %142 ], [ 0, %139 ], [ 0, %.thread ], [ 0, %24 ]
+.thread97:                                        ; preds = %24, %.thread, %146, %142, %139, %30, %communityid_calc_wrapper.exit87.thread, %communityid_calc_wrapper.exit.thread, %communityid_calc_wrapper.exit95, %communityid_calc_wrapper.exit91.thread, %select.unfold, %4, %communityid_calc_wrapper.exit, %communityid_calc_wrapper.exit87, %.critedge83.thread139
+  %.0 = phi i32 [ 0, %communityid_calc_wrapper.exit ], [ 0, %4 ], [ %165, %.critedge83.thread139 ], [ 0, %select.unfold ], [ 0, %communityid_calc_wrapper.exit91.thread ], [ 0, %communityid_calc_wrapper.exit87 ], [ 0, %communityid_calc_wrapper.exit95 ], [ 0, %146 ], [ 0, %communityid_calc_wrapper.exit.thread ], [ 0, %communityid_calc_wrapper.exit87.thread ], [ 0, %24 ], [ 0, %30 ], [ 0, %139 ], [ 0, %142 ], [ 0, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -622,10 +622,10 @@ switch.lookup24:                                  ; preds = %switch.hole_check23
   br label %communityid_tuple_lt.exit.thread
 
 communityid_tuple_lt.exit.thread:                 ; preds = %45, %31, %34, %50
-  %.185 = phi ptr [ %13, %34 ], [ %spec.select, %50 ], [ %13, %31 ], [ %.0844, %45 ]
-  %.1 = phi ptr [ %12, %34 ], [ %spec.select112, %50 ], [ %12, %31 ], [ %.0835, %45 ]
-  %.082 = phi ptr [ %3, %34 ], [ %2, %50 ], [ %3, %31 ], [ %3, %45 ]
-  %.081 = phi ptr [ %2, %34 ], [ %3, %50 ], [ %2, %31 ], [ %2, %45 ]
+  %.185 = phi ptr [ %13, %34 ], [ %.0844, %45 ], [ %spec.select, %50 ], [ %13, %31 ]
+  %.1 = phi ptr [ %12, %34 ], [ %.0835, %45 ], [ %spec.select112, %50 ], [ %12, %31 ]
+  %.082 = phi ptr [ %3, %34 ], [ %3, %45 ], [ %2, %50 ], [ %3, %31 ]
+  %.081 = phi ptr [ %2, %34 ], [ %2, %45 ], [ %3, %50 ], [ %2, %31 ]
   %51 = load i16, ptr @cid_cfg.1, align 2
   %rev110 = call i16 @llvm.bswap.i16(i16 %51)
   store i16 %rev110, ptr %10, align 2
@@ -706,7 +706,7 @@ communityid_tuple_lt.exit.thread:                 ; preds = %45, %31, %34, %50
   br label %89
 
 89:                                               ; preds = %communityid_tuple_lt.exit.thread, %.loopexit, %22, %18, %16
-  %.080 = phi i1 [ true, %.loopexit ], [ false, %22 ], [ false, %18 ], [ false, %16 ], [ false, %communityid_tuple_lt.exit.thread ]
+  %.080 = phi i1 [ false, %16 ], [ true, %.loopexit ], [ false, %22 ], [ false, %18 ], [ false, %communityid_tuple_lt.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

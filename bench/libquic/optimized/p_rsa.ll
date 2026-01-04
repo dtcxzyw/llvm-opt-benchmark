@@ -95,7 +95,7 @@ define internal range(i32 0, 2) i32 @pkey_rsa_copy(ptr noundef writeonly capture
   br label %pkey_rsa_init.exit.thread
 
 pkey_rsa_init.exit.thread:                        ; preds = %2, %15, %33, %26, %12
-  %.0 = phi i32 [ 0, %12 ], [ 0, %26 ], [ 1, %33 ], [ 1, %15 ], [ 0, %2 ]
+  %.0 = phi i32 [ 0, %26 ], [ 0, %12 ], [ 1, %15 ], [ 1, %33 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -164,7 +164,7 @@ define internal range(i32 0, 2) i32 @pkey_rsa_keygen(ptr noundef readonly captur
   br label %20
 
 20:                                               ; preds = %11, %7, %9, %18, %17
-  %.0 = phi i32 [ 1, %18 ], [ 0, %17 ], [ 0, %9 ], [ 0, %7 ], [ 0, %11 ]
+  %.0 = phi i32 [ 1, %18 ], [ 0, %17 ], [ 0, %7 ], [ 0, %9 ], [ 0, %11 ]
   ret i32 %.0
 }
 
@@ -269,7 +269,7 @@ define internal i32 @pkey_rsa_sign(ptr noundef readonly captures(none) %0, ptr n
   br label %57
 
 57:                                               ; preds = %53, %31, %42, %44, %34, %39, %30, %25
-  %.1 = phi i32 [ 0, %25 ], [ 0, %30 ], [ 1, %39 ], [ 0, %34 ], [ 0, %44 ], [ 0, %42 ], [ 0, %31 ], [ %spec.select, %53 ]
+  %.1 = phi i32 [ 0, %25 ], [ 0, %30 ], [ 0, %42 ], [ 1, %39 ], [ 0, %34 ], [ 0, %31 ], [ %spec.select, %53 ], [ 0, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %62
 
@@ -381,7 +381,7 @@ setup_tbuf.exit49.thread:                         ; preds = %40, %setup_tbuf.exi
   br label %55
 
 55:                                               ; preds = %52, %32, %setup_tbuf.exit49, %setup_tbuf.exit49.thread, %17, %setup_tbuf.exit, %setup_tbuf.exit.thread, %20
-  %.0 = phi i32 [ %22, %20 ], [ 0, %setup_tbuf.exit.thread ], [ 0, %setup_tbuf.exit ], [ 0, %17 ], [ 0, %setup_tbuf.exit49.thread ], [ 0, %setup_tbuf.exit49 ], [ %spec.select, %32 ], [ %spec.select44, %52 ]
+  %.0 = phi i32 [ 0, %setup_tbuf.exit ], [ %22, %20 ], [ 0, %setup_tbuf.exit49 ], [ 0, %setup_tbuf.exit49.thread ], [ 0, %17 ], [ %spec.select, %32 ], [ 0, %setup_tbuf.exit.thread ], [ %spec.select44, %52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -537,7 +537,7 @@ setup_tbuf.exit.thread:                           ; preds = %24, %setup_tbuf.exi
   br label %81
 
 81:                                               ; preds = %46, %43, %35, %setup_tbuf.exit, %80, %23, %19
-  %.0 = phi i32 [ 1, %19 ], [ 0, %23 ], [ %.2, %80 ], [ 0, %setup_tbuf.exit ], [ 1, %43 ], [ 0, %35 ], [ 0, %46 ]
+  %.0 = phi i32 [ 1, %19 ], [ 0, %23 ], [ 0, %setup_tbuf.exit ], [ 0, %35 ], [ %.2, %80 ], [ 1, %43 ], [ 0, %46 ]
   ret i32 %.0
 }
 
@@ -617,7 +617,7 @@ setup_tbuf.exit.thread:                           ; preds = %23, %setup_tbuf.exi
   br label %48
 
 48:                                               ; preds = %42, %setup_tbuf.exit, %setup_tbuf.exit.thread, %46, %18, %14
-  %.0 = phi i32 [ 0, %18 ], [ %47, %46 ], [ 1, %14 ], [ 0, %setup_tbuf.exit.thread ], [ 0, %setup_tbuf.exit ], [ %spec.select, %42 ]
+  %.0 = phi i32 [ 0, %18 ], [ 0, %setup_tbuf.exit ], [ 1, %14 ], [ %47, %46 ], [ %spec.select, %42 ], [ 0, %setup_tbuf.exit.thread ]
   ret i32 %.0
 }
 
@@ -699,7 +699,7 @@ setup_tbuf.exit.thread:                           ; preds = %24, %setup_tbuf.exi
   br label %50
 
 50:                                               ; preds = %33, %setup_tbuf.exit, %setup_tbuf.exit.thread, %48
-  %.1 = phi i32 [ 1, %48 ], [ 0, %setup_tbuf.exit.thread ], [ 0, %setup_tbuf.exit ], [ 0, %33 ]
+  %.1 = phi i32 [ 0, %setup_tbuf.exit ], [ 1, %48 ], [ 0, %setup_tbuf.exit.thread ], [ 0, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %53
 
@@ -985,7 +985,7 @@ check_padding_md.exit89:                          ; preds = %61
   br label %106
 
 106:                                              ; preds = %check_padding_md.exit89.thread, %92, %95, %82, %79, %78, %58, %60, %47, %36, %41, %39, %105, %100, %99, %86, %72, %66, %check_padding_md.exit89, %54, %48, %46, %45, %33, %27, %25, %is_known_padding.exit.thread
-  %.0 = phi i32 [ 0, %105 ], [ 0, %is_known_padding.exit.thread ], [ 1, %25 ], [ 1, %27 ], [ 0, %33 ], [ 0, %45 ], [ 1, %46 ], [ 1, %48 ], [ 0, %54 ], [ 1, %check_padding_md.exit89 ], [ 1, %66 ], [ 0, %72 ], [ 0, %86 ], [ 0, %99 ], [ 1, %100 ], [ 0, %39 ], [ 1, %41 ], [ 1, %36 ], [ 0, %47 ], [ 1, %60 ], [ 1, %58 ], [ 1, %78 ], [ 1, %79 ], [ 1, %82 ], [ 1, %95 ], [ 1, %92 ], [ 0, %check_padding_md.exit89.thread ]
+  %.0 = phi i32 [ 0, %105 ], [ 0, %is_known_padding.exit.thread ], [ 1, %25 ], [ 1, %27 ], [ 0, %33 ], [ 0, %39 ], [ 1, %100 ], [ 0, %45 ], [ 1, %46 ], [ 1, %48 ], [ 1, %36 ], [ 0, %54 ], [ 0, %47 ], [ 1, %check_padding_md.exit89 ], [ 1, %58 ], [ 1, %66 ], [ 0, %72 ], [ 0, %check_padding_md.exit89.thread ], [ 0, %86 ], [ 1, %82 ], [ 0, %99 ], [ 1, %41 ], [ 1, %60 ], [ 1, %78 ], [ 1, %79 ], [ 1, %95 ], [ 1, %92 ]
   ret i32 %.0
 }
 
@@ -1156,7 +1156,7 @@ define internal fastcc range(i32 0, 2) i32 @setup_tbuf(ptr noundef captures(none
   br label %11
 
 11:                                               ; preds = %5, %2
-  %.0 = phi i32 [ 1, %2 ], [ %., %5 ]
+  %.0 = phi i32 [ %., %5 ], [ 1, %2 ]
   ret i32 %.0
 }
 

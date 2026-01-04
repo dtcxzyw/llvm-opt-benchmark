@@ -715,7 +715,7 @@ define dso_local zeroext i1 @extra_constraints_test(ptr noundef readonly capture
   br label %8
 
 8:                                                ; preds = %5, %2, %6
-  %.0 = phi i1 [ %7, %6 ], [ true, %2 ], [ false, %5 ]
+  %.0 = phi i1 [ %7, %6 ], [ false, %5 ], [ true, %2 ]
   ret i1 %.0
 }
 
@@ -828,7 +828,7 @@ define internal fastcc zeroext i1 @_test_extra_constraints(ptr noundef readonly 
   br label %52
 
 52:                                               ; preds = %49, %46, %43, %41, %37, %34, %33, %29, %27, %23, %19, %17
-  %.3.i = phi i32 [ -2, %19 ], [ 0, %23 ], [ %..i, %27 ], [ -1, %29 ], [ %.49.i, %33 ], [ -2, %34 ], [ 0, %37 ], [ %.51.i, %41 ], [ -2, %43 ], [ 0, %46 ], [ %.52.i, %49 ], [ -2, %17 ]
+  %.3.i = phi i32 [ %.52.i, %49 ], [ %.51.i, %41 ], [ %..i, %27 ], [ %.49.i, %33 ], [ -1, %29 ], [ -2, %19 ], [ 0, %23 ], [ 0, %37 ], [ -2, %34 ], [ 0, %46 ], [ -2, %43 ], [ -2, %17 ]
   %.not48.i = icmp eq ptr %15, null
   br i1 %.not48.i, label %_compare.exit, label %.sink.split.i
 
@@ -905,7 +905,7 @@ _compare.exit:                                    ; preds = %52, %.sink.split.i
   br i1 %82, label %70, label %_test.exit, !llvm.loop !20
 
 _test.exit:                                       ; preds = %78, %77, %79, %.preheader, %68, %66, %64, %62, %60, %58, %56, %8, %_compare.exit, %2
-  %.023 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %_compare.exit ], [ %57, %56 ], [ %59, %58 ], [ %61, %60 ], [ %63, %62 ], [ %65, %64 ], [ %67, %66 ], [ false, %68 ], [ false, %.preheader ], [ false, %78 ], [ true, %77 ], [ %74, %79 ]
+  %.023 = phi i1 [ false, %_compare.exit ], [ false, %2 ], [ false, %8 ], [ %65, %64 ], [ %67, %66 ], [ false, %68 ], [ %57, %56 ], [ %59, %58 ], [ %61, %60 ], [ %63, %62 ], [ false, %.preheader ], [ false, %78 ], [ true, %77 ], [ %74, %79 ]
   ret i1 %.023
 }
 

@@ -290,13 +290,13 @@ define range(i32 0, 2) i32 @cs_print(ptr noundef %0, i32 noundef %1) local_unnam
   br i1 %exitcond, label %.loopexit65.sink.split, label %124
 
 .loopexit65.sink.split:                           ; preds = %.lr.ph.split.split, %.lr.ph.split.us.split, %.lr.ph71.us83, %.lr.ph71.us.us, %2
-  %str.1.sink = phi ptr [ @str, %2 ], [ @str.2, %.lr.ph71.us.us ], [ @str.2, %.lr.ph71.us83 ], [ @str.2, %.lr.ph.split.us.split ], [ @str.2, %.lr.ph.split.split ]
-  %.0.ph = phi i32 [ 0, %2 ], [ 1, %.lr.ph71.us.us ], [ 1, %.lr.ph71.us83 ], [ 1, %.lr.ph.split.us.split ], [ 1, %.lr.ph.split.split ]
+  %str.1.sink = phi ptr [ @str.2, %.lr.ph71.us83 ], [ @str, %2 ], [ @str.2, %.lr.ph71.us.us ], [ @str.2, %.lr.ph.split.us.split ], [ @str.2, %.lr.ph.split.split ]
+  %.0.ph = phi i32 [ 1, %.lr.ph71.us83 ], [ 0, %2 ], [ 1, %.lr.ph71.us.us ], [ 1, %.lr.ph.split.us.split ], [ 1, %.lr.ph.split.split ]
   %puts62 = tail call i32 @puts(ptr nonnull dereferenceable(1) %str.1.sink)
   br label %.loopexit65
 
 .loopexit65:                                      ; preds = %124, %.lr.ph.split.split.us, %116, %.lr.ph.split.us.split.us, %.loopexit.us82, %.loopexit, %.loopexit.us.us, %.loopexit.us, %.loopexit65.sink.split, %104, %19
-  %.0 = phi i32 [ 1, %19 ], [ 1, %104 ], [ %.0.ph, %.loopexit65.sink.split ], [ 1, %.loopexit.us ], [ 1, %.loopexit.us.us ], [ 1, %.loopexit ], [ 1, %.loopexit.us82 ], [ 1, %.lr.ph.split.us.split.us ], [ 1, %116 ], [ 1, %.lr.ph.split.split.us ], [ 1, %124 ]
+  %.0 = phi i32 [ 1, %.lr.ph.split.split.us ], [ 1, %116 ], [ 1, %.loopexit.us82 ], [ 1, %19 ], [ 1, %104 ], [ 1, %.loopexit.us ], [ 1, %.loopexit.us.us ], [ 1, %.loopexit ], [ 1, %.lr.ph.split.us.split.us ], [ %.0.ph, %.loopexit65.sink.split ], [ 1, %124 ]
   ret i32 %.0
 }
 

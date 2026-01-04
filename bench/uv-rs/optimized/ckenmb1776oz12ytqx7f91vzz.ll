@@ -721,7 +721,7 @@ define hidden void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$
   tail call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #29
   unreachable
 
-42:                                               ; preds = %14, %19
+42:                                               ; preds = %19, %14
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %43 = load i64, ptr %2, align 8, !range !33, !alias.scope !88, !noundef !4
@@ -1570,7 +1570,7 @@ define noundef zeroext i1 @_ZN16uv_configuration13build_options12BuildOptions17n
   br i1 %19, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h87c71e4f76ece589E.exit", label %15
 
 "_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h87c71e4f76ece589E.exit": ; preds = %28, %26, %17, %15, %5, %2
-  %.sroa.0.0.shrunk = phi i1 [ false, %2 ], [ true, %5 ], [ %.not.not.not.i.not.not.not.i.not.not.not, %15 ], [ %.not.not.not.i.not.not.not.i.not.not.not, %17 ], [ %.not.not.not.i.not.not.not.i1.not, %26 ], [ %.not.not.not.i.not.not.not.i1.not, %28 ]
+  %.sroa.0.0.shrunk = phi i1 [ true, %5 ], [ %.not.not.not.i.not.not.not.i.not.not.not, %17 ], [ false, %2 ], [ %.not.not.not.i.not.not.not.i.not.not.not, %15 ], [ %.not.not.not.i.not.not.not.i1.not, %26 ], [ %.not.not.not.i.not.not.not.i1.not, %28 ]
   ret i1 %.sroa.0.0.shrunk
 
 20:                                               ; preds = %5
@@ -1626,7 +1626,7 @@ define noundef zeroext i1 @_ZN16uv_configuration13build_options12BuildOptions16n
   br i1 %19, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h87c71e4f76ece589E.exit", label %15
 
 "_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h87c71e4f76ece589E.exit": ; preds = %28, %26, %17, %15, %6, %2
-  %.sroa.0.0.shrunk = phi i1 [ false, %2 ], [ true, %6 ], [ %.not.not.not.i.not.not.not.i.not.not.not, %15 ], [ %.not.not.not.i.not.not.not.i.not.not.not, %17 ], [ %.not.not.not.i.not.not.not.i1.not, %26 ], [ %.not.not.not.i.not.not.not.i1.not, %28 ]
+  %.sroa.0.0.shrunk = phi i1 [ true, %6 ], [ %.not.not.not.i.not.not.not.i.not.not.not, %17 ], [ false, %2 ], [ %.not.not.not.i.not.not.not.i.not.not.not, %15 ], [ %.not.not.not.i.not.not.not.i1.not, %26 ], [ %.not.not.not.i.not.not.not.i1.not, %28 ]
   ret i1 %.sroa.0.0.shrunk
 
 20:                                               ; preds = %6
@@ -1711,7 +1711,7 @@ define noundef zeroext i1 @_ZN16uv_configuration13build_options12BuildOptions20n
   br i1 %36, label %_ZN16uv_configuration13build_options12BuildOptions16no_build_package17hbfbf42239adb0a15E.exit, label %32
 
 _ZN16uv_configuration13build_options12BuildOptions16no_build_package17hbfbf42239adb0a15E.exit: ; preds = %34, %32, %23, %21, %12, %8, %4
-  %.sroa.02.0.in = phi i1 [ %7, %4 ], [ false, %8 ], [ true, %12 ], [ %.not.not.not.i.not.not.not.i.not.not.i.not.not, %21 ], [ %.not.not.not.i.not.not.not.i.not.not.i.not.not, %23 ], [ %.not.not.not.i.not.not.not.i1.not.i, %32 ], [ %.not.not.not.i.not.not.not.i1.not.i, %34 ]
+  %.sroa.02.0.in = phi i1 [ %7, %4 ], [ true, %12 ], [ %.not.not.not.i.not.not.not.i.not.not.i.not.not, %23 ], [ false, %8 ], [ %.not.not.not.i.not.not.not.i.not.not.i.not.not, %21 ], [ %.not.not.not.i.not.not.not.i1.not.i, %32 ], [ %.not.not.not.i.not.not.not.i1.not.i, %34 ]
   ret i1 %.sroa.02.0.in
 }
 
@@ -1777,7 +1777,7 @@ define noundef zeroext i1 @_ZN16uv_configuration13build_options12BuildOptions21n
   br i1 %35, label %_ZN16uv_configuration13build_options12BuildOptions17no_binary_package17h2b5ccaa8790f3793E.exit, label %31
 
 _ZN16uv_configuration13build_options12BuildOptions17no_binary_package17h2b5ccaa8790f3793E.exit: ; preds = %33, %31, %22, %20, %10, %7, %4
-  %.sroa.02.0.in = phi i1 [ %6, %4 ], [ false, %7 ], [ true, %10 ], [ %.not.not.not.i.not.not.not.i.not.not.i.not.not, %20 ], [ %.not.not.not.i.not.not.not.i.not.not.i.not.not, %22 ], [ %.not.not.not.i.not.not.not.i1.not.i, %31 ], [ %.not.not.not.i.not.not.not.i1.not.i, %33 ]
+  %.sroa.02.0.in = phi i1 [ %6, %4 ], [ true, %10 ], [ %.not.not.not.i.not.not.not.i.not.not.i.not.not, %22 ], [ false, %7 ], [ %.not.not.not.i.not.not.not.i.not.not.i.not.not, %20 ], [ %.not.not.not.i.not.not.not.i1.not.i, %31 ], [ %.not.not.not.i.not.not.not.i1.not.i, %33 ]
   ret i1 %.sroa.02.0.in
 }
 
@@ -2287,7 +2287,7 @@ define void @_ZN16uv_configuration13build_options8NoBinary6extend17heddddfbb9c5c
   unreachable
 
 .thread15:                                        ; preds = %31, %50, %19
-  %.pn19 = phi { ptr, i32 } [ %20, %50 ], [ %20, %19 ], [ %32, %31 ]
+  %.pn19 = phi { ptr, i32 } [ %20, %19 ], [ %20, %50 ], [ %32, %31 ]
   resume { ptr, i32 } %.pn19
 
 50:                                               ; preds = %19
@@ -2796,7 +2796,7 @@ define void @_ZN16uv_configuration13build_options7NoBuild6extend17h4e075e9470dd7
   unreachable
 
 .thread15:                                        ; preds = %31, %50, %19
-  %.pn19 = phi { ptr, i32 } [ %20, %50 ], [ %20, %19 ], [ %32, %31 ]
+  %.pn19 = phi { ptr, i32 } [ %20, %19 ], [ %20, %50 ], [ %32, %31 ]
   resume { ptr, i32 } %.pn19
 
 50:                                               ; preds = %19
@@ -3305,7 +3305,7 @@ default.unreachable35:                            ; preds = %2
   unreachable
 
 common.resume:                                    ; preds = %64, %"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..str..Str$GT$17h7cd03ed30413813cE.exit9.i17", %40, %"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..str..Str$GT$17h7cd03ed30413813cE.exit9.i", %16
-  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %28, %"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..str..Str$GT$17h7cd03ed30413813cE.exit9.i" ], [ %41, %40 ], [ %52, %"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..str..Str$GT$17h7cd03ed30413813cE.exit9.i17" ], [ %65, %64 ]
+  %common.resume.op = phi { ptr, i32 } [ %52, %"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..str..Str$GT$17h7cd03ed30413813cE.exit9.i17" ], [ %17, %16 ], [ %28, %"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..str..Str$GT$17h7cd03ed30413813cE.exit9.i" ], [ %41, %40 ], [ %65, %64 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12clap_builder7builder14possible_value13PossibleValue4help17h362bc738db0dcf9aE.exit: ; preds = %"_ZN123_$LT$I$u20$as$u20$clap_builder..builder..resettable..IntoResettable$LT$clap_builder..builder..styled_str..StyledStr$GT$$GT$15into_resettable17h7afae3a9b4eed399E.exit.i", %20
@@ -3810,7 +3810,7 @@ define void @"_ZN97_$LT$uv_configuration..export_format..ExportFormat$u20$as$u20
   unreachable
 
 common.resume:                                    ; preds = %"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..str..Str$GT$17h7cd03ed30413813cE.exit9.i17", %38, %"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..str..Str$GT$17h7cd03ed30413813cE.exit9.i", %14
-  %common.resume.op = phi { ptr, i32 } [ %15, %14 ], [ %26, %"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..str..Str$GT$17h7cd03ed30413813cE.exit9.i" ], [ %39, %38 ], [ %50, %"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..str..Str$GT$17h7cd03ed30413813cE.exit9.i17" ]
+  %common.resume.op = phi { ptr, i32 } [ %39, %38 ], [ %15, %14 ], [ %26, %"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..str..Str$GT$17h7cd03ed30413813cE.exit9.i" ], [ %50, %"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..str..Str$GT$17h7cd03ed30413813cE.exit9.i17" ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12clap_builder7builder14possible_value13PossibleValue4help17h362bc738db0dcf9aE.exit: ; preds = %"_ZN123_$LT$I$u20$as$u20$clap_builder..builder..resettable..IntoResettable$LT$clap_builder..builder..styled_str..StyledStr$GT$$GT$15into_resettable17h7afae3a9b4eed399E.exit.i", %18
@@ -4346,7 +4346,7 @@ define void @"_ZN16uv_configuration18trusted_publishing1_106_$LT$impl$u20$schema
           to label %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$$GT$17h95c4201d8a1a0533E.exit" unwind label %96
 
 "_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$$GT$17h95c4201d8a1a0533E.exit": ; preds = %.body, %73, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hfca15a8910e95b65E.llvm.7085529575423241642.exit"
-  %.pn63 = phi { ptr, i32 } [ %50, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hfca15a8910e95b65E.llvm.7085529575423241642.exit" ], [ %68, %73 ], [ %68, %.body ]
+  %.pn63 = phi { ptr, i32 } [ %68, %.body ], [ %50, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hfca15a8910e95b65E.llvm.7085529575423241642.exit" ], [ %68, %73 ]
   invoke fastcc void @"_ZN4core3ptr116drop_in_place$LT$core..option..Option$LT$schemars..schema..SingleOrVec$LT$schemars..schema..InstanceType$GT$$GT$$GT$17hf1bd535f8071581aE"(ptr noalias noundef align 8 dereferenceable(24) %43) #28
           to label %98 unwind label %96
 
@@ -4441,7 +4441,7 @@ define void @"_ZN16uv_configuration18trusted_publishing1_106_$LT$impl$u20$schema
   unreachable
 
 "_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$$GT$17h6c59041a9eb143e8E.exit": ; preds = %98, %101, %88, %92, %22
-  %.pn65.pn.pn = phi { ptr, i32 } [ %.pn65.pn, %22 ], [ %89, %92 ], [ %89, %88 ], [ %.pn63, %101 ], [ %.pn63, %98 ]
+  %.pn65.pn.pn = phi { ptr, i32 } [ %.pn65.pn, %22 ], [ %89, %88 ], [ %89, %92 ], [ %.pn63, %101 ], [ %.pn63, %98 ]
   resume { ptr, i32 } %.pn65.pn.pn
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hfca15a8910e95b65E.llvm.7085529575423241642.exit": ; preds = %49, %53

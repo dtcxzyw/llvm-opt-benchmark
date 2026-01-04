@@ -1082,7 +1082,7 @@ _ZN22aws_smithy_runtime_api6client12orchestrator22convert_dispatch_error17h6fe53
           to label %.body.thread.i unwind label %102
 
 .body.thread.i:                                   ; preds = %.body.i, %106, %.body.i63, %150, %111, %100, %.body.i74, %138, %153, %.thread92
-  %.pn85 = phi { ptr, i32 } [ %eh.lpad-body91, %153 ], [ %eh.lpad-body91, %.thread92 ], [ %121, %138 ], [ %121, %.body.i74 ], [ %151, %150 ], [ %112, %111 ], [ %101, %100 ], [ %92, %.body.i63 ], [ %107, %106 ], [ %77, %.body.i ]
+  %.pn85 = phi { ptr, i32 } [ %92, %.body.i63 ], [ %eh.lpad-body91, %153 ], [ %eh.lpad-body91, %.thread92 ], [ %77, %.body.i ], [ %121, %138 ], [ %121, %.body.i74 ], [ %101, %100 ], [ %151, %150 ], [ %107, %106 ], [ %112, %111 ]
   resume { ptr, i32 } %.pn85
 
 .thread92:                                        ; preds = %50, %67
@@ -2100,7 +2100,7 @@ define internal void @"_ZN4core3ptr70drop_in_place$LT$aws_sdk_glue..operation..g
   unreachable
 
 common.resume:                                    ; preds = %150, %132, %114, %96, %78, %60, %41, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %42, %41 ], [ %61, %60 ], [ %79, %78 ], [ %97, %96 ], [ %115, %114 ], [ %133, %132 ], [ %151, %150 ]
+  %common.resume.op = phi { ptr, i32 } [ %133, %132 ], [ %eh.lpad-body.i, %.body.i ], [ %42, %41 ], [ %61, %60 ], [ %79, %78 ], [ %97, %96 ], [ %115, %114 ], [ %151, %150 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr69drop_in_place$LT$aws_sdk_glue..error..sealed_unhandled..Unhandled$GT$17hf3ac2da415c7701cE.exit": ; preds = %22
@@ -3617,8 +3617,8 @@ define internal { ptr, ptr } @"_ZN88_$LT$aws_sdk_glue..operation..get_table..Get
   br label %26
 
 26:                                               ; preds = %1, %21, %19, %17, %15, %13, %11, %9, %7
-  %.sroa.10.0 = phi ptr [ @anon.e53765a79c4dcac279ee891210511140.127, %7 ], [ @anon.e53765a79c4dcac279ee891210511140.131, %9 ], [ @anon.e53765a79c4dcac279ee891210511140.133, %11 ], [ @anon.e53765a79c4dcac279ee891210511140.135, %13 ], [ @anon.e53765a79c4dcac279ee891210511140.137, %15 ], [ @anon.e53765a79c4dcac279ee891210511140.139, %17 ], [ @anon.e53765a79c4dcac279ee891210511140.141, %19 ], [ %25, %21 ], [ @anon.e53765a79c4dcac279ee891210511140.129, %1 ]
-  %.sroa.0.0 = phi ptr [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %23, %21 ], [ %0, %1 ]
+  %.sroa.10.0 = phi ptr [ @anon.e53765a79c4dcac279ee891210511140.127, %7 ], [ %25, %21 ], [ @anon.e53765a79c4dcac279ee891210511140.131, %9 ], [ @anon.e53765a79c4dcac279ee891210511140.133, %11 ], [ @anon.e53765a79c4dcac279ee891210511140.135, %13 ], [ @anon.e53765a79c4dcac279ee891210511140.137, %15 ], [ @anon.e53765a79c4dcac279ee891210511140.139, %17 ], [ @anon.e53765a79c4dcac279ee891210511140.141, %19 ], [ @anon.e53765a79c4dcac279ee891210511140.129, %1 ]
+  %.sroa.0.0 = phi ptr [ %8, %7 ], [ %23, %21 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %0, %1 ]
   %27 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %28 = insertvalue { ptr, ptr } %27, ptr %.sroa.10.0, 1
   ret { ptr, ptr } %28

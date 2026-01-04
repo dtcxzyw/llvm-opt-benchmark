@@ -335,10 +335,10 @@ thread-pre-split:                                 ; preds = %56, %.thread269, %1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %137, %137, %139, %138
-  %.sink275 = phi i32 [ 16711680, %138 ], [ 16711680, %139 ], [ 31744, %137 ], [ 31744, %137 ]
-  %.sink274 = phi i32 [ 65280, %138 ], [ 65280, %139 ], [ 992, %137 ], [ 992, %137 ]
-  %.sink = phi i32 [ 255, %138 ], [ 255, %139 ], [ 31, %137 ], [ 31, %137 ]
-  %.0144.ph = phi i1 [ false, %138 ], [ true, %139 ], [ false, %137 ], [ false, %137 ]
+  %.sink275 = phi i32 [ 16711680, %139 ], [ 16711680, %138 ], [ 31744, %137 ], [ 31744, %137 ]
+  %.sink274 = phi i32 [ 65280, %139 ], [ 65280, %138 ], [ 992, %137 ], [ 992, %137 ]
+  %.sink = phi i32 [ 255, %139 ], [ 255, %138 ], [ 31, %137 ], [ 31, %137 ]
+  %.0144.ph = phi i1 [ true, %139 ], [ false, %138 ], [ false, %137 ], [ false, %137 ]
   store i32 %.sink275, ptr %3, align 4
   store i32 %.sink274, ptr %4, align 4
   store i32 %.sink, ptr %5, align 4
@@ -699,8 +699,8 @@ thread-pre-split:                                 ; preds = %56, %.thread269, %1
   %324 = icmp ult ptr %323, %317
   br i1 %324, label %.critedge.i, label %CorrectAlphaChannel.exit, !llvm.loop !10
 
-.thread209:                                       ; preds = %230, %226, %221, %216, %205, %200, %195, %278, %302, %297, %247, %165, %171, %186, %156, %111, %104, %96, %98, %100, %92, %83, %85, %87, %58, %60, %62, %64, %66, %68, %70, %72, %74, %76, %.thread, %30, %32, %34, %36, %38, %132, %140, %256, %127, %121, %28, %23, %20
-  %.0150.ph213 = phi ptr [ null, %20 ], [ null, %23 ], [ null, %28 ], [ null, %121 ], [ null, %127 ], [ %149, %256 ], [ null, %140 ], [ null, %132 ], [ null, %38 ], [ null, %36 ], [ null, %34 ], [ null, %32 ], [ null, %30 ], [ null, %.thread ], [ null, %76 ], [ null, %74 ], [ null, %72 ], [ null, %70 ], [ null, %68 ], [ null, %66 ], [ null, %64 ], [ null, %62 ], [ null, %60 ], [ null, %58 ], [ null, %87 ], [ null, %85 ], [ null, %83 ], [ null, %92 ], [ null, %100 ], [ null, %98 ], [ null, %96 ], [ null, %104 ], [ null, %111 ], [ %149, %156 ], [ %149, %186 ], [ %149, %171 ], [ %149, %165 ], [ %149, %247 ], [ %149, %297 ], [ %149, %302 ], [ %149, %278 ], [ %149, %195 ], [ %149, %200 ], [ %149, %205 ], [ %149, %216 ], [ %149, %221 ], [ %149, %226 ], [ %149, %230 ]
+.thread209:                                       ; preds = %216, %230, %226, %221, %195, %205, %200, %278, %302, %297, %247, %165, %171, %186, %156, %111, %98, %100, %85, %87, %60, %62, %64, %66, %68, %70, %72, %74, %76, %92, %96, %58, %83, %104, %30, %32, %34, %36, %38, %.thread, %132, %140, %256, %127, %121, %28, %23, %20
+  %.0150.ph213 = phi ptr [ %149, %165 ], [ null, %20 ], [ null, %23 ], [ null, %28 ], [ null, %121 ], [ null, %127 ], [ %149, %256 ], [ null, %140 ], [ null, %132 ], [ null, %.thread ], [ null, %30 ], [ null, %38 ], [ null, %36 ], [ null, %34 ], [ null, %32 ], [ null, %104 ], [ null, %83 ], [ null, %58 ], [ null, %96 ], [ null, %92 ], [ null, %76 ], [ null, %74 ], [ null, %72 ], [ null, %70 ], [ null, %68 ], [ null, %66 ], [ null, %64 ], [ null, %62 ], [ null, %60 ], [ null, %87 ], [ null, %85 ], [ null, %100 ], [ null, %98 ], [ null, %111 ], [ %149, %156 ], [ %149, %186 ], [ %149, %171 ], [ %149, %278 ], [ %149, %195 ], [ %149, %247 ], [ %149, %302 ], [ %149, %297 ], [ %149, %200 ], [ %149, %205 ], [ %149, %221 ], [ %149, %226 ], [ %149, %230 ], [ %149, %216 ]
   %325 = call i64 @SDL_SeekIO_REAL(ptr noundef nonnull %0, i64 noundef %21, i32 noundef 0) #4
   br label %326
 
@@ -710,7 +710,7 @@ thread-pre-split:                                 ; preds = %56, %.thread269, %1
   br label %CorrectAlphaChannel.exit
 
 CorrectAlphaChannel.exit:                         ; preds = %.lr.ph.i, %.critedge.i, %252, %._crit_edge, %311, %326
-  %.1151 = phi ptr [ null, %326 ], [ %149, %252 ], [ %149, %._crit_edge ], [ %149, %311 ], [ %149, %.critedge.i ], [ %149, %.lr.ph.i ]
+  %.1151 = phi ptr [ null, %326 ], [ %149, %311 ], [ %149, %252 ], [ %149, %.critedge.i ], [ %149, %._crit_edge ], [ %149, %.lr.ph.i ]
   %or.cond5 = and i1 %1, %18
   br i1 %or.cond5, label %327, label %329
 
@@ -936,7 +936,7 @@ define internal fastcc noundef zeroext i1 @readRlePixels(ptr noundef readonly ca
   br label %.loopexit
 
 .loopexit:                                        ; preds = %84, %42, %44, %48, %50, %82, %3, %.critedge62, %.critedge
-  %.144 = phi i1 [ false, %.critedge ], [ false, %.critedge62 ], [ false, %3 ], [ false, %84 ], [ false, %42 ], [ true, %44 ], [ false, %48 ], [ false, %50 ], [ false, %82 ]
+  %.144 = phi i1 [ false, %.critedge ], [ false, %.critedge62 ], [ false, %3 ], [ false, %42 ], [ true, %44 ], [ false, %84 ], [ false, %50 ], [ false, %48 ], [ false, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.144
 }
@@ -1101,8 +1101,8 @@ define hidden noundef zeroext i1 @SDL_SaveBMP_IO_REAL(ptr noundef %0, ptr nounde
   br label %.thread306
 
 .thread306:                                       ; preds = %.thread369, %.critedge.thread.thread374, %35, %.thread304, %51
-  %.1210310 = phi ptr [ %.1210312, %51 ], [ %44, %.thread304 ], [ %0, %35 ], [ %0, %.critedge.thread.thread374 ], [ %45, %.thread369 ]
-  %.not = phi i1 [ %52, %51 ], [ true, %.thread304 ], [ true, %35 ], [ true, %.critedge.thread.thread374 ], [ true, %.thread369 ]
+  %.1210310 = phi ptr [ %.1210312, %51 ], [ %0, %.critedge.thread.thread374 ], [ %44, %.thread304 ], [ %0, %35 ], [ %45, %.thread369 ]
+  %.not = phi i1 [ %52, %51 ], [ true, %.critedge.thread.thread374 ], [ true, %.thread304 ], [ true, %35 ], [ true, %.thread369 ]
   %53 = tail call zeroext i1 @SDL_LockSurface_REAL(ptr noundef nonnull %.1210310) #4
   br i1 %53, label %54, label %.loopexit
 
@@ -1437,7 +1437,7 @@ define hidden noundef zeroext i1 @SDL_SaveBMP_IO_REAL(ptr noundef %0, ptr nounde
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader329, %162, %159, %155, %.lr.ph, %.lr.ph336.split, %.preheader, %.lr.ph336.split.us, %222, %54, %74, %72, %70, %68, %66, %113, %111, %109, %107, %105, %103, %101, %99, %97, %95, %93, %124, %122, %120, %118, %116, %134, %132, %130, %142, %140, %138, %136, %.critedge293, %171, %174, %._crit_edge, %209, %214, %217, %.thread306
-  %.0205 = phi i1 [ true, %.thread306 ], [ false, %222 ], [ true, %54 ], [ true, %74 ], [ true, %72 ], [ true, %70 ], [ true, %68 ], [ true, %66 ], [ true, %113 ], [ true, %111 ], [ true, %109 ], [ true, %107 ], [ true, %105 ], [ true, %103 ], [ true, %101 ], [ true, %99 ], [ true, %97 ], [ true, %95 ], [ true, %93 ], [ true, %124 ], [ true, %122 ], [ true, %120 ], [ true, %118 ], [ true, %116 ], [ true, %134 ], [ true, %132 ], [ true, %130 ], [ true, %142 ], [ true, %140 ], [ true, %138 ], [ true, %136 ], [ true, %.critedge293 ], [ true, %171 ], [ true, %174 ], [ true, %._crit_edge ], [ true, %209 ], [ true, %214 ], [ true, %217 ], [ true, %.lr.ph336.split.us ], [ true, %.preheader ], [ true, %.lr.ph336.split ], [ true, %.lr.ph ], [ true, %155 ], [ true, %159 ], [ true, %162 ], [ true, %.preheader329 ]
+  %.0205 = phi i1 [ true, %132 ], [ true, %142 ], [ true, %.thread306 ], [ true, %140 ], [ true, %138 ], [ true, %66 ], [ true, %54 ], [ true, %136 ], [ true, %171 ], [ true, %174 ], [ true, %.preheader ], [ true, %162 ], [ true, %._crit_edge ], [ true, %214 ], [ false, %222 ], [ true, %209 ], [ true, %.critedge293 ], [ true, %217 ], [ true, %116 ], [ true, %130 ], [ true, %.lr.ph336.split.us ], [ true, %93 ], [ true, %74 ], [ true, %72 ], [ true, %70 ], [ true, %68 ], [ true, %113 ], [ true, %111 ], [ true, %109 ], [ true, %107 ], [ true, %105 ], [ true, %103 ], [ true, %101 ], [ true, %99 ], [ true, %97 ], [ true, %95 ], [ true, %124 ], [ true, %122 ], [ true, %120 ], [ true, %118 ], [ true, %134 ], [ true, %.lr.ph336.split ], [ true, %.lr.ph ], [ true, %155 ], [ true, %159 ], [ true, %.preheader329 ]
   %.not277 = icmp eq ptr %.1210310, %0
   br i1 %.not277, label %.thread313, label %223
 
@@ -1445,8 +1445,8 @@ define hidden noundef zeroext i1 @SDL_SaveBMP_IO_REAL(ptr noundef %0, ptr nounde
   call void @SDL_DestroySurface_REAL(ptr noundef nonnull %.1210310) #4
   br label %.thread313
 
-.thread313:                                       ; preds = %7, %.critedge283.thread, %46, %223, %.loopexit
-  %.0205319 = phi i1 [ %.0205, %223 ], [ %.0205, %.loopexit ], [ true, %46 ], [ true, %.critedge283.thread ], [ true, %7 ]
+.thread313:                                       ; preds = %.critedge283.thread, %46, %7, %223, %.loopexit
+  %.0205319 = phi i1 [ %.0205, %.loopexit ], [ %.0205, %223 ], [ true, %7 ], [ true, %.critedge283.thread ], [ true, %46 ]
   %224 = icmp ne ptr %1, null
   %or.cond13 = and i1 %2, %224
   br i1 %or.cond13, label %225, label %227

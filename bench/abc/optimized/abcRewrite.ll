@@ -322,8 +322,8 @@ Abc_Clock.exit100:                                ; preds = %122, %125
   br i1 %140, label %80, label %.critedge, !llvm.loop !59
 
 .critedge:                                        ; preds = %Extra_ProgressBarUpdate.exit, %136, %Abc_Clock.exit98, %67
-  %141 = phi i1 [ true, %67 ], [ false, %Abc_Clock.exit98 ], [ true, %136 ], [ true, %Extra_ProgressBarUpdate.exit ]
-  %.071 = phi i32 [ 1, %67 ], [ -1, %Abc_Clock.exit98 ], [ 1, %136 ], [ 1, %Extra_ProgressBarUpdate.exit ]
+  %141 = phi i1 [ true, %67 ], [ true, %136 ], [ false, %Abc_Clock.exit98 ], [ true, %Extra_ProgressBarUpdate.exit ]
+  %.071 = phi i32 [ 1, %67 ], [ 1, %136 ], [ -1, %Abc_Clock.exit98 ], [ 1, %Extra_ProgressBarUpdate.exit ]
   call void @Extra_ProgressBarStop(ptr noundef %72) #12
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %142 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #12

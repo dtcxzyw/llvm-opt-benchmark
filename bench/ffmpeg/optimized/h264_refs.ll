@@ -708,8 +708,8 @@ mismatches_ref.exit:                              ; preds = %308
   br label %327
 
 mismatches_ref.exit.thread:                       ; preds = %285, %pic_num_extract.exit, %298, %294, %.thread273.thread319, %308, %mismatches_ref.exit, %.thread273
-  %.4183318 = phi i32 [ %.4183329, %mismatches_ref.exit ], [ %267, %.thread273 ], [ %.4183329, %308 ], [ %.4183329, %.thread273.thread319 ], [ %.0179364, %294 ], [ %.0179364, %298 ], [ %267, %pic_num_extract.exit ], [ %267, %285 ]
-  %324 = phi ptr [ @.str.6, %mismatches_ref.exit ], [ @.str.5, %.thread273 ], [ @.str.6, %308 ], [ @.str.6, %.thread273.thread319 ], [ @.str.5, %294 ], [ @.str.5, %298 ], [ @.str.5, %pic_num_extract.exit ], [ @.str.5, %285 ]
+  %.4183318 = phi i32 [ %.4183329, %mismatches_ref.exit ], [ %267, %.thread273 ], [ %.4183329, %.thread273.thread319 ], [ %.4183329, %308 ], [ %.0179364, %294 ], [ %.0179364, %298 ], [ %267, %pic_num_extract.exit ], [ %267, %285 ]
+  %324 = phi ptr [ @.str.6, %mismatches_ref.exit ], [ @.str.5, %.thread273 ], [ @.str.6, %.thread273.thread319 ], [ @.str.6, %308 ], [ @.str.5, %294 ], [ @.str.5, %298 ], [ @.str.5, %pic_num_extract.exit ], [ @.str.5, %285 ]
   %325 = load ptr, ptr %5, align 8, !tbaa !4
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %325, i32 noundef 16, ptr noundef nonnull %324) #7
   %326 = getelementptr inbounds nuw %struct.H264Ref, ptr %253, i64 %indvars.iv393
@@ -994,7 +994,7 @@ pic_as_field.exit:                                ; preds = %.split.i, %.split.u
   br i1 %exitcond414.not, label %.loopexit, label %.lr.ph374, !llvm.loop !138
 
 .loopexit:                                        ; preds = %447, %.preheader, %.critedge, %422, %425, %428
-  %449 = phi ptr [ %.pre424, %.preheader ], [ %.pre423, %.critedge ], [ %.pre424, %422 ], [ %.pre424, %425 ], [ %.pre424, %428 ], [ %.pre424, %447 ]
+  %449 = phi ptr [ %.pre424, %428 ], [ %.pre424, %.preheader ], [ %.pre423, %.critedge ], [ %.pre424, %422 ], [ %.pre424, %425 ], [ %.pre424, %447 ]
   %450 = load ptr, ptr %449, align 8, !tbaa !80
   %451 = getelementptr inbounds nuw i8, ptr %450, i64 184
   %452 = load ptr, ptr %451, align 8, !tbaa !99
@@ -1019,7 +1019,7 @@ pic_as_field.exit:                                ; preds = %.split.i, %.split.u
   br i1 %458, label %.preheader333, label %._crit_edge379, !llvm.loop !139
 
 ._crit_edge379:                                   ; preds = %.thread300, %.preheader.i, %h264_initialise_ref_list.exit, %.preheader335
-  %459 = phi i32 [ 0, %.preheader335 ], [ 0, %h264_initialise_ref_list.exit ], [ 0, %.preheader.i ], [ %456, %.thread300 ]
+  %459 = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader335 ], [ 0, %h264_initialise_ref_list.exit ], [ %456, %.thread300 ]
   %460 = getelementptr inbounds nuw i8, ptr %0, i64 731768
   %461 = load i32, ptr %460, align 8, !tbaa !140
   %.not229 = icmp eq i32 %461, 0
@@ -1118,7 +1118,7 @@ h264_fill_mbaff_ref_list.exit.sink.split:         ; preds = %pic_num_extract.exi
   br label %h264_fill_mbaff_ref_list.exit
 
 h264_fill_mbaff_ref_list.exit:                    ; preds = %418, %412, %._crit_edge.i261, %h264_fill_mbaff_ref_list.exit.sink.split, %._crit_edge379
-  %.8 = phi i32 [ 0, %._crit_edge379 ], [ -1094995529, %h264_fill_mbaff_ref_list.exit.sink.split ], [ 0, %._crit_edge.i261 ], [ -1, %412 ], [ -1, %418 ]
+  %.8 = phi i32 [ -1094995529, %h264_fill_mbaff_ref_list.exit.sink.split ], [ 0, %._crit_edge379 ], [ 0, %._crit_edge.i261 ], [ -1, %412 ], [ -1, %418 ]
   ret i32 %.8
 }
 
@@ -1350,7 +1350,7 @@ get_ue_golomb_long.exit:                          ; preds = %.critedge, %93, %97
   br i1 %exitcond.not, label %.loopexit39, label %14, !llvm.loop !148
 
 .loopexit39:                                      ; preds = %.loopexit, %2, %50, %47
-  %136 = phi i32 [ -1094995529, %47 ], [ -1094995529, %50 ], [ 0, %2 ], [ 0, %.loopexit ]
+  %136 = phi i32 [ -1094995529, %50 ], [ -1094995529, %47 ], [ 0, %2 ], [ 0, %.loopexit ]
   ret i32 %136
 }
 
@@ -1576,7 +1576,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_execute_ref_pic_marking(ptr nounde
   br label %generate_sliding_window_mmcos.exit
 
 generate_sliding_window_mmcos.exit:               ; preds = %11, %14, %26, %.sink.split.i
-  %.0.i = phi i32 [ 0, %26 ], [ 0, %14 ], [ 0, %11 ], [ %.0.ph.i, %.sink.split.i ]
+  %.0.i = phi i32 [ 0, %14 ], [ 0, %11 ], [ 0, %26 ], [ %.0.ph.i, %.sink.split.i ]
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 736508
   store i32 %.0.i, ptr %50, align 4, !tbaa !156
   br label %51
@@ -2252,7 +2252,7 @@ remove_long.exit334:                              ; preds = %.lr.ph407, %.loopex
   br label %remove_short.exit
 
 remove_short.exit:                                ; preds = %320, %304, %338
-  %343 = phi i32 [ %305, %304 ], [ %.pre457, %338 ], [ %321, %320 ]
+  %343 = phi i32 [ %.pre457, %338 ], [ %305, %304 ], [ %321, %320 ]
   %.not270 = icmp eq i32 %343, 0
   br i1 %.not270, label %.preheader392.preheader, label %.lr.ph, !llvm.loop !168
 
@@ -2325,7 +2325,7 @@ remove_long.exit353:                              ; preds = %.preheader392, %.lo
   unreachable
 
 remove_long.exit302:                              ; preds = %362, %remove_long.exit334, %275, %209, %204, %190, %.loopexit.i301, %129, %126, %173, %144
-  %.4 = phi i32 [ -1094995529, %129 ], [ %.1231410, %126 ], [ %.1231410, %173 ], [ %.1231410, %144 ], [ %.1231410, %.loopexit.i301 ], [ %.1231410, %190 ], [ %.1231410, %204 ], [ %.1231410, %209 ], [ %.1231410, %275 ], [ %.1231410, %remove_long.exit334 ], [ %.1231410, %362 ]
+  %.4 = phi i32 [ %.1231410, %275 ], [ %.1231410, %173 ], [ %.1231410, %remove_long.exit334 ], [ %.1231410, %209 ], [ %.1231410, %126 ], [ -1094995529, %129 ], [ %.1231410, %144 ], [ %.1231410, %.loopexit.i301 ], [ %.1231410, %190 ], [ %.1231410, %204 ], [ %.1231410, %362 ]
   %indvars.iv.next441 = add nuw nsw i64 %indvars.iv440, 1
   %exitcond443.not = icmp eq i64 %indvars.iv.next441, %wide.trip.count
   br i1 %exitcond443.not, label %._crit_edge, label %74, !llvm.loop !174
@@ -2529,7 +2529,7 @@ remove_long.exit363:                              ; preds = %447, %._crit_edge.t
   br label %500
 
 ._crit_edge417:                                   ; preds = %523, %.loopexit.i362, %431, %remove_long.exit363
-  %.7533 = phi i32 [ %.7, %remove_long.exit363 ], [ -1094995529, %431 ], [ -1094995529, %.loopexit.i362 ], [ %.7, %523 ]
+  %.7533 = phi i32 [ -1094995529, %.loopexit.i362 ], [ %.7, %remove_long.exit363 ], [ -1094995529, %431 ], [ %.7, %523 ]
   %459 = load ptr, ptr %53, align 8, !tbaa !4
   %460 = getelementptr inbounds nuw i8, ptr %459, i64 524
   %461 = load i32, ptr %460, align 4, !tbaa !64
@@ -2869,7 +2869,7 @@ define internal fastcc ptr @remove_short(ptr noundef captures(none) %0, i32 noun
   br label %unreference_pic.exit
 
 unreference_pic.exit:                             ; preds = %31, %12, %52, %.loopexit, %35
-  %57 = phi ptr [ %19, %35 ], [ %19, %.loopexit ], [ %19, %52 ], [ null, %12 ], [ null, %31 ]
+  %57 = phi ptr [ %19, %52 ], [ %19, %35 ], [ %19, %.loopexit ], [ null, %12 ], [ null, %31 ]
   ret ptr %57
 }
 

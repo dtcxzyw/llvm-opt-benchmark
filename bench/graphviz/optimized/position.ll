@@ -1045,7 +1045,7 @@ make_aux_edge.exit54.i.i:                         ; preds = %559, %gv_alloc.exit
   br i1 %.not49.i.i, label %.loopexit.i17.i, label %.lr.ph.i11.i, !llvm.loop !110
 
 .loopexit.i17.i:                                  ; preds = %make_aux_edge.exit54.i.i, %.preheader.i10.i, %.lr.ph60.i.i
-  %594 = phi ptr [ %484, %.preheader.i10.i ], [ %484, %.lr.ph60.i.i ], [ %589, %make_aux_edge.exit54.i.i ]
+  %594 = phi ptr [ %484, %.lr.ph60.i.i ], [ %484, %.preheader.i10.i ], [ %589, %make_aux_edge.exit54.i.i ]
   %595 = getelementptr inbounds nuw i8, ptr %594, i64 240
   %.042.i.i = load ptr, ptr %595, align 8, !tbaa !42
   %.not.i18.i = icmp eq ptr %.042.i.i, null
@@ -1310,7 +1310,7 @@ nsiter2.exit:                                     ; preds = %create_aux_edges.ex
   br label %.thread80.i
 
 .thread80.i:                                      ; preds = %675, %.lr.ph.i, %705, %.lr.ph93.i, %717, %._crit_edge.i, %.lr.ph100.i
-  %738 = phi ptr [ %642, %._crit_edge.i ], [ %.pre.i24, %717 ], [ %642, %.lr.ph100.i ], [ %642, %.lr.ph93.i ], [ %642, %705 ], [ %642, %.lr.ph.i ], [ %642, %675 ]
+  %738 = phi ptr [ %642, %.lr.ph100.i ], [ %642, %705 ], [ %642, %._crit_edge.i ], [ %.pre.i24, %717 ], [ %642, %.lr.ph93.i ], [ %642, %.lr.ph.i ], [ %642, %675 ]
   %indvars.iv.next113.i = add nsw i64 %indvars.iv112.i, 1
   %739 = getelementptr inbounds nuw i8, ptr %738, i64 340
   %740 = load i32, ptr %739, align 4, !tbaa !36
@@ -1556,8 +1556,8 @@ idealsize.exit.thread92.i:                        ; preds = %806
   br label %872
 
 872:                                              ; preds = %870, %868, %861, %848, %846, %837
-  %.066.i = phi double [ %847, %846 ], [ 1.000000e+00, %848 ], [ %841, %837 ], [ %862, %861 ], [ %869, %868 ], [ 1.000000e+00, %870 ]
-  %.0.i38 = phi double [ 1.000000e+00, %846 ], [ %849, %848 ], [ %838, %837 ], [ %862, %861 ], [ 1.000000e+00, %868 ], [ %871, %870 ]
+  %.066.i = phi double [ 1.000000e+00, %870 ], [ %847, %846 ], [ 1.000000e+00, %848 ], [ %841, %837 ], [ %869, %868 ], [ %862, %861 ]
+  %.0.i38 = phi double [ %871, %870 ], [ 1.000000e+00, %846 ], [ %849, %848 ], [ %838, %837 ], [ 1.000000e+00, %868 ], [ %862, %861 ]
   %.167.i = select i1 %.not86.i, double %.066.i, double %.0.i38
   %.1.i = select i1 %.not86.i, double %.0.i38, double %.066.i
   %873 = getelementptr inbounds nuw i8, ptr %779, i64 256
@@ -2024,8 +2024,8 @@ define internal fastcc void @set_ycoords(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not137.not, label %.lr.ph168, label %.loopexit145, !llvm.loop !157
 
 .loopexit145:                                     ; preds = %.lr.ph168, %169, %164, %160, %._crit_edge161
-  %194 = phi ptr [ %165, %164 ], [ %106, %160 ], [ %106, %._crit_edge161 ], [ %165, %169 ], [ %165, %.lr.ph168 ]
-  %.1125 = phi double [ %.0124.lcssa, %164 ], [ %.0124.lcssa, %160 ], [ %.0124.lcssa, %._crit_edge161 ], [ 0.000000e+00, %169 ], [ %193, %.lr.ph168 ]
+  %194 = phi ptr [ %106, %._crit_edge161 ], [ %165, %164 ], [ %106, %160 ], [ %165, %169 ], [ %165, %.lr.ph168 ]
+  %.1125 = phi double [ %.0124.lcssa, %._crit_edge161 ], [ %.0124.lcssa, %164 ], [ %.0124.lcssa, %160 ], [ 0.000000e+00, %169 ], [ %193, %.lr.ph168 ]
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 396
   %196 = load i8, ptr %195, align 4, !tbaa !156, !range !33, !noundef !34
   %197 = trunc nuw i8 %196 to i1
@@ -3677,8 +3677,8 @@ define internal fastcc void @rec_bb(ptr noundef %0, ptr noundef readonly capture
   br label %89
 
 89:                                               ; preds = %._crit_edge85.i, %._crit_edge.i, %37, %33
-  %.sroa.07.1.i = phi double [ %67, %._crit_edge85.i ], [ %.sroa.07.088.i, %33 ], [ %.sroa.07.088.i, %37 ], [ %.sroa.07.088.i, %._crit_edge.i ]
-  %.sroa.0.1.i = phi double [ %88, %._crit_edge85.i ], [ %.sroa.0.089.i, %33 ], [ %.sroa.0.089.i, %37 ], [ %.sroa.0.089.i, %._crit_edge.i ]
+  %.sroa.07.1.i = phi double [ %.sroa.07.088.i, %37 ], [ %.sroa.07.088.i, %33 ], [ %67, %._crit_edge85.i ], [ %.sroa.07.088.i, %._crit_edge.i ]
+  %.sroa.0.1.i = phi double [ %.sroa.0.089.i, %37 ], [ %.sroa.0.089.i, %33 ], [ %88, %._crit_edge85.i ], [ %.sroa.0.089.i, %._crit_edge.i ]
   %indvars.iv.next112.i = add nsw i64 %indvars.iv111.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next112.i to i32
   %exitcond.not.i = icmp eq i32 %27, %lftr.wideiv.i

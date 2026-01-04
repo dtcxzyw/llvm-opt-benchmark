@@ -120,7 +120,7 @@ define internal range(i32 0, 101) i32 @wav_probe(ptr noundef readonly captures(n
   br label %16
 
 16:                                               ; preds = %13, %9, %10, %1, %15
-  %.0 = phi i32 [ 0, %15 ], [ 0, %1 ], [ 99, %10 ], [ 99, %9 ], [ 100, %13 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %15 ], [ 99, %9 ], [ 99, %10 ], [ 100, %13 ]
   ret i32 %.0
 }
 
@@ -709,7 +709,7 @@ wav_parse_bext_string.exit73.i:                   ; preds = %227
   br i1 %263, label %wav_parse_bext_tag.exit.thread, label %264
 
 264:                                              ; preds = %261, %243, %236
-  %.sink107.i = phi i64 [ 190, %261 ], [ 190, %243 ], [ 254, %236 ]
+  %.sink107.i = phi i64 [ 190, %243 ], [ 190, %261 ], [ 254, %236 ]
   %265 = load ptr, ptr %12, align 8, !tbaa !12
   %266 = call i64 @avio_skip(ptr noundef %265, i64 noundef %.sink107.i) #10
   %267 = icmp ugt i32 %.0.in.i, 602
@@ -740,8 +740,8 @@ wav_parse_bext_string.exit73.i:                   ; preds = %227
   %281 = icmp slt i32 %280, 0
   br i1 %281, label %wav_parse_bext_tag.exit.thread, label %wav_parse_bext_tag.exit
 
-wav_parse_bext_tag.exit.thread:                   ; preds = %wav_parse_bext_string.exit.i, %wav_parse_bext_string.exit61.i, %wav_parse_bext_string.exit65.i, %wav_parse_bext_string.exit69.i, %wav_parse_bext_string.exit73.i, %230, %261, %268, %278, %277, %wav_parse_bext_string.exit.thread.i, %wav_parse_bext_string.exit61.thread.i, %wav_parse_bext_string.exit65.thread.i, %wav_parse_bext_string.exit69.thread.i, %wav_parse_bext_string.exit73.thread.i
-  %.042.i.ph = phi i32 [ %225, %wav_parse_bext_string.exit73.thread.i ], [ %218, %wav_parse_bext_string.exit69.thread.i ], [ %211, %wav_parse_bext_string.exit65.thread.i ], [ %204, %wav_parse_bext_string.exit61.thread.i ], [ %197, %wav_parse_bext_string.exit.thread.i ], [ %275, %277 ], [ %200, %wav_parse_bext_string.exit.i ], [ %207, %wav_parse_bext_string.exit61.i ], [ %214, %wav_parse_bext_string.exit65.i ], [ %221, %wav_parse_bext_string.exit69.i ], [ %228, %wav_parse_bext_string.exit73.i ], [ %234, %230 ], [ %262, %261 ], [ -12, %268 ], [ %280, %278 ]
+wav_parse_bext_tag.exit.thread:                   ; preds = %261, %wav_parse_bext_string.exit73.i, %230, %268, %wav_parse_bext_string.exit.i, %wav_parse_bext_string.exit61.i, %wav_parse_bext_string.exit65.i, %wav_parse_bext_string.exit69.i, %278, %277, %wav_parse_bext_string.exit.thread.i, %wav_parse_bext_string.exit61.thread.i, %wav_parse_bext_string.exit65.thread.i, %wav_parse_bext_string.exit69.thread.i, %wav_parse_bext_string.exit73.thread.i
+  %.042.i.ph = phi i32 [ %225, %wav_parse_bext_string.exit73.thread.i ], [ %218, %wav_parse_bext_string.exit69.thread.i ], [ %211, %wav_parse_bext_string.exit65.thread.i ], [ %204, %wav_parse_bext_string.exit61.thread.i ], [ %197, %wav_parse_bext_string.exit.thread.i ], [ %275, %277 ], [ %262, %261 ], [ %228, %wav_parse_bext_string.exit73.i ], [ %234, %230 ], [ -12, %268 ], [ %200, %wav_parse_bext_string.exit.i ], [ %207, %wav_parse_bext_string.exit61.i ], [ %214, %wav_parse_bext_string.exit65.i ], [ %221, %wav_parse_bext_string.exit69.i ], [ %280, %278 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %set_max_size.exit
@@ -924,7 +924,7 @@ wav_parse_bext_tag.exit:                          ; preds = %264, %278
   %366 = call i32 @av_dict_set(ptr noundef nonnull %365, ptr noundef nonnull @.str.30, ptr noundef nonnull %10, i32 noundef 0) #10
   br label %.loopexit
 
-.thread389:                                       ; preds = %343, %345
+.thread389:                                       ; preds = %345, %343
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge
 
@@ -1005,12 +1005,12 @@ wav_parse_bext_tag.exit:                          ; preds = %264, %278
   br i1 %.not352.not, label %set_max_size.exit, label %391
 
 .critedge:                                        ; preds = %391, %.loopexit, %.lr.ph562, %.preheader, %386, %wav_parse_xma2_tag.exit, %.thread389, %wav_parse_bext_tag.exit, %.thread, %180, %159, %158, %106, %105, %378, %381, %333, %335, %338, %185, %192, %377, %84
-  %.2322 = phi i32 [ %.0320, %84 ], [ %.0320, %185 ], [ %.0320, %192 ], [ %.0320, %wav_parse_bext_tag.exit ], [ %.0320, %333 ], [ %.0320, %335 ], [ %.0320, %338 ], [ %.0320, %377 ], [ 1, %381 ], [ %.0320, %378 ], [ 1, %105 ], [ 1, %106 ], [ %.0320, %158 ], [ %.0320, %159 ], [ %.0320, %180 ], [ 1, %.thread ], [ %.0320, %.thread389 ], [ 0, %wav_parse_xma2_tag.exit ], [ 1, %386 ], [ %.0320, %.preheader ], [ %.0320, %.lr.ph562 ], [ %.0320, %.loopexit ], [ 1, %391 ]
-  %.2319 = phi i32 [ %.0317, %84 ], [ %.0317, %185 ], [ %.0317, %192 ], [ %.0317, %wav_parse_bext_tag.exit ], [ %.0317, %333 ], [ %.0317, %335 ], [ %.0317, %338 ], [ %.0317, %377 ], [ %.0317, %381 ], [ %.0317, %378 ], [ %.0317, %105 ], [ %.0317, %106 ], [ 1, %158 ], [ 1, %159 ], [ %.0317, %180 ], [ 0, %.thread ], [ %.0317, %.thread389 ], [ 1, %wav_parse_xma2_tag.exit ], [ %.0317, %386 ], [ %.0317, %.preheader ], [ %.0317, %.lr.ph562 ], [ %.0317, %.loopexit ], [ %.0317, %391 ]
-  %.0315 = phi i64 [ %82, %84 ], [ %82, %185 ], [ %82, %192 ], [ %82, %wav_parse_bext_tag.exit ], [ %82, %333 ], [ %82, %335 ], [ %82, %338 ], [ %82, %377 ], [ %82, %381 ], [ %82, %378 ], [ %82, %105 ], [ %82, %106 ], [ %82, %158 ], [ %82, %159 ], [ %.sink, %180 ], [ %82, %.thread ], [ %82, %.thread389 ], [ %82, %wav_parse_xma2_tag.exit ], [ %82, %386 ], [ %82, %.preheader ], [ %82, %.lr.ph562 ], [ %82, %.loopexit ], [ %82, %391 ]
-  %.2314 = phi i64 [ %.0312, %84 ], [ %.0312, %185 ], [ %.0312, %192 ], [ %.0312, %wav_parse_bext_tag.exit ], [ %.0312, %333 ], [ %.0312, %335 ], [ %.0312, %338 ], [ %.0312, %377 ], [ %.0312, %381 ], [ %.0312, %378 ], [ %.0312, %105 ], [ %.0312, %106 ], [ %.0312, %158 ], [ %.0312, %159 ], [ %181, %180 ], [ %.0312, %.thread ], [ %.0312, %.thread389 ], [ %.0312, %wav_parse_xma2_tag.exit ], [ %.0312, %386 ], [ %.0312, %.preheader ], [ %.0312, %.lr.ph562 ], [ %.0312, %.loopexit ], [ %.0312, %391 ]
-  %.3299 = phi i64 [ %.1297, %84 ], [ %.1297, %185 ], [ %194, %192 ], [ %.1297, %wav_parse_bext_tag.exit ], [ %.1297, %333 ], [ %.1297, %335 ], [ %.1297, %338 ], [ %.1297, %377 ], [ %.1297, %381 ], [ %.1297, %378 ], [ %.1297, %105 ], [ %.1297, %106 ], [ %.1297, %158 ], [ %.1297, %159 ], [ %.1297, %180 ], [ %.1297, %.thread ], [ %.1297, %.thread389 ], [ %.1297, %wav_parse_xma2_tag.exit ], [ %.1297, %386 ], [ %.1297, %.preheader ], [ %.1297, %.lr.ph562 ], [ %.1297, %.loopexit ], [ %.1297, %391 ]
-  %.3293 = phi i64 [ %.1291, %84 ], [ %.1291, %185 ], [ %.1291, %192 ], [ %.1291, %wav_parse_bext_tag.exit ], [ %.1291, %333 ], [ %.1291, %335 ], [ %.1291, %338 ], [ %.1291, %377 ], [ %.1291, %381 ], [ %.1291, %378 ], [ %.1291, %105 ], [ %.1291, %106 ], [ %.1291, %158 ], [ %.1291, %159 ], [ %.4294, %180 ], [ %.1291, %.thread ], [ %.1291, %.thread389 ], [ %.1291, %wav_parse_xma2_tag.exit ], [ %.1291, %386 ], [ %.1291, %.preheader ], [ %.1291, %.lr.ph562 ], [ %.1291, %.loopexit ], [ %.1291, %391 ]
+  %.2322 = phi i32 [ %.0320, %84 ], [ %.0320, %378 ], [ 1, %106 ], [ %.0320, %180 ], [ %.0320, %185 ], [ %.0320, %192 ], [ %.0320, %wav_parse_bext_tag.exit ], [ %.0320, %333 ], [ %.0320, %335 ], [ %.0320, %.thread389 ], [ 1, %386 ], [ %.0320, %.preheader ], [ %.0320, %338 ], [ %.0320, %377 ], [ 0, %wav_parse_xma2_tag.exit ], [ 1, %381 ], [ 1, %105 ], [ %.0320, %158 ], [ %.0320, %159 ], [ 1, %.thread ], [ %.0320, %.loopexit ], [ %.0320, %.lr.ph562 ], [ 1, %391 ]
+  %.2319 = phi i32 [ %.0317, %84 ], [ %.0317, %378 ], [ %.0317, %106 ], [ %.0317, %180 ], [ %.0317, %185 ], [ %.0317, %192 ], [ %.0317, %wav_parse_bext_tag.exit ], [ %.0317, %333 ], [ %.0317, %335 ], [ %.0317, %.thread389 ], [ %.0317, %386 ], [ %.0317, %.preheader ], [ %.0317, %338 ], [ %.0317, %377 ], [ 1, %wav_parse_xma2_tag.exit ], [ %.0317, %381 ], [ %.0317, %105 ], [ 1, %158 ], [ 1, %159 ], [ 0, %.thread ], [ %.0317, %.loopexit ], [ %.0317, %.lr.ph562 ], [ %.0317, %391 ]
+  %.0315 = phi i64 [ %82, %84 ], [ %82, %378 ], [ %82, %106 ], [ %.sink, %180 ], [ %82, %185 ], [ %82, %192 ], [ %82, %wav_parse_bext_tag.exit ], [ %82, %333 ], [ %82, %335 ], [ %82, %.thread389 ], [ %82, %386 ], [ %82, %.preheader ], [ %82, %338 ], [ %82, %377 ], [ %82, %wav_parse_xma2_tag.exit ], [ %82, %381 ], [ %82, %105 ], [ %82, %158 ], [ %82, %159 ], [ %82, %.thread ], [ %82, %.loopexit ], [ %82, %.lr.ph562 ], [ %82, %391 ]
+  %.2314 = phi i64 [ %.0312, %84 ], [ %.0312, %378 ], [ %.0312, %106 ], [ %181, %180 ], [ %.0312, %185 ], [ %.0312, %192 ], [ %.0312, %wav_parse_bext_tag.exit ], [ %.0312, %333 ], [ %.0312, %335 ], [ %.0312, %.thread389 ], [ %.0312, %386 ], [ %.0312, %.preheader ], [ %.0312, %338 ], [ %.0312, %377 ], [ %.0312, %wav_parse_xma2_tag.exit ], [ %.0312, %381 ], [ %.0312, %105 ], [ %.0312, %158 ], [ %.0312, %159 ], [ %.0312, %.thread ], [ %.0312, %.loopexit ], [ %.0312, %.lr.ph562 ], [ %.0312, %391 ]
+  %.3299 = phi i64 [ %.1297, %84 ], [ %.1297, %378 ], [ %.1297, %106 ], [ %.1297, %180 ], [ %.1297, %185 ], [ %194, %192 ], [ %.1297, %wav_parse_bext_tag.exit ], [ %.1297, %333 ], [ %.1297, %335 ], [ %.1297, %.thread389 ], [ %.1297, %386 ], [ %.1297, %.preheader ], [ %.1297, %338 ], [ %.1297, %377 ], [ %.1297, %wav_parse_xma2_tag.exit ], [ %.1297, %381 ], [ %.1297, %105 ], [ %.1297, %158 ], [ %.1297, %159 ], [ %.1297, %.thread ], [ %.1297, %.loopexit ], [ %.1297, %.lr.ph562 ], [ %.1297, %391 ]
+  %.3293 = phi i64 [ %.1291, %84 ], [ %.1291, %378 ], [ %.1291, %106 ], [ %.4294, %180 ], [ %.1291, %185 ], [ %.1291, %192 ], [ %.1291, %wav_parse_bext_tag.exit ], [ %.1291, %333 ], [ %.1291, %335 ], [ %.1291, %.thread389 ], [ %.1291, %386 ], [ %.1291, %.preheader ], [ %.1291, %338 ], [ %.1291, %377 ], [ %.1291, %wav_parse_xma2_tag.exit ], [ %.1291, %381 ], [ %.1291, %105 ], [ %.1291, %158 ], [ %.1291, %159 ], [ %.1291, %.thread ], [ %.1291, %.loopexit ], [ %.1291, %.lr.ph562 ], [ %.1291, %391 ]
   %402 = call i64 @avio_size(ptr noundef %13) #10
   %403 = icmp sgt i64 %402, 0
   br i1 %403, label %404, label %406
@@ -1039,12 +1039,12 @@ wav_seek_tag.exit:                                ; preds = %406, %.thread399
   %415 = icmp slt i64 %414, 0
   br i1 %415, label %.thread413, label %74
 
-.thread413:                                       ; preds = %wav_seek_tag.exit, %404, %180, %next_tag.exit
-  %.2292425 = phi i64 [ %.3293, %404 ], [ %.4294, %180 ], [ %.1291, %next_tag.exit ], [ %.3293, %wav_seek_tag.exit ]
-  %.2298424 = phi i64 [ %.3299, %404 ], [ %.1297, %180 ], [ %.1297, %next_tag.exit ], [ %.3299, %wav_seek_tag.exit ]
-  %.1313423 = phi i64 [ %.2314, %404 ], [ %181, %180 ], [ %.0312, %next_tag.exit ], [ %.2314, %wav_seek_tag.exit ]
-  %.1318422 = phi i32 [ %.2319, %404 ], [ %.0317, %180 ], [ %.0317, %next_tag.exit ], [ %.2319, %wav_seek_tag.exit ]
-  %.1321421 = phi i32 [ %.2322, %404 ], [ %.0320, %180 ], [ %.0320, %next_tag.exit ], [ %.2322, %wav_seek_tag.exit ]
+.thread413:                                       ; preds = %wav_seek_tag.exit, %180, %next_tag.exit, %404
+  %.2292425 = phi i64 [ %.3293, %wav_seek_tag.exit ], [ %.3293, %404 ], [ %.4294, %180 ], [ %.1291, %next_tag.exit ]
+  %.2298424 = phi i64 [ %.3299, %wav_seek_tag.exit ], [ %.3299, %404 ], [ %.1297, %180 ], [ %.1297, %next_tag.exit ]
+  %.1313423 = phi i64 [ %.2314, %wav_seek_tag.exit ], [ %.2314, %404 ], [ %181, %180 ], [ %.0312, %next_tag.exit ]
+  %.1318422 = phi i32 [ %.2319, %wav_seek_tag.exit ], [ %.2319, %404 ], [ %.0317, %180 ], [ %.0317, %next_tag.exit ]
+  %.1321421 = phi i32 [ %.2322, %wav_seek_tag.exit ], [ %.2322, %404 ], [ %.0320, %180 ], [ %.0320, %next_tag.exit ]
   %416 = icmp ne i32 %.1321421, 0
   %417 = icmp ne i32 %.1318422, 0
   %or.cond23 = select i1 %416, i1 true, i1 %417
@@ -1054,10 +1054,10 @@ wav_seek_tag.exit:                                ; preds = %406, %.thread399
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.32) #10
   br label %set_max_size.exit
 
-.thread413.thread:                                ; preds = %285, %326, %.thread413
-  %.1313423465 = phi i64 [ %.1313423, %.thread413 ], [ %.0312, %326 ], [ %.0312, %285 ]
-  %.2298424464 = phi i64 [ %.2298424, %.thread413 ], [ %.1297, %326 ], [ %.1297, %285 ]
-  %.2292425463 = phi i64 [ %.2292425, %.thread413 ], [ %.1291, %326 ], [ %.1291, %285 ]
+.thread413.thread:                                ; preds = %326, %285, %.thread413
+  %.1313423465 = phi i64 [ %.1313423, %.thread413 ], [ %.0312, %285 ], [ %.0312, %326 ]
+  %.2298424464 = phi i64 [ %.2298424, %.thread413 ], [ %.1297, %285 ], [ %.1297, %326 ]
+  %.2292425463 = phi i64 [ %.2292425, %.thread413 ], [ %.1291, %285 ], [ %.1291, %326 ]
   %419 = icmp slt i64 %.1313423465, 0
   br i1 %419, label %420, label %421
 
@@ -1328,8 +1328,8 @@ wav_seek_tag.exit:                                ; preds = %406, %.thread399
   store i32 %569, ptr %562, align 4, !tbaa !92
   br label %set_max_size.exit
 
-set_max_size.exit:                                ; preds = %88, %110, %113, %118, %149, %._crit_edge.i, %wav_parse_xma2_tag.exit, %393, %396, %wav_parse_bext_tag.exit.thread, %305, %286, %332, %283, %325, %304, %166, %565, %.thread446, %49, %35, %33, %420, %418, %45, %31, %26
-  %.0 = phi i32 [ -1094995529, %26 ], [ -1094995529, %31 ], [ -1094995529, %45 ], [ -1094995529, %420 ], [ -1094995529, %418 ], [ -1094995529, %33 ], [ -1094995529, %35 ], [ -12, %49 ], [ 0, %.thread446 ], [ 0, %565 ], [ %.042.i.ph, %wav_parse_bext_tag.exit.thread ], [ -1094995529, %305 ], [ -12, %286 ], [ -1094995529, %332 ], [ -1094995529, %283 ], [ -1094995529, %325 ], [ %302, %304 ], [ -1094995529, %166 ], [ -12, %396 ], [ -1094995529, %393 ], [ %94, %88 ], [ -1094995529, %110 ], [ -1094995529, %113 ], [ -1094995529, %118 ], [ -1094995529, %149 ], [ -1094995529, %._crit_edge.i ], [ %156, %wav_parse_xma2_tag.exit ]
+set_max_size.exit:                                ; preds = %88, %._crit_edge.i, %110, %113, %118, %149, %wav_parse_xma2_tag.exit, %393, %396, %332, %283, %wav_parse_bext_tag.exit.thread, %286, %325, %304, %166, %305, %565, %.thread446, %49, %35, %33, %420, %418, %45, %31, %26
+  %.0 = phi i32 [ -1094995529, %26 ], [ -1094995529, %31 ], [ -1094995529, %35 ], [ -1094995529, %33 ], [ -1094995529, %45 ], [ -1094995529, %393 ], [ -1094995529, %420 ], [ 0, %565 ], [ -1094995529, %418 ], [ -12, %49 ], [ 0, %.thread446 ], [ -1094995529, %332 ], [ -1094995529, %283 ], [ %.042.i.ph, %wav_parse_bext_tag.exit.thread ], [ -12, %286 ], [ -1094995529, %325 ], [ %302, %304 ], [ -1094995529, %166 ], [ -1094995529, %305 ], [ -12, %396 ], [ -1094995529, %110 ], [ -1094995529, %._crit_edge.i ], [ %94, %88 ], [ -1094995529, %118 ], [ -1094995529, %113 ], [ %156, %wav_parse_xma2_tag.exit ], [ -1094995529, %149 ]
   ret i32 %.0
 }
 
@@ -1638,7 +1638,7 @@ find_tag.exit.thread121:                          ; preds = %next_tag.exit.i, %f
   br label %.thread118
 
 .thread118:                                       ; preds = %74, %79, %168, %find_tag.exit.thread121, %find_tag.exit.thread, %146, %175, %12
-  %.0 = phi i32 [ %13, %12 ], [ %70, %79 ], [ %173, %175 ], [ -541478725, %146 ], [ -541478725, %find_tag.exit.thread ], [ -1094995529, %find_tag.exit.thread121 ], [ %173, %168 ], [ %70, %74 ]
+  %.0 = phi i32 [ %13, %12 ], [ %70, %79 ], [ %173, %175 ], [ -541478725, %find_tag.exit.thread ], [ -1094995529, %find_tag.exit.thread121 ], [ -541478725, %146 ], [ %173, %168 ], [ %70, %74 ]
   ret i32 %.0
 }
 
@@ -1731,7 +1731,7 @@ define internal i32 @wav_read_seek(ptr noundef %0, i32 noundef %1, i64 noundef %
   br label %53
 
 53:                                               ; preds = %46, %46, %46, %46, %46, %14, %15, %51
-  %.026 = phi i32 [ %52, %51 ], [ -22, %15 ], [ -22, %14 ], [ -1, %46 ], [ -1, %46 ], [ -1, %46 ], [ -1, %46 ], [ -1, %46 ]
+  %.026 = phi i32 [ -22, %14 ], [ %52, %51 ], [ -22, %15 ], [ -1, %46 ], [ -1, %46 ], [ -1, %46 ], [ -1, %46 ], [ -1, %46 ]
   ret i32 %.026
 }
 
@@ -1759,7 +1759,7 @@ define internal range(i32 0, 101) i32 @w64_probe(ptr noundef readonly captures(n
   br label %11
 
 11:                                               ; preds = %8, %1, %10
-  %.0 = phi i32 [ 0, %10 ], [ 0, %1 ], [ 100, %8 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %10 ], [ 100, %8 ]
   ret i32 %.0
 }
 
@@ -2016,7 +2016,7 @@ define internal range(i32 -2147483648, 1) i32 @w64_read_header(ptr noundef %0) #
   call void @av_free(ptr noundef nonnull %134) #10
   br label %.loopexit
 
-.thread156:                                       ; preds = %122, %120
+.thread156:                                       ; preds = %120, %122
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread159
 
@@ -2082,13 +2082,13 @@ define internal range(i32 -2147483648, 1) i32 @w64_read_header(ptr noundef %0) #
   br label %185
 
 185:                                              ; preds = %.thread159, %94, %148, %107, %85
-  %.2111 = phi i64 [ %.0109176, %148 ], [ %104, %107 ], [ %.0109176, %94 ], [ %.0109176, %85 ], [ %.0109176, %.thread159 ]
+  %.2111 = phi i64 [ %.0109176, %148 ], [ %.0109176, %.thread159 ], [ %104, %107 ], [ %.0109176, %94 ], [ %.0109176, %85 ]
   %186 = call i32 @avio_feof(ptr noundef %5) #10
   %.not134 = icmp eq i32 %186, 0
   br i1 %.not134, label %42, label %._crit_edge, !llvm.loop !110
 
 ._crit_edge:                                      ; preds = %185, %42, %100
-  %.1110 = phi i64 [ %.2111, %185 ], [ %.0109176, %42 ], [ %104, %100 ]
+  %.1110 = phi i64 [ %104, %100 ], [ %.2111, %185 ], [ %.0109176, %42 ]
   %.not149 = icmp eq i64 %.1110, 0
   br i1 %.not149, label %set_max_size.exit, label %.thread163
 
@@ -2131,7 +2131,7 @@ handle_stream_probing.exit:                       ; preds = %.thread163, %192
   br label %set_max_size.exit
 
 set_max_size.exit:                                ; preds = %53, %.preheader, %201, %handle_stream_probing.exit, %.loopexit, %._crit_edge, %51, %17, %11, %10, %1, %16
-  %.0 = phi i32 [ -1094995529, %16 ], [ %.5.ph, %.loopexit ], [ %8, %1 ], [ -1094995529, %10 ], [ -1094995529, %11 ], [ -12, %17 ], [ -1094995529, %51 ], [ -541478725, %._crit_edge ], [ 0, %handle_stream_probing.exit ], [ 0, %201 ], [ -541478725, %.preheader ], [ %57, %53 ]
+  %.0 = phi i32 [ -1094995529, %11 ], [ %8, %1 ], [ -1094995529, %10 ], [ -1094995529, %16 ], [ -541478725, %._crit_edge ], [ 0, %201 ], [ -12, %17 ], [ %.5.ph, %.loopexit ], [ -1094995529, %51 ], [ 0, %handle_stream_probing.exit ], [ -541478725, %.preheader ], [ %57, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

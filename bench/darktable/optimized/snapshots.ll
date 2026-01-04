@@ -848,7 +848,7 @@ define range(i32 0, 2) i32 @button_pressed(ptr noundef readonly captures(none) %
   br label %102
 
 102:                                              ; preds = %15, %93, %98, %20, %13
-  %.0 = phi i32 [ 0, %13 ], [ 1, %20 ], [ 1, %98 ], [ 1, %93 ], [ 0, %15 ]
+  %.0 = phi i32 [ 0, %13 ], [ 1, %93 ], [ 1, %20 ], [ 1, %98 ], [ 0, %15 ]
   ret i32 %.0
 }
 
@@ -904,7 +904,7 @@ define range(i32 0, 2) i32 @mouse_moved(ptr noundef readonly captures(none) %0, 
   br label %27
 
 27:                                               ; preds = %10, %5, %26
-  %.0 = phi i32 [ 1, %26 ], [ 0, %5 ], [ 0, %10 ]
+  %.0 = phi i32 [ 0, %5 ], [ 1, %26 ], [ 0, %10 ]
   ret i32 %.0
 }
 
@@ -1214,7 +1214,7 @@ define internal void @_lib_snapshots_add_button_clicked_callback(ptr readnone ca
   ]
 
 .sink.split.sink.split:                           ; preds = %2, %18, %23
-  %.str.32.sink = phi ptr [ @.str.31, %23 ], [ @.str.31, %18 ], [ @.str.32, %2 ]
+  %.str.32.sink = phi ptr [ @.str.31, %18 ], [ @.str.31, %23 ], [ @.str.32, %2 ]
   %32 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.32.sink, i32 noundef 5) #15
   br label %.sink.split
 
@@ -1817,7 +1817,7 @@ define internal void @_lib_snapshots_toggled_callback(ptr noundef %0, ptr nounde
   br label %_lib_snapshots_get_activated.exit
 
 _lib_snapshots_get_activated.exit:                ; preds = %24, %11, %._crit_edge.loopexit.split.loop.exit.i, %._crit_edge.loopexit.split.loop.exit9.i
-  %spec.select.i = phi i32 [ -1, %11 ], [ %25, %._crit_edge.loopexit.split.loop.exit.i ], [ %26, %._crit_edge.loopexit.split.loop.exit9.i ], [ -1, %24 ]
+  %spec.select.i = phi i32 [ -1, %11 ], [ %26, %._crit_edge.loopexit.split.loop.exit9.i ], [ %25, %._crit_edge.loopexit.split.loop.exit.i ], [ -1, %24 ]
   store i32 %spec.select.i, ptr %9, align 8, !tbaa !63
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %28 = load i32, ptr %27, align 4, !tbaa !159
@@ -2048,7 +2048,7 @@ define internal void @_lib_snapshots_restore_callback(ptr noundef %0, ptr nounde
   br i1 %exitcond.not.i, label %_lib_snapshots_get_activated.exit.loopexit, label %.lr.ph.i
 
 _lib_snapshots_get_activated.exit.loopexit:       ; preds = %17, %.lr.ph.i, %13
-  %spec.select.i.ph = phi i64 [ -1, %17 ], [ %indvars.iv.i, %.lr.ph.i ], [ %indvars.iv.i, %13 ]
+  %spec.select.i.ph = phi i64 [ %indvars.iv.i, %.lr.ph.i ], [ -1, %17 ], [ %indvars.iv.i, %13 ]
   %18 = shl i64 %spec.select.i.ph, 32
   %19 = ashr exact i64 %18, 32
   br label %_lib_snapshots_get_activated.exit

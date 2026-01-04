@@ -239,7 +239,7 @@ define range(i32 0, 5) i32 @uriComposeQueryExA(ptr noundef %0, ptr noundef reado
   br label %61
 
 61:                                               ; preds = %56, %46
-  %.275.i = phi ptr [ %60, %56 ], [ %49, %46 ]
+  %.275.i = phi ptr [ %49, %46 ], [ %60, %56 ]
   %62 = getelementptr inbounds nuw i8, ptr %.06395.i, i64 16
   %63 = load ptr, ptr %62, align 8, !tbaa !13
   %.not.i = icmp eq ptr %63, null
@@ -259,7 +259,7 @@ define range(i32 0, 5) i32 @uriComposeQueryExA(ptr noundef %0, ptr noundef reado
   br label %uriComposeQueryEngineA.exit
 
 uriComposeQueryEngineA.exit:                      ; preds = %50, %33, %31, %64, %.split97.us.i, %9, %6
-  %.0 = phi i32 [ 2, %6 ], [ 4, %9 ], [ 0, %.split97.us.i ], [ 0, %64 ], [ 4, %31 ], [ 4, %33 ], [ 4, %50 ]
+  %.0 = phi i32 [ 4, %9 ], [ 2, %6 ], [ 0, %64 ], [ 0, %.split97.us.i ], [ 4, %31 ], [ 4, %33 ], [ 4, %50 ]
   ret i32 %.0
 }
 
@@ -369,7 +369,7 @@ uriComposeQueryCharsRequiredExA.exit:             ; preds = %33
   br label %uriComposeQueryCharsRequiredExA.exit.thread
 
 uriComposeQueryCharsRequiredExA.exit.thread:      ; preds = %31, %11, %uriComposeQueryCharsRequiredExA.exit, %9, %5, %53, %50
-  %.0 = phi i32 [ %49, %50 ], [ 0, %53 ], [ 2, %5 ], [ 10, %9 ], [ 3, %uriComposeQueryCharsRequiredExA.exit ], [ 2, %11 ], [ 4, %31 ]
+  %.0 = phi i32 [ 2, %5 ], [ 10, %9 ], [ 3, %uriComposeQueryCharsRequiredExA.exit ], [ %49, %50 ], [ 0, %53 ], [ 2, %11 ], [ 4, %31 ]
   ret i32 %.0
 }
 
@@ -620,14 +620,14 @@ uriAppendQueryItemA.exit.thread113:               ; preds = %37, %uriAppendQuery
   br label %81
 
 81:                                               ; preds = %79, %77, %.lr.ph
-  %.271 = phi ptr [ %.069137, %.lr.ph ], [ %.069137, %77 ], [ %.076134, %79 ]
-  %.168 = phi ptr [ %.067138, %.lr.ph ], [ %.067138, %77 ], [ %80, %79 ]
-  %.266 = phi ptr [ %.064139, %.lr.ph ], [ %.064139, %77 ], [ %80, %79 ]
+  %.271 = phi ptr [ %.069137, %.lr.ph ], [ %.076134, %79 ], [ %.069137, %77 ]
+  %.168 = phi ptr [ %.067138, %.lr.ph ], [ %80, %79 ], [ %.067138, %77 ]
+  %.266 = phi ptr [ %.064139, %.lr.ph ], [ %80, %79 ], [ %.064139, %77 ]
   %82 = getelementptr inbounds nuw i8, ptr %.076134, i64 1
   %exitcond.not = icmp eq ptr %82, %3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
-.thread:                                          ; preds = %uriAppendQueryItemA.exit, %58, %33, %.split79
+.thread:                                          ; preds = %uriAppendQueryItemA.exit, %58, %.split79, %33
   %83 = load ptr, ptr %.063140.ph, align 8, !tbaa !22
   %.not95 = icmp eq ptr %83, null
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
@@ -645,10 +645,10 @@ uriAppendQueryItemA.exit.thread113:               ; preds = %37, %uriAppendQuery
   br i1 %.not92, label %.split83, label %uriAppendQueryItemA.exit103
 
 .split83:                                         ; preds = %.thread, %22, %._crit_edge
-  %.063.lcssa170 = phi ptr [ %.063140.ph, %._crit_edge ], [ %0, %22 ], [ %spec.select, %.thread ]
-  %.064.lcssa169 = phi i1 [ %88, %._crit_edge ], [ true, %22 ], [ true, %.thread ]
-  %.073.lcssa168 = phi ptr [ %.073136.ph, %._crit_edge ], [ %2, %22 ], [ %.174, %.thread ]
-  %.076.lcssa167 = phi ptr [ %scevgep, %._crit_edge ], [ %2, %22 ], [ %scevgep, %.thread ]
+  %.063.lcssa170 = phi ptr [ %0, %22 ], [ %.063140.ph, %._crit_edge ], [ %spec.select, %.thread ]
+  %.064.lcssa169 = phi i1 [ true, %22 ], [ %88, %._crit_edge ], [ true, %.thread ]
+  %.073.lcssa168 = phi ptr [ %2, %22 ], [ %.073136.ph, %._crit_edge ], [ %.174, %.thread ]
+  %.076.lcssa167 = phi ptr [ %2, %22 ], [ %scevgep, %._crit_edge ], [ %scevgep, %.thread ]
   %89 = ptrtoint ptr %.076.lcssa167 to i64
   %90 = ptrtoint ptr %.073.lcssa168 to i64
   %91 = sub i64 %89, %90
@@ -744,7 +744,7 @@ uriAppendQueryItemA.exit103.thread117:            ; preds = %97, %108, %uriAppen
   br i1 %.not17.i109, label %uriFreeQueryListMmA.exit, label %128, !llvm.loop !21
 
 uriFreeQueryListMmA.exit:                         ; preds = %68, %128, %.split83, %118, %uriAppendQueryItemA.exit103.thread117, %uriAppendQueryItemA.exit.thread113, %uriAppendQueryItemA.exit103, %20, %16, %7
-  %.0 = phi i32 [ 2, %7 ], [ 9, %16 ], [ 10, %20 ], [ 0, %uriAppendQueryItemA.exit103 ], [ 3, %uriAppendQueryItemA.exit.thread113 ], [ 3, %uriAppendQueryItemA.exit103.thread117 ], [ 0, %118 ], [ 0, %.split83 ], [ 3, %128 ], [ 3, %68 ]
+  %.0 = phi i32 [ 9, %16 ], [ 2, %7 ], [ 0, %uriAppendQueryItemA.exit103 ], [ 0, %.split83 ], [ 10, %20 ], [ 3, %uriAppendQueryItemA.exit.thread113 ], [ 3, %128 ], [ 0, %118 ], [ 3, %uriAppendQueryItemA.exit103.thread117 ], [ 3, %68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
 }
@@ -868,7 +868,7 @@ define internal fastcc range(i32 0, 2) i32 @uriAppendQueryItemA(ptr noundef nonn
   br label %76
 
 76:                                               ; preds = %28, %9, %23, %71, %57, %39
-  %.075 = phi i32 [ 0, %39 ], [ 0, %57 ], [ 1, %71 ], [ 1, %23 ], [ 1, %9 ], [ 0, %28 ]
+  %.075 = phi i32 [ 1, %71 ], [ 1, %9 ], [ 0, %39 ], [ 0, %57 ], [ 1, %23 ], [ 0, %28 ]
   ret i32 %.075
 }
 
@@ -1106,7 +1106,7 @@ define range(i32 0, 5) i32 @uriComposeQueryExW(ptr noundef %0, ptr noundef reado
   br label %64
 
 64:                                               ; preds = %59, %47
-  %.275.i = phi ptr [ %63, %59 ], [ %50, %47 ]
+  %.275.i = phi ptr [ %50, %47 ], [ %63, %59 ]
   %65 = getelementptr inbounds nuw i8, ptr %.06395.i, i64 16
   %66 = load ptr, ptr %65, align 8, !tbaa !29
   %.not.i = icmp eq ptr %66, null
@@ -1127,7 +1127,7 @@ define range(i32 0, 5) i32 @uriComposeQueryExW(ptr noundef %0, ptr noundef reado
   br label %uriComposeQueryEngineW.exit
 
 uriComposeQueryEngineW.exit:                      ; preds = %51, %33, %31, %67, %.split97.us.i, %9, %6
-  %.0 = phi i32 [ 2, %6 ], [ 4, %9 ], [ 0, %.split97.us.i ], [ 0, %67 ], [ 4, %31 ], [ 4, %33 ], [ 4, %51 ]
+  %.0 = phi i32 [ 4, %9 ], [ 2, %6 ], [ 0, %67 ], [ 0, %.split97.us.i ], [ 4, %31 ], [ 4, %33 ], [ 4, %51 ]
   ret i32 %.0
 }
 
@@ -1238,7 +1238,7 @@ uriComposeQueryCharsRequiredExW.exit:             ; preds = %33
   br label %uriComposeQueryCharsRequiredExW.exit.thread
 
 uriComposeQueryCharsRequiredExW.exit.thread:      ; preds = %31, %11, %uriComposeQueryCharsRequiredExW.exit, %9, %5, %54, %51
-  %.0 = phi i32 [ %50, %51 ], [ 0, %54 ], [ 2, %5 ], [ 10, %9 ], [ 3, %uriComposeQueryCharsRequiredExW.exit ], [ 2, %11 ], [ 4, %31 ]
+  %.0 = phi i32 [ 2, %5 ], [ 10, %9 ], [ 3, %uriComposeQueryCharsRequiredExW.exit ], [ %50, %51 ], [ 0, %54 ], [ 2, %11 ], [ 4, %31 ]
   ret i32 %.0
 }
 
@@ -1486,14 +1486,14 @@ uriAppendQueryItemW.exit.thread113:               ; preds = %35, %uriAppendQuery
   br label %81
 
 81:                                               ; preds = %79, %77, %.lr.ph
-  %.271 = phi ptr [ %.069137, %.lr.ph ], [ %.069137, %77 ], [ %.076134, %79 ]
-  %.168 = phi ptr [ %.067138, %.lr.ph ], [ %.067138, %77 ], [ %spec.select96, %79 ]
-  %.266 = phi ptr [ %.064139, %.lr.ph ], [ %.064139, %77 ], [ %spec.select97, %79 ]
+  %.271 = phi ptr [ %.069137, %.lr.ph ], [ %.076134, %79 ], [ %.069137, %77 ]
+  %.168 = phi ptr [ %.067138, %.lr.ph ], [ %spec.select96, %79 ], [ %.067138, %77 ]
+  %.266 = phi ptr [ %.064139, %.lr.ph ], [ %spec.select97, %79 ], [ %.064139, %77 ]
   %82 = getelementptr inbounds nuw i8, ptr %.076134, i64 4
   %83 = icmp ult ptr %82, %3
   br i1 %83, label %.lr.ph, label %._crit_edge, !llvm.loop !34
 
-.thread:                                          ; preds = %uriAppendQueryItemW.exit, %58, %31, %.split79
+.thread:                                          ; preds = %uriAppendQueryItemW.exit, %58, %.split79, %31
   %84 = load ptr, ptr %.063140.ph, align 8, !tbaa !33
   %.not95 = icmp eq ptr %84, null
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
@@ -1511,10 +1511,10 @@ uriAppendQueryItemW.exit.thread113:               ; preds = %35, %uriAppendQuery
   br i1 %.not92, label %.split83, label %uriAppendQueryItemW.exit103
 
 .split83:                                         ; preds = %.thread, %20, %._crit_edge
-  %.063.lcssa170 = phi ptr [ %.063140.ph, %._crit_edge ], [ %0, %20 ], [ %spec.select, %.thread ]
-  %.064.lcssa169 = phi i1 [ %90, %._crit_edge ], [ true, %20 ], [ true, %.thread ]
-  %.073.lcssa168 = phi ptr [ %.073136.ph, %._crit_edge ], [ %2, %20 ], [ %.174, %.thread ]
-  %.076.lcssa167 = phi ptr [ %82, %._crit_edge ], [ %2, %20 ], [ %88, %.thread ]
+  %.063.lcssa170 = phi ptr [ %0, %20 ], [ %.063140.ph, %._crit_edge ], [ %spec.select, %.thread ]
+  %.064.lcssa169 = phi i1 [ true, %20 ], [ %90, %._crit_edge ], [ true, %.thread ]
+  %.073.lcssa168 = phi ptr [ %2, %20 ], [ %.073136.ph, %._crit_edge ], [ %.174, %.thread ]
+  %.076.lcssa167 = phi ptr [ %2, %20 ], [ %82, %._crit_edge ], [ %88, %.thread ]
   %91 = ptrtoint ptr %.076.lcssa167 to i64
   %92 = ptrtoint ptr %.073.lcssa168 to i64
   %93 = sub i64 %91, %92
@@ -1613,7 +1613,7 @@ uriAppendQueryItemW.exit103.thread117:            ; preds = %100, %112, %uriAppe
   br i1 %.not17.i109, label %uriFreeQueryListMmW.exit, label %133, !llvm.loop !32
 
 uriFreeQueryListMmW.exit:                         ; preds = %68, %133, %.split83, %123, %uriAppendQueryItemW.exit103.thread117, %uriAppendQueryItemW.exit.thread113, %uriAppendQueryItemW.exit103, %18, %14, %7
-  %.0 = phi i32 [ 2, %7 ], [ 9, %14 ], [ 10, %18 ], [ 0, %uriAppendQueryItemW.exit103 ], [ 3, %uriAppendQueryItemW.exit.thread113 ], [ 3, %uriAppendQueryItemW.exit103.thread117 ], [ 0, %123 ], [ 0, %.split83 ], [ 3, %133 ], [ 3, %68 ]
+  %.0 = phi i32 [ 9, %14 ], [ 2, %7 ], [ 0, %uriAppendQueryItemW.exit103 ], [ 0, %.split83 ], [ 10, %18 ], [ 3, %uriAppendQueryItemW.exit.thread113 ], [ 3, %133 ], [ 0, %123 ], [ 3, %uriAppendQueryItemW.exit103.thread117 ], [ 3, %68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -1743,7 +1743,7 @@ define internal fastcc range(i32 0, 2) i32 @uriAppendQueryItemW(ptr noundef nonn
   br label %82
 
 82:                                               ; preds = %30, %9, %25, %77, %62, %42
-  %.075 = phi i32 [ 0, %42 ], [ 0, %62 ], [ 1, %77 ], [ 1, %25 ], [ 1, %9 ], [ 0, %30 ]
+  %.075 = phi i32 [ 1, %77 ], [ 1, %9 ], [ 0, %42 ], [ 0, %62 ], [ 1, %25 ], [ 0, %30 ]
   ret i32 %.075
 }
 

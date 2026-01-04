@@ -301,7 +301,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %Abc_Clock.exit
   br label %Vec_IntStart.exit
 
 Vec_IntStart.exit:                                ; preds = %Abc_Clock.exit, %Vec_IntAlloc.exit.i, %17
-  %20 = phi ptr [ null, %Vec_IntAlloc.exit.i ], [ %16, %17 ], [ null, %Abc_Clock.exit ]
+  %20 = phi ptr [ %16, %17 ], [ null, %Vec_IntAlloc.exit.i ], [ null, %Abc_Clock.exit ]
   %21 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #21
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 0, ptr %22, align 4, !tbaa !3
@@ -786,8 +786,8 @@ define ptr @Abc_NtkBddCofactors_rec(ptr noundef %0, ptr noundef %1, i32 noundef 
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %.lr.ph, %19, %30
-  %.027 = phi ptr [ %25, %19 ], [ %33, %30 ], [ %.tr3237, %.lr.ph ]
-  %.0 = phi ptr [ %29, %19 ], [ %34, %30 ], [ %.tr3237, %.lr.ph ]
+  %.027 = phi ptr [ %33, %30 ], [ %25, %19 ], [ %.tr3237, %.lr.ph ]
+  %.0 = phi ptr [ %34, %30 ], [ %29, %19 ], [ %.tr3237, %.lr.ph ]
   %35 = xor i32 %.tr3438, -1
   %36 = add i32 %4, %35
   %37 = shl nuw i32 1, %36
@@ -950,8 +950,8 @@ Vec_PtrPush.exit.us:                              ; preds = %Vec_PtrGrow.exit.i.
   br label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %61, %50, %.lr.ph.i
-  %.027.i = phi ptr [ %56, %50 ], [ %64, %61 ], [ %.tr3237.i, %.lr.ph.i ]
-  %.0.i = phi ptr [ %60, %50 ], [ %65, %61 ], [ %.tr3237.i, %.lr.ph.i ]
+  %.027.i = phi ptr [ %64, %61 ], [ %56, %50 ], [ %.tr3237.i, %.lr.ph.i ]
+  %.0.i = phi ptr [ %65, %61 ], [ %60, %50 ], [ %.tr3237.i, %.lr.ph.i ]
   %66 = xor i32 %.tr3438.i, -1
   %67 = add i32 %2, %66
   %68 = shl nuw i32 1, %67
@@ -1534,7 +1534,7 @@ define ptr @Abc_NtkBddFindCofactor(ptr noundef %0, ptr noundef readonly captures
   br i1 %52, label %36, label %.thread, !llvm.loop !79
 
 .thread:                                          ; preds = %50, %.lr.ph142._crit_edge, %.preheader, %.lr.ph187, %29
-  %.098 = phi i32 [ -1, %29 ], [ %.0100146, %.lr.ph187 ], [ %.0100146, %.preheader ], [ -1, %50 ], [ %.0100146, %.lr.ph142._crit_edge ]
+  %.098 = phi i32 [ %.0100146, %.lr.ph187 ], [ -1, %29 ], [ %.0100146, %.preheader ], [ -1, %50 ], [ %.0100146, %.lr.ph142._crit_edge ]
   tail call void @Cudd_RecursiveDeref(ptr noundef %6, ptr noundef %31) #22
   %53 = tail call ptr @Extra_TransferLevelByLevel(ptr noundef %6, ptr noundef %8, ptr noundef %.1103) #22
   tail call void @Cudd_Ref(ptr noundef %53) #22
@@ -1706,7 +1706,7 @@ Vec_IntStartNatural.exit.thread:                  ; preds = %Vec_IntAlloc.exit.i
   br i1 %exitcond.not, label %Vec_IntRandomizeOrder.exit, label %.lr.ph.i39, !llvm.loop !84
 
 Vec_IntRandomizeOrder.exit:                       ; preds = %.lr.ph.i39, %Vec_IntStartNatural.exit, %Vec_IntStartNatural.exit.thread
-  %.not44 = phi i1 [ true, %Vec_IntStartNatural.exit ], [ %.not42, %Vec_IntStartNatural.exit.thread ], [ false, %.lr.ph.i39 ]
+  %.not44 = phi i1 [ %.not42, %Vec_IntStartNatural.exit.thread ], [ true, %Vec_IntStartNatural.exit ], [ false, %.lr.ph.i39 ]
   %28 = tail call ptr @Extra_TransferPermute(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %1, ptr noundef %17) #22
   tail call void @Cudd_Ref(ptr noundef %28) #22
   br i1 %.not44, label %31, label %29
@@ -2029,8 +2029,8 @@ Vec_PtrFree.exit._crit_edge:                      ; preds = %Vec_PtrFree.exit
   br label %98
 
 98:                                               ; preds = %.critedge, %86, %90, %88, %96
-  %.057 = phi ptr [ %55, %86 ], [ %55, %88 ], [ %55, %90 ], [ %21, %96 ], [ %55, %.critedge ]
-  %.1 = phi ptr [ %87, %86 ], [ %89, %88 ], [ %91, %90 ], [ %97, %96 ], [ null, %.critedge ]
+  %.057 = phi ptr [ %55, %86 ], [ %55, %88 ], [ %55, %90 ], [ %55, %.critedge ], [ %21, %96 ]
+  %.1 = phi ptr [ %87, %86 ], [ %89, %88 ], [ %91, %90 ], [ null, %.critedge ], [ %97, %96 ]
   %99 = getelementptr inbounds nuw i8, ptr %.057, i64 8
   %100 = load ptr, ptr %99, align 8, !tbaa !31
   %.not.i82 = icmp eq ptr %100, null

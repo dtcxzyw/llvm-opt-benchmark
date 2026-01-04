@@ -56,7 +56,7 @@ define noundef ptr @_ZN5ZXing6QRCode11ReadVersionERKNS_9BitMatrixENS0_4TypeE(ptr
   br label %12
 
 12:                                               ; preds = %2, %10, %8, %6, %4
-  %.0 = phi ptr [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ null, %2 ]
+  %.0 = phi ptr [ %11, %10 ], [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -742,7 +742,7 @@ _ZN5ZXing6QRCodeL16ReadMQRCodewordsERKNS_9BitMatrixERKNS0_7VersionERKNS0_17Forma
   br label %.body.i
 
 _ZN5ZXing6QRCode14GetDataMaskBitEiiib.exit.i:     ; preds = %214, %210, %206, %201, %197, %194, %190, %188
-  %.025.i.i = phi i1 [ %193, %190 ], [ %196, %194 ], [ %200, %197 ], [ %205, %201 ], [ %209, %206 ], [ %213, %210 ], [ %220, %214 ], [ %169, %188 ]
+  %.025.i.i = phi i1 [ %193, %190 ], [ %220, %214 ], [ %196, %194 ], [ %200, %197 ], [ %205, %201 ], [ %209, %206 ], [ %213, %210 ], [ %169, %188 ]
   %226 = load i8, ptr %151, align 1, !tbaa !51, !range !52, !noalias !56, !noundef !53
   %227 = trunc nuw i8 %226 to i1
   %..i29 = select i1 %227, i32 %166, i32 %174
@@ -1715,7 +1715,7 @@ _ZN5ZXing6QRCodeL21ReadQRCodewordsModel1ERKNS_9BitMatrixERKNS0_7VersionERKNS0_17
   br label %.body.i51
 
 _ZN5ZXing6QRCode14GetDataMaskBitEiiib.exit.i67:   ; preds = %646, %642, %638, %633, %629, %626, %622, %620
-  %.025.i.i68 = phi i1 [ %625, %622 ], [ %628, %626 ], [ %632, %629 ], [ %637, %633 ], [ %641, %638 ], [ %645, %642 ], [ %652, %646 ], [ %601, %620 ]
+  %.025.i.i68 = phi i1 [ %625, %622 ], [ %652, %646 ], [ %628, %626 ], [ %632, %629 ], [ %637, %633 ], [ %641, %638 ], [ %645, %642 ], [ %601, %620 ]
   %658 = load i8, ptr %582, align 1, !tbaa !51, !range !52, !noalias !72, !noundef !53
   %659 = trunc nuw i8 %658 to i1
   %..i69 = select i1 %659, i32 %598, i32 %606

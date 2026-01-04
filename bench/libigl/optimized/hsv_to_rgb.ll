@@ -118,9 +118,9 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE10resizeLikeIS
   br label %_ZN3igl10hsv_to_rgbIdEEvPKT_PS1_.exit
 
 _ZN3igl10hsv_to_rgbIdEEvPKT_PS1_.exit:            ; preds = %46, %47, %48, %49, %50, %21, %.sink.split.i.i
-  %.sroa.0.2 = phi double [ 0.000000e+00, %21 ], [ %42, %46 ], [ %39, %47 ], [ %39, %48 ], [ %45, %49 ], [ %27, %50 ], [ %27, %.sink.split.i.i ]
-  %.sroa.10.2 = phi double [ 0.000000e+00, %21 ], [ %27, %46 ], [ %27, %47 ], [ %42, %48 ], [ %39, %49 ], [ %39, %50 ], [ %45, %.sink.split.i.i ]
-  %.sroa.17.1 = phi double [ 0.000000e+00, %21 ], [ %39, %46 ], [ %45, %47 ], [ %27, %48 ], [ %27, %49 ], [ %42, %50 ], [ %39, %.sink.split.i.i ]
+  %.sroa.0.2 = phi double [ 0.000000e+00, %21 ], [ %27, %50 ], [ %42, %46 ], [ %39, %47 ], [ %39, %48 ], [ %45, %49 ], [ %27, %.sink.split.i.i ]
+  %.sroa.10.2 = phi double [ 0.000000e+00, %21 ], [ %39, %50 ], [ %27, %46 ], [ %27, %47 ], [ %42, %48 ], [ %39, %49 ], [ %45, %.sink.split.i.i ]
+  %.sroa.17.1 = phi double [ 0.000000e+00, %21 ], [ %42, %50 ], [ %39, %46 ], [ %45, %47 ], [ %27, %48 ], [ %27, %49 ], [ %39, %.sink.split.i.i ]
   %51 = getelementptr double, ptr %18, i64 %.022
   store double %.sroa.0.2, ptr %51, align 8, !tbaa !15
   %52 = getelementptr double, ptr %51, i64 %20

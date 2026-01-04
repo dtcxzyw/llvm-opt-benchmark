@@ -222,7 +222,7 @@ define noalias noundef ptr @dnsquery(ptr noundef %0, i32 noundef %1, ptr noundef
   br label %124
 
 124:                                              ; preds = %119, %123, %115, %20, %21, %113, %87, %78, %62, %56, %46, %35, %28, %15, %10
-  %.0 = phi ptr [ null, %10 ], [ null, %15 ], [ null, %28 ], [ null, %35 ], [ null, %46 ], [ null, %56 ], [ null, %62 ], [ null, %78 ], [ null, %87 ], [ null, %113 ], [ null, %21 ], [ null, %20 ], [ null, %115 ], [ %118, %123 ], [ %118, %119 ]
+  %.0 = phi ptr [ null, %10 ], [ null, %15 ], [ null, %113 ], [ null, %28 ], [ null, %35 ], [ null, %46 ], [ null, %56 ], [ null, %62 ], [ null, %78 ], [ null, %87 ], [ null, %115 ], [ null, %20 ], [ null, %21 ], [ %118, %123 ], [ %118, %119 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0

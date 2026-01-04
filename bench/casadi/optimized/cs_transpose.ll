@@ -156,7 +156,7 @@ define ptr @cs_transpose(ptr noundef readonly captures(address_is_null) %0, i32 
   br i1 %87, label %.lr.ph63, label %.loopexit, !llvm.loop !20
 
 .sink.split:                                      ; preds = %.loopexit, %.loopexit.us, %._crit_edge, %7
-  %.sink = phi i32 [ 0, %7 ], [ 1, %._crit_edge ], [ 1, %.loopexit.us ], [ 1, %.loopexit ]
+  %.sink = phi i32 [ 0, %7 ], [ 1, %.loopexit.us ], [ 1, %._crit_edge ], [ 1, %.loopexit ]
   %88 = tail call ptr @cs_done(ptr noundef %25, ptr noundef %26, ptr noundef null, i32 noundef %.sink) #2
   br label %89
 

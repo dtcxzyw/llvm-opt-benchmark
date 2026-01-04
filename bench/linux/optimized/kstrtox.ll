@@ -240,8 +240,8 @@ define dso_local i32 @_parse_integer(ptr noundef readonly captures(none) %0, i32
   br i1 %41, label %_parse_integer_limit.exit, label %.lr.ph.i
 
 _parse_integer_limit.exit:                        ; preds = %17, %22, %34
-  %.lcssa2.i = phi i64 [ %6, %22 ], [ %6, %17 ], [ %38, %34 ]
-  %.lcssa.i = phi i32 [ %5, %22 ], [ %5, %17 ], [ %39, %34 ]
+  %.lcssa2.i = phi i64 [ %38, %34 ], [ %6, %22 ], [ %6, %17 ]
+  %.lcssa.i = phi i32 [ %39, %34 ], [ %5, %22 ], [ %5, %17 ]
   store i64 %.lcssa2.i, ptr %2, align 8
   ret i32 %.lcssa.i
 }
@@ -294,8 +294,8 @@ define dso_local noundef range(i32 -34, 1) i32 @kstrtoull(ptr noundef readonly c
   br label %_parse_integer_fixup_radix.exit
 
 _parse_integer_fixup_radix.exit:                  ; preds = %3, %11, %16, %8, %.thread5, %.thread5.thread
-  %.04 = phi i32 [ 16, %.thread5 ], [ 16, %.thread5.thread ], [ 10, %8 ], [ 8, %16 ], [ 8, %11 ], [ %1, %3 ]
-  %31 = phi ptr [ %7, %.thread5 ], [ %30, %.thread5.thread ], [ %7, %8 ], [ %7, %16 ], [ %7, %11 ], [ %7, %3 ]
+  %.04 = phi i32 [ 16, %.thread5 ], [ %1, %3 ], [ 16, %.thread5.thread ], [ 10, %8 ], [ 8, %16 ], [ 8, %11 ]
+  %31 = phi ptr [ %7, %.thread5 ], [ %7, %3 ], [ %30, %.thread5.thread ], [ %7, %8 ], [ %7, %16 ], [ %7, %11 ]
   %32 = zext i32 %.04 to i64
   br label %.lr.ph.i.i
 
@@ -355,8 +355,8 @@ _parse_integer_fixup_radix.exit:                  ; preds = %3, %11, %16, %8, %.
   br i1 %69, label %_parse_integer.exit, label %.lr.ph.i.i
 
 _parse_integer.exit:                              ; preds = %45, %50, %62
-  %.lcssa2.i.i = phi i64 [ %34, %50 ], [ %34, %45 ], [ %66, %62 ]
-  %.lcssa.i.i = phi i32 [ %33, %50 ], [ %33, %45 ], [ %67, %62 ]
+  %.lcssa2.i.i = phi i64 [ %66, %62 ], [ %34, %50 ], [ %34, %45 ]
+  %.lcssa.i.i = phi i32 [ %67, %62 ], [ %33, %50 ], [ %33, %45 ]
   %70 = icmp sgt i32 %.lcssa.i.i, -1
   br i1 %70, label %71, label %83
 
@@ -436,8 +436,8 @@ define dso_local noundef range(i32 -34, 1) i32 @kstrtoll(ptr noundef readonly ca
   br label %_parse_integer_fixup_radix.exit
 
 _parse_integer_fixup_radix.exit:                  ; preds = %7, %12, %17, %9, %.thread8, %.thread8.thread
-  %.07 = phi i32 [ 16, %.thread8 ], [ 16, %.thread8.thread ], [ 10, %9 ], [ 8, %17 ], [ 8, %12 ], [ %1, %7 ]
-  %32 = phi ptr [ %8, %.thread8 ], [ %31, %.thread8.thread ], [ %8, %9 ], [ %8, %17 ], [ %8, %12 ], [ %8, %7 ]
+  %.07 = phi i32 [ 16, %.thread8 ], [ %1, %7 ], [ 16, %.thread8.thread ], [ 10, %9 ], [ 8, %17 ], [ 8, %12 ]
+  %32 = phi ptr [ %8, %.thread8 ], [ %8, %7 ], [ %31, %.thread8.thread ], [ %8, %9 ], [ %8, %17 ], [ %8, %12 ]
   %33 = zext i32 %.07 to i64
   br label %.lr.ph.i.i
 
@@ -497,8 +497,8 @@ _parse_integer_fixup_radix.exit:                  ; preds = %7, %12, %17, %9, %.
   br i1 %70, label %_parse_integer.exit, label %.lr.ph.i.i
 
 _parse_integer.exit:                              ; preds = %46, %51, %63
-  %.lcssa2.i.i = phi i64 [ %35, %51 ], [ %35, %46 ], [ %67, %63 ]
-  %.lcssa.i.i = phi i32 [ %34, %51 ], [ %34, %46 ], [ %68, %63 ]
+  %.lcssa2.i.i = phi i64 [ %67, %63 ], [ %35, %51 ], [ %35, %46 ]
+  %.lcssa.i.i = phi i32 [ %68, %63 ], [ %34, %51 ], [ %34, %46 ]
   %71 = icmp sgt i32 %.lcssa.i.i, -1
   br i1 %71, label %72, label %.thread12
 
@@ -539,7 +539,7 @@ _parse_integer.exit:                              ; preds = %46, %51, %63
   br label %.thread12
 
 .thread12:                                        ; preds = %74, %72, %_parse_integer.exit, %92, %89, %86, %83
-  %94 = phi i32 [ 0, %92 ], [ -34, %83 ], [ %87, %86 ], [ -34, %89 ], [ -22, %74 ], [ -22, %72 ], [ -34, %_parse_integer.exit ]
+  %94 = phi i32 [ 0, %92 ], [ -34, %89 ], [ -34, %83 ], [ %87, %86 ], [ -22, %74 ], [ -22, %72 ], [ -34, %_parse_integer.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %94
 }
@@ -781,7 +781,7 @@ switch.lookup:                                    ; preds = %7
   br label %15
 
 15:                                               ; preds = %switch.lookup, %6, %4, %4, %4, %4, %4
-  %16 = phi i8 [ 0, %6 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ %switch.masked, %switch.lookup ]
+  %16 = phi i8 [ %switch.masked, %switch.lookup ], [ 0, %6 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ]
   store i8 %16, ptr %1, align 1
   br label %17
 
@@ -843,12 +843,12 @@ switch.lookup:                                    ; preds = %12
   br label %20
 
 20:                                               ; preds = %switch.lookup, %11, %8, %8, %8, %8, %8
-  %21 = phi i8 [ 0, %11 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ %switch.masked, %switch.lookup ]
+  %21 = phi i8 [ %switch.masked, %switch.lookup ], [ 0, %11 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ]
   store i8 %21, ptr %2, align 1
   br label %kstrtobool.exit
 
 kstrtobool.exit:                                  ; preds = %12, %20, %8, %3
-  %22 = phi i32 [ -14, %3 ], [ -22, %8 ], [ -22, %12 ], [ 0, %20 ]
+  %22 = phi i32 [ -14, %3 ], [ 0, %20 ], [ -22, %8 ], [ -22, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %22
 }

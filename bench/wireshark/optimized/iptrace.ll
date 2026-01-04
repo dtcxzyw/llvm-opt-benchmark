@@ -145,7 +145,7 @@ define internal noundef zeroext i1 @iptrace_seek_read_1_0(ptr noundef %0, i64 no
   br label %17
 
 17:                                               ; preds = %10, %13, %16, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %16 ], [ false, %13 ], [ true, %10 ]
+  %.0 = phi i1 [ false, %5 ], [ false, %13 ], [ false, %16 ], [ true, %10 ]
   ret i1 %.0
 }
 
@@ -202,7 +202,7 @@ define internal noundef zeroext i1 @iptrace_seek_read_2_0(ptr noundef %0, i64 no
   br label %17
 
 17:                                               ; preds = %10, %13, %16, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %16 ], [ false, %13 ], [ true, %10 ]
+  %.0 = phi i1 [ false, %5 ], [ false, %13 ], [ false, %16 ], [ true, %10 ]
   ret i1 %.0
 }
 
@@ -578,7 +578,7 @@ fill_in_pseudo_header.exit:                       ; preds = %70, %112, %122
   br label %iptrace_read_rec_data.exit
 
 iptrace_read_rec_data.exit:                       ; preds = %fill_in_pseudo_header.exit, %61, %35, %5, %152, %68, %59, %52, %33
-  %.0 = phi i1 [ false, %33 ], [ false, %52 ], [ false, %59 ], [ false, %68 ], [ true, %152 ], [ false, %5 ], [ false, %35 ], [ false, %61 ], [ false, %fill_in_pseudo_header.exit ]
+  %.0 = phi i1 [ false, %33 ], [ false, %52 ], [ false, %59 ], [ false, %68 ], [ true, %152 ], [ false, %61 ], [ false, %35 ], [ false, %5 ], [ false, %fill_in_pseudo_header.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -925,7 +925,7 @@ fill_in_pseudo_header.exit:                       ; preds = %63, %123, %133
   br label %iptrace_read_rec_data.exit
 
 iptrace_read_rec_data.exit:                       ; preds = %fill_in_pseudo_header.exit, %54, %35, %5, %163, %61, %52, %33
-  %.0 = phi i1 [ false, %33 ], [ false, %52 ], [ false, %61 ], [ true, %163 ], [ false, %5 ], [ false, %35 ], [ false, %54 ], [ false, %fill_in_pseudo_header.exit ]
+  %.0 = phi i1 [ false, %33 ], [ false, %52 ], [ false, %61 ], [ true, %163 ], [ false, %54 ], [ false, %35 ], [ false, %5 ], [ false, %fill_in_pseudo_header.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

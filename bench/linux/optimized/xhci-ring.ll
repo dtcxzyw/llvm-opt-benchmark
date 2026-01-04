@@ -1723,7 +1723,7 @@ define dso_local void @xhci_handle_command_timeout(ptr noundef %0) local_unnamed
   br label %111
 
 111:                                              ; preds = %106, %101, %94
-  %112 = phi i64 [ %110, %106 ], [ 4, %94 ], [ 4, %101 ]
+  %112 = phi i64 [ %110, %106 ], [ 4, %101 ], [ 4, %94 ]
   %113 = load ptr, ptr %17, align 8
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 24
   %115 = trunc i64 %112 to i32
@@ -2298,7 +2298,7 @@ define dso_local noundef ptr @trb_in_td(ptr noundef readonly captures(none) %0, 
   br i1 %199, label %.loopexit, label %.split.split, !llvm.loop !40
 
 .loopexit:                                        ; preds = %197, %.thread, %.split.split, %.split.split.us.split, %123, %138, %.split.us.split, %91, %105, %.split.us.split.us.split, %._crit_edge, %54, %183, %177, %174, %171
-  %200 = phi ptr [ null, %183 ], [ %.us-phi19, %171 ], [ %.us-phi19, %177 ], [ %.us-phi19, %174 ], [ null, %54 ], [ %26, %._crit_edge ], [ null, %.split.us.split.us.split ], [ null, %105 ], [ %58, %91 ], [ null, %.split.us.split ], [ null, %138 ], [ %109, %123 ], [ null, %.split.split.us.split ], [ null, %197 ], [ %142, %.thread ], [ null, %.split.split ]
+  %200 = phi ptr [ null, %183 ], [ %.us-phi19, %171 ], [ %.us-phi19, %177 ], [ %.us-phi19, %174 ], [ null, %.split.us.split.us.split ], [ null, %.split.us.split ], [ null, %.split.split.us.split ], [ null, %54 ], [ %26, %._crit_edge ], [ null, %105 ], [ %58, %91 ], [ %109, %123 ], [ null, %138 ], [ null, %197 ], [ %142, %.thread ], [ null, %.split.split ]
   ret ptr %200
 }
 
@@ -2768,7 +2768,7 @@ define dso_local noundef range(i32 0, 2) i32 @xhci_irq(ptr noundef %0) local_unn
   br label %.thread
 
 .thread137:                                       ; preds = %233, %239, %265, %252, %247
-  %274 = phi i1 [ true, %265 ], [ true, %252 ], [ true, %247 ], [ true, %233 ], [ false, %239 ]
+  %274 = phi i1 [ true, %247 ], [ true, %265 ], [ true, %252 ], [ true, %233 ], [ false, %239 ]
   %275 = load i32, ptr %195, align 8
   %276 = icmp slt i32 %275, 64
   br i1 %276, label %277, label %.loopexit
@@ -4683,8 +4683,8 @@ define dso_local range(i32 -2147483648, 1) i32 @xhci_queue_bulk_tx(ptr noundef %
   br label %.thread25
 
 .thread25:                                        ; preds = %262, %159, %145, %265, %138, %133
-  %271 = phi i32 [ %166, %265 ], [ %129, %138 ], [ %129, %133 ], [ %129, %262 ], [ %160, %159 ], [ %129, %145 ]
-  %272 = phi i32 [ %139, %265 ], [ %139, %138 ], [ %135, %133 ], [ %139, %262 ], [ %139, %159 ], [ %139, %145 ]
+  %271 = phi i32 [ %129, %133 ], [ %166, %265 ], [ %129, %138 ], [ %129, %262 ], [ %160, %159 ], [ %129, %145 ]
+  %272 = phi i32 [ %135, %133 ], [ %139, %265 ], [ %139, %138 ], [ %139, %262 ], [ %139, %159 ], [ %139, %145 ]
   %273 = add i32 %271, %118
   %274 = icmp ult i32 %273, %20
   br i1 %274, label %.thread25._crit_edge, label %275
@@ -5006,7 +5006,7 @@ define dso_local range(i32 -2147483648, 1) i32 @xhci_queue_bulk_tx(ptr noundef %
   br label %giveback_first_trb.exit
 
 giveback_first_trb.exit:                          ; preds = %487, %443, %.loopexit27, %5
-  %489 = phi i32 [ -22, %5 ], [ %82, %.loopexit27 ], [ 0, %443 ], [ 0, %487 ]
+  %489 = phi i32 [ %82, %.loopexit27 ], [ -22, %5 ], [ 0, %443 ], [ 0, %487 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %489
 }
@@ -5536,7 +5536,7 @@ define dso_local range(i32 -2147483648, 1) i32 @xhci_queue_ctrl_tx(ptr noundef %
   br label %giveback_first_trb.exit
 
 giveback_first_trb.exit:                          ; preds = %185, %141, %22, %18, %5
-  %187 = phi i32 [ -22, %5 ], [ -22, %18 ], [ %32, %22 ], [ 0, %141 ], [ 0, %185 ]
+  %187 = phi i32 [ %32, %22 ], [ -22, %5 ], [ -22, %18 ], [ 0, %141 ], [ 0, %185 ]
   ret i32 %187
 }
 
@@ -6322,7 +6322,7 @@ define dso_local range(i32 -2147483648, 1) i32 @xhci_queue_isoc_tx_prepare(ptr n
   br label %giveback_first_trb.exit
 
 giveback_first_trb.exit:                          ; preds = %217, %487, %440, %543, %121, %.loopexit34
-  %549 = phi i32 [ %48, %.loopexit34 ], [ %.ph26, %543 ], [ -22, %121 ], [ 0, %440 ], [ 0, %487 ], [ %215, %217 ]
+  %549 = phi i32 [ %48, %.loopexit34 ], [ %.ph26, %543 ], [ 0, %487 ], [ -22, %121 ], [ 0, %440 ], [ %215, %217 ]
   ret i32 %549
 }
 
@@ -6513,7 +6513,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @prepare_ring(ptr noundef %
   br label %187
 
 .thread:                                          ; preds = %56, %..thread_crit_edge, %38, %19, %.loopexit
-  %.pre = phi ptr [ %.pre.pre, %..thread_crit_edge ], [ %21, %38 ], [ %21, %19 ], [ %63, %.loopexit ], [ %21, %56 ]
+  %.pre = phi ptr [ %.pre.pre, %..thread_crit_edge ], [ %63, %.loopexit ], [ %21, %38 ], [ %21, %19 ], [ %21, %56 ]
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 2488
   %129 = getelementptr inbounds nuw i8, ptr %1, i64 84
@@ -7394,7 +7394,7 @@ define internal fastcc void @handle_cmd_completion(ptr noundef %0, ptr noundef n
   br label %242
 
 242:                                              ; preds = %238, %219
-  %.in = phi ptr [ %241, %238 ], [ %220, %219 ]
+  %.in = phi ptr [ %220, %219 ], [ %241, %238 ]
   %243 = load ptr, ptr %.in, align 8
   %244 = icmp eq ptr %243, null
   br i1 %244, label %.thread39, label %247
@@ -7974,7 +7974,7 @@ define internal fastcc void @handle_cmd_completion(ptr noundef %0, ptr noundef n
   br label %.thread37
 
 .thread37:                                        ; preds = %467, %458, %453, %206, %197, %192, %591, %586, %583, %575, %571, %558, %554, %551, %543, %539, %470, %438, %.loopexit, %209, %178, %174, %167, %163, %150, %146, %140, %139, %135, %134, %129, %99, %98, %97, %89
-  %594 = phi i32 [ %63, %591 ], [ %63, %174 ], [ %63, %178 ], [ %63, %89 ], [ %63, %135 ], [ %63, %139 ], [ %442, %438 ], [ 1, %97 ], [ %63, %98 ], [ %63, %99 ], [ %63, %129 ], [ %63, %134 ], [ %63, %140 ], [ %63, %146 ], [ %63, %150 ], [ %63, %163 ], [ %63, %167 ], [ %63, %209 ], [ %63, %.loopexit ], [ %63, %470 ], [ %63, %539 ], [ %63, %543 ], [ %63, %551 ], [ %63, %554 ], [ %63, %558 ], [ %63, %571 ], [ %63, %575 ], [ %63, %583 ], [ %63, %586 ], [ %63, %192 ], [ %63, %197 ], [ %63, %206 ], [ %63, %453 ], [ %63, %458 ], [ %63, %467 ]
+  %594 = phi i32 [ %63, %591 ], [ %63, %174 ], [ %63, %178 ], [ %63, %89 ], [ %63, %135 ], [ %63, %139 ], [ %442, %438 ], [ 1, %97 ], [ %63, %98 ], [ %63, %99 ], [ %63, %129 ], [ %63, %134 ], [ %63, %140 ], [ %63, %146 ], [ %63, %150 ], [ %63, %163 ], [ %63, %167 ], [ %63, %209 ], [ %63, %.loopexit ], [ %63, %470 ], [ %63, %539 ], [ %63, %543 ], [ %63, %551 ], [ %63, %554 ], [ %63, %558 ], [ %63, %571 ], [ %63, %575 ], [ %63, %583 ], [ %63, %586 ], [ %63, %206 ], [ %63, %192 ], [ %63, %197 ], [ %63, %453 ], [ %63, %458 ], [ %63, %467 ]
   %595 = load volatile ptr, ptr %56, align 8
   %596 = icmp eq ptr %595, %56
   br i1 %596, label %601, label %597
@@ -8314,8 +8314,8 @@ define internal fastcc void @xhci_handle_cmd_stop_ep(ptr noundef %0, i32 noundef
   br label %.thread1
 
 .thread1:                                         ; preds = %106, %77, %121, %72
-  %123 = phi ptr [ %107, %121 ], [ null, %72 ], [ null, %77 ], [ null, %106 ]
-  %124 = phi i32 [ 0, %121 ], [ 1, %72 ], [ 0, %77 ], [ 0, %106 ]
+  %123 = phi ptr [ %107, %121 ], [ null, %106 ], [ null, %72 ], [ null, %77 ]
+  %124 = phi i32 [ 0, %121 ], [ 0, %106 ], [ 1, %72 ], [ 0, %77 ]
   %125 = tail call fastcc i32 @xhci_handle_halted_endpoint(ptr noundef %0, ptr noundef nonnull %40, ptr noundef %123, i32 noundef %124)
   %126 = icmp eq i32 %125, 0
   br i1 %126, label %127, label %175

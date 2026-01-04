@@ -587,16 +587,16 @@ IDANewtonIC.exit.i:                               ; preds = %326, %.preheader.i.
   %.not42.not.i = icmp slt i32 %.03861.i, %336
   br i1 %.not42.not.i, label %.lr.ph.i, label %.loopexit
 
-.thread:                                          ; preds = %148, %134, %163, %154, %271, %IDANewyyp.exit.i.i.i
-  %.0.i.ph.ph = phi i32 [ -7, %271 ], [ -8, %IDANewyyp.exit.i.i.i ], [ -7, %163 ], [ -6, %154 ], [ -12, %148 ], [ -8, %134 ]
+.thread:                                          ; preds = %148, %134, %163, %154, %IDANewyyp.exit.i.i.i, %271
+  %.0.i.ph.ph = phi i32 [ -6, %154 ], [ -7, %271 ], [ -8, %IDANewyyp.exit.i.i.i ], [ -7, %163 ], [ -12, %148 ], [ -8, %134 ]
   %337 = load i64, ptr %123, align 8, !tbaa !60
   %338 = add nsw i64 %337, 1
   store i64 %338, ptr %123, align 8, !tbaa !60
   br label %IDAnlsIC.exit.thread134
 
-.loopexit:                                        ; preds = %162, %332, %IDANewtonIC.exit.i, %173, %326, %215, %237, %303, %301, %270, %282
-  %.not120 = phi i1 [ false, %282 ], [ false, %270 ], [ false, %301 ], [ false, %303 ], [ false, %237 ], [ false, %215 ], [ false, %162 ], [ true, %332 ], [ true, %IDANewtonIC.exit.i ], [ false, %173 ], [ false, %326 ]
-  %.0.i.ph = phi i32 [ 3, %303 ], [ 3, %301 ], [ 1, %270 ], [ 1, %282 ], [ 2, %215 ], [ 3, %237 ], [ 1, %162 ], [ 5, %332 ], [ 5, %IDANewtonIC.exit.i ], [ 1, %173 ], [ 4, %326 ]
+.loopexit:                                        ; preds = %326, %173, %332, %162, %IDANewtonIC.exit.i, %215, %237, %301, %282, %270, %303
+  %.not120 = phi i1 [ false, %301 ], [ false, %215 ], [ false, %303 ], [ false, %270 ], [ false, %282 ], [ false, %237 ], [ true, %332 ], [ false, %173 ], [ false, %162 ], [ true, %IDANewtonIC.exit.i ], [ false, %326 ]
+  %.0.i.ph = phi i32 [ 3, %301 ], [ 2, %215 ], [ 1, %282 ], [ 1, %270 ], [ 3, %303 ], [ 3, %237 ], [ 5, %332 ], [ 1, %173 ], [ 1, %162 ], [ 5, %IDANewtonIC.exit.i ], [ 4, %326 ]
   %339 = load i64, ptr %123, align 8, !tbaa !60
   %340 = add nsw i64 %339, 1
   store i64 %340, ptr %123, align 8, !tbaa !60
@@ -642,8 +642,8 @@ IDAnlsIC.exit.thread130:                          ; preds = %149, %186, %IDALine
   br i1 %exitcond.not, label %IDAnlsIC.exit.thread134, label %.preheader
 
 IDAnlsIC.exit.thread134:                          ; preds = %357, %IDAnlsIC.exit.thread130, %.loopexit, %129, %.preheader.us, %.thread
-  %.1110 = phi i32 [ %.0.i.ph.ph, %.thread ], [ -24, %.preheader.us ], [ 0, %129 ], [ %.0.i.ph, %.loopexit ], [ -24, %IDAnlsIC.exit.thread130 ], [ 0, %357 ]
-  %.3 = phi double [ %.4172, %.thread ], [ %.1, %.preheader.us ], [ %.1, %129 ], [ %.4172, %.loopexit ], [ %.4172, %IDAnlsIC.exit.thread130 ], [ %.4172, %357 ]
+  %.1110 = phi i32 [ %.0.i.ph, %.loopexit ], [ %.0.i.ph.ph, %.thread ], [ 0, %129 ], [ -24, %.preheader.us ], [ -24, %IDAnlsIC.exit.thread130 ], [ 0, %357 ]
+  %.3 = phi double [ %.4172, %.loopexit ], [ %.4172, %.thread ], [ %.1, %129 ], [ %.1, %.preheader.us ], [ %.4172, %IDAnlsIC.exit.thread130 ], [ %.4172, %357 ]
   %362 = load ptr, ptr %43, align 8, !tbaa !22
   tail call void @N_VDestroy(ptr noundef %362) #3
   %363 = load ptr, ptr %46, align 8, !tbaa !23
@@ -664,7 +664,7 @@ IDAnlsIC.exit.thread134:                          ; preds = %357, %IDAnlsIC.exit
   br label %369
 
 369:                                              ; preds = %366, %11, %367, %62, %38, %24, %16, %10, %5
-  %.0 = phi i32 [ -20, %5 ], [ -23, %10 ], [ -22, %16 ], [ -22, %24 ], [ -22, %38 ], [ -22, %62 ], [ %368, %367 ], [ -22, %11 ], [ 0, %366 ]
+  %.0 = phi i32 [ -20, %5 ], [ -23, %10 ], [ -22, %11 ], [ -22, %16 ], [ -22, %24 ], [ -22, %38 ], [ -22, %62 ], [ %368, %367 ], [ 0, %366 ]
   ret i32 %.0
 }
 
@@ -741,7 +741,7 @@ define internal fastcc range(i32 -99, -3) i32 @IDAICFailFlag(ptr noundef nonnull
   br label %13
 
 13:                                               ; preds = %2, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3
-  %.0 = phi i32 [ -8, %3 ], [ -12, %4 ], [ -6, %5 ], [ -7, %6 ], [ -14, %7 ], [ -11, %8 ], [ -13, %9 ], [ -4, %10 ], [ -4, %11 ], [ -24, %12 ], [ -99, %2 ]
+  %.0 = phi i32 [ -24, %12 ], [ -8, %3 ], [ -12, %4 ], [ -6, %5 ], [ -7, %6 ], [ -14, %7 ], [ -11, %8 ], [ -13, %9 ], [ -4, %10 ], [ -4, %11 ], [ -99, %2 ]
   ret i32 %.0
 }
 

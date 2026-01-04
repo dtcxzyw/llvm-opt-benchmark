@@ -133,28 +133,28 @@ define hidden noundef zeroext i1 @SDL_LoadWAV_IO_REAL(ptr noundef %0, i1 noundef
 
 .thread:                                          ; preds = %17
   %18 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #8
-  br label %330
+  br label %329
 
 19:                                               ; preds = %17
   br i1 %.not, label %20, label %22
 
 20:                                               ; preds = %19
   %21 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #8
-  br label %327
+  br label %326
 
 22:                                               ; preds = %19
   br i1 %.not29, label %23, label %25
 
 23:                                               ; preds = %22
   %24 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #8
-  br label %327
+  br label %326
 
 25:                                               ; preds = %22
   br i1 %.not30, label %26, label %28
 
 26:                                               ; preds = %25
   %27 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #8
-  br label %327
+  br label %326
 
 28:                                               ; preds = %25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %11, i8 0, i64 120, i1 false)
@@ -278,643 +278,643 @@ WaveGetFactChunkHint.exit:                        ; preds = %60, %63, %66, %69, 
   %83 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.20) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
-  br i1 %83, label %315, label %313
+  br i1 %83, label %314, label %312
 
 WaveFreeChunkData.exit.i.i:                       ; preds = %79
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %84 = icmp samesign ugt i64 %80, 9223372036854775799
-  br i1 %84, label %89, label %85
+  br i1 %84, label %WaveLoad.exit, label %85
 
 85:                                               ; preds = %WaveFreeChunkData.exit.i.i
   %86 = call i64 @SDL_SeekIO_REAL(ptr noundef nonnull %0, i64 noundef %80, i32 noundef 0) #8
   %.not19.i.i = icmp eq i64 %86, %80
-  br i1 %.not19.i.i, label %87, label %89
+  br i1 %.not19.i.i, label %87, label %WaveLoad.exit
 
 87:                                               ; preds = %85
   %88 = call i64 @SDL_ReadIO_REAL(ptr noundef nonnull %0, ptr noundef nonnull %7, i64 noundef 8) #8
   %.not20.i.i = icmp eq i64 %88, 8
-  br i1 %.not20.i.i, label %91, label %89
+  br i1 %.not20.i.i, label %89, label %WaveLoad.exit
 
-89:                                               ; preds = %87, %85, %WaveFreeChunkData.exit.i.i
+89:                                               ; preds = %87
+  %90 = load i32, ptr %7, align 4
+  %91 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %92 = load i32, ptr %91, align 4
+  %93 = add nuw nsw i64 %80, 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %90 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21) #8
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
-  br i1 %90, label %315, label %313
-
-91:                                               ; preds = %87
-  %92 = load i32, ptr %7, align 4
-  %93 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %94 = load i32, ptr %93, align 4
-  %95 = add nuw nsw i64 %80, 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  switch i32 %92, label %102 [
-    i32 1179011410, label %96
-    i32 1163280727, label %104
+  switch i32 %90, label %100 [
+    i32 1179011410, label %94
+    i32 1163280727, label %102
   ]
 
-96:                                               ; preds = %91
+94:                                               ; preds = %89
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %97 = call zeroext i1 @SDL_ReadU32LE_REAL(ptr noundef nonnull %0, ptr noundef nonnull %9) #8
-  br i1 %97, label %98, label %.thread.i
+  %95 = call zeroext i1 @SDL_ReadU32LE_REAL(ptr noundef nonnull %0, ptr noundef nonnull %9) #8
+  br i1 %95, label %96, label %.thread.i
 
-98:                                               ; preds = %96
-  %99 = load i32, ptr %9, align 4
-  %.not147.i = icmp eq i32 %99, 1163280727
-  br i1 %.not147.i, label %101, label %.thread.i
+96:                                               ; preds = %94
+  %97 = load i32, ptr %9, align 4
+  %.not147.i = icmp eq i32 %97, 1163280727
+  br i1 %.not147.i, label %99, label %.thread.i
 
-.thread.i:                                        ; preds = %98, %96
-  %.str.23.sink.i = phi ptr [ @.str.22, %96 ], [ @.str.23, %98 ]
-  %100 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull %.str.23.sink.i) #8
+.thread.i:                                        ; preds = %96, %94
+  %.str.23.sink.i = phi ptr [ @.str.22, %94 ], [ @.str.23, %96 ]
+  %98 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull %.str.23.sink.i) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
-  br i1 %100, label %315, label %313
+  br i1 %98, label %314, label %312
 
-101:                                              ; preds = %98
+99:                                               ; preds = %96
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %104
+  br label %102
 
-102:                                              ; preds = %91
-  %103 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.24) #8
+100:                                              ; preds = %89
+  %101 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.24) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
-  br i1 %103, label %315, label %313
+  br i1 %101, label %314, label %312
 
-104:                                              ; preds = %101, %91
-  %.sroa.5.0.i = phi i32 [ %94, %101 ], [ 0, %91 ]
-  %.sroa.11.0.i = phi i64 [ %95, %101 ], [ 0, %91 ]
-  %105 = add nuw nsw i64 %.sroa.11.0.i, 4
-  %106 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i64 %105, ptr %106, align 8
-  %107 = load i32, ptr %43, align 8
-  switch i32 %107, label %110 [
-    i32 3, label %108
-    i32 4, label %117
-    i32 1, label %114
+102:                                              ; preds = %99, %89
+  %.sroa.5.0.i = phi i32 [ %92, %99 ], [ 0, %89 ]
+  %.sroa.11.0.i = phi i64 [ %93, %99 ], [ 0, %89 ]
+  %103 = add nuw nsw i64 %.sroa.11.0.i, 4
+  %104 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i64 %103, ptr %104, align 8
+  %105 = load i32, ptr %43, align 8
+  switch i32 %105, label %108 [
+    i32 3, label %106
+    i32 4, label %115
+    i32 1, label %112
   ]
 
-108:                                              ; preds = %104
-  %109 = add nuw nsw i64 %.sroa.11.0.i, 4294967295
-  br label %117
+106:                                              ; preds = %102
+  %107 = add nuw nsw i64 %.sroa.11.0.i, 4294967295
+  br label %115
 
-110:                                              ; preds = %104
-  %111 = icmp eq i32 %.sroa.5.0.i, 0
-  br i1 %111, label %112, label %114
+108:                                              ; preds = %102
+  %109 = icmp eq i32 %.sroa.5.0.i, 0
+  br i1 %109, label %110, label %112
 
-112:                                              ; preds = %110
-  %113 = add nuw nsw i64 %.sroa.11.0.i, 4294967295
-  br label %117
+110:                                              ; preds = %108
+  %111 = add nuw nsw i64 %.sroa.11.0.i, 4294967295
+  br label %115
 
-114:                                              ; preds = %110, %104
-  %115 = zext i32 %.sroa.5.0.i to i64
-  %116 = add nuw nsw i64 %.sroa.11.0.i, %115
-  br label %117
+112:                                              ; preds = %108, %102
+  %113 = zext i32 %.sroa.5.0.i to i64
+  %114 = add nuw nsw i64 %.sroa.11.0.i, %113
+  br label %115
 
-117:                                              ; preds = %114, %112, %108, %104
-  %.0138.i = phi i64 [ %113, %112 ], [ %116, %114 ], [ %109, %108 ], [ 9223372036854775807, %104 ]
-  %.0137.i = phi i1 [ false, %112 ], [ true, %114 ], [ false, %108 ], [ false, %104 ]
-  %118 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %119 = load i32, ptr %118, align 4
-  %120 = zext i32 %119 to i64
-  %121 = add nuw i64 %105, %120
-  %122 = and i32 %119, 1
-  %123 = zext nneg i32 %122 to i64
-  %124 = add nuw i64 %121, %123
-  %125 = icmp ugt i64 %.0138.i, %124
-  br i1 %125, label %.lr.ph.i, label %.loopexit.thread.i
+115:                                              ; preds = %112, %110, %106, %102
+  %.0138.i = phi i64 [ %111, %110 ], [ %114, %112 ], [ %107, %106 ], [ 9223372036854775807, %102 ]
+  %.0137.i = phi i1 [ false, %110 ], [ true, %112 ], [ false, %106 ], [ false, %102 ]
+  %116 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %117 = load i32, ptr %116, align 4
+  %118 = zext i32 %117 to i64
+  %119 = add nuw i64 %103, %118
+  %120 = and i32 %117, 1
+  %121 = zext nneg i32 %120 to i64
+  %122 = add nuw i64 %119, %121
+  %123 = icmp ugt i64 %.0138.i, %122
+  br i1 %123, label %.lr.ph.i, label %.loopexit.thread.i
 
-.lr.ph.i:                                         ; preds = %117
-  %126 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %127 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %128 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %129 = getelementptr inbounds nuw i8, ptr %11, i64 80
-  %130 = getelementptr inbounds nuw i8, ptr %11, i64 84
-  br label %131
+.lr.ph.i:                                         ; preds = %115
+  %124 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %126 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %127 = getelementptr inbounds nuw i8, ptr %11, i64 80
+  %128 = getelementptr inbounds nuw i8, ptr %11, i64 84
+  br label %129
 
-131:                                              ; preds = %204, %.lr.ph.i
-  %132 = phi i64 [ %121, %.lr.ph.i ], [ %208, %204 ]
-  %133 = phi i64 [ %120, %.lr.ph.i ], [ %207, %204 ]
-  %134 = phi i32 [ %119, %.lr.ph.i ], [ %206, %204 ]
-  %135 = phi i64 [ %105, %.lr.ph.i ], [ %205, %204 ]
-  %.sroa.9.0244.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.9.2.i, %204 ]
-  %.sroa.0.0243.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.0.2.i, %204 ]
-  %.sroa.021.0242.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.021.2.i, %204 ]
-  %.0134241.i = phi i32 [ 0, %.lr.ph.i ], [ %136, %204 ]
-  %136 = add i32 %.0134241.i, 1
+129:                                              ; preds = %202, %.lr.ph.i
+  %130 = phi i64 [ %119, %.lr.ph.i ], [ %206, %202 ]
+  %131 = phi i64 [ %118, %.lr.ph.i ], [ %205, %202 ]
+  %132 = phi i32 [ %117, %.lr.ph.i ], [ %204, %202 ]
+  %133 = phi i64 [ %103, %.lr.ph.i ], [ %203, %202 ]
+  %.sroa.9.0244.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.9.2.i, %202 ]
+  %.sroa.0.0243.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.0.2.i, %202 ]
+  %.sroa.021.0242.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.021.2.i, %202 ]
+  %.0134241.i = phi i32 [ 0, %.lr.ph.i ], [ %134, %202 ]
+  %134 = add i32 %.0134241.i, 1
   %exitcond.not.i = icmp eq i32 %.0134241.i, %.0135.i
-  br i1 %exitcond.not.i, label %137, label %139
+  br i1 %exitcond.not.i, label %135, label %137
 
-137:                                              ; preds = %131
-  %138 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.25, i32 noundef %.0135.i) #8
+135:                                              ; preds = %129
+  %136 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.25, i32 noundef %.0135.i) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
-  br i1 %138, label %315, label %313
+  br i1 %136, label %314, label %312
 
-139:                                              ; preds = %131
+137:                                              ; preds = %129
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %140 = load ptr, ptr %126, align 8
-  %.not.i.i159.i = icmp eq ptr %140, null
-  br i1 %.not.i.i159.i, label %WaveFreeChunkData.exit.i163.i, label %141
+  %138 = load ptr, ptr %124, align 8
+  %.not.i.i159.i = icmp eq ptr %138, null
+  br i1 %.not.i.i159.i, label %WaveFreeChunkData.exit.i163.i, label %139
 
-141:                                              ; preds = %139
-  call void @SDL_free_REAL(ptr noundef nonnull %140) #8
-  store ptr null, ptr %126, align 8
-  %.pre.i160.i = load i32, ptr %118, align 4
-  %.pre21.i161.i = load i64, ptr %106, align 8
+139:                                              ; preds = %137
+  call void @SDL_free_REAL(ptr noundef nonnull %138) #8
+  store ptr null, ptr %124, align 8
+  %.pre.i160.i = load i32, ptr %116, align 4
+  %.pre21.i161.i = load i64, ptr %104, align 8
   %.pre22.i162.i = zext i32 %.pre.i160.i to i64
   br label %WaveFreeChunkData.exit.i163.i
 
-WaveFreeChunkData.exit.i163.i:                    ; preds = %141, %139
-  %.pre-phi.i164.i = phi i64 [ %133, %139 ], [ %.pre22.i162.i, %141 ]
-  %142 = phi i64 [ %135, %139 ], [ %.pre21.i161.i, %141 ]
-  %143 = phi i32 [ %134, %139 ], [ %.pre.i160.i, %141 ]
-  store i64 0, ptr %127, align 8
-  %144 = xor i64 %.pre-phi.i164.i, 9223372036854775807
-  %145 = icmp slt i64 %144, %142
-  %146 = icmp sgt i64 %132, 9223372036854775799
-  %or.cond.i165.i = or i1 %146, %145
-  br i1 %or.cond.i165.i, label %153, label %147
+WaveFreeChunkData.exit.i163.i:                    ; preds = %139, %137
+  %.pre-phi.i164.i = phi i64 [ %131, %137 ], [ %.pre22.i162.i, %139 ]
+  %140 = phi i64 [ %133, %137 ], [ %.pre21.i161.i, %139 ]
+  %141 = phi i32 [ %132, %137 ], [ %.pre.i160.i, %139 ]
+  store i64 0, ptr %125, align 8
+  %142 = xor i64 %.pre-phi.i164.i, 9223372036854775807
+  %143 = icmp slt i64 %142, %140
+  %144 = icmp sgt i64 %130, 9223372036854775799
+  %or.cond.i165.i = or i1 %144, %143
+  br i1 %or.cond.i165.i, label %151, label %145
 
-147:                                              ; preds = %WaveFreeChunkData.exit.i163.i
-  %148 = and i32 %143, 1
-  %149 = zext nneg i32 %148 to i64
-  %spec.select.i166.i = add nsw i64 %132, %149
-  %150 = call i64 @SDL_SeekIO_REAL(ptr noundef nonnull %0, i64 noundef %spec.select.i166.i, i32 noundef 0) #8
-  %.not19.i167.i = icmp eq i64 %150, %spec.select.i166.i
-  br i1 %.not19.i167.i, label %151, label %153
+145:                                              ; preds = %WaveFreeChunkData.exit.i163.i
+  %146 = and i32 %141, 1
+  %147 = zext nneg i32 %146 to i64
+  %spec.select.i166.i = add nsw i64 %130, %147
+  %148 = call i64 @SDL_SeekIO_REAL(ptr noundef nonnull %0, i64 noundef %spec.select.i166.i, i32 noundef 0) #8
+  %.not19.i167.i = icmp eq i64 %148, %spec.select.i166.i
+  br i1 %.not19.i167.i, label %149, label %151
 
-151:                                              ; preds = %147
-  %152 = call i64 @SDL_ReadIO_REAL(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef 8) #8
-  %.not20.i169.i = icmp eq i64 %152, 8
-  br i1 %.not20.i169.i, label %158, label %153
+149:                                              ; preds = %145
+  %150 = call i64 @SDL_ReadIO_REAL(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef 8) #8
+  %.not20.i169.i = icmp eq i64 %150, 8
+  br i1 %.not20.i169.i, label %156, label %151
 
-153:                                              ; preds = %151, %147, %WaveFreeChunkData.exit.i163.i
+151:                                              ; preds = %149, %145, %WaveFreeChunkData.exit.i163.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %154 = load i32, ptr %58, align 4
-  %155 = icmp eq i32 %154, 1
-  br i1 %155, label %156, label %.loopexit.i
+  %152 = load i32, ptr %58, align 4
+  %153 = icmp eq i32 %152, 1
+  br i1 %153, label %154, label %.loopexit.i
 
-156:                                              ; preds = %153
-  %157 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.26) #8
+154:                                              ; preds = %151
+  %155 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.26) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
-  br i1 %157, label %315, label %313
+  br i1 %155, label %314, label %312
 
-158:                                              ; preds = %151
-  %159 = load i32, ptr %6, align 4
-  store i32 %159, ptr %11, align 8
-  %160 = load i32, ptr %128, align 4
-  store i32 %160, ptr %118, align 4
-  %161 = add nsw i64 %spec.select.i166.i, 8
-  store i64 %161, ptr %106, align 8
+156:                                              ; preds = %149
+  %157 = load i32, ptr %6, align 4
+  store i32 %157, ptr %11, align 8
+  %158 = load i32, ptr %126, align 4
+  store i32 %158, ptr %116, align 4
+  %159 = add nsw i64 %spec.select.i166.i, 8
+  store i64 %159, ptr %104, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  switch i32 %159, label %185 [
-    i32 544501094, label %162
-    i32 1635017060, label %169
-    i32 1952670054, label %171
+  switch i32 %157, label %183 [
+    i32 544501094, label %160
+    i32 1635017060, label %167
+    i32 1952670054, label %169
   ]
 
-162:                                              ; preds = %158
-  %163 = icmp eq i32 %.sroa.021.0242.i, 544501094
-  br i1 %163, label %185, label %164
+160:                                              ; preds = %156
+  %161 = icmp eq i32 %.sroa.021.0242.i, 544501094
+  br i1 %161, label %183, label %162
+
+162:                                              ; preds = %160
+  %163 = icmp eq i32 %.sroa.0.0243.i, 1635017060
+  br i1 %163, label %164, label %166
 
 164:                                              ; preds = %162
-  %165 = icmp eq i32 %.sroa.0.0243.i, 1635017060
-  br i1 %165, label %166, label %168
-
-166:                                              ; preds = %164
-  %167 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.28) #8
+  %165 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.28) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
-  br i1 %167, label %315, label %313
+  br i1 %165, label %314, label %312
 
-168:                                              ; preds = %164
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.8.i, ptr noundef nonnull align 4 dereferenceable(28) %118, i64 28, i1 false)
-  br label %185
+166:                                              ; preds = %162
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.8.i, ptr noundef nonnull align 4 dereferenceable(28) %116, i64 28, i1 false)
+  br label %183
 
-169:                                              ; preds = %158
+167:                                              ; preds = %156
   %.not149.i = icmp eq i32 %.sroa.0.0243.i, 1635017060
-  br i1 %.not149.i, label %185, label %170
+  br i1 %.not149.i, label %183, label %168
 
-170:                                              ; preds = %169
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.10.i, ptr noundef nonnull align 8 dereferenceable(24) %106, i64 24, i1 false)
-  br label %185
+168:                                              ; preds = %167
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.10.i, ptr noundef nonnull align 8 dereferenceable(24) %104, i64 24, i1 false)
+  br label %183
 
-171:                                              ; preds = %158
-  %172 = load i32, ptr %129, align 8
-  %173 = icmp eq i32 %172, 0
-  br i1 %173, label %174, label %185
+169:                                              ; preds = %156
+  %170 = load i32, ptr %127, align 8
+  %171 = icmp eq i32 %170, 0
+  br i1 %171, label %172, label %183
 
-174:                                              ; preds = %171
-  %175 = icmp ult i32 %160, 4
-  br i1 %175, label %176, label %177
+172:                                              ; preds = %169
+  %173 = icmp ult i32 %158, 4
+  br i1 %173, label %174, label %175
 
-176:                                              ; preds = %174
-  store i32 -1, ptr %129, align 8
-  br label %185
+174:                                              ; preds = %172
+  store i32 -1, ptr %127, align 8
+  br label %183
 
-177:                                              ; preds = %174
-  %178 = call i64 @SDL_SeekIO_REAL(ptr noundef nonnull %0, i64 noundef %161, i32 noundef 0) #8
-  %179 = load i64, ptr %106, align 8
-  %180 = icmp eq i64 %178, %179
-  br i1 %180, label %181, label %183
+175:                                              ; preds = %172
+  %176 = call i64 @SDL_SeekIO_REAL(ptr noundef nonnull %0, i64 noundef %159, i32 noundef 0) #8
+  %177 = load i64, ptr %104, align 8
+  %178 = icmp eq i64 %176, %177
+  br i1 %178, label %179, label %181
 
-181:                                              ; preds = %177
-  %182 = call zeroext i1 @SDL_ReadU32LE_REAL(ptr noundef nonnull %0, ptr noundef nonnull %130) #8
-  br i1 %182, label %184, label %183
+179:                                              ; preds = %175
+  %180 = call zeroext i1 @SDL_ReadU32LE_REAL(ptr noundef nonnull %0, ptr noundef nonnull %128) #8
+  br i1 %180, label %182, label %181
 
-183:                                              ; preds = %181, %177
-  br label %184
+181:                                              ; preds = %179, %175
+  br label %182
 
-184:                                              ; preds = %183, %181
-  %storemerge.i = phi i32 [ -1, %183 ], [ 1, %181 ]
-  store i32 %storemerge.i, ptr %129, align 8
-  br label %185
+182:                                              ; preds = %181, %179
+  %storemerge.i = phi i32 [ -1, %181 ], [ 1, %179 ]
+  store i32 %storemerge.i, ptr %127, align 8
+  br label %183
 
-185:                                              ; preds = %184, %176, %171, %170, %169, %168, %162, %158
-  %.sroa.021.2.i = phi i32 [ 544501094, %162 ], [ 544501094, %168 ], [ %.sroa.021.0242.i, %170 ], [ %.sroa.021.0242.i, %169 ], [ %.sroa.021.0242.i, %176 ], [ %.sroa.021.0242.i, %184 ], [ %.sroa.021.0242.i, %171 ], [ %.sroa.021.0242.i, %158 ]
-  %.sroa.0.2.i = phi i32 [ %.sroa.0.0243.i, %162 ], [ %.sroa.0.0243.i, %168 ], [ 1635017060, %170 ], [ 1635017060, %169 ], [ %.sroa.0.0243.i, %176 ], [ %.sroa.0.0243.i, %184 ], [ %.sroa.0.0243.i, %171 ], [ %.sroa.0.0243.i, %158 ]
-  %.sroa.9.2.i = phi i32 [ %.sroa.9.0244.i, %162 ], [ %.sroa.9.0244.i, %168 ], [ %160, %170 ], [ %.sroa.9.0244.i, %169 ], [ %.sroa.9.0244.i, %176 ], [ %.sroa.9.0244.i, %184 ], [ %.sroa.9.0244.i, %171 ], [ %.sroa.9.0244.i, %158 ]
-  %186 = load i32, ptr %58, align 4
-  %187 = icmp eq i32 %186, 1
-  br i1 %187, label %188, label %196
+183:                                              ; preds = %182, %174, %169, %168, %167, %166, %160, %156
+  %.sroa.021.2.i = phi i32 [ 544501094, %160 ], [ 544501094, %166 ], [ %.sroa.021.0242.i, %168 ], [ %.sroa.021.0242.i, %167 ], [ %.sroa.021.0242.i, %174 ], [ %.sroa.021.0242.i, %182 ], [ %.sroa.021.0242.i, %169 ], [ %.sroa.021.0242.i, %156 ]
+  %.sroa.0.2.i = phi i32 [ %.sroa.0.0243.i, %160 ], [ %.sroa.0.0243.i, %166 ], [ 1635017060, %168 ], [ 1635017060, %167 ], [ %.sroa.0.0243.i, %174 ], [ %.sroa.0.0243.i, %182 ], [ %.sroa.0.0243.i, %169 ], [ %.sroa.0.0243.i, %156 ]
+  %.sroa.9.2.i = phi i32 [ %.sroa.9.0244.i, %160 ], [ %.sroa.9.0244.i, %166 ], [ %158, %168 ], [ %.sroa.9.0244.i, %167 ], [ %.sroa.9.0244.i, %174 ], [ %.sroa.9.0244.i, %182 ], [ %.sroa.9.0244.i, %169 ], [ %.sroa.9.0244.i, %156 ]
+  %184 = load i32, ptr %58, align 4
+  %185 = icmp eq i32 %184, 1
+  br i1 %185, label %186, label %194
 
-188:                                              ; preds = %185
-  %189 = load i64, ptr %106, align 8
-  %190 = load i32, ptr %118, align 4
-  %191 = zext i32 %190 to i64
-  %192 = add i64 %189, %191
-  %193 = icmp ult i64 %.0138.i, %192
-  br i1 %193, label %194, label %204
+186:                                              ; preds = %183
+  %187 = load i64, ptr %104, align 8
+  %188 = load i32, ptr %116, align 4
+  %189 = zext i32 %188 to i64
+  %190 = add i64 %187, %189
+  %191 = icmp ult i64 %.0138.i, %190
+  br i1 %191, label %192, label %202
 
-194:                                              ; preds = %188
-  %195 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.29) #8
+192:                                              ; preds = %186
+  %193 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.29) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
-  br i1 %195, label %315, label %313
+  br i1 %193, label %314, label %312
 
-196:                                              ; preds = %185
-  %197 = icmp eq i32 %.sroa.021.2.i, 544501094
-  %198 = icmp eq i32 %.sroa.0.2.i, 1635017060
-  %or.cond.i = select i1 %197, i1 %198, i1 false
-  br i1 %or.cond.i, label %199, label %204
+194:                                              ; preds = %183
+  %195 = icmp eq i32 %.sroa.021.2.i, 544501094
+  %196 = icmp eq i32 %.sroa.0.2.i, 1635017060
+  %or.cond.i = select i1 %195, i1 %196, i1 false
+  br i1 %or.cond.i, label %197, label %202
 
-199:                                              ; preds = %196
-  %200 = load i32, ptr %129, align 8
-  %201 = icmp eq i32 %200, 1
-  br i1 %201, label %.thread283.i, label %202
+197:                                              ; preds = %194
+  %198 = load i32, ptr %127, align 8
+  %199 = icmp eq i32 %198, 1
+  br i1 %199, label %.thread283.i, label %200
 
-202:                                              ; preds = %199
-  %203 = load i32, ptr %73, align 8
-  switch i32 %203, label %204 [
+200:                                              ; preds = %197
+  %201 = load i32, ptr %73, align 8
+  switch i32 %201, label %202 [
     i32 4, label %.thread283.i
     i32 0, label %.thread283.i
   ]
 
-204:                                              ; preds = %202, %196, %188
-  %205 = load i64, ptr %106, align 8
-  %206 = load i32, ptr %118, align 4
-  %207 = zext i32 %206 to i64
-  %208 = add i64 %205, %207
-  %209 = and i32 %206, 1
-  %210 = zext nneg i32 %209 to i64
-  %211 = add i64 %208, %210
-  %212 = icmp ugt i64 %.0138.i, %211
-  br i1 %212, label %131, label %.loopexit.i.loopexit, !llvm.loop !3
+202:                                              ; preds = %200, %194, %186
+  %203 = load i64, ptr %104, align 8
+  %204 = load i32, ptr %116, align 4
+  %205 = zext i32 %204 to i64
+  %206 = add i64 %203, %205
+  %207 = and i32 %204, 1
+  %208 = zext nneg i32 %207 to i64
+  %209 = add i64 %206, %208
+  %210 = icmp ugt i64 %.0138.i, %209
+  br i1 %210, label %129, label %.loopexit.i.loopexit, !llvm.loop !3
 
-.thread283.i:                                     ; preds = %202, %202, %199
-  %213 = load i64, ptr %106, align 8
-  %214 = load i32, ptr %118, align 4
-  %215 = zext i32 %214 to i64
-  %216 = add i64 %213, %215
-  br label %237
+.thread283.i:                                     ; preds = %200, %200, %197
+  %211 = load i64, ptr %104, align 8
+  %212 = load i32, ptr %116, align 4
+  %213 = zext i32 %212 to i64
+  %214 = add i64 %211, %213
+  br label %236
 
-.loopexit.i.loopexit:                             ; preds = %204
-  %217 = icmp eq i32 %186, 1
+.loopexit.i.loopexit:                             ; preds = %202
+  %215 = icmp eq i32 %184, 1
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %.loopexit.i.loopexit, %153
-  %.pre.i = phi i1 [ false, %153 ], [ %217, %.loopexit.i.loopexit ]
-  %.sroa.021.0239.i = phi i32 [ %.sroa.021.0242.i, %153 ], [ %.sroa.021.2.i, %.loopexit.i.loopexit ]
-  %.sroa.0.0233.i = phi i32 [ %.sroa.0.0243.i, %153 ], [ %.sroa.0.2.i, %.loopexit.i.loopexit ]
-  %.sroa.9.0227.i = phi i32 [ %.sroa.9.0244.i, %153 ], [ %.sroa.9.2.i, %.loopexit.i.loopexit ]
+.loopexit.i:                                      ; preds = %.loopexit.i.loopexit, %151
+  %.pre.i = phi i1 [ false, %151 ], [ %215, %.loopexit.i.loopexit ]
+  %.sroa.021.0239.i = phi i32 [ %.sroa.021.0242.i, %151 ], [ %.sroa.021.2.i, %.loopexit.i.loopexit ]
+  %.sroa.0.0233.i = phi i32 [ %.sroa.0.0243.i, %151 ], [ %.sroa.0.2.i, %.loopexit.i.loopexit ]
+  %.sroa.9.0227.i = phi i32 [ %.sroa.9.0244.i, %151 ], [ %.sroa.9.2.i, %.loopexit.i.loopexit ]
   %.not150.i = icmp eq i32 %.sroa.021.0239.i, 544501094
-  br i1 %.not150.i, label %219, label %.loopexit.thread.i
+  br i1 %.not150.i, label %217, label %.loopexit.thread.i
 
-.loopexit.thread.i:                               ; preds = %.loopexit.i, %117
-  %218 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.30) #8
+.loopexit.thread.i:                               ; preds = %.loopexit.i, %115
+  %216 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.30) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
-  br i1 %218, label %315, label %313
+  br i1 %216, label %314, label %312
 
-219:                                              ; preds = %.loopexit.i
+217:                                              ; preds = %.loopexit.i
   %.not151.i = icmp eq i32 %.sroa.0.0233.i, 1635017060
-  br i1 %.not151.i, label %222, label %220
+  br i1 %.not151.i, label %220, label %218
 
-220:                                              ; preds = %219
-  %221 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.31) #8
+218:                                              ; preds = %217
+  %219 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.31) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
-  br i1 %221, label %315, label %313
+  br i1 %219, label %314, label %312
 
-222:                                              ; preds = %219
-  %223 = load i64, ptr %106, align 8
-  %224 = load i32, ptr %118, align 4
-  %225 = zext i32 %224 to i64
-  %226 = add i64 %223, %225
-  br i1 %.pre.i, label %227, label %237
+220:                                              ; preds = %217
+  %221 = load i64, ptr %104, align 8
+  %222 = load i32, ptr %116, align 4
+  %223 = zext i32 %222 to i64
+  %224 = add i64 %221, %223
+  br i1 %.pre.i, label %225, label %236
 
-227:                                              ; preds = %222
-  %228 = load i32, ptr %11, align 8
-  %.not152.i = icmp eq i32 %228, 1635017060
-  %.not153.i = icmp eq i32 %224, 0
+225:                                              ; preds = %220
+  %226 = load i32, ptr %11, align 8
+  %.not152.i = icmp eq i32 %226, 1635017060
+  %.not153.i = icmp eq i32 %222, 0
   %or.cond158.i = select i1 %.not152.i, i1 true, i1 %.not153.i
-  br i1 %or.cond158.i, label %237, label %229
+  br i1 %or.cond158.i, label %236, label %227
 
-229:                                              ; preds = %227
+227:                                              ; preds = %225
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %230 = add i64 %226, -1
-  %231 = icmp slt i64 %230, 0
-  br i1 %231, label %WaveLoad.exit, label %232
+  %228 = add i64 %224, -1
+  %229 = icmp slt i64 %228, 0
+  br i1 %229, label %.thread213.i, label %230
 
-232:                                              ; preds = %229
-  %233 = call i64 @SDL_SeekIO_REAL(ptr noundef nonnull %0, i64 noundef %230, i32 noundef 0) #8
-  %.not154.i = icmp eq i64 %233, %230
-  br i1 %.not154.i, label %234, label %WaveLoad.exit
+230:                                              ; preds = %227
+  %231 = call i64 @SDL_SeekIO_REAL(ptr noundef nonnull %0, i64 noundef %228, i32 noundef 0) #8
+  %.not154.i = icmp eq i64 %231, %228
+  br i1 %.not154.i, label %232, label %.thread213.i
 
-234:                                              ; preds = %232
-  %235 = call zeroext i1 @SDL_ReadU8_REAL(ptr noundef nonnull %0, ptr noundef nonnull %10) #8
-  br i1 %235, label %236, label %WaveLoad.exit
+232:                                              ; preds = %230
+  %233 = call zeroext i1 @SDL_ReadU8_REAL(ptr noundef nonnull %0, ptr noundef nonnull %10) #8
+  br i1 %233, label %235, label %.thread213.i
 
-236:                                              ; preds = %234
+.thread213.i:                                     ; preds = %232, %230, %227
+  %.str.32.sink.i = phi ptr [ @.str.32, %227 ], [ @.str.32, %230 ], [ @.str.29, %232 ]
+  %234 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull %.str.32.sink.i) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %237
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
+  br i1 %234, label %314, label %312
 
-237:                                              ; preds = %236, %227, %222, %.thread283.i
-  %238 = phi i64 [ %216, %.thread283.i ], [ %226, %236 ], [ %226, %227 ], [ %226, %222 ]
-  %.sroa.9.1206211285.i = phi i32 [ %.sroa.9.2.i, %.thread283.i ], [ %.sroa.9.0227.i, %236 ], [ %.sroa.9.0227.i, %227 ], [ %.sroa.9.0227.i, %222 ]
+235:                                              ; preds = %232
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  br label %236
+
+236:                                              ; preds = %235, %225, %220, %.thread283.i
+  %237 = phi i64 [ %214, %.thread283.i ], [ %224, %235 ], [ %224, %225 ], [ %224, %220 ]
+  %.sroa.9.1206211285.i = phi i32 [ %.sroa.9.2.i, %.thread283.i ], [ %.sroa.9.0227.i, %235 ], [ %.sroa.9.0227.i, %225 ], [ %.sroa.9.0227.i, %220 ]
   store i32 544501094, ptr %11, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %118, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.8.i, i64 28, i1 false)
-  %239 = load ptr, ptr %126, align 8
-  %.not.i.i171.i = icmp eq ptr %239, null
-  br i1 %.not.i.i171.i, label %WaveFreeChunkData.exit.i172.i, label %240
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %116, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.8.i, i64 28, i1 false)
+  %238 = load ptr, ptr %124, align 8
+  %.not.i.i171.i = icmp eq ptr %238, null
+  br i1 %.not.i.i171.i, label %WaveFreeChunkData.exit.i172.i, label %239
 
-240:                                              ; preds = %237
-  call void @SDL_free_REAL(ptr noundef nonnull %239) #8
-  store ptr null, ptr %126, align 8
+239:                                              ; preds = %236
+  call void @SDL_free_REAL(ptr noundef nonnull %238) #8
+  store ptr null, ptr %124, align 8
   br label %WaveFreeChunkData.exit.i172.i
 
-WaveFreeChunkData.exit.i172.i:                    ; preds = %240, %237
-  store i64 0, ptr %127, align 8
-  %241 = load i32, ptr %118, align 4
-  %242 = call i32 @llvm.umin.i32(i32 %241, i32 1046)
-  %spec.select.i173.i = zext nneg i32 %242 to i64
-  %.not.i.i = icmp eq i32 %241, 0
-  br i1 %.not.i.i, label %.critedge.i, label %243
+WaveFreeChunkData.exit.i172.i:                    ; preds = %239, %236
+  store i64 0, ptr %125, align 8
+  %240 = load i32, ptr %116, align 4
+  %241 = call i32 @llvm.umin.i32(i32 %240, i32 1046)
+  %spec.select.i173.i = zext nneg i32 %241 to i64
+  %.not.i.i = icmp eq i32 %240, 0
+  br i1 %.not.i.i, label %.critedge.i, label %242
 
-243:                                              ; preds = %WaveFreeChunkData.exit.i172.i
-  %244 = call noalias ptr @SDL_malloc_REAL(i64 noundef %spec.select.i173.i) #8
-  store ptr %244, ptr %126, align 8
-  %.not20.i174.i = icmp eq ptr %244, null
-  br i1 %.not20.i174.i, label %252, label %245
+242:                                              ; preds = %WaveFreeChunkData.exit.i172.i
+  %243 = call noalias ptr @SDL_malloc_REAL(i64 noundef %spec.select.i173.i) #8
+  store ptr %243, ptr %124, align 8
+  %.not20.i174.i = icmp eq ptr %243, null
+  br i1 %.not20.i174.i, label %251, label %244
 
-245:                                              ; preds = %243
-  %246 = load i64, ptr %106, align 8
-  %247 = call i64 @SDL_SeekIO_REAL(ptr noundef nonnull %0, i64 noundef %246, i32 noundef 0) #8
-  %248 = load i64, ptr %106, align 8
-  %.not21.i.i = icmp eq i64 %247, %248
-  br i1 %.not21.i.i, label %WaveReadPartialChunkData.exit.i, label %252
+244:                                              ; preds = %242
+  %245 = load i64, ptr %104, align 8
+  %246 = call i64 @SDL_SeekIO_REAL(ptr noundef nonnull %0, i64 noundef %245, i32 noundef 0) #8
+  %247 = load i64, ptr %104, align 8
+  %.not21.i.i = icmp eq i64 %246, %247
+  br i1 %.not21.i.i, label %WaveReadPartialChunkData.exit.i, label %251
 
-WaveReadPartialChunkData.exit.i:                  ; preds = %245
-  %249 = load ptr, ptr %126, align 8
-  %250 = call i64 @SDL_ReadIO_REAL(ptr noundef nonnull %0, ptr noundef %249, i64 noundef %spec.select.i173.i) #8
-  store i64 %250, ptr %127, align 8
-  %.pr.i = load i32, ptr %118, align 4
-  %251 = icmp ult i32 %.pr.i, 14
-  br i1 %251, label %.critedge.i, label %255
+WaveReadPartialChunkData.exit.i:                  ; preds = %244
+  %248 = load ptr, ptr %124, align 8
+  %249 = call i64 @SDL_ReadIO_REAL(ptr noundef nonnull %0, ptr noundef %248, i64 noundef %spec.select.i173.i) #8
+  store i64 %249, ptr %125, align 8
+  %.pr.i = load i32, ptr %116, align 4
+  %250 = icmp ult i32 %.pr.i, 14
+  br i1 %250, label %.critedge.i, label %254
 
-252:                                              ; preds = %245, %243
-  %253 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.33) #8
+251:                                              ; preds = %244, %242
+  %252 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.33) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
-  br i1 %253, label %315, label %313
+  br i1 %252, label %314, label %312
 
 .critedge.i:                                      ; preds = %WaveReadPartialChunkData.exit.i, %WaveFreeChunkData.exit.i172.i
-  %254 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.34) #8
+  %253 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.34) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
-  br i1 %254, label %315, label %313
+  br i1 %253, label %314, label %312
 
-255:                                              ; preds = %WaveReadPartialChunkData.exit.i
-  %256 = icmp ult i64 %250, 14
-  br i1 %256, label %257, label %259
+254:                                              ; preds = %WaveReadPartialChunkData.exit.i
+  %255 = icmp ult i64 %249, 14
+  br i1 %255, label %256, label %258
 
-257:                                              ; preds = %255
-  %258 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.33) #8
+256:                                              ; preds = %254
+  %257 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.33) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
-  br i1 %258, label %315, label %313
+  br i1 %257, label %314, label %312
 
-259:                                              ; preds = %255
-  %260 = call fastcc zeroext i1 @WaveReadFormat(ptr noundef nonnull %11)
-  br i1 %260, label %261, label %WaveLoad.exit.thread
+258:                                              ; preds = %254
+  %259 = call fastcc zeroext i1 @WaveReadFormat(ptr noundef nonnull %11)
+  br i1 %259, label %260, label %WaveLoad.exit.thread
 
-261:                                              ; preds = %259
-  %262 = zext i32 %.sroa.9.1206211285.i to i64
-  %263 = call fastcc zeroext i1 @WaveCheckFormat(ptr noundef nonnull %11, i64 noundef %262)
-  br i1 %263, label %264, label %WaveLoad.exit.thread
+260:                                              ; preds = %258
+  %261 = zext i32 %.sroa.9.1206211285.i to i64
+  %262 = call fastcc zeroext i1 @WaveCheckFormat(ptr noundef nonnull %11, i64 noundef %261)
+  br i1 %262, label %263, label %WaveLoad.exit.thread
 
-264:                                              ; preds = %261
-  %265 = load ptr, ptr %126, align 8
-  %.not.i176.i = icmp eq ptr %265, null
-  br i1 %.not.i176.i, label %WaveFreeChunkData.exit.i, label %266
+263:                                              ; preds = %260
+  %264 = load ptr, ptr %124, align 8
+  %.not.i176.i = icmp eq ptr %264, null
+  br i1 %.not.i176.i, label %WaveFreeChunkData.exit.i, label %265
 
-266:                                              ; preds = %264
-  call void @SDL_free_REAL(ptr noundef nonnull %265) #8
+265:                                              ; preds = %263
+  call void @SDL_free_REAL(ptr noundef nonnull %264) #8
   br label %WaveFreeChunkData.exit.i
 
-WaveFreeChunkData.exit.i:                         ; preds = %266, %264
+WaveFreeChunkData.exit.i:                         ; preds = %265, %263
   store i32 1635017060, ptr %11, align 8
-  store i32 %.sroa.9.1206211285.i, ptr %118, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %106, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.10.i, i64 24, i1 false)
+  store i32 %.sroa.9.1206211285.i, ptr %116, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %104, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.10.i, i64 24, i1 false)
   %.not155.i = icmp eq i32 %.sroa.9.1206211285.i, 0
-  br i1 %.not155.i, label %271, label %267
+  br i1 %.not155.i, label %270, label %266
 
-267:                                              ; preds = %WaveFreeChunkData.exit.i
-  %268 = call fastcc i32 @WaveReadChunkData(ptr noundef nonnull %0, ptr noundef nonnull %11)
-  %269 = icmp slt i32 %268, 0
-  br i1 %269, label %WaveLoad.exit.thread, label %._crit_edge269.i
+266:                                              ; preds = %WaveFreeChunkData.exit.i
+  %267 = call fastcc i32 @WaveReadChunkData(ptr noundef nonnull %0, ptr noundef nonnull %11)
+  %268 = icmp slt i32 %267, 0
+  br i1 %268, label %WaveLoad.exit.thread, label %._crit_edge269.i
 
-._crit_edge269.i:                                 ; preds = %267
-  %.pre270.i = load i32, ptr %118, align 4
-  %270 = zext i32 %.pre270.i to i64
-  br label %271
+._crit_edge269.i:                                 ; preds = %266
+  %.pre270.i = load i32, ptr %116, align 4
+  %269 = zext i32 %.pre270.i to i64
+  br label %270
 
-271:                                              ; preds = %._crit_edge269.i, %WaveFreeChunkData.exit.i
-  %272 = phi i64 [ %270, %._crit_edge269.i ], [ 0, %WaveFreeChunkData.exit.i ]
-  %273 = load i64, ptr %127, align 8
-  %.not156.i = icmp eq i64 %273, %272
-  br i1 %.not156.i, label %278, label %274
+270:                                              ; preds = %._crit_edge269.i, %WaveFreeChunkData.exit.i
+  %271 = phi i64 [ %269, %._crit_edge269.i ], [ 0, %WaveFreeChunkData.exit.i ]
+  %272 = load i64, ptr %125, align 8
+  %.not156.i = icmp eq i64 %272, %271
+  br i1 %.not156.i, label %277, label %273
 
-274:                                              ; preds = %271
-  %275 = load i32, ptr %58, align 4
-  %.off.i = add i32 %275, -1
+273:                                              ; preds = %270
+  %274 = load i32, ptr %58, align 4
+  %.off.i = add i32 %274, -1
   %switch.i = icmp ult i32 %.off.i, 2
-  br i1 %switch.i, label %276, label %278
+  br i1 %switch.i, label %275, label %277
 
-276:                                              ; preds = %274
-  %277 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.36) #8
+275:                                              ; preds = %273
+  %276 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.36) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
-  br i1 %277, label %315, label %313
+  br i1 %276, label %314, label %312
 
-278:                                              ; preds = %274, %271
-  %279 = getelementptr inbounds nuw i8, ptr %11, i64 34
-  %280 = load i16, ptr %279, align 2
-  switch i16 %280, label %289 [
-    i16 1, label %281
-    i16 3, label %281
-    i16 6, label %283
-    i16 7, label %283
-    i16 2, label %285
-    i16 17, label %287
+277:                                              ; preds = %273, %270
+  %278 = getelementptr inbounds nuw i8, ptr %11, i64 34
+  %279 = load i16, ptr %278, align 2
+  switch i16 %279, label %288 [
+    i16 1, label %280
+    i16 3, label %280
+    i16 6, label %282
+    i16 7, label %282
+    i16 2, label %284
+    i16 17, label %286
   ]
 
-281:                                              ; preds = %278, %278
-  %282 = call fastcc zeroext i1 @PCM_Decode(ptr noundef nonnull %11, ptr noundef nonnull %3, ptr noundef nonnull %4)
-  br i1 %282, label %289, label %WaveLoad.exit.thread
+280:                                              ; preds = %277, %277
+  %281 = call fastcc zeroext i1 @PCM_Decode(ptr noundef nonnull %11, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  br i1 %281, label %288, label %WaveLoad.exit.thread
 
-283:                                              ; preds = %278, %278
-  %284 = call fastcc zeroext i1 @LAW_Decode(ptr noundef nonnull %11, ptr noundef nonnull %3, ptr noundef nonnull %4)
-  br i1 %284, label %289, label %WaveLoad.exit.thread
+282:                                              ; preds = %277, %277
+  %283 = call fastcc zeroext i1 @LAW_Decode(ptr noundef nonnull %11, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  br i1 %283, label %288, label %WaveLoad.exit.thread
 
-285:                                              ; preds = %278
-  %286 = call fastcc zeroext i1 @MS_ADPCM_Decode(ptr noundef nonnull %11, ptr noundef nonnull %3, ptr noundef nonnull %4)
-  br i1 %286, label %289, label %WaveLoad.exit.thread
+284:                                              ; preds = %277
+  %285 = call fastcc zeroext i1 @MS_ADPCM_Decode(ptr noundef nonnull %11, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  br i1 %285, label %288, label %WaveLoad.exit.thread
 
-287:                                              ; preds = %278
-  %288 = call fastcc zeroext i1 @IMA_ADPCM_Decode(ptr noundef nonnull %11, ptr noundef nonnull %3, ptr noundef nonnull %4)
-  br i1 %288, label %289, label %WaveLoad.exit.thread
+286:                                              ; preds = %277
+  %287 = call fastcc zeroext i1 @IMA_ADPCM_Decode(ptr noundef nonnull %11, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  br i1 %287, label %288, label %WaveLoad.exit.thread
 
-289:                                              ; preds = %287, %285, %283, %281, %278
-  %290 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %291 = load i32, ptr %290, align 8
-  %292 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 %291, ptr %292, align 4
-  %293 = getelementptr inbounds nuw i8, ptr %11, i64 36
-  %294 = load i16, ptr %293, align 4
-  %295 = and i16 %294, 255
-  %296 = zext nneg i16 %295 to i32
-  %297 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 %296, ptr %297, align 4
+288:                                              ; preds = %286, %284, %282, %280, %277
+  %289 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %290 = load i32, ptr %289, align 8
+  %291 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i32 %290, ptr %291, align 4
+  %292 = getelementptr inbounds nuw i8, ptr %11, i64 36
+  %293 = load i16, ptr %292, align 4
+  %294 = and i16 %293, 255
+  %295 = zext nneg i16 %294 to i32
+  %296 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  store i32 %295, ptr %296, align 4
   store i32 0, ptr %2, align 4
-  %298 = load i16, ptr %279, align 2
-  switch i16 %298, label %309 [
+  %297 = load i16, ptr %278, align 2
+  switch i16 %297, label %308 [
     i16 2, label %WaveLoad.exit.thread41
     i16 17, label %WaveLoad.exit.thread41
     i16 6, label %WaveLoad.exit.thread41
     i16 7, label %WaveLoad.exit.thread41
-    i16 3, label %299
-    i16 1, label %300
+    i16 3, label %298
+    i16 1, label %299
   ]
 
-299:                                              ; preds = %289
+298:                                              ; preds = %288
   br label %WaveLoad.exit.thread41
 
-300:                                              ; preds = %289
-  %301 = getelementptr inbounds nuw i8, ptr %11, i64 50
-  %302 = load i16, ptr %301, align 2
-  %303 = zext i16 %302 to i32
-  %304 = add nsw i32 %303, -8
-  %305 = call i32 @llvm.fshl.i32(i32 %304, i32 %304, i32 29)
-  %306 = icmp ult i32 %305, 4
-  br i1 %306, label %switch.lookup, label %307
+299:                                              ; preds = %288
+  %300 = getelementptr inbounds nuw i8, ptr %11, i64 50
+  %301 = load i16, ptr %300, align 2
+  %302 = zext i16 %301 to i32
+  %303 = add nsw i32 %302, -8
+  %304 = call i32 @llvm.fshl.i32(i32 %303, i32 %303, i32 29)
+  %305 = icmp ult i32 %304, 4
+  br i1 %305, label %switch.lookup, label %306
 
-307:                                              ; preds = %300
-  %308 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.37, i32 noundef %303) #8
+306:                                              ; preds = %299
+  %307 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.37, i32 noundef %302) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
-  br i1 %308, label %315, label %313
+  br i1 %307, label %314, label %312
 
-309:                                              ; preds = %289
-  %310 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.38) #8
+308:                                              ; preds = %288
+  %309 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.38) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
-  br i1 %310, label %315, label %313
+  br i1 %309, label %314, label %312
 
-switch.lookup:                                    ; preds = %300
-  %311 = zext nneg i32 %305 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.SDL_LoadWAV_IO_REAL, i64 %311
+switch.lookup:                                    ; preds = %299
+  %310 = zext nneg i32 %304 to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.SDL_LoadWAV_IO_REAL, i64 %310
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %WaveLoad.exit.thread41
 
-WaveLoad.exit.thread41:                           ; preds = %switch.lookup, %289, %289, %289, %289, %299
-  %.sink.i = phi i32 [ 33056, %299 ], [ 32784, %289 ], [ 32784, %289 ], [ 32784, %289 ], [ 32784, %289 ], [ %switch.load, %switch.lookup ]
+WaveLoad.exit.thread41:                           ; preds = %switch.lookup, %288, %288, %288, %288, %298
+  %.sink.i = phi i32 [ 32784, %288 ], [ %switch.load, %switch.lookup ], [ 32784, %288 ], [ 33056, %298 ], [ 32784, %288 ], [ 32784, %288 ]
   store i32 %.sink.i, ptr %2, align 4
-  %.0138..i = select i1 %.0137.i, i64 %.0138.i, i64 %238
-  store i64 %.0138..i, ptr %106, align 8
+  %.0138..i = select i1 %.0137.i, i64 %.0138.i, i64 %237
+  store i64 %.0138..i, ptr %104, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
-  br label %315
+  br label %314
 
-WaveLoad.exit.thread:                             ; preds = %259, %261, %267, %281, %283, %285, %287
+WaveLoad.exit.thread:                             ; preds = %260, %266, %280, %282, %284, %258, %286
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
-  br label %313
+  br label %312
 
-WaveLoad.exit:                                    ; preds = %229, %232, %234
-  %.str.32.sink.i = phi ptr [ @.str.32, %232 ], [ @.str.32, %229 ], [ @.str.29, %234 ]
-  %312 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull %.str.32.sink.i) #8
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+WaveLoad.exit:                                    ; preds = %WaveFreeChunkData.exit.i.i, %85, %87
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  %311 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
-  br i1 %312, label %315, label %313
+  br i1 %311, label %314, label %312
 
-313:                                              ; preds = %.thread.i, %102, %166, %194, %307, %309, %276, %257, %.critedge.i, %252, %220, %.loopexit.thread.i, %156, %137, %89, %82, %WaveLoad.exit.thread, %WaveLoad.exit
-  %314 = load ptr, ptr %3, align 8
-  call void @SDL_free_REAL(ptr noundef %314) #8
-  br label %315
+312:                                              ; preds = %135, %154, %.loopexit.thread.i, %218, %251, %.critedge.i, %256, %100, %.thread.i, %275, %308, %.thread213.i, %306, %192, %164, %82, %WaveLoad.exit.thread, %WaveLoad.exit
+  %313 = load ptr, ptr %3, align 8
+  call void @SDL_free_REAL(ptr noundef %313) #8
+  br label %314
 
-315:                                              ; preds = %.thread.i, %102, %166, %194, %307, %309, %276, %257, %.critedge.i, %252, %220, %.loopexit.thread.i, %156, %137, %89, %82, %WaveLoad.exit.thread41, %313, %WaveLoad.exit
-  %.0.i3640 = phi i1 [ false, %313 ], [ true, %WaveLoad.exit ], [ true, %WaveLoad.exit.thread41 ], [ true, %82 ], [ true, %89 ], [ true, %137 ], [ true, %156 ], [ true, %.loopexit.thread.i ], [ true, %220 ], [ true, %252 ], [ true, %.critedge.i ], [ true, %257 ], [ true, %276 ], [ true, %309 ], [ true, %307 ], [ true, %194 ], [ true, %166 ], [ true, %102 ], [ true, %.thread.i ]
-  br i1 %1, label %320, label %316
+314:                                              ; preds = %135, %154, %.loopexit.thread.i, %218, %251, %.critedge.i, %256, %100, %.thread.i, %275, %308, %.thread213.i, %306, %192, %164, %82, %WaveLoad.exit.thread41, %312, %WaveLoad.exit
+  %.0.i3640 = phi i1 [ false, %312 ], [ true, %WaveLoad.exit ], [ true, %WaveLoad.exit.thread41 ], [ true, %82 ], [ true, %164 ], [ true, %192 ], [ true, %306 ], [ true, %.thread213.i ], [ true, %308 ], [ true, %275 ], [ true, %.thread.i ], [ true, %100 ], [ true, %256 ], [ true, %.critedge.i ], [ true, %251 ], [ true, %218 ], [ true, %.loopexit.thread.i ], [ true, %154 ], [ true, %135 ]
+  br i1 %1, label %319, label %315
 
-316:                                              ; preds = %315
-  %317 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %318 = load i64, ptr %317, align 8
-  %319 = call i64 @SDL_SeekIO_REAL(ptr noundef nonnull %0, i64 noundef %318, i32 noundef 0) #8
-  br label %320
+315:                                              ; preds = %314
+  %316 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %317 = load i64, ptr %316, align 8
+  %318 = call i64 @SDL_SeekIO_REAL(ptr noundef nonnull %0, i64 noundef %317, i32 noundef 0) #8
+  br label %319
 
-320:                                              ; preds = %316, %315
-  %321 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %322 = load ptr, ptr %321, align 8
-  %.not.i37 = icmp eq ptr %322, null
-  br i1 %.not.i37, label %WaveFreeChunkData.exit, label %323
+319:                                              ; preds = %315, %314
+  %320 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %321 = load ptr, ptr %320, align 8
+  %.not.i37 = icmp eq ptr %321, null
+  br i1 %.not.i37, label %WaveFreeChunkData.exit, label %322
 
-323:                                              ; preds = %320
-  call void @SDL_free_REAL(ptr noundef nonnull %322) #8
-  store ptr null, ptr %321, align 8
+322:                                              ; preds = %319
+  call void @SDL_free_REAL(ptr noundef nonnull %321) #8
+  store ptr null, ptr %320, align 8
   br label %WaveFreeChunkData.exit
 
-WaveFreeChunkData.exit:                           ; preds = %320, %323
-  %324 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store i64 0, ptr %324, align 8
-  %325 = getelementptr inbounds nuw i8, ptr %11, i64 96
-  %326 = load ptr, ptr %325, align 8
-  call void @SDL_free_REAL(ptr noundef %326) #8
-  br label %327
+WaveFreeChunkData.exit:                           ; preds = %319, %322
+  %323 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  store i64 0, ptr %323, align 8
+  %324 = getelementptr inbounds nuw i8, ptr %11, i64 96
+  %325 = load ptr, ptr %324, align 8
+  call void @SDL_free_REAL(ptr noundef %325) #8
+  br label %326
 
-327:                                              ; preds = %WaveFreeChunkData.exit, %26, %23, %20
+326:                                              ; preds = %WaveFreeChunkData.exit, %26, %23, %20
   %.0 = phi i1 [ %.0.i3640, %WaveFreeChunkData.exit ], [ false, %26 ], [ false, %23 ], [ false, %20 ]
-  br i1 %1, label %328, label %330
+  br i1 %1, label %327, label %329
 
-328:                                              ; preds = %327
-  %329 = call zeroext i1 @SDL_CloseIO_REAL(ptr noundef nonnull %0) #8
-  br label %330
+327:                                              ; preds = %326
+  %328 = call zeroext i1 @SDL_CloseIO_REAL(ptr noundef nonnull %0) #8
+  br label %329
 
-330:                                              ; preds = %.thread, %328, %327
-  %.045 = phi i1 [ false, %.thread ], [ %.0, %328 ], [ %.0, %327 ]
+329:                                              ; preds = %.thread, %327, %326
+  %.045 = phi i1 [ false, %.thread ], [ %.0, %327 ], [ %.0, %326 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i1 %.045
 }
@@ -1108,7 +1108,7 @@ define internal fastcc zeroext i1 @WaveReadFormat(ptr noundef nonnull %0) unname
   br label %70
 
 70:                                               ; preds = %40, %30, %12, %14, %17, %20, %23, %8, %68, %51, %35, %6
-  %.0 = phi i1 [ %7, %6 ], [ %53, %51 ], [ true, %68 ], [ %37, %35 ], [ false, %8 ], [ false, %23 ], [ false, %20 ], [ false, %17 ], [ false, %14 ], [ false, %12 ], [ false, %30 ], [ false, %40 ]
+  %.0 = phi i1 [ %7, %6 ], [ %53, %51 ], [ true, %68 ], [ false, %30 ], [ false, %12 ], [ %37, %35 ], [ false, %8 ], [ false, %23 ], [ false, %20 ], [ false, %17 ], [ false, %14 ], [ false, %40 ]
   ret i1 %.0
 }
 
@@ -1318,7 +1318,7 @@ define internal fastcc zeroext i1 @WaveCheckFormat(ptr noundef nonnull captures(
   br label %120
 
 120:                                              ; preds = %76, %74, %72, %70, %119, %117, %83, %78, %49, %43, %37, %27, %17, %13, %7
-  %.0 = phi i1 [ %8, %7 ], [ %14, %13 ], [ %18, %17 ], [ %28, %27 ], [ %116, %83 ], [ %118, %117 ], [ true, %119 ], [ %79, %78 ], [ %38, %37 ], [ %44, %43 ], [ %50, %49 ], [ false, %70 ], [ false, %72 ], [ false, %74 ], [ false, %76 ]
+  %.0 = phi i1 [ %8, %7 ], [ %14, %13 ], [ %18, %17 ], [ %28, %27 ], [ %116, %83 ], [ %118, %117 ], [ true, %119 ], [ %50, %49 ], [ false, %70 ], [ false, %72 ], [ false, %74 ], [ %79, %78 ], [ %38, %37 ], [ %44, %43 ], [ false, %76 ]
   ret i1 %.0
 }
 
@@ -1469,7 +1469,7 @@ WaveAdjustToFactValue.exit:                       ; preds = %9, %._crit_edge.i
   br i1 %or.cond.i29, label %.loopexit.sink.split.i, label %.thread.i
 
 .thread.i:                                        ; preds = %50, %48
-  %52 = phi i64 [ 0, %48 ], [ %51, %50 ]
+  %52 = phi i64 [ %51, %50 ], [ 0, %48 ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %54 = load ptr, ptr %53, align 8
   %55 = tail call i64 @llvm.umax.i64(i64 %52, i64 1)
@@ -1541,7 +1541,7 @@ SafeMult.exit:                                    ; preds = %73
   br label %PCM_ConvertSint24ToSint32.exit
 
 PCM_ConvertSint24ToSint32.exit:                   ; preds = %.lr.ph.i, %.loopexit.sink.split.i, %57, %.thread.i, %WaveAdjustToFactValue.exit.thread, %WaveAdjustToFactValue.exit, %84, %82, %SafeMult.exit, %34
-  %.0 = phi i1 [ true, %34 ], [ %78, %SafeMult.exit ], [ %83, %82 ], [ true, %84 ], [ false, %WaveAdjustToFactValue.exit ], [ false, %WaveAdjustToFactValue.exit.thread ], [ false, %.thread.i ], [ true, %57 ], [ %72, %.loopexit.sink.split.i ], [ true, %.lr.ph.i ]
+  %.0 = phi i1 [ true, %84 ], [ true, %34 ], [ false, %WaveAdjustToFactValue.exit.thread ], [ %78, %SafeMult.exit ], [ %83, %82 ], [ false, %WaveAdjustToFactValue.exit ], [ false, %.thread.i ], [ true, %57 ], [ %72, %.loopexit.sink.split.i ], [ true, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -1739,7 +1739,7 @@ SafeMult.exit79:                                  ; preds = %43
   br label %101
 
 101:                                              ; preds = %WaveAdjustToFactValue.exit.thread, %.thread, %WaveAdjustToFactValue.exit, %.loopexit, %98, %48, %SafeMult.exit79, %SafeMult.exit, %34
-  %.0 = phi i1 [ true, %34 ], [ %40, %SafeMult.exit ], [ %44, %SafeMult.exit79 ], [ %49, %48 ], [ %99, %98 ], [ true, %.loopexit ], [ false, %WaveAdjustToFactValue.exit ], [ false, %.thread ], [ false, %WaveAdjustToFactValue.exit.thread ]
+  %.0 = phi i1 [ false, %WaveAdjustToFactValue.exit ], [ true, %34 ], [ %40, %SafeMult.exit ], [ %44, %SafeMult.exit79 ], [ %49, %48 ], [ %99, %98 ], [ true, %.loopexit ], [ false, %.thread ], [ false, %WaveAdjustToFactValue.exit.thread ]
   ret i1 %.0
 }
 
@@ -2437,7 +2437,7 @@ define internal fastcc zeroext i1 @PCM_Init(ptr noundef nonnull captures(none) %
   br label %53
 
 ._crit_edge:                                      ; preds = %2, %5, %11
-  %15 = phi i16 [ %.pre, %5 ], [ 32, %11 ], [ %.pre, %2 ]
+  %15 = phi i16 [ 32, %11 ], [ %.pre, %5 ], [ %.pre, %2 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %17 = load i16, ptr %16, align 4
   %18 = zext i16 %17 to i32
@@ -2968,8 +2968,8 @@ define internal fastcc zeroext i1 @MS_ADPCM_CalculateSampleFrames(ptr noundef no
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %34, %.thread, %36, %28
-  %41 = phi i64 [ %24, %.thread ], [ %40, %36 ], [ %32, %28 ], [ %32, %34 ]
-  %42 = phi ptr [ %25, %.thread ], [ %33, %36 ], [ %33, %28 ], [ %33, %34 ]
+  %41 = phi i64 [ %32, %28 ], [ %24, %.thread ], [ %40, %36 ], [ %32, %34 ]
+  %42 = phi ptr [ %33, %28 ], [ %25, %.thread ], [ %33, %36 ], [ %33, %34 ]
   %.fr = freeze i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %44 = load i32, ptr %43, align 8
@@ -3096,8 +3096,8 @@ define internal fastcc zeroext i1 @IMA_ADPCM_CalculateSampleFrames(ptr noundef n
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %30, %.thread, %47, %24
-  %49 = phi i64 [ %20, %.thread ], [ %48, %47 ], [ %28, %24 ], [ %28, %30 ]
-  %50 = phi ptr [ %21, %.thread ], [ %29, %47 ], [ %29, %24 ], [ %29, %30 ]
+  %49 = phi i64 [ %28, %24 ], [ %20, %.thread ], [ %48, %47 ], [ %28, %30 ]
+  %50 = phi ptr [ %29, %24 ], [ %21, %.thread ], [ %29, %47 ], [ %29, %30 ]
   %.fr = freeze i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %52 = load i32, ptr %51, align 8

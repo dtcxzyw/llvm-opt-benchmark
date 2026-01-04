@@ -729,8 +729,8 @@ define internal void @_PrintTocData(ptr noundef %0, ptr noundef readonly capture
   unreachable
 
 tarRead.exit.i:                                   ; preds = %99, %.thread.i.i, %88
-  %.03964.i.i = phi i64 [ %.03963.i.i, %99 ], [ %.03963.i.i, %.thread.i.i ], [ %..i.i, %88 ]
-  %.0.i35.i = phi i64 [ %98, %99 ], [ %.04062.i.i, %.thread.i.i ], [ 0, %88 ]
+  %.03964.i.i = phi i64 [ %.03963.i.i, %.thread.i.i ], [ %..i.i, %88 ], [ %.03963.i.i, %99 ]
+  %.0.i35.i = phi i64 [ %.04062.i.i, %.thread.i.i ], [ 0, %88 ], [ %98, %99 ]
   %107 = add i64 %.0.i35.i, %.03964.i.i
   %108 = getelementptr inbounds nuw i8, ptr %83, i64 32
   %109 = load i64, ptr %108, align 8
@@ -1034,7 +1034,7 @@ define internal fastcc ptr @tarOpen(ptr noundef %0, ptr noundef %1, i8 noundef s
   br i1 %31, label %26, label %.loopexit.i, !llvm.loop !12
 
 .loopexit.i:                                      ; preds = %26, %20, %10
-  %32 = phi i64 [ %21, %20 ], [ 0, %10 ], [ %29, %26 ]
+  %32 = phi i64 [ 0, %10 ], [ %21, %20 ], [ %29, %26 ]
   %33 = load i32, ptr @__pg_log_level, align 4
   %34 = icmp ult i32 %33, 2
   br i1 %34, label %35, label %36, !prof !11
@@ -1474,7 +1474,7 @@ define dso_local zeroext i1 @isValidTarHeader(ptr noundef %0) local_unnamed_addr
   br label %16
 
 16:                                               ; preds = %14, %12, %9, %1
-  %.0 = phi i1 [ false, %1 ], [ true, %9 ], [ true, %12 ], [ %15, %14 ]
+  %.0 = phi i1 [ true, %12 ], [ false, %1 ], [ true, %9 ], [ %15, %14 ]
   ret i1 %.0
 }
 

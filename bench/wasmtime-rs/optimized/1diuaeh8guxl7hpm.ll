@@ -91,7 +91,7 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
   %49 = invoke zeroext i1 @_ZN3syn9lookahead9peek_impl17h875326ee65409793E(ptr nonnull align 8 %40, ptr nonnull @"_ZN39_$LT$T$u20$as$u20$syn..token..Token$GT$4peek17h282e7519a16837a9E", ptr nonnull @"_ZN39_$LT$T$u20$as$u20$syn..token..Token$GT$7display17h0c8bdb2827bc3fb8E")
           to label %50 unwind label %.thread498
 
-.thread498:                                       ; preds = %.invoke, %269, %263, %53, %238, %57, %226, %220, %61, %198, %65, %181, %174, %175, %151, %144, %69, %130, %124, %73, %112, %106, %77, %91, %85, %81, %75, %71, %67, %63, %59, %55, %51, %2, %244, %252
+.thread498:                                       ; preds = %.invoke, %269, %263, %53, %252, %238, %57, %226, %220, %61, %198, %65, %181, %174, %175, %151, %144, %69, %130, %124, %73, %112, %106, %77, %91, %85, %81, %75, %71, %67, %63, %59, %55, %51, %2, %244
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread494
@@ -878,7 +878,7 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
   resume { ptr, i32 } %.pn472493
 
 .thread494:                                       ; preds = %183, %162, %154, %193, %191, %207, %250, %.thread498
-  %.pn472493 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread498 ], [ %251, %250 ], [ %155, %154 ], [ %163, %162 ], [ %194, %193 ], [ %192, %191 ], [ %208, %207 ], [ %184, %183 ]
+  %.pn472493 = phi { ptr, i32 } [ %251, %250 ], [ %lpad.thr_comm, %.thread498 ], [ %155, %154 ], [ %163, %162 ], [ %194, %193 ], [ %208, %207 ], [ %192, %191 ], [ %184, %183 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$syn..lookahead..Lookahead1$GT$17hce418f6f8498e7e4E"(ptr nonnull align 8 %40) #11
           to label %280 unwind label %160
 }
@@ -1414,7 +1414,7 @@ define void @"_ZN72_$LT$wiggle_generate..config..ErrorConf$u20$as$u20$syn..parse
   ret void
 
 64:                                               ; preds = %.loopexit78, %.loopexit.split-lp79, %.body, %.body.thread, %88
-  %.pn = phi { ptr, i32 } [ %89, %88 ], [ %eh.lpad-body69, %.body.thread ], [ %lpad.thr_comm.split-lp72, %.body ], [ %lpad.loopexit80, %.loopexit78 ], [ %lpad.loopexit.split-lp81, %.loopexit.split-lp79 ]
+  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp72, %.body ], [ %89, %88 ], [ %eh.lpad-body69, %.body.thread ], [ %lpad.loopexit80, %.loopexit78 ], [ %lpad.loopexit.split-lp81, %.loopexit.split-lp79 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$wiggle_generate..config..ErrorConfField$GT$17hdca0e0e7df1d1effE"(ptr nonnull align 8 %21) #11
           to label %57 unwind label %106
 
@@ -1516,7 +1516,7 @@ define void @"_ZN72_$LT$wiggle_generate..config..ErrorConf$u20$as$u20$syn..parse
   store i32 %82, ptr %.sroa.32.0..sroa_idx.i, align 8, !alias.scope !10
   br label %83
 
-.body.thread73:                                   ; preds = %71, %77
+.body.thread73:                                   ; preds = %77, %71
   %lpad.thr_comm71 = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -1623,7 +1623,7 @@ define void @"_ZN72_$LT$wiggle_generate..config..ErrorConf$u20$as$u20$syn..parse
   resume { ptr, i32 } %.pn31.pn.pn52
 
 .thread:                                          ; preds = %48, %42, %108, %.thread53
-  %.pn31.pn.pn52 = phi { ptr, i32 } [ %35, %.thread53 ], [ %lpad.thr_comm.split-lp, %42 ], [ %lpad.thr_comm, %108 ], [ %.pn31, %48 ]
+  %.pn31.pn.pn52 = phi { ptr, i32 } [ %35, %.thread53 ], [ %lpad.thr_comm, %108 ], [ %lpad.thr_comm.split-lp, %42 ], [ %.pn31, %48 ]
   invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h025f332ab3fdd6afE"(ptr nonnull align 8 %30) #11
           to label %110 unwind label %106
 }
@@ -2094,8 +2094,8 @@ define void @"_ZN77_$LT$wiggle_generate..config..AsyncFunctions$u20$as$u20$syn..
   %35 = invoke zeroext i1 @_ZN3syn9lookahead9peek_impl17h875326ee65409793E(ptr nonnull align 8 %25, ptr nonnull @"_ZN55_$LT$syn..token..Brace$u20$as$u20$syn..token..Token$GT$4peek17h260e79357dac75abE", ptr nonnull @"_ZN55_$LT$syn..token..Brace$u20$as$u20$syn..token..Token$GT$7display17ha687b8cb0ce8b03bE")
           to label %36 unwind label %.thread73
 
-.thread73:                                        ; preds = %58, %39, %42, %37, %2
-  %.049.ph = phi i8 [ 0, %2 ], [ 0, %37 ], [ 0, %42 ], [ 0, %39 ], [ 1, %58 ]
+.thread73:                                        ; preds = %58, %39, %2, %42, %37
+  %.049.ph = phi i8 [ 0, %37 ], [ 0, %42 ], [ 0, %2 ], [ 0, %39 ], [ 1, %58 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread68
@@ -2282,7 +2282,7 @@ define void @"_ZN77_$LT$wiggle_generate..config..AsyncFunctions$u20$as$u20$syn..
   br label %97
 
 99:                                               ; preds = %.thread102, %116, %103, %100
-  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp101, %116 ], [ %104, %103 ], [ %101, %100 ], [ %lpad.thr_comm100, %.thread102 ]
+  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp101, %116 ], [ %lpad.thr_comm100, %.thread102 ], [ %104, %103 ], [ %101, %100 ]
   invoke void @"_ZN4core3ptr59drop_in_place$LT$wiggle_generate..config..FunctionField$GT$17h00786b1656e7c70dE"(ptr nonnull align 8 %16) #11
           to label %77 unwind label %117
 
@@ -2375,8 +2375,8 @@ define void @"_ZN77_$LT$wiggle_generate..config..AsyncFunctions$u20$as$u20$syn..
   br label %97
 
 .thread68:                                        ; preds = %68, %119, %47, %.thread73
-  %.pn57.pn.pn67 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread73 ], [ %48, %47 ], [ %120, %119 ], [ %.pn57, %68 ]
-  %.166 = phi i8 [ %.049.ph, %.thread73 ], [ 0, %47 ], [ 1, %119 ], [ 1, %68 ]
+  %.pn57.pn.pn67 = phi { ptr, i32 } [ %48, %47 ], [ %lpad.thr_comm, %.thread73 ], [ %120, %119 ], [ %.pn57, %68 ]
+  %.166 = phi i8 [ 0, %47 ], [ %.049.ph, %.thread73 ], [ 1, %119 ], [ 1, %68 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$syn..lookahead..Lookahead1$GT$17hce418f6f8498e7e4E"(ptr nonnull align 8 %25) #11
           to label %93 unwind label %117
 
@@ -3178,7 +3178,7 @@ define void @"_ZN74_$LT$wiggle_generate..config..TracingConf$u20$as$u20$syn..par
   ret void
 
 98:                                               ; preds = %.thread127, %115, %102, %99
-  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %115 ], [ %103, %102 ], [ %100, %99 ], [ %lpad.thr_comm, %.thread127 ]
+  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %115 ], [ %lpad.thr_comm, %.thread127 ], [ %103, %102 ], [ %100, %99 ]
   invoke void @"_ZN4core3ptr59drop_in_place$LT$wiggle_generate..config..FunctionField$GT$17h00786b1656e7c70dE"(ptr nonnull align 8 %13) #11
           to label %85 unwind label %116
 

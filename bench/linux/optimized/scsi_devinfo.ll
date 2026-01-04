@@ -473,7 +473,7 @@ define dso_local i32 @scsi_dev_info_list_add_keyed(i32 noundef %0, ptr noundef %
   br label %77
 
 59:                                               ; preds = %.thread10, %52
-  %60 = phi i64 [ %4, %52 ], [ %57, %.thread10 ]
+  %60 = phi i64 [ %57, %.thread10 ], [ %4, %52 ]
   %61 = and i64 %60, -17028759552
   %62 = icmp eq i64 %61, 0
   br i1 %62, label %65, label %63
@@ -693,7 +693,7 @@ define internal fastcc ptr @scsi_dev_info_list_find(ptr noundef readonly capture
   br i1 %89, label %.thread, label %.preheader, !llvm.loop !13
 
 .thread:                                          ; preds = %4, %87, %83, %77, %58, %12
-  %90 = phi ptr [ %6, %12 ], [ inttoptr (i64 -2 to ptr), %58 ], [ %62, %77 ], [ %62, %83 ], [ inttoptr (i64 -2 to ptr), %87 ], [ inttoptr (i64 -22 to ptr), %4 ]
+  %90 = phi ptr [ %6, %12 ], [ inttoptr (i64 -2 to ptr), %58 ], [ inttoptr (i64 -2 to ptr), %87 ], [ %62, %77 ], [ %62, %83 ], [ inttoptr (i64 -22 to ptr), %4 ]
   ret ptr %90
 }
 

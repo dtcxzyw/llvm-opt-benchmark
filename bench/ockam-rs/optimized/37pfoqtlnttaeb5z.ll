@@ -725,7 +725,7 @@ define hidden noundef align 8 ptr @"_ZN10ockam_core5error4code1_86_$LT$impl$u20$
   br label %14
 
 14:                                               ; preds = %11, %2, %7
-  %.1 = phi ptr [ %5, %2 ], [ %9, %7 ], [ %13, %11 ]
+  %.1 = phi ptr [ %13, %11 ], [ %9, %7 ], [ %5, %2 ]
   ret ptr %.1
 }
 
@@ -6037,7 +6037,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$ockam_core..message..Encodable$GT$6e
           to label %"_ZN19ockam_transport_udp6router8messages1_108_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$ockam_transport_udp..router..messages..UdpRouterResponse$GT$9serialize17h1e86488fd93f1c36E.llvm.14829166003003082705.exit" unwind label %12
 
 "_ZN19ockam_transport_udp6router8messages1_108_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$ockam_transport_udp..router..messages..UdpRouterResponse$GT$9serialize17h1e86488fd93f1c36E.llvm.14829166003003082705.exit": ; preds = %.noexc7, %25
-  %.0.i.i = phi ptr [ %21, %.noexc7 ], [ %26, %25 ]
+  %.0.i.i = phi ptr [ %26, %25 ], [ %21, %.noexc7 ]
   %27 = icmp eq ptr %.0.i.i, null
   br i1 %27, label %28, label %"_ZN19ockam_transport_udp6router8messages1_108_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$ockam_transport_udp..router..messages..UdpRouterResponse$GT$9serialize17h1e86488fd93f1c36E.llvm.14829166003003082705.exit.thread"
 
@@ -6068,7 +6068,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$ockam_core..message..Encodable$GT$6e
   unreachable
 
 common.resume:                                    ; preds = %47, %54, %32
-  %common.resume.op = phi { ptr, i32 } [ %33, %32 ], [ %55, %54 ], [ %.pn, %47 ]
+  %common.resume.op = phi { ptr, i32 } [ %55, %54 ], [ %33, %32 ], [ %.pn, %47 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN19ockam_transport_udp6router8messages1_108_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$ockam_transport_udp..router..messages..UdpRouterResponse$GT$9serialize17h1e86488fd93f1c36E.llvm.14829166003003082705.exit.thread": ; preds = %.noexc, %.noexc8, %"_ZN19ockam_transport_udp6router8messages1_108_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$ockam_transport_udp..router..messages..UdpRouterResponse$GT$9serialize17h1e86488fd93f1c36E.llvm.14829166003003082705.exit"
@@ -7247,7 +7247,7 @@ define hidden noundef align 8 ptr @"_ZN19ockam_transport_udp6router8messages1_10
   br label %"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$25serialize_newtype_variant17h63d574554e498f76E.exit"
 
 "_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$25serialize_newtype_variant17h63d574554e498f76E.exit": ; preds = %2, %11, %13, %16
-  %.0.i = phi ptr [ %12, %11 ], [ %17, %16 ], [ %14, %13 ], [ %6, %2 ]
+  %.0.i = phi ptr [ %14, %13 ], [ %12, %11 ], [ %17, %16 ], [ %6, %2 ]
   ret ptr %.0.i
 }
 
@@ -7420,7 +7420,7 @@ default.unreachable1100:                          ; preds = %2
   br label %674
 
 106:                                              ; preds = %.thread1033, %665, %668, %945
-  %.0159 = phi ptr [ %.71032, %668 ], [ %.6, %665 ], [ %907, %945 ], [ %148, %.thread1033 ]
+  %.0159 = phi ptr [ %907, %945 ], [ %.71032, %668 ], [ %.6, %665 ], [ %148, %.thread1033 ]
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %108 = load i8, ptr %107, align 8, !range !73, !noundef !5
   %109 = trunc nuw i8 %108 to i1
@@ -8578,7 +8578,7 @@ default.unreachable1100:                          ; preds = %2
   br label %452
 
 495:                                              ; preds = %524, %452, %425, %432, %401, %339, %312, %319, %411, %529
-  %.pn314.pn.pn = phi { ptr, i32 } [ %.pn284.pn.pn.pn, %529 ], [ %.pn310.pn, %411 ], [ %320, %319 ], [ %313, %312 ], [ %.pn300.pn.pn.pn, %339 ], [ %402, %401 ], [ %433, %432 ], [ %426, %425 ], [ %.pn274.pn.pn.pn.pn.pn, %452 ], [ %525, %524 ]
+  %.pn314.pn.pn = phi { ptr, i32 } [ %525, %524 ], [ %433, %432 ], [ %.pn284.pn.pn.pn, %529 ], [ %.pn300.pn.pn.pn, %339 ], [ %.pn310.pn, %411 ], [ %426, %425 ], [ %313, %312 ], [ %402, %401 ], [ %320, %319 ], [ %.pn274.pn.pn.pn.pn.pn, %452 ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$core..net..socket_addr..SocketAddr$GT$$GT$17h3aa4a142b7b83ccaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %299) #30
           to label %550 unwind label %535
 
@@ -8800,13 +8800,13 @@ default.unreachable1100:                          ; preds = %2
   br label %550
 
 550:                                              ; preds = %549, %539, %526, %495, %300, %279
-  %.pn318.pn.pn = phi { ptr, i32 } [ %280, %279 ], [ %527, %526 ], [ %.pn314.pn.pn, %495 ], [ %301, %300 ], [ %540, %539 ], [ %.pn204, %549 ]
+  %.pn318.pn.pn = phi { ptr, i32 } [ %280, %279 ], [ %301, %300 ], [ %527, %526 ], [ %.pn314.pn.pn, %495 ], [ %540, %539 ], [ %.pn204, %549 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
   br label %551
 
 551:                                              ; preds = %658, %587, %560, %567, %274, %661, %265, %550
-  %.3164 = phi i8 [ 0, %265 ], [ 1, %661 ], [ 1, %550 ], [ 1, %274 ], [ 1, %567 ], [ 1, %560 ], [ 1, %587 ], [ 1, %658 ]
-  %.pn346.pn = phi { ptr, i32 } [ %266, %265 ], [ %.pn338.pn.pn.pn, %661 ], [ %.pn318.pn.pn, %550 ], [ %275, %274 ], [ %568, %567 ], [ %561, %560 ], [ %.pn328.pn.pn.pn.pn.pn, %587 ], [ %659, %658 ]
+  %.3164 = phi i8 [ 0, %265 ], [ 1, %274 ], [ 1, %661 ], [ 1, %550 ], [ 1, %658 ], [ 1, %560 ], [ 1, %587 ], [ 1, %567 ]
+  %.pn346.pn = phi { ptr, i32 } [ %266, %265 ], [ %275, %274 ], [ %.pn338.pn.pn.pn, %661 ], [ %.pn318.pn.pn, %550 ], [ %659, %658 ], [ %561, %560 ], [ %.pn328.pn.pn.pn.pn.pn, %587 ], [ %568, %567 ]
   invoke void @"_ZN4core3ptr58drop_in_place$LT$ockam_core..routing..address..Address$GT$17h30dc414a52625d46E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) #30
           to label %228 unwind label %535
 
@@ -9209,13 +9209,13 @@ default.unreachable1100:                          ; preds = %2
   invoke void @"_ZN4core3ptr78drop_in_place$LT$ockam_core..routing..message..local_message..LocalMessage$GT$17he5e246ff67f28f5dE"(ptr noalias noundef nonnull align 8 dereferenceable(168) %115)
           to label %106 unwind label %140
 
-.thread:                                          ; preds = %184, %157, %164, %667, %257, %228
-  %.pn351.pn997 = phi { ptr, i32 } [ %.pn351.pn, %228 ], [ %.pn185.pn.pn.pn, %184 ], [ %158, %157 ], [ %165, %164 ], [ %.pn195.pn, %667 ], [ %258, %257 ]
+.thread:                                          ; preds = %184, %164, %157, %667, %257, %228
+  %.pn351.pn997 = phi { ptr, i32 } [ %.pn351.pn, %228 ], [ %158, %157 ], [ %258, %257 ], [ %.pn185.pn.pn.pn, %184 ], [ %165, %164 ], [ %.pn195.pn, %667 ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$ockam_core..routing..message..local_message..LocalMessage$GT$17he5e246ff67f28f5dE"(ptr noalias noundef nonnull align 8 dereferenceable(168) %115) #30
           to label %.body429 unwind label %535
 
 .body429:                                         ; preds = %.thread998, %140, %125, %228, %538, %.thread
-  %.pn354 = phi { ptr, i32 } [ %.pn351.pn997, %.thread ], [ %.pn351.pn, %228 ], [ %.pn266, %538 ], [ %141, %140 ], [ %126, %125 ], [ %143, %.thread998 ]
+  %.pn354 = phi { ptr, i32 } [ %143, %.thread998 ], [ %.pn351.pn997, %.thread ], [ %.pn351.pn, %228 ], [ %.pn266, %538 ], [ %141, %140 ], [ %126, %125 ]
   %669 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %670 = load i8, ptr %669, align 8, !range !73, !noundef !5
   %671 = trunc nuw i8 %670 to i1
@@ -9281,7 +9281,7 @@ common.ret:                                       ; preds = %923, %"_ZN96_$LT$fu
   br label %common.ret
 
 690:                                              ; preds = %730, %703, %710, %802, %682, %879, %692
-  %.pn260.pn.pn = phi { ptr, i32 } [ %.pn260.pn, %802 ], [ %.pn239.pn, %879 ], [ %693, %692 ], [ %683, %682 ], [ %711, %710 ], [ %704, %703 ], [ %.pn250.pn.pn.pn, %730 ]
+  %.pn260.pn.pn = phi { ptr, i32 } [ %.pn260.pn, %802 ], [ %.pn239.pn, %879 ], [ %693, %692 ], [ %704, %703 ], [ %711, %710 ], [ %.pn250.pn.pn.pn, %730 ], [ %683, %682 ]
   %691 = getelementptr inbounds nuw i8, ptr %0, i64 392
   invoke void @"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$core..net..socket_addr..SocketAddr$GT$$GT$17h3aa4a142b7b83ccaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %691) #30
           to label %908 unwind label %535
@@ -9806,7 +9806,7 @@ common.ret:                                       ; preds = %923, %"_ZN96_$LT$fu
   br label %838
 
 879:                                              ; preds = %925, %838, %811, %818, %951
-  %.pn239.pn = phi { ptr, i32 } [ %.pn235.pn.pn, %951 ], [ %819, %818 ], [ %812, %811 ], [ %.pn224.pn.pn.pn.pn, %838 ], [ %926, %925 ]
+  %.pn239.pn = phi { ptr, i32 } [ %819, %818 ], [ %.pn235.pn.pn, %951 ], [ %926, %925 ], [ %.pn224.pn.pn.pn.pn, %838 ], [ %812, %811 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %690
 

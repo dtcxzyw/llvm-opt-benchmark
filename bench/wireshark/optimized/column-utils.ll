@@ -363,7 +363,7 @@ define zeroext i1 @col_get_writable(ptr noundef readonly captures(address_is_nul
   br label %.loopexit
 
 .loopexit:                                        ; preds = %22, %7, %._crit_edge, %.preheader, %9, %2, %32
-  %.0 = phi i1 [ %35, %32 ], [ false, %2 ], [ false, %9 ], [ false, %.preheader ], [ %6, %._crit_edge ], [ false, %7 ], [ false, %22 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ %35, %32 ], [ false, %9 ], [ false, %.preheader ], [ %6, %._crit_edge ], [ false, %22 ]
   ret i1 %.0
 }
 
@@ -553,7 +553,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   %.not = icmp sgt i32 %62, %64
   br i1 %.not, label %col_get_writable.exit.thread, label %44, !llvm.loop !15
 
-col_get_writable.exit.thread:                     ; preds = %21, %60, %.preheader, %6, %.preheader.i, %8, %2, %31, %col_get_writable.exit, %36
+col_get_writable.exit.thread:                     ; preds = %21, %60, %.preheader, %.preheader.i, %8, %6, %2, %31, %col_get_writable.exit, %36
   ret void
 }
 
@@ -675,7 +675,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   %.not = icmp sgt i32 %58, %60
   br i1 %.not, label %col_get_writable.exit.thread, label %44, !llvm.loop !16
 
-col_get_writable.exit.thread:                     ; preds = %21, %56, %.preheader, %6, %.preheader.i, %8, %2, %31, %col_get_writable.exit, %36
+col_get_writable.exit.thread:                     ; preds = %21, %56, %.preheader, %.preheader.i, %8, %6, %2, %31, %col_get_writable.exit, %36
   ret void
 }
 
@@ -730,7 +730,7 @@ define ptr @col_get_text(ptr noundef readonly captures(address_is_null) %0, i32 
   br i1 %.not19, label %.loopexit, label %16, !llvm.loop !17
 
 .loopexit:                                        ; preds = %27, %.preheader, %2, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %2 ], [ null, %.preheader ], [ %.1, %27 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %3 ], [ null, %.preheader ], [ %.1, %27 ]
   ret ptr %.0
 }
 
@@ -882,7 +882,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   %.not = icmp sgt i32 %77, %79
   br i1 %.not, label %col_get_writable.exit.thread, label %46, !llvm.loop !18
 
-col_get_writable.exit.thread:                     ; preds = %21, %75, %.preheader, %6, %.preheader.i, %8, %2, %31, %col_get_writable.exit, %36
+col_get_writable.exit.thread:                     ; preds = %21, %75, %.preheader, %.preheader.i, %8, %6, %2, %31, %col_get_writable.exit, %36
   ret void
 }
 
@@ -1298,7 +1298,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   %.not = icmp sgt i32 %94, %96
   br i1 %.not, label %col_get_writable.exit.thread, label %50, !llvm.loop !23
 
-col_get_writable.exit.thread:                     ; preds = %23, %68, %92, %41, %8, %.preheader.i, %10, %3, %33, %col_get_writable.exit, %38
+col_get_writable.exit.thread:                     ; preds = %23, %68, %92, %41, %.preheader.i, %10, %8, %3, %33, %col_get_writable.exit, %38
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -1399,7 +1399,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   call void (ptr, i32, ptr, ...) @col_append_lstr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %44, ptr noundef %2, ptr noundef nonnull @.str.3, ptr noundef nonnull %6, ptr noundef nonnull inttoptr (i64 -1 to ptr))
   br label %col_get_writable.exit.thread
 
-col_get_writable.exit.thread:                     ; preds = %25, %10, %.preheader.i, %12, %5, %35, %col_get_writable.exit, %40, %43
+col_get_writable.exit.thread:                     ; preds = %25, %.preheader.i, %12, %10, %5, %35, %col_get_writable.exit, %40, %43
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
@@ -1528,7 +1528,7 @@ col_snprint_port.exit13:                          ; preds = %58, %._crit_edge.i1
   call void (ptr, i32, ptr, ...) @col_append_lstr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %6, ptr noundef nonnull @.str.4, ptr noundef nonnull %7, ptr noundef nonnull inttoptr (i64 -1 to ptr))
   br label %col_get_writable.exit.thread
 
-col_get_writable.exit.thread:                     ; preds = %26, %11, %.preheader.i, %13, %5, %36, %col_get_writable.exit, %41, %col_snprint_port.exit13
+col_get_writable.exit.thread:                     ; preds = %26, %.preheader.i, %13, %11, %5, %36, %col_get_writable.exit, %41, %col_snprint_port.exit13
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -1638,7 +1638,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   call void @llvm.va_end.p0(ptr nonnull %4)
   br label %col_get_writable.exit.thread
 
-col_get_writable.exit.thread:                     ; preds = %23, %8, %.preheader.i, %10, %3, %33, %col_get_writable.exit, %38, %41
+col_get_writable.exit.thread:                     ; preds = %23, %.preheader.i, %10, %8, %3, %33, %col_get_writable.exit, %38, %41
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -1837,7 +1837,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   call void @llvm.va_end.p0(ptr nonnull %5)
   br label %col_get_writable.exit.thread
 
-col_get_writable.exit.thread:                     ; preds = %24, %9, %.preheader.i, %11, %4, %34, %col_get_writable.exit, %39, %42
+col_get_writable.exit.thread:                     ; preds = %24, %.preheader.i, %11, %9, %4, %34, %col_get_writable.exit, %39, %42
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
@@ -2008,7 +2008,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   %.not = icmp sgt i32 %88, %90
   br i1 %.not, label %col_get_writable.exit.thread, label %51, !llvm.loop !25
 
-col_get_writable.exit.thread:                     ; preds = %25, %86, %43, %10, %.preheader.i, %12, %3, %35, %col_get_writable.exit, %40
+col_get_writable.exit.thread:                     ; preds = %25, %86, %43, %.preheader.i, %12, %10, %3, %35, %col_get_writable.exit, %40
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2178,7 +2178,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   %.not = icmp sgt i32 %86, %88
   br i1 %.not, label %col_get_writable.exit.thread, label %51, !llvm.loop !26
 
-col_get_writable.exit.thread:                     ; preds = %25, %84, %43, %10, %.preheader.i, %12, %3, %35, %col_get_writable.exit, %40
+col_get_writable.exit.thread:                     ; preds = %25, %84, %43, %.preheader.i, %12, %10, %3, %35, %col_get_writable.exit, %40
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2332,7 +2332,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   %.not = icmp sgt i32 %79, %81
   br i1 %.not, label %col_get_writable.exit.thread, label %47, !llvm.loop !27
 
-col_get_writable.exit.thread:                     ; preds = %22, %77, %40, %7, %.preheader.i, %9, %3, %32, %col_get_writable.exit, %37
+col_get_writable.exit.thread:                     ; preds = %22, %77, %40, %.preheader.i, %9, %7, %3, %32, %col_get_writable.exit, %37
   ret void
 }
 
@@ -2488,7 +2488,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   %.not34 = icmp sgt i32 %78, %81
   br i1 %.not34, label %col_get_writable.exit.thread, label %49, !llvm.loop !28
 
-col_get_writable.exit.thread:                     ; preds = %24, %77, %42, %9, %.preheader.i, %11, %5, %34, %col_get_writable.exit, %39
+col_get_writable.exit.thread:                     ; preds = %24, %77, %42, %.preheader.i, %11, %9, %5, %34, %col_get_writable.exit, %39
   ret void
 }
 
@@ -2689,7 +2689,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   %.not = icmp sgt i32 %100, %102
   br i1 %.not, label %col_get_writable.exit.thread, label %50, !llvm.loop !30
 
-col_get_writable.exit.thread:                     ; preds = %23, %98, %41, %8, %.preheader.i, %10, %3, %33, %col_get_writable.exit, %38
+col_get_writable.exit.thread:                     ; preds = %23, %98, %41, %.preheader.i, %10, %8, %3, %33, %col_get_writable.exit, %38
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -2859,7 +2859,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   %.not = icmp sgt i32 %89, %91
   br i1 %.not, label %col_get_writable.exit.thread, label %52, !llvm.loop !31
 
-col_get_writable.exit.thread:                     ; preds = %24, %87, %42, %9, %.preheader.i, %11, %3, %34, %col_get_writable.exit, %39
+col_get_writable.exit.thread:                     ; preds = %24, %87, %42, %.preheader.i, %11, %9, %3, %34, %col_get_writable.exit, %39
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
@@ -2996,7 +2996,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   %.not.us.i = icmp sgt i32 %69, %71
   br i1 %.not.us.i, label %col_do_append_str.exit, label %.lr.ph.split.us.i, !llvm.loop !32
 
-col_do_append_str.exit:                           ; preds = %22, %67, %7, %.preheader.i, %9, %3, %40, %32, %col_get_writable.exit, %37
+col_do_append_str.exit:                           ; preds = %22, %67, %.preheader.i, %9, %7, %3, %40, %32, %col_get_writable.exit, %37
   ret void
 }
 
@@ -3144,7 +3144,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   %.not.i9 = icmp sgt i32 %76, %78
   br i1 %.not.i9, label %col_do_append_str.exit, label %.lr.ph.split.i, !llvm.loop !32
 
-col_do_append_str.exit:                           ; preds = %23, %74, %8, %.preheader.i, %10, %4, %41, %33, %col_get_writable.exit, %38
+col_do_append_str.exit:                           ; preds = %23, %74, %.preheader.i, %10, %8, %4, %41, %33, %col_get_writable.exit, %38
   ret void
 }
 
@@ -4061,7 +4061,7 @@ get_default_timestamp_precision.exit:             ; preds = %58, %63
   %.not = icmp sgt i32 %77, %79
   br i1 %.not, label %col_get_writable.exit.thread, label %48, !llvm.loop !33
 
-col_get_writable.exit.thread:                     ; preds = %23, %75, %.preheader, %8, %.preheader.i, %10, %4, %33, %col_get_writable.exit, %38
+col_get_writable.exit.thread:                     ; preds = %23, %75, %.preheader, %.preheader.i, %10, %8, %4, %33, %col_get_writable.exit, %38
   ret void
 }
 

@@ -479,8 +479,8 @@ _ZN5folly12_GLOBAL__N_116getDeviceOptionsEmRlRb.exit: ; preds = %_ZN5folly12_GLO
   br label %_ZN5folly12_GLOBAL__N_116getDeviceOptionsEmRlRb.exit.thread
 
 _ZN5folly12_GLOBAL__N_116getDeviceOptionsEmRlRb.exit.thread: ; preds = %_ZN5folly12_GLOBAL__N_116getDeviceOptionsEmRlRb.exit, %.critedge103, %78
-  %80 = phi i64 [ %79, %78 ], [ %51, %.critedge103 ], [ %.pr138, %_ZN5folly12_GLOBAL__N_116getDeviceOptionsEmRlRb.exit ]
-  %.0137 = phi i1 [ %.0, %78 ], [ false, %.critedge103 ], [ %.0, %_ZN5folly12_GLOBAL__N_116getDeviceOptionsEmRlRb.exit ]
+  %80 = phi i64 [ %51, %.critedge103 ], [ %79, %78 ], [ %.pr138, %_ZN5folly12_GLOBAL__N_116getDeviceOptionsEmRlRb.exit ]
+  %.0137 = phi i1 [ false, %.critedge103 ], [ %.0, %78 ], [ %.0, %_ZN5folly12_GLOBAL__N_116getDeviceOptionsEmRlRb.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i64 %80, ptr %17, align 8, !tbaa !28
@@ -688,15 +688,15 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit124: ; preds = %_ZSt
   br label %187
 
 .critedge106:                                     ; preds = %126, %.critedge105, %128
-  %.179 = phi i64 [ %.mux.mux, %126 ], [ %2, %128 ], [ %2, %.critedge105 ]
-  %.077 = phi i64 [ %.mux149, %126 ], [ %2, %128 ], [ %2, %.critedge105 ]
+  %.179 = phi i64 [ %.mux.mux, %126 ], [ %2, %.critedge105 ], [ %2, %128 ]
+  %.077 = phi i64 [ %.mux149, %126 ], [ %2, %.critedge105 ], [ %2, %128 ]
   %140 = load i64, ptr %105, align 8, !tbaa !50
   %141 = icmp sgt i64 %140, %.077
   br i1 %141, label %.sink.split, label %142
 
 .sink.split:                                      ; preds = %.critedge106, %115, %.thread
-  %.077.sink = phi i64 [ %109, %.thread ], [ %124, %115 ], [ %.077, %.critedge106 ]
-  %.078.ph = phi i64 [ %109, %.thread ], [ %124, %115 ], [ %.179, %.critedge106 ]
+  %.077.sink = phi i64 [ %124, %115 ], [ %109, %.thread ], [ %.077, %.critedge106 ]
+  %.078.ph = phi i64 [ %124, %115 ], [ %109, %.thread ], [ %.179, %.critedge106 ]
   store i64 %.077.sink, ptr %105, align 8, !tbaa !50
   br label %142
 
@@ -1054,8 +1054,8 @@ _ZN5folly12_GLOBAL__N_114memOpChunkSizeEll.exit.i: ; preds = %20, %3
   store i8 1, ptr %38, align 8, !tbaa !23
   br label %127
 
-.loopexit:                                        ; preds = %"_ZZN5folly13MemoryMapping5mlockENS0_8LockModeENS0_9LockFlagsEENK3$_0clEPvm.exit.i", %"_ZZN5folly13MemoryMapping5mlockENS0_8LockModeENS0_9LockFlagsEENK3$_0clEPvm.exit.us.i", %.lr.ph.split.us.i, %.lr.ph.split.i
-  %.2.ph = phi i64 [ 0, %.lr.ph.split.i ], [ 0, %.lr.ph.split.us.i ], [ %32, %"_ZZN5folly13MemoryMapping5mlockENS0_8LockModeENS0_9LockFlagsEENK3$_0clEPvm.exit.us.i" ], [ %37, %"_ZZN5folly13MemoryMapping5mlockENS0_8LockModeENS0_9LockFlagsEENK3$_0clEPvm.exit.i" ]
+.loopexit:                                        ; preds = %"_ZZN5folly13MemoryMapping5mlockENS0_8LockModeENS0_9LockFlagsEENK3$_0clEPvm.exit.i", %"_ZZN5folly13MemoryMapping5mlockENS0_8LockModeENS0_9LockFlagsEENK3$_0clEPvm.exit.us.i", %.lr.ph.split.i, %.lr.ph.split.us.i
+  %.2.ph = phi i64 [ 0, %.lr.ph.split.i ], [ %32, %"_ZZN5folly13MemoryMapping5mlockENS0_8LockModeENS0_9LockFlagsEENK3$_0clEPvm.exit.us.i" ], [ 0, %.lr.ph.split.us.i ], [ %37, %"_ZZN5folly13MemoryMapping5mlockENS0_8LockModeENS0_9LockFlagsEENK3$_0clEPvm.exit.i" ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 0, ptr %39, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -2045,7 +2045,7 @@ _ZN5folly20alignedForwardMemcpyEPvPKvm.exit:      ; preds = %.lr.ph24.i, %.prehe
   br label %48
 
 48:                                               ; preds = %46, %44
-  %.pn.pn = phi { ptr, i32 } [ %47, %46 ], [ %45, %44 ]
+  %.pn.pn = phi { ptr, i32 } [ %45, %44 ], [ %47, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %49
 

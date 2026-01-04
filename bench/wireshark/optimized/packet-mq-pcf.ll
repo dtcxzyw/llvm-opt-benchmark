@@ -944,8 +944,8 @@ dissect_mqpcf_parm_grp.exit:                      ; preds = %.lr.ph744, %239
   br label %dissect_mqpcf_parm_int.exit
 
 dissect_mqpcf_parm_int.exit:                      ; preds = %87, %85, %._crit_edge762, %457, %._crit_edge, %235, %._crit_edge755, %174, %403, %388, %328, %307, %294, %263, %dissect_mqpcf_parm_grp.exit, %.thread, %58
-  %.1684 = phi ptr [ %.0683765, %58 ], [ %408, %403 ], [ %.5, %388 ], [ %109, %.thread ], [ %243, %dissect_mqpcf_parm_grp.exit ], [ %348, %328 ], [ %265, %263 ], [ %.4, %294 ], [ %315, %307 ], [ %132, %174 ], [ %132, %._crit_edge755 ], [ %188, %235 ], [ %188, %._crit_edge ], [ %427, %457 ], [ %427, %._crit_edge762 ], [ %.2685, %85 ], [ %.2685, %87 ]
-  %.0680 = phi i32 [ %.0767, %58 ], [ %.0767, %403 ], [ %.0767, %388 ], [ %.0767, %.thread ], [ %262, %dissect_mqpcf_parm_grp.exit ], [ %.0767, %328 ], [ %.0767, %263 ], [ %.0767, %294 ], [ %.0767, %307 ], [ %.0767, %174 ], [ %.0767, %._crit_edge755 ], [ %.0767, %235 ], [ %.0767, %._crit_edge ], [ %.0767, %457 ], [ %.0767, %._crit_edge762 ], [ %.0767, %85 ], [ %.0767, %87 ]
+  %.1684 = phi ptr [ %.0683765, %58 ], [ %188, %._crit_edge ], [ %408, %403 ], [ %.5, %388 ], [ %427, %._crit_edge762 ], [ %109, %.thread ], [ %315, %307 ], [ %132, %._crit_edge755 ], [ %243, %dissect_mqpcf_parm_grp.exit ], [ %348, %328 ], [ %265, %263 ], [ %.4, %294 ], [ %132, %174 ], [ %188, %235 ], [ %427, %457 ], [ %.2685, %85 ], [ %.2685, %87 ]
+  %.0680 = phi i32 [ %.0767, %58 ], [ %.0767, %._crit_edge ], [ %.0767, %403 ], [ %.0767, %388 ], [ %.0767, %._crit_edge762 ], [ %.0767, %.thread ], [ %.0767, %307 ], [ %.0767, %._crit_edge755 ], [ %262, %dissect_mqpcf_parm_grp.exit ], [ %.0767, %328 ], [ %.0767, %263 ], [ %.0767, %294 ], [ %.0767, %174 ], [ %.0767, %235 ], [ %.0767, %457 ], [ %.0767, %85 ], [ %.0767, %87 ]
   call void @decrement_dissection_depth(ptr noundef %1)
   %461 = add i32 %.0680, %47
   %462 = add nuw i32 %.0678766, 1
@@ -1187,7 +1187,7 @@ define internal noundef zeroext i1 @dissect_mqpcf_heur(ptr noundef %0, ptr nound
   br label %dissect_mqpcf.exit
 
 dissect_mqpcf.exit:                               ; preds = %44, %26, %19, %74, %4, %6, %71
-  %.1 = phi i1 [ false, %71 ], [ false, %6 ], [ false, %4 ], [ true, %74 ], [ true, %19 ], [ true, %26 ], [ true, %44 ]
+  %.1 = phi i1 [ false, %4 ], [ false, %71 ], [ false, %6 ], [ true, %74 ], [ true, %19 ], [ true, %26 ], [ true, %44 ]
   ret i1 %.1
 }
 

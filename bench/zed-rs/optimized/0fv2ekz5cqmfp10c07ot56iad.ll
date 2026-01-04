@@ -1489,7 +1489,7 @@ define hidden noundef ptr @_ZN13wasmtime_wasi8bindings8async_io4wasi10filesystem
   br label %138
 
 138:                                              ; preds = %136, %26, %23, %27, %30, %45, %58, %61, %64, %67, %70, %73, %76, %79, %82, %85, %88, %91, %94, %97, %100, %103, %106, %109, %112, %115, %118, %121, %124, %127, %130, %133
-  %.sroa.0.1 = phi ptr [ %22, %26 ], [ %24, %23 ], [ %28, %27 ], [ %42, %30 ], [ %55, %45 ], [ %59, %58 ], [ %62, %61 ], [ %65, %64 ], [ %68, %67 ], [ %71, %70 ], [ %74, %73 ], [ %77, %76 ], [ %80, %79 ], [ %83, %82 ], [ %86, %85 ], [ %89, %88 ], [ %92, %91 ], [ %95, %94 ], [ %98, %97 ], [ %101, %100 ], [ %104, %103 ], [ %107, %106 ], [ %110, %109 ], [ %113, %112 ], [ %116, %115 ], [ %119, %118 ], [ %122, %121 ], [ %125, %124 ], [ %128, %127 ], [ %131, %130 ], [ %134, %133 ], [ %137, %136 ]
+  %.sroa.0.1 = phi ptr [ %137, %136 ], [ %22, %26 ], [ %134, %133 ], [ %131, %130 ], [ %128, %127 ], [ %125, %124 ], [ %122, %121 ], [ %119, %118 ], [ %116, %115 ], [ %113, %112 ], [ %110, %109 ], [ %107, %106 ], [ %104, %103 ], [ %101, %100 ], [ %98, %97 ], [ %95, %94 ], [ %92, %91 ], [ %89, %88 ], [ %86, %85 ], [ %83, %82 ], [ %80, %79 ], [ %77, %76 ], [ %74, %73 ], [ %71, %70 ], [ %68, %67 ], [ %65, %64 ], [ %62, %61 ], [ %59, %58 ], [ %55, %45 ], [ %42, %30 ], [ %28, %27 ], [ %24, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.sroa.0.1
 }
@@ -1576,7 +1576,7 @@ define hidden noundef ptr @_ZN13wasmtime_wasi8bindings8async_io4wasi2io5error22a
   br label %38
 
 38:                                               ; preds = %25, %24, %21
-  %.sroa.0.1 = phi ptr [ %20, %24 ], [ %22, %21 ], [ %spec.select, %25 ]
+  %.sroa.0.1 = phi ptr [ %spec.select, %25 ], [ %20, %24 ], [ %22, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.sroa.0.1
 }
@@ -1640,7 +1640,7 @@ define hidden noundef ptr @_ZN13wasmtime_wasi8bindings8async_io4wasi3cli15termin
   br label %23
 
 23:                                               ; preds = %20, %22
-  %.sroa.0.1 = phi ptr [ %19, %22 ], [ %21, %20 ]
+  %.sroa.0.1 = phi ptr [ %21, %20 ], [ %19, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.sroa.0.1
 }
@@ -1705,7 +1705,7 @@ define hidden noundef ptr @_ZN13wasmtime_wasi8bindings8async_io4wasi3cli15termin
   br label %30
 
 30:                                               ; preds = %18, %28
-  %.sroa.0.1 = phi ptr [ %29, %28 ], [ %spec.select, %18 ]
+  %.sroa.0.1 = phi ptr [ %spec.select, %18 ], [ %29, %28 ]
   ret ptr %.sroa.0.1
 }
 
@@ -1830,7 +1830,7 @@ _ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.16188651594484228709.e
   br label %17
 
 17:                                               ; preds = %_ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.16188651594484228709.exit, %"_ZN4core3ptr82drop_in_place$LT$alloc..sync..Arc$LT$event_listener..Inner$LT$$LP$$RP$$GT$$GT$$GT$17h16cb7883897c5fd7E.exit", %1
-  %.sroa.025.0 = phi ptr [ %11, %"_ZN4core3ptr82drop_in_place$LT$alloc..sync..Arc$LT$event_listener..Inner$LT$$LP$$RP$$GT$$GT$$GT$17h16cb7883897c5fd7E.exit" ], [ %3, %1 ], [ %.sroa.5.0..sroa_idx, %_ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.16188651594484228709.exit ]
+  %.sroa.025.0 = phi ptr [ %3, %1 ], [ %11, %"_ZN4core3ptr82drop_in_place$LT$alloc..sync..Arc$LT$event_listener..Inner$LT$$LP$$RP$$GT$$GT$$GT$17h16cb7883897c5fd7E.exit" ], [ %.sroa.5.0..sroa_idx, %_ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.16188651594484228709.exit ]
   ret ptr %.sroa.025.0
 }
 
@@ -1979,7 +1979,7 @@ _ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.16188651594484228709.e
   br label %"_ZN14event_listener14Event$LT$T$GT$5inner17hfabb29651891004cE.llvm.16188651594484228709.exit"
 
 "_ZN14event_listener14Event$LT$T$GT$5inner17hfabb29651891004cE.llvm.16188651594484228709.exit": ; preds = %2, %_ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.16188651594484228709.exit.i, %"_ZN4core3ptr82drop_in_place$LT$alloc..sync..Arc$LT$event_listener..Inner$LT$$LP$$RP$$GT$$GT$$GT$17h16cb7883897c5fd7E.exit.i"
-  %.sroa.025.0.i = phi ptr [ %12, %"_ZN4core3ptr82drop_in_place$LT$alloc..sync..Arc$LT$event_listener..Inner$LT$$LP$$RP$$GT$$GT$$GT$17h16cb7883897c5fd7E.exit.i" ], [ %4, %2 ], [ %.sroa.5.0..sroa_idx.i, %_ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.16188651594484228709.exit.i ]
+  %.sroa.025.0.i = phi ptr [ %4, %2 ], [ %12, %"_ZN4core3ptr82drop_in_place$LT$alloc..sync..Arc$LT$event_listener..Inner$LT$$LP$$RP$$GT$$GT$$GT$17h16cb7883897c5fd7E.exit.i" ], [ %.sroa.5.0..sroa_idx.i, %_ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.16188651594484228709.exit.i ]
   %18 = getelementptr inbounds i8, ptr %.sroa.025.0.i, i64 -16
   %19 = atomicrmw add ptr %18, i64 1 monotonic, align 8
   %20 = icmp slt i64 %19, 0
@@ -2832,7 +2832,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.10833762189268282141.exit
   br i1 %or.cond6, label %239, label %238
 
 134:                                              ; preds = %203, %200, %198, %194, %130, %127, %125, %121
-  %.sroa.026.2 = phi i8 [ 1, %121 ], [ 1, %125 ], [ 1, %127 ], [ 1, %130 ], [ %.sroa.026.4, %194 ], [ %.sroa.026.4, %198 ], [ %.sroa.026.4, %200 ], [ %.sroa.026.4, %203 ]
+  %.sroa.026.2 = phi i8 [ %.sroa.026.4, %203 ], [ 1, %130 ], [ 1, %121 ], [ 1, %125 ], [ 1, %127 ], [ %.sroa.026.4, %194 ], [ %.sroa.026.4, %198 ], [ %.sroa.026.4, %200 ]
   %135 = landingpad { ptr, i32 }
           cleanup
   br label %131
@@ -2844,7 +2844,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.10833762189268282141.exit
   br i1 %cond, label %224, label %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17h5a20a1ec337e3728E.llvm.16188651594484228709.exit75"
 
 "_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17h5a20a1ec337e3728E.llvm.16188651594484228709.exit75": ; preds = %237, %232, %227, %"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17he9db448a6c514231E.exit68", %"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17he9db448a6c514231E.exit57"
-  %.sroa.013.1 = phi i8 [ 1, %"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17he9db448a6c514231E.exit68" ], [ 0, %"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17he9db448a6c514231E.exit57" ], [ %.sroa.013.2, %227 ], [ %.sroa.013.2, %232 ], [ %.sroa.013.2, %237 ]
+  %.sroa.013.1 = phi i8 [ 0, %"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17he9db448a6c514231E.exit57" ], [ 1, %"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17he9db448a6c514231E.exit68" ], [ %.sroa.013.2, %227 ], [ %.sroa.013.2, %232 ], [ %.sroa.013.2, %237 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %52
 
@@ -2975,7 +2975,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.10833762189268282141.exit
           to label %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17h5a20a1ec337e3728E.llvm.16188651594484228709.exit" unwind label %180
 
 180:                                              ; preds = %222, %212, %179, %169, %53
-  %.sroa.026.0 = phi i8 [ 1, %53 ], [ 0, %169 ], [ 0, %179 ], [ 1, %212 ], [ 1, %222 ]
+  %.sroa.026.0 = phi i8 [ 1, %222 ], [ 1, %53 ], [ 0, %179 ], [ 0, %169 ], [ 1, %212 ]
   %181 = landingpad { ptr, i32 }
           cleanup
   br label %137
@@ -3030,7 +3030,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.10833762189268282141.exit
   invoke void @_ZN3std3sys4sync5mutex5futex5Mutex4wake17h441c2e235bf44cf8E(ptr noundef nonnull align 4 %183)
           to label %"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17he9db448a6c514231E.exit68" unwind label %134
 
-204:                                              ; preds = %148, %157, %167
+204:                                              ; preds = %167, %148, %157
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17h5a20a1ec337e3728E.llvm.16188651594484228709"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9) #38
@@ -6582,7 +6582,7 @@ define hidden noundef ptr @_ZN14wasmtime_fiber4unix7Suspend6switch17h1a194589fc5
   ret ptr %34
 
 .body.thread:                                     ; preds = %27, %35
-  %eh.lpad-body4 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %35 ], [ %28, %27 ]
+  %eh.lpad-body4 = phi { ptr, i32 } [ %28, %27 ], [ %lpad.thr_comm.split-lp, %35 ]
   resume { ptr, i32 } %eh.lpad-body4
 
 35:                                               ; preds = %10
@@ -25377,7 +25377,7 @@ define hidden void @"_ZN4slab13Slab$LT$T$GT$9insert_at17h71c84019feb7147bE.llvm.
   br label %33
 
 "_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h650b77b77bcff01dE.llvm.16188651594484228709.exit": ; preds = %42, %16
-  %.pn824 = phi { ptr, i32 } [ %17, %16 ], [ %43, %42 ]
+  %.pn824 = phi { ptr, i32 } [ %43, %42 ], [ %17, %16 ]
   resume { ptr, i32 } %.pn824
 
 42:                                               ; preds = %28
@@ -25482,7 +25482,7 @@ define hidden void @"_ZN4slab13Slab$LT$T$GT$9insert_at17h828946082b7fd1a0E"(ptr 
   br label %33
 
 "_ZN4core3ptr54drop_in_place$LT$futures_util..lock..mutex..Waiter$GT$17h3bee20551c6b4298E.llvm.16188651594484228709.exit": ; preds = %16, %18, %42, %44
-  %.pn827 = phi { ptr, i32 } [ %43, %44 ], [ %43, %42 ], [ %17, %18 ], [ %17, %16 ]
+  %.pn827 = phi { ptr, i32 } [ %17, %16 ], [ %43, %42 ], [ %43, %44 ], [ %17, %18 ]
   resume { ptr, i32 } %.pn827
 
 42:                                               ; preds = %28
@@ -28947,7 +28947,7 @@ define hidden void @"_ZN5serde2de5impls81_$LT$impl$u20$serde..de..Deserialize$u2
   br label %25
 
 common.resume:                                    ; preds = %33, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10833762189268282141.exit.i.i1.i.i.i.i", %15, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10833762189268282141.exit.i.i1.i.i.i.i.i.i"
-  %common.resume.op = phi { ptr, i32 } [ %16, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10833762189268282141.exit.i.i1.i.i.i.i.i.i" ], [ %16, %15 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10833762189268282141.exit.i.i1.i.i.i.i" ], [ %34, %33 ]
+  %common.resume.op = phi { ptr, i32 } [ %16, %15 ], [ %16, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10833762189268282141.exit.i.i1.i.i.i.i.i.i" ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10833762189268282141.exit.i.i1.i.i.i.i" ], [ %34, %33 ]
   resume { ptr, i32 } %common.resume.op
 
 25:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10833762189268282141.exit.i.i1.i.i.i.i2.i.i", %20
@@ -34668,7 +34668,7 @@ define internal void @_ZN5tokio7runtime4task3raw21drop_join_handle_slow17h61eed8
   br label %.body.i
 
 .body.i:                                          ; preds = %19, %17, %13
-  %eh.lpad-body.i = phi { ptr, i32 } [ %20, %19 ], [ %18, %17 ], [ %14, %13 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %20, %19 ], [ %14, %13 ], [ %18, %17 ]
   %21 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
   %22 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h772e0283c130983aE(ptr noundef %21)
           to label %29 unwind label %23
@@ -35548,7 +35548,7 @@ define internal void @_ZN5tokio7runtime4task3raw21drop_join_handle_slow17hac3c92
   br label %.body.i
 
 .body.i:                                          ; preds = %19, %17, %13
-  %eh.lpad-body.i = phi { ptr, i32 } [ %20, %19 ], [ %18, %17 ], [ %14, %13 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %20, %19 ], [ %14, %13 ], [ %18, %17 ]
   %21 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
   %22 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h772e0283c130983aE(ptr noundef %21)
           to label %29 unwind label %23
@@ -36848,7 +36848,7 @@ define internal void @_ZN5tokio7runtime4task3raw21drop_join_handle_slow17hf0f4ac
   br label %.body.i
 
 .body.i:                                          ; preds = %19, %17, %13
-  %eh.lpad-body.i = phi { ptr, i32 } [ %20, %19 ], [ %18, %17 ], [ %14, %13 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %20, %19 ], [ %14, %13 ], [ %18, %17 ]
   %21 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
   %22 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h772e0283c130983aE(ptr noundef %21)
           to label %29 unwind label %23
@@ -37388,7 +37388,7 @@ default.unreachable:                              ; preds = %104, %1
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %125, %123, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i", %82
-  %common.resume.op.i = phi { ptr, i32 } [ %124, %123 ], [ %126, %125 ], [ %83, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %83, %82 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %126, %125 ], [ %124, %123 ], [ %83, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %83, %82 ]
   resume { ptr, i32 } %common.resume.op.i
 
 90:                                               ; preds = %1
@@ -38130,7 +38130,7 @@ default.unreachable:                              ; preds = %104, %1
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %125, %123, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i", %82
-  %common.resume.op.i = phi { ptr, i32 } [ %124, %123 ], [ %126, %125 ], [ %83, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %83, %82 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %126, %125 ], [ %124, %123 ], [ %83, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %83, %82 ]
   resume { ptr, i32 } %common.resume.op.i
 
 90:                                               ; preds = %1
@@ -38547,7 +38547,7 @@ default.unreachable:                              ; preds = %_ZN5tokio7runtime4t
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %129, %127, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i", %87
-  %common.resume.op.i = phi { ptr, i32 } [ %128, %127 ], [ %130, %129 ], [ %88, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %88, %87 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %130, %129 ], [ %128, %127 ], [ %88, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %88, %87 ]
   resume { ptr, i32 } %common.resume.op.i
 
 95:                                               ; preds = %1
@@ -39019,7 +39019,7 @@ default.unreachable:                              ; preds = %118, %1
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %139, %136, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i", %97
-  %common.resume.op.i = phi { ptr, i32 } [ %137, %136 ], [ %140, %139 ], [ %98, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %98, %97 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %140, %139 ], [ %137, %136 ], [ %98, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %98, %97 ]
   resume { ptr, i32 } %common.resume.op.i
 
 105:                                              ; preds = %1
@@ -39324,7 +39324,7 @@ default.unreachable:                              ; preds = %112, %1
   br label %.body.i.i.i.i.i.i.i
 
 .body.i.i.i.i.i.i.i:                              ; preds = %49, %47, %43
-  %eh.lpad-body.i.i.i.i.i.i.i = phi { ptr, i32 } [ %50, %49 ], [ %48, %47 ], [ %44, %43 ]
+  %eh.lpad-body.i.i.i.i.i.i.i = phi { ptr, i32 } [ %50, %49 ], [ %44, %43 ], [ %48, %47 ]
   %51 = icmp eq ptr %36, null
   br i1 %51, label %.body.i.i.i.i.i.i, label %52
 
@@ -39439,7 +39439,7 @@ default.unreachable:                              ; preds = %112, %1
   br label %.body37.i.i.i
 
 .body37.i.i.i:                                    ; preds = %81, %79, %75
-  %eh.lpad-body38.i.i.i = phi { ptr, i32 } [ %82, %81 ], [ %80, %79 ], [ %76, %75 ]
+  %eh.lpad-body38.i.i.i = phi { ptr, i32 } [ %82, %81 ], [ %76, %75 ], [ %80, %79 ]
   %83 = extractvalue { ptr, i32 } %eh.lpad-body38.i.i.i, 0
   %84 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h772e0283c130983aE(ptr noundef %83)
           to label %87 unwind label %85, !noalias !6792
@@ -39503,7 +39503,7 @@ default.unreachable:                              ; preds = %112, %1
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %120, %118, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i", %102
-  %common.resume.op.i = phi { ptr, i32 } [ %119, %118 ], [ %121, %120 ], [ %103, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %103, %102 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %121, %120 ], [ %119, %118 ], [ %103, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %103, %102 ]
   resume { ptr, i32 } %common.resume.op.i
 
 110:                                              ; preds = %1
@@ -39823,7 +39823,7 @@ default.unreachable:                              ; preds = %104, %1
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %125, %123, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i", %82
-  %common.resume.op.i = phi { ptr, i32 } [ %124, %123 ], [ %126, %125 ], [ %83, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %83, %82 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %126, %125 ], [ %124, %123 ], [ %83, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %83, %82 ]
   resume { ptr, i32 } %common.resume.op.i
 
 90:                                               ; preds = %1
@@ -40263,7 +40263,7 @@ default.unreachable:                              ; preds = %110, %1
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %130, %128, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i", %89
-  %common.resume.op.i = phi { ptr, i32 } [ %129, %128 ], [ %131, %130 ], [ %90, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %90, %89 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %131, %130 ], [ %129, %128 ], [ %90, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %90, %89 ]
   resume { ptr, i32 } %common.resume.op.i
 
 97:                                               ; preds = %1
@@ -40685,7 +40685,7 @@ default.unreachable:                              ; preds = %_ZN5tokio7runtime4t
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %128, %126, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i", %86
-  %common.resume.op.i = phi { ptr, i32 } [ %127, %126 ], [ %129, %128 ], [ %87, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %87, %86 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %129, %128 ], [ %127, %126 ], [ %87, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %87, %86 ]
   resume { ptr, i32 } %common.resume.op.i
 
 94:                                               ; preds = %1
@@ -41087,7 +41087,7 @@ default.unreachable:                              ; preds = %104, %1
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %125, %123, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i", %82
-  %common.resume.op.i = phi { ptr, i32 } [ %124, %123 ], [ %126, %125 ], [ %83, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %83, %82 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %126, %125 ], [ %124, %123 ], [ %83, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %83, %82 ]
   resume { ptr, i32 } %common.resume.op.i
 
 90:                                               ; preds = %1
@@ -41527,7 +41527,7 @@ default.unreachable:                              ; preds = %110, %1
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %130, %128, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i", %89
-  %common.resume.op.i = phi { ptr, i32 } [ %129, %128 ], [ %131, %130 ], [ %90, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %90, %89 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %131, %130 ], [ %129, %128 ], [ %90, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %90, %89 ]
   resume { ptr, i32 } %common.resume.op.i
 
 97:                                               ; preds = %1
@@ -41974,7 +41974,7 @@ default.unreachable:                              ; preds = %110, %1
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %130, %128, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i", %89
-  %common.resume.op.i = phi { ptr, i32 } [ %129, %128 ], [ %131, %130 ], [ %90, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %90, %89 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %131, %130 ], [ %129, %128 ], [ %90, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %90, %89 ]
   resume { ptr, i32 } %common.resume.op.i
 
 97:                                               ; preds = %1
@@ -42384,7 +42384,7 @@ default.unreachable:                              ; preds = %104, %1
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %125, %123, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i", %82
-  %common.resume.op.i = phi { ptr, i32 } [ %124, %123 ], [ %126, %125 ], [ %83, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %83, %82 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %126, %125 ], [ %124, %123 ], [ %83, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %83, %82 ]
   resume { ptr, i32 } %common.resume.op.i
 
 90:                                               ; preds = %1
@@ -42797,7 +42797,7 @@ default.unreachable:                              ; preds = %104, %1
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %125, %123, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i", %82
-  %common.resume.op.i = phi { ptr, i32 } [ %124, %123 ], [ %126, %125 ], [ %83, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %83, %82 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %126, %125 ], [ %124, %123 ], [ %83, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %83, %82 ]
   resume { ptr, i32 } %common.resume.op.i
 
 90:                                               ; preds = %1
@@ -43205,7 +43205,7 @@ default.unreachable:                              ; preds = %104, %1
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %125, %123, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i", %82
-  %common.resume.op.i = phi { ptr, i32 } [ %124, %123 ], [ %126, %125 ], [ %83, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %83, %82 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %126, %125 ], [ %124, %123 ], [ %83, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %83, %82 ]
   resume { ptr, i32 } %common.resume.op.i
 
 90:                                               ; preds = %1
@@ -43645,7 +43645,7 @@ default.unreachable:                              ; preds = %110, %1
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %130, %128, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i", %89
-  %common.resume.op.i = phi { ptr, i32 } [ %129, %128 ], [ %131, %130 ], [ %90, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %90, %89 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %131, %130 ], [ %129, %128 ], [ %90, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %90, %89 ]
   resume { ptr, i32 } %common.resume.op.i
 
 97:                                               ; preds = %1
@@ -44075,7 +44075,7 @@ default.unreachable:                              ; preds = %108, %1
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %129, %127, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i", %86
-  %common.resume.op.i = phi { ptr, i32 } [ %128, %127 ], [ %130, %129 ], [ %87, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %87, %86 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %130, %129 ], [ %128, %127 ], [ %87, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %87, %86 ]
   resume { ptr, i32 } %common.resume.op.i
 
 94:                                               ; preds = %1
@@ -44520,7 +44520,7 @@ default.unreachable:                              ; preds = %110, %1
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %130, %128, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i", %89
-  %common.resume.op.i = phi { ptr, i32 } [ %129, %128 ], [ %131, %130 ], [ %90, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %90, %89 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %131, %130 ], [ %129, %128 ], [ %90, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %90, %89 ]
   resume { ptr, i32 } %common.resume.op.i
 
 97:                                               ; preds = %1
@@ -44991,7 +44991,7 @@ default.unreachable:                              ; preds = %116, %1
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %137, %134, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i", %94
-  %common.resume.op.i = phi { ptr, i32 } [ %135, %134 ], [ %138, %137 ], [ %95, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %95, %94 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %138, %137 ], [ %135, %134 ], [ %95, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %95, %94 ]
   resume { ptr, i32 } %common.resume.op.i
 
 102:                                              ; preds = %1
@@ -45417,7 +45417,7 @@ default.unreachable:                              ; preds = %_ZN5tokio7runtime4t
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %133, %130, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i", %91
-  %common.resume.op.i = phi { ptr, i32 } [ %131, %130 ], [ %134, %133 ], [ %92, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %92, %91 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %134, %133 ], [ %131, %130 ], [ %92, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %92, %91 ]
   resume { ptr, i32 } %common.resume.op.i
 
 99:                                               ; preds = %1
@@ -45707,7 +45707,7 @@ default.unreachable:                              ; preds = %108, %1
   br label %48
 
 48:                                               ; preds = %46, %44, %40
-  %eh.lpad-body.i.i.i.i.i.i.i = phi { ptr, i32 } [ %47, %46 ], [ %45, %44 ], [ %41, %40 ]
+  %eh.lpad-body.i.i.i.i.i.i.i = phi { ptr, i32 } [ %47, %46 ], [ %41, %40 ], [ %45, %44 ]
   invoke void @"_ZN4core3ptr434drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$core..result..Result$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..DirectoryEntry$C$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..ctx..WasiImpl$LT$T$GT$$GT$..read_directory..$u7b$$u7b$closure$u7d$$u7d$..ReaddirError$GT$$GT$$C$std..io..error..Error$GT$$GT$17h8f5614b339f7ba8dE.llvm.16188651594484228709"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
           to label %.body.i.i.i.i.i.i unwind label %49, !noalias !7355
 
@@ -45824,7 +45824,7 @@ default.unreachable:                              ; preds = %108, %1
   br label %.body48.i.i.i
 
 .body48.i.i.i:                                    ; preds = %77, %75, %71
-  %eh.lpad-body49.i.i.i = phi { ptr, i32 } [ %78, %77 ], [ %76, %75 ], [ %72, %71 ]
+  %eh.lpad-body49.i.i.i = phi { ptr, i32 } [ %78, %77 ], [ %72, %71 ], [ %76, %75 ]
   %79 = extractvalue { ptr, i32 } %eh.lpad-body49.i.i.i, 0
   %80 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h772e0283c130983aE(ptr noundef %79)
           to label %83 unwind label %81, !noalias !7346
@@ -45888,7 +45888,7 @@ default.unreachable:                              ; preds = %108, %1
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %116, %114, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i", %98
-  %common.resume.op.i = phi { ptr, i32 } [ %115, %114 ], [ %117, %116 ], [ %99, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %99, %98 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %117, %116 ], [ %115, %114 ], [ %99, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %99, %98 ]
   resume { ptr, i32 } %common.resume.op.i
 
 106:                                              ; preds = %1
@@ -46208,7 +46208,7 @@ default.unreachable:                              ; preds = %104, %1
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %125, %123, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i", %82
-  %common.resume.op.i = phi { ptr, i32 } [ %124, %123 ], [ %126, %125 ], [ %83, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %83, %82 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %126, %125 ], [ %124, %123 ], [ %83, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %83, %82 ]
   resume { ptr, i32 } %common.resume.op.i
 
 90:                                               ; preds = %1
@@ -46625,7 +46625,7 @@ default.unreachable:                              ; preds = %_ZN5tokio7runtime4t
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %129, %127, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i", %87
-  %common.resume.op.i = phi { ptr, i32 } [ %128, %127 ], [ %130, %129 ], [ %88, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %88, %87 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %130, %129 ], [ %128, %127 ], [ %88, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %88, %87 ]
   resume { ptr, i32 } %common.resume.op.i
 
 95:                                               ; preds = %1
@@ -47027,7 +47027,7 @@ default.unreachable:                              ; preds = %104, %1
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %125, %123, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i", %82
-  %common.resume.op.i = phi { ptr, i32 } [ %124, %123 ], [ %126, %125 ], [ %83, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %83, %82 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %126, %125 ], [ %124, %123 ], [ %83, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %83, %82 ]
   resume { ptr, i32 } %common.resume.op.i
 
 90:                                               ; preds = %1
@@ -47430,7 +47430,7 @@ default.unreachable:                              ; preds = %104, %1
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %125, %123, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i", %82
-  %common.resume.op.i = phi { ptr, i32 } [ %124, %123 ], [ %126, %125 ], [ %83, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %83, %82 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %126, %125 ], [ %124, %123 ], [ %83, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %83, %82 ]
   resume { ptr, i32 } %common.resume.op.i
 
 90:                                               ; preds = %1
@@ -47833,7 +47833,7 @@ default.unreachable:                              ; preds = %104, %1
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %125, %123, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i", %82
-  %common.resume.op.i = phi { ptr, i32 } [ %124, %123 ], [ %126, %125 ], [ %83, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %83, %82 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %126, %125 ], [ %124, %123 ], [ %83, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %83, %82 ]
   resume { ptr, i32 } %common.resume.op.i
 
 90:                                               ; preds = %1
@@ -48236,7 +48236,7 @@ default.unreachable:                              ; preds = %104, %1
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %125, %123, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i", %82
-  %common.resume.op.i = phi { ptr, i32 } [ %124, %123 ], [ %126, %125 ], [ %83, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %83, %82 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %126, %125 ], [ %124, %123 ], [ %83, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %83, %82 ]
   resume { ptr, i32 } %common.resume.op.i
 
 90:                                               ; preds = %1
@@ -48545,7 +48545,7 @@ default.unreachable:                              ; preds = %112, %1
   br label %.body.i.i.i.i.i.i.i
 
 .body.i.i.i.i.i.i.i:                              ; preds = %49, %47, %43
-  %eh.lpad-body.i.i.i.i.i.i.i = phi { ptr, i32 } [ %50, %49 ], [ %48, %47 ], [ %44, %43 ]
+  %eh.lpad-body.i.i.i.i.i.i.i = phi { ptr, i32 } [ %50, %49 ], [ %44, %43 ], [ %48, %47 ]
   %51 = icmp eq ptr %36, null
   br i1 %51, label %.body.i.i.i.i.i.i, label %52
 
@@ -48660,7 +48660,7 @@ default.unreachable:                              ; preds = %112, %1
   br label %.body37.i.i.i
 
 .body37.i.i.i:                                    ; preds = %81, %79, %75
-  %eh.lpad-body38.i.i.i = phi { ptr, i32 } [ %82, %81 ], [ %80, %79 ], [ %76, %75 ]
+  %eh.lpad-body38.i.i.i = phi { ptr, i32 } [ %82, %81 ], [ %76, %75 ], [ %80, %79 ]
   %83 = extractvalue { ptr, i32 } %eh.lpad-body38.i.i.i, 0
   %84 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h772e0283c130983aE(ptr noundef %83)
           to label %87 unwind label %85, !noalias !7589
@@ -48724,7 +48724,7 @@ default.unreachable:                              ; preds = %112, %1
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %120, %118, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i", %102
-  %common.resume.op.i = phi { ptr, i32 } [ %119, %118 ], [ %121, %120 ], [ %103, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %103, %102 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %121, %120 ], [ %119, %118 ], [ %103, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %103, %102 ]
   resume { ptr, i32 } %common.resume.op.i
 
 110:                                              ; preds = %1
@@ -49081,7 +49081,7 @@ default.unreachable:                              ; preds = %110, %1
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %130, %128, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i", %89
-  %common.resume.op.i = phi { ptr, i32 } [ %129, %128 ], [ %131, %130 ], [ %90, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %90, %89 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %131, %130 ], [ %129, %128 ], [ %90, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %90, %89 ]
   resume { ptr, i32 } %common.resume.op.i
 
 97:                                               ; preds = %1
@@ -49528,7 +49528,7 @@ default.unreachable:                              ; preds = %110, %1
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %130, %128, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i", %89
-  %common.resume.op.i = phi { ptr, i32 } [ %129, %128 ], [ %131, %130 ], [ %90, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %90, %89 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %131, %130 ], [ %129, %128 ], [ %90, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %90, %89 ]
   resume { ptr, i32 } %common.resume.op.i
 
 97:                                               ; preds = %1
@@ -49938,7 +49938,7 @@ default.unreachable:                              ; preds = %104, %1
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %125, %123, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i", %82
-  %common.resume.op.i = phi { ptr, i32 } [ %124, %123 ], [ %126, %125 ], [ %83, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %83, %82 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %126, %125 ], [ %124, %123 ], [ %83, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %83, %82 ]
   resume { ptr, i32 } %common.resume.op.i
 
 90:                                               ; preds = %1
@@ -50349,7 +50349,7 @@ default.unreachable:                              ; preds = %103, %1
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %124, %122, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i", %81
-  %common.resume.op.i = phi { ptr, i32 } [ %123, %122 ], [ %125, %124 ], [ %82, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %82, %81 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %125, %124 ], [ %123, %122 ], [ %82, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %82, %81 ]
   resume { ptr, i32 } %common.resume.op.i
 
 89:                                               ; preds = %1
@@ -50757,7 +50757,7 @@ default.unreachable:                              ; preds = %104, %1
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %125, %123, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i", %82
-  %common.resume.op.i = phi { ptr, i32 } [ %124, %123 ], [ %126, %125 ], [ %83, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %83, %82 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %126, %125 ], [ %124, %123 ], [ %83, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i.i.i.i" ], [ %83, %82 ]
   resume { ptr, i32 } %common.resume.op.i
 
 90:                                               ; preds = %1
@@ -54237,7 +54237,7 @@ define hidden noalias noundef nonnull align 128 ptr @"_ZN5tokio7runtime4task4cor
   unreachable
 
 .critedge:                                        ; preds = %19, %.noexc25
-  %eh.lpad-body29 = phi { ptr, i32 } [ %25, %.noexc25 ], [ %20, %19 ]
+  %eh.lpad-body29 = phi { ptr, i32 } [ %20, %19 ], [ %25, %.noexc25 ]
   resume { ptr, i32 } %eh.lpad-body29
 
 .noexc25:                                         ; preds = %30, %24, %27
@@ -54561,7 +54561,7 @@ define hidden noalias noundef nonnull align 128 ptr @"_ZN5tokio7runtime4task4cor
   unreachable
 
 .critedge:                                        ; preds = %19, %.noexc25
-  %eh.lpad-body29 = phi { ptr, i32 } [ %25, %.noexc25 ], [ %20, %19 ]
+  %eh.lpad-body29 = phi { ptr, i32 } [ %20, %19 ], [ %25, %.noexc25 ]
   resume { ptr, i32 } %eh.lpad-body29
 
 .noexc25:                                         ; preds = %30, %24, %27
@@ -54661,7 +54661,7 @@ define hidden noalias noundef nonnull align 128 ptr @"_ZN5tokio7runtime4task4cor
   unreachable
 
 .critedge:                                        ; preds = %19, %.noexc29
-  %eh.lpad-body33 = phi { ptr, i32 } [ %25, %.noexc29 ], [ %20, %19 ]
+  %eh.lpad-body33 = phi { ptr, i32 } [ %20, %19 ], [ %25, %.noexc29 ]
   resume { ptr, i32 } %eh.lpad-body33
 
 .noexc29:                                         ; preds = %30, %24, %27
@@ -54761,7 +54761,7 @@ define hidden noalias noundef nonnull align 128 ptr @"_ZN5tokio7runtime4task4cor
   unreachable
 
 .critedge:                                        ; preds = %19, %.noexc25
-  %eh.lpad-body29 = phi { ptr, i32 } [ %25, %.noexc25 ], [ %20, %19 ]
+  %eh.lpad-body29 = phi { ptr, i32 } [ %20, %19 ], [ %25, %.noexc25 ]
   resume { ptr, i32 } %eh.lpad-body29
 
 .noexc25:                                         ; preds = %30, %24, %27
@@ -54861,7 +54861,7 @@ define hidden noalias noundef nonnull align 128 ptr @"_ZN5tokio7runtime4task4cor
   unreachable
 
 .critedge:                                        ; preds = %19, %.noexc25
-  %eh.lpad-body29 = phi { ptr, i32 } [ %25, %.noexc25 ], [ %20, %19 ]
+  %eh.lpad-body29 = phi { ptr, i32 } [ %20, %19 ], [ %25, %.noexc25 ]
   resume { ptr, i32 } %eh.lpad-body29
 
 .noexc25:                                         ; preds = %30, %24, %27
@@ -55073,7 +55073,7 @@ define hidden noalias noundef nonnull align 128 ptr @"_ZN5tokio7runtime4task4cor
   unreachable
 
 .critedge:                                        ; preds = %19, %.noexc29
-  %eh.lpad-body33 = phi { ptr, i32 } [ %25, %.noexc29 ], [ %20, %19 ]
+  %eh.lpad-body33 = phi { ptr, i32 } [ %20, %19 ], [ %25, %.noexc29 ]
   resume { ptr, i32 } %eh.lpad-body33
 
 .noexc29:                                         ; preds = %30, %24, %27
@@ -55627,7 +55627,7 @@ define hidden noalias noundef nonnull align 128 ptr @"_ZN5tokio7runtime4task4cor
   unreachable
 
 .critedge:                                        ; preds = %19, %.noexc25
-  %eh.lpad-body29 = phi { ptr, i32 } [ %25, %.noexc25 ], [ %20, %19 ]
+  %eh.lpad-body29 = phi { ptr, i32 } [ %20, %19 ], [ %25, %.noexc25 ]
   resume { ptr, i32 } %eh.lpad-body29
 
 .noexc25:                                         ; preds = %30, %24, %27
@@ -55727,7 +55727,7 @@ define hidden noalias noundef nonnull align 128 ptr @"_ZN5tokio7runtime4task4cor
   unreachable
 
 .critedge:                                        ; preds = %19, %.noexc25
-  %eh.lpad-body29 = phi { ptr, i32 } [ %25, %.noexc25 ], [ %20, %19 ]
+  %eh.lpad-body29 = phi { ptr, i32 } [ %20, %19 ], [ %25, %.noexc25 ]
   resume { ptr, i32 } %eh.lpad-body29
 
 .noexc25:                                         ; preds = %30, %24, %27
@@ -56052,7 +56052,7 @@ define hidden noalias noundef nonnull align 128 ptr @"_ZN5tokio7runtime4task4cor
   unreachable
 
 .critedge:                                        ; preds = %19, %.noexc25
-  %eh.lpad-body29 = phi { ptr, i32 } [ %25, %.noexc25 ], [ %20, %19 ]
+  %eh.lpad-body29 = phi { ptr, i32 } [ %20, %19 ], [ %25, %.noexc25 ]
   resume { ptr, i32 } %eh.lpad-body29
 
 .noexc25:                                         ; preds = %30, %24, %27
@@ -56152,7 +56152,7 @@ define hidden noalias noundef nonnull align 128 ptr @"_ZN5tokio7runtime4task4cor
   unreachable
 
 .critedge:                                        ; preds = %19, %.noexc25
-  %eh.lpad-body29 = phi { ptr, i32 } [ %25, %.noexc25 ], [ %20, %19 ]
+  %eh.lpad-body29 = phi { ptr, i32 } [ %20, %19 ], [ %25, %.noexc25 ]
   resume { ptr, i32 } %eh.lpad-body29
 
 .noexc25:                                         ; preds = %30, %24, %27
@@ -56370,7 +56370,7 @@ define hidden noalias noundef nonnull align 128 ptr @"_ZN5tokio7runtime4task4cor
   unreachable
 
 .critedge:                                        ; preds = %19, %.noexc25
-  %eh.lpad-body29 = phi { ptr, i32 } [ %25, %.noexc25 ], [ %20, %19 ]
+  %eh.lpad-body29 = phi { ptr, i32 } [ %20, %19 ], [ %25, %.noexc25 ]
   resume { ptr, i32 } %eh.lpad-body29
 
 .noexc25:                                         ; preds = %30, %24, %27
@@ -56470,7 +56470,7 @@ define hidden noalias noundef nonnull align 128 ptr @"_ZN5tokio7runtime4task4cor
   unreachable
 
 .critedge:                                        ; preds = %19, %.noexc29
-  %eh.lpad-body33 = phi { ptr, i32 } [ %25, %.noexc29 ], [ %20, %19 ]
+  %eh.lpad-body33 = phi { ptr, i32 } [ %20, %19 ], [ %25, %.noexc29 ]
   resume { ptr, i32 } %eh.lpad-body33
 
 .noexc29:                                         ; preds = %30, %24, %27
@@ -56686,7 +56686,7 @@ define hidden noalias noundef nonnull align 128 ptr @"_ZN5tokio7runtime4task4cor
   unreachable
 
 .critedge:                                        ; preds = %19, %.noexc25
-  %eh.lpad-body29 = phi { ptr, i32 } [ %25, %.noexc25 ], [ %20, %19 ]
+  %eh.lpad-body29 = phi { ptr, i32 } [ %20, %19 ], [ %25, %.noexc25 ]
   resume { ptr, i32 } %eh.lpad-body29
 
 .noexc25:                                         ; preds = %30, %24, %27
@@ -57011,7 +57011,7 @@ define hidden noalias noundef nonnull align 128 ptr @"_ZN5tokio7runtime4task4cor
   unreachable
 
 .critedge:                                        ; preds = %19, %.noexc25
-  %eh.lpad-body29 = phi { ptr, i32 } [ %25, %.noexc25 ], [ %20, %19 ]
+  %eh.lpad-body29 = phi { ptr, i32 } [ %20, %19 ], [ %25, %.noexc25 ]
   resume { ptr, i32 } %eh.lpad-body29
 
 .noexc25:                                         ; preds = %30, %24, %27
@@ -57335,7 +57335,7 @@ define hidden noalias noundef nonnull align 128 ptr @"_ZN5tokio7runtime4task4cor
   unreachable
 
 .critedge:                                        ; preds = %19, %.noexc29
-  %eh.lpad-body33 = phi { ptr, i32 } [ %25, %.noexc29 ], [ %20, %19 ]
+  %eh.lpad-body33 = phi { ptr, i32 } [ %20, %19 ], [ %25, %.noexc29 ]
   resume { ptr, i32 } %eh.lpad-body33
 
 .noexc29:                                         ; preds = %30, %24, %27
@@ -57545,7 +57545,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
   unreachable
 
 .thread:                                          ; preds = %26, %30
-  %.pn9 = phi { ptr, i32 } [ %31, %30 ], [ %27, %26 ]
+  %.pn9 = phi { ptr, i32 } [ %27, %26 ], [ %31, %30 ]
   resume { ptr, i32 } %.pn9
 
 30:                                               ; preds = %2
@@ -57619,7 +57619,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
   unreachable
 
 .thread:                                          ; preds = %21, %25
-  %.pn9 = phi { ptr, i32 } [ %26, %25 ], [ %22, %21 ]
+  %.pn9 = phi { ptr, i32 } [ %22, %21 ], [ %26, %25 ]
   resume { ptr, i32 } %.pn9
 
 25:                                               ; preds = %2
@@ -57724,7 +57724,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
   unreachable
 
 .thread:                                          ; preds = %.body, %37
-  %.pn9 = phi { ptr, i32 } [ %38, %37 ], [ %eh.lpad-body, %.body ]
+  %.pn9 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %38, %37 ]
   resume { ptr, i32 } %.pn9
 
 37:                                               ; preds = %2
@@ -57798,7 +57798,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
   unreachable
 
 .thread:                                          ; preds = %21, %25
-  %.pn9 = phi { ptr, i32 } [ %26, %25 ], [ %22, %21 ]
+  %.pn9 = phi { ptr, i32 } [ %22, %21 ], [ %26, %25 ]
   resume { ptr, i32 } %.pn9
 
 25:                                               ; preds = %2
@@ -57892,7 +57892,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
   unreachable
 
 .thread:                                          ; preds = %26, %30
-  %.pn9 = phi { ptr, i32 } [ %31, %30 ], [ %27, %26 ]
+  %.pn9 = phi { ptr, i32 } [ %27, %26 ], [ %31, %30 ]
   resume { ptr, i32 } %.pn9
 
 30:                                               ; preds = %2
@@ -57966,7 +57966,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
   unreachable
 
 .thread:                                          ; preds = %21, %25
-  %.pn9 = phi { ptr, i32 } [ %26, %25 ], [ %22, %21 ]
+  %.pn9 = phi { ptr, i32 } [ %22, %21 ], [ %26, %25 ]
   resume { ptr, i32 } %.pn9
 
 25:                                               ; preds = %2
@@ -58060,7 +58060,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
   unreachable
 
 .thread:                                          ; preds = %26, %30
-  %.pn9 = phi { ptr, i32 } [ %31, %30 ], [ %27, %26 ]
+  %.pn9 = phi { ptr, i32 } [ %27, %26 ], [ %31, %30 ]
   resume { ptr, i32 } %.pn9
 
 30:                                               ; preds = %2
@@ -58134,7 +58134,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
   unreachable
 
 .thread:                                          ; preds = %21, %25
-  %.pn9 = phi { ptr, i32 } [ %26, %25 ], [ %22, %21 ]
+  %.pn9 = phi { ptr, i32 } [ %22, %21 ], [ %26, %25 ]
   resume { ptr, i32 } %.pn9
 
 25:                                               ; preds = %2
@@ -58179,7 +58179,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
   unreachable
 
 .thread:                                          ; preds = %9, %13
-  %.pn6 = phi { ptr, i32 } [ %14, %13 ], [ %10, %9 ]
+  %.pn6 = phi { ptr, i32 } [ %10, %9 ], [ %14, %13 ]
   resume { ptr, i32 } %.pn6
 
 13:                                               ; preds = %2
@@ -58253,7 +58253,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
   unreachable
 
 .thread:                                          ; preds = %21, %25
-  %.pn9 = phi { ptr, i32 } [ %26, %25 ], [ %22, %21 ]
+  %.pn9 = phi { ptr, i32 } [ %22, %21 ], [ %26, %25 ]
   resume { ptr, i32 } %.pn9
 
 25:                                               ; preds = %2
@@ -58358,7 +58358,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
   unreachable
 
 .thread:                                          ; preds = %.body, %37
-  %.pn9 = phi { ptr, i32 } [ %38, %37 ], [ %eh.lpad-body, %.body ]
+  %.pn9 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %38, %37 ]
   resume { ptr, i32 } %.pn9
 
 37:                                               ; preds = %2
@@ -58437,7 +58437,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
   unreachable
 
 .thread:                                          ; preds = %23, %27
-  %.pn9 = phi { ptr, i32 } [ %28, %27 ], [ %24, %23 ]
+  %.pn9 = phi { ptr, i32 } [ %24, %23 ], [ %28, %27 ]
   resume { ptr, i32 } %.pn9
 
 27:                                               ; preds = %2
@@ -58531,7 +58531,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
   unreachable
 
 .thread:                                          ; preds = %26, %30
-  %.pn9 = phi { ptr, i32 } [ %31, %30 ], [ %27, %26 ]
+  %.pn9 = phi { ptr, i32 } [ %27, %26 ], [ %31, %30 ]
   resume { ptr, i32 } %.pn9
 
 30:                                               ; preds = %2
@@ -58624,7 +58624,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
   unreachable
 
 .thread:                                          ; preds = %26, %30
-  %.pn9 = phi { ptr, i32 } [ %31, %30 ], [ %27, %26 ]
+  %.pn9 = phi { ptr, i32 } [ %27, %26 ], [ %31, %30 ]
   resume { ptr, i32 } %.pn9
 
 30:                                               ; preds = %2
@@ -58698,7 +58698,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
   unreachable
 
 .thread:                                          ; preds = %21, %25
-  %.pn9 = phi { ptr, i32 } [ %26, %25 ], [ %22, %21 ]
+  %.pn9 = phi { ptr, i32 } [ %22, %21 ], [ %26, %25 ]
   resume { ptr, i32 } %.pn9
 
 25:                                               ; preds = %2
@@ -58792,7 +58792,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
   unreachable
 
 .thread:                                          ; preds = %26, %30
-  %.pn9 = phi { ptr, i32 } [ %31, %30 ], [ %27, %26 ]
+  %.pn9 = phi { ptr, i32 } [ %27, %26 ], [ %31, %30 ]
   resume { ptr, i32 } %.pn9
 
 30:                                               ; preds = %2
@@ -58886,7 +58886,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
   unreachable
 
 .thread:                                          ; preds = %26, %30
-  %.pn9 = phi { ptr, i32 } [ %31, %30 ], [ %27, %26 ]
+  %.pn9 = phi { ptr, i32 } [ %27, %26 ], [ %31, %30 ]
   resume { ptr, i32 } %.pn9
 
 30:                                               ; preds = %2
@@ -58996,7 +58996,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
   unreachable
 
 .thread:                                          ; preds = %31, %35
-  %.pn9 = phi { ptr, i32 } [ %36, %35 ], [ %32, %31 ]
+  %.pn9 = phi { ptr, i32 } [ %32, %31 ], [ %36, %35 ]
   resume { ptr, i32 } %.pn9
 
 35:                                               ; preds = %2
@@ -59075,7 +59075,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
   unreachable
 
 .thread:                                          ; preds = %23, %27
-  %.pn9 = phi { ptr, i32 } [ %28, %27 ], [ %24, %23 ]
+  %.pn9 = phi { ptr, i32 } [ %24, %23 ], [ %28, %27 ]
   resume { ptr, i32 } %.pn9
 
 27:                                               ; preds = %2
@@ -59120,7 +59120,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
   unreachable
 
 .thread:                                          ; preds = %9, %13
-  %.pn6 = phi { ptr, i32 } [ %14, %13 ], [ %10, %9 ]
+  %.pn6 = phi { ptr, i32 } [ %10, %9 ], [ %14, %13 ]
   resume { ptr, i32 } %.pn6
 
 13:                                               ; preds = %2
@@ -59194,7 +59194,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
   unreachable
 
 .thread:                                          ; preds = %21, %25
-  %.pn9 = phi { ptr, i32 } [ %26, %25 ], [ %22, %21 ]
+  %.pn9 = phi { ptr, i32 } [ %22, %21 ], [ %26, %25 ]
   resume { ptr, i32 } %.pn9
 
 25:                                               ; preds = %2
@@ -59268,7 +59268,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
   unreachable
 
 .thread:                                          ; preds = %21, %25
-  %.pn9 = phi { ptr, i32 } [ %26, %25 ], [ %22, %21 ]
+  %.pn9 = phi { ptr, i32 } [ %22, %21 ], [ %26, %25 ]
   resume { ptr, i32 } %.pn9
 
 25:                                               ; preds = %2
@@ -59350,7 +59350,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
   unreachable
 
 .thread:                                          ; preds = %22, %26
-  %.pn8 = phi { ptr, i32 } [ %27, %26 ], [ %23, %22 ]
+  %.pn8 = phi { ptr, i32 } [ %23, %22 ], [ %27, %26 ]
   resume { ptr, i32 } %.pn8
 
 26:                                               ; preds = %2
@@ -59395,7 +59395,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
   unreachable
 
 .thread:                                          ; preds = %9, %13
-  %.pn6 = phi { ptr, i32 } [ %14, %13 ], [ %10, %9 ]
+  %.pn6 = phi { ptr, i32 } [ %10, %9 ], [ %14, %13 ]
   resume { ptr, i32 } %.pn6
 
 13:                                               ; preds = %2
@@ -59469,7 +59469,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
   unreachable
 
 .thread:                                          ; preds = %21, %25
-  %.pn9 = phi { ptr, i32 } [ %26, %25 ], [ %22, %21 ]
+  %.pn9 = phi { ptr, i32 } [ %22, %21 ], [ %26, %25 ]
   resume { ptr, i32 } %.pn9
 
 25:                                               ; preds = %2
@@ -59563,7 +59563,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
   unreachable
 
 .thread:                                          ; preds = %26, %30
-  %.pn9 = phi { ptr, i32 } [ %31, %30 ], [ %27, %26 ]
+  %.pn9 = phi { ptr, i32 } [ %27, %26 ], [ %31, %30 ]
   resume { ptr, i32 } %.pn9
 
 30:                                               ; preds = %2
@@ -59637,7 +59637,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
   unreachable
 
 .thread:                                          ; preds = %21, %25
-  %.pn9 = phi { ptr, i32 } [ %26, %25 ], [ %22, %21 ]
+  %.pn9 = phi { ptr, i32 } [ %22, %21 ], [ %26, %25 ]
   resume { ptr, i32 } %.pn9
 
 25:                                               ; preds = %2
@@ -59731,7 +59731,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
   unreachable
 
 .thread:                                          ; preds = %26, %30
-  %.pn9 = phi { ptr, i32 } [ %31, %30 ], [ %27, %26 ]
+  %.pn9 = phi { ptr, i32 } [ %27, %26 ], [ %31, %30 ]
   resume { ptr, i32 } %.pn9
 
 30:                                               ; preds = %2
@@ -59805,7 +59805,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
   unreachable
 
 .thread:                                          ; preds = %21, %25
-  %.pn9 = phi { ptr, i32 } [ %26, %25 ], [ %22, %21 ]
+  %.pn9 = phi { ptr, i32 } [ %22, %21 ], [ %26, %25 ]
   resume { ptr, i32 } %.pn9
 
 25:                                               ; preds = %2
@@ -59899,7 +59899,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
   unreachable
 
 .thread:                                          ; preds = %26, %30
-  %.pn9 = phi { ptr, i32 } [ %31, %30 ], [ %27, %26 ]
+  %.pn9 = phi { ptr, i32 } [ %27, %26 ], [ %31, %30 ]
   resume { ptr, i32 } %.pn9
 
 30:                                               ; preds = %2
@@ -59978,7 +59978,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
   unreachable
 
 .thread:                                          ; preds = %23, %27
-  %.pn9 = phi { ptr, i32 } [ %28, %27 ], [ %24, %23 ]
+  %.pn9 = phi { ptr, i32 } [ %24, %23 ], [ %28, %27 ]
   resume { ptr, i32 } %.pn9
 
 27:                                               ; preds = %2
@@ -60052,7 +60052,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
   unreachable
 
 .thread:                                          ; preds = %21, %25
-  %.pn9 = phi { ptr, i32 } [ %26, %25 ], [ %22, %21 ]
+  %.pn9 = phi { ptr, i32 } [ %22, %21 ], [ %26, %25 ]
   resume { ptr, i32 } %.pn9
 
 25:                                               ; preds = %2
@@ -60146,7 +60146,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
   unreachable
 
 .thread:                                          ; preds = %26, %30
-  %.pn9 = phi { ptr, i32 } [ %31, %30 ], [ %27, %26 ]
+  %.pn9 = phi { ptr, i32 } [ %27, %26 ], [ %31, %30 ]
   resume { ptr, i32 } %.pn9
 
 30:                                               ; preds = %2
@@ -60208,7 +60208,7 @@ define internal fastcc void @_ZN5tokio7runtime4task7harness11cancel_task17h3a70a
   br label %.body
 
 .body:                                            ; preds = %11, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %11 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %11 ], [ %16, %15 ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h772e0283c130983aE(ptr noundef %19)
           to label %24 unwind label %21
@@ -60267,7 +60267,7 @@ define internal fastcc void @_ZN5tokio7runtime4task7harness11cancel_task17h3a70a
   unreachable
 
 .thread.i:                                        ; preds = %37, %33
-  %.pn6.i = phi { ptr, i32 } [ %38, %37 ], [ %34, %33 ]
+  %.pn6.i = phi { ptr, i32 } [ %34, %33 ], [ %38, %37 ]
   resume { ptr, i32 } %.pn6.i
 
 37:                                               ; preds = %28
@@ -60336,7 +60336,7 @@ define internal fastcc void @_ZN5tokio7runtime4task7harness11cancel_task17h41b65
   br label %.body
 
 .body:                                            ; preds = %11, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %11 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %11 ], [ %16, %15 ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h772e0283c130983aE(ptr noundef %19)
           to label %24 unwind label %21
@@ -60397,7 +60397,7 @@ define internal fastcc void @_ZN5tokio7runtime4task7harness11cancel_task17h41b65
   unreachable
 
 .thread.i:                                        ; preds = %37, %33
-  %.pn6.i = phi { ptr, i32 } [ %38, %37 ], [ %34, %33 ]
+  %.pn6.i = phi { ptr, i32 } [ %34, %33 ], [ %38, %37 ]
   resume { ptr, i32 } %.pn6.i
 
 37:                                               ; preds = %28
@@ -60466,7 +60466,7 @@ define internal fastcc void @_ZN5tokio7runtime4task7harness11cancel_task17h7a0cf
   br label %.body
 
 .body:                                            ; preds = %11, %15, %17
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %12, %11 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %12, %11 ], [ %16, %15 ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %20 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h772e0283c130983aE(ptr noundef %19)
           to label %24 unwind label %21
@@ -60525,7 +60525,7 @@ define internal fastcc void @_ZN5tokio7runtime4task7harness11cancel_task17h7a0cf
   unreachable
 
 .thread.i:                                        ; preds = %37, %33
-  %.pn6.i = phi { ptr, i32 } [ %38, %37 ], [ %34, %33 ]
+  %.pn6.i = phi { ptr, i32 } [ %34, %33 ], [ %38, %37 ]
   resume { ptr, i32 } %.pn6.i
 
 37:                                               ; preds = %28
@@ -60633,7 +60633,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %76, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11", %33, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i", %85
-  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %34, %33 ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
+  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %33 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb10f5f220e5edcb4E.exit": ; preds = %8, %.noexc, %10, %18, %26, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i"
@@ -60829,7 +60829,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %76, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11", %33, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i", %85
-  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %34, %33 ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
+  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %33 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb10f5f220e5edcb4E.exit": ; preds = %8, %.noexc, %10, %18, %26, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i"
@@ -61025,7 +61025,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %76, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11", %33, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i", %85
-  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %34, %33 ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
+  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %33 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb10f5f220e5edcb4E.exit": ; preds = %8, %.noexc, %10, %18, %26, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i"
@@ -61221,7 +61221,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %76, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11", %33, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i", %85
-  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %34, %33 ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
+  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %33 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb10f5f220e5edcb4E.exit": ; preds = %8, %.noexc, %10, %18, %26, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i"
@@ -61417,7 +61417,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %76, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11", %33, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i", %85
-  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %34, %33 ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
+  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %33 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb10f5f220e5edcb4E.exit": ; preds = %8, %.noexc, %10, %18, %26, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i"
@@ -61613,7 +61613,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %76, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11", %33, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i", %85
-  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %34, %33 ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
+  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %33 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb10f5f220e5edcb4E.exit": ; preds = %8, %.noexc, %10, %18, %26, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i"
@@ -61809,7 +61809,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %76, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11", %33, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i", %85
-  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %34, %33 ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
+  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %33 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb10f5f220e5edcb4E.exit": ; preds = %8, %.noexc, %10, %18, %26, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i"
@@ -62005,7 +62005,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %76, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11", %33, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i", %85
-  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %34, %33 ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
+  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %33 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb10f5f220e5edcb4E.exit": ; preds = %8, %.noexc, %10, %18, %26, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i"
@@ -62201,7 +62201,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %76, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11", %33, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i", %85
-  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %34, %33 ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
+  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %33 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb10f5f220e5edcb4E.exit": ; preds = %8, %.noexc, %10, %18, %26, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i"
@@ -62397,7 +62397,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %76, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11", %33, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i", %85
-  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %34, %33 ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
+  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %33 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb10f5f220e5edcb4E.exit": ; preds = %8, %.noexc, %10, %18, %26, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i"
@@ -62593,7 +62593,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %76, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11", %33, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i", %85
-  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %34, %33 ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
+  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %33 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb10f5f220e5edcb4E.exit": ; preds = %8, %.noexc, %10, %18, %26, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i"
@@ -62789,7 +62789,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %76, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11", %33, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i", %85
-  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %34, %33 ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
+  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %33 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb10f5f220e5edcb4E.exit": ; preds = %8, %.noexc, %10, %18, %26, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i"
@@ -62985,7 +62985,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %76, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11", %33, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i", %85
-  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %34, %33 ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
+  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %33 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb10f5f220e5edcb4E.exit": ; preds = %8, %.noexc, %10, %18, %26, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i"
@@ -63181,7 +63181,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %76, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11", %33, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i", %85
-  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %34, %33 ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
+  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %33 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb10f5f220e5edcb4E.exit": ; preds = %8, %.noexc, %10, %18, %26, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i"
@@ -63377,7 +63377,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %76, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11", %33, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i", %85
-  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %34, %33 ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
+  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %33 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb10f5f220e5edcb4E.exit": ; preds = %8, %.noexc, %10, %18, %26, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i"
@@ -63554,7 +63554,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %.body
 
 .body:                                            ; preds = %13, %17, %23
-  %eh.lpad-body = phi { ptr, i32 } [ %24, %23 ], [ %18, %17 ], [ %14, %13 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %24, %23 ], [ %14, %13 ], [ %18, %17 ]
   %25 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %26 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h772e0283c130983aE(ptr noundef %25)
           to label %29 unwind label %27
@@ -63613,7 +63613,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %87, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11", %44, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i", %96
-  %common.resume.op = phi { ptr, i32 } [ %97, %96 ], [ %45, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %45, %44 ], [ %88, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %88, %87 ]
+  %common.resume.op = phi { ptr, i32 } [ %97, %96 ], [ %45, %44 ], [ %45, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %88, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %88, %87 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb10f5f220e5edcb4E.exit": ; preds = %19, %.noexc, %21, %29, %37, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i"
@@ -63809,7 +63809,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %76, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11", %33, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i", %85
-  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %34, %33 ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
+  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %33 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb10f5f220e5edcb4E.exit": ; preds = %8, %.noexc, %10, %18, %26, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i"
@@ -64005,7 +64005,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %76, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11", %33, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i", %85
-  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %34, %33 ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
+  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %33 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb10f5f220e5edcb4E.exit": ; preds = %8, %.noexc, %10, %18, %26, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i"
@@ -64201,7 +64201,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %76, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11", %33, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i", %85
-  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %34, %33 ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
+  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %33 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb10f5f220e5edcb4E.exit": ; preds = %8, %.noexc, %10, %18, %26, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i"
@@ -64378,7 +64378,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %.body
 
 .body:                                            ; preds = %13, %17, %23
-  %eh.lpad-body = phi { ptr, i32 } [ %24, %23 ], [ %18, %17 ], [ %14, %13 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %24, %23 ], [ %14, %13 ], [ %18, %17 ]
   %25 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %26 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h772e0283c130983aE(ptr noundef %25)
           to label %29 unwind label %27
@@ -64437,7 +64437,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %87, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11", %44, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i", %96
-  %common.resume.op = phi { ptr, i32 } [ %97, %96 ], [ %45, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %45, %44 ], [ %88, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %88, %87 ]
+  %common.resume.op = phi { ptr, i32 } [ %97, %96 ], [ %45, %44 ], [ %45, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %88, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %88, %87 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb10f5f220e5edcb4E.exit": ; preds = %19, %.noexc, %21, %29, %37, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i"
@@ -64633,7 +64633,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %76, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11", %33, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i", %85
-  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %34, %33 ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
+  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %33 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb10f5f220e5edcb4E.exit": ; preds = %8, %.noexc, %10, %18, %26, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i"
@@ -64810,7 +64810,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %.body
 
 .body:                                            ; preds = %13, %17, %23
-  %eh.lpad-body = phi { ptr, i32 } [ %24, %23 ], [ %18, %17 ], [ %14, %13 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %24, %23 ], [ %14, %13 ], [ %18, %17 ]
   %25 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %26 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h772e0283c130983aE(ptr noundef %25)
           to label %29 unwind label %27
@@ -64869,7 +64869,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %87, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11", %44, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i", %96
-  %common.resume.op = phi { ptr, i32 } [ %97, %96 ], [ %45, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %45, %44 ], [ %88, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %88, %87 ]
+  %common.resume.op = phi { ptr, i32 } [ %97, %96 ], [ %45, %44 ], [ %45, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %88, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %88, %87 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb10f5f220e5edcb4E.exit": ; preds = %19, %.noexc, %21, %29, %37, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i"
@@ -65065,7 +65065,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %76, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11", %33, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i", %85
-  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %34, %33 ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
+  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %33 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb10f5f220e5edcb4E.exit": ; preds = %8, %.noexc, %10, %18, %26, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i"
@@ -65261,7 +65261,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %76, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11", %33, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i", %85
-  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %34, %33 ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
+  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %33 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb10f5f220e5edcb4E.exit": ; preds = %8, %.noexc, %10, %18, %26, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i"
@@ -65457,7 +65457,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %76, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11", %33, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i", %85
-  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %34, %33 ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
+  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %33 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb10f5f220e5edcb4E.exit": ; preds = %8, %.noexc, %10, %18, %26, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i"
@@ -65653,7 +65653,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %76, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11", %33, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i", %85
-  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %34, %33 ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
+  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %33 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb10f5f220e5edcb4E.exit": ; preds = %8, %.noexc, %10, %18, %26, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i"
@@ -65849,7 +65849,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %76, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11", %33, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i", %85
-  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %34, %33 ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
+  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %33 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb10f5f220e5edcb4E.exit": ; preds = %8, %.noexc, %10, %18, %26, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i"
@@ -66045,7 +66045,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %76, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11", %33, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i", %85
-  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %34, %33 ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
+  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %33 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb10f5f220e5edcb4E.exit": ; preds = %8, %.noexc, %10, %18, %26, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i"
@@ -66241,7 +66241,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %76, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11", %33, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i", %85
-  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %34, %33 ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
+  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %33 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb10f5f220e5edcb4E.exit": ; preds = %8, %.noexc, %10, %18, %26, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i"
@@ -66437,7 +66437,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %76, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11", %33, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i", %85
-  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %34, %33 ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
+  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %33 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb10f5f220e5edcb4E.exit": ; preds = %8, %.noexc, %10, %18, %26, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i"
@@ -66633,7 +66633,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %76, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11", %33, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i", %85
-  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %34, %33 ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
+  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %33 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb10f5f220e5edcb4E.exit": ; preds = %8, %.noexc, %10, %18, %26, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i"
@@ -66829,7 +66829,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %76, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11", %33, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i", %85
-  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %34, %33 ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
+  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %33 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb10f5f220e5edcb4E.exit": ; preds = %8, %.noexc, %10, %18, %26, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i"
@@ -67025,7 +67025,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %76, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11", %33, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i", %85
-  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %34, %33 ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
+  %common.resume.op = phi { ptr, i32 } [ %86, %85 ], [ %34, %33 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i11" ], [ %77, %76 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb10f5f220e5edcb4E.exit": ; preds = %8, %.noexc, %10, %18, %26, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i"
@@ -70118,7 +70118,7 @@ define hidden void @_ZN6anyhow5error17context_drop_rest17hd84ba93815e14a0fE.llvm
   br label %"_ZN4core3ptr198drop_in_place$LT$alloc..boxed..Box$LT$anyhow..error..ErrorImpl$LT$anyhow..error..ContextError$LT$alloc..string..String$C$core..mem..manually_drop..ManuallyDrop$LT$toml..de..Error$GT$$GT$$GT$$GT$$GT$17h11232e46bc891d6fE.exit"
 
 common.resume:                                    ; preds = %27, %33, %12, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10833762189268282141.exit.i.i1.i.i.i.i.i"
-  %common.resume.op = phi { ptr, i32 } [ %13, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10833762189268282141.exit.i.i1.i.i.i.i.i" ], [ %13, %12 ], [ %34, %33 ], [ %28, %27 ]
+  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %13, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10833762189268282141.exit.i.i1.i.i.i.i.i" ], [ %34, %33 ], [ %28, %27 ]
   tail call void @__rust_dealloc(ptr noundef nonnull %0, i64 noundef 176, i64 noundef 8) #40
   resume { ptr, i32 } %common.resume.op
 
@@ -70823,7 +70823,7 @@ define hidden void @_ZN6anyhow5error23context_chain_drop_rest17h98c0cc7a98a06ae7
   br label %"_ZN4core3ptr196drop_in_place$LT$alloc..boxed..Box$LT$anyhow..error..ErrorImpl$LT$anyhow..error..ContextError$LT$alloc..string..String$C$core..mem..manually_drop..ManuallyDrop$LT$anyhow..Error$GT$$GT$$GT$$GT$$GT$17hd2aea8256fc6df9dE.exit"
 
 common.resume:                                    ; preds = %35, %41, %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10833762189268282141.exit.i.i1.i.i.i.i.i"
-  %common.resume.op = phi { ptr, i32 } [ %15, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10833762189268282141.exit.i.i1.i.i.i.i.i" ], [ %15, %14 ], [ %42, %41 ], [ %36, %35 ]
+  %common.resume.op = phi { ptr, i32 } [ %15, %14 ], [ %15, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10833762189268282141.exit.i.i1.i.i.i.i.i" ], [ %42, %41 ], [ %36, %35 ]
   tail call void @__rust_dealloc(ptr noundef nonnull %0, i64 noundef 88, i64 noundef 8) #40
   resume { ptr, i32 } %common.resume.op
 
@@ -91593,7 +91593,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -91687,7 +91687,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -91781,7 +91781,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -91875,7 +91875,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -91969,7 +91969,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -92063,7 +92063,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -92157,7 +92157,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -92251,7 +92251,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -92345,7 +92345,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -92439,7 +92439,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -92533,7 +92533,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -92627,7 +92627,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -92721,7 +92721,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -92815,7 +92815,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -92909,7 +92909,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -93003,7 +93003,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -93097,7 +93097,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -93191,7 +93191,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -93285,7 +93285,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -93379,7 +93379,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -93473,7 +93473,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -93567,7 +93567,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -93661,7 +93661,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -93755,7 +93755,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -93849,7 +93849,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -93943,7 +93943,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -94037,7 +94037,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -94131,7 +94131,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -94225,7 +94225,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -94319,7 +94319,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -94413,7 +94413,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -94507,7 +94507,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -94601,7 +94601,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -94695,7 +94695,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -94789,7 +94789,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -94883,7 +94883,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -94977,7 +94977,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -95071,7 +95071,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -95165,7 +95165,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -95259,7 +95259,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -95353,7 +95353,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -95447,7 +95447,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -95541,7 +95541,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -95635,7 +95635,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -95729,7 +95729,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -95823,7 +95823,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -95917,7 +95917,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -96011,7 +96011,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -96105,7 +96105,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -96199,7 +96199,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -96293,7 +96293,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -96387,7 +96387,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -96481,7 +96481,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -96575,7 +96575,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -96669,7 +96669,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -96763,7 +96763,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -96857,7 +96857,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -96951,7 +96951,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -97045,7 +97045,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -97139,7 +97139,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -97233,7 +97233,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -97327,7 +97327,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -97421,7 +97421,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -97515,7 +97515,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -97609,7 +97609,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -97703,7 +97703,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -97797,7 +97797,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -97891,7 +97891,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -97985,7 +97985,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -98079,7 +98079,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -98173,7 +98173,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -98267,7 +98267,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -98361,7 +98361,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -98455,7 +98455,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -98549,7 +98549,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -98643,7 +98643,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -98737,7 +98737,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -98831,7 +98831,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -98925,7 +98925,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -99019,7 +99019,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -99113,7 +99113,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -99207,7 +99207,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -99301,7 +99301,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -99395,7 +99395,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -99489,7 +99489,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -99583,7 +99583,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -99677,7 +99677,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -99771,7 +99771,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -99865,7 +99865,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -99959,7 +99959,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -100053,7 +100053,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -100147,7 +100147,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -100241,7 +100241,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -100335,7 +100335,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -100429,7 +100429,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -100523,7 +100523,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -100617,7 +100617,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -100711,7 +100711,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -100805,7 +100805,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -100899,7 +100899,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -100993,7 +100993,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -101087,7 +101087,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -101181,7 +101181,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -101275,7 +101275,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -101369,7 +101369,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -101463,7 +101463,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -101557,7 +101557,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -101651,7 +101651,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -101745,7 +101745,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -101839,7 +101839,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -101933,7 +101933,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -102027,7 +102027,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -102121,7 +102121,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -102215,7 +102215,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -102309,7 +102309,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -102403,7 +102403,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -102497,7 +102497,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -102591,7 +102591,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -102685,7 +102685,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -102779,7 +102779,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -102873,7 +102873,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -102967,7 +102967,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -103061,7 +103061,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -103155,7 +103155,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -103249,7 +103249,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -103343,7 +103343,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -103437,7 +103437,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -103531,7 +103531,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -103625,7 +103625,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -103719,7 +103719,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -103813,7 +103813,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -103907,7 +103907,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -104001,7 +104001,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -104095,7 +104095,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -104189,7 +104189,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -104283,7 +104283,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -104377,7 +104377,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -104471,7 +104471,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -104565,7 +104565,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -104659,7 +104659,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -104753,7 +104753,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -104847,7 +104847,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -104941,7 +104941,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -105035,7 +105035,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -105129,7 +105129,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -105223,7 +105223,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -105317,7 +105317,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -105411,7 +105411,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -105505,7 +105505,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -105599,7 +105599,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -105693,7 +105693,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -105787,7 +105787,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -105881,7 +105881,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -105975,7 +105975,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -106069,7 +106069,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -106163,7 +106163,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -106257,7 +106257,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -106351,7 +106351,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -106445,7 +106445,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -106539,7 +106539,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -106633,7 +106633,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -106727,7 +106727,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -106821,7 +106821,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -106915,7 +106915,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -107009,7 +107009,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -107103,7 +107103,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -107197,7 +107197,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -107291,7 +107291,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -107385,7 +107385,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -107479,7 +107479,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -107573,7 +107573,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -107667,7 +107667,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -107761,7 +107761,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -107855,7 +107855,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -107949,7 +107949,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -108043,7 +108043,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -108137,7 +108137,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -108231,7 +108231,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -108325,7 +108325,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -108419,7 +108419,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -108513,7 +108513,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -108607,7 +108607,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -108701,7 +108701,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -108795,7 +108795,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -108889,7 +108889,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -108983,7 +108983,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -109077,7 +109077,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -109171,7 +109171,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -109265,7 +109265,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -109359,7 +109359,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -109453,7 +109453,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -109547,7 +109547,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -109641,7 +109641,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -109735,7 +109735,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -109829,7 +109829,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -109923,7 +109923,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -110017,7 +110017,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -110111,7 +110111,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -110205,7 +110205,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -110299,7 +110299,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -110393,7 +110393,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -110487,7 +110487,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -110581,7 +110581,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -110675,7 +110675,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -110769,7 +110769,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -110863,7 +110863,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -110957,7 +110957,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -111051,7 +111051,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -111145,7 +111145,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -111239,7 +111239,7 @@ define hidden noalias noundef nonnull ptr @_ZN8wasmtime7runtime2vm12traphandlers
   unreachable
 
 .body.thread:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i", %17, %32
-  %eh.lpad-body5 = phi { ptr, i32 } [ %33, %32 ], [ %14, %17 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i" ], [ %33, %32 ], [ %14, %17 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 32:                                               ; preds = %2
@@ -113680,7 +113680,7 @@ define hidden void @_ZN8wasmtime7runtime9component14resource_table13ResourceTabl
   br label %common.resume
 
 common.resume:                                    ; preds = %66, %22, %39, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i"
-  %common.resume.op = phi { ptr, i32 } [ %40, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i" ], [ %40, %39 ], [ %lpad.thr_comm.split-lp, %66 ], [ %23, %22 ]
+  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %40, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i" ], [ %23, %22 ], [ %lpad.thr_comm.split-lp, %66 ]
   resume { ptr, i32 } %common.resume.op
 
 47:                                               ; preds = %16
@@ -114237,7 +114237,7 @@ define hidden void @_ZN8wasmtime7runtime9component14resource_table13ResourceTabl
   unreachable
 
 common.resume:                                    ; preds = %67, %18, %31, %36, %39
-  %common.resume.op = phi { ptr, i32 } [ %32, %39 ], [ %32, %36 ], [ %32, %31 ], [ %lpad.thr_comm.split-lp, %67 ], [ %19, %18 ]
+  %common.resume.op = phi { ptr, i32 } [ %32, %31 ], [ %32, %39 ], [ %32, %36 ], [ %19, %18 ], [ %lpad.thr_comm.split-lp, %67 ]
   resume { ptr, i32 } %common.resume.op
 
 49:                                               ; preds = %13
@@ -114454,7 +114454,7 @@ define hidden void @_ZN8wasmtime7runtime9component14resource_table13ResourceTabl
   br label %"_ZN4core3ptr63drop_in_place$LT$wasmtime_wasi..udp..IncomingDatagramStream$GT$17h04f181441a7753c2E.exit44"
 
 .body.thread:                                     ; preds = %54, %59, %18, %24
-  %eh.lpad-body49 = phi { ptr, i32 } [ %19, %24 ], [ %19, %18 ], [ %lpad.thr_comm.split-lp, %59 ], [ %lpad.thr_comm.split-lp, %54 ]
+  %eh.lpad-body49 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %54 ], [ %19, %18 ], [ %19, %24 ], [ %lpad.thr_comm.split-lp, %59 ]
   resume { ptr, i32 } %eh.lpad-body49
 
 54:                                               ; preds = %4
@@ -114677,7 +114677,7 @@ define hidden void @_ZN8wasmtime7runtime9component14resource_table13ResourceTabl
   br label %common.resume
 
 common.resume:                                    ; preds = %72, %18, %41, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i"
-  %common.resume.op = phi { ptr, i32 } [ %42, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %42, %41 ], [ %lpad.thr_comm.split-lp, %72 ], [ %19, %18 ]
+  %common.resume.op = phi { ptr, i32 } [ %42, %41 ], [ %42, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i1.i.i" ], [ %19, %18 ], [ %lpad.thr_comm.split-lp, %72 ]
   resume { ptr, i32 } %common.resume.op
 
 49:                                               ; preds = %22
@@ -121060,7 +121060,7 @@ default.unreachable:                              ; preds = %3
   store i8 %.sroa.33.0.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hb16b63a470085176E", i64 69), align 1
   br label %23
 
-.thread29:                                        ; preds = %8, %13, %23
+.thread29:                                        ; preds = %23, %13, %8
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -121203,7 +121203,7 @@ default.unreachable:                              ; preds = %3
   store i8 %.sroa.33.0.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hb16b63a470085176E", i64 69), align 1
   br label %23
 
-.thread28:                                        ; preds = %8, %13, %23
+.thread28:                                        ; preds = %23, %13, %8
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -121344,7 +121344,7 @@ default.unreachable:                              ; preds = %3
   store i8 %.sroa.33.0.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hb16b63a470085176E", i64 69), align 1
   br label %23
 
-.thread29:                                        ; preds = %8, %13, %23
+.thread29:                                        ; preds = %23, %13, %8
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -121487,7 +121487,7 @@ default.unreachable:                              ; preds = %3
   store i8 %.sroa.33.0.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hb16b63a470085176E", i64 69), align 1
   br label %23
 
-.thread28:                                        ; preds = %8, %13, %23
+.thread28:                                        ; preds = %23, %13, %8
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -121629,7 +121629,7 @@ default.unreachable:                              ; preds = %3
   store i8 %.sroa.33.0.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hb16b63a470085176E", i64 69), align 1
   br label %24
 
-.thread28:                                        ; preds = %9, %14, %24
+.thread28:                                        ; preds = %24, %14, %9
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -121771,7 +121771,7 @@ default.unreachable:                              ; preds = %3
   store i8 %.sroa.33.0.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hb16b63a470085176E", i64 69), align 1
   br label %23
 
-.thread27:                                        ; preds = %8, %13, %23
+.thread27:                                        ; preds = %23, %13, %8
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -121960,7 +121960,7 @@ default.unreachable:                              ; preds = %3
   store i8 %.sroa.33.0.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hb16b63a470085176E", i64 69), align 1
   br label %24
 
-.thread26:                                        ; preds = %9, %14, %24
+.thread26:                                        ; preds = %24, %14, %9
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -122038,7 +122038,7 @@ default.unreachable:                              ; preds = %3
   br label %"_ZN4core3ptr533drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$core..result..Result$LT$alloc..vec..Vec$LT$core..result..Result$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..DirectoryEntry$C$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..ctx..WasiImpl$LT$T$GT$$GT$..read_directory..$u7b$$u7b$closure$u7d$$u7d$..ReaddirError$GT$$GT$$C$std..io..error..Error$GT$$C$tokio..runtime..task..error..JoinError$GT$$GT$$GT$17hd0611fc5fc33e6f9E.exit"
 
 common.resume:                                    ; preds = %.thread, %65, %41, %44
-  %common.resume.op = phi { ptr, i32 } [ %42, %44 ], [ %42, %41 ], [ %66, %65 ], [ %.pn25, %.thread ]
+  %common.resume.op = phi { ptr, i32 } [ %66, %65 ], [ %42, %41 ], [ %42, %44 ], [ %.pn25, %.thread ]
   resume { ptr, i32 } %common.resume.op
 
 49:                                               ; preds = %33
@@ -122193,7 +122193,7 @@ default.unreachable:                              ; preds = %3
   store i8 %.sroa.33.0.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hb16b63a470085176E", i64 69), align 1
   br label %23
 
-.thread28:                                        ; preds = %8, %13, %23
+.thread28:                                        ; preds = %23, %13, %8
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -122334,7 +122334,7 @@ default.unreachable:                              ; preds = %3
   store i8 %.sroa.33.0.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hb16b63a470085176E", i64 69), align 1
   br label %23
 
-.thread29:                                        ; preds = %8, %13, %23
+.thread29:                                        ; preds = %23, %13, %8
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -122477,7 +122477,7 @@ default.unreachable:                              ; preds = %3
   store i8 %.sroa.33.0.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hb16b63a470085176E", i64 69), align 1
   br label %23
 
-.thread29:                                        ; preds = %8, %13, %23
+.thread29:                                        ; preds = %23, %13, %8
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -122621,7 +122621,7 @@ default.unreachable:                              ; preds = %3
   store i8 %.sroa.33.0.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hb16b63a470085176E", i64 69), align 1
   br label %24
 
-.thread28:                                        ; preds = %9, %14, %24
+.thread28:                                        ; preds = %24, %14, %9
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -123678,7 +123678,7 @@ define hidden noundef ptr @_ZN9extension9wasm_host3wit12since_v0_2_03zed9extensi
   br label %101
 
 101:                                              ; preds = %"_ZN8wasmtime7runtime9component6linker23LinkerInstance$LT$T$GT$15func_wrap_async17h7dd40d1de6cf91c3E.exit", %48, %"_ZN8wasmtime7runtime9component6linker23LinkerInstance$LT$T$GT$15func_wrap_async17hf9048320877b0a6aE.exit", %"_ZN8wasmtime7runtime9component6linker23LinkerInstance$LT$T$GT$15func_wrap_async17h2d9f6646e860adc9E.exit", %"_ZN8wasmtime7runtime9component6linker23LinkerInstance$LT$T$GT$15func_wrap_async17h8c5ae3093c26f53cE.exit"
-  %.sroa.0.1 = phi ptr [ %26, %48 ], [ %45, %"_ZN8wasmtime7runtime9component6linker23LinkerInstance$LT$T$GT$15func_wrap_async17hf9048320877b0a6aE.exit" ], [ %64, %"_ZN8wasmtime7runtime9component6linker23LinkerInstance$LT$T$GT$15func_wrap_async17h2d9f6646e860adc9E.exit" ], [ %82, %"_ZN8wasmtime7runtime9component6linker23LinkerInstance$LT$T$GT$15func_wrap_async17h8c5ae3093c26f53cE.exit" ], [ %spec.select, %"_ZN8wasmtime7runtime9component6linker23LinkerInstance$LT$T$GT$15func_wrap_async17h7dd40d1de6cf91c3E.exit" ]
+  %.sroa.0.1 = phi ptr [ %spec.select, %"_ZN8wasmtime7runtime9component6linker23LinkerInstance$LT$T$GT$15func_wrap_async17h7dd40d1de6cf91c3E.exit" ], [ %26, %48 ], [ %82, %"_ZN8wasmtime7runtime9component6linker23LinkerInstance$LT$T$GT$15func_wrap_async17h8c5ae3093c26f53cE.exit" ], [ %64, %"_ZN8wasmtime7runtime9component6linker23LinkerInstance$LT$T$GT$15func_wrap_async17h2d9f6646e860adc9E.exit" ], [ %45, %"_ZN8wasmtime7runtime9component6linker23LinkerInstance$LT$T$GT$15func_wrap_async17hf9048320877b0a6aE.exit" ]
   ret ptr %.sroa.0.1
 }
 

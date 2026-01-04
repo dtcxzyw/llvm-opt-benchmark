@@ -554,7 +554,7 @@ _ZN5ciEnv18get_instance_klassEP5Klass.exit:       ; preds = %2, %_ZN5ciEnv12get_
   br label %_ZL29trust_final_non_static_fieldsP15ciInstanceKlass.exit
 
 _ZL29trust_final_non_static_fieldsP15ciInstanceKlass.exit: ; preds = %119, %60, %61, %66, %68, %70, %72, %74, %76, %78, %80, %82, %84, %88, %90, %94, %98, %102, %106, %110, %114, %.thread34, %51, %123, %59
-  %.sink = phi i8 [ 0, %123 ], [ 1, %59 ], [ 0, %51 ], [ 1, %60 ], [ %116, %114 ], [ 0, %61 ], [ 1, %82 ], [ 1, %80 ], [ 1, %78 ], [ 1, %76 ], [ 1, %74 ], [ 1, %72 ], [ 1, %70 ], [ 1, %68 ], [ 1, %66 ], [ 1, %84 ], [ 1, %88 ], [ 1, %90 ], [ 1, %94 ], [ 1, %110 ], [ 1, %106 ], [ 1, %102 ], [ 1, %98 ], [ 1, %.thread34 ], [ 1, %119 ]
+  %.sink = phi i8 [ 1, %.thread34 ], [ 0, %123 ], [ 1, %59 ], [ 0, %51 ], [ 1, %60 ], [ %116, %114 ], [ 1, %98 ], [ 0, %61 ], [ 1, %66 ], [ 1, %84 ], [ 1, %88 ], [ 1, %90 ], [ 1, %94 ], [ 1, %82 ], [ 1, %80 ], [ 1, %78 ], [ 1, %76 ], [ 1, %74 ], [ 1, %72 ], [ 1, %70 ], [ 1, %68 ], [ 1, %110 ], [ 1, %106 ], [ 1, %102 ], [ 1, %119 ]
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i8 %.sink, ptr %124, align 4
   ret void
@@ -767,8 +767,8 @@ _ZN7ciField4typeEv.exit:                          ; preds = %22, %31
   br label %49
 
 49:                                               ; preds = %46, %_ZN15ciInstanceKlass14is_initializedEv.exit, %48
-  %.sroa.43.0 = phi i64 [ %.sroa.43.0.copyload, %48 ], [ -1, %_ZN15ciInstanceKlass14is_initializedEv.exit ], [ -1, %46 ]
-  %.sroa.0.0 = phi i8 [ %.sroa.0.0.copyload, %48 ], [ 99, %_ZN15ciInstanceKlass14is_initializedEv.exit ], [ 99, %46 ]
+  %.sroa.43.0 = phi i64 [ -1, %_ZN15ciInstanceKlass14is_initializedEv.exit ], [ %.sroa.43.0.copyload, %48 ], [ -1, %46 ]
+  %.sroa.0.0 = phi i8 [ 99, %_ZN15ciInstanceKlass14is_initializedEv.exit ], [ %.sroa.0.0.copyload, %48 ], [ 99, %46 ]
   %.fca.0.insert = insertvalue { i8, i64 } poison, i8 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i8, i64 } %.fca.0.insert, i64 %.sroa.43.0, 1
   ret { i8, i64 } %.fca.1.insert
@@ -865,25 +865,25 @@ define hidden noundef ptr @_ZN7ciField12compute_typeEv(ptr noundef nonnull align
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 80
   %33 = load ptr, ptr %32, align 8
   %34 = call noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(24) %14) #9
-  br i1 %34, label %35, label %39
+  br i1 %34, label %38, label %35
 
 35:                                               ; preds = %30
-  %36 = getelementptr inbounds nuw i8, ptr %14, i64 65
-  %37 = load i8, ptr %36, align 1
-  %38 = trunc i8 %37 to i1
-  br i1 %38, label %.critedge.i, label %_ZN7ciField17compute_type_implEv.exit
+  %36 = load volatile i8, ptr @_ZN15ciObjectFactory12_initializedE, align 1
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %_ZN7ciField17compute_type_implEv.exit, label %.critedge.i
 
-39:                                               ; preds = %30
-  %40 = load volatile i8, ptr @_ZN15ciObjectFactory12_initializedE, align 1
+38:                                               ; preds = %30
+  %39 = getelementptr inbounds nuw i8, ptr %14, i64 65
+  %40 = load i8, ptr %39, align 1
   %41 = trunc i8 %40 to i1
-  br i1 %41, label %_ZN7ciField17compute_type_implEv.exit, label %.critedge.i
+  br i1 %41, label %.critedge.i, label %_ZN7ciField17compute_type_implEv.exit
 
-.critedge.i:                                      ; preds = %39, %35, %25, %18, %5
+.critedge.i:                                      ; preds = %38, %35, %25, %18, %5
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %14, ptr %42, align 8
   br label %_ZN7ciField17compute_type_implEv.exit
 
-_ZN7ciField17compute_type_implEv.exit:            ; preds = %35, %39, %.critedge.i
+_ZN7ciField17compute_type_implEv.exit:            ; preds = %35, %38, %.critedge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %114
 
@@ -966,25 +966,25 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 80
   %85 = load ptr, ptr %84, align 8
   %86 = call noundef zeroext i1 %85(ptr noundef nonnull align 8 dereferenceable(24) %66) #9
-  br i1 %86, label %87, label %91
+  br i1 %86, label %90, label %87
 
 87:                                               ; preds = %82
-  %88 = getelementptr inbounds nuw i8, ptr %66, i64 65
-  %89 = load i8, ptr %88, align 1
-  %90 = trunc i8 %89 to i1
-  br i1 %90, label %.critedge.i6, label %_ZN7ciField17compute_type_implEv.exit9
+  %88 = load volatile i8, ptr @_ZN15ciObjectFactory12_initializedE, align 1
+  %89 = trunc i8 %88 to i1
+  br i1 %89, label %_ZN7ciField17compute_type_implEv.exit9, label %.critedge.i6
 
-91:                                               ; preds = %82
-  %92 = load volatile i8, ptr @_ZN15ciObjectFactory12_initializedE, align 1
+90:                                               ; preds = %82
+  %91 = getelementptr inbounds nuw i8, ptr %66, i64 65
+  %92 = load i8, ptr %91, align 1
   %93 = trunc i8 %92 to i1
-  br i1 %93, label %_ZN7ciField17compute_type_implEv.exit9, label %.critedge.i6
+  br i1 %93, label %.critedge.i6, label %_ZN7ciField17compute_type_implEv.exit9
 
-.critedge.i6:                                     ; preds = %91, %87, %77, %70, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
+.critedge.i6:                                     ; preds = %90, %87, %77, %70, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %66, ptr %94, align 8
   br label %_ZN7ciField17compute_type_implEv.exit9
 
-_ZN7ciField17compute_type_implEv.exit9:           ; preds = %87, %91, %.critedge.i6
+_ZN7ciField17compute_type_implEv.exit9:           ; preds = %87, %90, %.critedge.i6
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %95 = getelementptr inbounds nuw i8, ptr %45, i64 408
   %96 = load ptr, ptr %95, align 8
@@ -1071,25 +1071,25 @@ define hidden noundef ptr @_ZN7ciField17compute_type_implEv(ptr noundef nonnull 
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 80
   %30 = load ptr, ptr %29, align 8
   %31 = call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(24) %11) #9
-  br i1 %31, label %32, label %36
+  br i1 %31, label %35, label %32
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds nuw i8, ptr %11, i64 65
-  %34 = load i8, ptr %33, align 1
-  %35 = trunc i8 %34 to i1
-  br i1 %35, label %.critedge, label %40
+  %33 = load volatile i8, ptr @_ZN15ciObjectFactory12_initializedE, align 1
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %40, label %.critedge
 
-36:                                               ; preds = %27
-  %37 = load volatile i8, ptr @_ZN15ciObjectFactory12_initializedE, align 1
+35:                                               ; preds = %27
+  %36 = getelementptr inbounds nuw i8, ptr %11, i64 65
+  %37 = load i8, ptr %36, align 1
   %38 = trunc i8 %37 to i1
-  br i1 %38, label %40, label %.critedge
+  br i1 %38, label %.critedge, label %40
 
-.critedge:                                        ; preds = %32, %22, %36, %15, %1
+.critedge:                                        ; preds = %32, %22, %35, %15, %1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %11, ptr %39, align 8
   br label %40
 
-40:                                               ; preds = %32, %36, %.critedge
+40:                                               ; preds = %32, %35, %.critedge
   ret ptr %11
 }
 
@@ -1306,7 +1306,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %41, %_ZN26GrowableA
   br label %116
 
 116:                                              ; preds = %35, %31, %25, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %115
-  %.0 = phi i1 [ %.not25, %115 ], [ false, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ false, %25 ], [ true, %31 ], [ true, %35 ]
+  %.0 = phi i1 [ true, %31 ], [ false, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ false, %25 ], [ %.not25, %115 ], [ true, %35 ]
   %117 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %118 = load ptr, ptr %117, align 8
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 16

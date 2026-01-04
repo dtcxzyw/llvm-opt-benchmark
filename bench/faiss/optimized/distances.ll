@@ -2071,7 +2071,7 @@ _ZN5faiss27ReservoirBlockResultHandlerINS_4CMinIflEELb0EE12end_multipleEv.exit.i
           to label %332 unwind label %.loopexit.split-lp.i.i232.i, !llvm.loop !99
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit57.i.i234.i: ; preds = %374, %372, %.loopexit.split-lp.i.i232.i, %.loopexit.i.i240.i
-  %.pn.pn.i.i235.i = phi { ptr, i32 } [ %375, %374 ], [ %373, %372 ], [ %lpad.loopexit.i.i241.i, %.loopexit.i.i240.i ], [ %lpad.loopexit.split-lp.i.i233.i, %.loopexit.split-lp.i.i232.i ]
+  %.pn.pn.i.i235.i = phi { ptr, i32 } [ %373, %372 ], [ %375, %374 ], [ %lpad.loopexit.i.i241.i, %.loopexit.i.i240.i ], [ %lpad.loopexit.split-lp.i.i233.i, %.loopexit.split-lp.i.i232.i ]
   call void @_ZdaPv(ptr noundef nonnull %328) #29
   br label %.body246.i
 
@@ -4057,7 +4057,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !132
   br label %41
 
@@ -4164,7 +4164,7 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !133
   br label %41
 
@@ -5297,7 +5297,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %64
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i: ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %64
-  %.0.i.i.i.i41 = phi ptr [ %65, %64 ], [ %68, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ]
+  %.0.i.i.i.i41 = phi ptr [ %68, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %65, %64 ]
   store ptr %.0.i.i.i.i41, ptr %30, align 8, !tbaa !132
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i
 
@@ -5376,8 +5376,8 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i: ; preds = %81, %_ZNSt6v
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit.i:             ; preds = %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i, %89, %87, %85
-  %90 = phi ptr [ %49, %85 ], [ %49, %87 ], [ %49, %89 ], [ %74, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i ], [ %49, %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i ]
-  %91 = phi i64 [ %47, %85 ], [ %47, %87 ], [ %47, %89 ], [ %.pre2.i.pre, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i ], [ %47, %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i ]
+  %90 = phi ptr [ %49, %89 ], [ %49, %85 ], [ %49, %87 ], [ %74, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i ], [ %49, %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i ]
+  %91 = phi i64 [ %47, %89 ], [ %47, %85 ], [ %47, %87 ], [ %.pre2.i.pre, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i ], [ %47, %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i ]
   %92 = load ptr, ptr %33, align 8, !tbaa !133
   %93 = load ptr, ptr %32, align 8, !tbaa !67
   %94 = ptrtoint ptr %92 to i64
@@ -5415,7 +5415,7 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %108
   br label %_ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit.i: ; preds = %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %108
-  %.0.i.i.i.i = phi ptr [ %109, %108 ], [ %112, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ]
+  %.0.i.i.i.i = phi ptr [ %112, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %109, %108 ]
   store ptr %.0.i.i.i.i, ptr %33, align 8, !tbaa !133
   br label %_ZN5faiss27ReservoirBlockResultHandlerINS_4CMinIflEELb1EE19SingleResultHandler5beginEm.exit
 
@@ -5485,8 +5485,8 @@ _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit36.i: ; preds = %125, %_ZNSt6
   br label %_ZN5faiss27ReservoirBlockResultHandlerINS_4CMinIflEELb1EE19SingleResultHandler5beginEm.exit
 
 _ZN5faiss27ReservoirBlockResultHandlerINS_4CMinIflEELb1EE19SingleResultHandler5beginEm.exit: ; preds = %_ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit36.i, %129, %131, %133
-  %134 = phi ptr [ %90, %129 ], [ %90, %131 ], [ %90, %133 ], [ %.pre.pre, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit36.i ], [ %90, %_ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit.i ]
-  %135 = phi ptr [ %93, %129 ], [ %93, %131 ], [ %93, %133 ], [ %118, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit36.i ], [ %93, %_ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit.i ]
+  %134 = phi ptr [ %90, %133 ], [ %90, %129 ], [ %90, %131 ], [ %.pre.pre, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit36.i ], [ %90, %_ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit.i ]
+  %135 = phi ptr [ %93, %133 ], [ %93, %129 ], [ %93, %131 ], [ %118, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit36.i ], [ %93, %_ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit.i ]
   store ptr %134, ptr %19, align 8, !tbaa !134
   store ptr %135, ptr %35, align 8, !tbaa !136
   store i64 0, ptr %36, align 8, !tbaa !137
@@ -7406,7 +7406,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %63
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i: ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %63
-  %.0.i.i.i.i40 = phi ptr [ %64, %63 ], [ %67, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ]
+  %.0.i.i.i.i40 = phi ptr [ %67, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %64, %63 ]
   store ptr %.0.i.i.i.i40, ptr %30, align 8, !tbaa !132
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i
 
@@ -7485,8 +7485,8 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i: ; preds = %80, %_ZNSt6v
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit.i:             ; preds = %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i, %88, %86, %84
-  %89 = phi ptr [ %48, %84 ], [ %48, %86 ], [ %48, %88 ], [ %73, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i ], [ %48, %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i ]
-  %90 = phi i64 [ %46, %84 ], [ %46, %86 ], [ %46, %88 ], [ %.pre2.i.pre, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i ], [ %46, %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i ]
+  %89 = phi ptr [ %48, %88 ], [ %48, %84 ], [ %48, %86 ], [ %73, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i ], [ %48, %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i ]
+  %90 = phi i64 [ %46, %88 ], [ %46, %84 ], [ %46, %86 ], [ %.pre2.i.pre, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i ], [ %46, %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i ]
   %91 = load ptr, ptr %33, align 8, !tbaa !133
   %92 = load ptr, ptr %32, align 8, !tbaa !67
   %93 = ptrtoint ptr %91 to i64
@@ -7524,7 +7524,7 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %107
   br label %_ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit.i: ; preds = %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %107
-  %.0.i.i.i.i = phi ptr [ %108, %107 ], [ %111, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ]
+  %.0.i.i.i.i = phi ptr [ %111, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %108, %107 ]
   store ptr %.0.i.i.i.i, ptr %33, align 8, !tbaa !133
   br label %_ZN5faiss27ReservoirBlockResultHandlerINS_4CMinIflEELb0EE19SingleResultHandler5beginEm.exit
 
@@ -7594,8 +7594,8 @@ _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit36.i: ; preds = %124, %_ZNSt6
   br label %_ZN5faiss27ReservoirBlockResultHandlerINS_4CMinIflEELb0EE19SingleResultHandler5beginEm.exit
 
 _ZN5faiss27ReservoirBlockResultHandlerINS_4CMinIflEELb0EE19SingleResultHandler5beginEm.exit: ; preds = %_ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit36.i, %128, %130, %132
-  %133 = phi ptr [ %89, %128 ], [ %89, %130 ], [ %89, %132 ], [ %.pre.pre, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit36.i ], [ %89, %_ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit.i ]
-  %134 = phi ptr [ %92, %128 ], [ %92, %130 ], [ %92, %132 ], [ %117, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit36.i ], [ %92, %_ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit.i ]
+  %133 = phi ptr [ %89, %132 ], [ %89, %128 ], [ %89, %130 ], [ %.pre.pre, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit36.i ], [ %89, %_ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit.i ]
+  %134 = phi ptr [ %92, %132 ], [ %92, %128 ], [ %92, %130 ], [ %117, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit36.i ], [ %92, %_ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit.i ]
   store ptr %133, ptr %19, align 8, !tbaa !134
   store ptr %134, ptr %35, align 8, !tbaa !136
   store i64 0, ptr %36, align 8, !tbaa !137
@@ -12765,7 +12765,7 @@ _ZN5faiss27ReservoirBlockResultHandlerINS_4CMaxIflEELb0EED2Ev.exit.i: ; preds = 
   br label %508
 
 508:                                              ; preds = %.body650.i, %.body603.i, %.body553.i
-  %.pn.i = phi { ptr, i32 } [ %eh.lpad-body554.i, %.body553.i ], [ %eh.lpad-body604.i, %.body603.i ], [ %eh.lpad-body651.i, %.body650.i ]
+  %.pn.i = phi { ptr, i32 } [ %eh.lpad-body651.i, %.body650.i ], [ %eh.lpad-body604.i, %.body603.i ], [ %eh.lpad-body554.i, %.body553.i ]
   resume { ptr, i32 } %.pn.i
 
 _ZN5faiss26dispatch_knn_ResultHandlerINS_12_GLOBAL__N_116Run_search_L2sqrEJPKfS4_mmmS4_EEENT_1TEmPfPlmNS_10MetricTypeEPKNS_10IDSelectorERS5_DpT0_.exit: ; preds = %_ZN5faiss12_GLOBAL__N_116Run_search_L2sqr1fINS_22Top1BlockResultHandlerINS_4CMaxIflEELb0EEEEEvRT_PKfSA_mmmSA_.exit.i, %_ZN5faiss12_GLOBAL__N_116Run_search_L2sqr1fINS_22HeapBlockResultHandlerINS_4CMaxIflEELb0EEEEEvRT_PKfSA_mmmSA_.exit.i, %_ZN5faiss27ReservoirBlockResultHandlerINS_4CMaxIflEELb0EED2Ev.exit.i
@@ -13322,7 +13322,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %64
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i: ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %64
-  %.0.i.i.i.i41 = phi ptr [ %65, %64 ], [ %68, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ]
+  %.0.i.i.i.i41 = phi ptr [ %68, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %65, %64 ]
   store ptr %.0.i.i.i.i41, ptr %30, align 8, !tbaa !132
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i
 
@@ -13401,8 +13401,8 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i: ; preds = %81, %_ZNSt6v
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit.i:             ; preds = %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i, %89, %87, %85
-  %90 = phi ptr [ %49, %85 ], [ %49, %87 ], [ %49, %89 ], [ %74, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i ], [ %49, %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i ]
-  %91 = phi i64 [ %47, %85 ], [ %47, %87 ], [ %47, %89 ], [ %.pre2.i.pre, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i ], [ %47, %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i ]
+  %90 = phi ptr [ %49, %89 ], [ %49, %85 ], [ %49, %87 ], [ %74, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i ], [ %49, %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i ]
+  %91 = phi i64 [ %47, %89 ], [ %47, %85 ], [ %47, %87 ], [ %.pre2.i.pre, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i ], [ %47, %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i ]
   %92 = load ptr, ptr %33, align 8, !tbaa !133
   %93 = load ptr, ptr %32, align 8, !tbaa !67
   %94 = ptrtoint ptr %92 to i64
@@ -13440,7 +13440,7 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %108
   br label %_ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit.i: ; preds = %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %108
-  %.0.i.i.i.i = phi ptr [ %109, %108 ], [ %112, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ]
+  %.0.i.i.i.i = phi ptr [ %112, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %109, %108 ]
   store ptr %.0.i.i.i.i, ptr %33, align 8, !tbaa !133
   br label %_ZN5faiss27ReservoirBlockResultHandlerINS_4CMaxIflEELb1EE19SingleResultHandler5beginEm.exit
 
@@ -13510,8 +13510,8 @@ _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit36.i: ; preds = %125, %_ZNSt6
   br label %_ZN5faiss27ReservoirBlockResultHandlerINS_4CMaxIflEELb1EE19SingleResultHandler5beginEm.exit
 
 _ZN5faiss27ReservoirBlockResultHandlerINS_4CMaxIflEELb1EE19SingleResultHandler5beginEm.exit: ; preds = %_ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit36.i, %129, %131, %133
-  %134 = phi ptr [ %90, %129 ], [ %90, %131 ], [ %90, %133 ], [ %.pre.pre, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit36.i ], [ %90, %_ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit.i ]
-  %135 = phi ptr [ %93, %129 ], [ %93, %131 ], [ %93, %133 ], [ %118, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit36.i ], [ %93, %_ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit.i ]
+  %134 = phi ptr [ %90, %133 ], [ %90, %129 ], [ %90, %131 ], [ %.pre.pre, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit36.i ], [ %90, %_ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit.i ]
+  %135 = phi ptr [ %93, %133 ], [ %93, %129 ], [ %93, %131 ], [ %118, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit36.i ], [ %93, %_ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit.i ]
   store ptr %134, ptr %19, align 8, !tbaa !222
   store ptr %135, ptr %35, align 8, !tbaa !224
   store i64 0, ptr %36, align 8, !tbaa !225
@@ -14292,7 +14292,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %63
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i: ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %63
-  %.0.i.i.i.i40 = phi ptr [ %64, %63 ], [ %67, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ]
+  %.0.i.i.i.i40 = phi ptr [ %67, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %64, %63 ]
   store ptr %.0.i.i.i.i40, ptr %30, align 8, !tbaa !132
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i
 
@@ -14371,8 +14371,8 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i: ; preds = %80, %_ZNSt6v
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit.i:             ; preds = %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i, %88, %86, %84
-  %89 = phi ptr [ %48, %84 ], [ %48, %86 ], [ %48, %88 ], [ %73, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i ], [ %48, %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i ]
-  %90 = phi i64 [ %46, %84 ], [ %46, %86 ], [ %46, %88 ], [ %.pre2.i.pre, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i ], [ %46, %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i ]
+  %89 = phi ptr [ %48, %88 ], [ %48, %84 ], [ %48, %86 ], [ %73, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i ], [ %48, %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i ]
+  %90 = phi i64 [ %46, %88 ], [ %46, %84 ], [ %46, %86 ], [ %.pre2.i.pre, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i ], [ %46, %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i ]
   %91 = load ptr, ptr %33, align 8, !tbaa !133
   %92 = load ptr, ptr %32, align 8, !tbaa !67
   %93 = ptrtoint ptr %91 to i64
@@ -14410,7 +14410,7 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %107
   br label %_ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit.i: ; preds = %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %107
-  %.0.i.i.i.i = phi ptr [ %108, %107 ], [ %111, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ]
+  %.0.i.i.i.i = phi ptr [ %111, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %108, %107 ]
   store ptr %.0.i.i.i.i, ptr %33, align 8, !tbaa !133
   br label %_ZN5faiss27ReservoirBlockResultHandlerINS_4CMaxIflEELb0EE19SingleResultHandler5beginEm.exit
 
@@ -14480,8 +14480,8 @@ _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit36.i: ; preds = %124, %_ZNSt6
   br label %_ZN5faiss27ReservoirBlockResultHandlerINS_4CMaxIflEELb0EE19SingleResultHandler5beginEm.exit
 
 _ZN5faiss27ReservoirBlockResultHandlerINS_4CMaxIflEELb0EE19SingleResultHandler5beginEm.exit: ; preds = %_ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit36.i, %128, %130, %132
-  %133 = phi ptr [ %89, %128 ], [ %89, %130 ], [ %89, %132 ], [ %.pre.pre, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit36.i ], [ %89, %_ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit.i ]
-  %134 = phi ptr [ %92, %128 ], [ %92, %130 ], [ %92, %132 ], [ %117, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit36.i ], [ %92, %_ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit.i ]
+  %133 = phi ptr [ %89, %132 ], [ %89, %128 ], [ %89, %130 ], [ %.pre.pre, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit36.i ], [ %89, %_ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit.i ]
+  %134 = phi ptr [ %92, %132 ], [ %92, %128 ], [ %92, %130 ], [ %117, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit36.i ], [ %92, %_ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit.i ]
   store ptr %133, ptr %19, align 8, !tbaa !222
   store ptr %134, ptr %35, align 8, !tbaa !224
   store i64 0, ptr %36, align 8, !tbaa !225

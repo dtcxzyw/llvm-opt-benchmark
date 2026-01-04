@@ -76,7 +76,7 @@ define hidden i32 @_crypto_sign_ed25519_verify_detached(ptr noundef %0, ptr noun
   br label %38
 
 38:                                               ; preds = %26, %28, %22, %24, %19, %15, %30
-  %.0 = phi i32 [ %37, %30 ], [ -1, %15 ], [ -1, %19 ], [ -1, %24 ], [ -1, %22 ], [ -1, %28 ], [ -1, %26 ]
+  %.0 = phi i32 [ %37, %30 ], [ -1, %15 ], [ -1, %19 ], [ -1, %22 ], [ -1, %24 ], [ -1, %28 ], [ -1, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -162,7 +162,7 @@ define dso_local range(i32 -1, 1) i32 @crypto_sign_ed25519_open(ptr noundef %0, 
   br label %19
 
 19:                                               ; preds = %17, %18, %15, %16
-  %.0 = phi i32 [ 0, %16 ], [ 0, %15 ], [ -1, %18 ], [ -1, %17 ]
+  %.0 = phi i32 [ 0, %15 ], [ 0, %16 ], [ -1, %18 ], [ -1, %17 ]
   ret i32 %.0
 }
 

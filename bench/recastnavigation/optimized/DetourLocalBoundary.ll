@@ -116,7 +116,7 @@ define void @_ZN15dtLocalBoundary10addSegmentEfPKf(ptr noundef nonnull align 4 c
   br label %37
 
 37:                                               ; preds = %3, %14, %35
-  %.0 = phi ptr [ %36, %35 ], [ %9, %14 ], [ %6, %3 ]
+  %.0 = phi ptr [ %9, %14 ], [ %36, %35 ], [ %6, %3 ]
   %38 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   store float %1, ptr %38, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.0, ptr noundef nonnull align 4 dereferenceable(24) %2, i64 24, i1 false)
@@ -277,7 +277,7 @@ define void @_ZN15dtLocalBoundary6updateEjPKffP14dtNavMeshQueryPK13dtQueryFilter
   br label %73
 
 73:                                               ; preds = %71, %50, %41
-  %.0.i = phi ptr [ %72, %71 ], [ %45, %50 ], [ %30, %41 ]
+  %.0.i = phi ptr [ %45, %50 ], [ %72, %71 ], [ %30, %41 ]
   %74 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   store float %39, ptr %74, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.0.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %37, i64 24, i1 false)

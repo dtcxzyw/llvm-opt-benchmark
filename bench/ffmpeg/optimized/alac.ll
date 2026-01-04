@@ -217,7 +217,7 @@ allocate_buffers.exit:                            ; preds = %74, %57
   br label %93
 
 93:                                               ; preds = %48, %allocate_buffers.exit, %91, %56, %42, %16, %8
-  %.0 = phi i32 [ -1094995529, %8 ], [ -1094995529, %16 ], [ -1163346256, %42 ], [ -1163346256, %56 ], [ -12, %91 ], [ 0, %allocate_buffers.exit ], [ -22, %48 ]
+  %.0 = phi i32 [ -1094995529, %8 ], [ -1094995529, %16 ], [ -1163346256, %42 ], [ 0, %allocate_buffers.exit ], [ -1163346256, %56 ], [ -12, %91 ], [ -22, %48 ]
   ret i32 %.0
 }
 
@@ -863,7 +863,7 @@ get_unary_0_9.exit.thread.i.i:                    ; preds = %350, %get_unary_0_9
   br label %decode_scalar.exit.i
 
 decode_scalar.exit.i:                             ; preds = %399, %394, %380, %364, %360
-  %.0.i.i73 = phi i32 [ %.05.i.i.i.i, %380 ], [ %396, %394 ], [ %392, %399 ], [ %361, %360 ], [ %379, %364 ]
+  %.0.i.i73 = phi i32 [ %392, %399 ], [ %.05.i.i.i.i, %380 ], [ %396, %394 ], [ %361, %360 ], [ %379, %364 ]
   %403 = add i32 %.0.i.i73, %.055112.i
   %404 = lshr i32 %403, 1
   %405 = and i32 %403, 1
@@ -1009,9 +1009,9 @@ decode_scalar.exit96.i:                           ; preds = %decode_scalar.exit9
   br label %.thread.i
 
 .thread.i:                                        ; preds = %481, %decode_scalar.exit96.i, %418, %411, %decode_scalar.exit.i
-  %.162.i = phi i32 [ %.061110.i, %418 ], [ %.061110.i, %411 ], [ %.061110.i, %decode_scalar.exit.i ], [ %.061110.i, %decode_scalar.exit96.i ], [ %486, %481 ]
-  %.158.i = phi i32 [ %416, %418 ], [ %416, %411 ], [ 65535, %decode_scalar.exit.i ], [ 0, %decode_scalar.exit96.i ], [ 0, %481 ]
-  %.156.i = phi i32 [ 0, %418 ], [ 0, %411 ], [ 0, %decode_scalar.exit.i ], [ 1, %decode_scalar.exit96.i ], [ %spec.select.i, %481 ]
+  %.162.i = phi i32 [ %.061110.i, %411 ], [ %.061110.i, %decode_scalar.exit96.i ], [ %.061110.i, %418 ], [ %486, %481 ], [ %.061110.i, %decode_scalar.exit.i ]
+  %.158.i = phi i32 [ %416, %411 ], [ 0, %decode_scalar.exit96.i ], [ %416, %418 ], [ 0, %481 ], [ 65535, %decode_scalar.exit.i ]
+  %.156.i = phi i32 [ 0, %411 ], [ 1, %decode_scalar.exit96.i ], [ 0, %418 ], [ %spec.select.i, %481 ], [ 0, %decode_scalar.exit.i ]
   %488 = add nsw i32 %.162.i, 1
   %489 = icmp slt i32 %488, %311
   br i1 %489, label %321, label %.loopexit, !llvm.loop !78
@@ -1256,7 +1256,7 @@ lpc_prediction.exit:                              ; preds = %529, %.preheader.us
   br i1 %exitcond382.not.i, label %.critedge.i, label %308, !llvm.loop !84
 
 .critedge.thread.i:                               ; preds = %202, %321, %266, %175, %172
-  %.1.ph.i = phi i32 [ -1094995529, %266 ], [ -1094995529, %175 ], [ -38, %172 ], [ -1094995529, %321 ], [ -1094995529, %202 ]
+  %.1.ph.i = phi i32 [ -1094995529, %266 ], [ -1094995529, %321 ], [ -38, %172 ], [ -1094995529, %175 ], [ -1094995529, %202 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1614,8 +1614,8 @@ get_bits_long.exit.i.i:                           ; preds = %get_bits_long.exit.
   %exitcond390.not.i = icmp eq i64 %indvars.iv.next387.i, %wide.trip.count389.i
   br i1 %exitcond390.not.i, label %decode_element.exit, label %.preheader283.i, !llvm.loop !95
 
-761:                                              ; preds = %104, %151, %159, %105, %155, %604, %.critedge.thread.i
-  %.0210.i.ph = phi i32 [ %.1.ph.i, %.critedge.thread.i ], [ -1094995529, %604 ], [ %156, %155 ], [ -1094995529, %105 ], [ -1094995529, %159 ], [ -1094995529, %151 ], [ -1163346256, %104 ]
+761:                                              ; preds = %104, %105, %151, %159, %.critedge.thread.i, %604, %155
+  %.0210.i.ph = phi i32 [ %156, %155 ], [ -1094995529, %604 ], [ %.1.ph.i, %.critedge.thread.i ], [ -1094995529, %159 ], [ -1094995529, %151 ], [ -1094995529, %105 ], [ -1163346256, %104 ]
   %.val58 = load i32, ptr %27, align 8, !tbaa !60
   %.val59 = load i32, ptr %21, align 4, !tbaa !57
   %.not = icmp eq i32 %.val59, %.val58
@@ -1666,7 +1666,7 @@ decode_element.exit:                              ; preds = %._crit_edge315.i, %
   br label %.loopexit87
 
 .loopexit87:                                      ; preds = %761, %4, %777, %.critedge, %64, %47
-  %.047 = phi i32 [ %778, %777 ], [ -1094995529, %.critedge ], [ -1163346256, %47 ], [ -1094995529, %64 ], [ -1094995529, %4 ], [ %.0210.i.ph, %761 ]
+  %.047 = phi i32 [ -1094995529, %4 ], [ %778, %777 ], [ -1094995529, %.critedge ], [ -1163346256, %47 ], [ -1094995529, %64 ], [ %.0210.i.ph, %761 ]
   ret i32 %.047
 }
 

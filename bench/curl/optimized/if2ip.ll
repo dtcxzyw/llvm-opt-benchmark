@@ -86,8 +86,8 @@ define hidden range(i32 0, 5) i32 @Curl_ipv6_scope(ptr noundef readonly captures
   %.not25 = icmp eq i8 %59, 1
   br i1 %.not25, label %.thread, label %60
 
-.thread:                                          ; preds = %16, %4, %12, %57
-  %.024.ph = phi i32 [ 4, %57 ], [ 1, %12 ], [ 3, %4 ], [ 2, %16 ]
+.thread:                                          ; preds = %12, %4, %16, %57
+  %.024.ph = phi i32 [ 4, %57 ], [ 2, %16 ], [ 3, %4 ], [ 1, %12 ]
   br label %60
 
 60:                                               ; preds = %1, %57, %17, %12, %.thread
@@ -231,7 +231,7 @@ define hidden range(i32 0, 3) i32 @Curl_if2ip(i32 noundef %0, i32 noundef %1, i3
   br label %.thread.i.us
 
 .thread.i.us:                                     ; preds = %87, %84, %40, %32
-  %.024.ph.i.us = phi i32 [ 4, %84 ], [ 1, %40 ], [ 3, %32 ], [ 2, %87 ]
+  %.024.ph.i.us = phi i32 [ 4, %84 ], [ 2, %87 ], [ 3, %32 ], [ 1, %40 ]
   br label %Curl_ipv6_scope.exit.us
 
 Curl_ipv6_scope.exit.us:                          ; preds = %.thread.i.us, %84, %44, %40, %28
@@ -252,7 +252,7 @@ Curl_ipv6_scope.exit.us:                          ; preds = %.thread.i.us, %84, 
   br label %91
 
 91:                                               ; preds = %.thread56.us, %24, %20, %18, %.lr.ph.split.us
-  %.5.us = phi i32 [ %.13468.us, %24 ], [ 1, %18 ], [ %.13468.us, %.lr.ph.split.us ], [ %spec.select.us, %20 ], [ 1, %.thread56.us ]
+  %.5.us = phi i32 [ 1, %.thread56.us ], [ %.13468.us, %24 ], [ %.13468.us, %.lr.ph.split.us ], [ %spec.select.us, %20 ], [ 1, %18 ]
   %.032.us = load ptr, ptr %.03269.us, align 8, !tbaa !9
   %.not.us = icmp eq ptr %.032.us, null
   br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !21
@@ -317,7 +317,7 @@ Curl_ipv6_scope.exit.us:                          ; preds = %.thread.i.us, %84, 
   br label %117
 
 117:                                              ; preds = %113, %.lr.ph.split, %111, %98
-  %.5 = phi i32 [ %.13468, %98 ], [ 1, %111 ], [ %.13468, %.lr.ph.split ], [ %spec.select, %113 ]
+  %.5 = phi i32 [ 1, %111 ], [ %.13468, %98 ], [ %.13468, %.lr.ph.split ], [ %spec.select, %113 ]
   %.032 = load ptr, ptr %.03269, align 8, !tbaa !9
   %.not = icmp eq ptr %.032, null
   br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !21

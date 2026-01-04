@@ -647,7 +647,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15.i: ; preds = %_
   br i1 %149, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !37
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i:  ; preds = %146, %144, %140, %136, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15.i
-  %.0.i.i.i = phi i32 [ %137, %136 ], [ %141, %140 ], [ %145, %144 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15.i ], [ %148, %146 ]
+  %.0.i.i.i = phi i32 [ %145, %144 ], [ %137, %136 ], [ %141, %140 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15.i ], [ %148, %146 ]
   %.lobit.i.i = lshr i64 %132, 63
   %150 = trunc nuw nsw i64 %.lobit.i.i to i32
   %151 = add i32 %.0.i.i.i, %150
@@ -796,7 +796,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19.i: ; preds = %_
   br i1 %217, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i23.i, label %.lr.ph.i.i20.i, !llvm.loop !37
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i23.i: ; preds = %214, %212, %208, %204, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19.i
-  %.0.i.i24.i = phi i32 [ %205, %204 ], [ %209, %208 ], [ %213, %212 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19.i ], [ %216, %214 ]
+  %.0.i.i24.i = phi i32 [ %213, %212 ], [ %205, %204 ], [ %209, %208 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19.i ], [ %216, %214 ]
   %.lobit.i25.i = lshr i64 %195, 63
   %218 = trunc nuw nsw i64 %.lobit.i25.i to i32
   %219 = add i32 %.0.i.i24.i, %218
@@ -947,7 +947,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37.i: ; preds = %_
   br i1 %285, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i41.i, label %.lr.ph.i.i38.i, !llvm.loop !37
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i41.i: ; preds = %282, %280, %276, %272, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37.i
-  %.0.i.i42.i = phi i32 [ %273, %272 ], [ %277, %276 ], [ %281, %280 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37.i ], [ %284, %282 ]
+  %.0.i.i42.i = phi i32 [ %281, %280 ], [ %273, %272 ], [ %277, %276 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37.i ], [ %284, %282 ]
   %.lobit.i43.i = lshr i64 %263, 63
   %286 = trunc nuw nsw i64 %.lobit.i43.i to i32
   %287 = add i32 %.0.i.i42.i, %286

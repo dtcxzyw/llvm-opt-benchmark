@@ -631,7 +631,7 @@ default.unreachable:                              ; preds = %102
   unreachable
 
 245:                                              ; preds = %242, %194, %144
-  %.sroa.0129.1.i = phi i64 [ %139, %144 ], [ %179, %194 ], [ %237, %242 ]
+  %.sroa.0129.1.i = phi i64 [ %237, %242 ], [ %139, %144 ], [ %179, %194 ]
   %246 = add nuw nsw i32 %.041202.i, 1
   %exitcond204.not.i = icmp eq i32 %246, 257
   br i1 %exitcond204.not.i, label %_ZL11DrawMyImageii.exit, label %102, !llvm.loop !49
@@ -1492,7 +1492,7 @@ define internal void @_GLOBAL__sub_I_falsecolor.cpp() #12 section ".text.startup
   br label %15
 
 15:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %14
-  %16 = phi ptr [ %17, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %.031.i, %14 ]
+  %16 = phi ptr [ %.031.i, %14 ], [ %17, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
   %17 = getelementptr inbounds i8, ptr %16, i64 -32
   %18 = load ptr, ptr %17, align 8, !tbaa !4
   %19 = getelementptr inbounds i8, ptr %16, i64 -16

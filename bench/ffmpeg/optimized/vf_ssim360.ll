@@ -253,7 +253,7 @@ map_alloc.exit.thread.i:                          ; preds = %49, %55
   br i1 %.not30.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !49
 
 67:                                               ; preds = %61, %map_alloc.exit.thread.i
-  %.122.ph.i = phi i32 [ -12, %map_alloc.exit.thread.i ], [ -22, %61 ]
+  %.122.ph.i = phi i32 [ -22, %61 ], [ -12, %map_alloc.exit.thread.i ]
   call void @av_freep(ptr noundef nonnull %6) #16
   br label %.loopexit.i
 
@@ -295,8 +295,8 @@ map_list_free.exit.i:                             ; preds = %.lr.ph.i.i, %.loope
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %parse_heatmaps.exit.thread
 
-parse_heatmaps.exit.thread:                       ; preds = %map_list_free.exit.i, %41
-  %.018.i.ph = phi i32 [ -22, %41 ], [ %.021.ph.i, %map_list_free.exit.i ]
+parse_heatmaps.exit.thread:                       ; preds = %41, %map_list_free.exit.i
+  %.018.i.ph = phi i32 [ %.021.ph.i, %map_list_free.exit.i ], [ -22, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %75
@@ -314,7 +314,7 @@ parse_heatmaps.exit:                              ; preds = %42, %._crit_edge54.
   br label %75
 
 75:                                               ; preds = %parse_heatmaps.exit.thread, %73, %22
-  %.0 = phi i32 [ 0, %73 ], [ %25, %22 ], [ %.018.i.ph, %parse_heatmaps.exit.thread ]
+  %.0 = phi i32 [ %25, %22 ], [ 0, %73 ], [ %.018.i.ph, %parse_heatmaps.exit.thread ]
   ret i32 %.0
 }
 
@@ -1624,8 +1624,8 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef capture
   br label %154
 
 154:                                              ; preds = %153, %152, %151, %150, %149, %148
-  %.7277.us.i = phi i32 [ %122, %153 ], [ %121, %152 ], [ %110, %151 ], [ %122, %150 ], [ %121, %149 ], [ %110, %148 ]
-  %.7.us.i = phi i32 [ %112, %153 ], [ %112, %152 ], [ %118, %151 ], [ %118, %150 ], [ %118, %149 ], [ %112, %148 ]
+  %.7277.us.i = phi i32 [ %121, %149 ], [ %122, %150 ], [ %122, %153 ], [ %121, %152 ], [ %110, %151 ], [ %110, %148 ]
+  %.7.us.i = phi i32 [ %118, %149 ], [ %118, %150 ], [ %112, %153 ], [ %112, %152 ], [ %118, %151 ], [ %112, %148 ]
   %155 = add i32 %.7277.us.i, %133
   %156 = mul nsw i32 %155, %.0255.i
   %157 = add nsw i32 %156, %.7.us.i
@@ -1733,8 +1733,8 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef capture
   br label %214
 
 214:                                              ; preds = %213, %212, %211, %210, %209, %208
-  %.3273.us.i = phi i32 [ %175, %213 ], [ %175, %212 ], [ %183, %211 ], [ %183, %210 ], [ %183, %209 ], [ %175, %208 ]
-  %.3.us.i = phi i32 [ %187, %213 ], [ %186, %212 ], [ %177, %211 ], [ %187, %210 ], [ %186, %209 ], [ %177, %208 ]
+  %.3273.us.i = phi i32 [ %183, %209 ], [ %183, %210 ], [ %175, %213 ], [ %175, %212 ], [ %183, %211 ], [ %175, %208 ]
+  %.3.us.i = phi i32 [ %186, %209 ], [ %187, %210 ], [ %187, %213 ], [ %186, %212 ], [ %177, %211 ], [ %177, %208 ]
   %215 = add i32 %.3273.us.i, %193
   %216 = mul nsw i32 %215, %.0255.i
   %217 = add nsw i32 %216, %.3.us.i
@@ -2004,7 +2004,7 @@ default.unreachable285.i:                         ; preds = %148
   br label %generate_density_map.exit
 
 generate_density_map.exit:                        ; preds = %55, %73, %315, %.critedge, %58, %44, %43
-  %.062 = phi i32 [ -22, %43 ], [ -12, %44 ], [ -12, %58 ], [ %313, %.critedge ], [ %., %315 ], [ -12, %73 ], [ -12, %55 ]
+  %.062 = phi i32 [ -12, %73 ], [ %., %315 ], [ %313, %.critedge ], [ -12, %44 ], [ -22, %43 ], [ -12, %58 ], [ -12, %55 ]
   ret i32 %.062
 }
 
@@ -2273,7 +2273,7 @@ define internal i32 @do_ssim360(ptr noundef %0) #0 {
   br label %get_tape_angular_resolution.exit.i.i
 
 get_tape_angular_resolution.exit.i.i:             ; preds = %157, %151, %150, %148, %130
-  %.0.i.i.i = phi nsz float [ %.27.i.i.i, %157 ], [ %149, %148 ], [ %..i.i.i, %150 ], [ %.26.i.i.i, %151 ], [ %121, %130 ]
+  %.0.i.i.i = phi nsz float [ %.27.i.i.i, %157 ], [ %149, %148 ], [ %.26.i.i.i, %151 ], [ %..i.i.i, %150 ], [ %121, %130 ]
   %158 = fmul nsz float %.0.i.i.i, %.0.i.i.i
   %159 = fdiv nsz float 0x3FF921FB60000000, %158
   %160 = call nsz float @llvm.fmuladd.f32(float %.0.i.i.i, float 4.000000e+00, float 0xBFF921FB60000000)
@@ -2728,7 +2728,7 @@ generate_tape_maps.exit.thread:                   ; preds = %220, %44, %41, %36
   br i1 %411, label %.lr.ph237, label %.preheader, !llvm.loop !159
 
 ._crit_edge240:                                   ; preds = %set_meta.exit, %335, %.preheader
-  %.us-phi235304306 = phi double [ %.us-phi.us, %.preheader ], [ 0.000000e+00, %335 ], [ %.us-phi.us, %set_meta.exit ]
+  %.us-phi235304306 = phi double [ 0.000000e+00, %335 ], [ %.us-phi.us, %.preheader ], [ %.us-phi.us, %set_meta.exit ]
   %412 = fptrunc nsz double %.us-phi235304306 to float
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %413 = fpext nsz float %412 to double
@@ -2856,7 +2856,7 @@ set_meta.exit:                                    ; preds = %442, %446
   br label %487
 
 487:                                              ; preds = %generate_tape_maps.exit, %1, %481, %30
-  %.0 = phi i32 [ %35, %30 ], [ %486, %481 ], [ %22, %1 ], [ -12, %generate_tape_maps.exit ]
+  %.0 = phi i32 [ %22, %1 ], [ %35, %30 ], [ %486, %481 ], [ -12, %generate_tape_maps.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -3435,16 +3435,16 @@ get_cubemap_face_map.exit.i:                      ; preds = %44
   br label %get_cubemap_face_map.exit.thread46.i
 
 get_cubemap_face_map.exit.thread46.i:             ; preds = %get_cubemap_face_map.exit.i, %.thread59.i.i
-  %.2.i52.i = phi i64 [ %54, %get_cubemap_face_map.exit.i ], [ 4, %.thread59.i.i ]
-  %.151.i = phi float [ %52, %get_cubemap_face_map.exit.i ], [ %50, %.thread59.i.i ]
-  %.13750.i = phi float [ %41, %get_cubemap_face_map.exit.i ], [ %48, %.thread59.i.i ]
+  %.2.i52.i = phi i64 [ 4, %.thread59.i.i ], [ %54, %get_cubemap_face_map.exit.i ]
+  %.151.i = phi float [ %50, %.thread59.i.i ], [ %52, %get_cubemap_face_map.exit.i ]
+  %.13750.i = phi float [ %48, %.thread59.i.i ], [ %41, %get_cubemap_face_map.exit.i ]
   %55 = fneg nsz float %.151.i
   br label %get_rotated_cubemap_map.exit
 
 get_rotated_cubemap_map.exit:                     ; preds = %get_cubemap_face_map.exit.thread.thread.i, %.thread59.i.i, %get_cubemap_face_map.exit.thread46.i
-  %.2.i45.i = phi i64 [ %.2.i4457.i, %get_cubemap_face_map.exit.thread.thread.i ], [ %.2.i52.i, %get_cubemap_face_map.exit.thread46.i ], [ 5, %.thread59.i.i ]
-  %.036.i = phi nsz float [ %33, %get_cubemap_face_map.exit.thread.thread.i ], [ %55, %get_cubemap_face_map.exit.thread46.i ], [ %48, %.thread59.i.i ]
-  %.0.i = phi nsz float [ %34, %get_cubemap_face_map.exit.thread.thread.i ], [ %.13750.i, %get_cubemap_face_map.exit.thread46.i ], [ %50, %.thread59.i.i ]
+  %.2.i45.i = phi i64 [ %.2.i4457.i, %get_cubemap_face_map.exit.thread.thread.i ], [ 5, %.thread59.i.i ], [ %.2.i52.i, %get_cubemap_face_map.exit.thread46.i ]
+  %.036.i = phi nsz float [ %33, %get_cubemap_face_map.exit.thread.thread.i ], [ %48, %.thread59.i.i ], [ %55, %get_cubemap_face_map.exit.thread46.i ]
+  %.0.i = phi nsz float [ %34, %get_cubemap_face_map.exit.thread.thread.i ], [ %50, %.thread59.i.i ], [ %.13750.i, %get_cubemap_face_map.exit.thread46.i ]
   %56 = getelementptr inbounds nuw i32, ptr @get_rotated_cubemap_map.face_projection_map, i64 %.2.i45.i
   %57 = load i32, ptr %56, align 4, !tbaa !35
   %58 = and i32 %57, 1
@@ -3658,8 +3658,8 @@ get_cubemap32_map.exit:                           ; preds = %90, %106, %.thread5
   br label %get_barrel_map.exit
 
 get_barrel_map.exit:                              ; preds = %199, %168, %142, %136, %205, %get_cubemap32_map.exit, %get_rotated_cubemap_map.exit
-  %.024 = phi nsz float [ %207, %205 ], [ %67, %get_rotated_cubemap_map.exit ], [ %126, %get_cubemap32_map.exit ], [ %154, %142 ], [ %139, %136 ], [ %201, %199 ], [ %174, %168 ]
-  %.0 = phi nsz float [ %209, %205 ], [ %71, %get_rotated_cubemap_map.exit ], [ %130, %get_cubemap32_map.exit ], [ %155, %142 ], [ %141, %136 ], [ %204, %199 ], [ %178, %168 ]
+  %.024 = phi nsz float [ %207, %205 ], [ %67, %get_rotated_cubemap_map.exit ], [ %126, %get_cubemap32_map.exit ], [ %139, %136 ], [ %154, %142 ], [ %201, %199 ], [ %174, %168 ]
+  %.0 = phi nsz float [ %209, %205 ], [ %71, %get_rotated_cubemap_map.exit ], [ %130, %get_cubemap32_map.exit ], [ %141, %136 ], [ %155, %142 ], [ %204, %199 ], [ %178, %168 ]
   %210 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %211 = load i32, ptr %210, align 4, !tbaa !141
   %212 = sitofp i32 %211 to float

@@ -966,7 +966,7 @@ define hidden noundef zeroext i1 @_ZN18CompilerDirectives5matchERK12methodHandle
   br label %12
 
 12:                                               ; preds = %8, %5, %2
-  %.0 = phi i1 [ true, %2 ], [ false, %5 ], [ %11, %8 ]
+  %.0 = phi i1 [ false, %5 ], [ true, %2 ], [ %11, %8 ]
   ret i1 %.0
 }
 
@@ -2590,7 +2590,7 @@ _ZN20ControlIntrinsicIterppEv.exit120:            ; preds = %574, %580, %581
   br label %_ZN15DirectiveSetPtr6commitEv.exit
 
 _ZN15DirectiveSetPtr6commitEv.exit:               ; preds = %589, %588, %2, %32
-  %.0 = phi ptr [ %0, %32 ], [ %0, %2 ], [ %.sroa.36.31, %589 ], [ %0, %588 ]
+  %.0 = phi ptr [ %0, %2 ], [ %0, %32 ], [ %.sroa.36.31, %589 ], [ %0, %588 ]
   ret ptr %.0
 }
 
@@ -2735,7 +2735,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %_ZN20ThreadInVMfrom
   br label %_ZN12DirectiveSet14matches_inlineERK12methodHandlei.exit
 
 _ZN12DirectiveSet14matches_inlineERK12methodHandlei.exit: ; preds = %44, %46, %50
-  %.0 = phi i1 [ %51, %50 ], [ false, %46 ], [ %45, %44 ]
+  %.0 = phi i1 [ false, %46 ], [ %51, %50 ], [ %45, %44 ]
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %53 = load ptr, ptr %52, align 8
@@ -2881,7 +2881,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %_ZN20ThreadInVMfrom
   br label %_ZN12DirectiveSet14matches_inlineERK12methodHandlei.exit
 
 _ZN12DirectiveSet14matches_inlineERK12methodHandlei.exit: ; preds = %44, %46, %50
-  %.0 = phi i1 [ %51, %50 ], [ false, %46 ], [ %45, %44 ]
+  %.0 = phi i1 [ false, %46 ], [ %51, %50 ], [ %45, %44 ]
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %53 = load ptr, ptr %52, align 8
@@ -3877,8 +3877,8 @@ _ZN18CompilerDirectives7get_forEP16AbstractCompiler.exit: ; preds = %_ZN18Compil
   br i1 %38, label %.split.us, label %_ZN18CompilerDirectives5matchERK12methodHandle.exit.thread
 
 .split.us:                                        ; preds = %_ZN18CompilerDirectives7get_forEP16AbstractCompiler.exit, %36, %_ZN18CompilerDirectives7get_forEP16AbstractCompiler.exit.us, %19
-  %.us-phi = phi ptr [ %.0.i15.us, %19 ], [ %.0.i15.us, %_ZN18CompilerDirectives7get_forEP16AbstractCompiler.exit.us ], [ %.0.i15, %36 ], [ %.0.i15, %_ZN18CompilerDirectives7get_forEP16AbstractCompiler.exit ]
-  %.us-phi24 = phi ptr [ %.023.us, %19 ], [ %.023.us, %_ZN18CompilerDirectives7get_forEP16AbstractCompiler.exit.us ], [ %.023, %36 ], [ %.023, %_ZN18CompilerDirectives7get_forEP16AbstractCompiler.exit ]
+  %.us-phi = phi ptr [ %.0.i15.us, %_ZN18CompilerDirectives7get_forEP16AbstractCompiler.exit.us ], [ %.0.i15.us, %19 ], [ %.0.i15, %36 ], [ %.0.i15, %_ZN18CompilerDirectives7get_forEP16AbstractCompiler.exit ]
+  %.us-phi24 = phi ptr [ %.023.us, %_ZN18CompilerDirectives7get_forEP16AbstractCompiler.exit.us ], [ %.023.us, %19 ], [ %.023, %36 ], [ %.023, %_ZN18CompilerDirectives7get_forEP16AbstractCompiler.exit ]
   %39 = getelementptr inbounds nuw i8, ptr %.us-phi24, i64 16
   %40 = load i32, ptr %39, align 8
   %41 = add nsw i32 %40, 1

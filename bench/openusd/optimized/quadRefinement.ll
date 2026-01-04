@@ -594,8 +594,8 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %10
   br i1 %29, label %.lr.ph.i, label %_ZN10OpenSubdiv6v3_6_03Vtr8internal14QuadRefinement34populateFaceVertexCountsAndOffsetsEv.exit, !llvm.loop !10
 
 _ZN10OpenSubdiv6v3_6_03Vtr8internal14QuadRefinement34populateFaceVertexCountsAndOffsetsEv.exit: ; preds = %.lr.ph.i, %1, %10, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
-  %30 = phi i32 [ %.pre1, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i ], [ 0, %10 ], [ %9, %1 ], [ %27, %.lr.ph.i ]
-  %31 = phi ptr [ %.pre, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i ], [ %3, %10 ], [ %3, %1 ], [ %26, %.lr.ph.i ]
+  %30 = phi i32 [ 0, %10 ], [ %.pre1, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i ], [ %9, %1 ], [ %27, %.lr.ph.i ]
+  %31 = phi ptr [ %3, %10 ], [ %.pre, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i ], [ %3, %1 ], [ %26, %.lr.ph.i ]
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 48
   %33 = shl nsw i32 %30, 2
   %34 = sext i32 %33 to i64
@@ -681,8 +681,8 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %10
   br i1 %29, label %.lr.ph.i, label %_ZN10OpenSubdiv6v3_6_03Vtr8internal14QuadRefinement34populateFaceVertexCountsAndOffsetsEv.exit, !llvm.loop !10
 
 _ZN10OpenSubdiv6v3_6_03Vtr8internal14QuadRefinement34populateFaceVertexCountsAndOffsetsEv.exit: ; preds = %.lr.ph.i, %1, %10, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
-  %30 = phi i32 [ %.pre1, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i ], [ 0, %10 ], [ %9, %1 ], [ %27, %.lr.ph.i ]
-  %31 = phi ptr [ %.pre, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i ], [ %3, %10 ], [ %3, %1 ], [ %26, %.lr.ph.i ]
+  %30 = phi i32 [ 0, %10 ], [ %.pre1, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i ], [ %9, %1 ], [ %27, %.lr.ph.i ]
+  %31 = phi ptr [ %3, %10 ], [ %.pre, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i ], [ %3, %1 ], [ %26, %.lr.ph.i ]
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 72
   %33 = shl nsw i32 %30, 2
   %34 = sext i32 %33 to i64
@@ -2361,7 +2361,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8
   br label %41
 
@@ -3280,7 +3280,7 @@ _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8
   br label %41
 

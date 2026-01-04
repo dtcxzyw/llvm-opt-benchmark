@@ -206,17 +206,17 @@ define dso_local noalias noundef ptr @cmsysSystem_Parse_CommandForUnix(ptr nound
   br label %.thread
 
 .loopexit:                                        ; preds = %47, %32, %64, %39, %36
-  %.2.i = phi i32 [ 0, %64 ], [ %spec.select.i, %36 ], [ %spec.select147.i, %39 ], [ %.046111.i, %32 ], [ 0, %47 ]
-  %.145.i = phi i32 [ 0, %64 ], [ 0, %36 ], [ 0, %39 ], [ 1, %32 ], [ 0, %47 ]
-  %.143.i = phi i32 [ 0, %64 ], [ %spec.select146.i, %36 ], [ 0, %39 ], [ %.042113.i.ph, %32 ], [ %.042113.i.ph, %47 ]
-  %.141.i = phi i32 [ 0, %64 ], [ 0, %36 ], [ %spec.select148.i, %39 ], [ %.040114.i.ph, %32 ], [ %.040114.i.ph, %47 ]
+  %.2.i = phi i32 [ %spec.select147.i, %39 ], [ 0, %64 ], [ %spec.select.i, %36 ], [ 0, %47 ], [ %.046111.i, %32 ]
+  %.145.i = phi i32 [ 0, %39 ], [ 0, %64 ], [ 0, %36 ], [ 0, %47 ], [ 1, %32 ]
+  %.143.i = phi i32 [ 0, %39 ], [ 0, %64 ], [ %spec.select146.i, %36 ], [ %.042113.i.ph, %32 ], [ %.042113.i.ph, %47 ]
+  %.141.i = phi i32 [ %spec.select148.i, %39 ], [ 0, %64 ], [ 0, %36 ], [ %.040114.i.ph, %32 ], [ %.040114.i.ph, %47 ]
   %81 = getelementptr inbounds nuw i8, ptr %.038115.i, i64 1
   %82 = load i8, ptr %81, align 1, !tbaa !13
   %.not.i = icmp eq i8 %82, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i.outer, !llvm.loop !18
 
 .thread:                                          ; preds = %17, %49, %66, %.sink.split.sink.split.i
-  %.sink150.i = phi ptr [ %18, %17 ], [ %50, %49 ], [ %67, %66 ], [ %.sink150.ph.i, %.sink.split.sink.split.i ]
+  %.sink150.i = phi ptr [ %50, %49 ], [ %18, %17 ], [ %67, %66 ], [ %.sink150.ph.i, %.sink.split.sink.split.i ]
   %83 = getelementptr inbounds nuw i8, ptr %.sink150.i, i64 1
   store ptr %83, ptr %10, align 8, !tbaa !11
   store i8 %16, ptr %.sink150.i, align 1, !tbaa !13
@@ -411,7 +411,7 @@ define internal fastcc range(i32 0, 2) i32 @kwsysSystem__AppendArgument(ptr noun
   br label %kwsysSystem__AppendByte.exit.thread
 
 kwsysSystem__AppendByte.exit.thread:              ; preds = %16, %34, %42, %50
-  %.035 = phi i32 [ 1, %50 ], [ 0, %42 ], [ 0, %34 ], [ 0, %16 ]
+  %.035 = phi i32 [ 1, %50 ], [ 0, %34 ], [ 0, %42 ], [ 0, %16 ]
   ret i32 %.035
 }
 

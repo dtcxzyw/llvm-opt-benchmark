@@ -442,7 +442,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @memblock_add_range(ptr nou
   br i1 %97, label %46, label %98, !llvm.loop !21
 
 98:                                               ; preds = %91, %85
-  %99 = phi i32 [ %89, %85 ], [ %92, %91 ]
+  %99 = phi i32 [ %92, %91 ], [ %89, %85 ]
   %100 = icmp ult i64 %90, %8
   br i1 %100, label %101, label %108
 
@@ -506,7 +506,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @memblock_add_range(ptr nou
   br label %.thread11
 
 .thread11:                                        ; preds = %.thread10, %.thread, %108, %126, %.thread8, %.thread9, %24, %5
-  %133 = phi i32 [ 0, %24 ], [ 0, %.thread9 ], [ 0, %5 ], [ 0, %.thread8 ], [ -12, %126 ], [ 0, %108 ], [ 0, %.thread ], [ 0, %.thread10 ]
+  %133 = phi i32 [ 0, %24 ], [ 0, %.thread9 ], [ 0, %5 ], [ -12, %126 ], [ 0, %.thread8 ], [ 0, %108 ], [ 0, %.thread ], [ 0, %.thread10 ]
   ret i32 %133
 }
 
@@ -1169,9 +1169,9 @@ define dso_local void @__next_mem_range(ptr noundef captures(none) %0, i32 nound
   br label %.split70.us
 
 .split70.us:                                      ; preds = %111, %136, %97, %66, %.split.us.split.us.split.us.split.split.split, %52, %.split70.us.sink.split
-  %.us-phi72 = phi ptr [ %.sink336, %.split70.us.sink.split ], [ %42, %52 ], [ %78, %.split.us.split.us.split.us.split.split.split ], [ %61, %66 ], [ %88, %97 ], [ %132, %136 ], [ %106, %111 ]
-  %.us-phi74 = phi i32 [ %.us-phi74.ph, %.split70.us.sink.split ], [ %41, %52 ], [ %77, %.split.us.split.us.split.us.split.split.split ], [ %60, %66 ], [ %87, %97 ], [ %131, %136 ], [ %105, %111 ]
-  %.us-phi76 = phi i32 [ %147, %.split70.us.sink.split ], [ %44, %52 ], [ %18, %.split.us.split.us.split.us.split.split.split ], [ %63, %66 ], [ %90, %97 ], [ %18, %136 ], [ %108, %111 ]
+  %.us-phi72 = phi ptr [ %.sink336, %.split70.us.sink.split ], [ %132, %136 ], [ %78, %.split.us.split.us.split.us.split.split.split ], [ %88, %97 ], [ %61, %66 ], [ %42, %52 ], [ %106, %111 ]
+  %.us-phi74 = phi i32 [ %.us-phi74.ph, %.split70.us.sink.split ], [ %131, %136 ], [ %77, %.split.us.split.us.split.us.split.split.split ], [ %87, %97 ], [ %60, %66 ], [ %41, %52 ], [ %105, %111 ]
+  %.us-phi76 = phi i32 [ %147, %.split70.us.sink.split ], [ %18, %136 ], [ %18, %.split.us.split.us.split.us.split.split.split ], [ %90, %97 ], [ %63, %66 ], [ %44, %52 ], [ %108, %111 ]
   %148 = load i64, ptr %.us-phi72, align 8
   %149 = getelementptr inbounds nuw i8, ptr %.us-phi72, i64 8
   %150 = load i64, ptr %149, align 8
@@ -1273,7 +1273,7 @@ define dso_local void @__next_mem_range(ptr noundef captures(none) %0, i32 nound
   br i1 %211, label %187, label %.loopexit.us, !llvm.loop !37
 
 .loopexit.us:                                     ; preds = %203, %208, %182, %177, %171, %165, %.split.split.us
-  %.ph15.us53 = phi i32 [ %154, %182 ], [ %154, %177 ], [ %154, %171 ], [ %154, %165 ], [ %154, %.split.split.us ], [ %209, %208 ], [ %189, %203 ]
+  %.ph15.us53 = phi i32 [ %154, %165 ], [ %154, %.split.split.us ], [ %154, %182 ], [ %154, %177 ], [ %154, %171 ], [ %209, %208 ], [ %189, %203 ]
   %212 = add i32 %153, 1
   %213 = sext i32 %212 to i64
   %214 = icmp ugt i64 %21, %213
@@ -1425,7 +1425,7 @@ define dso_local void @__next_mem_range(ptr noundef captures(none) %0, i32 nound
   br i1 %286, label %218, label %.loopexit18, !llvm.loop !36
 
 .loopexit18:                                      ; preds = %.loopexit, %.loopexit.us, %115, %141, %126, %100, %71, %82, %55, %17, %235, %.thread
-  %.sink = phi i64 [ %239, %235 ], [ %279, %.thread ], [ -1, %17 ], [ -1, %55 ], [ -1, %82 ], [ -1, %71 ], [ -1, %100 ], [ -1, %126 ], [ -1, %141 ], [ -1, %115 ], [ -1, %.loopexit.us ], [ -1, %.loopexit ]
+  %.sink = phi i64 [ %239, %235 ], [ %279, %.thread ], [ -1, %126 ], [ -1, %100 ], [ -1, %82 ], [ -1, %55 ], [ -1, %71 ], [ -1, %.loopexit.us ], [ -1, %141 ], [ -1, %115 ], [ -1, %17 ], [ -1, %.loopexit ]
   store i64 %.sink, ptr %0, align 8
   ret void
 }
@@ -1664,7 +1664,7 @@ define dso_local void @__next_mem_range_rev(ptr noundef captures(none) %0, i32 n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %134, %.loopexit.loopexit.split.loop.exit, %60, %64, %70, %76, %82
-  %.ph16 = phi i32 [ %52, %82 ], [ %52, %76 ], [ %52, %70 ], [ %52, %64 ], [ %52, %60 ], [ %135, %.loopexit.loopexit.split.loop.exit ], [ -1, %134 ]
+  %.ph16 = phi i32 [ %52, %64 ], [ %52, %60 ], [ %52, %82 ], [ %52, %76 ], [ %52, %70 ], [ %135, %.loopexit.loopexit.split.loop.exit ], [ -1, %134 ]
   %indvars.iv.next60 = add nsw i64 %indvars.iv59, -1
   %136 = icmp sgt i64 %indvars.iv59, 0
   br i1 %136, label %51, label %.loopexit19, !llvm.loop !44
@@ -1839,7 +1839,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @memblock_isolate_range(ptr
   br i1 %73, label %26, label %.loopexit, !llvm.loop !47
 
 .loopexit:                                        ; preds = %17, %67, %65, %20, %5
-  %74 = phi i32 [ 0, %5 ], [ 0, %20 ], [ 0, %65 ], [ 0, %67 ], [ -12, %17 ]
+  %74 = phi i32 [ 0, %5 ], [ 0, %20 ], [ 0, %67 ], [ 0, %65 ], [ -12, %17 ]
   ret i32 %74
 }
 

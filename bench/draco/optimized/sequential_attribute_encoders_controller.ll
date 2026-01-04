@@ -168,7 +168,7 @@ define noundef zeroext i1 @_ZN5draco37SequentialAttributeEncodersController4Init
   br i1 %41, label %20, label %.loopexit
 
 .loopexit:                                        ; preds = %20, %29, %.preheader, %5, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %5 ], [ true, %.preheader ], [ %41, %29 ], [ %41, %20 ]
+  %.0 = phi i1 [ false, %5 ], [ false, %3 ], [ true, %.preheader ], [ %41, %29 ], [ %41, %20 ]
   ret i1 %.0
 }
 
@@ -278,7 +278,7 @@ define noundef zeroext i1 @_ZN5draco37SequentialAttributeEncodersController16Enc
   br label %_ZN5draco17AttributesEncoder16EncodeAttributesEPNS_13EncoderBufferE.exit
 
 _ZN5draco17AttributesEncoder16EncodeAttributesEPNS_13EncoderBufferE.exit: ; preds = %22, %17, %12, %2, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %2 ], [ false, %12 ], [ false, %17 ], [ %26, %22 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %5 ], [ false, %17 ], [ %26, %22 ], [ false, %12 ]
   ret i1 %.0
 }
 
@@ -728,7 +728,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13: ; preds = %53,
   br label %70
 
 69:                                               ; preds = %65, %61, %23, %48
-  %.sink = phi ptr [ %47, %48 ], [ %24, %23 ], [ %62, %61 ], [ %66, %65 ]
+  %.sink = phi ptr [ %62, %61 ], [ %24, %23 ], [ %47, %48 ], [ %66, %65 ]
   store ptr %.sink, ptr %0, align 8, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -861,7 +861,7 @@ _ZNK5draco7Options11IsOptionSetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %42 = icmp sgt i32 %.0.i.i.i.i.i.i, -1
   br i1 %42, label %43, label %_ZNK5draco12DracoOptionsIiE20FindAttributeOptionsERKi.exit.thread
 
-_ZNK5draco12DracoOptionsIiE20FindAttributeOptionsERKi.exit.thread: ; preds = %_ZNK5draco12DracoOptionsIiE20FindAttributeOptionsERKi.exit, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i, %_ZNKSt3mapIiN5draco7OptionsESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i, %4, %_ZNKSt8_Rb_treeIiSt4pairIKiN5draco7OptionsEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %_ZNK5draco7Options11IsOptionSetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+_ZNK5draco12DracoOptionsIiE20FindAttributeOptionsERKi.exit.thread: ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i, %_ZNK5draco12DracoOptionsIiE20FindAttributeOptionsERKi.exit, %_ZNKSt3mapIiN5draco7OptionsESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i, %4, %_ZNKSt8_Rb_treeIiSt4pairIKiN5draco7OptionsEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %_ZNK5draco7Options11IsOptionSetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   br label %43
 
 43:                                               ; preds = %_ZNK5draco7Options11IsOptionSetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZNK5draco12DracoOptionsIiE20FindAttributeOptionsERKi.exit.thread
@@ -1182,7 +1182,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %30, %16
   br label %_ZNK5draco17AttributesEncoder27GetLocalIdForPointAttributeEi.exit.thread
 
 _ZNK5draco17AttributesEncoder27GetLocalIdForPointAttributeEi.exit.thread: ; preds = %2, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit, %_ZNK5draco17AttributesEncoder27GetLocalIdForPointAttributeEi.exit, %49
-  %52 = phi i1 [ true, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit ], [ false, %_ZNK5draco17AttributesEncoder27GetLocalIdForPointAttributeEi.exit ], [ true, %49 ], [ false, %2 ]
+  %52 = phi i1 [ true, %49 ], [ true, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit ], [ false, %_ZNK5draco17AttributesEncoder27GetLocalIdForPointAttributeEi.exit ], [ false, %2 ]
   ret i1 %52
 }
 

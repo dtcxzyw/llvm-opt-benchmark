@@ -182,7 +182,7 @@ define ptr @ev_token_bucket_cfg_new(i64 noundef %0, i64 noundef %1, i64 noundef 
   br label %33
 
 33:                                               ; preds = %25, %21, %17, %14, %7, %27
-  %.0 = phi ptr [ %26, %27 ], [ null, %7 ], [ null, %14 ], [ null, %17 ], [ null, %21 ], [ null, %25 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %14 ], [ null, %25 ], [ %26, %27 ], [ null, %21 ], [ null, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
@@ -346,7 +346,7 @@ bufferevent_update_buckets.exit:                  ; preds = %10, %29, %32
   br label %85
 
 85:                                               ; preds = %77, %75, %76
-  %.0 = phi i64 [ 0, %76 ], [ 0, %75 ], [ %spec.select51, %77 ]
+  %.0 = phi i64 [ %spec.select51, %77 ], [ 0, %75 ], [ 0, %76 ]
   %86 = load ptr, ptr %63, align 8
   %.not50 = icmp eq ptr %86, null
   br i1 %.not50, label %90, label %87
@@ -435,7 +435,7 @@ define range(i32 -1, 1) i32 @bufferevent_decrement_read_buckets_(ptr noundef %0,
   br label %35
 
 35:                                               ; preds = %16, %34, %23, %5
-  %.0 = phi i32 [ 0, %34 ], [ 0, %23 ], [ 0, %5 ], [ %.lobit, %16 ]
+  %.0 = phi i32 [ 0, %5 ], [ %.lobit, %16 ], [ 0, %34 ], [ 0, %23 ]
   %36 = load ptr, ptr %3, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
@@ -739,7 +739,7 @@ define range(i32 -1, 1) i32 @bufferevent_decrement_write_buckets_(ptr noundef %0
   br label %35
 
 35:                                               ; preds = %16, %34, %23, %5
-  %.0 = phi i32 [ 0, %34 ], [ 0, %23 ], [ 0, %5 ], [ %.lobit, %16 ]
+  %.0 = phi i32 [ 0, %5 ], [ %.lobit, %16 ], [ 0, %34 ], [ 0, %23 ]
   %36 = load ptr, ptr %3, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
@@ -1141,7 +1141,7 @@ ev_token_bucket_init_.exit:                       ; preds = %43
   br label %84
 
 84:                                               ; preds = %80, %81, %36, %11, %18, %14, %40
-  %.0 = phi i32 [ -1, %40 ], [ 0, %14 ], [ 0, %18 ], [ 0, %11 ], [ 0, %36 ], [ 0, %81 ], [ 0, %80 ]
+  %.0 = phi i32 [ -1, %40 ], [ 0, %11 ], [ 0, %36 ], [ 0, %14 ], [ 0, %18 ], [ 0, %81 ], [ 0, %80 ]
   %85 = load ptr, ptr %4, align 8
   %.not60 = icmp eq ptr %85, null
   br i1 %.not60, label %89, label %86
@@ -1822,7 +1822,7 @@ define range(i32 -1, 1) i32 @bufferevent_add_to_rate_limit_group(ptr noundef %0,
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %13, %63, %24
-  %.1 = phi i32 [ 0, %24 ], [ 0, %63 ], [ -1, %13 ], [ %.1.ph, %.thread.sink.split ]
+  %.1 = phi i32 [ 0, %63 ], [ 0, %24 ], [ -1, %13 ], [ %.1.ph, %.thread.sink.split ]
   ret i32 %.1
 }
 
@@ -2482,7 +2482,7 @@ define range(i32 -1, 1) i32 @bufferevent_decrement_read_limit(ptr noundef %0, i6
   br label %35
 
 35:                                               ; preds = %16, %34, %23
-  %.0 = phi i32 [ 0, %34 ], [ 0, %23 ], [ %.lobit, %16 ]
+  %.0 = phi i32 [ 0, %23 ], [ %.lobit, %16 ], [ 0, %34 ]
   %36 = load ptr, ptr %3, align 8
   %.not26 = icmp eq ptr %36, null
   br i1 %.not26, label %40, label %37
@@ -2555,7 +2555,7 @@ define range(i32 -1, 1) i32 @bufferevent_decrement_write_limit(ptr noundef %0, i
   br label %35
 
 35:                                               ; preds = %16, %34, %23
-  %.0 = phi i32 [ 0, %34 ], [ 0, %23 ], [ %.lobit, %16 ]
+  %.0 = phi i32 [ 0, %23 ], [ %.lobit, %16 ], [ 0, %34 ]
   %36 = load ptr, ptr %3, align 8
   %.not26 = icmp eq ptr %36, null
   br i1 %.not26, label %40, label %37

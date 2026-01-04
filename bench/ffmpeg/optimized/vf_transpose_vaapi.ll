@@ -190,7 +190,7 @@ define internal i32 @transpose_vaapi_filter_frame(ptr noundef readonly captures(
   br label %63
 
 63:                                               ; preds = %17, %62, %51, %15
-  %.021 = phi i32 [ %16, %15 ], [ %.0, %62 ], [ %61, %51 ], [ -22, %17 ]
+  %.021 = phi i32 [ %16, %15 ], [ %61, %51 ], [ %.0, %62 ], [ -22, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.021
@@ -403,7 +403,7 @@ define internal range(i32 -22, 1) i32 @transpose_vaapi_build_filter_params(ptr n
   br label %40
 
 40:                                               ; preds = %32, %.thread55, %39, %31, %25, %16, %11
-  %.0 = phi i32 [ -5, %11 ], [ -22, %25 ], [ -22, %39 ], [ -22, %31 ], [ -22, %16 ], [ 0, %.thread55 ], [ 0, %32 ]
+  %.0 = phi i32 [ -5, %11 ], [ -22, %25 ], [ -22, %16 ], [ -22, %39 ], [ -22, %31 ], [ 0, %.thread55 ], [ 0, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

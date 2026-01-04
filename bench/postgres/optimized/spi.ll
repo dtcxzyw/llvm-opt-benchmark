@@ -690,7 +690,7 @@ define dso_local void @AtEOSubXact_SPI(i1 noundef zeroext %0, i32 noundef %1) lo
   br i1 %38, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %.lr.ph67, %.lr.ph, %25, %.lr.ph.preheader
-  %.0.lcssa = phi i1 [ false, %.lr.ph.preheader ], [ %.04566, %.lr.ph67 ], [ true, %.lr.ph ], [ true, %25 ]
+  %.0.lcssa = phi i1 [ false, %.lr.ph.preheader ], [ %.04566, %.lr.ph67 ], [ true, %25 ], [ true, %.lr.ph ]
   %or.cond = and i1 %0, %.0.lcssa
   br i1 %or.cond, label %39, label %.thread.thread
 
@@ -798,7 +798,7 @@ define dso_local zeroext i1 @SPI_inside_nonatomic_context() local_unnamed_addr #
   br label %9
 
 9:                                                ; preds = %7, %3, %0
-  %.0 = phi i1 [ false, %0 ], [ false, %3 ], [ %not., %7 ]
+  %.0 = phi i1 [ false, %3 ], [ false, %0 ], [ %not., %7 ]
   ret i1 %.0
 }
 
@@ -1063,7 +1063,7 @@ define internal fastcc i32 @_SPI_execute_plan(ptr noundef nonnull readonly captu
   br label %94
 
 94:                                               ; preds = %75, %81, %87
-  %.0151 = phi ptr [ %86, %81 ], [ %93, %87 ], [ null, %75 ]
+  %.0151 = phi ptr [ %93, %87 ], [ %86, %81 ], [ null, %75 ]
   %95 = load ptr, ptr %59, align 8
   %96 = load i32, ptr %60, align 8
   %97 = load ptr, ptr %57, align 8
@@ -1330,8 +1330,8 @@ list_length.exit192.thread:                       ; preds = %116
   br label %231
 
 231:                                              ; preds = %225, %219, %213, %207, %201
-  %232 = phi i1 [ %206, %201 ], [ false, %207 ], [ false, %213 ], [ false, %219 ], [ false, %225 ]
-  %.0.i = phi i32 [ %.21.i, %201 ], [ %.22.i, %207 ], [ %.23.i, %213 ], [ %.24.i, %219 ], [ %.25.i, %225 ]
+  %232 = phi i1 [ %206, %201 ], [ false, %219 ], [ false, %207 ], [ false, %225 ], [ false, %213 ]
+  %.0.i = phi i32 [ %.21.i, %201 ], [ %.24.i, %219 ], [ %.22.i, %207 ], [ %.25.i, %225 ], [ %.23.i, %213 ]
   call void @ExecutorStart(ptr noundef nonnull %195, i32 noundef %.26.i) #16
   call void @ExecutorRun(ptr noundef nonnull %195, i32 noundef 1, i64 noundef %199) #16
   %233 = getelementptr inbounds nuw i8, ptr %195, i64 80
@@ -1480,7 +1480,7 @@ _SPI_pquery.exit:                                 ; preds = %198, %258
   call void @CommandCounterIncrement() #16
   br label %300
 
-300:                                              ; preds = %299, %._crit_edge
+300:                                              ; preds = %._crit_edge, %299
   %indvars.iv.next321 = add nuw nsw i64 %indvars.iv320419, 1
   %301 = load i32, ptr %54, align 4
   %302 = sext i32 %301 to i64
@@ -1488,11 +1488,11 @@ _SPI_pquery.exit:                                 ; preds = %198, %258
   br i1 %303, label %.lr.ph424, label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %300, %160, %.thread199, %158, %.lr.ph295, %53
-  %.1241 = phi i32 [ 0, %53 ], [ 0, %.lr.ph295 ], [ -2, %160 ], [ %.0142, %.thread199 ], [ -8, %158 ], [ %.2.lcssa, %300 ]
-  %.1130240 = phi i64 [ 0, %53 ], [ 0, %.lr.ph295 ], [ %.2131281414, %160 ], [ %.5134, %.thread199 ], [ %.2131281414, %158 ], [ %.2131.lcssa, %300 ]
-  %.1137239 = phi ptr [ null, %53 ], [ null, %.lr.ph295 ], [ %.2138280415, %160 ], [ %.5141, %.thread199 ], [ %.2138280415, %158 ], [ %.2138.lcssa, %300 ]
-  %.2147238 = phi i8 [ %.0145, %53 ], [ %.0145, %.lr.ph295 ], [ %.3148338, %158 ], [ %.3148338, %.thread199 ], [ %.3148338, %160 ], [ %.3148339, %300 ]
-  %.1153237 = phi ptr [ null, %53 ], [ null, %.lr.ph295 ], [ %121, %158 ], [ %121, %.thread199 ], [ %121, %160 ], [ null, %300 ]
+  %.1241 = phi i32 [ 0, %53 ], [ %.0142, %.thread199 ], [ 0, %.lr.ph295 ], [ -2, %160 ], [ -8, %158 ], [ %.2.lcssa, %300 ]
+  %.1130240 = phi i64 [ 0, %53 ], [ %.5134, %.thread199 ], [ 0, %.lr.ph295 ], [ %.2131281414, %160 ], [ %.2131281414, %158 ], [ %.2131.lcssa, %300 ]
+  %.1137239 = phi ptr [ null, %53 ], [ %.5141, %.thread199 ], [ null, %.lr.ph295 ], [ %.2138280415, %160 ], [ %.2138280415, %158 ], [ %.2138.lcssa, %300 ]
+  %.2147238 = phi i8 [ %.0145, %53 ], [ %.3148338, %160 ], [ %.0145, %.lr.ph295 ], [ %.3148338, %158 ], [ %.3148338, %.thread199 ], [ %.3148339, %300 ]
+  %.1153237 = phi ptr [ null, %53 ], [ %121, %160 ], [ null, %.lr.ph295 ], [ %121, %158 ], [ %121, %.thread199 ], [ null, %300 ]
   %304 = trunc nuw i8 %.2147238 to i1
   br i1 %304, label %305, label %306
 
@@ -1752,7 +1752,7 @@ _SPI_convert_params.exit:                         ; preds = %.split.i, %.split.u
   br label %_SPI_begin_call.exit
 
 _SPI_begin_call.exit:                             ; preds = %18, %13, %5, %9, %_SPI_convert_params.exit
-  %.0 = phi i32 [ %55, %_SPI_convert_params.exit ], [ -6, %9 ], [ -6, %5 ], [ -7, %13 ], [ -4, %18 ]
+  %.0 = phi i32 [ %55, %_SPI_convert_params.exit ], [ -6, %5 ], [ -7, %13 ], [ -6, %9 ], [ -4, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -1801,7 +1801,7 @@ _SPI_begin_call.exit.thread:                      ; preds = %8
   br label %_SPI_begin_call.exit
 
 _SPI_begin_call.exit:                             ; preds = %8, %2, %4, %_SPI_begin_call.exit.thread
-  %.0 = phi i32 [ %15, %_SPI_begin_call.exit.thread ], [ -6, %4 ], [ -6, %2 ], [ -4, %8 ]
+  %.0 = phi i32 [ %15, %_SPI_begin_call.exit.thread ], [ -6, %2 ], [ -6, %4 ], [ -4, %8 ]
   ret i32 %.0
 }
 
@@ -1853,7 +1853,7 @@ _SPI_begin_call.exit.thread:                      ; preds = %12
   br label %_SPI_begin_call.exit
 
 _SPI_begin_call.exit:                             ; preds = %12, %4, %8, %_SPI_begin_call.exit.thread
-  %.0 = phi i32 [ %22, %_SPI_begin_call.exit.thread ], [ -6, %8 ], [ -6, %4 ], [ -4, %12 ]
+  %.0 = phi i32 [ %22, %_SPI_begin_call.exit.thread ], [ -6, %4 ], [ -6, %8 ], [ -4, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1969,7 +1969,7 @@ _SPI_convert_params.exit:                         ; preds = %.split.i, %.split.u
   br label %_SPI_begin_call.exit
 
 _SPI_begin_call.exit:                             ; preds = %21, %16, %8, %12, %_SPI_convert_params.exit
-  %.0 = phi i32 [ %58, %_SPI_convert_params.exit ], [ -6, %12 ], [ -6, %8 ], [ -7, %16 ], [ -4, %21 ]
+  %.0 = phi i32 [ %58, %_SPI_convert_params.exit ], [ -6, %8 ], [ -7, %16 ], [ -6, %12 ], [ -4, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
@@ -2642,7 +2642,7 @@ define dso_local range(i32 -6, 1) i32 @SPI_keepplan(ptr noundef captures(address
   br i1 %28, label %.lr.ph21, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph21, %13, %.lr.ph, %1, %3, %5, %9
-  %.0 = phi i32 [ -6, %9 ], [ -6, %5 ], [ -6, %3 ], [ -6, %1 ], [ 0, %.lr.ph ], [ 0, %13 ], [ 0, %.lr.ph21 ]
+  %.0 = phi i32 [ -6, %1 ], [ -6, %9 ], [ -6, %5 ], [ -6, %3 ], [ 0, %13 ], [ 0, %.lr.ph ], [ 0, %.lr.ph21 ]
   ret i32 %.0
 }
 
@@ -2779,8 +2779,8 @@ define dso_local noundef ptr @SPI_saveplan(ptr noundef readonly captures(address
   br i1 %72, label %.lr.ph61.i, label %.sink.split
 
 .sink.split:                                      ; preds = %.lr.ph61.i, %.lr.ph58.i, %.critedge.i, %1, %3
-  %.sink = phi i32 [ -6, %3 ], [ -6, %1 ], [ 0, %.critedge.i ], [ 0, %.lr.ph58.i ], [ 0, %.lr.ph61.i ]
-  %.0.ph = phi ptr [ null, %3 ], [ null, %1 ], [ %11, %.critedge.i ], [ %11, %.lr.ph58.i ], [ %11, %.lr.ph61.i ]
+  %.sink = phi i32 [ -6, %1 ], [ -6, %3 ], [ 0, %.lr.ph58.i ], [ 0, %.critedge.i ], [ 0, %.lr.ph61.i ]
+  %.0.ph = phi ptr [ null, %1 ], [ null, %3 ], [ %11, %.lr.ph58.i ], [ %11, %.critedge.i ], [ %11, %.lr.ph61.i ]
   store i32 %.sink, ptr @SPI_result, align 4
   br label %73
 
@@ -3142,7 +3142,7 @@ define dso_local range(i32 -32768, -2147483648) i32 @SPI_fnumber(ptr noundef %0,
   br label %28
 
 28:                                               ; preds = %.loopexit, %._crit_edge, %22
-  %.2 = phi i32 [ %25, %22 ], [ -9, %._crit_edge ], [ %27, %.loopexit ]
+  %.2 = phi i32 [ -9, %._crit_edge ], [ %25, %22 ], [ %27, %.loopexit ]
   ret i32 %.2
 }
 
@@ -3386,7 +3386,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef range(i32 1
   br label %fastgetattr.exit
 
 fastgetattr.exit:                                 ; preds = %72, %71, %58, %56, %51, %48, %45, %42, %74, %14
-  %.0 = phi i64 [ %15, %14 ], [ %75, %74 ], [ 0, %71 ], [ %73, %72 ], [ %59, %58 ], [ %44, %42 ], [ %47, %45 ], [ %50, %48 ], [ %52, %51 ], [ %57, %56 ]
+  %.0 = phi i64 [ %15, %14 ], [ %75, %74 ], [ %73, %72 ], [ 0, %71 ], [ %59, %58 ], [ %44, %42 ], [ %47, %45 ], [ %50, %48 ], [ %52, %51 ], [ %57, %56 ]
   ret i64 %.0
 }
 
@@ -4580,7 +4580,7 @@ define dso_local noundef zeroext i1 @SPI_plan_is_valid(ptr noundef readonly capt
   br i1 %15, label %8, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph26, %8, %.lr.ph, %1
-  %.not1417 = phi i1 [ true, %1 ], [ true, %.lr.ph ], [ %15, %8 ], [ %15, %.lr.ph26 ]
+  %.not1417 = phi i1 [ true, %.lr.ph ], [ true, %1 ], [ %15, %8 ], [ %15, %.lr.ph26 ]
   ret i1 %.not1417
 }
 
@@ -4902,7 +4902,7 @@ _SPI_find_ENR_by_name.exit.thread.thread:         ; preds = %8, %_SPI_find_ENR_b
   br label %19
 
 19:                                               ; preds = %17, %_SPI_find_ENR_by_name.exit, %6, %1, %3
-  %.08 = phi i32 [ -6, %3 ], [ -6, %1 ], [ -4, %6 ], [ 15, %17 ], [ -12, %_SPI_find_ENR_by_name.exit ]
+  %.08 = phi i32 [ -4, %6 ], [ -6, %1 ], [ -6, %3 ], [ 15, %17 ], [ -12, %_SPI_find_ENR_by_name.exit ]
   ret i32 %.08
 }
 
@@ -4940,7 +4940,7 @@ _SPI_find_ENR_by_name.exit:                       ; preds = %5
   br label %_SPI_find_ENR_by_name.exit.thread
 
 _SPI_find_ENR_by_name.exit.thread:                ; preds = %5, %10, %_SPI_find_ENR_by_name.exit, %3, %1
-  %.07 = phi i32 [ -6, %1 ], [ -4, %3 ], [ 16, %10 ], [ -13, %_SPI_find_ENR_by_name.exit ], [ -13, %5 ]
+  %.07 = phi i32 [ -4, %3 ], [ -6, %1 ], [ 16, %10 ], [ -13, %_SPI_find_ENR_by_name.exit ], [ -13, %5 ]
   ret i32 %.07
 }
 
@@ -5091,8 +5091,8 @@ SPI_register_relation.exit48:                     ; preds = %_SPI_find_ENR_by_na
   tail call void @register_ENR(ptr noundef %74, ptr noundef nonnull %43) #16
   br label %SPI_register_relation.exit.thread
 
-SPI_register_relation.exit.thread:                ; preds = %_SPI_find_ENR_by_name.exit.i40, %63, %42, %_SPI_find_ENR_by_name.exit.i, %27, %6, %39, %SPI_register_relation.exit48, %1
-  %.0 = phi i32 [ -6, %1 ], [ 17, %SPI_register_relation.exit48 ], [ 17, %39 ], [ -12, %_SPI_find_ENR_by_name.exit.i ], [ -4, %27 ], [ -6, %6 ], [ -12, %_SPI_find_ENR_by_name.exit.i40 ], [ -4, %63 ], [ -6, %42 ]
+SPI_register_relation.exit.thread:                ; preds = %42, %_SPI_find_ENR_by_name.exit.i40, %63, %6, %_SPI_find_ENR_by_name.exit.i, %27, %39, %SPI_register_relation.exit48, %1
+  %.0 = phi i32 [ 17, %39 ], [ -6, %1 ], [ -4, %27 ], [ 17, %SPI_register_relation.exit48 ], [ -6, %6 ], [ -12, %_SPI_find_ENR_by_name.exit.i ], [ -6, %42 ], [ -12, %_SPI_find_ENR_by_name.exit.i40 ], [ -4, %63 ]
   ret i32 %.0
 }
 

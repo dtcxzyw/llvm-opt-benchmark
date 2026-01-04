@@ -810,13 +810,13 @@ _ZN5ZPage7numa_idEv.exit.i:                       ; preds = %120, %116
   br label %_ZN10ZPageCache9free_pageEP5ZPage.exit
 
 _ZN10ZPageCache9free_pageEP5ZPage.exit:           ; preds = %150, %140, %_ZN5ZPage7numa_idEv.exit.i, %158
-  %.1 = phi ptr [ %159, %158 ], [ %114, %_ZN5ZPage7numa_idEv.exit.i ], [ %114, %140 ], [ %114, %150 ]
+  %.1 = phi ptr [ %114, %140 ], [ %159, %158 ], [ %114, %_ZN5ZPage7numa_idEv.exit.i ], [ %114, %150 ]
   %160 = icmp eq ptr %.1, null
   br i1 %160, label %_ZN10ZPageCache9free_pageEP5ZPage.exit.thread.sink.split, label %_ZN10ZPageCache9free_pageEP5ZPage.exit.thread
 
-_ZN10ZPageCache9free_pageEP5ZPage.exit.thread.sink.split: ; preds = %_ZN10ZPageCache9free_pageEP5ZPage.exit, %87, %85, %12, %45
-  %_ZL22ZCounterPageCacheHitL1.sink = phi ptr [ @_ZL22ZCounterPageCacheHitL1, %45 ], [ @_ZL22ZCounterPageCacheHitL1, %12 ], [ @_ZL21ZCounterPageCacheMiss, %85 ], [ @_ZL21ZCounterPageCacheMiss, %87 ], [ @_ZL21ZCounterPageCacheMiss, %_ZN10ZPageCache9free_pageEP5ZPage.exit ]
-  %.130.ph = phi ptr [ %.sroa.2.0.i, %45 ], [ %13, %12 ], [ null, %85 ], [ null, %87 ], [ null, %_ZN10ZPageCache9free_pageEP5ZPage.exit ]
+_ZN10ZPageCache9free_pageEP5ZPage.exit.thread.sink.split: ; preds = %_ZN10ZPageCache9free_pageEP5ZPage.exit, %87, %85, %45, %12
+  %_ZL22ZCounterPageCacheHitL1.sink = phi ptr [ @_ZL22ZCounterPageCacheHitL1, %12 ], [ @_ZL22ZCounterPageCacheHitL1, %45 ], [ @_ZL21ZCounterPageCacheMiss, %85 ], [ @_ZL21ZCounterPageCacheMiss, %87 ], [ @_ZL21ZCounterPageCacheMiss, %_ZN10ZPageCache9free_pageEP5ZPage.exit ]
+  %.130.ph = phi ptr [ %13, %12 ], [ %.sroa.2.0.i, %45 ], [ null, %85 ], [ null, %87 ], [ null, %_ZN10ZPageCache9free_pageEP5ZPage.exit ]
   tail call void @_Z8ZStatIncRK12ZStatCounterm(ptr noundef nonnull align 8 dereferenceable(72) %_ZL22ZCounterPageCacheHitL1.sink, i64 noundef 1) #9
   br label %_ZN10ZPageCache9free_pageEP5ZPage.exit.thread
 

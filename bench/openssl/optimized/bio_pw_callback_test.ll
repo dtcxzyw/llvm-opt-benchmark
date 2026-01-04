@@ -131,7 +131,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %1, %9, %5, %12
-  %.0 = phi i32 [ 1, %12 ], [ 0, %5 ], [ 0, %9 ], [ 0, %1 ]
+  %.0 = phi i32 [ 0, %9 ], [ 1, %12 ], [ 0, %5 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -313,7 +313,7 @@ define internal fastcc range(i32 0, 2) i32 @full_cycle_test(i32 noundef range(i3
   br label %26
 
 26:                                               ; preds = %24, %22
-  %.013.i = phi i32 [ %23, %22 ], [ %25, %24 ]
+  %.013.i = phi i32 [ %25, %24 ], [ %23, %22 ]
   %27 = call i32 @test_int_ne(ptr noundef nonnull @.str.16, i32 noundef 181, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, i32 noundef %.013.i, i32 noundef 0) #7
   %.not16.i = icmp eq i32 %27, 0
   br i1 %.not16.i, label %re_encrypt_key.exit, label %28
@@ -360,8 +360,8 @@ define internal fastcc range(i32 0, 2) i32 @full_cycle_test(i32 noundef range(i3
   br i1 %.not.i7, label %decrypt_key.exit, label %48
 
 re_encrypt_key.exit:                              ; preds = %4, %12, %14, %26, %28, %31, %34
-  %46 = phi ptr [ %.pre.i, %34 ], [ null, %31 ], [ null, %28 ], [ null, %26 ], [ null, %14 ], [ null, %12 ], [ null, %4 ]
-  %.012.i = phi ptr [ %16, %34 ], [ %16, %31 ], [ %16, %28 ], [ %16, %26 ], [ %16, %14 ], [ null, %12 ], [ null, %4 ]
+  %46 = phi ptr [ null, %4 ], [ %.pre.i, %34 ], [ null, %31 ], [ null, %28 ], [ null, %26 ], [ null, %14 ], [ null, %12 ]
+  %.012.i = phi ptr [ null, %4 ], [ %16, %34 ], [ %16, %31 ], [ %16, %28 ], [ %16, %26 ], [ %16, %14 ], [ null, %12 ]
   call void @BUF_MEM_free(ptr noundef %46) #7
   %47 = call i32 @BIO_free(ptr noundef %.012.i) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -383,7 +383,7 @@ re_encrypt_key.exit:                              ; preds = %4, %12, %14, %26, %
   br label %54
 
 54:                                               ; preds = %52, %50
-  %.09.i = phi ptr [ %51, %50 ], [ %53, %52 ]
+  %.09.i = phi ptr [ %53, %52 ], [ %51, %50 ]
   %.not10.i = icmp eq i32 %3, 0
   br i1 %.not10.i, label %57, label %55
 
@@ -412,7 +412,7 @@ re_encrypt_key.exit:                              ; preds = %4, %12, %14, %26, %
   br label %decrypt_key.exit
 
 decrypt_key.exit:                                 ; preds = %.critedge, %55, %57, %59, %62
-  %.0.i10 = phi i32 [ 0, %59 ], [ 0, %55 ], [ 0, %57 ], [ 0, %.critedge ], [ %65, %62 ]
+  %.0.i10 = phi i32 [ 0, %.critedge ], [ %65, %62 ], [ 0, %59 ], [ 0, %55 ], [ 0, %57 ]
   %66 = load ptr, ptr %6, align 8, !tbaa !11
   call void @EVP_PKEY_free(ptr noundef %66) #7
   %67 = call i32 @BIO_free(ptr noundef %44) #7

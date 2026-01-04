@@ -534,7 +534,7 @@ get_sqn.exit252:                                  ; preds = %168, %172
   br label %184
 
 184:                                              ; preds = %175, %177, %180, %182
-  %.4.ph = phi i32 [ %169, %175 ], [ %169, %177 ], [ %.3272, %182 ], [ %.3272, %180 ]
+  %.4.ph = phi i32 [ %169, %175 ], [ %169, %177 ], [ %.3272, %180 ], [ %.3272, %182 ]
   %185 = add i32 %.4.ph, 4
   %186 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %187 = add i32 %186, -4
@@ -765,7 +765,7 @@ define internal fastcc noundef zeroext i1 @dissect_udt_heur(ptr noundef %0, ptr 
   br label %36
 
 36:                                               ; preds = %.sink.split, %21, %17, %15, %12, %10
-  %.0 = phi i1 [ false, %10 ], [ false, %12 ], [ false, %15 ], [ false, %17 ], [ false, %21 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %17 ], [ false, %21 ], [ false, %10 ], [ false, %12 ], [ false, %15 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 

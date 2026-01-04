@@ -80,7 +80,7 @@ define noundef ptr @dt_gpx_new(ptr noundef %0) local_unnamed_addr #0 {
   br label %23
 
 23:                                               ; preds = %19, %15, %11
-  %.027 = phi i32 [ 0, %15 ], [ 0, %11 ], [ %spec.select, %19 ]
+  %.027 = phi i32 [ 0, %11 ], [ %spec.select, %19 ], [ 0, %15 ]
   %24 = call ptr @g_markup_parse_context_new(ptr noundef nonnull @_gpx_parser, i32 noundef 0, ptr noundef %12, ptr noundef null) #12
   %25 = zext nneg i32 %.027 to i64
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 %25
@@ -129,7 +129,7 @@ define noundef ptr @dt_gpx_new(ptr noundef %0) local_unnamed_addr #0 {
   br label %.thread45
 
 .thread45:                                        ; preds = %37, %45, %.thread
-  %.0294249 = phi ptr [ %.02941, %45 ], [ %.02941, %.thread ], [ null, %37 ]
+  %.0294249 = phi ptr [ %.02941, %.thread ], [ %.02941, %45 ], [ null, %37 ]
   call void @g_free(ptr noundef %.0294249) #12
   %.not37 = icmp eq ptr %3, null
   br i1 %.not37, label %47, label %46
@@ -456,7 +456,7 @@ g_list_shorter_than.exit.sink.split:              ; preds = %128, %46, %21
   br label %g_list_shorter_than.exit
 
 g_list_shorter_than.exit:                         ; preds = %7, %137, %g_list_shorter_than.exit.sink.split, %.preheader
-  %.0 = phi i32 [ 0, %.preheader ], [ %.0.ph, %g_list_shorter_than.exit.sink.split ], [ 0, %137 ], [ 0, %7 ]
+  %.0 = phi i32 [ 0, %.preheader ], [ 0, %137 ], [ %.0.ph, %g_list_shorter_than.exit.sink.split ], [ 0, %7 ]
   ret i32 %.0
 }
 

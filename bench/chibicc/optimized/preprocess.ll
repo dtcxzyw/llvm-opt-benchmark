@@ -1100,7 +1100,7 @@ sub_1.i.i:                                        ; preds = %15
   unreachable
 
 .lr.ph.preheader.i:                               ; preds = %24, %23, %.thread4.i.i, %.tail.i.i, %15
-  %.0.i.i = phi i32 [ 2, %.thread4.i.i ], [ 3, %23 ], [ 4, %24 ], [ 1, %.tail.i.i ], [ 0, %15 ]
+  %.0.i.i = phi i32 [ 1, %.tail.i.i ], [ 2, %.thread4.i.i ], [ 3, %23 ], [ 4, %24 ], [ 0, %15 ]
   %26 = getelementptr inbounds nuw i8, ptr %.066.i, i64 64
   %27 = load ptr, ptr %26, align 16, !tbaa !62
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
@@ -1153,8 +1153,8 @@ sub_1.i90.i:                                      ; preds = %.lr.ph.i
   unreachable
 
 getStringKind.exit94.i:                           ; preds = %41, %40, %.thread4.i92.i, %.tail.i93.i, %.lr.ph.i
-  %.not87.i = phi i1 [ false, %.thread4.i92.i ], [ false, %40 ], [ false, %41 ], [ false, %.tail.i93.i ], [ true, %.lr.ph.i ]
-  %.0.i89.i = phi i32 [ 2, %.thread4.i92.i ], [ 3, %40 ], [ 4, %41 ], [ 1, %.tail.i93.i ], [ 0, %.lr.ph.i ]
+  %.not87.i = phi i1 [ false, %.tail.i93.i ], [ false, %.thread4.i92.i ], [ false, %40 ], [ false, %41 ], [ true, %.lr.ph.i ]
+  %.0.i89.i = phi i32 [ 1, %.tail.i93.i ], [ 2, %.thread4.i92.i ], [ 3, %40 ], [ 4, %41 ], [ 0, %.lr.ph.i ]
   %43 = icmp eq i32 %.075108.i, 0
   br i1 %43, label %44, label %49
 
@@ -1305,7 +1305,7 @@ join_adjacent_string_literals.exit.preheader:     ; preds = %.preheader96.i
   br label %.preheader96.i.backedge
 
 .preheader96.i.backedge:                          ; preds = %._crit_edge132.i, %75, %.preheader96._crit_edge.i
-  %.070.i.be = phi ptr [ %80, %._crit_edge132.i ], [ %.pre143.i, %.preheader96._crit_edge.i ], [ %77, %75 ]
+  %.070.i.be = phi ptr [ %77, %75 ], [ %80, %._crit_edge132.i ], [ %.pre143.i, %.preheader96._crit_edge.i ]
   br label %.preheader96.i, !llvm.loop !83
 
 .lr.ph131.i:                                      ; preds = %._crit_edge125.i, %.lr.ph131.i
@@ -2338,7 +2338,7 @@ has_varargs.exit.i:                               ; preds = %.lr.ph.i122.i
   br i1 %.not74.i, label %has_varargs.exit.i.thread, label %.lr.ph300, !llvm.loop !120
 
 has_varargs.exit.i.thread:                        ; preds = %406, %.lr.ph300, %411, %398, %has_varargs.exit.i
-  %.12.i = phi ptr [ %.059.i310, %has_varargs.exit.i ], [ %.059.i310, %398 ], [ %.059.i310, %411 ], [ %.058.i298, %.lr.ph300 ], [ %.059.i310, %406 ]
+  %.12.i = phi ptr [ %.059.i310, %has_varargs.exit.i ], [ %.058.i298, %.lr.ph300 ], [ %.059.i310, %398 ], [ %.059.i310, %411 ], [ %.059.i310, %406 ]
   %417 = load ptr, ptr %6, align 8, !tbaa !71
   %418 = call ptr @skip(ptr noundef %417, ptr noundef nonnull @.str.88) #14
   br label %.backedge
@@ -2510,7 +2510,7 @@ append.exit:                                      ; preds = %._crit_edge317.thre
   %.not44.i = icmp eq i32 %483, 6
   br i1 %.not44.i, label %462, label %.lr.ph316, !llvm.loop !122
 
-find_macro.exit135.thread:                        ; preds = %40, %.loopexit180, %find_macro.exit135, %106
+find_macro.exit135.thread:                        ; preds = %40, %.loopexit180, %106, %find_macro.exit135
   %484 = getelementptr inbounds nuw i8, ptr %27, i64 104
   %485 = load i8, ptr %484, align 8, !tbaa !98, !range !93, !noundef !94
   %486 = trunc nuw i8 %485 to i1
@@ -3351,8 +3351,8 @@ skip_line.exit71:                                 ; preds = %.lr.ph.i69, %873, %
   br i1 %.not, label %.outer._crit_edge, label %25, !llvm.loop !124
 
 .outer._crit_edge:                                ; preds = %is_hash.exit.thread, %.backedge181, %1
-  %.0.ph.lcssa283 = phi ptr [ %14, %1 ], [ %.0.ph333, %.backedge181 ], [ %27, %is_hash.exit.thread ]
-  %.lcssa235 = phi ptr [ %0, %1 ], [ %908, %.backedge181 ], [ %498, %is_hash.exit.thread ]
+  %.0.ph.lcssa283 = phi ptr [ %.0.ph333, %.backedge181 ], [ %14, %1 ], [ %27, %is_hash.exit.thread ]
+  %.lcssa235 = phi ptr [ %908, %.backedge181 ], [ %0, %1 ], [ %498, %is_hash.exit.thread ]
   %910 = getelementptr inbounds nuw i8, ptr %.0.ph.lcssa283, i64 8
   store ptr %.lcssa235, ptr %910, align 8, !tbaa !60
   %911 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -3708,7 +3708,7 @@ detect_include_guard.exit:                        ; preds = %64
   tail call void @hashmap_put(ptr noundef nonnull @include_file.include_guards, ptr noundef %1, ptr noundef nonnull %36) #14
   br label %detect_include_guard.exit.thread
 
-detect_include_guard.exit.thread:                 ; preds = %.backedge.i, %.preheader.i, %30, %16, %is_hash.exit26.i, %43, %47, %25, %is_hash.exit.i, %21, %81, %detect_include_guard.exit
+detect_include_guard.exit.thread:                 ; preds = %.backedge.i, %.preheader.i, %30, %43, %47, %16, %is_hash.exit26.i, %21, %25, %is_hash.exit.i, %81, %detect_include_guard.exit
   %82 = load i32, ptr %11, align 16, !tbaa !58
   %83 = icmp eq i32 %82, 6
   br i1 %83, label %append.exit, label %84
@@ -4295,8 +4295,8 @@ define internal fastcc ptr @join_tokens(ptr noundef readonly captures(address) %
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge.thread, %.critedge2.loopexit
-  %20 = phi ptr [ %6, %.critedge2.loopexit ], [ %3, %.critedge.thread ]
-  %.032.lcssa = phi i64 [ %19, %.critedge2.loopexit ], [ 0, %.critedge.thread ]
+  %20 = phi ptr [ %3, %.critedge.thread ], [ %6, %.critedge2.loopexit ]
+  %.032.lcssa = phi i64 [ 0, %.critedge.thread ], [ %19, %.critedge2.loopexit ]
   %21 = getelementptr inbounds i8, ptr %20, i64 %.032.lcssa
   store i8 0, ptr %21, align 1, !tbaa !7
   ret ptr %20

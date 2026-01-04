@@ -319,7 +319,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   br label %.body
 
 .body:                                            ; preds = %.thread, %29, %53
-  %.pn = phi { ptr, i32 } [ %54, %53 ], [ %30, %29 ], [ %24, %.thread ]
+  %.pn = phi { ptr, i32 } [ %54, %53 ], [ %24, %.thread ], [ %30, %29 ]
   %55 = load ptr, ptr %7, align 8, !tbaa !10
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %57 = icmp eq ptr %55, %56
@@ -4775,8 +4775,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit852: ; preds = %14
   br label %.body
 
 .body:                                            ; preds = %.body.sink.split, %685, %665, %645, %625, %605, %585, %565, %545, %525, %505, %485, %465, %445, %425, %405, %385, %365, %345, %325, %305, %285, %265, %245, %225, %205, %185, %165, %145, %125, %105, %85, %65
-  %.014.lpad-body = phi ptr [ %50, %65 ], [ %70, %85 ], [ %90, %105 ], [ %110, %125 ], [ %130, %145 ], [ %150, %165 ], [ %170, %185 ], [ %190, %205 ], [ %210, %225 ], [ %230, %245 ], [ %250, %265 ], [ %270, %285 ], [ %290, %305 ], [ %310, %325 ], [ %330, %345 ], [ %350, %365 ], [ %370, %385 ], [ %390, %405 ], [ %410, %425 ], [ %430, %445 ], [ %450, %465 ], [ %470, %485 ], [ %490, %505 ], [ %510, %525 ], [ %530, %545 ], [ %550, %565 ], [ %570, %585 ], [ %590, %605 ], [ %610, %625 ], [ %630, %645 ], [ %650, %665 ], [ %670, %685 ], [ %.014.lpad-body.ph, %.body.sink.split ]
-  %eh.lpad-body = phi { ptr, i32 } [ %66, %65 ], [ %86, %85 ], [ %106, %105 ], [ %126, %125 ], [ %146, %145 ], [ %166, %165 ], [ %186, %185 ], [ %206, %205 ], [ %226, %225 ], [ %246, %245 ], [ %266, %265 ], [ %286, %285 ], [ %306, %305 ], [ %326, %325 ], [ %346, %345 ], [ %366, %365 ], [ %386, %385 ], [ %406, %405 ], [ %426, %425 ], [ %446, %445 ], [ %466, %465 ], [ %486, %485 ], [ %506, %505 ], [ %526, %525 ], [ %546, %545 ], [ %566, %565 ], [ %586, %585 ], [ %606, %605 ], [ %626, %625 ], [ %646, %645 ], [ %666, %665 ], [ %686, %685 ], [ %eh.lpad-body.ph, %.body.sink.split ]
+  %.014.lpad-body = phi ptr [ %330, %345 ], [ %650, %665 ], [ %670, %685 ], [ %350, %365 ], [ %50, %65 ], [ %510, %525 ], [ %70, %85 ], [ %370, %385 ], [ %90, %105 ], [ %590, %605 ], [ %110, %125 ], [ %390, %405 ], [ %130, %145 ], [ %530, %545 ], [ %150, %165 ], [ %410, %425 ], [ %170, %185 ], [ %630, %645 ], [ %190, %205 ], [ %430, %445 ], [ %210, %225 ], [ %550, %565 ], [ %230, %245 ], [ %450, %465 ], [ %250, %265 ], [ %610, %625 ], [ %270, %285 ], [ %470, %485 ], [ %290, %305 ], [ %570, %585 ], [ %310, %325 ], [ %490, %505 ], [ %.014.lpad-body.ph, %.body.sink.split ]
+  %eh.lpad-body = phi { ptr, i32 } [ %346, %345 ], [ %666, %665 ], [ %686, %685 ], [ %366, %365 ], [ %66, %65 ], [ %526, %525 ], [ %86, %85 ], [ %386, %385 ], [ %106, %105 ], [ %606, %605 ], [ %126, %125 ], [ %406, %405 ], [ %146, %145 ], [ %546, %545 ], [ %166, %165 ], [ %426, %425 ], [ %186, %185 ], [ %646, %645 ], [ %206, %205 ], [ %446, %445 ], [ %226, %225 ], [ %566, %565 ], [ %246, %245 ], [ %466, %465 ], [ %266, %265 ], [ %626, %625 ], [ %286, %285 ], [ %486, %485 ], [ %306, %305 ], [ %586, %585 ], [ %326, %325 ], [ %506, %505 ], [ %eh.lpad-body.ph, %.body.sink.split ]
   br label %1478
 
 1478:                                             ; preds = %.body, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit855
@@ -4821,7 +4821,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit858: ; preds = %14
   br i1 %1497, label %.body.thread, label %1489
 
 .body.thread:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit858, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit855, %44, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
-  %.pn16 = phi { ptr, i32 } [ %45, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %45, %44 ], [ %eh.lpad-body, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit855 ], [ %1488, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit858 ]
+  %.pn16 = phi { ptr, i32 } [ %45, %44 ], [ %45, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %eh.lpad-body, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit855 ], [ %1488, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit858 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %1519
 
@@ -4835,8 +4835,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit858: ; preds = %14
   br label %.body419
 
 .body419:                                         ; preds = %.body419.sink.split, %1355, %1335, %1315, %1295, %1275, %1255, %1235, %1215, %1195, %1175, %1155, %1135, %1115, %1095, %1075, %1055, %1035, %1015, %995, %975, %955, %935, %915, %895, %875, %855, %835, %815, %795, %775, %755, %735
-  %.0.lpad-body = phi ptr [ %720, %735 ], [ %740, %755 ], [ %760, %775 ], [ %780, %795 ], [ %800, %815 ], [ %820, %835 ], [ %840, %855 ], [ %860, %875 ], [ %880, %895 ], [ %900, %915 ], [ %920, %935 ], [ %940, %955 ], [ %960, %975 ], [ %980, %995 ], [ %1000, %1015 ], [ %1020, %1035 ], [ %1040, %1055 ], [ %1060, %1075 ], [ %1080, %1095 ], [ %1100, %1115 ], [ %1120, %1135 ], [ %1140, %1155 ], [ %1160, %1175 ], [ %1180, %1195 ], [ %1200, %1215 ], [ %1220, %1235 ], [ %1240, %1255 ], [ %1260, %1275 ], [ %1280, %1295 ], [ %1300, %1315 ], [ %1320, %1335 ], [ %1340, %1355 ], [ %.0.lpad-body.ph, %.body419.sink.split ]
-  %eh.lpad-body420 = phi { ptr, i32 } [ %736, %735 ], [ %756, %755 ], [ %776, %775 ], [ %796, %795 ], [ %816, %815 ], [ %836, %835 ], [ %856, %855 ], [ %876, %875 ], [ %896, %895 ], [ %916, %915 ], [ %936, %935 ], [ %956, %955 ], [ %976, %975 ], [ %996, %995 ], [ %1016, %1015 ], [ %1036, %1035 ], [ %1056, %1055 ], [ %1076, %1075 ], [ %1096, %1095 ], [ %1116, %1115 ], [ %1136, %1135 ], [ %1156, %1155 ], [ %1176, %1175 ], [ %1196, %1195 ], [ %1216, %1215 ], [ %1236, %1235 ], [ %1256, %1255 ], [ %1276, %1275 ], [ %1296, %1295 ], [ %1316, %1315 ], [ %1336, %1335 ], [ %1356, %1355 ], [ %eh.lpad-body420.ph, %.body419.sink.split ]
+  %.0.lpad-body = phi ptr [ %1000, %1015 ], [ %1320, %1335 ], [ %1340, %1355 ], [ %1020, %1035 ], [ %720, %735 ], [ %1180, %1195 ], [ %740, %755 ], [ %1040, %1055 ], [ %760, %775 ], [ %1260, %1275 ], [ %780, %795 ], [ %1060, %1075 ], [ %800, %815 ], [ %1200, %1215 ], [ %820, %835 ], [ %1080, %1095 ], [ %840, %855 ], [ %1300, %1315 ], [ %860, %875 ], [ %1100, %1115 ], [ %880, %895 ], [ %1220, %1235 ], [ %900, %915 ], [ %1120, %1135 ], [ %920, %935 ], [ %1280, %1295 ], [ %940, %955 ], [ %1140, %1155 ], [ %960, %975 ], [ %1240, %1255 ], [ %980, %995 ], [ %1160, %1175 ], [ %.0.lpad-body.ph, %.body419.sink.split ]
+  %eh.lpad-body420 = phi { ptr, i32 } [ %1016, %1015 ], [ %1336, %1335 ], [ %1356, %1355 ], [ %1036, %1035 ], [ %736, %735 ], [ %1196, %1195 ], [ %756, %755 ], [ %1056, %1055 ], [ %776, %775 ], [ %1276, %1275 ], [ %796, %795 ], [ %1076, %1075 ], [ %816, %815 ], [ %1216, %1215 ], [ %836, %835 ], [ %1096, %1095 ], [ %856, %855 ], [ %1316, %1315 ], [ %876, %875 ], [ %1116, %1115 ], [ %896, %895 ], [ %1236, %1235 ], [ %916, %915 ], [ %1136, %1135 ], [ %936, %935 ], [ %1296, %1295 ], [ %956, %955 ], [ %1156, %1155 ], [ %976, %975 ], [ %1256, %1255 ], [ %996, %995 ], [ %1176, %1175 ], [ %eh.lpad-body420.ph, %.body419.sink.split ]
   br label %1499
 
 1499:                                             ; preds = %.body419, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit861
@@ -4881,7 +4881,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit864: ; preds = %15
   br i1 %1518, label %.body419.thread, label %1510
 
 .body419.thread:                                  ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit864, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit861, %714, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i411
-  %.pn18 = phi { ptr, i32 } [ %715, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i411 ], [ %715, %714 ], [ %eh.lpad-body420, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit861 ], [ %1509, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit864 ]
+  %.pn18 = phi { ptr, i32 } [ %715, %714 ], [ %715, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i411 ], [ %eh.lpad-body420, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit861 ], [ %1509, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit864 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %1519
 

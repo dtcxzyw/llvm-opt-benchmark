@@ -1943,7 +1943,7 @@ define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6filter17h5c4b02f3aaca19c9E
   br label %6
 
 6:                                                ; preds = %3, %1
-  %.sroa.05.0 = phi ptr [ null, %1 ], [ %spec.select, %3 ]
+  %.sroa.05.0 = phi ptr [ %spec.select, %3 ], [ null, %1 ]
   ret ptr %.sroa.05.0
 }
 

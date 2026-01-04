@@ -339,7 +339,7 @@ put_meta.exit117:                                 ; preds = %put_meta.exit115, %
   br label %146
 
 146:                                              ; preds = %25, %.critedge, %134, %104, %42, %._crit_edge.thread
-  %.2 = phi i32 [ -22, %._crit_edge.thread ], [ 0, %134 ], [ -22, %104 ], [ -22, %42 ], [ -22, %.critedge ], [ -22, %25 ]
+  %.2 = phi i32 [ -22, %.critedge ], [ -22, %._crit_edge.thread ], [ 0, %134 ], [ -22, %104 ], [ -22, %42 ], [ -22, %25 ]
   ret i32 %.2
 }
 
@@ -500,7 +500,7 @@ define internal range(i32 -2147483648, 1) i32 @aiff_write_trailer(ptr noundef %0
   call void @avio_w8(ptr noundef nonnull %20, i32 noundef 0) #5
   br label %put_id3v2_tags.exit.thread
 
-put_id3v2_tags.exit.thread:                       ; preds = %32, %56, %._crit_edge.i
+put_id3v2_tags.exit.thread:                       ; preds = %32, %._crit_edge.i, %56
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %57
 

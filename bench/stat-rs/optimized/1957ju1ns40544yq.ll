@@ -124,7 +124,7 @@ define hidden noundef zeroext i1 @"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..Ulp
   br label %26
 
 26:                                               ; preds = %10, %4, %20, %23
-  %.sroa.0.0.shrunk = phi i1 [ %25, %23 ], [ %22, %20 ], [ true, %4 ], [ false, %10 ]
+  %.sroa.0.0.shrunk = phi i1 [ %22, %20 ], [ true, %4 ], [ %25, %23 ], [ false, %10 ]
   ret i1 %.sroa.0.0.shrunk
 }
 
@@ -355,15 +355,15 @@ define noundef double @"_ZN107_$LT$statrs..distribution..gamma..Gamma$u20$as$u20
   %18 = bitcast double %1 to i64
   %19 = bitcast double %7 to i64
   %.not.i = icmp ugt i64 %18, %19
-  br i1 %.not.i, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit", label %20
+  br i1 %.not.i, label %20, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit"
 
 20:                                               ; preds = %17
-  %21 = sub nuw i64 %19, %18
+  %21 = sub nuw i64 %18, %19
   %22 = icmp ult i64 %21, 5
   br i1 %22, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit.thread", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit.thread4"
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit": ; preds = %17
-  %23 = sub nuw i64 %18, %19
+  %23 = sub nuw i64 %19, %18
   %24 = icmp ult i64 %23, 5
   br i1 %24, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit.thread", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit.thread4"
 
@@ -440,15 +440,15 @@ define noundef double @"_ZN107_$LT$statrs..distribution..gamma..Gamma$u20$as$u20
   %18 = bitcast double %1 to i64
   %19 = bitcast double %7 to i64
   %.not.i = icmp ugt i64 %18, %19
-  br i1 %.not.i, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit", label %20
+  br i1 %.not.i, label %20, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit"
 
 20:                                               ; preds = %17
-  %21 = sub nuw i64 %19, %18
+  %21 = sub nuw i64 %18, %19
   %22 = icmp ult i64 %21, 5
   br i1 %22, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit.thread", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit.thread4"
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit": ; preds = %17
-  %23 = sub nuw i64 %18, %19
+  %23 = sub nuw i64 %19, %18
   %24 = icmp ult i64 %23, 5
   br i1 %24, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit.thread", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit.thread4"
 
@@ -632,7 +632,7 @@ _ZN6statrs4prec11convergence17he4da219176fb4aabE.exit25: ; preds = %50, %59
   br i1 %or.cond5.not, label %_ZN6statrs4prec11convergence17he4da219176fb4aabE.exit25.thread, label %.preheader
 
 _ZN6statrs4prec11convergence17he4da219176fb4aabE.exit25.thread: ; preds = %55, %.preheader, %_ZN6statrs4prec11convergence17he4da219176fb4aabE.exit25, %8, %6
-  %.sroa.0.0 = phi double [ 0.000000e+00, %6 ], [ 0x7FF0000000000000, %8 ], [ %48, %_ZN6statrs4prec11convergence17he4da219176fb4aabE.exit25 ], [ %48, %.preheader ], [ %48, %55 ]
+  %.sroa.0.0 = phi double [ 0x7FF0000000000000, %8 ], [ 0.000000e+00, %6 ], [ %48, %_ZN6statrs4prec11convergence17he4da219176fb4aabE.exit25 ], [ %48, %.preheader ], [ %48, %55 ]
   ret double %.sroa.0.0
 }
 
@@ -730,14 +730,14 @@ define noundef double @"_ZN104_$LT$statrs..distribution..gamma..Gamma$u20$as$u20
 14:                                               ; preds = %9
   %15 = bitcast double %5 to i64
   %.not.i = icmp ugt i64 %15, 4607182418800017408
-  br i1 %.not.i, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit", label %16
+  br i1 %.not.i, label %16, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit"
 
 16:                                               ; preds = %14
-  %17 = icmp samesign ugt i64 %15, 4607182418800017403
+  %17 = icmp ult i64 %15, 4607182418800017413
   br i1 %17, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit.thread", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit.thread7"
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit": ; preds = %14
-  %18 = icmp ult i64 %15, 4607182418800017413
+  %18 = icmp samesign ugt i64 %15, 4607182418800017403
   br i1 %18, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit.thread", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit.thread7"
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit.thread7": ; preds = %9, %16, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit"
@@ -761,14 +761,14 @@ define noundef double @"_ZN104_$LT$statrs..distribution..gamma..Gamma$u20$as$u20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
   %29 = bitcast double %5 to i64
   %.not.i.i = icmp ugt i64 %29, 4607182418800017408
-  br i1 %.not.i.i, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit.i", label %30
+  br i1 %.not.i.i, label %30, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit.i"
 
 30:                                               ; preds = %28
-  %31 = icmp samesign ugt i64 %29, 4607182418800017403
+  %31 = icmp ult i64 %29, 4607182418800017413
   br i1 %31, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit.thread.i", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit.thread2.i"
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit.i": ; preds = %28
-  %32 = icmp ult i64 %29, 4607182418800017413
+  %32 = icmp samesign ugt i64 %29, 4607182418800017403
   br i1 %32, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit.thread.i", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit.thread2.i"
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit.thread2.i": ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit.i", %30
@@ -798,7 +798,7 @@ define noundef double @"_ZN104_$LT$statrs..distribution..gamma..Gamma$u20$as$u20
   br label %"_ZN104_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$6ln_pdf17hbd949a61b588c2a1E.exit"
 
 "_ZN104_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$6ln_pdf17hbd949a61b588c2a1E.exit": ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit.thread2.i", %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit.thread.i", %39
-  %.sroa.0.0.i = phi double [ %38, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit.thread.i" ], [ %50, %39 ], [ 0xFFF0000000000000, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit.thread2.i" ]
+  %.sroa.0.0.i = phi double [ %50, %39 ], [ %38, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit.thread.i" ], [ 0xFFF0000000000000, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit.thread2.i" ]
   %51 = tail call double @llvm.exp.f64(double %.sroa.0.0.i)
   br label %64
 
@@ -817,7 +817,7 @@ define noundef double @"_ZN104_$LT$statrs..distribution..gamma..Gamma$u20$as$u20
   br label %64
 
 64:                                               ; preds = %26, %2, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit.thread", %52, %"_ZN104_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$6ln_pdf17hbd949a61b588c2a1E.exit"
-  %.sroa.0.0 = phi double [ %25, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit.thread" ], [ %51, %"_ZN104_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$6ln_pdf17hbd949a61b588c2a1E.exit" ], [ %63, %52 ], [ 0.000000e+00, %2 ], [ 0.000000e+00, %26 ]
+  %.sroa.0.0 = phi double [ %63, %52 ], [ %25, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit.thread" ], [ %51, %"_ZN104_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$6ln_pdf17hbd949a61b588c2a1E.exit" ], [ 0.000000e+00, %2 ], [ 0.000000e+00, %26 ]
   ret double %.sroa.0.0
 }
 
@@ -843,14 +843,14 @@ define noundef double @"_ZN104_$LT$statrs..distribution..gamma..Gamma$u20$as$u20
 14:                                               ; preds = %9
   %15 = bitcast double %5 to i64
   %.not.i = icmp ugt i64 %15, 4607182418800017408
-  br i1 %.not.i, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit", label %16
+  br i1 %.not.i, label %16, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit"
 
 16:                                               ; preds = %14
-  %17 = icmp samesign ugt i64 %15, 4607182418800017403
+  %17 = icmp ult i64 %15, 4607182418800017413
   br i1 %17, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit.thread", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit.thread2"
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit": ; preds = %14
-  %18 = icmp ult i64 %15, 4607182418800017413
+  %18 = icmp samesign ugt i64 %15, 4607182418800017403
   br i1 %18, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit.thread", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit.thread2"
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit.thread2": ; preds = %9, %16, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit"
@@ -880,7 +880,7 @@ define noundef double @"_ZN104_$LT$statrs..distribution..gamma..Gamma$u20$as$u20
   br label %37
 
 37:                                               ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit.thread2", %2, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit.thread", %25
-  %.sroa.0.0 = phi double [ %24, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit.thread" ], [ %36, %25 ], [ 0xFFF0000000000000, %2 ], [ 0xFFF0000000000000, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit.thread2" ]
+  %.sroa.0.0 = phi double [ %36, %25 ], [ %24, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit.thread" ], [ 0xFFF0000000000000, %2 ], [ 0xFFF0000000000000, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.9987165557254713243.exit.thread2" ]
   ret double %.sroa.0.0
 }
 
@@ -1197,7 +1197,7 @@ define noundef double @"_ZN116_$LT$statrs..distribution..log_normal..LogNormal$u
   br label %_ZN6statrs8function3erf4erfc17h843d00709e8afb21E.exit
 
 _ZN6statrs8function3erf4erfc17h843d00709e8afb21E.exit: ; preds = %19, %17, %15, %6, %4, %2
-  %.sroa.0.0 = phi double [ 0.000000e+00, %2 ], [ 1.000000e+00, %4 ], [ %21, %19 ], [ 0x7FF8000000000000, %6 ], [ 0.000000e+00, %15 ], [ 1.000000e+00, %17 ]
+  %.sroa.0.0 = phi double [ 1.000000e+00, %4 ], [ 0.000000e+00, %2 ], [ %21, %19 ], [ 0x7FF8000000000000, %6 ], [ 0.000000e+00, %15 ], [ 1.000000e+00, %17 ]
   ret double %.sroa.0.0
 }
 
@@ -1235,7 +1235,7 @@ define noundef double @"_ZN116_$LT$statrs..distribution..log_normal..LogNormal$u
   br label %_ZN6statrs8function3erf4erfc17h843d00709e8afb21E.exit
 
 _ZN6statrs8function3erf4erfc17h843d00709e8afb21E.exit: ; preds = %19, %17, %15, %6, %4, %2
-  %.sroa.0.0 = phi double [ 1.000000e+00, %2 ], [ 0.000000e+00, %4 ], [ %21, %19 ], [ 0x7FF8000000000000, %6 ], [ 0.000000e+00, %15 ], [ 1.000000e+00, %17 ]
+  %.sroa.0.0 = phi double [ 0.000000e+00, %4 ], [ 1.000000e+00, %2 ], [ %21, %19 ], [ 0x7FF8000000000000, %6 ], [ 0.000000e+00, %15 ], [ 1.000000e+00, %17 ]
   ret double %.sroa.0.0
 }
 
@@ -1281,7 +1281,7 @@ define noundef double @"_ZN116_$LT$statrs..distribution..log_normal..LogNormal$u
   br label %_ZN6statrs8function3erf8erfc_inv17h585e6b0253ab674dE.exit
 
 _ZN6statrs8function3erf8erfc_inv17h585e6b0253ab674dE.exit: ; preds = %8, %15, %19, %22
-  %.sroa.0.0.i = phi double [ %25, %22 ], [ %21, %19 ], [ 0x7FF0000000000000, %8 ], [ 0xFFF0000000000000, %15 ]
+  %.sroa.0.0.i = phi double [ %21, %19 ], [ 0x7FF0000000000000, %8 ], [ %25, %22 ], [ 0xFFF0000000000000, %15 ]
   %26 = fmul double %12, %.sroa.0.0.i
   %27 = fsub double %9, %26
   %28 = tail call double @llvm.exp.f64(double %27)
@@ -1292,7 +1292,7 @@ _ZN6statrs8function3erf8erfc_inv17h585e6b0253ab674dE.exit: ; preds = %8, %15, %1
   unreachable
 
 30:                                               ; preds = %6, %2, %_ZN6statrs8function3erf8erfc_inv17h585e6b0253ab674dE.exit
-  %.sroa.0.0 = phi double [ %28, %_ZN6statrs8function3erf8erfc_inv17h585e6b0253ab674dE.exit ], [ 0.000000e+00, %2 ], [ 0x7FF0000000000000, %6 ]
+  %.sroa.0.0 = phi double [ 0.000000e+00, %2 ], [ %28, %_ZN6statrs8function3erf8erfc_inv17h585e6b0253ab674dE.exit ], [ 0x7FF0000000000000, %6 ]
   ret double %.sroa.0.0
 }
 
@@ -1587,7 +1587,7 @@ define noundef double @"_ZN109_$LT$statrs..distribution..normal..Normal$u20$as$u
   br label %_ZN6statrs8function3erf8erfc_inv17h585e6b0253ab674dE.exit
 
 _ZN6statrs8function3erf8erfc_inv17h585e6b0253ab674dE.exit: ; preds = %6, %12, %16, %19
-  %.sroa.0.0.i = phi double [ %22, %19 ], [ %18, %16 ], [ 0x7FF0000000000000, %6 ], [ 0xFFF0000000000000, %12 ]
+  %.sroa.0.0.i = phi double [ %18, %16 ], [ 0x7FF0000000000000, %6 ], [ %22, %19 ], [ 0xFFF0000000000000, %12 ]
   %23 = fmul double %9, 0x3FF6A09E667F3BCD
   %24 = fmul double %23, %.sroa.0.0.i
   %25 = fsub double %7, %24
@@ -2757,7 +2757,7 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit304: ; preds = %2
   br label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit
 
 _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit: ; preds = %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i281, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i275, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit304, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit298, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit292, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit274, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit268, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit262, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit256, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit250, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit244, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit238, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit232, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit226, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit220, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit214, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit208, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit202, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit196, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit190
-  %.sroa.0.0.in = phi i1 [ %88, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit190 ], [ %96, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit196 ], [ %104, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit202 ], [ %118, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit208 ], [ %132, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit214 ], [ %146, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit220 ], [ %160, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit226 ], [ %171, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit232 ], [ %185, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit238 ], [ %196, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit244 ], [ %210, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit250 ], [ %221, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit256 ], [ %235, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit262 ], [ %246, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit268 ], [ %260, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit274 ], [ %281, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit292 ], [ %295, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit298 ], [ %303, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit304 ], [ %80, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i ], [ %265, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i275 ], [ %270, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i281 ]
+  %.sroa.0.0.in = phi i1 [ %303, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit304 ], [ %88, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit190 ], [ %96, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit196 ], [ %104, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit202 ], [ %118, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit208 ], [ %132, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit214 ], [ %146, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit220 ], [ %160, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit226 ], [ %171, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit232 ], [ %185, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit238 ], [ %196, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit244 ], [ %210, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit250 ], [ %221, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit256 ], [ %235, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit262 ], [ %246, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit268 ], [ %260, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit274 ], [ %80, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i ], [ %265, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i275 ], [ %281, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit292 ], [ %295, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit298 ], [ %270, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i281 ]
   ret i1 %.sroa.0.0.in
 }
 

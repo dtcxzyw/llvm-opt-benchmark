@@ -4188,7 +4188,7 @@ lean_nat_eq.exit.thread:                          ; preds = %22
   br label %lean_dec.exit24.backedge
 
 lean_dec.exit24.backedge:                         ; preds = %32, %30, %38, %40, %41
-  %.022.be = phi ptr [ %35, %38 ], [ %35, %40 ], [ %35, %41 ], [ inttoptr (i64 1 to ptr), %30 ], [ %34, %32 ]
+  %.022.be = phi ptr [ %35, %41 ], [ %35, %40 ], [ %35, %38 ], [ inttoptr (i64 1 to ptr), %30 ], [ %34, %32 ]
   br label %lean_dec.exit24
 
 .thread:                                          ; preds = %lean_nat_eq.exit.thread
@@ -4271,7 +4271,7 @@ lean_dec.exit24.thread:                           ; preds = %lean_inc.exit
   br label %lean_dec.exit25
 
 lean_dec.exit25:                                  ; preds = %lean_dec.exit24.thread, %12, %18, %20, %21
-  %.1 = phi ptr [ inttoptr (i64 1 to ptr), %21 ], [ inttoptr (i64 1 to ptr), %20 ], [ inttoptr (i64 1 to ptr), %18 ], [ inttoptr (i64 1 to ptr), %12 ], [ %56, %lean_dec.exit24.thread ]
+  %.1 = phi ptr [ %56, %lean_dec.exit24.thread ], [ inttoptr (i64 1 to ptr), %21 ], [ inttoptr (i64 1 to ptr), %20 ], [ inttoptr (i64 1 to ptr), %18 ], [ inttoptr (i64 1 to ptr), %12 ]
   ret ptr %.1
 }
 
@@ -4414,7 +4414,7 @@ lean_nat_eq.exit.thread:                          ; preds = %25
   br label %lean_dec.exit26.backedge
 
 lean_dec.exit26.backedge:                         ; preds = %35, %33, %41, %43, %44
-  %.023.be = phi ptr [ %38, %41 ], [ %38, %43 ], [ %38, %44 ], [ inttoptr (i64 1 to ptr), %33 ], [ %37, %35 ]
+  %.023.be = phi ptr [ %38, %44 ], [ %38, %43 ], [ %38, %41 ], [ inttoptr (i64 1 to ptr), %33 ], [ %37, %35 ]
   br label %lean_dec.exit26
 
 .thread:                                          ; preds = %lean_nat_eq.exit.thread

@@ -416,7 +416,7 @@ define hidden noundef zeroext i1 @_ZN2os18committed_in_rangeEPhmRS0_Rm(ptr nound
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %18, %21, %4, %._crit_edge65, %48
-  %.038 = phi i1 [ true, %48 ], [ false, %._crit_edge65 ], [ false, %4 ], [ false, %21 ], [ false, %18 ], [ false, %18 ]
+  %.038 = phi i1 [ false, %._crit_edge65 ], [ true, %48 ], [ false, %4 ], [ false, %21 ], [ false, %18 ], [ false, %18 ]
   ret i1 %.038
 }
 
@@ -828,7 +828,7 @@ define hidden noundef ptr @_ZN2os18map_memory_to_fileEPcmi(ptr noundef %0, i64 n
   br label %19
 
 19:                                               ; preds = %15, %16, %18, %11, %6
-  %.0 = phi ptr [ null, %6 ], [ null, %11 ], [ null, %18 ], [ null, %16 ], [ %9, %15 ]
+  %.0 = phi ptr [ null, %6 ], [ null, %11 ], [ null, %16 ], [ null, %18 ], [ %9, %15 ]
   ret ptr %.0
 }
 
@@ -1790,7 +1790,7 @@ define hidden noundef ptr @_ZN2os25build_agent_function_nameEPKcS1_b(ptr noundef
   br label %26
 
 26:                                               ; preds = %22, %24, %15, %6
-  %.0 = phi ptr [ null, %6 ], [ null, %15 ], [ %20, %24 ], [ %20, %22 ]
+  %.0 = phi ptr [ null, %15 ], [ null, %6 ], [ %20, %24 ], [ %20, %22 ]
   ret ptr %.0
 }
 
@@ -1954,7 +1954,7 @@ define hidden noundef ptr @_ZN2os5Posix8realpathEPKcPcm(ptr noundef readonly cap
   unreachable
 
 32:                                               ; preds = %18, %23, %19, %27, %7
-  %.023 = phi ptr [ null, %7 ], [ %.0, %18 ], [ null, %23 ], [ null, %19 ], [ %26, %27 ]
+  %.023 = phi ptr [ null, %7 ], [ %.0, %18 ], [ null, %19 ], [ null, %23 ], [ %26, %27 ]
   ret ptr %.023
 }
 
@@ -2019,7 +2019,7 @@ define hidden noundef zeroext i1 @_ZN2os10same_filesEPKcS1_(ptr noundef readonly
   br label %27
 
 27:                                               ; preds = %21, %17, %14, %11, %8, %7, %2
-  %.012 = phi i1 [ true, %2 ], [ false, %7 ], [ true, %8 ], [ false, %11 ], [ false, %14 ], [ false, %17 ], [ %26, %21 ]
+  %.012 = phi i1 [ false, %14 ], [ true, %2 ], [ false, %7 ], [ true, %8 ], [ false, %11 ], [ false, %17 ], [ %26, %21 ]
   ret i1 %.012
 }
 
@@ -2224,7 +2224,7 @@ _ZL32get_frame_at_stack_banging_pointP10JavaThreadPhPKvP5frame.exit: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK10JavaThread18is_vthread_mountedEv.exit
 
-76:                                               ; preds = %_ZNK8CodeBlob20is_frame_complete_atEPh.exit.thread.i, %50, %.sink.split.i
+76:                                               ; preds = %50, %_ZNK8CodeBlob20is_frame_complete_atEPh.exit.thread.i, %.sink.split.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -2318,7 +2318,7 @@ _ZNK10JavaThread18is_vthread_mountedEv.exit:      ; preds = %.lr.ph.i.i, %_ZL32g
   unreachable
 
 118:                                              ; preds = %112, %_ZNK10JavaThread18is_vthread_mountedEv.exit, %103, %90, %_ZNK5frame20is_interpreted_frameEv.exit.thread, %99
-  %.0 = phi i1 [ true, %99 ], [ true, %_ZNK5frame20is_interpreted_frameEv.exit.thread ], [ true, %90 ], [ false, %103 ], [ false, %_ZNK10JavaThread18is_vthread_mountedEv.exit ], [ %113, %112 ]
+  %.0 = phi i1 [ true, %90 ], [ %113, %112 ], [ true, %99 ], [ true, %_ZNK5frame20is_interpreted_frameEv.exit.thread ], [ false, %103 ], [ false, %_ZNK10JavaThread18is_vthread_mountedEv.exit ]
   ret i1 %.0
 }
 
@@ -2557,7 +2557,7 @@ define hidden void @_ZN2os5Posix14to_RTC_abstimeEP8timespecl(ptr noundef writeon
   br label %_ZL10to_abstimeP8timespeclbb.exit
 
 _ZL10to_abstimeP8timespeclbb.exit:                ; preds = %10, %12, %20
-  %.sink.i.sink.i = phi i64 [ 0, %10 ], [ %22, %20 ], [ %18, %12 ]
+  %.sink.i.sink.i = phi i64 [ %18, %12 ], [ 0, %10 ], [ %22, %20 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink.i.sink.i, ptr %23, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2891,7 +2891,7 @@ define hidden noundef range(i32 -3, 1) i32 @_ZN13PlatformEvent10park_nanosEl(ptr
   br label %_ZL10to_abstimeP8timespeclbb.exit
 
 _ZL10to_abstimeP8timespeclbb.exit:                ; preds = %21, %23, %31
-  %.sink.i.sink.i = phi i64 [ 0, %21 ], [ %33, %31 ], [ %29, %23 ]
+  %.sink.i.sink.i = phi i64 [ %29, %23 ], [ 0, %21 ], [ %33, %31 ]
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %.sink.i.sink.i, ptr %34, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -3283,7 +3283,7 @@ define hidden noundef range(i32 -3, 1) i32 @_ZN15PlatformMonitor4waitEm(ptr noun
   br label %_ZL10to_abstimeP8timespeclbb.exit
 
 _ZL10to_abstimeP8timespeclbb.exit:                ; preds = %12, %14, %22
-  %.sink.i.sink.i = phi i64 [ 0, %12 ], [ %24, %22 ], [ %20, %14 ]
+  %.sink.i.sink.i = phi i64 [ %20, %14 ], [ 0, %12 ], [ %24, %22 ]
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %.sink.i.sink.i, ptr %25, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -3362,7 +3362,7 @@ define hidden noundef i32 @_ZN2os13fork_and_execEPKc(ptr noundef %0) local_unnam
   br label %.loopexit
 
 .loopexit:                                        ; preds = %14, %.loopexit.loopexit, %24, %1, %21
-  %.0 = phi i32 [ %23, %21 ], [ -1, %1 ], [ %spec.select, %24 ], [ 0, %.loopexit.loopexit ], [ -1, %14 ]
+  %.0 = phi i32 [ 0, %.loopexit.loopexit ], [ %spec.select, %24 ], [ %23, %21 ], [ -1, %1 ], [ -1, %14 ]
   ret i32 %.0
 }
 

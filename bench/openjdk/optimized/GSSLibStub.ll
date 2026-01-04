@@ -207,7 +207,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_security_jgss_wrapper_GSSLibStub_init
   br label %54
 
 54:                                               ; preds = %.sink.split, %42, %44, %41, %30, %10, %6
-  %.0 = phi i8 [ 0, %6 ], [ 0, %10 ], [ 0, %30 ], [ 1, %41 ], [ 0, %44 ], [ 0, %42 ], [ 0, %.sink.split ]
+  %.0 = phi i8 [ 0, %30 ], [ 0, %6 ], [ 0, %10 ], [ 1, %41 ], [ 0, %42 ], [ 0, %44 ], [ 0, %.sink.split ]
   ret i8 %.0
 }
 
@@ -292,7 +292,7 @@ define noundef i64 @Java_sun_security_jgss_wrapper_GSSLibStub_getMechPtr(ptr nou
   br label %43
 
 43:                                               ; preds = %3, %4, %38, %._crit_edge
-  %.023 = phi i64 [ 0, %._crit_edge ], [ %42, %38 ], [ 0, %4 ], [ 0, %3 ]
+  %.023 = phi i64 [ 0, %4 ], [ 0, %._crit_edge ], [ %42, %38 ], [ 0, %3 ]
   ret i64 %.023
 }
 
@@ -519,7 +519,7 @@ deleteGSSCB.exit:                                 ; preds = %92, %95
   br label %96
 
 96:                                               ; preds = %78, %2, %deleteGSSCB.exit, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %deleteGSSCB.exit ], [ null, %2 ], [ %5, %78 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %7 ], [ null, %deleteGSSCB.exit ], [ %5, %78 ]
   ret ptr %.0
 }
 
@@ -744,7 +744,7 @@ define i64 @Java_sun_security_jgss_wrapper_GSSLibStub_importName(ptr noundef %0,
   br label %48
 
 48:                                               ; preds = %39, %14, %45, %25
-  %.0 = phi i64 [ 0, %25 ], [ %47, %45 ], [ 0, %14 ], [ 0, %39 ]
+  %.0 = phi i64 [ %47, %45 ], [ 0, %25 ], [ 0, %14 ], [ 0, %39 ]
   ret i64 %.0
 }
 
@@ -854,7 +854,7 @@ define i64 @Java_sun_security_jgss_wrapper_GSSLibStub_canonicalizeName(ptr nound
   br label %42
 
 42:                                               ; preds = %13, %33, %39
-  %.0 = phi i64 [ %41, %39 ], [ 0, %33 ], [ 0, %13 ]
+  %.0 = phi i64 [ 0, %33 ], [ %41, %39 ], [ 0, %13 ]
   ret i64 %.0
 }
 
@@ -981,7 +981,7 @@ Java_sun_security_jgss_wrapper_GSSLibStub_releaseName.exit: ; preds = %50, %51
   br label %78
 
 78:                                               ; preds = %72, %66, %32, %61
-  %.0 = phi ptr [ null, %61 ], [ null, %32 ], [ null, %66 ], [ %., %72 ]
+  %.0 = phi ptr [ null, %66 ], [ null, %61 ], [ null, %32 ], [ %., %72 ]
   ret ptr %.0
 }
 
@@ -1084,7 +1084,7 @@ define ptr @Java_sun_security_jgss_wrapper_GSSLibStub_displayName(ptr noundef %0
   br label %66
 
 66:                                               ; preds = %58, %50, %40, %33, %27, %17, %16
-  %.0 = phi ptr [ null, %16 ], [ null, %17 ], [ null, %27 ], [ null, %33 ], [ null, %40 ], [ null, %50 ], [ %., %58 ]
+  %.0 = phi ptr [ null, %16 ], [ null, %50 ], [ null, %17 ], [ null, %27 ], [ null, %33 ], [ null, %40 ], [ %., %58 ]
   ret ptr %.0
 }
 
@@ -1611,7 +1611,7 @@ define ptr @Java_sun_security_jgss_wrapper_GSSLibStub_importContext(ptr noundef 
   br label %74
 
 74:                                               ; preds = %38, %32, %14, %68, %59
-  %.0 = phi ptr [ %67, %59 ], [ null, %68 ], [ null, %14 ], [ null, %32 ], [ null, %38 ]
+  %.0 = phi ptr [ null, %68 ], [ null, %14 ], [ null, %32 ], [ %67, %59 ], [ null, %38 ]
   ret ptr %.0
 }
 
@@ -1920,7 +1920,7 @@ deleteGSSCB.exit73:                               ; preds = %155, %170
   br label %deleteGSSCB.exit
 
 deleteGSSCB.exit:                                 ; preds = %71, %56, %176, %deleteGSSCB.exit73, %20
-  %.0 = phi ptr [ null, %20 ], [ null, %deleteGSSCB.exit73 ], [ %., %176 ], [ null, %56 ], [ null, %71 ]
+  %.0 = phi ptr [ null, %deleteGSSCB.exit73 ], [ %., %176 ], [ null, %20 ], [ null, %56 ], [ null, %71 ]
   ret ptr %.0
 }
 
@@ -2407,7 +2407,7 @@ deleteGSSCB.exit:                                 ; preds = %53, %72
   br label %307
 
 307:                                              ; preds = %300, %302, %24, %280, %42
-  %.0 = phi ptr [ null, %42 ], [ %281, %280 ], [ null, %24 ], [ null, %302 ], [ null, %300 ]
+  %.0 = phi ptr [ %281, %280 ], [ null, %42 ], [ null, %24 ], [ null, %302 ], [ null, %300 ]
   ret ptr %.0
 }
 
@@ -2515,7 +2515,7 @@ define ptr @Java_sun_security_jgss_wrapper_GSSLibStub_inquireContext(ptr noundef
   br label %72
 
 72:                                               ; preds = %64, %40, %34
-  %.0 = phi ptr [ null, %34 ], [ null, %40 ], [ %., %64 ]
+  %.0 = phi ptr [ null, %40 ], [ null, %34 ], [ %., %64 ]
   ret ptr %.0
 }
 
@@ -2880,7 +2880,7 @@ define ptr @Java_sun_security_jgss_wrapper_GSSLibStub_getMic(ptr noundef %0, ptr
   br label %40
 
 40:                                               ; preds = %34, %24, %19, %18
-  %.0 = phi ptr [ null, %18 ], [ null, %19 ], [ null, %24 ], [ %., %34 ]
+  %.0 = phi ptr [ null, %18 ], [ null, %24 ], [ null, %19 ], [ %., %34 ]
   ret ptr %.0
 }
 
@@ -3095,7 +3095,7 @@ define ptr @Java_sun_security_jgss_wrapper_GSSLibStub_wrap(ptr noundef %0, ptr n
   br label %73
 
 73:                                               ; preds = %62, %56, %45, %40, %30, %20, %19
-  %.0 = phi ptr [ null, %19 ], [ null, %20 ], [ null, %30 ], [ null, %40 ], [ null, %45 ], [ null, %56 ], [ %., %62 ]
+  %.0 = phi ptr [ null, %19 ], [ null, %56 ], [ null, %20 ], [ null, %30 ], [ null, %40 ], [ null, %45 ], [ %., %62 ]
   ret ptr %.0
 }
 
@@ -3205,7 +3205,7 @@ define ptr @Java_sun_security_jgss_wrapper_GSSLibStub_unwrap(ptr noundef %0, ptr
   br label %72
 
 72:                                               ; preds = %65, %55, %43, %36, %26, %21, %20
-  %.0 = phi ptr [ null, %20 ], [ null, %21 ], [ null, %26 ], [ null, %36 ], [ null, %43 ], [ null, %55 ], [ %., %65 ]
+  %.0 = phi ptr [ null, %20 ], [ null, %55 ], [ null, %21 ], [ null, %26 ], [ null, %36 ], [ null, %43 ], [ %., %65 ]
   ret ptr %.0
 }
 

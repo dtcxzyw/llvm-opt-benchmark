@@ -136,7 +136,7 @@ MuxDeleteAllNamedData.exit.thread26:              ; preds = %28, %18
   br label %MuxDeleteAllNamedData.exit.thread
 
 MuxDeleteAllNamedData.exit.thread:                ; preds = %15, %15, %15, %4, %8, %11, %MuxDeleteAllNamedData.exit.thread26
-  %.0 = phi i32 [ %30, %MuxDeleteAllNamedData.exit.thread26 ], [ -1, %11 ], [ -1, %8 ], [ -1, %4 ], [ -1, %15 ], [ -1, %15 ], [ -1, %15 ]
+  %.0 = phi i32 [ %30, %MuxDeleteAllNamedData.exit.thread26 ], [ -1, %4 ], [ -1, %11 ], [ -1, %8 ], [ -1, %15 ], [ -1, %15 ], [ -1, %15 ]
   ret i32 %.0
 }
 
@@ -224,12 +224,12 @@ define internal fastcc i32 @MuxSet(ptr noundef nonnull %0, i32 noundef %1, ptr n
   br i1 %.not, label %44, label %.sink.split
 
 .sink.split:                                      ; preds = %40, %34, %28, %22, %16, %10
-  %.0.ph = phi i32 [ %12, %10 ], [ %18, %16 ], [ %24, %22 ], [ %30, %28 ], [ %36, %34 ], [ %42, %40 ]
+  %.0.ph = phi i32 [ %36, %34 ], [ %30, %28 ], [ %24, %22 ], [ %18, %16 ], [ %12, %10 ], [ %42, %40 ]
   %43 = call ptr @ChunkRelease(ptr noundef nonnull %5) #7
   br label %44
 
 44:                                               ; preds = %.sink.split, %4, %37, %40, %31, %34, %25, %28, %19, %22, %13, %16, %7, %10
-  %.0 = phi i32 [ 1, %10 ], [ %8, %7 ], [ 1, %16 ], [ %14, %13 ], [ 1, %22 ], [ %20, %19 ], [ 1, %28 ], [ %26, %25 ], [ 1, %34 ], [ %32, %31 ], [ 1, %40 ], [ %38, %37 ], [ 0, %4 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ %38, %37 ], [ %8, %7 ], [ %14, %13 ], [ %20, %19 ], [ %26, %25 ], [ %32, %31 ], [ 1, %28 ], [ 1, %10 ], [ 1, %40 ], [ 1, %16 ], [ 1, %34 ], [ 1, %22 ], [ 0, %4 ], [ %.0.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -283,7 +283,7 @@ DeleteAllImages.exit:                             ; preds = %.lr.ph.i, %14
   br label %23
 
 23:                                               ; preds = %19, %3, %7, %10, %21
-  %.013 = phi i32 [ %.0, %21 ], [ -1, %10 ], [ -1, %7 ], [ -1, %3 ], [ 1, %19 ]
+  %.013 = phi i32 [ -1, %3 ], [ %.0, %21 ], [ -1, %10 ], [ -1, %7 ], [ 1, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.013
 }
@@ -406,7 +406,7 @@ AddDataToChunkList.exit26:                        ; preds = %40, %42
   br label %49
 
 49:                                               ; preds = %14, %AddDataToChunkList.exit26, %AddDataToChunkList.exit, %46
-  %.0 = phi i32 [ %48, %46 ], [ %.0.i, %AddDataToChunkList.exit ], [ %.0.i23, %AddDataToChunkList.exit26 ], [ -2, %14 ]
+  %.0 = phi i32 [ %48, %46 ], [ %.0.i23, %AddDataToChunkList.exit26 ], [ %.0.i, %AddDataToChunkList.exit ], [ -2, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -513,8 +513,8 @@ define i32 @WebPMuxPushFrame(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
   %.not57 = icmp eq i32 %53, 1
   br i1 %.not57, label %55, label %.thread
 
-.thread:                                          ; preds = %29, %46, %52
-  %.140.ph = phi i32 [ %53, %52 ], [ %51, %46 ], [ -1, %29 ]
+.thread:                                          ; preds = %46, %29, %52
+  %.140.ph = phi i32 [ %53, %52 ], [ -1, %29 ], [ %51, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %57
@@ -532,7 +532,7 @@ define i32 @WebPMuxPushFrame(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
   br label %.thread83
 
 .thread83:                                        ; preds = %21, %55, %12, %15, %9, %3, %23, %57
-  %.0 = phi i32 [ %.039, %57 ], [ -1, %23 ], [ -1, %3 ], [ -1, %9 ], [ -1, %15 ], [ -1, %12 ], [ 1, %55 ], [ -1, %21 ]
+  %.0 = phi i32 [ -1, %23 ], [ -1, %3 ], [ -1, %9 ], [ %.039, %57 ], [ -1, %12 ], [ -1, %15 ], [ 1, %55 ], [ -1, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -1021,8 +1021,8 @@ MuxDeleteAllNamedData.exit.i:                     ; preds = %.lr.ph.i.i.i._crit_
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %MuxCleanup.exit.thread
 
-MuxCleanup.exit.thread:                           ; preds = %11, %.critedge.i, %44, %MuxDeleteAllNamedData.exit.i, %55, %52, %52, %52
-  %.018.i.ph = phi i32 [ -1, %52 ], [ -1, %52 ], [ -1, %52 ], [ 0, %55 ], [ 0, %MuxDeleteAllNamedData.exit.i ], [ %46, %44 ], [ %18, %.critedge.i ], [ %13, %11 ]
+MuxCleanup.exit.thread:                           ; preds = %MuxDeleteAllNamedData.exit.i, %.critedge.i, %44, %11, %55, %52, %52, %52
+  %.018.i.ph = phi i32 [ -1, %52 ], [ -1, %52 ], [ -1, %52 ], [ 0, %55 ], [ %13, %11 ], [ %46, %44 ], [ %18, %.critedge.i ], [ 0, %MuxDeleteAllNamedData.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %250
@@ -1261,7 +1261,7 @@ CreateVP8XChunk.exit.thread64:                    ; preds = %180
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %198
 
-CreateVP8XChunk.exit.thread:                      ; preds = %.lr.ph.i.i, %76, %72, %.loopexit, %.loopexit.i, %163, %174, %172, %80, %80, %80
+CreateVP8XChunk.exit.thread:                      ; preds = %.lr.ph.i.i, %.loopexit, %80, %80, %80, %.loopexit.i, %163, %172, %76, %72, %174
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %250
@@ -1382,7 +1382,7 @@ ImageListEmit.exit:                               ; preds = %.lr.ph.i57, %228
   br label %250
 
 250:                                              ; preds = %CreateVP8XChunk.exit.thread, %MuxCleanup.exit.thread, %ImageListDiskSize.exit, %CreateVP8XChunk.exit, %9, %2, %248
-  %.043 = phi i32 [ %246, %248 ], [ -1, %2 ], [ -1, %9 ], [ %197, %CreateVP8XChunk.exit ], [ -3, %ImageListDiskSize.exit ], [ %.018.i.ph, %MuxCleanup.exit.thread ], [ -1, %CreateVP8XChunk.exit.thread ]
+  %.043 = phi i32 [ %246, %248 ], [ -1, %2 ], [ -1, %9 ], [ %.018.i.ph, %MuxCleanup.exit.thread ], [ %197, %CreateVP8XChunk.exit ], [ -3, %ImageListDiskSize.exit ], [ -1, %CreateVP8XChunk.exit.thread ]
   ret i32 %.043
 }
 

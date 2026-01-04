@@ -490,7 +490,7 @@ define hidden void @_ZN5rayon4iter7collect21collect_with_consumer17h087def4b18bb
           to label %"_ZN4core3ptr428drop_in_place$LT$rayon..iter..collect..special_extend$LT$rayon..iter..map..Map$LT$rayon..iter..chunks..Chunks$LT$rayon..vec..IntoIter$LT$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$$GT$$C$sum_tree..SumTree$LT$rope..Chunk$GT$..from_par_iter$LT$alloc..vec..Vec$LT$rope..Chunk$GT$$C$rayon..vec..IntoIter$LT$rope..Chunk$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3310b83353cf476bE.exit16" unwind label %43
 
 "_ZN4core3ptr428drop_in_place$LT$rayon..iter..collect..special_extend$LT$rayon..iter..map..Map$LT$rayon..iter..chunks..Chunks$LT$rayon..vec..IntoIter$LT$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$$GT$$C$sum_tree..SumTree$LT$rope..Chunk$GT$..from_par_iter$LT$alloc..vec..Vec$LT$rope..Chunk$GT$$C$rayon..vec..IntoIter$LT$rope..Chunk$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3310b83353cf476bE.exit16": ; preds = %45, %.body.thread, %47
-  %.pn20 = phi { ptr, i32 } [ %48, %47 ], [ %39, %.body.thread ], [ %46, %45 ]
+  %.pn20 = phi { ptr, i32 } [ %48, %47 ], [ %46, %45 ], [ %39, %.body.thread ]
   resume { ptr, i32 } %.pn20
 
 47:                                               ; preds = %20
@@ -675,7 +675,7 @@ define hidden void @_ZN5rayon4iter7collect21collect_with_consumer17hf427646917f0
           to label %.thread unwind label %60
 
 .thread:                                          ; preds = %40, %62, %.body16.thread, %64
-  %.pn21 = phi { ptr, i32 } [ %65, %64 ], [ %63, %62 ], [ %56, %.body16.thread ], [ %41, %40 ]
+  %.pn21 = phi { ptr, i32 } [ %65, %64 ], [ %56, %.body16.thread ], [ %63, %62 ], [ %41, %40 ]
   resume { ptr, i32 } %.pn21
 
 64:                                               ; preds = %21
@@ -726,7 +726,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer17h218f0e64
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
-15:                                               ; preds = %9, %10
+15:                                               ; preds = %10, %9
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   store ptr inttoptr (i64 4 to ptr), ptr %2, align 8, !alias.scope !130
@@ -767,7 +767,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer17h246c7c0f
 15:                                               ; preds = %16
   resume { ptr, i32 } %lpad.thr_comm
 
-16:                                               ; preds = %9, %10
+16:                                               ; preds = %10, %9
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr384drop_in_place$LT$rayon..iter..chunks..ChunkProducer$LT$rayon..vec..DrainProducer$LT$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$$C$$LT$alloc..vec..Vec$LT$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$$GT$..from_iter$LT$rayon..vec..SliceDrain$LT$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$$GT$$GT$$GT$17h344a0c4ce060f39aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %2) #24
@@ -809,7 +809,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer17h949316fa
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
-15:                                               ; preds = %9, %10
+15:                                               ; preds = %10, %9
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   store ptr inttoptr (i64 4 to ptr), ptr %2, align 8, !alias.scope !143
@@ -850,7 +850,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer17hf90d8363
 15:                                               ; preds = %16
   resume { ptr, i32 } %lpad.thr_comm
 
-16:                                               ; preds = %9, %10
+16:                                               ; preds = %10, %9
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr384drop_in_place$LT$rayon..iter..chunks..ChunkProducer$LT$rayon..vec..DrainProducer$LT$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$$C$$LT$alloc..vec..Vec$LT$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$$GT$..from_iter$LT$rayon..vec..SliceDrain$LT$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$$GT$$GT$$GT$17h344a0c4ce060f39aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %2) #24
@@ -1066,7 +1066,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h6
   br label %"_ZN4core3ptr384drop_in_place$LT$rayon..iter..chunks..ChunkProducer$LT$rayon..vec..DrainProducer$LT$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$$C$$LT$alloc..vec..Vec$LT$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$$GT$..from_iter$LT$rayon..vec..SliceDrain$LT$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$$GT$$GT$$GT$17h344a0c4ce060f39aE.exit"
 
 .critedge.thread:                                 ; preds = %46, %70
-  %.pn1443 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %70 ], [ %47, %46 ]
+  %.pn1443 = phi { ptr, i32 } [ %47, %46 ], [ %lpad.thr_comm.split-lp, %70 ]
   resume { ptr, i32 } %.pn1443
 
 70:                                               ; preds = %27
@@ -1396,7 +1396,7 @@ _ZN10rayon_core8registry9in_worker17h8f0a64a17fdf3970E.exit: ; preds = %.noexc26
   br label %31
 
 .critedge.thread:                                 ; preds = %"_ZN4core3ptr57drop_in_place$LT$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$17h63c55cf2187f9c07E.exit8.i.i.i.i", %55, %70
-  %.pn14130 = phi { ptr, i32 } [ %71, %70 ], [ %56, %55 ], [ %56, %"_ZN4core3ptr57drop_in_place$LT$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$17h63c55cf2187f9c07E.exit8.i.i.i.i" ]
+  %.pn14130 = phi { ptr, i32 } [ %56, %55 ], [ %71, %70 ], [ %56, %"_ZN4core3ptr57drop_in_place$LT$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$17h63c55cf2187f9c07E.exit8.i.i.i.i" ]
   resume { ptr, i32 } %.pn14130
 
 70:                                               ; preds = %23
@@ -1654,7 +1654,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17ha
           to label %.critedge.thread unwind label %34
 
 .critedge.thread:                                 ; preds = %"_ZN4core3ptr57drop_in_place$LT$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$17h63c55cf2187f9c07E.exit8.i.i.i.i", %53, %70, %71
-  %.pn1471 = phi { ptr, i32 } [ %72, %71 ], [ %54, %53 ], [ %69, %70 ], [ %54, %"_ZN4core3ptr57drop_in_place$LT$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$17h63c55cf2187f9c07E.exit8.i.i.i.i" ]
+  %.pn1471 = phi { ptr, i32 } [ %69, %70 ], [ %72, %71 ], [ %54, %53 ], [ %54, %"_ZN4core3ptr57drop_in_place$LT$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$17h63c55cf2187f9c07E.exit8.i.i.i.i" ]
   resume { ptr, i32 } %.pn1471
 
 71:                                               ; preds = %24
@@ -1970,7 +1970,7 @@ _ZN10rayon_core8registry9in_worker17he89da650eaa56899E.exit: ; preds = %.noexc22
   br label %52
 
 .critedge.thread:                                 ; preds = %36, %46, %79
-  %.pn1494 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %79 ], [ %47, %46 ], [ %37, %36 ]
+  %.pn1494 = phi { ptr, i32 } [ %37, %36 ], [ %lpad.thr_comm.split-lp, %79 ], [ %47, %46 ]
   resume { ptr, i32 } %.pn1494
 
 79:                                               ; preds = %28
@@ -2125,7 +2125,7 @@ define hidden void @_ZN5rayon4iter8plumbing6bridge17h4f731c7c75650d10E(ptr dead_
   unreachable
 
 .body.thread:                                     ; preds = %30, %20
-  %eh.lpad-body11 = phi { ptr, i32 } [ %21, %20 ], [ %31, %30 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %31, %30 ], [ %21, %20 ]
   resume { ptr, i32 } %eh.lpad-body11
 
 30:                                               ; preds = %18
@@ -2284,7 +2284,7 @@ define hidden void @_ZN5rayon4iter8plumbing6bridge17h674b7662c2380f2dE(ptr dead_
   unreachable
 
 .body.thread:                                     ; preds = %30, %20
-  %eh.lpad-body9 = phi { ptr, i32 } [ %21, %20 ], [ %31, %30 ]
+  %eh.lpad-body9 = phi { ptr, i32 } [ %31, %30 ], [ %21, %20 ]
   resume { ptr, i32 } %eh.lpad-body9
 
 30:                                               ; preds = %18

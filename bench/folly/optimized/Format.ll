@@ -656,7 +656,7 @@ _ZN17double_conversion13StringBuilderD2Ev.exit:   ; preds = %_ZN5folly14basic_fb
   br label %148
 
 148:                                              ; preds = %146, %118, %114, %96, %78
-  %.pn74 = phi { ptr, i32 } [ %119, %118 ], [ %79, %78 ], [ %97, %96 ], [ %115, %114 ], [ %147, %146 ]
+  %.pn74 = phi { ptr, i32 } [ %119, %118 ], [ %115, %114 ], [ %79, %78 ], [ %97, %96 ], [ %147, %146 ]
   %149 = load i32, ptr %48, align 8, !tbaa !30
   %150 = icmp slt i32 %149, 0
   br i1 %150, label %_ZN17double_conversion13StringBuilderD2Ev.exit80, label %151
@@ -1772,7 +1772,7 @@ _ZN5folly10canNallocxEv.exit.i:                   ; preds = %12, %10, %7
   br label %_ZN5folly14goodMallocSizeEm.exit
 
 _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %3, %_ZN5folly10canNallocxEv.exit.i, %18
-  %.0.i = phi i64 [ %20, %18 ], [ 0, %3 ], [ %5, %_ZN5folly10canNallocxEv.exit.i ]
+  %.0.i = phi i64 [ 0, %3 ], [ %20, %18 ], [ %5, %_ZN5folly10canNallocxEv.exit.i ]
   %21 = call noalias ptr @malloc(i64 noundef %.0.i) #34
   %.not.i9 = icmp eq ptr %21, null
   br i1 %.not.i9, label %22, label %_ZN5folly13checkedMallocEm.exit
@@ -1969,7 +1969,7 @@ define linkonce_odr noundef zeroext i1 @_ZZN5folly13usingJEMallocEvENK11Initiali
   br label %33
 
 33:                                               ; preds = %28, %26, %14
-  %.1 = phi i1 [ false, %14 ], [ %32, %28 ], [ false, %26 ]
+  %.1 = phi i1 [ false, %26 ], [ false, %14 ], [ %32, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %34
@@ -2206,7 +2206,7 @@ _ZN5folly10canNallocxEv.exit.i:                   ; preds = %27, %25, %22
   br label %_ZN5folly14goodMallocSizeEm.exit
 
 _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %20, %_ZN5folly10canNallocxEv.exit.i, %33
-  %.0.i10 = phi i64 [ %35, %33 ], [ 0, %20 ], [ %15, %_ZN5folly10canNallocxEv.exit.i ]
+  %.0.i10 = phi i64 [ 0, %20 ], [ %35, %33 ], [ %15, %_ZN5folly10canNallocxEv.exit.i ]
   %36 = call noalias ptr @malloc(i64 noundef %.0.i10) #34
   %.not.i11 = icmp eq ptr %36, null
   br i1 %.not.i11, label %37, label %_ZN5folly13checkedMallocEm.exit
@@ -2364,7 +2364,7 @@ define void @_ZN5folly9FormatArg8initSlowEv(ptr noundef nonnull align 8 derefere
   br label %.critedge38
 
 48:                                               ; preds = %.thread94, %.thread, %37, %32
-  %49 = phi ptr [ %22, %37 ], [ %35, %32 ], [ %22, %.thread ], [ %25, %.thread94 ]
+  %49 = phi ptr [ %22, %37 ], [ %25, %.thread94 ], [ %35, %32 ], [ %22, %.thread ]
   %50 = load i8, ptr %49, align 1, !tbaa !47
   %51 = zext i8 %50 to i64
   %52 = getelementptr inbounds nuw i8, ptr @_ZN5folly6detailL15formatSignTableE, i64 %51
@@ -2650,7 +2650,7 @@ _ZN5folly2toIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueES6_E4t
   call void @_ZNK5folly9FormatArg5errorIJRA34_KcEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull align 1 dereferenceable(34) @.str.13) #29
   unreachable
 
-.critedge38:                                      ; preds = %46, %144, %82, %92, %97, %106, %32, %54, %62, %_ZNK5folly9FormatArg7enforceIbJRA26_KcEEEvRKT_DpOT0_.exit, %21, %146, %17
+.critedge38:                                      ; preds = %46, %92, %82, %97, %106, %144, %32, %54, %62, %_ZNK5folly9FormatArg7enforceIbJRA26_KcEEEvRKT_DpOT0_.exit, %21, %146, %17
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void

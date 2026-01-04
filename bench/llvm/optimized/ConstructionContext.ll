@@ -166,7 +166,7 @@ _ZNK5clang23ConstructionContextItemeqERKS0_.exit: ; preds = %4
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !38
 
 _ZNK5clang23ConstructionContextItemeqERKS0_.exit.thread: ; preds = %4, %.lr.ph, %_ZNK5clang23ConstructionContextItemeqERKS0_.exit, %2, %._crit_edge.loopexit
-  %.010 = phi i1 [ true, %2 ], [ %3, %._crit_edge.loopexit ], [ false, %_ZNK5clang23ConstructionContextItemeqERKS0_.exit ], [ false, %.lr.ph ], [ false, %4 ]
+  %.010 = phi i1 [ %3, %._crit_edge.loopexit ], [ true, %2 ], [ false, %_ZNK5clang23ConstructionContextItemeqERKS0_.exit ], [ false, %.lr.ph ], [ false, %4 ]
   ret i1 %.010
 }
 

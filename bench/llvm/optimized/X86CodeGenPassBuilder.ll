@@ -5452,7 +5452,7 @@ _ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPa
   br i1 %.not.i93.i.i, label %_ZN4llvm5ErrorD2Ev.exit195.i, label %.lr.ph.i86.i.i
 
 _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %.thread.i.i, %667
-  %821 = phi i16 [ %673, %.thread.i.i ], [ %.pre141.i.i, %667 ]
+  %821 = phi i16 [ %.pre141.i.i, %667 ], [ %673, %.thread.i.i ]
   %822 = and i16 %821, -6145
   %823 = getelementptr inbounds nuw i8, ptr %652, i64 864
   %824 = or disjoint i16 %822, 4096
@@ -28347,8 +28347,8 @@ _ZSt4moveIPSt4pairIPN4llvm11InstructionES3_ES5_ET0_T_S7_S6_.exit: ; preds = %.lr
   br i1 %54, label %.lr.ph.i.i.i.i.i35, label %_ZSt4moveIPSt4pairIPN4llvm11InstructionES3_ES5_ET0_T_S7_S6_.exit39, !llvm.loop !1141
 
 _ZSt4moveIPSt4pairIPN4llvm11InstructionES3_ES5_ET0_T_S7_S6_.exit39: ; preds = %.lr.ph.i.i.i.i.i35, %44, %42
-  %.pre-phi = phi i64 [ %23, %44 ], [ %.pre42, %42 ], [ %23, %.lr.ph.i.i.i.i.i35 ]
-  %.026 = phi i64 [ 0, %44 ], [ 0, %42 ], [ %26, %.lr.ph.i.i.i.i.i35 ]
+  %.pre-phi = phi i64 [ %.pre42, %42 ], [ %23, %44 ], [ %23, %.lr.ph.i.i.i.i.i35 ]
+  %.026 = phi i64 [ 0, %42 ], [ 0, %44 ], [ %26, %.lr.ph.i.i.i.i.i35 ]
   %.not.i.i = icmp samesign eq i64 %.026, %.pre-phi
   br i1 %.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionES3_ELb1EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit, label %55
 

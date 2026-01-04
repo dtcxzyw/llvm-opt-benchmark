@@ -508,7 +508,7 @@ PutWebPHeaders.exit.thread:                       ; preds = %234
   br label %258
 
 PutWebPHeaders.exit:                              ; preds = %173, %182, %PutAlphaChunk.exit.thread.i, %.critedge.i, %PutVP8FrameHeader.exit.thread.i
-  %.0.i96 = phi i32 [ 8, %173 ], [ 8, %182 ], [ 8, %.critedge.i ], [ 8, %PutAlphaChunk.exit.thread.i ], [ %.0.i40.ph.i, %PutVP8FrameHeader.exit.thread.i ]
+  %.0.i96 = phi i32 [ 8, %173 ], [ 8, %182 ], [ 8, %PutAlphaChunk.exit.thread.i ], [ 8, %.critedge.i ], [ %.0.i40.ph.i, %PutVP8FrameHeader.exit.thread.i ]
   %257 = call i32 @WebPEncodingSetError(ptr noundef nonnull %175, i32 noundef %.0.i96) #4
   %.not83 = icmp eq i32 %257, 0
   br i1 %.not83, label %286, label %258

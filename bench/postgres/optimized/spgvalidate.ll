@@ -257,10 +257,10 @@ define dso_local zeroext i1 @spgvalidate(i32 noundef %0) local_unnamed_addr #0 {
 .critedge:                                        ; preds = %103, %83, %.lr.ph
   br i1 %66, label %134, label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %112, %114, %.critedge165, %120, %116, %108, %104, %.critedge
-  %.1130178 = phi i32 [ %70, %.critedge ], [ %.0129188, %104 ], [ %.0129188, %108 ], [ %.0129188, %116 ], [ %.0129188, %120 ], [ %70, %.critedge165 ], [ %.0129188, %114 ], [ %.0129188, %112 ]
-  %.1133177 = phi i32 [ %71, %.critedge ], [ %.0132187, %104 ], [ %.0132187, %108 ], [ %.0132187, %116 ], [ %.0132187, %120 ], [ %71, %.critedge165 ], [ %.0132187, %114 ], [ %.0132187, %112 ]
-  %.3139176 = phi i32 [ %.2138, %.critedge ], [ %.0136186, %104 ], [ %.0136186, %108 ], [ %.0136186, %116 ], [ %.0136186, %120 ], [ %.2138, %.critedge165 ], [ %.0136186, %114 ], [ %.0136186, %112 ]
+.critedge.thread:                                 ; preds = %114, %112, %108, %116, %.critedge165, %104, %120, %.critedge
+  %.1130178 = phi i32 [ %.0129188, %108 ], [ %70, %.critedge ], [ %.0129188, %120 ], [ %.0129188, %104 ], [ %70, %.critedge165 ], [ %.0129188, %116 ], [ %.0129188, %112 ], [ %.0129188, %114 ]
+  %.1133177 = phi i32 [ %.0132187, %108 ], [ %71, %.critedge ], [ %.0132187, %120 ], [ %.0132187, %104 ], [ %71, %.critedge165 ], [ %.0132187, %116 ], [ %.0132187, %112 ], [ %.0132187, %114 ]
+  %.3139176 = phi i32 [ %.0136186, %108 ], [ %.2138, %.critedge ], [ %.0136186, %120 ], [ %.0136186, %104 ], [ %.2138, %.critedge165 ], [ %.0136186, %116 ], [ %.0136186, %112 ], [ %.0136186, %114 ]
   %126 = call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #5
   br i1 %126, label %.sink.split, label %134
 
@@ -280,11 +280,11 @@ define dso_local zeroext i1 @spgvalidate(i32 noundef %0) local_unnamed_addr #0 {
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef %.sink, ptr noundef nonnull @__func__.spgvalidate) #5
   br label %134
 
-134:                                              ; preds = %.sink.split, %.critedge165, %120, %116, %108, %104, %.critedge, %.critedge.thread, %124
-  %.4140 = phi i32 [ %.0136186, %124 ], [ %.3139176, %.critedge.thread ], [ %.2138, %.critedge ], [ %.0136186, %104 ], [ %.0136186, %108 ], [ %.0136186, %116 ], [ %.0136186, %120 ], [ %.2138, %.critedge165 ], [ %.4140.ph, %.sink.split ]
-  %.2134 = phi i32 [ %.0132187, %124 ], [ %.1133177, %.critedge.thread ], [ %71, %.critedge ], [ %.0132187, %104 ], [ %.0132187, %108 ], [ %.0132187, %116 ], [ %.0132187, %120 ], [ %71, %.critedge165 ], [ %.2134.ph, %.sink.split ]
-  %.2131 = phi i32 [ %.0129188, %124 ], [ %.1130178, %.critedge.thread ], [ %70, %.critedge ], [ %.0129188, %104 ], [ %.0129188, %108 ], [ %.0129188, %116 ], [ %.0129188, %120 ], [ %70, %.critedge165 ], [ %.2131.ph, %.sink.split ]
-  %.4 = phi i1 [ false, %124 ], [ false, %.critedge.thread ], [ %.2, %.critedge ], [ %.1, %104 ], [ %.1, %108 ], [ %.1, %116 ], [ %.1, %120 ], [ %.2, %.critedge165 ], [ false, %.sink.split ]
+134:                                              ; preds = %.sink.split, %108, %116, %.critedge165, %104, %120, %.critedge, %.critedge.thread, %124
+  %.4140 = phi i32 [ %.0136186, %124 ], [ %.0136186, %116 ], [ %.3139176, %.critedge.thread ], [ %.0136186, %108 ], [ %.2138, %.critedge ], [ %.0136186, %120 ], [ %.0136186, %104 ], [ %.2138, %.critedge165 ], [ %.4140.ph, %.sink.split ]
+  %.2134 = phi i32 [ %.0132187, %124 ], [ %.0132187, %116 ], [ %.1133177, %.critedge.thread ], [ %.0132187, %108 ], [ %71, %.critedge ], [ %.0132187, %120 ], [ %.0132187, %104 ], [ %71, %.critedge165 ], [ %.2134.ph, %.sink.split ]
+  %.2131 = phi i32 [ %.0129188, %124 ], [ %.0129188, %116 ], [ %.1130178, %.critedge.thread ], [ %.0129188, %108 ], [ %70, %.critedge ], [ %.0129188, %120 ], [ %.0129188, %104 ], [ %70, %.critedge165 ], [ %.2131.ph, %.sink.split ]
+  %.4 = phi i1 [ false, %124 ], [ %.1, %116 ], [ false, %.critedge.thread ], [ %.1, %108 ], [ %.2, %.critedge ], [ %.1, %120 ], [ %.1, %104 ], [ %.2, %.critedge165 ], [ false, %.sink.split ]
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
   %135 = load i32, ptr %27, align 8
   %136 = sext i32 %135 to i64
@@ -364,8 +364,8 @@ define dso_local zeroext i1 @spgvalidate(i32 noundef %0) local_unnamed_addr #0 {
   br label %180
 
 180:                                              ; preds = %163, %173, %175, %166
-  %.0126 = phi i32 [ %169, %166 ], [ %169, %175 ], [ %169, %173 ], [ 16, %163 ]
-  %.8 = phi i1 [ %.7, %166 ], [ false, %175 ], [ false, %173 ], [ %.7, %163 ]
+  %.0126 = phi i32 [ %169, %166 ], [ %169, %173 ], [ %169, %175 ], [ 16, %163 ]
+  %.8 = phi i1 [ %.7, %166 ], [ false, %173 ], [ false, %175 ], [ %.7, %163 ]
   %181 = getelementptr inbounds nuw i8, ptr %149, i64 20
   %182 = load i32, ptr %181, align 4
   %183 = getelementptr inbounds nuw i8, ptr %149, i64 8

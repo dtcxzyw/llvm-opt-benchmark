@@ -79,7 +79,7 @@ define internal range(i32 0, 2) i32 @test_asn1_meths() #0 {
   br i1 %26, label %.lr.ph18, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %20, %0, %12, %._crit_edge
-  %.0.lcssa21 = phi i32 [ 0, %12 ], [ %.015, %._crit_edge ], [ 1, %0 ], [ %spec.select, %20 ]
+  %.0.lcssa21 = phi i32 [ 1, %0 ], [ %.015, %._crit_edge ], [ 0, %12 ], [ %spec.select, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0.lcssa21
 }
@@ -129,7 +129,7 @@ define internal range(i32 0, 2) i32 @test_pkey_meths() #0 {
   br i1 %16, label %.lr.ph18, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph18, %0, %9, %._crit_edge
-  %.0.lcssa23 = phi i32 [ 0, %9 ], [ %spec.select, %._crit_edge ], [ 1, %0 ], [ 0, %.lr.ph18 ]
+  %.0.lcssa23 = phi i32 [ 1, %0 ], [ %spec.select, %._crit_edge ], [ 0, %9 ], [ 0, %.lr.ph18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0.lcssa23
 }

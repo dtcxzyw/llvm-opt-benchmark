@@ -371,7 +371,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %72
   unreachable
 
 common.resume:                                    ; preds = %.body, %127, %95
-  %common.resume.op = phi { ptr, i32 } [ %96, %95 ], [ %128, %127 ], [ %eh.lpad-body, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %128, %127 ], [ %96, %95 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN6uucore4mods5error11UUsageError3new17h8740cfaf067424e2E.exit: ; preds = %.noexc.i
@@ -1473,7 +1473,7 @@ define void @_ZN9uu_base3211base_common8base_app17hefdbe568f9f0f9a1E(ptr noalias
   ret void
 
 .body:                                            ; preds = %234, %226, %160, %110, %58, %246, %245, %244, %243, %239
-  %.pn = phi { ptr, i32 } [ %240, %239 ], [ %eh.lpad-body57.ph, %243 ], [ %eh.lpad-body44.ph, %244 ], [ %eh.lpad-body25.ph, %245 ], [ %247, %246 ], [ %59, %58 ], [ %111, %110 ], [ %161, %160 ], [ %227, %226 ], [ %235, %234 ]
+  %.pn = phi { ptr, i32 } [ %240, %239 ], [ %227, %226 ], [ %eh.lpad-body57.ph, %243 ], [ %161, %160 ], [ %eh.lpad-body44.ph, %244 ], [ %111, %110 ], [ %eh.lpad-body25.ph, %245 ], [ %59, %58 ], [ %247, %246 ], [ %235, %234 ]
   resume { ptr, i32 } %.pn
 
 239:                                              ; preds = %230
@@ -1489,7 +1489,7 @@ define void @_ZN9uu_base3211base_common8base_app17hefdbe568f9f0f9a1E(ptr noalias
   unreachable
 
 243:                                              ; preds = %165, %169, %185, %213
-  %eh.lpad-body57.ph = phi { ptr, i32 } [ %166, %165 ], [ %.pn.i.i, %169 ], [ %.pn.i60, %185 ], [ %214, %213 ]
+  %eh.lpad-body57.ph = phi { ptr, i32 } [ %166, %165 ], [ %.pn.i60, %185 ], [ %.pn.i.i, %169 ], [ %214, %213 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h4511e8e5d32c65a4E"(ptr noalias noundef nonnull align 8 dereferenceable(712) %36) #13
           to label %.body unwind label %241
 
@@ -1555,7 +1555,7 @@ define void @_ZN9uu_base3211base_common9get_input17h934572171e3df6f4E(ptr noalia
   unreachable
 
 common.resume:                                    ; preds = %51, %39, %21
-  %common.resume.op = phi { ptr, i32 } [ %22, %21 ], [ %40, %39 ], [ %52, %51 ]
+  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %22, %21 ], [ %52, %51 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h72058b6cfe267dbdE.exit": ; preds = %11

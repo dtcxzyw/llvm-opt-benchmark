@@ -674,7 +674,7 @@ define dso_local noundef zeroext i1 @RetrieveWalSegSize(ptr noundef %0) local_un
   br label %28
 
 28:                                               ; preds = %26, %24
-  %.0 = phi i32 [ 1048576, %24 ], [ %spec.select, %26 ]
+  %.0 = phi i32 [ %spec.select, %26 ], [ 1048576, %24 ]
   %29 = load i32, ptr %3, align 4
   %30 = mul i32 %29, %.0
   store i32 %30, ptr @WalSegSz, align 4
@@ -1187,7 +1187,7 @@ AppendPlainCommandOption.exit62:                  ; preds = %35, %38, %44, %45
   br label %92
 
 92:                                               ; preds = %87, %79, %82, %89
-  %.1 = phi i1 [ false, %89 ], [ false, %82 ], [ true, %79 ], [ true, %87 ]
+  %.1 = phi i1 [ true, %79 ], [ false, %89 ], [ false, %82 ], [ true, %87 ]
   tail call void @destroyPQExpBuffer(ptr noundef nonnull %11) #15
   tail call void @PQclear(ptr noundef %74) #15
   ret i1 %.1

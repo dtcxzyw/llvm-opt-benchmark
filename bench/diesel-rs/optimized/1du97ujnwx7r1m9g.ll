@@ -158,7 +158,7 @@ define hidden void @"_ZN127_$LT$diesel..query_builder..order_clause..OrderClause
   br label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h5cbe3d7dc11a931cE.exit"
 
 "_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h5cbe3d7dc11a931cE.exit": ; preds = %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h049524c4947878d7E.exit", %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h049524c4947878d7E.exit.thread9", %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h049524c4947878d7E.exit.thread", %14
-  %.sroa.11.0.i = phi ptr [ %10, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h049524c4947878d7E.exit.thread" ], [ %16, %14 ], [ undef, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h049524c4947878d7E.exit" ], [ undef, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h049524c4947878d7E.exit.thread9" ]
+  %.sroa.11.0.i = phi ptr [ %10, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h049524c4947878d7E.exit.thread" ], [ %16, %14 ], [ undef, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h049524c4947878d7E.exit.thread9" ], [ undef, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h049524c4947878d7E.exit" ]
   %.sroa.6.0.in.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.6.0.i = load ptr, ptr %.sroa.6.0.in.i, align 8, !alias.scope !51, !noalias !54, !nonnull !10, !align !11, !noundef !10
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -446,7 +446,7 @@ define hidden void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$
   unreachable
 
 common.resume:                                    ; preds = %.thread266, %100, %.thread313, %44
-  %common.resume.op = phi { ptr, i32 } [ %45, %44 ], [ %.pn77269, %.thread266 ], [ %lpad.phi.i, %100 ], [ %.pn317, %.thread313 ]
+  %common.resume.op = phi { ptr, i32 } [ %45, %44 ], [ %lpad.phi.i, %100 ], [ %.pn77269, %.thread266 ], [ %.pn317, %.thread313 ]
   resume { ptr, i32 } %common.resume.op
 
 52:                                               ; preds = %13, %46
@@ -492,7 +492,7 @@ common.resume:                                    ; preds = %.thread266, %100, %
   store i64 1, ptr %0, align 8
   br label %240
 
-.thread274:                                       ; preds = %52, %69, %182, %185
+.thread274:                                       ; preds = %52, %185, %69, %182
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread266
@@ -934,7 +934,7 @@ common.resume:                                    ; preds = %.thread266, %100, %
   store i64 0, ptr %0, align 8
   br label %240
 
-.thread322:                                       ; preds = %200, %225, %228
+.thread322:                                       ; preds = %228, %200, %225
   %lpad.thr_comm320 = landingpad { ptr, i32 }
           cleanup
   br label %.thread313

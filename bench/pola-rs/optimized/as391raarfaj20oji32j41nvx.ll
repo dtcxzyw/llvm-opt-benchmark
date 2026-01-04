@@ -1919,8 +1919,8 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
   br label %43
 
 43:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4634ef78a418de87E.exit16.i.i.i.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4634ef78a418de87E.exit14.i.i.i.i.i", %21, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4634ef78a418de87E.exit12.i.i.i.i.i"
-  %44 = phi ptr [ %14, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4634ef78a418de87E.exit12.i.i.i.i.i" ], [ %24, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4634ef78a418de87E.exit14.i.i.i.i.i" ], [ %34, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4634ef78a418de87E.exit16.i.i.i.i.i" ], [ %8, %21 ]
-  %.sroa.4.0.i.ph.i.i.i.i = phi i32 [ %19, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4634ef78a418de87E.exit12.i.i.i.i.i" ], [ %31, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4634ef78a418de87E.exit14.i.i.i.i.i" ], [ %42, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4634ef78a418de87E.exit16.i.i.i.i.i" ], [ %22, %21 ]
+  %44 = phi ptr [ %24, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4634ef78a418de87E.exit14.i.i.i.i.i" ], [ %34, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4634ef78a418de87E.exit16.i.i.i.i.i" ], [ %14, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4634ef78a418de87E.exit12.i.i.i.i.i" ], [ %8, %21 ]
+  %.sroa.4.0.i.ph.i.i.i.i = phi i32 [ %31, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4634ef78a418de87E.exit14.i.i.i.i.i" ], [ %42, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4634ef78a418de87E.exit16.i.i.i.i.i" ], [ %19, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4634ef78a418de87E.exit12.i.i.i.i.i" ], [ %22, %21 ]
   %45 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i, 1114112
   tail call void @llvm.assume(i1 %45)
   %46 = ptrtoint ptr %44 to i64
@@ -1974,7 +1974,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hda75c5e14e3ef09eE.exit.i.i.i"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hda75c5e14e3ef09eE.exit.i.i.i": ; preds = %64, %59, %56, %53
-  %.sroa.0.0.i.i.i.i.i.i = phi i8 [ %63, %59 ], [ %55, %53 ], [ %69, %64 ], [ %58, %56 ]
+  %.sroa.0.0.i.i.i.i.i.i = phi i8 [ %58, %56 ], [ %63, %59 ], [ %55, %53 ], [ %69, %64 ]
   %70 = trunc i8 %.sroa.0.0.i.i.i.i.i.i to i1
   br i1 %70, label %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17hcc94ffddd0343a5bE.exit.i.i", label %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h5f2efd25a037877fE.exit"
 
@@ -1982,10 +1982,10 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
   %71 = icmp eq ptr %44, %3
   br i1 %71, label %.loopexit, label %.lr.ph.i.i
 
-"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h5f2efd25a037877fE.exit": ; preds = %49, %51, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hda75c5e14e3ef09eE.exit.i.i.i", %2
-  %.sroa.4.020 = phi ptr [ %0, %2 ], [ %44, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hda75c5e14e3ef09eE.exit.i.i.i" ], [ %44, %51 ], [ %44, %49 ]
-  %.sroa.14.018 = phi i64 [ 0, %2 ], [ %48, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hda75c5e14e3ef09eE.exit.i.i.i" ], [ %48, %51 ], [ %48, %49 ]
-  %.sroa.0.0 = phi i64 [ 0, %2 ], [ %5, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hda75c5e14e3ef09eE.exit.i.i.i" ], [ %5, %51 ], [ %5, %49 ]
+"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h5f2efd25a037877fE.exit": ; preds = %51, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hda75c5e14e3ef09eE.exit.i.i.i", %49, %2
+  %.sroa.4.020 = phi ptr [ %0, %2 ], [ %44, %49 ], [ %44, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hda75c5e14e3ef09eE.exit.i.i.i" ], [ %44, %51 ]
+  %.sroa.14.018 = phi i64 [ 0, %2 ], [ %48, %49 ], [ %48, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hda75c5e14e3ef09eE.exit.i.i.i" ], [ %48, %51 ]
+  %.sroa.0.0 = phi i64 [ 0, %2 ], [ %5, %49 ], [ %5, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hda75c5e14e3ef09eE.exit.i.i.i" ], [ %5, %51 ]
   %72 = icmp eq ptr %.sroa.4.020, %3
   br i1 %72, label %.loopexit, label %.lr.ph.i.i4
 
@@ -2104,7 +2104,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hda75c5e14e3ef09eE.exit.i.i.i6"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hda75c5e14e3ef09eE.exit.i.i.i6": ; preds = %130, %125, %122, %119
-  %.sroa.0.0.i.i.i.i.i.i7 = phi i8 [ %129, %125 ], [ %121, %119 ], [ %135, %130 ], [ %124, %122 ]
+  %.sroa.0.0.i.i.i.i.i.i7 = phi i8 [ %124, %122 ], [ %129, %125 ], [ %121, %119 ], [ %135, %130 ]
   %136 = trunc i8 %.sroa.0.0.i.i.i.i.i.i7 to i1
   br i1 %136, label %137, label %139
 
@@ -2990,7 +2990,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   unreachable
 
 .body.i:                                          ; preds = %136, %133
-  %eh.lpad-body.i = phi { ptr, i32 } [ %134, %133 ], [ %137, %136 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %137, %136 ], [ %134, %133 ]
   invoke void @"_ZN4core3ptr93drop_in_place$LT$polars_arrow..array..binview..BinaryViewArrayGeneric$LT$$u5b$u8$u5d$$GT$$GT$17h7149b911ec8ab1d9E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %8) #20
           to label %.thread55 unwind label %140, !noalias !276
 
@@ -3166,7 +3166,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %79, %._crit_edge, %101, %84, %58, %45, %36
-  %.sroa.017.2.ph.ph = phi i1 [ false, %84 ], [ true, %101 ], [ false, %._crit_edge ], [ true, %58 ], [ true, %45 ], [ true, %36 ], [ true, %79 ]
+  %.sroa.017.2.ph.ph = phi i1 [ true, %101 ], [ true, %79 ], [ false, %84 ], [ true, %36 ], [ true, %45 ], [ true, %58 ], [ false, %._crit_edge ]
   %lpad.loopexit.split-lp62 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -3178,11 +3178,11 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
           to label %15 unwind label %145
 
 .thread55:                                        ; preds = %143, %.body.i, %203, %15
-  %.pn3644 = phi { ptr, i32 } [ %.pn3645, %203 ], [ %lpad.phi, %15 ], [ %144, %143 ], [ %eh.lpad-body.i, %.body.i ]
+  %.pn3644 = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %.pn3645, %203 ], [ %lpad.phi, %15 ], [ %144, %143 ]
   resume { ptr, i32 } %.pn3644
 
 203:                                              ; preds = %.thread, %15
-  %.pn3645 = phi { ptr, i32 } [ %lpad.phi, %15 ], [ %14, %.thread ]
+  %.pn3645 = phi { ptr, i32 } [ %14, %.thread ], [ %lpad.phi, %15 ]
   invoke void @"_ZN4core3ptr102drop_in_place$LT$polars_arrow..array..binview..mutable..MutableBinaryViewArray$LT$$u5b$u8$u5d$$GT$$GT$17hf93ea26309a87f43E"(ptr noalias noundef nonnull align 8 dereferenceable(160) %13) #20
           to label %.thread55 unwind label %145
 }
@@ -3231,7 +3231,7 @@ define hidden noundef range(i64 1, 0) i64 @_ZN10polars_row8variable4utf815len_fr
   br i1 %23, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hefa29a20834b184aE.exit", label %.lr.ph.i7
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hefa29a20834b184aE.exit": ; preds = %.lr.ph.i, %.lr.ph.i7, %17, %10
-  %.sroa.02.011.i8.lcssa.sink = phi i64 [ 0, %10 ], [ 0, %17 ], [ %21, %.lr.ph.i7 ], [ %14, %.lr.ph.i ]
+  %.sroa.02.011.i8.lcssa.sink = phi i64 [ %21, %.lr.ph.i7 ], [ 0, %10 ], [ 0, %17 ], [ %14, %.lr.ph.i ]
   %24 = icmp ult i64 %.sroa.02.011.i8.lcssa.sink, %1
   tail call void @llvm.assume(i1 %24)
   %25 = add nuw i64 %.sroa.02.011.i8.lcssa.sink, 1
@@ -3368,8 +3368,8 @@ define hidden void @_ZN10polars_row8variable4utf810decode_str17h8f928284d92228ab
   br label %.loopexit56
 
 .thread:                                          ; preds = %.loopexit.split-lp58, %.loopexit57.split.us, %.loopexit57.split, %.body.i, %166, %220
-  %.sroa.019.1 = phi i1 [ %.sroa.019.3, %220 ], [ false, %166 ], [ false, %.body.i ], [ %54, %.loopexit.split-lp58 ], [ true, %.loopexit57.split.us ], [ true, %.loopexit57.split ]
-  %.pn27 = phi { ptr, i32 } [ %lpad.phi, %220 ], [ %167, %166 ], [ %eh.lpad-body.i, %.body.i ], [ %lpad.loopexit.split-lp60, %.loopexit.split-lp58 ], [ %lpad.loopexit59.us, %.loopexit57.split.us ], [ %lpad.loopexit59, %.loopexit57.split ]
+  %.sroa.019.1 = phi i1 [ false, %.body.i ], [ %.sroa.019.3, %220 ], [ false, %166 ], [ %54, %.loopexit.split-lp58 ], [ true, %.loopexit57.split.us ], [ true, %.loopexit57.split ]
+  %.pn27 = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %lpad.phi, %220 ], [ %167, %166 ], [ %lpad.loopexit.split-lp60, %.loopexit.split-lp58 ], [ %lpad.loopexit59.us, %.loopexit57.split.us ], [ %lpad.loopexit59, %.loopexit57.split ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17he31c2637f108f7acE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17) #20
           to label %164 unwind label %168
 
@@ -3621,7 +3621,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   unreachable
 
 .body.i:                                          ; preds = %157, %154
-  %eh.lpad-body.i = phi { ptr, i32 } [ %155, %154 ], [ %158, %157 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %158, %157 ], [ %155, %154 ]
   invoke void @"_ZN4core3ptr84drop_in_place$LT$polars_arrow..array..binview..BinaryViewArrayGeneric$LT$str$GT$$GT$17h2c2802b3af10984cE"(ptr noalias noundef nonnull align 8 dereferenceable(120) %8) #20
           to label %.thread unwind label %161, !noalias !325
 
@@ -3781,7 +3781,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   br label %220
 
 .loopexit.split-lp:                               ; preds = %78, %92, %126, %._crit_edge, %113
-  %.sroa.019.3.ph = phi i1 [ true, %113 ], [ true, %78 ], [ true, %92 ], [ false, %._crit_edge ], [ true, %126 ]
+  %.sroa.019.3.ph = phi i1 [ true, %113 ], [ false, %._crit_edge ], [ true, %92 ], [ true, %78 ], [ true, %126 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %220

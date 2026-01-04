@@ -565,7 +565,7 @@ default.unreachable:                              ; preds = %0
   br label %_ZN3std3sys3pal4unix17decode_error_kind17hc61899be20d8e934E.exit
 
 _ZN3std3sys3pal4unix17decode_error_kind17hc61899be20d8e934E.exit: ; preds = %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %4, %50, %47, %43
-  %.0 = phi i8 [ %spec.select.i.i, %43 ], [ %49, %47 ], [ %52, %50 ], [ 13, %42 ], [ 40, %41 ], [ 8, %7 ], [ 9, %8 ], [ 28, %9 ], [ 6, %10 ], [ 2, %11 ], [ 3, %12 ], [ 30, %13 ], [ 26, %14 ], [ 12, %15 ], [ 27, %16 ], [ 4, %17 ], [ 35, %18 ], [ 20, %19 ], [ 15, %20 ], [ 18, %21 ], [ 0, %22 ], [ 38, %23 ], [ 24, %24 ], [ 36, %25 ], [ 32, %26 ], [ 33, %27 ], [ 10, %28 ], [ 5, %29 ], [ 7, %30 ], [ 14, %31 ], [ 16, %32 ], [ 11, %33 ], [ 17, %34 ], [ 25, %35 ], [ 19, %36 ], [ 22, %37 ], [ 29, %38 ], [ 31, %39 ], [ 1, %40 ], [ 34, %4 ]
+  %.0 = phi i8 [ %52, %50 ], [ %spec.select.i.i, %43 ], [ %49, %47 ], [ 13, %42 ], [ 40, %41 ], [ 1, %40 ], [ 8, %7 ], [ 9, %8 ], [ 28, %9 ], [ 6, %10 ], [ 2, %11 ], [ 3, %12 ], [ 30, %13 ], [ 26, %14 ], [ 12, %15 ], [ 27, %16 ], [ 4, %17 ], [ 35, %18 ], [ 20, %19 ], [ 15, %20 ], [ 18, %21 ], [ 0, %22 ], [ 38, %23 ], [ 24, %24 ], [ 36, %25 ], [ 32, %26 ], [ 33, %27 ], [ 10, %28 ], [ 5, %29 ], [ 7, %30 ], [ 14, %31 ], [ 16, %32 ], [ 11, %33 ], [ 17, %34 ], [ 25, %35 ], [ 19, %36 ], [ 22, %37 ], [ 29, %38 ], [ 31, %39 ], [ 34, %4 ]
   ret i8 %.0
 }
 
@@ -1097,7 +1097,7 @@ _ZN3std2io5error14repr_bitpacked11decode_repr17h068937df7005a051E.exit: ; preds 
           to label %"_ZN59_$LT$T$u20$as$u20$io_lifetimes..portability..AsFilelike$GT$16as_filelike_view17h6cb415f2f957a08fE.exit" unwind label %25
 
 24:                                               ; preds = %38, %27, %25
-  %.pn20 = phi { ptr, i32 } [ %26, %25 ], [ %39, %38 ], [ %28, %27 ]
+  %.pn20 = phi { ptr, i32 } [ %26, %25 ], [ %28, %27 ], [ %39, %38 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h7b7ff2f930f48e09E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9) #26
           to label %21 unwind label %46
 
@@ -3011,7 +3011,7 @@ _ZN7cap_std2fs4file4File9sync_data17h223ee8b44d1ac306E.exit: ; preds = %6
   br label %16
 
 16:                                               ; preds = %14, %9
-  %.pn.pn = phi { ptr, i32 } [ %15, %14 ], [ %10, %9 ]
+  %.pn.pn = phi { ptr, i32 } [ %10, %9 ], [ %15, %14 ]
   store i8 2, ptr %3, align 8
   resume { ptr, i32 } %.pn.pn
 
@@ -3087,7 +3087,7 @@ _ZN7cap_std2fs4file4File8sync_all17hc3bf2e75f8c3e2afE.exit: ; preds = %6
   br label %16
 
 16:                                               ; preds = %14, %9
-  %.pn.pn = phi { ptr, i32 } [ %15, %14 ], [ %10, %9 ]
+  %.pn.pn = phi { ptr, i32 } [ %10, %9 ], [ %15, %14 ]
   store i8 2, ptr %3, align 8
   resume { ptr, i32 } %.pn.pn
 
@@ -3142,9 +3142,9 @@ switch.lookup:                                    ; preds = %22
   br label %_ZN11wasi_common4sync4file13filetype_from17hd53e7a46c3969dfaE.exit
 
 _ZN11wasi_common4sync4file13filetype_from17hd53e7a46c3969dfaE.exit: ; preds = %switch.lookup, %16, %19, %24
-  %.sroa.0.0 = phi i8 [ 0, %24 ], [ 0, %19 ], [ 1, %16 ], [ 0, %switch.lookup ]
-  %.sroa.3.0 = phi i8 [ %.5.i, %24 ], [ 3, %19 ], [ undef, %16 ], [ %switch.masked, %switch.lookup ]
-  %.sroa.417.0 = phi ptr [ undef, %24 ], [ undef, %19 ], [ %18, %16 ], [ undef, %switch.lookup ]
+  %.sroa.0.0 = phi i8 [ 0, %19 ], [ 0, %24 ], [ 1, %16 ], [ 0, %switch.lookup ]
+  %.sroa.3.0 = phi i8 [ 3, %19 ], [ %.5.i, %24 ], [ undef, %16 ], [ %switch.masked, %switch.lookup ]
+  %.sroa.417.0 = phi ptr [ undef, %19 ], [ undef, %24 ], [ %18, %16 ], [ undef, %switch.lookup ]
   store i8 %.sroa.0.0, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.3.0, ptr %.sroa.3.0..sroa_idx, align 1
@@ -3470,7 +3470,7 @@ _ZN11wasi_common9snapshots9preview_15types5Error7context17hd3507375539a111bE.exi
   br label %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h73b20e6d34a729fdE.exit19"
 
 .body:                                            ; preds = %50, %41, %30, %39
-  %.pn9 = phi { ptr, i32 } [ %40, %39 ], [ %31, %30 ], [ %42, %41 ], [ %51, %50 ]
+  %.pn9 = phi { ptr, i32 } [ %40, %39 ], [ %51, %50 ], [ %31, %30 ], [ %42, %41 ]
   store i8 2, ptr %7, align 4
   resume { ptr, i32 } %.pn9
 
@@ -3761,7 +3761,7 @@ _ZN11wasi_common4sync4file13filetype_from17hd53e7a46c3969dfaE.exit: ; preds = %s
   br label %10
 
 78:                                               ; preds = %13, %74, %34, %44, %50, %56, %62, %72
-  %.pn21.pn.pn = phi { ptr, i32 } [ %45, %44 ], [ %35, %34 ], [ %57, %56 ], [ %51, %50 ], [ %73, %72 ], [ %63, %62 ], [ %75, %74 ], [ %14, %13 ]
+  %.pn21.pn.pn = phi { ptr, i32 } [ %45, %44 ], [ %51, %50 ], [ %35, %34 ], [ %63, %62 ], [ %57, %56 ], [ %73, %72 ], [ %75, %74 ], [ %14, %13 ]
   store i8 2, ptr %8, align 8
   resume { ptr, i32 } %.pn21.pn.pn
 
@@ -3841,7 +3841,7 @@ _ZN7cap_std2fs4file4File7set_len17h8b3be131c0a89f1dE.exit: ; preds = %6
   br label %18
 
 18:                                               ; preds = %16, %11
-  %.pn.pn = phi { ptr, i32 } [ %17, %16 ], [ %12, %11 ]
+  %.pn.pn = phi { ptr, i32 } [ %12, %11 ], [ %17, %16 ]
   store i8 2, ptr %3, align 8
   resume { ptr, i32 } %.pn.pn
 
@@ -3945,7 +3945,7 @@ switch.lookup:                                    ; preds = %2
   br label %33
 
 33:                                               ; preds = %31, %15
-  %.pn.pn = phi { ptr, i32 } [ %32, %31 ], [ %16, %15 ]
+  %.pn.pn = phi { ptr, i32 } [ %16, %15 ], [ %32, %31 ]
   store i8 2, ptr %3, align 1
   resume { ptr, i32 } %.pn.pn
 
@@ -4045,7 +4045,7 @@ default.unreachable10:                            ; preds = %2
   br label %27
 
 27:                                               ; preds = %25, %7
-  %.pn.pn = phi { ptr, i32 } [ %26, %25 ], [ %8, %7 ]
+  %.pn.pn = phi { ptr, i32 } [ %8, %7 ], [ %26, %25 ]
   store i8 2, ptr %4, align 8
   resume { ptr, i32 } %.pn.pn
 
@@ -4148,7 +4148,7 @@ default.unreachable11:                            ; preds = %3
   br label %26
 
 26:                                               ; preds = %16, %24
-  %.pn5 = phi { ptr, i32 } [ %25, %24 ], [ %17, %16 ]
+  %.pn5 = phi { ptr, i32 } [ %17, %16 ], [ %25, %24 ]
   store i8 2, ptr %6, align 8
   resume { ptr, i32 } %.pn5
 
@@ -4260,7 +4260,7 @@ default.unreachable16:                            ; preds = %3
   br label %6
 
 37:                                               ; preds = %33, %26
-  %.pn5 = phi { ptr, i32 } [ %34, %33 ], [ %27, %26 ]
+  %.pn5 = phi { ptr, i32 } [ %27, %26 ], [ %34, %33 ]
   store i8 2, ptr %4, align 8
   resume { ptr, i32 } %.pn5
 
@@ -4367,7 +4367,7 @@ default.unreachable11:                            ; preds = %3
   br label %27
 
 27:                                               ; preds = %17, %25
-  %.pn5 = phi { ptr, i32 } [ %26, %25 ], [ %18, %17 ]
+  %.pn5 = phi { ptr, i32 } [ %18, %17 ], [ %26, %25 ]
   store i8 2, ptr %7, align 8
   resume { ptr, i32 } %.pn5
 
@@ -4495,7 +4495,7 @@ _ZN4core4iter6traits8iterator8Iterator3sum17h998cd3cdd4c7dcb3E.exit: ; preds = %
   br label %6
 
 45:                                               ; preds = %41, %34, %17
-  %.pn5 = phi { ptr, i32 } [ %18, %17 ], [ %42, %41 ], [ %35, %34 ]
+  %.pn5 = phi { ptr, i32 } [ %42, %41 ], [ %35, %34 ], [ %18, %17 ]
   store i8 2, ptr %4, align 8
   resume { ptr, i32 } %.pn5
 
@@ -4723,7 +4723,7 @@ _ZN3std2io5error14repr_bitpacked11decode_repr17h068937df7005a051E.exit.i: ; pred
           to label %"_ZN59_$LT$T$u20$as$u20$io_lifetimes..portability..AsFilelike$GT$16as_filelike_view17h428748ef707a3788E.exit.i" unwind label %30, !noalias !517
 
 29:                                               ; preds = %41, %32, %30
-  %.pn20.i = phi { ptr, i32 } [ %31, %30 ], [ %42, %41 ], [ %33, %32 ]
+  %.pn20.i = phi { ptr, i32 } [ %31, %30 ], [ %33, %32 ], [ %42, %41 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h7b7ff2f930f48e09E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8) #26
           to label %.body unwind label %49, !noalias !517
 
@@ -4800,8 +4800,8 @@ _ZN3std2io5error14repr_bitpacked11decode_repr17h068937df7005a051E.exit38.i: ; pr
   unreachable
 
 .noexc40.i:                                       ; preds = %34, %36, %36, %39, %_ZN3std2io5error14repr_bitpacked11decode_repr17h068937df7005a051E.exit38.i, %48
-  %.sroa.012.0 = phi i1 [ false, %48 ], [ true, %_ZN3std2io5error14repr_bitpacked11decode_repr17h068937df7005a051E.exit38.i ], [ true, %39 ], [ true, %36 ], [ true, %36 ], [ false, %34 ]
-  %.sroa.7.0 = phi ptr [ null, %48 ], [ %.sroa.7.0.copyload15.pre, %_ZN3std2io5error14repr_bitpacked11decode_repr17h068937df7005a051E.exit38.i ], [ %.sroa.7.0.copyload15.pre, %39 ], [ %.sroa.7.0.copyload15.pre, %36 ], [ %.sroa.7.0.copyload15.pre, %36 ], [ %.sroa.7.0.copyload15.pre, %34 ]
+  %.sroa.012.0 = phi i1 [ false, %48 ], [ true, %36 ], [ true, %_ZN3std2io5error14repr_bitpacked11decode_repr17h068937df7005a051E.exit38.i ], [ true, %39 ], [ true, %36 ], [ false, %34 ]
+  %.sroa.7.0 = phi ptr [ null, %48 ], [ %.sroa.7.0.copyload15.pre, %36 ], [ %.sroa.7.0.copyload15.pre, %_ZN3std2io5error14repr_bitpacked11decode_repr17h068937df7005a051E.exit38.i ], [ %.sroa.7.0.copyload15.pre, %39 ], [ %.sroa.7.0.copyload15.pre, %36 ], [ %.sroa.7.0.copyload15.pre, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !511
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !511
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !528
@@ -4846,7 +4846,7 @@ _ZN3std2io5error14repr_bitpacked11decode_repr17h068937df7005a051E.exit38.i: ; pr
   br label %.body
 
 .body:                                            ; preds = %59, %55, %29
-  %.pn5 = phi { ptr, i32 } [ %60, %59 ], [ %56, %55 ], [ %.pn20.i, %29 ]
+  %.pn5 = phi { ptr, i32 } [ %56, %55 ], [ %60, %59 ], [ %.pn20.i, %29 ]
   store i8 2, ptr %11, align 8
   resume { ptr, i32 } %.pn5
 

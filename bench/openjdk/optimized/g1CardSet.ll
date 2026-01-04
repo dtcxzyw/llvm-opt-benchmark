@@ -1181,7 +1181,7 @@ _ZN18G1CardSetContainer22try_increment_refcountEv.exit.loopexit: ; preds = %30
   br i1 %37, label %_ZN18G1CardSetContainer22try_increment_refcountEv.exit.thread, label %30, !llvm.loop !13
 
 _ZN18G1CardSetContainer22try_increment_refcountEv.exit.thread: ; preds = %_ZN18G1CardSetContainer22try_increment_refcountEv.exit.loopexit, %34, %_ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit
-  %38 = phi ptr [ %13, %_ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit ], [ %26, %34 ], [ %19, %_ZN18G1CardSetContainer22try_increment_refcountEv.exit.loopexit ]
+  %38 = phi ptr [ %26, %34 ], [ %13, %_ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit ], [ %19, %_ZN18G1CardSetContainer22try_increment_refcountEv.exit.loopexit ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !10
   store volatile i64 %6, ptr %5, align 8
   ret ptr %38
@@ -1387,8 +1387,8 @@ _ZN14G1CardSetArray20G1CardSetArrayLockerC2EPVj.exit: ; preds = %_ZN9SpinYield4w
   br label %.loopexit
 
 .loopexit:                                        ; preds = %37, %._crit_edge26, %45
-  %.sroa.4.0 = phi i32 [ %.0.lcssa.i, %._crit_edge26 ], [ %50, %45 ], [ %.0.lcssa.i, %37 ]
-  %.115 = phi i32 [ 0, %._crit_edge26 ], [ 2, %45 ], [ 1, %37 ]
+  %.sroa.4.0 = phi i32 [ %50, %45 ], [ %.0.lcssa.i, %._crit_edge26 ], [ %.0.lcssa.i, %37 ]
+  %.115 = phi i32 [ 2, %45 ], [ 0, %._crit_edge26 ], [ 1, %37 ]
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !10
   store volatile i32 %.sroa.4.0, ptr %4, align 4
   br label %.loopexit21
@@ -1484,7 +1484,7 @@ _ZN18G1CardSetContainer22try_increment_refcountEv.exit.loopexit.i: ; preds = %50
   br i1 %57, label %_ZN9G1CardSet17acquire_containerEPVPv.exit, label %50, !llvm.loop !13
 
 _ZN9G1CardSet17acquire_containerEPVPv.exit:       ; preds = %_ZN18G1CardSetContainer22try_increment_refcountEv.exit.loopexit.i, %54, %_ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit.i
-  %58 = phi ptr [ %33, %_ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit.i ], [ %46, %54 ], [ %39, %_ZN18G1CardSetContainer22try_increment_refcountEv.exit.loopexit.i ]
+  %58 = phi ptr [ %46, %54 ], [ %33, %_ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit.i ], [ %39, %_ZN18G1CardSetContainer22try_increment_refcountEv.exit.loopexit.i ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !10
   store volatile i64 %26, ptr %25, align 8
   %59 = tail call noundef i32 @_ZN9G1CardSet16add_to_containerEPVPvS0_jjb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %16, ptr noundef %58, i32 noundef %2, i32 noundef %3, i1 noundef zeroext true)
@@ -1579,7 +1579,7 @@ _ZN9G1CardSet17release_containerEPv.exit.i36:     ; preds = %91
   br label %_ZN9G1CardSet32release_and_maybe_free_containerEPv.exit37
 
 _ZN9G1CardSet32release_and_maybe_free_containerEPv.exit37: ; preds = %_ZN9G1CardSet32release_and_maybe_free_containerEPv.exit, %5, %102, %_ZN9G1CardSet17release_containerEPv.exit.i36, %91
-  %.0 = phi i32 [ %.030, %91 ], [ %.030, %_ZN9G1CardSet17release_containerEPv.exit.i36 ], [ %.030, %102 ], [ 0, %5 ], [ 0, %_ZN9G1CardSet32release_and_maybe_free_containerEPv.exit ]
+  %.0 = phi i32 [ %.030, %102 ], [ %.030, %91 ], [ %.030, %_ZN9G1CardSet17release_containerEPv.exit.i36 ], [ 0, %5 ], [ 0, %_ZN9G1CardSet32release_and_maybe_free_containerEPv.exit ]
   ret i32 %.0
 }
 
@@ -1742,7 +1742,7 @@ default.unreachable28:                            ; preds = %6
   unreachable
 
 _ZN9G1CardSet17add_to_inline_ptrEPVPvS0_j.exit:   ; preds = %85, %51, %37, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.thread.i.i, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.i.i, %90, %75, %54, %95, %92
-  %.015 = phi i32 [ 1, %92 ], [ %57, %54 ], [ %96, %95 ], [ %80, %75 ], [ 2, %90 ], [ 0, %51 ], [ 2, %37 ], [ 0, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.thread.i.i ], [ 1, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.i.i ], [ 1, %85 ]
+  %.015 = phi i32 [ 1, %92 ], [ %96, %95 ], [ %57, %54 ], [ 0, %51 ], [ %80, %75 ], [ 2, %90 ], [ 0, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.thread.i.i ], [ 1, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.i.i ], [ 2, %37 ], [ 1, %85 ]
   ret i32 %.015
 }
 
@@ -2186,7 +2186,7 @@ _ZN18G1CardSetInlinePtr4findEjjjj.exit.thread.i:  ; preds = %27, %_ZN18G1CardSet
   br i1 %.not21.i, label %13, label %_ZN18G1CardSetInlinePtr3addEjjj.exit, !llvm.loop !21
 
 _ZN18G1CardSetInlinePtr3addEjjj.exit:             ; preds = %_ZN18G1CardSetInlinePtr4findEjjjj.exit.i, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.thread.i, %31, %45
-  %.0.i = phi i32 [ 1, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.i ], [ 0, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.thread.i ], [ 2, %31 ], [ 0, %45 ]
+  %.0.i = phi i32 [ 2, %31 ], [ 1, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.i ], [ 0, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.thread.i ], [ 0, %45 ]
   ret i32 %.0.i
 }
 
@@ -2795,7 +2795,7 @@ _ZN18G1CardSetContainer22try_increment_refcountEv.exit.loopexit.i: ; preds = %39
   br i1 %46, label %_ZN9G1CardSet17acquire_containerEPVPv.exit, label %39, !llvm.loop !13
 
 _ZN9G1CardSet17acquire_containerEPVPv.exit:       ; preds = %_ZN18G1CardSetContainer22try_increment_refcountEv.exit.loopexit.i, %43, %_ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit.i
-  %47 = phi ptr [ %22, %_ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit.i ], [ %35, %43 ], [ %28, %_ZN18G1CardSetContainer22try_increment_refcountEv.exit.loopexit.i ]
+  %47 = phi ptr [ %35, %43 ], [ %22, %_ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit.i ], [ %28, %_ZN18G1CardSetContainer22try_increment_refcountEv.exit.loopexit.i ]
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !10
   store volatile i64 %15, ptr %14, align 8
   %48 = call noundef i32 @_ZN9G1CardSet16add_to_containerEPVPvS0_jjb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %10, ptr noundef %47, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3)
@@ -3134,7 +3134,7 @@ _ZN9G1CardSet13get_containerEj.exit.thread:       ; preds = %55, %_ZNK19Concurre
   br i1 %exitcond.not.i.i, label %_ZN18G1CardSetInlinePtr4findEjjjj.exit.i, label %78, !llvm.loop !20
 
 _ZN18G1CardSetInlinePtr4findEjjjj.exit.i:         ; preds = %81, %78
-  %.016.i.i = phi i32 [ %68, %81 ], [ %.019.i.i, %78 ]
+  %.016.i.i = phi i32 [ %.019.i.i, %78 ], [ %68, %81 ]
   %84 = icmp samesign ult i32 %.016.i.i, %68
   br label %_ZN18G1CardSetInlinePtr8containsEjj.exit
 
@@ -3274,7 +3274,7 @@ _ZN18G1CardSetInlinePtr4findEjjjj.exit.i:         ; preds = %81, %78
   br i1 %exitcond.not.i.i.i, label %_ZN18G1CardSetInlinePtr4findEjjjj.exit.i.i, label %159, !llvm.loop !20
 
 _ZN18G1CardSetInlinePtr4findEjjjj.exit.i.i:       ; preds = %162, %159
-  %.016.i.i.i = phi i32 [ %151, %162 ], [ %.019.i.i.i, %159 ]
+  %.016.i.i.i = phi i32 [ %.019.i.i.i, %159 ], [ %151, %162 ]
   %165 = icmp samesign ult i32 %.016.i.i.i, %151
   br label %_ZN18G1CardSetInlinePtr8containsEjj.exit
 
@@ -3282,7 +3282,7 @@ default.unreachable37:                            ; preds = %108, %62
   unreachable
 
 _ZN18G1CardSetInlinePtr8containsEjj.exit:         ; preds = %.lr.ph.i.i18, %.lr.ph.i, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.i.i, %149, %134, %123, %108, %85, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.i, %66, %_ZN9G1CardSet13get_containerEj.exit.thread, %57, %96
-  %.0 = phi i1 [ %107, %96 ], [ true, %57 ], [ false, %_ZN9G1CardSet13get_containerEj.exit.thread ], [ %84, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.i ], [ false, %66 ], [ false, %85 ], [ %148, %134 ], [ true, %108 ], [ false, %123 ], [ %165, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.i.i ], [ false, %149 ], [ %95, %.lr.ph.i ], [ %133, %.lr.ph.i.i18 ]
+  %.0 = phi i1 [ false, %123 ], [ false, %_ZN9G1CardSet13get_containerEj.exit.thread ], [ true, %57 ], [ false, %66 ], [ %107, %96 ], [ %84, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.i ], [ false, %85 ], [ %95, %.lr.ph.i ], [ false, %149 ], [ true, %108 ], [ %148, %134 ], [ %165, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.i.i ], [ %133, %.lr.ph.i.i18 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !10
   store volatile i64 %7, ptr %6, align 8
   ret i1 %.0
@@ -4596,7 +4596,7 @@ _ZN19ConcurrentHashTableI24G1CardSetHashTableConfigL8MEMFLAGS6EE13InternalTableC
   br label %_ZN19ConcurrentHashTableI24G1CardSetHashTableConfigL8MEMFLAGS6EE15try_resize_lockEP6Thread.exit.thread
 
 _ZN19ConcurrentHashTableI24G1CardSetHashTableConfigL8MEMFLAGS6EE15try_resize_lockEP6Thread.exit.thread: ; preds = %7, %14, %3, %_ZN19ConcurrentHashTableI24G1CardSetHashTableConfigL8MEMFLAGS6EE13InternalTableC2Em.exit, %25
-  %.0 = phi i1 [ false, %25 ], [ true, %_ZN19ConcurrentHashTableI24G1CardSetHashTableConfigL8MEMFLAGS6EE13InternalTableC2Em.exit ], [ false, %3 ], [ false, %14 ], [ false, %7 ]
+  %.0 = phi i1 [ false, %3 ], [ false, %25 ], [ true, %_ZN19ConcurrentHashTableI24G1CardSetHashTableConfigL8MEMFLAGS6EE13InternalTableC2Em.exit ], [ false, %14 ], [ false, %7 ]
   ret i1 %.0
 }
 
@@ -4743,8 +4743,8 @@ _ZN19ConcurrentHashTableI24G1CardSetHashTableConfigL8MEMFLAGS6EE6Bucket4lockEv.e
   unreachable
 
 85:                                               ; preds = %75, %65
-  %.145.i = phi ptr [ %.04052.i, %65 ], [ %.04450.i, %75 ]
-  %.143.i = phi ptr [ %.04251.i, %65 ], [ %.04052.i, %75 ]
+  %.145.i = phi ptr [ %.04450.i, %75 ], [ %.04052.i, %65 ]
+  %.143.i = phi ptr [ %.04052.i, %75 ], [ %.04251.i, %65 ]
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !41
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !10
   %86 = load volatile ptr, ptr %8, align 8
@@ -6904,7 +6904,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread: ; preds = %84,
   br label %129
 
 129:                                              ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread, %113, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit ], [ null, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit ], [ %2, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26 ], [ %112, %113 ], [ %112, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread ]
+  %.0 = phi ptr [ null, %4 ], [ %2, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26 ], [ null, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit ], [ %112, %113 ], [ %112, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread ]
   ret ptr %.0
 }
 
@@ -7011,7 +7011,7 @@ _ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit:      ; preds = %44, %45, %49, %54
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 _ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %61, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, %5, %11, %24, %31, %2
-  %.0 = phi ptr [ %1, %2 ], [ %.0.i.i.i, %31 ], [ %.0.i.i.i, %24 ], [ %1, %11 ], [ %1, %5 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
+  %.0 = phi ptr [ %1, %5 ], [ %1, %2 ], [ %.0.i.i.i, %24 ], [ %.0.i.i.i, %31 ], [ %1, %11 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
   ret ptr %.0
 }
 
@@ -7250,7 +7250,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread: ; preds = %84,
   br label %115
 
 115:                                              ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread, %113, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit ], [ null, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit ], [ %2, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26 ], [ %112, %113 ], [ %112, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread ]
+  %.0 = phi ptr [ null, %4 ], [ %2, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26 ], [ null, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit ], [ %112, %113 ], [ %112, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread ]
   ret ptr %.0
 }
 
@@ -7348,7 +7348,7 @@ _ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDe
   br label %_ZN8XBarrier7barrierIXadL_ZNS_25is_good_or_null_fast_pathEmEEXadL_ZNS_42weak_load_barrier_on_phantom_oop_slow_pathEmEEEEP7oopDescPVS2_S2_.exit
 
 _ZN8XBarrier7barrierIXadL_ZNS_25is_good_or_null_fast_pathEmEEXadL_ZNS_42weak_load_barrier_on_phantom_oop_slow_pathEmEEEEP7oopDescPVS2_S2_.exit: ; preds = %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, %22, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, %6
-  %.0 = phi ptr [ %18, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i ], [ %1, %6 ], [ %29, %22 ], [ %46, %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i ]
+  %.0 = phi ptr [ %1, %6 ], [ %18, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i ], [ %29, %22 ], [ %46, %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i ]
   ret ptr %.0
 }
 
@@ -7904,7 +7904,7 @@ _ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDe
   br label %_ZN8XBarrier7barrierIXadL_ZNS_25is_good_or_null_fast_pathEmEEXadL_ZNS_39weak_load_barrier_on_weak_oop_slow_pathEmEEEEP7oopDescPVS2_S2_.exit
 
 _ZN8XBarrier7barrierIXadL_ZNS_25is_good_or_null_fast_pathEmEEXadL_ZNS_39weak_load_barrier_on_weak_oop_slow_pathEmEEEEP7oopDescPVS2_S2_.exit: ; preds = %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, %22, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, %6
-  %.0 = phi ptr [ %18, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i ], [ %1, %6 ], [ %29, %22 ], [ %46, %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i ]
+  %.0 = phi ptr [ %1, %6 ], [ %18, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i ], [ %29, %22 ], [ %46, %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i ]
   ret ptr %.0
 }
 
@@ -10694,7 +10694,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br i1 %49, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop14G1CMOopClosureEEEbPT_mm.exit
 
 _ZNK6BitMap18find_first_set_bitEmm.exit.i.i:      ; preds = %46, %30
-  %.0.i.i.i.i = phi i64 [ %.0917.i.i, %30 ], [ %48, %46 ]
+  %.0.i.i.i.i = phi i64 [ %48, %46 ], [ %.0917.i.i, %30 ]
   %.not.not.i.i = icmp ult i64 %.0.i.i.i.i, %25
   br i1 %.not.not.i.i, label %50, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop14G1CMOopClosureEEEbPT_mm.exit
 
@@ -10937,7 +10937,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br i1 %49, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc14G1CMOopClosureEEEbPT_mm.exit
 
 _ZNK6BitMap18find_first_set_bitEmm.exit.i.i:      ; preds = %46, %30
-  %.0.i.i.i.i = phi i64 [ %.0917.i.i, %30 ], [ %48, %46 ]
+  %.0.i.i.i.i = phi i64 [ %48, %46 ], [ %.0917.i.i, %30 ]
   %.not.not.i.i = icmp ult i64 %.0.i.i.i.i, %25
   br i1 %.not.not.i.i, label %50, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc14G1CMOopClosureEEEbPT_mm.exit
 
@@ -15959,7 +15959,7 @@ define linkonce_odr hidden void @_ZN13G1CardSetHowl15iterate_cardsetI23G1Contain
   br i1 %74, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, label %_ZN18G1CardSetInlinePtr7iterateI23G1ContainerCardsClosureIN9G1CardSet11CardClosureEEEEvRT_j.exit
 
 _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i:    ; preds = %71, %55
-  %.0.i.i.i.i.i = phi i64 [ %.01018.i.i.i, %55 ], [ %73, %71 ]
+  %.0.i.i.i.i.i = phi i64 [ %73, %71 ], [ %.01018.i.i.i, %55 ]
   %.not.not.i.i.i = icmp ult i64 %.0.i.i.i.i.i, %50
   br i1 %.not.not.i.i.i, label %75, label %_ZN18G1CardSetInlinePtr7iterateI23G1ContainerCardsClosureIN9G1CardSet11CardClosureEEEEvRT_j.exit
 

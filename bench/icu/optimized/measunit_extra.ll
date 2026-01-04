@@ -271,7 +271,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1850,8 +1850,8 @@ define void @_ZN6icu_7715MeasureUnitImpl9serializeER10UErrorCode(ptr noundef non
   br label %52
 
 52:                                               ; preds = %50, %._crit_edge
-  %.139 = phi i1 [ false, %._crit_edge ], [ %not., %50 ]
-  %.137 = phi i1 [ %49, %._crit_edge ], [ %spec.select78, %50 ]
+  %.139 = phi i1 [ %not., %50 ], [ false, %._crit_edge ]
+  %.137 = phi i1 [ %spec.select78, %50 ], [ %49, %._crit_edge ]
   %53 = load i32, ptr %1, align 4, !tbaa !13
   %54 = icmp slt i32 %53, 1
   br i1 %54, label %55, label %.loopexit
@@ -1966,7 +1966,7 @@ _ZN6icu_7710CharString6appendERKS0_R10UErrorCode.exit: ; preds = %76
           to label %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit unwind label %41
 
 _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit: ; preds = %.invoke, %80, %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit57, %89, %59
-  %.135 = phi i1 [ %.03471, %59 ], [ %.03471, %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit57 ], [ %.03471, %89 ], [ true, %80 ], [ %.03471, %.invoke ]
+  %.135 = phi i1 [ %.03471, %.invoke ], [ %.03471, %59 ], [ %.03471, %89 ], [ %.03471, %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit57 ], [ true, %80 ]
   %96 = load ptr, ptr %34, align 8, !tbaa !33
   %97 = getelementptr inbounds nuw ptr, ptr %96, i64 %indvars.iv
   %98 = load ptr, ptr %97, align 8, !tbaa !34
@@ -2420,8 +2420,8 @@ _ZN6icu_7715MeasureUnitImplC2Ev.exit:             ; preds = %2
   br label %29
 
 29:                                               ; preds = %21, %16, %28, %24
-  %.sroa.8.0 = phi i32 [ %.sroa.8.0.copyload, %24 ], [ 1, %28 ], [ 1, %16 ], [ 1, %21 ]
-  %.sroa.08.sroa.5.0 = phi i64 [ %.sroa.08.0.copyload, %24 ], [ 133143986175, %28 ], [ 133143986175, %16 ], [ 133143986175, %21 ]
+  %.sroa.8.0 = phi i32 [ 1, %28 ], [ 1, %16 ], [ %.sroa.8.0.copyload, %24 ], [ 1, %21 ]
+  %.sroa.08.sroa.5.0 = phi i64 [ 133143986175, %28 ], [ 133143986175, %16 ], [ %.sroa.08.0.copyload, %24 ], [ 133143986175, %21 ]
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %9) #19
   %30 = load i32, ptr %4, align 8, !tbaa !28
   %31 = icmp sgt i32 %30, 0
@@ -2811,7 +2811,7 @@ _ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.us: ; preds = %49
   br label %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us
 
 _ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us: ; preds = %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.us, %49, %.lr.ph.split.us.split
-  %63 = phi ptr [ %.01526.us, %.lr.ph.split.us.split ], [ %.01526.us, %49 ], [ %spec.select.us, %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.us ]
+  %63 = phi ptr [ %.01526.us, %49 ], [ %spec.select.us, %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.us ], [ %.01526.us, %.lr.ph.split.us.split ]
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count62
   br i1 %exitcond63.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !92
@@ -2861,7 +2861,7 @@ _ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.us34: ; preds = %69
   br label %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us44
 
 _ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.thread.us44: ; preds = %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.us34, %69, %.lr.ph.split.split.us
-  %83 = phi ptr [ %.01526.us30, %.lr.ph.split.split.us ], [ %.01526.us30, %69 ], [ %spec.select.us43, %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.us34 ]
+  %83 = phi ptr [ %.01526.us30, %69 ], [ %spec.select.us43, %_ZNK6icu_7714SingleUnitImpl16isCompatibleWithERKS0_.exit.us34 ], [ %.01526.us30, %.lr.ph.split.split.us ]
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count67
   br i1 %exitcond68.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !92
@@ -3525,7 +3525,7 @@ _ZN6icu_7712_GLOBAL__N_16Parser24nextSingleUnitOrConstantERbR10UErrorCode.exit.t
   store i32 1, ptr %2, align 4, !tbaa !13
   br label %.critedge
 
-.critedge:                                        ; preds = %.noexc34, %.noexc33, %.noexc, %73, %_ZN6icu_7712_GLOBAL__N_16Parser24nextSingleUnitOrConstantERbR10UErrorCode.exit, %.noexc35, %.critedge.sink.split, %_ZN6icu_7715MeasureUnitImplC2Ev.exit, %._crit_edge
+.critedge:                                        ; preds = %.noexc33, %.noexc, %.noexc34, %73, %_ZN6icu_7712_GLOBAL__N_16Parser24nextSingleUnitOrConstantERbR10UErrorCode.exit, %.noexc35, %.critedge.sink.split, %_ZN6icu_7715MeasureUnitImplC2Ev.exit, %._crit_edge
   ret void
 }
 
@@ -3998,7 +3998,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZN6icu_7712_GLOBAL__N_118compareS
   br label %_ZNK6icu_7714SingleUnitImpl9compareToERKS0_.exit
 
 _ZNK6icu_7714SingleUnitImpl9compareToERKS0_.exit: ; preds = %3, %12, %15, %26, %28, %30, %32, %46, %48, %50
-  %.0.i = phi i32 [ 1, %3 ], [ -1, %12 ], [ -1, %15 ], [ 1, %26 ], [ -1, %28 ], [ 1, %30 ], [ 1, %32 ], [ -1, %46 ], [ 1, %48 ], [ %..i, %50 ]
+  %.0.i = phi i32 [ -1, %12 ], [ 1, %3 ], [ 1, %30 ], [ -1, %15 ], [ 1, %26 ], [ -1, %28 ], [ 1, %48 ], [ 1, %32 ], [ -1, %46 ], [ %..i, %50 ]
   ret i32 %.0.i
 }
 
@@ -4252,7 +4252,7 @@ define noundef i64 @_ZNK6icu_7711MeasureUnit22getConstantDenominatorER10UErrorCo
   br label %15
 
 15:                                               ; preds = %8, %2, %12, %7
-  %.0 = phi i64 [ 0, %7 ], [ %14, %12 ], [ 0, %2 ], [ 0, %8 ]
+  %.0 = phi i64 [ %14, %12 ], [ 0, %7 ], [ 0, %2 ], [ 0, %8 ]
   ret i64 %.0
 }
 
@@ -4643,7 +4643,7 @@ define void @_ZNK6icu_7711MeasureUnit7productERKS0_R10UErrorCode(ptr dead_on_unw
   br i1 %55, label %47, label %._crit_edge, !llvm.loop !119
 
 _ZNK6icu_7711MeasureUnit22getConstantDenominatorER10UErrorCode.exit: ; preds = %42, %38, %37, %.noexc
-  %.0.i = phi i64 [ 0, %37 ], [ %44, %42 ], [ 0, %.noexc ], [ 0, %38 ]
+  %.0.i = phi i64 [ %44, %42 ], [ 0, %37 ], [ 0, %.noexc ], [ 0, %38 ]
   %56 = invoke noundef i32 @_ZNK6icu_7711MeasureUnit13getComplexityER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(19) %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %.noexc36 unwind label %72
 
@@ -5026,7 +5026,7 @@ _ZN6icu_7715MeasureUnitImplD2Ev.exit:             ; preds = %._crit_edge.i.i, %6
   ret void
 
 80:                                               ; preds = %60, %.loopexit, %44
-  %.pn.pn = phi { ptr, i32 } [ %45, %44 ], [ %61, %60 ], [ %47, %.loopexit ]
+  %.pn.pn = phi { ptr, i32 } [ %45, %44 ], [ %47, %.loopexit ], [ %61, %60 ]
   call void @_ZN6icu_7715MeasureUnitImplD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %5) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
@@ -5158,8 +5158,8 @@ define internal void @_ZN6icu_7712_GLOBAL__N_114CategoriesSink3putEPKcRNS_13Reso
 
 .preheader:                                       ; preds = %16
   %26 = call noundef signext i8 @_ZNK6icu_7713ResourceArray8getValueEiRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(21) %6, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  %.not1922 = icmp eq i8 %26, 0
-  br i1 %.not1922, label %.loopexit, label %.lr.ph
+  %.not1923 = icmp eq i8 %26, 0
+  br i1 %.not1923, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -5172,8 +5172,8 @@ define internal void @_ZN6icu_7712_GLOBAL__N_114CategoriesSink3putEPKcRNS_13Reso
   store i32 8, ptr %4, align 4, !tbaa !13
   br label %.loopexit
 
-32:                                               ; preds = %.lr.ph, %41
-  %.023 = phi i32 [ 0, %.lr.ph ], [ %59, %41 ]
+32:                                               ; preds = %.lr.ph, %.critedge
+  %.024 = phi i32 [ 0, %.lr.ph ], [ %58, %.critedge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %33 = load ptr, ptr %2, align 8, !tbaa !53
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 88
@@ -5181,53 +5181,53 @@ define internal void @_ZN6icu_7712_GLOBAL__N_114CategoriesSink3putEPKcRNS_13Reso
   call void %35(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::ResourceTable") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %36 = load i32, ptr %4, align 4, !tbaa !13
   %37 = icmp slt i32 %36, 1
-  br i1 %37, label %38, label %.critedge
+  br i1 %37, label %38, label %.loopexit22
 
 38:                                               ; preds = %32
   %39 = load i32, ptr %27, align 8, !tbaa !129
   %.not21 = icmp eq i32 %39, 1
-  br i1 %.not21, label %41, label %40
+  br i1 %.not21, label %.critedge, label %40
 
 40:                                               ; preds = %38
   store i32 3, ptr %4, align 4, !tbaa !13
-  br label %.critedge
+  br label %.loopexit22
 
-41:                                               ; preds = %38
+.critedge:                                        ; preds = %38
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %42 = call noundef signext i8 @_ZNK6icu_7713ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %7, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %41 = call noundef signext i8 @_ZNK6icu_7713ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %7, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %43 = load ptr, ptr %2, align 8, !tbaa !53
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
-  %45 = load ptr, ptr %44, align 8
-  %46 = call noundef ptr %45(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %4)
-  %47 = load ptr, ptr %28, align 8, !tbaa !55
-  %48 = load i32, ptr %17, align 8, !tbaa !63
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds ptr, ptr %47, i64 %49
-  store ptr %46, ptr %50, align 8, !tbaa !43
-  %51 = load ptr, ptr %29, align 8, !tbaa !131
-  %52 = load ptr, ptr %8, align 8, !tbaa !22
-  call void @_ZN6icu_7711StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef %52)
-  %53 = load i32, ptr %17, align 8, !tbaa !63
-  %54 = load ptr, ptr %10, align 8
-  %55 = load i32, ptr %30, align 8
-  %56 = call noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7716BytesTrieBuilder3addENS_11StringPieceEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %51, ptr %54, i32 %55, i32 noundef %53, ptr noundef nonnull align 4 dereferenceable(4) %4)
-  %57 = load i32, ptr %17, align 8, !tbaa !63
-  %58 = add nsw i32 %57, 1
-  store i32 %58, ptr %17, align 8, !tbaa !63
+  %42 = load ptr, ptr %2, align 8, !tbaa !53
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
+  %44 = load ptr, ptr %43, align 8
+  %45 = call noundef ptr %44(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %46 = load ptr, ptr %28, align 8, !tbaa !55
+  %47 = load i32, ptr %17, align 8, !tbaa !63
+  %48 = sext i32 %47 to i64
+  %49 = getelementptr inbounds ptr, ptr %46, i64 %48
+  store ptr %45, ptr %49, align 8, !tbaa !43
+  %50 = load ptr, ptr %29, align 8, !tbaa !131
+  %51 = load ptr, ptr %8, align 8, !tbaa !22
+  call void @_ZN6icu_7711StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef %51)
+  %52 = load i32, ptr %17, align 8, !tbaa !63
+  %53 = load ptr, ptr %10, align 8
+  %54 = load i32, ptr %30, align 8
+  %55 = call noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7716BytesTrieBuilder3addENS_11StringPieceEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %50, ptr %53, i32 %54, i32 noundef %52, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %56 = load i32, ptr %17, align 8, !tbaa !63
+  %57 = add nsw i32 %56, 1
+  store i32 %57, ptr %17, align 8, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %59 = add nuw nsw i32 %.023, 1
-  %60 = call noundef signext i8 @_ZNK6icu_7713ResourceArray8getValueEiRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(21) %6, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  %.not19 = icmp eq i8 %60, 0
+  %58 = add nuw nsw i32 %.024, 1
+  %59 = call noundef signext i8 @_ZNK6icu_7713ResourceArray8getValueEiRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(21) %6, i32 noundef %58, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %.not19 = icmp eq i8 %59, 0
   br i1 %.not19, label %.loopexit, label %32, !llvm.loop !132
 
-.critedge:                                        ; preds = %32, %40
+.loopexit22:                                      ; preds = %32, %40
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %41, %.preheader, %.critedge, %5, %31
+.loopexit:                                        ; preds = %.critedge, %.preheader, %.loopexit22, %5, %31
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
@@ -5586,8 +5586,8 @@ define internal fastcc { i64, i32 } @_ZN6icu_7712_GLOBAL__N_16Parser9nextTokenER
   br label %.thread, !llvm.loop !136
 
 .thread:                                          ; preds = %34, %25, %..thread_crit_edge47
-  %.127 = phi i32 [ %.02643, %..thread_crit_edge47 ], [ %32, %25 ], [ %.228, %34 ]
-  %.1 = phi i32 [ %.044, %..thread_crit_edge47 ], [ %31, %25 ], [ %.2, %34 ]
+  %.127 = phi i32 [ %.02643, %..thread_crit_edge47 ], [ %.228, %34 ], [ %32, %25 ]
+  %.1 = phi i32 [ %.044, %..thread_crit_edge47 ], [ %.2, %34 ], [ %31, %25 ]
   %38 = icmp sgt i32 %.1, -1
   br i1 %38, label %39, label %.thread.thread
 
@@ -5682,8 +5682,8 @@ _ZN6icu_7712_GLOBAL__N_15Token13constantTokenENS_11StringPieceER10UErrorCode.exi
   br label %_ZN6icu_7712_GLOBAL__N_15TokenC2El.exit
 
 _ZN6icu_7712_GLOBAL__N_15TokenC2El.exit:          ; preds = %54, %46, %44, %42, %39, %_ZN6icu_7712_GLOBAL__N_15Token13constantTokenENS_11StringPieceER10UErrorCode.exit
-  %.sroa.4.0 = phi i32 [ %76, %_ZN6icu_7712_GLOBAL__N_15Token13constantTokenENS_11StringPieceER10UErrorCode.exit ], [ 1, %39 ], [ 2, %42 ], [ 3, %44 ], [ %..i, %46 ], [ 1, %54 ]
-  %.sroa.0.0 = phi i64 [ %77, %_ZN6icu_7712_GLOBAL__N_15Token13constantTokenENS_11StringPieceER10UErrorCode.exit ], [ %40, %39 ], [ %40, %42 ], [ %40, %44 ], [ %40, %46 ], [ %55, %54 ]
+  %.sroa.4.0 = phi i32 [ 2, %42 ], [ %76, %_ZN6icu_7712_GLOBAL__N_15Token13constantTokenENS_11StringPieceER10UErrorCode.exit ], [ 1, %39 ], [ %..i, %46 ], [ 3, %44 ], [ 1, %54 ]
+  %.sroa.0.0 = phi i64 [ %40, %42 ], [ %77, %_ZN6icu_7712_GLOBAL__N_15Token13constantTokenENS_11StringPieceER10UErrorCode.exit ], [ %40, %39 ], [ %40, %46 ], [ %40, %44 ], [ %55, %54 ]
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.4.0, 1
   ret { i64, i32 } %.fca.1.insert

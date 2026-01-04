@@ -278,11 +278,11 @@ define hidden range(i32 -2147483648, 2) i32 @english_UTF_8_stem(ptr noundef init
   %57 = icmp sgt i32 %56, -1
   br i1 %57, label %58, label %.critedge
 
-58:                                               ; preds = %24, %25, %28, %31, %34, %37, %40, %43, %46, %49, %52, %55
+58:                                               ; preds = %55, %24, %25, %28, %31, %34, %37, %40, %43, %46, %49, %52
   br label %.critedge
 
-59:                                               ; preds = %14, %8, %1, %18, %20
-  %60 = phi i32 [ %7, %14 ], [ %7, %8 ], [ %7, %1 ], [ %.pre, %18 ], [ %.pre, %20 ]
+59:                                               ; preds = %20, %14, %1, %18, %8
+  %60 = phi i32 [ %.pre, %20 ], [ %7, %14 ], [ %7, %1 ], [ %.pre, %18 ], [ %7, %8 ]
   store i32 %3, ptr %2, align 8
   %61 = load ptr, ptr %0, align 8
   %62 = tail call i32 @skip_utf8(ptr noundef %61, i32 noundef %3, i32 noundef %60, i32 noundef 3) #3
@@ -545,7 +545,7 @@ r_mark_regions.exit:                              ; preds = %136, %139, %147, %1
   store i32 %178, ptr %91, align 8
   %179 = load i32, ptr %162, align 8
   %.not111.i = icmp sgt i32 %178, %179
-  br i1 %.not111.i, label %180, label %select.unfold.i
+  br i1 %.not111.i, label %180, label %select.unfold123.i
 
 180:                                              ; preds = %.thread.i192
   %181 = load ptr, ptr %0, align 8
@@ -553,7 +553,7 @@ r_mark_regions.exit:                              ; preds = %136, %139, %147, %1
   %183 = getelementptr i8, ptr %181, i64 %182
   %184 = getelementptr i8, ptr %183, i64 -1
   %185 = load i8, ptr %184, align 1
-  switch i8 %185, label %select.unfold.i [
+  switch i8 %185, label %select.unfold123.i [
     i8 100, label %186
     i8 115, label %186
   ]
@@ -561,12 +561,12 @@ r_mark_regions.exit:                              ; preds = %136, %139, %147, %1
 186:                                              ; preds = %180, %180
   %187 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_2, i32 noundef 6) #3
   %.not114.i = icmp eq i32 %187, 0
-  br i1 %.not114.i, label %select.unfold.i, label %188
+  br i1 %.not114.i, label %select.unfold123.i, label %188
 
 188:                                              ; preds = %186
   %189 = load i32, ptr %2, align 8
   store i32 %189, ptr %4, align 4
-  switch i32 %187, label %select.unfold.i [
+  switch i32 %187, label %select.unfold123.i [
     i32 1, label %190
     i32 2, label %193
     i32 3, label %207
@@ -575,7 +575,7 @@ r_mark_regions.exit:                              ; preds = %136, %139, %147, %1
 190:                                              ; preds = %188
   %191 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @s_2) #3
   %192 = icmp sgt i32 %191, -1
-  br i1 %192, label %select.unfold.i, label %.critedge
+  br i1 %192, label %select.unfold123.i, label %.critedge
 
 193:                                              ; preds = %188
   %194 = load i32, ptr %6, align 4
@@ -589,7 +589,7 @@ r_mark_regions.exit:                              ; preds = %136, %139, %147, %1
   store i32 %197, ptr %2, align 8
   %200 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @s_3) #3
   %201 = icmp sgt i32 %200, -1
-  br i1 %201, label %select.unfold.i, label %.critedge
+  br i1 %201, label %select.unfold123.i, label %.critedge
 
 202:                                              ; preds = %193
   %.neg.i = sub i32 %189, %194
@@ -598,20 +598,20 @@ r_mark_regions.exit:                              ; preds = %136, %139, %147, %1
   store i32 %204, ptr %2, align 8
   %205 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @s_4) #3
   %206 = icmp slt i32 %205, 0
-  br i1 %206, label %.critedge, label %select.unfold.i
+  br i1 %206, label %.critedge, label %select.unfold123.i
 
 207:                                              ; preds = %188
   %208 = load ptr, ptr %0, align 8
   %209 = load i32, ptr %162, align 8
   %210 = tail call i32 @skip_b_utf8(ptr noundef %208, i32 noundef %189, i32 noundef %209, i32 noundef 1) #3
   %211 = icmp sgt i32 %210, -1
-  br i1 %211, label %212, label %select.unfold.i
+  br i1 %211, label %212, label %select.unfold123.i
 
 212:                                              ; preds = %207
   store i32 %210, ptr %2, align 8
   %213 = tail call i32 @out_grouping_b_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 121, i32 noundef 1) #3
   %214 = icmp sgt i32 %213, -1
-  br i1 %214, label %215, label %select.unfold.i
+  br i1 %214, label %215, label %select.unfold123.i
 
 215:                                              ; preds = %212
   %216 = load i32, ptr %2, align 8
@@ -619,9 +619,9 @@ r_mark_regions.exit:                              ; preds = %136, %139, %147, %1
   store i32 %217, ptr %2, align 8
   %218 = tail call i32 @slice_del(ptr noundef nonnull %0) #3
   %219 = icmp sgt i32 %218, -1
-  br i1 %219, label %select.unfold.i, label %.critedge
+  br i1 %219, label %select.unfold123.i, label %.critedge
 
-select.unfold.i:                                  ; preds = %188, %190, %199, %202, %215, %180, %.thread.i192, %186, %207, %212
+select.unfold123.i:                               ; preds = %188, %190, %199, %202, %215, %212, %207, %186, %.thread.i192, %180
   %220 = load i32, ptr %6, align 4
   store i32 %220, ptr %2, align 8
   store i32 %220, ptr %91, align 8
@@ -630,7 +630,7 @@ select.unfold.i:                                  ; preds = %188, %190, %199, %2
   %.not.i195 = icmp sgt i32 %221, %222
   br i1 %.not.i195, label %223, label %r_exception2.exit.thread
 
-223:                                              ; preds = %select.unfold.i
+223:                                              ; preds = %select.unfold123.i
   %224 = load ptr, ptr %0, align 8
   %225 = add i32 %220, -1
   %226 = sext i32 %225 to i64
@@ -653,7 +653,7 @@ r_exception2.exit:                                ; preds = %229
   %.not = icmp sgt i32 %231, %232
   br i1 %.not, label %r_exception2.exit.thread, label %.critedge178
 
-r_exception2.exit.thread:                         ; preds = %229, %select.unfold.i, %223, %r_exception2.exit
+r_exception2.exit.thread:                         ; preds = %223, %229, %select.unfold123.i, %r_exception2.exit
   %233 = load i32, ptr %6, align 4
   store i32 %233, ptr %2, align 8
   %234 = tail call fastcc i32 @r_Step_1b(ptr noundef nonnull %0)
@@ -748,8 +748,8 @@ r_exception2.exit.thread:                         ; preds = %229, %select.unfold
   store i32 %257, ptr %2, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %109, %274, %215, %202, %199, %190, %174, %83, %75, %248, %244, %240, %236, %r_exception2.exit.thread, %252, %55, %52, %49, %46, %43, %40, %37, %34, %31, %28, %25, %58, %59, %.loopexit
-  %278 = phi i32 [ 1, %.loopexit ], [ 1, %59 ], [ 1, %58 ], [ %56, %55 ], [ %53, %52 ], [ %50, %49 ], [ %47, %46 ], [ %44, %43 ], [ %41, %40 ], [ %38, %37 ], [ %35, %34 ], [ %32, %31 ], [ %29, %28 ], [ %26, %25 ], [ %250, %248 ], [ %246, %244 ], [ %242, %240 ], [ %238, %236 ], [ %234, %r_exception2.exit.thread ], [ %254, %252 ], [ %86, %83 ], [ %78, %75 ], [ %191, %190 ], [ %218, %215 ], [ %176, %174 ], [ %200, %199 ], [ %205, %202 ], [ %276, %274 ], [ %111, %109 ]
+.critedge:                                        ; preds = %109, %274, %215, %202, %199, %190, %174, %83, %75, %240, %236, %r_exception2.exit.thread, %244, %248, %252, %55, %52, %49, %46, %43, %40, %37, %34, %31, %28, %25, %58, %59, %.loopexit
+  %278 = phi i32 [ 1, %58 ], [ 1, %.loopexit ], [ 1, %59 ], [ %56, %55 ], [ %53, %52 ], [ %50, %49 ], [ %47, %46 ], [ %44, %43 ], [ %41, %40 ], [ %38, %37 ], [ %35, %34 ], [ %32, %31 ], [ %29, %28 ], [ %26, %25 ], [ %218, %215 ], [ %78, %75 ], [ %250, %248 ], [ %254, %252 ], [ %242, %240 ], [ %238, %236 ], [ %234, %r_exception2.exit.thread ], [ %246, %244 ], [ %276, %274 ], [ %86, %83 ], [ %176, %174 ], [ %200, %199 ], [ %191, %190 ], [ %205, %202 ], [ %111, %109 ]
   ret i32 %278
 }
 
@@ -918,7 +918,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_Step_1b(ptr noundef init
   br label %.critedge144
 
 .critedge144:                                     ; preds = %53, %61, %75, %29, %.thread159, %18, %1, %8, %14, %26, %23, %58, %66, %77, %.critedge, %82
-  %.0 = phi i32 [ 1, %82 ], [ %27, %26 ], [ 0, %23 ], [ %59, %58 ], [ %67, %66 ], [ %80, %77 ], [ %36, %.critedge ], [ 0, %14 ], [ 0, %8 ], [ 0, %1 ], [ 0, %18 ], [ 0, %.thread159 ], [ 0, %29 ], [ 0, %75 ], [ 0, %61 ], [ 0, %53 ]
+  %.0 = phi i32 [ 0, %1 ], [ 1, %82 ], [ %27, %26 ], [ 0, %23 ], [ %59, %58 ], [ %67, %66 ], [ 0, %18 ], [ 0, %29 ], [ %80, %77 ], [ 0, %75 ], [ 0, %61 ], [ %36, %.critedge ], [ 0, %.thread159 ], [ 0, %14 ], [ 0, %8 ], [ 0, %53 ]
   ret i32 %.0
 }
 
@@ -966,7 +966,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_Step_1c(ptr noundef init
   br label %.thread35
 
 .thread35:                                        ; preds = %7, %1, %20, %16, %13
-  %.1 = phi i32 [ 0, %13 ], [ 0, %16 ], [ %spec.select, %20 ], [ 0, %1 ], [ 0, %7 ]
+  %.1 = phi i32 [ %spec.select, %20 ], [ 0, %13 ], [ 0, %16 ], [ 0, %7 ], [ 0, %1 ]
   ret i32 %.1
 }
 
@@ -1133,7 +1133,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_Step_2(ptr noundef initi
   br label %82
 
 82:                                               ; preds = %76, %62, %64, %18, %1, %8, %14, %26, %29, %32, %35, %38, %41, %44, %47, %50, %53, %56, %59, %70, %73, %78, %20, %81
-  %.0 = phi i32 [ 1, %81 ], [ %27, %26 ], [ %30, %29 ], [ %33, %32 ], [ %36, %35 ], [ %39, %38 ], [ %42, %41 ], [ %45, %44 ], [ %48, %47 ], [ %51, %50 ], [ %54, %53 ], [ %57, %56 ], [ %60, %59 ], [ %71, %70 ], [ %74, %73 ], [ %79, %78 ], [ 0, %20 ], [ 0, %14 ], [ 0, %8 ], [ 0, %1 ], [ 0, %18 ], [ 0, %64 ], [ 0, %62 ], [ 0, %76 ]
+  %.0 = phi i32 [ 0, %1 ], [ 1, %81 ], [ %27, %26 ], [ %30, %29 ], [ %33, %32 ], [ %36, %35 ], [ %39, %38 ], [ %42, %41 ], [ %45, %44 ], [ %48, %47 ], [ %51, %50 ], [ %54, %53 ], [ %57, %56 ], [ %60, %59 ], [ 0, %18 ], [ %71, %70 ], [ %74, %73 ], [ 0, %62 ], [ %79, %78 ], [ 0, %20 ], [ 0, %14 ], [ 0, %8 ], [ 0, %64 ], [ 0, %76 ]
   ret i32 %.0
 }
 
@@ -1232,7 +1232,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_Step_3(ptr noundef initi
   br label %47
 
 47:                                               ; preds = %19, %1, %8, %15, %27, %30, %33, %36, %39, %43, %42, %21, %46
-  %.0 = phi i32 [ 1, %46 ], [ %28, %27 ], [ %31, %30 ], [ %34, %33 ], [ %37, %36 ], [ %40, %39 ], [ %44, %43 ], [ 0, %42 ], [ 0, %21 ], [ 0, %15 ], [ 0, %8 ], [ 0, %1 ], [ 0, %19 ]
+  %.0 = phi i32 [ 0, %1 ], [ 1, %46 ], [ %28, %27 ], [ %31, %30 ], [ %34, %33 ], [ %37, %36 ], [ %40, %39 ], [ %44, %43 ], [ 0, %42 ], [ 0, %21 ], [ 0, %15 ], [ 0, %8 ], [ 0, %19 ]
   ret i32 %.0
 }
 
@@ -1316,7 +1316,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_Step_4(ptr noundef initi
   br label %.thread62
 
 .thread62:                                        ; preds = %30, %28, %18, %1, %8, %14, %25, %36, %20, %39
-  %.0 = phi i32 [ 1, %39 ], [ %26, %25 ], [ %37, %36 ], [ 0, %20 ], [ 0, %14 ], [ 0, %8 ], [ 0, %1 ], [ 0, %18 ], [ 0, %28 ], [ 0, %30 ]
+  %.0 = phi i32 [ 0, %1 ], [ 1, %39 ], [ %26, %25 ], [ 0, %18 ], [ %37, %36 ], [ 0, %20 ], [ 0, %14 ], [ 0, %8 ], [ 0, %30 ], [ 0, %28 ]
   ret i32 %.0
 }
 
@@ -1419,7 +1419,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_Step_5(ptr noundef initi
   br label %.thread
 
 .thread:                                          ; preds = %24, %22, %35, %37, %13, %1, %7, %30, %43, %33, %46
-  %.0 = phi i32 [ 1, %46 ], [ %31, %30 ], [ %44, %43 ], [ 0, %33 ], [ 0, %7 ], [ 0, %1 ], [ 0, %13 ], [ 0, %37 ], [ 0, %35 ], [ 0, %24 ], [ 0, %22 ]
+  %.0 = phi i32 [ 0, %1 ], [ 1, %46 ], [ 0, %35 ], [ %31, %30 ], [ 0, %13 ], [ %44, %43 ], [ 0, %33 ], [ 0, %7 ], [ 0, %37 ], [ 0, %24 ], [ 0, %22 ]
   ret i32 %.0
 }
 
@@ -1500,7 +1500,7 @@ define internal fastcc range(i32 0, 2) i32 @r_shortv(ptr noundef %0) unnamed_add
   br label %select.unfold
 
 select.unfold:                                    ; preds = %17, %15, %11, %9
-  %22 = phi i32 [ 1, %9 ], [ 0, %11 ], [ 0, %15 ], [ %spec.select, %17 ]
+  %22 = phi i32 [ 1, %9 ], [ %spec.select, %17 ], [ 0, %11 ], [ 0, %15 ]
   ret i32 %22
 }
 

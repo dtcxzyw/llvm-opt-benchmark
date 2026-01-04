@@ -215,7 +215,7 @@ _ZN4absl15random_internal12_GLOBAL__N_118EvaluatePolynomialIdLj9EEET_S3_RAT0__KS
   br i1 %exitcond.not.i20.i, label %_ZN4absl15random_internal12_GLOBAL__N_118EvaluatePolynomialIdLj15EEET_S3_RAT0__KS3_.exit.i, label %69, !llvm.loop !14
 
 _ZN4absl15random_internal12_GLOBAL__N_118EvaluatePolynomialIdLj15EEET_S3_RAT0__KS3_.exit.i: ; preds = %69, %_ZN4absl15random_internal12_GLOBAL__N_118EvaluatePolynomialIdLj9EEET_S3_RAT0__KS3_.exit.i, %52
-  %.014.i = phi double [ %66, %_ZN4absl15random_internal12_GLOBAL__N_118EvaluatePolynomialIdLj9EEET_S3_RAT0__KS3_.exit.i ], [ 1.000000e+00, %52 ], [ %73, %69 ]
+  %.014.i = phi double [ 1.000000e+00, %52 ], [ %66, %_ZN4absl15random_internal12_GLOBAL__N_118EvaluatePolynomialIdLj9EEET_S3_RAT0__KS3_.exit.i ], [ %73, %69 ]
   %74 = fcmp olt double %50, 0.000000e+00
   %75 = fneg double %.014.i
   %.in.p.i = select i1 %74, double %.014.i, double %75
@@ -297,7 +297,7 @@ _ZN4absl15random_internal12_GLOBAL__N_13POZEd.exit: ; preds = %_ZN4absl15random_
   br label %.thread
 
 .thread:                                          ; preds = %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.exit78", %85, %24, %_ZN4absl15random_internal12_GLOBAL__N_115normal_survivalEd.exit73, %_ZN4absl15random_internal12_GLOBAL__N_115normal_survivalEd.exit, %_ZN4absl15random_internal12_GLOBAL__N_13POZEd.exit, %._crit_edge, %39, %37
-  %.2 = phi double [ 1.000000e+00, %37 ], [ 0.000000e+00, %39 ], [ %78, %_ZN4absl15random_internal12_GLOBAL__N_13POZEd.exit ], [ %112, %._crit_edge ], [ 5.000000e-01, %24 ], [ %36, %_ZN4absl15random_internal12_GLOBAL__N_115normal_survivalEd.exit73 ], [ %23, %_ZN4absl15random_internal12_GLOBAL__N_115normal_survivalEd.exit ], [ %78, %85 ], [ %97, %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.exit78" ]
+  %.2 = phi double [ 5.000000e-01, %24 ], [ 1.000000e+00, %37 ], [ 0.000000e+00, %39 ], [ %78, %_ZN4absl15random_internal12_GLOBAL__N_13POZEd.exit ], [ %112, %._crit_edge ], [ %36, %_ZN4absl15random_internal12_GLOBAL__N_115normal_survivalEd.exit73 ], [ %23, %_ZN4absl15random_internal12_GLOBAL__N_115normal_survivalEd.exit ], [ %78, %85 ], [ %97, %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.exit78" ]
   ret double %.2
 }
 

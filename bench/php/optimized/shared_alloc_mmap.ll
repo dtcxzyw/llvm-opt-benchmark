@@ -122,9 +122,9 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
   br label %47
 
 47:                                               ; preds = %._crit_edge.i, %40, %37
-  %48 = phi i64 [ %38, %37 ], [ %.pre76.i, %._crit_edge.i ], [ %38, %40 ]
-  %.247.i = phi i64 [ %.04565.i, %37 ], [ %.04565.i, %._crit_edge.i ], [ %.pre.i, %40 ]
-  %.5.i = phi i64 [ %.343.i, %37 ], [ %.04066.i, %._crit_edge.i ], [ -1, %40 ]
+  %48 = phi i64 [ %.pre76.i, %._crit_edge.i ], [ %38, %37 ], [ %38, %40 ]
+  %.247.i = phi i64 [ %.04565.i, %._crit_edge.i ], [ %.04565.i, %37 ], [ %.pre.i, %40 ]
+  %.5.i = phi i64 [ %.04066.i, %._crit_edge.i ], [ %.343.i, %37 ], [ -1, %40 ]
   %49 = add i64 %48, 2097151
   %50 = and i64 %49, -2097152
   %51 = add i64 %50, 2097152
@@ -132,9 +132,9 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
   br label %52
 
 52:                                               ; preds = %47, %23
-  %.146.i = phi i64 [ %.247.i, %47 ], [ %.04565.i, %23 ]
-  %.242.i = phi i64 [ %.5.i, %47 ], [ %.04066.i, %23 ]
-  %.3.i = phi i64 [ %spec.select58.i, %47 ], [ %28, %23 ]
+  %.146.i = phi i64 [ %.04565.i, %23 ], [ %.247.i, %47 ]
+  %.242.i = phi i64 [ %.04066.i, %23 ], [ %.5.i, %47 ]
+  %.3.i = phi i64 [ %28, %23 ], [ %spec.select58.i, %47 ]
   %53 = call ptr @fgets(ptr noundef nonnull %7, i32 noundef 4096, ptr noundef nonnull %16)
   %.not51.i = icmp eq ptr %53, null
   br i1 %.not51.i, label %55, label %.lr.ph.i
@@ -148,7 +148,7 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
   br label %57
 
 55:                                               ; preds = %.lr.ph.i, %43, %52
-  %.141.i = phi i64 [ %.04066.i, %43 ], [ %.242.i, %52 ], [ %.04066.i, %.lr.ph.i ]
+  %.141.i = phi i64 [ %.04066.i, %.lr.ph.i ], [ %.04066.i, %43 ], [ %.242.i, %52 ]
   %56 = call i32 @fclose(ptr noundef nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -244,7 +244,7 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
   br label %92
 
 92:                                               ; preds = %89, %87, %85
-  %.0 = phi i32 [ 1, %89 ], [ 0, %87 ], [ 0, %85 ]
+  %.0 = phi i32 [ 0, %85 ], [ 1, %89 ], [ 0, %87 ]
   ret i32 %.0
 }
 

@@ -899,9 +899,9 @@ _ZNSt6vectorI14aiVertexWeightSaIS0_EE9push_backERKS0_.exit: ; preds = %_ZNSt6vec
   br i1 %279, label %_ZNSt6vectorI14aiVertexWeightSaIS0_EE5clearEv.exit, label %._crit_edge315, !llvm.loop !16
 
 280:                                              ; preds = %.loopexit271, %.loopexit.split-lp, %263, %193
-  %.sroa.0.4 = phi ptr [ %.sroa.0.3.lcssa, %263 ], [ %.sroa.0.2311, %193 ], [ %.sroa.0.3302, %.loopexit271 ], [ %.sroa.0.3302, %.loopexit.split-lp ]
-  %.sroa.25.4 = phi ptr [ %.sroa.25.3.lcssa, %263 ], [ %.sroa.25.2313, %193 ], [ %.sroa.25.3304, %.loopexit271 ], [ %.sroa.25.3304, %.loopexit.split-lp ]
-  %.pn = phi { ptr, i32 } [ %264, %263 ], [ %194, %193 ], [ %lpad.loopexit, %.loopexit271 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.0.4 = phi ptr [ %.sroa.0.2311, %193 ], [ %.sroa.0.3.lcssa, %263 ], [ %.sroa.0.3302, %.loopexit271 ], [ %.sroa.0.3302, %.loopexit.split-lp ]
+  %.sroa.25.4 = phi ptr [ %.sroa.25.2313, %193 ], [ %.sroa.25.3.lcssa, %263 ], [ %.sroa.25.3304, %.loopexit271 ], [ %.sroa.25.3304, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %194, %193 ], [ %264, %263 ], [ %lpad.loopexit, %.loopexit271 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i157 = icmp eq ptr %.sroa.0.4, null
   br i1 %.not.i.i.i157, label %_ZNSt6vectorI14aiVertexWeightSaIS0_EED2Ev.exit158, label %281
 
@@ -1527,9 +1527,9 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %89, %._crit_edge86,
   ret void
 
 102:                                              ; preds = %.loopexit, %.loopexit.split-lp, %100, %22
-  %.sroa.19.2 = phi ptr [ %.sroa.19.1.lcssa, %100 ], [ %.sroa.19.0, %22 ], [ %.sroa.19.368, %.loopexit ], [ %.sroa.19.368, %.loopexit.split-lp ]
-  %.sroa.0.2 = phi ptr [ %.sroa.0.1.lcssa, %100 ], [ %.sroa.0.0, %22 ], [ %.sroa.0.369, %.loopexit ], [ %.sroa.0.369, %.loopexit.split-lp ]
-  %.pn = phi { ptr, i32 } [ %101, %100 ], [ %23, %22 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.19.2 = phi ptr [ %.sroa.19.0, %22 ], [ %.sroa.19.1.lcssa, %100 ], [ %.sroa.19.368, %.loopexit ], [ %.sroa.19.368, %.loopexit.split-lp ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.0, %22 ], [ %.sroa.0.1.lcssa, %100 ], [ %.sroa.0.369, %.loopexit ], [ %.sroa.0.369, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %22 ], [ %101, %100 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i36 = icmp eq ptr %.sroa.0.2, null
   br i1 %.not.i.i.i36, label %_ZNSt6vectorIjSaIjEED2Ev.exit37, label %103
 
@@ -2434,7 +2434,7 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit:             ; preds = %_ZNK6aiMesh16HasTex
   br i1 %.not.i162.not, label %_ZNK6aiMesh16HasTextureCoordsEj.exit.thread.split, label %169
 
 _ZNK6aiMesh16HasTextureCoordsEj.exit.thread.split: ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit, %_ZNK6aiMesh15HasVertexColorsEj.exit, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread, %_ZNK6aiMesh15HasVertexColorsEj.exit.preheader.split
-  %161 = phi ptr [ %140, %_ZNK6aiMesh15HasVertexColorsEj.exit.preheader.split ], [ %139, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread ], [ %140, %_ZNK6aiMesh15HasVertexColorsEj.exit ], [ %140, %_ZNK6aiMesh16HasTextureCoordsEj.exit ]
+  %161 = phi ptr [ %139, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread ], [ %140, %_ZNK6aiMesh15HasVertexColorsEj.exit.preheader.split ], [ %140, %_ZNK6aiMesh15HasVertexColorsEj.exit ], [ %140, %_ZNK6aiMesh16HasTextureCoordsEj.exit ]
   invoke void @_ZNSt6vectorI6aiFaceSaIS0_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %40)
           to label %.preheader314 unwind label %.loopexit320
 
@@ -2862,7 +2862,7 @@ _ZNSt6vectorI14aiVertexWeightSaIS0_EE9push_backEOS0_.exit: ; preds = %_ZNSt6vect
   br label %.loopexit306
 
 .loopexit306:                                     ; preds = %.loopexit306.loopexit, %301, %284
-  %356 = phi i32 [ %.pre392, %.loopexit306.loopexit ], [ %285, %301 ], [ %285, %284 ]
+  %356 = phi i32 [ %285, %284 ], [ %.pre392, %.loopexit306.loopexit ], [ %285, %301 ]
   %357 = load ptr, ptr %5, align 8
   %358 = getelementptr inbounds nuw i32, ptr %357, i64 %231
   store i32 %356, ptr %358, align 4
@@ -3231,7 +3231,7 @@ _ZNSt6vectorI6aiFaceSaIS0_EED2Ev.exit:            ; preds = %_ZSt8_DestroyIP6aiF
   br i1 %502, label %517, label %47
 
 516:                                              ; preds = %.loopexit307, %.loopexit.split-lp, %.loopexit320, %.loopexit.split-lp321, %320, %216, %218, %499, %420, %167, %153
-  %.pn153 = phi { ptr, i32 } [ %154, %153 ], [ %168, %167 ], [ %421, %420 ], [ %500, %499 ], [ %217, %216 ], [ %219, %218 ], [ %321, %320 ], [ %lpad.loopexit322, %.loopexit320 ], [ %lpad.loopexit.split-lp323, %.loopexit.split-lp321 ], [ %lpad.loopexit, %.loopexit307 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn153 = phi { ptr, i32 } [ %154, %153 ], [ %168, %167 ], [ %421, %420 ], [ %500, %499 ], [ %321, %320 ], [ %217, %216 ], [ %219, %218 ], [ %lpad.loopexit.split-lp323, %.loopexit.split-lp321 ], [ %lpad.loopexit322, %.loopexit320 ], [ %lpad.loopexit, %.loopexit307 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt6vectorI6aiFaceSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %545
@@ -3741,8 +3741,8 @@ _ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4h
   resume { ptr, i32 } %47
 
 _ZNKSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIS2_EEPNS4_10_Hash_nodeIS2_Lb0EEEmRKT_m.exit: ; preds = %33, %19, %.critedge, %28
-  %.sroa.031.1 = phi ptr [ %29, %28 ], [ %46, %.critedge ], [ %.sroa.028.0, %19 ], [ %35, %33 ]
-  %.sroa.432.1 = phi i8 [ 0, %28 ], [ 1, %.critedge ], [ 0, %19 ], [ 0, %33 ]
+  %.sroa.031.1 = phi ptr [ %.sroa.028.0, %19 ], [ %46, %.critedge ], [ %29, %28 ], [ %35, %33 ]
+  %.sroa.432.1 = phi i8 [ 0, %19 ], [ 1, %.critedge ], [ 0, %28 ], [ 0, %33 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert

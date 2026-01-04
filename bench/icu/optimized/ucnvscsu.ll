@@ -198,12 +198,12 @@ define internal void @_ZL14_SCSUToUnicodeP23UConverterToUnicodeArgsP10UErrorCode
   br i1 %25, label %.loopexit282.split.us, label %.critedge
 
 .loopexit282.split.us:                            ; preds = %193, %104, %128, %116, %26, %161, %.split450.us, %.split.us437, %.split482.us, %.split464.us
-  %.1241 = phi i8 [ %16, %26 ], [ %.3243, %.split464.us ], [ %.3243, %.split482.us ], [ %.3243, %.split.us437 ], [ %.3243, %.split450.us ], [ %.3243, %161 ], [ %.3243, %116 ], [ %.3243, %128 ], [ %.3243, %104 ], [ 1, %193 ]
-  %.1219 = phi i8 [ %24, %26 ], [ %.4222427.us, %.split464.us ], [ %.4222427.us, %.split482.us ], [ %.4222427.us, %.split.us437 ], [ %.4222427.us, %.split450.us ], [ %.4222427.us, %161 ], [ %.4222427.us, %116 ], [ %.4222427.us, %128 ], [ %.4222427.us, %104 ], [ %.8226388.us, %193 ]
-  %.1210 = phi i8 [ %20, %26 ], [ %.4213428.us, %.split464.us ], [ %.4213428.us, %.split482.us ], [ %.4213428.us, %.split.us437 ], [ %.4213428.us, %.split450.us ], [ %.4213428.us, %161 ], [ %.4213428.us, %116 ], [ %.4213428.us, %128 ], [ %.4213428.us, %104 ], [ %.8217, %193 ]
-  %.1201 = phi i8 [ %22, %26 ], [ %.4204429.us, %.split464.us ], [ %95, %.split482.us ], [ %.4204429.us, %.split.us437 ], [ %.4204429.us, %.split450.us ], [ %.4204429.us, %161 ], [ %.4204429.us, %116 ], [ %.4204429.us, %128 ], [ %.4204429.us, %104 ], [ %191, %193 ]
-  %.1191 = phi ptr [ %12, %26 ], [ %94, %.split464.us ], [ %.7197, %.split482.us ], [ %100, %.split.us437 ], [ %.7197, %.split450.us ], [ %.7197, %161 ], [ %118, %116 ], [ %129, %128 ], [ %109, %104 ], [ %.12, %193 ]
-  %.1 = phi ptr [ %8, %26 ], [ %69, %.split464.us ], [ %69, %.split482.us ], [ %69, %.split.us437 ], [ %69, %.split450.us ], [ %69, %161 ], [ %69, %116 ], [ %69, %128 ], [ %69, %104 ], [ %187, %193 ]
+  %.1241 = phi i8 [ %16, %26 ], [ %.3243, %.split464.us ], [ %.3243, %.split482.us ], [ %.3243, %161 ], [ %.3243, %.split.us437 ], [ %.3243, %104 ], [ %.3243, %.split450.us ], [ %.3243, %116 ], [ %.3243, %128 ], [ 1, %193 ]
+  %.1219 = phi i8 [ %24, %26 ], [ %.4222427.us, %.split464.us ], [ %.4222427.us, %.split482.us ], [ %.4222427.us, %161 ], [ %.4222427.us, %.split.us437 ], [ %.4222427.us, %104 ], [ %.4222427.us, %.split450.us ], [ %.4222427.us, %116 ], [ %.4222427.us, %128 ], [ %.8226388.us, %193 ]
+  %.1210 = phi i8 [ %20, %26 ], [ %.4213428.us, %.split464.us ], [ %.4213428.us, %.split482.us ], [ %.4213428.us, %161 ], [ %.4213428.us, %.split.us437 ], [ %.4213428.us, %104 ], [ %.4213428.us, %.split450.us ], [ %.4213428.us, %116 ], [ %.4213428.us, %128 ], [ %.8217, %193 ]
+  %.1201 = phi i8 [ %22, %26 ], [ %.4204429.us, %.split464.us ], [ %95, %.split482.us ], [ %.4204429.us, %161 ], [ %.4204429.us, %.split.us437 ], [ %.4204429.us, %104 ], [ %.4204429.us, %.split450.us ], [ %.4204429.us, %116 ], [ %.4204429.us, %128 ], [ %191, %193 ]
+  %.1191 = phi ptr [ %12, %26 ], [ %94, %.split464.us ], [ %.7197, %.split482.us ], [ %.7197, %161 ], [ %100, %.split.us437 ], [ %109, %104 ], [ %.7197, %.split450.us ], [ %118, %116 ], [ %129, %128 ], [ %.12, %193 ]
+  %.1 = phi ptr [ %8, %26 ], [ %69, %.split464.us ], [ %69, %.split482.us ], [ %69, %161 ], [ %69, %.split.us437 ], [ %69, %104 ], [ %69, %.split450.us ], [ %69, %116 ], [ %69, %128 ], [ %187, %193 ]
   %27 = icmp ult ptr %.1, %10
   %28 = icmp ult ptr %.1191, %14
   %or.cond417 = select i1 %27, i1 %28, i1 false
@@ -286,13 +286,13 @@ define internal void @_ZL14_SCSUToUnicodeP23UConverterToUnicodeArgsP10UErrorCode
   br label %.critedge
 
 .critedge:                                        ; preds = %31, %.thread, %.critedge.sink.split, %.loopexit282.split.us, %26
-  %.3243 = phi i8 [ %16, %26 ], [ %.1241, %.loopexit282.split.us ], [ 1, %.critedge.sink.split ], [ %.1241, %.thread ], [ %.1241, %31 ]
-  %.3231 = phi i8 [ %18, %26 ], [ 0, %.loopexit282.split.us ], [ %.3231.ph, %.critedge.sink.split ], [ 0, %.thread ], [ 0, %31 ]
-  %.3221 = phi i8 [ %24, %26 ], [ %.1219, %.loopexit282.split.us ], [ %.8226388.us, %.critedge.sink.split ], [ %.1219, %.thread ], [ %.1219, %31 ]
-  %.3212 = phi i8 [ %20, %26 ], [ %.1210, %.loopexit282.split.us ], [ %.8217, %.critedge.sink.split ], [ %.1210, %.thread ], [ %.1210, %31 ]
-  %.3203 = phi i8 [ %22, %26 ], [ %.1201, %.loopexit282.split.us ], [ %.3203.ph, %.critedge.sink.split ], [ %.1201, %.thread ], [ %.1201, %31 ]
-  %.7197 = phi ptr [ %12, %26 ], [ %.1191, %.loopexit282.split.us ], [ %.12, %.critedge.sink.split ], [ %.2192418, %31 ], [ %.3193, %.thread ]
-  %.4 = phi ptr [ %8, %26 ], [ %.1, %.loopexit282.split.us ], [ %187, %.critedge.sink.split ], [ %.2419, %31 ], [ %35, %.thread ]
+  %.3243 = phi i8 [ %.1241, %.loopexit282.split.us ], [ 1, %.critedge.sink.split ], [ %16, %26 ], [ %.1241, %.thread ], [ %.1241, %31 ]
+  %.3231 = phi i8 [ 0, %.loopexit282.split.us ], [ %.3231.ph, %.critedge.sink.split ], [ %18, %26 ], [ 0, %.thread ], [ 0, %31 ]
+  %.3221 = phi i8 [ %.1219, %.loopexit282.split.us ], [ %.8226388.us, %.critedge.sink.split ], [ %24, %26 ], [ %.1219, %.thread ], [ %.1219, %31 ]
+  %.3212 = phi i8 [ %.1210, %.loopexit282.split.us ], [ %.8217, %.critedge.sink.split ], [ %20, %26 ], [ %.1210, %.thread ], [ %.1210, %31 ]
+  %.3203 = phi i8 [ %.1201, %.loopexit282.split.us ], [ %.3203.ph, %.critedge.sink.split ], [ %22, %26 ], [ %.1201, %.thread ], [ %.1201, %31 ]
+  %.7197 = phi ptr [ %.1191, %.loopexit282.split.us ], [ %.12, %.critedge.sink.split ], [ %12, %26 ], [ %.2192418, %31 ], [ %.3193, %.thread ]
+  %.4 = phi ptr [ %.1, %.loopexit282.split.us ], [ %187, %.critedge.sink.split ], [ %8, %26 ], [ %.2419, %31 ], [ %35, %.thread ]
   %65 = icmp ult ptr %.4, %10
   br i1 %65, label %.lr.ph431, label %.loopexit
 
@@ -541,11 +541,11 @@ define internal void @_ZL14_SCSUToUnicodeP23UConverterToUnicodeArgsP10UErrorCode
   br i1 %25, label %.loopexit280, label %.critedge2
 
 .loopexit280:                                     ; preds = %83, %164, %.split.us
-  %.6224 = phi i8 [ %.8226388.us, %.split.us ], [ %24, %164 ], [ %.4222427.us, %83 ]
-  %.6215 = phi i8 [ %.8217, %.split.us ], [ %20, %164 ], [ %.4213428.us, %83 ]
-  %.6206 = phi i8 [ %.8208, %.split.us ], [ %22, %164 ], [ %.4204429.us, %83 ]
-  %.8198 = phi ptr [ %206, %.split.us ], [ %12, %164 ], [ %.7197, %83 ]
-  %.6 = phi ptr [ %187, %.split.us ], [ %8, %164 ], [ %69, %83 ]
+  %.6224 = phi i8 [ %24, %164 ], [ %.8226388.us, %.split.us ], [ %.4222427.us, %83 ]
+  %.6215 = phi i8 [ %20, %164 ], [ %.8217, %.split.us ], [ %.4213428.us, %83 ]
+  %.6206 = phi i8 [ %22, %164 ], [ %.8208, %.split.us ], [ %.4204429.us, %83 ]
+  %.8198 = phi ptr [ %12, %164 ], [ %206, %.split.us ], [ %.7197, %83 ]
+  %.6 = phi ptr [ %8, %164 ], [ %187, %.split.us ], [ %69, %83 ]
   %165 = getelementptr inbounds nuw i8, ptr %.6, i64 1
   %166 = icmp ult ptr %165, %10
   %167 = icmp ult ptr %.8198, %14
@@ -673,13 +673,13 @@ define internal void @_ZL14_SCSUToUnicodeP23UConverterToUnicodeArgsP10UErrorCode
   br label %.loopexit280
 
 .loopexit:                                        ; preds = %200, %92, %.critedge2, %.critedge, %130, %60, %.lr.ph431.split, %.lr.ph390.split, %.split405.us, %160, %143, %.split471.us
-  %.2242 = phi i8 [ %.1241, %60 ], [ %.3243, %.lr.ph431.split ], [ 0, %.lr.ph390.split ], [ 0, %.split405.us ], [ %.3243, %.split471.us ], [ %.3243, %130 ], [ %.3243, %143 ], [ %.3243, %160 ], [ %.3243, %.critedge ], [ 0, %.critedge2 ], [ %.3243, %92 ], [ 0, %200 ]
-  %.2230 = phi i8 [ 0, %60 ], [ %.3231, %.lr.ph431.split ], [ %.8236, %.lr.ph390.split ], [ 0, %.split405.us ], [ 0, %.split471.us ], [ 3, %130 ], [ 6, %143 ], [ 6, %160 ], [ %.3231, %.critedge ], [ %.8236, %.critedge2 ], [ %.5233.us, %92 ], [ %.10238.us, %200 ]
-  %.2220 = phi i8 [ %.1219, %60 ], [ %.3221, %.lr.ph431.split ], [ %.7225, %.lr.ph390.split ], [ %.8226388.us, %.split405.us ], [ %.4222427.us, %.split471.us ], [ %.4222427.us, %130 ], [ %.4222427.us, %143 ], [ %.4222427.us, %160 ], [ %.3221, %.critedge ], [ %.7225, %.critedge2 ], [ %.5223.us, %92 ], [ %.9227.us, %200 ]
-  %.2211 = phi i8 [ %.1210, %60 ], [ %.3212, %.lr.ph431.split ], [ %.8217, %.lr.ph390.split ], [ %.8217, %.split405.us ], [ %.4213428.us, %.split471.us ], [ %.4213428.us, %130 ], [ %.4213428.us, %143 ], [ %.4213428.us, %160 ], [ %.3212, %.critedge ], [ %.8217, %.critedge2 ], [ %.5214.us, %92 ], [ %.8217, %200 ]
-  %.2202 = phi i8 [ %.1201, %60 ], [ %.3203, %.lr.ph431.split ], [ %.8208, %.lr.ph390.split ], [ %.8208, %.split405.us ], [ %.4204429.us, %.split471.us ], [ %.4204429.us, %130 ], [ %.4204429.us, %143 ], [ %.4204429.us, %160 ], [ %.3203, %.critedge ], [ %.8208, %.critedge2 ], [ %.5205.us, %92 ], [ %.8208, %200 ]
-  %.6196 = phi ptr [ %53, %60 ], [ %.7197, %.lr.ph431.split ], [ %.12, %.lr.ph390.split ], [ %.12, %.split405.us ], [ %.7197, %.split471.us ], [ %123, %130 ], [ %.7197, %143 ], [ %.7197, %160 ], [ %.7197, %.critedge ], [ %.12, %.critedge2 ], [ %.7197, %92 ], [ %.12, %200 ]
-  %.3 = phi ptr [ %35, %60 ], [ %.4, %.lr.ph431.split ], [ %.7, %.lr.ph390.split ], [ %187, %.split405.us ], [ %69, %.split471.us ], [ %69, %130 ], [ %69, %143 ], [ %69, %160 ], [ %.4, %.critedge ], [ %.7, %.critedge2 ], [ %69, %92 ], [ %187, %200 ]
+  %.2242 = phi i8 [ %.1241, %60 ], [ %.3243, %.lr.ph431.split ], [ 0, %.lr.ph390.split ], [ 0, %.split405.us ], [ %.3243, %.critedge ], [ %.3243, %.split471.us ], [ %.3243, %130 ], [ %.3243, %143 ], [ %.3243, %160 ], [ 0, %.critedge2 ], [ %.3243, %92 ], [ 0, %200 ]
+  %.2230 = phi i8 [ 0, %60 ], [ %.3231, %.lr.ph431.split ], [ %.8236, %.lr.ph390.split ], [ 0, %.split405.us ], [ %.3231, %.critedge ], [ 0, %.split471.us ], [ 3, %130 ], [ 6, %143 ], [ 6, %160 ], [ %.8236, %.critedge2 ], [ %.5233.us, %92 ], [ %.10238.us, %200 ]
+  %.2220 = phi i8 [ %.1219, %60 ], [ %.3221, %.lr.ph431.split ], [ %.7225, %.lr.ph390.split ], [ %.8226388.us, %.split405.us ], [ %.3221, %.critedge ], [ %.4222427.us, %.split471.us ], [ %.4222427.us, %130 ], [ %.4222427.us, %143 ], [ %.4222427.us, %160 ], [ %.7225, %.critedge2 ], [ %.5223.us, %92 ], [ %.9227.us, %200 ]
+  %.2211 = phi i8 [ %.1210, %60 ], [ %.3212, %.lr.ph431.split ], [ %.8217, %.lr.ph390.split ], [ %.8217, %.split405.us ], [ %.3212, %.critedge ], [ %.4213428.us, %.split471.us ], [ %.4213428.us, %130 ], [ %.4213428.us, %143 ], [ %.4213428.us, %160 ], [ %.8217, %.critedge2 ], [ %.5214.us, %92 ], [ %.8217, %200 ]
+  %.2202 = phi i8 [ %.1201, %60 ], [ %.3203, %.lr.ph431.split ], [ %.8208, %.lr.ph390.split ], [ %.8208, %.split405.us ], [ %.3203, %.critedge ], [ %.4204429.us, %.split471.us ], [ %.4204429.us, %130 ], [ %.4204429.us, %143 ], [ %.4204429.us, %160 ], [ %.8208, %.critedge2 ], [ %.5205.us, %92 ], [ %.8208, %200 ]
+  %.6196 = phi ptr [ %53, %60 ], [ %.7197, %.lr.ph431.split ], [ %.12, %.lr.ph390.split ], [ %.12, %.split405.us ], [ %.7197, %.critedge ], [ %.7197, %.split471.us ], [ %123, %130 ], [ %.7197, %143 ], [ %.7197, %160 ], [ %.12, %.critedge2 ], [ %.7197, %92 ], [ %.12, %200 ]
+  %.3 = phi ptr [ %35, %60 ], [ %.4, %.lr.ph431.split ], [ %.7, %.lr.ph390.split ], [ %187, %.split405.us ], [ %.4, %.critedge ], [ %69, %.split471.us ], [ %69, %130 ], [ %69, %143 ], [ %69, %160 ], [ %.7, %.critedge2 ], [ %69, %92 ], [ %187, %200 ]
   %207 = load i32, ptr %1, align 4, !tbaa !25
   %208 = icmp slt i32 %207, 1
   %.not270 = icmp eq i32 %207, 15
@@ -696,7 +696,7 @@ define internal void @_ZL14_SCSUToUnicodeP23UConverterToUnicodeArgsP10UErrorCode
   br label %213
 
 213:                                              ; preds = %.loopexit, %209, %211
-  %.11239 = phi i8 [ 0, %211 ], [ %.2230, %209 ], [ 0, %.loopexit ]
+  %.11239 = phi i8 [ %.2230, %209 ], [ 0, %211 ], [ 0, %.loopexit ]
   store i8 %.2242, ptr %15, align 4, !tbaa !19
   store i8 %.11239, ptr %17, align 1, !tbaa !40
   store i8 %.2211, ptr %19, align 2, !tbaa !41
@@ -741,14 +741,14 @@ define internal void @_ZL25_SCSUToUnicodeWithOffsetsP23UConverterToUnicodeArgsP1
   br i1 %.not383, label %.loopexit386.split.us, label %.critedge
 
 .loopexit386.split.us:                            ; preds = %231, %130, %124, %154, %149, %138, %141, %.split.us577, %119, %.split608.us, %111, %27, %194, %.split592.us, %.split628.us
-  %.1322 = phi ptr [ %16, %27 ], [ %.8329, %.split628.us ], [ %.8329, %.split592.us ], [ %.8329, %194 ], [ %112, %111 ], [ null, %.split608.us ], [ %120, %119 ], [ null, %.split.us577 ], [ %131, %130 ], [ null, %124 ], [ null, %149 ], [ %156, %154 ], [ null, %138 ], [ %142, %141 ], [ %.16, %231 ]
-  %.1316 = phi i8 [ %18, %27 ], [ %.3318, %.split628.us ], [ %.3318, %.split592.us ], [ %.3318, %194 ], [ %.3318, %111 ], [ %.3318, %.split608.us ], [ %.3318, %119 ], [ %.3318, %.split.us577 ], [ %.3318, %130 ], [ %.3318, %124 ], [ %.3318, %149 ], [ %.3318, %154 ], [ %.3318, %138 ], [ %.3318, %141 ], [ 1, %231 ]
-  %.1294 = phi i8 [ %26, %27 ], [ %.4297566.us, %.split628.us ], [ %.4297566.us, %.split592.us ], [ %.4297566.us, %194 ], [ %.4297566.us, %111 ], [ %.4297566.us, %.split608.us ], [ %.4297566.us, %119 ], [ %.4297566.us, %.split.us577 ], [ %.4297566.us, %130 ], [ %.4297566.us, %124 ], [ %.4297566.us, %149 ], [ %.4297566.us, %154 ], [ %.4297566.us, %138 ], [ %.4297566.us, %141 ], [ %.8301516.us, %231 ]
-  %.1285 = phi i8 [ %22, %27 ], [ %.4288567.us, %.split628.us ], [ %.4288567.us, %.split592.us ], [ %.4288567.us, %194 ], [ %.4288567.us, %111 ], [ %.4288567.us, %.split608.us ], [ %.4288567.us, %119 ], [ %.4288567.us, %.split.us577 ], [ %.4288567.us, %130 ], [ %.4288567.us, %124 ], [ %.4288567.us, %149 ], [ %.4288567.us, %154 ], [ %.4288567.us, %138 ], [ %.4288567.us, %141 ], [ %.8292, %231 ]
-  %.1276 = phi i8 [ %24, %27 ], [ %113, %.split628.us ], [ %.4279568.us, %.split592.us ], [ %.4279568.us, %194 ], [ %.4279568.us, %111 ], [ %.4279568.us, %.split608.us ], [ %.4279568.us, %119 ], [ %.4279568.us, %.split.us577 ], [ %.4279568.us, %130 ], [ %.4279568.us, %124 ], [ %.4279568.us, %149 ], [ %.4279568.us, %154 ], [ %.4279568.us, %138 ], [ %.4279568.us, %141 ], [ %229, %231 ]
-  %.1269 = phi i32 [ 0, %27 ], [ %86, %.split628.us ], [ %86, %.split592.us ], [ %86, %194 ], [ %86, %111 ], [ %86, %.split608.us ], [ %86, %119 ], [ %86, %.split.us577 ], [ %86, %130 ], [ %86, %124 ], [ %86, %149 ], [ %86, %154 ], [ %86, %138 ], [ %86, %141 ], [ %226, %231 ]
-  %.1250 = phi ptr [ %12, %27 ], [ %.7256, %.split628.us ], [ %.7256, %.split592.us ], [ %.7256, %194 ], [ %110, %111 ], [ %110, %.split608.us ], [ %118, %119 ], [ %118, %.split.us577 ], [ %129, %130 ], [ %129, %124 ], [ %153, %149 ], [ %153, %154 ], [ %140, %138 ], [ %140, %141 ], [ %.12, %231 ]
-  %.1 = phi ptr [ %8, %27 ], [ %84, %.split628.us ], [ %84, %.split592.us ], [ %84, %194 ], [ %84, %111 ], [ %84, %.split608.us ], [ %84, %119 ], [ %84, %.split.us577 ], [ %84, %130 ], [ %84, %124 ], [ %84, %149 ], [ %84, %154 ], [ %84, %138 ], [ %84, %141 ], [ %224, %231 ]
+  %.1322 = phi ptr [ %16, %27 ], [ %142, %141 ], [ %.8329, %.split628.us ], [ %.8329, %194 ], [ null, %.split608.us ], [ null, %.split.us577 ], [ %.8329, %.split592.us ], [ %112, %111 ], [ %120, %119 ], [ %131, %130 ], [ null, %124 ], [ null, %149 ], [ %156, %154 ], [ null, %138 ], [ %.16, %231 ]
+  %.1316 = phi i8 [ %18, %27 ], [ %.3318, %141 ], [ %.3318, %.split628.us ], [ %.3318, %194 ], [ %.3318, %.split608.us ], [ %.3318, %.split.us577 ], [ %.3318, %.split592.us ], [ %.3318, %111 ], [ %.3318, %119 ], [ %.3318, %130 ], [ %.3318, %124 ], [ %.3318, %149 ], [ %.3318, %154 ], [ %.3318, %138 ], [ 1, %231 ]
+  %.1294 = phi i8 [ %26, %27 ], [ %.4297566.us, %141 ], [ %.4297566.us, %.split628.us ], [ %.4297566.us, %194 ], [ %.4297566.us, %.split608.us ], [ %.4297566.us, %.split.us577 ], [ %.4297566.us, %.split592.us ], [ %.4297566.us, %111 ], [ %.4297566.us, %119 ], [ %.4297566.us, %130 ], [ %.4297566.us, %124 ], [ %.4297566.us, %149 ], [ %.4297566.us, %154 ], [ %.4297566.us, %138 ], [ %.8301516.us, %231 ]
+  %.1285 = phi i8 [ %22, %27 ], [ %.4288567.us, %141 ], [ %.4288567.us, %.split628.us ], [ %.4288567.us, %194 ], [ %.4288567.us, %.split608.us ], [ %.4288567.us, %.split.us577 ], [ %.4288567.us, %.split592.us ], [ %.4288567.us, %111 ], [ %.4288567.us, %119 ], [ %.4288567.us, %130 ], [ %.4288567.us, %124 ], [ %.4288567.us, %149 ], [ %.4288567.us, %154 ], [ %.4288567.us, %138 ], [ %.8292, %231 ]
+  %.1276 = phi i8 [ %24, %27 ], [ %.4279568.us, %141 ], [ %113, %.split628.us ], [ %.4279568.us, %194 ], [ %.4279568.us, %.split608.us ], [ %.4279568.us, %.split.us577 ], [ %.4279568.us, %.split592.us ], [ %.4279568.us, %111 ], [ %.4279568.us, %119 ], [ %.4279568.us, %130 ], [ %.4279568.us, %124 ], [ %.4279568.us, %149 ], [ %.4279568.us, %154 ], [ %.4279568.us, %138 ], [ %229, %231 ]
+  %.1269 = phi i32 [ 0, %27 ], [ %86, %141 ], [ %86, %.split628.us ], [ %86, %194 ], [ %86, %.split608.us ], [ %86, %.split.us577 ], [ %86, %.split592.us ], [ %86, %111 ], [ %86, %119 ], [ %86, %130 ], [ %86, %124 ], [ %86, %149 ], [ %86, %154 ], [ %86, %138 ], [ %226, %231 ]
+  %.1250 = phi ptr [ %12, %27 ], [ %140, %141 ], [ %.7256, %.split628.us ], [ %.7256, %194 ], [ %110, %.split608.us ], [ %118, %.split.us577 ], [ %.7256, %.split592.us ], [ %110, %111 ], [ %118, %119 ], [ %129, %130 ], [ %129, %124 ], [ %153, %149 ], [ %153, %154 ], [ %140, %138 ], [ %.12, %231 ]
+  %.1 = phi ptr [ %8, %27 ], [ %84, %141 ], [ %84, %.split628.us ], [ %84, %194 ], [ %84, %.split608.us ], [ %84, %.split.us577 ], [ %84, %.split592.us ], [ %84, %111 ], [ %84, %119 ], [ %84, %130 ], [ %84, %124 ], [ %84, %149 ], [ %84, %154 ], [ %84, %138 ], [ %224, %231 ]
   %28 = icmp ult ptr %.1, %10
   %29 = icmp ult ptr %.1250, %14
   %or.cond550 = select i1 %28, i1 %29, i1 false
@@ -868,16 +868,16 @@ define internal void @_ZL25_SCSUToUnicodeWithOffsetsP23UConverterToUnicodeArgsP1
   br label %.critedge
 
 .critedge:                                        ; preds = %32, %.thread, %.critedge.sink.split, %.loopexit386.split.us, %27
-  %.8329 = phi ptr [ %16, %27 ], [ %.1322, %.loopexit386.split.us ], [ %.16, %.critedge.sink.split ], [ %.2323551, %32 ], [ %.3324, %.thread ]
-  %.3318 = phi i8 [ %18, %27 ], [ %.1316, %.loopexit386.split.us ], [ 1, %.critedge.sink.split ], [ %.1316, %.thread ], [ %.1316, %32 ]
-  %.3306 = phi i8 [ %20, %27 ], [ 0, %.loopexit386.split.us ], [ %.3306.ph, %.critedge.sink.split ], [ 0, %.thread ], [ 0, %32 ]
-  %.3296 = phi i8 [ %26, %27 ], [ %.1294, %.loopexit386.split.us ], [ %.8301516.us, %.critedge.sink.split ], [ %.1294, %.thread ], [ %.1294, %32 ]
-  %.3287 = phi i8 [ %22, %27 ], [ %.1285, %.loopexit386.split.us ], [ %.8292, %.critedge.sink.split ], [ %.1285, %.thread ], [ %.1285, %32 ]
-  %.3278 = phi i8 [ %24, %27 ], [ %.1276, %.loopexit386.split.us ], [ %.3278.ph, %.critedge.sink.split ], [ %.1276, %.thread ], [ %.1276, %32 ]
-  %.3271 = phi i32 [ -1, %27 ], [ %.1269, %.loopexit386.split.us ], [ %.5273, %.critedge.sink.split ], [ %.2270552, %32 ], [ %37, %.thread ]
-  %.3262 = phi i32 [ 0, %27 ], [ %.1269, %.loopexit386.split.us ], [ %226, %.critedge.sink.split ], [ %.2270552, %32 ], [ %37, %.thread ]
-  %.7256 = phi ptr [ %12, %27 ], [ %.1250, %.loopexit386.split.us ], [ %.12, %.critedge.sink.split ], [ %.2251553, %32 ], [ %.3252, %.thread ]
-  %.4 = phi ptr [ %8, %27 ], [ %.1, %.loopexit386.split.us ], [ %224, %.critedge.sink.split ], [ %.2554, %32 ], [ %36, %.thread ]
+  %.8329 = phi ptr [ %.1322, %.loopexit386.split.us ], [ %.16, %.critedge.sink.split ], [ %16, %27 ], [ %.2323551, %32 ], [ %.3324, %.thread ]
+  %.3318 = phi i8 [ %.1316, %.loopexit386.split.us ], [ 1, %.critedge.sink.split ], [ %18, %27 ], [ %.1316, %.thread ], [ %.1316, %32 ]
+  %.3306 = phi i8 [ 0, %.loopexit386.split.us ], [ %.3306.ph, %.critedge.sink.split ], [ %20, %27 ], [ 0, %.thread ], [ 0, %32 ]
+  %.3296 = phi i8 [ %.1294, %.loopexit386.split.us ], [ %.8301516.us, %.critedge.sink.split ], [ %26, %27 ], [ %.1294, %.thread ], [ %.1294, %32 ]
+  %.3287 = phi i8 [ %.1285, %.loopexit386.split.us ], [ %.8292, %.critedge.sink.split ], [ %22, %27 ], [ %.1285, %.thread ], [ %.1285, %32 ]
+  %.3278 = phi i8 [ %.1276, %.loopexit386.split.us ], [ %.3278.ph, %.critedge.sink.split ], [ %24, %27 ], [ %.1276, %.thread ], [ %.1276, %32 ]
+  %.3271 = phi i32 [ %.1269, %.loopexit386.split.us ], [ %.5273, %.critedge.sink.split ], [ -1, %27 ], [ %.2270552, %32 ], [ %37, %.thread ]
+  %.3262 = phi i32 [ %.1269, %.loopexit386.split.us ], [ %226, %.critedge.sink.split ], [ 0, %27 ], [ %.2270552, %32 ], [ %37, %.thread ]
+  %.7256 = phi ptr [ %.1250, %.loopexit386.split.us ], [ %.12, %.critedge.sink.split ], [ %12, %27 ], [ %.2251553, %32 ], [ %.3252, %.thread ]
+  %.4 = phi ptr [ %.1, %.loopexit386.split.us ], [ %224, %.critedge.sink.split ], [ %8, %27 ], [ %.2554, %32 ], [ %36, %.thread ]
   %80 = icmp ult ptr %.4, %10
   br i1 %80, label %.lr.ph571, label %.loopexit
 
@@ -1173,13 +1173,13 @@ define internal void @_ZL25_SCSUToUnicodeWithOffsetsP23UConverterToUnicodeArgsP1
   br i1 %.not383, label %.loopexit384, label %.critedge2
 
 .loopexit384:                                     ; preds = %99, %.split.us, %245, %197
-  %.10331 = phi ptr [ %16, %197 ], [ %246, %245 ], [ null, %.split.us ], [ %.8329, %99 ]
-  %.6299 = phi i8 [ %26, %197 ], [ %.8301516.us, %245 ], [ %.8301516.us, %.split.us ], [ %.4297566.us, %99 ]
-  %.6290 = phi i8 [ %22, %197 ], [ %.8292, %245 ], [ %.8292, %.split.us ], [ %.4288567.us, %99 ]
-  %.6281 = phi i8 [ %24, %197 ], [ %.8283, %245 ], [ %.8283, %.split.us ], [ %.4279568.us, %99 ]
-  %.4272 = phi i32 [ 0, %197 ], [ %226, %245 ], [ %226, %.split.us ], [ %86, %99 ]
-  %.8257 = phi ptr [ %12, %197 ], [ %244, %245 ], [ %244, %.split.us ], [ %.7256, %99 ]
-  %.6 = phi ptr [ %8, %197 ], [ %224, %245 ], [ %224, %.split.us ], [ %84, %99 ]
+  %.10331 = phi ptr [ %16, %197 ], [ null, %.split.us ], [ %246, %245 ], [ %.8329, %99 ]
+  %.6299 = phi i8 [ %26, %197 ], [ %.8301516.us, %.split.us ], [ %.8301516.us, %245 ], [ %.4297566.us, %99 ]
+  %.6290 = phi i8 [ %22, %197 ], [ %.8292, %.split.us ], [ %.8292, %245 ], [ %.4288567.us, %99 ]
+  %.6281 = phi i8 [ %24, %197 ], [ %.8283, %.split.us ], [ %.8283, %245 ], [ %.4279568.us, %99 ]
+  %.4272 = phi i32 [ 0, %197 ], [ %226, %.split.us ], [ %226, %245 ], [ %86, %99 ]
+  %.8257 = phi ptr [ %12, %197 ], [ %244, %.split.us ], [ %244, %245 ], [ %.7256, %99 ]
+  %.6 = phi ptr [ %8, %197 ], [ %224, %.split.us ], [ %224, %245 ], [ %84, %99 ]
   %198 = getelementptr inbounds nuw i8, ptr %.6, i64 1
   %199 = icmp ult ptr %198, %10
   %200 = icmp ult ptr %.8257, %14
@@ -1332,14 +1332,14 @@ define internal void @_ZL25_SCSUToUnicodeWithOffsetsP23UConverterToUnicodeArgsP1
   br label %.loopexit384
 
 .loopexit:                                        ; preds = %238, %108, %.critedge2, %.critedge, %160, %72, %.lr.ph571.split, %.lr.ph519.split, %.split537.us, %193, %176, %.split616.us
-  %.7328 = phi ptr [ %.5326, %72 ], [ %.8329, %.lr.ph571.split ], [ %.16, %.lr.ph519.split ], [ %.16, %.split537.us ], [ %.8329, %.split616.us ], [ %.14, %160 ], [ %.8329, %176 ], [ %.8329, %193 ], [ %.8329, %.critedge ], [ %.16, %.critedge2 ], [ %.8329, %108 ], [ %.16, %238 ]
-  %.2317 = phi i8 [ %.1316, %72 ], [ %.3318, %.lr.ph571.split ], [ 0, %.lr.ph519.split ], [ 0, %.split537.us ], [ %.3318, %.split616.us ], [ %.3318, %160 ], [ %.3318, %176 ], [ %.3318, %193 ], [ %.3318, %.critedge ], [ 0, %.critedge2 ], [ %.3318, %108 ], [ 0, %238 ]
-  %.2305 = phi i8 [ 0, %72 ], [ %.3306, %.lr.ph571.split ], [ %.8311, %.lr.ph519.split ], [ 0, %.split537.us ], [ 0, %.split616.us ], [ 3, %160 ], [ 6, %176 ], [ 6, %193 ], [ %.3306, %.critedge ], [ %.8311, %.critedge2 ], [ %.5308.us, %108 ], [ %.10313.us, %238 ]
-  %.2295 = phi i8 [ %.1294, %72 ], [ %.3296, %.lr.ph571.split ], [ %.7300, %.lr.ph519.split ], [ %.8301516.us, %.split537.us ], [ %.4297566.us, %.split616.us ], [ %.4297566.us, %160 ], [ %.4297566.us, %176 ], [ %.4297566.us, %193 ], [ %.3296, %.critedge ], [ %.7300, %.critedge2 ], [ %.5298.us, %108 ], [ %.9302.us, %238 ]
-  %.2286 = phi i8 [ %.1285, %72 ], [ %.3287, %.lr.ph571.split ], [ %.8292, %.lr.ph519.split ], [ %.8292, %.split537.us ], [ %.4288567.us, %.split616.us ], [ %.4288567.us, %160 ], [ %.4288567.us, %176 ], [ %.4288567.us, %193 ], [ %.3287, %.critedge ], [ %.8292, %.critedge2 ], [ %.5289.us, %108 ], [ %.8292, %238 ]
-  %.2277 = phi i8 [ %.1276, %72 ], [ %.3278, %.lr.ph571.split ], [ %.8283, %.lr.ph519.split ], [ %.8283, %.split537.us ], [ %.4279568.us, %.split616.us ], [ %.4279568.us, %160 ], [ %.4279568.us, %176 ], [ %.4279568.us, %193 ], [ %.3278, %.critedge ], [ %.8283, %.critedge2 ], [ %.5280.us, %108 ], [ %.8283, %238 ]
-  %.6255 = phi ptr [ %59, %72 ], [ %.7256, %.lr.ph571.split ], [ %.12, %.lr.ph519.split ], [ %.12, %.split537.us ], [ %.7256, %.split616.us ], [ %147, %160 ], [ %.7256, %176 ], [ %.7256, %193 ], [ %.7256, %.critedge ], [ %.12, %.critedge2 ], [ %.7256, %108 ], [ %.12, %238 ]
-  %.3 = phi ptr [ %36, %72 ], [ %.4, %.lr.ph571.split ], [ %.7, %.lr.ph519.split ], [ %224, %.split537.us ], [ %84, %.split616.us ], [ %84, %160 ], [ %84, %176 ], [ %84, %193 ], [ %.4, %.critedge ], [ %.7, %.critedge2 ], [ %84, %108 ], [ %224, %238 ]
+  %.7328 = phi ptr [ %.5326, %72 ], [ %.8329, %.lr.ph571.split ], [ %.16, %.lr.ph519.split ], [ %.16, %.split537.us ], [ %.8329, %.critedge ], [ %.8329, %.split616.us ], [ %.14, %160 ], [ %.8329, %176 ], [ %.8329, %193 ], [ %.16, %.critedge2 ], [ %.8329, %108 ], [ %.16, %238 ]
+  %.2317 = phi i8 [ %.1316, %72 ], [ %.3318, %.lr.ph571.split ], [ 0, %.lr.ph519.split ], [ 0, %.split537.us ], [ %.3318, %.critedge ], [ %.3318, %.split616.us ], [ %.3318, %160 ], [ %.3318, %176 ], [ %.3318, %193 ], [ 0, %.critedge2 ], [ %.3318, %108 ], [ 0, %238 ]
+  %.2305 = phi i8 [ 0, %72 ], [ %.3306, %.lr.ph571.split ], [ %.8311, %.lr.ph519.split ], [ 0, %.split537.us ], [ %.3306, %.critedge ], [ 0, %.split616.us ], [ 3, %160 ], [ 6, %176 ], [ 6, %193 ], [ %.8311, %.critedge2 ], [ %.5308.us, %108 ], [ %.10313.us, %238 ]
+  %.2295 = phi i8 [ %.1294, %72 ], [ %.3296, %.lr.ph571.split ], [ %.7300, %.lr.ph519.split ], [ %.8301516.us, %.split537.us ], [ %.3296, %.critedge ], [ %.4297566.us, %.split616.us ], [ %.4297566.us, %160 ], [ %.4297566.us, %176 ], [ %.4297566.us, %193 ], [ %.7300, %.critedge2 ], [ %.5298.us, %108 ], [ %.9302.us, %238 ]
+  %.2286 = phi i8 [ %.1285, %72 ], [ %.3287, %.lr.ph571.split ], [ %.8292, %.lr.ph519.split ], [ %.8292, %.split537.us ], [ %.3287, %.critedge ], [ %.4288567.us, %.split616.us ], [ %.4288567.us, %160 ], [ %.4288567.us, %176 ], [ %.4288567.us, %193 ], [ %.8292, %.critedge2 ], [ %.5289.us, %108 ], [ %.8292, %238 ]
+  %.2277 = phi i8 [ %.1276, %72 ], [ %.3278, %.lr.ph571.split ], [ %.8283, %.lr.ph519.split ], [ %.8283, %.split537.us ], [ %.3278, %.critedge ], [ %.4279568.us, %.split616.us ], [ %.4279568.us, %160 ], [ %.4279568.us, %176 ], [ %.4279568.us, %193 ], [ %.8283, %.critedge2 ], [ %.5280.us, %108 ], [ %.8283, %238 ]
+  %.6255 = phi ptr [ %59, %72 ], [ %.7256, %.lr.ph571.split ], [ %.12, %.lr.ph519.split ], [ %.12, %.split537.us ], [ %.7256, %.critedge ], [ %.7256, %.split616.us ], [ %147, %160 ], [ %.7256, %176 ], [ %.7256, %193 ], [ %.12, %.critedge2 ], [ %.7256, %108 ], [ %.12, %238 ]
+  %.3 = phi ptr [ %36, %72 ], [ %.4, %.lr.ph571.split ], [ %.7, %.lr.ph519.split ], [ %224, %.split537.us ], [ %.4, %.critedge ], [ %84, %.split616.us ], [ %84, %160 ], [ %84, %176 ], [ %84, %193 ], [ %.7, %.critedge2 ], [ %84, %108 ], [ %224, %238 ]
   %247 = load i32, ptr %1, align 4, !tbaa !25
   %248 = icmp slt i32 %247, 1
   %.not370 = icmp eq i32 %247, 15
@@ -1356,7 +1356,7 @@ define internal void @_ZL25_SCSUToUnicodeWithOffsetsP23UConverterToUnicodeArgsP1
   br label %253
 
 253:                                              ; preds = %.loopexit, %249, %251
-  %.11314 = phi i8 [ 0, %251 ], [ %.2305, %249 ], [ 0, %.loopexit ]
+  %.11314 = phi i8 [ %.2305, %249 ], [ 0, %251 ], [ 0, %.loopexit ]
   store i8 %.2317, ptr %17, align 4, !tbaa !19
   store i8 %.11314, ptr %19, align 1, !tbaa !40
   store i8 %.2286, ptr %21, align 2, !tbaa !41
@@ -2366,21 +2366,21 @@ _ZL16getDynamicOffsetjPj.exit414.thread444:       ; preds = %480, %469, %460, %_
   br label %531
 
 .loopexit.sink.split:                             ; preds = %399, %404, %64, %69, %38, %.lr.ph.preheader, %.lr.ph, %579, %564
-  %.sink748 = phi i32 [ 15, %564 ], [ 15, %579 ], [ 15, %.lr.ph ], [ 15, %38 ], [ 12, %69 ], [ 12, %64 ], [ 12, %404 ], [ 12, %399 ], [ 15, %.lr.ph.preheader ]
-  %.7295.ph = phi ptr [ %.4292455, %564 ], [ %.4292455, %579 ], [ %307, %.lr.ph ], [ %.2290, %38 ], [ %.1289, %69 ], [ %41, %64 ], [ %.8296, %404 ], [ %307, %399 ], [ %.0288, %.lr.ph.preheader ]
-  %.7286.ph = phi ptr [ %.4283456, %564 ], [ %581, %579 ], [ %318, %.lr.ph ], [ %.2281, %38 ], [ %.1280, %69 ], [ %.2281, %64 ], [ %.8287, %404 ], [ %.9546817, %399 ], [ %.0279, %.lr.ph.preheader ]
-  %.2271.ph = phi i8 [ %.1270458, %564 ], [ %.1270458, %579 ], [ 0, %.lr.ph ], [ %.0269, %38 ], [ %.0269, %69 ], [ %.0269, %64 ], [ 0, %404 ], [ 0, %399 ], [ 0, %.lr.ph.preheader ]
-  %.2268.ph = phi i8 [ %.1267459, %564 ], [ %.1267459, %579 ], [ %.0266, %.lr.ph ], [ %.0266, %.lr.ph.preheader ], [ %.0266, %38 ], [ %.0266, %69 ], [ %.0266, %64 ], [ %.0266, %404 ], [ %.0266, %399 ]
-  %.4.ph = phi i32 [ 0, %564 ], [ 0, %579 ], [ 0, %.lr.ph ], [ %.2263, %38 ], [ %.1262, %69 ], [ %43, %64 ], [ %.5, %404 ], [ %309, %399 ], [ %.0261, %.lr.ph.preheader ]
+  %.sink748 = phi i32 [ 15, %579 ], [ 15, %.lr.ph ], [ 15, %564 ], [ 15, %38 ], [ 12, %404 ], [ 12, %399 ], [ 12, %69 ], [ 12, %64 ], [ 15, %.lr.ph.preheader ]
+  %.7295.ph = phi ptr [ %.4292455, %579 ], [ %307, %.lr.ph ], [ %.4292455, %564 ], [ %.2290, %38 ], [ %.8296, %404 ], [ %307, %399 ], [ %.1289, %69 ], [ %41, %64 ], [ %.0288, %.lr.ph.preheader ]
+  %.7286.ph = phi ptr [ %581, %579 ], [ %318, %.lr.ph ], [ %.4283456, %564 ], [ %.2281, %38 ], [ %.8287, %404 ], [ %.9546817, %399 ], [ %.1280, %69 ], [ %.2281, %64 ], [ %.0279, %.lr.ph.preheader ]
+  %.2271.ph = phi i8 [ %.1270458, %579 ], [ 0, %.lr.ph ], [ %.1270458, %564 ], [ %.0269, %38 ], [ 0, %404 ], [ 0, %399 ], [ %.0269, %69 ], [ %.0269, %64 ], [ 0, %.lr.ph.preheader ]
+  %.2268.ph = phi i8 [ %.1267459, %579 ], [ %.0266, %.lr.ph ], [ %.1267459, %564 ], [ %.0266, %.lr.ph.preheader ], [ %.0266, %38 ], [ %.0266, %69 ], [ %.0266, %64 ], [ %.0266, %404 ], [ %.0266, %399 ]
+  %.4.ph = phi i32 [ 0, %579 ], [ 0, %.lr.ph ], [ 0, %564 ], [ %.2263, %38 ], [ %.5, %404 ], [ %309, %399 ], [ %.1262, %69 ], [ %43, %64 ], [ %.0261, %.lr.ph.preheader ]
   store i32 %.sink748, ptr %1, align 4, !tbaa !25
   br label %.loopexit
 
 .loopexit:                                        ; preds = %67, %36, %402, %.preheader466, %313, %.loopexit.sink.split
-  %.7295 = phi ptr [ %.7295.ph, %.loopexit.sink.split ], [ %307, %313 ], [ %.0288, %.preheader466 ], [ %.8296, %402 ], [ %.1289, %67 ], [ %.2290, %36 ]
-  %.7286 = phi ptr [ %.7286.ph, %.loopexit.sink.split ], [ %318, %313 ], [ %.0279, %.preheader466 ], [ %.8287, %402 ], [ %.1280, %67 ], [ %.2281, %36 ]
-  %.2271 = phi i8 [ %.2271.ph, %.loopexit.sink.split ], [ 0, %313 ], [ 0, %.preheader466 ], [ 0, %402 ], [ %.0269, %67 ], [ %.0269, %36 ]
+  %.7295 = phi ptr [ %.7295.ph, %.loopexit.sink.split ], [ %307, %313 ], [ %.2290, %36 ], [ %.0288, %.preheader466 ], [ %.8296, %402 ], [ %.1289, %67 ]
+  %.7286 = phi ptr [ %.7286.ph, %.loopexit.sink.split ], [ %318, %313 ], [ %.2281, %36 ], [ %.0279, %.preheader466 ], [ %.8287, %402 ], [ %.1280, %67 ]
+  %.2271 = phi i8 [ %.2271.ph, %.loopexit.sink.split ], [ 0, %313 ], [ %.0269, %36 ], [ 0, %.preheader466 ], [ 0, %402 ], [ %.0269, %67 ]
   %.2268 = phi i8 [ %.2268.ph, %.loopexit.sink.split ], [ %.0266, %313 ], [ %.0266, %.preheader466 ], [ %.0266, %402 ], [ %.0266, %36 ], [ %.0266, %67 ]
-  %.4 = phi i32 [ %.4.ph, %.loopexit.sink.split ], [ 0, %313 ], [ %.0261, %.preheader466 ], [ %.5, %402 ], [ %.1262, %67 ], [ %.2263, %36 ]
+  %.4 = phi i32 [ %.4.ph, %.loopexit.sink.split ], [ 0, %313 ], [ %.2263, %36 ], [ %.0261, %.preheader466 ], [ %.5, %402 ], [ %.1262, %67 ]
   store i8 %.2271, ptr %20, align 4, !tbaa !21
   store i8 %.2268, ptr %22, align 1, !tbaa !22
   store i32 %.4, ptr %28, align 4, !tbaa !24
@@ -2390,14 +2390,14 @@ _ZL16getDynamicOffsetjPj.exit414.thread444:       ; preds = %480, %469, %460, %_
   ret void
 
 531:                                              ; preds = %324, %_ZL9getWindowPKjj.exit376.thread, %529, %_ZL16getDynamicOffsetjPj.exit414.thread444, %_ZL16useDynamicWindowP8SCSUDataa.exit427, %_ZL16useDynamicWindowP8SCSUDataa.exit406, %379, %_ZL16useDynamicWindowP8SCSUDataa.exit388, %334, %296, %294, %268, %258, %_ZL24isInOffsetWindowOrDirectjj.exit.thread, %_ZL16useDynamicWindowP8SCSUDataa.exit365, %193, %187, %_ZL16getDynamicOffsetjPj.exit.thread432, %_ZL16useDynamicWindowP8SCSUDataa.exit347, %_ZL16useDynamicWindowP8SCSUDataa.exit, %56
-  %.4292 = phi ptr [ %41, %56 ], [ %41, %187 ], [ %41, %193 ], [ %41, %_ZL16useDynamicWindowP8SCSUDataa.exit365 ], [ %41, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %41, %258 ], [ %41, %268 ], [ %41, %294 ], [ %41, %296 ], [ %75, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %75, %_ZL16useDynamicWindowP8SCSUDataa.exit347 ], [ %75, %_ZL16getDynamicOffsetjPj.exit.thread432 ], [ %410, %_ZL16useDynamicWindowP8SCSUDataa.exit427 ], [ %410, %_ZL16getDynamicOffsetjPj.exit414.thread444 ], [ %410, %_ZL16useDynamicWindowP8SCSUDataa.exit406 ], [ %307, %334 ], [ %307, %_ZL16useDynamicWindowP8SCSUDataa.exit388 ], [ %307, %379 ], [ %307, %529 ], [ %307, %_ZL9getWindowPKjj.exit376.thread ], [ %307, %324 ]
-  %.4283 = phi ptr [ %.2281, %56 ], [ %.2281, %187 ], [ %.2281, %193 ], [ %.2281, %_ZL16useDynamicWindowP8SCSUDataa.exit365 ], [ %.2281, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %.2281, %258 ], [ %.2281, %268 ], [ %.2281, %294 ], [ %.2281, %296 ], [ %.1280, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %.1280, %_ZL16useDynamicWindowP8SCSUDataa.exit347 ], [ %181, %_ZL16getDynamicOffsetjPj.exit.thread432 ], [ %.8287, %_ZL16useDynamicWindowP8SCSUDataa.exit427 ], [ %.8287, %_ZL16getDynamicOffsetjPj.exit414.thread444 ], [ %.8287, %_ZL16useDynamicWindowP8SCSUDataa.exit406 ], [ %.9546817, %334 ], [ %.9546817, %_ZL16useDynamicWindowP8SCSUDataa.exit388 ], [ %.9546817, %379 ], [ %.9546817, %529 ], [ %.9546817, %_ZL9getWindowPKjj.exit376.thread ], [ %.9546817, %324 ]
-  %.4276 = phi i32 [ %.2274, %56 ], [ %.2274, %187 ], [ %.2274, %193 ], [ %.2274, %_ZL16useDynamicWindowP8SCSUDataa.exit365 ], [ %.2274, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %.2274, %258 ], [ %.2274, %268 ], [ %.2274, %294 ], [ %.2274, %296 ], [ %.1273, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %.1273, %_ZL16useDynamicWindowP8SCSUDataa.exit347 ], [ %182, %_ZL16getDynamicOffsetjPj.exit.thread432 ], [ %.7, %_ZL16useDynamicWindowP8SCSUDataa.exit427 ], [ %.7, %_ZL16getDynamicOffsetjPj.exit414.thread444 ], [ %.7, %_ZL16useDynamicWindowP8SCSUDataa.exit406 ], [ %.8547816, %334 ], [ %.8547816, %_ZL16useDynamicWindowP8SCSUDataa.exit388 ], [ %.8547816, %379 ], [ %.8547816, %529 ], [ %.8547816, %_ZL9getWindowPKjj.exit376.thread ], [ %.8547816, %324 ]
-  %.1270 = phi i8 [ %.0269, %56 ], [ %.0269, %187 ], [ %.0269, %193 ], [ %.0269, %_ZL16useDynamicWindowP8SCSUDataa.exit365 ], [ %.0269, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %.0269, %258 ], [ %.0269, %268 ], [ 0, %294 ], [ %.0269, %296 ], [ %.0269, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %.0269, %_ZL16useDynamicWindowP8SCSUDataa.exit347 ], [ 0, %_ZL16getDynamicOffsetjPj.exit.thread432 ], [ 1, %_ZL16useDynamicWindowP8SCSUDataa.exit427 ], [ 0, %_ZL16getDynamicOffsetjPj.exit414.thread444 ], [ 1, %_ZL16useDynamicWindowP8SCSUDataa.exit406 ], [ 1, %334 ], [ 1, %_ZL16useDynamicWindowP8SCSUDataa.exit388 ], [ 1, %379 ], [ 0, %529 ], [ 0, %_ZL9getWindowPKjj.exit376.thread ], [ 0, %324 ]
-  %.1267 = phi i8 [ %.0266, %56 ], [ %.0266, %187 ], [ %.0266, %193 ], [ %200, %_ZL16useDynamicWindowP8SCSUDataa.exit365 ], [ %.0266, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %.0266, %258 ], [ %272, %268 ], [ %.0266, %294 ], [ %.0266, %296 ], [ %86, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %148, %_ZL16useDynamicWindowP8SCSUDataa.exit347 ], [ %.0266, %_ZL16getDynamicOffsetjPj.exit.thread432 ], [ %494, %_ZL16useDynamicWindowP8SCSUDataa.exit427 ], [ %.0266, %_ZL16getDynamicOffsetjPj.exit414.thread444 ], [ %420, %_ZL16useDynamicWindowP8SCSUDataa.exit406 ], [ %.0266, %334 ], [ %344, %_ZL16useDynamicWindowP8SCSUDataa.exit388 ], [ %383, %379 ], [ %.0266, %529 ], [ %.0266, %_ZL9getWindowPKjj.exit376.thread ], [ %.0266, %324 ]
-  %.1265 = phi i32 [ %.0264, %56 ], [ %.0264, %187 ], [ %.0264, %193 ], [ %219, %_ZL16useDynamicWindowP8SCSUDataa.exit365 ], [ %.0264, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %.0264, %258 ], [ %275, %268 ], [ %.0264, %294 ], [ %.0264, %296 ], [ %91, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %144, %_ZL16useDynamicWindowP8SCSUDataa.exit347 ], [ %.0264, %_ZL16getDynamicOffsetjPj.exit.thread432 ], [ %490, %_ZL16useDynamicWindowP8SCSUDataa.exit427 ], [ %.0264, %_ZL16getDynamicOffsetjPj.exit414.thread444 ], [ %431, %_ZL16useDynamicWindowP8SCSUDataa.exit406 ], [ %.0264, %334 ], [ %349, %_ZL16useDynamicWindowP8SCSUDataa.exit388 ], [ %386, %379 ], [ %.0264, %529 ], [ %.0264, %_ZL9getWindowPKjj.exit376.thread ], [ %.0264, %324 ]
-  %.3 = phi i32 [ %57, %56 ], [ %189, %187 ], [ %194, %193 ], [ %245, %_ZL16useDynamicWindowP8SCSUDataa.exit365 ], [ %250, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %265, %258 ], [ %285, %268 ], [ %295, %294 ], [ %297, %296 ], [ %117, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %180, %_ZL16useDynamicWindowP8SCSUDataa.exit347 ], [ %184, %_ZL16getDynamicOffsetjPj.exit.thread432 ], [ %526, %_ZL16useDynamicWindowP8SCSUDataa.exit427 ], [ %528, %_ZL16getDynamicOffsetjPj.exit414.thread444 ], [ %458, %_ZL16useDynamicWindowP8SCSUDataa.exit406 ], [ %338, %334 ], [ %376, %_ZL16useDynamicWindowP8SCSUDataa.exit388 ], [ %396, %379 ], [ %530, %529 ], [ %309, %_ZL9getWindowPKjj.exit376.thread ], [ %309, %324 ]
-  %.0260 = phi i32 [ 2, %56 ], [ 2, %187 ], [ 3, %193 ], [ 2, %_ZL16useDynamicWindowP8SCSUDataa.exit365 ], [ 2, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ 2, %258 ], [ 3, %268 ], [ 3, %294 ], [ 3, %296 ], [ 2, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ 4, %_ZL16useDynamicWindowP8SCSUDataa.exit347 ], [ 4, %_ZL16getDynamicOffsetjPj.exit.thread432 ], [ 4, %_ZL16useDynamicWindowP8SCSUDataa.exit427 ], [ 4, %_ZL16getDynamicOffsetjPj.exit414.thread444 ], [ 2, %_ZL16useDynamicWindowP8SCSUDataa.exit406 ], [ 2, %334 ], [ 2, %_ZL16useDynamicWindowP8SCSUDataa.exit388 ], [ 3, %379 ], [ 3, %529 ], [ 2, %_ZL9getWindowPKjj.exit376.thread ], [ 2, %324 ]
+  %.4292 = phi ptr [ %41, %56 ], [ %41, %187 ], [ %41, %193 ], [ %41, %_ZL16useDynamicWindowP8SCSUDataa.exit365 ], [ %41, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %41, %258 ], [ %41, %268 ], [ %41, %294 ], [ %41, %296 ], [ %75, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %75, %_ZL16useDynamicWindowP8SCSUDataa.exit347 ], [ %75, %_ZL16getDynamicOffsetjPj.exit.thread432 ], [ %410, %_ZL16useDynamicWindowP8SCSUDataa.exit427 ], [ %410, %_ZL16getDynamicOffsetjPj.exit414.thread444 ], [ %410, %_ZL16useDynamicWindowP8SCSUDataa.exit406 ], [ %307, %529 ], [ %307, %324 ], [ %307, %334 ], [ %307, %_ZL16useDynamicWindowP8SCSUDataa.exit388 ], [ %307, %379 ], [ %307, %_ZL9getWindowPKjj.exit376.thread ]
+  %.4283 = phi ptr [ %.2281, %56 ], [ %.2281, %187 ], [ %.2281, %193 ], [ %.2281, %_ZL16useDynamicWindowP8SCSUDataa.exit365 ], [ %.2281, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %.2281, %258 ], [ %.2281, %268 ], [ %.2281, %294 ], [ %.2281, %296 ], [ %.1280, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %.1280, %_ZL16useDynamicWindowP8SCSUDataa.exit347 ], [ %181, %_ZL16getDynamicOffsetjPj.exit.thread432 ], [ %.8287, %_ZL16useDynamicWindowP8SCSUDataa.exit427 ], [ %.8287, %_ZL16getDynamicOffsetjPj.exit414.thread444 ], [ %.8287, %_ZL16useDynamicWindowP8SCSUDataa.exit406 ], [ %.9546817, %529 ], [ %.9546817, %324 ], [ %.9546817, %334 ], [ %.9546817, %_ZL16useDynamicWindowP8SCSUDataa.exit388 ], [ %.9546817, %379 ], [ %.9546817, %_ZL9getWindowPKjj.exit376.thread ]
+  %.4276 = phi i32 [ %.2274, %56 ], [ %.2274, %187 ], [ %.2274, %193 ], [ %.2274, %_ZL16useDynamicWindowP8SCSUDataa.exit365 ], [ %.2274, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %.2274, %258 ], [ %.2274, %268 ], [ %.2274, %294 ], [ %.2274, %296 ], [ %.1273, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %.1273, %_ZL16useDynamicWindowP8SCSUDataa.exit347 ], [ %182, %_ZL16getDynamicOffsetjPj.exit.thread432 ], [ %.7, %_ZL16useDynamicWindowP8SCSUDataa.exit427 ], [ %.7, %_ZL16getDynamicOffsetjPj.exit414.thread444 ], [ %.7, %_ZL16useDynamicWindowP8SCSUDataa.exit406 ], [ %.8547816, %529 ], [ %.8547816, %324 ], [ %.8547816, %334 ], [ %.8547816, %_ZL16useDynamicWindowP8SCSUDataa.exit388 ], [ %.8547816, %379 ], [ %.8547816, %_ZL9getWindowPKjj.exit376.thread ]
+  %.1270 = phi i8 [ %.0269, %56 ], [ %.0269, %187 ], [ %.0269, %193 ], [ %.0269, %_ZL16useDynamicWindowP8SCSUDataa.exit365 ], [ %.0269, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %.0269, %258 ], [ %.0269, %268 ], [ 0, %294 ], [ %.0269, %296 ], [ %.0269, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %.0269, %_ZL16useDynamicWindowP8SCSUDataa.exit347 ], [ 0, %_ZL16getDynamicOffsetjPj.exit.thread432 ], [ 1, %_ZL16useDynamicWindowP8SCSUDataa.exit427 ], [ 0, %_ZL16getDynamicOffsetjPj.exit414.thread444 ], [ 1, %_ZL16useDynamicWindowP8SCSUDataa.exit406 ], [ 0, %529 ], [ 0, %324 ], [ 1, %334 ], [ 1, %_ZL16useDynamicWindowP8SCSUDataa.exit388 ], [ 1, %379 ], [ 0, %_ZL9getWindowPKjj.exit376.thread ]
+  %.1267 = phi i8 [ %.0266, %56 ], [ %.0266, %187 ], [ %.0266, %193 ], [ %200, %_ZL16useDynamicWindowP8SCSUDataa.exit365 ], [ %.0266, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %.0266, %258 ], [ %272, %268 ], [ %.0266, %294 ], [ %.0266, %296 ], [ %86, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %148, %_ZL16useDynamicWindowP8SCSUDataa.exit347 ], [ %.0266, %_ZL16getDynamicOffsetjPj.exit.thread432 ], [ %494, %_ZL16useDynamicWindowP8SCSUDataa.exit427 ], [ %.0266, %_ZL16getDynamicOffsetjPj.exit414.thread444 ], [ %420, %_ZL16useDynamicWindowP8SCSUDataa.exit406 ], [ %.0266, %529 ], [ %.0266, %324 ], [ %.0266, %334 ], [ %344, %_ZL16useDynamicWindowP8SCSUDataa.exit388 ], [ %383, %379 ], [ %.0266, %_ZL9getWindowPKjj.exit376.thread ]
+  %.1265 = phi i32 [ %.0264, %56 ], [ %.0264, %187 ], [ %.0264, %193 ], [ %219, %_ZL16useDynamicWindowP8SCSUDataa.exit365 ], [ %.0264, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %.0264, %258 ], [ %275, %268 ], [ %.0264, %294 ], [ %.0264, %296 ], [ %91, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %144, %_ZL16useDynamicWindowP8SCSUDataa.exit347 ], [ %.0264, %_ZL16getDynamicOffsetjPj.exit.thread432 ], [ %490, %_ZL16useDynamicWindowP8SCSUDataa.exit427 ], [ %.0264, %_ZL16getDynamicOffsetjPj.exit414.thread444 ], [ %431, %_ZL16useDynamicWindowP8SCSUDataa.exit406 ], [ %.0264, %529 ], [ %.0264, %324 ], [ %.0264, %334 ], [ %349, %_ZL16useDynamicWindowP8SCSUDataa.exit388 ], [ %386, %379 ], [ %.0264, %_ZL9getWindowPKjj.exit376.thread ]
+  %.3 = phi i32 [ %57, %56 ], [ %189, %187 ], [ %194, %193 ], [ %245, %_ZL16useDynamicWindowP8SCSUDataa.exit365 ], [ %250, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %265, %258 ], [ %285, %268 ], [ %295, %294 ], [ %297, %296 ], [ %117, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %180, %_ZL16useDynamicWindowP8SCSUDataa.exit347 ], [ %184, %_ZL16getDynamicOffsetjPj.exit.thread432 ], [ %526, %_ZL16useDynamicWindowP8SCSUDataa.exit427 ], [ %528, %_ZL16getDynamicOffsetjPj.exit414.thread444 ], [ %458, %_ZL16useDynamicWindowP8SCSUDataa.exit406 ], [ %530, %529 ], [ %309, %324 ], [ %338, %334 ], [ %376, %_ZL16useDynamicWindowP8SCSUDataa.exit388 ], [ %396, %379 ], [ %309, %_ZL9getWindowPKjj.exit376.thread ]
+  %.0260 = phi i32 [ 2, %56 ], [ 2, %187 ], [ 3, %193 ], [ 2, %_ZL16useDynamicWindowP8SCSUDataa.exit365 ], [ 2, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ 2, %258 ], [ 3, %268 ], [ 3, %294 ], [ 3, %296 ], [ 2, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ 4, %_ZL16useDynamicWindowP8SCSUDataa.exit347 ], [ 4, %_ZL16getDynamicOffsetjPj.exit.thread432 ], [ 4, %_ZL16useDynamicWindowP8SCSUDataa.exit427 ], [ 4, %_ZL16getDynamicOffsetjPj.exit414.thread444 ], [ 2, %_ZL16useDynamicWindowP8SCSUDataa.exit406 ], [ 3, %529 ], [ 2, %324 ], [ 2, %334 ], [ 2, %_ZL16useDynamicWindowP8SCSUDataa.exit388 ], [ 3, %379 ], [ 2, %_ZL9getWindowPKjj.exit376.thread ]
   %.not327 = icmp sgt i32 %.0260, %.4276
   br i1 %.not327, label %.thread, label %532
 
@@ -3136,11 +3136,11 @@ _ZL9getWindowPKjj.exit471.thread:                 ; preds = %278, %_ZL9getWindow
   br label %557
 
 321:                                              ; preds = %63, %61, %96, %99, %70, %73, %51, %53
-  %.3383 = phi ptr [ %45, %53 ], [ %45, %51 ], [ %45, %63 ], [ %45, %61 ], [ %45, %73 ], [ %45, %70 ], [ %89, %99 ], [ %89, %96 ]
-  %.1361.pn.pn.pn = phi ptr [ %.2362, %53 ], [ %.2362, %51 ], [ %.2362, %63 ], [ %.2362, %61 ], [ %.2362, %73 ], [ %.2362, %70 ], [ %.1361, %99 ], [ %.1361, %96 ]
-  %.3354.in = phi i32 [ %.2353, %53 ], [ %.2353, %51 ], [ %.2353, %63 ], [ %.2353, %61 ], [ %.2353, %73 ], [ %.2353, %70 ], [ %.1352, %99 ], [ %.1352, %96 ]
-  %.4346 = phi ptr [ %54, %53 ], [ null, %51 ], [ %64, %63 ], [ null, %61 ], [ %74, %73 ], [ null, %70 ], [ %100, %99 ], [ null, %96 ]
-  %.3 = phi i32 [ %48, %53 ], [ %48, %51 ], [ %48, %63 ], [ %48, %61 ], [ %48, %73 ], [ %48, %70 ], [ %90, %99 ], [ %90, %96 ]
+  %.3383 = phi ptr [ %45, %51 ], [ %45, %53 ], [ %45, %61 ], [ %45, %63 ], [ %45, %70 ], [ %45, %73 ], [ %89, %99 ], [ %89, %96 ]
+  %.1361.pn.pn.pn = phi ptr [ %.2362, %51 ], [ %.2362, %53 ], [ %.2362, %61 ], [ %.2362, %63 ], [ %.2362, %70 ], [ %.2362, %73 ], [ %.1361, %99 ], [ %.1361, %96 ]
+  %.3354.in = phi i32 [ %.2353, %51 ], [ %.2353, %53 ], [ %.2353, %61 ], [ %.2353, %63 ], [ %.2353, %70 ], [ %.2353, %73 ], [ %.1352, %99 ], [ %.1352, %96 ]
+  %.4346 = phi ptr [ null, %51 ], [ %54, %53 ], [ null, %61 ], [ %64, %63 ], [ null, %70 ], [ %74, %73 ], [ %100, %99 ], [ null, %96 ]
+  %.3 = phi i32 [ %48, %51 ], [ %48, %53 ], [ %48, %61 ], [ %48, %63 ], [ %48, %70 ], [ %48, %73 ], [ %90, %99 ], [ %90, %96 ]
   %.3363 = getelementptr inbounds nuw i8, ptr %.1361.pn.pn.pn, i64 1
   %.3354 = add nsw i32 %.3354.in, -1
   br label %40, !llvm.loop !70
@@ -3592,23 +3592,23 @@ _ZL16getDynamicOffsetjPj.exit515.thread545:       ; preds = %506, %495, %486, %_
   br label %557
 
 .loopexit.sink.split:                             ; preds = %424, %429, %78, %83, %42, %.lr.ph.preheader, %.lr.ph, %636, %639, %610, %.thread577
-  %.sink = phi i32 [ 15, %.thread577 ], [ 15, %610 ], [ 15, %639 ], [ 15, %636 ], [ 15, %.lr.ph ], [ 15, %42 ], [ 12, %83 ], [ 12, %78 ], [ 12, %429 ], [ 12, %424 ], [ 15, %.lr.ph.preheader ]
-  %.7387.ph = phi ptr [ %.4384559, %.thread577 ], [ %.4384559, %610 ], [ %.4384559, %639 ], [ %.4384559, %636 ], [ %327, %.lr.ph ], [ %.2382, %42 ], [ %.1381, %83 ], [ %45, %78 ], [ %.8388, %429 ], [ %327, %424 ], [ %.0380, %.lr.ph.preheader ]
-  %.7367.ph = phi ptr [ %635, %.thread577 ], [ %.4364560, %610 ], [ %640, %639 ], [ %638, %636 ], [ %339, %.lr.ph ], [ %.2362, %42 ], [ %.1361, %83 ], [ %.2362, %78 ], [ %.8368, %429 ], [ %.9369681994, %424 ], [ %.0360, %.lr.ph.preheader ]
-  %.10.ph = phi ptr [ null, %.thread577 ], [ %.6348562, %610 ], [ %641, %639 ], [ null, %636 ], [ %.15, %.lr.ph ], [ %.2344, %42 ], [ %.1343, %83 ], [ %.2344, %78 ], [ %.13, %429 ], [ %.14683992, %424 ], [ %.0342, %.lr.ph.preheader ]
-  %.2341.ph = phi i8 [ %.1340563, %.thread577 ], [ %.1340563, %610 ], [ %.1340563, %639 ], [ %.1340563, %636 ], [ 0, %.lr.ph ], [ %.0339, %42 ], [ %.0339, %83 ], [ %.0339, %78 ], [ 0, %429 ], [ 0, %424 ], [ 0, %.lr.ph.preheader ]
-  %.2338.ph = phi i8 [ %.1337564, %.thread577 ], [ %.1337564, %610 ], [ %.1337564, %639 ], [ %.1337564, %636 ], [ %.0336, %.lr.ph ], [ %.0336, %.lr.ph.preheader ], [ %.0336, %42 ], [ %.0336, %83 ], [ %.0336, %78 ], [ %.0336, %429 ], [ %.0336, %424 ]
-  %.4331.ph = phi i32 [ 0, %.thread577 ], [ 0, %610 ], [ 0, %639 ], [ 0, %636 ], [ 0, %.lr.ph ], [ %.2329, %42 ], [ %.1328, %83 ], [ %47, %78 ], [ %.5332, %429 ], [ %329, %424 ], [ %.0327, %.lr.ph.preheader ]
+  %.sink = phi i32 [ 15, %636 ], [ 15, %.lr.ph ], [ 15, %.thread577 ], [ 15, %610 ], [ 15, %639 ], [ 15, %42 ], [ 12, %429 ], [ 12, %424 ], [ 12, %83 ], [ 12, %78 ], [ 15, %.lr.ph.preheader ]
+  %.7387.ph = phi ptr [ %.4384559, %636 ], [ %327, %.lr.ph ], [ %.4384559, %.thread577 ], [ %.4384559, %610 ], [ %.4384559, %639 ], [ %.2382, %42 ], [ %.8388, %429 ], [ %327, %424 ], [ %.1381, %83 ], [ %45, %78 ], [ %.0380, %.lr.ph.preheader ]
+  %.7367.ph = phi ptr [ %638, %636 ], [ %339, %.lr.ph ], [ %635, %.thread577 ], [ %.4364560, %610 ], [ %640, %639 ], [ %.2362, %42 ], [ %.8368, %429 ], [ %.9369681994, %424 ], [ %.1361, %83 ], [ %.2362, %78 ], [ %.0360, %.lr.ph.preheader ]
+  %.10.ph = phi ptr [ null, %636 ], [ %.15, %.lr.ph ], [ null, %.thread577 ], [ %.6348562, %610 ], [ %641, %639 ], [ %.2344, %42 ], [ %.13, %429 ], [ %.14683992, %424 ], [ %.1343, %83 ], [ %.2344, %78 ], [ %.0342, %.lr.ph.preheader ]
+  %.2341.ph = phi i8 [ %.1340563, %636 ], [ 0, %.lr.ph ], [ %.1340563, %.thread577 ], [ %.1340563, %610 ], [ %.1340563, %639 ], [ %.0339, %42 ], [ 0, %429 ], [ 0, %424 ], [ %.0339, %83 ], [ %.0339, %78 ], [ 0, %.lr.ph.preheader ]
+  %.2338.ph = phi i8 [ %.1337564, %636 ], [ %.0336, %.lr.ph ], [ %.1337564, %.thread577 ], [ %.1337564, %610 ], [ %.1337564, %639 ], [ %.0336, %.lr.ph.preheader ], [ %.0336, %42 ], [ %.0336, %83 ], [ %.0336, %78 ], [ %.0336, %429 ], [ %.0336, %424 ]
+  %.4331.ph = phi i32 [ 0, %636 ], [ 0, %.lr.ph ], [ 0, %.thread577 ], [ 0, %610 ], [ 0, %639 ], [ %.2329, %42 ], [ %.5332, %429 ], [ %329, %424 ], [ %.1328, %83 ], [ %47, %78 ], [ %.0327, %.lr.ph.preheader ]
   store i32 %.sink, ptr %1, align 4, !tbaa !25
   br label %.loopexit
 
 .loopexit:                                        ; preds = %81, %40, %427, %.preheader590, %343, %.loopexit.sink.split
-  %.7387 = phi ptr [ %.7387.ph, %.loopexit.sink.split ], [ %327, %343 ], [ %.0380, %.preheader590 ], [ %.8388, %427 ], [ %.1381, %81 ], [ %.2382, %40 ]
-  %.7367 = phi ptr [ %.7367.ph, %.loopexit.sink.split ], [ %339, %343 ], [ %.0360, %.preheader590 ], [ %.8368, %427 ], [ %.1361, %81 ], [ %.2362, %40 ]
-  %.10 = phi ptr [ %.10.ph, %.loopexit.sink.split ], [ %.15, %343 ], [ %.0342, %.preheader590 ], [ %.13, %427 ], [ %.1343, %81 ], [ %.2344, %40 ]
-  %.2341 = phi i8 [ %.2341.ph, %.loopexit.sink.split ], [ 0, %343 ], [ 0, %.preheader590 ], [ 0, %427 ], [ %.0339, %81 ], [ %.0339, %40 ]
+  %.7387 = phi ptr [ %.7387.ph, %.loopexit.sink.split ], [ %327, %343 ], [ %.2382, %40 ], [ %.0380, %.preheader590 ], [ %.8388, %427 ], [ %.1381, %81 ]
+  %.7367 = phi ptr [ %.7367.ph, %.loopexit.sink.split ], [ %339, %343 ], [ %.2362, %40 ], [ %.0360, %.preheader590 ], [ %.8368, %427 ], [ %.1361, %81 ]
+  %.10 = phi ptr [ %.10.ph, %.loopexit.sink.split ], [ %.15, %343 ], [ %.2344, %40 ], [ %.0342, %.preheader590 ], [ %.13, %427 ], [ %.1343, %81 ]
+  %.2341 = phi i8 [ %.2341.ph, %.loopexit.sink.split ], [ 0, %343 ], [ %.0339, %40 ], [ 0, %.preheader590 ], [ 0, %427 ], [ %.0339, %81 ]
   %.2338 = phi i8 [ %.2338.ph, %.loopexit.sink.split ], [ %.0336, %343 ], [ %.0336, %.preheader590 ], [ %.0336, %427 ], [ %.0336, %40 ], [ %.0336, %81 ]
-  %.4331 = phi i32 [ %.4331.ph, %.loopexit.sink.split ], [ 0, %343 ], [ %.0327, %.preheader590 ], [ %.5332, %427 ], [ %.1328, %81 ], [ %.2329, %40 ]
+  %.4331 = phi i32 [ %.4331.ph, %.loopexit.sink.split ], [ 0, %343 ], [ %.2329, %40 ], [ %.0327, %.preheader590 ], [ %.5332, %427 ], [ %.1328, %81 ]
   store i8 %.2341, ptr %22, align 4, !tbaa !21
   store i8 %.2338, ptr %24, align 1, !tbaa !22
   store i32 %.4331, ptr %30, align 4, !tbaa !24
@@ -3619,17 +3619,17 @@ _ZL16getDynamicOffsetjPj.exit515.thread545:       ; preds = %506, %495, %486, %_
   ret void
 
 557:                                              ; preds = %349, %_ZL9getWindowPKjj.exit477.thread, %555, %_ZL16getDynamicOffsetjPj.exit515.thread545, %_ZL16useDynamicWindowP8SCSUDataa.exit528, %_ZL16useDynamicWindowP8SCSUDataa.exit507, %404, %_ZL16useDynamicWindowP8SCSUDataa.exit489, %359, %319, %317, %291, %281, %_ZL24isInOffsetWindowOrDirectjj.exit.thread, %_ZL16useDynamicWindowP8SCSUDataa.exit466, %216, %210, %204, %_ZL16useDynamicWindowP8SCSUDataa.exit448, %_ZL16useDynamicWindowP8SCSUDataa.exit, %65
-  %.4384 = phi ptr [ %45, %65 ], [ %45, %210 ], [ %45, %216 ], [ %45, %_ZL16useDynamicWindowP8SCSUDataa.exit466 ], [ %45, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %45, %281 ], [ %45, %291 ], [ %45, %317 ], [ %45, %319 ], [ %89, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %89, %_ZL16useDynamicWindowP8SCSUDataa.exit448 ], [ %89, %204 ], [ %435, %_ZL16useDynamicWindowP8SCSUDataa.exit528 ], [ %435, %_ZL16getDynamicOffsetjPj.exit515.thread545 ], [ %435, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ %327, %359 ], [ %327, %_ZL16useDynamicWindowP8SCSUDataa.exit489 ], [ %327, %404 ], [ %327, %555 ], [ %327, %_ZL9getWindowPKjj.exit477.thread ], [ %327, %349 ]
-  %.4364 = phi ptr [ %.2362, %65 ], [ %.2362, %210 ], [ %.2362, %216 ], [ %.2362, %_ZL16useDynamicWindowP8SCSUDataa.exit466 ], [ %.2362, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %.2362, %281 ], [ %.2362, %291 ], [ %.2362, %317 ], [ %.2362, %319 ], [ %.1361, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %.1361, %_ZL16useDynamicWindowP8SCSUDataa.exit448 ], [ %201, %204 ], [ %.8368, %_ZL16useDynamicWindowP8SCSUDataa.exit528 ], [ %.8368, %_ZL16getDynamicOffsetjPj.exit515.thread545 ], [ %.8368, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ %.9369681994, %359 ], [ %.9369681994, %_ZL16useDynamicWindowP8SCSUDataa.exit489 ], [ %.9369681994, %404 ], [ %.9369681994, %555 ], [ %.9369681994, %_ZL9getWindowPKjj.exit477.thread ], [ %.9369681994, %349 ]
-  %.4355 = phi i32 [ %.2353, %65 ], [ %.2353, %210 ], [ %.2353, %216 ], [ %.2353, %_ZL16useDynamicWindowP8SCSUDataa.exit466 ], [ %.2353, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %.2353, %281 ], [ %.2353, %291 ], [ %.2353, %317 ], [ %.2353, %319 ], [ %.1352, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %.1352, %_ZL16useDynamicWindowP8SCSUDataa.exit448 ], [ %205, %204 ], [ %.7358, %_ZL16useDynamicWindowP8SCSUDataa.exit528 ], [ %.7358, %_ZL16getDynamicOffsetjPj.exit515.thread545 ], [ %.7358, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ %.8359682993, %359 ], [ %.8359682993, %_ZL16useDynamicWindowP8SCSUDataa.exit489 ], [ %.8359682993, %404 ], [ %.8359682993, %555 ], [ %.8359682993, %_ZL9getWindowPKjj.exit477.thread ], [ %.8359682993, %349 ]
-  %.6348 = phi ptr [ %.2344, %65 ], [ %.2344, %210 ], [ %.2344, %216 ], [ %.2344, %_ZL16useDynamicWindowP8SCSUDataa.exit466 ], [ %.2344, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %.2344, %281 ], [ %.2344, %291 ], [ %.2344, %317 ], [ %.2344, %319 ], [ %.1343, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %.1343, %_ZL16useDynamicWindowP8SCSUDataa.exit448 ], [ %.12, %204 ], [ %.13, %_ZL16useDynamicWindowP8SCSUDataa.exit528 ], [ %.13, %_ZL16getDynamicOffsetjPj.exit515.thread545 ], [ %.13, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ %.14683992, %359 ], [ %.14683992, %_ZL16useDynamicWindowP8SCSUDataa.exit489 ], [ %.14683992, %404 ], [ %.14683992, %555 ], [ %.14683992, %_ZL9getWindowPKjj.exit477.thread ], [ %.14683992, %349 ]
-  %.1340 = phi i8 [ %.0339, %65 ], [ %.0339, %210 ], [ %.0339, %216 ], [ %.0339, %_ZL16useDynamicWindowP8SCSUDataa.exit466 ], [ %.0339, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %.0339, %281 ], [ %.0339, %291 ], [ 0, %317 ], [ %.0339, %319 ], [ %.0339, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %.0339, %_ZL16useDynamicWindowP8SCSUDataa.exit448 ], [ 0, %204 ], [ 1, %_ZL16useDynamicWindowP8SCSUDataa.exit528 ], [ 0, %_ZL16getDynamicOffsetjPj.exit515.thread545 ], [ 1, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ 1, %359 ], [ 1, %_ZL16useDynamicWindowP8SCSUDataa.exit489 ], [ 1, %404 ], [ 0, %555 ], [ 0, %_ZL9getWindowPKjj.exit477.thread ], [ 0, %349 ]
-  %.1337 = phi i8 [ %.0336, %65 ], [ %.0336, %210 ], [ %.0336, %216 ], [ %223, %_ZL16useDynamicWindowP8SCSUDataa.exit466 ], [ %.0336, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %.0336, %281 ], [ %295, %291 ], [ %.0336, %317 ], [ %.0336, %319 ], [ %106, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %168, %_ZL16useDynamicWindowP8SCSUDataa.exit448 ], [ %.0336, %204 ], [ %520, %_ZL16useDynamicWindowP8SCSUDataa.exit528 ], [ %.0336, %_ZL16getDynamicOffsetjPj.exit515.thread545 ], [ %446, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ %.0336, %359 ], [ %369, %_ZL16useDynamicWindowP8SCSUDataa.exit489 ], [ %408, %404 ], [ %.0336, %555 ], [ %.0336, %_ZL9getWindowPKjj.exit477.thread ], [ %.0336, %349 ]
-  %.1335 = phi i32 [ %.0334, %65 ], [ %.0334, %210 ], [ %.0334, %216 ], [ %242, %_ZL16useDynamicWindowP8SCSUDataa.exit466 ], [ %.0334, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %.0334, %281 ], [ %298, %291 ], [ %.0334, %317 ], [ %.0334, %319 ], [ %111, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %164, %_ZL16useDynamicWindowP8SCSUDataa.exit448 ], [ %.0334, %204 ], [ %516, %_ZL16useDynamicWindowP8SCSUDataa.exit528 ], [ %.0334, %_ZL16getDynamicOffsetjPj.exit515.thread545 ], [ %457, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ %.0334, %359 ], [ %374, %_ZL16useDynamicWindowP8SCSUDataa.exit489 ], [ %411, %404 ], [ %.0334, %555 ], [ %.0334, %_ZL9getWindowPKjj.exit477.thread ], [ %.0334, %349 ]
-  %.3330 = phi i32 [ %66, %65 ], [ %212, %210 ], [ %217, %216 ], [ %268, %_ZL16useDynamicWindowP8SCSUDataa.exit466 ], [ %273, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %288, %281 ], [ %308, %291 ], [ %318, %317 ], [ %320, %319 ], [ %137, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %200, %_ZL16useDynamicWindowP8SCSUDataa.exit448 ], [ %207, %204 ], [ %552, %_ZL16useDynamicWindowP8SCSUDataa.exit528 ], [ %554, %_ZL16getDynamicOffsetjPj.exit515.thread545 ], [ %484, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ %363, %359 ], [ %401, %_ZL16useDynamicWindowP8SCSUDataa.exit489 ], [ %421, %404 ], [ %556, %555 ], [ %329, %_ZL9getWindowPKjj.exit477.thread ], [ %329, %349 ]
-  %.3324 = phi i32 [ %.2323, %65 ], [ %.2323, %210 ], [ %.2323, %216 ], [ %.2323, %_ZL16useDynamicWindowP8SCSUDataa.exit466 ], [ %.2323, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %.2323, %281 ], [ %.2323, %291 ], [ %.2323, %317 ], [ %.2323, %319 ], [ %.1322, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %.1322, %_ZL16useDynamicWindowP8SCSUDataa.exit448 ], [ %.1322, %204 ], [ %.4325, %_ZL16useDynamicWindowP8SCSUDataa.exit528 ], [ %.4325, %_ZL16getDynamicOffsetjPj.exit515.thread545 ], [ %.4325, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ %.5326685991, %359 ], [ %.5326685991, %_ZL16useDynamicWindowP8SCSUDataa.exit489 ], [ %.5326685991, %404 ], [ %.5326685991, %555 ], [ %.5326685991, %_ZL9getWindowPKjj.exit477.thread ], [ %.5326685991, %349 ]
-  %.4 = phi i32 [ %48, %65 ], [ %48, %210 ], [ %48, %216 ], [ %48, %_ZL16useDynamicWindowP8SCSUDataa.exit466 ], [ %48, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %48, %281 ], [ %48, %291 ], [ %48, %317 ], [ %48, %319 ], [ %90, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %90, %_ZL16useDynamicWindowP8SCSUDataa.exit448 ], [ %90, %204 ], [ %436, %_ZL16useDynamicWindowP8SCSUDataa.exit528 ], [ %436, %_ZL16getDynamicOffsetjPj.exit515.thread545 ], [ %436, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ %330, %359 ], [ %330, %_ZL16useDynamicWindowP8SCSUDataa.exit489 ], [ %330, %404 ], [ %330, %555 ], [ %330, %_ZL9getWindowPKjj.exit477.thread ], [ %330, %349 ]
-  %.0317 = phi i32 [ 2, %65 ], [ 2, %210 ], [ 3, %216 ], [ 2, %_ZL16useDynamicWindowP8SCSUDataa.exit466 ], [ 2, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ 2, %281 ], [ 3, %291 ], [ 3, %317 ], [ 3, %319 ], [ 2, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ 4, %_ZL16useDynamicWindowP8SCSUDataa.exit448 ], [ 4, %204 ], [ 4, %_ZL16useDynamicWindowP8SCSUDataa.exit528 ], [ 4, %_ZL16getDynamicOffsetjPj.exit515.thread545 ], [ 2, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ 2, %359 ], [ 2, %_ZL16useDynamicWindowP8SCSUDataa.exit489 ], [ 3, %404 ], [ 3, %555 ], [ 2, %_ZL9getWindowPKjj.exit477.thread ], [ 2, %349 ]
+  %.4384 = phi ptr [ %45, %65 ], [ %45, %210 ], [ %45, %216 ], [ %45, %_ZL16useDynamicWindowP8SCSUDataa.exit466 ], [ %45, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %45, %281 ], [ %45, %291 ], [ %45, %317 ], [ %45, %319 ], [ %89, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %89, %_ZL16useDynamicWindowP8SCSUDataa.exit448 ], [ %89, %204 ], [ %435, %_ZL16useDynamicWindowP8SCSUDataa.exit528 ], [ %435, %_ZL16getDynamicOffsetjPj.exit515.thread545 ], [ %435, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ %327, %555 ], [ %327, %349 ], [ %327, %359 ], [ %327, %_ZL16useDynamicWindowP8SCSUDataa.exit489 ], [ %327, %404 ], [ %327, %_ZL9getWindowPKjj.exit477.thread ]
+  %.4364 = phi ptr [ %.2362, %65 ], [ %.2362, %210 ], [ %.2362, %216 ], [ %.2362, %_ZL16useDynamicWindowP8SCSUDataa.exit466 ], [ %.2362, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %.2362, %281 ], [ %.2362, %291 ], [ %.2362, %317 ], [ %.2362, %319 ], [ %.1361, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %.1361, %_ZL16useDynamicWindowP8SCSUDataa.exit448 ], [ %201, %204 ], [ %.8368, %_ZL16useDynamicWindowP8SCSUDataa.exit528 ], [ %.8368, %_ZL16getDynamicOffsetjPj.exit515.thread545 ], [ %.8368, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ %.9369681994, %555 ], [ %.9369681994, %349 ], [ %.9369681994, %359 ], [ %.9369681994, %_ZL16useDynamicWindowP8SCSUDataa.exit489 ], [ %.9369681994, %404 ], [ %.9369681994, %_ZL9getWindowPKjj.exit477.thread ]
+  %.4355 = phi i32 [ %.2353, %65 ], [ %.2353, %210 ], [ %.2353, %216 ], [ %.2353, %_ZL16useDynamicWindowP8SCSUDataa.exit466 ], [ %.2353, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %.2353, %281 ], [ %.2353, %291 ], [ %.2353, %317 ], [ %.2353, %319 ], [ %.1352, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %.1352, %_ZL16useDynamicWindowP8SCSUDataa.exit448 ], [ %205, %204 ], [ %.7358, %_ZL16useDynamicWindowP8SCSUDataa.exit528 ], [ %.7358, %_ZL16getDynamicOffsetjPj.exit515.thread545 ], [ %.7358, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ %.8359682993, %555 ], [ %.8359682993, %349 ], [ %.8359682993, %359 ], [ %.8359682993, %_ZL16useDynamicWindowP8SCSUDataa.exit489 ], [ %.8359682993, %404 ], [ %.8359682993, %_ZL9getWindowPKjj.exit477.thread ]
+  %.6348 = phi ptr [ %.2344, %65 ], [ %.2344, %210 ], [ %.2344, %216 ], [ %.2344, %_ZL16useDynamicWindowP8SCSUDataa.exit466 ], [ %.2344, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %.2344, %281 ], [ %.2344, %291 ], [ %.2344, %317 ], [ %.2344, %319 ], [ %.1343, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %.1343, %_ZL16useDynamicWindowP8SCSUDataa.exit448 ], [ %.12, %204 ], [ %.13, %_ZL16useDynamicWindowP8SCSUDataa.exit528 ], [ %.13, %_ZL16getDynamicOffsetjPj.exit515.thread545 ], [ %.13, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ %.14683992, %555 ], [ %.14683992, %349 ], [ %.14683992, %359 ], [ %.14683992, %_ZL16useDynamicWindowP8SCSUDataa.exit489 ], [ %.14683992, %404 ], [ %.14683992, %_ZL9getWindowPKjj.exit477.thread ]
+  %.1340 = phi i8 [ %.0339, %65 ], [ %.0339, %210 ], [ %.0339, %216 ], [ %.0339, %_ZL16useDynamicWindowP8SCSUDataa.exit466 ], [ %.0339, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %.0339, %281 ], [ %.0339, %291 ], [ 0, %317 ], [ %.0339, %319 ], [ %.0339, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %.0339, %_ZL16useDynamicWindowP8SCSUDataa.exit448 ], [ 0, %204 ], [ 1, %_ZL16useDynamicWindowP8SCSUDataa.exit528 ], [ 0, %_ZL16getDynamicOffsetjPj.exit515.thread545 ], [ 1, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ 0, %555 ], [ 0, %349 ], [ 1, %359 ], [ 1, %_ZL16useDynamicWindowP8SCSUDataa.exit489 ], [ 1, %404 ], [ 0, %_ZL9getWindowPKjj.exit477.thread ]
+  %.1337 = phi i8 [ %.0336, %65 ], [ %.0336, %210 ], [ %.0336, %216 ], [ %223, %_ZL16useDynamicWindowP8SCSUDataa.exit466 ], [ %.0336, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %.0336, %281 ], [ %295, %291 ], [ %.0336, %317 ], [ %.0336, %319 ], [ %106, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %168, %_ZL16useDynamicWindowP8SCSUDataa.exit448 ], [ %.0336, %204 ], [ %520, %_ZL16useDynamicWindowP8SCSUDataa.exit528 ], [ %.0336, %_ZL16getDynamicOffsetjPj.exit515.thread545 ], [ %446, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ %.0336, %555 ], [ %.0336, %349 ], [ %.0336, %359 ], [ %369, %_ZL16useDynamicWindowP8SCSUDataa.exit489 ], [ %408, %404 ], [ %.0336, %_ZL9getWindowPKjj.exit477.thread ]
+  %.1335 = phi i32 [ %.0334, %65 ], [ %.0334, %210 ], [ %.0334, %216 ], [ %242, %_ZL16useDynamicWindowP8SCSUDataa.exit466 ], [ %.0334, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %.0334, %281 ], [ %298, %291 ], [ %.0334, %317 ], [ %.0334, %319 ], [ %111, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %164, %_ZL16useDynamicWindowP8SCSUDataa.exit448 ], [ %.0334, %204 ], [ %516, %_ZL16useDynamicWindowP8SCSUDataa.exit528 ], [ %.0334, %_ZL16getDynamicOffsetjPj.exit515.thread545 ], [ %457, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ %.0334, %555 ], [ %.0334, %349 ], [ %.0334, %359 ], [ %374, %_ZL16useDynamicWindowP8SCSUDataa.exit489 ], [ %411, %404 ], [ %.0334, %_ZL9getWindowPKjj.exit477.thread ]
+  %.3330 = phi i32 [ %66, %65 ], [ %212, %210 ], [ %217, %216 ], [ %268, %_ZL16useDynamicWindowP8SCSUDataa.exit466 ], [ %273, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %288, %281 ], [ %308, %291 ], [ %318, %317 ], [ %320, %319 ], [ %137, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %200, %_ZL16useDynamicWindowP8SCSUDataa.exit448 ], [ %207, %204 ], [ %552, %_ZL16useDynamicWindowP8SCSUDataa.exit528 ], [ %554, %_ZL16getDynamicOffsetjPj.exit515.thread545 ], [ %484, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ %556, %555 ], [ %329, %349 ], [ %363, %359 ], [ %401, %_ZL16useDynamicWindowP8SCSUDataa.exit489 ], [ %421, %404 ], [ %329, %_ZL9getWindowPKjj.exit477.thread ]
+  %.3324 = phi i32 [ %.2323, %65 ], [ %.2323, %210 ], [ %.2323, %216 ], [ %.2323, %_ZL16useDynamicWindowP8SCSUDataa.exit466 ], [ %.2323, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %.2323, %281 ], [ %.2323, %291 ], [ %.2323, %317 ], [ %.2323, %319 ], [ %.1322, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %.1322, %_ZL16useDynamicWindowP8SCSUDataa.exit448 ], [ %.1322, %204 ], [ %.4325, %_ZL16useDynamicWindowP8SCSUDataa.exit528 ], [ %.4325, %_ZL16getDynamicOffsetjPj.exit515.thread545 ], [ %.4325, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ %.5326685991, %555 ], [ %.5326685991, %349 ], [ %.5326685991, %359 ], [ %.5326685991, %_ZL16useDynamicWindowP8SCSUDataa.exit489 ], [ %.5326685991, %404 ], [ %.5326685991, %_ZL9getWindowPKjj.exit477.thread ]
+  %.4 = phi i32 [ %48, %65 ], [ %48, %210 ], [ %48, %216 ], [ %48, %_ZL16useDynamicWindowP8SCSUDataa.exit466 ], [ %48, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ %48, %281 ], [ %48, %291 ], [ %48, %317 ], [ %48, %319 ], [ %90, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %90, %_ZL16useDynamicWindowP8SCSUDataa.exit448 ], [ %90, %204 ], [ %436, %_ZL16useDynamicWindowP8SCSUDataa.exit528 ], [ %436, %_ZL16getDynamicOffsetjPj.exit515.thread545 ], [ %436, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ %330, %555 ], [ %330, %349 ], [ %330, %359 ], [ %330, %_ZL16useDynamicWindowP8SCSUDataa.exit489 ], [ %330, %404 ], [ %330, %_ZL9getWindowPKjj.exit477.thread ]
+  %.0317 = phi i32 [ 2, %65 ], [ 2, %210 ], [ 3, %216 ], [ 2, %_ZL16useDynamicWindowP8SCSUDataa.exit466 ], [ 2, %_ZL24isInOffsetWindowOrDirectjj.exit.thread ], [ 2, %281 ], [ 3, %291 ], [ 3, %317 ], [ 3, %319 ], [ 2, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ 4, %_ZL16useDynamicWindowP8SCSUDataa.exit448 ], [ 4, %204 ], [ 4, %_ZL16useDynamicWindowP8SCSUDataa.exit528 ], [ 4, %_ZL16getDynamicOffsetjPj.exit515.thread545 ], [ 2, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ 3, %555 ], [ 2, %349 ], [ 2, %359 ], [ 2, %_ZL16useDynamicWindowP8SCSUDataa.exit489 ], [ 3, %404 ], [ 2, %_ZL9getWindowPKjj.exit477.thread ]
   %.not423 = icmp sgt i32 %.0317, %.4355
   br i1 %.not423, label %.thread, label %558
 
@@ -3715,9 +3715,9 @@ default.unreachable817:                           ; preds = %574, %560
   unreachable
 
 592:                                              ; preds = %585, %569
-  %.11371.pn = phi ptr [ %.11371, %569 ], [ %.15375, %585 ]
-  %.16 = phi ptr [ null, %569 ], [ %591, %585 ]
-  %.13373 = getelementptr inbounds nuw i8, ptr %.11371.pn, i64 2
+  %.15375.pn = phi ptr [ %.15375, %585 ], [ %.11371, %569 ]
+  %.16 = phi ptr [ %591, %585 ], [ null, %569 ]
+  %.13373 = getelementptr inbounds nuw i8, ptr %.15375.pn, i64 2
   %593 = sub nsw i32 %.4355, %.0317
   br label %36
 
@@ -3883,7 +3883,7 @@ define internal noundef ptr @_ZL14_SCSUSafeClonePK10UConverterPvPiP10UErrorCode(
   br label %17
 
 17:                                               ; preds = %4, %11, %10
-  %.0 = phi ptr [ null, %10 ], [ %1, %11 ], [ null, %4 ]
+  %.0 = phi ptr [ %1, %11 ], [ null, %10 ], [ null, %4 ]
   ret ptr %.0
 }
 
@@ -4005,7 +4005,7 @@ define internal fastcc noundef range(i32 -1, 1024) i32 @_ZL16getDynamicOffsetjPj
   br label %31
 
 31:                                               ; preds = %23, %12, %27, %20, %8
-  %.023 = phi i32 [ %10, %8 ], [ %22, %20 ], [ %30, %27 ], [ -1, %12 ], [ -1, %23 ]
+  %.023 = phi i32 [ %10, %8 ], [ -1, %12 ], [ %22, %20 ], [ %30, %27 ], [ -1, %23 ]
   ret i32 %.023
 }
 

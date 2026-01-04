@@ -135,7 +135,7 @@ _ZNK3ue29CharReach9find_nextEm.exit:              ; preds = %23, %30
   br i1 %37, label %.lr.ph46, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %6, %_ZNK3ue29CharReach9find_nextEm.exit, %.lr.ph46, %25, %.lr.ph.preheader, %_ZNK3ue29CharReach10find_firstEv.exit, %_ZNK3ue29CharReach4noneEv.exit
-  %.06 = phi i1 [ false, %_ZNK3ue29CharReach4noneEv.exit ], [ true, %_ZNK3ue29CharReach10find_firstEv.exit ], [ false, %.lr.ph.preheader ], [ true, %25 ], [ %.not.i.i11, %.lr.ph46 ], [ %.not.i.i11, %_ZNK3ue29CharReach9find_nextEm.exit ], [ true, %6 ]
+  %.06 = phi i1 [ false, %_ZNK3ue29CharReach4noneEv.exit ], [ true, %_ZNK3ue29CharReach10find_firstEv.exit ], [ false, %.lr.ph.preheader ], [ true, %25 ], [ %.not.i.i11, %_ZNK3ue29CharReach9find_nextEm.exit ], [ %.not.i.i11, %.lr.ph46 ], [ true, %6 ]
   ret i1 %.06
 }
 
@@ -321,7 +321,7 @@ _ZNK3ue29CharReach9find_nextEm.exit:              ; preds = %24, %31
   br i1 %.not8.not, label %._crit_edge, label %.lr.ph43, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %5, %_ZNK3ue29CharReach9find_nextEm.exit, %.lr.ph43, %26, %.lr.ph.preheader, %_ZNK3ue29CharReach10find_firstEv.exit
-  %.not.lcssa = phi i1 [ true, %_ZNK3ue29CharReach10find_firstEv.exit ], [ false, %.lr.ph.preheader ], [ true, %26 ], [ %.not.i.i7, %.lr.ph43 ], [ %.not.i.i7, %_ZNK3ue29CharReach9find_nextEm.exit ], [ true, %5 ]
+  %.not.lcssa = phi i1 [ true, %_ZNK3ue29CharReach10find_firstEv.exit ], [ false, %.lr.ph.preheader ], [ true, %26 ], [ %.not.i.i7, %_ZNK3ue29CharReach9find_nextEm.exit ], [ %.not.i.i7, %.lr.ph43 ], [ true, %5 ]
   ret i1 %.not.lcssa
 }
 
@@ -834,8 +834,8 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %4
   br i1 %.not.i.i1456, label %.lr.ph58, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %7, %_ZNK3ue29CharReach9find_nextEm.exit, %26, %.lr.ph.preheader, %_ZNK3ue29CharReach10find_firstEv.exit
-  %.013.lcssa = phi i8 [ -1, %_ZNK3ue29CharReach10find_firstEv.exit ], [ %12, %.lr.ph.preheader ], [ %15, %26 ], [ %37, %_ZNK3ue29CharReach9find_nextEm.exit ], [ -1, %7 ]
-  %.012.lcssa = phi i8 [ 0, %_ZNK3ue29CharReach10find_firstEv.exit ], [ %12, %.lr.ph.preheader ], [ %16, %26 ], [ %36, %_ZNK3ue29CharReach9find_nextEm.exit ], [ 0, %7 ]
+  %.013.lcssa = phi i8 [ -1, %_ZNK3ue29CharReach10find_firstEv.exit ], [ %15, %26 ], [ %37, %_ZNK3ue29CharReach9find_nextEm.exit ], [ %12, %.lr.ph.preheader ], [ -1, %7 ]
+  %.012.lcssa = phi i8 [ 0, %_ZNK3ue29CharReach10find_firstEv.exit ], [ %16, %26 ], [ %36, %_ZNK3ue29CharReach9find_nextEm.exit ], [ %12, %.lr.ph.preheader ], [ 0, %7 ]
   %13 = xor i8 %.013.lcssa, %.012.lcssa
   %14 = xor i8 %13, -1
   store i8 %14, ptr %1, align 1

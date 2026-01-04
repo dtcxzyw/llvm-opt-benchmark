@@ -1826,7 +1826,7 @@ terminate.lpad.i17:                               ; preds = %land.lhs.true.i.i13
   unreachable
 
 if.end:                                           ; preds = %if.then, %if.then.i.i, %call.i.noexc.i, %invoke.cont3, %entry
-  %data.sroa.0.1 = phi ptr [ null, %entry ], [ %2, %invoke.cont3 ], [ %2, %call.i.noexc.i ], [ %2, %if.then.i.i ], [ null, %if.then ]
+  %data.sroa.0.1 = phi ptr [ null, %entry ], [ %2, %if.then.i.i ], [ %2, %invoke.cont3 ], [ %2, %call.i.noexc.i ], [ null, %if.then ]
   %throw_file_ = getelementptr inbounds nuw i8, ptr %b, i64 24
   %12 = load ptr, ptr %throw_file_, align 8
   %throw_file_5 = getelementptr inbounds nuw i8, ptr %a, i64 24
@@ -1896,8 +1896,8 @@ ehcleanup:                                        ; preds = %land.lhs.true.i.i.i
   br i1 %tobool.not.i.i43, label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit51, label %land.lhs.true.i.i44
 
 land.lhs.true.i.i44:                              ; preds = %if.then.i.i19, %call.i.noexc.i18, %lpad2, %ehcleanup.thread65, %ehcleanup
-  %.pn60 = phi { ptr, i32 } [ %23, %ehcleanup ], [ %19, %ehcleanup.thread65 ], [ %7, %lpad2 ], [ %7, %call.i.noexc.i18 ], [ %7, %if.then.i.i19 ]
-  %data.sroa.0.359 = phi ptr [ %data.sroa.0.1, %ehcleanup ], [ %data.sroa.0.1, %ehcleanup.thread65 ], [ %2, %lpad2 ], [ %2, %call.i.noexc.i18 ], [ %2, %if.then.i.i19 ]
+  %.pn60 = phi { ptr, i32 } [ %19, %ehcleanup.thread65 ], [ %23, %ehcleanup ], [ %7, %lpad2 ], [ %7, %call.i.noexc.i18 ], [ %7, %if.then.i.i19 ]
+  %data.sroa.0.359 = phi ptr [ %data.sroa.0.1, %ehcleanup.thread65 ], [ %data.sroa.0.1, %ehcleanup ], [ %2, %lpad2 ], [ %2, %call.i.noexc.i18 ], [ %2, %if.then.i.i19 ]
   %vtable.i.i45 = load ptr, ptr %data.sroa.0.359, align 8
   %vfn.i.i46 = getelementptr inbounds nuw i8, ptr %vtable.i.i45, i64 32
   %24 = load ptr, ptr %vfn.i.i46, align 8

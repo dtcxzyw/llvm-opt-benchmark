@@ -2452,8 +2452,8 @@ define void @stbte__draw_bitmask_as_columns(i32 noundef %0, i32 noundef %1, i16 
   br label %20
 
 20:                                               ; preds = %10, %12, %14
-  %.118 = phi i16 [ %19, %14 ], [ %.01721, %12 ], [ %.01721, %10 ]
-  %.1 = phi i32 [ -1, %14 ], [ %.01622, %12 ], [ %spec.select, %10 ]
+  %.118 = phi i16 [ %.01721, %12 ], [ %.01721, %10 ], [ %19, %14 ]
+  %.1 = phi i32 [ %.01622, %12 ], [ %spec.select, %10 ], [ -1, %14 ]
   %21 = add nuw nsw i32 %.023, 1
   %.not = icmp eq i16 %.118, 0
   br i1 %.not, label %._crit_edge, label %6, !llvm.loop !84
@@ -2509,8 +2509,8 @@ define void @stbte__draw_bitmap(i32 noundef %0, i32 noundef %1, i32 noundef %2, 
   br label %25
 
 25:                                               ; preds = %19, %17, %15
-  %.118.i = phi i16 [ %24, %19 ], [ %.01721.i, %17 ], [ %.01721.i, %15 ]
-  %.1.i = phi i32 [ -1, %19 ], [ %.01622.i, %17 ], [ %spec.select.i, %15 ]
+  %.118.i = phi i16 [ %.01721.i, %17 ], [ %.01721.i, %15 ], [ %24, %19 ]
+  %.1.i = phi i32 [ %.01622.i, %17 ], [ %spec.select.i, %15 ], [ -1, %19 ]
   %26 = add nuw nsw i32 %.023.i, 1
   %.not.i = icmp eq i16 %.118.i, 0
   br i1 %.not.i, label %stbte__draw_bitmask_as_columns.exit, label %11, !llvm.loop !84
@@ -2603,8 +2603,8 @@ define void @stbte__draw_text_core(i32 noundef %0, i32 noundef %1, ptr noundef r
   br label %45
 
 45:                                               ; preds = %39, %37, %35
-  %.118.i.i = phi i16 [ %44, %39 ], [ %.01721.i.i, %37 ], [ %.01721.i.i, %35 ]
-  %.1.i.i = phi i32 [ -1, %39 ], [ %.01622.i.i, %37 ], [ %spec.select.i.i, %35 ]
+  %.118.i.i = phi i16 [ %.01721.i.i, %37 ], [ %.01721.i.i, %35 ], [ %44, %39 ]
+  %.1.i.i = phi i32 [ %.01622.i.i, %37 ], [ %spec.select.i.i, %35 ], [ -1, %39 ]
   %46 = add nuw nsw i32 %.023.i.i, 1
   %.not.i.i = icmp eq i16 %.118.i.i, 0
   br i1 %.not.i.i, label %stbte__draw_bitmask_as_columns.exit.i, label %31, !llvm.loop !84
@@ -2705,8 +2705,8 @@ define void @stbte__draw_text(i32 noundef %0, i32 noundef %1, ptr noundef readon
   br label %42
 
 42:                                               ; preds = %36, %34, %32
-  %.118.i.i.i = phi i16 [ %41, %36 ], [ %.01721.i.i.i, %34 ], [ %.01721.i.i.i, %32 ]
-  %.1.i.i.i = phi i32 [ -1, %36 ], [ %.01622.i.i.i, %34 ], [ %spec.select.i.i.i, %32 ]
+  %.118.i.i.i = phi i16 [ %.01721.i.i.i, %34 ], [ %.01721.i.i.i, %32 ], [ %41, %36 ]
+  %.1.i.i.i = phi i32 [ %.01622.i.i.i, %34 ], [ %spec.select.i.i.i, %32 ], [ -1, %36 ]
   %43 = add nuw nsw i32 %.023.i.i.i, 1
   %.not.i.i.i = icmp eq i16 %.118.i.i.i, 0
   br i1 %.not.i.i.i, label %stbte__draw_bitmask_as_columns.exit.i.i, label %28, !llvm.loop !84
@@ -2825,7 +2825,7 @@ define range(i32 0, 2) i32 @stbte__hittest(i32 noundef %0, i32 noundef %1, i32 n
   br label %.thread
 
 .thread:                                          ; preds = %5, %13, %7
-  %14 = phi i1 [ true, %13 ], [ %spec.select, %7 ], [ false, %5 ]
+  %14 = phi i1 [ %spec.select, %7 ], [ true, %13 ], [ false, %5 ]
   %15 = zext i1 %14 to i32
   ret i32 %15
 }
@@ -2882,7 +2882,7 @@ define range(i32 -1, 2) i32 @stbte__button_core(i32 noundef %0) local_unnamed_ad
   br label %23
 
 23:                                               ; preds = %.sink.split, %1, %3, %8, %13, %18
-  %.0 = phi i32 [ 0, %18 ], [ 0, %13 ], [ 0, %8 ], [ 0, %3 ], [ 0, %1 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %3 ], [ 0, %18 ], [ 0, %13 ], [ 0, %1 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 
@@ -3007,8 +3007,8 @@ define void @stbte__draw_textbox(i32 noundef %0, i32 noundef %1, i32 noundef %2,
   br label %62
 
 62:                                               ; preds = %56, %54, %52
-  %.118.i.i.i.i = phi i16 [ %61, %56 ], [ %.01721.i.i.i.i, %54 ], [ %.01721.i.i.i.i, %52 ]
-  %.1.i.i.i.i = phi i32 [ -1, %56 ], [ %.01622.i.i.i.i, %54 ], [ %spec.select.i.i.i.i, %52 ]
+  %.118.i.i.i.i = phi i16 [ %.01721.i.i.i.i, %54 ], [ %.01721.i.i.i.i, %52 ], [ %61, %56 ]
+  %.1.i.i.i.i = phi i32 [ %.01622.i.i.i.i, %54 ], [ %spec.select.i.i.i.i, %52 ], [ -1, %56 ]
   %63 = add nuw nsw i32 %.023.i.i.i.i, 1
   %.not.i.i.i.i = icmp eq i16 %.118.i.i.i.i, 0
   br i1 %.not.i.i.i.i, label %stbte__draw_bitmask_as_columns.exit.i.i.i, label %48, !llvm.loop !84
@@ -3142,7 +3142,7 @@ thread-pre-split:                                 ; preds = %38
   br label %stbte__button_core.exit
 
 stbte__button_core.exit:                          ; preds = %.sink.split.i, %56, %51, %46, %41, %39, %38
-  %.0 = phi i32 [ 0, %38 ], [ 0, %56 ], [ 0, %51 ], [ 0, %46 ], [ 0, %41 ], [ 0, %39 ], [ %61, %.sink.split.i ]
+  %.0 = phi i32 [ 0, %38 ], [ 0, %46 ], [ 0, %41 ], [ 0, %56 ], [ 0, %51 ], [ 0, %39 ], [ %61, %.sink.split.i ]
   ret i32 %.0
 }
 
@@ -3266,7 +3266,7 @@ stbte__hittest.exit:                              ; preds = %stbte__hittest.exit
   br label %stbte__button_core.exit
 
 stbte__button_core.exit:                          ; preds = %.sink.split.i, %63, %58, %53, %48, %46, %45
-  %.0 = phi i32 [ 0, %45 ], [ 0, %63 ], [ 0, %58 ], [ 0, %53 ], [ 0, %48 ], [ 0, %46 ], [ %68, %.sink.split.i ]
+  %.0 = phi i32 [ 0, %45 ], [ 0, %53 ], [ 0, %48 ], [ 0, %63 ], [ 0, %58 ], [ 0, %46 ], [ %68, %.sink.split.i ]
   ret i32 %.0
 }
 
@@ -3376,7 +3376,7 @@ thread-pre-split:                                 ; preds = %18, %stbte__hittest
   br label %stbte__button_core.exit
 
 stbte__button_core.exit:                          ; preds = %thread-pre-split, %32, %37, %42, %47, %.sink.split.i
-  %.0.i = phi i32 [ 0, %47 ], [ 0, %42 ], [ 0, %37 ], [ 0, %32 ], [ 0, %thread-pre-split ], [ %.0.ph.i, %.sink.split.i ]
+  %.0.i = phi i32 [ 0, %37 ], [ 0, %32 ], [ 0, %47 ], [ 0, %42 ], [ 0, %thread-pre-split ], [ %.0.ph.i, %.sink.split.i ]
   ret i32 %.0.i
 }
 
@@ -3508,7 +3508,7 @@ thread-pre-split:                                 ; preds = %46
   br label %stbte__button_core.exit
 
 stbte__button_core.exit:                          ; preds = %.sink.split.i, %64, %59, %54, %49, %47, %46
-  %.0 = phi i32 [ 0, %46 ], [ 0, %64 ], [ 0, %59 ], [ 0, %54 ], [ 0, %49 ], [ 0, %47 ], [ %.0.ph.i, %.sink.split.i ]
+  %.0 = phi i32 [ 0, %46 ], [ 0, %54 ], [ 0, %49 ], [ 0, %64 ], [ 0, %59 ], [ 0, %47 ], [ %.0.ph.i, %.sink.split.i ]
   ret i32 %.0
 }
 
@@ -3626,7 +3626,7 @@ thread-pre-split:                                 ; preds = %17, %stbte__hittest
   br label %stbte__button_core.exit
 
 stbte__button_core.exit:                          ; preds = %thread-pre-split, %40, %45, %50, %55, %.sink.split.i
-  %.0.i = phi i32 [ 0, %55 ], [ 0, %50 ], [ 0, %45 ], [ 0, %40 ], [ 0, %thread-pre-split ], [ %.0.ph.i, %.sink.split.i ]
+  %.0.i = phi i32 [ 0, %45 ], [ 0, %40 ], [ 0, %55 ], [ 0, %50 ], [ 0, %thread-pre-split ], [ %.0.ph.i, %.sink.split.i ]
   ret i32 %.0.i
 }
 
@@ -3765,7 +3765,7 @@ stbte__hittest.exit:                              ; preds = %stbte__hittest.exit
   br label %stbte__button_core.exit
 
 stbte__button_core.exit:                          ; preds = %stbte__hittest.exit, %.sink.split.i, %61, %56, %17, %41, %36, %49, %44, %55, %52
-  %.0 = phi i32 [ 0, %52 ], [ 0, %55 ], [ 0, %44 ], [ 0, %49 ], [ 0, %36 ], [ 0, %41 ], [ 0, %17 ], [ 0, %61 ], [ 0, %56 ], [ %.0.ph.i, %.sink.split.i ], [ 0, %stbte__hittest.exit ]
+  %.0 = phi i32 [ 0, %17 ], [ 0, %52 ], [ 0, %55 ], [ 0, %44 ], [ 0, %49 ], [ 0, %36 ], [ 0, %41 ], [ %.0.ph.i, %.sink.split.i ], [ 0, %stbte__hittest.exit ], [ 0, %61 ], [ 0, %56 ]
   ret i32 %.0
 }
 
@@ -3870,7 +3870,7 @@ thread-pre-split:                                 ; preds = %18, %stbte__hittest
   br label %stbte__button_core.exit
 
 stbte__button_core.exit:                          ; preds = %thread-pre-split, %32, %37, %42, %47, %.sink.split.i
-  %.0.i = phi i32 [ 0, %47 ], [ 0, %42 ], [ 0, %37 ], [ 0, %32 ], [ 0, %thread-pre-split ], [ %52, %.sink.split.i ]
+  %.0.i = phi i32 [ 0, %37 ], [ 0, %32 ], [ 0, %47 ], [ 0, %42 ], [ 0, %thread-pre-split ], [ %52, %.sink.split.i ]
   ret i32 %.0.i
 }
 
@@ -3947,7 +3947,7 @@ stbte__hittest.exit._crit_edge:                   ; preds = %stbte__hittest.exit
   br label %38
 
 35:                                               ; preds = %stbte__hittest.exit._crit_edge, %30
-  %36 = phi i32 [ %33, %30 ], [ %.pre, %stbte__hittest.exit._crit_edge ]
+  %36 = phi i32 [ %.pre, %stbte__hittest.exit._crit_edge ], [ %33, %30 ]
   %37 = icmp eq i32 %36, %5
   br i1 %37, label %38, label %47
 
@@ -3975,7 +3975,7 @@ stbte__hittest.exit._crit_edge:                   ; preds = %stbte__hittest.exit
   br label %47
 
 47:                                               ; preds = %stbte__hittest.exit, %21, %35, %43, %46, %38
-  %.036 = phi i32 [ %.03544, %38 ], [ 2, %46 ], [ 0, %43 ], [ 0, %35 ], [ 0, %21 ], [ 0, %stbte__hittest.exit ]
+  %.036 = phi i32 [ 2, %46 ], [ %.03544, %38 ], [ 0, %43 ], [ 0, %35 ], [ 0, %21 ], [ 0, %stbte__hittest.exit ]
   ret i32 %.036
 }
 
@@ -4130,7 +4130,7 @@ stbte__hittest.exit:                              ; preds = %stbte__hittest.exit
   br label %85
 
 85:                                               ; preds = %stbte__hittest.exit, %23, %44, %48, %38, %43, %81, %47
-  %.0 = phi i32 [ 2, %47 ], [ 3, %81 ], [ 1, %43 ], [ 1, %38 ], [ 0, %48 ], [ 0, %44 ], [ 0, %23 ], [ 0, %stbte__hittest.exit ]
+  %.0 = phi i32 [ 1, %38 ], [ 3, %81 ], [ 2, %47 ], [ 1, %43 ], [ 0, %48 ], [ 0, %44 ], [ 0, %23 ], [ 0, %stbte__hittest.exit ]
   ret i32 %.0
 }
 
@@ -5231,7 +5231,7 @@ define range(i32 -1, 3) i32 @stbte__erase_predict(ptr noundef readonly captures(
   br label %.loopexit
 
 .loopexit:                                        ; preds = %124, %.critedge100.us, %106, %._crit_edge, %.loopexit101, %78, %51, %54, %29, %35, %38, %52, %12, %.critedge
-  %.0 = phi i32 [ 0, %.critedge ], [ -1, %12 ], [ 0, %51 ], [ 1, %54 ], [ -1, %29 ], [ -1, %35 ], [ -1, %38 ], [ -1, %52 ], [ -1, %78 ], [ -1, %.loopexit101 ], [ %., %._crit_edge ], [ 1, %.critedge100.us ], [ -1, %106 ], [ -1, %124 ]
+  %.0 = phi i32 [ 0, %51 ], [ -1, %12 ], [ -1, %52 ], [ 0, %.critedge ], [ -1, %78 ], [ -1, %.loopexit101 ], [ 1, %54 ], [ %., %._crit_edge ], [ -1, %38 ], [ -1, %29 ], [ -1, %35 ], [ 1, %.critedge100.us ], [ -1, %106 ], [ -1, %124 ]
   ret i32 %.0
 }
 
@@ -5728,7 +5728,7 @@ stbte__undo_record.exit161:                       ; preds = %109, %111
   br label %stbte__undo_record.exit167
 
 stbte__undo_record.exit167:                       ; preds = %.split136, %279, %.split135, %234
-  %320 = phi i16 [ -1, %234 ], [ -1, %.split135 ], [ %.pre, %279 ], [ %277, %.split136 ]
+  %320 = phi i16 [ -1, %.split135 ], [ -1, %234 ], [ %.pre, %279 ], [ %277, %.split136 ]
   store i16 %320, ptr %222, align 2, !tbaa !21
   br i1 %162, label %.loopexit, label %321
 
@@ -5742,7 +5742,7 @@ stbte__undo_record.exit167:                       ; preds = %.split136, %279, %.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %stbte__undo_record.exit167, %276, %._crit_edge, %.loopexit174, %187, %stbte__undo_record.exit, %stbte__undo_record.exit161, %30, %36, %39, %107, %13, %197
-  %.0 = phi i32 [ 0, %197 ], [ -1, %13 ], [ 0, %stbte__undo_record.exit ], [ 1, %stbte__undo_record.exit161 ], [ -1, %30 ], [ -1, %36 ], [ -1, %39 ], [ -1, %107 ], [ -1, %187 ], [ -1, %.loopexit174 ], [ %., %._crit_edge ], [ 1, %stbte__undo_record.exit167 ], [ -1, %276 ]
+  %.0 = phi i32 [ 0, %stbte__undo_record.exit ], [ -1, %13 ], [ -1, %107 ], [ 0, %197 ], [ -1, %187 ], [ -1, %.loopexit174 ], [ 1, %stbte__undo_record.exit161 ], [ %., %._crit_edge ], [ -1, %39 ], [ -1, %30 ], [ -1, %36 ], [ -1, %276 ], [ 1, %stbte__undo_record.exit167 ]
   ret i32 %.0
 }
 
@@ -5930,7 +5930,7 @@ define void @stbte__eyedrop(ptr noundef captures(none) %0, i32 noundef %1, i32 n
   br i1 %exitcond.not, label %.loopexit, label %46, !llvm.loop !143
 
 .loopexit.sink.split:                             ; preds = %.loopexit.loopexit.i51, %._crit_edge.i44, %.loopexit.loopexit.i, %._crit_edge.i
-  %.07.i45.sink = phi i32 [ -1, %._crit_edge.i ], [ %36, %.loopexit.loopexit.i ], [ -1, %._crit_edge.i44 ], [ %67, %.loopexit.loopexit.i51 ]
+  %.07.i45.sink = phi i32 [ %36, %.loopexit.loopexit.i ], [ -1, %._crit_edge.i ], [ -1, %._crit_edge.i44 ], [ %67, %.loopexit.loopexit.i51 ]
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 800040
   store i32 %.07.i45.sink, ptr %70, align 8, !tbaa !39
   br label %.loopexit
@@ -5994,7 +5994,7 @@ define range(i32 0, 2) i32 @stbte__should_copy_properties(ptr noundef readonly c
   br i1 %.not13, label %17, label %.loopexit
 
 .loopexit:                                        ; preds = %21, %.lr.ph, %17, %.preheader, %5, %9, %1, %4
-  %.011 = phi i32 [ 0, %4 ], [ %3, %1 ], [ 0, %9 ], [ 0, %5 ], [ 1, %.preheader ], [ 0, %21 ], [ 0, %.lr.ph ], [ 1, %17 ]
+  %.011 = phi i32 [ 0, %9 ], [ 0, %4 ], [ %3, %1 ], [ 0, %5 ], [ 1, %.preheader ], [ 0, %.lr.ph ], [ 0, %21 ], [ 1, %17 ]
   ret i32 %.011
 }
 
@@ -6459,8 +6459,8 @@ stbte__undo_record.exit.i:                        ; preds = %83, %72, %61
   br i1 %exitcond.not.i, label %stbte__brush.exit, label %57, !llvm.loop !134
 
 stbte__brush.exit:                                ; preds = %119, %stbte__undo_record.exit.i, %52
-  %120 = phi i32 [ %117, %stbte__undo_record.exit.i ], [ %53, %52 ], [ %53, %119 ]
-  %121 = phi i32 [ %114, %stbte__undo_record.exit.i ], [ %54, %52 ], [ %54, %119 ]
+  %120 = phi i32 [ %53, %52 ], [ %117, %stbte__undo_record.exit.i ], [ %53, %119 ]
+  %121 = phi i32 [ %54, %52 ], [ %114, %stbte__undo_record.exit.i ], [ %54, %119 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %37, %lftr.wideiv
@@ -6584,8 +6584,8 @@ define void @stbte__copy_cut(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   br i1 %.not13.i, label %18, label %stbte__should_copy_properties.exit
 
 stbte__should_copy_properties.exit:               ; preds = %18, %.lr.ph.i, %22, %2, %5, %6, %10, %.preheader.i
-  %.not76 = phi i1 [ true, %5 ], [ false, %2 ], [ true, %10 ], [ true, %6 ], [ false, %.preheader.i ], [ false, %18 ], [ true, %.lr.ph.i ], [ true, %22 ]
-  %.011.i = phi i32 [ 0, %5 ], [ %4, %2 ], [ 0, %10 ], [ 0, %6 ], [ 1, %.preheader.i ], [ 1, %18 ], [ 0, %.lr.ph.i ], [ 0, %22 ]
+  %.not76 = phi i1 [ true, %10 ], [ true, %5 ], [ false, %2 ], [ true, %6 ], [ false, %.preheader.i ], [ false, %18 ], [ true, %22 ], [ true, %.lr.ph.i ]
+  %.011.i = phi i32 [ 0, %10 ], [ 0, %5 ], [ %4, %2 ], [ 0, %6 ], [ 1, %.preheader.i ], [ 1, %18 ], [ 0, %22 ], [ 0, %.lr.ph.i ]
   %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5296), align 8, !tbaa !106
   %.not = icmp eq i32 %25, 0
   br i1 %.not, label %277, label %26
@@ -7315,7 +7315,7 @@ define void @stbte__paste(ptr noundef captures(none) %0, i32 noundef %1, i32 nou
   br i1 %.not13.i, label %26, label %stbte__should_copy_properties.exit
 
 stbte__should_copy_properties.exit:               ; preds = %26, %.lr.ph.i, %30, %3, %13, %14, %18, %.preheader.i
-  %33 = phi i1 [ false, %13 ], [ true, %3 ], [ false, %18 ], [ false, %14 ], [ true, %.preheader.i ], [ true, %26 ], [ false, %.lr.ph.i ], [ false, %30 ]
+  %33 = phi i1 [ false, %18 ], [ false, %13 ], [ true, %3 ], [ false, %14 ], [ true, %.preheader.i ], [ true, %26 ], [ false, %30 ], [ false, %.lr.ph.i ]
   %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 1316340), align 4
   %35 = icmp ne i32 %34, 0
   %36 = select i1 %33, i1 %35, i1 false
@@ -7560,8 +7560,8 @@ stbte__paste_stack.exit.us:                       ; preds = %132, %167, %165, %1
   br i1 %99, label %.lr.ph108.us, label %._crit_edge109.us
 
 ._crit_edge109.us:                                ; preds = %210, %._crit_edge.us.thread, %stbte__paste_stack.exit.us
-  %168 = phi i32 [ %80, %stbte__paste_stack.exit.us ], [ %80, %._crit_edge.us.thread ], [ %211, %210 ]
-  %169 = phi i32 [ %81, %stbte__paste_stack.exit.us ], [ %81, %._crit_edge.us.thread ], [ %212, %210 ]
+  %168 = phi i32 [ %80, %._crit_edge.us.thread ], [ %80, %stbte__paste_stack.exit.us ], [ %211, %210 ]
+  %169 = phi i32 [ %81, %._crit_edge.us.thread ], [ %81, %stbte__paste_stack.exit.us ], [ %212, %210 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %170
 
@@ -7860,7 +7860,7 @@ define void @stbte__drag_update(ptr noundef captures(none) %0, i32 noundef %1, i
   br i1 %exitcond.not.i, label %stbte__clear_stack.exit, label %51, !llvm.loop !147
 
 stbte__clear_stack.exit:                          ; preds = %66, %._crit_edge.thread, %47, %9, %13, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %13 ], [ null, %9 ], [ %5, %47 ], [ %5, %._crit_edge.thread ], [ %5, %66 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %13 ], [ null, %9 ], [ %5, %._crit_edge.thread ], [ %5, %47 ], [ %5, %66 ]
   %67 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5284), align 4, !tbaa !171
   %68 = sub nsw i32 %1, %67
   %69 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5288), align 8, !tbaa !172
@@ -8033,8 +8033,8 @@ stbte__undo_record_prop_float.exit:               ; preds = %.preheader120.split
   %.not110 = icmp eq ptr %.0, null
   br i1 %.not110, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.preheader120, %stbte__undo_record_prop_float.exit, %.loopexit123, %.loopexit121
-  %.1157 = phi ptr [ %.0, %.loopexit121 ], [ %.2, %.loopexit123 ], [ %.2, %stbte__undo_record_prop_float.exit ], [ %.2, %.preheader120 ]
+.preheader:                                       ; preds = %stbte__undo_record_prop_float.exit, %.preheader120, %.loopexit123, %.loopexit121
+  %.1157 = phi ptr [ %.0, %.loopexit121 ], [ %.2, %.loopexit123 ], [ %.2, %.preheader120 ], [ %.2, %stbte__undo_record_prop_float.exit ]
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 800008
   %181 = load i32, ptr %180, align 8, !tbaa !28
   %182 = icmp sgt i32 %181, 0
@@ -8208,7 +8208,7 @@ define void @stbte__drag_place(ptr noundef captures(none) %0, i32 %1, i32 %2) lo
   br i1 %.not13.i, label %19, label %stbte__should_copy_properties.exit
 
 stbte__should_copy_properties.exit:               ; preds = %19, %.lr.ph.i, %23, %3, %6, %7, %11, %.preheader.i
-  %.011.i = phi i32 [ 0, %6 ], [ %5, %3 ], [ 0, %11 ], [ 0, %7 ], [ 1, %.preheader.i ], [ 1, %19 ], [ 0, %.lr.ph.i ], [ 0, %23 ]
+  %.011.i = phi i32 [ 0, %11 ], [ 0, %6 ], [ %5, %3 ], [ 0, %7 ], [ 1, %.preheader.i ], [ 1, %19 ], [ 0, %23 ], [ 0, %.lr.ph.i ]
   %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5284), align 4, !tbaa !171
   %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5260), align 4, !tbaa !169
   %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5288), align 8, !tbaa !172
@@ -8781,7 +8781,7 @@ stbte__clear_stack.exit:                          ; preds = %175, %156, %.prehea
   br label %stbte__paste_stack.exit
 
 stbte__paste_stack.exit:                          ; preds = %84, %121, %119, %104, %92, %86, %.preheader.i, %212, %214, %224, %223, %stbte__clear_stack.exit, %181, %187, %34, %40, %195, %201, %stbte__hittest.exit
-  %.0119 = phi ptr [ %29, %201 ], [ %29, %195 ], [ %29, %stbte__hittest.exit ], [ %29, %40 ], [ %29, %34 ], [ %7, %187 ], [ %7, %181 ], [ %7, %stbte__clear_stack.exit ], [ %29, %214 ], [ %29, %212 ], [ %7, %224 ], [ %7, %223 ], [ %7, %.preheader.i ], [ %7, %86 ], [ %7, %92 ], [ %7, %104 ], [ %7, %119 ], [ %7, %121 ], [ %7, %84 ]
+  %.0119 = phi ptr [ %29, %stbte__hittest.exit ], [ %29, %40 ], [ %7, %stbte__clear_stack.exit ], [ %29, %201 ], [ %29, %195 ], [ %7, %223 ], [ %29, %34 ], [ %7, %187 ], [ %7, %181 ], [ %29, %214 ], [ %29, %212 ], [ %7, %224 ], [ %7, %.preheader.i ], [ %7, %121 ], [ %7, %86 ], [ %7, %92 ], [ %7, %104 ], [ %7, %119 ], [ %7, %84 ]
   %226 = icmp eq i32 %30, %11
   %227 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 8), align 8
   %228 = icmp eq i32 %227, 0
@@ -8895,7 +8895,7 @@ stbte__paste_stack.exit:                          ; preds = %84, %121, %119, %10
   br i1 %exitcond.not.i176, label %stbte__brush_predict.exit, label %254, !llvm.loop !133
 
 stbte__brush_predict.exit:                        ; preds = %286, %.preheader, %282, %._crit_edge187, %232, %stbte__paste_stack.exit
-  %.3 = phi ptr [ %.0119, %232 ], [ %.0119, %stbte__paste_stack.exit ], [ %7, %._crit_edge187 ], [ %7, %282 ], [ %7, %.preheader ], [ %7, %286 ]
+  %.3 = phi ptr [ %.0119, %stbte__paste_stack.exit ], [ %.0119, %232 ], [ %7, %._crit_edge187 ], [ %7, %.preheader ], [ %7, %282 ], [ %7, %286 ]
   %287 = getelementptr inbounds nuw i8, ptr %0, i64 801040
   %288 = load i32, ptr %287, align 8, !tbaa !40
   %289 = icmp eq i32 %5, %288
@@ -9811,7 +9811,7 @@ stbte__redo_available.exit:                       ; preds = %._crit_edge.i67, %s
   br label %.thread91
 
 .thread91:                                        ; preds = %25, %25, %stbte__redo_available.exit, %62
-  %.2 = phi i32 [ %.1, %62 ], [ %spec.select65, %stbte__redo_available.exit ], [ 1, %25 ], [ 1, %25 ]
+  %.2 = phi i32 [ %spec.select65, %stbte__redo_available.exit ], [ %.1, %62 ], [ 1, %25 ], [ 1, %25 ]
   %94 = getelementptr inbounds nuw i32, ptr @toolchar, i64 %indvars.iv
   %95 = load i32, ptr %94, align 4, !tbaa !67
   %96 = trunc i32 %95 to i8
@@ -10020,8 +10020,8 @@ define i32 @stbte__info_value(ptr noundef readonly captures(none) %0, i32 nounde
   br label %56
 
 56:                                               ; preds = %50, %48, %46
-  %.118.i.i.i = phi i16 [ %55, %50 ], [ %.01721.i.i.i, %48 ], [ %.01721.i.i.i, %46 ]
-  %.1.i.i.i = phi i32 [ -1, %50 ], [ %.01622.i.i.i, %48 ], [ %spec.select.i.i.i, %46 ]
+  %.118.i.i.i = phi i16 [ %.01721.i.i.i, %48 ], [ %.01721.i.i.i, %46 ], [ %55, %50 ]
+  %.1.i.i.i = phi i32 [ %.01622.i.i.i, %48 ], [ %spec.select.i.i.i, %46 ], [ -1, %50 ]
   %57 = add nuw nsw i32 %.023.i.i.i, 1
   %.not.i.i.i = icmp eq i16 %.118.i.i.i, 0
   br i1 %.not.i.i.i, label %stbte__draw_bitmask_as_columns.exit.i.i, label %42, !llvm.loop !84
@@ -10079,7 +10079,7 @@ stbte__draw_text_core.exit:                       ; preds = %.lr.ph.i, %stbte__d
   br label %83
 
 83:                                               ; preds = %66, %81, %65
-  %.0 = phi i32 [ %82, %81 ], [ %3, %65 ], [ 1, %66 ]
+  %.0 = phi i32 [ %3, %65 ], [ %82, %81 ], [ 1, %66 ]
   ret i32 %.0
 }
 
@@ -10197,8 +10197,8 @@ define void @stbte__info(ptr noundef captures(none) %0, i32 noundef %1, i32 noun
   br label %74
 
 74:                                               ; preds = %68, %66, %64
-  %.118.i.i.i.i = phi i16 [ %73, %68 ], [ %.01721.i.i.i.i, %66 ], [ %.01721.i.i.i.i, %64 ]
-  %.1.i.i.i.i = phi i32 [ -1, %68 ], [ %.01622.i.i.i.i, %66 ], [ %spec.select.i.i.i.i, %64 ]
+  %.118.i.i.i.i = phi i16 [ %.01721.i.i.i.i, %66 ], [ %.01721.i.i.i.i, %64 ], [ %73, %68 ]
+  %.1.i.i.i.i = phi i32 [ %.01622.i.i.i.i, %66 ], [ %spec.select.i.i.i.i, %64 ], [ -1, %68 ]
   %75 = add nuw nsw i32 %.023.i.i.i.i, 1
   %.not.i.i.i.i = icmp eq i16 %.118.i.i.i.i, 0
   br i1 %.not.i.i.i.i, label %stbte__draw_bitmask_as_columns.exit.i.i.i, label %60, !llvm.loop !84
@@ -10338,8 +10338,8 @@ define void @stbte__layers(ptr noundef captures(none) %0, i32 noundef %1, i32 no
   br label %61
 
 61:                                               ; preds = %55, %53, %51
-  %.118.i.i.i.i = phi i16 [ %60, %55 ], [ %.01721.i.i.i.i, %53 ], [ %.01721.i.i.i.i, %51 ]
-  %.1.i.i.i.i = phi i32 [ -1, %55 ], [ %.01622.i.i.i.i, %53 ], [ %spec.select.i.i.i.i, %51 ]
+  %.118.i.i.i.i = phi i16 [ %.01721.i.i.i.i, %53 ], [ %.01721.i.i.i.i, %51 ], [ %60, %55 ]
+  %.1.i.i.i.i = phi i32 [ %.01622.i.i.i.i, %53 ], [ %spec.select.i.i.i.i, %51 ], [ -1, %55 ]
   %62 = add nuw nsw i32 %.023.i.i.i.i, 1
   %.not.i.i.i.i = icmp eq i16 %.118.i.i.i.i, 0
   br i1 %.not.i.i.i.i, label %stbte__draw_bitmask_as_columns.exit.i.i.i, label %47, !llvm.loop !84
@@ -10603,8 +10603,8 @@ stbte__text_width.exit:                           ; preds = %.lr.ph.i
   br label %207
 
 207:                                              ; preds = %201, %199, %197
-  %.118.i.i.i.i133 = phi i16 [ %206, %201 ], [ %.01721.i.i.i.i130, %199 ], [ %.01721.i.i.i.i130, %197 ]
-  %.1.i.i.i.i134 = phi i32 [ -1, %201 ], [ %.01622.i.i.i.i129, %199 ], [ %spec.select.i.i.i.i132, %197 ]
+  %.118.i.i.i.i133 = phi i16 [ %.01721.i.i.i.i130, %199 ], [ %.01721.i.i.i.i130, %197 ], [ %206, %201 ]
+  %.1.i.i.i.i134 = phi i32 [ %.01622.i.i.i.i129, %199 ], [ %spec.select.i.i.i.i132, %197 ], [ -1, %201 ]
   %208 = add nuw nsw i32 %.023.i.i.i.i128, 1
   %.not.i.i.i.i135 = icmp eq i16 %.118.i.i.i.i133, 0
   br i1 %.not.i.i.i.i135, label %stbte__draw_bitmask_as_columns.exit.i.i.i136, label %193, !llvm.loop !84
@@ -10920,7 +10920,7 @@ stbte__button_core.exit.thread40:                 ; preds = %45, %55
   store i32 %3, ptr %66, align 8, !tbaa !39
   br label %stbte__draw_frame_delayed.exit
 
-stbte__draw_frame_delayed.exit:                   ; preds = %43, %45, %50, %55, %60, %stbte__button_core.exit.thread40, %35, %32, %65, %22
+stbte__draw_frame_delayed.exit:                   ; preds = %43, %55, %60, %45, %50, %stbte__button_core.exit.thread40, %35, %32, %65, %22
   ret void
 }
 
@@ -11979,8 +11979,8 @@ stbte__text_width.exit:                           ; preds = %.lr.ph.i, %448
   br label %519
 
 519:                                              ; preds = %513, %511, %509
-  %.118.i.i.i.i = phi i16 [ %518, %513 ], [ %.01721.i.i.i.i, %511 ], [ %.01721.i.i.i.i, %509 ]
-  %.1.i.i.i.i = phi i32 [ -1, %513 ], [ %.01622.i.i.i.i, %511 ], [ %spec.select.i.i.i.i, %509 ]
+  %.118.i.i.i.i = phi i16 [ %.01721.i.i.i.i, %511 ], [ %.01721.i.i.i.i, %509 ], [ %518, %513 ]
+  %.1.i.i.i.i = phi i32 [ %.01622.i.i.i.i, %511 ], [ %spec.select.i.i.i.i, %509 ], [ -1, %513 ]
   %520 = add nuw nsw i32 %.023.i.i.i.i, 1
   %.not.i.i.i.i = icmp eq i16 %.118.i.i.i.i, 0
   br i1 %.not.i.i.i.i, label %stbte__draw_bitmask_as_columns.exit.i.i.i, label %505, !llvm.loop !84

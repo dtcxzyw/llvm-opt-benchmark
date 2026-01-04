@@ -214,7 +214,7 @@ define internal range(i32 8, 264) i32 @dissect_asf(ptr noundef %0, ptr noundef %
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %26, %29, %33, %41
-  %.pre-phi = phi i32 [ %28, %29 ], [ %28, %33 ], [ %28, %41 ], [ 0, %26 ]
+  %.pre-phi = phi i32 [ %28, %41 ], [ %28, %29 ], [ %28, %33 ], [ 0, %26 ]
   %44 = add nuw nsw i32 %.pre-phi, 8
   ret i32 %44
 }

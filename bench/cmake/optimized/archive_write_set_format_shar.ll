@@ -568,7 +568,7 @@ shar_quote.exit154:                               ; preds = %161, %146
   br label %210
 
 210:                                              ; preds = %shar_quote.exit146, %200, %202, %206, %183, %172, %199, %195, %193, %shar_quote.exit154, %165, %.tail, %.tail155, %192, %60, %35
-  %.0 = phi i32 [ -20, %35 ], [ -30, %60 ], [ -30, %192 ], [ 0, %.tail155 ], [ 0, %.tail ], [ -20, %165 ], [ 0, %shar_quote.exit154 ], [ 0, %193 ], [ 0, %195 ], [ 0, %199 ], [ 0, %172 ], [ 0, %183 ], [ 0, %206 ], [ 0, %202 ], [ 0, %200 ], [ 0, %shar_quote.exit146 ]
+  %.0 = phi i32 [ -20, %35 ], [ -30, %60 ], [ -20, %165 ], [ 0, %.tail ], [ -30, %192 ], [ 0, %.tail155 ], [ 0, %shar_quote.exit154 ], [ 0, %193 ], [ 0, %195 ], [ 0, %199 ], [ 0, %172 ], [ 0, %183 ], [ 0, %206 ], [ 0, %202 ], [ 0, %200 ], [ 0, %shar_quote.exit146 ]
   ret i32 %.0
 }
 
@@ -742,7 +742,7 @@ define internal noundef i64 @archive_write_shar_data_sed(ptr noundef %0, ptr nou
   br label %.loopexit
 
 .loopexit:                                        ; preds = %43, %19, %3, %._crit_edge, %14
-  %.0 = phi i64 [ -30, %14 ], [ %2, %._crit_edge ], [ 0, %3 ], [ -30, %19 ], [ -30, %43 ]
+  %.0 = phi i64 [ %2, %._crit_edge ], [ -30, %14 ], [ 0, %3 ], [ -30, %19 ], [ -30, %43 ]
   ret i64 %.0
 }
 
@@ -1056,7 +1056,7 @@ shar_quote.exit97:                                ; preds = %128, %112
   br label %152
 
 152:                                              ; preds = %147, %142, %1, %15, %151
-  %.0 = phi i32 [ 0, %151 ], [ -30, %15 ], [ 0, %1 ], [ 0, %142 ], [ -30, %147 ]
+  %.0 = phi i32 [ -30, %15 ], [ 0, %1 ], [ 0, %142 ], [ 0, %151 ], [ -30, %147 ]
   ret i32 %.0
 }
 
@@ -1204,7 +1204,7 @@ define internal noundef i64 @archive_write_shar_data_uuencode(ptr noundef %0, pt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %34, %27, %.loopexit.sink.split, %._crit_edge, %3, %18
-  %.0 = phi i64 [ -30, %18 ], [ 0, %3 ], [ %2, %._crit_edge ], [ %2, %.loopexit.sink.split ], [ -30, %27 ], [ -30, %34 ]
+  %.0 = phi i64 [ -30, %18 ], [ 0, %3 ], [ %2, %.loopexit.sink.split ], [ %2, %._crit_edge ], [ -30, %27 ], [ -30, %34 ]
   ret i64 %.0
 }
 

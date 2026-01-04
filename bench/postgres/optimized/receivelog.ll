@@ -495,7 +495,7 @@ thread-pre-split.i:                               ; preds = %CopyStreamReceive.e
   br i1 %204, label %205, label %HandleCopyStream.exit.thread
 
 205:                                              ; preds = %203, %186, %182
-  %.280.i = phi i64 [ %.078.i, %186 ], [ %.078.i, %182 ], [ %183, %203 ]
+  %.280.i = phi i64 [ %.078.i, %182 ], [ %.078.i, %186 ], [ %183, %203 ]
   %.b.i = load i1, ptr @still_sending, align 1
   br i1 %.b.i, label %213, label %206
 
@@ -513,7 +513,7 @@ thread-pre-split.i:                               ; preds = %CopyStreamReceive.e
   br i1 %212, label %213, label %HandleCopyStream.exit.thread
 
 213:                                              ; preds = %211, %209, %206, %205
-  %.381.i = phi i64 [ %.280.i, %205 ], [ %.280.i, %209 ], [ %.280.i, %206 ], [ %183, %211 ]
+  %.381.i = phi i64 [ %.280.i, %205 ], [ %.280.i, %206 ], [ %.280.i, %209 ], [ %183, %211 ]
   %214 = load i32, ptr %62, align 8
   %215 = icmp eq i32 %214, 0
   %.b.i48.i = load i1, ptr @still_sending, align 1
@@ -551,7 +551,7 @@ thread-pre-split.i:                               ; preds = %CopyStreamReceive.e
   br label %CalculateCopyStreamSleeptime.exit.i.preheader
 
 CalculateCopyStreamSleeptime.exit.i.preheader:    ; preds = %229, %216, %213
-  %.sink.i.ph = phi i64 [ -1, %213 ], [ -1, %216 ], [ %230, %229 ]
+  %.sink.i.ph = phi i64 [ -1, %216 ], [ %230, %229 ], [ -1, %213 ]
   br label %CalculateCopyStreamSleeptime.exit.i.outer
 
 CalculateCopyStreamSleeptime.exit.i.outer:        ; preds = %CalculateCopyStreamSleeptime.exit.i.preheader, %331
@@ -1101,7 +1101,7 @@ open_walfile.exit.i.i:                            ; preds = %449, %426
   br label %HandleCopyStream.exit.thread
 
 490:                                              ; preds = %479, %478, %466
-  %.153.i.i = phi i32 [ 0, %479 ], [ 0, %478 ], [ %470, %466 ]
+  %.153.i.i = phi i32 [ 0, %478 ], [ %470, %466 ], [ 0, %479 ]
   %.not66.i.i = icmp eq i32 %468, 0
   br i1 %.not66.i.i, label %ProcessXLogDataMsg.exit.i, label %358, !llvm.loop !8
 
@@ -1109,6 +1109,10 @@ ProcessXLogDataMsg.exit.i:                        ; preds = %490, %355
   %.5.ph90.i = phi i64 [ %340, %355 ], [ %469, %490 ]
   %.b.i61.pr.i = load i1, ptr @still_sending, align 1
   br i1 %.b.i61.pr.i, label %CalculateCopyStreamSleeptime.exit.i.outer1133.backedge, label %491
+
+CalculateCopyStreamSleeptime.exit.i.outer1133.backedge: ; preds = %ProcessXLogDataMsg.exit.i, %ProcessKeepaliveMsg.exit.thread.sink.split.i, %491
+  %.2.i.ph1136.be = phi i64 [ %.5.ph90.i, %491 ], [ %.377.ph.i, %ProcessKeepaliveMsg.exit.thread.sink.split.i ], [ %.5.ph90.i, %ProcessXLogDataMsg.exit.i ]
+  br label %CalculateCopyStreamSleeptime.exit.i.outer1133, !llvm.loop !6
 
 491:                                              ; preds = %ProcessXLogDataMsg.exit.i
   %492 = load ptr, ptr %60, align 8
@@ -1145,12 +1149,8 @@ ProcessKeepaliveMsg.exit.thread.sink.split.i:     ; preds = %500, %486
   store i1 true, ptr @still_sending, align 1
   br label %CalculateCopyStreamSleeptime.exit.i.outer1133.backedge
 
-CalculateCopyStreamSleeptime.exit.i.outer1133.backedge: ; preds = %ProcessKeepaliveMsg.exit.thread.sink.split.i, %491, %ProcessXLogDataMsg.exit.i
-  %.2.i.ph1136.be = phi i64 [ %.5.ph90.i, %ProcessXLogDataMsg.exit.i ], [ %.5.ph90.i, %491 ], [ %.377.ph.i, %ProcessKeepaliveMsg.exit.thread.sink.split.i ]
-  br label %CalculateCopyStreamSleeptime.exit.i.outer1133, !llvm.loop !6
-
 HandleCopyStream.exit.thread:                     ; preds = %HandleEndOfCopyStream.exit.i, %211, %203, %172, %495, %CopyStreamReceive.exit, %331, %476, %CopyStreamReceive.exit.thread, %504, %502, %488, %460, %open_walfile.exit.thread.i.i, %353, %348, %337, %307, %297, %288, %179
-  %.3.ph = phi ptr [ null, %CopyStreamReceive.exit.thread ], [ %.0107, %179 ], [ null, %288 ], [ null, %297 ], [ %.4, %353 ], [ %.4, %348 ], [ %.4, %460 ], [ %.4, %488 ], [ %.4, %open_walfile.exit.thread.i.i ], [ %.4, %502 ], [ %.4, %337 ], [ %.4, %307 ], [ %.4, %504 ], [ %.4, %476 ], [ %.4, %331 ], [ %.4, %CopyStreamReceive.exit ], [ %.4, %495 ], [ %.0107, %172 ], [ %.0107, %203 ], [ %.0107, %211 ], [ null, %HandleEndOfCopyStream.exit.i ]
+  %.3.ph = phi ptr [ %.4, %504 ], [ null, %CopyStreamReceive.exit.thread ], [ %.4, %502 ], [ %.0107, %179 ], [ %.4, %337 ], [ %.4, %476 ], [ null, %288 ], [ null, %297 ], [ %.4, %495 ], [ %.4, %353 ], [ %.4, %348 ], [ %.4, %460 ], [ %.0107, %211 ], [ %.4, %488 ], [ %.4, %open_walfile.exit.thread.i.i ], [ %.4, %307 ], [ %.4, %331 ], [ %.4, %CopyStreamReceive.exit ], [ %.0107, %172 ], [ %.0107, %203 ], [ null, %HandleEndOfCopyStream.exit.i ]
   call void @PQfreemem(ptr noundef %.3.ph) #11
   br label %.thread
 
@@ -1310,7 +1310,7 @@ ReadEndOfStreamingResult.exit.thread:             ; preds = %514, %523
   br label %CheckServerVersionForStreaming.exit.thread
 
 CheckServerVersionForStreaming.exit.thread:       ; preds = %149, %24, %19, %557, %.critedge, %577, %163, %79
-  %.0 = phi i1 [ false, %163 ], [ false, %577 ], [ false, %79 ], [ false, %.critedge ], [ true, %557 ], [ false, %19 ], [ false, %24 ], [ true, %149 ]
+  %.0 = phi i1 [ true, %557 ], [ false, %163 ], [ false, %577 ], [ false, %24 ], [ false, %.critedge ], [ false, %79 ], [ false, %19 ], [ true, %149 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i1 %.0
@@ -1437,7 +1437,7 @@ define internal fastcc noundef zeroext i1 @close_walfile(ptr noundef readonly ca
   br label %26
 
 26:                                               ; preds = %6, %25
-  %.sink24 = phi i32 [ 2, %25 ], [ 0, %6 ]
+  %.sink24 = phi i32 [ 0, %6 ], [ 2, %25 ]
   %27 = load ptr, ptr %13, align 8
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -1502,7 +1502,7 @@ mark_file_as_archived.exit.thread:                ; preds = %52, %40, %36
   br label %60
 
 60:                                               ; preds = %mark_file_as_archived.exit, %2, %mark_file_as_archived.exit.thread, %33
-  %.018 = phi i1 [ false, %33 ], [ true, %mark_file_as_archived.exit.thread ], [ true, %2 ], [ false, %mark_file_as_archived.exit ]
+  %.018 = phi i1 [ true, %2 ], [ false, %33 ], [ true, %mark_file_as_archived.exit.thread ], [ false, %mark_file_as_archived.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.018
 }

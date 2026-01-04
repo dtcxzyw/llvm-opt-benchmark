@@ -166,7 +166,7 @@ select.unfold.i.backedge:                         ; preds = %18, %.select.unfold
   br label %.preheader.i
 
 .thread130.i:                                     ; preds = %37, %34, %.preheader.i, %..thread130_crit_edge.i
-  %48 = phi i32 [ %.pre170.i, %..thread130_crit_edge.i ], [ %.pre171.i, %.preheader.i ], [ %35, %37 ], [ %21, %34 ]
+  %48 = phi i32 [ %.pre170.i, %..thread130_crit_edge.i ], [ %.pre171.i, %.preheader.i ], [ %21, %34 ], [ %35, %37 ]
   store i32 %storemerge155.i.ph, ptr %2, align 8
   %49 = load ptr, ptr %0, align 8
   %50 = tail call i32 @skip_utf8(ptr noundef %49, i32 noundef %storemerge155.i.ph, i32 noundef %48, i32 noundef 1) #2
@@ -669,8 +669,8 @@ r_mark_regions.exit:                              ; preds = %52, %64, %68, %84, 
   store i32 %267, ptr %2, align 8
   br label %r_standard_suffix.exit.thread
 
-r_standard_suffix.exit.thread:                    ; preds = %9, %31, %45, %271, %274, %277, %280, %194, %222, %225, %242, %211, %239, %263, %160, %171, %116, %133, %119, %138, %.loopexit
-  %.1 = phi i32 [ 1, %.loopexit ], [ %195, %194 ], [ %223, %222 ], [ %226, %225 ], [ %243, %242 ], [ %212, %211 ], [ %240, %239 ], [ %264, %263 ], [ %161, %160 ], [ %172, %171 ], [ %117, %116 ], [ %134, %133 ], [ %120, %119 ], [ %139, %138 ], [ %272, %271 ], [ %275, %274 ], [ %278, %277 ], [ %281, %280 ], [ %46, %45 ], [ %32, %31 ], [ %11, %9 ]
+r_standard_suffix.exit.thread:                    ; preds = %9, %45, %31, %271, %274, %277, %280, %239, %225, %194, %242, %222, %211, %263, %160, %116, %133, %119, %138, %171, %.loopexit
+  %.1 = phi i32 [ %134, %133 ], [ %117, %116 ], [ %272, %271 ], [ %32, %31 ], [ 1, %.loopexit ], [ %120, %119 ], [ %139, %138 ], [ %172, %171 ], [ %240, %239 ], [ %226, %225 ], [ %195, %194 ], [ %243, %242 ], [ %223, %222 ], [ %212, %211 ], [ %264, %263 ], [ %161, %160 ], [ %275, %274 ], [ %278, %277 ], [ %281, %280 ], [ %46, %45 ], [ %11, %9 ]
   ret i32 %.1
 }
 

@@ -79,7 +79,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i12: ; preds = %2
   br label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
 
 _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i12, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i8, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %6
-  %.sroa.4.0 = phi i64 [ 0, %6 ], [ 4294967296, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 4294967297, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i8 ], [ 4294967298, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i12 ]
+  %.sroa.4.0 = phi i64 [ 0, %6 ], [ 4294967297, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i8 ], [ 4294967298, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i12 ], [ 4294967296, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ]
   ret i64 %.sroa.4.0
 }
 

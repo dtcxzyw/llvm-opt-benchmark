@@ -401,7 +401,7 @@ define ptr @dt_ioppr_get_iop_order_entry(ptr noundef readonly captures(address_i
   br i1 %.not.i, label %dt_ioppr_get_iop_order_link.exit.thread, label %.lr.ph.split.i
 
 dt_ioppr_get_iop_order_link.exit.thread:          ; preds = %20, %16, %9, %.lr.ph.split.us.i, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %9 ], [ %5, %.lr.ph.split.us.i ], [ null, %20 ], [ %12, %16 ]
+  %.0 = phi ptr [ null, %9 ], [ null, %3 ], [ %5, %.lr.ph.split.us.i ], [ %12, %16 ], [ null, %20 ]
   ret ptr %.0
 }
 
@@ -1562,7 +1562,7 @@ _table_to_list.exit:                              ; preds = %.lr.ph.i, %254
   br label %.thread203
 
 _insert_before.exit179:                           ; preds = %_insert_before.exit168, %.critedge.i175, %_table_to_list.exit
-  %.3 = phi ptr [ %271, %_table_to_list.exit ], [ %43, %.critedge.i175 ], [ %43, %_insert_before.exit168 ]
+  %.3 = phi ptr [ %43, %.critedge.i175 ], [ %271, %_table_to_list.exit ], [ %43, %_insert_before.exit168 ]
   %.not45 = icmp eq ptr %.3, null
   br i1 %.not45, label %.thread203, label %273
 
@@ -1898,7 +1898,7 @@ dt_ioppr_serialize_text_iop_order_list.exit:      ; preds = %.lr.ph.i37, %dt_iop
   br label %.critedge
 
 .critedge:                                        ; preds = %137, %100, %97, %134, %28
-  %.0 = phi i32 [ 0, %28 ], [ 0, %134 ], [ 0, %97 ], [ 1, %100 ], [ 1, %137 ]
+  %.0 = phi i32 [ 0, %134 ], [ 0, %28 ], [ 0, %97 ], [ 1, %100 ], [ 1, %137 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -2231,7 +2231,7 @@ _ioppr_sanity_check_iop_order.exit.thread:        ; preds = %.lr.ph, %_ioppr_res
   br label %32
 
 32:                                               ; preds = %_ioppr_sanity_check_iop_order.exit, %_ioppr_sanity_check_iop_order.exit.thread
-  %.0 = phi ptr [ null, %_ioppr_sanity_check_iop_order.exit.thread ], [ %18, %_ioppr_sanity_check_iop_order.exit ]
+  %.0 = phi ptr [ %18, %_ioppr_sanity_check_iop_order.exit ], [ null, %_ioppr_sanity_check_iop_order.exit.thread ]
   ret ptr %.0
 }
 
@@ -2811,7 +2811,7 @@ dt_ioppr_get_iop_order_link.exit:                 ; preds = %.lr.ph.split.us.i, 
   br i1 %.old1.not, label %g_list_shorter_than.exit.thread, label %.preheader
 
 g_list_shorter_than.exit.thread:                  ; preds = %10, %46, %._crit_edge, %g_list_shorter_than.exit
-  %.2 = phi ptr [ %.0.lcssa, %g_list_shorter_than.exit ], [ %.0.lcssa, %._crit_edge ], [ %.4, %46 ], [ %.0.lcssa, %10 ]
+  %.2 = phi ptr [ %.4, %46 ], [ %.0.lcssa, %g_list_shorter_than.exit ], [ %.0.lcssa, %._crit_edge ], [ %.0.lcssa, %10 ]
   ret ptr %.2
 }
 
@@ -3006,8 +3006,8 @@ _ioppr_reset_iop_order.exit:                      ; preds = %.lr.ph.i, %._crit_e
   br label %20
 
 20:                                               ; preds = %17, %13
-  %21 = phi ptr [ %.pre154, %13 ], [ %.pre, %17 ]
-  %22 = phi i1 [ false, %13 ], [ %.not80, %17 ]
+  %21 = phi ptr [ %.pre, %17 ], [ %.pre154, %13 ]
+  %22 = phi i1 [ %.not80, %17 ], [ false, %13 ]
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.not26.i = icmp eq ptr %21, null
   br i1 %.not26.i, label %_count_iop_module.exit, label %.lr.ph.i88
@@ -3038,9 +3038,9 @@ _ioppr_reset_iop_order.exit:                      ; preds = %.lr.ph.i, %._crit_e
   br label %36
 
 36:                                               ; preds = %29, %.lr.ph.i88
-  %.1115 = phi i32 [ %.0114, %.lr.ph.i88 ], [ %spec.select, %29 ]
-  %.1112 = phi i32 [ %.0111, %.lr.ph.i88 ], [ %30, %29 ]
-  %.1107 = phi i32 [ %.0106, %.lr.ph.i88 ], [ %spec.select171, %29 ]
+  %.1115 = phi i32 [ %spec.select, %29 ], [ %.0114, %.lr.ph.i88 ]
+  %.1112 = phi i32 [ %30, %29 ], [ %.0111, %.lr.ph.i88 ]
+  %.1107 = phi i32 [ %spec.select171, %29 ], [ %.0106, %.lr.ph.i88 ]
   %37 = getelementptr inbounds nuw i8, ptr %.027.i, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !56
   %.not.i89 = icmp eq ptr %38, null
@@ -3498,8 +3498,8 @@ _ioppr_search_history_by_module.exit:             ; preds = %.lr.ph.i, %17
   br label %.critedge
 
 .thread100:                                       ; preds = %.lr.ph.i85, %58, %_ioppr_search_history_by_module.exit
-  %64 = phi i32 [ %.pre108, %58 ], [ %13, %_ioppr_search_history_by_module.exit ], [ %13, %.lr.ph.i85 ]
-  %65 = phi i32 [ %.pre, %58 ], [ %13, %_ioppr_search_history_by_module.exit ], [ %13, %.lr.ph.i85 ]
+  %64 = phi i32 [ %13, %_ioppr_search_history_by_module.exit ], [ %.pre108, %58 ], [ %13, %.lr.ph.i85 ]
+  %65 = phi i32 [ %13, %_ioppr_search_history_by_module.exit ], [ %.pre, %58 ], [ %13, %.lr.ph.i85 ]
   %66 = getelementptr inbounds nuw i8, ptr %.1106, i64 456
   %67 = getelementptr inbounds nuw i8, ptr %.1106, i64 956
   %68 = getelementptr inbounds nuw i8, ptr %11, i64 456
@@ -3512,9 +3512,9 @@ _ioppr_search_history_by_module.exit:             ; preds = %.lr.ph.i, %17
   %71 = load ptr, ptr %4, align 8, !tbaa !54
   br label %.critedge
 
-.critedge:                                        ; preds = %9, %.thread100, %.thread, %55, %32, %36, %70
-  %.pn = phi ptr [ %4, %70 ], [ %10, %36 ], [ %10, %32 ], [ %10, %55 ], [ %10, %.thread ], [ %10, %.thread100 ], [ %10, %9 ]
-  %.2 = phi ptr [ %71, %70 ], [ %11, %36 ], [ %11, %32 ], [ %11, %55 ], [ %11, %.thread ], [ %11, %.thread100 ], [ %11, %9 ]
+.critedge:                                        ; preds = %9, %.thread100, %55, %36, %.thread, %32, %70
+  %.pn = phi ptr [ %4, %70 ], [ %10, %32 ], [ %10, %.thread ], [ %10, %36 ], [ %10, %55 ], [ %10, %.thread100 ], [ %10, %9 ]
+  %.2 = phi ptr [ %71, %70 ], [ %11, %32 ], [ %11, %.thread ], [ %11, %36 ], [ %11, %55 ], [ %11, %.thread100 ], [ %11, %9 ]
   %.sink.in = getelementptr inbounds nuw i8, ptr %.pn, i64 8
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !56
   store ptr %.sink, ptr %3, align 8, !tbaa !117
@@ -3836,7 +3836,7 @@ define range(i32 0, 2) i32 @dt_ioppr_check_can_move_before_iop(ptr noundef %0, p
   br label %.thread177
 
 .thread177:                                       ; preds = %._crit_edge, %65, %76, %.loopexit, %.lr.ph319, %34, %.preheader225, %.preheader220, %99, %._crit_edge320, %48, %42, %.critedge, %84, %92, %86, %.critedge164, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %99 ], [ 0, %.critedge ], [ 0, %48 ], [ 0, %._crit_edge320 ], [ 1, %42 ], [ 0, %.critedge164 ], [ 0, %92 ], [ 0, %84 ], [ 1, %86 ], [ 0, %.preheader220 ], [ 0, %.preheader225 ], [ 0, %34 ], [ 0, %.lr.ph319 ], [ 0, %.loopexit ], [ 0, %76 ], [ 0, %65 ], [ 0, %._crit_edge ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %99 ], [ 1, %42 ], [ 0, %.critedge ], [ 0, %48 ], [ 0, %._crit_edge320 ], [ 0, %.critedge164 ], [ 0, %92 ], [ 0, %84 ], [ 1, %86 ], [ 0, %76 ], [ 0, %.preheader220 ], [ 0, %.preheader225 ], [ 0, %34 ], [ 0, %.loopexit ], [ 0, %.lr.ph319 ], [ 0, %65 ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -3888,7 +3888,7 @@ define range(i32 0, 2) i32 @dt_ioppr_check_can_move_after_iop(ptr noundef %0, pt
   br label %21
 
 21:                                               ; preds = %._crit_edge.thread, %19
-  %.0 = phi i32 [ 0, %._crit_edge.thread ], [ %20, %19 ]
+  %.0 = phi i32 [ %20, %19 ], [ 0, %._crit_edge.thread ]
   ret i32 %.0
 }
 
@@ -3941,7 +3941,7 @@ define range(i32 0, 2) i32 @dt_ioppr_move_iop_before(ptr noundef captures(none) 
   br i1 %.not.i, label %dt_ioppr_get_iop_order_link.exit, label %.lr.ph.split.i
 
 dt_ioppr_get_iop_order_link.exit:                 ; preds = %21, %25, %.lr.ph.split.us.i, %14
-  %.014.lcssa.i = phi ptr [ null, %14 ], [ %.01419.us.i, %.lr.ph.split.us.i ], [ null, %25 ], [ %.01419.i, %21 ]
+  %.014.lcssa.i = phi ptr [ %.01419.us.i, %.lr.ph.split.us.i ], [ null, %14 ], [ %.01419.i, %21 ], [ null, %25 ]
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 456
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 952
   %30 = load i32, ptr %29, align 8, !tbaa !105
@@ -4051,7 +4051,7 @@ define range(i32 0, 2) i32 @dt_ioppr_move_iop_after(ptr noundef captures(none) %
   br i1 %.not.i, label %dt_ioppr_get_iop_order_link.exit, label %.lr.ph.split.i
 
 dt_ioppr_get_iop_order_link.exit:                 ; preds = %21, %25, %.lr.ph.split.us.i, %14
-  %.014.lcssa.i = phi ptr [ null, %14 ], [ %.01419.us.i, %.lr.ph.split.us.i ], [ null, %25 ], [ %.01419.i, %21 ]
+  %.014.lcssa.i = phi ptr [ %.01419.us.i, %.lr.ph.split.us.i ], [ null, %14 ], [ %.01419.i, %21 ], [ null, %25 ]
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 456
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 952
   %30 = load i32, ptr %29, align 8, !tbaa !105
@@ -4277,7 +4277,7 @@ define range(i32 0, 2) i32 @dt_ioppr_check_iop_order_ext(ptr noundef readonly ca
   br label %.critedge
 
 .critedge:                                        ; preds = %10, %12, %3, %15, %20
-  %.0 = phi i32 [ 1, %15 ], [ 0, %20 ], [ 1, %3 ], [ 1, %12 ], [ 1, %10 ]
+  %.0 = phi i32 [ 0, %20 ], [ 1, %15 ], [ 1, %3 ], [ 1, %12 ], [ 1, %10 ]
   %25 = load ptr, ptr %4, align 8, !tbaa !93
   %26 = tail call ptr @g_list_last(ptr noundef %25) #15
   %.not101117 = icmp eq ptr %26, null
@@ -4321,7 +4321,7 @@ define range(i32 0, 2) i32 @dt_ioppr_check_iop_order_ext(ptr noundef readonly ca
   br label %39
 
 39:                                               ; preds = %36, %33
-  %.4 = phi i32 [ 0, %36 ], [ %.2119, %33 ]
+  %.4 = phi i32 [ %.2119, %33 ], [ 0, %36 ]
   %40 = getelementptr inbounds nuw i8, ptr %27, i64 952
   %41 = load i32, ptr %40, align 8, !tbaa !105
   %42 = icmp eq i32 %41, 0
@@ -4335,7 +4335,7 @@ define range(i32 0, 2) i32 @dt_ioppr_check_iop_order_ext(ptr noundef readonly ca
   br label %47
 
 47:                                               ; preds = %39, %43, %30, %.lr.ph120
-  %.3 = phi i32 [ %.2119, %.lr.ph120 ], [ 0, %43 ], [ %.4, %39 ], [ %.2119, %30 ]
+  %.3 = phi i32 [ %.2119, %.lr.ph120 ], [ %.2119, %30 ], [ 0, %43 ], [ %.4, %39 ]
   %48 = load ptr, ptr %4, align 8, !tbaa !93
   %.not108 = icmp eq ptr %48, null
   br i1 %.not108, label %_get_fence_modules_list.exit.thread.i, label %49
@@ -4444,8 +4444,8 @@ _get_fence_modules_list.exit.i:                   ; preds = %60
   br label %88
 
 88:                                               ; preds = %84, %82, %80, %76, %74
-  %.1108.i = phi ptr [ %.0107141.i, %80 ], [ %70, %74 ], [ %spec.select.i, %76 ], [ %.0107141.i, %82 ], [ %.0107141.i, %84 ]
-  %.1.i = phi ptr [ %.0105142.i, %80 ], [ %.0105142.i, %74 ], [ %.0105142.i, %76 ], [ %70, %82 ], [ %spec.select130.i, %84 ]
+  %.1108.i = phi ptr [ %.0107141.i, %80 ], [ %70, %74 ], [ %.0107141.i, %84 ], [ %spec.select.i, %76 ], [ %.0107141.i, %82 ]
+  %.1.i = phi ptr [ %.0105142.i, %80 ], [ %.0105142.i, %74 ], [ %spec.select130.i, %84 ], [ %.0105142.i, %76 ], [ %70, %82 ]
   %89 = getelementptr inbounds nuw i8, ptr %.0110140.i, i64 8
   %90 = load ptr, ptr %89, align 8, !tbaa !56
   %.not127.i = icmp eq ptr %90, null
@@ -4657,7 +4657,7 @@ _ioppr_check_rules.exit:                          ; preds = %._crit_edge164.i, %
   br label %183
 
 183:                                              ; preds = %172, %174, %167, %.lr.ph126
-  %.6 = phi i32 [ 0, %167 ], [ 0, %174 ], [ %.5124, %172 ], [ %.5124, %.lr.ph126 ]
+  %.6 = phi i32 [ %.5124, %.lr.ph126 ], [ 0, %167 ], [ %.5124, %172 ], [ 0, %174 ]
   %184 = getelementptr inbounds nuw i8, ptr %.088125, i64 8
   %.088 = load ptr, ptr %184, align 8, !tbaa !117
   %.not102 = icmp eq ptr %.088, null
@@ -4689,7 +4689,7 @@ _ioppr_check_rules.exit:                          ; preds = %._crit_edge164.i, %
   br label %195
 
 195:                                              ; preds = %192, %189
-  %.9 = phi i32 [ 0, %192 ], [ %.7130, %189 ]
+  %.9 = phi i32 [ %.7130, %189 ], [ 0, %192 ]
   %196 = getelementptr inbounds nuw i8, ptr %185, i64 56
   %197 = load i32, ptr %196, align 8, !tbaa !121
   %198 = icmp eq i32 %197, 0
@@ -4703,7 +4703,7 @@ _ioppr_check_rules.exit:                          ; preds = %._crit_edge164.i, %
   br label %203
 
 203:                                              ; preds = %195, %199, %.lr.ph132
-  %.8 = phi i32 [ 0, %199 ], [ %.9, %195 ], [ %.7130, %.lr.ph132 ]
+  %.8 = phi i32 [ %.7130, %.lr.ph132 ], [ 0, %199 ], [ %.9, %195 ]
   %204 = getelementptr inbounds nuw i8, ptr %.086131, i64 8
   %.086 = load ptr, ptr %204, align 8, !tbaa !117
   %.not103 = icmp eq ptr %.086, null
@@ -4782,7 +4782,7 @@ define noalias noundef ptr @dt_ioppr_serialize_iop_order_list(ptr noundef readon
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit.sink.split, %16, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %16 ], [ null, %.loopexit.sink.split ], [ %17, %.preheader ]
+  %.0 = phi ptr [ null, %16 ], [ null, %5 ], [ null, %.loopexit.sink.split ], [ %17, %.preheader ]
   ret ptr %.0
 }
 

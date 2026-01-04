@@ -298,7 +298,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_int32(ptr noundef readonly captures(a
   br label %58
 
 58:                                               ; preds = %54, %55, %56, %33, %34, %38, %40, %41, %17, %22, %24, %25, %57, %10, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %10 ], [ 0, %57 ], [ %26, %25 ], [ 1, %17 ], [ 1, %22 ], [ 0, %24 ], [ %42, %41 ], [ 1, %33 ], [ 0, %34 ], [ 1, %38 ], [ 0, %40 ], [ 1, %54 ], [ 0, %55 ], [ 0, %56 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %10 ], [ 0, %57 ], [ 0, %24 ], [ 0, %40 ], [ %26, %25 ], [ 1, %17 ], [ 1, %22 ], [ %42, %41 ], [ 1, %33 ], [ 0, %34 ], [ 1, %38 ], [ 1, %54 ], [ 0, %55 ], [ 0, %56 ]
   ret i32 %.0
 }
 
@@ -428,7 +428,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_int32(ptr noundef captures(address_is
   br label %51
 
 51:                                               ; preds = %47, %49, %40, %26, %11, %50, %36, %34, %33, %21, %19, %18, %5
-  %.0 = phi i32 [ 0, %5 ], [ %22, %21 ], [ 1, %18 ], [ 1, %19 ], [ %37, %36 ], [ 1, %33 ], [ 1, %34 ], [ 0, %50 ], [ 1, %11 ], [ 1, %26 ], [ 1, %47 ], [ 0, %49 ], [ 1, %40 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %50 ], [ %22, %21 ], [ 1, %18 ], [ 1, %19 ], [ 1, %11 ], [ %37, %36 ], [ 1, %33 ], [ 1, %34 ], [ 1, %26 ], [ 1, %47 ], [ 0, %49 ], [ 1, %40 ]
   ret i32 %.0
 }
 
@@ -613,7 +613,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_uint32(ptr noundef readonly captures(
   br label %60
 
 60:                                               ; preds = %56, %57, %58, %33, %34, %37, %43, %42, %41, %17, %22, %24, %25, %59, %10, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %10 ], [ 0, %59 ], [ %26, %25 ], [ 1, %17 ], [ 1, %22 ], [ 0, %24 ], [ %44, %43 ], [ 1, %33 ], [ 0, %34 ], [ 1, %37 ], [ 0, %42 ], [ 0, %41 ], [ 1, %56 ], [ 0, %57 ], [ 0, %58 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %10 ], [ 0, %59 ], [ 0, %24 ], [ 0, %41 ], [ %26, %25 ], [ 1, %17 ], [ 1, %22 ], [ %44, %43 ], [ 1, %33 ], [ 0, %34 ], [ 1, %37 ], [ 0, %42 ], [ 1, %56 ], [ 0, %57 ], [ 0, %58 ]
   ret i32 %.0
 }
 
@@ -750,7 +750,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_uint32(ptr noundef captures(address_i
   br label %49
 
 49:                                               ; preds = %41, %45, %47, %22, %10, %48, %35, %33, %32, %31, %20, %18, %17, %5
-  %.0 = phi i32 [ 0, %5 ], [ %21, %20 ], [ 1, %17 ], [ 1, %18 ], [ %36, %35 ], [ 1, %31 ], [ 0, %32 ], [ 1, %33 ], [ 0, %48 ], [ 1, %10 ], [ 1, %22 ], [ 1, %41 ], [ 1, %45 ], [ 0, %47 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %48 ], [ %21, %20 ], [ 1, %17 ], [ 1, %18 ], [ 1, %10 ], [ %36, %35 ], [ 1, %31 ], [ 0, %32 ], [ 1, %33 ], [ 1, %22 ], [ 1, %41 ], [ 0, %47 ], [ 1, %45 ]
   ret i32 %.0
 }
 
@@ -906,7 +906,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_int64(ptr noundef readonly captures(a
   br label %52
 
 52:                                               ; preds = %48, %49, %50, %27, %33, %34, %35, %51, %22, %20, %17, %10, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %10 ], [ %23, %22 ], [ 1, %17 ], [ 1, %20 ], [ 0, %51 ], [ %36, %35 ], [ 1, %27 ], [ 1, %33 ], [ 0, %34 ], [ 1, %48 ], [ 0, %49 ], [ 0, %50 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %10 ], [ %23, %22 ], [ 1, %17 ], [ 1, %20 ], [ 0, %51 ], [ 0, %34 ], [ %36, %35 ], [ 1, %27 ], [ 1, %33 ], [ 1, %48 ], [ 0, %49 ], [ 0, %50 ]
   ret i32 %.0
 }
 
@@ -1246,7 +1246,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_uint64(ptr noundef readonly captures(
   br label %55
 
 55:                                               ; preds = %51, %52, %53, %30, %32, %36, %37, %38, %54, %22, %20, %17, %10, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %10 ], [ %23, %22 ], [ 1, %17 ], [ 1, %20 ], [ 0, %54 ], [ %39, %38 ], [ 1, %30 ], [ 0, %32 ], [ 1, %36 ], [ 0, %37 ], [ 1, %51 ], [ 0, %52 ], [ 0, %53 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %10 ], [ %23, %22 ], [ 1, %17 ], [ 1, %20 ], [ 0, %54 ], [ 0, %37 ], [ %39, %38 ], [ 1, %30 ], [ 0, %32 ], [ 1, %36 ], [ 1, %51 ], [ 0, %52 ], [ 0, %53 ]
   ret i32 %.0
 }
 
@@ -1564,7 +1564,7 @@ check_sign_bytes.exit.i.i17:                      ; preds = %.lr.ph.i.i.i14, %.l
   br label %signed_from_signed.exit
 
 signed_from_signed.exit:                          ; preds = %48, %check_sign_bytes.exit.i.i17, %36, %31, %check_sign_bytes.exit.i.i, %18, %49, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %49 ], [ 0, %check_sign_bytes.exit.i.i ], [ 1, %31 ], [ 1, %18 ], [ 0, %check_sign_bytes.exit.i.i17 ], [ 1, %48 ], [ 1, %36 ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %49 ], [ 1, %18 ], [ 0, %check_sign_bytes.exit.i.i ], [ 1, %31 ], [ 0, %check_sign_bytes.exit.i.i17 ], [ 1, %48 ], [ 1, %36 ]
   ret i32 %.0
 }
 
@@ -1849,15 +1849,15 @@ check_sign_bytes.exit.i.i25:                      ; preds = %.lr.ph.i.i.i22
   br label %.loopexit.i.i28
 
 .loopexit.i.i28:                                  ; preds = %30, %.loopexit.i.i28.sink.split, %27, %.loopexit.i.i
-  %.sink = phi i64 [ %12, %.loopexit.i.i ], [ %25, %27 ], [ %2, %.loopexit.i.i28.sink.split ], [ %25, %30 ]
+  %.sink = phi i64 [ %2, %.loopexit.i.i28.sink.split ], [ %25, %27 ], [ %12, %.loopexit.i.i ], [ %25, %30 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr nonnull readonly align 1 %1, i64 %.sink, i1 false)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %38 = load i64, ptr %37, align 8, !tbaa !17
   br label %signed_from_unsigned.exit
 
 signed_from_unsigned.exit:                        ; preds = %.loopexit.i.i28, %check_sign_bytes.exit.i.i25, %check_sign_bytes.exit.i.i, %34, %3
-  %.sink40 = phi i64 [ %2, %3 ], [ %38, %.loopexit.i.i28 ], [ %2, %34 ], [ %2, %check_sign_bytes.exit.i.i ], [ %2, %check_sign_bytes.exit.i.i25 ]
-  %.018 = phi i32 [ 1, %3 ], [ 1, %.loopexit.i.i28 ], [ 0, %34 ], [ 0, %check_sign_bytes.exit.i.i ], [ 0, %check_sign_bytes.exit.i.i25 ]
+  %.sink40 = phi i64 [ %2, %3 ], [ %38, %.loopexit.i.i28 ], [ %2, %34 ], [ %2, %check_sign_bytes.exit.i.i25 ], [ %2, %check_sign_bytes.exit.i.i ]
+  %.018 = phi i32 [ 1, %3 ], [ 1, %.loopexit.i.i28 ], [ 0, %34 ], [ 0, %check_sign_bytes.exit.i.i25 ], [ 0, %check_sign_bytes.exit.i.i ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %.sink40, ptr %39, align 8, !tbaa !13
   ret i32 %.018
@@ -2007,7 +2007,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_BN(ptr noundef readonly captures(addr
   br label %27
 
 25:                                               ; preds = %19, %13
-  %.0 = phi ptr [ %18, %13 ], [ %24, %19 ]
+  %.0 = phi ptr [ %24, %19 ], [ %18, %13 ]
   %26 = icmp eq ptr %.0, null
   br i1 %26, label %27, label %28
 
@@ -2530,7 +2530,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_get_utf8_string(ptr noundef readonly capt
   br label %20
 
 20:                                               ; preds = %3, %17, %16
-  %.011 = phi i32 [ 0, %16 ], [ 1, %17 ], [ 0, %3 ]
+  %.011 = phi i32 [ 1, %17 ], [ 0, %16 ], [ 0, %3 ]
   ret i32 %.011
 }
 
@@ -2627,7 +2627,7 @@ define internal fastcc range(i32 0, 2) i32 @get_string_internal(ptr noundef read
   br label %.critedge
 
 .critedge:                                        ; preds = %32, %28, %40, %39, %27, %13, %9
-  %.0 = phi i32 [ 0, %9 ], [ 0, %13 ], [ 0, %27 ], [ 0, %39 ], [ 1, %40 ], [ 1, %28 ], [ 0, %32 ]
+  %.0 = phi i32 [ 0, %9 ], [ 0, %13 ], [ 0, %27 ], [ 0, %32 ], [ 0, %39 ], [ 1, %40 ], [ 1, %28 ]
   ret i32 %.0
 }
 
@@ -2716,7 +2716,7 @@ define internal fastcc range(i32 0, 2) i32 @set_string_internal(ptr noundef nonn
   br label %26
 
 26:                                               ; preds = %18, %20, %23, %8, %17, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %17 ], [ 1, %8 ], [ 1, %23 ], [ 1, %20 ], [ 1, %18 ]
+  %.0 = phi i32 [ 0, %7 ], [ 1, %8 ], [ 0, %17 ], [ 1, %23 ], [ 1, %20 ], [ 1, %18 ]
   ret i32 %.0
 }
 
@@ -2774,7 +2774,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_octet_string(ptr noundef captures(add
   br label %set_string_internal.exit
 
 set_string_internal.exit:                         ; preds = %21, %20, %12, %11, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %11 ], [ 0, %20 ], [ 1, %12 ], [ 1, %21 ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %11 ], [ 1, %12 ], [ 0, %20 ], [ 1, %21 ]
   ret i32 %.0
 }
 
@@ -2962,7 +2962,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_utf8_ptr(ptr noundef captures(address
   br label %set_ptr_internal.exit
 
 set_ptr_internal.exit:                            ; preds = %20, %16, %15, %14, %11, %10, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %10 ], [ 1, %14 ], [ 1, %11 ], [ 0, %15 ], [ 1, %20 ], [ 1, %16 ]
+  %.0 = phi i32 [ 0, %4 ], [ 1, %11 ], [ 0, %10 ], [ 1, %14 ], [ 0, %15 ], [ 1, %20 ], [ 1, %16 ]
   ret i32 %.0
 }
 
@@ -3108,7 +3108,7 @@ OSSL_PARAM_locate_const.exit.thread:              ; preds = %14, %4, %.preheader
   br label %30
 
 30:                                               ; preds = %OSSL_PARAM_locate_const.exit.thread, %23, %25
-  %.0 = phi i32 [ 1, %25 ], [ 0, %23 ], [ -1, %OSSL_PARAM_locate_const.exit.thread ]
+  %.0 = phi i32 [ -1, %OSSL_PARAM_locate_const.exit.thread ], [ 1, %25 ], [ 0, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -3195,7 +3195,7 @@ OSSL_PARAM_locate_const.exit.thread:              ; preds = %13, %5, %.preheader
   br label %37
 
 37:                                               ; preds = %OSSL_PARAM_locate_const.exit.thread, %26, %23, %18, %16, %33, %31
-  %.017 = phi i32 [ 1, %33 ], [ 0, %31 ], [ 0, %16 ], [ 0, %18 ], [ 0, %23 ], [ 0, %26 ], [ -1, %OSSL_PARAM_locate_const.exit.thread ]
+  %.017 = phi i32 [ -1, %OSSL_PARAM_locate_const.exit.thread ], [ 0, %16 ], [ 0, %18 ], [ 1, %33 ], [ 0, %23 ], [ 0, %31 ], [ 0, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.017
 }

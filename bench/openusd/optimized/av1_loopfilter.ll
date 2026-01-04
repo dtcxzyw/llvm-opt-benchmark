@@ -841,7 +841,7 @@ is_inter_block.exit137:                           ; preds = %72, %75
   br label %.thread
 
 .thread:                                          ; preds = %is_inter_block.exit, %82, %85, %101, %58, %37, %15, %9, %12
-  %.0 = phi i8 [ 0, %12 ], [ 0, %9 ], [ -1, %15 ], [ %38, %37 ], [ -1, %58 ], [ %38, %101 ], [ %38, %85 ], [ %38, %82 ], [ %38, %is_inter_block.exit ]
+  %.0 = phi i8 [ -1, %15 ], [ 0, %9 ], [ %38, %37 ], [ -1, %58 ], [ 0, %12 ], [ %38, %101 ], [ %38, %85 ], [ %38, %82 ], [ %38, %is_inter_block.exit ]
   ret i8 %.0
 }
 
@@ -1443,7 +1443,7 @@ is_inter_block.exit.thread:                       ; preds = %37, %is_inter_block
   br label %av1_get_max_uv_txsize.exit.thread
 
 av1_get_max_uv_txsize.exit.thread:                ; preds = %18, %18, %18, %34, %35, %36, %47, %is_inter_block.exit.thread, %is_inter_block.exit
-  %.025 = phi i8 [ %39, %is_inter_block.exit.thread ], [ %76, %47 ], [ %39, %is_inter_block.exit ], [ 3, %18 ], [ 3, %18 ], [ 3, %18 ], [ 9, %35 ], [ 10, %34 ], [ %33, %36 ]
+  %.025 = phi i8 [ %39, %is_inter_block.exit.thread ], [ %76, %47 ], [ %39, %is_inter_block.exit ], [ 3, %18 ], [ 3, %18 ], [ 3, %18 ], [ 10, %34 ], [ 9, %35 ], [ %33, %36 ]
   %77 = icmp eq i8 %2, 0
   %78 = zext i8 %.025 to i64
   %.in30.in.v = select i1 %77, ptr @txsize_horz_map, ptr @txsize_vert_map

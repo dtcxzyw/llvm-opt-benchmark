@@ -509,7 +509,7 @@ JsonbContainerTypeName.exit:                      ; preds = %11, %18, %20
   unreachable
 
 46:                                               ; preds = %31, %1, %37, %36, %35, %34, %30, %29, %28, %27, %26, %JsonbContainerTypeName.exit
-  %.0 = phi ptr [ %.0.i, %JsonbContainerTypeName.exit ], [ @.str.3, %26 ], [ @.str.4, %27 ], [ @.str.5, %28 ], [ @.str.6, %29 ], [ @.str.7, %30 ], [ @.str.9, %34 ], [ @.str.10, %35 ], [ @.str.11, %36 ], [ @.str.12, %37 ], [ @.str.2, %1 ], [ @.str.8, %31 ]
+  %.0 = phi ptr [ %.0.i, %JsonbContainerTypeName.exit ], [ @.str.12, %37 ], [ @.str.3, %26 ], [ @.str.4, %27 ], [ @.str.5, %28 ], [ @.str.6, %29 ], [ @.str.7, %30 ], [ @.str.2, %1 ], [ @.str.9, %34 ], [ @.str.10, %35 ], [ @.str.11, %36 ], [ @.str.8, %31 ]
   ret ptr %.0
 }
 
@@ -699,7 +699,7 @@ add_indent.exit:                                  ; preds = %28, %44
   br label %59
 
 59:                                               ; preds = %25, %49, %50
-  %.1 = phi i8 [ %.081, %49 ], [ %.081, %50 ], [ 1, %25 ]
+  %.1 = phi i8 [ %.081, %50 ], [ %.081, %49 ], [ 1, %25 ]
   %60 = add i32 %.086, 1
   br label %208
 
@@ -1004,11 +1004,11 @@ add_indent.exit110:                               ; preds = %174, %190
   unreachable
 
 208:                                              ; preds = %195, %196, %141, %165, %164, %add_indent.exit104, %119, %add_indent.exit106, %95, %59
-  %.192 = phi i8 [ 1, %59 ], [ 1, %95 ], [ 0, %119 ], [ 0, %add_indent.exit106 ], [ 1, %add_indent.exit104 ], [ 0, %164 ], [ 0, %165 ], [ 0, %141 ], [ 0, %196 ], [ 0, %195 ]
-  %.290 = phi i32 [ 4, %59 ], [ 6, %95 ], [ 2, %119 ], [ 3, %add_indent.exit106 ], [ %117, %add_indent.exit104 ], [ 5, %164 ], [ 5, %165 ], [ 5, %141 ], [ 7, %196 ], [ 7, %195 ]
-  %.187 = phi i32 [ %60, %59 ], [ %96, %95 ], [ %.086, %119 ], [ %.086, %add_indent.exit106 ], [ %.086, %add_indent.exit104 ], [ %142, %164 ], [ %142, %165 ], [ %142, %141 ], [ %175, %196 ], [ %175, %195 ]
-  %.185 = phi i8 [ 0, %59 ], [ 0, %95 ], [ 0, %119 ], [ 0, %add_indent.exit106 ], [ 1, %add_indent.exit104 ], [ 0, %164 ], [ 0, %165 ], [ 0, %141 ], [ 0, %196 ], [ 0, %195 ]
-  %.2 = phi i8 [ %.1, %59 ], [ %.081, %95 ], [ %.081, %119 ], [ %.081, %add_indent.exit106 ], [ %.081, %add_indent.exit104 ], [ 0, %164 ], [ 0, %165 ], [ 1, %141 ], [ %.081, %196 ], [ %.081, %195 ]
+  %.192 = phi i8 [ 1, %59 ], [ 1, %95 ], [ 0, %119 ], [ 0, %141 ], [ 0, %add_indent.exit106 ], [ 1, %add_indent.exit104 ], [ 0, %164 ], [ 0, %165 ], [ 0, %196 ], [ 0, %195 ]
+  %.290 = phi i32 [ 4, %59 ], [ 6, %95 ], [ 2, %119 ], [ 5, %141 ], [ 3, %add_indent.exit106 ], [ %117, %add_indent.exit104 ], [ 5, %164 ], [ 5, %165 ], [ 7, %196 ], [ 7, %195 ]
+  %.187 = phi i32 [ %60, %59 ], [ %96, %95 ], [ %.086, %119 ], [ %142, %141 ], [ %.086, %add_indent.exit106 ], [ %.086, %add_indent.exit104 ], [ %142, %164 ], [ %142, %165 ], [ %175, %196 ], [ %175, %195 ]
+  %.185 = phi i8 [ 0, %59 ], [ 0, %95 ], [ 0, %119 ], [ 0, %141 ], [ 0, %add_indent.exit106 ], [ 1, %add_indent.exit104 ], [ 0, %164 ], [ 0, %165 ], [ 0, %196 ], [ 0, %195 ]
+  %.2 = phi i8 [ %.1, %59 ], [ %.081, %95 ], [ %.081, %119 ], [ 1, %141 ], [ %.081, %add_indent.exit106 ], [ %.081, %add_indent.exit104 ], [ 0, %164 ], [ 0, %165 ], [ %.081, %196 ], [ %.081, %195 ]
   %209 = trunc nuw i8 %.185 to i1
   br label %18, !llvm.loop !9
 
@@ -1418,7 +1418,7 @@ array_to_jsonb_internal.exit:                     ; preds = %45, %49
   br label %heap_getattr.exit
 
 heap_getattr.exit:                                ; preds = %96, %124, %127, %130, %133, %138, %140, %153, %154
-  %.0.i98 = phi i64 [ %98, %96 ], [ 0, %153 ], [ %156, %154 ], [ %142, %140 ], [ %126, %124 ], [ %129, %127 ], [ %132, %130 ], [ %134, %133 ], [ %139, %138 ]
+  %.0.i98 = phi i64 [ %98, %96 ], [ %139, %138 ], [ %156, %154 ], [ 0, %153 ], [ %142, %140 ], [ %126, %124 ], [ %129, %127 ], [ %132, %130 ], [ %134, %133 ]
   %157 = load i8, ptr %8, align 1, !range !7, !noundef !8
   %158 = trunc nuw i8 %157 to i1
   br i1 %158, label %159, label %160
@@ -1669,7 +1669,7 @@ checkStringLen.exit:                              ; preds = %256, %263, %265
   br label %270
 
 270:                                              ; preds = %checkStringLen.exit, %.loopexit, %226, %composite_to_jsonb.exit, %array_to_jsonb_internal.exit
-  %.092 = phi i1 [ false, %checkStringLen.exit ], [ false, %array_to_jsonb_internal.exit ], [ false, %composite_to_jsonb.exit ], [ false, %226 ], [ %.not, %.loopexit ]
+  %.092 = phi i1 [ %.not, %.loopexit ], [ false, %checkStringLen.exit ], [ false, %array_to_jsonb_internal.exit ], [ false, %composite_to_jsonb.exit ], [ false, %226 ]
   %271 = add i32 %3, -11
   %272 = icmp ult i32 %271, -5
   %273 = or i1 %272, %.092
@@ -1865,7 +1865,7 @@ add_jsonb.exit.us:                                ; preds = %.critedge.us
   br i1 %73, label %.split.us, label %.critedge
 
 .split.us:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us
-  %.us-phi = phi i32 [ %.027.us.us, %.lr.ph.split.us.split.us ], [ %.027.us, %.lr.ph.split.us.split ], [ %.027, %.lr.ph.split ]
+  %.us-phi = phi i32 [ %.027.us, %.lr.ph.split.us.split ], [ %.027.us.us, %.lr.ph.split.us.split.us ], [ %.027, %.lr.ph.split ]
   %74 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   %75 = call i32 @errcode(i32 noundef 50856066) #12
   %76 = or disjoint i32 %.us-phi, 1
@@ -4171,7 +4171,7 @@ checkStringLen.exit:                              ; preds = %7
   unreachable
 
 checkStringLen.exit.thread:                       ; preds = %17, %15, %42, %54, %51, %22
-  %.0 = phi i32 [ 23, %22 ], [ 0, %51 ], [ 0, %54 ], [ 0, %42 ], [ 23, %15 ], [ 23, %17 ]
+  %.0 = phi i32 [ 23, %22 ], [ 0, %42 ], [ 0, %51 ], [ 0, %54 ], [ 23, %15 ], [ 23, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0

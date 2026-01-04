@@ -146,7 +146,7 @@ CMAC_Update.exit.thread:                          ; preds = %.lr.ph.i, %28
   br label %CMAC_Final.exit
 
 CMAC_Final.exit:                                  ; preds = %65, %40, %CMAC_Update.exit.thread, %12
-  %69 = phi i32 [ 0, %12 ], [ 0, %CMAC_Update.exit.thread ], [ %68, %65 ], [ 1, %40 ]
+  %69 = phi i32 [ 0, %CMAC_Update.exit.thread ], [ 0, %12 ], [ %68, %65 ], [ 1, %40 ]
   %70 = call i32 @EVP_CIPHER_CTX_cleanup(ptr noundef nonnull %7) #8
   call void @OPENSSL_cleanse(ptr noundef nonnull %.sroa.gep11, i64 noundef 16) #8
   call void @OPENSSL_cleanse(ptr noundef nonnull %.sroa.gep, i64 noundef 16) #8
@@ -312,7 +312,7 @@ define hidden range(i32 0, 2) i32 @CMAC_Update(ptr noundef %0, ptr noundef %1, i
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %7, %18, %._crit_edge
-  %.134 = phi i32 [ 1, %._crit_edge ], [ 0, %18 ], [ 1, %7 ], [ 0, %.lr.ph ]
+  %.134 = phi i32 [ 0, %18 ], [ 1, %._crit_edge ], [ 1, %7 ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.134
 }

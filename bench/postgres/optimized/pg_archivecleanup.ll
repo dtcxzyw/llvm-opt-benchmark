@@ -288,7 +288,7 @@ Initialize.exit:                                  ; preds = %73
 
 TrimExtension.exit.i:                             ; preds = %97, %89, %83, %Initialize.exit
   %101 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %80) #13
-  switch i64 %101, label %119 [
+  switch i64 %101, label %118 [
     i64 24, label %IsXLogFileName.exit.i
     i64 32, label %105
   ]
@@ -322,9 +322,9 @@ IsPartialXLogFileName.exit.i:                     ; preds = %105
   store i32 0, ptr %5, align 4
   %112 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %80, ptr noundef nonnull @.str.34, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #12
   %113 = icmp eq i32 %112, 3
-  br i1 %113, label %.thread9.i, label %118
+  br i1 %113, label %.thread8.i, label %134
 
-.thread9.i:                                       ; preds = %111
+.thread8.i:                                       ; preds = %111
   %114 = load i32, ptr %3, align 4
   %115 = load i32, ptr %4, align 4
   %116 = load i32, ptr %5, align 4
@@ -334,29 +334,23 @@ IsPartialXLogFileName.exit.i:                     ; preds = %105
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %SetWALFileNameForCleanup.exit
 
-118:                                              ; preds = %111
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.critedge4.i
+118:                                              ; preds = %TrimExtension.exit.i
+  %119 = icmp ugt i64 %101, 24
+  br i1 %119, label %.thread6.i, label %.critedge4.i
 
-119:                                              ; preds = %TrimExtension.exit.i
-  %120 = icmp ugt i64 %101, 24
-  br i1 %120, label %.thread6.i, label %.critedge4.i
-
-.thread6.i:                                       ; preds = %119, %IsPartialXLogFileName.exit.i, %105
-  %121 = tail call i64 @strspn(ptr noundef nonnull readonly %80, ptr noundef nonnull @.str.37) #13
-  %122 = icmp eq i64 %121, 24
-  br i1 %122, label %IsBackupHistoryFileName.exit.i, label %.critedge4.i
+.thread6.i:                                       ; preds = %118, %IsPartialXLogFileName.exit.i, %105
+  %120 = tail call i64 @strspn(ptr noundef nonnull readonly %80, ptr noundef nonnull @.str.37) #13
+  %121 = icmp eq i64 %120, 24
+  br i1 %121, label %IsBackupHistoryFileName.exit.i, label %.critedge4.i
 
 IsBackupHistoryFileName.exit.i:                   ; preds = %.thread6.i
-  %123 = getelementptr inbounds nuw i8, ptr %80, i64 %101
-  %124 = getelementptr inbounds i8, ptr %123, i64 -7
-  %125 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %124, ptr noundef nonnull dereferenceable(8) @.str.40) #13
-  %126 = icmp eq i32 %125, 0
-  br i1 %126, label %127, label %.critedge4.i
+  %122 = getelementptr inbounds nuw i8, ptr %80, i64 %101
+  %123 = getelementptr inbounds i8, ptr %122, i64 -7
+  %124 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %123, ptr noundef nonnull dereferenceable(8) @.str.40) #13
+  %125 = icmp eq i32 %124, 0
+  br i1 %125, label %126, label %.critedge4.i
 
-127:                                              ; preds = %IsBackupHistoryFileName.exit.i
+126:                                              ; preds = %IsBackupHistoryFileName.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 1, ptr %6, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -365,36 +359,42 @@ IsBackupHistoryFileName.exit.i:                   ; preds = %.thread6.i
   store i32 0, ptr %8, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %128 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %80, ptr noundef nonnull @.str.35, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #12
-  %129 = icmp eq i32 %128, 4
-  br i1 %129, label %.thread8.i, label %134
+  %127 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %80, ptr noundef nonnull @.str.35, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #12
+  %128 = icmp eq i32 %127, 4
+  br i1 %128, label %.thread9.i, label %133
 
-.thread8.i:                                       ; preds = %127
-  %130 = load i32, ptr %6, align 4
-  %131 = load i32, ptr %7, align 4
-  %132 = load i32, ptr %8, align 4
-  %133 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull @exclusiveCleanupFileName, i64 noundef 64, ptr noundef nonnull @.str.39, i32 noundef %130, i32 noundef %131, i32 noundef %132) #12
+.thread9.i:                                       ; preds = %126
+  %129 = load i32, ptr %6, align 4
+  %130 = load i32, ptr %7, align 4
+  %131 = load i32, ptr %8, align 4
+  %132 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull @exclusiveCleanupFileName, i64 noundef 64, ptr noundef nonnull @.str.39, i32 noundef %129, i32 noundef %130, i32 noundef %131) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %SetWALFileNameForCleanup.exit
 
-134:                                              ; preds = %127
+133:                                              ; preds = %126
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge4.i
 
-.critedge4.i:                                     ; preds = %134, %IsBackupHistoryFileName.exit.i, %.thread6.i, %119, %118, %IsXLogFileName.exit.i
+134:                                              ; preds = %111
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  br label %.critedge4.i
+
+.critedge4.i:                                     ; preds = %134, %133, %IsBackupHistoryFileName.exit.i, %.thread6.i, %118, %IsXLogFileName.exit.i
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.36) #12
   %135 = load ptr, ptr @progname, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.11, ptr noundef %135) #12
   call void @exit(i32 noundef 2) #15
   unreachable
 
-SetWALFileNameForCleanup.exit:                    ; preds = %.critedge.i, %.thread9.i, %.thread8.i
+SetWALFileNameForCleanup.exit:                    ; preds = %.critedge.i, %.thread8.i, %.thread9.i
   %136 = load i32, ptr @__pg_log_level, align 4
   %137 = icmp ult i32 %136, 2
   br i1 %137, label %138, label %140, !prof !6

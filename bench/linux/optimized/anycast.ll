@@ -160,8 +160,8 @@ define dso_local i32 @ipv6_sock_ac_join(ptr noundef %0, i32 noundef %1, ptr noun
   store ptr %43, ptr %75, align 8
   br label %78
 
-77:                                               ; preds = %63, %71, %.thread, %61, %52
-  %.ph9 = phi i32 [ -99, %52 ], [ %62, %61 ], [ -19, %.thread ], [ %72, %71 ], [ -99, %63 ]
+77:                                               ; preds = %63, %61, %71, %.thread, %52
+  %.ph9 = phi i32 [ -99, %52 ], [ -19, %.thread ], [ -99, %63 ], [ %72, %71 ], [ %62, %61 ]
   tail call void @sock_kfree_s(ptr noundef %0, ptr noundef nonnull %43, i32 noundef 32) #6
   br label %78
 
@@ -521,8 +521,8 @@ define dso_local noundef range(i32 -2, 1) i32 @ipv6_sock_ac_drop(ptr noundef %0,
   br i1 %65, label %.loopexit, label %.split, !llvm.loop !29
 
 .split9.us:                                       ; preds = %53, %37, %.split.us
-  %.us-phi = phi ptr [ %24, %.split.us ], [ %46, %37 ], [ %48, %53 ]
-  %.us-phi10 = phi ptr [ null, %.split.us ], [ %44, %37 ], [ %49, %53 ]
+  %.us-phi = phi ptr [ %46, %37 ], [ %24, %.split.us ], [ %48, %53 ]
+  %.us-phi10 = phi ptr [ %44, %37 ], [ null, %.split.us ], [ %49, %53 ]
   %66 = icmp eq ptr %.us-phi10, null
   %67 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 24
   %68 = load ptr, ptr %67, align 8

@@ -406,8 +406,8 @@ _ZNK4absl12lts_202407226Status4codeEv.exit:       ; preds = %14, %17
   br label %_ZNK4absl12lts_202407226Status7messageEv.exit
 
 _ZNK4absl12lts_202407226Status7messageEv.exit:    ; preds = %25, %31
-  %.sroa.0.0.i = phi i64 [ %30, %25 ], [ %spec.select.i, %31 ]
-  %.sroa.4.0.i = phi ptr [ %28, %25 ], [ %spec.select2.i, %31 ]
+  %.sroa.0.0.i = phi i64 [ %spec.select.i, %31 ], [ %30, %25 ]
+  %.sroa.4.0.i = phi ptr [ %spec.select2.i, %31 ], [ %28, %25 ]
   store i64 %.sroa.0.0.i, ptr %8, align 8, !tbaa !27
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %.sroa.4.0.i, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !28
@@ -2477,7 +2477,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i80
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit82
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit82: ; preds = %148, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i80, %146, %144, %142
-  %.pn40.pn.pn.pn.pn = phi { ptr, i32 } [ %143, %142 ], [ %145, %144 ], [ %147, %146 ], [ %149, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i80 ], [ %149, %148 ]
+  %.pn40.pn.pn.pn.pn = phi { ptr, i32 } [ %143, %142 ], [ %149, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i80 ], [ %145, %144 ], [ %147, %146 ], [ %149, %148 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %"_ZZN9grpc_core12_GLOBAL__N_118SecurityHandshaker25OnHandshakeNextDoneLockedE10tsi_resultPKhmP21tsi_handshaker_resultEN3$_0D2Ev.exit58"
 
@@ -2680,7 +2680,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit99:         ; preds = %_ZNSt6vectorIN4absl
   ret void
 
 "_ZZN9grpc_core12_GLOBAL__N_118SecurityHandshaker25OnHandshakeNextDoneLockedE10tsi_resultPKhmP21tsi_handshaker_resultEN3$_0D2Ev.exit58": ; preds = %226, %222, %.thread131, %204, %200, %.thread125, %77, %73, %.thread, %162, %168, %51, %57, %232, %198, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit82, %44, %42
-  %.pn49 = phi { ptr, i32 } [ %45, %44 ], [ %43, %42 ], [ %.pn40.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit82 ], [ %199, %198 ], [ %233, %232 ], [ %58, %57 ], [ %52, %51 ], [ %169, %168 ], [ %163, %162 ], [ %72, %.thread ], [ %74, %73 ], [ %74, %77 ], [ %197, %.thread125 ], [ %201, %200 ], [ %201, %204 ], [ %221, %.thread131 ], [ %223, %222 ], [ %223, %226 ]
+  %.pn49 = phi { ptr, i32 } [ %45, %44 ], [ %43, %42 ], [ %233, %232 ], [ %163, %162 ], [ %.pn40.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit82 ], [ %52, %51 ], [ %74, %73 ], [ %199, %198 ], [ %201, %200 ], [ %58, %57 ], [ %169, %168 ], [ %72, %.thread ], [ %74, %77 ], [ %197, %.thread125 ], [ %201, %204 ], [ %221, %.thread131 ], [ %223, %226 ], [ %223, %222 ]
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn49
@@ -3534,7 +3534,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit16.i.i.i.i.i.i: ; preds = %111, %108, %_ZN
   unreachable
 
 123:                                              ; preds = %118, %116, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.exit.i.i.i.i.i.i.i, %55
-  %.pn7.pn.i.i.i.i.i.i = phi { ptr, i32 } [ %.pn7.i.i.i.i.i.i, %55 ], [ %119, %118 ], [ %117, %116 ], [ %70, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.exit.i.i.i.i.i.i.i ]
+  %.pn7.pn.i.i.i.i.i.i = phi { ptr, i32 } [ %.pn7.i.i.i.i.i.i, %55 ], [ %70, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118SecurityHandshakerEED2Ev.exit.i.i.i.i.i.i.i ], [ %119, %118 ], [ %117, %116 ]
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %35)
           to label %.body.i.i.i.i.i unwind label %124
 
@@ -4333,7 +4333,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit.i.i.i.i.i.i: ; preds = %101, %99
   unreachable
 
 "_ZZN9grpc_core12_GLOBAL__N_118SecurityHandshaker27OnHandshakeDataSentToPeerFnEN4absl12lts_202407226StatusEEN3$_0D2Ev.exit11.i.i.i.i.i.i": ; preds = %114, %112, %75, %71, %.thread.i.i.i.i.i.i, %52
-  %.pn.pn.i.i.i.i.i.i = phi { ptr, i32 } [ %.pn.i.i.i.i.i.i, %52 ], [ %115, %114 ], [ %113, %112 ], [ %70, %.thread.i.i.i.i.i.i ], [ %72, %71 ], [ %72, %75 ]
+  %.pn.pn.i.i.i.i.i.i = phi { ptr, i32 } [ %.pn.i.i.i.i.i.i, %52 ], [ %113, %112 ], [ %72, %71 ], [ %115, %114 ], [ %70, %.thread.i.i.i.i.i.i ], [ %72, %75 ]
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %32)
           to label %.body.i.i.i.i.i unwind label %119
 
@@ -5821,7 +5821,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i.i:       ; preds = %419, %72, %69
   br label %425
 
 425:                                              ; preds = %423, %_ZN9grpc_core13RefCountedPtrINS_8channelz10SocketNode8SecurityEED2Ev.exit153.i.i, %400, %364, %362, %354, %339, %301, %258, %242
-  %.pn73.pn.i.i = phi { ptr, i32 } [ %.pn56.pn.pn.i.i, %258 ], [ %243, %242 ], [ %.pn.pn.pn.i.i, %301 ], [ %424, %423 ], [ %363, %362 ], [ %.pn71.i.i, %_ZN9grpc_core13RefCountedPtrINS_8channelz10SocketNode8SecurityEED2Ev.exit153.i.i ], [ %401, %400 ], [ %.pn67.i.i, %339 ], [ %.pn63.i.i, %354 ], [ %365, %364 ]
+  %.pn73.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.i.i, %301 ], [ %.pn56.pn.pn.i.i, %258 ], [ %243, %242 ], [ %424, %423 ], [ %363, %362 ], [ %.pn71.i.i, %_ZN9grpc_core13RefCountedPtrINS_8channelz10SocketNode8SecurityEED2Ev.exit153.i.i ], [ %401, %400 ], [ %.pn67.i.i, %339 ], [ %.pn63.i.i, %354 ], [ %365, %364 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %426

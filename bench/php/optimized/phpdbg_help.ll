@@ -194,8 +194,8 @@ get_command.exit.loopexit:                        ; preds = %.lr.ph43.i
   br label %get_command.exit
 
 get_command.exit:                                 ; preds = %1, %get_command.exit.loopexit
-  %43 = phi ptr [ %.pre, %get_command.exit.loopexit ], [ null, %1 ]
-  %.2 = phi ptr [ %.129, %get_command.exit.loopexit ], [ @phpdbg_prompt_commands, %1 ]
+  %43 = phi ptr [ null, %1 ], [ %.pre, %get_command.exit.loopexit ]
+  %.2 = phi ptr [ @phpdbg_prompt_commands, %1 ], [ %.129, %get_command.exit.loopexit ]
   %44 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !4
   %45 = getelementptr inbounds nuw i8, ptr %.2, i64 32
   %46 = load i8, ptr %45, align 8, !tbaa !16
@@ -331,8 +331,8 @@ define internal fastcc void @pretty_print(ptr noundef %0) unnamed_addr #0 {
   br label %.thread138
 
 .thread138:                                       ; preds = %21, %16, %14, %26
-  %.1119 = phi i32 [ %.0118, %26 ], [ %.0118, %14 ], [ %spec.select, %16 ], [ %spec.select170, %21 ]
-  %.1 = phi ptr [ %27, %26 ], [ %.0, %14 ], [ %spec.select169, %16 ], [ %spec.select171, %21 ]
+  %.1119 = phi i32 [ %spec.select170, %21 ], [ %spec.select, %16 ], [ %.0118, %26 ], [ %.0118, %14 ]
+  %.1 = phi ptr [ %spec.select171, %21 ], [ %spec.select169, %16 ], [ %27, %26 ], [ %.0, %14 ]
   %28 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   br label %14
 
@@ -409,11 +409,11 @@ define internal fastcc void @pretty_print(ptr noundef %0) unnamed_addr #0 {
   br label %62
 
 62:                                               ; preds = %52, %.thread141.us, %57, %49, %40
-  %.1121.us = phi ptr [ %59, %57 ], [ %50, %49 ], [ %43, %40 ], [ %60, %.thread141.us ], [ %.0120.us, %52 ]
-  %.1113.us = phi ptr [ %.0120.us, %57 ], [ %.0112.us, %49 ], [ %.0112.us, %40 ], [ %.0112.us, %.thread141.us ], [ %.0112.us, %52 ]
-  %.1110.us = phi i32 [ %.0106.us, %57 ], [ %.0109.us, %49 ], [ %.0109.us, %40 ], [ %.0109.us, %.thread141.us ], [ %.0109.us, %52 ]
-  %.1107.us = phi i32 [ %58, %57 ], [ %51, %49 ], [ %44, %40 ], [ %61, %.thread141.us ], [ %.0106.us, %52 ]
-  %.3.us = phi ptr [ %.2.us, %57 ], [ %46, %49 ], [ %41, %40 ], [ %.2.us, %.thread141.us ], [ %53, %52 ]
+  %.1121.us = phi ptr [ %59, %57 ], [ %43, %40 ], [ %60, %.thread141.us ], [ %50, %49 ], [ %.0120.us, %52 ]
+  %.1113.us = phi ptr [ %.0120.us, %57 ], [ %.0112.us, %40 ], [ %.0112.us, %.thread141.us ], [ %.0112.us, %49 ], [ %.0112.us, %52 ]
+  %.1110.us = phi i32 [ %.0106.us, %57 ], [ %.0109.us, %40 ], [ %.0109.us, %.thread141.us ], [ %.0109.us, %49 ], [ %.0109.us, %52 ]
+  %.1107.us = phi i32 [ %58, %57 ], [ %44, %40 ], [ %61, %.thread141.us ], [ %51, %49 ], [ %.0106.us, %52 ]
+  %.3.us = phi ptr [ %.2.us, %57 ], [ %41, %40 ], [ %.2.us, %.thread141.us ], [ %46, %49 ], [ %53, %52 ]
   %.not136.us = icmp ult i32 %.1107.us, %9
   br i1 %.not136.us, label %.thread159.us, label %63, !prof !54
 
@@ -499,12 +499,12 @@ define internal fastcc void @pretty_print(ptr noundef %0) unnamed_addr #0 {
   br label %93
 
 93:                                               ; preds = %75, %83, %.thread141, %86, %68
-  %.1121 = phi ptr [ %70, %68 ], [ %84, %83 ], [ %89, %86 ], [ %91, %.thread141 ], [ %78, %75 ]
-  %.1116 = phi i32 [ %.0115, %68 ], [ %.0115, %83 ], [ %.0115, %86 ], [ %.0115, %.thread141 ], [ %76, %75 ]
-  %.1113 = phi ptr [ %.0120, %68 ], [ %.0112, %83 ], [ %.0112, %86 ], [ %.0112, %.thread141 ], [ %.0112, %75 ]
-  %.1110 = phi i32 [ %.0106, %68 ], [ %.0109, %83 ], [ %.0109, %86 ], [ %.0109, %.thread141 ], [ %.0109, %75 ]
-  %.1107 = phi i32 [ %69, %68 ], [ %85, %83 ], [ %90, %86 ], [ %92, %.thread141 ], [ %.0106, %75 ]
-  %.3 = phi ptr [ %.2, %68 ], [ %80, %83 ], [ %87, %86 ], [ %.2, %.thread141 ], [ %72, %75 ]
+  %.1121 = phi ptr [ %70, %68 ], [ %78, %75 ], [ %91, %.thread141 ], [ %84, %83 ], [ %89, %86 ]
+  %.1116 = phi i32 [ %.0115, %68 ], [ %76, %75 ], [ %.0115, %.thread141 ], [ %.0115, %83 ], [ %.0115, %86 ]
+  %.1113 = phi ptr [ %.0120, %68 ], [ %.0112, %75 ], [ %.0112, %.thread141 ], [ %.0112, %83 ], [ %.0112, %86 ]
+  %.1110 = phi i32 [ %.0106, %68 ], [ %.0109, %75 ], [ %.0109, %.thread141 ], [ %.0109, %83 ], [ %.0109, %86 ]
+  %.1107 = phi i32 [ %69, %68 ], [ %.0106, %75 ], [ %92, %.thread141 ], [ %85, %83 ], [ %90, %86 ]
+  %.3 = phi ptr [ %.2, %68 ], [ %72, %75 ], [ %.2, %.thread141 ], [ %80, %83 ], [ %87, %86 ]
   %.not136 = icmp ult i32 %.1107, %9
   br i1 %.not136, label %.thread159, label %95, !prof !54
 
@@ -634,7 +634,7 @@ get_help.exit16:                                  ; preds = %24, %21
   br label %get_help.exit
 
 get_help.exit:                                    ; preds = %7, %get_help.exit11.thread, %4, %get_help.exit16
-  %.06.i1019.sink = phi ptr [ @.str.13, %get_help.exit16 ], [ %6, %4 ], [ %.06.i1019, %get_help.exit11.thread ], [ @.str.12, %7 ]
+  %.06.i1019.sink = phi ptr [ %.06.i1019, %get_help.exit11.thread ], [ @.str.13, %get_help.exit16 ], [ %6, %4 ], [ @.str.12, %7 ]
   tail call fastcc void @pretty_print(ptr noundef %.06.i1019.sink)
   ret void
 }

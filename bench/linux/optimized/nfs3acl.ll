@@ -657,7 +657,7 @@ define internal fastcc i32 @__nfs3_proc_setacls(ptr noundef %0, ptr noundef %1, 
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %.thread13, %111
-  %.ph14 = phi i32 [ %112, %111 ], [ -12, %.thread13 ]
+  %.ph14 = phi i32 [ -12, %.thread13 ], [ %112, %111 ]
   %.pr = load i32, ptr %17, align 8
   br label %.loopexit16
 
@@ -681,7 +681,7 @@ thread-pre-split:                                 ; preds = %.thread13, %111
   br i1 %124, label %.loopexit, label %.preheader, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.preheader, %.thread, %.loopexit16, %.thread7, %38, %29, %23
-  %125 = phi i32 [ 0, %23 ], [ -28, %38 ], [ -28, %.thread7 ], [ -95, %29 ], [ %115, %.loopexit16 ], [ -95, %.thread ], [ %115, %.preheader ]
+  %125 = phi i32 [ -95, %.thread ], [ 0, %23 ], [ -28, %38 ], [ -28, %.thread7 ], [ -95, %29 ], [ %115, %.loopexit16 ], [ %115, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -885,7 +885,7 @@ define dso_local range(i64 -34, 50) i64 @nfs3_listxattr(ptr noundef readonly cap
   br label %nfs3_list_one_acl.exit
 
 nfs3_list_one_acl.exit:                           ; preds = %38, %19, %.thread.i2, %22, %40
-  %41 = phi i64 [ %36, %40 ], [ %36, %.thread.i2 ], [ %.0.ph, %22 ], [ -34, %19 ], [ -34, %38 ]
+  %41 = phi i64 [ %.0.ph, %22 ], [ -34, %19 ], [ %36, %40 ], [ %36, %.thread.i2 ], [ -34, %38 ]
   ret i64 %41
 }
 

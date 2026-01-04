@@ -114,8 +114,8 @@ PACKET_buf_init.exit.backedge.sink.split:         ; preds = %237, %189, %108, %6
   br label %PACKET_buf_init.exit.backedge
 
 PACKET_buf_init.exit.backedge:                    ; preds = %PACKET_buf_init.exit.backedge.sink.split, %231, %233, %102, %104, %13, %15, %56, %187
-  %.sroa.23.0.be = phi i64 [ %8, %187 ], [ %8, %13 ], [ %54, %15 ], [ %58, %56 ], [ %8, %102 ], [ %106, %104 ], [ %8, %231 ], [ %235, %233 ], [ %.sroa.23.0.be.ph, %PACKET_buf_init.exit.backedge.sink.split ]
-  %.sroa.0.0.be = phi ptr [ %7, %187 ], [ %7, %13 ], [ %53, %15 ], [ %57, %56 ], [ %7, %102 ], [ %105, %104 ], [ %7, %231 ], [ %234, %233 ], [ %.sroa.0.0.be.ph, %PACKET_buf_init.exit.backedge.sink.split ]
+  %.sroa.23.0.be = phi i64 [ %106, %104 ], [ %8, %187 ], [ %235, %233 ], [ %58, %56 ], [ %54, %15 ], [ %8, %13 ], [ %8, %102 ], [ %8, %231 ], [ %.sroa.23.0.be.ph, %PACKET_buf_init.exit.backedge.sink.split ]
+  %.sroa.0.0.be = phi ptr [ %105, %104 ], [ %7, %187 ], [ %234, %233 ], [ %57, %56 ], [ %53, %15 ], [ %7, %13 ], [ %7, %102 ], [ %7, %231 ], [ %.sroa.0.0.be.ph, %PACKET_buf_init.exit.backedge.sink.split ]
   %.not15 = icmp eq i64 %.sroa.23.0.be, 0
   br i1 %.not15, label %PACKET_buf_init.exit.thread, label %.lr.ph, !llvm.loop !7
 
@@ -361,7 +361,7 @@ default.unreachable147:                           ; preds = %10
   unreachable
 
 PACKET_buf_init.exit.thread:                      ; preds = %.lr.ph, %PACKET_buf_init.exit.backedge, %6, %2
-  %.012 = phi i32 [ -1, %2 ], [ 0, %6 ], [ 0, %PACKET_buf_init.exit.backedge ], [ 0, %.lr.ph ]
+  %.012 = phi i32 [ 0, %6 ], [ -1, %2 ], [ 0, %PACKET_buf_init.exit.backedge ], [ 0, %.lr.ph ]
   call void @ossl_quic_srtm_free(ptr noundef %4) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.012

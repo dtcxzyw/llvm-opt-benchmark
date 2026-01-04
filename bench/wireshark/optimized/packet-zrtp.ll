@@ -865,7 +865,7 @@ key_to_val.exit82.i:                              ; preds = %._crit_edge.i80.i, 
   br label %242
 
 242:                                              ; preds = %240, %key_to_val.exit82.i
-  %.060.i = phi i32 [ 1, %key_to_val.exit82.i ], [ %spec.select.i, %240 ]
+  %.060.i = phi i32 [ %spec.select.i, %240 ], [ 1, %key_to_val.exit82.i ]
   %243 = call ptr @wmem_packet_scope()
   %244 = call ptr @tvb_get_string_enc(ptr noundef %243, ptr noundef %0, i32 noundef 84, i32 noundef 4, i32 noundef 0)
   %245 = load i32, ptr @hf_zrtp_msg_sas, align 4

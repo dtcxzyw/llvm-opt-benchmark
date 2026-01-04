@@ -863,8 +863,8 @@ _find_child_switches.exit:                        ; preds = %.loopexit.i, %229
   br i1 %352, label %.preheader184, label %._crit_edge267
 
 .preheader183:                                    ; preds = %._crit_edge267, %221, %.preheader189, %.preheader188, %.preheader186
-  %.0124.lcssa386388391 = phi i1 [ %spec.select, %.preheader186 ], [ %spec.select, %.preheader188 ], [ %spec.select, %.preheader189 ], [ false, %221 ], [ %spec.select, %._crit_edge267 ]
-  %353 = phi i32 [ %306, %.preheader186 ], [ %303, %.preheader188 ], [ %284, %.preheader189 ], [ %223, %221 ], [ %398, %._crit_edge267 ]
+  %.0124.lcssa386388391 = phi i1 [ %spec.select, %.preheader186 ], [ false, %221 ], [ %spec.select, %.preheader188 ], [ %spec.select, %.preheader189 ], [ %spec.select, %._crit_edge267 ]
+  %353 = phi i32 [ %306, %.preheader186 ], [ %223, %221 ], [ %303, %.preheader188 ], [ %284, %.preheader189 ], [ %398, %._crit_edge267 ]
   %354 = load i32, ptr @switch_levels, align 4
   %.not153272 = icmp sgt i32 %354, 0
   %355 = icmp sgt i32 %353, 0
@@ -933,8 +933,8 @@ _check_better_path.exit:                          ; preds = %.lr.ph264.split, %3
   br i1 %393, label %.lr.ph264.split, label %._crit_edge265, !llvm.loop !28
 
 ._crit_edge265:                                   ; preds = %_check_better_path.exit, %.lr.ph264, %.preheader184
-  %394 = phi i32 [ %356, %.preheader184 ], [ %356, %.lr.ph264 ], [ %388, %_check_better_path.exit ]
-  %395 = phi i32 [ %357, %.preheader184 ], [ %357, %.lr.ph264 ], [ %389, %_check_better_path.exit ]
+  %394 = phi i32 [ %356, %.lr.ph264 ], [ %356, %.preheader184 ], [ %388, %_check_better_path.exit ]
+  %395 = phi i32 [ %357, %.lr.ph264 ], [ %357, %.preheader184 ], [ %389, %_check_better_path.exit ]
   %indvars.iv.next324 = add nuw nsw i64 %indvars.iv323, 1
   %396 = sext i32 %395 to i64
   %397 = icmp slt i64 %indvars.iv.next324, %396
@@ -1134,7 +1134,7 @@ _merge_switches_array.exit32.i:                   ; preds = %.loopexit.us.i25.i,
   br i1 %481, label %.lr.ph.i169, label %_find_desc_switches.exit, !llvm.loop !33
 
 _find_desc_switches.exit:                         ; preds = %_merge_switches_array.exit32.i, %_merge_switches_array.exit.i, %.lr.ph270
-  %482 = phi ptr [ %436, %_merge_switches_array.exit.i ], [ %404, %.lr.ph270 ], [ %476, %_merge_switches_array.exit32.i ]
+  %482 = phi ptr [ %404, %.lr.ph270 ], [ %436, %_merge_switches_array.exit.i ], [ %476, %_merge_switches_array.exit32.i ]
   %indvars.iv.next330 = add nuw nsw i64 %indvars.iv329, 1
   %483 = load i32, ptr @switch_record_cnt, align 4
   %484 = sext i32 %483 to i64

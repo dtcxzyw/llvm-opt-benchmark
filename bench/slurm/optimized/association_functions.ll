@@ -348,7 +348,7 @@ define dso_local range(i32 0, 2) i32 @sacctmgr_set_assoc_cond(ptr noundef captur
   br label %129
 
 129:                                              ; preds = %124, %112, %96, %86, %53, %18, %71, %._crit_edge, %76, %117
-  %.0.shrunk = phi i1 [ false, %117 ], [ false, %76 ], [ true, %._crit_edge ], [ %.not72, %18 ], [ %.not80, %53 ], [ true, %71 ], [ %.not86, %86 ], [ %.not89, %96 ], [ %116, %112 ], [ %.not95, %124 ]
+  %.0.shrunk = phi i1 [ false, %117 ], [ false, %76 ], [ %.not95, %124 ], [ %.not80, %53 ], [ %116, %112 ], [ true, %._crit_edge ], [ %.not89, %96 ], [ true, %71 ], [ %.not86, %86 ], [ %.not72, %18 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -1012,7 +1012,7 @@ define dso_local range(i32 0, 2) i32 @sacctmgr_set_assoc_rec(ptr noundef %0, ptr
   br label %310
 
 310:                                              ; preds = %.thread, %305, %288, %218, %212, %196, %190, %118, %92, %86, %47, %12, %46, %67, %64, %101, %98, %139, %136, %155, %153, %173, %170, %205, %202, %249, %246, %271, %268, %283, %292, %276, %278, %259, %262, %235, %238, %180, %183, %160, %163, %145, %148, %127, %130, %108, %111, %74, %77, %54, %57, %34, %29, %5
-  %.0.shrunk = phi i1 [ false, %5 ], [ false, %292 ], [ true, %283 ], [ true, %276 ], [ false, %278 ], [ true, %268 ], [ false, %271 ], [ true, %259 ], [ false, %262 ], [ true, %246 ], [ false, %249 ], [ true, %235 ], [ false, %238 ], [ true, %205 ], [ false, %202 ], [ true, %183 ], [ false, %180 ], [ true, %173 ], [ false, %170 ], [ true, %163 ], [ false, %160 ], [ true, %153 ], [ false, %155 ], [ true, %145 ], [ false, %148 ], [ true, %136 ], [ false, %139 ], [ true, %127 ], [ false, %130 ], [ true, %111 ], [ false, %108 ], [ true, %101 ], [ false, %98 ], [ true, %77 ], [ false, %74 ], [ true, %67 ], [ false, %64 ], [ true, %57 ], [ false, %54 ], [ true, %46 ], [ true, %12 ], [ true, %34 ], [ true, %29 ], [ %49, %47 ], [ %89, %86 ], [ %95, %92 ], [ %121, %118 ], [ %193, %190 ], [ %199, %196 ], [ %215, %212 ], [ %221, %218 ], [ %291, %288 ], [ %309, %305 ], [ true, %.thread ]
+  %.0.shrunk = phi i1 [ false, %5 ], [ false, %292 ], [ false, %64 ], [ true, %67 ], [ true, %57 ], [ %291, %288 ], [ true, %283 ], [ true, %276 ], [ false, %278 ], [ true, %268 ], [ false, %271 ], [ true, %259 ], [ false, %262 ], [ true, %246 ], [ false, %249 ], [ true, %235 ], [ false, %238 ], [ false, %54 ], [ %221, %218 ], [ true, %29 ], [ %215, %212 ], [ true, %205 ], [ false, %202 ], [ %49, %47 ], [ %199, %196 ], [ true, %46 ], [ %193, %190 ], [ true, %183 ], [ false, %180 ], [ true, %173 ], [ false, %170 ], [ true, %163 ], [ false, %160 ], [ true, %153 ], [ false, %155 ], [ true, %145 ], [ false, %148 ], [ true, %136 ], [ false, %139 ], [ true, %127 ], [ false, %130 ], [ true, %12 ], [ %121, %118 ], [ true, %111 ], [ false, %108 ], [ true, %101 ], [ false, %98 ], [ true, %34 ], [ %95, %92 ], [ %309, %305 ], [ %89, %86 ], [ true, %77 ], [ false, %74 ], [ true, %.thread ]
   %.0 = zext i1 %.0.shrunk to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2127,7 +2127,7 @@ _set_cond.exit:                                   ; preds = %145, %27
   br label %233
 
 233:                                              ; preds = %198, %204, %195, %196, %165, %166, %149, %150, %232
-  %.077 = phi i32 [ 0, %232 ], [ -1, %150 ], [ -1, %149 ], [ -1, %166 ], [ -1, %165 ], [ %186, %196 ], [ %186, %195 ], [ -1, %204 ], [ -1, %198 ]
+  %.077 = phi i32 [ %186, %195 ], [ -1, %149 ], [ -1, %165 ], [ 0, %232 ], [ -1, %150 ], [ -1, %166 ], [ %186, %196 ], [ -1, %204 ], [ -1, %198 ]
   ret i32 %.077
 }
 

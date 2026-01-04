@@ -102,7 +102,7 @@ define hidden range(i32 0, 2) i32 @FLAC__ogg_encoder_aspect_write_callback_wrapp
 
 23:                                               ; preds = %15
   %.not103 = icmp eq i64 %2, 38
-  br i1 %.not103, label %24, label %.critedge117
+  br i1 %.not103, label %24, label %.critedge
 
 24:                                               ; preds = %23
   %25 = load i8, ptr @FLAC__OGG_MAPPING_FIRST_HEADER_PACKET_TYPE, align 1, !tbaa !22
@@ -156,7 +156,7 @@ define hidden range(i32 0, 2) i32 @FLAC__ogg_encoder_aspect_write_callback_wrapp
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %50 = call i32 @ogg_stream_packetin(ptr noundef nonnull %49, ptr noundef nonnull %10) #8
   %.not105 = icmp eq i32 %50, 0
-  br i1 %.not105, label %51, label %.critedge117
+  br i1 %.not105, label %51, label %.critedge
 
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 424
@@ -169,7 +169,7 @@ define hidden range(i32 0, 2) i32 @FLAC__ogg_encoder_aspect_write_callback_wrapp
 .preheader:                                       ; preds = %51, %69
   %57 = call i32 @ogg_stream_flush(ptr noundef nonnull %49, ptr noundef nonnull %52) #8
   %.not109 = icmp eq i32 %57, 0
-  br i1 %.not109, label %.critedge, label %58
+  br i1 %.not109, label %.critedge117, label %58
 
 58:                                               ; preds = %.preheader
   %59 = call i64 @ogg_page_granulepos(ptr noundef nonnull %52) #8
@@ -189,19 +189,19 @@ define hidden range(i32 0, 2) i32 @FLAC__ogg_encoder_aspect_write_callback_wrapp
   %67 = load i64, ptr %54, align 8, !tbaa !30
   %68 = call i32 %6(ptr noundef %7, ptr noundef %66, i64 noundef %67, i32 noundef 0, i32 noundef %4, ptr noundef %8) #8
   %.not110 = icmp eq i32 %68, 0
-  br i1 %.not110, label %69, label %.critedge117
+  br i1 %.not110, label %69, label %.critedge
 
 69:                                               ; preds = %65
   %70 = load ptr, ptr %55, align 8, !tbaa !31
   %71 = load i64, ptr %56, align 8, !tbaa !32
   %72 = call i32 %6(ptr noundef %7, ptr noundef %70, i64 noundef %71, i32 noundef %.094, i32 noundef %4, ptr noundef %8) #8
   %.not111 = icmp eq i32 %72, 0
-  br i1 %.not111, label %.preheader, label %.critedge117, !llvm.loop !33
+  br i1 %.not111, label %.preheader, label %.critedge, !llvm.loop !33
 
 .preheader118:                                    ; preds = %51, %85
   %73 = call i32 @ogg_stream_pageout(ptr noundef nonnull %49, ptr noundef nonnull %52) #8
   %.not106 = icmp eq i32 %73, 0
-  br i1 %.not106, label %.critedge, label %74
+  br i1 %.not106, label %.critedge117, label %74
 
 74:                                               ; preds = %.preheader118
   %75 = call i64 @ogg_page_granulepos(ptr noundef nonnull %52) #8
@@ -221,19 +221,19 @@ define hidden range(i32 0, 2) i32 @FLAC__ogg_encoder_aspect_write_callback_wrapp
   %83 = load i64, ptr %54, align 8, !tbaa !30
   %84 = call i32 %6(ptr noundef %7, ptr noundef %82, i64 noundef %83, i32 noundef 0, i32 noundef %4, ptr noundef %8) #8
   %.not107 = icmp eq i32 %84, 0
-  br i1 %.not107, label %85, label %.critedge117
+  br i1 %.not107, label %85, label %.critedge
 
 85:                                               ; preds = %81
   %86 = load ptr, ptr %55, align 8, !tbaa !31
   %87 = load i64, ptr %56, align 8, !tbaa !32
   %88 = call i32 %6(ptr noundef %7, ptr noundef %86, i64 noundef %87, i32 noundef %.0, i32 noundef %4, ptr noundef %8) #8
   %.not108 = icmp eq i32 %88, 0
-  br i1 %.not108, label %.preheader118, label %.critedge117, !llvm.loop !35
+  br i1 %.not108, label %.preheader118, label %.critedge, !llvm.loop !35
 
-.critedge:                                        ; preds = %.preheader118, %.preheader
+.critedge:                                        ; preds = %81, %85, %65, %69, %23, %48
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %95
+  br label %99
 
 89:                                               ; preds = %9
   %90 = or i32 %4, %3
@@ -252,21 +252,21 @@ define hidden range(i32 0, 2) i32 @FLAC__ogg_encoder_aspect_write_callback_wrapp
   %.pre = zext nneg i32 %3 to i64
   br label %95
 
-95:                                               ; preds = %.critedge, %94
-  %.pre-phi = phi i64 [ %18, %.critedge ], [ %.pre, %94 ]
+.critedge117:                                     ; preds = %.preheader118, %.preheader
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  br label %95
+
+95:                                               ; preds = %.critedge117, %94
+  %.pre-phi = phi i64 [ %18, %.critedge117 ], [ %.pre, %94 ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %97 = load i64, ptr %96, align 8, !tbaa !19
   %98 = add i64 %97, %.pre-phi
   store i64 %98, ptr %96, align 8, !tbaa !19
   br label %99
 
-.critedge117:                                     ; preds = %81, %85, %65, %69, %23, %48
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %99
-
-99:                                               ; preds = %89, %92, %.critedge117, %95
-  %.8 = phi i32 [ 0, %95 ], [ 1, %.critedge117 ], [ 1, %92 ], [ 1, %89 ]
+99:                                               ; preds = %89, %92, %.critedge, %95
+  %.8 = phi i32 [ 0, %95 ], [ 1, %.critedge ], [ 1, %92 ], [ 1, %89 ]
   ret i32 %.8
 }
 

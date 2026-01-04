@@ -131,7 +131,7 @@ lean_nat_sub.exit40:                              ; preds = %34, %.critedge.i38
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %30, %44, %42, %54, %53, %51
-  %.1.i72 = phi ptr [ %48, %51 ], [ %48, %53 ], [ %48, %54 ], [ inttoptr (i64 1 to ptr), %42 ], [ %46, %44 ], [ inttoptr (i64 1 to ptr), %30 ]
+  %.1.i72 = phi ptr [ %48, %54 ], [ %48, %51 ], [ %48, %53 ], [ inttoptr (i64 1 to ptr), %42 ], [ %46, %44 ], [ inttoptr (i64 1 to ptr), %30 ]
   %55 = ptrtoint ptr %2 to i64
   %56 = and i64 %55, 1
   %.not83 = icmp eq i64 %56, 0
@@ -1130,7 +1130,7 @@ lean_nat_sub.exit42:                              ; preds = %35, %.critedge.i40
   br label %lean_dec.exit52
 
 lean_dec.exit52:                                  ; preds = %31, %45, %43, %55, %54, %52
-  %.1.i74 = phi ptr [ %49, %52 ], [ %49, %54 ], [ %49, %55 ], [ inttoptr (i64 1 to ptr), %43 ], [ %47, %45 ], [ inttoptr (i64 1 to ptr), %31 ]
+  %.1.i74 = phi ptr [ %49, %55 ], [ %49, %52 ], [ %49, %54 ], [ inttoptr (i64 1 to ptr), %43 ], [ %47, %45 ], [ inttoptr (i64 1 to ptr), %31 ]
   %56 = ptrtoint ptr %2 to i64
   %57 = and i64 %56, 1
   %.not85 = icmp eq i64 %57, 0
@@ -2180,7 +2180,7 @@ lean_nat_sub.exit41:                              ; preds = %34, %.critedge.i39
   br label %lean_dec.exit51
 
 lean_dec.exit51:                                  ; preds = %30, %44, %42, %54, %53, %51
-  %.1.i73 = phi ptr [ %48, %51 ], [ %48, %53 ], [ %48, %54 ], [ inttoptr (i64 1 to ptr), %42 ], [ %46, %44 ], [ inttoptr (i64 1 to ptr), %30 ]
+  %.1.i73 = phi ptr [ %48, %54 ], [ %48, %51 ], [ %48, %53 ], [ inttoptr (i64 1 to ptr), %42 ], [ %46, %44 ], [ inttoptr (i64 1 to ptr), %30 ]
   %55 = ptrtoint ptr %2 to i64
   %56 = and i64 %55, 1
   %.not84 = icmp eq i64 %56, 0
@@ -2860,7 +2860,7 @@ lean_nat_sub.exit41:                              ; preds = %34, %.critedge.i39
   br label %lean_dec.exit51
 
 lean_dec.exit51:                                  ; preds = %30, %44, %42, %54, %53, %51
-  %.1.i73 = phi ptr [ %48, %51 ], [ %48, %53 ], [ %48, %54 ], [ inttoptr (i64 1 to ptr), %42 ], [ %46, %44 ], [ inttoptr (i64 1 to ptr), %30 ]
+  %.1.i73 = phi ptr [ %48, %54 ], [ %48, %51 ], [ %48, %53 ], [ inttoptr (i64 1 to ptr), %42 ], [ %46, %44 ], [ inttoptr (i64 1 to ptr), %30 ]
   %55 = ptrtoint ptr %2 to i64
   %56 = and i64 %55, 1
   %.not84 = icmp eq i64 %56, 0
@@ -3373,7 +3373,7 @@ lean_dec_ref.exit15:                              ; preds = %34, %36, %37
   br label %44
 
 44:                                               ; preds = %.sink.split, %lean_dec_ref.exit13, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit13 ], [ %.sink31, %.sink.split ]
+  %.0 = phi ptr [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit13 ], [ %8, %7 ], [ %.sink31, %.sink.split ]
   ret ptr %.0
 }
 

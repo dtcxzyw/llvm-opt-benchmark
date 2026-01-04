@@ -486,12 +486,12 @@ define hidden void @"_ZN64_$LT$uv_pep440..version..Version$u20$as$u20$core..hash
   br label %_ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.exit
 
 _ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.exit: ; preds = %9, %14, %31, %34, %39, %46
-  %.promoted = phi i64 [ %20, %14 ], [ %11, %31 ], [ %11, %34 ], [ %11, %39 ], [ %11, %46 ], [ %11, %9 ]
-  %.sroa.07.0.i = phi i64 [ 5, %14 ], [ 1, %31 ], [ 2, %34 ], [ 3, %39 ], [ 4, %46 ], [ 0, %9 ]
-  %.sroa.7.0.i = phi i64 [ %25, %14 ], [ %33, %31 ], [ %36, %34 ], [ %41, %39 ], [ %48, %46 ], [ undef, %9 ]
-  %.sroa.12.0.i = phi i64 [ %24, %14 ], [ undef, %31 ], [ %38, %34 ], [ %43, %39 ], [ %50, %46 ], [ undef, %9 ]
-  %.sroa.16.0.i = phi i64 [ undef, %14 ], [ undef, %31 ], [ undef, %34 ], [ %45, %39 ], [ %52, %46 ], [ undef, %9 ]
-  %.sroa.18.0.i = phi i64 [ undef, %14 ], [ undef, %31 ], [ undef, %34 ], [ undef, %39 ], [ %54, %46 ], [ undef, %9 ]
+  %.promoted = phi i64 [ %20, %14 ], [ %11, %46 ], [ %11, %31 ], [ %11, %34 ], [ %11, %39 ], [ %11, %9 ]
+  %.sroa.07.0.i = phi i64 [ 5, %14 ], [ 4, %46 ], [ 1, %31 ], [ 2, %34 ], [ 3, %39 ], [ 0, %9 ]
+  %.sroa.7.0.i = phi i64 [ %25, %14 ], [ %48, %46 ], [ %33, %31 ], [ %36, %34 ], [ %41, %39 ], [ undef, %9 ]
+  %.sroa.12.0.i = phi i64 [ %24, %14 ], [ %50, %46 ], [ undef, %31 ], [ %38, %34 ], [ %43, %39 ], [ undef, %9 ]
+  %.sroa.16.0.i = phi i64 [ undef, %14 ], [ %52, %46 ], [ undef, %31 ], [ undef, %34 ], [ %45, %39 ], [ undef, %9 ]
+  %.sroa.18.0.i = phi i64 [ undef, %14 ], [ %54, %46 ], [ undef, %31 ], [ undef, %34 ], [ undef, %39 ], [ undef, %9 ]
   store i64 %.sroa.07.0.i, ptr %5, align 8, !alias.scope !37, !noalias !40
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !37, !noalias !40

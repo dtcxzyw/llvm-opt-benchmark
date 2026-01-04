@@ -1456,10 +1456,10 @@ Vec_PtrGrow.exit.i40:                             ; preds = %70, %68
   br label %.sink.split
 
 .sink.split:                                      ; preds = %82, %Vec_PtrGrow.exit.i40, %.Vec_PtrGrow.exit11_crit_edge.i35, %60, %Vec_PtrGrow.exit.i, %.Vec_PtrGrow.exit11_crit_edge.i
-  %.sink64 = phi ptr [ %.pre.i, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %61, %60 ], [ %50, %Vec_PtrGrow.exit.i ], [ %.pre.i37, %.Vec_PtrGrow.exit11_crit_edge.i35 ], [ %83, %82 ], [ %72, %Vec_PtrGrow.exit.i40 ]
-  %.sink62 = phi ptr [ %40, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %40, %60 ], [ %40, %Vec_PtrGrow.exit.i ], [ %34, %.Vec_PtrGrow.exit11_crit_edge.i35 ], [ %34, %82 ], [ %34, %Vec_PtrGrow.exit.i40 ]
-  %.ph = phi i32 [ %22, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %52, %60 ], [ 16, %Vec_PtrGrow.exit.i ], [ %22, %.Vec_PtrGrow.exit11_crit_edge.i35 ], [ %74, %82 ], [ 16, %Vec_PtrGrow.exit.i40 ]
-  %.ph60 = phi i32 [ %22, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %52, %60 ], [ 16, %Vec_PtrGrow.exit.i ], [ %23, %.Vec_PtrGrow.exit11_crit_edge.i35 ], [ %74, %82 ], [ 16, %Vec_PtrGrow.exit.i40 ]
+  %.sink64 = phi ptr [ %50, %Vec_PtrGrow.exit.i ], [ %.pre.i, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %61, %60 ], [ %.pre.i37, %.Vec_PtrGrow.exit11_crit_edge.i35 ], [ %83, %82 ], [ %72, %Vec_PtrGrow.exit.i40 ]
+  %.sink62 = phi ptr [ %40, %Vec_PtrGrow.exit.i ], [ %40, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %40, %60 ], [ %34, %.Vec_PtrGrow.exit11_crit_edge.i35 ], [ %34, %82 ], [ %34, %Vec_PtrGrow.exit.i40 ]
+  %.ph = phi i32 [ 16, %Vec_PtrGrow.exit.i ], [ %22, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %52, %60 ], [ %22, %.Vec_PtrGrow.exit11_crit_edge.i35 ], [ %74, %82 ], [ 16, %Vec_PtrGrow.exit.i40 ]
+  %.ph60 = phi i32 [ 16, %Vec_PtrGrow.exit.i ], [ %22, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %52, %60 ], [ %23, %.Vec_PtrGrow.exit11_crit_edge.i35 ], [ %74, %82 ], [ 16, %Vec_PtrGrow.exit.i40 ]
   %84 = add nsw i32 %24, 1
   store i32 %84, ptr %3, align 4, !tbaa !33
   %85 = sext i32 %24 to i64
@@ -1801,7 +1801,7 @@ Vec_PtrFree.exit:                                 ; preds = %1
   br label %.critedge10
 
 .critedge10:                                      ; preds = %.critedge6, %.critedge10.sink.split, %.critedge6.preheader, %64, %.critedge
-  %.0 = phi i32 [ 1, %.critedge ], [ 0, %64 ], [ 1, %.critedge6.preheader ], [ %.0.ph, %.critedge10.sink.split ], [ 1, %.critedge6 ]
+  %.0 = phi i32 [ 0, %64 ], [ 1, %.critedge ], [ 1, %.critedge6.preheader ], [ %.0.ph, %.critedge10.sink.split ], [ 1, %.critedge6 ]
   ret i32 %.0
 }
 
@@ -2409,7 +2409,7 @@ Abc_FlowRetime_ClearInitToOrig.exit:              ; preds = %._crit_edge.i, %17
   br label %88
 
 88:                                               ; preds = %52, %80, %72, %69, %49, %46, %Abc_FlowRetime_ClearInitToOrig.exit
-  %.036 = phi ptr [ %12, %Abc_FlowRetime_ClearInitToOrig.exit ], [ %47, %46 ], [ %50, %49 ], [ %70, %69 ], [ %53, %52 ], [ %73, %72 ], [ %81, %80 ]
+  %.036 = phi ptr [ %12, %Abc_FlowRetime_ClearInitToOrig.exit ], [ %47, %46 ], [ %70, %69 ], [ %50, %49 ], [ %53, %52 ], [ %73, %72 ], [ %81, %80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.036
 }

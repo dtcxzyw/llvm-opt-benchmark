@@ -912,7 +912,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   br label %.loopexit
 
 .body:                                            ; preds = %.body157, %.body157.thread
-  %eh.lpad-body = phi { ptr, i32 } [ %136, %.body157.thread ], [ %131, %.body157 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %131, %.body157 ], [ %136, %.body157.thread ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #24
   br label %.loopexit
 
@@ -1506,7 +1506,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   br label %179
 
 .body140:                                         ; preds = %.body146, %.body146.thread
-  %eh.lpad-body141 = phi { ptr, i32 } [ %176, %.body146.thread ], [ %171, %.body146 ]
+  %eh.lpad-body141 = phi { ptr, i32 } [ %171, %.body146 ], [ %176, %.body146.thread ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %17) #24
   br label %.body
 
@@ -1683,7 +1683,7 @@ _ZN2cv4usac19PnPNonMinimalSolver6createERKNS_3MatE.exit: ; preds = %.noexc.i.i.i
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i: ; preds = %20, %17
-  %22 = phi ptr [ %14, %17 ], [ %.pr.pre.i.i.i.i, %20 ]
+  %22 = phi ptr [ %.pr.pre.i.i.i.i, %20 ], [ %14, %17 ]
   %.not8.i.i.i.i = icmp eq ptr %22, null
   br i1 %.not8.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i, label %23
 

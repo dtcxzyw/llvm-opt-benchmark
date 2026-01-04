@@ -236,8 +236,8 @@ ifcp_header_test.exit:                            ; preds = %9
   tail call void @conversation_set_dissector(ptr noundef %22, ptr noundef %23)
   br label %ifcp_header_test.exit.thread
 
-ifcp_header_test.exit.thread:                     ; preds = %9, %7, %4, %16, %21, %ifcp_header_test.exit
-  %.0.i9 = phi i1 [ true, %16 ], [ true, %21 ], [ false, %ifcp_header_test.exit ], [ false, %4 ], [ false, %7 ], [ false, %9 ]
+ifcp_header_test.exit.thread:                     ; preds = %7, %4, %9, %16, %21, %ifcp_header_test.exit
+  %.0.i9 = phi i1 [ false, %ifcp_header_test.exit ], [ true, %16 ], [ true, %21 ], [ false, %9 ], [ false, %4 ], [ false, %7 ]
   ret i1 %.0.i9
 }
 
@@ -284,8 +284,8 @@ ifcp_header_test.exit:                            ; preds = %9
   %22 = zext nneg i16 %21 to i32
   br label %ifcp_header_test.exit.thread
 
-ifcp_header_test.exit.thread:                     ; preds = %9, %7, %4, %ifcp_header_test.exit, %18
-  %.0 = phi i32 [ %22, %18 ], [ 0, %ifcp_header_test.exit ], [ 0, %4 ], [ 0, %7 ], [ 0, %9 ]
+ifcp_header_test.exit.thread:                     ; preds = %7, %4, %9, %ifcp_header_test.exit, %18
+  %.0 = phi i32 [ %22, %18 ], [ 0, %ifcp_header_test.exit ], [ 0, %9 ], [ 0, %4 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -440,7 +440,7 @@ define internal i32 @dissect_ifcp_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %.sink.split
 
 .sink.split:                                      ; preds = %109, %106, %106, %106, %108
-  %.sink = phi i8 [ 2, %108 ], [ 1, %106 ], [ 1, %106 ], [ 1, %106 ], [ %.0144, %109 ]
+  %.sink = phi i8 [ 1, %106 ], [ %.0144, %109 ], [ 2, %108 ], [ 1, %106 ], [ 1, %106 ]
   store i8 %.sink, ptr %107, align 4
   br label %110
 

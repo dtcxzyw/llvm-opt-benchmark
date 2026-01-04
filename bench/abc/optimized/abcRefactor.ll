@@ -729,7 +729,7 @@ Dec_GraphFree.exit:                               ; preds = %168, %171
   br label %180
 
 180:                                              ; preds = %.loopexit, %Abc_NodeConeIsConst0.exit108, %Abc_Clock.exit90, %172, %Dec_GraphFree.exit
-  %.0 = phi ptr [ null, %Dec_GraphFree.exit ], [ %87, %172 ], [ null, %Abc_Clock.exit90 ], [ %calloc.i, %.loopexit ], [ %calloc.i109, %Abc_NodeConeIsConst0.exit108 ]
+  %.0 = phi ptr [ %87, %172 ], [ null, %Abc_Clock.exit90 ], [ null, %Dec_GraphFree.exit ], [ %calloc.i, %.loopexit ], [ %calloc.i109, %Abc_NodeConeIsConst0.exit108 ]
   ret ptr %.0
 }
 

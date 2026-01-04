@@ -451,7 +451,7 @@ if.then.i66:                                      ; preds = %lpad50
   br label %ehcleanup53
 
 ehcleanup53:                                      ; preds = %if.then.i66, %lpad50, %ehcleanup47, %lpad20
-  %.pn32 = phi { ptr, i32 } [ %18, %lpad20 ], [ %.pn.pn, %ehcleanup47 ], [ %22, %lpad50 ], [ %22, %if.then.i66 ]
+  %.pn32 = phi { ptr, i32 } [ %.pn.pn, %ehcleanup47 ], [ %18, %lpad20 ], [ %22, %lpad50 ], [ %22, %if.then.i66 ]
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
@@ -580,7 +580,7 @@ if.end84:                                         ; preds = %if.else.i, %_ZN8fac
   %cmp85 = icmp eq ptr %ptr.0, null
   br i1 %cmp85, label %if.then86, label %if.end113
 
-if.then86:                                        ; preds = %if.end84, %if.then2.i, %if.end.i
+if.then86:                                        ; preds = %if.end84, %if.end.i, %if.then2.i
   %mul.i = shl i64 %mul, 12
   invoke void @_ZN8facebook5velox13succinctBytesB5cxx11Emi(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp89, i64 noundef %mul.i, i32 noundef 2)
           to label %.noexc unwind label %lpad57.loopexit.split-lp
@@ -924,8 +924,8 @@ if.then.i.i.i123:                                 ; preds = %cleanup
   br label %return
 
 ehcleanup179:                                     ; preds = %lpad57.loopexit, %lpad57.loopexit.split-lp, %lpad173, %ehcleanup158, %ehcleanup112, %lpad93
-  %pages.sroa.0.2 = phi ptr [ %pages.sroa.0.1158216, %lpad173 ], [ %pages.sroa.0.1158, %ehcleanup158 ], [ %pages.sroa.0.1179, %ehcleanup112 ], [ %pages.sroa.0.1179, %lpad93 ], [ %pages.sroa.0.0.ph, %lpad57.loopexit ], [ %pages.sroa.0.0.ph153, %lpad57.loopexit.split-lp ]
-  %.pn38 = phi { ptr, i32 } [ %62, %lpad173 ], [ %.pn36, %ehcleanup158 ], [ %.pn34, %ehcleanup112 ], [ %44, %lpad93 ], [ %lpad.loopexit, %lpad57.loopexit ], [ %lpad.loopexit.split-lp, %lpad57.loopexit.split-lp ]
+  %pages.sroa.0.2 = phi ptr [ %pages.sroa.0.1179, %lpad93 ], [ %pages.sroa.0.1158216, %lpad173 ], [ %pages.sroa.0.1158, %ehcleanup158 ], [ %pages.sroa.0.1179, %ehcleanup112 ], [ %pages.sroa.0.0.ph, %lpad57.loopexit ], [ %pages.sroa.0.0.ph153, %lpad57.loopexit.split-lp ]
+  %.pn38 = phi { ptr, i32 } [ %44, %lpad93 ], [ %62, %lpad173 ], [ %.pn36, %ehcleanup158 ], [ %.pn34, %ehcleanup112 ], [ %lpad.loopexit, %lpad57.loopexit ], [ %lpad.loopexit.split-lp, %lpad57.loopexit.split-lp ]
   %tobool.not.i.i.i124 = icmp eq ptr %pages.sroa.0.2, null
   br i1 %tobool.not.i.i.i124, label %eh.resume, label %if.then.i.i.i125
 
@@ -934,11 +934,11 @@ if.then.i.i.i125:                                 ; preds = %ehcleanup179
   br label %eh.resume
 
 return:                                           ; preds = %if.then.i.i.i123, %cleanup, %if.then8, %land.lhs.true10, %_ZNKSt8functionIFvlbEEclElb.exit50, %if.then, %land.lhs.true, %_ZNKSt8functionIFvlbEEclElb.exit
-  %retval.0 = phi i1 [ true, %_ZNKSt8functionIFvlbEEclElb.exit ], [ true, %land.lhs.true ], [ true, %if.then ], [ false, %_ZNKSt8functionIFvlbEEclElb.exit50 ], [ false, %land.lhs.true10 ], [ false, %if.then8 ], [ %cmp121.not220, %cleanup ], [ %cmp121.not220, %if.then.i.i.i123 ]
+  %retval.0 = phi i1 [ true, %if.then ], [ false, %if.then8 ], [ true, %_ZNKSt8functionIFvlbEEclElb.exit ], [ true, %land.lhs.true ], [ false, %_ZNKSt8functionIFvlbEEclElb.exit50 ], [ false, %land.lhs.true10 ], [ %cmp121.not220, %cleanup ], [ %cmp121.not220, %if.then.i.i.i123 ]
   ret i1 %retval.0
 
 eh.resume:                                        ; preds = %if.then.i.i.i125, %ehcleanup179, %ehcleanup53, %lpad
-  %lpad.val182.merged = phi { ptr, i32 } [ %.pn32, %ehcleanup53 ], [ %12, %lpad ], [ %.pn38, %ehcleanup179 ], [ %.pn38, %if.then.i.i.i125 ]
+  %lpad.val182.merged = phi { ptr, i32 } [ %12, %lpad ], [ %.pn32, %ehcleanup53 ], [ %.pn38, %ehcleanup179 ], [ %.pn38, %if.then.i.i.i125 ]
   resume { ptr, i32 } %lpad.val182.merged
 
 terminate.lpad:                                   ; preds = %ehcleanup53
@@ -1443,7 +1443,7 @@ if.then.i83:                                      ; preds = %lpad98
   br label %ehcleanup101
 
 ehcleanup101:                                     ; preds = %if.then.i83, %lpad98, %ehcleanup95, %lpad68
-  %.pn54 = phi { ptr, i32 } [ %26, %lpad68 ], [ %.pn52, %ehcleanup95 ], [ %29, %lpad98 ], [ %29, %if.then.i83 ]
+  %.pn54 = phi { ptr, i32 } [ %.pn52, %ehcleanup95 ], [ %26, %lpad68 ], [ %29, %lpad98 ], [ %29, %if.then.i83 ]
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
@@ -1459,7 +1459,7 @@ seqcst.i135:                                      ; preds = %_ZNKSt8functionIFvl
   br label %return
 
 return:                                           ; preds = %if.then54, %land.lhs.true56, %_ZNKSt8functionIFvlbEEclElb.exit67, %if.then46, %land.lhs.true, %_ZNKSt8functionIFvlbEEclElb.exit, %seqcst.i135
-  %retval.0 = phi i1 [ true, %seqcst.i135 ], [ true, %_ZNKSt8functionIFvlbEEclElb.exit ], [ true, %land.lhs.true ], [ true, %if.then46 ], [ false, %_ZNKSt8functionIFvlbEEclElb.exit67 ], [ false, %land.lhs.true56 ], [ false, %if.then54 ]
+  %retval.0 = phi i1 [ true, %if.then46 ], [ true, %seqcst.i135 ], [ true, %_ZNKSt8functionIFvlbEEclElb.exit ], [ true, %land.lhs.true ], [ false, %_ZNKSt8functionIFvlbEEclElb.exit67 ], [ false, %land.lhs.true56 ], [ false, %if.then54 ]
   ret i1 %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup101, %lpad63, %ehcleanup
@@ -1708,7 +1708,7 @@ if.end.i.i.i:                                     ; preds = %if.end.i.i
   br label %_ZN8facebook5velox6memory5Stats9sizeIndexEl.exit.i
 
 _ZN8facebook5velox6memory5Stats9sizeIndexEl.exit.i: ; preds = %if.end.i.i.i, %if.end.i.i, %if.then.i
-  %retval.0.i.i = phi i64 [ 0, %if.then.i ], [ -1, %if.end.i.i ], [ %7, %if.end.i.i.i ]
+  %retval.0.i.i = phi i64 [ 0, %if.then.i ], [ %7, %if.end.i.i.i ], [ -1, %if.end.i.i ]
   %arrayidx.i.i.i = getelementptr %"struct.facebook::velox::memory::SizeClassStats", ptr %this, i64 %retval.0.i.i
   %freeClocks.i = getelementptr i8, ptr %arrayidx.i.i.i, i64 88
   %8 = tail call noundef i64 @llvm.x86.rdtsc()
@@ -3133,8 +3133,8 @@ _ZNSt10_HashtableIPvS0_SaIS0_ENSt8__detail9_IdentityESt8equal_toIS0_ESt4hashIS0_
   resume { ptr, i32 } %17
 
 return:                                           ; preds = %for.cond.i.i, %for.body, %if.end25, %if.end.i.i
-  %retval.sroa.0.0 = phi ptr [ %10, %if.end.i.i ], [ %call28, %if.end25 ], [ %__it.sroa.0.0, %for.body ], [ %12, %for.cond.i.i ]
-  %retval.sroa.4.0 = phi i8 [ 0, %if.end.i.i ], [ 1, %if.end25 ], [ 0, %for.body ], [ 0, %for.cond.i.i ]
+  %retval.sroa.0.0 = phi ptr [ %__it.sroa.0.0, %for.body ], [ %call28, %if.end25 ], [ %10, %if.end.i.i ], [ %12, %for.cond.i.i ]
+  %retval.sroa.4.0 = phi i8 [ 0, %for.body ], [ 1, %if.end25 ], [ 0, %if.end.i.i ], [ 0, %for.cond.i.i ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.4.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -3399,7 +3399,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 common.resume:                                    ; preds = %if.then.i.i9, %lpad, %lpad.i, %if.then.i.i
-  %common.resume.op = phi { ptr, i32 } [ %15, %if.then.i.i ], [ %15, %lpad.i ], [ %26, %lpad ], [ %26, %if.then.i.i9 ]
+  %common.resume.op = phi { ptr, i32 } [ %15, %lpad.i ], [ %15, %if.then.i.i ], [ %26, %lpad ], [ %26, %if.then.i.i9 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIFvlbEEC2ERKS1_.exit:               ; preds = %entry, %invoke.cont.i
@@ -3626,7 +3626,7 @@ _ZNSt10_HashtableIPvS0_SaIS0_ENSt8__detail9_IdentityESt8equal_toIS0_ESt4hashIS0_
   br label %return
 
 return:                                           ; preds = %if.end3.i, %if.end4.i, %lor.lhs.false.return.loopexit_crit_edge.i, %if.else, %if.then, %_ZNSt10_HashtableIPvS0_SaIS0_ENSt8__detail9_IdentityESt8equal_toIS0_ESt4hashIS0_ENS2_18_Mod_range_hashingENS2_20_Default_ranged_hashENS2_20_Prime_rehash_policyENS2_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS2_15_Hash_node_baseEPNS2_10_Hash_nodeIS0_Lb0EEE.exit
-  %retval.0 = phi i64 [ 1, %_ZNSt10_HashtableIPvS0_SaIS0_ENSt8__detail9_IdentityESt8equal_toIS0_ESt4hashIS0_ENS2_18_Mod_range_hashingENS2_20_Default_ranged_hashENS2_20_Prime_rehash_policyENS2_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS2_15_Hash_node_baseEPNS2_10_Hash_nodeIS0_Lb0EEE.exit ], [ 0, %if.then ], [ 0, %if.else ], [ 0, %lor.lhs.false.return.loopexit_crit_edge.i ], [ 0, %if.end4.i ], [ 0, %if.end3.i ]
+  %retval.0 = phi i64 [ 1, %_ZNSt10_HashtableIPvS0_SaIS0_ENSt8__detail9_IdentityESt8equal_toIS0_ESt4hashIS0_ENS2_18_Mod_range_hashingENS2_20_Default_ranged_hashENS2_20_Prime_rehash_policyENS2_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS2_15_Hash_node_baseEPNS2_10_Hash_nodeIS0_Lb0EEE.exit ], [ 0, %if.end4.i ], [ 0, %if.then ], [ 0, %if.else ], [ 0, %lor.lhs.false.return.loopexit_crit_edge.i ], [ 0, %if.end3.i ]
   ret i64 %retval.0
 }
 

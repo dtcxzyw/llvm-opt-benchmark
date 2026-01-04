@@ -89,7 +89,7 @@ define dso_local noundef i32 @_archive_set_option(ptr noundef %0, ptr noundef %1
   br label %35
 
 35:                                               ; preds = %26, %20, %7, %29, %28, %25
-  %.1 = phi i32 [ -25, %25 ], [ -25, %28 ], [ -25, %29 ], [ -30, %7 ], [ 0, %20 ], [ %27, %26 ]
+  %.1 = phi i32 [ -30, %7 ], [ -25, %25 ], [ -25, %28 ], [ -25, %29 ], [ 0, %20 ], [ %27, %26 ]
   ret i32 %.1
 }
 
@@ -125,7 +125,7 @@ define dso_local i32 @_archive_set_either_option(ptr noundef %0, ptr noundef %1,
   br label %17
 
 17:                                               ; preds = %6, %12, %9, %15, %14
-  %.0 = phi i32 [ %10, %14 ], [ %16, %15 ], [ %.mux, %6 ], [ -30, %9 ], [ %13, %12 ]
+  %.0 = phi i32 [ %16, %15 ], [ %.mux, %6 ], [ %13, %12 ], [ -30, %9 ], [ %10, %14 ]
   ret i32 %.0
 }
 
@@ -221,9 +221,9 @@ parse_option.exit:                                ; preds = %27, %29
   br label %51
 
 parse_option.exit.thread:                         ; preds = %19, %33, %parse_option.exit
-  %storemerge.i62 = phi ptr [ %storemerge.i, %33 ], [ %storemerge.i, %parse_option.exit ], [ null, %19 ]
-  %storemerge42.i61 = phi ptr [ %storemerge42.i, %33 ], [ %storemerge42.i, %parse_option.exit ], [ null, %19 ]
-  %storemerge43.i60 = phi ptr [ null, %33 ], [ %.034.i, %parse_option.exit ], [ null, %19 ]
+  %storemerge.i62 = phi ptr [ %storemerge.i, %parse_option.exit ], [ %storemerge.i, %33 ], [ null, %19 ]
+  %storemerge42.i61 = phi ptr [ %storemerge42.i, %parse_option.exit ], [ %storemerge42.i, %33 ], [ null, %19 ]
+  %storemerge43.i60 = phi ptr [ %.034.i, %parse_option.exit ], [ null, %33 ], [ null, %19 ]
   %37 = tail call i32 %4(ptr noundef %0, ptr noundef %storemerge43.i60, ptr noundef %storemerge42.i61, ptr noundef %storemerge.i62) #6
   %38 = icmp eq i32 %37, -30
   br i1 %38, label %39, label %40
@@ -269,9 +269,9 @@ parse_option.exit.thread:                         ; preds = %19, %33, %parse_opt
   br label %51
 
 51:                                               ; preds = %36, %44, %50, %45
-  %.136 = phi i32 [ 1, %45 ], [ %.035, %50 ], [ %spec.select, %36 ], [ %.035, %44 ]
-  %.134 = phi i32 [ %.033, %45 ], [ %.033, %50 ], [ %spec.select46, %36 ], [ 1, %44 ]
-  %.132 = phi i32 [ %.031, %45 ], [ 0, %50 ], [ %.031, %36 ], [ %.031, %44 ]
+  %.136 = phi i32 [ %.035, %50 ], [ %.035, %44 ], [ 1, %45 ], [ %spec.select, %36 ]
+  %.134 = phi i32 [ %.033, %50 ], [ 1, %44 ], [ %.033, %45 ], [ %spec.select46, %36 ]
+  %.132 = phi i32 [ 0, %50 ], [ %.031, %44 ], [ %.031, %45 ], [ %.031, %36 ]
   %.not43 = icmp eq ptr %.035.i, null
   br i1 %.not43, label %52, label %.preheader, !llvm.loop !7
 
@@ -284,7 +284,7 @@ parse_option.exit.thread:                         ; preds = %19, %33, %parse_opt
   br label %55
 
 55:                                               ; preds = %7, %9, %5, %52, %47, %46, %43, %39, %15
-  %.1 = phi i32 [ -30, %15 ], [ %54, %52 ], [ -30, %39 ], [ -25, %43 ], [ -25, %46 ], [ -25, %47 ], [ -30, %5 ], [ 0, %9 ], [ 0, %7 ]
+  %.1 = phi i32 [ -30, %5 ], [ -30, %15 ], [ %54, %52 ], [ -30, %39 ], [ -25, %43 ], [ -25, %46 ], [ -25, %47 ], [ 0, %9 ], [ 0, %7 ]
   ret i32 %.1
 }
 

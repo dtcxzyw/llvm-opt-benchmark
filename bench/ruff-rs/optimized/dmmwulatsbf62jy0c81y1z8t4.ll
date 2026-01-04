@@ -1453,7 +1453,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$15initialize_with17h
   unreachable
 
 .body.thread:                                     ; preds = %44, %47, %34, %19
-  %eh.lpad-body14 = phi { ptr, i32 } [ %20, %19 ], [ %35, %34 ], [ %lpad.thr_comm, %47 ], [ %lpad.thr_comm, %44 ]
+  %eh.lpad-body14 = phi { ptr, i32 } [ %lpad.thr_comm, %44 ], [ %35, %34 ], [ %20, %19 ], [ %lpad.thr_comm, %47 ]
   resume { ptr, i32 } %eh.lpad-body14
 }
 
@@ -1724,7 +1724,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h085f423fd816
   br label %.body.i.i
 
 .body.i.i:                                        ; preds = %82, %80, %42, %39, %37
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %83, %82 ], [ %81, %80 ], [ %.pn.i.i.i, %39 ], [ %.pn.i.i.i, %37 ], [ %.pn.i.i.i, %42 ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %83, %82 ], [ %.pn.i.i.i, %42 ], [ %81, %80 ], [ %.pn.i.i.i, %39 ], [ %.pn.i.i.i, %37 ]
   invoke void @"_ZN4core3ptr127drop_in_place$LT$core..cell..Ref$LT$core..option..Option$LT$$LP$ty_project..metadata..value..ValueSource$C$bool$RP$$GT$$GT$$GT$17h6dfee8b01ef7d8c1E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %11) #26
           to label %.body.thread.i unwind label %84, !noalias !114
 
@@ -1744,7 +1744,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h085f423fd816
           to label %.body.thread.i unwind label %84, !noalias !114
 
 .body.thread.i:                                   ; preds = %89, %87, %.body.i.i
-  %eh.lpad-body9.i = phi { ptr, i32 } [ %eh.lpad-body.i.i, %.body.i.i ], [ %88, %87 ], [ %90, %89 ]
+  %eh.lpad-body9.i = phi { ptr, i32 } [ %90, %89 ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %88, %87 ]
   resume { ptr, i32 } %eh.lpad-body9.i
 
 89:                                               ; preds = %3
@@ -2060,7 +2060,7 @@ _ZN5serde2de7Visitor12visit_string17hca867d1c9fe40881E.exit.i.i.i.i: ; preds = %
   br label %.body.i.i
 
 .body.i.i:                                        ; preds = %86, %84, %48, %45, %.body.i.i.i
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %87, %86 ], [ %85, %84 ], [ %.pn.i.i.i, %45 ], [ %.pn.i.i.i, %.body.i.i.i ], [ %.pn.i.i.i, %48 ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %87, %86 ], [ %.pn.i.i.i, %48 ], [ %85, %84 ], [ %.pn.i.i.i, %45 ], [ %.pn.i.i.i, %.body.i.i.i ]
   invoke void @"_ZN4core3ptr127drop_in_place$LT$core..cell..Ref$LT$core..option..Option$LT$$LP$ty_project..metadata..value..ValueSource$C$bool$RP$$GT$$GT$$GT$17h6dfee8b01ef7d8c1E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10) #26
           to label %.body.thread.i unwind label %90, !noalias !148
 
@@ -2094,7 +2094,7 @@ _ZN5serde2de7Visitor12visit_string17hca867d1c9fe40881E.exit.i.i.i.i: ; preds = %
           to label %.body.thread.i unwind label %90, !noalias !148
 
 .body.thread.i:                                   ; preds = %95, %93, %.body.i.i
-  %eh.lpad-body12.i = phi { ptr, i32 } [ %eh.lpad-body.i.i, %.body.i.i ], [ %94, %93 ], [ %96, %95 ]
+  %eh.lpad-body12.i = phi { ptr, i32 } [ %96, %95 ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %94, %93 ]
   resume { ptr, i32 } %eh.lpad-body12.i
 
 95:                                               ; preds = %3
@@ -2408,7 +2408,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h49d6358f90c9
   br label %.body.i.i
 
 .body.i.i:                                        ; preds = %83, %81, %42, %39, %37
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %84, %83 ], [ %82, %81 ], [ %.pn.i.i.i, %39 ], [ %.pn.i.i.i, %37 ], [ %.pn.i.i.i, %42 ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %84, %83 ], [ %.pn.i.i.i, %42 ], [ %82, %81 ], [ %.pn.i.i.i, %39 ], [ %.pn.i.i.i, %37 ]
   invoke void @"_ZN4core3ptr127drop_in_place$LT$core..cell..Ref$LT$core..option..Option$LT$$LP$ty_project..metadata..value..ValueSource$C$bool$RP$$GT$$GT$$GT$17h6dfee8b01ef7d8c1E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %11) #26
           to label %.body.thread.i unwind label %85, !noalias !188
 
@@ -2428,7 +2428,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h49d6358f90c9
           to label %.body.thread.i unwind label %85, !noalias !188
 
 .body.thread.i:                                   ; preds = %90, %88, %.body.i.i
-  %eh.lpad-body10.i = phi { ptr, i32 } [ %eh.lpad-body.i.i, %.body.i.i ], [ %89, %88 ], [ %91, %90 ]
+  %eh.lpad-body10.i = phi { ptr, i32 } [ %91, %90 ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %89, %88 ]
   resume { ptr, i32 } %eh.lpad-body10.i
 
 90:                                               ; preds = %3
@@ -2743,7 +2743,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h4ff8f2574193
   br label %.body.i.i
 
 .body.i.i:                                        ; preds = %82, %80, %42, %39, %37
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %83, %82 ], [ %81, %80 ], [ %.pn.i.i.i, %39 ], [ %.pn.i.i.i, %37 ], [ %.pn.i.i.i, %42 ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %83, %82 ], [ %.pn.i.i.i, %42 ], [ %81, %80 ], [ %.pn.i.i.i, %39 ], [ %.pn.i.i.i, %37 ]
   invoke void @"_ZN4core3ptr127drop_in_place$LT$core..cell..Ref$LT$core..option..Option$LT$$LP$ty_project..metadata..value..ValueSource$C$bool$RP$$GT$$GT$$GT$17h6dfee8b01ef7d8c1E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %11) #26
           to label %.body.thread.i unwind label %84, !noalias !222
 
@@ -2763,7 +2763,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h4ff8f2574193
           to label %.body.thread.i unwind label %84, !noalias !222
 
 .body.thread.i:                                   ; preds = %89, %87, %.body.i.i
-  %eh.lpad-body9.i = phi { ptr, i32 } [ %eh.lpad-body.i.i, %.body.i.i ], [ %88, %87 ], [ %90, %89 ]
+  %eh.lpad-body9.i = phi { ptr, i32 } [ %90, %89 ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %88, %87 ]
   resume { ptr, i32 } %eh.lpad-body9.i
 
 89:                                               ; preds = %3
@@ -3058,7 +3058,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h5eea3e258194
   br label %.body.i.i
 
 .body.i.i:                                        ; preds = %79, %77, %41, %38, %36
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %80, %79 ], [ %78, %77 ], [ %.pn.i.i.i, %38 ], [ %.pn.i.i.i, %36 ], [ %.pn.i.i.i, %41 ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %80, %79 ], [ %.pn.i.i.i, %41 ], [ %78, %77 ], [ %.pn.i.i.i, %38 ], [ %.pn.i.i.i, %36 ]
   invoke void @"_ZN4core3ptr127drop_in_place$LT$core..cell..Ref$LT$core..option..Option$LT$$LP$ty_project..metadata..value..ValueSource$C$bool$RP$$GT$$GT$$GT$17h6dfee8b01ef7d8c1E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10) #26
           to label %.body.thread.i unwind label %83, !noalias !256
 
@@ -3092,7 +3092,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h5eea3e258194
           to label %.body.thread.i unwind label %83, !noalias !256
 
 .body.thread.i:                                   ; preds = %88, %86, %.body.i.i
-  %eh.lpad-body12.i = phi { ptr, i32 } [ %eh.lpad-body.i.i, %.body.i.i ], [ %87, %86 ], [ %89, %88 ]
+  %eh.lpad-body12.i = phi { ptr, i32 } [ %89, %88 ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %87, %86 ]
   resume { ptr, i32 } %eh.lpad-body12.i
 
 88:                                               ; preds = %3
@@ -3419,7 +3419,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h67be3eb773d7
   br label %.body.i.i
 
 .body.i.i:                                        ; preds = %82, %80, %42, %39, %37
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %83, %82 ], [ %81, %80 ], [ %.pn.i.i.i, %39 ], [ %.pn.i.i.i, %37 ], [ %.pn.i.i.i, %42 ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %83, %82 ], [ %.pn.i.i.i, %42 ], [ %81, %80 ], [ %.pn.i.i.i, %39 ], [ %.pn.i.i.i, %37 ]
   invoke void @"_ZN4core3ptr127drop_in_place$LT$core..cell..Ref$LT$core..option..Option$LT$$LP$ty_project..metadata..value..ValueSource$C$bool$RP$$GT$$GT$$GT$17h6dfee8b01ef7d8c1E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %11) #26
           to label %.body.thread.i unwind label %84, !noalias !287
 
@@ -3439,7 +3439,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h67be3eb773d7
           to label %.body.thread.i unwind label %84, !noalias !287
 
 .body.thread.i:                                   ; preds = %89, %87, %.body.i.i
-  %eh.lpad-body9.i = phi { ptr, i32 } [ %eh.lpad-body.i.i, %.body.i.i ], [ %88, %87 ], [ %90, %89 ]
+  %eh.lpad-body9.i = phi { ptr, i32 } [ %90, %89 ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %88, %87 ]
   resume { ptr, i32 } %eh.lpad-body9.i
 
 89:                                               ; preds = %3
@@ -3754,7 +3754,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h84256c1dd4ba
   br label %.body.i.i
 
 .body.i.i:                                        ; preds = %82, %80, %42, %39, %37
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %83, %82 ], [ %81, %80 ], [ %.pn.i.i.i, %39 ], [ %.pn.i.i.i, %37 ], [ %.pn.i.i.i, %42 ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %83, %82 ], [ %.pn.i.i.i, %42 ], [ %81, %80 ], [ %.pn.i.i.i, %39 ], [ %.pn.i.i.i, %37 ]
   invoke void @"_ZN4core3ptr127drop_in_place$LT$core..cell..Ref$LT$core..option..Option$LT$$LP$ty_project..metadata..value..ValueSource$C$bool$RP$$GT$$GT$$GT$17h6dfee8b01ef7d8c1E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %11) #26
           to label %.body.thread.i unwind label %84, !noalias !321
 
@@ -3774,7 +3774,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h84256c1dd4ba
           to label %.body.thread.i unwind label %84, !noalias !321
 
 .body.thread.i:                                   ; preds = %89, %87, %.body.i.i
-  %eh.lpad-body9.i = phi { ptr, i32 } [ %eh.lpad-body.i.i, %.body.i.i ], [ %88, %87 ], [ %90, %89 ]
+  %eh.lpad-body9.i = phi { ptr, i32 } [ %90, %89 ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %88, %87 ]
   resume { ptr, i32 } %eh.lpad-body9.i
 
 89:                                               ; preds = %3
@@ -3859,7 +3859,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h8b030c84ac7b
   unreachable
 
 common.resume.i:                                  ; preds = %35, %32, %27, %13
-  %common.resume.op.i = phi { ptr, i32 } [ %14, %13 ], [ %36, %35 ], [ %lpad.thr_comm.i.i, %32 ], [ %28, %27 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %14, %13 ], [ %lpad.thr_comm.i.i, %32 ], [ %36, %35 ], [ %28, %27 ]
   resume { ptr, i32 } %common.resume.op.i
 
 18:                                               ; preds = %6
@@ -4202,7 +4202,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hadc5984f080b
   unreachable
 
 .body.i.i.i:                                      ; preds = %97, %81, %73, %56, %42
-  %.pn.i.i.i = phi { ptr, i32 } [ %98, %97 ], [ %43, %42 ], [ %82, %81 ], [ %lpad.thr_comm.i.i.i.i, %73 ], [ %57, %56 ]
+  %.pn.i.i.i = phi { ptr, i32 } [ %98, %97 ], [ %43, %42 ], [ %82, %81 ], [ %57, %56 ], [ %lpad.thr_comm.i.i.i.i, %73 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !422)
   %76 = load ptr, ptr %12, align 8, !alias.scope !422, !noalias !383, !noundef !4
   %.not.i.i.i.i = icmp eq ptr %76, null
@@ -4375,7 +4375,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hadc5984f080b
   br label %.body.i.i
 
 .body.i.i:                                        ; preds = %118, %116, %80, %77, %.body.i.i.i
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %119, %118 ], [ %117, %116 ], [ %.pn.i.i.i, %77 ], [ %.pn.i.i.i, %.body.i.i.i ], [ %.pn.i.i.i, %80 ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %119, %118 ], [ %.pn.i.i.i, %80 ], [ %117, %116 ], [ %.pn.i.i.i, %77 ], [ %.pn.i.i.i, %.body.i.i.i ]
   invoke void @"_ZN4core3ptr127drop_in_place$LT$core..cell..Ref$LT$core..option..Option$LT$$LP$ty_project..metadata..value..ValueSource$C$bool$RP$$GT$$GT$$GT$17h6dfee8b01ef7d8c1E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %13) #26
           to label %.body.thread.i unwind label %120, !noalias !378
 
@@ -4395,7 +4395,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hadc5984f080b
           to label %.body.thread.i unwind label %120, !noalias !378
 
 .body.thread.i:                                   ; preds = %125, %123, %.body.i.i
-  %eh.lpad-body9.i = phi { ptr, i32 } [ %eh.lpad-body.i.i, %.body.i.i ], [ %124, %123 ], [ %126, %125 ]
+  %eh.lpad-body9.i = phi { ptr, i32 } [ %126, %125 ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %124, %123 ]
   resume { ptr, i32 } %eh.lpad-body9.i
 
 125:                                              ; preds = %3
@@ -5130,7 +5130,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hdb4f5e8cebdb
   br label %.body.i.i
 
 .body.i.i:                                        ; preds = %79, %77, %41, %38, %36
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %80, %79 ], [ %78, %77 ], [ %.pn.i.i.i, %38 ], [ %.pn.i.i.i, %36 ], [ %.pn.i.i.i, %41 ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %80, %79 ], [ %.pn.i.i.i, %41 ], [ %78, %77 ], [ %.pn.i.i.i, %38 ], [ %.pn.i.i.i, %36 ]
   invoke void @"_ZN4core3ptr127drop_in_place$LT$core..cell..Ref$LT$core..option..Option$LT$$LP$ty_project..metadata..value..ValueSource$C$bool$RP$$GT$$GT$$GT$17h6dfee8b01ef7d8c1E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10) #26
           to label %.body.thread.i unwind label %83, !noalias !495
 
@@ -5164,7 +5164,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hdb4f5e8cebdb
           to label %.body.thread.i unwind label %83, !noalias !495
 
 .body.thread.i:                                   ; preds = %88, %86, %.body.i.i
-  %eh.lpad-body12.i = phi { ptr, i32 } [ %eh.lpad-body.i.i, %.body.i.i ], [ %87, %86 ], [ %89, %88 ]
+  %eh.lpad-body12.i = phi { ptr, i32 } [ %89, %88 ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %87, %86 ]
   resume { ptr, i32 } %eh.lpad-body12.i
 
 88:                                               ; preds = %3
@@ -5488,7 +5488,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17he4f67017f629
   br label %.body.i.i
 
 .body.i.i:                                        ; preds = %82, %80, %41, %38, %36
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %83, %82 ], [ %81, %80 ], [ %.pn.i.i.i, %38 ], [ %.pn.i.i.i, %36 ], [ %.pn.i.i.i, %41 ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %83, %82 ], [ %.pn.i.i.i, %41 ], [ %81, %80 ], [ %.pn.i.i.i, %38 ], [ %.pn.i.i.i, %36 ]
   invoke void @"_ZN4core3ptr127drop_in_place$LT$core..cell..Ref$LT$core..option..Option$LT$$LP$ty_project..metadata..value..ValueSource$C$bool$RP$$GT$$GT$$GT$17h6dfee8b01ef7d8c1E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10) #26
           to label %.body.thread.i unwind label %86, !noalias !526
 
@@ -5527,7 +5527,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17he4f67017f629
           to label %.body.thread.i unwind label %86, !noalias !526
 
 .body.thread.i:                                   ; preds = %91, %89, %.body.i.i
-  %eh.lpad-body16.i = phi { ptr, i32 } [ %eh.lpad-body.i.i, %.body.i.i ], [ %90, %89 ], [ %92, %91 ]
+  %eh.lpad-body16.i = phi { ptr, i32 } [ %92, %91 ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %90, %89 ]
   resume { ptr, i32 } %eh.lpad-body16.i
 
 91:                                               ; preds = %3
@@ -8330,7 +8330,7 @@ define internal void @"_ZN77_$LT$rayon_core..job..HeapJob$LT$BODY$GT$$u20$as$u20
   br i1 %.not.i.i.i.i.i.i, label %.thread8.i.i.i.i.i.i, label %26
 
 .body56.i.i.i.i.i.i:                              ; preds = %.thread11.i.i.i.i.i.i, %91, %49, %24
-  %.pn53.i.i.i.i.i.i = phi { ptr, i32 } [ %.pn.pn.i.i.i.i.i.i, %.thread11.i.i.i.i.i.i ], [ %50, %49 ], [ %25, %24 ], [ %92, %91 ]
+  %.pn53.i.i.i.i.i.i = phi { ptr, i32 } [ %50, %49 ], [ %.pn.pn.i.i.i.i.i.i, %.thread11.i.i.i.i.i.i ], [ %25, %24 ], [ %92, %91 ]
   invoke void @"_ZN4core3ptr52drop_in_place$LT$ty_project..db..ProjectDatabase$GT$17h995e30f1d91ba0e9E"(ptr noalias noundef nonnull align 8 dereferenceable(128) %.sroa.7.0..sroa_idx5.i.i)
           to label %.body.i.i unwind label %95, !noalias !879
 
@@ -9846,7 +9846,7 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
   br label %.body.i
 
 .body.i:                                          ; preds = %26, %22, %19, %15
-  %eh.lpad-body.i = phi { ptr, i32 } [ %27, %26 ], [ %23, %22 ], [ %20, %19 ], [ %16, %15 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %23, %22 ], [ %16, %15 ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17he70a92f12a06d460E(ptr noundef %28)
           to label %33 unwind label %30, !noalias !993
@@ -10080,7 +10080,7 @@ define hidden void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$as
   br label %.body.i
 
 .body.i:                                          ; preds = %26, %22, %19, %15
-  %eh.lpad-body.i = phi { ptr, i32 } [ %27, %26 ], [ %23, %22 ], [ %20, %19 ], [ %16, %15 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %23, %22 ], [ %16, %15 ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17he70a92f12a06d460E(ptr noundef %28)
           to label %33 unwind label %30, !noalias !1016
@@ -13822,7 +13822,7 @@ _ZN6winnow6parser6Parser5parse17hc60cf068a025538cE.exit: ; preds = %64
   call void @"_ZN4core3ptr84drop_in_place$LT$core..cell..RefCell$LT$toml_edit..parser..state..ParseState$GT$$GT$17h86648773f9fb4ed7E"(ptr noalias noundef nonnull align 8 dereferenceable(408) %23)
   br label %111
 
-115:                                              ; preds = %66, %"_ZN9toml_edit6parser8document8document28_$u7b$$u7b$closure$u7d$$u7d$17h42062b962c101ff2E.exit.thread87.i", %59, %.noexc27, %"_ZN118_$LT$winnow..combinator..multi..Repeat$LT$P$C$I$C$O$C$C$C$E$GT$$u20$as$u20$winnow..parser..Parser$LT$I$C$C$C$E$GT$$GT$10parse_next28_$u7b$$u7b$closure$u7d$$u7d$17h39d77f5a00787f95E.exit.i.i.i", %45, %"_ZN6winnow10combinator4core3opt28_$u7b$$u7b$closure$u7d$$u7d$17hce065cd183764e03E.exit.thread.i.i", %.sink.split.i9.i.i.i, %3, %67
+115:                                              ; preds = %"_ZN9toml_edit6parser8document8document28_$u7b$$u7b$closure$u7d$$u7d$17h42062b962c101ff2E.exit.thread87.i", %59, %.noexc27, %"_ZN118_$LT$winnow..combinator..multi..Repeat$LT$P$C$I$C$O$C$C$C$E$GT$$u20$as$u20$winnow..parser..Parser$LT$I$C$C$C$E$GT$$GT$10parse_next28_$u7b$$u7b$closure$u7d$$u7d$17h39d77f5a00787f95E.exit.i.i.i", %45, %"_ZN6winnow10combinator4core3opt28_$u7b$$u7b$closure$u7d$$u7d$17hce065cd183764e03E.exit.thread.i.i", %.sink.split.i9.i.i.i, %3, %66, %67
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr84drop_in_place$LT$core..cell..RefCell$LT$toml_edit..parser..state..ParseState$GT$$GT$17h86648773f9fb4ed7E"(ptr noalias noundef nonnull align 8 dereferenceable(408) %23) #26
@@ -13835,7 +13835,7 @@ _ZN6winnow6parser6Parser5parse17hc60cf068a025538cE.exit: ; preds = %64
   unreachable
 
 .body.thread:                                     ; preds = %101, %96, %.body.i, %115
-  %eh.lpad-body101 = phi { ptr, i32 } [ %lpad.thr_comm, %115 ], [ %97, %101 ], [ %97, %96 ], [ %83, %.body.i ]
+  %eh.lpad-body101 = phi { ptr, i32 } [ %lpad.thr_comm, %115 ], [ %83, %.body.i ], [ %97, %96 ], [ %97, %101 ]
   resume { ptr, i32 } %eh.lpad-body101
 }
 
@@ -13960,7 +13960,7 @@ _ZN4core3ops8function6FnOnce9call_once17h6ab98b9ac81b50bcE.exit.thread7.i.i: ; p
   unreachable
 
 .body.thread.i.i:                                 ; preds = %30, %26
-  %eh.lpad-body3.i.i = phi { ptr, i32 } [ %31, %30 ], [ %27, %26 ]
+  %eh.lpad-body3.i.i = phi { ptr, i32 } [ %27, %26 ], [ %31, %30 ]
   resume { ptr, i32 } %eh.lpad-body3.i.i
 
 30:                                               ; preds = %9
@@ -14152,7 +14152,7 @@ define internal noundef range(i8 0, 2) i8 @"_ZN10ty_project4walk18ProjectFilesWa
   %44 = invoke { ptr, i64 } @_ZN7ruff_db6system14walk_directory14DirectoryEntry4path17h3b8a35d648f3c8fdE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %37)
           to label %45 unwind label %.thread169
 
-.thread169:                                       ; preds = %.invoke, %146, %140, %138, %50, %112, %109, %92, %83, %126, %124, %.thread173, %60, %45, %41, %155, %159, %_ZN3std4sync6poison4Flag5guard17h7f1fdba42f6181b6E.exit.i
+.thread169:                                       ; preds = %.invoke, %41, %_ZN3std4sync6poison4Flag5guard17h7f1fdba42f6181b6E.exit.i, %146, %140, %138, %50, %112, %109, %92, %83, %60, %45, %126, %124, %.thread173, %155, %159
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread165
@@ -14614,7 +14614,7 @@ _ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i: ; preds = %209, %.no
           to label %.thread unwind label %213
 
 .body101:                                         ; preds = %341, %268, %215, %.body134, %.body149
-  %.pn95 = phi { ptr, i32 } [ %.pn93, %.body134 ], [ %eh.lpad-body150, %.body149 ], [ %216, %215 ], [ %269, %268 ], [ %342, %341 ]
+  %.pn95 = phi { ptr, i32 } [ %eh.lpad-body150, %.body149 ], [ %.pn93, %.body134 ], [ %269, %268 ], [ %216, %215 ], [ %342, %341 ]
   invoke void @"_ZN4core3ptr59drop_in_place$LT$ruff_db..system..walk_directory..Error$GT$17ha3d3ba465f0f9dbeE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %20) #26
           to label %.thread unwind label %213
 
@@ -15302,8 +15302,8 @@ define hidden { i64, ptr } @_ZN10ty_project5catch17h4dd2cf577f2e9964E(ptr nounde
           to label %.thread145 unwind label %63
 
 80:                                               ; preds = %92, %86, %"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hd98941c64075284aE.exit", %112, %101, %99, %91, %90, %88, %85, %83, %82, %77
-  %.sroa.022.1 = phi i8 [ %.sroa.022.3, %"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hd98941c64075284aE.exit" ], [ 0, %112 ], [ 1, %101 ], [ 1, %99 ], [ 1, %91 ], [ 1, %90 ], [ 1, %88 ], [ 1, %85 ], [ 1, %83 ], [ 1, %82 ], [ 1, %77 ], [ 1, %86 ], [ 1, %92 ]
-  %.sroa.019.1 = phi i1 [ false, %"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hd98941c64075284aE.exit" ], [ true, %112 ], [ true, %101 ], [ true, %99 ], [ true, %91 ], [ true, %90 ], [ true, %88 ], [ true, %85 ], [ true, %83 ], [ true, %82 ], [ true, %77 ], [ true, %86 ], [ true, %92 ]
+  %.sroa.022.1 = phi i8 [ %.sroa.022.3, %"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hd98941c64075284aE.exit" ], [ 0, %112 ], [ 1, %101 ], [ 1, %99 ], [ 1, %92 ], [ 1, %91 ], [ 1, %90 ], [ 1, %88 ], [ 1, %86 ], [ 1, %85 ], [ 1, %83 ], [ 1, %82 ], [ 1, %77 ]
+  %.sroa.019.1 = phi i1 [ false, %"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hd98941c64075284aE.exit" ], [ true, %112 ], [ true, %101 ], [ true, %99 ], [ true, %92 ], [ true, %91 ], [ true, %90 ], [ true, %88 ], [ true, %86 ], [ true, %85 ], [ true, %83 ], [ true, %82 ], [ true, %77 ]
   %81 = landingpad { ptr, i32 }
           cleanup
   br label %79
@@ -16332,7 +16332,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN10ty_project1_50_$LT$impl$u20$ty_
   unreachable
 
 .thread:                                          ; preds = %24, %28
-  %.pn6 = phi { ptr, i32 } [ %lpad.thr_comm, %28 ], [ %25, %24 ]
+  %.pn6 = phi { ptr, i32 } [ %25, %24 ], [ %lpad.thr_comm, %28 ]
   resume { ptr, i32 } %.pn6
 
 28:                                               ; preds = %12, %3

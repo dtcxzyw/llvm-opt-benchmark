@@ -756,7 +756,7 @@ define hidden noundef nonnull align 8 ptr @_ZN10ockam_node5error9NodeError13from
           to label %.body.thread unwind label %11
 
 .body.thread:                                     ; preds = %13, %14
-  %eh.lpad-body3 = phi { ptr, i32 } [ %15, %14 ], [ %10, %13 ]
+  %eh.lpad-body3 = phi { ptr, i32 } [ %10, %13 ], [ %15, %14 ]
   resume { ptr, i32 } %eh.lpad-body3
 
 14:                                               ; preds = %2
@@ -816,7 +816,7 @@ define hidden noundef nonnull align 8 ptr @_ZN10ockam_node5error9NodeError13from
           to label %.body.thread unwind label %11
 
 .body.thread:                                     ; preds = %13, %14
-  %eh.lpad-body3 = phi { ptr, i32 } [ %15, %14 ], [ %10, %13 ]
+  %eh.lpad-body3 = phi { ptr, i32 } [ %10, %13 ], [ %15, %14 ]
   resume { ptr, i32 } %eh.lpad-body3
 
 14:                                               ; preds = %2
@@ -914,8 +914,8 @@ define hidden void @_ZN10serde_bare2de10from_slice17h7e35cfd835b9ddd6E(ptr noali
   br label %"_ZN19ockam_transport_udp6router8messages1_108_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_udp..router..messages..UdpRouterRequest$GT$11deserialize17h1b26ee9659ae1ffbE.exit"
 
 "_ZN19ockam_transport_udp6router8messages1_108_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_udp..router..messages..UdpRouterRequest$GT$11deserialize17h1b26ee9659ae1ffbE.exit": ; preds = %3, %14, %15
-  %.sink.i.i.i = phi ptr [ %17, %15 ], [ %.sroa.512.0.copyload.i.i.i.i.i.i.i, %14 ], [ %10, %3 ]
-  %storemerge.i.i.i = phi i16 [ 2, %15 ], [ %12, %14 ], [ 2, %3 ]
+  %.sink.i.i.i = phi ptr [ %.sroa.512.0.copyload.i.i.i.i.i.i.i, %14 ], [ %17, %15 ], [ %10, %3 ]
+  %storemerge.i.i.i = phi i16 [ %12, %14 ], [ 2, %15 ], [ 2, %3 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink.i.i.i, ptr %18, align 8, !alias.scope !117, !noalias !136
   store i16 %storemerge.i.i.i, ptr %0, align 8, !alias.scope !117, !noalias !136
@@ -1597,8 +1597,8 @@ define hidden void @"_ZN167_$LT$$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$
   store ptr %1, ptr %41, align 8
   br label %44
 
-42:                                               ; preds = %38, %34, %13, %.lr.ph.i.i._crit_edge.i.i
-  %.sroa.78.0.ph = phi ptr [ %14, %13 ], [ %.lcssa.i.i, %.lr.ph.i.i._crit_edge.i.i ], [ %36, %34 ], [ %39, %38 ]
+42:                                               ; preds = %38, %34, %.lr.ph.i.i._crit_edge.i.i, %13
+  %.sroa.78.0.ph = phi ptr [ %.lcssa.i.i, %.lr.ph.i.i._crit_edge.i.i ], [ %14, %13 ], [ %36, %34 ], [ %39, %38 ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.78.0.ph, ptr %43, align 8
   store i8 2, ptr %0, align 8
@@ -1720,8 +1720,8 @@ define hidden void @"_ZN167_$LT$$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$
   store ptr %1, ptr %41, align 8
   br label %44
 
-42:                                               ; preds = %38, %34, %13, %.lr.ph.i.i._crit_edge.i.i
-  %.sroa.78.0.ph = phi ptr [ %14, %13 ], [ %.lcssa.i.i, %.lr.ph.i.i._crit_edge.i.i ], [ %36, %34 ], [ %39, %38 ]
+42:                                               ; preds = %38, %34, %.lr.ph.i.i._crit_edge.i.i, %13
+  %.sroa.78.0.ph = phi ptr [ %.lcssa.i.i, %.lr.ph.i.i._crit_edge.i.i ], [ %14, %13 ], [ %36, %34 ], [ %39, %38 ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.78.0.ph, ptr %43, align 8
   store i8 2, ptr %0, align 8
@@ -5834,7 +5834,7 @@ define hidden noundef align 8 ptr @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Seria
   br label %"_ZN5serde3ser5impls85_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$9serialize17hfb00e2c085767f22E.exit"
 
 "_ZN5serde3ser5impls85_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$9serialize17hfb00e2c085767f22E.exit": ; preds = %.preheader9, %.preheader, %.critedge, %37
-  %.0 = phi ptr [ %20, %37 ], [ %36, %.critedge ], [ %33, %.preheader ], [ %34, %.preheader9 ]
+  %.0 = phi ptr [ %20, %37 ], [ %33, %.preheader ], [ %36, %.critedge ], [ %34, %.preheader9 ]
   ret ptr %.0
 }
 
@@ -6091,7 +6091,7 @@ define hidden noundef align 8 ptr @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Seria
   br label %"_ZN5serde3ser5impls85_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$9serialize17he72aef49010be8e6E.exit"
 
 "_ZN5serde3ser5impls85_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$9serialize17he72aef49010be8e6E.exit": ; preds = %.preheader, %.critedge37, %38, %.critedge, %42
-  %.0 = phi ptr [ %20, %42 ], [ %35, %.critedge ], [ %41, %38 ], [ %36, %.critedge37 ], [ %33, %.preheader ]
+  %.0 = phi ptr [ %20, %42 ], [ %36, %.critedge37 ], [ %35, %.critedge ], [ %41, %38 ], [ %33, %.preheader ]
   ret ptr %.0
 }
 
@@ -7560,8 +7560,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   br label %"_ZN212_$LT$ockam_transport_udp..router..messages.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_udp..router..messages..UdpRouterRequest$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hf16c148cbe462c02E.exit"
 
 "_ZN212_$LT$ockam_transport_udp..router..messages.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_udp..router..messages..UdpRouterRequest$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hf16c148cbe462c02E.exit": ; preds = %6, %12, %13
-  %.sink.i = phi ptr [ %15, %13 ], [ %.sroa.512.0.copyload.i.i.i.i.i, %12 ], [ %8, %6 ]
-  %storemerge.i = phi i16 [ 2, %13 ], [ %10, %12 ], [ 2, %6 ]
+  %.sink.i = phi ptr [ %.sroa.512.0.copyload.i.i.i.i.i, %12 ], [ %15, %13 ], [ %8, %6 ]
+  %storemerge.i = phi i16 [ %10, %12 ], [ 2, %13 ], [ 2, %6 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink.i, ptr %16, align 8, !alias.scope !2155, !noalias !2173
   store i16 %storemerge.i, ptr %0, align 8, !alias.scope !2155, !noalias !2173
@@ -8317,7 +8317,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   br label %_ZN5serde2de7Visitor9visit_u3217h92cb785a5931a8f0E.exit
 
 _ZN5serde2de7Visitor9visit_u3217h92cb785a5931a8f0E.exit: ; preds = %47, %45, %43, %41, %39, %35, %31, %49
-  %.sink.i.i.sink = phi i8 [ 1, %31 ], [ 1, %49 ], [ 0, %47 ], [ 0, %45 ], [ 0, %43 ], [ 0, %41 ], [ 0, %39 ], [ 1, %35 ]
+  %.sink.i.i.sink = phi i8 [ 1, %49 ], [ 1, %31 ], [ 0, %47 ], [ 0, %45 ], [ 0, %43 ], [ 0, %41 ], [ 0, %39 ], [ 1, %35 ]
   store i8 %.sink.i.i.sink, ptr %0, align 8
   ret void
 }
@@ -8426,7 +8426,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   br label %_ZN5serde2de7Visitor9visit_u3217h2341b732326323f3E.exit
 
 _ZN5serde2de7Visitor9visit_u3217h2341b732326323f3E.exit: ; preds = %41, %39, %35, %31, %43
-  %.sink.i.i.sink = phi i8 [ 1, %31 ], [ 1, %43 ], [ 0, %41 ], [ 0, %39 ], [ 1, %35 ]
+  %.sink.i.i.sink = phi i8 [ 1, %43 ], [ 1, %31 ], [ 0, %41 ], [ 0, %39 ], [ 1, %35 ]
   store i8 %.sink.i.i.sink, ptr %0, align 8
   ret void
 }
@@ -8607,7 +8607,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   br label %_ZN5serde2de7Visitor9visit_u3217hf478c1462c671693E.exit
 
 _ZN5serde2de7Visitor9visit_u3217hf478c1462c671693E.exit: ; preds = %65, %63, %61, %59, %57, %55, %53, %51, %49, %47, %45, %43, %41, %39, %35, %31, %67
-  %.sink.i.i.sink = phi i8 [ 1, %31 ], [ 1, %67 ], [ 0, %65 ], [ 0, %63 ], [ 0, %61 ], [ 0, %59 ], [ 0, %57 ], [ 0, %55 ], [ 0, %53 ], [ 0, %51 ], [ 0, %49 ], [ 0, %47 ], [ 0, %45 ], [ 0, %43 ], [ 0, %41 ], [ 0, %39 ], [ 1, %35 ]
+  %.sink.i.i.sink = phi i8 [ 1, %67 ], [ 1, %31 ], [ 0, %65 ], [ 0, %63 ], [ 0, %61 ], [ 0, %59 ], [ 0, %57 ], [ 0, %55 ], [ 0, %53 ], [ 0, %51 ], [ 0, %49 ], [ 0, %47 ], [ 0, %45 ], [ 0, %43 ], [ 0, %41 ], [ 0, %39 ], [ 1, %35 ]
   store i8 %.sink.i.i.sink, ptr %0, align 8
   ret void
 }
@@ -8716,7 +8716,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   br label %_ZN5serde2de7Visitor9visit_u3217hef3a6b191ee068adE.exit
 
 _ZN5serde2de7Visitor9visit_u3217hef3a6b191ee068adE.exit: ; preds = %41, %39, %35, %31, %43
-  %.sink.i.i.sink = phi i8 [ 1, %31 ], [ 1, %43 ], [ 0, %41 ], [ 0, %39 ], [ 1, %35 ]
+  %.sink.i.i.sink = phi i8 [ 1, %43 ], [ 1, %31 ], [ 0, %41 ], [ 0, %39 ], [ 1, %35 ]
   store i8 %.sink.i.i.sink, ptr %0, align 8
   ret void
 }
@@ -8831,7 +8831,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   br label %_ZN5serde2de7Visitor9visit_u3217hefb26bcbb80420beE.exit
 
 _ZN5serde2de7Visitor9visit_u3217hefb26bcbb80420beE.exit: ; preds = %43, %41, %39, %35, %31, %45
-  %.sink.i.i.sink = phi i8 [ 1, %31 ], [ 1, %45 ], [ 0, %43 ], [ 0, %41 ], [ 0, %39 ], [ 1, %35 ]
+  %.sink.i.i.sink = phi i8 [ 1, %45 ], [ 1, %31 ], [ 0, %43 ], [ 0, %41 ], [ 0, %39 ], [ 1, %35 ]
   store i8 %.sink.i.i.sink, ptr %0, align 8
   ret void
 }
@@ -8915,7 +8915,7 @@ define hidden noundef align 8 ptr @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deseri
   br label %_ZN5serde2de7Visitor9visit_u3217h55a6d97214591d26E.exit
 
 _ZN5serde2de7Visitor9visit_u3217h55a6d97214591d26E.exit: ; preds = %.lr.ph.i._crit_edge, %11, %32, %30, %35
-  %.0 = phi ptr [ %36, %35 ], [ %34, %32 ], [ null, %30 ], [ %.lcssa, %.lr.ph.i._crit_edge ], [ %12, %11 ]
+  %.0 = phi ptr [ null, %30 ], [ %36, %35 ], [ %34, %32 ], [ %.lcssa, %.lr.ph.i._crit_edge ], [ %12, %11 ]
   ret ptr %.0
 }
 
@@ -9435,7 +9435,7 @@ common.resume:                                    ; preds = %17
   br label %39
 
 39:                                               ; preds = %"_ZN113_$LT$futures_util..stream..stream..split..SplitSink$LT$S$C$Item$GT$$u20$as$u20$futures_sink..Sink$LT$Item$GT$$GT$10poll_ready17h6b371be6ca6eab11E.exit", %"_ZN113_$LT$futures_util..stream..stream..split..SplitSink$LT$S$C$Item$GT$$u20$as$u20$futures_sink..Sink$LT$Item$GT$$GT$10poll_ready17h6b371be6ca6eab11E.exit.thread45", %"_ZN113_$LT$futures_util..stream..stream..split..SplitSink$LT$S$C$Item$GT$$u20$as$u20$futures_sink..Sink$LT$Item$GT$$GT$10poll_ready17h6b371be6ca6eab11E.exit.thread43", %"_ZN113_$LT$futures_util..stream..stream..split..SplitSink$LT$S$C$Item$GT$$u20$as$u20$futures_sink..Sink$LT$Item$GT$$GT$10start_send17h70b5638874ce3c25E.exit"
-  %.1 = phi i8 [ 0, %"_ZN113_$LT$futures_util..stream..stream..split..SplitSink$LT$S$C$Item$GT$$u20$as$u20$futures_sink..Sink$LT$Item$GT$$GT$10start_send17h70b5638874ce3c25E.exit" ], [ 17, %"_ZN113_$LT$futures_util..stream..stream..split..SplitSink$LT$S$C$Item$GT$$u20$as$u20$futures_sink..Sink$LT$Item$GT$$GT$10poll_ready17h6b371be6ca6eab11E.exit.thread43" ], [ 17, %"_ZN113_$LT$futures_util..stream..stream..split..SplitSink$LT$S$C$Item$GT$$u20$as$u20$futures_sink..Sink$LT$Item$GT$$GT$10poll_ready17h6b371be6ca6eab11E.exit.thread45" ], [ %.014.ph.ph.i, %"_ZN113_$LT$futures_util..stream..stream..split..SplitSink$LT$S$C$Item$GT$$u20$as$u20$futures_sink..Sink$LT$Item$GT$$GT$10poll_ready17h6b371be6ca6eab11E.exit" ]
+  %.1 = phi i8 [ 0, %"_ZN113_$LT$futures_util..stream..stream..split..SplitSink$LT$S$C$Item$GT$$u20$as$u20$futures_sink..Sink$LT$Item$GT$$GT$10start_send17h70b5638874ce3c25E.exit" ], [ %.014.ph.ph.i, %"_ZN113_$LT$futures_util..stream..stream..split..SplitSink$LT$S$C$Item$GT$$u20$as$u20$futures_sink..Sink$LT$Item$GT$$GT$10poll_ready17h6b371be6ca6eab11E.exit" ], [ 17, %"_ZN113_$LT$futures_util..stream..stream..split..SplitSink$LT$S$C$Item$GT$$u20$as$u20$futures_sink..Sink$LT$Item$GT$$GT$10poll_ready17h6b371be6ca6eab11E.exit.thread45" ], [ 17, %"_ZN113_$LT$futures_util..stream..stream..split..SplitSink$LT$S$C$Item$GT$$u20$as$u20$futures_sink..Sink$LT$Item$GT$$GT$10poll_ready17h6b371be6ca6eab11E.exit.thread43" ]
   ret i8 %.1
 }
 

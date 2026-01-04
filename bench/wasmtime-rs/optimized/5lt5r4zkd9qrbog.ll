@@ -1937,7 +1937,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst25gen_instruction_data_
   resume { ptr, i32 } %.pn8287
 
 .thread:                                          ; preds = %159, %148, %89, %133, %100, %152, %167, %99, %168, %.thread89
-  %.pn8287 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread89 ], [ %lpad.thr_comm.split-lp107, %99 ], [ %lpad.thr_comm106, %168 ], [ %90, %89 ], [ %.pn73116, %133 ], [ %.pn75.ph, %100 ], [ %.pn77.ph, %152 ], [ %.pn79.ph, %167 ], [ %lpad.thr_comm.split-lp134, %148 ], [ %160, %159 ]
+  %.pn8287 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread89 ], [ %lpad.thr_comm106, %168 ], [ %lpad.thr_comm.split-lp107, %99 ], [ %90, %89 ], [ %.pn73116, %133 ], [ %.pn75.ph, %100 ], [ %.pn79.ph, %167 ], [ %.pn77.ph, %152 ], [ %lpad.thr_comm.split-lp134, %148 ], [ %160, %159 ]
   invoke void @"_ZN4core3ptr58drop_in_place$LT$cranelift_codegen_meta..srcgen..Match$GT$17h5f592149b1449aa7E"(ptr nonnull align 8 %36) #13
           to label %169 unwind label %97
 }
@@ -2071,7 +2071,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst25gen_instruction_data_
           to label %68 unwind label %.loopexit.split-lp
 
 67:                                               ; preds = %.loopexit, %.loopexit.split-lp, %106, %103
-  %.pn43 = phi { ptr, i32 } [ %.pn, %106 ], [ %104, %103 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn43 = phi { ptr, i32 } [ %104, %103 ], [ %.pn, %106 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr51drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$17h6d28b7d80f611181E"(ptr nonnull align 8 %16) #13
           to label %53 unwind label %132
 
@@ -2546,10 +2546,10 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst25gen_instruction_data_
   br label %57
 
 58:                                               ; preds = %55, %61, %52, %56
-  %.sroa.021.0 = phi ptr [ @anon.3a4e41e0094de0b8ba6604e391603d5d.107, %56 ], [ @anon.3a4e41e0094de0b8ba6604e391603d5d.108, %52 ], [ @anon.3a4e41e0094de0b8ba6604e391603d5d.45, %61 ], [ @anon.3a4e41e0094de0b8ba6604e391603d5d.111, %55 ]
-  %.sroa.5.0 = phi i64 [ 25, %56 ], [ 3, %52 ], [ 4, %61 ], [ 19, %55 ]
-  %.sroa.022.0 = phi ptr [ @anon.3a4e41e0094de0b8ba6604e391603d5d.96, %56 ], [ @anon.3a4e41e0094de0b8ba6604e391603d5d.109, %52 ], [ @anon.3a4e41e0094de0b8ba6604e391603d5d.110, %61 ], [ @anon.3a4e41e0094de0b8ba6604e391603d5d.112, %55 ]
-  %.sroa.523.0 = phi i64 [ 1, %56 ], [ 1, %52 ], [ 10, %61 ], [ 14, %55 ]
+  %.sroa.021.0 = phi ptr [ @anon.3a4e41e0094de0b8ba6604e391603d5d.45, %61 ], [ @anon.3a4e41e0094de0b8ba6604e391603d5d.107, %56 ], [ @anon.3a4e41e0094de0b8ba6604e391603d5d.108, %52 ], [ @anon.3a4e41e0094de0b8ba6604e391603d5d.111, %55 ]
+  %.sroa.5.0 = phi i64 [ 4, %61 ], [ 25, %56 ], [ 3, %52 ], [ 19, %55 ]
+  %.sroa.022.0 = phi ptr [ @anon.3a4e41e0094de0b8ba6604e391603d5d.110, %61 ], [ @anon.3a4e41e0094de0b8ba6604e391603d5d.96, %56 ], [ @anon.3a4e41e0094de0b8ba6604e391603d5d.109, %52 ], [ @anon.3a4e41e0094de0b8ba6604e391603d5d.112, %55 ]
+  %.sroa.523.0 = phi i64 [ 10, %61 ], [ 1, %56 ], [ 1, %52 ], [ 14, %55 ]
   store ptr %.sroa.021.0, ptr %12, align 8
   store i64 %.sroa.5.0, ptr %27, align 8
   store ptr %.sroa.022.0, ptr %11, align 8
@@ -2908,8 +2908,8 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst25gen_instruction_data_
   ]
 
 .invoke:                                          ; preds = %39, %43, %48
-  %46 = phi ptr [ @anon.3a4e41e0094de0b8ba6604e391603d5d.37, %48 ], [ @anon.3a4e41e0094de0b8ba6604e391603d5d.45, %43 ], [ @anon.3a4e41e0094de0b8ba6604e391603d5d.70, %39 ]
-  %47 = phi i64 [ 3, %48 ], [ 4, %43 ], [ 8, %39 ]
+  %46 = phi ptr [ @anon.3a4e41e0094de0b8ba6604e391603d5d.45, %43 ], [ @anon.3a4e41e0094de0b8ba6604e391603d5d.37, %48 ], [ @anon.3a4e41e0094de0b8ba6604e391603d5d.70, %39 ]
+  %47 = phi i64 [ 4, %43 ], [ 3, %48 ], [ 8, %39 ]
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h96f5a6ed744cd257E"(ptr nonnull align 8 %9, ptr nonnull align 1 %46, i64 %47)
           to label %50 unwind label %.loopexit.split-lp
 
@@ -5179,7 +5179,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst20gen_type_constraints2
           to label %76 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %180, %176, %161, %150
-  %.pn90 = phi { ptr, i32 } [ %181, %180 ], [ %177, %176 ], [ %.pn87, %161 ], [ %.pn, %150 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit92, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit95, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn90 = phi { ptr, i32 } [ %.pn, %150 ], [ %181, %180 ], [ %177, %176 ], [ %.pn87, %161 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit92, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit95, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h8be6d95f1e23f02fE"(ptr nonnull align 8 %30) #13
           to label %215 unwind label %183
 
@@ -5276,7 +5276,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst20gen_type_constraints2
   br i1 %.not82, label %117, label %122
 
 117:                                              ; preds = %136, %139, %110
-  %.070.shrunk = phi i1 [ false, %110 ], [ %140, %139 ], [ %.mux, %136 ]
+  %.070.shrunk = phi i1 [ %140, %139 ], [ %.mux, %136 ], [ false, %110 ]
   %118 = load i8, ptr %22, align 1, !range !6, !noundef !3
   %119 = trunc nuw i8 %118 to i1
   %120 = xor i1 %.070.shrunk, true
@@ -5315,9 +5315,9 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst20gen_type_constraints2
           to label %136 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .invoke:                                          ; preds = %122, %88, %106
-  %133 = phi i64 [ %107, %106 ], [ %89, %88 ], [ %125, %122 ]
-  %134 = phi i64 [ %108, %106 ], [ %90, %88 ], [ %126, %122 ]
-  %135 = phi ptr [ @anon.3a4e41e0094de0b8ba6604e391603d5d.227, %106 ], [ @anon.3a4e41e0094de0b8ba6604e391603d5d.228, %88 ], [ @anon.3a4e41e0094de0b8ba6604e391603d5d.212, %122 ]
+  %133 = phi i64 [ %89, %88 ], [ %107, %106 ], [ %125, %122 ]
+  %134 = phi i64 [ %90, %88 ], [ %108, %106 ], [ %126, %122 ]
+  %135 = phi ptr [ @anon.3a4e41e0094de0b8ba6604e391603d5d.228, %88 ], [ @anon.3a4e41e0094de0b8ba6604e391603d5d.227, %106 ], [ @anon.3a4e41e0094de0b8ba6604e391603d5d.212, %122 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %133, i64 %134, ptr nonnull align 8 %135) #15
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -5942,7 +5942,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst16gen_inst_builder28_$u
   br i1 %115, label %126, label %127
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %231, %219, %215
-  %.pn127 = phi { ptr, i32 } [ %.pn125, %231 ], [ %220, %219 ], [ %216, %215 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit143, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp144, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn127 = phi { ptr, i32 } [ %216, %215 ], [ %.pn125, %231 ], [ %220, %219 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit143, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp144, %.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr51drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$17h6d28b7d80f611181E"(ptr nonnull align 8 %32) #13
           to label %92 unwind label %279
 
@@ -6018,8 +6018,8 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst16gen_inst_builder28_$u
           to label %.invoke170 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .invoke170:                                       ; preds = %101, %147, %116
-  %148 = phi ptr [ %118, %116 ], [ @anon.3a4e41e0094de0b8ba6604e391603d5d.258, %147 ], [ @anon.3a4e41e0094de0b8ba6604e391603d5d.259, %101 ]
-  %149 = phi i64 [ %120, %116 ], [ 12, %147 ], [ 14, %101 ]
+  %148 = phi ptr [ @anon.3a4e41e0094de0b8ba6604e391603d5d.258, %147 ], [ %118, %116 ], [ @anon.3a4e41e0094de0b8ba6604e391603d5d.259, %101 ]
+  %149 = phi i64 [ 12, %147 ], [ %120, %116 ], [ 14, %101 ]
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h96f5a6ed744cd257E"(ptr nonnull align 8 %32, ptr nonnull align 1 %148, i64 %149)
           to label %121 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -6350,9 +6350,9 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst16gen_inst_builder28_$u
           to label %154 unwind label %.loopexit.split-lp.loopexit
 
 .invoke:                                          ; preds = %164, %190, %132, %127
-  %289 = phi i64 [ %114, %127 ], [ %136, %132 ], [ %191, %190 ], [ %165, %164 ]
-  %290 = phi i64 [ %129, %127 ], [ %138, %132 ], [ %195, %190 ], [ %169, %164 ]
-  %291 = phi ptr [ @anon.3a4e41e0094de0b8ba6604e391603d5d.253, %127 ], [ @anon.3a4e41e0094de0b8ba6604e391603d5d.257, %132 ], [ @anon.3a4e41e0094de0b8ba6604e391603d5d.260, %190 ], [ @anon.3a4e41e0094de0b8ba6604e391603d5d.274, %164 ]
+  %289 = phi i64 [ %191, %190 ], [ %136, %132 ], [ %114, %127 ], [ %165, %164 ]
+  %290 = phi i64 [ %195, %190 ], [ %138, %132 ], [ %129, %127 ], [ %169, %164 ]
+  %291 = phi ptr [ @anon.3a4e41e0094de0b8ba6604e391603d5d.260, %190 ], [ @anon.3a4e41e0094de0b8ba6604e391603d5d.257, %132 ], [ @anon.3a4e41e0094de0b8ba6604e391603d5d.253, %127 ], [ @anon.3a4e41e0094de0b8ba6604e391603d5d.274, %164 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %289, i64 %290, ptr nonnull align 8 %291) #15
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -6372,7 +6372,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst16gen_inst_builder28_$u
           to label %57 unwind label %59
 
 .thread:                                          ; preds = %79, %92, %.thread134
-  %.pn127.pn.pn133 = phi { ptr, i32 } [ %.pn127.pn.pn137, %.thread134 ], [ %80, %79 ], [ %.pn127.pn, %92 ]
+  %.pn127.pn.pn133 = phi { ptr, i32 } [ %.pn127.pn, %92 ], [ %.pn127.pn.pn137, %.thread134 ], [ %80, %79 ]
   resume { ptr, i32 } %.pn127.pn.pn133
 
 .thread134:                                       ; preds = %59, %51
@@ -7590,7 +7590,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7
           to label %54 unwind label %.loopexit.split-lp
 
 53:                                               ; preds = %.loopexit, %.loopexit.split-lp, %133, %84
-  %.pn77 = phi { ptr, i32 } [ %.pn75, %133 ], [ %.pn, %84 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn77 = phi { ptr, i32 } [ %.pn, %84 ], [ %.pn75, %133 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %28) #13
           to label %164 unwind label %162
 

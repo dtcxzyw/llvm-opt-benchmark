@@ -239,7 +239,7 @@ define internal i32 @request_frame(ptr noundef %0) #1 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %1, %.lr.ph, %.lr.ph.split.split.us, %.thread
-  %.1 = phi i32 [ %33, %.thread ], [ %8, %1 ], [ -541478725, %.lr.ph ], [ -541478725, %.lr.ph.split.split.us ], [ -541478725, %19 ]
+  %.1 = phi i32 [ %33, %.thread ], [ -541478725, %.lr.ph.split.split.us ], [ -541478725, %.lr.ph ], [ %8, %1 ], [ -541478725, %19 ]
   ret i32 %.1
 }
 

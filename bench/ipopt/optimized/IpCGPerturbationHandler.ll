@@ -330,7 +330,7 @@ define noundef zeroext i1 @_ZN5Ipopt21CGPerturbationHandler17ConsiderNewSystemER
   br label %83
 
 83:                                               ; preds = %77, %58, %65, %69
-  %.sink45 = phi i32 [ 1, %69 ], [ 1, %65 ], [ 0, %58 ], [ %spec.select, %77 ]
+  %.sink45 = phi i32 [ 1, %65 ], [ 0, %58 ], [ %spec.select, %77 ], [ 1, %69 ]
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 %.sink45, ptr %84, align 8, !tbaa !53
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -363,7 +363,7 @@ define noundef zeroext i1 @_ZN5Ipopt21CGPerturbationHandler17ConsiderNewSystemER
   br label %103
 
 103:                                              ; preds = %92, %101, %.thread
-  %.sink47 = phi double [ %89, %.thread ], [ 0x3D19000000000000, %101 ], [ 0.000000e+00, %92 ]
+  %.sink47 = phi double [ 0x3D19000000000000, %101 ], [ %89, %.thread ], [ 0.000000e+00, %92 ]
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store double %.sink47, ptr %104, align 8, !tbaa !61
   store double %.sink47, ptr %3, align 8, !tbaa !71

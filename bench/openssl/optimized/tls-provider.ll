@@ -397,8 +397,8 @@ randomize_tls_alg_id.exit73:                      ; preds = %.loopexit.i72, %ran
   br label %85
 
 85:                                               ; preds = %79, %81, %83
-  %.131 = phi ptr [ %.032.val, %81 ], [ %.030, %83 ], [ %.030, %79 ]
-  %.1 = phi ptr [ %.029, %81 ], [ %.032.val40, %83 ], [ %.029, %79 ]
+  %.131 = phi ptr [ %.030, %79 ], [ %.032.val, %81 ], [ %.030, %83 ]
+  %.1 = phi ptr [ %.029, %79 ], [ %.029, %81 ], [ %.032.val40, %83 ]
   %86 = getelementptr inbounds nuw i8, ptr %.032, i64 16
   br label %79, !llvm.loop !22
 
@@ -451,7 +451,7 @@ randomize_tls_alg_id.exit73:                      ; preds = %.loopexit.i72, %ran
   br label %100
 
 xor_newprovctx.exit.thread:                       ; preds = %4, %14, %98, %95, %92, %89
-  %.0.i76 = phi ptr [ %10, %98 ], [ %10, %95 ], [ %10, %92 ], [ %10, %89 ], [ null, %14 ], [ null, %4 ]
+  %.0.i76 = phi ptr [ %10, %89 ], [ null, %4 ], [ %10, %98 ], [ %10, %95 ], [ %10, %92 ], [ null, %14 ]
   call void @CRYPTO_free(ptr noundef %.0.i76, ptr noundef nonnull @.str.2, i32 noundef 3282) #16
   store ptr null, ptr %3, align 8, !tbaa !10
   call void @OSSL_LIB_CTX_free(ptr noundef %9) #16
@@ -667,7 +667,7 @@ define internal ptr @xor_gen_init(ptr noundef readonly captures(none) %0, i32 no
   %.not10.i = icmp eq i32 %21, 0
   br i1 %.not10.i, label %xor_gen_set_params.exit, label %22
 
-22:                                               ; preds = %.split, %20, %13
+22:                                               ; preds = %.split, %13, %20
   tail call void @CRYPTO_free(ptr noundef %7, ptr noundef nonnull @.str.2, i32 noundef 939) #16
   br label %xor_gen_set_params.exit
 
@@ -767,7 +767,7 @@ define internal ptr @xor_gen(ptr noundef readonly captures(none) %0, ptr readnon
   br label %xor_newkey.exit.thread
 
 xor_newkey.exit.thread:                           ; preds = %3, %6, %25, %16
-  %.016 = phi ptr [ null, %16 ], [ %4, %25 ], [ %4, %6 ], [ null, %3 ]
+  %.016 = phi ptr [ %4, %6 ], [ null, %16 ], [ %4, %25 ], [ null, %3 ]
   ret ptr %.016
 }
 
@@ -830,7 +830,7 @@ define internal range(i32 0, 2) i32 @xor_get_params(ptr noundef readonly capture
   br label %26
 
 26:                                               ; preds = %11, %24, %20, %16, %13, %8, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %8 ], [ 0, %13 ], [ 1, %16 ], [ 1, %20 ], [ 1, %24 ], [ 1, %11 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %13 ], [ 0, %4 ], [ 1, %16 ], [ 1, %20 ], [ 1, %24 ], [ 1, %11 ]
   ret i32 %.0
 }
 
@@ -867,7 +867,7 @@ define internal range(i32 0, 2) i32 @xor_set_params(ptr noundef writeonly captur
   br label %15
 
 15:                                               ; preds = %2, %10, %4, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %4 ], [ 1, %10 ], [ 1, %2 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %7 ], [ 1, %10 ], [ 1, %2 ]
   ret i32 %.0
 }
 
@@ -909,7 +909,7 @@ define internal range(i32 0, 2) i32 @xor_has(ptr noundef readonly captures(addre
   br label %14
 
 14:                                               ; preds = %5, %.thread, %.thread15, %2
-  %.0.shrunk = phi i1 [ %.mux, %5 ], [ false, %2 ], [ %13, %.thread15 ], [ true, %.thread ]
+  %.0.shrunk = phi i1 [ false, %2 ], [ %.mux, %5 ], [ true, %.thread ], [ %13, %.thread15 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -1004,7 +1004,7 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %.critedge
   br label %xor_freekey.exit
 
 xor_freekey.exit:                                 ; preds = %2, %32, %CRYPTO_DOWN_REF.exit.i, %26, %23
-  %.021 = phi ptr [ %3, %23 ], [ %3, %26 ], [ null, %CRYPTO_DOWN_REF.exit.i ], [ null, %32 ], [ null, %2 ]
+  %.021 = phi ptr [ %3, %26 ], [ %3, %23 ], [ null, %32 ], [ null, %CRYPTO_DOWN_REF.exit.i ], [ null, %2 ]
   ret ptr %.021
 }
 
@@ -1109,7 +1109,7 @@ define internal range(i32 0, 2) i32 @xor_import(ptr noundef writeonly captures(a
   br label %30
 
 30:                                               ; preds = %19, %16, %27, %25, %3
-  %.014 = phi i32 [ 0, %3 ], [ 0, %19 ], [ 0, %16 ], [ 1, %27 ], [ 1, %25 ]
+  %.014 = phi i32 [ 0, %3 ], [ 0, %16 ], [ 0, %19 ], [ 1, %27 ], [ 1, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1291,7 +1291,7 @@ xor_freekey.exit.sink.split:                      ; preds = %10, %34
   br label %xor_freekey.exit
 
 xor_freekey.exit:                                 ; preds = %xor_freekey.exit.sink.split, %3, %CRYPTO_DOWN_REF.exit.i, %xor_gen.exit
-  %.0 = phi ptr [ %4, %xor_gen.exit ], [ null, %CRYPTO_DOWN_REF.exit.i ], [ null, %3 ], [ null, %xor_freekey.exit.sink.split ]
+  %.0 = phi ptr [ null, %3 ], [ %4, %xor_gen.exit ], [ null, %CRYPTO_DOWN_REF.exit.i ], [ null, %xor_freekey.exit.sink.split ]
   ret ptr %.0
 }
 
@@ -1569,7 +1569,7 @@ xor_freekey.exit.sink.split:                      ; preds = %10, %34
   br label %xor_freekey.exit
 
 xor_freekey.exit:                                 ; preds = %xor_freekey.exit.sink.split, %3, %CRYPTO_DOWN_REF.exit.i, %xor_gen.exit
-  %.0 = phi ptr [ %4, %xor_gen.exit ], [ null, %CRYPTO_DOWN_REF.exit.i ], [ null, %3 ], [ null, %xor_freekey.exit.sink.split ]
+  %.0 = phi ptr [ null, %3 ], [ %4, %xor_gen.exit ], [ null, %CRYPTO_DOWN_REF.exit.i ], [ null, %xor_freekey.exit.sink.split ]
   ret ptr %.0
 }
 
@@ -1642,7 +1642,7 @@ define internal range(i32 0, 2) i32 @xor_derive(ptr noundef readonly captures(no
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !56
 
 .loopexit:                                        ; preds = %.preheader, %13, %11, %4, %7
-  %.014 = phi i32 [ 0, %7 ], [ 0, %4 ], [ 1, %11 ], [ 0, %13 ], [ 1, %.preheader ]
+  %.014 = phi i32 [ 0, %13 ], [ 0, %4 ], [ 1, %11 ], [ 0, %7 ], [ 1, %.preheader ]
   ret i32 %.014
 }
 
@@ -1923,13 +1923,13 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %xor_newkemkexctx.ex
   br label %xor_freekey.exit
 
 xor_freekey.exit:                                 ; preds = %11, %CRYPTO_DOWN_REF.exit.i, %36
-  %.02143 = phi ptr [ %19, %CRYPTO_DOWN_REF.exit.i ], [ %19, %36 ], [ null, %11 ]
-  %.02241 = phi i32 [ %.022.ph, %CRYPTO_DOWN_REF.exit.i ], [ %.022.ph, %36 ], [ 0, %11 ]
+  %.02143 = phi ptr [ %19, %36 ], [ %19, %CRYPTO_DOWN_REF.exit.i ], [ null, %11 ]
+  %.02241 = phi i32 [ %.022.ph, %36 ], [ %.022.ph, %CRYPTO_DOWN_REF.exit.i ], [ 0, %11 ]
   tail call void @CRYPTO_free(ptr noundef %.02143, ptr noundef nonnull @.str.2, i32 noundef 522) #16
   br label %39
 
 39:                                               ; preds = %10, %7, %xor_freekey.exit, %9
-  %.0 = phi i32 [ 1, %9 ], [ %.02241, %xor_freekey.exit ], [ 0, %7 ], [ 0, %10 ]
+  %.0 = phi i32 [ %.02241, %xor_freekey.exit ], [ 1, %9 ], [ 0, %7 ], [ 0, %10 ]
   ret i32 %.0
 }
 
@@ -1982,7 +1982,7 @@ define internal range(i32 0, 2) i32 @key2any_set_ctx_params(ptr noundef %0, ptr 
   store ptr null, ptr %4, align 8, !tbaa !25
   %11 = call i32 @OSSL_PARAM_get_utf8_string_ptr(ptr noundef nonnull %7, ptr noundef nonnull %3) #16
   %.not23 = icmp eq i32 %11, 0
-  br i1 %.not23, label %26, label %12
+  br i1 %.not23, label %.critedge, label %12
 
 12:                                               ; preds = %10
   %.not24 = icmp eq ptr %8, null
@@ -1991,7 +1991,7 @@ define internal range(i32 0, 2) i32 @key2any_set_ctx_params(ptr noundef %0, ptr 
 13:                                               ; preds = %12
   %14 = call i32 @OSSL_PARAM_get_utf8_string_ptr(ptr noundef nonnull %8, ptr noundef nonnull %4) #16
   %.not25 = icmp eq i32 %14, 0
-  br i1 %.not25, label %26, label %15
+  br i1 %.not25, label %.critedge, label %15
 
 15:                                               ; preds = %13, %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2004,26 +2004,21 @@ define internal range(i32 0, 2) i32 @key2any_set_ctx_params(ptr noundef %0, ptr 
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %20, ptr %21, align 4, !tbaa !63
   %.not26 = icmp eq ptr %18, null
-  br i1 %.not26, label %.critedge, label %22
+  br i1 %.not26, label %26, label %22
 
 22:                                               ; preds = %15
   %23 = load ptr, ptr %4, align 8, !tbaa !25
   %24 = call ptr @EVP_CIPHER_fetch(ptr noundef %6, ptr noundef nonnull %18, ptr noundef %23) #16
   store ptr %24, ptr %16, align 8, !tbaa !62
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %26, label %.critedge
+  br i1 %25, label %.critedge, label %26
 
-.critedge:                                        ; preds = %22, %15
+26:                                               ; preds = %22, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %27
 
-26:                                               ; preds = %22, %13, %10
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %32
-
-27:                                               ; preds = %.critedge, %2
+27:                                               ; preds = %26, %2
   %.not27 = icmp eq ptr %9, null
   br i1 %.not27, label %31, label %28
 
@@ -2036,8 +2031,13 @@ define internal range(i32 0, 2) i32 @key2any_set_ctx_params(ptr noundef %0, ptr 
 31:                                               ; preds = %28, %27
   br label %32
 
-32:                                               ; preds = %28, %26, %31
-  %.1 = phi i32 [ 1, %31 ], [ 0, %26 ], [ 0, %28 ]
+.critedge:                                        ; preds = %22, %10, %13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  br label %32
+
+32:                                               ; preds = %28, %.critedge, %31
+  %.1 = phi i32 [ 1, %31 ], [ 0, %.critedge ], [ 0, %28 ]
   ret i32 %.1
 }
 
@@ -2544,7 +2544,7 @@ define internal fastcc ptr @key_to_encp8(ptr noundef %0, i32 noundef %1, ptr nou
   br label %p8info_to_encp8.exit
 
 p8info_to_encp8.exit:                             ; preds = %14, %20, %28, %29
-  %.0.i = phi ptr [ %33, %29 ], [ null, %28 ], [ null, %20 ], [ null, %14 ]
+  %.0.i = phi ptr [ null, %28 ], [ %33, %29 ], [ null, %20 ], [ null, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @PKCS8_PRIV_KEY_INFO_free(ptr noundef nonnull %9) #16
@@ -5138,7 +5138,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2xorhmacsig_does_selectio
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %12, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %12, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -5231,7 +5231,7 @@ xor_read_der.exit.thread:                         ; preds = %27
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %52, %44
-  %54 = phi ptr [ %53, %52 ], [ %45, %44 ]
+  %54 = phi ptr [ %45, %44 ], [ %53, %52 ]
   %55 = icmp eq ptr %54, null
   br i1 %55, label %thread-pre-split.thread, label %thread-pre-split84
 
@@ -5331,7 +5331,7 @@ thread-pre-split84:                               ; preds = %thread-pre-split, %
   br label %94
 
 .thread122:                                       ; preds = %thread-pre-split82, %73, %xor_read_der.exit.thread, %88, %69, %thread-pre-split.thread, %.thread, %72
-  %.181.ph = phi ptr [ %36, %.thread ], [ %36, %thread-pre-split.thread ], [ %36, %69 ], [ %36, %88 ], [ null, %xor_read_der.exit.thread ], [ %36, %72 ], [ %36, %73 ], [ %36, %thread-pre-split82 ]
+  %.181.ph = phi ptr [ null, %xor_read_der.exit.thread ], [ %36, %.thread ], [ %36, %thread-pre-split.thread ], [ %36, %69 ], [ %36, %72 ], [ %36, %88 ], [ %36, %73 ], [ %36, %thread-pre-split82 ]
   call void @CRYPTO_free(ptr noundef %.181.ph, ptr noundef nonnull @.str.2, i32 noundef 2417) #16
   br label %101
 
@@ -5631,7 +5631,7 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %34
   br label %xor_freekey.exit
 
 xor_freekey.exit:                                 ; preds = %38, %CRYPTO_DOWN_REF.exit.i, %29, %.critedge, %18, %.thread
-  %.129 = phi ptr [ null, %.thread ], [ null, %18 ], [ null, %.critedge ], [ %16, %29 ], [ null, %CRYPTO_DOWN_REF.exit.i ], [ null, %38 ]
+  %.129 = phi ptr [ null, %.thread ], [ null, %18 ], [ %16, %29 ], [ null, %.critedge ], [ null, %CRYPTO_DOWN_REF.exit.i ], [ null, %38 ]
   ret ptr %.129
 }
 
@@ -5696,7 +5696,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2xorhmacsig_does_se
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %12, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %12, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -5848,7 +5848,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2xorhmacsha2sig_does_sele
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %12, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %12, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -5901,7 +5901,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2xorhmacsha2sig_doe
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ %12, %9 ], [ 1, %2 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %12, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -5988,7 +5988,7 @@ xor_freekey.exit.i:                               ; preds = %15, %CRYPTO_DOWN_RE
   br label %xor_sig_signverify_init.exit
 
 xor_sig_signverify_init.exit:                     ; preds = %3, %xor_freekey.exit.i, %21
-  %.0.i = phi i32 [ 0, %3 ], [ 0, %xor_freekey.exit.i ], [ 1, %21 ]
+  %.0.i = phi i32 [ 0, %3 ], [ 1, %21 ], [ 0, %xor_freekey.exit.i ]
   ret i32 %.0.i
 }
 
@@ -6104,7 +6104,7 @@ xor_freekey.exit.i:                               ; preds = %15, %CRYPTO_DOWN_RE
   br label %xor_sig_signverify_init.exit
 
 xor_sig_signverify_init.exit:                     ; preds = %3, %xor_freekey.exit.i, %21
-  %.0.i = phi i32 [ 0, %3 ], [ 0, %xor_freekey.exit.i ], [ 1, %21 ]
+  %.0.i = phi i32 [ 0, %3 ], [ 1, %21 ], [ 0, %xor_freekey.exit.i ]
   ret i32 %.0.i
 }
 
@@ -6265,7 +6265,7 @@ define internal range(i32 0, 2) i32 @xor_sig_digest_sign_final(ptr noundef captu
   br label %xor_sig_sign.exit
 
 xor_sig_sign.exit:                                ; preds = %14, %13, %.split11, %21, %15, %17
-  %.0 = phi i32 [ 0, %17 ], [ 0, %15 ], [ 0, %21 ], [ %28, %.split11 ], [ 0, %13 ], [ 1, %14 ]
+  %.0 = phi i32 [ 0, %15 ], [ 0, %21 ], [ 0, %17 ], [ %28, %.split11 ], [ 0, %13 ], [ 1, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -6309,7 +6309,7 @@ define internal range(i32 0, 2) i32 @xor_sig_digest_verify_final(ptr noundef cap
   br label %20
 
 20:                                               ; preds = %11, %3, %7, %13
-  %.0 = phi i32 [ %19, %13 ], [ 0, %7 ], [ 0, %3 ], [ 0, %11 ]
+  %.0 = phi i32 [ 0, %3 ], [ %19, %13 ], [ 0, %7 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -6436,7 +6436,7 @@ define internal ptr @xor_sig_dupctx(ptr noundef readonly captures(none) %0) #0 {
   br label %32
 
 32:                                               ; preds = %21, %28, %1, %31
-  %.0 = phi ptr [ null, %31 ], [ null, %1 ], [ %2, %28 ], [ %2, %21 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %31 ], [ %2, %28 ], [ %2, %21 ]
   ret ptr %.0
 }
 
@@ -6496,7 +6496,7 @@ define internal range(i32 0, 2) i32 @xor_sig_get_ctx_params(ptr noundef %0, ptr 
   br label %33
 
 33:                                               ; preds = %29, %22, %2, %32
-  %.0 = phi i32 [ 1, %32 ], [ 0, %2 ], [ 0, %22 ], [ 0, %29 ]
+  %.0 = phi i32 [ 0, %2 ], [ 1, %32 ], [ 0, %22 ], [ 0, %29 ]
   ret i32 %.0
 }
 
@@ -6563,7 +6563,7 @@ define internal range(i32 0, 2) i32 @xor_sig_set_ctx_params(ptr noundef %0, ptr 
 .critedge:                                        ; preds = %9, %21
   br label %23
 
-.critedge25:                                      ; preds = %19, %15
+.critedge25:                                      ; preds = %15, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -6571,7 +6571,7 @@ define internal range(i32 0, 2) i32 @xor_sig_set_ctx_params(ptr noundef %0, ptr 
   br label %23
 
 23:                                               ; preds = %.critedge25, %11, %2, %21, %.critedge
-  %.0 = phi i32 [ 1, %.critedge ], [ 0, %21 ], [ 0, %2 ], [ 0, %11 ], [ 0, %.critedge25 ]
+  %.0 = phi i32 [ 0, %2 ], [ 1, %.critedge ], [ 0, %21 ], [ 0, %11 ], [ 0, %.critedge25 ]
   ret i32 %.0
 }
 

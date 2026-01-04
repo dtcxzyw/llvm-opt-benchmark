@@ -270,7 +270,7 @@ lws.exit:                                         ; preds = %.lr.ph.i69, %.lws.e
   br label %check_authority.exit
 
 check_authority.exit:                             ; preds = %130, %132, %85, %83, %44, %36
-  %.055 = phi i32 [ %131, %130 ], [ %133, %132 ], [ %43, %36 ], [ %51, %44 ], [ %84, %83 ], [ %86, %85 ]
+  %.055 = phi i32 [ %131, %130 ], [ %133, %132 ], [ %43, %36 ], [ %51, %44 ], [ %86, %85 ], [ %84, %83 ]
   %134 = icmp eq i32 %.055, 0
   br i1 %134, label %check_authority.exit.thread, label %check_authority.exit.thread83
 
@@ -299,7 +299,7 @@ check_authority.exit.thread:                      ; preds = %120, %105, %.lr.ph.
   store i32 %147, ptr %145, align 8, !tbaa !18
   br label %http_response_on_header.exit
 
-check_authority.exit.thread83:                    ; preds = %106, %67, %99, %59, %check_authority.exit
+check_authority.exit.thread83:                    ; preds = %106, %67, %59, %99, %check_authority.exit
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 2675
   %149 = load i8, ptr %148, align 1, !tbaa !27
   %.not62 = icmp eq i8 %149, 0
@@ -733,7 +733,7 @@ memieq.exit118.i:                                 ; preds = %324, %270, %256, %3
   br label %http_request_on_header.exit
 
 http_request_on_header.exit:                      ; preds = %326, %162, %163, %167, %167, %167, %167, %167, %169, %173, %180, %184, %205, %216, %220, %239, %243, %280, %281, %285, %292, %296, %303, %306, %315, %363, %memieq.exit118.i, %368
-  %.0.i70 = phi i32 [ -531, %163 ], [ -531, %162 ], [ -531, %205 ], [ -531, %280 ], [ -531, %303 ], [ -531, %306 ], [ -531, %167 ], [ -531, %167 ], [ -531, %167 ], [ -531, %167 ], [ -531, %167 ], [ -531, %315 ], [ -531, %363 ], [ 0, %368 ], [ 0, %memieq.exit118.i ], [ -531, %173 ], [ -531, %169 ], [ -531, %184 ], [ -531, %180 ], [ -531, %220 ], [ -531, %216 ], [ -531, %243 ], [ -531, %239 ], [ -531, %285 ], [ -531, %281 ], [ -531, %296 ], [ -531, %292 ], [ -531, %326 ]
+  %.0.i70 = phi i32 [ -531, %167 ], [ -531, %315 ], [ -531, %363 ], [ -531, %162 ], [ -531, %169 ], [ 0, %memieq.exit118.i ], [ -531, %205 ], [ -531, %180 ], [ -531, %280 ], [ -531, %216 ], [ -531, %239 ], [ -531, %281 ], [ -531, %303 ], [ -531, %306 ], [ -531, %163 ], [ -531, %167 ], [ -531, %167 ], [ -531, %167 ], [ -531, %167 ], [ -531, %292 ], [ 0, %368 ], [ -531, %173 ], [ -531, %184 ], [ -531, %220 ], [ -531, %243 ], [ -531, %285 ], [ -531, %296 ], [ -531, %326 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %http_response_on_header.exit
 
@@ -955,7 +955,7 @@ memieq.exit59.i:                                  ; preds = %464, %475, %446, %p
   br label %http_response_on_header.exit
 
 http_response_on_header.exit:                     ; preds = %466, %26, %477, %memieq.exit59.i, %475, %455, %446, %443, %439, %435, %memieq.exit.i75, %429, %423, %420, %parse_uint.exit.i, %parse_uint.exit.i, %parse_uint.exit.thread.i, %395, %389, %385, %383, %383, %383, %383, %383, %379, %378, %139, %._crit_edge, %17, %http_request_on_header.exit, %144
-  %.3 = phi i32 [ -105, %144 ], [ %.0.i70, %http_request_on_header.exit ], [ -105, %._crit_edge ], [ -531, %17 ], [ -531, %139 ], [ -106, %memieq.exit.i75 ], [ -531, %379 ], [ -531, %378 ], [ -531, %395 ], [ -531, %parse_uint.exit.i ], [ -531, %parse_uint.exit.i ], [ -531, %420 ], [ -531, %423 ], [ -531, %435 ], [ -106, %439 ], [ -531, %443 ], [ -531, %446 ], [ -531, %383 ], [ -531, %383 ], [ -531, %383 ], [ -531, %383 ], [ -531, %383 ], [ -531, %455 ], [ -531, %475 ], [ 0, %477 ], [ 0, %memieq.exit59.i ], [ -531, %parse_uint.exit.thread.i ], [ -531, %389 ], [ -531, %385 ], [ -531, %429 ], [ -531, %26 ], [ -531, %466 ]
+  %.3 = phi i32 [ -531, %17 ], [ -105, %144 ], [ %.0.i70, %http_request_on_header.exit ], [ -531, %139 ], [ -105, %._crit_edge ], [ -531, %26 ], [ -531, %383 ], [ -531, %455 ], [ -531, %475 ], [ -531, %parse_uint.exit.thread.i ], [ -531, %395 ], [ -531, %378 ], [ -531, %parse_uint.exit.i ], [ -106, %memieq.exit.i75 ], [ -531, %420 ], [ -531, %423 ], [ -531, %435 ], [ -106, %439 ], [ -531, %443 ], [ -531, %446 ], [ -531, %379 ], [ -531, %parse_uint.exit.i ], [ -531, %385 ], [ -531, %383 ], [ -531, %383 ], [ -531, %383 ], [ -531, %383 ], [ -531, %429 ], [ 0, %477 ], [ 0, %memieq.exit59.i ], [ -531, %389 ], [ -531, %466 ]
   ret i32 %.3
 }
 
@@ -1028,7 +1028,7 @@ check_path.exit.thread26:                         ; preds = %17, %9
   br label %check_path.exit.thread
 
 check_path.exit.thread:                           ; preds = %17, %15, %check_path.exit.thread26, %23, %11, %7
-  %.0 = phi i32 [ -1, %7 ], [ -1, %11 ], [ 0, %23 ], [ 0, %check_path.exit.thread26 ], [ -1, %15 ], [ -1, %17 ]
+  %.0 = phi i32 [ -1, %7 ], [ -1, %11 ], [ -1, %17 ], [ -1, %15 ], [ 0, %23 ], [ 0, %check_path.exit.thread26 ]
   ret i32 %.0
 }
 
@@ -1092,7 +1092,7 @@ expect_response_body.exit.thread:                 ; preds = %switch.early.test, 
   br label %25
 
 25:                                               ; preds = %expect_response_body.exit.thread, %23, %21, %1, %10
-  %.0 = phi i32 [ 0, %10 ], [ -1, %1 ], [ 0, %21 ], [ 0, %23 ], [ 0, %expect_response_body.exit.thread ]
+  %.0 = phi i32 [ -1, %1 ], [ 0, %10 ], [ 0, %21 ], [ 0, %23 ], [ 0, %expect_response_body.exit.thread ]
   ret i32 %.0
 }
 
@@ -1358,7 +1358,7 @@ define internal fastcc i64 @parse_uint(ptr noundef readonly captures(none) %0, i
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !58
 
 .loopexit:                                        ; preds = %14, %.preheader, %8, %2
-  %.018 = phi i64 [ -1, %2 ], [ %15, %14 ], [ -1, %.preheader ], [ -1, %8 ]
+  %.018 = phi i64 [ -1, %2 ], [ -1, %8 ], [ %15, %14 ], [ -1, %.preheader ]
   ret i64 %.018
 }
 

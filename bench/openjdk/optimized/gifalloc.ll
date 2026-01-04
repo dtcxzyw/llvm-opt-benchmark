@@ -86,7 +86,7 @@ GifBitSize.exit24:                                ; preds = %17
   br label %25
 
 25:                                               ; preds = %GifBitSize.exit24, %23, %7, %GifBitSize.exit, %15
-  %.0 = phi ptr [ null, %15 ], [ null, %GifBitSize.exit ], [ null, %7 ], [ %8, %23 ], [ %8, %GifBitSize.exit24 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %GifBitSize.exit ], [ null, %15 ], [ %8, %23 ], [ %8, %GifBitSize.exit24 ]
   ret ptr %.0
 }
 
@@ -358,8 +358,8 @@ GifFreeMapObject.exit88:                          ; preds = %92
   store i32 %.0.i85, ptr %25, align 4
   br label %GifMakeMapObject.exit.thread
 
-GifMakeMapObject.exit.thread:                     ; preds = %11, %GifBitSize.exit.i, %19, %97, %GifFreeMapObject.exit88, %GifFreeMapObject.exit
-  %.0 = phi ptr [ null, %GifFreeMapObject.exit ], [ null, %GifFreeMapObject.exit88 ], [ %12, %97 ], [ null, %19 ], [ null, %GifBitSize.exit.i ], [ null, %11 ]
+GifMakeMapObject.exit.thread:                     ; preds = %19, %GifBitSize.exit.i, %11, %97, %GifFreeMapObject.exit88, %GifFreeMapObject.exit
+  %.0 = phi ptr [ %12, %97 ], [ null, %GifFreeMapObject.exit ], [ null, %GifFreeMapObject.exit88 ], [ null, %11 ], [ null, %GifBitSize.exit.i ], [ null, %19 ]
   ret ptr %.0
 }
 
@@ -675,7 +675,7 @@ GifMakeMapObject.exit:                            ; preds = %GifBitSize.exit24.i
   store ptr %34, ptr %51, align 8
   br label %54
 
-52:                                               ; preds = %41, %GifBitSize.exit.i, %33
+52:                                               ; preds = %33, %GifBitSize.exit.i, %41
   %53 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store ptr null, ptr %53, align 8
   tail call void @FreeLastSavedImage(ptr noundef nonnull %0)
@@ -739,7 +739,7 @@ GifMakeMapObject.exit:                            ; preds = %GifBitSize.exit24.i
   br label %89
 
 89:                                               ; preds = %88, %83, %65, %13, %6, %82, %64, %52
-  %.0 = phi ptr [ null, %52 ], [ null, %64 ], [ null, %82 ], [ null, %6 ], [ null, %13 ], [ %21, %65 ], [ %21, %83 ], [ %21, %88 ]
+  %.0 = phi ptr [ null, %6 ], [ null, %52 ], [ null, %64 ], [ null, %82 ], [ null, %13 ], [ %21, %65 ], [ %21, %83 ], [ %21, %88 ]
   ret ptr %.0
 }
 

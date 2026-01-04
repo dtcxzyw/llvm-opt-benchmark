@@ -136,7 +136,7 @@ sz_s2u.exit29:                                    ; preds = %39, %37
   br label %sz_sa2u.exit
 
 sz_sa2u.exit:                                     ; preds = %sz_s2u.exit, %.thread38
-  %.018.i = phi i64 [ %.0.i27, %sz_s2u.exit ], [ %..0.i, %.thread38 ]
+  %.018.i = phi i64 [ %..0.i, %.thread38 ], [ %.0.i27, %sz_s2u.exit ]
   %55 = add nsw i64 %.018.i, -8070450532247928833
   %56 = icmp ult i64 %55, -8070450532247928832
   br i1 %56, label %sz_sa2u.exit.thread, label %57, !prof !12
@@ -220,7 +220,7 @@ sz_sa2u.exit:                                     ; preds = %sz_s2u.exit, %.thre
   br label %96
 
 96:                                               ; preds = %95, %94, %93, %84, %80
-  %.037.i.i = phi ptr [ %85, %84 ], [ %82, %80 ], [ %85, %93 ], [ %85, %94 ], [ %85, %95 ]
+  %.037.i.i = phi ptr [ %82, %80 ], [ %85, %84 ], [ %85, %93 ], [ %85, %94 ], [ %85, %95 ]
   %97 = load i32, ptr @je_opt_percpu_arena, align 4, !tbaa !70
   %98 = icmp ult i32 %97, 3
   br i1 %98, label %arena_choose_maybe_huge.exit, label %percpu_arena_ind_limit.exit.i.i
@@ -308,12 +308,12 @@ percpu_arena_update.exit.i.i:                     ; preds = %130, %arena_get.exi
   br label %arena_choose_maybe_huge.exit.thread
 
 arena_choose_maybe_huge.exit:                     ; preds = %70, %75, %78, %96, %57
-  %.024 = phi ptr [ %1, %57 ], [ %71, %70 ], [ %.037.i.i, %96 ], [ %79, %78 ], [ %.0.i.i.i.i, %75 ]
+  %.024 = phi ptr [ %1, %57 ], [ %71, %70 ], [ %79, %78 ], [ %.0.i.i.i.i, %75 ], [ %.037.i.i, %96 ]
   %136 = icmp eq ptr %.024, null
   br i1 %136, label %sz_sa2u.exit.thread, label %arena_choose_maybe_huge.exit.thread, !prof !82
 
-arena_choose_maybe_huge.exit.thread:              ; preds = %percpu_arena_ind_limit.exit.i.i, %106, %134, %59, %arena_choose_maybe_huge.exit
-  %.02444 = phi ptr [ %.024, %arena_choose_maybe_huge.exit ], [ %.037.i.i, %percpu_arena_ind_limit.exit.i.i ], [ %.037.i.i, %106 ], [ %.2.i.i, %134 ], [ %1, %59 ]
+arena_choose_maybe_huge.exit.thread:              ; preds = %106, %134, %percpu_arena_ind_limit.exit.i.i, %59, %arena_choose_maybe_huge.exit
+  %.02444 = phi ptr [ %.024, %arena_choose_maybe_huge.exit ], [ %.037.i.i, %106 ], [ %.2.i.i, %134 ], [ %.037.i.i, %percpu_arena_ind_limit.exit.i.i ], [ %1, %59 ]
   %137 = tail call ptr @je_arena_extent_alloc_large(ptr noundef %0, ptr noundef nonnull %.02444, i64 noundef %2, i64 noundef %3, i1 noundef zeroext %4) #11
   %138 = icmp eq ptr %137, null
   br i1 %138, label %sz_sa2u.exit.thread, label %139
@@ -704,7 +704,7 @@ large_ralloc_no_move_shrink.exit.thread53:        ; preds = %sz_size2index.exit.
   br label %arena_decay_ticks.exit
 
 arena_decay_ticks.exit:                           ; preds = %96, %156, %146, %151, %large_ralloc_no_move_shrink.exit.thread53, %80, %70, %75, %54, %44, %49, %24, %14, %19, %95
-  %.0 = phi i1 [ true, %95 ], [ false, %19 ], [ false, %14 ], [ false, %24 ], [ false, %49 ], [ false, %44 ], [ false, %54 ], [ false, %75 ], [ false, %70 ], [ false, %80 ], [ true, %large_ralloc_no_move_shrink.exit.thread53 ], [ false, %151 ], [ false, %146 ], [ false, %156 ], [ true, %96 ]
+  %.0 = phi i1 [ false, %24 ], [ false, %54 ], [ true, %95 ], [ false, %156 ], [ true, %large_ralloc_no_move_shrink.exit.thread53 ], [ false, %19 ], [ false, %14 ], [ false, %49 ], [ false, %44 ], [ false, %75 ], [ false, %70 ], [ false, %80 ], [ false, %151 ], [ false, %146 ], [ true, %96 ]
   ret i1 %.0
 }
 

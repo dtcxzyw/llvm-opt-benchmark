@@ -485,7 +485,7 @@ sub_1166:                                         ; preds = %.tail.thread, %.thr
   br label %.backedge283
 
 .thread:                                          ; preds = %141, %123, %138
-  %.str.37.sink = phi ptr [ @.str.37, %138 ], [ @.str.36, %123 ], [ @.str.37, %141 ]
+  %.str.37.sink = phi ptr [ @.str.37, %138 ], [ @.str.37, %141 ], [ @.str.36, %123 ]
   %145 = load ptr, ptr @optarg, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull %.str.37.sink, ptr noundef %145) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -595,7 +595,7 @@ sub_1166:                                         ; preds = %.tail.thread, %.thr
   br label %.backedge283
 
 .backedge283:                                     ; preds = %192, %.thread153, %201, %207, %206, %105, %210, %200, %194, %162, %156, %113, %110, %104, %97, %90, %84, %76
-  %.098.be = phi ptr [ %.098, %76 ], [ %.098, %84 ], [ %.098, %90 ], [ %.098, %97 ], [ %.098, %104 ], [ %.098, %105 ], [ %112, %110 ], [ %.098, %113 ], [ %.098, %156 ], [ %.098, %162 ], [ %.098, %192 ], [ %.098, %194 ], [ %.098, %200 ], [ %.098, %206 ], [ %.098, %207 ], [ %.098, %201 ], [ %.098, %210 ], [ %.098, %.thread153 ]
+  %.098.be = phi ptr [ %.098, %76 ], [ %.098, %84 ], [ %.098, %90 ], [ %.098, %97 ], [ %.098, %104 ], [ %.098, %105 ], [ %112, %110 ], [ %.098, %113 ], [ %.098, %.thread153 ], [ %.098, %156 ], [ %.098, %162 ], [ %.098, %192 ], [ %.098, %194 ], [ %.098, %200 ], [ %.098, %206 ], [ %.098, %207 ], [ %.098, %201 ], [ %.098, %210 ]
   br label %74, !llvm.loop !7
 
 194:                                              ; preds = %74
@@ -888,7 +888,7 @@ sub_1166:                                         ; preds = %.tail.thread, %.thr
   br label %340
 
 340:                                              ; preds = %.thread159, %338
-  %.3 = phi ptr [ %339, %338 ], [ %248, %.thread159 ]
+  %.3 = phi ptr [ %248, %.thread159 ], [ %339, %338 ]
   %341 = load i64, ptr %47, align 8
   %342 = icmp eq i64 %341, 0
   br i1 %342, label %343, label %344
@@ -1513,7 +1513,7 @@ define internal i32 @WALDumpReadPage(ptr noundef %0, i64 noundef %1, i32 noundef
   br label %51
 
 21:                                               ; preds = %16, %5
-  %.019 = phi i32 [ %18, %16 ], [ 8192, %5 ]
+  %.019 = phi i32 [ 8192, %5 ], [ %18, %16 ]
   %22 = sext i32 %.019 to i64
   %23 = load i32, ptr %9, align 8
   %24 = call zeroext i1 @WALRead(ptr noundef nonnull %0, ptr noundef %4, i64 noundef %1, i64 noundef %22, i32 noundef %23, ptr noundef nonnull %6) #16
@@ -1873,7 +1873,7 @@ define internal fastcc noundef zeroext i1 @XLogRecordMatchesRelationBlock(ptr no
   br i1 %.not.not, label %.loopexit, label %.lr.ph.split.split.split, !llvm.loop !13
 
 .loopexit:                                        ; preds = %96, %78, %62, %45, %34, %25, %5, %.split.us
-  %.not33 = phi i1 [ true, %.split.us ], [ false, %5 ], [ false, %25 ], [ false, %34 ], [ false, %45 ], [ false, %62 ], [ false, %78 ], [ false, %96 ]
+  %.not33 = phi i1 [ true, %.split.us ], [ false, %5 ], [ false, %78 ], [ false, %45 ], [ false, %62 ], [ false, %25 ], [ false, %34 ], [ false, %96 ]
   ret i1 %.not33
 }
 
@@ -2489,7 +2489,7 @@ open_file_in_directory.exit35:                    ; preds = %25, %29
   unreachable
 
 .thread:                                          ; preds = %14, %35, %53
-  %59 = phi i1 [ false, %35 ], [ true, %53 ], [ false, %14 ]
+  %59 = phi i1 [ true, %53 ], [ false, %35 ], [ false, %14 ]
   ret i1 %59
 }
 

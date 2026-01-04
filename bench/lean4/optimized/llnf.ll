@@ -901,7 +901,7 @@ _ZNK4lean4name10get_prefixEv.exit66:              ; preds = %139, %142
   br label %_ZNK4lean4name9is_atomicEv.exit.thread
 
 _ZNK4lean4name9is_atomicEv.exit.thread:           ; preds = %_ZNK4lean4name12is_anonymousEv.exit.i30, %_ZNK4lean4name12is_anonymousEv.exit.i, %_ZNK4lean4name10is_numeralEv.exit51.thread, %_ZNK4lean4name10is_numeralEv.exit41.thread, %_ZNK4lean4name10is_numeralEv.exit.thread, %9, %_ZNK4lean4name10is_numeralEv.exit, %_ZNK4lean4name9is_atomicEv.exit, %_ZNK4lean4name10is_numeralEv.exit51, %_ZNK4lean4name10get_prefixEv.exit47, %117, %_ZNK4lean4name9is_stringEv.exit, %131, %_ZNK4lean4name10get_prefixEv.exit66, %_ZNK4lean4name9is_atomicEv.exit37, %_ZNK4lean4name10is_numeralEv.exit41, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %9 ], [ false, %_ZNK4lean4name10is_numeralEv.exit ], [ false, %_ZNK4lean4name9is_atomicEv.exit ], [ false, %_ZNK4lean4name10is_numeralEv.exit41 ], [ false, %_ZNK4lean4name9is_atomicEv.exit37 ], [ false, %_ZNK4lean4name10is_numeralEv.exit51 ], [ false, %_ZNK4lean4name10get_prefixEv.exit47 ], [ true, %_ZNK4lean4name10get_prefixEv.exit66 ], [ false, %131 ], [ false, %_ZNK4lean4name9is_stringEv.exit ], [ false, %117 ], [ false, %_ZNK4lean4name10is_numeralEv.exit.thread ], [ false, %_ZNK4lean4name10is_numeralEv.exit41.thread ], [ false, %_ZNK4lean4name10is_numeralEv.exit51.thread ], [ false, %_ZNK4lean4name12is_anonymousEv.exit.i ], [ false, %_ZNK4lean4name12is_anonymousEv.exit.i30 ]
+  %.0 = phi i1 [ false, %5 ], [ false, %9 ], [ false, %_ZNK4lean4name9is_atomicEv.exit ], [ false, %_ZNK4lean4name10is_numeralEv.exit ], [ false, %_ZNK4lean4name9is_atomicEv.exit37 ], [ false, %_ZNK4lean4name10is_numeralEv.exit41 ], [ false, %_ZNK4lean4name10get_prefixEv.exit47 ], [ false, %_ZNK4lean4name10is_numeralEv.exit51 ], [ true, %_ZNK4lean4name10get_prefixEv.exit66 ], [ false, %131 ], [ false, %_ZNK4lean4name9is_stringEv.exit ], [ false, %117 ], [ false, %_ZNK4lean4name10is_numeralEv.exit51.thread ], [ false, %_ZNK4lean4name10is_numeralEv.exit.thread ], [ false, %_ZNK4lean4name12is_anonymousEv.exit.i ], [ false, %_ZNK4lean4name10is_numeralEv.exit41.thread ], [ false, %_ZNK4lean4name12is_anonymousEv.exit.i30 ]
   ret i1 %.0
 }
 
@@ -2139,7 +2139,7 @@ _ZNK4lean4name10get_prefixEv.exit53.thread:       ; preds = %_ZNK4lean4name10is_
   br label %_ZNK4lean4name9is_atomicEv.exit.thread
 
 _ZNK4lean4name9is_atomicEv.exit.thread:           ; preds = %_ZNK4lean4name12is_anonymousEv.exit.i26, %_ZNK4lean4name12is_anonymousEv.exit.i, %_ZNK4lean4name10is_numeralEv.exit47.thread, %_ZNK4lean4name10is_numeralEv.exit37.thread, %_ZNK4lean4name10is_numeralEv.exit.thread, %7, %_ZNK4lean4name10is_numeralEv.exit, %_ZNK4lean4name9is_atomicEv.exit, %106, %_ZNK4lean4name10get_prefixEv.exit53.thread, %_ZNK4lean4name10is_numeralEv.exit47, %_ZNK4lean4name10get_prefixEv.exit43, %_ZNK4lean4name9is_atomicEv.exit33, %_ZNK4lean4name10is_numeralEv.exit37, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %7 ], [ false, %_ZNK4lean4name10is_numeralEv.exit ], [ false, %_ZNK4lean4name9is_atomicEv.exit ], [ false, %_ZNK4lean4name10is_numeralEv.exit37 ], [ false, %_ZNK4lean4name9is_atomicEv.exit33 ], [ true, %106 ], [ false, %_ZNK4lean4name10get_prefixEv.exit53.thread ], [ false, %_ZNK4lean4name10is_numeralEv.exit47 ], [ false, %_ZNK4lean4name10get_prefixEv.exit43 ], [ false, %_ZNK4lean4name10is_numeralEv.exit.thread ], [ false, %_ZNK4lean4name10is_numeralEv.exit37.thread ], [ false, %_ZNK4lean4name10is_numeralEv.exit47.thread ], [ false, %_ZNK4lean4name12is_anonymousEv.exit.i ], [ false, %_ZNK4lean4name12is_anonymousEv.exit.i26 ]
+  %.0 = phi i1 [ false, %4 ], [ false, %7 ], [ false, %_ZNK4lean4name9is_atomicEv.exit ], [ false, %_ZNK4lean4name10is_numeralEv.exit ], [ false, %_ZNK4lean4name9is_atomicEv.exit33 ], [ false, %_ZNK4lean4name10is_numeralEv.exit37 ], [ true, %106 ], [ false, %_ZNK4lean4name10get_prefixEv.exit53.thread ], [ false, %_ZNK4lean4name10is_numeralEv.exit47 ], [ false, %_ZNK4lean4name10get_prefixEv.exit43 ], [ false, %_ZNK4lean4name10is_numeralEv.exit47.thread ], [ false, %_ZNK4lean4name10is_numeralEv.exit.thread ], [ false, %_ZNK4lean4name12is_anonymousEv.exit.i ], [ false, %_ZNK4lean4name10is_numeralEv.exit37.thread ], [ false, %_ZNK4lean4name12is_anonymousEv.exit.i26 ]
   ret i1 %.0
 }
 
@@ -2465,7 +2465,7 @@ _ZNK4lean4name10get_prefixEv.exit37:              ; preds = %_ZNK4lean4name10is_
   br label %_ZNK4lean4name9is_atomicEv.exit.thread
 
 _ZNK4lean4name9is_atomicEv.exit.thread:           ; preds = %_ZNK4lean4name12is_anonymousEv.exit.i20, %_ZNK4lean4name12is_anonymousEv.exit.i, %_ZNK4lean4name10is_numeralEv.exit31.thread, %_ZNK4lean4name10is_numeralEv.exit.thread, %_ZNK4lean4name10is_numeralEv.exit, %_ZNK4lean4name9is_atomicEv.exit, %_ZNK4lean4name9is_atomicEv.exit27, %_ZNK4lean4name10is_numeralEv.exit31, %_ZNK4lean4name10get_prefixEv.exit37, %77, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %_ZNK4lean4name10is_numeralEv.exit ], [ false, %_ZNK4lean4name9is_atomicEv.exit ], [ true, %77 ], [ false, %_ZNK4lean4name10get_prefixEv.exit37 ], [ false, %_ZNK4lean4name10is_numeralEv.exit31 ], [ false, %_ZNK4lean4name9is_atomicEv.exit27 ], [ false, %_ZNK4lean4name10is_numeralEv.exit.thread ], [ false, %_ZNK4lean4name10is_numeralEv.exit31.thread ], [ false, %_ZNK4lean4name12is_anonymousEv.exit.i ], [ false, %_ZNK4lean4name12is_anonymousEv.exit.i20 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %_ZNK4lean4name9is_atomicEv.exit ], [ false, %_ZNK4lean4name10is_numeralEv.exit ], [ true, %77 ], [ false, %_ZNK4lean4name10get_prefixEv.exit37 ], [ false, %_ZNK4lean4name10is_numeralEv.exit31 ], [ false, %_ZNK4lean4name9is_atomicEv.exit27 ], [ false, %_ZNK4lean4name10is_numeralEv.exit31.thread ], [ false, %_ZNK4lean4name10is_numeralEv.exit.thread ], [ false, %_ZNK4lean4name12is_anonymousEv.exit.i ], [ false, %_ZNK4lean4name12is_anonymousEv.exit.i20 ]
   ret i1 %.0
 }
 
@@ -4207,7 +4207,7 @@ _ZN4lean13is_llnf_resetERKNS_4exprE.exit:         ; preds = %_ZNK4lean4name10is_
   %.not.i.i.i.i18.not = icmp eq i8 %80, 0
   br i1 %.not.i.i.i.i18.not, label %_ZN4lean13is_llnf_resetERKNS_4exprE.exit.thread, label %113
 
-_ZN4lean13is_llnf_resetERKNS_4exprE.exit.thread:  ; preds = %_ZNK4lean4name12is_anonymousEv.exit.i.i.i.i, %_ZNK4lean4name10is_numeralEv.exit.thread.i.i.i, %48, %_ZNK4lean4name9is_atomicEv.exit.i.i.i, %_ZNK4lean4name10is_numeralEv.exit.i.i.i, %44, %_ZN4lean13is_llnf_resetERKNS_4exprE.exit
+_ZN4lean13is_llnf_resetERKNS_4exprE.exit.thread:  ; preds = %_ZNK4lean4name10is_numeralEv.exit.thread.i.i.i, %48, %_ZNK4lean4name9is_atomicEv.exit.i.i.i, %_ZNK4lean4name10is_numeralEv.exit.i.i.i, %_ZNK4lean4name12is_anonymousEv.exit.i.i.i.i, %44, %_ZN4lean13is_llnf_resetERKNS_4exprE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -4380,7 +4380,7 @@ _ZNK4lean4name10get_prefixEv.exit.i.i:            ; preds = %_ZNK4lean4name10is_
   br label %_ZN4lean12is_llnf_usetERKNS_4exprERj.exit
 
 _ZN4lean12is_llnf_usetERKNS_4exprERj.exit:        ; preds = %_ZNK4lean4name10get_prefixEv.exit.i.i, %1, %5, %_ZNK4lean4name12is_anonymousEv.exit.i.i.i, %_ZNK4lean4name9is_atomicEv.exit.i.i, %_ZNK4lean4name10is_numeralEv.exit.i.i, %_ZNK4lean4name10is_numeralEv.exit.thread.i.i
-  %.0.i.i = phi i1 [ false, %1 ], [ false, %_ZNK4lean4name10is_numeralEv.exit.i.i ], [ false, %_ZNK4lean4name9is_atomicEv.exit.i.i ], [ false, %5 ], [ false, %_ZNK4lean4name10is_numeralEv.exit.thread.i.i ], [ false, %_ZNK4lean4name12is_anonymousEv.exit.i.i.i ], [ %.not.i.i.i, %_ZNK4lean4name10get_prefixEv.exit.i.i ]
+  %.0.i.i = phi i1 [ false, %1 ], [ false, %_ZNK4lean4name12is_anonymousEv.exit.i.i.i ], [ %.not.i.i.i, %_ZNK4lean4name10get_prefixEv.exit.i.i ], [ false, %_ZNK4lean4name10is_numeralEv.exit.i.i ], [ false, %_ZNK4lean4name9is_atomicEv.exit.i.i ], [ false, %5 ], [ false, %_ZNK4lean4name10is_numeralEv.exit.thread.i.i ]
   ret i1 %.0.i.i
 }
 
@@ -4468,7 +4468,7 @@ _ZNK4lean4name10get_prefixEv.exit.i.i:            ; preds = %_ZNK4lean4name10is_
   br label %_ZN4lean12is_llnf_projERKNS_4exprERj.exit
 
 _ZN4lean12is_llnf_projERKNS_4exprERj.exit:        ; preds = %_ZNK4lean4name10get_prefixEv.exit.i.i, %1, %5, %_ZNK4lean4name12is_anonymousEv.exit.i.i.i, %_ZNK4lean4name9is_atomicEv.exit.i.i, %_ZNK4lean4name10is_numeralEv.exit.i.i, %_ZNK4lean4name10is_numeralEv.exit.thread.i.i
-  %.0.i.i = phi i1 [ false, %1 ], [ false, %_ZNK4lean4name10is_numeralEv.exit.i.i ], [ false, %_ZNK4lean4name9is_atomicEv.exit.i.i ], [ false, %5 ], [ false, %_ZNK4lean4name10is_numeralEv.exit.thread.i.i ], [ false, %_ZNK4lean4name12is_anonymousEv.exit.i.i.i ], [ %.not.i.i.i, %_ZNK4lean4name10get_prefixEv.exit.i.i ]
+  %.0.i.i = phi i1 [ false, %1 ], [ false, %_ZNK4lean4name12is_anonymousEv.exit.i.i.i ], [ %.not.i.i.i, %_ZNK4lean4name10get_prefixEv.exit.i.i ], [ false, %_ZNK4lean4name10is_numeralEv.exit.i.i ], [ false, %_ZNK4lean4name9is_atomicEv.exit.i.i ], [ false, %5 ], [ false, %_ZNK4lean4name10is_numeralEv.exit.thread.i.i ]
   ret i1 %.0.i.i
 }
 
@@ -4573,7 +4573,7 @@ _ZNK4lean4name10get_prefixEv.exit.i.i:            ; preds = %_ZNK4lean4name10is_
   br label %_ZN4lean13is_llnf_uprojERKNS_4exprERj.exit
 
 _ZN4lean13is_llnf_uprojERKNS_4exprERj.exit:       ; preds = %_ZNK4lean4name10get_prefixEv.exit.i.i, %1, %5, %_ZNK4lean4name12is_anonymousEv.exit.i.i.i, %_ZNK4lean4name9is_atomicEv.exit.i.i, %_ZNK4lean4name10is_numeralEv.exit.i.i, %_ZNK4lean4name10is_numeralEv.exit.thread.i.i
-  %.0.i.i = phi i1 [ false, %1 ], [ false, %_ZNK4lean4name10is_numeralEv.exit.i.i ], [ false, %_ZNK4lean4name9is_atomicEv.exit.i.i ], [ false, %5 ], [ false, %_ZNK4lean4name10is_numeralEv.exit.thread.i.i ], [ false, %_ZNK4lean4name12is_anonymousEv.exit.i.i.i ], [ %.not.i.i.i, %_ZNK4lean4name10get_prefixEv.exit.i.i ]
+  %.0.i.i = phi i1 [ false, %1 ], [ false, %_ZNK4lean4name12is_anonymousEv.exit.i.i.i ], [ %.not.i.i.i, %_ZNK4lean4name10get_prefixEv.exit.i.i ], [ false, %_ZNK4lean4name10is_numeralEv.exit.i.i ], [ false, %_ZNK4lean4name9is_atomicEv.exit.i.i ], [ false, %5 ], [ false, %_ZNK4lean4name10is_numeralEv.exit.thread.i.i ]
   ret i1 %.0.i.i
 }
 
@@ -4661,7 +4661,7 @@ _ZNK4lean4name10get_prefixEv.exit.i.i:            ; preds = %_ZNK4lean4name10is_
   br label %_ZN4lean11is_llnf_boxERKNS_4exprERj.exit
 
 _ZN4lean11is_llnf_boxERKNS_4exprERj.exit:         ; preds = %_ZNK4lean4name10get_prefixEv.exit.i.i, %1, %5, %_ZNK4lean4name12is_anonymousEv.exit.i.i.i, %_ZNK4lean4name9is_atomicEv.exit.i.i, %_ZNK4lean4name10is_numeralEv.exit.i.i, %_ZNK4lean4name10is_numeralEv.exit.thread.i.i
-  %.0.i.i = phi i1 [ false, %1 ], [ false, %_ZNK4lean4name10is_numeralEv.exit.i.i ], [ false, %_ZNK4lean4name9is_atomicEv.exit.i.i ], [ false, %5 ], [ false, %_ZNK4lean4name10is_numeralEv.exit.thread.i.i ], [ false, %_ZNK4lean4name12is_anonymousEv.exit.i.i.i ], [ %.not.i.i.i, %_ZNK4lean4name10get_prefixEv.exit.i.i ]
+  %.0.i.i = phi i1 [ false, %1 ], [ false, %_ZNK4lean4name12is_anonymousEv.exit.i.i.i ], [ %.not.i.i.i, %_ZNK4lean4name10get_prefixEv.exit.i.i ], [ false, %_ZNK4lean4name10is_numeralEv.exit.i.i ], [ false, %_ZNK4lean4name9is_atomicEv.exit.i.i ], [ false, %5 ], [ false, %_ZNK4lean4name10is_numeralEv.exit.thread.i.i ]
   ret i1 %.0.i.i
 }
 
@@ -4749,7 +4749,7 @@ _ZNK4lean4name10get_prefixEv.exit.i.i:            ; preds = %_ZNK4lean4name10is_
   br label %_ZN4lean13is_llnf_unboxERKNS_4exprERj.exit
 
 _ZN4lean13is_llnf_unboxERKNS_4exprERj.exit:       ; preds = %_ZNK4lean4name10get_prefixEv.exit.i.i, %1, %5, %_ZNK4lean4name12is_anonymousEv.exit.i.i.i, %_ZNK4lean4name9is_atomicEv.exit.i.i, %_ZNK4lean4name10is_numeralEv.exit.i.i, %_ZNK4lean4name10is_numeralEv.exit.thread.i.i
-  %.0.i.i = phi i1 [ false, %1 ], [ false, %_ZNK4lean4name10is_numeralEv.exit.i.i ], [ false, %_ZNK4lean4name9is_atomicEv.exit.i.i ], [ false, %5 ], [ false, %_ZNK4lean4name10is_numeralEv.exit.thread.i.i ], [ false, %_ZNK4lean4name12is_anonymousEv.exit.i.i.i ], [ %.not.i.i.i, %_ZNK4lean4name10get_prefixEv.exit.i.i ]
+  %.0.i.i = phi i1 [ false, %1 ], [ false, %_ZNK4lean4name12is_anonymousEv.exit.i.i.i ], [ %.not.i.i.i, %_ZNK4lean4name10get_prefixEv.exit.i.i ], [ false, %_ZNK4lean4name10is_numeralEv.exit.i.i ], [ false, %_ZNK4lean4name9is_atomicEv.exit.i.i ], [ false, %5 ], [ false, %_ZNK4lean4name10is_numeralEv.exit.thread.i.i ]
   ret i1 %.0.i.i
 }
 
@@ -5064,7 +5064,7 @@ _ZN4lean7sstreamlsIA2_cEERS0_RKT_.exit:           ; preds = %_ZN4lean7sstreamlsI
           cleanup
   br label %81
 
-.thread37:                                        ; preds = %_ZN4lean7sstreamC2Ev.exit, %_ZN4lean7sstreamlsIA34_cEERS0_RKT_.exit, %_ZN4lean7sstreamlsINS_4nameEEERS0_RKT_.exit, %_ZN4lean7sstreamlsIA2_cEERS0_RKT_.exit
+.thread37:                                        ; preds = %_ZN4lean7sstreamlsIA2_cEERS0_RKT_.exit, %_ZN4lean7sstreamlsINS_4nameEEERS0_RKT_.exit, %_ZN4lean7sstreamlsIA34_cEERS0_RKT_.exit, %_ZN4lean7sstreamC2Ev.exit
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4lean7sstreamD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %8) #19
@@ -6670,7 +6670,7 @@ _ZN4lean10object_refD2Ev.exit218.i:               ; preds = %507, %506, %504, %4
   br label %607
 
 ._crit_edge359.i:                                 ; preds = %._crit_edge354.i, %.preheader245.i, %._crit_edge.thread.i, %._crit_edge.i
-  %.lcssa453.i = phi i64 [ %.lcssa454.i, %.preheader245.i ], [ %115, %._crit_edge.thread.i ], [ %513, %._crit_edge.i ], [ %.lcssa454.i, %._crit_edge354.i ]
+  %.lcssa453.i = phi i64 [ %115, %._crit_edge.thread.i ], [ %513, %._crit_edge.i ], [ %.lcssa454.i, %.preheader245.i ], [ %.lcssa454.i, %._crit_edge354.i ]
   %524 = load ptr, ptr %13, align 8, !tbaa !101
   %.idx.i.i.i.i = shl nuw nsw i64 %.lcssa453.i, 3
   %525 = getelementptr inbounds nuw i8, ptr %524, i64 %.idx.i.i.i.i
@@ -6924,7 +6924,7 @@ _ZN4lean10object_refD2Ev.exit232.i:               ; preds = %589, %588, %586, %_
   br i1 %.not91.i, label %._crit_edge354.i, label %607
 
 620:                                              ; preds = %516, %152, %150
-  %.pn110.pn.pn.pn.i = phi { ptr, i32 } [ %.pn110.pn.pn.i, %516 ], [ %153, %152 ], [ %151, %150 ]
+  %.pn110.pn.pn.pn.i = phi { ptr, i32 } [ %.pn110.pn.pn.i, %516 ], [ %151, %150 ], [ %153, %152 ]
   call void @_ZN4lean6bufferINS_4exprELm16EED2Ev(ptr noundef nonnull align 8 dereferenceable(152) %13) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @_ZN4lean10object_refD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #19
@@ -7198,7 +7198,7 @@ _ZN4lean6bufferINS_10field_infoELm16EED2Ev.exit:  ; preds = %_ZN4lean6bufferINS_
   br label %.body
 
 .body:                                            ; preds = %712, %624, %714, %.body13
-  %.pn.pn.pn = phi { ptr, i32 } [ %645, %.body13 ], [ %715, %714 ], [ %713, %712 ], [ %.pn110.pn.pn.pn.pn.pn.pn.pn.pn.i, %624 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %715, %714 ], [ %645, %.body13 ], [ %713, %712 ], [ %.pn110.pn.pn.pn.pn.pn.pn.pn.pn.i, %624 ]
   call void @_ZN4lean6bufferINS_10field_infoELm16EED2Ev(ptr noundef nonnull align 8 dereferenceable(408) %29) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   resume { ptr, i32 } %.pn.pn.pn
@@ -10325,7 +10325,7 @@ _ZN4lean10object_refD2Ev.exit151:                 ; preds = %_ZN4lean10object_re
   br label %520
 
 520:                                              ; preds = %.body134, %.body120, %.body96, %.body32, %.body, %518, %.body115, %.body110, %.body91, %.body86, %.body81, %.body76, %.body71, %.body66, %.body61, %.body56, %.body51, %.body46
-  %.pn22.pn = phi { ptr, i32 } [ %519, %518 ], [ %.pn20, %.body134 ], [ %.pn18, %.body120 ], [ %389, %.body115 ], [ %371, %.body110 ], [ %.pn16, %.body96 ], [ %305, %.body91 ], [ %287, %.body86 ], [ %269, %.body81 ], [ %251, %.body76 ], [ %233, %.body71 ], [ %215, %.body66 ], [ %197, %.body61 ], [ %179, %.body56 ], [ %161, %.body51 ], [ %143, %.body46 ], [ %.pn14, %.body32 ], [ %.pn, %.body ]
+  %.pn22.pn = phi { ptr, i32 } [ %519, %518 ], [ %.pn20, %.body134 ], [ %143, %.body46 ], [ %.pn18, %.body120 ], [ %.pn14, %.body32 ], [ %389, %.body115 ], [ %371, %.body110 ], [ %.pn16, %.body96 ], [ %.pn, %.body ], [ %305, %.body91 ], [ %287, %.body86 ], [ %269, %.body81 ], [ %251, %.body76 ], [ %233, %.body71 ], [ %215, %.body66 ], [ %197, %.body61 ], [ %179, %.body56 ], [ %161, %.body51 ]
   resume { ptr, i32 } %.pn22.pn
 }
 
@@ -14197,7 +14197,7 @@ _ZN4lean6bufferINS_4exprELm16EED2Ev.exit:         ; preds = %_ZN4lean6bufferINS_
   br label %241
 
 241:                                              ; preds = %155, %233, %240, %150, %111
-  %.pn21.pn = phi { ptr, i32 } [ %.pn21, %111 ], [ %.pn, %150 ], [ %.pn16, %240 ], [ %.pn14, %233 ], [ %.pn12, %155 ]
+  %.pn21.pn = phi { ptr, i32 } [ %.pn21, %111 ], [ %.pn12, %155 ], [ %.pn, %150 ], [ %.pn16, %240 ], [ %.pn14, %233 ]
   call void @_ZN4lean6bufferINS_4exprELm16EED2Ev(ptr noundef nonnull align 8 dereferenceable(152) %4) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn21.pn
@@ -14653,7 +14653,7 @@ _ZN4lean10object_refD2Ev.exit62:                  ; preds = %177, %167, %174, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %312
 
-_ZN4lean12is_llnf_projERKNS_4exprE.exit.thread:   ; preds = %_ZNK4lean4name12is_anonymousEv.exit.i.i.i.i, %_ZNK4lean4name10is_numeralEv.exit.thread.i.i.i, %.noexc55, %_ZNK4lean4name9is_atomicEv.exit.i.i.i, %_ZNK4lean4name10is_numeralEv.exit.i.i.i, %129, %_ZN4lean10object_refD2Ev.exit62, %_ZN4lean12is_llnf_projERKNS_4exprE.exit
+_ZN4lean12is_llnf_projERKNS_4exprE.exit.thread:   ; preds = %_ZNK4lean4name10is_numeralEv.exit.thread.i.i.i, %.noexc55, %_ZNK4lean4name9is_atomicEv.exit.i.i.i, %_ZNK4lean4name10is_numeralEv.exit.i.i.i, %_ZNK4lean4name12is_anonymousEv.exit.i.i.i.i, %129, %_ZN4lean10object_refD2Ev.exit62, %_ZN4lean12is_llnf_projERKNS_4exprE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   invoke void @_ZN4lean9local_ctx13mk_local_declERNS_14name_generatorERKNS_4nameERKNS_4exprES8_(ptr dead_on_unwind nonnull writable sret(%"class.lean::expr") align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(12) %24, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %188 unwind label %307
@@ -16108,7 +16108,7 @@ _ZN4lean10object_refD2Ev.exit135:                 ; preds = %339, %346, %348, %3
           cleanup
   br label %.body82
 
-.critedge:                                        ; preds = %118, %_ZN4lean10object_refD2Ev.exit135, %_ZN4lean10object_refD2Ev.exit127, %_ZN4lean10object_refD2Ev.exit107, %_ZN4lean10object_refD2Ev.exit95
+.critedge:                                        ; preds = %118, %_ZN4lean10object_refD2Ev.exit127, %_ZN4lean10object_refD2Ev.exit107, %_ZN4lean10object_refD2Ev.exit95, %_ZN4lean10object_refD2Ev.exit135
   %368 = load ptr, ptr %88, align 8, !tbaa !63
   %.not.i.i136 = icmp eq ptr %368, null
   br i1 %.not.i.i136, label %_ZN4lean10cnstr_infoD2Ev.exit, label %369
@@ -16241,7 +16241,7 @@ _ZN4lean10object_refD2Ev.exit145:                 ; preds = %_ZN4lean10object_re
   ret void
 
 .body82:                                          ; preds = %115, %190, %248, %100, %132, %176, %234, %313, %357, %366
-  %.pn64 = phi { ptr, i32 } [ %367, %366 ], [ %.pn57.pn, %176 ], [ %.pn54.pn, %234 ], [ %.pn52, %313 ], [ %.pn50, %357 ], [ %116, %115 ], [ %133, %132 ], [ %191, %190 ], [ %101, %100 ], [ %249, %248 ]
+  %.pn64 = phi { ptr, i32 } [ %367, %366 ], [ %191, %190 ], [ %249, %248 ], [ %101, %100 ], [ %.pn50, %357 ], [ %.pn57.pn, %176 ], [ %.pn54.pn, %234 ], [ %.pn52, %313 ], [ %116, %115 ], [ %133, %132 ]
   call void @_ZN4lean10cnstr_infoD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %15) #19
   br label %419
 
@@ -16667,7 +16667,7 @@ _ZN4lean7sstreamlsIA19_cEERS0_RKT_.exit:          ; preds = %_ZN4lean7sstreamlsI
           cleanup
   br label %104
 
-.thread495:                                       ; preds = %_ZN4lean7sstreamC2Ev.exit, %_ZN4lean7sstreamlsIA46_cEERS0_RKT_.exit, %_ZN4lean7sstreamlsINS_4nameEEERS0_RKT_.exit, %_ZN4lean7sstreamlsIA19_cEERS0_RKT_.exit
+.thread495:                                       ; preds = %_ZN4lean7sstreamlsIA19_cEERS0_RKT_.exit, %_ZN4lean7sstreamlsINS_4nameEEERS0_RKT_.exit, %_ZN4lean7sstreamlsIA46_cEERS0_RKT_.exit, %_ZN4lean7sstreamC2Ev.exit
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4lean7sstreamD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %23) #19
@@ -19835,7 +19835,7 @@ _ZN4lean10cnstr_infoD2Ev.exit:                    ; preds = %1232, %1235, %_ZN4l
   br label %1240
 
 1238:                                             ; preds = %249, %289, %482, %683, %876, %977, %.body366, %1090, %1043, %1037, %1036
-  %.pn124.pn.pn.pn = phi { ptr, i32 } [ %1038, %1037 ], [ %.pn103, %.body366 ], [ %.pn98, %1090 ], [ %.pn96, %1043 ], [ %.pn94, %1036 ], [ %250, %249 ], [ %.pn122, %289 ], [ %.pn117.pn.pn.pn, %482 ], [ %.pn113.pn.pn, %683 ], [ %.pn109.pn.pn, %876 ], [ %.pn105.pn.pn, %977 ]
+  %.pn124.pn.pn.pn = phi { ptr, i32 } [ %.pn94, %1036 ], [ %1038, %1037 ], [ %.pn103, %.body366 ], [ %.pn98, %1090 ], [ %.pn96, %1043 ], [ %.pn105.pn.pn, %977 ], [ %.pn109.pn.pn, %876 ], [ %250, %249 ], [ %.pn122, %289 ], [ %.pn117.pn.pn.pn, %482 ], [ %.pn113.pn.pn, %683 ]
   call void @_ZN4lean6bufferINS_4exprELm16EED2Ev(ptr noundef nonnull align 8 dereferenceable(152) %32) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   call void @_ZN4lean10cnstr_infoD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %31) #19
@@ -22066,12 +22066,12 @@ _ZN4lean10object_refD2Ev.exit266:                 ; preds = %_ZN4lean10object_re
   br i1 %.not292, label %._crit_edge304, label %.lr.ph303
 
 717:                                              ; preds = %712, %640, %603, %528, %445, %360, %322
-  %.pn115.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn115.pn.pn, %445 ], [ %.pn111.pn.pn, %528 ], [ %.pn107.pn.pn, %603 ], [ %323, %322 ], [ %.pn104.pn, %360 ], [ %.pn100.pn.pn, %712 ], [ %.pn97.pn, %640 ]
+  %.pn115.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn97.pn, %640 ], [ %.pn100.pn.pn, %712 ], [ %.pn115.pn.pn, %445 ], [ %.pn111.pn.pn, %528 ], [ %.pn107.pn.pn, %603 ], [ %323, %322 ], [ %.pn104.pn, %360 ]
   call void @_ZN4lean10object_refD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
   br label %718
 
 718:                                              ; preds = %240, %246, %717, %319
-  %.pn124.pn.pn.pn = phi { ptr, i32 } [ %.pn115.pn.pn.pn.pn.pn, %717 ], [ %.pn95, %319 ], [ %241, %240 ], [ %.pn122, %246 ]
+  %.pn124.pn.pn.pn = phi { ptr, i32 } [ %.pn95, %319 ], [ %.pn115.pn.pn.pn.pn.pn, %717 ], [ %.pn122, %246 ], [ %241, %240 ]
   call void @_ZN4lean6bufferINS_4exprELm16EED2Ev(ptr noundef nonnull align 8 dereferenceable(152) %19) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %746
@@ -22144,7 +22144,7 @@ _ZN4lean10object_refD2Ev.exit270:                 ; preds = %_ZN4lean10cnstr_inf
   br label %749
 
 746:                                              ; preds = %220, %718
-  %.pn124.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn124.pn.pn.pn, %718 ], [ %.pn89.pn.pn.pn.pn, %220 ]
+  %.pn124.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn89.pn.pn.pn.pn, %220 ], [ %.pn124.pn.pn.pn, %718 ]
   call void @_ZN4lean10cnstr_infoD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %12) #19
   br label %747
 
@@ -23117,7 +23117,7 @@ _ZNSt10_HashtableIN4lean4nameESt4pairIKS1_NS0_10cnstr_infoEESaIS5_ENSt8__detail1
   ret { ptr, i8 } %.fca.1.insert
 
 68:                                               ; preds = %63, %60, %27
-  %.pn.pn.pn = phi { ptr, i32 } [ %28, %27 ], [ %64, %63 ], [ %61, %60 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %28, %27 ], [ %61, %60 ], [ %64, %63 ]
   call void @_ZNSt10_HashtableIN4lean4nameESt4pairIKS1_NS0_10cnstr_infoEESaIS5_ENSt8__detail10_Select1stENS0_10name_eq_fnENS0_12name_hash_fnENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn.pn
@@ -23877,7 +23877,7 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %36, %45, %47, %48
   ret void
 
 54:                                               ; preds = %34, %24
-  %.06 = phi ptr [ %15, %24 ], [ %25, %34 ]
+  %.06 = phi ptr [ %25, %34 ], [ %15, %24 ]
   %55 = landingpad { ptr, i32 }
           cleanup
   br label %56
@@ -25257,7 +25257,7 @@ _ZN4lean4listINS_10field_infoEED2Ev.exit:         ; preds = %_ZN4lean10field_inf
   br label %.body
 
 .body:                                            ; preds = %33, %25
-  %.pn = phi { ptr, i32 } [ %34, %33 ], [ %26, %25 ]
+  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %34, %33 ]
   tail call void @_ZN4lean4listINS_10field_infoEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
   resume { ptr, i32 } %.pn
 

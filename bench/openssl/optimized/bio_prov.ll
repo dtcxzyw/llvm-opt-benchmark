@@ -553,7 +553,7 @@ ossl_prov_bio_up_ref.exit.thread:                 ; preds = %8, %ossl_prov_bio_u
   br label %14
 
 14:                                               ; preds = %5, %2, %13, %ossl_prov_bio_up_ref.exit.thread
-  %.0 = phi ptr [ %6, %13 ], [ null, %ossl_prov_bio_up_ref.exit.thread ], [ null, %2 ], [ null, %5 ]
+  %.0 = phi ptr [ null, %ossl_prov_bio_up_ref.exit.thread ], [ null, %2 ], [ %6, %13 ], [ null, %5 ]
   ret ptr %.0
 }
 

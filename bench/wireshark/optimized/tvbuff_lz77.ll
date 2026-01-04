@@ -230,7 +230,7 @@ define noundef ptr @tvb_uncompress_lz77(ptr noundef %0, i32 noundef %1, i32 noun
   br label %do_uncompress.exit
 
 do_uncompress.exit:                               ; preds = %43, %81, %25, %26, %98
-  %.068.i = phi i8 [ 0, %98 ], [ 0, %25 ], [ 0, %26 ], [ 1, %43 ], [ 0, %81 ]
+  %.068.i = phi i8 [ 0, %25 ], [ 0, %26 ], [ 0, %98 ], [ 1, %43 ], [ 0, %81 ]
   store volatile i8 %.068.i, ptr %6, align 1
   br label %99
 

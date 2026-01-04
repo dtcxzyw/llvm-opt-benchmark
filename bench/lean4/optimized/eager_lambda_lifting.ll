@@ -801,7 +801,7 @@ _ZN4lean10object_refD2Ev.exit59:                  ; preds = %_ZN4lean7mk_pairINS
   br label %.body
 
 .body:                                            ; preds = %197, %35, %87, %.body33, %181
-  %.pn28.pn.pn = phi { ptr, i32 } [ %.pn24.pn, %.body33 ], [ %.pn21.pn, %181 ], [ %88, %87 ], [ %198, %197 ], [ %36, %35 ]
+  %.pn28.pn.pn = phi { ptr, i32 } [ %88, %87 ], [ %36, %35 ], [ %198, %197 ], [ %.pn24.pn, %.body33 ], [ %.pn21.pn, %181 ]
   call void @_ZN4lean10object_refD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn28.pn.pn
@@ -4012,7 +4012,7 @@ _ZNK4lean7rb_treeINS_4nameENS_14name_quick_cmpEE3cmpERKS1_S5_.exit.i.i: ; preds 
   %.not.i.i113 = icmp eq ptr %.011.i.i, null
   br i1 %.not.i.i113, label %_ZNK4lean7rb_treeINS_4nameENS_14name_quick_cmpEE8containsERKS1_.exit141.thread, label %.lr.ph.i.i
 
-338:                                              ; preds = %.noexc115, %.lr.ph.i.i, %.noexc114
+338:                                              ; preds = %.noexc114, %.lr.ph.i.i, %.noexc115
   %.01127.i.i116 = load ptr, ptr %268, align 8, !tbaa !131
   %.not28.i.i117 = icmp eq ptr %.01127.i.i116, null
   br i1 %.not28.i.i117, label %_ZNK4lean7rb_treeINS_4nameENS_14name_quick_cmpEE8containsERKS1_.exit141, label %.lr.ph.i.i118
@@ -4339,7 +4339,7 @@ _ZN4lean10object_refD2Ev.exit160:                 ; preds = %_ZN4lean10object_re
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %523
 
-_ZNK4lean7rb_treeINS_4nameENS_14name_quick_cmpEE8containsERKS1_.exit141.thread: ; preds = %336, %.noexc139, %.lr.ph.i.i118, %.noexc140, %_ZN4lean10object_refD2Ev.exit160, %_ZN4lean8optionalINS_4exprEED2Ev.exit
+_ZNK4lean7rb_treeINS_4nameENS_14name_quick_cmpEE8containsERKS1_.exit141.thread: ; preds = %336, %.noexc140, %.lr.ph.i.i118, %.noexc139, %_ZN4lean10object_refD2Ev.exit160, %_ZN4lean8optionalINS_4exprEED2Ev.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %447 = load ptr, ptr %16, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
@@ -4634,12 +4634,12 @@ _ZN4lean6bufferINS_4exprELm16EED2Ev.exit:         ; preds = %_ZN4lean6bufferINS_
   ret void
 
 547:                                              ; preds = %525, %424, %423
-  %.pn50.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn41, %423 ], [ %.pn50.pn.pn.pn.pn.pn, %525 ], [ %425, %424 ]
+  %.pn50.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn41, %423 ], [ %425, %424 ], [ %.pn50.pn.pn.pn.pn.pn, %525 ]
   call void @_ZN4lean10object_refD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
   br label %548
 
 548:                                              ; preds = %129, %230, %547, %418
-  %.pn62.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn50.pn.pn.pn.pn.pn.pn.pn.pn, %547 ], [ %.pn, %418 ], [ %.pn62.pn.pn, %230 ], [ %130, %129 ]
+  %.pn62.pn.pn.pn.pn = phi { ptr, i32 } [ %130, %129 ], [ %.pn50.pn.pn.pn.pn.pn.pn.pn.pn, %547 ], [ %.pn, %418 ], [ %.pn62.pn.pn, %230 ]
   call void @_ZN4lean6bufferINS_4exprELm16EED2Ev(ptr noundef nonnull align 8 dereferenceable(152) %9) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN4lean4fletINS_9local_ctxEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #16
@@ -9382,7 +9382,7 @@ _ZNK4lean7rb_treeINS_4nameENS_14name_quick_cmpEE3cmpERKS1_S5_.exit.i: ; preds = 
   br i1 %.not.i, label %_ZNK4lean7rb_treeINS_4nameENS_14name_quick_cmpEE4findERKS1_.exit, label %.lr.ph.i
 
 _ZNK4lean7rb_treeINS_4nameENS_14name_quick_cmpEE4findERKS1_.exit: ; preds = %.lr.ph.i, %20, %_ZNK4lean7rb_treeINS_4nameENS_14name_quick_cmpEE3cmpERKS1_S5_.exit.i, %25, %2
-  %.2.i = phi i1 [ false, %2 ], [ false, %25 ], [ true, %_ZNK4lean7rb_treeINS_4nameENS_14name_quick_cmpEE3cmpERKS1_S5_.exit.i ], [ true, %.lr.ph.i ], [ true, %20 ]
+  %.2.i = phi i1 [ false, %2 ], [ false, %25 ], [ true, %20 ], [ true, %.lr.ph.i ], [ true, %_ZNK4lean7rb_treeINS_4nameENS_14name_quick_cmpEE3cmpERKS1_S5_.exit.i ]
   ret i1 %.2.i
 }
 
@@ -11228,7 +11228,7 @@ _ZN4lean6bufferINS_4exprELm16EED2Ev.exit231:      ; preds = %_ZN4lean6bufferINS_
   br label %677
 
 677:                                              ; preds = %281, %290, %676, %.body121
-  %.pn59.pn.pn.pn = phi { ptr, i32 } [ %.pn53.pn.pn.pn.pn, %676 ], [ %.pn42, %.body121 ], [ %.pn59.pn, %290 ], [ %282, %281 ]
+  %.pn59.pn.pn.pn = phi { ptr, i32 } [ %.pn42, %.body121 ], [ %.pn53.pn.pn.pn.pn, %676 ], [ %.pn59.pn, %290 ], [ %282, %281 ]
   call void @_ZN4lean10object_refD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #16
   br label %678
 
@@ -11454,7 +11454,7 @@ _ZNK4lean7rb_treeINS_4nameENS_14name_quick_cmpEE8containsERKS1_.exit.i.i.i: ; pr
   br label %"_ZSt10__invoke_rIbRZN4leanL15has_fvar_exceptERKNS0_4exprERKNS0_7rb_treeINS0_4nameENS0_14name_quick_cmpEEEE3$_0JS3_jEENSt9enable_ifIXntsr7is_voidIT_EE5valueESD_E4typeEOT0_DpOT1_.exit"
 
 "_ZSt10__invoke_rIbRZN4leanL15has_fvar_exceptERKNS0_4exprERKNS0_7rb_treeINS0_4nameENS0_14name_quick_cmpEEEE3$_0JS3_jEENSt9enable_ifIXntsr7is_voidIT_EE5valueESD_E4typeEOT0_DpOT1_.exit": ; preds = %.lr.ph.i.i.i.i.i, %38, %_ZNK4lean7rb_treeINS_4nameENS_14name_quick_cmpEE3cmpERKS1_S5_.exit.i.i.i.i.i, %3, %12, %16, %_ZNK4lean7rb_treeINS_4nameENS_14name_quick_cmpEE8containsERKS1_.exit.i.i.i
-  %.0.i.i.i = phi i1 [ false, %_ZNK4lean7rb_treeINS_4nameENS_14name_quick_cmpEE8containsERKS1_.exit.i.i.i ], [ false, %3 ], [ false, %12 ], [ true, %16 ], [ true, %_ZNK4lean7rb_treeINS_4nameENS_14name_quick_cmpEE3cmpERKS1_S5_.exit.i.i.i.i.i ], [ true, %38 ], [ true, %.lr.ph.i.i.i.i.i ]
+  %.0.i.i.i = phi i1 [ false, %3 ], [ false, %12 ], [ false, %_ZNK4lean7rb_treeINS_4nameENS_14name_quick_cmpEE8containsERKS1_.exit.i.i.i ], [ true, %16 ], [ true, %_ZNK4lean7rb_treeINS_4nameENS_14name_quick_cmpEE3cmpERKS1_S5_.exit.i.i.i.i.i ], [ true, %38 ], [ true, %.lr.ph.i.i.i.i.i ]
   ret i1 %.0.i.i.i
 }
 
@@ -11647,7 +11647,7 @@ _ZN4lean6bufferINS_4exprELm16EE9push_backERKS1_.exit: ; preds = %49, %58, %60, %
           cleanup
   br label %.body
 
-.thread88:                                        ; preds = %33, %25, %41, %40, %37
+.thread88:                                        ; preds = %33, %25, %40, %37, %41
   %66 = load ptr, ptr %.02170, align 8, !tbaa !3
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %.01127.i.i = load ptr, ptr %13, align 8, !tbaa !131
@@ -11724,7 +11724,7 @@ _ZNK4lean7rb_treeINS_4nameENS_14name_quick_cmpEE3cmpERKS1_S5_.exit.i.i: ; preds 
   %.not.i.i = icmp eq ptr %.011.i.i, null
   br i1 %.not.i.i, label %_ZNK4lean7rb_treeINS_4nameENS_14name_quick_cmpEE8containsERKS1_.exit, label %.lr.ph.i.i
 
-92:                                               ; preds = %.noexc29, %.lr.ph.i.i, %.noexc28
+92:                                               ; preds = %.noexc28, %.lr.ph.i.i, %.noexc29
   %.val = load ptr, ptr %2, align 8, !tbaa !101
   %.val23 = load i64, ptr %14, align 8, !tbaa !104
   %.idx.i = shl nuw nsw i64 %.val23, 3
@@ -12336,7 +12336,7 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %91, %99, %101, %102
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn17
 
-_ZNK4lean7rb_treeINS_4nameENS_14name_quick_cmpEE8containsERKS1_.exit.thread: ; preds = %43, %.lr.ph.i.i, %_ZNK4lean7rb_treeINS_4nameENS_14name_quick_cmpEE3cmpERKS1_S5_.exit.i.i, %_ZN4lean10object_refD2Ev.exit, %21
+_ZNK4lean7rb_treeINS_4nameENS_14name_quick_cmpEE8containsERKS1_.exit.thread: ; preds = %_ZNK4lean7rb_treeINS_4nameENS_14name_quick_cmpEE3cmpERKS1_S5_.exit.i.i, %.lr.ph.i.i, %43, %_ZN4lean10object_refD2Ev.exit, %21
   br label %107
 
 107:                                              ; preds = %_ZN4lean10object_refD2Ev.exit, %17, %3, %_ZNK4lean7rb_treeINS_4nameENS_14name_quick_cmpEE8containsERKS1_.exit.thread

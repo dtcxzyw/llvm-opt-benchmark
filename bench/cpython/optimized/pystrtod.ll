@@ -295,7 +295,7 @@ _PyOS_ascii_strtod.exit:                          ; preds = %12, %_Py_parse_inf_
   br label %86
 
 86:                                               ; preds = %78, %80, %84, %75, %64
-  %.0 = phi double [ -1.000000e+00, %64 ], [ -1.000000e+00, %75 ], [ -1.000000e+00, %84 ], [ %.0.i, %80 ], [ %.0.i, %78 ]
+  %.0 = phi double [ -1.000000e+00, %64 ], [ -1.000000e+00, %75 ], [ -1.000000e+00, %84 ], [ %.0.i, %78 ], [ %.0.i, %80 ]
   %.not21 = icmp eq ptr %1, null
   br i1 %.not21, label %89, label %87
 
@@ -452,10 +452,10 @@ define dso_local ptr @PyOS_double_to_string(double noundef %0, i8 noundef signex
   br label %171
 
 18:                                               ; preds = %5, %12, %15, %14, %10
-  %.020 = phi i32 [ %11, %10 ], [ %spec.store.select, %14 ], [ 0, %15 ], [ %2, %12 ], [ %2, %5 ]
-  %.319 = phi i8 [ 101, %10 ], [ 103, %14 ], [ 114, %15 ], [ 102, %12 ], [ %1, %5 ]
-  %.3 = phi ptr [ %.014, %10 ], [ %.2, %14 ], [ @lc_float_strings, %15 ], [ @uc_float_strings, %12 ], [ @lc_float_strings, %5 ]
-  %.0 = phi i32 [ 2, %10 ], [ 2, %14 ], [ 0, %15 ], [ 3, %12 ], [ 3, %5 ]
+  %.020 = phi i32 [ %11, %10 ], [ 0, %15 ], [ %spec.store.select, %14 ], [ %2, %12 ], [ %2, %5 ]
+  %.319 = phi i8 [ 101, %10 ], [ 114, %15 ], [ 103, %14 ], [ 102, %12 ], [ %1, %5 ]
+  %.3 = phi ptr [ %.014, %10 ], [ @lc_float_strings, %15 ], [ %.2, %14 ], [ @uc_float_strings, %12 ], [ @lc_float_strings, %5 ]
+  %.0 = phi i32 [ 2, %10 ], [ 0, %15 ], [ 2, %14 ], [ 3, %12 ], [ 3, %5 ]
   %19 = and i32 %3, 1
   %20 = and i32 %3, 2
   %21 = and i32 %3, 4
@@ -659,9 +659,9 @@ thread-pre-split.i:                               ; preds = %47, %42
   br label %97
 
 97:                                               ; preds = %95, %.thread253.i, %.thread234.i
-  %.0160240.i = phi i64 [ %85, %.thread234.i ], [ %spec.select255.i, %.thread253.i ], [ %38, %95 ]
-  %.0164238.i = phi i1 [ true, %.thread234.i ], [ true, %.thread253.i ], [ %or.cond3.i, %95 ]
-  %98 = phi i64 [ %32, %.thread234.i ], [ %32, %.thread253.i ], [ %spec.select256.i, %95 ]
+  %.0160240.i = phi i64 [ %38, %95 ], [ %85, %.thread234.i ], [ %spec.select255.i, %.thread253.i ]
+  %.0164238.i = phi i1 [ %or.cond3.i, %95 ], [ true, %.thread234.i ], [ true, %.thread253.i ]
+  %98 = phi i64 [ %spec.select256.i, %95 ], [ %32, %.thread234.i ], [ %32, %.thread253.i ]
   %99 = icmp slt i64 %98, 1
   %100 = call i64 @llvm.smin.i64(i64 %98, i64 1)
   %101 = add nsw i64 %100, -1
@@ -685,13 +685,13 @@ thread-pre-split.i:                               ; preds = %47, %42
   br label %108
 
 108:                                              ; preds = %106, %.thread, %.thread40
-  %.1161.i38 = phi i64 [ %105, %.thread40 ], [ %104, %.thread ], [ %107, %106 ]
-  %.0164238251.i36 = phi i1 [ false, %.thread40 ], [ true, %.thread ], [ %.0164238.i, %106 ]
-  %109 = phi i64 [ 1, %.thread40 ], [ %98, %.thread ], [ %98, %106 ]
-  %110 = phi i1 [ false, %.thread40 ], [ %99, %.thread ], [ %99, %106 ]
-  %111 = phi i64 [ 1, %.thread40 ], [ %100, %.thread ], [ %100, %106 ]
-  %112 = phi i64 [ 0, %.thread40 ], [ %101, %.thread ], [ %101, %106 ]
-  %113 = phi i64 [ 8, %.thread40 ], [ 3, %.thread ], [ %spec.select43, %106 ]
+  %.1161.i38 = phi i64 [ %105, %.thread40 ], [ %107, %106 ], [ %104, %.thread ]
+  %.0164238251.i36 = phi i1 [ false, %.thread40 ], [ %.0164238.i, %106 ], [ true, %.thread ]
+  %109 = phi i64 [ 1, %.thread40 ], [ %98, %106 ], [ %98, %.thread ]
+  %110 = phi i1 [ false, %.thread40 ], [ %99, %106 ], [ %99, %.thread ]
+  %111 = phi i64 [ 1, %.thread40 ], [ %100, %106 ], [ %100, %.thread ]
+  %112 = phi i64 [ 0, %.thread40 ], [ %101, %106 ], [ %101, %.thread ]
+  %113 = phi i64 [ 8, %.thread40 ], [ %spec.select43, %106 ], [ 3, %.thread ]
   %114 = add i32 %.fr.i, -1
   %reass.sub = sub nsw i64 %113, %111
   %115 = add nuw nsw i64 %reass.sub, 1
@@ -761,7 +761,7 @@ thread-pre-split.i:                               ; preds = %47, %42
   br label %148
 
 148:                                              ; preds = %145, %.thread202.i
-  %.4209.i = phi ptr [ %147, %145 ], [ %133, %.thread202.i ]
+  %.4209.i = phi ptr [ %133, %.thread202.i ], [ %147, %145 ]
   %149 = sub i64 %109, %38
   call void @llvm.memset.p0.i64(ptr align 1 %.4209.i, i8 48, i64 %149, i1 false)
   %150 = getelementptr i8, ptr %.4209.i, i64 %149

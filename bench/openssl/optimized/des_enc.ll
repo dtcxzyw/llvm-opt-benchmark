@@ -3887,8 +3887,8 @@ define void @DES_ncbc_encrypt(ptr noundef readonly captures(none) %0, ptr nounde
   br label %173
 
 173:                                              ; preds = %._crit_edge278, %170, %112, %._crit_edge, %71
-  %.1229.sink = phi i32 [ %73, %71 ], [ %.0232.lcssa, %._crit_edge ], [ %.0228.lcssa, %._crit_edge278 ], [ %125, %170 ], [ %125, %112 ]
-  %.1227.sink = phi i32 [ %75, %71 ], [ %.0230.lcssa, %._crit_edge ], [ %.0226.lcssa, %._crit_edge278 ], [ %137, %170 ], [ %137, %112 ]
+  %.1229.sink = phi i32 [ %.0232.lcssa, %._crit_edge ], [ %73, %71 ], [ %.0228.lcssa, %._crit_edge278 ], [ %125, %170 ], [ %125, %112 ]
+  %.1227.sink = phi i32 [ %.0230.lcssa, %._crit_edge ], [ %75, %71 ], [ %.0226.lcssa, %._crit_edge278 ], [ %137, %170 ], [ %137, %112 ]
   store i32 %.1229.sink, ptr %4, align 1
   store i32 %.1227.sink, ptr %9, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -4211,8 +4211,8 @@ define void @DES_ede3_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr no
   br label %175
 
 175:                                              ; preds = %._crit_edge296, %172, %114, %._crit_edge, %73
-  %.1258.sink = phi i32 [ %75, %73 ], [ %.0261.lcssa, %._crit_edge ], [ %.0257.lcssa, %._crit_edge296 ], [ %127, %172 ], [ %127, %114 ]
-  %.1256.sink = phi i32 [ %76, %73 ], [ %.0259.lcssa, %._crit_edge ], [ %.0255.lcssa, %._crit_edge296 ], [ %139, %172 ], [ %139, %114 ]
+  %.1258.sink = phi i32 [ %.0261.lcssa, %._crit_edge ], [ %75, %73 ], [ %.0257.lcssa, %._crit_edge296 ], [ %127, %172 ], [ %127, %114 ]
+  %.1256.sink = phi i32 [ %.0259.lcssa, %._crit_edge ], [ %76, %73 ], [ %.0255.lcssa, %._crit_edge296 ], [ %139, %172 ], [ %139, %114 ]
   store i32 %.1258.sink, ptr %6, align 1
   store i32 %.1256.sink, ptr %11, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

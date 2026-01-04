@@ -335,7 +335,7 @@ define internal fastcc void @ResetUnloggedRelationsInTablespaceDir(ptr noundef %
   %.not49.i62 = icmp eq i8 %112, 0
   br i1 %.not49.i62, label %parse_filename_for_nontemp_relation.exit69, label %parse_filename_for_nontemp_relation.exit69.thread
 
-parse_filename_for_nontemp_relation.exit69.thread: ; preds = %89, %.lr.ph.i, %81, %77, %98, %105, %102, %111
+parse_filename_for_nontemp_relation.exit69.thread: ; preds = %89, %.lr.ph.i, %102, %77, %98, %81, %105, %111
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %117
@@ -463,7 +463,7 @@ parse_filename_for_nontemp_relation.exit69:       ; preds = %111
   %.not49.i46 = icmp eq i8 %163, 0
   br i1 %.not49.i46, label %parse_filename_for_nontemp_relation.exit53, label %parse_filename_for_nontemp_relation.exit53.thread
 
-parse_filename_for_nontemp_relation.exit53.thread: ; preds = %140, %.lr.ph66.i, %132, %128, %149, %156, %153, %162
+parse_filename_for_nontemp_relation.exit53.thread: ; preds = %140, %.lr.ph66.i, %153, %128, %149, %132, %156, %162
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %180
@@ -611,7 +611,7 @@ parse_filename_for_nontemp_relation.exit53:       ; preds = %162
   %.not49.i30 = icmp eq i8 %225, 0
   br i1 %.not49.i30, label %parse_filename_for_nontemp_relation.exit37, label %parse_filename_for_nontemp_relation.exit37.thread
 
-parse_filename_for_nontemp_relation.exit37.thread: ; preds = %201, %.lr.ph70.i, %193, %189, %210, %217, %214, %224
+parse_filename_for_nontemp_relation.exit37.thread: ; preds = %201, %.lr.ph70.i, %214, %189, %210, %193, %217, %224
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %240
@@ -752,7 +752,7 @@ parse_filename_for_nontemp_relation.exit37:       ; preds = %224
   %.not49.i19 = icmp eq i8 %285, 0
   br i1 %.not49.i19, label %parse_filename_for_nontemp_relation.exit, label %parse_filename_for_nontemp_relation.exit.thread
 
-parse_filename_for_nontemp_relation.exit.thread:  ; preds = %261, %.lr.ph74.i, %253, %249, %270, %277, %274, %284
+parse_filename_for_nontemp_relation.exit.thread:  ; preds = %261, %.lr.ph74.i, %274, %249, %270, %253, %277, %284
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %295
@@ -920,7 +920,7 @@ define dso_local noundef zeroext i1 @parse_filename_for_nontemp_relation(ptr nou
   br label %49
 
 49:                                               ; preds = %44, %34, %37, %30, %9, %13, %4, %21, %46
-  %.0 = phi i1 [ true, %46 ], [ false, %21 ], [ false, %4 ], [ false, %13 ], [ false, %9 ], [ false, %30 ], [ false, %37 ], [ false, %34 ], [ false, %44 ]
+  %.0 = phi i1 [ false, %21 ], [ false, %4 ], [ false, %34 ], [ true, %46 ], [ false, %9 ], [ false, %30 ], [ false, %13 ], [ false, %37 ], [ false, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0

@@ -178,7 +178,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1262,9 +1262,9 @@ define void @_ZNK6icu_7722UnescapeTransliterator19handleTransliterateERNS_11Repl
   %109 = icmp slt i32 %.1, %.2
   br i1 %109, label %.preheader165, label %.thread155, !llvm.loop !38
 
-.thread155:                                       ; preds = %108, %70, %48, %36, %4
-  %.093178 = phi i32 [ %9, %4 ], [ %.093197, %36 ], [ %.093197, %48 ], [ %.093197, %70 ], [ %.2, %108 ]
-  %.0175 = phi i32 [ %7, %4 ], [ %.0198, %36 ], [ %.0198, %48 ], [ %.0198, %70 ], [ %.1, %108 ]
+.thread155:                                       ; preds = %108, %48, %70, %36, %4
+  %.093178 = phi i32 [ %.093197, %48 ], [ %9, %4 ], [ %.093197, %36 ], [ %.093197, %70 ], [ %.2, %108 ]
+  %.0175 = phi i32 [ %.0198, %48 ], [ %7, %4 ], [ %.0198, %36 ], [ %.0198, %70 ], [ %.1, %108 ]
   %110 = load i32, ptr %8, align 4, !tbaa !34
   %111 = sub i32 %.093178, %110
   %112 = getelementptr inbounds nuw i8, ptr %2, i64 4

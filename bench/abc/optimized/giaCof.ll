@@ -672,7 +672,7 @@ define i32 @Cof_ManTfoSize_rec(ptr noundef readonly captures(none) %0, ptr nound
   br label %.critedge
 
 .critedge:                                        ; preds = %.preheader, %.critedge.loopexit, %5, %2
-  %.015 = phi i32 [ 0, %2 ], [ 0, %5 ], [ 1, %.preheader ], [ %25, %.critedge.loopexit ]
+  %.015 = phi i32 [ 0, %5 ], [ 0, %2 ], [ 1, %.preheader ], [ %25, %.critedge.loopexit ]
   ret i32 %.015
 }
 
@@ -755,7 +755,7 @@ define i32 @Cof_ManTfiSize_rec(ptr noundef readonly captures(none) %0, ptr nound
   br label %.critedge
 
 .critedge:                                        ; preds = %.preheader, %.critedge.loopexit, %5, %2
-  %.015 = phi i32 [ 0, %2 ], [ 0, %5 ], [ 1, %.preheader ], [ %23, %.critedge.loopexit ]
+  %.015 = phi i32 [ 0, %5 ], [ 0, %2 ], [ 1, %.preheader ], [ %23, %.critedge.loopexit ]
   ret i32 %.015
 }
 
@@ -849,7 +849,7 @@ define i32 @Cof_ManSuppSize_rec(ptr noundef readonly captures(none) %0, ptr noun
   br i1 %22, label %9, label %.critedge, !llvm.loop !61
 
 .critedge:                                        ; preds = %9, %.preheader, %5, %2
-  %.015 = phi i32 [ 0, %2 ], [ 1, %5 ], [ 0, %.preheader ], [ %17, %9 ]
+  %.015 = phi i32 [ 1, %5 ], [ 0, %2 ], [ 0, %.preheader ], [ %17, %9 ]
   ret i32 %.015
 }
 
@@ -3519,8 +3519,8 @@ define noalias noundef ptr @Gia_ManCofVars(ptr noundef %0, i32 noundef %1) local
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %41, %43, %33, %35
-  %.sink40 = phi ptr [ %34, %33 ], [ %36, %35 ], [ %42, %41 ], [ %44, %43 ]
-  %.sink = phi i32 [ 16, %33 ], [ 16, %35 ], [ %38, %41 ], [ %38, %43 ]
+  %.sink40 = phi ptr [ %36, %35 ], [ %34, %33 ], [ %42, %41 ], [ %44, %43 ]
+  %.sink = phi i32 [ 16, %35 ], [ 16, %33 ], [ %38, %41 ], [ %38, %43 ]
   store ptr %.sink40, ptr %10, align 8, !tbaa !32
   store i32 %.sink, ptr %7, align 8, !tbaa !31
   br label %Vec_IntPush.exit
@@ -3664,8 +3664,8 @@ define noalias noundef ptr @Gia_ManTransfer(ptr noundef readonly captures(none) 
   br label %Vec_IntPush.exit.i.sink.split
 
 Vec_IntPush.exit.i.sink.split:                    ; preds = %51, %53, %43, %45
-  %.sink30 = phi ptr [ %44, %43 ], [ %46, %45 ], [ %52, %51 ], [ %54, %53 ]
-  %.sink = phi i32 [ 16, %43 ], [ 16, %45 ], [ %48, %51 ], [ %48, %53 ]
+  %.sink30 = phi ptr [ %46, %45 ], [ %44, %43 ], [ %52, %51 ], [ %54, %53 ]
+  %.sink = phi i32 [ 16, %45 ], [ 16, %43 ], [ %48, %51 ], [ %48, %53 ]
   store ptr %.sink30, ptr %8, align 8, !tbaa !32
   store i32 %.sink, ptr %5, align 8, !tbaa !31
   br label %Vec_IntPush.exit.i
@@ -3681,9 +3681,9 @@ Vec_IntPush.exit.i:                               ; preds = %Vec_IntPush.exit.i.
   br label %Vec_IntPushUnique.exit
 
 Vec_IntPushUnique.exit:                           ; preds = %34, %Vec_IntPush.exit.i, %17
-  %.val = phi i32 [ %.val.pre, %Vec_IntPush.exit.i ], [ %.val26, %17 ], [ %.val26, %34 ]
-  %.pre.i.i24 = phi ptr [ %.pre.i.i25, %Vec_IntPush.exit.i ], [ %15, %17 ], [ %15, %34 ]
-  %58 = phi ptr [ %.pre.i.i25, %Vec_IntPush.exit.i ], [ %16, %17 ], [ %16, %34 ]
+  %.val = phi i32 [ %.val26, %17 ], [ %.val.pre, %Vec_IntPush.exit.i ], [ %.val26, %34 ]
+  %.pre.i.i24 = phi ptr [ %15, %17 ], [ %.pre.i.i25, %Vec_IntPush.exit.i ], [ %15, %34 ]
+  %58 = phi ptr [ %16, %17 ], [ %.pre.i.i25, %Vec_IntPush.exit.i ], [ %16, %34 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %59 = sext i32 %.val to i64
   %60 = icmp slt i64 %indvars.iv.next, %59
@@ -3953,8 +3953,8 @@ Abc_UtilStrsav.exit132:                           ; preds = %Abc_UtilStrsav.exit
   br label %.critedge, !llvm.loop !104
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %Abc_UtilStrsav.exit132
-  %.val108.val154 = phi i32 [ %.val99137, %Abc_UtilStrsav.exit132 ], [ %.val99, %..critedge.loopexit_crit_edge ], [ %.val99137, %.lr.ph.preheader ], [ %.val99, %.lr.ph ]
-  %.val108153 = phi ptr [ %29, %Abc_UtilStrsav.exit132 ], [ %40, %..critedge.loopexit_crit_edge ], [ %29, %.lr.ph.preheader ], [ %40, %.lr.ph ]
+  %.val108.val154 = phi i32 [ %.val99137, %Abc_UtilStrsav.exit132 ], [ %.val99137, %.lr.ph.preheader ], [ %.val99, %..critedge.loopexit_crit_edge ], [ %.val99, %.lr.ph ]
+  %.val108153 = phi ptr [ %29, %Abc_UtilStrsav.exit132 ], [ %29, %.lr.ph.preheader ], [ %40, %..critedge.loopexit_crit_edge ], [ %40, %.lr.ph ]
   %44 = getelementptr i8, ptr %0, i64 16
   %.val107152 = load i32, ptr %44, align 8, !tbaa !98
   %45 = icmp sgt i32 %.val108.val154, %.val107152
@@ -4223,8 +4223,8 @@ Abc_UtilStrsav.exit132:                           ; preds = %Abc_UtilStrsav.exit
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %196, %198, %188, %190
-  %.sink233 = phi ptr [ %189, %188 ], [ %191, %190 ], [ %197, %196 ], [ %199, %198 ]
-  %.sink = phi i32 [ 16, %188 ], [ 16, %190 ], [ %193, %196 ], [ %193, %198 ]
+  %.sink233 = phi ptr [ %191, %190 ], [ %189, %188 ], [ %197, %196 ], [ %199, %198 ]
+  %.sink = phi i32 [ 16, %190 ], [ 16, %188 ], [ %193, %196 ], [ %193, %198 ]
   store ptr %.sink233, ptr %7, align 8, !tbaa !32
   store i32 %.sink, ptr %4, align 8, !tbaa !31
   br label %Vec_IntPush.exit
@@ -4256,9 +4256,9 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br i1 %207, label %.lr.ph151, label %.loopexit, !llvm.loop !109
 
 .loopexit:                                        ; preds = %203, %53, %.preheader136
-  %.val108 = phi ptr [ %.val108210, %.preheader136 ], [ %.val108210, %53 ], [ %.val108207, %203 ]
-  %.val107 = phi i32 [ %.val107206, %.preheader136 ], [ %.val107206, %53 ], [ %.val107203, %203 ]
-  %.pre.i195 = phi ptr [ %.pre.i194, %.preheader136 ], [ %.pre.i194, %53 ], [ %.pre.i197, %203 ]
+  %.val108 = phi ptr [ %.val108210, %53 ], [ %.val108210, %.preheader136 ], [ %.val108207, %203 ]
+  %.val107 = phi i32 [ %.val107206, %53 ], [ %.val107206, %.preheader136 ], [ %.val107203, %203 ]
+  %.pre.i195 = phi ptr [ %.pre.i194, %53 ], [ %.pre.i194, %.preheader136 ], [ %.pre.i197, %203 ]
   %208 = getelementptr i8, ptr %.val108, i64 4
   %.val108.val = load i32, ptr %208, align 4, !tbaa !30
   %209 = sub nsw i32 %.val108.val, %.val107

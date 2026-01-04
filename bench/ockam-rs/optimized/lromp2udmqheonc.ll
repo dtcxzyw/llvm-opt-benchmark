@@ -494,10 +494,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ;
   br label %315
 
 ._crit_edge:                                      ; preds = %.noexc, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit"
-  %.sroa.0271.1.lcssa = phi ptr [ %.sroa.0271.1438, %.noexc ], [ %.sroa.0271.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.10275.0.lcssa = phi i64 [ %.sroa.10275.0439, %.noexc ], [ %.sroa.10275.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.12.1.lcssa = phi ptr [ %.sroa.12.1440, %.noexc ], [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.16.1.lcssa = phi ptr [ %.sroa.16.1441, %.noexc ], [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
+  %.sroa.0271.1.lcssa = phi ptr [ %.sroa.0271.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.0271.1438, %.noexc ]
+  %.sroa.10275.0.lcssa = phi i64 [ %.sroa.10275.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.10275.0439, %.noexc ]
+  %.sroa.12.1.lcssa = phi ptr [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.12.1440, %.noexc ]
+  %.sroa.16.1.lcssa = phi ptr [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.16.1441, %.noexc ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !20)
   %158 = icmp eq ptr %.sroa.0271.1.lcssa, null
@@ -561,11 +561,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ;
   ret void
 
 .body251:                                         ; preds = %303, %171, %313
-  %.sroa.0271.3 = phi ptr [ %.sroa.0271.1438, %313 ], [ %.sroa.0271.1438, %171 ], [ %296, %303 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.1440, %313 ], [ %.sroa.12.1440, %171 ], [ %.fca.0.extract27, %303 ]
-  %.sroa.16.3 = phi ptr [ %.sroa.16.1441, %313 ], [ %.sroa.16.1441, %171 ], [ %.fca.1.extract28, %303 ]
-  %.5160 = phi i8 [ %.10.ph, %313 ], [ 1, %171 ], [ 1, %303 ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %313 ], [ %172, %171 ], [ %304, %303 ]
+  %.sroa.0271.3 = phi ptr [ %.sroa.0271.1438, %171 ], [ %.sroa.0271.1438, %313 ], [ %296, %303 ]
+  %.sroa.12.3 = phi ptr [ %.sroa.12.1440, %171 ], [ %.sroa.12.1440, %313 ], [ %.fca.0.extract27, %303 ]
+  %.sroa.16.3 = phi ptr [ %.sroa.16.1441, %171 ], [ %.sroa.16.1441, %313 ], [ %.fca.1.extract28, %303 ]
+  %.5160 = phi i8 [ 1, %171 ], [ %.10.ph, %313 ], [ 1, %303 ]
+  %.pn.pn = phi { ptr, i32 } [ %172, %171 ], [ %.pn.ph, %313 ], [ %304, %303 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %29) #16
           to label %315 unwind label %293
 
@@ -1384,10 +1384,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ;
   br label %315
 
 ._crit_edge:                                      ; preds = %.noexc, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit"
-  %.sroa.0271.1.lcssa = phi ptr [ %.sroa.0271.1438, %.noexc ], [ %.sroa.0271.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.10275.0.lcssa = phi i64 [ %.sroa.10275.0439, %.noexc ], [ %.sroa.10275.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.12.1.lcssa = phi ptr [ %.sroa.12.1440, %.noexc ], [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.16.1.lcssa = phi ptr [ %.sroa.16.1441, %.noexc ], [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
+  %.sroa.0271.1.lcssa = phi ptr [ %.sroa.0271.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.0271.1438, %.noexc ]
+  %.sroa.10275.0.lcssa = phi i64 [ %.sroa.10275.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.10275.0439, %.noexc ]
+  %.sroa.12.1.lcssa = phi ptr [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.12.1440, %.noexc ]
+  %.sroa.16.1.lcssa = phi ptr [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.16.1441, %.noexc ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !93)
   %158 = icmp eq ptr %.sroa.0271.1.lcssa, null
@@ -1451,11 +1451,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ;
   ret void
 
 .body251:                                         ; preds = %303, %171, %313
-  %.sroa.0271.3 = phi ptr [ %.sroa.0271.1438, %313 ], [ %.sroa.0271.1438, %171 ], [ %296, %303 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.1440, %313 ], [ %.sroa.12.1440, %171 ], [ %.fca.0.extract27, %303 ]
-  %.sroa.16.3 = phi ptr [ %.sroa.16.1441, %313 ], [ %.sroa.16.1441, %171 ], [ %.fca.1.extract28, %303 ]
-  %.5160 = phi i8 [ %.10.ph, %313 ], [ 1, %171 ], [ 1, %303 ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %313 ], [ %172, %171 ], [ %304, %303 ]
+  %.sroa.0271.3 = phi ptr [ %.sroa.0271.1438, %171 ], [ %.sroa.0271.1438, %313 ], [ %296, %303 ]
+  %.sroa.12.3 = phi ptr [ %.sroa.12.1440, %171 ], [ %.sroa.12.1440, %313 ], [ %.fca.0.extract27, %303 ]
+  %.sroa.16.3 = phi ptr [ %.sroa.16.1441, %171 ], [ %.sroa.16.1441, %313 ], [ %.fca.1.extract28, %303 ]
+  %.5160 = phi i8 [ 1, %171 ], [ %.10.ph, %313 ], [ 1, %303 ]
+  %.pn.pn = phi { ptr, i32 } [ %172, %171 ], [ %.pn.ph, %313 ], [ %304, %303 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %29) #16
           to label %315 unwind label %293
 
@@ -2274,10 +2274,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ;
   br label %315
 
 ._crit_edge:                                      ; preds = %.noexc, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit"
-  %.sroa.0271.1.lcssa = phi ptr [ %.sroa.0271.1438, %.noexc ], [ %.sroa.0271.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.10275.0.lcssa = phi i64 [ %.sroa.10275.0439, %.noexc ], [ %.sroa.10275.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.12.1.lcssa = phi ptr [ %.sroa.12.1440, %.noexc ], [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.16.1.lcssa = phi ptr [ %.sroa.16.1441, %.noexc ], [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
+  %.sroa.0271.1.lcssa = phi ptr [ %.sroa.0271.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.0271.1438, %.noexc ]
+  %.sroa.10275.0.lcssa = phi i64 [ %.sroa.10275.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.10275.0439, %.noexc ]
+  %.sroa.12.1.lcssa = phi ptr [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.12.1440, %.noexc ]
+  %.sroa.16.1.lcssa = phi ptr [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.16.1441, %.noexc ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !164)
   %158 = icmp eq ptr %.sroa.0271.1.lcssa, null
@@ -2341,11 +2341,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ;
   ret void
 
 .body251:                                         ; preds = %303, %171, %313
-  %.sroa.0271.3 = phi ptr [ %.sroa.0271.1438, %313 ], [ %.sroa.0271.1438, %171 ], [ %296, %303 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.1440, %313 ], [ %.sroa.12.1440, %171 ], [ %.fca.0.extract27, %303 ]
-  %.sroa.16.3 = phi ptr [ %.sroa.16.1441, %313 ], [ %.sroa.16.1441, %171 ], [ %.fca.1.extract28, %303 ]
-  %.5160 = phi i8 [ %.10.ph, %313 ], [ 1, %171 ], [ 1, %303 ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %313 ], [ %172, %171 ], [ %304, %303 ]
+  %.sroa.0271.3 = phi ptr [ %.sroa.0271.1438, %171 ], [ %.sroa.0271.1438, %313 ], [ %296, %303 ]
+  %.sroa.12.3 = phi ptr [ %.sroa.12.1440, %171 ], [ %.sroa.12.1440, %313 ], [ %.fca.0.extract27, %303 ]
+  %.sroa.16.3 = phi ptr [ %.sroa.16.1441, %171 ], [ %.sroa.16.1441, %313 ], [ %.fca.1.extract28, %303 ]
+  %.5160 = phi i8 [ 1, %171 ], [ %.10.ph, %313 ], [ 1, %303 ]
+  %.pn.pn = phi { ptr, i32 } [ %172, %171 ], [ %.pn.ph, %313 ], [ %304, %303 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %29) #16
           to label %315 unwind label %293
 
@@ -3164,10 +3164,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ;
   br label %315
 
 ._crit_edge:                                      ; preds = %.noexc, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit"
-  %.sroa.0271.1.lcssa = phi ptr [ %.sroa.0271.1438, %.noexc ], [ %.sroa.0271.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.10275.0.lcssa = phi i64 [ %.sroa.10275.0439, %.noexc ], [ %.sroa.10275.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.12.1.lcssa = phi ptr [ %.sroa.12.1440, %.noexc ], [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.16.1.lcssa = phi ptr [ %.sroa.16.1441, %.noexc ], [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
+  %.sroa.0271.1.lcssa = phi ptr [ %.sroa.0271.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.0271.1438, %.noexc ]
+  %.sroa.10275.0.lcssa = phi i64 [ %.sroa.10275.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.10275.0439, %.noexc ]
+  %.sroa.12.1.lcssa = phi ptr [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.12.1440, %.noexc ]
+  %.sroa.16.1.lcssa = phi ptr [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.16.1441, %.noexc ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !235)
   %158 = icmp eq ptr %.sroa.0271.1.lcssa, null
@@ -3231,11 +3231,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ;
   ret void
 
 .body251:                                         ; preds = %303, %171, %313
-  %.sroa.0271.3 = phi ptr [ %.sroa.0271.1438, %313 ], [ %.sroa.0271.1438, %171 ], [ %296, %303 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.1440, %313 ], [ %.sroa.12.1440, %171 ], [ %.fca.0.extract27, %303 ]
-  %.sroa.16.3 = phi ptr [ %.sroa.16.1441, %313 ], [ %.sroa.16.1441, %171 ], [ %.fca.1.extract28, %303 ]
-  %.5160 = phi i8 [ %.10.ph, %313 ], [ 1, %171 ], [ 1, %303 ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %313 ], [ %172, %171 ], [ %304, %303 ]
+  %.sroa.0271.3 = phi ptr [ %.sroa.0271.1438, %171 ], [ %.sroa.0271.1438, %313 ], [ %296, %303 ]
+  %.sroa.12.3 = phi ptr [ %.sroa.12.1440, %171 ], [ %.sroa.12.1440, %313 ], [ %.fca.0.extract27, %303 ]
+  %.sroa.16.3 = phi ptr [ %.sroa.16.1441, %171 ], [ %.sroa.16.1441, %313 ], [ %.fca.1.extract28, %303 ]
+  %.5160 = phi i8 [ 1, %171 ], [ %.10.ph, %313 ], [ 1, %303 ]
+  %.pn.pn = phi { ptr, i32 } [ %172, %171 ], [ %.pn.ph, %313 ], [ %304, %303 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %29) #16
           to label %315 unwind label %293
 
@@ -4054,10 +4054,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ;
   br label %315
 
 ._crit_edge:                                      ; preds = %.noexc, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit"
-  %.sroa.0271.1.lcssa = phi ptr [ %.sroa.0271.1438, %.noexc ], [ %.sroa.0271.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.10275.0.lcssa = phi i64 [ %.sroa.10275.0439, %.noexc ], [ %.sroa.10275.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.12.1.lcssa = phi ptr [ %.sroa.12.1440, %.noexc ], [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.16.1.lcssa = phi ptr [ %.sroa.16.1441, %.noexc ], [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
+  %.sroa.0271.1.lcssa = phi ptr [ %.sroa.0271.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.0271.1438, %.noexc ]
+  %.sroa.10275.0.lcssa = phi i64 [ %.sroa.10275.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.10275.0439, %.noexc ]
+  %.sroa.12.1.lcssa = phi ptr [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.12.1440, %.noexc ]
+  %.sroa.16.1.lcssa = phi ptr [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.16.1441, %.noexc ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !306)
   %158 = icmp eq ptr %.sroa.0271.1.lcssa, null
@@ -4121,11 +4121,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ;
   ret void
 
 .body251:                                         ; preds = %303, %171, %313
-  %.sroa.0271.3 = phi ptr [ %.sroa.0271.1438, %313 ], [ %.sroa.0271.1438, %171 ], [ %296, %303 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.1440, %313 ], [ %.sroa.12.1440, %171 ], [ %.fca.0.extract27, %303 ]
-  %.sroa.16.3 = phi ptr [ %.sroa.16.1441, %313 ], [ %.sroa.16.1441, %171 ], [ %.fca.1.extract28, %303 ]
-  %.5160 = phi i8 [ %.10.ph, %313 ], [ 1, %171 ], [ 1, %303 ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %313 ], [ %172, %171 ], [ %304, %303 ]
+  %.sroa.0271.3 = phi ptr [ %.sroa.0271.1438, %171 ], [ %.sroa.0271.1438, %313 ], [ %296, %303 ]
+  %.sroa.12.3 = phi ptr [ %.sroa.12.1440, %171 ], [ %.sroa.12.1440, %313 ], [ %.fca.0.extract27, %303 ]
+  %.sroa.16.3 = phi ptr [ %.sroa.16.1441, %171 ], [ %.sroa.16.1441, %313 ], [ %.fca.1.extract28, %303 ]
+  %.5160 = phi i8 [ 1, %171 ], [ %.10.ph, %313 ], [ 1, %303 ]
+  %.pn.pn = phi { ptr, i32 } [ %172, %171 ], [ %.pn.ph, %313 ], [ %304, %303 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %29) #16
           to label %315 unwind label %293
 
@@ -4944,10 +4944,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ;
   br label %315
 
 ._crit_edge:                                      ; preds = %.noexc, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit"
-  %.sroa.0271.1.lcssa = phi ptr [ %.sroa.0271.1438, %.noexc ], [ %.sroa.0271.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.10275.0.lcssa = phi i64 [ %.sroa.10275.0439, %.noexc ], [ %.sroa.10275.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.12.1.lcssa = phi ptr [ %.sroa.12.1440, %.noexc ], [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.16.1.lcssa = phi ptr [ %.sroa.16.1441, %.noexc ], [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
+  %.sroa.0271.1.lcssa = phi ptr [ %.sroa.0271.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.0271.1438, %.noexc ]
+  %.sroa.10275.0.lcssa = phi i64 [ %.sroa.10275.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.10275.0439, %.noexc ]
+  %.sroa.12.1.lcssa = phi ptr [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.12.1440, %.noexc ]
+  %.sroa.16.1.lcssa = phi ptr [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.16.1441, %.noexc ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !377)
   %158 = icmp eq ptr %.sroa.0271.1.lcssa, null
@@ -5011,11 +5011,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ;
   ret void
 
 .body251:                                         ; preds = %303, %171, %313
-  %.sroa.0271.3 = phi ptr [ %.sroa.0271.1438, %313 ], [ %.sroa.0271.1438, %171 ], [ %296, %303 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.1440, %313 ], [ %.sroa.12.1440, %171 ], [ %.fca.0.extract27, %303 ]
-  %.sroa.16.3 = phi ptr [ %.sroa.16.1441, %313 ], [ %.sroa.16.1441, %171 ], [ %.fca.1.extract28, %303 ]
-  %.5160 = phi i8 [ %.10.ph, %313 ], [ 1, %171 ], [ 1, %303 ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %313 ], [ %172, %171 ], [ %304, %303 ]
+  %.sroa.0271.3 = phi ptr [ %.sroa.0271.1438, %171 ], [ %.sroa.0271.1438, %313 ], [ %296, %303 ]
+  %.sroa.12.3 = phi ptr [ %.sroa.12.1440, %171 ], [ %.sroa.12.1440, %313 ], [ %.fca.0.extract27, %303 ]
+  %.sroa.16.3 = phi ptr [ %.sroa.16.1441, %171 ], [ %.sroa.16.1441, %313 ], [ %.fca.1.extract28, %303 ]
+  %.5160 = phi i8 [ 1, %171 ], [ %.10.ph, %313 ], [ 1, %303 ]
+  %.pn.pn = phi { ptr, i32 } [ %172, %171 ], [ %.pn.ph, %313 ], [ %304, %303 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %29) #16
           to label %315 unwind label %293
 
@@ -5834,10 +5834,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ;
   br label %315
 
 ._crit_edge:                                      ; preds = %.noexc, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit"
-  %.sroa.0271.1.lcssa = phi ptr [ %.sroa.0271.1438, %.noexc ], [ %.sroa.0271.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.10275.0.lcssa = phi i64 [ %.sroa.10275.0439, %.noexc ], [ %.sroa.10275.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.12.1.lcssa = phi ptr [ %.sroa.12.1440, %.noexc ], [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.16.1.lcssa = phi ptr [ %.sroa.16.1441, %.noexc ], [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
+  %.sroa.0271.1.lcssa = phi ptr [ %.sroa.0271.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.0271.1438, %.noexc ]
+  %.sroa.10275.0.lcssa = phi i64 [ %.sroa.10275.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.10275.0439, %.noexc ]
+  %.sroa.12.1.lcssa = phi ptr [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.12.1440, %.noexc ]
+  %.sroa.16.1.lcssa = phi ptr [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.16.1441, %.noexc ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !448)
   %158 = icmp eq ptr %.sroa.0271.1.lcssa, null
@@ -5901,11 +5901,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ;
   ret void
 
 .body251:                                         ; preds = %303, %171, %313
-  %.sroa.0271.3 = phi ptr [ %.sroa.0271.1438, %313 ], [ %.sroa.0271.1438, %171 ], [ %296, %303 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.1440, %313 ], [ %.sroa.12.1440, %171 ], [ %.fca.0.extract27, %303 ]
-  %.sroa.16.3 = phi ptr [ %.sroa.16.1441, %313 ], [ %.sroa.16.1441, %171 ], [ %.fca.1.extract28, %303 ]
-  %.5160 = phi i8 [ %.10.ph, %313 ], [ 1, %171 ], [ 1, %303 ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %313 ], [ %172, %171 ], [ %304, %303 ]
+  %.sroa.0271.3 = phi ptr [ %.sroa.0271.1438, %171 ], [ %.sroa.0271.1438, %313 ], [ %296, %303 ]
+  %.sroa.12.3 = phi ptr [ %.sroa.12.1440, %171 ], [ %.sroa.12.1440, %313 ], [ %.fca.0.extract27, %303 ]
+  %.sroa.16.3 = phi ptr [ %.sroa.16.1441, %171 ], [ %.sroa.16.1441, %313 ], [ %.fca.1.extract28, %303 ]
+  %.5160 = phi i8 [ 1, %171 ], [ %.10.ph, %313 ], [ 1, %303 ]
+  %.pn.pn = phi { ptr, i32 } [ %172, %171 ], [ %.pn.ph, %313 ], [ %304, %303 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %29) #16
           to label %315 unwind label %293
 
@@ -6724,10 +6724,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ;
   br label %315
 
 ._crit_edge:                                      ; preds = %.noexc, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit"
-  %.sroa.0271.1.lcssa = phi ptr [ %.sroa.0271.1438, %.noexc ], [ %.sroa.0271.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.10275.0.lcssa = phi i64 [ %.sroa.10275.0439, %.noexc ], [ %.sroa.10275.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.12.1.lcssa = phi ptr [ %.sroa.12.1440, %.noexc ], [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.16.1.lcssa = phi ptr [ %.sroa.16.1441, %.noexc ], [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
+  %.sroa.0271.1.lcssa = phi ptr [ %.sroa.0271.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.0271.1438, %.noexc ]
+  %.sroa.10275.0.lcssa = phi i64 [ %.sroa.10275.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.10275.0439, %.noexc ]
+  %.sroa.12.1.lcssa = phi ptr [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.12.1440, %.noexc ]
+  %.sroa.16.1.lcssa = phi ptr [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.16.1441, %.noexc ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !519)
   %158 = icmp eq ptr %.sroa.0271.1.lcssa, null
@@ -6791,11 +6791,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ;
   ret void
 
 .body251:                                         ; preds = %303, %171, %313
-  %.sroa.0271.3 = phi ptr [ %.sroa.0271.1438, %313 ], [ %.sroa.0271.1438, %171 ], [ %296, %303 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.1440, %313 ], [ %.sroa.12.1440, %171 ], [ %.fca.0.extract27, %303 ]
-  %.sroa.16.3 = phi ptr [ %.sroa.16.1441, %313 ], [ %.sroa.16.1441, %171 ], [ %.fca.1.extract28, %303 ]
-  %.5160 = phi i8 [ %.10.ph, %313 ], [ 1, %171 ], [ 1, %303 ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %313 ], [ %172, %171 ], [ %304, %303 ]
+  %.sroa.0271.3 = phi ptr [ %.sroa.0271.1438, %171 ], [ %.sroa.0271.1438, %313 ], [ %296, %303 ]
+  %.sroa.12.3 = phi ptr [ %.sroa.12.1440, %171 ], [ %.sroa.12.1440, %313 ], [ %.fca.0.extract27, %303 ]
+  %.sroa.16.3 = phi ptr [ %.sroa.16.1441, %171 ], [ %.sroa.16.1441, %313 ], [ %.fca.1.extract28, %303 ]
+  %.5160 = phi i8 [ 1, %171 ], [ %.10.ph, %313 ], [ 1, %303 ]
+  %.pn.pn = phi { ptr, i32 } [ %172, %171 ], [ %.pn.ph, %313 ], [ %304, %303 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %29) #16
           to label %315 unwind label %293
 
@@ -7614,10 +7614,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ;
   br label %315
 
 ._crit_edge:                                      ; preds = %.noexc, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit"
-  %.sroa.0271.1.lcssa = phi ptr [ %.sroa.0271.1438, %.noexc ], [ %.sroa.0271.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.10275.0.lcssa = phi i64 [ %.sroa.10275.0439, %.noexc ], [ %.sroa.10275.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.12.1.lcssa = phi ptr [ %.sroa.12.1440, %.noexc ], [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.16.1.lcssa = phi ptr [ %.sroa.16.1441, %.noexc ], [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
+  %.sroa.0271.1.lcssa = phi ptr [ %.sroa.0271.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.0271.1438, %.noexc ]
+  %.sroa.10275.0.lcssa = phi i64 [ %.sroa.10275.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.10275.0439, %.noexc ]
+  %.sroa.12.1.lcssa = phi ptr [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.12.1440, %.noexc ]
+  %.sroa.16.1.lcssa = phi ptr [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.16.1441, %.noexc ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !590)
   %158 = icmp eq ptr %.sroa.0271.1.lcssa, null
@@ -7681,11 +7681,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ;
   ret void
 
 .body251:                                         ; preds = %303, %171, %313
-  %.sroa.0271.3 = phi ptr [ %.sroa.0271.1438, %313 ], [ %.sroa.0271.1438, %171 ], [ %296, %303 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.1440, %313 ], [ %.sroa.12.1440, %171 ], [ %.fca.0.extract27, %303 ]
-  %.sroa.16.3 = phi ptr [ %.sroa.16.1441, %313 ], [ %.sroa.16.1441, %171 ], [ %.fca.1.extract28, %303 ]
-  %.5160 = phi i8 [ %.10.ph, %313 ], [ 1, %171 ], [ 1, %303 ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %313 ], [ %172, %171 ], [ %304, %303 ]
+  %.sroa.0271.3 = phi ptr [ %.sroa.0271.1438, %171 ], [ %.sroa.0271.1438, %313 ], [ %296, %303 ]
+  %.sroa.12.3 = phi ptr [ %.sroa.12.1440, %171 ], [ %.sroa.12.1440, %313 ], [ %.fca.0.extract27, %303 ]
+  %.sroa.16.3 = phi ptr [ %.sroa.16.1441, %171 ], [ %.sroa.16.1441, %313 ], [ %.fca.1.extract28, %303 ]
+  %.5160 = phi i8 [ 1, %171 ], [ %.10.ph, %313 ], [ 1, %303 ]
+  %.pn.pn = phi { ptr, i32 } [ %172, %171 ], [ %.pn.ph, %313 ], [ %304, %303 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %29) #16
           to label %315 unwind label %293
 
@@ -8504,10 +8504,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ;
   br label %315
 
 ._crit_edge:                                      ; preds = %.noexc, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit"
-  %.sroa.0271.1.lcssa = phi ptr [ %.sroa.0271.1438, %.noexc ], [ %.sroa.0271.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.10275.0.lcssa = phi i64 [ %.sroa.10275.0439, %.noexc ], [ %.sroa.10275.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.12.1.lcssa = phi ptr [ %.sroa.12.1440, %.noexc ], [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.16.1.lcssa = phi ptr [ %.sroa.16.1441, %.noexc ], [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
+  %.sroa.0271.1.lcssa = phi ptr [ %.sroa.0271.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.0271.1438, %.noexc ]
+  %.sroa.10275.0.lcssa = phi i64 [ %.sroa.10275.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.10275.0439, %.noexc ]
+  %.sroa.12.1.lcssa = phi ptr [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.12.1440, %.noexc ]
+  %.sroa.16.1.lcssa = phi ptr [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.16.1441, %.noexc ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !661)
   %158 = icmp eq ptr %.sroa.0271.1.lcssa, null
@@ -8571,11 +8571,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ;
   ret void
 
 .body251:                                         ; preds = %303, %171, %313
-  %.sroa.0271.3 = phi ptr [ %.sroa.0271.1438, %313 ], [ %.sroa.0271.1438, %171 ], [ %296, %303 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.1440, %313 ], [ %.sroa.12.1440, %171 ], [ %.fca.0.extract27, %303 ]
-  %.sroa.16.3 = phi ptr [ %.sroa.16.1441, %313 ], [ %.sroa.16.1441, %171 ], [ %.fca.1.extract28, %303 ]
-  %.5160 = phi i8 [ %.10.ph, %313 ], [ 1, %171 ], [ 1, %303 ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %313 ], [ %172, %171 ], [ %304, %303 ]
+  %.sroa.0271.3 = phi ptr [ %.sroa.0271.1438, %171 ], [ %.sroa.0271.1438, %313 ], [ %296, %303 ]
+  %.sroa.12.3 = phi ptr [ %.sroa.12.1440, %171 ], [ %.sroa.12.1440, %313 ], [ %.fca.0.extract27, %303 ]
+  %.sroa.16.3 = phi ptr [ %.sroa.16.1441, %171 ], [ %.sroa.16.1441, %313 ], [ %.fca.1.extract28, %303 ]
+  %.5160 = phi i8 [ 1, %171 ], [ %.10.ph, %313 ], [ 1, %303 ]
+  %.pn.pn = phi { ptr, i32 } [ %172, %171 ], [ %.pn.ph, %313 ], [ %304, %303 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %29) #16
           to label %315 unwind label %293
 
@@ -9394,10 +9394,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ;
   br label %315
 
 ._crit_edge:                                      ; preds = %.noexc, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit"
-  %.sroa.0271.1.lcssa = phi ptr [ %.sroa.0271.1438, %.noexc ], [ %.sroa.0271.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.10275.0.lcssa = phi i64 [ %.sroa.10275.0439, %.noexc ], [ %.sroa.10275.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.12.1.lcssa = phi ptr [ %.sroa.12.1440, %.noexc ], [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.16.1.lcssa = phi ptr [ %.sroa.16.1441, %.noexc ], [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
+  %.sroa.0271.1.lcssa = phi ptr [ %.sroa.0271.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.0271.1438, %.noexc ]
+  %.sroa.10275.0.lcssa = phi i64 [ %.sroa.10275.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.10275.0439, %.noexc ]
+  %.sroa.12.1.lcssa = phi ptr [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.12.1440, %.noexc ]
+  %.sroa.16.1.lcssa = phi ptr [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.16.1441, %.noexc ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !732)
   %158 = icmp eq ptr %.sroa.0271.1.lcssa, null
@@ -9461,11 +9461,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ;
   ret void
 
 .body251:                                         ; preds = %303, %171, %313
-  %.sroa.0271.3 = phi ptr [ %.sroa.0271.1438, %313 ], [ %.sroa.0271.1438, %171 ], [ %296, %303 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.1440, %313 ], [ %.sroa.12.1440, %171 ], [ %.fca.0.extract27, %303 ]
-  %.sroa.16.3 = phi ptr [ %.sroa.16.1441, %313 ], [ %.sroa.16.1441, %171 ], [ %.fca.1.extract28, %303 ]
-  %.5160 = phi i8 [ %.10.ph, %313 ], [ 1, %171 ], [ 1, %303 ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %313 ], [ %172, %171 ], [ %304, %303 ]
+  %.sroa.0271.3 = phi ptr [ %.sroa.0271.1438, %171 ], [ %.sroa.0271.1438, %313 ], [ %296, %303 ]
+  %.sroa.12.3 = phi ptr [ %.sroa.12.1440, %171 ], [ %.sroa.12.1440, %313 ], [ %.fca.0.extract27, %303 ]
+  %.sroa.16.3 = phi ptr [ %.sroa.16.1441, %171 ], [ %.sroa.16.1441, %313 ], [ %.fca.1.extract28, %303 ]
+  %.5160 = phi i8 [ 1, %171 ], [ %.10.ph, %313 ], [ 1, %303 ]
+  %.pn.pn = phi { ptr, i32 } [ %172, %171 ], [ %.pn.ph, %313 ], [ %304, %303 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %29) #16
           to label %315 unwind label %293
 
@@ -10284,10 +10284,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ;
   br label %315
 
 ._crit_edge:                                      ; preds = %.noexc, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit"
-  %.sroa.0271.1.lcssa = phi ptr [ %.sroa.0271.1438, %.noexc ], [ %.sroa.0271.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.10275.0.lcssa = phi i64 [ %.sroa.10275.0439, %.noexc ], [ %.sroa.10275.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.12.1.lcssa = phi ptr [ %.sroa.12.1440, %.noexc ], [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.16.1.lcssa = phi ptr [ %.sroa.16.1441, %.noexc ], [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
+  %.sroa.0271.1.lcssa = phi ptr [ %.sroa.0271.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.0271.1438, %.noexc ]
+  %.sroa.10275.0.lcssa = phi i64 [ %.sroa.10275.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.10275.0439, %.noexc ]
+  %.sroa.12.1.lcssa = phi ptr [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.12.1440, %.noexc ]
+  %.sroa.16.1.lcssa = phi ptr [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.16.1441, %.noexc ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !803)
   %158 = icmp eq ptr %.sroa.0271.1.lcssa, null
@@ -10351,11 +10351,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ;
   ret void
 
 .body251:                                         ; preds = %303, %171, %313
-  %.sroa.0271.3 = phi ptr [ %.sroa.0271.1438, %313 ], [ %.sroa.0271.1438, %171 ], [ %296, %303 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.1440, %313 ], [ %.sroa.12.1440, %171 ], [ %.fca.0.extract27, %303 ]
-  %.sroa.16.3 = phi ptr [ %.sroa.16.1441, %313 ], [ %.sroa.16.1441, %171 ], [ %.fca.1.extract28, %303 ]
-  %.5160 = phi i8 [ %.10.ph, %313 ], [ 1, %171 ], [ 1, %303 ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %313 ], [ %172, %171 ], [ %304, %303 ]
+  %.sroa.0271.3 = phi ptr [ %.sroa.0271.1438, %171 ], [ %.sroa.0271.1438, %313 ], [ %296, %303 ]
+  %.sroa.12.3 = phi ptr [ %.sroa.12.1440, %171 ], [ %.sroa.12.1440, %313 ], [ %.fca.0.extract27, %303 ]
+  %.sroa.16.3 = phi ptr [ %.sroa.16.1441, %171 ], [ %.sroa.16.1441, %313 ], [ %.fca.1.extract28, %303 ]
+  %.5160 = phi i8 [ 1, %171 ], [ %.10.ph, %313 ], [ 1, %303 ]
+  %.pn.pn = phi { ptr, i32 } [ %172, %171 ], [ %.pn.ph, %313 ], [ %304, %303 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %29) #16
           to label %315 unwind label %293
 
@@ -11174,10 +11174,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ;
   br label %315
 
 ._crit_edge:                                      ; preds = %.noexc, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit"
-  %.sroa.0271.1.lcssa = phi ptr [ %.sroa.0271.1438, %.noexc ], [ %.sroa.0271.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.10275.0.lcssa = phi i64 [ %.sroa.10275.0439, %.noexc ], [ %.sroa.10275.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.12.1.lcssa = phi ptr [ %.sroa.12.1440, %.noexc ], [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.16.1.lcssa = phi ptr [ %.sroa.16.1441, %.noexc ], [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
+  %.sroa.0271.1.lcssa = phi ptr [ %.sroa.0271.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.0271.1438, %.noexc ]
+  %.sroa.10275.0.lcssa = phi i64 [ %.sroa.10275.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.10275.0439, %.noexc ]
+  %.sroa.12.1.lcssa = phi ptr [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.12.1440, %.noexc ]
+  %.sroa.16.1.lcssa = phi ptr [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.16.1441, %.noexc ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !874)
   %158 = icmp eq ptr %.sroa.0271.1.lcssa, null
@@ -11241,11 +11241,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ;
   ret void
 
 .body251:                                         ; preds = %303, %171, %313
-  %.sroa.0271.3 = phi ptr [ %.sroa.0271.1438, %313 ], [ %.sroa.0271.1438, %171 ], [ %296, %303 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.1440, %313 ], [ %.sroa.12.1440, %171 ], [ %.fca.0.extract27, %303 ]
-  %.sroa.16.3 = phi ptr [ %.sroa.16.1441, %313 ], [ %.sroa.16.1441, %171 ], [ %.fca.1.extract28, %303 ]
-  %.5160 = phi i8 [ %.10.ph, %313 ], [ 1, %171 ], [ 1, %303 ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %313 ], [ %172, %171 ], [ %304, %303 ]
+  %.sroa.0271.3 = phi ptr [ %.sroa.0271.1438, %171 ], [ %.sroa.0271.1438, %313 ], [ %296, %303 ]
+  %.sroa.12.3 = phi ptr [ %.sroa.12.1440, %171 ], [ %.sroa.12.1440, %313 ], [ %.fca.0.extract27, %303 ]
+  %.sroa.16.3 = phi ptr [ %.sroa.16.1441, %171 ], [ %.sroa.16.1441, %313 ], [ %.fca.1.extract28, %303 ]
+  %.5160 = phi i8 [ 1, %171 ], [ %.10.ph, %313 ], [ 1, %303 ]
+  %.pn.pn = phi { ptr, i32 } [ %172, %171 ], [ %.pn.ph, %313 ], [ %304, %303 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %29) #16
           to label %315 unwind label %293
 
@@ -12064,10 +12064,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ;
   br label %315
 
 ._crit_edge:                                      ; preds = %.noexc, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit"
-  %.sroa.0271.1.lcssa = phi ptr [ %.sroa.0271.1438, %.noexc ], [ %.sroa.0271.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.10275.0.lcssa = phi i64 [ %.sroa.10275.0439, %.noexc ], [ %.sroa.10275.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.12.1.lcssa = phi ptr [ %.sroa.12.1440, %.noexc ], [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.16.1.lcssa = phi ptr [ %.sroa.16.1441, %.noexc ], [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
+  %.sroa.0271.1.lcssa = phi ptr [ %.sroa.0271.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.0271.1438, %.noexc ]
+  %.sroa.10275.0.lcssa = phi i64 [ %.sroa.10275.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.10275.0439, %.noexc ]
+  %.sroa.12.1.lcssa = phi ptr [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.12.1440, %.noexc ]
+  %.sroa.16.1.lcssa = phi ptr [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.16.1441, %.noexc ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !945)
   %158 = icmp eq ptr %.sroa.0271.1.lcssa, null
@@ -12131,11 +12131,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ;
   ret void
 
 .body251:                                         ; preds = %303, %171, %313
-  %.sroa.0271.3 = phi ptr [ %.sroa.0271.1438, %313 ], [ %.sroa.0271.1438, %171 ], [ %296, %303 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.1440, %313 ], [ %.sroa.12.1440, %171 ], [ %.fca.0.extract27, %303 ]
-  %.sroa.16.3 = phi ptr [ %.sroa.16.1441, %313 ], [ %.sroa.16.1441, %171 ], [ %.fca.1.extract28, %303 ]
-  %.5160 = phi i8 [ %.10.ph, %313 ], [ 1, %171 ], [ 1, %303 ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %313 ], [ %172, %171 ], [ %304, %303 ]
+  %.sroa.0271.3 = phi ptr [ %.sroa.0271.1438, %171 ], [ %.sroa.0271.1438, %313 ], [ %296, %303 ]
+  %.sroa.12.3 = phi ptr [ %.sroa.12.1440, %171 ], [ %.sroa.12.1440, %313 ], [ %.fca.0.extract27, %303 ]
+  %.sroa.16.3 = phi ptr [ %.sroa.16.1441, %171 ], [ %.sroa.16.1441, %313 ], [ %.fca.1.extract28, %303 ]
+  %.5160 = phi i8 [ 1, %171 ], [ %.10.ph, %313 ], [ 1, %303 ]
+  %.pn.pn = phi { ptr, i32 } [ %172, %171 ], [ %.pn.ph, %313 ], [ %304, %303 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %29) #16
           to label %315 unwind label %293
 
@@ -12954,10 +12954,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ;
   br label %315
 
 ._crit_edge:                                      ; preds = %.noexc, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit"
-  %.sroa.0271.1.lcssa = phi ptr [ %.sroa.0271.1438, %.noexc ], [ %.sroa.0271.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.10275.0.lcssa = phi i64 [ %.sroa.10275.0439, %.noexc ], [ %.sroa.10275.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.12.1.lcssa = phi ptr [ %.sroa.12.1440, %.noexc ], [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.16.1.lcssa = phi ptr [ %.sroa.16.1441, %.noexc ], [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
+  %.sroa.0271.1.lcssa = phi ptr [ %.sroa.0271.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.0271.1438, %.noexc ]
+  %.sroa.10275.0.lcssa = phi i64 [ %.sroa.10275.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.10275.0439, %.noexc ]
+  %.sroa.12.1.lcssa = phi ptr [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.12.1440, %.noexc ]
+  %.sroa.16.1.lcssa = phi ptr [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.16.1441, %.noexc ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !1016)
   %158 = icmp eq ptr %.sroa.0271.1.lcssa, null
@@ -13021,11 +13021,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ;
   ret void
 
 .body251:                                         ; preds = %303, %171, %313
-  %.sroa.0271.3 = phi ptr [ %.sroa.0271.1438, %313 ], [ %.sroa.0271.1438, %171 ], [ %296, %303 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.1440, %313 ], [ %.sroa.12.1440, %171 ], [ %.fca.0.extract27, %303 ]
-  %.sroa.16.3 = phi ptr [ %.sroa.16.1441, %313 ], [ %.sroa.16.1441, %171 ], [ %.fca.1.extract28, %303 ]
-  %.5160 = phi i8 [ %.10.ph, %313 ], [ 1, %171 ], [ 1, %303 ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %313 ], [ %172, %171 ], [ %304, %303 ]
+  %.sroa.0271.3 = phi ptr [ %.sroa.0271.1438, %171 ], [ %.sroa.0271.1438, %313 ], [ %296, %303 ]
+  %.sroa.12.3 = phi ptr [ %.sroa.12.1440, %171 ], [ %.sroa.12.1440, %313 ], [ %.fca.0.extract27, %303 ]
+  %.sroa.16.3 = phi ptr [ %.sroa.16.1441, %171 ], [ %.sroa.16.1441, %313 ], [ %.fca.1.extract28, %303 ]
+  %.5160 = phi i8 [ 1, %171 ], [ %.10.ph, %313 ], [ 1, %303 ]
+  %.pn.pn = phi { ptr, i32 } [ %172, %171 ], [ %.pn.ph, %313 ], [ %304, %303 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %29) #16
           to label %315 unwind label %293
 
@@ -13844,10 +13844,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ;
   br label %315
 
 ._crit_edge:                                      ; preds = %.noexc, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit"
-  %.sroa.0271.1.lcssa = phi ptr [ %.sroa.0271.1438, %.noexc ], [ %.sroa.0271.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.10275.0.lcssa = phi i64 [ %.sroa.10275.0439, %.noexc ], [ %.sroa.10275.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.12.1.lcssa = phi ptr [ %.sroa.12.1440, %.noexc ], [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.16.1.lcssa = phi ptr [ %.sroa.16.1441, %.noexc ], [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
+  %.sroa.0271.1.lcssa = phi ptr [ %.sroa.0271.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.0271.1438, %.noexc ]
+  %.sroa.10275.0.lcssa = phi i64 [ %.sroa.10275.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.10275.0439, %.noexc ]
+  %.sroa.12.1.lcssa = phi ptr [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.12.1440, %.noexc ]
+  %.sroa.16.1.lcssa = phi ptr [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.16.1441, %.noexc ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !1087)
   %158 = icmp eq ptr %.sroa.0271.1.lcssa, null
@@ -13911,11 +13911,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ;
   ret void
 
 .body251:                                         ; preds = %303, %171, %313
-  %.sroa.0271.3 = phi ptr [ %.sroa.0271.1438, %313 ], [ %.sroa.0271.1438, %171 ], [ %296, %303 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.1440, %313 ], [ %.sroa.12.1440, %171 ], [ %.fca.0.extract27, %303 ]
-  %.sroa.16.3 = phi ptr [ %.sroa.16.1441, %313 ], [ %.sroa.16.1441, %171 ], [ %.fca.1.extract28, %303 ]
-  %.5160 = phi i8 [ %.10.ph, %313 ], [ 1, %171 ], [ 1, %303 ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %313 ], [ %172, %171 ], [ %304, %303 ]
+  %.sroa.0271.3 = phi ptr [ %.sroa.0271.1438, %171 ], [ %.sroa.0271.1438, %313 ], [ %296, %303 ]
+  %.sroa.12.3 = phi ptr [ %.sroa.12.1440, %171 ], [ %.sroa.12.1440, %313 ], [ %.fca.0.extract27, %303 ]
+  %.sroa.16.3 = phi ptr [ %.sroa.16.1441, %171 ], [ %.sroa.16.1441, %313 ], [ %.fca.1.extract28, %303 ]
+  %.5160 = phi i8 [ 1, %171 ], [ %.10.ph, %313 ], [ 1, %303 ]
+  %.pn.pn = phi { ptr, i32 } [ %172, %171 ], [ %.pn.ph, %313 ], [ %304, %303 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %29) #16
           to label %315 unwind label %293
 
@@ -14734,10 +14734,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ;
   br label %315
 
 ._crit_edge:                                      ; preds = %.noexc, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit"
-  %.sroa.0271.1.lcssa = phi ptr [ %.sroa.0271.1438, %.noexc ], [ %.sroa.0271.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.10275.0.lcssa = phi i64 [ %.sroa.10275.0439, %.noexc ], [ %.sroa.10275.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.12.1.lcssa = phi ptr [ %.sroa.12.1440, %.noexc ], [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.16.1.lcssa = phi ptr [ %.sroa.16.1441, %.noexc ], [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
+  %.sroa.0271.1.lcssa = phi ptr [ %.sroa.0271.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.0271.1438, %.noexc ]
+  %.sroa.10275.0.lcssa = phi i64 [ %.sroa.10275.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.10275.0439, %.noexc ]
+  %.sroa.12.1.lcssa = phi ptr [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.12.1440, %.noexc ]
+  %.sroa.16.1.lcssa = phi ptr [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.16.1441, %.noexc ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !1158)
   %158 = icmp eq ptr %.sroa.0271.1.lcssa, null
@@ -14801,11 +14801,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ;
   ret void
 
 .body251:                                         ; preds = %303, %171, %313
-  %.sroa.0271.3 = phi ptr [ %.sroa.0271.1438, %313 ], [ %.sroa.0271.1438, %171 ], [ %296, %303 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.1440, %313 ], [ %.sroa.12.1440, %171 ], [ %.fca.0.extract27, %303 ]
-  %.sroa.16.3 = phi ptr [ %.sroa.16.1441, %313 ], [ %.sroa.16.1441, %171 ], [ %.fca.1.extract28, %303 ]
-  %.5160 = phi i8 [ %.10.ph, %313 ], [ 1, %171 ], [ 1, %303 ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %313 ], [ %172, %171 ], [ %304, %303 ]
+  %.sroa.0271.3 = phi ptr [ %.sroa.0271.1438, %171 ], [ %.sroa.0271.1438, %313 ], [ %296, %303 ]
+  %.sroa.12.3 = phi ptr [ %.sroa.12.1440, %171 ], [ %.sroa.12.1440, %313 ], [ %.fca.0.extract27, %303 ]
+  %.sroa.16.3 = phi ptr [ %.sroa.16.1441, %171 ], [ %.sroa.16.1441, %313 ], [ %.fca.1.extract28, %303 ]
+  %.5160 = phi i8 [ 1, %171 ], [ %.10.ph, %313 ], [ 1, %303 ]
+  %.pn.pn = phi { ptr, i32 } [ %172, %171 ], [ %.pn.ph, %313 ], [ %304, %303 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %29) #16
           to label %315 unwind label %293
 
@@ -15624,10 +15624,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ;
   br label %315
 
 ._crit_edge:                                      ; preds = %.noexc, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit"
-  %.sroa.0271.1.lcssa = phi ptr [ %.sroa.0271.1438, %.noexc ], [ %.sroa.0271.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.10275.0.lcssa = phi i64 [ %.sroa.10275.0439, %.noexc ], [ %.sroa.10275.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.12.1.lcssa = phi ptr [ %.sroa.12.1440, %.noexc ], [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
-  %.sroa.16.1.lcssa = phi ptr [ %.sroa.16.1441, %.noexc ], [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ]
+  %.sroa.0271.1.lcssa = phi ptr [ %.sroa.0271.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.0271.1438, %.noexc ]
+  %.sroa.10275.0.lcssa = phi i64 [ %.sroa.10275.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.10275.0439, %.noexc ]
+  %.sroa.12.1.lcssa = phi ptr [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.12.1440, %.noexc ]
+  %.sroa.16.1.lcssa = phi ptr [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E.exit" ], [ %.sroa.16.1441, %.noexc ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !1229)
   %158 = icmp eq ptr %.sroa.0271.1.lcssa, null
@@ -15691,11 +15691,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ;
   ret void
 
 .body251:                                         ; preds = %303, %171, %313
-  %.sroa.0271.3 = phi ptr [ %.sroa.0271.1438, %313 ], [ %.sroa.0271.1438, %171 ], [ %296, %303 ]
-  %.sroa.12.3 = phi ptr [ %.sroa.12.1440, %313 ], [ %.sroa.12.1440, %171 ], [ %.fca.0.extract27, %303 ]
-  %.sroa.16.3 = phi ptr [ %.sroa.16.1441, %313 ], [ %.sroa.16.1441, %171 ], [ %.fca.1.extract28, %303 ]
-  %.5160 = phi i8 [ %.10.ph, %313 ], [ 1, %171 ], [ 1, %303 ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %313 ], [ %172, %171 ], [ %304, %303 ]
+  %.sroa.0271.3 = phi ptr [ %.sroa.0271.1438, %171 ], [ %.sroa.0271.1438, %313 ], [ %296, %303 ]
+  %.sroa.12.3 = phi ptr [ %.sroa.12.1440, %171 ], [ %.sroa.12.1440, %313 ], [ %.fca.0.extract27, %303 ]
+  %.sroa.16.3 = phi ptr [ %.sroa.16.1441, %171 ], [ %.sroa.16.1441, %313 ], [ %.fca.1.extract28, %303 ]
+  %.5160 = phi i8 [ 1, %171 ], [ %.10.ph, %313 ], [ 1, %303 ]
+  %.pn.pn = phi { ptr, i32 } [ %172, %171 ], [ %.pn.ph, %313 ], [ %304, %303 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17h9aea5821c4d38549E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %29) #16
           to label %315 unwind label %293
 

@@ -756,7 +756,7 @@ define hidden ptr @wtap_file_get_shb_for_new_file(ptr noundef readonly captures(
   br i1 %27, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %12, %1, %4, %8
-  %.0 = phi ptr [ null, %8 ], [ null, %4 ], [ null, %1 ], [ %13, %12 ], [ %13, %.lr.ph ]
+  %.0 = phi ptr [ null, %1 ], [ null, %8 ], [ null, %4 ], [ %13, %12 ], [ %13, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
@@ -1138,8 +1138,8 @@ define ptr @wtap_get_debug_if_descr(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %wtap_encap_name.exit
 
 wtap_encap_name.exit:                             ; preds = %26, %.thread83, %22, %27
-  %.0.i80 = phi ptr [ %33, %27 ], [ @.str.26, %22 ], [ @.str.28, %.thread83 ], [ @.str.27, %26 ]
-  %.0.i76 = phi ptr [ %34, %27 ], [ @.str.23, %22 ], [ @.str.25, %.thread83 ], [ @.str.24, %26 ]
+  %.0.i80 = phi ptr [ %33, %27 ], [ @.str.27, %26 ], [ @.str.28, %.thread83 ], [ @.str.26, %22 ]
+  %.0.i76 = phi ptr [ %34, %27 ], [ @.str.24, %26 ], [ @.str.25, %.thread83 ], [ @.str.23, %22 ]
   call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %9, ptr noundef nonnull @.str.8, i32 noundef %1, i32 noundef 32, ptr noundef %.0.i80, i32 noundef %23, ptr noundef %.0.i76, ptr noundef %2)
   %35 = call i32 @wtap_block_get_string_option_value(ptr noundef %0, i32 noundef 15, ptr noundef nonnull %4)
   %36 = icmp eq i32 %35, 0
@@ -1198,7 +1198,7 @@ wtap_encap_name.exit:                             ; preds = %26, %.thread83, %22
   br label %wtap_tsprec_string.exit
 
 wtap_tsprec_string.exit:                          ; preds = %53, %58, %62
-  %.0.i78 = phi ptr [ %61, %58 ], [ @.str.25, %53 ], [ %.str.5..str.29.i, %62 ]
+  %.0.i78 = phi ptr [ @.str.25, %53 ], [ %61, %58 ], [ %.str.5..str.29.i, %62 ]
   call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %9, ptr noundef nonnull @.str.13, i32 noundef %1, i32 noundef 32, ptr noundef %.0.i78, i32 noundef %55, ptr noundef %2)
   %64 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %65 = load i64, ptr %64, align 8
@@ -1331,7 +1331,7 @@ define ptr @wtap_encap_description(i32 noundef %0) local_unnamed_addr #3 {
   br label %13
 
 13:                                               ; preds = %4, %1, %6, %5
-  %.0 = phi ptr [ @.str.28, %5 ], [ %12, %6 ], [ @.str.26, %1 ], [ @.str.27, %4 ]
+  %.0 = phi ptr [ %12, %6 ], [ @.str.26, %1 ], [ @.str.28, %5 ], [ @.str.27, %4 ]
   ret ptr %.0
 }
 
@@ -1361,7 +1361,7 @@ define ptr @wtap_encap_name(i32 noundef %0) local_unnamed_addr #3 {
   br label %12
 
 12:                                               ; preds = %4, %1, %6, %5
-  %.0 = phi ptr [ @.str.25, %5 ], [ %11, %6 ], [ @.str.23, %1 ], [ @.str.24, %4 ]
+  %.0 = phi ptr [ %11, %6 ], [ @.str.23, %1 ], [ @.str.25, %5 ], [ @.str.24, %4 ]
   ret ptr %.0
 }
 
@@ -1392,7 +1392,7 @@ define ptr @wtap_tsprec_string(i32 noundef %0) local_unnamed_addr #7 {
   br label %10
 
 10:                                               ; preds = %8, %1, %4
-  %.0 = phi ptr [ %7, %4 ], [ @.str.25, %1 ], [ %.str.5..str.29, %8 ]
+  %.0 = phi ptr [ @.str.25, %1 ], [ %7, %4 ], [ %.str.5..str.29, %8 ]
   ret ptr %.0
 }
 
@@ -1480,7 +1480,7 @@ define hidden ptr @wtap_file_get_nrb_for_new_file(ptr noundef readonly captures(
   br i1 %27, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %12, %1, %4, %8
-  %.0 = phi ptr [ null, %8 ], [ null, %4 ], [ null, %1 ], [ %13, %12 ], [ %13, %.lr.ph ]
+  %.0 = phi ptr [ null, %1 ], [ null, %8 ], [ null, %4 ], [ %13, %12 ], [ %13, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
@@ -1542,7 +1542,7 @@ define void @wtap_dump_params_init(ptr noundef %0, ptr noundef readonly captures
   br i1 %36, label %.lr.ph.i, label %wtap_file_get_shb_for_new_file.exit, !llvm.loop !6
 
 wtap_file_get_shb_for_new_file.exit:              ; preds = %.lr.ph.i, %5, %17, %21
-  %.0.i = phi ptr [ null, %17 ], [ null, %5 ], [ %22, %21 ], [ %22, %.lr.ph.i ]
+  %.0.i = phi ptr [ %22, %21 ], [ null, %17 ], [ null, %5 ], [ %22, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.0.i, ptr %37, align 8
@@ -1633,7 +1633,7 @@ define void @wtap_dump_params_init_no_idbs(ptr noundef %0, ptr noundef readonly 
   br i1 %36, label %.lr.ph.i, label %wtap_file_get_shb_for_new_file.exit, !llvm.loop !6
 
 wtap_file_get_shb_for_new_file.exit:              ; preds = %.lr.ph.i, %5, %17, %21
-  %.0.i = phi ptr [ null, %17 ], [ null, %5 ], [ %22, %21 ], [ %22, %.lr.ph.i ]
+  %.0.i = phi ptr [ %22, %21 ], [ null, %17 ], [ null, %5 ], [ %22, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.0.i, ptr %37, align 8
@@ -1845,7 +1845,7 @@ define ptr @wtap_strerror(i32 noundef %0) local_unnamed_addr #11 {
   br label %17
 
 17:                                               ; preds = %7, %15, %12, %5
-  %.0 = phi ptr [ @wtap_strerror.errbuf, %5 ], [ %14, %12 ], [ %16, %15 ], [ @.str.31, %7 ]
+  %.0 = phi ptr [ @wtap_strerror.errbuf, %5 ], [ %16, %15 ], [ %14, %12 ], [ @.str.31, %7 ]
   ret ptr %.0
 }
 
@@ -2674,7 +2674,7 @@ wtap_file_size.exit:                              ; preds = %5, %9
   br label %wtap_encap_name.exit
 
 wtap_encap_name.exit:                             ; preds = %21, %26, %27, %28
-  %.0.i51 = phi ptr [ @.str.25, %27 ], [ %33, %28 ], [ @.str.23, %21 ], [ @.str.24, %26 ]
+  %.0.i51 = phi ptr [ %33, %28 ], [ @.str.23, %21 ], [ @.str.25, %27 ], [ @.str.24, %26 ]
   %34 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.64, ptr noundef %.0.i51, i64 noundef %16, i32 noundef 2147483647)
   store ptr %34, ptr %4, align 8
   br label %75
@@ -2722,7 +2722,7 @@ wtap_encap_name.exit:                             ; preds = %21, %26, %27, %28
   br label %wtap_encap_name.exit55
 
 wtap_encap_name.exit55:                           ; preds = %43, %48, %49, %50
-  %.0.i54 = phi ptr [ @.str.25, %49 ], [ %55, %50 ], [ @.str.23, %43 ], [ @.str.24, %48 ]
+  %.0.i54 = phi ptr [ %55, %50 ], [ @.str.23, %43 ], [ @.str.25, %49 ], [ @.str.24, %48 ]
   %56 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.65, ptr noundef %.0.i54, i32 noundef 2147483647)
   store ptr %56, ptr %4, align 8
   br label %75
@@ -2767,7 +2767,7 @@ wtap_encap_name.exit55:                           ; preds = %43, %48, %49, %50
   br label %75
 
 75:                                               ; preds = %.thread, %wtap_encap_name.exit55, %69, %wtap_file_size.exit, %wtap_encap_name.exit
-  %.0 = phi i1 [ false, %wtap_encap_name.exit ], [ false, %wtap_file_size.exit ], [ false, %wtap_encap_name.exit55 ], [ true, %69 ], [ false, %.thread ]
+  %.0 = phi i1 [ false, %wtap_file_size.exit ], [ false, %wtap_encap_name.exit ], [ false, %wtap_encap_name.exit55 ], [ false, %.thread ], [ true, %69 ]
   ret i1 %.0
 }
 

@@ -167,8 +167,8 @@ define internal ptr @netlink_reachable(ptr noundef %0, ptr noundef %1) #1 {
   br label %83
 
 83:                                               ; preds = %80, %77, %58, %44, %35, %29
-  %.227.i = phi i32 [ %57, %44 ], [ %79, %77 ], [ %82, %80 ], [ 0, %58 ], [ 0, %35 ], [ 0, %29 ]
-  %.2.i = phi ptr [ @.str, %44 ], [ @.str, %77 ], [ @.str.1, %80 ], [ @.str.2, %58 ], [ @.str.3, %35 ], [ @.str.3, %29 ]
+  %.227.i = phi i32 [ 0, %58 ], [ %57, %44 ], [ %79, %77 ], [ %82, %80 ], [ 0, %35 ], [ 0, %29 ]
+  %.2.i = phi ptr [ @.str.2, %58 ], [ @.str, %44 ], [ @.str, %77 ], [ @.str.1, %80 ], [ @.str.3, %35 ], [ @.str.3, %29 ]
   %84 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_prtereachable_base_framework, i64 76), align 4, !tbaa !27
   %or.cond.i = icmp ult i32 %84, 64
   br i1 %or.cond.i, label %85, label %get_weights.exit

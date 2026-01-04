@@ -351,7 +351,7 @@ _ZNSolsEPFRSoS_E.exit61:                          ; preds = %_ZStlsISt11char_tra
   br label %126
 
 _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc71, %_ZNSolsEPFRSoS_E.exit61, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50
-  %.1 = phi i32 [ %100, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50 ], [ -1, %_ZNSolsEPFRSoS_E.exit61 ], [ -1, %.noexc71 ]
+  %.1 = phi i32 [ -1, %_ZNSolsEPFRSoS_E.exit61 ], [ %100, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50 ], [ -1, %.noexc71 ]
   %122 = load ptr, ptr %9, align 8, !tbaa !12
   %123 = icmp eq ptr %122, %41
   br i1 %123, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i62

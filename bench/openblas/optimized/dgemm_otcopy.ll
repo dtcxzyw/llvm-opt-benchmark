@@ -142,9 +142,9 @@ define noundef i32 @dgemm_otcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   br label %.loopexit77
 
 .loopexit77:                                      ; preds = %.loopexit75.us, %.loopexit75.us.us, %.loopexit77.loopexit100, %.preheader76.split.split.us.preheader, %5
-  %.060 = phi ptr [ %2, %5 ], [ %scevgep113, %.preheader76.split.split.us.preheader ], [ %62, %.loopexit77.loopexit100 ], [ %30, %.loopexit75.us.us ], [ %50, %.loopexit75.us ]
-  %.053 = phi ptr [ %4, %5 ], [ %scevgep114, %.preheader76.split.split.us.preheader ], [ %scevgep, %.loopexit77.loopexit100 ], [ %31, %.loopexit75.us.us ], [ %51, %.loopexit75.us ]
-  %.0 = phi ptr [ %8, %5 ], [ %8, %.preheader76.split.split.us.preheader ], [ %66, %.loopexit77.loopexit100 ], [ %8, %.loopexit75.us.us ], [ %55, %.loopexit75.us ]
+  %.060 = phi ptr [ %2, %5 ], [ %62, %.loopexit77.loopexit100 ], [ %scevgep113, %.preheader76.split.split.us.preheader ], [ %30, %.loopexit75.us.us ], [ %50, %.loopexit75.us ]
+  %.053 = phi ptr [ %4, %5 ], [ %scevgep, %.loopexit77.loopexit100 ], [ %scevgep114, %.preheader76.split.split.us.preheader ], [ %31, %.loopexit75.us.us ], [ %51, %.loopexit75.us ]
+  %.0 = phi ptr [ %8, %5 ], [ %66, %.loopexit77.loopexit100 ], [ %8, %.preheader76.split.split.us.preheader ], [ %8, %.loopexit75.us.us ], [ %55, %.loopexit75.us ]
   %70 = and i64 %0, 1
   %.not71 = icmp eq i64 %70, 0
   br i1 %.not71, label %86, label %71

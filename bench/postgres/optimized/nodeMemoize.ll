@@ -674,7 +674,7 @@ cache_lookup.exit:                                ; preds = %dlist_push_tail.exi
   br label %405
 
 .loopexit:                                        ; preds = %243, %246, %195, %prepare_probe_slot.exit40.i, %190, %dlist_push_tail.exit.i
-  %.0.i.ph = phi ptr [ null, %prepare_probe_slot.exit40.i ], [ %.ph.i, %dlist_push_tail.exit.i ], [ %.ph.i, %195 ], [ null, %190 ], [ null, %246 ], [ %239, %243 ]
+  %.0.i.ph = phi ptr [ null, %190 ], [ %.ph.i, %dlist_push_tail.exit.i ], [ null, %prepare_probe_slot.exit40.i ], [ %.ph.i, %195 ], [ null, %246 ], [ %239, %243 ]
   %274 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %275 = load i64, ptr %274, align 8
   %276 = add i64 %275, 1
@@ -927,7 +927,7 @@ ExecProcNode.exit95:                              ; preds = %379, %384
   unreachable
 
 405:                                              ; preds = %267, %273, %309, %322, %6, %393, %394, %357, %372, %336, %335
-  %.1 = phi ptr [ null, %335 ], [ %338, %336 ], [ null, %357 ], [ %374, %372 ], [ null, %393 ], [ %396, %394 ], [ null, %6 ], [ %269, %267 ], [ null, %273 ], [ null, %309 ], [ %324, %322 ]
+  %.1 = phi ptr [ null, %6 ], [ null, %335 ], [ %338, %336 ], [ %396, %394 ], [ %374, %372 ], [ null, %357 ], [ null, %393 ], [ %269, %267 ], [ null, %273 ], [ null, %309 ], [ %324, %322 ]
   ret ptr %.1
 }
 
@@ -1494,12 +1494,12 @@ prepare_probe_slot.exit:                          ; preds = %._crit_edge.i, %slo
   br i1 %127, label %.critedge.sink.split, label %.lr.ph.i.i
 
 .critedge.sink.split:                             ; preds = %116, %119, %prepare_probe_slot.exit
-  %.sink = phi ptr [ null, %prepare_probe_slot.exit ], [ %112, %116 ], [ null, %119 ]
+  %.sink = phi ptr [ null, %prepare_probe_slot.exit ], [ null, %119 ], [ %112, %116 ]
   store ptr %.sink, ptr %3, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %29, %41, %35
-  %.1 = phi i1 [ false, %35 ], [ true, %41 ], [ true, %29 ], [ true, %.critedge.sink.split ]
+  %.1 = phi i1 [ false, %35 ], [ true, %29 ], [ true, %41 ], [ true, %.critedge.sink.split ]
   ret i1 %.1
 }
 
@@ -2004,7 +2004,7 @@ define internal fastcc i32 @MemoizeHash_hash(ptr readonly captures(none) %.40.va
   br i1 %exitcond.not, label %.loopexit, label %47, !llvm.loop !15
 
 .loopexit:                                        ; preds = %63, %38, %39, %.preheader
-  %.2 = phi i32 [ 0, %.preheader ], [ 0, %39 ], [ %.1, %38 ], [ %.4, %63 ]
+  %.2 = phi i32 [ %.1, %38 ], [ 0, %.preheader ], [ 0, %39 ], [ %.4, %63 ]
   store ptr %9, ptr @CurrentMemoryContext, align 8
   %64 = lshr i32 %.2, 16
   %65 = xor i32 %64, %.2
@@ -2252,8 +2252,8 @@ select.unfold:                                    ; preds = %48, %46
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.thread, label %39, !llvm.loop !13
 
-.thread:                                          ; preds = %select.unfold, %39, %48, %slot_getallattrs.exit40
-  %.lcssa = phi i1 [ true, %slot_getallattrs.exit40 ], [ false, %48 ], [ false, %39 ], [ true, %select.unfold ]
+.thread:                                          ; preds = %select.unfold, %48, %39, %slot_getallattrs.exit40
+  %.lcssa = phi i1 [ true, %slot_getallattrs.exit40 ], [ false, %39 ], [ false, %48 ], [ true, %select.unfold ]
   store ptr %17, ptr @CurrentMemoryContext, align 8
   br label %79
 

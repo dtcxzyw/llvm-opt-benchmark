@@ -2737,7 +2737,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit:    ; preds = %36
   unreachable
 
 common.resume:                                    ; preds = %97, %82, %56
-  %common.resume.op = phi { ptr, i32 } [ %57, %56 ], [ %83, %82 ], [ %98, %97 ]
+  %common.resume.op = phi { ptr, i32 } [ %83, %82 ], [ %57, %56 ], [ %98, %97 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17hde3065c6c385e248E.exit.thread": ; preds = %.thread.i.i, %64
@@ -3695,7 +3695,7 @@ _ZN5alloc5alloc15exchange_malloc17h5339c734e5193bc1E.llvm.5387445467279837026.ex
   br label %.body54
 
 .body54:                                          ; preds = %.body64, %118, %107, %105
-  %eh.lpad-body55 = phi { ptr, i32 } [ %106, %105 ], [ %108, %107 ], [ %119, %118 ], [ %111, %.body64 ]
+  %eh.lpad-body55 = phi { ptr, i32 } [ %106, %105 ], [ %119, %118 ], [ %108, %107 ], [ %111, %.body64 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hf9dc0afa49cf9b6eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28) #27
           to label %96 unwind label %154
 
@@ -3943,7 +3943,7 @@ define noundef zeroext i1 @"_ZN77_$LT$ockam_core..api..internal..MietteError$u20
   br label %24
 
 24:                                               ; preds = %2, %17, %14
-  %.0 = phi i1 [ false, %14 ], [ %23, %17 ], [ true, %2 ]
+  %.0 = phi i1 [ %23, %17 ], [ false, %14 ], [ true, %2 ]
   ret i1 %.0
 }
 
@@ -4124,7 +4124,7 @@ define void @"_ZN127_$LT$ockam_core..api..Response$LT$ockam_core..api..Error$GT$
   br i1 %16, label %19, label %28
 
 .body:                                            ; preds = %29, %20, %17, %65, %41
-  %.pn = phi { ptr, i32 } [ %42, %41 ], [ %66, %65 ], [ %18, %17 ], [ %21, %20 ], [ %30, %29 ]
+  %.pn = phi { ptr, i32 } [ %66, %65 ], [ %42, %41 ], [ %21, %20 ], [ %18, %17 ], [ %30, %29 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$ockam_core..error..Error$GT$17h34d7672d477e2bdfE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %13) #27
           to label %common.resume unwind label %59
 
@@ -5637,7 +5637,7 @@ define noundef zeroext i1 @"_ZN114_$LT$ockam_core..flow_control..flow_controls..
   br i1 %37, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hca6e2693ef9412c8E.exit", label %34
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hca6e2693ef9412c8E.exit": ; preds = %36, %34, %13, %19
-  %.0 = phi i1 [ %18, %13 ], [ true, %19 ], [ %.not.not.not.i.not.not.i.not.not, %34 ], [ %.not.not.not.i.not.not.i.not.not, %36 ]
+  %.0 = phi i1 [ true, %19 ], [ %18, %13 ], [ %.not.not.not.i.not.not.i.not.not, %34 ], [ %.not.not.not.i.not.not.i.not.not, %36 ]
   ret i1 %.0
 }
 
@@ -6316,7 +6316,7 @@ define void @_ZN10ockam_core7routing7message13local_message12LocalMessage23push_
   unreachable
 
 .body:                                            ; preds = %58, %.body.i, %17, %22, %63
-  %.pn = phi { ptr, i32 } [ %64, %63 ], [ %18, %17 ], [ %23, %22 ], [ %43, %.body.i ], [ %59, %58 ]
+  %.pn = phi { ptr, i32 } [ %43, %.body.i ], [ %64, %63 ], [ %18, %17 ], [ %23, %22 ], [ %59, %58 ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$ockam_core..routing..message..local_message..LocalMessage$GT$17h03921e1ed0b655ccE"(ptr noalias noundef nonnull align 8 dereferenceable(168) %1) #27
           to label %67 unwind label %65
 
@@ -6550,7 +6550,7 @@ define void @_ZN10ockam_core7routing7message13local_message12LocalMessage26prepe
   unreachable
 
 .body:                                            ; preds = %49, %44, %20, %25, %54
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body4.ph, %54 ], [ %21, %20 ], [ %26, %25 ], [ %45, %44 ], [ %50, %49 ]
+  %.pn = phi { ptr, i32 } [ %45, %44 ], [ %eh.lpad-body4.ph, %54 ], [ %21, %20 ], [ %26, %25 ], [ %50, %49 ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$ockam_core..routing..message..local_message..LocalMessage$GT$17h03921e1ed0b655ccE"(ptr noalias noundef nonnull align 8 dereferenceable(168) %1) #27
           to label %57 unwind label %55
 
@@ -6841,7 +6841,7 @@ define void @_ZN10ockam_core7routing7message13local_message12LocalMessage23push_
   unreachable
 
 .body:                                            ; preds = %59, %.body.i, %18, %23, %64
-  %.pn = phi { ptr, i32 } [ %65, %64 ], [ %19, %18 ], [ %24, %23 ], [ %44, %.body.i ], [ %60, %59 ]
+  %.pn = phi { ptr, i32 } [ %44, %.body.i ], [ %65, %64 ], [ %19, %18 ], [ %24, %23 ], [ %60, %59 ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$ockam_core..routing..message..local_message..LocalMessage$GT$17h03921e1ed0b655ccE"(ptr noalias noundef nonnull align 8 dereferenceable(168) %1) #27
           to label %68 unwind label %66
 
@@ -7038,7 +7038,7 @@ define void @_ZN10ockam_core7routing7message13local_message12LocalMessage26prepe
   unreachable
 
 .body:                                            ; preds = %50, %45, %21, %26, %55
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body4.ph, %55 ], [ %22, %21 ], [ %27, %26 ], [ %46, %45 ], [ %51, %50 ]
+  %.pn = phi { ptr, i32 } [ %46, %45 ], [ %eh.lpad-body4.ph, %55 ], [ %22, %21 ], [ %27, %26 ], [ %51, %50 ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$ockam_core..routing..message..local_message..LocalMessage$GT$17h03921e1ed0b655ccE"(ptr noalias noundef nonnull align 8 dereferenceable(168) %1) #27
           to label %58 unwind label %56
 
@@ -7487,7 +7487,7 @@ define void @_ZN10ockam_core7routing7message13local_message12LocalMessage22from_
   invoke void @_ZN10ockam_core7routing7message13opentelemetry20OpenTelemetryContext19from_remote_context17hae6b7ece3f9fb3bbE(ptr noalias noundef nonnull sret({ { { { { ptr, i64, i64, i64, {} }, {} }, { i64, i64 } } } }) align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 1 %14, i64 noundef %19)
           to label %_ZN10ockam_core7routing7message17transport_message16TransportMessage15tracing_context17h8cbce9065ecf76ccE.exit unwind label %80
 
-.thread43:                                        ; preds = %33, %.noexc11, %.noexc12
+.thread43:                                        ; preds = %.noexc12, %33, %.noexc11
   %lpad.thr_comm41 = landingpad { ptr, i32 }
           cleanup
   br label %.thread

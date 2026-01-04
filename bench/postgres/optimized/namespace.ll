@@ -239,13 +239,13 @@ define dso_local i32 @RangeVarGetRelidExtended(ptr noundef %0, i32 noundef %1, i
   br i1 %.not18.i, label %56, label %RelnameGetRelid.exit
 
 RelnameGetRelid.exit.sink.split:                  ; preds = %46, %35, %37
-  %.sink134 = phi i32 [ %38, %37 ], [ %34, %35 ], [ %47, %46 ]
+  %.sink134 = phi i32 [ %34, %35 ], [ %38, %37 ], [ %47, %46 ]
   %64 = load ptr, ptr %26, align 8
   %65 = tail call i32 @get_relname_relid(ptr noundef %64, i32 noundef %.sink134) #18
   br label %RelnameGetRelid.exit
 
 RelnameGetRelid.exit:                             ; preds = %.lr.ph33.i, %56, %RelnameGetRelid.exit.sink.split, %.lr.ph.split.i, %49, %46, %33
-  %.094 = phi i32 [ 0, %33 ], [ 0, %46 ], [ 0, %49 ], [ 0, %.lr.ph.split.i ], [ %65, %RelnameGetRelid.exit.sink.split ], [ %63, %.lr.ph33.i ], [ 0, %56 ]
+  %.094 = phi i32 [ 0, %49 ], [ 0, %46 ], [ 0, %33 ], [ %65, %RelnameGetRelid.exit.sink.split ], [ 0, %.lr.ph.split.i ], [ %63, %.lr.ph33.i ], [ 0, %56 ]
   br i1 %.not112, label %67, label %66
 
 66:                                               ; preds = %RelnameGetRelid.exit
@@ -464,7 +464,7 @@ define dso_local i32 @RelnameGetRelid(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not18, label %7, label %._crit_edge26
 
 ._crit_edge26:                                    ; preds = %.lr.ph33, %7, %.lr.ph.split, %1
-  %15 = phi i32 [ 0, %1 ], [ 0, %.lr.ph.split ], [ 0, %7 ], [ %14, %.lr.ph33 ]
+  %15 = phi i32 [ 0, %.lr.ph.split ], [ 0, %1 ], [ 0, %7 ], [ %14, %.lr.ph33 ]
   ret i32 %15
 }
 
@@ -551,13 +551,13 @@ define dso_local i32 @RangeVarGetCreationNamespace(ptr noundef readonly captures
   unreachable
 
 get_namespace_oid.exit.sink.split:                ; preds = %34, %30, %20
-  %.sink = phi i1 [ false, %20 ], [ false, %30 ], [ true, %34 ]
+  %.sink = phi i1 [ false, %30 ], [ false, %20 ], [ true, %34 ]
   tail call fastcc void @AccessTempTableNamespace(i1 noundef zeroext %.sink)
   %43 = load i32, ptr @myTempNamespace, align 4
   br label %get_namespace_oid.exit
 
 get_namespace_oid.exit:                           ; preds = %get_namespace_oid.exit.sink.split, %23, %37
-  %.011 = phi i32 [ %38, %37 ], [ %25, %23 ], [ %43, %get_namespace_oid.exit.sink.split ]
+  %.011 = phi i32 [ %25, %23 ], [ %38, %37 ], [ %43, %get_namespace_oid.exit.sink.split ]
   ret i32 %.011
 }
 
@@ -812,7 +812,7 @@ define internal fastcc void @recomputeNamespacePath() unnamed_addr #0 {
   br label %66
 
 66:                                               ; preds = %64, %61, %58, %57, %55, %53, %46, %43, %34, %32
-  %.3.i.i = phi ptr [ %54, %53 ], [ null, %57 ], [ %.042.i24.i, %55 ], [ %65, %64 ], [ %.042.i24.i, %61 ], [ %.042.i24.i, %58 ], [ %.042.i24.i, %32 ], [ %47, %46 ], [ %.042.i24.i, %43 ], [ %.042.i24.i, %34 ]
+  %.3.i.i = phi ptr [ %.042.i24.i, %58 ], [ %54, %53 ], [ null, %57 ], [ %.042.i24.i, %55 ], [ %65, %64 ], [ %.042.i24.i, %61 ], [ %.042.i24.i, %32 ], [ %47, %46 ], [ %.042.i24.i, %43 ], [ %.042.i24.i, %34 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i23.i, 1
   %67 = load i32, ptr %22, align 4
   %68 = sext i32 %67 to i64
@@ -1131,9 +1131,9 @@ define dso_local noundef i32 @RangeVarGetAndCheckCreationNamespace(ptr noundef c
   %61 = icmp eq i64 %23, %60
   br i1 %61, label %select.unfold, label %22
 
-select.unfold:                                    ; preds = %59, %28, %37
-  %.053.lcssa = phi i32 [ %.053, %59 ], [ %.053, %28 ], [ %.057, %37 ]
-  %.lcssa = phi i32 [ %24, %59 ], [ %24, %28 ], [ %.055, %37 ]
+select.unfold:                                    ; preds = %59, %37, %28
+  %.053.lcssa = phi i32 [ %.053, %59 ], [ %.057, %37 ], [ %.053, %28 ]
+  %.lcssa = phi i32 [ %24, %59 ], [ %.055, %37 ], [ %24, %28 ]
   tail call void @RangeVarAdjustRelationPersistence(ptr noundef %0, i32 noundef %.lcssa)
   br i1 %.not66, label %63, label %62
 
@@ -1445,7 +1445,7 @@ select.unfold.us.i:                               ; preds = %.lr.ph.i, %8
   br i1 %.not19.us.i, label %8, label %TypenameGetTypidExtended.exit
 
 TypenameGetTypidExtended.exit:                    ; preds = %8, %select.unfold.us.i, %1, %.lr.ph.i
-  %17 = phi i32 [ 0, %1 ], [ 0, %.lr.ph.i ], [ %16, %select.unfold.us.i ], [ 0, %8 ]
+  %17 = phi i32 [ 0, %.lr.ph.i ], [ 0, %1 ], [ 0, %8 ], [ %16, %select.unfold.us.i ]
   ret i32 %17
 }
 
@@ -1521,7 +1521,7 @@ select.unfold:                                    ; preds = %.select.unfold_crit
   br i1 %29, label %.lr.ph51, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %23, %select.unfold, %select.unfold.us, %9, %.lr.ph.split.us.split, %.lr.ph.split.split, %2
-  %30 = phi i32 [ 0, %2 ], [ 0, %.lr.ph.split.us.split ], [ 0, %.lr.ph.split.split ], [ 0, %9 ], [ %17, %select.unfold.us ], [ 0, %select.unfold ], [ %25, %23 ]
+  %30 = phi i32 [ 0, %.lr.ph.split.us.split ], [ 0, %.lr.ph.split.split ], [ 0, %2 ], [ 0, %9 ], [ %17, %select.unfold.us ], [ 0, %select.unfold ], [ %25, %23 ]
   ret i32 %30
 }
 
@@ -1979,7 +1979,7 @@ define dso_local ptr @FuncnameGetCandidates(ptr noundef readonly captures(addres
   br label %169
 
 169:                                              ; preds = %167, %.lr.ph101.split.i
-  %.167.i = phi i32 [ %168, %167 ], [ %.06699.i, %.lr.ph101.split.i ]
+  %.167.i = phi i32 [ %.06699.i, %.lr.ph101.split.i ], [ %168, %167 ]
   %indvars.iv.next130.i = add nuw nsw i64 %indvars.iv129.i, 1
   %exitcond133.not.i = icmp eq i64 %indvars.iv.next130.i, %wide.trip.count149.i
   br i1 %exitcond133.not.i, label %MatchNamedCall.exit.thread, label %.lr.ph101.split.i, !llvm.loop !8
@@ -2308,13 +2308,13 @@ MatchNamedCall.exit:                              ; preds = %192, %.critedge.thr
   br label %.thread286
 
 .thread286:                                       ; preds = %280, %257, %261, %.loopexit, %253, %.loopexit296
-  %.2 = phi ptr [ %.0192331, %253 ], [ null, %.loopexit296 ], [ %.5, %.loopexit ], [ %.0192331, %261 ], [ %.0192331, %257 ], [ %.0192331, %280 ]
+  %.2 = phi ptr [ %.0192331, %253 ], [ null, %.loopexit296 ], [ %.5, %.loopexit ], [ %.0192331, %257 ], [ %.0192331, %261 ], [ %.0192331, %280 ]
   store ptr %.2, ptr %219, align 8
   br label %.thread260
 
 .thread260:                                       ; preds = %61, %.lr.ph317, %49, %.lr.ph, %.thread274.thread291, %.thread277, %MatchNamedCall.exit.thread, %210, %203, %100, %94, %88, %46, %.thread286
-  %.1195 = phi i1 [ %.2196, %.thread286 ], [ %.0194327, %46 ], [ %.0194327, %88 ], [ %.0194327, %94 ], [ %.0194327, %100 ], [ %.3197, %203 ], [ %.4198, %210 ], [ %.0194327, %MatchNamedCall.exit.thread ], [ %.2196, %.thread277 ], [ %.2196, %.thread274.thread291 ], [ %.0194327, %49 ], [ %.0194327, %.lr.ph ], [ %.0194327, %.lr.ph317 ], [ %.0194327, %61 ]
-  %.1193 = phi ptr [ %219, %.thread286 ], [ %.0192331, %46 ], [ %.0192331, %88 ], [ %.0192331, %94 ], [ %.0192331, %100 ], [ %.0192331, %203 ], [ %.0192331, %210 ], [ %.0192331, %MatchNamedCall.exit.thread ], [ %.0192331, %.thread277 ], [ %.0192331, %.thread274.thread291 ], [ %.0192331, %49 ], [ %.0192331, %.lr.ph ], [ %.0192331, %.lr.ph317 ], [ %.0192331, %61 ]
+  %.1195 = phi i1 [ %.2196, %.thread277 ], [ %.0194327, %46 ], [ %.0194327, %88 ], [ %.2196, %.thread286 ], [ %.2196, %.thread274.thread291 ], [ %.0194327, %100 ], [ %.0194327, %94 ], [ %.0194327, %MatchNamedCall.exit.thread ], [ %.3197, %203 ], [ %.4198, %210 ], [ %.0194327, %49 ], [ %.0194327, %.lr.ph ], [ %.0194327, %.lr.ph317 ], [ %.0194327, %61 ]
+  %.1193 = phi ptr [ %.0192331, %.thread277 ], [ %.0192331, %46 ], [ %.0192331, %88 ], [ %219, %.thread286 ], [ %.0192331, %.thread274.thread291 ], [ %.0192331, %100 ], [ %.0192331, %94 ], [ %.0192331, %MatchNamedCall.exit.thread ], [ %.0192331, %203 ], [ %.0192331, %210 ], [ %.0192331, %49 ], [ %.0192331, %.lr.ph ], [ %.0192331, %.lr.ph317 ], [ %.0192331, %61 ]
   %indvars.iv.next365 = add nuw nsw i64 %indvars.iv364, 1
   %303 = load i32, ptr %24, align 8
   %304 = sext i32 %303 to i64
@@ -2643,7 +2643,7 @@ define dso_local i32 @OpernameGetOprid(ptr noundef readonly captures(address_is_
   br label %.thread
 
 .thread:                                          ; preds = %9, %.split.us, %7, %16, %._crit_edge, %32
-  %.2 = phi i32 [ 0, %32 ], [ 0, %._crit_edge ], [ %58, %.split.us ], [ %22, %16 ], [ 0, %7 ], [ 0, %9 ]
+  %.2 = phi i32 [ %58, %.split.us ], [ 0, %32 ], [ 0, %._crit_edge ], [ %22, %16 ], [ 0, %7 ], [ 0, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.2
@@ -2836,8 +2836,8 @@ define dso_local ptr @OpernameGetCandidates(ptr noundef readonly captures(addres
   br i1 %exitcond.not, label %.thread105.us, label %.lr.ph127.split.us144
 
 .thread105.us:                                    ; preds = %90, %.lr.ph127.us, %.lr.ph.us, %.thread117.us, %72, %.loopexit.us, %36
-  %.181.us = phi i32 [ %77, %.thread117.us ], [ %.080131.us, %36 ], [ %.080131.us, %72 ], [ %.080131.us, %.loopexit.us ], [ %.080131.us, %.lr.ph.us ], [ %.080131.us, %.lr.ph127.us ], [ %.080131.us, %90 ]
-  %.175.us = phi ptr [ %76, %.thread117.us ], [ %.074132.us, %36 ], [ %.074132.us, %72 ], [ %.074132.us, %.loopexit.us ], [ %.074132.us, %.lr.ph.us ], [ %.074132.us, %.lr.ph127.us ], [ %.074132.us, %90 ]
+  %.181.us = phi i32 [ %.080131.us, %72 ], [ %.080131.us, %36 ], [ %77, %.thread117.us ], [ %.080131.us, %.loopexit.us ], [ %.080131.us, %.lr.ph.us ], [ %.080131.us, %.lr.ph127.us ], [ %.080131.us, %90 ]
+  %.175.us = phi ptr [ %.074132.us, %72 ], [ %.074132.us, %36 ], [ %76, %.thread117.us ], [ %.074132.us, %.loopexit.us ], [ %.074132.us, %.lr.ph.us ], [ %.074132.us, %.lr.ph127.us ], [ %.074132.us, %90 ]
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
   %91 = load i32, ptr %15, align 8
   %92 = sext i32 %91 to i64
@@ -2909,9 +2909,9 @@ define dso_local ptr @OpernameGetCandidates(ptr noundef readonly captures(addres
   br label %.thread105.us151
 
 .thread105.us151:                                 ; preds = %.thread117.us150, %.lr.ph136.split.split.us
-  %123 = phi i32 [ %.pre180, %.thread117.us150 ], [ %98, %.lr.ph136.split.split.us ]
-  %.181.us152 = phi i32 [ %110, %.thread117.us150 ], [ %.080131.us147, %.lr.ph136.split.split.us ]
-  %.175.us153 = phi ptr [ %109, %.thread117.us150 ], [ %.074132.us146, %.lr.ph136.split.split.us ]
+  %123 = phi i32 [ %98, %.lr.ph136.split.split.us ], [ %.pre180, %.thread117.us150 ]
+  %.181.us152 = phi i32 [ %.080131.us147, %.lr.ph136.split.split.us ], [ %110, %.thread117.us150 ]
+  %.175.us153 = phi ptr [ %.074132.us146, %.lr.ph136.split.split.us ], [ %109, %.thread117.us150 ]
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
   %124 = sext i32 %123 to i64
   %125 = icmp slt i64 %indvars.iv.next169, %124
@@ -2969,16 +2969,16 @@ define dso_local ptr @OpernameGetCandidates(ptr noundef readonly captures(addres
   br label %.thread105
 
 .thread105:                                       ; preds = %136, %.lr.ph136.split.split, %.thread117
-  %154 = phi i32 [ %.pre179, %.thread117 ], [ %126, %.lr.ph136.split.split ], [ %126, %136 ]
-  %.181 = phi i32 [ %141, %.thread117 ], [ %.080131, %.lr.ph136.split.split ], [ %.080131, %136 ]
-  %.175 = phi ptr [ %140, %.thread117 ], [ %.074132, %.lr.ph136.split.split ], [ %.074132, %136 ]
+  %154 = phi i32 [ %126, %136 ], [ %126, %.lr.ph136.split.split ], [ %.pre179, %.thread117 ]
+  %.181 = phi i32 [ %.080131, %136 ], [ %.080131, %.lr.ph136.split.split ], [ %141, %.thread117 ]
+  %.175 = phi ptr [ %.074132, %136 ], [ %.074132, %.lr.ph136.split.split ], [ %140, %.thread117 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %155 = sext i32 %154 to i64
   %156 = icmp slt i64 %indvars.iv.next, %155
   br i1 %156, label %.lr.ph136.split.split, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.thread105, %.thread105.us151, %.thread105.us, %.lr.ph136.split.us, %11, %18
-  %.074.lcssa = phi ptr [ null, %18 ], [ null, %11 ], [ null, %.lr.ph136.split.us ], [ %.175.us, %.thread105.us ], [ %.175.us153, %.thread105.us151 ], [ %.175, %.thread105 ]
+  %.074.lcssa = phi ptr [ null, %18 ], [ %.175.us, %.thread105.us ], [ null, %11 ], [ null, %.lr.ph136.split.us ], [ %.175.us153, %.thread105.us151 ], [ %.175, %.thread105 ]
   tail call void @ReleaseCatCacheList(ptr noundef nonnull %14) #18
   br label %157
 
@@ -3106,7 +3106,7 @@ select.unfold:                                    ; preds = %.select.unfold_crit
   br i1 %22, label %.lr.ph40, label %._crit_edge33
 
 ._crit_edge33:                                    ; preds = %16, %select.unfold, %.lr.ph, %2
-  %23 = phi i32 [ 0, %2 ], [ 0, %.lr.ph ], [ 0, %select.unfold ], [ %18, %16 ]
+  %23 = phi i32 [ 0, %.lr.ph ], [ 0, %2 ], [ 0, %select.unfold ], [ %18, %16 ]
   ret i32 %23
 }
 
@@ -3207,7 +3207,7 @@ select.unfold.i:                                  ; preds = %.select.unfold_crit
   br i1 %44, label %.lr.ph40.i, label %OpclassnameGetOpcid.exit
 
 OpclassnameGetOpcid.exit:                         ; preds = %38, %select.unfold.i, %21, %.lr.ph.i
-  %45 = phi i32 [ 0, %21 ], [ 0, %.lr.ph.i ], [ %40, %38 ], [ 0, %select.unfold.i ]
+  %45 = phi i32 [ 0, %.lr.ph.i ], [ 0, %21 ], [ %40, %38 ], [ 0, %select.unfold.i ]
   %46 = icmp eq i32 %45, %0
   br label %47
 
@@ -3271,7 +3271,7 @@ select.unfold:                                    ; preds = %.select.unfold_crit
   br i1 %22, label %.lr.ph40, label %._crit_edge33
 
 ._crit_edge33:                                    ; preds = %16, %select.unfold, %.lr.ph, %2
-  %23 = phi i32 [ 0, %2 ], [ 0, %.lr.ph ], [ 0, %select.unfold ], [ %18, %16 ]
+  %23 = phi i32 [ 0, %.lr.ph ], [ 0, %2 ], [ 0, %select.unfold ], [ %18, %16 ]
   ret i32 %23
 }
 
@@ -3372,7 +3372,7 @@ select.unfold.i:                                  ; preds = %.select.unfold_crit
   br i1 %44, label %.lr.ph40.i, label %OpfamilynameGetOpfid.exit
 
 OpfamilynameGetOpfid.exit:                        ; preds = %38, %select.unfold.i, %21, %.lr.ph.i
-  %45 = phi i32 [ 0, %21 ], [ 0, %.lr.ph.i ], [ %40, %38 ], [ 0, %select.unfold.i ]
+  %45 = phi i32 [ 0, %.lr.ph.i ], [ 0, %21 ], [ %40, %38 ], [ 0, %select.unfold.i ]
   %46 = icmp eq i32 %45, %0
   br label %47
 
@@ -3457,7 +3457,7 @@ select.unfold:                                    ; preds = %18, %lookup_collati
   br i1 %34, label %.lr.ph54, label %lookup_collation.exit.thread36
 
 lookup_collation.exit.thread36:                   ; preds = %lookup_collation.exit, %select.unfold, %15, %.lr.ph, %1
-  %35 = phi i32 [ 0, %1 ], [ 0, %.lr.ph ], [ %17, %15 ], [ 0, %select.unfold ], [ %31, %lookup_collation.exit ]
+  %35 = phi i32 [ 0, %.lr.ph ], [ 0, %1 ], [ 0, %select.unfold ], [ %17, %15 ], [ %31, %lookup_collation.exit ]
   ret i32 %35
 }
 
@@ -3573,7 +3573,7 @@ select.unfold:                                    ; preds = %.select.unfold_crit
   br i1 %20, label %.lr.ph39, label %._crit_edge32
 
 ._crit_edge32:                                    ; preds = %14, %select.unfold, %.lr.ph, %1
-  %21 = phi i32 [ 0, %1 ], [ 0, %.lr.ph ], [ 0, %select.unfold ], [ %16, %14 ]
+  %21 = phi i32 [ 0, %.lr.ph ], [ 0, %1 ], [ 0, %select.unfold ], [ %16, %14 ]
   ret i32 %21
 }
 
@@ -3671,7 +3671,7 @@ select.unfold.i:                                  ; preds = %.select.unfold_crit
   br i1 %41, label %.lr.ph39.i, label %ConversionGetConid.exit
 
 ConversionGetConid.exit:                          ; preds = %35, %select.unfold.i, %21, %.lr.ph.i
-  %42 = phi i32 [ 0, %21 ], [ 0, %.lr.ph.i ], [ %37, %35 ], [ 0, %select.unfold.i ]
+  %42 = phi i32 [ 0, %.lr.ph.i ], [ 0, %21 ], [ %37, %35 ], [ 0, %select.unfold.i ]
   %43 = icmp eq i32 %42, %0
   br label %44
 
@@ -3758,7 +3758,7 @@ define dso_local i32 @get_statistics_object_oid(ptr noundef readonly captures(ad
   br i1 %35, label %.lr.ph36, label %.critedge
 
 .critedge:                                        ; preds = %31, %14, %.lr.ph, %6, %9
-  %.0 = phi i32 [ %13, %9 ], [ 0, %6 ], [ 0, %.lr.ph ], [ 0, %14 ], [ 0, %31 ]
+  %.0 = phi i32 [ %13, %9 ], [ 0, %6 ], [ 0, %14 ], [ 0, %.lr.ph ], [ 0, %31 ]
   %36 = icmp ne i32 %.0, 0
   %or.cond3 = or i1 %1, %36
   br i1 %or.cond3, label %.critedge.thread, label %37
@@ -4005,7 +4005,7 @@ define dso_local i32 @get_ts_parser_oid(ptr noundef readonly captures(address_is
   br i1 %35, label %.lr.ph36, label %.critedge
 
 .critedge:                                        ; preds = %31, %14, %.lr.ph, %6, %9
-  %.0 = phi i32 [ %13, %9 ], [ 0, %6 ], [ 0, %.lr.ph ], [ 0, %14 ], [ 0, %31 ]
+  %.0 = phi i32 [ %13, %9 ], [ 0, %6 ], [ 0, %14 ], [ 0, %.lr.ph ], [ 0, %31 ]
   %36 = icmp ne i32 %.0, 0
   %or.cond3 = or i1 %1, %36
   br i1 %or.cond3, label %.critedge.thread, label %37
@@ -4121,7 +4121,7 @@ define internal fastcc noundef zeroext i1 @TSParserIsVisibleExt(i32 noundef %0, 
   br i1 %44, label %.lr.ph48, label %.critedge
 
 .critedge:                                        ; preds = %37, %35, %40, %21, %.lr.ph, %18
-  %.023 = phi i1 [ false, %18 ], [ false, %21 ], [ false, %.lr.ph ], [ false, %37 ], [ true, %35 ], [ false, %40 ]
+  %.023 = phi i1 [ false, %18 ], [ false, %21 ], [ false, %.lr.ph ], [ false, %37 ], [ false, %40 ], [ true, %35 ]
   tail call void @ReleaseSysCache(ptr noundef nonnull %4) #18
   br label %45
 
@@ -4203,7 +4203,7 @@ define dso_local i32 @get_ts_dict_oid(ptr noundef readonly captures(address_is_n
   br i1 %35, label %.lr.ph36, label %.critedge
 
 .critedge:                                        ; preds = %31, %14, %.lr.ph, %6, %9
-  %.0 = phi i32 [ %13, %9 ], [ 0, %6 ], [ 0, %.lr.ph ], [ 0, %14 ], [ 0, %31 ]
+  %.0 = phi i32 [ %13, %9 ], [ 0, %6 ], [ 0, %14 ], [ 0, %.lr.ph ], [ 0, %31 ]
   %36 = icmp ne i32 %.0, 0
   %or.cond3 = or i1 %1, %36
   br i1 %or.cond3, label %.critedge.thread, label %37
@@ -4319,7 +4319,7 @@ define internal fastcc noundef zeroext i1 @TSDictionaryIsVisibleExt(i32 noundef 
   br i1 %44, label %.lr.ph48, label %.critedge
 
 .critedge:                                        ; preds = %37, %35, %40, %21, %.lr.ph, %18
-  %.023 = phi i1 [ false, %18 ], [ false, %21 ], [ false, %.lr.ph ], [ false, %37 ], [ true, %35 ], [ false, %40 ]
+  %.023 = phi i1 [ false, %18 ], [ false, %21 ], [ false, %.lr.ph ], [ false, %37 ], [ false, %40 ], [ true, %35 ]
   tail call void @ReleaseSysCache(ptr noundef nonnull %4) #18
   br label %45
 
@@ -4401,7 +4401,7 @@ define dso_local i32 @get_ts_template_oid(ptr noundef readonly captures(address_
   br i1 %35, label %.lr.ph36, label %.critedge
 
 .critedge:                                        ; preds = %31, %14, %.lr.ph, %6, %9
-  %.0 = phi i32 [ %13, %9 ], [ 0, %6 ], [ 0, %.lr.ph ], [ 0, %14 ], [ 0, %31 ]
+  %.0 = phi i32 [ %13, %9 ], [ 0, %6 ], [ 0, %14 ], [ 0, %.lr.ph ], [ 0, %31 ]
   %36 = icmp ne i32 %.0, 0
   %or.cond3 = or i1 %1, %36
   br i1 %or.cond3, label %.critedge.thread, label %37
@@ -4517,7 +4517,7 @@ define internal fastcc noundef zeroext i1 @TSTemplateIsVisibleExt(i32 noundef %0
   br i1 %44, label %.lr.ph48, label %.critedge
 
 .critedge:                                        ; preds = %37, %35, %40, %21, %.lr.ph, %18
-  %.023 = phi i1 [ false, %18 ], [ false, %21 ], [ false, %.lr.ph ], [ false, %37 ], [ true, %35 ], [ false, %40 ]
+  %.023 = phi i1 [ false, %18 ], [ false, %21 ], [ false, %.lr.ph ], [ false, %37 ], [ false, %40 ], [ true, %35 ]
   tail call void @ReleaseSysCache(ptr noundef nonnull %4) #18
   br label %45
 
@@ -4599,7 +4599,7 @@ define dso_local i32 @get_ts_config_oid(ptr noundef readonly captures(address_is
   br i1 %35, label %.lr.ph36, label %.critedge
 
 .critedge:                                        ; preds = %31, %14, %.lr.ph, %6, %9
-  %.0 = phi i32 [ %13, %9 ], [ 0, %6 ], [ 0, %.lr.ph ], [ 0, %14 ], [ 0, %31 ]
+  %.0 = phi i32 [ %13, %9 ], [ 0, %6 ], [ 0, %14 ], [ 0, %.lr.ph ], [ 0, %31 ]
   %36 = icmp ne i32 %.0, 0
   %or.cond3 = or i1 %1, %36
   br i1 %or.cond3, label %.critedge.thread, label %37
@@ -4715,7 +4715,7 @@ define internal fastcc noundef zeroext i1 @TSConfigIsVisibleExt(i32 noundef %0, 
   br i1 %44, label %.lr.ph48, label %.critedge
 
 .critedge:                                        ; preds = %37, %35, %40, %21, %.lr.ph, %18
-  %.023 = phi i1 [ false, %18 ], [ false, %21 ], [ false, %.lr.ph ], [ false, %37 ], [ true, %35 ], [ false, %40 ]
+  %.023 = phi i1 [ false, %18 ], [ false, %21 ], [ false, %.lr.ph ], [ false, %37 ], [ false, %40 ], [ true, %35 ]
   tail call void @ReleaseSysCache(ptr noundef nonnull %4) #18
   br label %45
 
@@ -4751,7 +4751,7 @@ define dso_local i32 @LookupNamespaceNoError(ptr noundef %0) local_unnamed_addr 
   br label %13
 
 13:                                               ; preds = %8, %6, %4, %10
-  %.0 = phi i32 [ %12, %10 ], [ 0, %4 ], [ %5, %6 ], [ %.pre, %8 ]
+  %.0 = phi i32 [ 0, %4 ], [ %12, %10 ], [ %5, %6 ], [ %.pre, %8 ]
   ret i32 %.0
 }
 
@@ -5093,7 +5093,7 @@ isTempOrTempToastNamespace.exit:                  ; preds = %3, %1
   br label %isAnyTempNamespace.exit
 
 isAnyTempNamespace.exit:                          ; preds = %3, %14, %isTempOrTempToastNamespace.exit
-  %.0 = phi i1 [ %15, %14 ], [ false, %isTempOrTempToastNamespace.exit ], [ false, %3 ]
+  %.0 = phi i1 [ false, %isTempOrTempToastNamespace.exit ], [ %15, %14 ], [ false, %3 ]
   ret i1 %.0
 }
 
@@ -5146,7 +5146,7 @@ GetTempNamespaceProcNumber.exit:                  ; preds = %3, %6
   br label %GetTempNamespaceProcNumber.exit.thread
 
 GetTempNamespaceProcNumber.exit.thread:           ; preds = %1, %GetTempNamespaceProcNumber.exit.thread11, %20, %16, %13, %GetTempNamespaceProcNumber.exit
-  %.0 = phi i32 [ 0, %GetTempNamespaceProcNumber.exit ], [ 1, %13 ], [ 1, %16 ], [ %., %20 ], [ 0, %GetTempNamespaceProcNumber.exit.thread11 ], [ 0, %1 ]
+  %.0 = phi i32 [ 1, %16 ], [ 0, %GetTempNamespaceProcNumber.exit ], [ 1, %13 ], [ %., %20 ], [ 0, %GetTempNamespaceProcNumber.exit.thread11 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -5446,7 +5446,7 @@ list_head.exit.thread:                            ; preds = %6
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph67, %60, %.thread45, %list_head.exit.thread, %.critedge, %49, %32, %33, %16, %17, %1, %71
-  %.0 = phi i1 [ true, %71 ], [ true, %1 ], [ false, %17 ], [ false, %16 ], [ false, %33 ], [ false, %32 ], [ false, %49 ], [ false, %.critedge ], [ false, %list_head.exit.thread ], [ false, %.thread45 ], [ false, %60 ], [ false, %.lr.ph67 ]
+  %.0 = phi i1 [ true, %1 ], [ false, %32 ], [ false, %49 ], [ true, %71 ], [ false, %.critedge ], [ false, %16 ], [ false, %17 ], [ false, %33 ], [ false, %list_head.exit.thread ], [ false, %.thread45 ], [ false, %60 ], [ false, %.lr.ph67 ]
   ret i1 %.0
 }
 
@@ -5508,7 +5508,7 @@ define dso_local i32 @get_collation_oid(ptr noundef readonly captures(address_is
   br label %lookup_collation.exit
 
 lookup_collation.exit:                            ; preds = %16, %30
-  %.0.i = phi i32 [ %.015.i, %30 ], [ 0, %16 ]
+  %.0.i = phi i32 [ 0, %16 ], [ %.015.i, %30 ]
   %.not = icmp ne i32 %.0.i, 0
   %brmerge34 = or i1 %1, %.not
   br i1 %brmerge34, label %lookup_collation.exit.thread, label %65
@@ -5595,7 +5595,7 @@ lookup_collation.exit41.thread:                   ; preds = %48, %lookup_collati
   unreachable
 
 lookup_collation.exit.thread:                     ; preds = %lookup_collation.exit41, %45, %10, %lookup_collation.exit, %._crit_edge, %7
-  %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %7 ], [ %.0.i, %lookup_collation.exit ], [ %15, %10 ], [ %47, %45 ], [ %61, %lookup_collation.exit41 ]
+  %.0 = phi i32 [ 0, %7 ], [ %.0.i, %lookup_collation.exit ], [ 0, %._crit_edge ], [ %15, %10 ], [ %47, %45 ], [ %61, %lookup_collation.exit41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -5676,7 +5676,7 @@ define dso_local i32 @get_conversion_oid(ptr noundef readonly captures(address_i
   br i1 %35, label %.lr.ph46, label %.thread39
 
 .thread39:                                        ; preds = %31, %14, %.lr.ph, %6, %9
-  %.024 = phi i32 [ %13, %9 ], [ 0, %6 ], [ 0, %.lr.ph ], [ 0, %14 ], [ 0, %31 ]
+  %.024 = phi i32 [ %13, %9 ], [ 0, %6 ], [ 0, %14 ], [ 0, %.lr.ph ], [ 0, %31 ]
   %36 = icmp ne i32 %.024, 0
   %or.cond3 = or i1 %1, %36
   br i1 %or.cond3, label %.loopexit, label %37
@@ -5743,7 +5743,7 @@ select.unfold:                                    ; preds = %.select.unfold_crit
   br i1 %19, label %.lr.ph40, label %._crit_edge33
 
 ._crit_edge33:                                    ; preds = %14, %select.unfold, %.lr.ph, %2
-  %20 = phi i32 [ 0, %2 ], [ 0, %.lr.ph ], [ 0, %select.unfold ], [ %15, %14 ]
+  %20 = phi i32 [ 0, %.lr.ph ], [ 0, %2 ], [ 0, %select.unfold ], [ %15, %14 ]
   ret i32 %20
 }
 
@@ -5961,7 +5961,7 @@ spcache_lookup.exit.thread:                       ; preds = %spcachekey_equal.ex
   br label %spcache_lookup.exit
 
 spcache_lookup.exit:                              ; preds = %nsphash_lookup.exit.i, %14, %49, %51, %44
-  %.0 = phi i1 [ false, %44 ], [ true, %51 ], [ true, %49 ], [ true, %14 ], [ true, %nsphash_lookup.exit.i ]
+  %.0 = phi i1 [ false, %44 ], [ true, %49 ], [ true, %51 ], [ true, %14 ], [ true, %nsphash_lookup.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
@@ -6871,7 +6871,7 @@ isTempOrTempToastNamespace.exit.i:                ; preds = %6, %1
   br label %isOtherTempNamespace.exit
 
 isOtherTempNamespace.exit:                        ; preds = %6, %isTempOrTempToastNamespace.exit.i, %18
-  %.0.i = phi i64 [ %19, %18 ], [ 0, %isTempOrTempToastNamespace.exit.i ], [ 0, %6 ]
+  %.0.i = phi i64 [ 0, %isTempOrTempToastNamespace.exit.i ], [ %19, %18 ], [ 0, %6 ]
   ret i64 %.0.i
 }
 

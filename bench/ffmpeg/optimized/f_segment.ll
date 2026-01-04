@@ -380,7 +380,7 @@ current_segment_finished.exit.thread:             ; preds = %current_segment_fin
   br i1 %181, label %172, label %.loopexit, !llvm.loop !62
 
 .loopexit:                                        ; preds = %.lr.ph116, %48, %160, %178, %157, %169, %.preheader, %150, %.critedge95, %143
-  %.3 = phi i32 [ -22, %143 ], [ -558323010, %.critedge95 ], [ %.178, %150 ], [ 0, %.preheader ], [ 0, %169 ], [ 0, %157 ], [ 0, %178 ], [ 0, %160 ], [ -22, %48 ], [ 0, %.lr.ph116 ]
+  %.3 = phi i32 [ 0, %169 ], [ -22, %143 ], [ -558323010, %.critedge95 ], [ %.178, %150 ], [ 0, %.preheader ], [ 0, %157 ], [ 0, %160 ], [ 0, %178 ], [ -22, %48 ], [ 0, %.lr.ph116 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -614,7 +614,7 @@ parse_points.exit.thread:                         ; preds = %36, %.thread.i
   br i1 %63, label %56, label %.loopexit
 
 .loopexit:                                        ; preds = %56, %61, %.loopexit53, %.thread50, %parse_points.exit.thread, %count_points.exit, %16, %12
-  %.036 = phi i32 [ -22, %12 ], [ -22, %16 ], [ -12, %count_points.exit ], [ %spec.select42.i.ph, %parse_points.exit.thread ], [ -12, %.thread50 ], [ 0, %.loopexit53 ], [ 0, %56 ], [ %62, %61 ]
+  %.036 = phi i32 [ -22, %12 ], [ -12, %count_points.exit ], [ %spec.select42.i.ph, %parse_points.exit.thread ], [ -22, %16 ], [ -12, %.thread50 ], [ 0, %.loopexit53 ], [ 0, %56 ], [ %62, %61 ]
   ret i32 %.036
 }
 

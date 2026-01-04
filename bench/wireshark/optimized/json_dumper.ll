@@ -439,8 +439,8 @@ json_dumper_get_prev_state.exit:                  ; preds = %30
   br label %45
 
 45:                                               ; preds = %30, %38, %42
-  %46 = phi i32 [ %31, %38 ], [ %.pre24, %42 ], [ 0, %30 ]
-  %.1 = phi ptr [ %41, %38 ], [ %4, %42 ], [ @.str.9, %30 ]
+  %46 = phi i32 [ %.pre24, %42 ], [ %31, %38 ], [ 0, %30 ]
+  %.1 = phi ptr [ %4, %42 ], [ %41, %38 ], [ @.str.9, %30 ]
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.10, i32 noundef 7, ptr noundef nonnull @.str.11, i64 noundef 211, ptr noundef nonnull @__func__.json_dumper_bad, ptr noundef nonnull @.str.12, ptr noundef %1, i32 noundef %46, ptr noundef %.0, ptr noundef %.1) #9
   unreachable
 }
@@ -1208,11 +1208,11 @@ json_dumper_get_prev_state.exit.thread.i:         ; preds = %json_dumper_get_pre
   br label %json_dumper_setting_value_ok.exit
 
 json_dumper_setting_value_ok.exit:                ; preds = %json_dumper_get_prev_state.exit.i, %16, %json_dumper_get_prev_state.exit.thread.i, %23, %24, %25
-  %.str.30.sink.i = phi ptr [ @.str.30, %24 ], [ @.str.29, %23 ], [ @.str.31, %25 ], [ @.str.26, %16 ], [ @.str.27, %json_dumper_get_prev_state.exit.i ], [ @.str.28, %json_dumper_get_prev_state.exit.thread.i ]
+  %.str.30.sink.i = phi ptr [ @.str.30, %24 ], [ @.str.29, %23 ], [ @.str.27, %json_dumper_get_prev_state.exit.i ], [ @.str.31, %25 ], [ @.str.26, %16 ], [ @.str.28, %json_dumper_get_prev_state.exit.thread.i ]
   tail call fastcc void @json_dumper_bad(ptr noundef %0, ptr noundef nonnull %.str.30.sink.i)
   br label %31
 
-26:                                               ; preds = %json_dumper_get_prev_state.exit.thread.i, %16, %json_dumper_get_prev_state.exit.i
+26:                                               ; preds = %16, %json_dumper_get_prev_state.exit.i, %json_dumper_get_prev_state.exit.thread.i
   tail call fastcc void @prepare_token(ptr noundef %0)
   tail call fastcc void @json_puts_string(ptr noundef %0, ptr noundef %1, i1 noundef zeroext false)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1290,11 +1290,11 @@ json_dumper_get_prev_state.exit.thread.i:         ; preds = %json_dumper_get_pre
   br label %json_dumper_setting_value_ok.exit
 
 json_dumper_setting_value_ok.exit:                ; preds = %json_dumper_get_prev_state.exit.i, %17, %json_dumper_get_prev_state.exit.thread.i, %24, %25, %26
-  %.str.30.sink.i = phi ptr [ @.str.30, %25 ], [ @.str.29, %24 ], [ @.str.31, %26 ], [ @.str.26, %17 ], [ @.str.27, %json_dumper_get_prev_state.exit.i ], [ @.str.28, %json_dumper_get_prev_state.exit.thread.i ]
+  %.str.30.sink.i = phi ptr [ @.str.30, %25 ], [ @.str.29, %24 ], [ @.str.27, %json_dumper_get_prev_state.exit.i ], [ @.str.31, %26 ], [ @.str.26, %17 ], [ @.str.28, %json_dumper_get_prev_state.exit.thread.i ]
   tail call fastcc void @json_dumper_bad(ptr noundef %0, ptr noundef nonnull %.str.30.sink.i)
   br label %57
 
-27:                                               ; preds = %json_dumper_get_prev_state.exit.thread.i, %17, %json_dumper_get_prev_state.exit.i
+27:                                               ; preds = %17, %json_dumper_get_prev_state.exit.i, %json_dumper_get_prev_state.exit.thread.i
   tail call fastcc void @prepare_token(ptr noundef %0)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(39) %3, i8 0, i64 39, i1 false)
@@ -1430,11 +1430,11 @@ json_dumper_get_prev_state.exit.thread.i:         ; preds = %json_dumper_get_pre
   br label %json_dumper_setting_value_ok.exit
 
 json_dumper_setting_value_ok.exit:                ; preds = %json_dumper_get_prev_state.exit.i, %17, %json_dumper_get_prev_state.exit.thread.i, %24, %25, %26
-  %.str.30.sink.i = phi ptr [ @.str.30, %25 ], [ @.str.29, %24 ], [ @.str.31, %26 ], [ @.str.26, %17 ], [ @.str.27, %json_dumper_get_prev_state.exit.i ], [ @.str.28, %json_dumper_get_prev_state.exit.thread.i ]
+  %.str.30.sink.i = phi ptr [ @.str.30, %25 ], [ @.str.29, %24 ], [ @.str.27, %json_dumper_get_prev_state.exit.i ], [ @.str.31, %26 ], [ @.str.26, %17 ], [ @.str.28, %json_dumper_get_prev_state.exit.thread.i ]
   tail call fastcc void @json_dumper_bad(ptr noundef %0, ptr noundef nonnull %.str.30.sink.i)
   br label %39
 
-27:                                               ; preds = %json_dumper_get_prev_state.exit.thread.i, %17, %json_dumper_get_prev_state.exit.i
+27:                                               ; preds = %17, %json_dumper_get_prev_state.exit.i, %json_dumper_get_prev_state.exit.thread.i
   tail call fastcc void @prepare_token(ptr noundef %0)
   %28 = load ptr, ptr %0, align 8
   %.not.i9 = icmp eq ptr %28, null

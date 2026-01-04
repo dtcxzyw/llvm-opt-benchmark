@@ -3752,7 +3752,7 @@ _Z19b3SwapVector3EndianRK9b3Vector3RS_.exit219:   ; preds = %198
   br i1 %exitcond.not, label %.loopexit241, label %227, !llvm.loop !78
 
 .loopexit241:                                     ; preds = %227, %_Z19b3SwapVector3EndianRK9b3Vector3RS_.exit219, %.preheader242, %.preheader240
-  %251 = phi ptr [ %105, %.preheader242 ], [ %105, %.preheader240 ], [ %216, %_Z19b3SwapVector3EndianRK9b3Vector3RS_.exit219 ], [ %242, %227 ]
+  %251 = phi ptr [ %216, %_Z19b3SwapVector3EndianRK9b3Vector3RS_.exit219 ], [ %105, %.preheader240 ], [ %105, %.preheader242 ], [ %242, %227 ]
   %252 = sext i32 %107 to i64
   %253 = shl nsw i64 %252, 6
   %254 = load i8, ptr %14, align 8, !range !42

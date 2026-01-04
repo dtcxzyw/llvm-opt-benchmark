@@ -645,7 +645,7 @@ _ZNSt12__shared_ptrIN2cv6dynafu9WarpFieldELN9__gnu_cxx12_Lock_policyE2EED2Ev.exi
   br label %.body
 
 .body:                                            ; preds = %149, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6dynafu9WarpFieldESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i, %147
-  %.pn115.pn = phi { ptr, i32 } [ %150, %149 ], [ %148, %147 ], [ %108, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6dynafu9WarpFieldESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i ]
+  %.pn115.pn = phi { ptr, i32 } [ %108, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6dynafu9WarpFieldESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i ], [ %150, %149 ], [ %148, %147 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %436
 
@@ -1253,12 +1253,12 @@ _ZNSt12__shared_ptrIN2cv6dynafu9WarpFieldELN9__gnu_cxx12_Lock_policyE2EED2Ev.exi
   br label %.body136
 
 .body136:                                         ; preds = %375, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6dynafu9WarpFieldESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i134, %373
-  %.pn105.pn = phi { ptr, i32 } [ %376, %375 ], [ %374, %373 ], [ %343, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6dynafu9WarpFieldESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i134 ]
+  %.pn105.pn = phi { ptr, i32 } [ %343, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6dynafu9WarpFieldESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i134 ], [ %376, %375 ], [ %374, %373 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   br label %389
 
 .loopexit:                                        ; preds = %294, %322, %_ZNSt12__shared_ptrIN2cv6dynafu9WarpFieldELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit143, %223
-  %cond = phi i1 [ false, %223 ], [ true, %_ZNSt12__shared_ptrIN2cv6dynafu9WarpFieldELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit143 ], [ true, %322 ], [ false, %294 ]
+  %cond = phi i1 [ false, %223 ], [ true, %322 ], [ true, %_ZNSt12__shared_ptrIN2cv6dynafu9WarpFieldELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit143 ], [ false, %294 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   %377 = load ptr, ptr %27, align 8, !tbaa !119
   %378 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -1329,7 +1329,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit153:       ; preds = %_ZSt8_DestroyIPN2cv
   br i1 %cond, label %393, label %_ZNSolsEPFRSoS_E.exit
 
 389:                                              ; preds = %236, %272, %301, %299, %297, %295, %.body136, %371
-  %.pn105.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %273, %272 ], [ %237, %236 ], [ %302, %301 ], [ %300, %299 ], [ %298, %297 ], [ %296, %295 ], [ %372, %371 ], [ %.pn105.pn, %.body136 ]
+  %.pn105.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn105.pn, %.body136 ], [ %296, %295 ], [ %237, %236 ], [ %273, %272 ], [ %302, %301 ], [ %300, %299 ], [ %298, %297 ], [ %372, %371 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %390
 
@@ -1998,7 +1998,7 @@ _ZNSt12__shared_ptrIN2cv6dynafu9WarpFieldELN9__gnu_cxx12_Lock_policyE2EED2Ev.exi
   br label %.body
 
 .body:                                            ; preds = %149, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6dynafu9WarpFieldESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i, %147
-  %.pn115.pn = phi { ptr, i32 } [ %150, %149 ], [ %148, %147 ], [ %108, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6dynafu9WarpFieldESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i ]
+  %.pn115.pn = phi { ptr, i32 } [ %108, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6dynafu9WarpFieldESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i ], [ %150, %149 ], [ %148, %147 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %436
 
@@ -2606,12 +2606,12 @@ _ZNSt12__shared_ptrIN2cv6dynafu9WarpFieldELN9__gnu_cxx12_Lock_policyE2EED2Ev.exi
   br label %.body136
 
 .body136:                                         ; preds = %375, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6dynafu9WarpFieldESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i134, %373
-  %.pn105.pn = phi { ptr, i32 } [ %376, %375 ], [ %374, %373 ], [ %343, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6dynafu9WarpFieldESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i134 ]
+  %.pn105.pn = phi { ptr, i32 } [ %343, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6dynafu9WarpFieldESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i134 ], [ %376, %375 ], [ %374, %373 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   br label %389
 
 .loopexit:                                        ; preds = %294, %322, %_ZNSt12__shared_ptrIN2cv6dynafu9WarpFieldELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit143, %223
-  %cond = phi i1 [ false, %223 ], [ true, %_ZNSt12__shared_ptrIN2cv6dynafu9WarpFieldELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit143 ], [ true, %322 ], [ false, %294 ]
+  %cond = phi i1 [ false, %223 ], [ true, %322 ], [ true, %_ZNSt12__shared_ptrIN2cv6dynafu9WarpFieldELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit143 ], [ false, %294 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   %377 = load ptr, ptr %27, align 8, !tbaa !183
   %378 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -2682,7 +2682,7 @@ _ZNSt6vectorIN2cv4UMatESaIS1_EED2Ev.exit153:      ; preds = %_ZSt8_DestroyIPN2cv
   br i1 %cond, label %393, label %_ZNSolsEPFRSoS_E.exit
 
 389:                                              ; preds = %236, %272, %301, %299, %297, %295, %.body136, %371
-  %.pn105.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %273, %272 ], [ %237, %236 ], [ %302, %301 ], [ %300, %299 ], [ %298, %297 ], [ %296, %295 ], [ %372, %371 ], [ %.pn105.pn, %.body136 ]
+  %.pn105.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn105.pn, %.body136 ], [ %296, %295 ], [ %237, %236 ], [ %273, %272 ], [ %302, %301 ], [ %300, %299 ], [ %298, %297 ], [ %372, %371 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %390
 
@@ -3505,9 +3505,9 @@ _ZN2cvmlIdLi3ELi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_X
   br label %138
 
 138:                                              ; preds = %94, %123, %131
-  %.052 = phi double [ %128, %123 ], [ %135, %131 ], [ 0.000000e+00, %94 ]
-  %.051 = phi double [ %129, %123 ], [ %136, %131 ], [ 0.000000e+00, %94 ]
-  %.150 = phi double [ %130, %123 ], [ %137, %131 ], [ 0.000000e+00, %94 ]
+  %.052 = phi double [ %135, %131 ], [ %128, %123 ], [ 0.000000e+00, %94 ]
+  %.051 = phi double [ %136, %131 ], [ %129, %123 ], [ 0.000000e+00, %94 ]
+  %.150 = phi double [ %137, %131 ], [ %130, %123 ], [ 0.000000e+00, %94 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store double %.052, ptr %13, align 8, !tbaa !206
   %139 = getelementptr inbounds nuw i8, ptr %13, i64 8

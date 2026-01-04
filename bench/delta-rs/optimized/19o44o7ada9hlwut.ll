@@ -1592,7 +1592,7 @@ define hidden noundef align 8 ptr @_ZN16aws_smithy_types10config_bag9ConfigBag11
   br label %"_ZN127_$LT$aws_smithy_types..config_bag..storable..StoreReplace$LT$U$GT$$u20$as$u20$aws_smithy_types..config_bag..storable..Store$GT$10merge_iter17hc922992204f3f5f8E.exit"
 
 "_ZN127_$LT$aws_smithy_types..config_bag..storable..StoreReplace$LT$U$GT$$u20$as$u20$aws_smithy_types..config_bag..storable..Store$GT$10merge_iter17hc922992204f3f5f8E.exit": ; preds = %1, %11
-  %.0.i = phi ptr [ null, %1 ], [ %..i, %11 ]
+  %.0.i = phi ptr [ %..i, %11 ], [ null, %1 ]
   ret ptr %.0.i
 }
 
@@ -1621,7 +1621,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @_ZN16aws_smithy_t
   br label %"_ZN127_$LT$aws_smithy_types..config_bag..storable..StoreReplace$LT$U$GT$$u20$as$u20$aws_smithy_types..config_bag..storable..Store$GT$10merge_iter17h34bafe7de2b6d162E.exit"
 
 "_ZN127_$LT$aws_smithy_types..config_bag..storable..StoreReplace$LT$U$GT$$u20$as$u20$aws_smithy_types..config_bag..storable..Store$GT$10merge_iter17h34bafe7de2b6d162E.exit": ; preds = %1, %11
-  %.0.i = phi ptr [ null, %1 ], [ %..i, %11 ]
+  %.0.i = phi ptr [ %..i, %11 ], [ null, %1 ]
   ret ptr %.0.i
 }
 
@@ -1680,7 +1680,7 @@ define hidden noundef align 8 dereferenceable_or_null(120) ptr @_ZN16aws_smithy_
   br label %"_ZN127_$LT$aws_smithy_types..config_bag..storable..StoreReplace$LT$U$GT$$u20$as$u20$aws_smithy_types..config_bag..storable..Store$GT$10merge_iter17h7757193cbd671dc9E.exit"
 
 "_ZN127_$LT$aws_smithy_types..config_bag..storable..StoreReplace$LT$U$GT$$u20$as$u20$aws_smithy_types..config_bag..storable..Store$GT$10merge_iter17h7757193cbd671dc9E.exit": ; preds = %1, %11
-  %.0.i = phi ptr [ null, %1 ], [ %..i, %11 ]
+  %.0.i = phi ptr [ %..i, %11 ], [ null, %1 ]
   ret ptr %.0.i
 }
 
@@ -1710,7 +1710,7 @@ define hidden noundef align 8 dereferenceable_or_null(64) ptr @_ZN16aws_smithy_t
   br label %"_ZN127_$LT$aws_smithy_types..config_bag..storable..StoreReplace$LT$U$GT$$u20$as$u20$aws_smithy_types..config_bag..storable..Store$GT$10merge_iter17h306c99ccaa3be50cE.exit"
 
 "_ZN127_$LT$aws_smithy_types..config_bag..storable..StoreReplace$LT$U$GT$$u20$as$u20$aws_smithy_types..config_bag..storable..Store$GT$10merge_iter17h306c99ccaa3be50cE.exit": ; preds = %1, %11
-  %.0.i = phi ptr [ null, %1 ], [ %..i, %11 ]
+  %.0.i = phi ptr [ %..i, %11 ], [ null, %1 ]
   ret ptr %.0.i
 }
 
@@ -1739,7 +1739,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @_ZN16aws_smithy_t
   br label %"_ZN127_$LT$aws_smithy_types..config_bag..storable..StoreReplace$LT$U$GT$$u20$as$u20$aws_smithy_types..config_bag..storable..Store$GT$10merge_iter17heb6c99a4f0fefd82E.exit"
 
 "_ZN127_$LT$aws_smithy_types..config_bag..storable..StoreReplace$LT$U$GT$$u20$as$u20$aws_smithy_types..config_bag..storable..Store$GT$10merge_iter17heb6c99a4f0fefd82E.exit": ; preds = %1, %11
-  %.0.i = phi ptr [ null, %1 ], [ %..i, %11 ]
+  %.0.i = phi ptr [ %..i, %11 ], [ null, %1 ]
   ret ptr %.0.i
 }
 
@@ -1768,7 +1768,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @_ZN16aws_smithy_t
   br label %"_ZN127_$LT$aws_smithy_types..config_bag..storable..StoreReplace$LT$U$GT$$u20$as$u20$aws_smithy_types..config_bag..storable..Store$GT$10merge_iter17hd481f16cb1fb0f08E.exit"
 
 "_ZN127_$LT$aws_smithy_types..config_bag..storable..StoreReplace$LT$U$GT$$u20$as$u20$aws_smithy_types..config_bag..storable..Store$GT$10merge_iter17hd481f16cb1fb0f08E.exit": ; preds = %1, %11
-  %.0.i = phi ptr [ null, %1 ], [ %..i, %11 ]
+  %.0.i = phi ptr [ %..i, %11 ], [ null, %1 ]
   ret ptr %.0.i
 }
 
@@ -1829,7 +1829,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @_ZN16aws_smithy_t
   br label %_ZN16aws_smithy_types10config_bag9ConfigBag11sourced_get17h5ee195aab67ded62E.llvm.16490413678648482472.exit
 
 _ZN16aws_smithy_types10config_bag9ConfigBag11sourced_get17h5ee195aab67ded62E.llvm.16490413678648482472.exit: ; preds = %1, %11
-  %.0.i.i = phi ptr [ null, %1 ], [ %..i.i, %11 ]
+  %.0.i.i = phi ptr [ %..i.i, %11 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0.i.i
 }
@@ -1861,7 +1861,7 @@ define hidden noundef align 8 ptr @_ZN16aws_smithy_types10config_bag9ConfigBag4l
   br label %_ZN16aws_smithy_types10config_bag9ConfigBag11sourced_get17h08bc904ff8ce9868E.llvm.16490413678648482472.exit
 
 _ZN16aws_smithy_types10config_bag9ConfigBag11sourced_get17h08bc904ff8ce9868E.llvm.16490413678648482472.exit: ; preds = %1, %11
-  %.0.i.i = phi ptr [ null, %1 ], [ %..i.i, %11 ]
+  %.0.i.i = phi ptr [ %..i.i, %11 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0.i.i
 }
@@ -1893,7 +1893,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @_ZN16aws_smithy_t
   br label %_ZN16aws_smithy_types10config_bag9ConfigBag11sourced_get17he9855f4c05df74a2E.llvm.16490413678648482472.exit
 
 _ZN16aws_smithy_types10config_bag9ConfigBag11sourced_get17he9855f4c05df74a2E.llvm.16490413678648482472.exit: ; preds = %1, %11
-  %.0.i.i = phi ptr [ null, %1 ], [ %..i.i, %11 ]
+  %.0.i.i = phi ptr [ %..i.i, %11 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0.i.i
 }
@@ -1992,7 +1992,7 @@ define hidden noundef align 8 dereferenceable_or_null(64) ptr @_ZN16aws_smithy_t
   br label %_ZN16aws_smithy_types10config_bag9ConfigBag11sourced_get17h5117a44830e64d19E.llvm.16490413678648482472.exit
 
 _ZN16aws_smithy_types10config_bag9ConfigBag11sourced_get17h5117a44830e64d19E.llvm.16490413678648482472.exit: ; preds = %1, %11
-  %.0.i.i = phi ptr [ null, %1 ], [ %..i.i, %11 ]
+  %.0.i.i = phi ptr [ %..i.i, %11 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0.i.i
 }
@@ -2024,7 +2024,7 @@ define hidden noundef align 8 dereferenceable_or_null(120) ptr @_ZN16aws_smithy_
   br label %_ZN16aws_smithy_types10config_bag9ConfigBag11sourced_get17h25ebb7397fd225edE.llvm.16490413678648482472.exit
 
 _ZN16aws_smithy_types10config_bag9ConfigBag11sourced_get17h25ebb7397fd225edE.llvm.16490413678648482472.exit: ; preds = %1, %11
-  %.0.i.i = phi ptr [ null, %1 ], [ %..i.i, %11 ]
+  %.0.i.i = phi ptr [ %..i.i, %11 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0.i.i
 }
@@ -2056,7 +2056,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @_ZN16aws_smithy_t
   br label %_ZN16aws_smithy_types10config_bag9ConfigBag11sourced_get17h0f287d7e374a856aE.llvm.16490413678648482472.exit
 
 _ZN16aws_smithy_types10config_bag9ConfigBag11sourced_get17h0f287d7e374a856aE.llvm.16490413678648482472.exit: ; preds = %1, %11
-  %.0.i.i = phi ptr [ null, %1 ], [ %..i.i, %11 ]
+  %.0.i.i = phi ptr [ %..i.i, %11 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0.i.i
 }

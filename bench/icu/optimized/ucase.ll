@@ -216,7 +216,7 @@ define i32 @ucase_tolower_77(i32 noundef %0) local_unnamed_addr #3 {
   br label %97
 
 97:                                               ; preds = %92, %81, %84, %76, %42, %40
-  %.1 = phi i32 [ %45, %42 ], [ %0, %40 ], [ %96, %92 ], [ %0, %76 ], [ %91, %84 ], [ %83, %81 ]
+  %.1 = phi i32 [ %0, %40 ], [ %45, %42 ], [ %96, %92 ], [ %0, %76 ], [ %91, %84 ], [ %83, %81 ]
   ret i32 %.1
 }
 
@@ -377,7 +377,7 @@ define i32 @ucase_toupper_77(i32 noundef %0) local_unnamed_addr #3 {
   br label %106
 
 106:                                              ; preds = %101, %88, %92, %78, %43, %40
-  %.1 = phi i32 [ %46, %43 ], [ %0, %40 ], [ %105, %101 ], [ %0, %78 ], [ %100, %92 ], [ %91, %88 ]
+  %.1 = phi i32 [ %0, %40 ], [ %46, %43 ], [ %105, %101 ], [ %0, %78 ], [ %100, %92 ], [ %91, %88 ]
   ret i32 %.1
 }
 
@@ -546,7 +546,7 @@ define i32 @ucase_totitle_77(i32 noundef %0) local_unnamed_addr #3 {
   br label %109
 
 109:                                              ; preds = %85, %78, %100, %96, %43, %40
-  %.2 = phi i32 [ %46, %43 ], [ %0, %40 ], [ %82, %78 ], [ %0, %85 ], [ %108, %100 ], [ %99, %96 ]
+  %.2 = phi i32 [ %0, %40 ], [ %46, %43 ], [ %0, %85 ], [ %82, %78 ], [ %108, %100 ], [ %99, %96 ]
   ret i32 %.2
 }
 
@@ -890,7 +890,7 @@ define void @ucase_addCaseClosure_77(i32 noundef %0, ptr noundef readonly captur
   %205 = icmp slt i32 %.1, %.1131
   br i1 %205, label %.lr.ph, label %.critedge, !llvm.loop !22
 
-.critedge:                                        ; preds = %202, %185, %59, %63, %68, %67, %41, %45, %43
+.critedge:                                        ; preds = %202, %185, %59, %63, %67, %68, %41, %45, %43
   ret void
 }
 
@@ -1200,8 +1200,8 @@ define void @ucase_addSimpleCaseClosure_77(i32 noundef %0, ptr noundef readonly 
   br label %.lr.ph
 
 .thread:                                          ; preds = %.thread166, %144
-  %.1123151.shrunk = phi i16 [ %146, %144 ], [ %151, %.thread166 ]
-  %.1125 = phi ptr [ %147, %144 ], [ %152, %.thread166 ]
+  %.1123151.shrunk = phi i16 [ %151, %.thread166 ], [ %146, %144 ]
+  %.1125 = phi ptr [ %152, %.thread166 ], [ %147, %144 ]
   %.not157 = icmp eq i16 %.1123151.shrunk, 0
   br i1 %.not157, label %.critedge, label %.lr.ph
 
@@ -1242,7 +1242,7 @@ define void @ucase_addSimpleCaseClosure_77(i32 noundef %0, ptr noundef readonly 
   %204 = icmp slt i32 %.1, %.1123151183
   br i1 %204, label %184, label %.critedge, !llvm.loop !24
 
-.critedge:                                        ; preds = %201, %136, %.thread, %59, %64, %58, %63, %41, %45, %43
+.critedge:                                        ; preds = %201, %136, %.thread, %59, %58, %63, %64, %41, %45, %43
   ret void
 }
 
@@ -1398,7 +1398,7 @@ _ZL9strcmpMaxPKDsiS0_i.exit.thread:               ; preds = %33, %_ZL9strcmpMaxP
   br i1 %74, label %.preheader63.split, label %.critedge
 
 .critedge:                                        ; preds = %_ZL9strcmpMaxPKDsiS0_i.exit.thread, %_ZL9strcmpMaxPKDsiS0_i.exit.thread.us, %68, %50, %3
-  %.042 = phi i8 [ 0, %3 ], [ 1, %50 ], [ 1, %68 ], [ 0, %_ZL9strcmpMaxPKDsiS0_i.exit.thread.us ], [ 0, %_ZL9strcmpMaxPKDsiS0_i.exit.thread ]
+  %.042 = phi i8 [ 1, %68 ], [ 0, %3 ], [ 0, %_ZL9strcmpMaxPKDsiS0_i.exit.thread.us ], [ 1, %50 ], [ 0, %_ZL9strcmpMaxPKDsiS0_i.exit.thread ]
   ret i8 %.042
 }
 
@@ -2164,7 +2164,7 @@ define range(i32 1, 7) i32 @ucase_getCaseLocale_77(ptr noundef readonly captures
   br label %141
 
 141:                                              ; preds = %139, %139, %139, %128, %128, %128, %117, %117, %117, %105, %105, %105, %95, %95, %95, %83, %83, %83, %72, %72, %72, %61, %61, %61, %49, %49, %49, %39, %39, %39, %27, %27, %27, %1, %14, %14, %14, %140
-  %.0282 = phi i32 [ 1, %140 ], [ 4, %14 ], [ 4, %14 ], [ 4, %14 ], [ 1, %1 ], [ 2, %27 ], [ 2, %27 ], [ 2, %27 ], [ 2, %39 ], [ 2, %39 ], [ 2, %39 ], [ 3, %49 ], [ 3, %49 ], [ 3, %49 ], [ 5, %61 ], [ 5, %61 ], [ 5, %61 ], [ 6, %72 ], [ 6, %72 ], [ 6, %72 ], [ 2, %83 ], [ 2, %83 ], [ 2, %83 ], [ 2, %95 ], [ 2, %95 ], [ 2, %95 ], [ 3, %105 ], [ 3, %105 ], [ 3, %105 ], [ 4, %117 ], [ 4, %117 ], [ 4, %117 ], [ 5, %128 ], [ 5, %128 ], [ 5, %128 ], [ 6, %139 ], [ 6, %139 ], [ 6, %139 ]
+  %.0282 = phi i32 [ 5, %128 ], [ 1, %140 ], [ 4, %14 ], [ 1, %1 ], [ 2, %27 ], [ 2, %39 ], [ 3, %49 ], [ 5, %61 ], [ 6, %72 ], [ 2, %83 ], [ 2, %95 ], [ 3, %105 ], [ 4, %117 ], [ 4, %14 ], [ 4, %14 ], [ 2, %27 ], [ 2, %27 ], [ 2, %39 ], [ 2, %39 ], [ 3, %49 ], [ 3, %49 ], [ 5, %61 ], [ 5, %61 ], [ 6, %72 ], [ 6, %72 ], [ 2, %83 ], [ 2, %83 ], [ 2, %95 ], [ 2, %95 ], [ 3, %105 ], [ 3, %105 ], [ 4, %117 ], [ 4, %117 ], [ 5, %128 ], [ 5, %128 ], [ 6, %139 ], [ 6, %139 ], [ 6, %139 ]
   ret i32 %.0282
 }
 
@@ -2725,14 +2725,14 @@ _ZL20isFollowedByDotAbovePFiPvaES_.exit.thread172: ; preds = %125
   br label %_ZL14isPrecededBy_IPFiPvaES_.exit
 
 _ZL14isPrecededBy_IPFiPvaES_.exit:                ; preds = %293, %296, %288, %44, %46
-  %.0123 = phi i32 [ %49, %46 ], [ %0, %44 ], [ %295, %293 ], [ %303, %296 ], [ %0, %288 ]
+  %.0123 = phi i32 [ %0, %44 ], [ %49, %46 ], [ %303, %296 ], [ %0, %288 ], [ %295, %293 ]
   %304 = icmp eq i32 %.0123, %0
   %305 = sext i1 %304 to i32
   %306 = xor i32 %.0123, %305
   br label %_ZL14isPrecededBy_IPFiPvaES_.exit.thread167
 
-_ZL14isPrecededBy_IPFiPvaES_.exit.thread167:      ; preds = %129, %_ZL10getDotTypei.exit.i156, %.preheader.i150, %181, %241, %120, %_ZL21isFollowedByMoreAbovePFiPvaES_.exit, %257, %283, %236, %119, %118, %117, %116, %115, %114, %_ZL14isPrecededBy_IPFiPvaES_.exit
-  %.1 = phi i32 [ %306, %_ZL14isPrecededBy_IPFiPvaES_.exit ], [ 962, %241 ], [ 105, %120 ], [ 0, %_ZL21isFollowedByMoreAbovePFiPvaES_.exit ], [ %258, %257 ], [ %287, %283 ], [ 2, %236 ], [ 3, %119 ], [ 3, %118 ], [ 3, %117 ], [ 2, %116 ], [ 2, %115 ], [ 2, %114 ], [ 305, %181 ], [ 305, %.preheader.i150 ], [ 305, %_ZL10getDotTypei.exit.i156 ], [ 0, %129 ]
+_ZL14isPrecededBy_IPFiPvaES_.exit.thread167:      ; preds = %129, %_ZL10getDotTypei.exit.i156, %.preheader.i150, %181, %241, %283, %236, %120, %_ZL21isFollowedByMoreAbovePFiPvaES_.exit, %119, %118, %117, %116, %115, %114, %257, %_ZL14isPrecededBy_IPFiPvaES_.exit
+  %.1 = phi i32 [ %306, %_ZL14isPrecededBy_IPFiPvaES_.exit ], [ 305, %_ZL10getDotTypei.exit.i156 ], [ %258, %257 ], [ 962, %241 ], [ %287, %283 ], [ 2, %236 ], [ 105, %120 ], [ 0, %_ZL21isFollowedByMoreAbovePFiPvaES_.exit ], [ 3, %119 ], [ 3, %118 ], [ 3, %117 ], [ 2, %116 ], [ 2, %115 ], [ 2, %114 ], [ 305, %181 ], [ 305, %.preheader.i150 ], [ 0, %129 ]
   ret i32 %.1
 }
 
@@ -3159,14 +3159,14 @@ _ZL22isPrecededBySoftDottedPFiPvaES_.exit.thread.thread: ; preds = %66, %122, %1
   br label %_ZL22isPrecededBySoftDottedPFiPvaES_.exit
 
 _ZL22isPrecededBySoftDottedPFiPvaES_.exit:        ; preds = %196, %192, %45, %48
-  %.0106 = phi i32 [ %51, %48 ], [ %0, %45 ], [ %195, %192 ], [ %204, %196 ]
+  %.0106 = phi i32 [ %0, %45 ], [ %51, %48 ], [ %204, %196 ], [ %195, %192 ]
   %205 = icmp eq i32 %.0106, %0
   %206 = sext i1 %205 to i32
   %207 = xor i32 %.0106, %206
   br label %_ZL22isPrecededBySoftDottedPFiPvaES_.exit.thread131
 
-_ZL22isPrecededBySoftDottedPFiPvaES_.exit.thread131: ; preds = %_ZL10getDotTypei.exit.i, %60, %137, %181, %172, %120, %_ZL22isPrecededBySoftDottedPFiPvaES_.exit
-  %.1103 = phi i32 [ %207, %_ZL22isPrecededBySoftDottedPFiPvaES_.exit ], [ 304, %60 ], [ %.1, %137 ], [ %182, %181 ], [ %176, %172 ], [ 2, %120 ], [ 0, %_ZL10getDotTypei.exit.i ]
+_ZL22isPrecededBySoftDottedPFiPvaES_.exit.thread131: ; preds = %_ZL10getDotTypei.exit.i, %181, %172, %120, %60, %137, %_ZL22isPrecededBySoftDottedPFiPvaES_.exit
+  %.1103 = phi i32 [ %207, %_ZL22isPrecededBySoftDottedPFiPvaES_.exit ], [ %.1, %137 ], [ %182, %181 ], [ %176, %172 ], [ 2, %120 ], [ 304, %60 ], [ 0, %_ZL10getDotTypei.exit.i ]
   ret i32 %.1103
 }
 
@@ -3372,8 +3372,8 @@ define i32 @ucase_fold_77(i32 noundef %0, i32 noundef %1) local_unnamed_addr #3 
   %117 = or disjoint i32 %114, %116
   br label %.thread
 
-.thread:                                          ; preds = %94, %61, %59, %57, %60, %87, %58, %109, %105, %43, %41
-  %.1 = phi i32 [ %46, %43 ], [ %0, %41 ], [ %108, %105 ], [ %117, %109 ], [ %0, %94 ], [ %0, %61 ], [ 305, %59 ], [ 105, %57 ], [ 105, %60 ], [ %91, %87 ], [ %0, %58 ]
+.thread:                                          ; preds = %57, %61, %94, %87, %59, %58, %60, %109, %105, %43, %41
+  %.1 = phi i32 [ %0, %41 ], [ %46, %43 ], [ %108, %105 ], [ %117, %109 ], [ 105, %57 ], [ %0, %61 ], [ %0, %94 ], [ %91, %87 ], [ 305, %59 ], [ %0, %58 ], [ 105, %60 ]
   ret i32 %.1
 }
 
@@ -3617,14 +3617,14 @@ define i32 @ucase_toFullFolding_77(i32 noundef %0, ptr noundef writeonly capture
   br label %143
 
 143:                                              ; preds = %134, %130, %42, %44
-  %.088 = phi i32 [ %47, %44 ], [ %0, %42 ], [ %133, %130 ], [ %142, %134 ]
+  %.088 = phi i32 [ %0, %42 ], [ %47, %44 ], [ %133, %130 ], [ %142, %134 ]
   %144 = icmp eq i32 %.088, %0
   %145 = sext i1 %144 to i32
   %146 = xor i32 %.088, %145
   br label %.thread
 
-.thread:                                          ; preds = %60, %58, %77, %61, %119, %110, %84, %59, %143
-  %.1 = phi i32 [ %146, %143 ], [ 305, %60 ], [ 105, %58 ], [ %76, %77 ], [ 105, %61 ], [ %120, %119 ], [ %114, %110 ], [ %85, %84 ], [ 2, %59 ]
+.thread:                                          ; preds = %61, %58, %119, %60, %110, %84, %59, %77, %143
+  %.1 = phi i32 [ %146, %143 ], [ 105, %61 ], [ 105, %58 ], [ %120, %119 ], [ 305, %60 ], [ %114, %110 ], [ %85, %84 ], [ 2, %59 ], [ %76, %77 ]
   ret i32 %.1
 }
 
@@ -4228,7 +4228,7 @@ ucase_getTypeOrIgnorable_77.exit:                 ; preds = %233, %235, %.sink.s
   br label %283
 
 283:                                              ; preds = %2, %273, %276, %279, %269, %265, %261, %ucase_getTypeOrIgnorable_77.exit, %ucase_getType_77.exit20, %ucase_isCaseSensitive_77.exit, %ucase_isSoftDotted_77.exit, %ucase_getType_77.exit16, %ucase_getType_77.exit
-  %.0 = phi i32 [ %42, %ucase_getType_77.exit ], [ %81, %ucase_getType_77.exit16 ], [ %132, %ucase_isSoftDotted_77.exit ], [ %182, %ucase_isCaseSensitive_77.exit ], [ %221, %ucase_getType_77.exit20 ], [ %260, %ucase_getTypeOrIgnorable_77.exit ], [ %264, %261 ], [ %268, %265 ], [ %272, %269 ], [ 1, %276 ], [ 1, %273 ], [ %282, %279 ], [ 0, %2 ]
+  %.0 = phi i32 [ %282, %279 ], [ %42, %ucase_getType_77.exit ], [ %81, %ucase_getType_77.exit16 ], [ %132, %ucase_isSoftDotted_77.exit ], [ %182, %ucase_isCaseSensitive_77.exit ], [ %221, %ucase_getType_77.exit20 ], [ %260, %ucase_getTypeOrIgnorable_77.exit ], [ %264, %261 ], [ %268, %265 ], [ %272, %269 ], [ 1, %276 ], [ 1, %273 ], [ 0, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

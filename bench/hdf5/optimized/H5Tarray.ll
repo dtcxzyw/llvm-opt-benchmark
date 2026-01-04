@@ -647,7 +647,7 @@ define i32 @H5T__get_array_dims(ptr noundef readonly captures(none) %0, ptr noun
   br i1 %21, label %15, label %.loopexit, !llvm.loop !40
 
 .loopexit:                                        ; preds = %15, %2, %.preheader
-  %22 = phi i32 [ 0, %.preheader ], [ %13, %2 ], [ %19, %15 ]
+  %22 = phi i32 [ %13, %2 ], [ 0, %.preheader ], [ %19, %15 ]
   ret i32 %22
 }
 

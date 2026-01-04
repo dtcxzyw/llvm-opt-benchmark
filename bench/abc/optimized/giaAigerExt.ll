@@ -182,7 +182,7 @@ Gia_ObjIsHead.exit:                               ; preds = %9
   br i1 %26, label %21, label %Gia_ObjIsHead.exit.thread, !llvm.loop !38
 
 Gia_ObjIsHead.exit.thread:                        ; preds = %21, %9, %Gia_ObjIsHead.exit
-  %.156 = phi i32 [ %15, %Gia_ObjIsHead.exit ], [ %15, %9 ], [ %22, %21 ]
+  %.156 = phi i32 [ %15, %9 ], [ %15, %Gia_ObjIsHead.exit ], [ %22, %21 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !39
@@ -372,8 +372,8 @@ Gia_AigerWriteUnsignedBuffer.exit103:             ; preds = %.lr.ph128, %._crit_
   br i1 %97, label %.lr.ph128, label %Gia_ObjIsHead.exit81.thread, !llvm.loop !42
 
 Gia_ObjIsHead.exit81.thread:                      ; preds = %Gia_AigerWriteUnsignedBuffer.exit103, %58, %Gia_ObjIsHead.exit81
-  %.162 = phi i32 [ %.061131, %Gia_ObjIsHead.exit81 ], [ %.061131, %58 ], [ %67, %Gia_AigerWriteUnsignedBuffer.exit103 ]
-  %.4 = phi i32 [ %.2132, %Gia_ObjIsHead.exit81 ], [ %.2132, %58 ], [ %.3, %Gia_AigerWriteUnsignedBuffer.exit103 ]
+  %.162 = phi i32 [ %.061131, %58 ], [ %.061131, %Gia_ObjIsHead.exit81 ], [ %67, %Gia_AigerWriteUnsignedBuffer.exit103 ]
+  %.4 = phi i32 [ %.2132, %58 ], [ %.2132, %Gia_ObjIsHead.exit81 ], [ %.3, %Gia_AigerWriteUnsignedBuffer.exit103 ]
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %exitcond148.not = icmp eq i64 %indvars.iv.next145, %wide.trip.count147
   br i1 %exitcond148.not, label %.preheader, label %58, !llvm.loop !43
@@ -740,8 +740,8 @@ Gia_AigerWriteUnsignedBuffer.exit:                ; preds = %28, %._crit_edge.lo
   br label %Gia_AigerWriteDiffValue.exit
 
 Gia_AigerWriteDiffValue.exit:                     ; preds = %47, %._crit_edge.loopexit.i.i, %57, %._crit_edge.loopexit.i20.i
-  %.0.lcssa.i22.sink.i = phi i32 [ %50, %47 ], [ %55, %._crit_edge.loopexit.i.i ], [ %59, %57 ], [ %64, %._crit_edge.loopexit.i20.i ]
-  %.010.lcssa.i21.sink.i = phi i32 [ %.187, %47 ], [ %56, %._crit_edge.loopexit.i.i ], [ %.187, %57 ], [ %65, %._crit_edge.loopexit.i20.i ]
+  %.0.lcssa.i22.sink.i = phi i32 [ %55, %._crit_edge.loopexit.i.i ], [ %50, %47 ], [ %59, %57 ], [ %64, %._crit_edge.loopexit.i20.i ]
+  %.010.lcssa.i21.sink.i = phi i32 [ %56, %._crit_edge.loopexit.i.i ], [ %.187, %47 ], [ %.187, %57 ], [ %65, %._crit_edge.loopexit.i20.i ]
   %66 = trunc nuw nsw i32 %.0.lcssa.i22.sink.i to i8
   %67 = sext i32 %.010.lcssa.i21.sink.i to i64
   %68 = getelementptr inbounds i8, ptr %21, i64 %67
@@ -1843,8 +1843,8 @@ Gia_AigerReadInt.exit:                            ; preds = %16
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %37, %39, %29, %31
-  %.sink12 = phi ptr [ %30, %29 ], [ %32, %31 ], [ %38, %37 ], [ %40, %39 ]
-  %.sink = phi i32 [ 16, %29 ], [ 16, %31 ], [ %34, %37 ], [ %34, %39 ]
+  %.sink12 = phi ptr [ %32, %31 ], [ %30, %29 ], [ %38, %37 ], [ %40, %39 ]
+  %.sink = phi i32 [ 16, %31 ], [ 16, %29 ], [ %34, %37 ], [ %34, %39 ]
   store ptr %.sink12, ptr %12, align 8, !tbaa !52
   store i32 %.sink, ptr %4, align 8, !tbaa !59
   br label %Vec_IntPush.exit

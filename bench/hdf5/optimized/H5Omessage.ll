@@ -417,7 +417,7 @@ H5O_msg_is_shared.exit.thread:                    ; preds = %14, %H5O_msg_is_sha
   br label %67
 
 67:                                               ; preds = %30, %39, %46, %61, %65, %6
-  %.0 = phi i32 [ -1, %30 ], [ -1, %46 ], [ -1, %61 ], [ 0, %65 ], [ -1, %39 ], [ 0, %6 ]
+  %.0 = phi i32 [ 0, %6 ], [ -1, %30 ], [ -1, %46 ], [ -1, %61 ], [ 0, %65 ], [ -1, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -736,7 +736,7 @@ define range(i32 -1, 1) i32 @H5O__msg_write_real(ptr noundef %0, ptr noundef %1,
   br label %.thread
 
 65:                                               ; preds = %58, %._crit_edge57
-  %66 = phi i32 [ %.pre58, %58 ], [ %3, %._crit_edge57 ]
+  %66 = phi i32 [ %3, %._crit_edge57 ], [ %.pre58, %58 ]
   %67 = call fastcc i32 @H5O__copy_mesg(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %.037.lcssa, ptr noundef %2, ptr noundef %5, i32 noundef %66, i32 noundef %4)
   %68 = icmp slt i32 %67, 0
   br i1 %68, label %69, label %.thread
@@ -748,7 +748,7 @@ define range(i32 -1, 1) i32 @H5O__msg_write_real(ptr noundef %0, ptr noundef %1,
   br label %.thread
 
 .thread:                                          ; preds = %61, %54, %43, %6, %65, %69, %33, %._crit_edge.thread
-  %.036 = phi i32 [ -1, %._crit_edge.thread ], [ -1, %69 ], [ 0, %65 ], [ -1, %33 ], [ 0, %6 ], [ -1, %43 ], [ -1, %54 ], [ -1, %61 ]
+  %.036 = phi i32 [ -1, %._crit_edge.thread ], [ -1, %69 ], [ 0, %65 ], [ 0, %6 ], [ -1, %33 ], [ -1, %43 ], [ -1, %54 ], [ -1, %61 ]
   ret i32 %.036
 }
 
@@ -948,7 +948,7 @@ define ptr @H5O_msg_read_oh(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr 
   br i1 %28, label %._crit_edge, label %20
 
 ._crit_edge:                                      ; preds = %20, %24
-  %.lcssa71 = phi i64 [ %22, %20 ], [ %25, %24 ]
+  %.lcssa71 = phi i64 [ %25, %24 ], [ %22, %20 ]
   %29 = icmp eq i64 %17, %.lcssa71
   br i1 %29, label %._crit_edge.thread, label %33
 
@@ -1493,7 +1493,7 @@ define i32 @H5O_msg_count(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 
   br i1 %47, label %39, label %.loopexit, !llvm.loop !70
 
 .loopexit:                                        ; preds = %39, %28, %.preheader.i
-  %.0.ph = phi i32 [ 0, %.preheader.i ], [ 0, %28 ], [ %spec.select.i, %39 ]
+  %.0.ph = phi i32 [ 0, %28 ], [ 0, %.preheader.i ], [ %spec.select.i, %39 ]
   %48 = tail call i32 @H5O_unprotect(ptr noundef %0, ptr noundef nonnull %22, i32 noundef 0) #7
   %49 = icmp slt i32 %48, 0
   br i1 %49, label %50, label %H5O__msg_count_real.exit
@@ -1640,7 +1640,7 @@ define range(i32 -1, 2) i32 @H5O_msg_exists(ptr noundef %0, i32 noundef %1) loca
   br i1 %51, label %H5O_msg_exists_oh.exit.thread19, label %43
 
 H5O_msg_exists_oh.exit.thread19:                  ; preds = %43, %47, %35, %28
-  %.024 = phi i32 [ 0, %28 ], [ 0, %35 ], [ 1, %47 ], [ 0, %43 ]
+  %.024 = phi i32 [ 0, %35 ], [ 0, %28 ], [ 1, %47 ], [ 0, %43 ]
   %52 = call i32 @H5O_unprotect(ptr noundef nonnull %0, ptr noundef nonnull %22, i32 noundef 0) #7
   %53 = icmp slt i32 %52, 0
   br i1 %53, label %54, label %H5O_msg_exists_oh.exit.thread
@@ -1652,7 +1652,7 @@ H5O_msg_exists_oh.exit.thread19:                  ; preds = %43, %47, %35, %28
   br label %H5O_msg_exists_oh.exit.thread
 
 H5O_msg_exists_oh.exit.thread:                    ; preds = %24, %14, %H5O_msg_exists_oh.exit.thread19, %54, %18
-  %.1 = phi i32 [ -1, %54 ], [ %.024, %H5O_msg_exists_oh.exit.thread19 ], [ -1, %18 ], [ -1, %14 ], [ -1, %24 ]
+  %.1 = phi i32 [ -1, %54 ], [ %.024, %H5O_msg_exists_oh.exit.thread19 ], [ -1, %24 ], [ -1, %18 ], [ -1, %14 ]
   %58 = load i64, ptr %3, align 8, !tbaa !10
   call void @H5AC_tag(i64 noundef %58, ptr noundef null) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1997,7 +1997,7 @@ define internal range(i32 -1, 2) i32 @H5O__msg_remove_cb(ptr noundef %0, ptr nou
   br label %.thread
 
 .thread:                                          ; preds = %26, %42, %22, %38, %31, %5
-  %.0 = phi i32 [ -1, %22 ], [ -1, %38 ], [ 0, %31 ], [ 0, %5 ], [ %spec.select26, %42 ], [ 0, %26 ]
+  %.0 = phi i32 [ -1, %22 ], [ -1, %38 ], [ 0, %5 ], [ %spec.select26, %42 ], [ 0, %31 ], [ 0, %26 ]
   ret i32 %.0
 }
 
@@ -2174,7 +2174,7 @@ define i32 @H5O__msg_iterate_real(ptr noundef %0, ptr noundef %1, ptr noundef re
   br label %.preheader
 
 .preheader:                                       ; preds = %89, %95, %97, %14, %73
-  %.4.ph = phi i32 [ -1, %73 ], [ %.5, %97 ], [ %.5, %95 ], [ 0, %14 ], [ 0, %89 ]
+  %.4.ph = phi i32 [ -1, %73 ], [ %.5, %95 ], [ %.5, %97 ], [ 0, %14 ], [ 0, %89 ]
   %101 = load i32, ptr %6, align 4, !tbaa !18
   %.not7182 = icmp eq i32 %101, 0
   br i1 %.not7182, label %.loopexit, label %.lr.ph84

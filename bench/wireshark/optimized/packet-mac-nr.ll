@@ -1741,7 +1741,7 @@ define hidden noundef zeroext i1 @dissect_mac_nr_context_fields(ptr noundef init
   br label %54
 
 48:                                               ; preds = %22, %25, %27, %29, %31, %33
-  %.sink = phi i32 [ 3, %25 ], [ 3, %27 ], [ 2, %29 ], [ 2, %31 ], [ 5, %33 ], [ 3, %22 ]
+  %.sink = phi i32 [ 3, %25 ], [ 3, %27 ], [ 2, %29 ], [ 5, %33 ], [ 2, %31 ], [ 3, %22 ]
   %49 = add i32 %.056, %.sink
   br label %22, !llvm.loop !6
 
@@ -1901,7 +1901,7 @@ define hidden void @set_mac_nr_bearer_mapping(ptr noundef readonly captures(none
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %63, %62, %61, %60
-  %.sink.i = phi i32 [ 3, %63 ], [ 5, %61 ], [ 4, %60 ], [ 2, %62 ]
+  %.sink.i = phi i32 [ 4, %60 ], [ 3, %63 ], [ 5, %61 ], [ 2, %62 ]
   store i32 %.sink.i, ptr %59, align 4
   br label %set_bearer_type.exit
 
@@ -1941,7 +1941,7 @@ set_bearer_type.exit:                             ; preds = %.sink.split.i, %62,
   br label %.sink.split.i35
 
 .sink.split.i35:                                  ; preds = %76, %75, %74, %73
-  %.sink.i36 = phi i32 [ 3, %76 ], [ 5, %74 ], [ 4, %73 ], [ 2, %75 ]
+  %.sink.i36 = phi i32 [ 4, %73 ], [ 3, %76 ], [ 5, %74 ], [ 2, %75 ]
   store i32 %.sink.i36, ptr %72, align 4
   br label %set_bearer_type.exit37
 
@@ -3435,7 +3435,7 @@ switch.hole_check:                                ; preds = %77
   br i1 %switch.lobit, label %.thread.thread724, label %.thread
 
 .thread.thread724:                                ; preds = %switch.hole_check, %76, %76, %76, %76, %76, %76, %76, %76, %76, %76, %76, %76, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %.thread.thread
-  %.0549653659 = phi i32 [ %63, %.thread.thread ], [ -1, %76 ], [ -1, %76 ], [ -1, %76 ], [ -1, %76 ], [ -1, %76 ], [ -1, %76 ], [ -1, %76 ], [ -1, %76 ], [ -1, %76 ], [ -1, %76 ], [ -1, %76 ], [ -1, %76 ], [ %68, %72 ], [ %68, %72 ], [ %68, %72 ], [ %68, %72 ], [ %68, %72 ], [ %68, %72 ], [ %68, %72 ], [ %68, %72 ], [ %68, %72 ], [ %68, %72 ], [ %68, %72 ], [ %68, %71 ], [ %68, %71 ], [ %68, %71 ], [ %68, %71 ], [ %68, %71 ], [ %68, %71 ], [ %68, %71 ], [ %68, %71 ], [ %68, %71 ], [ %68, %71 ], [ -1, %switch.hole_check ]
+  %.0549653659 = phi i32 [ %63, %.thread.thread ], [ %68, %72 ], [ %68, %71 ], [ %68, %71 ], [ %68, %71 ], [ %68, %71 ], [ %68, %71 ], [ %68, %71 ], [ %68, %71 ], [ %68, %71 ], [ %68, %71 ], [ %68, %71 ], [ %68, %72 ], [ %68, %72 ], [ %68, %72 ], [ %68, %72 ], [ -1, %76 ], [ -1, %76 ], [ -1, %76 ], [ -1, %76 ], [ -1, %76 ], [ -1, %76 ], [ -1, %76 ], [ -1, %76 ], [ -1, %76 ], [ -1, %76 ], [ -1, %76 ], [ -1, %76 ], [ %68, %72 ], [ %68, %72 ], [ %68, %72 ], [ %68, %72 ], [ %68, %72 ], [ %68, %72 ], [ -1, %switch.hole_check ]
   %79 = load i32, ptr @hf_mac_nr_subheader_reserved, align 4
   %80 = load i32, ptr %8, align 4
   %81 = shl i32 %80, 3

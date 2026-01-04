@@ -174,7 +174,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -530,7 +530,7 @@ define noundef ptr @ulocdata_open_77(ptr noundef %0, ptr noundef %1) local_unnam
   br label %21
 
 21:                                               ; preds = %16, %20, %2, %15, %8
-  %.0 = phi ptr [ null, %8 ], [ null, %15 ], [ null, %2 ], [ %6, %20 ], [ %6, %16 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %8 ], [ null, %15 ], [ %6, %20 ], [ %6, %16 ]
   ret ptr %.0
 }
 
@@ -608,7 +608,7 @@ define ptr @ulocdata_getExemplarSet_77(ptr noundef readonly captures(none) %0, p
   br label %.thread
 
 .thread:                                          ; preds = %10, %18, %20
-  %21 = phi i32 [ -127, %18 ], [ 2, %20 ], [ %17, %10 ]
+  %21 = phi i32 [ %17, %10 ], [ -127, %18 ], [ 2, %20 ]
   store i32 %21, ptr %4, align 4, !tbaa !13
   br label %22
 
@@ -632,7 +632,7 @@ define ptr @ulocdata_getExemplarSet_77(ptr noundef readonly captures(none) %0, p
   br label %32
 
 32:                                               ; preds = %28, %30, %22, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %22 ], [ %1, %28 ], [ %31, %30 ]
+  %.0 = phi ptr [ null, %22 ], [ null, %5 ], [ %1, %28 ], [ %31, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
@@ -680,7 +680,7 @@ define i32 @ulocdata_getDelimiter_77(ptr noundef readonly captures(none) %0, i32
   br label %.thread
 
 .thread:                                          ; preds = %10, %15, %17
-  %18 = phi i32 [ -127, %15 ], [ 2, %17 ], [ %14, %10 ]
+  %18 = phi i32 [ %14, %10 ], [ -127, %15 ], [ 2, %17 ]
   store i32 %18, ptr %4, align 4, !tbaa !13
   br label %19
 
@@ -719,7 +719,7 @@ define i32 @ulocdata_getDelimiter_77(ptr noundef readonly captures(none) %0, i32
   br label %.thread26
 
 .thread26:                                        ; preds = %23, %29, %31
-  %32 = phi i32 [ -127, %29 ], [ 2, %31 ], [ %28, %23 ]
+  %32 = phi i32 [ %28, %23 ], [ -127, %29 ], [ 2, %31 ]
   store i32 %32, ptr %4, align 4, !tbaa !13
   br label %33
 
@@ -734,7 +734,7 @@ define i32 @ulocdata_getDelimiter_77(ptr noundef readonly captures(none) %0, i32
   br label %39
 
 39:                                               ; preds = %33, %5, %36, %22
-  %.0 = phi i32 [ 0, %22 ], [ %38, %36 ], [ 0, %5 ], [ 0, %33 ]
+  %.0 = phi i32 [ %38, %36 ], [ 0, %22 ], [ 0, %5 ], [ 0, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -983,7 +983,7 @@ define i32 @ulocdata_getLocaleDisplayPattern_77(ptr noundef readonly captures(no
   br label %.thread
 
 .thread:                                          ; preds = %14, %17, %19
-  %20 = phi i32 [ -127, %17 ], [ 2, %19 ], [ %16, %14 ]
+  %20 = phi i32 [ %16, %14 ], [ -127, %17 ], [ 2, %19 ]
   store i32 %20, ptr %3, align 4, !tbaa !13
   br label %21
 
@@ -1019,7 +1019,7 @@ define i32 @ulocdata_getLocaleDisplayPattern_77(ptr noundef readonly captures(no
   br label %.thread28
 
 .thread28:                                        ; preds = %25, %28, %30
-  %31 = phi i32 [ -127, %28 ], [ 2, %30 ], [ %27, %25 ]
+  %31 = phi i32 [ %27, %25 ], [ -127, %28 ], [ 2, %30 ]
   store i32 %31, ptr %3, align 4, !tbaa !13
   br label %32
 
@@ -1034,7 +1034,7 @@ define i32 @ulocdata_getLocaleDisplayPattern_77(ptr noundef readonly captures(no
   br label %38
 
 38:                                               ; preds = %32, %4, %35, %24, %13
-  %.0 = phi i32 [ 0, %13 ], [ 0, %24 ], [ %37, %35 ], [ 0, %4 ], [ 0, %32 ]
+  %.0 = phi i32 [ %37, %35 ], [ 0, %13 ], [ 0, %24 ], [ 0, %4 ], [ 0, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -1084,7 +1084,7 @@ define i32 @ulocdata_getLocaleSeparator_77(ptr noundef readonly captures(none) %
   br label %.thread
 
 .thread:                                          ; preds = %14, %17, %19
-  %20 = phi i32 [ -127, %17 ], [ 2, %19 ], [ %16, %14 ]
+  %20 = phi i32 [ %16, %14 ], [ -127, %17 ], [ 2, %19 ]
   store i32 %20, ptr %3, align 4, !tbaa !13
   br label %21
 
@@ -1120,7 +1120,7 @@ define i32 @ulocdata_getLocaleSeparator_77(ptr noundef readonly captures(none) %
   br label %.thread48
 
 .thread48:                                        ; preds = %25, %28, %30
-  %31 = phi i32 [ -127, %28 ], [ 2, %30 ], [ %27, %25 ]
+  %31 = phi i32 [ %27, %25 ], [ -127, %28 ], [ 2, %30 ]
   store i32 %31, ptr %3, align 4, !tbaa !13
   br label %32
 
@@ -1165,7 +1165,7 @@ define i32 @ulocdata_getLocaleSeparator_77(ptr noundef readonly captures(none) %
   br label %56
 
 56:                                               ; preds = %32, %4, %53, %48, %24, %13
-  %.0 = phi i32 [ 0, %13 ], [ 0, %24 ], [ %50, %48 ], [ %55, %53 ], [ 0, %4 ], [ 0, %32 ]
+  %.0 = phi i32 [ %55, %53 ], [ 0, %13 ], [ 0, %24 ], [ 0, %4 ], [ %50, %48 ], [ 0, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

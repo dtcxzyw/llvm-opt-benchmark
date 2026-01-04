@@ -3704,7 +3704,7 @@ define internal i32 @find_iuup(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %44
 
-41:                                               ; preds = %12, %24, %26, %34, %36, %22
+41:                                               ; preds = %36, %22, %12, %24, %26, %34
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %42 = add nuw nsw i32 %.018, 1
   %exitcond.not = icmp eq i32 %.018, %11

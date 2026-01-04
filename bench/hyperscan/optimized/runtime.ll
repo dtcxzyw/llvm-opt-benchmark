@@ -510,8 +510,8 @@ flushStoredSomMatches.exit:                       ; preds = %248
   store i8 0, ptr %41, align 4
   br label %markScratchInUse.exit
 
-markScratchInUse.exit:                            ; preds = %35, %29, %27, %23, %11, %9, %validScratch.exit, %251, %265, %20, %validDatabase.exit, %267, %258, %244, %241, %47, %7
-  %.0 = phi i32 [ -1, %7 ], [ 0, %47 ], [ -13, %241 ], [ -3, %244 ], [ -13, %258 ], [ %270, %267 ], [ -3, %251 ], [ -1, %validDatabase.exit ], [ -7, %20 ], [ %.124, %265 ], [ -10, %validScratch.exit ], [ -5, %11 ], [ -1, %9 ], [ -1, %23 ], [ -1, %27 ], [ -1, %29 ], [ -1, %35 ]
+markScratchInUse.exit:                            ; preds = %35, %29, %27, %23, %9, %11, %validScratch.exit, %251, %265, %20, %validDatabase.exit, %267, %258, %244, %241, %47, %7
+  %.0 = phi i32 [ -1, %7 ], [ -10, %validScratch.exit ], [ -3, %251 ], [ -1, %validDatabase.exit ], [ -7, %20 ], [ -1, %35 ], [ 0, %47 ], [ %270, %267 ], [ -13, %241 ], [ -3, %244 ], [ -13, %258 ], [ %.124, %265 ], [ -1, %9 ], [ -5, %11 ], [ -1, %23 ], [ -1, %27 ], [ -1, %29 ]
   ret i32 %.0
 }
 
@@ -701,7 +701,7 @@ rvermUnalign.exit:                                ; preds = %91, %95
   br label %rvermicelliExec.exit
 
 rvermicelliExec.exit:                             ; preds = %.preheader, %61, %rvermSearchAligned.exit, %.thread, %rvermUnalign.exit
-  %.0.i35 = phi ptr [ %103, %rvermUnalign.exit ], [ %90, %rvermSearchAligned.exit ], [ %77, %.thread ], [ %.046.i, %61 ], [ %.046.i, %.preheader ]
+  %.0.i35 = phi ptr [ %90, %rvermSearchAligned.exit ], [ %77, %.thread ], [ %103, %rvermUnalign.exit ], [ %.046.i, %61 ], [ %.046.i, %.preheader ]
   %104 = ptrtoint ptr %.0.i35 to i64
   %105 = sub i64 %51, %59
   %106 = add i64 %105, %104
@@ -821,7 +821,7 @@ rvermUnalignNocase.exit:                          ; preds = %154, %159
   br label %rvermicelliExec.exit50
 
 rvermicelliExec.exit50:                           ; preds = %.preheader163, %121, %rvermSearchAlignedNocase.exit, %.thread100, %rvermUnalignNocase.exit
-  %.0.i42 = phi ptr [ %167, %rvermUnalignNocase.exit ], [ %153, %rvermSearchAlignedNocase.exit ], [ %139, %.thread100 ], [ %.046.i48, %121 ], [ %.046.i48, %.preheader163 ]
+  %.0.i42 = phi ptr [ %153, %rvermSearchAlignedNocase.exit ], [ %139, %.thread100 ], [ %167, %rvermUnalignNocase.exit ], [ %.046.i48, %121 ], [ %.046.i48, %.preheader163 ]
   %168 = ptrtoint ptr %.0.i42 to i64
   %169 = sub i64 %111, %119
   %170 = add i64 %169, %168
@@ -1040,7 +1040,7 @@ rdvermPreconditionNocase.exit:                    ; preds = %250
   br label %rvermicelliDoubleExec.exit62
 
 rvermicelliDoubleExec.exit62:                     ; preds = %267, %.thread136, %rdvermPreconditionNocase.exit.thread, %rdvermPreconditionNocase.exit
-  %.1.i60 = phi ptr [ %.ptr143, %rdvermPreconditionNocase.exit ], [ %266, %rdvermPreconditionNocase.exit.thread ], [ %292, %.thread136 ], [ %.022.i.ptr, %267 ]
+  %.1.i60 = phi ptr [ %266, %rdvermPreconditionNocase.exit.thread ], [ %.ptr143, %rdvermPreconditionNocase.exit ], [ %292, %.thread136 ], [ %.022.i.ptr, %267 ]
   %293 = ptrtoint ptr %.1.i60 to i64
   %294 = ptrtoint ptr %37 to i64
   %295 = sub i64 %236, %294
@@ -1100,7 +1100,7 @@ rvermicelliDoubleExec.exit62:                     ; preds = %267, %.thread136, %
   br i1 %.not.i, label %337, label %nfaRevAccelCheck.exit.thread
 
 337:                                              ; preds = %44, %326, %316, %306, %297, %rvermicelliDoubleExec.exit62, %232, %rvermicelliDoubleExec.exit, %171, %rvermicelliExec.exit50, %107, %rvermicelliExec.exit, %47
-  %.0.i33 = phi i64 [ %39, %47 ], [ %106, %rvermicelliExec.exit ], [ %39, %107 ], [ %170, %rvermicelliExec.exit50 ], [ %39, %171 ], [ %231, %rvermicelliDoubleExec.exit ], [ %39, %232 ], [ %296, %rvermicelliDoubleExec.exit62 ], [ %39, %297 ], [ %39, %306 ], [ %39, %316 ], [ %39, %326 ], [ %39, %44 ]
+  %.0.i33 = phi i64 [ %39, %44 ], [ %39, %47 ], [ %106, %rvermicelliExec.exit ], [ %39, %107 ], [ %170, %rvermicelliExec.exit50 ], [ %39, %171 ], [ %231, %rvermicelliDoubleExec.exit ], [ %39, %232 ], [ %296, %rvermicelliDoubleExec.exit62 ], [ %39, %297 ], [ %39, %306 ], [ %39, %316 ], [ %39, %326 ]
   %338 = icmp ult i64 %.0.i33, %42
   br i1 %338, label %nfaRevAccelCheck.exit.thread, label %nfaRevAccelCheck.exit
 
@@ -1200,7 +1200,7 @@ nfaRevAccelCheck.exit:                            ; preds = %44, %337
   %396 = tail call signext i8 @nfaCheckFinalState(ptr noundef nonnull %35, ptr noundef %392, ptr noundef %393, i64 noundef %394, ptr noundef %395, ptr noundef nonnull %1) #13
   br label %nfaRevAccelCheck.exit.thread
 
-nfaRevAccelCheck.exit.thread:                     ; preds = %337, %326, %316, %306, %297, %initSomState.exit, %339, %385, %388, %391, %nfaRevAccelCheck.exit
+nfaRevAccelCheck.exit.thread:                     ; preds = %337, %306, %297, %316, %326, %initSomState.exit, %339, %385, %388, %391, %nfaRevAccelCheck.exit
   ret void
 }
 
@@ -1394,8 +1394,8 @@ initSomState.exit:                                ; preds = %init_stream.exit, %
   store ptr %25, ptr %2, align 8
   br label %validDatabase.exit.thread
 
-validDatabase.exit.thread:                        ; preds = %7, %4, %5, %initSomState.exit, %19, %16, %validDatabase.exit, %3
-  %.0 = phi i32 [ -1, %3 ], [ -1, %validDatabase.exit ], [ -7, %16 ], [ 0, %initSomState.exit ], [ -2, %19 ], [ -5, %7 ], [ -1, %4 ], [ -1, %5 ]
+validDatabase.exit.thread:                        ; preds = %5, %7, %4, %initSomState.exit, %19, %16, %validDatabase.exit, %3
+  %.0 = phi i32 [ -1, %3 ], [ -2, %19 ], [ -7, %16 ], [ -1, %validDatabase.exit ], [ 0, %initSomState.exit ], [ -1, %5 ], [ -5, %7 ], [ -1, %4 ]
   ret i32 %.0
 }
 
@@ -1430,7 +1430,7 @@ define dso_local range(i32 -2, 1) i32 @hs_copy_stream(ptr noundef writeonly capt
   br label %14
 
 14:                                               ; preds = %13, %6, %3, %4, %2
-  %.0 = phi i32 [ -1, %2 ], [ -1, %4 ], [ -1, %3 ], [ 0, %13 ], [ -2, %6 ]
+  %.0 = phi i32 [ -1, %3 ], [ -1, %2 ], [ -1, %4 ], [ 0, %13 ], [ -2, %6 ]
   ret i32 %.0
 }
 
@@ -1868,7 +1868,7 @@ report_eod_matches.exit:                          ; preds = %36, %100, %105, %fl
   br label %markScratchInUse.exit
 
 markScratchInUse.exit:                            ; preds = %report_eod_matches.exit, %28, %22, %16, %validScratch.exit, %12, %8, %5, %6, %213
-  %.0 = phi i32 [ 0, %213 ], [ -1, %6 ], [ -1, %5 ], [ -1, %8 ], [ -1, %12 ], [ -10, %validScratch.exit ], [ -1, %16 ], [ -1, %22 ], [ -1, %28 ], [ -13, %report_eod_matches.exit ]
+  %.0 = phi i32 [ -1, %5 ], [ -1, %8 ], [ -1, %12 ], [ -1, %22 ], [ 0, %213 ], [ -10, %validScratch.exit ], [ -1, %6 ], [ -1, %28 ], [ -1, %16 ], [ -13, %report_eod_matches.exit ]
   ret i32 %.0
 }
 
@@ -1928,7 +1928,7 @@ validScratch.exit:                                ; preds = %28
   br label %.critedge
 
 .critedge:                                        ; preds = %28, %22, %16, %11, %validScratch.exit, %7, %36
-  %.0 = phi i32 [ %37, %36 ], [ -1, %7 ], [ -10, %validScratch.exit ], [ -1, %11 ], [ -1, %16 ], [ -1, %22 ], [ -1, %28 ]
+  %.0 = phi i32 [ %37, %36 ], [ -10, %validScratch.exit ], [ -1, %7 ], [ -1, %11 ], [ -1, %16 ], [ -1, %22 ], [ -1, %28 ]
   ret i32 %.0
 }
 
@@ -2351,7 +2351,7 @@ isAllExhausted.exit.i.thread142:                  ; preds = %157, %isAllExhauste
   br label %partial_load_u64a.exit
 
 partial_load_u64a.exit:                           ; preds = %167, %187, %189, %202, %210, %218, %221, %229, %232
-  %.0.i127 = phi i64 [ %188, %187 ], [ %201, %189 ], [ %209, %202 ], [ %217, %210 ], [ %220, %218 ], [ %228, %221 ], [ %231, %229 ], [ %234, %232 ], [ 0, %167 ]
+  %.0.i127 = phi i64 [ %234, %232 ], [ %188, %187 ], [ %201, %189 ], [ %209, %202 ], [ %217, %210 ], [ %220, %218 ], [ %228, %221 ], [ %231, %229 ], [ 0, %167 ]
   %235 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %.0.i127, ptr %235, align 8
   %236 = getelementptr inbounds nuw i8, ptr %94, i64 240
@@ -2514,7 +2514,7 @@ isAllExhausted.exit.i108.thread159:               ; preds = %303, %isAllExhauste
   br label %rawStreamExec.exit
 
 rawStreamExec.exit:                               ; preds = %.lr.ph, %.lr.ph196, %299, %294, %.lr.ph201, %.lr.ph206, %153, %148, %244, %98, %isAllExhausted.exit.i108.thread159, %isAllExhausted.exit.i108, %partial_load_u64a.exit, %isAllExhausted.exit.i.thread142, %isAllExhausted.exit.i, %95, %313
-  %.pre230 = phi i8 [ %242, %244 ], [ %96, %98 ], [ %312, %isAllExhausted.exit.i108.thread159 ], [ %242, %isAllExhausted.exit.i108 ], [ %242, %partial_load_u64a.exit ], [ %166, %isAllExhausted.exit.i.thread142 ], [ %96, %isAllExhausted.exit.i ], [ %96, %95 ], [ %.pre230.pre, %313 ], [ %96, %148 ], [ %96, %153 ], [ %96, %.lr.ph206 ], [ %96, %.lr.ph201 ], [ %242, %294 ], [ %242, %299 ], [ %242, %.lr.ph196 ], [ %242, %.lr.ph ]
+  %.pre230 = phi i8 [ %96, %148 ], [ %242, %.lr.ph196 ], [ %242, %299 ], [ %242, %294 ], [ %96, %.lr.ph201 ], [ %96, %.lr.ph206 ], [ %96, %153 ], [ %.pre230.pre, %313 ], [ %242, %244 ], [ %96, %98 ], [ %312, %isAllExhausted.exit.i108.thread159 ], [ %242, %isAllExhausted.exit.i108 ], [ %242, %partial_load_u64a.exit ], [ %166, %isAllExhausted.exit.i.thread142 ], [ %96, %isAllExhausted.exit.i ], [ %96, %95 ], [ %242, %.lr.ph ]
   %314 = getelementptr inbounds nuw i8, ptr %8, i64 7
   %315 = load i8, ptr %314, align 1
   %.not87 = icmp ne i8 %315, 0
@@ -2606,7 +2606,7 @@ maintainHistoryBuffer.exit:                       ; preds = %327, %340
   br label %354
 
 354:                                              ; preds = %.thread, %13, %15, %17, %351, %flushStoredSomMatches.exit.thread, %353, %6
-  %.0 = phi i32 [ -1, %6 ], [ -13, %13 ], [ %., %15 ], [ 0, %17 ], [ 0, %353 ], [ -13, %flushStoredSomMatches.exit.thread ], [ -3, %351 ], [ %.96, %.thread ]
+  %.0 = phi i32 [ -1, %6 ], [ 0, %17 ], [ %., %15 ], [ -13, %13 ], [ %.96, %.thread ], [ 0, %353 ], [ -13, %flushStoredSomMatches.exit.thread ], [ -3, %351 ]
   ret i32 %.0
 }
 
@@ -3026,7 +3026,7 @@ markScratchInUse.exit.sink.split:                 ; preds = %report_eod_matches.
   br label %markScratchInUse.exit
 
 markScratchInUse.exit:                            ; preds = %markScratchInUse.exit.sink.split, %24, %18, %12, %7, %validScratch.exit, %6, %4
-  %.0 = phi i32 [ -1, %4 ], [ -1, %6 ], [ -10, %validScratch.exit ], [ -1, %7 ], [ -1, %12 ], [ -1, %18 ], [ -1, %24 ], [ %.0.ph, %markScratchInUse.exit.sink.split ]
+  %.0 = phi i32 [ -1, %6 ], [ -1, %18 ], [ -1, %24 ], [ -1, %4 ], [ -10, %validScratch.exit ], [ -1, %7 ], [ -1, %12 ], [ %.0.ph, %markScratchInUse.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -3564,7 +3564,7 @@ init_stream.exit:                                 ; preds = %256, %252, %mmbit_c
   br label %markScratchInUse.exit
 
 markScratchInUse.exit:                            ; preds = %report_eod_matches.exit, %init_stream.exit, %25, %19, %13, %8, %276, %265, %validScratch.exit, %7, %5
-  %.0 = phi i32 [ -1, %5 ], [ -1, %7 ], [ -10, %validScratch.exit ], [ 0, %265 ], [ 0, %276 ], [ -1, %8 ], [ -1, %13 ], [ -1, %19 ], [ -1, %25 ], [ 0, %init_stream.exit ], [ -13, %report_eod_matches.exit ]
+  %.0 = phi i32 [ -1, %7 ], [ 0, %init_stream.exit ], [ -10, %validScratch.exit ], [ -1, %5 ], [ 0, %276 ], [ -1, %25 ], [ 0, %265 ], [ -1, %8 ], [ -1, %13 ], [ -1, %19 ], [ -13, %report_eod_matches.exit ]
   ret i32 %.0
 }
 
@@ -3610,8 +3610,8 @@ validDatabase.exit:                               ; preds = %5
   store i64 %22, ptr %1, align 8
   br label %validDatabase.exit.thread
 
-validDatabase.exit.thread:                        ; preds = %5, %3, %15, %validDatabase.exit, %18, %2
-  %.0 = phi i32 [ -1, %2 ], [ 0, %18 ], [ -1, %validDatabase.exit ], [ -7, %15 ], [ -5, %5 ], [ -1, %3 ]
+validDatabase.exit.thread:                        ; preds = %3, %5, %15, %validDatabase.exit, %18, %2
+  %.0 = phi i32 [ -1, %2 ], [ -7, %15 ], [ -1, %validDatabase.exit ], [ 0, %18 ], [ -1, %3 ], [ -5, %5 ]
   ret i32 %.0
 }
 
@@ -4207,8 +4207,8 @@ markScratchInUse.exit.sink.split:                 ; preds = %.lr.ph, %302, %repo
   store i8 0, ptr %38, align 4
   br label %markScratchInUse.exit
 
-markScratchInUse.exit:                            ; preds = %markScratchInUse.exit.sink.split, %32, %30, %26, %14, %12, %validScratch.exit, %23, %validDatabase.exit, %8
-  %.0 = phi i32 [ -1, %8 ], [ -1, %validDatabase.exit ], [ -7, %23 ], [ -10, %validScratch.exit ], [ -5, %14 ], [ -1, %12 ], [ -1, %26 ], [ -1, %30 ], [ -1, %32 ], [ %.0.ph, %markScratchInUse.exit.sink.split ]
+markScratchInUse.exit:                            ; preds = %markScratchInUse.exit.sink.split, %32, %30, %26, %12, %14, %validScratch.exit, %23, %validDatabase.exit, %8
+  %.0 = phi i32 [ -1, %8 ], [ -10, %validScratch.exit ], [ -1, %12 ], [ -1, %validDatabase.exit ], [ -7, %23 ], [ -1, %32 ], [ -5, %14 ], [ -1, %26 ], [ -1, %30 ], [ %.0.ph, %markScratchInUse.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -4237,7 +4237,7 @@ define dso_local range(i32 -12, 1) i32 @hs_compress_stream(ptr noundef %0, ptr n
   br label %15
 
 15:                                               ; preds = %13, %9, %6, %4
-  %.0 = phi i32 [ -1, %4 ], [ -1, %6 ], [ 0, %13 ], [ -12, %9 ]
+  %.0 = phi i32 [ -1, %6 ], [ -1, %4 ], [ 0, %13 ], [ -12, %9 ]
   ret i32 %.0
 }
 
@@ -4308,8 +4308,8 @@ validDatabase.exit:                               ; preds = %9
   store ptr %27, ptr %1, align 8
   br label %validDatabase.exit.thread
 
-validDatabase.exit.thread:                        ; preds = %9, %6, %7, %30, %32, %21, %18, %validDatabase.exit, %4
-  %.0 = phi i32 [ -1, %4 ], [ -1, %validDatabase.exit ], [ -7, %18 ], [ 0, %32 ], [ -1, %30 ], [ -2, %21 ], [ -5, %9 ], [ -1, %6 ], [ -1, %7 ]
+validDatabase.exit.thread:                        ; preds = %7, %9, %6, %30, %32, %21, %18, %validDatabase.exit, %4
+  %.0 = phi i32 [ -1, %4 ], [ -2, %21 ], [ -7, %18 ], [ -1, %validDatabase.exit ], [ -1, %30 ], [ 0, %32 ], [ -1, %7 ], [ -5, %9 ], [ -1, %6 ]
   ret i32 %.0
 }
 
@@ -4728,7 +4728,7 @@ report_eod_matches.exit:                          ; preds = %34, %98, %103, %flu
   br label %markScratchInUse.exit
 
 markScratchInUse.exit:                            ; preds = %report_eod_matches.exit, %26, %20, %14, %validScratch.exit, %10, %210, %6
-  %.0 = phi i32 [ -1, %6 ], [ -1, %10 ], [ %., %210 ], [ -10, %validScratch.exit ], [ -1, %14 ], [ -1, %20 ], [ -1, %26 ], [ -13, %report_eod_matches.exit ]
+  %.0 = phi i32 [ -1, %6 ], [ -1, %10 ], [ -1, %20 ], [ %., %210 ], [ -10, %validScratch.exit ], [ -1, %26 ], [ -1, %14 ], [ -13, %report_eod_matches.exit ]
   ret i32 %.0
 }
 

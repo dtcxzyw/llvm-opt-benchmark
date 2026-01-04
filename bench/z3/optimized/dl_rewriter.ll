@@ -200,12 +200,12 @@ _ZN11ast_manager7inc_refEP3ast.exit.i33:          ; preds = %83
   br label %_ZNK4decl13get_decl_kindEv.exit.thread.sink.split
 
 _ZNK4decl13get_decl_kindEv.exit.thread.sink.split: ; preds = %99, %93, %91, %77, %71, %69, %58, %52, %50, %38, %32, %30
-  %.sink = phi ptr [ %26, %30 ], [ %26, %32 ], [ %26, %38 ], [ %46, %50 ], [ %46, %52 ], [ %46, %58 ], [ %65, %69 ], [ %65, %71 ], [ %65, %77 ], [ %87, %91 ], [ %87, %93 ], [ %87, %99 ]
+  %.sink = phi ptr [ %65, %77 ], [ %46, %58 ], [ %26, %38 ], [ %26, %30 ], [ %26, %32 ], [ %46, %50 ], [ %46, %52 ], [ %65, %69 ], [ %65, %71 ], [ %87, %91 ], [ %87, %93 ], [ %87, %99 ]
   store ptr %.sink, ptr %4, align 8, !tbaa !28
   br label %_ZNK4decl13get_decl_kindEv.exit.thread
 
 _ZNK4decl13get_decl_kindEv.exit.thread:           ; preds = %_ZNK4decl13get_decl_kindEv.exit.thread.sink.split, %5, %78, %_ZNK4decl13get_decl_kindEv.exit
-  %.0 = phi i32 [ 5, %_ZNK4decl13get_decl_kindEv.exit ], [ 5, %78 ], [ 5, %5 ], [ 4, %_ZNK4decl13get_decl_kindEv.exit.thread.sink.split ]
+  %.0 = phi i32 [ 5, %5 ], [ 5, %_ZNK4decl13get_decl_kindEv.exit ], [ 5, %78 ], [ 4, %_ZNK4decl13get_decl_kindEv.exit.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0

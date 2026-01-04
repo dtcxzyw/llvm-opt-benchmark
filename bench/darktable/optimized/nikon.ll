@@ -626,9 +626,9 @@ define void @_ZN6LibRaw19parseNikonMakernoteEiij(ptr noundef nonnull align 8 der
 54:                                               ; preds = %51
   %55 = load i16, ptr %12, align 8, !tbaa !93
   %.not273409 = icmp eq i16 %52, 0
-  br i1 %.not273409, label %.loopexit369, label %.lr.ph419
+  br i1 %.not273409, label %.loopexit369, label %.lr.ph424
 
-.lr.ph419:                                        ; preds = %54
+.lr.ph424:                                        ; preds = %54
   %56 = zext nneg i16 %52 to i32
   %57 = shl i32 %2, 16
   %58 = shl nsw i64 %18, 1
@@ -746,15 +746,15 @@ define void @_ZN6LibRaw19parseNikonMakernoteEiij(ptr noundef nonnull align 8 der
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 4900
   br label %171
 
-171:                                              ; preds = %.lr.ph419, %.loopexit
-  %.in = phi i32 [ %56, %.lr.ph419 ], [ %172, %.loopexit ]
-  %.0217416 = phi i32 [ 0, %.lr.ph419 ], [ %.1218, %.loopexit ]
-  %.0222415 = phi ptr [ null, %.lr.ph419 ], [ %.1223, %.loopexit ]
-  %.0225414 = phi i32 [ 0, %.lr.ph419 ], [ %.1226, %.loopexit ]
-  %.0236413 = phi i32 [ 0, %.lr.ph419 ], [ %.1237, %.loopexit ]
-  %.0240412 = phi ptr [ null, %.lr.ph419 ], [ %.1241, %.loopexit ]
-  %.0243411 = phi i32 [ 0, %.lr.ph419 ], [ %.1244, %.loopexit ]
-  %.0246410 = phi i32 [ 0, %.lr.ph419 ], [ %.1247, %.loopexit ]
+171:                                              ; preds = %.lr.ph424, %.loopexit
+  %.in = phi i32 [ %56, %.lr.ph424 ], [ %172, %.loopexit ]
+  %.0217421 = phi i32 [ 0, %.lr.ph424 ], [ %.1218, %.loopexit ]
+  %.0222420 = phi ptr [ null, %.lr.ph424 ], [ %.1223, %.loopexit ]
+  %.0225419 = phi i32 [ 0, %.lr.ph424 ], [ %.1226, %.loopexit ]
+  %.0236418 = phi i32 [ 0, %.lr.ph424 ], [ %.1237, %.loopexit ]
+  %.0240412 = phi ptr [ null, %.lr.ph424 ], [ %.1241, %.loopexit ]
+  %.0243411 = phi i32 [ 0, %.lr.ph424 ], [ %.1244, %.loopexit ]
+  %.0246410 = phi i32 [ 0, %.lr.ph424 ], [ %.1247, %.loopexit ]
   %172 = add nsw i32 %.in, -1
   store i16 %55, ptr %12, align 8, !tbaa !93
   call void @_ZN6LibRaw8tiff_getEjPjS0_S0_S0_(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %.0, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
@@ -1248,7 +1248,7 @@ define void @_ZN6LibRaw19parseNikonMakernoteEiij(ptr noundef nonnull align 8 der
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %430
   %425 = phi i32 [ %439, %430 ], [ %424, %.lr.ph ]
-  %.3239378.us = phi i32 [ %434, %430 ], [ %.0236413, %.lr.ph ]
+  %.3239378.us = phi i32 [ %434, %430 ], [ %.0236418, %.lr.ph ]
   %426 = load i32, ptr %7, align 4, !tbaa !92
   %427 = add i32 %426, -1
   store i32 %427, ptr %7, align 4, !tbaa !92
@@ -1274,7 +1274,7 @@ define void @_ZN6LibRaw19parseNikonMakernoteEiij(ptr noundef nonnull align 8 der
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %466
   %440 = phi i32 [ %473, %466 ], [ %424, %.lr.ph ]
-  %.3239378 = phi i32 [ %468, %466 ], [ %.0236413, %.lr.ph ]
+  %.3239378 = phi i32 [ %468, %466 ], [ %.0236418, %.lr.ph ]
   %441 = load i32, ptr %7, align 4, !tbaa !92
   %442 = add i32 %441, -1
   store i32 %442, ptr %7, align 4, !tbaa !92
@@ -1314,14 +1314,14 @@ sub_0:                                            ; preds = %450
   %458 = and i64 %457, 4294967295
   %459 = getelementptr inbounds nuw i8, ptr %93, i64 %458
   %460 = load i8, ptr %459, align 1
-  %.not420 = icmp eq i8 %460, 68
-  br i1 %.not420, label %sub_1, label %.tail.thread
+  %.not425 = icmp eq i8 %460, 68
+  br i1 %.not425, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
   %461 = getelementptr inbounds nuw i8, ptr %459, i64 1
   %462 = load i8, ptr %461, align 1
-  %.not421 = icmp eq i8 %462, 53
-  br i1 %.not421, label %.tail, label %.tail.thread
+  %.not426 = icmp eq i8 %462, 53
+  br i1 %.not426, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
   %463 = getelementptr inbounds nuw i8, ptr %459, i64 2
@@ -1344,8 +1344,8 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not287, label %.critedge, label %.lr.ph.split, !llvm.loop !112
 
 .critedge:                                        ; preds = %430, %.lr.ph.split.us, %466, %.lr.ph.split, %417, %.tail, %446, %.tail.thread
-  %.3239371 = phi i32 [ %.3239378, %.tail.thread ], [ %.3239378, %446 ], [ %.3239378, %.tail ], [ %.0236413, %417 ], [ %468, %466 ], [ %.3239378, %.lr.ph.split ], [ %434, %430 ], [ %.3239378.us, %.lr.ph.split.us ]
-  %.3249 = phi i32 [ 96, %.tail.thread ], [ 34, %446 ], [ 34, %.tail ], [ %.0246410, %417 ], [ 0, %.lr.ph.split ], [ 0, %466 ], [ %.0246410, %.lr.ph.split.us ], [ %.0246410, %430 ]
+  %.3239371 = phi i32 [ %.3239378, %.tail.thread ], [ %.3239378, %446 ], [ %.3239378, %.tail ], [ %.0236418, %417 ], [ %468, %466 ], [ %.3239378, %.lr.ph.split ], [ %.3239378.us, %.lr.ph.split.us ], [ %434, %430 ]
+  %.3249 = phi i32 [ 96, %.tail.thread ], [ 34, %446 ], [ 34, %.tail ], [ %.0246410, %417 ], [ 0, %466 ], [ 0, %.lr.ph.split ], [ %.0246410, %.lr.ph.split.us ], [ %.0246410, %430 ]
   %474 = load i8, ptr %94, align 2, !tbaa !71
   %.not293 = icmp eq i8 %474, 0
   br i1 %.not293, label %475, label %.loopexit
@@ -1426,8 +1426,8 @@ sub_1:                                            ; preds = %sub_0
   %514 = add i32 %513, %512
   store i32 %514, ptr %86, align 4, !tbaa !101
   %515 = add nuw nsw i32 %.0207376, 1
-  %exitcond436.not = icmp eq i32 %515, 4
-  br i1 %exitcond436.not, label %516, label %.preheader366, !llvm.loop !116
+  %exitcond441.not = icmp eq i32 %515, 4
+  br i1 %exitcond441.not, label %516, label %.preheader366, !llvm.loop !116
 
 516:                                              ; preds = %.preheader366
   %517 = add i32 %514, -300
@@ -1495,18 +1495,18 @@ sub_1:                                            ; preds = %sub_0
   %551 = load i32, ptr %550, align 4, !tbaa !92
   %spec.select = call i32 @llvm.umin.i32(i32 %.0209373, i32 %551)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond431.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond431.not, label %.preheader367, label %549, !llvm.loop !120
+  %exitcond436.not = icmp eq i64 %indvars.iv.next, 3
+  br i1 %exitcond436.not, label %.preheader367, label %549, !llvm.loop !120
 
 .preheader367:                                    ; preds = %549, %.preheader367
-  %indvars.iv432 = phi i64 [ %indvars.iv.next433, %.preheader367 ], [ 0, %549 ]
-  %552 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv432
+  %indvars.iv437 = phi i64 [ %indvars.iv.next438, %.preheader367 ], [ 0, %549 ]
+  %552 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv437
   %553 = load i32, ptr %552, align 4, !tbaa !92
   %554 = sub i32 %553, %spec.select
   store i32 %554, ptr %552, align 4, !tbaa !92
-  %indvars.iv.next433 = add nuw nsw i64 %indvars.iv432, 1
-  %exitcond435.not = icmp eq i64 %indvars.iv.next433, 4
-  br i1 %exitcond435.not, label %555, label %.preheader367, !llvm.loop !121
+  %indvars.iv.next438 = add nuw nsw i64 %indvars.iv437, 1
+  %exitcond440.not = icmp eq i64 %indvars.iv.next438, 4
+  br i1 %exitcond440.not, label %555, label %.preheader367, !llvm.loop !121
 
 555:                                              ; preds = %.preheader367
   %556 = load i32, ptr %81, align 8, !tbaa !104
@@ -1657,18 +1657,18 @@ sub_1:                                            ; preds = %sub_0
   br label %653
 
 653:                                              ; preds = %645, %653
-  %indvars.iv466 = phi i64 [ 0, %645 ], [ %indvars.iv.next467, %653 ]
+  %indvars.iv471 = phi i64 [ 0, %645 ], [ %indvars.iv.next472, %653 ]
   %654 = phi i32 [ %.promoted, %645 ], [ %660, %653 ]
   %655 = mul i32 %654, 10
-  %656 = getelementptr inbounds nuw i8, ptr %647, i64 %indvars.iv466
+  %656 = getelementptr inbounds nuw i8, ptr %647, i64 %indvars.iv471
   %657 = load i8, ptr %656, align 1, !tbaa !71
   %658 = zext i8 %657 to i32
   %659 = add i32 %655, -48
   %660 = add i32 %659, %658
   store i32 %660, ptr %157, align 8, !tbaa !135
-  %indvars.iv.next467 = add nuw nsw i64 %indvars.iv466, 1
-  %exitcond469.not = icmp eq i64 %indvars.iv.next467, 4
-  br i1 %exitcond469.not, label %.loopexit, label %653, !llvm.loop !136
+  %indvars.iv.next472 = add nuw nsw i64 %indvars.iv471, 1
+  %exitcond474.not = icmp eq i64 %indvars.iv.next472, 4
+  br i1 %exitcond474.not, label %.loopexit, label %653, !llvm.loop !136
 
 661:                                              ; preds = %642
   switch i32 %191, label %1146 [
@@ -1684,15 +1684,15 @@ sub_1:                                            ; preds = %sub_0
   ]
 
 .preheader364.preheader:                          ; preds = %661
-  %.pre470 = load i32, ptr %153, align 8, !tbaa !137
+  %.pre475 = load i32, ptr %153, align 8, !tbaa !137
   br label %.preheader364
 
 .preheader361.preheader:                          ; preds = %661
-  %.pre472 = load i32, ptr %156, align 4, !tbaa !138
+  %.pre477 = load i32, ptr %156, align 4, !tbaa !138
   br label %.preheader361
 
 .preheader360.preheader:                          ; preds = %661
-  %.pre473 = load i32, ptr %155, align 4, !tbaa !139
+  %.pre478 = load i32, ptr %155, align 4, !tbaa !139
   br label %.preheader360
 
 662:                                              ; preds = %661
@@ -1709,7 +1709,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.loopexit
 
 .preheader360:                                    ; preds = %.preheader360.preheader, %.preheader360
-  %665 = phi i32 [ %673, %.preheader360 ], [ %.pre473, %.preheader360.preheader ]
+  %665 = phi i32 [ %673, %.preheader360 ], [ %.pre478, %.preheader360.preheader ]
   %.5398 = phi i32 [ %674, %.preheader360 ], [ 0, %.preheader360.preheader ]
   %666 = mul i32 %665, 10
   %667 = load ptr, ptr %11, align 8, !tbaa !94
@@ -1721,8 +1721,8 @@ sub_1:                                            ; preds = %sub_0
   %673 = add i32 %672, %671
   store i32 %673, ptr %155, align 4, !tbaa !139
   %674 = add nuw nsw i32 %.5398, 1
-  %exitcond454.not = icmp eq i32 %674, 4
-  br i1 %exitcond454.not, label %675, label %.preheader360, !llvm.loop !140
+  %exitcond459.not = icmp eq i32 %674, 4
+  br i1 %exitcond459.not, label %675, label %.preheader360, !llvm.loop !140
 
 675:                                              ; preds = %.preheader360
   switch i32 %673, label %716 [
@@ -1751,8 +1751,8 @@ sub_1:                                            ; preds = %sub_0
   %690 = getelementptr inbounds nuw float, ptr %104, i64 %689
   store float %684, ptr %690, align 4, !tbaa !100
   %691 = add nuw nsw i32 %.6401, 1
-  %exitcond460.not = icmp eq i32 %691, 4
-  br i1 %exitcond460.not, label %thread-pre-split, label %682, !llvm.loop !141
+  %exitcond465.not = icmp eq i32 %691, 4
+  br i1 %exitcond465.not, label %thread-pre-split, label %682, !llvm.loop !141
 
 692:                                              ; preds = %675
   %693 = load ptr, ptr %11, align 8, !tbaa !94
@@ -1772,8 +1772,8 @@ sub_1:                                            ; preds = %sub_0
   %704 = getelementptr inbounds nuw float, ptr %104, i64 %703
   store float %700, ptr %704, align 4, !tbaa !100
   %705 = add nuw nsw i32 %.7400, 1
-  %exitcond459.not = icmp eq i32 %705, 4
-  br i1 %exitcond459.not, label %thread-pre-split, label %698, !llvm.loop !142
+  %exitcond464.not = icmp eq i32 %705, 4
+  br i1 %exitcond464.not, label %thread-pre-split, label %698, !llvm.loop !142
 
 706:                                              ; preds = %675
   %707 = load ptr, ptr %11, align 8, !tbaa !94
@@ -1784,14 +1784,14 @@ sub_1:                                            ; preds = %sub_0
   br label %712
 
 712:                                              ; preds = %706, %712
-  %indvars.iv455 = phi i64 [ 0, %706 ], [ %indvars.iv.next456, %712 ]
+  %indvars.iv460 = phi i64 [ 0, %706 ], [ %indvars.iv.next461, %712 ]
   %713 = call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %714 = uitofp i16 %713 to float
-  %715 = getelementptr inbounds nuw float, ptr %104, i64 %indvars.iv455
+  %715 = getelementptr inbounds nuw float, ptr %104, i64 %indvars.iv460
   store float %714, ptr %715, align 4, !tbaa !100
-  %indvars.iv.next456 = add nuw nsw i64 %indvars.iv455, 1
-  %exitcond458.not = icmp eq i64 %indvars.iv.next456, 4
-  br i1 %exitcond458.not, label %thread-pre-split, label %712, !llvm.loop !143
+  %indvars.iv.next461 = add nuw nsw i64 %indvars.iv460, 1
+  %exitcond463.not = icmp eq i64 %indvars.iv.next461, 4
+  br i1 %exitcond463.not, label %thread-pre-split, label %712, !llvm.loop !143
 
 thread-pre-split:                                 ; preds = %712, %698, %682
   %.pr = load i32, ptr %155, align 4, !tbaa !139
@@ -1822,12 +1822,12 @@ thread-pre-split:                                 ; preds = %712, %698, %682
   %731 = call noundef i32 %730(ptr noundef nonnull align 8 dereferenceable(8) %727, ptr noundef nonnull %9, i64 noundef 324, i64 noundef 1)
   %732 = icmp eq i32 %731, 1
   %733 = zext i1 %732 to i32
-  %.pre474 = load i32, ptr %155, align 4, !tbaa !139
+  %.pre479 = load i32, ptr %155, align 4, !tbaa !139
   br label %734
 
 734:                                              ; preds = %726, %716
-  %735 = phi i32 [ %.pre474, %726 ], [ %717, %716 ]
-  %.3228 = phi i32 [ %733, %726 ], [ %.0225414, %716 ]
+  %735 = phi i32 [ %.pre479, %726 ], [ %717, %716 ]
+  %.3228 = phi i32 [ %733, %726 ], [ %.0225419, %716 ]
   %736 = add i32 %735, -400
   %or.cond309 = icmp ult i32 %736, 6
   br i1 %or.cond309, label %737, label %738
@@ -1861,7 +1861,7 @@ thread-pre-split:                                 ; preds = %712, %698, %682
   br label %.loopexit
 
 .preheader361:                                    ; preds = %.preheader361.preheader, %.preheader361
-  %744 = phi i32 [ %752, %.preheader361 ], [ %.pre472, %.preheader361.preheader ]
+  %744 = phi i32 [ %752, %.preheader361 ], [ %.pre477, %.preheader361.preheader ]
   %.9397 = phi i32 [ %753, %.preheader361 ], [ 0, %.preheader361.preheader ]
   %745 = mul i32 %744, 10
   %746 = load ptr, ptr %11, align 8, !tbaa !94
@@ -1873,8 +1873,8 @@ thread-pre-split:                                 ; preds = %712, %698, %682
   %752 = add i32 %751, %750
   store i32 %752, ptr %156, align 4, !tbaa !138
   %753 = add nuw nsw i32 %.9397, 1
-  %exitcond453.not = icmp eq i32 %753, 4
-  br i1 %exitcond453.not, label %754, label %.preheader361, !llvm.loop !144
+  %exitcond458.not = icmp eq i32 %753, 4
+  br i1 %exitcond458.not, label %754, label %.preheader361, !llvm.loop !144
 
 754:                                              ; preds = %.preheader361
   switch i32 %752, label %763 [
@@ -1918,11 +1918,11 @@ thread-pre-split:                                 ; preds = %712, %698, %682
   br label %.thread325
 
 763:                                              ; preds = %754
-  %.not280 = icmp eq i32 %.0217416, 0
+  %.not280 = icmp eq i32 %.0217421, 0
   br i1 %.not280, label %.loopexit, label %.thread325
 
 .thread325:                                       ; preds = %754, %762, %761, %760, %759, %758, %757, %756, %755, %763
-  %.3220328 = phi i32 [ %.0217416, %763 ], [ 108, %762 ], [ 58, %761 ], [ 879, %760 ], [ 509, %759 ], [ 590, %758 ], [ 459, %757 ], [ 16, %756 ], [ 15, %755 ], [ 9, %754 ]
+  %.3220328 = phi i32 [ %.0217421, %763 ], [ 108, %762 ], [ 58, %761 ], [ 879, %760 ], [ 509, %759 ], [ 590, %758 ], [ 459, %757 ], [ 16, %756 ], [ 15, %755 ], [ 9, %754 ]
   %764 = zext i32 %.3220328 to i64
   %765 = call noundef ptr @_ZN6LibRaw6callocEmm(ptr noundef nonnull align 8 dereferenceable(767680) %0, i64 noundef %764, i64 noundef 1)
   %766 = load ptr, ptr %11, align 8, !tbaa !94
@@ -1966,7 +1966,7 @@ thread-pre-split:                                 ; preds = %712, %698, %682
   %800 = trunc i32 %799 to i8
   store i8 %800, ptr %154, align 8, !tbaa !145
   %.not275 = icmp eq i32 %.0246410, 0
-  %801 = and i32 %.0236413, 255
+  %801 = and i32 %.0236418, 255
   %.pn.in = select i1 %.not275, i32 %801, i32 %.0246410
   %.pn = zext i32 %.pn.in to i64
   %.0229.in = getelementptr inbounds nuw i8, ptr @_ZL4xlat, i64 %.pn
@@ -1974,7 +1974,7 @@ thread-pre-split:                                 ; preds = %712, %698, %682
   %802 = load i32, ptr %155, align 4, !tbaa !139
   %803 = add i32 %802, -200
   %804 = icmp ult i32 %803, 18
-  %805 = icmp ne i32 %.0225414, 0
+  %805 = icmp ne i32 %.0225419, 0
   %or.cond11 = select i1 %804, i1 %805, i1 false
   br i1 %or.cond11, label %806, label %.loopexit363
 
@@ -1986,19 +1986,19 @@ thread-pre-split:                                 ; preds = %712, %698, %682
   br label %810
 
 810:                                              ; preds = %806, %810
-  %indvars.iv439 = phi i64 [ 0, %806 ], [ %indvars.iv.next440, %810 ]
+  %indvars.iv444 = phi i64 [ 0, %806 ], [ %indvars.iv.next445, %810 ]
   %.0230386 = phi i8 [ %809, %806 ], [ %813, %810 ]
   %.0233385 = phi i8 [ 96, %806 ], [ %811, %810 ]
   %811 = add i8 %.0233385, 1
   %812 = mul i8 %.0233385, %.0229
   %813 = add i8 %812, %.0230386
-  %814 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv439
+  %814 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv444
   %815 = load i8, ptr %814, align 1, !tbaa !71
   %816 = xor i8 %815, %813
   store i8 %816, ptr %814, align 1, !tbaa !71
-  %indvars.iv.next440 = add nuw nsw i64 %indvars.iv439, 1
-  %exitcond441.not = icmp eq i64 %indvars.iv.next440, 324
-  br i1 %exitcond441.not, label %817, label %810, !llvm.loop !146
+  %indvars.iv.next445 = add nuw nsw i64 %indvars.iv444, 1
+  %exitcond446.not = icmp eq i64 %indvars.iv.next445, 324
+  br i1 %exitcond446.not, label %817, label %810, !llvm.loop !146
 
 817:                                              ; preds = %810
   %818 = zext nneg i32 %803 to i64
@@ -2013,24 +2013,24 @@ thread-pre-split:                                 ; preds = %712, %698, %682
   br label %827
 
 827:                                              ; preds = %817, %827
-  %indvars.iv442 = phi i64 [ 0, %817 ], [ %indvars.iv.next443, %827 ]
-  %828 = shl nuw nsw i64 %indvars.iv442, 1
+  %indvars.iv447 = phi i64 [ 0, %817 ], [ %indvars.iv.next448, %827 ]
+  %828 = shl nuw nsw i64 %indvars.iv447, 1
   %829 = getelementptr inbounds nuw i8, ptr %825, i64 %828
   %830 = call noundef zeroext i16 @_ZN6LibRaw5sget2EPh(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef nonnull %829)
   %831 = uitofp i16 %830 to float
-  %832 = trunc nuw nsw i64 %indvars.iv442 to i32
+  %832 = trunc nuw nsw i64 %indvars.iv447 to i32
   %833 = lshr i32 %832, 1
   %834 = xor i32 %826, %833
   %835 = xor i32 %834, %832
   %836 = zext nneg i32 %835 to i64
   %837 = getelementptr inbounds nuw float, ptr %104, i64 %836
   store float %831, ptr %837, align 4, !tbaa !100
-  %indvars.iv.next443 = add nuw nsw i64 %indvars.iv442, 1
-  %exitcond445.not = icmp eq i64 %indvars.iv.next443, 4
-  br i1 %exitcond445.not, label %.loopexit363, label %827, !llvm.loop !147
+  %indvars.iv.next448 = add nuw nsw i64 %indvars.iv447, 1
+  %exitcond450.not = icmp eq i64 %indvars.iv.next448, 4
+  br i1 %exitcond450.not, label %.loopexit363, label %827, !llvm.loop !147
 
 .loopexit363:                                     ; preds = %827, %776
-  %.not276 = icmp eq i32 %.0217416, 0
+  %.not276 = icmp eq i32 %.0217421, 0
   br i1 %.not276, label %851, label %838
 
 838:                                              ; preds = %.loopexit363
@@ -2043,27 +2043,27 @@ thread-pre-split:                                 ; preds = %712, %698, %682
   %842 = zext i8 %841 to i64
   %843 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL4xlat, i64 256), i64 %842
   %844 = load i8, ptr %843, align 1, !tbaa !71
-  %wide.trip.count = zext i32 %.0217416 to i64
+  %wide.trip.count = zext i32 %.0217421 to i64
   br label %.lr.ph392
 
 .lr.ph392:                                        ; preds = %.lr.ph392.preheader, %.lr.ph392
-  %indvars.iv446 = phi i64 [ 0, %.lr.ph392.preheader ], [ %indvars.iv.next447, %.lr.ph392 ]
+  %indvars.iv451 = phi i64 [ 0, %.lr.ph392.preheader ], [ %indvars.iv.next452, %.lr.ph392 ]
   %.1231390 = phi i8 [ %844, %.lr.ph392.preheader ], [ %847, %.lr.ph392 ]
   %.1234389 = phi i8 [ 96, %.lr.ph392.preheader ], [ %845, %.lr.ph392 ]
   %845 = add i8 %.1234389, 1
   %846 = mul i8 %.1234389, %.0229
   %847 = add i8 %846, %.1231390
-  %848 = getelementptr inbounds nuw i8, ptr %.0222415, i64 %indvars.iv446
+  %848 = getelementptr inbounds nuw i8, ptr %.0222420, i64 %indvars.iv451
   %849 = load i8, ptr %848, align 1, !tbaa !71
   %850 = xor i8 %849, %847
   store i8 %850, ptr %848, align 1, !tbaa !71
-  %indvars.iv.next447 = add nuw nsw i64 %indvars.iv446, 1
-  %exitcond448.not = icmp eq i64 %indvars.iv.next447, %wide.trip.count
-  br i1 %exitcond448.not, label %.loopexit362, label %.lr.ph392, !llvm.loop !148
+  %indvars.iv.next452 = add nuw nsw i64 %indvars.iv451, 1
+  %exitcond453.not = icmp eq i64 %indvars.iv.next452, %wide.trip.count
+  br i1 %exitcond453.not, label %.loopexit362, label %.lr.ph392, !llvm.loop !148
 
 .loopexit362:                                     ; preds = %.lr.ph392, %838
-  call void @_ZN6LibRaw20processNikonLensDataEPhj(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef %.0222415, i32 noundef %.0217416)
-  call void @_ZN6LibRaw4freeEPv(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef %.0222415)
+  call void @_ZN6LibRaw20processNikonLensDataEPhj(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef %.0222420, i32 noundef %.0217421)
+  call void @_ZN6LibRaw4freeEPv(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef %.0222420)
   br label %851
 
 851:                                              ; preds = %.loopexit362, %.loopexit363
@@ -2084,30 +2084,30 @@ thread-pre-split:                                 ; preds = %712, %698, %682
   %858 = zext i8 %857 to i64
   %859 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL4xlat, i64 256), i64 %858
   %860 = load i8, ptr %859, align 1, !tbaa !71
-  %wide.trip.count451 = zext i32 %.0243411 to i64
+  %wide.trip.count456 = zext i32 %.0243411 to i64
   br label %.lr.ph396
 
 .lr.ph396:                                        ; preds = %.lr.ph396.preheader, %.lr.ph396
-  %indvars.iv449 = phi i64 [ 4, %.lr.ph396.preheader ], [ %indvars.iv.next450, %.lr.ph396 ]
+  %indvars.iv454 = phi i64 [ 4, %.lr.ph396.preheader ], [ %indvars.iv.next455, %.lr.ph396 ]
   %.2232394 = phi i8 [ %860, %.lr.ph396.preheader ], [ %863, %.lr.ph396 ]
   %.2235393 = phi i8 [ 96, %.lr.ph396.preheader ], [ %861, %.lr.ph396 ]
   %861 = add i8 %.2235393, 1
   %862 = mul i8 %.2235393, %.0229
   %863 = add i8 %862, %.2232394
-  %864 = getelementptr inbounds nuw i8, ptr %.0240412, i64 %indvars.iv449
+  %864 = getelementptr inbounds nuw i8, ptr %.0240412, i64 %indvars.iv454
   %865 = load i8, ptr %864, align 1, !tbaa !71
   %866 = xor i8 %865, %863
   store i8 %866, ptr %864, align 1, !tbaa !71
-  %indvars.iv.next450 = add nuw nsw i64 %indvars.iv449, 1
-  %exitcond452.not = icmp eq i64 %indvars.iv.next450, %wide.trip.count451
-  br i1 %exitcond452.not, label %._crit_edge.loopexit, label %.lr.ph396, !llvm.loop !149
+  %indvars.iv.next455 = add nuw nsw i64 %indvars.iv454, 1
+  %exitcond457.not = icmp eq i64 %indvars.iv.next455, %wide.trip.count456
+  br i1 %exitcond457.not, label %._crit_edge.loopexit, label %.lr.ph396, !llvm.loop !149
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph396
-  %.pre471 = load i32, ptr %157, align 8, !tbaa !135
+  %.pre476 = load i32, ptr %157, align 8, !tbaa !135
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %855
-  %867 = phi i32 [ %.pre471, %._crit_edge.loopexit ], [ %853, %855 ]
+  %867 = phi i32 [ %.pre476, %._crit_edge.loopexit ], [ %853, %855 ]
   switch i32 %867, label %_Z11sget4_ordersPh.exit.thread [
     i32 208, label %868
     i32 231, label %875
@@ -2369,8 +2369,8 @@ _Z11sget4_ordersPh.exit316:                       ; preds = %938, %940
   br label %_Z11sget4_ordersPh.exit
 
 _Z11sget4_ordersPh.exit:                          ; preds = %1029, %1027, %1007, %1005, %985, %983, %963, %961, %886, %884, %_Z11sget4_ordersPh.exit316
-  %.0203 = phi i1 [ %958, %_Z11sget4_ordersPh.exit316 ], [ true, %884 ], [ true, %886 ], [ true, %961 ], [ true, %963 ], [ true, %983 ], [ true, %985 ], [ true, %1005 ], [ true, %1007 ], [ true, %1027 ], [ true, %1029 ]
-  %.0202 = phi i32 [ %.0.i315, %_Z11sget4_ordersPh.exit316 ], [ %885, %884 ], [ %903, %886 ], [ %962, %961 ], [ %980, %963 ], [ %984, %983 ], [ %1002, %985 ], [ %1006, %1005 ], [ %1024, %1007 ], [ %1028, %1027 ], [ %1046, %1029 ]
+  %.0203 = phi i1 [ true, %1005 ], [ true, %1027 ], [ true, %1029 ], [ true, %961 ], [ true, %983 ], [ true, %1007 ], [ %958, %_Z11sget4_ordersPh.exit316 ], [ true, %886 ], [ true, %963 ], [ true, %985 ], [ true, %884 ]
+  %.0202 = phi i32 [ %1006, %1005 ], [ %1028, %1027 ], [ %1046, %1029 ], [ %962, %961 ], [ %984, %983 ], [ %1024, %1007 ], [ %.0.i315, %_Z11sget4_ordersPh.exit316 ], [ %903, %886 ], [ %980, %963 ], [ %1002, %985 ], [ %885, %884 ]
   %.not278 = icmp eq i32 %.0202, 0
   br i1 %.not278, label %1067, label %1047
 
@@ -2415,11 +2415,11 @@ _Z11sget4_ordersPh.exit:                          ; preds = %1029, %1027, %1007,
   br i1 %.0203, label %_Z11sget4_ordersPh.exit.thread, label %.thread353thread-pre-split
 
 .thread353thread-pre-split:                       ; preds = %.thread346, %1067, %1058, %.thread340, %868
-  %.pr491 = load i16, ptr %159, align 4, !tbaa !150
+  %.pr496 = load i16, ptr %159, align 4, !tbaa !150
   br label %.thread353
 
 .thread353:                                       ; preds = %.thread353thread-pre-split, %870
-  %1068 = phi i16 [ %.pr491, %.thread353thread-pre-split ], [ %874, %870 ]
+  %1068 = phi i16 [ %.pr496, %.thread353thread-pre-split ], [ %874, %870 ]
   %or.cond312 = icmp ult i16 %1068, 4
   br i1 %or.cond312, label %1069, label %_Z11sget4_ordersPh.exit.thread
 
@@ -2437,7 +2437,7 @@ _Z11sget4_ordersPh.exit.thread:                   ; preds = %._crit_edge, %1058,
   br label %.loopexit
 
 .preheader364:                                    ; preds = %.preheader364.preheader, %.preheader364
-  %1075 = phi i32 [ %1083, %.preheader364 ], [ %.pre470, %.preheader364.preheader ]
+  %1075 = phi i32 [ %1083, %.preheader364 ], [ %.pre475, %.preheader364.preheader ]
   %.11384 = phi i32 [ %1084, %.preheader364 ], [ 0, %.preheader364.preheader ]
   %1076 = mul i32 %1075, 10
   %1077 = load ptr, ptr %11, align 8, !tbaa !94
@@ -2449,8 +2449,8 @@ _Z11sget4_ordersPh.exit.thread:                   ; preds = %._crit_edge, %1058,
   %1083 = add i32 %1082, %1081
   store i32 %1083, ptr %153, align 8, !tbaa !137
   %1084 = add nuw nsw i32 %.11384, 1
-  %exitcond438.not = icmp eq i32 %1084, 4
-  br i1 %exitcond438.not, label %.loopexit, label %.preheader364, !llvm.loop !154
+  %exitcond443.not = icmp eq i32 %1084, 4
+  br i1 %exitcond443.not, label %.loopexit, label %.preheader364, !llvm.loop !154
 
 1085:                                             ; preds = %661
   %1086 = call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
@@ -2486,8 +2486,8 @@ _Z11sget4_ordersPh.exit.thread:                   ; preds = %._crit_edge, %1058,
   %1102 = add i32 %1096, -48
   %1103 = add i32 %1102, %1101
   %1104 = add nuw nsw i32 %.12382, 1
-  %exitcond437.not = icmp eq i32 %1104, 4
-  br i1 %exitcond437.not, label %1105, label %1095, !llvm.loop !158
+  %exitcond442.not = icmp eq i32 %1104, 4
+  br i1 %exitcond442.not, label %1105, label %1095, !llvm.loop !158
 
 1105:                                             ; preds = %1095
   %1106 = load i32, ptr %66, align 8, !tbaa !128
@@ -2580,8 +2580,8 @@ _Z11sget4_ordersPh.exit.thread:                   ; preds = %._crit_edge, %1058,
   %.0200404 = phi i32 [ %1165, %1212 ], [ 0, %1157 ]
   %.0205403 = phi i32 [ %1214, %1212 ], [ 22, %1157 ]
   %1165 = add nuw nsw i32 %.0200404, 1
-  %exitcond465 = icmp eq i32 %.0200404, 1025
-  br i1 %exitcond465, label %1166, label %1168
+  %exitcond470 = icmp eq i32 %.0200404, 1025
+  br i1 %exitcond470, label %1166, label %1168
 
 1166:                                             ; preds = %.lr.ph407
   %1167 = call ptr @__cxa_allocate_exception(i64 4) #11
@@ -2677,22 +2677,22 @@ _Z11sget4_ordersPh.exit.thread:                   ; preds = %._crit_edge, %1058,
   br i1 %1217, label %.lr.ph407, label %.loopexit, !llvm.loop !168
 
 .preheader:                                       ; preds = %1156, %.preheader
-  %indvars.iv461 = phi i64 [ %indvars.iv.next462, %.preheader ], [ 0, %1156 ]
+  %indvars.iv466 = phi i64 [ %indvars.iv.next467, %.preheader ], [ 0, %1156 ]
   %1218 = call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %1219 = getelementptr inbounds nuw i16, ptr %164, i64 %indvars.iv461
+  %1219 = getelementptr inbounds nuw i16, ptr %164, i64 %indvars.iv466
   store i16 %1218, ptr %1219, align 2, !tbaa !169
-  %indvars.iv.next462 = add nuw nsw i64 %indvars.iv461, 1
-  %exitcond464.not = icmp eq i64 %indvars.iv.next462, 4
-  br i1 %exitcond464.not, label %.loopexit, label %.preheader, !llvm.loop !170
+  %indvars.iv.next467 = add nuw nsw i64 %indvars.iv466, 1
+  %exitcond469.not = icmp eq i64 %indvars.iv.next467, 4
+  br i1 %exitcond469.not, label %.loopexit, label %.preheader, !llvm.loop !170
 
 .loopexit:                                        ; preds = %.preheader364, %.preheader, %1212, %653, %186, %199, %220, %218, %318, %257, %329, %388, %394, %340, %328, %254, %416, %503, %529, %524, %555, %563, %575, %596, %594, %636, %664, %.thread325, %763, %_Z11sget4_ordersPh.exit.thread, %852, %851, %1085, %1127, %1149, %1090, %1105, %771, %737, %741, %743, %740, %582, %570, %558, %532, %504, %479, %480, %481, %482, %409, %410, %411, %412, %413, %414, %415, %205, %192, %195, %247, %230, %475, %.critedge, %483, %629, %612, %662, %1156, %1157, %182
-  %.1247 = phi i32 [ %.0246410, %182 ], [ %.0246410, %186 ], [ %.0246410, %192 ], [ %.0246410, %195 ], [ %.0246410, %199 ], [ %.0246410, %205 ], [ %.0246410, %220 ], [ %.0246410, %218 ], [ %.0246410, %318 ], [ %.0246410, %257 ], [ %.0246410, %328 ], [ %.0246410, %329 ], [ %.0246410, %388 ], [ %.0246410, %394 ], [ %.0246410, %340 ], [ %.0246410, %254 ], [ %.0246410, %415 ], [ %.0246410, %409 ], [ %.0246410, %410 ], [ %.0246410, %411 ], [ %.0246410, %412 ], [ %.0246410, %413 ], [ %.0246410, %414 ], [ %.0246410, %416 ], [ %.0246410, %482 ], [ %.0246410, %479 ], [ %.0246410, %480 ], [ %.0246410, %481 ], [ %.0246410, %503 ], [ %.0246410, %504 ], [ %.0246410, %524 ], [ %.0246410, %529 ], [ %.0246410, %532 ], [ %.0246410, %555 ], [ %.0246410, %558 ], [ %.0246410, %563 ], [ %.0246410, %570 ], [ %.0246410, %575 ], [ %.0246410, %582 ], [ %.0246410, %594 ], [ %.0246410, %596 ], [ %.0246410, %636 ], [ %.0246410, %664 ], [ %.0246410, %662 ], [ %.0246410, %737 ], [ %.0246410, %740 ], [ %.0246410, %743 ], [ %.0246410, %741 ], [ %.0246410, %.thread325 ], [ %.0246410, %763 ], [ %.0246410, %771 ], [ %.0246410, %_Z11sget4_ordersPh.exit.thread ], [ %.0246410, %852 ], [ %.0246410, %851 ], [ %.0246410, %1085 ], [ %.0246410, %1105 ], [ %.0246410, %1090 ], [ %.0246410, %1127 ], [ %.0246410, %1149 ], [ %.0246410, %247 ], [ %.0246410, %230 ], [ %.3249, %475 ], [ %.3249, %.critedge ], [ %.0246410, %483 ], [ %.0246410, %629 ], [ %.0246410, %612 ], [ %.0246410, %1156 ], [ %.0246410, %1157 ], [ %.0246410, %653 ], [ %.0246410, %1212 ], [ %.0246410, %.preheader ], [ %.0246410, %.preheader364 ]
-  %.1244 = phi i32 [ %.0243411, %182 ], [ %.0243411, %186 ], [ %.0243411, %192 ], [ %.0243411, %195 ], [ %.0243411, %199 ], [ %.0243411, %205 ], [ %.0243411, %220 ], [ %.0243411, %218 ], [ %.0243411, %318 ], [ %.0243411, %257 ], [ %.0243411, %328 ], [ %.0243411, %329 ], [ %.0243411, %388 ], [ %.0243411, %394 ], [ %.0243411, %340 ], [ %.0243411, %254 ], [ %.0243411, %415 ], [ %.0243411, %409 ], [ %.0243411, %410 ], [ %.0243411, %411 ], [ %.0243411, %412 ], [ %.0243411, %413 ], [ %.0243411, %414 ], [ %.0243411, %416 ], [ %.0243411, %482 ], [ %.0243411, %479 ], [ %.0243411, %480 ], [ %.0243411, %481 ], [ %.0243411, %503 ], [ %.0243411, %504 ], [ %.0243411, %524 ], [ %.0243411, %529 ], [ %.0243411, %532 ], [ %.0243411, %555 ], [ %.0243411, %558 ], [ %.0243411, %563 ], [ %.0243411, %570 ], [ %.0243411, %575 ], [ %.0243411, %582 ], [ %.0243411, %594 ], [ %.0243411, %596 ], [ %.0243411, %636 ], [ %.0243411, %664 ], [ %.0243411, %662 ], [ %.0243411, %737 ], [ %.0243411, %740 ], [ %.0243411, %743 ], [ %.0243411, %741 ], [ %.0243411, %.thread325 ], [ %.0243411, %763 ], [ %.0243411, %771 ], [ 0, %_Z11sget4_ordersPh.exit.thread ], [ %.0243411, %852 ], [ 0, %851 ], [ %.0243411, %1085 ], [ %.0243411, %1105 ], [ %.0243411, %1090 ], [ %.0243411, %1127 ], [ %.0243411, %1149 ], [ %.0243411, %247 ], [ %.0243411, %230 ], [ %.0243411, %475 ], [ %.0243411, %.critedge ], [ %.0243411, %483 ], [ %.0243411, %629 ], [ %.0243411, %612 ], [ %.0243411, %1156 ], [ %.0243411, %1157 ], [ %178, %653 ], [ %.0243411, %1212 ], [ %.0243411, %.preheader ], [ %.0243411, %.preheader364 ]
-  %.1241 = phi ptr [ %.0240412, %182 ], [ %.0240412, %186 ], [ %.0240412, %192 ], [ %.0240412, %195 ], [ %.0240412, %199 ], [ %.0240412, %205 ], [ %.0240412, %220 ], [ %.0240412, %218 ], [ %.0240412, %318 ], [ %.0240412, %257 ], [ %.0240412, %328 ], [ %.0240412, %329 ], [ %.0240412, %388 ], [ %.0240412, %394 ], [ %.0240412, %340 ], [ %.0240412, %254 ], [ %.0240412, %415 ], [ %.0240412, %409 ], [ %.0240412, %410 ], [ %.0240412, %411 ], [ %.0240412, %412 ], [ %.0240412, %413 ], [ %.0240412, %414 ], [ %.0240412, %416 ], [ %.0240412, %482 ], [ %.0240412, %479 ], [ %.0240412, %480 ], [ %.0240412, %481 ], [ %.0240412, %503 ], [ %.0240412, %504 ], [ %.0240412, %524 ], [ %.0240412, %529 ], [ %.0240412, %532 ], [ %.0240412, %555 ], [ %.0240412, %558 ], [ %.0240412, %563 ], [ %.0240412, %570 ], [ %.0240412, %575 ], [ %.0240412, %582 ], [ %.0240412, %594 ], [ %.0240412, %596 ], [ %.0240412, %636 ], [ %.0240412, %664 ], [ %.0240412, %662 ], [ %.0240412, %737 ], [ %.0240412, %740 ], [ %.0240412, %743 ], [ %.0240412, %741 ], [ %.0240412, %.thread325 ], [ %.0240412, %763 ], [ %.0240412, %771 ], [ %.0240412, %_Z11sget4_ordersPh.exit.thread ], [ %.0240412, %852 ], [ %.0240412, %851 ], [ %.0240412, %1085 ], [ %.0240412, %1105 ], [ %.0240412, %1090 ], [ %.0240412, %1127 ], [ %.0240412, %1149 ], [ %.0240412, %247 ], [ %.0240412, %230 ], [ %.0240412, %475 ], [ %.0240412, %.critedge ], [ %.0240412, %483 ], [ %.0240412, %629 ], [ %.0240412, %612 ], [ %.0240412, %1156 ], [ %.0240412, %1157 ], [ %647, %653 ], [ %.0240412, %1212 ], [ %.0240412, %.preheader ], [ %.0240412, %.preheader364 ]
-  %.1237 = phi i32 [ %.0236413, %182 ], [ %.0236413, %186 ], [ %.0236413, %192 ], [ %.0236413, %195 ], [ %.0236413, %199 ], [ %.0236413, %205 ], [ %.0236413, %220 ], [ %.0236413, %218 ], [ %.0236413, %318 ], [ %.0236413, %257 ], [ %.0236413, %328 ], [ %.0236413, %329 ], [ %.0236413, %388 ], [ %.0236413, %394 ], [ %.0236413, %340 ], [ %.0236413, %254 ], [ %.0236413, %415 ], [ %.0236413, %409 ], [ %.0236413, %410 ], [ %.0236413, %411 ], [ %.0236413, %412 ], [ %.0236413, %413 ], [ %.0236413, %414 ], [ %.0236413, %416 ], [ %.0236413, %482 ], [ %.0236413, %479 ], [ %.0236413, %480 ], [ %.0236413, %481 ], [ %.0236413, %503 ], [ %.0236413, %504 ], [ %.0236413, %524 ], [ %.0236413, %529 ], [ %.0236413, %532 ], [ %.0236413, %555 ], [ %.0236413, %558 ], [ %.0236413, %563 ], [ %.0236413, %570 ], [ %.0236413, %575 ], [ %.0236413, %582 ], [ %.0236413, %594 ], [ %.0236413, %596 ], [ %.0236413, %636 ], [ %.0236413, %664 ], [ %.0236413, %662 ], [ %.0236413, %737 ], [ %.0236413, %740 ], [ %.0236413, %743 ], [ %.0236413, %741 ], [ %.0236413, %.thread325 ], [ %.0236413, %763 ], [ %.0236413, %771 ], [ %.0236413, %_Z11sget4_ordersPh.exit.thread ], [ %.0236413, %852 ], [ %.0236413, %851 ], [ %.0236413, %1085 ], [ %.0236413, %1105 ], [ %.0236413, %1090 ], [ %.0236413, %1127 ], [ %.0236413, %1149 ], [ %.0236413, %247 ], [ %.0236413, %230 ], [ %.3239371, %475 ], [ %.3239371, %.critedge ], [ %.0236413, %483 ], [ %.0236413, %629 ], [ %.0236413, %612 ], [ %.0236413, %1156 ], [ %.0236413, %1157 ], [ %.0236413, %653 ], [ %.0236413, %1212 ], [ %.0236413, %.preheader ], [ %.0236413, %.preheader364 ]
-  %.1226 = phi i32 [ %.0225414, %182 ], [ %.0225414, %186 ], [ %.0225414, %192 ], [ %.0225414, %195 ], [ %.0225414, %199 ], [ %.0225414, %205 ], [ %.0225414, %220 ], [ %.0225414, %218 ], [ %.0225414, %318 ], [ %.0225414, %257 ], [ %.0225414, %328 ], [ %.0225414, %329 ], [ %.0225414, %388 ], [ %.0225414, %394 ], [ %.0225414, %340 ], [ %.0225414, %254 ], [ %.0225414, %415 ], [ %.0225414, %409 ], [ %.0225414, %410 ], [ %.0225414, %411 ], [ %.0225414, %412 ], [ %.0225414, %413 ], [ %.0225414, %414 ], [ %.0225414, %416 ], [ %.0225414, %482 ], [ %.0225414, %479 ], [ %.0225414, %480 ], [ %.0225414, %481 ], [ %.0225414, %503 ], [ %.0225414, %504 ], [ %.0225414, %524 ], [ %.0225414, %529 ], [ %.0225414, %532 ], [ %.0225414, %555 ], [ %.0225414, %558 ], [ %.0225414, %563 ], [ %.0225414, %570 ], [ %.0225414, %575 ], [ %.0225414, %582 ], [ %.0225414, %594 ], [ %.0225414, %596 ], [ %.0225414, %636 ], [ %.0225414, %664 ], [ %.0225414, %662 ], [ %.3228, %737 ], [ %.3228, %740 ], [ %.3228, %743 ], [ %.3228, %741 ], [ %.0225414, %.thread325 ], [ %.0225414, %763 ], [ %.0225414, %771 ], [ %.0225414, %_Z11sget4_ordersPh.exit.thread ], [ %.0225414, %852 ], [ %.0225414, %851 ], [ %.0225414, %1085 ], [ %.0225414, %1105 ], [ %.0225414, %1090 ], [ %.0225414, %1127 ], [ %.0225414, %1149 ], [ %.0225414, %247 ], [ %.0225414, %230 ], [ %.0225414, %475 ], [ %.0225414, %.critedge ], [ %.0225414, %483 ], [ %.0225414, %629 ], [ %.0225414, %612 ], [ %.0225414, %1156 ], [ %.0225414, %1157 ], [ %.0225414, %653 ], [ %.0225414, %1212 ], [ %.0225414, %.preheader ], [ %.0225414, %.preheader364 ]
-  %.1223 = phi ptr [ %.0222415, %182 ], [ %.0222415, %186 ], [ %.0222415, %192 ], [ %.0222415, %195 ], [ %.0222415, %199 ], [ %.0222415, %205 ], [ %.0222415, %220 ], [ %.0222415, %218 ], [ %.0222415, %318 ], [ %.0222415, %257 ], [ %.0222415, %328 ], [ %.0222415, %329 ], [ %.0222415, %388 ], [ %.0222415, %394 ], [ %.0222415, %340 ], [ %.0222415, %254 ], [ %.0222415, %415 ], [ %.0222415, %409 ], [ %.0222415, %410 ], [ %.0222415, %411 ], [ %.0222415, %412 ], [ %.0222415, %413 ], [ %.0222415, %414 ], [ %.0222415, %416 ], [ %.0222415, %482 ], [ %.0222415, %479 ], [ %.0222415, %480 ], [ %.0222415, %481 ], [ %.0222415, %503 ], [ %.0222415, %504 ], [ %.0222415, %524 ], [ %.0222415, %529 ], [ %.0222415, %532 ], [ %.0222415, %555 ], [ %.0222415, %558 ], [ %.0222415, %563 ], [ %.0222415, %570 ], [ %.0222415, %575 ], [ %.0222415, %582 ], [ %.0222415, %594 ], [ %.0222415, %596 ], [ %.0222415, %636 ], [ %.0222415, %664 ], [ %.0222415, %662 ], [ %.0222415, %737 ], [ %.0222415, %740 ], [ %.0222415, %743 ], [ %.0222415, %741 ], [ %765, %.thread325 ], [ %.0222415, %763 ], [ %.0222415, %771 ], [ %.0222415, %_Z11sget4_ordersPh.exit.thread ], [ %.0222415, %852 ], [ %.0222415, %851 ], [ %.0222415, %1085 ], [ %.0222415, %1105 ], [ %.0222415, %1090 ], [ %.0222415, %1127 ], [ %.0222415, %1149 ], [ %.0222415, %247 ], [ %.0222415, %230 ], [ %.0222415, %475 ], [ %.0222415, %.critedge ], [ %.0222415, %483 ], [ %.0222415, %629 ], [ %.0222415, %612 ], [ %.0222415, %1156 ], [ %.0222415, %1157 ], [ %.0222415, %653 ], [ %.0222415, %1212 ], [ %.0222415, %.preheader ], [ %.0222415, %.preheader364 ]
-  %.1218 = phi i32 [ %.0217416, %182 ], [ %.0217416, %186 ], [ %.0217416, %192 ], [ %.0217416, %195 ], [ %.0217416, %199 ], [ %.0217416, %205 ], [ %.0217416, %220 ], [ %.0217416, %218 ], [ %.0217416, %318 ], [ %.0217416, %257 ], [ %.0217416, %328 ], [ %.0217416, %329 ], [ %.0217416, %388 ], [ %.0217416, %394 ], [ %.0217416, %340 ], [ %.0217416, %254 ], [ %.0217416, %415 ], [ %.0217416, %409 ], [ %.0217416, %410 ], [ %.0217416, %411 ], [ %.0217416, %412 ], [ %.0217416, %413 ], [ %.0217416, %414 ], [ %.0217416, %416 ], [ %.0217416, %482 ], [ %.0217416, %479 ], [ %.0217416, %480 ], [ %.0217416, %481 ], [ %.0217416, %503 ], [ %.0217416, %504 ], [ %.0217416, %524 ], [ %.0217416, %529 ], [ %.0217416, %532 ], [ %.0217416, %555 ], [ %.0217416, %558 ], [ %.0217416, %563 ], [ %.0217416, %570 ], [ %.0217416, %575 ], [ %.0217416, %582 ], [ %.0217416, %594 ], [ %.0217416, %596 ], [ %.0217416, %636 ], [ %.0217416, %664 ], [ %.0217416, %662 ], [ %.0217416, %737 ], [ %.0217416, %740 ], [ %.0217416, %743 ], [ %.0217416, %741 ], [ %.3220328, %.thread325 ], [ 0, %763 ], [ %.0217416, %771 ], [ 0, %_Z11sget4_ordersPh.exit.thread ], [ 0, %852 ], [ 0, %851 ], [ %.0217416, %1085 ], [ %.0217416, %1105 ], [ %.0217416, %1090 ], [ %.0217416, %1127 ], [ %.0217416, %1149 ], [ %.0217416, %247 ], [ %.0217416, %230 ], [ %.0217416, %475 ], [ %.0217416, %.critedge ], [ %.0217416, %483 ], [ %.0217416, %629 ], [ %.0217416, %612 ], [ %.0217416, %1156 ], [ %.0217416, %1157 ], [ %.0217416, %653 ], [ %.0217416, %1212 ], [ %.0217416, %.preheader ], [ %.0217416, %.preheader364 ]
+  %.1247 = phi i32 [ %.0246410, %182 ], [ %.0246410, %186 ], [ %.0246410, %192 ], [ %.0246410, %195 ], [ %.0246410, %199 ], [ %.0246410, %205 ], [ %.0246410, %220 ], [ %.0246410, %218 ], [ %.0246410, %1156 ], [ %.0246410, %318 ], [ %.0246410, %257 ], [ %.0246410, %328 ], [ %.0246410, %329 ], [ %.0246410, %388 ], [ %.0246410, %394 ], [ %.0246410, %340 ], [ %.0246410, %254 ], [ %.0246410, %415 ], [ %.0246410, %409 ], [ %.0246410, %410 ], [ %.0246410, %411 ], [ %.0246410, %412 ], [ %.0246410, %413 ], [ %.0246410, %414 ], [ %.0246410, %230 ], [ %.0246410, %416 ], [ %.0246410, %482 ], [ %.0246410, %479 ], [ %.0246410, %480 ], [ %.0246410, %481 ], [ %.0246410, %503 ], [ %.0246410, %483 ], [ %.0246410, %504 ], [ %.0246410, %524 ], [ %.0246410, %529 ], [ %.0246410, %532 ], [ %.0246410, %555 ], [ %.0246410, %558 ], [ %.0246410, %563 ], [ %.0246410, %570 ], [ %.0246410, %575 ], [ %.0246410, %582 ], [ %.0246410, %594 ], [ %.0246410, %596 ], [ %.3249, %.critedge ], [ %.0246410, %636 ], [ %.0246410, %653 ], [ %.0246410, %664 ], [ %.0246410, %662 ], [ %.0246410, %737 ], [ %.0246410, %740 ], [ %.0246410, %743 ], [ %.0246410, %741 ], [ %.0246410, %.thread325 ], [ %.0246410, %763 ], [ %.0246410, %771 ], [ %.0246410, %_Z11sget4_ordersPh.exit.thread ], [ %.0246410, %852 ], [ %.0246410, %851 ], [ %.0246410, %1157 ], [ %.0246410, %1085 ], [ %.0246410, %1105 ], [ %.0246410, %1090 ], [ %.0246410, %1127 ], [ %.0246410, %1149 ], [ %.0246410, %612 ], [ %.0246410, %1212 ], [ %.0246410, %247 ], [ %.3249, %475 ], [ %.0246410, %629 ], [ %.0246410, %.preheader ], [ %.0246410, %.preheader364 ]
+  %.1244 = phi i32 [ %.0243411, %182 ], [ %.0243411, %186 ], [ %.0243411, %192 ], [ %.0243411, %195 ], [ %.0243411, %199 ], [ %.0243411, %205 ], [ %.0243411, %220 ], [ %.0243411, %218 ], [ %.0243411, %1156 ], [ %.0243411, %318 ], [ %.0243411, %257 ], [ %.0243411, %328 ], [ %.0243411, %329 ], [ %.0243411, %388 ], [ %.0243411, %394 ], [ %.0243411, %340 ], [ %.0243411, %254 ], [ %.0243411, %415 ], [ %.0243411, %409 ], [ %.0243411, %410 ], [ %.0243411, %411 ], [ %.0243411, %412 ], [ %.0243411, %413 ], [ %.0243411, %414 ], [ %.0243411, %230 ], [ %.0243411, %416 ], [ %.0243411, %482 ], [ %.0243411, %479 ], [ %.0243411, %480 ], [ %.0243411, %481 ], [ %.0243411, %503 ], [ %.0243411, %483 ], [ %.0243411, %504 ], [ %.0243411, %524 ], [ %.0243411, %529 ], [ %.0243411, %532 ], [ %.0243411, %555 ], [ %.0243411, %558 ], [ %.0243411, %563 ], [ %.0243411, %570 ], [ %.0243411, %575 ], [ %.0243411, %582 ], [ %.0243411, %594 ], [ %.0243411, %596 ], [ %.0243411, %.critedge ], [ %.0243411, %636 ], [ %178, %653 ], [ %.0243411, %664 ], [ %.0243411, %662 ], [ %.0243411, %737 ], [ %.0243411, %740 ], [ %.0243411, %743 ], [ %.0243411, %741 ], [ %.0243411, %.thread325 ], [ %.0243411, %763 ], [ %.0243411, %771 ], [ 0, %_Z11sget4_ordersPh.exit.thread ], [ %.0243411, %852 ], [ 0, %851 ], [ %.0243411, %1157 ], [ %.0243411, %1085 ], [ %.0243411, %1105 ], [ %.0243411, %1090 ], [ %.0243411, %1127 ], [ %.0243411, %1149 ], [ %.0243411, %612 ], [ %.0243411, %1212 ], [ %.0243411, %247 ], [ %.0243411, %475 ], [ %.0243411, %629 ], [ %.0243411, %.preheader ], [ %.0243411, %.preheader364 ]
+  %.1241 = phi ptr [ %.0240412, %182 ], [ %.0240412, %186 ], [ %.0240412, %192 ], [ %.0240412, %195 ], [ %.0240412, %199 ], [ %.0240412, %205 ], [ %.0240412, %220 ], [ %.0240412, %218 ], [ %.0240412, %1156 ], [ %.0240412, %318 ], [ %.0240412, %257 ], [ %.0240412, %328 ], [ %.0240412, %329 ], [ %.0240412, %388 ], [ %.0240412, %394 ], [ %.0240412, %340 ], [ %.0240412, %254 ], [ %.0240412, %415 ], [ %.0240412, %409 ], [ %.0240412, %410 ], [ %.0240412, %411 ], [ %.0240412, %412 ], [ %.0240412, %413 ], [ %.0240412, %414 ], [ %.0240412, %230 ], [ %.0240412, %416 ], [ %.0240412, %482 ], [ %.0240412, %479 ], [ %.0240412, %480 ], [ %.0240412, %481 ], [ %.0240412, %503 ], [ %.0240412, %483 ], [ %.0240412, %504 ], [ %.0240412, %524 ], [ %.0240412, %529 ], [ %.0240412, %532 ], [ %.0240412, %555 ], [ %.0240412, %558 ], [ %.0240412, %563 ], [ %.0240412, %570 ], [ %.0240412, %575 ], [ %.0240412, %582 ], [ %.0240412, %594 ], [ %.0240412, %596 ], [ %.0240412, %.critedge ], [ %.0240412, %636 ], [ %647, %653 ], [ %.0240412, %664 ], [ %.0240412, %662 ], [ %.0240412, %737 ], [ %.0240412, %740 ], [ %.0240412, %743 ], [ %.0240412, %741 ], [ %.0240412, %.thread325 ], [ %.0240412, %763 ], [ %.0240412, %771 ], [ %.0240412, %_Z11sget4_ordersPh.exit.thread ], [ %.0240412, %852 ], [ %.0240412, %851 ], [ %.0240412, %1157 ], [ %.0240412, %1085 ], [ %.0240412, %1105 ], [ %.0240412, %1090 ], [ %.0240412, %1127 ], [ %.0240412, %1149 ], [ %.0240412, %612 ], [ %.0240412, %1212 ], [ %.0240412, %247 ], [ %.0240412, %475 ], [ %.0240412, %629 ], [ %.0240412, %.preheader ], [ %.0240412, %.preheader364 ]
+  %.1237 = phi i32 [ %.0236418, %182 ], [ %.0236418, %186 ], [ %.0236418, %192 ], [ %.0236418, %195 ], [ %.0236418, %199 ], [ %.0236418, %205 ], [ %.0236418, %220 ], [ %.0236418, %218 ], [ %.0236418, %1156 ], [ %.0236418, %318 ], [ %.0236418, %257 ], [ %.0236418, %328 ], [ %.0236418, %329 ], [ %.0236418, %388 ], [ %.0236418, %394 ], [ %.0236418, %340 ], [ %.0236418, %254 ], [ %.0236418, %415 ], [ %.0236418, %409 ], [ %.0236418, %410 ], [ %.0236418, %411 ], [ %.0236418, %412 ], [ %.0236418, %413 ], [ %.0236418, %414 ], [ %.0236418, %230 ], [ %.0236418, %416 ], [ %.0236418, %482 ], [ %.0236418, %479 ], [ %.0236418, %480 ], [ %.0236418, %481 ], [ %.0236418, %503 ], [ %.0236418, %483 ], [ %.0236418, %504 ], [ %.0236418, %524 ], [ %.0236418, %529 ], [ %.0236418, %532 ], [ %.0236418, %555 ], [ %.0236418, %558 ], [ %.0236418, %563 ], [ %.0236418, %570 ], [ %.0236418, %575 ], [ %.0236418, %582 ], [ %.0236418, %594 ], [ %.0236418, %596 ], [ %.3239371, %.critedge ], [ %.0236418, %636 ], [ %.0236418, %653 ], [ %.0236418, %664 ], [ %.0236418, %662 ], [ %.0236418, %737 ], [ %.0236418, %740 ], [ %.0236418, %743 ], [ %.0236418, %741 ], [ %.0236418, %.thread325 ], [ %.0236418, %763 ], [ %.0236418, %771 ], [ %.0236418, %_Z11sget4_ordersPh.exit.thread ], [ %.0236418, %852 ], [ %.0236418, %851 ], [ %.0236418, %1157 ], [ %.0236418, %1085 ], [ %.0236418, %1105 ], [ %.0236418, %1090 ], [ %.0236418, %1127 ], [ %.0236418, %1149 ], [ %.0236418, %612 ], [ %.0236418, %1212 ], [ %.0236418, %247 ], [ %.3239371, %475 ], [ %.0236418, %629 ], [ %.0236418, %.preheader ], [ %.0236418, %.preheader364 ]
+  %.1226 = phi i32 [ %.0225419, %182 ], [ %.0225419, %186 ], [ %.0225419, %192 ], [ %.0225419, %195 ], [ %.0225419, %199 ], [ %.0225419, %205 ], [ %.0225419, %220 ], [ %.0225419, %218 ], [ %.0225419, %1156 ], [ %.0225419, %318 ], [ %.0225419, %257 ], [ %.0225419, %328 ], [ %.0225419, %329 ], [ %.0225419, %388 ], [ %.0225419, %394 ], [ %.0225419, %340 ], [ %.0225419, %254 ], [ %.0225419, %415 ], [ %.0225419, %409 ], [ %.0225419, %410 ], [ %.0225419, %411 ], [ %.0225419, %412 ], [ %.0225419, %413 ], [ %.0225419, %414 ], [ %.0225419, %230 ], [ %.0225419, %416 ], [ %.0225419, %482 ], [ %.0225419, %479 ], [ %.0225419, %480 ], [ %.0225419, %481 ], [ %.0225419, %503 ], [ %.0225419, %483 ], [ %.0225419, %504 ], [ %.0225419, %524 ], [ %.0225419, %529 ], [ %.0225419, %532 ], [ %.0225419, %555 ], [ %.0225419, %558 ], [ %.0225419, %563 ], [ %.0225419, %570 ], [ %.0225419, %575 ], [ %.0225419, %582 ], [ %.0225419, %594 ], [ %.0225419, %596 ], [ %.0225419, %.critedge ], [ %.0225419, %636 ], [ %.0225419, %653 ], [ %.0225419, %664 ], [ %.0225419, %662 ], [ %.3228, %737 ], [ %.3228, %740 ], [ %.3228, %743 ], [ %.3228, %741 ], [ %.0225419, %.thread325 ], [ %.0225419, %763 ], [ %.0225419, %771 ], [ %.0225419, %_Z11sget4_ordersPh.exit.thread ], [ %.0225419, %852 ], [ %.0225419, %851 ], [ %.0225419, %1157 ], [ %.0225419, %1085 ], [ %.0225419, %1105 ], [ %.0225419, %1090 ], [ %.0225419, %1127 ], [ %.0225419, %1149 ], [ %.0225419, %612 ], [ %.0225419, %1212 ], [ %.0225419, %247 ], [ %.0225419, %475 ], [ %.0225419, %629 ], [ %.0225419, %.preheader ], [ %.0225419, %.preheader364 ]
+  %.1223 = phi ptr [ %.0222420, %182 ], [ %.0222420, %186 ], [ %.0222420, %192 ], [ %.0222420, %195 ], [ %.0222420, %199 ], [ %.0222420, %205 ], [ %.0222420, %220 ], [ %.0222420, %218 ], [ %.0222420, %1156 ], [ %.0222420, %318 ], [ %.0222420, %257 ], [ %.0222420, %328 ], [ %.0222420, %329 ], [ %.0222420, %388 ], [ %.0222420, %394 ], [ %.0222420, %340 ], [ %.0222420, %254 ], [ %.0222420, %415 ], [ %.0222420, %409 ], [ %.0222420, %410 ], [ %.0222420, %411 ], [ %.0222420, %412 ], [ %.0222420, %413 ], [ %.0222420, %414 ], [ %.0222420, %230 ], [ %.0222420, %416 ], [ %.0222420, %482 ], [ %.0222420, %479 ], [ %.0222420, %480 ], [ %.0222420, %481 ], [ %.0222420, %503 ], [ %.0222420, %483 ], [ %.0222420, %504 ], [ %.0222420, %524 ], [ %.0222420, %529 ], [ %.0222420, %532 ], [ %.0222420, %555 ], [ %.0222420, %558 ], [ %.0222420, %563 ], [ %.0222420, %570 ], [ %.0222420, %575 ], [ %.0222420, %582 ], [ %.0222420, %594 ], [ %.0222420, %596 ], [ %.0222420, %.critedge ], [ %.0222420, %636 ], [ %.0222420, %653 ], [ %.0222420, %664 ], [ %.0222420, %662 ], [ %.0222420, %737 ], [ %.0222420, %740 ], [ %.0222420, %743 ], [ %.0222420, %741 ], [ %765, %.thread325 ], [ %.0222420, %763 ], [ %.0222420, %771 ], [ %.0222420, %_Z11sget4_ordersPh.exit.thread ], [ %.0222420, %852 ], [ %.0222420, %851 ], [ %.0222420, %1157 ], [ %.0222420, %1085 ], [ %.0222420, %1105 ], [ %.0222420, %1090 ], [ %.0222420, %1127 ], [ %.0222420, %1149 ], [ %.0222420, %612 ], [ %.0222420, %1212 ], [ %.0222420, %247 ], [ %.0222420, %475 ], [ %.0222420, %629 ], [ %.0222420, %.preheader ], [ %.0222420, %.preheader364 ]
+  %.1218 = phi i32 [ %.0217421, %182 ], [ %.0217421, %186 ], [ %.0217421, %192 ], [ %.0217421, %195 ], [ %.0217421, %199 ], [ %.0217421, %205 ], [ %.0217421, %220 ], [ %.0217421, %218 ], [ %.0217421, %1156 ], [ %.0217421, %318 ], [ %.0217421, %257 ], [ %.0217421, %328 ], [ %.0217421, %329 ], [ %.0217421, %388 ], [ %.0217421, %394 ], [ %.0217421, %340 ], [ %.0217421, %254 ], [ %.0217421, %415 ], [ %.0217421, %409 ], [ %.0217421, %410 ], [ %.0217421, %411 ], [ %.0217421, %412 ], [ %.0217421, %413 ], [ %.0217421, %414 ], [ %.0217421, %230 ], [ %.0217421, %416 ], [ %.0217421, %482 ], [ %.0217421, %479 ], [ %.0217421, %480 ], [ %.0217421, %481 ], [ %.0217421, %503 ], [ %.0217421, %483 ], [ %.0217421, %504 ], [ %.0217421, %524 ], [ %.0217421, %529 ], [ %.0217421, %532 ], [ %.0217421, %555 ], [ %.0217421, %558 ], [ %.0217421, %563 ], [ %.0217421, %570 ], [ %.0217421, %575 ], [ %.0217421, %582 ], [ %.0217421, %594 ], [ %.0217421, %596 ], [ %.0217421, %.critedge ], [ %.0217421, %636 ], [ %.0217421, %653 ], [ %.0217421, %664 ], [ %.0217421, %662 ], [ %.0217421, %737 ], [ %.0217421, %740 ], [ %.0217421, %743 ], [ %.0217421, %741 ], [ %.3220328, %.thread325 ], [ 0, %763 ], [ %.0217421, %771 ], [ 0, %_Z11sget4_ordersPh.exit.thread ], [ 0, %852 ], [ 0, %851 ], [ %.0217421, %1157 ], [ %.0217421, %1085 ], [ %.0217421, %1105 ], [ %.0217421, %1090 ], [ %.0217421, %1127 ], [ %.0217421, %1149 ], [ %.0217421, %612 ], [ %.0217421, %1212 ], [ %.0217421, %247 ], [ %.0217421, %475 ], [ %.0217421, %629 ], [ %.0217421, %.preheader ], [ %.0217421, %.preheader364 ]
   %1220 = load ptr, ptr %11, align 8, !tbaa !94
   %1221 = load i32, ptr %8, align 4, !tbaa !92
   %1222 = zext i32 %1221 to i64

@@ -805,7 +805,7 @@ define noundef ptr @SparseMatrix_remove_upper(ptr noundef captures(address_is_nu
   br i1 %123, label %.preheader142, label %._crit_edge205, !llvm.loop !42
 
 ._crit_edge205:                                   ; preds = %._crit_edge, %._crit_edge169, %._crit_edge183, %._crit_edge197, %.preheader143, %76, %43, %15
-  %.9.lcssa.sink = phi i32 [ 0, %15 ], [ 0, %43 ], [ 0, %76 ], [ 0, %.preheader143 ], [ %.1127.lcssa, %._crit_edge197 ], [ %.4.lcssa, %._crit_edge183 ], [ %.7.lcssa, %._crit_edge169 ], [ %.10.lcssa, %._crit_edge ]
+  %.9.lcssa.sink = phi i32 [ %.4.lcssa, %._crit_edge183 ], [ %.1127.lcssa, %._crit_edge197 ], [ %.7.lcssa, %._crit_edge169 ], [ 0, %15 ], [ 0, %43 ], [ 0, %76 ], [ 0, %.preheader143 ], [ %.10.lcssa, %._crit_edge ]
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.9.lcssa.sink, ptr %124, align 8, !tbaa !14
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -815,7 +815,7 @@ define noundef ptr @SparseMatrix_remove_upper(ptr noundef captures(address_is_nu
   br label %128
 
 128:                                              ; preds = %.split, %2, %1, %._crit_edge205
-  %.0 = phi ptr [ %0, %._crit_edge205 ], [ null, %1 ], [ null, %2 ], [ null, %.split ]
+  %.0 = phi ptr [ null, %.split ], [ %0, %._crit_edge205 ], [ null, %1 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -1354,8 +1354,8 @@ gv_calloc.exit:                                   ; preds = %14
   store i8 %214, ptr %4, align 4
   br label %SparseMatrix_delete.exit
 
-SparseMatrix_delete.exit:                         ; preds = %.lr.ph277, %.lr.ph287, %.lr.ph290, %.lr.ph298, %.lr.ph306, %142, %.lr.ph309, %.lr.ph315, %.lr.ph323, %.lr.ph326, %._crit_edge, %.split, %.loopexit238
-  %.2 = phi i1 [ false, %.split ], [ true, %.loopexit238 ], [ false, %._crit_edge ], [ false, %.lr.ph326 ], [ false, %.lr.ph323 ], [ false, %.lr.ph315 ], [ false, %.lr.ph309 ], [ false, %142 ], [ false, %.lr.ph306 ], [ false, %.lr.ph298 ], [ false, %.lr.ph290 ], [ false, %.lr.ph287 ], [ false, %.lr.ph277 ]
+SparseMatrix_delete.exit:                         ; preds = %.lr.ph277, %.lr.ph287, %.lr.ph290, %.lr.ph298, %.lr.ph306, %.lr.ph309, %142, %.lr.ph315, %.lr.ph323, %.lr.ph326, %._crit_edge, %.split, %.loopexit238
+  %.2 = phi i1 [ false, %.split ], [ true, %.loopexit238 ], [ false, %._crit_edge ], [ false, %.lr.ph287 ], [ false, %.lr.ph306 ], [ false, %.lr.ph290 ], [ false, %.lr.ph298 ], [ false, %.lr.ph326 ], [ false, %.lr.ph323 ], [ false, %.lr.ph309 ], [ false, %.lr.ph315 ], [ false, %142 ], [ false, %.lr.ph277 ]
   tail call void @free(ptr noundef %39) #18
   tail call void @free(ptr noundef %20) #18
   tail call void @free(ptr noundef %22) #18
@@ -1366,7 +1366,7 @@ SparseMatrix_delete.exit:                         ; preds = %.lr.ph277, %.lr.ph2
   br label %217
 
 217:                                              ; preds = %SparseMatrix_delete.exit, %3, %8, %12, %2
-  %.0 = phi i1 [ false, %2 ], [ %.2, %SparseMatrix_delete.exit ], [ true, %3 ], [ false, %8 ], [ false, %12 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ true, %3 ], [ false, %12 ], [ %.2, %SparseMatrix_delete.exit ]
   ret i1 %.0
 }
 
@@ -2048,7 +2048,7 @@ gv_calloc.exit:                                   ; preds = %SparseMatrix_new.ex
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph294, !llvm.loop !74
 
 .loopexit:                                        ; preds = %._crit_edge290, %._crit_edge308, %._crit_edge327, %._crit_edge346, %.preheader, %200, %123, %60, %._crit_edge, %.split
-  %.0250 = phi i32 [ 0, %.split ], [ 0, %._crit_edge ], [ 0, %60 ], [ 0, %123 ], [ 0, %200 ], [ 0, %.preheader ], [ %.3253.lcssa, %._crit_edge346 ], [ %.7257.lcssa, %._crit_edge327 ], [ %.11.lcssa, %._crit_edge308 ], [ %.15.lcssa, %._crit_edge290 ]
+  %.0250 = phi i32 [ 0, %.split ], [ 0, %._crit_edge ], [ %.7257.lcssa, %._crit_edge327 ], [ %.3253.lcssa, %._crit_edge346 ], [ %.11.lcssa, %._crit_edge308 ], [ 0, %60 ], [ 0, %123 ], [ 0, %200 ], [ 0, %.preheader ], [ %.15.lcssa, %._crit_edge290 ]
   %304 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i32 %.0250, ptr %304, align 8, !tbaa !14
   tail call void @free(ptr noundef %54) #18
@@ -3220,7 +3220,7 @@ define internal fastcc ptr @SparseMatrix_from_coordinate_arrays_internal(i32 nou
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph318, %177, %.lr.ph329, %147, %.lr.ph339, %109, %.lr.ph349, %68, %.lr.ph360, %32, %._crit_edge367, %212, %.split, %._crit_edge, %9
-  %.0257 = phi ptr [ null, %9 ], [ null, %._crit_edge ], [ null, %.split ], [ %213, %212 ], [ %14, %._crit_edge367 ], [ null, %32 ], [ null, %.lr.ph360 ], [ null, %68 ], [ null, %.lr.ph349 ], [ null, %109 ], [ null, %.lr.ph339 ], [ null, %147 ], [ null, %.lr.ph329 ], [ null, %177 ], [ null, %.lr.ph318 ]
+  %.0257 = phi ptr [ null, %9 ], [ null, %.lr.ph329 ], [ %14, %._crit_edge367 ], [ null, %.split ], [ null, %._crit_edge ], [ null, %.lr.ph339 ], [ null, %.lr.ph360 ], [ null, %.lr.ph349 ], [ %213, %212 ], [ null, %32 ], [ null, %68 ], [ null, %109 ], [ null, %147 ], [ null, %177 ], [ null, %.lr.ph318 ]
   ret ptr %.0257
 }
 
@@ -3633,12 +3633,12 @@ gv_calloc.exit114:                                ; preds = %107
   br i1 %exitcond168.not, label %..loopexit129_crit_edge, label %128, !llvm.loop !120
 
 .loopexit126.sink.split:                          ; preds = %108, %76, %47, %16
-  %.sink = phi i64 [ %17, %16 ], [ %48, %47 ], [ %77, %76 ], [ %109, %108 ]
+  %.sink = phi i64 [ %77, %76 ], [ %48, %47 ], [ %17, %16 ], [ %109, %108 ]
   %134 = tail call noalias ptr @calloc(i64 noundef range(i64 -4294967296, 4294967295) %.sink, i64 noundef 8) #21
   br label %.loopexit126
 
 .loopexit126:                                     ; preds = %.loopexit131, %.loopexit129, %.loopexit127, %.loopexit, %.loopexit126.sink.split, %gv_calloc.exit110, %gv_calloc.exit114, %gv_calloc.exit, %gv_calloc.exit106, %3
-  %.286 = phi ptr [ null, %3 ], [ %9, %gv_calloc.exit106 ], [ %9, %gv_calloc.exit ], [ %9, %gv_calloc.exit114 ], [ %9, %gv_calloc.exit110 ], [ %134, %.loopexit126.sink.split ], [ %.185221, %.loopexit ], [ %.084217, %.loopexit127 ], [ %.4229, %.loopexit129 ], [ %.387225, %.loopexit131 ]
+  %.286 = phi ptr [ %9, %gv_calloc.exit106 ], [ %9, %gv_calloc.exit114 ], [ null, %3 ], [ %9, %gv_calloc.exit ], [ %9, %gv_calloc.exit110 ], [ %.4229, %.loopexit129 ], [ %.185221, %.loopexit ], [ %.084217, %.loopexit127 ], [ %134, %.loopexit126.sink.split ], [ %.387225, %.loopexit131 ]
   store ptr %.286, ptr %2, align 8, !tbaa !111
   ret void
 }
@@ -4288,7 +4288,7 @@ SparseMatrix_new.exit:                            ; preds = %62, %size_of_matrix
   br label %323
 
 .loopexit:                                        ; preds = %._crit_edge349, %._crit_edge368, %._crit_edge387, %._crit_edge406, %280, %220, %129, %69
-  %.8 = phi i32 [ 0, %69 ], [ 0, %129 ], [ 0, %220 ], [ 0, %280 ], [ %.5297.lcssa, %._crit_edge406 ], [ %.10.lcssa, %._crit_edge387 ], [ %.14.lcssa, %._crit_edge368 ], [ %.18.lcssa, %._crit_edge349 ]
+  %.8 = phi i32 [ %.14.lcssa, %._crit_edge368 ], [ %.10.lcssa, %._crit_edge387 ], [ %.5297.lcssa, %._crit_edge406 ], [ 0, %69 ], [ 0, %129 ], [ 0, %220 ], [ 0, %280 ], [ %.18.lcssa, %._crit_edge349 ]
   %322 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store i32 %.8, ptr %322, align 8, !tbaa !14
   br label %323
@@ -4659,7 +4659,7 @@ SparseMatrix_new.exit:                            ; preds = %83, %size_of_matrix
   br label %170
 
 170:                                              ; preds = %32, %24, %29, %20, %3, %._crit_edge205
-  %.0 = phi ptr [ %81, %._crit_edge205 ], [ null, %3 ], [ null, %20 ], [ null, %29 ], [ null, %24 ], [ null, %32 ]
+  %.0 = phi ptr [ %81, %._crit_edge205 ], [ null, %3 ], [ null, %20 ], [ null, %24 ], [ null, %29 ], [ null, %32 ]
   ret ptr %.0
 }
 
@@ -5050,7 +5050,7 @@ gv_calloc.exit:                                   ; preds = %1
   br i1 %202, label %.preheader193, label %.loopexit, !llvm.loop !151
 
 .loopexit:                                        ; preds = %._crit_edge211, %._crit_edge222, %._crit_edge235, %._crit_edge248, %171, %128, %73, %29
-  %.3 = phi i32 [ 0, %29 ], [ 0, %73 ], [ 0, %128 ], [ 0, %171 ], [ %.1.lcssa, %._crit_edge248 ], [ %.5.lcssa, %._crit_edge235 ], [ %.8.lcssa, %._crit_edge222 ], [ %.11.lcssa, %._crit_edge211 ]
+  %.3 = phi i32 [ %.8.lcssa, %._crit_edge222 ], [ %.5.lcssa, %._crit_edge235 ], [ %.1.lcssa, %._crit_edge248 ], [ 0, %29 ], [ 0, %73 ], [ 0, %128 ], [ 0, %171 ], [ %.11.lcssa, %._crit_edge211 ]
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.3, ptr %203, align 8, !tbaa !14
   br label %204
@@ -5720,13 +5720,13 @@ define noundef ptr @SparseMatrix_remove_diagonal(ptr noundef captures(address_is
   br i1 %119, label %.preheader144, label %.sink.split, !llvm.loop !159
 
 .sink.split:                                      ; preds = %._crit_edge, %._crit_edge171, %._crit_edge185, %._crit_edge199, %.preheader145, %74, %42, %15
-  %.0124.lcssa.sink = phi i32 [ 0, %15 ], [ 0, %42 ], [ 0, %74 ], [ 0, %.preheader145 ], [ %.1125.lcssa, %._crit_edge199 ], [ %.4.lcssa, %._crit_edge185 ], [ %.7.lcssa, %._crit_edge171 ], [ %.10.lcssa, %._crit_edge ]
+  %.0124.lcssa.sink = phi i32 [ %.4.lcssa, %._crit_edge185 ], [ %.7.lcssa, %._crit_edge171 ], [ %.1125.lcssa, %._crit_edge199 ], [ 0, %15 ], [ 0, %42 ], [ 0, %74 ], [ 0, %.preheader145 ], [ %.10.lcssa, %._crit_edge ]
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.0124.lcssa.sink, ptr %120, align 8, !tbaa !14
   br label %121
 
 121:                                              ; preds = %.sink.split, %.split, %2, %1
-  %.0 = phi ptr [ null, %1 ], [ null, %2 ], [ null, %.split ], [ %0, %.sink.split ]
+  %.0 = phi ptr [ null, %2 ], [ null, %.split ], [ null, %1 ], [ %0, %.sink.split ]
   ret ptr %.0
 }
 
@@ -5858,7 +5858,7 @@ define noundef ptr @SparseMatrix_divide_row_by_degree(ptr noundef readonly captu
   br label %50
 
 50:                                               ; preds = %.split, %2, %1, %.loopexit58
-  %.0 = phi ptr [ %0, %.loopexit58 ], [ null, %1 ], [ null, %2 ], [ null, %.split ]
+  %.0 = phi ptr [ null, %.split ], [ %0, %.loopexit58 ], [ null, %1 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -5970,7 +5970,7 @@ gv_calloc.exit:                                   ; preds = %SparseMatrix_new.ex
   br label %54
 
 54:                                               ; preds = %2, %1, %._crit_edge
-  %.0 = phi ptr [ %33, %._crit_edge ], [ null, %1 ], [ null, %2 ]
+  %.0 = phi ptr [ null, %1 ], [ %33, %._crit_edge ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -6095,7 +6095,7 @@ define noundef zeroext i1 @SparseMatrix_has_diagonal(ptr noundef readonly captur
   br i1 %17, label %.loopexit17, label %13
 
 .loopexit17:                                      ; preds = %.loopexit, %.lr.ph, %1
-  %18 = phi i1 [ false, %1 ], [ true, %.lr.ph ], [ false, %.loopexit ]
+  %18 = phi i1 [ true, %.lr.ph ], [ false, %1 ], [ false, %.loopexit ]
   ret i1 %18
 }
 
@@ -6216,8 +6216,8 @@ gv_calloc.exit:                                   ; preds = %20
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !170
 
 ._crit_edge:                                      ; preds = %54, %gv_calloc.exit.thread, %gv_calloc.exit
-  %56 = phi ptr [ %21, %gv_calloc.exit ], [ %15, %gv_calloc.exit.thread ], [ %21, %54 ]
-  %57 = phi ptr [ null, %gv_calloc.exit ], [ null, %gv_calloc.exit.thread ], [ %55, %54 ]
+  %56 = phi ptr [ %15, %gv_calloc.exit.thread ], [ %21, %gv_calloc.exit ], [ %21, %54 ]
+  %57 = phi ptr [ null, %gv_calloc.exit.thread ], [ null, %gv_calloc.exit ], [ %55, %54 ]
   %.not = icmp eq ptr %.0, %0
   %.not.i = icmp eq ptr %.0, null
   %or.cond = or i1 %.not, %.not.i
@@ -6387,7 +6387,7 @@ gv_calloc.exit82:                                 ; preds = %49
   br i1 %exitcond.not, label %.loopexit92, label %.lr.ph, !llvm.loop !171
 
 .loopexit92:                                      ; preds = %.lr.ph, %gv_calloc.exit82, %47
-  %64 = phi ptr [ %62, %gv_calloc.exit82 ], [ %48, %47 ], [ %56, %.lr.ph ]
+  %64 = phi ptr [ %48, %47 ], [ %62, %gv_calloc.exit82 ], [ %56, %.lr.ph ]
   %65 = load ptr, ptr %3, align 8, !tbaa !169
   store i32 0, ptr %65, align 4, !tbaa !19
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
@@ -7065,7 +7065,7 @@ define ptr @SparseMatrix_to_square_matrix(ptr noundef captures(address_is_null, 
   br label %SparseMatrix_delete.exit
 
 SparseMatrix_delete.exit:                         ; preds = %25, %23, %20, %13, %3
-  %.0 = phi ptr [ %0, %3 ], [ %0, %13 ], [ %0, %20 ], [ %24, %23 ], [ %26, %25 ]
+  %.0 = phi ptr [ %0, %20 ], [ %0, %13 ], [ %0, %3 ], [ %24, %23 ], [ %26, %25 ]
   ret ptr %.0
 }
 
@@ -7800,10 +7800,10 @@ gv_calloc.exit304:                                ; preds = %.thread328, %291
   br i1 %exitcond466.not, label %.loopexit343, label %.lr.ph391, !llvm.loop !199
 
 .loopexit343:                                     ; preds = %.loopexit348, %.loopexit346, %gv_calloc.exit284, %.loopexit, %gv_calloc.exit304, %gv_calloc.exit296, %gv_calloc.exit284.preheader, %gv_calloc.exit272
-  %.0244 = phi ptr [ %122, %gv_calloc.exit272 ], [ %179, %gv_calloc.exit284.preheader ], [ %248, %gv_calloc.exit296 ], [ null, %gv_calloc.exit304 ], [ %122, %.loopexit ], [ %179, %gv_calloc.exit284 ], [ %248, %.loopexit346 ], [ null, %.loopexit348 ]
-  %.0237 = phi ptr [ %123, %gv_calloc.exit272 ], [ %180, %gv_calloc.exit284.preheader ], [ %249, %gv_calloc.exit296 ], [ %298, %gv_calloc.exit304 ], [ %123, %.loopexit ], [ %180, %gv_calloc.exit284 ], [ %249, %.loopexit346 ], [ %298, %.loopexit348 ]
-  %.0236 = phi ptr [ %124, %gv_calloc.exit272 ], [ %181, %gv_calloc.exit284.preheader ], [ %250, %gv_calloc.exit296 ], [ %299, %gv_calloc.exit304 ], [ %124, %.loopexit ], [ %181, %gv_calloc.exit284 ], [ %250, %.loopexit346 ], [ %299, %.loopexit348 ]
-  %.8 = phi i32 [ 0, %gv_calloc.exit272 ], [ 0, %gv_calloc.exit284.preheader ], [ 0, %gv_calloc.exit296 ], [ 0, %gv_calloc.exit304 ], [ %.5, %.loopexit ], [ %.10, %gv_calloc.exit284 ], [ %.14, %.loopexit346 ], [ %.18, %.loopexit348 ]
+  %.0244 = phi ptr [ %179, %gv_calloc.exit284.preheader ], [ %122, %gv_calloc.exit272 ], [ %248, %gv_calloc.exit296 ], [ null, %gv_calloc.exit304 ], [ %248, %.loopexit346 ], [ %122, %.loopexit ], [ %179, %gv_calloc.exit284 ], [ null, %.loopexit348 ]
+  %.0237 = phi ptr [ %180, %gv_calloc.exit284.preheader ], [ %123, %gv_calloc.exit272 ], [ %249, %gv_calloc.exit296 ], [ %298, %gv_calloc.exit304 ], [ %249, %.loopexit346 ], [ %123, %.loopexit ], [ %180, %gv_calloc.exit284 ], [ %298, %.loopexit348 ]
+  %.0236 = phi ptr [ %181, %gv_calloc.exit284.preheader ], [ %124, %gv_calloc.exit272 ], [ %250, %gv_calloc.exit296 ], [ %299, %gv_calloc.exit304 ], [ %250, %.loopexit346 ], [ %124, %.loopexit ], [ %181, %gv_calloc.exit284 ], [ %299, %.loopexit348 ]
+  %.8 = phi i32 [ 0, %gv_calloc.exit284.preheader ], [ 0, %gv_calloc.exit272 ], [ 0, %gv_calloc.exit296 ], [ 0, %gv_calloc.exit304 ], [ %.14, %.loopexit346 ], [ %.5, %.loopexit ], [ %.10, %gv_calloc.exit284 ], [ %.18, %.loopexit348 ]
   %322 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %323 = load i64, ptr %322, align 8, !tbaa !62
   %324 = tail call fastcc ptr @SparseMatrix_from_coordinate_arrays_internal(i32 noundef %.8, i32 noundef %1, i32 noundef %2, ptr noundef readonly %.0236, ptr noundef readonly %.0237, ptr noundef readonly %.0244, i32 noundef %86, i64 noundef %323, i32 noundef 1)

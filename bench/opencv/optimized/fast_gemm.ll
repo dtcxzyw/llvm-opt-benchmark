@@ -2077,8 +2077,8 @@ define internal fastcc void @"_ZZN2cv3dnn12cpu_baseline14fastGemmKernelEiiifPKci
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge.us, %.loopexit.loopexit, %.preheader, %94
-  %106 = phi i32 [ %.pre40, %.loopexit.loopexit ], [ %46, %.preheader ], [ %46, %94 ], [ %46, %._crit_edge.us ]
-  %107 = phi i32 [ %.pre38, %.loopexit.loopexit ], [ %71, %.preheader ], [ %71, %94 ], [ %71, %._crit_edge.us ]
+  %106 = phi i32 [ %46, %94 ], [ %46, %.preheader ], [ %.pre40, %.loopexit.loopexit ], [ %46, %._crit_edge.us ]
+  %107 = phi i32 [ %71, %94 ], [ %71, %.preheader ], [ %.pre38, %.loopexit.loopexit ], [ %71, %._crit_edge.us ]
   %108 = load ptr, ptr %30, align 8, !tbaa !104
   %109 = load i32, ptr %108, align 4, !tbaa !17
   %.fr68 = freeze i32 %109
@@ -3385,8 +3385,8 @@ _ZN2cv3dnnL14fast_gemm_thinEffiiiPKciiS2_iPcib.exit: ; preds = %_ZNSt14_Function
   br label %90
 
 .thread:                                          ; preds = %17, %38, %35
-  %.058 = phi i32 [ 1, %38 ], [ %12, %35 ], [ %11, %17 ]
-  %.05157 = phi i32 [ %11, %38 ], [ %11, %35 ], [ %12, %17 ]
+  %.058 = phi i32 [ %12, %35 ], [ 1, %38 ], [ %11, %17 ]
+  %.05157 = phi i32 [ %11, %35 ], [ %11, %38 ], [ %12, %17 ]
   %87 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %88 = load i8, ptr %87, align 1, !tbaa !129, !range !47, !noundef !48
   %89 = trunc nuw i8 %88 to i1
@@ -3627,7 +3627,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit62:                  ; preds = %76
   br label %.body56
 
 .body56:                                          ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i55, %92, %94, %57
-  %.pn.pn.pn = phi { ptr, i32 } [ %58, %57 ], [ %69, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i55 ], [ %93, %92 ], [ %.pn148, %94 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %58, %57 ], [ %69, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i55 ], [ %.pn148, %94 ], [ %93, %92 ]
   %.not.i.i.i65 = icmp eq ptr %.sroa.0124.0, null
   br i1 %.not.i.i.i65, label %.body, label %95
 
@@ -3636,7 +3636,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit62:                  ; preds = %76
   br label %.body
 
 .body:                                            ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i52, %.body56, %95, %38
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %39, %38 ], [ %50, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i52 ], [ %.pn.pn.pn, %.body56 ], [ %.pn.pn.pn, %95 ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %39, %38 ], [ %50, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i52 ], [ %.pn.pn.pn, %95 ], [ %.pn.pn.pn, %.body56 ]
   %.not.i.i.i67 = icmp eq ptr %.sroa.0134.0, null
   br i1 %.not.i.i.i67, label %common.resume, label %96
 
@@ -4189,7 +4189,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit85:                  ; preds = %184, %_ZNSt6vectorI
   br label %.body50
 
 .body50:                                          ; preds = %187, %186, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i49
-  %.pn34.pn.pn.pn = phi { ptr, i32 } [ %52, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i49 ], [ %.pn34.pn.pn, %186 ], [ %.pn34.pn.pn, %187 ]
+  %.pn34.pn.pn.pn = phi { ptr, i32 } [ %52, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i49 ], [ %.pn34.pn.pn, %187 ], [ %.pn34.pn.pn, %186 ]
   %.not.i.i.i88 = icmp eq ptr %.sroa.0148.0, null
   br i1 %.not.i.i.i88, label %.body, label %188
 
@@ -4198,7 +4198,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit85:                  ; preds = %184, %_ZNSt6vectorI
   br label %.body
 
 .body:                                            ; preds = %188, %.body50, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i46
-  %.pn34.pn.pn.pn.pn = phi { ptr, i32 } [ %43, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i46 ], [ %.pn34.pn.pn.pn, %.body50 ], [ %.pn34.pn.pn.pn, %188 ]
+  %.pn34.pn.pn.pn.pn = phi { ptr, i32 } [ %43, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i46 ], [ %.pn34.pn.pn.pn, %188 ], [ %.pn34.pn.pn.pn, %.body50 ]
   %.not.i.i.i90 = icmp eq ptr %.sroa.0160.0, null
   br i1 %.not.i.i.i90, label %common.resume, label %189
 
@@ -4342,7 +4342,7 @@ _ZNSt6vectorImSaImEED2Ev.exit23:                  ; preds = %33
   br label %_ZNSt6vectorImSaImEED2Ev.exit25
 
 _ZNSt6vectorImSaImEED2Ev.exit25:                  ; preds = %51, %49, %47, %45, %43, %_ZNSt6vectorImSaImEED2Ev.exit23, %55
-  %.pn177180 = phi { ptr, i32 } [ %54, %_ZNSt6vectorImSaImEED2Ev.exit23 ], [ %.pn177184, %55 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ]
+  %.pn177180 = phi { ptr, i32 } [ %.pn177184, %55 ], [ %54, %_ZNSt6vectorImSaImEED2Ev.exit23 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ]
   %57 = load ptr, ptr %4, align 8, !tbaa !145
   %.not.i.i.i26 = icmp eq ptr %57, null
   br i1 %.not.i.i.i26, label %_ZNSt6vectorImSaImEED2Ev.exit27, label %58
@@ -7031,8 +7031,8 @@ define internal fastcc void @"_ZZN2cv3dnn12cpu_baseline19fastGemmBatchKernelEmPK
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge.us, %.loopexit.loopexit, %.preheader, %124
-  %136 = phi i32 [ %.pre40, %.loopexit.loopexit ], [ %50, %.preheader ], [ %50, %124 ], [ %50, %._crit_edge.us ]
-  %137 = phi i32 [ %.pre38, %.loopexit.loopexit ], [ %82, %.preheader ], [ %82, %124 ], [ %82, %._crit_edge.us ]
+  %136 = phi i32 [ %50, %124 ], [ %50, %.preheader ], [ %.pre40, %.loopexit.loopexit ], [ %50, %._crit_edge.us ]
+  %137 = phi i32 [ %82, %124 ], [ %82, %.preheader ], [ %.pre38, %.loopexit.loopexit ], [ %82, %._crit_edge.us ]
   %138 = load ptr, ptr %35, align 8, !tbaa !226
   %139 = load i32, ptr %138, align 4, !tbaa !17
   %.fr76 = freeze i32 %139
@@ -7557,7 +7557,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !125
   br label %40
 

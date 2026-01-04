@@ -2395,7 +2395,7 @@ define hidden i32 @srvsvc_dissect_struct_NetCharDevInfo0(ptr noundef %0, i32 nou
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not36 = icmp eq ptr %3, null
   br i1 %.not36, label %32, label %28
 
@@ -2480,7 +2480,7 @@ define hidden i32 @srvsvc_dissect_struct_NetCharDevCtr0(ptr noundef %0, i32 noun
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -2561,7 +2561,7 @@ define hidden i32 @srvsvc_dissect_struct_NetCharDevInfo1(ptr noundef %0, i32 nou
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not54 = icmp eq ptr %3, null
   br i1 %.not54, label %32, label %28
 
@@ -2646,7 +2646,7 @@ define hidden i32 @srvsvc_dissect_struct_NetCharDevCtr1(ptr noundef %0, i32 noun
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -2729,7 +2729,7 @@ define hidden i32 @srvsvc_dissect_struct_NetCharDevInfoCtr(ptr noundef %0, i32 n
   br label %29
 
 29:                                               ; preds = %24, %26, %19, %21
-  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %1, %24 ], [ %28, %26 ]
+  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %28, %26 ], [ %1, %24 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %34, label %30
 
@@ -2792,7 +2792,7 @@ define hidden i32 @srvsvc_dissect_struct_NetCharDevInfoCtr(ptr noundef %0, i32 n
   br label %60
 
 60:                                               ; preds = %57, %55, %52, %50
-  %.0.i.i = phi i32 [ %42, %50 ], [ %54, %52 ], [ %42, %55 ], [ %59, %57 ]
+  %.0.i.i = phi i32 [ %42, %50 ], [ %54, %52 ], [ %59, %57 ], [ %42, %55 ]
   %61 = load i32, ptr %10, align 4
   switch i32 %61, label %srvsvc_dissect_element_NetCharDevInfoCtr_ctr.exit [
     i32 0, label %62
@@ -2879,7 +2879,7 @@ define hidden i32 @srvsvc_dissect_struct_NetCharDevQInfo0(ptr noundef %0, i32 no
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not36 = icmp eq ptr %3, null
   br i1 %.not36, label %32, label %28
 
@@ -2958,7 +2958,7 @@ define hidden i32 @srvsvc_dissect_struct_NetCharDevQCtr0(ptr noundef %0, i32 nou
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -3039,7 +3039,7 @@ define hidden i32 @srvsvc_dissect_struct_NetCharDevQInfo1(ptr noundef %0, i32 no
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not60 = icmp eq ptr %3, null
   br i1 %.not60, label %32, label %28
 
@@ -3126,7 +3126,7 @@ define hidden i32 @srvsvc_dissect_struct_NetCharDevQCtr1(ptr noundef %0, i32 nou
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -3209,7 +3209,7 @@ define hidden i32 @srvsvc_dissect_struct_NetCharDevQInfoCtr(ptr noundef %0, i32 
   br label %29
 
 29:                                               ; preds = %24, %26, %19, %21
-  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %1, %24 ], [ %28, %26 ]
+  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %28, %26 ], [ %1, %24 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %34, label %30
 
@@ -3272,7 +3272,7 @@ define hidden i32 @srvsvc_dissect_struct_NetCharDevQInfoCtr(ptr noundef %0, i32 
   br label %60
 
 60:                                               ; preds = %57, %55, %52, %50
-  %.0.i.i = phi i32 [ %42, %50 ], [ %54, %52 ], [ %42, %55 ], [ %59, %57 ]
+  %.0.i.i = phi i32 [ %42, %50 ], [ %54, %52 ], [ %59, %57 ], [ %42, %55 ]
   %61 = load i32, ptr %10, align 4
   switch i32 %61, label %srvsvc_dissect_element_NetCharDevQInfoCtr_ctr.exit [
     i32 0, label %62
@@ -3412,7 +3412,7 @@ define hidden i32 @srvsvc_dissect_struct_NetConnCtr0(ptr noundef %0, i32 noundef
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -3493,7 +3493,7 @@ define hidden i32 @srvsvc_dissect_struct_NetConnInfo1(ptr noundef %0, i32 nounde
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not72 = icmp eq ptr %3, null
   br i1 %.not72, label %32, label %28
 
@@ -3584,7 +3584,7 @@ define hidden i32 @srvsvc_dissect_struct_NetConnCtr1(ptr noundef %0, i32 noundef
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -3667,7 +3667,7 @@ define hidden i32 @srvsvc_dissect_struct_NetConnInfoCtr(ptr noundef %0, i32 noun
   br label %29
 
 29:                                               ; preds = %24, %26, %19, %21
-  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %1, %24 ], [ %28, %26 ]
+  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %28, %26 ], [ %1, %24 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %34, label %30
 
@@ -3730,7 +3730,7 @@ define hidden i32 @srvsvc_dissect_struct_NetConnInfoCtr(ptr noundef %0, i32 noun
   br label %60
 
 60:                                               ; preds = %57, %55, %52, %50
-  %.0.i.i = phi i32 [ %42, %50 ], [ %54, %52 ], [ %42, %55 ], [ %59, %57 ]
+  %.0.i.i = phi i32 [ %42, %50 ], [ %54, %52 ], [ %59, %57 ], [ %42, %55 ]
   %61 = load i32, ptr %10, align 4
   switch i32 %61, label %srvsvc_dissect_element_NetConnInfoCtr_ctr.exit [
     i32 0, label %62
@@ -3870,7 +3870,7 @@ define hidden i32 @srvsvc_dissect_struct_NetFileCtr2(ptr noundef %0, i32 noundef
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -3951,7 +3951,7 @@ define hidden i32 @srvsvc_dissect_struct_NetFileInfo3(ptr noundef %0, i32 nounde
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not60 = icmp eq ptr %3, null
   br i1 %.not60, label %32, label %28
 
@@ -4038,7 +4038,7 @@ define hidden i32 @srvsvc_dissect_struct_NetFileCtr3(ptr noundef %0, i32 noundef
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -4121,7 +4121,7 @@ define hidden i32 @srvsvc_dissect_struct_NetFileInfoCtr(ptr noundef %0, i32 noun
   br label %29
 
 29:                                               ; preds = %24, %26, %19, %21
-  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %1, %24 ], [ %28, %26 ]
+  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %28, %26 ], [ %1, %24 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %34, label %30
 
@@ -4184,7 +4184,7 @@ define hidden i32 @srvsvc_dissect_struct_NetFileInfoCtr(ptr noundef %0, i32 noun
   br label %60
 
 60:                                               ; preds = %57, %55, %52, %50
-  %.0.i.i = phi i32 [ %42, %50 ], [ %54, %52 ], [ %42, %55 ], [ %59, %57 ]
+  %.0.i.i = phi i32 [ %42, %50 ], [ %54, %52 ], [ %59, %57 ], [ %42, %55 ]
   %61 = load i32, ptr %10, align 4
   switch i32 %61, label %srvsvc_dissect_element_NetFileInfoCtr_ctr.exit [
     i32 2, label %62
@@ -4271,7 +4271,7 @@ define hidden i32 @srvsvc_dissect_struct_NetSessInfo0(ptr noundef %0, i32 nounde
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not36 = icmp eq ptr %3, null
   br i1 %.not36, label %32, label %28
 
@@ -4350,7 +4350,7 @@ define hidden i32 @srvsvc_dissect_struct_NetSessCtr0(ptr noundef %0, i32 noundef
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -4431,7 +4431,7 @@ define hidden i32 @srvsvc_dissect_struct_NetSessInfo1(ptr noundef %0, i32 nounde
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not66 = icmp eq ptr %3, null
   br i1 %.not66, label %32, label %28
 
@@ -4520,7 +4520,7 @@ define hidden i32 @srvsvc_dissect_struct_NetSessCtr1(ptr noundef %0, i32 noundef
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -4601,7 +4601,7 @@ define hidden i32 @srvsvc_dissect_struct_NetSessInfo2(ptr noundef %0, i32 nounde
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not72 = icmp eq ptr %3, null
   br i1 %.not72, label %32, label %28
 
@@ -4692,7 +4692,7 @@ define hidden i32 @srvsvc_dissect_struct_NetSessCtr2(ptr noundef %0, i32 noundef
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -4773,7 +4773,7 @@ define hidden i32 @srvsvc_dissect_struct_NetSessInfo10(ptr noundef %0, i32 nound
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not54 = icmp eq ptr %3, null
   br i1 %.not54, label %32, label %28
 
@@ -4858,7 +4858,7 @@ define hidden i32 @srvsvc_dissect_struct_NetSessCtr10(ptr noundef %0, i32 nounde
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -4939,7 +4939,7 @@ define hidden i32 @srvsvc_dissect_struct_NetSessInfo502(ptr noundef %0, i32 noun
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not78 = icmp eq ptr %3, null
   br i1 %.not78, label %32, label %28
 
@@ -5032,7 +5032,7 @@ define hidden i32 @srvsvc_dissect_struct_NetSessCtr502(ptr noundef %0, i32 nound
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -5145,7 +5145,7 @@ define hidden i32 @srvsvc_dissect_struct_NetSessInfoCtr(ptr noundef %0, i32 noun
   br label %30
 
 30:                                               ; preds = %25, %27, %20, %22
-  %.0 = phi i32 [ %1, %20 ], [ %24, %22 ], [ %1, %25 ], [ %29, %27 ]
+  %.0 = phi i32 [ %1, %20 ], [ %24, %22 ], [ %29, %27 ], [ %1, %25 ]
   %.not49 = icmp eq ptr %3, null
   br i1 %.not49, label %35, label %31
 
@@ -5196,7 +5196,7 @@ define hidden i32 @srvsvc_dissect_struct_NetSessInfoCtr(ptr noundef %0, i32 noun
   br label %55
 
 55:                                               ; preds = %50, %52, %45, %47
-  %.1 = phi i32 [ %37, %45 ], [ %49, %47 ], [ %37, %50 ], [ %54, %52 ]
+  %.1 = phi i32 [ %37, %45 ], [ %49, %47 ], [ %54, %52 ], [ %37, %50 ]
   %56 = load i32, ptr @hf_srvsvc_srvsvc_NetSessInfoCtr_ctr, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
@@ -5245,7 +5245,7 @@ define hidden i32 @srvsvc_dissect_struct_NetSessInfoCtr(ptr noundef %0, i32 noun
   br label %79
 
 79:                                               ; preds = %76, %74, %71, %69
-  %.0.i.i = phi i32 [ %61, %69 ], [ %73, %71 ], [ %61, %74 ], [ %78, %76 ]
+  %.0.i.i = phi i32 [ %61, %69 ], [ %73, %71 ], [ %78, %76 ], [ %61, %74 ]
   %80 = load i32, ptr %10, align 4
   switch i32 %80, label %srvsvc_dissect_element_NetSessInfoCtr_ctr.exit [
     i32 0, label %81
@@ -5376,7 +5376,7 @@ define hidden i32 @srvsvc_dissect_struct_NetShareInfo0(ptr noundef %0, i32 nound
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not36 = icmp eq ptr %3, null
   br i1 %.not36, label %32, label %28
 
@@ -5455,7 +5455,7 @@ define hidden i32 @srvsvc_dissect_struct_NetShareCtr0(ptr noundef %0, i32 nounde
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -5537,7 +5537,7 @@ define hidden i32 @srvsvc_dissect_struct_NetShareInfo1(ptr noundef %0, i32 nound
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
+  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %27, %25 ], [ %1, %23 ]
   %.not48 = icmp eq ptr %3, null
   br i1 %.not48, label %33, label %29
 
@@ -5623,7 +5623,7 @@ define hidden i32 @srvsvc_dissect_struct_NetShareCtr1(ptr noundef %0, i32 nounde
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -5705,7 +5705,7 @@ define hidden i32 @srvsvc_dissect_struct_NetShareInfo2(ptr noundef %0, i32 nound
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
+  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %27, %25 ], [ %1, %23 ]
   %.not78 = icmp eq ptr %3, null
   br i1 %.not78, label %33, label %29
 
@@ -5801,7 +5801,7 @@ define hidden i32 @srvsvc_dissect_struct_NetShareCtr2(ptr noundef %0, i32 nounde
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -5883,7 +5883,7 @@ define hidden i32 @srvsvc_dissect_struct_NetShareInfo501(ptr noundef %0, i32 nou
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
+  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %27, %25 ], [ %1, %23 ]
   %.not54 = icmp eq ptr %3, null
   br i1 %.not54, label %33, label %29
 
@@ -5971,7 +5971,7 @@ define hidden i32 @srvsvc_dissect_struct_NetShareCtr501(ptr noundef %0, i32 noun
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -6054,7 +6054,7 @@ define hidden i32 @srvsvc_dissect_struct_NetShareInfo502(ptr noundef %0, i32 nou
   br label %29
 
 29:                                               ; preds = %24, %26, %19, %21
-  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %1, %24 ], [ %28, %26 ]
+  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %28, %26 ], [ %1, %24 ]
   %.not84 = icmp eq ptr %3, null
   br i1 %.not84, label %34, label %30
 
@@ -6167,7 +6167,7 @@ define hidden i32 @srvsvc_dissect_struct_NetShareCtr502(ptr noundef %0, i32 noun
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -6248,7 +6248,7 @@ define hidden i32 @srvsvc_dissect_struct_NetShareInfo1004(ptr noundef %0, i32 no
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not36 = icmp eq ptr %3, null
   br i1 %.not36, label %32, label %28
 
@@ -6327,7 +6327,7 @@ define hidden i32 @srvsvc_dissect_struct_NetShareCtr1004(ptr noundef %0, i32 nou
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -6512,7 +6512,7 @@ define hidden i32 @srvsvc_dissect_struct_NetShareCtr1005(ptr noundef %0, i32 nou
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -6646,7 +6646,7 @@ define hidden i32 @srvsvc_dissect_struct_NetShareCtr1006(ptr noundef %0, i32 nou
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -6727,7 +6727,7 @@ define hidden i32 @srvsvc_dissect_struct_NetShareInfo1007(ptr noundef %0, i32 no
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -6808,7 +6808,7 @@ define hidden i32 @srvsvc_dissect_struct_NetShareCtr1007(ptr noundef %0, i32 nou
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -6889,7 +6889,7 @@ define hidden i32 @srvsvc_dissect_struct_NetShareCtr1501(ptr noundef %0, i32 nou
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -6972,7 +6972,7 @@ define hidden i32 @srvsvc_dissect_struct_NetShareInfoCtr(ptr noundef %0, i32 nou
   br label %29
 
 29:                                               ; preds = %24, %26, %19, %21
-  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %1, %24 ], [ %28, %26 ]
+  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %28, %26 ], [ %1, %24 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %34, label %30
 
@@ -7020,7 +7020,7 @@ define hidden i32 @srvsvc_dissect_struct_NetShareInfoCtr(ptr noundef %0, i32 nou
   br label %54
 
 54:                                               ; preds = %51, %49, %46, %44
-  %.0.i = phi i32 [ %36, %44 ], [ %48, %46 ], [ %36, %49 ], [ %53, %51 ]
+  %.0.i = phi i32 [ %36, %44 ], [ %48, %46 ], [ %53, %51 ], [ %36, %49 ]
   %55 = load i32, ptr @hf_srvsvc_srvsvc_NetShareInfoCtr_ctr, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
@@ -7068,7 +7068,7 @@ define hidden i32 @srvsvc_dissect_struct_NetShareInfoCtr(ptr noundef %0, i32 nou
   br label %77
 
 77:                                               ; preds = %74, %72, %69, %67
-  %.0.i.i = phi i32 [ %60, %67 ], [ %71, %69 ], [ %60, %72 ], [ %76, %74 ]
+  %.0.i.i = phi i32 [ %60, %67 ], [ %71, %69 ], [ %76, %74 ], [ %60, %72 ]
   %78 = load i32, ptr %10, align 4
   switch i32 %78, label %srvsvc_dissect_element_NetShareInfoCtr_ctr.exit [
     i32 0, label %79
@@ -7230,7 +7230,7 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo100(ptr noundef %0, i32 nound
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
+  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %27, %25 ], [ %1, %23 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %33, label %29
 
@@ -7315,7 +7315,7 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo101(ptr noundef %0, i32 nound
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
+  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %27, %25 ], [ %1, %23 ]
   %.not66 = icmp eq ptr %3, null
   br i1 %.not66, label %33, label %29
 
@@ -7416,7 +7416,7 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo102(ptr noundef %0, i32 nound
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
+  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %27, %25 ], [ %1, %23 ]
   %.not108 = icmp eq ptr %3, null
   br i1 %.not108, label %33, label %29
 
@@ -7530,7 +7530,7 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo402(ptr noundef %0, i32 nound
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not216 = icmp eq ptr %3, null
   br i1 %.not216, label %32, label %28
 
@@ -7669,7 +7669,7 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo403(ptr noundef %0, i32 nound
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not234 = icmp eq ptr %3, null
   br i1 %.not234, label %32, label %28
 
@@ -7901,7 +7901,7 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo503(ptr noundef %0, i32 nound
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not282 = icmp eq ptr %3, null
   br i1 %.not282, label %32, label %28
 
@@ -8062,7 +8062,7 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo599(ptr noundef %0, i32 nound
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not360 = icmp eq ptr %3, null
   br i1 %.not360, label %32, label %28
 
@@ -8249,7 +8249,7 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1005(ptr noundef %0, i32 noun
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not36 = icmp eq ptr %3, null
   br i1 %.not36, label %32, label %28
 
@@ -11036,7 +11036,7 @@ define hidden i32 @srvsvc_dissect_struct_NetDiskInfo(ptr noundef %0, i32 noundef
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -11202,7 +11202,7 @@ define hidden i32 @srvsvc_dissect_struct_NetTransportInfo0(ptr noundef %0, i32 n
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not60 = icmp eq ptr %3, null
   br i1 %.not60, label %32, label %28
 
@@ -11289,7 +11289,7 @@ define hidden i32 @srvsvc_dissect_struct_NetTransportCtr0(ptr noundef %0, i32 no
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -11370,7 +11370,7 @@ define hidden i32 @srvsvc_dissect_struct_NetTransportInfo1(ptr noundef %0, i32 n
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not66 = icmp eq ptr %3, null
   br i1 %.not66, label %32, label %28
 
@@ -11459,7 +11459,7 @@ define hidden i32 @srvsvc_dissect_struct_NetTransportCtr1(ptr noundef %0, i32 no
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -11540,7 +11540,7 @@ define hidden i32 @srvsvc_dissect_struct_NetTransportInfo2(ptr noundef %0, i32 n
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not72 = icmp eq ptr %3, null
   br i1 %.not72, label %32, label %28
 
@@ -11631,7 +11631,7 @@ define hidden i32 @srvsvc_dissect_struct_NetTransportCtr2(ptr noundef %0, i32 no
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -11712,7 +11712,7 @@ define hidden i32 @srvsvc_dissect_struct_NetTransportInfo3(ptr noundef %0, i32 n
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not84 = icmp eq ptr %3, null
   br i1 %.not84, label %32, label %28
 
@@ -11817,7 +11817,7 @@ define hidden i32 @srvsvc_dissect_struct_NetTransportCtr3(ptr noundef %0, i32 no
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -11900,7 +11900,7 @@ define hidden i32 @srvsvc_dissect_struct_NetTransportInfoCtr(ptr noundef %0, i32
   br label %29
 
 29:                                               ; preds = %24, %26, %19, %21
-  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %1, %24 ], [ %28, %26 ]
+  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %28, %26 ], [ %1, %24 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %34, label %30
 
@@ -11963,7 +11963,7 @@ define hidden i32 @srvsvc_dissect_struct_NetTransportInfoCtr(ptr noundef %0, i32
   br label %60
 
 60:                                               ; preds = %57, %55, %52, %50
-  %.0.i.i = phi i32 [ %42, %50 ], [ %54, %52 ], [ %42, %55 ], [ %59, %57 ]
+  %.0.i.i = phi i32 [ %42, %50 ], [ %54, %52 ], [ %59, %57 ], [ %42, %55 ]
   %61 = load i32, ptr %10, align 4
   switch i32 %61, label %srvsvc_dissect_element_NetTransportInfoCtr_ctr.exit [
     i32 0, label %62
@@ -16089,7 +16089,7 @@ define internal i32 @srvsvc_dissect_element_NetCharDevGetInfo_info_(ptr noundef 
   br label %33
 
 33:                                               ; preds = %30, %28, %25, %23
-  %.0.i = phi i32 [ %14, %23 ], [ %27, %25 ], [ %14, %28 ], [ %32, %30 ]
+  %.0.i = phi i32 [ %14, %23 ], [ %27, %25 ], [ %32, %30 ], [ %14, %28 ]
   %34 = load i32, ptr %8, align 4
   switch i32 %34, label %srvsvc_dissect_NetCharDevInfo.exit [
     i32 0, label %35
@@ -16258,7 +16258,7 @@ define internal fastcc i32 @srvsvc_dissect_NetCharDevQInfo(ptr noundef %0, i32 n
   br label %33
 
 33:                                               ; preds = %28, %30, %23, %25
-  %.0 = phi i32 [ %14, %23 ], [ %27, %25 ], [ %14, %28 ], [ %32, %30 ]
+  %.0 = phi i32 [ %14, %23 ], [ %27, %25 ], [ %32, %30 ], [ %14, %28 ]
   %34 = load i32, ptr %9, align 4
   switch i32 %34, label %41 [
     i32 0, label %35
@@ -16509,7 +16509,7 @@ define internal i32 @srvsvc_dissect_element_NetFileGetInfo_info_(ptr noundef %0,
   br label %33
 
 33:                                               ; preds = %30, %28, %25, %23
-  %.0.i = phi i32 [ %14, %23 ], [ %27, %25 ], [ %14, %28 ], [ %32, %30 ]
+  %.0.i = phi i32 [ %14, %23 ], [ %27, %25 ], [ %32, %30 ], [ %14, %28 ]
   %34 = load i32, ptr %8, align 4
   switch i32 %34, label %srvsvc_dissect_NetFileInfo.exit [
     i32 2, label %35
@@ -16726,7 +16726,7 @@ define internal fastcc i32 @srvsvc_dissect_NetShareInfo(ptr noundef %0, i32 noun
   br label %33
 
 33:                                               ; preds = %28, %30, %23, %25
-  %.0 = phi i32 [ %14, %23 ], [ %27, %25 ], [ %14, %28 ], [ %32, %30 ]
+  %.0 = phi i32 [ %14, %23 ], [ %27, %25 ], [ %32, %30 ], [ %14, %28 ]
   %34 = load i32, ptr %9, align 4
   switch i32 %34, label %65 [
     i32 0, label %35
@@ -17091,7 +17091,7 @@ define internal fastcc i32 @srvsvc_dissect_NetSrvInfo(ptr noundef %0, i32 nounde
   br label %33
 
 33:                                               ; preds = %28, %30, %23, %25
-  %.0 = phi i32 [ %14, %23 ], [ %27, %25 ], [ %14, %28 ], [ %32, %30 ]
+  %.0 = phi i32 [ %14, %23 ], [ %27, %25 ], [ %32, %30 ], [ %14, %28 ]
   %34 = load i32, ptr %9, align 4
   switch i32 %34, label %212 [
     i32 100, label %35
@@ -18034,7 +18034,7 @@ define internal fastcc i32 @srvsvc_dissect_NetTransportInfo(ptr noundef %0, i32 
   br label %33
 
 33:                                               ; preds = %28, %30, %23, %25
-  %.0 = phi i32 [ %14, %23 ], [ %27, %25 ], [ %14, %28 ], [ %32, %30 ]
+  %.0 = phi i32 [ %14, %23 ], [ %27, %25 ], [ %32, %30 ], [ %14, %28 ]
   %34 = load i32, ptr %9, align 4
   switch i32 %34, label %47 [
     i32 0, label %35

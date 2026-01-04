@@ -2791,7 +2791,7 @@ _ZN15typeArrayHandleC2EP6ThreadP16typeArrayOopDesc.exit: ; preds = %159, %161
   unreachable
 
 176:                                              ; preds = %_ZN15typeArrayHandleC2EP6ThreadP16typeArrayOopDesc.exit, %166, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit, %139, %118, %119, %116, %117, %93, %97, %76, %80, %55, %59
-  %.0 = phi ptr [ %57, %59 ], [ null, %55 ], [ %78, %80 ], [ null, %76 ], [ %95, %97 ], [ null, %93 ], [ %114, %117 ], [ null, %116 ], [ %114, %119 ], [ null, %118 ], [ %137, %139 ], [ null, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit ], [ %164, %166 ], [ null, %_ZN15typeArrayHandleC2EP6ThreadP16typeArrayOopDesc.exit ]
+  %.0 = phi ptr [ null, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit ], [ null, %55 ], [ null, %76 ], [ null, %93 ], [ null, %116 ], [ null, %118 ], [ %57, %59 ], [ %78, %80 ], [ %95, %97 ], [ %114, %117 ], [ %114, %119 ], [ %137, %139 ], [ %164, %166 ], [ null, %_ZN15typeArrayHandleC2EP6ThreadP16typeArrayOopDesc.exit ]
   ret ptr %.0
 }
 
@@ -3081,7 +3081,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit31:      ; preds = %80, %_ZN26GrowableA
   unreachable
 
 112:                                              ; preds = %26, %30, %21, %25, %15, %19, %109, %74
-  %.0 = phi ptr [ %71, %74 ], [ %106, %109 ], [ %17, %19 ], [ null, %15 ], [ %23, %25 ], [ null, %21 ], [ %28, %30 ], [ null, %26 ]
+  %.0 = phi ptr [ %106, %109 ], [ null, %15 ], [ null, %21 ], [ %71, %74 ], [ %17, %19 ], [ %23, %25 ], [ %28, %30 ], [ null, %26 ]
   ret ptr %.0
 }
 
@@ -3449,7 +3449,7 @@ _ZN26GrowableArrayWithAllocatorIP7ciKlass13GrowableArrayIS1_EE6appendERKS1_.exit
   br label %.loopexit
 
 .loopexit:                                        ; preds = %39, %._crit_edge, %_ZN26GrowableArrayWithAllocatorIP7ciKlass13GrowableArrayIS1_EE6appendERKS1_.exit
-  %.036 = phi ptr [ %.047, %_ZN26GrowableArrayWithAllocatorIP7ciKlass13GrowableArrayIS1_EE6appendERKS1_.exit ], [ null, %._crit_edge ], [ %26, %39 ]
+  %.036 = phi ptr [ null, %._crit_edge ], [ %.047, %_ZN26GrowableArrayWithAllocatorIP7ciKlass13GrowableArrayIS1_EE6appendERKS1_.exit ], [ %26, %39 ]
   ret ptr %.036
 }
 

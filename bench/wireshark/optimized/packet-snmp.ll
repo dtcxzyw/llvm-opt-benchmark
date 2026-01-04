@@ -969,7 +969,7 @@ define hidden noundef i32 @dissect_snmp_engineid(ptr noundef %0, ptr noundef %1,
   br label %.thread135
 
 .thread135:                                       ; preds = %38, %43, %54, %79, %61, %55, %44, %39, %90, %22, %94, %.thread138, %28, %8, %5, %26
-  %.0124 = phi i32 [ %18, %26 ], [ %3, %5 ], [ %3, %8 ], [ %18, %28 ], [ %96, %.thread138 ], [ %36, %94 ], [ %87, %79 ], [ %64, %61 ], [ %58, %55 ], [ %47, %44 ], [ %42, %39 ], [ %93, %90 ], [ %25, %22 ], [ %36, %54 ], [ %36, %43 ], [ %36, %38 ]
+  %.0124 = phi i32 [ %3, %8 ], [ %3, %5 ], [ %18, %28 ], [ %18, %26 ], [ %96, %.thread138 ], [ %36, %94 ], [ %87, %79 ], [ %64, %61 ], [ %58, %55 ], [ %47, %44 ], [ %42, %39 ], [ %93, %90 ], [ %25, %22 ], [ %36, %54 ], [ %36, %43 ], [ %36, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0124
 }
@@ -1211,7 +1211,7 @@ define hidden i32 @dissect_snmp_pdu(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %126
 
 122:                                              ; preds = %89, %84, %79, %69
-  %.023.ph.i = phi ptr [ @.str.440, %89 ], [ @.str.439, %84 ], [ @.str.438, %79 ], [ @.str.437, %69 ]
+  %.023.ph.i = phi ptr [ @.str.440, %89 ], [ @.str.439, %84 ], [ @.str.437, %69 ], [ @.str.438, %79 ]
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @usm_p, i64 80), align 8
   %123 = load ptr, ptr %73, align 8
   %124 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @usm_p, i64 40), align 8
@@ -1219,9 +1219,9 @@ define hidden i32 @dissect_snmp_pdu(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %dissect_snmp_SNMPv3Message.exit
 
 126:                                              ; preds = %121, %._crit_edge.i.i
-  %.022.i = phi ptr [ %116, %121 ], [ null, %._crit_edge.i.i ]
-  %.021.i = phi i64 [ %101, %121 ], [ 0, %._crit_edge.i.i ]
-  %.046.i.i = phi i1 [ %.not58.i.i, %121 ], [ false, %._crit_edge.i.i ]
+  %.022.i = phi ptr [ null, %._crit_edge.i.i ], [ %116, %121 ]
+  %.021.i = phi i64 [ 0, %._crit_edge.i.i ], [ %101, %121 ]
+  %.046.i.i = phi i1 [ false, %._crit_edge.i.i ], [ %.not58.i.i, %121 ]
   %127 = zext i1 %.046.i.i to i8
   store i8 %127, ptr getelementptr inbounds nuw (i8, ptr @usm_p, i64 80), align 8
   %128 = load i32, ptr @hf_snmp_msgAuthentication, align 4
@@ -2418,7 +2418,7 @@ define internal i32 @dissect_snmp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %73
 
 73:                                               ; preds = %33, %32, %30, %4, %69
-  %.0 = phi i32 [ %72, %69 ], [ 0, %4 ], [ 0, %30 ], [ 0, %32 ], [ 0, %33 ]
+  %.0 = phi i32 [ 0, %30 ], [ 0, %32 ], [ %72, %69 ], [ 0, %4 ], [ 0, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -3004,7 +3004,7 @@ snmp_match_request_response.exit:                 ; preds = %proto_item_set_gene
   call void @tap_queue_packet(i32 noundef %97, ptr noundef %98, ptr noundef nonnull %.0.i.i)
   br label %snmp_match_request_response.exit.thread
 
-snmp_match_request_response.exit.thread:          ; preds = %86, %89, %92, %57, %59, %48, %6, %6, %snmp_match_request_response.exit, %96
+snmp_match_request_response.exit.thread:          ; preds = %86, %89, %92, %59, %57, %48, %6, %6, %snmp_match_request_response.exit, %96
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %17
 }
@@ -3790,7 +3790,7 @@ switch.lookup:                                    ; preds = %164
   %398 = call ptr @proto_tree_add_item(ptr noundef %68, i32 noundef %397, ptr noundef %1, i32 noundef %114, i32 noundef %382, i32 noundef 0)
   br label %.thread582
 
-.thread574:                                       ; preds = %308, %274, %268, %235, %229, %349, %182, %356, %207, %204, %.loopexit
+.thread574:                                       ; preds = %308, %274, %268, %235, %229, %349, %182, %207, %204, %356, %.loopexit
   %399 = load i8, ptr %10, align 1
   %400 = sext i8 %399 to i32
   %401 = load i32, ptr %12, align 4
@@ -3924,18 +3924,18 @@ switch.lookup:                                    ; preds = %164
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %439, %441, %443, %445, %447, %449, %451, %453, %421, %.thread586
-  %.3480.ph = phi i32 [ 1, %.thread586 ], [ 0, %421 ], [ 0, %451 ], [ 0, %449 ], [ 0, %447 ], [ 0, %445 ], [ 0, %443 ], [ 0, %441 ], [ 0, %439 ], [ 0, %453 ]
-  %.3475.ph = phi i32 [ 4, %.thread586 ], [ 0, %421 ], [ 0, %451 ], [ 0, %449 ], [ 0, %447 ], [ 0, %445 ], [ 0, %443 ], [ 0, %441 ], [ 0, %439 ], [ 0, %453 ]
-  %.2438.ph = phi i32 [ %407, %.thread586 ], [ %spec.select550, %421 ], [ %452, %451 ], [ %450, %449 ], [ %448, %447 ], [ %446, %445 ], [ %444, %443 ], [ %442, %441 ], [ %440, %439 ], [ %454, %453 ]
+  %.3480.ph = phi i32 [ 0, %449 ], [ 0, %447 ], [ 0, %445 ], [ 0, %443 ], [ 0, %441 ], [ 0, %439 ], [ 0, %421 ], [ 0, %451 ], [ 1, %.thread586 ], [ 0, %453 ]
+  %.3475.ph = phi i32 [ 0, %449 ], [ 0, %447 ], [ 0, %445 ], [ 0, %443 ], [ 0, %441 ], [ 0, %439 ], [ 0, %421 ], [ 0, %451 ], [ 4, %.thread586 ], [ 0, %453 ]
+  %.2438.ph = phi i32 [ %450, %449 ], [ %448, %447 ], [ %446, %445 ], [ %444, %443 ], [ %442, %441 ], [ %440, %439 ], [ %spec.select550, %421 ], [ %452, %451 ], [ %407, %.thread586 ], [ %454, %453 ]
   %.pr = load i32, ptr %9, align 4
   br label %455
 
 455:                                              ; preds = %thread-pre-split, %437, %430, %426
-  %456 = phi i32 [ %.pr, %thread-pre-split ], [ %434, %437 ], [ %431, %430 ], [ %427, %426 ]
-  %.3480 = phi i32 [ %.3480.ph, %thread-pre-split ], [ 0, %437 ], [ 0, %430 ], [ 1, %426 ]
-  %.3475 = phi i32 [ %.3475.ph, %thread-pre-split ], [ 0, %437 ], [ 0, %430 ], [ -1, %426 ]
-  %.4463 = phi i32 [ %.3480.ph, %thread-pre-split ], [ 0, %437 ], [ %spec.select543, %430 ], [ %spec.select542, %426 ]
-  %.2438 = phi i32 [ %.2438.ph, %thread-pre-split ], [ %438, %437 ], [ %432, %430 ], [ %429, %426 ]
+  %456 = phi i32 [ %.pr, %thread-pre-split ], [ %431, %430 ], [ %427, %426 ], [ %434, %437 ]
+  %.3480 = phi i32 [ %.3480.ph, %thread-pre-split ], [ 0, %430 ], [ 1, %426 ], [ 0, %437 ]
+  %.3475 = phi i32 [ %.3475.ph, %thread-pre-split ], [ 0, %430 ], [ -1, %426 ], [ 0, %437 ]
+  %.4463 = phi i32 [ %.3480.ph, %thread-pre-split ], [ %spec.select543, %430 ], [ %spec.select542, %426 ], [ 0, %437 ]
+  %.2438 = phi i32 [ %.2438.ph, %thread-pre-split ], [ %432, %430 ], [ %429, %426 ], [ %438, %437 ]
   %457 = icmp ugt i32 %456, 8
   br i1 %457, label %458, label %478
 
@@ -4001,11 +4001,11 @@ thread-pre-split:                                 ; preds = %439, %441, %443, %4
   br label %.thread582
 
 .thread614:                                       ; preds = %480, %471, %458, %.thread617, %478
-  %.2438603 = phi i32 [ %.2438, %478 ], [ %435, %.thread617 ], [ %.2438602, %458 ], [ %.2438602, %471 ], [ %.2438, %480 ]
-  %.4463600 = phi i32 [ %.4463, %478 ], [ 0, %.thread617 ], [ %.4463601, %458 ], [ %.4463601, %471 ], [ %.4463, %480 ]
-  %.3475598 = phi i32 [ %.3475, %478 ], [ 0, %.thread617 ], [ %.3475599, %458 ], [ %.3475599, %471 ], [ %.3475, %480 ]
-  %.3480596 = phi i32 [ %.3480, %478 ], [ 0, %.thread617 ], [ %.3480597, %458 ], [ %.3480597, %471 ], [ %.3480, %480 ]
-  %.3 = phi i32 [ %114, %478 ], [ %114, %.thread617 ], [ %114, %458 ], [ %473, %471 ], [ %114, %480 ]
+  %.2438603 = phi i32 [ %435, %.thread617 ], [ %.2438602, %471 ], [ %.2438, %478 ], [ %.2438602, %458 ], [ %.2438, %480 ]
+  %.4463600 = phi i32 [ 0, %.thread617 ], [ %.4463601, %471 ], [ %.4463, %478 ], [ %.4463601, %458 ], [ %.4463, %480 ]
+  %.3475598 = phi i32 [ 0, %.thread617 ], [ %.3475599, %471 ], [ %.3475, %478 ], [ %.3475599, %458 ], [ %.3475, %480 ]
+  %.3480596 = phi i32 [ 0, %.thread617 ], [ %.3480597, %471 ], [ %.3480, %478 ], [ %.3480597, %458 ], [ %.3480, %480 ]
+  %.3 = phi i32 [ %114, %.thread617 ], [ %473, %471 ], [ %114, %478 ], [ %114, %458 ], [ %114, %480 ]
   %488 = getelementptr inbounds nuw i8, ptr %137, i64 32
   %489 = load ptr, ptr %488, align 8
   %.not521 = icmp eq ptr %489, null
@@ -4040,11 +4040,11 @@ thread-pre-split:                                 ; preds = %439, %441, %443, %4
   br label %.thread582
 
 .thread582:                                       ; preds = %373, %370, %484, %467, %474, %._crit_edge648, %376, %395, %390, %366, %501, %500
-  %.4481 = phi i32 [ 0, %366 ], [ %381, %390 ], [ %381, %395 ], [ %381, %376 ], [ %.3480596, %501 ], [ %.3480596, %500 ], [ %.3480, %484 ], [ 1, %._crit_edge648 ], [ %.3480597, %474 ], [ %.3480597, %467 ], [ 0, %370 ], [ 0, %373 ]
-  %.4476 = phi i32 [ 0, %366 ], [ %spec.select537, %390 ], [ %spec.select537, %395 ], [ %spec.select537, %376 ], [ %.3475598, %501 ], [ %.3475598, %500 ], [ %.3475, %484 ], [ 4, %._crit_edge648 ], [ %.3475599, %474 ], [ %.3475599, %467 ], [ 0, %370 ], [ 0, %373 ]
-  %.5464 = phi i32 [ 0, %366 ], [ 0, %390 ], [ 0, %395 ], [ 1, %376 ], [ 1, %501 ], [ 0, %500 ], [ %.4463, %484 ], [ 0, %._crit_edge648 ], [ %.4463601, %474 ], [ %.4463601, %467 ], [ 2, %370 ], [ 2, %373 ]
-  %.5 = phi ptr [ %369, %366 ], [ %394, %390 ], [ %398, %395 ], [ %106, %376 ], [ %.6, %501 ], [ %.6, %500 ], [ null, %484 ], [ %420, %._crit_edge648 ], [ null, %474 ], [ null, %467 ], [ %106, %370 ], [ %106, %373 ]
-  %.0420 = phi i32 [ %114, %366 ], [ %114, %390 ], [ %114, %395 ], [ %114, %376 ], [ %.3, %501 ], [ %.3, %500 ], [ %114, %484 ], [ %114, %._crit_edge648 ], [ %114, %474 ], [ %114, %467 ], [ %114, %370 ], [ %114, %373 ]
+  %.4481 = phi i32 [ 0, %366 ], [ %381, %390 ], [ %381, %395 ], [ %381, %376 ], [ %.3480596, %501 ], [ %.3480596, %500 ], [ %.3480597, %467 ], [ %.3480, %484 ], [ 1, %._crit_edge648 ], [ %.3480597, %474 ], [ 0, %370 ], [ 0, %373 ]
+  %.4476 = phi i32 [ 0, %366 ], [ %spec.select537, %390 ], [ %spec.select537, %395 ], [ %spec.select537, %376 ], [ %.3475598, %501 ], [ %.3475598, %500 ], [ %.3475599, %467 ], [ %.3475, %484 ], [ 4, %._crit_edge648 ], [ %.3475599, %474 ], [ 0, %370 ], [ 0, %373 ]
+  %.5464 = phi i32 [ 0, %366 ], [ 0, %390 ], [ 0, %395 ], [ 1, %376 ], [ 1, %501 ], [ 0, %500 ], [ %.4463601, %467 ], [ %.4463, %484 ], [ 0, %._crit_edge648 ], [ %.4463601, %474 ], [ 2, %370 ], [ 2, %373 ]
+  %.5 = phi ptr [ %369, %366 ], [ %394, %390 ], [ %398, %395 ], [ %106, %376 ], [ %.6, %501 ], [ %.6, %500 ], [ null, %467 ], [ null, %484 ], [ %420, %._crit_edge648 ], [ null, %474 ], [ %106, %370 ], [ %106, %373 ]
+  %.0420 = phi i32 [ %114, %366 ], [ %114, %390 ], [ %114, %395 ], [ %114, %376 ], [ %.3, %501 ], [ %.3, %500 ], [ %114, %467 ], [ %114, %484 ], [ %114, %._crit_edge648 ], [ %114, %474 ], [ %114, %370 ], [ %114, %373 ]
   %504 = load i32, ptr @ett_value, align 4
   %505 = call ptr @proto_item_add_subtree(ptr noundef %.5, i32 noundef %504)
   %506 = load i32, ptr %9, align 4
@@ -4064,10 +4064,10 @@ thread-pre-split:                                 ; preds = %439, %441, %443, %4
   br label %516
 
 516:                                              ; preds = %352, %.thread582, %509, %200
-  %.1478 = phi i32 [ %.4481, %509 ], [ %.4481, %.thread582 ], [ 0, %200 ], [ 0, %352 ]
-  %.1473 = phi i32 [ %.4476, %509 ], [ %.4476, %.thread582 ], [ 0, %200 ], [ 0, %352 ]
-  %.1460 = phi i32 [ %.5464, %509 ], [ %.5464, %.thread582 ], [ 0, %200 ], [ 0, %352 ]
-  %.0422 = phi ptr [ %.5, %509 ], [ %.5, %.thread582 ], [ %203, %200 ], [ %355, %352 ]
+  %.1478 = phi i32 [ 0, %352 ], [ %.4481, %509 ], [ %.4481, %.thread582 ], [ 0, %200 ]
+  %.1473 = phi i32 [ 0, %352 ], [ %.4476, %509 ], [ %.4476, %.thread582 ], [ 0, %200 ]
+  %.1460 = phi i32 [ 0, %352 ], [ %.5464, %509 ], [ %.5464, %.thread582 ], [ 0, %200 ]
+  %.0422 = phi ptr [ %355, %352 ], [ %.5, %509 ], [ %.5, %.thread582 ], [ %203, %200 ]
   %.not529 = icmp eq ptr %.0422, null
   br i1 %.not529, label %520, label %517
 
@@ -4797,7 +4797,7 @@ define internal i32 @dissect_snmp_T_msgSecurityParameters(i1 noundef zeroext %0,
   br label %get_user_assoc.exit
 
 get_user_assoc.exit:                              ; preds = %115, %8, %21, %24, %.preheader.i, %113, %114, %.loopexit43.i
-  %.0.i = phi ptr [ null, %8 ], [ null, %21 ], [ null, %24 ], [ %64, %114 ], [ %64, %113 ], [ %storemerge49.i, %.loopexit43.i ], [ null, %.preheader.i ], [ null, %115 ]
+  %.0.i = phi ptr [ null, %24 ], [ %storemerge49.i, %.loopexit43.i ], [ %64, %113 ], [ null, %21 ], [ null, %8 ], [ %64, %114 ], [ null, %.preheader.i ], [ null, %115 ]
   store ptr %.0.i, ptr getelementptr inbounds nuw (i8, ptr @usm_p, i64 72), align 8
   br label %119
 
@@ -5301,7 +5301,7 @@ define internal i32 @dissect_snmp_T_encryptedPDU(i1 zeroext %0, ptr noundef %1, 
   %or.cond14.i = and i1 %70, %72
   br i1 %or.cond14.i, label %73, label %79
 
-73:                                               ; preds = %46, %41, %59, %68, %67
+73:                                               ; preds = %41, %59, %46, %68, %67
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

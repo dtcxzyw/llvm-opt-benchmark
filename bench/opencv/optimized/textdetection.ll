@@ -1847,7 +1847,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit177:  ; preds = %698, %700
   br label %701
 
 701:                                              ; preds = %442, %444, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit177, %414
-  %.pn62.pn.pn = phi { ptr, i32 } [ %.pn58, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit177 ], [ %415, %414 ], [ %445, %444 ], [ %443, %442 ]
+  %.pn62.pn.pn = phi { ptr, i32 } [ %415, %414 ], [ %.pn58, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit177 ], [ %445, %444 ], [ %443, %442 ]
   call void @_ZNSt6vectorIS_IN2cv4text6ERStatESaIS2_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #23
   br label %702
 

@@ -661,7 +661,7 @@ sockopt_data.exit:                                ; preds = %.lr.ph.i.i188, %soc
   br label %optname_to_sym.exit
 
 optname_to_sym.exit:                              ; preds = %81, %83, %88, %90, %95, %97, %102, %104, %107
-  %.0.i190 = phi i64 [ %109, %107 ], [ %82, %81 ], [ %85, %83 ], [ %89, %88 ], [ %92, %90 ], [ %96, %95 ], [ %99, %97 ], [ %103, %102 ], [ %106, %104 ]
+  %.0.i190 = phi i64 [ %109, %107 ], [ %99, %97 ], [ %92, %90 ], [ %85, %83 ], [ %82, %81 ], [ %89, %88 ], [ %96, %95 ], [ %103, %102 ], [ %106, %104 ]
   %110 = and i64 %.0.i190, 255
   %111 = icmp eq i64 %110, 12
   br i1 %111, label %RB_SYMBOL_P.exit.thread, label %112
@@ -1627,18 +1627,18 @@ inspect_tcpi_options.exit.i:                      ; preds = %510, %507
   br label %inspect_int.exit.thread313
 
 inspect_int.exit:                                 ; preds = %310, %315, %312, %377, %374, %358, %287, %284, %281, %278, %145, %142
-  %.0 = phi i32 [ %144, %142 ], [ %147, %145 ], [ %280, %278 ], [ %283, %281 ], [ %286, %284 ], [ %289, %287 ], [ %314, %312 ], [ %317, %315 ], [ %360, %358 ], [ %376, %374 ], [ %379, %377 ], [ %311, %310 ]
+  %.0 = phi i32 [ %311, %310 ], [ %314, %312 ], [ %317, %315 ], [ %144, %142 ], [ %147, %145 ], [ %280, %278 ], [ %283, %281 ], [ %286, %284 ], [ %289, %287 ], [ %376, %374 ], [ %360, %358 ], [ %379, %377 ]
   %.not171 = icmp eq i32 %.0, 0
   br i1 %.not171, label %inspect_int.exit.thread, label %inspect_int.exit.thread313
 
-inspect_int.exit.thread:                          ; preds = %64, %67, %420, %407, %393, %380, %361, %345, %331, %318, %292, %265, %252, %239, %226, %213, %200, %187, %174, %161, %148, %129, %127, %406, %344, %291, %290, %128, %inspect_int.exit
+inspect_int.exit.thread:                          ; preds = %64, %67, %420, %393, %406, %380, %361, %345, %331, %344, %318, %292, %265, %291, %290, %407, %252, %239, %226, %213, %200, %187, %174, %161, %148, %129, %128, %127, %inspect_int.exit
   %559 = call i64 @rb_str_cat(i64 noundef %42, ptr noundef nonnull @.str.25, i64 noundef 1) #6
   %560 = load i64, ptr %5, align 8, !tbaa !6
   %561 = call i64 @rb_str_dump(i64 noundef %560) #6
   %562 = call i64 @rb_str_append(i64 noundef %42, i64 noundef %561) #6
   br label %inspect_int.exit.thread313
 
-inspect_int.exit.thread313:                       ; preds = %inspect_tcpi_options.exit.i, %555, %RSTRING_PTR.exit.i297, %RSTRING_PTR.exit.i291, %RSTRING_PTR.exit.i285, %RSTRING_PTR.exit.i280, %RSTRING_PTR.exit.i274, %RSTRING_PTR.exit.i268, %RSTRING_PTR.exit.i262, %309, %RSTRING_PTR.exit.i251, %RSTRING_PTR.exit.i245, %RSTRING_PTR.exit.i239, %RSTRING_PTR.exit.i233, %RSTRING_PTR.exit.i227, %RSTRING_PTR.exit.i221, %RSTRING_PTR.exit.i215, %RSTRING_PTR.exit.i209, %RSTRING_PTR.exit.i203, %RSTRING_PTR.exit.i197, %RSTRING_PTR.exit.i, %inspect_int.exit.thread, %inspect_int.exit
+inspect_int.exit.thread313:                       ; preds = %RSTRING_PTR.exit.i285, %RSTRING_PTR.exit.i280, %RSTRING_PTR.exit.i274, %RSTRING_PTR.exit.i268, %RSTRING_PTR.exit.i262, %309, %RSTRING_PTR.exit.i251, %RSTRING_PTR.exit.i245, %RSTRING_PTR.exit.i239, %RSTRING_PTR.exit.i233, %RSTRING_PTR.exit.i227, %RSTRING_PTR.exit.i221, %RSTRING_PTR.exit.i215, %RSTRING_PTR.exit.i209, %RSTRING_PTR.exit.i203, %RSTRING_PTR.exit.i197, %RSTRING_PTR.exit.i, %555, %inspect_tcpi_options.exit.i, %RSTRING_PTR.exit.i297, %RSTRING_PTR.exit.i291, %inspect_int.exit.thread, %inspect_int.exit
   %563 = call i64 @rb_str_cat(i64 noundef %42, ptr noundef nonnull @.str.26, i64 noundef 1) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %42

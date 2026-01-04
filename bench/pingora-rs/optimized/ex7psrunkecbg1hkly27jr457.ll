@@ -31,7 +31,7 @@ define internal fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5E
           to label %10 unwind label %34
 
 10:                                               ; preds = %.invoke, %29
-  %.sroa.02.0 = phi i8 [ %32, %29 ], [ %9, %.invoke ]
+  %.sroa.02.0 = phi i8 [ %9, %.invoke ], [ %32, %29 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
@@ -100,7 +100,7 @@ define internal fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5E
   unreachable
 
 .critedge:                                        ; preds = %38, %20
-  %eh.lpad-body11 = phi { ptr, i32 } [ %35, %38 ], [ %21, %20 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %21, %20 ], [ %35, %38 ]
   resume { ptr, i32 } %eh.lpad-body11
 
 38:                                               ; preds = %34
@@ -472,7 +472,7 @@ define noalias noundef align 8 ptr @_ZN14pingora_rustls39load_platform_certs_inc
   unreachable
 
 common.resume:                                    ; preds = %.body, %20, %24, %26, %29, %33
-  %common.resume.op = phi { ptr, i32 } [ %34, %33 ], [ %21, %20 ], [ %21, %24 ], [ %21, %26 ], [ %21, %29 ], [ %eh.lpad-body, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %21, %26 ], [ %34, %33 ], [ %21, %29 ], [ %21, %20 ], [ %21, %24 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 33:                                               ; preds = %18
@@ -524,7 +524,7 @@ _ZN13pingora_error5Error7because17ha625e82a5a4383d4E.exit: ; preds = %"_ZN50_$LT
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %53, %57, %59, %62, %66
-  %eh.lpad-body = phi { ptr, i32 } [ %67, %66 ], [ %54, %53 ], [ %54, %57 ], [ %54, %59 ], [ %54, %62 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %54, %59 ], [ %67, %66 ], [ %54, %62 ], [ %54, %53 ], [ %54, %57 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr92drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$rustls_pki_types..CertificateDer$GT$$GT$17hdf0c9a9e45af1ce2E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11) #13
           to label %common.resume unwind label %73
 
@@ -1073,7 +1073,7 @@ define void @_ZN14pingora_rustls25load_pem_file_private_key17ha06373886e23ee3aE(
   br label %.body
 
 .body:                                            ; preds = %49, %31, %35, %37, %40, %44, %19
-  %eh.lpad-body = phi { ptr, i32 } [ %20, %19 ], [ %45, %44 ], [ %32, %31 ], [ %32, %35 ], [ %32, %37 ], [ %32, %40 ], [ %50, %49 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %37 ], [ %20, %19 ], [ %45, %44 ], [ %32, %40 ], [ %32, %31 ], [ %32, %35 ], [ %50, %49 ]
   invoke void @"_ZN4core3ptr81drop_in_place$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$17hf20982f9616b2475E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %10) #13
           to label %72 unwind label %70
 

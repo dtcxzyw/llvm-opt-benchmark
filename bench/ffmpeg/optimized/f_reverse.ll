@@ -48,7 +48,7 @@ define internal range(i32 -12, 1) i32 @init(ptr noundef readonly captures(none) 
   br label %15
 
 15:                                               ; preds = %11, %7, %1
-  %.0 = phi i32 [ -12, %1 ], [ -12, %7 ], [ %., %11 ]
+  %.0 = phi i32 [ -12, %7 ], [ %., %11 ], [ -12, %1 ]
   ret i32 %.0
 }
 
@@ -187,7 +187,7 @@ define internal range(i32 -12, 1) i32 @filter_frame(ptr noundef readonly capture
   br label %60
 
 60:                                               ; preds = %41, %26, %13, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ -12, %13 ], [ -12, %26 ], [ -12, %41 ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ -12, %26 ], [ -12, %13 ], [ -12, %41 ]
   ret i32 %.0
 }
 

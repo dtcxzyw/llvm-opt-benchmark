@@ -3395,7 +3395,7 @@ define internal void @_set_path_attr(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %_get_path_seg_size.exit
 
 _get_path_seg_size.exit:                          ; preds = %31, %64, %95, %246, %.thread122, %.thread123
-  %.0.i = phi i64 [ 20, %.thread122 ], [ 28, %.thread123 ], [ 12, %246 ], [ 12, %95 ], [ 12, %64 ], [ 0, %31 ]
+  %.0.i = phi i64 [ 12, %246 ], [ 28, %.thread123 ], [ 20, %.thread122 ], [ 12, %64 ], [ 12, %95 ], [ 0, %31 ]
   %248 = getelementptr inbounds nuw i8, ptr %.0125, i64 %.0.i
   %249 = add nuw i32 %.093124, 1
   %exitcond.not = icmp eq i32 %249, %15

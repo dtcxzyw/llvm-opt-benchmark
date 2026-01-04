@@ -1069,8 +1069,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit16: ; 
   br label %.body
 
 .body:                                            ; preds = %9, %18, %.body14.thread, %.body14.thread19
-  %.sink = phi ptr [ %4, %.body14.thread19 ], [ %4, %.body14.thread ], [ %3, %18 ], [ %3, %9 ]
-  %.pn22 = phi { ptr, i32 } [ %lpad.thr_comm, %.body14.thread19 ], [ %16, %.body14.thread ], [ %19, %18 ], [ %10, %9 ]
+  %.sink = phi ptr [ %4, %.body14.thread ], [ %4, %.body14.thread19 ], [ %3, %18 ], [ %3, %9 ]
+  %.pn22 = phi { ptr, i32 } [ %16, %.body14.thread ], [ %lpad.thr_comm, %.body14.thread19 ], [ %19, %18 ], [ %10, %9 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #13
   resume { ptr, i32 } %.pn22
 }

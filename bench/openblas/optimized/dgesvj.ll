@@ -161,8 +161,8 @@ define void @dgesvj_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %89, label %90, label %92
 
 90:                                               ; preds = %85, %82, %74, %78, %70, %67, %65, %62, %60, %55, %50
-  %.sink2071 = phi i32 [ -1, %50 ], [ -2, %55 ], [ -3, %60 ], [ -4, %62 ], [ -5, %65 ], [ -7, %67 ], [ -9, %70 ], [ -11, %78 ], [ -11, %74 ], [ -12, %82 ], [ -13, %85 ]
-  %.ph.neg = phi i32 [ 1, %50 ], [ 2, %55 ], [ 3, %60 ], [ 4, %62 ], [ 5, %65 ], [ 7, %67 ], [ 9, %70 ], [ 11, %78 ], [ 11, %74 ], [ 12, %82 ], [ 13, %85 ]
+  %.sink2071 = phi i32 [ -1, %50 ], [ -3, %60 ], [ -5, %65 ], [ -9, %70 ], [ -12, %82 ], [ -11, %74 ], [ -7, %67 ], [ -4, %62 ], [ -2, %55 ], [ -11, %78 ], [ -13, %85 ]
+  %.ph.neg = phi i32 [ 1, %50 ], [ 3, %60 ], [ 5, %65 ], [ 9, %70 ], [ 12, %82 ], [ 11, %74 ], [ 7, %67 ], [ 4, %62 ], [ 2, %55 ], [ 11, %78 ], [ 13, %85 ]
   store i32 %.sink2071, ptr %13, align 4, !tbaa !3
   store i32 %.ph.neg, ptr %15, align 4, !tbaa !3
   %91 = call i32 @xerbla_(ptr noundef nonnull @.str.7, ptr noundef nonnull %15, i32 noundef 6) #7
@@ -1897,11 +1897,11 @@ cdce.end:                                         ; preds = %106, %cdce.call
   br label %.loopexit1726
 
 .loopexit1726:                                    ; preds = %.loopexit1726.loopexit, %1119, %1120
-  %1122 = phi double [ %1121, %1120 ], [ %.pre1985, %1119 ], [ %.pre1984, %.loopexit1726.loopexit ]
-  %.61522 = phi double [ %.51521, %1120 ], [ %.51521, %1119 ], [ %.41520, %.loopexit1726.loopexit ]
-  %.71504 = phi double [ %.61503, %1120 ], [ %.61503, %1119 ], [ %.41501, %.loopexit1726.loopexit ]
-  %.81484 = phi i32 [ 0, %1120 ], [ 0, %1119 ], [ %.31479, %.loopexit1726.loopexit ]
-  %.61475 = phi i32 [ %.51474, %1120 ], [ %.51474, %1119 ], [ %.31472, %.loopexit1726.loopexit ]
+  %1122 = phi double [ %.pre1985, %1119 ], [ %1121, %1120 ], [ %.pre1984, %.loopexit1726.loopexit ]
+  %.61522 = phi double [ %.51521, %1119 ], [ %.51521, %1120 ], [ %.41520, %.loopexit1726.loopexit ]
+  %.71504 = phi double [ %.61503, %1119 ], [ %.61503, %1120 ], [ %.41501, %.loopexit1726.loopexit ]
+  %.81484 = phi i32 [ 0, %1119 ], [ 0, %1120 ], [ %.31479, %.loopexit1726.loopexit ]
+  %.61475 = phi i32 [ %.51474, %1119 ], [ %.51474, %1120 ], [ %.31472, %.loopexit1726.loopexit ]
   %1123 = load i32, ptr %24, align 4, !tbaa !3
   %1124 = sext i32 %1123 to i64
   %1125 = getelementptr inbounds double, ptr %34, i64 %1124
@@ -2889,10 +2889,10 @@ cdce.end:                                         ; preds = %106, %cdce.call
   br i1 %.not1652.not, label %.lr.ph1865, label %.loopexit1728, !llvm.loop !25
 
 .loopexit1728:                                    ; preds = %._crit_edge1853, %._crit_edge1822, %1729
-  %.121528 = phi double [ %.111527, %1729 ], [ %.21518.lcssa, %._crit_edge1822 ], [ %.91525.lcssa, %._crit_edge1853 ]
-  %.141511 = phi double [ %.131510, %1729 ], [ %.21499.lcssa, %._crit_edge1822 ], [ %.101507.lcssa, %._crit_edge1853 ]
-  %.141490 = phi i32 [ 0, %1729 ], [ %.11477.lcssa, %._crit_edge1822 ], [ %.111487.lcssa, %._crit_edge1853 ]
-  %.12 = phi i32 [ %.11, %1729 ], [ %.11470.lcssa, %._crit_edge1822 ], [ %.9.lcssa, %._crit_edge1853 ]
+  %.121528 = phi double [ %.21518.lcssa, %._crit_edge1822 ], [ %.111527, %1729 ], [ %.91525.lcssa, %._crit_edge1853 ]
+  %.141511 = phi double [ %.21499.lcssa, %._crit_edge1822 ], [ %.131510, %1729 ], [ %.101507.lcssa, %._crit_edge1853 ]
+  %.141490 = phi i32 [ %.11477.lcssa, %._crit_edge1822 ], [ 0, %1729 ], [ %.111487.lcssa, %._crit_edge1853 ]
+  %.12 = phi i32 [ %.11470.lcssa, %._crit_edge1822 ], [ %.11, %1729 ], [ %.9.lcssa, %._crit_edge1853 ]
   store i32 %1139, ptr %17, align 4, !tbaa !3
   %1758 = load i32, ptr %4, align 4, !tbaa !3
   %.1698 = call i32 @llvm.smin.i32(i32 %1139, i32 %1758)

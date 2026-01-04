@@ -125,7 +125,7 @@ define dso_local i32 @gen6_ppgtt_pin(ptr noundef %0, ptr noundef %1) local_unnam
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.thread5, %20, %._crit_edge
-  %27 = phi i32 [ %15, %._crit_edge ], [ 0, %.thread5 ], [ %23, %20 ], [ 0, %.lr.ph ]
+  %27 = phi i32 [ %23, %20 ], [ %15, %._crit_edge ], [ 0, %.thread5 ], [ 0, %.lr.ph ]
   ret i32 %27
 }
 
@@ -658,7 +658,7 @@ define internal void @gen6_ppgtt_insert_entries(ptr noundef readonly captures(no
   br label %63
 
 63:                                               ; preds = %60, %55
-  %64 = phi ptr [ %62, %60 ], [ %56, %55 ]
+  %64 = phi ptr [ %56, %55 ], [ %62, %60 ]
   %65 = icmp eq ptr %64, null
   br i1 %65, label %.thread, label %66
 

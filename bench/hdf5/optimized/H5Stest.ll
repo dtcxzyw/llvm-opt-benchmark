@@ -352,7 +352,7 @@ define range(i32 -1, 2) i32 @H5S__internal_consistency_test(i64 noundef %0) loca
   %135 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__check_internal_consistency, i32 noundef 324, i64 noundef %133, i64 noundef %134, ptr noundef nonnull @.str.8) #5
   br label %136
 
-H5S__check_internal_consistency.exit.thread:      ; preds = %17, %24, %106, %.loopexit.i, %39, %113, %126, %116
+H5S__check_internal_consistency.exit.thread:      ; preds = %17, %24, %39, %.loopexit.i, %106, %113, %126, %116
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %140
@@ -366,7 +366,7 @@ H5S__check_internal_consistency.exit.thread:      ; preds = %17, %24, %106, %.lo
   br label %140
 
 140:                                              ; preds = %H5S__check_internal_consistency.exit.thread, %13, %136, %1
-  %.0 = phi i32 [ -1, %13 ], [ -1, %136 ], [ 1, %1 ], [ 1, %H5S__check_internal_consistency.exit.thread ]
+  %.0 = phi i32 [ -1, %13 ], [ -1, %136 ], [ 1, %H5S__check_internal_consistency.exit.thread ], [ 1, %1 ]
   ret i32 %.0
 }
 

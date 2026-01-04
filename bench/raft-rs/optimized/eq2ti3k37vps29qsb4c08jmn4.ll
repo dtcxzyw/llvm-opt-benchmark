@@ -2127,7 +2127,7 @@ define void @_ZN4raft10confchange7restore7restore17h09e107a6b2bec7e7E(ptr dead_o
   br label %.body.i
 
 .body.i:                                          ; preds = %145, %131, %117, %103, %89, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %90, %89 ], [ %104, %103 ], [ %118, %117 ], [ %132, %131 ], [ %146, %145 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit40.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit43.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit45.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit48.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %132, %131 ], [ %90, %89 ], [ %104, %103 ], [ %118, %117 ], [ %146, %145 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit40.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit43.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit45.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit48.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr89drop_in_place$LT$alloc..vec..Vec$LT$raft_proto..protos..eraftpb..ConfChangeSingle$GT$$GT$17h22db7c265456d300E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #13
           to label %156 unwind label %154, !noalias !306
 
@@ -2430,7 +2430,7 @@ _ZN4raft10confchange7restore21to_conf_change_single17hd833d3358f4f95f5E.exit: ; 
   br i1 %.not33.not, label %163, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20665114e3acb48eE.exit50.lr.ph"
 
 161:                                              ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20665114e3acb48eE.exit.thread", %"_ZN4core3ptr87drop_in_place$LT$$u5b$raft_proto..protos..eraftpb..ConfChangeSingle$u3b$$u20$1$u5d$$GT$17h417f2b2a7d3d717bE.exit48", %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20665114e3acb48eE.exit50.thread", %201, %214, %"_ZN4core3ptr87drop_in_place$LT$$u5b$raft_proto..protos..eraftpb..ConfChangeSingle$u3b$$u20$1$u5d$$GT$17h417f2b2a7d3d717bE.exit52"
-  %.sroa.010.0 = phi i8 [ 1, %"_ZN4core3ptr87drop_in_place$LT$$u5b$raft_proto..protos..eraftpb..ConfChangeSingle$u3b$$u20$1$u5d$$GT$17h417f2b2a7d3d717bE.exit48" ], [ 1, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20665114e3acb48eE.exit.thread" ], [ 0, %"_ZN4core3ptr87drop_in_place$LT$$u5b$raft_proto..protos..eraftpb..ConfChangeSingle$u3b$$u20$1$u5d$$GT$17h417f2b2a7d3d717bE.exit52" ], [ 0, %214 ], [ 0, %201 ], [ 0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20665114e3acb48eE.exit50.thread" ]
+  %.sroa.010.0 = phi i8 [ 1, %"_ZN4core3ptr87drop_in_place$LT$$u5b$raft_proto..protos..eraftpb..ConfChangeSingle$u3b$$u20$1$u5d$$GT$17h417f2b2a7d3d717bE.exit48" ], [ 1, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20665114e3acb48eE.exit.thread" ], [ 0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20665114e3acb48eE.exit50.thread" ], [ 0, %"_ZN4core3ptr87drop_in_place$LT$$u5b$raft_proto..protos..eraftpb..ConfChangeSingle$u3b$$u20$1$u5d$$GT$17h417f2b2a7d3d717bE.exit52" ], [ 0, %214 ], [ 0, %201 ]
   %162 = landingpad { ptr, i32 }
           cleanup
   br i1 %.not33.not, label %.thread82, label %.thread
@@ -2467,7 +2467,7 @@ _ZN4raft10confchange7restore21to_conf_change_single17hd833d3358f4f95f5E.exit: ; 
   br label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20665114e3acb48eE.exit"
 
 .critedge:                                        ; preds = %173, %193, %176, %183
-  %.pn34.pn = phi { ptr, i32 } [ %174, %173 ], [ %190, %193 ], [ %184, %183 ], [ %177, %176 ]
+  %.pn34.pn = phi { ptr, i32 } [ %184, %183 ], [ %174, %173 ], [ %190, %193 ], [ %177, %176 ]
   invoke void @"_ZN4core3ptr105drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$raft_proto..protos..eraftpb..ConfChangeSingle$GT$$GT$17h094e8f010c67ca60E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %31) #13
           to label %.thread82.thread unwind label %191
 
@@ -2627,7 +2627,7 @@ _ZN4raft10confchange7restore21to_conf_change_single17hd833d3358f4f95f5E.exit: ; 
   br label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20665114e3acb48eE.exit50"
 
 .critedge42:                                      ; preds = %222, %240, %225, %232
-  %.pn.pn = phi { ptr, i32 } [ %223, %222 ], [ %239, %240 ], [ %233, %232 ], [ %226, %225 ]
+  %.pn.pn = phi { ptr, i32 } [ %233, %232 ], [ %223, %222 ], [ %239, %240 ], [ %226, %225 ]
   invoke void @"_ZN4core3ptr105drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$raft_proto..protos..eraftpb..ConfChangeSingle$GT$$GT$17h094e8f010c67ca60E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %23) #13
           to label %.thread unwind label %191
 

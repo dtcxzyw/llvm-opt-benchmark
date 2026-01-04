@@ -993,7 +993,7 @@ expand_vacuum_rel.exit:                           ; preds = %35, %47, %48, %54, 
   br label %143
 
 143:                                              ; preds = %139, %137, %.lr.ph.i79
-  %.1.i81 = phi ptr [ %142, %139 ], [ %.022.i, %.lr.ph.i79 ], [ %.022.i, %137 ]
+  %.1.i81 = phi ptr [ %.022.i, %.lr.ph.i79 ], [ %142, %139 ], [ %.022.i, %137 ]
   %144 = call ptr @heap_getnext(ptr noundef %126, i32 noundef 1) #15
   %.not.i82 = icmp eq ptr %144, null
   br i1 %.not.i82, label %get_all_vacuum_rels.exit, label %.lr.ph.i79
@@ -1038,7 +1038,7 @@ list_length.exit.thread:                          ; preds = %156, %list_length.e
   br label %160
 
 160:                                              ; preds = %list_length.exit, %154, %.critedge, %list_length.exit.thread
-  %.sink106 = phi i8 [ 0, %list_length.exit.thread ], [ 1, %.critedge ], [ 0, %154 ], [ 1, %list_length.exit ]
+  %.sink106 = phi i8 [ 1, %.critedge ], [ 0, %154 ], [ 0, %list_length.exit.thread ], [ 1, %list_length.exit ]
   store volatile i8 %.sink106, ptr %7, align 1
   %.0..0..0..0.27 = load volatile i8, ptr %7, align 1, !range !4, !noundef !5
   %161 = trunc nuw i8 %.0..0..0..0.27 to i1
@@ -1633,8 +1633,8 @@ define dso_local void @vac_update_datfrozenxid() local_unnamed_addr #0 {
   br label %38
 
 38:                                               ; preds = %36, %33, %26
-  %.252 = phi i32 [ %.05088, %26 ], [ %.05088, %33 ], [ %spec.select74, %36 ]
-  %.2 = phi i32 [ %.04989, %26 ], [ %.3, %33 ], [ %.3, %36 ]
+  %.252 = phi i32 [ %.05088, %33 ], [ %.05088, %26 ], [ %spec.select74, %36 ]
+  %.2 = phi i32 [ %.3, %33 ], [ %.04989, %26 ], [ %.3, %36 ]
   %39 = tail call ptr @systable_getnext(ptr noundef %10) #15
   %.not.not = icmp eq ptr %39, null
   br i1 %.not.not, label %.thread, label %.lr.ph
@@ -1811,9 +1811,9 @@ define dso_local void @vac_update_datfrozenxid() local_unnamed_addr #0 {
   br label %118
 
 118:                                              ; preds = %116, %114, %112
-  %.242.i = phi i1 [ %.04053.i, %116 ], [ %.04053.i, %114 ], [ true, %112 ]
-  %.239.i = phi i32 [ %117, %116 ], [ %.03754.i, %114 ], [ %.03754.i, %112 ]
-  %.2.i = phi i32 [ %98, %116 ], [ %.056.i, %114 ], [ %.056.i, %112 ]
+  %.242.i = phi i1 [ %.04053.i, %114 ], [ %.04053.i, %116 ], [ true, %112 ]
+  %.239.i = phi i32 [ %.03754.i, %114 ], [ %117, %116 ], [ %.03754.i, %112 ]
+  %.2.i = phi i32 [ %.056.i, %114 ], [ %98, %116 ], [ %.056.i, %112 ]
   %119 = call zeroext i1 @MultiXactIdPrecedes(i32 noundef %100, i32 noundef %.03455.i) #15
   br i1 %119, label %120, label %122
 
@@ -1822,12 +1822,12 @@ define dso_local void @vac_update_datfrozenxid() local_unnamed_addr #0 {
   br label %122
 
 122:                                              ; preds = %120, %118, %104, %102
-  %.147.i = phi i32 [ %.04651.i, %104 ], [ %.04651.i, %102 ], [ %121, %120 ], [ %.04651.i, %118 ]
-  %.144.i = phi i1 [ %.04352.i, %104 ], [ %.04352.i, %102 ], [ %.245.i, %120 ], [ %.245.i, %118 ]
-  %.141.i = phi i1 [ %.04053.i, %104 ], [ %.04053.i, %102 ], [ %.242.i, %120 ], [ %.242.i, %118 ]
-  %.138.i = phi i32 [ %.03754.i, %104 ], [ %.03754.i, %102 ], [ %.239.i, %120 ], [ %.239.i, %118 ]
-  %.135.i = phi i32 [ %.03455.i, %104 ], [ %.03455.i, %102 ], [ %100, %120 ], [ %.03455.i, %118 ]
-  %.1.i = phi i32 [ %.056.i, %104 ], [ %.056.i, %102 ], [ %.2.i, %120 ], [ %.2.i, %118 ]
+  %.147.i = phi i32 [ %.04651.i, %102 ], [ %.04651.i, %104 ], [ %121, %120 ], [ %.04651.i, %118 ]
+  %.144.i = phi i1 [ %.04352.i, %102 ], [ %.04352.i, %104 ], [ %.245.i, %120 ], [ %.245.i, %118 ]
+  %.141.i = phi i1 [ %.04053.i, %102 ], [ %.04053.i, %104 ], [ %.242.i, %120 ], [ %.242.i, %118 ]
+  %.138.i = phi i32 [ %.03754.i, %102 ], [ %.03754.i, %104 ], [ %.239.i, %120 ], [ %.239.i, %118 ]
+  %.135.i = phi i32 [ %.03455.i, %102 ], [ %.03455.i, %104 ], [ %100, %120 ], [ %.03455.i, %118 ]
+  %.1.i = phi i32 [ %.056.i, %102 ], [ %.056.i, %104 ], [ %.2.i, %120 ], [ %.2.i, %118 ]
   %123 = call ptr @heap_getnext(ptr noundef %89, i32 noundef 1) #15
   %.not.i = icmp eq ptr %123, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
@@ -1876,7 +1876,7 @@ vac_truncate_clog.exit:                           ; preds = %129, %131, %134, %1
   call void @LWLockRelease(ptr noundef nonnull %137) #15
   br label %138
 
-.critedge:                                        ; preds = %29, %34
+.critedge:                                        ; preds = %34, %29
   tail call void @systable_endscan(ptr noundef %10) #15
   tail call void @table_close(ptr noundef %9, i32 noundef 1) #15
   br label %138
@@ -1934,7 +1934,7 @@ define dso_local noundef zeroext i1 @vacuum_is_permitted_for_relation(i32 nounde
   br label %25
 
 25:                                               ; preds = %.sink.split, %20, %22, %18, %7, %11
-  %.0 = phi i1 [ true, %11 ], [ true, %7 ], [ false, %18 ], [ false, %22 ], [ false, %20 ], [ false, %.sink.split ]
+  %.0 = phi i1 [ false, %18 ], [ true, %7 ], [ true, %11 ], [ false, %20 ], [ false, %22 ], [ false, %.sink.split ]
   ret i1 %.0
 }
 
@@ -2008,7 +2008,7 @@ define dso_local ptr @vacuum_open_relation(i32 noundef %0, ptr noundef readonly 
   br label %27
 
 27:                                               ; preds = %21, %17, %.sink.split, %12, %19, %.thread, %9
-  %.059 = phi ptr [ %10, %9 ], [ null, %.thread ], [ null, %19 ], [ null, %12 ], [ null, %.sink.split ], [ null, %17 ], [ null, %21 ]
+  %.059 = phi ptr [ null, %.thread ], [ %10, %9 ], [ null, %12 ], [ null, %19 ], [ null, %.sink.split ], [ null, %21 ], [ null, %17 ]
   ret ptr %.059
 }
 
@@ -2156,7 +2156,7 @@ define dso_local zeroext i1 @vacuum_get_cutoffs(ptr noundef %0, ptr noundef read
   br label %97
 
 97:                                               ; preds = %84, %71
-  %.0 = phi i1 [ true, %71 ], [ %96, %84 ]
+  %.0 = phi i1 [ %96, %84 ], [ true, %71 ]
   ret i1 %.0
 }
 
@@ -2213,7 +2213,7 @@ define dso_local zeroext i1 @vacuum_xid_failsafe_check(ptr noundef readonly capt
   br label %28
 
 28:                                               ; preds = %16, %1
-  %.0 = phi i1 [ true, %1 ], [ %27, %16 ]
+  %.0 = phi i1 [ %27, %16 ], [ true, %1 ]
   ret i1 %.0
 }
 
@@ -2271,7 +2271,7 @@ define dso_local double @vac_estimate_reltuples(ptr noundef readonly captures(no
   br label %38
 
 38:                                               ; preds = %20, %14, %4, %30, %25
-  %.0 = phi double [ %29, %25 ], [ %37, %30 ], [ %3, %4 ], [ %11, %14 ], [ %11, %20 ]
+  %.0 = phi double [ %37, %30 ], [ %3, %4 ], [ %11, %14 ], [ %29, %25 ], [ %11, %20 ]
   ret double %.0
 }
 

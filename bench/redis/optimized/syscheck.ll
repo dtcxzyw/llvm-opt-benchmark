@@ -81,8 +81,8 @@ read_sysfs_line.exit:                             ; preds = %4
   br label %15
 
 15:                                               ; preds = %read_sysfs_line.exit.thread, %read_sysfs_line.exit, %10, %13
-  %.0.i6 = phi ptr [ %8, %13 ], [ %8, %10 ], [ null, %read_sysfs_line.exit ], [ null, %read_sysfs_line.exit.thread ]
-  %.0 = phi i32 [ -1, %13 ], [ 1, %10 ], [ 0, %read_sysfs_line.exit ], [ 0, %read_sysfs_line.exit.thread ]
+  %.0.i6 = phi ptr [ %8, %10 ], [ %8, %13 ], [ null, %read_sysfs_line.exit ], [ null, %read_sysfs_line.exit.thread ]
+  %.0 = phi i32 [ 1, %10 ], [ -1, %13 ], [ 0, %read_sysfs_line.exit ], [ 0, %read_sysfs_line.exit.thread ]
   call void @sdsfree(ptr noundef %.0.i6) #8
   ret i32 %.0
 }
@@ -119,7 +119,7 @@ define dso_local range(i32 -1, 2) i32 @checkOvercommit(ptr noundef writeonly cap
   br label %12
 
 12:                                               ; preds = %4, %8, %1, %10
-  %.0 = phi i32 [ -1, %10 ], [ 0, %1 ], [ 1, %8 ], [ 0, %4 ]
+  %.0 = phi i32 [ 1, %8 ], [ -1, %10 ], [ 0, %1 ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -161,7 +161,7 @@ define dso_local range(i32 -1, 2) i32 @checkTHPEnabled(ptr noundef writeonly cap
   br label %12
 
 12:                                               ; preds = %4, %8, %1, %10
-  %.0 = phi i32 [ -1, %10 ], [ 0, %1 ], [ 1, %8 ], [ 0, %4 ]
+  %.0 = phi i32 [ 1, %8 ], [ -1, %10 ], [ 0, %1 ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -297,7 +297,7 @@ read_sysfs_line.exit27:                           ; preds = %read_sysfs_line.exi
   br label %.thread
 
 .thread:                                          ; preds = %17, %read_sysfs_line.exit27, %27, %25, %9, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %9 ], [ 0, %25 ], [ -1, %read_sysfs_line.exit27 ], [ 1, %27 ], [ 0, %17 ]
+  %.0 = phi i32 [ 0, %25 ], [ 0, %1 ], [ 1, %27 ], [ 0, %9 ], [ -1, %read_sysfs_line.exit27 ], [ 0, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

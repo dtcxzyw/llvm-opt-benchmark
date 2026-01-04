@@ -54,16 +54,16 @@ define hidden void @_ZN5alloc6string6String13replace_range17h5f8f297d1b469686E(p
 
 13:                                               ; preds = %4
   %.not.i = icmp ult i64 %1, %11
-  br i1 %.not.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit", label %14
+  br i1 %.not.i, label %14, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit"
 
 14:                                               ; preds = %13
-  %15 = icmp eq i64 %1, %11
-  br i1 %15, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread", label %34
+  %15 = getelementptr inbounds i8, ptr %9, i64 %1
+  %16 = load i8, ptr %15, align 1, !alias.scope !10, !noundef !4
+  %17 = icmp sgt i8 %16, -65
+  br i1 %17, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread", label %34
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit": ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %9, i64 %1
-  %17 = load i8, ptr %16, align 1, !alias.scope !10, !noundef !4
-  %18 = icmp sgt i8 %17, -65
+  %18 = icmp eq i64 %1, %11
   br i1 %18, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread", label %34
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread": ; preds = %4, %14, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit"

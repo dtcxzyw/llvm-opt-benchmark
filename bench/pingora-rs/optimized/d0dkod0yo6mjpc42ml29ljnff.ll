@@ -1020,7 +1020,7 @@ default.unreachable:                              ; preds = %2
   ret ptr %30
 
 .critedge:                                        ; preds = %33, %46, %42, %39, %37
-  %eh.lpad-body = phi { ptr, i32 } [ %34, %33 ], [ %47, %46 ], [ %19, %37 ], [ %19, %39 ], [ %19, %42 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %34, %33 ], [ %19, %39 ], [ %47, %46 ], [ %19, %42 ], [ %19, %37 ]
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -1100,7 +1100,7 @@ define internal fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5E
   unreachable
 
 .critedge:                                        ; preds = %32, %19
-  %eh.lpad-body4 = phi { ptr, i32 } [ %29, %32 ], [ %20, %19 ]
+  %eh.lpad-body4 = phi { ptr, i32 } [ %20, %19 ], [ %29, %32 ]
   resume { ptr, i32 } %eh.lpad-body4
 
 32:                                               ; preds = %28
@@ -1144,9 +1144,9 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17h376ba38080850d39E(ptr no
   %14 = and i64 %12, 3
   switch i64 %14, label %default.unreachable [
     i64 2, label %27
-    i64 3, label %29
-    i64 0, label %32
-    i64 1, label %37
+    i64 3, label %38
+    i64 0, label %29
+    i64 1, label %34
   ], !prof !64
 
 default.unreachable:                              ; preds = %13
@@ -1167,8 +1167,8 @@ default.unreachable:                              ; preds = %13
 .noexc:                                           ; preds = %19
   unreachable
 
-20:                                               ; preds = %37, %27, %29, %32, %15
-  %.sroa.04.1 = phi ptr [ @anon.c26712e44f94f954f0ab49085fe50d1d.18, %15 ], [ %10, %32 ], [ %10, %29 ], [ %10, %27 ], [ %10, %37 ]
+20:                                               ; preds = %38, %27, %34, %29, %15
+  %.sroa.04.1 = phi ptr [ @anon.c26712e44f94f954f0ab49085fe50d1d.18, %15 ], [ %10, %29 ], [ %10, %34 ], [ %10, %27 ], [ %10, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
@@ -1190,27 +1190,27 @@ default.unreachable:                              ; preds = %13
   br i1 %28, label %.thread, label %20
 
 29:                                               ; preds = %13
-  %30 = icmp ult ptr %10, inttoptr (i64 180388626432 to ptr)
+  %30 = icmp ne ptr %10, null
   call void @llvm.assume(i1 %30)
+  %31 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %32 = load i8, ptr %31, align 8, !range !66, !noundef !4
+  %33 = icmp eq i8 %32, 35
+  br i1 %33, label %.thread, label %20
+
+34:                                               ; preds = %13
+  %35 = getelementptr i8, ptr %10, i64 15
+  %36 = load i8, ptr %35, align 8, !range !66, !noundef !4
+  %37 = icmp eq i8 %36, 35
+  br i1 %37, label %.thread, label %20
+
+38:                                               ; preds = %13
+  %39 = icmp ult ptr %10, inttoptr (i64 180388626432 to ptr)
+  call void @llvm.assume(i1 %39)
   %.mask = and i64 %12, -4294967296
-  %31 = icmp eq i64 %.mask, 150323855360
-  br i1 %31, label %.thread, label %20
-
-32:                                               ; preds = %13
-  %33 = icmp ne ptr %10, null
-  call void @llvm.assume(i1 %33)
-  %34 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %35 = load i8, ptr %34, align 8, !range !66, !noundef !4
-  %36 = icmp eq i8 %35, 35
-  br i1 %36, label %.thread, label %20
-
-37:                                               ; preds = %13
-  %38 = getelementptr i8, ptr %10, i64 15
-  %39 = load i8, ptr %38, align 8, !range !66, !noundef !4
-  %40 = icmp eq i8 %39, 35
+  %40 = icmp eq i64 %.mask, 150323855360
   br i1 %40, label %.thread, label %20
 
-.thread:                                          ; preds = %37, %27, %29, %32
+.thread:                                          ; preds = %38, %27, %34, %29
   call void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h330c3936920c2f3eE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6)
   br label %41
 
@@ -2682,7 +2682,7 @@ common.resume:                                    ; preds = %104, %126
   br label %"_ZN4http6header3map18HeaderMap$LT$T$GT$7rebuild17h0a9e925134bae386E.exit"
 
 129:                                              ; preds = %114, %30, %"_ZN4http6header3map18HeaderMap$LT$T$GT$7rebuild17h0a9e925134bae386E.exit"
-  %.sroa.0.0 = phi i1 [ false, %"_ZN4http6header3map18HeaderMap$LT$T$GT$7rebuild17h0a9e925134bae386E.exit" ], [ true, %30 ], [ true, %114 ]
+  %.sroa.0.0 = phi i1 [ true, %30 ], [ false, %"_ZN4http6header3map18HeaderMap$LT$T$GT$7rebuild17h0a9e925134bae386E.exit" ], [ true, %114 ]
   ret i1 %.sroa.0.0
 }
 
@@ -2970,7 +2970,7 @@ common.resume:                                    ; preds = %104, %126
   br label %"_ZN4http6header3map18HeaderMap$LT$T$GT$7rebuild17ha5f297c8a2c443e5E.exit"
 
 129:                                              ; preds = %114, %30, %"_ZN4http6header3map18HeaderMap$LT$T$GT$7rebuild17ha5f297c8a2c443e5E.exit"
-  %.sroa.0.0 = phi i1 [ false, %"_ZN4http6header3map18HeaderMap$LT$T$GT$7rebuild17ha5f297c8a2c443e5E.exit" ], [ true, %30 ], [ true, %114 ]
+  %.sroa.0.0 = phi i1 [ true, %30 ], [ false, %"_ZN4http6header3map18HeaderMap$LT$T$GT$7rebuild17ha5f297c8a2c443e5E.exit" ], [ true, %114 ]
   ret i1 %.sroa.0.0
 }
 
@@ -3461,9 +3461,9 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$23remove_all_extra_v
   br label %_ZN4http6header3map18remove_extra_value17h150ccc0a88082a8dE.exit
 
 .invoke.i:                                        ; preds = %121, %119, %105, %103, %93
-  %133 = phi i64 [ %99, %105 ], [ %99, %103 ], [ %97, %121 ], [ %97, %119 ], [ %.sroa.0.062, %93 ]
-  %134 = phi i64 [ %8, %105 ], [ %39, %103 ], [ %8, %121 ], [ %39, %119 ], [ %39, %93 ]
-  %135 = phi ptr [ @anon.c26712e44f94f954f0ab49085fe50d1d.75, %105 ], [ @anon.c26712e44f94f954f0ab49085fe50d1d.77, %103 ], [ @anon.c26712e44f94f954f0ab49085fe50d1d.78, %121 ], [ @anon.c26712e44f94f954f0ab49085fe50d1d.80, %119 ], [ @anon.c26712e44f94f954f0ab49085fe50d1d.74, %93 ]
+  %133 = phi i64 [ %97, %121 ], [ %99, %103 ], [ %99, %105 ], [ %97, %119 ], [ %.sroa.0.062, %93 ]
+  %134 = phi i64 [ %8, %121 ], [ %39, %103 ], [ %8, %105 ], [ %39, %119 ], [ %39, %93 ]
+  %135 = phi ptr [ @anon.c26712e44f94f954f0ab49085fe50d1d.78, %121 ], [ @anon.c26712e44f94f954f0ab49085fe50d1d.77, %103 ], [ @anon.c26712e44f94f954f0ab49085fe50d1d.75, %105 ], [ @anon.c26712e44f94f954f0ab49085fe50d1d.80, %119 ], [ @anon.c26712e44f94f954f0ab49085fe50d1d.74, %93 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %133, i64 noundef %134, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %135) #22
           to label %.cont.i unwind label %101, !noalias !260
 
@@ -6201,7 +6201,7 @@ define internal fastcc void @"_ZN84_$LT$pingora_core..protocols..l4..socket..Soc
   br label %58
 
 58:                                               ; preds = %63, %57, %54
-  %.sroa.015.0.i = phi i64 [ 0, %57 ], [ 1, %54 ], [ 1, %63 ]
+  %.sroa.015.0.i = phi i64 [ 1, %54 ], [ 0, %57 ], [ 1, %63 ]
   %59 = add i64 %.sroa.015.0.i, %37
   br label %45
 

@@ -701,7 +701,7 @@ list_standards.exit:                              ; preds = %147, %._crit_edge.i
   br label %288
 
 288:                                              ; preds = %._crit_edge, %270, %18, %1, %283
-  %.0 = phi i32 [ %.0103, %283 ], [ -12, %1 ], [ %21, %18 ], [ 0, %270 ], [ 0, %._crit_edge ]
+  %.0 = phi i32 [ -12, %1 ], [ %.0103, %283 ], [ %21, %18 ], [ 0, %270 ], [ 0, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1118,7 +1118,7 @@ convert_timestamp.exit.i:                         ; preds = %194, %init_convert_
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %mmap_read_frame.exit.thread
 
-mmap_read_frame.exit.thread:                      ; preds = %31, %41, %enqueue_buffer.exit.i, %.critedge83.i
+mmap_read_frame.exit.thread:                      ; preds = %31, %.critedge83.i, %41, %enqueue_buffer.exit.i
   %.0.i.ph = phi i32 [ -12, %.critedge83.i ], [ %80, %enqueue_buffer.exit.i ], [ -22, %41 ], [ -11, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1126,7 +1126,7 @@ mmap_read_frame.exit.thread:                      ; preds = %31, %41, %enqueue_b
   br label %214
 
 mmap_read_frame.exit:                             ; preds = %34, %113, %convert_timestamp.exit.i
-  %.0.i = phi i32 [ %35, %34 ], [ %111, %113 ], [ %210, %convert_timestamp.exit.i ]
+  %.0.i = phi i32 [ %210, %convert_timestamp.exit.i ], [ %35, %34 ], [ %111, %113 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1358,7 +1358,7 @@ v4l2_is_v4l_dev.exit.thread:                      ; preds = %22, %26, %.tail.i, 
   br label %.thread
 
 .thread:                                          ; preds = %45, %.loopexit47.thread, %.loopexit47
-  %.343 = phi i32 [ %.377, %.loopexit47.thread ], [ %60, %.loopexit47 ], [ -12, %45 ]
+  %.343 = phi i32 [ %60, %.loopexit47 ], [ %.377, %.loopexit47.thread ], [ -12, %45 ]
   %65 = load ptr, ptr %16, align 8, !tbaa !90
   %66 = call i32 %65(i32 noundef %39) #11
   br label %.thread44
@@ -1890,7 +1890,7 @@ define internal fastcc i32 @v4l2_set_parameters(ptr noundef %0) unnamed_addr #0 
   br label %138
 
 138:                                              ; preds = %133, %109, %136, %137, %104
-  %.175 = phi ptr [ %.074, %104 ], [ %120, %136 ], [ %.074, %137 ], [ %.074, %109 ], [ %120, %133 ]
+  %.175 = phi ptr [ %.074, %104 ], [ %120, %136 ], [ %120, %133 ], [ %.074, %137 ], [ %.074, %109 ]
   %139 = getelementptr inbounds nuw i8, ptr %.175, i64 4
   %140 = load i32, ptr %139, align 4, !tbaa !149
   %.not91 = icmp eq i32 %140, 0
@@ -1919,7 +1919,7 @@ define internal fastcc i32 @v4l2_set_parameters(ptr noundef %0) unnamed_addr #0 
   br label %152
 
 152:                                              ; preds = %143, %151, %128, %83, %52, %44, %16
-  %.076 = phi i32 [ %14, %16 ], [ %45, %44 ], [ %55, %52 ], [ %131, %128 ], [ %84, %83 ], [ 0, %151 ], [ 0, %143 ]
+  %.076 = phi i32 [ %14, %16 ], [ %45, %44 ], [ %55, %52 ], [ %84, %83 ], [ %131, %128 ], [ 0, %151 ], [ 0, %143 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -2139,7 +2139,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @mmap_init(ptr no
   br i1 %109, label %54, label %.loopexit, !llvm.loop !160
 
 .loopexit:                                        ; preds = %106, %.preheader, %.thread, %53, %35, %29, %21
-  %.057 = phi i32 [ %24, %21 ], [ -12, %29 ], [ -12, %53 ], [ -12, %35 ], [ %.2.ph, %.thread ], [ 0, %.preheader ], [ 0, %106 ]
+  %.057 = phi i32 [ %24, %21 ], [ -12, %29 ], [ %.2.ph, %.thread ], [ -12, %35 ], [ -12, %53 ], [ 0, %.preheader ], [ 0, %106 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.057
 }

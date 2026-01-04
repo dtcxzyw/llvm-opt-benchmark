@@ -110,9 +110,9 @@ if.end:                                           ; preds = %lor.lhs.false
   %10 = or disjoint i64 %9, 4294967296
   br label %return
 
-return:                                           ; preds = %if.end8.i, %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN6hermes9SourceMap7SegmentESt6vectorIS4_SaIS4_EEEEjZNKS3_20getSegmentForAddressEjjE3$_0ET_SC_SC_RKT0_T1_.exit.i", %if.end.i, %entry, %lor.lhs.false.i, %lor.lhs.false, %if.end
-  %retval.sroa.2.0 = phi i64 [ %8, %if.end ], [ 0, %lor.lhs.false ], [ 0, %lor.lhs.false.i ], [ 0, %entry ], [ 0, %if.end.i ], [ 0, %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN6hermes9SourceMap7SegmentESt6vectorIS4_SaIS4_EEEEjZNKS3_20getSegmentForAddressEjjE3$_0ET_SC_SC_RKT0_T1_.exit.i" ], [ 0, %if.end8.i ]
-  %retval.sroa.5.0 = phi i64 [ %10, %if.end ], [ 0, %lor.lhs.false ], [ 0, %lor.lhs.false.i ], [ 0, %entry ], [ 0, %if.end.i ], [ 0, %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN6hermes9SourceMap7SegmentESt6vectorIS4_SaIS4_EEEEjZNKS3_20getSegmentForAddressEjjE3$_0ET_SC_SC_RKT0_T1_.exit.i" ], [ 0, %if.end8.i ]
+return:                                           ; preds = %if.end8.i, %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN6hermes9SourceMap7SegmentESt6vectorIS4_SaIS4_EEEEjZNKS3_20getSegmentForAddressEjjE3$_0ET_SC_SC_RKT0_T1_.exit.i", %lor.lhs.false.i, %if.end.i, %entry, %lor.lhs.false, %if.end
+  %retval.sroa.2.0 = phi i64 [ %8, %if.end ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %if.end.i ], [ 0, %lor.lhs.false.i ], [ 0, %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN6hermes9SourceMap7SegmentESt6vectorIS4_SaIS4_EEEEjZNKS3_20getSegmentForAddressEjjE3$_0ET_SC_SC_RKT0_T1_.exit.i" ], [ 0, %if.end8.i ]
+  %retval.sroa.5.0 = phi i64 [ %10, %if.end ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %if.end.i ], [ 0, %lor.lhs.false.i ], [ 0, %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN6hermes9SourceMap7SegmentESt6vectorIS4_SaIS4_EEEEjZNKS3_20getSegmentForAddressEjjE3$_0ET_SC_SC_RKT0_T1_.exit.i" ], [ 0, %if.end8.i ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %retval.sroa.2.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %retval.sroa.5.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -275,7 +275,7 @@ lor.lhs.false.i:                                  ; preds = %"_ZSt11upper_boundI
   %tobool.i2.i = trunc i8 %seg.sroa.44.0.copyload.i to i1
   br i1 %tobool.i2.i, label %if.end, label %if.then
 
-if.then:                                          ; preds = %if.end8.i.i, %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN6hermes9SourceMap7SegmentESt6vectorIS4_SaIS4_EEEEjZNKS3_20getSegmentForAddressEjjE3$_0ET_SC_SC_RKT0_T1_.exit.i.i", %if.end.i.i, %entry, %lor.lhs.false.i.i, %lor.lhs.false.i
+if.then:                                          ; preds = %if.end8.i.i, %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN6hermes9SourceMap7SegmentESt6vectorIS4_SaIS4_EEEEjZNKS3_20getSegmentForAddressEjjE3$_0ET_SC_SC_RKT0_T1_.exit.i.i", %lor.lhs.false.i.i, %if.end.i.i, %entry, %lor.lhs.false.i
   %hasVal.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i8 0, ptr %hasVal.i.i, align 8
   br label %return

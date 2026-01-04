@@ -451,7 +451,7 @@ _ZN3std4sync6poison4once4Once9call_once17h411f3af38dcc71daE.exit.i.i.i: ; preds 
   br label %common.resume
 
 common.resume:                                    ; preds = %77, %53, %68, %76
-  %common.resume.op = phi { ptr, i32 } [ %69, %76 ], [ %69, %68 ], [ %78, %77 ], [ %54, %53 ]
+  %common.resume.op = phi { ptr, i32 } [ %69, %68 ], [ %69, %76 ], [ %78, %77 ], [ %54, %53 ]
   resume { ptr, i32 } %common.resume.op
 
 77:                                               ; preds = %57
@@ -901,7 +901,7 @@ define hidden void @_ZN10rayon_core8registry8Registry3new17h84ebdf23553011dfE(pt
           to label %.loopexit unwind label %109
 
 .critedge:                                        ; preds = %.body.thread151.loopexit, %.body.thread151.loopexit.split-lp, %165, %174, %146, %213, %.thread142, %217, %109
-  %.pn46.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %217 ], [ %110, %109 ], [ %lpad.thr_comm, %.thread142 ], [ %lpad.thr_comm.split-lp150, %213 ], [ %147, %146 ], [ %166, %165 ], [ %175, %174 ], [ %lpad.loopexit, %.body.thread151.loopexit ], [ %lpad.loopexit.split-lp, %.body.thread151.loopexit.split-lp ]
+  %.pn46.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %217 ], [ %lpad.thr_comm, %.thread142 ], [ %110, %109 ], [ %lpad.thr_comm.split-lp150, %213 ], [ %175, %174 ], [ %147, %146 ], [ %166, %165 ], [ %lpad.loopexit, %.body.thread151.loopexit ], [ %lpad.loopexit.split-lp, %.body.thread151.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr313drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$core..iter..adapters..zip..Zip$LT$alloc..vec..into_iter..IntoIter$LT$crossbeam_deque..deque..Worker$LT$rayon_core..job..JobRef$GT$$GT$$C$alloc..vec..into_iter..IntoIter$LT$crossbeam_deque..deque..Stealer$LT$rayon_core..job..JobRef$GT$$GT$$GT$$GT$$GT$17h32fc414ed2263029E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %15) #20
           to label %78 unwind label %214
 
@@ -1000,7 +1000,7 @@ define hidden void @_ZN10rayon_core8registry8Registry3new17h84ebdf23553011dfE(pt
   %136 = invoke noundef ptr @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h334be6ccbd10af4cE"(ptr noalias noundef readonly align 8 dereferenceable(8) @anon.0003ac3ed8c5bd1acfbfbf2029a48381.2)
           to label %137 unwind label %213
 
-.body.thread151.loopexit:                         ; preds = %188, %183, %155, %133, %139, %150
+.body.thread151.loopexit:                         ; preds = %183, %155, %139, %133, %150, %188
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.critedge
@@ -1259,8 +1259,8 @@ _ZN3std4sync6poison4Flag4done17hf1c95fd25479095eE.exit.i.i.i: ; preds = %185, %.
   br i1 %.sroa.010.1115, label %218, label %.thread159
 
 .thread109:                                       ; preds = %74, %48, %.thread129
-  %.pn46.pn.pn.pn.pn119 = phi { ptr, i32 } [ %46, %.thread129 ], [ %.pn, %48 ], [ %75, %74 ]
-  %.sroa.010.1115 = phi i1 [ true, %.thread129 ], [ true, %48 ], [ false, %74 ]
+  %.pn46.pn.pn.pn.pn119 = phi { ptr, i32 } [ %.pn, %48 ], [ %46, %.thread129 ], [ %75, %74 ]
+  %.sroa.010.1115 = phi i1 [ true, %48 ], [ true, %.thread129 ], [ false, %74 ]
   invoke void @"_ZN4core3ptr106drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_deque..deque..Stealer$LT$rayon_core..job..JobRef$GT$$GT$$GT$17hd4149d2b2298bfe7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %21) #20
           to label %.thread120 unwind label %214
 

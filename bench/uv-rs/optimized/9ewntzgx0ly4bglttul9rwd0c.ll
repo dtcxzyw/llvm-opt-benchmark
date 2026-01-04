@@ -510,7 +510,7 @@ _ZN5alloc5alloc15exchange_malloc17h2c8a02dcfd7e37fdE.exit: ; preds = %2
           to label %common.resume unwind label %44
 
 common.resume:                                    ; preds = %.body, %.body37
-  %common.resume.op = phi { ptr, i32 } [ %41, %.body37 ], [ %eh.lpad-body, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %41, %.body37 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$schemars..schema..SingleOrVec$LT$schemars..schema..Schema$GT$$GT$$GT$17h6c62e874aa98af63E.exit": ; preds = %25
@@ -671,7 +671,7 @@ _ZN5alloc5alloc15exchange_malloc17h2c8a02dcfd7e37fdE.exit: ; preds = %2
           to label %common.resume unwind label %44
 
 common.resume:                                    ; preds = %.body, %.body37
-  %common.resume.op = phi { ptr, i32 } [ %41, %.body37 ], [ %eh.lpad-body, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %41, %.body37 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$schemars..schema..SingleOrVec$LT$schemars..schema..Schema$GT$$GT$$GT$17h6c62e874aa98af63E.exit": ; preds = %25

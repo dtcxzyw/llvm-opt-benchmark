@@ -519,7 +519,7 @@ define internal i32 @dissect_pgsql(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %91
 
 91:                                               ; preds = %.sink.split, %30, %31
-  %.0 = phi i32 [ 0, %31 ], [ 0, %30 ], [ %90, %.sink.split ]
+  %.0 = phi i32 [ 0, %30 ], [ 0, %31 ], [ %90, %.sink.split ]
   ret i32 %.0
 }
 
@@ -708,7 +708,7 @@ switch.lookup:                                    ; preds = %46
   br label %59
 
 59:                                               ; preds = %46, %switch.lookup, %35, %39, %42, %44, %54, %56
-  %.1 = phi ptr [ %55, %54 ], [ %57, %56 ], [ @.str.208, %35 ], [ @.str.209, %39 ], [ @.str.210, %42 ], [ %.str.211..str.212, %44 ], [ %switch.load, %switch.lookup ], [ @.str.216, %46 ]
+  %.1 = phi ptr [ %57, %56 ], [ @.str.208, %35 ], [ %.str.211..str.212, %44 ], [ %switch.load, %switch.lookup ], [ @.str.209, %39 ], [ %55, %54 ], [ @.str.210, %42 ], [ @.str.216, %46 ]
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %61 = load ptr, ptr %60, align 8
   %.b = load i1, ptr @first_message, align 1

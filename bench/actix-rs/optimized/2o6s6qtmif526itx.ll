@@ -172,11 +172,11 @@ define hidden void @"_ZN122_$LT$alloc..collections..vec_deque..into_iter..IntoIt
   %.0.i.i.i = sub nuw i64 %15, %17
   %18 = sub i64 %16, %.0.i.i.i
   %.not.i.i = icmp ult i64 %18, %12
-  %19 = sub nuw i64 %12, %18
-  %20 = mul nsw i64 %19, 72
-  %21 = add i64 %.0.i.i.i, %12
-  %.sroa.5.0.i = select i1 %.not.i.i, i64 %16, i64 %21
-  %.sroa.11.0.i = select i1 %.not.i.i, i64 %20, i64 0
+  %19 = add i64 %.0.i.i.i, %12
+  %20 = sub nuw i64 %12, %18
+  %21 = mul nsw i64 %20, 72
+  %.sroa.5.0.i = select i1 %.not.i.i, i64 %16, i64 %19
+  %.sroa.11.0.i = select i1 %.not.i.i, i64 %21, i64 0
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !alias.scope !14, !noalias !17, !nonnull !10, !noundef !10
   %24 = getelementptr inbounds { { ptr, [4 x i64] }, { { { i64, i32, [1 x i32] } } }, { { { i64, i32, [1 x i32] } } } }, ptr %23, i64 %.sroa.5.0.i
@@ -299,11 +299,11 @@ define hidden void @"_ZN122_$LT$alloc..collections..vec_deque..into_iter..IntoIt
   %.0.i.i.i = sub nuw i64 %15, %17
   %18 = sub i64 %16, %.0.i.i.i
   %.not.i.i = icmp ult i64 %18, %12
-  %19 = sub nuw i64 %12, %18
-  %20 = mul nsw i64 %19, 72
-  %21 = add i64 %.0.i.i.i, %12
-  %.sroa.5.0.i = select i1 %.not.i.i, i64 %16, i64 %21
-  %.sroa.11.0.i = select i1 %.not.i.i, i64 %20, i64 0
+  %19 = add i64 %.0.i.i.i, %12
+  %20 = sub nuw i64 %12, %18
+  %21 = mul nsw i64 %20, 72
+  %.sroa.5.0.i = select i1 %.not.i.i, i64 %16, i64 %19
+  %.sroa.11.0.i = select i1 %.not.i.i, i64 %21, i64 0
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !alias.scope !76, !noalias !79, !nonnull !10, !noundef !10
   %24 = getelementptr inbounds { { ptr, [4 x i64] }, { { { i64, i32, [1 x i32] } } }, { { { i64, i32, [1 x i32] } } } }, ptr %23, i64 %.sroa.5.0.i
@@ -433,7 +433,7 @@ define hidden void @"_ZN19brotli_decompressor6writer27DecompressorWriter$LT$W$GT
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
-18:                                               ; preds = %5, %.noexc
+18:                                               ; preds = %.noexc, %5
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %19 = icmp eq i64 %4, 0
@@ -727,7 +727,7 @@ default.unreachable103:                           ; preds = %.loopexit42
           to label %59 unwind label %57, !noalias !190
 
 50:                                               ; preds = %44, %40, %38, %35
-  %.0.i.i = phi i8 [ %39, %38 ], [ %43, %40 ], [ %47, %44 ], [ %37, %35 ]
+  %.0.i.i = phi i8 [ %47, %44 ], [ %39, %38 ], [ %43, %40 ], [ %37, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !192
   %51 = icmp eq i8 %.0.i.i, 35
   br i1 %51, label %52, label %_ZN19brotli_decompressor6writer9write_all17hd82ef04ab5f10320E.exit
@@ -809,7 +809,7 @@ _ZN19brotli_decompressor6writer9write_all17hd82ef04ab5f10320E.exit: ; preds = %5
   br label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17hf0d416f44f117e07E.exit"
 
 "_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17hf0d416f44f117e07E.exit": ; preds = %.loopexit42, %20, %67, %70, %_ZN19brotli_decompressor6writer9write_all17hd82ef04ab5f10320E.exit
-  %.0 = phi ptr [ %33, %_ZN19brotli_decompressor6writer9write_all17hd82ef04ab5f10320E.exit ], [ %68, %67 ], [ %71, %70 ], [ null, %20 ], [ null, %.loopexit42 ]
+  %.0 = phi ptr [ %71, %70 ], [ %33, %_ZN19brotli_decompressor6writer9write_all17hd82ef04ab5f10320E.exit ], [ %68, %67 ], [ null, %20 ], [ null, %.loopexit42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -839,7 +839,7 @@ define internal fastcc noundef zeroext i1 @"_ZN2h25codec12framed_write16Encoder$
   ]
 
 8:                                                ; preds = %1, %47, %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$h2..frame..data..Data$LT$h2..proto..streams..prioritize..Prioritized$LT$bytes..bytes..Bytes$GT$$GT$$GT$$GT$17h4dfd86a411e71f03E.exit"
-  %.0 = phi i1 [ false, %47 ], [ true, %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$h2..frame..data..Data$LT$h2..proto..streams..prioritize..Prioritized$LT$bytes..bytes..Bytes$GT$$GT$$GT$$GT$17h4dfd86a411e71f03E.exit" ], [ true, %1 ]
+  %.0 = phi i1 [ true, %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$h2..frame..data..Data$LT$h2..proto..streams..prioritize..Prioritized$LT$bytes..bytes..Bytes$GT$$GT$$GT$$GT$17h4dfd86a411e71f03E.exit" ], [ false, %47 ], [ true, %1 ]
   ret i1 %.0
 
 9:                                                ; preds = %1
@@ -1106,10 +1106,10 @@ define hidden noundef range(i8 2, 13) i8 @"_ZN2h25codec12framed_write16Encoder$L
   ]
 
 140:                                              ; preds = %149, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h889725038ea60eb3E.exit", %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h889725038ea60eb3E.exit707", %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit", %208, %151, %.critedge
-  %.0495 = phi i1 [ true, %208 ], [ true, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h889725038ea60eb3E.exit707" ], [ %.6501, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h889725038ea60eb3E.exit" ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit" ], [ true, %151 ], [ true, %.critedge ], [ true, %149 ]
-  %.0488 = phi i1 [ true, %208 ], [ true, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h889725038ea60eb3E.exit707" ], [ %.6494, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h889725038ea60eb3E.exit" ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit" ], [ true, %151 ], [ true, %.critedge ], [ true, %149 ]
-  %.0481 = phi i1 [ true, %208 ], [ true, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h889725038ea60eb3E.exit707" ], [ %.6487, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h889725038ea60eb3E.exit" ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit" ], [ true, %151 ], [ true, %.critedge ], [ true, %149 ]
-  %.0480 = phi i1 [ true, %208 ], [ false, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h889725038ea60eb3E.exit707" ], [ %.6, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h889725038ea60eb3E.exit" ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit" ], [ true, %151 ], [ true, %.critedge ], [ true, %149 ]
+  %.0495 = phi i1 [ true, %208 ], [ true, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h889725038ea60eb3E.exit707" ], [ %.6501, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h889725038ea60eb3E.exit" ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit" ], [ true, %.critedge ], [ true, %151 ], [ true, %149 ]
+  %.0488 = phi i1 [ true, %208 ], [ true, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h889725038ea60eb3E.exit707" ], [ %.6494, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h889725038ea60eb3E.exit" ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit" ], [ true, %.critedge ], [ true, %151 ], [ true, %149 ]
+  %.0481 = phi i1 [ true, %208 ], [ true, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h889725038ea60eb3E.exit707" ], [ %.6487, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h889725038ea60eb3E.exit" ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit" ], [ true, %.critedge ], [ true, %151 ], [ true, %149 ]
+  %.0480 = phi i1 [ true, %208 ], [ false, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h889725038ea60eb3E.exit707" ], [ %.6, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h889725038ea60eb3E.exit" ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit" ], [ true, %.critedge ], [ true, %151 ], [ true, %149 ]
   %141 = landingpad { ptr, i32 }
           cleanup
   br label %138
@@ -1342,28 +1342,28 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit: ;
           to label %138 unwind label %206
 
 213:                                              ; preds = %.noexc617, %434, %454, %447, %427, %190
-  %.2497 = phi i1 [ true, %190 ], [ true, %.noexc617 ], [ %.6501, %427 ], [ %.6501, %434 ], [ true, %447 ], [ true, %454 ]
-  %.2490 = phi i1 [ true, %190 ], [ true, %.noexc617 ], [ %.6494, %427 ], [ %.6494, %434 ], [ true, %447 ], [ true, %454 ]
-  %.2483 = phi i1 [ true, %190 ], [ true, %.noexc617 ], [ %.6487, %427 ], [ %.6487, %434 ], [ true, %447 ], [ true, %454 ]
-  %.2 = phi i1 [ true, %190 ], [ true, %.noexc617 ], [ %.6, %427 ], [ %.6, %434 ], [ false, %447 ], [ false, %454 ]
+  %.2497 = phi i1 [ true, %454 ], [ %.6501, %434 ], [ true, %.noexc617 ], [ true, %190 ], [ %.6501, %427 ], [ true, %447 ]
+  %.2490 = phi i1 [ true, %454 ], [ %.6494, %434 ], [ true, %.noexc617 ], [ true, %190 ], [ %.6494, %427 ], [ true, %447 ]
+  %.2483 = phi i1 [ true, %454 ], [ %.6487, %434 ], [ true, %.noexc617 ], [ true, %190 ], [ %.6487, %427 ], [ true, %447 ]
+  %.2 = phi i1 [ false, %454 ], [ %.6, %434 ], [ true, %.noexc617 ], [ true, %190 ], [ %.6, %427 ], [ false, %447 ]
   %214 = landingpad { ptr, i32 }
           cleanup
   br label %212
 
 "_ZN4core3ptr120drop_in_place$LT$h2..frame..data..Data$LT$h2..proto..streams..prioritize..Prioritized$LT$bytes..bytes..Bytes$GT$$GT$$GT$17h7654534be3b35cdaE.exit709": ; preds = %399, %422, %663, %466, %503, %488, %215
-  %.5500 = phi i1 [ %.4499, %215 ], [ true, %488 ], [ true, %503 ], [ true, %466 ], [ false, %663 ], [ true, %422 ], [ true, %399 ]
-  %.5493 = phi i1 [ %.4492, %215 ], [ true, %488 ], [ false, %503 ], [ true, %466 ], [ true, %663 ], [ true, %422 ], [ true, %399 ]
-  %.5486 = phi i1 [ %.4485, %215 ], [ false, %488 ], [ true, %503 ], [ true, %466 ], [ true, %663 ], [ true, %422 ], [ true, %399 ]
-  %.5 = phi i1 [ %.4, %215 ], [ true, %488 ], [ true, %503 ], [ false, %466 ], [ true, %663 ], [ false, %422 ], [ false, %399 ]
-  %.pn544 = phi { ptr, i32 } [ %216, %215 ], [ %489, %488 ], [ %504, %503 ], [ %467, %466 ], [ %664, %663 ], [ %423, %422 ], [ %400, %399 ]
+  %.5500 = phi i1 [ %.4499, %215 ], [ true, %466 ], [ false, %663 ], [ true, %488 ], [ true, %503 ], [ true, %422 ], [ true, %399 ]
+  %.5493 = phi i1 [ %.4492, %215 ], [ true, %466 ], [ true, %663 ], [ true, %488 ], [ false, %503 ], [ true, %422 ], [ true, %399 ]
+  %.5486 = phi i1 [ %.4485, %215 ], [ true, %466 ], [ true, %663 ], [ false, %488 ], [ true, %503 ], [ true, %422 ], [ true, %399 ]
+  %.5 = phi i1 [ %.4, %215 ], [ false, %466 ], [ true, %663 ], [ true, %488 ], [ true, %503 ], [ false, %422 ], [ false, %399 ]
+  %.pn544 = phi { ptr, i32 } [ %216, %215 ], [ %467, %466 ], [ %664, %663 ], [ %489, %488 ], [ %504, %503 ], [ %423, %422 ], [ %400, %399 ]
   invoke fastcc void @"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h889725038ea60eb3E"(ptr nonnull %126) #25
           to label %212 unwind label %206
 
 215:                                              ; preds = %.invoke1277, %845, %766, %741, %590, %511, %362, %306, %.noexc688, %.critedge9.i, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit685", %223, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit866", %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit837", %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit776", %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit747", %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit860", %877, %868, %848, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit831", %798, %789, %769, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit770", %622, %613, %593, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit741", %543, %534, %514, %348, %341, %335, %332, %324, %323, %315, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit679", %255, %246, %226
-  %.4499 = phi i1 [ true, %315 ], [ true, %323 ], [ true, %324 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit747" ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit741" ], [ true, %543 ], [ true, %534 ], [ true, %514 ], [ true, %332 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit776" ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit770" ], [ true, %622 ], [ true, %613 ], [ true, %593 ], [ true, %335 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit837" ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit831" ], [ true, %798 ], [ true, %789 ], [ true, %769 ], [ true, %341 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit866" ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit860" ], [ true, %877 ], [ true, %868 ], [ true, %848 ], [ true, %348 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit679" ], [ true, %255 ], [ true, %246 ], [ true, %226 ], [ true, %223 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit685" ], [ true, %.critedge9.i ], [ true, %.noexc688 ], [ true, %306 ], [ true, %362 ], [ true, %511 ], [ true, %590 ], [ false, %741 ], [ true, %766 ], [ true, %845 ], [ true, %.invoke1277 ]
-  %.4492 = phi i1 [ true, %315 ], [ true, %323 ], [ false, %324 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit747" ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit741" ], [ true, %543 ], [ true, %534 ], [ true, %514 ], [ true, %332 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit776" ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit770" ], [ true, %622 ], [ true, %613 ], [ true, %593 ], [ true, %335 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit837" ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit831" ], [ true, %798 ], [ true, %789 ], [ true, %769 ], [ true, %341 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit866" ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit860" ], [ true, %877 ], [ true, %868 ], [ true, %848 ], [ true, %348 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit679" ], [ true, %255 ], [ true, %246 ], [ true, %226 ], [ true, %223 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit685" ], [ true, %.critedge9.i ], [ true, %.noexc688 ], [ true, %306 ], [ true, %362 ], [ true, %511 ], [ true, %590 ], [ true, %741 ], [ true, %766 ], [ true, %845 ], [ true, %.invoke1277 ]
-  %.4485 = phi i1 [ false, %315 ], [ true, %323 ], [ true, %324 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit747" ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit741" ], [ true, %543 ], [ true, %534 ], [ true, %514 ], [ true, %332 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit776" ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit770" ], [ true, %622 ], [ true, %613 ], [ true, %593 ], [ true, %335 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit837" ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit831" ], [ true, %798 ], [ true, %789 ], [ true, %769 ], [ true, %341 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit866" ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit860" ], [ true, %877 ], [ true, %868 ], [ true, %848 ], [ true, %348 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit679" ], [ true, %255 ], [ true, %246 ], [ true, %226 ], [ true, %223 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit685" ], [ true, %.critedge9.i ], [ true, %.noexc688 ], [ true, %306 ], [ true, %362 ], [ true, %511 ], [ true, %590 ], [ true, %741 ], [ true, %766 ], [ true, %845 ], [ true, %.invoke1277 ]
-  %.4 = phi i1 [ true, %315 ], [ true, %323 ], [ true, %324 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit747" ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit741" ], [ true, %543 ], [ true, %534 ], [ true, %514 ], [ true, %332 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit776" ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit770" ], [ true, %622 ], [ true, %613 ], [ true, %593 ], [ true, %335 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit837" ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit831" ], [ true, %798 ], [ true, %789 ], [ true, %769 ], [ true, %341 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit866" ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit860" ], [ true, %877 ], [ true, %868 ], [ true, %848 ], [ true, %348 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit679" ], [ true, %255 ], [ true, %246 ], [ true, %226 ], [ true, %223 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit685" ], [ true, %.critedge9.i ], [ true, %.noexc688 ], [ true, %306 ], [ false, %362 ], [ true, %511 ], [ true, %590 ], [ true, %741 ], [ true, %766 ], [ true, %845 ], [ true, %.invoke1277 ]
+  %.4499 = phi i1 [ true, %590 ], [ true, %255 ], [ true, %362 ], [ true, %766 ], [ true, %315 ], [ true, %323 ], [ true, %769 ], [ true, %324 ], [ true, %798 ], [ true, %789 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit747" ], [ true, %226 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit685" ], [ true, %335 ], [ false, %741 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit741" ], [ true, %306 ], [ true, %593 ], [ true, %543 ], [ true, %534 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit679" ], [ true, %246 ], [ true, %223 ], [ true, %.critedge9.i ], [ true, %514 ], [ true, %511 ], [ true, %.noexc688 ], [ true, %332 ], [ true, %877 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit831" ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit776" ], [ true, %341 ], [ true, %348 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit837" ], [ true, %.invoke1277 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit770" ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit860" ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit866" ], [ true, %622 ], [ true, %613 ], [ true, %848 ], [ true, %845 ], [ true, %868 ]
+  %.4492 = phi i1 [ true, %590 ], [ true, %255 ], [ true, %362 ], [ true, %766 ], [ true, %315 ], [ true, %323 ], [ true, %769 ], [ false, %324 ], [ true, %798 ], [ true, %789 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit747" ], [ true, %226 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit685" ], [ true, %335 ], [ true, %741 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit741" ], [ true, %306 ], [ true, %593 ], [ true, %543 ], [ true, %534 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit679" ], [ true, %246 ], [ true, %223 ], [ true, %.critedge9.i ], [ true, %514 ], [ true, %511 ], [ true, %.noexc688 ], [ true, %332 ], [ true, %877 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit831" ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit776" ], [ true, %341 ], [ true, %348 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit837" ], [ true, %.invoke1277 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit770" ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit860" ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit866" ], [ true, %622 ], [ true, %613 ], [ true, %848 ], [ true, %845 ], [ true, %868 ]
+  %.4485 = phi i1 [ true, %590 ], [ true, %255 ], [ true, %362 ], [ true, %766 ], [ false, %315 ], [ true, %323 ], [ true, %769 ], [ true, %324 ], [ true, %798 ], [ true, %789 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit747" ], [ true, %226 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit685" ], [ true, %335 ], [ true, %741 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit741" ], [ true, %306 ], [ true, %593 ], [ true, %543 ], [ true, %534 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit679" ], [ true, %246 ], [ true, %223 ], [ true, %.critedge9.i ], [ true, %514 ], [ true, %511 ], [ true, %.noexc688 ], [ true, %332 ], [ true, %877 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit831" ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit776" ], [ true, %341 ], [ true, %348 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit837" ], [ true, %.invoke1277 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit770" ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit860" ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit866" ], [ true, %622 ], [ true, %613 ], [ true, %848 ], [ true, %845 ], [ true, %868 ]
+  %.4 = phi i1 [ true, %590 ], [ true, %255 ], [ false, %362 ], [ true, %766 ], [ true, %315 ], [ true, %323 ], [ true, %769 ], [ true, %324 ], [ true, %798 ], [ true, %789 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit747" ], [ true, %226 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit685" ], [ true, %335 ], [ true, %741 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit741" ], [ true, %306 ], [ true, %593 ], [ true, %543 ], [ true, %534 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit679" ], [ true, %246 ], [ true, %223 ], [ true, %.critedge9.i ], [ true, %514 ], [ true, %511 ], [ true, %.noexc688 ], [ true, %332 ], [ true, %877 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit831" ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit776" ], [ true, %341 ], [ true, %348 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit837" ], [ true, %.invoke1277 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit770" ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit860" ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit866" ], [ true, %622 ], [ true, %613 ], [ true, %848 ], [ true, %845 ], [ true, %868 ]
   %216 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr120drop_in_place$LT$h2..frame..data..Data$LT$h2..proto..streams..prioritize..Prioritized$LT$bytes..bytes..Bytes$GT$$GT$$GT$17h7654534be3b35cdaE.exit709"
@@ -3381,7 +3381,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit840
   br i1 %.not1228, label %.invoke1277, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit866"
 
 .invoke1277:                                      ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit847", %852, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit854", %884, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit818", %773, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit825", %805, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit757", %597, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit764", %629, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit728", %518, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit735", %550, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit666", %230, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit673", %262
-  %912 = phi ptr [ @anon.15ffa41ec04c82f15b85862dafa48cde.16, %262 ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.16, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit673" ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.16, %230 ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.16, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit666" ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.26, %550 ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.26, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit735" ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.26, %518 ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.26, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit728" ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.30, %629 ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.30, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit764" ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.30, %597 ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.30, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit757" ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.36, %805 ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.36, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit825" ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.36, %773 ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.36, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit818" ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.39, %884 ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.39, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit854" ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.39, %852 ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.39, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit847" ]
+  %912 = phi ptr [ @anon.15ffa41ec04c82f15b85862dafa48cde.39, %852 ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.39, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit854" ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.39, %884 ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.36, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit818" ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.36, %773 ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.36, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit825" ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.36, %805 ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.30, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit757" ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.30, %597 ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.30, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit764" ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.30, %629 ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.26, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit728" ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.26, %518 ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.26, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit735" ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.26, %550 ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.16, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit666" ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.16, %230 ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.16, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit673" ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.16, %262 ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.39, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit847" ]
   invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.15ffa41ec04c82f15b85862dafa48cde.13, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) %912) #26
           to label %.cont unwind label %215
 
@@ -3799,8 +3799,8 @@ define hidden { i64, ptr } @"_ZN2h25codec12framed_write24FramedWrite$LT$T$C$B$GT
   br label %.critedge14
 
 .critedge14:                                      ; preds = %19, %.critedge, %16, %21, %29
-  %.sroa.5.2 = phi ptr [ null, %29 ], [ undef, %21 ], [ undef, %.critedge ], [ %17, %16 ], [ undef, %19 ]
-  %.sroa.0.2 = phi i64 [ 0, %29 ], [ 1, %21 ], [ %14, %.critedge ], [ 0, %16 ], [ 1, %19 ]
+  %.sroa.5.2 = phi ptr [ null, %29 ], [ undef, %21 ], [ %17, %16 ], [ undef, %.critedge ], [ undef, %19 ]
+  %.sroa.0.2 = phi i64 [ 0, %29 ], [ 1, %21 ], [ 0, %16 ], [ %14, %.critedge ], [ 1, %19 ]
   %30 = insertvalue { i64, ptr } poison, i64 %.sroa.0.2, 0
   %31 = insertvalue { i64, ptr } %30, ptr %.sroa.5.2, 1
   ret { i64, ptr } %31
@@ -3855,8 +3855,8 @@ define hidden { i64, ptr } @"_ZN2h25codec12framed_write24FramedWrite$LT$T$C$B$GT
   br label %.critedge14
 
 .critedge14:                                      ; preds = %19, %.critedge, %16, %21, %29
-  %.sroa.5.2 = phi ptr [ null, %29 ], [ undef, %21 ], [ undef, %.critedge ], [ %17, %16 ], [ undef, %19 ]
-  %.sroa.0.2 = phi i64 [ 0, %29 ], [ 1, %21 ], [ %14, %.critedge ], [ 0, %16 ], [ 1, %19 ]
+  %.sroa.5.2 = phi ptr [ null, %29 ], [ undef, %21 ], [ %17, %16 ], [ undef, %.critedge ], [ undef, %19 ]
+  %.sroa.0.2 = phi i64 [ 0, %29 ], [ 1, %21 ], [ 0, %16 ], [ %14, %.critedge ], [ 1, %19 ]
   %30 = insertvalue { i64, ptr } poison, i64 %.sroa.0.2, 0
   %31 = insertvalue { i64, ptr } %30, ptr %.sroa.5.2, 1
   ret { i64, ptr } %31
@@ -4808,8 +4808,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit290
   br label %299
 
 299:                                              ; preds = %"_ZN81_$LT$alloc..boxed..Box$LT$T$GT$$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$10poll_flush17h0ef2144d58a65cf5E.exit", %417, %.loopexit466, %.loopexit448
-  %.sroa.8.1 = phi ptr [ %.sroa.8.0, %.loopexit466 ], [ %.sroa.8.2, %.loopexit448 ], [ undef, %"_ZN81_$LT$alloc..boxed..Box$LT$T$GT$$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$10poll_flush17h0ef2144d58a65cf5E.exit" ], [ %418, %417 ]
-  %.sroa.0.1 = phi i64 [ %.sroa.0.0, %.loopexit466 ], [ %.sroa.0.2, %.loopexit448 ], [ %415, %"_ZN81_$LT$alloc..boxed..Box$LT$T$GT$$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$10poll_flush17h0ef2144d58a65cf5E.exit" ], [ 0, %417 ]
+  %.sroa.8.1 = phi ptr [ %.sroa.8.2, %.loopexit448 ], [ %.sroa.8.0, %.loopexit466 ], [ undef, %"_ZN81_$LT$alloc..boxed..Box$LT$T$GT$$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$10poll_flush17h0ef2144d58a65cf5E.exit" ], [ %418, %417 ]
+  %.sroa.0.1 = phi i64 [ %.sroa.0.2, %.loopexit448 ], [ %.sroa.0.0, %.loopexit466 ], [ %415, %"_ZN81_$LT$alloc..boxed..Box$LT$T$GT$$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$10poll_flush17h0ef2144d58a65cf5E.exit" ], [ 0, %417 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !398)
   %300 = load i64, ptr %50, align 8, !range !240, !alias.scope !398, !noalias !401, !noundef !10
   %301 = icmp eq i64 %300, 2
@@ -5179,8 +5179,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit318
   br label %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h889725038ea60eb3E.exit"
 
 "_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h889725038ea60eb3E.exit": ; preds = %.critedge.i.i343, %427, %.noexc346, %.critedge.i.i, %306, %.noexc315
-  %.sroa.8.4 = phi ptr [ %.sroa.8.1, %.noexc315 ], [ %.sroa.8.1, %306 ], [ %.sroa.8.1, %.critedge.i.i ], [ null, %.noexc346 ], [ null, %427 ], [ null, %.critedge.i.i343 ]
-  %.sroa.0.4 = phi i64 [ %.sroa.0.1, %.noexc315 ], [ %.sroa.0.1, %306 ], [ %.sroa.0.1, %.critedge.i.i ], [ 0, %.noexc346 ], [ 0, %427 ], [ 0, %.critedge.i.i343 ]
+  %.sroa.8.4 = phi ptr [ %.sroa.8.1, %.critedge.i.i ], [ %.sroa.8.1, %.noexc315 ], [ %.sroa.8.1, %306 ], [ null, %.noexc346 ], [ null, %427 ], [ null, %.critedge.i.i343 ]
+  %.sroa.0.4 = phi i64 [ %.sroa.0.1, %.critedge.i.i ], [ %.sroa.0.1, %.noexc315 ], [ %.sroa.0.1, %306 ], [ 0, %.noexc346 ], [ 0, %427 ], [ 0, %.critedge.i.i343 ]
   call fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17hcd7889c2f425ef2aE"(ptr noalias noundef align 8 dereferenceable(40) %50)
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
   %441 = insertvalue { i64, ptr } poison, i64 %.sroa.0.4, 0
@@ -5953,8 +5953,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit288
   br label %299
 
 299:                                              ; preds = %.loopexit461, %.loopexit445
-  %.sroa.8.1 = phi ptr [ %.sroa.8.0, %.loopexit461 ], [ %.sroa.8.2, %.loopexit445 ]
-  %.sroa.0.1 = phi i64 [ %.sroa.0.0, %.loopexit461 ], [ %.sroa.0.2, %.loopexit445 ]
+  %.sroa.8.1 = phi ptr [ %.sroa.8.2, %.loopexit445 ], [ %.sroa.8.0, %.loopexit461 ]
+  %.sroa.0.1 = phi i64 [ %.sroa.0.2, %.loopexit445 ], [ %.sroa.0.0, %.loopexit461 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !448)
   %300 = load i64, ptr %50, align 8, !range !240, !alias.scope !448, !noalias !451, !noundef !10
   %301 = icmp eq i64 %300, 2
@@ -6304,8 +6304,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit316
   br label %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h889725038ea60eb3E.exit"
 
 "_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h889725038ea60eb3E.exit": ; preds = %.critedge.i.i340, %415, %.noexc343, %.critedge.i.i, %306, %.noexc313
-  %.sroa.8.4 = phi ptr [ %.sroa.8.1, %.noexc313 ], [ %.sroa.8.1, %306 ], [ %.sroa.8.1, %.critedge.i.i ], [ null, %.noexc343 ], [ null, %415 ], [ null, %.critedge.i.i340 ]
-  %.sroa.0.4 = phi i64 [ %.sroa.0.1, %.noexc313 ], [ %.sroa.0.1, %306 ], [ %.sroa.0.1, %.critedge.i.i ], [ 0, %.noexc343 ], [ 0, %415 ], [ 0, %.critedge.i.i340 ]
+  %.sroa.8.4 = phi ptr [ %.sroa.8.1, %.critedge.i.i ], [ %.sroa.8.1, %.noexc313 ], [ %.sroa.8.1, %306 ], [ null, %.noexc343 ], [ null, %415 ], [ null, %.critedge.i.i340 ]
+  %.sroa.0.4 = phi i64 [ %.sroa.0.1, %.critedge.i.i ], [ %.sroa.0.1, %.noexc313 ], [ %.sroa.0.1, %306 ], [ 0, %.noexc343 ], [ 0, %415 ], [ 0, %.critedge.i.i340 ]
   call fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17hcd7889c2f425ef2aE"(ptr noalias noundef align 8 dereferenceable(40) %50)
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
   %429 = insertvalue { i64, ptr } poison, i64 %.sroa.0.4, 0
@@ -7241,7 +7241,7 @@ define hidden noundef range(i64 0, 2) i64 @_ZN5bytes3buf8buf_impl3Buf15chunks_ve
   br i1 %10, label %12, label %11
 
 11:                                               ; preds = %5, %3, %12
-  %.0 = phi i64 [ 1, %12 ], [ 0, %3 ], [ 0, %5 ]
+  %.0 = phi i64 [ 0, %3 ], [ 1, %12 ], [ 0, %5 ]
   ret i64 %.0
 
 12:                                               ; preds = %5
@@ -7786,8 +7786,8 @@ define hidden { i64, ptr } @"_ZN96_$LT$futures_util..sink..send..Send$LT$Si$C$It
   br label %18
 
 18:                                               ; preds = %12, %5, %9
-  %.sroa.6.1 = phi ptr [ undef, %5 ], [ %10, %9 ], [ %spec.select, %12 ]
-  %.sroa.0.1 = phi i64 [ %7, %5 ], [ 0, %9 ], [ %15, %12 ]
+  %.sroa.6.1 = phi ptr [ %10, %9 ], [ %spec.select, %12 ], [ undef, %5 ]
+  %.sroa.0.1 = phi i64 [ 0, %9 ], [ %15, %12 ], [ %7, %5 ]
   %19 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
   %20 = insertvalue { i64, ptr } %19, ptr %.sroa.6.1, 1
   ret { i64, ptr } %20
@@ -7823,8 +7823,8 @@ define hidden { i64, ptr } @"_ZN96_$LT$futures_util..sink..send..Send$LT$Si$C$It
   br label %19
 
 19:                                               ; preds = %12, %5, %9
-  %.sroa.6.1 = phi ptr [ undef, %5 ], [ %10, %9 ], [ %spec.select, %12 ]
-  %.sroa.0.1 = phi i64 [ %7, %5 ], [ 0, %9 ], [ %16, %12 ]
+  %.sroa.6.1 = phi ptr [ %10, %9 ], [ %spec.select, %12 ], [ undef, %5 ]
+  %.sroa.0.1 = phi i64 [ 0, %9 ], [ %16, %12 ], [ %7, %5 ]
   %20 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
   %21 = insertvalue { i64, ptr } %20, ptr %.sroa.6.1, 1
   ret { i64, ptr } %21
@@ -7860,8 +7860,8 @@ define hidden { i64, ptr } @"_ZN96_$LT$futures_util..sink..send..Send$LT$Si$C$It
   br label %19
 
 19:                                               ; preds = %12, %5, %9
-  %.sroa.6.1 = phi ptr [ undef, %5 ], [ %10, %9 ], [ %spec.select, %12 ]
-  %.sroa.0.1 = phi i64 [ %7, %5 ], [ 0, %9 ], [ %16, %12 ]
+  %.sroa.6.1 = phi ptr [ %10, %9 ], [ %spec.select, %12 ], [ undef, %5 ]
+  %.sroa.0.1 = phi i64 [ 0, %9 ], [ %16, %12 ], [ %7, %5 ]
   %20 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
   %21 = insertvalue { i64, ptr } %20, ptr %.sroa.6.1, 1
   ret { i64, ptr } %21

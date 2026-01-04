@@ -80,7 +80,7 @@ define internal fastcc noundef ptr @_ZL11finit_ownerP8_IO_FILEPKcS2_a(ptr nounde
   br label %32
 
 32:                                               ; preds = %.thread, %31, %7, %4, %21
-  %.025 = phi ptr [ null, %21 ], [ null, %4 ], [ null, %7 ], [ %8, %.thread ], [ null, %31 ]
+  %.025 = phi ptr [ null, %7 ], [ null, %4 ], [ null, %21 ], [ %8, %.thread ], [ null, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.025
 }
@@ -264,7 +264,7 @@ define noundef ptr @u_fstropen_77(ptr noundef %0, i32 noundef %1, ptr noundef %2
   br label %18
 
 18:                                               ; preds = %8, %5, %3, %17
-  %.0 = phi ptr [ null, %17 ], [ null, %3 ], [ null, %5 ], [ %6, %8 ]
+  %.0 = phi ptr [ null, %5 ], [ null, %3 ], [ null, %17 ], [ %6, %8 ]
   ret ptr %.0
 }
 
@@ -298,7 +298,7 @@ define signext range(i8 0, 2) i8 @u_feof_77(ptr noundef readonly captures(addres
   br label %14
 
 14:                                               ; preds = %3, %11, %1
-  %.0.shrunk = phi i1 [ true, %1 ], [ %13, %11 ], [ %.mux, %3 ]
+  %.0.shrunk = phi i1 [ %13, %11 ], [ true, %1 ], [ %.mux, %3 ]
   %.0 = zext i1 %.0.shrunk to i8
   ret i8 %.0
 }
@@ -507,7 +507,7 @@ define ptr @u_fgetcodepage_77(ptr noundef readonly captures(none) %0) local_unna
   br label %9
 
 9:                                                ; preds = %5, %1
-  %.04 = phi ptr [ null, %1 ], [ %spec.select, %5 ]
+  %.04 = phi ptr [ %spec.select, %5 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.04
 }
@@ -544,7 +544,7 @@ define range(i32 -1, 1) i32 @u_fsetcodepage_77(ptr noundef %0, ptr noundef captu
   br label %19
 
 19:                                               ; preds = %13, %9, %2
-  %.0 = phi i32 [ -1, %9 ], [ -1, %2 ], [ %spec.select, %13 ]
+  %.0 = phi i32 [ -1, %2 ], [ %spec.select, %13 ], [ -1, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

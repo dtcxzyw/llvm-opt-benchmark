@@ -1328,7 +1328,7 @@ define internal i32 @dissect_btl2cap(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %.thread67.i
 
 .thread67.i:                                      ; preds = %372, %.thread65.i, %363, %359, %355, %353, %349, %345, %342, %.thread.i
-  %.05770.i = phi ptr [ %373, %372 ], [ null, %363 ], [ null, %359 ], [ null, %349 ], [ null, %345 ], [ null, %342 ], [ null, %.thread.i ], [ null, %.thread65.i ], [ null, %355 ], [ null, %353 ]
+  %.05770.i = phi ptr [ %373, %372 ], [ null, %363 ], [ null, %359 ], [ null, %353 ], [ null, %349 ], [ null, %345 ], [ null, %342 ], [ null, %.thread.i ], [ null, %.thread65.i ], [ null, %355 ]
   %375 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %320)
   %376 = icmp sgt i32 %375, 0
   br i1 %376, label %377, label %dissect_configrequest.exit
@@ -1477,7 +1477,7 @@ dissect_configrequest.exit:                       ; preds = %.thread67.i, %377
   br label %.thread67.i548
 
 .thread67.i548:                                   ; preds = %.thread67.sink.split.i, %439, %435, %433, %429, %425, %422, %.thread.i547
-  %.061.i = phi ptr [ null, %439 ], [ null, %429 ], [ null, %425 ], [ null, %422 ], [ null, %.thread.i547 ], [ null, %435 ], [ null, %433 ], [ %spec.select70.i, %.thread67.sink.split.i ]
+  %.061.i = phi ptr [ null, %435 ], [ null, %422 ], [ null, %.thread.i547 ], [ null, %439 ], [ null, %433 ], [ null, %429 ], [ null, %425 ], [ %spec.select70.i, %.thread67.sink.split.i ]
   %448 = add nsw i32 %287, -6
   %449 = call fastcc i32 @dissect_options(ptr noundef %0, i32 noundef %393, ptr noundef %275, i32 noundef %448, ptr noundef %.061.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
@@ -2118,7 +2118,7 @@ proto_item_set_generated.exit.i:                  ; preds = %680, %677, %674, %6
   br label %proto_item_set_generated.exit110.i
 
 proto_item_set_generated.exit110.i:               ; preds = %799, %796, %792, %783, %778, %774, %770, %767, %.thread114.i
-  %.096119.i = phi i32 [ %791, %783 ], [ %791, %792 ], [ %791, %796 ], [ %791, %799 ], [ 0, %778 ], [ 0, %774 ], [ 0, %770 ], [ 0, %767 ], [ 0, %.thread114.i ]
+  %.096119.i = phi i32 [ %791, %799 ], [ %791, %783 ], [ %791, %792 ], [ %791, %796 ], [ 0, %778 ], [ 0, %774 ], [ 0, %770 ], [ 0, %767 ], [ 0, %.thread114.i ]
   %803 = load i32, ptr @bluetooth_max_disconnect_in_frame, align 4
   %804 = icmp ult i32 %.096119.i, %803
   br i1 %804, label %805, label %proto_item_set_generated.exit113.i
@@ -2648,7 +2648,7 @@ proto_item_set_generated.exit.i557:               ; preds = %917, %914, %911, %9
   br label %proto_item_set_generated.exit113.i563
 
 proto_item_set_generated.exit113.i563:            ; preds = %1042, %1039, %1035, %1026, %1021, %1017, %1013, %1010, %.thread117.i
-  %.099122.i = phi i32 [ %1034, %1026 ], [ %1034, %1035 ], [ %1034, %1039 ], [ %1034, %1042 ], [ 0, %1021 ], [ 0, %1017 ], [ 0, %1013 ], [ 0, %1010 ], [ 0, %.thread117.i ]
+  %.099122.i = phi i32 [ %1034, %1042 ], [ %1034, %1026 ], [ %1034, %1035 ], [ %1034, %1039 ], [ 0, %1021 ], [ 0, %1017 ], [ 0, %1013 ], [ 0, %1010 ], [ 0, %.thread117.i ]
   %1046 = load i32, ptr @bluetooth_max_disconnect_in_frame, align 4
   %1047 = icmp ult i32 %.099122.i, %1046
   br i1 %1047, label %1048, label %proto_item_set_generated.exit116.i
@@ -2886,7 +2886,7 @@ dissect_l2cap_credit_based_connresponse.exit:     ; preds = %1133, %1062
   br label %dissect_comrej.exit
 
 dissect_comrej.exit:                              ; preds = %569, %548, %526, %487, %470, %.thread67.i548, %380, %.sink.split.i, %293, %1137, %dissect_l2cap_credit_based_connresponse.exit, %dissect_l2cap_credit_based_connrequest.exit, %894, %dissect_le_credit_based_connresponse.exit, %dissect_le_credit_based_connrequest.exit, %661, %dissect_connparamrequest.exit, %617, %604, %591, %578, %576, %574, %462, %458, %454, %452, %450, %dissect_configrequest.exit, %307, %305
-  %.1 = phi i32 [ %1140, %1137 ], [ %306, %305 ], [ %308, %307 ], [ %.0.i543, %dissect_configrequest.exit ], [ %451, %450 ], [ %453, %452 ], [ %457, %454 ], [ %461, %458 ], [ %466, %462 ], [ %575, %574 ], [ %577, %576 ], [ %586, %578 ], [ %599, %591 ], [ %612, %604 ], [ %621, %617 ], [ %660, %dissect_connparamrequest.exit ], [ %665, %661 ], [ %815, %dissect_le_credit_based_connrequest.exit ], [ %888, %dissect_le_credit_based_connresponse.exit ], [ %900, %894 ], [ %.0.lcssa.i, %dissect_l2cap_credit_based_connrequest.exit ], [ %.0.lcssa.i572, %dissect_l2cap_credit_based_connresponse.exit ], [ %297, %293 ], [ %304, %.sink.split.i ], [ %449, %.thread67.i548 ], [ %393, %380 ], [ %478, %470 ], [ %573, %569 ], [ %490, %487 ], [ %547, %526 ], [ %568, %548 ]
+  %.1 = phi i32 [ %1140, %1137 ], [ %.0.lcssa.i572, %dissect_l2cap_credit_based_connresponse.exit ], [ %306, %305 ], [ %308, %307 ], [ %.0.i543, %dissect_configrequest.exit ], [ %304, %.sink.split.i ], [ %451, %450 ], [ %453, %452 ], [ %457, %454 ], [ %461, %458 ], [ %466, %462 ], [ %393, %380 ], [ %575, %574 ], [ %577, %576 ], [ %586, %578 ], [ %599, %591 ], [ %612, %604 ], [ %621, %617 ], [ %660, %dissect_connparamrequest.exit ], [ %665, %661 ], [ %815, %dissect_le_credit_based_connrequest.exit ], [ %888, %dissect_le_credit_based_connresponse.exit ], [ %900, %894 ], [ %.0.lcssa.i, %dissect_l2cap_credit_based_connrequest.exit ], [ %297, %293 ], [ %449, %.thread67.i548 ], [ %478, %470 ], [ %573, %569 ], [ %490, %487 ], [ %547, %526 ], [ %568, %548 ]
   %1141 = icmp slt i32 %.1, %161
   br i1 %1141, label %271, label %.loopexit, !llvm.loop !11
 
@@ -3056,8 +3056,8 @@ dissect_comrej.exit:                              ; preds = %569, %548, %526, %4
   br label %1248
 
 1248:                                             ; preds = %1213, %1244
-  %.0507 = phi ptr [ %1243, %1213 ], [ %1247, %1244 ]
-  %.3 = phi i32 [ 6, %1213 ], [ 4, %1244 ]
+  %.0507 = phi ptr [ %1247, %1244 ], [ %1243, %1213 ]
+  %.3 = phi i32 [ 4, %1244 ], [ 6, %1213 ]
   %.not533 = icmp eq ptr %.0507, null
   br i1 %.not533, label %1256, label %1249
 
@@ -3337,7 +3337,7 @@ proto_item_set_generated.exit584:                 ; preds = %1360, %1357, %1353,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %dissect_comrej.exit, %.preheader, %1203, %1166, %1386, %1256
-  %.2 = phi i32 [ 6, %1166 ], [ %1204, %1203 ], [ %1257, %1256 ], [ %.5, %1386 ], [ 4, %.preheader ], [ %.1, %dissect_comrej.exit ]
+  %.2 = phi i32 [ %.5, %1386 ], [ 6, %1166 ], [ %1204, %1203 ], [ %1257, %1256 ], [ 4, %.preheader ], [ %.1, %dissect_comrej.exit ]
   ret i32 %.2
 }
 
@@ -3767,7 +3767,7 @@ define internal fastcc range(i32 -2147483640, 65548) i32 @dissect_connrequest(pt
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %.thread131, %167, %170, %174, %178, %199, %196, %192, %183
-  %.0112136 = phi i32 [ %191, %183 ], [ %191, %192 ], [ %191, %196 ], [ %191, %199 ], [ 0, %178 ], [ 0, %174 ], [ 0, %170 ], [ 0, %167 ], [ 0, %.thread131 ]
+  %.0112136 = phi i32 [ %191, %199 ], [ %191, %183 ], [ %191, %192 ], [ %191, %196 ], [ 0, %178 ], [ 0, %174 ], [ 0, %170 ], [ 0, %167 ], [ 0, %.thread131 ]
   %203 = load i32, ptr @bluetooth_max_disconnect_in_frame, align 4
   %204 = icmp ult i32 %.0112136, %203
   br i1 %204, label %205, label %proto_item_set_generated.exit130
@@ -4682,7 +4682,7 @@ define internal fastcc zeroext i16 @get_service_uuid(ptr noundef readonly captur
   br label %.thread
 
 .thread:                                          ; preds = %65, %67, %24, %48, %51, %55, %71, %73, %77, %81, %85
-  %.0 = phi i16 [ %87, %85 ], [ 0, %81 ], [ 0, %77 ], [ 0, %73 ], [ 0, %71 ], [ 0, %55 ], [ 0, %51 ], [ 0, %48 ], [ 0, %24 ], [ 0, %67 ], [ 0, %65 ]
+  %.0 = phi i16 [ %87, %85 ], [ 0, %81 ], [ 0, %77 ], [ 0, %73 ], [ 0, %71 ], [ 0, %24 ], [ 0, %55 ], [ 0, %51 ], [ 0, %48 ], [ 0, %67 ], [ 0, %65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)

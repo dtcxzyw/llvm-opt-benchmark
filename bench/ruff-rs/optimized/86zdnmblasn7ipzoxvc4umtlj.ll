@@ -2054,7 +2054,7 @@ _ZN7ty_wasm10WasmSystem3new17he99bd3f9440b4823E.exit: ; preds = %22
   unreachable
 
 .thread:                                          ; preds = %40, %61
-  %.pn7680 = phi { ptr, i32 } [ %62, %61 ], [ %.pn, %40 ]
+  %.pn7680 = phi { ptr, i32 } [ %.pn, %40 ], [ %62, %61 ]
   resume { ptr, i32 } %.pn7680
 
 61:                                               ; preds = %22
@@ -3087,7 +3087,7 @@ define void @_ZN7ty_wasm9Workspace20goto_type_definition17h01e8a7de824e85f0E(ptr
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret void
 
-77:                                               ; preds = %47, %54, %.noexc20, %.noexc21, %.noexc22, %.noexc23, %.noexc24, %.noexc25, %.noexc26
+77:                                               ; preds = %.noexc26, %47, %54, %.noexc20, %.noexc21, %.noexc22, %.noexc23, %.noexc24, %.noexc25
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr73drop_in_place$LT$ty_ide..RangedValue$LT$ty_ide..NavigationTargets$GT$$GT$17ha20b55a0bf739468E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %12) #26
@@ -3456,8 +3456,8 @@ define void @_ZN7ty_wasm9Workspace11inlay_hints17hd3a3453e7b802344E(ptr dead_on_
   br i1 %.not19.i17.i, label %.invoke, label %45
 
 .invoke:                                          ; preds = %.noexc15, %.noexc14, %.noexc9, %.noexc
-  %42 = phi ptr [ @anon.2771f431ce980d04cdb4dacc2de721e2.63, %.noexc ], [ @anon.2771f431ce980d04cdb4dacc2de721e2.64, %.noexc9 ], [ @anon.2771f431ce980d04cdb4dacc2de721e2.63, %.noexc14 ], [ @anon.2771f431ce980d04cdb4dacc2de721e2.64, %.noexc15 ]
-  %43 = phi i64 [ 67, %.noexc ], [ 71, %.noexc9 ], [ 67, %.noexc14 ], [ 71, %.noexc15 ]
+  %42 = phi ptr [ @anon.2771f431ce980d04cdb4dacc2de721e2.63, %.noexc14 ], [ @anon.2771f431ce980d04cdb4dacc2de721e2.64, %.noexc9 ], [ @anon.2771f431ce980d04cdb4dacc2de721e2.63, %.noexc ], [ @anon.2771f431ce980d04cdb4dacc2de721e2.64, %.noexc15 ]
+  %43 = phi i64 [ 67, %.noexc14 ], [ 71, %.noexc9 ], [ 67, %.noexc ], [ 71, %.noexc15 ]
   %44 = invoke noundef i32 @_ZN6js_sys5Error3new17h8233adbb9d665b08E(ptr noalias noundef nonnull readonly align 1 %42, i64 noundef %43)
           to label %49 unwind label %19
 
@@ -5243,7 +5243,7 @@ define range(i64 0, -4294966272) i64 @"_ZN83_$LT$ty_wasm..Severity$u20$as$u20$wa
   %8 = icmp ugt i32 %0, 131
   br i1 %8, label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h9a070bd1f292a6eeE.exit12.sink.split", label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h9a070bd1f292a6eeE.exit12"
 
-9:                                                ; preds = %7, %5
+9:                                                ; preds = %5, %7
   %10 = tail call i32 @llvm.fptoui.sat.i32.f64(double %.fca.1.extract.i)
   %11 = icmp ult i32 %10, 4
   br i1 %11, label %switch.lookup, label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h9a070bd1f292a6eeE.exit12"
@@ -5261,9 +5261,9 @@ switch.lookup:                                    ; preds = %9
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h9a070bd1f292a6eeE.exit12"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h9a070bd1f292a6eeE.exit12": ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h9a070bd1f292a6eeE.exit12.sink.split", %9, %switch.lookup, %"_ZN12wasm_bindgen89_$LT$impl$u20$core..convert..TryFrom$LT$$RF$wasm_bindgen..JsValue$GT$$u20$for$u20$f64$GT$8try_from17hca8e8a20cb5edd58E.exit"
-  %.sroa.51.0 = phi i32 [ %2, %"_ZN12wasm_bindgen89_$LT$impl$u20$core..convert..TryFrom$LT$$RF$wasm_bindgen..JsValue$GT$$u20$for$u20$f64$GT$8try_from17hca8e8a20cb5edd58E.exit" ], [ undef, %switch.lookup ], [ %0, %9 ], [ %2, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h9a070bd1f292a6eeE.exit12.sink.split" ]
-  %.sroa.4.0 = phi i64 [ 0, %"_ZN12wasm_bindgen89_$LT$impl$u20$core..convert..TryFrom$LT$$RF$wasm_bindgen..JsValue$GT$$u20$for$u20$f64$GT$8try_from17hca8e8a20cb5edd58E.exit" ], [ %switch.idx.mult, %switch.lookup ], [ 0, %9 ], [ %.sroa.4.0.ph, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h9a070bd1f292a6eeE.exit12.sink.split" ]
-  %.sroa.0.0 = phi i64 [ 1, %"_ZN12wasm_bindgen89_$LT$impl$u20$core..convert..TryFrom$LT$$RF$wasm_bindgen..JsValue$GT$$u20$for$u20$f64$GT$8try_from17hca8e8a20cb5edd58E.exit" ], [ 0, %switch.lookup ], [ 1, %9 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h9a070bd1f292a6eeE.exit12.sink.split" ]
+  %.sroa.51.0 = phi i32 [ undef, %switch.lookup ], [ %0, %9 ], [ %2, %"_ZN12wasm_bindgen89_$LT$impl$u20$core..convert..TryFrom$LT$$RF$wasm_bindgen..JsValue$GT$$u20$for$u20$f64$GT$8try_from17hca8e8a20cb5edd58E.exit" ], [ %2, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h9a070bd1f292a6eeE.exit12.sink.split" ]
+  %.sroa.4.0 = phi i64 [ %switch.idx.mult, %switch.lookup ], [ 0, %9 ], [ 0, %"_ZN12wasm_bindgen89_$LT$impl$u20$core..convert..TryFrom$LT$$RF$wasm_bindgen..JsValue$GT$$u20$for$u20$f64$GT$8try_from17hca8e8a20cb5edd58E.exit" ], [ %.sroa.4.0.ph, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h9a070bd1f292a6eeE.exit12.sink.split" ]
+  %.sroa.0.0 = phi i64 [ 0, %switch.lookup ], [ 1, %9 ], [ 1, %"_ZN12wasm_bindgen89_$LT$impl$u20$core..convert..TryFrom$LT$$RF$wasm_bindgen..JsValue$GT$$u20$for$u20$f64$GT$8try_from17hca8e8a20cb5edd58E.exit" ], [ %.sroa.0.0.ph, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h9a070bd1f292a6eeE.exit12.sink.split" ]
   %.sroa.51.0.insert.ext = zext i32 %.sroa.51.0 to i64
   %.sroa.51.0.insert.shift = shl nuw i64 %.sroa.51.0.insert.ext, 32
   %.sroa.4.0.insert.insert = or i64 %.sroa.51.0.insert.shift, %.sroa.4.0
@@ -5627,7 +5627,7 @@ define range(i64 0, -4294966272) i64 @"_ZN91_$LT$ty_wasm..PositionEncoding$u20$a
   %8 = icmp ugt i32 %0, 131
   br i1 %8, label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h9a070bd1f292a6eeE.exit12.sink.split", label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h9a070bd1f292a6eeE.exit12"
 
-9:                                                ; preds = %7, %5
+9:                                                ; preds = %5, %7
   %10 = tail call i32 @llvm.fptoui.sat.i32.f64(double %.fca.1.extract.i)
   %11 = icmp ult i32 %10, 3
   br i1 %11, label %switch.lookup, label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h9a070bd1f292a6eeE.exit12"
@@ -5645,9 +5645,9 @@ switch.lookup:                                    ; preds = %9
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h9a070bd1f292a6eeE.exit12"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h9a070bd1f292a6eeE.exit12": ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h9a070bd1f292a6eeE.exit12.sink.split", %9, %switch.lookup, %"_ZN12wasm_bindgen89_$LT$impl$u20$core..convert..TryFrom$LT$$RF$wasm_bindgen..JsValue$GT$$u20$for$u20$f64$GT$8try_from17hca8e8a20cb5edd58E.exit"
-  %.sroa.51.0 = phi i32 [ %2, %"_ZN12wasm_bindgen89_$LT$impl$u20$core..convert..TryFrom$LT$$RF$wasm_bindgen..JsValue$GT$$u20$for$u20$f64$GT$8try_from17hca8e8a20cb5edd58E.exit" ], [ undef, %switch.lookup ], [ %0, %9 ], [ %2, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h9a070bd1f292a6eeE.exit12.sink.split" ]
-  %.sroa.4.0 = phi i64 [ 0, %"_ZN12wasm_bindgen89_$LT$impl$u20$core..convert..TryFrom$LT$$RF$wasm_bindgen..JsValue$GT$$u20$for$u20$f64$GT$8try_from17hca8e8a20cb5edd58E.exit" ], [ %switch.idx.mult, %switch.lookup ], [ 0, %9 ], [ %.sroa.4.0.ph, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h9a070bd1f292a6eeE.exit12.sink.split" ]
-  %.sroa.0.0 = phi i64 [ 1, %"_ZN12wasm_bindgen89_$LT$impl$u20$core..convert..TryFrom$LT$$RF$wasm_bindgen..JsValue$GT$$u20$for$u20$f64$GT$8try_from17hca8e8a20cb5edd58E.exit" ], [ 0, %switch.lookup ], [ 1, %9 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h9a070bd1f292a6eeE.exit12.sink.split" ]
+  %.sroa.51.0 = phi i32 [ undef, %switch.lookup ], [ %0, %9 ], [ %2, %"_ZN12wasm_bindgen89_$LT$impl$u20$core..convert..TryFrom$LT$$RF$wasm_bindgen..JsValue$GT$$u20$for$u20$f64$GT$8try_from17hca8e8a20cb5edd58E.exit" ], [ %2, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h9a070bd1f292a6eeE.exit12.sink.split" ]
+  %.sroa.4.0 = phi i64 [ %switch.idx.mult, %switch.lookup ], [ 0, %9 ], [ 0, %"_ZN12wasm_bindgen89_$LT$impl$u20$core..convert..TryFrom$LT$$RF$wasm_bindgen..JsValue$GT$$u20$for$u20$f64$GT$8try_from17hca8e8a20cb5edd58E.exit" ], [ %.sroa.4.0.ph, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h9a070bd1f292a6eeE.exit12.sink.split" ]
+  %.sroa.0.0 = phi i64 [ 0, %switch.lookup ], [ 1, %9 ], [ 1, %"_ZN12wasm_bindgen89_$LT$impl$u20$core..convert..TryFrom$LT$$RF$wasm_bindgen..JsValue$GT$$u20$for$u20$f64$GT$8try_from17hca8e8a20cb5edd58E.exit" ], [ %.sroa.0.0.ph, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h9a070bd1f292a6eeE.exit12.sink.split" ]
   %.sroa.51.0.insert.ext = zext i32 %.sroa.51.0 to i64
   %.sroa.51.0.insert.shift = shl nuw i64 %.sroa.51.0.insert.ext, 32
   %.sroa.4.0.insert.insert = or i64 %.sroa.51.0.insert.shift, %.sroa.4.0

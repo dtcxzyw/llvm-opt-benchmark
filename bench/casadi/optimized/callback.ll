@@ -1494,7 +1494,7 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev.exit:       ; preds = %_ZSt8_DestroyIPN6ca
   br label %.body
 
 .body:                                            ; preds = %11, %8, %29
-  %.pn = phi { ptr, i32 } [ %30, %29 ], [ %9, %11 ], [ %9, %8 ]
+  %.pn = phi { ptr, i32 } [ %30, %29 ], [ %9, %8 ], [ %9, %11 ]
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

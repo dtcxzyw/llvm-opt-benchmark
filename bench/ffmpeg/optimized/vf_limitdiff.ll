@@ -247,7 +247,7 @@ define internal i32 @config_output(ptr noundef captures(none) %0) #2 {
   br label %89
 
 89:                                               ; preds = %38, %.critedge, %82, %._crit_edge
-  %.0 = phi i32 [ -22, %._crit_edge ], [ %85, %82 ], [ -22, %.critedge ], [ %50, %38 ]
+  %.0 = phi i32 [ -22, %._crit_edge ], [ -22, %.critedge ], [ %85, %82 ], [ %50, %38 ]
   ret i32 %.0
 }
 
@@ -360,7 +360,7 @@ define internal i32 @process_frame(ptr noundef readonly captures(none) %0) #2 {
   br label %61
 
 61:                                               ; preds = %.critedge, %28, %22, %1, %16, %51
-  %.031 = phi i32 [ %60, %51 ], [ %14, %1 ], [ %17, %16 ], [ %23, %22 ], [ -12, %28 ], [ -12, %.critedge ]
+  %.031 = phi i32 [ -12, %.critedge ], [ %17, %16 ], [ %60, %51 ], [ %23, %22 ], [ %14, %1 ], [ -12, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -655,7 +655,7 @@ define internal void @limitdiff8(ptr noundef readonly captures(none) %0, ptr nou
   br label %32
 
 32:                                               ; preds = %24, %11, %25
-  %.sink = phi i8 [ %.0.i, %25 ], [ %13, %11 ], [ %16, %24 ]
+  %.sink = phi i8 [ %13, %11 ], [ %.0.i, %25 ], [ %16, %24 ]
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   store i8 %.sink, ptr %33, align 1, !tbaa !88
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -713,7 +713,7 @@ define internal void @limitdiff16(ptr noundef readonly captures(none) %0, ptr no
   br label %34
 
 34:                                               ; preds = %25, %12, %26
-  %.sink = phi i16 [ %33, %26 ], [ %14, %12 ], [ %17, %25 ]
+  %.sink = phi i16 [ %14, %12 ], [ %33, %26 ], [ %17, %25 ]
   %35 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   store i16 %.sink, ptr %35, align 2, !tbaa !90
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

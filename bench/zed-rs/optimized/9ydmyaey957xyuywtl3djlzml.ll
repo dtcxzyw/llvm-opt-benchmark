@@ -384,8 +384,8 @@ define internal void @"_ZN117_$LT$signal_hook..iterator..backend..PendingSignals
   unreachable
 
 .body69.i.i:                                      ; preds = %.thread138.i.i, %105, %98, %93
-  %.sroa.030.2.i.i = phi i1 [ false, %105 ], [ true, %93 ], [ true, %98 ], [ %.sroa.030.4142.i.i, %.thread138.i.i ]
-  %.pn.pn.i.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp147.i.i, %105 ], [ %94, %93 ], [ %99, %98 ], [ %.pn143.i.i, %.thread138.i.i ]
+  %.sroa.030.2.i.i = phi i1 [ true, %98 ], [ false, %105 ], [ true, %93 ], [ %.sroa.030.4142.i.i, %.thread138.i.i ]
+  %.pn.pn.i.i = phi { ptr, i32 } [ %99, %98 ], [ %lpad.thr_comm.split-lp147.i.i, %105 ], [ %94, %93 ], [ %.pn143.i.i, %.thread138.i.i ]
   invoke void @"_ZN4core3ptr104drop_in_place$LT$signal_hook_registry..half_lock..WriteGuard$LT$signal_hook_registry..SignalData$GT$$GT$17h60fe132ce41252dfE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %20) #36
           to label %76 unwind label %262, !noalias !24
 
@@ -411,7 +411,7 @@ define internal void @"_ZN117_$LT$signal_hook..iterator..backend..PendingSignals
           to label %106 unwind label %.thread148.i.i, !noalias !24
 
 .thread148.i.i:                                   ; preds = %"_ZN4core3ptr126drop_in_place$LT$signal_hook_registry..half_lock..WriteGuard$LT$core..option..Option$LT$signal_hook_registry..Prev$GT$$GT$$GT$17h24339a339403bb5aE.exit92.i.i", %186, %183, %181, %177, %170, %167, %165, %161, %136, %135, %"_ZN3std4sync5mutex14Mutex$LT$T$GT$4lock17hb77508a30b6183d6E.exit.i71.i.i", %123, %.noexc74.i.i, %119, %111, %108, %100
-  %.sroa.030.3.ph.i.i = phi i1 [ true, %186 ], [ true, %183 ], [ true, %181 ], [ true, %177 ], [ true, %170 ], [ true, %167 ], [ true, %165 ], [ true, %161 ], [ true, %"_ZN3std4sync5mutex14Mutex$LT$T$GT$4lock17hb77508a30b6183d6E.exit.i71.i.i" ], [ true, %123 ], [ true, %.noexc74.i.i ], [ true, %119 ], [ true, %111 ], [ true, %100 ], [ true, %"_ZN4core3ptr126drop_in_place$LT$signal_hook_registry..half_lock..WriteGuard$LT$core..option..Option$LT$signal_hook_registry..Prev$GT$$GT$$GT$17h24339a339403bb5aE.exit92.i.i" ], [ false, %108 ], [ false, %135 ], [ false, %136 ]
+  %.sroa.030.3.ph.i.i = phi i1 [ true, %183 ], [ true, %181 ], [ true, %177 ], [ true, %167 ], [ true, %165 ], [ true, %161 ], [ false, %136 ], [ true, %123 ], [ true, %.noexc74.i.i ], [ true, %119 ], [ true, %111 ], [ true, %100 ], [ true, %"_ZN3std4sync5mutex14Mutex$LT$T$GT$4lock17hb77508a30b6183d6E.exit.i71.i.i" ], [ true, %170 ], [ true, %186 ], [ true, %"_ZN4core3ptr126drop_in_place$LT$signal_hook_registry..half_lock..WriteGuard$LT$core..option..Option$LT$signal_hook_registry..Prev$GT$$GT$$GT$17h24339a339403bb5aE.exit92.i.i" ], [ false, %108 ], [ false, %135 ]
   %lpad.thr_comm146.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread138.i.i
@@ -905,7 +905,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.11880408977092959598.exit
           to label %.body69.i.i unwind label %262, !noalias !24
 
 281:                                              ; preds = %.thread134.i.i, %76
-  %.pn57132.i.i = phi { ptr, i32 } [ %.pn.pn.i.i, %76 ], [ %lpad.thr_comm.i.i, %.thread134.i.i ]
+  %.pn57132.i.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %.thread134.i.i ], [ %.pn.pn.i.i, %76 ]
   invoke fastcc void @"_ZN4core3ptr247drop_in_place$LT$alloc..sync..Arc$LT$$LT$signal_hook..iterator..backend..PendingSignals$LT$signal_hook..iterator..exfiltrator..SignalOnly$GT$$u20$as$u20$signal_hook..iterator..backend..AddSignal$GT$..add_signal..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha5dab49b8af92dafE"(ptr nonnull %54) #36
           to label %.critedge unwind label %262, !noalias !24
 
@@ -976,7 +976,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.11880408977092959598.exit
   unreachable
 
 .critedge:                                        ; preds = %300, %290, %282, %281, %76, %57
-  %eh.lpad-body26 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %300 ], [ %lpad.thr_comm.split-lp.i, %290 ], [ %283, %282 ], [ %58, %57 ], [ %.pn.pn.i.i, %76 ], [ %.pn57132.i.i, %281 ]
+  %eh.lpad-body26 = phi { ptr, i32 } [ %.pn57132.i.i, %281 ], [ %lpad.thr_comm.split-lp, %300 ], [ %283, %282 ], [ %.pn.pn.i.i, %76 ], [ %lpad.thr_comm.split-lp.i, %290 ], [ %58, %57 ]
   resume { ptr, i32 } %eh.lpad-body26
 
 300:                                              ; preds = %297
@@ -1571,7 +1571,7 @@ define hidden void @"_ZN11signal_hook8iterator7backend28SignalIterator$LT$SD$C$E
   br i1 %63, label %._crit_edge, label %11
 
 ._crit_edge:                                      ; preds = %.loopexit, %"_ZN4core3ptr114drop_in_place$LT$signal_hook..iterator..backend..Pending$LT$signal_hook..iterator..exfiltrator..SignalOnly$GT$$GT$17hdf94dc908bc6366cE.exit", %46, %.thread16, %3, %26
-  %.sink = phi i32 [ 0, %26 ], [ 2, %3 ], [ 3, %46 ], [ 1, %.thread16 ], [ 2, %"_ZN4core3ptr114drop_in_place$LT$signal_hook..iterator..backend..Pending$LT$signal_hook..iterator..exfiltrator..SignalOnly$GT$$GT$17hdf94dc908bc6366cE.exit" ], [ 1, %.loopexit ]
+  %.sink = phi i32 [ 0, %26 ], [ 2, %3 ], [ 1, %.thread16 ], [ 3, %46 ], [ 2, %"_ZN4core3ptr114drop_in_place$LT$signal_hook..iterator..backend..Pending$LT$signal_hook..iterator..exfiltrator..SignalOnly$GT$$GT$17hdf94dc908bc6366cE.exit" ], [ 1, %.loopexit ]
   store i32 %.sink, ptr %0, align 8
   ret void
 }
@@ -3573,7 +3573,7 @@ define hidden void @"_ZN52_$LT$std..path..Path$u20$as$u20$core..hash..Hash$GT$4h
   br label %88
 
 88:                                               ; preds = %93, %84, %87
-  %.sroa.015.0 = phi i64 [ 0, %87 ], [ 1, %84 ], [ 1, %93 ]
+  %.sroa.015.0 = phi i64 [ 1, %84 ], [ 0, %87 ], [ 1, %93 ]
   %89 = add i64 %.sroa.015.0, %5
   br label %46
 
@@ -4525,7 +4525,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h17ff38537965cc
   unreachable
 
 "_ZN4core3ptr108drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$sum_tree..SumTree$LT$worktree..Entry$GT$$C$12_usize$GT$$GT$17hfe3c37554f9a9378E.exit.i": ; preds = %70, %"_ZN4core3ptr83drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$worktree..Entry$C$12_usize$GT$$GT$17h24a99e077a32e1d3E.exit.i", %44, %"_ZN4core3ptr90drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$worktree..EntrySummary$C$12_usize$GT$$GT$17hb1fa2db0398b5dafE.exit.i"
-  %.pn2.pn.i = phi { ptr, i32 } [ %.pn2.i, %44 ], [ %.pn2.i, %"_ZN4core3ptr90drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$worktree..EntrySummary$C$12_usize$GT$$GT$17hb1fa2db0398b5dafE.exit.i" ], [ %.pn.i, %70 ], [ %.pn.i, %"_ZN4core3ptr83drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$worktree..Entry$C$12_usize$GT$$GT$17h24a99e077a32e1d3E.exit.i" ]
+  %.pn2.pn.i = phi { ptr, i32 } [ %.pn2.i, %"_ZN4core3ptr90drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$worktree..EntrySummary$C$12_usize$GT$$GT$17hb1fa2db0398b5dafE.exit.i" ], [ %.pn2.i, %44 ], [ %.pn.i, %70 ], [ %.pn.i, %"_ZN4core3ptr83drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$worktree..Entry$C$12_usize$GT$$GT$17h24a99e077a32e1d3E.exit.i" ]
   resume { ptr, i32 } %.pn2.pn.i
 
 56:                                               ; preds = %23
@@ -5347,7 +5347,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h2929c66873450e
   unreachable
 
 "_ZN4core3ptr190drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$sum_tree..SumTree$LT$sum_tree..tree_map..MapEntry$LT$worktree..RepositoryWorkDirectory$C$worktree..RepositoryEntry$GT$$GT$$C$12_usize$GT$$GT$17h60ca8f8b0f26a3d8E.exit.i": ; preds = %76, %"_ZN4core3ptr165drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$sum_tree..tree_map..MapEntry$LT$worktree..RepositoryWorkDirectory$C$worktree..RepositoryEntry$GT$$C$12_usize$GT$$GT$17h3dd7aae3870b0986E.exit.i", %50, %"_ZN4core3ptr135drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$sum_tree..tree_map..MapKey$LT$worktree..RepositoryWorkDirectory$GT$$C$12_usize$GT$$GT$17h6d05470e175ede17E.exit.i"
-  %.pn2.pn.i = phi { ptr, i32 } [ %.pn2.i, %50 ], [ %.pn2.i, %"_ZN4core3ptr135drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$sum_tree..tree_map..MapKey$LT$worktree..RepositoryWorkDirectory$GT$$C$12_usize$GT$$GT$17h6d05470e175ede17E.exit.i" ], [ %.pn.i, %76 ], [ %.pn.i, %"_ZN4core3ptr165drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$sum_tree..tree_map..MapEntry$LT$worktree..RepositoryWorkDirectory$C$worktree..RepositoryEntry$GT$$C$12_usize$GT$$GT$17h3dd7aae3870b0986E.exit.i" ]
+  %.pn2.pn.i = phi { ptr, i32 } [ %.pn2.i, %"_ZN4core3ptr135drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$sum_tree..tree_map..MapKey$LT$worktree..RepositoryWorkDirectory$GT$$C$12_usize$GT$$GT$17h6d05470e175ede17E.exit.i" ], [ %.pn2.i, %50 ], [ %.pn.i, %76 ], [ %.pn.i, %"_ZN4core3ptr165drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$sum_tree..tree_map..MapEntry$LT$worktree..RepositoryWorkDirectory$C$worktree..RepositoryEntry$GT$$C$12_usize$GT$$GT$17h3dd7aae3870b0986E.exit.i" ]
   resume { ptr, i32 } %.pn2.pn.i
 
 62:                                               ; preds = %29
@@ -9631,7 +9631,7 @@ define hidden void @_ZN7project7Project23find_or_create_worktree17h63ea730f5d5af
   br i1 %21, label %25, label %23
 
 22:                                               ; preds = %106, %.body20, %.body13
-  %.pn8 = phi { ptr, i32 } [ %eh.lpad-body21, %.body20 ], [ %.pn, %106 ], [ %.pn, %.body13 ]
+  %.pn8 = phi { ptr, i32 } [ %.pn, %106 ], [ %eh.lpad-body21, %.body20 ], [ %.pn, %.body13 ]
   resume { ptr, i32 } %.pn8
 
 23:                                               ; preds = %5
@@ -9911,7 +9911,7 @@ define hidden void @_ZN7project7Project23find_or_create_worktree17hc15db2ae0928b
           to label %23 unwind label %21
 
 20:                                               ; preds = %119, %.body21, %.body14, %21
-  %.pn8 = phi { ptr, i32 } [ %22, %21 ], [ %eh.lpad-body22, %.body21 ], [ %.pn, %119 ], [ %.pn, %.body14 ]
+  %.pn8 = phi { ptr, i32 } [ %22, %21 ], [ %eh.lpad-body22, %.body21 ], [ %.pn, %.body14 ], [ %.pn, %119 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hfe9c682ea8e34bebE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2) #36
           to label %120 unwind label %114
 

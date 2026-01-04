@@ -484,9 +484,9 @@ zend_mm_free_pages_ex.exit:                       ; preds = %zend_mm_bitset_rese
   br label %235
 
 235:                                              ; preds = %zend_mm_free_pages_ex.exit, %231, %156, %233
-  %.1129193 = phi i32 [ %.1129194195, %233 ], [ %.1129194195, %156 ], [ %.1129192, %zend_mm_free_pages_ex.exit ], [ %.1129194195, %231 ]
-  %.pn = phi i32 [ %234, %233 ], [ 1, %156 ], [ %178, %zend_mm_free_pages_ex.exit ], [ %.pre, %231 ]
-  %.3 = phi i64 [ %.1124199, %233 ], [ %.1124199, %156 ], [ %230, %zend_mm_free_pages_ex.exit ], [ %.1124199, %231 ]
+  %.1129193 = phi i32 [ %.1129194195, %156 ], [ %.1129194195, %233 ], [ %.1129192, %zend_mm_free_pages_ex.exit ], [ %.1129194195, %231 ]
+  %.pn = phi i32 [ 1, %156 ], [ %234, %233 ], [ %178, %zend_mm_free_pages_ex.exit ], [ %.pre, %231 ]
+  %.3 = phi i64 [ %.1124199, %156 ], [ %.1124199, %233 ], [ %230, %zend_mm_free_pages_ex.exit ], [ %.1124199, %231 ]
   %.2130 = add i32 %.pn, %.1129196
   %236 = icmp ult i32 %.2130, %.1129193
   br i1 %236, label %156, label %._crit_edge202
@@ -1282,7 +1282,7 @@ zend_mm_get_next_free_slot.exit.i:                ; preds = %32, %30
   br label %zend_mm_alloc_heap.exit
 
 zend_mm_alloc_heap.exit:                          ; preds = %43, %zend_mm_get_next_free_slot.exit.i, %47, %49
-  %.0.i = phi ptr [ %48, %47 ], [ %50, %49 ], [ %29, %zend_mm_get_next_free_slot.exit.i ], [ %44, %43 ]
+  %.0.i = phi ptr [ %50, %49 ], [ %48, %47 ], [ %29, %zend_mm_get_next_free_slot.exit.i ], [ %44, %43 ]
   ret ptr %.0.i
 }
 
@@ -1928,13 +1928,13 @@ zend_mm_bitset_set_range.exit:                    ; preds = %292, %._crit_edge, 
   br label %zend_mm_realloc_heap.exit
 
 zend_mm_bitset_reset_range.exit:                  ; preds = %260, %251, %237, %149, %228, %zend_mm_bitset_is_free_range.exit, %89
-  %.0136.i = phi i64 [ %152, %149 ], [ %152, %228 ], [ %152, %zend_mm_bitset_is_free_range.exit ], [ %29, %89 ], [ %152, %237 ], [ %152, %251 ], [ %152, %260 ]
+  %.0136.i = phi i64 [ %152, %149 ], [ %152, %zend_mm_bitset_is_free_range.exit ], [ %152, %228 ], [ %29, %89 ], [ %152, %237 ], [ %152, %251 ], [ %152, %260 ]
   %336 = tail call i64 @llvm.umin.i64(i64 %.0136.i, i64 %2)
   %337 = tail call fastcc ptr @zend_mm_realloc_slow(ptr noundef %0, ptr noundef %1, i64 noundef %spec.store.select.i, i64 noundef %336)
   br label %zend_mm_realloc_heap.exit
 
-zend_mm_realloc_heap.exit:                        ; preds = %215, %._crit_edge40, %176, %zend_mm_alloc_small.exit, %zend_mm_alloc_small.exit12, %31, %30, %zend_mm_bitset_set_range.exit, %154, %9, %11, %zend_mm_bitset_reset_range.exit
-  %.0.i = phi ptr [ %10, %9 ], [ %12, %11 ], [ %337, %zend_mm_bitset_reset_range.exit ], [ %1, %215 ], [ %1, %._crit_edge40 ], [ %1, %176 ], [ %1, %30 ], [ %1, %31 ], [ %.0.i5, %zend_mm_alloc_small.exit ], [ %.0.i11, %zend_mm_alloc_small.exit12 ], [ %1, %zend_mm_bitset_set_range.exit ], [ %1, %154 ]
+zend_mm_realloc_heap.exit:                        ; preds = %215, %._crit_edge40, %176, %zend_mm_alloc_small.exit12, %31, %30, %zend_mm_alloc_small.exit, %zend_mm_bitset_set_range.exit, %154, %9, %11, %zend_mm_bitset_reset_range.exit
+  %.0.i = phi ptr [ %10, %9 ], [ %12, %11 ], [ %337, %zend_mm_bitset_reset_range.exit ], [ %1, %215 ], [ %1, %._crit_edge40 ], [ %1, %176 ], [ %1, %31 ], [ %.0.i5, %zend_mm_alloc_small.exit ], [ %.0.i11, %zend_mm_alloc_small.exit12 ], [ %1, %30 ], [ %1, %zend_mm_bitset_set_range.exit ], [ %1, %154 ]
   ret ptr %.0.i
 }
 
@@ -2495,13 +2495,13 @@ zend_mm_bitset_set_range.exit:                    ; preds = %295, %._crit_edge, 
   br label %zend_mm_realloc_heap.exit
 
 zend_mm_bitset_reset_range.exit:                  ; preds = %263, %254, %240, %152, %231, %zend_mm_bitset_is_free_range.exit, %91
-  %.0136.i = phi i64 [ %155, %152 ], [ %155, %231 ], [ %155, %zend_mm_bitset_is_free_range.exit ], [ %30, %91 ], [ %155, %240 ], [ %155, %254 ], [ %155, %263 ]
+  %.0136.i = phi i64 [ %155, %152 ], [ %155, %zend_mm_bitset_is_free_range.exit ], [ %155, %231 ], [ %30, %91 ], [ %155, %240 ], [ %155, %254 ], [ %155, %263 ]
   %339 = tail call i64 @llvm.umin.i64(i64 %.0136.i, i64 %3)
   %340 = tail call fastcc ptr @zend_mm_realloc_slow(ptr noundef %0, ptr noundef %1, i64 noundef %spec.store.select.i, i64 noundef %339)
   br label %zend_mm_realloc_heap.exit
 
-zend_mm_realloc_heap.exit:                        ; preds = %218, %._crit_edge40, %179, %zend_mm_alloc_small.exit, %zend_mm_alloc_small.exit12, %32, %31, %zend_mm_bitset_set_range.exit, %157, %10, %12, %zend_mm_bitset_reset_range.exit
-  %.0.i = phi ptr [ %11, %10 ], [ %13, %12 ], [ %340, %zend_mm_bitset_reset_range.exit ], [ %1, %218 ], [ %1, %._crit_edge40 ], [ %1, %179 ], [ %1, %31 ], [ %1, %32 ], [ %.0.i5, %zend_mm_alloc_small.exit ], [ %.0.i11, %zend_mm_alloc_small.exit12 ], [ %1, %zend_mm_bitset_set_range.exit ], [ %1, %157 ]
+zend_mm_realloc_heap.exit:                        ; preds = %218, %._crit_edge40, %179, %zend_mm_alloc_small.exit12, %32, %31, %zend_mm_alloc_small.exit, %zend_mm_bitset_set_range.exit, %157, %10, %12, %zend_mm_bitset_reset_range.exit
+  %.0.i = phi ptr [ %11, %10 ], [ %13, %12 ], [ %340, %zend_mm_bitset_reset_range.exit ], [ %1, %218 ], [ %1, %._crit_edge40 ], [ %1, %179 ], [ %1, %32 ], [ %.0.i5, %zend_mm_alloc_small.exit ], [ %.0.i11, %zend_mm_alloc_small.exit12 ], [ %1, %31 ], [ %1, %zend_mm_bitset_set_range.exit ], [ %1, %157 ]
   ret ptr %.0.i
 }
 
@@ -2600,7 +2600,7 @@ zend_mm_get_huge_block_size.exit.i:               ; preds = %.lr.ph.i.i
   br label %zend_mm_size.exit
 
 zend_mm_size.exit:                                ; preds = %8, %46, %zend_mm_get_huge_block_size.exit.i, %4, %14
-  %.1 = phi i64 [ %15, %14 ], [ 0, %4 ], [ %27, %zend_mm_get_huge_block_size.exit.i ], [ %.1.i, %46 ], [ 0, %8 ]
+  %.1 = phi i64 [ 0, %4 ], [ %15, %14 ], [ %.1.i, %46 ], [ %27, %zend_mm_get_huge_block_size.exit.i ], [ 0, %8 ]
   ret i64 %.1
 }
 
@@ -2685,7 +2685,7 @@ define dso_local noundef zeroext i1 @is_zend_ptr(ptr noundef %0) local_unnamed_a
   br i1 %.not30.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.preheader, %30, %25, %.thread, %8, %14
-  %.121 = phi i1 [ false, %14 ], [ true, %8 ], [ false, %.thread ], [ false, %30 ], [ true, %25 ], [ true, %.preheader ]
+  %.121 = phi i1 [ false, %14 ], [ true, %8 ], [ true, %25 ], [ false, %.thread ], [ false, %30 ], [ true, %.preheader ]
   ret i1 %.121
 }
 
@@ -2746,7 +2746,7 @@ zend_mm_get_next_free_slot.exit.i.i:              ; preds = %17, %15
   br label %_emalloc_16.exit
 
 _emalloc_16.exit:                                 ; preds = %27, %zend_mm_get_next_free_slot.exit.i.i, %3
-  %.0 = phi ptr [ %6, %3 ], [ %14, %zend_mm_get_next_free_slot.exit.i.i ], [ %28, %27 ]
+  %.0 = phi ptr [ %6, %3 ], [ %28, %27 ], [ %14, %zend_mm_get_next_free_slot.exit.i.i ]
   ret ptr %.0
 }
 
@@ -6544,7 +6544,7 @@ zend_mm_get_next_free_slot.exit.i:                ; preds = %38, %36
   br label %zend_mm_alloc_heap.exit
 
 zend_mm_alloc_heap.exit:                          ; preds = %55, %53, %zend_mm_get_next_free_slot.exit.i, %49, %4
-  %.0 = phi ptr [ %7, %4 ], [ %54, %53 ], [ %56, %55 ], [ %35, %zend_mm_get_next_free_slot.exit.i ], [ %50, %49 ]
+  %.0 = phi ptr [ %7, %4 ], [ %56, %55 ], [ %54, %53 ], [ %35, %zend_mm_get_next_free_slot.exit.i ], [ %50, %49 ]
   ret ptr %.0
 }
 
@@ -7214,13 +7214,13 @@ zend_mm_bitset_set_range.exit:                    ; preds = %298, %._crit_edge, 
   br label %zend_mm_realloc_heap.exit
 
 zend_mm_bitset_reset_range.exit:                  ; preds = %266, %257, %243, %155, %234, %zend_mm_bitset_is_free_range.exit, %95
-  %.0136.i = phi i64 [ %158, %155 ], [ %158, %234 ], [ %158, %zend_mm_bitset_is_free_range.exit ], [ %35, %95 ], [ %158, %243 ], [ %158, %257 ], [ %158, %266 ]
+  %.0136.i = phi i64 [ %158, %155 ], [ %158, %zend_mm_bitset_is_free_range.exit ], [ %158, %234 ], [ %35, %95 ], [ %158, %243 ], [ %158, %257 ], [ %158, %266 ]
   %342 = tail call i64 @llvm.umin.i64(i64 %.0136.i, i64 %1)
   %343 = tail call fastcc ptr @zend_mm_realloc_slow(ptr noundef nonnull %3, ptr noundef %0, i64 noundef %spec.store.select.i, i64 noundef %342)
   br label %zend_mm_realloc_heap.exit
 
-zend_mm_realloc_heap.exit:                        ; preds = %221, %._crit_edge42, %182, %zend_mm_alloc_small.exit, %zend_mm_alloc_small.exit14, %37, %36, %zend_mm_bitset_set_range.exit, %160, %zend_mm_bitset_reset_range.exit, %17, %15, %5
-  %.0 = phi ptr [ %8, %5 ], [ %16, %15 ], [ %18, %17 ], [ %343, %zend_mm_bitset_reset_range.exit ], [ %0, %221 ], [ %0, %._crit_edge42 ], [ %0, %182 ], [ %0, %36 ], [ %0, %37 ], [ %.0.i7, %zend_mm_alloc_small.exit ], [ %.0.i13, %zend_mm_alloc_small.exit14 ], [ %0, %zend_mm_bitset_set_range.exit ], [ %0, %160 ]
+zend_mm_realloc_heap.exit:                        ; preds = %221, %._crit_edge42, %182, %zend_mm_alloc_small.exit14, %37, %36, %zend_mm_alloc_small.exit, %zend_mm_bitset_set_range.exit, %160, %zend_mm_bitset_reset_range.exit, %17, %15, %5
+  %.0 = phi ptr [ %8, %5 ], [ %16, %15 ], [ %18, %17 ], [ %343, %zend_mm_bitset_reset_range.exit ], [ %0, %221 ], [ %0, %._crit_edge42 ], [ %0, %182 ], [ %0, %37 ], [ %.0.i7, %zend_mm_alloc_small.exit ], [ %.0.i13, %zend_mm_alloc_small.exit14 ], [ %0, %36 ], [ %0, %zend_mm_bitset_set_range.exit ], [ %0, %160 ]
   ret ptr %.0
 }
 
@@ -7793,13 +7793,13 @@ zend_mm_bitset_set_range.exit:                    ; preds = %301, %._crit_edge, 
   br label %zend_mm_realloc_heap.exit
 
 zend_mm_bitset_reset_range.exit:                  ; preds = %269, %260, %246, %158, %237, %zend_mm_bitset_is_free_range.exit, %97
-  %.0136.i = phi i64 [ %161, %158 ], [ %161, %237 ], [ %161, %zend_mm_bitset_is_free_range.exit ], [ %36, %97 ], [ %161, %246 ], [ %161, %260 ], [ %161, %269 ]
+  %.0136.i = phi i64 [ %161, %158 ], [ %161, %zend_mm_bitset_is_free_range.exit ], [ %161, %237 ], [ %36, %97 ], [ %161, %246 ], [ %161, %260 ], [ %161, %269 ]
   %345 = tail call i64 @llvm.umin.i64(i64 %.0136.i, i64 %2)
   %346 = tail call fastcc ptr @zend_mm_realloc_slow(ptr noundef nonnull %4, ptr noundef %0, i64 noundef %spec.store.select.i, i64 noundef %345)
   br label %zend_mm_realloc_heap.exit
 
-zend_mm_realloc_heap.exit:                        ; preds = %224, %._crit_edge42, %185, %zend_mm_alloc_small.exit, %zend_mm_alloc_small.exit14, %38, %37, %zend_mm_bitset_set_range.exit, %163, %zend_mm_bitset_reset_range.exit, %18, %16, %6
-  %.0 = phi ptr [ %9, %6 ], [ %17, %16 ], [ %19, %18 ], [ %346, %zend_mm_bitset_reset_range.exit ], [ %0, %224 ], [ %0, %._crit_edge42 ], [ %0, %185 ], [ %0, %37 ], [ %0, %38 ], [ %.0.i7, %zend_mm_alloc_small.exit ], [ %.0.i13, %zend_mm_alloc_small.exit14 ], [ %0, %zend_mm_bitset_set_range.exit ], [ %0, %163 ]
+zend_mm_realloc_heap.exit:                        ; preds = %224, %._crit_edge42, %185, %zend_mm_alloc_small.exit14, %38, %37, %zend_mm_alloc_small.exit, %zend_mm_bitset_set_range.exit, %163, %zend_mm_bitset_reset_range.exit, %18, %16, %6
+  %.0 = phi ptr [ %9, %6 ], [ %17, %16 ], [ %19, %18 ], [ %346, %zend_mm_bitset_reset_range.exit ], [ %0, %224 ], [ %0, %._crit_edge42 ], [ %0, %185 ], [ %0, %38 ], [ %.0.i7, %zend_mm_alloc_small.exit ], [ %.0.i13, %zend_mm_alloc_small.exit14 ], [ %0, %37 ], [ %0, %zend_mm_bitset_set_range.exit ], [ %0, %163 ]
   ret ptr %.0
 }
 
@@ -7899,7 +7899,7 @@ zend_mm_get_huge_block_size.exit.i.i:             ; preds = %.lr.ph.i.i.i
   br label %_zend_mm_block_size.exit
 
 _zend_mm_block_size.exit:                         ; preds = %4, %8, %14, %zend_mm_get_huge_block_size.exit.i.i, %46
-  %.1.i = phi i64 [ %15, %14 ], [ 0, %4 ], [ %27, %zend_mm_get_huge_block_size.exit.i.i ], [ %.1.i.i, %46 ], [ 0, %8 ]
+  %.1.i = phi i64 [ 0, %4 ], [ %15, %14 ], [ %.1.i.i, %46 ], [ %27, %zend_mm_get_huge_block_size.exit.i.i ], [ 0, %8 ]
   ret i64 %.1.i
 }
 
@@ -8973,7 +8973,7 @@ zend_mm_chunk_truncate.exit.thread108:            ; preds = %81, %78, %30, %zend
   br label %zend_mm_change_huge_block_size.exit
 
 zend_mm_change_huge_block_size.exit:              ; preds = %99, %54, %24, %97, %84, %52, %zend_mm_chunk_truncate.exit.thread, %22, %zend_mm_chunk_truncate.exit.thread108
-  %.0 = phi ptr [ %102, %zend_mm_chunk_truncate.exit.thread108 ], [ %1, %22 ], [ %1, %zend_mm_chunk_truncate.exit.thread ], [ %1, %52 ], [ %1, %84 ], [ %1, %97 ], [ %1, %24 ], [ %1, %54 ], [ %1, %99 ]
+  %.0 = phi ptr [ %1, %54 ], [ %1, %24 ], [ %102, %zend_mm_chunk_truncate.exit.thread108 ], [ %1, %22 ], [ %1, %zend_mm_chunk_truncate.exit.thread ], [ %1, %52 ], [ %1, %84 ], [ %1, %97 ], [ %1, %99 ]
   ret ptr %.0
 }
 
@@ -9067,7 +9067,7 @@ zend_mm_get_next_free_slot.exit.i:                ; preds = %34, %32
   br label %zend_mm_alloc_heap.exit
 
 zend_mm_alloc_heap.exit:                          ; preds = %45, %zend_mm_get_next_free_slot.exit.i, %49, %51
-  %.0.i = phi ptr [ %50, %49 ], [ %52, %51 ], [ %31, %zend_mm_get_next_free_slot.exit.i ], [ %46, %45 ]
+  %.0.i = phi ptr [ %52, %51 ], [ %50, %49 ], [ %31, %zend_mm_get_next_free_slot.exit.i ], [ %46, %45 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0.i, ptr align 1 %1, i64 %3, i1 false)
   %53 = ptrtoint ptr %1 to i64
   %54 = and i64 %53, 2097151
@@ -9574,11 +9574,11 @@ zend_mm_chunk_alloc.exit172:                      ; preds = %102, %110
   br label %5
 
 .thread:                                          ; preds = %40, %19, %50, %38, %128
-  %148 = phi i32 [ 1, %128 ], [ %39, %38 ], [ %11, %50 ], [ %28, %40 ], [ %11, %19 ]
-  %149 = phi i32 [ 511, %128 ], [ %7, %38 ], [ %7, %50 ], [ %7, %19 ], [ %7, %40 ]
-  %150 = phi ptr [ %129, %128 ], [ %4, %38 ], [ %4, %50 ], [ %4, %19 ], [ %4, %40 ]
-  %.4 = phi i32 [ 1, %128 ], [ %28, %38 ], [ %28, %50 ], [ %.0141, %19 ], [ %.0141, %40 ]
-  %.1 = phi ptr [ %.2, %128 ], [ %.0124, %38 ], [ %.0124, %50 ], [ %.0124, %19 ], [ %.0124, %40 ]
+  %148 = phi i32 [ 1, %128 ], [ %11, %50 ], [ %39, %38 ], [ %11, %19 ], [ %28, %40 ]
+  %149 = phi i32 [ 511, %128 ], [ %7, %50 ], [ %7, %38 ], [ %7, %19 ], [ %7, %40 ]
+  %150 = phi ptr [ %129, %128 ], [ %4, %50 ], [ %4, %38 ], [ %4, %19 ], [ %4, %40 ]
+  %.4 = phi i32 [ 1, %128 ], [ %28, %50 ], [ %28, %38 ], [ %.0141, %19 ], [ %.0141, %40 ]
+  %.1 = phi ptr [ %.2, %128 ], [ %.0124, %50 ], [ %.0124, %38 ], [ %.0124, %19 ], [ %.0124, %40 ]
   %151 = icmp samesign ugt i32 %.0143, 2
   %152 = icmp ult i32 %1, 8
   %or.cond4 = and i1 %152, %151
@@ -9808,7 +9808,7 @@ zend_mm_munmap.exit38:                            ; preds = %40, %36, %33
   br label %47
 
 47:                                               ; preds = %.sink.split, %zend_mm_munmap.exit38, %8, %1
-  %.030 = phi ptr [ null, %1 ], [ %2, %8 ], [ %.0, %zend_mm_munmap.exit38 ], [ %.0.sink, %.sink.split ]
+  %.030 = phi ptr [ %2, %8 ], [ null, %1 ], [ %.0, %zend_mm_munmap.exit38 ], [ %.0.sink, %.sink.split ]
   ret ptr %.030
 }
 

@@ -606,7 +606,7 @@ define dso_local i32 @acpi_register_ioapic(ptr noundef %0, i64 noundef %1, i32 n
   br label %22
 
 18:                                               ; preds = %.thread, %3
-  %19 = phi i32 [ %10, %3 ], [ %16, %.thread ]
+  %19 = phi i32 [ %16, %.thread ], [ %10, %3 ]
   call void @mutex_lock(ptr noundef nonnull @acpi_ioapic_lock) #18
   %20 = trunc i64 %1 to i32
   %21 = call i32 @mp_register_ioapic(i32 noundef %19, i32 noundef %20, i32 noundef %2, ptr noundef nonnull %5) #18

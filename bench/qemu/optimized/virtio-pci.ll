@@ -718,7 +718,7 @@ virtio_bus_get_device.exit:                       ; preds = %2, %4
   br label %21
 
 21:                                               ; preds = %.thread, %19, %14, %virtio_bus_get_device.exit
-  %.0 = phi i32 [ %8, %virtio_bus_get_device.exit ], [ -22, %14 ], [ 0, %19 ], [ 0, %.thread ]
+  %.0 = phi i32 [ -22, %14 ], [ %8, %virtio_bus_get_device.exit ], [ 0, %19 ], [ 0, %.thread ]
   ret i32 %.0
 }
 
@@ -930,7 +930,7 @@ kvm_virtio_pci_vector_vq_release.exit:            ; preds = %.lr.ph.i, %45, %vir
   br label %48
 
 48:                                               ; preds = %.critedge, %.thread, %kvm_virtio_pci_vector_vq_release.exit, %32, %27
-  %49 = phi ptr [ %36, %.thread ], [ %36, %kvm_virtio_pci_vector_vq_release.exit ], [ %28, %32 ], [ %28, %27 ], [ %23, %.critedge ]
+  %49 = phi ptr [ %36, %.thread ], [ %36, %kvm_virtio_pci_vector_vq_release.exit ], [ %28, %27 ], [ %28, %32 ], [ %23, %.critedge ]
   %50 = icmp sgt i32 %1, 0
   br i1 %50, label %.lr.ph, label %._crit_edge
 
@@ -1124,7 +1124,7 @@ define internal range(i32 -1, 1) i32 @virtio_pci_set_host_notifier_mr(ptr nounde
   br label %23
 
 23:                                               ; preds = %15, %21, %4, %6, %9
-  %.0 = phi i32 [ -1, %9 ], [ -1, %6 ], [ -1, %4 ], [ 0, %21 ], [ 0, %15 ]
+  %.0 = phi i32 [ -1, %4 ], [ -1, %9 ], [ -1, %6 ], [ 0, %21 ], [ 0, %15 ]
   ret i32 %.0
 }
 
@@ -1968,7 +1968,7 @@ virtio_pci_set_guest_notifier_fd_handler.exit:    ; preds = %23, %22, %virtio_pc
   br label %.critedge
 
 .critedge:                                        ; preds = %.thread48, %17, %virtio_pci_set_guest_notifier_fd_handler.exit, %26, %30, %33
-  %.1 = phi i32 [ 0, %33 ], [ 0, %30 ], [ 0, %26 ], [ 0, %virtio_pci_set_guest_notifier_fd_handler.exit ], [ %18, %17 ], [ %20, %.thread48 ]
+  %.1 = phi i32 [ 0, %virtio_pci_set_guest_notifier_fd_handler.exit ], [ %18, %17 ], [ 0, %33 ], [ 0, %30 ], [ 0, %26 ], [ %20, %.thread48 ]
   ret i32 %.1
 }
 
@@ -2093,8 +2093,8 @@ virtio_bus_get_device.exit.i:                     ; preds = %38, %36
   unreachable
 
 virtio_pci_one_vector_mask.exit:                  ; preds = %20, %51, %50
-  %.066 = phi i32 [ %.0.lcssa, %50 ], [ %.0.lcssa, %51 ], [ %.069, %20 ]
-  %.048 = phi i32 [ %34, %50 ], [ %34, %51 ], [ %22, %20 ]
+  %.066 = phi i32 [ %.0.lcssa, %51 ], [ %.0.lcssa, %50 ], [ %.069, %20 ]
+  %.048 = phi i32 [ %34, %51 ], [ %34, %50 ], [ %22, %20 ]
   %61 = tail call ptr @virtio_vector_first_queue(ptr noundef %9, i16 noundef zeroext %10) #16
   %62 = icmp ne ptr %61, null
   %63 = icmp sgt i32 %.066, -1
@@ -2173,7 +2173,7 @@ virtio_pci_one_vector_mask.exit64:                ; preds = %87, %88
   br i1 %101, label %68, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %97, %virtio_pci_one_vector_mask.exit, %._crit_edge, %32
-  %.051 = phi i32 [ 0, %32 ], [ 0, %._crit_edge ], [ %.048, %virtio_pci_one_vector_mask.exit ], [ %.048, %97 ]
+  %.051 = phi i32 [ 0, %._crit_edge ], [ 0, %32 ], [ %.048, %virtio_pci_one_vector_mask.exit ], [ %.048, %97 ]
   ret i32 %.051
 }
 
@@ -2414,7 +2414,7 @@ virtio_pci_get_notifier.exit:                     ; preds = %26
   %43 = icmp slt i32 %41, %42
   br i1 %43, label %16, label %virtio_pci_get_notifier.exit.thread, !llvm.loop !15
 
-virtio_pci_get_notifier.exit.thread:              ; preds = %40, %22, %26, %virtio_bus_get_device.exit
+virtio_pci_get_notifier.exit.thread:              ; preds = %40, %26, %22, %virtio_bus_get_device.exit
   %.val.i40 = load ptr, ptr %4, align 8
   %.not.i.i41 = icmp eq ptr %.val.i40, null
   br i1 %.not.i.i41, label %virtio_bus_get_device.exit.i42, label %44
@@ -2590,7 +2590,7 @@ kvm_virtio_pci_irqfd_release.exit:                ; preds = %40, %37, %33
   tail call void @kvm_irqchip_release_virq(ptr noundef %56, i32 noundef %58) #16
   br label %kvm_virtio_pci_vq_vector_release.exit
 
-kvm_virtio_pci_vq_vector_release.exit:            ; preds = %26, %16, %55, %kvm_virtio_pci_irqfd_release.exit, %virtio_pci_get_notifier.exit
+kvm_virtio_pci_vq_vector_release.exit:            ; preds = %16, %26, %55, %kvm_virtio_pci_irqfd_release.exit, %virtio_pci_get_notifier.exit
   ret void
 }
 
@@ -2759,8 +2759,8 @@ kvm_virtio_pci_vq_vector_use.exit.thread:         ; preds = %41
   call void @kvm_irqchip_release_virq(ptr noundef %74, i32 noundef %76) #16
   br label %kvm_virtio_pci_vq_vector_release.exit
 
-kvm_virtio_pci_vq_vector_release.exit:            ; preds = %27, %17, %73, %67, %kvm_virtio_pci_vq_vector_use.exit.thread, %51, %57, %60, %virtio_pci_get_notifier.exit
-  %.0 = phi i32 [ 0, %virtio_pci_get_notifier.exit ], [ 0, %60 ], [ 0, %57 ], [ 0, %51 ], [ %44, %kvm_virtio_pci_vq_vector_use.exit.thread ], [ %65, %67 ], [ %65, %73 ], [ -1, %17 ], [ -1, %27 ]
+kvm_virtio_pci_vq_vector_release.exit:            ; preds = %17, %27, %73, %67, %kvm_virtio_pci_vq_vector_use.exit.thread, %51, %57, %60, %virtio_pci_get_notifier.exit
+  %.0 = phi i32 [ %44, %kvm_virtio_pci_vq_vector_use.exit.thread ], [ %65, %73 ], [ 0, %virtio_pci_get_notifier.exit ], [ 0, %51 ], [ 0, %60 ], [ 0, %57 ], [ %65, %67 ], [ -1, %27 ], [ -1, %17 ]
   ret i32 %.0
 }
 
@@ -3527,7 +3527,7 @@ virtio_bus_get_device.exit:                       ; preds = %3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %8, %32, %36, %12, %16, %123, %116, %109, %102, %95, %88, %81, %77, %69, %63, %58, %54, %51, %47, %41, %29, %9
-  %.046 = phi i32 [ %11, %9 ], [ %28, %16 ], [ 0, %12 ], [ %31, %29 ], [ %40, %36 ], [ 0, %32 ], [ %44, %41 ], [ %50, %47 ], [ %53, %51 ], [ %57, %54 ], [ %62, %58 ], [ %68, %63 ], [ %76, %69 ], [ %80, %77 ], [ %87, %81 ], [ %94, %88 ], [ %101, %95 ], [ %108, %102 ], [ %115, %109 ], [ %122, %116 ], [ %130, %123 ], [ 0, %8 ], [ %spec.select, %.preheader ]
+  %.046 = phi i32 [ %130, %123 ], [ %11, %9 ], [ %28, %16 ], [ 0, %12 ], [ %31, %29 ], [ %40, %36 ], [ 0, %32 ], [ %44, %41 ], [ 0, %8 ], [ %50, %47 ], [ %53, %51 ], [ %57, %54 ], [ %62, %58 ], [ %68, %63 ], [ %76, %69 ], [ %80, %77 ], [ %87, %81 ], [ %94, %88 ], [ %101, %95 ], [ %108, %102 ], [ %115, %109 ], [ %122, %116 ], [ %spec.select, %.preheader ]
   %131 = zext i32 %.046 to i64
   br label %virtio_bus_get_device.exit.thread
 
@@ -3995,7 +3995,7 @@ virtio_bus_get_device.exit:                       ; preds = %3
   br label %18
 
 18:                                               ; preds = %8, %15, %12, %9
-  %.0.shrunk = phi i32 [ %11, %9 ], [ %14, %12 ], [ %17, %15 ], [ 0, %8 ]
+  %.0.shrunk = phi i32 [ %17, %15 ], [ %11, %9 ], [ %14, %12 ], [ 0, %8 ]
   %.0 = zext i32 %.0.shrunk to i64
   br label %virtio_bus_get_device.exit.thread
 
@@ -4463,7 +4463,7 @@ virtio_ioport_read.exit:                          ; preds = %virtio_bus_get_devi
   br label %virtio_is_big_endian.exit.thread
 
 virtio_is_big_endian.exit.thread:                 ; preds = %88, %74, %82, %68, %virtio_bus_get_device.exit.thread, %62, %64, %78, %92, %virtio_bus_get_device.exit, %virtio_ioport_read.exit
-  %.022 = phi i64 [ %61, %virtio_ioport_read.exit ], [ -1, %virtio_bus_get_device.exit ], [ 0, %62 ], [ %67, %64 ], [ %81, %78 ], [ %94, %92 ], [ -1, %virtio_bus_get_device.exit.thread ], [ %71, %68 ], [ %85, %82 ], [ %71, %74 ], [ %85, %88 ]
+  %.022 = phi i64 [ -1, %virtio_bus_get_device.exit ], [ %61, %virtio_ioport_read.exit ], [ 0, %62 ], [ %67, %64 ], [ %81, %78 ], [ %71, %74 ], [ %94, %92 ], [ %85, %88 ], [ -1, %virtio_bus_get_device.exit.thread ], [ %71, %68 ], [ %85, %82 ]
   ret i64 %.022
 }
 

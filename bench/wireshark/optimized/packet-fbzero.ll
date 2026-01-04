@@ -720,7 +720,7 @@ define internal noundef zeroext i1 @dissect_fb_zero_heur(ptr noundef %0, ptr nou
   br label %19
 
 19:                                               ; preds = %7, %12, %14, %4, %15
-  %.0 = phi i1 [ true, %15 ], [ false, %4 ], [ false, %14 ], [ false, %12 ], [ false, %7 ]
+  %.0 = phi i1 [ false, %4 ], [ true, %15 ], [ false, %14 ], [ false, %12 ], [ false, %7 ]
   ret i1 %.0
 }
 

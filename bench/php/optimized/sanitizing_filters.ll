@@ -264,7 +264,7 @@ zend_string_alloc.exit:                           ; preds = %2
   br label %59
 
 59:                                               ; preds = %56, %.lr.ph.split.split.us.split.us
-  %.1.us41.us = phi i64 [ %58, %56 ], [ %.02935.us38.us, %.lr.ph.split.split.us.split.us ]
+  %.1.us41.us = phi i64 [ %.02935.us38.us, %.lr.ph.split.split.us.split.us ], [ %58, %56 ]
   %60 = add nuw i64 %.036.us37.us, 1
   %61 = icmp ult i64 %60, %16
   br i1 %61, label %.lr.ph.split.split.us.split.us, label %._crit_edge
@@ -286,7 +286,7 @@ zend_string_alloc.exit:                           ; preds = %2
   br label %69
 
 69:                                               ; preds = %66, %.lr.ph.split.split.us.split
-  %.1.us41 = phi i64 [ %68, %66 ], [ %.02935.us38, %.lr.ph.split.split.us.split ]
+  %.1.us41 = phi i64 [ %.02935.us38, %.lr.ph.split.split.us.split ], [ %68, %66 ]
   %70 = add nuw i64 %.036.us37, 1
   %71 = icmp ult i64 %70, %16
   br i1 %71, label %.lr.ph.split.split.us.split, label %._crit_edge
@@ -310,7 +310,7 @@ zend_string_alloc.exit:                           ; preds = %2
   br label %78
 
 78:                                               ; preds = %75, %.lr.ph.split.split.split.us
-  %.1.us47 = phi i64 [ %77, %75 ], [ %.02935.us45, %.lr.ph.split.split.split.us ]
+  %.1.us47 = phi i64 [ %.02935.us45, %.lr.ph.split.split.split.us ], [ %77, %75 ]
   %79 = add nuw i64 %.036.us44, 1
   %80 = icmp ult i64 %79, %16
   br i1 %80, label %.lr.ph.split.split.split.us, label %._crit_edge
@@ -333,13 +333,13 @@ zend_string_alloc.exit:                           ; preds = %2
   br label %88
 
 88:                                               ; preds = %.lr.ph.split.split.split, %85
-  %.1 = phi i64 [ %87, %85 ], [ %.02935, %.lr.ph.split.split.split ]
+  %.1 = phi i64 [ %.02935, %.lr.ph.split.split.split ], [ %87, %85 ]
   %89 = add nuw i64 %.036, 1
   %90 = icmp ult i64 %89, %16
   br i1 %90, label %.lr.ph.split.split.split, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %88, %78, %69, %59, %50, %40, %31, %.lr.ph.split.us.split.us.split.us, %zend_string_alloc.exit
-  %.029.lcssa = phi i64 [ 0, %zend_string_alloc.exit ], [ %24, %.lr.ph.split.us.split.us.split.us ], [ %.1.us.us, %31 ], [ %.1.us.us55, %40 ], [ %.1.us, %50 ], [ %.1.us41.us, %59 ], [ %.1.us41, %69 ], [ %.1.us47, %78 ], [ %.1, %88 ]
+  %.029.lcssa = phi i64 [ 0, %zend_string_alloc.exit ], [ %.1.us.us55, %40 ], [ %24, %.lr.ph.split.us.split.us.split.us ], [ %.1.us47, %78 ], [ %.1.us.us, %31 ], [ %.1.us41.us, %59 ], [ %.1.us, %50 ], [ %.1.us41, %69 ], [ %.1, %88 ]
   %91 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 %.029.lcssa
   store i8 0, ptr %92, align 1, !tbaa !4
@@ -405,9 +405,9 @@ define internal fastcc void @php_filter_encode_html(ptr noundef %0, ptr noundef 
   br label %smart_str_alloc.exit
 
 smart_str_alloc.exit:                             ; preds = %21, %26
-  %27 = phi i64 [ %.pre36, %26 ], [ %23, %21 ]
-  %28 = phi ptr [ %.pre, %26 ], [ %15, %21 ]
-  %.1.i = phi i64 [ %.0.i, %26 ], [ %24, %21 ]
+  %27 = phi i64 [ %23, %21 ], [ %.pre36, %26 ]
+  %28 = phi ptr [ %15, %21 ], [ %.pre, %26 ]
+  %.1.i = phi i64 [ %24, %21 ], [ %.0.i, %26 ]
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 %27
   store i16 8998, ptr %30, align 1
@@ -483,9 +483,9 @@ smart_str_appendc_ex.exit28.sink.split:           ; preds = %58, %59, %48
   br label %smart_str_appendc_ex.exit28
 
 smart_str_appendc_ex.exit28:                      ; preds = %smart_str_appendc_ex.exit28.sink.split, %59, %48
-  %.sink57 = phi ptr [ %53, %48 ], [ %15, %59 ], [ %.pre41, %smart_str_appendc_ex.exit28.sink.split ]
-  %.1.i.i23.sink56 = phi i64 [ %56, %48 ], [ %62, %59 ], [ %.0.i.i22.sink, %smart_str_appendc_ex.exit28.sink.split ]
-  %.sink = phi i8 [ 59, %48 ], [ %16, %59 ], [ %.sink.ph, %smart_str_appendc_ex.exit28.sink.split ]
+  %.sink57 = phi ptr [ %15, %59 ], [ %53, %48 ], [ %.pre41, %smart_str_appendc_ex.exit28.sink.split ]
+  %.1.i.i23.sink56 = phi i64 [ %62, %59 ], [ %56, %48 ], [ %.0.i.i22.sink, %smart_str_appendc_ex.exit28.sink.split ]
+  %.sink = phi i8 [ %16, %59 ], [ 59, %48 ], [ %.sink.ph, %smart_str_appendc_ex.exit28.sink.split ]
   %64 = getelementptr i8, ptr %.sink57, i64 23
   %65 = getelementptr i8, ptr %64, i64 %.1.i.i23.sink56
   store i8 %.sink, ptr %65, align 1, !tbaa !4

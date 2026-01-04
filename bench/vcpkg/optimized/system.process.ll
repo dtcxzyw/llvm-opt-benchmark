@@ -1083,7 +1083,7 @@ _ZN5vcpkg17ExitCodeAndOutputD2Ev.exit99:          ; preds = %311, %_ZNKSt7__cxx1
   br label %316
 
 316:                                              ; preds = %.loopexit, %.loopexit.split-lp, %_ZN5vcpkg17ExitCodeAndOutputD2Ev.exit99, %191
-  %.pn36 = phi { ptr, i32 } [ %.pn31.pn.pn.pn, %_ZN5vcpkg17ExitCodeAndOutputD2Ev.exit99 ], [ %192, %191 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn36 = phi { ptr, i32 } [ %192, %191 ], [ %.pn31.pn.pn.pn, %_ZN5vcpkg17ExitCodeAndOutputD2Ev.exit99 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %317 = load ptr, ptr %9, align 8, !tbaa !4
   %318 = icmp eq ptr %317, %76
   br i1 %318, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit102, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i100
@@ -3941,7 +3941,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %common.resume
 
 common.resume:                                    ; preds = %380, %265, %_ZN5vcpkg7CommandD2Ev.exit203, %_ZN5vcpkg7CommandD2Ev.exit243, %_ZN5vcpkg7CommandD2Ev.exit289, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit496, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i223, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i189
-  %common.resume.op = phi { ptr, i32 } [ %266, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i189 ], [ %381, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i223 ], [ %.pn155.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit496 ], [ %.pn104.pn.pn, %_ZN5vcpkg7CommandD2Ev.exit289 ], [ %.pn95.pn.pn, %_ZN5vcpkg7CommandD2Ev.exit243 ], [ %.pn87.pn.pn, %_ZN5vcpkg7CommandD2Ev.exit203 ], [ %266, %265 ], [ %381, %380 ]
+  %common.resume.op = phi { ptr, i32 } [ %266, %265 ], [ %.pn87.pn.pn, %_ZN5vcpkg7CommandD2Ev.exit203 ], [ %266, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i189 ], [ %381, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i223 ], [ %.pn155.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit496 ], [ %.pn104.pn.pn, %_ZN5vcpkg7CommandD2Ev.exit289 ], [ %.pn95.pn.pn, %_ZN5vcpkg7CommandD2Ev.exit243 ], [ %381, %380 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5vcpkg7CommandC2ENS_10StringViewE.exit192:     ; preds = %_ZN5vcpkg7CommandD2Ev.exit188

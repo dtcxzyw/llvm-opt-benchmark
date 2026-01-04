@@ -1285,7 +1285,7 @@ if.then19.i:                                      ; preds = %_ZNSt11char_traitsI
 if.else30.i:                                      ; preds = %tailrecurse.i
   br i1 %cmp.i14.i, label %tailrecurse.i, label %invoke.cont63.thread
 
-invoke.cont63.thread:                             ; preds = %if.else30.i, %if.then.i, %lor.rhs.i.i.i22.i, %_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i24.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i35.i
+invoke.cont63.thread:                             ; preds = %if.else30.i, %lor.rhs.i.i.i22.i, %_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i24.i, %if.then.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i35.i
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i79)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp20.i)
   br label %if.end82
@@ -1509,9 +1509,9 @@ invoke.cont159:                                   ; preds = %call4.i171.noexc
   br i1 %cmp121, label %for.body122, label %for.end164, !llvm.loop !24
 
 for.end164:                                       ; preds = %invoke.cont159, %invoke.cont5.thread, %invoke.cont5, %for.cond118.preheader
-  %99 = phi ptr [ %78, %for.cond118.preheader ], [ null, %invoke.cont5.thread ], [ %call5.i.i.i.i2.i.i47, %invoke.cont5 ], [ %78, %invoke.cont159 ]
-  %is_conflict.sroa.0.0222230312325 = phi ptr [ %call5.i.i.i.i1.i.i, %for.cond118.preheader ], [ null, %invoke.cont5.thread ], [ %call5.i.i.i.i1.i.i, %invoke.cont5 ], [ %call5.i.i.i.i1.i.i, %invoke.cont159 ]
-  %is_conflict.sroa.29.0225228316324 = phi ptr [ %add.ptr.i.i.i, %for.cond118.preheader ], [ null, %invoke.cont5.thread ], [ %add.ptr.i.i.i, %invoke.cont5 ], [ %add.ptr.i.i.i, %invoke.cont159 ]
+  %99 = phi ptr [ %call5.i.i.i.i2.i.i47, %invoke.cont5 ], [ %78, %for.cond118.preheader ], [ null, %invoke.cont5.thread ], [ %78, %invoke.cont159 ]
+  %is_conflict.sroa.0.0222230312325 = phi ptr [ %call5.i.i.i.i1.i.i, %invoke.cont5 ], [ %call5.i.i.i.i1.i.i, %for.cond118.preheader ], [ null, %invoke.cont5.thread ], [ %call5.i.i.i.i1.i.i, %invoke.cont159 ]
+  %is_conflict.sroa.29.0225228316324 = phi ptr [ %add.ptr.i.i.i, %invoke.cont5 ], [ %add.ptr.i.i.i, %for.cond118.preheader ], [ null, %invoke.cont5.thread ], [ %add.ptr.i.i.i, %invoke.cont159 ]
   %_M_finish.i178 = getelementptr inbounds nuw i8, ptr %conflict_reason, i64 8
   %100 = load ptr, ptr %_M_finish.i178, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %99, %100
@@ -2079,8 +2079,8 @@ _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   br label %if.end16
 
 if.end16:                                         ; preds = %land.lhs.true, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15OneofDescriptorENS5_8compiler4java18OneofGeneratorInfoEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE28rehash_and_grow_if_necessaryEv.exit, %land.rhs
-  %7 = phi ptr [ %.pre, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15OneofDescriptorENS5_8compiler4java18OneofGeneratorInfoEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE28rehash_and_grow_if_necessaryEv.exit ], [ %1, %land.rhs ], [ %1, %land.lhs.true ]
-  %target.sroa.0.0 = phi i64 [ %6, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15OneofDescriptorENS5_8compiler4java18OneofGeneratorInfoEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE28rehash_and_grow_if_necessaryEv.exit ], [ %0, %land.rhs ], [ %0, %land.lhs.true ]
+  %7 = phi ptr [ %1, %land.lhs.true ], [ %.pre, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15OneofDescriptorENS5_8compiler4java18OneofGeneratorInfoEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE28rehash_and_grow_if_necessaryEv.exit ], [ %1, %land.rhs ]
+  %target.sroa.0.0 = phi i64 [ %0, %land.lhs.true ], [ %6, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15OneofDescriptorENS5_8compiler4java18OneofGeneratorInfoEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE28rehash_and_grow_if_necessaryEv.exit ], [ %0, %land.rhs ]
   %compressed_tuple_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %8 = load i64, ptr %compressed_tuple_.i, align 8
   %add = add i64 %8, 1
@@ -2467,8 +2467,8 @@ _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   br label %if.end16
 
 if.end16:                                         ; preds = %land.lhs.true, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_8compiler4java18FieldGeneratorInfoEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE28rehash_and_grow_if_necessaryEv.exit, %land.rhs
-  %7 = phi ptr [ %.pre, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_8compiler4java18FieldGeneratorInfoEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE28rehash_and_grow_if_necessaryEv.exit ], [ %1, %land.rhs ], [ %1, %land.lhs.true ]
-  %target.sroa.0.0 = phi i64 [ %6, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_8compiler4java18FieldGeneratorInfoEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE28rehash_and_grow_if_necessaryEv.exit ], [ %0, %land.rhs ], [ %0, %land.lhs.true ]
+  %7 = phi ptr [ %1, %land.lhs.true ], [ %.pre, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_8compiler4java18FieldGeneratorInfoEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE28rehash_and_grow_if_necessaryEv.exit ], [ %1, %land.rhs ]
+  %target.sroa.0.0 = phi i64 [ %0, %land.lhs.true ], [ %6, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_8compiler4java18FieldGeneratorInfoEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE28rehash_and_grow_if_necessaryEv.exit ], [ %0, %land.rhs ]
   %compressed_tuple_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %8 = load i64, ptr %compressed_tuple_.i, align 8
   %add = add i64 %8, 1

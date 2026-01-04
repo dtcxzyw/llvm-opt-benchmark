@@ -5252,7 +5252,7 @@ define linkonce_odr hidden void @_ZN4entt8meta_anyD2Ev(ptr noundef nonnull align
   unreachable
 
 _ZN4entt9basic_anyILm16ELm8EE4dataEv.exit.i:      ; preds = %13, %9
-  %18 = phi ptr [ %14, %13 ], [ %12, %9 ]
+  %18 = phi ptr [ %12, %9 ], [ %14, %13 ]
   invoke void %7(ptr noundef %18)
           to label %_ZN4entt8meta_any7releaseEv.exit unwind label %74
 
@@ -12784,7 +12784,7 @@ _ZN4entt9meta_dataD2Ev.exit163:                   ; preds = %292, %300, %_ZN9__g
   ret void
 
 316:                                              ; preds = %291, %249, %_ZN7testing7MessageD2Ev.exit68
-  %.pn47.pn.pn.pn = phi { ptr, i32 } [ %.pn39.pn.pn, %291 ], [ %.pn35.pn.pn, %249 ], [ %.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit68 ]
+  %.pn47.pn.pn.pn = phi { ptr, i32 } [ %.pn35.pn.pn, %249 ], [ %.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit68 ], [ %.pn39.pn.pn, %291 ]
   call void @_ZN4entt9meta_dataD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %3) #29
   br label %317
 
@@ -27290,8 +27290,8 @@ _ZN4entt8internal14meta_data_nodeD2Ev.exit.i:     ; preds = %51, %48, %37
           to label %_ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i.i unwind label %168
 
 _ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i.i: ; preds = %66, %.thread, %64
-  %68 = phi ptr [ %65, %64 ], [ %55, %.thread ], [ %65, %66 ]
-  %69 = phi ptr [ %.pr, %64 ], [ %54, %.thread ], [ %67, %66 ]
+  %68 = phi ptr [ %55, %.thread ], [ %65, %64 ], [ %65, %66 ]
+  %69 = phi ptr [ %54, %.thread ], [ %.pr, %64 ], [ %67, %66 ]
   store ptr null, ptr %9, align 8, !tbaa !14
   %70 = getelementptr inbounds nuw i8, ptr %9, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %70, i8 0, i64 17, i1 false)
@@ -29582,7 +29582,7 @@ _ZN4entt8internal14meta_data_nodeD2Ev.exit.i:     ; preds = %110, %107, %96
           to label %_ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i.i unwind label %219
 
 _ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i.i: ; preds = %125, %.thread, %123
-  %127 = phi ptr [ %.pr, %123 ], [ %113, %.thread ], [ %126, %125 ]
+  %127 = phi ptr [ %113, %.thread ], [ %.pr, %123 ], [ %126, %125 ]
   store ptr null, ptr %11, align 8, !tbaa !14
   %128 = getelementptr inbounds nuw i8, ptr %11, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %128, i8 0, i64 17, i1 false)
@@ -30496,7 +30496,7 @@ _ZN4entt8internal14meta_data_nodeD2Ev.exit.i:     ; preds = %104, %101, %90
           to label %_ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i.i unwind label %211
 
 _ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i.i: ; preds = %119, %.thread, %117
-  %121 = phi ptr [ %.pr, %117 ], [ %107, %.thread ], [ %120, %119 ]
+  %121 = phi ptr [ %107, %.thread ], [ %.pr, %117 ], [ %120, %119 ]
   store ptr null, ptr %10, align 8, !tbaa !14
   %122 = getelementptr inbounds nuw i8, ptr %10, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %122, i8 0, i64 17, i1 false)
@@ -56646,8 +56646,8 @@ _ZN4entt8internal14meta_data_nodeD2Ev.exit.i:     ; preds = %200, %197, %186
           to label %_ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i.i unwind label %318
 
 _ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i.i: ; preds = %215, %.thread, %213
-  %217 = phi ptr [ %214, %213 ], [ %204, %.thread ], [ %214, %215 ]
-  %218 = phi ptr [ %.pr, %213 ], [ %203, %.thread ], [ %216, %215 ]
+  %217 = phi ptr [ %204, %.thread ], [ %214, %213 ], [ %214, %215 ]
+  %218 = phi ptr [ %203, %.thread ], [ %.pr, %213 ], [ %216, %215 ]
   store ptr null, ptr %31, align 8, !tbaa !14
   %219 = getelementptr inbounds nuw i8, ptr %31, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %219, i8 0, i64 17, i1 false)
@@ -57186,8 +57186,8 @@ _ZN4entt8internal14meta_data_nodeD2Ev.exit.i340:  ; preds = %402, %399, %388
           to label %_ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i.i347 unwind label %543
 
 _ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i.i347: ; preds = %417, %.thread1285, %415
-  %419 = phi ptr [ %416, %415 ], [ %406, %.thread1285 ], [ %416, %417 ]
-  %420 = phi ptr [ %.pr1284, %415 ], [ %405, %.thread1285 ], [ %418, %417 ]
+  %419 = phi ptr [ %406, %.thread1285 ], [ %416, %415 ], [ %416, %417 ]
+  %420 = phi ptr [ %405, %.thread1285 ], [ %.pr1284, %415 ], [ %418, %417 ]
   store ptr null, ptr %40, align 8, !tbaa !14
   %421 = getelementptr inbounds nuw i8, ptr %40, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %421, i8 0, i64 17, i1 false)
@@ -57774,8 +57774,8 @@ _ZN4entt8internal14meta_data_nodeD2Ev.exit.i409:  ; preds = %627, %624, %613
           to label %_ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i.i416 unwind label %747
 
 _ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i.i416: ; preds = %642, %.thread1290, %640
-  %644 = phi ptr [ %641, %640 ], [ %631, %.thread1290 ], [ %641, %642 ]
-  %645 = phi ptr [ %.pr1289, %640 ], [ %630, %.thread1290 ], [ %643, %642 ]
+  %644 = phi ptr [ %631, %.thread1290 ], [ %641, %640 ], [ %641, %642 ]
+  %645 = phi ptr [ %630, %.thread1290 ], [ %.pr1289, %640 ], [ %643, %642 ]
   store ptr null, ptr %49, align 8, !tbaa !14
   %646 = getelementptr inbounds nuw i8, ptr %49, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %646, i8 0, i64 17, i1 false)
@@ -58319,8 +58319,8 @@ _ZN4entt8internal14meta_data_nodeD2Ev.exit.i475:  ; preds = %831, %828, %817
           to label %_ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i.i482 unwind label %972
 
 _ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i.i482: ; preds = %846, %.thread1295, %844
-  %848 = phi ptr [ %845, %844 ], [ %835, %.thread1295 ], [ %845, %846 ]
-  %849 = phi ptr [ %.pr1294, %844 ], [ %834, %.thread1295 ], [ %847, %846 ]
+  %848 = phi ptr [ %835, %.thread1295 ], [ %845, %844 ], [ %845, %846 ]
+  %849 = phi ptr [ %834, %.thread1295 ], [ %.pr1294, %844 ], [ %847, %846 ]
   store ptr null, ptr %58, align 8, !tbaa !14
   %850 = getelementptr inbounds nuw i8, ptr %58, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %850, i8 0, i64 17, i1 false)
@@ -58906,8 +58906,8 @@ _ZN4entt8internal14meta_data_nodeD2Ev.exit.i547:  ; preds = %1056, %1053, %1042
           to label %_ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i.i554 unwind label %1175
 
 _ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i.i554: ; preds = %1071, %.thread1300, %1069
-  %1073 = phi ptr [ %1070, %1069 ], [ %1060, %.thread1300 ], [ %1070, %1071 ]
-  %1074 = phi ptr [ %.pr1299, %1069 ], [ %1059, %.thread1300 ], [ %1072, %1071 ]
+  %1073 = phi ptr [ %1060, %.thread1300 ], [ %1070, %1069 ], [ %1070, %1071 ]
+  %1074 = phi ptr [ %1059, %.thread1300 ], [ %.pr1299, %1069 ], [ %1072, %1071 ]
   store ptr null, ptr %66, align 8, !tbaa !14
   %1075 = getelementptr inbounds nuw i8, ptr %66, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %1075, i8 0, i64 17, i1 false)
@@ -59453,7 +59453,7 @@ _ZN4entt8internal14meta_data_nodeD2Ev.exit.i613:  ; preds = %1265, %1262, %1251
           to label %_ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i.i620 unwind label %1372
 
 _ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i.i620: ; preds = %1280, %.thread1305, %1278
-  %1282 = phi ptr [ %.pr1304, %1278 ], [ %1268, %.thread1305 ], [ %1281, %1280 ]
+  %1282 = phi ptr [ %1268, %.thread1305 ], [ %.pr1304, %1278 ], [ %1281, %1280 ]
   store ptr null, ptr %73, align 8, !tbaa !14
   %1283 = getelementptr inbounds nuw i8, ptr %73, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %1283, i8 0, i64 17, i1 false)
@@ -59969,8 +59969,8 @@ _ZN4entt8internal14meta_data_nodeD2Ev.exit.i677:  ; preds = %1464, %1461, %1450
           to label %_ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i.i684 unwind label %1583
 
 _ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i.i684: ; preds = %1479, %.thread1310, %1477
-  %1481 = phi ptr [ %1478, %1477 ], [ %1468, %.thread1310 ], [ %1478, %1479 ]
-  %1482 = phi ptr [ %.pr1309, %1477 ], [ %1467, %.thread1310 ], [ %1480, %1479 ]
+  %1481 = phi ptr [ %1468, %.thread1310 ], [ %1478, %1477 ], [ %1478, %1479 ]
+  %1482 = phi ptr [ %1467, %.thread1310 ], [ %.pr1309, %1477 ], [ %1480, %1479 ]
   store ptr null, ptr %82, align 8, !tbaa !14
   %1483 = getelementptr inbounds nuw i8, ptr %82, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %1483, i8 0, i64 17, i1 false)
@@ -60516,7 +60516,7 @@ _ZN4entt8internal14meta_data_nodeD2Ev.exit.i746:  ; preds = %1673, %1670, %1659
           to label %_ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i.i753 unwind label %1781
 
 _ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i.i753: ; preds = %1688, %.thread1315, %1686
-  %1690 = phi ptr [ %.pr1314, %1686 ], [ %1676, %.thread1315 ], [ %1689, %1688 ]
+  %1690 = phi ptr [ %1676, %.thread1315 ], [ %.pr1314, %1686 ], [ %1689, %1688 ]
   store ptr null, ptr %89, align 8, !tbaa !14
   %1691 = getelementptr inbounds nuw i8, ptr %89, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %1691, i8 0, i64 17, i1 false)
@@ -61033,8 +61033,8 @@ _ZN4entt8internal14meta_data_nodeD2Ev.exit.i810:  ; preds = %1873, %1870, %1859
           to label %_ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i.i817 unwind label %1992
 
 _ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i.i817: ; preds = %1888, %.thread1320, %1886
-  %1890 = phi ptr [ %1887, %1886 ], [ %1877, %.thread1320 ], [ %1887, %1888 ]
-  %1891 = phi ptr [ %.pr1319, %1886 ], [ %1876, %.thread1320 ], [ %1889, %1888 ]
+  %1890 = phi ptr [ %1877, %.thread1320 ], [ %1887, %1886 ], [ %1887, %1888 ]
+  %1891 = phi ptr [ %1876, %.thread1320 ], [ %.pr1319, %1886 ], [ %1889, %1888 ]
   store ptr null, ptr %98, align 8, !tbaa !14
   %1892 = getelementptr inbounds nuw i8, ptr %98, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %1892, i8 0, i64 17, i1 false)
@@ -61580,7 +61580,7 @@ _ZN4entt8internal14meta_data_nodeD2Ev.exit.i879:  ; preds = %2082, %2079, %2068
           to label %_ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i.i886 unwind label %2189
 
 _ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i.i886: ; preds = %2097, %.thread1325, %2095
-  %2099 = phi ptr [ %.pr1324, %2095 ], [ %2085, %.thread1325 ], [ %2098, %2097 ]
+  %2099 = phi ptr [ %2085, %.thread1325 ], [ %.pr1324, %2095 ], [ %2098, %2097 ]
   store ptr null, ptr %105, align 8, !tbaa !14
   %2100 = getelementptr inbounds nuw i8, ptr %105, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %2100, i8 0, i64 17, i1 false)
@@ -62096,8 +62096,8 @@ _ZN4entt8internal14meta_data_nodeD2Ev.exit.i943:  ; preds = %2281, %2278, %2267
           to label %_ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i.i950 unwind label %2400
 
 _ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i.i950: ; preds = %2296, %.thread1330, %2294
-  %2298 = phi ptr [ %2295, %2294 ], [ %2285, %.thread1330 ], [ %2295, %2296 ]
-  %2299 = phi ptr [ %.pr1329, %2294 ], [ %2284, %.thread1330 ], [ %2297, %2296 ]
+  %2298 = phi ptr [ %2285, %.thread1330 ], [ %2295, %2294 ], [ %2295, %2296 ]
+  %2299 = phi ptr [ %2284, %.thread1330 ], [ %.pr1329, %2294 ], [ %2297, %2296 ]
   store ptr null, ptr %114, align 8, !tbaa !14
   %2300 = getelementptr inbounds nuw i8, ptr %114, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %2300, i8 0, i64 17, i1 false)
@@ -62643,7 +62643,7 @@ _ZN4entt8internal14meta_data_nodeD2Ev.exit.i1012: ; preds = %2490, %2487, %2476
           to label %_ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i.i1019 unwind label %2598
 
 _ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i.i1019: ; preds = %2505, %.thread1335, %2503
-  %2507 = phi ptr [ %.pr1334, %2503 ], [ %2493, %.thread1335 ], [ %2506, %2505 ]
+  %2507 = phi ptr [ %2493, %.thread1335 ], [ %.pr1334, %2503 ], [ %2506, %2505 ]
   store ptr null, ptr %121, align 8, !tbaa !14
   %2508 = getelementptr inbounds nuw i8, ptr %121, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %2508, i8 0, i64 17, i1 false)
@@ -63160,8 +63160,8 @@ _ZN4entt8internal14meta_data_nodeD2Ev.exit.i1076: ; preds = %2690, %2687, %2676
           to label %_ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i.i1083 unwind label %2809
 
 _ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i.i1083: ; preds = %2705, %.thread1340, %2703
-  %2707 = phi ptr [ %2704, %2703 ], [ %2694, %.thread1340 ], [ %2704, %2705 ]
-  %2708 = phi ptr [ %.pr1339, %2703 ], [ %2693, %.thread1340 ], [ %2706, %2705 ]
+  %2707 = phi ptr [ %2694, %.thread1340 ], [ %2704, %2703 ], [ %2704, %2705 ]
+  %2708 = phi ptr [ %2693, %.thread1340 ], [ %.pr1339, %2703 ], [ %2706, %2705 ]
   store ptr null, ptr %130, align 8, !tbaa !14
   %2709 = getelementptr inbounds nuw i8, ptr %130, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %2709, i8 0, i64 17, i1 false)
@@ -63667,7 +63667,7 @@ _ZN4entt8internal14meta_data_nodeD2Ev.exit.i1135: ; preds = %2885, %2882, %2871
           to label %_ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i.i1142 unwind label %2993
 
 _ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i.i1142: ; preds = %2900, %.thread1345, %2898
-  %2902 = phi ptr [ %.pr1344, %2898 ], [ %2888, %.thread1345 ], [ %2901, %2900 ]
+  %2902 = phi ptr [ %2888, %.thread1345 ], [ %.pr1344, %2898 ], [ %2901, %2900 ]
   store ptr null, ptr %137, align 8, !tbaa !14
   %2903 = getelementptr inbounds nuw i8, ptr %137, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %2903, i8 0, i64 17, i1 false)
@@ -77271,7 +77271,7 @@ _ZN4entt8internal14meta_data_nodeD2Ev.exit.i123:  ; preds = %223, %220, %209
           to label %_ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i.i unwind label %286
 
 _ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i.i: ; preds = %238, %.thread246, %236
-  %240 = phi ptr [ %.pr, %236 ], [ %226, %.thread246 ], [ %239, %238 ]
+  %240 = phi ptr [ %226, %.thread246 ], [ %.pr, %236 ], [ %239, %238 ]
   store ptr null, ptr %16, align 8, !tbaa !14
   %241 = getelementptr inbounds nuw i8, ptr %16, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %241, i8 0, i64 17, i1 false)
@@ -77642,8 +77642,8 @@ _ZN4entt8internal14meta_data_nodeD2Ev.exit.i172:  ; preds = %355, %352, %341
           to label %_ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i.i178 unwind label %455
 
 _ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i.i178: ; preds = %370, %.thread251, %368
-  %372 = phi ptr [ %369, %368 ], [ %359, %.thread251 ], [ %369, %370 ]
-  %373 = phi ptr [ %.pr250, %368 ], [ %358, %.thread251 ], [ %371, %370 ]
+  %372 = phi ptr [ %359, %.thread251 ], [ %369, %368 ], [ %369, %370 ]
+  %373 = phi ptr [ %358, %.thread251 ], [ %.pr250, %368 ], [ %371, %370 ]
   store ptr null, ptr %25, align 8, !tbaa !14
   %374 = getelementptr inbounds nuw i8, ptr %25, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %374, i8 0, i64 17, i1 false)
@@ -78855,7 +78855,7 @@ _ZN4entt8internal14meta_data_nodeD2Ev.exit.i123:  ; preds = %223, %220, %209
           to label %_ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i.i unwind label %286
 
 _ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i.i: ; preds = %238, %.thread246, %236
-  %240 = phi ptr [ %.pr, %236 ], [ %226, %.thread246 ], [ %239, %238 ]
+  %240 = phi ptr [ %226, %.thread246 ], [ %.pr, %236 ], [ %239, %238 ]
   store ptr null, ptr %16, align 8, !tbaa !14
   %241 = getelementptr inbounds nuw i8, ptr %16, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %241, i8 0, i64 17, i1 false)
@@ -79226,8 +79226,8 @@ _ZN4entt8internal14meta_data_nodeD2Ev.exit.i172:  ; preds = %355, %352, %341
           to label %_ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i.i178 unwind label %455
 
 _ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i.i178: ; preds = %370, %.thread251, %368
-  %372 = phi ptr [ %369, %368 ], [ %359, %.thread251 ], [ %369, %370 ]
-  %373 = phi ptr [ %.pr250, %368 ], [ %358, %.thread251 ], [ %371, %370 ]
+  %372 = phi ptr [ %359, %.thread251 ], [ %369, %368 ], [ %369, %370 ]
+  %373 = phi ptr [ %358, %.thread251 ], [ %.pr250, %368 ], [ %371, %370 ]
   store ptr null, ptr %25, align 8, !tbaa !14
   %374 = getelementptr inbounds nuw i8, ptr %25, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %374, i8 0, i64 17, i1 false)
@@ -84841,7 +84841,7 @@ _ZN4entt8literalsli3_hsEPKcm.exit285:             ; preds = %640
   br label %731
 
 641:                                              ; preds = %593, %595, %580, %_ZN7testing7MessageD2Ev.exit276, %544
-  %.pn91.pn.pn.pn = phi { ptr, i32 } [ %.pn91.pn.pn, %_ZN7testing7MessageD2Ev.exit276 ], [ %545, %544 ], [ %581, %580 ], [ %594, %593 ], [ %.pn87, %595 ]
+  %.pn91.pn.pn.pn = phi { ptr, i32 } [ %.pn91.pn.pn, %_ZN7testing7MessageD2Ev.exit276 ], [ %581, %580 ], [ %545, %544 ], [ %594, %593 ], [ %.pn87, %595 ]
   %642 = load ptr, ptr %20, align 8, !tbaa !12
   %643 = icmp eq ptr %642, %539
   br i1 %643, label %_ZN7testing8internal14TrueWithStringD2Ev.exit288, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i286
@@ -85120,7 +85120,7 @@ _ZN4entt8literalsli3_hsEPKcm.exit318:             ; preds = %_ZN7testing8interna
   br i1 %744, label %_ZN4entt8literalsli3_hsEPKcm.exit342, label %752
 
 745:                                              ; preds = %695, %697, %682, %_ZN7testing7MessageD2Ev.exit306, %646
-  %.pn102.pn.pn.pn = phi { ptr, i32 } [ %.pn102.pn.pn, %_ZN7testing7MessageD2Ev.exit306 ], [ %647, %646 ], [ %683, %682 ], [ %696, %695 ], [ %.pn98, %697 ]
+  %.pn102.pn.pn.pn = phi { ptr, i32 } [ %.pn102.pn.pn, %_ZN7testing7MessageD2Ev.exit306 ], [ %683, %682 ], [ %647, %646 ], [ %696, %695 ], [ %.pn98, %697 ]
   %746 = load ptr, ptr %27, align 8, !tbaa !12
   %747 = icmp eq ptr %746, %637
   br i1 %747, label %_ZN7testing8internal14TrueWithStringD2Ev.exit321, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i319
@@ -89397,7 +89397,7 @@ _ZN4entt8internal14meta_type_nodeD2Ev.exit:       ; preds = %_ZNSt12__shared_ptr
   resume { ptr, i32 } %73
 
 .thread:                                          ; preds = %.lr.ph.i, %_ZN4entt8internal14meta_type_nodeD2Ev.exit, %21, %.loopexit, %3
-  %.1 = phi ptr [ null, %3 ], [ null, %.loopexit ], [ %26, %_ZN4entt8internal14meta_type_nodeD2Ev.exit ], [ null, %21 ], [ %.sroa.010.017.i, %.lr.ph.i ]
+  %.1 = phi ptr [ null, %3 ], [ null, %.loopexit ], [ null, %21 ], [ %26, %_ZN4entt8internal14meta_type_nodeD2Ev.exit ], [ %.sroa.010.017.i, %.lr.ph.i ]
   ret ptr %.1
 }
 
@@ -89608,45 +89608,45 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN7t
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread: ; preds = %9, %.noexc.i
   %68 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11
 
 .body:                                            ; preds = %19
   %69 = landingpad { ptr, i32 }
           cleanup
   %70 = load ptr, ptr %4, align 8, !tbaa !12
   %71 = icmp eq ptr %70, %7
-  br i1 %71, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread25
+  br i1 %71, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9.thread
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread25: ; preds = %.body
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9.thread: ; preds = %.body
   %72 = load i64, ptr %7, align 8, !tbaa !14
   %73 = add i64 %72, 1
   call void @_ZdlPvm(ptr noundef %70, i64 noundef %73) #31
-  br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11
 
 .body.thread:                                     ; preds = %30
   %74 = load ptr, ptr %4, align 8, !tbaa !12
   %75 = icmp eq ptr %74, %7
-  br i1 %75, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10.thread, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11
+  br i1 %75, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread23, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10.thread: ; preds = %.body.thread
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread23: ; preds = %.body.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %78
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11: ; preds = %.body.thread
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9: ; preds = %.body.thread
   %76 = load i64, ptr %7, align 8, !tbaa !14
   %77 = add i64 %76, 1
   call void @_ZdlPvm(ptr noundef %74, i64 noundef %77) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %78
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10: ; preds = %.body, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread
-  %.pn16 = phi { ptr, i32 } [ %68, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread ], [ %69, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread25 ], [ %69, %.body ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11: ; preds = %.body, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread
+  %.pn16 = phi { ptr, i32 } [ %68, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread ], [ %69, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9.thread ], [ %69, %.body ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 144) #31
   br label %78
 
-78:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10
-  %.pn15 = phi { ptr, i32 } [ %31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11 ], [ %.pn16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10 ], [ %31, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10.thread ]
+78:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread23, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11
+  %.pn15 = phi { ptr, i32 } [ %31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread23 ], [ %.pn16, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11 ], [ %31, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9 ]
   resume { ptr, i32 } %.pn15
 }
 
@@ -92124,7 +92124,7 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !1631
   br label %41
 
@@ -96307,7 +96307,7 @@ define linkonce_odr hidden void @_ZN4entt8meta_any5resetEv(ptr noundef nonnull a
   unreachable
 
 _ZN4entt8meta_any7releaseEv.exit:                 ; preds = %9, %13
-  %18 = phi ptr [ %14, %13 ], [ %12, %9 ]
+  %18 = phi ptr [ %12, %9 ], [ %14, %13 ]
   tail call void %7(ptr noundef %18)
   %.pre = load i8, ptr %2, align 8, !tbaa !124
   %.pre10 = add i8 %.pre, -1
@@ -111881,7 +111881,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread16
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread16: ; preds = %46, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %3, %57, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %38, %37, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit
-  %.0 = phi ptr [ %2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit ], [ %2, %37 ], [ null, %38 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ null, %57 ], [ null, %3 ], [ %2, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread ], [ null, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ null, %46 ]
+  %.0 = phi ptr [ null, %3 ], [ %2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit ], [ %2, %37 ], [ null, %38 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ null, %57 ], [ %2, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread ], [ null, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ null, %46 ]
   ret ptr %.0
 }
 

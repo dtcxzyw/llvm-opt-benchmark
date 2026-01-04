@@ -214,7 +214,7 @@ define noundef zeroext i1 @_Z22SegmentBoxIntersectionRKN3vcg8Segment2IdEERKNS_4B
   br label %_ZN3vcg26SegmentSegmentIntersectionIdEEbRKNS_8Segment2IT_EES5_RNS_6Point2IS2_EE.exit
 
 _ZN3vcg26SegmentSegmentIntersectionIdEEbRKNS_8Segment2IT_EES5_RNS_6Point2IS2_EE.exit: ; preds = %84, %65, %44, %24, %96, %100, %104, %108
-  %.0 = phi i1 [ false, %104 ], [ false, %100 ], [ false, %96 ], [ %111, %108 ], [ true, %24 ], [ true, %44 ], [ true, %65 ], [ true, %84 ]
+  %.0 = phi i1 [ true, %65 ], [ %111, %108 ], [ true, %24 ], [ true, %44 ], [ false, %104 ], [ false, %100 ], [ false, %96 ], [ true, %84 ]
   ret i1 %.0
 }
 
@@ -304,14 +304,14 @@ define void @_Z17CrossIntersectionRKSt6vectorI8HalfEdgeSaIS0_EES4_(ptr dead_on_u
   br label %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i
 
 _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i:      ; preds = %.lr.ph.i, %45, %39
-  %.sroa.0354.2 = phi double [ %.sroa.0354.1, %45 ], [ %.sroa.0354.1, %39 ], [ %.sroa.0.0.copyload.i.i, %.lr.ph.i ]
-  %.sroa.6355.2 = phi double [ %.sroa.6355.1, %45 ], [ %.sroa.6355.1, %39 ], [ %.sroa.2.0.copyload.i.i, %.lr.ph.i ]
-  %.sroa.11.2 = phi double [ %.sroa.11.1, %45 ], [ %.sroa.11.1, %39 ], [ %.sroa.0.0.copyload.i.i, %.lr.ph.i ]
-  %.sroa.16356.1 = phi double [ %.sroa.2.0.copyload.i.i, %45 ], [ %.sroa.16356.0, %39 ], [ %.sroa.2.0.copyload.i.i, %.lr.ph.i ]
-  %46 = phi double [ %.sroa.2.0.copyload.i.i, %45 ], [ %26, %39 ], [ %.sroa.2.0.copyload.i.i, %.lr.ph.i ]
-  %.sroa.2.0.copyload.i730.i = phi double [ %.sroa.2.0.copyload.i726.i, %45 ], [ %.sroa.2.0.copyload.i726.i, %39 ], [ %.sroa.2.0.copyload.i.i, %.lr.ph.i ]
-  %47 = phi double [ %43, %45 ], [ %43, %39 ], [ %.sroa.0.0.copyload.i.i, %.lr.ph.i ]
-  %.sroa.0.0.copyload.i21.i = phi double [ %.sroa.0.0.copyload.i22.i, %45 ], [ %.sroa.0.0.copyload.i22.i, %39 ], [ %.sroa.0.0.copyload.i.i, %.lr.ph.i ]
+  %.sroa.0354.2 = phi double [ %.sroa.0354.1, %39 ], [ %.sroa.0354.1, %45 ], [ %.sroa.0.0.copyload.i.i, %.lr.ph.i ]
+  %.sroa.6355.2 = phi double [ %.sroa.6355.1, %39 ], [ %.sroa.6355.1, %45 ], [ %.sroa.2.0.copyload.i.i, %.lr.ph.i ]
+  %.sroa.11.2 = phi double [ %.sroa.11.1, %39 ], [ %.sroa.11.1, %45 ], [ %.sroa.0.0.copyload.i.i, %.lr.ph.i ]
+  %.sroa.16356.1 = phi double [ %.sroa.16356.0, %39 ], [ %.sroa.2.0.copyload.i.i, %45 ], [ %.sroa.2.0.copyload.i.i, %.lr.ph.i ]
+  %46 = phi double [ %26, %39 ], [ %.sroa.2.0.copyload.i.i, %45 ], [ %.sroa.2.0.copyload.i.i, %.lr.ph.i ]
+  %.sroa.2.0.copyload.i730.i = phi double [ %.sroa.2.0.copyload.i726.i, %39 ], [ %.sroa.2.0.copyload.i726.i, %45 ], [ %.sroa.2.0.copyload.i.i, %.lr.ph.i ]
+  %47 = phi double [ %43, %39 ], [ %43, %45 ], [ %.sroa.0.0.copyload.i.i, %.lr.ph.i ]
+  %.sroa.0.0.copyload.i21.i = phi double [ %.sroa.0.0.copyload.i22.i, %39 ], [ %.sroa.0.0.copyload.i22.i, %45 ], [ %.sroa.0.0.copyload.i.i, %.lr.ph.i ]
   %48 = add nsw i32 %30, 1
   %49 = srem i32 %48, 3
   %50 = sext i32 %49 to i64
@@ -343,14 +343,14 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i:      ; preds = %.lr.ph.i, %45, %39
   br label %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i
 
 _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i:    ; preds = %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i, %63, %57
-  %.sroa.0354.4 = phi double [ %.sroa.0354.3, %63 ], [ %.sroa.0354.3, %57 ], [ %.sroa.0.0.copyload.i5.i, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i ]
-  %.sroa.6355.4 = phi double [ %.sroa.6355.3, %63 ], [ %.sroa.6355.3, %57 ], [ %.sroa.2.0.copyload.i7.i, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i ]
-  %.sroa.11.4 = phi double [ %.sroa.11.3, %63 ], [ %.sroa.11.3, %57 ], [ %.sroa.0.0.copyload.i5.i, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i ]
-  %.sroa.16356.2 = phi double [ %.sroa.2.0.copyload.i7.i, %63 ], [ %.sroa.16356.1, %57 ], [ %.sroa.2.0.copyload.i7.i, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i ]
-  %64 = phi double [ %.sroa.2.0.copyload.i7.i, %63 ], [ %46, %57 ], [ %.sroa.2.0.copyload.i7.i, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i ]
-  %.sroa.2.0.copyload.i728.i = phi double [ %.sroa.2.0.copyload.i729.i, %63 ], [ %.sroa.2.0.copyload.i729.i, %57 ], [ %.sroa.2.0.copyload.i7.i, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i ]
-  %65 = phi double [ %61, %63 ], [ %61, %57 ], [ %.sroa.0.0.copyload.i5.i, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i ]
-  %.sroa.0.0.copyload.i19.i = phi double [ %.sroa.0.0.copyload.i20.i, %63 ], [ %.sroa.0.0.copyload.i20.i, %57 ], [ %.sroa.0.0.copyload.i5.i, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i ]
+  %.sroa.0354.4 = phi double [ %.sroa.0354.3, %57 ], [ %.sroa.0354.3, %63 ], [ %.sroa.0.0.copyload.i5.i, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i ]
+  %.sroa.6355.4 = phi double [ %.sroa.6355.3, %57 ], [ %.sroa.6355.3, %63 ], [ %.sroa.2.0.copyload.i7.i, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i ]
+  %.sroa.11.4 = phi double [ %.sroa.11.3, %57 ], [ %.sroa.11.3, %63 ], [ %.sroa.0.0.copyload.i5.i, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i ]
+  %.sroa.16356.2 = phi double [ %.sroa.16356.1, %57 ], [ %.sroa.2.0.copyload.i7.i, %63 ], [ %.sroa.2.0.copyload.i7.i, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i ]
+  %64 = phi double [ %46, %57 ], [ %.sroa.2.0.copyload.i7.i, %63 ], [ %.sroa.2.0.copyload.i7.i, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i ]
+  %.sroa.2.0.copyload.i728.i = phi double [ %.sroa.2.0.copyload.i729.i, %57 ], [ %.sroa.2.0.copyload.i729.i, %63 ], [ %.sroa.2.0.copyload.i7.i, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i ]
+  %65 = phi double [ %61, %57 ], [ %61, %63 ], [ %.sroa.0.0.copyload.i5.i, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i ]
+  %.sroa.0.0.copyload.i19.i = phi double [ %.sroa.0.0.copyload.i20.i, %57 ], [ %.sroa.0.0.copyload.i20.i, %63 ], [ %.sroa.0.0.copyload.i5.i, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i ]
   %66 = getelementptr inbounds nuw i8, ptr %.sroa.014.018.i, i64 16
   %.not.i = icmp eq ptr %66, %12
   br i1 %.not.i, label %_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.exit, label %.lr.ph.i
@@ -406,14 +406,14 @@ _ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.exit: ; preds = %_ZN3vcg4Box2IdE3Ad
   br label %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i54
 
 _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i54:    ; preds = %.lr.ph.i45, %86, %80
-  %.sroa.0341.2 = phi double [ %.sroa.0341.1, %86 ], [ %.sroa.0341.1, %80 ], [ %.sroa.0.0.copyload.i.i49, %.lr.ph.i45 ]
-  %.sroa.9344.2 = phi double [ %.sroa.9344.1, %86 ], [ %.sroa.9344.1, %80 ], [ %.sroa.2.0.copyload.i.i51, %.lr.ph.i45 ]
-  %.sroa.16348.2 = phi double [ %.sroa.16348.1, %86 ], [ %.sroa.16348.1, %80 ], [ %.sroa.0.0.copyload.i.i49, %.lr.ph.i45 ]
-  %.sroa.25.1 = phi double [ %.sroa.2.0.copyload.i.i51, %86 ], [ %.sroa.25.0, %80 ], [ %.sroa.2.0.copyload.i.i51, %.lr.ph.i45 ]
-  %87 = phi double [ %.sroa.2.0.copyload.i.i51, %86 ], [ %67, %80 ], [ %.sroa.2.0.copyload.i.i51, %.lr.ph.i45 ]
-  %.sroa.2.0.copyload.i730.i55 = phi double [ %.sroa.2.0.copyload.i726.i53, %86 ], [ %.sroa.2.0.copyload.i726.i53, %80 ], [ %.sroa.2.0.copyload.i.i51, %.lr.ph.i45 ]
-  %88 = phi double [ %84, %86 ], [ %84, %80 ], [ %.sroa.0.0.copyload.i.i49, %.lr.ph.i45 ]
-  %.sroa.0.0.copyload.i21.i56 = phi double [ %.sroa.0.0.copyload.i22.i52, %86 ], [ %.sroa.0.0.copyload.i22.i52, %80 ], [ %.sroa.0.0.copyload.i.i49, %.lr.ph.i45 ]
+  %.sroa.0341.2 = phi double [ %.sroa.0341.1, %80 ], [ %.sroa.0341.1, %86 ], [ %.sroa.0.0.copyload.i.i49, %.lr.ph.i45 ]
+  %.sroa.9344.2 = phi double [ %.sroa.9344.1, %80 ], [ %.sroa.9344.1, %86 ], [ %.sroa.2.0.copyload.i.i51, %.lr.ph.i45 ]
+  %.sroa.16348.2 = phi double [ %.sroa.16348.1, %80 ], [ %.sroa.16348.1, %86 ], [ %.sroa.0.0.copyload.i.i49, %.lr.ph.i45 ]
+  %.sroa.25.1 = phi double [ %.sroa.25.0, %80 ], [ %.sroa.2.0.copyload.i.i51, %86 ], [ %.sroa.2.0.copyload.i.i51, %.lr.ph.i45 ]
+  %87 = phi double [ %67, %80 ], [ %.sroa.2.0.copyload.i.i51, %86 ], [ %.sroa.2.0.copyload.i.i51, %.lr.ph.i45 ]
+  %.sroa.2.0.copyload.i730.i55 = phi double [ %.sroa.2.0.copyload.i726.i53, %80 ], [ %.sroa.2.0.copyload.i726.i53, %86 ], [ %.sroa.2.0.copyload.i.i51, %.lr.ph.i45 ]
+  %88 = phi double [ %84, %80 ], [ %84, %86 ], [ %.sroa.0.0.copyload.i.i49, %.lr.ph.i45 ]
+  %.sroa.0.0.copyload.i21.i56 = phi double [ %.sroa.0.0.copyload.i22.i52, %80 ], [ %.sroa.0.0.copyload.i22.i52, %86 ], [ %.sroa.0.0.copyload.i.i49, %.lr.ph.i45 ]
   %89 = add nsw i32 %71, 1
   %90 = srem i32 %89, 3
   %91 = sext i32 %90 to i64
@@ -445,14 +445,14 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i54:    ; preds = %.lr.ph.i45, %86, %8
   br label %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i62
 
 _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i62:  ; preds = %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i54, %104, %98
-  %.sroa.0341.4 = phi double [ %.sroa.0341.3, %104 ], [ %.sroa.0341.3, %98 ], [ %.sroa.0.0.copyload.i5.i57, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i54 ]
-  %.sroa.9344.4 = phi double [ %.sroa.9344.3, %104 ], [ %.sroa.9344.3, %98 ], [ %.sroa.2.0.copyload.i7.i59, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i54 ]
-  %.sroa.16348.4 = phi double [ %.sroa.16348.3, %104 ], [ %.sroa.16348.3, %98 ], [ %.sroa.0.0.copyload.i5.i57, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i54 ]
-  %.sroa.25.2 = phi double [ %.sroa.2.0.copyload.i7.i59, %104 ], [ %.sroa.25.1, %98 ], [ %.sroa.2.0.copyload.i7.i59, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i54 ]
-  %105 = phi double [ %.sroa.2.0.copyload.i7.i59, %104 ], [ %87, %98 ], [ %.sroa.2.0.copyload.i7.i59, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i54 ]
-  %.sroa.2.0.copyload.i728.i63 = phi double [ %.sroa.2.0.copyload.i729.i61, %104 ], [ %.sroa.2.0.copyload.i729.i61, %98 ], [ %.sroa.2.0.copyload.i7.i59, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i54 ]
-  %106 = phi double [ %102, %104 ], [ %102, %98 ], [ %.sroa.0.0.copyload.i5.i57, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i54 ]
-  %.sroa.0.0.copyload.i19.i64 = phi double [ %.sroa.0.0.copyload.i20.i60, %104 ], [ %.sroa.0.0.copyload.i20.i60, %98 ], [ %.sroa.0.0.copyload.i5.i57, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i54 ]
+  %.sroa.0341.4 = phi double [ %.sroa.0341.3, %98 ], [ %.sroa.0341.3, %104 ], [ %.sroa.0.0.copyload.i5.i57, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i54 ]
+  %.sroa.9344.4 = phi double [ %.sroa.9344.3, %98 ], [ %.sroa.9344.3, %104 ], [ %.sroa.2.0.copyload.i7.i59, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i54 ]
+  %.sroa.16348.4 = phi double [ %.sroa.16348.3, %98 ], [ %.sroa.16348.3, %104 ], [ %.sroa.0.0.copyload.i5.i57, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i54 ]
+  %.sroa.25.2 = phi double [ %.sroa.25.1, %98 ], [ %.sroa.2.0.copyload.i7.i59, %104 ], [ %.sroa.2.0.copyload.i7.i59, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i54 ]
+  %105 = phi double [ %87, %98 ], [ %.sroa.2.0.copyload.i7.i59, %104 ], [ %.sroa.2.0.copyload.i7.i59, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i54 ]
+  %.sroa.2.0.copyload.i728.i63 = phi double [ %.sroa.2.0.copyload.i729.i61, %98 ], [ %.sroa.2.0.copyload.i729.i61, %104 ], [ %.sroa.2.0.copyload.i7.i59, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i54 ]
+  %106 = phi double [ %102, %98 ], [ %102, %104 ], [ %.sroa.0.0.copyload.i5.i57, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i54 ]
+  %.sroa.0.0.copyload.i19.i64 = phi double [ %.sroa.0.0.copyload.i20.i60, %98 ], [ %.sroa.0.0.copyload.i20.i60, %104 ], [ %.sroa.0.0.copyload.i5.i57, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i54 ]
   %107 = getelementptr inbounds nuw i8, ptr %.sroa.014.018.i48, i64 16
   %.not.i65 = icmp eq ptr %107, %19
   br i1 %.not.i65, label %_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.exit66, label %.lr.ph.i45
@@ -481,10 +481,10 @@ _ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.exit66: ; preds = %_ZN3vcg4Box2IdE3
   br label %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit
 
 _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit:        ; preds = %116, %111, %_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.exit66
-  %.sroa.0357.1 = phi double [ %.sroa.0357.0, %116 ], [ %.sroa.0357.0, %111 ], [ %.sroa.0341.5, %_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.exit66 ]
-  %.sroa.13.1 = phi double [ %.sroa.13.0, %116 ], [ %.sroa.13.0, %111 ], [ %.sroa.9344.5, %_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.exit66 ]
-  %.sroa.26.1 = phi double [ %.sroa.26.0, %116 ], [ %.sroa.26.0, %111 ], [ %.sroa.0341.5, %_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.exit66 ]
-  %.sroa.36.0 = phi double [ %.sroa.9344.5, %116 ], [ %.sroa.16356.3, %111 ], [ %.sroa.9344.5, %_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.exit66 ]
+  %.sroa.0357.1 = phi double [ %.sroa.0357.0, %111 ], [ %.sroa.0357.0, %116 ], [ %.sroa.0341.5, %_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.exit66 ]
+  %.sroa.13.1 = phi double [ %.sroa.13.0, %111 ], [ %.sroa.13.0, %116 ], [ %.sroa.9344.5, %_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.exit66 ]
+  %.sroa.26.1 = phi double [ %.sroa.26.0, %111 ], [ %.sroa.26.0, %116 ], [ %.sroa.0341.5, %_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.exit66 ]
+  %.sroa.36.0 = phi double [ %.sroa.16356.3, %111 ], [ %.sroa.9344.5, %116 ], [ %.sroa.9344.5, %_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.exit66 ]
   %117 = fcmp ogt double %.sroa.0357.1, %.sroa.26.1
   %118 = fcmp ogt double %.sroa.13.1, %.sroa.36.0
   %119 = select i1 %117, i1 true, i1 %118
@@ -504,10 +504,10 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit:        ; preds = %116, %111, %_ZL10Co
   br label %126
 
 126:                                              ; preds = %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit, %120, %125
-  %.sroa.0357.3 = phi double [ %.sroa.0357.2, %125 ], [ %.sroa.0357.2, %120 ], [ %.sroa.16348.5, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit ]
-  %.sroa.13.3 = phi double [ %.sroa.13.2, %125 ], [ %.sroa.13.2, %120 ], [ %.sroa.25.3, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit ]
-  %.sroa.26.3 = phi double [ %.sroa.26.2, %125 ], [ %.sroa.26.2, %120 ], [ %.sroa.16348.5, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit ]
-  %.sroa.36.1 = phi double [ %.sroa.25.3, %125 ], [ %.sroa.36.0, %120 ], [ %.sroa.25.3, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit ]
+  %.sroa.0357.3 = phi double [ %.sroa.0357.2, %120 ], [ %.sroa.0357.2, %125 ], [ %.sroa.16348.5, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit ]
+  %.sroa.13.3 = phi double [ %.sroa.13.2, %120 ], [ %.sroa.13.2, %125 ], [ %.sroa.25.3, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit ]
+  %.sroa.26.3 = phi double [ %.sroa.26.2, %120 ], [ %.sroa.26.2, %125 ], [ %.sroa.16348.5, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit ]
+  %.sroa.36.1 = phi double [ %.sroa.36.0, %120 ], [ %.sroa.25.3, %125 ], [ %.sroa.25.3, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit ]
   %127 = fsub double %.sroa.26.3, %.sroa.0357.3
   %128 = fsub double %.sroa.36.1, %.sroa.13.3
   %129 = and i64 %25, 4294967295
@@ -802,7 +802,7 @@ _Z22SegmentBoxIntersectionRKN3vcg8Segment2IdEERKNS_4Box2IdEE.exit: ; preds = %32
   %328 = fcmp ult double %220, %327
   br i1 %328, label %_ZNSt6vectorISt4pairIiiESaIS1_EE9push_backEOS1_.exit, label %_Z22SegmentBoxIntersectionRKN3vcg8Segment2IdEERKNS_4Box2IdEE.exit.thread
 
-_Z22SegmentBoxIntersectionRKN3vcg8Segment2IdEERKNS_4Box2IdEE.exit.thread: ; preds = %302, %284, %264, %245, %_Z22SegmentBoxIntersectionRKN3vcg8Segment2IdEERKNS_4Box2IdEE.exit
+_Z22SegmentBoxIntersectionRKN3vcg8Segment2IdEERKNS_4Box2IdEE.exit.thread: ; preds = %302, %264, %245, %284, %_Z22SegmentBoxIntersectionRKN3vcg8Segment2IdEERKNS_4Box2IdEE.exit
   %329 = add i64 %214, %indvars.iv
   %330 = xor i64 %329, %210
   %331 = load i64, ptr %7, align 8
@@ -888,7 +888,7 @@ _ZNSt10_HashtableIN3vcg6Point2IiEESt4pairIKS2_St6vectorIS3_IiiESaIS6_EEESaIS9_EN
   br label %.body
 
 .loopexit393:                                     ; preds = %345, %.noexc182, %336
-  %.0.i.pn.i = phi ptr [ %337, %336 ], [ %368, %.noexc182 ], [ %349, %345 ]
+  %.0.i.pn.i = phi ptr [ %368, %.noexc182 ], [ %337, %336 ], [ %349, %345 ]
   %.0.i181 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i, i64 16
   %373 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i, i64 24
   %374 = load ptr, ptr %373, align 8
@@ -979,7 +979,7 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__norma
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke, %556, %386, %458
-  %401 = phi ptr [ %448, %556 ], [ null, %386 ], [ %448, %458 ], [ %448, %.invoke ]
+  %401 = phi ptr [ %448, %556 ], [ %448, %.invoke ], [ %448, %458 ], [ null, %386 ]
   %lpad.loopexit.split-lp396 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -1797,14 +1797,14 @@ define void @_Z12IntersectionRKSt6vectorI8HalfEdgeSaIS0_EE(ptr dead_on_unwind no
   br label %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i
 
 _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i:      ; preds = %.lr.ph.i, %37, %31
-  %.sroa.0192.2 = phi double [ %.sroa.0192.1, %37 ], [ %.sroa.0192.1, %31 ], [ %.sroa.0.0.copyload.i.i, %.lr.ph.i ]
-  %.sroa.6193.2 = phi double [ %.sroa.6193.1, %37 ], [ %.sroa.6193.1, %31 ], [ %.sroa.2.0.copyload.i.i, %.lr.ph.i ]
-  %.sroa.11.2 = phi double [ %.sroa.11.1, %37 ], [ %.sroa.11.1, %31 ], [ %.sroa.0.0.copyload.i.i, %.lr.ph.i ]
-  %.sroa.16194.1 = phi double [ %.sroa.2.0.copyload.i.i, %37 ], [ %.sroa.16194.0, %31 ], [ %.sroa.2.0.copyload.i.i, %.lr.ph.i ]
-  %38 = phi double [ %.sroa.2.0.copyload.i.i, %37 ], [ %18, %31 ], [ %.sroa.2.0.copyload.i.i, %.lr.ph.i ]
-  %.sroa.2.0.copyload.i730.i = phi double [ %.sroa.2.0.copyload.i726.i, %37 ], [ %.sroa.2.0.copyload.i726.i, %31 ], [ %.sroa.2.0.copyload.i.i, %.lr.ph.i ]
-  %39 = phi double [ %35, %37 ], [ %35, %31 ], [ %.sroa.0.0.copyload.i.i, %.lr.ph.i ]
-  %.sroa.0.0.copyload.i21.i = phi double [ %.sroa.0.0.copyload.i22.i, %37 ], [ %.sroa.0.0.copyload.i22.i, %31 ], [ %.sroa.0.0.copyload.i.i, %.lr.ph.i ]
+  %.sroa.0192.2 = phi double [ %.sroa.0192.1, %31 ], [ %.sroa.0192.1, %37 ], [ %.sroa.0.0.copyload.i.i, %.lr.ph.i ]
+  %.sroa.6193.2 = phi double [ %.sroa.6193.1, %31 ], [ %.sroa.6193.1, %37 ], [ %.sroa.2.0.copyload.i.i, %.lr.ph.i ]
+  %.sroa.11.2 = phi double [ %.sroa.11.1, %31 ], [ %.sroa.11.1, %37 ], [ %.sroa.0.0.copyload.i.i, %.lr.ph.i ]
+  %.sroa.16194.1 = phi double [ %.sroa.16194.0, %31 ], [ %.sroa.2.0.copyload.i.i, %37 ], [ %.sroa.2.0.copyload.i.i, %.lr.ph.i ]
+  %38 = phi double [ %18, %31 ], [ %.sroa.2.0.copyload.i.i, %37 ], [ %.sroa.2.0.copyload.i.i, %.lr.ph.i ]
+  %.sroa.2.0.copyload.i730.i = phi double [ %.sroa.2.0.copyload.i726.i, %31 ], [ %.sroa.2.0.copyload.i726.i, %37 ], [ %.sroa.2.0.copyload.i.i, %.lr.ph.i ]
+  %39 = phi double [ %35, %31 ], [ %35, %37 ], [ %.sroa.0.0.copyload.i.i, %.lr.ph.i ]
+  %.sroa.0.0.copyload.i21.i = phi double [ %.sroa.0.0.copyload.i22.i, %31 ], [ %.sroa.0.0.copyload.i22.i, %37 ], [ %.sroa.0.0.copyload.i.i, %.lr.ph.i ]
   %40 = add nsw i32 %22, 1
   %41 = srem i32 %40, 3
   %42 = sext i32 %41 to i64
@@ -1836,14 +1836,14 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i:      ; preds = %.lr.ph.i, %37, %31
   br label %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i
 
 _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i:    ; preds = %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i, %55, %49
-  %.sroa.0192.4 = phi double [ %.sroa.0192.3, %55 ], [ %.sroa.0192.3, %49 ], [ %.sroa.0.0.copyload.i5.i, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i ]
-  %.sroa.6193.4 = phi double [ %.sroa.6193.3, %55 ], [ %.sroa.6193.3, %49 ], [ %.sroa.2.0.copyload.i7.i, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i ]
-  %.sroa.11.4 = phi double [ %.sroa.11.3, %55 ], [ %.sroa.11.3, %49 ], [ %.sroa.0.0.copyload.i5.i, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i ]
-  %.sroa.16194.2 = phi double [ %.sroa.2.0.copyload.i7.i, %55 ], [ %.sroa.16194.1, %49 ], [ %.sroa.2.0.copyload.i7.i, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i ]
-  %56 = phi double [ %.sroa.2.0.copyload.i7.i, %55 ], [ %38, %49 ], [ %.sroa.2.0.copyload.i7.i, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i ]
-  %.sroa.2.0.copyload.i728.i = phi double [ %.sroa.2.0.copyload.i729.i, %55 ], [ %.sroa.2.0.copyload.i729.i, %49 ], [ %.sroa.2.0.copyload.i7.i, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i ]
-  %57 = phi double [ %53, %55 ], [ %53, %49 ], [ %.sroa.0.0.copyload.i5.i, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i ]
-  %.sroa.0.0.copyload.i19.i = phi double [ %.sroa.0.0.copyload.i20.i, %55 ], [ %.sroa.0.0.copyload.i20.i, %49 ], [ %.sroa.0.0.copyload.i5.i, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i ]
+  %.sroa.0192.4 = phi double [ %.sroa.0192.3, %49 ], [ %.sroa.0192.3, %55 ], [ %.sroa.0.0.copyload.i5.i, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i ]
+  %.sroa.6193.4 = phi double [ %.sroa.6193.3, %49 ], [ %.sroa.6193.3, %55 ], [ %.sroa.2.0.copyload.i7.i, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i ]
+  %.sroa.11.4 = phi double [ %.sroa.11.3, %49 ], [ %.sroa.11.3, %55 ], [ %.sroa.0.0.copyload.i5.i, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i ]
+  %.sroa.16194.2 = phi double [ %.sroa.16194.1, %49 ], [ %.sroa.2.0.copyload.i7.i, %55 ], [ %.sroa.2.0.copyload.i7.i, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i ]
+  %56 = phi double [ %38, %49 ], [ %.sroa.2.0.copyload.i7.i, %55 ], [ %.sroa.2.0.copyload.i7.i, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i ]
+  %.sroa.2.0.copyload.i728.i = phi double [ %.sroa.2.0.copyload.i729.i, %49 ], [ %.sroa.2.0.copyload.i729.i, %55 ], [ %.sroa.2.0.copyload.i7.i, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i ]
+  %57 = phi double [ %53, %49 ], [ %53, %55 ], [ %.sroa.0.0.copyload.i5.i, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i ]
+  %.sroa.0.0.copyload.i19.i = phi double [ %.sroa.0.0.copyload.i20.i, %49 ], [ %.sroa.0.0.copyload.i20.i, %55 ], [ %.sroa.0.0.copyload.i5.i, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit.i ]
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.014.018.i, i64 16
   %.not.i = icmp eq ptr %58, %12
   br i1 %.not.i, label %.loopexit225, label %.lr.ph.i
@@ -2133,7 +2133,7 @@ _Z22SegmentBoxIntersectionRKN3vcg8Segment2IdEERKNS_4Box2IdEE.exit: ; preds = %25
   %256 = fcmp ult double %148, %255
   br i1 %256, label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit, label %_Z22SegmentBoxIntersectionRKN3vcg8Segment2IdEERKNS_4Box2IdEE.exit.thread
 
-_Z22SegmentBoxIntersectionRKN3vcg8Segment2IdEERKNS_4Box2IdEE.exit.thread: ; preds = %230, %212, %192, %173, %_Z22SegmentBoxIntersectionRKN3vcg8Segment2IdEERKNS_4Box2IdEE.exit
+_Z22SegmentBoxIntersectionRKN3vcg8Segment2IdEERKNS_4Box2IdEE.exit.thread: ; preds = %230, %192, %173, %212, %_Z22SegmentBoxIntersectionRKN3vcg8Segment2IdEERKNS_4Box2IdEE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %257 = add i64 %142, %indvars.iv
   %258 = xor i64 %257, %138
@@ -2213,7 +2213,7 @@ _Z22SegmentBoxIntersectionRKN3vcg8Segment2IdEERKNS_4Box2IdEE.exit.thread: ; pred
   br label %.body
 
 .loopexit220:                                     ; preds = %273, %264, %.noexc112
-  %.0.i.pn.i = phi ptr [ %265, %264 ], [ %296, %.noexc112 ], [ %277, %273 ]
+  %.0.i.pn.i = phi ptr [ %296, %.noexc112 ], [ %265, %264 ], [ %277, %273 ]
   %.0.i111 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i, i64 16
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %299 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i, i64 24

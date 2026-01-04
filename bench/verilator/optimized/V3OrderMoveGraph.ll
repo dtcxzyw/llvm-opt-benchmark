@@ -1698,7 +1698,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK13V3GraphVertex7sortCmpEPKS_(ptr 
   br label %18
 
 18:                                               ; preds = %16, %10, %8, %2
-  %.0 = phi i32 [ -1, %2 ], [ 1, %8 ], [ -1, %10 ], [ %., %16 ]
+  %.0 = phi i32 [ -1, %10 ], [ -1, %2 ], [ 1, %8 ], [ %., %16 ]
   ret i32 %.0
 }
 
@@ -2294,7 +2294,7 @@ _ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E19SimpleItertatorImplIS0_Lb0EE
   br label %81
 
 81:                                               ; preds = %74, %40, %38, %79
-  %.pn37.pn.pn = phi { ptr, i32 } [ %80, %79 ], [ %41, %40 ], [ %39, %38 ], [ %75, %74 ]
+  %.pn37.pn.pn = phi { ptr, i32 } [ %80, %79 ], [ %39, %38 ], [ %41, %40 ], [ %75, %74 ]
   tail call void @_ZNSt5dequeISt3mapIPK10AstSenTreeP15OrderMoveVertexSt4lessIS3_ESaISt4pairIKS3_S5_EEESaISC_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %10) #24
   br label %82
 
@@ -3481,7 +3481,7 @@ _ZSt4copyIPPSt3mapIPK10AstSenTreeP15OrderMoveVertexSt4lessIS3_ESaISt4pairIKS3_S5
   br label %_ZSt4copyIPPSt3mapIPK10AstSenTreeP15OrderMoveVertexSt4lessIS3_ESaISt4pairIKS3_S5_EEESE_ET0_T_SG_SF_.exit
 
 _ZSt4copyIPPSt3mapIPK10AstSenTreeP15OrderMoveVertexSt4lessIS3_ESaISt4pairIKS3_S5_EEESE_ET0_T_SG_SF_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPSt3mapIPK10AstSenTreeP15OrderMoveVertexSt4lessIS3_ESaISt4pairIKS3_S5_EEESE_ET0_T_SG_SF_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPSt3mapIPK10AstSenTreeP15OrderMoveVertexSt4lessIS3_ESaISt4pairIKS3_S5_EEESE_ET0_T_SG_SF_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPSt3mapIPK10AstSenTreeP15OrderMoveVertexSt4lessIS3_ESaISt4pairIKS3_S5_EEESE_ET0_T_SG_SF_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !150
   %58 = load ptr, ptr %.0, align 8, !tbaa !151
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3573,7 +3573,7 @@ _ZNSt3mapIPK10AstSenTreeP15OrderMoveVertexSt4lessIS2_ESaISt4pairIKS2_S4_EEE11low
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %24, %22
-  %29 = phi i1 [ true, %22 ], [ %28, %24 ]
+  %29 = phi i1 [ %28, %24 ], [ true, %22 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %29, ptr noundef nonnull %15, ptr noundef nonnull %21, ptr noundef nonnull align 8 dereferenceable(32) %6) #24
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load i64, ptr %30, align 8, !tbaa !141
@@ -3592,8 +3592,8 @@ _ZNSt8_Rb_treeIPK10AstSenTreeSt4pairIKS2_P15OrderMoveVertexESt10_Select1stIS7_ES
   br label %_ZNSt3mapIPK10AstSenTreeP15OrderMoveVertexSt4lessIS2_ESaISt4pairIKS2_S4_EEE12emplace_hintIJRKPS0_DnEEESt17_Rb_tree_iteratorIS9_ESt23_Rb_tree_const_iteratorIS9_EDpOT_.exit
 
 _ZNSt3mapIPK10AstSenTreeP15OrderMoveVertexSt4lessIS2_ESaISt4pairIKS2_S4_EEE12emplace_hintIJRKPS0_DnEEESt17_Rb_tree_iteratorIS9_ESt23_Rb_tree_const_iteratorIS9_EDpOT_.exit: ; preds = %11, %34, %.thread.i.i
-  %.sroa.018.0 = phi ptr [ %15, %.thread.i.i ], [ %20, %34 ], [ %.19.i.i.i, %11 ]
-  %.sroa.3.0 = phi i8 [ 1, %.thread.i.i ], [ 1, %34 ], [ 0, %11 ]
+  %.sroa.018.0 = phi ptr [ %20, %34 ], [ %15, %.thread.i.i ], [ %.19.i.i.i, %11 ]
+  %.sroa.3.0 = phi i8 [ 1, %34 ], [ 1, %.thread.i.i ], [ 0, %11 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.018.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.3.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -3712,7 +3712,7 @@ _ZNK10AstSenItem7varrefpEv.exit26.i:              ; preds = %42
   %55 = icmp eq i8 %.sroa.0.0.copyload.i27.i, 2
   br i1 %55, label %_ZN21OrderMoveGraphBuilder16domainsExclusiveEP10AstSenTreeS1_.exit, label %56
 
-56:                                               ; preds = %49, %52, %54, %_ZN13V3GraphVertex2asI16OrderLogicVertexEEPT_v.exit, %32, %_ZNK10AstSenItem7varrefpEv.exit26.i, %34, %37, %_ZNK10AstSenItem7varrefpEv.exit.i, %42
+56:                                               ; preds = %49, %52, %54, %_ZN13V3GraphVertex2asI16OrderLogicVertexEEPT_v.exit, %32, %37, %_ZNK10AstSenItem7varrefpEv.exit26.i, %34, %_ZNK10AstSenItem7varrefpEv.exit.i, %42
   %.not = icmp eq ptr %.031, null
   br i1 %.not, label %57, label %67
 
@@ -3781,7 +3781,7 @@ common.resume:                                    ; preds = %73, %65
   br label %common.resume
 
 _ZN21OrderMoveGraphBuilder16domainsExclusiveEP10AstSenTreeS1_.exit: ; preds = %67, %54, %52, %12
-  %.1 = phi ptr [ %.031, %12 ], [ %.031, %52 ], [ %.031, %54 ], [ %.3, %67 ]
+  %.1 = phi ptr [ %.031, %12 ], [ %.031, %54 ], [ %.031, %52 ], [ %.3, %67 ]
   %.sroa.019.0 = load ptr, ptr %13, align 8, !tbaa !152
   %.not25 = icmp eq ptr %.sroa.019.0, null
   br i1 %.not25, label %._crit_edge, label %12
@@ -3992,8 +3992,8 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIPK10AstSenTreeSt4pair
   br label %_ZNSt8_Rb_treeIPK10AstSenTreeSt4pairIKS2_P15OrderMoveVertexESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE24_M_get_insert_unique_posERS4_.exit
 
 _ZNSt8_Rb_treeIPK10AstSenTreeSt4pairIKS2_P15OrderMoveVertexESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE24_M_get_insert_unique_posERS4_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
-  %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
+  %.sroa.070.0 = phi ptr [ null, %63 ], [ %spec.select, %46 ], [ null, %9 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %39, %37 ], [ %1, %61 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i, %28 ], [ %spec.select.i21, %58 ], [ %spec.select.i41, %86 ], [ null, %._crit_edge.thread.i47 ]
+  %.sroa.12.0 = phi ptr [ %65, %63 ], [ %spec.select71, %46 ], [ %11, %9 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %39, %37 ], [ null, %61 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i, %28 ], [ %spec.select21.i22, %58 ], [ %spec.select21.i42, %86 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -4092,7 +4092,7 @@ define linkonce_odr dso_local noundef ptr @_ZN21OrderMoveGraphBuilder14getOrigSe
   br label %_ZZN21OrderMoveGraphBuilder14getOrigSenItemEP10AstSenTreeENKUlvE_clEv.exit, !llvm.loop !247
 
 _ZNKSt13unordered_mapIPK10AstSenTreeS2_St4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S2_EEE4findERS8_.exit.i: ; preds = %39, %22, %34
-  %.sroa.06.1.i.i.i = phi ptr [ %35, %34 ], [ %.sroa.06.0.i.i.i, %22 ], [ %41, %39 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %22 ], [ %35, %34 ], [ %41, %39 ]
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   %48 = load ptr, ptr %47, align 8, !tbaa !248
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
@@ -4104,7 +4104,7 @@ _ZNKSt13unordered_mapIPK10AstSenTreeS2_St4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS
   br label %_ZZN21OrderMoveGraphBuilder14getOrigSenItemEP10AstSenTreeENKUlvE_clEv.exit
 
 _ZZN21OrderMoveGraphBuilder14getOrigSenItemEP10AstSenTreeENKUlvE_clEv.exit: ; preds = %.lr.ph.i.i.i.i.i, %21, %9, %26, %..loopexit_crit_edge21.i.i.i.i.i, %_ZNKSt13unordered_mapIPK10AstSenTreeS2_St4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S2_EEE4findERS8_.exit.i
-  %.0.i = phi ptr [ null, %9 ], [ null, %26 ], [ null, %..loopexit_crit_edge21.i.i.i.i.i ], [ %spec.select.i, %_ZNKSt13unordered_mapIPK10AstSenTreeS2_St4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S2_EEE4findERS8_.exit.i ], [ null, %21 ], [ null, %.lr.ph.i.i.i.i.i ]
+  %.0.i = phi ptr [ null, %9 ], [ null, %21 ], [ %spec.select.i, %_ZNKSt13unordered_mapIPK10AstSenTreeS2_St4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S2_EEE4findERS8_.exit.i ], [ null, %..loopexit_crit_edge21.i.i.i.i.i ], [ null, %26 ], [ null, %.lr.ph.i.i.i.i.i ]
   %.not3 = icmp eq ptr %.0.i, null
   %53 = select i1 %.not3, ptr %1, ptr %.0.i
   %54 = ptrtoint ptr %53 to i64

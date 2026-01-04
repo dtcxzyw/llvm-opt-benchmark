@@ -436,7 +436,7 @@ define internal range(i32 0, 2) i32 @H5S__all_shape_same(ptr noundef readonly ca
   br i1 %.not, label %32, label %.loopexit
 
 .loopexit:                                        ; preds = %24, %32, %35, %.preheader, %2
-  %.0 = phi i32 [ 1, %2 ], [ 1, %.preheader ], [ 1, %32 ], [ 0, %35 ], [ 0, %24 ]
+  %.0 = phi i32 [ 1, %2 ], [ 1, %.preheader ], [ 0, %35 ], [ 1, %32 ], [ 0, %24 ]
   ret i32 %.0
 }
 

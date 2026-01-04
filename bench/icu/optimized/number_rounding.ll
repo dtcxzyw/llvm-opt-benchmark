@@ -175,7 +175,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -533,7 +533,7 @@ define void @_ZN6icu_776number4impl20parseIncrementOptionERKNS_13StringSegmentER
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %13, %19, %21
-  %.0.i = phi ptr [ %20, %19 ], [ %23, %21 ], [ null, %13 ]
+  %.0.i = phi ptr [ %23, %21 ], [ %20, %19 ], [ null, %13 ]
   store ptr %.0.i, ptr %7, align 8, !tbaa !18
   %24 = invoke noundef i32 @_ZNK6icu_7713StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17) %0)
           to label %25 unwind label %34
@@ -1773,7 +1773,7 @@ define noundef i32 @_ZN6icu_776number4impl12RoundingImpl24chooseMultiplierAndApp
   br label %28
 
 28:                                               ; preds = %25, %18, %14, %4
-  %.0 = phi i32 [ %9, %4 ], [ %9, %14 ], [ %23, %25 ], [ %9, %18 ]
+  %.0 = phi i32 [ %9, %14 ], [ %9, %4 ], [ %9, %18 ], [ %23, %25 ]
   ret i32 %.0
 }
 
@@ -2042,7 +2042,7 @@ _ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_776number4impl15Decima
   unreachable
 
 146:                                              ; preds = %_ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit, %53, %135, %126, %116, %113, %13, %12, %11
-  %.048 = phi i32 [ 0, %11 ], [ 0, %12 ], [ %25, %13 ], [ %49, %53 ], [ %49, %_ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit ], [ %115, %113 ], [ %125, %116 ], [ %134, %126 ], [ %143, %135 ]
+  %.048 = phi i32 [ 0, %11 ], [ 0, %12 ], [ %25, %13 ], [ %49, %53 ], [ %143, %135 ], [ %49, %_ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit ], [ %115, %113 ], [ %125, %116 ], [ %134, %126 ]
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %148 = load i32, ptr %147, align 8, !tbaa !90
   %149 = icmp eq i32 %148, 0

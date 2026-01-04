@@ -176,7 +176,7 @@ define hidden ptr @luaF_findupval(ptr noundef %0, ptr noundef %1) local_unnamed_
   br label %newupval.exit
 
 newupval.exit:                                    ; preds = %.lr.ph33, %26, %23
-  %.0 = phi ptr [ %16, %23 ], [ %16, %26 ], [ %10, %.lr.ph33 ]
+  %.0 = phi ptr [ %16, %26 ], [ %16, %23 ], [ %10, %.lr.ph33 ]
   ret ptr %.0
 }
 
@@ -805,7 +805,7 @@ define hidden ptr @luaF_getlocalname(ptr noundef readonly captures(none) %0, i32
   br i1 %exitcond.not, label %.critedge, label %9
 
 .critedge:                                        ; preds = %28, %9, %20, %3, %26
-  %.017 = phi ptr [ %27, %26 ], [ null, %3 ], [ %25, %20 ], [ null, %9 ], [ null, %28 ]
+  %.017 = phi ptr [ %27, %26 ], [ %25, %20 ], [ null, %3 ], [ null, %9 ], [ null, %28 ]
   ret ptr %.017
 }
 

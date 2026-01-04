@@ -649,7 +649,7 @@ _ZN7rocksdb9lru_cache14LRUHandleTable11FindPointerERKNS_5SliceEj.exit: ; preds =
   br label %_ZN7rocksdb9lru_cache14LRUHandleTable11FindPointerERKNS_5SliceEj.exit.thread
 
 _ZN7rocksdb9lru_cache14LRUHandleTable11FindPointerERKNS_5SliceEj.exit.thread: ; preds = %.critedge2.i, %3, %_ZN7rocksdb9lru_cache14LRUHandleTable11FindPointerERKNS_5SliceEj.exit
-  %30 = phi ptr [ %.pr, %_ZN7rocksdb9lru_cache14LRUHandleTable11FindPointerERKNS_5SliceEj.exit ], [ null, %3 ], [ null, %.critedge2.i ]
+  %30 = phi ptr [ null, %3 ], [ %.pr, %_ZN7rocksdb9lru_cache14LRUHandleTable11FindPointerERKNS_5SliceEj.exit ], [ null, %.critedge2.i ]
   ret ptr %30
 }
 
@@ -1311,7 +1311,7 @@ _ZN7rocksdb10autovectorIPNS_9lru_cache9LRUHandleELm8EED2Ev.exit: ; preds = %_ZN7
   br label %_ZNSt10lock_guardIN7rocksdb4port5MutexEED2Ev.exit
 
 _ZNSt10lock_guardIN7rocksdb4port5MutexEED2Ev.exit: ; preds = %159, %113, %115
-  %.pn14.pn.pn = phi { ptr, i32 } [ %114, %113 ], [ %lpad.phi, %115 ], [ %160, %159 ]
+  %.pn14.pn.pn = phi { ptr, i32 } [ %lpad.phi, %115 ], [ %114, %113 ], [ %160, %159 ]
   %.pr.i.i24 = load i64, ptr %2, align 8, !tbaa !61
   %.not1.i.i25 = icmp eq i64 %.pr.i.i24, 0
   br i1 %.not1.i.i25, label %161, label %.lr.ph.preheader.i.i26
@@ -1624,7 +1624,7 @@ _ZNSt10lock_guardIN7rocksdb4port5MutexEED2Ev.exit: ; preds = %"_ZZN7rocksdb9lru_
   unreachable
 
 .body:                                            ; preds = %78, %76, %34, %31
-  %.pn = phi { ptr, i32 } [ %32, %34 ], [ %32, %31 ], [ %lpad.phi, %76 ], [ %lpad.phi, %78 ]
+  %.pn = phi { ptr, i32 } [ %32, %31 ], [ %lpad.phi, %78 ], [ %32, %34 ], [ %lpad.phi, %76 ]
   invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %10)
           to label %_ZNSt10lock_guardIN7rocksdb4port5MutexEED2Ev.exit28 unwind label %83
 
@@ -5259,7 +5259,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK7rocksdb12Customizable12IsInstanceOf
   br label %22
 
 22:                                               ; preds = %21, %18, %6, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %6 ], [ false, %21 ], [ true, %18 ]
+  %.0 = phi i1 [ true, %6 ], [ false, %2 ], [ false, %21 ], [ true, %18 ]
   ret i1 %.0
 }
 

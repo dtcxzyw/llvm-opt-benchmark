@@ -412,7 +412,7 @@ _ZNK4llvm5APIntneERKS0_.exit:                     ; preds = %50
   br i1 %70, label %.thread, label %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit
 
 .thread:                                          ; preds = %54, %_ZNK4llvm5APIntneERKS0_.exit, %.thread33, %68
-  %.230 = phi i1 [ true, %68 ], [ true, %.thread33 ], [ false, %_ZNK4llvm5APIntneERKS0_.exit ], [ false, %54 ]
+  %.230 = phi i1 [ true, %.thread33 ], [ true, %68 ], [ false, %_ZNK4llvm5APIntneERKS0_.exit ], [ false, %54 ]
   store i8 0, ptr %47, align 8, !tbaa !44
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %72 = load i32, ptr %71, align 8, !tbaa !48
@@ -930,7 +930,7 @@ _ZNSt8optionalIN4llvm12ValueAndVRegEEC2ERKS2_.exit: ; preds = %94, %_ZNSt22_Opti
   br label %141
 
 141:                                              ; preds = %"_ZZNK4llvm14CombinerHelper45matchExtractVectorElementWithBuildVectorTruncERKNS_14MachineOperandERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_0D2Ev.exit", %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit35
-  %142 = phi i8 [ %.pre41, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit35 ], [ %.pre40, %"_ZZNK4llvm14CombinerHelper45matchExtractVectorElementWithBuildVectorTruncERKNS_14MachineOperandERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_0D2Ev.exit" ]
+  %142 = phi i8 [ %.pre40, %"_ZZNK4llvm14CombinerHelper45matchExtractVectorElementWithBuildVectorTruncERKNS_14MachineOperandERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_0D2Ev.exit" ], [ %.pre41, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit35 ]
   %143 = trunc nuw i8 %142 to i1
   br i1 %143, label %144, label %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit
 
@@ -951,12 +951,12 @@ _ZNSt8optionalIN4llvm12ValueAndVRegEEC2ERKS2_.exit: ; preds = %94, %_ZNSt22_Opti
   br label %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit
 
 _ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit: ; preds = %50, %141, %144, %148, %151
-  %.253 = phi i1 [ %93, %141 ], [ %93, %144 ], [ %93, %148 ], [ %93, %151 ], [ false, %50 ]
+  %.253 = phi i1 [ %93, %151 ], [ %93, %141 ], [ %93, %144 ], [ %93, %148 ], [ false, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN4llvm12getOpcodeDefINS_17GBuildVectorTruncEEEPT_NS_8RegisterERKNS_19MachineRegisterInfoE.exit.thread
 
 _ZN4llvm12getOpcodeDefINS_17GBuildVectorTruncEEEPT_NS_8RegisterERKNS_19MachineRegisterInfoE.exit.thread: ; preds = %3, %20, %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit, %44, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
-  %.0 = phi i1 [ %.253, %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit ], [ false, %44 ], [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit ], [ false, %20 ], [ false, %3 ]
+  %.0 = phi i1 [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit ], [ %.253, %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit ], [ false, %44 ], [ false, %20 ], [ false, %3 ]
   ret i1 %.0
 }
 
@@ -1247,7 +1247,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit47: ; preds = %_ZNK4llv
   br label %.thread
 
 .thread:                                          ; preds = %76, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNKS0_14CombinerHelper42matchExtractVectorElementWithShuffleVectorERKNS0_12MachineInstrES9_RS4_E3$_1EENSt9enable_ifIXsr9_CallableIT_EE5valueESA_E4typeEOSD_.exit", %.critedge2, %124, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNKS0_14CombinerHelper42matchExtractVectorElementWithShuffleVectorERKNS0_12MachineInstrES9_RS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueESA_E4typeEOSD_.exit"
-  %.0 = phi i1 [ true, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNKS0_14CombinerHelper42matchExtractVectorElementWithShuffleVectorERKNS0_12MachineInstrES9_RS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueESA_E4typeEOSD_.exit" ], [ true, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNKS0_14CombinerHelper42matchExtractVectorElementWithShuffleVectorERKNS0_12MachineInstrES9_RS4_E3$_1EENSt9enable_ifIXsr9_CallableIT_EE5valueESA_E4typeEOSD_.exit" ], [ false, %.critedge2 ], [ false, %124 ], [ false, %76 ]
+  %.0 = phi i1 [ true, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNKS0_14CombinerHelper42matchExtractVectorElementWithShuffleVectorERKNS0_12MachineInstrES9_RS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueESA_E4typeEOSD_.exit" ], [ false, %124 ], [ true, %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNKS0_14CombinerHelper42matchExtractVectorElementWithShuffleVectorERKNS0_12MachineInstrES9_RS4_E3$_1EENSt9enable_ifIXsr9_CallableIT_EE5valueESA_E4typeEOSD_.exit" ], [ false, %.critedge2 ], [ false, %76 ]
   %137 = load i32, ptr %19, align 8, !tbaa !48
   %138 = icmp ugt i32 %137, 64
   br i1 %138, label %139, label %_ZN4llvm5APIntD2Ev.exit
@@ -1649,7 +1649,7 @@ _ZNSt8optionalIN4llvm5APIntEEC2ERKS2_.exit:       ; preds = %33, %_ZNSt22_Option
   br label %75
 
 75:                                               ; preds = %"_ZZNK4llvm14CombinerHelper16matchMulOfVScaleERKNS_14MachineOperandERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_0D2Ev.exit", %25
-  %76 = phi i8 [ %.pre14, %25 ], [ %.pre13, %"_ZZNK4llvm14CombinerHelper16matchMulOfVScaleERKNS_14MachineOperandERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_0D2Ev.exit" ]
+  %76 = phi i8 [ %.pre13, %"_ZZNK4llvm14CombinerHelper16matchMulOfVScaleERKNS_14MachineOperandERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_0D2Ev.exit" ], [ %.pre14, %25 ]
   %77 = trunc nuw i8 %76 to i1
   br i1 %77, label %78, label %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit
 
@@ -1670,7 +1670,7 @@ _ZNSt8optionalIN4llvm5APIntEEC2ERKS2_.exit:       ; preds = %33, %_ZNSt22_Option
   br label %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit
 
 _ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit: ; preds = %3, %75, %78, %82, %85
-  %.019 = phi i1 [ %32, %75 ], [ %32, %78 ], [ %32, %82 ], [ %32, %85 ], [ false, %3 ]
+  %.019 = phi i1 [ %32, %85 ], [ %32, %75 ], [ %32, %78 ], [ %32, %82 ], [ false, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.019
 }
@@ -1999,7 +1999,7 @@ _ZNSt8optionalIN4llvm5APIntEEC2ERKS2_.exit:       ; preds = %51, %_ZNSt22_Option
   br label %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit
 
 _ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit: ; preds = %3, %94, %96, %100, %103
-  %.021 = phi i1 [ %.1, %94 ], [ %.1, %96 ], [ %.1, %100 ], [ %.1, %103 ], [ false, %3 ]
+  %.021 = phi i1 [ %.1, %103 ], [ %.1, %94 ], [ %.1, %96 ], [ %.1, %100 ], [ false, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.021
 }

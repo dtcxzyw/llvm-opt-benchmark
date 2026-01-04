@@ -164,7 +164,7 @@ define noundef float @_ZNK2cv9videostab18FastMarchingMethod5solveEiiii(ptr nound
   br label %109
 
 109:                                              ; preds = %72, %53, %67, %71, %74, %76, %84, %97
-  %.2 = phi float [ %108, %97 ], [ %6, %84 ], [ %6, %76 ], [ %6, %74 ], [ %73, %72 ], [ %68, %71 ], [ %6, %67 ], [ %64, %53 ]
+  %.2 = phi float [ %6, %74 ], [ %108, %97 ], [ %6, %84 ], [ %64, %53 ], [ %6, %76 ], [ %73, %72 ], [ %6, %67 ], [ %68, %71 ]
   ret float %.2
 }
 

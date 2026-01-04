@@ -818,9 +818,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit88.i:                ; preds = %242, %_ZNSt6vectorI
   br label %259
 
 259:                                              ; preds = %257, %231, %230, %156, %.loopexit.split-lp.i, %.loopexit.i
-  %.sroa.22.3.i = phi ptr [ %.sroa.22.0.lcssa.i, %156 ], [ %.sroa.22.0.lcssa.i, %230 ], [ %.sroa.22.0.lcssa.i, %257 ], [ %.sroa.22.0.lcssa.i, %231 ], [ %.sroa.15.1148.i, %.loopexit.i ], [ %.sroa.15.1148.i, %.loopexit.split-lp.i ]
-  %.sroa.0106.3.i = phi ptr [ %.sroa.0106.0.lcssa.i, %156 ], [ %.sroa.0106.0.lcssa.i, %230 ], [ %.sroa.0106.0.lcssa.i, %257 ], [ %.sroa.0106.0.lcssa.i, %231 ], [ %.sroa.0106.2149.i, %.loopexit.i ], [ %.sroa.0106.2149.i, %.loopexit.split-lp.i ]
-  %.pn65.i = phi { ptr, i32 } [ %157, %156 ], [ %.pn.i, %230 ], [ %258, %257 ], [ %232, %231 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+  %.sroa.22.3.i = phi ptr [ %.sroa.22.0.lcssa.i, %231 ], [ %.sroa.22.0.lcssa.i, %156 ], [ %.sroa.22.0.lcssa.i, %230 ], [ %.sroa.22.0.lcssa.i, %257 ], [ %.sroa.15.1148.i, %.loopexit.i ], [ %.sroa.15.1148.i, %.loopexit.split-lp.i ]
+  %.sroa.0106.3.i = phi ptr [ %.sroa.0106.0.lcssa.i, %231 ], [ %.sroa.0106.0.lcssa.i, %156 ], [ %.sroa.0106.0.lcssa.i, %230 ], [ %.sroa.0106.0.lcssa.i, %257 ], [ %.sroa.0106.2149.i, %.loopexit.i ], [ %.sroa.0106.2149.i, %.loopexit.split-lp.i ]
+  %.pn65.i = phi { ptr, i32 } [ %232, %231 ], [ %157, %156 ], [ %.pn.i, %230 ], [ %258, %257 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   %260 = load ptr, ptr %9, align 8, !tbaa !48
   %.not.i.i.i90.i = icmp eq ptr %260, null
   br i1 %.not.i.i.i90.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit91.i, label %261
@@ -1475,7 +1475,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %6
   br label %26
 
 26:                                               ; preds = %25, %.noexc16, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
-  %.0.i.i.i.i.i.i = phi ptr [ %22, %.noexc16 ], [ %20, %25 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i ]
+  %.0.i.i.i.i.i.i = phi ptr [ %20, %25 ], [ %22, %.noexc16 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i ]
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %.0.i.i.i.i.i.i, ptr %27, align 8, !tbaa !90
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -2565,7 +2565,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %13
   br label %30
 
 30:                                               ; preds = %29, %.noexc41, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
-  %.0.i.i.i.i.i.i = phi ptr [ %26, %.noexc41 ], [ %24, %29 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i ]
+  %.0.i.i.i.i.i.i = phi ptr [ %24, %29 ], [ %26, %.noexc41 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i ]
   %31 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %.0.i.i.i.i.i.i, ptr %31, align 8, !tbaa !90
   %32 = getelementptr inbounds nuw i8, ptr %14, i64 24

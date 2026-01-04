@@ -1311,7 +1311,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   br label %372
 
 372:                                              ; preds = %368, %370
-  %.pn125.pn = phi { ptr, i32 } [ %371, %370 ], [ %369, %368 ]
+  %.pn125.pn = phi { ptr, i32 } [ %369, %368 ], [ %371, %370 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %59)
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
   br label %385

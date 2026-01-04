@@ -760,7 +760,7 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.i.i.i.i:      ; preds = %_ZL15getBranchWeigh
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm11SmallVectorIjLj16EEC2EmRKj.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !118
 
 _ZN4llvm11SmallVectorIjLj16EEC2EmRKj.exit.i.i:    ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.i.i.i.i
-  %242 = phi ptr [ %17, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.i.i.i.i ], [ %236, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ], [ %17, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
+  %242 = phi ptr [ %236, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ], [ %17, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.i.i.i.i ], [ %17, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
   store i32 %204, ptr %18, align 8, !tbaa !26
   %243 = icmp eq i64 %208, 4294967294
   %244 = add nuw nsw i64 %208, 1
@@ -1240,7 +1240,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i74.i: ; preds
   br i1 %.not.i.i.not.i66.i.i, label %.backedge.i.i, label %.backedge.sink.split.i.i, !prof !33
 
 .backedge.sink.split.i.i:                         ; preds = %462, %453, %449
-  %.093.be.ph.i.i = phi ptr [ %451, %449 ], [ %455, %453 ], [ %464, %462 ]
+  %.093.be.ph.i.i = phi ptr [ %455, %453 ], [ %451, %449 ], [ %464, %462 ]
   %466 = zext i32 %447 to i64
   %467 = add nuw nsw i64 %466, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %26, i64 noundef %467, i64 noundef 8) #14
@@ -1248,8 +1248,8 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i74.i: ; preds
   br label %.backedge.i.i
 
 .backedge.i.i:                                    ; preds = %.backedge.sink.split.i.i, %462, %453, %449
-  %.sink158.i.i = phi i32 [ %447, %449 ], [ %447, %453 ], [ %447, %462 ], [ %.pre.i67.i.i, %.backedge.sink.split.i.i ]
-  %.093.be.i.i = phi ptr [ %451, %449 ], [ %455, %453 ], [ %464, %462 ], [ %.093.be.ph.i.i, %.backedge.sink.split.i.i ]
+  %.sink158.i.i = phi i32 [ %447, %453 ], [ %447, %462 ], [ %447, %449 ], [ %.pre.i67.i.i, %.backedge.sink.split.i.i ]
+  %.093.be.i.i = phi ptr [ %455, %453 ], [ %464, %462 ], [ %451, %449 ], [ %.093.be.ph.i.i, %.backedge.sink.split.i.i ]
   %468 = load ptr, ptr %7, align 8, !tbaa !25
   %469 = zext i32 %.sink158.i.i to i64
   %470 = getelementptr inbounds nuw ptr, ptr %468, i64 %469
@@ -1636,7 +1636,7 @@ _ZL12handlePhiDefPN4llvm8CallInstE.exit.i:        ; preds = %_ZN4llvm11SmallVect
   br label %_ZL17handleBrSelExpectIN4llvm10SelectInstEEbRT_.exit.thread.i
 
 _ZL17handleBrSelExpectIN4llvm10SelectInstEEbRT_.exit.thread.i: ; preds = %_ZL12handlePhiDefPN4llvm8CallInstE.exit.i, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i, %416, %413, %412, %319, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i64.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i63.i, %309, %.thread87.i.i, %301, %294, %290, %285, %283, %.lr.ph.i
-  %.2.i = phi i1 [ %.1116.i, %412 ], [ true, %_ZL12handlePhiDefPN4llvm8CallInstE.exit.i ], [ %.1116.i, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i ], [ %.1116.i, %285 ], [ %.1116.i, %290 ], [ %.1116.i, %301 ], [ %.1116.i, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i64.i ], [ %.1116.i, %319 ], [ %.1116.i, %294 ], [ %.1116.i, %283 ], [ %.1116.i, %309 ], [ %.1116.i, %.thread87.i.i ], [ %.1116.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i63.i ], [ %.1116.i, %416 ], [ %.1116.i, %413 ], [ %.1116.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i ], [ %.1116.i, %.lr.ph.i ]
+  %.2.i = phi i1 [ %.1116.i, %.lr.ph.i ], [ %.1116.i, %309 ], [ %.1116.i, %412 ], [ true, %_ZL12handlePhiDefPN4llvm8CallInstE.exit.i ], [ %.1116.i, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i ], [ %.1116.i, %285 ], [ %.1116.i, %290 ], [ %.1116.i, %301 ], [ %.1116.i, %283 ], [ %.1116.i, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i64.i ], [ %.1116.i, %319 ], [ %.1116.i, %294 ], [ %.1116.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i63.i ], [ %.1116.i, %.thread87.i.i ], [ %.1116.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i ], [ %.1116.i, %413 ], [ %.1116.i, %416 ]
   %.not106.i = icmp eq ptr %275, %32
   br i1 %.not106.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -1898,8 +1898,8 @@ define linkonce_odr hidden { ptr, i64 } @_ZSt9__find_ifIN4llvm10SwitchInst16Case
   br label %.loopexit
 
 .loopexit:                                        ; preds = %36, %28, %20, %13, %70, %60, %49, %78
-  %.sroa.014.0.in.sroa.speculated = phi ptr [ %2, %78 ], [ %0, %49 ], [ %0, %60 ], [ %0, %70 ], [ %0, %13 ], [ %0, %20 ], [ %0, %28 ], [ %0, %36 ]
-  %.sroa.9.0 = phi i64 [ %3, %78 ], [ %.sroa.15.0.lcssa, %49 ], [ %.sroa.15.1, %60 ], [ %.sroa.15.2, %70 ], [ %37, %36 ], [ %29, %28 ], [ %21, %20 ], [ %.sroa.15.076, %13 ]
+  %.sroa.014.0.in.sroa.speculated = phi ptr [ %0, %60 ], [ %2, %78 ], [ %0, %70 ], [ %0, %49 ], [ %0, %13 ], [ %0, %20 ], [ %0, %28 ], [ %0, %36 ]
+  %.sroa.9.0 = phi i64 [ %.sroa.15.1, %60 ], [ %3, %78 ], [ %.sroa.15.2, %70 ], [ %.sroa.15.0.lcssa, %49 ], [ %37, %36 ], [ %29, %28 ], [ %21, %20 ], [ %.sroa.15.076, %13 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.014.0.in.sroa.speculated, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.9.0, 1
   ret { ptr, i64 } %.fca.1.insert

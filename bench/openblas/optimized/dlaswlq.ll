@@ -68,8 +68,8 @@ define void @dlaswlq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   br i1 %or.cond, label %45, label %.thread
 
 .thread:                                          ; preds = %41, %38, %35, %33, %28, %31, %25, %11
-  %.sink = phi i32 [ -1, %11 ], [ -2, %25 ], [ -3, %31 ], [ -3, %28 ], [ -4, %33 ], [ -5, %35 ], [ -8, %38 ], [ -10, %41 ]
-  %.ph158.neg = phi i32 [ 1, %11 ], [ 2, %25 ], [ 3, %31 ], [ 3, %28 ], [ 4, %33 ], [ 5, %35 ], [ 8, %38 ], [ 10, %41 ]
+  %.sink = phi i32 [ -1, %11 ], [ -2, %25 ], [ -4, %33 ], [ -8, %38 ], [ -5, %35 ], [ -3, %28 ], [ -3, %31 ], [ -10, %41 ]
+  %.ph158.neg = phi i32 [ 1, %11 ], [ 2, %25 ], [ 4, %33 ], [ 8, %38 ], [ 5, %35 ], [ 3, %28 ], [ 3, %31 ], [ 10, %41 ]
   store i32 %.sink, ptr %10, align 4, !tbaa !3
   store i32 %.ph158.neg, ptr %12, align 4, !tbaa !3
   %44 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %12, i32 noundef 7) #4

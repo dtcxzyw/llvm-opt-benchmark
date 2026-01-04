@@ -408,8 +408,8 @@ _ZN3zmq6pipe_t8set_peerEPS0_.exit58:              ; preds = %_ZN3zmq6pipe_t8set_
   ret i32 0
 
 .body:                                            ; preds = %58, %.body.i52, %24, %.body.i, %64, %87, %108, %30
-  %.sink = phi ptr [ %61, %64 ], [ %72, %87 ], [ %90, %108 ], [ %27, %30 ], [ %8, %.body.i ], [ %8, %24 ], [ %42, %.body.i52 ], [ %42, %58 ]
-  %.pn.pn = phi { ptr, i32 } [ %65, %64 ], [ %88, %87 ], [ %109, %108 ], [ %31, %30 ], [ %22, %.body.i ], [ %25, %24 ], [ %56, %.body.i52 ], [ %59, %58 ]
+  %.sink = phi ptr [ %8, %24 ], [ %61, %64 ], [ %72, %87 ], [ %90, %108 ], [ %27, %30 ], [ %8, %.body.i ], [ %42, %.body.i52 ], [ %42, %58 ]
+  %.pn.pn = phi { ptr, i32 } [ %25, %24 ], [ %65, %64 ], [ %88, %87 ], [ %109, %108 ], [ %31, %30 ], [ %22, %.body.i ], [ %56, %.body.i52 ], [ %59, %58 ]
   tail call void @_ZdlPvRKSt9nothrow_t(ptr noundef nonnull %.sink, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #27
   resume { ptr, i32 } %.pn.pn
 }
@@ -588,7 +588,7 @@ _ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit:           ; preds = %39, %16
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.5)
   br label %_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit.thread
 
-_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit.thread:    ; preds = %49, %_ZN3zmq6pipe_t11check_writeEv.exit.i, %_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit
+_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit.thread:    ; preds = %_ZN3zmq6pipe_t11check_writeEv.exit.i, %49, %_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit
   %56 = load i32, ptr %24, align 8, !tbaa !105
   %57 = icmp eq i32 %56, 3
   br i1 %57, label %_ZN3zmq6pipe_t5flushEv.exit, label %58
@@ -682,7 +682,7 @@ _ZN3zmq6pipe_t11check_writeEv.exit:               ; preds = %9
   br label %_ZN3zmq6pipe_t11check_writeEv.exit.thread
 
 _ZN3zmq6pipe_t11check_writeEv.exit.thread:        ; preds = %21, %2, %_ZN3zmq6pipe_t11check_writeEv.exit, %31
-  %.0.i9 = phi i1 [ true, %_ZN3zmq6pipe_t11check_writeEv.exit ], [ true, %31 ], [ false, %2 ], [ false, %21 ]
+  %.0.i9 = phi i1 [ true, %31 ], [ true, %_ZN3zmq6pipe_t11check_writeEv.exit ], [ false, %2 ], [ false, %21 ]
   ret i1 %.0.i9
 }
 
@@ -798,7 +798,7 @@ _ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit:           ; preds = %39, %20
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.5)
   br label %_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit.thread
 
-_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit.thread:    ; preds = %49, %_ZN3zmq6pipe_t11check_writeEv.exit.i, %_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit
+_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit.thread:    ; preds = %_ZN3zmq6pipe_t11check_writeEv.exit.i, %49, %_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit
   %56 = load i32, ptr %24, align 8, !tbaa !105
   %57 = icmp eq i32 %56, 3
   br i1 %57, label %_ZN3zmq6pipe_t5flushEv.exit, label %58
@@ -1266,7 +1266,7 @@ _ZN3zmq6pipe_t17process_delimiterEv.exit:         ; preds = %43, %46
   br label %50
 
 50:                                               ; preds = %18, %6, %1, %_ZN3zmq6pipe_t17process_delimiterEv.exit, %17
-  %.0 = phi i1 [ false, %_ZN3zmq6pipe_t17process_delimiterEv.exit ], [ false, %17 ], [ false, %1 ], [ false, %6 ], [ true, %18 ]
+  %.0 = phi i1 [ false, %17 ], [ false, %1 ], [ false, %_ZN3zmq6pipe_t17process_delimiterEv.exit ], [ false, %6 ], [ true, %18 ]
   ret i1 %.0
 }
 
@@ -1441,7 +1441,7 @@ _ZN3zmq6pipe_t17process_delimiterEv.exit:         ; preds = %40, %43
   br label %69
 
 69:                                               ; preds = %56, %60, %66, %6, %2, %_ZN3zmq6pipe_t17process_delimiterEv.exit, %._crit_edge
-  %.0 = phi i1 [ false, %_ZN3zmq6pipe_t17process_delimiterEv.exit ], [ false, %._crit_edge ], [ false, %2 ], [ false, %6 ], [ true, %66 ], [ true, %60 ], [ true, %56 ]
+  %.0 = phi i1 [ false, %._crit_edge ], [ false, %2 ], [ false, %_ZN3zmq6pipe_t17process_delimiterEv.exit ], [ false, %6 ], [ true, %66 ], [ true, %60 ], [ true, %56 ]
   ret i1 %.0
 }
 
@@ -1836,10 +1836,10 @@ define void @_ZN3zmq6pipe_t21process_pipe_term_ackEv(ptr noundef nonnull align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %0)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %16 = load i32, ptr %15, align 8, !tbaa !105
-  switch i32 %16, label %.critedge [
+  switch i32 %16, label %21 [
     i32 4, label %17
-    i32 3, label %switch.edge
-    i32 5, label %switch.edge
+    i32 3, label %.critedge
+    i32 5, label %.critedge
   ]
 
 17:                                               ; preds = %10
@@ -1848,75 +1848,75 @@ define void @_ZN3zmq6pipe_t21process_pipe_term_ackEv(ptr noundef nonnull align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %20 = load ptr, ptr %19, align 8, !tbaa !29
   tail call void @_ZN3zmq8object_t18send_pipe_term_ackEPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef %20)
-  br label %switch.edge
+  br label %.critedge
 
-.critedge:                                        ; preds = %10
-  %21 = load ptr, ptr @stderr, align 8, !tbaa !21
-  %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 355) #26
-  %23 = load ptr, ptr @stderr, align 8, !tbaa !21
-  %24 = tail call i32 @fflush(ptr noundef %23)
+21:                                               ; preds = %10
+  %22 = load ptr, ptr @stderr, align 8, !tbaa !21
+  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 355) #26
+  %24 = load ptr, ptr @stderr, align 8, !tbaa !21
+  %25 = tail call i32 @fflush(ptr noundef %24)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.15)
-  br label %switch.edge
+  br label %.critedge
 
-switch.edge:                                      ; preds = %10, %10, %.critedge, %17
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  %26 = load i8, ptr %25, align 4, !tbaa !119, !range !7, !noundef !8
-  %27 = trunc nuw i8 %26 to i1
-  br i1 %27, label %50, label %28
+.critedge:                                        ; preds = %10, %10, %21, %17
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 188
+  %27 = load i8, ptr %26, align 4, !tbaa !119, !range !7, !noundef !8
+  %28 = trunc nuw i8 %27 to i1
+  br i1 %28, label %51, label %29
 
-28:                                               ; preds = %switch.edge
+29:                                               ; preds = %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %30 = load ptr, ptr %29, align 8, !tbaa !111
-  %31 = load ptr, ptr %30, align 8, !tbaa !9
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 48
-  %33 = load ptr, ptr %32, align 8
-  %34 = call noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull %2)
-  br i1 %34, label %.lr.ph, label %._crit_edge
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %31 = load ptr, ptr %30, align 8, !tbaa !111
+  %32 = load ptr, ptr %31, align 8, !tbaa !9
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 48
+  %34 = load ptr, ptr %33, align 8
+  %35 = call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull %2)
+  br i1 %35, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %28, %44
-  %35 = call noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %2)
-  %.not4 = icmp eq i32 %35, 0
-  br i1 %.not4, label %44, label %36, !prof !47
+.lr.ph:                                           ; preds = %29, %45
+  %36 = call noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %2)
+  %.not4 = icmp eq i32 %36, 0
+  br i1 %.not4, label %45, label %37, !prof !47
 
-36:                                               ; preds = %.lr.ph
-  %37 = tail call ptr @__errno_location() #28
-  %38 = load i32, ptr %37, align 4, !tbaa !25
-  %39 = call ptr @strerror(i32 noundef %38) #25
-  %40 = load ptr, ptr @stderr, align 8, !tbaa !21
-  %41 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.3, ptr noundef %39, ptr noundef nonnull @.str.1, i32 noundef 367) #26
-  %42 = load ptr, ptr @stderr, align 8, !tbaa !21
-  %43 = call i32 @fflush(ptr noundef %42)
-  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %39)
-  br label %44
+37:                                               ; preds = %.lr.ph
+  %38 = tail call ptr @__errno_location() #28
+  %39 = load i32, ptr %38, align 4, !tbaa !25
+  %40 = call ptr @strerror(i32 noundef %39) #25
+  %41 = load ptr, ptr @stderr, align 8, !tbaa !21
+  %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.3, ptr noundef %40, ptr noundef nonnull @.str.1, i32 noundef 367) #26
+  %43 = load ptr, ptr @stderr, align 8, !tbaa !21
+  %44 = call i32 @fflush(ptr noundef %43)
+  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %40)
+  br label %45
 
-44:                                               ; preds = %36, %.lr.ph
-  %45 = load ptr, ptr %29, align 8, !tbaa !111
-  %46 = load ptr, ptr %45, align 8, !tbaa !9
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 48
-  %48 = load ptr, ptr %47, align 8
-  %49 = call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef nonnull %2)
-  br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !134
+45:                                               ; preds = %37, %.lr.ph
+  %46 = load ptr, ptr %30, align 8, !tbaa !111
+  %47 = load ptr, ptr %46, align 8, !tbaa !9
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
+  %49 = load ptr, ptr %48, align 8
+  %50 = call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef nonnull %2)
+  br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !134
 
-._crit_edge:                                      ; preds = %44, %28
+._crit_edge:                                      ; preds = %45, %29
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %50
+  br label %51
 
-50:                                               ; preds = %._crit_edge, %switch.edge
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %52 = load ptr, ptr %51, align 8, !tbaa !111
-  %53 = icmp eq ptr %52, null
-  br i1 %53, label %58, label %54
+51:                                               ; preds = %._crit_edge, %.critedge
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %53 = load ptr, ptr %52, align 8, !tbaa !111
+  %54 = icmp eq ptr %53, null
+  br i1 %54, label %59, label %55
 
-54:                                               ; preds = %50
-  %55 = load ptr, ptr %52, align 8, !tbaa !9
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %57 = load ptr, ptr %56, align 8
-  call void %57(ptr noundef nonnull align 8 dereferenceable(8) %52) #25
-  br label %58
+55:                                               ; preds = %51
+  %56 = load ptr, ptr %53, align 8, !tbaa !9
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %58 = load ptr, ptr %57, align 8
+  call void %58(ptr noundef nonnull align 8 dereferenceable(8) %53) #25
+  br label %59
 
-58:                                               ; preds = %54, %50
-  store ptr null, ptr %51, align 8, !tbaa !111
+59:                                               ; preds = %55, %51
+  store ptr null, ptr %52, align 8, !tbaa !111
   call void @_ZN3zmq6pipe_tD1Ev(ptr noundef nonnull align 8 dereferenceable(328) %0) #25
   call void @_ZdlPv(ptr noundef nonnull %0) #27
   ret void
@@ -3579,7 +3579,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3zmq7ypipe_tINS_5msg_tELi256EE10check
   br label %22
 
 22:                                               ; preds = %10, %1
-  %.0 = phi i1 [ true, %1 ], [ %or.cond6.not, %10 ]
+  %.0 = phi i1 [ %or.cond6.not, %10 ], [ true, %1 ]
   ret i1 %.0
 }
 

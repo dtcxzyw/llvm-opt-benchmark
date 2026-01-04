@@ -184,7 +184,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   %67 = icmp eq i64 %66, 0
   br i1 %67, label %177, label %176
 
-68:                                               ; preds = %46, %49
+68:                                               ; preds = %49, %46
   %69 = load ptr, ptr %26, align 8, !nonnull !4, !align !5, !noundef !4
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %71 = load ptr, ptr %70, align 8, !nonnull !4, !noundef !4
@@ -440,7 +440,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   unreachable
 
 .thread59:                                        ; preds = %171, %175, %110
-  %.pn3562 = phi { ptr, i32 } [ %.pn, %110 ], [ %lpad.thr_comm.split-lp, %175 ], [ %lpad.thr_comm.split-lp, %171 ]
+  %.pn3562 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %171 ], [ %.pn, %110 ], [ %lpad.thr_comm.split-lp, %175 ]
   resume { ptr, i32 } %.pn3562
 
 171:                                              ; preds = %108
@@ -587,7 +587,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   %67 = icmp eq i64 %66, 0
   br i1 %67, label %193, label %192
 
-68:                                               ; preds = %46, %49
+68:                                               ; preds = %49, %46
   %69 = load ptr, ptr %26, align 8, !nonnull !4, !align !5, !noundef !4
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %71 = load ptr, ptr %70, align 8, !nonnull !4, !noundef !4
@@ -894,7 +894,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   unreachable
 
 .thread62:                                        ; preds = %186, %191, %131, %110, %172
-  %.pn3765 = phi { ptr, i32 } [ %173, %172 ], [ %.pn, %110 ], [ %132, %131 ], [ %187, %191 ], [ %187, %186 ]
+  %.pn3765 = phi { ptr, i32 } [ %173, %172 ], [ %132, %131 ], [ %.pn, %110 ], [ %187, %191 ], [ %187, %186 ]
   resume { ptr, i32 } %.pn3765
 
 186:                                              ; preds = %108
@@ -1041,7 +1041,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   %67 = icmp eq i64 %66, 0
   br i1 %67, label %177, label %176
 
-68:                                               ; preds = %46, %49
+68:                                               ; preds = %49, %46
   %69 = load ptr, ptr %26, align 8, !nonnull !4, !align !5, !noundef !4
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %71 = load ptr, ptr %70, align 8, !nonnull !4, !noundef !4
@@ -1297,7 +1297,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   unreachable
 
 .thread59:                                        ; preds = %171, %175, %110
-  %.pn3562 = phi { ptr, i32 } [ %.pn, %110 ], [ %lpad.thr_comm.split-lp, %175 ], [ %lpad.thr_comm.split-lp, %171 ]
+  %.pn3562 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %171 ], [ %.pn, %110 ], [ %lpad.thr_comm.split-lp, %175 ]
   resume { ptr, i32 } %.pn3562
 
 171:                                              ; preds = %108
@@ -1361,8 +1361,8 @@ define hidden { i64, ptr } @"_ZN12futures_util6stream17futures_unordered18ready_
   br label %16
 
 16:                                               ; preds = %.sink.split, %22, %19, %9
-  %.sroa.6.0 = phi ptr [ undef, %9 ], [ undef, %19 ], [ undef, %22 ], [ %.014, %.sink.split ]
-  %.sroa.0.0 = phi i64 [ 1, %9 ], [ 2, %19 ], [ 2, %22 ], [ 0, %.sink.split ]
+  %.sroa.6.0 = phi ptr [ undef, %22 ], [ undef, %9 ], [ undef, %19 ], [ %.014, %.sink.split ]
+  %.sroa.0.0 = phi i64 [ 2, %22 ], [ 1, %9 ], [ 2, %19 ], [ 0, %.sink.split ]
   %17 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %18 = insertvalue { i64, ptr } %17, ptr %.sroa.6.0, 1
   ret { i64, ptr } %18
@@ -1429,8 +1429,8 @@ define hidden { i64, ptr } @"_ZN12futures_util6stream17futures_unordered18ready_
   br label %16
 
 16:                                               ; preds = %.sink.split, %22, %19, %9
-  %.sroa.6.0 = phi ptr [ undef, %9 ], [ undef, %19 ], [ undef, %22 ], [ %.014, %.sink.split ]
-  %.sroa.0.0 = phi i64 [ 1, %9 ], [ 2, %19 ], [ 2, %22 ], [ 0, %.sink.split ]
+  %.sroa.6.0 = phi ptr [ undef, %22 ], [ undef, %9 ], [ undef, %19 ], [ %.014, %.sink.split ]
+  %.sroa.0.0 = phi i64 [ 2, %22 ], [ 1, %9 ], [ 2, %19 ], [ 0, %.sink.split ]
   %17 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %18 = insertvalue { i64, ptr } %17, ptr %.sroa.6.0, 1
   ret { i64, ptr } %18
@@ -1497,8 +1497,8 @@ define hidden { i64, ptr } @"_ZN12futures_util6stream17futures_unordered18ready_
   br label %16
 
 16:                                               ; preds = %.sink.split, %22, %19, %9
-  %.sroa.6.0 = phi ptr [ undef, %9 ], [ undef, %19 ], [ undef, %22 ], [ %.014, %.sink.split ]
-  %.sroa.0.0 = phi i64 [ 1, %9 ], [ 2, %19 ], [ 2, %22 ], [ 0, %.sink.split ]
+  %.sroa.6.0 = phi ptr [ undef, %22 ], [ undef, %9 ], [ undef, %19 ], [ %.014, %.sink.split ]
+  %.sroa.0.0 = phi i64 [ 2, %22 ], [ 1, %9 ], [ 2, %19 ], [ 0, %.sink.split ]
   %17 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %18 = insertvalue { i64, ptr } %17, ptr %.sroa.6.0, 1
   ret { i64, ptr } %18
@@ -2850,7 +2850,7 @@ define hidden void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$8get_
   ret void
 
 common.resume:                                    ; preds = %35, %29, %76
-  %common.resume.op = phi { ptr, i32 } [ %30, %29 ], [ %77, %76 ], [ %36, %35 ]
+  %common.resume.op = phi { ptr, i32 } [ %77, %76 ], [ %30, %29 ], [ %36, %35 ]
   resume { ptr, i32 } %common.resume.op
 
 33:                                               ; preds = %14
@@ -3258,7 +3258,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br i1 %36, label %common.ret.sink.split, label %common.ret
 
 37:                                               ; preds = %.body3, %.body
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %eh.lpad-body4, %.body3 ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body4, %.body3 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn
 
 38:                                               ; preds = %.body3, %.body
@@ -3408,7 +3408,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br i1 %34, label %common.ret.sink.split, label %common.ret
 
 .body8:                                           ; preds = %53, %45, %30, %20, %38
-  %.pn = phi { ptr, i32 } [ %39, %38 ], [ %31, %30 ], [ %21, %20 ], [ %46, %53 ], [ %46, %45 ]
+  %.pn = phi { ptr, i32 } [ %39, %38 ], [ %21, %20 ], [ %31, %30 ], [ %46, %45 ], [ %46, %53 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 105
   %36 = load i8, ptr %35, align 1, !range !193, !noundef !4
   %37 = trunc nuw i8 %36 to i1
@@ -6577,7 +6577,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr271dro
   br label %68
 
 59:                                               ; preds = %.body32, %"_ZN4core3ptr271drop_in_place$LT$futures_util..future..join_all..JoinAll$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hbd231a2a43631b0aE.exit40"
-  %.pn16 = phi { ptr, i32 } [ %.pn12, %.body32 ], [ %.pn10, %"_ZN4core3ptr271drop_in_place$LT$futures_util..future..join_all..JoinAll$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hbd231a2a43631b0aE.exit40" ]
+  %.pn16 = phi { ptr, i32 } [ %.pn10, %"_ZN4core3ptr271drop_in_place$LT$futures_util..future..join_all..JoinAll$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hbd231a2a43631b0aE.exit40" ], [ %.pn12, %.body32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %153
 
@@ -6594,7 +6594,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr271dro
   unreachable
 
 .body:                                            ; preds = %168, %160, %50, %45, %153, %34
-  %.pn19.pn = phi { ptr, i32 } [ %.pn16.pn, %153 ], [ %35, %34 ], [ %51, %50 ], [ %46, %45 ], [ %161, %168 ], [ %161, %160 ]
+  %.pn19.pn = phi { ptr, i32 } [ %.pn16.pn, %153 ], [ %46, %45 ], [ %161, %160 ], [ %35, %34 ], [ %51, %50 ], [ %161, %168 ]
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 105
   %66 = load i8, ptr %65, align 1, !range !193, !noundef !4
   %67 = trunc nuw i8 %66 to i1
@@ -6686,7 +6686,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr271dro
   br i1 %85, label %156, label %86
 
 "_ZN4core3ptr271drop_in_place$LT$futures_util..future..join_all..JoinAll$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hbd231a2a43631b0aE.exit40": ; preds = %70, %77
-  %.pn10 = phi { ptr, i32 } [ %78, %77 ], [ %71, %70 ]
+  %.pn10 = phi { ptr, i32 } [ %71, %70 ], [ %78, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %59
@@ -6901,9 +6901,9 @@ common.ret:                                       ; preds = %"_ZN4core3ptr271dro
   br label %"_ZN4core3ptr271drop_in_place$LT$futures_util..future..join_all..JoinAll$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hbd231a2a43631b0aE.exit38"
 
 "_ZN4core3ptr271drop_in_place$LT$futures_util..future..join_all..JoinAll$LT$$LT$actix_web..app_service..AppRoutingFactory$u20$as$u20$actix_service..ServiceFactory$LT$actix_web..service..ServiceRequest$GT$$GT$..new_service..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hbd231a2a43631b0aE.exit38": ; preds = %177, %148, %"_ZN4core3ptr467drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$GT$17hc68da9a770e7bed2E.exit"
-  %.sroa.055.1 = phi i64 [ -9223372036854775808, %"_ZN4core3ptr467drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$GT$17hc68da9a770e7bed2E.exit" ], [ %.sroa.03.sroa.0.0.copyload, %148 ], [ -9223372036854775808, %177 ]
-  %.sroa.458.0 = phi ptr [ undef, %"_ZN4core3ptr467drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$GT$17hc68da9a770e7bed2E.exit" ], [ %150, %148 ], [ undef, %177 ]
-  %.sroa.559.0 = phi ptr [ undef, %"_ZN4core3ptr467drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$GT$17hc68da9a770e7bed2E.exit" ], [ %152, %148 ], [ undef, %177 ]
+  %.sroa.055.1 = phi i64 [ %.sroa.03.sroa.0.0.copyload, %148 ], [ -9223372036854775808, %"_ZN4core3ptr467drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$GT$17hc68da9a770e7bed2E.exit" ], [ -9223372036854775808, %177 ]
+  %.sroa.458.0 = phi ptr [ %150, %148 ], [ undef, %"_ZN4core3ptr467drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$GT$17hc68da9a770e7bed2E.exit" ], [ undef, %177 ]
+  %.sroa.559.0 = phi ptr [ %152, %148 ], [ undef, %"_ZN4core3ptr467drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$GT$17hc68da9a770e7bed2E.exit" ], [ undef, %177 ]
   store i64 %.sroa.055.1, ptr %0, align 8
   %.sroa.457.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.457.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.457, i64 16, i1 false)
@@ -7304,7 +7304,7 @@ default.unreachable13:                            ; preds = %3
   br label %16
 
 .body:                                            ; preds = %39, %34, %23
-  %.pn6 = phi { ptr, i32 } [ %24, %23 ], [ %40, %39 ], [ %35, %34 ]
+  %.pn6 = phi { ptr, i32 } [ %35, %34 ], [ %24, %23 ], [ %40, %39 ]
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   invoke void @"_ZN4core3ptr121drop_in_place$LT$alloc..rc..Rc$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$$GT$17h1cbe3880b7411ae3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %13) #28
           to label %61 unwind label %64
@@ -7607,7 +7607,7 @@ define void @_ZN9actix_web5route5Route6method17hdf7e766bb04dcf52E(ptr noalias no
   ret void
 
 "_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17hfe2d373690943f8aE.exit": ; preds = %34, %23, %20, %46, %49
-  %eh.lpad-body10 = phi { ptr, i32 } [ %47, %49 ], [ %47, %46 ], [ %21, %20 ], [ %21, %23 ], [ %35, %34 ]
+  %eh.lpad-body10 = phi { ptr, i32 } [ %47, %46 ], [ %47, %49 ], [ %21, %23 ], [ %21, %20 ], [ %35, %34 ]
   invoke void @"_ZN4core3ptr44drop_in_place$LT$actix_web..route..Route$GT$17hc87fe937216b38fcE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #28
           to label %53 unwind label %51
 

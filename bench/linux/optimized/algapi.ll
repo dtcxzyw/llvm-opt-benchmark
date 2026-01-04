@@ -240,7 +240,7 @@ define dso_local void @crypto_remove_spawns(ptr noundef readonly captures(addres
   br i1 %75, label %.loopexit16.backedge, label %76
 
 .loopexit16.backedge:                             ; preds = %67, %82, %60
-  %.be = phi ptr [ %61, %60 ], [ %6, %67 ], [ %85, %82 ]
+  %.be = phi ptr [ %6, %67 ], [ %85, %82 ], [ %61, %60 ]
   br label %.loopexit16, !llvm.loop !13
 
 76:                                               ; preds = %67
@@ -470,7 +470,7 @@ define dso_local void @crypto_alg_tested(ptr noundef %0, i32 noundef %1) #0 alig
   br i1 %59, label %60, label %42, !llvm.loop !19
 
 60:                                               ; preds = %57, %52
-  %61 = phi i1 [ true, %57 ], [ false, %52 ]
+  %61 = phi i1 [ false, %52 ], [ true, %57 ]
   call fastcc void @crypto_alg_finish_registration(ptr noundef %24, i1 noundef zeroext %61, ptr noundef nonnull %3)
   br label %62
 
@@ -821,7 +821,7 @@ define dso_local noundef i32 @crypto_register_alg(ptr noundef %0) #0 align 16 {
   br i1 %71, label %.thread, label %.preheader, !llvm.loop !22
 
 .thread:                                          ; preds = %.thread9, %36, %32, %21, %14, %1, %10, %52, %47
-  %72 = phi i32 [ %49, %47 ], [ 0, %52 ], [ -22, %10 ], [ -22, %1 ], [ -22, %14 ], [ -22, %21 ], [ -22, %32 ], [ -22, %36 ], [ 0, %.thread9 ]
+  %72 = phi i32 [ %49, %47 ], [ -22, %36 ], [ 0, %52 ], [ -22, %10 ], [ -22, %1 ], [ -22, %14 ], [ -22, %21 ], [ -22, %32 ], [ 0, %.thread9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %72
 }
@@ -1628,7 +1628,7 @@ define dso_local noundef i32 @crypto_register_instance(ptr noundef %0, ptr nound
   br i1 %108, label %.thread, label %.preheader, !llvm.loop !22
 
 .thread:                                          ; preds = %.thread11, %36, %32, %19, %12, %2, %8, %89, %.critedge.thread
-  %109 = phi i32 [ %83, %.critedge.thread ], [ 0, %89 ], [ -22, %8 ], [ -22, %2 ], [ -22, %12 ], [ -22, %19 ], [ -22, %32 ], [ -22, %36 ], [ 0, %.thread11 ]
+  %109 = phi i32 [ %83, %.critedge.thread ], [ -22, %36 ], [ 0, %89 ], [ -22, %8 ], [ -22, %2 ], [ -22, %12 ], [ -22, %19 ], [ -22, %32 ], [ 0, %.thread11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %109
 }
@@ -2038,7 +2038,7 @@ define dso_local ptr @crypto_get_attr_type(ptr noundef readonly captures(none) %
   br label %13
 
 13:                                               ; preds = %8, %4, %1
-  %14 = phi ptr [ inttoptr (i64 -2 to ptr), %1 ], [ inttoptr (i64 -22 to ptr), %4 ], [ %spec.select, %8 ]
+  %14 = phi ptr [ %spec.select, %8 ], [ inttoptr (i64 -2 to ptr), %1 ], [ inttoptr (i64 -22 to ptr), %4 ]
   ret ptr %14
 }
 
@@ -2065,8 +2065,8 @@ define dso_local i32 @crypto_check_attr_type(ptr noundef readonly captures(none)
   %16 = icmp ugt ptr %14, inttoptr (i64 -4096 to ptr)
   br i1 %16, label %.thread, label %20
 
-.thread:                                          ; preds = %10, %6, %3, %15
-  %17 = phi ptr [ %14, %15 ], [ inttoptr (i64 -22 to ptr), %10 ], [ inttoptr (i64 -22 to ptr), %6 ], [ inttoptr (i64 -2 to ptr), %3 ]
+.thread:                                          ; preds = %6, %3, %10, %15
+  %17 = phi ptr [ %14, %15 ], [ inttoptr (i64 -22 to ptr), %6 ], [ inttoptr (i64 -2 to ptr), %3 ], [ inttoptr (i64 -22 to ptr), %10 ]
   %18 = ptrtoint ptr %17 to i64
   %19 = trunc i64 %18 to i32
   br label %31

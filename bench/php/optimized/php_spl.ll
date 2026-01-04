@@ -1272,10 +1272,10 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %33
   br i1 %cond.fr101, label %.critedge, label %.thread111, !prof !90
 
 .thread111:                                       ; preds = %zend_parse_arg_bool_ex.exit, %zend_parse_arg_bool_ex.exit97, %zend_parse_arg_func.exit, %13
-  %.073120 = phi i32 [ 9, %zend_parse_arg_bool_ex.exit97 ], [ %.85, %zend_parse_arg_func.exit ], [ 1, %13 ], [ 9, %zend_parse_arg_bool_ex.exit ]
-  %.074119 = phi i32 [ 2, %zend_parse_arg_bool_ex.exit97 ], [ %., %zend_parse_arg_func.exit ], [ 0, %13 ], [ 2, %zend_parse_arg_bool_ex.exit ]
-  %.075118 = phi ptr [ %30, %zend_parse_arg_bool_ex.exit97 ], [ %17, %zend_parse_arg_func.exit ], [ null, %13 ], [ %36, %zend_parse_arg_bool_ex.exit ]
-  %.076117 = phi i32 [ 2, %zend_parse_arg_bool_ex.exit97 ], [ 1, %zend_parse_arg_func.exit ], [ 0, %13 ], [ 3, %zend_parse_arg_bool_ex.exit ]
+  %.073120 = phi i32 [ 1, %13 ], [ %.85, %zend_parse_arg_func.exit ], [ 9, %zend_parse_arg_bool_ex.exit97 ], [ 9, %zend_parse_arg_bool_ex.exit ]
+  %.074119 = phi i32 [ 0, %13 ], [ %., %zend_parse_arg_func.exit ], [ 2, %zend_parse_arg_bool_ex.exit97 ], [ 2, %zend_parse_arg_bool_ex.exit ]
+  %.075118 = phi ptr [ null, %13 ], [ %17, %zend_parse_arg_func.exit ], [ %30, %zend_parse_arg_bool_ex.exit97 ], [ %36, %zend_parse_arg_bool_ex.exit ]
+  %.076117 = phi i32 [ 0, %13 ], [ 1, %zend_parse_arg_func.exit ], [ 2, %zend_parse_arg_bool_ex.exit97 ], [ 3, %zend_parse_arg_bool_ex.exit ]
   %38 = load ptr, ptr %8, align 8, !tbaa !83
   call void @zend_wrong_parameter_error(i32 noundef %.073120, i32 noundef %.076117, ptr noundef %38, i32 noundef %.074119, ptr noundef %.075118) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1621,7 +1621,7 @@ autoload_func_info_equals.exit:                   ; preds = %48
   br i1 %.not20, label %.thread38, label %13
 
 .thread38:                                        ; preds = %.thread, %42, %65, %autoload_func_info_equals.exit, %3, %1
-  %.015 = phi ptr [ null, %1 ], [ null, %3 ], [ null, %.thread ], [ %.01746, %42 ], [ %.01746, %65 ], [ %.01746, %autoload_func_info_equals.exit ]
+  %.015 = phi ptr [ null, %1 ], [ null, %3 ], [ %.01746, %65 ], [ %.01746, %42 ], [ null, %.thread ], [ %.01746, %autoload_func_info_equals.exit ]
   ret ptr %.015
 }
 

@@ -260,10 +260,10 @@ define hidden noundef i32 @mlib_ImageAffine_u8_1ch_bc(ptr noundef readonly captu
   %195 = getelementptr inbounds nuw i8, ptr %189, i64 6
   %196 = load i16, ptr %195, align 2
   %197 = icmp ugt i32 %185, 255
-  %198 = trunc nuw i32 %185 to i8
-  %199 = icmp sgt i32 %185, -1
-  %. = sext i1 %199 to i8
-  %.sink = select i1 %197, i8 %., i8 %198
+  %198 = icmp sgt i32 %185, -1
+  %. = sext i1 %198 to i8
+  %199 = trunc nuw i32 %185 to i8
+  %.sink = select i1 %197, i8 %., i8 %199
   store i8 %.sink, ptr %.0212238, align 1
   %200 = ashr i32 %88, 16
   %201 = ashr i32 %89, 16
@@ -675,10 +675,10 @@ define hidden noundef i32 @mlib_ImageAffine_u8_2ch_bc(ptr noundef readonly captu
   %201 = getelementptr inbounds nuw i8, ptr %195, i64 6
   %202 = load i16, ptr %201, align 2
   %203 = icmp ugt i32 %191, 255
-  %204 = trunc nuw i32 %191 to i8
-  %205 = icmp sgt i32 %191, -1
-  %. = sext i1 %205 to i8
-  %.sink = select i1 %203, i8 %., i8 %204
+  %204 = icmp sgt i32 %191, -1
+  %. = sext i1 %204 to i8
+  %205 = trunc nuw i32 %191 to i8
+  %.sink = select i1 %203, i8 %., i8 %205
   store i8 %.sink, ptr %.0252, align 1
   %206 = ashr i32 %95, 16
   %207 = sext i32 %206 to i64
@@ -1092,10 +1092,10 @@ define hidden noundef i32 @mlib_ImageAffine_u8_3ch_bc(ptr noundef readonly captu
   %200 = getelementptr inbounds nuw i8, ptr %194, i64 6
   %201 = load i16, ptr %200, align 2
   %202 = icmp ugt i32 %190, 255
-  %203 = trunc nuw i32 %190 to i8
-  %204 = icmp sgt i32 %190, -1
-  %. = sext i1 %204 to i8
-  %.sink = select i1 %202, i8 %., i8 %203
+  %203 = icmp sgt i32 %190, -1
+  %. = sext i1 %203 to i8
+  %204 = trunc nuw i32 %190 to i8
+  %.sink = select i1 %202, i8 %., i8 %204
   store i8 %.sink, ptr %.0252, align 1
   %205 = ashr i32 %93, 16
   %206 = ashr i32 %94, 16
@@ -1511,10 +1511,10 @@ define hidden noundef i32 @mlib_ImageAffine_u8_4ch_bc(ptr noundef readonly captu
   %200 = getelementptr inbounds nuw i8, ptr %194, i64 6
   %201 = load i16, ptr %200, align 2
   %202 = icmp ugt i32 %190, 255
-  %203 = trunc nuw i32 %190 to i8
-  %204 = icmp sgt i32 %190, -1
-  %. = sext i1 %204 to i8
-  %.sink = select i1 %202, i8 %., i8 %203
+  %203 = icmp sgt i32 %190, -1
+  %. = sext i1 %203 to i8
+  %204 = trunc nuw i32 %190 to i8
+  %.sink = select i1 %202, i8 %., i8 %204
   store i8 %.sink, ptr %.0252, align 1
   %205 = ashr i32 %94, 16
   %206 = sext i32 %205 to i64

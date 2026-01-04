@@ -676,8 +676,8 @@ sub_2:                                            ; preds = %sub_1
     i8 104, label %93
     i8 100, label %95
     i8 112, label %97
-    i8 116, label %99
-    i8 115, label %101
+    i8 116, label %101
+    i8 115, label %99
   ]
 
 89:                                               ; preds = %85
@@ -706,14 +706,14 @@ sub_2:                                            ; preds = %sub_1
   br i1 %.not21.not.i, label %111, label %103
 
 99:                                               ; preds = %85
-  %100 = call i32 @strncmp(ptr noundef nonnull @.str.308, ptr noundef nonnull %86, i64 noundef %87) #23
-  %.not20.not.i = icmp eq i32 %100, 0
-  br i1 %.not20.not.i, label %111, label %103
+  %100 = call i32 @strncmp(ptr noundef nonnull @.str.309, ptr noundef nonnull %86, i64 noundef %87) #23
+  %.not.not.i = icmp eq i32 %100, 0
+  br i1 %.not.not.i, label %111, label %103
 
 101:                                              ; preds = %85
-  %102 = call i32 @strncmp(ptr noundef nonnull @.str.309, ptr noundef nonnull %86, i64 noundef %87) #23
-  %.not.not.i = icmp eq i32 %102, 0
-  br i1 %.not.not.i, label %111, label %103
+  %102 = call i32 @strncmp(ptr noundef nonnull @.str.308, ptr noundef nonnull %86, i64 noundef %87) #23
+  %.not20.not.i = icmp eq i32 %102, 0
+  br i1 %.not20.not.i, label %111, label %103
 
 103:                                              ; preds = %101, %99, %97, %95, %93, %91, %89, %85
   %104 = load ptr, ptr @stderr, align 8, !tbaa !4
@@ -725,8 +725,8 @@ sub_2:                                            ; preds = %sub_1
   %110 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %109, ptr noundef nonnull @.str.301, ptr noundef %106) #19
   br label %process.exit.thread
 
-111:                                              ; preds = %101, %80, %89, %91, %93, %95, %97, %99
-  %.1.i.ph = phi i64 [ 6, %99 ], [ 5, %97 ], [ 4, %95 ], [ 3, %93 ], [ 2, %91 ], [ 1, %89 ], [ 0, %80 ], [ 7, %101 ]
+111:                                              ; preds = %101, %80, %93, %91, %95, %89, %99, %97
+  %.1.i.ph = phi i64 [ 5, %97 ], [ 7, %99 ], [ 1, %89 ], [ 4, %95 ], [ 2, %91 ], [ 3, %93 ], [ 0, %80 ], [ 6, %101 ]
   %112 = sext i32 %.0123407 to i64
   %113 = getelementptr inbounds [8 x i32], ptr @state_table, i64 %112
   %114 = getelementptr inbounds nuw i32, ptr %113, i64 %.1.i.ph
@@ -1005,7 +1005,7 @@ parseDimensions.exit.thread:                      ; preds = %.lr.ph.i, %180
   br label %process.exit.thread
 
 252:                                              ; preds = %.thread, %parseDimensions.exit.thread, %226, %111, %111, %111, %111, %111, %111, %119, %148, %245, %200, %228
-  %.1125 = phi ptr [ %126, %119 ], [ %.0124406, %148 ], [ %.0124406, %200 ], [ %.0124406, %228 ], [ %.0124406, %111 ], [ %.0124406, %111 ], [ %.0124406, %111 ], [ %.0124406, %111 ], [ %.0124406, %111 ], [ %.0124406, %111 ], [ %.0124406, %245 ], [ %.0124406, %226 ], [ %.0124406, %parseDimensions.exit.thread ], [ %.0124406, %.thread ]
+  %.1125 = phi ptr [ %126, %119 ], [ %.0124406, %148 ], [ %.0124406, %.thread ], [ %.0124406, %parseDimensions.exit.thread ], [ %.0124406, %200 ], [ %.0124406, %228 ], [ %.0124406, %226 ], [ %.0124406, %111 ], [ %.0124406, %111 ], [ %.0124406, %111 ], [ %.0124406, %111 ], [ %.0124406, %111 ], [ %.0124406, %111 ], [ %.0124406, %245 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %254, label %80, !llvm.loop !38
@@ -1928,8 +1928,8 @@ readFloatData.exit.thread.i.i:                    ; preds = %562, %555, %548, %5
   br label %.loopexit.i.i.i
 
 .loopexit.i.i.i:                                  ; preds = %.loopexit.loopexit98.i.i.i, %.loopexit.loopexit.i.i.i, %609, %601
-  %.156.i.i.i = phi i64 [ %.0105.i, %601 ], [ %611, %609 ], [ %616, %.loopexit.loopexit.i.i.i ], [ %607, %.loopexit.loopexit98.i.i.i ]
-  %.254.i.i.i = phi i32 [ 0, %601 ], [ %.15389.i.i.i, %609 ], [ %626, %.loopexit.loopexit.i.i.i ], [ %627, %.loopexit.loopexit98.i.i.i ]
+  %.156.i.i.i = phi i64 [ %.0105.i, %601 ], [ %616, %.loopexit.loopexit.i.i.i ], [ %611, %609 ], [ %607, %.loopexit.loopexit98.i.i.i ]
+  %.254.i.i.i = phi i32 [ 0, %601 ], [ %626, %.loopexit.loopexit.i.i.i ], [ %.15389.i.i.i, %609 ], [ %627, %.loopexit.loopexit98.i.i.i ]
   %628 = load i32, ptr %17, align 4, !tbaa !12
   %.not72.i77.i.i = icmp eq i32 %628, 0
   %629 = load ptr, ptr %18, align 8, !tbaa !11
@@ -2219,8 +2219,8 @@ processStrHDFData.exit.i.i:                       ; preds = %671, %.preheader.i7
   br label %.loopexit.i88.i.i
 
 .loopexit.i88.i.i:                                ; preds = %.loopexit.loopexit97.i.i.i, %.loopexit.loopexit.i101.i.i, %739, %731
-  %.162.i.i.i = phi i64 [ %.0105.i, %731 ], [ %741, %739 ], [ %746, %.loopexit.loopexit.i101.i.i ], [ %737, %.loopexit.loopexit97.i.i.i ]
-  %.257.i.i.i = phi i32 [ 0, %731 ], [ %.15687.i.i.i, %739 ], [ %756, %.loopexit.loopexit.i101.i.i ], [ %757, %.loopexit.loopexit97.i.i.i ]
+  %.162.i.i.i = phi i64 [ %.0105.i, %731 ], [ %746, %.loopexit.loopexit.i101.i.i ], [ %741, %739 ], [ %737, %.loopexit.loopexit97.i.i.i ]
+  %.257.i.i.i = phi i32 [ 0, %731 ], [ %756, %.loopexit.loopexit.i101.i.i ], [ %.15687.i.i.i, %739 ], [ %757, %.loopexit.loopexit97.i.i.i ]
   %758 = load i32, ptr %9, align 4, !tbaa !12
   %.not74.i89.i.i = icmp eq i32 %758, 0
   %759 = load ptr, ptr %10, align 8, !tbaa !11
@@ -2852,8 +2852,8 @@ processDataFile.exit.thread.i:                    ; preds = %processDataFile.exi
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit356.i, %.loopexit.loopexit.i, %994, %986
-  %.3120.i = phi i32 [ 0, %986 ], [ %.2119343.i, %994 ], [ %1011, %.loopexit.loopexit.i ], [ %1012, %.loopexit.loopexit356.i ]
-  %.1109.i = phi i64 [ %.0105.i, %986 ], [ %996, %994 ], [ %1001, %.loopexit.loopexit.i ], [ %992, %.loopexit.loopexit356.i ]
+  %.3120.i = phi i32 [ 0, %986 ], [ %1011, %.loopexit.loopexit.i ], [ %.2119343.i, %994 ], [ %1012, %.loopexit.loopexit356.i ]
+  %.1109.i = phi i64 [ %.0105.i, %986 ], [ %1001, %.loopexit.loopexit.i ], [ %996, %994 ], [ %992, %.loopexit.loopexit356.i ]
   %1013 = load i32, ptr %34, align 4, !tbaa !12
   %.not129.i = icmp eq i32 %1013, 0
   %1014 = load ptr, ptr %35, align 8, !tbaa !11
@@ -3180,7 +3180,7 @@ process.exit.thread:                              ; preds = %.thread.i166, %1107
   br i1 %1188, label %.lr.ph412, label %._crit_edge, !llvm.loop !94
 
 ._crit_edge:                                      ; preds = %1156, %1185, %process.exit.thread, %process.exit
-  %.0 = phi i32 [ 0, %process.exit ], [ 1, %process.exit.thread ], [ 1, %1185 ], [ 0, %1156 ]
+  %.0 = phi i32 [ 0, %process.exit ], [ 1, %1185 ], [ 1, %process.exit.thread ], [ 0, %1156 ]
   call void @free(ptr noundef nonnull %47) #19
   ret i32 %.0
 }
@@ -3958,12 +3958,12 @@ define dso_local i64 @createOutputDataType(ptr noundef readonly captures(none) %
   br label %492
 
 .sink.split:                                      ; preds = %31, %25, %19, %13
-  %H5T_NATIVE_LLONG_g.sink.ph = phi ptr [ @H5T_NATIVE_SCHAR_g, %13 ], [ @H5T_NATIVE_SHORT_g, %19 ], [ @H5T_NATIVE_INT_g, %25 ], [ @H5T_NATIVE_LLONG_g, %31 ]
+  %H5T_NATIVE_LLONG_g.sink.ph = phi ptr [ @H5T_NATIVE_INT_g, %25 ], [ @H5T_NATIVE_SHORT_g, %19 ], [ @H5T_NATIVE_SCHAR_g, %13 ], [ @H5T_NATIVE_LLONG_g, %31 ]
   %40 = tail call i32 @H5open() #19
   br label %41
 
 41:                                               ; preds = %.sink.split, %31, %25, %19, %13
-  %H5T_NATIVE_LLONG_g.sink = phi ptr [ @H5T_NATIVE_SCHAR_g, %13 ], [ @H5T_NATIVE_SHORT_g, %19 ], [ @H5T_NATIVE_INT_g, %25 ], [ @H5T_NATIVE_LLONG_g, %31 ], [ %H5T_NATIVE_LLONG_g.sink.ph, %.sink.split ]
+  %H5T_NATIVE_LLONG_g.sink = phi ptr [ @H5T_NATIVE_SHORT_g, %19 ], [ @H5T_NATIVE_INT_g, %25 ], [ @H5T_NATIVE_LLONG_g, %31 ], [ @H5T_NATIVE_SCHAR_g, %13 ], [ %H5T_NATIVE_LLONG_g.sink.ph, %.sink.split ]
   %42 = load i64, ptr %H5T_NATIVE_LLONG_g.sink, align 8, !tbaa !33
   %43 = tail call i64 @H5Tcopy(i64 noundef %42) #19
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 5148
@@ -4253,12 +4253,12 @@ define dso_local i64 @createOutputDataType(ptr noundef readonly captures(none) %
   br label %492
 
 .sink.split61:                                    ; preds = %195, %189, %183
-  %H5T_NATIVE_DOUBLE_g.sink.ph = phi ptr [ @H5T_NATIVE_FLOAT16_g, %183 ], [ @H5T_NATIVE_FLOAT_g, %189 ], [ @H5T_NATIVE_DOUBLE_g, %195 ]
+  %H5T_NATIVE_DOUBLE_g.sink.ph = phi ptr [ @H5T_NATIVE_FLOAT_g, %189 ], [ @H5T_NATIVE_FLOAT16_g, %183 ], [ @H5T_NATIVE_DOUBLE_g, %195 ]
   %204 = tail call i32 @H5open() #19
   br label %205
 
 205:                                              ; preds = %.sink.split61, %195, %189, %183
-  %H5T_NATIVE_DOUBLE_g.sink = phi ptr [ @H5T_NATIVE_FLOAT16_g, %183 ], [ @H5T_NATIVE_FLOAT_g, %189 ], [ @H5T_NATIVE_DOUBLE_g, %195 ], [ %H5T_NATIVE_DOUBLE_g.sink.ph, %.sink.split61 ]
+  %H5T_NATIVE_DOUBLE_g.sink = phi ptr [ @H5T_NATIVE_FLOAT_g, %189 ], [ @H5T_NATIVE_DOUBLE_g, %195 ], [ @H5T_NATIVE_FLOAT16_g, %183 ], [ %H5T_NATIVE_DOUBLE_g.sink.ph, %.sink.split61 ]
   %206 = load i64, ptr %H5T_NATIVE_DOUBLE_g.sink, align 8, !tbaa !33
   %207 = tail call i64 @H5Tcopy(i64 noundef %206) #19
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 5148
@@ -4513,12 +4513,12 @@ define dso_local i64 @createOutputDataType(ptr noundef readonly captures(none) %
   br label %492
 
 .sink.split62:                                    ; preds = %340, %334, %328, %322
-  %H5T_NATIVE_ULLONG_g.sink.ph = phi ptr [ @H5T_NATIVE_UCHAR_g, %322 ], [ @H5T_NATIVE_USHORT_g, %328 ], [ @H5T_NATIVE_UINT_g, %334 ], [ @H5T_NATIVE_ULLONG_g, %340 ]
+  %H5T_NATIVE_ULLONG_g.sink.ph = phi ptr [ @H5T_NATIVE_UINT_g, %334 ], [ @H5T_NATIVE_USHORT_g, %328 ], [ @H5T_NATIVE_UCHAR_g, %322 ], [ @H5T_NATIVE_ULLONG_g, %340 ]
   %349 = tail call i32 @H5open() #19
   br label %350
 
 350:                                              ; preds = %.sink.split62, %340, %334, %328, %322
-  %H5T_NATIVE_ULLONG_g.sink = phi ptr [ @H5T_NATIVE_UCHAR_g, %322 ], [ @H5T_NATIVE_USHORT_g, %328 ], [ @H5T_NATIVE_UINT_g, %334 ], [ @H5T_NATIVE_ULLONG_g, %340 ], [ %H5T_NATIVE_ULLONG_g.sink.ph, %.sink.split62 ]
+  %H5T_NATIVE_ULLONG_g.sink = phi ptr [ @H5T_NATIVE_USHORT_g, %328 ], [ @H5T_NATIVE_UINT_g, %334 ], [ @H5T_NATIVE_ULLONG_g, %340 ], [ @H5T_NATIVE_UCHAR_g, %322 ], [ %H5T_NATIVE_ULLONG_g.sink.ph, %.sink.split62 ]
   %351 = load i64, ptr %H5T_NATIVE_ULLONG_g.sink, align 8, !tbaa !33
   %352 = tail call i64 @H5Tcopy(i64 noundef %351) #19
   %353 = getelementptr inbounds nuw i8, ptr %0, i64 5148
@@ -4771,7 +4771,7 @@ define dso_local i64 @createOutputDataType(ptr noundef readonly captures(none) %
   br label %492
 
 492:                                              ; preds = %81, %70, %109, %98, %137, %126, %165, %154, %41, %46, %48, %245, %234, %273, %262, %301, %290, %205, %210, %212, %390, %379, %418, %407, %446, %435, %474, %463, %350, %355, %357, %489, %486, %483, %480, %477, %449, %421, %393, %359, %346, %310, %307, %304, %276, %248, %217, %214, %201, %174, %171, %168, %140, %112, %84, %50, %37
-  %.0 = phi i64 [ -1, %489 ], [ -1, %174 ], [ -1, %37 ], [ -1, %50 ], [ -1, %171 ], [ -1, %84 ], [ -1, %112 ], [ -1, %140 ], [ -1, %168 ], [ -1, %310 ], [ -1, %201 ], [ -1, %214 ], [ -1, %217 ], [ -1, %307 ], [ -1, %248 ], [ -1, %276 ], [ -1, %304 ], [ -1, %486 ], [ -1, %346 ], [ -1, %359 ], [ -1, %480 ], [ -1, %393 ], [ -1, %421 ], [ -1, %449 ], [ -1, %477 ], [ -1, %483 ], [ %43, %41 ], [ %43, %46 ], [ %43, %48 ], [ %72, %70 ], [ %83, %81 ], [ %100, %98 ], [ %111, %109 ], [ %128, %126 ], [ %139, %137 ], [ %156, %154 ], [ %167, %165 ], [ %207, %205 ], [ %207, %210 ], [ %207, %212 ], [ %236, %234 ], [ %247, %245 ], [ %264, %262 ], [ %275, %273 ], [ %292, %290 ], [ %303, %301 ], [ %352, %350 ], [ %352, %355 ], [ %352, %357 ], [ %381, %379 ], [ %392, %390 ], [ %409, %407 ], [ %420, %418 ], [ %437, %435 ], [ %448, %446 ], [ %465, %463 ], [ %476, %474 ]
+  %.0 = phi i64 [ -1, %489 ], [ -1, %174 ], [ -1, %37 ], [ -1, %50 ], [ -1, %483 ], [ -1, %171 ], [ -1, %84 ], [ -1, %112 ], [ -1, %140 ], [ -1, %168 ], [ -1, %310 ], [ -1, %201 ], [ -1, %214 ], [ -1, %217 ], [ -1, %307 ], [ -1, %248 ], [ -1, %276 ], [ -1, %304 ], [ -1, %486 ], [ -1, %346 ], [ -1, %359 ], [ -1, %480 ], [ -1, %393 ], [ -1, %421 ], [ -1, %449 ], [ -1, %477 ], [ %43, %41 ], [ %43, %46 ], [ %43, %48 ], [ %72, %70 ], [ %83, %81 ], [ %100, %98 ], [ %111, %109 ], [ %128, %126 ], [ %139, %137 ], [ %156, %154 ], [ %167, %165 ], [ %207, %205 ], [ %207, %210 ], [ %207, %212 ], [ %236, %234 ], [ %247, %245 ], [ %264, %262 ], [ %275, %273 ], [ %292, %290 ], [ %303, %301 ], [ %352, %350 ], [ %352, %355 ], [ %352, %357 ], [ %381, %379 ], [ %392, %390 ], [ %409, %407 ], [ %420, %418 ], [ %437, %435 ], [ %448, %446 ], [ %465, %463 ], [ %476, %474 ]
   ret i64 %.0
 }
 
@@ -4858,12 +4858,12 @@ define dso_local i64 @createInputDataType(ptr noundef readonly captures(none) %0
   br label %646
 
 .sink.split:                                      ; preds = %33, %27, %21, %15
-  %H5T_NATIVE_LLONG_g.sink.ph = phi ptr [ @H5T_NATIVE_SCHAR_g, %15 ], [ @H5T_NATIVE_SHORT_g, %21 ], [ @H5T_NATIVE_INT_g, %27 ], [ @H5T_NATIVE_LLONG_g, %33 ]
+  %H5T_NATIVE_LLONG_g.sink.ph = phi ptr [ @H5T_NATIVE_INT_g, %27 ], [ @H5T_NATIVE_SHORT_g, %21 ], [ @H5T_NATIVE_SCHAR_g, %15 ], [ @H5T_NATIVE_LLONG_g, %33 ]
   %42 = tail call i32 @H5open() #19
   br label %43
 
 43:                                               ; preds = %.sink.split, %33, %27, %21, %15
-  %H5T_NATIVE_LLONG_g.sink = phi ptr [ @H5T_NATIVE_SCHAR_g, %15 ], [ @H5T_NATIVE_SHORT_g, %21 ], [ @H5T_NATIVE_INT_g, %27 ], [ @H5T_NATIVE_LLONG_g, %33 ], [ %H5T_NATIVE_LLONG_g.sink.ph, %.sink.split ]
+  %H5T_NATIVE_LLONG_g.sink = phi ptr [ @H5T_NATIVE_SHORT_g, %21 ], [ @H5T_NATIVE_INT_g, %27 ], [ @H5T_NATIVE_LLONG_g, %33 ], [ @H5T_NATIVE_SCHAR_g, %15 ], [ %H5T_NATIVE_LLONG_g.sink.ph, %.sink.split ]
   %44 = load i64, ptr %H5T_NATIVE_LLONG_g.sink, align 8, !tbaa !33
   %45 = tail call i64 @H5Tcopy(i64 noundef %44) #19
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 5120
@@ -5153,12 +5153,12 @@ define dso_local i64 @createInputDataType(ptr noundef readonly captures(none) %0
   br label %646
 
 .sink.split73:                                    ; preds = %197, %191, %185
-  %H5T_NATIVE_DOUBLE_g.sink.ph = phi ptr [ @H5T_NATIVE_FLOAT16_g, %185 ], [ @H5T_NATIVE_FLOAT_g, %191 ], [ @H5T_NATIVE_DOUBLE_g, %197 ]
+  %H5T_NATIVE_DOUBLE_g.sink.ph = phi ptr [ @H5T_NATIVE_FLOAT_g, %191 ], [ @H5T_NATIVE_FLOAT16_g, %185 ], [ @H5T_NATIVE_DOUBLE_g, %197 ]
   %206 = tail call i32 @H5open() #19
   br label %207
 
 207:                                              ; preds = %.sink.split73, %197, %191, %185
-  %H5T_NATIVE_DOUBLE_g.sink = phi ptr [ @H5T_NATIVE_FLOAT16_g, %185 ], [ @H5T_NATIVE_FLOAT_g, %191 ], [ @H5T_NATIVE_DOUBLE_g, %197 ], [ %H5T_NATIVE_DOUBLE_g.sink.ph, %.sink.split73 ]
+  %H5T_NATIVE_DOUBLE_g.sink = phi ptr [ @H5T_NATIVE_FLOAT_g, %191 ], [ @H5T_NATIVE_DOUBLE_g, %197 ], [ @H5T_NATIVE_FLOAT16_g, %185 ], [ %H5T_NATIVE_DOUBLE_g.sink.ph, %.sink.split73 ]
   %208 = load i64, ptr %H5T_NATIVE_DOUBLE_g.sink, align 8, !tbaa !33
   %209 = tail call i64 @H5Tcopy(i64 noundef %208) #19
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 5120
@@ -5413,12 +5413,12 @@ define dso_local i64 @createInputDataType(ptr noundef readonly captures(none) %0
   br label %646
 
 .sink.split74:                                    ; preds = %342, %336, %330, %324
-  %H5T_NATIVE_ULLONG_g.sink.ph = phi ptr [ @H5T_NATIVE_UCHAR_g, %324 ], [ @H5T_NATIVE_USHORT_g, %330 ], [ @H5T_NATIVE_UINT_g, %336 ], [ @H5T_NATIVE_ULLONG_g, %342 ]
+  %H5T_NATIVE_ULLONG_g.sink.ph = phi ptr [ @H5T_NATIVE_UINT_g, %336 ], [ @H5T_NATIVE_USHORT_g, %330 ], [ @H5T_NATIVE_UCHAR_g, %324 ], [ @H5T_NATIVE_ULLONG_g, %342 ]
   %351 = tail call i32 @H5open() #19
   br label %352
 
 352:                                              ; preds = %.sink.split74, %342, %336, %330, %324
-  %H5T_NATIVE_ULLONG_g.sink = phi ptr [ @H5T_NATIVE_UCHAR_g, %324 ], [ @H5T_NATIVE_USHORT_g, %330 ], [ @H5T_NATIVE_UINT_g, %336 ], [ @H5T_NATIVE_ULLONG_g, %342 ], [ %H5T_NATIVE_ULLONG_g.sink.ph, %.sink.split74 ]
+  %H5T_NATIVE_ULLONG_g.sink = phi ptr [ @H5T_NATIVE_USHORT_g, %330 ], [ @H5T_NATIVE_UINT_g, %336 ], [ @H5T_NATIVE_ULLONG_g, %342 ], [ @H5T_NATIVE_UCHAR_g, %324 ], [ %H5T_NATIVE_ULLONG_g.sink.ph, %.sink.split74 ]
   %353 = load i64, ptr %H5T_NATIVE_ULLONG_g.sink, align 8, !tbaa !33
   %354 = tail call i64 @H5Tcopy(i64 noundef %353) #19
   %355 = getelementptr inbounds nuw i8, ptr %0, i64 5120
@@ -5936,7 +5936,7 @@ define dso_local i64 @createInputDataType(ptr noundef readonly captures(none) %0
   br label %646
 
 646:                                              ; preds = %359, %357, %352, %465, %476, %437, %448, %409, %420, %381, %392, %214, %212, %207, %292, %303, %264, %275, %236, %247, %50, %48, %43, %156, %167, %128, %139, %100, %111, %72, %83, %604, %615, %626, %637, %559, %570, %581, %509, %520, %531, %542, %643, %640, %587, %584, %545, %491, %488, %485, %482, %479, %451, %423, %395, %361, %348, %312, %309, %306, %278, %250, %219, %216, %203, %176, %173, %170, %142, %114, %86, %52, %39
-  %.0 = phi i64 [ -1, %491 ], [ -1, %176 ], [ -1, %39 ], [ -1, %52 ], [ -1, %173 ], [ -1, %86 ], [ -1, %114 ], [ -1, %142 ], [ -1, %170 ], [ -1, %312 ], [ -1, %203 ], [ -1, %216 ], [ -1, %219 ], [ -1, %309 ], [ -1, %250 ], [ -1, %278 ], [ -1, %306 ], [ -1, %488 ], [ -1, %348 ], [ -1, %361 ], [ -1, %482 ], [ -1, %395 ], [ -1, %423 ], [ -1, %451 ], [ -1, %479 ], [ -1, %485 ], [ -1, %643 ], [ -1, %545 ], [ -1, %584 ], [ -1, %587 ], [ -1, %640 ], [ %45, %43 ], [ %45, %48 ], [ %45, %50 ], [ %74, %72 ], [ %85, %83 ], [ %102, %100 ], [ %113, %111 ], [ %130, %128 ], [ %141, %139 ], [ %158, %156 ], [ %169, %167 ], [ %209, %207 ], [ %209, %212 ], [ %209, %214 ], [ %238, %236 ], [ %249, %247 ], [ %266, %264 ], [ %277, %275 ], [ %294, %292 ], [ %305, %303 ], [ %354, %352 ], [ %354, %357 ], [ %354, %359 ], [ %383, %381 ], [ %394, %392 ], [ %411, %409 ], [ %422, %420 ], [ %439, %437 ], [ %450, %448 ], [ %467, %465 ], [ %478, %476 ], [ %511, %509 ], [ %522, %520 ], [ %533, %531 ], [ %544, %542 ], [ %561, %559 ], [ %572, %570 ], [ %583, %581 ], [ %606, %604 ], [ %617, %615 ], [ %628, %626 ], [ %639, %637 ]
+  %.0 = phi i64 [ -1, %491 ], [ -1, %176 ], [ -1, %39 ], [ -1, %52 ], [ -1, %640 ], [ -1, %173 ], [ -1, %86 ], [ -1, %114 ], [ -1, %142 ], [ -1, %170 ], [ -1, %312 ], [ -1, %203 ], [ -1, %216 ], [ -1, %219 ], [ -1, %309 ], [ -1, %250 ], [ -1, %278 ], [ -1, %306 ], [ -1, %488 ], [ -1, %348 ], [ -1, %361 ], [ -1, %482 ], [ -1, %395 ], [ -1, %423 ], [ -1, %451 ], [ -1, %479 ], [ -1, %485 ], [ -1, %643 ], [ -1, %545 ], [ -1, %584 ], [ -1, %587 ], [ %45, %43 ], [ %45, %48 ], [ %45, %50 ], [ %74, %72 ], [ %85, %83 ], [ %102, %100 ], [ %113, %111 ], [ %130, %128 ], [ %141, %139 ], [ %158, %156 ], [ %169, %167 ], [ %209, %207 ], [ %209, %212 ], [ %209, %214 ], [ %238, %236 ], [ %249, %247 ], [ %266, %264 ], [ %277, %275 ], [ %294, %292 ], [ %305, %303 ], [ %354, %352 ], [ %354, %357 ], [ %354, %359 ], [ %383, %381 ], [ %394, %392 ], [ %411, %409 ], [ %422, %420 ], [ %439, %437 ], [ %450, %448 ], [ %467, %465 ], [ %478, %476 ], [ %511, %509 ], [ %522, %520 ], [ %533, %531 ], [ %544, %542 ], [ %561, %559 ], [ %572, %570 ], [ %583, %581 ], [ %606, %604 ], [ %617, %615 ], [ %628, %626 ], [ %639, %637 ]
   ret i64 %.0
 }
 
@@ -7551,8 +7551,8 @@ OutputArchStrToInt.exit933.thread.i:              ; preds = %471
   br label %485
 
 .critedge.sink.split.i:                           ; preds = %.preheader1164.i, %.preheader1163.i, %.preheader1162.i, %.preheader1161.i, %.preheader1160.i, %.preheader1159.i, %.preheader1158.i, %.preheader.i
-  %indvars.iv.i843.lcssa.sink.i = phi i64 [ %indvars.iv.i843.i, %.preheader.i ], [ %indvars.iv.i855.i, %.preheader1158.i ], [ %indvars.iv.i867.i, %.preheader1159.i ], [ %indvars.iv.i879.i, %.preheader1160.i ], [ %indvars.iv.i891.i, %.preheader1161.i ], [ %indvars.iv.i903.i, %.preheader1162.i ], [ %indvars.iv.i915.i, %.preheader1163.i ], [ %indvars.iv.i927.i, %.preheader1164.i ]
-  %.sink.i = phi i32 [ 0, %.preheader.i ], [ 1, %.preheader1158.i ], [ 0, %.preheader1159.i ], [ 1, %.preheader1160.i ], [ 0, %.preheader1161.i ], [ 1, %.preheader1162.i ], [ 0, %.preheader1163.i ], [ 1, %.preheader1164.i ]
+  %indvars.iv.i843.lcssa.sink.i = phi i64 [ %indvars.iv.i879.i, %.preheader1160.i ], [ %indvars.iv.i891.i, %.preheader1161.i ], [ %indvars.iv.i903.i, %.preheader1162.i ], [ %indvars.iv.i915.i, %.preheader1163.i ], [ %indvars.iv.i843.i, %.preheader.i ], [ %indvars.iv.i855.i, %.preheader1158.i ], [ %indvars.iv.i867.i, %.preheader1159.i ], [ %indvars.iv.i927.i, %.preheader1164.i ]
+  %.sink.i = phi i32 [ 1, %.preheader1160.i ], [ 0, %.preheader1161.i ], [ 1, %.preheader1162.i ], [ 0, %.preheader1163.i ], [ 0, %.preheader.i ], [ 1, %.preheader1158.i ], [ 0, %.preheader1159.i ], [ 1, %.preheader1164.i ]
   %474 = trunc nuw nsw i64 %indvars.iv.i843.lcssa.sink.i to i32
   store i32 %474, ptr %55, align 8, !tbaa !29
   store i32 %.sink.i, ptr %56, align 4, !tbaa !30
@@ -7564,10 +7564,10 @@ OutputArchStrToInt.exit933.thread.i:              ; preds = %471
   br label %485
 
 477:                                              ; preds = %425, %OutputArchStrToInt.exit842.i, %OutputArchStrToInt.exit835.i, %OutputArchStrToInt.exit828.i, %OutputArchStrToInt.exit821.i, %387, %385, %OutputByteOrderStrToInt.exit814.i, %OutputByteOrderStrToInt.exit802.i, %OutputByteOrderStrToInt.exit790.i, %OutputByteOrderStrToInt.exit778.i, %OutputByteOrderStrToInt.exit766.i, %OutputByteOrderStrToInt.exit754.i, %OutputArchStrToInt.exit742.i, %OutputArchStrToInt.exit735.i, %OutputArchStrToInt.exit728.i, %OutputArchStrToInt.exit721.i, %OutputArchStrToInt.exit714.i, %OutputArchStrToInt.exit707.i, %OutputArchStrToInt.exit700.i, %OutputArchStrToInt.exit693.i, %OutputArchStrToInt.exit686.i, %OutputArchStrToInt.exit679.i, %OutputByteOrderStrToInt.exit672.i, %OutputByteOrderStrToInt.exit660.i, %OutputByteOrderStrToInt.exit648.i, %OutputByteOrderStrToInt.exit636.i, %OutputByteOrderStrToInt.exit624.i, %OutputByteOrderStrToInt.exit612.i, %OutputByteOrderStrToInt.exit600.i, %OutputByteOrderStrToInt.exit588.i, %OutputByteOrderStrToInt.exit576.i, %OutputByteOrderStrToInt.exit564.i, %OutputByteOrderStrToInt.exit552.i, %OutputByteOrderStrToInt.exit540.i, %OutputByteOrderStrToInt.exit528.i, %OutputByteOrderStrToInt.exit516.i, %OutputByteOrderStrToInt.exit504.i, %OutputByteOrderStrToInt.exit.i
-  %478 = phi i1 [ true, %OutputArchStrToInt.exit842.i ], [ true, %OutputArchStrToInt.exit835.i ], [ true, %OutputArchStrToInt.exit828.i ], [ true, %OutputArchStrToInt.exit821.i ], [ true, %387 ], [ true, %385 ], [ true, %OutputByteOrderStrToInt.exit814.i ], [ true, %OutputByteOrderStrToInt.exit802.i ], [ true, %OutputByteOrderStrToInt.exit790.i ], [ true, %OutputByteOrderStrToInt.exit778.i ], [ true, %OutputByteOrderStrToInt.exit766.i ], [ true, %OutputByteOrderStrToInt.exit754.i ], [ false, %OutputArchStrToInt.exit742.i ], [ false, %OutputArchStrToInt.exit735.i ], [ false, %OutputArchStrToInt.exit728.i ], [ false, %OutputArchStrToInt.exit721.i ], [ false, %OutputArchStrToInt.exit714.i ], [ false, %OutputArchStrToInt.exit707.i ], [ false, %OutputArchStrToInt.exit700.i ], [ false, %OutputArchStrToInt.exit693.i ], [ false, %OutputArchStrToInt.exit686.i ], [ false, %OutputArchStrToInt.exit679.i ], [ false, %OutputByteOrderStrToInt.exit672.i ], [ false, %OutputByteOrderStrToInt.exit660.i ], [ false, %OutputByteOrderStrToInt.exit648.i ], [ false, %OutputByteOrderStrToInt.exit636.i ], [ false, %OutputByteOrderStrToInt.exit624.i ], [ false, %OutputByteOrderStrToInt.exit612.i ], [ false, %OutputByteOrderStrToInt.exit600.i ], [ false, %OutputByteOrderStrToInt.exit588.i ], [ false, %OutputByteOrderStrToInt.exit576.i ], [ false, %OutputByteOrderStrToInt.exit564.i ], [ false, %OutputByteOrderStrToInt.exit552.i ], [ false, %OutputByteOrderStrToInt.exit540.i ], [ false, %OutputByteOrderStrToInt.exit528.i ], [ false, %OutputByteOrderStrToInt.exit516.i ], [ false, %OutputByteOrderStrToInt.exit504.i ], [ false, %OutputByteOrderStrToInt.exit.i ], [ false, %425 ]
-  %479 = phi i1 [ false, %OutputArchStrToInt.exit842.i ], [ false, %OutputArchStrToInt.exit835.i ], [ false, %OutputArchStrToInt.exit828.i ], [ false, %OutputArchStrToInt.exit821.i ], [ false, %387 ], [ false, %385 ], [ false, %OutputByteOrderStrToInt.exit814.i ], [ false, %OutputByteOrderStrToInt.exit802.i ], [ false, %OutputByteOrderStrToInt.exit790.i ], [ false, %OutputByteOrderStrToInt.exit778.i ], [ false, %OutputByteOrderStrToInt.exit766.i ], [ false, %OutputByteOrderStrToInt.exit754.i ], [ false, %OutputArchStrToInt.exit742.i ], [ false, %OutputArchStrToInt.exit735.i ], [ false, %OutputArchStrToInt.exit728.i ], [ false, %OutputArchStrToInt.exit721.i ], [ false, %OutputArchStrToInt.exit714.i ], [ false, %OutputArchStrToInt.exit707.i ], [ false, %OutputArchStrToInt.exit700.i ], [ false, %OutputArchStrToInt.exit693.i ], [ false, %OutputArchStrToInt.exit686.i ], [ false, %OutputArchStrToInt.exit679.i ], [ false, %OutputByteOrderStrToInt.exit672.i ], [ false, %OutputByteOrderStrToInt.exit660.i ], [ false, %OutputByteOrderStrToInt.exit648.i ], [ false, %OutputByteOrderStrToInt.exit636.i ], [ false, %OutputByteOrderStrToInt.exit624.i ], [ false, %OutputByteOrderStrToInt.exit612.i ], [ false, %OutputByteOrderStrToInt.exit600.i ], [ false, %OutputByteOrderStrToInt.exit588.i ], [ false, %OutputByteOrderStrToInt.exit576.i ], [ false, %OutputByteOrderStrToInt.exit564.i ], [ false, %OutputByteOrderStrToInt.exit552.i ], [ false, %OutputByteOrderStrToInt.exit540.i ], [ false, %OutputByteOrderStrToInt.exit528.i ], [ false, %OutputByteOrderStrToInt.exit516.i ], [ false, %OutputByteOrderStrToInt.exit504.i ], [ false, %OutputByteOrderStrToInt.exit.i ], [ true, %425 ]
-  %cond1075 = phi i1 [ false, %OutputArchStrToInt.exit842.i ], [ false, %OutputArchStrToInt.exit835.i ], [ false, %OutputArchStrToInt.exit828.i ], [ false, %OutputArchStrToInt.exit821.i ], [ false, %387 ], [ false, %385 ], [ false, %OutputByteOrderStrToInt.exit814.i ], [ false, %OutputByteOrderStrToInt.exit802.i ], [ false, %OutputByteOrderStrToInt.exit790.i ], [ false, %OutputByteOrderStrToInt.exit778.i ], [ false, %OutputByteOrderStrToInt.exit766.i ], [ false, %OutputByteOrderStrToInt.exit754.i ], [ false, %OutputArchStrToInt.exit742.i ], [ true, %OutputArchStrToInt.exit735.i ], [ false, %OutputArchStrToInt.exit728.i ], [ true, %OutputArchStrToInt.exit721.i ], [ false, %OutputArchStrToInt.exit714.i ], [ true, %OutputArchStrToInt.exit707.i ], [ false, %OutputArchStrToInt.exit700.i ], [ true, %OutputArchStrToInt.exit693.i ], [ false, %OutputArchStrToInt.exit686.i ], [ true, %OutputArchStrToInt.exit679.i ], [ false, %OutputByteOrderStrToInt.exit672.i ], [ false, %OutputByteOrderStrToInt.exit660.i ], [ false, %OutputByteOrderStrToInt.exit648.i ], [ false, %OutputByteOrderStrToInt.exit636.i ], [ false, %OutputByteOrderStrToInt.exit624.i ], [ false, %OutputByteOrderStrToInt.exit612.i ], [ false, %OutputByteOrderStrToInt.exit600.i ], [ false, %OutputByteOrderStrToInt.exit588.i ], [ true, %OutputByteOrderStrToInt.exit576.i ], [ true, %OutputByteOrderStrToInt.exit564.i ], [ true, %OutputByteOrderStrToInt.exit552.i ], [ true, %OutputByteOrderStrToInt.exit540.i ], [ true, %OutputByteOrderStrToInt.exit528.i ], [ true, %OutputByteOrderStrToInt.exit516.i ], [ true, %OutputByteOrderStrToInt.exit504.i ], [ true, %OutputByteOrderStrToInt.exit.i ], [ false, %425 ]
-  %480 = phi i32 [ 3, %OutputArchStrToInt.exit842.i ], [ 3, %OutputArchStrToInt.exit835.i ], [ 3, %OutputArchStrToInt.exit828.i ], [ 3, %OutputArchStrToInt.exit821.i ], [ 3, %387 ], [ 3, %385 ], [ 3, %OutputByteOrderStrToInt.exit814.i ], [ 3, %OutputByteOrderStrToInt.exit802.i ], [ 3, %OutputByteOrderStrToInt.exit790.i ], [ 3, %OutputByteOrderStrToInt.exit778.i ], [ 3, %OutputByteOrderStrToInt.exit766.i ], [ 3, %OutputByteOrderStrToInt.exit754.i ], [ 7, %OutputArchStrToInt.exit742.i ], [ 4, %OutputArchStrToInt.exit735.i ], [ 7, %OutputArchStrToInt.exit728.i ], [ 4, %OutputArchStrToInt.exit721.i ], [ 7, %OutputArchStrToInt.exit714.i ], [ 4, %OutputArchStrToInt.exit707.i ], [ 7, %OutputArchStrToInt.exit700.i ], [ 4, %OutputArchStrToInt.exit693.i ], [ 7, %OutputArchStrToInt.exit686.i ], [ 4, %OutputArchStrToInt.exit679.i ], [ 7, %OutputByteOrderStrToInt.exit672.i ], [ 7, %OutputByteOrderStrToInt.exit660.i ], [ 7, %OutputByteOrderStrToInt.exit648.i ], [ 7, %OutputByteOrderStrToInt.exit636.i ], [ 7, %OutputByteOrderStrToInt.exit624.i ], [ 7, %OutputByteOrderStrToInt.exit612.i ], [ 7, %OutputByteOrderStrToInt.exit600.i ], [ 7, %OutputByteOrderStrToInt.exit588.i ], [ 4, %OutputByteOrderStrToInt.exit576.i ], [ 4, %OutputByteOrderStrToInt.exit564.i ], [ 4, %OutputByteOrderStrToInt.exit552.i ], [ 4, %OutputByteOrderStrToInt.exit540.i ], [ 4, %OutputByteOrderStrToInt.exit528.i ], [ 4, %OutputByteOrderStrToInt.exit516.i ], [ 4, %OutputByteOrderStrToInt.exit504.i ], [ 4, %OutputByteOrderStrToInt.exit.i ], [ 5, %425 ]
+  %478 = phi i1 [ false, %OutputArchStrToInt.exit679.i ], [ false, %OutputByteOrderStrToInt.exit672.i ], [ false, %OutputByteOrderStrToInt.exit660.i ], [ false, %OutputByteOrderStrToInt.exit648.i ], [ false, %OutputByteOrderStrToInt.exit636.i ], [ false, %OutputByteOrderStrToInt.exit624.i ], [ false, %OutputByteOrderStrToInt.exit612.i ], [ false, %425 ], [ false, %OutputByteOrderStrToInt.exit600.i ], [ false, %OutputByteOrderStrToInt.exit588.i ], [ false, %OutputByteOrderStrToInt.exit576.i ], [ false, %OutputByteOrderStrToInt.exit564.i ], [ false, %OutputByteOrderStrToInt.exit552.i ], [ false, %OutputByteOrderStrToInt.exit540.i ], [ false, %OutputByteOrderStrToInt.exit528.i ], [ false, %OutputByteOrderStrToInt.exit516.i ], [ false, %OutputByteOrderStrToInt.exit504.i ], [ false, %OutputByteOrderStrToInt.exit.i ], [ true, %OutputArchStrToInt.exit842.i ], [ true, %OutputArchStrToInt.exit835.i ], [ true, %OutputArchStrToInt.exit828.i ], [ true, %OutputArchStrToInt.exit821.i ], [ true, %387 ], [ true, %385 ], [ true, %OutputByteOrderStrToInt.exit814.i ], [ true, %OutputByteOrderStrToInt.exit802.i ], [ true, %OutputByteOrderStrToInt.exit790.i ], [ true, %OutputByteOrderStrToInt.exit778.i ], [ true, %OutputByteOrderStrToInt.exit766.i ], [ true, %OutputByteOrderStrToInt.exit754.i ], [ false, %OutputArchStrToInt.exit742.i ], [ false, %OutputArchStrToInt.exit735.i ], [ false, %OutputArchStrToInt.exit728.i ], [ false, %OutputArchStrToInt.exit721.i ], [ false, %OutputArchStrToInt.exit714.i ], [ false, %OutputArchStrToInt.exit707.i ], [ false, %OutputArchStrToInt.exit700.i ], [ false, %OutputArchStrToInt.exit693.i ], [ false, %OutputArchStrToInt.exit686.i ]
+  %479 = phi i1 [ false, %OutputArchStrToInt.exit679.i ], [ false, %OutputByteOrderStrToInt.exit672.i ], [ false, %OutputByteOrderStrToInt.exit660.i ], [ false, %OutputByteOrderStrToInt.exit648.i ], [ false, %OutputByteOrderStrToInt.exit636.i ], [ false, %OutputByteOrderStrToInt.exit624.i ], [ false, %OutputByteOrderStrToInt.exit612.i ], [ true, %425 ], [ false, %OutputByteOrderStrToInt.exit600.i ], [ false, %OutputByteOrderStrToInt.exit588.i ], [ false, %OutputByteOrderStrToInt.exit576.i ], [ false, %OutputByteOrderStrToInt.exit564.i ], [ false, %OutputByteOrderStrToInt.exit552.i ], [ false, %OutputByteOrderStrToInt.exit540.i ], [ false, %OutputByteOrderStrToInt.exit528.i ], [ false, %OutputByteOrderStrToInt.exit516.i ], [ false, %OutputByteOrderStrToInt.exit504.i ], [ false, %OutputByteOrderStrToInt.exit.i ], [ false, %OutputArchStrToInt.exit842.i ], [ false, %OutputArchStrToInt.exit835.i ], [ false, %OutputArchStrToInt.exit828.i ], [ false, %OutputArchStrToInt.exit821.i ], [ false, %387 ], [ false, %385 ], [ false, %OutputByteOrderStrToInt.exit814.i ], [ false, %OutputByteOrderStrToInt.exit802.i ], [ false, %OutputByteOrderStrToInt.exit790.i ], [ false, %OutputByteOrderStrToInt.exit778.i ], [ false, %OutputByteOrderStrToInt.exit766.i ], [ false, %OutputByteOrderStrToInt.exit754.i ], [ false, %OutputArchStrToInt.exit742.i ], [ false, %OutputArchStrToInt.exit735.i ], [ false, %OutputArchStrToInt.exit728.i ], [ false, %OutputArchStrToInt.exit721.i ], [ false, %OutputArchStrToInt.exit714.i ], [ false, %OutputArchStrToInt.exit707.i ], [ false, %OutputArchStrToInt.exit700.i ], [ false, %OutputArchStrToInt.exit693.i ], [ false, %OutputArchStrToInt.exit686.i ]
+  %cond1075 = phi i1 [ true, %OutputArchStrToInt.exit679.i ], [ false, %OutputByteOrderStrToInt.exit672.i ], [ false, %OutputByteOrderStrToInt.exit660.i ], [ false, %OutputByteOrderStrToInt.exit648.i ], [ false, %OutputByteOrderStrToInt.exit636.i ], [ false, %OutputByteOrderStrToInt.exit624.i ], [ false, %OutputByteOrderStrToInt.exit612.i ], [ false, %425 ], [ false, %OutputByteOrderStrToInt.exit600.i ], [ false, %OutputByteOrderStrToInt.exit588.i ], [ true, %OutputByteOrderStrToInt.exit576.i ], [ true, %OutputByteOrderStrToInt.exit564.i ], [ true, %OutputByteOrderStrToInt.exit552.i ], [ true, %OutputByteOrderStrToInt.exit540.i ], [ true, %OutputByteOrderStrToInt.exit528.i ], [ true, %OutputByteOrderStrToInt.exit516.i ], [ true, %OutputByteOrderStrToInt.exit504.i ], [ true, %OutputByteOrderStrToInt.exit.i ], [ false, %OutputArchStrToInt.exit842.i ], [ false, %OutputArchStrToInt.exit835.i ], [ false, %OutputArchStrToInt.exit828.i ], [ false, %OutputArchStrToInt.exit821.i ], [ false, %387 ], [ false, %385 ], [ false, %OutputByteOrderStrToInt.exit814.i ], [ false, %OutputByteOrderStrToInt.exit802.i ], [ false, %OutputByteOrderStrToInt.exit790.i ], [ false, %OutputByteOrderStrToInt.exit778.i ], [ false, %OutputByteOrderStrToInt.exit766.i ], [ false, %OutputByteOrderStrToInt.exit754.i ], [ false, %OutputArchStrToInt.exit742.i ], [ true, %OutputArchStrToInt.exit735.i ], [ false, %OutputArchStrToInt.exit728.i ], [ true, %OutputArchStrToInt.exit721.i ], [ false, %OutputArchStrToInt.exit714.i ], [ true, %OutputArchStrToInt.exit707.i ], [ false, %OutputArchStrToInt.exit700.i ], [ true, %OutputArchStrToInt.exit693.i ], [ false, %OutputArchStrToInt.exit686.i ]
+  %480 = phi i32 [ 4, %OutputArchStrToInt.exit679.i ], [ 7, %OutputByteOrderStrToInt.exit672.i ], [ 7, %OutputByteOrderStrToInt.exit660.i ], [ 7, %OutputByteOrderStrToInt.exit648.i ], [ 7, %OutputByteOrderStrToInt.exit636.i ], [ 7, %OutputByteOrderStrToInt.exit624.i ], [ 7, %OutputByteOrderStrToInt.exit612.i ], [ 5, %425 ], [ 7, %OutputByteOrderStrToInt.exit600.i ], [ 7, %OutputByteOrderStrToInt.exit588.i ], [ 4, %OutputByteOrderStrToInt.exit576.i ], [ 4, %OutputByteOrderStrToInt.exit564.i ], [ 4, %OutputByteOrderStrToInt.exit552.i ], [ 4, %OutputByteOrderStrToInt.exit540.i ], [ 4, %OutputByteOrderStrToInt.exit528.i ], [ 4, %OutputByteOrderStrToInt.exit516.i ], [ 4, %OutputByteOrderStrToInt.exit504.i ], [ 4, %OutputByteOrderStrToInt.exit.i ], [ 3, %OutputArchStrToInt.exit842.i ], [ 3, %OutputArchStrToInt.exit835.i ], [ 3, %OutputArchStrToInt.exit828.i ], [ 3, %OutputArchStrToInt.exit821.i ], [ 3, %387 ], [ 3, %385 ], [ 3, %OutputByteOrderStrToInt.exit814.i ], [ 3, %OutputByteOrderStrToInt.exit802.i ], [ 3, %OutputByteOrderStrToInt.exit790.i ], [ 3, %OutputByteOrderStrToInt.exit778.i ], [ 3, %OutputByteOrderStrToInt.exit766.i ], [ 3, %OutputByteOrderStrToInt.exit754.i ], [ 7, %OutputArchStrToInt.exit742.i ], [ 4, %OutputArchStrToInt.exit735.i ], [ 7, %OutputArchStrToInt.exit728.i ], [ 4, %OutputArchStrToInt.exit721.i ], [ 7, %OutputArchStrToInt.exit714.i ], [ 4, %OutputArchStrToInt.exit707.i ], [ 7, %OutputArchStrToInt.exit700.i ], [ 4, %OutputArchStrToInt.exit693.i ], [ 7, %OutputArchStrToInt.exit686.i ]
   %481 = load i32, ptr %57, align 8, !tbaa !12
   %482 = icmp eq i32 %481, 0
   br i1 %482, label %483, label %488
@@ -7577,7 +7577,7 @@ OutputArchStrToInt.exit933.thread.i:              ; preds = %471
   store i32 %484, ptr %58, align 4, !tbaa !25
   br label %488
 
-485:                                              ; preds = %.critedge.i, %OutputArchStrToInt.exit933.thread.i, %OutputArchStrToInt.exit921.thread.i, %OutputArchStrToInt.exit909.thread.i, %OutputArchStrToInt.exit897.thread.i, %OutputArchStrToInt.exit885.thread.i, %OutputArchStrToInt.exit873.thread.i, %OutputArchStrToInt.exit861.thread.i, %OutputArchStrToInt.exit849.thread.i, %OutputArchStrToInt.exit842.thread.i, %OutputArchStrToInt.exit835.thread.i, %OutputArchStrToInt.exit828.thread.i, %OutputArchStrToInt.exit821.thread.i, %OutputArchStrToInt.exit809.thread.i, %OutputArchStrToInt.exit797.thread.i, %OutputArchStrToInt.exit785.thread.i, %OutputArchStrToInt.exit773.thread.i, %OutputArchStrToInt.exit761.thread.i, %OutputArchStrToInt.exit749.thread.i, %OutputArchStrToInt.exit742.thread.i, %OutputArchStrToInt.exit735.thread.i, %OutputArchStrToInt.exit728.thread.i, %OutputArchStrToInt.exit721.thread.i, %OutputArchStrToInt.exit714.thread.i, %OutputArchStrToInt.exit707.thread.i, %OutputArchStrToInt.exit700.thread.i, %OutputArchStrToInt.exit693.thread.i, %OutputArchStrToInt.exit686.thread.i, %OutputArchStrToInt.exit679.thread.i, %OutputArchStrToInt.exit667.thread.i, %OutputArchStrToInt.exit655.thread.i, %OutputArchStrToInt.exit643.thread.i, %OutputArchStrToInt.exit631.thread.i, %OutputArchStrToInt.exit619.thread.i, %OutputArchStrToInt.exit607.thread.i, %OutputArchStrToInt.exit595.thread.i, %OutputArchStrToInt.exit583.thread.i, %OutputArchStrToInt.exit571.thread.i, %OutputArchStrToInt.exit559.thread.i, %OutputArchStrToInt.exit547.thread.i, %OutputArchStrToInt.exit535.thread.i, %OutputArchStrToInt.exit523.thread.i, %OutputArchStrToInt.exit511.thread.i, %OutputArchStrToInt.exit499.thread.i, %OutputArchStrToInt.exit.thread.i
+485:                                              ; preds = %.critedge.i, %OutputArchStrToInt.exit933.thread.i, %OutputArchStrToInt.exit655.thread.i, %OutputArchStrToInt.exit921.thread.i, %OutputArchStrToInt.exit523.thread.i, %OutputArchStrToInt.exit909.thread.i, %OutputArchStrToInt.exit643.thread.i, %OutputArchStrToInt.exit897.thread.i, %OutputArchStrToInt.exit559.thread.i, %OutputArchStrToInt.exit885.thread.i, %OutputArchStrToInt.exit631.thread.i, %OutputArchStrToInt.exit873.thread.i, %OutputArchStrToInt.exit499.thread.i, %OutputArchStrToInt.exit861.thread.i, %OutputArchStrToInt.exit619.thread.i, %OutputArchStrToInt.exit849.thread.i, %OutputArchStrToInt.exit547.thread.i, %OutputArchStrToInt.exit842.thread.i, %OutputArchStrToInt.exit835.thread.i, %OutputArchStrToInt.exit828.thread.i, %OutputArchStrToInt.exit821.thread.i, %OutputArchStrToInt.exit809.thread.i, %OutputArchStrToInt.exit607.thread.i, %OutputArchStrToInt.exit797.thread.i, %OutputArchStrToInt.exit511.thread.i, %OutputArchStrToInt.exit785.thread.i, %OutputArchStrToInt.exit595.thread.i, %OutputArchStrToInt.exit773.thread.i, %OutputArchStrToInt.exit535.thread.i, %OutputArchStrToInt.exit761.thread.i, %OutputArchStrToInt.exit583.thread.i, %OutputArchStrToInt.exit749.thread.i, %OutputArchStrToInt.exit.thread.i, %OutputArchStrToInt.exit742.thread.i, %OutputArchStrToInt.exit735.thread.i, %OutputArchStrToInt.exit728.thread.i, %OutputArchStrToInt.exit721.thread.i, %OutputArchStrToInt.exit714.thread.i, %OutputArchStrToInt.exit707.thread.i, %OutputArchStrToInt.exit700.thread.i, %OutputArchStrToInt.exit693.thread.i, %OutputArchStrToInt.exit686.thread.i, %OutputArchStrToInt.exit679.thread.i, %OutputArchStrToInt.exit667.thread.i, %OutputArchStrToInt.exit571.thread.i
   %486 = load ptr, ptr @stderr, align 8, !tbaa !4
   %487 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %486, ptr noundef nonnull @.str.324, ptr noundef nonnull %0) #22
   br label %validateConfigurationParameters.exit.thread840
@@ -9648,12 +9648,12 @@ OutputByteOrderStrToInt.exit.thread.i739:         ; preds = %1289
   br label %validateConfigurationParameters.exit.thread840
 
 validateConfigurationParameters.exit.thread840:   ; preds = %.loopexit, %849, %36, %68, %73, %79, %88, %93, %485, %659, %664, %674, %679, %704, %709, %715, %721, %728, %733, %739, %744, %749, %754, %760, %768, %mapKeywordToIndex.exit.thread, %890, %895, %901, %908, %913, %919, %937, %942, %952, %964, %985, %991, %1015, %1022, %1035, %1043, %1060, %1067, %1080, %1088, %1102, %1110, %1116, %1154, %1160, %1170, %1180, %1198, %1208, %1227, %1233, %1272, %1278, %1292, %1357, %.thread777, %.thread818, %._crit_edge, %1341, %.thread.i, %1351, %1351, %499, %504, %546, %541, %535, %529, %509, %.thread753, %688, %.thread780, %1346, %978, %1213
-  %.0469842 = phi i32 [ -1, %1213 ], [ -1, %978 ], [ -1, %mapKeywordToIndex.exit.thread ], [ -1, %890 ], [ -1, %895 ], [ -1, %901 ], [ -1, %908 ], [ -1, %913 ], [ -1, %919 ], [ -1, %937 ], [ -1, %942 ], [ -1, %952 ], [ -1, %964 ], [ -1, %985 ], [ -1, %991 ], [ -1, %1015 ], [ -1, %1022 ], [ -1, %1035 ], [ -1, %1043 ], [ -1, %1060 ], [ -1, %1067 ], [ -1, %1080 ], [ -1, %1088 ], [ -1, %1102 ], [ -1, %1110 ], [ -1, %1116 ], [ -1, %1154 ], [ -1, %1160 ], [ -1, %1170 ], [ -1, %1180 ], [ -1, %1198 ], [ -1, %1208 ], [ -1, %1227 ], [ -1, %1233 ], [ -1, %1272 ], [ -1, %1278 ], [ -1, %1292 ], [ -1, %1357 ], [ -1, %728 ], [ -1, %733 ], [ -1, %768 ], [ -1, %739 ], [ -1, %744 ], [ -1, %749 ], [ -1, %754 ], [ -1, %760 ], [ -1, %659 ], [ -1, %664 ], [ -1, %674 ], [ -1, %679 ], [ -1, %704 ], [ -1, %709 ], [ -1, %721 ], [ -1, %715 ], [ -1, %88 ], [ -1, %93 ], [ -1, %485 ], [ -1, %68 ], [ -1, %73 ], [ -1, %79 ], [ -1, %.thread777 ], [ -1, %.thread818 ], [ 0, %._crit_edge ], [ 0, %1341 ], [ 0, %.thread.i ], [ 0, %1351 ], [ 0, %1351 ], [ -1, %499 ], [ -1, %504 ], [ -1, %546 ], [ -1, %541 ], [ -1, %535 ], [ -1, %529 ], [ -1, %509 ], [ -1, %.thread753 ], [ -1, %688 ], [ -1, %.thread780 ], [ 0, %1346 ], [ 0, %36 ], [ 0, %849 ], [ 0, %.loopexit ]
+  %.0469842 = phi i32 [ -1, %978 ], [ -1, %1213 ], [ 0, %.thread.i ], [ -1, %mapKeywordToIndex.exit.thread ], [ -1, %890 ], [ -1, %895 ], [ -1, %901 ], [ -1, %908 ], [ -1, %913 ], [ -1, %919 ], [ -1, %937 ], [ -1, %942 ], [ -1, %952 ], [ -1, %964 ], [ 0, %1351 ], [ -1, %985 ], [ -1, %991 ], [ -1, %1015 ], [ -1, %1022 ], [ -1, %1035 ], [ -1, %1043 ], [ -1, %1060 ], [ -1, %1067 ], [ -1, %1080 ], [ -1, %1088 ], [ -1, %1102 ], [ -1, %1110 ], [ -1, %1116 ], [ -1, %1154 ], [ -1, %1160 ], [ -1, %1170 ], [ -1, %1180 ], [ -1, %1198 ], [ -1, %1208 ], [ 0, %1351 ], [ -1, %1227 ], [ -1, %1233 ], [ -1, %1272 ], [ -1, %1278 ], [ -1, %1292 ], [ -1, %1357 ], [ -1, %79 ], [ -1, %.thread818 ], [ -1, %728 ], [ -1, %733 ], [ -1, %768 ], [ -1, %739 ], [ -1, %744 ], [ -1, %749 ], [ -1, %754 ], [ -1, %760 ], [ -1, %659 ], [ -1, %664 ], [ -1, %674 ], [ -1, %679 ], [ -1, %704 ], [ -1, %709 ], [ -1, %721 ], [ -1, %715 ], [ -1, %.thread753 ], [ -1, %.thread777 ], [ -1, %88 ], [ -1, %93 ], [ -1, %485 ], [ 0, %1341 ], [ -1, %68 ], [ -1, %73 ], [ -1, %.thread780 ], [ 0, %1346 ], [ 0, %._crit_edge ], [ -1, %499 ], [ -1, %504 ], [ -1, %546 ], [ -1, %541 ], [ -1, %535 ], [ -1, %529 ], [ -1, %509 ], [ -1, %688 ], [ 0, %36 ], [ 0, %849 ], [ 0, %.loopexit ]
   %1360 = call i32 @fclose(ptr noundef nonnull %29)
   br label %1361
 
 1361:                                             ; preds = %validateConfigurationParameters.exit.thread843, %validateConfigurationParameters.exit.thread840
-  %.0465 = phi i32 [ %.0469842, %validateConfigurationParameters.exit.thread840 ], [ -1, %validateConfigurationParameters.exit.thread843 ]
+  %.0465 = phi i32 [ -1, %validateConfigurationParameters.exit.thread843 ], [ %.0469842, %validateConfigurationParameters.exit.thread840 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)

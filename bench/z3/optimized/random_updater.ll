@@ -627,7 +627,7 @@ _ZN2lp14random_updater9shift_varEj.exit:          ; preds = %_ZN16indexed_uint_s
   br i1 %.not35, label %._crit_edge66, label %.lr.ph65.splitthread-pre-split, !llvm.loop !187
 
 199:                                              ; preds = %60, %194, %36
-  %.pn38.pn = phi { ptr, i32 } [ %37, %36 ], [ %61, %60 ], [ %195, %194 ]
+  %.pn38.pn = phi { ptr, i32 } [ %195, %194 ], [ %37, %36 ], [ %61, %60 ]
   call void @_ZN6vectorIjLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn38.pn
@@ -767,7 +767,7 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i9:  ; preds = %_ZNK6vectorIjLb0EjE
   br label %_ZN6vectorIjLb0EjE7reserveEj.exit
 
 _ZN6vectorIjLb0EjE7reserveEj.exit:                ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread.i3, %35, %.lr.ph.preheader.i.i8
-  %42 = phi ptr [ %25, %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread.i3 ], [ %30, %35 ], [ %30, %.lr.ph.preheader.i.i8 ]
+  %42 = phi ptr [ %30, %.lr.ph.preheader.i.i8 ], [ %25, %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread.i3 ], [ %30, %35 ]
   %43 = load i32, ptr %0, align 8, !tbaa !3
   %44 = load ptr, ptr %3, align 8, !tbaa !19
   %45 = zext i32 %1 to i64

@@ -62,7 +62,7 @@ lean_obj_tag.exit:                                ; preds = %4, %7
   br label %lean_inc.exit
 
 lean_inc.exit:                                    ; preds = %lean_obj_tag.exit, %11, %18, %20, %21
-  %.0 = phi ptr [ %13, %21 ], [ %13, %20 ], [ %13, %18 ], [ %13, %11 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit ]
+  %.0 = phi ptr [ %13, %11 ], [ %13, %21 ], [ %13, %20 ], [ %13, %18 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit ]
   ret ptr %.0
 }
 
@@ -140,7 +140,7 @@ lean_obj_tag.exit.i:                              ; preds = %7, %4
   br label %l_Std_DTreeMap_Internal_Impl_size___rarg.exit
 
 l_Std_DTreeMap_Internal_Impl_size___rarg.exit:    ; preds = %lean_obj_tag.exit.i, %11, %18, %20, %21
-  %.0.i = phi ptr [ %13, %21 ], [ %13, %20 ], [ %13, %18 ], [ %13, %11 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit.i ]
+  %.0.i = phi ptr [ %13, %11 ], [ %13, %21 ], [ %13, %20 ], [ %13, %18 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit.i ]
   br i1 %.not.i.i, label %22, label %lean_dec.exit
 
 22:                                               ; preds = %l_Std_DTreeMap_Internal_Impl_size___rarg.exit

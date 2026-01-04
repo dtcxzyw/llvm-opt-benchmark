@@ -1840,8 +1840,8 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %.noexc199, %585
   br label %621
 
 618:                                              ; preds = %._crit_edge386, %_ZNSt12__shared_ptrIN2cv10xobjdetect18CvFeatureEvaluatorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.154 = phi i1 [ true, %_ZNSt12__shared_ptrIN2cv10xobjdetect18CvFeatureEvaluatorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %.not102, %._crit_edge386 ]
-  %.4 = phi i32 [ %.048, %_ZNSt12__shared_ptrIN2cv10xobjdetect18CvFeatureEvaluatorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %.3.lcssa, %._crit_edge386 ]
+  %.154 = phi i1 [ %.not102, %._crit_edge386 ], [ true, %_ZNSt12__shared_ptrIN2cv10xobjdetect18CvFeatureEvaluatorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
+  %.4 = phi i32 [ %.3.lcssa, %._crit_edge386 ], [ %.048, %_ZNSt12__shared_ptrIN2cv10xobjdetect18CvFeatureEvaluatorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %35) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   %619 = load ptr, ptr %34, align 8, !tbaa !110
@@ -2103,7 +2103,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit236:       ; preds = %_ZSt8_DestroyIPN2cv
   ret void
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit164: ; preds = %342, %.loopexit308, %.loopexit.split-lp309.loopexit.split-lp, %.loopexit.split-lp309.loopexit, %.loopexit314, %.loopexit.split-lp315, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i162, %392, %397, %438, %_ZNSt6vectorIiSaIiEED2Ev.exit172, %482, %_ZNSt6vectorIiSaIiEED2Ev.exit176, %624, %340
-  %.pn120.pn.pn = phi { ptr, i32 } [ %341, %340 ], [ %.pn97, %397 ], [ %.pn95, %392 ], [ %439, %438 ], [ %.pn118, %_ZNSt6vectorIiSaIiEED2Ev.exit172 ], [ %483, %482 ], [ %.pn114, %_ZNSt6vectorIiSaIiEED2Ev.exit176 ], [ %.pn107.pn.pn.pn.pn, %624 ], [ %343, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i162 ], [ %lpad.loopexit316, %.loopexit314 ], [ %lpad.loopexit.split-lp317, %.loopexit.split-lp315 ], [ %lpad.loopexit310, %.loopexit308 ], [ %lpad.loopexit319, %.loopexit.split-lp309.loopexit ], [ %lpad.loopexit.split-lp320, %.loopexit.split-lp309.loopexit.split-lp ], [ %343, %342 ]
+  %.pn120.pn.pn = phi { ptr, i32 } [ %341, %340 ], [ %lpad.loopexit.split-lp317, %.loopexit.split-lp315 ], [ %.pn95, %392 ], [ %.pn118, %_ZNSt6vectorIiSaIiEED2Ev.exit172 ], [ %.pn114, %_ZNSt6vectorIiSaIiEED2Ev.exit176 ], [ %343, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i162 ], [ %.pn97, %397 ], [ %439, %438 ], [ %483, %482 ], [ %.pn107.pn.pn.pn.pn, %624 ], [ %lpad.loopexit.split-lp320, %.loopexit.split-lp309.loopexit.split-lp ], [ %lpad.loopexit316, %.loopexit314 ], [ %lpad.loopexit310, %.loopexit308 ], [ %lpad.loopexit319, %.loopexit.split-lp309.loopexit ], [ %343, %342 ]
   %693 = load ptr, ptr %27, align 8, !tbaa !21
   %694 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %695 = load ptr, ptr %694, align 8, !tbaa !18
@@ -2150,7 +2150,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %.body156
 
 .body156:                                         ; preds = %286, %703, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit248
-  %.pn120.pn.pn.pn = phi { ptr, i32 } [ %287, %286 ], [ %.pn120.pn.pn, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit248 ], [ %.pn120.pn.pn, %703 ]
+  %.pn120.pn.pn.pn = phi { ptr, i32 } [ %287, %286 ], [ %.pn120.pn.pn, %703 ], [ %.pn120.pn.pn, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit248 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %704
 
@@ -2238,7 +2238,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i263: ; preds = %.lr.ph.i.i.i.i2
   br label %.body
 
 .body:                                            ; preds = %733, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i263, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52.i
-  %.pn120.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52.i ], [ %.pn120.pn.pn.pn.pn.pn.pn, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i263 ], [ %.pn120.pn.pn.pn.pn.pn.pn, %733 ]
+  %.pn120.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52.i ], [ %.pn120.pn.pn.pn.pn.pn.pn, %733 ], [ %.pn120.pn.pn.pn.pn.pn.pn, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i263 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %734 = load ptr, ptr %16, align 8, !tbaa !29
   %735 = load ptr, ptr %102, align 8, !tbaa !22

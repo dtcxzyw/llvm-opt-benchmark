@@ -81,7 +81,7 @@ define void @_Z10setup_qlutPaPi(ptr noundef writeonly captures(none) %0, ptr nou
   br label %29
 
 29:                                               ; preds = %27, %25, %23, %22, %18, %15, %12, %9
-  %.sink = phi i8 [ -4, %9 ], [ -3, %12 ], [ -2, %15 ], [ -1, %18 ], [ 0, %22 ], [ 1, %23 ], [ 2, %25 ], [ %., %27 ]
+  %.sink = phi i8 [ -4, %9 ], [ -3, %12 ], [ -1, %18 ], [ 1, %23 ], [ 2, %25 ], [ %., %27 ], [ 0, %22 ], [ -2, %15 ]
   store i8 %.sink, ptr %.02935, align 1, !tbaa !10
   %30 = getelementptr inbounds nuw i8, ptr %.02935, i64 1
   %31 = add nsw i32 %.036, 1
@@ -162,7 +162,7 @@ define void @_Z16init_main_qtableP22fuji_compressed_paramsh(ptr noundef captures
   br label %34
 
 34:                                               ; preds = %32, %30, %28, %27, %25, %24, %23, %22
-  %.sink.i = phi i8 [ -4, %22 ], [ -3, %23 ], [ -2, %24 ], [ -1, %25 ], [ 0, %27 ], [ 1, %28 ], [ 2, %30 ], [ %..i, %32 ]
+  %.sink.i = phi i8 [ -4, %22 ], [ -3, %23 ], [ -1, %25 ], [ 1, %28 ], [ 2, %30 ], [ %..i, %32 ], [ 0, %27 ], [ -2, %24 ]
   store i8 %.sink.i, ptr %.02935.i, align 1, !tbaa !10
   %35 = getelementptr inbounds nuw i8, ptr %.02935.i, i64 1
   %36 = add i32 %.036.i, 1
@@ -339,7 +339,7 @@ define void @_ZN6LibRaw15init_fuji_comprEP22fuji_compressed_params(ptr noundef n
   br label %54
 
 54:                                               ; preds = %52, %50, %48, %47, %45, %44, %43, %42
-  %.sink.i.i = phi i8 [ -4, %42 ], [ -3, %43 ], [ -2, %44 ], [ -1, %45 ], [ 0, %47 ], [ 1, %48 ], [ 2, %50 ], [ %..i.i, %52 ]
+  %.sink.i.i = phi i8 [ -4, %42 ], [ -3, %43 ], [ -1, %45 ], [ 1, %48 ], [ 2, %50 ], [ %..i.i, %52 ], [ 0, %47 ], [ -2, %44 ]
   store i8 %.sink.i.i, ptr %.02935.i.i, align 1, !tbaa !10
   %55 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 1
   %exitcond.not.i = icmp eq i32 %.036.i.i, %35
@@ -457,7 +457,7 @@ _Z16init_main_qtableP22fuji_compressed_paramsh.exit: ; preds = %.preheader.i30.i
   br label %93
 
 93:                                               ; preds = %91, %89, %87, %86, %84, %83, %82, %81
-  %.sink.i = phi i8 [ -4, %81 ], [ -3, %82 ], [ -2, %83 ], [ -1, %84 ], [ 0, %86 ], [ 1, %87 ], [ 2, %89 ], [ %..i, %91 ]
+  %.sink.i = phi i8 [ -4, %81 ], [ -3, %82 ], [ -1, %84 ], [ 1, %87 ], [ 2, %89 ], [ %..i, %91 ], [ 0, %86 ], [ -2, %83 ]
   store i8 %.sink.i, ptr %.02935.i, align 1, !tbaa !10
   %94 = getelementptr inbounds nuw i8, ptr %.02935.i, i64 1
   %exitcond.not = icmp eq i32 %.036.i, %35
@@ -540,7 +540,7 @@ _Z16init_main_qtableP22fuji_compressed_paramsh.exit: ; preds = %.preheader.i30.i
   br label %125
 
 125:                                              ; preds = %123, %121, %119, %118, %116, %115, %114, %113
-  %.sink.i75 = phi i8 [ -4, %113 ], [ -3, %114 ], [ -2, %115 ], [ -1, %116 ], [ 0, %118 ], [ 1, %119 ], [ 2, %121 ], [ %..i80, %123 ]
+  %.sink.i75 = phi i8 [ -4, %113 ], [ -3, %114 ], [ -1, %116 ], [ 1, %119 ], [ 2, %121 ], [ %..i80, %123 ], [ 0, %118 ], [ -2, %115 ]
   store i8 %.sink.i75, ptr %.02935.i73, align 1, !tbaa !10
   %126 = getelementptr inbounds nuw i8, ptr %.02935.i73, i64 1
   %exitcond137.not = icmp eq i32 %.036.i72, %35
@@ -623,7 +623,7 @@ _Z16init_main_qtableP22fuji_compressed_paramsh.exit: ; preds = %.preheader.i30.i
   br label %157
 
 157:                                              ; preds = %155, %153, %151, %150, %148, %147, %146, %145
-  %.sink.i95 = phi i8 [ -4, %145 ], [ -3, %146 ], [ -2, %147 ], [ -1, %148 ], [ 0, %150 ], [ 1, %151 ], [ 2, %153 ], [ %..i100, %155 ]
+  %.sink.i95 = phi i8 [ -4, %145 ], [ -3, %146 ], [ -1, %148 ], [ 1, %151 ], [ 2, %153 ], [ %..i100, %155 ], [ 0, %150 ], [ -2, %147 ]
   store i8 %.sink.i95, ptr %.02935.i93, align 1, !tbaa !10
   %158 = getelementptr inbounds nuw i8, ptr %.02935.i93, i64 1
   %exitcond138.not = icmp eq i32 %.036.i92, %35
@@ -4059,7 +4059,7 @@ _ZN6LibRaw5sgetnEiPh.exit:                        ; preds = %.lr.ph.i
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph42, !llvm.loop !158
 
 ._crit_edge:                                      ; preds = %.lr.ph42, %59, %.preheader
-  %.lcssa3949 = phi i32 [ %73, %.preheader ], [ %60, %59 ], [ %73, %.lr.ph42 ]
+  %.lcssa3949 = phi i32 [ %60, %59 ], [ %73, %.preheader ], [ %73, %.lr.ph42 ]
   %83 = load ptr, ptr %0, align 8, !tbaa !100
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 144
   %85 = load ptr, ptr %84, align 8

@@ -200,7 +200,7 @@ select.unfold.i:                                  ; preds = %71, %58
   store i32 %3, ptr %31, align 8
   br label %78
 
-78:                                               ; preds = %.sink.split, %52, %55, %select.unfold.i, %75, %71, %61, %65, %r_mark_regions.exit
+78:                                               ; preds = %.sink.split, %52, %55, %select.unfold.i, %75, %65, %61, %71, %r_mark_regions.exit
   %79 = load i32, ptr %4, align 4
   store i32 %79, ptr %2, align 8
   %80 = load ptr, ptr %6, align 8
@@ -315,13 +315,13 @@ r_consonant_pair.exit.thread:                     ; preds = %r_consonant_pair.ex
   %.pre = load i32, ptr %31, align 8
   br label %r_other_suffix.exit.thread
 
-r_other_suffix.exit.thread:                       ; preds = %.r_other_suffix.exit.thread_crit_edge, %r_consonant_pair.exit.thread, %126, %123
-  %132 = phi i32 [ %.pre, %.r_other_suffix.exit.thread_crit_edge ], [ %.pre86, %r_consonant_pair.exit.thread ], [ %.pre86, %126 ], [ %.pre86, %123 ]
+r_other_suffix.exit.thread:                       ; preds = %.r_other_suffix.exit.thread_crit_edge, %r_consonant_pair.exit.thread, %123, %126
+  %132 = phi i32 [ %.pre, %.r_other_suffix.exit.thread_crit_edge ], [ %.pre86, %r_consonant_pair.exit.thread ], [ %.pre86, %123 ], [ %.pre86, %126 ]
   store i32 %132, ptr %2, align 8
   br label %r_consonant_pair.exit
 
 r_consonant_pair.exit:                            ; preds = %127, %102, %55, %select.unfold.i, %75, %r_other_suffix.exit.thread
-  %.1 = phi i32 [ 1, %r_other_suffix.exit.thread ], [ %56, %55 ], [ %73, %select.unfold.i ], [ %76, %75 ], [ %103, %102 ], [ %130, %127 ]
+  %.1 = phi i32 [ 1, %r_other_suffix.exit.thread ], [ %76, %75 ], [ %103, %102 ], [ %73, %select.unfold.i ], [ %56, %55 ], [ %130, %127 ]
   ret i32 %.1
 }
 

@@ -1074,7 +1074,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   br label %101
 
 .body:                                            ; preds = %.body152, %.body152.thread
-  %eh.lpad-body = phi { ptr, i32 } [ %89, %.body152.thread ], [ %84, %.body152 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %84, %.body152 ], [ %89, %.body152.thread ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #21
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #21
   br label %101
@@ -1284,7 +1284,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit146:       ; preds = %_ZSt8_DestroyIPN2cv
   br label %.loopexit
 
 .body127:                                         ; preds = %.body165, %.body165.thread
-  %eh.lpad-body128 = phi { ptr, i32 } [ %150, %.body165.thread ], [ %145, %.body165 ]
+  %eh.lpad-body128 = phi { ptr, i32 } [ %145, %.body165 ], [ %150, %.body165.thread ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %16) #21
   br label %.loopexit
 
@@ -1311,7 +1311,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit146:       ; preds = %_ZSt8_DestroyIPN2cv
   br label %163
 
 .critedge:                                        ; preds = %97, %._crit_edge, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit146, %70
-  %.085 = phi i32 [ 0, %70 ], [ 1, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit146 ], [ 1, %97 ], [ 0, %._crit_edge ]
+  %.085 = phi i32 [ 1, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit146 ], [ 0, %70 ], [ 1, %97 ], [ 0, %._crit_edge ]
   %161 = load ptr, ptr %5, align 8, !tbaa !114
   %.not.i.i.i147 = icmp eq ptr %161, null
   br i1 %.not.i.i.i147, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %162
@@ -2729,12 +2729,12 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   br label %.body
 
 .body388:                                         ; preds = %.body396, %.body396.thread
-  %eh.lpad-body389 = phi { ptr, i32 } [ %479, %.body396.thread ], [ %474, %.body396 ]
+  %eh.lpad-body389 = phi { ptr, i32 } [ %474, %.body396 ], [ %479, %.body396.thread ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %26) #21
   br label %.body
 
 .body:                                            ; preds = %.body388, %482, %461
-  %.pn371 = phi { ptr, i32 } [ %483, %482 ], [ %462, %461 ], [ %eh.lpad-body389, %.body388 ]
+  %.pn371 = phi { ptr, i32 } [ %462, %461 ], [ %483, %482 ], [ %eh.lpad-body389, %.body388 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %487
@@ -2763,7 +2763,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit393:                 ; preds = %.critedge, %485
   br label %486
 
 486:                                              ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit, %.critedge379, %_ZNSt6vectorIdSaIdEED2Ev.exit393, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit
-  %.5 = phi i32 [ 1, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit ], [ 0, %_ZNSt6vectorIdSaIdEED2Ev.exit ], [ 0, %_ZNSt6vectorIdSaIdEED2Ev.exit393 ], [ 0, %.critedge379 ]
+  %.5 = phi i32 [ 1, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit ], [ 0, %_ZNSt6vectorIdSaIdEED2Ev.exit ], [ 0, %.critedge379 ], [ 0, %_ZNSt6vectorIdSaIdEED2Ev.exit393 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #21
@@ -3714,12 +3714,12 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   br label %.body
 
 .body113:                                         ; preds = %.body119, %.body119.thread
-  %eh.lpad-body114 = phi { ptr, i32 } [ %222, %.body119.thread ], [ %217, %.body119 ]
+  %eh.lpad-body114 = phi { ptr, i32 } [ %217, %.body119 ], [ %222, %.body119.thread ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %17) #21
   br label %.body
 
 .body:                                            ; preds = %.body113, %225, %204
-  %.pn104 = phi { ptr, i32 } [ %226, %225 ], [ %205, %204 ], [ %eh.lpad-body114, %.body113 ]
+  %.pn104 = phi { ptr, i32 } [ %205, %204 ], [ %226, %225 ], [ %eh.lpad-body114, %.body113 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #21
@@ -5468,12 +5468,12 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   br label %.body
 
 .body187:                                         ; preds = %.body193, %.body193.thread
-  %eh.lpad-body188 = phi { ptr, i32 } [ %253, %.body193.thread ], [ %248, %.body193 ]
+  %eh.lpad-body188 = phi { ptr, i32 } [ %248, %.body193 ], [ %253, %.body193.thread ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %21) #21
   br label %.body
 
 .body:                                            ; preds = %.body187, %256, %235
-  %.pn182 = phi { ptr, i32 } [ %257, %256 ], [ %236, %235 ], [ %eh.lpad-body188, %.body187 ]
+  %.pn182 = phi { ptr, i32 } [ %236, %235 ], [ %257, %256 ], [ %eh.lpad-body188, %.body187 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %259
@@ -6192,7 +6192,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   br label %206
 
 .body105:                                         ; preds = %.body111, %.body111.thread
-  %eh.lpad-body106 = phi { ptr, i32 } [ %203, %.body111.thread ], [ %198, %.body111 ]
+  %eh.lpad-body106 = phi { ptr, i32 } [ %198, %.body111 ], [ %203, %.body111.thread ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #21
   br label %.body
 

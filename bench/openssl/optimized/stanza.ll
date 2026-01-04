@@ -203,7 +203,7 @@ define range(i32 0, 2) i32 @test_readstanza(ptr noundef initializes((36, 40)) %0
   br label %strip_spaces.exit
 
 strip_spaces.exit:                                ; preds = %39, %29, %.critedge.i, %.critedge2.loopexit.i
-  %.016.i = phi ptr [ null, %29 ], [ %53, %.critedge2.loopexit.i ], [ %.01523.i, %.critedge.i ], [ null, %39 ]
+  %.016.i = phi ptr [ %.01523.i, %.critedge.i ], [ null, %29 ], [ %53, %.critedge2.loopexit.i ], [ null, %39 ]
   %54 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 114, ptr noundef nonnull @.str.9, ptr noundef %.016.i) #6
   %.not36 = icmp eq i32 %54, 0
   br i1 %.not36, label %55, label %57
@@ -274,7 +274,7 @@ strip_spaces.exit:                                ; preds = %39, %29, %.critedge
   br label %strip_spaces.exit57
 
 strip_spaces.exit57:                              ; preds = %68, %57, %.critedge.i47, %.critedge2.loopexit.i55
-  %.016.i46 = phi ptr [ null, %57 ], [ %82, %.critedge2.loopexit.i55 ], [ %.01523.i43, %.critedge.i47 ], [ null, %68 ]
+  %.016.i46 = phi ptr [ %.01523.i43, %.critedge.i47 ], [ null, %57 ], [ %82, %.critedge2.loopexit.i55 ], [ null, %68 ]
   %83 = icmp eq ptr %.016.i46, null
   %spec.store.select = select i1 %83, ptr @.str.11, ptr %.016.i46
   %84 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.016.i, ptr noundef nonnull dereferenceable(6) @.str.12) #7
@@ -399,7 +399,7 @@ read_key.exit:                                    ; preds = %124
   br i1 %.not40, label %.loopexit, label %.outer
 
 .loopexit:                                        ; preds = %.outer, %126, %130, %133, %22, %.backedge, %1, %read_key.exit.thread, %55, %27, %20
-  %.0 = phi i32 [ 0, %55 ], [ 0, %27 ], [ 0, %20 ], [ 0, %read_key.exit.thread ], [ 1, %1 ], [ 1, %.backedge ], [ 1, %22 ], [ 1, %.outer ], [ 0, %126 ], [ 0, %130 ], [ 0, %133 ]
+  %.0 = phi i32 [ 0, %27 ], [ 0, %read_key.exit.thread ], [ 0, %20 ], [ 0, %55 ], [ 1, %22 ], [ 1, %1 ], [ 1, %.backedge ], [ 0, %133 ], [ 0, %126 ], [ 1, %.outer ], [ 0, %130 ]
   ret i32 %.0
 }
 

@@ -1007,7 +1007,7 @@ _has_filter_opt.exit.thread:                      ; preds = %_verify_job_ids.exi
   br label %391
 
 391:                                              ; preds = %388, %.lr.ph.i29
-  %.160.i = phi ptr [ %.05998.i, %.lr.ph.i29 ], [ %spec.select.i32, %388 ]
+  %.160.i = phi ptr [ %spec.select.i32, %388 ], [ %.05998.i, %.lr.ph.i29 ]
   %392 = getelementptr inbounds nuw i8, ptr %.06197.i, i64 432
   %393 = load i32, ptr %392, align 8
   %394 = and i32 %393, 255
@@ -1216,7 +1216,7 @@ _has_filter_opt.exit.thread:                      ; preds = %_verify_job_ids.exi
   br label %480
 
 480:                                              ; preds = %478, %477, %465, %451, %442, %435, %432, %425, %418, %411, %404, %397, %.thread112.i
-  %.158.i = phi i32 [ %.05799.i, %397 ], [ %.05799.i, %404 ], [ %.05799.i, %411 ], [ %.05799.i, %418 ], [ %.05799.i, %425 ], [ %.05799.i, %432 ], [ %.05799.i, %435 ], [ %.05799.i, %442 ], [ %.05799.i, %477 ], [ %479, %478 ], [ %.05799.i, %465 ], [ %.05799.i, %451 ], [ %.05799.i, %.thread112.i ]
+  %.158.i = phi i32 [ %.05799.i, %397 ], [ %.05799.i, %.thread112.i ], [ %.05799.i, %404 ], [ %.05799.i, %411 ], [ %.05799.i, %418 ], [ %.05799.i, %425 ], [ %.05799.i, %432 ], [ %.05799.i, %435 ], [ %.05799.i, %442 ], [ %.05799.i, %477 ], [ %479, %478 ], [ %.05799.i, %465 ], [ %.05799.i, %451 ]
   %481 = add nuw nsw i32 %.056100.i, 1
   %482 = getelementptr inbounds nuw i8, ptr %.06197.i, i64 968
   %483 = load ptr, ptr @job_buffer_ptr, align 8
@@ -2951,7 +2951,7 @@ _build_jobid_str.exit:                            ; preds = %56, %60, %62
   br label %.fold.split
 
 .fold.split:                                      ; preds = %71, %52, %33, %22, %.fold.split.loopexit41, %.fold.split.loopexit40, %.fold.split.loopexit39, %.fold.split.loopexit38
-  %.0 = phi i32 [ 1, %.fold.split.loopexit38 ], [ 1, %.fold.split.loopexit39 ], [ 1, %.fold.split.loopexit40 ], [ 1, %.fold.split.loopexit41 ], [ 0, %22 ], [ 0, %33 ], [ 0, %52 ], [ 0, %71 ]
+  %.0 = phi i32 [ 0, %22 ], [ 0, %33 ], [ 1, %.fold.split.loopexit41 ], [ 1, %.fold.split.loopexit39 ], [ 1, %.fold.split.loopexit38 ], [ 1, %.fold.split.loopexit40 ], [ 0, %52 ], [ 0, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

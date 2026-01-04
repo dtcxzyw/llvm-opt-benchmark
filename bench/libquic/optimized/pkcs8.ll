@@ -156,7 +156,7 @@ get_pbe_suite.exit.thread:                        ; preds = %16, %get_pbe_suite.
   br label %44
 
 44:                                               ; preds = %ascii_to_ucs2.exit, %38, %42, %43, %14, %7
-  %.0 = phi i32 [ 1, %7 ], [ 0, %14 ], [ 0, %38 ], [ 0, %42 ], [ 1, %ascii_to_ucs2.exit ], [ 1, %43 ]
+  %.0 = phi i32 [ 1, %7 ], [ 0, %14 ], [ 0, %42 ], [ 0, %38 ], [ 1, %ascii_to_ucs2.exit ], [ 1, %43 ]
   ret i32 %.0
 }
 
@@ -779,7 +779,7 @@ ascii_to_ucs2.exit.thread:                        ; preds = %.split28, %ascii_to
   call void @ERR_put_error(i32 noundef 19, i32 noundef 0, i32 noundef 108, ptr noundef nonnull @.str, i32 noundef 1025) #12
   br label %.thread
 
-.thread:                                          ; preds = %98, %105, %125, %90, %106, %115
+.thread:                                          ; preds = %98, %105, %106, %115, %125, %90
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
@@ -808,8 +808,8 @@ ascii_to_ucs2.exit.thread:                        ; preds = %.split28, %ascii_to
   br label %128
 
 128:                                              ; preds = %.thread, %126, %ascii_to_ucs2.exit.thread, %66, %63, %60, %55, %52, %48, %45, %41
-  %.not54 = phi i1 [ true, %41 ], [ true, %45 ], [ true, %52 ], [ true, %63 ], [ true, %ascii_to_ucs2.exit.thread ], [ true, %66 ], [ true, %60 ], [ true, %55 ], [ true, %48 ], [ %.not53, %126 ], [ true, %.thread ]
-  %.026 = phi i32 [ 0, %41 ], [ 0, %45 ], [ 0, %52 ], [ 0, %63 ], [ 0, %ascii_to_ucs2.exit.thread ], [ 0, %66 ], [ 0, %60 ], [ 0, %55 ], [ 0, %48 ], [ %spec.select56, %126 ], [ 0, %.thread ]
+  %.not54 = phi i1 [ true, %41 ], [ true, %45 ], [ true, %52 ], [ true, %63 ], [ true, %48 ], [ %.not53, %126 ], [ true, %.thread ], [ true, %ascii_to_ucs2.exit.thread ], [ true, %66 ], [ true, %60 ], [ true, %55 ]
+  %.026 = phi i32 [ 0, %41 ], [ 0, %45 ], [ 0, %52 ], [ 0, %63 ], [ 0, %48 ], [ %spec.select56, %126 ], [ 0, %.thread ], [ 0, %ascii_to_ucs2.exit.thread ], [ 0, %66 ], [ 0, %60 ], [ 0, %55 ]
   %129 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %130 = load ptr, ptr %129, align 8, !tbaa !39
   call void @free(ptr noundef %130) #12
@@ -1126,8 +1126,8 @@ define internal fastcc range(i32 0, 2) i32 @pkcs12_key_gen_raw(ptr noundef reado
   %.not115 = icmp eq i32 %95, 0
   br i1 %.not115, label %.loopexit.sink.split, label %.lr.ph175
 
-.loopexit.sink.split:                             ; preds = %._crit_edge139, %56, %54, %.lr.ph175, %._crit_edge147, %.lr.ph138, %61, %65, %.lr.ph152
-  %.092.ph = phi i32 [ 0, %.lr.ph152 ], [ 0, %65 ], [ 0, %61 ], [ 0, %.lr.ph138 ], [ 0, %._crit_edge147 ], [ 0, %.lr.ph175 ], [ 0, %54 ], [ 0, %56 ], [ 1, %._crit_edge139 ]
+.loopexit.sink.split:                             ; preds = %._crit_edge139, %._crit_edge147, %56, %54, %.lr.ph175, %61, %65, %.lr.ph138, %.lr.ph152
+  %.092.ph = phi i32 [ 0, %61 ], [ 0, %.lr.ph152 ], [ 0, %.lr.ph138 ], [ 0, %65 ], [ 0, %._crit_edge147 ], [ 0, %56 ], [ 0, %54 ], [ 0, %.lr.ph175 ], [ 1, %._crit_edge139 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.loopexit
@@ -1391,7 +1391,7 @@ PKCS12_handle_content_info.exit.thread21:         ; preds = %56
   br label %99
 
 99:                                               ; preds = %89, %95, %88, %78, %77, %71
-  %.142.i = phi i32 [ 0, %77 ], [ 0, %88 ], [ %98, %95 ], [ 0, %71 ], [ 0, %78 ], [ 0, %89 ]
+  %.142.i = phi i32 [ 0, %77 ], [ 0, %71 ], [ 0, %88 ], [ %98, %95 ], [ 0, %78 ], [ 0, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -1585,7 +1585,7 @@ PKCS12_handle_content_info.exit.thread21:         ; preds = %56
   br label %PKCS12_handle_content_info.exit
 
 PKCS12_handle_content_info.exit:                  ; preds = %99, %105, %136, %170
-  %.041.i = phi i32 [ %.142.i, %99 ], [ %.243.i, %105 ], [ %.344.i, %136 ], [ %.445.i, %170 ]
+  %.041.i = phi i32 [ %.445.i, %170 ], [ %.142.i, %99 ], [ %.344.i, %136 ], [ %.243.i, %105 ]
   %171 = load ptr, ptr %8, align 8, !tbaa !6
   call void @free(ptr noundef %171) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1607,13 +1607,13 @@ PKCS12_handle_content_info.exit:                  ; preds = %99, %105, %136, %17
   br i1 %.not14, label %.loopexit, label %48
 
 .loopexit:                                        ; preds = %172, %.preheader, %.thread, %47
-  %.08 = phi i32 [ 0, %47 ], [ 0, %.thread ], [ 1, %.preheader ], [ 1, %172 ]
+  %.08 = phi i32 [ 0, %.thread ], [ 0, %47 ], [ 1, %.preheader ], [ 1, %172 ]
   %174 = load ptr, ptr %24, align 8, !tbaa !6
   call void @free(ptr noundef %174) #12
   br label %175
 
 175:                                              ; preds = %.loopexit, %32, %29
-  %.09 = phi i32 [ 0, %29 ], [ %.08, %.loopexit ], [ 0, %32 ]
+  %.09 = phi i32 [ 0, %29 ], [ 0, %32 ], [ %.08, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
@@ -1671,7 +1671,7 @@ PKCS12_free.exit:                                 ; preds = %12, %15
   br label %17
 
 17:                                               ; preds = %8, %PKCS12_free.exit, %3, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %3 ], [ %4, %PKCS12_free.exit ], [ %4, %8 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %7 ], [ %4, %PKCS12_free.exit ], [ %4, %8 ]
   ret ptr %.0
 }
 
@@ -1797,12 +1797,12 @@ PKCS12_free.exit.i:                               ; preds = %46, %43
   br label %d2i_PKCS12.exit
 
 d2i_PKCS12.exit:                                  ; preds = %24, %22, %.preheader, %._crit_edge, %PKCS12_free.exit.i, %41, %40, %.thread, %5
-  %.024 = phi ptr [ null, %5 ], [ null, %40 ], [ null, %.thread ], [ %37, %PKCS12_free.exit.i ], [ %37, %41 ], [ null, %._crit_edge ], [ null, %.preheader ], [ null, %22 ], [ null, %24 ]
+  %.024 = phi ptr [ null, %5 ], [ %37, %41 ], [ null, %.thread ], [ null, %40 ], [ %37, %PKCS12_free.exit.i ], [ null, %._crit_edge ], [ null, %.preheader ], [ null, %22 ], [ null, %24 ]
   tail call void @BUF_MEM_free(ptr noundef nonnull %3) #12
   br label %48
 
 48:                                               ; preds = %2, %d2i_PKCS12.exit
-  %.025 = phi ptr [ %.024, %d2i_PKCS12.exit ], [ null, %2 ]
+  %.025 = phi ptr [ null, %2 ], [ %.024, %d2i_PKCS12.exit ]
   ret ptr %.025
 }
 
@@ -1896,7 +1896,7 @@ define hidden range(i32 0, 2) i32 @PKCS12_parse(ptr noundef readonly captures(no
   br label %26
 
 26:                                               ; preds = %24, %25, %17, %18, %11
-  %.021 = phi i32 [ 0, %11 ], [ 0, %18 ], [ 0, %17 ], [ 1, %25 ], [ 1, %24 ]
+  %.021 = phi i32 [ 0, %17 ], [ 0, %11 ], [ 0, %18 ], [ 1, %25 ], [ 1, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.021
 }
@@ -1963,7 +1963,7 @@ define hidden range(i32 0, 2) i32 @PKCS12_verify_mac(ptr noundef readonly captur
   br label %22
 
 22:                                               ; preds = %9, %13, %7, %21
-  %.0 = phi i32 [ %.1, %21 ], [ 0, %7 ], [ 0, %13 ], [ 0, %9 ]
+  %.0 = phi i32 [ 0, %7 ], [ %.1, %21 ], [ 0, %13 ], [ 0, %9 ]
   ret i32 %.0
 }
 
@@ -2176,7 +2176,7 @@ get_pbe_suite.exit.i:                             ; preds = %17
   call void @ERR_put_error(i32 noundef 19, i32 noundef 0, i32 noundef 109, ptr noundef nonnull @.str, i32 noundef 406) #12
   br label %41
 
-41:                                               ; preds = %25, %40, %36, %31
+41:                                               ; preds = %25, %31, %40, %36
   call void @ERR_put_error(i32 noundef 19, i32 noundef 0, i32 noundef 121, ptr noundef nonnull @.str, i32 noundef 427) #12
   br label %68
 

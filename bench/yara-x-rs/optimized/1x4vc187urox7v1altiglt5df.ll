@@ -209,7 +209,7 @@ define hidden void @_ZN4core5slice4sort6stable5drift4sort17h94f7ef797985cf65E(pt
   br i1 %exitcond32.not.i, label %_ZN4core5slice4sort6shared17find_existing_run17h805a6804df54a429E.exit.i, label %.lr.ph24.i
 
 _ZN4core5slice4sort6shared17find_existing_run17h805a6804df54a429E.exit.i: ; preds = %32, %.lr.ph.i, %36, %.lr.ph24.i
-  %.sroa.0.0.i.i = phi i64 [ %22, %36 ], [ %.sroa.01.0.i23.i, %.lr.ph24.i ], [ %22, %32 ], [ %.sroa.01.1.i20.i, %.lr.ph.i ]
+  %.sroa.0.0.i.i = phi i64 [ %22, %36 ], [ %.sroa.01.0.i23.i, %.lr.ph24.i ], [ %.sroa.01.1.i20.i, %.lr.ph.i ], [ %22, %32 ]
   %38 = icmp ule i64 %.sroa.0.0.i.i, %22
   tail call void @llvm.assume(i1 %38)
   %.not3.i = icmp ult i64 %.sroa.0.0.i.i, %.sroa.0.0
@@ -231,7 +231,7 @@ _ZN4core5slice4sort6shared17find_existing_run17h805a6804df54a429E.exit.i: ; pred
   br label %_ZN4core5slice4sort6stable5drift10create_run17hdef6eeed3657dceeE.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hc9de515e2a6761e2E.exit.i": ; preds = %50, %.preheader18.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hdf0c66bb54d5afddE.exit.i", %39, %25
-  %.sroa.0.0.i1417.i = phi i64 [ %.sroa.0.0.i.i, %39 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hdf0c66bb54d5afddE.exit.i" ], [ %22, %25 ], [ 2, %.preheader18.i ], [ %.sroa.0.0.i435053.i, %50 ]
+  %.sroa.0.0.i1417.i = phi i64 [ %22, %25 ], [ %.sroa.0.0.i.i, %39 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hdf0c66bb54d5afddE.exit.i" ], [ 2, %.preheader18.i ], [ %.sroa.0.0.i435053.i, %50 ]
   %45 = shl i64 %.sroa.0.0.i1417.i, 1
   %46 = or disjoint i64 %45, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17hdef6eeed3657dceeE.exit
@@ -509,7 +509,7 @@ define hidden { i64, i1 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11in
   br label %59
 
 59:                                               ; preds = %48, %52
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.128.i.i, %48 ], [ %58, %52 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %58, %52 ], [ %.sroa.4.128.i.i, %48 ]
   %60 = load ptr, ptr %9, align 8, !alias.scope !39, !noalias !41, !nonnull !3
   %61 = load i64, ptr %7, align 8, !noundef !3
   %62 = icmp ult i64 %61, 384307168202282326
@@ -840,7 +840,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   br label %51
 
 51:                                               ; preds = %40, %44
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.124.i.i, %40 ], [ %50, %44 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %50, %44 ], [ %.sroa.6.124.i.i, %40 ]
   %52 = load i64, ptr %4, align 8, !noundef !3
   %53 = load i16, ptr %5, align 8, !range !108, !noundef !3
   call void @llvm.experimental.noalias.scope.decl(metadata !109)
@@ -979,8 +979,8 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   br label %52
 
 52:                                               ; preds = %41, %45
-  %53 = phi i8 [ %43, %41 ], [ %.pre, %45 ]
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.124.i.i, %41 ], [ %51, %45 ]
+  %53 = phi i8 [ %.pre, %45 ], [ %43, %41 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %51, %45 ], [ %.sroa.6.124.i.i, %41 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !128)
   %54 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.sroa.3.0.i.ph.i
   %55 = and i8 %53, 1
@@ -1365,7 +1365,7 @@ define noundef range(i8 0, 80) i8 @_ZN13yara_x_parser3cst11syntax_kind10SyntaxKi
   br label %91
 
 91:                                               ; preds = %1, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12
-  %.sroa.0.0 = phi i8 [ 1, %12 ], [ 2, %13 ], [ 3, %14 ], [ 4, %15 ], [ 5, %16 ], [ 6, %17 ], [ 7, %18 ], [ 8, %19 ], [ 9, %20 ], [ 10, %21 ], [ 11, %22 ], [ 12, %23 ], [ 13, %24 ], [ 14, %25 ], [ 15, %26 ], [ 16, %27 ], [ 17, %28 ], [ 18, %29 ], [ 19, %30 ], [ 20, %31 ], [ 21, %32 ], [ 22, %33 ], [ 23, %34 ], [ 24, %35 ], [ 25, %36 ], [ 26, %37 ], [ 27, %38 ], [ 28, %39 ], [ 29, %40 ], [ 30, %41 ], [ 31, %42 ], [ 32, %43 ], [ 33, %44 ], [ 34, %45 ], [ 35, %46 ], [ 36, %47 ], [ 37, %48 ], [ 38, %49 ], [ 39, %50 ], [ 68, %51 ], [ 65, %52 ], [ 58, %53 ], [ 59, %54 ], [ 66, %55 ], [ 40, %56 ], [ 41, %57 ], [ 57, %58 ], [ 67, %59 ], [ 60, %60 ], [ 69, %61 ], [ 42, %62 ], [ 43, %63 ], [ 44, %64 ], [ 45, %65 ], [ 46, %66 ], [ 47, %67 ], [ 61, %68 ], [ 62, %69 ], [ 63, %70 ], [ 64, %71 ], [ 70, %72 ], [ 71, %73 ], [ 72, %74 ], [ 73, %75 ], [ 74, %76 ], [ 75, %77 ], [ 48, %78 ], [ 50, %79 ], [ 49, %80 ], [ 77, %81 ], [ 79, %82 ], [ 78, %83 ], [ 52, %84 ], [ 53, %85 ], [ 56, %86 ], [ 55, %87 ], [ 54, %88 ], [ 51, %89 ], [ 76, %90 ], [ 0, %1 ]
+  %.sroa.0.0 = phi i8 [ 76, %90 ], [ 1, %12 ], [ 2, %13 ], [ 3, %14 ], [ 4, %15 ], [ 5, %16 ], [ 6, %17 ], [ 7, %18 ], [ 8, %19 ], [ 9, %20 ], [ 10, %21 ], [ 11, %22 ], [ 12, %23 ], [ 13, %24 ], [ 14, %25 ], [ 15, %26 ], [ 16, %27 ], [ 17, %28 ], [ 18, %29 ], [ 19, %30 ], [ 20, %31 ], [ 21, %32 ], [ 22, %33 ], [ 23, %34 ], [ 24, %35 ], [ 25, %36 ], [ 26, %37 ], [ 27, %38 ], [ 28, %39 ], [ 29, %40 ], [ 30, %41 ], [ 31, %42 ], [ 32, %43 ], [ 33, %44 ], [ 34, %45 ], [ 35, %46 ], [ 36, %47 ], [ 37, %48 ], [ 38, %49 ], [ 39, %50 ], [ 68, %51 ], [ 65, %52 ], [ 58, %53 ], [ 59, %54 ], [ 66, %55 ], [ 0, %1 ], [ 40, %56 ], [ 41, %57 ], [ 57, %58 ], [ 67, %59 ], [ 60, %60 ], [ 69, %61 ], [ 42, %62 ], [ 43, %63 ], [ 44, %64 ], [ 45, %65 ], [ 46, %66 ], [ 47, %67 ], [ 51, %89 ], [ 61, %68 ], [ 62, %69 ], [ 63, %70 ], [ 64, %71 ], [ 54, %88 ], [ 55, %87 ], [ 56, %86 ], [ 70, %72 ], [ 71, %73 ], [ 72, %74 ], [ 73, %75 ], [ 74, %76 ], [ 75, %77 ], [ 48, %78 ], [ 50, %79 ], [ 49, %80 ], [ 77, %81 ], [ 79, %82 ], [ 78, %83 ], [ 52, %84 ], [ 53, %85 ]
   ret i8 %.sroa.0.0
 }
 

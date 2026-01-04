@@ -1068,7 +1068,7 @@ _ZN7QStringD2Ev.exit181:                          ; preds = %307, %_ZN17QArrayDa
   br label %312
 
 312:                                              ; preds = %268, %_ZN7QStringD2Ev.exit181, %232, %230, %225
-  %.pn52.pn.pn = phi { ptr, i32 } [ %.pn52, %225 ], [ %233, %232 ], [ %231, %230 ], [ %.pn, %_ZN7QStringD2Ev.exit181 ], [ %269, %268 ]
+  %.pn52.pn.pn = phi { ptr, i32 } [ %.pn52, %225 ], [ %231, %230 ], [ %233, %232 ], [ %.pn, %_ZN7QStringD2Ev.exit181 ], [ %269, %268 ]
   %313 = load ptr, ptr %14, align 8
   %.not.i.i.i182 = icmp eq ptr %313, null
   br i1 %.not.i.i.i182, label %_ZN7QStringD2Ev.exit185, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i183
@@ -1088,7 +1088,7 @@ _ZN7QStringD2Ev.exit185:                          ; preds = %312, %_ZN17QArrayDa
   br label %317
 
 317:                                              ; preds = %186, %_ZN7QStringD2Ev.exit185, %166, %164, %159
-  %.pn57.pn.pn = phi { ptr, i32 } [ %.pn57, %159 ], [ %167, %166 ], [ %165, %164 ], [ %.pn52.pn.pn, %_ZN7QStringD2Ev.exit185 ], [ %187, %186 ]
+  %.pn57.pn.pn = phi { ptr, i32 } [ %.pn57, %159 ], [ %165, %164 ], [ %167, %166 ], [ %.pn52.pn.pn, %_ZN7QStringD2Ev.exit185 ], [ %187, %186 ]
   %318 = load ptr, ptr %9, align 8
   %.not.i.i.i186 = icmp eq ptr %318, null
   br i1 %.not.i.i.i186, label %_ZN7QStringD2Ev.exit189, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i187
@@ -1134,7 +1134,7 @@ _ZN7QStringD2Ev.exit193:                          ; preds = %323, %_ZN17QArrayDa
   br label %328
 
 328:                                              ; preds = %56, %_ZN7QStringD2Ev.exit193, %33, %27
-  %.pn63.pn.pn.pn.pn = phi { ptr, i32 } [ %34, %33 ], [ %28, %27 ], [ %.pn63.pn.pn, %_ZN7QStringD2Ev.exit193 ], [ %57, %56 ]
+  %.pn63.pn.pn.pn.pn = phi { ptr, i32 } [ %28, %27 ], [ %34, %33 ], [ %.pn63.pn.pn, %_ZN7QStringD2Ev.exit193 ], [ %57, %56 ]
   call void @_ZN17QArrayDataPointerI5QListI7QStringEED2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(24) %2) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn63.pn.pn.pn.pn

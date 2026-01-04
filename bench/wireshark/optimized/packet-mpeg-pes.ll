@@ -816,7 +816,7 @@ dissect_mpeg_pes_pack_header.exit:                ; preds = %65, %104
   br label %211
 
 211:                                              ; preds = %8, %4, %209
-  %.0 = phi i32 [ %210, %209 ], [ 0, %4 ], [ 0, %8 ]
+  %.0 = phi i32 [ 0, %4 ], [ %210, %209 ], [ 0, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

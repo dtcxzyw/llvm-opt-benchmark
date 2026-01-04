@@ -76,7 +76,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i
   br label %_ZN8facebook5velox10raw_vectorIiE12allocateDataEiRi.exit.i.i
 
 _ZN8facebook5velox10raw_vectorIiE12allocateDataEiRi.exit.i.i: ; preds = %if.end.i.i.i.i.i, %if.then.i.i
-  %retval.0.i.i.i.i.i = phi i32 [ 0, %if.then.i.i ], [ %5, %if.end.i.i.i.i.i ]
+  %retval.0.i.i.i.i.i = phi i32 [ %5, %if.end.i.i.i.i.i ], [ 0, %if.then.i.i ]
   %conv3.i.i.i = sext i32 %retval.0.i.i.i.i.i to i64
   %call4.i.i.i = tail call noalias align 32 ptr @aligned_alloc(i64 noundef 32, i64 noundef %conv3.i.i.i) #16
   %6 = ptrtoint ptr %call4.i.i.i to i64
@@ -180,7 +180,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i.i.i
-  %__first.addr.0.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.then.i.i.i ], [ %add.ptr.i.i.i.i.i, %if.end.i.i.i.i.i ]
+  %__first.addr.0.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i, %if.end.i.i.i.i.i ], [ %incdec.ptr.i.i.i, %if.then.i.i.i ]
   store ptr %__first.addr.0.i.i.i, ptr %_M_finish.i, align 8
   br label %if.end44
 

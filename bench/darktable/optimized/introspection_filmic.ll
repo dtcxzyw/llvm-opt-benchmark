@@ -2128,8 +2128,8 @@ define hidden void @compute_curve_lut(ptr noundef readonly captures(none) %0, pt
   br label %22
 
 22:                                               ; preds = %6, %21, %19
-  %. = phi float [ %17, %21 ], [ %17, %19 ], [ %15, %6 ]
-  %23 = phi reassoc nsz arcp contract afn float [ %15, %21 ], [ 0.000000e+00, %19 ], [ %17, %6 ]
+  %. = phi float [ %17, %19 ], [ %17, %21 ], [ %15, %6 ]
+  %23 = phi reassoc nsz arcp contract afn float [ 0.000000e+00, %19 ], [ %15, %21 ], [ %17, %6 ]
   %24 = fmul reassoc nsz arcp contract afn float %23, 0x3F847AE140000000
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load float, ptr %25, align 4, !tbaa !60
@@ -2158,7 +2158,7 @@ define hidden void @compute_curve_lut(ptr noundef readonly captures(none) %0, pt
   br label %44
 
 44:                                               ; preds = %22, %43, %41
-  %45 = phi reassoc nsz arcp contract afn float [ %38, %43 ], [ 0x3F847AE140000000, %41 ], [ %39, %22 ]
+  %45 = phi reassoc nsz arcp contract afn float [ 0x3F847AE140000000, %41 ], [ %38, %43 ], [ %39, %22 ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %47 = load float, ptr %46, align 4, !tbaa !66
   %48 = fcmp reassoc nsz arcp contract afn ogt float %47, 5.000000e+01
@@ -2319,9 +2319,9 @@ define hidden void @compute_curve_lut(ptr noundef readonly captures(none) %0, pt
   br i1 %.not267, label %137, label %.sink.split
 
 .sink.split:                                      ; preds = %.thread295, %131, %130, %115
-  %.sink349 = phi float [ %84, %115 ], [ 0.000000e+00, %130 ], [ 0.000000e+00, %131 ], [ %84, %.thread295 ]
-  %.sink = phi float [ 1.000000e+00, %115 ], [ %88, %130 ], [ 1.000000e+00, %131 ], [ %88, %.thread295 ]
-  %wide.trip.count315.ph = phi i64 [ 4, %115 ], [ 4, %130 ], [ 3, %131 ], [ 4, %.thread295 ]
+  %.sink349 = phi float [ %84, %115 ], [ 0.000000e+00, %131 ], [ 0.000000e+00, %130 ], [ %84, %.thread295 ]
+  %.sink = phi float [ 1.000000e+00, %115 ], [ 1.000000e+00, %131 ], [ %88, %130 ], [ %88, %.thread295 ]
+  %wide.trip.count315.ph = phi i64 [ 4, %115 ], [ 3, %131 ], [ 4, %130 ], [ 4, %.thread295 ]
   %135 = getelementptr inbounds nuw i8, ptr %4, i64 786468
   store float %.sink349, ptr %135, align 4, !tbaa !172
   %136 = getelementptr inbounds nuw i8, ptr %4, i64 786472
@@ -2329,7 +2329,7 @@ define hidden void @compute_curve_lut(ptr noundef readonly captures(none) %0, pt
   br label %137
 
 137:                                              ; preds = %.sink.split, %130, %.thread295, %131, %115
-  %wide.trip.count315 = phi i64 [ 4, %130 ], [ 4, %.thread295 ], [ 3, %131 ], [ 4, %115 ], [ %wide.trip.count315.ph, %.sink.split ]
+  %wide.trip.count315 = phi i64 [ 3, %131 ], [ 4, %130 ], [ 4, %.thread295 ], [ 4, %115 ], [ %wide.trip.count315.ph, %.sink.split ]
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %139 = load i32, ptr %138, align 4, !tbaa !174
   %.not269 = icmp eq i32 %139, 3
@@ -4413,7 +4413,7 @@ define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, pt
   br label %59
 
 59:                                               ; preds = %56, %2, %54, %50, %46, %42, %38, %34, %30, %26, %22, %18, %14, %10, %6
-  %.0 = phi ptr [ %55, %54 ], [ %51, %50 ], [ %47, %46 ], [ %43, %42 ], [ %39, %38 ], [ %35, %34 ], [ %31, %30 ], [ %27, %26 ], [ %23, %22 ], [ %19, %18 ], [ %15, %14 ], [ %11, %10 ], [ %7, %6 ], [ %0, %2 ], [ %spec.select, %56 ]
+  %.0 = phi ptr [ %0, %2 ], [ %spec.select, %56 ], [ %55, %54 ], [ %51, %50 ], [ %47, %46 ], [ %43, %42 ], [ %39, %38 ], [ %35, %34 ], [ %31, %30 ], [ %27, %26 ], [ %23, %22 ], [ %19, %18 ], [ %15, %14 ], [ %11, %10 ], [ %7, %6 ]
   ret ptr %.0
 }
 
@@ -4498,7 +4498,7 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #1 {
   br label %31
 
 31:                                               ; preds = %29, %27, %25, %23, %21, %19, %17, %15, %13, %11, %9, %7, %5, %3, %1
-  %.0 = phi ptr [ @introspection_linear, %1 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %9 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 440), %11 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 528), %13 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 616), %15 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 704), %17 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 792), %19 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 880), %21 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 968), %23 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1056), %25 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1144), %27 ], [ %., %29 ]
+  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1144), %27 ], [ %., %29 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1056), %25 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 968), %23 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 880), %21 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 792), %19 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 704), %17 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 616), %15 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 528), %13 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 440), %11 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %9 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ @introspection_linear, %1 ]
   ret ptr %.0
 }
 

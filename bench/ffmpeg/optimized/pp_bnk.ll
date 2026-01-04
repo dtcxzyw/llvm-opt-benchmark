@@ -49,7 +49,7 @@ define internal range(i32 0, 27) i32 @pp_bnk_probe(ptr noundef readonly captures
   br label %15
 
 15:                                               ; preds = %14, %11, %10, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %10 ], [ 0, %11 ], [ %., %14 ]
+  %.0 = phi i32 [ 0, %11 ], [ 0, %1 ], [ 0, %10 ], [ %., %14 ]
   ret i32 %.0
 }
 
@@ -200,7 +200,7 @@ thread-pre-split:                                 ; preds = %59, %52
   br label %74
 
 74:                                               ; preds = %66, %63
-  %75 = phi i32 [ 0, %63 ], [ %73, %66 ]
+  %75 = phi i32 [ %73, %66 ], [ 0, %63 ]
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %75, ptr %76, align 4, !tbaa !38
   %77 = zext nneg i32 %12 to i64
@@ -267,8 +267,8 @@ thread-pre-split:                                 ; preds = %59, %52
   %.pr118 = load i32, ptr %76, align 4, !tbaa !38
   br label %79, !llvm.loop !58
 
-.thread114:                                       ; preds = %.lr.ph, %34, %84, %86, %42, %57, %60, %21, %10, %9, %1, %20
-  %.077 = phi i32 [ -1163346256, %20 ], [ %7, %1 ], [ -5, %9 ], [ -1094995529, %10 ], [ -12, %21 ], [ -1094995529, %60 ], [ -1163346256, %42 ], [ %58, %57 ], [ 0, %84 ], [ -12, %86 ], [ -1094995529, %34 ], [ %28, %.lr.ph ]
+.thread114:                                       ; preds = %34, %.lr.ph, %84, %86, %42, %57, %60, %21, %10, %9, %1, %20
+  %.077 = phi i32 [ %58, %57 ], [ %7, %1 ], [ -5, %9 ], [ -1094995529, %10 ], [ -1163346256, %20 ], [ -12, %21 ], [ -1094995529, %60 ], [ -1163346256, %42 ], [ -12, %86 ], [ 0, %84 ], [ %28, %.lr.ph ], [ -1094995529, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.077
 }
@@ -423,8 +423,8 @@ define internal i32 @pp_bnk_read_packet(ptr noundef readonly captures(none) %0, 
   %.not73 = icmp slt i32 %82, %84
   br i1 %.not73, label %14, label %.thread81, !llvm.loop !64
 
-.thread81:                                        ; preds = %80, %35, %52, %56, %65, %66, %2, %.loopexit, %33
-  %spec.select74 = phi i32 [ 0, %.loopexit ], [ %34, %33 ], [ -541478725, %2 ], [ -541478725, %80 ], [ -5, %35 ], [ %54, %52 ], [ %63, %56 ], [ -541478725, %65 ], [ %46, %66 ]
+.thread81:                                        ; preds = %80, %52, %35, %56, %65, %66, %2, %.loopexit, %33
+  %spec.select74 = phi i32 [ 0, %.loopexit ], [ %34, %33 ], [ -541478725, %2 ], [ %63, %56 ], [ -5, %35 ], [ -541478725, %65 ], [ -541478725, %80 ], [ %54, %52 ], [ %46, %66 ]
   ret i32 %spec.select74
 }
 

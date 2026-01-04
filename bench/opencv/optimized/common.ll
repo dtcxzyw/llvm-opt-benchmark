@@ -173,9 +173,9 @@ _ZN2cvaNIiEERNS_5Rect_IT_EES4_RKS3_.exit:         ; preds = %._crit_edge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %68
 
-_ZN2cvaNIiEERNS_5Rect_IT_EES4_RKS3_.exit.thread:  ; preds = %35, %30, %47, %._crit_edge.i, %39, %_ZN2cvaNIiEERNS_5Rect_IT_EES4_RKS3_.exit
-  %.sroa.14.0 = phi i64 [ %.sroa.14.12.insert.insert, %_ZN2cvaNIiEERNS_5Rect_IT_EES4_RKS3_.exit ], [ 4294967297, %39 ], [ 4294967297, %._crit_edge.i ], [ 4294967297, %47 ], [ 4294967297, %30 ], [ 4294967297, %35 ]
-  %.sroa.065.sroa.8.0 = phi i64 [ %59, %_ZN2cvaNIiEERNS_5Rect_IT_EES4_RKS3_.exit ], [ 0, %39 ], [ 0, %._crit_edge.i ], [ 0, %47 ], [ 0, %30 ], [ 0, %35 ]
+_ZN2cvaNIiEERNS_5Rect_IT_EES4_RKS3_.exit.thread:  ; preds = %30, %35, %47, %._crit_edge.i, %39, %_ZN2cvaNIiEERNS_5Rect_IT_EES4_RKS3_.exit
+  %.sroa.14.0 = phi i64 [ %.sroa.14.12.insert.insert, %_ZN2cvaNIiEERNS_5Rect_IT_EES4_RKS3_.exit ], [ 4294967297, %39 ], [ 4294967297, %._crit_edge.i ], [ 4294967297, %47 ], [ 4294967297, %35 ], [ 4294967297, %30 ]
+  %.sroa.065.sroa.8.0 = phi i64 [ %59, %_ZN2cvaNIiEERNS_5Rect_IT_EES4_RKS3_.exit ], [ 0, %39 ], [ 0, %._crit_edge.i ], [ 0, %47 ], [ 0, %35 ], [ 0, %30 ]
   %66 = load ptr, ptr %4, align 8, !tbaa !13
   %.not.i.i.i = icmp eq ptr %66, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit, label %67
@@ -191,7 +191,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %_ZN2cvaNIiEERNS_5Re
   ret { i64, i64 } %.fca.1.insert
 
 68:                                               ; preds = %64, %62, %60
-  %.pn11 = phi { ptr, i32 } [ %65, %64 ], [ %63, %62 ], [ %61, %60 ]
+  %.pn11 = phi { ptr, i32 } [ %61, %60 ], [ %65, %64 ], [ %63, %62 ]
   %69 = load ptr, ptr %4, align 8, !tbaa !13
   %.not.i.i.i13 = icmp eq ptr %69, null
   br i1 %.not.i.i.i13, label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit14, label %70

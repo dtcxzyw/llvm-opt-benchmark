@@ -208,8 +208,8 @@ define hidden void @"_ZN5alloc11collections5btree4node127NodeRef$LT$alloc..colle
   br label %13
 
 13:                                               ; preds = %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h76cc75d52cd92ae0E.llvm.16754810813067917266.exit.thread", %8
-  %.sink20.i11 = phi i64 [ %9, %8 ], [ %7, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h76cc75d52cd92ae0E.llvm.16754810813067917266.exit.thread" ]
-  %.sroa.5.sroa.4.0 = phi i64 [ %12, %8 ], [ undef, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h76cc75d52cd92ae0E.llvm.16754810813067917266.exit.thread" ]
+  %.sink20.i11 = phi i64 [ %7, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h76cc75d52cd92ae0E.llvm.16754810813067917266.exit.thread" ], [ %9, %8 ]
+  %.sroa.5.sroa.4.0 = phi i64 [ undef, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h76cc75d52cd92ae0E.llvm.16754810813067917266.exit.thread" ], [ %12, %8 ]
   %.not = icmp eq i64 %2, 0
   %. = select i1 %.not, i64 632, i64 728
   tail call void @__rust_dealloc(ptr noundef nonnull %1, i64 noundef %., i64 noundef 8) #28
@@ -413,9 +413,9 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   br label %45
 
 45:                                               ; preds = %44, %42, %41, %25
-  %.0.i = phi i64 [ 6, %42 ], [ 5, %44 ], [ 4, %25 ], [ %27, %41 ]
-  %46 = phi i1 [ false, %42 ], [ false, %44 ], [ true, %25 ], [ true, %41 ]
-  %.sroa.726.0.i = phi i64 [ %43, %42 ], [ 0, %44 ], [ %27, %25 ], [ %27, %41 ]
+  %.0.i = phi i64 [ 5, %44 ], [ 6, %42 ], [ 4, %25 ], [ %27, %41 ]
+  %46 = phi i1 [ false, %44 ], [ false, %42 ], [ true, %25 ], [ true, %41 ]
+  %.sroa.726.0.i = phi i64 [ 0, %44 ], [ %43, %42 ], [ %27, %25 ], [ %27, %41 ]
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %48 = load i64, ptr %47, align 8, !alias.scope !35, !noalias !38, !noundef !5
   %49 = invoke noundef align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$17try_new_uninit_in17h4e7908bb40930746E.llvm.17788874430417167"()
@@ -864,9 +864,9 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   br label %210
 
 210:                                              ; preds = %209, %207, %206, %169
-  %.0.i47 = phi i64 [ 6, %207 ], [ 5, %209 ], [ 4, %169 ], [ 5, %206 ]
-  %211 = phi i1 [ false, %207 ], [ false, %209 ], [ true, %169 ], [ true, %206 ]
-  %.sroa.7.0.i = phi i64 [ %208, %207 ], [ 0, %209 ], [ %162, %169 ], [ 5, %206 ]
+  %.0.i47 = phi i64 [ 5, %209 ], [ 6, %207 ], [ 4, %169 ], [ 5, %206 ]
+  %211 = phi i1 [ false, %209 ], [ false, %207 ], [ true, %169 ], [ true, %206 ]
+  %.sroa.7.0.i = phi i64 [ 0, %209 ], [ %208, %207 ], [ %162, %169 ], [ 5, %206 ]
   %212 = zext i16 %166 to i64
   %213 = invoke noundef align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$17try_new_uninit_in17h19789e535a4b2736E.llvm.17788874430417167"()
           to label %.noexc.i48 unwind label %.loopexit96, !noalias !121
@@ -1157,7 +1157,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   ret void
 
 .critedge39:                                      ; preds = %305, %151, %147, %98
-  %.pn.pn = phi { ptr, i32 } [ %.pn.ph.i, %98 ], [ %eh.lpad-body.ph.i, %151 ], [ %144, %147 ], [ %.pn.ph.i45, %305 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn.ph.i, %98 ], [ %.pn.ph.i45, %305 ], [ %144, %147 ], [ %eh.lpad-body.ph.i, %151 ]
   resume { ptr, i32 } %.pn.pn
 }
 

@@ -214,7 +214,7 @@ define hidden range(i32 -1, 1) i32 @output_shmem(ptr noundef captures(none) %0, 
   br label %107
 
 107:                                              ; preds = %29, %31, %102, %99, %77, %64, %36, %16, %8
-  %.0 = phi i32 [ -1, %36 ], [ -1, %77 ], [ -1, %99 ], [ 0, %102 ], [ -1, %64 ], [ -1, %16 ], [ -1, %8 ], [ -1, %31 ], [ -1, %29 ]
+  %.0 = phi i32 [ -1, %8 ], [ -1, %36 ], [ -1, %77 ], [ -1, %99 ], [ 0, %102 ], [ -1, %64 ], [ -1, %16 ], [ -1, %31 ], [ -1, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -340,7 +340,7 @@ define hidden range(i32 -1, 1) i32 @lstopo_shmem_adopt(ptr noundef readonly capt
   br label %57
 
 57:                                               ; preds = %46, %41, %43, %2, %51, %21, %11
-  %.0 = phi i32 [ -1, %11 ], [ -1, %21 ], [ -1, %51 ], [ -1, %2 ], [ -1, %43 ], [ -1, %41 ], [ 0, %46 ]
+  %.0 = phi i32 [ -1, %41 ], [ -1, %11 ], [ -1, %21 ], [ -1, %2 ], [ -1, %51 ], [ -1, %43 ], [ 0, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

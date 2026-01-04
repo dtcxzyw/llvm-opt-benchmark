@@ -2464,7 +2464,7 @@ define internal fastcc noundef zeroext i1 @"_ZN78_$LT$polars_arrow..datatypes..f
   br i1 %brmerge, label %36, label %37
 
 36:                                               ; preds = %30, %37, %2, %22, %24, %39
-  %.sroa.0.0.shrunk = phi i1 [ %42, %39 ], [ false, %24 ], [ false, %22 ], [ false, %2 ], [ true, %37 ], [ %.mux, %30 ]
+  %.sroa.0.0.shrunk = phi i1 [ %.mux, %30 ], [ %42, %39 ], [ false, %2 ], [ true, %37 ], [ false, %24 ], [ false, %22 ]
   ret i1 %.sroa.0.0.shrunk
 
 37:                                               ; preds = %30
@@ -2506,7 +2506,7 @@ define internal fastcc noundef zeroext i1 @"_ZN79_$LT$polars_arrow..datatypes..A
   ]
 
 7:                                                ; preds = %14, %138, %126, %108, %114, %96, %72, %8, %6, %2, %144, %132, %120, %102, %78, %20, %156, %150, %90, %84, %66, %60, %54, %48, %42, %36
-  %.sroa.0.0.shrunk = phi i1 [ %35, %20 ], [ %41, %36 ], [ %47, %42 ], [ %53, %48 ], [ %59, %54 ], [ %65, %60 ], [ %71, %66 ], [ %83, %78 ], [ %89, %84 ], [ %95, %90 ], [ %107, %102 ], [ %125, %120 ], [ %137, %132 ], [ %149, %144 ], [ %155, %150 ], [ %161, %156 ], [ false, %2 ], [ true, %6 ], [ false, %8 ], [ false, %72 ], [ false, %96 ], [ false, %114 ], [ false, %108 ], [ false, %126 ], [ false, %138 ], [ %.mux, %14 ]
+  %.sroa.0.0.shrunk = phi i1 [ false, %2 ], [ %35, %20 ], [ false, %8 ], [ false, %114 ], [ true, %6 ], [ %41, %36 ], [ %47, %42 ], [ %53, %48 ], [ %59, %54 ], [ %65, %60 ], [ %71, %66 ], [ %83, %78 ], [ %.mux, %14 ], [ %89, %84 ], [ %95, %90 ], [ %107, %102 ], [ false, %72 ], [ %125, %120 ], [ false, %96 ], [ %137, %132 ], [ false, %108 ], [ %149, %144 ], [ false, %126 ], [ %155, %150 ], [ %161, %156 ], [ false, %138 ]
   ret i1 %.sroa.0.0.shrunk
 
 8:                                                ; preds = %6
@@ -2770,7 +2770,7 @@ define internal fastcc noundef zeroext i1 @"_ZN79_$LT$polars_arrow..datatypes..E
   br i1 %brmerge, label %30, label %31
 
 30:                                               ; preds = %24, %2, %22, %31
-  %.sroa.0.0.shrunk = phi i1 [ %46, %31 ], [ false, %22 ], [ false, %2 ], [ %.mux, %24 ]
+  %.sroa.0.0.shrunk = phi i1 [ %46, %31 ], [ false, %2 ], [ %.mux, %24 ], [ false, %22 ]
   ret i1 %.sroa.0.0.shrunk
 
 31:                                               ; preds = %24
@@ -2954,7 +2954,7 @@ _ZN9hashbrown3map9make_hash17h5e408e9b975d85deE.exit: ; preds = %10, %12
   br label %83
 
 83:                                               ; preds = %72, %76
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.113.i.i, %72 ], [ %82, %76 ]
+  %.sroa.3.0.i.i.ph = phi i64 [ %82, %76 ], [ %.sroa.4.113.i.i, %72 ]
   %84 = load ptr, ptr %0, align 8, !alias.scope !308, !noalias !311, !nonnull !4
   call void @llvm.experimental.noalias.scope.decl(metadata !319)
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 %.sroa.3.0.i.i.ph
@@ -3139,7 +3139,7 @@ define hidden void @_ZN11polars_json4json12infer_schema12coerce_dtype17h0d150b78
           to label %.noexc32 unwind label %159
 
 common.resume:                                    ; preds = %.body, %.body52, %93, %107, %128, %55
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %eh.lpad-body53, %.body52 ], [ %.pn, %.body ], [ %94, %93 ], [ %108, %107 ], [ %129, %128 ]
+  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %eh.lpad-body53, %.body52 ], [ %.pn, %.body ], [ %108, %107 ], [ %94, %93 ], [ %129, %128 ]
   resume { ptr, i32 } %common.resume.op
 
 .noexc32:                                         ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hb22b6ae083ac177dE.exit"
@@ -3418,7 +3418,7 @@ thread-pre-split:                                 ; preds = %79
   unreachable
 
 .body:                                            ; preds = %151, %143, %157
-  %.pn = phi { ptr, i32 } [ %158, %157 ], [ %144, %143 ], [ %152, %151 ]
+  %.pn = phi { ptr, i32 } [ %144, %143 ], [ %158, %157 ], [ %152, %151 ]
   invoke void @"_ZN4core3ptr86drop_in_place$LT$alloc..vec..Vec$LT$$RF$polars_arrow..datatypes..ArrowDataType$GT$$GT$17h9e45a73995ca5c39E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %31) #20
           to label %common.resume unwind label %99
 
@@ -3852,7 +3852,7 @@ define hidden void @_ZN11polars_json4json12infer_schema12coerce_dtype17h137e79a1
           to label %.noexc32 unwind label %159
 
 common.resume:                                    ; preds = %.body, %.body48, %93, %107, %128, %55
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %eh.lpad-body49, %.body48 ], [ %.pn, %.body ], [ %94, %93 ], [ %108, %107 ], [ %129, %128 ]
+  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %eh.lpad-body49, %.body48 ], [ %.pn, %.body ], [ %108, %107 ], [ %94, %93 ], [ %129, %128 ]
   resume { ptr, i32 } %common.resume.op
 
 .noexc32:                                         ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h35d2d4d51cefde63E.exit"
@@ -4128,7 +4128,7 @@ thread-pre-split:                                 ; preds = %79
   unreachable
 
 .body:                                            ; preds = %151, %143, %157
-  %.pn = phi { ptr, i32 } [ %158, %157 ], [ %144, %143 ], [ %152, %151 ]
+  %.pn = phi { ptr, i32 } [ %144, %143 ], [ %158, %157 ], [ %152, %151 ]
   invoke void @"_ZN4core3ptr86drop_in_place$LT$alloc..vec..Vec$LT$$RF$polars_arrow..datatypes..ArrowDataType$GT$$GT$17h9e45a73995ca5c39E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %31) #20
           to label %common.resume unwind label %99
 

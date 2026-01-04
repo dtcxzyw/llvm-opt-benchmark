@@ -655,8 +655,8 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
   br i1 %exitcond711.not, label %.loopexit, label %.lr.ph601, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.lr.ph593, %.lr.ph601, %296, %321
-  %334 = phi i32 [ %322, %321 ], [ %297, %296 ], [ %322, %.lr.ph601 ], [ %297, %.lr.ph593 ]
-  %.2479 = phi double [ %317, %321 ], [ %292, %296 ], [ %330, %.lr.ph601 ], [ %306, %.lr.ph593 ]
+  %334 = phi i32 [ %322, %.lr.ph601 ], [ %322, %321 ], [ %297, %296 ], [ %297, %.lr.ph593 ]
+  %.2479 = phi double [ %330, %.lr.ph601 ], [ %317, %321 ], [ %292, %296 ], [ %306, %.lr.ph593 ]
   %335 = load double, ptr %260, align 8, !tbaa !7
   %336 = fadd double %.2479, %335
   %337 = fmul double %285, %336

@@ -253,7 +253,7 @@ define internal ptr @H5O__ainfo_decode(ptr noundef %0, ptr readnone captures(non
   br label %.thread81
 
 .thread81:                                        ; preds = %34, %27, %19, %125, %127, %129, %6
-  %.0 = phi ptr [ null, %129 ], [ null, %6 ], [ %32, %125 ], [ %32, %127 ], [ null, %34 ], [ null, %27 ], [ null, %19 ]
+  %.0 = phi ptr [ null, %129 ], [ null, %19 ], [ null, %6 ], [ %32, %125 ], [ %32, %127 ], [ null, %34 ], [ null, %27 ]
   ret ptr %.0
 }
 
@@ -520,7 +520,7 @@ define internal ptr @H5O__ainfo_copy_file(ptr readnone captures(none) %0, ptr no
   br label %.thread21
 
 .thread21:                                        ; preds = %18, %22, %.thread, %7, %29
-  %.015 = phi ptr [ null, %29 ], [ null, %7 ], [ %16, %22 ], [ %16, %.thread ], [ null, %18 ]
+  %.015 = phi ptr [ null, %29 ], [ null, %18 ], [ null, %7 ], [ %16, %22 ], [ %16, %.thread ]
   ret ptr %.015
 }
 

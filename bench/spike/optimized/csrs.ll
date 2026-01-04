@@ -953,7 +953,7 @@ _ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEE11lower_boundERS4_.exit: ; p
   br label %.thread.i
 
 .thread.i:                                        ; preds = %23, %21
-  %28 = phi i1 [ true, %21 ], [ %27, %23 ]
+  %28 = phi i1 [ %27, %23 ], [ true, %21 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %28, ptr noundef nonnull %14, ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(32) %5) #30
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load i64, ptr %29, align 8, !tbaa !158
@@ -1174,7 +1174,7 @@ _ZNK13pmpaddr_csr_t19next_locked_and_torEv.exit.thread: ; preds = %_ZNK13pmpaddr
           to label %52 unwind label %53
 
 52:                                               ; preds = %_ZNK13pmpaddr_csr_t19next_locked_and_torEv.exit, %8, %_ZNK13pmpaddr_csr_t19next_locked_and_torEv.exit.thread, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %_ZNK13pmpaddr_csr_t19next_locked_and_torEv.exit ], [ false, %8 ], [ true, %_ZNK13pmpaddr_csr_t19next_locked_and_torEv.exit.thread ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %_ZNK13pmpaddr_csr_t19next_locked_and_torEv.exit ], [ true, %_ZNK13pmpaddr_csr_t19next_locked_and_torEv.exit.thread ]
   ret i1 %.0
 
 53:                                               ; preds = %_ZNK13pmpaddr_csr_t19next_locked_and_torEv.exit.thread
@@ -1457,7 +1457,7 @@ _ZNK13pmpaddr_csr_t14tor_base_paddrEv.exit:       ; preds = %8, %12
   br label %52
 
 52:                                               ; preds = %47, %40
-  %53 = phi i1 [ true, %40 ], [ %51, %47 ]
+  %53 = phi i1 [ %51, %47 ], [ true, %40 ]
   %54 = icmp ne i8 %38, 16
   %55 = shl i64 %28, 1
   %56 = zext i1 %54 to i64
@@ -1568,7 +1568,7 @@ define noundef zeroext i1 @_ZNK13pmpaddr_csr_t9access_okE11access_typemb(ptr nou
   br label %42
 
 42:                                               ; preds = %.thread88, %41, %40, %38
-  %43 = phi i1 [ true, %38 ], [ true, %40 ], [ true, %41 ], [ %spec.select, %.thread88 ]
+  %43 = phi i1 [ true, %41 ], [ %spec.select, %.thread88 ], [ true, %40 ], [ true, %38 ]
   %44 = select i1 %34, i1 %43, i1 %37
   br label %49
 
@@ -1774,7 +1774,7 @@ define noundef zeroext i1 @_ZN12pmpcfg_csr_t14unlogged_writeEm(ptr noundef nonnu
   br label %64
 
 64:                                               ; preds = %51, %45, %.lr.ph.split.us
-  %.1.us = phi i1 [ %.04360.us, %.lr.ph.split.us ], [ true, %51 ], [ true, %45 ]
+  %.1.us = phi i1 [ %.04360.us, %.lr.ph.split.us ], [ true, %45 ], [ true, %51 ]
   %65 = add nuw i64 %.04459.us, 1
   %exitcond93.not = icmp eq i64 %65, %37
   br i1 %exitcond93.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !174
@@ -2067,7 +2067,7 @@ define noundef zeroext i1 @_ZN13mseccfg_csr_t14unlogged_writeEm(ptr noundef nonn
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit43, %.loopexit.loopexit.split.loop.exit45, %47, %44, %39, %34
-  %.028.i.i.i.i.i = phi ptr [ %12, %47 ], [ %.029.lcssa.i.i.i.i.i, %34 ], [ %.1.i.i.i.i.i, %39 ], [ %.2.i.i.i.i.i, %44 ], [ %48, %.loopexit.loopexit.split.loop.exit ], [ %49, %.loopexit.loopexit.split.loop.exit43 ], [ %50, %.loopexit.loopexit.split.loop.exit45 ], [ %.02943.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.028.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %39 ], [ %12, %47 ], [ %.2.i.i.i.i.i, %44 ], [ %.029.lcssa.i.i.i.i.i, %34 ], [ %50, %.loopexit.loopexit.split.loop.exit45 ], [ %48, %.loopexit.loopexit.split.loop.exit ], [ %49, %.loopexit.loopexit.split.loop.exit43 ], [ %.02943.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %.not29 = icmp eq ptr %12, %.028.i.i.i.i.i
   %51 = load ptr, ptr %0, align 8, !tbaa !3
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
@@ -2568,7 +2568,7 @@ define void @_ZN17base_status_csr_tC2EP11processor_tm(ptr noundef nonnull writeo
   br label %_ZNK17base_status_csr_t26compute_sstatus_write_maskEv.exit
 
 _ZNK17base_status_csr_t26compute_sstatus_write_maskEv.exit: ; preds = %27, %34
-  %37 = phi i64 [ %36, %34 ], [ 0, %27 ]
+  %37 = phi i64 [ 0, %27 ], [ %36, %34 ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %39 = and i64 %.sink.i.i.i, 262144
   %.0.i.i.not.i = icmp eq i64 %39, 0
@@ -2625,7 +2625,7 @@ define noundef range(i64 0, 33554432) i64 @_ZNK17base_status_csr_t26compute_ssta
   br label %11
 
 11:                                               ; preds = %1, %8
-  %12 = phi i64 [ %10, %8 ], [ 0, %1 ]
+  %12 = phi i64 [ 0, %1 ], [ %10, %8 ]
   %13 = and i64 %.sink.i.i, 262144
   %.0.i.i.not = icmp eq i64 %13, 0
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 266824
@@ -2795,7 +2795,7 @@ define void @_ZN14vsstatus_csr_tC2EP11processor_tm(ptr noundef nonnull writeonly
   br label %_ZN17base_status_csr_tC2EP11processor_tm.exit
 
 _ZN17base_status_csr_tC2EP11processor_tm.exit:    ; preds = %27, %34
-  %37 = phi i64 [ %36, %34 ], [ 0, %27 ]
+  %37 = phi i64 [ 0, %27 ], [ %36, %34 ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %39 = and i64 %.sink.i.i.i.i, 262144
   %.0.i.i.not.i.i = icmp eq i64 %39, 0
@@ -3026,7 +3026,7 @@ define void @_ZN19sstatus_proxy_csr_tC2EP11processor_tmSt10shared_ptrI13mstatus_
   br label %_ZN17base_status_csr_tC2EP11processor_tm.exit
 
 _ZN17base_status_csr_tC2EP11processor_tm.exit:    ; preds = %28, %35
-  %38 = phi i64 [ %37, %35 ], [ 0, %28 ]
+  %38 = phi i64 [ 0, %28 ], [ %37, %35 ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %40 = and i64 %.sink.i.i.i.i, 262144
   %.0.i.i.not.i.i = icmp eq i64 %40, 0
@@ -3247,7 +3247,7 @@ define void @_ZN13mstatus_csr_tC2EP11processor_tm(ptr noundef nonnull writeonly 
   br label %_ZN17base_status_csr_tC2EP11processor_tm.exit
 
 _ZN17base_status_csr_tC2EP11processor_tm.exit:    ; preds = %27, %34
-  %37 = phi i64 [ %36, %34 ], [ 0, %27 ]
+  %37 = phi i64 [ 0, %27 ], [ %36, %34 ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %39 = and i64 %.sink.i.i.i.i, 262144
   %.0.i.i.not.i.i = icmp eq i64 %39, 0
@@ -6864,68 +6864,68 @@ define noundef i64 @_ZNK14base_atp_csr_t16compute_new_satpEm(ptr noundef nonnull
   %11 = icmp eq i32 %6, 32
   %12 = select i1 %11, i64 2143289344, i64 1152903912420802560
   %13 = select i1 %.not, i64 0, i64 %12
-  br i1 %11, label %14, label %20
+  br i1 %11, label %14, label %17
 
 14:                                               ; preds = %2
   %15 = and i64 %1, 2147483648
   %trunc.not.i = icmp eq i64 %15, 0
-  br i1 %trunc.not.i, label %.thread26, label %17
+  br i1 %trunc.not.i, label %.thread26, label %_ZNK14base_atp_csr_t10satp_validEm.exit
 
 .thread26:                                        ; preds = %14
   %16 = or disjoint i64 %13, 2151677951
   br label %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread
 
-17:                                               ; preds = %14
-  %18 = and i64 %.fr, 1
-  %.not42 = icmp eq i64 %18, 0
-  br i1 %.not42, label %28, label %.thread25
-
-.thread25:                                        ; preds = %17
-  %19 = or disjoint i64 %13, 2151677951
-  br label %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread
-
-20:                                               ; preds = %2
-  %21 = lshr i64 %1, 60
-  switch i64 %21, label %.thread [
-    i64 8, label %22
-    i64 9, label %24
-    i64 10, label %_ZNK14base_atp_csr_t10satp_validEm.exit
+17:                                               ; preds = %2
+  %18 = lshr i64 %1, 60
+  switch i64 %18, label %.thread [
+    i64 8, label %19
+    i64 9, label %21
+    i64 10, label %23
     i64 0, label %.thread48
   ]
 
-22:                                               ; preds = %20
-  %23 = and i64 %.fr, 2
-  %.not38 = icmp eq i64 %23, 0
+19:                                               ; preds = %17
+  %20 = and i64 %.fr, 2
+  %.not38 = icmp eq i64 %20, 0
   br i1 %.not38, label %.thread, label %.thread24
 
-24:                                               ; preds = %20
-  %25 = and i64 %.fr, 4
-  %.not37 = icmp eq i64 %25, 0
+21:                                               ; preds = %17
+  %22 = and i64 %.fr, 4
+  %.not37 = icmp eq i64 %22, 0
   br i1 %.not37, label %.thread, label %.thread24
 
-_ZNK14base_atp_csr_t10satp_validEm.exit:          ; preds = %20
-  %26 = and i64 %.fr, 8
-  %.not36 = icmp eq i64 %26, 0
+23:                                               ; preds = %17
+  %24 = and i64 %.fr, 8
+  %.not36 = icmp eq i64 %24, 0
   br i1 %.not36, label %.thread, label %.thread24
 
-.thread24:                                        ; preds = %_ZNK14base_atp_csr_t10satp_validEm.exit, %22, %24
+_ZNK14base_atp_csr_t10satp_validEm.exit:          ; preds = %14
+  %25 = and i64 %.fr, 1
+  %.not42 = icmp eq i64 %25, 0
+  br i1 %.not42, label %28, label %.thread25
+
+.thread25:                                        ; preds = %_ZNK14base_atp_csr_t10satp_validEm.exit
+  %26 = or disjoint i64 %13, 2151677951
+  br label %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread
+
+.thread24:                                        ; preds = %23, %21, %19
   br label %.thread
 
-.thread48:                                        ; preds = %20
+.thread48:                                        ; preds = %17
   %27 = or i64 %13, -1152903912420802561
   br label %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread
 
-28:                                               ; preds = %17
+28:                                               ; preds = %_ZNK14base_atp_csr_t10satp_validEm.exit
   %29 = or disjoint i64 %13, 4194303
   br label %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread30
 
-.thread:                                          ; preds = %20, %_ZNK14base_atp_csr_t10satp_validEm.exit, %22, %24, %.thread24
-  %.sink = phi i64 [ -1152903912420802561, %.thread24 ], [ 17592186044415, %24 ], [ 17592186044415, %22 ], [ 17592186044415, %_ZNK14base_atp_csr_t10satp_validEm.exit ], [ 17592186044415, %20 ]
+.thread:                                          ; preds = %17, %23, %21, %19, %.thread24
+  %.sink = phi i64 [ -1152903912420802561, %.thread24 ], [ 17592186044415, %19 ], [ 17592186044415, %21 ], [ 17592186044415, %23 ], [ 17592186044415, %17 ]
   %30 = or i64 %13, %.sink
-  switch i64 %21, label %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread30 [
+  switch i64 %18, label %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread30 [
     i64 8, label %31
     i64 9, label %33
-    i64 10, label %_ZNK14base_atp_csr_t10satp_validEm.exit13
+    i64 10, label %35
     i64 0, label %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread
   ]
 
@@ -6939,26 +6939,26 @@ _ZNK14base_atp_csr_t10satp_validEm.exit:          ; preds = %20
   %.not40 = icmp eq i64 %34, 0
   br i1 %.not40, label %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread30, label %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread
 
-_ZNK14base_atp_csr_t10satp_validEm.exit13:        ; preds = %.thread
-  %35 = and i64 %.fr, 8
-  %.not39 = icmp eq i64 %35, 0
+35:                                               ; preds = %.thread
+  %36 = and i64 %.fr, 8
+  %.not39 = icmp eq i64 %36, 0
   br i1 %.not39, label %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread30, label %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread
 
-_ZNK14base_atp_csr_t10satp_validEm.exit13.thread: ; preds = %.thread25, %.thread26, %.thread48, %.thread, %33, %31, %_ZNK14base_atp_csr_t10satp_validEm.exit13
-  %36 = phi i64 [ %30, %_ZNK14base_atp_csr_t10satp_validEm.exit13 ], [ %30, %31 ], [ %30, %33 ], [ %30, %.thread ], [ %27, %.thread48 ], [ %19, %.thread25 ], [ %16, %.thread26 ]
+_ZNK14base_atp_csr_t10satp_validEm.exit13.thread: ; preds = %.thread25, %.thread26, %.thread48, %.thread, %31, %33, %35
+  %37 = phi i64 [ %30, %31 ], [ %16, %.thread26 ], [ %30, %35 ], [ %30, %33 ], [ %30, %.thread ], [ %27, %.thread48 ], [ %26, %.thread25 ]
   br label %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread30
 
-_ZNK14base_atp_csr_t10satp_validEm.exit13.thread30: ; preds = %28, %.thread, %33, %31, %_ZNK14base_atp_csr_t10satp_validEm.exit13, %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread
-  %37 = phi i64 [ %36, %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread ], [ %30, %_ZNK14base_atp_csr_t10satp_validEm.exit13 ], [ %30, %31 ], [ %30, %33 ], [ %30, %.thread ], [ %29, %28 ]
-  %38 = phi i64 [ 0, %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread ], [ -1152921504606846976, %_ZNK14base_atp_csr_t10satp_validEm.exit13 ], [ -1152921504606846976, %31 ], [ -1152921504606846976, %33 ], [ -1152921504606846976, %.thread ], [ 2147483648, %28 ]
-  %39 = and i64 %37, %1
-  %40 = load ptr, ptr %0, align 8, !tbaa !3
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = tail call noundef i64 %42(ptr noundef nonnull align 8 dereferenceable(48) %0) #30
-  %44 = and i64 %43, %38
-  %45 = or i64 %44, %39
-  ret i64 %45
+_ZNK14base_atp_csr_t10satp_validEm.exit13.thread30: ; preds = %28, %.thread, %31, %33, %35, %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread
+  %38 = phi i64 [ %37, %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread ], [ %29, %28 ], [ %30, %31 ], [ %30, %35 ], [ %30, %33 ], [ %30, %.thread ]
+  %39 = phi i64 [ 0, %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread ], [ 2147483648, %28 ], [ -1152921504606846976, %31 ], [ -1152921504606846976, %35 ], [ -1152921504606846976, %33 ], [ -1152921504606846976, %.thread ]
+  %40 = and i64 %38, %1
+  %41 = load ptr, ptr %0, align 8, !tbaa !3
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %43 = load ptr, ptr %42, align 8
+  %44 = tail call noundef i64 %43(ptr noundef nonnull align 8 dereferenceable(48) %0) #30
+  %45 = and i64 %44, %39
+  %46 = or i64 %45, %40
+  ret i64 %46
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
@@ -7020,7 +7020,7 @@ define noundef zeroext i1 @_ZNK14base_atp_csr_t10satp_validEm(ptr noundef nonnul
   br label %37
 
 37:                                               ; preds = %30, %24, %18, %10, %16, %8, %36
-  %.0 = phi i1 [ false, %36 ], [ %15, %10 ], [ true, %8 ], [ %23, %18 ], [ %29, %24 ], [ %35, %30 ], [ true, %16 ]
+  %.0 = phi i1 [ %35, %30 ], [ %15, %10 ], [ false, %36 ], [ true, %8 ], [ %23, %18 ], [ %29, %24 ], [ true, %16 ]
   ret i1 %.0
 }
 
@@ -7372,63 +7372,63 @@ define noundef zeroext i1 @_ZN22virtualized_satp_csr_t14unlogged_writeEm(ptr nou
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 3964
   %8 = load i32, ptr %7, align 4, !tbaa !172
   %9 = icmp eq i32 %8, 32
-  br i1 %9, label %10, label %17
+  br i1 %9, label %10, label %12
 
 10:                                               ; preds = %2
   %11 = and i64 %1, 2147483648
   %trunc.not.i = icmp eq i64 %11, 0
-  br i1 %trunc.not.i, label %_ZNK14base_atp_csr_t10satp_validEm.exit.thread, label %12
+  br i1 %trunc.not.i, label %_ZNK14base_atp_csr_t10satp_validEm.exit.thread, label %_ZNK14base_atp_csr_t10satp_validEm.exit
 
-12:                                               ; preds = %10
-  %13 = getelementptr inbounds nuw i8, ptr %6, i64 4264
-  %14 = load ptr, ptr %13, align 8, !tbaa !185
-  %15 = load i64, ptr %14, align 8, !tbaa !96
-  %16 = and i64 %15, 1
-  %.not8 = icmp eq i64 %16, 0
-  br i1 %.not8, label %_ZNK14base_atp_csr_t10satp_validEm.exit.thread4, label %_ZNK14base_atp_csr_t10satp_validEm.exit.thread
-
-17:                                               ; preds = %2
-  %18 = lshr i64 %1, 60
-  switch i64 %18, label %_ZNK14base_atp_csr_t10satp_validEm.exit.thread4 [
-    i64 8, label %19
-    i64 9, label %24
-    i64 10, label %_ZNK14base_atp_csr_t10satp_validEm.exit
+12:                                               ; preds = %2
+  %13 = lshr i64 %1, 60
+  switch i64 %13, label %_ZNK14base_atp_csr_t10satp_validEm.exit.thread4 [
+    i64 8, label %14
+    i64 9, label %19
+    i64 10, label %24
     i64 0, label %_ZNK14base_atp_csr_t10satp_validEm.exit.thread
   ]
 
-19:                                               ; preds = %17
+14:                                               ; preds = %12
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 4264
+  %16 = load ptr, ptr %15, align 8, !tbaa !185
+  %17 = load i64, ptr %16, align 8, !tbaa !96
+  %18 = and i64 %17, 2
+  %.not7 = icmp eq i64 %18, 0
+  br i1 %.not7, label %_ZNK14base_atp_csr_t10satp_validEm.exit.thread4, label %_ZNK14base_atp_csr_t10satp_validEm.exit.thread
+
+19:                                               ; preds = %12
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 4264
   %21 = load ptr, ptr %20, align 8, !tbaa !185
   %22 = load i64, ptr %21, align 8, !tbaa !96
-  %23 = and i64 %22, 2
-  %.not7 = icmp eq i64 %23, 0
-  br i1 %.not7, label %_ZNK14base_atp_csr_t10satp_validEm.exit.thread4, label %_ZNK14base_atp_csr_t10satp_validEm.exit.thread
+  %23 = and i64 %22, 4
+  %.not6 = icmp eq i64 %23, 0
+  br i1 %.not6, label %_ZNK14base_atp_csr_t10satp_validEm.exit.thread4, label %_ZNK14base_atp_csr_t10satp_validEm.exit.thread
 
-24:                                               ; preds = %17
+24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 4264
   %26 = load ptr, ptr %25, align 8, !tbaa !185
   %27 = load i64, ptr %26, align 8, !tbaa !96
-  %28 = and i64 %27, 4
-  %.not6 = icmp eq i64 %28, 0
-  br i1 %.not6, label %_ZNK14base_atp_csr_t10satp_validEm.exit.thread4, label %_ZNK14base_atp_csr_t10satp_validEm.exit.thread
+  %28 = and i64 %27, 8
+  %.not = icmp eq i64 %28, 0
+  br i1 %.not, label %_ZNK14base_atp_csr_t10satp_validEm.exit.thread4, label %_ZNK14base_atp_csr_t10satp_validEm.exit.thread
 
-_ZNK14base_atp_csr_t10satp_validEm.exit:          ; preds = %17
+_ZNK14base_atp_csr_t10satp_validEm.exit:          ; preds = %10
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 4264
   %30 = load ptr, ptr %29, align 8, !tbaa !185
   %31 = load i64, ptr %30, align 8, !tbaa !96
-  %32 = and i64 %31, 8
-  %.not = icmp eq i64 %32, 0
-  br i1 %.not, label %_ZNK14base_atp_csr_t10satp_validEm.exit.thread4, label %_ZNK14base_atp_csr_t10satp_validEm.exit.thread
+  %32 = and i64 %31, 1
+  %.not8 = icmp eq i64 %32, 0
+  br i1 %.not8, label %_ZNK14base_atp_csr_t10satp_validEm.exit.thread4, label %_ZNK14base_atp_csr_t10satp_validEm.exit.thread
 
-_ZNK14base_atp_csr_t10satp_validEm.exit.thread4:  ; preds = %17, %24, %19, %12, %_ZNK14base_atp_csr_t10satp_validEm.exit
+_ZNK14base_atp_csr_t10satp_validEm.exit.thread4:  ; preds = %12, %14, %19, %24, %_ZNK14base_atp_csr_t10satp_validEm.exit
   %33 = load ptr, ptr %0, align 8, !tbaa !3
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = tail call noundef i64 %35(ptr noundef nonnull align 8 dereferenceable(72) %0) #30
   br label %_ZNK14base_atp_csr_t10satp_validEm.exit.thread
 
-_ZNK14base_atp_csr_t10satp_validEm.exit.thread:   ; preds = %17, %10, %24, %19, %12, %_ZNK14base_atp_csr_t10satp_validEm.exit, %_ZNK14base_atp_csr_t10satp_validEm.exit.thread4
-  %37 = phi i64 [ %36, %_ZNK14base_atp_csr_t10satp_validEm.exit.thread4 ], [ %1, %_ZNK14base_atp_csr_t10satp_validEm.exit ], [ %1, %12 ], [ %1, %19 ], [ %1, %24 ], [ %1, %10 ], [ %1, %17 ]
+_ZNK14base_atp_csr_t10satp_validEm.exit.thread:   ; preds = %12, %10, %14, %19, %24, %_ZNK14base_atp_csr_t10satp_validEm.exit, %_ZNK14base_atp_csr_t10satp_validEm.exit.thread4
+  %37 = phi i64 [ %36, %_ZNK14base_atp_csr_t10satp_validEm.exit.thread4 ], [ %1, %_ZNK14base_atp_csr_t10satp_validEm.exit ], [ %1, %14 ], [ %1, %24 ], [ %1, %19 ], [ %1, %10 ], [ %1, %12 ]
   %38 = tail call noundef zeroext i1 @_ZN17virtualized_csr_t14unlogged_writeEm(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %37) #30
   ret i1 false
 }
@@ -8397,7 +8397,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28: ; preds = %157, %15
   br label %_ZNSt12__shared_ptrI5csr_tLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit30
 
 _ZNSt12__shared_ptrI5csr_tLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit30: ; preds = %_ZNSt12__shared_ptrI5csr_tLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit22, %111, %160, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28, %145, %129
-  %161 = phi i1 [ %139, %129 ], [ %139, %145 ], [ %139, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28 ], [ %139, %160 ], [ true, %111 ], [ true, %_ZNSt12__shared_ptrI5csr_tLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit22 ]
+  %161 = phi i1 [ %139, %160 ], [ %139, %129 ], [ %139, %145 ], [ %139, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i28 ], [ true, %111 ], [ true, %_ZNSt12__shared_ptrI5csr_tLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit22 ]
   br i1 %54, label %167, label %162
 
 162:                                              ; preds = %_ZNSt12__shared_ptrI5csr_tLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit30
@@ -12210,7 +12210,7 @@ define void @_ZNK18sscsrind_reg_csr_t7get_regEv(ptr dead_on_unwind noalias writa
   br label %.loopexit, !llvm.loop !288
 
 _ZNSt13unordered_mapImSt10shared_ptrI5csr_tESt4hashImESt8equal_toImESaISt4pairIKmS2_EEE4findERS8_.exit: ; preds = %40, %25, %35
-  %.sroa.06.1.i.i = phi ptr [ %36, %35 ], [ %.sroa.06.0.i.i, %25 ], [ %42, %40 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %25 ], [ %36, %35 ], [ %42, %40 ]
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %48 = load ptr, ptr %47, align 8, !tbaa !176
   store ptr %48, ptr %0, align 8, !tbaa !176
@@ -12237,7 +12237,7 @@ _ZNSt13unordered_mapImSt10shared_ptrI5csr_tESt4hashImESt8equal_toImESaISt4pairIK
   %59 = atomicrmw volatile add ptr %53, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrI5csr_tEC2ERKS1_.exit
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %.preheader, %29, %..loopexit_crit_edge21.i.i.i.i
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %.preheader, %..loopexit_crit_edge21.i.i.i.i, %29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %_ZNSt10shared_ptrI5csr_tEC2ERKS1_.exit
 
@@ -16484,8 +16484,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   br label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
-  %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
+  %.sroa.070.0 = phi ptr [ null, %63 ], [ %spec.select, %46 ], [ null, %9 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %39, %37 ], [ %1, %61 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i, %28 ], [ %spec.select.i21, %58 ], [ %spec.select.i41, %86 ], [ null, %._crit_edge.thread.i47 ]
+  %.sroa.12.0 = phi ptr [ %65, %63 ], [ %spec.select71, %46 ], [ %11, %9 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %39, %37 ], [ null, %61 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i, %28 ], [ %spec.select21.i22, %58 ], [ %spec.select21.i42, %86 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

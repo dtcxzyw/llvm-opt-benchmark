@@ -467,7 +467,7 @@ define dso_local i32 @cap_inode_getsecurity(ptr noundef %0, ptr noundef %1, ptr 
   br label %77
 
 77:                                               ; preds = %23, %74, %63, %57, %43, %40, %27, %18, %12
-  %78 = phi i32 [ 24, %40 ], [ %13, %12 ], [ -22, %27 ], [ -12, %43 ], [ %60, %57 ], [ -12, %63 ], [ -22, %18 ], [ %76, %74 ], [ -22, %23 ]
+  %78 = phi i32 [ 24, %40 ], [ %13, %12 ], [ -22, %27 ], [ -12, %43 ], [ %60, %57 ], [ -12, %63 ], [ %76, %74 ], [ -22, %18 ], [ -22, %23 ]
   %79 = load ptr, ptr %6, align 8
   call void @kfree(ptr noundef %79) #16
   br label %80
@@ -793,7 +793,7 @@ define dso_local range(i32 -2147483648, 1) i32 @cap_bprm_creds_from_file(ptr nou
   br i1 %.not14, label %.thread5, label %.thread
 
 .thread:                                          ; preds = %37, %38, %42
-  %65 = phi i32 [ -1, %42 ], [ -22, %38 ], [ %35, %37 ]
+  %65 = phi i32 [ -1, %42 ], [ %35, %37 ], [ -22, %38 ]
   %66 = load ptr, ptr %8, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 56
   store i64 0, ptr %67, align 8
@@ -801,8 +801,8 @@ define dso_local range(i32 -2147483648, 1) i32 @cap_bprm_creds_from_file(ptr nou
   br label %267
 
 .thread5:                                         ; preds = %37, %21, %42, %25
-  %.ph7 = phi i8 [ 0, %25 ], [ %46, %42 ], [ 0, %21 ], [ 0, %37 ]
-  %.ph8 = phi i8 [ 0, %25 ], [ %48, %42 ], [ 0, %21 ], [ 0, %37 ]
+  %.ph7 = phi i8 [ 0, %21 ], [ 0, %25 ], [ %46, %42 ], [ 0, %37 ]
+  %.ph8 = phi i8 [ 0, %21 ], [ 0, %25 ], [ %48, %42 ], [ 0, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %68 = getelementptr inbounds nuw i8, ptr %9, i64 144
   %69 = icmp eq i8 %.ph8, 0
@@ -907,7 +907,7 @@ define dso_local range(i32 -2147483648, 1) i32 @cap_bprm_creds_from_file(ptr nou
   br i1 %135, label %161, label %.thread10
 
 .thread10:                                        ; preds = %119, %130, %125
-  %136 = phi i1 [ false, %130 ], [ true, %125 ], [ true, %119 ]
+  %136 = phi i1 [ true, %125 ], [ false, %130 ], [ true, %119 ]
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %138 = load i32, ptr %137, align 8
   %139 = and i32 %138, -3
@@ -1360,7 +1360,7 @@ define dso_local noundef range(i32 -22, 1) i32 @cap_task_fix_setuid(ptr noundef 
   br label %.thread8
 
 .thread8:                                         ; preds = %78, %55, %77, %54, %3, %82, %.thread3, %61, %57, %.thread, %7, %.split
-  %89 = phi i32 [ -22, %.split ], [ 0, %.thread3 ], [ 0, %82 ], [ 0, %61 ], [ 0, %7 ], [ 0, %.thread ], [ 0, %57 ], [ -22, %3 ], [ 0, %54 ], [ 0, %55 ], [ 0, %77 ], [ 0, %78 ]
+  %89 = phi i32 [ -22, %.split ], [ 0, %55 ], [ 0, %.thread3 ], [ 0, %82 ], [ 0, %61 ], [ 0, %7 ], [ 0, %78 ], [ 0, %.thread ], [ 0, %57 ], [ -22, %3 ], [ 0, %77 ], [ 0, %54 ]
   ret i32 %89
 }
 

@@ -158,7 +158,7 @@ _ZN8facebook4yoga13inexactEqualsEdd.exit32.i:     ; preds = %46
   br label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit
 
 _ZN8facebook4yoga21roundValueToPixelGridEddbb.exit: ; preds = %35, %40, %_ZN8facebook4yoga13inexactEqualsEdd.exit29.thread.i, %52
-  %.025.i = phi double [ %36, %35 ], [ %42, %40 ], [ %54, %52 ], [ %43, %_ZN8facebook4yoga13inexactEqualsEdd.exit29.thread.i ]
+  %.025.i = phi double [ %36, %35 ], [ %42, %40 ], [ %43, %_ZN8facebook4yoga13inexactEqualsEdd.exit29.thread.i ], [ %54, %52 ]
   %or.cond36.i = fcmp uno double %.025.i, %21
   %55 = fdiv double %.025.i, %21
   %56 = fptrunc double %55 to float
@@ -217,7 +217,7 @@ _ZN8facebook4yoga13inexactEqualsEdd.exit32.i60:   ; preds = %75
   br label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit64
 
 _ZN8facebook4yoga21roundValueToPixelGridEddbb.exit64: ; preds = %64, %69, %_ZN8facebook4yoga13inexactEqualsEdd.exit29.thread.i59, %81
-  %.025.i61 = phi double [ %65, %64 ], [ %71, %69 ], [ %83, %81 ], [ %72, %_ZN8facebook4yoga13inexactEqualsEdd.exit29.thread.i59 ]
+  %.025.i61 = phi double [ %65, %64 ], [ %71, %69 ], [ %72, %_ZN8facebook4yoga13inexactEqualsEdd.exit29.thread.i59 ], [ %83, %81 ]
   %or.cond36.i62 = fcmp uno double %.025.i61, %21
   %84 = fdiv double %.025.i61, %21
   %85 = fptrunc double %84 to float
@@ -387,7 +387,7 @@ _ZN8facebook4yoga13inexactEqualsEdd.exit32.i82:   ; preds = %160
   br label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit86
 
 _ZN8facebook4yoga21roundValueToPixelGridEddbb.exit86: ; preds = %149, %154, %_ZN8facebook4yoga13inexactEqualsEdd.exit29.thread.i81, %166
-  %.025.i83 = phi double [ %150, %149 ], [ %156, %154 ], [ %168, %166 ], [ %157, %_ZN8facebook4yoga13inexactEqualsEdd.exit29.thread.i81 ]
+  %.025.i83 = phi double [ %150, %149 ], [ %156, %154 ], [ %157, %_ZN8facebook4yoga13inexactEqualsEdd.exit29.thread.i81 ], [ %168, %166 ]
   %or.cond36.i84 = fcmp uno double %.025.i83, %21
   %169 = fdiv double %.025.i83, %21
   %170 = fptrunc double %169 to float
@@ -514,7 +514,7 @@ _ZN8facebook4yoga13inexactEqualsEdd.exit32.i100:  ; preds = %224
   br label %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit104
 
 _ZN8facebook4yoga21roundValueToPixelGridEddbb.exit104: ; preds = %213, %218, %_ZN8facebook4yoga13inexactEqualsEdd.exit29.thread.i99, %230
-  %.025.i101 = phi double [ %214, %213 ], [ %220, %218 ], [ %232, %230 ], [ %221, %_ZN8facebook4yoga13inexactEqualsEdd.exit29.thread.i99 ]
+  %.025.i101 = phi double [ %214, %213 ], [ %220, %218 ], [ %221, %_ZN8facebook4yoga13inexactEqualsEdd.exit29.thread.i99 ], [ %232, %230 ]
   %or.cond36.i102 = fcmp uno double %.025.i101, %21
   %233 = fdiv double %.025.i101, %21
   %234 = fptrunc double %233 to float

@@ -1501,7 +1501,7 @@ define dso_local void @memcached_thread_init(i32 noundef %0, ptr noundef %1) loc
   br label %20
 
 20:                                               ; preds = %18, %16, %14, %12, %7
-  %.0 = phi i32 [ 10, %7 ], [ 11, %12 ], [ 12, %14 ], [ 13, %16 ], [ %., %18 ]
+  %.0 = phi i32 [ 13, %16 ], [ 10, %7 ], [ 11, %12 ], [ 12, %14 ], [ %., %18 ]
   %21 = load i32, ptr @hashpower, align 4, !tbaa !8
   %.not = icmp ult i32 %.0, %21
   br i1 %.not, label %29, label %22

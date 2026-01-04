@@ -974,10 +974,10 @@ define dso_local void @_ZNK25btHeightfieldTerrainShape19processAllTrianglesEP18b
   br label %116
 
 116:                                              ; preds = %111, %106, %101, %85
-  %.181 = phi i32 [ 0, %85 ], [ %spec.select, %101 ], [ %spec.select104, %106 ], [ %spec.select105, %111 ]
-  %.177 = phi i32 [ %88, %85 ], [ %.076, %101 ], [ %.278, %106 ], [ %.379, %111 ]
-  %.1 = phi i32 [ 0, %85 ], [ %.075, %101 ], [ %.2, %106 ], [ %.3, %111 ]
-  %.074 = phi i32 [ %91, %85 ], [ %spec.select108, %101 ], [ %spec.select109, %106 ], [ %spec.select110, %111 ]
+  %.181 = phi i32 [ 0, %85 ], [ %spec.select104, %106 ], [ %spec.select105, %111 ], [ %spec.select, %101 ]
+  %.177 = phi i32 [ %88, %85 ], [ %.278, %106 ], [ %.379, %111 ], [ %.076, %101 ]
+  %.1 = phi i32 [ 0, %85 ], [ %.2, %106 ], [ %.3, %111 ], [ %.075, %101 ]
+  %.074 = phi i32 [ %91, %85 ], [ %spec.select109, %106 ], [ %spec.select110, %111 ], [ %spec.select108, %101 ]
   %117 = sext i32 %93 to i64
   %118 = getelementptr inbounds float, ptr %2, i64 %117
   %119 = load float, ptr %118, align 4, !tbaa !42
@@ -2264,9 +2264,9 @@ define linkonce_odr dso_local void @_ZNK22ProcessTrianglesAction4execEii(ptr nou
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit.sink.split
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit.sink.split: ; preds = %57, %43, %29
-  %.ph = phi float [ %42, %29 ], [ %56, %43 ], [ %70, %57 ]
-  %.ph124 = phi float [ %37, %29 ], [ %51, %43 ], [ %67, %57 ]
-  %.ph125 = phi float [ %32, %29 ], [ %48, %43 ], [ %62, %57 ]
+  %.ph = phi float [ %56, %43 ], [ %70, %57 ], [ %42, %29 ]
+  %.ph124 = phi float [ %51, %43 ], [ %67, %57 ], [ %37, %29 ]
+  %.ph125 = phi float [ %48, %43 ], [ %62, %57 ], [ %32, %29 ]
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store float 0.000000e+00, ptr %71, align 4, !tbaa !42
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit
@@ -2353,9 +2353,9 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit: ; preds = %_ZNK25b
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit52.sink.split
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit52.sink.split: ; preds = %123, %109, %95
-  %.ph126 = phi float [ %108, %95 ], [ %122, %109 ], [ %136, %123 ]
-  %.ph127 = phi float [ %103, %95 ], [ %117, %109 ], [ %133, %123 ]
-  %.ph128 = phi float [ %98, %95 ], [ %114, %109 ], [ %128, %123 ]
+  %.ph126 = phi float [ %122, %109 ], [ %136, %123 ], [ %108, %95 ]
+  %.ph127 = phi float [ %117, %109 ], [ %133, %123 ], [ %103, %95 ]
+  %.ph128 = phi float [ %114, %109 ], [ %128, %123 ], [ %98, %95 ]
   %137 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store float 0.000000e+00, ptr %137, align 4, !tbaa !42
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit52
@@ -2442,9 +2442,9 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit52: ; preds = %_ZNK2
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit59.sink.split
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit59.sink.split: ; preds = %189, %175, %161
-  %.ph129 = phi float [ %174, %161 ], [ %188, %175 ], [ %202, %189 ]
-  %.ph130 = phi float [ %169, %161 ], [ %183, %175 ], [ %199, %189 ]
-  %.ph131 = phi float [ %164, %161 ], [ %180, %175 ], [ %194, %189 ]
+  %.ph129 = phi float [ %188, %175 ], [ %202, %189 ], [ %174, %161 ]
+  %.ph130 = phi float [ %183, %175 ], [ %199, %189 ], [ %169, %161 ]
+  %.ph131 = phi float [ %180, %175 ], [ %194, %189 ], [ %164, %161 ]
   %203 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store float 0.000000e+00, ptr %203, align 4, !tbaa !42
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit59
@@ -2805,9 +2805,9 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit80: ; preds = %._cri
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit87.sink.split
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit87.sink.split: ; preds = %451, %437, %423
-  %.ph132 = phi float [ %436, %423 ], [ %450, %437 ], [ %464, %451 ]
-  %.ph133 = phi float [ %431, %423 ], [ %445, %437 ], [ %461, %451 ]
-  %.ph134 = phi float [ %426, %423 ], [ %442, %437 ], [ %456, %451 ]
+  %.ph132 = phi float [ %450, %437 ], [ %464, %451 ], [ %436, %423 ]
+  %.ph133 = phi float [ %445, %437 ], [ %461, %451 ], [ %431, %423 ]
+  %.ph134 = phi float [ %442, %437 ], [ %456, %451 ], [ %426, %423 ]
   %465 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store float 0.000000e+00, ptr %465, align 4, !tbaa !42
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit87
@@ -2894,9 +2894,9 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit87: ; preds = %_ZNK2
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit94.sink.split
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit94.sink.split: ; preds = %517, %503, %489
-  %.ph135 = phi float [ %502, %489 ], [ %516, %503 ], [ %530, %517 ]
-  %.ph136 = phi float [ %497, %489 ], [ %511, %503 ], [ %527, %517 ]
-  %.ph137 = phi float [ %492, %489 ], [ %508, %503 ], [ %522, %517 ]
+  %.ph135 = phi float [ %516, %503 ], [ %530, %517 ], [ %502, %489 ]
+  %.ph136 = phi float [ %511, %503 ], [ %527, %517 ], [ %497, %489 ]
+  %.ph137 = phi float [ %508, %503 ], [ %522, %517 ], [ %492, %489 ]
   %531 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store float 0.000000e+00, ptr %531, align 4, !tbaa !42
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit94
@@ -2983,9 +2983,9 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit94: ; preds = %_ZNK2
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit101.sink.split
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit101.sink.split: ; preds = %583, %569, %555
-  %.ph138 = phi float [ %568, %555 ], [ %582, %569 ], [ %596, %583 ]
-  %.ph139 = phi float [ %563, %555 ], [ %577, %569 ], [ %593, %583 ]
-  %.ph140 = phi float [ %558, %555 ], [ %574, %569 ], [ %588, %583 ]
+  %.ph138 = phi float [ %582, %569 ], [ %596, %583 ], [ %568, %555 ]
+  %.ph139 = phi float [ %577, %569 ], [ %593, %583 ], [ %563, %555 ]
+  %.ph140 = phi float [ %574, %569 ], [ %588, %583 ], [ %558, %555 ]
   %597 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store float 0.000000e+00, ptr %597, align 4, !tbaa !42
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit101
@@ -3429,8 +3429,8 @@ define linkonce_odr dso_local void @_Z11gridRaycastI22ProcessTrianglesActionEvRT
   br label %.preheader
 
 .preheader:                                       ; preds = %90, %92, %88
-  %.sroa.9.1.ph = phi i32 [ %82, %88 ], [ %82, %90 ], [ %93, %92 ]
-  %.2.ph = phi float [ %.0, %88 ], [ %91, %90 ], [ %91, %92 ]
+  %.sroa.9.1.ph = phi i32 [ %82, %90 ], [ %93, %92 ], [ %82, %88 ]
+  %.2.ph = phi float [ %91, %90 ], [ %91, %92 ], [ %.0, %88 ]
   br label %94
 
 94:                                               ; preds = %.preheader, %102
@@ -3887,8 +3887,8 @@ _ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE6resizeEiRKS1_.exi
   br label %100
 
 100:                                              ; preds = %99, %97, %91, %.preheader.us95
-  %.sroa.6.3.us = phi float [ %95, %99 ], [ %.sroa.6.273.us, %97 ], [ %.sroa.6.273.us, %.preheader.us95 ], [ %.sroa.6.273.us, %91 ]
-  %.sroa.0.3.us = phi float [ %.sroa.0.274.us, %99 ], [ %.sroa.0.274.us, %97 ], [ %.sroa.0.274.us, %.preheader.us95 ], [ %95, %91 ]
+  %.sroa.6.3.us = phi float [ %.sroa.6.273.us, %.preheader.us95 ], [ %95, %99 ], [ %.sroa.6.273.us, %97 ], [ %.sroa.6.273.us, %91 ]
+  %.sroa.0.3.us = phi float [ %.sroa.0.274.us, %.preheader.us95 ], [ %.sroa.0.274.us, %99 ], [ %.sroa.0.274.us, %97 ], [ %95, %91 ]
   %101 = add nuw nsw i32 %.05075.us, 1
   %.not60.us.not = icmp slt i32 %.05075.us, %88
   br i1 %.not60.us.not, label %.preheader.us95, label %..loopexit_crit_edge.us, !llvm.loop !94
@@ -4246,8 +4246,8 @@ define linkonce_odr dso_local void @_Z11gridRaycastIK22ProcessTrianglesActionEvR
   br label %.preheader
 
 .preheader:                                       ; preds = %90, %92, %88
-  %.sroa.9.1.ph = phi i32 [ %82, %88 ], [ %82, %90 ], [ %93, %92 ]
-  %.2.ph = phi float [ %.0, %88 ], [ %91, %90 ], [ %91, %92 ]
+  %.sroa.9.1.ph = phi i32 [ %82, %90 ], [ %93, %92 ], [ %82, %88 ]
+  %.2.ph = phi float [ %91, %90 ], [ %91, %92 ], [ %.0, %88 ]
   br label %94
 
 94:                                               ; preds = %.preheader, %102

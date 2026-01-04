@@ -143,8 +143,8 @@ define internal i32 @av1_decode_init(ptr noundef %0) #0 {
   br i1 %46, label %.sink.split, label %47
 
 .sink.split:                                      ; preds = %44, %38, %33
-  %.str.10.sink = phi ptr [ @.str.8, %33 ], [ @.str.9, %38 ], [ @.str.10, %44 ]
-  %.1.ph = phi i32 [ %36, %33 ], [ %36, %38 ], [ %45, %44 ]
+  %.str.10.sink = phi ptr [ @.str.9, %38 ], [ @.str.8, %33 ], [ @.str.10, %44 ]
+  %.1.ph = phi i32 [ %36, %38 ], [ %36, %33 ], [ %45, %44 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull %.str.10.sink) #10
   br label %47
 
@@ -869,8 +869,8 @@ select.unfold.i.i.i:                              ; preds = %361, %358
   br label %377
 
 377:                                              ; preds = %369, %select.unfold.i.i.i
-  %.sink43.i.i.i.i = phi ptr [ %376, %369 ], [ %337, %select.unfold.i.i.i ]
-  %378 = getelementptr inbounds nuw [6 x i32], ptr %.sink43.i.i.i.i, i64 %indvars.iv114.i.i.i
+  %.sink41.i.i.i.i = phi ptr [ %376, %369 ], [ %337, %select.unfold.i.i.i ]
+  %378 = getelementptr inbounds nuw [6 x i32], ptr %.sink41.i.i.i.i, i64 %indvars.iv114.i.i.i
   %379 = getelementptr inbounds nuw i8, ptr %378, i64 8
   %.0.i.i.i.i = load i32, ptr %379, align 4, !tbaa !121
   %380 = ashr i32 %.0.i.i.i.i, 1
@@ -926,12 +926,12 @@ select.unfold.i.i.i:                              ; preds = %361, %358
   br label %inverse_recenter.exit12.i.i.i.i.i.i
 
 inverse_recenter.exit12.i.i.i.i.i.i:              ; preds = %408, %404, %398
-  %.0.i11.i.i.i.i.i.i = phi i32 [ %407, %404 ], [ %410, %408 ], [ %384, %398 ]
+  %.0.i11.i.i.i.i.i.i = phi i32 [ %410, %408 ], [ %407, %404 ], [ %384, %398 ]
   %411 = sub i32 8192, %.0.i11.i.i.i.i.i.i
   br label %read_global_param.exit.i.i.i
 
 read_global_param.exit.i.i.i:                     ; preds = %inverse_recenter.exit12.i.i.i.i.i.i, %395, %391, %387
-  %.0.i.i.i.i.i.i = phi i32 [ %411, %inverse_recenter.exit12.i.i.i.i.i.i ], [ %394, %391 ], [ %397, %395 ], [ %384, %387 ]
+  %.0.i.i.i.i.i.i = phi i32 [ %411, %inverse_recenter.exit12.i.i.i.i.i.i ], [ %397, %395 ], [ %394, %391 ], [ %384, %387 ]
   %412 = shl i32 %.0.i.i.i.i.i.i, 1
   %413 = add i32 %412, 57344
   %414 = getelementptr inbounds nuw [6 x i32], ptr %337, i64 %indvars.iv114.i.i.i
@@ -950,8 +950,8 @@ read_global_param.exit.i.i.i:                     ; preds = %inverse_recenter.ex
   br label %424
 
 424:                                              ; preds = %416, %read_global_param.exit.i.i.i
-  %.sink43.i64.i.i.i = phi ptr [ %423, %416 ], [ %337, %read_global_param.exit.i.i.i ]
-  %425 = getelementptr inbounds nuw [6 x i32], ptr %.sink43.i64.i.i.i, i64 %indvars.iv114.i.i.i
+  %.sink41.i64.i.i.i = phi ptr [ %423, %416 ], [ %337, %read_global_param.exit.i.i.i ]
+  %425 = getelementptr inbounds nuw [6 x i32], ptr %.sink41.i64.i.i.i, i64 %indvars.iv114.i.i.i
   %426 = getelementptr inbounds nuw i8, ptr %425, i64 12
   %.0.i65.i.i.i = load i32, ptr %426, align 4, !tbaa !121
   %427 = ashr i32 %.0.i65.i.i.i, 1
@@ -1005,12 +1005,12 @@ read_global_param.exit.i.i.i:                     ; preds = %inverse_recenter.ex
   br label %inverse_recenter.exit12.i.i.i70.i.i.i
 
 inverse_recenter.exit12.i.i.i70.i.i.i:            ; preds = %453, %449, %443
-  %.0.i11.i.i.i71.i.i.i = phi i32 [ %452, %449 ], [ %455, %453 ], [ %429, %443 ]
+  %.0.i11.i.i.i71.i.i.i = phi i32 [ %455, %453 ], [ %452, %449 ], [ %429, %443 ]
   %456 = sub i32 8192, %.0.i11.i.i.i71.i.i.i
   br label %read_global_param.exit72.i.i.i
 
 read_global_param.exit72.i.i.i:                   ; preds = %inverse_recenter.exit12.i.i.i70.i.i.i, %440, %436, %432
-  %.0.i.i.i68.i.i.i = phi i32 [ %456, %inverse_recenter.exit12.i.i.i70.i.i.i ], [ %439, %436 ], [ %442, %440 ], [ %429, %432 ]
+  %.0.i.i.i68.i.i.i = phi i32 [ %456, %inverse_recenter.exit12.i.i.i70.i.i.i ], [ %442, %440 ], [ %439, %436 ], [ %429, %432 ]
   %457 = shl i32 %.0.i.i.i68.i.i.i, 1
   %458 = add i32 %457, -8192
   %459 = getelementptr inbounds nuw i8, ptr %414, i64 12
@@ -1031,8 +1031,8 @@ read_global_param.exit72.i.i.i:                   ; preds = %inverse_recenter.ex
   br label %469
 
 469:                                              ; preds = %461, %460
-  %.sink43.i73.i.i.i = phi ptr [ %468, %461 ], [ %337, %460 ]
-  %470 = getelementptr inbounds nuw [6 x i32], ptr %.sink43.i73.i.i.i, i64 %indvars.iv114.i.i.i
+  %.sink41.i73.i.i.i = phi ptr [ %468, %461 ], [ %337, %460 ]
+  %470 = getelementptr inbounds nuw [6 x i32], ptr %.sink41.i73.i.i.i, i64 %indvars.iv114.i.i.i
   %471 = getelementptr inbounds nuw i8, ptr %470, i64 16
   %.0.i74.i.i.i = load i32, ptr %471, align 4, !tbaa !121
   %472 = ashr i32 %.0.i74.i.i.i, 1
@@ -1086,12 +1086,12 @@ read_global_param.exit72.i.i.i:                   ; preds = %inverse_recenter.ex
   br label %inverse_recenter.exit12.i.i.i79.i.i.i
 
 inverse_recenter.exit12.i.i.i79.i.i.i:            ; preds = %498, %494, %488
-  %.0.i11.i.i.i80.i.i.i = phi i32 [ %497, %494 ], [ %500, %498 ], [ %474, %488 ]
+  %.0.i11.i.i.i80.i.i.i = phi i32 [ %500, %498 ], [ %497, %494 ], [ %474, %488 ]
   %501 = sub i32 8192, %.0.i11.i.i.i80.i.i.i
   br label %read_global_param.exit81.i.i.i
 
 read_global_param.exit81.i.i.i:                   ; preds = %inverse_recenter.exit12.i.i.i79.i.i.i, %485, %481, %477
-  %.0.i.i.i77.i.i.i = phi i32 [ %501, %inverse_recenter.exit12.i.i.i79.i.i.i ], [ %484, %481 ], [ %487, %485 ], [ %474, %477 ]
+  %.0.i.i.i77.i.i.i = phi i32 [ %501, %inverse_recenter.exit12.i.i.i79.i.i.i ], [ %487, %485 ], [ %484, %481 ], [ %474, %477 ]
   %502 = shl i32 %.0.i.i.i77.i.i.i, 1
   %503 = add i32 %502, -8192
   %504 = getelementptr inbounds nuw i8, ptr %414, i64 16
@@ -1109,8 +1109,8 @@ read_global_param.exit81.i.i.i:                   ; preds = %inverse_recenter.ex
   br label %513
 
 513:                                              ; preds = %505, %read_global_param.exit81.i.i.i
-  %.sink43.i82.i.i.i = phi ptr [ %512, %505 ], [ %337, %read_global_param.exit81.i.i.i ]
-  %514 = getelementptr inbounds nuw [6 x i32], ptr %.sink43.i82.i.i.i, i64 %indvars.iv114.i.i.i
+  %.sink41.i82.i.i.i = phi ptr [ %512, %505 ], [ %337, %read_global_param.exit81.i.i.i ]
+  %514 = getelementptr inbounds nuw [6 x i32], ptr %.sink41.i82.i.i.i, i64 %indvars.iv114.i.i.i
   %515 = getelementptr inbounds nuw i8, ptr %514, i64 20
   %.0.i83.i.i.i = load i32, ptr %515, align 4, !tbaa !121
   %516 = ashr i32 %.0.i83.i.i.i, 1
@@ -1164,12 +1164,12 @@ read_global_param.exit81.i.i.i:                   ; preds = %inverse_recenter.ex
   br label %inverse_recenter.exit12.i.i.i88.i.i.i
 
 inverse_recenter.exit12.i.i.i88.i.i.i:            ; preds = %542, %538, %532
-  %.0.i11.i.i.i89.i.i.i = phi i32 [ %541, %538 ], [ %544, %542 ], [ %518, %532 ]
+  %.0.i11.i.i.i89.i.i.i = phi i32 [ %544, %542 ], [ %541, %538 ], [ %518, %532 ]
   %545 = sub i32 8192, %.0.i11.i.i.i89.i.i.i
   br label %read_global_param.exit90.i.i.i
 
 read_global_param.exit90.i.i.i:                   ; preds = %inverse_recenter.exit12.i.i.i88.i.i.i, %529, %525, %521
-  %.0.i.i.i86.i.i.i = phi i32 [ %545, %inverse_recenter.exit12.i.i.i88.i.i.i ], [ %528, %525 ], [ %531, %529 ], [ %518, %521 ]
+  %.0.i.i.i86.i.i.i = phi i32 [ %545, %inverse_recenter.exit12.i.i.i88.i.i.i ], [ %531, %529 ], [ %528, %525 ], [ %518, %521 ]
   %546 = shl i32 %.0.i.i.i86.i.i.i, 1
   %547 = add i32 %546, 57344
   %548 = getelementptr inbounds nuw i8, ptr %414, i64 20
@@ -1414,7 +1414,7 @@ round_two_signed.exit48.i.i.i.i:                  ; preds = %671, %667
   br label %get_shear_params_valid.exit.i.i.i
 
 get_shear_params_valid.exit.i.i.i:                ; preds = %683, %round_two_signed.exit48.i.i.i.i, %556
-  %.0.i92.i.i.i = phi i8 [ 1, %556 ], [ 1, %round_two_signed.exit48.i.i.i.i ], [ %692, %683 ]
+  %.0.i92.i.i.i = phi i8 [ 1, %round_two_signed.exit48.i.i.i.i ], [ 1, %556 ], [ %692, %683 ]
   %693 = getelementptr inbounds nuw i8, ptr %350, i64 %indvars.iv114.i.i.i
   store i8 %.0.i92.i.i.i, ptr %693, align 1, !tbaa !77
   %indvars.iv.next115.i.i.i = add nuw nsw i64 %indvars.iv114.i.i.i, 1
@@ -1789,8 +1789,8 @@ load_grain_params.exit.i.i:                       ; preds = %868, %867, %order_h
   br label %get_current_frame.exit.i
 
 .loopexit:                                        ; preds = %256, %335, %314, %.loopexit272.i, %213
-  %.str.35.sink.i = phi ptr [ @.str.35, %213 ], [ @.str.36, %.loopexit272.i ], [ @.str.37, %335 ], [ @.str.37, %314 ], [ @.str.20, %256 ]
-  %.0.i.ph.i = phi i32 [ %211, %213 ], [ %.031.i.ph.i.i, %.loopexit272.i ], [ %.0.i.i.i, %335 ], [ %.0.i.ph.i.i.i, %314 ], [ %264, %256 ]
+  %.str.35.sink.i = phi ptr [ @.str.35, %213 ], [ @.str.37, %314 ], [ @.str.36, %.loopexit272.i ], [ @.str.37, %335 ], [ @.str.20, %256 ]
+  %.0.i.ph.i = phi i32 [ %211, %213 ], [ %.0.i.ph.i.i.i, %314 ], [ %.031.i.ph.i.i, %.loopexit272.i ], [ %.0.i.i.i, %335 ], [ %264, %256 ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull %.str.35.sink.i) #10
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.23) #10
   br label %get_tiles_info.exit.thread252.i
@@ -2118,7 +2118,7 @@ get_tiles_info.exit.i:                            ; preds = %112
   br label %av1_receive_frame_internal.exit
 
 1051:                                             ; preds = %1043, %.thread235.i, %1021, %79
-  %.1166.ph.i = phi ptr [ null, %1043 ], [ null, %1021 ], [ %.2167240.i, %.thread235.i ], [ %.0165425.i, %79 ]
+  %.1166.ph.i = phi ptr [ %.2167240.i, %.thread235.i ], [ %.0165425.i, %79 ], [ null, %1043 ], [ null, %1021 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %1052 = load i32, ptr %43, align 8, !tbaa !78
   %1053 = sext i32 %1052 to i64
@@ -2130,8 +2130,8 @@ get_tiles_info.exit.thread252.loopexit602.split.loop.exit708.i: ; preds = %1051
   br label %get_tiles_info.exit.thread252.i
 
 get_tiles_info.exit.thread252.i:                  ; preds = %81, %961, %955, %get_tiles_info.exit.thread252.loopexit602.split.loop.exit708.i, %1050, %1047, %1045, %1042, %.thread.i, %995, %914, %909, %.loopexit, %183, %182, %125, %99, %78, %39
-  %.8.i = phi i32 [ %.4177.ph.i, %.thread.i ], [ -1094995529, %125 ], [ -1094995529, %914 ], [ %993, %995 ], [ %907, %909 ], [ %.0.i.ph.i, %.loopexit ], [ 0, %183 ], [ %180, %182 ], [ %97, %99 ], [ -1163346256, %78 ], [ 0, %1045 ], [ 0, %1047 ], [ %1048, %1050 ], [ %1040, %1042 ], [ -11, %39 ], [ -11, %get_tiles_info.exit.thread252.loopexit602.split.loop.exit708.i ], [ -1094995529, %955 ], [ -1094995529, %961 ], [ %84, %81 ]
-  %.4172.i = phi i32 [ %75, %.thread.i ], [ %75, %125 ], [ %75, %914 ], [ %75, %995 ], [ %75, %909 ], [ %75, %.loopexit ], [ %184, %183 ], [ %75, %182 ], [ %75, %99 ], [ %75, %78 ], [ %1033, %1045 ], [ %1033, %1047 ], [ %75, %1050 ], [ %75, %1042 ], [ %42, %39 ], [ %indvars.le.i, %get_tiles_info.exit.thread252.loopexit602.split.loop.exit708.i ], [ %75, %955 ], [ %75, %961 ], [ %75, %81 ]
+  %.8.i = phi i32 [ 0, %1045 ], [ -1163346256, %78 ], [ %1048, %1050 ], [ %.4177.ph.i, %.thread.i ], [ -1094995529, %125 ], [ -1094995529, %914 ], [ %993, %995 ], [ -11, %39 ], [ %907, %909 ], [ %.0.i.ph.i, %.loopexit ], [ 0, %183 ], [ %180, %182 ], [ %97, %99 ], [ %1040, %1042 ], [ 0, %1047 ], [ -11, %get_tiles_info.exit.thread252.loopexit602.split.loop.exit708.i ], [ -1094995529, %961 ], [ -1094995529, %955 ], [ %84, %81 ]
+  %.4172.i = phi i32 [ %1033, %1045 ], [ %75, %78 ], [ %75, %1050 ], [ %75, %.thread.i ], [ %75, %125 ], [ %75, %914 ], [ %75, %995 ], [ %42, %39 ], [ %75, %909 ], [ %75, %.loopexit ], [ %184, %183 ], [ %75, %182 ], [ %75, %99 ], [ %75, %1042 ], [ %1033, %1047 ], [ %indvars.le.i, %get_tiles_info.exit.thread252.loopexit602.split.loop.exit708.i ], [ %75, %961 ], [ %75, %955 ], [ %75, %81 ]
   %1055 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %1056 = load i32, ptr %43, align 8, !tbaa !78
   %.not221.i = icmp sgt i32 %.4172.i, %1056
@@ -2584,7 +2584,7 @@ switch.lookup49:                                  ; preds = %.thread
   br label %.thread38
 
 .thread38:                                        ; preds = %switch.lookup49, %switch.lookup45, %switch.lookup41, %switch.lookup, %29, %20, %23, %16
-  %.028 = phi i32 [ -1, %16 ], [ -1, %23 ], [ -1, %20 ], [ -1, %29 ], [ %switch.load, %switch.lookup ], [ %switch.load43, %switch.lookup41 ], [ %switch.load47, %switch.lookup45 ], [ %switch.load51, %switch.lookup49 ]
+  %.028 = phi i32 [ -1, %16 ], [ %switch.load47, %switch.lookup45 ], [ %switch.load43, %switch.lookup41 ], [ -1, %29 ], [ -1, %23 ], [ -1, %20 ], [ %switch.load51, %switch.lookup49 ], [ %switch.load, %switch.lookup ]
   ret i32 %.028
 }
 
@@ -2857,7 +2857,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @set_output_frame(ptr nound
   br label %export_metadata.exit.thread
 
 91:                                               ; preds = %.thread.i, %74
-  %.139.i = phi i32 [ %.038.i, %74 ], [ %78, %.thread.i ]
+  %.139.i = phi i32 [ %78, %.thread.i ], [ %.038.i, %74 ]
   %92 = getelementptr inbounds nuw i8, ptr %33, i64 392
   %93 = load ptr, ptr %92, align 8, !tbaa !64
   %94 = call i32 @av_fifo_read(ptr noundef %93, ptr noundef nonnull %4, i64 noundef 1) #10
@@ -3042,8 +3042,8 @@ export_itut_t35.exit.i:                           ; preds = %bytestream2_get_be1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %export_metadata.exit.thread
 
-export_metadata.exit.thread:                      ; preds = %90, %.critedge.i
-  %.2.i.ph = phi i32 [ %37, %.critedge.i ], [ %78, %90 ]
+export_metadata.exit.thread:                      ; preds = %.critedge.i, %90
+  %.2.i.ph = phi i32 [ %78, %90 ], [ %37, %.critedge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %175
 
@@ -3347,7 +3347,7 @@ export_film_grain.exit.thread:                    ; preds = %185, %313, %176
   br label %353
 
 353:                                              ; preds = %29, %15, %export_film_grain.exit.thread, %export_film_grain.exit, %175
-  %.0 = phi i32 [ %.2.i39, %175 ], [ -12, %export_film_grain.exit ], [ 0, %export_film_grain.exit.thread ], [ 0, %15 ], [ %30, %29 ]
+  %.0 = phi i32 [ 0, %export_film_grain.exit.thread ], [ 0, %15 ], [ %.2.i39, %175 ], [ -12, %export_film_grain.exit ], [ %30, %29 ]
   ret i32 %.0
 }
 
@@ -3446,9 +3446,9 @@ define internal fastcc void @read_global_param(ptr noundef captures(none) %0, i3
   br label %20
 
 20:                                               ; preds = %12, %10
-  %.sink43 = phi ptr [ %19, %12 ], [ %11, %10 ]
+  %.sink41 = phi ptr [ %19, %12 ], [ %11, %10 ]
   %21 = sext i32 %2 to i64
-  %22 = getelementptr inbounds [6 x i32], ptr %.sink43, i64 %21
+  %22 = getelementptr inbounds [6 x i32], ptr %.sink41, i64 %21
   %23 = zext nneg i32 %3 to i64
   %24 = getelementptr inbounds nuw i32, ptr %22, i64 %23
   %.0 = load i32, ptr %24, align 4, !tbaa !121
@@ -3537,12 +3537,12 @@ define internal fastcc void @read_global_param(ptr noundef captures(none) %0, i3
   br label %inverse_recenter.exit12.i.i
 
 inverse_recenter.exit12.i.i:                      ; preds = %72, %68, %61
-  %.0.i11.i.i = phi i32 [ %71, %68 ], [ %74, %72 ], [ %45, %61 ]
+  %.0.i11.i.i = phi i32 [ %74, %72 ], [ %71, %68 ], [ %45, %61 ]
   %75 = sub i32 %62, %.0.i11.i.i
   br label %decode_signed_subexp_with_ref.exit
 
 decode_signed_subexp_with_ref.exit:               ; preds = %50, %54, %58, %inverse_recenter.exit12.i.i
-  %.0.i.i = phi i32 [ %75, %inverse_recenter.exit12.i.i ], [ %57, %54 ], [ %60, %58 ], [ %45, %50 ]
+  %.0.i.i = phi i32 [ %75, %inverse_recenter.exit12.i.i ], [ %60, %58 ], [ %57, %54 ], [ %45, %50 ]
   %76 = select i1 %35, i32 65536, i32 0
   %77 = sub nsw i32 %.0.i.i, %37
   %78 = shl i32 %77, %36

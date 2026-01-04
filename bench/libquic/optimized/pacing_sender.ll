@@ -252,7 +252,7 @@ define { i64, i64 } @_ZNK3net12PacingSender13TimeUntilSendENS_8QuicTimeEm(ptr no
   br label %22
 
 22:                                               ; preds = %15, %3, %19
-  %.fca.1.insert.merged = phi { i64, i64 } [ %.fca.1.insert.i, %19 ], [ %8, %3 ], [ zeroinitializer, %15 ]
+  %.fca.1.insert.merged = phi { i64, i64 } [ %8, %3 ], [ %.fca.1.insert.i, %19 ], [ zeroinitializer, %15 ]
   ret { i64, i64 } %.fca.1.insert.merged
 }
 

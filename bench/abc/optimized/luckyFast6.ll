@@ -273,8 +273,8 @@ define i64 @Extra_Truth6MinimumRoundOne(i64 noundef %0, i32 noundef %1, ptr noun
   br label %adjustInfoAfterSwap.exit
 
 adjustInfoAfterSwap.exit:                         ; preds = %69, %97, %85, %82
-  %storemerge = phi i32 [ %84, %82 ], [ %101, %97 ], [ %88, %85 ], [ %spec.select65, %69 ]
-  %.052 = phi i64 [ %.551, %82 ], [ %.551, %97 ], [ %.551, %85 ], [ %66, %69 ]
+  %storemerge = phi i32 [ %88, %85 ], [ %spec.select65, %69 ], [ %84, %82 ], [ %101, %97 ]
+  %.052 = phi i64 [ %.551, %85 ], [ %66, %69 ], [ %.551, %82 ], [ %.551, %97 ]
   store i32 %storemerge, ptr %3, align 4, !tbaa !8
   ret i64 %.052
 }
@@ -474,8 +474,8 @@ define i64 @Extra_Truth6MinimumRoundMany(i64 noundef %0, ptr noundef readonly ca
   br label %Extra_Truth6MinimumRoundOne.exit
 
 Extra_Truth6MinimumRoundOne.exit:                 ; preds = %74, %88, %91, %104
-  %storemerge.i = phi i32 [ %90, %88 ], [ %107, %104 ], [ %94, %91 ], [ %spec.select65.i, %74 ]
-  %.052.i = phi i64 [ %.551.i, %88 ], [ %.551.i, %104 ], [ %.551.i, %91 ], [ %71, %74 ]
+  %storemerge.i = phi i32 [ %94, %91 ], [ %spec.select65.i, %74 ], [ %90, %88 ], [ %107, %104 ]
+  %.052.i = phi i64 [ %.551.i, %91 ], [ %71, %74 ], [ %.551.i, %88 ], [ %.551.i, %104 ]
   store i32 %storemerge.i, ptr %3, align 4, !tbaa !8
   br label %108
 
@@ -824,7 +824,7 @@ Extra_Truth6MinimumRoundMany_noEBFC.exit74:       ; preds = %127
   br label %Extra_Truth6MinimumRoundMany_noEBFC.exit
 
 Extra_Truth6MinimumRoundMany_noEBFC.exit:         ; preds = %46, %129, %Extra_Truth6MinimumRoundMany_noEBFC.exit74, %136, %134, %128, %47
-  %.0 = phi i64 [ %137, %136 ], [ %48, %47 ], [ %.0.i61, %128 ], [ %133, %134 ], [ %.0.i47, %Extra_Truth6MinimumRoundMany_noEBFC.exit74 ], [ %131, %129 ], [ %.0.i, %46 ]
+  %.0 = phi i64 [ %137, %136 ], [ %131, %129 ], [ %48, %47 ], [ %133, %134 ], [ %.0.i61, %128 ], [ %.0.i47, %Extra_Truth6MinimumRoundMany_noEBFC.exit74 ], [ %.0.i, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.0

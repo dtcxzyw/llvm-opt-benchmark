@@ -335,7 +335,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_mq_timedsend(
   br label %.thread
 
 .thread:                                          ; preds = %21, %17, %27
-  %31 = phi i64 [ %30, %27 ], [ -22, %21 ], [ -14, %17 ]
+  %31 = phi i64 [ %30, %27 ], [ -14, %17 ], [ -22, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %31
 }
@@ -386,7 +386,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_mq_timedsend
   br label %.thread
 
 .thread:                                          ; preds = %24, %20, %30
-  %34 = phi i64 [ %33, %30 ], [ -22, %24 ], [ -14, %20 ]
+  %34 = phi i64 [ %33, %30 ], [ -14, %20 ], [ -22, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %34
 }
@@ -434,7 +434,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_mq_timedrecei
   br label %.thread
 
 .thread:                                          ; preds = %21, %17, %27
-  %31 = phi i64 [ %30, %27 ], [ -22, %21 ], [ -14, %17 ]
+  %31 = phi i64 [ %30, %27 ], [ -14, %17 ], [ -22, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %31
 }
@@ -486,7 +486,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_mq_timedrece
   br label %.thread
 
 .thread:                                          ; preds = %25, %21, %31
-  %35 = phi i64 [ %34, %31 ], [ -22, %25 ], [ -14, %21 ]
+  %35 = phi i64 [ %34, %31 ], [ -14, %21 ], [ -22, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %35
 }
@@ -927,7 +927,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_mq_timedsend_
   br label %.thread
 
 .thread:                                          ; preds = %21, %17, %27
-  %32 = phi i64 [ %31, %27 ], [ -22, %21 ], [ -14, %17 ]
+  %32 = phi i64 [ %31, %27 ], [ -14, %17 ], [ -22, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %32
 }
@@ -978,7 +978,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_mq_timedsend
   br label %.thread
 
 .thread:                                          ; preds = %24, %20, %30
-  %34 = phi i64 [ %33, %30 ], [ -22, %24 ], [ -14, %20 ]
+  %34 = phi i64 [ %33, %30 ], [ -14, %20 ], [ -22, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %34
 }
@@ -1027,7 +1027,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_mq_timedrecei
   br label %.thread
 
 .thread:                                          ; preds = %21, %17, %27
-  %32 = phi i64 [ %31, %27 ], [ -22, %21 ], [ -14, %17 ]
+  %32 = phi i64 [ %31, %27 ], [ -14, %17 ], [ -22, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %32
 }
@@ -1079,7 +1079,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_mq_timedrece
   br label %.thread
 
 .thread:                                          ; preds = %25, %21, %31
-  %35 = phi i64 [ %34, %31 ], [ -22, %25 ], [ -14, %21 ]
+  %35 = phi i64 [ %34, %31 ], [ -14, %21 ], [ -22, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %35
 }
@@ -1700,7 +1700,7 @@ thread-pre-split.i:                               ; preds = %83, %54
   br label %mqueue_get_inode.exit
 
 148:                                              ; preds = %139, %113, %109, %104, %100, %97, %95, %thread-pre-split.i
-  %149 = phi i64 [ -22, %thread-pre-split.i ], [ -22, %97 ], [ -22, %95 ], [ -22, %104 ], [ -22, %100 ], [ -75, %109 ], [ -75, %113 ], [ -24, %139 ]
+  %149 = phi i64 [ -24, %139 ], [ -22, %thread-pre-split.i ], [ -22, %97 ], [ -22, %95 ], [ -22, %104 ], [ -22, %100 ], [ -75, %109 ], [ -75, %113 ]
   tail call void @iput(ptr noundef nonnull %35) #15
   br label %150
 
@@ -3196,8 +3196,8 @@ define internal fastcc i32 @do_mq_notify(i32 noundef %0, ptr noundef %1) unnamed
   br label %165
 
 54:                                               ; preds = %.thread16, %20, %19, %13
-  %55 = phi ptr [ null, %13 ], [ null, %19 ], [ null, %20 ], [ %25, %.thread16 ]
-  %56 = phi ptr [ null, %13 ], [ null, %19 ], [ null, %20 ], [ %43, %.thread16 ]
+  %55 = phi ptr [ %25, %.thread16 ], [ null, %19 ], [ null, %13 ], [ null, %20 ]
+  %56 = phi ptr [ %43, %.thread16 ], [ null, %19 ], [ null, %13 ], [ null, %20 ]
   %57 = call i64 @__fdget(i32 noundef %0) #15
   %58 = and i64 %57, -4
   %59 = inttoptr i64 %58 to ptr
@@ -3367,9 +3367,9 @@ define internal fastcc i32 @do_mq_notify(i32 noundef %0, ptr noundef %1) unnamed
   br label %156
 
 156:                                              ; preds = %155, %149, %54
-  %157 = phi ptr [ %55, %54 ], [ %150, %149 ], [ %150, %155 ]
-  %158 = phi ptr [ %56, %54 ], [ %151, %149 ], [ %151, %155 ]
-  %159 = phi i32 [ -9, %54 ], [ %152, %149 ], [ %152, %155 ]
+  %157 = phi ptr [ %150, %155 ], [ %55, %54 ], [ %150, %149 ]
+  %158 = phi ptr [ %151, %155 ], [ %56, %54 ], [ %151, %149 ]
+  %159 = phi i32 [ %152, %155 ], [ -9, %54 ], [ %152, %149 ]
   %160 = icmp eq ptr %158, null
   br i1 %160, label %162, label %161
 
@@ -3378,7 +3378,7 @@ define internal fastcc i32 @do_mq_notify(i32 noundef %0, ptr noundef %1) unnamed
   br label %165
 
 .sink.split:                                      ; preds = %36, %27, %49
-  %.ph = phi i32 [ -14, %27 ], [ %51, %49 ], [ -9, %36 ]
+  %.ph = phi i32 [ %51, %49 ], [ -14, %27 ], [ -9, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %162
 
@@ -3389,7 +3389,7 @@ define internal fastcc i32 @do_mq_notify(i32 noundef %0, ptr noundef %1) unnamed
   br label %165
 
 165:                                              ; preds = %.thread, %162, %161, %20, %15
-  %166 = phi i32 [ -22, %20 ], [ %164, %162 ], [ %159, %161 ], [ -22, %15 ], [ %.ph12, %.thread ]
+  %166 = phi i32 [ %.ph12, %.thread ], [ -22, %20 ], [ %164, %162 ], [ %159, %161 ], [ -22, %15 ]
   ret i32 %166
 }
 

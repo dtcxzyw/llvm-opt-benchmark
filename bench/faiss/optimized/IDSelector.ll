@@ -191,7 +191,7 @@ define noundef zeroext i1 @_ZNK5faiss15IDSelectorBatch9is_memberEl(ptr noundef n
   br label %_ZNKSt13unordered_setIlSt4hashIlESt8equal_toIlESaIlEE5countERKl.exit, !llvm.loop !42
 
 _ZNKSt13unordered_setIlSt4hashIlESt8equal_toIlESaIlEE5countERKl.exit: ; preds = %39, %.lr.ph.i.i.i.i.i, %21, %22, %26, %34, %..loopexit_crit_edge21.i.i.i.i.i
-  %.sroa.06.1.i.i.i = phi ptr [ null, %26 ], [ null, %..loopexit_crit_edge21.i.i.i.i.i ], [ %35, %34 ], [ %.sroa.06.0.i.i.i, %22 ], [ null, %21 ], [ null, %.lr.ph.i.i.i.i.i ], [ %41, %39 ]
+  %.sroa.06.1.i.i.i = phi ptr [ null, %..loopexit_crit_edge21.i.i.i.i.i ], [ null, %21 ], [ %35, %34 ], [ null, %26 ], [ %.sroa.06.0.i.i.i, %22 ], [ null, %.lr.ph.i.i.i.i.i ], [ %41, %39 ]
   %.not.i.i = icmp ne ptr %.sroa.06.1.i.i.i, null
   br label %46
 
@@ -898,8 +898,8 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   resume { ptr, i32 } %43
 
 _ZNKSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIlEEPNS1_10_Hash_nodeIlLb0EEEmRKT_m.exit: ; preds = %31, %18, %.critedge, %26
-  %.sroa.031.1 = phi ptr [ %27, %26 ], [ %42, %.critedge ], [ %.sroa.028.0, %18 ], [ %33, %31 ]
-  %.sroa.432.1 = phi i8 [ 0, %26 ], [ 1, %.critedge ], [ 0, %18 ], [ 0, %31 ]
+  %.sroa.031.1 = phi ptr [ %.sroa.028.0, %18 ], [ %42, %.critedge ], [ %27, %26 ], [ %33, %31 ]
+  %.sroa.432.1 = phi i8 [ 0, %18 ], [ 1, %.critedge ], [ 0, %26 ], [ 0, %31 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert

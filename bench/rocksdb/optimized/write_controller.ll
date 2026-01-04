@@ -172,7 +172,7 @@ define noundef range(i64 1000, 1) i64 @_ZN7rocksdb15WriteController8GetDelayEPNS
   br label %48
 
 48:                                               ; preds = %.critedge, %37, %6, %3, %13
-  %.0 = phi i64 [ 0, %13 ], [ 0, %3 ], [ 0, %6 ], [ %.sroa.speculated, %.critedge ], [ 0, %37 ]
+  %.0 = phi i64 [ 0, %6 ], [ 0, %3 ], [ 0, %13 ], [ %.sroa.speculated, %.critedge ], [ 0, %37 ]
   ret i64 %.0
 }
 

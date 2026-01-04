@@ -196,7 +196,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
   br label %.thread
 
 .thread:                                          ; preds = %41, %14, %49, %22, %51, %46, %35, %25
-  %.1 = phi i32 [ %28, %25 ], [ 0, %35 ], [ %.137, %46 ], [ 0, %51 ], [ 0, %14 ], [ %.036, %22 ], [ -1497649742, %49 ], [ -12, %41 ]
+  %.1 = phi i32 [ 0, %14 ], [ %28, %25 ], [ 0, %35 ], [ %.137, %46 ], [ -1497649742, %49 ], [ 0, %51 ], [ %.036, %22 ], [ -12, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -780,9 +780,9 @@ reverse_samples.exit239:                          ; preds = %.lr.ph.i233, %filte
   br i1 %exitcond52.not, label %._crit_edge38, label %.lr.ph37.split, !llvm.loop !74
 
 .loopexit:                                        ; preds = %.lr.ph27.split, %.lr.ph27.split.us, %92, %._crit_edge38, %._crit_edge
-  %215 = phi ptr [ %43, %._crit_edge38 ], [ %53, %._crit_edge ], [ %43, %92 ], [ %43, %.lr.ph27.split.us ], [ %43, %.lr.ph27.split ]
-  %216 = phi ptr [ %38, %._crit_edge38 ], [ %51, %._crit_edge ], [ %38, %92 ], [ %38, %.lr.ph27.split.us ], [ %38, %.lr.ph27.split ]
-  %.not2019 = phi i1 [ %.not20110, %._crit_edge38 ], [ true, %._crit_edge ], [ %.not20110, %92 ], [ %.not20110, %.lr.ph27.split.us ], [ %.not20110, %.lr.ph27.split ]
+  %215 = phi ptr [ %53, %._crit_edge ], [ %43, %._crit_edge38 ], [ %43, %92 ], [ %43, %.lr.ph27.split.us ], [ %43, %.lr.ph27.split ]
+  %216 = phi ptr [ %51, %._crit_edge ], [ %38, %._crit_edge38 ], [ %38, %92 ], [ %38, %.lr.ph27.split.us ], [ %38, %.lr.ph27.split ]
+  %.not2019 = phi i1 [ true, %._crit_edge ], [ %.not20110, %._crit_edge38 ], [ %.not20110, %92 ], [ %.not20110, %.lr.ph27.split.us ], [ %.not20110, %.lr.ph27.split ]
   %217 = load i32, ptr %215, align 8, !tbaa !28
   %218 = icmp sgt i32 %217, 0
   br i1 %218, label %219, label %230

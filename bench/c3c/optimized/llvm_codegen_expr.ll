@@ -856,7 +856,7 @@ llmv_emit_test_hook.exit:                         ; preds = %135, %139
   br label %274
 
 274:                                              ; preds = %272, %270, %243
-  %.0161.i = phi ptr [ %271, %270 ], [ %273, %272 ], [ %260, %243 ]
+  %.0161.i = phi ptr [ %273, %272 ], [ %271, %270 ], [ %260, %243 ]
   %275 = tail call ptr @llvm_emit_pointer_gep_raw(ptr noundef nonnull %0, ptr noundef %247, ptr noundef %258, ptr noundef %.0161.i)
   %276 = load ptr, ptr @type_chars, align 8
   %277 = tail call i32 @llvm_abi_alignment(ptr noundef nonnull %0, ptr noundef %247) #10
@@ -944,7 +944,7 @@ tailrecurse._crit_edge.i:                         ; preds = %tailrecurse.i, %296
   br label %decl_optional_ref.exit
 
 decl_optional_ref.exit:                           ; preds = %tailrecurse._crit_edge.i, %312
-  %.0.i173 = phi ptr [ %314, %312 ], [ null, %tailrecurse._crit_edge.i ]
+  %.0.i173 = phi ptr [ null, %tailrecurse._crit_edge.i ], [ %314, %312 ]
   %315 = load ptr, ptr @type_anyfault, align 8
   %316 = tail call ptr @llvm_get_type(ptr noundef nonnull %0, ptr noundef %315) #10
   %317 = load ptr, ptr @type_anyfault, align 8
@@ -2296,7 +2296,7 @@ llvm_update_vector.exit65.i:                      ; preds = %1017, %.lr.ph256
   br i1 %exitcond317.not, label %llvm_emit_vector_initializer_list.exit, label %975, !llvm.loop !16
 
 llvm_emit_vector_initializer_list.exit:           ; preds = %.loopexit, %llvm_update_vector.exit.i, %967, %937, %970, %940
-  %.1.i179 = phi ptr [ %938, %940 ], [ %968, %970 ], [ %938, %937 ], [ %968, %967 ], [ %965, %llvm_update_vector.exit.i ], [ %.4.i, %.loopexit ]
+  %.1.i179 = phi ptr [ %938, %937 ], [ %938, %940 ], [ %968, %970 ], [ %968, %967 ], [ %965, %llvm_update_vector.exit.i ], [ %.4.i, %.loopexit ]
   call void @llvm_value_set(ptr noundef %1, ptr noundef %.1.i179, ptr noundef %931) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.ret468
@@ -3085,7 +3085,7 @@ bitstruct_requires_bitswap.exit:                  ; preds = %1404
   br label %1445
 
 1445:                                             ; preds = %1443, %1441, %1415
-  %.0127.i148 = phi ptr [ %1442, %1441 ], [ %1444, %1443 ], [ %1416, %1415 ]
+  %.0127.i148 = phi ptr [ %1444, %1443 ], [ %1442, %1441 ], [ %1416, %1415 ]
   %1446 = call ptr @llvm_emit_shl_fixed(ptr noundef %0, ptr noundef %.0127.i148, i32 noundef %1424) #10
   %1447 = call i32 @LLVMIsNull(ptr noundef %1446) #10
   %.not130.i = icmp eq i32 %1447, 0
@@ -3242,7 +3242,7 @@ tailrecurse._crit_edge.i197:                      ; preds = %tailrecurse.i201, %
   br label %decl_optional_ref.exit203
 
 decl_optional_ref.exit203:                        ; preds = %tailrecurse._crit_edge.i197, %1526
-  %.0.i200 = phi ptr [ %1528, %1526 ], [ null, %tailrecurse._crit_edge.i197 ]
+  %.0.i200 = phi ptr [ null, %tailrecurse._crit_edge.i197 ], [ %1528, %1526 ]
   %1529 = load i8, ptr %1, align 8
   %1530 = and i8 %1529, -32
   %1531 = or disjoint i8 %1530, 1
@@ -3631,7 +3631,7 @@ llvm_emit_rethrow_expr.exit:                      ; preds = %llvm_emit_rethrow_e
   br label %1710
 
 1710:                                             ; preds = %1708, %1706, %1691
-  %.064.i = phi ptr [ %1707, %1706 ], [ %1709, %1708 ], [ %1695, %1691 ]
+  %.064.i = phi ptr [ %1709, %1708 ], [ %1707, %1706 ], [ %1695, %1691 ]
   %1711 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %1712 = load ptr, ptr %1711, align 8
   %1713 = call ptr @LLVMBuildNUWSub(ptr noundef %1693, ptr noundef %.064.i, ptr noundef %1712, ptr noundef nonnull @.str.3) #10
@@ -6113,7 +6113,7 @@ define dso_local ptr @llvm_emit_const_ptradd_inbounds_raw(ptr noundef readonly c
   br label %llvm_emit_ptradd_inbounds_raw.exit
 
 llvm_emit_ptradd_inbounds_raw.exit:               ; preds = %9, %11
-  %.0.i = phi ptr [ %16, %11 ], [ %1, %9 ]
+  %.0.i = phi ptr [ %1, %9 ], [ %16, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0.i
 }
@@ -6366,7 +6366,7 @@ llvm_find_inner_struct_type_for_coerce.exit:      ; preds = %48, %46, %44, %35
   br label %85
 
 85:                                               ; preds = %31, %33, %20, %76, %69, %60, %9
-  %.088 = phi ptr [ %10, %9 ], [ %64, %60 ], [ %72, %69 ], [ %84, %76 ], [ %32, %31 ], [ %34, %33 ], [ %22, %20 ]
+  %.088 = phi ptr [ %10, %9 ], [ %64, %60 ], [ %72, %69 ], [ %84, %76 ], [ %34, %33 ], [ %32, %31 ], [ %22, %20 ]
   ret ptr %.088
 }
 
@@ -6858,7 +6858,7 @@ define internal fastcc ptr @type_lowering(ptr noundef readonly captures(none) %0
   unreachable
 
 .loopexit:                                        ; preds = %.backedge, %44, %37, %61, %57, %53, %51, %42, %26, %24
-  %.0 = phi ptr [ %25, %24 ], [ %29, %26 ], [ %43, %42 ], [ %52, %51 ], [ %56, %53 ], [ %60, %57 ], [ %62, %61 ], [ %4, %37 ], [ %4, %44 ], [ %4, %.backedge ]
+  %.0 = phi ptr [ %4, %44 ], [ %25, %24 ], [ %29, %26 ], [ %62, %61 ], [ %43, %42 ], [ %4, %37 ], [ %52, %51 ], [ %56, %53 ], [ %60, %57 ], [ %4, %.backedge ]
   ret ptr %.0
 }
 
@@ -7428,7 +7428,7 @@ type_flatten.exit449:                             ; preds = %type_flatten.exit
   br label %126
 
 126:                                              ; preds = %109, %124, %122
-  %.0409 = phi ptr [ %123, %122 ], [ %125, %124 ], [ %112, %109 ]
+  %.0409 = phi ptr [ %125, %124 ], [ %123, %122 ], [ %112, %109 ]
   store ptr %.0409, ptr %111, align 8
   br label %492
 
@@ -7970,7 +7970,7 @@ type_flatten.exit454:                             ; preds = %.preheader
   br label %443
 
 443:                                              ; preds = %427, %441, %439
-  %.0410 = phi ptr [ %440, %439 ], [ %442, %441 ], [ %429, %427 ]
+  %.0410 = phi ptr [ %442, %441 ], [ %440, %439 ], [ %429, %427 ]
   call void @llvm_value_set(ptr noundef nonnull %3, ptr noundef %.0410, ptr noundef %13) #10
   br label %495
 
@@ -8626,13 +8626,13 @@ unreachable:                                      ; preds = %43
   tail call void @llvm_value_set(ptr noundef %1, ptr noundef %.0205, ptr noundef %180) #10
   br label %275
 
-.thread231:                                       ; preds = %.thread247.thread, %93, %95, %135
-  %.1210271 = phi i1 [ %.1210, %93 ], [ %.1210, %95 ], [ %.1210, %135 ], [ false, %.thread247.thread ]
-  %.0213268 = phi i32 [ %.0213, %93 ], [ %.0213, %95 ], [ %.0213, %135 ], [ %6, %.thread247.thread ]
-  %.0214265 = phi ptr [ %.0214, %93 ], [ %.0214, %95 ], [ %.0214, %135 ], [ %5, %.thread247.thread ]
-  %.0215262 = phi ptr [ %.0215, %93 ], [ %.0215, %95 ], [ %.0215, %135 ], [ %4, %.thread247.thread ]
-  %.0216260 = phi ptr [ %.0216, %93 ], [ %.0216, %95 ], [ %.0216, %135 ], [ %2, %.thread247.thread ]
-  %181 = phi i1 [ %91, %93 ], [ %91, %95 ], [ %91, %135 ], [ true, %.thread247.thread ]
+.thread231:                                       ; preds = %.thread247.thread, %95, %93, %135
+  %.1210271 = phi i1 [ %.1210, %95 ], [ %.1210, %93 ], [ %.1210, %135 ], [ false, %.thread247.thread ]
+  %.0213268 = phi i32 [ %.0213, %95 ], [ %.0213, %93 ], [ %.0213, %135 ], [ %6, %.thread247.thread ]
+  %.0214265 = phi ptr [ %.0214, %95 ], [ %.0214, %93 ], [ %.0214, %135 ], [ %5, %.thread247.thread ]
+  %.0215262 = phi ptr [ %.0215, %95 ], [ %.0215, %93 ], [ %.0215, %135 ], [ %4, %.thread247.thread ]
+  %.0216260 = phi ptr [ %.0216, %95 ], [ %.0216, %93 ], [ %.0216, %135 ], [ %2, %.thread247.thread ]
+  %181 = phi i1 [ %91, %95 ], [ %91, %93 ], [ %91, %135 ], [ true, %.thread247.thread ]
   switch i32 %.0213268, label %206 [
     i32 19, label %182
     i32 18, label %186
@@ -8850,7 +8850,7 @@ define dso_local ptr @llvm_emit_struct_gep_raw(ptr noundef readonly captures(non
   br label %llvm_emit_const_ptradd_inbounds_raw.exit
 
 llvm_emit_const_ptradd_inbounds_raw.exit:         ; preds = %22, %24
-  %.0.i.i = phi ptr [ %29, %24 ], [ %1, %22 ]
+  %.0.i.i = phi ptr [ %1, %22 ], [ %29, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %30
 
@@ -9178,7 +9178,7 @@ llvm_bswap_non_integral.exit:                     ; preds = %bitstruct_requires_
   br label %llvm_mask_low_bits.exit
 
 llvm_mask_low_bits.exit:                          ; preds = %146, %144, %138, %135, %133
-  %.1 = phi ptr [ %.0115, %133 ], [ %.0115, %135 ], [ %148, %146 ], [ %142, %138 ], [ %.0115, %144 ]
+  %.1 = phi ptr [ %.0115, %133 ], [ %.0115, %144 ], [ %.0115, %135 ], [ %148, %146 ], [ %142, %138 ]
   br i1 %117, label %149, label %153
 
 149:                                              ; preds = %llvm_mask_low_bits.exit
@@ -9547,7 +9547,7 @@ llvm_emit_real.exit:                              ; preds = %83, %88, %92
   br label %173
 
 173:                                              ; preds = %153, %155, %159, %164
-  %.0227 = phi ptr [ %163, %159 ], [ %172, %164 ], [ %154, %153 ], [ %156, %155 ]
+  %.0227 = phi ptr [ %172, %164 ], [ %163, %159 ], [ %154, %153 ], [ %156, %155 ]
   tail call void @llvm_value_set(ptr noundef %1, ptr noundef %.0227, ptr noundef %8) #10
   br label %llvm_emit_const_initializer_list_expr.exit
 
@@ -9912,7 +9912,7 @@ define dso_local ptr @llvm_emit_const_bitstruct(ptr noundef %0, ptr noundef read
   br label %78
 
 78:                                               ; preds = %66, %76, %74
-  %.0107 = phi ptr [ %75, %74 ], [ %77, %76 ], [ %.0104, %66 ]
+  %.0107 = phi ptr [ %77, %76 ], [ %75, %74 ], [ %.0104, %66 ]
   %79 = icmp ult i32 %48, %32
   br i1 %79, label %80, label %90
 
@@ -11905,7 +11905,7 @@ llvm_get_current_block_if_in_use.exit167:         ; preds = %251, %254
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %283, %277
-  %.0.i168.in.be = phi ptr [ %282, %277 ], [ %284, %283 ]
+  %.0.i168.in.be = phi ptr [ %284, %283 ], [ %282, %277 ]
   br label %.preheader
 
 285:                                              ; preds = %.preheader
@@ -12047,7 +12047,7 @@ define dso_local ptr @llvm_emit_array_gep_raw_index(ptr noundef %0, ptr noundef 
   br label %.critedge
 
 .critedge:                                        ; preds = %28, %30, %19, %6, %14
-  %.039 = phi ptr [ %7, %14 ], [ %7, %6 ], [ %29, %28 ], [ %31, %30 ], [ %7, %19 ]
+  %.039 = phi ptr [ %7, %6 ], [ %7, %14 ], [ %31, %30 ], [ %29, %28 ], [ %7, %19 ]
   %32 = tail call i32 @llvm_abi_size(ptr noundef %0, ptr noundef %8) #10
   %33 = or i32 %32, %4
   %34 = sub i32 0, %33
@@ -12089,7 +12089,7 @@ define dso_local ptr @llvm_emit_pointer_inbounds_gep_raw(ptr noundef %0, ptr nou
   br label %llvm_emit_ptradd_inbounds_raw.exit
 
 llvm_emit_ptradd_inbounds_raw.exit:               ; preds = %11, %13
-  %.0.i = phi ptr [ %18, %13 ], [ %2, %11 ]
+  %.0.i = phi ptr [ %2, %11 ], [ %18, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %35
 
@@ -12124,7 +12124,7 @@ llvm_emit_ptradd_inbounds_raw.exit:               ; preds = %11, %13
   br label %llvm_emit_ptradd_inbounds_raw.exit15
 
 llvm_emit_ptradd_inbounds_raw.exit15:             ; preds = %22, %30, %32
-  %.0.i14 = phi ptr [ %31, %30 ], [ %34, %32 ], [ %2, %22 ]
+  %.0.i14 = phi ptr [ %34, %32 ], [ %31, %30 ], [ %2, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %35
 
@@ -12194,7 +12194,7 @@ define dso_local ptr @llvm_emit_ptradd_raw(ptr noundef readonly captures(none) %
   br label %21
 
 21:                                               ; preds = %7, %17, %15
-  %.0 = phi ptr [ %16, %15 ], [ %20, %17 ], [ %1, %7 ]
+  %.0 = phi ptr [ %20, %17 ], [ %16, %15 ], [ %1, %7 ]
   ret ptr %.0
 }
 
@@ -12236,7 +12236,7 @@ define dso_local ptr @llvm_emit_ptradd_inbounds_raw(ptr noundef readonly capture
   br label %21
 
 21:                                               ; preds = %7, %17, %15
-  %.0 = phi ptr [ %16, %15 ], [ %20, %17 ], [ %1, %7 ]
+  %.0 = phi ptr [ %20, %17 ], [ %16, %15 ], [ %1, %7 ]
   ret ptr %.0
 }
 
@@ -12382,7 +12382,7 @@ define dso_local ptr @llvm_emit_pointer_gep_raw(ptr noundef %0, ptr noundef %1, 
   br label %llvm_emit_ptradd_raw.exit
 
 llvm_emit_ptradd_raw.exit:                        ; preds = %11, %13
-  %.0.i = phi ptr [ %18, %13 ], [ %2, %11 ]
+  %.0.i = phi ptr [ %2, %11 ], [ %18, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %35
 
@@ -12417,7 +12417,7 @@ llvm_emit_ptradd_raw.exit:                        ; preds = %11, %13
   br label %llvm_emit_ptradd_raw.exit15
 
 llvm_emit_ptradd_raw.exit15:                      ; preds = %22, %30, %32
-  %.0.i14 = phi ptr [ %31, %30 ], [ %34, %32 ], [ %2, %22 ]
+  %.0.i14 = phi ptr [ %34, %32 ], [ %31, %30 ], [ %2, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %35
 
@@ -13304,7 +13304,7 @@ define dso_local void @llvm_emit_raw_call(ptr noundef %0, ptr noundef %1, ptr no
   br label %llvm_call_convention_from_call.exit
 
 llvm_call_convention_from_call.exit:              ; preds = %11, %24, %25, %26
-  %.0.i = phi i32 [ 0, %26 ], [ 67, %24 ], [ 68, %25 ], [ 80, %11 ]
+  %.0.i = phi i32 [ 0, %26 ], [ 68, %25 ], [ 67, %24 ], [ 80, %11 ]
   tail call void @LLVMSetInstructionCallConv(ptr noundef %21, i32 noundef %.0.i) #10
   br label %27
 
@@ -14514,7 +14514,7 @@ bitstruct_requires_bitswap.exit79:                ; preds = %43, %45
   br label %102
 
 102:                                              ; preds = %100, %98, %73
-  %.0153.i = phi ptr [ %99, %98 ], [ %101, %100 ], [ %79, %73 ]
+  %.0153.i = phi ptr [ %101, %100 ], [ %99, %98 ], [ %79, %73 ]
   %103 = call ptr @llvm_emit_shl_fixed(ptr noundef %0, ptr noundef %.0153.i, i32 noundef %82) #10
   %104 = call i32 @LLVMIsNull(ptr noundef %103) #10
   %.not162.i = icmp eq i32 %104, 0
@@ -15033,7 +15033,7 @@ llvm_emit_initialize_reference_designated_bitstruct_array.exit: ; preds = %49, %
   br label %111
 
 111:                                              ; preds = %109, %107, %74
-  %.0121.i = phi ptr [ %108, %107 ], [ %110, %109 ], [ %88, %74 ]
+  %.0121.i = phi ptr [ %110, %109 ], [ %108, %107 ], [ %88, %74 ]
   %112 = call ptr @llvm_emit_shl_fixed(ptr noundef %0, ptr noundef %.0121.i, i32 noundef %91) #10
   %113 = call i32 @LLVMIsNull(ptr noundef %112) #10
   %.not128.i = icmp eq i32 %113, 0
@@ -15415,7 +15415,7 @@ llvm_emit_array_gep_raw.exit307:                  ; preds = %113, %119
   br label %145
 
 145:                                              ; preds = %141, %143, %132, %130
-  %.0261 = phi ptr [ %131, %130 ], [ %142, %141 ], [ %144, %143 ], [ %131, %132 ]
+  %.0261 = phi ptr [ %131, %130 ], [ %144, %143 ], [ %142, %141 ], [ %131, %132 ]
   %146 = load ptr, ptr %97, align 8
   %147 = call ptr @LLVMConstAllOnes(ptr noundef %146) #10
   %148 = call ptr @llvm_emit_lshr_fixed(ptr noundef %0, ptr noundef %147, i32 noundef %101) #10
@@ -15548,7 +15548,7 @@ llvm_const_high_bitmask.exit:                     ; preds = %161, %164, %166
   br label %213
 
 213:                                              ; preds = %203, %211, %209
-  %.0271 = phi ptr [ %210, %209 ], [ %212, %211 ], [ %.1274311, %203 ]
+  %.0271 = phi ptr [ %212, %211 ], [ %210, %209 ], [ %.1274311, %203 ]
   %214 = load ptr, ptr %97, align 8
   %215 = call ptr @LLVMConstAllOnes(ptr noundef %214) #10
   %216 = call ptr @llvm_emit_lshr_fixed(ptr noundef nonnull %0, ptr noundef %215, i32 noundef %99) #10
@@ -15627,7 +15627,7 @@ llvm_const_high_bitmask.exit:                     ; preds = %161, %164, %166
   br label %255
 
 255:                                              ; preds = %245, %253, %251
-  %.0272 = phi ptr [ %252, %251 ], [ %254, %253 ], [ %.1274311, %245 ]
+  %.0272 = phi ptr [ %254, %253 ], [ %252, %251 ], [ %.1274311, %245 ]
   %256 = load i32, ptr %11, align 4
   %257 = call ptr @llvm_store_to_ptr_raw_aligned(ptr noundef nonnull %0, ptr noundef %128, ptr noundef %.0272, i32 noundef %256) #10
   %258 = call ptr @llvm_emit_lshr_fixed(ptr noundef nonnull %0, ptr noundef %.1274311, i32 noundef 8) #10
@@ -15883,7 +15883,7 @@ bitstruct_requires_bitswap.exit:                  ; preds = %118, %120
   br label %156
 
 156:                                              ; preds = %129, %154, %152
-  %.0182 = phi ptr [ %153, %152 ], [ %155, %154 ], [ %112, %129 ]
+  %.0182 = phi ptr [ %155, %154 ], [ %153, %152 ], [ %112, %129 ]
   %157 = call ptr @llvm_emit_shl_fixed(ptr noundef %0, ptr noundef %.0182, i32 noundef %135) #10
   %158 = call i32 @LLVMIsNull(ptr noundef %157) #10
   %.not = icmp eq i32 %158, 0
@@ -16637,8 +16637,8 @@ define internal fastcc void @llvm_emit_slice_values(ptr noundef %0, ptr noundef 
   unreachable
 
 82:                                               ; preds = %.critedge, %.critedge, %.critedge, %73, %79, %49
-  %.0138 = phi ptr [ %53, %49 ], [ %58, %79 ], [ %58, %73 ], [ null, %.critedge ], [ null, %.critedge ], [ null, %.critedge ]
-  %.0137 = phi ptr [ %53, %49 ], [ %80, %79 ], [ %78, %73 ], [ %42, %.critedge ], [ %42, %.critedge ], [ %42, %.critedge ]
+  %.0138 = phi ptr [ %53, %49 ], [ %58, %73 ], [ %58, %79 ], [ null, %.critedge ], [ null, %.critedge ], [ null, %.critedge ]
+  %.0137 = phi ptr [ %53, %49 ], [ %78, %73 ], [ %80, %79 ], [ %42, %.critedge ], [ %42, %.critedge ], [ %42, %.critedge ]
   %83 = load ptr, ptr %22, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8
@@ -16721,7 +16721,7 @@ define internal fastcc void @llvm_emit_slice_values(ptr noundef %0, ptr noundef 
   unreachable
 
 126:                                              ; preds = %92, %92, %82, %118, %120
-  %.0134.not = phi i1 [ false, %118 ], [ false, %120 ], [ false, %82 ], [ true, %92 ], [ true, %92 ]
+  %.0134.not = phi i1 [ false, %82 ], [ false, %118 ], [ false, %120 ], [ true, %92 ], [ true, %92 ]
   br i1 %87, label %127, label %135
 
 127:                                              ; preds = %126
@@ -17943,7 +17943,7 @@ bitstruct_requires_bitswap.exit:                  ; preds = %84
   br label %125
 
 125:                                              ; preds = %96, %123, %121
-  %.0135 = phi ptr [ %122, %121 ], [ %124, %123 ], [ %47, %96 ]
+  %.0135 = phi ptr [ %124, %123 ], [ %122, %121 ], [ %47, %96 ]
   %126 = call ptr @llvm_emit_shl_fixed(ptr noundef %0, ptr noundef %.0135, i32 noundef %104) #10
   %127 = call i32 @LLVMIsNull(ptr noundef %126) #10
   %.not = icmp eq i32 %127, 0
@@ -18203,7 +18203,7 @@ define internal fastcc ptr @llvm_emit_inc_dec_value(ptr noundef %0, i64 %1, ptr 
   unreachable
 
 102:                                              ; preds = %91, %93, %33, %35, %95, %18, %8
-  %.099 = phi ptr [ %17, %8 ], [ %26, %18 ], [ %100, %95 ], [ %34, %33 ], [ %36, %35 ], [ %92, %91 ], [ %94, %93 ]
+  %.099 = phi ptr [ %17, %8 ], [ %26, %18 ], [ %100, %95 ], [ %36, %35 ], [ %34, %33 ], [ %92, %91 ], [ %94, %93 ]
   ret ptr %.099
 }
 
@@ -18510,7 +18510,7 @@ llvm_emit_array_gep_raw.exit.i:                   ; preds = %111, %102
   br label %134
 
 134:                                              ; preds = %132, %130, %llvm_emit_array_gep_raw.exit.i
-  %.0116.i = phi ptr [ %131, %130 ], [ %133, %132 ], [ %122, %llvm_emit_array_gep_raw.exit.i ]
+  %.0116.i = phi ptr [ %133, %132 ], [ %131, %130 ], [ %122, %llvm_emit_array_gep_raw.exit.i ]
   %135 = sub nuw nsw i64 %indvars.iv.i, %99
   %136 = shl nsw i64 %135, 3
   %137 = sub nsw i64 %136, %100
@@ -18765,7 +18765,7 @@ bitstruct_requires_bitswap.exit:                  ; preds = %192
   br label %269
 
 269:                                              ; preds = %265, %267, %253, %239, %246, %244
-  %.3 = phi ptr [ %243, %239 ], [ %250, %246 ], [ %.2, %244 ], [ %266, %265 ], [ %268, %267 ], [ %255, %253 ]
+  %.3 = phi ptr [ %243, %239 ], [ %250, %246 ], [ %.2, %244 ], [ %268, %267 ], [ %266, %265 ], [ %255, %253 ]
   tail call void @llvm_value_set(ptr noundef nonnull %1, ptr noundef %.3, ptr noundef nonnull %213) #10
   br label %270
 
@@ -18855,7 +18855,7 @@ define internal fastcc i32 @find_member_index(ptr noundef readonly captures(none
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %15, %._crit_edge.loopexit.split.loop.exit36, %._crit_edge.loopexit.split.loop.exit38, %2, %5
-  %.017 = phi i32 [ -1, %5 ], [ -1, %2 ], [ %16, %._crit_edge.loopexit.split.loop.exit36 ], [ %17, %._crit_edge.loopexit.split.loop.exit38 ], [ -1, %15 ]
+  %.017 = phi i32 [ -1, %5 ], [ -1, %2 ], [ %17, %._crit_edge.loopexit.split.loop.exit38 ], [ %16, %._crit_edge.loopexit.split.loop.exit36 ], [ -1, %15 ]
   ret i32 %.017
 }
 
@@ -19192,7 +19192,7 @@ llvm_emit_logical_and_or.exit:                    ; preds = %102, %125, %.crited
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %147, %141
-  %.0.i.in.be = phi ptr [ %146, %141 ], [ %148, %147 ]
+  %.0.i.in.be = phi ptr [ %148, %147 ], [ %146, %141 ]
   br label %.preheader
 
 149:                                              ; preds = %.preheader
@@ -19441,8 +19441,8 @@ type_flatten.exit..thread470_crit_edge:           ; preds = %type_flatten.exit
   br label %294
 
 294:                                              ; preds = %244, %250, %.critedge17, %282, %.critedge19, %.thread458, %263, %210, %220
-  %295 = phi ptr [ %213, %220 ], [ %213, %210 ], [ %258, %263 ], [ %258, %.thread458 ], [ %270, %282 ], [ %270, %.critedge19 ], [ %227, %.critedge17 ], [ %227, %250 ], [ %227, %244 ]
-  %.0392 = phi i1 [ false, %220 ], [ false, %210 ], [ false, %263 ], [ false, %.thread458 ], [ true, %282 ], [ false, %.critedge19 ], [ true, %.critedge17 ], [ true, %250 ], [ true, %244 ]
+  %295 = phi ptr [ %213, %220 ], [ %213, %210 ], [ %270, %.critedge19 ], [ %258, %263 ], [ %258, %.thread458 ], [ %270, %282 ], [ %227, %.critedge17 ], [ %227, %250 ], [ %227, %244 ]
+  %.0392 = phi i1 [ false, %220 ], [ false, %210 ], [ false, %.critedge19 ], [ false, %263 ], [ false, %.thread458 ], [ true, %282 ], [ true, %.critedge17 ], [ true, %250 ], [ true, %244 ]
   %296 = tail call ptr @LLVMTypeOf(ptr noundef %295) #10
   store ptr %296, ptr %14, align 8
   %297 = load i32, ptr getelementptr inbounds nuw (i8, ptr @intrinsic_id, i64 76), align 4
@@ -19566,7 +19566,7 @@ type_flatten.exit..thread470_crit_edge:           ; preds = %type_flatten.exit
   br label %.thread479
 
 .thread479:                                       ; preds = %344, %347, %357
-  %360 = phi i1 [ false, %347 ], [ %359, %357 ], [ %346, %344 ]
+  %360 = phi i1 [ %346, %344 ], [ false, %347 ], [ %359, %357 ]
   %361 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %362 = load ptr, ptr %361, align 8
   %363 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -19863,7 +19863,7 @@ type_flatten.exit..thread470_crit_edge:           ; preds = %type_flatten.exit
   br label %534
 
 534:                                              ; preds = %520, %532, %530
-  %.0400 = phi ptr [ %531, %530 ], [ %533, %532 ], [ %364, %520 ]
+  %.0400 = phi ptr [ %533, %532 ], [ %531, %530 ], [ %364, %520 ]
   %535 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %536 = load i64, ptr %535, align 8
   call fastcc void @llvm_emit_trap_invalid_shift(ptr noundef nonnull %0, ptr noundef %.0400, ptr noundef nonnull %334, i64 %536)
@@ -19912,7 +19912,7 @@ type_flatten.exit..thread470_crit_edge:           ; preds = %type_flatten.exit
   br label %563
 
 563:                                              ; preds = %549, %561, %559
-  %.0401 = phi ptr [ %560, %559 ], [ %562, %561 ], [ %364, %549 ]
+  %.0401 = phi ptr [ %562, %561 ], [ %560, %559 ], [ %364, %549 ]
   %564 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %565 = load i64, ptr %564, align 8
   call fastcc void @llvm_emit_trap_invalid_shift(ptr noundef nonnull %0, ptr noundef %.0401, ptr noundef nonnull %334, i64 %565)
@@ -19970,7 +19970,7 @@ type_flatten.exit..thread470_crit_edge:           ; preds = %type_flatten.exit
   unreachable
 
 593:                                              ; preds = %517, %.critedge27, %494, %.critedge25, %588, %581, %574, %563, %544, %509, %485, %478, %474, %470, %464, %460, %454, %448, %418, %410, %371, %367, %.thread479
-  %.0391 = phi ptr [ null, %.thread479 ], [ %370, %367 ], [ %374, %371 ], [ %417, %410 ], [ %421, %418 ], [ %453, %448 ], [ %459, %454 ], [ %463, %460 ], [ %467, %464 ], [ %472, %470 ], [ %477, %474 ], [ %481, %478 ], [ %488, %485 ], [ %512, %509 ], [ %548, %544 ], [ %570, %563 ], [ %577, %574 ], [ %584, %581 ], [ %591, %588 ], [ %495, %494 ], [ %496, %.critedge25 ], [ %518, %517 ], [ %519, %.critedge27 ]
+  %.0391 = phi ptr [ null, %.thread479 ], [ %370, %367 ], [ %374, %371 ], [ %417, %410 ], [ %421, %418 ], [ %453, %448 ], [ %459, %454 ], [ %463, %460 ], [ %467, %464 ], [ %472, %470 ], [ %477, %474 ], [ %481, %478 ], [ %488, %485 ], [ %591, %588 ], [ %512, %509 ], [ %496, %.critedge25 ], [ %548, %544 ], [ %570, %563 ], [ %577, %574 ], [ %584, %581 ], [ %495, %494 ], [ %518, %517 ], [ %519, %.critedge27 ]
   %594 = load ptr, ptr %2, align 8
   call void @llvm_value_set(ptr noundef %1, ptr noundef %.0391, ptr noundef %594) #10
   br label %595

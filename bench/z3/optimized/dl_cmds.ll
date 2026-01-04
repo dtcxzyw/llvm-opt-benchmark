@@ -3368,7 +3368,7 @@ _ZNK4decl13get_family_idEv.exit.thread:           ; preds = %3, %_ZNK4decl13get_
   br i1 %.not27.old.i.i, label %.loopexit, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %50, %47
-  %.137.i.i.be = phi ptr [ %.old.i.i, %50 ], [ %49, %47 ]
+  %.137.i.i.be = phi ptr [ %49, %47 ], [ %.old.i.i, %50 ]
   br label %.lr.ph38.i.i, !llvm.loop !454
 
 .loopexit:                                        ; preds = %36, %50, %47, %.preheader.i.i
@@ -3727,7 +3727,7 @@ _ZN13scoped_rlimitD2Ev.exit:                      ; preds = %_ZN11cmd_context12s
   ]
 
 145:                                              ; preds = %131, %129, %127, %108
-  %.merged57 = phi { ptr, i32 } [ %82, %108 ], [ %130, %129 ], [ %128, %127 ], [ %132, %131 ]
+  %.merged57 = phi { ptr, i32 } [ %128, %127 ], [ %82, %108 ], [ %130, %129 ], [ %132, %131 ]
   %146 = load i8, ptr %68, align 8, !tbaa !466, !range !467, !noundef !468
   %147 = trunc nuw i8 %146 to i1
   br i1 %147, label %148, label %_ZN11cmd_context12scoped_watchD2Ev.exit65
@@ -3912,8 +3912,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit85: ; preds = %215
           to label %.noexc89.invoke unwind label %57
 
 .noexc89.invoke:                                  ; preds = %.noexc88, %.noexc78, %.noexc69
-  %233 = phi ptr [ %177, %.noexc69 ], [ %201, %.noexc78 ], [ %228, %.noexc88 ]
-  %234 = phi ptr [ %181, %.noexc69 ], [ %205, %.noexc78 ], [ %232, %.noexc88 ]
+  %233 = phi ptr [ %201, %.noexc78 ], [ %177, %.noexc69 ], [ %228, %.noexc88 ]
+  %234 = phi ptr [ %205, %.noexc78 ], [ %181, %.noexc69 ], [ %232, %.noexc88 ]
   %235 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7datalog7context19display_certificateERSo(ptr noundef nonnull align 8 dereferenceable(3028) %233, ptr noundef nonnull align 8 dereferenceable(8) %234)
           to label %.noexc90.invoke unwind label %57
 
@@ -3975,9 +3975,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit95: ; preds = %242
           to label %.invoke unwind label %57
 
 .invoke:                                          ; preds = %.noexc90.invoke, %261, %256, %251, %246
-  %266 = phi ptr [ %250, %246 ], [ %255, %251 ], [ %260, %256 ], [ %265, %261 ], [ %239, %.noexc90.invoke ]
-  %267 = phi ptr [ @.str.28, %246 ], [ @.str.29, %251 ], [ @.str.30, %256 ], [ @.str.31, %261 ], [ @.str.35, %.noexc90.invoke ]
-  %268 = phi i64 [ 12, %246 ], [ 23, %251 ], [ 8, %256 ], [ 23, %261 ], [ 1, %.noexc90.invoke ]
+  %266 = phi ptr [ %260, %256 ], [ %255, %251 ], [ %250, %246 ], [ %239, %.noexc90.invoke ], [ %265, %261 ]
+  %267 = phi ptr [ @.str.30, %256 ], [ @.str.29, %251 ], [ @.str.28, %246 ], [ @.str.35, %.noexc90.invoke ], [ @.str.31, %261 ]
+  %268 = phi i64 [ 8, %256 ], [ 23, %251 ], [ 12, %246 ], [ 1, %.noexc90.invoke ], [ 23, %261 ]
   %269 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %266, ptr noundef nonnull %267, i64 noundef %268)
           to label %_ZN12dl_query_cmd17print_certificateER11cmd_context.exit unwind label %57
 

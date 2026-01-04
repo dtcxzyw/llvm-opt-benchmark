@@ -910,7 +910,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit36:               ; preds = %120, %122
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit33
 
 _ZN4llvm11raw_ostreamlsEPKc.exit33:               ; preds = %_ZNK4llvm9StringRef5splitEc.exit.thread, %138, %136, %60, %67, %104, %106, %52, %_ZNK4llvm9StringRef5splitEc.exit
-  %.2 = phi i1 [ %.188, %_ZNK4llvm9StringRef5splitEc.exit ], [ %.188, %52 ], [ true, %60 ], [ true, %67 ], [ %.188, %104 ], [ %.188, %106 ], [ %.188, %136 ], [ %.188, %138 ], [ %.188, %_ZNK4llvm9StringRef5splitEc.exit.thread ]
+  %.2 = phi i1 [ %.188, %_ZNK4llvm9StringRef5splitEc.exit ], [ %.188, %106 ], [ %.188, %52 ], [ true, %60 ], [ true, %67 ], [ %.188, %104 ], [ %.188, %138 ], [ %.188, %136 ], [ %.188, %_ZNK4llvm9StringRef5splitEc.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @_ZN4llvm13line_iterator7advanceEv(ptr noundef nonnull align 8 dereferenceable(64) %14) #17
   %141 = load i8, ptr %35, align 8, !tbaa !79, !range !63, !noundef !64
@@ -1056,8 +1056,8 @@ _ZN4llvmneENS_9StringRefES0_.exit.i61:            ; preds = %193
   br i1 %.not.i63, label %_ZNK4llvm9StringRef8containsEc.exit.thread.i48, label %"_ZZL15forceAttributesRN4llvm8FunctionEENK3$_0clENS_9StringRefE.exit66.thread"
 
 _ZNK4llvm9StringRef8containsEc.exit.thread.i48:   ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.i61, %193, %_ZNK4llvm9StringRef8containsEc.exit.i46, %.lr.ph.i
-  %.sroa.02.0.i49 = phi ptr [ %.sroa.8.0.i56, %_ZN4llvmneENS_9StringRefES0_.exit.i61 ], [ %171, %_ZNK4llvm9StringRef8containsEc.exit.i46 ], [ %171, %.lr.ph.i ], [ %.sroa.8.0.i56, %193 ]
-  %.sroa.63.0.i50 = phi i64 [ %.sroa.11.0.i57, %_ZN4llvmneENS_9StringRefES0_.exit.i61 ], [ %173, %_ZNK4llvm9StringRef8containsEc.exit.i46 ], [ 0, %.lr.ph.i ], [ %.sroa.11.0.i57, %193 ]
+  %.sroa.02.0.i49 = phi ptr [ %.sroa.8.0.i56, %_ZN4llvmneENS_9StringRefES0_.exit.i61 ], [ %171, %.lr.ph.i ], [ %171, %_ZNK4llvm9StringRef8containsEc.exit.i46 ], [ %.sroa.8.0.i56, %193 ]
+  %.sroa.63.0.i50 = phi i64 [ %.sroa.11.0.i57, %_ZN4llvmneENS_9StringRefES0_.exit.i61 ], [ 0, %.lr.ph.i ], [ %173, %_ZNK4llvm9StringRef8containsEc.exit.i46 ], [ %.sroa.11.0.i57, %193 ]
   %195 = call noundef i32 @_ZN4llvm9Attribute19getAttrKindFromNameENS_9StringRefE(ptr %.sroa.02.0.i49, i64 %.sroa.63.0.i50) #17
   %196 = icmp eq i32 %195, 0
   br i1 %196, label %"_ZZL15forceAttributesRN4llvm8FunctionEENK3$_0clENS_9StringRefE.exit66.thread", label %197
@@ -1142,8 +1142,8 @@ _ZN4llvmneENS_9StringRefES0_.exit.i:              ; preds = %224
   br i1 %.not.i44, label %_ZNK4llvm9StringRef8containsEc.exit.thread.i, label %"_ZZL15forceAttributesRN4llvm8FunctionEENK3$_0clENS_9StringRefE.exit.thread"
 
 _ZNK4llvm9StringRef8containsEc.exit.thread.i:     ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.i, %224, %_ZNK4llvm9StringRef8containsEc.exit.i, %.lr.ph36.i
-  %.sroa.02.0.i = phi ptr [ %.sroa.8.0.i, %_ZN4llvmneENS_9StringRefES0_.exit.i ], [ %202, %_ZNK4llvm9StringRef8containsEc.exit.i ], [ %202, %.lr.ph36.i ], [ %.sroa.8.0.i, %224 ]
-  %.sroa.63.0.i = phi i64 [ %.sroa.11.0.i, %_ZN4llvmneENS_9StringRefES0_.exit.i ], [ %204, %_ZNK4llvm9StringRef8containsEc.exit.i ], [ 0, %.lr.ph36.i ], [ %.sroa.11.0.i, %224 ]
+  %.sroa.02.0.i = phi ptr [ %.sroa.8.0.i, %_ZN4llvmneENS_9StringRefES0_.exit.i ], [ %202, %.lr.ph36.i ], [ %202, %_ZNK4llvm9StringRef8containsEc.exit.i ], [ %.sroa.8.0.i, %224 ]
+  %.sroa.63.0.i = phi i64 [ %.sroa.11.0.i, %_ZN4llvmneENS_9StringRefES0_.exit.i ], [ 0, %.lr.ph36.i ], [ %204, %_ZNK4llvm9StringRef8containsEc.exit.i ], [ %.sroa.11.0.i, %224 ]
   %226 = call noundef i32 @_ZN4llvm9Attribute19getAttrKindFromNameENS_9StringRefE(ptr %.sroa.02.0.i, i64 %.sroa.63.0.i) #17
   %227 = icmp eq i32 %226, 0
   br i1 %227, label %"_ZZL15forceAttributesRN4llvm8FunctionEENK3$_0clENS_9StringRefE.exit.thread", label %228

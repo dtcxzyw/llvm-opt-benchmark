@@ -73,7 +73,7 @@ define hidden noundef ptr @pj_stere(ptr noundef %0) local_unnamed_addr #0 {
   br label %_Z34pj_projection_specific_setup_stereP8PJconsts.exit
 
 _Z34pj_projection_specific_setup_stereP8PJconsts.exit: ; preds = %19, %5, %22, %25
-  %.0 = phi ptr [ %23, %25 ], [ null, %22 ], [ %6, %5 ], [ %0, %19 ]
+  %.0 = phi ptr [ null, %22 ], [ %23, %25 ], [ %6, %5 ], [ %0, %19 ]
   ret ptr %.0
 }
 
@@ -658,8 +658,8 @@ define internal { double, double } @_ZL15stere_e_forward5PJ_LPP8PJconsts(double 
   br label %80
 
 80:                                               ; preds = %.thread, %77, %60, %30
-  %.sroa.11.0 = phi double [ 0.000000e+00, %30 ], [ %.sroa.11.2, %60 ], [ %79, %77 ], [ %48, %.thread ]
-  %.sroa.0.0 = phi double [ 0.000000e+00, %30 ], [ %61, %60 ], [ %.sroa.0.2, %77 ], [ %49, %.thread ]
+  %.sroa.11.0 = phi double [ 0.000000e+00, %30 ], [ %48, %.thread ], [ %.sroa.11.2, %60 ], [ %79, %77 ]
+  %.sroa.0.0 = phi double [ 0.000000e+00, %30 ], [ %49, %.thread ], [ %61, %60 ], [ %.sroa.0.2, %77 ]
   %81 = fmul double %8, %.sroa.0.0
   br label %82
 
@@ -894,8 +894,8 @@ define internal { double, double } @_ZL15stere_s_forward5PJ_LPP8PJconsts(double 
   br label %58
 
 58:                                               ; preds = %3, %36, %50, %48, %30
-  %.sroa.4.2 = phi double [ %.sroa.4.138, %30 ], [ 0.000000e+00, %48 ], [ 0.000000e+00, %3 ], [ %40, %36 ], [ %57, %50 ]
-  %.sroa.030.1 = phi double [ 0.000000e+00, %30 ], [ 0.000000e+00, %48 ], [ 0.000000e+00, %3 ], [ %39, %36 ], [ %56, %50 ]
+  %.sroa.4.2 = phi double [ 0.000000e+00, %48 ], [ %.sroa.4.138, %30 ], [ 0.000000e+00, %3 ], [ %40, %36 ], [ %57, %50 ]
+  %.sroa.030.1 = phi double [ 0.000000e+00, %48 ], [ 0.000000e+00, %30 ], [ 0.000000e+00, %3 ], [ %39, %36 ], [ %56, %50 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.030.1, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.4.2, 1
   ret { double, double } %.fca.1.insert

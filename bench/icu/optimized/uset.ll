@@ -844,7 +844,7 @@ define ptr @uset_getString_77(ptr noundef %0, i32 noundef %1, ptr noundef writeo
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %9, %23, %25
-  %.0.i = phi ptr [ %24, %23 ], [ %27, %25 ], [ null, %9 ]
+  %.0.i = phi ptr [ %27, %25 ], [ %24, %23 ], [ null, %9 ]
   tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.0.i) #10, !srcloc !23
   br label %28
 
@@ -1232,8 +1232,8 @@ define signext range(i8 0, 2) i8 @uset_serializedContains_77(ptr noundef readonl
   br label %92
 
 92:                                               ; preds = %91, %86, %76
-  %.174 = phi i32 [ %77, %91 ], [ %.07399, %86 ], [ %.07399, %76 ]
-  %.2 = phi i32 [ %.172100, %91 ], [ %77, %86 ], [ %77, %76 ]
+  %.174 = phi i32 [ %.07399, %76 ], [ %77, %91 ], [ %.07399, %86 ]
+  %.2 = phi i32 [ %77, %76 ], [ %.172100, %91 ], [ %77, %86 ]
   %93 = add nsw i32 %.2, %.174
   %94 = ashr i32 %93, 1
   %95 = and i32 %94, -2
@@ -1245,7 +1245,7 @@ define signext range(i8 0, 2) i8 @uset_serializedContains_77(ptr noundef readonl
   br label %.thread95
 
 .thread95:                                        ; preds = %92, %71, %34, %49, %97
-  %.071 = phi i32 [ %98, %97 ], [ 0, %49 ], [ 0, %34 ], [ %41, %71 ], [ %.2, %92 ]
+  %.071 = phi i32 [ %98, %97 ], [ 0, %34 ], [ 0, %49 ], [ %41, %71 ], [ %.2, %92 ]
   %99 = lshr i32 %.071, 1
   %100 = add i32 %99, %37
   %101 = trunc i32 %100 to i8
@@ -1253,7 +1253,7 @@ define signext range(i8 0, 2) i8 @uset_serializedContains_77(ptr noundef readonl
   br label %103
 
 103:                                              ; preds = %2, %.thread95, %.thread
-  %.0 = phi i8 [ %33, %.thread ], [ %102, %.thread95 ], [ 0, %2 ]
+  %.0 = phi i8 [ %102, %.thread95 ], [ %33, %.thread ], [ 0, %2 ]
   ret i8 %.0
 }
 
@@ -1373,12 +1373,12 @@ define signext range(i8 0, 2) i8 @uset_getSerializedRange_77(ptr noundef readonl
   br label %.sink.split
 
 .sink.split:                                      ; preds = %62, %48, %30, %32, %24
-  %.sink = phi i32 [ %29, %24 ], [ %42, %32 ], [ 1114111, %30 ], [ %72, %62 ], [ 1114111, %48 ]
+  %.sink = phi i32 [ %29, %24 ], [ 1114111, %30 ], [ %42, %32 ], [ %72, %62 ], [ 1114111, %48 ]
   store i32 %.sink, ptr %3, align 4, !tbaa !21
   br label %73
 
 73:                                               ; preds = %.sink.split, %43, %4
-  %.0 = phi i8 [ 0, %4 ], [ 0, %43 ], [ 1, %.sink.split ]
+  %.0 = phi i8 [ 0, %43 ], [ 0, %4 ], [ 1, %.sink.split ]
   ret i8 %.0
 }
 

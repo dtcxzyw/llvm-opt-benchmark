@@ -145,7 +145,7 @@ _ZNK14bv_recognizers9is_bv_sleEPK4expr.exit:      ; preds = %_ZNK14bv_recognizer
   br label %_ZNK14bv_recognizers9is_bv_sleEPK4expr.exit.thread
 
 _ZNK14bv_recognizers9is_bv_sleEPK4expr.exit.thread: ; preds = %9, %2, %_ZNK14bv_recognizers9is_bv_sleEPK4expr.exit, %43, %46, %24
-  %.0 = phi i1 [ %27, %24 ], [ false, %43 ], [ %48, %46 ], [ false, %_ZNK14bv_recognizers9is_bv_sleEPK4expr.exit ], [ false, %2 ], [ false, %9 ]
+  %.0 = phi i1 [ %27, %24 ], [ %48, %46 ], [ false, %43 ], [ false, %_ZNK14bv_recognizers9is_bv_sleEPK4expr.exit ], [ false, %2 ], [ false, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
@@ -349,7 +349,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_re
   unreachable
 
 _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; preds = %20, %._crit_edge, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.i, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.thread7.i
-  %.not35.lcssa65 = phi i1 [ %52, %._crit_edge ], [ %.not35.lcssa68, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.i ], [ %.not35.lcssa68, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.thread7.i ], [ false, %20 ]
+  %.not35.lcssa65 = phi i1 [ %.not35.lcssa68, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.thread7.i ], [ %52, %._crit_edge ], [ %.not35.lcssa68, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.i ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %79
 
@@ -951,7 +951,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   br i1 %.not, label %._crit_edge, label %87
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %141, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i, %85, %83
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %84, %83 ], [ %86, %85 ], [ %136, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %142, %141 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %84, %83 ], [ %86, %85 ], [ %142, %141 ], [ %136, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN12substitutionD2Ev(ptr noundef nonnull align 8 dereferenceable(124) %8) #18
   br label %203
 

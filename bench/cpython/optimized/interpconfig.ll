@@ -374,7 +374,7 @@ define dso_local range(i32 -1, 1) i32 @_PyInterpreterConfig_InitFromDict(ptr nou
   br label %10
 
 10:                                               ; preds = %8, %6
-  %.0 = phi i32 [ -1, %6 ], [ %9, %8 ]
+  %.0 = phi i32 [ %9, %8 ], [ -1, %6 ]
   ret i32 %.0
 }
 
@@ -881,7 +881,7 @@ Py_DECREF.exit86.sink.split:                      ; preds = %197, %193
   br label %Py_DECREF.exit86
 
 Py_DECREF.exit86:                                 ; preds = %Py_DECREF.exit86.sink.split, %197, %config_dict_get.exit.thread, %193, %191, %3
-  %.0 = phi i32 [ -1, %3 ], [ 0, %191 ], [ 0, %193 ], [ -1, %config_dict_get.exit.thread ], [ -1, %197 ], [ %.0.ph, %Py_DECREF.exit86.sink.split ]
+  %.0 = phi i32 [ -1, %3 ], [ -1, %197 ], [ 0, %191 ], [ 0, %193 ], [ -1, %config_dict_get.exit.thread ], [ %.0.ph, %Py_DECREF.exit86.sink.split ]
   ret i32 %.0
 }
 
@@ -905,7 +905,7 @@ define dso_local range(i32 -1, 1) i32 @_PyInterpreterConfig_UpdateFromDict(ptr n
   br label %10
 
 10:                                               ; preds = %8, %6
-  %.0 = phi i32 [ -1, %6 ], [ %9, %8 ]
+  %.0 = phi i32 [ %9, %8 ], [ -1, %6 ]
   ret i32 %.0
 }
 
@@ -1009,7 +1009,7 @@ Py_DECREF.exit:                                   ; preds = %21, %24, %27
   br label %28
 
 28:                                               ; preds = %_config_dict_get.exit.thread, %Py_DECREF.exit9, %Py_DECREF.exit
-  %.0 = phi i32 [ -1, %Py_DECREF.exit9 ], [ 0, %Py_DECREF.exit ], [ -1, %_config_dict_get.exit.thread ]
+  %.0 = phi i32 [ -1, %_config_dict_get.exit.thread ], [ -1, %Py_DECREF.exit9 ], [ 0, %Py_DECREF.exit ]
   ret i32 %.0
 }
 
@@ -1136,7 +1136,7 @@ define internal fastcc range(i32 -1, 1) i32 @gil_flag_from_str(ptr noundef nonnu
   br label %15
 
 14:                                               ; preds = %8, %5, %2
-  %.0 = phi i32 [ 0, %2 ], [ 1, %5 ], [ 2, %8 ]
+  %.0 = phi i32 [ 1, %5 ], [ 0, %2 ], [ 2, %8 ]
   store i32 %.0, ptr %1, align 4, !tbaa !31
   br label %15
 

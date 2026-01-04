@@ -4688,7 +4688,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit21.i.i.i:            ; preds = %77, %74, %72
   br label %.body.i.i.i
 
 .body.i.i.i:                                      ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit21.i.i.i, %70, %68, %66, %37, %34
-  %.pn15.pn.i.i.i = phi { ptr, i32 } [ %67, %66 ], [ %.pn.i.i.i, %_ZNSt6vectorIdSaIdEED2Ev.exit21.i.i.i ], [ %71, %70 ], [ %69, %68 ], [ %35, %37 ], [ %35, %34 ]
+  %.pn15.pn.i.i.i = phi { ptr, i32 } [ %67, %66 ], [ %71, %70 ], [ %.pn.i.i.i, %_ZNSt6vectorIdSaIdEED2Ev.exit21.i.i.i ], [ %69, %68 ], [ %35, %37 ], [ %35, %34 ]
   call void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12MatrixOpData11MatrixArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn15.pn.i.i.i

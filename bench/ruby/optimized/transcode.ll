@@ -642,8 +642,8 @@ rb_econv_open0.exit:                              ; preds = %load_transcoder_ent
   store i32 %131, ptr %89, align 8, !tbaa !55
   br label %decorator_names.exit.thread
 
-decorator_names.exit.thread:                      ; preds = %rb_econv_open_by_transcoder_entries.exit.thread.i, %67, %7, %3, %._crit_edge, %128
-  %.015 = phi ptr [ null, %128 ], [ %89, %._crit_edge ], [ null, %3 ], [ null, %7 ], [ null, %67 ], [ null, %rb_econv_open_by_transcoder_entries.exit.thread.i ]
+decorator_names.exit.thread:                      ; preds = %rb_econv_open_by_transcoder_entries.exit.thread.i, %67, %3, %7, %._crit_edge, %128
+  %.015 = phi ptr [ null, %3 ], [ null, %128 ], [ %89, %._crit_edge ], [ null, %7 ], [ null, %67 ], [ null, %rb_econv_open_by_transcoder_entries.exit.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.015
 }
@@ -927,7 +927,7 @@ load_transcoder_entry.exit.thread19.i.i41:        ; preds = %load_transcoder_ent
   br label %rb_econv_decorate_at.exit
 
 rb_econv_decorate_at.exit:                        ; preds = %load_transcoder_entry.exit.thread19.i.i41, %load_transcoder_entry.exit.i.i49, %102, %get_transcoder_entry.exit.i.i38, %get_transcoder_entry.exit.thread.i.i52, %86, %load_transcoder_entry.exit.thread19.i.i21, %load_transcoder_entry.exit.i.i29, %71, %get_transcoder_entry.exit.i.i18, %get_transcoder_entry.exit.thread.i.i32, %55, %load_transcoder_entry.exit.thread19.i.i, %load_transcoder_entry.exit.i.i, %25, %get_transcoder_entry.exit.i.i, %get_transcoder_entry.exit.thread.i.i, %9
-  %.0 = phi i32 [ 0, %load_transcoder_entry.exit.thread19.i.i ], [ -1, %9 ], [ -1, %get_transcoder_entry.exit.i.i ], [ -1, %load_transcoder_entry.exit.i.i ], [ -1, %get_transcoder_entry.exit.thread.i.i ], [ -1, %25 ], [ 0, %load_transcoder_entry.exit.thread19.i.i21 ], [ -1, %55 ], [ -1, %get_transcoder_entry.exit.i.i18 ], [ -1, %load_transcoder_entry.exit.i.i29 ], [ -1, %get_transcoder_entry.exit.thread.i.i32 ], [ -1, %71 ], [ 0, %load_transcoder_entry.exit.thread19.i.i41 ], [ -1, %86 ], [ -1, %get_transcoder_entry.exit.i.i38 ], [ -1, %load_transcoder_entry.exit.i.i49 ], [ -1, %get_transcoder_entry.exit.thread.i.i52 ], [ -1, %102 ]
+  %.0 = phi i32 [ -1, %25 ], [ -1, %71 ], [ -1, %9 ], [ 0, %load_transcoder_entry.exit.thread19.i.i ], [ -1, %get_transcoder_entry.exit.i.i ], [ -1, %load_transcoder_entry.exit.i.i ], [ -1, %get_transcoder_entry.exit.thread.i.i ], [ -1, %55 ], [ 0, %load_transcoder_entry.exit.thread19.i.i21 ], [ -1, %get_transcoder_entry.exit.i.i18 ], [ -1, %load_transcoder_entry.exit.i.i29 ], [ -1, %get_transcoder_entry.exit.thread.i.i32 ], [ -1, %86 ], [ 0, %load_transcoder_entry.exit.thread19.i.i41 ], [ -1, %get_transcoder_entry.exit.i.i38 ], [ -1, %load_transcoder_entry.exit.i.i49 ], [ -1, %get_transcoder_entry.exit.thread.i.i52 ], [ -1, %102 ]
   ret i32 %.0
 }
 
@@ -1250,7 +1250,7 @@ ruby_nonempty_memcpy.exit200.i:                   ; preds = %73, %72
   br label %.thread221.i
 
 .thread.i:                                        ; preds = %97, %85, %78
-  %.not181.i = phi i1 [ true, %78 ], [ false, %97 ], [ true, %85 ]
+  %.not181.i = phi i1 [ true, %78 ], [ true, %85 ], [ false, %97 ]
   %114 = load ptr, ptr %18, align 8, !tbaa !81
   %.not178.i = icmp eq ptr %114, null
   br i1 %.not178.i, label %120, label %115
@@ -1298,12 +1298,12 @@ ruby_nonempty_memcpy.exit200.i:                   ; preds = %73, %72
   br i1 %132, label %.preheader62, label %select.unfold219.i, !llvm.loop !86
 
 .thread221.i:                                     ; preds = %123, %.thread214.i, %ruby_nonempty_memcpy.exit200.i, %67, %ruby_nonempty_memcpy.exit197.i, %ruby_nonempty_memcpy.exit.i
-  %.2159.ph.i = phi i32 [ 2, %.thread214.i ], [ 5, %ruby_nonempty_memcpy.exit197.i ], [ 2, %ruby_nonempty_memcpy.exit200.i ], [ 5, %67 ], [ 2, %ruby_nonempty_memcpy.exit.i ], [ 5, %123 ]
+  %.2159.ph.i = phi i32 [ 2, %.thread214.i ], [ 5, %ruby_nonempty_memcpy.exit197.i ], [ 5, %67 ], [ 2, %ruby_nonempty_memcpy.exit200.i ], [ 2, %ruby_nonempty_memcpy.exit.i ], [ 5, %123 ]
   store i32 %.2159.ph.i, ptr %14, align 8, !tbaa !50
   br label %rb_econv_convert0.exit
 
 select.unfold219.i:                               ; preds = %.preheader62, %.thread217.i, %123, %118, %ruby_nonempty_memcpy.exit200.i
-  %.2159.i = phi i32 [ %119, %118 ], [ %124, %123 ], [ %130, %.thread217.i ], [ %.192.i, %ruby_nonempty_memcpy.exit200.i ], [ %131, %.preheader62 ]
+  %.2159.i = phi i32 [ %.192.i, %ruby_nonempty_memcpy.exit200.i ], [ %119, %118 ], [ %124, %123 ], [ %130, %.thread217.i ], [ %131, %.preheader62 ]
   store i32 %.2159.i, ptr %14, align 8, !tbaa !50
   switch i32 %.2159.i, label %rb_econv_convert0.exit [
     i32 6, label %133
@@ -1392,7 +1392,7 @@ rb_econv_convert0.exit:                           ; preds = %.thread221.i, %sele
   br label %rb_econv_encoding_to_insert_output.exit.i
 
 rb_econv_encoding_to_insert_output.exit.i:        ; preds = %170, %168, %160
-  %.0.i.i = phi ptr [ %169, %168 ], [ %172, %170 ], [ @.str.2, %160 ]
+  %.0.i.i = phi ptr [ %172, %170 ], [ %169, %168 ], [ @.str.2, %160 ]
   %173 = load i8, ptr %.0.i.i, align 1, !tbaa !27
   %.not13.i = icmp eq i8 %173, 0
   br i1 %.not13.i, label %181, label %174
@@ -1475,7 +1475,7 @@ make_replacement.exit:                            ; preds = %.make_replacement.e
   br label %rb_econv_encoding_to_insert_output.exit.i31
 
 rb_econv_encoding_to_insert_output.exit.i31:      ; preds = %203, %201, %193
-  %.0.i.i32 = phi ptr [ %202, %201 ], [ %205, %203 ], [ @.str.2, %193 ]
+  %.0.i.i32 = phi ptr [ %205, %203 ], [ %202, %201 ], [ @.str.2, %193 ]
   %206 = load i8, ptr %.0.i.i32, align 1, !tbaa !27
   %.not13.i33 = icmp eq i8 %206, 0
   br i1 %.not13.i33, label %214, label %207
@@ -1640,7 +1640,7 @@ define dso_local ptr @rb_econv_encoding_to_insert_output(ptr noundef readonly ca
   br label %15
 
 15:                                               ; preds = %1, %12, %10
-  %.0 = phi ptr [ %11, %10 ], [ %14, %12 ], [ @.str.2, %1 ]
+  %.0 = phi ptr [ %14, %12 ], [ %11, %10 ], [ @.str.2, %1 ]
   ret ptr %.0
 }
 
@@ -1670,7 +1670,7 @@ define dso_local noundef range(i32 -1, 1) i32 @rb_econv_insert_output(ptr nounde
   br label %rb_econv_encoding_to_insert_output.exit
 
 rb_econv_encoding_to_insert_output.exit:          ; preds = %4, %15, %17
-  %.0.i = phi ptr [ %16, %15 ], [ %19, %17 ], [ @.str.2, %4 ]
+  %.0.i = phi ptr [ %19, %17 ], [ %16, %15 ], [ @.str.2, %4 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1834,7 +1834,7 @@ thread-pre-split:                                 ; preds = %26
   br label %115
 
 115:                                              ; preds = %.sink.split, %81, %88
-  %116 = phi ptr [ %83, %81 ], [ %98, %88 ], [ %.ph, %.sink.split ]
+  %116 = phi ptr [ %98, %88 ], [ %83, %81 ], [ %.ph, %.sink.split ]
   %.not.i = icmp eq i64 %30, 0
   br i1 %.not.i, label %ruby_nonempty_memcpy.exit, label %117
 
@@ -1910,7 +1910,7 @@ ruby_nonempty_memcpy.exit135:                     ; preds = %132, %136
   br label %149
 
 149:                                              ; preds = %.sink.split148, %146, %143, %26, %rb_econv_encoding_to_insert_output.exit
-  %.0 = phi i32 [ 0, %rb_econv_encoding_to_insert_output.exit ], [ -1, %26 ], [ 0, %143 ], [ -1, %146 ], [ %.0.ph, %.sink.split148 ]
+  %.0 = phi i32 [ 0, %rb_econv_encoding_to_insert_output.exit ], [ 0, %143 ], [ -1, %26 ], [ -1, %146 ], [ %.0.ph, %.sink.split148 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -2008,7 +2008,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %31, %29, %32
   br label %40
 
 40:                                               ; preds = %7, %39, %36
-  %.0 = phi ptr [ null, %39 ], [ %.2.sink, %36 ], [ null, %7 ]
+  %.0 = phi ptr [ %.2.sink, %36 ], [ null, %39 ], [ null, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.0
@@ -2128,7 +2128,7 @@ define dso_local i32 @rb_econv_putbackable(ptr noundef readonly captures(none) %
   br label %11
 
 11:                                               ; preds = %5, %1
-  %.0 = phi i32 [ 0, %1 ], [ %spec.select, %5 ]
+  %.0 = phi i32 [ %spec.select, %5 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -2207,7 +2207,7 @@ define dso_local ptr @rb_econv_asciicompat_encoding(ptr noundef %0) local_unname
   br label %17
 
 17:                                               ; preds = %7, %1, %12
-  %.0 = phi ptr [ %16, %12 ], [ null, %1 ], [ null, %7 ]
+  %.0 = phi ptr [ null, %1 ], [ %16, %12 ], [ null, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
@@ -2284,7 +2284,7 @@ load_transcoder_entry.exit.thread11:              ; preds = %9, %load_transcoder
   br label %load_transcoder_entry.exit.thread
 
 load_transcoder_entry.exit.thread:                ; preds = %12, %load_transcoder_entry.exit, %load_transcoder_entry.exit.thread11, %3, %30
-  %.0 = phi i32 [ 1, %30 ], [ 0, %3 ], [ 0, %load_transcoder_entry.exit.thread11 ], [ 0, %load_transcoder_entry.exit ], [ 0, %12 ]
+  %.0 = phi i32 [ 0, %3 ], [ 1, %30 ], [ 0, %load_transcoder_entry.exit.thread11 ], [ 0, %load_transcoder_entry.exit ], [ 0, %12 ]
   ret i32 %.0
 }
 
@@ -2870,7 +2870,7 @@ load_transcoder_entry.exit.thread19.i.i37:        ; preds = %load_transcoder_ent
   br label %rb_econv_decorate_at.exit
 
 rb_econv_decorate_at.exit:                        ; preds = %load_transcoder_entry.exit.thread19.i.i37, %load_transcoder_entry.exit.i.i45, %99, %get_transcoder_entry.exit.i.i34, %get_transcoder_entry.exit.thread.i.i48, %83, %load_transcoder_entry.exit.thread19.i.i17, %load_transcoder_entry.exit.i.i25, %68, %get_transcoder_entry.exit.i.i14, %get_transcoder_entry.exit.thread.i.i28, %52, %load_transcoder_entry.exit.thread19.i.i, %load_transcoder_entry.exit.i.i, %25, %get_transcoder_entry.exit.i.i, %get_transcoder_entry.exit.thread.i.i, %9
-  %.0 = phi i32 [ 0, %load_transcoder_entry.exit.thread19.i.i ], [ -1, %9 ], [ -1, %get_transcoder_entry.exit.i.i ], [ -1, %load_transcoder_entry.exit.i.i ], [ -1, %get_transcoder_entry.exit.thread.i.i ], [ -1, %25 ], [ 0, %load_transcoder_entry.exit.thread19.i.i17 ], [ -1, %52 ], [ -1, %get_transcoder_entry.exit.i.i14 ], [ -1, %load_transcoder_entry.exit.i.i25 ], [ -1, %get_transcoder_entry.exit.thread.i.i28 ], [ -1, %68 ], [ 0, %load_transcoder_entry.exit.thread19.i.i37 ], [ -1, %83 ], [ -1, %get_transcoder_entry.exit.i.i34 ], [ -1, %load_transcoder_entry.exit.i.i45 ], [ -1, %get_transcoder_entry.exit.thread.i.i48 ], [ -1, %99 ]
+  %.0 = phi i32 [ -1, %25 ], [ -1, %68 ], [ -1, %9 ], [ 0, %load_transcoder_entry.exit.thread19.i.i ], [ -1, %get_transcoder_entry.exit.i.i ], [ -1, %load_transcoder_entry.exit.i.i ], [ -1, %get_transcoder_entry.exit.thread.i.i ], [ -1, %52 ], [ 0, %load_transcoder_entry.exit.thread19.i.i17 ], [ -1, %get_transcoder_entry.exit.i.i14 ], [ -1, %load_transcoder_entry.exit.i.i25 ], [ -1, %get_transcoder_entry.exit.thread.i.i28 ], [ -1, %83 ], [ 0, %load_transcoder_entry.exit.thread19.i.i37 ], [ -1, %get_transcoder_entry.exit.i.i34 ], [ -1, %load_transcoder_entry.exit.i.i45 ], [ -1, %get_transcoder_entry.exit.thread.i.i48 ], [ -1, %99 ]
   ret i32 %.0
 }
 
@@ -3193,7 +3193,7 @@ define dso_local range(i32 -1, 1) i32 @rb_econv_set_replacement(ptr noundef capt
   br label %rb_econv_encoding_to_insert_output.exit
 
 rb_econv_encoding_to_insert_output.exit:          ; preds = %4, %14, %16
-  %.0.i = phi ptr [ %15, %14 ], [ %18, %16 ], [ @.str.2, %4 ]
+  %.0.i = phi ptr [ %18, %16 ], [ %15, %14 ], [ @.str.2, %4 ]
   %19 = load i8, ptr %.0.i, align 1, !tbaa !27
   %.not = icmp eq i8 %19, 0
   br i1 %.not, label %23, label %20
@@ -3689,7 +3689,7 @@ RSTRING_PTR.exit:                                 ; preds = %21, %27
   br label %.critedge
 
 .critedge:                                        ; preds = %.thread, %19, %RSTRING_PTR.exit, %32, %14
-  %.0 = phi ptr [ null, %32 ], [ null, %14 ], [ %17, %RSTRING_PTR.exit ], [ %17, %19 ], [ %18, %.thread ]
+  %.0 = phi ptr [ null, %14 ], [ null, %32 ], [ %17, %RSTRING_PTR.exit ], [ %17, %19 ], [ %18, %.thread ]
   ret ptr %.0
 }
 
@@ -4046,8 +4046,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
   br label %rbimpl_RB_TYPE_P_fastpath.exit61.thread.i
 
 rbimpl_RB_TYPE_P_fastpath.exit61.thread.i:        ; preds = %147, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, %rbimpl_RB_TYPE_P_fastpath.exit.i, %rbimpl_RB_TYPE_P_fastpath.exit61.i, %126, %124
-  %.049.i = phi i64 [ 4, %124 ], [ 4, %rbimpl_RB_TYPE_P_fastpath.exit61.i ], [ %137, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %137, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ], [ %137, %147 ], [ 4, %126 ]
-  %.048.i = phi ptr [ null, %124 ], [ null, %rbimpl_RB_TYPE_P_fastpath.exit61.i ], [ @rb_hash_aref, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ @proc_fallback, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ], [ %aref_fallback.method_fallback.i, %147 ], [ null, %126 ]
+  %.049.i = phi i64 [ 4, %124 ], [ 4, %rbimpl_RB_TYPE_P_fastpath.exit61.i ], [ %137, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %137, %147 ], [ %137, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ], [ 4, %126 ]
+  %.048.i = phi ptr [ null, %124 ], [ null, %rbimpl_RB_TYPE_P_fastpath.exit61.i ], [ @rb_hash_aref, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %aref_fallback.method_fallback.i, %147 ], [ @proc_fallback, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ], [ null, %126 ]
   %.049.fr.i = freeze i64 %.049.i
   %149 = getelementptr inbounds nuw i8, ptr %121, i64 104
   %150 = load ptr, ptr %149, align 8, !tbaa !49
@@ -4261,7 +4261,7 @@ RSTRING_PTR.exit103:                              ; preds = %220, %223
   br label %235
 
 235:                                              ; preds = %83, %19, %234, %88, %71, %68
-  %.0 = phi i32 [ %.08.i.i, %68 ], [ %74, %71 ], [ %91, %88 ], [ %.062, %234 ], [ -1, %19 ], [ %.08.i.i, %83 ]
+  %.0 = phi i32 [ %.08.i.i, %68 ], [ %74, %71 ], [ -1, %19 ], [ %91, %88 ], [ %.062, %234 ], [ %.08.i.i, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -4490,7 +4490,7 @@ define internal fastcc i32 @transcode_search_path(ptr noundef %0, ptr noundef %1
   br i1 %.not48, label %.loopexit, label %.lr.ph62
 
 .loopexit:                                        ; preds = %.backedge, %.lr.ph62, %.preheader
-  %.034 = phi i32 [ %.135, %.preheader ], [ %.135, %.lr.ph62 ], [ -1, %.backedge ]
+  %.034 = phi i32 [ %.135, %.lr.ph62 ], [ %.135, %.preheader ], [ -1, %.backedge ]
   %59 = load ptr, ptr %5, align 8, !tbaa !180
   call void @rb_st_free_table(ptr noundef %59) #22
   br label %60
@@ -5615,7 +5615,7 @@ load_transcoder_entry.exit.thread66.i:            ; preds = %load_transcoder_ent
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !200
 
-170:                                              ; preds = %load_transcoder_entry.exit.i, %31, %33, %138
+170:                                              ; preds = %138, %load_transcoder_entry.exit.i, %31, %33
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %171 = call i64 @rb_econv_open_exc(ptr noundef %19, ptr noundef %20, i32 noundef %24)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -6392,8 +6392,8 @@ rb_scan_args_n_opt.exit:                          ; preds = %3
   br label %31
 
 31:                                               ; preds = %28, %22
-  %.087.i = phi i64 [ %29, %28 ], [ 4, %22 ]
-  %.0.i = phi i32 [ %30, %28 ], [ %0, %22 ]
+  %.087.i = phi i64 [ 4, %22 ], [ %29, %28 ]
+  %.0.i = phi i32 [ %0, %22 ], [ %30, %28 ]
   %32 = icmp samesign ult i32 %.0.i, 2
   br i1 %32, label %.thread, label %.preheader72
 
@@ -6456,7 +6456,7 @@ rb_scan_args_n_opt.exit:                          ; preds = %3
   br i1 %52, label %rb_scan_args_set.exit, label %.thread
 
 .thread:                                          ; preds = %rb_scan_args_n_opt.exit, %51, %31
-  %.0.i68 = phi i32 [ %.0.i, %51 ], [ %.0.i, %31 ], [ %0, %rb_scan_args_n_opt.exit ]
+  %.0.i68 = phi i32 [ %.0.i, %31 ], [ %.0.i, %51 ], [ %0, %rb_scan_args_n_opt.exit ]
   call void @rb_error_arity(i32 noundef %.0.i68, i32 noundef 2, i32 noundef 5) #23
   unreachable
 
@@ -6551,7 +6551,7 @@ rb_num2int_inline.exit:                           ; preds = %79, %81
   br label %94
 
 94:                                               ; preds = %84, %85, %rb_num2int_inline.exit
-  %.0 = phi i32 [ %.2, %85 ], [ %83, %rb_num2int_inline.exit ], [ 0, %84 ]
+  %.0 = phi i32 [ %83, %rb_num2int_inline.exit ], [ %.2, %85 ], [ 0, %84 ]
   %95 = call i64 @rb_string_value(ptr noundef nonnull %5) #22
   %96 = load i64, ptr %4, align 8, !tbaa !22
   %97 = icmp eq i64 %96, 4
@@ -7105,7 +7105,7 @@ check_econv.exit:                                 ; preds = %2
   br label %rb_econv_encoding_to_insert_output.exit
 
 rb_econv_encoding_to_insert_output.exit:          ; preds = %check_econv.exit, %18, %20
-  %.0.i = phi ptr [ %19, %18 ], [ %22, %20 ], [ @.str.2, %check_econv.exit ]
+  %.0.i = phi ptr [ %22, %20 ], [ %19, %18 ], [ @.str.2, %check_econv.exit ]
   %23 = load i64, ptr %5, align 8, !tbaa !22
   %24 = call ptr @rb_enc_find(ptr noundef %.0.i) #22
   %25 = call i64 @rb_enc_from_encoding(ptr noundef %24) #22
@@ -7223,12 +7223,12 @@ rb_num2int_inline.exit:                           ; preds = %23, %25
   br label %rb_econv_putbackable.exit26
 
 rb_econv_putbackable.exit26:                      ; preds = %rb_num2int_inline.exit, %31
-  %.0.i25 = phi i32 [ 0, %rb_num2int_inline.exit ], [ %spec.select.i24, %31 ]
+  %.0.i25 = phi i32 [ %spec.select.i24, %31 ], [ 0, %rb_num2int_inline.exit ]
   %spec.select = tail call i32 @llvm.smin.i32(i32 %.0.i25, i32 %27)
   br label %rb_econv_putbackable.exit
 
 rb_econv_putbackable.exit:                        ; preds = %15, %11, %rb_econv_putbackable.exit26
-  %.0 = phi i32 [ %spec.select, %rb_econv_putbackable.exit26 ], [ 0, %11 ], [ %spec.select.i, %15 ]
+  %.0 = phi i32 [ %spec.select, %rb_econv_putbackable.exit26 ], [ %spec.select.i, %15 ], [ 0, %11 ]
   %37 = sext i32 %.0 to i64
   %38 = tail call i64 @rb_str_new(ptr noundef null, i64 noundef %37) #22, !callees !32
   %39 = inttoptr i64 %38 to ptr
@@ -7357,7 +7357,7 @@ check_econv.exit.make_replacement.exit_crit_edge: ; preds = %check_econv.exit
   br label %rb_econv_encoding_to_insert_output.exit.i
 
 rb_econv_encoding_to_insert_output.exit.i:        ; preds = %18, %16, %7
-  %.0.i.i = phi ptr [ %17, %16 ], [ %20, %18 ], [ @.str.2, %7 ]
+  %.0.i.i = phi ptr [ %20, %18 ], [ %17, %16 ], [ @.str.2, %7 ]
   %21 = load i8, ptr %.0.i.i, align 1, !tbaa !27
   %.not13.i = icmp eq i8 %21, 0
   br i1 %.not13.i, label %29, label %22
@@ -7573,7 +7573,7 @@ check_econv.exit:                                 ; preds = %2
   br i1 %.not57, label %56, label %.loopexit
 
 .loopexit:                                        ; preds = %57, %56, %.preheader, %46, %45, %35, %33, %25, %23, %16, %7, %check_econv.exit
-  %.034 = phi i64 [ 4, %check_econv.exit ], [ 0, %7 ], [ 0, %16 ], [ 0, %23 ], [ 0, %25 ], [ 0, %33 ], [ 0, %35 ], [ 0, %45 ], [ 0, %46 ], [ 20, %.preheader ], [ 0, %57 ], [ 20, %56 ]
+  %.034 = phi i64 [ 0, %7 ], [ 0, %16 ], [ 0, %23 ], [ 0, %25 ], [ 0, %33 ], [ 0, %35 ], [ 0, %45 ], [ 0, %46 ], [ 4, %check_econv.exit ], [ 20, %.preheader ], [ 0, %57 ], [ 20, %56 ]
   ret i64 %.034
 }
 
@@ -8106,7 +8106,7 @@ trans_sweep.exit:                                 ; preds = %92, %92, %92, %92
   br i1 %.not72, label %.critedge, label %.preheader.i.backedge
 
 .critedge:                                        ; preds = %trans_sweep.exit, %100, %.loopexit.i, %.preheader.i
-  %103 = phi i32 [ %41, %.preheader.i ], [ %97, %.loopexit.i ], [ %.pre.pre, %100 ], [ %.pre.pre, %trans_sweep.exit ]
+  %103 = phi i32 [ %97, %.loopexit.i ], [ %41, %.preheader.i ], [ %.pre.pre, %100 ], [ %.pre.pre, %trans_sweep.exit ]
   %104 = zext i32 %103 to i64
   br label %105
 
@@ -8279,8 +8279,8 @@ define internal fastcc range(i32 0, 7) i32 @transcode_restartable0(ptr noundef c
   ], !llvm.loop !259
 
 .loopexit:                                        ; preds = %74, %837, %812, %1013, %959, %1193, %1135, %668, %99, %6, %658, %524, %391, %292, %226
-  %.01129 = phi ptr [ %10, %6 ], [ %.31132, %99 ], [ %.61135, %226 ], [ %.81137, %292 ], [ %.111140, %391 ], [ %.151144, %524 ], [ %.191148, %658 ], [ %.201149, %668 ], [ %.221151, %812 ], [ %.231152, %837 ], [ %.261155, %959 ], [ %.271156, %1013 ], [ %.291158, %1135 ], [ %.301159, %1193 ], [ %.21131, %74 ]
-  %.01093 = phi ptr [ %11, %6 ], [ %.31096, %99 ], [ %231, %226 ], [ %297, %292 ], [ %396, %391 ], [ %529, %524 ], [ %665, %658 ], [ %.201113, %668 ], [ %817, %812 ], [ %.231116, %837 ], [ %962, %959 ], [ %.271120, %1013 ], [ %1140, %1135 ], [ %.301123, %1193 ], [ %.21095, %74 ]
+  %.01129 = phi ptr [ %10, %6 ], [ %.31132, %99 ], [ %.301159, %1193 ], [ %.61135, %226 ], [ %.81137, %292 ], [ %.111140, %391 ], [ %.151144, %524 ], [ %.191148, %658 ], [ %.201149, %668 ], [ %.221151, %812 ], [ %.231152, %837 ], [ %.261155, %959 ], [ %.271156, %1013 ], [ %.291158, %1135 ], [ %.21131, %74 ]
+  %.01093 = phi ptr [ %11, %6 ], [ %.31096, %99 ], [ %.301123, %1193 ], [ %231, %226 ], [ %297, %292 ], [ %396, %391 ], [ %529, %524 ], [ %665, %658 ], [ %.201113, %668 ], [ %817, %812 ], [ %.231116, %837 ], [ %962, %959 ], [ %.271120, %1013 ], [ %1140, %1135 ], [ %.21095, %74 ]
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 0, ptr %14, align 8, !tbaa !92
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -10547,8 +10547,8 @@ transcode_char_start.exit1263:                    ; preds = %ruby_nonempty_memcp
   br label %1463
 
 1265:                                             ; preds = %1245, %6, %1248, %1282
-  %.321125 = phi ptr [ %.21095, %1248 ], [ %.21095, %1245 ], [ %11, %1282 ], [ %11, %6 ]
-  %.30 = phi ptr [ %.1.fr, %1248 ], [ %.1.fr, %1245 ], [ %10, %1282 ], [ %10, %6 ]
+  %.321125 = phi ptr [ %.21095, %1248 ], [ %11, %6 ], [ %.21095, %1245 ], [ %11, %1282 ]
+  %.30 = phi ptr [ %.1.fr, %1248 ], [ %10, %6 ], [ %.1.fr, %1245 ], [ %10, %1282 ]
   %1266 = and i32 %5, 131072
   %.not1220 = icmp ne i32 %1266, 0
   %.phi.trans.insert1295 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -11200,8 +11200,8 @@ rb_scan_args_n_opt.exit:
   br label %21
 
 21:                                               ; preds = %18, %12
-  %.087.i = phi i64 [ %19, %18 ], [ 4, %12 ]
-  %.0.i = phi i32 [ %20, %18 ], [ %0, %12 ]
+  %.087.i = phi i64 [ 4, %12 ], [ %19, %18 ]
+  %.0.i = phi i32 [ %0, %12 ], [ %20, %18 ]
   %22 = icmp samesign ult i32 %.0.i, 2
   br i1 %22, label %.thread, label %.preheader40
 
@@ -11230,7 +11230,7 @@ rb_scan_args_n_opt.exit:
   br i1 %30, label %rb_scan_args_set.exit, label %.thread
 
 .thread:                                          ; preds = %rb_scan_args_n_opt.exit, %29, %21
-  %.0.i38 = phi i32 [ %.0.i, %29 ], [ %.0.i, %21 ], [ %0, %rb_scan_args_n_opt.exit ]
+  %.0.i38 = phi i32 [ %.0.i, %21 ], [ %.0.i, %29 ], [ %0, %rb_scan_args_n_opt.exit ]
   tail call void @rb_error_arity(i32 noundef %.0.i38, i32 noundef 2, i32 noundef 3) #23
   unreachable
 
@@ -11463,7 +11463,7 @@ load_transcoder_entry.exit.thread19.i:            ; preds = %load_transcoder_ent
   br label %rb_econv_add_converter.exit
 
 rb_econv_add_converter.exit:                      ; preds = %9, %get_transcoder_entry.exit.thread.i, %get_transcoder_entry.exit.i, %29, %load_transcoder_entry.exit.i, %load_transcoder_entry.exit.thread19.i
-  %.0.i = phi i32 [ 0, %load_transcoder_entry.exit.thread19.i ], [ -1, %9 ], [ -1, %get_transcoder_entry.exit.i ], [ -1, %load_transcoder_entry.exit.i ], [ -1, %get_transcoder_entry.exit.thread.i ], [ -1, %29 ]
+  %.0.i = phi i32 [ -1, %9 ], [ 0, %load_transcoder_entry.exit.thread19.i ], [ -1, %get_transcoder_entry.exit.i ], [ -1, %load_transcoder_entry.exit.i ], [ -1, %get_transcoder_entry.exit.thread.i ], [ -1, %29 ]
   store i32 %.0.i, ptr %6, align 4, !tbaa !214
   br label %44
 

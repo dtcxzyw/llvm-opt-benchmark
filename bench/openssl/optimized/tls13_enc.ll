@@ -164,7 +164,7 @@ define dso_local range(i32 0, 2) i32 @tls13_hkdf_expand_ex(ptr noundef %0, ptr n
   br label %51
 
 51:                                               ; preds = %32, %33, %11, %48, %28
-  %.0 = phi i32 [ 0, %28 ], [ %50, %48 ], [ 0, %11 ], [ 0, %33 ], [ 0, %32 ]
+  %.0 = phi i32 [ %50, %48 ], [ 0, %28 ], [ 0, %11 ], [ 0, %33 ], [ 0, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.0
@@ -843,7 +843,7 @@ define dso_local range(i32 0, 2) i32 @tls13_change_cipher_state(ptr noundef %0, 
   %.not156 = icmp eq i32 %97, 0
   br i1 %.not156, label %.thread195, label %98
 
-.thread195:                                       ; preds = %95, %.critedge, %62, %70, %94, %87, %74, %59, %35
+.thread195:                                       ; preds = %95, %62, %70, %94, %.critedge, %87, %74, %59, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %223
@@ -1106,8 +1106,8 @@ tls13_derive_finishedkey.exit:                    ; preds = %189, %188
   br label %222
 
 222:                                              ; preds = %tls13_derive_finishedkey.exit.thread, %tls13_hkdf_expand.exit175.thread, %tls13_hkdf_expand.exit.thread, %207, %185, %tls13_hkdf_expand.exit175, %163, %tls13_hkdf_expand.exit, %119
-  %.pre-phi = phi i32 [ %130, %tls13_derive_finishedkey.exit.thread ], [ %130, %tls13_hkdf_expand.exit175.thread ], [ %130, %tls13_hkdf_expand.exit.thread ], [ %130, %207 ], [ %130, %185 ], [ %130, %tls13_hkdf_expand.exit175 ], [ %130, %163 ], [ %130, %tls13_hkdf_expand.exit ], [ %.pre180, %119 ]
-  %.0128 = phi i32 [ 0, %tls13_derive_finishedkey.exit.thread ], [ 0, %tls13_hkdf_expand.exit175.thread ], [ 0, %tls13_hkdf_expand.exit.thread ], [ %spec.select, %207 ], [ 0, %185 ], [ 0, %tls13_hkdf_expand.exit175 ], [ 0, %163 ], [ 0, %tls13_hkdf_expand.exit ], [ 0, %119 ]
+  %.pre-phi = phi i32 [ %130, %tls13_derive_finishedkey.exit.thread ], [ %130, %tls13_hkdf_expand.exit175.thread ], [ %130, %tls13_hkdf_expand.exit.thread ], [ %.pre180, %119 ], [ %130, %207 ], [ %130, %185 ], [ %130, %tls13_hkdf_expand.exit175 ], [ %130, %163 ], [ %130, %tls13_hkdf_expand.exit ]
+  %.0128 = phi i32 [ 0, %tls13_derive_finishedkey.exit.thread ], [ 0, %tls13_hkdf_expand.exit175.thread ], [ 0, %tls13_hkdf_expand.exit.thread ], [ 0, %119 ], [ %spec.select, %207 ], [ 0, %185 ], [ 0, %tls13_hkdf_expand.exit175 ], [ 0, %163 ], [ 0, %tls13_hkdf_expand.exit ]
   %.not171 = icmp eq i32 %.pre-phi, 0
   br i1 %.not171, label %.thread190, label %223
 
@@ -1130,7 +1130,7 @@ tls13_derive_finishedkey.exit:                    ; preds = %189, %188
   br label %.thread190
 
 .thread190:                                       ; preds = %105, %141, %132, %230, %222
-  %.0128194 = phi i32 [ %.0128199, %230 ], [ %.0128, %222 ], [ 0, %132 ], [ 0, %141 ], [ 0, %105 ]
+  %.0128194 = phi i32 [ %.0128, %222 ], [ %.0128199, %230 ], [ 0, %132 ], [ 0, %141 ], [ 0, %105 ]
   call void @OPENSSL_cleanse(ptr noundef nonnull %5, i64 noundef 64) #4
   call void @OPENSSL_cleanse(ptr noundef nonnull %6, i64 noundef 64) #4
   %232 = load ptr, ptr %4, align 8, !tbaa !9
@@ -1439,7 +1439,7 @@ define dso_local range(i32 0, 2) i32 @tls13_update_key(ptr noundef %0, i32 nound
   br label %40
 
 40:                                               ; preds = %35, %27, %15
-  %.031 = phi i32 [ 0, %27 ], [ 0, %15 ], [ %spec.select, %35 ]
+  %.031 = phi i32 [ 0, %15 ], [ %spec.select, %35 ], [ 0, %27 ]
   call void @OPENSSL_cleanse(ptr noundef nonnull %3, i64 noundef 64) #4
   call void @OPENSSL_cleanse(ptr noundef nonnull %4, i64 noundef 64) #4
   %.not37 = icmp eq ptr %.pre, %8
@@ -1556,7 +1556,7 @@ define dso_local range(i32 0, 2) i32 @tls13_export_keying_material(ptr noundef %
   br label %55
 
 55:                                               ; preds = %47, %20, %23, %26, %29, %32, %35, %8, %18
-  %.0 = phi i32 [ 0, %8 ], [ 0, %20 ], [ 0, %23 ], [ 0, %26 ], [ 0, %29 ], [ 0, %32 ], [ 0, %35 ], [ 0, %18 ], [ %54, %47 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %20 ], [ 0, %23 ], [ 0, %26 ], [ 0, %29 ], [ 0, %32 ], [ 0, %18 ], [ %54, %47 ], [ 0, %35 ]
   call void @EVP_MD_CTX_free(ptr noundef %15) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -1675,7 +1675,7 @@ define dso_local range(i32 0, 2) i32 @tls13_export_keying_material_early(ptr nou
   br label %74
 
 74:                                               ; preds = %66, %30, %40, %43, %46, %49, %52, %55, %7, %15
-  %.029 = phi i32 [ 0, %7 ], [ 0, %30 ], [ 0, %40 ], [ 0, %43 ], [ 0, %46 ], [ 0, %49 ], [ 0, %52 ], [ 0, %55 ], [ 0, %15 ], [ %73, %66 ]
+  %.029 = phi i32 [ 0, %7 ], [ 0, %30 ], [ 0, %40 ], [ 0, %43 ], [ 0, %46 ], [ 0, %49 ], [ 0, %52 ], [ 0, %15 ], [ %73, %66 ], [ 0, %55 ]
   call void @EVP_MD_CTX_free(ptr noundef %13) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

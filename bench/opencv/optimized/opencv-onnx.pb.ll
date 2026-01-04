@@ -1880,8 +1880,8 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread147: ; preds = %
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread147, %61, %63
-  %.0 = phi i32 [ %59, %61 ], [ %.fca.1.extract.i, %63 ], [ %51, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread147 ]
-  %.0.i70 = phi ptr [ %62, %61 ], [ %.fca.0.extract.i, %63 ], [ %53, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread147 ]
+  %.0 = phi i32 [ %.fca.1.extract.i, %63 ], [ %59, %61 ], [ %51, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread147 ]
+  %.0.i70 = phi ptr [ %.fca.0.extract.i, %63 ], [ %62, %61 ], [ %53, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread147 ]
   %65 = lshr i32 %.0, 3
   switch i32 %65, label %384 [
     i32 1, label %66
@@ -1976,9 +1976,9 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread: ; preds = %93, %102
   store i64 %.0.i72.ph, ptr %29, align 8, !tbaa !87
   br label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge
 
-_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge: ; preds = %316, %319, %287, %290, %261, %258, %224, %218, %221, %181, %_ZN11opencv_onnx14AttributeProto20_internal_add_floatsEf.exit, %178, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_gEv.exit, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_tEv.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN11opencv_onnx14AttributeProto31_internal_mutable_ref_attr_nameB5cxx11Ev.exit, %_ZN11opencv_onnx14AttributeProto28_internal_mutable_doc_stringB5cxx11Ev.exit, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_sB5cxx11Ev.exit, %_ZN11opencv_onnx14AttributeProto22_internal_mutable_nameB5cxx11Ev.exit, %_ZN11opencv_onnx14AttributeProto22mutable_unknown_fieldsEv.exit, %358, %83
-  %.sroa.0.0.be = phi i32 [ %.sroa.0.0, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto22_internal_mutable_nameB5cxx11Ev.exit ], [ %84, %83 ], [ %90, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread ], [ %90, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_sB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_tEv.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_gEv.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto28_internal_mutable_doc_stringB5cxx11Ev.exit ], [ %.sroa.0.0, %358 ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto22mutable_unknown_fieldsEv.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto31_internal_mutable_ref_attr_nameB5cxx11Ev.exit ], [ %.sroa.0.0, %178 ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto20_internal_add_floatsEf.exit ], [ %.sroa.0.0, %181 ], [ %.sroa.0.0, %221 ], [ %.sroa.0.0, %218 ], [ %.sroa.0.0, %224 ], [ %.sroa.0.0, %258 ], [ %.sroa.0.0, %261 ], [ %.sroa.0.0, %290 ], [ %.sroa.0.0, %287 ], [ %.sroa.0.0, %319 ], [ %.sroa.0.0, %316 ]
-  %.0142.be = phi ptr [ %401, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %79, %_ZN11opencv_onnx14AttributeProto22_internal_mutable_nameB5cxx11Ev.exit ], [ %85, %83 ], [ %.0.i.i73.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread ], [ %106, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %121, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_sB5cxx11Ev.exit ], [ %139, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_tEv.exit ], [ %157, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_gEv.exit ], [ %335, %_ZN11opencv_onnx14AttributeProto28_internal_mutable_doc_stringB5cxx11Ev.exit ], [ %.0.i.i100158, %358 ], [ %.0.i.i100158, %_ZN11opencv_onnx14AttributeProto22mutable_unknown_fieldsEv.exit ], [ %383, %_ZN11opencv_onnx14AttributeProto31_internal_mutable_ref_attr_nameB5cxx11Ev.exit ], [ %182, %181 ], [ %175, %_ZN11opencv_onnx14AttributeProto20_internal_add_floatsEf.exit ], [ %175, %178 ], [ %225, %224 ], [ %.0.i.i85, %218 ], [ %.0.i.i85, %221 ], [ %257, %258 ], [ %257, %261 ], [ %286, %290 ], [ %286, %287 ], [ %315, %319 ], [ %315, %316 ]
+_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge: ; preds = %316, %319, %287, %290, %261, %258, %224, %218, %221, %181, %_ZN11opencv_onnx14AttributeProto20_internal_add_floatsEf.exit, %178, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread, %_ZN11opencv_onnx14AttributeProto28_internal_mutable_doc_stringB5cxx11Ev.exit, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_gEv.exit, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_tEv.exit, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_sB5cxx11Ev.exit, %_ZN11opencv_onnx14AttributeProto31_internal_mutable_ref_attr_nameB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN11opencv_onnx14AttributeProto22_internal_mutable_nameB5cxx11Ev.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN11opencv_onnx14AttributeProto22mutable_unknown_fieldsEv.exit, %358, %83
+  %.sroa.0.0.be = phi i32 [ %.sroa.0.0, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto22_internal_mutable_nameB5cxx11Ev.exit ], [ %84, %83 ], [ %90, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread ], [ %90, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_sB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_tEv.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_gEv.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto31_internal_mutable_ref_attr_nameB5cxx11Ev.exit ], [ %.sroa.0.0, %181 ], [ %.sroa.0.0, %224 ], [ %.sroa.0.0, %261 ], [ %.sroa.0.0, %287 ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto28_internal_mutable_doc_stringB5cxx11Ev.exit ], [ %.sroa.0.0, %358 ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto22mutable_unknown_fieldsEv.exit ], [ %.sroa.0.0, %178 ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto20_internal_add_floatsEf.exit ], [ %.sroa.0.0, %221 ], [ %.sroa.0.0, %218 ], [ %.sroa.0.0, %258 ], [ %.sroa.0.0, %290 ], [ %.sroa.0.0, %319 ], [ %.sroa.0.0, %316 ]
+  %.0142.be = phi ptr [ %401, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %79, %_ZN11opencv_onnx14AttributeProto22_internal_mutable_nameB5cxx11Ev.exit ], [ %85, %83 ], [ %.0.i.i73.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread ], [ %106, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %121, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_sB5cxx11Ev.exit ], [ %139, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_tEv.exit ], [ %157, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_gEv.exit ], [ %383, %_ZN11opencv_onnx14AttributeProto31_internal_mutable_ref_attr_nameB5cxx11Ev.exit ], [ %175, %178 ], [ %.0.i.i85, %221 ], [ %257, %261 ], [ %286, %287 ], [ %335, %_ZN11opencv_onnx14AttributeProto28_internal_mutable_doc_stringB5cxx11Ev.exit ], [ %.0.i.i100158, %358 ], [ %.0.i.i100158, %_ZN11opencv_onnx14AttributeProto22mutable_unknown_fieldsEv.exit ], [ %182, %181 ], [ %175, %_ZN11opencv_onnx14AttributeProto20_internal_add_floatsEf.exit ], [ %225, %224 ], [ %.0.i.i85, %218 ], [ %257, %258 ], [ %286, %290 ], [ %315, %319 ], [ %315, %316 ]
   br label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit, !llvm.loop !88
 
 _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit: ; preds = %95
@@ -2583,9 +2583,9 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   %.not59 = icmp eq ptr %401, null
   br i1 %.not59, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge, !prof !85
 
-_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_gEv.exit, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_tEv.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN11opencv_onnx14AttributeProto31_internal_mutable_ref_attr_nameB5cxx11Ev.exit, %_ZN11opencv_onnx14AttributeProto28_internal_mutable_doc_stringB5cxx11Ev.exit, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_sB5cxx11Ev.exit, %_ZN11opencv_onnx14AttributeProto22_internal_mutable_nameB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit101, %224, %181, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN11opencv_onnx14AttributeProto20_internal_add_graphsEv.exit, %_ZN11opencv_onnx14AttributeProto21_internal_add_tensorsEv.exit, %_ZN11opencv_onnx14AttributeProto21_internal_add_stringsB5cxx11Ev.exit, %_ZN11opencv_onnx14AttributeProto18_internal_add_intsEl.exit, %43, %388, %.thread169
-  %.sroa.0.2 = phi i32 [ %.sroa.0.0, %388 ], [ %.sroa.0.0, %.thread169 ], [ %.sroa.0.0, %43 ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto18_internal_add_intsEl.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto21_internal_add_stringsB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto21_internal_add_tensorsEv.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto20_internal_add_graphsEv.exit ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto31_internal_mutable_ref_attr_nameB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit101 ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto28_internal_mutable_doc_stringB5cxx11Ev.exit ], [ %.sroa.0.0, %224 ], [ %.sroa.0.0, %181 ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_gEv.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_tEv.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_sB5cxx11Ev.exit ], [ %90, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto22_internal_mutable_nameB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ]
-  %.9 = phi ptr [ null, %388 ], [ %.0.i70, %.thread169 ], [ %spec.select, %43 ], [ null, %_ZN11opencv_onnx14AttributeProto18_internal_add_intsEl.exit ], [ null, %_ZN11opencv_onnx14AttributeProto21_internal_add_stringsB5cxx11Ev.exit ], [ null, %_ZN11opencv_onnx14AttributeProto21_internal_add_tensorsEv.exit ], [ null, %_ZN11opencv_onnx14AttributeProto20_internal_add_graphsEv.exit ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN11opencv_onnx14AttributeProto31_internal_mutable_ref_attr_nameB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit101 ], [ null, %_ZN11opencv_onnx14AttributeProto28_internal_mutable_doc_stringB5cxx11Ev.exit ], [ null, %224 ], [ null, %181 ], [ null, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_gEv.exit ], [ null, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_tEv.exit ], [ null, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_sB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN11opencv_onnx14AttributeProto22_internal_mutable_nameB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ]
+_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN11opencv_onnx14AttributeProto28_internal_mutable_doc_stringB5cxx11Ev.exit, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_gEv.exit, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_tEv.exit, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_sB5cxx11Ev.exit, %_ZN11opencv_onnx14AttributeProto31_internal_mutable_ref_attr_nameB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN11opencv_onnx14AttributeProto22_internal_mutable_nameB5cxx11Ev.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit101, %224, %181, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN11opencv_onnx14AttributeProto20_internal_add_graphsEv.exit, %_ZN11opencv_onnx14AttributeProto21_internal_add_tensorsEv.exit, %_ZN11opencv_onnx14AttributeProto21_internal_add_stringsB5cxx11Ev.exit, %_ZN11opencv_onnx14AttributeProto18_internal_add_intsEl.exit, %43, %388, %.thread169
+  %.sroa.0.2 = phi i32 [ %.sroa.0.0, %388 ], [ %.sroa.0.0, %.thread169 ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto21_internal_add_stringsB5cxx11Ev.exit ], [ %.sroa.0.0, %43 ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto21_internal_add_tensorsEv.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto20_internal_add_graphsEv.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto18_internal_add_intsEl.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto31_internal_mutable_ref_attr_nameB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit101 ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto28_internal_mutable_doc_stringB5cxx11Ev.exit ], [ %.sroa.0.0, %224 ], [ %.sroa.0.0, %181 ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_gEv.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_tEv.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_sB5cxx11Ev.exit ], [ %90, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto22_internal_mutable_nameB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  %.9 = phi ptr [ null, %388 ], [ %.0.i70, %.thread169 ], [ null, %_ZN11opencv_onnx14AttributeProto21_internal_add_stringsB5cxx11Ev.exit ], [ %spec.select, %43 ], [ null, %_ZN11opencv_onnx14AttributeProto21_internal_add_tensorsEv.exit ], [ null, %_ZN11opencv_onnx14AttributeProto20_internal_add_graphsEv.exit ], [ null, %_ZN11opencv_onnx14AttributeProto18_internal_add_intsEl.exit ], [ null, %_ZN11opencv_onnx14AttributeProto31_internal_mutable_ref_attr_nameB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit101 ], [ null, %_ZN11opencv_onnx14AttributeProto28_internal_mutable_doc_stringB5cxx11Ev.exit ], [ null, %224 ], [ null, %181 ], [ null, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_gEv.exit ], [ null, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_tEv.exit ], [ null, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_sB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN11opencv_onnx14AttributeProto22_internal_mutable_nameB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   %402 = load i32, ptr %6, align 8, !tbaa !51
   %403 = or i32 %402, %.sroa.0.2
   store i32 %403, ptr %6, align 8, !tbaa !51
@@ -5522,8 +5522,8 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread42: ; preds = %_
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread42, %40, %42
-  %.0 = phi i32 [ %38, %40 ], [ %.fca.1.extract.i, %42 ], [ %30, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread42 ]
-  %.0.i23 = phi ptr [ %41, %40 ], [ %.fca.0.extract.i, %42 ], [ %32, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread42 ]
+  %.0 = phi i32 [ %.fca.1.extract.i, %42 ], [ %38, %40 ], [ %30, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread42 ]
+  %.0.i23 = phi ptr [ %.fca.0.extract.i, %42 ], [ %41, %40 ], [ %32, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread42 ]
   %44 = lshr i32 %.0, 3
   switch i32 %44, label %91 [
     i32 1, label %45
@@ -5595,6 +5595,10 @@ _ZN11opencv_onnx14ValueInfoProto22_internal_mutable_typeEv.exit: ; preds = %62, 
   %.not = icmp eq ptr %76, null
   br i1 %.not, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge, !prof !85
 
+_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge: ; preds = %_ZN11opencv_onnx14ValueInfoProto22_internal_mutable_typeEv.exit, %_ZN11opencv_onnx14ValueInfoProto22_internal_mutable_nameB5cxx11Ev.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN11opencv_onnx14ValueInfoProto28_internal_mutable_doc_stringB5cxx11Ev.exit
+  %.038.be = phi ptr [ %90, %_ZN11opencv_onnx14ValueInfoProto28_internal_mutable_doc_stringB5cxx11Ev.exit ], [ %76, %_ZN11opencv_onnx14ValueInfoProto22_internal_mutable_typeEv.exit ], [ %108, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %58, %_ZN11opencv_onnx14ValueInfoProto22_internal_mutable_nameB5cxx11Ev.exit ]
+  br label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit
+
 77:                                               ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
   %78 = and i32 %.0, 255
   %79 = icmp eq i32 %78, 26
@@ -5662,12 +5666,8 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   %.not17 = icmp eq ptr %108, null
   br i1 %.not17, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge, !prof !85
 
-_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge: ; preds = %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN11opencv_onnx14ValueInfoProto22_internal_mutable_typeEv.exit, %_ZN11opencv_onnx14ValueInfoProto28_internal_mutable_doc_stringB5cxx11Ev.exit, %_ZN11opencv_onnx14ValueInfoProto22_internal_mutable_nameB5cxx11Ev.exit
-  %.038.be = phi ptr [ %108, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %58, %_ZN11opencv_onnx14ValueInfoProto22_internal_mutable_nameB5cxx11Ev.exit ], [ %76, %_ZN11opencv_onnx14ValueInfoProto22_internal_mutable_typeEv.exit ], [ %90, %_ZN11opencv_onnx14ValueInfoProto28_internal_mutable_doc_stringB5cxx11Ev.exit ]
-  br label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit
-
-_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN11opencv_onnx14ValueInfoProto22_internal_mutable_typeEv.exit, %_ZN11opencv_onnx14ValueInfoProto28_internal_mutable_doc_stringB5cxx11Ev.exit, %_ZN11opencv_onnx14ValueInfoProto22_internal_mutable_nameB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %22, %95, %.thread51
-  %.2 = phi ptr [ %.0.i23, %.thread51 ], [ null, %95 ], [ %spec.select, %22 ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ null, %_ZN11opencv_onnx14ValueInfoProto22_internal_mutable_typeEv.exit ], [ null, %_ZN11opencv_onnx14ValueInfoProto28_internal_mutable_doc_stringB5cxx11Ev.exit ], [ null, %_ZN11opencv_onnx14ValueInfoProto22_internal_mutable_nameB5cxx11Ev.exit ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN11opencv_onnx14ValueInfoProto22_internal_mutable_typeEv.exit, %_ZN11opencv_onnx14ValueInfoProto22_internal_mutable_nameB5cxx11Ev.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN11opencv_onnx14ValueInfoProto28_internal_mutable_doc_stringB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %22, %95, %.thread51
+  %.2 = phi ptr [ null, %95 ], [ %.0.i23, %.thread51 ], [ %spec.select, %22 ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ null, %_ZN11opencv_onnx14ValueInfoProto28_internal_mutable_doc_stringB5cxx11Ev.exit ], [ null, %_ZN11opencv_onnx14ValueInfoProto22_internal_mutable_typeEv.exit ], [ null, %_ZN11opencv_onnx14ValueInfoProto22_internal_mutable_nameB5cxx11Ev.exit ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   ret ptr %.2
 }
 
@@ -6136,8 +6136,8 @@ _ZN11opencv_onnx9TypeProto29_internal_mutable_tensor_typeEv.exit: ; preds = %_ZN
   br label %44
 
 44:                                               ; preds = %_ZN11opencv_onnx9TypeProto29_internal_mutable_tensor_typeEv.exit, %_ZN11opencv_onnx9TypeProto29_internal_mutable_tensor_typeEv.exit.thread
-  %45 = phi ptr [ %.pre.i, %_ZN11opencv_onnx9TypeProto29_internal_mutable_tensor_typeEv.exit.thread ], [ %39, %_ZN11opencv_onnx9TypeProto29_internal_mutable_tensor_typeEv.exit ]
-  %46 = phi ptr [ %31, %_ZN11opencv_onnx9TypeProto29_internal_mutable_tensor_typeEv.exit.thread ], [ %spec.select, %_ZN11opencv_onnx9TypeProto29_internal_mutable_tensor_typeEv.exit ]
+  %45 = phi ptr [ %39, %_ZN11opencv_onnx9TypeProto29_internal_mutable_tensor_typeEv.exit ], [ %.pre.i, %_ZN11opencv_onnx9TypeProto29_internal_mutable_tensor_typeEv.exit.thread ]
+  %46 = phi ptr [ %spec.select, %_ZN11opencv_onnx9TypeProto29_internal_mutable_tensor_typeEv.exit ], [ %31, %_ZN11opencv_onnx9TypeProto29_internal_mutable_tensor_typeEv.exit.thread ]
   tail call void @_ZN11opencv_onnx16TypeProto_Tensor9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %45, ptr noundef nonnull align 8 dereferenceable(40) %46)
   br label %47
 
@@ -7002,8 +7002,8 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread87: ; preds = %_
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread87, %50, %52
-  %.0 = phi i32 [ %48, %50 ], [ %.fca.1.extract.i, %52 ], [ %40, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread87 ]
-  %.0.i49 = phi ptr [ %51, %50 ], [ %.fca.0.extract.i, %52 ], [ %42, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread87 ]
+  %.0 = phi i32 [ %.fca.1.extract.i, %52 ], [ %48, %50 ], [ %40, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread87 ]
+  %.0.i49 = phi ptr [ %.fca.0.extract.i, %52 ], [ %51, %50 ], [ %42, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread87 ]
   %54 = lshr i32 %.0, 3
   switch i32 %54, label %216 [
     i32 1, label %55
@@ -7299,6 +7299,10 @@ _ZN11opencv_onnx9NodeProto28_internal_mutable_doc_stringB5cxx11Ev.exit: ; preds 
   %.not.not35 = icmp eq ptr %201, null
   br i1 %.not.not35, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge, !prof !85
 
+_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge: ; preds = %182, %185, %128, %125, %90, %87, %_ZN11opencv_onnx9NodeProto28_internal_mutable_doc_stringB5cxx11Ev.exit, %_ZN11opencv_onnx9NodeProto24_internal_mutable_domainB5cxx11Ev.exit, %_ZN11opencv_onnx9NodeProto25_internal_mutable_op_typeB5cxx11Ev.exit, %_ZN11opencv_onnx9NodeProto22_internal_mutable_nameB5cxx11Ev.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit
+  %.082.be = phi ptr [ %215, %_ZN11opencv_onnx9NodeProto24_internal_mutable_domainB5cxx11Ev.exit ], [ %158, %_ZN11opencv_onnx9NodeProto25_internal_mutable_op_typeB5cxx11Ev.exit ], [ %233, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %124, %128 ], [ %144, %_ZN11opencv_onnx9NodeProto22_internal_mutable_nameB5cxx11Ev.exit ], [ %201, %_ZN11opencv_onnx9NodeProto28_internal_mutable_doc_stringB5cxx11Ev.exit ], [ %86, %90 ], [ %86, %87 ], [ %124, %125 ], [ %181, %185 ], [ %181, %182 ]
+  br label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit, !llvm.loop !151
+
 202:                                              ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
   %203 = and i32 %.0, 255
   %204 = icmp eq i32 %203, 58
@@ -7366,12 +7370,8 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   %.not40 = icmp eq ptr %233, null
   br i1 %.not40, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge, !prof !85
 
-_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge: ; preds = %182, %185, %128, %125, %90, %87, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN11opencv_onnx9NodeProto24_internal_mutable_domainB5cxx11Ev.exit, %_ZN11opencv_onnx9NodeProto28_internal_mutable_doc_stringB5cxx11Ev.exit, %_ZN11opencv_onnx9NodeProto25_internal_mutable_op_typeB5cxx11Ev.exit, %_ZN11opencv_onnx9NodeProto22_internal_mutable_nameB5cxx11Ev.exit
-  %.082.be = phi ptr [ %233, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %144, %_ZN11opencv_onnx9NodeProto22_internal_mutable_nameB5cxx11Ev.exit ], [ %158, %_ZN11opencv_onnx9NodeProto25_internal_mutable_op_typeB5cxx11Ev.exit ], [ %201, %_ZN11opencv_onnx9NodeProto28_internal_mutable_doc_stringB5cxx11Ev.exit ], [ %215, %_ZN11opencv_onnx9NodeProto24_internal_mutable_domainB5cxx11Ev.exit ], [ %86, %87 ], [ %86, %90 ], [ %124, %125 ], [ %124, %128 ], [ %181, %185 ], [ %181, %182 ]
-  br label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit, !llvm.loop !151
-
-_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN11opencv_onnx9NodeProto24_internal_mutable_domainB5cxx11Ev.exit, %_ZN11opencv_onnx9NodeProto28_internal_mutable_doc_stringB5cxx11Ev.exit, %_ZN11opencv_onnx9NodeProto25_internal_mutable_op_typeB5cxx11Ev.exit, %_ZN11opencv_onnx9NodeProto22_internal_mutable_nameB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN11opencv_onnx9NodeProto23_internal_add_attributeEv.exit, %_ZN11opencv_onnx9NodeProto20_internal_add_outputB5cxx11Ev.exit, %_ZN11opencv_onnx9NodeProto19_internal_add_inputB5cxx11Ev.exit, %32, %220, %.thread107
-  %.5 = phi ptr [ %.0.i49, %.thread107 ], [ null, %220 ], [ %spec.select, %32 ], [ null, %_ZN11opencv_onnx9NodeProto19_internal_add_inputB5cxx11Ev.exit ], [ null, %_ZN11opencv_onnx9NodeProto20_internal_add_outputB5cxx11Ev.exit ], [ null, %_ZN11opencv_onnx9NodeProto23_internal_add_attributeEv.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ null, %_ZN11opencv_onnx9NodeProto24_internal_mutable_domainB5cxx11Ev.exit ], [ null, %_ZN11opencv_onnx9NodeProto28_internal_mutable_doc_stringB5cxx11Ev.exit ], [ null, %_ZN11opencv_onnx9NodeProto25_internal_mutable_op_typeB5cxx11Ev.exit ], [ null, %_ZN11opencv_onnx9NodeProto22_internal_mutable_nameB5cxx11Ev.exit ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN11opencv_onnx9NodeProto28_internal_mutable_doc_stringB5cxx11Ev.exit, %_ZN11opencv_onnx9NodeProto24_internal_mutable_domainB5cxx11Ev.exit, %_ZN11opencv_onnx9NodeProto25_internal_mutable_op_typeB5cxx11Ev.exit, %_ZN11opencv_onnx9NodeProto22_internal_mutable_nameB5cxx11Ev.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN11opencv_onnx9NodeProto23_internal_add_attributeEv.exit, %_ZN11opencv_onnx9NodeProto20_internal_add_outputB5cxx11Ev.exit, %_ZN11opencv_onnx9NodeProto19_internal_add_inputB5cxx11Ev.exit, %32, %220, %.thread107
+  %.5 = phi ptr [ %spec.select, %32 ], [ %.0.i49, %.thread107 ], [ null, %_ZN11opencv_onnx9NodeProto19_internal_add_inputB5cxx11Ev.exit ], [ null, %_ZN11opencv_onnx9NodeProto20_internal_add_outputB5cxx11Ev.exit ], [ null, %220 ], [ null, %_ZN11opencv_onnx9NodeProto23_internal_add_attributeEv.exit ], [ null, %_ZN11opencv_onnx9NodeProto25_internal_mutable_op_typeB5cxx11Ev.exit ], [ null, %_ZN11opencv_onnx9NodeProto22_internal_mutable_nameB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ null, %_ZN11opencv_onnx9NodeProto28_internal_mutable_doc_stringB5cxx11Ev.exit ], [ null, %_ZN11opencv_onnx9NodeProto24_internal_mutable_domainB5cxx11Ev.exit ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   ret ptr %.5
 }
 
@@ -9257,8 +9257,8 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread92: ; preds = %_
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread92, %50, %52
-  %.0 = phi i32 [ %48, %50 ], [ %.fca.1.extract.i, %52 ], [ %40, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread92 ]
-  %.0.i48 = phi ptr [ %51, %50 ], [ %.fca.0.extract.i, %52 ], [ %42, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread92 ]
+  %.0 = phi i32 [ %.fca.1.extract.i, %52 ], [ %48, %50 ], [ %40, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread92 ]
+  %.0.i48 = phi ptr [ %.fca.0.extract.i, %52 ], [ %51, %50 ], [ %42, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread92 ]
   %54 = lshr i32 %.0, 3
   switch i32 %54, label %231 [
     i32 1, label %55
@@ -9435,9 +9435,9 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit60.thread: ; preds = %126, %
   store i64 %.0.i58.ph, ptr %16, align 8, !tbaa !184
   br label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge
 
-_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge: ; preds = %225, %228, %196, %199, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit60.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN11opencv_onnx10ModelProto23_internal_mutable_graphEv.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit60, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN11opencv_onnx10ModelProto28_internal_mutable_doc_stringB5cxx11Ev.exit, %_ZN11opencv_onnx10ModelProto24_internal_mutable_domainB5cxx11Ev.exit, %_ZN11opencv_onnx10ModelProto34_internal_mutable_producer_versionB5cxx11Ev.exit, %_ZN11opencv_onnx10ModelProto31_internal_mutable_producer_nameB5cxx11Ev.exit
-  %.sroa.0.0.be = phi i32 [ %.sroa.0.0, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %59, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread ], [ %59, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx10ModelProto31_internal_mutable_producer_nameB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx10ModelProto34_internal_mutable_producer_versionB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx10ModelProto24_internal_mutable_domainB5cxx11Ev.exit ], [ %123, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit60.thread ], [ %123, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit60 ], [ %.sroa.0.0, %_ZN11opencv_onnx10ModelProto28_internal_mutable_doc_stringB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx10ModelProto23_internal_mutable_graphEv.exit ], [ %.sroa.0.0, %199 ], [ %.sroa.0.0, %196 ], [ %.sroa.0.0, %228 ], [ %.sroa.0.0, %225 ]
-  %.089.be = phi ptr [ %248, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %.0.i.i50.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread ], [ %75, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %90, %_ZN11opencv_onnx10ModelProto31_internal_mutable_producer_nameB5cxx11Ev.exit ], [ %104, %_ZN11opencv_onnx10ModelProto34_internal_mutable_producer_versionB5cxx11Ev.exit ], [ %118, %_ZN11opencv_onnx10ModelProto24_internal_mutable_domainB5cxx11Ev.exit ], [ %.0.i.i59.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit60.thread ], [ %139, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit60 ], [ %154, %_ZN11opencv_onnx10ModelProto28_internal_mutable_doc_stringB5cxx11Ev.exit ], [ %172, %_ZN11opencv_onnx10ModelProto23_internal_mutable_graphEv.exit ], [ %195, %199 ], [ %195, %196 ], [ %224, %228 ], [ %224, %225 ]
+_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge: ; preds = %225, %228, %196, %199, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit60.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread, %_ZN11opencv_onnx10ModelProto23_internal_mutable_graphEv.exit, %_ZN11opencv_onnx10ModelProto28_internal_mutable_doc_stringB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit60, %_ZN11opencv_onnx10ModelProto24_internal_mutable_domainB5cxx11Ev.exit, %_ZN11opencv_onnx10ModelProto34_internal_mutable_producer_versionB5cxx11Ev.exit, %_ZN11opencv_onnx10ModelProto31_internal_mutable_producer_nameB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit
+  %.sroa.0.0.be = phi i32 [ %.sroa.0.0, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %59, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread ], [ %59, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx10ModelProto31_internal_mutable_producer_nameB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx10ModelProto34_internal_mutable_producer_versionB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx10ModelProto24_internal_mutable_domainB5cxx11Ev.exit ], [ %123, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit60.thread ], [ %123, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit60 ], [ %.sroa.0.0, %_ZN11opencv_onnx10ModelProto28_internal_mutable_doc_stringB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx10ModelProto23_internal_mutable_graphEv.exit ], [ %.sroa.0.0, %196 ], [ %.sroa.0.0, %199 ], [ %.sroa.0.0, %228 ], [ %.sroa.0.0, %225 ]
+  %.089.be = phi ptr [ %248, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %.0.i.i50.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread ], [ %75, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %90, %_ZN11opencv_onnx10ModelProto31_internal_mutable_producer_nameB5cxx11Ev.exit ], [ %104, %_ZN11opencv_onnx10ModelProto34_internal_mutable_producer_versionB5cxx11Ev.exit ], [ %118, %_ZN11opencv_onnx10ModelProto24_internal_mutable_domainB5cxx11Ev.exit ], [ %.0.i.i59.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit60.thread ], [ %139, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit60 ], [ %154, %_ZN11opencv_onnx10ModelProto28_internal_mutable_doc_stringB5cxx11Ev.exit ], [ %172, %_ZN11opencv_onnx10ModelProto23_internal_mutable_graphEv.exit ], [ %195, %196 ], [ %195, %199 ], [ %224, %228 ], [ %224, %225 ]
   br label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit, !llvm.loop !185
 
 _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit60: ; preds = %128
@@ -9658,9 +9658,9 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   %.not38 = icmp eq ptr %248, null
   br i1 %.not38, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge, !prof !85
 
-_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN11opencv_onnx10ModelProto23_internal_mutable_graphEv.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit60, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN11opencv_onnx10ModelProto28_internal_mutable_doc_stringB5cxx11Ev.exit, %_ZN11opencv_onnx10ModelProto24_internal_mutable_domainB5cxx11Ev.exit, %_ZN11opencv_onnx10ModelProto34_internal_mutable_producer_versionB5cxx11Ev.exit, %_ZN11opencv_onnx10ModelProto31_internal_mutable_producer_nameB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN11opencv_onnx10ModelProto28_internal_add_metadata_propsEv.exit, %_ZN11opencv_onnx10ModelProto26_internal_add_opset_importEv.exit, %32, %235, %.thread105
-  %.sroa.0.2 = phi i32 [ %.sroa.0.0, %235 ], [ %.sroa.0.0, %.thread105 ], [ %.sroa.0.0, %32 ], [ %.sroa.0.0, %_ZN11opencv_onnx10ModelProto26_internal_add_opset_importEv.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx10ModelProto28_internal_add_metadata_propsEv.exit ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx10ModelProto23_internal_mutable_graphEv.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx10ModelProto28_internal_mutable_doc_stringB5cxx11Ev.exit ], [ %123, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit60 ], [ %.sroa.0.0, %_ZN11opencv_onnx10ModelProto24_internal_mutable_domainB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx10ModelProto34_internal_mutable_producer_versionB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx10ModelProto31_internal_mutable_producer_nameB5cxx11Ev.exit ], [ %59, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ]
-  %.4 = phi ptr [ null, %235 ], [ %.0.i48, %.thread105 ], [ %spec.select, %32 ], [ null, %_ZN11opencv_onnx10ModelProto26_internal_add_opset_importEv.exit ], [ null, %_ZN11opencv_onnx10ModelProto28_internal_add_metadata_propsEv.exit ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN11opencv_onnx10ModelProto23_internal_mutable_graphEv.exit ], [ null, %_ZN11opencv_onnx10ModelProto28_internal_mutable_doc_stringB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit60 ], [ null, %_ZN11opencv_onnx10ModelProto24_internal_mutable_domainB5cxx11Ev.exit ], [ null, %_ZN11opencv_onnx10ModelProto34_internal_mutable_producer_versionB5cxx11Ev.exit ], [ null, %_ZN11opencv_onnx10ModelProto31_internal_mutable_producer_nameB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ]
+_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN11opencv_onnx10ModelProto23_internal_mutable_graphEv.exit, %_ZN11opencv_onnx10ModelProto28_internal_mutable_doc_stringB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit60, %_ZN11opencv_onnx10ModelProto24_internal_mutable_domainB5cxx11Ev.exit, %_ZN11opencv_onnx10ModelProto34_internal_mutable_producer_versionB5cxx11Ev.exit, %_ZN11opencv_onnx10ModelProto31_internal_mutable_producer_nameB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN11opencv_onnx10ModelProto28_internal_add_metadata_propsEv.exit, %_ZN11opencv_onnx10ModelProto26_internal_add_opset_importEv.exit, %32, %235, %.thread105
+  %.sroa.0.2 = phi i32 [ %.sroa.0.0, %235 ], [ %.sroa.0.0, %.thread105 ], [ %.sroa.0.0, %_ZN11opencv_onnx10ModelProto28_internal_add_metadata_propsEv.exit ], [ %.sroa.0.0, %32 ], [ %.sroa.0.0, %_ZN11opencv_onnx10ModelProto26_internal_add_opset_importEv.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx10ModelProto23_internal_mutable_graphEv.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx10ModelProto28_internal_mutable_doc_stringB5cxx11Ev.exit ], [ %123, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit60 ], [ %.sroa.0.0, %_ZN11opencv_onnx10ModelProto24_internal_mutable_domainB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx10ModelProto34_internal_mutable_producer_versionB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx10ModelProto31_internal_mutable_producer_nameB5cxx11Ev.exit ], [ %59, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  %.4 = phi ptr [ null, %235 ], [ %.0.i48, %.thread105 ], [ null, %_ZN11opencv_onnx10ModelProto28_internal_add_metadata_propsEv.exit ], [ %spec.select, %32 ], [ null, %_ZN11opencv_onnx10ModelProto26_internal_add_opset_importEv.exit ], [ null, %_ZN11opencv_onnx10ModelProto23_internal_mutable_graphEv.exit ], [ null, %_ZN11opencv_onnx10ModelProto28_internal_mutable_doc_stringB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit60 ], [ null, %_ZN11opencv_onnx10ModelProto24_internal_mutable_domainB5cxx11Ev.exit ], [ null, %_ZN11opencv_onnx10ModelProto34_internal_mutable_producer_versionB5cxx11Ev.exit ], [ null, %_ZN11opencv_onnx10ModelProto31_internal_mutable_producer_nameB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   %249 = load i32, ptr %12, align 8, !tbaa !51
   %250 = or i32 %249, %.sroa.0.2
   store i32 %250, ptr %12, align 8, !tbaa !51
@@ -11275,8 +11275,8 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread35: ; preds = %_
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread35, %39, %41
-  %.0 = phi i32 [ %37, %39 ], [ %.fca.1.extract.i, %41 ], [ %29, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread35 ]
-  %.0.i20 = phi ptr [ %40, %39 ], [ %.fca.0.extract.i, %41 ], [ %31, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread35 ]
+  %.0 = phi i32 [ %.fca.1.extract.i, %41 ], [ %37, %39 ], [ %29, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread35 ]
+  %.0.i20 = phi ptr [ %.fca.0.extract.i, %41 ], [ %40, %39 ], [ %31, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread35 ]
   %43 = lshr i32 %.0, 3
   switch i32 %43, label %72 [
     i32 1, label %44
@@ -11309,6 +11309,10 @@ _ZN11opencv_onnx22StringStringEntryProto21_internal_mutable_keyB5cxx11Ev.exit: ;
   %57 = tail call noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef %56, ptr noundef %.0.i20, ptr noundef nonnull %2)
   %.not.not15 = icmp eq ptr %57, null
   br i1 %.not.not15, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge, !prof !85
+
+_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge: ; preds = %_ZN11opencv_onnx22StringStringEntryProto21_internal_mutable_keyB5cxx11Ev.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN11opencv_onnx22StringStringEntryProto23_internal_mutable_valueB5cxx11Ev.exit
+  %.031.be = phi ptr [ %71, %_ZN11opencv_onnx22StringStringEntryProto23_internal_mutable_valueB5cxx11Ev.exit ], [ %57, %_ZN11opencv_onnx22StringStringEntryProto21_internal_mutable_keyB5cxx11Ev.exit ], [ %89, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ]
+  br label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit
 
 58:                                               ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
   %59 = and i32 %.0, 255
@@ -11377,12 +11381,8 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   %.not = icmp eq ptr %89, null
   br i1 %.not, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge, !prof !85
 
-_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge: ; preds = %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN11opencv_onnx22StringStringEntryProto23_internal_mutable_valueB5cxx11Ev.exit, %_ZN11opencv_onnx22StringStringEntryProto21_internal_mutable_keyB5cxx11Ev.exit
-  %.031.be = phi ptr [ %89, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %57, %_ZN11opencv_onnx22StringStringEntryProto21_internal_mutable_keyB5cxx11Ev.exit ], [ %71, %_ZN11opencv_onnx22StringStringEntryProto23_internal_mutable_valueB5cxx11Ev.exit ]
-  br label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit
-
-_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN11opencv_onnx22StringStringEntryProto23_internal_mutable_valueB5cxx11Ev.exit, %_ZN11opencv_onnx22StringStringEntryProto21_internal_mutable_keyB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %21, %76, %.thread43
-  %.2 = phi ptr [ %.0.i20, %.thread43 ], [ null, %76 ], [ %spec.select, %21 ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ null, %_ZN11opencv_onnx22StringStringEntryProto23_internal_mutable_valueB5cxx11Ev.exit ], [ null, %_ZN11opencv_onnx22StringStringEntryProto21_internal_mutable_keyB5cxx11Ev.exit ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN11opencv_onnx22StringStringEntryProto21_internal_mutable_keyB5cxx11Ev.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN11opencv_onnx22StringStringEntryProto23_internal_mutable_valueB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %21, %76, %.thread43
+  %.2 = phi ptr [ null, %76 ], [ %.0.i20, %.thread43 ], [ %spec.select, %21 ], [ null, %_ZN11opencv_onnx22StringStringEntryProto23_internal_mutable_valueB5cxx11Ev.exit ], [ null, %_ZN11opencv_onnx22StringStringEntryProto21_internal_mutable_keyB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   ret ptr %.2
 }
 
@@ -12494,8 +12494,8 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread74: ; preds = %_
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread74, %54, %56
-  %.0 = phi i32 [ %52, %54 ], [ %.fca.1.extract.i, %56 ], [ %44, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread74 ]
-  %.0.i36 = phi ptr [ %55, %54 ], [ %.fca.0.extract.i, %56 ], [ %46, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread74 ]
+  %.0 = phi i32 [ %.fca.1.extract.i, %56 ], [ %52, %54 ], [ %44, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread74 ]
+  %.0.i36 = phi ptr [ %.fca.0.extract.i, %56 ], [ %55, %54 ], [ %46, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread74 ]
   %58 = lshr i32 %.0, 3
   switch i32 %58, label %232 [
     i32 1, label %59
@@ -12667,6 +12667,10 @@ _ZN11opencv_onnx10GraphProto28_internal_mutable_doc_stringB5cxx11Ev.exit: ; pred
   %.not27.not = icmp eq ptr %144, null
   br i1 %.not27.not, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge, !prof !85
 
+_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge: ; preds = %226, %229, %197, %200, %168, %171, %125, %128, %82, %85, %_ZN11opencv_onnx10GraphProto28_internal_mutable_doc_stringB5cxx11Ev.exit, %_ZN11opencv_onnx10GraphProto22_internal_mutable_nameB5cxx11Ev.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit
+  %.071.be = phi ptr [ %167, %168 ], [ %144, %_ZN11opencv_onnx10GraphProto28_internal_mutable_doc_stringB5cxx11Ev.exit ], [ %249, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %124, %125 ], [ %81, %82 ], [ %101, %_ZN11opencv_onnx10GraphProto22_internal_mutable_nameB5cxx11Ev.exit ], [ %196, %197 ], [ %81, %85 ], [ %124, %128 ], [ %167, %171 ], [ %196, %200 ], [ %225, %229 ], [ %225, %226 ]
+  br label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit, !llvm.loop !204
+
 145:                                              ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
   %146 = and i32 %.0, 255
   %147 = icmp eq i32 %146, 90
@@ -12718,7 +12722,7 @@ _ZN11opencv_onnx10GraphProto19_internal_add_inputEv.exit: ; preds = %157, %163
 171:                                              ; preds = %168
   %172 = load i8, ptr %167, align 1, !tbaa !46
   %173 = icmp eq i8 %172, 90
-  br i1 %173, label %150, label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge, !llvm.loop !204
+  br i1 %173, label %150, label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge, !llvm.loop !205
 
 174:                                              ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
   %175 = and i32 %.0, 255
@@ -12771,7 +12775,7 @@ _ZN11opencv_onnx10GraphProto20_internal_add_outputEv.exit: ; preds = %186, %192
 200:                                              ; preds = %197
   %201 = load i8, ptr %196, align 1, !tbaa !46
   %202 = icmp eq i8 %201, 98
-  br i1 %202, label %179, label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge, !llvm.loop !205
+  br i1 %202, label %179, label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge, !llvm.loop !206
 
 203:                                              ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
   %204 = and i32 %.0, 255
@@ -12824,7 +12828,7 @@ _ZN11opencv_onnx10GraphProto24_internal_add_value_infoEv.exit: ; preds = %215, %
 229:                                              ; preds = %226
   %230 = load i8, ptr %225, align 1, !tbaa !46
   %231 = icmp eq i8 %230, 106
-  br i1 %231, label %208, label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge, !llvm.loop !206
+  br i1 %231, label %208, label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge, !llvm.loop !207
 
 232:                                              ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %203, %174, %145, %131, %102, %88, %59
   %233 = icmp eq i32 %.0, 0
@@ -12866,12 +12870,8 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   %.not31 = icmp eq ptr %249, null
   br i1 %.not31, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge, !prof !85
 
-_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge: ; preds = %226, %229, %197, %200, %168, %171, %125, %128, %82, %85, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN11opencv_onnx10GraphProto28_internal_mutable_doc_stringB5cxx11Ev.exit, %_ZN11opencv_onnx10GraphProto22_internal_mutable_nameB5cxx11Ev.exit
-  %.071.be = phi ptr [ %249, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %101, %_ZN11opencv_onnx10GraphProto22_internal_mutable_nameB5cxx11Ev.exit ], [ %144, %_ZN11opencv_onnx10GraphProto28_internal_mutable_doc_stringB5cxx11Ev.exit ], [ %81, %85 ], [ %81, %82 ], [ %124, %128 ], [ %124, %125 ], [ %167, %171 ], [ %167, %168 ], [ %196, %200 ], [ %196, %197 ], [ %225, %229 ], [ %225, %226 ]
-  br label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit, !llvm.loop !207
-
-_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN11opencv_onnx10GraphProto28_internal_mutable_doc_stringB5cxx11Ev.exit, %_ZN11opencv_onnx10GraphProto22_internal_mutable_nameB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN11opencv_onnx10GraphProto24_internal_add_value_infoEv.exit, %_ZN11opencv_onnx10GraphProto20_internal_add_outputEv.exit, %_ZN11opencv_onnx10GraphProto19_internal_add_inputEv.exit, %_ZN11opencv_onnx10GraphProto25_internal_add_initializerEv.exit, %_ZN11opencv_onnx10GraphProto18_internal_add_nodeEv.exit, %36, %236, %.thread82
-  %.7 = phi ptr [ %.0.i36, %.thread82 ], [ null, %236 ], [ %spec.select, %36 ], [ null, %_ZN11opencv_onnx10GraphProto18_internal_add_nodeEv.exit ], [ null, %_ZN11opencv_onnx10GraphProto25_internal_add_initializerEv.exit ], [ null, %_ZN11opencv_onnx10GraphProto19_internal_add_inputEv.exit ], [ null, %_ZN11opencv_onnx10GraphProto20_internal_add_outputEv.exit ], [ null, %_ZN11opencv_onnx10GraphProto24_internal_add_value_infoEv.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ null, %_ZN11opencv_onnx10GraphProto28_internal_mutable_doc_stringB5cxx11Ev.exit ], [ null, %_ZN11opencv_onnx10GraphProto22_internal_mutable_nameB5cxx11Ev.exit ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN11opencv_onnx10GraphProto28_internal_mutable_doc_stringB5cxx11Ev.exit, %_ZN11opencv_onnx10GraphProto22_internal_mutable_nameB5cxx11Ev.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN11opencv_onnx10GraphProto24_internal_add_value_infoEv.exit, %_ZN11opencv_onnx10GraphProto20_internal_add_outputEv.exit, %_ZN11opencv_onnx10GraphProto19_internal_add_inputEv.exit, %_ZN11opencv_onnx10GraphProto25_internal_add_initializerEv.exit, %_ZN11opencv_onnx10GraphProto18_internal_add_nodeEv.exit, %36, %236, %.thread82
+  %.7 = phi ptr [ null, %_ZN11opencv_onnx10GraphProto20_internal_add_outputEv.exit ], [ %.0.i36, %.thread82 ], [ null, %_ZN11opencv_onnx10GraphProto18_internal_add_nodeEv.exit ], [ null, %_ZN11opencv_onnx10GraphProto24_internal_add_value_infoEv.exit ], [ null, %236 ], [ %spec.select, %36 ], [ null, %_ZN11opencv_onnx10GraphProto25_internal_add_initializerEv.exit ], [ null, %_ZN11opencv_onnx10GraphProto19_internal_add_inputEv.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ null, %_ZN11opencv_onnx10GraphProto28_internal_mutable_doc_stringB5cxx11Ev.exit ], [ null, %_ZN11opencv_onnx10GraphProto22_internal_mutable_nameB5cxx11Ev.exit ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   ret ptr %.7
 }
 
@@ -13967,8 +13967,8 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread35: ; preds = %_
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread35, %38, %40
-  %.031 = phi i32 [ %36, %38 ], [ %.fca.1.extract.i, %40 ], [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread35 ]
-  %.0.i13 = phi ptr [ %39, %38 ], [ %.fca.0.extract.i, %40 ], [ %30, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread35 ]
+  %.031 = phi i32 [ %.fca.1.extract.i, %40 ], [ %36, %38 ], [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread35 ]
+  %.0.i13 = phi ptr [ %.fca.0.extract.i, %40 ], [ %39, %38 ], [ %30, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread35 ]
   %42 = lshr i32 %.031, 3
   switch i32 %42, label %87 [
     i32 1, label %43
@@ -14110,9 +14110,9 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   %.not8 = icmp eq ptr %104, null
   br i1 %.not8, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit, !prof !85
 
-_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit20, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %20, %91, %.thread43
-  %.sroa.0.2 = phi i32 [ %.sroa.0.0.ph, %91 ], [ %.sroa.0.0.ph, %.thread43 ], [ %.sroa.0.0.ph, %20 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %47, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %69, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit20 ]
-  %.2 = phi ptr [ null, %91 ], [ %.0.i13, %.thread43 ], [ %spec.select, %20 ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit20 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ]
+_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit20, %20, %91, %.thread43
+  %.sroa.0.2 = phi i32 [ %.sroa.0.0.ph, %91 ], [ %.sroa.0.0.ph, %.thread43 ], [ %.sroa.0.0.ph, %20 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %69, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit20 ], [ %47, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ]
+  %.2 = phi ptr [ null, %91 ], [ %.0.i13, %.thread43 ], [ %spec.select, %20 ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit20 ]
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %106 = load i32, ptr %105, align 8, !tbaa !51
   %107 = or i32 %106, %.sroa.0.2
@@ -15383,8 +15383,8 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread90: ; preds = %_
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread90, %56, %58
-  %.0 = phi i32 [ %54, %56 ], [ %.fca.1.extract.i, %58 ], [ %46, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread90 ]
-  %.0.i66 = phi ptr [ %57, %56 ], [ %.fca.0.extract.i, %58 ], [ %48, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread90 ]
+  %.0 = phi i32 [ %.fca.1.extract.i, %58 ], [ %54, %56 ], [ %46, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread90 ]
+  %.0.i66 = phi ptr [ %.fca.0.extract.i, %58 ], [ %57, %56 ], [ %48, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread90 ]
   store ptr %.0.i66, ptr %3, align 8, !tbaa !104
   %60 = lshr i32 %.0, 3
   switch i32 %60, label %275 [
@@ -15849,8 +15849,8 @@ _ZN11opencv_onnx11TensorProto26_internal_mutable_raw_dataB5cxx11Ev.exit: ; preds
   %.not44 = icmp eq ptr %256, null
   br i1 %.not44, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge, !prof !85
 
-_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge: ; preds = %209, %206, %104, %98, %101, %255, %257, %251, %249, %213, %215, %167, %169, %163, %161, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN11opencv_onnx11TensorProto25_internal_mutable_segmentEv.exit, %_ZN11opencv_onnx11TensorProto28_internal_mutable_doc_stringB5cxx11Ev.exit, %_ZN11opencv_onnx11TensorProto26_internal_mutable_raw_dataB5cxx11Ev.exit, %_ZN11opencv_onnx11TensorProto22_internal_mutable_nameB5cxx11Ev.exit, %_ZN11opencv_onnx11TensorProto22mutable_unknown_fieldsEv.exit, %129
-  %.be = phi ptr [ %256, %255 ], [ %259, %257 ], [ %253, %251 ], [ %250, %249 ], [ %214, %213 ], [ %217, %215 ], [ %168, %167 ], [ %171, %169 ], [ %165, %163 ], [ %162, %161 ], [ %293, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %159, %_ZN11opencv_onnx11TensorProto25_internal_mutable_segmentEv.exit ], [ %274, %_ZN11opencv_onnx11TensorProto28_internal_mutable_doc_stringB5cxx11Ev.exit ], [ %247, %_ZN11opencv_onnx11TensorProto26_internal_mutable_raw_dataB5cxx11Ev.exit ], [ %232, %_ZN11opencv_onnx11TensorProto22_internal_mutable_nameB5cxx11Ev.exit ], [ %.pre.pre, %_ZN11opencv_onnx11TensorProto22mutable_unknown_fieldsEv.exit ], [ %.pre138, %129 ], [ %105, %104 ], [ %97, %98 ], [ %97, %101 ], [ %205, %206 ], [ %205, %209 ]
+_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge: ; preds = %209, %206, %104, %98, %101, %255, %257, %251, %249, %213, %215, %167, %169, %163, %161, %_ZN11opencv_onnx11TensorProto26_internal_mutable_raw_dataB5cxx11Ev.exit, %_ZN11opencv_onnx11TensorProto22_internal_mutable_nameB5cxx11Ev.exit, %_ZN11opencv_onnx11TensorProto25_internal_mutable_segmentEv.exit, %_ZN11opencv_onnx11TensorProto28_internal_mutable_doc_stringB5cxx11Ev.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN11opencv_onnx11TensorProto22mutable_unknown_fieldsEv.exit, %129
+  %.be = phi ptr [ %256, %255 ], [ %259, %257 ], [ %253, %251 ], [ %250, %249 ], [ %214, %213 ], [ %217, %215 ], [ %168, %167 ], [ %171, %169 ], [ %165, %163 ], [ %162, %161 ], [ %247, %_ZN11opencv_onnx11TensorProto26_internal_mutable_raw_dataB5cxx11Ev.exit ], [ %232, %_ZN11opencv_onnx11TensorProto22_internal_mutable_nameB5cxx11Ev.exit ], [ %159, %_ZN11opencv_onnx11TensorProto25_internal_mutable_segmentEv.exit ], [ %274, %_ZN11opencv_onnx11TensorProto28_internal_mutable_doc_stringB5cxx11Ev.exit ], [ %293, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %.pre.pre, %_ZN11opencv_onnx11TensorProto22mutable_unknown_fieldsEv.exit ], [ %.pre138, %129 ], [ %97, %101 ], [ %105, %104 ], [ %97, %98 ], [ %205, %206 ], [ %205, %209 ]
   br label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit, !llvm.loop !248
 
 257:                                              ; preds = %254
@@ -15932,8 +15932,8 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   %.not58 = icmp eq ptr %293, null
   br i1 %.not58, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge, !prof !85
 
-_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %257, %255, %249, %215, %213, %169, %167, %161, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit73, %104, %_ZN11opencv_onnx11TensorProto22_internal_mutable_nameB5cxx11Ev.exit, %_ZN11opencv_onnx11TensorProto26_internal_mutable_raw_dataB5cxx11Ev.exit, %_ZN11opencv_onnx11TensorProto28_internal_mutable_doc_stringB5cxx11Ev.exit, %_ZN11opencv_onnx11TensorProto25_internal_mutable_segmentEv.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN11opencv_onnx11TensorProto25_internal_add_string_dataB5cxx11Ev.exit, %_ZN11opencv_onnx11TensorProto18_internal_add_dimsEl.exit, %37, %279, %.thread106
-  %294 = phi ptr [ %.0.i66, %.thread106 ], [ %spec.select, %37 ], [ null, %279 ], [ null, %_ZN11opencv_onnx11TensorProto18_internal_add_dimsEl.exit ], [ null, %_ZN11opencv_onnx11TensorProto25_internal_add_string_dataB5cxx11Ev.exit ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ null, %_ZN11opencv_onnx11TensorProto25_internal_mutable_segmentEv.exit ], [ null, %_ZN11opencv_onnx11TensorProto28_internal_mutable_doc_stringB5cxx11Ev.exit ], [ null, %_ZN11opencv_onnx11TensorProto26_internal_mutable_raw_dataB5cxx11Ev.exit ], [ null, %_ZN11opencv_onnx11TensorProto22_internal_mutable_nameB5cxx11Ev.exit ], [ null, %104 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit73 ], [ null, %161 ], [ null, %167 ], [ null, %169 ], [ null, %213 ], [ null, %215 ], [ null, %249 ], [ null, %255 ], [ null, %257 ]
+_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit73, %255, %249, %215, %213, %169, %167, %161, %104, %257, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN11opencv_onnx11TensorProto28_internal_mutable_doc_stringB5cxx11Ev.exit, %_ZN11opencv_onnx11TensorProto25_internal_mutable_segmentEv.exit, %_ZN11opencv_onnx11TensorProto22_internal_mutable_nameB5cxx11Ev.exit, %_ZN11opencv_onnx11TensorProto26_internal_mutable_raw_dataB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN11opencv_onnx11TensorProto25_internal_add_string_dataB5cxx11Ev.exit, %_ZN11opencv_onnx11TensorProto18_internal_add_dimsEl.exit, %37, %279, %.thread106
+  %294 = phi ptr [ null, %_ZN11opencv_onnx11TensorProto25_internal_add_string_dataB5cxx11Ev.exit ], [ null, %279 ], [ %spec.select, %37 ], [ %.0.i66, %.thread106 ], [ null, %_ZN11opencv_onnx11TensorProto18_internal_add_dimsEl.exit ], [ null, %_ZN11opencv_onnx11TensorProto26_internal_mutable_raw_dataB5cxx11Ev.exit ], [ null, %_ZN11opencv_onnx11TensorProto22_internal_mutable_nameB5cxx11Ev.exit ], [ null, %_ZN11opencv_onnx11TensorProto25_internal_mutable_segmentEv.exit ], [ null, %_ZN11opencv_onnx11TensorProto28_internal_mutable_doc_stringB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ null, %257 ], [ null, %104 ], [ null, %161 ], [ null, %167 ], [ null, %169 ], [ null, %213 ], [ null, %215 ], [ null, %249 ], [ null, %255 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit73 ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   ret ptr %294
 }
 
@@ -16036,8 +16036,8 @@ define linkonce_odr hidden noundef i32 @_ZN6google8protobuf8internal12ReadVarint
   br label %_ZN6google8protobuf8internal11VarintParseIjEEPKcS4_PT_.exit
 
 _ZN6google8protobuf8internal11VarintParseIjEEPKcS4_PT_.exit: ; preds = %1, %12, %14
-  %.0 = phi i32 [ %11, %12 ], [ %.fca.1.extract.i.i, %14 ], [ %4, %1 ]
-  %.0.i = phi ptr [ %13, %12 ], [ %.fca.0.extract.i.i, %14 ], [ %5, %1 ]
+  %.0 = phi i32 [ %.fca.1.extract.i.i, %14 ], [ %11, %12 ], [ %4, %1 ]
+  %.0.i = phi ptr [ %.fca.0.extract.i.i, %14 ], [ %13, %12 ], [ %5, %1 ]
   store ptr %.0.i, ptr %0, align 8, !tbaa !104
   ret i32 %.0
 }
@@ -17884,8 +17884,8 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread42: ; preds = %_
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread42, %40, %42
-  %.0 = phi i32 [ %38, %40 ], [ %.fca.1.extract.i, %42 ], [ %30, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread42 ]
-  %.0.i22 = phi ptr [ %41, %40 ], [ %.fca.0.extract.i, %42 ], [ %32, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread42 ]
+  %.0 = phi i32 [ %.fca.1.extract.i, %42 ], [ %38, %40 ], [ %30, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread42 ]
+  %.0.i22 = phi ptr [ %.fca.0.extract.i, %42 ], [ %41, %40 ], [ %32, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread42 ]
   %44 = lshr i32 %.0, 3
   switch i32 %44, label %104 [
     i32 1, label %45
@@ -18025,6 +18025,10 @@ _ZN11opencv_onnx26TensorShapeProto_Dimension28_internal_mutable_denotationB5cxx1
   %.not.not = icmp eq ptr %103, null
   br i1 %.not.not, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge, !prof !85
 
+_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge: ; preds = %_ZN11opencv_onnx26TensorShapeProto_Dimension28_internal_mutable_denotationB5cxx11Ev.exit, %_ZN11opencv_onnx26TensorShapeProto_Dimension23_internal_set_dim_valueEl.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN11opencv_onnx26TensorShapeProto_Dimension27_internal_mutable_dim_paramB5cxx11Ev.exit
+  %.039.be = phi ptr [ %103, %_ZN11opencv_onnx26TensorShapeProto_Dimension28_internal_mutable_denotationB5cxx11Ev.exit ], [ %89, %_ZN11opencv_onnx26TensorShapeProto_Dimension27_internal_mutable_dim_paramB5cxx11Ev.exit ], [ %121, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %.0.i.i24, %_ZN11opencv_onnx26TensorShapeProto_Dimension23_internal_set_dim_valueEl.exit ]
+  br label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit
+
 104:                                              ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %90, %75, %45
   %105 = icmp eq i32 %.0, 0
   %106 = and i32 %.0, 7
@@ -18065,12 +18069,8 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   %.not16 = icmp eq ptr %121, null
   br i1 %.not16, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge, !prof !85
 
-_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge: ; preds = %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN11opencv_onnx26TensorShapeProto_Dimension23_internal_set_dim_valueEl.exit, %_ZN11opencv_onnx26TensorShapeProto_Dimension28_internal_mutable_denotationB5cxx11Ev.exit, %_ZN11opencv_onnx26TensorShapeProto_Dimension27_internal_mutable_dim_paramB5cxx11Ev.exit
-  %.039.be = phi ptr [ %121, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %.0.i.i24, %_ZN11opencv_onnx26TensorShapeProto_Dimension23_internal_set_dim_valueEl.exit ], [ %89, %_ZN11opencv_onnx26TensorShapeProto_Dimension27_internal_mutable_dim_paramB5cxx11Ev.exit ], [ %103, %_ZN11opencv_onnx26TensorShapeProto_Dimension28_internal_mutable_denotationB5cxx11Ev.exit ]
-  br label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit
-
-_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN11opencv_onnx26TensorShapeProto_Dimension23_internal_set_dim_valueEl.exit, %_ZN11opencv_onnx26TensorShapeProto_Dimension28_internal_mutable_denotationB5cxx11Ev.exit, %_ZN11opencv_onnx26TensorShapeProto_Dimension27_internal_mutable_dim_paramB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %22, %108, %.thread51
-  %.2 = phi ptr [ %.0.i22, %.thread51 ], [ null, %108 ], [ %spec.select, %22 ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ null, %_ZN11opencv_onnx26TensorShapeProto_Dimension23_internal_set_dim_valueEl.exit ], [ null, %_ZN11opencv_onnx26TensorShapeProto_Dimension28_internal_mutable_denotationB5cxx11Ev.exit ], [ null, %_ZN11opencv_onnx26TensorShapeProto_Dimension27_internal_mutable_dim_paramB5cxx11Ev.exit ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN11opencv_onnx26TensorShapeProto_Dimension28_internal_mutable_denotationB5cxx11Ev.exit, %_ZN11opencv_onnx26TensorShapeProto_Dimension23_internal_set_dim_valueEl.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN11opencv_onnx26TensorShapeProto_Dimension27_internal_mutable_dim_paramB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %22, %108, %.thread51
+  %.2 = phi ptr [ null, %108 ], [ %.0.i22, %.thread51 ], [ %spec.select, %22 ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ null, %_ZN11opencv_onnx26TensorShapeProto_Dimension27_internal_mutable_dim_paramB5cxx11Ev.exit ], [ null, %_ZN11opencv_onnx26TensorShapeProto_Dimension28_internal_mutable_denotationB5cxx11Ev.exit ], [ null, %_ZN11opencv_onnx26TensorShapeProto_Dimension23_internal_set_dim_valueEl.exit ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   ret ptr %.2
 }
 
@@ -18183,7 +18183,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.thread: ; preds
   br label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh.exit
 
 _ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh.exit: ; preds = %.preheader, %46, %.critedge.i, %17, %15, %3
-  %.0 = phi ptr [ %1, %3 ], [ %16, %15 ], [ %23, %17 ], [ %45, %.critedge.i ], [ %51, %46 ], [ %28, %.preheader ]
+  %.0 = phi ptr [ %1, %3 ], [ %51, %46 ], [ %16, %15 ], [ %23, %17 ], [ %45, %.critedge.i ], [ %28, %.preheader ]
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %53 = load i32, ptr %52, align 8, !tbaa !51
   %54 = and i32 %53, 1
@@ -18973,8 +18973,8 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread25: ; preds = %1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread25, %41, %43
-  %.021 = phi i32 [ %39, %41 ], [ %.fca.1.extract.i, %43 ], [ %31, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread25 ]
-  %.0.i11 = phi ptr [ %42, %41 ], [ %.fca.0.extract.i, %43 ], [ %33, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread25 ]
+  %.021 = phi i32 [ %.fca.1.extract.i, %43 ], [ %39, %41 ], [ %31, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread25 ]
+  %.0.i11 = phi ptr [ %.fca.0.extract.i, %43 ], [ %42, %41 ], [ %33, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread25 ]
   %45 = icmp eq i32 %.021, 10
   br i1 %45, label %46, label %72, !prof !267
 
@@ -19071,7 +19071,7 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %11, !llvm.loop !269
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN11opencv_onnx16TensorShapeProto17_internal_add_dimEv.exit, %23, %76, %.thread31
-  %.3 = phi ptr [ %.0.i11, %.thread31 ], [ null, %76 ], [ %spec.select, %23 ], [ null, %_ZN11opencv_onnx16TensorShapeProto17_internal_add_dimEv.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  %.3 = phi ptr [ %spec.select, %23 ], [ null, %_ZN11opencv_onnx16TensorShapeProto17_internal_add_dimEv.exit ], [ %.0.i11, %.thread31 ], [ null, %76 ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   ret ptr %.3
 }
 
@@ -19771,8 +19771,8 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread35: ; preds = %_
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread35, %39, %41
-  %.0 = phi i32 [ %37, %39 ], [ %.fca.1.extract.i, %41 ], [ %29, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread35 ]
-  %.0.i17 = phi ptr [ %40, %39 ], [ %.fca.0.extract.i, %41 ], [ %31, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread35 ]
+  %.0 = phi i32 [ %.fca.1.extract.i, %41 ], [ %37, %39 ], [ %29, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread35 ]
+  %.0.i17 = phi ptr [ %.fca.0.extract.i, %41 ], [ %40, %39 ], [ %31, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread35 ]
   %43 = lshr i32 %.0, 3
   switch i32 %43, label %96 [
     i32 1, label %44
@@ -19888,6 +19888,10 @@ _ZN11opencv_onnx16TypeProto_Tensor23_internal_mutable_shapeEv.exit: ; preds = %8
   %.not = icmp eq ptr %95, null
   br i1 %.not, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge, !prof !85
 
+_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge: ; preds = %_ZN11opencv_onnx16TypeProto_Tensor23_internal_mutable_shapeEv.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN11opencv_onnx16TypeProto_Tensor22mutable_unknown_fieldsEv.exit, %66
+  %.031.be = phi ptr [ %.0.i.i1943, %_ZN11opencv_onnx16TypeProto_Tensor22mutable_unknown_fieldsEv.exit ], [ %.0.i.i1943, %66 ], [ %113, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %95, %_ZN11opencv_onnx16TypeProto_Tensor23_internal_mutable_shapeEv.exit ]
+  br label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit
+
 96:                                               ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %78, %44
   %97 = icmp eq i32 %.0, 0
   %98 = and i32 %.0, 7
@@ -19928,12 +19932,8 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   %.not13 = icmp eq ptr %113, null
   br i1 %.not13, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge, !prof !85
 
-_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge: ; preds = %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN11opencv_onnx16TypeProto_Tensor23_internal_mutable_shapeEv.exit, %_ZN11opencv_onnx16TypeProto_Tensor22mutable_unknown_fieldsEv.exit, %66
-  %.031.be = phi ptr [ %113, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %.0.i.i1943, %66 ], [ %.0.i.i1943, %_ZN11opencv_onnx16TypeProto_Tensor22mutable_unknown_fieldsEv.exit ], [ %95, %_ZN11opencv_onnx16TypeProto_Tensor23_internal_mutable_shapeEv.exit ]
-  br label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit
-
-_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN11opencv_onnx16TypeProto_Tensor23_internal_mutable_shapeEv.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %21, %100, %.thread47
-  %.2 = phi ptr [ %.0.i17, %.thread47 ], [ null, %100 ], [ %spec.select, %21 ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ null, %_ZN11opencv_onnx16TypeProto_Tensor23_internal_mutable_shapeEv.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN11opencv_onnx16TypeProto_Tensor23_internal_mutable_shapeEv.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %21, %100, %.thread47
+  %.2 = phi ptr [ null, %100 ], [ %.0.i17, %.thread47 ], [ %spec.select, %21 ], [ null, %_ZN11opencv_onnx16TypeProto_Tensor23_internal_mutable_shapeEv.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   ret ptr %.2
 }
 
@@ -20875,8 +20875,8 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread31: ; preds = %_
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread31, %40, %42
-  %.0 = phi i32 [ %38, %40 ], [ %.fca.1.extract.i, %42 ], [ %30, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread31 ]
-  %.0.i16 = phi ptr [ %41, %40 ], [ %.fca.0.extract.i, %42 ], [ %32, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread31 ]
+  %.0 = phi i32 [ %.fca.1.extract.i, %42 ], [ %38, %40 ], [ %30, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread31 ]
+  %.0.i16 = phi ptr [ %.fca.0.extract.i, %42 ], [ %41, %40 ], [ %32, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread31 ]
   %44 = lshr i32 %.0, 3
   switch i32 %44, label %74 [
     i32 1, label %45
@@ -20921,6 +20921,10 @@ _ZN11opencv_onnx9TypeProto29_internal_mutable_tensor_typeEv.exit: ; preds = %._c
   %59 = tail call noundef ptr @_ZN6google8protobuf8internal12ParseContext12ParseMessageEPNS0_11MessageLiteEPKc(ptr noundef nonnull align 8 dereferenceable(120) %2, ptr noundef %58, ptr noundef %.0.i16)
   %.not = icmp eq ptr %59, null
   br i1 %.not, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge, !prof !85
+
+_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge: ; preds = %_ZN11opencv_onnx9TypeProto29_internal_mutable_tensor_typeEv.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN11opencv_onnx9TypeProto28_internal_mutable_denotationB5cxx11Ev.exit
+  %.028.be = phi ptr [ %73, %_ZN11opencv_onnx9TypeProto28_internal_mutable_denotationB5cxx11Ev.exit ], [ %59, %_ZN11opencv_onnx9TypeProto29_internal_mutable_tensor_typeEv.exit ], [ %91, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ]
+  br label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit
 
 60:                                               ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
   %61 = and i32 %.0, 255
@@ -20989,12 +20993,8 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   %.not11 = icmp eq ptr %91, null
   br i1 %.not11, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge, !prof !85
 
-_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge: ; preds = %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN11opencv_onnx9TypeProto29_internal_mutable_tensor_typeEv.exit, %_ZN11opencv_onnx9TypeProto28_internal_mutable_denotationB5cxx11Ev.exit
-  %.028.be = phi ptr [ %91, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %59, %_ZN11opencv_onnx9TypeProto29_internal_mutable_tensor_typeEv.exit ], [ %73, %_ZN11opencv_onnx9TypeProto28_internal_mutable_denotationB5cxx11Ev.exit ]
-  br label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit
-
-_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN11opencv_onnx9TypeProto29_internal_mutable_tensor_typeEv.exit, %_ZN11opencv_onnx9TypeProto28_internal_mutable_denotationB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %22, %78, %.thread39
-  %.2 = phi ptr [ %.0.i16, %.thread39 ], [ null, %78 ], [ %spec.select, %22 ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ null, %_ZN11opencv_onnx9TypeProto29_internal_mutable_tensor_typeEv.exit ], [ null, %_ZN11opencv_onnx9TypeProto28_internal_mutable_denotationB5cxx11Ev.exit ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN11opencv_onnx9TypeProto29_internal_mutable_tensor_typeEv.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN11opencv_onnx9TypeProto28_internal_mutable_denotationB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %22, %78, %.thread39
+  %.2 = phi ptr [ null, %78 ], [ %.0.i16, %.thread39 ], [ %spec.select, %22 ], [ null, %_ZN11opencv_onnx9TypeProto28_internal_mutable_denotationB5cxx11Ev.exit ], [ null, %_ZN11opencv_onnx9TypeProto29_internal_mutable_tensor_typeEv.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   ret ptr %.2
 }
 
@@ -21660,8 +21660,8 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread33: ; preds = %_
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread33, %39, %41
-  %.0 = phi i32 [ %37, %39 ], [ %.fca.1.extract.i, %41 ], [ %29, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread33 ]
-  %.0.i16 = phi ptr [ %40, %39 ], [ %.fca.0.extract.i, %41 ], [ %31, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread33 ]
+  %.0 = phi i32 [ %.fca.1.extract.i, %41 ], [ %37, %39 ], [ %29, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread33 ]
+  %.0.i16 = phi ptr [ %.fca.0.extract.i, %41 ], [ %40, %39 ], [ %31, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread33 ]
   %43 = lshr i32 %.0, 3
   switch i32 %43, label %79 [
     i32 1, label %44
@@ -21694,6 +21694,10 @@ _ZN11opencv_onnx18OperatorSetIdProto24_internal_mutable_domainB5cxx11Ev.exit: ; 
   %57 = tail call noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef %56, ptr noundef %.0.i16, ptr noundef nonnull %2)
   %.not10.not = icmp eq ptr %57, null
   br i1 %.not10.not, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge, !prof !85
+
+_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge: ; preds = %_ZN11opencv_onnx18OperatorSetIdProto24_internal_mutable_domainB5cxx11Ev.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit
+  %.029.be = phi ptr [ %57, %_ZN11opencv_onnx18OperatorSetIdProto24_internal_mutable_domainB5cxx11Ev.exit ], [ %96, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ]
+  br label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit
 
 58:                                               ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
   %59 = and i32 %.0, 255
@@ -21783,13 +21787,9 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   %.not11 = icmp eq ptr %96, null
   br i1 %.not11, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge, !prof !85
 
-_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge: ; preds = %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN11opencv_onnx18OperatorSetIdProto24_internal_mutable_domainB5cxx11Ev.exit
-  %.029.be = phi ptr [ %96, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %57, %_ZN11opencv_onnx18OperatorSetIdProto24_internal_mutable_domainB5cxx11Ev.exit ]
-  br label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit
-
-_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN11opencv_onnx18OperatorSetIdProto24_internal_mutable_domainB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %21, %83, %.thread41
-  %.sroa.0.2 = phi i32 [ %.sroa.0.0.ph, %83 ], [ %.sroa.0.0.ph, %.thread41 ], [ %.sroa.0.0.ph, %21 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %.sroa.0.0.ph, %_ZN11opencv_onnx18OperatorSetIdProto24_internal_mutable_domainB5cxx11Ev.exit ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ 2, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ]
-  %.2 = phi ptr [ null, %83 ], [ %.0.i16, %.thread41 ], [ %spec.select, %21 ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ null, %_ZN11opencv_onnx18OperatorSetIdProto24_internal_mutable_domainB5cxx11Ev.exit ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ]
+_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN11opencv_onnx18OperatorSetIdProto24_internal_mutable_domainB5cxx11Ev.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %21, %83, %.thread41
+  %.sroa.0.2 = phi i32 [ %.sroa.0.0.ph, %83 ], [ %.sroa.0.0.ph, %.thread41 ], [ %.sroa.0.0.ph, %21 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.sroa.0.0.ph, %_ZN11opencv_onnx18OperatorSetIdProto24_internal_mutable_domainB5cxx11Ev.exit ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ 2, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ]
+  %.2 = phi ptr [ null, %83 ], [ %.0.i16, %.thread41 ], [ %spec.select, %21 ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ null, %_ZN11opencv_onnx18OperatorSetIdProto24_internal_mutable_domainB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ]
   %97 = load i32, ptr %7, align 8, !tbaa !51
   %98 = or i32 %97, %.sroa.0.2
   store i32 %98, ptr %7, align 8, !tbaa !51

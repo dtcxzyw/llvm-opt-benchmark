@@ -187,7 +187,7 @@ pqSetResultError.exit:                            ; preds = %23, %.thread.i
   br label %40
 
 40:                                               ; preds = %38, %36, %27, %2, %35
-  %.0 = phi ptr [ null, %35 ], [ null, %2 ], [ %3, %27 ], [ %3, %36 ], [ %3, %38 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %35 ], [ %3, %27 ], [ %3, %36 ], [ %3, %38 ]
   ret ptr %.0
 }
 
@@ -307,7 +307,7 @@ define internal fastcc noalias noundef ptr @dupEvents(ptr noundef readonly captu
   br label %32
 
 32:                                               ; preds = %5, %3, %29, %._crit_edge
-  %.038 = phi ptr [ null, %._crit_edge ], [ %8, %29 ], [ null, %3 ], [ null, %5 ]
+  %.038 = phi ptr [ null, %3 ], [ null, %._crit_edge ], [ %8, %29 ], [ null, %5 ]
   ret ptr %.038
 }
 
@@ -476,7 +476,7 @@ PQresultAlloc.exit:                               ; preds = %10
   br i1 %43, label %22, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %31, %40, %17, %PQresultAlloc.exit, %10, %6, %3
-  %.036 = phi i32 [ 0, %3 ], [ 0, %6 ], [ 1, %10 ], [ 0, %PQresultAlloc.exit ], [ 1, %17 ], [ 0, %31 ], [ 1, %40 ]
+  %.036 = phi i32 [ 0, %6 ], [ 0, %3 ], [ 0, %PQresultAlloc.exit ], [ 1, %10 ], [ 1, %17 ], [ 0, %31 ], [ 1, %40 ]
   ret i32 %.036
 }
 
@@ -589,13 +589,13 @@ pqResultAlloc.exit:                               ; preds = %9
   %.not = icmp eq ptr %42, null
   br i1 %.not, label %pqResultAlloc.exit.thread11, label %pqResultAlloc.exit.thread
 
-pqResultAlloc.exit.thread:                        ; preds = %25, %27, %30, %7, %pqResultAlloc.exit
-  %.0.i8 = phi ptr [ %46, %pqResultAlloc.exit ], [ %22, %25 ], [ %22, %27 ], [ %37, %30 ], [ %8, %7 ]
+pqResultAlloc.exit.thread:                        ; preds = %27, %25, %30, %7, %pqResultAlloc.exit
+  %.0.i8 = phi ptr [ %46, %pqResultAlloc.exit ], [ %22, %27 ], [ %22, %25 ], [ %37, %30 ], [ %8, %7 ]
   %50 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0.i8, ptr noundef nonnull dereferenceable(1) %1) #28
   br label %pqResultAlloc.exit.thread11
 
-pqResultAlloc.exit.thread11:                      ; preds = %28, %15, %2, %pqResultAlloc.exit.thread, %pqResultAlloc.exit
-  %.0.i9 = phi ptr [ %.0.i8, %pqResultAlloc.exit.thread ], [ null, %pqResultAlloc.exit ], [ null, %2 ], [ null, %15 ], [ null, %28 ]
+pqResultAlloc.exit.thread11:                      ; preds = %15, %2, %28, %pqResultAlloc.exit.thread, %pqResultAlloc.exit
+  %.0.i9 = phi ptr [ %.0.i8, %pqResultAlloc.exit.thread ], [ null, %pqResultAlloc.exit ], [ null, %28 ], [ null, %2 ], [ null, %15 ]
   ret ptr %.0.i9
 }
 
@@ -872,7 +872,7 @@ PQmakeEmptyPGresult.exit.thread.sink.split:       ; preds = %47, %74, %96, %PQre
   br label %PQmakeEmptyPGresult.exit.thread
 
 PQmakeEmptyPGresult.exit.thread:                  ; preds = %126, %PQmakeEmptyPGresult.exit.thread.sink.split, %102, %4, %2
-  %.059 = phi ptr [ null, %2 ], [ null, %4 ], [ %5, %102 ], [ null, %PQmakeEmptyPGresult.exit.thread.sink.split ], [ %5, %126 ]
+  %.059 = phi ptr [ null, %4 ], [ null, %2 ], [ %5, %102 ], [ null, %PQmakeEmptyPGresult.exit.thread.sink.split ], [ %5, %126 ]
   ret ptr %.059
 }
 
@@ -1073,7 +1073,7 @@ check_field_number.exit:                          ; preds = %8
   br label %94
 
 94:                                               ; preds = %check_field_number.exit.thread, %76, %89, %81, %5, %.thread81, %14
-  %.053 = phi i32 [ 0, %14 ], [ 0, %.thread81 ], [ 0, %5 ], [ 1, %81 ], [ 1, %89 ], [ 1, %76 ], [ 0, %check_field_number.exit.thread ]
+  %.053 = phi i32 [ 0, %5 ], [ 0, %14 ], [ 0, %check_field_number.exit.thread ], [ 0, %.thread81 ], [ 1, %81 ], [ 1, %89 ], [ 1, %76 ]
   ret i32 %.053
 }
 
@@ -1237,8 +1237,8 @@ pqSaveMessageField.exit21:                        ; preds = %pqSaveMessageField.
   store i32 %76, ptr %50, align 4
   br label %pqResultAlloc.exit.thread
 
-pqResultAlloc.exit.thread:                        ; preds = %47, %68, %65, %63
-  %.0.i25.ph = phi ptr [ %61, %63 ], [ %61, %65 ], [ %73, %68 ], [ %48, %47 ]
+pqResultAlloc.exit.thread:                        ; preds = %47, %68, %63, %65
+  %.0.i25.ph = phi ptr [ %61, %65 ], [ %61, %63 ], [ %73, %68 ], [ %48, %47 ]
   store ptr %.0.i25.ph, ptr %17, align 8
   br label %85
 
@@ -1391,7 +1391,7 @@ define ptr @pqResultAlloc(ptr noundef captures(address_is_null, ret: address, pr
   br label %61
 
 61:                                               ; preds = %48, %35, %47, %45, %3, %50, %23, %6
-  %.0 = phi ptr [ %7, %6 ], [ %29, %23 ], [ %57, %50 ], [ null, %3 ], [ null, %35 ], [ %42, %47 ], [ %42, %45 ], [ null, %48 ]
+  %.0 = phi ptr [ %7, %6 ], [ %29, %23 ], [ null, %3 ], [ %57, %50 ], [ %42, %45 ], [ null, %35 ], [ %42, %47 ], [ null, %48 ]
   ret ptr %.0
 }
 
@@ -1573,8 +1573,8 @@ pqSetResultError.exit:                            ; preds = %56, %.thread.i
   store i32 %65, ptr %19, align 8
   br label %PQmakeEmptyPGresult.exit.thread
 
-PQmakeEmptyPGresult.exit.thread:                  ; preds = %27, %49, %pqSetResultError.exit, %4, %8
-  %.0 = phi ptr [ %3, %8 ], [ %3, %4 ], [ %28, %pqSetResultError.exit ], [ @OOM_result, %49 ], [ @OOM_result, %27 ]
+PQmakeEmptyPGresult.exit.thread:                  ; preds = %49, %27, %pqSetResultError.exit, %4, %8
+  %.0 = phi ptr [ %3, %8 ], [ %3, %4 ], [ %28, %pqSetResultError.exit ], [ @OOM_result, %27 ], [ @OOM_result, %49 ]
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   %67 = load ptr, ptr %66, align 8
   store ptr %67, ptr %2, align 8
@@ -1774,7 +1774,7 @@ sub_2:                                            ; preds = %sub_1
   br label %78
 
 78:                                               ; preds = %54, %71, %68, %75, %56
-  %.sink = phi i32 [ %74, %71 ], [ %70, %68 ], [ %77, %75 ], [ %63, %56 ], [ 0, %54 ]
+  %.sink = phi i32 [ %74, %71 ], [ %70, %68 ], [ %63, %56 ], [ %77, %75 ], [ 0, %54 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 804
   store i32 %.sink, ptr %79, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2048,7 +2048,7 @@ define range(i32 0, 2) i32 @pqRowProcessor(ptr noundef captures(none) %0, ptr no
   br label %.critedge
 
 .critedge:                                        ; preds = %37, %73, %62, %82, %91, %94, %25, %16
-  %.0 = phi i32 [ 0, %16 ], [ 0, %25 ], [ 1, %94 ], [ 1, %91 ], [ 1, %82 ], [ 0, %62 ], [ 0, %73 ], [ 0, %37 ]
+  %.0 = phi i32 [ 0, %16 ], [ 0, %25 ], [ 1, %91 ], [ 1, %82 ], [ 0, %73 ], [ 1, %94 ], [ 0, %62 ], [ 0, %37 ]
   ret i32 %.0
 }
 
@@ -2167,7 +2167,7 @@ pqRecycleCmdQueueEntry.exit26:                    ; preds = %41, %43
   br label %46
 
 46:                                               ; preds = %pqAllocCmdQueueEntry.exit.thread, %3, %pqRecycleCmdQueueEntry.exit26, %40, %pqRecycleCmdQueueEntry.exit, %10, %6
-  %.0 = phi i32 [ 0, %10 ], [ 0, %pqRecycleCmdQueueEntry.exit ], [ 0, %pqRecycleCmdQueueEntry.exit26 ], [ 1, %40 ], [ 0, %6 ], [ 0, %3 ], [ 0, %pqAllocCmdQueueEntry.exit.thread ]
+  %.0 = phi i32 [ 0, %10 ], [ 0, %3 ], [ 0, %pqRecycleCmdQueueEntry.exit ], [ 0, %pqRecycleCmdQueueEntry.exit26 ], [ 1, %40 ], [ 0, %6 ], [ 0, %pqAllocCmdQueueEntry.exit.thread ]
   ret i32 %.0
 }
 
@@ -2286,7 +2286,7 @@ define internal fastcc noundef zeroext i1 @PQsendQueryStart(ptr noundef %0, i1 n
   br label %.thread24
 
 .thread24:                                        ; preds = %21, %24, %22, %2, %23, %20, %14
-  %.0 = phi i1 [ false, %14 ], [ false, %20 ], [ false, %23 ], [ false, %2 ], [ true, %22 ], [ true, %24 ], [ true, %21 ]
+  %.0 = phi i1 [ false, %14 ], [ false, %20 ], [ false, %2 ], [ false, %23 ], [ true, %22 ], [ true, %24 ], [ true, %21 ]
   ret i1 %.0
 }
 
@@ -2623,7 +2623,7 @@ pqRecycleCmdQueueEntry.exit:                      ; preds = %.thread, %154
   br label %157
 
 157:                                              ; preds = %pqAllocCmdQueueEntry.exit.thread, %pqRecycleCmdQueueEntry.exit, %pqPipelineFlush.exit.thread
-  %.088 = phi i32 [ 0, %pqRecycleCmdQueueEntry.exit ], [ 1, %pqPipelineFlush.exit.thread ], [ 0, %pqAllocCmdQueueEntry.exit.thread ]
+  %.088 = phi i32 [ 1, %pqPipelineFlush.exit.thread ], [ 0, %pqRecycleCmdQueueEntry.exit ], [ 0, %pqAllocCmdQueueEntry.exit.thread ]
   ret i32 %.088
 }
 
@@ -2790,7 +2790,7 @@ pqRecycleCmdQueueEntry.exit:                      ; preds = %.thread, %69
   br label %72
 
 72:                                               ; preds = %pqAllocCmdQueueEntry.exit.thread, %5, %pqRecycleCmdQueueEntry.exit, %pqPipelineFlush.exit.thread, %12, %10, %8
-  %.043 = phi i32 [ 0, %12 ], [ 0, %pqRecycleCmdQueueEntry.exit ], [ 1, %pqPipelineFlush.exit.thread ], [ 0, %10 ], [ 0, %8 ], [ 0, %5 ], [ 0, %pqAllocCmdQueueEntry.exit.thread ]
+  %.043 = phi i32 [ 0, %12 ], [ 0, %5 ], [ 0, %pqRecycleCmdQueueEntry.exit ], [ 0, %pqAllocCmdQueueEntry.exit.thread ], [ 1, %pqPipelineFlush.exit.thread ], [ 0, %10 ], [ 0, %8 ]
   ret i32 %.043
 }
 
@@ -2933,8 +2933,8 @@ canChangeResultMode.exit:                         ; preds = %10
   store i32 1, ptr %19, align 4
   br label %canChangeResultMode.exit.thread
 
-canChangeResultMode.exit.thread:                  ; preds = %10, %5, %8, %2, %1, %canChangeResultMode.exit, %16
-  %.0 = phi i32 [ 1, %16 ], [ 0, %canChangeResultMode.exit ], [ 0, %1 ], [ 0, %2 ], [ 0, %8 ], [ 0, %5 ], [ 0, %10 ]
+canChangeResultMode.exit.thread:                  ; preds = %8, %10, %5, %2, %1, %canChangeResultMode.exit, %16
+  %.0 = phi i32 [ 1, %16 ], [ 0, %canChangeResultMode.exit ], [ 0, %1 ], [ 0, %2 ], [ 0, %5 ], [ 0, %10 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -2983,8 +2983,8 @@ canChangeResultMode.exit:                         ; preds = %12
   store i32 %1, ptr %21, align 4
   br label %canChangeResultMode.exit.thread
 
-canChangeResultMode.exit.thread:                  ; preds = %12, %7, %10, %4, %2, %canChangeResultMode.exit, %18
-  %.0 = phi i32 [ 1, %18 ], [ 0, %canChangeResultMode.exit ], [ 0, %2 ], [ 0, %4 ], [ 0, %10 ], [ 0, %7 ], [ 0, %12 ]
+canChangeResultMode.exit.thread:                  ; preds = %10, %12, %7, %4, %2, %canChangeResultMode.exit, %18
+  %.0 = phi i32 [ 1, %18 ], [ 0, %canChangeResultMode.exit ], [ 0, %2 ], [ 0, %10 ], [ 0, %4 ], [ 0, %7 ], [ 0, %12 ]
   ret i32 %.0
 }
 
@@ -3011,7 +3011,7 @@ define range(i32 0, 2) i32 @PQconsumeInput(ptr noundef %0) local_unnamed_addr #0
   br label %12
 
 12:                                               ; preds = %9, %6, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %6 ], [ %., %9 ]
+  %.0 = phi i32 [ 0, %1 ], [ %., %9 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -3376,7 +3376,7 @@ pqCommandQueueAdvance.exit:                       ; preds = %47, %52, %pqRecycle
   br label %getCopyResult.exit
 
 getCopyResult.exit:                               ; preds = %134, %132, %122, %115, %113, %103, %96, %94, %84, %43, %136, %77
-  %.045 = phi ptr [ %142, %136 ], [ %44, %43 ], [ %78, %77 ], [ %88, %84 ], [ %95, %94 ], [ %97, %96 ], [ %107, %103 ], [ %114, %113 ], [ %116, %115 ], [ %126, %122 ], [ %133, %132 ], [ %135, %134 ]
+  %.045 = phi ptr [ %142, %136 ], [ %116, %115 ], [ %107, %103 ], [ %44, %43 ], [ %126, %122 ], [ %133, %132 ], [ %135, %134 ], [ %78, %77 ], [ %114, %113 ], [ %97, %96 ], [ %88, %84 ], [ %95, %94 ]
   %.not52 = icmp eq ptr %.045, null
   br i1 %.not52, label %.thread67, label %getCopyResult.exit.thread
 
@@ -3392,7 +3392,7 @@ getCopyResult.exit.thread:                        ; preds = %76, %72, %75, %getC
   br label %.thread67
 
 .thread67:                                        ; preds = %5, %42, %pqSaveWriteError.exit, %.thread, %getCopyResult.exit, %getCopyResult.exit.thread, %146, %1
-  %.046 = phi ptr [ null, %1 ], [ %.04572, %146 ], [ %.04572, %getCopyResult.exit.thread ], [ null, %getCopyResult.exit ], [ %41, %pqSaveWriteError.exit ], [ %22, %.thread ], [ null, %42 ], [ null, %5 ]
+  %.046 = phi ptr [ %22, %.thread ], [ null, %1 ], [ %.04572, %146 ], [ %.04572, %getCopyResult.exit.thread ], [ null, %getCopyResult.exit ], [ %41, %pqSaveWriteError.exit ], [ null, %42 ], [ null, %5 ]
   ret ptr %.046
 }
 
@@ -3583,7 +3583,7 @@ define ptr @PQexec(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %15, label %PQexecFinish.exit, label %8, !llvm.loop !24
 
 PQexecFinish.exit:                                ; preds = %13, %10, %10, %10, %8, %4, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %4 ], [ %9, %10 ], [ %9, %10 ], [ %.0.i, %8 ], [ %9, %13 ], [ %9, %10 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %2 ], [ %.0.i, %8 ], [ %9, %13 ], [ %9, %10 ], [ %9, %10 ], [ %9, %10 ]
   ret ptr %.0
 }
 
@@ -3651,7 +3651,7 @@ define internal fastcc noundef zeroext i1 @PQexecStart(ptr noundef %0) unnamed_a
   br label %.critedge
 
 .critedge:                                        ; preds = %19, %14, %23, %.critedge.sink.split, %1
-  %.0 = phi i1 [ false, %1 ], [ false, %.critedge.sink.split ], [ %.not22, %23 ], [ %.not22, %14 ], [ %.not22, %19 ]
+  %.0 = phi i1 [ false, %.critedge.sink.split ], [ false, %1 ], [ %.not22, %23 ], [ %.not22, %14 ], [ %.not22, %19 ]
   ret i1 %.0
 }
 
@@ -3711,7 +3711,7 @@ PQsendQueryParams.exit:                           ; preds = %14
   br i1 %26, label %PQexecFinish.exit, label %19, !llvm.loop !24
 
 PQexecFinish.exit:                                ; preds = %24, %21, %21, %21, %19, %10, %13, %15, %PQsendQueryParams.exit, %8
-  %.0 = phi ptr [ null, %8 ], [ null, %PQsendQueryParams.exit ], [ null, %15 ], [ null, %13 ], [ null, %10 ], [ %20, %21 ], [ %20, %21 ], [ %.0.i10, %19 ], [ %20, %24 ], [ %20, %21 ]
+  %.0 = phi ptr [ null, %13 ], [ null, %8 ], [ null, %PQsendQueryParams.exit ], [ null, %10 ], [ null, %15 ], [ %20, %24 ], [ %20, %21 ], [ %20, %21 ], [ %20, %21 ], [ %.0.i10, %19 ]
   ret ptr %.0
 }
 
@@ -3751,7 +3751,7 @@ define ptr @PQprepare(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 nounde
   br i1 %18, label %PQexecFinish.exit, label %11, !llvm.loop !24
 
 PQexecFinish.exit:                                ; preds = %16, %13, %13, %13, %11, %7, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %7 ], [ %12, %13 ], [ %12, %13 ], [ %.0.i, %11 ], [ %12, %16 ], [ %12, %13 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %5 ], [ %.0.i, %11 ], [ %12, %16 ], [ %12, %13 ], [ %12, %13 ], [ %12, %13 ]
   ret ptr %.0
 }
 
@@ -3811,7 +3811,7 @@ PQsendQueryPrepared.exit:                         ; preds = %13
   br i1 %25, label %PQexecFinish.exit, label %18, !llvm.loop !24
 
 PQexecFinish.exit:                                ; preds = %23, %20, %20, %20, %18, %9, %12, %14, %PQsendQueryPrepared.exit, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %PQsendQueryPrepared.exit ], [ null, %14 ], [ null, %12 ], [ null, %9 ], [ %19, %20 ], [ %19, %20 ], [ %.0.i9, %18 ], [ %19, %23 ], [ %19, %20 ]
+  %.0 = phi ptr [ null, %12 ], [ null, %7 ], [ null, %PQsendQueryPrepared.exit ], [ null, %9 ], [ null, %14 ], [ %19, %23 ], [ %19, %20 ], [ %19, %20 ], [ %19, %20 ], [ %.0.i9, %18 ]
   ret ptr %.0
 }
 
@@ -3851,7 +3851,7 @@ define ptr @PQdescribePrepared(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br i1 %15, label %PQexecFinish.exit, label %8, !llvm.loop !24
 
 PQexecFinish.exit:                                ; preds = %13, %10, %10, %10, %8, %4, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %4 ], [ %9, %10 ], [ %9, %10 ], [ %.0.i, %8 ], [ %9, %13 ], [ %9, %10 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %2 ], [ %.0.i, %8 ], [ %9, %13 ], [ %9, %10 ], [ %9, %10 ], [ %9, %10 ]
   ret ptr %.0
 }
 
@@ -4008,7 +4008,7 @@ pqRecycleCmdQueueEntry.exit:                      ; preds = %68, %70
   br label %pqAppendCmdQueueEntry.exit
 
 pqAppendCmdQueueEntry.exit:                       ; preds = %67, %64, %63, %59, %56, %pqAllocCmdQueueEntry.exit.thread, %4, %pqRecycleCmdQueueEntry.exit
-  %.0 = phi i32 [ 0, %pqRecycleCmdQueueEntry.exit ], [ 0, %4 ], [ 0, %pqAllocCmdQueueEntry.exit.thread ], [ 1, %56 ], [ 1, %59 ], [ 1, %63 ], [ 1, %64 ], [ 1, %67 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %pqRecycleCmdQueueEntry.exit ], [ 0, %pqAllocCmdQueueEntry.exit.thread ], [ 1, %56 ], [ 1, %59 ], [ 1, %63 ], [ 1, %64 ], [ 1, %67 ]
   ret i32 %.0
 }
 
@@ -4048,7 +4048,7 @@ define ptr @PQdescribePortal(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %15, label %PQexecFinish.exit, label %8, !llvm.loop !24
 
 PQexecFinish.exit:                                ; preds = %13, %10, %10, %10, %8, %4, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %4 ], [ %9, %10 ], [ %9, %10 ], [ %.0.i, %8 ], [ %9, %13 ], [ %9, %10 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %2 ], [ %.0.i, %8 ], [ %9, %13 ], [ %9, %10 ], [ %9, %10 ], [ %9, %10 ]
   ret ptr %.0
 }
 
@@ -4100,7 +4100,7 @@ define ptr @PQclosePrepared(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   br i1 %15, label %PQexecFinish.exit, label %8, !llvm.loop !24
 
 PQexecFinish.exit:                                ; preds = %13, %10, %10, %10, %8, %4, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %4 ], [ %9, %10 ], [ %9, %10 ], [ %.0.i, %8 ], [ %9, %13 ], [ %9, %10 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %2 ], [ %.0.i, %8 ], [ %9, %13 ], [ %9, %10 ], [ %9, %10 ], [ %9, %10 ]
   ret ptr %.0
 }
 
@@ -4140,7 +4140,7 @@ define ptr @PQclosePortal(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br i1 %15, label %PQexecFinish.exit, label %8, !llvm.loop !24
 
 PQexecFinish.exit:                                ; preds = %13, %10, %10, %10, %8, %4, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %4 ], [ %9, %10 ], [ %9, %10 ], [ %.0.i, %8 ], [ %9, %13 ], [ %9, %10 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %2 ], [ %.0.i, %8 ], [ %9, %13 ], [ %9, %10 ], [ %9, %10 ], [ %9, %10 ]
   ret ptr %.0
 }
 
@@ -4264,7 +4264,7 @@ define range(i32 -1, 2) i32 @PQputCopyData(ptr noundef %0, ptr noundef %1, i32 n
   br label %45
 
 45:                                               ; preds = %34, %37, %41, %18, %3, %44, %28, %7
-  %.0 = phi i32 [ -1, %7 ], [ %33, %28 ], [ 1, %44 ], [ -1, %3 ], [ -1, %18 ], [ -1, %41 ], [ -1, %37 ], [ -1, %34 ]
+  %.0 = phi i32 [ -1, %7 ], [ -1, %3 ], [ %33, %28 ], [ -1, %18 ], [ 1, %44 ], [ -1, %41 ], [ -1, %37 ], [ -1, %34 ]
   ret i32 %.0
 }
 
@@ -4350,7 +4350,7 @@ define range(i32 -1, 2) i32 @PQputCopyEnd(ptr noundef %0, ptr noundef %1) local_
   br label %38
 
 38:                                               ; preds = %34, %28, %31, %17, %20, %8, %11, %14, %2, %6
-  %.0 = phi i32 [ -1, %6 ], [ -1, %2 ], [ -1, %14 ], [ -1, %11 ], [ -1, %8 ], [ -1, %20 ], [ -1, %17 ], [ -1, %31 ], [ -1, %28 ], [ %spec.select, %34 ]
+  %.0 = phi i32 [ -1, %6 ], [ -1, %2 ], [ -1, %17 ], [ -1, %28 ], [ %spec.select, %34 ], [ -1, %8 ], [ -1, %14 ], [ -1, %11 ], [ -1, %20 ], [ -1, %31 ]
   ret i32 %.0
 }
 
@@ -4401,7 +4401,7 @@ define i32 @PQgetline(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unna
   br label %10
 
 10:                                               ; preds = %6, %3, %8
-  %.0 = phi i32 [ %9, %8 ], [ -1, %3 ], [ -1, %6 ]
+  %.0 = phi i32 [ -1, %6 ], [ -1, %3 ], [ %9, %8 ]
   ret i32 %.0
 }
 
@@ -4553,7 +4553,7 @@ define range(i32 0, 2) i32 @PQenterPipelineMode(ptr noundef %0) local_unnamed_ad
   br label %10
 
 10:                                               ; preds = %2, %1, %9, %8
-  %.0 = phi i32 [ 0, %8 ], [ 1, %9 ], [ 0, %1 ], [ 1, %2 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %8 ], [ 1, %9 ], [ 1, %2 ]
   ret i32 %.0
 }
 
@@ -4624,7 +4624,7 @@ define range(i32 0, 2) i32 @PQexitPipelineMode(ptr noundef %0) local_unnamed_add
   br label %24
 
 24:                                               ; preds = %21, %9, %1, %20, %15, %14
-  %.0 = phi i32 [ 0, %20 ], [ 0, %14 ], [ 0, %15 ], [ 0, %1 ], [ 1, %9 ], [ %., %21 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %20 ], [ %., %21 ], [ 1, %9 ], [ 0, %14 ], [ 0, %15 ]
   ret i32 %.0
 }
 
@@ -4787,7 +4787,7 @@ pqRecycleCmdQueueEntry.exit:                      ; preds = %61, %63
   br label %pqAppendCmdQueueEntry.exit
 
 pqAppendCmdQueueEntry.exit:                       ; preds = %60, %58, %57, %54, %51, %pqAllocCmdQueueEntry.exit.thread, %2, %pqRecycleCmdQueueEntry.exit, %11, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %pqRecycleCmdQueueEntry.exit ], [ 0, %11 ], [ 0, %2 ], [ 0, %pqAllocCmdQueueEntry.exit.thread ], [ 1, %51 ], [ 1, %54 ], [ 1, %57 ], [ 1, %58 ], [ 1, %60 ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %2 ], [ 0, %pqRecycleCmdQueueEntry.exit ], [ 0, %pqAllocCmdQueueEntry.exit.thread ], [ 0, %11 ], [ 1, %51 ], [ 1, %54 ], [ 1, %57 ], [ 1, %58 ], [ 1, %60 ]
   ret i32 %.0
 }
 
@@ -5168,9 +5168,9 @@ define range(i32 -2147483648, 2147483647) i32 @PQfnumber(ptr noundef readonly ca
   br label %40
 
 40:                                               ; preds = %.sink.split, %36, %32
-  %.158 = phi i1 [ false, %32 ], [ true, %36 ], [ %.05779, %.sink.split ]
-  %.2 = phi ptr [ %.15380, %32 ], [ %.15380, %36 ], [ %.2.ph, %.sink.split ]
-  %.151 = phi ptr [ %.05081, %32 ], [ %.05081, %36 ], [ %39, %.sink.split ]
+  %.158 = phi i1 [ true, %36 ], [ false, %32 ], [ %.05779, %.sink.split ]
+  %.2 = phi ptr [ %.15380, %36 ], [ %.15380, %32 ], [ %.2.ph, %.sink.split ]
+  %.151 = phi ptr [ %.05081, %36 ], [ %.05081, %32 ], [ %39, %.sink.split ]
   %41 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %42 = load i8, ptr %41, align 1
   %.not67 = icmp eq i8 %42, 0
@@ -5216,7 +5216,7 @@ define range(i32 -2147483648, 2147483647) i32 @PQfnumber(ptr noundef readonly ca
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.thread71, %4, %7, %2, %._crit_edge86, %52
-  %.0 = phi i32 [ %53, %52 ], [ -1, %._crit_edge86 ], [ -1, %2 ], [ -1, %7 ], [ -1, %4 ], [ -1, %.thread71 ], [ %55, %.loopexit.loopexit ]
+  %.0 = phi i32 [ -1, %2 ], [ -1, %.thread71 ], [ -1, %4 ], [ %53, %52 ], [ -1, %._crit_edge86 ], [ -1, %7 ], [ %55, %.loopexit.loopexit ]
   ret i32 %.0
 }
 
@@ -5522,7 +5522,7 @@ define i32 @PQoidValue(ptr noundef %0) local_unnamed_addr #19 {
   br label %17
 
 17:                                               ; preds = %10, %13, %1, %3, %6, %15
-  %.0 = phi i32 [ %16, %15 ], [ 0, %6 ], [ 0, %3 ], [ 0, %1 ], [ 0, %13 ], [ 0, %10 ]
+  %.0 = phi i32 [ %16, %15 ], [ 0, %1 ], [ 0, %6 ], [ 0, %3 ], [ 0, %13 ], [ 0, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -5641,7 +5641,7 @@ define noundef nonnull ptr @PQcmdTuples(ptr noundef %0) local_unnamed_addr #0 {
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %51, %36, %1, %.loopexit
-  %.029 = phi ptr [ @.str.30, %.loopexit ], [ @.str.30, %1 ], [ @.str.30, %36 ], [ %.1, %51 ]
+  %.029 = phi ptr [ @.str.30, %.loopexit ], [ @.str.30, %36 ], [ @.str.30, %1 ], [ %.1, %51 ]
   ret ptr %.029
 }
 
@@ -5890,7 +5890,7 @@ define range(i32 -1, 1) i32 @PQsetnonblocking(ptr noundef %0, i32 noundef %1) lo
   br label %23
 
 23:                                               ; preds = %20, %7, %2, %3, %22
-  %.0 = phi i32 [ 0, %22 ], [ -1, %3 ], [ -1, %2 ], [ 0, %7 ], [ -1, %20 ]
+  %.0 = phi i32 [ 0, %22 ], [ -1, %2 ], [ 0, %7 ], [ -1, %3 ], [ -1, %20 ]
   ret i32 %.0
 }
 
@@ -6247,7 +6247,7 @@ define internal fastcc noundef i64 @PQescapeStringInternal(ptr noundef %0, ptr n
   br i1 %.not66, label %._crit_edge, label %.lr.ph80.split
 
 ._crit_edge:                                      ; preds = %.loopexit, %.loopexit.us, %.loopexit.us.us, %10
-  %.050.lcssa = phi ptr [ %1, %10 ], [ %.252.us.us, %.loopexit.us.us ], [ %.252.us, %.loopexit.us ], [ %.252, %.loopexit ]
+  %.050.lcssa = phi ptr [ %1, %10 ], [ %.252.us, %.loopexit.us ], [ %.252.us.us, %.loopexit.us.us ], [ %.252, %.loopexit ]
   store i8 0, ptr %.050.lcssa, align 1
   %96 = ptrtoint ptr %.050.lcssa to i64
   %97 = ptrtoint ptr %1 to i64
@@ -6568,7 +6568,7 @@ define internal fastcc noalias ptr @PQescapeByteaInternal(ptr noundef %0, ptr no
   br label %16
 
 16:                                               ; preds = %10, %13, %14, %15
-  %.pn = phi i64 [ %8, %14 ], [ 1, %15 ], [ 2, %13 ], [ %9, %10 ]
+  %.pn = phi i64 [ 2, %13 ], [ 1, %15 ], [ %8, %14 ], [ %9, %10 ]
   %.2 = add i64 %.pn, %.17188
   %17 = add i64 %.07287, -1
   %18 = getelementptr inbounds nuw i8, ptr %.06989, i64 1
@@ -6696,7 +6696,7 @@ define internal fastcc noalias ptr @PQescapeByteaInternal(ptr noundef %0, ptr no
   br label %67
 
 67:                                               ; preds = %56, %55, %53, %51
-  %.3.us101 = phi ptr [ %66, %56 ], [ %54, %53 ], [ %52, %51 ], [ %49, %55 ]
+  %.3.us101 = phi ptr [ %49, %55 ], [ %66, %56 ], [ %54, %53 ], [ %52, %51 ]
   %68 = add i64 %.17392.us99, -1
   %69 = getelementptr inbounds nuw i8, ptr %.193.us98, i64 1
   %.not81.us102 = icmp eq i64 %68, 0
@@ -6755,15 +6755,15 @@ define internal fastcc noalias ptr @PQescapeByteaInternal(ptr noundef %0, ptr no
   br label %93
 
 93:                                               ; preds = %72, %89, %91, %86
-  %.3 = phi ptr [ %84, %72 ], [ %88, %86 ], [ %90, %89 ], [ %92, %91 ]
+  %.3 = phi ptr [ %92, %91 ], [ %84, %72 ], [ %88, %86 ], [ %90, %89 ]
   %94 = add i64 %.17392, -1
   %95 = getelementptr inbounds nuw i8, ptr %.193, i64 1
   %.not81 = icmp eq i64 %94, 0
   br i1 %.not81, label %._crit_edge96, label %.lr.ph95.split.split, !llvm.loop !38
 
 ._crit_edge96:                                    ; preds = %93, %67, %.lr.ph95.split.us, %.thread114, %30
-  %96 = phi ptr [ %19, %30 ], [ %24, %.thread114 ], [ %24, %.lr.ph95.split.us ], [ %19, %67 ], [ %19, %93 ]
-  %.276.lcssa = phi ptr [ %19, %30 ], [ %32, %.thread114 ], [ %44, %.lr.ph95.split.us ], [ %.3.us101, %67 ], [ %.3, %93 ]
+  %96 = phi ptr [ %19, %30 ], [ %24, %.lr.ph95.split.us ], [ %24, %.thread114 ], [ %19, %67 ], [ %19, %93 ]
+  %.276.lcssa = phi ptr [ %19, %30 ], [ %44, %.lr.ph95.split.us ], [ %32, %.thread114 ], [ %.3.us101, %67 ], [ %.3, %93 ]
   store i8 0, ptr %.276.lcssa, align 1
   br label %97
 
@@ -6934,8 +6934,8 @@ get_hex.exit.thread:                              ; preds = %get_hex.exit.thread
   br label %73
 
 73:                                               ; preds = %.sink.split, %60, %56, %54
-  %.184 = phi i64 [ %47, %60 ], [ %47, %56 ], [ %47, %54 ], [ %.184.ph, %.sink.split ]
-  %.182 = phi i64 [ %.081110, %60 ], [ %.081110, %56 ], [ %.081110, %54 ], [ %71, %.sink.split ]
+  %.184 = phi i64 [ %47, %60 ], [ %47, %54 ], [ %47, %56 ], [ %.184.ph, %.sink.split ]
+  %.182 = phi i64 [ %.081110, %60 ], [ %.081110, %54 ], [ %.081110, %56 ], [ %71, %.sink.split ]
   %74 = icmp ult i64 %.184, %5
   br i1 %74, label %.lr.ph, label %.loopexit, !llvm.loop !40
 
@@ -6956,7 +6956,7 @@ get_hex.exit.thread:                              ; preds = %get_hex.exit.thread
   br label %.critedge
 
 .critedge:                                        ; preds = %12, %41, %2, %78, %77
-  %.0 = phi ptr [ %76, %78 ], [ null, %77 ], [ null, %2 ], [ null, %41 ], [ null, %12 ]
+  %.0 = phi ptr [ null, %41 ], [ %76, %78 ], [ null, %77 ], [ null, %12 ], [ null, %2 ]
   ret ptr %.0
 }
 

@@ -538,8 +538,8 @@ Vec_IntAlloc.exit:                                ; preds = %._crit_edge, %28
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %57, %59, %49, %51
-  %.sink69 = phi ptr [ %50, %49 ], [ %52, %51 ], [ %58, %57 ], [ %60, %59 ]
-  %.sink = phi i32 [ 16, %49 ], [ 16, %51 ], [ %54, %57 ], [ %54, %59 ]
+  %.sink69 = phi ptr [ %52, %51 ], [ %50, %49 ], [ %58, %57 ], [ %60, %59 ]
+  %.sink = phi i32 [ 16, %51 ], [ 16, %49 ], [ %54, %57 ], [ %54, %59 ]
   store ptr %.sink69, ptr %33, align 8, !tbaa !43
   store i32 %.sink, ptr %25, align 8, !tbaa !42
   br label %Vec_IntPush.exit
@@ -961,8 +961,8 @@ Sml_NodeNotImpWeight.exit:                        ; preds = %.lr.ph.i167
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %156, %158, %148, %150
-  %.sink385 = phi ptr [ %149, %148 ], [ %151, %150 ], [ %157, %156 ], [ %159, %158 ]
-  %.sink = phi i32 [ 16, %148 ], [ 16, %150 ], [ %153, %156 ], [ %153, %158 ]
+  %.sink385 = phi ptr [ %151, %150 ], [ %149, %148 ], [ %157, %156 ], [ %159, %158 ]
+  %.sink = phi i32 [ 16, %150 ], [ 16, %148 ], [ %153, %156 ], [ %153, %158 ]
   store ptr %.sink385, ptr %47, align 8, !tbaa !43
   store i32 %.sink, ptr %39, align 8, !tbaa !42
   br label %Vec_IntPush.exit
@@ -1011,14 +1011,14 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br i1 %169, label %.lr.ph279, label %.loopexit182, !llvm.loop !71
 
 .loopexit182:                                     ; preds = %._crit_edge280, %Vec_IntPush.exit, %.preheader.lr.ph, %Vec_IntAlloc.exit
-  %170 = phi ptr [ %46, %Vec_IntAlloc.exit ], [ %46, %.preheader.lr.ph ], [ %.pre.i335, %Vec_IntPush.exit ], [ %.pre.i339, %._crit_edge280 ]
-  %.val150 = phi i32 [ 0, %Vec_IntAlloc.exit ], [ 0, %.preheader.lr.ph ], [ %1, %Vec_IntPush.exit ], [ %.val154330, %._crit_edge280 ]
-  %.4125 = phi i32 [ 0, %Vec_IntAlloc.exit ], [ 0, %.preheader.lr.ph ], [ %72, %Vec_IntPush.exit ], [ %.2123.lcssa, %._crit_edge280 ]
-  %.5120 = phi i32 [ 0, %Vec_IntAlloc.exit ], [ 0, %.preheader.lr.ph ], [ %.3118235, %Vec_IntPush.exit ], [ %.2117.lcssa, %._crit_edge280 ]
-  %.5114 = phi i32 [ 0, %Vec_IntAlloc.exit ], [ 0, %.preheader.lr.ph ], [ %.3112236, %Vec_IntPush.exit ], [ %.2111.lcssa, %._crit_edge280 ]
-  %.5108 = phi i32 [ 0, %Vec_IntAlloc.exit ], [ 0, %.preheader.lr.ph ], [ %136, %Vec_IntPush.exit ], [ %.2105.lcssa, %._crit_edge280 ]
-  %.5102 = phi i32 [ 1000000000, %Vec_IntAlloc.exit ], [ 1000000000, %.preheader.lr.ph ], [ %141, %Vec_IntPush.exit ], [ %.299.lcssa, %._crit_edge280 ]
-  %.5 = phi i32 [ 0, %Vec_IntAlloc.exit ], [ 0, %.preheader.lr.ph ], [ %142, %Vec_IntPush.exit ], [ %.2.lcssa, %._crit_edge280 ]
+  %170 = phi ptr [ %.pre.i335, %Vec_IntPush.exit ], [ %46, %Vec_IntAlloc.exit ], [ %46, %.preheader.lr.ph ], [ %.pre.i339, %._crit_edge280 ]
+  %.val150 = phi i32 [ %1, %Vec_IntPush.exit ], [ 0, %Vec_IntAlloc.exit ], [ 0, %.preheader.lr.ph ], [ %.val154330, %._crit_edge280 ]
+  %.4125 = phi i32 [ %72, %Vec_IntPush.exit ], [ 0, %Vec_IntAlloc.exit ], [ 0, %.preheader.lr.ph ], [ %.2123.lcssa, %._crit_edge280 ]
+  %.5120 = phi i32 [ %.3118235, %Vec_IntPush.exit ], [ 0, %Vec_IntAlloc.exit ], [ 0, %.preheader.lr.ph ], [ %.2117.lcssa, %._crit_edge280 ]
+  %.5114 = phi i32 [ %.3112236, %Vec_IntPush.exit ], [ 0, %Vec_IntAlloc.exit ], [ 0, %.preheader.lr.ph ], [ %.2111.lcssa, %._crit_edge280 ]
+  %.5108 = phi i32 [ %136, %Vec_IntPush.exit ], [ 0, %Vec_IntAlloc.exit ], [ 0, %.preheader.lr.ph ], [ %.2105.lcssa, %._crit_edge280 ]
+  %.5102 = phi i32 [ %141, %Vec_IntPush.exit ], [ 1000000000, %Vec_IntAlloc.exit ], [ 1000000000, %.preheader.lr.ph ], [ %.299.lcssa, %._crit_edge280 ]
+  %.5 = phi i32 [ %142, %Vec_IntPush.exit ], [ 0, %Vec_IntAlloc.exit ], [ 0, %.preheader.lr.ph ], [ %.2.lcssa, %._crit_edge280 ]
   call void @Fra_SmlStop(ptr noundef %16) #22
   call void @Fra_SmlStop(ptr noundef %21) #22
   store i32 %.5102, ptr %7, align 4, !tbaa !29

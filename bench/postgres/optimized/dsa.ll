@@ -1714,9 +1714,9 @@ define internal fastcc noundef ptr @make_new_segment(ptr noundef captures(ret: a
   br i1 %or.cond, label %.loopexit, label %44
 
 44:                                               ; preds = %34, %30
-  %.0102 = phi i64 [ %32, %30 ], [ %1, %34 ]
-  %.0101 = phi i64 [ %23, %30 ], [ %41, %34 ]
-  %.1 = phi i64 [ %.0100, %30 ], [ %.2, %34 ]
+  %.0102 = phi i64 [ %1, %34 ], [ %32, %30 ]
+  %.0101 = phi i64 [ %41, %34 ], [ %23, %30 ]
+  %.1 = phi i64 [ %.2, %34 ], [ %.0100, %30 ]
   %45 = load ptr, ptr @CurrentResourceOwner, align 8
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = load ptr, ptr %46, align 8
@@ -1845,7 +1845,7 @@ contiguous_pages_to_segment_bin.exit:             ; preds = %65, %93
   br label %.loopexit
 
 .loopexit:                                        ; preds = %9, %contiguous_pages_to_segment_bin.exit, %123, %44, %34, %15, %.thread
-  %.0 = phi ptr [ null, %.thread ], [ null, %15 ], [ null, %34 ], [ null, %44 ], [ %71, %123 ], [ %71, %contiguous_pages_to_segment_bin.exit ], [ null, %9 ]
+  %.0 = phi ptr [ null, %44 ], [ %71, %123 ], [ null, %.thread ], [ null, %15 ], [ null, %34 ], [ %71, %contiguous_pages_to_segment_bin.exit ], [ null, %9 ]
   ret ptr %.0
 }
 

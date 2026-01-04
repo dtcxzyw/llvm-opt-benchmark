@@ -180,7 +180,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1022,7 +1022,7 @@ define noundef zeroext i1 @_ZNK6icu_778numparse4impl23CombinedCurrencyMatcher13m
   br label %.thread
 
 .thread:                                          ; preds = %81, %82, %99, %50, %25
-  %.0 = phi i1 [ %16, %25 ], [ %41, %50 ], [ %98, %99 ], [ %98, %82 ], [ %72, %81 ]
+  %.0 = phi i1 [ %16, %25 ], [ %41, %50 ], [ %98, %99 ], [ %72, %81 ], [ %98, %82 ]
   ret i1 %.0
 }
 

@@ -222,7 +222,7 @@ ByteReverseWords64.exit65.i:                      ; preds = %.lr.ph.i61.i
   br label %Sha512Update.exit
 
 Sha512Update.exit:                                ; preds = %8, %44, %.loopexit.i, %5, %3
-  %.0 = phi i32 [ -173, %3 ], [ %.mux, %5 ], [ %.mux10, %8 ], [ 0, %44 ], [ 0, %.loopexit.i ]
+  %.0 = phi i32 [ %.mux, %5 ], [ -173, %3 ], [ 0, %.loopexit.i ], [ %.mux10, %8 ], [ 0, %44 ]
   ret i32 %.0
 }
 
@@ -580,7 +580,7 @@ ByteReverseWords64.exit65.i:                      ; preds = %.lr.ph.i61.i
   br label %Sha512Update.exit
 
 Sha512Update.exit:                                ; preds = %8, %44, %.loopexit.i, %5, %3
-  %.0 = phi i32 [ -173, %3 ], [ %.mux, %5 ], [ %.mux10, %8 ], [ 0, %44 ], [ 0, %.loopexit.i ]
+  %.0 = phi i32 [ %.mux, %5 ], [ -173, %3 ], [ 0, %.loopexit.i ], [ %.mux10, %8 ], [ 0, %44 ]
   ret i32 %.0
 }
 

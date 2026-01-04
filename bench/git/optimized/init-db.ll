@@ -263,7 +263,7 @@ define dso_local i32 @cmd_init_db(i32 noundef %0, ptr noundef %1, ptr noundef %2
   br label %99
 
 99:                                               ; preds = %95, %95, %97, %93
-  %.050 = phi ptr [ %98, %97 ], [ null, %95 ], [ null, %93 ], [ null, %95 ]
+  %.050 = phi ptr [ null, %95 ], [ %98, %97 ], [ null, %95 ], [ null, %93 ]
   %100 = icmp eq i32 %82, 1
   br i1 %100, label %.preheader, label %123
 
@@ -564,7 +564,7 @@ sub_1.i:                                          ; preds = %206
   br label %guess_repository_type.exit
 
 guess_repository_type.exit:                       ; preds = %.tail.i, %215, %218, %222, %224
-  %.0.i87 = phi i32 [ 1, %224 ], [ 1, %.tail.i ], [ 1, %215 ], [ 0, %218 ], [ 0, %222 ]
+  %.0.i87 = phi i32 [ 1, %.tail.i ], [ 1, %224 ], [ 0, %218 ], [ 1, %215 ], [ 0, %222 ]
   store i32 %.0.i87, ptr @is_bare_repository_cfg, align 4, !tbaa !9
   br label %225
 

@@ -148,7 +148,7 @@ define noundef zeroext i1 @_ZNK5boost13serialization16void_cast_detail11void_cas
   br label %20
 
 20:                                               ; preds = %13, %9, %7, %18
-  %.0 = phi i1 [ %19, %18 ], [ true, %7 ], [ false, %9 ], [ false, %13 ]
+  %.0 = phi i1 [ false, %9 ], [ true, %7 ], [ %19, %18 ], [ false, %13 ]
   ret i1 %.0
 }
 
@@ -1135,7 +1135,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIPKN5boost13serialization16void_ca
   br label %_ZNK5boost13serialization16void_cast_detail19void_caster_compareclEPKNS1_11void_casterES5_.exit
 
 _ZNK5boost13serialization16void_cast_detail19void_caster_compareclEPKNS1_11void_casterES5_.exit: ; preds = %27, %22, %18, %16, %5
-  %29 = phi i1 [ true, %5 ], [ %28, %27 ], [ true, %16 ], [ false, %18 ], [ false, %22 ]
+  %29 = phi i1 [ false, %22 ], [ true, %5 ], [ false, %18 ], [ true, %16 ], [ %28, %27 ]
   %30 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #15
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %32 = load ptr, ptr %3, align 8, !tbaa !19
@@ -1249,7 +1249,7 @@ _ZNK5boost13serialization16void_cast_detail19void_caster_compareclEPKNS1_11void_
   br label %_ZNSt8_Rb_treeIPKN5boost13serialization16void_cast_detail11void_casterES5_St9_IdentityIS5_ENS2_19void_caster_compareESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRKS5_.exit.thread
 
 _ZNSt8_Rb_treeIPKN5boost13serialization16void_cast_detail11void_casterES5_St9_IdentityIS5_ENS2_19void_caster_compareESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRKS5_.exit.thread: ; preds = %35, %2, %_ZNSt8_Rb_treeIPKN5boost13serialization16void_cast_detail11void_casterES5_St9_IdentityIS5_ENS2_19void_caster_compareESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRKS5_.exit, %_ZNK5boost13serialization16void_cast_detail19void_caster_compareclEPKNS1_11void_casterES5_.exit, %_ZNK5boost13serialization16void_cast_detail19void_caster_compareclEPKNS1_11void_casterES5_.exit.thread
-  %.sroa.0.0 = phi ptr [ %.19.i, %_ZNK5boost13serialization16void_cast_detail19void_caster_compareclEPKNS1_11void_casterES5_.exit.thread ], [ %5, %_ZNK5boost13serialization16void_cast_detail19void_caster_compareclEPKNS1_11void_casterES5_.exit ], [ %5, %_ZNSt8_Rb_treeIPKN5boost13serialization16void_cast_detail11void_casterES5_St9_IdentityIS5_ENS2_19void_caster_compareESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRKS5_.exit ], [ %5, %2 ], [ %5, %35 ]
+  %.sroa.0.0 = phi ptr [ %.19.i, %_ZNK5boost13serialization16void_cast_detail19void_caster_compareclEPKNS1_11void_casterES5_.exit.thread ], [ %5, %2 ], [ %5, %_ZNSt8_Rb_treeIPKN5boost13serialization16void_cast_detail11void_casterES5_St9_IdentityIS5_ENS2_19void_caster_compareESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRKS5_.exit ], [ %5, %_ZNK5boost13serialization16void_cast_detail19void_caster_compareclEPKNS1_11void_casterES5_.exit ], [ %5, %35 ]
   ret ptr %.sroa.0.0
 }
 
@@ -1351,7 +1351,7 @@ _ZNK5boost13serialization16void_cast_detail19void_caster_compareclEPKNS1_11void_
   br label %_ZNKSt8_Rb_treeIPKN5boost13serialization16void_cast_detail11void_casterES5_St9_IdentityIS5_ENS2_19void_caster_compareESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit.thread
 
 _ZNKSt8_Rb_treeIPKN5boost13serialization16void_cast_detail11void_casterES5_St9_IdentityIS5_ENS2_19void_caster_compareESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit.thread: ; preds = %35, %2, %_ZNKSt8_Rb_treeIPKN5boost13serialization16void_cast_detail11void_casterES5_St9_IdentityIS5_ENS2_19void_caster_compareESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit, %_ZNK5boost13serialization16void_cast_detail19void_caster_compareclEPKNS1_11void_casterES5_.exit, %_ZNK5boost13serialization16void_cast_detail19void_caster_compareclEPKNS1_11void_casterES5_.exit.thread
-  %.sroa.0.0 = phi ptr [ %.19.i, %_ZNK5boost13serialization16void_cast_detail19void_caster_compareclEPKNS1_11void_casterES5_.exit.thread ], [ %5, %_ZNK5boost13serialization16void_cast_detail19void_caster_compareclEPKNS1_11void_casterES5_.exit ], [ %5, %_ZNKSt8_Rb_treeIPKN5boost13serialization16void_cast_detail11void_casterES5_St9_IdentityIS5_ENS2_19void_caster_compareESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit ], [ %5, %2 ], [ %5, %35 ]
+  %.sroa.0.0 = phi ptr [ %.19.i, %_ZNK5boost13serialization16void_cast_detail19void_caster_compareclEPKNS1_11void_casterES5_.exit.thread ], [ %5, %2 ], [ %5, %_ZNKSt8_Rb_treeIPKN5boost13serialization16void_cast_detail11void_casterES5_St9_IdentityIS5_ENS2_19void_caster_compareESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit ], [ %5, %_ZNK5boost13serialization16void_cast_detail19void_caster_compareclEPKNS1_11void_casterES5_.exit ], [ %5, %35 ]
   ret ptr %.sroa.0.0
 }
 

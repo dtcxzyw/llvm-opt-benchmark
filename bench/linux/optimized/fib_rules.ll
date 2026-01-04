@@ -312,7 +312,7 @@ define dso_local noundef ptr @fib_rules_register(ptr noundef %0, ptr noundef %1)
   br label %51
 
 51:                                               ; preds = %.thread4, %.thread, %2
-  %52 = phi ptr [ %50, %.thread ], [ inttoptr (i64 -12 to ptr), %2 ], [ %3, %.thread4 ]
+  %52 = phi ptr [ %50, %.thread ], [ %3, %.thread4 ], [ inttoptr (i64 -12 to ptr), %2 ]
   ret ptr %52
 }
 
@@ -1299,7 +1299,7 @@ define dso_local range(i32 -2147483648, 1) i32 @fib_nl_newrule(ptr noundef %0, p
   br label %.thread26
 
 .thread26:                                        ; preds = %37, %39, %15, %17, %.thread29
-  %309 = phi i32 [ %307, %.thread29 ], [ -97, %37 ], [ -97, %39 ], [ -22, %15 ], [ -22, %17 ]
+  %309 = phi i32 [ -22, %17 ], [ %307, %.thread29 ], [ -97, %37 ], [ -97, %39 ], [ -22, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1743,7 +1743,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @fib_nl2rule(ptr %.24.val.4
   store i16 %261, ptr %262, align 2
   br label %265
 
-263:                                              ; preds = %250, %255
+263:                                              ; preds = %255, %250
   call void @do_trace_netlink_extack(ptr noundef nonnull @fib_nl2rule.__msg.15) #16
   %264 = icmp eq ptr %1, null
   br i1 %264, label %288, label %285
@@ -1777,7 +1777,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @fib_nl2rule(ptr %.24.val.4
   store i16 %280, ptr %281, align 2
   br label %284
 
-282:                                              ; preds = %269, %274
+282:                                              ; preds = %274, %269
   call void @do_trace_netlink_extack(ptr noundef nonnull @fib_nl2rule.__msg.16) #16
   %283 = icmp eq ptr %1, null
   br i1 %283, label %288, label %285
@@ -2297,7 +2297,7 @@ define dso_local i32 @fib_nl_delrule(ptr noundef readonly captures(none) %0, ptr
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %244, %259, %254
-  %263 = phi i32 [ %255, %259 ], [ %255, %254 ], [ %253, %244 ]
+  %263 = phi i32 [ %255, %254 ], [ %255, %259 ], [ %253, %244 ]
   %264 = icmp sgt i32 %263, 0
   br i1 %264, label %265, label %.loopexit
 
@@ -2413,9 +2413,9 @@ define dso_local i32 @fib_nl_delrule(ptr noundef readonly captures(none) %0, ptr
   br label %328
 
 .thread34:                                        ; preds = %222, %315, %236, %227, %225
-  %319 = phi ptr [ %59, %236 ], [ %59, %225 ], [ %59, %227 ], [ null, %315 ], [ %59, %222 ]
-  %320 = phi i32 [ %237, %236 ], [ -2, %225 ], [ -1, %227 ], [ %317, %315 ], [ -2, %222 ]
-  %321 = phi ptr [ %30, %236 ], [ %30, %225 ], [ %30, %227 ], [ %318, %315 ], [ %30, %222 ]
+  %319 = phi ptr [ %59, %225 ], [ %59, %236 ], [ null, %315 ], [ %59, %227 ], [ %59, %222 ]
+  %320 = phi i32 [ -2, %225 ], [ %237, %236 ], [ %317, %315 ], [ -1, %227 ], [ -2, %222 ]
+  %321 = phi ptr [ %30, %225 ], [ %30, %236 ], [ %318, %315 ], [ %30, %227 ], [ %30, %222 ]
   call void @kfree(ptr noundef %319) #16
   %322 = icmp eq ptr %321, null
   br i1 %322, label %328, label %323
@@ -3261,7 +3261,7 @@ split22:                                          ; preds = %153, %._crit_edge21
   br label %.thread
 
 .thread:                                          ; preds = %56, %54, %50, %16, %.thread14, %161, %78
-  %164 = phi i32 [ -97, %78 ], [ %163, %161 ], [ -97, %.thread14 ], [ -22, %16 ], [ -22, %50 ], [ -22, %54 ], [ -22, %56 ]
+  %164 = phi i32 [ -97, %.thread14 ], [ -97, %78 ], [ %163, %161 ], [ -22, %16 ], [ -22, %50 ], [ -22, %54 ], [ -22, %56 ]
   ret i32 %164
 }
 

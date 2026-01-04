@@ -1101,7 +1101,7 @@ _ZN4absl13base_internal14SpinLockHolderD2Ev.exit: ; preds = %_ZN4absl13base_inte
   ret void
 
 251:                                              ; preds = %_ZN7testing7MessageD2Ev.exit73, %_ZN7testing7MessageD2Ev.exit85, %_ZN7testing7MessageD2Ev.exit98, %_ZN7testing7MessageD2Ev.exit56, %_ZN7testing7MessageD2Ev.exit43
-  %.pn33.pn.pn.pn = phi { ptr, i32 } [ %.pn22.pn.pn, %_ZN7testing7MessageD2Ev.exit56 ], [ %.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit43 ], [ %.pn33.pn, %_ZN7testing7MessageD2Ev.exit98 ], [ %.pn30.pn, %_ZN7testing7MessageD2Ev.exit85 ], [ %.pn26.pn.pn, %_ZN7testing7MessageD2Ev.exit73 ]
+  %.pn33.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit43 ], [ %.pn22.pn.pn, %_ZN7testing7MessageD2Ev.exit56 ], [ %.pn33.pn, %_ZN7testing7MessageD2Ev.exit98 ], [ %.pn30.pn, %_ZN7testing7MessageD2Ev.exit85 ], [ %.pn26.pn.pn, %_ZN7testing7MessageD2Ev.exit73 ]
   resume { ptr, i32 } %.pn33.pn.pn.pn
 }
 
@@ -1767,7 +1767,7 @@ _ZNSt6threadD2Ev.exit:                            ; preds = %_ZNSt6vectorISt6thr
   unreachable
 
 .body:                                            ; preds = %74, %72, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i7.i, %37
-  %.pn19 = phi { ptr, i32 } [ %73, %72 ], [ %38, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i7.i ], [ %38, %37 ], [ %lpad.phi, %74 ]
+  %.pn19 = phi { ptr, i32 } [ %38, %37 ], [ %73, %72 ], [ %38, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i7.i ], [ %lpad.phi, %74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %88
 
@@ -2992,7 +2992,7 @@ _ZNSt6threadD2Ev.exit:                            ; preds = %_ZNSt6vectorISt6thr
   unreachable
 
 .body:                                            ; preds = %59, %57, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i, %22
-  %.pn = phi { ptr, i32 } [ %58, %57 ], [ %23, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i ], [ %23, %22 ], [ %lpad.phi, %59 ]
+  %.pn = phi { ptr, i32 } [ %23, %22 ], [ %58, %57 ], [ %23, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i ], [ %lpad.phi, %59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %73
 

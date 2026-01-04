@@ -619,7 +619,7 @@ close_random_device.exit:                         ; preds = %check_random_device
   br label %197
 
 197:                                              ; preds = %.critedge, %._crit_edge, %195
-  %.0 = phi i64 [ %196, %195 ], [ %194, %._crit_edge ], [ %31, %.critedge ]
+  %.0 = phi i64 [ %194, %._crit_edge ], [ %196, %195 ], [ %31, %.critedge ]
   ret i64 %.0
 }
 

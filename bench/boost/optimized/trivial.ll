@@ -267,12 +267,12 @@ define weak_odr noundef zeroext i1 @_ZN5boost3log11v2_mt_posix7trivial11from_str
   br i1 %15, label %.sink.split, label %16
 
 .sink.split:                                      ; preds = %14, %12, %10, %8, %6, %4
-  %.sink = phi i32 [ 0, %4 ], [ 1, %6 ], [ 4, %8 ], [ 5, %10 ], [ 2, %12 ], [ 3, %14 ]
+  %.sink = phi i32 [ 5, %10 ], [ 1, %6 ], [ 4, %8 ], [ 0, %4 ], [ 2, %12 ], [ 3, %14 ]
   store i32 %.sink, ptr %2, align 4, !tbaa !4
   br label %16
 
 16:                                               ; preds = %.sink.split, %10, %12, %14, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %14 ], [ false, %12 ], [ false, %10 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %12 ], [ false, %10 ], [ false, %3 ], [ false, %14 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 
@@ -406,12 +406,12 @@ define weak_odr noundef zeroext i1 @_ZN5boost3log11v2_mt_posix7trivial11from_str
   br i1 %21, label %.sink.split, label %22
 
 .sink.split:                                      ; preds = %19, %16, %13, %10, %7, %4
-  %.sink = phi i32 [ 0, %4 ], [ 1, %7 ], [ 4, %10 ], [ 5, %13 ], [ 2, %16 ], [ 3, %19 ]
+  %.sink = phi i32 [ 5, %13 ], [ 1, %7 ], [ 4, %10 ], [ 0, %4 ], [ 2, %16 ], [ 3, %19 ]
   store i32 %.sink, ptr %2, align 4, !tbaa !4
   br label %22
 
 22:                                               ; preds = %.sink.split, %13, %16, %19, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %19 ], [ false, %16 ], [ false, %13 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %16 ], [ false, %13 ], [ false, %3 ], [ false, %19 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 
@@ -620,7 +620,7 @@ _ZN5boost3log11v2_mt_posix7sources12basic_loggerIcNS2_18severity_logger_mtINS1_7
   br label %_ZN5boost3log11v2_mt_posix9attributeD2Ev.exit
 
 _ZN5boost3log11v2_mt_posix9attributeD2Ev.exit:    ; preds = %34, %30, %27, %25
-  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %28, %27 ], [ %28, %30 ], [ %28, %34 ]
+  %.pn = phi { ptr, i32 } [ %28, %34 ], [ %26, %25 ], [ %28, %27 ], [ %28, %30 ]
   tail call void @_ZN5boost3log11v2_mt_posix7sources12basic_loggerIcNS2_18severity_logger_mtINS1_7trivial14severity_levelEEENS2_18multi_thread_modelINS1_3aux14light_rw_mutexEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #18
   br label %common.resume
 }
@@ -1725,7 +1725,7 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %7
   br label %_ZNKSt9type_infoeqERKS_.exit.thread4
 
 _ZNKSt9type_infoeqERKS_.exit.thread4:             ; preds = %_ZNKSt9type_infoeqERKS_.exit, %7, %_ZNKSt9type_infoeqERKS_.exit.thread
-  %12 = phi ptr [ %6, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %7 ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
+  %12 = phi ptr [ null, %7 ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ], [ %6, %_ZNKSt9type_infoeqERKS_.exit.thread ]
   ret ptr %12
 }
 

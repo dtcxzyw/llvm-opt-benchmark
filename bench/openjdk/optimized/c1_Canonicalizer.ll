@@ -2705,7 +2705,7 @@ define hidden void @_ZN13Canonicalizer12do_CompareOpEP9CompareOp(ptr noundef non
   br label %.sink.split
 
 .sink.split:                                      ; preds = %131, %129, %104, %102, %77, %60, %32, %18, %10, %36, %22, %97, %124
-  %.sink = phi i32 [ %128, %124 ], [ %101, %97 ], [ %26, %22 ], [ %40, %36 ], [ 0, %10 ], [ 0, %18 ], [ 0, %32 ], [ 0, %60 ], [ %., %77 ], [ 0, %102 ], [ %.61, %104 ], [ 0, %129 ], [ %.62, %131 ]
+  %.sink = phi i32 [ %128, %124 ], [ %.62, %131 ], [ 0, %129 ], [ 0, %10 ], [ %101, %97 ], [ %.61, %104 ], [ 0, %102 ], [ %40, %36 ], [ 0, %32 ], [ 0, %60 ], [ %., %77 ], [ 0, %18 ], [ %26, %22 ]
   tail call void @_ZN13Canonicalizer12set_constantEi(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef %.sink)
   br label %133
 
@@ -4345,9 +4345,9 @@ _ZN11InstructionnwEm.exit139:                     ; preds = %302, %304
   unreachable
 
 323:                                              ; preds = %319, %318
-  %.0104 = phi ptr [ %283, %318 ], [ %.mux, %319 ]
-  %.0103 = phi ptr [ %279, %318 ], [ %.mux193, %319 ]
-  %.0102 = phi i32 [ 3, %318 ], [ %.mux194, %319 ]
+  %.0104 = phi ptr [ %.mux, %319 ], [ %283, %318 ]
+  %.0103 = phi ptr [ %.mux193, %319 ], [ %279, %318 ]
+  %.0102 = phi i32 [ %.mux194, %319 ], [ 3, %318 ]
   %324 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %325 = load ptr, ptr %324, align 8
   %326 = getelementptr inbounds nuw i8, ptr %325, i64 1808

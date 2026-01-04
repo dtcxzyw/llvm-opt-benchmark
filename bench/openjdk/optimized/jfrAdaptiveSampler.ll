@@ -136,9 +136,9 @@ define hidden noundef zeroext i1 @_ZN18JfrAdaptiveSampler10initializeEv(ptr noun
   br label %.thread
 
 .thread:                                          ; preds = %4, %1, %12
-  %.sink8 = phi i64 [ 32, %12 ], [ 16, %1 ], [ 24, %4 ]
-  %.sink = phi ptr [ %18, %12 ], [ null, %1 ], [ null, %4 ]
-  %.0 = phi i1 [ true, %12 ], [ false, %1 ], [ false, %4 ]
+  %.sink8 = phi i64 [ 16, %1 ], [ 32, %12 ], [ 24, %4 ]
+  %.sink = phi ptr [ null, %1 ], [ %18, %12 ], [ null, %4 ]
+  %.0 = phi i1 [ false, %1 ], [ true, %12 ], [ false, %4 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink8
   store ptr %.sink, ptr %19, align 8
   ret i1 %.0
@@ -215,7 +215,7 @@ _ZNK16JfrSamplerWindow10is_expiredEl.exit.i3:     ; preds = %28, %24
   br label %_ZN10JfrTryLockD2Ev.exit
 
 _ZN10JfrTryLockD2Ev.exit:                         ; preds = %16, %10, %31, %_ZNK16JfrSamplerWindow6sampleElPb.exit
-  %32 = phi i1 [ false, %_ZNK16JfrSamplerWindow6sampleElPb.exit ], [ false, %31 ], [ %20, %16 ], [ false, %10 ]
+  %32 = phi i1 [ false, %31 ], [ false, %_ZNK16JfrSamplerWindow6sampleElPb.exit ], [ %20, %16 ], [ false, %10 ]
   ret i1 %32
 }
 
@@ -560,7 +560,7 @@ _ZN18JfrAdaptiveSampler19project_sample_sizeERK16JfrSamplerParamsPK16JfrSamplerW
   br label %_Z14next_geometricdd.exit.i
 
 _Z14next_geometricdd.exit.i:                      ; preds = %55, %53, %41
-  %.0.i.i14 = phi double [ 0x3FEFAE147AE147AE, %55 ], [ %51, %53 ], [ 1.000000e-02, %41 ]
+  %.0.i.i14 = phi double [ %51, %53 ], [ 0x3FEFAE147AE147AE, %55 ], [ 1.000000e-02, %41 ]
   %56 = fsub double 1.000000e+00, %.0.i.i14
   %57 = tail call double @log(double noundef %56) #17
   %58 = fsub double 1.000000e+00, %42
@@ -681,7 +681,7 @@ define hidden noundef i64 @_ZN18JfrAdaptiveSampler24derive_sampling_intervalEdPK
   br label %_Z14next_geometricdd.exit
 
 _Z14next_geometricdd.exit:                        ; preds = %15, %27, %29
-  %.0.i = phi double [ 0x3FEFAE147AE147AE, %29 ], [ %25, %27 ], [ 1.000000e-02, %15 ]
+  %.0.i = phi double [ %25, %27 ], [ 0x3FEFAE147AE147AE, %29 ], [ 1.000000e-02, %15 ]
   %30 = fsub double 1.000000e+00, %.0.i
   %31 = tail call double @log(double noundef %30) #17
   %32 = fsub double 1.000000e+00, %16
@@ -855,9 +855,9 @@ define hidden noundef zeroext i1 @_ZN24JfrGTestFixedRateSampler10initializeEv(pt
   br label %_ZN18JfrAdaptiveSampler10initializeEv.exit
 
 _ZN18JfrAdaptiveSampler10initializeEv.exit:       ; preds = %1, %4, %12
-  %.sink8.i = phi i64 [ 32, %12 ], [ 16, %1 ], [ 24, %4 ]
-  %.sink.i = phi ptr [ %18, %12 ], [ null, %1 ], [ null, %4 ]
-  %.0.i = phi i1 [ true, %12 ], [ false, %1 ], [ false, %4 ]
+  %.sink8.i = phi i64 [ 16, %1 ], [ 32, %12 ], [ 24, %4 ]
+  %.sink.i = phi ptr [ null, %1 ], [ %18, %12 ], [ null, %4 ]
+  %.0.i = phi i1 [ false, %1 ], [ true, %12 ], [ false, %4 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink8.i
   store ptr %.sink.i, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72

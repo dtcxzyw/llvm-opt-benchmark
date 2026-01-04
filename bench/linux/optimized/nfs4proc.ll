@@ -438,8 +438,8 @@ define dso_local i32 @nfs4_handle_exception(ptr noundef %0, i32 noundef %1, ptr 
   store i8 %75, ptr %6, align 2
   br label %.thread6.thread8
 
-.thread6.thread8:                                 ; preds = %.thread5, %44, %59, %.thread6.thread, %.thread6, %67, %64, %61
-  %76 = phi i32 [ -11, %59 ], [ -35, %64 ], [ -5, %67 ], [ %5, %61 ], [ 0, %.thread6.thread ], [ %68, %.thread6 ], [ -4, %.thread5 ], [ %49, %44 ]
+.thread6.thread8:                                 ; preds = %44, %.thread5, %59, %.thread6.thread, %.thread6, %67, %64, %61
+  %76 = phi i32 [ -11, %59 ], [ -35, %64 ], [ -5, %67 ], [ %5, %61 ], [ 0, %.thread6.thread ], [ %68, %.thread6 ], [ %49, %44 ], [ -4, %.thread5 ]
   ret i32 %76
 }
 
@@ -610,12 +610,12 @@ define internal fastcc range(i32 -1000, -2147483648) i32 @nfs4_do_handle_excepti
   br label %.thread14
 
 87:                                               ; preds = %57, %53, %32
-  %88 = phi i32 [ %58, %57 ], [ %54, %53 ], [ %1, %32 ]
+  %88 = phi i32 [ %58, %57 ], [ %1, %32 ], [ %54, %53 ]
   %89 = icmp sgt i32 %88, -1001
   br i1 %89, label %.thread15, label %.thread14
 
-.thread14:                                        ; preds = %.thread12, %.thread, %72, %74, %79, %87
-  %90 = phi i32 [ %88, %87 ], [ %1, %79 ], [ %1, %74 ], [ %1, %72 ], [ %1, %.thread ], [ %1, %.thread12 ]
+.thread14:                                        ; preds = %.thread, %.thread12, %72, %74, %79, %87
+  %90 = phi i32 [ %88, %87 ], [ %1, %79 ], [ %1, %74 ], [ %1, %72 ], [ %1, %.thread12 ], [ %1, %.thread ]
   switch i32 %90, label %97 [
     i32 -10018, label %.thread15
     i32 -10058, label %.thread15
@@ -659,7 +659,7 @@ define internal fastcc range(i32 -1000, -2147483648) i32 @nfs4_do_handle_excepti
   br label %.thread15
 
 .thread15:                                        ; preds = %61, %98, %97, %96, %95, %94, %93, %92, %91, %.thread14, %.thread14, %.thread14, %.thread14, %87, %69, %32
-  %101 = phi i32 [ 0, %69 ], [ 0, %98 ], [ %1, %32 ], [ -5, %97 ], [ -522, %96 ], [ -16, %95 ], [ -93, %94 ], [ -13, %93 ], [ -22, %92 ], [ -1, %91 ], [ %88, %87 ], [ -121, %.thread14 ], [ -121, %.thread14 ], [ -121, %.thread14 ], [ -121, %.thread14 ], [ -16, %61 ]
+  %101 = phi i32 [ 0, %69 ], [ 0, %98 ], [ -121, %.thread14 ], [ %1, %32 ], [ -5, %97 ], [ -522, %96 ], [ -16, %95 ], [ -93, %94 ], [ -13, %93 ], [ -22, %92 ], [ -1, %91 ], [ %88, %87 ], [ -121, %.thread14 ], [ -121, %.thread14 ], [ -121, %.thread14 ], [ -16, %61 ]
   ret i32 %101
 }
 
@@ -3257,7 +3257,7 @@ define internal fastcc i32 @nfs4_proc_lookup_common(ptr noundef captures(none) %
   br label %.thread
 
 .thread:                                          ; preds = %59, %55, %38
-  %64 = phi i16 [ %47, %38 ], [ %47, %55 ], [ %spec.select, %59 ]
+  %64 = phi i16 [ %47, %55 ], [ %spec.select, %59 ], [ %47, %38 ]
   store ptr %42, ptr %19, align 8
   call void @nfs_fattr_init(ptr noundef %4) #22
   store ptr null, ptr %8, align 8
@@ -6847,7 +6847,7 @@ define internal i32 @nfs4_proc_symlink(ptr noundef %0, ptr noundef %1, ptr nound
   br label %73
 
 73:                                               ; preds = %45, %.split
-  %74 = phi i32 [ %72, %45 ], [ -12, %.split ]
+  %74 = phi i32 [ -12, %.split ], [ %72, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_nfs4_symlink, i64 8), i32 2) #22
           to label %95 [label %75], !srcloc !10
@@ -8042,7 +8042,7 @@ define internal i32 @nfs4_read_done(ptr noundef %0, ptr noundef %1) #0 align 16 
   br label %69
 
 thread-pre-split:                                 ; preds = %43, %.thread-pre-split_crit_edge
-  %57 = phi i32 [ %.pr.pre, %.thread-pre-split_crit_edge ], [ %.pr.pre2, %43 ]
+  %57 = phi i32 [ %.pr.pre2, %43 ], [ %.pr.pre, %.thread-pre-split_crit_edge ]
   %58 = icmp sgt i32 %57, 0
   br i1 %58, label %59, label %61
 
@@ -12977,7 +12977,7 @@ define internal noundef range(i32 -12, -13) i32 @nfs4_find_root_sec(ptr noundef 
   br i1 %43, label %.loopexit, label %31, !llvm.loop !179
 
 .loopexit:                                        ; preds = %25, %23, %40, %38
-  %44 = phi i32 [ %39, %38 ], [ %41, %40 ], [ %26, %25 ], [ %24, %23 ]
+  %44 = phi i32 [ %41, %40 ], [ %39, %38 ], [ %24, %23 ], [ %26, %25 ]
   %45 = icmp eq i32 %44, -13
   %46 = select i1 %45, i32 -1, i32 %44
   ret i32 %46
@@ -14805,7 +14805,7 @@ condstore.split:                                  ; preds = %80, %73
   br label %217
 
 .thread:                                          ; preds = %118, %191, %187, %174, %173
-  %194 = phi i32 [ %153, %173 ], [ %153, %174 ], [ %153, %187 ], [ %153, %191 ], [ %120, %118 ]
+  %194 = phi i32 [ %153, %191 ], [ %153, %173 ], [ %153, %174 ], [ %153, %187 ], [ %120, %118 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %195 = icmp eq i32 %194, -10038
@@ -15374,7 +15374,7 @@ select.unfold:                                    ; preds = %283, %259
   br label %.thread20
 
 .thread20:                                        ; preds = %116, %115, %165, %292, %300, %297, %select.unfold, %.thread, %198
-  %302 = phi i32 [ %111, %198 ], [ %202, %.thread ], [ -13, %292 ], [ 0, %300 ], [ 0, %297 ], [ 0, %select.unfold ], [ %166, %165 ], [ %spec.select, %116 ], [ %111, %115 ]
+  %302 = phi i32 [ %111, %198 ], [ %202, %.thread ], [ -13, %292 ], [ 0, %300 ], [ 0, %297 ], [ 0, %select.unfold ], [ %166, %165 ], [ %111, %115 ], [ %spec.select, %116 ]
   %303 = getelementptr inbounds nuw i8, ptr %70, i64 995
   %304 = load i8, ptr %303, align 1, !range !6, !noundef !7
   %305 = icmp eq i8 %304, 0
@@ -15607,7 +15607,7 @@ select.unfold:                                    ; preds = %283, %259
   br label %432
 
 432:                                              ; preds = %429, %425, %412, %409
-  switch i32 %410, label %450 [
+  switch i32 %410, label %452 [
     i32 0, label %.split.loop.exit47
     i32 -10026, label %433
     i32 -10025, label %.backedge.sink.split
@@ -15640,31 +15640,31 @@ select.unfold:                                    ; preds = %283, %259
   %447 = load i32, ptr %32, align 4
   %448 = and i32 %447, 131072
   %449 = icmp eq i32 %448, 0
-  br i1 %449, label %450, label %456
+  br i1 %449, label %452, label %450
 
-450:                                              ; preds = %446, %432
-  %451 = call i32 @nfs4_handle_exception(ptr noundef %13, i32 noundef %410, ptr noundef nonnull %8)
-  %.pre29 = load i8, ptr %33, align 2
-  %452 = and i8 %.pre29, 8
-  %453 = icmp eq i8 %452, 0
-  br i1 %453, label %.split.loop.exit, label %.backedge.backedge
-
-.backedge.sink.split:                             ; preds = %432, %432, %433, %436, %444, %456
-  %454 = load i8, ptr %33, align 2
-  %455 = or i8 %454, 8
-  store i8 %455, ptr %33, align 2
-  br label %.backedge.backedge
-
-.backedge.backedge:                               ; preds = %.backedge.sink.split, %450
-  br label %.backedge, !llvm.loop !209
-
-456:                                              ; preds = %446
-  %457 = and i32 %447, -131073
-  store i32 %457, ptr %32, align 4
+450:                                              ; preds = %446
+  %451 = and i32 %447, -131073
+  store i32 %451, ptr %32, align 4
   br label %.backedge.sink.split
 
-.split.loop.exit:                                 ; preds = %450
-  %458 = sext i32 %451 to i64
+452:                                              ; preds = %446, %432
+  %453 = call i32 @nfs4_handle_exception(ptr noundef %13, i32 noundef %410, ptr noundef nonnull %8)
+  %.pre29 = load i8, ptr %33, align 2
+  %454 = and i8 %.pre29, 8
+  %455 = icmp eq i8 %454, 0
+  br i1 %455, label %.split.loop.exit, label %.backedge.backedge
+
+.backedge.sink.split:                             ; preds = %433, %436, %444, %432, %432, %450
+  %456 = load i8, ptr %33, align 2
+  %457 = or i8 %456, 8
+  store i8 %457, ptr %33, align 2
+  br label %.backedge.backedge
+
+.backedge.backedge:                               ; preds = %.backedge.sink.split, %452
+  br label %.backedge, !llvm.loop !209
+
+.split.loop.exit:                                 ; preds = %452
+  %458 = sext i32 %453 to i64
   %459 = inttoptr i64 %458 to ptr
   br label %.split.loop.exit47
 
@@ -16490,8 +16490,8 @@ define internal fastcc i32 @nfs4_retry_setlk(ptr noundef nonnull %0, i32 noundef
   br label %nfs4_handle_exception.exit
 
 nfs4_handle_exception.exit:                       ; preds = %95, %.thread5.i, %108, %110, %113, %116, %.thread6.i, %.thread6.thread.i
-  %124 = phi i8 [ %109, %108 ], [ %64, %113 ], [ %64, %116 ], [ %64, %110 ], [ %123, %.thread6.thread.i ], [ %64, %.thread6.i ], [ %64, %.thread5.i ], [ %64, %95 ]
-  %125 = phi i32 [ -11, %108 ], [ -35, %113 ], [ -5, %116 ], [ %63, %110 ], [ 0, %.thread6.thread.i ], [ %117, %.thread6.i ], [ -4, %.thread5.i ], [ %99, %95 ]
+  %124 = phi i8 [ %109, %108 ], [ %64, %113 ], [ %64, %116 ], [ %64, %110 ], [ %123, %.thread6.thread.i ], [ %64, %.thread6.i ], [ %64, %95 ], [ %64, %.thread5.i ]
+  %125 = phi i32 [ -11, %108 ], [ -35, %113 ], [ -5, %116 ], [ %63, %110 ], [ 0, %.thread6.thread.i ], [ %117, %.thread6.i ], [ %99, %95 ], [ -4, %.thread5.i ]
   %126 = and i8 %124, 8
   %127 = icmp eq i8 %126, 0
   br i1 %127, label %128, label %32, !llvm.loop !223

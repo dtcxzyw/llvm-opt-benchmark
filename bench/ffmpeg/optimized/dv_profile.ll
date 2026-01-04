@@ -147,7 +147,7 @@ define ptr @ff_dv_frame_profile(ptr noundef readonly captures(address_is_null) %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %43, %53, %49, %.thread, %17, %32, %4, %57
-  %.0 = phi ptr [ %59, %57 ], [ null, %4 ], [ getelementptr inbounds nuw (i8, ptr @dv_profiles, i64 240), %32 ], [ getelementptr inbounds nuw (i8, ptr @dv_profiles, i64 240), %17 ], [ getelementptr inbounds nuw (i8, ptr @dv_profiles, i64 120), %.thread ], [ %1, %49 ], [ null, %53 ], [ %40, %43 ]
+  %.0 = phi ptr [ %1, %49 ], [ null, %4 ], [ getelementptr inbounds nuw (i8, ptr @dv_profiles, i64 240), %17 ], [ getelementptr inbounds nuw (i8, ptr @dv_profiles, i64 120), %.thread ], [ null, %53 ], [ %59, %57 ], [ getelementptr inbounds nuw (i8, ptr @dv_profiles, i64 240), %32 ], [ %40, %43 ]
   ret ptr %.0
 }
 
@@ -230,7 +230,7 @@ define ptr @av_dv_frame_profile(ptr noundef readonly captures(address_is_null, r
   br label %ff_dv_frame_profile.exit
 
 ff_dv_frame_profile.exit:                         ; preds = %28, %3, %16, %20, %34, %38, %42
-  %.0.i = phi ptr [ %44, %42 ], [ null, %3 ], [ getelementptr inbounds nuw (i8, ptr @dv_profiles, i64 240), %16 ], [ getelementptr inbounds nuw (i8, ptr @dv_profiles, i64 120), %20 ], [ %0, %34 ], [ null, %38 ], [ %25, %28 ]
+  %.0.i = phi ptr [ %0, %34 ], [ null, %3 ], [ getelementptr inbounds nuw (i8, ptr @dv_profiles, i64 240), %16 ], [ getelementptr inbounds nuw (i8, ptr @dv_profiles, i64 120), %20 ], [ null, %38 ], [ %44, %42 ], [ %25, %28 ]
   ret ptr %.0.i
 }
 
@@ -264,7 +264,7 @@ define ptr @av_dv_codec_profile(i32 noundef %0, i32 noundef %1, i32 noundef %2) 
   br i1 %exitcond30.not.i, label %av_dv_codec_profile2.exit, label %.split.us.i, !llvm.loop !42
 
 av_dv_codec_profile2.exit:                        ; preds = %12, %16
-  %.us-phi.i = phi ptr [ %4, %12 ], [ null, %16 ]
+  %.us-phi.i = phi ptr [ null, %16 ], [ %4, %12 ]
   ret ptr %.us-phi.i
 }
 
@@ -337,13 +337,13 @@ define ptr @av_dv_codec_profile2(i32 noundef %0, i32 noundef %1, i32 noundef %2,
   br label %41
 
 41:                                               ; preds = %40, %.split, %26, %30
-  %.1 = phi ptr [ %.01620, %30 ], [ %.01620, %26 ], [ %.01620, %.split ], [ %spec.select, %40 ]
+  %.1 = phi ptr [ %spec.select, %40 ], [ %.01620, %.split ], [ %.01620, %30 ], [ %.01620, %26 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
   br i1 %exitcond.not, label %.critedge, label %.split, !llvm.loop !42
 
 .critedge:                                        ; preds = %34, %41, %17, %21
-  %.us-phi = phi ptr [ %9, %17 ], [ null, %21 ], [ %22, %34 ], [ %.1, %41 ]
+  %.us-phi = phi ptr [ null, %21 ], [ %9, %17 ], [ %22, %34 ], [ %.1, %41 ]
   ret ptr %.us-phi
 }
 

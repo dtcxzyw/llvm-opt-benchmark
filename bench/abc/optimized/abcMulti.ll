@@ -1183,7 +1183,7 @@ tailrecurse.backedge:                             ; preds = %59, %91
   br label %Vec_PtrPushUnique.exit
 
 Vec_PtrPushUnique.exit:                           ; preds = %69, %67, %18, %Vec_PtrPush.exit.i, %95, %103
-  %.0 = phi i32 [ 1, %103 ], [ 1, %95 ], [ 0, %Vec_PtrPush.exit.i ], [ 0, %18 ], [ 0, %69 ], [ 1, %67 ]
+  %.0 = phi i32 [ 1, %95 ], [ 0, %Vec_PtrPush.exit.i ], [ 1, %103 ], [ 0, %18 ], [ 0, %69 ], [ 1, %67 ]
   %current.ret.tr66 = select i1 %ret.known.tr, i32 %ret.tr, i32 %.0
   ret i32 %current.ret.tr66
 }

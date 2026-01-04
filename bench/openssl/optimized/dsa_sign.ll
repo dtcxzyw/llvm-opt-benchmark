@@ -142,7 +142,7 @@ define noundef ptr @d2i_DSA_SIG(ptr noundef captures(address_is_null) %0, ptr no
   br label %43
 
 43:                                               ; preds = %38, %39, %42, %32, %35, %8, %3
-  %.023 = phi ptr [ null, %3 ], [ null, %8 ], [ null, %35 ], [ null, %32 ], [ %.0, %42 ], [ %.0, %39 ], [ %.0, %38 ]
+  %.023 = phi ptr [ null, %3 ], [ null, %8 ], [ null, %32 ], [ null, %35 ], [ %.0, %42 ], [ %.0, %39 ], [ %.0, %38 ]
   ret ptr %.023
 }
 
@@ -240,7 +240,7 @@ define i32 @i2d_DSA_SIG(ptr noundef readonly captures(none) %0, ptr noundef capt
   br label %42
 
 42:                                               ; preds = %17, %6, %39, %28, %16
-  %.015 = phi i32 [ %41, %39 ], [ -1, %28 ], [ -1, %16 ], [ -1, %6 ], [ -1, %17 ]
+  %.015 = phi i32 [ %41, %39 ], [ -1, %28 ], [ -1, %6 ], [ -1, %16 ], [ -1, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.015

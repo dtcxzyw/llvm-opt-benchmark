@@ -84,7 +84,7 @@ Py_DECREF.exit:                                   ; preds = %10, %13, %16
   br label %17
 
 17:                                               ; preds = %Py_DECREF.exit, %7, %4, %1
-  %.0 = phi i32 [ -1, %1 ], [ -1, %4 ], [ %., %Py_DECREF.exit ], [ -1, %7 ]
+  %.0 = phi i32 [ -1, %4 ], [ -1, %1 ], [ %., %Py_DECREF.exit ], [ -1, %7 ]
   ret i32 %.0
 }
 
@@ -141,7 +141,7 @@ define internal noundef ptr @test_gc_control(ptr readnone captures(none) %0, ptr
   br i1 %.not17, label %27, label %.thread
 
 20:                                               ; preds = %13, %11, %9, %7, %5, %2
-  %.0 = phi ptr [ @.str.7, %2 ], [ @.str.10, %9 ], [ @.str.11, %11 ], [ @.str.12, %13 ], [ @.str.9, %7 ], [ @.str.8, %5 ]
+  %.0 = phi ptr [ @.str.7, %2 ], [ @.str.10, %9 ], [ @.str.11, %11 ], [ @.str.9, %7 ], [ @.str.8, %5 ], [ @.str.12, %13 ]
   %.not18 = icmp eq i32 %3, 0
   br i1 %.not18, label %.thread, label %21
 
@@ -332,7 +332,7 @@ define internal ptr @with_tp_del(ptr readnone captures(none) %0, ptr noundef %1)
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %20, %16, %2, %13
-  %.0 = phi ptr [ null, %13 ], [ null, %2 ], [ %6, %16 ], [ %6, %20 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %13 ], [ %6, %16 ], [ %6, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }

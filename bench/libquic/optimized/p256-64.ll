@@ -1767,7 +1767,7 @@ smallfelem_to_BN.exit20:                          ; preds = %1273
   br label %1281
 
 1281:                                             ; preds = %1187, %smallfelem_to_BN.exit20, %28, %31, %34, %1280, %1186, %27
-  %.0 = phi i32 [ 0, %27 ], [ 0, %1280 ], [ 0, %1186 ], [ 0, %34 ], [ 0, %31 ], [ 0, %28 ], [ 1, %smallfelem_to_BN.exit20 ], [ 1, %1187 ]
+  %.0 = phi i32 [ 0, %27 ], [ 0, %28 ], [ 0, %1280 ], [ 0, %1186 ], [ 0, %34 ], [ 0, %31 ], [ 1, %smallfelem_to_BN.exit20 ], [ 1, %1187 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
@@ -3452,10 +3452,10 @@ smallfelem_to_BN.exit178:                         ; preds = %1192
   %1203 = call i32 @ec_point_set_Jprojective_coordinates_GFp(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %41, ptr noundef nonnull %44, ptr noundef nonnull %47, ptr noundef nonnull %.0140) #9
   br label %.loopexit234
 
-.loopexit234:                                     ; preds = %flip_endian.exit, %138, %140, %flip_endian.exit173, %127, %40, %43, %46, %49, %1202, %1201, %58
-  %.0141 = phi i32 [ 0, %40 ], [ 0, %43 ], [ 0, %46 ], [ 0, %49 ], [ 0, %58 ], [ %1203, %1202 ], [ 0, %1201 ], [ 0, %flip_endian.exit173 ], [ 0, %127 ], [ 0, %140 ], [ 0, %138 ], [ 0, %flip_endian.exit ]
-  %.0138 = phi ptr [ null, %40 ], [ null, %43 ], [ null, %46 ], [ null, %49 ], [ %54, %58 ], [ %.1139, %1202 ], [ %.1139, %1201 ], [ %.1139, %flip_endian.exit173 ], [ %54, %127 ], [ %54, %140 ], [ %54, %138 ], [ %54, %flip_endian.exit ]
-  %.0136 = phi ptr [ null, %40 ], [ null, %43 ], [ null, %46 ], [ null, %49 ], [ %55, %58 ], [ %.1137, %1202 ], [ %.1137, %1201 ], [ %.1137, %flip_endian.exit173 ], [ %55, %127 ], [ %55, %140 ], [ %55, %138 ], [ %55, %flip_endian.exit ]
+.loopexit234:                                     ; preds = %138, %140, %flip_endian.exit, %flip_endian.exit173, %127, %40, %43, %46, %49, %1202, %1201, %58
+  %.0141 = phi i32 [ 0, %40 ], [ 0, %43 ], [ 0, %46 ], [ 0, %49 ], [ 0, %58 ], [ %1203, %1202 ], [ 0, %1201 ], [ 0, %flip_endian.exit173 ], [ 0, %127 ], [ 0, %flip_endian.exit ], [ 0, %140 ], [ 0, %138 ]
+  %.0138 = phi ptr [ null, %40 ], [ null, %43 ], [ null, %46 ], [ null, %49 ], [ %54, %58 ], [ %.1139, %1202 ], [ %.1139, %1201 ], [ %.1139, %flip_endian.exit173 ], [ %54, %127 ], [ %54, %flip_endian.exit ], [ %54, %140 ], [ %54, %138 ]
+  %.0136 = phi ptr [ null, %40 ], [ null, %43 ], [ null, %46 ], [ null, %49 ], [ %55, %58 ], [ %.1137, %1202 ], [ %.1137, %1201 ], [ %.1137, %flip_endian.exit173 ], [ %55, %127 ], [ %55, %flip_endian.exit ], [ %55, %140 ], [ %55, %138 ]
   call void @BN_CTX_end(ptr noundef nonnull %.0140) #9
   call void @BN_CTX_free(ptr noundef %.0142) #9
   call void @free(ptr noundef %.0138) #9
@@ -3463,7 +3463,7 @@ smallfelem_to_BN.exit178:                         ; preds = %1192
   br label %1204
 
 1204:                                             ; preds = %37, %.loopexit234
-  %.0135 = phi i32 [ %.0141, %.loopexit234 ], [ 0, %37 ]
+  %.0135 = phi i32 [ 0, %37 ], [ %.0141, %.loopexit234 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)

@@ -1089,7 +1089,7 @@ define internal noundef zeroext i1 @dissect_rf4ce_nwk_heur(ptr noundef %0, ptr n
   br label %36
 
 36:                                               ; preds = %4, %29, %27, %25, %23, %19, %18, %9, %31
-  %.0 = phi i1 [ true, %31 ], [ false, %9 ], [ false, %18 ], [ false, %19 ], [ false, %23 ], [ false, %25 ], [ false, %27 ], [ false, %29 ], [ false, %4 ]
+  %.0 = phi i1 [ false, %29 ], [ false, %4 ], [ false, %9 ], [ false, %27 ], [ false, %18 ], [ false, %19 ], [ false, %23 ], [ true, %31 ], [ false, %25 ]
   ret i1 %.0
 }
 
@@ -1408,7 +1408,7 @@ define internal fastcc noundef zeroext i1 @rf4ce_security_parse_sec_str(ptr noun
   br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !12
 
 .loopexit:                                        ; preds = %22, %27, %36, %16, %.split.us, %2
-  %.039 = phi i1 [ false, %2 ], [ %.not47.us.not.not, %.split.us ], [ %.not47.us.not.not, %16 ], [ true, %36 ], [ false, %27 ], [ false, %22 ]
+  %.039 = phi i1 [ false, %2 ], [ %.not47.us.not.not, %16 ], [ %.not47.us.not.not, %.split.us ], [ true, %36 ], [ false, %27 ], [ false, %22 ]
   ret i1 %.039
 }
 

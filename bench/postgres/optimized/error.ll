@@ -412,7 +412,7 @@ ecpg_raise.exit:                                  ; preds = %13, %14
   br label %27
 
 27:                                               ; preds = %8, %8, %8, %26, %24, %22, %ecpg_raise.exit, %6
-  %.0 = phi i1 [ false, %6 ], [ false, %26 ], [ false, %ecpg_raise.exit ], [ false, %22 ], [ false, %24 ], [ true, %8 ], [ true, %8 ], [ true, %8 ]
+  %.0 = phi i1 [ false, %6 ], [ false, %26 ], [ false, %24 ], [ false, %ecpg_raise.exit ], [ true, %8 ], [ false, %22 ], [ true, %8 ], [ true, %8 ]
   ret i1 %.0
 }
 

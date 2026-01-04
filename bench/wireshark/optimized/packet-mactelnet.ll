@@ -318,7 +318,7 @@ define internal i32 @dissect_mactelnet(ptr noundef %0, ptr noundef %1, ptr nound
   br label %121
 
 121:                                              ; preds = %114, %117, %.split.loop.exit182, %4, %.thread167
-  %.0 = phi i32 [ %120, %.thread167 ], [ 0, %4 ], [ 0, %.split.loop.exit182 ], [ %116, %114 ], [ %119, %117 ]
+  %.0 = phi i32 [ 0, %.split.loop.exit182 ], [ 0, %4 ], [ %120, %.thread167 ], [ %116, %114 ], [ %119, %117 ]
   ret i32 %.0
 }
 

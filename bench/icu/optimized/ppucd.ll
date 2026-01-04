@@ -209,7 +209,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -961,7 +961,7 @@ define noundef i32 @_ZN6icu_7712PreparsedUCD8readLineER10UErrorCode(ptr noundef 
   br label %78
 
 78:                                               ; preds = %70, %75, %40, %28, %25, %58, %54, %2
-  %.040 = phi i32 [ 0, %2 ], [ 1, %40 ], [ 0, %28 ], [ 0, %25 ], [ 1, %54 ], [ 0, %58 ], [ %.pre, %75 ], [ %71, %70 ]
+  %.040 = phi i32 [ 0, %2 ], [ 0, %25 ], [ 1, %40 ], [ 0, %28 ], [ 1, %54 ], [ 0, %58 ], [ %.pre, %75 ], [ %71, %70 ]
   ret i32 %.040
 }
 
@@ -1350,7 +1350,7 @@ _ZN6icu_7712PreparsedUCD19parseCodePointRangeEPKcRiS3_R10UErrorCode.exit.thread:
   br i1 %exitcond101.not, label %.loopexit, label %187, !llvm.loop !56
 
 .loopexit:                                        ; preds = %160, %199, %166, %169, %153, %143, %67, %58, %48, %_ZN6icu_7712PreparsedUCD19parseCodePointRangeEPKcRiS3_R10UErrorCode.exit.thread, %24, %3, %13
-  %.0 = phi ptr [ null, %13 ], [ null, %3 ], [ null, %24 ], [ null, %153 ], [ null, %48 ], [ null, %58 ], [ null, %67 ], [ null, %143 ], [ %.052, %169 ], [ %.052, %166 ], [ null, %_ZN6icu_7712PreparsedUCD19parseCodePointRangeEPKcRiS3_R10UErrorCode.exit.thread ], [ %.052, %199 ], [ null, %160 ]
+  %.0 = phi ptr [ null, %13 ], [ null, %3 ], [ null, %24 ], [ null, %_ZN6icu_7712PreparsedUCD19parseCodePointRangeEPKcRiS3_R10UErrorCode.exit.thread ], [ null, %153 ], [ null, %48 ], [ null, %58 ], [ null, %67 ], [ null, %143 ], [ %.052, %199 ], [ %.052, %166 ], [ %.052, %169 ], [ null, %160 ]
   ret ptr %.0
 }
 
@@ -1837,7 +1837,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712PreparsedUCD13parsePropert
   br label %.invoke
 
 .invoke:                                          ; preds = %164, %202, %203, %204
-  %.sink = phi i64 [ 312, %202 ], [ 376, %203 ], [ 440, %204 ], [ 248, %164 ]
+  %.sink = phi i64 [ 440, %204 ], [ 312, %202 ], [ 376, %203 ], [ 248, %164 ]
   %205 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   invoke void @_ZN6icu_7712PreparsedUCD11parseStringEPKcRNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(15264) %0, ptr noundef nonnull %.0143, ptr noundef nonnull align 8 dereferenceable(64) %205, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %.critedge156 unwind label %182
@@ -1871,7 +1871,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712PreparsedUCD13parsePropert
   br label %.critedge
 
 .critedge:                                        ; preds = %43, %.critedge.sink.split, %164, %213, %.critedge156
-  %.0 = phi i8 [ 1, %164 ], [ 1, %213 ], [ 0, %.critedge156 ], [ 0, %.critedge.sink.split ], [ 1, %43 ]
+  %.0 = phi i8 [ 0, %.critedge.sink.split ], [ 1, %164 ], [ 1, %213 ], [ 0, %.critedge156 ], [ 1, %43 ]
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %6) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i8 %.0
@@ -2320,7 +2320,7 @@ _ZN6icu_7712PreparsedUCD19parseCodePointRangeEPKcRiS3_R10UErrorCode.exit: ; pred
   br label %43
 
 43:                                               ; preds = %23, %_ZN6icu_7712PreparsedUCD19parseCodePointRangeEPKcRiS3_R10UErrorCode.exit, %4, %12
-  %.0 = phi i8 [ 0, %12 ], [ 0, %4 ], [ 0, %23 ], [ %.0.i13, %_ZN6icu_7712PreparsedUCD19parseCodePointRangeEPKcRiS3_R10UErrorCode.exit ]
+  %.0 = phi i8 [ 0, %4 ], [ 0, %12 ], [ 0, %23 ], [ %.0.i13, %_ZN6icu_7712PreparsedUCD19parseCodePointRangeEPKcRiS3_R10UErrorCode.exit ]
   ret i8 %.0
 }
 

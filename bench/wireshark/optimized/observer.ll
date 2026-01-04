@@ -175,7 +175,7 @@ define hidden range(i32 -1, 2) i32 @observer_open(ptr noundef %0, ptr noundef %1
   br i1 %65, label %66, label %.critedge
 
 66:                                               ; preds = %63, %62, %60
-  %.197 = phi i32 [ %61, %60 ], [ %49, %62 ], [ %49, %63 ]
+  %.197 = phi i32 [ %49, %62 ], [ %61, %60 ], [ %49, %63 ]
   %67 = add nuw nsw i32 %.0100134, 1
   %68 = load i8, ptr %28, align 1
   %69 = zext i8 %68 to i32
@@ -283,8 +283,8 @@ switch.lookup:                                    ; preds = %87
   call void @wtap_add_generated_idb(ptr noundef %0)
   br label %.critedge
 
-.critedge:                                        ; preds = %36, %57, %63, %34, %43, %51, %55, %switch.lookup, %78, %81, %71, %11, %9, %112, %110, %observer_to_wtap_encap.exit, %85, %22
-  %.0 = phi i32 [ -1, %22 ], [ -1, %85 ], [ -1, %observer_to_wtap_encap.exit ], [ -1, %110 ], [ 1, %112 ], [ %., %9 ], [ 0, %11 ], [ -1, %71 ], [ -1, %81 ], [ -1, %78 ], [ -1, %switch.lookup ], [ -1, %55 ], [ -1, %51 ], [ -1, %43 ], [ -1, %34 ], [ -1, %63 ], [ -1, %57 ], [ -1, %36 ]
+.critedge:                                        ; preds = %63, %36, %57, %34, %43, %51, %55, %switch.lookup, %78, %81, %71, %11, %9, %112, %110, %observer_to_wtap_encap.exit, %85, %22
+  %.0 = phi i32 [ %., %9 ], [ -1, %22 ], [ -1, %switch.lookup ], [ -1, %85 ], [ -1, %observer_to_wtap_encap.exit ], [ -1, %78 ], [ -1, %110 ], [ 1, %112 ], [ -1, %71 ], [ 0, %11 ], [ -1, %81 ], [ -1, %51 ], [ -1, %43 ], [ -1, %34 ], [ -1, %55 ], [ -1, %57 ], [ -1, %36 ], [ -1, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -426,7 +426,7 @@ read_packet_data.exit.thread33:                   ; preds = %49, %read_packet_da
   br label %skip_to_next_packet.exit30
 
 skip_to_next_packet.exit30:                       ; preds = %skip_to_next_packet.exit, %26, %5, %47, %43, %23, %69, %66, %61, %read_packet_data.exit, %35
-  %.0 = phi i1 [ false, %35 ], [ false, %read_packet_data.exit ], [ false, %61 ], [ true, %69 ], [ false, %66 ], [ false, %23 ], [ false, %43 ], [ false, %47 ], [ false, %5 ], [ false, %26 ], [ false, %skip_to_next_packet.exit ]
+  %.0 = phi i1 [ false, %43 ], [ false, %35 ], [ false, %read_packet_data.exit ], [ false, %47 ], [ false, %66 ], [ false, %61 ], [ true, %69 ], [ false, %23 ], [ false, %5 ], [ false, %26 ], [ false, %skip_to_next_packet.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
@@ -495,7 +495,7 @@ read_packet_data.exit.thread:                     ; preds = %28, %24, %read_pack
   br label %read_packet_data.exit.thread23
 
 read_packet_data.exit.thread23:                   ; preds = %30, %read_packet_data.exit.thread, %read_packet_data.exit, %16, %11, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %11 ], [ false, %16 ], [ false, %read_packet_data.exit.thread ], [ true, %read_packet_data.exit ], [ true, %30 ]
+  %.0 = phi i1 [ false, %11 ], [ false, %5 ], [ false, %16 ], [ false, %read_packet_data.exit.thread ], [ true, %read_packet_data.exit ], [ true, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
@@ -672,8 +672,8 @@ define internal fastcc i32 @read_packet_header(ptr noundef readonly captures(non
   br label %42
 
 42:                                               ; preds = %.lr.ph, %77
-  %.1102118 = phi i32 [ 0, %.lr.ph ], [ %79, %77 ]
-  %.0103117 = phi i32 [ 48, %.lr.ph ], [ %78, %77 ]
+  %.1102118 = phi i32 [ 0, %.lr.ph ], [ %78, %77 ]
+  %.0103117 = phi i32 [ 48, %.lr.ph ], [ %.1104, %77 ]
   %43 = call zeroext i1 @wtap_read_bytes(ptr noundef %1, ptr noundef nonnull %7, i32 noundef 4, ptr noundef %4, ptr noundef %5)
   br i1 %43, label %44, label %.critedge
 
@@ -693,7 +693,7 @@ define internal fastcc i32 @read_packet_header(ptr noundef readonly captures(non
   %51 = load i16, ptr %7, align 2
   %52 = add nsw i32 %47, -4
   %cond1 = icmp eq i16 %51, 257
-  br i1 %cond1, label %53, label %74
+  br i1 %cond1, label %53, label %72
 
 53:                                               ; preds = %50
   %.not111 = icmp eq i32 %52, 8
@@ -746,38 +746,38 @@ define internal fastcc i32 @read_packet_header(ptr noundef readonly captures(non
 
 70:                                               ; preds = %58, %58, %58, %58, %58, %58, %58, %58
   %71 = icmp ult i8 %64, 15
-  %.138 = select i1 %71, i32 6, i32 5
-  %.139 = select i1 %71, i8 -2, i8 -4
+  %.137 = select i1 %71, i32 6, i32 5
+  %.138 = select i1 %71, i8 -2, i8 -4
   br label %.sink.split
 
+72:                                               ; preds = %50
+  %.not110 = icmp eq i32 %52, 0
+  br i1 %.not110, label %77, label %73
+
+73:                                               ; preds = %72
+  %74 = call zeroext i1 @wtap_read_bytes(ptr noundef %1, ptr noundef null, i32 noundef %52, ptr noundef %4, ptr noundef %5)
+  br i1 %74, label %77, label %.critedge
+
 .sink.split:                                      ; preds = %70, %58, %58, %58, %58, %58, %58
-  %.sink = phi i32 [ 4, %58 ], [ 4, %58 ], [ 4, %58 ], [ 4, %58 ], [ 4, %58 ], [ 4, %58 ], [ %.138, %70 ]
-  %.sink136 = phi i8 [ -2, %58 ], [ -2, %58 ], [ -2, %58 ], [ -2, %58 ], [ -2, %58 ], [ -2, %58 ], [ %.139, %70 ]
+  %.sink = phi i32 [ 4, %58 ], [ %.137, %70 ], [ 4, %58 ], [ 4, %58 ], [ 4, %58 ], [ 4, %58 ], [ 4, %58 ]
+  %.sink136 = phi i8 [ -2, %58 ], [ %.138, %70 ], [ -2, %58 ], [ -2, %58 ], [ -2, %58 ], [ -2, %58 ], [ -2, %58 ]
   store i32 %.sink, ptr %40, align 8
-  %72 = load i8, ptr %41, align 4
-  %73 = and i8 %72, %.sink136
-  store i8 %73, ptr %41, align 4
+  %75 = load i8, ptr %41, align 4
+  %76 = and i8 %75, %.sink136
+  store i8 %76, ptr %41, align 4
   br label %77
 
-74:                                               ; preds = %50
-  %.not110 = icmp eq i32 %52, 0
-  br i1 %.not110, label %77, label %75
+77:                                               ; preds = %.sink.split, %72, %73, %58
+  %.pn = phi i32 [ 4, %72 ], [ 12, %58 ], [ %47, %73 ], [ 12, %.sink.split ]
+  %.1104 = add i32 %.pn, %.0103117
+  %78 = add nuw nsw i32 %.1102118, 1
+  %79 = load i8, ptr %28, align 2
+  %80 = zext i8 %79 to i32
+  %81 = icmp samesign ult i32 %78, %80
+  br i1 %81, label %42, label %.critedge, !llvm.loop !9
 
-75:                                               ; preds = %74
-  %76 = call zeroext i1 @wtap_read_bytes(ptr noundef %1, ptr noundef null, i32 noundef %52, ptr noundef %4, ptr noundef %5)
-  br i1 %76, label %77, label %.critedge
-
-77:                                               ; preds = %74, %75, %58, %.sink.split
-  %.sink137 = phi i32 [ 12, %.sink.split ], [ 12, %58 ], [ %47, %75 ], [ %47, %74 ]
-  %78 = add i32 %.0103117, %.sink137
-  %79 = add nuw nsw i32 %.1102118, 1
-  %80 = load i8, ptr %28, align 2
-  %81 = zext i8 %80 to i32
-  %82 = icmp samesign ult i32 %79, %81
-  br i1 %82, label %42, label %.critedge, !llvm.loop !9
-
-.critedge:                                        ; preds = %77, %75, %56, %42, %27, %48, %54, %10, %.thread, %17
-  %.0 = phi i32 [ 0, %17 ], [ -1, %.thread ], [ %., %10 ], [ -1, %54 ], [ -1, %48 ], [ 48, %27 ], [ %78, %77 ], [ -1, %75 ], [ -1, %56 ], [ -1, %42 ]
+.critedge:                                        ; preds = %77, %56, %42, %73, %27, %48, %54, %10, %.thread, %17
+  %.0 = phi i32 [ 0, %17 ], [ -1, %.thread ], [ -1, %54 ], [ %., %10 ], [ -1, %48 ], [ 48, %27 ], [ -1, %42 ], [ -1, %56 ], [ %.1104, %77 ], [ -1, %73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
@@ -933,7 +933,7 @@ wtap_to_observer_encap.exit.thread:               ; preds = %5, %5, %5
   br label %wtap_to_observer_encap.exit
 
 wtap_to_observer_encap.exit:                      ; preds = %wtap_to_observer_encap.exit.thread, %5, %3, %1
-  %.0 = phi i32 [ -9, %1 ], [ -8, %3 ], [ 0, %wtap_to_observer_encap.exit.thread ], [ -8, %5 ]
+  %.0 = phi i32 [ -8, %3 ], [ -9, %1 ], [ 0, %wtap_to_observer_encap.exit.thread ], [ -8, %5 ]
   ret i32 %.0
 }
 
@@ -974,7 +974,7 @@ define internal noundef zeroext i1 @observer_dump_open(ptr noundef initializes((
   br label %wtap_to_observer_encap.exit
 
 wtap_to_observer_encap.exit:                      ; preds = %3, %16, %17, %18
-  %.0.i = phi i8 [ -1, %18 ], [ 1, %16 ], [ 8, %17 ], [ 0, %3 ]
+  %.0.i = phi i8 [ -1, %18 ], [ 0, %3 ], [ 1, %16 ], [ 8, %17 ]
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i8 %.0.i, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 12
@@ -1088,7 +1088,7 @@ init_gmt_to_localtime_offset.exit:                ; preds = %63
   br label %init_gmt_to_localtime_offset.exit.thread
 
 init_gmt_to_localtime_offset.exit.thread:         ; preds = %57, %init_gmt_to_localtime_offset.exit, %55, %53, %51, %49, %31, %70
-  %.0 = phi i1 [ false, %70 ], [ false, %31 ], [ false, %49 ], [ false, %51 ], [ false, %53 ], [ false, %55 ], [ true, %init_gmt_to_localtime_offset.exit ], [ true, %57 ]
+  %.0 = phi i1 [ false, %70 ], [ false, %55 ], [ false, %53 ], [ false, %51 ], [ false, %49 ], [ false, %31 ], [ true, %init_gmt_to_localtime_offset.exit ], [ true, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -1136,8 +1136,8 @@ define internal zeroext i1 @observer_dump(ptr noundef %0, ptr noundef readonly c
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load i64, ptr %21, align 8
   %23 = icmp slt i64 %22, 946684800
-  %24 = add nsw i64 %22, -946684800
   %. = tail call i64 @llvm.smax.i64(i64 %22, i64 0)
+  %24 = add nsw i64 %22, -946684800
   %.0 = select i1 %23, i64 %., i64 %24
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load ptr, ptr %25, align 8

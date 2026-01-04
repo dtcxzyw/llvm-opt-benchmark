@@ -335,8 +335,8 @@ _ZN11duckdb_zstdL16ZSTD_entropyCostEPKjjm.exit:   ; preds = %106
   store i32 1, ptr %0, align 4, !tbaa !14
   br label %.thread
 
-.thread:                                          ; preds = %124, %123, %21, %37, %16, %125
-  %.0 = phi i32 [ 2, %125 ], [ %., %16 ], [ 3, %21 ], [ 0, %37 ], [ 3, %124 ], [ 0, %123 ]
+.thread:                                          ; preds = %124, %123, %37, %21, %16, %125
+  %.0 = phi i32 [ %., %16 ], [ 3, %21 ], [ 2, %125 ], [ 0, %37 ], [ 3, %124 ], [ 0, %123 ]
   ret i32 %.0
 }
 
@@ -412,7 +412,7 @@ define noundef i64 @_ZN11duckdb_zstd16ZSTD_buildCTableEPvmPjjNS_20symbolEncoding
   br label %53
 
 53:                                               ; preds = %49, %26, %16, %41, %46, %21, %17, %25, %23
-  %.1 = phi i64 [ 1, %23 ], [ %19, %17 ], [ 0, %25 ], [ -70, %21 ], [ %44, %41 ], [ %47, %46 ], [ -1, %16 ], [ %spec.select, %26 ], [ %spec.select78, %49 ]
+  %.1 = phi i64 [ %47, %46 ], [ -70, %21 ], [ 1, %23 ], [ %19, %17 ], [ 0, %25 ], [ -1, %16 ], [ %spec.select78, %49 ], [ %44, %41 ], [ %spec.select, %26 ]
   ret i64 %.1
 }
 

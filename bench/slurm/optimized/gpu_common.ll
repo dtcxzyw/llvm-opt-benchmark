@@ -504,7 +504,7 @@ define dso_local void @gpu_common_parse_gpu_freq(ptr noundef %0, ptr noundef wri
   br i1 %.not20, label %22, label %.sink.split
 
 .sink.split:                                      ; preds = %20, %18, %16, %4
-  %.sink = phi i32 [ %15, %4 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ]
+  %.sink = phi i32 [ %15, %4 ], [ %19, %18 ], [ %17, %16 ], [ %21, %20 ]
   store i32 %.sink, ptr %1, align 4
   br label %22
 
@@ -529,7 +529,7 @@ define dso_local void @gpu_common_parse_gpu_freq(ptr noundef %0, ptr noundef wri
   br i1 %.not24, label %30, label %.sink.split32
 
 .sink.split32:                                    ; preds = %28, %26, %24, %22
-  %.sink33 = phi i32 [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ]
+  %.sink33 = phi i32 [ %23, %22 ], [ %27, %26 ], [ %25, %24 ], [ %29, %28 ]
   store i32 %.sink33, ptr %2, align 4
   br label %30
 
@@ -709,7 +709,7 @@ define internal fastcc range(i32 -4, 1) i32 @_xlate_freq_code(ptr noundef nonnul
   br label %16
 
 16:                                               ; preds = %12, %15, %10, %8, %6, %4, %1
-  %.0 = phi i32 [ 0, %1 ], [ -1, %4 ], [ -2, %6 ], [ -3, %8 ], [ -4, %10 ], [ 0, %15 ], [ 0, %12 ]
+  %.0 = phi i32 [ 0, %1 ], [ -4, %10 ], [ -3, %8 ], [ -2, %6 ], [ -1, %4 ], [ 0, %12 ], [ 0, %15 ]
   ret i32 %.0
 }
 

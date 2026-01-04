@@ -2124,7 +2124,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %81
   br i1 %.not, label %.loopexit, label %7, !llvm.loop !116
 
 .loopexit:                                        ; preds = %16, %.backedge, %1, %19, %21, %27, %98
-  %.0 = phi i32 [ -10, %98 ], [ -51, %27 ], [ -51, %21 ], [ -51, %19 ], [ 0, %1 ], [ -4, %16 ], [ 0, %.backedge ]
+  %.0 = phi i32 [ -10, %98 ], [ -51, %19 ], [ -51, %21 ], [ -51, %27 ], [ 0, %1 ], [ -4, %16 ], [ 0, %.backedge ]
   ret i32 %.0
 }
 

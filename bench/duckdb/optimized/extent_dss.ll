@@ -243,13 +243,13 @@ atomic_store_b.exit:                              ; preds = %99
   store atomic i8 1, ptr @dss_exhausted.0 release, align 1
   br label %.thread93
 
-.thread93:                                        ; preds = %atomic_store_p.exit.i, %37, %atomic_store_b.exit, %atomic_load_b.exit
+.thread93:                                        ; preds = %37, %atomic_store_p.exit.i, %atomic_store_b.exit, %atomic_load_b.exit
   store atomic i8 0, ptr @dss_extending release, align 1
   tail call void @duckdb_je_edata_cache_put(ptr noundef %0, ptr noundef nonnull %12, ptr noundef nonnull %13) #6
   br label %.thread
 
 .thread:                                          ; preds = %78, %.thread112, %98, %11, %7, %.thread93
-  %.0 = phi ptr [ null, %.thread93 ], [ null, %7 ], [ null, %11 ], [ %51, %98 ], [ %51, %78 ], [ %51, %.thread112 ]
+  %.0 = phi ptr [ null, %11 ], [ null, %7 ], [ null, %.thread93 ], [ %51, %78 ], [ %51, %98 ], [ %51, %.thread112 ]
   ret ptr %.0
 }
 

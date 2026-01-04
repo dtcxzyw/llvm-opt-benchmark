@@ -829,7 +829,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSINS_9ReplicateINS0_IdLi4ELi1ELi0ELi
   br label %.body140
 
 .body140:                                         ; preds = %.loopexit, %.loopexit.split-lp, %259, %248, %261, %264, %200
-  %.pn51.pn.pn = phi { ptr, i32 } [ %201, %200 ], [ %265, %264 ], [ %262, %261 ], [ %260, %259 ], [ %249, %248 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn51.pn.pn = phi { ptr, i32 } [ %249, %248 ], [ %201, %200 ], [ %260, %259 ], [ %265, %264 ], [ %262, %261 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %266
 

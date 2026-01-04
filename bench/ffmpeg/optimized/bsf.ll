@@ -383,7 +383,7 @@ define range(i32 -2147483648, 1) i32 @av_bsf_send_packet(ptr noundef %0, ptr nou
   br label %28
 
 28:                                               ; preds = %23, %15, %20, %26, %14, %.critedge
-  %.0 = phi i32 [ -22, %14 ], [ 0, %26 ], [ 0, %.critedge ], [ -11, %20 ], [ -11, %15 ], [ %24, %23 ]
+  %.0 = phi i32 [ -22, %14 ], [ 0, %.critedge ], [ -11, %15 ], [ 0, %26 ], [ -11, %20 ], [ %24, %23 ]
   ret i32 %.0
 }
 
@@ -434,7 +434,7 @@ define range(i32 -541478725, 1) i32 @ff_bsf_get_packet(ptr noundef captures(none
   br label %17
 
 17:                                               ; preds = %13, %10, %2, %15
-  %.0 = phi i32 [ 0, %15 ], [ -541478725, %2 ], [ -11, %10 ], [ -12, %13 ]
+  %.0 = phi i32 [ -541478725, %2 ], [ 0, %15 ], [ -11, %10 ], [ -12, %13 ]
   ret i32 %.0
 }
 
@@ -464,7 +464,7 @@ define range(i32 -541478725, 1) i32 @ff_bsf_get_packet_ref(ptr noundef readonly 
   br label %14
 
 14:                                               ; preds = %10, %2, %13
-  %.0 = phi i32 [ 0, %13 ], [ -541478725, %2 ], [ -11, %10 ]
+  %.0 = phi i32 [ -541478725, %2 ], [ 0, %13 ], [ -11, %10 ]
   ret i32 %.0
 }
 
@@ -557,7 +557,7 @@ define i32 @av_bsf_list_append2(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   br label %bsf_list_append_internal.exit
 
 bsf_list_append_internal.exit:                    ; preds = %3, %6, %13, %.thread.i
-  %.0.i = phi i32 [ -1179861752, %3 ], [ %7, %6 ], [ %.01931.i, %.thread.i ], [ %15, %13 ]
+  %.0.i = phi i32 [ -1179861752, %3 ], [ %15, %13 ], [ %7, %6 ], [ %.01931.i, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0.i
 }
@@ -799,7 +799,7 @@ av_bsf_list_finalize.exit:                        ; preds = %49, %57
   br label %av_bsf_list_free.exit
 
 av_bsf_list_free.exit:                            ; preds = %._crit_edge.i, %67, %av_bsf_list_finalize.exit, %10, %8
-  %.0 = phi i32 [ %9, %8 ], [ -12, %10 ], [ 0, %av_bsf_list_finalize.exit ], [ %.09.ph, %67 ], [ %.09.ph, %._crit_edge.i ]
+  %.0 = phi i32 [ 0, %av_bsf_list_finalize.exit ], [ -12, %10 ], [ %9, %8 ], [ %.09.ph, %67 ], [ %.09.ph, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -1103,8 +1103,8 @@ ff_bsf_get_packet_ref.exit43.thread.thread:       ; preds = %36, %27, %ff_bsf_ge
   tail call void @av_packet_move_ref(ptr noundef %81, ptr noundef nonnull %1) #6
   br label %av_bsf_send_packet.exit
 
-.loopexit:                                        ; preds = %74, %69, %77, %68
-  %.0.i45.ph = phi i32 [ -22, %68 ], [ -11, %74 ], [ -11, %69 ], [ %78, %77 ]
+.loopexit:                                        ; preds = %69, %74, %77, %68
+  %.0.i45.ph = phi i32 [ -22, %68 ], [ -11, %69 ], [ -11, %74 ], [ %78, %77 ]
   tail call void @av_packet_unref(ptr noundef nonnull %1) #6
   br label %ff_bsf_get_packet_ref.exit
 
@@ -1118,7 +1118,7 @@ av_bsf_send_packet.exit:                          ; preds = %80, %.critedge.i
   br label %ff_bsf_get_packet_ref.exit
 
 ff_bsf_get_packet_ref.exit:                       ; preds = %33, %ff_bsf_get_packet_ref.exit43.thread, %ff_bsf_get_packet_ref.exit43.thread48, %24, %21, %13, %84, %.loopexit
-  %.030 = phi i32 [ %.0.i45.ph, %.loopexit ], [ %.029., %84 ], [ 0, %24 ], [ -541478725, %13 ], [ -11, %21 ], [ -11, %33 ], [ %46, %ff_bsf_get_packet_ref.exit43.thread ], [ -11, %ff_bsf_get_packet_ref.exit43.thread48 ]
+  %.030 = phi i32 [ 0, %24 ], [ %.0.i45.ph, %.loopexit ], [ %.029., %84 ], [ -11, %21 ], [ -541478725, %13 ], [ -11, %33 ], [ %46, %ff_bsf_get_packet_ref.exit43.thread ], [ -11, %ff_bsf_get_packet_ref.exit43.thread48 ]
   ret i32 %.030
 }
 

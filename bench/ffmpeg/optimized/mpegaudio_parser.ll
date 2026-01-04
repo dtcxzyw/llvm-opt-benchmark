@@ -159,7 +159,7 @@ define internal i32 @mpegaudio_parse(ptr noundef captures(none) %0, ptr noundef 
   br label %76
 
 76:                                               ; preds = %61, %.thread147, %67, %58
-  %77 = phi i32 [ %65, %67 ], [ %51, %58 ], [ %51, %.thread147 ], [ %65, %61 ]
+  %77 = phi i32 [ %65, %61 ], [ %65, %67 ], [ %51, %58 ], [ %51, %.thread147 ]
   %78 = load i32, ptr %27, align 8, !tbaa !43
   %79 = and i32 %78, 1
   %.not104 = icmp eq i32 %79, 0
@@ -184,8 +184,8 @@ define internal i32 @mpegaudio_parse(ptr noundef captures(none) %0, ptr noundef 
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %103
 
-.thread:                                          ; preds = %81, %80
-  %.7.ph = phi i32 [ %.085124, %81 ], [ %5, %80 ]
+.thread:                                          ; preds = %80, %81
+  %.7.ph = phi i32 [ %5, %80 ], [ %.085124, %81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

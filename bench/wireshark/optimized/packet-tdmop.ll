@@ -259,7 +259,7 @@ define internal i32 @dissect_tdmop(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %84, %95
-  %.2 = phi i32 [ %.1128, %84 ], [ %.1128, %95 ], [ %85, %.preheader ]
+  %.2 = phi i32 [ %.1128, %95 ], [ %.1128, %84 ], [ %85, %.preheader ]
   %97 = add i32 %.2114127, 4
   br label %98
 

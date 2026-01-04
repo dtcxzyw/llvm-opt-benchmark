@@ -1373,7 +1373,7 @@ _ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i.i: ; preds 
   br label %_ZN6bParse5bFile14findLibPointerEPv.exit.i
 
 _ZN6bParse5bFile14findLibPointerEPv.exit.i:       ; preds = %176, %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i.i, %167, %.lr.ph.split.i
-  %.0.i.i = phi ptr [ %179, %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i.i ], [ null, %.lr.ph.split.i ], [ null, %167 ], [ null, %176 ]
+  %.0.i.i = phi ptr [ %179, %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i.i ], [ null, %167 ], [ null, %.lr.ph.split.i ], [ null, %176 ]
   store ptr %.0.i.i, ptr %149, align 8, !tbaa !66
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count13.i
@@ -1794,7 +1794,7 @@ _ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i: ; preds = 
   br label %_ZN6bParse5bFile14findLibPointerEPv.exit
 
 _ZN6bParse5bFile14findLibPointerEPv.exit:         ; preds = %49, %.lr.ph.split, %40, %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i
-  %.0.i = phi ptr [ %52, %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i ], [ null, %.lr.ph.split ], [ null, %40 ], [ null, %49 ]
+  %.0.i = phi ptr [ %52, %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i ], [ null, %40 ], [ null, %.lr.ph.split ], [ null, %49 ]
   store ptr %.0.i, ptr %22, align 8, !tbaa !66
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count13
@@ -2069,14 +2069,14 @@ define dso_local void @_ZN6bParse5bFile7swapLenEPc(ptr noundef nonnull readonly 
   br label %18
 
 18:                                               ; preds = %12, %16, %6, %10
-  %.sink101 = phi i64 [ 12, %10 ], [ 12, %6 ], [ 16, %16 ], [ 16, %12 ]
-  %.sink99 = phi i64 [ 15, %10 ], [ 15, %6 ], [ 19, %16 ], [ 19, %12 ]
-  %.sink93 = phi i64 [ 13, %10 ], [ 13, %6 ], [ 17, %16 ], [ 17, %12 ]
-  %.sink91 = phi i64 [ 14, %10 ], [ 14, %6 ], [ 18, %16 ], [ 18, %12 ]
-  %.sink85 = phi i64 [ 16, %10 ], [ 16, %6 ], [ 20, %16 ], [ 20, %12 ]
-  %.sink83 = phi i64 [ 19, %10 ], [ 19, %6 ], [ 23, %16 ], [ 23, %12 ]
-  %.sink = phi i64 [ 17, %10 ], [ 17, %6 ], [ 21, %16 ], [ 21, %12 ]
-  %.sink76 = phi i64 [ 18, %10 ], [ 18, %6 ], [ 22, %16 ], [ 22, %12 ]
+  %.sink101 = phi i64 [ 12, %6 ], [ 12, %10 ], [ 16, %16 ], [ 16, %12 ]
+  %.sink99 = phi i64 [ 15, %6 ], [ 15, %10 ], [ 19, %16 ], [ 19, %12 ]
+  %.sink93 = phi i64 [ 13, %6 ], [ 13, %10 ], [ 17, %16 ], [ 17, %12 ]
+  %.sink91 = phi i64 [ 14, %6 ], [ 14, %10 ], [ 18, %16 ], [ 18, %12 ]
+  %.sink85 = phi i64 [ 16, %6 ], [ 16, %10 ], [ 20, %16 ], [ 20, %12 ]
+  %.sink83 = phi i64 [ 19, %6 ], [ 19, %10 ], [ 23, %16 ], [ 23, %12 ]
+  %.sink = phi i64 [ 17, %6 ], [ 17, %10 ], [ 21, %16 ], [ 21, %12 ]
+  %.sink76 = phi i64 [ 18, %6 ], [ 18, %10 ], [ 22, %16 ], [ 22, %12 ]
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %20 = load i8, ptr %19, align 1, !tbaa !4
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 7
@@ -2371,14 +2371,14 @@ define dso_local void @_ZN6bParse5bFile7preSwapEv(ptr noundef nonnull align 8 de
   br label %_ZN6bParse5bFile7swapLenEPc.exit
 
 _ZN6bParse5bFile7swapLenEPc.exit:                 ; preds = %23, %27, %29, %33
-  %.sink101.i = phi i64 [ 12, %27 ], [ 12, %23 ], [ 16, %33 ], [ 16, %29 ]
-  %.sink99.i = phi i64 [ 15, %27 ], [ 15, %23 ], [ 19, %33 ], [ 19, %29 ]
-  %.sink93.i = phi i64 [ 13, %27 ], [ 13, %23 ], [ 17, %33 ], [ 17, %29 ]
-  %.sink91.i = phi i64 [ 14, %27 ], [ 14, %23 ], [ 18, %33 ], [ 18, %29 ]
-  %.sink85.i = phi i64 [ 16, %27 ], [ 16, %23 ], [ 20, %33 ], [ 20, %29 ]
-  %.sink83.i = phi i64 [ 19, %27 ], [ 19, %23 ], [ 23, %33 ], [ 23, %29 ]
-  %.sink.i = phi i64 [ 17, %27 ], [ 17, %23 ], [ 21, %33 ], [ 21, %29 ]
-  %.sink76.i = phi i64 [ 18, %27 ], [ 18, %23 ], [ 22, %33 ], [ 22, %29 ]
+  %.sink101.i = phi i64 [ 12, %23 ], [ 12, %27 ], [ 16, %33 ], [ 16, %29 ]
+  %.sink99.i = phi i64 [ 15, %23 ], [ 15, %27 ], [ 19, %33 ], [ 19, %29 ]
+  %.sink93.i = phi i64 [ 13, %23 ], [ 13, %27 ], [ 17, %33 ], [ 17, %29 ]
+  %.sink91.i = phi i64 [ 14, %23 ], [ 14, %27 ], [ 18, %33 ], [ 18, %29 ]
+  %.sink85.i = phi i64 [ 16, %23 ], [ 16, %27 ], [ 20, %33 ], [ 20, %29 ]
+  %.sink83.i = phi i64 [ 19, %23 ], [ 19, %27 ], [ 23, %33 ], [ 23, %29 ]
+  %.sink.i = phi i64 [ 17, %23 ], [ 17, %27 ], [ 21, %33 ], [ 21, %29 ]
+  %.sink76.i = phi i64 [ 18, %23 ], [ 18, %27 ], [ 22, %33 ], [ 22, %29 ]
   %35 = getelementptr inbounds nuw i8, ptr %.021, i64 4
   %36 = load i8, ptr %35, align 1, !tbaa !4
   %37 = getelementptr inbounds nuw i8, ptr %.021, i64 7
@@ -3258,7 +3258,7 @@ _ZN6bParse4bDNA14getElementSizeEss.exit:          ; preds = %30, %33
   br i1 %exitcond.not, label %.thread, label %11, !llvm.loop !125
 
 .thread:                                          ; preds = %47, %6, %46, %45, %42
-  %spec.select = phi ptr [ null, %42 ], [ %.02542, %45 ], [ %.02542, %46 ], [ null, %6 ], [ null, %47 ]
+  %spec.select = phi ptr [ %.02542, %45 ], [ null, %42 ], [ %.02542, %46 ], [ null, %6 ], [ null, %47 ]
   ret ptr %spec.select
 }
 
@@ -3341,7 +3341,7 @@ _ZN6bParse4bDNA14getElementSizeEss.exit:          ; preds = %33, %36
   br label %58
 
 58:                                               ; preds = %55, %52, %_ZN6bParse4bDNA14getElementSizeEss.exit
-  %.045 = phi i32 [ %49, %52 ], [ %49, %_ZN6bParse4bDNA14getElementSizeEss.exit ], [ %spec.select, %55 ]
+  %.045 = phi i32 [ %49, %_ZN6bParse4bDNA14getElementSizeEss.exit ], [ %spec.select, %55 ], [ %49, %52 ]
   %59 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %23) #30
   %.not49 = icmp eq i32 %59, 0
   br i1 %.not49, label %60, label %.thread100
@@ -5593,7 +5593,7 @@ _ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i: ; preds = 
   br label %_ZN6bParse5bFile14findLibPointerEPv.exit
 
 _ZN6bParse5bFile14findLibPointerEPv.exit:         ; preds = %89, %51, %92, %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i, %78, %58
-  %95 = phi ptr [ %94, %92 ], [ null, %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i ], [ null, %58 ], [ null, %78 ], [ %57, %51 ], [ null, %89 ]
+  %95 = phi ptr [ %57, %51 ], [ %94, %92 ], [ null, %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i ], [ null, %58 ], [ null, %78 ], [ null, %89 ]
   %96 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %97 = load i32, ptr %96, align 4, !tbaa !68
   %98 = sext i32 %97 to i64

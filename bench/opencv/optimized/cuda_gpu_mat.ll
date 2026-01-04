@@ -113,7 +113,7 @@ define void @_ZN2cv4cuda6GpuMatC2EiiiPvm(ptr noundef nonnull writeonly align 8 c
   br label %31
 
 31:                                               ; preds = %6, %.sink.split
-  %32 = phi i64 [ %28, %.sink.split ], [ %5, %6 ]
+  %32 = phi i64 [ %5, %6 ], [ %28, %.sink.split ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %34 = add nsw i32 %1, -1
   %35 = sext i32 %34 to i64
@@ -187,7 +187,7 @@ define void @_ZN2cv4cuda6GpuMatC2ENS_5Size_IiEEiPvm(ptr noundef nonnull writeonl
   br label %30
 
 30:                                               ; preds = %5, %.sink.split
-  %31 = phi i64 [ %27, %.sink.split ], [ %4, %5 ]
+  %31 = phi i64 [ %4, %5 ], [ %27, %.sink.split ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %sext8 = add i64 %1, -4294967296
   %33 = ashr i64 %sext8, 32

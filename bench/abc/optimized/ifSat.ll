@@ -859,7 +859,7 @@ default.unreachable:                              ; preds = %37
   br label %213
 
 213:                                              ; preds = %121, %205, %201, %._crit_edge166, %.critedge
-  %.0 = phi i32 [ 0, %.critedge ], [ 1, %._crit_edge166 ], [ 1, %201 ], [ 1, %205 ], [ 1, %121 ]
+  %.0 = phi i32 [ 1, %._crit_edge166 ], [ 0, %.critedge ], [ 1, %201 ], [ 1, %205 ], [ 1, %121 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -2636,7 +2636,7 @@ define i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %635, label %605, label %.loopexit509, !llvm.loop !131
 
 .loopexit461:                                     ; preds = %389, %439, %496, %560, %.loopexit513, %627, %205, %246, %294, %.loopexit486, %349, %101, %134, %.loopexit469, %174, %49, %.loopexit459, %75, %.loopexit, %31, %.preheader494, %.preheader465, %.preheader, %._crit_edge648.thread, %._crit_edge.thread, %._crit_edge737.thread, %._crit_edge822.thread, %.preheader514, %.preheader470, %5, %._crit_edge676, %._crit_edge648, %._crit_edge624, %._crit_edge, %._crit_edge776, %._crit_edge755, %._crit_edge737, %._crit_edge837, %._crit_edge822, %._crit_edge870
-  %.0 = phi i32 [ 0, %._crit_edge870 ], [ 0, %._crit_edge822 ], [ 0, %._crit_edge837 ], [ 0, %._crit_edge737 ], [ 0, %._crit_edge755 ], [ 0, %._crit_edge776 ], [ 0, %._crit_edge ], [ 0, %._crit_edge624 ], [ 0, %._crit_edge648 ], [ 0, %._crit_edge676 ], [ 0, %5 ], [ 0, %.preheader470 ], [ 0, %.preheader514 ], [ 0, %._crit_edge822.thread ], [ 0, %._crit_edge737.thread ], [ 0, %._crit_edge.thread ], [ 0, %._crit_edge648.thread ], [ 0, %.preheader ], [ 0, %.preheader465 ], [ 0, %.preheader494 ], [ %34, %31 ], [ 0, %.loopexit ], [ %80, %75 ], [ 0, %.loopexit459 ], [ %52, %49 ], [ %.reass1380, %174 ], [ 0, %.loopexit469 ], [ %139, %134 ], [ %104, %101 ], [ %.reass1378, %349 ], [ 0, %.loopexit486 ], [ %.reass1376, %294 ], [ %251, %246 ], [ %208, %205 ], [ %.reass1373, %627 ], [ 0, %.loopexit513 ], [ %.reass1371, %560 ], [ %.reass, %496 ], [ %444, %439 ], [ %392, %389 ]
+  %.0 = phi i32 [ 0, %.loopexit486 ], [ 0, %._crit_edge676 ], [ 0, %.preheader465 ], [ %.reass1378, %349 ], [ %208, %205 ], [ 0, %._crit_edge870 ], [ %80, %75 ], [ 0, %._crit_edge822.thread ], [ 0, %._crit_edge822 ], [ 0, %.loopexit ], [ 0, %._crit_edge837 ], [ 0, %.preheader470 ], [ 0, %._crit_edge737.thread ], [ 0, %._crit_edge737 ], [ 0, %.loopexit469 ], [ 0, %._crit_edge755 ], [ %.reass1373, %627 ], [ 0, %._crit_edge776 ], [ 0, %.preheader494 ], [ 0, %._crit_edge.thread ], [ 0, %._crit_edge ], [ %251, %246 ], [ 0, %._crit_edge624 ], [ 0, %._crit_edge648.thread ], [ 0, %._crit_edge648 ], [ 0, %5 ], [ %.reass1376, %294 ], [ %34, %31 ], [ %52, %49 ], [ 0, %.preheader ], [ 0, %.preheader514 ], [ %139, %134 ], [ 0, %.loopexit513 ], [ %444, %439 ], [ 0, %.loopexit459 ], [ %.reass1371, %560 ], [ %104, %101 ], [ %.reass, %496 ], [ %.reass1380, %174 ], [ %392, %389 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

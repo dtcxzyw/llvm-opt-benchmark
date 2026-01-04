@@ -134,7 +134,7 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not, label %82, label %.thread925
 
 .thread925.sink.split:                            ; preds = %74, %76, %68, %64, %66, %58, %55, %52, %49, %15
-  %.sink = phi i32 [ -1, %15 ], [ -2, %49 ], [ -3, %52 ], [ -4, %55 ], [ -5, %58 ], [ -9, %66 ], [ -9, %64 ], [ -11, %68 ], [ -13, %76 ], [ -13, %74 ]
+  %.sink = phi i32 [ -1, %15 ], [ -2, %49 ], [ -4, %55 ], [ -9, %64 ], [ -11, %68 ], [ -5, %58 ], [ -3, %52 ], [ -9, %66 ], [ -13, %76 ], [ -13, %74 ]
   store i32 %.sink, ptr %14, align 4, !tbaa !3
   br label %.thread925
 
@@ -169,7 +169,7 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %.critedge
 
 .critedge:                                        ; preds = %83, %88
-  %89 = phi i32 [ %50, %83 ], [ %.pre, %88 ]
+  %89 = phi i32 [ %.pre, %88 ], [ %50, %83 ]
   %90 = add nsw i32 %89, -1
   %91 = shl nsw i32 %90, 1
   %92 = mul nsw i32 %90, 3
@@ -299,7 +299,7 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %exitcond1372.not, label %._crit_edge1093, label %.lr.ph1092, !llvm.loop !12
 
 ._crit_edge1093:                                  ; preds = %.lr.ph1092, %.thread, %142
-  %.1859.lcssa = phi double [ %141, %142 ], [ 0.000000e+00, %.thread ], [ %150, %.lr.ph1092 ]
+  %.1859.lcssa = phi double [ 0.000000e+00, %.thread ], [ %141, %142 ], [ %150, %.lr.ph1092 ]
   %151 = fcmp oge double %131, 0.000000e+00
   br i1 %151, label %152, label %181
 
@@ -629,7 +629,7 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %313, %329, %355, %368
-  %.08431193.be = phi i32 [ 1, %313 ], [ 1, %329 ], [ %.1844933, %355 ], [ %.1844933, %368 ]
+  %.08431193.be = phi i32 [ 1, %329 ], [ %.1844933, %368 ], [ %.1844933, %355 ], [ 1, %313 ]
   br label %.backedge
 
 314:                                              ; preds = %.thread927
@@ -775,7 +775,7 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.neg.le1187 = xor i32 %.0842, -1
   store double %196, ptr %18, align 8, !tbaa !7
   %.pre1421 = load double, ptr %207, align 8, !tbaa !7
-  br label %407
+  br label %404
 
 .loopexit973.thread:                              ; preds = %315, %357
   %.ph = phi double [ %318, %315 ], [ %345, %357 ]
@@ -797,7 +797,7 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.neg1054 = xor i32 %.0842, -1
   store double %93, ptr %17, align 8, !tbaa !7
   store double %196, ptr %18, align 8, !tbaa !7
-  br i1 %151, label %387, label %399
+  br i1 %151, label %387, label %396
 
 387:                                              ; preds = %.loopexit973.thread, %.loopexit973
   %.neg10541477 = phi i32 [ %.neg10541473, %.loopexit973.thread ], [ %.neg1054, %.loopexit973 ]
@@ -811,85 +811,85 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %393 = fdiv double %.28481476, %.2860985
   %394 = fmul double %392, %393
   %395 = fcmp ugt double %394, %198
-  br i1 %395, label %399, label %396
+  br i1 %395, label %396, label %.thread953
 
-396:                                              ; preds = %387
-  store double 0.000000e+00, ptr %27, align 8, !tbaa !7
-  %397 = add nsw i32 %.1867, %.0850.ph1222
-  %398 = add i32 %397, %.neg10541477
-  br i1 %388, label %432, label %503
-
-399:                                              ; preds = %387, %.loopexit973
+396:                                              ; preds = %387, %.loopexit973
   %.neg10541478 = phi i32 [ %.neg10541477, %387 ], [ %.neg1054, %.loopexit973 ]
   %.18449291475 = phi i32 [ %.18449291474, %387 ], [ %.1844929, %.loopexit973 ]
-  %400 = phi i1 [ %388, %387 ], [ %386, %.loopexit973 ]
-  %401 = phi double [ %389, %387 ], [ %385, %.loopexit973 ]
-  %402 = phi double [ %390, %387 ], [ %384, %.loopexit973 ]
-  br i1 %400, label %._crit_edge1433, label %407
+  %397 = phi i1 [ %388, %387 ], [ %386, %.loopexit973 ]
+  %398 = phi double [ %389, %387 ], [ %385, %.loopexit973 ]
+  %399 = phi double [ %390, %387 ], [ %384, %.loopexit973 ]
+  br i1 %397, label %._crit_edge1433, label %404
 
-._crit_edge1433:                                  ; preds = %399, %.thread936.thread
-  %403 = phi double [ %.pre1424, %.thread936.thread ], [ %402, %399 ]
-  %.neg1053 = phi i32 [ %.neg.le1189, %.thread936.thread ], [ %.neg10541478, %399 ]
-  %.1844929940948 = phi i32 [ 1, %.thread936.thread ], [ %.18449291475, %399 ]
-  store double %403, ptr %17, align 8, !tbaa !7
-  %404 = fcmp oge double %403, 0.000000e+00
-  %405 = fneg double %403
-  %406 = select i1 %404, double %403, double %405
+._crit_edge1433:                                  ; preds = %396, %.thread936.thread
+  %400 = phi double [ %.pre1424, %.thread936.thread ], [ %399, %396 ]
+  %.neg1053 = phi i32 [ %.neg.le1189, %.thread936.thread ], [ %.neg10541478, %396 ]
+  %.1844929940948 = phi i32 [ 1, %.thread936.thread ], [ %.18449291475, %396 ]
+  store double %400, ptr %17, align 8, !tbaa !7
+  %401 = fcmp oge double %400, 0.000000e+00
+  %402 = fneg double %400
+  %403 = select i1 %401, double %400, double %402
   call void @dlas2_(ptr noundef nonnull %211, ptr noundef nonnull %210, ptr noundef nonnull %207, ptr noundef nonnull %27, ptr noundef nonnull %25) #6
-  br label %418
+  br label %415
 
-407:                                              ; preds = %.thread936, %399
-  %408 = phi double [ %.pre1421, %.thread936 ], [ %401, %399 ]
-  %.neg1052 = phi i32 [ %.neg.le1187, %.thread936 ], [ %.neg10541478, %399 ]
-  %.1844929940947 = phi i32 [ %.1844933, %.thread936 ], [ %.18449291475, %399 ]
-  store double %408, ptr %17, align 8, !tbaa !7
-  %409 = fcmp oge double %408, 0.000000e+00
-  %410 = fneg double %408
-  %411 = select i1 %409, double %408, double %410
-  %412 = sext i32 %254 to i64
-  %413 = getelementptr inbounds double, ptr %33, i64 %412
-  %414 = getelementptr inbounds double, ptr %34, i64 %412
-  %415 = sext i32 %.0842 to i64
-  %416 = getelementptr double, ptr %33, i64 %415
-  %417 = getelementptr i8, ptr %416, i64 16
-  call void @dlas2_(ptr noundef nonnull %413, ptr noundef nonnull %414, ptr noundef %417, ptr noundef nonnull %27, ptr noundef nonnull %25) #6
-  br label %418
+404:                                              ; preds = %.thread936, %396
+  %405 = phi double [ %.pre1421, %.thread936 ], [ %398, %396 ]
+  %.neg1052 = phi i32 [ %.neg.le1187, %.thread936 ], [ %.neg10541478, %396 ]
+  %.1844929940947 = phi i32 [ %.1844933, %.thread936 ], [ %.18449291475, %396 ]
+  store double %405, ptr %17, align 8, !tbaa !7
+  %406 = fcmp oge double %405, 0.000000e+00
+  %407 = fneg double %405
+  %408 = select i1 %406, double %405, double %407
+  %409 = sext i32 %254 to i64
+  %410 = getelementptr inbounds double, ptr %33, i64 %409
+  %411 = getelementptr inbounds double, ptr %34, i64 %409
+  %412 = sext i32 %.0842 to i64
+  %413 = getelementptr double, ptr %33, i64 %412
+  %414 = getelementptr i8, ptr %413, i64 16
+  call void @dlas2_(ptr noundef nonnull %410, ptr noundef nonnull %411, ptr noundef %414, ptr noundef nonnull %27, ptr noundef nonnull %25) #6
+  br label %415
 
-418:                                              ; preds = %407, %._crit_edge1433
-  %.neg1051 = phi i32 [ %.neg1053, %._crit_edge1433 ], [ %.neg1052, %407 ]
-  %419 = phi i1 [ true, %._crit_edge1433 ], [ false, %407 ]
-  %.1844929940946 = phi i32 [ %.1844929940948, %._crit_edge1433 ], [ %.1844929940947, %407 ]
-  %.0 = phi double [ %406, %._crit_edge1433 ], [ %411, %407 ]
-  %420 = fcmp ogt double %.0, 0.000000e+00
-  %421 = load double, ptr %27, align 8, !tbaa !7
-  br i1 %420, label %422, label %thread-pre-split949
+415:                                              ; preds = %404, %._crit_edge1433
+  %.neg1051 = phi i32 [ %.neg1053, %._crit_edge1433 ], [ %.neg1052, %404 ]
+  %416 = phi i1 [ true, %._crit_edge1433 ], [ false, %404 ]
+  %.1844929940946 = phi i32 [ %.1844929940948, %._crit_edge1433 ], [ %.1844929940947, %404 ]
+  %.0 = phi double [ %403, %._crit_edge1433 ], [ %408, %404 ]
+  %417 = fcmp ogt double %.0, 0.000000e+00
+  %418 = load double, ptr %27, align 8, !tbaa !7
+  br i1 %417, label %419, label %thread-pre-split949
 
-422:                                              ; preds = %418
-  %423 = fdiv double %421, %.0
-  store double %423, ptr %17, align 8, !tbaa !7
-  %424 = fmul double %423, %423
-  %425 = fcmp olt double %424, %93
-  br i1 %425, label %.thread953, label %thread-pre-split949
+419:                                              ; preds = %415
+  %420 = fdiv double %418, %.0
+  store double %420, ptr %17, align 8, !tbaa !7
+  %421 = fmul double %420, %420
+  %422 = fcmp olt double %421, %93
+  br i1 %422, label %423, label %thread-pre-split949
 
-.thread953:                                       ; preds = %422
+423:                                              ; preds = %419
+  store double 0.000000e+00, ptr %27, align 8, !tbaa !7
+  %424 = add nsw i32 %.1867, %.0850.ph1222
+  %425 = add i32 %424, %.neg1051
+  br i1 %416, label %432, label %503
+
+.thread953:                                       ; preds = %387
   store double 0.000000e+00, ptr %27, align 8, !tbaa !7
   %426 = add nsw i32 %.1867, %.0850.ph1222
-  %427 = add i32 %426, %.neg1051
-  br i1 %419, label %432, label %503
+  %427 = add i32 %426, %.neg10541477
+  br i1 %388, label %432, label %503
 
-thread-pre-split949:                              ; preds = %418, %422
+thread-pre-split949:                              ; preds = %415, %419
   %428 = add nsw i32 %.1867, %.0850.ph1222
   %429 = add i32 %428, %.neg1051
-  %430 = fcmp oeq double %421, 0.000000e+00
+  %430 = fcmp oeq double %418, 0.000000e+00
   br i1 %430, label %431, label %578
 
 431:                                              ; preds = %thread-pre-split949
-  br i1 %419, label %432, label %503
+  br i1 %416, label %432, label %503
 
-432:                                              ; preds = %396, %.thread953, %431
-  %.neg1050 = phi i32 [ %.neg1051, %.thread953 ], [ %.neg1051, %431 ], [ %.neg10541477, %396 ]
-  %.1844929939959960 = phi i32 [ %.1844929940946, %.thread953 ], [ %.1844929940946, %431 ], [ %.18449291474, %396 ]
-  %433 = phi i32 [ %427, %.thread953 ], [ %429, %431 ], [ %398, %396 ]
+432:                                              ; preds = %423, %.thread953, %431
+  %.neg1050 = phi i32 [ %.neg10541477, %.thread953 ], [ %.neg1051, %431 ], [ %.neg1051, %423 ]
+  %.1844929939959960 = phi i32 [ %.18449291474, %.thread953 ], [ %.1844929940946, %431 ], [ %.1844929940946, %423 ]
+  %433 = phi i32 [ %427, %.thread953 ], [ %429, %431 ], [ %425, %423 ]
   store double 1.000000e+00, ptr %31, align 8, !tbaa !7
   store double 1.000000e+00, ptr %26, align 8, !tbaa !7
   store i32 %208, ptr %16, align 4, !tbaa !3
@@ -1022,10 +1022,10 @@ thread-pre-split949:                              ; preds = %418, %422
   store double 0.000000e+00, ptr %210, align 8, !tbaa !7
   br label %.lr.ph1194.backedge
 
-503:                                              ; preds = %396, %.thread953, %431
-  %.neg1055 = phi i32 [ %.neg1051, %.thread953 ], [ %.neg1051, %431 ], [ %.neg10541477, %396 ]
-  %.1844929939959961 = phi i32 [ %.1844929940946, %.thread953 ], [ %.1844929940946, %431 ], [ %.18449291474, %396 ]
-  %504 = phi i32 [ %427, %.thread953 ], [ %429, %431 ], [ %398, %396 ]
+503:                                              ; preds = %423, %.thread953, %431
+  %.neg1055 = phi i32 [ %.neg10541477, %.thread953 ], [ %.neg1051, %431 ], [ %.neg1051, %423 ]
+  %.1844929939959961 = phi i32 [ %.18449291474, %.thread953 ], [ %.1844929940946, %431 ], [ %.1844929940946, %423 ]
+  %504 = phi i32 [ %427, %.thread953 ], [ %429, %431 ], [ %425, %423 ]
   store double 1.000000e+00, ptr %31, align 8, !tbaa !7
   store double 1.000000e+00, ptr %26, align 8, !tbaa !7
   %505 = add nsw i32 %.0842, 2
@@ -1166,7 +1166,7 @@ thread-pre-split949:                              ; preds = %418, %422
   br label %.lr.ph1194.backedge
 
 578:                                              ; preds = %thread-pre-split949
-  br i1 %419, label %579, label %674
+  br i1 %416, label %579, label %674
 
 579:                                              ; preds = %578
   %580 = sext i32 %254 to i64
@@ -1176,10 +1176,10 @@ thread-pre-split949:                              ; preds = %418, %422
   %583 = fcmp oge double %582, 0.000000e+00
   %584 = fneg double %582
   %585 = select i1 %583, double %582, double %584
-  %586 = fsub double %585, %421
+  %586 = fsub double %585, %418
   %587 = fcmp ult double %582, 0.000000e+00
   %.922 = select i1 %587, double -1.000000e+00, double 1.000000e+00
-  %588 = fdiv double %421, %582
+  %588 = fdiv double %418, %582
   %589 = fadd double %588, %.922
   %590 = fmul double %586, %589
   store double %590, ptr %23, align 8, !tbaa !7
@@ -1340,10 +1340,10 @@ thread-pre-split949:                              ; preds = %418, %422
   %676 = fcmp oge double %675, 0.000000e+00
   %677 = fneg double %675
   %678 = select i1 %676, double %675, double %677
-  %679 = fsub double %678, %421
+  %679 = fsub double %678, %418
   %680 = fcmp ult double %675, 0.000000e+00
   %.923 = select i1 %680, double -1.000000e+00, double 1.000000e+00
-  %681 = fdiv double %421, %675
+  %681 = fdiv double %418, %675
   %682 = fadd double %681, %.923
   %683 = fmul double %679, %682
   store double %683, ptr %23, align 8, !tbaa !7

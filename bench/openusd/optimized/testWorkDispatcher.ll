@@ -1580,8 +1580,8 @@ _ZN4Node8AddInputEPKS_.exit:                      ; preds = %_ZNSt6vectorIPK4Nod
   br i1 %190, label %.preheader, label %._crit_edge106, !llvm.loop !19
 
 ._crit_edge106:                                   ; preds = %._crit_edge104, %_ZNSt6vectorIP4NodeSaIS1_EE7reserveEm.exit, %.preheader78
-  %.sroa.10.1.lcssa158 = phi ptr [ %.sroa.10.2, %.preheader78 ], [ null, %_ZNSt6vectorIP4NodeSaIS1_EE7reserveEm.exit ], [ %.sroa.10.2, %._crit_edge104 ]
-  %.sroa.0.1.lcssa157 = phi ptr [ %.sroa.0.2, %.preheader78 ], [ null, %_ZNSt6vectorIP4NodeSaIS1_EE7reserveEm.exit ], [ %.sroa.0.2, %._crit_edge104 ]
+  %.sroa.10.1.lcssa158 = phi ptr [ null, %_ZNSt6vectorIP4NodeSaIS1_EE7reserveEm.exit ], [ %.sroa.10.2, %.preheader78 ], [ %.sroa.10.2, %._crit_edge104 ]
+  %.sroa.0.1.lcssa157 = phi ptr [ null, %_ZNSt6vectorIP4NodeSaIS1_EE7reserveEm.exit ], [ %.sroa.0.2, %.preheader78 ], [ %.sroa.0.2, %._crit_edge104 ]
   %191 = load ptr, ptr %5, align 8
   %192 = load ptr, ptr %32, align 8
   %.not4.i.i.i.i = icmp eq ptr %191, %192

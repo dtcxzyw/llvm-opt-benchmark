@@ -421,9 +421,9 @@ define internal fastcc range(i32 0, 2) i32 @ecdsa_sign_setup(ptr noundef %0, ptr
   br label %90
 
 .sink.split:                                      ; preds = %81, %79, %.split119.split, %.split, %67, %65, %.split119.split.us.us, %.split.us, %56, %54, %.split119.us.us, %.split.us.us, %.split128.us, %41, %38, %31
-  %.sink166 = phi i32 [ 172, %31 ], [ 176, %38 ], [ 181, %41 ], [ 240, %.split128.us ], [ 223, %.split119.us.us ], [ 228, %54 ], [ 233, %56 ], [ 216, %.split.us.us ], [ 223, %.split119.split.us.us ], [ 228, %65 ], [ 233, %67 ], [ 216, %.split.us ], [ 223, %.split119.split ], [ 228, %79 ], [ 233, %81 ], [ 216, %.split ]
-  %.sink = phi i32 [ 524291, %31 ], [ 524304, %38 ], [ 524304, %41 ], [ 524291, %.split128.us ], [ 524304, %.split119.us.us ], [ 524304, %54 ], [ 524291, %56 ], [ 158, %.split.us.us ], [ 524304, %.split119.split.us.us ], [ 524304, %65 ], [ 524291, %67 ], [ 158, %.split.us ], [ 524304, %.split119.split ], [ 524304, %79 ], [ 524291, %81 ], [ 158, %.split ]
-  %.080.ph.ph = phi ptr [ null, %31 ], [ null, %38 ], [ %39, %41 ], [ %39, %.split128.us ], [ %39, %.split.us.us ], [ %39, %.split119.us.us ], [ %39, %54 ], [ %39, %56 ], [ %39, %.split.us ], [ %39, %.split119.split.us.us ], [ %39, %65 ], [ %39, %67 ], [ %39, %.split ], [ %39, %.split119.split ], [ %39, %79 ], [ %39, %81 ]
+  %.sink166 = phi i32 [ 181, %41 ], [ 172, %31 ], [ 176, %38 ], [ 240, %.split128.us ], [ 233, %67 ], [ 233, %56 ], [ 228, %54 ], [ 223, %.split119.us.us ], [ 216, %.split.us.us ], [ 228, %65 ], [ 216, %.split.us ], [ 223, %.split119.split.us.us ], [ 223, %.split119.split ], [ 216, %.split ], [ 233, %81 ], [ 228, %79 ]
+  %.sink = phi i32 [ 524304, %41 ], [ 524291, %31 ], [ 524304, %38 ], [ 524291, %.split128.us ], [ 524291, %67 ], [ 524291, %56 ], [ 524304, %54 ], [ 524304, %.split119.us.us ], [ 158, %.split.us.us ], [ 524304, %65 ], [ 158, %.split.us ], [ 524304, %.split119.split.us.us ], [ 524304, %.split119.split ], [ 158, %.split ], [ 524291, %81 ], [ 524304, %79 ]
+  %.080.ph.ph = phi ptr [ %39, %41 ], [ null, %31 ], [ null, %38 ], [ %39, %.split128.us ], [ %39, %67 ], [ %39, %56 ], [ %39, %.split.us.us ], [ %39, %.split119.us.us ], [ %39, %54 ], [ %39, %.split.us ], [ %39, %.split119.split.us.us ], [ %39, %65 ], [ %39, %.split ], [ %39, %.split119.split ], [ %39, %79 ], [ %39, %81 ]
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink166, ptr noundef nonnull @__func__.ecdsa_sign_setup) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef %.sink, ptr noundef null) #4
@@ -717,10 +717,10 @@ define ptr @ossl_ecdsa_simple_sign_sig(ptr noundef %0, i32 noundef %1, ptr nound
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 176, ptr noundef null) #4
   br label %104
 
-104:                                              ; preds = %28, %37, %41, %100, %103, %96, %89, %86, %70, %77, %59, %51
-  %.pre = phi ptr [ null, %51 ], [ null, %59 ], [ %67, %77 ], [ %.pre.pre, %70 ], [ %79, %86 ], [ %79, %89 ], [ %79, %96 ], [ %79, %103 ], [ %79, %100 ], [ null, %41 ], [ null, %37 ], [ null, %28 ]
-  %.074.ph = phi ptr [ %35, %51 ], [ %35, %59 ], [ %35, %77 ], [ %35, %70 ], [ %35, %86 ], [ %35, %89 ], [ %35, %96 ], [ %35, %103 ], [ %35, %100 ], [ %35, %41 ], [ null, %37 ], [ null, %28 ]
-  %.071.ph = phi ptr [ %32, %51 ], [ %32, %59 ], [ %32, %77 ], [ %32, %70 ], [ %32, %86 ], [ %32, %89 ], [ %32, %96 ], [ %32, %103 ], [ %32, %100 ], [ %32, %41 ], [ %32, %37 ], [ null, %28 ]
+104:                                              ; preds = %28, %37, %41, %100, %103, %51, %96, %89, %86, %70, %77, %59
+  %.pre = phi ptr [ null, %59 ], [ %67, %77 ], [ %.pre.pre, %70 ], [ %79, %86 ], [ %79, %89 ], [ %79, %96 ], [ null, %51 ], [ %79, %103 ], [ %79, %100 ], [ null, %41 ], [ null, %37 ], [ null, %28 ]
+  %.074.ph = phi ptr [ %35, %59 ], [ %35, %77 ], [ %35, %70 ], [ %35, %86 ], [ %35, %89 ], [ %35, %96 ], [ %35, %51 ], [ %35, %103 ], [ %35, %100 ], [ %35, %41 ], [ null, %37 ], [ null, %28 ]
+  %.071.ph = phi ptr [ %32, %59 ], [ %32, %77 ], [ %32, %70 ], [ %32, %86 ], [ %32, %89 ], [ %32, %96 ], [ %32, %51 ], [ %32, %103 ], [ %32, %100 ], [ %32, %41 ], [ %32, %37 ], [ null, %28 ]
   tail call void @ECDSA_SIG_free(ptr noundef nonnull %18) #4
   br label %.loopexit
 

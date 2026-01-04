@@ -149,7 +149,7 @@ if.else13:                                        ; preds = %if.else
   br label %if.end17
 
 if.end17:                                         ; preds = %if.end, %if.then10, %if.else13
-  %pNodeRoot.addr.0 = phi ptr [ %pNodeRoot, %if.then10 ], [ %pNodeRoot, %if.else13 ], [ %0, %if.end ]
+  %pNodeRoot.addr.0 = phi ptr [ %pNodeRoot, %if.else13 ], [ %pNodeRoot, %if.then10 ], [ %0, %if.end ]
   store ptr %pNode, ptr %mpNodeLeft, align 8
   store ptr %0, ptr %mpNodeParent4, align 8
   ret ptr %pNodeRoot.addr.0
@@ -193,7 +193,7 @@ if.else13:                                        ; preds = %if.else
   br label %if.end17
 
 if.end17:                                         ; preds = %if.end, %if.then10, %if.else13
-  %pNodeRoot.addr.0 = phi ptr [ %pNodeRoot, %if.then10 ], [ %pNodeRoot, %if.else13 ], [ %0, %if.end ]
+  %pNodeRoot.addr.0 = phi ptr [ %pNodeRoot, %if.else13 ], [ %pNodeRoot, %if.then10 ], [ %0, %if.end ]
   store ptr %pNode, ptr %0, align 8
   store ptr %0, ptr %mpNodeParent4, align 8
   ret ptr %pNodeRoot.addr.0
@@ -323,7 +323,7 @@ if.else13.i:                                      ; preds = %if.else.i
   br label %_ZN5eastl16RBTreeRotateLeftEPNS_16rbtree_node_baseES1_.exit
 
 _ZN5eastl16RBTreeRotateLeftEPNS_16rbtree_node_baseES1_.exit: ; preds = %if.end.i, %if.then10.i, %if.else13.i
-  %pNodeRoot.addr.0.i = phi ptr [ %3, %if.then10.i ], [ %3, %if.else13.i ], [ %10, %if.end.i ]
+  %pNodeRoot.addr.0.i = phi ptr [ %3, %if.else13.i ], [ %3, %if.then10.i ], [ %10, %if.end.i ]
   store ptr %4, ptr %mpNodeLeft.i, align 8
   store ptr %10, ptr %mpNodeParent25, align 8
   store ptr %pNodeRoot.addr.0.i, ptr %mpNodeParent, align 8
@@ -372,7 +372,7 @@ if.else13.i74:                                    ; preds = %if.else.i72
   br label %_ZN5eastl17RBTreeRotateRightEPNS_16rbtree_node_baseES1_.exit
 
 _ZN5eastl17RBTreeRotateRightEPNS_16rbtree_node_baseES1_.exit: ; preds = %if.end.i68, %if.then10.i76, %if.else13.i74
-  %pNodeRoot.addr.0.i75 = phi ptr [ %15, %if.then10.i76 ], [ %15, %if.else13.i74 ], [ %16, %if.end.i68 ]
+  %pNodeRoot.addr.0.i75 = phi ptr [ %15, %if.else13.i74 ], [ %15, %if.then10.i76 ], [ %16, %if.end.i68 ]
   store ptr %6, ptr %16, align 8
   store ptr %16, ptr %mpNodeParent4.i69, align 8
   store ptr %pNodeRoot.addr.0.i75, ptr %mpNodeParent, align 8
@@ -435,7 +435,7 @@ if.else13.i87:                                    ; preds = %if.else.i85
   br label %_ZN5eastl17RBTreeRotateRightEPNS_16rbtree_node_baseES1_.exit91
 
 _ZN5eastl17RBTreeRotateRightEPNS_16rbtree_node_baseES1_.exit91: ; preds = %if.end.i81, %if.then10.i90, %if.else13.i87
-  %pNodeRoot.addr.0.i89 = phi ptr [ %3, %if.then10.i90 ], [ %3, %if.else13.i87 ], [ %21, %if.end.i81 ]
+  %pNodeRoot.addr.0.i89 = phi ptr [ %3, %if.else13.i87 ], [ %3, %if.then10.i90 ], [ %21, %if.end.i81 ]
   store ptr %4, ptr %21, align 8
   store ptr %21, ptr %mpNodeParent25, align 8
   store ptr %pNodeRoot.addr.0.i89, ptr %mpNodeParent, align 8
@@ -485,7 +485,7 @@ if.else13.i103:                                   ; preds = %if.else.i100
   br label %_ZN5eastl16RBTreeRotateLeftEPNS_16rbtree_node_baseES1_.exit106
 
 _ZN5eastl16RBTreeRotateLeftEPNS_16rbtree_node_baseES1_.exit106: ; preds = %if.end.i96, %if.then10.i105, %if.else13.i103
-  %pNodeRoot.addr.0.i104 = phi ptr [ %26, %if.then10.i105 ], [ %26, %if.else13.i103 ], [ %27, %if.end.i96 ]
+  %pNodeRoot.addr.0.i104 = phi ptr [ %26, %if.else13.i103 ], [ %26, %if.then10.i105 ], [ %27, %if.end.i96 ]
   store ptr %6, ptr %mpNodeLeft.i92, align 8
   store ptr %27, ptr %mpNodeParent4.i97, align 8
   store ptr %pNodeRoot.addr.0.i104, ptr %mpNodeParent, align 8
@@ -781,7 +781,7 @@ if.else13.i:                                      ; preds = %if.else.i
   br label %_ZN5eastl16RBTreeRotateLeftEPNS_16rbtree_node_baseES1_.exit
 
 _ZN5eastl16RBTreeRotateLeftEPNS_16rbtree_node_baseES1_.exit: ; preds = %if.end.i, %if.then10.i, %if.else13.i
-  %pNodeRoot.addr.0.i = phi ptr [ %35, %if.then10.i ], [ %35, %if.else13.i ], [ %36, %if.end.i ]
+  %pNodeRoot.addr.0.i = phi ptr [ %35, %if.else13.i ], [ %35, %if.then10.i ], [ %36, %if.end.i ]
   store ptr %pNodeChildParent.2255, ptr %mpNodeLeft.i152, align 8
   store ptr %36, ptr %mpNodeParent4.i, align 8
   store ptr %pNodeRoot.addr.0.i, ptr %mpNodeParent, align 8
@@ -871,7 +871,7 @@ if.else13.i164:                                   ; preds = %if.else.i162
   br label %_ZN5eastl17RBTreeRotateRightEPNS_16rbtree_node_baseES1_.exit
 
 _ZN5eastl17RBTreeRotateRightEPNS_16rbtree_node_baseES1_.exit: ; preds = %if.end.i158, %if.then10.i166, %if.else13.i164
-  %pNodeRoot.addr.0.i165 = phi ptr [ %47, %if.then10.i166 ], [ %47, %if.else13.i164 ], [ %48, %if.end.i158 ]
+  %pNodeRoot.addr.0.i165 = phi ptr [ %47, %if.else13.i164 ], [ %47, %if.then10.i166 ], [ %48, %if.end.i158 ]
   store ptr %pNodeTemp.0, ptr %48, align 8
   store ptr %48, ptr %mpNodeParent4.i159, align 8
   store ptr %pNodeRoot.addr.0.i165, ptr %mpNodeParent, align 8
@@ -931,7 +931,7 @@ if.else13.i178:                                   ; preds = %if.else.i175
   br label %_ZN5eastl16RBTreeRotateLeftEPNS_16rbtree_node_baseES1_.exit181
 
 _ZN5eastl16RBTreeRotateLeftEPNS_16rbtree_node_baseES1_.exit181: ; preds = %if.end.i171, %if.then10.i180, %if.else13.i178
-  %pNodeRoot.addr.0.i179 = phi ptr [ %55, %if.then10.i180 ], [ %55, %if.else13.i178 ], [ %56, %if.end.i171 ]
+  %pNodeRoot.addr.0.i179 = phi ptr [ %55, %if.else13.i178 ], [ %55, %if.then10.i180 ], [ %56, %if.end.i171 ]
   store ptr %pNodeChildParent.2255, ptr %mpNodeLeft.i167, align 8
   store ptr %56, ptr %mpNodeParent4.i172, align 8
   br label %while.end218.sink.split
@@ -981,7 +981,7 @@ if.else13.i192:                                   ; preds = %if.else.i190
   br label %_ZN5eastl17RBTreeRotateRightEPNS_16rbtree_node_baseES1_.exit196
 
 _ZN5eastl17RBTreeRotateRightEPNS_16rbtree_node_baseES1_.exit196: ; preds = %if.end.i186, %if.then10.i195, %if.else13.i192
-  %pNodeRoot.addr.0.i194 = phi ptr [ %61, %if.then10.i195 ], [ %61, %if.else13.i192 ], [ %62, %if.end.i186 ]
+  %pNodeRoot.addr.0.i194 = phi ptr [ %61, %if.else13.i192 ], [ %61, %if.then10.i195 ], [ %62, %if.end.i186 ]
   store ptr %pNodeChildParent.2255, ptr %62, align 8
   store ptr %62, ptr %mpNodeParent4.i187, align 8
   store ptr %pNodeRoot.addr.0.i194, ptr %mpNodeParent, align 8
@@ -1066,7 +1066,7 @@ if.else13.i208:                                   ; preds = %if.else.i205
   br label %_ZN5eastl16RBTreeRotateLeftEPNS_16rbtree_node_baseES1_.exit211
 
 _ZN5eastl16RBTreeRotateLeftEPNS_16rbtree_node_baseES1_.exit211: ; preds = %if.end.i201, %if.then10.i210, %if.else13.i208
-  %pNodeRoot.addr.0.i209 = phi ptr [ %73, %if.then10.i210 ], [ %73, %if.else13.i208 ], [ %74, %if.end.i201 ]
+  %pNodeRoot.addr.0.i209 = phi ptr [ %73, %if.else13.i208 ], [ %73, %if.then10.i210 ], [ %74, %if.end.i201 ]
   store ptr %pNodeTemp162.0, ptr %mpNodeLeft.i197, align 8
   store ptr %74, ptr %mpNodeParent4.i202, align 8
   store ptr %pNodeRoot.addr.0.i209, ptr %mpNodeParent, align 8
@@ -1126,13 +1126,13 @@ if.else13.i222:                                   ; preds = %if.else.i220
   br label %_ZN5eastl17RBTreeRotateRightEPNS_16rbtree_node_baseES1_.exit226
 
 _ZN5eastl17RBTreeRotateRightEPNS_16rbtree_node_baseES1_.exit226: ; preds = %if.end.i216, %if.then10.i225, %if.else13.i222
-  %pNodeRoot.addr.0.i224 = phi ptr [ %81, %if.then10.i225 ], [ %81, %if.else13.i222 ], [ %82, %if.end.i216 ]
+  %pNodeRoot.addr.0.i224 = phi ptr [ %81, %if.else13.i222 ], [ %81, %if.then10.i225 ], [ %82, %if.end.i216 ]
   store ptr %pNodeChildParent.2255, ptr %82, align 8
   store ptr %82, ptr %mpNodeParent4.i217, align 8
   br label %while.end218.sink.split
 
 if.end217:                                        ; preds = %land.lhs.true180, %lor.lhs.false183, %land.lhs.true124, %lor.lhs.false127
-  %pNodeTemp162.0.sink = phi ptr [ %pNodeTemp.0, %lor.lhs.false127 ], [ %pNodeTemp.0, %land.lhs.true124 ], [ %pNodeTemp162.0, %lor.lhs.false183 ], [ %pNodeTemp162.0, %land.lhs.true180 ]
+  %pNodeTemp162.0.sink = phi ptr [ %pNodeTemp.0, %land.lhs.true124 ], [ %pNodeTemp.0, %lor.lhs.false127 ], [ %pNodeTemp162.0, %lor.lhs.false183 ], [ %pNodeTemp162.0, %land.lhs.true180 ]
   %mColor189 = getelementptr inbounds nuw i8, ptr %pNodeTemp162.0.sink, i64 24
   store i8 0, ptr %mColor189, align 8
   %pNodeChildParent.3.in = getelementptr inbounds nuw i8, ptr %pNodeChildParent.2255, i64 16

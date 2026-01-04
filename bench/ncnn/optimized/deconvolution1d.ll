@@ -1289,7 +1289,7 @@ _ZNK4ncnn3Mat5emptyEv.exit153.thread:             ; preds = %179, %_ZNK4ncnn3Mat
   br label %_ZNK4ncnn3Mat5emptyEv.exit152.thread
 
 _ZNK4ncnn3Mat5emptyEv.exit152.thread:             ; preds = %163, %_ZNK4ncnn3Mat5emptyEv.exit153.thread, %_ZNK4ncnn3Mat5emptyEv.exit153, %_ZNK4ncnn3Mat5emptyEv.exit152
-  %.4 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit152 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit153.thread ], [ 0, %_ZNK4ncnn3Mat5emptyEv.exit153 ], [ -100, %163 ]
+  %.4 = phi i32 [ 0, %_ZNK4ncnn3Mat5emptyEv.exit153 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit152 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit153.thread ], [ -100, %163 ]
   %189 = load ptr, ptr %101, align 8, !tbaa !7
   %.not.i129 = icmp eq ptr %189, null
   br i1 %.not.i129, label %_ZN4ncnn3MatD2Ev.exit, label %190
@@ -1824,7 +1824,7 @@ _ZNK4ncnn3Mat5emptyEv.exit40.thread:              ; preds = %108, %_ZNK4ncnn3Mat
   br label %_ZNK4ncnn3Mat5emptyEv.exit.thread
 
 _ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %89, %_ZNK4ncnn3Mat5emptyEv.exit40.thread, %_ZNK4ncnn3Mat5emptyEv.exit40, %_ZNK4ncnn3Mat5emptyEv.exit
-  %.0 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit40.thread ], [ 0, %_ZNK4ncnn3Mat5emptyEv.exit40 ], [ -100, %89 ]
+  %.0 = phi i32 [ 0, %_ZNK4ncnn3Mat5emptyEv.exit40 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit40.thread ], [ -100, %89 ]
   %118 = load ptr, ptr %25, align 8, !tbaa !7
   %.not.i31 = icmp eq ptr %118, null
   br i1 %.not.i31, label %_ZN4ncnn3MatD2Ev.exit, label %119
@@ -2413,7 +2413,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %_ZL13activation_ssf
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit:           ; preds = %126, %122, %110, %103, %102, %97, %92, %90, %87, %116
-  %.1 = phi nsz float [ %89, %87 ], [ %91, %90 ], [ %96, %92 ], [ %99, %102 ], [ %.079, %97 ], [ %109, %103 ], [ %115, %110 ], [ %89, %122 ], [ %129, %126 ], [ 0.000000e+00, %116 ]
+  %.1 = phi nsz float [ %89, %87 ], [ %91, %90 ], [ %96, %92 ], [ %99, %102 ], [ %.079, %97 ], [ %109, %103 ], [ %115, %110 ], [ %129, %126 ], [ %89, %122 ], [ 0.000000e+00, %116 ]
   store float %.1, ptr %88, align 4, !tbaa !56
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %exitcond122.not = icmp eq i64 %indvars.iv.next119, %wide.trip.count121

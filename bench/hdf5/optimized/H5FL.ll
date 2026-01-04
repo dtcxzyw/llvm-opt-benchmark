@@ -689,7 +689,7 @@ H5FL__reg_init.exit.thread:                       ; preds = %16, %22, %10
   %60 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FL__malloc, i32 noundef 218, i64 noundef %58, i64 noundef %59, ptr noundef nonnull @.str.7) #11
   br label %61
 
-61:                                               ; preds = %57, %41
+61:                                               ; preds = %41, %57
   %62 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !87
   %63 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !87
   %64 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FL_reg_malloc, i32 noundef 364, i64 noundef %62, i64 noundef %63, ptr noundef nonnull @.str.5) #11
@@ -832,7 +832,7 @@ H5FL__blk_find_list.exit.thread:                  ; preds = %.preheader.i, %11, 
   br label %35
 
 35:                                               ; preds = %H5FL__blk_find_list.exit, %H5FL__blk_find_list.exit.thread, %8
-  %.0 = phi i32 [ 0, %H5FL__blk_find_list.exit.thread ], [ -1, %8 ], [ 1, %H5FL__blk_find_list.exit ]
+  %.0 = phi i32 [ -1, %8 ], [ 0, %H5FL__blk_find_list.exit.thread ], [ 1, %H5FL__blk_find_list.exit ]
   ret i32 %.0
 }
 
@@ -1043,7 +1043,7 @@ H5FL__blk_create_list.exit:                       ; preds = %27, %87, %86, %75, 
   %107 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FL__malloc, i32 noundef 218, i64 noundef %105, i64 noundef %106, ptr noundef nonnull @.str.7) #11
   br label %108
 
-108:                                              ; preds = %104, %H5FL__blk_create_list.exit
+108:                                              ; preds = %H5FL__blk_create_list.exit, %104
   %109 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !87
   %110 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !87
   %111 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FL_blk_malloc, i32 noundef 774, i64 noundef %109, i64 noundef %110, ptr noundef nonnull @.str.7) #11
@@ -1442,7 +1442,7 @@ define ptr @H5FL_blk_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
   br label %27
 
 27:                                               ; preds = %18, %22, %9, %25, %13
-  %.023 = phi ptr [ %26, %25 ], [ null, %9 ], [ %1, %13 ], [ null, %18 ], [ %17, %22 ]
+  %.023 = phi ptr [ null, %9 ], [ %26, %25 ], [ %1, %13 ], [ null, %18 ], [ %17, %22 ]
   ret ptr %.023
 }
 
@@ -1581,7 +1581,7 @@ define noalias noundef ptr @H5FL_arr_free(ptr noundef captures(none) %0, ptr nou
   br i1 %74, label %37, label %H5FL__arr_gc_list.exit, !llvm.loop !116
 
 H5FL__arr_gc_list.exit:                           ; preds = %67, %.preheader.i, %29, %7
-  %75 = phi i64 [ %26, %.preheader.i ], [ %26, %29 ], [ %26, %7 ], [ %68, %67 ]
+  %75 = phi i64 [ %26, %7 ], [ %26, %.preheader.i ], [ %26, %29 ], [ %68, %67 ]
   %76 = load i64, ptr @H5FL_arr_glb_mem_lim, align 8, !tbaa !87
   %77 = icmp ugt i64 %75, %76
   br i1 %77, label %78, label %79
@@ -1849,7 +1849,7 @@ H5FL__arr_init.exit:                              ; preds = %31, %.preheader.i
   %78 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FL__malloc, i32 noundef 218, i64 noundef %76, i64 noundef %77, ptr noundef nonnull @.str.7) #11
   br label %79
 
-79:                                               ; preds = %75, %60
+79:                                               ; preds = %60, %75
   %80 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !87
   %81 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !87
   %82 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FL_arr_malloc, i32 noundef 1308, i64 noundef %80, i64 noundef %81, ptr noundef nonnull @.str.5) #11
@@ -2136,7 +2136,7 @@ define ptr @H5FL_seq_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
   br label %H5FL_blk_realloc.exit
 
 H5FL_blk_realloc.exit:                            ; preds = %32, %29, %25, %20, %11
-  %.0 = phi ptr [ null, %11 ], [ %33, %32 ], [ %1, %20 ], [ null, %25 ], [ %24, %29 ]
+  %.0 = phi ptr [ null, %11 ], [ %24, %29 ], [ %33, %32 ], [ %1, %20 ], [ null, %25 ]
   ret ptr %.0
 }
 
@@ -2220,7 +2220,7 @@ define ptr @H5FL_fac_init(i64 noundef %0) local_unnamed_addr #0 {
   br label %41
 
 41:                                               ; preds = %36, %.thread39, %35, %7
-  %.0 = phi ptr [ %13, %35 ], [ null, %7 ], [ null, %.thread39 ], [ null, %36 ]
+  %.0 = phi ptr [ %13, %35 ], [ null, %36 ], [ null, %7 ], [ null, %.thread39 ]
   ret ptr %.0
 }
 
@@ -2411,8 +2411,8 @@ define noalias ptr @H5FL_fac_malloc(ptr noundef captures(none) %0) local_unnamed
   %35 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FL_fac_malloc, i32 noundef 1841, i64 noundef %33, i64 noundef %34, ptr noundef nonnull @.str.5) #11
   br label %40
 
-36:                                               ; preds = %25, %20
-  %.0.i.ph = phi ptr [ %23, %20 ], [ %27, %25 ]
+36:                                               ; preds = %20, %25
+  %.0.i.ph = phi ptr [ %27, %25 ], [ %23, %20 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %38 = load i32, ptr %37, align 4, !tbaa !82
   %39 = add i32 %38, 1
@@ -2542,7 +2542,7 @@ H5FL__fac_gc_list.exit:                           ; preds = %.lr.ph.i, %8
   br label %45
 
 45:                                               ; preds = %23, %43, %1
-  %.0 = phi i32 [ -1, %23 ], [ 0, %43 ], [ 0, %1 ]
+  %.0 = phi i32 [ 0, %1 ], [ -1, %23 ], [ 0, %43 ]
   ret i32 %.0
 }
 
@@ -2695,7 +2695,7 @@ define noundef i32 @H5FL_get_free_list_sizes(ptr noundef writeonly captures(addr
   br i1 %exitcond.not, label %.loopexit58, label %33, !llvm.loop !126
 
 .loopexit58:                                      ; preds = %33, %.preheader, %.lr.ph70
-  %.promoted6687 = phi i64 [ %.promoted66, %.preheader ], [ %.promoted66, %.lr.ph70 ], [ %41, %33 ]
+  %.promoted6687 = phi i64 [ %.promoted66, %.lr.ph70 ], [ %.promoted66, %.preheader ], [ %41, %33 ]
   %42 = getelementptr inbounds nuw i8, ptr %.04369, i64 8
   %.043 = load ptr, ptr %42, align 8, !tbaa !117
   %.not50 = icmp eq ptr %.043, null

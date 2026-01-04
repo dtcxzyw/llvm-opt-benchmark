@@ -320,7 +320,7 @@ _ZNK5clang9FieldDecl9getParentEv.exit76:          ; preds = %.lr.ph, %153
   br i1 %.not53, label %.thread80, label %.lr.ph
 
 .thread80:                                        ; preds = %_ZNK5clang9FieldDecl9getParentEv.exit76, %140, %135, %_ZNK5clang6interp7Pointer9getRecordEv.exit72
-  %.040 = phi i32 [ %104, %_ZNK5clang6interp7Pointer9getRecordEv.exit72 ], [ %137, %135 ], [ %62, %140 ], [ %164, %_ZNK5clang9FieldDecl9getParentEv.exit76 ]
+  %.040 = phi i32 [ %137, %135 ], [ %104, %_ZNK5clang6interp7Pointer9getRecordEv.exit72 ], [ %62, %140 ], [ %164, %_ZNK5clang9FieldDecl9getParentEv.exit76 ]
   %166 = load ptr, ptr %57, align 8, !tbaa !21
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 32
   %168 = load ptr, ptr %167, align 8, !tbaa !25
@@ -433,9 +433,9 @@ _ZNK5clang6interp13MemberPointer6isZeroEv.exit:   ; preds = %6, %10, %13
   br label %45
 
 27:                                               ; preds = %_ZNK5clang6interp13MemberPointer6isZeroEv.exit
-  switch i32 %5, label %_ZNK5clang6interp13MemberPointer7hasBaseEv.exit [
+  switch i32 %5, label %32 [
     i32 0, label %28
-    i32 2, label %32
+    i32 2, label %_ZNK5clang6interp13MemberPointer7hasBaseEv.exit
   ]
 
 28:                                               ; preds = %27
@@ -445,19 +445,19 @@ _ZNK5clang6interp13MemberPointer6isZeroEv.exit:   ; preds = %6, %10, %13
   br i1 %31, label %41, label %_ZNK5clang6interp13MemberPointer7hasBaseEv.exit.thread
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %34 = load ptr, ptr %33, align 8, !tbaa !105
-  %.not.i.i.i3 = icmp eq ptr %34, null
-  br i1 %.not.i.i.i3, label %41, label %_ZNK5clang6interp13MemberPointer7hasBaseEv.exit.thread
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %34 = load i64, ptr %33, align 8, !tbaa !110
+  %35 = icmp eq i64 %34, 0
+  %36 = load i64, ptr %1, align 8
+  %37 = icmp eq i64 %36, 0
+  %38 = select i1 %35, i1 %37, i1 false
+  br i1 %38, label %41, label %_ZNK5clang6interp13MemberPointer7hasBaseEv.exit.thread
 
 _ZNK5clang6interp13MemberPointer7hasBaseEv.exit:  ; preds = %27
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %36 = load i64, ptr %35, align 8, !tbaa !110
-  %37 = icmp eq i64 %36, 0
-  %38 = load i64, ptr %1, align 8
-  %39 = icmp eq i64 %38, 0
-  %40 = select i1 %37, i1 %39, i1 false
-  br i1 %40, label %41, label %_ZNK5clang6interp13MemberPointer7hasBaseEv.exit.thread
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %40 = load ptr, ptr %39, align 8, !tbaa !105
+  %.not.i.i.i3 = icmp eq ptr %40, null
+  br i1 %.not.i.i.i3, label %41, label %_ZNK5clang6interp13MemberPointer7hasBaseEv.exit.thread
 
 _ZNK5clang6interp13MemberPointer7hasBaseEv.exit.thread: ; preds = %32, %28, %3, %_ZNK5clang6interp13MemberPointer7hasBaseEv.exit
   tail call void @_ZNK5clang6interp7Pointer9toAPValueERKNS_10ASTContextE(ptr dead_on_unwind writable sret(%"class.clang::APValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(52) %1, ptr noundef nonnull align 8 dereferenceable(23216) %2) #5

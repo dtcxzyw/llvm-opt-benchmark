@@ -207,7 +207,7 @@ define internal i32 @msblob2key_decode(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %.old6.not, label %.critedge, label %.thread90.thread
 
 .thread90.thread:                                 ; preds = %57, %.thread88, %.thread90
-  %81 = phi i32 [ %77, %.thread88 ], [ %.pre, %.thread90 ], [ %.old, %57 ]
+  %81 = phi i32 [ %.pre, %.thread90 ], [ %77, %.thread88 ], [ %.old, %57 ]
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %83 = load ptr, ptr %82, align 8, !tbaa !11
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 32
@@ -224,7 +224,7 @@ define internal i32 @msblob2key_decode(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %.not80, label %.critedge, label %89
 
 89:                                               ; preds = %75, %86
-  %90 = phi ptr [ %71, %75 ], [ %88, %86 ]
+  %90 = phi ptr [ %88, %86 ], [ %71, %75 ]
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %92 = load ptr, ptr %91, align 8, !tbaa !11
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 40
@@ -275,16 +275,16 @@ define internal i32 @msblob2key_decode(ptr noundef %0, ptr noundef %1, i32 nound
   br label %108
 
 .critedge.sink.split:                             ; preds = %48, %39, %24
-  %.sink104 = phi i32 [ 112, %24 ], [ 131, %39 ], [ 139, %48 ]
-  %.sink = phi i32 [ 123, %24 ], [ 128, %39 ], [ 123, %48 ]
-  %.060.ph.ph = phi ptr [ null, %24 ], [ null, %39 ], [ %46, %48 ]
+  %.sink104 = phi i32 [ 131, %39 ], [ 112, %24 ], [ 139, %48 ]
+  %.sink = phi i32 [ 128, %39 ], [ 123, %24 ], [ 123, %48 ]
+  %.060.ph.ph = phi ptr [ null, %39 ], [ null, %24 ], [ %46, %48 ]
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink104, ptr noundef nonnull @__func__.msblob2key_decode) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 9, i32 noundef %.sink, ptr noundef null) #6
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.sink.split, %65, %.thread88, %.thread90, %.thread90.thread, %26, %38, %86, %37
-  %.060.ph = phi ptr [ %46, %65 ], [ %46, %.thread88 ], [ %46, %.thread90 ], [ %46, %.thread90.thread ], [ null, %26 ], [ null, %38 ], [ %46, %86 ], [ null, %37 ], [ %.060.ph.ph, %.critedge.sink.split ]
+.critedge:                                        ; preds = %.critedge.sink.split, %65, %.thread90, %.thread90.thread, %38, %.thread88, %26, %86, %37
+  %.060.ph = phi ptr [ %46, %65 ], [ %46, %.thread90 ], [ %46, %.thread90.thread ], [ null, %38 ], [ %46, %.thread88 ], [ null, %26 ], [ %46, %86 ], [ null, %37 ], [ %.060.ph.ph, %.critedge.sink.split ]
   call void @CRYPTO_free(ptr noundef %.060.ph, ptr noundef nonnull @.str, i32 noundef 182) #6
   %107 = call i32 @BIO_free(ptr noundef nonnull %22) #6
   br label %108
@@ -304,7 +304,7 @@ define internal i32 @msblob2key_decode(ptr noundef %0, ptr noundef %1, i32 nound
   br label %115
 
 115:                                              ; preds = %7, %108
-  %.059 = phi i32 [ %.058, %108 ], [ 0, %7 ]
+  %.059 = phi i32 [ 0, %7 ], [ %.058, %108 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)

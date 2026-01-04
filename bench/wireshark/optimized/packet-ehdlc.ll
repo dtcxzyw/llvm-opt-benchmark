@@ -386,7 +386,7 @@ proto_item_set_generated.exit123:                 ; preds = %proto_item_set_gene
   br i1 %146, label %.lr.ph.i, label %dissect_ehdlc_xid.exit, !llvm.loop !8
 
 dissect_ehdlc_xid.exit.sink.split:                ; preds = %97, %104, %102
-  %.sink.in = phi ptr [ @sub_handles.0, %102 ], [ @sub_handles.1, %104 ], [ @sub_handles.4, %97 ]
+  %.sink.in = phi ptr [ @sub_handles.1, %104 ], [ @sub_handles.0, %102 ], [ @sub_handles.4, %97 ]
   %.sink = load ptr, ptr %.sink.in, align 8
   %147 = tail call i32 @call_dissector(ptr noundef %.sink, ptr noundef %101, ptr noundef %1, ptr noundef %2)
   br label %dissect_ehdlc_xid.exit

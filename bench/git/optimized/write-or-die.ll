@@ -209,7 +209,7 @@ define dso_local i32 @fsync_component(i32 noundef %0, i32 noundef %1) local_unna
   br label %maybe_fsync.exit
 
 maybe_fsync.exit:                                 ; preds = %18, %15, %10, %2
-  %.0 = phi i32 [ 0, %2 ], [ %19, %18 ], [ 0, %10 ], [ 0, %15 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %10 ], [ %19, %18 ], [ 0, %15 ]
   ret i32 %.0
 }
 

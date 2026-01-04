@@ -778,7 +778,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit125
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit125: ; preds = %90, %108, %113, %118, %123, %128, %133, %138, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i123, %103, %98, %88
-  %.pn67.pn.pn = phi { ptr, i32 } [ %.pn53, %103 ], [ %.pn, %98 ], [ %89, %88 ], [ %91, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i123 ], [ %.pn67, %138 ], [ %.pn65, %133 ], [ %.pn63, %128 ], [ %.pn61, %123 ], [ %.pn59, %118 ], [ %.pn57, %113 ], [ %.pn55, %108 ], [ %91, %90 ]
+  %.pn67.pn.pn = phi { ptr, i32 } [ %91, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i123 ], [ %.pn53, %103 ], [ %.pn, %98 ], [ %89, %88 ], [ %.pn55, %108 ], [ %.pn67, %138 ], [ %.pn65, %133 ], [ %.pn63, %128 ], [ %.pn61, %123 ], [ %.pn59, %118 ], [ %.pn57, %113 ], [ %91, %90 ]
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %51) #29
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %47) #29
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %43) #29
@@ -3564,7 +3564,7 @@ define linkonce_odr hidden void @_ZN2cv6stereo20QuasiDenseStereoImpl7processERKN
   ret void
 
 41:                                               ; preds = %34, %32
-  %.pn11.pn = phi { ptr, i32 } [ %35, %34 ], [ %33, %32 ]
+  %.pn11.pn = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ]
   resume { ptr, i32 } %.pn11.pn
 }
 
@@ -4996,7 +4996,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6stereo15MatchQuasiDenseESt
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0165.4.lcssa) #27
   br label %_ZNSt14priority_queueIN2cv6stereo15MatchQuasiDenseESt6vectorIS2_SaIS2_EESt4lessIS2_EED2Ev.exit
 
-_ZNSt14priority_queueIN2cv6stereo15MatchQuasiDenseESt6vectorIS2_SaIS2_EESt4lessIS2_EED2Ev.exit: ; preds = %277, %255, %262, %267, %270, %_ZN2cv6stereo20QuasiDenseStereoImpl11CheckBorderENS0_15MatchQuasiDenseEiiii.exit, %._crit_edge291, %489
+_ZNSt14priority_queueIN2cv6stereo15MatchQuasiDenseESt6vectorIS2_SaIS2_EESt4lessIS2_EED2Ev.exit: ; preds = %277, %262, %267, %270, %255, %_ZN2cv6stereo20QuasiDenseStereoImpl11CheckBorderENS0_15MatchQuasiDenseEiiii.exit, %._crit_edge291, %489
   %490 = load ptr, ptr %12, align 8, !tbaa !140
   %491 = load ptr, ptr %186, align 8, !tbaa !140
   %492 = icmp eq ptr %490, %491
@@ -5192,7 +5192,7 @@ _ZN2cv6stereo20QuasiDenseStereoImpl11CheckBorderENS0_15MatchQuasiDenseEiiii.exit
   store i64 %94, ptr %93, align 4
   br label %_ZN2cv6stereo20QuasiDenseStereoImpl11CheckBorderENS0_15MatchQuasiDenseEiiii.exit.thread
 
-_ZN2cv6stereo20QuasiDenseStereoImpl11CheckBorderENS0_15MatchQuasiDenseEiiii.exit.thread: ; preds = %24, %48, %53, %56, %68, %72, %_ZN2cv6stereo20QuasiDenseStereoImpl11CheckBorderENS0_15MatchQuasiDenseEiiii.exit
+_ZN2cv6stereo20QuasiDenseStereoImpl11CheckBorderENS0_15MatchQuasiDenseEiiii.exit.thread: ; preds = %48, %53, %56, %24, %68, %72, %_ZN2cv6stereo20QuasiDenseStereoImpl11CheckBorderENS0_15MatchQuasiDenseEiiii.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %95 = add i32 %.028, 1
   %96 = zext i32 %95 to i64

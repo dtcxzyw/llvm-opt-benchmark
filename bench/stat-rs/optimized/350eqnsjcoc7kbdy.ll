@@ -1363,15 +1363,15 @@ define noundef double @_ZN6statrs8function5gamma7digamma17h815040b9ca700213E(dou
   %14 = bitcast double %5 to i64
   %15 = bitcast double %0 to i64
   %.not.i = icmp ugt i64 %14, %15
-  br i1 %.not.i, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit", label %16
+  br i1 %.not.i, label %16, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit"
 
 16:                                               ; preds = %13
-  %17 = sub nuw i64 %15, %14
+  %17 = sub nuw i64 %14, %15
   %18 = icmp ult i64 %17, 5
   br i1 %18, label %common.ret39, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread25"
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit": ; preds = %13
-  %19 = sub nuw i64 %14, %15
+  %19 = sub nuw i64 %15, %14
   %20 = icmp ult i64 %19, 5
   br i1 %20, label %common.ret39, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread25"
 
@@ -1388,7 +1388,7 @@ define noundef double @_ZN6statrs8function5gamma7digamma17h815040b9ca700213E(dou
   br i1 %24, label %.lr.ph, label %._crit_edge
 
 common.ret39:                                     ; preds = %4, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit", %16, %1, %42, %._crit_edge, %32, %25
-  %common.ret39.op = phi double [ %31, %25 ], [ %36, %32 ], [ %58, %42 ], [ %.sroa.0.1.lcssa, %._crit_edge ], [ 0x7FF8000000000000, %1 ], [ 0xFFF0000000000000, %16 ], [ 0xFFF0000000000000, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit" ], [ 0xFFF0000000000000, %4 ]
+  %common.ret39.op = phi double [ %31, %25 ], [ 0xFFF0000000000000, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit" ], [ %.sroa.0.1.lcssa, %._crit_edge ], [ 0x7FF8000000000000, %1 ], [ 0xFFF0000000000000, %4 ], [ %36, %32 ], [ %58, %42 ], [ 0xFFF0000000000000, %16 ]
   ret double %common.ret39.op
 
 25:                                               ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread25"
@@ -1484,7 +1484,7 @@ _ZN6statrs8function5gamma6signum17hffa30618b10934b7E.exit: ; preds = %9, %13, %1
   br i1 %20, label %9, label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN6statrs8function5gamma6signum17hffa30618b10934b7E.exit, %5, %3, %1
-  %.sroa.0.0 = phi double [ 0x7FF8000000000000, %1 ], [ 0.000000e+00, %3 ], [ 0x7FF0000000000000, %5 ], [ %18, %_ZN6statrs8function5gamma6signum17hffa30618b10934b7E.exit ]
+  %.sroa.0.0 = phi double [ 0x7FF0000000000000, %5 ], [ 0x7FF8000000000000, %1 ], [ 0.000000e+00, %3 ], [ %18, %_ZN6statrs8function5gamma6signum17hffa30618b10934b7E.exit ]
   ret double %.sroa.0.0
 }
 

@@ -135,7 +135,7 @@ define dso_local ptr @EventCacheLookup(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %57, label %58, label %162
 
 58:                                               ; preds = %55, %52, %49, %46, %42
-  %.sink.i = phi i32 [ 0, %42 ], [ 1, %46 ], [ 2, %49 ], [ 3, %52 ], [ 4, %55 ]
+  %.sink.i = phi i32 [ 0, %42 ], [ 2, %49 ], [ 3, %52 ], [ 1, %46 ], [ 4, %55 ]
   store i32 %.sink.i, ptr %5, align 4
   %59 = call ptr @palloc0(i64 noundef 16) #7
   %60 = getelementptr inbounds nuw i8, ptr %38, i64 136
@@ -248,7 +248,7 @@ define dso_local ptr @EventCacheLookup(i32 noundef %0) local_unnamed_addr #0 {
   br label %heap_getattr.exit.i
 
 heap_getattr.exit.i:                              ; preds = %118, %117, %112, %110, %105, %102, %99, %96, %70
-  %.0.i.i = phi i64 [ %71, %70 ], [ 0, %117 ], [ %119, %118 ], [ %113, %112 ], [ %98, %96 ], [ %101, %99 ], [ %104, %102 ], [ %106, %105 ], [ %111, %110 ]
+  %.0.i.i = phi i64 [ %71, %70 ], [ %119, %118 ], [ 0, %117 ], [ %113, %112 ], [ %98, %96 ], [ %101, %99 ], [ %104, %102 ], [ %106, %105 ], [ %111, %110 ]
   %120 = load i8, ptr %6, align 1, !range !4, !noundef !5
   %121 = trunc nuw i8 %120 to i1
   br i1 %121, label %151, label %122

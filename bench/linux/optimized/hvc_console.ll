@@ -391,7 +391,7 @@ define internal fastcc range(i32 0, 4) i32 @__hvc_poll(ptr noundef %0, i1 nounde
   br label %120
 
 ._crit_edge:                                      ; preds = %79, %93, %91
-  %95 = phi i8 [ %86, %93 ], [ 15, %91 ], [ %86, %79 ]
+  %95 = phi i8 [ 15, %91 ], [ %86, %93 ], [ %86, %79 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %95, ptr %3, align 1
@@ -589,7 +589,7 @@ define dso_local ptr @hvc_alloc(i32 noundef %0, i32 noundef %1, ptr noundef %2, 
   br label %47
 
 47:                                               ; preds = %45, %19
-  %48 = phi i32 [ %21, %19 ], [ %46, %45 ]
+  %48 = phi i32 [ %46, %45 ], [ %21, %19 ]
   %49 = icmp eq i32 %48, 0
   %50 = sext i32 %48 to i64
   %51 = inttoptr i64 %50 to ptr

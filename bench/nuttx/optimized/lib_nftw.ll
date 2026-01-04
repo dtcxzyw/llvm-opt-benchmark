@@ -64,8 +64,8 @@ define internal fastcc i32 @do_nftw(ptr noundef nonnull %0, ptr noundef readonly
   br i1 %.not, label %.critedge2, label %.lr.ph122, !llvm.loop !8
 
 .critedge2:                                       ; preds = %15, %.lr.ph122, %23, %.critedge
-  %25 = phi i64 [ 0, %.critedge ], [ %19, %23 ], [ %19, %.lr.ph122 ], [ 0, %15 ]
-  %.077.lcssa140 = phi i64 [ 1, %.critedge ], [ %.077.lcssa, %23 ], [ %.077.lcssa, %.lr.ph122 ], [ 1, %15 ]
+  %25 = phi i64 [ 0, %.critedge ], [ %19, %.lr.ph122 ], [ %19, %23 ], [ 0, %15 ]
+  %.077.lcssa140 = phi i64 [ 1, %.critedge ], [ %.077.lcssa, %.lr.ph122 ], [ %.077.lcssa, %23 ], [ 1, %15 ]
   %.079.lcssa = phi i64 [ 0, %.critedge ], [ %.079121, %.lr.ph122 ], [ 0, %23 ], [ 0, %15 ]
   %26 = and i32 %3, 1
   %.not90 = icmp eq i32 %26, 0
@@ -134,9 +134,9 @@ define internal fastcc i32 @do_nftw(ptr noundef nonnull %0, ptr noundef readonly
   %56 = icmp eq i32 %55, 13
   br i1 %56, label %.thread110, label %136
 
-.thread110:                                       ; preds = %41, %45, %.thread109, %36, %53, %51, %49
-  %.1 = phi i32 [ %., %51 ], [ %., %49 ], [ 2, %53 ], [ 0, %41 ], [ %.103, %45 ], [ 4, %.thread109 ], [ 6, %36 ]
-  %.075 = phi ptr [ null, %51 ], [ %48, %49 ], [ null, %53 ], [ null, %41 ], [ null, %45 ], [ null, %.thread109 ], [ null, %36 ]
+.thread110:                                       ; preds = %41, %.thread109, %45, %36, %53, %51, %49
+  %.1 = phi i32 [ %., %51 ], [ %., %49 ], [ 2, %53 ], [ 0, %41 ], [ 4, %.thread109 ], [ %.103, %45 ], [ 6, %36 ]
+  %.075 = phi ptr [ null, %51 ], [ %48, %49 ], [ null, %53 ], [ null, %41 ], [ null, %.thread109 ], [ null, %45 ], [ null, %36 ]
   %57 = and i32 %3, 4
   %.not94 = icmp eq i32 %57, 0
   br i1 %.not94, label %58, label %77
@@ -187,7 +187,7 @@ call_nftw.exit.thread:                            ; preds = %72
   br label %call_nftw.exit
 
 call_nftw.exit:                                   ; preds = %.thread.i, %74
-  %.017.i = phi i32 [ %75, %74 ], [ %62, %.thread.i ]
+  %.017.i = phi i32 [ %62, %.thread.i ], [ %75, %74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not95 = icmp eq i32 %.017.i, 0
   br i1 %.not95, label %77, label %136
@@ -323,7 +323,7 @@ call_nftw.exit108.thread:                         ; preds = %130
   br label %call_nftw.exit108
 
 call_nftw.exit108:                                ; preds = %.thread.i107, %132
-  %.017.i106 = phi i32 [ %133, %132 ], [ %120, %.thread.i107 ]
+  %.017.i106 = phi i32 [ %120, %.thread.i107 ], [ %133, %132 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not99 = icmp eq i32 %.017.i106, 0
   br i1 %.not99, label %135, label %136
@@ -332,7 +332,7 @@ call_nftw.exit108:                                ; preds = %.thread.i107, %132
   br label %136
 
 136:                                              ; preds = %call_nftw.exit108.thread, %call_nftw.exit.thread, %call_nftw.exit108, %call_nftw.exit, %53, %.thread109, %135, %111, %105
-  %.0 = phi i32 [ -1, %105 ], [ %110, %111 ], [ 0, %135 ], [ -1, %.thread109 ], [ -1, %53 ], [ %.017.i, %call_nftw.exit ], [ %.017.i106, %call_nftw.exit108 ], [ %.0.i, %call_nftw.exit.thread ], [ %.0.i105, %call_nftw.exit108.thread ]
+  %.0 = phi i32 [ -1, %105 ], [ %110, %111 ], [ %.017.i, %call_nftw.exit ], [ 0, %135 ], [ -1, %53 ], [ -1, %.thread109 ], [ %.017.i106, %call_nftw.exit108 ], [ %.0.i, %call_nftw.exit.thread ], [ %.0.i105, %call_nftw.exit108.thread ]
   ret i32 %.0
 }
 

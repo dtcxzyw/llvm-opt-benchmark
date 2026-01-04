@@ -912,7 +912,7 @@ dissect_vis_entry_v23.exit.i:                     ; preds = %.sink.split.i.i23, 
   br label %dissect_bat_vis_v22.exit.sink.split
 
 dissect_bat_vis_v22.exit.sink.split:              ; preds = %222, %226, %112, %116, %228
-  %.sink = phi ptr [ %0, %228 ], [ %113, %116 ], [ %113, %112 ], [ %223, %226 ], [ %223, %222 ]
+  %.sink = phi ptr [ %113, %112 ], [ %0, %228 ], [ %113, %116 ], [ %223, %226 ], [ %223, %222 ]
   %231 = tail call i32 @call_data_dissector(ptr noundef %.sink, ptr noundef %1, ptr noundef %2)
   br label %dissect_bat_vis_v22.exit
 

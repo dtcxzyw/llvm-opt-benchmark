@@ -50,7 +50,7 @@ define dso_local noundef ptr @curl_easy_option_by_name(ptr noundef %0) local_unn
   br i1 %.not18.i, label %lookup.exit, label %.preheader.split.i, !llvm.loop !11
 
 lookup.exit:                                      ; preds = %.preheader.split.us.i, %4, %10, %14
-  %.1.i = phi ptr [ null, %14 ], [ %.014.i, %10 ], [ null, %4 ], [ %.014.us.i, %.preheader.split.us.i ]
+  %.1.i = phi ptr [ null, %14 ], [ %.014.i, %10 ], [ %.014.us.i, %.preheader.split.us.i ], [ null, %4 ]
   ret ptr %.1.i
 }
 
@@ -104,7 +104,7 @@ define dso_local noundef ptr @curl_easy_option_next(ptr noundef readonly capture
   br label %.critedge
 
 .critedge:                                        ; preds = %1, %4, %7
-  %.0 = phi ptr [ null, %7 ], [ %5, %4 ], [ @Curl_easyopts, %1 ]
+  %.0 = phi ptr [ %5, %4 ], [ null, %7 ], [ @Curl_easyopts, %1 ]
   ret ptr %.0
 }
 

@@ -398,7 +398,7 @@ define noundef zeroext i1 @_ZNK6icu_778numparse4impl17ScientificMatcher5matchERN
   br label %89
 
 89:                                               ; preds = %10, %30, %85, %88, %77, %72, %67, %52, %6, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %6 ], [ true, %30 ], [ true, %72 ], [ true, %77 ], [ true, %52 ], [ true, %67 ], [ %83, %88 ], [ %83, %85 ], [ %.mux, %10 ]
+  %.0 = phi i1 [ false, %4 ], [ false, %6 ], [ %83, %85 ], [ true, %30 ], [ %.mux, %10 ], [ %83, %88 ], [ true, %72 ], [ true, %77 ], [ true, %67 ], [ true, %52 ]
   ret i1 %.0
 }
 

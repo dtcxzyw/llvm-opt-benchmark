@@ -1033,7 +1033,7 @@ encode_many_ints_prec_uint32.exit:                ; preds = %.critedge.i, %71
   br label %126
 
 126:                                              ; preds = %encode_many_ints_prec_uint32.exit, %encode_many_ints_uint32.exit
-  %.0 = phi i32 [ %70, %encode_many_ints_uint32.exit ], [ %125, %encode_many_ints_prec_uint32.exit ]
+  %.0 = phi i32 [ %125, %encode_many_ints_prec_uint32.exit ], [ %70, %encode_many_ints_uint32.exit ]
   ret i32 %.0
 }
 
@@ -1407,7 +1407,7 @@ pad_block_int32.exit105.us161.us.us.i:            ; preds = %pad_block_int32.exi
   br i1 %exitcond247.not.i, label %gather_partial_int32_4.exit, label %.preheader106.us210.i
 
 .preheader112.i:                                  ; preds = %28, %100, %.preheader113.i
-  %.170.lcssa.i = phi ptr [ %.069148.i, %.preheader113.i ], [ %102, %100 ], [ %31, %28 ]
+  %.170.lcssa.i = phi ptr [ %102, %100 ], [ %.069148.i, %.preheader113.i ], [ %31, %28 ]
   %93 = getelementptr inbounds nuw i8, ptr %11, i64 %23
   br label %.preheader109.i
 

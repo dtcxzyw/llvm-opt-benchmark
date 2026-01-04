@@ -140,13 +140,13 @@ define i32 @wc_PBKDF1_ex(ptr noundef writeonly captures(address_is_null) %0, i32
   br label %68
 
 68:                                               ; preds = %52, %65
-  %.195 = phi i32 [ %67, %65 ], [ %.094157, %52 ]
-  %.2 = phi i32 [ %66, %65 ], [ %.3, %52 ]
+  %.195 = phi i32 [ %.094157, %52 ], [ %67, %65 ]
+  %.2 = phi i32 [ %.3, %52 ], [ %66, %65 ]
   %69 = icmp slt i32 %.2, %25
   br i1 %69, label %28, label %._crit_edge160
 
 .thread:                                          ; preds = %29, %31, %34, %36, %41, %.lr.ph
-  %.2102.ph = phi i32 [ %40, %.lr.ph ], [ %42, %41 ], [ %30, %29 ], [ %32, %31 ], [ %35, %34 ], [ %37, %36 ]
+  %.2102.ph = phi i32 [ %42, %41 ], [ %40, %.lr.ph ], [ %30, %29 ], [ %32, %31 ], [ %35, %34 ], [ %37, %36 ]
   %70 = call i32 @wc_HashFree(ptr noundef nonnull %13, i32 noundef %20) #6
   br label %72
 
@@ -158,7 +158,7 @@ define i32 @wc_PBKDF1_ex(ptr noundef writeonly captures(address_is_null) %0, i32
   br label %72
 
 72:                                               ; preds = %.thread, %._crit_edge160, %23, %19, %11
-  %.091 = phi i32 [ -173, %11 ], [ %21, %19 ], [ %24, %23 ], [ %.2102.ph, %.thread ], [ %., %._crit_edge160 ]
+  %.091 = phi i32 [ %.2102.ph, %.thread ], [ -173, %11 ], [ %21, %19 ], [ %24, %23 ], [ %., %._crit_edge160 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.091
@@ -371,12 +371,12 @@ xorbuf.exit.us:                                   ; preds = %.lr.ph38.i.us, %Xor
   br i1 %.not131, label %.thread88, label %.lr.ph105.split.split
 
 .thread88:                                        ; preds = %78, %.lr.ph105.split.split, %76, %.preheader, %._crit_edge.us, %.lr.ph105.split.us, %34, %.preheader.us, %45, %43, %25
-  %.2 = phi i32 [ %26, %25 ], [ %44, %43 ], [ %46, %45 ], [ %64, %.preheader.us ], [ 0, %._crit_edge.us ], [ %31, %.lr.ph105.split.us ], [ %35, %34 ], [ %75, %.preheader ], [ 0, %78 ], [ %68, %.lr.ph105.split.split ], [ %77, %76 ]
+  %.2 = phi i32 [ %46, %45 ], [ %75, %.preheader ], [ %26, %25 ], [ 0, %._crit_edge.us ], [ %64, %.preheader.us ], [ %44, %43 ], [ %31, %.lr.ph105.split.us ], [ %35, %34 ], [ %68, %.lr.ph105.split.split ], [ %77, %76 ], [ 0, %78 ]
   call void @wc_HmacFree(ptr noundef nonnull %12) #6
   br label %84
 
 84:                                               ; preds = %22, %.thread88, %18, %10
-  %.052 = phi i32 [ -173, %10 ], [ -173, %18 ], [ %.2, %.thread88 ], [ %23, %22 ]
+  %.052 = phi i32 [ -173, %18 ], [ -173, %10 ], [ %.2, %.thread88 ], [ %23, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.052
@@ -669,7 +669,7 @@ DoPKCS12Hash.exit:                                ; preds = %73, %._crit_edge.i
   br label %130
 
 130:                                              ; preds = %111, %109, %105, %116, %128, %120
-  %.7 = phi i32 [ %117, %116 ], [ %127, %120 ], [ %129, %128 ], [ -111, %105 ], [ -115, %109 ], [ -113, %111 ]
+  %.7 = phi i32 [ %129, %128 ], [ -111, %105 ], [ -115, %109 ], [ %117, %116 ], [ %127, %120 ], [ -113, %111 ]
   %.7.fr = freeze i32 %.7
   call void @sp_clear(ptr noundef nonnull %16) #6
   call void @sp_clear(ptr noundef nonnull %17) #6
@@ -694,8 +694,8 @@ DoPKCS12Hash.exit:                                ; preds = %73, %._crit_edge.i
   %139 = icmp sgt i32 %138, 0
   br i1 %139, label %73, label %.thread162
 
-.thread162.sink.split:                            ; preds = %.thread158, %103, %97, %99, %101, %.lr.ph178
-  %.1127.ph = phi i32 [ -110, %.lr.ph178 ], [ %.0.i, %103 ], [ -115, %101 ], [ -111, %99 ], [ -110, %97 ], [ %.7.fr, %.thread158 ]
+.thread162.sink.split:                            ; preds = %.thread158, %103, %101, %97, %99, %.lr.ph178
+  %.1127.ph = phi i32 [ -110, %.lr.ph178 ], [ %.0.i, %103 ], [ -111, %99 ], [ -110, %97 ], [ %.7.fr, %.thread158 ], [ -115, %101 ]
   call void @sp_clear(ptr noundef nonnull %15) #6
   br label %.thread162
 
@@ -708,7 +708,7 @@ DoPKCS12Hash.exit:                                ; preds = %73, %._crit_edge.i
   br label %141
 
 141:                                              ; preds = %.thread162, %140, %46, %32, %29, %27, %23, %10
-  %.0 = phi i32 [ -173, %10 ], [ %25, %23 ], [ -192, %27 ], [ %.fr145, %29 ], [ -192, %32 ], [ -125, %46 ], [ %.1127, %140 ], [ %.1127, %.thread162 ]
+  %.0 = phi i32 [ -125, %46 ], [ -173, %10 ], [ %25, %23 ], [ -192, %27 ], [ %.fr145, %29 ], [ -192, %32 ], [ %.1127, %140 ], [ %.1127, %.thread162 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)

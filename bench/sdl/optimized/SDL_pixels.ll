@@ -379,7 +379,7 @@ define hidden noundef nonnull ptr @SDL_GetPixelFormatName_REAL(i32 noundef %0) l
   br label %66
 
 66:                                               ; preds = %1, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ @.str.64, %65 ], [ @.str.1, %2 ], [ @.str.2, %3 ], [ @.str.3, %4 ], [ @.str.4, %5 ], [ @.str.5, %6 ], [ @.str.6, %7 ], [ @.str.7, %8 ], [ @.str.8, %9 ], [ @.str.9, %10 ], [ @.str.10, %11 ], [ @.str.11, %12 ], [ @.str.12, %13 ], [ @.str.13, %14 ], [ @.str.14, %15 ], [ @.str.15, %16 ], [ @.str.16, %17 ], [ @.str.17, %18 ], [ @.str.18, %19 ], [ @.str.19, %20 ], [ @.str.20, %21 ], [ @.str.21, %22 ], [ @.str.22, %23 ], [ @.str.23, %24 ], [ @.str.24, %25 ], [ @.str.25, %26 ], [ @.str.26, %27 ], [ @.str.27, %28 ], [ @.str.28, %29 ], [ @.str.29, %30 ], [ @.str.30, %31 ], [ @.str.31, %32 ], [ @.str.32, %33 ], [ @.str.33, %34 ], [ @.str.34, %35 ], [ @.str.35, %36 ], [ @.str.36, %37 ], [ @.str.37, %38 ], [ @.str.38, %39 ], [ @.str.39, %40 ], [ @.str.40, %41 ], [ @.str.41, %42 ], [ @.str.42, %43 ], [ @.str.43, %44 ], [ @.str.44, %45 ], [ @.str.45, %46 ], [ @.str.46, %47 ], [ @.str.47, %48 ], [ @.str.48, %49 ], [ @.str.49, %50 ], [ @.str.50, %51 ], [ @.str.51, %52 ], [ @.str.52, %53 ], [ @.str.53, %54 ], [ @.str.54, %55 ], [ @.str.55, %56 ], [ @.str.56, %57 ], [ @.str.57, %58 ], [ @.str.58, %59 ], [ @.str.59, %60 ], [ @.str.60, %61 ], [ @.str.61, %62 ], [ @.str.62, %63 ], [ @.str.63, %64 ], [ @.str, %1 ]
+  %.0 = phi ptr [ @.str.64, %65 ], [ @.str.63, %64 ], [ @.str.1, %2 ], [ @.str.2, %3 ], [ @.str.3, %4 ], [ @.str.4, %5 ], [ @.str.5, %6 ], [ @.str.6, %7 ], [ @.str.7, %8 ], [ @.str.8, %9 ], [ @.str.9, %10 ], [ @.str.10, %11 ], [ @.str.11, %12 ], [ @.str.12, %13 ], [ @.str.13, %14 ], [ @.str.14, %15 ], [ @.str.15, %16 ], [ @.str.16, %17 ], [ @.str.17, %18 ], [ @.str.18, %19 ], [ @.str.19, %20 ], [ @.str.20, %21 ], [ @.str.21, %22 ], [ @.str.22, %23 ], [ @.str.23, %24 ], [ @.str.24, %25 ], [ @.str.25, %26 ], [ @.str.26, %27 ], [ @.str.27, %28 ], [ @.str.28, %29 ], [ @.str.29, %30 ], [ @.str.30, %31 ], [ @.str.31, %32 ], [ @.str.32, %33 ], [ @.str.33, %34 ], [ @.str.34, %35 ], [ @.str.35, %36 ], [ @.str.36, %37 ], [ @.str.37, %38 ], [ @.str.38, %39 ], [ @.str.39, %40 ], [ @.str.40, %41 ], [ @.str.41, %42 ], [ @.str.42, %43 ], [ @.str.43, %44 ], [ @.str.44, %45 ], [ @.str.45, %46 ], [ @.str.46, %47 ], [ @.str.47, %48 ], [ @.str.48, %49 ], [ @.str.49, %50 ], [ @.str.50, %51 ], [ @.str.51, %52 ], [ @.str.52, %53 ], [ @.str.53, %54 ], [ @.str.54, %55 ], [ @.str.55, %56 ], [ @.str.56, %57 ], [ @.str.57, %58 ], [ @.str.58, %59 ], [ @.str.59, %60 ], [ @.str.60, %61 ], [ @.str.61, %62 ], [ @.str.62, %63 ], [ @.str, %1 ]
   ret ptr %.0
 }
 
@@ -540,7 +540,7 @@ switch.lookup:                                    ; preds = %21
   br label %43
 
 43:                                               ; preds = %18, %33, %34, %35, %36, %37, %38, %39, %40, %41, %25, %17, %16, %9
-  %.0 = phi i1 [ true, %9 ], [ true, %16 ], [ true, %17 ], [ %26, %25 ], [ %42, %41 ], [ true, %18 ], [ true, %40 ], [ true, %39 ], [ true, %38 ], [ true, %37 ], [ true, %36 ], [ true, %35 ], [ true, %34 ], [ true, %33 ]
+  %.0 = phi i1 [ true, %9 ], [ true, %16 ], [ true, %17 ], [ true, %18 ], [ %26, %25 ], [ %42, %41 ], [ true, %40 ], [ true, %39 ], [ true, %38 ], [ true, %37 ], [ true, %36 ], [ true, %35 ], [ true, %34 ], [ true, %33 ]
   ret i1 %.0
 }
 
@@ -824,7 +824,7 @@ define hidden range(i32 0, 471859713) i32 @SDL_GetPixelFormatForMasks_REAL(i32 n
   br label %126
 
 126:                                              ; preds = %25, %124, %122, %118, %113, %112, %111, %109, %107, %103, %99, %94, %88, %86, %82, %76, %74, %74, %72, %71, %69, %66, %65, %59, %57, %53, %49, %43, %37, %33, %28, %26, %21, %15, %13, %8, %5, %125, %75, %7, %6
-  %.0 = phi i32 [ 0, %125 ], [ 471859712, %6 ], [ 304088064, %7 ], [ 386930691, %75 ], [ 287310080, %5 ], [ %., %8 ], [ 353504258, %13 ], [ 353504258, %15 ], [ 357698562, %21 ], [ 353570562, %25 ], [ 353701890, %26 ], [ 353570562, %28 ], [ 357764866, %33 ], [ 355602434, %37 ], [ 356651010, %43 ], [ 359796738, %49 ], [ 360845314, %53 ], [ 355667970, %57 ], [ 356782082, %59 ], [ 359862274, %65 ], [ 360976386, %66 ], [ 353701890, %69 ], [ 357896194, %71 ], [ 353701890, %72 ], [ 390076419, %74 ], [ 390076419, %74 ], [ 370614276, %76 ], [ 374808580, %82 ], [ 370546692, %86 ], [ 370546692, %88 ], [ 371595268, %94 ], [ 374740996, %99 ], [ 375789572, %103 ], [ 372645892, %107 ], [ 373694468, %109 ], [ 376840196, %111 ], [ 377888772, %112 ], [ 370614276, %113 ], [ 374808580, %118 ], [ 372711428, %122 ], [ 376905732, %124 ]
+  %.0 = phi i32 [ 0, %125 ], [ 372711428, %122 ], [ 471859712, %6 ], [ 304088064, %7 ], [ %., %8 ], [ 287310080, %5 ], [ 374808580, %118 ], [ 353504258, %13 ], [ 353504258, %15 ], [ 357698562, %21 ], [ 353570562, %25 ], [ 353701890, %26 ], [ 353570562, %28 ], [ 357764866, %33 ], [ 355602434, %37 ], [ 356651010, %43 ], [ 359796738, %49 ], [ 360845314, %53 ], [ 355667970, %57 ], [ 356782082, %59 ], [ 359862274, %65 ], [ 360976386, %66 ], [ 353701890, %69 ], [ 357896194, %71 ], [ 353701890, %72 ], [ 386930691, %75 ], [ 390076419, %74 ], [ 370614276, %76 ], [ 374808580, %82 ], [ 370546692, %86 ], [ 370546692, %88 ], [ 371595268, %94 ], [ 374740996, %99 ], [ 375789572, %103 ], [ 372645892, %107 ], [ 373694468, %109 ], [ 376840196, %111 ], [ 377888772, %112 ], [ 370614276, %113 ], [ 390076419, %74 ], [ 376905732, %124 ]
   ret i32 %.0
 }
 
@@ -1104,7 +1104,7 @@ define hidden ptr @SDL_GetPixelFormatDetails_REAL(i32 noundef %0) local_unnamed_
   br label %95
 
 95:                                               ; preds = %86, %91, %20, %84, %18, %11
-  %.0 = phi ptr [ %19, %18 ], [ null, %84 ], [ null, %11 ], [ null, %20 ], [ %spec.select, %91 ], [ %90, %86 ]
+  %.0 = phi ptr [ %19, %18 ], [ null, %11 ], [ %spec.select, %91 ], [ null, %20 ], [ null, %84 ], [ %90, %86 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
 }
@@ -1190,7 +1190,7 @@ define hidden void @SDL_Get8888AlphaMaskAndShift(ptr noundef readonly captures(n
   br label %23
 
 23:                                               ; preds = %10, %20, %21, %22, %6
-  %.sink = phi i32 [ 16, %20 ], [ 24, %21 ], [ 0, %22 ], [ %9, %6 ], [ 8, %10 ]
+  %.sink = phi i32 [ %9, %6 ], [ 0, %22 ], [ 16, %20 ], [ 24, %21 ], [ 8, %10 ]
   store i32 %.sink, ptr %2, align 4
   ret void
 }
@@ -1222,7 +1222,7 @@ define hidden range(i32 301991168, 570426567) i32 @SDL_GetDefaultColorspaceForFo
   br label %7
 
 7:                                                ; preds = %5, %3, %2
-  %.0 = phi i32 [ 301991168, %3 ], [ %switch.select27, %2 ], [ %spec.select, %5 ]
+  %.0 = phi i32 [ %spec.select, %5 ], [ %switch.select27, %2 ], [ 301991168, %3 ]
   ret i32 %.0
 }
 
@@ -1359,15 +1359,15 @@ define hidden noundef ptr @SDL_GetYCbCRtoRGBConversionMatrix(i32 noundef %0, i32
   br i1 %27, label %SDL_GetBT601ConversionMatrix.exit.sink.split, label %SDL_GetBT601ConversionMatrix.exit
 
 SDL_GetBT601ConversionMatrix.exit.sink.split:     ; preds = %19, %24, %14, %10, %6
-  %.sink32 = phi i32 [ %8, %6 ], [ %12, %10 ], [ %16, %14 ], [ %26, %24 ], [ %22, %19 ]
-  %switch.table.SDL_GetYCbCRtoRGBConversionMatrix.8.sink = phi ptr [ @switch.table.SDL_GetYCbCRtoRGBConversionMatrix.6, %6 ], [ @switch.table.SDL_GetYCbCRtoRGBConversionMatrix.7, %10 ], [ @switch.table.SDL_GetYCbCRtoRGBConversionMatrix.8, %14 ], [ @switch.table.SDL_GetYCbCRtoRGBConversionMatrix.8, %24 ], [ %switch.table.SDL_GetYCbCRtoRGBConversionMatrix.6.switch.table.SDL_GetYCbCRtoRGBConversionMatrix.7, %19 ]
+  %.sink32 = phi i32 [ %26, %24 ], [ %22, %19 ], [ %16, %14 ], [ %12, %10 ], [ %8, %6 ]
+  %switch.table.SDL_GetYCbCRtoRGBConversionMatrix.8.sink = phi ptr [ @switch.table.SDL_GetYCbCRtoRGBConversionMatrix.8, %24 ], [ %switch.table.SDL_GetYCbCRtoRGBConversionMatrix.6.switch.table.SDL_GetYCbCRtoRGBConversionMatrix.7, %19 ], [ @switch.table.SDL_GetYCbCRtoRGBConversionMatrix.8, %14 ], [ @switch.table.SDL_GetYCbCRtoRGBConversionMatrix.7, %10 ], [ @switch.table.SDL_GetYCbCRtoRGBConversionMatrix.6, %6 ]
   %28 = zext nneg i32 %.sink32 to i64
   %switch.gep30 = getelementptr inbounds nuw ptr, ptr %switch.table.SDL_GetYCbCRtoRGBConversionMatrix.8.sink, i64 %28
   %switch.load31 = load ptr, ptr %switch.gep30, align 8
   br label %SDL_GetBT601ConversionMatrix.exit
 
 SDL_GetBT601ConversionMatrix.exit:                ; preds = %19, %SDL_GetBT601ConversionMatrix.exit.sink.split, %24, %14, %10, %6, %18, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %18 ], [ null, %6 ], [ null, %10 ], [ null, %14 ], [ null, %24 ], [ %switch.load31, %SDL_GetBT601ConversionMatrix.exit.sink.split ], [ null, %19 ]
+  %.0 = phi ptr [ null, %24 ], [ null, %18 ], [ %switch.load31, %SDL_GetBT601ConversionMatrix.exit.sink.split ], [ null, %19 ], [ null, %10 ], [ null, %6 ], [ null, %4 ], [ null, %14 ]
   ret ptr %.0
 }
 
@@ -1410,7 +1410,7 @@ switch.lookup7:                                   ; preds = %6
   br label %10
 
 10:                                               ; preds = %2, %4, %6, %switch.lookup7, %switch.lookup, %3
-  %.0 = phi ptr [ %switch.select5, %3 ], [ %switch.load, %switch.lookup ], [ %switch.load9, %switch.lookup7 ], [ null, %6 ], [ null, %4 ], [ null, %2 ]
+  %.0 = phi ptr [ %switch.load, %switch.lookup ], [ %switch.select5, %3 ], [ %switch.load9, %switch.lookup7 ], [ null, %6 ], [ null, %4 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -1980,7 +1980,7 @@ SDL_FindColor.exit.loopexit:                      ; preds = %52, %49
   br label %SDL_FindColor.exit
 
 SDL_FindColor.exit:                               ; preds = %16, %SDL_FindColor.exit.loopexit, %86, %56, %14, %6
-  %.0 = phi i32 [ %121, %86 ], [ %85, %56 ], [ 0, %14 ], [ 0, %6 ], [ 0, %16 ], [ %53, %SDL_FindColor.exit.loopexit ]
+  %.0 = phi i32 [ %121, %86 ], [ %85, %56 ], [ 0, %6 ], [ 0, %14 ], [ 0, %16 ], [ %53, %SDL_FindColor.exit.loopexit ]
   ret i32 %.0
 }
 
@@ -2179,7 +2179,7 @@ SDL_FindColor.exit.loopexit:                      ; preds = %54, %51
   br label %SDL_FindColor.exit
 
 SDL_FindColor.exit:                               ; preds = %17, %SDL_FindColor.exit.loopexit, %99, %58, %15, %7
-  %.0 = phi i32 [ %145, %99 ], [ %98, %58 ], [ 0, %15 ], [ 0, %7 ], [ 0, %17 ], [ %55, %SDL_FindColor.exit.loopexit ]
+  %.0 = phi i32 [ %145, %99 ], [ %98, %58 ], [ 0, %7 ], [ 0, %15 ], [ 0, %17 ], [ %55, %SDL_FindColor.exit.loopexit ]
   ret i32 %.0
 }
 
@@ -3049,11 +3049,11 @@ SDL_FindColor.exit.loopexit.us.i:                 ; preds = %104, %101
   br label %switch.edge.i
 
 switch.edge.i:                                    ; preds = %135, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %123
-  %136 = phi i8 [ %114, %.critedge.i ], [ %114, %135 ], [ %114, %.critedge.i ], [ %114, %.critedge.i ], [ %114, %.critedge.i ], [ %131, %123 ]
-  %137 = phi i8 [ %116, %.critedge.i ], [ %116, %135 ], [ %116, %.critedge.i ], [ %116, %.critedge.i ], [ %116, %.critedge.i ], [ %129, %123 ]
-  %138 = phi i8 [ %118, %.critedge.i ], [ %118, %135 ], [ %118, %.critedge.i ], [ %118, %.critedge.i ], [ %118, %.critedge.i ], [ %127, %123 ]
-  %139 = phi i8 [ %120, %.critedge.i ], [ %120, %135 ], [ %120, %.critedge.i ], [ %120, %.critedge.i ], [ %120, %.critedge.i ], [ %125, %123 ]
-  %140 = phi i64 [ 2, %.critedge.i ], [ 1, %135 ], [ 2, %.critedge.i ], [ 2, %.critedge.i ], [ 2, %.critedge.i ], [ %134, %123 ]
+  %136 = phi i8 [ %131, %123 ], [ %114, %.critedge.i ], [ %114, %.critedge.i ], [ %114, %.critedge.i ], [ %114, %.critedge.i ], [ %114, %135 ]
+  %137 = phi i8 [ %129, %123 ], [ %116, %.critedge.i ], [ %116, %.critedge.i ], [ %116, %.critedge.i ], [ %116, %.critedge.i ], [ %116, %135 ]
+  %138 = phi i8 [ %127, %123 ], [ %118, %.critedge.i ], [ %118, %.critedge.i ], [ %118, %.critedge.i ], [ %118, %.critedge.i ], [ %118, %135 ]
+  %139 = phi i8 [ %125, %123 ], [ %120, %.critedge.i ], [ %120, %.critedge.i ], [ %120, %.critedge.i ], [ %120, %.critedge.i ], [ %120, %135 ]
+  %140 = phi i64 [ %134, %123 ], [ 2, %.critedge.i ], [ 2, %.critedge.i ], [ 2, %.critedge.i ], [ 2, %.critedge.i ], [ 1, %135 ]
   %141 = tail call noalias ptr @SDL_calloc_REAL(i64 noundef 256, i64 noundef %140) #16
   %.not114.i = icmp eq ptr %141, null
   br i1 %.not114.i, label %Map1toN.exit.thread, label %.preheader.i91
@@ -3284,7 +3284,7 @@ switch.edge131.thread132.i:                       ; preds = %switch.edge131.i, %
   %exitcond.not.i96 = icmp eq i64 %indvars.iv.next.i95, %wide.trip.count.i93
   br i1 %exitcond.not.i96, label %Map1toN.exit, label %159, !llvm.loop !17
 
-Map1toN.exit.thread:                              ; preds = %121, %switch.edge.i
+Map1toN.exit.thread:                              ; preds = %switch.edge.i, %121
   store ptr null, ptr %12, align 8
   br label %.thread126
 
@@ -3350,7 +3350,7 @@ Map1toN.exit:                                     ; preds = %313
   br label %.thread126
 
 .thread126:                                       ; preds = %.loopexit.thread, %Map1toN.exit.thread, %332
-  %.0 = phi i1 [ %333, %332 ], [ false, %Map1toN.exit.thread ], [ false, %.loopexit.thread ]
+  %.0 = phi i1 [ %333, %332 ], [ false, %.loopexit.thread ], [ false, %Map1toN.exit.thread ]
   ret i1 %.0
 }
 

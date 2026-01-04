@@ -141,7 +141,7 @@ define ptr @Wlc_ObjTypeName(ptr noundef readonly captures(address_is_null) %0) l
   br label %10
 
 10:                                               ; preds = %1, %6, %2
-  %11 = phi ptr [ %9, %6 ], [ @.str, %2 ], [ @.str.1, %1 ]
+  %11 = phi ptr [ @.str, %2 ], [ %9, %6 ], [ @.str.1, %1 ]
   ret ptr %11
 }
 
@@ -1539,7 +1539,7 @@ Wlc_ObjFaninId.exit:                              ; preds = %Wlc_ObjFaninId.exit
   br i1 %exitcond53.not, label %.critedge2, label %Wlc_ObjFaninId.exit, !llvm.loop !82
 
 .critedge2:                                       ; preds = %Wlc_ObjHasArray.exit.thread.i.i.us34, %Wlc_ObjFaninId.exit, %Wlc_ObjHasArray.exit.thread.i.i.us, %25
-  %.022.lcssa = phi i32 [ 0, %25 ], [ %38, %Wlc_ObjHasArray.exit.thread.i.i.us ], [ %55, %Wlc_ObjFaninId.exit ], [ %48, %Wlc_ObjHasArray.exit.thread.i.i.us34 ]
+  %.022.lcssa = phi i32 [ 0, %25 ], [ %55, %Wlc_ObjFaninId.exit ], [ %38, %Wlc_ObjHasArray.exit.thread.i.i.us ], [ %48, %Wlc_ObjHasArray.exit.thread.i.i.us34 ]
   %56 = getelementptr inbounds nuw i32, ptr %.val29, i64 %indvars.iv59
   store i32 %.022.lcssa, ptr %56, align 4, !tbaa !42
   %57 = tail call noundef i32 @llvm.smax.i32(i32 %.040, i32 %.022.lcssa)
@@ -1696,7 +1696,7 @@ Vec_IntUpdateEntry.exit:                          ; preds = %Wlc_ObjFaninId.exit
   br i1 %55, label %28, label %.critedge.preheader, !llvm.loop !85
 
 .critedge4.preheader:                             ; preds = %.critedge, %Vec_IntFill.exit, %.critedge.preheader
-  %.0.lcssa91 = phi i32 [ %.1, %.critedge.preheader ], [ 0, %Vec_IntFill.exit ], [ %.1, %.critedge ]
+  %.0.lcssa91 = phi i32 [ 0, %Vec_IntFill.exit ], [ %.1, %.critedge.preheader ], [ %.1, %.critedge ]
   %56 = getelementptr i8, ptr %0, i64 52
   %.val73 = load i32, ptr %56, align 4, !tbaa !40
   %57 = icmp sgt i32 %.val73, 0
@@ -1921,7 +1921,7 @@ Wlc_ObjFaninId.exit50:                            ; preds = %Wlc_ObjFaninId.exit
   br i1 %exitcond80.not, label %.critedge2, label %Wlc_ObjFaninId.exit50, !llvm.loop !88
 
 .critedge2:                                       ; preds = %.critedge.us65, %.critedge, %.critedge.us, %.preheader, %.critedge.preheader
-  %.031.lcssa = phi i32 [ 0, %.critedge.preheader ], [ 0, %.preheader ], [ %.132.us, %.critedge.us ], [ %.132, %.critedge ], [ %.132.us66, %.critedge.us65 ]
+  %.031.lcssa = phi i32 [ 0, %.critedge.preheader ], [ %.132.us, %.critedge.us ], [ 0, %.preheader ], [ %.132, %.critedge ], [ %.132.us66, %.critedge.us65 ]
   %.val = load ptr, ptr %3, align 8, !tbaa !38
   %68 = ptrtoint ptr %.val to i64
   %69 = sub i64 %4, %68
@@ -7779,7 +7779,7 @@ Wlc_NtkCleanCopy.exit:                            ; preds = %Vec_IntGrow.exit.i.
   br label %76
 
 76:                                               ; preds = %55, %66
-  %.val155 = phi i32 [ %.val155.pre, %66 ], [ %.val155235, %55 ]
+  %.val155 = phi i32 [ %.val155235, %55 ], [ %.val155.pre, %66 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %77 = sext i32 %.val155 to i64
   %78 = icmp slt i64 %indvars.iv.next, %77
@@ -8948,15 +8948,15 @@ define i32 @Wlc_NtkCountMarked(ptr noundef readonly captures(none) %0, ptr nound
   br label %.sink.split
 
 .sink.split:                                      ; preds = %17, %17, %15, %13, %19
-  %.sink = phi ptr [ %4, %19 ], [ %1, %13 ], [ %2, %15 ], [ %3, %17 ], [ %3, %17 ]
-  %.1.ph = phi i32 [ %18, %19 ], [ %.032, %13 ], [ %.032, %15 ], [ %18, %17 ], [ %18, %17 ]
+  %.sink = phi ptr [ %1, %13 ], [ %4, %19 ], [ %2, %15 ], [ %3, %17 ], [ %3, %17 ]
+  %.1.ph = phi i32 [ %.032, %13 ], [ %18, %19 ], [ %.032, %15 ], [ %18, %17 ], [ %18, %17 ]
   %20 = load i32, ptr %.sink, align 4, !tbaa !42
   %21 = add nsw i32 %20, 1
   store i32 %21, ptr %.sink, align 4, !tbaa !42
   br label %22
 
 22:                                               ; preds = %.sink.split, %17, %9
-  %.1 = phi i32 [ %.032, %9 ], [ %18, %17 ], [ %.1.ph, %.sink.split ]
+  %.1 = phi i32 [ %18, %17 ], [ %.032, %9 ], [ %.1.ph, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val27 = load i32, ptr %6, align 8, !tbaa !39
   %23 = sext i32 %.val27 to i64
@@ -9180,15 +9180,15 @@ define void @Wlc_NtkProfileCones(ptr noundef readonly captures(none) %0) local_u
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %23, %21, %21, %19, %17
-  %.sink.i = phi ptr [ %5, %23 ], [ %2, %17 ], [ %3, %19 ], [ %4, %21 ], [ %4, %21 ]
-  %.1.ph.i = phi i32 [ %22, %23 ], [ %.032.i, %17 ], [ %.032.i, %19 ], [ %22, %21 ], [ %22, %21 ]
+  %.sink.i = phi ptr [ %2, %17 ], [ %5, %23 ], [ %3, %19 ], [ %4, %21 ], [ %4, %21 ]
+  %.1.ph.i = phi i32 [ %.032.i, %17 ], [ %22, %23 ], [ %.032.i, %19 ], [ %22, %21 ], [ %22, %21 ]
   %24 = load i32, ptr %.sink.i, align 4, !tbaa !42
   %25 = add nsw i32 %24, 1
   store i32 %25, ptr %.sink.i, align 4, !tbaa !42
   br label %26
 
 26:                                               ; preds = %.sink.split.i, %21, %13
-  %.1.i = phi i32 [ %.032.i, %13 ], [ %22, %21 ], [ %.1.ph.i, %.sink.split.i ]
+  %.1.i = phi i32 [ %22, %21 ], [ %.032.i, %13 ], [ %.1.ph.i, %.sink.split.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %12
   br i1 %exitcond.not, label %Wlc_NtkCountMarked.exit.loopexit, label %13, !llvm.loop !163

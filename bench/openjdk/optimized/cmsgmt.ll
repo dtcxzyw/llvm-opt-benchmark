@@ -119,7 +119,7 @@ define hidden ptr @_cmsBuildKToneCurve(ptr noundef %0, i32 noundef %1, i32 nound
   br label %34
 
 34:                                               ; preds = %.sink.split, %32, %29, %20, %17, %8, %11
-  %.0 = phi ptr [ null, %11 ], [ null, %8 ], [ null, %17 ], [ null, %20 ], [ null, %29 ], [ %30, %32 ], [ null, %.sink.split ]
+  %.0 = phi ptr [ null, %11 ], [ null, %8 ], [ null, %17 ], [ %30, %32 ], [ null, %20 ], [ null, %29 ], [ null, %.sink.split ]
   ret ptr %.0
 }
 
@@ -239,7 +239,7 @@ _cmsChain2Lab.exit:                               ; preds = %.preheader.i, %.lr.
   br label %50
 
 50:                                               ; preds = %.thread, %_cmsChain2Lab.exit.thread, %._crit_edge, %_cmsChain2Lab.exit
-  %.0 = phi ptr [ null, %_cmsChain2Lab.exit ], [ %49, %._crit_edge ], [ null, %_cmsChain2Lab.exit.thread ], [ null, %.thread ]
+  %.0 = phi ptr [ null, %_cmsChain2Lab.exit ], [ %49, %._crit_edge ], [ null, %.thread ], [ null, %_cmsChain2Lab.exit.thread ]
   ret ptr %.0
 }
 
@@ -454,7 +454,7 @@ define internal noundef i32 @GamutSampler(ptr noundef %0, ptr noundef writeonly 
   br label %42
 
 42:                                               ; preds = %32, %3, %36, %26
-  %.sink = phi i16 [ %41, %36 ], [ %31, %26 ], [ 0, %3 ], [ 0, %32 ]
+  %.sink = phi i16 [ 0, %3 ], [ %41, %36 ], [ 0, %32 ], [ %31, %26 ]
   store i16 %.sink, ptr %1, align 2
   ret i32 1
 }
@@ -515,7 +515,7 @@ define hidden double @cmsDetectTAC(ptr noundef %0) local_unnamed_addr #0 {
   br label %29
 
 29:                                               ; preds = %15, %9, %6, %1, %25
-  %.0 = phi double [ %28, %25 ], [ 0.000000e+00, %1 ], [ 0.000000e+00, %6 ], [ 0.000000e+00, %9 ], [ 0.000000e+00, %15 ]
+  %.0 = phi double [ 0.000000e+00, %9 ], [ 0.000000e+00, %1 ], [ %28, %25 ], [ 0.000000e+00, %6 ], [ 0.000000e+00, %15 ]
   ret double %.0
 }
 
@@ -781,7 +781,7 @@ define hidden double @cmsDetectRGBProfileGamma(ptr noundef %0, double noundef %1
   br label %36
 
 36:                                               ; preds = %31, %9, %7, %2, %34, %16
-  %.039 = phi double [ -1.000000e+00, %16 ], [ %35, %34 ], [ -1.000000e+00, %2 ], [ -1.000000e+00, %7 ], [ -1.000000e+00, %9 ], [ -1.000000e+00, %31 ]
+  %.039 = phi double [ %35, %34 ], [ -1.000000e+00, %2 ], [ -1.000000e+00, %7 ], [ -1.000000e+00, %16 ], [ -1.000000e+00, %9 ], [ -1.000000e+00, %31 ]
   ret double %.039
 }
 

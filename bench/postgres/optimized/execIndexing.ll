@@ -449,7 +449,7 @@ ExecQual.exit:                                    ; preds = %54, %.thread
   br label %index_expression_changed_walker.exit.i
 
 index_expression_changed_walker.exit.i:           ; preds = %131, %125, %119
-  %.0.i.i = phi i1 [ %130, %125 ], [ %132, %131 ], [ false, %119 ]
+  %.0.i.i = phi i1 [ %132, %131 ], [ %130, %125 ], [ false, %119 ]
   call void @list_free(ptr noundef %120) #5
   br i1 %.not44.i, label %134, label %133
 
@@ -490,8 +490,8 @@ index_unchanged_by_update.exit:                   ; preds = %137, %136, %.crited
   br label %148
 
 148:                                              ; preds = %143, %142
-  %.075 = phi i1 [ true, %142 ], [ %not.105, %143 ]
-  %.0 = phi i32 [ 2, %142 ], [ %.92, %143 ]
+  %.075 = phi i1 [ %not.105, %143 ], [ true, %142 ]
+  %.0 = phi i32 [ %.92, %143 ], [ 2, %142 ]
   %149 = call fastcc zeroext i1 @check_exclusion_or_unique_constraint(ptr noundef %20, ptr noundef nonnull %34, ptr noundef nonnull %38, ptr noundef nonnull %12, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %2, i1 noundef zeroext false, i32 noundef %.0, i1 noundef zeroext %.075, ptr noundef null)
   br label %150
 
@@ -524,7 +524,7 @@ index_unchanged_by_update.exit:                   ; preds = %137, %136, %.crited
   br label %164
 
 164:                                              ; preds = %151, %154, %163, %155, %43, %36, %32, %ExecQual.exit
-  %.1 = phi ptr [ %.079115, %ExecQual.exit ], [ %.079115, %32 ], [ %.079115, %36 ], [ %.079115, %43 ], [ %.079115, %154 ], [ %158, %163 ], [ %158, %155 ], [ %.079115, %151 ]
+  %.1 = phi ptr [ %.079115, %32 ], [ %.079115, %43 ], [ %.079115, %ExecQual.exit ], [ %.079115, %36 ], [ %.079115, %154 ], [ %158, %163 ], [ %158, %155 ], [ %.079115, %151 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge117, label %32, !llvm.loop !10
@@ -915,7 +915,7 @@ index_recheck_constraint.exit.thread:             ; preds = %132, %ItemPointerIs
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 923, ptr noundef nonnull @__func__.check_exclusion_or_unique_constraint) #5
   unreachable
 
-index_recheck_constraint.exit.thread141:          ; preds = %172, %171
+index_recheck_constraint.exit.thread141:          ; preds = %171, %172
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.loopexit
@@ -1087,8 +1087,8 @@ ExecQual.exit:                                    ; preds = %73, %.thread
   %81 = call fastcc zeroext i1 @check_exclusion_or_unique_constraint(ptr noundef %19, ptr noundef nonnull %31, ptr noundef nonnull %35, ptr noundef %4, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %2, i1 noundef zeroext false, i32 noundef 0, i1 noundef zeroext true, ptr noundef nonnull %3)
   br i1 %81, label %select.unfold, label %.loopexit
 
-select.unfold:                                    ; preds = %.thread71, %29, %39, %42, %47, %ExecQual.exit
-  %.156.ph = phi i1 [ true, %ExecQual.exit ], [ %.05585, %47 ], [ %.05585, %42 ], [ %.05585, %39 ], [ %.05585, %29 ], [ true, %.thread71 ]
+select.unfold:                                    ; preds = %.thread71, %29, %47, %39, %42, %ExecQual.exit
+  %.156.ph = phi i1 [ %.05585, %29 ], [ true, %ExecQual.exit ], [ %.05585, %42 ], [ %.05585, %39 ], [ %.05585, %47 ], [ true, %.thread71 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !15
@@ -1203,7 +1203,7 @@ define internal zeroext i1 @index_expression_changed_walker(ptr noundef %0, ptr 
   br label %15
 
 15:                                               ; preds = %2, %13, %7
-  %.0 = phi i1 [ %12, %7 ], [ %14, %13 ], [ false, %2 ]
+  %.0 = phi i1 [ %14, %13 ], [ %12, %7 ], [ false, %2 ]
   ret i1 %.0
 }
 

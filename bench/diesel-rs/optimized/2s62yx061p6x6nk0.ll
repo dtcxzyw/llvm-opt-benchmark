@@ -438,7 +438,7 @@ define internal fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Err
   br label %"_ZN4core3ptr140drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$diesel..result..DatabaseErrorInformation$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hf2bb057f076e9443E.exit"
 
 common.resume:                                    ; preds = %.body, %82, %90, %61, %69, %40, %48, %19, %27, %107
-  %common.resume.op = phi { ptr, i32 } [ %108, %107 ], [ %20, %27 ], [ %20, %19 ], [ %41, %48 ], [ %41, %40 ], [ %62, %69 ], [ %62, %61 ], [ %83, %90 ], [ %83, %82 ], [ %102, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %83, %82 ], [ %20, %19 ], [ %41, %40 ], [ %62, %61 ], [ %108, %107 ], [ %20, %27 ], [ %41, %48 ], [ %62, %69 ], [ %83, %90 ], [ %102, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 36:                                               ; preds = %1
@@ -927,7 +927,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i:  ; preds = %44
   unreachable
 
 common.resume:                                    ; preds = %252, %.body, %54
-  %common.resume.op = phi { ptr, i32 } [ %55, %54 ], [ %253, %252 ], [ %eh.lpad-body, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %55, %54 ], [ %eh.lpad-body, %.body ], [ %253, %252 ]
   resume { ptr, i32 } %common.resume.op
 
 108:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h72e49c483af021c4E.exit.i.i", %85
@@ -1403,11 +1403,11 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i26: ; preds = %133
   invoke void @"_ZN4core3ptr59drop_in_place$LT$diesel_demo_step_3_mysql..models..Post$GT$17h6f68871129bec3ecE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %37) #10
           to label %common.resume unwind label %243
 
-.thread72:                                        ; preds = %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb85dc17b6aaf5a3dE.exit78.i", %132, %.noexc36
-  %.sroa.17.3.ph = phi i64 [ undef, %.noexc36 ], [ %.sroa.336.i.sroa.4.0.copyload, %132 ], [ %.sroa.17.1, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb85dc17b6aaf5a3dE.exit78.i" ]
-  %.sroa.14.3.ph = phi ptr [ undef, %.noexc36 ], [ %.sroa.336.i.sroa.0.0.copyload, %132 ], [ %.sroa.14.1, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb85dc17b6aaf5a3dE.exit78.i" ]
-  %.sroa.10.3.ph = phi ptr [ undef, %.noexc36 ], [ %128, %132 ], [ %.sroa.10.1, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb85dc17b6aaf5a3dE.exit78.i" ]
-  %.sroa.044.3.ph = phi i64 [ -9223372036854775800, %.noexc36 ], [ %125, %132 ], [ %.sroa.044.1, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb85dc17b6aaf5a3dE.exit78.i" ]
+.thread72:                                        ; preds = %132, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb85dc17b6aaf5a3dE.exit78.i", %.noexc36
+  %.sroa.17.3.ph = phi i64 [ undef, %.noexc36 ], [ %.sroa.17.1, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb85dc17b6aaf5a3dE.exit78.i" ], [ %.sroa.336.i.sroa.4.0.copyload, %132 ]
+  %.sroa.14.3.ph = phi ptr [ undef, %.noexc36 ], [ %.sroa.14.1, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb85dc17b6aaf5a3dE.exit78.i" ], [ %.sroa.336.i.sroa.0.0.copyload, %132 ]
+  %.sroa.10.3.ph = phi ptr [ undef, %.noexc36 ], [ %.sroa.10.1, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb85dc17b6aaf5a3dE.exit78.i" ], [ %128, %132 ]
+  %.sroa.044.3.ph = phi i64 [ -9223372036854775800, %.noexc36 ], [ %.sroa.044.1, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb85dc17b6aaf5a3dE.exit78.i" ], [ %125, %132 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %241

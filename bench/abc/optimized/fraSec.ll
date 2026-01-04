@@ -1638,7 +1638,7 @@ Abc_Clock.exit454:                                ; preds = %.loopexit504, %577
   br label %762
 
 762:                                              ; preds = %734, %761, %299, %96, %Abc_Clock.exit
-  %.0235 = phi i32 [ %48, %Abc_Clock.exit ], [ %98, %96 ], [ %301, %299 ], [ %752, %761 ], [ %.9, %734 ]
+  %.0235 = phi i32 [ %48, %Abc_Clock.exit ], [ %98, %96 ], [ %752, %761 ], [ %301, %299 ], [ %.9, %734 ]
   switch i32 %.0235, label %.thread [
     i32 1, label %763
     i32 0, label %800
@@ -2003,7 +2003,7 @@ Abc_Clock.exit466:                                ; preds = %892, %896
   br label %943
 
 943:                                              ; preds = %940, %942, %557, %560, %563, %237
-  %.0232 = phi i32 [ 0, %237 ], [ 0, %563 ], [ 0, %560 ], [ 0, %557 ], [ %.0235471, %942 ], [ %.0235471, %940 ]
+  %.0232 = phi i32 [ 0, %557 ], [ 0, %237 ], [ 0, %563 ], [ 0, %560 ], [ %.0235471, %942 ], [ %.0235471, %940 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   ret i32 %.0232

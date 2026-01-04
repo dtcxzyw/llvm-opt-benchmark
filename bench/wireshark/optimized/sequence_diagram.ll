@@ -992,7 +992,7 @@ _ZN7QStringD2Ev.exit113:                          ; preds = %296, %_ZN17QArrayDa
   br label %307
 
 307:                                              ; preds = %299, %305, %304, %_ZN7QStringD2Ev.exit109, %273
-  %.pn45.pn.pn = phi { ptr, i32 } [ %274, %273 ], [ %.pn36.pn, %_ZN7QStringD2Ev.exit109 ], [ %.pn39.pn.pn, %299 ], [ %306, %305 ], [ %.pn43, %304 ]
+  %.pn45.pn.pn = phi { ptr, i32 } [ %.pn36.pn, %_ZN7QStringD2Ev.exit109 ], [ %274, %273 ], [ %.pn39.pn.pn, %299 ], [ %306, %305 ], [ %.pn43, %304 ]
   call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(12) %17) #26
   br label %308
 
@@ -1012,7 +1012,7 @@ _ZN7QStringD2Ev.exit113:                          ; preds = %296, %_ZN17QArrayDa
   br label %_ZN9QtPrivate17QForeachContainerI5QListIP7QCPAxisEED2Ev.exit76
 
 _ZN9QtPrivate17QForeachContainerI5QListIP7QCPAxisEED2Ev.exit76: ; preds = %134, %_ZN17QArrayDataPointerIP7QCPAxisE5derefEv.exit.i.i.i74, %136, %310
-  %.pn52.pn.pn.pn = phi { ptr, i32 } [ %.pn45.pn.pn.pn.pn.pn, %310 ], [ %.pn52.pn, %134 ], [ %.pn52.pn, %_ZN17QArrayDataPointerIP7QCPAxisE5derefEv.exit.i.i.i74 ], [ %.pn52.pn, %136 ]
+  %.pn52.pn.pn.pn = phi { ptr, i32 } [ %.pn45.pn.pn.pn.pn.pn, %310 ], [ %.pn52.pn, %136 ], [ %.pn52.pn, %134 ], [ %.pn52.pn, %_ZN17QArrayDataPointerIP7QCPAxisE5derefEv.exit.i.i.i74 ]
   call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %12) #26
   br label %311
 
@@ -1355,7 +1355,7 @@ _ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit25: ; preds = %48, %.split
   br label %_ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit.thread
 
 _ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit.thread: ; preds = %_ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit25, %43, %_ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit16, %2, %.thread, %35, %36, %_ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit, %19
-  %.0 = phi i32 [ %25, %19 ], [ -1, %_ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit ], [ %40, %36 ], [ -1, %35 ], [ %57, %.thread ], [ -1, %2 ], [ -1, %_ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit16 ], [ -1, %43 ], [ -1, %_ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit25 ]
+  %.0 = phi i32 [ -1, %_ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit ], [ %25, %19 ], [ %40, %36 ], [ -1, %35 ], [ -1, %2 ], [ %57, %.thread ], [ -1, %_ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit16 ], [ -1, %43 ], [ -1, %_ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit25 ]
   ret i32 %.0
 }
 
@@ -2599,7 +2599,7 @@ _ZN5QListIdED2Ev.exit200:                         ; preds = %_ZN5QListIdED2Ev.ex
   br label %.body
 
 .body:                                            ; preds = %186, %_ZN7QStringD2Ev.exit5.i, %_ZN7QStringD2Ev.exit112, %53, %129, %464
-  %.pn56.pn.pn.pn = phi { ptr, i32 } [ %.pn44.pn.pn.pn, %464 ], [ %.pn56.pn, %129 ], [ %54, %53 ], [ %.pn50, %_ZN7QStringD2Ev.exit112 ], [ %187, %186 ], [ %181, %_ZN7QStringD2Ev.exit5.i ]
+  %.pn56.pn.pn.pn = phi { ptr, i32 } [ %.pn44.pn.pn.pn, %464 ], [ %54, %53 ], [ %.pn56.pn, %129 ], [ %.pn50, %_ZN7QStringD2Ev.exit112 ], [ %187, %186 ], [ %181, %_ZN7QStringD2Ev.exit5.i ]
   call void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(24) %15) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(24) %14) #26
@@ -4545,7 +4545,7 @@ _ZN5QListI6QPointED2Ev.exit384:                   ; preds = %549, %_ZN17QArrayDa
   br i1 %.not477, label %._crit_edge498, label %140, !llvm.loop !69
 
 561:                                              ; preds = %283, %289, %287, %285, %556, %475, %235
-  %.pn222.pn.pn = phi { ptr, i32 } [ %.pn212.pn.pn.pn.pn.pn.pn.pn.pn, %556 ], [ %236, %235 ], [ %.pn195, %475 ], [ %284, %283 ], [ %290, %289 ], [ %288, %287 ], [ %286, %285 ]
+  %.pn222.pn.pn = phi { ptr, i32 } [ %.pn195, %475 ], [ %.pn212.pn.pn.pn.pn.pn.pn.pn.pn, %556 ], [ %236, %235 ], [ %284, %283 ], [ %290, %289 ], [ %288, %287 ], [ %286, %285 ]
   call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %18) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %562
@@ -4566,7 +4566,7 @@ _ZN5QListI6QPointED2Ev.exit384:                   ; preds = %549, %_ZN17QArrayDa
   ret void
 
 564:                                              ; preds = %563, %99, %103, %101, %51
-  %.pn229.pn.pn = phi { ptr, i32 } [ %52, %51 ], [ %100, %99 ], [ %104, %103 ], [ %102, %101 ], [ %.pn222.pn.pn.pn.pn, %563 ]
+  %.pn229.pn.pn = phi { ptr, i32 } [ %52, %51 ], [ %102, %101 ], [ %100, %99 ], [ %104, %103 ], [ %.pn222.pn.pn.pn.pn, %563 ]
   call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %9) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %.pn229.pn.pn
@@ -5860,7 +5860,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIdSt4pairIKd11WSCPSeqDataESt10_Select1stI
   br label %_ZNSt8_Rb_treeIdSt4pairIKd11WSCPSeqDataESt10_Select1stIS3_ESt4lessIdESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit
 
 _ZNSt8_Rb_treeIdSt4pairIKd11WSCPSeqDataESt10_Select1stIS3_ESt4lessIdESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit: ; preds = %7, %11
-  %16 = phi i1 [ true, %7 ], [ %15, %11 ]
+  %16 = phi i1 [ %15, %11 ], [ true, %7 ]
   %17 = tail call noalias noundef dereferenceable_or_null(56) ptr @_Znwm(i64 noundef 56) #25
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef align 8 dereferenceable(24) %2, i64 24, i1 false)
@@ -5896,8 +5896,8 @@ _ZNSt8_Rb_treeIdSt4pairIKd11WSCPSeqDataESt10_Select1stIS3_ESt4lessIdESaIS3_EE10_
   br label %_ZNSt8_Rb_treeIdSt4pairIKd11WSCPSeqDataESt10_Select1stIS3_ESt4lessIdESaIS3_EE21_M_insert_equal_lowerIS3_EESt17_Rb_tree_iteratorIS3_EOT_.exit
 
 _ZNSt8_Rb_treeIdSt4pairIKd11WSCPSeqDataESt10_Select1stIS3_ESt4lessIdESaIS3_EE21_M_insert_equal_lowerIS3_EESt17_Rb_tree_iteratorIS3_EOT_.exit: ; preds = %._crit_edge.i, %19
-  %.0.lcssa14.i = phi ptr [ %21, %19 ], [ %.0912.i, %._crit_edge.i ]
-  %29 = phi i1 [ true, %19 ], [ %spec.select, %._crit_edge.i ]
+  %.0.lcssa14.i = phi ptr [ %.0912.i, %._crit_edge.i ], [ %21, %19 ]
+  %29 = phi i1 [ %spec.select, %._crit_edge.i ], [ true, %19 ]
   %30 = tail call noalias noundef dereferenceable_or_null(56) ptr @_Znwm(i64 noundef 56) #25
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef align 8 dereferenceable(24) %2, i64 24, i1 false)
@@ -6022,8 +6022,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIdSt4pairIKd11WSCPSeqDataESt10_S
   br label %_ZNSt8_Rb_treeIdSt4pairIKd11WSCPSeqDataESt10_Select1stIS3_ESt4lessIdESaIS3_EE23_M_get_insert_equal_posERS1_.exit
 
 _ZNSt8_Rb_treeIdSt4pairIKd11WSCPSeqDataESt10_Select1stIS3_ESt4lessIdESaIS3_EE23_M_get_insert_equal_posERS1_.exit: ; preds = %.lr.ph.i10, %19, %41, %16, %55, %37, %46, %50, %28, %9
-  %.sroa.038.0 = phi ptr [ null, %9 ], [ %30, %28 ], [ null, %46 ], [ null, %50 ], [ %spec.select, %37 ], [ %spec.select40, %55 ], [ null, %16 ], [ null, %41 ], [ null, %19 ], [ null, %.lr.ph.i10 ]
-  %.sroa.11.0 = phi ptr [ %11, %9 ], [ %30, %28 ], [ %48, %46 ], [ null, %50 ], [ %spec.select39, %37 ], [ %spec.select41, %55 ], [ %4, %16 ], [ %4, %41 ], [ %.0710.i, %19 ], [ %.0710.i11, %.lr.ph.i10 ]
+  %.sroa.038.0 = phi ptr [ %spec.select40, %55 ], [ null, %9 ], [ null, %46 ], [ null, %50 ], [ null, %19 ], [ %30, %28 ], [ %spec.select, %37 ], [ null, %16 ], [ null, %41 ], [ null, %.lr.ph.i10 ]
+  %.sroa.11.0 = phi ptr [ %spec.select41, %55 ], [ %11, %9 ], [ %48, %46 ], [ null, %50 ], [ %.0710.i, %19 ], [ %30, %28 ], [ %spec.select39, %37 ], [ %4, %16 ], [ %4, %41 ], [ %.0710.i11, %.lr.ph.i10 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.038.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.11.0, 1
   ret { ptr, ptr } %.fca.1.insert

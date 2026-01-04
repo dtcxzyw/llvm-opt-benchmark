@@ -206,7 +206,7 @@ define internal ptr @H5O__ginfo_decode(ptr readnone captures(none) %0, ptr readn
   br label %.thread
 
 .thread:                                          ; preds = %32, %25, %21, %99, %117, %120, %6
-  %.0 = phi ptr [ null, %120 ], [ null, %6 ], [ %30, %99 ], [ %30, %117 ], [ null, %32 ], [ null, %25 ], [ null, %21 ]
+  %.0 = phi ptr [ null, %120 ], [ null, %21 ], [ null, %6 ], [ %30, %99 ], [ %30, %117 ], [ null, %32 ], [ null, %25 ]
   ret ptr %.0
 }
 

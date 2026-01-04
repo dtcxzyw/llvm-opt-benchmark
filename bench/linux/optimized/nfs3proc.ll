@@ -237,7 +237,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_setattr(ptr noundef readonl
   br label %.thread3
 
 .thread3:                                         ; preds = %.critedge, %46, %56, %51
-  %57 = phi i32 [ 0, %56 ], [ 0, %51 ], [ %37, %.critedge ], [ -512, %46 ]
+  %57 = phi i32 [ 0, %51 ], [ 0, %56 ], [ -512, %46 ], [ %37, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %57
@@ -682,7 +682,7 @@ define internal i32 @nfs3_proc_create(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %.thread8
 
 .thread8:                                         ; preds = %108, %110, %111, %.thread, %43, %4
-  %113 = phi i32 [ %45, %43 ], [ %92, %.thread ], [ %92, %111 ], [ -12, %4 ], [ %92, %110 ], [ %92, %108 ]
+  %113 = phi i32 [ %45, %43 ], [ %92, %.thread ], [ -12, %4 ], [ %92, %111 ], [ %92, %110 ], [ %92, %108 ]
   call void @kfree(ptr noundef %8) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1156,7 +1156,7 @@ define internal i32 @nfs3_proc_mkdir(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %.thread8
 
 .thread8:                                         ; preds = %63, %65, %66, %.thread, %9, %3
-  %68 = phi i32 [ %21, %9 ], [ %47, %.thread ], [ %47, %66 ], [ -12, %3 ], [ %47, %65 ], [ %47, %63 ]
+  %68 = phi i32 [ %21, %9 ], [ %47, %.thread ], [ -12, %3 ], [ %47, %66 ], [ %47, %65 ], [ %47, %63 ]
   call void @kfree(ptr noundef %7) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1511,7 +1511,7 @@ define internal i32 @nfs3_proc_mknod(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %.thread8
 
 .thread8:                                         ; preds = %73, %75, %76, %.thread, %10, %4
-  %78 = phi i32 [ %22, %10 ], [ %57, %.thread ], [ %57, %76 ], [ -12, %4 ], [ %57, %75 ], [ %57, %73 ]
+  %78 = phi i32 [ %22, %10 ], [ %57, %.thread ], [ -12, %4 ], [ %57, %76 ], [ %57, %75 ], [ %57, %73 ]
   call void @kfree(ptr noundef %8) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2208,7 +2208,7 @@ define internal fastcc range(i32 -527, -528) i32 @do_proc_get_root(ptr noundef %
   br i1 %45, label %35, label %.thread, !llvm.loop !6
 
 .thread:                                          ; preds = %.critedge, %18, %.critedge4.backedge, %40, %28, %23
-  %46 = phi i32 [ 0, %23 ], [ %29, %28 ], [ %44, %.critedge4.backedge ], [ -512, %40 ], [ %9, %.critedge ], [ -512, %18 ]
+  %46 = phi i32 [ 0, %23 ], [ %29, %28 ], [ -512, %40 ], [ %44, %.critedge4.backedge ], [ -512, %18 ], [ %9, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %46
 }

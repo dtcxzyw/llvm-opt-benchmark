@@ -552,7 +552,7 @@ _ZN4lean10object_refD2Ev.exit27:                  ; preds = %_ZN4lean7optionsC2E
   br label %64
 
 64:                                               ; preds = %41, %47, %62
-  %.pn15.pn.pn = phi { ptr, i32 } [ %63, %62 ], [ %.pn, %47 ], [ %42, %41 ]
+  %.pn15.pn.pn = phi { ptr, i32 } [ %63, %62 ], [ %42, %41 ], [ %.pn, %47 ]
   call void @_ZN4lean10object_refD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn15.pn.pn

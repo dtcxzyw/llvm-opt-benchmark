@@ -2134,7 +2134,7 @@ define dso_local range(i32 -19, 1) i32 @intel_uncore_init_mmio(ptr noundef %0) l
   br label %.thread49
 
 .thread49:                                        ; preds = %.thread29, %122, %151, %216, %.thread30
-  %218 = phi i32 [ 0, %216 ], [ -12, %.thread30 ], [ -12, %151 ], [ -12, %122 ], [ 0, %.thread29 ]
+  %218 = phi i32 [ -12, %.thread30 ], [ 0, %.thread29 ], [ 0, %216 ], [ -12, %151 ], [ -12, %122 ]
   %219 = zext i32 %109 to i64
   br label %220
 
@@ -2683,8 +2683,8 @@ fw_domains_put.exit:                              ; preds = %536
   br i1 %558, label %.thread39, label %.thread41
 
 .thread39.sink.split:                             ; preds = %497, %498, %461, %462, %391, %392, %294, %295
-  %.sink83 = phi i64 [ 328, %295 ], [ 328, %294 ], [ 224, %392 ], [ 224, %391 ], [ 224, %462 ], [ 224, %461 ], [ 208, %498 ], [ 208, %497 ]
-  %.sink = phi ptr [ %266, %295 ], [ %266, %294 ], [ %365, %392 ], [ %365, %391 ], [ %435, %462 ], [ %435, %461 ], [ %469, %498 ], [ %469, %497 ]
+  %.sink83 = phi i64 [ 224, %391 ], [ 328, %294 ], [ 224, %461 ], [ 328, %295 ], [ 224, %392 ], [ 224, %462 ], [ 208, %498 ], [ 208, %497 ]
+  %.sink = phi ptr [ %365, %391 ], [ %266, %294 ], [ %435, %461 ], [ %266, %295 ], [ %365, %392 ], [ %435, %462 ], [ %469, %498 ], [ %469, %497 ]
   %559 = getelementptr i8, ptr %0, i64 %.sink83
   store ptr %.sink, ptr %559, align 8
   br label %.thread39
@@ -2720,7 +2720,7 @@ fw_domains_put.exit:                              ; preds = %536
   br label %.thread43
 
 .thread41:                                        ; preds = %399, %298, %331, %466, %432, %362, %264, %502, %556
-  %575 = phi i32 [ %557, %556 ], [ %516, %502 ], [ -12, %264 ], [ -12, %362 ], [ -12, %432 ], [ -12, %466 ], [ -12, %331 ], [ -12, %298 ], [ -12, %399 ]
+  %575 = phi i32 [ -12, %399 ], [ %516, %502 ], [ %557, %556 ], [ -12, %264 ], [ -12, %362 ], [ -12, %432 ], [ -12, %466 ], [ -12, %331 ], [ -12, %298 ]
   %576 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %577 = load i32, ptr %576, align 4
   %578 = icmp eq i32 %577, 0
@@ -2754,7 +2754,7 @@ fw_domains_put.exit:                              ; preds = %536
   %597 = icmp eq i32 %588, 0
   br i1 %597, label %.thread48, label %581, !llvm.loop !61
 
-.thread43:                                        ; preds = %.thread39, %573
+.thread43:                                        ; preds = %573, %.thread39
   %598 = load ptr, ptr %2, align 8
   %599 = getelementptr inbounds nuw i8, ptr %598, i64 7184
   %600 = load i32, ptr %599, align 4
@@ -2993,8 +2993,8 @@ fw_domains_put.exit:                              ; preds = %536
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %735, i32 noundef 1, ptr noundef nonnull @.str.7) #12
   br label %.thread48
 
-.thread48:                                        ; preds = %596, %.thread41, %636, %41, %734, %726, %722, %61
-  %736 = phi i32 [ -19, %61 ], [ -5, %41 ], [ 0, %734 ], [ 0, %726 ], [ 0, %722 ], [ %575, %.thread41 ], [ -19, %636 ], [ %575, %596 ]
+.thread48:                                        ; preds = %596, %636, %.thread41, %41, %734, %726, %722, %61
+  %736 = phi i32 [ -19, %61 ], [ -5, %41 ], [ %575, %.thread41 ], [ 0, %734 ], [ 0, %726 ], [ 0, %722 ], [ -19, %636 ], [ %575, %596 ]
   ret i32 %736
 }
 
@@ -3581,8 +3581,8 @@ define dso_local range(i32 -110, 1) i32 @__intel_wait_for_register_fw(ptr nounde
   br i1 %126, label %.lr.ph, label %.thread6.loopexit
 
 .thread6.loopexit:                                ; preds = %.lr.ph, %.lr.ph18, %.split13, %.split13.us
-  %.us-phi14 = phi i1 [ %91, %.split13.us ], [ %113, %.split13 ], [ %106, %.lr.ph18 ], [ %125, %.lr.ph ]
-  %.us-phi15 = phi i32 [ %89, %.split13.us ], [ %111, %.split13 ], [ %104, %.lr.ph18 ], [ %123, %.lr.ph ]
+  %.us-phi14 = phi i1 [ %106, %.lr.ph18 ], [ %91, %.split13.us ], [ %113, %.split13 ], [ %125, %.lr.ph ]
+  %.us-phi15 = phi i32 [ %104, %.lr.ph18 ], [ %89, %.split13.us ], [ %111, %.split13 ], [ %123, %.lr.ph ]
   %127 = select i1 %.us-phi14, i32 -110, i32 0
   br label %.thread6
 
@@ -8409,7 +8409,7 @@ define internal fastcc i32 @find_fw_domain(ptr noundef readonly captures(none) %
   br label %.thread8.thread
 
 .thread8.thread:                                  ; preds = %.thread, %8, %39, %57, %33, %.thread8
-  %63 = phi i32 [ 0, %.thread8 ], [ %38, %33 ], [ %.pre, %57 ], [ %35, %39 ], [ 0, %8 ], [ 0, %.thread ]
+  %63 = phi i32 [ %35, %39 ], [ 0, %.thread8 ], [ %38, %33 ], [ %.pre, %57 ], [ 0, %8 ], [ 0, %.thread ]
   ret i32 %63
 }
 

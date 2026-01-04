@@ -1416,7 +1416,7 @@ _ZN3g2o5ceres8internal10FixedArrayIdLm2ESaIdEE4fillERKd.exit: ; preds = %58
   ret void
 
 72:                                               ; preds = %69, %18
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %70, %69 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %70, %69 ], [ %19, %18 ]
   %73 = load i64, ptr %9, align 8, !tbaa !145
   %74 = icmp ult i64 %73, 3
   br i1 %74, label %_ZN3g2o5ceres8internal10FixedArrayIdLm2ESaIdEED2Ev.exit32, label %75
@@ -1574,7 +1574,7 @@ _ZN3g2o5ceres8internal10FixedArrayIdLm2ESaIdEE4fillERKd.exit: ; preds = %59
   ret void
 
 73:                                               ; preds = %70, %19
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %20, %19 ], [ %71, %70 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %71, %70 ], [ %20, %19 ]
   %74 = load i64, ptr %10, align 8, !tbaa !145
   %75 = icmp ult i64 %74, 3
   br i1 %75, label %_ZN3g2o5ceres8internal10FixedArrayIdLm2ESaIdEED2Ev.exit32, label %76

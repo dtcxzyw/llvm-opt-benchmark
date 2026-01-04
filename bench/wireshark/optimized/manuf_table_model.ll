@@ -141,7 +141,7 @@ _ZN14QByteArrayViewC2IPKcTnNSt9enable_ifIXsr9QtPrivate28IsCompatibleByteArrayPoi
   br label %65
 
 29:                                               ; preds = %16, %24, %23
-  %.0 = phi i64 [ 4, %23 ], [ 5, %24 ], [ 3, %16 ]
+  %.0 = phi i64 [ 5, %24 ], [ 4, %23 ], [ 3, %16 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN10QByteArrayC1EPKcx(ptr noundef nonnull align 8 dereferenceable_or_null(24) %3, ptr noundef %1, i64 noundef %.0)
           to label %30 unwind label %61
@@ -1615,7 +1615,7 @@ define noundef zeroext i1 @_ZNK25ManufSortFilterProxyModel16filterAcceptsRowEiRK
   unreachable
 
 11:                                               ; preds = %3, %8, %6
-  %.0 = phi i1 [ %7, %6 ], [ %9, %8 ], [ true, %3 ]
+  %.0 = phi i1 [ %9, %8 ], [ %7, %6 ], [ true, %3 ]
   ret i1 %.0
 }
 

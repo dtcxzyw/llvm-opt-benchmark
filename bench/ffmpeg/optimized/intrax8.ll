@@ -418,7 +418,7 @@ default.unreachable:                              ; preds = %.lr.ph
   br label %x8_get_prediction.exit
 
 x8_get_prediction.exit:                           ; preds = %115, %124, %133, %134, %165
-  %.sink.i = phi i32 [ %173, %165 ], [ 0, %133 ], [ 2, %124 ], [ 1, %115 ], [ %164, %134 ]
+  %.sink.i = phi i32 [ 1, %115 ], [ %173, %165 ], [ 0, %133 ], [ 2, %124 ], [ %164, %134 ]
   store i32 %.sink.i, ptr %68, align 8, !tbaa !58
   %174 = call fastcc i32 @x8_setup_spatial_predictor(ptr noundef nonnull %0, i32 noundef 0)
   %.not75 = icmp eq i32 %174, 0
@@ -711,7 +711,7 @@ define internal fastcc range(i32 -1, 1) i32 @x8_setup_spatial_predictor(ptr noun
   br label %.sink.split
 
 .sink.split:                                      ; preds = %46, %51, %53
-  %.sink36 = phi i32 [ 10, %53 ], [ 11, %51 ], [ 0, %46 ]
+  %.sink36 = phi i32 [ 11, %51 ], [ 10, %53 ], [ 0, %46 ]
   store i32 %.sink36, ptr %50, align 8, !tbaa !58
   br label %54
 
@@ -911,9 +911,9 @@ define internal fastcc range(i32 -1, 1) i32 @x8_decode_intra_mb(ptr noundef %0, 
   br label %get_vlc2.exit.i
 
 get_vlc2.exit.i:                                  ; preds = %61, %._crit_edge.i
-  %.064.i.i = phi i32 [ %63, %61 ], [ %43, %._crit_edge.i ]
-  %.062.i.i = phi i32 [ %77, %61 ], [ %56, %._crit_edge.i ]
-  %.0.i.i = phi i32 [ %80, %61 ], [ %59, %._crit_edge.i ]
+  %.064.i.i = phi i32 [ %43, %._crit_edge.i ], [ %63, %61 ]
+  %.062.i.i = phi i32 [ %56, %._crit_edge.i ], [ %77, %61 ]
+  %.0.i.i = phi i32 [ %59, %._crit_edge.i ], [ %80, %61 ]
   %81 = add i32 %.0.i.i, %.064.i.i
   %82 = tail call i32 @llvm.umin.i32(i32 %22, i32 %81)
   store i32 %82, ptr %19, align 8, !tbaa !42
@@ -984,9 +984,9 @@ x8_get_dc_rlf.exit:                               ; preds = %get_vlc2.exit.i
   br label %125
 
 125:                                              ; preds = %121, %116, %113
-  %.0110 = phi i32 [ %115, %113 ], [ %spec.select, %116 ], [ %spec.select, %121 ]
-  %.0105 = phi i32 [ 64, %113 ], [ 64, %116 ], [ %., %121 ]
-  %.0103 = phi i32 [ 1, %113 ], [ 0, %116 ], [ %.132, %121 ]
+  %.0110 = phi i32 [ %spec.select, %116 ], [ %115, %113 ], [ %spec.select, %121 ]
+  %.0105 = phi i32 [ 64, %116 ], [ 64, %113 ], [ %., %121 ]
+  %.0103 = phi i32 [ 0, %116 ], [ 1, %113 ], [ %.132, %121 ]
   %126 = zext nneg i32 %.0103 to i64
   %127 = getelementptr inbounds nuw ptr, ptr %0, i64 %126
   %128 = load ptr, ptr %127, align 8, !tbaa !27
@@ -1120,9 +1120,9 @@ x8_select_ac_table.exit136:                       ; preds = %168, %166, %163
   br label %get_vlc2.exit.i137
 
 get_vlc2.exit.i137:                               ; preds = %207, %x8_select_ac_table.exit136
-  %.064.i.i138 = phi i32 [ %209, %207 ], [ %187, %x8_select_ac_table.exit136 ]
-  %.062.i.i139 = phi i32 [ %223, %207 ], [ %202, %x8_select_ac_table.exit136 ]
-  %.0.i.i140 = phi i32 [ %226, %207 ], [ %205, %x8_select_ac_table.exit136 ]
+  %.064.i.i138 = phi i32 [ %187, %x8_select_ac_table.exit136 ], [ %209, %207 ]
+  %.062.i.i139 = phi i32 [ %202, %x8_select_ac_table.exit136 ], [ %223, %207 ]
+  %.0.i.i140 = phi i32 [ %205, %x8_select_ac_table.exit136 ], [ %226, %207 ]
   %227 = add i32 %.0.i.i140, %.064.i.i138
   %228 = tail call i32 @llvm.umin.i32(i32 %22, i32 %227)
   store i32 %228, ptr %19, align 8, !tbaa !42
@@ -1244,10 +1244,10 @@ get_vlc2.exit.i137:                               ; preds = %207, %x8_select_ac_
   br label %x8_get_ac_rlf.exit
 
 x8_get_ac_rlf.exit:                               ; preds = %232, %230, %244, %282, %295
-  %323 = phi i32 [ %260, %244 ], [ %287, %282 ], [ %spec.select.i.i, %295 ], [ %228, %232 ], [ %228, %230 ]
-  %.1162 = phi i32 [ %272, %244 ], [ %284, %282 ], [ %322, %295 ], [ %234, %232 ], [ 64, %230 ]
-  %.1160 = phi i32 [ %266, %244 ], [ %292, %282 ], [ %309, %295 ], [ %241, %232 ], [ 64, %230 ]
-  %.1158 = phi i32 [ %270, %244 ], [ %294, %282 ], [ %299, %295 ], [ %238, %232 ], [ 64, %230 ]
+  %323 = phi i32 [ %spec.select.i.i, %295 ], [ %260, %244 ], [ %287, %282 ], [ %228, %232 ], [ %228, %230 ]
+  %.1162 = phi i32 [ %322, %295 ], [ %272, %244 ], [ %284, %282 ], [ %234, %232 ], [ 64, %230 ]
+  %.1160 = phi i32 [ %309, %295 ], [ %266, %244 ], [ %292, %282 ], [ %241, %232 ], [ 64, %230 ]
+  %.1158 = phi i32 [ %299, %295 ], [ %270, %244 ], [ %294, %282 ], [ %238, %232 ], [ 64, %230 ]
   %324 = add nuw nsw i32 %.0106, 1
   %325 = add nuw nsw i32 %324, %.1160
   %326 = icmp sgt i32 %325, 63
@@ -1769,8 +1769,8 @@ dsp_x8_put_solidcolor.exit145:                    ; preds = %690, %693
   br label %dsp_x8_put_solidcolor.exit
 
 dsp_x8_put_solidcolor.exit:                       ; preds = %390, %dsp_x8_put_solidcolor.exit145, %712
-  %.not129 = phi i1 [ false, %dsp_x8_put_solidcolor.exit145 ], [ true, %712 ], [ true, %390 ]
-  %.2109 = phi i32 [ %.1108, %dsp_x8_put_solidcolor.exit145 ], [ %.1108, %712 ], [ 0, %390 ]
+  %.not129 = phi i1 [ true, %712 ], [ false, %dsp_x8_put_solidcolor.exit145 ], [ true, %390 ]
+  %.2109 = phi i32 [ %.1108, %712 ], [ %.1108, %dsp_x8_put_solidcolor.exit145 ], [ 0, %390 ]
   br i1 %7, label %749, label %727
 
 727:                                              ; preds = %dsp_x8_put_solidcolor.exit
@@ -1875,7 +1875,7 @@ dsp_x8_put_solidcolor.exit:                       ; preds = %390, %dsp_x8_put_so
   br label %.loopexit
 
 .loopexit:                                        ; preds = %x8_get_ac_rlf.exit, %.thread, %749, %786, %.thread168, %778, %x8_get_dc_rlf.exit
-  %.0 = phi i32 [ -1, %x8_get_dc_rlf.exit ], [ 0, %778 ], [ 0, %.thread168 ], [ 0, %786 ], [ 0, %749 ], [ 0, %.thread ], [ -1, %x8_get_ac_rlf.exit ]
+  %.0 = phi i32 [ -1, %x8_get_dc_rlf.exit ], [ 0, %.thread ], [ 0, %778 ], [ 0, %.thread168 ], [ 0, %786 ], [ 0, %749 ], [ -1, %x8_get_ac_rlf.exit ]
   ret i32 %.0
 }
 

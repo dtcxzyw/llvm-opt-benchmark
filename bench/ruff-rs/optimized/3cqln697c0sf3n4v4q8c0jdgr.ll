@@ -76,7 +76,7 @@ define internal fastcc noundef nonnull align 1 dereferenceable(1) ptr @"_ZN4core
   br label %"_ZN4core4cell4once17OnceCell$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17hb19017cbb160c3f6E.exit"
 
 "_ZN4core4cell4once17OnceCell$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17hb19017cbb160c3f6E.exit": ; preds = %14, %18, %19, %22, %26
-  %.sroa.0.0.i.i = phi i8 [ %27, %26 ], [ %spec.select.i.i.i, %22 ], [ 1, %19 ], [ 1, %14 ], [ 0, %18 ]
+  %.sroa.0.0.i.i = phi i8 [ %27, %26 ], [ 1, %19 ], [ 0, %18 ], [ 1, %14 ], [ %spec.select.i.i.i, %22 ]
   %28 = load i8, ptr %0, align 1, !range !3, !noundef !4
   %.not.not = icmp eq i8 %28, 3
   br i1 %.not.not, label %29, label %.critedge

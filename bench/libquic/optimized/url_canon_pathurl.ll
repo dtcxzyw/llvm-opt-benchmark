@@ -505,8 +505,8 @@ _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i: ; preds = %11, %19
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit
 
 _ZN3url12CanonOutputTIcE9push_backEc.exit:        ; preds = %select.unfold.i.i, %10, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i
-  %28 = phi i32 [ %.pre44, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i ], [ %9, %10 ], [ %9, %select.unfold.i.i ]
-  %29 = phi i32 [ %27, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i ], [ %.pre, %10 ], [ %.pre, %select.unfold.i.i ]
+  %28 = phi i32 [ %9, %10 ], [ %.pre44, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i ], [ %9, %select.unfold.i.i ]
+  %29 = phi i32 [ %.pre, %10 ], [ %27, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i ], [ %.pre, %select.unfold.i.i ]
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 %29, ptr %4, align 4, !tbaa !3
   %31 = load i32, ptr %1, align 4, !tbaa !3
@@ -893,8 +893,8 @@ _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i: ; preds = %11, %19
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit
 
 _ZN3url12CanonOutputTIcE9push_backEc.exit:        ; preds = %select.unfold.i.i, %10, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i
-  %28 = phi i32 [ %.pre44, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i ], [ %9, %10 ], [ %9, %select.unfold.i.i ]
-  %29 = phi i32 [ %27, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i ], [ %.pre, %10 ], [ %.pre, %select.unfold.i.i ]
+  %28 = phi i32 [ %9, %10 ], [ %.pre44, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i ], [ %9, %select.unfold.i.i ]
+  %29 = phi i32 [ %.pre, %10 ], [ %27, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i ], [ %.pre, %select.unfold.i.i ]
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 %29, ptr %4, align 4, !tbaa !3
   %31 = load i32, ptr %1, align 4, !tbaa !3

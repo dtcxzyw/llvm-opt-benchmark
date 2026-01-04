@@ -1555,7 +1555,7 @@ define hidden noundef zeroext i1 @"_ZN80_$LT$core..ops..range..RangeInclusive$LT
   br label %25
 
 25:                                               ; preds = %19, %13, %7, %2, %16
-  %.0 = phi i1 [ true, %2 ], [ true, %7 ], [ true, %13 ], [ false, %16 ], [ %24, %19 ]
+  %.0 = phi i1 [ true, %13 ], [ %24, %19 ], [ true, %7 ], [ true, %2 ], [ false, %16 ]
   ret i1 %.0
 }
 
@@ -1608,7 +1608,7 @@ define hidden noundef zeroext i1 @"_ZN80_$LT$core..ops..range..RangeInclusive$LT
   br label %25
 
 25:                                               ; preds = %19, %12, %6, %2, %15
-  %.0 = phi i1 [ true, %2 ], [ true, %6 ], [ true, %12 ], [ false, %15 ], [ %24, %19 ]
+  %.0 = phi i1 [ true, %12 ], [ %24, %19 ], [ true, %6 ], [ true, %2 ], [ false, %15 ]
   ret i1 %.0
 }
 
@@ -1938,7 +1938,7 @@ define hidden range(i48 0, -254) i48 @_ZN12regex_syntax3hir8interval8Interval10d
   br label %20
 
 25:                                               ; preds = %2, %20, %15
-  %.sroa.0.0 = phi i48 [ %.sroa.0.0.insert.ext4, %15 ], [ %.sroa.020.0.insert.insert, %20 ], [ 0, %2 ]
+  %.sroa.0.0 = phi i48 [ %.sroa.020.0.insert.insert, %20 ], [ %.sroa.0.0.insert.ext4, %15 ], [ 0, %2 ]
   ret i48 %.sroa.0.0
 }
 
@@ -2378,7 +2378,7 @@ _ZN12regex_syntax3hir7visitor5Frame5child17h7989d29082ddd62fE.exit31: ; preds = 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6559da0a4fc85048E.exit", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6559da0a4fc85048E.exit33", %_ZN12regex_syntax3hir7visitor11HeapVisitor6induct17hcc11919c1d8feaaaE.exit, %49, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17ha7298382b4c38916E.exit", %.preheader, %3, %71
-  %.017 = phi i1 [ true, %71 ], [ true, %3 ], [ true, %49 ], [ false, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17ha7298382b4c38916E.exit" ], [ false, %.preheader ], [ true, %_ZN12regex_syntax3hir7visitor11HeapVisitor6induct17hcc11919c1d8feaaaE.exit ], [ true, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6559da0a4fc85048E.exit33" ], [ true, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6559da0a4fc85048E.exit" ]
+  %.017 = phi i1 [ true, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6559da0a4fc85048E.exit33" ], [ true, %71 ], [ true, %49 ], [ true, %3 ], [ false, %.preheader ], [ false, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17ha7298382b4c38916E.exit" ], [ true, %_ZN12regex_syntax3hir7visitor11HeapVisitor6induct17hcc11919c1d8feaaaE.exit ], [ true, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6559da0a4fc85048E.exit" ]
   ret i1 %.017
 }
 
@@ -2845,7 +2845,7 @@ define internal fastcc noundef zeroext i1 @"_ZN67_$LT$regex_syntax..hir..HirKind
   ]
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h126adc2fec64e17fE.exit": ; preds = %39, %.preheader.i.i.i, %53, %.preheader.i.i5.i, %146, %143, %130, %127, %123, %116, %115, %99, %114, %118, %93, %87, %81, %80, %67, %78, %47, %33, %26, %20, %15, %14, %2, %61
-  %.0.shrunk = phi i1 [ %66, %61 ], [ false, %2 ], [ true, %14 ], [ %25, %20 ], [ false, %15 ], [ false, %26 ], [ false, %33 ], [ false, %47 ], [ %98, %93 ], [ false, %87 ], [ false, %81 ], [ false, %67 ], [ false, %80 ], [ false, %78 ], [ %126, %123 ], [ false, %116 ], [ false, %99 ], [ false, %115 ], [ false, %114 ], [ false, %118 ], [ %142, %130 ], [ false, %127 ], [ %158, %146 ], [ false, %143 ], [ %exitcond.not.i.i6.i, %.preheader.i.i5.i ], [ %exitcond.not.i.i6.i, %53 ], [ %exitcond.not.i.i.i, %.preheader.i.i.i ], [ %exitcond.not.i.i.i, %39 ]
+  %.0.shrunk = phi i1 [ false, %80 ], [ false, %2 ], [ false, %15 ], [ %66, %61 ], [ %142, %130 ], [ false, %78 ], [ false, %118 ], [ false, %127 ], [ true, %14 ], [ %exitcond.not.i.i6.i, %53 ], [ false, %114 ], [ false, %115 ], [ false, %99 ], [ false, %116 ], [ %126, %123 ], [ %25, %20 ], [ false, %26 ], [ false, %47 ], [ false, %33 ], [ %158, %146 ], [ false, %143 ], [ false, %67 ], [ %98, %93 ], [ false, %87 ], [ false, %81 ], [ %exitcond.not.i.i6.i, %.preheader.i.i5.i ], [ %exitcond.not.i.i.i, %.preheader.i.i.i ], [ %exitcond.not.i.i.i, %39 ]
   ret i1 %.0.shrunk
 
 .unreachabledefault:                              ; preds = %14

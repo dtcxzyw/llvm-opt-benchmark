@@ -380,9 +380,9 @@ define internal i32 @dissect_cbsp_message(ptr noundef %0, ptr noundef %1, ptr no
   br label %59
 
 59:                                               ; preds = %56, %53, %49, %43
-  %.0155.i = phi i32 [ %52, %49 ], [ %55, %53 ], [ %58, %56 ], [ 1, %43 ]
-  %.not.i = phi i1 [ true, %49 ], [ true, %53 ], [ false, %56 ], [ true, %43 ]
-  %.0154.i = phi i32 [ 0, %49 ], [ 0, %53 ], [ 2, %56 ], [ 0, %43 ]
+  %.0155.i = phi i32 [ %58, %56 ], [ %52, %49 ], [ %55, %53 ], [ 1, %43 ]
+  %.not.i = phi i1 [ false, %56 ], [ true, %49 ], [ true, %53 ], [ true, %43 ]
+  %.0154.i = phi i32 [ 2, %56 ], [ 0, %49 ], [ 0, %53 ], [ 0, %43 ]
   %60 = add nuw nsw i32 %.0155.i, 1
   %61 = add nuw nsw i32 %60, %.0154.i
   %62 = load i32, ptr @ett_cbsp_ie, align 4
@@ -631,7 +631,7 @@ dissect_cbsp_content_ie.exit.i:                   ; preds = %83, %73
   br label %cbsp_warn_period_to_secs.exit.i
 
 cbsp_warn_period_to_secs.exit.i:                  ; preds = %196, %194, %191, %186, %181, %175
-  %.0.i.i = phi i32 [ %183, %181 ], [ %188, %186 ], [ %193, %191 ], [ %198, %196 ], [ %177, %175 ], [ -1, %194 ]
+  %.0.i.i = phi i32 [ %177, %175 ], [ %183, %181 ], [ %188, %186 ], [ %193, %191 ], [ %198, %196 ], [ -1, %194 ]
   %199 = load i32, ptr @hf_cbsp_warning_period, align 4
   %200 = call ptr @proto_tree_add_uint(ptr noundef %65, i32 noundef %199, ptr noundef %0, i32 noundef %72, i32 noundef %.0155.i, i32 noundef %.0.i.i)
   %201 = load ptr, ptr %18, align 8
@@ -681,7 +681,7 @@ cbsp_warn_period_to_secs.exit.i:                  ; preds = %196, %194, %191, %1
   br label %cbsp_warn_period_to_secs.exit160.i
 
 cbsp_warn_period_to_secs.exit160.i:               ; preds = %223, %221, %218, %213, %208, %202
-  %.0.i159.i = phi i32 [ %210, %208 ], [ %215, %213 ], [ %220, %218 ], [ %225, %223 ], [ %204, %202 ], [ -1, %221 ]
+  %.0.i159.i = phi i32 [ %204, %202 ], [ %210, %208 ], [ %215, %213 ], [ %220, %218 ], [ %225, %223 ], [ -1, %221 ]
   %226 = load i32, ptr @hf_cbsp_keepalive_period, align 4
   %227 = call ptr @proto_tree_add_uint(ptr noundef %65, i32 noundef %226, ptr noundef %0, i32 noundef %72, i32 noundef %.0155.i, i32 noundef %.0.i159.i)
   %228 = load ptr, ptr %18, align 8

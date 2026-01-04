@@ -558,7 +558,7 @@ define dso_local ptr @nsm_reboot_lookup(ptr noundef %0, ptr noundef readonly cap
   br label %.thread
 
 .thread:                                          ; preds = %11, %29, %25, %19
-  %31 = phi ptr [ %13, %29 ], [ %13, %25 ], [ null, %19 ], [ null, %11 ]
+  %31 = phi ptr [ null, %19 ], [ %13, %29 ], [ %13, %25 ], [ null, %11 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull @nsm_lock) #10
   ret ptr %31
 }

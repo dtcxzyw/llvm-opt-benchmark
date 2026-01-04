@@ -832,7 +832,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %87
   br label %102
 
 102:                                              ; preds = %95, %101
-  %.pn43.pn.pn = phi { ptr, i32 } [ %.pn43, %101 ], [ %96, %95 ]
+  %.pn43.pn.pn = phi { ptr, i32 } [ %96, %95 ], [ %.pn43, %101 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #18
   br label %103
 
@@ -1435,8 +1435,8 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit119:              ; preds = %52
   br label %212
 
 ._crit_edge147:                                   ; preds = %._crit_edge.us150, %97, %.lr.ph146
-  %187 = phi float [ %129, %.lr.ph146 ], [ 0.000000e+00, %97 ], [ %129, %._crit_edge.us150 ]
-  %.090.lcssa = phi float [ 0.000000e+00, %.lr.ph146 ], [ 0.000000e+00, %97 ], [ %.292.us, %._crit_edge.us150 ]
+  %187 = phi float [ 0.000000e+00, %97 ], [ %129, %.lr.ph146 ], [ %129, %._crit_edge.us150 ]
+  %.090.lcssa = phi float [ 0.000000e+00, %97 ], [ 0.000000e+00, %.lr.ph146 ], [ %.292.us, %._crit_edge.us150 ]
   %188 = fmul float %1, %.090.lcssa
   %189 = fptosi float %188 to i32
   %190 = icmp sgt i32 %189, 0
@@ -2418,7 +2418,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20: ; preds = %37,
   ret void
 
 53:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn15.pn = phi { ptr, i32 } [ %.pn13, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %.pn15.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn13, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20 ]
   resume { ptr, i32 } %.pn15.pn
 }
 
@@ -2550,7 +2550,7 @@ define hidden noundef zeroext i1 @_ZN2cv27check_maximum_neighbourhoodERKNS_3MatE
   br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !127
 
 .thread:                                          ; preds = %._crit_edge, %52, %._crit_edge.us, %25, %37, %6
-  %.not55 = phi i1 [ true, %6 ], [ false, %37 ], [ false, %25 ], [ true, %._crit_edge.us ], [ false, %52 ], [ true, %._crit_edge ]
+  %.not55 = phi i1 [ false, %52 ], [ false, %25 ], [ true, %._crit_edge.us ], [ true, %6 ], [ false, %37 ], [ true, %._crit_edge ]
   ret i1 %.not55
 }
 

@@ -2751,7 +2751,7 @@ dt_iop_shown_in_group.exit.thread.us:             ; preds = %.lr.ph.split.us
   br label %22
 
 22:                                               ; preds = %20, %.lr.ph.split.us
-  %.1.us = phi i32 [ %21, %20 ], [ %.02235.us, %.lr.ph.split.us ]
+  %.1.us = phi i32 [ %.02235.us, %.lr.ph.split.us ], [ %21, %20 ]
   %23 = getelementptr inbounds nuw i8, ptr %.036.us, i64 8
   %.0.us = load ptr, ptr %23, align 8, !tbaa !38
   %.not25.us = icmp eq ptr %.0.us, null
@@ -2789,7 +2789,7 @@ dt_iop_shown_in_group.exit.us:                    ; preds = %.lr.ph.split.split.
   br label %34
 
 34:                                               ; preds = %32, %.lr.ph.split.split.us
-  %.1.us43 = phi i32 [ %33, %32 ], [ %.02235.us38, %.lr.ph.split.split.us ]
+  %.1.us43 = phi i32 [ %.02235.us38, %.lr.ph.split.split.us ], [ %33, %32 ]
   %35 = getelementptr inbounds nuw i8, ptr %.036.us37, i64 8
   %.0.us44 = load ptr, ptr %35, align 8, !tbaa !38
   %.not25.us45 = icmp eq ptr %.0.us44, null
@@ -3651,9 +3651,9 @@ define noundef i32 @dt_iop_show_hide_header_buttons(ptr noundef readonly capture
   br label %39
 
 39:                                               ; preds = %37, %31, %36
-  %.077 = phi nsz double [ %spec.select, %36 ], [ 1.000000e+00, %31 ], [ 1.000000e+00, %37 ]
-  %.not102 = phi i1 [ true, %36 ], [ true, %31 ], [ %.not93, %37 ]
-  %.072 = phi i32 [ 1, %36 ], [ 1, %31 ], [ %2, %37 ]
+  %.077 = phi nsz double [ 1.000000e+00, %31 ], [ 1.000000e+00, %37 ], [ %spec.select, %36 ]
+  %.not102 = phi i1 [ true, %31 ], [ %.not93, %37 ], [ true, %36 ]
+  %.072 = phi i32 [ 1, %31 ], [ %2, %37 ], [ 1, %36 ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 676
   %41 = load i32, ptr %40, align 4, !tbaa !88
   %.not94 = icmp eq i32 %41, 0
@@ -3883,7 +3883,7 @@ dt_iop_gui_get_previous_visible_module.exit:      ; preds = %dt_iop_gui_get_prev
   br i1 %.not.i46, label %dt_iop_gui_get_next_visible_module.exit, label %.lr.ph.i39
 
 dt_iop_gui_get_next_visible_module.exit:          ; preds = %.lr.ph.i39, %28
-  %.0.lcssa.i47 = phi ptr [ %.023.i40, %.lr.ph.i39 ], [ %.2.ph.i45, %28 ]
+  %.0.lcssa.i47 = phi ptr [ %.2.ph.i45, %28 ], [ %.023.i40, %.lr.ph.i39 ]
   %.not34 = icmp eq ptr %.0.lcssa.i47, null
   br i1 %.not34, label %dt_iop_gui_get_next_visible_module.exit.thread, label %38
 
@@ -4801,7 +4801,7 @@ define ptr @dt_iop_load_modules_ext(ptr noundef initializes((2048, 2052)) %0, i3
   br i1 %.not26, label %._crit_edge, label %.lr.ph47
 
 ._crit_edge:                                      ; preds = %.lr.ph47, %2, %.preheader
-  %.025.ph.lcssa53 = phi ptr [ null, %.preheader ], [ null, %2 ], [ %12, %.lr.ph47 ]
+  %.025.ph.lcssa53 = phi ptr [ null, %2 ], [ null, %.preheader ], [ %12, %.lr.ph47 ]
   ret ptr %.025.ph.lcssa53
 }
 
@@ -5342,20 +5342,20 @@ define range(i32 0, 2) i32 @_iop_validate_params(ptr noundef readonly captures(n
   br label %.thread175
 
 .loopexit:                                        ; preds = %12, %159, %.critedge, %._crit_edge, %._crit_edge228, %._crit_edge231, %._crit_edge234, %._crit_edge237, %.thread
-  %.0139 = phi ptr [ %92, %.thread ], [ %100, %._crit_edge237 ], [ %108, %._crit_edge234 ], [ %120, %._crit_edge231 ], [ %131, %._crit_edge228 ], [ %143, %._crit_edge ], [ %175, %.critedge ], [ null, %159 ], [ null, %12 ]
-  %.0134 = phi i32 [ %.6, %.thread ], [ %97, %._crit_edge237 ], [ %105, %._crit_edge234 ], [ %113, %._crit_edge231 ], [ %127, %._crit_edge228 ], [ %136, %._crit_edge ], [ %.8, %.critedge ], [ %163, %159 ], [ %17, %12 ]
+  %.0139 = phi ptr [ %120, %._crit_edge231 ], [ %143, %._crit_edge ], [ %131, %._crit_edge228 ], [ %175, %.critedge ], [ %108, %._crit_edge234 ], [ null, %159 ], [ %92, %.thread ], [ %100, %._crit_edge237 ], [ null, %12 ]
+  %.0134 = phi i32 [ %113, %._crit_edge231 ], [ %136, %._crit_edge ], [ %127, %._crit_edge228 ], [ %.8, %.critedge ], [ %105, %._crit_edge234 ], [ %163, %159 ], [ %.6, %.thread ], [ %97, %._crit_edge237 ], [ %17, %12 ]
   %.not167 = icmp eq i32 %.0134, 0
   br i1 %.not167, label %.thread175, label %.thread175.thread.sink.split
 
 .thread175:                                       ; preds = %26, %144, %149, %153, %179, %.loopexit
-  %.0139180 = phi ptr [ %.0139, %.loopexit ], [ null, %179 ], [ null, %153 ], [ null, %149 ], [ null, %144 ], [ null, %26 ]
+  %.0139180 = phi ptr [ %.0139, %.loopexit ], [ null, %179 ], [ null, %149 ], [ null, %144 ], [ null, %153 ], [ null, %26 ]
   %.not168 = icmp eq i32 %2, 0
   br i1 %.not168, label %.thread175.thread, label %.thread175.thread.sink.split
 
-.thread175.thread.sink.split:                     ; preds = %60, %28, %.thread175, %56, %47, %.loopexit, %44, %176, %4, %.preheader202, %.preheader
-  %.0139180199.sink265 = phi ptr [ %.0139, %.loopexit ], [ null, %44 ], [ %178, %176 ], [ null, %4 ], [ null, %.preheader202 ], [ null, %.preheader ], [ %.0139180, %.thread175 ], [ null, %56 ], [ null, %47 ], [ null, %28 ], [ null, %60 ]
-  %.str.114.sink = phi ptr [ @.str.112, %.loopexit ], [ @.str.112, %44 ], [ @.str.112, %176 ], [ @.str.112, %4 ], [ @.str.112, %.preheader202 ], [ @.str.112, %.preheader ], [ @.str.114, %.thread175 ], [ @.str.114, %56 ], [ @.str.114, %47 ], [ @.str.112, %28 ], [ @.str.112, %60 ]
-  %.0134181.ph = phi i32 [ 1, %.loopexit ], [ 1, %44 ], [ 1, %176 ], [ %8, %4 ], [ 1, %.preheader202 ], [ 1, %.preheader ], [ 0, %.thread175 ], [ 0, %56 ], [ 0, %47 ], [ 1, %28 ], [ 1, %60 ]
+.thread175.thread.sink.split:                     ; preds = %60, %28, %.thread175, %56, %47, %.loopexit, %4, %44, %176, %.preheader202, %.preheader
+  %.0139180199.sink265 = phi ptr [ null, %28 ], [ %.0139, %.loopexit ], [ null, %4 ], [ null, %44 ], [ %178, %176 ], [ null, %.preheader202 ], [ null, %47 ], [ null, %.preheader ], [ %.0139180, %.thread175 ], [ null, %56 ], [ null, %60 ]
+  %.str.114.sink = phi ptr [ @.str.112, %28 ], [ @.str.112, %.loopexit ], [ @.str.112, %4 ], [ @.str.112, %44 ], [ @.str.112, %176 ], [ @.str.112, %.preheader202 ], [ @.str.114, %47 ], [ @.str.112, %.preheader ], [ @.str.114, %.thread175 ], [ @.str.114, %56 ], [ @.str.112, %60 ]
+  %.0134181.ph = phi i32 [ 1, %28 ], [ 1, %.loopexit ], [ %8, %4 ], [ 1, %44 ], [ 1, %176 ], [ 1, %.preheader202 ], [ 0, %47 ], [ 1, %.preheader ], [ 0, %.thread175 ], [ 0, %56 ], [ 1, %60 ]
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %185 = load ptr, ptr %184, align 8, !tbaa !92
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5575,7 +5575,7 @@ dt_hash.exit74:                                   ; preds = %.lr.ph.i69
   br label %.critedge
 
 .critedge:                                        ; preds = %81, %dt_dev_gui_module.exit, %103, %98, %dt_hash.exit67, %43
-  %.0 = phi i64 [ 0, %43 ], [ %.08.lcssa.i66, %dt_dev_gui_module.exit ], [ %.2, %103 ], [ %.2, %98 ], [ %.08.lcssa.i66, %dt_hash.exit67 ], [ %.08.lcssa.i66, %81 ]
+  %.0 = phi i64 [ 0, %43 ], [ %.2, %98 ], [ %.08.lcssa.i66, %dt_dev_gui_module.exit ], [ %.2, %103 ], [ %.08.lcssa.i66, %dt_hash.exit67 ], [ %.08.lcssa.i66, %81 ]
   %106 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i64 %.0, ptr %106, align 8, !tbaa !394
   ret void
@@ -6046,17 +6046,17 @@ define internal void @_header_size_callback(ptr readnone captures(none) %0, ptr 
   br label %63
 
 63:                                               ; preds = %50, %56, %62
-  %.175 = phi nsz double [ %41, %62 ], [ %61, %56 ], [ 1.000000e+00, %50 ]
-  %.173 = phi nsz double [ 1.000000e+00, %62 ], [ %61, %56 ], [ 1.000000e+00, %50 ]
-  %.169 = phi i32 [ %33, %62 ], [ %33, %56 ], [ %spec.select, %50 ]
+  %.175 = phi nsz double [ 1.000000e+00, %50 ], [ %41, %62 ], [ %61, %56 ]
+  %.173 = phi nsz double [ 1.000000e+00, %50 ], [ 1.000000e+00, %62 ], [ %61, %56 ]
+  %.169 = phi i32 [ %spec.select, %50 ], [ %33, %62 ], [ %33, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %64
 
 64:                                               ; preds = %46, %43, %63, %.critedge
-  %.076 = phi i32 [ %spec.store.select, %63 ], [ %36, %.critedge ], [ %spec.store.select, %43 ], [ %spec.store.select, %46 ]
-  %.074 = phi nsz double [ %.175, %63 ], [ %41, %.critedge ], [ %41, %43 ], [ 1.000000e+00, %46 ]
-  %.072 = phi nsz double [ %.173, %63 ], [ 1.000000e+00, %.critedge ], [ %41, %43 ], [ 1.000000e+00, %46 ]
-  %.068 = phi i32 [ %.169, %63 ], [ %33, %.critedge ], [ %33, %43 ], [ %33, %46 ]
+  %.076 = phi i32 [ %spec.store.select, %63 ], [ %spec.store.select, %43 ], [ %36, %.critedge ], [ %spec.store.select, %46 ]
+  %.074 = phi nsz double [ %.175, %63 ], [ %41, %43 ], [ %41, %.critedge ], [ 1.000000e+00, %46 ]
+  %.072 = phi nsz double [ %.173, %63 ], [ %41, %43 ], [ 1.000000e+00, %.critedge ], [ 1.000000e+00, %46 ]
+  %.068 = phi i32 [ %.169, %63 ], [ %33, %43 ], [ %33, %.critedge ], [ %33, %46 ]
   %65 = call ptr @g_list_last(ptr noundef nonnull %9) #25
   %.not91115 = icmp eq ptr %65, null
   br i1 %.not91115, label %.critedge2.thread, label %.lr.ph119
@@ -6117,8 +6117,8 @@ define internal void @_header_size_callback(ptr readnone captures(none) %0, ptr 
   br i1 %.not91, label %.critedge2, label %69
 
 .critedge2:                                       ; preds = %81, %69, %85, %76, %.lr.ph119
-  %.070.lcssa = phi ptr [ null, %.lr.ph119 ], [ %.070117143, %81 ], [ %.1118142, %69 ], [ %.1118142, %85 ], [ %.070117143, %76 ]
-  %.278 = phi i32 [ %.076, %.lr.ph119 ], [ 0, %81 ], [ %.3, %69 ], [ %.3, %85 ], [ %.177116144, %76 ]
+  %.070.lcssa = phi ptr [ null, %.lr.ph119 ], [ %.070117143, %81 ], [ %.1118142, %85 ], [ %.070117143, %76 ], [ %.1118142, %69 ]
+  %.278 = phi i32 [ %.076, %.lr.ph119 ], [ 0, %81 ], [ %.3, %85 ], [ %.177116144, %76 ], [ %.3, %69 ]
   %88 = icmp ne ptr %.070.lcssa, null
   %89 = icmp eq i32 %.278, 0
   %or.cond = select i1 %88, i1 %89, i1 false
@@ -6423,7 +6423,7 @@ define internal range(i32 0, 2) i32 @_mask_indicator_tooltip(ptr readnone captur
   br label %37
 
 37:                                               ; preds = %23, %30, %35, %32, %26, %19
-  %.029 = phi ptr [ %20, %19 ], [ %24, %23 ], [ %27, %26 ], [ %31, %30 ], [ %14, %35 ], [ %14, %32 ]
+  %.029 = phi ptr [ %20, %19 ], [ %24, %23 ], [ %27, %26 ], [ %31, %30 ], [ %14, %32 ], [ %14, %35 ]
   %38 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.226, i32 noundef 5) #25
   %39 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef %38, ptr noundef %.029) #25
   %.not49 = icmp eq i32 %10, 0
@@ -6847,7 +6847,7 @@ dt_iop_connect_accels_multi.exit.i:               ; preds = %24, %21, %17, %13
   br label %_gui_copy_callback.exit
 
 _gui_copy_callback.exit:                          ; preds = %5, %28, %dt_iop_connect_accels_multi.exit.i, %8, %74
-  %.0 = phi i32 [ 1, %74 ], [ 1, %8 ], [ 1, %dt_iop_connect_accels_multi.exit.i ], [ 1, %28 ], [ 0, %5 ]
+  %.0 = phi i32 [ 1, %74 ], [ 1, %8 ], [ 0, %5 ], [ 1, %dt_iop_connect_accels_multi.exit.i ], [ 1, %28 ]
   ret i32 %.0
 }
 
@@ -7628,7 +7628,7 @@ define internal range(i32 0, 2) i32 @_iop_plugin_header_button_release(ptr readn
   br label %.critedge36
 
 .critedge36:                                      ; preds = %.critedge.i, %54, %10, %3, %31, %32, %.critedge, %18, %13
-  %.0 = phi i32 [ 1, %3 ], [ 0, %13 ], [ 1, %31 ], [ 1, %32 ], [ 0, %.critedge ], [ 0, %18 ], [ 0, %10 ], [ 1, %54 ], [ 1, %.critedge.i ]
+  %.0 = phi i32 [ 0, %13 ], [ 0, %18 ], [ 1, %3 ], [ 0, %.critedge ], [ 0, %10 ], [ 1, %31 ], [ 1, %32 ], [ 1, %54 ], [ 1, %.critedge.i ]
   ret i32 %.0
 }
 
@@ -7779,7 +7779,7 @@ define range(i32 0, 2) i32 @dt_iop_breakpoint(ptr noundef readonly captures(none
   br label %22
 
 22:                                               ; preds = %19, %.thread, %13
-  %.0 = phi i32 [ 1, %13 ], [ 1, %.thread ], [ %spec.select, %19 ]
+  %.0 = phi i32 [ %spec.select, %19 ], [ 1, %13 ], [ 1, %.thread ]
   ret i32 %.0
 }
 
@@ -8170,8 +8170,8 @@ define void @dt_iop_so_gui_set_state(ptr noundef initializes((528, 532)) %0, i32
   br i1 %.not, label %.sink.split, label %.lr.ph
 
 .sink.split:                                      ; preds = %54, %39, %18, %41, %20, %24, %5
-  %.sink68 = phi i32 [ 0, %5 ], [ 1, %24 ], [ 1, %20 ], [ 1, %41 ], [ 0, %18 ], [ 1, %39 ], [ 1, %54 ]
-  %.sink = phi i32 [ 0, %5 ], [ 0, %24 ], [ 0, %20 ], [ 1, %41 ], [ 0, %18 ], [ 0, %39 ], [ 1, %54 ]
+  %.sink68 = phi i32 [ 0, %5 ], [ 1, %20 ], [ 1, %41 ], [ 1, %39 ], [ 1, %24 ], [ 0, %18 ], [ 1, %54 ]
+  %.sink = phi i32 [ 0, %5 ], [ 0, %20 ], [ 1, %41 ], [ 0, %39 ], [ 0, %24 ], [ 0, %18 ], [ 1, %54 ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %57 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 1024, ptr noundef nonnull @.str.63, ptr noundef nonnull %56) #25
   call void @dt_conf_set_bool(ptr noundef nonnull %3, i32 noundef %.sink68) #25
@@ -8338,7 +8338,7 @@ define ptr @dt_iop_get_module_by_op_priority(ptr noundef readonly captures(addre
   br i1 %.not, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %22, %18, %10, %.lr.ph.split.us, %3
-  %.1 = phi ptr [ null, %3 ], [ %5, %.lr.ph.split.us ], [ null, %10 ], [ %13, %18 ], [ null, %22 ]
+  %.1 = phi ptr [ %5, %.lr.ph.split.us ], [ null, %3 ], [ null, %10 ], [ %13, %18 ], [ null, %22 ]
   ret ptr %.1
 }
 
@@ -8560,7 +8560,7 @@ dt_dev_gui_module.exit.thread:                    ; preds = %1, %14, %dt_dev_gui
   br i1 %.not37, label %.loopexit, label %.lr.ph.split.split
 
 .loopexit:                                        ; preds = %97, %75, %56, %37, %dt_dev_gui_module.exit.thread, %14
-  %.0 = phi ptr [ %11, %14 ], [ null, %dt_dev_gui_module.exit.thread ], [ %.2.us.us, %37 ], [ %.2.us, %56 ], [ %.2.us57, %75 ], [ %.2, %97 ]
+  %.0 = phi ptr [ %11, %14 ], [ null, %dt_dev_gui_module.exit.thread ], [ %.2.us57, %75 ], [ %.2.us, %56 ], [ %.2.us.us, %37 ], [ %.2, %97 ]
   ret ptr %.0
 }
 
@@ -9138,7 +9138,7 @@ define range(i32 0, 2) i32 @dt_iop_module_is_skipped(ptr noundef readonly captur
   br label %21
 
 21:                                               ; preds = %13, %5, %2
-  %22 = phi i32 [ 0, %5 ], [ 0, %2 ], [ %20, %13 ]
+  %22 = phi i32 [ 0, %5 ], [ %20, %13 ], [ 0, %2 ]
   ret i32 %22
 }
 
@@ -9500,7 +9500,7 @@ dt_dev_gui_module.exit:                           ; preds = %151, %153
   br label %171
 
 171:                                              ; preds = %150, %159, %162, %168, %dt_dev_gui_module.exit
-  %172 = phi i32 [ %158, %dt_dev_gui_module.exit ], [ %170, %168 ], [ 0, %159 ], [ %167, %162 ], [ 0, %150 ]
+  %172 = phi i32 [ %158, %dt_dev_gui_module.exit ], [ 0, %150 ], [ %170, %168 ], [ 0, %159 ], [ %167, %162 ]
   %173 = sitofp i32 %172 to float
   br label %174
 
@@ -9790,7 +9790,7 @@ define internal fastcc void @_init_presets(ptr noundef %0) unnamed_addr #0 {
   br label %.critedge151
 
 152:                                              ; preds = %.thread, %44
-  %.0 = phi i32 [ %48, %44 ], [ %98, %.thread ]
+  %.0 = phi i32 [ %98, %.thread ], [ %48, %44 ]
   %153 = icmp sgt i32 %15, %.0
   br i1 %153, label %154, label %.critedge149
 
@@ -10354,7 +10354,7 @@ define internal void @_gui_moveup_callback(ptr readnone captures(none) %0, ptr n
   br i1 %.not.i, label %dt_iop_gui_get_next_visible_module.exit, label %.lr.ph.i
 
 dt_iop_gui_get_next_visible_module.exit:          ; preds = %.lr.ph.i, %22
-  %.0.lcssa.i = phi ptr [ %.023.i, %.lr.ph.i ], [ %.2.ph.i, %22 ]
+  %.0.lcssa.i = phi ptr [ %.2.ph.i, %22 ], [ %.023.i, %.lr.ph.i ]
   %.not14 = icmp eq ptr %.0.lcssa.i, null
   br i1 %.not14, label %dt_iop_gui_get_next_visible_module.exit.thread, label %25
 
@@ -10502,7 +10502,7 @@ define internal void @_gui_movedown_callback(ptr readnone captures(none) %0, ptr
   br i1 %.not.i, label %dt_iop_gui_get_previous_visible_module.exit, label %.lr.ph.i
 
 dt_iop_gui_get_previous_visible_module.exit:      ; preds = %.lr.ph.i, %20
-  %.0.lcssa.i = phi ptr [ %.023.i, %.lr.ph.i ], [ %.2.ph.i, %20 ]
+  %.0.lcssa.i = phi ptr [ %.2.ph.i, %20 ], [ %.023.i, %.lr.ph.i ]
   %.not14 = icmp eq ptr %.0.lcssa.i, null
   br i1 %.not14, label %dt_iop_gui_get_previous_visible_module.exit.thread, label %22
 

@@ -1904,7 +1904,7 @@ dissect_tn3270e_header.exit:                      ; preds = %56, %61
   br label %dissect_outbound_stream.exit
 
 dissect_outbound_stream.exit:                     ; preds = %122, %117, %114, %111, %105, %102, %96, %92, %92, %92, %92, %92, %92
-  %.0.i46.pn = phi i32 [ %95, %105 ], [ %101, %96 ], [ %104, %102 ], [ %95, %92 ], [ %95, %92 ], [ %95, %92 ], [ %95, %92 ], [ %95, %92 ], [ %95, %92 ], [ %124, %122 ], [ %113, %111 ], [ %110, %114 ], [ %121, %117 ]
+  %.0.i46.pn = phi i32 [ %95, %92 ], [ %95, %105 ], [ %101, %96 ], [ %104, %102 ], [ %95, %92 ], [ %95, %92 ], [ %95, %92 ], [ %95, %92 ], [ %95, %92 ], [ %124, %122 ], [ %113, %111 ], [ %110, %114 ], [ %121, %117 ]
   %125 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0.i46.pn)
   %126 = icmp sgt i32 %125, 0
   br i1 %126, label %82, label %.loopexit, !llvm.loop !8
@@ -2093,7 +2093,7 @@ add_data_until_next_order_code.exit:              ; preds = %60, %61
   br label %dissect_field_attribute_pairs.exit
 
 dissect_field_attribute_pairs.exit:               ; preds = %.lr.ph.i, %39, %34, %22, %17, %31, %43, %47, %50, %13, %13, %add_data_until_next_order_code.exit
-  %.1 = phi i32 [ %16, %50 ], [ %21, %17 ], [ %33, %31 ], [ %46, %43 ], [ %49, %47 ], [ %16, %13 ], [ %16, %13 ], [ %64, %add_data_until_next_order_code.exit ], [ %27, %22 ], [ %42, %39 ], [ %37, %34 ], [ %29, %.lr.ph.i ]
+  %.1 = phi i32 [ %16, %50 ], [ %21, %17 ], [ %64, %add_data_until_next_order_code.exit ], [ %33, %31 ], [ %37, %34 ], [ %46, %43 ], [ %49, %47 ], [ %16, %13 ], [ %16, %13 ], [ %27, %22 ], [ %42, %39 ], [ %29, %.lr.ph.i ]
   %65 = tail call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %.1)
   %66 = icmp sgt i32 %65, 0
   br i1 %66, label %10, label %._crit_edge, !llvm.loop !10
@@ -2268,7 +2268,7 @@ define internal fastcc noundef i32 @dissect_structured_fields(ptr noundef %0, pt
   br i1 %exitcond.not.i.i, label %dissect_read_partition.exit.i, label %.lr.ph.i.i, !llvm.loop !12
 
 dissect_read_partition.exit.i:                    ; preds = %.lr.ph.i.i, %78, %72, %67
-  %.1.i.i = phi i32 [ %75, %72 ], [ %70, %67 ], [ %75, %78 ], [ %85, %.lr.ph.i.i ]
+  %.1.i.i = phi i32 [ %70, %67 ], [ %75, %72 ], [ %75, %78 ], [ %85, %.lr.ph.i.i ]
   %87 = sub i32 %.1.i.i, %52
   br label %process_outbound_structured_field.exit
 
@@ -4536,8 +4536,8 @@ dissect_query_reply_data_streams.exit:            ; preds = %472, %._crit_edge.i
   br label %tn3270_add_hf_items.exit.preheader.i296
 
 tn3270_add_hf_items.exit.preheader.i296:          ; preds = %dissect_query_reply_dbcs_asia_sd_parms.exit.i, %486
-  %.026.i = phi i32 [ 0, %486 ], [ %521, %dissect_query_reply_dbcs_asia_sd_parms.exit.i ]
-  %.02025.i = phi i32 [ %487, %486 ], [ %518, %dissect_query_reply_dbcs_asia_sd_parms.exit.i ]
+  %.026.i = phi i32 [ %521, %dissect_query_reply_dbcs_asia_sd_parms.exit.i ], [ 0, %486 ]
+  %.02025.i = phi i32 [ %518, %dissect_query_reply_dbcs_asia_sd_parms.exit.i ], [ %487, %486 ]
   %490 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %.02025.i)
   %.not.i21.i = icmp eq i8 %490, 3
   br i1 %.not.i21.i, label %491, label %dissect_query_reply_dbcs_asia_sd_parms.exit.i
@@ -4595,7 +4595,7 @@ tn3270_add_hf_items.exit22.i.i:                   ; preds = %.lr.ph.i18.preheade
   br label %dissect_query_reply_dbcs_asia_sd_parms.exit.i
 
 dissect_query_reply_dbcs_asia_sd_parms.exit.i:    ; preds = %tn3270_add_hf_items.exit22.i.i, %tn3270_add_hf_items.exit.i.i306, %491, %tn3270_add_hf_items.exit.preheader.i296
-  %.0.i.i297 = phi i32 [ 0, %tn3270_add_hf_items.exit.preheader.i296 ], [ 0, %491 ], [ %505, %tn3270_add_hf_items.exit.i.i306 ], [ %517, %tn3270_add_hf_items.exit22.i.i ]
+  %.0.i.i297 = phi i32 [ 0, %491 ], [ 0, %tn3270_add_hf_items.exit.preheader.i296 ], [ %505, %tn3270_add_hf_items.exit.i.i306 ], [ %517, %tn3270_add_hf_items.exit22.i.i ]
   %518 = add i32 %.0.i.i297, %.02025.i
   %519 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %518)
   %520 = icmp slt i32 %519, 1
@@ -4909,7 +4909,7 @@ dissect_unknown_data.exit.i352:                   ; preds = %643, %638
   br i1 %.not.i.i42.i, label %dissect_daid_sd_parm.exit.i, label %.preheader49.i, !llvm.loop !6
 
 dissect_daid_sd_parm.exit.i:                      ; preds = %.preheader49.i, %.preheader.i, %dissect_unknown_data.exit.i352
-  %.2.i344 = phi i32 [ %646, %dissect_unknown_data.exit.i352 ], [ %655, %.preheader.i ], [ %666, %.preheader49.i ]
+  %.2.i344 = phi i32 [ %655, %.preheader.i ], [ %646, %dissect_unknown_data.exit.i352 ], [ %666, %.preheader49.i ]
   %669 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.2.i344)
   %670 = icmp slt i32 %669, 1
   %671 = add nuw nsw i32 %.03854.i, 1
@@ -5117,7 +5117,7 @@ dissect_query_reply_implicit_partitions_sd_parms.exit.i: ; preds = %.lr.ph.i27.p
   br i1 %778, label %.thread.i371, label %tn3270_add_hf_items.exit.i379
 
 .thread.i371:                                     ; preds = %776, %dissect_query_reply_implicit_partitions_sd_parms.exit.i, %739, %tn3270_add_hf_items.exit.preheader.i370, %tn3270_add_hf_items.exit.i379
-  %.023.lcssa.i = phi i32 [ %.02338.i, %776 ], [ %.02338.i, %739 ], [ %.02338.i, %tn3270_add_hf_items.exit.preheader.i370 ], [ %.02338.i, %dissect_query_reply_implicit_partitions_sd_parms.exit.i ], [ %.pn.i, %tn3270_add_hf_items.exit.i379 ]
+  %.023.lcssa.i = phi i32 [ %.02338.i, %776 ], [ %.02338.i, %tn3270_add_hf_items.exit.preheader.i370 ], [ %.02338.i, %739 ], [ %.02338.i, %dissect_query_reply_implicit_partitions_sd_parms.exit.i ], [ %.pn.i, %tn3270_add_hf_items.exit.i379 ]
   %.neg.i.i372 = sub i32 %2, %.023.lcssa.i
   %779 = add i32 %.neg.i.i372, %5
   %780 = icmp sgt i32 %779, 0
@@ -5235,7 +5235,7 @@ tn3270_add_hf_items.exit33.i.i:                   ; preds = %.lr.ph.i29.preheade
   br label %dissect_query_reply_oem_auxiliary_device_sd_parms.exit.i
 
 dissect_query_reply_oem_auxiliary_device_sd_parms.exit.i: ; preds = %tn3270_add_hf_items.exit33.i.i, %tn3270_add_hf_items.exit28.i.i, %tn3270_add_hf_items.exit.i.i402, %798, %tn3270_add_hf_items.exit.preheader.i388
-  %.0.i.i391 = phi i32 [ 0, %tn3270_add_hf_items.exit.preheader.i388 ], [ 0, %798 ], [ %812, %tn3270_add_hf_items.exit.i.i402 ], [ %824, %tn3270_add_hf_items.exit28.i.i ], [ %836, %tn3270_add_hf_items.exit33.i.i ]
+  %.0.i.i391 = phi i32 [ 0, %798 ], [ 0, %tn3270_add_hf_items.exit.preheader.i388 ], [ %812, %tn3270_add_hf_items.exit.i.i402 ], [ %824, %tn3270_add_hf_items.exit28.i.i ], [ %836, %tn3270_add_hf_items.exit33.i.i ]
   %837 = add i32 %.0.i.i391, %.02025.i390
   %838 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %837)
   %839 = icmp slt i32 %838, 1
@@ -5546,7 +5546,7 @@ dissect_unknown_data.exit.i471:                   ; preds = %973, %968
   br i1 %.not.i.i42.i456, label %dissect_daid_sd_parm.exit.i457, label %.preheader49.i452, !llvm.loop !6
 
 dissect_daid_sd_parm.exit.i457:                   ; preds = %.preheader49.i452, %.preheader.i465, %dissect_unknown_data.exit.i471
-  %.2.i458 = phi i32 [ %976, %dissect_unknown_data.exit.i471 ], [ %985, %.preheader.i465 ], [ %996, %.preheader49.i452 ]
+  %.2.i458 = phi i32 [ %985, %.preheader.i465 ], [ %976, %dissect_unknown_data.exit.i471 ], [ %996, %.preheader49.i452 ]
   %999 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.2.i458)
   %1000 = icmp slt i32 %999, 1
   %1001 = add nuw nsw i32 %.03854.i451, 1
@@ -6147,7 +6147,7 @@ dissect_query_reply_3270_ipds.exit:               ; preds = %tn3270_add_hf_items
   unreachable
 
 dissect_query_reply_modes.exit:                   ; preds = %.lr.ph.i337, %618, %6, %6, %6, %dissect_query_reply_3270_ipds.exit, %dissect_query_reply_transparency.exit, %dissect_query_reply_text_partitions.exit, %dissect_query_reply_storage_pools.exit, %dissect_query_reply_settable_printer_characteristics.exit, %dissect_query_reply_save_or_restore_format.exit, %dissect_query_reply_product_defined_data_stream.exit, %dissect_query_reply_partition_characteristics.exit, %dissect_query_reply_paper_feed_techniques.exit, %dissect_query_reply_msr_control.exit, %dissect_query_reply_ioca_aux_device.exit, %dissect_query_reply_ibm_aux_device.exit, %950, %dissect_query_reply_format_storage_aux_device.exit, %911, %dissect_query_reply_field_outlining.exit, %890, %dissect_query_reply_document_interchange_architecture.exit, %dissect_query_reply_oem_auxiliary_device.exit, %dissect_query_reply_implicit_partitions.exit, %dissect_query_reply_rpq_names.exit, %dissect_query_reply_distributed_data_management.exit, %dissect_query_reply_highlighting.exit, %dissect_query_reply_usable_area.exit, %dissect_query_reply_summary.exit, %dissect_query_reply_device_characteristics.exit, %dissect_query_reply_dbcs_asia.exit, %dissect_query_reply_data_streams.exit, %dissect_query_reply_data_chaining.exit, %dissect_query_reply_cooperative.exit, %dissect_query_reply_color.exit, %dissect_query_reply_character_sets.exit, %dissect_query_reply_resbytes.exit, %dissect_query_reply_alphanumeric.exit, %dissect_type_1_text.exit, %dissect_recovery_data.exit, %dissect_inbound_3270ds.exit, %dissect_inbound_text_header.exit, %dissect_exception_or_status.exit
-  %.0 = phi i32 [ %91, %dissect_exception_or_status.exit ], [ %108, %dissect_inbound_text_header.exit ], [ %159, %dissect_inbound_3270ds.exit ], [ %180, %dissect_recovery_data.exit ], [ %.neg.i, %dissect_type_1_text.exit ], [ %244, %dissect_query_reply_alphanumeric.exit ], [ %254, %dissect_query_reply_resbytes.exit ], [ %367, %dissect_query_reply_character_sets.exit ], [ %426, %dissect_query_reply_color.exit ], [ %443, %dissect_query_reply_cooperative.exit ], [ %471, %dissect_query_reply_data_chaining.exit ], [ %485, %dissect_query_reply_data_streams.exit ], [ %528, %dissect_query_reply_dbcs_asia.exit ], [ %534, %dissect_query_reply_device_characteristics.exit ], [ %550, %dissect_query_reply_summary.exit ], [ %592, %dissect_query_reply_usable_area.exit ], [ %617, %dissect_query_reply_highlighting.exit ], [ %677, %dissect_query_reply_distributed_data_management.exit ], [ %714, %dissect_query_reply_rpq_names.exit ], [ %784, %dissect_query_reply_implicit_partitions.exit ], [ %847, %dissect_query_reply_oem_auxiliary_device.exit ], [ %889, %dissect_query_reply_document_interchange_architecture.exit ], [ %893, %890 ], [ %910, %dissect_query_reply_field_outlining.exit ], [ %914, %911 ], [ %949, %dissect_query_reply_format_storage_aux_device.exit ], [ %953, %950 ], [ %1007, %dissect_query_reply_ibm_aux_device.exit ], [ %1024, %dissect_query_reply_ioca_aux_device.exit ], [ %1041, %dissect_query_reply_msr_control.exit ], [ %2, %6 ], [ %2, %6 ], [ %2, %6 ], [ %1058, %dissect_query_reply_paper_feed_techniques.exit ], [ %1117, %dissect_query_reply_partition_characteristics.exit ], [ %1148, %dissect_query_reply_product_defined_data_stream.exit ], [ %1158, %dissect_query_reply_save_or_restore_format.exit ], [ %1197, %dissect_query_reply_settable_printer_characteristics.exit ], [ %1226, %dissect_query_reply_storage_pools.exit ], [ %1250, %dissect_query_reply_text_partitions.exit ], [ %1268, %dissect_query_reply_transparency.exit ], [ %1296, %dissect_query_reply_3270_ipds.exit ], [ %2, %618 ], [ %622, %.lr.ph.i337 ]
+  %.0 = phi i32 [ %91, %dissect_exception_or_status.exit ], [ %108, %dissect_inbound_text_header.exit ], [ %159, %dissect_inbound_3270ds.exit ], [ %180, %dissect_recovery_data.exit ], [ %.neg.i, %dissect_type_1_text.exit ], [ %244, %dissect_query_reply_alphanumeric.exit ], [ %254, %dissect_query_reply_resbytes.exit ], [ %367, %dissect_query_reply_character_sets.exit ], [ %426, %dissect_query_reply_color.exit ], [ %443, %dissect_query_reply_cooperative.exit ], [ %471, %dissect_query_reply_data_chaining.exit ], [ %485, %dissect_query_reply_data_streams.exit ], [ %528, %dissect_query_reply_dbcs_asia.exit ], [ %534, %dissect_query_reply_device_characteristics.exit ], [ %550, %dissect_query_reply_summary.exit ], [ %592, %dissect_query_reply_usable_area.exit ], [ %617, %dissect_query_reply_highlighting.exit ], [ %1296, %dissect_query_reply_3270_ipds.exit ], [ %677, %dissect_query_reply_distributed_data_management.exit ], [ %714, %dissect_query_reply_rpq_names.exit ], [ %784, %dissect_query_reply_implicit_partitions.exit ], [ %847, %dissect_query_reply_oem_auxiliary_device.exit ], [ %889, %dissect_query_reply_document_interchange_architecture.exit ], [ %893, %890 ], [ %910, %dissect_query_reply_field_outlining.exit ], [ %914, %911 ], [ %949, %dissect_query_reply_format_storage_aux_device.exit ], [ %953, %950 ], [ %1007, %dissect_query_reply_ibm_aux_device.exit ], [ %1024, %dissect_query_reply_ioca_aux_device.exit ], [ %1041, %dissect_query_reply_msr_control.exit ], [ %2, %6 ], [ %2, %6 ], [ %2, %6 ], [ %1058, %dissect_query_reply_paper_feed_techniques.exit ], [ %1117, %dissect_query_reply_partition_characteristics.exit ], [ %1148, %dissect_query_reply_product_defined_data_stream.exit ], [ %1158, %dissect_query_reply_save_or_restore_format.exit ], [ %1197, %dissect_query_reply_settable_printer_characteristics.exit ], [ %1226, %dissect_query_reply_storage_pools.exit ], [ %1250, %dissect_query_reply_text_partitions.exit ], [ %1268, %dissect_query_reply_transparency.exit ], [ %2, %618 ], [ %622, %.lr.ph.i337 ]
   %1298 = sub i32 %.0, %2
   ret i32 %1298
 }

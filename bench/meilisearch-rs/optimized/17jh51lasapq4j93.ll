@@ -3949,7 +3949,7 @@ define hidden void @"_ZN6deserr10serde_json111_$LT$impl$u20$core..convert..From$
   br label %24
 
 24:                                               ; preds = %2, %"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h549226b8aa462334E.exit", %17, %13, %22, %9, %5
-  %.sink.sink = phi i64 [ -9223372036854775806, %13 ], [ -9223372036854775805, %22 ], [ -9223372036854775806, %9 ], [ -9223372036854775807, %5 ], [ -9223372036854775806, %"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h549226b8aa462334E.exit" ], [ -9223372036854775808, %17 ], [ -9223372036854775808, %2 ]
+  %.sink.sink = phi i64 [ -9223372036854775808, %17 ], [ -9223372036854775806, %13 ], [ -9223372036854775805, %22 ], [ -9223372036854775806, %9 ], [ -9223372036854775807, %5 ], [ -9223372036854775806, %"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h549226b8aa462334E.exit" ], [ -9223372036854775808, %2 ]
   store i64 %.sink.sink, ptr %0, align 8
   ret void
 
@@ -3977,7 +3977,7 @@ define hidden noundef zeroext i1 @"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$a
   br i1 %trunc1, label %9, label %8
 
 8:                                                ; preds = %7, %5, %9
-  %.sroa.0.0 = phi i1 [ %14, %9 ], [ %6, %5 ], [ false, %7 ]
+  %.sroa.0.0 = phi i1 [ %6, %5 ], [ %14, %9 ], [ false, %7 ]
   ret i1 %.sroa.0.0
 
 9:                                                ; preds = %7
@@ -4160,7 +4160,7 @@ default.unreachable:                              ; preds = %95
   br label %32
 
 32:                                               ; preds = %31, %30, %22
-  %.sroa.0.0.i = phi i8 [ 5, %30 ], [ 6, %31 ], [ %24, %22 ]
+  %.sroa.0.0.i = phi i8 [ 6, %31 ], [ 5, %30 ], [ %24, %22 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !665
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %34 = load i64, ptr %33, align 8, !range !131, !alias.scope !659, !noalias !663, !noundef !4
@@ -4826,7 +4826,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
           to label %30 unwind label %.loopexit.split-lp
 
 .body102:                                         ; preds = %.loopexit, %.loopexit.split-lp, %116, %132, %85, %135
-  %.pn97 = phi { ptr, i32 } [ %.pn.pn.ph, %135 ], [ %86, %85 ], [ %lpad.thr_comm.split-lp, %116 ], [ %lpad.phi133, %132 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn97 = phi { ptr, i32 } [ %86, %85 ], [ %.pn.pn.ph, %135 ], [ %lpad.phi133, %132 ], [ %lpad.thr_comm.split-lp, %116 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr137drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17h271f2908dfb889f6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #21
           to label %136 unwind label %72
 
@@ -5213,7 +5213,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
           to label %30 unwind label %.loopexit.split-lp
 
 .body102:                                         ; preds = %.loopexit, %.loopexit.split-lp, %111, %.noexc106, %84, %135
-  %.pn97 = phi { ptr, i32 } [ %.pn.pn.ph, %135 ], [ %85, %84 ], [ %lpad.thr_comm.split-lp, %111 ], [ %lpad.phi135, %.noexc106 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn97 = phi { ptr, i32 } [ %85, %84 ], [ %.pn.pn.ph, %135 ], [ %lpad.phi135, %.noexc106 ], [ %lpad.thr_comm.split-lp, %111 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr175drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$alloc..string..String$C$milli..update..settings..Setting$LT$milli..vector..settings..EmbeddingSettings$GT$$GT$$GT$17hb5d8b9eeb45e39e4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #21
           to label %136 unwind label %71
 
@@ -5582,7 +5582,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
           to label %27 unwind label %.loopexit.split-lp
 
 .body102:                                         ; preds = %.loopexit, %.loopexit.split-lp, %102, %117, %75, %92
-  %.pn96 = phi { ptr, i32 } [ %93, %92 ], [ %76, %75 ], [ %lpad.phi125, %117 ], [ %lpad.thr_comm.split-lp, %102 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn96 = phi { ptr, i32 } [ %76, %75 ], [ %93, %92 ], [ %lpad.thr_comm.split-lp, %102 ], [ %lpad.phi125, %117 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr146drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$alloc..string..String$C$meilisearch_types..facet_values_sort..FacetValuesSort$GT$$GT$17h2b8af4d8b8d711d8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #21
           to label %118 unwind label %62
 
@@ -5915,7 +5915,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
           to label %27 unwind label %.loopexit.split-lp
 
 .body101:                                         ; preds = %.loopexit, %.loopexit.split-lp, %97, %112, %72, %89
-  %.pn96 = phi { ptr, i32 } [ %90, %89 ], [ %73, %72 ], [ %lpad.phi124, %112 ], [ %lpad.thr_comm.split-lp, %97 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn96 = phi { ptr, i32 } [ %73, %72 ], [ %90, %89 ], [ %lpad.thr_comm.split-lp, %97 ], [ %lpad.phi124, %112 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr138drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$alloc..string..String$C$alloc..collections..btree..set_val..SetValZST$GT$$GT$17h9ab676b98011f669E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #21
           to label %113 unwind label %59
 
@@ -6297,7 +6297,7 @@ switch.lookup:                                    ; preds = %1
   br label %"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit"
 
 "_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit": ; preds = %switch.lookup, %16, %15, %14, %13, %12, %11, %8, %1
-  %.sroa.0.0 = phi i8 [ 26, %1 ], [ 118, %14 ], [ -117, %15 ], [ -121, %16 ], [ 26, %13 ], [ 26, %12 ], [ 26, %11 ], [ 26, %8 ], [ %switch.load, %switch.lookup ]
+  %.sroa.0.0 = phi i8 [ 26, %11 ], [ 26, %12 ], [ 26, %1 ], [ 26, %8 ], [ 26, %13 ], [ -117, %15 ], [ 118, %14 ], [ -121, %16 ], [ %switch.load, %switch.lookup ]
   ret i8 %.sroa.0.0
 }
 

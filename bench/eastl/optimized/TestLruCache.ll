@@ -1154,7 +1154,7 @@ call.i.i.i.i.i.i.i.i.noexc:                       ; preds = %if.then.i383
   br label %invoke.cont252
 
 invoke.cont252:                                   ; preds = %for.inc.i.i.i377, %call.i.i.i.i.i.i.i.i.noexc, %_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit.i380, %invoke.cont249
-  %cmp.i11.i = phi i1 [ false, %_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit.i380 ], [ true, %call.i.i.i.i.i.i.i.i.noexc ], [ false, %invoke.cont249 ], [ false, %for.inc.i.i.i377 ]
+  %cmp.i11.i = phi i1 [ true, %call.i.i.i.i.i.i.i.i.noexc ], [ false, %_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit.i380 ], [ false, %invoke.cont249 ], [ false, %for.inc.i.i.i377 ]
   %call257 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i11.i, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 117, ptr noundef nonnull @.str.26)
           to label %invoke.cont256 unwind label %lpad3.loopexit.split-lp.loopexit.split-lp
 
@@ -1444,7 +1444,7 @@ call.i.i.i.i.i.i.i.i.noexc513:                    ; preds = %if.then.i502
   br label %invoke.cont326
 
 invoke.cont326:                                   ; preds = %for.inc.i.i.i494, %call.i.i.i.i.i.i.i.i.noexc513, %_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit.i498, %invoke.cont323
-  %cmp.i11.i497 = phi i1 [ false, %_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit.i498 ], [ true, %call.i.i.i.i.i.i.i.i.noexc513 ], [ false, %invoke.cont323 ], [ false, %for.inc.i.i.i494 ]
+  %cmp.i11.i497 = phi i1 [ true, %call.i.i.i.i.i.i.i.i.noexc513 ], [ false, %_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit.i498 ], [ false, %invoke.cont323 ], [ false, %for.inc.i.i.i494 ]
   %call331 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i11.i497, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 133, ptr noundef nonnull @.str.30)
           to label %invoke.cont330 unwind label %lpad3.loopexit.split-lp.loopexit.split-lp
 
@@ -4334,7 +4334,7 @@ for.end1032:                                      ; preds = %_ZN5eastl18hashtabl
   ret i32 %739
 
 eh.resume:                                        ; preds = %if.then.i.i.i1528, %_ZN5eastl8functionIFvRKiEED2Ev.exit1525, %if.then.i.i.i1516, %ehcleanup, %if.then.i.i.i1504, %_ZN5eastl8functionIFvRKN20TestLruCacheInternal3FooEEED2Ev.exit1501, %lpad1011, %lpad928, %lpad671, %lpad3
-  %.pn17 = phi { ptr, i32 } [ %lpad.phi, %lpad928 ], [ %738, %lpad1011 ], [ %706, %lpad671 ], [ %lpad.phi1804, %lpad3 ], [ %692, %_ZN5eastl8functionIFvRKN20TestLruCacheInternal3FooEEED2Ev.exit1501 ], [ %692, %if.then.i.i.i1504 ], [ %699, %ehcleanup ], [ %699, %if.then.i.i.i1516 ], [ %707, %_ZN5eastl8functionIFvRKiEED2Ev.exit1525 ], [ %707, %if.then.i.i.i1528 ]
+  %.pn17 = phi { ptr, i32 } [ %lpad.phi, %lpad928 ], [ %738, %lpad1011 ], [ %699, %if.then.i.i.i1516 ], [ %706, %lpad671 ], [ %692, %if.then.i.i.i1504 ], [ %lpad.phi1804, %lpad3 ], [ %692, %_ZN5eastl8functionIFvRKN20TestLruCacheInternal3FooEEED2Ev.exit1501 ], [ %699, %ehcleanup ], [ %707, %_ZN5eastl8functionIFvRKiEED2Ev.exit1525 ], [ %707, %if.then.i.i.i1528 ]
   resume { ptr, i32 } %.pn17
 }
 
@@ -4627,7 +4627,7 @@ if.then:                                          ; preds = %_ZN5eastl9hashtable
   br label %return
 
 return:                                           ; preds = %for.inc.i.i, %entry, %_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit, %if.then
-  %cmp.i11 = phi i1 [ false, %_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit ], [ true, %if.then ], [ false, %entry ], [ false, %for.inc.i.i ]
+  %cmp.i11 = phi i1 [ true, %if.then ], [ false, %_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit ], [ false, %entry ], [ false, %for.inc.i.i ]
   ret i1 %cmp.i11
 }
 
@@ -4721,7 +4721,7 @@ _ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS
   br label %return
 
 return:                                           ; preds = %for.inc.i.i, %entry, %_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit, %_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE6assignERNS_18hashtable_iteratorINS7_IKiSC_EELb0ELb0EEERKS2_.exit
-  %cmp.i13 = phi i1 [ false, %_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit ], [ true, %_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE6assignERNS_18hashtable_iteratorINS7_IKiSC_EELb0ELb0EEERKS2_.exit ], [ false, %entry ], [ false, %for.inc.i.i ]
+  %cmp.i13 = phi i1 [ true, %_ZN5eastl9lru_cacheIiN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS3_EENS_8hash_mapIiNS_4pairIS2_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES3_Lb0EEEE6assignERNS_18hashtable_iteratorINS7_IKiSC_EELb0ELb0EEERKS2_.exit ], [ false, %_ZN5eastl9hashtableIiNS_4pairIKiNS1_IN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISA_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit ], [ false, %entry ], [ false, %for.inc.i.i ]
   ret i1 %cmp.i13
 }
 
@@ -5239,7 +5239,7 @@ _ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EEN
   br label %return
 
 return:                                           ; preds = %for.inc.i.i, %entry, %_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit, %_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE6assignERNS_18hashtable_iteratorINS8_IKiSD_EELb0ELb0EEERKS3_.exit
-  %cmp.i13 = phi i1 [ false, %_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit ], [ true, %_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE6assignERNS_18hashtable_iteratorINS8_IKiSD_EELb0ELb0EEERKS3_.exit ], [ false, %entry ], [ false, %for.inc.i.i ]
+  %cmp.i13 = phi i1 [ true, %_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE6assignERNS_18hashtable_iteratorINS8_IKiSD_EELb0ELb0EEERKS3_.exit ], [ false, %_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit ], [ false, %entry ], [ false, %for.inc.i.i ]
   ret i1 %cmp.i13
 }
 
@@ -5342,7 +5342,7 @@ _ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EEN
   br label %return
 
 return:                                           ; preds = %for.inc.i.i, %entry, %_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit, %_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE9map_eraseENS_18hashtable_iteratorINS8_IKiSD_EELb0ELb0EEE.exit
-  %cmp.i16 = phi i1 [ false, %_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit ], [ true, %_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE9map_eraseENS_18hashtable_iteratorINS8_IKiSD_EELb0ELb0EEE.exit ], [ false, %entry ], [ false, %for.inc.i.i ]
+  %cmp.i16 = phi i1 [ true, %_ZN5eastl9lru_cacheIiPN20TestLruCacheInternal3FooENS_9allocatorENS_4listIiS4_EENS_8hash_mapIiNS_4pairIS3_NS_12ListIteratorIiPiRiEEEENS_4hashIiEENS_8equal_toIiEES4_Lb0EEEE9map_eraseENS_18hashtable_iteratorINS8_IKiSD_EELb0ELb0EEE.exit ], [ false, %_ZN5eastl9hashtableIiNS_4pairIKiNS1_IPN20TestLruCacheInternal3FooENS_12ListIteratorIiPiRiEEEEEENS_9allocatorENS_9use_firstISB_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE4findERS2_.exit ], [ false, %entry ], [ false, %for.inc.i.i ]
   ret i1 %cmp.i16
 }
 
@@ -6639,7 +6639,7 @@ sw.epilog.sink.split.i:                           ; preds = %sw.default
   br label %return
 
 return:                                           ; preds = %sw.epilog.sink.split.i, %sw.default, %entry, %sw.bb1
-  %retval.0 = phi ptr [ %to, %sw.bb1 ], [ @"_ZTIZ12TestLruCachevE3$_0", %entry ], [ null, %sw.default ], [ null, %sw.epilog.sink.split.i ]
+  %retval.0 = phi ptr [ @"_ZTIZ12TestLruCachevE3$_0", %entry ], [ %to, %sw.bb1 ], [ null, %sw.default ], [ null, %sw.epilog.sink.split.i ]
   ret ptr %retval.0
 }
 
@@ -6689,7 +6689,7 @@ sw.epilog.sink.split.i:                           ; preds = %sw.default
   br label %return
 
 return:                                           ; preds = %sw.epilog.sink.split.i, %sw.default, %entry, %sw.bb1
-  %retval.0 = phi ptr [ %to, %sw.bb1 ], [ @"_ZTIZ12TestLruCachevE3$_1", %entry ], [ null, %sw.default ], [ null, %sw.epilog.sink.split.i ]
+  %retval.0 = phi ptr [ @"_ZTIZ12TestLruCachevE3$_1", %entry ], [ %to, %sw.bb1 ], [ null, %sw.default ], [ null, %sw.epilog.sink.split.i ]
   ret ptr %retval.0
 }
 

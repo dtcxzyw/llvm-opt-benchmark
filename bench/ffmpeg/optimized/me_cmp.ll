@@ -65,7 +65,7 @@ define range(i32 -22, 1) i32 @ff_set_cmp(ptr noundef readonly captures(none) %0,
   br i1 %exitcond.not, label %.loopexit, label %24, !llvm.loop !13
 
 .loopexit:                                        ; preds = %24, %.preheader, %18
-  %.019 = phi i32 [ -22, %18 ], [ 0, %.preheader ], [ 0, %24 ]
+  %.019 = phi i32 [ 0, %.preheader ], [ -22, %18 ], [ 0, %24 ]
   ret i32 %.019
 }
 
@@ -4734,7 +4734,7 @@ define internal i32 @pix_median_abs16_c(ptr readnone captures(none) %0, ptr noun
   br label %mid_pred.exit
 
 mid_pred.exit:                                    ; preds = %207, %209, %210, %212
-  %.0.i = phi i32 [ %196, %207 ], [ %196, %210 ], [ %..i, %209 ], [ %.20.i, %212 ]
+  %.0.i = phi i32 [ %..i, %209 ], [ %196, %210 ], [ %196, %207 ], [ %.20.i, %212 ]
   %213 = add nsw i32 %.0.i, %186
   %214 = sub nsw i32 %183, %213
   %215 = tail call i32 @llvm.abs.i32(i32 %214, i1 true)
@@ -4911,7 +4911,7 @@ define internal i32 @pix_median_abs8_c(ptr readnone captures(none) %0, ptr nound
   br label %mid_pred.exit
 
 mid_pred.exit:                                    ; preds = %127, %129, %130, %132
-  %.0.i = phi i32 [ %116, %127 ], [ %116, %130 ], [ %..i, %129 ], [ %.20.i, %132 ]
+  %.0.i = phi i32 [ %..i, %129 ], [ %116, %130 ], [ %116, %127 ], [ %.20.i, %132 ]
   %133 = add nsw i32 %.0.i, %106
   %134 = sub nsw i32 %103, %133
   %135 = tail call i32 @llvm.abs.i32(i32 %134, i1 true)

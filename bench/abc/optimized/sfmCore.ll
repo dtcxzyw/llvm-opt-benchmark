@@ -876,7 +876,7 @@ Abc_Clock.exit181:                                ; preds = %Abc_Clock.exit179, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %252, %.critedge4, %152, %153, %157, %300, %248, %148
-  %.0 = phi i32 [ 0, %148 ], [ 1, %300 ], [ 0, %248 ], [ 0, %157 ], [ 0, %153 ], [ 0, %152 ], [ 0, %.critedge4 ], [ 0, %252 ]
+  %.0 = phi i32 [ 0, %148 ], [ 0, %153 ], [ 1, %300 ], [ 0, %248 ], [ 0, %152 ], [ 0, %157 ], [ 0, %.critedge4 ], [ 0, %252 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
@@ -1333,7 +1333,7 @@ Sfm_ObjIsNode.exit59.thread._crit_edge:           ; preds = %Sfm_ObjIsNode.exit5
   br label %.loopexit
 
 .loopexit:                                        ; preds = %35, %Sfm_ObjIsNode.exit59.thread, %79, %10, %2, %81
-  %.041 = phi i32 [ 0, %81 ], [ 0, %2 ], [ 0, %10 ], [ 1, %79 ], [ 1, %Sfm_ObjIsNode.exit59.thread ], [ 1, %35 ]
+  %.041 = phi i32 [ 0, %10 ], [ 1, %79 ], [ 0, %81 ], [ 1, %Sfm_ObjIsNode.exit59.thread ], [ 0, %2 ], [ 1, %35 ]
   ret i32 %.041
 }
 

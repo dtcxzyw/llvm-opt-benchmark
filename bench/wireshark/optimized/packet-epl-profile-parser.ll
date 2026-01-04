@@ -581,7 +581,7 @@ define hidden noundef ptr @epl_xdd_load(ptr noundef %0, ptr noundef %1) local_un
   br label %40
 
 40:                                               ; preds = %34, %38
-  %.044 = phi ptr [ null, %34 ], [ %0, %38 ]
+  %.044 = phi ptr [ %0, %38 ], [ null, %34 ]
   %.not62 = icmp eq ptr %19, null
   br i1 %.not62, label %.thread68, label %41
 
@@ -590,7 +590,7 @@ define hidden noundef ptr @epl_xdd_load(ptr noundef %0, ptr noundef %1) local_un
   br label %.thread68
 
 .thread68:                                        ; preds = %40, %41, %13
-  %.04473 = phi ptr [ %.044, %41 ], [ %.044, %40 ], [ null, %13 ]
+  %.04473 = phi ptr [ %.044, %40 ], [ %.044, %41 ], [ null, %13 ]
   tail call void @xmlXPathFreeContext(ptr noundef nonnull %5)
   br label %42
 
@@ -948,7 +948,7 @@ define internal range(i32 -1, 1) i32 @populate_datatype_list(ptr noundef readonl
   %55 = icmp slt i32 %54, %53
   br i1 %55, label %9, label %.critedge59, !llvm.loop !17
 
-.critedge59:                                      ; preds = %._crit_edge68, %9, %15, %2
+.critedge59:                                      ; preds = %._crit_edge68, %15, %9, %2
   %.2 = phi i32 [ 0, %2 ], [ -1, %15 ], [ -1, %9 ], [ 0, %._crit_edge68 ]
   ret i32 %.2
 }
@@ -1225,8 +1225,8 @@ define internal fastcc noundef zeroext i1 @parse_obj_tag(ptr noundef readonly ca
   br label %51
 
 51:                                               ; preds = %49, %47, %23, %31, %46, %27, %19
-  %.243 = phi ptr [ %.04161, %19 ], [ %.04161, %23 ], [ %.04161, %27 ], [ %.04161, %31 ], [ %.04161, %46 ], [ %.04161, %47 ], [ %spec.select, %49 ]
-  %.240 = phi ptr [ %.03862, %19 ], [ %.03862, %23 ], [ %.03862, %27 ], [ %.03862, %31 ], [ %.03862, %46 ], [ %17, %47 ], [ %.03862, %49 ]
+  %.243 = phi ptr [ %.04161, %19 ], [ %.04161, %23 ], [ %.04161, %27 ], [ %.04161, %31 ], [ %.04161, %46 ], [ %spec.select, %49 ], [ %.04161, %47 ]
+  %.240 = phi ptr [ %.03862, %19 ], [ %.03862, %23 ], [ %.03862, %27 ], [ %.03862, %31 ], [ %.03862, %46 ], [ %.03862, %49 ], [ %17, %47 ]
   %52 = getelementptr inbounds nuw i8, ptr %.03763, i64 48
   %.037 = load ptr, ptr %52, align 8
   %.not = icmp eq ptr %.037, null

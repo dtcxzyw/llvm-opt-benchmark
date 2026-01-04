@@ -248,7 +248,7 @@ define internal i32 @dissect_cbch(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %.thread
 
 49:                                               ; preds = %39, %34
-  %.0 = phi ptr [ %38, %34 ], [ %42, %39 ]
+  %.0 = phi ptr [ %42, %39 ], [ %38, %34 ]
   %.not83 = icmp eq ptr %.0, null
   br i1 %.not83, label %.thread, label %50
 
@@ -600,7 +600,7 @@ define internal i32 @dissect_cbch(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %240, label %.preheader.i, label %.critedge.i, !llvm.loop !11
 
 .critedge.i:                                      ; preds = %239, %.preheader.i, %180, %._crit_edge.i
-  %.3227.i = phi i32 [ %.1.lcssa.i, %._crit_edge.i ], [ %.3241.i, %180 ], [ %.4.i, %239 ], [ %.3241.i, %.preheader.i ]
+  %.3227.i = phi i32 [ %.1.lcssa.i, %._crit_edge.i ], [ %.3241.i, %180 ], [ %.3241.i, %.preheader.i ], [ %.4.i, %239 ]
   %241 = load ptr, ptr %7, align 8
   call void @proto_item_set_end(ptr noundef %241, ptr noundef %52, i32 noundef %.3227.i)
   %242 = load i32, ptr @hf_gsm_cbch_padding, align 4

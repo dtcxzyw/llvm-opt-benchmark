@@ -349,9 +349,9 @@ _ZNSt16allocator_traitsISaI10PbcAndFlagEE8allocateERS1_m.exit.i.i.i.i: ; preds =
           to label %_ZNSt6vectorI10PbcAndFlagSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.thread unwind label %177
 
 _ZNSt6vectorI10PbcAndFlagSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.thread: ; preds = %126, %_ZNSt6vectorI10PbcAndFlagSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i, %_ZNSt16allocator_traitsISaI10PbcAndFlagEE8allocateERS1_m.exit.i.i.i.i
-  %147 = phi i64 [ 0, %_ZNSt6vectorI10PbcAndFlagSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ], [ %142, %_ZNSt16allocator_traitsISaI10PbcAndFlagEE8allocateERS1_m.exit.i.i.i.i ], [ 0, %126 ]
-  %.pre-phi.i = phi i64 [ 0, %_ZNSt6vectorI10PbcAndFlagSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ], [ %145, %_ZNSt16allocator_traitsISaI10PbcAndFlagEE8allocateERS1_m.exit.i.i.i.i ], [ 0, %126 ]
-  %148 = phi ptr [ null, %_ZNSt6vectorI10PbcAndFlagSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ], [ %146, %_ZNSt16allocator_traitsISaI10PbcAndFlagEE8allocateERS1_m.exit.i.i.i.i ], [ null, %126 ]
+  %147 = phi i64 [ %142, %_ZNSt16allocator_traitsISaI10PbcAndFlagEE8allocateERS1_m.exit.i.i.i.i ], [ 0, %_ZNSt6vectorI10PbcAndFlagSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ], [ 0, %126 ]
+  %.pre-phi.i = phi i64 [ %145, %_ZNSt16allocator_traitsISaI10PbcAndFlagEE8allocateERS1_m.exit.i.i.i.i ], [ 0, %_ZNSt6vectorI10PbcAndFlagSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ], [ 0, %126 ]
+  %148 = phi ptr [ %146, %_ZNSt16allocator_traitsISaI10PbcAndFlagEE8allocateERS1_m.exit.i.i.i.i ], [ null, %_ZNSt6vectorI10PbcAndFlagSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ], [ null, %126 ]
   store ptr %148, ptr %25, align 8, !tbaa !236
   %149 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %150 = getelementptr inbounds nuw %struct.PbcAndFlag, ptr %148, i64 %147
@@ -927,7 +927,7 @@ _ZNK11gmx_ga2la_t11usingDirectEv.exit.i.i:        ; preds = %430, %428
   br label %._crit_edge.thread.i.i.i
 
 ._crit_edge.thread.i.i.i:                         ; preds = %462, %453, %._crit_edge.i.i.i, %438
-  %.lcssa32.i.i.i = phi ptr [ %449, %453 ], [ %449, %462 ], [ %449, %._crit_edge.i.i.i ], [ %444, %438 ]
+  %.lcssa32.i.i.i = phi ptr [ %449, %._crit_edge.i.i.i ], [ %449, %453 ], [ %449, %462 ], [ %444, %438 ]
   store i32 -1, ptr %.lcssa32.i.i.i, align 4, !tbaa !272
   %463 = getelementptr inbounds nuw i8, ptr %.lcssa32.i.i.i, i64 12
   store i32 -1, ptr %463, align 4, !tbaa !275
@@ -1447,7 +1447,7 @@ _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEENS0_30DefaultInitializationAllocatorIS
   br label %700
 
 700:                                              ; preds = %.loopexit500, %.loopexit.split-lp501, %.loopexit495, %.loopexit.split-lp496
-  %.pn313 = phi { ptr, i32 } [ %lpad.loopexit497, %.loopexit495 ], [ %lpad.loopexit.split-lp498, %.loopexit.split-lp496 ], [ %lpad.loopexit502, %.loopexit500 ], [ %lpad.loopexit.split-lp503, %.loopexit.split-lp501 ]
+  %.pn313 = phi { ptr, i32 } [ %lpad.loopexit.split-lp498, %.loopexit.split-lp496 ], [ %lpad.loopexit497, %.loopexit495 ], [ %lpad.loopexit502, %.loopexit500 ], [ %lpad.loopexit.split-lp503, %.loopexit.split-lp501 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %1059
 
@@ -2181,7 +2181,7 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm.exit: ; preds = %_ZNSt12_Ve
   br i1 %exitcond712.not, label %._crit_edge621, label %715, !llvm.loop !313
 
 1059:                                             ; preds = %.loopexit485, %.loopexit.split-lp486, %.loopexit484, %.loopexit.split-lp, %.loopexit490, %.loopexit.split-lp491, %760, %713, %700
-  %.pn313.pn = phi { ptr, i32 } [ %.pn313, %700 ], [ %714, %713 ], [ %761, %760 ], [ %lpad.loopexit492, %.loopexit490 ], [ %lpad.loopexit.split-lp493, %.loopexit.split-lp491 ], [ %lpad.loopexit, %.loopexit484 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit487, %.loopexit485 ], [ %lpad.loopexit.split-lp488, %.loopexit.split-lp486 ]
+  %.pn313.pn = phi { ptr, i32 } [ %.pn313, %700 ], [ %714, %713 ], [ %761, %760 ], [ %lpad.loopexit.split-lp493, %.loopexit.split-lp491 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit492, %.loopexit490 ], [ %lpad.loopexit, %.loopexit484 ], [ %lpad.loopexit487, %.loopexit485 ], [ %lpad.loopexit.split-lp488, %.loopexit.split-lp486 ]
   call void @_ZN14DDBufferAccessIN3gmx11BasicVectorIfEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #8
   br label %1060
 
@@ -2291,7 +2291,7 @@ _ZN14DDBufferAccessIiED2Ev.exit:                  ; preds = %_ZNSt6vectorI10PbcA
   ret void
 
 1100:                                             ; preds = %1060, %1076, %252, %531, %206
-  %.pn322 = phi { ptr, i32 } [ %207, %206 ], [ %253, %252 ], [ %532, %531 ], [ %.pn313.pn.pn, %1060 ], [ %1077, %1076 ]
+  %.pn322 = phi { ptr, i32 } [ %207, %206 ], [ %253, %252 ], [ %1077, %1076 ], [ %.pn313.pn.pn, %1060 ], [ %532, %531 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %1101 = load ptr, ptr %25, align 8, !tbaa !236
   %.not.i.i.i415 = icmp eq ptr %1101, null
@@ -2533,8 +2533,8 @@ define internal void @_Z18dd_redistribute_cgP8_IO_FILElP12gmx_domdec_tPiP7t_stat
   br label %137
 
 137:                                              ; preds = %132, %127, %122, %116
-  %.123.i.i = phi i32 [ %.02226.i.i, %127 ], [ %spec.select.i.i, %122 ], [ %.02226.i.i, %116 ], [ %spec.select25.i.i, %132 ]
-  %.1.i.i = phi i32 [ %130, %127 ], [ %125, %122 ], [ %.028.i.i, %116 ], [ %130, %132 ]
+  %.123.i.i = phi i32 [ %.02226.i.i, %116 ], [ %spec.select.i.i, %122 ], [ %spec.select25.i.i, %132 ], [ %.02226.i.i, %127 ]
+  %.1.i.i = phi i32 [ %.028.i.i, %116 ], [ %125, %122 ], [ %130, %132 ], [ %130, %127 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %116, !llvm.loop !318
@@ -3048,8 +3048,8 @@ _ZL17rotate_state_atomP7t_statei.exit.thread.i:   ; preds = %_ZL17rotate_state_a
   br label %418
 
 418:                                              ; preds = %413, %408, %403, %397
-  %.123.i.i53 = phi i32 [ %.02226.i.i51, %408 ], [ %spec.select.i.i60, %403 ], [ %.02226.i.i51, %397 ], [ %spec.select25.i.i58, %413 ]
-  %.1.i.i54 = phi i32 [ %411, %408 ], [ %406, %403 ], [ %.028.i.i50, %397 ], [ %411, %413 ]
+  %.123.i.i53 = phi i32 [ %.02226.i.i51, %397 ], [ %spec.select.i.i60, %403 ], [ %spec.select25.i.i58, %413 ], [ %.02226.i.i51, %408 ]
+  %.1.i.i54 = phi i32 [ %.028.i.i50, %397 ], [ %406, %403 ], [ %411, %413 ], [ %411, %408 ]
   %indvars.iv.next.i.i55 = add nuw nsw i64 %indvars.iv.i.i49, 1
   %exitcond.not.i.i56 = icmp eq i64 %indvars.iv.next.i.i55, %wide.trip.count.i.i48
   br i1 %exitcond.not.i.i56, label %._crit_edge.loopexit.i.i57, label %397, !llvm.loop !318
@@ -3400,12 +3400,12 @@ _ZL17rotate_state_atomP7t_statei.exit.sink.split.i: ; preds = %.critedge106.i, %
   br label %_ZL17rotate_state_atomP7t_statei.exit.i
 
 _ZL17rotate_state_atomP7t_statei.exit.i:          ; preds = %592, %_ZL17rotate_state_atomP7t_statei.exit.sink.split.i, %.preheader13.i, %559, %510, %497, %453
-  %.pre69.i160 = phi float [ %422, %453 ], [ %422, %510 ], [ %422, %497 ], [ %422, %559 ], [ %.pre72.i, %.preheader13.i ], [ %.sink.i67, %_ZL17rotate_state_atomP7t_statei.exit.sink.split.i ], [ %607, %592 ]
-  %.pre68.i157 = phi float [ %423, %453 ], [ %423, %510 ], [ %423, %497 ], [ %423, %559 ], [ %.pre71.i, %.preheader13.i ], [ %.sink115.i, %_ZL17rotate_state_atomP7t_statei.exit.sink.split.i ], [ %606, %592 ]
-  %.pre.i62154 = phi float [ %424, %453 ], [ %424, %510 ], [ %424, %497 ], [ %424, %559 ], [ %.pre70.i, %.preheader13.i ], [ %.sink116.i, %_ZL17rotate_state_atomP7t_statei.exit.sink.split.i ], [ %605, %592 ]
-  %610 = phi float [ %427, %453 ], [ %427, %510 ], [ %427, %497 ], [ %427, %559 ], [ %.lcssa18.i, %.preheader13.i ], [ %.ph.i, %_ZL17rotate_state_atomP7t_statei.exit.sink.split.i ], [ %604, %592 ]
-  %611 = phi float [ %426, %453 ], [ %426, %510 ], [ %426, %497 ], [ %426, %559 ], [ %.lcssa17.i, %.preheader13.i ], [ %.ph113.i, %_ZL17rotate_state_atomP7t_statei.exit.sink.split.i ], [ %602, %592 ]
-  %612 = phi float [ %425, %453 ], [ %425, %510 ], [ %425, %497 ], [ %425, %559 ], [ %.lcssa16.i, %.preheader13.i ], [ %.ph114.i, %_ZL17rotate_state_atomP7t_statei.exit.sink.split.i ], [ %600, %592 ]
+  %.pre69.i160 = phi float [ %422, %559 ], [ %422, %453 ], [ %422, %510 ], [ %.pre72.i, %.preheader13.i ], [ %422, %497 ], [ %.sink.i67, %_ZL17rotate_state_atomP7t_statei.exit.sink.split.i ], [ %607, %592 ]
+  %.pre68.i157 = phi float [ %423, %559 ], [ %423, %453 ], [ %423, %510 ], [ %.pre71.i, %.preheader13.i ], [ %423, %497 ], [ %.sink115.i, %_ZL17rotate_state_atomP7t_statei.exit.sink.split.i ], [ %606, %592 ]
+  %.pre.i62154 = phi float [ %424, %559 ], [ %424, %453 ], [ %424, %510 ], [ %.pre70.i, %.preheader13.i ], [ %424, %497 ], [ %.sink116.i, %_ZL17rotate_state_atomP7t_statei.exit.sink.split.i ], [ %605, %592 ]
+  %610 = phi float [ %427, %559 ], [ %427, %453 ], [ %427, %510 ], [ %.lcssa18.i, %.preheader13.i ], [ %427, %497 ], [ %.ph.i, %_ZL17rotate_state_atomP7t_statei.exit.sink.split.i ], [ %604, %592 ]
+  %611 = phi float [ %426, %559 ], [ %426, %453 ], [ %426, %510 ], [ %.lcssa17.i, %.preheader13.i ], [ %426, %497 ], [ %.ph113.i, %_ZL17rotate_state_atomP7t_statei.exit.sink.split.i ], [ %602, %592 ]
+  %612 = phi float [ %425, %559 ], [ %425, %453 ], [ %425, %510 ], [ %.lcssa16.i, %.preheader13.i ], [ %425, %497 ], [ %.ph114.i, %_ZL17rotate_state_atomP7t_statei.exit.sink.split.i ], [ %600, %592 ]
   %indvars.iv.next.i45 = add nsw i64 %indvars.iv.i44, -1
   %.not76.i = icmp eq i64 %indvars.iv.i44, 0
   br i1 %.not76.i, label %_ZL17rotate_state_atomP7t_statei.exit.thread.i, label %421, !llvm.loop !329
@@ -3850,7 +3850,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !253
   br label %41
 

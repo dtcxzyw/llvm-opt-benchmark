@@ -867,7 +867,7 @@ common.ret:                                       ; preds = %318, %271, %196, %1
   br i1 %174, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hf77c4c23caf2a3e5E.exit.thread", label %245
 
 175:                                              ; preds = %152, %172
-  %.pn38 = phi { ptr, i32 } [ %173, %172 ], [ %153, %152 ]
+  %.pn38 = phi { ptr, i32 } [ %153, %152 ], [ %173, %172 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9150.sroa.7)
   br label %221
 
@@ -1083,7 +1083,7 @@ common.ret:                                       ; preds = %318, %271, %196, %1
   br label %250
 
 244:                                              ; preds = %252, %272
-  %.pn20 = phi { ptr, i32 } [ %273, %272 ], [ %253, %252 ]
+  %.pn20 = phi { ptr, i32 } [ %253, %252 ], [ %273, %272 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9167.sroa.7)
   br label %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h9ea36324aa321c77E.exit87"
 
@@ -1106,7 +1106,7 @@ common.ret:                                       ; preds = %318, %271, %196, %1
   unreachable
 
 "_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h9ea36324aa321c77E.exit87": ; preds = %194, %221, %185, %244, %321
-  %.pn43 = phi { ptr, i32 } [ %186, %185 ], [ %282, %321 ], [ %.pn20, %244 ], [ %.pn40.pn, %221 ], [ %195, %194 ]
+  %.pn43 = phi { ptr, i32 } [ %186, %185 ], [ %195, %194 ], [ %282, %321 ], [ %.pn20, %244 ], [ %.pn40.pn, %221 ]
   %249 = getelementptr inbounds nuw i8, ptr %1, i64 328
   invoke void @"_ZN4core3ptr42drop_in_place$LT$tokio..fs..file..File$GT$17h4905fa0dff73876fE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %249) #16
           to label %131 unwind label %247

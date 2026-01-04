@@ -3128,7 +3128,7 @@ _ZN2rc6detail12TestMetadataD2Ev.exit:             ; preds = %_ZNSt7__cxx1112basi
   unreachable
 
 _ZN2rc6detail7VariantINS0_13SuccessResultEJNS0_13FailureResultENS0_12GaveUpResultENS0_5ErrorEEED2Ev.exit51: ; preds = %203, %146, %145, %133
-  %.pn20.pn = phi { ptr, i32 } [ %134, %133 ], [ %147, %146 ], [ %.pn.pn.pn, %145 ], [ %.pn20, %203 ]
+  %.pn20.pn = phi { ptr, i32 } [ %.pn.pn.pn, %145 ], [ %134, %133 ], [ %147, %146 ], [ %.pn20, %203 ]
   call void @_ZN2rc6detail12TestMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #25
   resume { ptr, i32 } %.pn20.pn
 }
@@ -3508,11 +3508,11 @@ _ZSt3getILm1EJN3nix17DerivedPathOpaqueENS0_22SingleDerivedPathBuiltEEERKNSt19var
 36:                                               ; preds = %6
   unreachable
 
-_ZNK2rc6detail4expr2EqINS1_5ValueIN3nix17SingleDerivedPathEEES5_E5valueEv.exit.thr_comm: ; preds = %31, %18, %_ZSt3getILm0EJN3nix17DerivedPathOpaqueENS0_22SingleDerivedPathBuiltEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS7_.exit.i.i.i.i.i.i.i.i
+_ZNK2rc6detail4expr2EqINS1_5ValueIN3nix17SingleDerivedPathEEES5_E5valueEv.exit.thr_comm: ; preds = %31, %_ZSt3getILm0EJN3nix17DerivedPathOpaqueENS0_22SingleDerivedPathBuiltEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS7_.exit.i.i.i.i.i.i.i.i, %18
   br i1 %1, label %38, label %52
 
 _ZNK2rc6detail4expr2EqINS1_5ValueIN3nix17SingleDerivedPathEEES5_E5valueEv.exit: ; preds = %_ZSt3getILm1EJN3nix17DerivedPathOpaqueENS0_22SingleDerivedPathBuiltEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS7_.exit.i.i.i.i.i.i.i.i, %34
-  %.0.shrunk.i.i = phi i1 [ %33, %_ZSt3getILm1EJN3nix17DerivedPathOpaqueENS0_22SingleDerivedPathBuiltEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS7_.exit.i.i.i.i.i.i.i.i ], [ %35, %34 ]
+  %.0.shrunk.i.i = phi i1 [ %35, %34 ], [ %33, %_ZSt3getILm1EJN3nix17DerivedPathOpaqueENS0_22SingleDerivedPathBuiltEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS7_.exit.i.i.i.i.i.i.i.i ]
   %37 = xor i1 %1, %.0.shrunk.i.i
   br i1 %37, label %38, label %52
 
@@ -4211,7 +4211,7 @@ _ZN2rc6detail12TestMetadataD2Ev.exit:             ; preds = %_ZNSt7__cxx1112basi
   unreachable
 
 _ZN2rc6detail7VariantINS0_13SuccessResultEJNS0_13FailureResultENS0_12GaveUpResultENS0_5ErrorEEED2Ev.exit51: ; preds = %203, %146, %145, %133
-  %.pn20.pn = phi { ptr, i32 } [ %134, %133 ], [ %147, %146 ], [ %.pn.pn.pn, %145 ], [ %.pn20, %203 ]
+  %.pn20.pn = phi { ptr, i32 } [ %.pn.pn.pn, %145 ], [ %134, %133 ], [ %147, %146 ], [ %.pn20, %203 ]
   call void @_ZN2rc6detail12TestMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #25
   resume { ptr, i32 } %.pn20.pn
 }
@@ -5584,7 +5584,7 @@ _ZN2rc6detail12TestMetadataD2Ev.exit:             ; preds = %_ZNSt7__cxx1112basi
   unreachable
 
 _ZN2rc6detail7VariantINS0_13SuccessResultEJNS0_13FailureResultENS0_12GaveUpResultENS0_5ErrorEEED2Ev.exit51: ; preds = %203, %146, %145, %133
-  %.pn20.pn = phi { ptr, i32 } [ %134, %133 ], [ %147, %146 ], [ %.pn.pn.pn, %145 ], [ %.pn20, %203 ]
+  %.pn20.pn = phi { ptr, i32 } [ %.pn.pn.pn, %145 ], [ %134, %133 ], [ %147, %146 ], [ %.pn20, %203 ]
   call void @_ZN2rc6detail12TestMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #25
   resume { ptr, i32 } %.pn20.pn
 }
@@ -8451,7 +8451,7 @@ _ZNSt8_Rb_treeIN3nix19ExperimentalFeatureES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_
           to label %67 unwind label %.loopexit
 
 67:                                               ; preds = %65, %63, %62, %59, %53, %_ZNSt8_Rb_treeIN3nix19ExperimentalFeatureES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i41
-  %.sink.i.i35 = phi ptr [ %45, %53 ], [ %45, %59 ], [ %45, %62 ], [ %45, %63 ], [ %45, %65 ], [ %66, %_ZNSt8_Rb_treeIN3nix19ExperimentalFeatureES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i41 ]
+  %.sink.i.i35 = phi ptr [ %45, %65 ], [ %45, %53 ], [ %45, %59 ], [ %45, %62 ], [ %45, %63 ], [ %66, %_ZNSt8_Rb_treeIN3nix19ExperimentalFeatureES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i41 ]
   %68 = getelementptr inbounds nuw i8, ptr %.047, i64 32
   %69 = getelementptr inbounds nuw i8, ptr %.sink.i.i35, i64 32
   %70 = load i32, ptr %68, align 4
@@ -28868,8 +28868,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %common.resume
 
 common.resume:                                    ; preds = %109, %115, %83, %89, %57, %63, %31, %37
-  %.sink = phi ptr [ %12, %37 ], [ %12, %31 ], [ %9, %63 ], [ %9, %57 ], [ %6, %89 ], [ %6, %83 ], [ %3, %115 ], [ %3, %109 ]
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i, %37 ], [ %32, %31 ], [ %.pn.i, %63 ], [ %58, %57 ], [ %.pn.i8, %89 ], [ %84, %83 ], [ %.pn.i15, %115 ], [ %110, %109 ]
+  %.sink = phi ptr [ %6, %83 ], [ %9, %57 ], [ %12, %31 ], [ %12, %37 ], [ %9, %63 ], [ %6, %89 ], [ %3, %115 ], [ %3, %109 ]
+  %common.resume.op = phi { ptr, i32 } [ %84, %83 ], [ %58, %57 ], [ %32, %31 ], [ %.pn.pn.i, %37 ], [ %.pn.i, %63 ], [ %.pn.i8, %89 ], [ %.pn.i15, %115 ], [ %110, %109 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #25
   resume { ptr, i32 } %common.resume.op
 

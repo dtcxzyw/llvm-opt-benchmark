@@ -429,7 +429,7 @@ define dso_local void @_ZN11DebugDrawGL5beginE21duDebugDrawPrimitivesf(ptr nonnu
   br label %.sink.split
 
 .sink.split:                                      ; preds = %3, %4, %5, %6
-  %.sink = phi i32 [ 7, %6 ], [ 1, %5 ], [ 0, %4 ], [ 4, %3 ]
+  %.sink = phi i32 [ 7, %6 ], [ 0, %4 ], [ 1, %5 ], [ 4, %3 ]
   tail call void @glBegin(i32 noundef %.sink)
   br label %7
 
@@ -586,7 +586,7 @@ define dso_local noundef zeroext i1 @_ZN6FileIO12openForWriteEPKc(ptr noundef no
   br label %9
 
 9:                                                ; preds = %5, %2, %7
-  %.0 = phi i1 [ true, %7 ], [ false, %2 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %2 ], [ true, %7 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -612,7 +612,7 @@ define dso_local noundef zeroext i1 @_ZN6FileIO11openForReadEPKc(ptr noundef non
   br label %9
 
 9:                                                ; preds = %5, %2, %7
-  %.0 = phi i1 [ true, %7 ], [ false, %2 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %2 ], [ true, %7 ], [ false, %5 ]
   ret i1 %.0
 }
 

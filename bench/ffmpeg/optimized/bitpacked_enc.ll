@@ -355,7 +355,7 @@ put_bits.exit48:                                  ; preds = %131, %138, %145
   br i1 %149, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !45
 
 flush_put_bits.exit:                              ; preds = %38, %.lr.ph86, %17, %._crit_edge87, %16
-  %.035 = phi i32 [ %14, %16 ], [ 0, %._crit_edge87 ], [ 0, %17 ], [ 0, %.lr.ph86 ], [ 0, %38 ]
+  %.035 = phi i32 [ %14, %16 ], [ 0, %._crit_edge87 ], [ 0, %.lr.ph86 ], [ 0, %17 ], [ 0, %38 ]
   ret i32 %.035
 }
 

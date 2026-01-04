@@ -871,7 +871,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   br label %70
 
 .thread30:                                        ; preds = %.thread26, %75, %36, %40, %.noexc12.i
-  %.pn25 = phi { ptr, i32 } [ %55, %.noexc12.i ], [ %37, %40 ], [ %37, %36 ], [ %eh.lpad-body29, %75 ], [ %eh.lpad-body29, %.thread26 ]
+  %.pn25 = phi { ptr, i32 } [ %55, %.noexc12.i ], [ %37, %36 ], [ %eh.lpad-body29, %75 ], [ %eh.lpad-body29, %.thread26 ], [ %37, %40 ]
   resume { ptr, i32 } %.pn25
 
 .thread26:                                        ; preds = %31, %33
@@ -1114,7 +1114,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   br label %65
 
 .thread29:                                        ; preds = %36, %53, %.thread25
-  %.pn24 = phi { ptr, i32 } [ %eh.lpad-body28, %.thread25 ], [ %52, %53 ], [ %37, %36 ]
+  %.pn24 = phi { ptr, i32 } [ %52, %53 ], [ %eh.lpad-body28, %.thread25 ], [ %37, %36 ]
   resume { ptr, i32 } %.pn24
 
 .thread25:                                        ; preds = %31, %33
@@ -1452,352 +1452,352 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   %10 = icmp eq i8 %8, %9
   br i1 %10, label %11, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
 
-"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread": ; preds = %66, %199, %132, %134, %109, %210, %147, %212, %177, %171, %157, %151, %149, %94, %88, %81, %46, %24, %18, %12, %.backedge, %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit", %.lr.ph, %30, %40, %75, %50, %60, %136, %163, %105, %107, %115, %123, %195, %188, %190, %197, %.preheader.split, %4
-  %.sroa.0.0 = phi i1 [ false, %4 ], [ true, %.preheader.split ], [ false, %66 ], [ false, %199 ], [ false, %132 ], [ false, %134 ], [ false, %109 ], [ false, %210 ], [ false, %147 ], [ false, %212 ], [ false, %177 ], [ false, %171 ], [ false, %157 ], [ false, %151 ], [ false, %149 ], [ false, %94 ], [ false, %88 ], [ false, %81 ], [ false, %46 ], [ false, %24 ], [ false, %18 ], [ false, %12 ], [ true, %.backedge ], [ false, %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit" ], [ false, %.lr.ph ], [ false, %30 ], [ false, %40 ], [ false, %75 ], [ false, %50 ], [ false, %60 ], [ false, %136 ], [ false, %163 ], [ false, %105 ], [ false, %107 ], [ false, %115 ], [ false, %123 ], [ false, %195 ], [ false, %188 ], [ false, %190 ], [ false, %197 ]
+"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread": ; preds = %12, %18, %152, %202, %213, %150, %75, %180, %137, %160, %40, %84, %60, %91, %97, %112, %154, %215, %135, %174, %.backedge, %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit", %.lr.ph, %44, %24, %34, %69, %54, %110, %108, %139, %166, %118, %195, %191, %193, %200, %126, %.preheader.split, %4
+  %.sroa.0.0 = phi i1 [ false, %4 ], [ true, %.preheader.split ], [ false, %12 ], [ false, %18 ], [ false, %152 ], [ false, %202 ], [ false, %213 ], [ false, %150 ], [ false, %75 ], [ false, %180 ], [ false, %137 ], [ false, %160 ], [ false, %40 ], [ false, %84 ], [ false, %60 ], [ false, %91 ], [ false, %97 ], [ false, %112 ], [ false, %154 ], [ false, %215 ], [ false, %135 ], [ false, %174 ], [ false, %200 ], [ false, %193 ], [ false, %191 ], [ false, %195 ], [ false, %118 ], [ false, %166 ], [ false, %139 ], [ false, %108 ], [ false, %110 ], [ false, %54 ], [ false, %69 ], [ false, %34 ], [ false, %24 ], [ false, %44 ], [ false, %.lr.ph ], [ false, %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit" ], [ true, %.backedge ], [ false, %126 ]
   ret i1 %.sroa.0.0
 
 11:                                               ; preds = %.lr.ph
   switch i8 %8, label %.backedge [
-    i8 1, label %12
-    i8 3, label %18
-    i8 4, label %24
-    i8 5, label %30
-    i8 6, label %40
-    i8 8, label %46
-    i8 9, label %50
-    i8 10, label %60
+    i8 1, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit"
+    i8 3, label %12
+    i8 4, label %18
+    i8 5, label %24
+    i8 6, label %34
+    i8 8, label %40
+    i8 9, label %44
+    i8 10, label %54
   ]
 
 12:                                               ; preds = %11
-  %13 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %14 = load i8, ptr %13, align 1, !range !191, !noundef !3
-  %15 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  %16 = load i8, ptr %15, align 1, !range !191, !noundef !3
-  %17 = icmp eq i8 %14, %16
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %14 = load i32, ptr %13, align 4, !noundef !3
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %16 = load i32, ptr %15, align 4, !noundef !3
+  %17 = icmp eq i32 %14, %16
   br i1 %17, label %.backedge, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %20 = load i32, ptr %19, align 4, !noundef !3
-  %21 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %22 = load i32, ptr %21, align 4, !noundef !3
-  %23 = icmp eq i32 %20, %22
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.val.i = load ptr, ptr %19, align 8, !nonnull !3, !align !4, !noundef !3
+  %21 = getelementptr i8, ptr %6, i64 16
+  %.val9.i = load i64, ptr %21, align 8, !noundef !3
+  %.val10.i = load ptr, ptr %20, align 8, !nonnull !3, !align !4, !noundef !3
+  %22 = getelementptr i8, ptr %7, i64 16
+  %.val11.i = load i64, ptr %22, align 8, !noundef !3
+  %23 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2aeda0329bdfcfc7E"(ptr noalias noundef nonnull readonly align 1 %.val.i, i64 noundef %.val9.i, ptr noalias noundef nonnull readonly align 1 %.val10.i, i64 noundef %.val11.i)
   br i1 %23, label %.backedge, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
 
 24:                                               ; preds = %11
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.val.i = load ptr, ptr %25, align 8, !nonnull !3, !align !4, !noundef !3
-  %27 = getelementptr i8, ptr %6, i64 16
-  %.val9.i = load i64, ptr %27, align 8, !noundef !3
-  %.val10.i = load ptr, ptr %26, align 8, !nonnull !3, !align !4, !noundef !3
-  %28 = getelementptr i8, ptr %7, i64 16
-  %.val11.i = load i64, ptr %28, align 8, !noundef !3
-  %29 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2aeda0329bdfcfc7E"(ptr noalias noundef nonnull readonly align 1 %.val.i, i64 noundef %.val9.i, ptr noalias noundef nonnull readonly align 1 %.val10.i, i64 noundef %.val11.i)
-  br i1 %29, label %.backedge, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
+  %26 = load ptr, ptr %25, align 8, !nonnull !3, !noundef !3
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %28 = load i64, ptr %27, align 8, !noundef !3
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %30 = load ptr, ptr %29, align 8, !nonnull !3, !noundef !3
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %32 = load i64, ptr %31, align 8, !noundef !3
+  %33 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2aeda0329bdfcfc7E"(ptr noalias noundef nonnull readonly align 1 %26, i64 noundef %28, ptr noalias noundef nonnull readonly align 1 %30, i64 noundef %32)
+  br i1 %33, label %60, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
 
-30:                                               ; preds = %11
-  %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %32 = load ptr, ptr %31, align 8, !nonnull !3, !noundef !3
-  %33 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %34 = load i64, ptr %33, align 8, !noundef !3
-  %35 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %36 = load ptr, ptr %35, align 8, !nonnull !3, !noundef !3
-  %37 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %38 = load i64, ptr %37, align 8, !noundef !3
-  %39 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2aeda0329bdfcfc7E"(ptr noalias noundef nonnull readonly align 1 %32, i64 noundef %34, ptr noalias noundef nonnull readonly align 1 %36, i64 noundef %38)
-  br i1 %39, label %66, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
+34:                                               ; preds = %11
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %36 = load i32, ptr %35, align 8, !noundef !3
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %38 = load i32, ptr %37, align 8, !noundef !3
+  %39 = icmp eq i32 %36, %38
+  br i1 %39, label %69, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
 
 40:                                               ; preds = %11
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %42 = load i32, ptr %41, align 8, !noundef !3
-  %43 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %44 = load i32, ptr %43, align 8, !noundef !3
-  %45 = icmp eq i32 %42, %44
-  br i1 %45, label %75, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %43 = tail call noundef zeroext i1 @"_ZN81_$LT$ruff_formatter..format_element..Interned$u20$as$u20$core..cmp..PartialEq$GT$2eq17h641dcf1fde29c9aaE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %41, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %42)
+  br i1 %43, label %.backedge, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
 
-46:                                               ; preds = %11
-  %47 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %48 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %49 = tail call noundef zeroext i1 @"_ZN81_$LT$ruff_formatter..format_element..Interned$u20$as$u20$core..cmp..PartialEq$GT$2eq17h641dcf1fde29c9aaE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %47, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %48)
-  br i1 %49, label %.backedge, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
+44:                                               ; preds = %11
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !191)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !194)
+  %47 = load ptr, ptr %45, align 8, !alias.scope !191, !noalias !194, !nonnull !3, !noundef !3
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %49 = load i64, ptr %48, align 8, !alias.scope !191, !noalias !194, !noundef !3
+  %50 = load ptr, ptr %46, align 8, !alias.scope !194, !noalias !191, !nonnull !3, !noundef !3
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %52 = load i64, ptr %51, align 8, !alias.scope !194, !noalias !191, !noundef !3
+  %53 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h00b6a6192d6fb377E"(ptr noundef nonnull align 8 %47, i64 noundef %49, ptr noundef nonnull align 8 %50, i64 noundef %52), !noalias !196
+  br i1 %53, label %84, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
 
-50:                                               ; preds = %11
-  %51 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %52 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !192)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !195)
-  %53 = load ptr, ptr %51, align 8, !alias.scope !192, !noalias !195, !nonnull !3, !noundef !3
-  %54 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %55 = load i64, ptr %54, align 8, !alias.scope !192, !noalias !195, !noundef !3
-  %56 = load ptr, ptr %52, align 8, !alias.scope !195, !noalias !192, !nonnull !3, !noundef !3
-  %57 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %58 = load i64, ptr %57, align 8, !alias.scope !195, !noalias !192, !noundef !3
-  %59 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h00b6a6192d6fb377E"(ptr noundef nonnull align 8 %53, i64 noundef %55, ptr noundef nonnull align 8 %56, i64 noundef %58), !noalias !197
-  br i1 %59, label %81, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
+54:                                               ; preds = %11
+  %55 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %57 = load i8, ptr %55, align 8, !range !197, !noundef !3
+  %58 = load i8, ptr %56, align 8, !range !197, !noundef !3
+  %59 = icmp eq i8 %57, %58
+  br i1 %59, label %90, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
 
-60:                                               ; preds = %11
-  %61 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %62 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %63 = load i8, ptr %61, align 8, !range !198, !noundef !3
-  %64 = load i8, ptr %62, align 8, !range !198, !noundef !3
-  %65 = icmp eq i8 %63, %64
-  br i1 %65, label %87, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
-
-66:                                               ; preds = %30
-  %67 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %68 = load i32, ptr %67, align 4, !noundef !3
-  %69 = icmp eq i32 %68, 0
-  %70 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %71 = load i32, ptr %70, align 4, !noundef !3
-  %72 = icmp eq i32 %71, 0
-  %73 = xor i1 %69, %72
-  %brmerge.i = or i1 %69, %72
-  %not.6 = xor i1 %73, true
-  %74 = icmp eq i32 %68, %71
-  %spec.select = select i1 %brmerge.i, i1 %not.6, i1 %74
+60:                                               ; preds = %24
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %62 = load i32, ptr %61, align 4, !noundef !3
+  %63 = icmp eq i32 %62, 0
+  %64 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %65 = load i32, ptr %64, align 4, !noundef !3
+  %66 = icmp eq i32 %65, 0
+  %67 = xor i1 %63, %66
+  %brmerge.i = or i1 %63, %66
+  %not.6 = xor i1 %67, true
+  %68 = icmp eq i32 %62, %65
+  %spec.select = select i1 %brmerge.i, i1 %not.6, i1 %68
   br i1 %spec.select, label %.backedge, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
 
-75:                                               ; preds = %40
-  %76 = getelementptr inbounds nuw i8, ptr %6, i64 12
+69:                                               ; preds = %34
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %71 = load i32, ptr %70, align 4, !noundef !3
+  %72 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %73 = load i32, ptr %72, align 4, !noundef !3
+  %74 = icmp eq i32 %71, %73
+  br i1 %74, label %75, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
+
+75:                                               ; preds = %69
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %77 = load i32, ptr %76, align 4, !noundef !3
-  %78 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %79 = load i32, ptr %78, align 4, !noundef !3
-  %80 = icmp eq i32 %77, %79
-  br i1 %80, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit", label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
-
-81:                                               ; preds = %50
-  %82 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %83 = load i8, ptr %82, align 1, !range !8, !noundef !3
-  %84 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  %85 = load i8, ptr %84, align 1, !range !8, !noundef !3
-  %86 = icmp eq i8 %83, %85
-  br i1 %86, label %.backedge, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
-
-87:                                               ; preds = %60
-  switch i8 %63, label %.backedge [
-    i8 2, label %88
-    i8 4, label %94
-    i8 6, label %100
-    i8 8, label %115
-    i8 10, label %136
-    i8 12, label %151
-    i8 18, label %157
-    i8 20, label %163
-    i8 22, label %177
-    i8 24, label %181
-    i8 28, label %205
-  ]
-
-88:                                               ; preds = %87
-  %89 = getelementptr inbounds nuw i8, ptr %6, i64 9
-  %90 = load i8, ptr %89, align 1, !range !199, !noundef !3
-  %91 = getelementptr inbounds nuw i8, ptr %7, i64 9
-  %92 = load i8, ptr %91, align 1, !range !199, !noundef !3
-  %93 = icmp eq i8 %90, %92
-  br i1 %93, label %.backedge, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
-
-94:                                               ; preds = %87
-  %95 = getelementptr inbounds nuw i8, ptr %6, i64 9
-  %96 = load i8, ptr %95, align 1, !range !8, !noundef !3
-  %97 = getelementptr inbounds nuw i8, ptr %7, i64 9
-  %98 = load i8, ptr %97, align 1, !range !8, !noundef !3
-  %99 = icmp eq i8 %96, %98
-  br i1 %99, label %.backedge, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
-
-100:                                              ; preds = %87
-  %101 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %102 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %103 = load i32, ptr %101, align 4, !noundef !3
-  %.not.i.i.i = icmp eq i32 %103, 0
-  %104 = load i32, ptr %102, align 4, !noundef !3
-  br i1 %.not.i.i.i, label %107, label %105
-
-105:                                              ; preds = %100
-  %106 = icmp eq i32 %103, %104
-  br i1 %106, label %109, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
-
-107:                                              ; preds = %100
-  %108 = icmp eq i32 %104, 0
-  br i1 %108, label %109, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
-
-109:                                              ; preds = %107, %105
-  %110 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %111 = load i8, ptr %110, align 8, !range !18, !noundef !3
-  %112 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %113 = load i8, ptr %112, align 8, !range !18, !noundef !3
-  %114 = icmp eq i8 %111, %113
-  br i1 %114, label %.backedge, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
-
-115:                                              ; preds = %87
-  %116 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %117 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %118 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %119 = load i8, ptr %118, align 4, !range !18, !noundef !3
-  %120 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  %121 = load i8, ptr %120, align 4, !range !18, !noundef !3
-  %122 = icmp eq i8 %119, %121
-  br i1 %122, label %123, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
-
-123:                                              ; preds = %115
-  %124 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %125 = load i8, ptr %124, align 8, !range !8, !noundef !3
-  %126 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %127 = load i8, ptr %126, align 8, !range !8, !noundef !3
-  %128 = icmp eq i8 %125, %127
-  br i1 %128, label %129, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
-
-129:                                              ; preds = %123
-  %130 = load i32, ptr %116, align 4, !noundef !3
-  %.not.i8.i.i = icmp eq i32 %130, 0
-  %131 = load i32, ptr %117, align 4, !noundef !3
-  br i1 %.not.i8.i.i, label %134, label %132
-
-132:                                              ; preds = %129
-  %133 = icmp eq i32 %130, %131
-  br i1 %133, label %.backedge, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
-
-134:                                              ; preds = %129
-  %135 = icmp eq i32 %131, 0
-  br i1 %135, label %.backedge, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
-
-136:                                              ; preds = %87
-  %137 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %138 = load i8, ptr %137, align 8, !range !8, !noundef !3
-  %139 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %140 = load i8, ptr %139, align 8, !range !8, !noundef !3
-  %141 = icmp eq i8 %138, %140
-  br i1 %141, label %142, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
-
-142:                                              ; preds = %136
-  %143 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %144 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %145 = load i32, ptr %144, align 4, !noundef !3
-  %.not5.i.i = icmp eq i32 %145, 0
-  %146 = load i32, ptr %143, align 4, !noundef !3
-  br i1 %.not5.i.i, label %149, label %147
-
-147:                                              ; preds = %142
-  %148 = icmp eq i32 %145, %146
-  br i1 %148, label %.backedge, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
-
-149:                                              ; preds = %142
-  %150 = icmp eq i32 %146, 0
-  br i1 %150, label %.backedge, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
-
-151:                                              ; preds = %87
-  %152 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %153 = load i32, ptr %152, align 4, !range !200, !noundef !3
-  %154 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %155 = load i32, ptr %154, align 4, !range !200, !noundef !3
-  %156 = icmp eq i32 %153, %155
-  br i1 %156, label %.backedge, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
-
-157:                                              ; preds = %87
-  %158 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %159 = load i32, ptr %158, align 4, !noundef !3
-  %160 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %161 = load i32, ptr %160, align 4, !noundef !3
-  %162 = icmp eq i32 %159, %161
-  br i1 %162, label %.backedge, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
-
-163:                                              ; preds = %87
-  %164 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %165 = load i32, ptr %164, align 4, !range !201, !noundef !3
-  %166 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %167 = load i32, ptr %166, align 4, !range !201, !noundef !3
-  %168 = icmp eq i32 %165, %167
-  br i1 %168, label %169, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
-
-169:                                              ; preds = %163
-  %170 = icmp eq i32 %165, 2
-  br i1 %170, label %171, label %.backedge
-
-171:                                              ; preds = %169
-  %172 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %173 = load i32, ptr %172, align 8, !noundef !3
-  %174 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %175 = load i32, ptr %174, align 8, !noundef !3
-  %176 = icmp eq i32 %173, %175
-  br i1 %176, label %.backedge, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
-
-177:                                              ; preds = %87
-  %178 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %179 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %180 = tail call noundef zeroext i1 @"_ZN85_$LT$ruff_formatter..format_element..tag..LabelId$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc678536daede57b6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %178, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %179)
-  br i1 %180, label %.backedge, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
-
-181:                                              ; preds = %87
-  %182 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %183 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %184 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %185 = load i8, ptr %184, align 8, !range !18, !noundef !3
-  %.not.i9.i.i = icmp eq i8 %185, 2
-  %186 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %187 = load i8, ptr %186, align 8, !range !18, !noundef !3
-  br i1 %.not.i9.i.i, label %190, label %188
-
-188:                                              ; preds = %181
-  %189 = icmp eq i8 %185, %187
-  br i1 %189, label %192, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
-
-190:                                              ; preds = %181
-  %191 = icmp eq i8 %187, 2
-  br i1 %191, label %199, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
-
-192:                                              ; preds = %188
-  %193 = load i32, ptr %182, align 4, !noundef !3
-  %.not3.i.i.i = icmp eq i32 %193, 0
-  %194 = load i32, ptr %183, align 4, !noundef !3
-  br i1 %.not3.i.i.i, label %197, label %195
-
-195:                                              ; preds = %192
-  %196 = icmp eq i32 %193, %194
-  br i1 %196, label %199, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
-
-197:                                              ; preds = %192
-  %198 = icmp eq i32 %194, 0
-  br i1 %198, label %199, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
-
-199:                                              ; preds = %197, %195, %190
-  %200 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %201 = load i8, ptr %200, align 4, !range !8, !noundef !3
-  %202 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  %203 = load i8, ptr %202, align 4, !range !8, !noundef !3
-  %204 = icmp eq i8 %201, %203
-  br i1 %204, label %.backedge, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
-
-205:                                              ; preds = %87
-  %206 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %207 = load i32, ptr %206, align 4, !noundef !3
-  %.not.i.i = icmp eq i32 %207, 0
-  %208 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %209 = load i32, ptr %208, align 4, !noundef !3
-  br i1 %.not.i.i, label %212, label %210
-
-210:                                              ; preds = %205
-  %211 = icmp eq i32 %207, %209
-  br i1 %211, label %.backedge, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
-
-212:                                              ; preds = %205
-  %213 = icmp eq i32 %209, 0
-  br i1 %213, label %.backedge, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
-
-"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit": ; preds = %75
-  %214 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %215 = load i32, ptr %214, align 4, !noundef !3
-  %216 = icmp eq i32 %215, 0
-  %217 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %218 = load i32, ptr %217, align 4, !noundef !3
-  %219 = icmp eq i32 %218, 0
-  %220 = xor i1 %216, %219
-  %brmerge7.i = or i1 %216, %219
-  %not. = xor i1 %220, true
-  %221 = icmp eq i32 %215, %218
-  %spec.select7 = select i1 %brmerge7.i, i1 %not., i1 %221
+  %78 = icmp eq i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %80 = load i32, ptr %79, align 4, !noundef !3
+  %81 = icmp eq i32 %80, 0
+  %82 = xor i1 %78, %81
+  %brmerge7.i = or i1 %78, %81
+  %not. = xor i1 %82, true
+  %83 = icmp eq i32 %77, %80
+  %spec.select7 = select i1 %brmerge7.i, i1 %not., i1 %83
   br i1 %spec.select7, label %.backedge, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
 
-.backedge:                                        ; preds = %66, %199, %132, %134, %109, %210, %147, %212, %177, %171, %157, %151, %149, %94, %88, %81, %46, %24, %18, %12, %11, %87, %169, %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit"
+84:                                               ; preds = %44
+  %85 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %86 = load i8, ptr %85, align 1, !range !8, !noundef !3
+  %87 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %88 = load i8, ptr %87, align 1, !range !8, !noundef !3
+  %89 = icmp eq i8 %86, %88
+  br i1 %89, label %.backedge, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
+
+90:                                               ; preds = %54
+  switch i8 %57, label %.backedge [
+    i8 2, label %91
+    i8 4, label %97
+    i8 6, label %103
+    i8 8, label %118
+    i8 10, label %139
+    i8 12, label %154
+    i8 18, label %160
+    i8 20, label %166
+    i8 22, label %180
+    i8 24, label %184
+    i8 28, label %208
+  ]
+
+91:                                               ; preds = %90
+  %92 = getelementptr inbounds nuw i8, ptr %6, i64 9
+  %93 = load i8, ptr %92, align 1, !range !198, !noundef !3
+  %94 = getelementptr inbounds nuw i8, ptr %7, i64 9
+  %95 = load i8, ptr %94, align 1, !range !198, !noundef !3
+  %96 = icmp eq i8 %93, %95
+  br i1 %96, label %.backedge, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
+
+97:                                               ; preds = %90
+  %98 = getelementptr inbounds nuw i8, ptr %6, i64 9
+  %99 = load i8, ptr %98, align 1, !range !8, !noundef !3
+  %100 = getelementptr inbounds nuw i8, ptr %7, i64 9
+  %101 = load i8, ptr %100, align 1, !range !8, !noundef !3
+  %102 = icmp eq i8 %99, %101
+  br i1 %102, label %.backedge, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
+
+103:                                              ; preds = %90
+  %104 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %105 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %106 = load i32, ptr %104, align 4, !noundef !3
+  %.not.i.i.i = icmp eq i32 %106, 0
+  %107 = load i32, ptr %105, align 4, !noundef !3
+  br i1 %.not.i.i.i, label %110, label %108
+
+108:                                              ; preds = %103
+  %109 = icmp eq i32 %106, %107
+  br i1 %109, label %112, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
+
+110:                                              ; preds = %103
+  %111 = icmp eq i32 %107, 0
+  br i1 %111, label %112, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
+
+112:                                              ; preds = %110, %108
+  %113 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %114 = load i8, ptr %113, align 8, !range !18, !noundef !3
+  %115 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %116 = load i8, ptr %115, align 8, !range !18, !noundef !3
+  %117 = icmp eq i8 %114, %116
+  br i1 %117, label %.backedge, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
+
+118:                                              ; preds = %90
+  %119 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %120 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %121 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  %122 = load i8, ptr %121, align 4, !range !18, !noundef !3
+  %123 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %124 = load i8, ptr %123, align 4, !range !18, !noundef !3
+  %125 = icmp eq i8 %122, %124
+  br i1 %125, label %126, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
+
+126:                                              ; preds = %118
+  %127 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %128 = load i8, ptr %127, align 8, !range !8, !noundef !3
+  %129 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %130 = load i8, ptr %129, align 8, !range !8, !noundef !3
+  %131 = icmp eq i8 %128, %130
+  br i1 %131, label %132, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
+
+132:                                              ; preds = %126
+  %133 = load i32, ptr %119, align 4, !noundef !3
+  %.not.i8.i.i = icmp eq i32 %133, 0
+  %134 = load i32, ptr %120, align 4, !noundef !3
+  br i1 %.not.i8.i.i, label %137, label %135
+
+135:                                              ; preds = %132
+  %136 = icmp eq i32 %133, %134
+  br i1 %136, label %.backedge, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
+
+137:                                              ; preds = %132
+  %138 = icmp eq i32 %134, 0
+  br i1 %138, label %.backedge, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
+
+139:                                              ; preds = %90
+  %140 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %141 = load i8, ptr %140, align 8, !range !8, !noundef !3
+  %142 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %143 = load i8, ptr %142, align 8, !range !8, !noundef !3
+  %144 = icmp eq i8 %141, %143
+  br i1 %144, label %145, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
+
+145:                                              ; preds = %139
+  %146 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %147 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %148 = load i32, ptr %147, align 4, !noundef !3
+  %.not5.i.i = icmp eq i32 %148, 0
+  %149 = load i32, ptr %146, align 4, !noundef !3
+  br i1 %.not5.i.i, label %152, label %150
+
+150:                                              ; preds = %145
+  %151 = icmp eq i32 %148, %149
+  br i1 %151, label %.backedge, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
+
+152:                                              ; preds = %145
+  %153 = icmp eq i32 %149, 0
+  br i1 %153, label %.backedge, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
+
+154:                                              ; preds = %90
+  %155 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %156 = load i32, ptr %155, align 4, !range !199, !noundef !3
+  %157 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %158 = load i32, ptr %157, align 4, !range !199, !noundef !3
+  %159 = icmp eq i32 %156, %158
+  br i1 %159, label %.backedge, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
+
+160:                                              ; preds = %90
+  %161 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %162 = load i32, ptr %161, align 4, !noundef !3
+  %163 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %164 = load i32, ptr %163, align 4, !noundef !3
+  %165 = icmp eq i32 %162, %164
+  br i1 %165, label %.backedge, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
+
+166:                                              ; preds = %90
+  %167 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %168 = load i32, ptr %167, align 4, !range !200, !noundef !3
+  %169 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %170 = load i32, ptr %169, align 4, !range !200, !noundef !3
+  %171 = icmp eq i32 %168, %170
+  br i1 %171, label %172, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
+
+172:                                              ; preds = %166
+  %173 = icmp eq i32 %168, 2
+  br i1 %173, label %174, label %.backedge
+
+174:                                              ; preds = %172
+  %175 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %176 = load i32, ptr %175, align 8, !noundef !3
+  %177 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %178 = load i32, ptr %177, align 8, !noundef !3
+  %179 = icmp eq i32 %176, %178
+  br i1 %179, label %.backedge, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
+
+180:                                              ; preds = %90
+  %181 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %182 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %183 = tail call noundef zeroext i1 @"_ZN85_$LT$ruff_formatter..format_element..tag..LabelId$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc678536daede57b6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %181, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %182)
+  br i1 %183, label %.backedge, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
+
+184:                                              ; preds = %90
+  %185 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %186 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %187 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %188 = load i8, ptr %187, align 8, !range !18, !noundef !3
+  %.not.i9.i.i = icmp eq i8 %188, 2
+  %189 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %190 = load i8, ptr %189, align 8, !range !18, !noundef !3
+  br i1 %.not.i9.i.i, label %193, label %191
+
+191:                                              ; preds = %184
+  %192 = icmp eq i8 %188, %190
+  br i1 %192, label %197, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
+
+193:                                              ; preds = %184
+  %194 = icmp eq i8 %190, 2
+  br i1 %194, label %202, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
+
+195:                                              ; preds = %197
+  %196 = icmp eq i32 %199, 0
+  br i1 %196, label %202, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
+
+197:                                              ; preds = %191
+  %198 = load i32, ptr %185, align 4, !noundef !3
+  %.not3.i.i.i = icmp eq i32 %198, 0
+  %199 = load i32, ptr %186, align 4, !noundef !3
+  br i1 %.not3.i.i.i, label %195, label %200
+
+200:                                              ; preds = %197
+  %201 = icmp eq i32 %198, %199
+  br i1 %201, label %202, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
+
+202:                                              ; preds = %200, %195, %193
+  %203 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  %204 = load i8, ptr %203, align 4, !range !8, !noundef !3
+  %205 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %206 = load i8, ptr %205, align 4, !range !8, !noundef !3
+  %207 = icmp eq i8 %204, %206
+  br i1 %207, label %.backedge, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
+
+208:                                              ; preds = %90
+  %209 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %210 = load i32, ptr %209, align 4, !noundef !3
+  %.not.i.i = icmp eq i32 %210, 0
+  %211 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %212 = load i32, ptr %211, align 4, !noundef !3
+  br i1 %.not.i.i, label %215, label %213
+
+213:                                              ; preds = %208
+  %214 = icmp eq i32 %210, %212
+  br i1 %214, label %.backedge, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
+
+215:                                              ; preds = %208
+  %216 = icmp eq i32 %212, 0
+  br i1 %216, label %.backedge, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
+
+"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit": ; preds = %11
+  %217 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %218 = load i8, ptr %217, align 1, !range !201, !noundef !3
+  %219 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %220 = load i8, ptr %219, align 1, !range !201, !noundef !3
+  %221 = icmp eq i8 %218, %220
+  br i1 %221, label %.backedge, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread"
+
+.backedge:                                        ; preds = %12, %18, %152, %202, %213, %150, %75, %180, %137, %160, %40, %84, %60, %91, %97, %112, %154, %215, %135, %174, %11, %172, %90, %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit"
   %exitcond.not = icmp eq i64 %5, %1
   br i1 %exitcond.not, label %"_ZN86_$LT$ruff_formatter..format_element..FormatElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17hea2d84834709b8f4E.exit.thread", label %.lr.ph
 }
@@ -2246,17 +2246,17 @@ attributes #17 = { noreturn }
 !188 = !{!179, !181, !176}
 !189 = !{!187, !179, !181, !176, !182}
 !190 = !{i8 0, i8 11}
-!191 = !{i8 0, i8 4}
-!192 = !{!193}
-!193 = distinct !{!193, !194, !"_ZN92_$LT$ruff_formatter..format_element..BestFittingVariants$u20$as$u20$core..cmp..PartialEq$GT$2eq17h878333ad76786518E: argument 0"}
-!194 = distinct !{!194, !"_ZN92_$LT$ruff_formatter..format_element..BestFittingVariants$u20$as$u20$core..cmp..PartialEq$GT$2eq17h878333ad76786518E"}
-!195 = !{!196}
-!196 = distinct !{!196, !194, !"_ZN92_$LT$ruff_formatter..format_element..BestFittingVariants$u20$as$u20$core..cmp..PartialEq$GT$2eq17h878333ad76786518E: argument 1"}
-!197 = !{!193, !196}
-!198 = !{i8 0, i8 30}
-!199 = !{i8 1, i8 0}
-!200 = !{i32 1, i32 0}
-!201 = !{i32 0, i32 3}
+!191 = !{!192}
+!192 = distinct !{!192, !193, !"_ZN92_$LT$ruff_formatter..format_element..BestFittingVariants$u20$as$u20$core..cmp..PartialEq$GT$2eq17h878333ad76786518E: argument 0"}
+!193 = distinct !{!193, !"_ZN92_$LT$ruff_formatter..format_element..BestFittingVariants$u20$as$u20$core..cmp..PartialEq$GT$2eq17h878333ad76786518E"}
+!194 = !{!195}
+!195 = distinct !{!195, !193, !"_ZN92_$LT$ruff_formatter..format_element..BestFittingVariants$u20$as$u20$core..cmp..PartialEq$GT$2eq17h878333ad76786518E: argument 1"}
+!196 = !{!192, !195}
+!197 = !{i8 0, i8 30}
+!198 = !{i8 1, i8 0}
+!199 = !{i32 1, i32 0}
+!200 = !{i32 0, i32 3}
+!201 = !{i8 0, i8 4}
 !202 = !{!203}
 !203 = distinct !{!203, !204, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17h0c7441d8d417fd75E: argument 0"}
 !204 = distinct !{!204, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17h0c7441d8d417fd75E"}

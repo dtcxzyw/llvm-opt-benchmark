@@ -232,8 +232,8 @@ define dso_local void @spgrescan(ptr noundef readonly captures(none) %0, ptr nou
   %38 = icmp slt i64 %indvars.iv.next, %37
   br i1 %38, label %28, label %.loopexit, !llvm.loop !6
 
-.loopexit.thread:                                 ; preds = %20, %18
-  %.ph = phi i32 [ %.pre, %18 ], [ %25, %20 ]
+.loopexit.thread:                                 ; preds = %18, %20
+  %.ph = phi i32 [ %25, %20 ], [ %.pre, %18 ]
   %39 = load ptr, ptr %6, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 136
   store i32 %.ph, ptr %40, align 8
@@ -369,9 +369,9 @@ define dso_local void @spgrescan(ptr noundef readonly captures(none) %0, ptr nou
   br label %spgPrepareScanKeys.exit
 
 spgPrepareScanKeys.exit:                          ; preds = %._crit_edge.i, %._crit_edge93.i, %._crit_edge93.thread.i
-  %.357.ph.lcssa.sink.i = phi i8 [ 0, %._crit_edge93.thread.i ], [ 1, %._crit_edge.i ], [ %.357.ph.i, %._crit_edge93.i ]
-  %.369.ph.lcssa.sink.i = phi i8 [ 0, %._crit_edge93.thread.i ], [ 1, %._crit_edge.i ], [ %.369.ph.i, %._crit_edge93.i ]
-  %.365.ph.lcssa.sink.i = phi i32 [ 0, %._crit_edge93.thread.i ], [ 0, %._crit_edge.i ], [ %.365.ph.i, %._crit_edge93.i ]
+  %.357.ph.lcssa.sink.i = phi i8 [ 1, %._crit_edge.i ], [ 0, %._crit_edge93.thread.i ], [ %.357.ph.i, %._crit_edge93.i ]
+  %.369.ph.lcssa.sink.i = phi i8 [ 1, %._crit_edge.i ], [ 0, %._crit_edge93.thread.i ], [ %.369.ph.i, %._crit_edge93.i ]
+  %.365.ph.lcssa.sink.i = phi i32 [ 0, %._crit_edge.i ], [ 0, %._crit_edge93.thread.i ], [ %.365.ph.i, %._crit_edge93.i ]
   %101 = getelementptr inbounds nuw i8, ptr %73, i64 120
   store i8 %.357.ph.lcssa.sink.i, ptr %101, align 8
   %102 = getelementptr inbounds nuw i8, ptr %73, i64 121
@@ -952,7 +952,7 @@ BufferGetPage.exit:                               ; preds = %84, %90
   br label %spgInitInnerConsistentIn.exit.i
 
 spgInitInnerConsistentIn.exit.i:                  ; preds = %162, %160, %138
-  %164 = phi i64 [ %161, %160 ], [ %163, %162 ], [ 0, %138 ]
+  %164 = phi i64 [ %163, %162 ], [ %161, %160 ], [ 0, %138 ]
   store i64 %164, ptr %26, align 8
   store i32 %137, ptr %27, align 8
   %165 = call ptr @spgExtractNodeLabels(ptr noundef nonnull %1, ptr noundef nonnull %123) #9
@@ -986,7 +986,7 @@ spgInitInnerConsistentIn.exit.i:                  ; preds = %162, %160, %138
   br i1 %exitcond.not.i, label %.loopexit59.i, label %.lr.ph.i, !llvm.loop !18
 
 .loopexit59.i:                                    ; preds = %.lr.ph.i, %168, %spgInitInnerConsistentIn.exit.i
-  %174 = phi i32 [ 0, %168 ], [ %.pre.i, %spgInitInnerConsistentIn.exit.i ], [ %137, %.lr.ph.i ]
+  %174 = phi i32 [ %.pre.i, %spgInitInnerConsistentIn.exit.i ], [ 0, %168 ], [ %137, %.lr.ph.i ]
   %175 = load i32, ptr %123, align 4
   %176 = and i32 %175, 4
   %177 = icmp eq i32 %176, 0
@@ -1184,7 +1184,7 @@ ItemPointerIsValid.exit.thread.i:                 ; preds = %spgMakeInnerItem.ex
   br label %.thread104
 
 .thread104:                                       ; preds = %.lr.ph, %.preheader, %.preheader110, %273, %.thread102, %57
-  %.4 = phi i32 [ %.3, %57 ], [ %.5, %273 ], [ %.5, %.thread102 ], [ %.5, %.preheader110 ], [ %.5, %.preheader ], [ %.5, %.lr.ph ]
+  %.4 = phi i32 [ %.3, %57 ], [ %.5, %.preheader ], [ %.5, %273 ], [ %.5, %.thread102 ], [ %.5, %.preheader110 ], [ %.5, %.lr.ph ]
   %274 = load i8, ptr %48, align 1, !range !9, !noundef !10
   %275 = trunc nuw i8 %274 to i1
   br i1 %275, label %276, label %279
@@ -1487,7 +1487,7 @@ define internal void @storeGettuple(ptr noundef captures(none) %0, ptr noundef r
   br i1 %56, label %42, label %.sink.split, !llvm.loop !23
 
 .sink.split:                                      ; preds = %51, %35, %30, %31
-  %.sink53 = phi ptr [ null, %31 ], [ null, %30 ], [ %38, %35 ], [ %38, %51 ]
+  %.sink53 = phi ptr [ null, %30 ], [ null, %31 ], [ %38, %35 ], [ %38, %51 ]
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 6856
   %58 = load i32, ptr %15, align 8
   %59 = sext i32 %58 to i64
@@ -1636,7 +1636,7 @@ define internal range(i32 -1, 2) i32 @pairingheap_SpGistSearchItem_cmp(ptr nound
   br label %.thread
 
 .thread:                                          ; preds = %24, %25, %39, %38, %11, %10, %.thread32, %28
-  %.029 = phi i32 [ 0, %.thread32 ], [ %30, %28 ], [ -1, %10 ], [ 1, %11 ], [ 1, %38 ], [ -1, %39 ], [ -1, %24 ], [ 1, %25 ]
+  %.029 = phi i32 [ 0, %.thread32 ], [ 1, %38 ], [ -1, %39 ], [ %30, %28 ], [ -1, %10 ], [ 1, %11 ], [ -1, %24 ], [ 1, %25 ]
   ret i32 %.029
 }
 

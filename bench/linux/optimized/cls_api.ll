@@ -587,7 +587,7 @@ define internal fastcc void @__tcf_chain_put(ptr noundef %0, i1 noundef zeroext 
   br label %77
 
 77:                                               ; preds = %76, %72
-  %78 = phi i1 [ false, %76 ], [ true, %72 ]
+  %78 = phi i1 [ true, %72 ], [ false, %76 ]
   tail call void @mutex_unlock(ptr noundef nonnull %6) #14
   %79 = icmp eq ptr %24, null
   br i1 %79, label %85, label %80
@@ -878,7 +878,7 @@ define internal fastcc ptr @__tcf_get_next_proto(ptr noundef %0, ptr noundef %1)
   br label %.thread
 
 .thread:                                          ; preds = %32, %17, %47, %43, %35
-  %49 = phi ptr [ %39, %47 ], [ %39, %43 ], [ null, %35 ], [ null, %17 ], [ null, %32 ]
+  %49 = phi ptr [ null, %35 ], [ %39, %47 ], [ %39, %43 ], [ null, %17 ], [ null, %32 ]
   tail call void @mutex_unlock(ptr noundef %0) #14
   ret ptr %49
 }
@@ -1373,8 +1373,8 @@ thread-pre-split:                                 ; preds = %13
   br label %.thread19
 
 .thread19:                                        ; preds = %65, %.loopexit, %195, %63
-  %203 = phi ptr [ %18, %63 ], [ %66, %195 ], [ %66, %.loopexit ], [ %66, %65 ]
-  %204 = phi i32 [ %55, %63 ], [ %183, %195 ], [ %183, %.loopexit ], [ -12, %65 ]
+  %203 = phi ptr [ %66, %.loopexit ], [ %18, %63 ], [ %66, %195 ], [ %66, %65 ]
+  %204 = phi i32 [ %183, %.loopexit ], [ %55, %63 ], [ %183, %195 ], [ -12, %65 ]
   tail call fastcc void @__tcf_block_put(ptr noundef %203, ptr noundef null, ptr noundef null, i1 noundef zeroext true)
   br label %205
 
@@ -1501,7 +1501,7 @@ define internal fastcc void @tcf_chain0_head_change_cb_del(ptr noundef %0, ptr n
   br i1 %34, label %.split6.us, label %49
 
 .split6.us:                                       ; preds = %30, %19, %.split.us
-  %.us-phi = phi ptr [ %6, %.split.us ], [ %15, %19 ], [ %26, %30 ]
+  %.us-phi = phi ptr [ %15, %19 ], [ %6, %.split.us ], [ %26, %30 ]
   %35 = load ptr, ptr %4, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %44, label %37
@@ -2066,7 +2066,7 @@ define dso_local range(i32 -1, -2147483648) i32 @tcf_classify(ptr noundef %0, pt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %46, %.thread4, %78, %12, %41, %.thread4.us.us, %100, %5
-  %102 = phi i32 [ 2, %100 ], [ -1, %5 ], [ %38, %41 ], [ -1, %.thread4.us.us ], [ -1, %12 ], [ %73, %78 ], [ -1, %.thread4 ], [ -1, %46 ]
+  %102 = phi i32 [ 2, %100 ], [ -1, %5 ], [ -1, %12 ], [ %73, %78 ], [ -1, %.thread4.us.us ], [ %38, %41 ], [ -1, %.thread4 ], [ -1, %46 ]
   ret i32 %102
 }
 
@@ -2556,7 +2556,7 @@ define dso_local i32 @tc_setup_cb_call(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %39, label %.loopexit, label %.preheader.split, !llvm.loop !59
 
 .loopexit:                                        ; preds = %.preheader.split, %24, %.preheader.split.us, %.loopexit3
-  %40 = phi i32 [ 0, %.loopexit3 ], [ %22, %.preheader.split.us ], [ %25, %24 ], [ %37, %.preheader.split ]
+  %40 = phi i32 [ 0, %.loopexit3 ], [ %25, %24 ], [ %22, %.preheader.split.us ], [ %37, %.preheader.split ]
   tail call void @up_read(ptr noundef nonnull %9) #14
   br i1 %12, label %41, label %42
 
@@ -2657,7 +2657,7 @@ define dso_local range(i32 -2147483648, 1) i32 @tc_setup_cb_add(ptr noundef %0, 
   br i1 %47, label %.split.us, label %.preheader.split, !llvm.loop !59
 
 .split.us:                                        ; preds = %.preheader.split, %.preheader.split.us, %32
-  %.us-phi9 = phi i32 [ %30, %.preheader.split.us ], [ %33, %32 ], [ %45, %.preheader.split ]
+  %.us-phi9 = phi i32 [ %33, %32 ], [ %30, %.preheader.split.us ], [ %45, %.preheader.split ]
   %48 = icmp slt i32 %.us-phi9, 0
   br i1 %48, label %72, label %.thread5
 
@@ -2826,7 +2826,7 @@ define dso_local range(i32 -2147483648, 1) i32 @tc_setup_cb_replace(ptr noundef 
   br i1 %64, label %.split.us, label %.preheader.split, !llvm.loop !59
 
 .split.us:                                        ; preds = %.preheader.split, %.preheader.split.us, %49
-  %.us-phi10 = phi i32 [ %47, %.preheader.split.us ], [ %50, %49 ], [ %62, %.preheader.split ]
+  %.us-phi10 = phi i32 [ %50, %49 ], [ %47, %.preheader.split.us ], [ %62, %.preheader.split ]
   %65 = icmp slt i32 %.us-phi10, 0
   br i1 %65, label %87, label %.thread6
 
@@ -2957,7 +2957,7 @@ define dso_local range(i32 -2147483648, 1) i32 @tc_setup_cb_destroy(ptr noundef 
   br i1 %42, label %.loopexit, label %.preheader.split, !llvm.loop !59
 
 .loopexit:                                        ; preds = %.preheader.split, %27, %.preheader.split.us, %.loopexit4
-  %43 = phi i32 [ 0, %.loopexit4 ], [ %25, %.preheader.split.us ], [ %28, %27 ], [ %40, %.preheader.split ]
+  %43 = phi i32 [ 0, %.loopexit4 ], [ %28, %27 ], [ %25, %.preheader.split.us ], [ %40, %.preheader.split ]
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 56
   tail call void @_raw_spin_lock(ptr noundef nonnull %44) #14
   %45 = load i32, ptr %5, align 4
@@ -3248,7 +3248,7 @@ define dso_local i32 @tc_setup_action(ptr noundef %0, ptr noundef readonly captu
   br i1 %80, label %.thread21, label %14, !llvm.loop !64
 
 .thread17:                                        ; preds = %43, %41, %42, %35
-  %.ph = phi i32 [ -12, %35 ], [ -95, %42 ], [ -95, %41 ], [ %44, %43 ]
+  %.ph = phi i32 [ -12, %35 ], [ -95, %41 ], [ -95, %42 ], [ %44, %43 ]
   call void @_raw_spin_unlock_bh(ptr noundef nonnull %24) #14
   %81 = load i32, ptr %0, align 8
   %82 = icmp eq i32 %81, 0
@@ -3280,7 +3280,7 @@ define dso_local i32 @tc_setup_action(ptr noundef %0, ptr noundef readonly captu
   br i1 %98, label %.preheader, label %.thread21, !llvm.loop !62
 
 .thread21:                                        ; preds = %.loopexit, %14, %93, %7, %.thread17, %4
-  %99 = phi i32 [ 0, %4 ], [ %.ph, %.thread17 ], [ 0, %7 ], [ %.ph, %93 ], [ 0, %14 ], [ 0, %.loopexit ]
+  %99 = phi i32 [ 0, %4 ], [ %.ph, %93 ], [ %.ph, %.thread17 ], [ 0, %7 ], [ 0, %14 ], [ 0, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %99
 }
@@ -3448,7 +3448,7 @@ define dso_local noundef range(i32 -22, 1) i32 @tcf_qevent_validate_change(ptr n
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %9, %15, %11, %3
-  %17 = phi i32 [ 0, %3 ], [ -22, %15 ], [ 0, %11 ], [ -22, %9 ], [ -22, %.thread.sink.split ]
+  %17 = phi i32 [ 0, %3 ], [ 0, %11 ], [ -22, %9 ], [ -22, %15 ], [ -22, %.thread.sink.split ]
   ret i32 %17
 }
 
@@ -4279,8 +4279,8 @@ define internal fastcc i32 @tcf_block_playback_offloads(ptr noundef %0, ptr noun
   br i1 %32, label %.thread, label %19, !llvm.loop !19
 
 .thread:                                          ; preds = %.thread24, %26, %6
-  %33 = phi i32 [ poison, %6 ], [ %17, %26 ], [ %201, %.thread24 ]
-  %34 = phi i1 [ false, %6 ], [ %16, %26 ], [ true, %.thread24 ]
+  %33 = phi i32 [ %17, %26 ], [ poison, %6 ], [ %201, %.thread24 ]
+  %34 = phi i1 [ %16, %26 ], [ false, %6 ], [ true, %.thread24 ]
   tail call void @mutex_unlock(ptr noundef nonnull %7) #14
   br label %.loopexit28
 
@@ -4418,7 +4418,7 @@ define internal fastcc i32 @tcf_block_playback_offloads(ptr noundef %0, ptr noun
   br label %__tcf_get_next_proto.exit
 
 __tcf_get_next_proto.exit:                        ; preds = %91, %77, %94, %101, %105
-  %107 = phi ptr [ %97, %105 ], [ %97, %101 ], [ null, %94 ], [ null, %77 ], [ null, %91 ]
+  %107 = phi ptr [ null, %94 ], [ %97, %105 ], [ %97, %101 ], [ null, %77 ], [ null, %91 ]
   tail call void @mutex_unlock(ptr noundef nonnull %40) #14
   %108 = getelementptr inbounds nuw i8, ptr %53, i64 64
   %109 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %108, i32 -1, ptr nonnull elementtype(i32) %108) #14, !srcloc !20
@@ -5411,13 +5411,13 @@ define internal i32 @tc_new_tfilter(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %.thread63
 
 .sink.split:                                      ; preds = %249, %236, %226, %213
-  %tc_new_tfilter.__msg.24.sink = phi ptr [ @tc_new_tfilter.__msg.21, %213 ], [ @tc_new_tfilter.__msg.22, %226 ], [ @tc_new_tfilter.__msg.23, %236 ], [ @tc_new_tfilter.__msg.24, %249 ]
-  %.ph140 = phi i32 [ -22, %213 ], [ -2, %226 ], [ -17, %236 ], [ -22, %249 ]
+  %tc_new_tfilter.__msg.24.sink = phi ptr [ @tc_new_tfilter.__msg.23, %236 ], [ @tc_new_tfilter.__msg.22, %226 ], [ @tc_new_tfilter.__msg.21, %213 ], [ @tc_new_tfilter.__msg.24, %249 ]
+  %.ph140 = phi i32 [ -17, %236 ], [ -2, %226 ], [ -22, %213 ], [ -22, %249 ]
   store ptr %tc_new_tfilter.__msg.24.sink, ptr %2, align 8
   br label %283
 
 283:                                              ; preds = %.sink.split, %250, %249, %236, %226, %213
-  %284 = phi i32 [ -2, %226 ], [ %264, %250 ], [ -22, %249 ], [ -17, %236 ], [ -22, %213 ], [ %.ph140, %.sink.split ]
+  %284 = phi i32 [ -2, %226 ], [ -22, %213 ], [ -17, %236 ], [ %264, %250 ], [ -22, %249 ], [ %.ph140, %.sink.split ]
   br i1 %203, label %285, label %.thread63
 
 285:                                              ; preds = %283
@@ -5426,9 +5426,9 @@ define internal i32 @tc_new_tfilter(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %.thread63
 
 .thread63:                                        ; preds = %283, %285, %197, %277, %279, %.thread58
-  %287 = phi ptr [ %202, %285 ], [ %202, %283 ], [ %195, %197 ], [ %202, %279 ], [ %202, %277 ], [ %346, %.thread58 ]
-  %288 = phi i32 [ %284, %285 ], [ %284, %283 ], [ %199, %197 ], [ 0, %279 ], [ 0, %277 ], [ %347, %.thread58 ]
-  %289 = phi i32 [ 1, %285 ], [ %204, %283 ], [ 1, %197 ], [ %204, %279 ], [ %204, %277 ], [ 0, %.thread58 ]
+  %287 = phi ptr [ %202, %285 ], [ %202, %283 ], [ %202, %279 ], [ %195, %197 ], [ %202, %277 ], [ %346, %.thread58 ]
+  %288 = phi i32 [ %284, %285 ], [ %284, %283 ], [ 0, %279 ], [ %199, %197 ], [ 0, %277 ], [ %347, %.thread58 ]
+  %289 = phi i32 [ 1, %285 ], [ %204, %283 ], [ %204, %279 ], [ 1, %197 ], [ %204, %277 ], [ 0, %.thread58 ]
   %290 = icmp eq ptr %287, null
   %291 = icmp ugt ptr %287, inttoptr (i64 -4096 to ptr)
   %292 = or i1 %290, %291
@@ -5519,7 +5519,7 @@ tcf_proto_destroy.exit:                           ; preds = %300, %320
   br label %336
 
 .thread63.thread:                                 ; preds = %121, %122, %126, %127, %327, %.thread74
-  %331 = phi i32 [ %328, %327 ], [ %288, %.thread74 ], [ -22, %121 ], [ -22, %122 ], [ -12, %126 ], [ -12, %127 ]
+  %331 = phi i32 [ -22, %122 ], [ %328, %327 ], [ %288, %.thread74 ], [ -12, %126 ], [ -12, %127 ], [ -22, %121 ]
   %332 = load ptr, ptr %7, align 8
   %333 = icmp ne i8 %86, 0
   %334 = icmp eq ptr %107, null
@@ -5571,7 +5571,7 @@ tcf_proto_destroy.exit:                           ; preds = %300, %320
   br label %.thread
 
 .thread:                                          ; preds = %344, %43, %28, %.thread.sink.split, %27, %42
-  %348 = phi i32 [ -2, %42 ], [ -22, %27 ], [ %.ph141, %.thread.sink.split ], [ %339, %344 ], [ %46, %43 ], [ %30, %28 ]
+  %348 = phi i32 [ %.ph141, %.thread.sink.split ], [ -2, %42 ], [ -22, %27 ], [ %30, %28 ], [ %339, %344 ], [ %46, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -5927,7 +5927,7 @@ define internal i32 @tc_del_tfilter(ptr noundef readonly captures(address_is_nul
   br label %.thread67
 
 .thread67:                                        ; preds = %183, %176, %174, %162, %184
-  %185 = phi i32 [ -22, %184 ], [ -2, %174 ], [ -2, %176 ], [ %178, %183 ], [ 0, %162 ]
+  %185 = phi i32 [ -22, %184 ], [ 0, %162 ], [ -2, %174 ], [ %178, %183 ], [ -2, %176 ]
   %186 = getelementptr inbounds nuw i8, ptr %137, i64 64
   %187 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %186, i32 -1, ptr nonnull elementtype(i32) %186) #14, !srcloc !20
   %188 = icmp eq i32 %187, 1
@@ -5988,7 +5988,7 @@ tcf_proto_destroy.exit:                           ; preds = %192, %211
   br label %.thread37
 
 .thread37:                                        ; preds = %.thread70, %189, %191, %.thread35, %tcf_proto_destroy.exit
-  %217 = phi i32 [ 0, %.thread35 ], [ %185, %tcf_proto_destroy.exit ], [ %185, %191 ], [ %185, %189 ], [ %.ph69, %.thread70 ]
+  %217 = phi i32 [ 0, %.thread35 ], [ %185, %tcf_proto_destroy.exit ], [ %.ph69, %.thread70 ], [ %185, %191 ], [ %185, %189 ]
   call fastcc void @__tcf_chain_put(ptr noundef nonnull %129, i1 noundef zeroext false, i1 noundef zeroext false)
   %.pre42 = load ptr, ptr %7, align 8
   br label %.thread34
@@ -6001,15 +6001,15 @@ tcf_proto_destroy.exit:                           ; preds = %192, %211
   br label %.thread34.thread
 
 .thread34.thread:                                 ; preds = %.thread34.thread.sink.split, %108, %58
-  %.ph40 = phi i8 [ 0, %58 ], [ %91, %108 ], [ %.ph40.ph, %.thread34.thread.sink.split ]
-  %.ph41 = phi i32 [ -22, %58 ], [ -2, %108 ], [ %.ph41.ph, %.thread34.thread.sink.split ]
+  %.ph40 = phi i8 [ %91, %108 ], [ 0, %58 ], [ %.ph40.ph, %.thread34.thread.sink.split ]
+  %.ph41 = phi i32 [ -2, %108 ], [ -22, %58 ], [ %.ph41.ph, %.thread34.thread.sink.split ]
   %218 = load ptr, ptr %7, align 8
   %219 = icmp ne i8 %.ph40, 0
   br label %224
 
 .thread34:                                        ; preds = %132, %134, %131, %125, %127, %.thread37
-  %220 = phi ptr [ %.pre42, %.thread37 ], [ %92, %132 ], [ %92, %134 ], [ %92, %131 ], [ %92, %125 ], [ %92, %127 ]
-  %221 = phi i32 [ %217, %.thread37 ], [ -2, %132 ], [ -2, %134 ], [ 0, %131 ], [ -22, %125 ], [ -22, %127 ]
+  %220 = phi ptr [ %.pre42, %.thread37 ], [ %92, %127 ], [ %92, %125 ], [ %92, %132 ], [ %92, %134 ], [ %92, %131 ]
+  %221 = phi i32 [ %217, %.thread37 ], [ -22, %127 ], [ -22, %125 ], [ -2, %132 ], [ -2, %134 ], [ 0, %131 ]
   %222 = icmp eq ptr %113, null
   br i1 %222, label %224, label %223
 
@@ -6043,7 +6043,7 @@ tcf_proto_destroy.exit:                           ; preds = %192, %211
   br label %.thread
 
 .thread:                                          ; preds = %16, %18, %.thread39, %231, %230, %45, %44, %42, %19
-  %232 = phi i32 [ %22, %19 ], [ -2, %44 ], [ -2, %42 ], [ %48, %45 ], [ %227, %231 ], [ %227, %230 ], [ %227, %.thread39 ], [ -22, %18 ], [ -22, %16 ]
+  %232 = phi i32 [ %227, %230 ], [ %22, %19 ], [ -2, %44 ], [ -2, %42 ], [ %48, %45 ], [ %227, %231 ], [ %227, %.thread39 ], [ -22, %18 ], [ -22, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -6343,7 +6343,7 @@ define internal i32 @tc_get_tfilter(ptr noundef readonly captures(address_is_nul
   br label %165
 
 165:                                              ; preds = %162, %160, %157
-  %166 = phi i32 [ %158, %157 ], [ %158, %160 ], [ %164, %162 ]
+  %166 = phi i32 [ %158, %157 ], [ %164, %162 ], [ %158, %160 ]
   %167 = load ptr, ptr %147, align 8
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 64
   %169 = load ptr, ptr %168, align 8
@@ -6357,7 +6357,7 @@ define internal i32 @tc_get_tfilter(ptr noundef readonly captures(address_is_nul
   br label %.thread32
 
 .thread32:                                        ; preds = %155, %131, %143, %145, %165, %173
-  %174 = phi i32 [ %133, %131 ], [ -22, %145 ], [ -22, %143 ], [ %166, %165 ], [ %166, %173 ], [ -2, %155 ]
+  %174 = phi i32 [ %166, %173 ], [ -22, %143 ], [ %166, %165 ], [ %133, %131 ], [ -22, %145 ], [ -2, %155 ]
   br i1 %125, label %.thread38, label %175
 
 175:                                              ; preds = %.thread32
@@ -6422,8 +6422,8 @@ tcf_proto_destroy.exit:                           ; preds = %182, %201
   br label %.thread38
 
 .thread38:                                        ; preds = %179, %181, %130, %tcf_proto_destroy.exit, %.thread32
-  %.pre45 = phi ptr [ %.pre45.pre, %tcf_proto_destroy.exit ], [ %80, %.thread32 ], [ %80, %130 ], [ %80, %181 ], [ %80, %179 ]
-  %207 = phi i32 [ %174, %tcf_proto_destroy.exit ], [ %174, %.thread32 ], [ -2, %130 ], [ %174, %181 ], [ %174, %179 ]
+  %.pre45 = phi ptr [ %80, %.thread32 ], [ %.pre45.pre, %tcf_proto_destroy.exit ], [ %80, %130 ], [ %80, %181 ], [ %80, %179 ]
+  %207 = phi i32 [ %174, %.thread32 ], [ %174, %tcf_proto_destroy.exit ], [ -2, %130 ], [ %174, %181 ], [ %174, %179 ]
   call fastcc void @__tcf_chain_put(ptr noundef nonnull %117, i1 noundef zeroext false, i1 noundef zeroext false)
   br label %.thread37
 
@@ -6435,15 +6435,15 @@ tcf_proto_destroy.exit:                           ; preds = %182, %201
   br label %.thread37.thread
 
 .thread37.thread:                                 ; preds = %.thread37.thread.sink.split, %96, %47
-  %.ph43 = phi i8 [ 0, %47 ], [ %79, %96 ], [ %.ph43.ph, %.thread37.thread.sink.split ]
-  %.ph44 = phi i32 [ -22, %47 ], [ -2, %96 ], [ %.ph44.ph, %.thread37.thread.sink.split ]
+  %.ph43 = phi i8 [ %79, %96 ], [ 0, %47 ], [ %.ph43.ph, %.thread37.thread.sink.split ]
+  %.ph44 = phi i32 [ -2, %96 ], [ -22, %47 ], [ %.ph44.ph, %.thread37.thread.sink.split ]
   %208 = load ptr, ptr %7, align 8
   %209 = icmp ne i8 %.ph43, 0
   br label %214
 
 .thread37:                                        ; preds = %119, %121, %113, %115, %.thread38
-  %210 = phi ptr [ %.pre45, %.thread38 ], [ %80, %119 ], [ %80, %121 ], [ %80, %113 ], [ %80, %115 ]
-  %211 = phi i32 [ %207, %.thread38 ], [ -22, %119 ], [ -22, %121 ], [ -22, %113 ], [ -22, %115 ]
+  %210 = phi ptr [ %.pre45, %.thread38 ], [ %80, %115 ], [ %80, %113 ], [ %80, %119 ], [ %80, %121 ]
+  %211 = phi i32 [ %207, %.thread38 ], [ -22, %115 ], [ -22, %113 ], [ -22, %119 ], [ -22, %121 ]
   %212 = icmp eq ptr %101, null
   br i1 %212, label %214, label %213
 
@@ -6962,7 +6962,7 @@ tcf_proto_destroy.exit34:                         ; preds = %258, %277
   br label %.loopexit47
 
 283:                                              ; preds = %.thread46, %145
-  %284 = phi i64 [ %142, %145 ], [ %.ph, %.thread46 ]
+  %284 = phi i64 [ %.ph, %.thread46 ], [ %142, %145 ]
   call void @mutex_lock(ptr noundef nonnull %104) #14
   %285 = getelementptr inbounds nuw i8, ptr %141, i64 40
   %286 = load ptr, ptr %285, align 8
@@ -7029,7 +7029,7 @@ tcf_proto_destroy.exit34:                         ; preds = %258, %277
   br label %.thread
 
 .thread:                                          ; preds = %22, %24, %.thread37, %.thread36, %25, %15
-  %322 = phi i32 [ %17, %15 ], [ %28, %25 ], [ %321, %.thread36 ], [ %53, %.thread37 ], [ -22, %24 ], [ -22, %22 ]
+  %322 = phi i32 [ %17, %15 ], [ %53, %.thread37 ], [ %28, %25 ], [ %321, %.thread36 ], [ -22, %24 ], [ -22, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %322
 }
@@ -7146,7 +7146,7 @@ define internal i32 @tc_ctl_chain(ptr noundef readonly captures(address_is_null)
   br label %66
 
 66:                                               ; preds = %58, %59, %63
-  %67 = phi i32 [ %65, %63 ], [ -2, %58 ], [ -2, %59 ]
+  %67 = phi i32 [ %65, %63 ], [ -2, %59 ], [ -2, %58 ]
   %68 = icmp eq ptr %.pre, null
   br i1 %68, label %70, label %69
 
@@ -7770,7 +7770,7 @@ define internal i32 @tc_dump_chain(ptr noundef %0, ptr noundef captures(none) %1
   br label %.thread
 
 .thread:                                          ; preds = %20, %22, %.thread19, %.thread18, %23, %13
-  %146 = phi i32 [ %15, %13 ], [ %26, %23 ], [ %145, %.thread18 ], [ %41, %.thread19 ], [ -22, %22 ], [ -22, %20 ]
+  %146 = phi i32 [ %15, %13 ], [ %41, %.thread19 ], [ %26, %23 ], [ %145, %.thread18 ], [ -22, %22 ], [ -22, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %146
 }
@@ -8045,7 +8045,7 @@ define internal fastcc ptr @__tcf_block_find(ptr noundef %0, ptr noundef %1, i64
   br label %40
 
 40:                                               ; preds = %29, %27, %14, %34, %35, %39, %13, %11, %8
-  %41 = phi ptr [ %9, %8 ], [ inttoptr (i64 -22 to ptr), %13 ], [ inttoptr (i64 -22 to ptr), %11 ], [ inttoptr (i64 -22 to ptr), %14 ], [ inttoptr (i64 -95 to ptr), %29 ], [ inttoptr (i64 -95 to ptr), %27 ], [ %21, %34 ], [ %21, %35 ], [ %21, %39 ]
+  %41 = phi ptr [ %9, %8 ], [ inttoptr (i64 -22 to ptr), %11 ], [ inttoptr (i64 -22 to ptr), %13 ], [ inttoptr (i64 -95 to ptr), %27 ], [ inttoptr (i64 -22 to ptr), %14 ], [ inttoptr (i64 -95 to ptr), %29 ], [ %21, %34 ], [ %21, %35 ], [ %21, %39 ]
   ret ptr %41
 }
 
@@ -8110,7 +8110,7 @@ define internal fastcc ptr @tcf_chain_tp_find(ptr noundef nonnull %0, ptr nounde
   br label %36
 
 36:                                               ; preds = %.loopexit, %34, %30, %29, %16
-  %37 = phi ptr [ null, %.loopexit ], [ inttoptr (i64 -22 to ptr), %16 ], [ %8, %29 ], [ %8, %30 ], [ %8, %34 ]
+  %37 = phi ptr [ null, %.loopexit ], [ inttoptr (i64 -22 to ptr), %16 ], [ %8, %34 ], [ %8, %29 ], [ %8, %30 ]
   ret ptr %37
 }
 
@@ -8447,7 +8447,7 @@ define internal fastcc ptr @tcf_chain_tp_insert_unique(ptr noundef nonnull %0, p
   br label %172
 
 172:                                              ; preds = %.thread24, %170, %158, %168, %.critedge, %85, %75
-  %173 = phi ptr [ %1, %158 ], [ inttoptr (i64 -11 to ptr), %75 ], [ inttoptr (i64 -11 to ptr), %85 ], [ %.ph22, %.critedge ], [ %.ph22, %168 ], [ inttoptr (i64 -11 to ptr), %170 ], [ inttoptr (i64 -11 to ptr), %.thread24 ]
+  %173 = phi ptr [ %.ph22, %168 ], [ %1, %158 ], [ inttoptr (i64 -11 to ptr), %75 ], [ inttoptr (i64 -11 to ptr), %85 ], [ %.ph22, %.critedge ], [ inttoptr (i64 -11 to ptr), %170 ], [ inttoptr (i64 -11 to ptr), %.thread24 ]
   ret ptr %173
 }
 

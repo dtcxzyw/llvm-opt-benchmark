@@ -809,7 +809,7 @@ default.unreachable118:                           ; preds = %corosync_totemsrp_g
   br label %329
 
 329:                                              ; preds = %32, %28, %4, %328
-  %.084 = phi i32 [ %26, %328 ], [ 0, %4 ], [ 0, %28 ], [ 0, %32 ]
+  %.084 = phi i32 [ 0, %28 ], [ 0, %4 ], [ %26, %328 ], [ 0, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   ret i32 %.084
 }

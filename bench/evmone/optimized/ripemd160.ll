@@ -136,7 +136,7 @@ define internal fastcc void @_ZN6evmone6crypto12_GLOBAL__N_18compressERSt5arrayI
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i: ; preds = %37, %35, %6
-  %.0.i.i.i = phi i32 [ %36, %35 ], [ %42, %37 ], [ %30, %6 ]
+  %.0.i.i.i = phi i32 [ %42, %37 ], [ %36, %35 ], [ %30, %6 ]
   %43 = add i32 %.0.i.i.i, %26
   store i32 %43, ptr %19, align 4, !tbaa !13
   store i32 %20, ptr %21, align 4, !tbaa !13
@@ -197,7 +197,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm0EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; pr
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i17
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i17: ; preds = %77, %75, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm0EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i18 = phi i32 [ %76, %75 ], [ %82, %77 ], [ %70, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm0EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i18 = phi i32 [ %82, %77 ], [ %76, %75 ], [ %70, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm0EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %83 = add i32 %.0.i.i.i18, %66
   store i32 %83, ptr %59, align 4, !tbaa !13
   store i32 %60, ptr %61, align 4, !tbaa !13
@@ -258,7 +258,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm1EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; pr
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i21
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i21: ; preds = %117, %115, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm1EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i22 = phi i32 [ %116, %115 ], [ %122, %117 ], [ %110, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm1EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i22 = phi i32 [ %122, %117 ], [ %116, %115 ], [ %110, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm1EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %123 = add i32 %.0.i.i.i22, %106
   store i32 %123, ptr %99, align 4, !tbaa !13
   store i32 %100, ptr %101, align 4, !tbaa !13
@@ -319,7 +319,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm2EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; pr
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i25
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i25: ; preds = %157, %155, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm2EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i26 = phi i32 [ %156, %155 ], [ %162, %157 ], [ %150, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm2EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i26 = phi i32 [ %162, %157 ], [ %156, %155 ], [ %150, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm2EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %163 = add i32 %.0.i.i.i26, %146
   store i32 %163, ptr %139, align 4, !tbaa !13
   store i32 %140, ptr %141, align 4, !tbaa !13
@@ -380,7 +380,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm3EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; pr
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i29
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i29: ; preds = %197, %195, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm3EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i30 = phi i32 [ %196, %195 ], [ %202, %197 ], [ %190, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm3EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i30 = phi i32 [ %202, %197 ], [ %196, %195 ], [ %190, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm3EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %203 = add i32 %.0.i.i.i30, %186
   store i32 %203, ptr %179, align 4, !tbaa !13
   store i32 %180, ptr %181, align 4, !tbaa !13
@@ -441,7 +441,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm4EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; pr
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i33
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i33: ; preds = %237, %235, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm4EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i34 = phi i32 [ %236, %235 ], [ %242, %237 ], [ %230, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm4EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i34 = phi i32 [ %242, %237 ], [ %236, %235 ], [ %230, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm4EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %243 = add i32 %.0.i.i.i34, %226
   store i32 %243, ptr %219, align 4, !tbaa !13
   store i32 %220, ptr %221, align 4, !tbaa !13
@@ -502,7 +502,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm5EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; pr
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i37
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i37: ; preds = %277, %275, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm5EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i38 = phi i32 [ %276, %275 ], [ %282, %277 ], [ %270, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm5EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i38 = phi i32 [ %282, %277 ], [ %276, %275 ], [ %270, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm5EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %283 = add i32 %.0.i.i.i38, %266
   store i32 %283, ptr %259, align 4, !tbaa !13
   store i32 %260, ptr %261, align 4, !tbaa !13
@@ -563,7 +563,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm6EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; pr
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i41
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i41: ; preds = %317, %315, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm6EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i42 = phi i32 [ %316, %315 ], [ %322, %317 ], [ %310, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm6EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i42 = phi i32 [ %322, %317 ], [ %316, %315 ], [ %310, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm6EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %323 = add i32 %.0.i.i.i42, %306
   store i32 %323, ptr %299, align 4, !tbaa !13
   store i32 %300, ptr %301, align 4, !tbaa !13
@@ -624,7 +624,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm7EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; pr
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i45
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i45: ; preds = %357, %355, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm7EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i46 = phi i32 [ %356, %355 ], [ %362, %357 ], [ %350, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm7EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i46 = phi i32 [ %362, %357 ], [ %356, %355 ], [ %350, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm7EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %363 = add i32 %.0.i.i.i46, %346
   store i32 %363, ptr %339, align 4, !tbaa !13
   store i32 %340, ptr %341, align 4, !tbaa !13
@@ -685,7 +685,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm8EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; pr
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i49
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i49: ; preds = %397, %395, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm8EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i50 = phi i32 [ %396, %395 ], [ %402, %397 ], [ %390, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm8EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i50 = phi i32 [ %402, %397 ], [ %396, %395 ], [ %390, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm8EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %403 = add i32 %.0.i.i.i50, %386
   store i32 %403, ptr %379, align 4, !tbaa !13
   store i32 %380, ptr %381, align 4, !tbaa !13
@@ -746,7 +746,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm9EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; pr
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i53
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i53: ; preds = %437, %435, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm9EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i54 = phi i32 [ %436, %435 ], [ %442, %437 ], [ %430, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm9EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i54 = phi i32 [ %442, %437 ], [ %436, %435 ], [ %430, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm9EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %443 = add i32 %.0.i.i.i54, %426
   store i32 %443, ptr %419, align 4, !tbaa !13
   store i32 %420, ptr %421, align 4, !tbaa !13
@@ -807,7 +807,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm10EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i57
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i57: ; preds = %477, %475, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm10EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i58 = phi i32 [ %476, %475 ], [ %482, %477 ], [ %470, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm10EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i58 = phi i32 [ %482, %477 ], [ %476, %475 ], [ %470, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm10EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %483 = add i32 %.0.i.i.i58, %466
   store i32 %483, ptr %459, align 4, !tbaa !13
   store i32 %460, ptr %461, align 4, !tbaa !13
@@ -868,7 +868,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm11EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i61
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i61: ; preds = %517, %515, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm11EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i62 = phi i32 [ %516, %515 ], [ %522, %517 ], [ %510, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm11EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i62 = phi i32 [ %522, %517 ], [ %516, %515 ], [ %510, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm11EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %523 = add i32 %.0.i.i.i62, %506
   store i32 %523, ptr %499, align 4, !tbaa !13
   store i32 %500, ptr %501, align 4, !tbaa !13
@@ -929,7 +929,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm12EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i65
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i65: ; preds = %557, %555, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm12EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i66 = phi i32 [ %556, %555 ], [ %562, %557 ], [ %550, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm12EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i66 = phi i32 [ %562, %557 ], [ %556, %555 ], [ %550, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm12EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %563 = add i32 %.0.i.i.i66, %546
   store i32 %563, ptr %539, align 4, !tbaa !13
   store i32 %540, ptr %541, align 4, !tbaa !13
@@ -990,7 +990,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm13EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i69
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i69: ; preds = %597, %595, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm13EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i70 = phi i32 [ %596, %595 ], [ %602, %597 ], [ %590, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm13EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i70 = phi i32 [ %602, %597 ], [ %596, %595 ], [ %590, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm13EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %603 = add i32 %.0.i.i.i70, %586
   store i32 %603, ptr %579, align 4, !tbaa !13
   store i32 %580, ptr %581, align 4, !tbaa !13
@@ -1051,7 +1051,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm14EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i73
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i73: ; preds = %637, %635, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm14EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i74 = phi i32 [ %636, %635 ], [ %642, %637 ], [ %630, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm14EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i74 = phi i32 [ %642, %637 ], [ %636, %635 ], [ %630, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm14EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %643 = add i32 %.0.i.i.i74, %626
   store i32 %643, ptr %619, align 4, !tbaa !13
   store i32 %620, ptr %621, align 4, !tbaa !13
@@ -1113,7 +1113,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm15EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i77
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i77: ; preds = %678, %676, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm15EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i78 = phi i32 [ %677, %676 ], [ %683, %678 ], [ %671, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm15EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i78 = phi i32 [ %683, %678 ], [ %677, %676 ], [ %671, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm15EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %684 = add i32 %.0.i.i.i78, %667
   store i32 %684, ptr %660, align 4, !tbaa !13
   store i32 %661, ptr %662, align 4, !tbaa !13
@@ -1175,7 +1175,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm16EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i81
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i81: ; preds = %719, %717, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm16EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i82 = phi i32 [ %718, %717 ], [ %724, %719 ], [ %712, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm16EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i82 = phi i32 [ %724, %719 ], [ %718, %717 ], [ %712, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm16EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %725 = add i32 %.0.i.i.i82, %708
   store i32 %725, ptr %701, align 4, !tbaa !13
   store i32 %702, ptr %703, align 4, !tbaa !13
@@ -1237,7 +1237,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm17EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i85
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i85: ; preds = %760, %758, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm17EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i86 = phi i32 [ %759, %758 ], [ %765, %760 ], [ %753, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm17EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i86 = phi i32 [ %765, %760 ], [ %759, %758 ], [ %753, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm17EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %766 = add i32 %.0.i.i.i86, %749
   store i32 %766, ptr %742, align 4, !tbaa !13
   store i32 %743, ptr %744, align 4, !tbaa !13
@@ -1299,7 +1299,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm18EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i89
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i89: ; preds = %801, %799, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm18EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i90 = phi i32 [ %800, %799 ], [ %806, %801 ], [ %794, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm18EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i90 = phi i32 [ %806, %801 ], [ %800, %799 ], [ %794, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm18EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %807 = add i32 %.0.i.i.i90, %790
   store i32 %807, ptr %783, align 4, !tbaa !13
   store i32 %784, ptr %785, align 4, !tbaa !13
@@ -1361,7 +1361,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm19EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i93
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i93: ; preds = %842, %840, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm19EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i94 = phi i32 [ %841, %840 ], [ %847, %842 ], [ %835, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm19EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i94 = phi i32 [ %847, %842 ], [ %841, %840 ], [ %835, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm19EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %848 = add i32 %.0.i.i.i94, %831
   store i32 %848, ptr %824, align 4, !tbaa !13
   store i32 %825, ptr %826, align 4, !tbaa !13
@@ -1423,7 +1423,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm20EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i97
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i97: ; preds = %883, %881, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm20EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i98 = phi i32 [ %882, %881 ], [ %888, %883 ], [ %876, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm20EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i98 = phi i32 [ %888, %883 ], [ %882, %881 ], [ %876, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm20EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %889 = add i32 %.0.i.i.i98, %872
   store i32 %889, ptr %865, align 4, !tbaa !13
   store i32 %866, ptr %867, align 4, !tbaa !13
@@ -1485,7 +1485,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm21EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i101
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i101: ; preds = %924, %922, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm21EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i102 = phi i32 [ %923, %922 ], [ %929, %924 ], [ %917, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm21EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i102 = phi i32 [ %929, %924 ], [ %923, %922 ], [ %917, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm21EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %930 = add i32 %.0.i.i.i102, %913
   store i32 %930, ptr %906, align 4, !tbaa !13
   store i32 %907, ptr %908, align 4, !tbaa !13
@@ -1547,7 +1547,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm22EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i105
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i105: ; preds = %965, %963, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm22EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i106 = phi i32 [ %964, %963 ], [ %970, %965 ], [ %958, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm22EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i106 = phi i32 [ %970, %965 ], [ %964, %963 ], [ %958, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm22EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %971 = add i32 %.0.i.i.i106, %954
   store i32 %971, ptr %947, align 4, !tbaa !13
   store i32 %948, ptr %949, align 4, !tbaa !13
@@ -1647,7 +1647,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm24EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i112
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i112: ; preds = %1033, %1031, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm24EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i113 = phi i32 [ %1032, %1031 ], [ %1038, %1033 ], [ %1026, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm24EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i113 = phi i32 [ %1038, %1033 ], [ %1032, %1031 ], [ %1026, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm24EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %1039 = add i32 %.0.i.i.i113, %1022
   store i32 %1039, ptr %1015, align 4, !tbaa !13
   store i32 %1016, ptr %1017, align 4, !tbaa !13
@@ -1709,7 +1709,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm25EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i116
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i116: ; preds = %1074, %1072, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm25EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i117 = phi i32 [ %1073, %1072 ], [ %1079, %1074 ], [ %1067, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm25EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i117 = phi i32 [ %1079, %1074 ], [ %1073, %1072 ], [ %1067, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm25EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %1080 = add i32 %.0.i.i.i117, %1063
   store i32 %1080, ptr %1056, align 4, !tbaa !13
   store i32 %1057, ptr %1058, align 4, !tbaa !13
@@ -1771,7 +1771,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm26EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i120
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i120: ; preds = %1115, %1113, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm26EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i121 = phi i32 [ %1114, %1113 ], [ %1120, %1115 ], [ %1108, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm26EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i121 = phi i32 [ %1120, %1115 ], [ %1114, %1113 ], [ %1108, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm26EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %1121 = add i32 %.0.i.i.i121, %1104
   store i32 %1121, ptr %1097, align 4, !tbaa !13
   store i32 %1098, ptr %1099, align 4, !tbaa !13
@@ -1833,7 +1833,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm27EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i124
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i124: ; preds = %1156, %1154, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm27EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i125 = phi i32 [ %1155, %1154 ], [ %1161, %1156 ], [ %1149, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm27EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i125 = phi i32 [ %1161, %1156 ], [ %1155, %1154 ], [ %1149, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm27EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %1162 = add i32 %.0.i.i.i125, %1145
   store i32 %1162, ptr %1138, align 4, !tbaa !13
   store i32 %1139, ptr %1140, align 4, !tbaa !13
@@ -1895,7 +1895,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm28EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i128
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i128: ; preds = %1197, %1195, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm28EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i129 = phi i32 [ %1196, %1195 ], [ %1202, %1197 ], [ %1190, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm28EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i129 = phi i32 [ %1202, %1197 ], [ %1196, %1195 ], [ %1190, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm28EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %1203 = add i32 %.0.i.i.i129, %1186
   store i32 %1203, ptr %1179, align 4, !tbaa !13
   store i32 %1180, ptr %1181, align 4, !tbaa !13
@@ -1995,7 +1995,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm30EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i135
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i135: ; preds = %1265, %1263, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm30EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i136 = phi i32 [ %1264, %1263 ], [ %1270, %1265 ], [ %1258, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm30EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i136 = phi i32 [ %1270, %1265 ], [ %1264, %1263 ], [ %1258, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm30EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %1271 = add i32 %.0.i.i.i136, %1254
   store i32 %1271, ptr %1247, align 4, !tbaa !13
   store i32 %1248, ptr %1249, align 4, !tbaa !13
@@ -2057,7 +2057,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm31EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i139
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i139: ; preds = %1306, %1304, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm31EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i140 = phi i32 [ %1305, %1304 ], [ %1311, %1306 ], [ %1299, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm31EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i140 = phi i32 [ %1311, %1306 ], [ %1305, %1304 ], [ %1299, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm31EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %1312 = add i32 %.0.i.i.i140, %1293
   store i32 %1312, ptr %1286, align 4, !tbaa !13
   store i32 %1287, ptr %1288, align 4, !tbaa !13
@@ -2119,7 +2119,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm32EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i143
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i143: ; preds = %1347, %1345, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm32EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i144 = phi i32 [ %1346, %1345 ], [ %1352, %1347 ], [ %1340, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm32EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i144 = phi i32 [ %1352, %1347 ], [ %1346, %1345 ], [ %1340, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm32EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %1353 = add i32 %.0.i.i.i144, %1334
   store i32 %1353, ptr %1327, align 4, !tbaa !13
   store i32 %1328, ptr %1329, align 4, !tbaa !13
@@ -2181,7 +2181,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm33EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i147
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i147: ; preds = %1388, %1386, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm33EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i148 = phi i32 [ %1387, %1386 ], [ %1393, %1388 ], [ %1381, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm33EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i148 = phi i32 [ %1393, %1388 ], [ %1387, %1386 ], [ %1381, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm33EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %1394 = add i32 %.0.i.i.i148, %1375
   store i32 %1394, ptr %1368, align 4, !tbaa !13
   store i32 %1369, ptr %1370, align 4, !tbaa !13
@@ -2243,7 +2243,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm34EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i151
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i151: ; preds = %1429, %1427, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm34EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i152 = phi i32 [ %1428, %1427 ], [ %1434, %1429 ], [ %1422, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm34EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i152 = phi i32 [ %1434, %1429 ], [ %1428, %1427 ], [ %1422, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm34EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %1435 = add i32 %.0.i.i.i152, %1416
   store i32 %1435, ptr %1409, align 4, !tbaa !13
   store i32 %1410, ptr %1411, align 4, !tbaa !13
@@ -2305,7 +2305,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm35EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i155
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i155: ; preds = %1470, %1468, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm35EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i156 = phi i32 [ %1469, %1468 ], [ %1475, %1470 ], [ %1463, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm35EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i156 = phi i32 [ %1475, %1470 ], [ %1469, %1468 ], [ %1463, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm35EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %1476 = add i32 %.0.i.i.i156, %1457
   store i32 %1476, ptr %1450, align 4, !tbaa !13
   store i32 %1451, ptr %1452, align 4, !tbaa !13
@@ -2367,7 +2367,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm36EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i159
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i159: ; preds = %1511, %1509, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm36EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i160 = phi i32 [ %1510, %1509 ], [ %1516, %1511 ], [ %1504, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm36EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i160 = phi i32 [ %1516, %1511 ], [ %1510, %1509 ], [ %1504, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm36EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %1517 = add i32 %.0.i.i.i160, %1498
   store i32 %1517, ptr %1491, align 4, !tbaa !13
   store i32 %1492, ptr %1493, align 4, !tbaa !13
@@ -2429,7 +2429,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm37EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i163
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i163: ; preds = %1552, %1550, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm37EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i164 = phi i32 [ %1551, %1550 ], [ %1557, %1552 ], [ %1545, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm37EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i164 = phi i32 [ %1557, %1552 ], [ %1551, %1550 ], [ %1545, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm37EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %1558 = add i32 %.0.i.i.i164, %1539
   store i32 %1558, ptr %1532, align 4, !tbaa !13
   store i32 %1533, ptr %1534, align 4, !tbaa !13
@@ -2491,7 +2491,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm38EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i167
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i167: ; preds = %1593, %1591, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm38EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i168 = phi i32 [ %1592, %1591 ], [ %1598, %1593 ], [ %1586, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm38EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i168 = phi i32 [ %1598, %1593 ], [ %1592, %1591 ], [ %1586, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm38EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %1599 = add i32 %.0.i.i.i168, %1580
   store i32 %1599, ptr %1573, align 4, !tbaa !13
   store i32 %1574, ptr %1575, align 4, !tbaa !13
@@ -2553,7 +2553,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm39EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i171
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i171: ; preds = %1634, %1632, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm39EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i172 = phi i32 [ %1633, %1632 ], [ %1639, %1634 ], [ %1627, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm39EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i172 = phi i32 [ %1639, %1634 ], [ %1633, %1632 ], [ %1627, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm39EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %1640 = add i32 %.0.i.i.i172, %1621
   store i32 %1640, ptr %1614, align 4, !tbaa !13
   store i32 %1615, ptr %1616, align 4, !tbaa !13
@@ -2615,7 +2615,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm40EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i175
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i175: ; preds = %1675, %1673, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm40EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i176 = phi i32 [ %1674, %1673 ], [ %1680, %1675 ], [ %1668, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm40EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i176 = phi i32 [ %1680, %1675 ], [ %1674, %1673 ], [ %1668, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm40EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %1681 = add i32 %.0.i.i.i176, %1662
   store i32 %1681, ptr %1655, align 4, !tbaa !13
   store i32 %1656, ptr %1657, align 4, !tbaa !13
@@ -2677,7 +2677,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm41EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i179
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i179: ; preds = %1716, %1714, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm41EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i180 = phi i32 [ %1715, %1714 ], [ %1721, %1716 ], [ %1709, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm41EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i180 = phi i32 [ %1721, %1716 ], [ %1715, %1714 ], [ %1709, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm41EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %1722 = add i32 %.0.i.i.i180, %1703
   store i32 %1722, ptr %1696, align 4, !tbaa !13
   store i32 %1697, ptr %1698, align 4, !tbaa !13
@@ -2739,7 +2739,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm42EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i183
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i183: ; preds = %1757, %1755, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm42EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i184 = phi i32 [ %1756, %1755 ], [ %1762, %1757 ], [ %1750, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm42EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i184 = phi i32 [ %1762, %1757 ], [ %1756, %1755 ], [ %1750, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm42EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %1763 = add i32 %.0.i.i.i184, %1744
   store i32 %1763, ptr %1737, align 4, !tbaa !13
   store i32 %1738, ptr %1739, align 4, !tbaa !13
@@ -2801,7 +2801,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm43EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i187
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i187: ; preds = %1798, %1796, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm43EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i188 = phi i32 [ %1797, %1796 ], [ %1803, %1798 ], [ %1791, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm43EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i188 = phi i32 [ %1803, %1798 ], [ %1797, %1796 ], [ %1791, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm43EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %1804 = add i32 %.0.i.i.i188, %1785
   store i32 %1804, ptr %1778, align 4, !tbaa !13
   store i32 %1779, ptr %1780, align 4, !tbaa !13
@@ -2863,7 +2863,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm44EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i191
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i191: ; preds = %1839, %1837, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm44EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i192 = phi i32 [ %1838, %1837 ], [ %1844, %1839 ], [ %1832, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm44EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i192 = phi i32 [ %1844, %1839 ], [ %1838, %1837 ], [ %1832, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm44EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %1845 = add i32 %.0.i.i.i192, %1826
   store i32 %1845, ptr %1819, align 4, !tbaa !13
   store i32 %1820, ptr %1821, align 4, !tbaa !13
@@ -3001,7 +3001,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm47EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i201
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i201: ; preds = %1934, %1932, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm47EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i202 = phi i32 [ %1933, %1932 ], [ %1939, %1934 ], [ %1927, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm47EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i202 = phi i32 [ %1939, %1934 ], [ %1933, %1932 ], [ %1927, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm47EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %1940 = add i32 %.0.i.i.i202, %1923
   store i32 %1940, ptr %1916, align 4, !tbaa !13
   store i32 %1917, ptr %1918, align 4, !tbaa !13
@@ -3063,7 +3063,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm48EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i205
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i205: ; preds = %1975, %1973, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm48EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i206 = phi i32 [ %1974, %1973 ], [ %1980, %1975 ], [ %1968, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm48EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i206 = phi i32 [ %1980, %1975 ], [ %1974, %1973 ], [ %1968, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm48EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %1981 = add i32 %.0.i.i.i206, %1964
   store i32 %1981, ptr %1957, align 4, !tbaa !13
   store i32 %1958, ptr %1959, align 4, !tbaa !13
@@ -3125,7 +3125,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm49EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i209
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i209: ; preds = %2016, %2014, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm49EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i210 = phi i32 [ %2015, %2014 ], [ %2021, %2016 ], [ %2009, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm49EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i210 = phi i32 [ %2021, %2016 ], [ %2015, %2014 ], [ %2009, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm49EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %2022 = add i32 %.0.i.i.i210, %2005
   store i32 %2022, ptr %1998, align 4, !tbaa !13
   store i32 %1999, ptr %2000, align 4, !tbaa !13
@@ -3187,7 +3187,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm50EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i213
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i213: ; preds = %2057, %2055, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm50EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i214 = phi i32 [ %2056, %2055 ], [ %2062, %2057 ], [ %2050, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm50EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i214 = phi i32 [ %2062, %2057 ], [ %2056, %2055 ], [ %2050, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm50EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %2063 = add i32 %.0.i.i.i214, %2046
   store i32 %2063, ptr %2039, align 4, !tbaa !13
   store i32 %2040, ptr %2041, align 4, !tbaa !13
@@ -3287,7 +3287,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm52EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i220
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i220: ; preds = %2125, %2123, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm52EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i221 = phi i32 [ %2124, %2123 ], [ %2130, %2125 ], [ %2118, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm52EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i221 = phi i32 [ %2130, %2125 ], [ %2124, %2123 ], [ %2118, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm52EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %2131 = add i32 %.0.i.i.i221, %2114
   store i32 %2131, ptr %2107, align 4, !tbaa !13
   store i32 %2108, ptr %2109, align 4, !tbaa !13
@@ -3349,7 +3349,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm53EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i224
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i224: ; preds = %2166, %2164, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm53EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i225 = phi i32 [ %2165, %2164 ], [ %2171, %2166 ], [ %2159, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm53EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i225 = phi i32 [ %2171, %2166 ], [ %2165, %2164 ], [ %2159, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm53EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %2172 = add i32 %.0.i.i.i225, %2155
   store i32 %2172, ptr %2148, align 4, !tbaa !13
   store i32 %2149, ptr %2150, align 4, !tbaa !13
@@ -3411,7 +3411,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm54EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i228
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i228: ; preds = %2207, %2205, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm54EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i229 = phi i32 [ %2206, %2205 ], [ %2212, %2207 ], [ %2200, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm54EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i229 = phi i32 [ %2212, %2207 ], [ %2206, %2205 ], [ %2200, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm54EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %2213 = add i32 %.0.i.i.i229, %2196
   store i32 %2213, ptr %2189, align 4, !tbaa !13
   store i32 %2190, ptr %2191, align 4, !tbaa !13
@@ -3473,7 +3473,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm55EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i232
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i232: ; preds = %2248, %2246, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm55EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i233 = phi i32 [ %2247, %2246 ], [ %2253, %2248 ], [ %2241, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm55EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i233 = phi i32 [ %2253, %2248 ], [ %2247, %2246 ], [ %2241, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm55EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %2254 = add i32 %.0.i.i.i233, %2237
   store i32 %2254, ptr %2230, align 4, !tbaa !13
   store i32 %2231, ptr %2232, align 4, !tbaa !13
@@ -3535,7 +3535,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm56EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i236
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i236: ; preds = %2289, %2287, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm56EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i237 = phi i32 [ %2288, %2287 ], [ %2294, %2289 ], [ %2282, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm56EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i237 = phi i32 [ %2294, %2289 ], [ %2288, %2287 ], [ %2282, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm56EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %2295 = add i32 %.0.i.i.i237, %2278
   store i32 %2295, ptr %2271, align 4, !tbaa !13
   store i32 %2272, ptr %2273, align 4, !tbaa !13
@@ -3597,7 +3597,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm57EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i240
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i240: ; preds = %2330, %2328, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm57EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i241 = phi i32 [ %2329, %2328 ], [ %2335, %2330 ], [ %2323, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm57EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i241 = phi i32 [ %2335, %2330 ], [ %2329, %2328 ], [ %2323, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm57EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %2336 = add i32 %.0.i.i.i241, %2319
   store i32 %2336, ptr %2312, align 4, !tbaa !13
   store i32 %2313, ptr %2314, align 4, !tbaa !13
@@ -3659,7 +3659,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm58EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i244
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i244: ; preds = %2371, %2369, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm58EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i245 = phi i32 [ %2370, %2369 ], [ %2376, %2371 ], [ %2364, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm58EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i245 = phi i32 [ %2376, %2371 ], [ %2370, %2369 ], [ %2364, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm58EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %2377 = add i32 %.0.i.i.i245, %2360
   store i32 %2377, ptr %2353, align 4, !tbaa !13
   store i32 %2354, ptr %2355, align 4, !tbaa !13
@@ -3721,7 +3721,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm59EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i248
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i248: ; preds = %2412, %2410, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm59EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i249 = phi i32 [ %2411, %2410 ], [ %2417, %2412 ], [ %2405, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm59EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i249 = phi i32 [ %2417, %2412 ], [ %2411, %2410 ], [ %2405, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm59EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %2418 = add i32 %.0.i.i.i249, %2401
   store i32 %2418, ptr %2394, align 4, !tbaa !13
   store i32 %2395, ptr %2396, align 4, !tbaa !13
@@ -3783,7 +3783,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm60EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i252
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i252: ; preds = %2453, %2451, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm60EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i253 = phi i32 [ %2452, %2451 ], [ %2458, %2453 ], [ %2446, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm60EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i253 = phi i32 [ %2458, %2453 ], [ %2452, %2451 ], [ %2446, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm60EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %2459 = add i32 %.0.i.i.i253, %2442
   store i32 %2459, ptr %2435, align 4, !tbaa !13
   store i32 %2436, ptr %2437, align 4, !tbaa !13
@@ -3845,7 +3845,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm61EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i256
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i256: ; preds = %2494, %2492, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm61EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i257 = phi i32 [ %2493, %2492 ], [ %2499, %2494 ], [ %2487, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm61EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i257 = phi i32 [ %2499, %2494 ], [ %2493, %2492 ], [ %2487, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm61EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %2500 = add i32 %.0.i.i.i257, %2483
   store i32 %2500, ptr %2476, align 4, !tbaa !13
   store i32 %2477, ptr %2478, align 4, !tbaa !13
@@ -3907,7 +3907,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm62EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i260
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i260: ; preds = %2535, %2533, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm62EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i261 = phi i32 [ %2534, %2533 ], [ %2540, %2535 ], [ %2528, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm62EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i261 = phi i32 [ %2540, %2535 ], [ %2534, %2533 ], [ %2528, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm62EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %2541 = add i32 %.0.i.i.i261, %2524
   store i32 %2541, ptr %2517, align 4, !tbaa !13
   store i32 %2518, ptr %2519, align 4, !tbaa !13
@@ -3969,7 +3969,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm63EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i264
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i264: ; preds = %2576, %2574, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm63EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i265 = phi i32 [ %2575, %2574 ], [ %2581, %2576 ], [ %2569, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm63EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i265 = phi i32 [ %2581, %2576 ], [ %2575, %2574 ], [ %2569, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm63EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %2582 = add i32 %.0.i.i.i265, %2565
   store i32 %2582, ptr %2558, align 4, !tbaa !13
   store i32 %2559, ptr %2560, align 4, !tbaa !13
@@ -4031,7 +4031,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm64EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i268
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i268: ; preds = %2617, %2615, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm64EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i269 = phi i32 [ %2616, %2615 ], [ %2622, %2617 ], [ %2610, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm64EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i269 = phi i32 [ %2622, %2617 ], [ %2616, %2615 ], [ %2610, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm64EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %2623 = add i32 %.0.i.i.i269, %2606
   store i32 %2623, ptr %2599, align 4, !tbaa !13
   store i32 %2600, ptr %2601, align 4, !tbaa !13
@@ -4093,7 +4093,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm65EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i272
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i272: ; preds = %2658, %2656, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm65EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i273 = phi i32 [ %2657, %2656 ], [ %2663, %2658 ], [ %2651, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm65EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i273 = phi i32 [ %2663, %2658 ], [ %2657, %2656 ], [ %2651, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm65EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %2664 = add i32 %.0.i.i.i273, %2647
   store i32 %2664, ptr %2640, align 4, !tbaa !13
   store i32 %2641, ptr %2642, align 4, !tbaa !13
@@ -4155,7 +4155,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm66EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i276
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i276: ; preds = %2699, %2697, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm66EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i277 = phi i32 [ %2698, %2697 ], [ %2704, %2699 ], [ %2692, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm66EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i277 = phi i32 [ %2704, %2699 ], [ %2698, %2697 ], [ %2692, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm66EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %2705 = add i32 %.0.i.i.i277, %2688
   store i32 %2705, ptr %2681, align 4, !tbaa !13
   store i32 %2682, ptr %2683, align 4, !tbaa !13
@@ -4217,7 +4217,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm67EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i280
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i280: ; preds = %2740, %2738, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm67EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i281 = phi i32 [ %2739, %2738 ], [ %2745, %2740 ], [ %2733, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm67EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i281 = phi i32 [ %2745, %2740 ], [ %2739, %2738 ], [ %2733, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm67EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %2746 = add i32 %.0.i.i.i281, %2729
   store i32 %2746, ptr %2722, align 4, !tbaa !13
   store i32 %2723, ptr %2724, align 4, !tbaa !13
@@ -4279,7 +4279,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm68EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i284
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i284: ; preds = %2781, %2779, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm68EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i285 = phi i32 [ %2780, %2779 ], [ %2786, %2781 ], [ %2774, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm68EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i285 = phi i32 [ %2786, %2781 ], [ %2780, %2779 ], [ %2774, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm68EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %2787 = add i32 %.0.i.i.i285, %2770
   store i32 %2787, ptr %2763, align 4, !tbaa !13
   store i32 %2764, ptr %2765, align 4, !tbaa !13
@@ -4341,7 +4341,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm69EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i288
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i288: ; preds = %2822, %2820, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm69EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i289 = phi i32 [ %2821, %2820 ], [ %2827, %2822 ], [ %2815, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm69EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i289 = phi i32 [ %2827, %2822 ], [ %2821, %2820 ], [ %2815, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm69EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %2828 = add i32 %.0.i.i.i289, %2811
   store i32 %2828, ptr %2804, align 4, !tbaa !13
   store i32 %2805, ptr %2806, align 4, !tbaa !13
@@ -4403,7 +4403,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm70EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i292
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i292: ; preds = %2863, %2861, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm70EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i293 = phi i32 [ %2862, %2861 ], [ %2868, %2863 ], [ %2856, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm70EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i293 = phi i32 [ %2868, %2863 ], [ %2862, %2861 ], [ %2856, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm70EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %2869 = add i32 %.0.i.i.i293, %2852
   store i32 %2869, ptr %2845, align 4, !tbaa !13
   store i32 %2846, ptr %2847, align 4, !tbaa !13
@@ -4465,7 +4465,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm71EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i296
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i296: ; preds = %2904, %2902, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm71EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i297 = phi i32 [ %2903, %2902 ], [ %2909, %2904 ], [ %2897, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm71EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i297 = phi i32 [ %2909, %2904 ], [ %2903, %2902 ], [ %2897, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm71EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %2910 = add i32 %.0.i.i.i297, %2893
   store i32 %2910, ptr %2886, align 4, !tbaa !13
   store i32 %2887, ptr %2888, align 4, !tbaa !13
@@ -4527,7 +4527,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm72EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i300
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i300: ; preds = %2945, %2943, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm72EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i301 = phi i32 [ %2944, %2943 ], [ %2950, %2945 ], [ %2938, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm72EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i301 = phi i32 [ %2950, %2945 ], [ %2944, %2943 ], [ %2938, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm72EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %2951 = add i32 %.0.i.i.i301, %2934
   store i32 %2951, ptr %2927, align 4, !tbaa !13
   store i32 %2928, ptr %2929, align 4, !tbaa !13
@@ -4589,7 +4589,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm73EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i304
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i304: ; preds = %2986, %2984, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm73EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i305 = phi i32 [ %2985, %2984 ], [ %2991, %2986 ], [ %2979, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm73EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i305 = phi i32 [ %2991, %2986 ], [ %2985, %2984 ], [ %2979, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm73EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %2992 = add i32 %.0.i.i.i305, %2975
   store i32 %2992, ptr %2968, align 4, !tbaa !13
   store i32 %2969, ptr %2970, align 4, !tbaa !13
@@ -4651,7 +4651,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm74EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i308
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i308: ; preds = %3027, %3025, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm74EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i309 = phi i32 [ %3026, %3025 ], [ %3032, %3027 ], [ %3020, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm74EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i309 = phi i32 [ %3032, %3027 ], [ %3026, %3025 ], [ %3020, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm74EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %3033 = add i32 %.0.i.i.i309, %3016
   store i32 %3033, ptr %3009, align 4, !tbaa !13
   store i32 %3010, ptr %3011, align 4, !tbaa !13
@@ -4713,7 +4713,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm75EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i312
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i312: ; preds = %3068, %3066, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm75EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i313 = phi i32 [ %3067, %3066 ], [ %3073, %3068 ], [ %3061, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm75EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i313 = phi i32 [ %3073, %3068 ], [ %3067, %3066 ], [ %3061, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm75EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %3074 = add i32 %.0.i.i.i313, %3057
   store i32 %3074, ptr %3050, align 4, !tbaa !13
   store i32 %3051, ptr %3052, align 4, !tbaa !13
@@ -4775,7 +4775,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm76EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i316
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i316: ; preds = %3109, %3107, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm76EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i317 = phi i32 [ %3108, %3107 ], [ %3114, %3109 ], [ %3102, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm76EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i317 = phi i32 [ %3114, %3109 ], [ %3108, %3107 ], [ %3102, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm76EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %3115 = add i32 %.0.i.i.i317, %3098
   store i32 %3115, ptr %3091, align 4, !tbaa !13
   store i32 %3092, ptr %3093, align 4, !tbaa !13
@@ -4837,7 +4837,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm77EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i320
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i320: ; preds = %3150, %3148, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm77EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i321 = phi i32 [ %3149, %3148 ], [ %3155, %3150 ], [ %3143, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm77EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i321 = phi i32 [ %3155, %3150 ], [ %3149, %3148 ], [ %3143, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm77EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %3156 = add i32 %.0.i.i.i321, %3139
   store i32 %3156, ptr %3132, align 4, !tbaa !13
   store i32 %3133, ptr %3134, align 4, !tbaa !13
@@ -4899,7 +4899,7 @@ _ZN6evmone6crypto12_GLOBAL__N_14stepILm78EEEvPSt5arrayIjLm5EEPKSt4byte.exit: ; p
   br label %_ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i324
 
 _ZSt4rotlIjENSt9enable_ifIXsr21__is_unsigned_integerIT_EE5valueES1_E4typeES1_i.exit.i324: ; preds = %3191, %3189, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm78EEEvPSt5arrayIjLm5EEPKSt4byte.exit
-  %.0.i.i.i325 = phi i32 [ %3190, %3189 ], [ %3196, %3191 ], [ %3184, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm78EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
+  %.0.i.i.i325 = phi i32 [ %3196, %3191 ], [ %3190, %3189 ], [ %3184, %_ZN6evmone6crypto12_GLOBAL__N_14stepILm78EEEvPSt5arrayIjLm5EEPKSt4byte.exit ]
   %3197 = add i32 %.0.i.i.i325, %3180
   store i32 %3197, ptr %3173, align 4, !tbaa !13
   store i32 %3174, ptr %3175, align 4, !tbaa !13

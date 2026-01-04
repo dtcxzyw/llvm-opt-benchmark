@@ -664,7 +664,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit235: ; preds = %.b
   br label %218
 
 218:                                              ; preds = %214, %216
-  %.pn87.pn.pn = phi { ptr, i32 } [ %217, %216 ], [ %215, %214 ]
+  %.pn87.pn.pn = phi { ptr, i32 } [ %215, %214 ], [ %217, %216 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %629
 
@@ -680,7 +680,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit235: ; preds = %.b
   br label %223
 
 223:                                              ; preds = %219, %221
-  %.pn91.pn.pn = phi { ptr, i32 } [ %222, %221 ], [ %220, %219 ]
+  %.pn91.pn.pn = phi { ptr, i32 } [ %220, %219 ], [ %222, %221 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %629
 

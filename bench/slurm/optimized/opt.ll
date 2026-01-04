@@ -350,7 +350,7 @@ define dso_local ptr @get_next_opt(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not29.i, label %.thread.i, label %.lr.ph.split.i
 
 .thread.i:                                        ; preds = %.lr.ph.split.us.i, %40, %37, %23
-  %.lcssa.i = phi ptr [ null, %23 ], [ null, %40 ], [ %29, %37 ], [ null, %.lr.ph.split.us.i ]
+  %.lcssa.i = phi ptr [ null, %23 ], [ %29, %37 ], [ null, %40 ], [ null, %.lr.ph.split.us.i ]
   tail call void @list_iterator_destroy(ptr noundef %24) #17
   br label %_get_first_opt.exit
 
@@ -411,12 +411,12 @@ define dso_local ptr @get_next_opt(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not22.i, label %.thread.i10, label %.lr.ph.split.i13
 
 .thread.i10:                                      ; preds = %.lr.ph.split.us.i9, %65, %62, %45
-  %.lcssa.i11 = phi ptr [ null, %45 ], [ null, %65 ], [ %51, %62 ], [ null, %.lr.ph.split.us.i9 ]
+  %.lcssa.i11 = phi ptr [ null, %45 ], [ %51, %62 ], [ null, %65 ], [ null, %.lr.ph.split.us.i9 ]
   tail call void @list_iterator_destroy(ptr noundef %46) #17
   br label %_get_first_opt.exit
 
 _get_first_opt.exit:                              ; preds = %.thread.i10, %42, %.thread.i, %22, %19, %8, %3
-  %storemerge6 = phi ptr [ null, %3 ], [ %.lcssa.i, %.thread.i ], [ null, %22 ], [ @opt, %8 ], [ @opt, %19 ], [ %.lcssa.i11, %.thread.i10 ], [ null, %42 ]
+  %storemerge6 = phi ptr [ null, %3 ], [ @opt, %19 ], [ %.lcssa.i, %.thread.i ], [ null, %22 ], [ @opt, %8 ], [ %.lcssa.i11, %.thread.i10 ], [ null, %42 ]
   store ptr %storemerge6, ptr @get_next_opt.opt_last, align 8
   ret ptr %storemerge6
 }
@@ -1292,7 +1292,7 @@ _opt_args.exit:                                   ; preds = %284, %288, %295, %3
   br label %350
 
 350:                                              ; preds = %348, %341
-  %351 = phi i32 [ %349, %348 ], [ %.pre.i62, %341 ]
+  %351 = phi i32 [ %.pre.i62, %341 ], [ %349, %348 ]
   %352 = and i32 %351, 65535
   %353 = icmp eq i32 %352, 3
   br i1 %353, label %354, label %360
@@ -1377,7 +1377,7 @@ _opt_args.exit:                                   ; preds = %284, %288, %295, %3
   br label %389
 
 389:                                              ; preds = %388, %385, %383, %381, %378
-  %.0100.i = phi i1 [ false, %381 ], [ false, %378 ], [ true, %385 ], [ true, %388 ], [ true, %383 ]
+  %.0100.i = phi i1 [ false, %378 ], [ false, %381 ], [ true, %385 ], [ true, %388 ], [ true, %383 ]
   %390 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sropt, i64 196), align 4
   %391 = icmp sgt i32 %390, 6
   br i1 %391, label %392, label %395
@@ -1838,7 +1838,7 @@ _valid_node_list.exit.i:                          ; preds = %522, %520, %517, %5
   br label %608
 
 608:                                              ; preds = %606, %603, %595
-  %.12.i = phi i1 [ false, %606 ], [ %.11.i, %603 ], [ %.11.i, %595 ]
+  %.12.i = phi i1 [ false, %606 ], [ %.11.i, %595 ], [ %.11.i, %603 ]
   %609 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 188), align 4
   %610 = icmp sgt i32 %609, 0
   br i1 %610, label %611, label %616
@@ -2125,7 +2125,7 @@ _valid_node_list.exit.i:                          ; preds = %522, %520, %517, %5
   br label %.thread.i65
 
 .thread.i65:                                      ; preds = %.critedge.i66, %719, %718, %706, %704, %698, %676, %674, %658, %628
-  %.196.i = phi ptr [ %.095234.i, %706 ], [ %.095234.i, %704 ], [ %.095234.i, %676 ], [ %664, %674 ], [ %.095234.i, %658 ], [ %.095234.i, %719 ], [ %.095234.i, %718 ], [ %.095234.i, %.critedge.i66 ], [ null, %628 ], [ %.095234.i, %698 ]
+  %.196.i = phi ptr [ %.095234.i, %658 ], [ %.095234.i, %706 ], [ %.095234.i, %704 ], [ %.095234.i, %676 ], [ %664, %674 ], [ %.095234.i, %698 ], [ %.095234.i, %719 ], [ %.095234.i, %718 ], [ %.095234.i, %.critedge.i66 ], [ null, %628 ]
   %725 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 180), align 4
   %726 = icmp eq i32 %725, -2
   %727 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 124), align 4, !range !14
@@ -2904,7 +2904,7 @@ define dso_local range(i32 -1, 1) i32 @spank_unset_job_env(ptr noundef %0) local
   br i1 %42, label %17, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %39, %11, %._crit_edge, %38, %9
-  %.0 = phi i32 [ -1, %9 ], [ 0, %38 ], [ 0, %._crit_edge ], [ 0, %11 ], [ 0, %39 ]
+  %.0 = phi i32 [ -1, %9 ], [ 0, %._crit_edge ], [ 0, %38 ], [ 0, %11 ], [ 0, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

@@ -1569,8 +1569,8 @@ _list_node_destroy.exit:                          ; preds = %37, %21
   %.not29 = icmp eq ptr %49, null
   br i1 %.not29, label %.thread, label %.lr.ph
 
-.thread:                                          ; preds = %47, %45, %.preheader, %13, %_list_node_destroy.exit, %44, %41
-  %.2 = phi i32 [ 1, %_list_node_destroy.exit ], [ 1, %44 ], [ 1, %41 ], [ 1, %13 ], [ 0, %.preheader ], [ 0, %47 ], [ -1, %45 ]
+.thread:                                          ; preds = %47, %45, %.preheader, %13, %44, %41, %_list_node_destroy.exit
+  %.2 = phi i32 [ 1, %41 ], [ 1, %_list_node_destroy.exit ], [ 1, %13 ], [ 1, %44 ], [ 0, %.preheader ], [ 0, %47 ], [ -1, %45 ]
   %50 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #9
   %.not32 = icmp eq i32 %50, 0
   br i1 %.not32, label %53, label %51
@@ -1691,7 +1691,7 @@ _list_node_destroy.exit:                          ; preds = %36, %22
   br i1 %.not22, label %.loopexit, label %14, !llvm.loop !22
 
 .loopexit:                                        ; preds = %43, %7, %39, %42
-  %.016 = phi i32 [ 1, %42 ], [ 1, %39 ], [ 0, %7 ], [ 0, %43 ]
+  %.016 = phi i32 [ 1, %39 ], [ 1, %42 ], [ 0, %7 ], [ 0, %43 ]
   %45 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %3) #9
   %.not25 = icmp eq i32 %45, 0
   br i1 %.not25, label %48, label %46
@@ -1813,8 +1813,8 @@ define dso_local i32 @list_for_each_max(ptr noundef %0, ptr noundef captures(non
   br i1 %38, label %.critedge, label %.split, !llvm.loop !23
 
 .critedge:                                        ; preds = %34, %33, %30, %19, %22
-  %.us-phi = phi i1 [ %.028.us, %22 ], [ %.028.us, %19 ], [ true, %34 ], [ false, %30 ], [ false, %33 ]
-  %.us-phi39 = phi i32 [ %.027.us, %22 ], [ %.027.us, %19 ], [ %35, %34 ], [ %.027, %30 ], [ %.027, %33 ]
+  %.us-phi = phi i1 [ %.028.us, %19 ], [ %.028.us, %22 ], [ true, %34 ], [ false, %30 ], [ false, %33 ]
+  %.us-phi39 = phi i32 [ %.027.us, %19 ], [ %.027.us, %22 ], [ %35, %34 ], [ %.027, %30 ], [ %.027, %33 ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = sub nsw i32 %40, %.us-phi39
@@ -2582,7 +2582,7 @@ define dso_local void @list_iterator_destroy(ptr noundef %0) #0 {
   br i1 %.not11, label %.loopexit, label %.lr.ph, !llvm.loop !30
 
 .loopexit:                                        ; preds = %.lr.ph27, %9, %.lr.ph._crit_edge
-  %21 = phi ptr [ %10, %9 ], [ %.pre, %.lr.ph._crit_edge ], [ %10, %.lr.ph27 ]
+  %21 = phi ptr [ %.pre, %.lr.ph._crit_edge ], [ %10, %9 ], [ %10, %.lr.ph27 ]
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %23 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %22) #9
   %.not12 = icmp eq i32 %23, 0
@@ -2841,7 +2841,7 @@ _list_next_locked.exit:                           ; preds = %22
   br i1 %.not13, label %12, label %.critedge, !llvm.loop !31
 
 .critedge:                                        ; preds = %22, %24, %_list_next_locked.exit
-  %26 = phi ptr [ %23, %24 ], [ null, %_list_next_locked.exit ], [ null, %22 ]
+  %26 = phi ptr [ null, %_list_next_locked.exit ], [ %23, %24 ], [ null, %22 ]
   %27 = load ptr, ptr %4, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 40
   %29 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %28) #9
@@ -3063,7 +3063,7 @@ define dso_local ptr @list_remove_first(ptr noundef %0, ptr noundef readonly cap
   br i1 %.not18, label %_list_node_destroy.exit, label %.lr.ph, !llvm.loop !32
 
 _list_node_destroy.exit:                          ; preds = %40, %.preheader, %._crit_edge.i, %13
-  %.014 = phi ptr [ %15, %._crit_edge.i ], [ null, %13 ], [ null, %.preheader ], [ null, %40 ]
+  %.014 = phi ptr [ null, %13 ], [ %15, %._crit_edge.i ], [ null, %.preheader ], [ null, %40 ]
   %42 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #9
   %.not20 = icmp eq i32 %42, 0
   br i1 %.not20, label %45, label %43
@@ -3097,7 +3097,7 @@ define dso_local range(i32 0, 2) i32 @list_delete_item(ptr noundef readonly capt
   br label %9
 
 9:                                                ; preds = %1, %3, %8
-  %.0 = phi i32 [ 1, %8 ], [ 1, %3 ], [ 0, %1 ]
+  %.0 = phi i32 [ 1, %3 ], [ 1, %8 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -3410,8 +3410,8 @@ _list_node_destroy.exit:                          ; preds = %51, %37
   br label %_list_node_create.exit
 
 _list_node_create.exit:                           ; preds = %115, %83, %102, %70, %117
-  %.2 = phi i32 [ %.02463, %117 ], [ %.02463, %70 ], [ %85, %102 ], [ %.02463, %83 ], [ %85, %115 ]
-  %.1 = phi ptr [ %118, %117 ], [ %.064, %70 ], [ %.064, %102 ], [ %.064, %83 ], [ %.064, %115 ]
+  %.2 = phi i32 [ %.02463, %117 ], [ %.02463, %83 ], [ %.02463, %70 ], [ %85, %102 ], [ %85, %115 ]
+  %.1 = phi ptr [ %118, %117 ], [ %.064, %83 ], [ %.064, %70 ], [ %.064, %102 ], [ %.064, %115 ]
   %119 = load ptr, ptr %.1, align 8
   %.not35 = icmp eq ptr %119, null
   br i1 %.not35, label %._crit_edge, label %26, !llvm.loop !33

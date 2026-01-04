@@ -1228,7 +1228,7 @@ define noundef zeroext i1 @_ZN5ImGui14ButtonBehaviorERK6ImRectjPbS3_i(ptr nounde
   br label %.thread
 
 .thread:                                          ; preds = %5, %32, %28
-  %33 = phi i1 [ true, %32 ], [ false, %28 ], [ false, %5 ]
+  %33 = phi i1 [ false, %28 ], [ true, %32 ], [ false, %5 ]
   %34 = tail call noundef zeroext i1 @_ZN5ImGui13ItemHoverableERK6ImRectji(ptr noundef nonnull align 4 dereferenceable(16) %0, i32 noundef %1, i32 noundef %.0200)
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 8436
   %36 = load i8, ptr %35, align 4, !tbaa !180, !range !153, !noundef !154
@@ -1268,8 +1268,8 @@ define noundef zeroext i1 @_ZN5ImGui14ButtonBehaviorERK6ImRectjPbS3_i(ptr nounde
   br label %55
 
 55:                                               ; preds = %43, %53, %45, %39, %.thread
-  %.0203.shrunk = phi i1 [ %34, %39 ], [ true, %53 ], [ true, %45 ], [ %34, %43 ], [ %34, %.thread ]
-  %.0201 = phi i8 [ 0, %39 ], [ 1, %53 ], [ 0, %45 ], [ 0, %43 ], [ 0, %.thread ]
+  %.0203.shrunk = phi i1 [ %34, %39 ], [ true, %53 ], [ %34, %.thread ], [ true, %45 ], [ %34, %43 ]
+  %.0201 = phi i8 [ 0, %39 ], [ 1, %53 ], [ 0, %.thread ], [ 0, %45 ], [ 0, %43 ]
   br i1 %33, label %56, label %57
 
 56:                                               ; preds = %55
@@ -1424,7 +1424,7 @@ define noundef zeroext i1 @_ZN5ImGui14ButtonBehaviorERK6ImRectjPbS3_i(ptr nounde
   br label %116
 
 116:                                              ; preds = %.sink.split287, %99, %101, %83, %.critedge
-  %.3 = phi i8 [ %.0201, %101 ], [ %.0201, %99 ], [ %.0201, %83 ], [ %.0201, %.critedge ], [ 1, %.sink.split287 ]
+  %.3 = phi i8 [ %.0201, %83 ], [ %.0201, %.critedge ], [ %.0201, %101 ], [ %.0201, %99 ], [ 1, %.sink.split287 ]
   %117 = and i32 %4, 128
   %118 = icmp ne i32 %117, 0
   %119 = icmp ne i32 %.1210, -1
@@ -1486,7 +1486,7 @@ define noundef zeroext i1 @_ZN5ImGui14ButtonBehaviorERK6ImRectjPbS3_i(ptr nounde
   br label %.critedge259
 
 .critedge259:                                     ; preds = %145, %75, %71, %133, %137, %79
-  %.2 = phi i8 [ %.4, %137 ], [ %.4, %133 ], [ %.0201, %79 ], [ %spec.select262, %145 ], [ %.0201, %71 ], [ %.0201, %75 ]
+  %.2 = phi i8 [ %.0201, %79 ], [ %.0201, %75 ], [ %.4, %137 ], [ %spec.select262, %145 ], [ %.4, %133 ], [ %.0201, %71 ]
   %148 = trunc nuw i8 %.2 to i1
   br i1 %148, label %149, label %155
 
@@ -1525,7 +1525,7 @@ define noundef zeroext i1 @_ZN5ImGui14ButtonBehaviorERK6ImRectjPbS3_i(ptr nounde
   br label %168
 
 168:                                              ; preds = %163, %159, %155
-  %.1204.shrunk = phi i1 [ %.0203.shrunk, %159 ], [ %.0203.shrunk, %155 ], [ %spec.select268, %163 ]
+  %.1204.shrunk = phi i1 [ %.0203.shrunk, %155 ], [ %.0203.shrunk, %159 ], [ %spec.select268, %163 ]
   %169 = getelementptr inbounds nuw i8, ptr %6, i64 7924
   %170 = load i32, ptr %169, align 4, !tbaa !197
   %171 = icmp eq i32 %170, %1
@@ -1751,8 +1751,8 @@ define noundef zeroext i1 @_ZN5ImGui14ButtonBehaviorERK6ImRectjPbS3_i(ptr nounde
   br label %299
 
 299:                                              ; preds = %295, %230, %287, %289, %293, %298
-  %.2214 = phi i1 [ false, %298 ], [ %.1213, %293 ], [ %.1213, %289 ], [ %.1213, %287 ], [ false, %230 ], [ true, %295 ]
-  %.12 = phi i8 [ %.6, %298 ], [ %.9, %293 ], [ %.9, %289 ], [ %.9, %287 ], [ %.6, %230 ], [ %.6, %295 ]
+  %.2214 = phi i1 [ false, %230 ], [ %.1213, %287 ], [ false, %298 ], [ %.1213, %293 ], [ %.1213, %289 ], [ true, %295 ]
+  %.12 = phi i8 [ %.6, %230 ], [ %.9, %287 ], [ %.6, %298 ], [ %.9, %293 ], [ %.9, %289 ], [ %.6, %295 ]
   %300 = trunc nuw i8 %.12 to i1
   br i1 %300, label %301, label %303
 
@@ -1865,7 +1865,7 @@ define noundef zeroext i1 @_ZN5ImGui8ButtonExEPKcRK6ImVec2i(ptr noundef %0, ptr 
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %18, %32, %28
-  %.sroa.5.0 = phi float [ %34, %32 ], [ %23, %28 ], [ %23, %18 ]
+  %.sroa.5.0 = phi float [ %23, %28 ], [ %34, %32 ], [ %23, %18 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.sroa.04.0.copyload = load <2 x float>, ptr %1, align 4
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 3160
@@ -2684,7 +2684,7 @@ define noundef zeroext i1 @_ZN5ImGui11ScrollbarExERK6ImRectj9ImGuiAxisPxxxi(ptr 
   br i1 %41, label %.thread, label %.thread129
 
 .thread:                                          ; preds = %34, %31
-  %.0110128 = phi float [ 1.000000e+00, %31 ], [ %40, %34 ]
+  %.0110128 = phi float [ %40, %34 ], [ 1.000000e+00, %31 ]
   %42 = fcmp oge float %.0110128, 1.000000e+00
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !215
@@ -2816,7 +2816,7 @@ define noundef zeroext i1 @_ZN5ImGui11ScrollbarExERK6ImRectj9ImGuiAxisPxxxi(ptr 
   br label %138
 
 138:                                              ; preds = %133, %129
-  %139 = phi i16 [ 0, %129 ], [ %spec.select, %133 ]
+  %139 = phi i16 [ %spec.select, %133 ], [ 0, %129 ]
   %140 = getelementptr inbounds nuw i8, ptr %13, i64 9430
   store i16 %139, ptr %140, align 2, !tbaa !229
   %141 = icmp eq i32 %125, 0
@@ -3482,7 +3482,7 @@ _ZNK6ImRect8OverlapsERKS_.exit:                   ; preds = %67
   br label %139
 
 139:                                              ; preds = %135, %132
-  %140 = phi i8 [ %.pre, %132 ], [ %spec.select, %135 ]
+  %140 = phi i8 [ %spec.select, %135 ], [ %.pre, %132 ]
   %141 = load i8, ptr %1, align 1, !tbaa !209, !range !153, !noundef !154
   %.not64 = icmp eq i8 %141, %140
   br i1 %.not64, label %143, label %142
@@ -3903,18 +3903,18 @@ _ZN8ImVectorI21ImGuiSelectionRequestE6resizeEi.exit: ; preds = %50, %63
   %.0180 = phi i8 [ %8, %64 ], [ 1, %72 ]
   br i1 %.0188, label %77, label %80
 
-77:                                               ; preds = %74, %73, %76
-  %.0178231 = phi i8 [ %spec.select213, %73 ], [ %7, %76 ], [ %7, %74 ]
-  %.0180229 = phi i8 [ %spec.select212, %73 ], [ %.0180, %76 ], [ %spec.select226, %74 ]
+77:                                               ; preds = %73, %74, %76
+  %.0178231 = phi i8 [ %7, %74 ], [ %7, %76 ], [ %spec.select213, %73 ]
+  %.0180229 = phi i8 [ %spec.select226, %74 ], [ %.0180, %76 ], [ %spec.select212, %73 ]
   %78 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i64 %28, ptr %78, align 8, !tbaa !249
   %79 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i8 %.0178231, ptr %79, align 4, !tbaa !251
   br label %80
 
-80:                                               ; preds = %74, %73, %77, %76
-  %.0178230 = phi i8 [ %spec.select213, %73 ], [ %.0178231, %77 ], [ %7, %76 ], [ %7, %74 ]
-  %.0180228 = phi i8 [ %spec.select212, %73 ], [ %.0180229, %77 ], [ %.0180, %76 ], [ %spec.select226, %74 ]
+80:                                               ; preds = %73, %74, %77, %76
+  %.0178230 = phi i8 [ %7, %74 ], [ %.0178231, %77 ], [ %7, %76 ], [ %spec.select213, %73 ]
+  %.0180228 = phi i8 [ %spec.select226, %74 ], [ %.0180229, %77 ], [ %.0180, %76 ], [ %spec.select212, %73 ]
   %81 = getelementptr inbounds nuw i8, ptr %11, i64 80
   %82 = load i32, ptr %81, align 8, !tbaa !260
   %.not201 = icmp eq i32 %82, 0
@@ -4231,7 +4231,7 @@ _ZN5ImGui17GetBoxSelectStateEj.exit.thread:       ; preds = %88, %83, %_ZNK6ImRe
   br label %247
 
 247:                                              ; preds = %233, %230, %228, %240, %245
-  %.0 = phi i8 [ %244, %240 ], [ %246, %245 ], [ %235, %233 ], [ 1, %230 ], [ 1, %228 ]
+  %.0 = phi i8 [ %246, %245 ], [ %244, %240 ], [ %235, %233 ], [ 1, %230 ], [ 1, %228 ]
   %248 = getelementptr inbounds nuw i8, ptr %11, i64 93
   %249 = load i8, ptr %248, align 1, !tbaa !252, !range !153, !noundef !154
   %250 = trunc nuw i8 %249 to i1
@@ -4258,8 +4258,8 @@ _ZN5ImGui17GetBoxSelectStateEj.exit.thread:       ; preds = %88, %83, %_ZNK6ImRe
   br label %.critedge
 
 .critedge:                                        ; preds = %164, %257, %169
-  %.5185238 = phi i8 [ 1, %257 ], [ 1, %169 ], [ 0, %164 ]
-  %.5 = phi i8 [ %.6, %257 ], [ 1, %169 ], [ %.1179, %164 ]
+  %.5185238 = phi i8 [ 1, %169 ], [ 1, %257 ], [ 0, %164 ]
+  %.5 = phi i8 [ 1, %169 ], [ %.6, %257 ], [ %.1179, %164 ]
   %260 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %261 = load i64, ptr %260, align 8, !tbaa !249
   %262 = icmp eq i64 %261, %28
@@ -6304,7 +6304,7 @@ define noundef zeroext i1 @_ZN5ImGui10BeginComboEPKcS1_i(ptr noundef %0, ptr nou
   br label %47
 
 47:                                               ; preds = %36, %40, %45
-  %48 = phi float [ %44, %40 ], [ %46, %45 ], [ %30, %36 ]
+  %48 = phi float [ %46, %45 ], [ %44, %40 ], [ %30, %36 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %49 = getelementptr inbounds nuw i8, ptr %16, i64 280
   %.sroa.023.4.vec.extract = extractelement <2 x float> %31, i64 1
@@ -6619,7 +6619,7 @@ define noundef zeroext i1 @_ZN5ImGui15BeginComboPopupEjRK6ImRecti(i32 noundef %0
   br label %38
 
 38:                                               ; preds = %36, %34, %29
-  %.034 = phi i32 [ 8, %29 ], [ 4, %34 ], [ %spec.select41, %36 ]
+  %.034 = phi i32 [ %spec.select41, %36 ], [ 8, %29 ], [ 4, %34 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store float 0.000000e+00, ptr %4, align 4, !tbaa !159
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -6876,7 +6876,7 @@ _ZNK6ImRect8OverlapsERKS_.exit:                   ; preds = %27
   br label %_ZNK6ImRect8OverlapsERKS_.exit.thread
 
 _ZNK6ImRect8OverlapsERKS_.exit.thread:            ; preds = %12, %20, %27, %_ZNK6ImRect8OverlapsERKS_.exit, %0, %8, %34
-  %.0 = phi i1 [ true, %34 ], [ false, %8 ], [ false, %0 ], [ false, %_ZNK6ImRect8OverlapsERKS_.exit ], [ false, %27 ], [ false, %20 ], [ false, %12 ]
+  %.0 = phi i1 [ false, %0 ], [ true, %34 ], [ false, %8 ], [ false, %_ZNK6ImRect8OverlapsERKS_.exit ], [ false, %27 ], [ false, %20 ], [ false, %12 ]
   ret i1 %.0
 }
 
@@ -7174,7 +7174,7 @@ _ZN16ImGuiListClipper18IncludeItemByIndexEi.exit: ; preds = %_ZN16ImGuiListClipp
   br label %89
 
 88:                                               ; preds = %.loopexit, %.loopexit.split-lp, %56, %71, %67
-  %.pn.pn.pn = phi { ptr, i32 } [ %57, %56 ], [ %72, %71 ], [ %68, %67 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %68, %67 ], [ %57, %56 ], [ %72, %71 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #45
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %.pn.pn.pn
@@ -8076,7 +8076,7 @@ _ZN16ImGuiListClipper18IncludeItemByIndexEi.exit.i: ; preds = %_ZN16ImGuiListCli
   br label %_ZN5ImGui5ComboEPKcPiPFS1_PviES3_ii.exit
 
 90:                                               ; preds = %73, %69, %58, %.loopexit.split-lp.i, %.loopexit.i
-  %.pn.pn.pn.i = phi { ptr, i32 } [ %59, %58 ], [ %74, %73 ], [ %70, %69 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+  %.pn.pn.pn.i = phi { ptr, i32 } [ %70, %69 ], [ %59, %58 ], [ %74, %73 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #45
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn.pn.pn.i
@@ -8303,7 +8303,7 @@ _ZN5ImGui10EndListBoxEv.exit.i:                   ; preds = %.noexc.i
   br label %_ZN5ImGui7ListBoxEPKcPiPFS1_PviES3_ii.exit
 
 68:                                               ; preds = %56, %52, %43, %.loopexit.split-lp.i, %.loopexit.i
-  %.pn.pn.pn.i = phi { ptr, i32 } [ %44, %43 ], [ %57, %56 ], [ %53, %52 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+  %.pn.pn.pn.i = phi { ptr, i32 } [ %53, %52 ], [ %44, %43 ], [ %57, %56 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #45
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -8476,7 +8476,7 @@ _ZN5ImGui10EndListBoxEv.exit:                     ; preds = %.noexc
   br label %67
 
 66:                                               ; preds = %.loopexit, %.loopexit.split-lp, %41, %54, %50
-  %.pn.pn.pn = phi { ptr, i32 } [ %42, %41 ], [ %55, %54 ], [ %51, %50 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %51, %50 ], [ %42, %41 ], [ %55, %54 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #45
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -8707,7 +8707,7 @@ _ZN16ImGuiListClipper18IncludeItemByIndexEi.exit.i: ; preds = %_ZN16ImGuiListCli
   br label %_ZN5ImGui5ComboEPKcPiPFS1_PviES3_ii.exit
 
 92:                                               ; preds = %75, %71, %60, %.loopexit.split-lp.i, %.loopexit.i
-  %.pn.pn.pn.i = phi { ptr, i32 } [ %61, %60 ], [ %76, %75 ], [ %72, %71 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+  %.pn.pn.pn.i = phi { ptr, i32 } [ %72, %71 ], [ %61, %60 ], [ %76, %75 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #45
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %.pn.pn.pn.i
@@ -9012,7 +9012,7 @@ _ZL18ImSubClampOverflowIsET_S0_S0_S0_S0_.exit:    ; preds = %67, %63, %.thread.i
   br label %_ZL18ImAddClampOverflowIiET_S0_S0_S0_S0_.exit
 
 _ZL18ImAddClampOverflowIiET_S0_S0_S0_S0_.exit:    ; preds = %81, %87
-  %.0.i91 = phi i32 [ -2147483648, %81 ], [ %spec.select.i, %87 ]
+  %.0.i91 = phi i32 [ %spec.select.i, %87 ], [ -2147483648, %81 ]
   store i32 %.0.i91, ptr %2, align 4, !tbaa !177
   br label %158
 
@@ -9035,7 +9035,7 @@ _ZL18ImAddClampOverflowIiET_S0_S0_S0_S0_.exit:    ; preds = %81, %87
   br label %_ZL18ImSubClampOverflowIiET_S0_S0_S0_S0_.exit
 
 _ZL18ImSubClampOverflowIiET_S0_S0_S0_S0_.exit:    ; preds = %92, %98
-  %.0.i95 = phi i32 [ -2147483648, %92 ], [ %spec.select.i94, %98 ]
+  %.0.i95 = phi i32 [ %spec.select.i94, %98 ], [ -2147483648, %92 ]
   store i32 %.0.i95, ptr %2, align 4, !tbaa !177
   br label %158
 
@@ -9084,7 +9084,7 @@ _ZL18ImSubClampOverflowIiET_S0_S0_S0_S0_.exit:    ; preds = %92, %98
   br label %_ZL18ImAddClampOverflowIxET_S0_S0_S0_S0_.exit
 
 _ZL18ImAddClampOverflowIxET_S0_S0_S0_S0_.exit:    ; preds = %111, %117
-  %.0.i101 = phi i64 [ -9223372036854775808, %111 ], [ %spec.select.i100, %117 ]
+  %.0.i101 = phi i64 [ %spec.select.i100, %117 ], [ -9223372036854775808, %111 ]
   store i64 %.0.i101, ptr %2, align 8, !tbaa !227
   br label %158
 
@@ -9107,7 +9107,7 @@ _ZL18ImAddClampOverflowIxET_S0_S0_S0_S0_.exit:    ; preds = %111, %117
   br label %_ZL18ImSubClampOverflowIxET_S0_S0_S0_S0_.exit
 
 _ZL18ImSubClampOverflowIxET_S0_S0_S0_S0_.exit:    ; preds = %122, %128
-  %.0.i105 = phi i64 [ -9223372036854775808, %122 ], [ %spec.select.i104, %128 ]
+  %.0.i105 = phi i64 [ %spec.select.i104, %128 ], [ -9223372036854775808, %122 ]
   store i64 %.0.i105, ptr %2, align 8, !tbaa !227
   br label %158
 
@@ -9269,7 +9269,7 @@ define noundef zeroext i1 @_ZN5ImGui21DataTypeApplyFromTextEPKciPvS1_S2_(ptr nou
   br i1 %.not22.i.i, label %_Z20ImParseFormatFindEndPKc.exit.i, label %.preheader.i.i, !llvm.loop !351
 
 _Z20ImParseFormatFindEndPKc.exit.i:               ; preds = %.thread.i.i, %43, %34
-  %.019.i.i = phi ptr [ %35, %34 ], [ %44, %43 ], [ %45, %.thread.i.i ]
+  %.019.i.i = phi ptr [ %44, %43 ], [ %35, %34 ], [ %45, %.thread.i.i ]
   %47 = icmp ult ptr %3, %.019.i.i
   br i1 %47, label %.lr.ph.i, label %_Z32ImParseFormatSanitizeForScanningPKcPcm.exit
 
@@ -9311,8 +9311,8 @@ switch.early.test.i:                              ; preds = %50
   br label %58
 
 58:                                               ; preds = %56, %52, %52, %52, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %50
-  %.144.i = phi ptr [ %.04347.i, %switch.early.test.i ], [ %.04347.i, %switch.early.test.i ], [ %.04347.i, %switch.early.test.i ], [ %.04347.i, %50 ], [ %57, %56 ], [ %.04347.i, %52 ], [ %.04347.i, %52 ], [ %.04347.i, %52 ]
-  %.1.i = phi i1 [ false, %switch.early.test.i ], [ false, %switch.early.test.i ], [ false, %switch.early.test.i ], [ false, %50 ], [ %55, %56 ], [ %55, %52 ], [ %55, %52 ], [ %55, %52 ]
+  %.144.i = phi ptr [ %.04347.i, %50 ], [ %.04347.i, %switch.early.test.i ], [ %.04347.i, %switch.early.test.i ], [ %.04347.i, %switch.early.test.i ], [ %57, %56 ], [ %.04347.i, %52 ], [ %.04347.i, %52 ], [ %.04347.i, %52 ]
+  %.1.i = phi i1 [ false, %50 ], [ false, %switch.early.test.i ], [ false, %switch.early.test.i ], [ false, %switch.early.test.i ], [ %55, %56 ], [ %55, %52 ], [ %55, %52 ], [ %55, %52 ]
   %exitcond.not.i = icmp eq ptr %48, %.019.i.i
   br i1 %exitcond.not.i, label %_Z32ImParseFormatSanitizeForScanningPKcPcm.exit, label %.lr.ph.i
 
@@ -9443,7 +9443,7 @@ define noundef ptr @_Z32ImParseFormatSanitizeForScanningPKcPcm(ptr noundef reado
   br i1 %.not22.i, label %_Z20ImParseFormatFindEndPKc.exit, label %.preheader.i, !llvm.loop !351
 
 _Z20ImParseFormatFindEndPKc.exit:                 ; preds = %.thread.i, %13, %22
-  %.019.i = phi ptr [ %14, %13 ], [ %23, %22 ], [ %24, %.thread.i ]
+  %.019.i = phi ptr [ %23, %22 ], [ %14, %13 ], [ %24, %.thread.i ]
   %26 = icmp ult ptr %0, %.019.i
   br i1 %26, label %.lr.ph, label %._crit_edge
 
@@ -9485,8 +9485,8 @@ switch.early.test:                                ; preds = %29
   br label %37
 
 37:                                               ; preds = %31, %31, %31, %35, %29, %switch.early.test, %switch.early.test, %switch.early.test
-  %.144 = phi ptr [ %.04347, %switch.early.test ], [ %.04347, %switch.early.test ], [ %.04347, %switch.early.test ], [ %.04347, %29 ], [ %36, %35 ], [ %.04347, %31 ], [ %.04347, %31 ], [ %.04347, %31 ]
-  %.1 = phi i1 [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %29 ], [ %34, %35 ], [ %34, %31 ], [ %34, %31 ], [ %34, %31 ]
+  %.144 = phi ptr [ %.04347, %29 ], [ %.04347, %switch.early.test ], [ %.04347, %switch.early.test ], [ %.04347, %switch.early.test ], [ %36, %35 ], [ %.04347, %31 ], [ %.04347, %31 ], [ %.04347, %31 ]
+  %.1 = phi i1 [ false, %29 ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ %34, %35 ], [ %34, %31 ], [ %34, %31 ], [ %34, %31 ]
   %exitcond.not = icmp eq ptr %27, %.019.i
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
@@ -9581,7 +9581,7 @@ define noundef range(i32 -1, 2) i32 @_ZN5ImGui15DataTypeCompareEiPKvS1_(i32 noun
   br label %18
 
 18:                                               ; preds = %3, %15, %12, %11, %10, %9, %8, %7, %6, %5, %4
-  %.0 = phi i32 [ %.0.i, %4 ], [ %.0.i40, %5 ], [ %.0.i41, %6 ], [ %.0.i42, %7 ], [ %.0.i43, %8 ], [ %.0.i44, %9 ], [ %.0.i45, %10 ], [ %.0.i46, %11 ], [ %.0.i47, %12 ], [ %.0.i49, %15 ], [ 0, %3 ]
+  %.0 = phi i32 [ %.0.i49, %15 ], [ %.0.i, %4 ], [ %.0.i40, %5 ], [ %.0.i41, %6 ], [ %.0.i42, %7 ], [ %.0.i43, %8 ], [ %.0.i44, %9 ], [ %.0.i45, %10 ], [ %.0.i46, %11 ], [ %.0.i47, %12 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -9851,7 +9851,7 @@ define noundef zeroext i1 @_ZN5ImGui13DataTypeClampEiPvPKvS2_(i32 noundef %0, pt
   br label %_ZL14DataTypeClampTIaEbPT_PKS0_S3_.exit
 
 _ZL14DataTypeClampTIaEbPT_PKS0_S3_.exit:          ; preds = %.sink.split.i73, %101, %100, %.sink.split.i68, %91, %90, %.sink.split.i63, %81, %80, %.sink.split.i58, %71, %70, %.sink.split.i53, %61, %60, %.sink.split.i48, %51, %50, %.sink.split.i44, %41, %40, %.sink.split.i39, %31, %30, %.sink.split.i34, %21, %20, %.sink.split.i, %11, %10, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %11 ], [ false, %10 ], [ true, %.sink.split.i ], [ false, %21 ], [ false, %20 ], [ true, %.sink.split.i34 ], [ false, %31 ], [ false, %30 ], [ true, %.sink.split.i39 ], [ false, %41 ], [ false, %40 ], [ true, %.sink.split.i44 ], [ false, %51 ], [ false, %50 ], [ true, %.sink.split.i48 ], [ false, %61 ], [ false, %60 ], [ true, %.sink.split.i53 ], [ false, %71 ], [ false, %70 ], [ true, %.sink.split.i58 ], [ false, %81 ], [ false, %80 ], [ true, %.sink.split.i63 ], [ false, %91 ], [ false, %90 ], [ true, %.sink.split.i68 ], [ false, %101 ], [ false, %100 ], [ true, %.sink.split.i73 ]
+  %.0 = phi i1 [ true, %.sink.split.i68 ], [ false, %4 ], [ true, %.sink.split.i ], [ true, %.sink.split.i34 ], [ true, %.sink.split.i39 ], [ true, %.sink.split.i44 ], [ true, %.sink.split.i48 ], [ true, %.sink.split.i53 ], [ true, %.sink.split.i58 ], [ true, %.sink.split.i63 ], [ false, %11 ], [ false, %10 ], [ false, %21 ], [ false, %20 ], [ false, %31 ], [ false, %30 ], [ false, %41 ], [ false, %40 ], [ false, %51 ], [ false, %50 ], [ false, %61 ], [ false, %60 ], [ false, %71 ], [ false, %70 ], [ false, %81 ], [ false, %80 ], [ false, %91 ], [ false, %90 ], [ false, %101 ], [ false, %100 ], [ true, %.sink.split.i73 ]
   ret i1 %.0
 }
 
@@ -9939,7 +9939,7 @@ define noundef zeroext i1 @_ZN5ImGui14DataTypeIsZeroEiPKv(i32 noundef %0, ptr no
   br label %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit
 
 _ZN5ImGui15DataTypeCompareEiPKvS1_.exit:          ; preds = %2, %5, %6, %7, %8, %9, %10, %11, %12, %13, %16
-  %.0.i = phi i32 [ %.0.i.i, %5 ], [ %.0.i40.i, %6 ], [ %.0.i41.i, %7 ], [ %.0.i42.i, %8 ], [ %.0.i43.i, %9 ], [ %.0.i44.i, %10 ], [ %.0.i45.i, %11 ], [ %.0.i46.i, %12 ], [ %.0.i47.i, %13 ], [ %.0.i49.i, %16 ], [ 0, %2 ]
+  %.0.i = phi i32 [ %.0.i49.i, %16 ], [ %.0.i.i, %5 ], [ %.0.i40.i, %6 ], [ %.0.i41.i, %7 ], [ %.0.i42.i, %8 ], [ %.0.i43.i, %9 ], [ %.0.i44.i, %10 ], [ %.0.i45.i, %11 ], [ %.0.i46.i, %12 ], [ %.0.i47.i, %13 ], [ 0, %2 ]
   %19 = icmp eq i32 %.0.i, 0
   ret i1 %19
 }
@@ -10302,7 +10302,7 @@ define noundef zeroext i1 @_ZN5ImGui12DragBehaviorEjiPvfPKvS2_PKci(i32 noundef %
   br label %175
 
 175:                                              ; preds = %42, %36, %.thread, %172, %162, %152, %142, %132, %122, %114, %96, %78, %60
-  %.0 = phi i1 [ %56, %60 ], [ %74, %78 ], [ %92, %96 ], [ %110, %114 ], [ %124, %122 ], [ %134, %132 ], [ %144, %142 ], [ %154, %152 ], [ %164, %162 ], [ %174, %172 ], [ false, %.thread ], [ false, %36 ], [ false, %42 ]
+  %.0 = phi i1 [ %174, %172 ], [ false, %.thread ], [ false, %36 ], [ %56, %60 ], [ %74, %78 ], [ %92, %96 ], [ %110, %114 ], [ %124, %122 ], [ %134, %132 ], [ %144, %142 ], [ %154, %152 ], [ %164, %162 ], [ false, %42 ]
   ret i1 %.0
 }
 
@@ -10500,7 +10500,7 @@ _ZL6ImAtoiIiEPKcS1_PT_.exit.i:                    ; preds = %.lr.ph.i27.i, %74
   br label %_Z22ImParseFormatPrecisionPKci.exit
 
 _Z22ImParseFormatPrecisionPKci.exit:              ; preds = %68, %98, %97, %96, %91, %91, %62, %61
-  %99 = phi i32 [ 0, %61 ], [ 3, %62 ], [ %.031.i, %96 ], [ -1, %97 ], [ -1, %91 ], [ -1, %91 ], [ %spec.select43.i, %98 ], [ 3, %68 ]
+  %99 = phi i32 [ 0, %61 ], [ -1, %91 ], [ %.031.i, %96 ], [ -1, %91 ], [ %spec.select43.i, %98 ], [ 3, %62 ], [ -1, %97 ], [ 3, %68 ]
   %100 = getelementptr inbounds nuw i8, ptr %8, i64 7968
   %101 = load i32, ptr %100, align 8, !tbaa !204
   %102 = icmp eq i32 %101, 3
@@ -10549,8 +10549,8 @@ _ZL32GetMinimumStepAtDecimalPrecisioni.exit:      ; preds = %113, %120, %124
   br label %130
 
 130:                                              ; preds = %58, %_ZL32GetMinimumStepAtDecimalPrecisioni.exit, %43, %56
-  %.1168 = phi float [ %57, %56 ], [ %.0167, %43 ], [ %116, %_ZL32GetMinimumStepAtDecimalPrecisioni.exit ], [ 0.000000e+00, %58 ]
-  %.1166 = phi float [ %.0165, %56 ], [ %.0165, %43 ], [ %129, %_ZL32GetMinimumStepAtDecimalPrecisioni.exit ], [ %.0165, %58 ]
+  %.1168 = phi float [ 0.000000e+00, %58 ], [ %57, %56 ], [ %.0167, %43 ], [ %116, %_ZL32GetMinimumStepAtDecimalPrecisioni.exit ]
+  %.1166 = phi float [ %.0165, %58 ], [ %.0165, %56 ], [ %.0165, %43 ], [ %129, %_ZL32GetMinimumStepAtDecimalPrecisioni.exit ]
   %131 = fmul float %.1168, %.1166
   %132 = fneg float %131
   %.2 = select i1 %.not186.not, float %131, float %132
@@ -10731,7 +10731,7 @@ _ZL6ImAtoiIiEPKcS1_PT_.exit.i230:                 ; preds = %.lr.ph.i27.i234, %1
   br label %_Z22ImParseFormatPrecisionPKci.exit240
 
 _Z22ImParseFormatPrecisionPKci.exit240:           ; preds = %173, %167, %196, %196, %201, %202, %203
-  %.0.i212 = phi i32 [ 3, %167 ], [ %.031.i219, %201 ], [ -1, %202 ], [ -1, %196 ], [ -1, %196 ], [ %spec.select43.i222, %203 ], [ 3, %173 ]
+  %.0.i212 = phi i32 [ -1, %196 ], [ %.031.i219, %201 ], [ -1, %196 ], [ %spec.select43.i222, %203 ], [ 3, %167 ], [ -1, %202 ], [ 3, %173 ]
   %204 = sitofp i32 %.0.i212 to float
   br label %205
 
@@ -10766,7 +10766,7 @@ _Z22ImParseFormatPrecisionPKci.exit240:           ; preds = %173, %167, %196, %1
   br label %222
 
 222:                                              ; preds = %220, %218
-  %.1170 = phi i32 [ %221, %220 ], [ %.0169, %218 ]
+  %.1170 = phi i32 [ %.0169, %218 ], [ %221, %220 ]
   store i8 0, ptr %164, align 1, !tbaa !358
   br i1 %.not187, label %229, label %223
 
@@ -11060,7 +11060,7 @@ _ZL6ImAtoiIiEPKcS1_PT_.exit.i:                    ; preds = %.lr.ph.i27.i, %74
   br label %_Z22ImParseFormatPrecisionPKci.exit
 
 _Z22ImParseFormatPrecisionPKci.exit:              ; preds = %68, %98, %97, %96, %91, %91, %62, %61
-  %99 = phi i32 [ 0, %61 ], [ 3, %62 ], [ %.031.i, %96 ], [ -1, %97 ], [ -1, %91 ], [ -1, %91 ], [ %spec.select43.i, %98 ], [ 3, %68 ]
+  %99 = phi i32 [ 0, %61 ], [ -1, %91 ], [ %.031.i, %96 ], [ -1, %91 ], [ %spec.select43.i, %98 ], [ 3, %62 ], [ -1, %97 ], [ 3, %68 ]
   %100 = getelementptr inbounds nuw i8, ptr %8, i64 7968
   %101 = load i32, ptr %100, align 8, !tbaa !204
   %102 = icmp eq i32 %101, 3
@@ -11109,8 +11109,8 @@ _ZL32GetMinimumStepAtDecimalPrecisioni.exit:      ; preds = %113, %120, %124
   br label %130
 
 130:                                              ; preds = %58, %_ZL32GetMinimumStepAtDecimalPrecisioni.exit, %43, %56
-  %.1168 = phi float [ %57, %56 ], [ %.0167, %43 ], [ %116, %_ZL32GetMinimumStepAtDecimalPrecisioni.exit ], [ 0.000000e+00, %58 ]
-  %.1166 = phi float [ %.0165, %56 ], [ %.0165, %43 ], [ %129, %_ZL32GetMinimumStepAtDecimalPrecisioni.exit ], [ %.0165, %58 ]
+  %.1168 = phi float [ 0.000000e+00, %58 ], [ %57, %56 ], [ %.0167, %43 ], [ %116, %_ZL32GetMinimumStepAtDecimalPrecisioni.exit ]
+  %.1166 = phi float [ %.0165, %58 ], [ %.0165, %56 ], [ %.0165, %43 ], [ %129, %_ZL32GetMinimumStepAtDecimalPrecisioni.exit ]
   %131 = fmul float %.1168, %.1166
   %132 = fneg float %131
   %.2 = select i1 %.not186.not, float %131, float %132
@@ -11283,7 +11283,7 @@ _ZL6ImAtoiIiEPKcS1_PT_.exit.i231:                 ; preds = %.lr.ph.i27.i235, %1
   br label %_Z22ImParseFormatPrecisionPKci.exit241
 
 _Z22ImParseFormatPrecisionPKci.exit241:           ; preds = %169, %163, %192, %192, %197, %198, %199
-  %.0.i213 = phi i32 [ 3, %163 ], [ %.031.i220, %197 ], [ -1, %198 ], [ -1, %192 ], [ -1, %192 ], [ %spec.select43.i223, %199 ], [ 3, %169 ]
+  %.0.i213 = phi i32 [ -1, %192 ], [ %.031.i220, %197 ], [ -1, %192 ], [ %spec.select43.i223, %199 ], [ 3, %163 ], [ -1, %198 ], [ 3, %169 ]
   %200 = sitofp i32 %.0.i213 to float
   br label %201
 
@@ -11360,9 +11360,9 @@ _ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit: ; preds = %204, %217, %
   br label %_ZN5ImGui20ScaleValueFromRatioTIjifEET_ifS1_S1_bff.exit
 
 _ZN5ImGui20ScaleValueFromRatioTIjifEET_ifS1_S1_bff.exit: ; preds = %201, %233, %231, %_ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit, %245
-  %.0174 = phi float [ 0.000000e+00, %245 ], [ %226, %_ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit ], [ %226, %231 ], [ %226, %233 ], [ 0.000000e+00, %201 ]
-  %.0173 = phi float [ 0.000000e+00, %245 ], [ %203, %_ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit ], [ %203, %231 ], [ %203, %233 ], [ %203, %201 ]
-  %.0169 = phi i32 [ %249, %245 ], [ %3, %_ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit ], [ %4, %231 ], [ %244, %233 ], [ %3, %201 ]
+  %.0174 = phi float [ 0.000000e+00, %245 ], [ %226, %231 ], [ %226, %_ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit ], [ %226, %233 ], [ 0.000000e+00, %201 ]
+  %.0173 = phi float [ 0.000000e+00, %245 ], [ %203, %231 ], [ %203, %_ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit ], [ %203, %233 ], [ %203, %201 ]
+  %.0169 = phi i32 [ %249, %245 ], [ %4, %231 ], [ %3, %_ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit ], [ %244, %233 ], [ %3, %201 ]
   %250 = and i32 %6, 64
   %.not192 = icmp eq i32 %250, 0
   %or.cond204 = and i1 %24, %.not192
@@ -11373,7 +11373,7 @@ _ZN5ImGui20ScaleValueFromRatioTIjifEET_ifS1_S1_bff.exit: ; preds = %201, %233, %
   br label %253
 
 253:                                              ; preds = %251, %_ZN5ImGui20ScaleValueFromRatioTIjifEET_ifS1_S1_bff.exit
-  %.1170 = phi i32 [ %252, %251 ], [ %.0169, %_ZN5ImGui20ScaleValueFromRatioTIjifEET_ifS1_S1_bff.exit ]
+  %.1170 = phi i32 [ %.0169, %_ZN5ImGui20ScaleValueFromRatioTIjifEET_ifS1_S1_bff.exit ], [ %252, %251 ]
   store i8 0, ptr %160, align 1, !tbaa !358
   br i1 %.not187, label %283, label %254
 
@@ -11706,7 +11706,7 @@ _ZL6ImAtoiIiEPKcS1_PT_.exit.i:                    ; preds = %.lr.ph.i27.i, %75
   br label %_Z22ImParseFormatPrecisionPKci.exit
 
 _Z22ImParseFormatPrecisionPKci.exit:              ; preds = %69, %99, %98, %97, %92, %92, %63, %62
-  %100 = phi i32 [ 0, %62 ], [ 3, %63 ], [ %.031.i, %97 ], [ -1, %98 ], [ -1, %92 ], [ -1, %92 ], [ %spec.select43.i, %99 ], [ 3, %69 ]
+  %100 = phi i32 [ 0, %62 ], [ -1, %92 ], [ %.031.i, %97 ], [ -1, %92 ], [ %spec.select43.i, %99 ], [ 3, %63 ], [ -1, %98 ], [ 3, %69 ]
   %101 = getelementptr inbounds nuw i8, ptr %8, i64 7968
   %102 = load i32, ptr %101, align 8, !tbaa !204
   %103 = icmp eq i32 %102, 3
@@ -11755,8 +11755,8 @@ _ZL32GetMinimumStepAtDecimalPrecisioni.exit:      ; preds = %114, %121, %125
   br label %131
 
 131:                                              ; preds = %59, %_ZL32GetMinimumStepAtDecimalPrecisioni.exit, %44, %57
-  %.1168 = phi float [ %58, %57 ], [ %.0167, %44 ], [ %117, %_ZL32GetMinimumStepAtDecimalPrecisioni.exit ], [ 0.000000e+00, %59 ]
-  %.1166 = phi float [ %.0165, %57 ], [ %.0165, %44 ], [ %130, %_ZL32GetMinimumStepAtDecimalPrecisioni.exit ], [ %.0165, %59 ]
+  %.1168 = phi float [ 0.000000e+00, %59 ], [ %58, %57 ], [ %.0167, %44 ], [ %117, %_ZL32GetMinimumStepAtDecimalPrecisioni.exit ]
+  %.1166 = phi float [ %.0165, %59 ], [ %.0165, %57 ], [ %.0165, %44 ], [ %130, %_ZL32GetMinimumStepAtDecimalPrecisioni.exit ]
   %132 = fmul float %.1168, %.1166
   %133 = fneg float %132
   %.2 = select i1 %.not186.not, float %132, float %133
@@ -11937,7 +11937,7 @@ _ZL6ImAtoiIiEPKcS1_PT_.exit.i230:                 ; preds = %.lr.ph.i27.i234, %1
   br label %_Z22ImParseFormatPrecisionPKci.exit240
 
 _Z22ImParseFormatPrecisionPKci.exit240:           ; preds = %174, %168, %197, %197, %202, %203, %204
-  %.0.i212 = phi i32 [ 3, %168 ], [ %.031.i219, %202 ], [ -1, %203 ], [ -1, %197 ], [ -1, %197 ], [ %spec.select43.i222, %204 ], [ 3, %174 ]
+  %.0.i212 = phi i32 [ -1, %197 ], [ %.031.i219, %202 ], [ -1, %197 ], [ %spec.select43.i222, %204 ], [ 3, %168 ], [ -1, %203 ], [ 3, %174 ]
   %205 = sitofp i32 %.0.i212 to float
   br label %206
 
@@ -11973,7 +11973,7 @@ _Z22ImParseFormatPrecisionPKci.exit240:           ; preds = %174, %168, %197, %1
   br label %224
 
 224:                                              ; preds = %222, %220
-  %.1170 = phi i64 [ %223, %222 ], [ %.0169, %220 ]
+  %.1170 = phi i64 [ %.0169, %220 ], [ %223, %222 ]
   store i8 0, ptr %165, align 1, !tbaa !358
   br i1 %.not187, label %233, label %225
 
@@ -12270,7 +12270,7 @@ _ZL6ImAtoiIiEPKcS1_PT_.exit.i:                    ; preds = %.lr.ph.i27.i, %75
   br label %_Z22ImParseFormatPrecisionPKci.exit
 
 _Z22ImParseFormatPrecisionPKci.exit:              ; preds = %69, %99, %98, %97, %92, %92, %63, %62
-  %100 = phi i32 [ 0, %62 ], [ 3, %63 ], [ %.031.i, %97 ], [ -1, %98 ], [ -1, %92 ], [ -1, %92 ], [ %spec.select43.i, %99 ], [ 3, %69 ]
+  %100 = phi i32 [ 0, %62 ], [ -1, %92 ], [ %.031.i, %97 ], [ -1, %92 ], [ %spec.select43.i, %99 ], [ 3, %63 ], [ -1, %98 ], [ 3, %69 ]
   %101 = getelementptr inbounds nuw i8, ptr %8, i64 7968
   %102 = load i32, ptr %101, align 8, !tbaa !204
   %103 = icmp eq i32 %102, 3
@@ -12319,8 +12319,8 @@ _ZL32GetMinimumStepAtDecimalPrecisioni.exit:      ; preds = %114, %121, %125
   br label %131
 
 131:                                              ; preds = %59, %_ZL32GetMinimumStepAtDecimalPrecisioni.exit, %44, %57
-  %.1168 = phi float [ %58, %57 ], [ %.0167, %44 ], [ %117, %_ZL32GetMinimumStepAtDecimalPrecisioni.exit ], [ 0.000000e+00, %59 ]
-  %.1166 = phi float [ %.0165, %57 ], [ %.0165, %44 ], [ %130, %_ZL32GetMinimumStepAtDecimalPrecisioni.exit ], [ %.0165, %59 ]
+  %.1168 = phi float [ 0.000000e+00, %59 ], [ %58, %57 ], [ %.0167, %44 ], [ %117, %_ZL32GetMinimumStepAtDecimalPrecisioni.exit ]
+  %.1166 = phi float [ %.0165, %59 ], [ %.0165, %57 ], [ %.0165, %44 ], [ %130, %_ZL32GetMinimumStepAtDecimalPrecisioni.exit ]
   %132 = fmul float %.1168, %.1166
   %133 = fneg float %132
   %.2 = select i1 %.not186.not, float %132, float %133
@@ -12493,7 +12493,7 @@ _ZL6ImAtoiIiEPKcS1_PT_.exit.i231:                 ; preds = %.lr.ph.i27.i235, %1
   br label %_Z22ImParseFormatPrecisionPKci.exit241
 
 _Z22ImParseFormatPrecisionPKci.exit241:           ; preds = %170, %164, %193, %193, %198, %199, %200
-  %.0.i213 = phi i32 [ 3, %164 ], [ %.031.i220, %198 ], [ -1, %199 ], [ -1, %193 ], [ -1, %193 ], [ %spec.select43.i223, %200 ], [ 3, %170 ]
+  %.0.i213 = phi i32 [ -1, %193 ], [ %.031.i220, %198 ], [ -1, %193 ], [ %spec.select43.i223, %200 ], [ 3, %164 ], [ -1, %199 ], [ 3, %170 ]
   %201 = sitofp i32 %.0.i213 to float
   br label %202
 
@@ -12597,7 +12597,7 @@ _ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit: ; preds = %._ZN5ImGui20
   br label %259
 
 259:                                              ; preds = %257, %255
-  %.1170 = phi i64 [ %258, %257 ], [ %.0169, %255 ]
+  %.1170 = phi i64 [ %.0169, %255 ], [ %258, %257 ]
   store i8 0, ptr %161, align 1, !tbaa !358
   br i1 %.not187, label %292, label %260
 
@@ -12936,7 +12936,7 @@ _ZL6ImAtoiIiEPKcS1_PT_.exit.i:                    ; preds = %.lr.ph.i27.i, %76
   br label %_Z22ImParseFormatPrecisionPKci.exit
 
 _Z22ImParseFormatPrecisionPKci.exit:              ; preds = %70, %100, %99, %98, %93, %93, %64, %63
-  %101 = phi i32 [ 0, %63 ], [ 3, %64 ], [ %.031.i, %98 ], [ -1, %99 ], [ -1, %93 ], [ -1, %93 ], [ %spec.select43.i, %100 ], [ 3, %70 ]
+  %101 = phi i32 [ 0, %63 ], [ -1, %93 ], [ %.031.i, %98 ], [ -1, %93 ], [ %spec.select43.i, %100 ], [ 3, %64 ], [ -1, %99 ], [ 3, %70 ]
   %102 = getelementptr inbounds nuw i8, ptr %8, i64 7968
   %103 = load i32, ptr %102, align 8, !tbaa !204
   %104 = icmp eq i32 %103, 3
@@ -12985,8 +12985,8 @@ _ZL32GetMinimumStepAtDecimalPrecisioni.exit:      ; preds = %115, %122, %126
   br label %132
 
 132:                                              ; preds = %60, %_ZL32GetMinimumStepAtDecimalPrecisioni.exit, %45, %58
-  %.1168 = phi float [ %59, %58 ], [ %.0167, %45 ], [ %118, %_ZL32GetMinimumStepAtDecimalPrecisioni.exit ], [ 0.000000e+00, %60 ]
-  %.1166 = phi float [ %.0165, %58 ], [ %.0165, %45 ], [ %131, %_ZL32GetMinimumStepAtDecimalPrecisioni.exit ], [ %.0165, %60 ]
+  %.1168 = phi float [ 0.000000e+00, %60 ], [ %59, %58 ], [ %.0167, %45 ], [ %118, %_ZL32GetMinimumStepAtDecimalPrecisioni.exit ]
+  %.1166 = phi float [ %.0165, %60 ], [ %.0165, %58 ], [ %.0165, %45 ], [ %131, %_ZL32GetMinimumStepAtDecimalPrecisioni.exit ]
   %133 = fmul float %.1168, %.1166
   %134 = fneg float %133
   %.2 = select i1 %.not186.not, float %133, float %134
@@ -13004,7 +13004,7 @@ _ZL32GetMinimumStepAtDecimalPrecisioni.exit:      ; preds = %115, %122, %126
   br label %141
 
 141:                                              ; preds = %139, %135, %132
-  %.3 = phi float [ %140, %139 ], [ %.2, %135 ], [ %.2, %132 ]
+  %.3 = phi float [ %140, %139 ], [ %.2, %132 ], [ %.2, %135 ]
   %142 = getelementptr inbounds nuw i8, ptr %8, i64 5144
   %143 = load i8, ptr %142, align 8, !tbaa !208, !range !153, !noundef !154
   %144 = trunc nuw i8 %143 to i1
@@ -13168,7 +13168,7 @@ _ZL6ImAtoiIiEPKcS1_PT_.exit.i229:                 ; preds = %.lr.ph.i27.i233, %1
   br label %_Z22ImParseFormatPrecisionPKci.exit239
 
 _Z22ImParseFormatPrecisionPKci.exit239:           ; preds = %175, %169, %198, %198, %203, %204, %205
-  %.0.i211 = phi i32 [ 3, %169 ], [ %.031.i218, %203 ], [ -1, %204 ], [ -1, %198 ], [ -1, %198 ], [ %spec.select43.i221, %205 ], [ 3, %175 ]
+  %.0.i211 = phi i32 [ -1, %198 ], [ %.031.i218, %203 ], [ -1, %198 ], [ %spec.select43.i221, %205 ], [ 3, %169 ], [ -1, %204 ], [ 3, %175 ]
   %206 = sitofp i32 %.0.i211 to float
   br label %207
 
@@ -13202,7 +13202,7 @@ _Z22ImParseFormatPrecisionPKci.exit239:           ; preds = %175, %169, %198, %1
   br label %223
 
 223:                                              ; preds = %221, %219
-  %.1170 = phi float [ %222, %221 ], [ %.0169, %219 ]
+  %.1170 = phi float [ %.0169, %219 ], [ %222, %221 ]
   store i8 0, ptr %166, align 1, !tbaa !358
   %224 = getelementptr inbounds nuw i8, ptr %8, i64 9448
   br i1 %.not187, label %228, label %225
@@ -13499,7 +13499,7 @@ _ZL6ImAtoiIiEPKcS1_PT_.exit.i:                    ; preds = %.lr.ph.i27.i, %78
   br label %_Z22ImParseFormatPrecisionPKci.exit
 
 _Z22ImParseFormatPrecisionPKci.exit:              ; preds = %72, %102, %101, %100, %95, %95, %66, %65
-  %103 = phi i32 [ 0, %65 ], [ 3, %66 ], [ %.031.i, %100 ], [ -1, %101 ], [ -1, %95 ], [ -1, %95 ], [ %spec.select43.i, %102 ], [ 3, %72 ]
+  %103 = phi i32 [ 0, %65 ], [ -1, %95 ], [ %.031.i, %100 ], [ -1, %95 ], [ %spec.select43.i, %102 ], [ 3, %66 ], [ -1, %101 ], [ 3, %72 ]
   %104 = getelementptr inbounds nuw i8, ptr %8, i64 7968
   %105 = load i32, ptr %104, align 8, !tbaa !204
   %106 = icmp eq i32 %105, 3
@@ -13548,8 +13548,8 @@ _ZL32GetMinimumStepAtDecimalPrecisioni.exit:      ; preds = %117, %124, %128
   br label %134
 
 134:                                              ; preds = %62, %_ZL32GetMinimumStepAtDecimalPrecisioni.exit, %47, %60
-  %.1168 = phi float [ %61, %60 ], [ %.0167, %47 ], [ %120, %_ZL32GetMinimumStepAtDecimalPrecisioni.exit ], [ 0.000000e+00, %62 ]
-  %.1166 = phi float [ %.0165, %60 ], [ %.0165, %47 ], [ %133, %_ZL32GetMinimumStepAtDecimalPrecisioni.exit ], [ %.0165, %62 ]
+  %.1168 = phi float [ 0.000000e+00, %62 ], [ %61, %60 ], [ %.0167, %47 ], [ %120, %_ZL32GetMinimumStepAtDecimalPrecisioni.exit ]
+  %.1166 = phi float [ %.0165, %62 ], [ %.0165, %60 ], [ %.0165, %47 ], [ %133, %_ZL32GetMinimumStepAtDecimalPrecisioni.exit ]
   %135 = fmul float %.1168, %.1166
   %136 = fneg float %135
   %.2 = select i1 %.not186.not, float %135, float %136
@@ -13568,7 +13568,7 @@ _ZL32GetMinimumStepAtDecimalPrecisioni.exit:      ; preds = %117, %124, %128
   br label %144
 
 144:                                              ; preds = %141, %137, %134
-  %.3 = phi float [ %143, %141 ], [ %.2, %137 ], [ %.2, %134 ]
+  %.3 = phi float [ %143, %141 ], [ %.2, %134 ], [ %.2, %137 ]
   %145 = getelementptr inbounds nuw i8, ptr %8, i64 5144
   %146 = load i8, ptr %145, align 8, !tbaa !208, !range !153, !noundef !154
   %147 = trunc nuw i8 %146 to i1
@@ -13732,7 +13732,7 @@ _ZL6ImAtoiIiEPKcS1_PT_.exit.i229:                 ; preds = %.lr.ph.i27.i233, %1
   br label %_Z22ImParseFormatPrecisionPKci.exit239
 
 _Z22ImParseFormatPrecisionPKci.exit239:           ; preds = %178, %172, %201, %201, %206, %207, %208
-  %.0.i211 = phi i32 [ 3, %172 ], [ %.031.i218, %206 ], [ -1, %207 ], [ -1, %201 ], [ -1, %201 ], [ %spec.select43.i221, %208 ], [ 3, %178 ]
+  %.0.i211 = phi i32 [ -1, %201 ], [ %.031.i218, %206 ], [ -1, %201 ], [ %spec.select43.i221, %208 ], [ 3, %172 ], [ -1, %207 ], [ 3, %178 ]
   %209 = sitofp i32 %.0.i211 to float
   br label %210
 
@@ -13768,7 +13768,7 @@ _Z22ImParseFormatPrecisionPKci.exit239:           ; preds = %178, %172, %201, %2
   br label %228
 
 228:                                              ; preds = %226, %224
-  %.1170 = phi double [ %227, %226 ], [ %.0169, %224 ]
+  %.1170 = phi double [ %.0169, %224 ], [ %227, %226 ]
   store i8 0, ptr %169, align 1, !tbaa !358
   br i1 %.not187, label %237, label %229
 
@@ -14143,9 +14143,9 @@ _ZN5ImGui17TempInputIsActiveEj.exit.thread:       ; preds = %66, %62, %_ZN5ImGui
   %spec.select211 = select i1 %.not212, ptr null, ptr %5
   br label %.thread201
 
-.thread201:                                       ; preds = %.thread200, %.thread197, %137, %142, %.thread193, %133
-  %147 = phi ptr [ null, %133 ], [ null, %.thread193 ], [ null, %142 ], [ %4, %137 ], [ %4, %.thread197 ], [ %spec.select, %.thread200 ]
-  %148 = phi ptr [ null, %133 ], [ null, %.thread193 ], [ null, %142 ], [ %5, %137 ], [ %5, %.thread197 ], [ %spec.select211, %.thread200 ]
+.thread201:                                       ; preds = %.thread200, %.thread197, %137, %142, %133, %.thread193
+  %147 = phi ptr [ %spec.select, %.thread200 ], [ %4, %.thread197 ], [ null, %142 ], [ null, %.thread193 ], [ null, %133 ], [ %4, %137 ]
+  %148 = phi ptr [ %spec.select211, %.thread200 ], [ %5, %.thread197 ], [ null, %142 ], [ null, %.thread193 ], [ null, %133 ], [ %5, %137 ]
   %149 = call noundef zeroext i1 @_ZN5ImGui15TempInputScalarERK6ImRectjPKciPvS4_PKvS7_(ptr noundef nonnull align 4 dereferenceable(16) %10, i32 noundef %22, ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0153, ptr noundef %147, ptr noundef %148)
   br label %181
 
@@ -14308,7 +14308,7 @@ _Z20ImParseFormatFindEndPKc.exit.i:               ; preds = %34, %27
   br label %_Z28ImParseFormatTrimDecorationsPKcPcm.exit
 
 _Z28ImParseFormatTrimDecorationsPKcPcm.exit:      ; preds = %21, %.thread.i.i, %8, %_Z20ImParseFormatFindEndPKc.exit.i, %42
-  %.0.i = phi ptr [ %10, %42 ], [ %.01125.i.i, %_Z20ImParseFormatFindEndPKc.exit.i ], [ @.str, %8 ], [ %.01125.i.i, %.thread.i.i ], [ @.str, %21 ]
+  %.0.i = phi ptr [ %.01125.i.i, %.thread.i.i ], [ %10, %42 ], [ %.01125.i.i, %_Z20ImParseFormatFindEndPKc.exit.i ], [ @.str, %8 ], [ @.str, %21 ]
   %47 = load i8, ptr %.0.i, align 1, !tbaa !340
   %48 = icmp eq i8 %47, 0
   br i1 %48, label %49, label %52
@@ -14462,15 +14462,15 @@ _ZN5ImGui13TempInputTextERK6ImRectjPKcPcii.exit:  ; preds = %61, %79
   %110 = fcmp ogt double %.val38.i, %.val39.i
   br i1 %109, label %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit.thread, label %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit
 
-_ZN5ImGui15DataTypeCompareEiPKvS1_.exit:          ; preds = %108, %105, %89, %91, %93, %95, %97, %99, %101, %103
-  %.0.i32 = phi i1 [ %90, %89 ], [ %92, %91 ], [ %94, %93 ], [ %96, %95 ], [ %98, %97 ], [ %100, %99 ], [ %102, %101 ], [ %104, %103 ], [ %107, %105 ], [ %110, %108 ]
+_ZN5ImGui15DataTypeCompareEiPKvS1_.exit:          ; preds = %105, %108, %89, %91, %93, %95, %97, %99, %101, %103
+  %.0.i32 = phi i1 [ %110, %108 ], [ %90, %89 ], [ %92, %91 ], [ %94, %93 ], [ %96, %95 ], [ %98, %97 ], [ %100, %99 ], [ %102, %101 ], [ %104, %103 ], [ %107, %105 ]
   %spec.select = select i1 %.0.i32, ptr %7, ptr %6
   %spec.select42 = select i1 %.0.i32, ptr %6, ptr %7
   br label %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit.thread
 
-_ZN5ImGui15DataTypeCompareEiPKvS1_.exit.thread:   ; preds = %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit, %108, %105, %88, %87
-  %.039 = phi ptr [ %6, %87 ], [ %6, %88 ], [ %6, %105 ], [ %6, %108 ], [ %spec.select, %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit ]
-  %.038 = phi ptr [ %7, %87 ], [ %7, %88 ], [ %7, %105 ], [ %7, %108 ], [ %spec.select42, %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit ]
+_ZN5ImGui15DataTypeCompareEiPKvS1_.exit.thread:   ; preds = %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit, %105, %108, %88, %87
+  %.039 = phi ptr [ %6, %105 ], [ %spec.select, %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit ], [ %6, %87 ], [ %6, %88 ], [ %6, %108 ]
+  %.038 = phi ptr [ %7, %105 ], [ %spec.select42, %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit ], [ %7, %87 ], [ %7, %88 ], [ %7, %108 ]
   %111 = call noundef zeroext i1 @_ZN5ImGui13DataTypeClampEiPvPKvS2_(i32 noundef %3, ptr noundef %4, ptr noundef %.039, ptr noundef %.038)
   br label %112
 
@@ -14948,7 +14948,7 @@ define noundef zeroext i1 @_ZN5ImGui14SliderBehaviorERK6ImRectjiPvPKvS5_PKciPS0_
   br label %86
 
 86:                                               ; preds = %9, %82, %78, %74, %70, %66, %62, %61, %49, %37, %25
-  %.0 = phi i1 [ %21, %25 ], [ %33, %37 ], [ %45, %49 ], [ %57, %61 ], [ %65, %62 ], [ %69, %66 ], [ %73, %70 ], [ %77, %74 ], [ %81, %78 ], [ %85, %82 ], [ false, %9 ]
+  %.0 = phi i1 [ %85, %82 ], [ %21, %25 ], [ %33, %37 ], [ %45, %49 ], [ %57, %61 ], [ %65, %62 ], [ %69, %66 ], [ %73, %70 ], [ %77, %74 ], [ %81, %78 ], [ false, %9 ]
   ret i1 %.0
 }
 
@@ -15106,7 +15106,7 @@ _ZL6ImAtoiIiEPKcS1_PT_.exit.i:                    ; preds = %.lr.ph.i27.i, %56
   br label %_Z22ImParseFormatPrecisionPKci.exit
 
 _Z22ImParseFormatPrecisionPKci.exit:              ; preds = %50, %44, %73, %73, %78, %79, %80
-  %.0.i = phi i32 [ 3, %44 ], [ %.031.i, %78 ], [ -1, %79 ], [ -1, %73 ], [ -1, %73 ], [ %spec.select43.i, %80 ], [ 3, %50 ]
+  %.0.i = phi i32 [ -1, %73 ], [ %.031.i, %78 ], [ -1, %73 ], [ %spec.select43.i, %80 ], [ 3, %44 ], [ -1, %79 ], [ 3, %50 ]
   %81 = sitofp i32 %.0.i to float
   br label %82
 
@@ -15445,7 +15445,7 @@ _Z22ImParseFormatPrecisionPKci.exit289.thread:    ; preds = %173, %198, %202, %1
   br label %.thread312
 
 .thread312:                                       ; preds = %250, %242
-  %.0219 = phi i32 [ %251, %250 ], [ %248, %242 ]
+  %.0219 = phi i32 [ %248, %242 ], [ %251, %250 ]
   %252 = tail call noundef float @_ZN5ImGui20ScaleRatioFromValueTIiifEEfiT_S1_S1_bff(i32 noundef %2, i32 noundef %.0219, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %13, float noundef %.0218, float noundef %.0220)
   %253 = fsub float %252, %236
   %254 = load float, ptr %222, align 8, !tbaa !367
@@ -15485,7 +15485,7 @@ _Z22ImParseFormatPrecisionPKci.exit289.thread:    ; preds = %173, %198, %202, %1
   br label %271
 
 271:                                              ; preds = %269, %266
-  %.0217 = phi i32 [ %270, %269 ], [ %267, %266 ]
+  %.0217 = phi i32 [ %267, %266 ], [ %270, %269 ]
   %272 = load i32, ptr %3, align 4, !tbaa !177
   %.not251.not = icmp eq i32 %272, %.0217
   br i1 %.not251.not, label %.thread317, label %273
@@ -15709,7 +15709,7 @@ _ZL6ImAtoiIiEPKcS1_PT_.exit.i:                    ; preds = %.lr.ph.i27.i, %57
   br label %_Z22ImParseFormatPrecisionPKci.exit
 
 _Z22ImParseFormatPrecisionPKci.exit:              ; preds = %51, %45, %74, %74, %79, %80, %81
-  %.0.i = phi i32 [ 3, %45 ], [ %.031.i, %79 ], [ -1, %80 ], [ -1, %74 ], [ -1, %74 ], [ %spec.select43.i, %81 ], [ 3, %51 ]
+  %.0.i = phi i32 [ -1, %74 ], [ %.031.i, %79 ], [ -1, %74 ], [ %spec.select43.i, %81 ], [ 3, %45 ], [ -1, %80 ], [ 3, %51 ]
   %82 = sitofp i32 %.0.i to float
   br label %83
 
@@ -16114,7 +16114,7 @@ _ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit297.thread: ; preds = %25
   br label %_ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit297
 
 _ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit297: ; preds = %285, %288
-  %.0.i293 = phi float [ %287, %285 ], [ %292, %288 ]
+  %.0.i293 = phi float [ %292, %288 ], [ %287, %285 ]
   %293 = fcmp oge float %.0.i293, 1.000000e+00
   %294 = fcmp ogt float %246, 0.000000e+00
   %or.cond11 = select i1 %293, i1 %294, i1 false
@@ -16188,7 +16188,7 @@ _ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit297: ; preds = %285, %288
   br label %_ZN5ImGui20ScaleValueFromRatioTIjifEET_ifS1_S1_bff.exit.thread
 
 _ZN5ImGui20ScaleValueFromRatioTIjifEET_ifS1_S1_bff.exit: ; preds = %299, %306, %309, %323
-  %.0.i299 = phi i32 [ %4, %299 ], [ %5, %306 ], [ %321, %309 ], [ %327, %323 ]
+  %.0.i299 = phi i32 [ %5, %306 ], [ %4, %299 ], [ %321, %309 ], [ %327, %323 ]
   %338 = and i32 %7, 64
   %.not = icmp eq i32 %338, 0
   %or.cond = and i1 %14, %.not
@@ -16199,7 +16199,7 @@ _ZN5ImGui20ScaleValueFromRatioTIjifEET_ifS1_S1_bff.exit: ; preds = %299, %306, %
   br label %_ZN5ImGui20ScaleValueFromRatioTIjifEET_ifS1_S1_bff.exit.thread
 
 _ZN5ImGui20ScaleValueFromRatioTIjifEET_ifS1_S1_bff.exit.thread: ; preds = %330, %328, %339, %_ZN5ImGui20ScaleValueFromRatioTIjifEET_ifS1_S1_bff.exit
-  %.0219 = phi i32 [ %340, %339 ], [ %.0.i299, %_ZN5ImGui20ScaleValueFromRatioTIjifEET_ifS1_S1_bff.exit ], [ 0, %328 ], [ %337, %330 ]
+  %.0219 = phi i32 [ %.0.i299, %_ZN5ImGui20ScaleValueFromRatioTIjifEET_ifS1_S1_bff.exit ], [ %340, %339 ], [ 0, %328 ], [ %337, %330 ]
   br i1 %260, label %_ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit307, label %341
 
 341:                                              ; preds = %_ZN5ImGui20ScaleValueFromRatioTIjifEET_ifS1_S1_bff.exit.thread
@@ -16331,7 +16331,7 @@ _ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit307: ; preds = %_ZN5ImGui
   br label %_ZN5ImGui20ScaleValueFromRatioTIjifEET_ifS1_S1_bff.exit313.thread
 
 _ZN5ImGui20ScaleValueFromRatioTIjifEET_ifS1_S1_bff.exit313: ; preds = %384, %387, %390, %404
-  %.0.i309 = phi i32 [ %4, %384 ], [ %5, %387 ], [ %402, %390 ], [ %408, %404 ]
+  %.0.i309 = phi i32 [ %5, %387 ], [ %4, %384 ], [ %402, %390 ], [ %408, %404 ]
   %419 = and i32 %7, 64
   %.not249 = icmp eq i32 %419, 0
   %or.cond252 = and i1 %14, %.not249
@@ -16342,7 +16342,7 @@ _ZN5ImGui20ScaleValueFromRatioTIjifEET_ifS1_S1_bff.exit313: ; preds = %384, %387
   br label %_ZN5ImGui20ScaleValueFromRatioTIjifEET_ifS1_S1_bff.exit313.thread
 
 _ZN5ImGui20ScaleValueFromRatioTIjifEET_ifS1_S1_bff.exit313.thread: ; preds = %411, %409, %420, %_ZN5ImGui20ScaleValueFromRatioTIjifEET_ifS1_S1_bff.exit313
-  %.0217 = phi i32 [ %421, %420 ], [ %.0.i309, %_ZN5ImGui20ScaleValueFromRatioTIjifEET_ifS1_S1_bff.exit313 ], [ 0, %409 ], [ %418, %411 ]
+  %.0217 = phi i32 [ %.0.i309, %_ZN5ImGui20ScaleValueFromRatioTIjifEET_ifS1_S1_bff.exit313 ], [ %421, %420 ], [ 0, %409 ], [ %418, %411 ]
   %422 = load i32, ptr %3, align 4, !tbaa !177
   %.not250.not = icmp eq i32 %422, %.0217
   br i1 %.not250.not, label %.thread354, label %423
@@ -16613,7 +16613,7 @@ _ZL6ImAtoiIiEPKcS1_PT_.exit.i:                    ; preds = %.lr.ph.i27.i, %56
   br label %_Z22ImParseFormatPrecisionPKci.exit
 
 _Z22ImParseFormatPrecisionPKci.exit:              ; preds = %50, %44, %73, %73, %78, %79, %80
-  %.0.i = phi i32 [ 3, %44 ], [ %.031.i, %78 ], [ -1, %79 ], [ -1, %73 ], [ -1, %73 ], [ %spec.select43.i, %80 ], [ 3, %50 ]
+  %.0.i = phi i32 [ -1, %73 ], [ %.031.i, %78 ], [ -1, %73 ], [ %spec.select43.i, %80 ], [ 3, %44 ], [ -1, %79 ], [ 3, %50 ]
   %81 = sitofp i32 %.0.i to float
   br label %82
 
@@ -16952,7 +16952,7 @@ _Z22ImParseFormatPrecisionPKci.exit289.thread:    ; preds = %173, %198, %202, %1
   br label %.thread312
 
 .thread312:                                       ; preds = %250, %242
-  %.0219 = phi i64 [ %251, %250 ], [ %248, %242 ]
+  %.0219 = phi i64 [ %248, %242 ], [ %251, %250 ]
   %252 = tail call noundef float @_ZN5ImGui20ScaleRatioFromValueTIxxdEEfiT_S1_S1_bff(i32 noundef %2, i64 noundef %.0219, i64 noundef %4, i64 noundef %5, i1 noundef zeroext %13, float noundef %.0218, float noundef %.0220)
   %253 = fsub float %252, %236
   %254 = load float, ptr %222, align 8, !tbaa !367
@@ -16992,7 +16992,7 @@ _Z22ImParseFormatPrecisionPKci.exit289.thread:    ; preds = %173, %198, %202, %1
   br label %271
 
 271:                                              ; preds = %269, %266
-  %.0217 = phi i64 [ %270, %269 ], [ %267, %266 ]
+  %.0217 = phi i64 [ %267, %266 ], [ %270, %269 ]
   %272 = load i64, ptr %3, align 8, !tbaa !227
   %.not251.not = icmp eq i64 %272, %.0217
   br i1 %.not251.not, label %.thread317, label %273
@@ -17216,7 +17216,7 @@ _ZL6ImAtoiIiEPKcS1_PT_.exit.i:                    ; preds = %.lr.ph.i27.i, %57
   br label %_Z22ImParseFormatPrecisionPKci.exit
 
 _Z22ImParseFormatPrecisionPKci.exit:              ; preds = %51, %45, %74, %74, %79, %80, %81
-  %.0.i = phi i32 [ 3, %45 ], [ %.031.i, %79 ], [ -1, %80 ], [ -1, %74 ], [ -1, %74 ], [ %spec.select43.i, %81 ], [ 3, %51 ]
+  %.0.i = phi i32 [ -1, %74 ], [ %.031.i, %79 ], [ -1, %74 ], [ %spec.select43.i, %81 ], [ 3, %45 ], [ -1, %80 ], [ 3, %51 ]
   %82 = sitofp i32 %.0.i to float
   br label %83
 
@@ -17626,7 +17626,7 @@ _ZN5ImGui20ScaleRatioFromValueTIyxdEEfiT_S1_S1_bff.exit297.thread: ; preds = %26
   br label %_ZN5ImGui20ScaleRatioFromValueTIyxdEEfiT_S1_S1_bff.exit297
 
 _ZN5ImGui20ScaleRatioFromValueTIyxdEEfiT_S1_S1_bff.exit297: ; preds = %289, %292
-  %.0.i293 = phi float [ %291, %289 ], [ %297, %292 ]
+  %.0.i293 = phi float [ %297, %292 ], [ %291, %289 ]
   %298 = fcmp oge float %.0.i293, 1.000000e+00
   %299 = fcmp ogt float %249, 0.000000e+00
   %or.cond11 = select i1 %298, i1 %299, i1 false
@@ -17702,7 +17702,7 @@ _ZN5ImGui20ScaleRatioFromValueTIyxdEEfiT_S1_S1_bff.exit297: ; preds = %289, %292
   br label %_ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit.thread
 
 _ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit: ; preds = %304, %311, %314, %329
-  %.0.i299 = phi i64 [ %4, %304 ], [ %5, %311 ], [ %327, %314 ], [ %333, %329 ]
+  %.0.i299 = phi i64 [ %5, %311 ], [ %4, %304 ], [ %327, %314 ], [ %333, %329 ]
   %345 = and i32 %7, 64
   %.not = icmp eq i32 %345, 0
   %or.cond = and i1 %14, %.not
@@ -17713,7 +17713,7 @@ _ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit: ; preds = %304, %311, %
   br label %_ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit.thread
 
 _ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit.thread: ; preds = %336, %334, %346, %_ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit
-  %.0219 = phi i64 [ %347, %346 ], [ %.0.i299, %_ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit ], [ 0, %334 ], [ %344, %336 ]
+  %.0219 = phi i64 [ %.0.i299, %_ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit ], [ %347, %346 ], [ 0, %334 ], [ %344, %336 ]
   br i1 %263, label %_ZN5ImGui20ScaleRatioFromValueTIyxdEEfiT_S1_S1_bff.exit307, label %348
 
 348:                                              ; preds = %_ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit.thread
@@ -17849,7 +17849,7 @@ _ZN5ImGui20ScaleRatioFromValueTIyxdEEfiT_S1_S1_bff.exit307: ; preds = %_ZN5ImGui
   br label %_ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit313.thread
 
 _ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit313: ; preds = %393, %396, %399, %414
-  %.0.i309 = phi i64 [ %4, %393 ], [ %5, %396 ], [ %412, %399 ], [ %418, %414 ]
+  %.0.i309 = phi i64 [ %5, %396 ], [ %4, %393 ], [ %412, %399 ], [ %418, %414 ]
   %430 = and i32 %7, 64
   %.not249 = icmp eq i32 %430, 0
   %or.cond252 = and i1 %14, %.not249
@@ -17860,7 +17860,7 @@ _ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit313: ; preds = %393, %396
   br label %_ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit313.thread
 
 _ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit313.thread: ; preds = %421, %419, %431, %_ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit313
-  %.0217 = phi i64 [ %432, %431 ], [ %.0.i309, %_ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit313 ], [ 0, %419 ], [ %429, %421 ]
+  %.0217 = phi i64 [ %.0.i309, %_ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit313 ], [ %432, %431 ], [ 0, %419 ], [ %429, %421 ]
   %433 = load i64, ptr %3, align 8, !tbaa !227
   %.not250.not = icmp eq i64 %433, %.0217
   br i1 %.not250.not, label %.thread354, label %434
@@ -18136,7 +18136,7 @@ _ZL6ImAtoiIiEPKcS1_PT_.exit.i:                    ; preds = %.lr.ph.i27.i, %58
   br label %_Z22ImParseFormatPrecisionPKci.exit
 
 _Z22ImParseFormatPrecisionPKci.exit:              ; preds = %52, %46, %75, %75, %80, %81, %82
-  %.0.i = phi i32 [ 3, %46 ], [ %.031.i, %80 ], [ -1, %81 ], [ -1, %75 ], [ -1, %75 ], [ %spec.select43.i, %82 ], [ 3, %52 ]
+  %.0.i = phi i32 [ -1, %75 ], [ %.031.i, %80 ], [ -1, %75 ], [ %spec.select43.i, %82 ], [ 3, %46 ], [ -1, %81 ], [ 3, %52 ]
   %83 = sitofp i32 %.0.i to float
   br label %84
 
@@ -18477,7 +18477,7 @@ _Z22ImParseFormatPrecisionPKci.exit289.thread:    ; preds = %175, %200, %204, %1
   br label %.thread312
 
 .thread312:                                       ; preds = %253, %245
-  %.0219 = phi float [ %254, %253 ], [ %251, %245 ]
+  %.0219 = phi float [ %251, %245 ], [ %254, %253 ]
   %255 = tail call noundef float @_ZN5ImGui20ScaleRatioFromValueTIfffEEfiT_S1_S1_bff(i32 noundef %2, float noundef %.0219, float noundef %4, float noundef %5, i1 noundef zeroext %13, float noundef %.0218, float noundef %.0220)
   %256 = fsub float %255, %239
   %257 = load float, ptr %225, align 8, !tbaa !367
@@ -18517,7 +18517,7 @@ _Z22ImParseFormatPrecisionPKci.exit289.thread:    ; preds = %175, %200, %204, %1
   br label %274
 
 274:                                              ; preds = %272, %269
-  %.0217 = phi float [ %273, %272 ], [ %270, %269 ]
+  %.0217 = phi float [ %270, %269 ], [ %273, %272 ]
   %275 = load float, ptr %3, align 4, !tbaa !191
   %276 = fcmp une float %275, %.0217
   br i1 %276, label %277, label %.thread317
@@ -18743,7 +18743,7 @@ _ZL6ImAtoiIiEPKcS1_PT_.exit.i:                    ; preds = %.lr.ph.i27.i, %59
   br label %_Z22ImParseFormatPrecisionPKci.exit
 
 _Z22ImParseFormatPrecisionPKci.exit:              ; preds = %53, %47, %76, %76, %81, %82, %83
-  %.0.i = phi i32 [ 3, %47 ], [ %.031.i, %81 ], [ -1, %82 ], [ -1, %76 ], [ -1, %76 ], [ %spec.select43.i, %83 ], [ 3, %53 ]
+  %.0.i = phi i32 [ -1, %76 ], [ %.031.i, %81 ], [ -1, %76 ], [ %spec.select43.i, %83 ], [ 3, %47 ], [ -1, %82 ], [ 3, %53 ]
   %84 = sitofp i32 %.0.i to float
   br label %85
 
@@ -19084,7 +19084,7 @@ _Z22ImParseFormatPrecisionPKci.exit289.thread:    ; preds = %176, %201, %205, %1
   br label %.thread312
 
 .thread312:                                       ; preds = %254, %246
-  %.0219 = phi double [ %255, %254 ], [ %252, %246 ]
+  %.0219 = phi double [ %252, %246 ], [ %255, %254 ]
   %256 = tail call noundef float @_ZN5ImGui20ScaleRatioFromValueTIdddEEfiT_S1_S1_bff(i32 noundef %2, double noundef %.0219, double noundef %4, double noundef %5, i1 noundef zeroext %13, float noundef %.0218, float noundef %.0220)
   %257 = fsub float %256, %240
   %258 = load float, ptr %226, align 8, !tbaa !367
@@ -19124,7 +19124,7 @@ _Z22ImParseFormatPrecisionPKci.exit289.thread:    ; preds = %176, %201, %205, %1
   br label %275
 
 275:                                              ; preds = %273, %270
-  %.0217 = phi double [ %274, %273 ], [ %271, %270 ]
+  %.0217 = phi double [ %271, %270 ], [ %274, %273 ]
   %276 = load double, ptr %3, align 8, !tbaa !345
   %277 = fcmp une double %276, %.0217
   br i1 %277, label %278, label %.thread317
@@ -20040,7 +20040,7 @@ _Z20ImParseFormatFindEndPKc.exit:                 ; preds = %22, %15
   br label %_Z22ImParseFormatFindStartPKc.exit.thread
 
 _Z22ImParseFormatFindStartPKc.exit.thread:        ; preds = %9, %.thread.i, %3, %30, %_Z20ImParseFormatFindEndPKc.exit
-  %.0 = phi ptr [ %1, %30 ], [ %.01125.i, %_Z20ImParseFormatFindEndPKc.exit ], [ @.str, %3 ], [ %.01125.i, %.thread.i ], [ @.str, %9 ]
+  %.0 = phi ptr [ %.01125.i, %.thread.i ], [ %1, %30 ], [ %.01125.i, %_Z20ImParseFormatFindEndPKc.exit ], [ @.str, %3 ], [ @.str, %9 ]
   ret ptr %.0
 }
 
@@ -20095,7 +20095,7 @@ define void @_Z32ImParseFormatSanitizeForPrintingPKcPcm(ptr noundef readonly cap
   br i1 %.not22.i, label %_Z20ImParseFormatFindEndPKc.exit, label %.preheader.i, !llvm.loop !351
 
 _Z20ImParseFormatFindEndPKc.exit:                 ; preds = %.thread.i, %13, %22
-  %.019.i = phi ptr [ %14, %13 ], [ %23, %22 ], [ %24, %.thread.i ]
+  %.019.i = phi ptr [ %23, %22 ], [ %14, %13 ], [ %24, %.thread.i ]
   %26 = icmp ult ptr %0, %.019.i
   br i1 %26, label %.lr.ph, label %._crit_edge
 
@@ -20231,7 +20231,7 @@ _ZL6ImAtoiIiEPKcS1_PT_.exit:                      ; preds = %.lr.ph.i27, %14
   br label %_Z22ImParseFormatFindStartPKc.exit.thread
 
 _Z22ImParseFormatFindStartPKc.exit.thread:        ; preds = %8, %38, %31, %31, %36, %37, %2
-  %.0 = phi i32 [ %1, %2 ], [ %.031, %36 ], [ -1, %37 ], [ -1, %31 ], [ -1, %31 ], [ %spec.select43, %38 ], [ %1, %8 ]
+  %.0 = phi i32 [ -1, %31 ], [ %.031, %36 ], [ -1, %31 ], [ %spec.select43, %38 ], [ %1, %2 ], [ -1, %37 ], [ %1, %8 ]
   ret i32 %.0
 }
 
@@ -20533,11 +20533,11 @@ define noundef zeroext i1 @_ZN5ImGui11InputTextExEPKcS1_PciRK6ImVec2iPFiP26ImGui
   br i1 %144, label %145, label %1855
 
 145:                                              ; preds = %.thread, %141, %143
-  %.sroa.01436.0 = phi float [ 0.000000e+00, %143 ], [ 0.000000e+00, %141 ], [ %139, %.thread ]
-  %.sroa.61445.0 = phi i32 [ 0, %143 ], [ 0, %141 ], [ %.sroa.61445.0.copyload, %.thread ]
-  %.sroa.51444.0 = phi i32 [ 0, %143 ], [ 0, %141 ], [ %.sroa.51444.0.copyload, %.thread ]
-  %.sroa.0657.2 = phi float [ %.sroa.01453.0.vec.extract1455, %143 ], [ %.sroa.01453.0.vec.extract1455, %141 ], [ %139, %.thread ]
-  %.21044 = phi ptr [ %38, %143 ], [ %38, %141 ], [ %123, %.thread ]
+  %.sroa.01436.0 = phi float [ %139, %.thread ], [ 0.000000e+00, %143 ], [ 0.000000e+00, %141 ]
+  %.sroa.61445.0 = phi i32 [ %.sroa.61445.0.copyload, %.thread ], [ 0, %143 ], [ 0, %141 ]
+  %.sroa.51444.0 = phi i32 [ %.sroa.51444.0.copyload, %.thread ], [ 0, %143 ], [ 0, %141 ]
+  %.sroa.0657.2 = phi float [ %139, %.thread ], [ %.sroa.01453.0.vec.extract1455, %143 ], [ %.sroa.01453.0.vec.extract1455, %141 ]
+  %.21044 = phi ptr [ %123, %.thread ], [ %38, %143 ], [ %38, %141 ]
   %146 = getelementptr inbounds nuw i8, ptr %36, i64 7528
   %147 = getelementptr inbounds nuw i8, ptr %36, i64 7532
   %148 = load i32, ptr %147, align 4, !tbaa !235
@@ -20554,7 +20554,7 @@ define noundef zeroext i1 @_ZN5ImGui11InputTextExEPKcS1_PciRK6ImVec2iPFiP26ImGui
   br label %.critedge1186
 
 .critedge1186:                                    ; preds = %151, %145
-  %.01045.shrunk = phi i1 [ %not., %151 ], [ false, %145 ]
+  %.01045.shrunk = phi i1 [ false, %145 ], [ %not., %151 ]
   %.not.i = icmp eq i32 %49, 0
   br i1 %.not.i, label %_ZN5ImGui17GetInputTextStateEj.exit, label %155
 
@@ -20854,7 +20854,7 @@ _ZN8ImVectorIcE6resizeEi.exit:                    ; preds = %_ZL27InputTextRecon
 
 304:                                              ; preds = %.thread1473, %303
   %305 = phi i1 [ false, %.thread1473 ], [ %226, %303 ]
-  %spec.select118814771478 = phi i1 [ %spec.select11881475, %.thread1473 ], [ %spec.select1188, %303 ]
+  %spec.select118814771479 = phi i1 [ %spec.select11881475, %.thread1473 ], [ %spec.select1188, %303 ]
   %306 = load i32, ptr %172, align 4, !tbaa !189
   %307 = icmp ne i32 %306, %49
   %or.cond7 = select i1 %307, i1 true, i1 %305
@@ -20865,7 +20865,7 @@ _ZN8ImVectorIcE6resizeEi.exit:                    ; preds = %_ZL27InputTextRecon
 
 309:                                              ; preds = %308, %304
   %310 = phi i1 [ true, %308 ], [ %305, %304 ]
-  %spec.select118814771480 = phi i1 [ false, %308 ], [ %spec.select118814771478, %304 ]
+  %spec.select118814771480 = phi i1 [ false, %308 ], [ %spec.select118814771479, %304 ]
   %311 = phi i1 [ false, %308 ], [ true, %304 ]
   %312 = getelementptr inbounds nuw i8, ptr %36, i64 9040
   %313 = getelementptr inbounds nuw i8, ptr %36, i64 9140
@@ -21137,10 +21137,10 @@ _ZN8ImVectorIcE6resizeEi.exit1303:                ; preds = %._ZN8ImVectorIcE6re
   br label %.sink.split
 
 .thread1481:                                      ; preds = %430, %432, %304, %_ZN8ImVectorIcE6resizeEi.exit
-  %437 = phi i1 [ %227, %_ZN8ImVectorIcE6resizeEi.exit ], [ true, %304 ], [ %311, %432 ], [ %311, %430 ]
-  %spec.select11881476 = phi i1 [ %spec.select1188, %_ZN8ImVectorIcE6resizeEi.exit ], [ %spec.select118814771478, %304 ], [ %spec.select118814771480, %432 ], [ %spec.select118814771480, %430 ]
-  %.01051 = phi i1 [ false, %_ZN8ImVectorIcE6resizeEi.exit ], [ false, %304 ], [ %.11052, %432 ], [ %.11052, %430 ]
-  %.01046 = phi ptr [ %161, %_ZN8ImVectorIcE6resizeEi.exit ], [ %161, %304 ], [ %312, %432 ], [ %312, %430 ]
+  %437 = phi i1 [ %227, %_ZN8ImVectorIcE6resizeEi.exit ], [ %311, %430 ], [ true, %304 ], [ %311, %432 ]
+  %spec.select11881476 = phi i1 [ %spec.select1188, %_ZN8ImVectorIcE6resizeEi.exit ], [ %spec.select118814771480, %430 ], [ %spec.select118814771479, %304 ], [ %spec.select118814771480, %432 ]
+  %.01051 = phi i1 [ false, %_ZN8ImVectorIcE6resizeEi.exit ], [ %.11052, %430 ], [ false, %304 ], [ %.11052, %432 ]
+  %.01046 = phi ptr [ %161, %_ZN8ImVectorIcE6resizeEi.exit ], [ %312, %430 ], [ %161, %304 ], [ %312, %432 ]
   %438 = getelementptr inbounds nuw i8, ptr %36, i64 96
   %439 = load i8, ptr %438, align 8, !tbaa !410, !range !153, !noundef !154
   %440 = trunc nuw i8 %439 to i1
@@ -21285,7 +21285,7 @@ _ZN8ImVectorIcE6resizeEi.exit1303:                ; preds = %._ZN8ImVectorIcE6re
   br label %492
 
 492:                                              ; preds = %488, %484
-  %.01047 = phi i8 [ 0, %484 ], [ %spec.select1192, %488 ]
+  %.01047 = phi i8 [ %spec.select1192, %488 ], [ 0, %484 ]
   %493 = select i1 %485, i1 %212, i1 false
   %spec.select1193 = select i1 %487, i1 true, i1 %493
   br i1 %485, label %494, label %502
@@ -21303,7 +21303,7 @@ _ZN8ImVectorIcE6resizeEi.exit1303:                ; preds = %._ZN8ImVectorIcE6re
   br label %502
 
 502:                                              ; preds = %494, %492
-  %503 = phi i1 [ false, %492 ], [ %spec.select1194, %494 ]
+  %503 = phi i1 [ %spec.select1194, %494 ], [ false, %492 ]
   %not.1541 = xor i1 %166, true
   %spec.select1522 = and i1 %485, %not.1541
   %spec.select1532 = select i1 %spec.select1193, i1 %spec.select1522, i1 false
@@ -21834,7 +21834,7 @@ _ZN8ImVectorItE6resizeEi.exit:                    ; preds = %.loopexit1553, %739
   br label %792
 
 792:                                              ; preds = %780, %784, %785
-  %793 = phi i1 [ %not.brmerge1200, %784 ], [ %not.brmerge1198, %780 ], [ %791, %785 ]
+  %793 = phi i1 [ %791, %785 ], [ %not.brmerge1200, %784 ], [ %not.brmerge1198, %780 ]
   %794 = call noundef zeroext i1 @_ZN5ImGui8ShortcutEiij(i32 noundef 4644, i32 noundef 0, i32 noundef %49)
   br i1 %794, label %797, label %795
 
@@ -21931,7 +21931,7 @@ _ZN8ImVectorItE6resizeEi.exit:                    ; preds = %.loopexit1553, %739
   br label %845
 
 845:                                              ; preds = %837, %843
-  %846 = phi i1 [ true, %837 ], [ %844, %843 ]
+  %846 = phi i1 [ %844, %843 ], [ true, %837 ]
   %847 = call noundef zeroext i1 @_ZN5ImGui8ShortcutEiij(i32 noundef 526, i32 noundef 1, i32 noundef %49)
   br i1 %847, label %853, label %848
 
@@ -22497,12 +22497,12 @@ _ZN8ImVectorItE6resizeEi.exit:                    ; preds = %.loopexit1553, %739
   resume { ptr, i32 } %.pn.pn.pn
 
 1110:                                             ; preds = %857, %879, %872, %900, %915, %934, %988, %1035, %1051, %995, %956, %921, %908, %887, %895, %863, %965, %976, %981, %969, %985, %983, %1108, %1052, %1043, %1049, %.critedge1219, %964
-  %1111 = phi i1 [ true, %857 ], [ true, %863 ], [ true, %872 ], [ true, %879 ], [ true, %887 ], [ true, %895 ], [ true, %900 ], [ true, %908 ], [ true, %915 ], [ true, %921 ], [ true, %988 ], [ true, %995 ], [ true, %1035 ], [ true, %1051 ], [ true, %956 ], [ true, %934 ], [ true, %965 ], [ true, %976 ], [ true, %981 ], [ true, %969 ], [ %.1220, %985 ], [ %166, %983 ], [ true, %1108 ], [ true, %1052 ], [ true, %1043 ], [ true, %1049 ], [ true, %.critedge1219 ], [ true, %964 ]
-  %.11081 = phi i1 [ false, %857 ], [ false, %863 ], [ false, %872 ], [ false, %879 ], [ false, %887 ], [ false, %895 ], [ false, %900 ], [ false, %908 ], [ false, %915 ], [ false, %921 ], [ false, %988 ], [ false, %995 ], [ false, %1035 ], [ false, %1051 ], [ false, %956 ], [ false, %934 ], [ true, %965 ], [ false, %976 ], [ false, %981 ], [ true, %969 ], [ false, %985 ], [ false, %983 ], [ false, %1108 ], [ false, %1052 ], [ false, %1043 ], [ false, %1049 ], [ true, %.critedge1219 ], [ true, %964 ]
-  %.11066 = phi i1 [ %503, %857 ], [ %503, %863 ], [ %503, %872 ], [ %503, %879 ], [ %503, %887 ], [ %503, %895 ], [ %503, %900 ], [ %503, %908 ], [ %503, %915 ], [ %503, %921 ], [ %503, %988 ], [ %503, %995 ], [ %503, %1035 ], [ %503, %1051 ], [ %503, %956 ], [ %503, %934 ], [ %503, %965 ], [ %503, %976 ], [ %503, %981 ], [ %503, %969 ], [ %.1221, %985 ], [ false, %983 ], [ %503, %1108 ], [ %503, %1052 ], [ %503, %1043 ], [ %503, %1049 ], [ %503, %.critedge1219 ], [ %503, %964 ]
-  %.11061.shrunk = phi i1 [ %spec.select1193, %857 ], [ %spec.select1193, %863 ], [ %spec.select1193, %872 ], [ %spec.select1193, %879 ], [ %spec.select1193, %887 ], [ %spec.select1193, %895 ], [ %spec.select1193, %900 ], [ %spec.select1193, %908 ], [ %spec.select1193, %915 ], [ %spec.select1193, %921 ], [ %spec.select1193, %988 ], [ %spec.select1193, %995 ], [ %spec.select1193, %1035 ], [ %spec.select1193, %1051 ], [ %spec.select1193, %956 ], [ %spec.select1193, %934 ], [ %spec.select1193, %965 ], [ %spec.select1193, %976 ], [ %spec.select1193, %981 ], [ %spec.select1193, %969 ], [ %.spec.select1193, %985 ], [ false, %983 ], [ %spec.select1193, %1108 ], [ %spec.select1193, %1052 ], [ %spec.select1193, %1043 ], [ %spec.select1193, %1049 ], [ %spec.select1193, %.critedge1219 ], [ %spec.select1193, %964 ]
-  %.11056 = phi float [ %214, %857 ], [ %214, %863 ], [ %214, %872 ], [ %214, %879 ], [ %214, %887 ], [ %214, %895 ], [ %905, %900 ], [ %912, %908 ], [ %214, %915 ], [ %214, %921 ], [ %214, %988 ], [ %214, %995 ], [ %214, %1035 ], [ %214, %1051 ], [ %214, %956 ], [ %214, %934 ], [ %214, %965 ], [ %214, %976 ], [ %214, %981 ], [ %214, %969 ], [ %214, %985 ], [ %214, %983 ], [ %214, %1108 ], [ %214, %1052 ], [ %214, %1043 ], [ %214, %1049 ], [ %214, %.critedge1219 ], [ %214, %964 ]
-  %.21049 = phi i8 [ %.01047, %857 ], [ %.01047, %863 ], [ %.01047, %872 ], [ %.01047, %879 ], [ %.01047, %887 ], [ %.01047, %895 ], [ %.01047, %900 ], [ %.01047, %908 ], [ %.01047, %915 ], [ %.01047, %921 ], [ %.01047, %988 ], [ %.01047, %995 ], [ %.01047, %1035 ], [ %.01047, %1051 ], [ %.01047, %956 ], [ %.01047, %934 ], [ 1, %965 ], [ %.01047, %976 ], [ %.01047, %981 ], [ %.01047, %969 ], [ %..01047, %985 ], [ 1, %983 ], [ %.01047, %1108 ], [ %.01047, %1052 ], [ %.01047, %1043 ], [ %.01047, %1049 ], [ 1, %.critedge1219 ], [ 1, %964 ]
+  %1111 = phi i1 [ true, %857 ], [ true, %863 ], [ true, %872 ], [ true, %879 ], [ true, %887 ], [ true, %895 ], [ true, %900 ], [ true, %908 ], [ true, %915 ], [ true, %921 ], [ true, %934 ], [ %.1220, %985 ], [ true, %969 ], [ true, %981 ], [ true, %988 ], [ true, %995 ], [ true, %1049 ], [ true, %1035 ], [ %166, %983 ], [ true, %1051 ], [ true, %956 ], [ true, %965 ], [ true, %976 ], [ true, %1108 ], [ true, %1052 ], [ true, %1043 ], [ true, %.critedge1219 ], [ true, %964 ]
+  %.11081 = phi i1 [ false, %857 ], [ false, %863 ], [ false, %872 ], [ false, %879 ], [ false, %887 ], [ false, %895 ], [ false, %900 ], [ false, %908 ], [ false, %915 ], [ false, %921 ], [ false, %934 ], [ false, %985 ], [ true, %969 ], [ false, %981 ], [ false, %988 ], [ false, %995 ], [ false, %1049 ], [ false, %1035 ], [ false, %983 ], [ false, %1051 ], [ false, %956 ], [ true, %965 ], [ false, %976 ], [ false, %1108 ], [ false, %1052 ], [ false, %1043 ], [ true, %.critedge1219 ], [ true, %964 ]
+  %.11066 = phi i1 [ %503, %857 ], [ %503, %863 ], [ %503, %872 ], [ %503, %879 ], [ %503, %887 ], [ %503, %895 ], [ %503, %900 ], [ %503, %908 ], [ %503, %915 ], [ %503, %921 ], [ %503, %934 ], [ %.1221, %985 ], [ %503, %969 ], [ %503, %981 ], [ %503, %988 ], [ %503, %995 ], [ %503, %1049 ], [ %503, %1035 ], [ false, %983 ], [ %503, %1051 ], [ %503, %956 ], [ %503, %965 ], [ %503, %976 ], [ %503, %1108 ], [ %503, %1052 ], [ %503, %1043 ], [ %503, %.critedge1219 ], [ %503, %964 ]
+  %.11061.shrunk = phi i1 [ %spec.select1193, %857 ], [ %spec.select1193, %863 ], [ %spec.select1193, %872 ], [ %spec.select1193, %879 ], [ %spec.select1193, %887 ], [ %spec.select1193, %895 ], [ %spec.select1193, %900 ], [ %spec.select1193, %908 ], [ %spec.select1193, %915 ], [ %spec.select1193, %921 ], [ %spec.select1193, %934 ], [ %.spec.select1193, %985 ], [ %spec.select1193, %969 ], [ %spec.select1193, %981 ], [ %spec.select1193, %988 ], [ %spec.select1193, %995 ], [ %spec.select1193, %1049 ], [ %spec.select1193, %1035 ], [ false, %983 ], [ %spec.select1193, %1051 ], [ %spec.select1193, %956 ], [ %spec.select1193, %965 ], [ %spec.select1193, %976 ], [ %spec.select1193, %1108 ], [ %spec.select1193, %1052 ], [ %spec.select1193, %1043 ], [ %spec.select1193, %.critedge1219 ], [ %spec.select1193, %964 ]
+  %.11056 = phi float [ %214, %857 ], [ %214, %863 ], [ %214, %872 ], [ %214, %879 ], [ %214, %887 ], [ %214, %895 ], [ %905, %900 ], [ %912, %908 ], [ %214, %915 ], [ %214, %921 ], [ %214, %934 ], [ %214, %985 ], [ %214, %969 ], [ %214, %981 ], [ %214, %988 ], [ %214, %995 ], [ %214, %1049 ], [ %214, %1035 ], [ %214, %983 ], [ %214, %1051 ], [ %214, %956 ], [ %214, %965 ], [ %214, %976 ], [ %214, %1108 ], [ %214, %1052 ], [ %214, %1043 ], [ %214, %.critedge1219 ], [ %214, %964 ]
+  %.21049 = phi i8 [ %.01047, %857 ], [ %.01047, %863 ], [ %.01047, %872 ], [ %.01047, %879 ], [ %.01047, %887 ], [ %.01047, %895 ], [ %.01047, %900 ], [ %.01047, %908 ], [ %.01047, %915 ], [ %.01047, %921 ], [ %.01047, %934 ], [ %..01047, %985 ], [ %.01047, %969 ], [ %.01047, %981 ], [ %.01047, %988 ], [ %.01047, %995 ], [ %.01047, %1049 ], [ %.01047, %1035 ], [ 1, %983 ], [ %.01047, %1051 ], [ %.01047, %956 ], [ 1, %965 ], [ %.01047, %976 ], [ %.01047, %1108 ], [ %.01047, %1052 ], [ %.01047, %1043 ], [ 1, %.critedge1219 ], [ 1, %964 ]
   %1112 = load ptr, ptr %756, align 8, !tbaa !378
   %1113 = getelementptr inbounds nuw i8, ptr %1112, i64 4
   %1114 = load i32, ptr %1113, align 4, !tbaa !393
@@ -23069,7 +23069,7 @@ _ZN8ImVectorIcE6resizeEi.exit1312:                ; preds = %._ZN8ImVectorIcE6re
   br i1 %.01083.in, label %.thread1508.thread, label %.thread1508
 
 .thread1508:                                      ; preds = %1353, %.thr_comm1506, %1378
-  %.01085 = phi ptr [ %1379, %1378 ], [ %1350, %1353 ], [ %.ph1507, %.thr_comm1506 ]
+  %.01085 = phi ptr [ %.ph1507, %.thr_comm1506 ], [ %1379, %1378 ], [ %1350, %1353 ]
   %or.cond144 = select i1 %.010601708, i1 true, i1 %.01065.in1706
   br i1 %or.cond144, label %1382, label %.thread1760
 
@@ -23739,7 +23739,7 @@ _ZNK6ImRect8OverlapsERKS_.exit.thread:            ; preds = %1659, %1678
   br label %1714
 
 1714:                                             ; preds = %1711, %1701
-  %1715 = phi i1 [ true, %1701 ], [ %1713, %1711 ]
+  %1715 = phi i1 [ %1713, %1711 ], [ true, %1701 ]
   %.val = load float, ptr %29, align 8, !tbaa !159
   %1716 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %.val1234 = load float, ptr %1716, align 4, !tbaa !160
@@ -23859,18 +23859,18 @@ _ZNK6ImRect8OverlapsERKS_.exit.thread:            ; preds = %1659, %1678
   br label %1781
 
 1776:                                             ; preds = %1754, %1762, %1767
-  %.01085174717661784 = phi ptr [ %.01085, %1767 ], [ %.01085, %1762 ], [ %1, %1754 ]
+  %.01085174717651784 = phi ptr [ %.01085, %1767 ], [ %.01085, %1762 ], [ %1, %1754 ]
   %.01083.in1510174017691782 = phi i1 [ false, %1767 ], [ false, %1762 ], [ true, %1754 ]
   %.31465.ph = phi ptr [ %1769, %1767 ], [ %1766, %1762 ], [ %1381, %1754 ]
   %1777 = ptrtoint ptr %.31465.ph to i64
-  %1778 = ptrtoint ptr %.01085174717661784 to i64
+  %1778 = ptrtoint ptr %.01085174717651784 to i64
   %1779 = sub i64 %1777, %1778
   %1780 = icmp slt i64 %1779, 2097152
   br i1 %1780, label %1781, label %1800
 
 1781:                                             ; preds = %.critedge1231, %1776
   %.01083.in151017401770 = phi i1 [ %.01083.in1510174017691782, %1776 ], [ %.01083.in151017401771, %.critedge1231 ]
-  %.0108517471765 = phi ptr [ %.01085174717661784, %1776 ], [ %.0108517471767, %.critedge1231 ]
+  %.0108517471766 = phi ptr [ %.01085174717651784, %1776 ], [ %.0108517471767, %.critedge1231 ]
   %.sroa.61437.21521 = phi float [ 0.000000e+00, %1776 ], [ %1775, %.critedge1231 ]
   %.sroa.01436.21519 = phi float [ 0.000000e+00, %1776 ], [ %.sroa.0657.2, %.critedge1231 ]
   %.314651517 = phi ptr [ %.31465.ph, %1776 ], [ %1771, %.critedge1231 ]
@@ -23880,7 +23880,7 @@ _ZNK6ImRect8OverlapsERKS_.exit.thread:            ; preds = %1659, %1678
 
 1783:                                             ; preds = %1781
   %1784 = load float, ptr %77, align 8, !tbaa !172
-  %1785 = call <2 x float> @_ZN5ImGui12CalcTextSizeEPKcS1_bf(ptr noundef %.0108517471765, ptr noundef null, i1 noundef zeroext false, float noundef -1.000000e+00)
+  %1785 = call <2 x float> @_ZN5ImGui12CalcTextSizeEPKcS1_bf(ptr noundef %.0108517471766, ptr noundef null, i1 noundef zeroext false, float noundef -1.000000e+00)
   %.sroa.0.0.vec.extract = extractelement <2 x float> %1785, i64 0
   %1786 = fsub float %1784, %.sroa.0.0.vec.extract
   %1787 = load float, ptr %59, align 4, !tbaa !174
@@ -23908,16 +23908,16 @@ _ZNK6ImRect8OverlapsERKS_.exit.thread:            ; preds = %1659, %1678
   %.sroa.0.4.vec.insert.i1380 = insertelement <2 x float> %.sroa.0.0.vec.insert.i1379, float %.val1262, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i1380, ptr %34, align 8
   %.145 = select i1 %46, ptr null, ptr %28
-  call void @_ZN10ImDrawList7AddTextEP6ImFontfRK6ImVec2jPKcS6_fPK6ImVec4(ptr noundef nonnull align 8 dereferenceable(216) %1795, ptr noundef %1797, float noundef %1799, ptr noundef nonnull align 4 dereferenceable(8) %34, i32 noundef %1793, ptr noundef %.0108517471765, ptr noundef %.314651517, float noundef 0.000000e+00, ptr noundef %.145)
+  call void @_ZN10ImDrawList7AddTextEP6ImFontfRK6ImVec2jPKcS6_fPK6ImVec4(ptr noundef nonnull align 8 dereferenceable(216) %1795, ptr noundef %1797, float noundef %1799, ptr noundef nonnull align 4 dereferenceable(8) %34, i32 noundef %1793, ptr noundef %.0108517471766, ptr noundef %.314651517, float noundef 0.000000e+00, ptr noundef %.145)
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %1800
 
 1800:                                             ; preds = %1700, %1753, %1776, %1791
-  %.010851746 = phi ptr [ %.0108517471765, %1791 ], [ %.01085174717661784, %1776 ], [ %.0108517451753, %1753 ], [ %.0108517451753, %1700 ]
-  %.01083.in15101742 = phi i1 [ %.01083.in151017401770, %1791 ], [ %.01083.in1510174017691782, %1776 ], [ %.01083.in151017411756, %1753 ], [ %.01083.in151017411756, %1700 ]
-  %.2 = phi ptr [ %.314651517, %1791 ], [ %.31465.ph, %1776 ], [ %.1, %1753 ], [ %.1, %1700 ]
-  %.sroa.01436.1 = phi float [ %.sroa.01436.21519, %1791 ], [ 0.000000e+00, %1776 ], [ %.sroa.01436.0, %1753 ], [ %.sroa.01436.0, %1700 ]
-  %.sroa.61437.1 = phi float [ %.sroa.61437.21521, %1791 ], [ 0.000000e+00, %1776 ], [ %.sroa.61437.0, %1753 ], [ %.sroa.61437.0, %1700 ]
+  %.010851746 = phi ptr [ %.01085174717651784, %1776 ], [ %.0108517471766, %1791 ], [ %.0108517451753, %1753 ], [ %.0108517451753, %1700 ]
+  %.01083.in15101742 = phi i1 [ %.01083.in1510174017691782, %1776 ], [ %.01083.in151017401770, %1791 ], [ %.01083.in151017411756, %1753 ], [ %.01083.in151017411756, %1700 ]
+  %.2 = phi ptr [ %.31465.ph, %1776 ], [ %.314651517, %1791 ], [ %.1, %1753 ], [ %.1, %1700 ]
+  %.sroa.01436.1 = phi float [ 0.000000e+00, %1776 ], [ %.sroa.01436.21519, %1791 ], [ %.sroa.01436.0, %1753 ], [ %.sroa.01436.0, %1700 ]
+  %.sroa.61437.1 = phi float [ 0.000000e+00, %1776 ], [ %.sroa.61437.21521, %1791 ], [ %.sroa.61437.0, %1753 ], [ %.sroa.61437.0, %1700 ]
   %or.cond149 = or i1 %168, %.01083.in15101742
   br i1 %or.cond149, label %1802, label %1801
 
@@ -24187,15 +24187,15 @@ define noundef zeroext i1 @_ZN5ImGui11InputScalarEPKciPvPKvS4_S1_i(ptr noundef %
   %55 = fcmp ule double %.val38.i, %.val39.i
   br i1 %54, label %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit.thread, label %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit
 
-_ZN5ImGui15DataTypeCompareEiPKvS1_.exit:          ; preds = %53, %50
-  %.0.i = phi i1 [ %52, %50 ], [ %55, %53 ]
+_ZN5ImGui15DataTypeCompareEiPKvS1_.exit:          ; preds = %50, %53
+  %.0.i = phi i1 [ %55, %53 ], [ %52, %50 ]
   br i1 %.0.i, label %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit.thread85, label %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit.thread
 
-_ZN5ImGui15DataTypeCompareEiPKvS1_.exit.thread85: ; preds = %48, %46, %44, %42, %40, %38, %36, %34, %33, %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit
+_ZN5ImGui15DataTypeCompareEiPKvS1_.exit.thread85: ; preds = %38, %40, %42, %44, %46, %48, %36, %34, %33, %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit
   store i8 0, ptr %10, align 16, !tbaa !340
   br label %57
 
-_ZN5ImGui15DataTypeCompareEiPKvS1_.exit.thread:   ; preds = %48, %46, %44, %42, %40, %38, %36, %34, %53, %50, %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit, %27
+_ZN5ImGui15DataTypeCompareEiPKvS1_.exit.thread:   ; preds = %38, %40, %42, %44, %46, %48, %36, %34, %50, %53, %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit, %27
   %56 = call noundef i32 @_ZN5ImGui20DataTypeFormatStringEPciiPKvPKc(ptr noundef nonnull %10, i32 noundef 64, i32 noundef %1, ptr noundef %2, ptr noundef %.072)
   br label %57
 
@@ -24864,7 +24864,7 @@ define void @_ZN19ImGuiInputTextState12OnKeyPressedEi(ptr noundef nonnull align 
   br i1 %exitcond.not.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !487
 
 .loopexit.i.i.i:                                  ; preds = %72, %53, %50
-  %73 = phi i16 [ %63, %53 ], [ %46, %50 ], [ %63, %72 ]
+  %73 = phi i16 [ %46, %50 ], [ %63, %53 ], [ %63, %72 ]
   %74 = sext i16 %73 to i64
   %75 = shl nsw i64 %74, 4
   %76 = sub nsw i64 1568, %75
@@ -26798,7 +26798,7 @@ thread-pre-split529.i:                            ; preds = %_ZN5ImStbL37stb_tex
   br label %.critedge6.i, !llvm.loop !505
 
 .critedge6.i:                                     ; preds = %937, %.lr.ph550.i, %..critedge6.i.loopexit_crit_edge23, %thread-pre-split529.i, %931
-  %942 = phi i32 [ %.pr530.i, %thread-pre-split529.i ], [ 0, %931 ], [ 0, %..critedge6.i.loopexit_crit_edge23 ], [ %.pr530.i, %.lr.ph550.i ], [ %940, %937 ]
+  %942 = phi i32 [ 0, %931 ], [ %.pr530.i, %thread-pre-split529.i ], [ %.pr530.i, %.lr.ph550.i ], [ 0, %..critedge6.i.loopexit_crit_edge23 ], [ %940, %937 ]
   store i32 %942, ptr %909, align 4, !tbaa !394
   %943 = getelementptr inbounds nuw i8, ptr %13, i64 22
   store i8 0, ptr %943, align 2, !tbaa !403
@@ -26905,7 +26905,7 @@ _ZN5ImStbL37stb_textedit_prep_selection_at_cursorEPNS_17STB_TexteditStateE.exit4
   br label %.critedge8.i, !llvm.loop !506
 
 .critedge8.i:                                     ; preds = %976, %.lr.ph.i, %..critedge8.i.loopexit_crit_edge15, %975, %.preheader534.i
-  %980 = phi i32 [ %.promoted.i, %.preheader534.i ], [ %.val353.i, %975 ], [ %.val353.i, %..critedge8.i.loopexit_crit_edge15 ], [ %.promoted.i, %.lr.ph.i ], [ %979, %976 ]
+  %980 = phi i32 [ %.val353.i, %975 ], [ %.promoted.i, %.preheader534.i ], [ %.promoted.i, %.lr.ph.i ], [ %.val353.i, %..critedge8.i.loopexit_crit_edge15 ], [ %979, %976 ]
   store i32 %980, ptr %948, align 4, !tbaa !394
   %981 = getelementptr inbounds nuw i8, ptr %13, i64 22
   store i8 0, ptr %981, align 2, !tbaa !403
@@ -27826,7 +27826,7 @@ _ZN5ImStbL36IMSTB_TEXTEDIT_GETNEXTCHARINDEX_IMPLEP19ImGuiInputTextStatei.exit: ;
   br label %_ZL14ImCharIsBlankWj.exit.i
 
 _ZL14ImCharIsBlankWj.exit.i:                      ; preds = %42, %26, %26, %26
-  %43 = phi i1 [ true, %26 ], [ false, %42 ], [ true, %26 ], [ true, %26 ]
+  %43 = phi i1 [ false, %42 ], [ true, %26 ], [ true, %26 ], [ true, %26 ]
   br label %44
 
 44:                                               ; preds = %44, %_ZL14ImCharIsBlankWj.exit.i
@@ -27851,7 +27851,7 @@ _ZN5ImStbL18ImCharIsSeparatorWEj.exit.i:          ; preds = %44
   br label %_ZL14ImCharIsBlankWj.exit23.i
 
 _ZL14ImCharIsBlankWj.exit23.i:                    ; preds = %47, %_ZN5ImStbL18ImCharIsSeparatorWEj.exit.i, %_ZN5ImStbL18ImCharIsSeparatorWEj.exit.i, %_ZN5ImStbL18ImCharIsSeparatorWEj.exit.i
-  %48 = phi i1 [ false, %_ZN5ImStbL18ImCharIsSeparatorWEj.exit.i ], [ %43, %47 ], [ false, %_ZN5ImStbL18ImCharIsSeparatorWEj.exit.i ], [ false, %_ZN5ImStbL18ImCharIsSeparatorWEj.exit.i ]
+  %48 = phi i1 [ %43, %47 ], [ false, %_ZN5ImStbL18ImCharIsSeparatorWEj.exit.i ], [ false, %_ZN5ImStbL18ImCharIsSeparatorWEj.exit.i ], [ false, %_ZN5ImStbL18ImCharIsSeparatorWEj.exit.i ]
   br label %49
 
 49:                                               ; preds = %49, %_ZL14ImCharIsBlankWj.exit23.i
@@ -28187,8 +28187,8 @@ _ZL14ImCharIsBlankWj.exit:                        ; preds = %47, %43
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge
 
-.critedge:                                        ; preds = %47, %47, %47, %switch.early.test, %switch.early.test144, %39, %.critedge150, %22, %18, %10, %58, %61
-  %.2 = phi i1 [ true, %61 ], [ false, %58 ], [ false, %10 ], [ false, %18 ], [ false, %22 ], [ false, %.critedge150 ], [ false, %39 ], [ false, %switch.early.test144 ], [ false, %switch.early.test ], [ false, %47 ], [ false, %47 ], [ false, %47 ]
+.critedge:                                        ; preds = %47, %47, %47, %39, %switch.early.test144, %switch.early.test, %.critedge150, %22, %18, %10, %58, %61
+  %.2 = phi i1 [ false, %10 ], [ false, %18 ], [ false, %39 ], [ true, %61 ], [ false, %58 ], [ false, %.critedge150 ], [ false, %22 ], [ false, %switch.early.test144 ], [ false, %switch.early.test ], [ false, %47 ], [ false, %47 ], [ false, %47 ]
   ret i1 %.2
 }
 
@@ -29090,8 +29090,8 @@ _ZL18ColorEditRestoreHSPKfPfS1_S1_.exit:          ; preds = %142, %139, %.crited
   br label %.split288.us
 
 .split288.us:                                     ; preds = %221, %.split288.us.loopexit291, %246, %274
-  %.2214 = phi i1 [ false, %274 ], [ false, %246 ], [ %222, %.split288.us.loopexit291 ], [ false, %221 ]
-  %.2205 = phi i8 [ %.3206, %274 ], [ 0, %246 ], [ %242, %.split288.us.loopexit291 ], [ %219, %221 ]
+  %.2214 = phi i1 [ false, %246 ], [ false, %274 ], [ %222, %.split288.us.loopexit291 ], [ false, %221 ]
+  %.2205 = phi i8 [ 0, %246 ], [ %.3206, %274 ], [ %242, %.split288.us.loopexit291 ], [ %219, %221 ]
   br i1 %.not231, label %275, label %340
 
 275:                                              ; preds = %.split288.us
@@ -29421,7 +29421,7 @@ _ZN5ImGui7SpacingEv.exit:                         ; preds = %329, %321, %320
   br label %414
 
 414:                                              ; preds = %413, %396, %390, %385
-  %.7 = phi i8 [ %.4207, %390 ], [ %.9, %413 ], [ %.4207, %396 ], [ %.4207, %385 ]
+  %.7 = phi i8 [ %.4207, %390 ], [ %.4207, %385 ], [ %.9, %413 ], [ %.4207, %396 ]
   br i1 %353, label %423, label %415
 
 415:                                              ; preds = %414
@@ -29535,7 +29535,7 @@ define void @_ZN5ImGui21ColorEditOptionsPopupEPKfi(ptr noundef readonly captures
   br label %_ZN5ImGui9SeparatorEv.exit
 
 _ZN5ImGui9SeparatorEv.exit:                       ; preds = %.thread, %39, %32
-  %.05255 = phi i32 [ %.0, %32 ], [ %.0, %39 ], [ %16, %.thread ]
+  %.05255 = phi i32 [ %.0, %39 ], [ %16, %.thread ], [ %.0, %32 ]
   %47 = and i32 %.05255, 8388608
   %48 = icmp ne i32 %47, 0
   %49 = tail call noundef zeroext i1 @_ZN5ImGui11RadioButtonEPKcb(ptr noundef nonnull @.str.87, i1 noundef zeroext %48)
@@ -29550,7 +29550,7 @@ _ZN5ImGui9SeparatorEv.exit:                       ; preds = %.thread, %39, %32
   br label %56
 
 56:                                               ; preds = %_ZN5ImGui9SeparatorEv.exit, %.thread, %17
-  %.3 = phi i32 [ %.0, %17 ], [ %16, %.thread ], [ %spec.select, %_ZN5ImGui9SeparatorEv.exit ]
+  %.3 = phi i32 [ %16, %.thread ], [ %spec.select, %_ZN5ImGui9SeparatorEv.exit ], [ %.0, %17 ]
   %57 = load ptr, ptr @GImGui, align 8, !tbaa !3
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 5016
   %59 = load ptr, ptr %58, align 8, !tbaa !8
@@ -31066,8 +31066,8 @@ _ZN5ImGui15InvisibleButtonEPKcRK6ImVec2i.exit546: ; preds = %402, %425
   br label %541
 
 541:                                              ; preds = %533, %536, %522, %530
-  %.0415.not = phi i1 [ true, %530 ], [ true, %522 ], [ true, %533 ], [ %540, %536 ]
-  %.10 = phi i8 [ %.6, %530 ], [ %.6, %522 ], [ 1, %533 ], [ 1, %536 ]
+  %.0415.not = phi i1 [ true, %522 ], [ true, %530 ], [ true, %533 ], [ %540, %536 ]
+  %.10 = phi i8 [ %.6, %522 ], [ %.6, %530 ], [ 1, %533 ], [ 1, %536 ]
   %542 = and i32 %.3, 2097152
   %.not449 = icmp ne i32 %542, 0
   %543 = and i32 %.3, 5242880
@@ -31152,7 +31152,7 @@ _ZN5ImGui15InvisibleButtonEPKcRK6ImVec2i.exit546: ; preds = %402, %425
   br label %.thread
 
 .thread:                                          ; preds = %519, %559, %583
-  %.9637 = phi i8 [ %.12, %559 ], [ %.12, %583 ], [ %.6, %519 ]
+  %.9637 = phi i8 [ %.12, %583 ], [ %.12, %559 ], [ %.6, %519 ]
   %584 = trunc nuw i8 %.9637 to i1
   br i1 %584, label %585, label %_ZL18ColorEditRestoreHSPKfPfS1_S1_.exit553
 
@@ -31768,7 +31768,7 @@ _ZL18ColorEditRestoreHSPKfPfS1_S1_.exit553:       ; preds = %620, %617, %.crited
   br label %.thread638
 
 .thread638:                                       ; preds = %926, %931, %928, %927
-  %932 = phi i1 [ true, %931 ], [ true, %928 ], [ false, %927 ], [ false, %926 ]
+  %932 = phi i1 [ false, %927 ], [ true, %931 ], [ true, %928 ], [ false, %926 ]
   br i1 %86, label %933, label %934
 
 933:                                              ; preds = %.thread638
@@ -32679,7 +32679,7 @@ define noundef zeroext i1 @_ZN5ImGui16TreeNodeBehaviorEjiPKcS1_(i32 noundef %0, 
   br label %172
 
 172:                                              ; preds = %170, %155, %158, %166, %162, %149
-  %.0248 = phi i1 [ false, %149 ], [ false, %158 ], [ false, %166 ], [ false, %162 ], [ false, %155 ], [ %171, %170 ]
+  %.0248 = phi i1 [ false, %149 ], [ false, %158 ], [ false, %155 ], [ %171, %170 ], [ false, %166 ], [ false, %162 ]
   %173 = and i32 %1, 256
   %.not266 = icmp eq i32 %173, 0
   br i1 %.0247.in, label %227, label %174
@@ -33068,8 +33068,8 @@ _ZN5ImGui21MultiSelectItemHeaderEjPbPi.exit:      ; preds = %337, %340
   br label %.critedge
 
 .critedge:                                        ; preds = %381, %353, %385, %379
-  %.3 = phi i8 [ %.2, %379 ], [ %spec.select282, %381 ], [ %., %385 ], [ 0, %353 ]
-  %.1251 = phi i1 [ true, %379 ], [ true, %381 ], [ %not., %385 ], [ false, %353 ]
+  %.3 = phi i8 [ %., %385 ], [ 0, %353 ], [ %.2, %379 ], [ %spec.select282, %381 ]
+  %.1251 = phi i1 [ %not., %385 ], [ false, %353 ], [ true, %379 ], [ true, %381 ]
   %386 = getelementptr inbounds nuw i8, ptr %15, i64 7900
   %387 = load i32, ptr %386, align 4, !tbaa !195
   %388 = icmp eq i32 %387, %0
@@ -34553,7 +34553,7 @@ _ZN5ImGui35TypingSelectFindNextSingleCharMatchEP24ImGuiTypingSelectRequestiPFPKc
   br label %_ZN5ImGui35TypingSelectFindNextSingleCharMatchEP24ImGuiTypingSelectRequestiPFPKcPviES4_i.exit.thread
 
 _ZN5ImGui35TypingSelectFindNextSingleCharMatchEP24ImGuiTypingSelectRequestiPFPKcPviES4_i.exit.thread: ; preds = %49, %18, %_ZN5ImGui35TypingSelectFindNextSingleCharMatchEP24ImGuiTypingSelectRequestiPFPKcPviES4_i.exit, %_ZN5ImGui35TypingSelectFindNextSingleCharMatchEP24ImGuiTypingSelectRequestiPFPKcPviES4_i.exit.thread32, %5, %7
-  %.015 = phi i32 [ -1, %7 ], [ -1, %5 ], [ %.035, %_ZN5ImGui35TypingSelectFindNextSingleCharMatchEP24ImGuiTypingSelectRequestiPFPKcPviES4_i.exit.thread32 ], [ -1, %_ZN5ImGui35TypingSelectFindNextSingleCharMatchEP24ImGuiTypingSelectRequestiPFPKcPviES4_i.exit ], [ -1, %18 ], [ -1, %49 ]
+  %.015 = phi i32 [ -1, %5 ], [ -1, %7 ], [ %.035, %_ZN5ImGui35TypingSelectFindNextSingleCharMatchEP24ImGuiTypingSelectRequestiPFPKcPviES4_i.exit.thread32 ], [ -1, %_ZN5ImGui35TypingSelectFindNextSingleCharMatchEP24ImGuiTypingSelectRequestiPFPKcPviES4_i.exit ], [ -1, %18 ], [ -1, %49 ]
   ret i32 %.015
 }
 
@@ -34973,7 +34973,7 @@ _ZL21BoxSelectActivateDragP19ImGuiBoxSelectStateP11ImGuiWindow.exit: ; preds = %
   br label %_ZN6ImRect3AddERKS_.exit
 
 _ZN6ImRect3AddERKS_.exit:                         ; preds = %102, %88, %120, %124, %_ZL21BoxSelectActivateDragP19ImGuiBoxSelectStateP11ImGuiWindow.exit, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %_ZL21BoxSelectActivateDragP19ImGuiBoxSelectStateP11ImGuiWindow.exit ], [ true, %124 ], [ true, %120 ], [ true, %88 ], [ true, %102 ]
+  %.0 = phi i1 [ false, %4 ], [ false, %_ZL21BoxSelectActivateDragP19ImGuiBoxSelectStateP11ImGuiWindow.exit ], [ true, %124 ], [ true, %120 ], [ true, %102 ], [ true, %88 ]
   ret i1 %.0
 }
 
@@ -35554,7 +35554,7 @@ _ZN8ImVectorI21ImGuiSelectionRequestE6resizeEi.exit: ; preds = %124, %147
   br label %187
 
 187:                                              ; preds = %181, %172, %177
-  %.0113.shrunk = phi i1 [ false, %177 ], [ %or.cond135, %172 ], [ %or.cond137, %181 ]
+  %.0113.shrunk = phi i1 [ %or.cond135, %172 ], [ false, %177 ], [ %or.cond137, %181 ]
   %.0113 = zext i1 %.0113.shrunk to i8
   %188 = getelementptr inbounds nuw i8, ptr %6, i64 8824
   %189 = and i32 %.2, 192
@@ -36228,7 +36228,7 @@ _ZN5ImGui17GetBoxSelectStateEj.exit:              ; preds = %94
   call void @_ZN5ImGui12EndBoxSelectERK6ImRecti(ptr noundef nonnull align 4 dereferenceable(16) %1, i32 noundef %84)
   br label %_ZN5ImGui17GetBoxSelectStateEj.exit.thread
 
-_ZN5ImGui17GetBoxSelectStateEj.exit.thread:       ; preds = %94, %86, %89, %83, %_ZN5ImGui17GetBoxSelectStateEj.exit, %_ZL13CalcScopeRectP24ImGuiMultiSelectTempDataP11ImGuiWindow.exit
+_ZN5ImGui17GetBoxSelectStateEj.exit.thread:       ; preds = %89, %94, %86, %83, %_ZN5ImGui17GetBoxSelectStateEj.exit, %_ZL13CalcScopeRectP24ImGuiMultiSelectTempDataP11ImGuiWindow.exit
   %98 = getelementptr inbounds nuw i8, ptr %5, i64 89
   %99 = load i8, ptr %98, align 1, !tbaa !256, !range !153, !noundef !154
   %100 = icmp eq i8 %99, 0
@@ -37917,7 +37917,7 @@ _ZN5ImGui10EndListBoxEv.exit.i:                   ; preds = %.noexc.i
   br label %_ZN5ImGui7ListBoxEPKcPiPFS1_PviES3_ii.exit
 
 67:                                               ; preds = %55, %51, %42, %.loopexit.split-lp.i, %.loopexit.i
-  %.pn.pn.pn.i = phi { ptr, i32 } [ %43, %42 ], [ %56, %55 ], [ %52, %51 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+  %.pn.pn.pn.i = phi { ptr, i32 } [ %52, %51 ], [ %43, %42 ], [ %56, %55 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #45
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -38135,7 +38135,7 @@ define noundef i32 @_ZN5ImGui6PlotExE13ImGuiPlotTypePKcPFfPviES3_iiS2_ffRK6ImVec
   br label %_ZNK6ImRect8ContainsERK6ImVec2.exit.thread
 
 _ZNK6ImRect8ContainsERK6ImVec2.exit.thread:       ; preds = %92, %96, %120, %125, %123, %84
-  %.1141 = phi i32 [ -1, %84 ], [ %112, %123 ], [ %112, %125 ], [ %112, %120 ], [ -1, %96 ], [ -1, %92 ]
+  %.1141 = phi i32 [ -1, %84 ], [ -1, %92 ], [ %112, %123 ], [ %112, %125 ], [ %112, %120 ], [ -1, %96 ]
   %127 = sitofp i32 %88 to float
   %128 = fdiv float 1.000000e+00, %127
   %129 = fcmp oeq float %.0129, %.0131
@@ -38768,7 +38768,7 @@ _ZN5ImGui23AlignTextToFramePaddingEv.exit:        ; preds = %13, %83
   br label %97
 
 97:                                               ; preds = %9, %0, %_ZN5ImGui23AlignTextToFramePaddingEv.exit
-  %.0 = phi i1 [ true, %_ZN5ImGui23AlignTextToFramePaddingEv.exit ], [ false, %0 ], [ false, %9 ]
+  %.0 = phi i1 [ false, %0 ], [ true, %_ZN5ImGui23AlignTextToFramePaddingEv.exit ], [ false, %9 ]
   ret i1 %.0
 }
 
@@ -39306,8 +39306,8 @@ _ZL19IsRootOfOpenMenuSetv.exit:                   ; preds = %90
   tail call void @_ZN5ImGui12PushItemFlagEib(i32 noundef 8192, i1 noundef zeroext true)
   br label %_ZL19IsRootOfOpenMenuSetv.exit.thread
 
-_ZL19IsRootOfOpenMenuSetv.exit.thread:            ; preds = %87, %90, %78, %_ZN8ImVectorIjE9push_backERKj.exit, %74, %95, %_ZL19IsRootOfOpenMenuSetv.exit
-  %.0.i269 = phi i1 [ true, %95 ], [ false, %_ZL19IsRootOfOpenMenuSetv.exit ], [ false, %74 ], [ false, %_ZN8ImVectorIjE9push_backERKj.exit ], [ false, %78 ], [ false, %90 ], [ false, %87 ]
+_ZL19IsRootOfOpenMenuSetv.exit.thread:            ; preds = %87, %90, %78, %74, %_ZN8ImVectorIjE9push_backERKj.exit, %95, %_ZL19IsRootOfOpenMenuSetv.exit
+  %.0.i269 = phi i1 [ false, %_ZL19IsRootOfOpenMenuSetv.exit ], [ true, %95 ], [ false, %_ZN8ImVectorIjE9push_backERKj.exit ], [ false, %74 ], [ false, %78 ], [ false, %90 ], [ false, %87 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %96 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %97 = getelementptr inbounds nuw i8, ptr %14, i64 280
@@ -39531,7 +39531,7 @@ _ZN16ImGuiMenuColumns11DeclColumnsEffff.exit._crit_edge: ; preds = %_ZN16ImGuiMe
   br label %223
 
 223:                                              ; preds = %.thread, %218, %214
-  %224 = phi i1 [ false, %214 ], [ %222, %218 ], [ false, %.thread ]
+  %224 = phi i1 [ %222, %218 ], [ false, %214 ], [ false, %.thread ]
   br i1 %.0.i269, label %225, label %226
 
 225:                                              ; preds = %223
@@ -39565,7 +39565,7 @@ _ZN16ImGuiMenuColumns11DeclColumnsEffff.exit._crit_edge: ; preds = %_ZN16ImGuiMe
   %.not212 = icmp eq ptr %242, null
   br i1 %.not212, label %.thread273, label %244
 
-.thread273:                                       ; preds = %238, %235, %229
+.thread273:                                       ; preds = %235, %238, %229
   %243 = getelementptr inbounds nuw i8, ptr %12, i64 5024
   br label %310
 
@@ -39729,7 +39729,7 @@ _ZN16ImGuiMenuColumns11DeclColumnsEffff.exit._crit_edge: ; preds = %_ZN16ImGuiMe
   br label %334
 
 334:                                              ; preds = %324, %323, %333, %329, %325
-  %.0199 = phi i1 [ true, %333 ], [ false, %329 ], [ false, %325 ], [ true, %323 ], [ %or.cond15.not, %324 ]
+  %.0199 = phi i1 [ true, %323 ], [ true, %333 ], [ false, %329 ], [ false, %325 ], [ %or.cond15.not, %324 ]
   %335 = getelementptr inbounds nuw i8, ptr %12, i64 7900
   %336 = load i32, ptr %335, align 4, !tbaa !195
   %337 = icmp eq i32 %336, %20
@@ -39777,10 +39777,10 @@ _ZN16ImGuiMenuColumns11DeclColumnsEffff.exit._crit_edge: ; preds = %_ZN16ImGuiMe
   br label %355
 
 355:                                              ; preds = %344, %345, %334, %338, %342, %346, %350, %354
-  %.2201 = phi i1 [ true, %354 ], [ false, %350 ], [ false, %346 ], [ true, %342 ], [ %.0199, %338 ], [ %.0199, %334 ], [ true, %345 ], [ true, %344 ]
-  %.1198 = phi i1 [ false, %354 ], [ false, %350 ], [ false, %346 ], [ true, %342 ], [ false, %338 ], [ false, %334 ], [ false, %345 ], [ false, %344 ]
-  %.1195 = phi i1 [ false, %354 ], [ false, %350 ], [ false, %346 ], [ %.0194, %342 ], [ %.0194, %338 ], [ %.0194, %334 ], [ false, %345 ], [ false, %344 ]
-  %.1190.shrunk = phi i1 [ %21, %354 ], [ %21, %350 ], [ %21, %346 ], [ %21, %342 ], [ %21, %338 ], [ %21, %334 ], [ false, %345 ], [ %21, %344 ]
+  %.2201 = phi i1 [ false, %346 ], [ %.0199, %334 ], [ true, %344 ], [ true, %354 ], [ false, %350 ], [ true, %342 ], [ %.0199, %338 ], [ true, %345 ]
+  %.1198 = phi i1 [ false, %346 ], [ false, %334 ], [ false, %344 ], [ false, %354 ], [ false, %350 ], [ true, %342 ], [ false, %338 ], [ false, %345 ]
+  %.1195 = phi i1 [ false, %346 ], [ %.0194, %334 ], [ false, %344 ], [ false, %354 ], [ false, %350 ], [ %.0194, %342 ], [ %.0194, %338 ], [ false, %345 ]
+  %.1190.shrunk = phi i1 [ %21, %346 ], [ %21, %334 ], [ %21, %344 ], [ %21, %354 ], [ %21, %350 ], [ %21, %342 ], [ %21, %338 ], [ false, %345 ]
   %not. = xor i1 %2, true
   %spec.select217 = select i1 %not., i1 true, i1 %.1195
   br i1 %spec.select217, label %.thread303, label %360
@@ -40038,8 +40038,8 @@ _ZL19IsRootOfOpenMenuSetv.exit:                   ; preds = %43
   tail call void @_ZN5ImGui12PushItemFlagEib(i32 noundef 8192, i1 noundef zeroext true)
   br label %_ZL19IsRootOfOpenMenuSetv.exit.thread
 
-_ZL19IsRootOfOpenMenuSetv.exit.thread:            ; preds = %40, %43, %31, %15, %27, %48, %_ZL19IsRootOfOpenMenuSetv.exit
-  %.0.i106 = phi i1 [ true, %48 ], [ false, %_ZL19IsRootOfOpenMenuSetv.exit ], [ false, %27 ], [ false, %15 ], [ false, %31 ], [ false, %43 ], [ false, %40 ]
+_ZL19IsRootOfOpenMenuSetv.exit.thread:            ; preds = %40, %43, %31, %27, %15, %48, %_ZL19IsRootOfOpenMenuSetv.exit
+  %.0.i106 = phi i1 [ false, %_ZL19IsRootOfOpenMenuSetv.exit ], [ true, %48 ], [ false, %15 ], [ false, %27 ], [ false, %31 ], [ false, %43 ], [ false, %40 ]
   tail call void @_ZN5ImGui6PushIDEPKc(ptr noundef %0)
   br i1 %4, label %50, label %49
 
@@ -41240,8 +41240,8 @@ _ZN5ImGui17TabBarFindTabByIDEP11ImGuiTabBarj.exit.i: ; preds = %141
   %spec.select325 = select i1 %180, i32 %177, i32 %130
   br label %_ZN5ImGui20TabBarProcessReorderEP11ImGuiTabBar.exit.thread
 
-_ZN5ImGui20TabBarProcessReorderEP11ImGuiTabBar.exit.thread: ; preds = %140, %.preheader.i.i, %160, %154, %148, %_ZN5ImGui17TabBarFindTabByIDEP11ImGuiTabBarj.exit.i, %176
-  %.2285 = phi i32 [ %spec.select325, %176 ], [ %130, %_ZN5ImGui17TabBarFindTabByIDEP11ImGuiTabBarj.exit.i ], [ %130, %148 ], [ %130, %154 ], [ %130, %160 ], [ %130, %.preheader.i.i ], [ %130, %140 ]
+_ZN5ImGui20TabBarProcessReorderEP11ImGuiTabBar.exit.thread: ; preds = %140, %154, %.preheader.i.i, %148, %_ZN5ImGui17TabBarFindTabByIDEP11ImGuiTabBarj.exit.i, %160, %176
+  %.2285 = phi i32 [ %spec.select325, %176 ], [ %130, %160 ], [ %130, %_ZN5ImGui17TabBarFindTabByIDEP11ImGuiTabBarj.exit.i ], [ %130, %148 ], [ %130, %.preheader.i.i ], [ %130, %154 ], [ %130, %140 ]
   store i32 0, ptr %134, align 4, !tbaa !787
   br label %181
 
@@ -41480,7 +41480,7 @@ _ZN8ImVectorI20ImGuiShrinkWidthItemE6resizeEi.exit: ; preds = %244, %269
   br label %295
 
 295:                                              ; preds = %291, %285
-  %.1290 = phi ptr [ %.0289398, %285 ], [ %spec.select326, %291 ]
+  %.1290 = phi ptr [ %spec.select326, %291 ], [ %.0289398, %285 ]
   %296 = load i32, ptr %283, align 4, !tbaa !775
   %297 = load i32, ptr %273, align 8, !tbaa !776
   %298 = icmp eq i32 %296, %297
@@ -41769,8 +41769,8 @@ _ZN5ImGuiL22TabBarScrollingButtonsEP11ImGuiTabBar.exit.thread: ; preds = %426, %
   br label %456
 
 456:                                              ; preds = %_ZN5ImGuiL22TabBarScrollingButtonsEP11ImGuiTabBar.exit.thread, %455, %446, %384, %368
-  %457 = phi float [ %371, %384 ], [ %371, %368 ], [ %450, %455 ], [ %450, %446 ], [ %445, %_ZN5ImGuiL22TabBarScrollingButtonsEP11ImGuiTabBar.exit.thread ]
-  %.7 = phi i32 [ %.5.lcssa, %384 ], [ %.5.lcssa, %368 ], [ %451, %455 ], [ %451, %446 ], [ %.5.lcssa, %_ZN5ImGuiL22TabBarScrollingButtonsEP11ImGuiTabBar.exit.thread ]
+  %457 = phi float [ %371, %384 ], [ %445, %_ZN5ImGuiL22TabBarScrollingButtonsEP11ImGuiTabBar.exit.thread ], [ %371, %368 ], [ %450, %455 ], [ %450, %446 ]
+  %.7 = phi i32 [ %.5.lcssa, %384 ], [ %.5.lcssa, %_ZN5ImGuiL22TabBarScrollingButtonsEP11ImGuiTabBar.exit.thread ], [ %.5.lcssa, %368 ], [ %451, %455 ], [ %451, %446 ]
   %458 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %459 = load float, ptr %458, align 4, !tbaa !800
   %460 = fadd float %459, %118
@@ -42251,7 +42251,7 @@ _ZN5ImGuiL17TabBarScrollToTabEP11ImGuiTabBarjP18ImGuiTabBarSection.exit: ; preds
   br label %.critedge
 
 .critedge:                                        ; preds = %751, %749, %745, %735, %717
-  %755 = phi float [ %714, %717 ], [ %714, %735 ], [ %748, %745 ], [ %754, %751 ], [ %708, %749 ]
+  %755 = phi float [ %714, %735 ], [ %714, %717 ], [ %748, %745 ], [ %754, %751 ], [ %708, %749 ]
   store float %755, ptr %698, align 4, !tbaa !814
   br label %757
 
@@ -42663,8 +42663,8 @@ define void @_ZN5ImGui30TabBarQueueReorderFromMousePosEP11ImGuiTabBarP12ImGuiTab
 ..critedge_crit_edge:                             ; preds = %49
   br label %.critedge, !llvm.loop !820
 
-.critedge:                                        ; preds = %46, %.lr.ph71, %39, %..critedge_crit_edge, %.lr.ph
-  %.144 = phi i32 [ %.0455570, %..critedge_crit_edge ], [ %33, %.lr.ph ], [ %.0435669, %46 ], [ %.0435669, %.lr.ph71 ], [ %.0455570, %39 ]
+.critedge:                                        ; preds = %.lr.ph71, %46, %39, %..critedge_crit_edge, %.lr.ph
+  %.144 = phi i32 [ %.0455570, %..critedge_crit_edge ], [ %33, %.lr.ph ], [ %.0435669, %.lr.ph71 ], [ %.0455570, %39 ], [ %.0435669, %46 ]
   %.not48 = icmp eq i32 %.144, %33
   br i1 %.not48, label %.critedge.thread, label %63
 
@@ -42773,7 +42773,7 @@ _ZN5ImGui17TabBarFindTabByIDEP11ImGuiTabBarj.exit: ; preds = %11
   br label %_ZN5ImGui17TabBarFindTabByIDEP11ImGuiTabBarj.exit.thread
 
 _ZN5ImGui17TabBarFindTabByIDEP11ImGuiTabBarj.exit.thread: ; preds = %10, %.preheader.i, %1, %18, %30, %24, %46, %_ZN5ImGui17TabBarFindTabByIDEP11ImGuiTabBarj.exit
-  %.0 = phi i1 [ false, %_ZN5ImGui17TabBarFindTabByIDEP11ImGuiTabBarj.exit ], [ false, %18 ], [ true, %46 ], [ false, %24 ], [ false, %30 ], [ false, %1 ], [ false, %.preheader.i ], [ false, %10 ]
+  %.0 = phi i1 [ false, %30 ], [ false, %_ZN5ImGui17TabBarFindTabByIDEP11ImGuiTabBarj.exit ], [ false, %18 ], [ false, %.preheader.i ], [ true, %46 ], [ false, %24 ], [ false, %1 ], [ false, %10 ]
   ret i1 %.0
 }
 
@@ -43216,7 +43216,7 @@ _ZN5ImGui15TabItemCalcSizeEPKcb.exit:             ; preds = %_ZN5ImGui17TabBarFi
   br label %213
 
 213:                                              ; preds = %210, %202, %207, %.critedge
-  %.0238.shrunk = phi i1 [ true, %202 ], [ false, %207 ], [ false, %.critedge ], [ %.not255, %210 ]
+  %.0238.shrunk = phi i1 [ true, %202 ], [ %.not255, %210 ], [ false, %.critedge ], [ false, %207 ]
   %or.cond3.not = and i1 %95, %151
   %or.cond265 = select i1 %157, i1 true, i1 %or.cond3.not
   br i1 %or.cond265, label %216, label %214
@@ -43324,11 +43324,11 @@ _ZN5ImGui15TabItemCalcSizeEPKcb.exit:             ; preds = %_ZN5ImGui17TabBarFi
   br label %.thread373
 
 .thread373:                                       ; preds = %248, %243, %.thread
-  %259 = phi float [ %.pre387, %.thread ], [ %244, %243 ], [ %244, %248 ]
-  %260 = phi float [ %.pre386, %.thread ], [ %246, %243 ], [ %246, %248 ]
-  %261 = phi float [ %.pre384, %.thread ], [ %.sink406, %243 ], [ %.sink406, %248 ]
-  %262 = phi float [ %.pre383, %.thread ], [ %245, %243 ], [ %245, %248 ]
-  %263 = phi i1 [ true, %.thread ], [ false, %243 ], [ false, %248 ]
+  %259 = phi float [ %.pre387, %.thread ], [ %244, %248 ], [ %244, %243 ]
+  %260 = phi float [ %.pre386, %.thread ], [ %246, %248 ], [ %246, %243 ]
+  %261 = phi float [ %.pre384, %.thread ], [ %.sink406, %248 ], [ %.sink406, %243 ]
+  %262 = phi float [ %.pre383, %.thread ], [ %245, %248 ], [ %245, %243 ]
+  %263 = phi i1 [ true, %.thread ], [ false, %248 ], [ false, %243 ]
   %264 = getelementptr inbounds nuw i8, ptr %29, i64 304
   %265 = load i64, ptr %264, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -43685,7 +43685,7 @@ _ZN5ImGui14TabBarCloseTabEP11ImGuiTabBarP12ImGuiTabItem.exit: ; preds = %407, %4
   br label %432
 
 432:                                              ; preds = %431, %214, %46, %27
-  %.0 = phi i1 [ false, %27 ], [ false, %46 ], [ %.3, %431 ], [ %..0238.shrunk, %214 ]
+  %.0 = phi i1 [ false, %27 ], [ false, %46 ], [ %..0238.shrunk, %214 ], [ %.3, %431 ]
   ret i1 %.0
 }
 
@@ -44221,7 +44221,7 @@ define void @_ZN5ImGui26TabItemLabelAndCloseButtonEP10ImDrawListRK6ImRecti6ImVec
   br label %55
 
 55:                                               ; preds = %50, %39
-  %56 = phi i1 [ true, %39 ], [ %spec.select, %50 ]
+  %56 = phi i1 [ %spec.select, %50 ], [ true, %39 ]
   %.not83 = icmp eq i32 %6, 0
   br i1 %.not83, label %.thread, label %62
 
@@ -44251,10 +44251,10 @@ define void @_ZN5ImGui26TabItemLabelAndCloseButtonEP10ImDrawListRK6ImRecti6ImVec
   %69 = select i1 %68, float %41, float %65
   %70 = fcmp ult float %25, %69
   %71 = and i32 %2, 1
-  %.not84111 = icmp ne i32 %71, 0
+  %.not84113 = icmp ne i32 %71, 0
   %72 = fadd float %41, %44
   %73 = fcmp ole float %72, %.pre140
-  %74 = select i1 %.not84111, i1 %73, i1 false
+  %74 = select i1 %.not84113, i1 %73, i1 false
   br i1 %70, label %99, label %92
 
 75:                                               ; preds = %62
@@ -44269,14 +44269,14 @@ define void @_ZN5ImGui26TabItemLabelAndCloseButtonEP10ImDrawListRK6ImRecti6ImVec
   %81 = select i1 %80, float %41, float %77
   %82 = fcmp ult float %25, %81
   %83 = and i32 %2, 1
-  %.not84113 = icmp ne i32 %83, 0
+  %.not84111 = icmp ne i32 %83, 0
   %84 = fadd float %41, %44
   %85 = fcmp ole float %84, %.pre140
-  %86 = select i1 %.not84113, i1 %85, i1 false
+  %86 = select i1 %.not84111, i1 %85, i1 false
   br i1 %82, label %99, label %92
 
 87:                                               ; preds = %75, %63
-  %.073 = phi i1 [ %66, %63 ], [ %78, %75 ]
+  %.073 = phi i1 [ %78, %75 ], [ %66, %63 ]
   %88 = and i32 %2, 1
   %.not84 = icmp ne i32 %88, 0
   %89 = fadd float %41, %44
@@ -44284,8 +44284,8 @@ define void @_ZN5ImGui26TabItemLabelAndCloseButtonEP10ImDrawListRK6ImRecti6ImVec
   %91 = select i1 %.not84, i1 %90, i1 false
   br i1 %.073, label %92, label %99
 
-92:                                               ; preds = %79, %67, %87
-  %93 = phi i1 [ %74, %67 ], [ %91, %87 ], [ %86, %79 ]
+92:                                               ; preds = %67, %79, %87
+  %93 = phi i1 [ %86, %79 ], [ %91, %87 ], [ %74, %67 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %94 = getelementptr inbounds nuw i8, ptr %15, i64 7528
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %14, ptr noundef nonnull align 8 dereferenceable(80) %94, i64 80, i1 false), !tbaa.struct !563
@@ -44301,9 +44301,9 @@ define void @_ZN5ImGui26TabItemLabelAndCloseButtonEP10ImDrawListRK6ImRecti6ImVec
   %spec.select92 = or i1 %95, %98
   br label %113
 
-99:                                               ; preds = %79, %67, %87
-  %100 = phi i1 [ %91, %87 ], [ %74, %67 ], [ %86, %79 ]
-  %101 = phi float [ %89, %87 ], [ %72, %67 ], [ %84, %79 ]
+99:                                               ; preds = %67, %79, %87
+  %100 = phi i1 [ %74, %67 ], [ %91, %87 ], [ %86, %79 ]
+  %101 = phi float [ %72, %67 ], [ %89, %87 ], [ %84, %79 ]
   br i1 %100, label %104, label %.thread130
 
 .thread130:                                       ; preds = %.thread, %99
@@ -45383,7 +45383,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN5ImStbL27is_word_boundary
   br label %_ZL14ImCharIsBlankWj.exit
 
 _ZL14ImCharIsBlankWj.exit:                        ; preds = %10, %10, %10, %28
-  %29 = phi i1 [ true, %10 ], [ false, %28 ], [ true, %10 ], [ true, %10 ]
+  %29 = phi i1 [ false, %28 ], [ true, %10 ], [ true, %10 ], [ true, %10 ]
   br label %30
 
 30:                                               ; preds = %30, %_ZL14ImCharIsBlankWj.exit
@@ -45408,7 +45408,7 @@ _ZN5ImStbL18ImCharIsSeparatorWEj.exit:            ; preds = %30
   br label %_ZL14ImCharIsBlankWj.exit26
 
 _ZL14ImCharIsBlankWj.exit26:                      ; preds = %_ZN5ImStbL18ImCharIsSeparatorWEj.exit, %_ZN5ImStbL18ImCharIsSeparatorWEj.exit, %_ZN5ImStbL18ImCharIsSeparatorWEj.exit, %33
-  %.not = phi i1 [ false, %_ZN5ImStbL18ImCharIsSeparatorWEj.exit ], [ true, %33 ], [ false, %_ZN5ImStbL18ImCharIsSeparatorWEj.exit ], [ false, %_ZN5ImStbL18ImCharIsSeparatorWEj.exit ]
+  %.not = phi i1 [ true, %33 ], [ false, %_ZN5ImStbL18ImCharIsSeparatorWEj.exit ], [ false, %_ZN5ImStbL18ImCharIsSeparatorWEj.exit ], [ false, %_ZN5ImStbL18ImCharIsSeparatorWEj.exit ]
   br label %34
 
 34:                                               ; preds = %34, %_ZL14ImCharIsBlankWj.exit26
@@ -45492,7 +45492,7 @@ define internal fastcc noundef ptr @_ZN5ImStbL19stb_text_createundoEPNS_12StbUnd
   br i1 %exitcond.not.i.i, label %_ZN5ImStbL25stb_textedit_discard_undoEPNS_12StbUndoStateE.exit.i, label %.lr.ph.i.i, !llvm.loop !841
 
 _ZN5ImStbL25stb_textedit_discard_undoEPNS_12StbUndoStateE.exit.i: ; preds = %32, %14, %10
-  %33 = phi i16 [ %24, %14 ], [ 99, %10 ], [ %24, %32 ]
+  %33 = phi i16 [ 99, %10 ], [ %24, %14 ], [ %24, %32 ]
   %34 = add i16 %33, -1
   store i16 %34, ptr %7, align 4, !tbaa !478
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -45574,7 +45574,7 @@ _ZN5ImStbL27stb_text_create_undo_recordEPNS_12StbUndoStateEi.exit.thread: ; pred
   br i1 %exitcond.not.i17.i, label %.loopexit.i11.i, label %.lr.ph.i14.i, !llvm.loop !841
 
 .loopexit.i11.i:                                  ; preds = %70, %56, %53
-  %71 = phi i16 [ %62, %56 ], [ %51, %53 ], [ %62, %70 ]
+  %71 = phi i16 [ %51, %53 ], [ %62, %56 ], [ %62, %70 ]
   %72 = add i16 %71, -1
   store i16 %72, ptr %7, align 4, !tbaa !478
   %73 = sext i16 %72 to i64
@@ -45594,8 +45594,8 @@ _ZN5ImStbL25stb_textedit_discard_undoEPNS_12StbUndoStateE.exit18.i: ; preds = %.
   br label %78
 
 78:                                               ; preds = %._crit_edge.loopexit.i, %.preheader.i
-  %79 = phi i32 [ %75, %._crit_edge.loopexit.i ], [ %41, %.preheader.i ]
-  %80 = phi i16 [ %.pre19.i, %._crit_edge.loopexit.i ], [ %.pre20.i, %.preheader.i ]
+  %79 = phi i32 [ %41, %.preheader.i ], [ %75, %._crit_edge.loopexit.i ]
+  %80 = phi i16 [ %.pre20.i, %.preheader.i ], [ %.pre19.i, %._crit_edge.loopexit.i ]
   %81 = add i16 %80, 1
   store i16 %81, ptr %7, align 4, !tbaa !478
   %82 = sext i16 %80 to i64
@@ -45623,7 +45623,7 @@ _ZN5ImStbL25stb_textedit_discard_undoEPNS_12StbUndoStateE.exit18.i: ; preds = %.
   br label %94
 
 94:                                               ; preds = %_ZN5ImStbL27stb_text_create_undo_recordEPNS_12StbUndoStateEi.exit.thread, %89, %88
-  %.0 = phi ptr [ null, %88 ], [ %93, %89 ], [ null, %_ZN5ImStbL27stb_text_create_undo_recordEPNS_12StbUndoStateEi.exit.thread ]
+  %.0 = phi ptr [ %93, %89 ], [ null, %88 ], [ null, %_ZN5ImStbL27stb_text_create_undo_recordEPNS_12StbUndoStateEi.exit.thread ]
   ret ptr %.0
 }
 
@@ -45887,7 +45887,7 @@ _ZN5ImStbL36IMSTB_TEXTEDIT_GETNEXTCHARINDEX_IMPLEP19ImGuiInputTextStatei.exit60:
   br label %.thread
 
 .thread:                                          ; preds = %_ZN5ImStbL22STB_TEXTEDIT_LAYOUTROWEPNS_14StbTexteditRowEP19ImGuiInputTextStatei.exit, %69, %63, %104, %3, %.loopexit, %111, %113, %72
-  %.0 = phi i32 [ %.04778, %72 ], [ %120, %113 ], [ %112, %111 ], [ %spec.select, %.loopexit ], [ %.val, %3 ], [ %108, %104 ], [ %.val, %_ZN5ImStbL22STB_TEXTEDIT_LAYOUTROWEPNS_14StbTexteditRowEP19ImGuiInputTextStatei.exit ], [ %.val, %69 ], [ 0, %63 ]
+  %.0 = phi i32 [ %108, %104 ], [ %spec.select, %.loopexit ], [ %.04778, %72 ], [ %112, %111 ], [ %120, %113 ], [ %.val, %3 ], [ %.val, %_ZN5ImStbL22STB_TEXTEDIT_LAYOUTROWEPNS_14StbTexteditRowEP19ImGuiInputTextStatei.exit ], [ %.val, %69 ], [ 0, %63 ]
   ret i32 %.0
 }
 
@@ -46088,7 +46088,7 @@ define linkonce_odr noundef float @_ZN5ImGui20ScaleRatioFromValueTIiifEEfiT_S1_S
   br label %84
 
 84:                                               ; preds = %61, %51, %42, %37, %31, %71, %78
-  %.048 = phi float [ %77, %71 ], [ %83, %78 ], [ 0.000000e+00, %31 ], [ 1.000000e+00, %37 ], [ %60, %51 ], [ %68, %61 ], [ %45, %42 ]
+  %.048 = phi float [ %83, %78 ], [ 0.000000e+00, %31 ], [ 1.000000e+00, %37 ], [ %77, %71 ], [ %68, %61 ], [ %60, %51 ], [ %45, %42 ]
   %85 = fsub float 1.000000e+00, %.048
   %86 = select i1 %14, float %85, float %.048
   br label %93
@@ -46253,7 +46253,7 @@ define linkonce_odr noundef i32 @_ZN5ImGui20ScaleValueFromRatioTIiifEET_ifS1_S1_
   br label %102
 
 102:                                              ; preds = %77, %71, %39, %52, %61, %91, %93, %85, %10, %7
-  %.0 = phi i32 [ %2, %7 ], [ %3, %10 ], [ %90, %85 ], [ %101, %93 ], [ 0, %91 ], [ %76, %71 ], [ %81, %77 ], [ %60, %52 ], [ %68, %61 ], [ 0, %39 ]
+  %.0 = phi i32 [ %3, %10 ], [ %2, %7 ], [ 0, %91 ], [ %90, %85 ], [ %101, %93 ], [ %81, %77 ], [ %76, %71 ], [ %68, %61 ], [ %60, %52 ], [ 0, %39 ]
   ret i32 %.0
 }
 
@@ -46332,7 +46332,7 @@ define linkonce_odr noundef i32 @_ZN5ImGui22RoundScalarWithFormatTIiEET_PKciS1_(
   br i1 %.not22.i.i, label %_Z20ImParseFormatFindEndPKc.exit.i, label %.preheader.i.i, !llvm.loop !351
 
 _Z20ImParseFormatFindEndPKc.exit.i:               ; preds = %.thread.i.i, %32, %23
-  %.019.i.i = phi ptr [ %24, %23 ], [ %33, %32 ], [ %34, %.thread.i.i ]
+  %.019.i.i = phi ptr [ %33, %32 ], [ %24, %23 ], [ %34, %.thread.i.i ]
   %36 = icmp ult ptr %.01125.i, %.019.i.i
   br i1 %36, label %.lr.ph.i12, label %_Z32ImParseFormatSanitizeForPrintingPKcPcm.exit
 
@@ -46467,7 +46467,7 @@ define linkonce_odr noundef i32 @_ZN5ImGui22RoundScalarWithFormatTIjEET_PKciS1_(
   br i1 %.not22.i.i, label %_Z20ImParseFormatFindEndPKc.exit.i, label %.preheader.i.i, !llvm.loop !351
 
 _Z20ImParseFormatFindEndPKc.exit.i:               ; preds = %.thread.i.i, %32, %23
-  %.019.i.i = phi ptr [ %24, %23 ], [ %33, %32 ], [ %34, %.thread.i.i ]
+  %.019.i.i = phi ptr [ %33, %32 ], [ %24, %23 ], [ %34, %.thread.i.i ]
   %36 = icmp ult ptr %.01125.i, %.019.i.i
   br i1 %36, label %.lr.ph.i12, label %_Z32ImParseFormatSanitizeForPrintingPKcPcm.exit
 
@@ -46651,7 +46651,7 @@ define linkonce_odr noundef float @_ZN5ImGui20ScaleRatioFromValueTIxxdEEfiT_S1_S
   br label %94
 
 94:                                               ; preds = %68, %57, %46, %41, %34, %79, %87
-  %.048 = phi float [ %86, %79 ], [ %93, %87 ], [ 0.000000e+00, %34 ], [ 1.000000e+00, %41 ], [ %67, %57 ], [ %76, %68 ], [ %51, %46 ]
+  %.048 = phi float [ %93, %87 ], [ 0.000000e+00, %34 ], [ 1.000000e+00, %41 ], [ %86, %79 ], [ %76, %68 ], [ %67, %57 ], [ %51, %46 ]
   %95 = fsub float 1.000000e+00, %.048
   %96 = select i1 %14, float %95, float %.048
   br label %104
@@ -46828,7 +46828,7 @@ define linkonce_odr noundef i64 @_ZN5ImGui20ScaleValueFromRatioTIxxdEET_ifS1_S1_
   br label %113
 
 113:                                              ; preds = %86, %79, %43, %58, %68, %101, %103, %95, %10, %7
-  %.0 = phi i64 [ %2, %7 ], [ %3, %10 ], [ %100, %95 ], [ %112, %103 ], [ 0, %101 ], [ %85, %79 ], [ %91, %86 ], [ %67, %58 ], [ %76, %68 ], [ 0, %43 ]
+  %.0 = phi i64 [ %3, %10 ], [ %2, %7 ], [ 0, %101 ], [ %100, %95 ], [ %112, %103 ], [ %91, %86 ], [ %85, %79 ], [ %76, %68 ], [ %67, %58 ], [ 0, %43 ]
   ret i64 %.0
 }
 
@@ -46907,7 +46907,7 @@ define linkonce_odr noundef i64 @_ZN5ImGui22RoundScalarWithFormatTIxEET_PKciS1_(
   br i1 %.not22.i.i, label %_Z20ImParseFormatFindEndPKc.exit.i, label %.preheader.i.i, !llvm.loop !351
 
 _Z20ImParseFormatFindEndPKc.exit.i:               ; preds = %.thread.i.i, %32, %23
-  %.019.i.i = phi ptr [ %24, %23 ], [ %33, %32 ], [ %34, %.thread.i.i ]
+  %.019.i.i = phi ptr [ %33, %32 ], [ %24, %23 ], [ %34, %.thread.i.i ]
   %36 = icmp ult ptr %.01125.i, %.019.i.i
   br i1 %36, label %.lr.ph.i12, label %_Z32ImParseFormatSanitizeForPrintingPKcPcm.exit
 
@@ -47042,7 +47042,7 @@ define linkonce_odr noundef i64 @_ZN5ImGui22RoundScalarWithFormatTIyEET_PKciS1_(
   br i1 %.not22.i.i, label %_Z20ImParseFormatFindEndPKc.exit.i, label %.preheader.i.i, !llvm.loop !351
 
 _Z20ImParseFormatFindEndPKc.exit.i:               ; preds = %.thread.i.i, %32, %23
-  %.019.i.i = phi ptr [ %24, %23 ], [ %33, %32 ], [ %34, %.thread.i.i ]
+  %.019.i.i = phi ptr [ %33, %32 ], [ %24, %23 ], [ %34, %.thread.i.i ]
   %36 = icmp ult ptr %.01125.i, %.019.i.i
   br i1 %36, label %.lr.ph.i12, label %_Z32ImParseFormatSanitizeForPrintingPKcPcm.exit
 
@@ -47228,7 +47228,7 @@ define linkonce_odr noundef float @_ZN5ImGui20ScaleRatioFromValueTIfffEEfiT_S1_S
   br label %91
 
 91:                                               ; preds = %68, %58, %49, %44, %42, %78, %85
-  %.053 = phi float [ %84, %78 ], [ %90, %85 ], [ 0.000000e+00, %42 ], [ 1.000000e+00, %44 ], [ %67, %58 ], [ %75, %68 ], [ %52, %49 ]
+  %.053 = phi float [ %90, %85 ], [ 0.000000e+00, %42 ], [ 1.000000e+00, %44 ], [ %84, %78 ], [ %75, %68 ], [ %67, %58 ], [ %52, %49 ]
   %92 = fsub float 1.000000e+00, %.053
   %93 = select i1 %16, float %92, float %.053
   br label %98
@@ -47380,7 +47380,7 @@ define linkonce_odr noundef float @_ZN5ImGui20ScaleValueFromRatioTIfffEET_ifS1_S
   br label %91
 
 91:                                               ; preds = %72, %67, %37, %50, %58, %82, %84, %79, %10, %7
-  %.0 = phi float [ %2, %7 ], [ %3, %10 ], [ %81, %79 ], [ %90, %84 ], [ 0.000000e+00, %82 ], [ %71, %67 ], [ %75, %72 ], [ %57, %50 ], [ %64, %58 ], [ 0.000000e+00, %37 ]
+  %.0 = phi float [ %3, %10 ], [ %2, %7 ], [ 0.000000e+00, %82 ], [ %81, %79 ], [ %90, %84 ], [ %75, %72 ], [ %71, %67 ], [ %64, %58 ], [ %57, %50 ], [ 0.000000e+00, %37 ]
   ret float %.0
 }
 
@@ -47459,7 +47459,7 @@ define linkonce_odr noundef float @_ZN5ImGui22RoundScalarWithFormatTIfEET_PKciS1
   br i1 %.not22.i.i, label %_Z20ImParseFormatFindEndPKc.exit.i, label %.preheader.i.i, !llvm.loop !351
 
 _Z20ImParseFormatFindEndPKc.exit.i:               ; preds = %.thread.i.i, %32, %23
-  %.019.i.i = phi ptr [ %24, %23 ], [ %33, %32 ], [ %34, %.thread.i.i ]
+  %.019.i.i = phi ptr [ %33, %32 ], [ %24, %23 ], [ %34, %.thread.i.i ]
   %36 = icmp ult ptr %.01125.i, %.019.i.i
   br i1 %36, label %.lr.ph.i13, label %_Z32ImParseFormatSanitizeForPrintingPKcPcm.exit
 
@@ -47657,7 +47657,7 @@ define linkonce_odr noundef float @_ZN5ImGui20ScaleRatioFromValueTIdddEEfiT_S1_S
   br label %102
 
 102:                                              ; preds = %76, %65, %54, %49, %47, %87, %95
-  %.053 = phi float [ %94, %87 ], [ %101, %95 ], [ 0.000000e+00, %47 ], [ 1.000000e+00, %49 ], [ %75, %65 ], [ %84, %76 ], [ %59, %54 ]
+  %.053 = phi float [ %101, %95 ], [ 0.000000e+00, %47 ], [ 1.000000e+00, %49 ], [ %94, %87 ], [ %84, %76 ], [ %75, %65 ], [ %59, %54 ]
   %103 = fsub float 1.000000e+00, %.053
   %104 = select i1 %16, float %103, float %.053
   br label %110
@@ -47823,7 +47823,7 @@ define linkonce_odr noundef double @_ZN5ImGui20ScaleValueFromRatioTIdddEET_ifS1_
   br label %104
 
 104:                                              ; preds = %82, %76, %41, %57, %66, %94, %96, %90, %10, %7
-  %.0 = phi double [ %2, %7 ], [ %3, %10 ], [ %93, %90 ], [ %103, %96 ], [ 0.000000e+00, %94 ], [ %81, %76 ], [ %86, %82 ], [ %65, %57 ], [ %73, %66 ], [ 0.000000e+00, %41 ]
+  %.0 = phi double [ %3, %10 ], [ %2, %7 ], [ 0.000000e+00, %94 ], [ %93, %90 ], [ %103, %96 ], [ %86, %82 ], [ %81, %76 ], [ %73, %66 ], [ %65, %57 ], [ 0.000000e+00, %41 ]
   ret double %.0
 }
 
@@ -47902,7 +47902,7 @@ define linkonce_odr noundef double @_ZN5ImGui22RoundScalarWithFormatTIdEET_PKciS
   br i1 %.not22.i.i, label %_Z20ImParseFormatFindEndPKc.exit.i, label %.preheader.i.i, !llvm.loop !351
 
 _Z20ImParseFormatFindEndPKc.exit.i:               ; preds = %.thread.i.i, %32, %23
-  %.019.i.i = phi ptr [ %24, %23 ], [ %33, %32 ], [ %34, %.thread.i.i ]
+  %.019.i.i = phi ptr [ %33, %32 ], [ %24, %23 ], [ %34, %.thread.i.i ]
   %36 = icmp ult ptr %.01125.i, %.019.i.i
   br i1 %36, label %.lr.ph.i13, label %_Z32ImParseFormatSanitizeForPrintingPKcPcm.exit
 

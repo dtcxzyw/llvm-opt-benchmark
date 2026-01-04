@@ -453,12 +453,12 @@ _ZNKSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEERK10Elf64_ShdrEEclES
   br i1 %exitcond.not, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit39.thread, label %66, !llvm.loop !27
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit39.thread: ; preds = %42, %120, %.preheader.split, %.thread, %.thread118, %.thread39.i.i35
-  %.1 = phi i1 [ false, %.thread39.i.i35 ], [ false, %.thread ], [ %119, %.thread118 ], [ true, %.preheader.split ], [ true, %120 ], [ false, %42 ]
+  %.1 = phi i1 [ true, %.preheader.split ], [ false, %.thread ], [ false, %.thread39.i.i35 ], [ %119, %.thread118 ], [ true, %120 ], [ false, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.thread
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.thread: ; preds = %12, %.thread39.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit39.thread
-  %.0 = phi i1 [ %.1, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit39.thread ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit ], [ false, %.thread39.i.i ], [ false, %12 ]
+  %.0 = phi i1 [ false, %.thread39.i.i ], [ %.1, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit39.thread ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit ], [ false, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
@@ -786,17 +786,17 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exi
   br i1 %exitcond.not, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread, label %66, !llvm.loop !28
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread.sink.split: ; preds = %49, %76, %99
-  %.lcssa188.sink = phi i32 [ %101, %99 ], [ %78, %76 ], [ %51, %49 ]
+  %.lcssa188.sink = phi i32 [ %78, %76 ], [ %101, %99 ], [ %51, %49 ]
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 532, ptr noundef nonnull @.str.5, i32 noundef %.lcssa188.sink)
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread: ; preds = %45, %113, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit, %115, %72, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread.sink.split, %.preheader
-  %.2 = phi i1 [ false, %.preheader ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread.sink.split ], [ false, %72 ], [ false, %115 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit ], [ true, %113 ], [ false, %45 ]
+  %.2 = phi i1 [ false, %72 ], [ false, %.preheader ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread.sink.split ], [ true, %113 ], [ false, %115 ], [ false, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.thread
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.thread: ; preds = %15, %.thread39.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread
-  %.1 = phi i1 [ %.2, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit ], [ false, %.thread39.i.i ], [ false, %15 ]
+  %.1 = phi i1 [ false, %.thread39.i.i ], [ %.2, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit ], [ false, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %116
@@ -837,7 +837,7 @@ _ZN4absl13base_internal8SpinLock7TryLockEv.exit:  ; preds = %0
   br label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit
 
 _ZN4absl13base_internal8SpinLock6UnlockEv.exit:   ; preds = %0, %11, %7, %_ZN4absl13base_internal8SpinLock7TryLockEv.exit
-  %.pre-phi.i.i2 = phi i1 [ false, %_ZN4absl13base_internal8SpinLock7TryLockEv.exit ], [ true, %7 ], [ true, %11 ], [ false, %0 ]
+  %.pre-phi.i.i2 = phi i1 [ true, %11 ], [ false, %_ZN4absl13base_internal8SpinLock7TryLockEv.exit ], [ true, %7 ], [ false, %0 ]
   ret i1 %.pre-phi.i.i2
 }
 
@@ -914,7 +914,7 @@ _ZN4absl13base_internal8SpinLock7TryLockEv.exit:  ; preds = %1
   br label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit
 
 _ZN4absl13base_internal8SpinLock6UnlockEv.exit:   ; preds = %1, %23, %.loopexit, %_ZN4absl13base_internal8SpinLock7TryLockEv.exit
-  %.pre-phi.i.i11 = phi i1 [ false, %_ZN4absl13base_internal8SpinLock7TryLockEv.exit ], [ true, %.loopexit ], [ true, %23 ], [ false, %1 ]
+  %.pre-phi.i.i11 = phi i1 [ true, %23 ], [ false, %_ZN4absl13base_internal8SpinLock7TryLockEv.exit ], [ true, %.loopexit ], [ false, %1 ]
   ret i1 %.pre-phi.i.i11
 }
 
@@ -966,7 +966,7 @@ _ZN4absl13base_internal8SpinLock7TryLockEv.exit:  ; preds = %2
   br label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit
 
 _ZN4absl13base_internal8SpinLock6UnlockEv.exit:   ; preds = %2, %22, %18, %_ZN4absl13base_internal8SpinLock7TryLockEv.exit
-  %.0 = phi i32 [ -2, %_ZN4absl13base_internal8SpinLock7TryLockEv.exit ], [ %.03, %18 ], [ %.03, %22 ], [ -2, %2 ]
+  %.0 = phi i32 [ %.03, %22 ], [ -2, %_ZN4absl13base_internal8SpinLock7TryLockEv.exit ], [ %.03, %18 ], [ -2, %2 ]
   ret i32 %.0
 }
 
@@ -1063,7 +1063,7 @@ _ZN4absl13base_internal8SpinLock7TryLockEv.exit:  ; preds = %_ZN4absl18debugging
   br label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit
 
 _ZN4absl13base_internal8SpinLock6UnlockEv.exit:   ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116InitSigSafeArenaEv.exit, %45, %41, %_ZN4absl13base_internal8SpinLock7TryLockEv.exit
-  %.0 = phi i1 [ false, %_ZN4absl13base_internal8SpinLock7TryLockEv.exit ], [ %26, %41 ], [ %26, %45 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116InitSigSafeArenaEv.exit ]
+  %.0 = phi i1 [ %26, %45 ], [ false, %_ZN4absl13base_internal8SpinLock7TryLockEv.exit ], [ %26, %41 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116InitSigSafeArenaEv.exit ]
   ret i1 %.0
 }
 
@@ -1143,7 +1143,7 @@ _ZN4absl13base_internal8SpinLock7TryLockEv.exit:  ; preds = %4
   br label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit
 
 _ZN4absl13base_internal8SpinLock6UnlockEv.exit:   ; preds = %4, %31, %.loopexit, %_ZN4absl13base_internal8SpinLock7TryLockEv.exit
-  %.016 = phi i1 [ false, %_ZN4absl13base_internal8SpinLock7TryLockEv.exit ], [ %27, %.loopexit ], [ %27, %31 ], [ false, %4 ]
+  %.016 = phi i1 [ %27, %31 ], [ false, %_ZN4absl13base_internal8SpinLock7TryLockEv.exit ], [ %27, %.loopexit ], [ false, %4 ]
   ret i1 %.016
 }
 
@@ -1444,9 +1444,9 @@ _ZN4absl18debugging_internalL22MaybeOpenFdFromSelfExeEPNS0_12_GLOBAL__N_17ObjFil
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit96.i.i.i
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit96.i.i.i: ; preds = %.outer.i.i87.i.i.i, %114, %.thread39.i.i92.i.i.i
-  %.sroa.30.15.i.i.i = phi i64 [ 0, %.thread39.i.i92.i.i.i ], [ 0, %114 ], [ %.sroa.30.14.i.i.i, %.outer.i.i87.i.i.i ]
-  %.sroa.17.15.i.i.i = phi i64 [ 0, %.thread39.i.i92.i.i.i ], [ 0, %114 ], [ %.sroa.17.14.i.i.i, %.outer.i.i87.i.i.i ]
-  %.2.i.i91.i.i.i = phi i64 [ -1, %.thread39.i.i92.i.i.i ], [ %.030.ph70.i.i80.i.i.i, %114 ], [ %128, %.outer.i.i87.i.i.i ]
+  %.sroa.30.15.i.i.i = phi i64 [ 0, %114 ], [ 0, %.thread39.i.i92.i.i.i ], [ %.sroa.30.14.i.i.i, %.outer.i.i87.i.i.i ]
+  %.sroa.17.15.i.i.i = phi i64 [ 0, %114 ], [ 0, %.thread39.i.i92.i.i.i ], [ %.sroa.17.14.i.i.i, %.outer.i.i87.i.i.i ]
+  %.2.i.i91.i.i.i = phi i64 [ %.030.ph70.i.i80.i.i.i, %114 ], [ -1, %.thread39.i.i92.i.i.i ], [ %128, %.outer.i.i87.i.i.i ]
   %131 = icmp ne i64 %.2.i.i91.i.i.i, 64
   %lhsv.i.i.i.i = load i32, ptr %8, align 8
   %.not.i56.i.i.i = icmp ne i32 %lhsv.i.i.i.i, 1179403647
@@ -1747,7 +1747,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   br label %243
 
 243:                                              ; preds = %.thread.i.i, %238, %218, %211
-  %.046.i.i = phi i64 [ 0, %218 ], [ 0, %211 ], [ %222, %238 ], [ %242, %.thread.i.i ]
+  %.046.i.i = phi i64 [ 0, %211 ], [ 0, %218 ], [ %222, %238 ], [ %242, %.thread.i.i ]
   %244 = load i32, ptr %74, align 8, !tbaa !51
   %245 = getelementptr inbounds nuw i8, ptr %.0.i, i64 11296
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1923,8 +1923,8 @@ _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer23GetSymbolFromObjectFileE
   br label %_ZN4absl18debugging_internalL22MaybeInitializeObjFileEPNS0_12_GLOBAL__N_17ObjFileE.exit.i.i
 
 _ZN4absl18debugging_internalL22MaybeInitializeObjFileEPNS0_12_GLOBAL__N_17ObjFileE.exit.i.i: ; preds = %311, %298, %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer23GetSymbolFromObjectFileERKNS1_7ObjFileEPKvlPcmS8_m.exit.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer23GetSymbolFromObjectFileERKNS1_7ObjFileEPKvlPcmS8_m.exit.thread.i.i, %.thread158.i.i.i, %106
-  %.047.i.i = phi i32 [ -1, %311 ], [ %244, %298 ], [ %244, %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer23GetSymbolFromObjectFileERKNS1_7ObjFileEPKvlPcmS8_m.exit.i.i ], [ -1, %106 ], [ -1, %.thread158.i.i.i ], [ %244, %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer23GetSymbolFromObjectFileERKNS1_7ObjFileEPKvlPcmS8_m.exit.thread.i.i ]
-  %.2.i.i = phi i64 [ 0, %311 ], [ %.046.i.i, %298 ], [ %.046.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer23GetSymbolFromObjectFileERKNS1_7ObjFileEPKvlPcmS8_m.exit.i.i ], [ 0, %106 ], [ 0, %.thread158.i.i.i ], [ %.046.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer23GetSymbolFromObjectFileERKNS1_7ObjFileEPKvlPcmS8_m.exit.thread.i.i ]
+  %.047.i.i = phi i32 [ -1, %311 ], [ %244, %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer23GetSymbolFromObjectFileERKNS1_7ObjFileEPKvlPcmS8_m.exit.i.i ], [ %244, %298 ], [ -1, %106 ], [ -1, %.thread158.i.i.i ], [ %244, %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer23GetSymbolFromObjectFileERKNS1_7ObjFileEPKvlPcmS8_m.exit.thread.i.i ]
+  %.2.i.i = phi i64 [ 0, %311 ], [ %.046.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer23GetSymbolFromObjectFileERKNS1_7ObjFileEPKvlPcmS8_m.exit.i.i ], [ %.046.i.i, %298 ], [ 0, %106 ], [ 0, %.thread158.i.i.i ], [ %.046.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer23GetSymbolFromObjectFileERKNS1_7ObjFileEPKvlPcmS8_m.exit.thread.i.i ]
   %312 = load atomic i32, ptr @_ZN4absl18debugging_internal12_GLOBAL__N_115g_decorators_muE monotonic, align 4
   %313 = and i32 %312, 1
   %.not.i.i.i.i.i = icmp eq i32 %313, 0
@@ -2149,7 +2149,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer9GetSymbolEPKv.exit: ; pre
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer9GetSymbolEPKv.exit.thread
 
 _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer9GetSymbolEPKv.exit.thread: ; preds = %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i.i, %392, %398, %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer9GetSymbolEPKv.exit
-  %or.cond37 = phi i1 [ true, %392 ], [ true, %398 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer9GetSymbolEPKv.exit ], [ false, %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i.i ]
+  %or.cond37 = phi i1 [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer9GetSymbolEPKv.exit ], [ true, %392 ], [ true, %398 ], [ false, %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i.i ]
   %403 = ptrtoint ptr %.0.i to i64
   %404 = cmpxchg ptr @_ZN4absl18debugging_internal12_GLOBAL__N_119g_cached_symbolizerE, i64 0, i64 %403 release monotonic, align 8
   %405 = extractvalue { i64, i1 } %404, 1
@@ -2321,7 +2321,7 @@ _ZN4absl13base_internal8SpinLock7TryLockEv.exit.i: ; preds = %4
   br label %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit
 
 _ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit: ; preds = %4, %_ZN4absl13base_internal8SpinLock7TryLockEv.exit.i, %.loopexit.i, %31
-  %.016.i = phi i1 [ false, %_ZN4absl13base_internal8SpinLock7TryLockEv.exit.i ], [ %27, %.loopexit.i ], [ %27, %31 ], [ false, %4 ]
+  %.016.i = phi i1 [ %27, %31 ], [ false, %_ZN4absl13base_internal8SpinLock7TryLockEv.exit.i ], [ %27, %.loopexit.i ], [ false, %4 ]
   ret i1 %.016.i
 }
 
@@ -2947,11 +2947,11 @@ _ZN4absl13base_internal8SpinLock7TryLockEv.exit.i: ; preds = %._crit_edge
   br i1 %exitcond.not.i78, label %.loopexit.i, label %140, !llvm.loop !42
 
 .loopexit.i:                                      ; preds = %151, %146, %.preheader.i
-  %.2 = phi ptr [ %150, %146 ], [ %storemerge43.lcssa, %.preheader.i ], [ %storemerge43.lcssa, %151 ]
-  %.033 = phi ptr [ %142, %146 ], [ %.025.lcssa.i.i, %.preheader.i ], [ %.025.lcssa.i.i, %151 ]
-  %.031 = phi ptr [ %145, %146 ], [ %.025.lcssa.i.i60, %.preheader.i ], [ %.025.lcssa.i.i60, %151 ]
-  %.029 = phi i64 [ %148, %146 ], [ %.025.lcssa.i, %.preheader.i ], [ %.025.lcssa.i, %151 ]
-  %152 = phi i1 [ true, %146 ], [ false, %.preheader.i ], [ false, %151 ]
+  %.2 = phi ptr [ %storemerge43.lcssa, %.preheader.i ], [ %150, %146 ], [ %storemerge43.lcssa, %151 ]
+  %.033 = phi ptr [ %.025.lcssa.i.i, %.preheader.i ], [ %142, %146 ], [ %.025.lcssa.i.i, %151 ]
+  %.031 = phi ptr [ %.025.lcssa.i.i60, %.preheader.i ], [ %145, %146 ], [ %.025.lcssa.i.i60, %151 ]
+  %.029 = phi i64 [ %.025.lcssa.i, %.preheader.i ], [ %148, %146 ], [ %.025.lcssa.i, %151 ]
+  %152 = phi i1 [ false, %.preheader.i ], [ true, %146 ], [ false, %151 ]
   %153 = load atomic i32, ptr @_ZN4absl18debugging_internal12_GLOBAL__N_117g_file_mapping_muE monotonic, align 4
   %154 = and i32 %153, 2
   %155 = atomicrmw xchg ptr @_ZN4absl18debugging_internal12_GLOBAL__N_117g_file_mapping_muE, i32 %154 release, align 4
@@ -2965,11 +2965,11 @@ _ZN4absl13base_internal8SpinLock7TryLockEv.exit.i: ; preds = %._crit_edge
 _ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit: ; preds = %.loopexit.i, %156
   br i1 %152, label %163, label %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit.thread
 
-_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit.thread: ; preds = %._crit_edge, %_ZN4absl13base_internal8SpinLock7TryLockEv.exit.i, %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit
-  %.160 = phi i64 [ %.029, %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit ], [ %.025.lcssa.i, %_ZN4absl13base_internal8SpinLock7TryLockEv.exit.i ], [ %.025.lcssa.i, %._crit_edge ]
-  %.13258 = phi ptr [ %.031, %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit ], [ %.025.lcssa.i.i60, %_ZN4absl13base_internal8SpinLock7TryLockEv.exit.i ], [ %.025.lcssa.i.i60, %._crit_edge ]
-  %.13456 = phi ptr [ %.033, %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit ], [ %.025.lcssa.i.i, %_ZN4absl13base_internal8SpinLock7TryLockEv.exit.i ], [ %.025.lcssa.i.i, %._crit_edge ]
-  %.353 = phi ptr [ %.2, %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit ], [ %storemerge43.lcssa, %_ZN4absl13base_internal8SpinLock7TryLockEv.exit.i ], [ %storemerge43.lcssa, %._crit_edge ]
+_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit.thread: ; preds = %_ZN4absl13base_internal8SpinLock7TryLockEv.exit.i, %._crit_edge, %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit
+  %.160 = phi i64 [ %.029, %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit ], [ %.025.lcssa.i, %._crit_edge ], [ %.025.lcssa.i, %_ZN4absl13base_internal8SpinLock7TryLockEv.exit.i ]
+  %.13258 = phi ptr [ %.031, %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit ], [ %.025.lcssa.i.i60, %._crit_edge ], [ %.025.lcssa.i.i60, %_ZN4absl13base_internal8SpinLock7TryLockEv.exit.i ]
+  %.13456 = phi ptr [ %.033, %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit ], [ %.025.lcssa.i.i, %._crit_edge ], [ %.025.lcssa.i.i, %_ZN4absl13base_internal8SpinLock7TryLockEv.exit.i ]
+  %.353 = phi ptr [ %.2, %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit ], [ %storemerge43.lcssa, %._crit_edge ], [ %storemerge43.lcssa, %_ZN4absl13base_internal8SpinLock7TryLockEv.exit.i ]
   %157 = icmp eq ptr %.353, %38
   br i1 %157, label %.critedge.backedge, label %158
 
@@ -2997,8 +2997,8 @@ _ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit.thread: ; pr
 .critedge.backedge:                               ; preds = %165, %100, %158, %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit.thread, %_ZN4absl18debugging_internalL16ShouldUseMappingEPKc.exit
   br label %.critedge, !llvm.loop !111
 
-_ZN4absl18debugging_internal12_GLOBAL__N_110LineReader8ReadLineEPPKcS5_.exit.thread: ; preds = %165, %34, %.noexc, %.noexc57, %63, %88, %.critedge2.thread
-  %.0 = phi i1 [ false, %63 ], [ false, %88 ], [ false, %.critedge2.thread ], [ true, %.noexc57 ], [ true, %.noexc ], [ true, %34 ], [ true, %165 ]
+_ZN4absl18debugging_internal12_GLOBAL__N_110LineReader8ReadLineEPPKcS5_.exit.thread: ; preds = %165, %.noexc, %34, %.noexc57, %63, %88, %.critedge2.thread
+  %.0 = phi i1 [ false, %.critedge2.thread ], [ false, %63 ], [ false, %88 ], [ true, %.noexc57 ], [ true, %34 ], [ true, %.noexc ], [ true, %165 ]
   %166 = invoke i32 @close(i32 noundef %7)
           to label %_ZN4absl18debugging_internal12_GLOBAL__N_114FileDescriptorD2Ev.exit unwind label %167
 
@@ -3015,7 +3015,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_114FileDescriptorD2Ev.exit: ; preds = %
   ret i1 %.076
 
 170:                                              ; preds = %41, %89, %161, %98, %64, %14
-  %.pn51 = phi { ptr, i32 } [ %15, %14 ], [ %42, %41 ], [ %65, %64 ], [ %90, %89 ], [ %99, %98 ], [ %162, %161 ]
+  %.pn51 = phi { ptr, i32 } [ %15, %14 ], [ %42, %41 ], [ %65, %64 ], [ %162, %161 ], [ %90, %89 ], [ %99, %98 ]
   call fastcc void @_ZN4absl18debugging_internal12_GLOBAL__N_114FileDescriptorD2Ev(i32 %7) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn51
@@ -3166,7 +3166,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.exit: ; p
   store i32 -1, ptr %64, align 8, !tbaa !51
   br label %.critedge
 
-.critedge:                                        ; preds = %13, %42, %24, %22, %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.exit
+.critedge:                                        ; preds = %13, %22, %42, %24, %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.exit
   ret i1 true
 }
 
@@ -3234,7 +3234,7 @@ define internal fastcc noundef i32 @_ZN4absl18debugging_internal12_GLOBAL__N_122
   br label %26
 
 26:                                               ; preds = %9, %13, %14, %.thread, %24
-  %.2 = phi i32 [ %18, %24 ], [ %12, %.thread ], [ %12, %14 ], [ -1, %13 ], [ %12, %9 ]
+  %.2 = phi i32 [ -1, %13 ], [ %18, %24 ], [ %12, %.thread ], [ %12, %14 ], [ %12, %9 ]
   ret i32 %.2
 }
 
@@ -3365,7 +3365,7 @@ define internal fastcc noundef range(i64 -1, -9223372036854775808) i64 @_ZN4absl
   unreachable
 
 22:                                               ; preds = %.thread, %.thread29
-  %.2 = phi i64 [ %.120, %.thread29 ], [ -1, %.thread ]
+  %.2 = phi i64 [ -1, %.thread ], [ %.120, %.thread29 ]
   ret i64 %.2
 }
 
@@ -3528,7 +3528,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exi
   br i1 %.not56, label %13, label %.thread
 
 .thread:                                          ; preds = %61, %6, %50, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread, %.thread63
-  %.not5682 = phi i1 [ true, %.thread63 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread ], [ false, %50 ], [ false, %6 ], [ false, %61 ]
+  %.not5682 = phi i1 [ true, %.thread63 ], [ false, %50 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread ], [ false, %6 ], [ false, %61 ]
   ret i1 %.not5682
 }
 
@@ -3849,7 +3849,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exi
   br label %._crit_edge57.thread
 
 ._crit_edge57.thread:                             ; preds = %6, %._crit_edge57, %125, %132, %129
-  %.2 = phi i32 [ 1, %125 ], [ 2, %132 ], [ 3, %129 ], [ 1, %._crit_edge57 ], [ 1, %6 ]
+  %.2 = phi i32 [ 3, %129 ], [ 1, %125 ], [ 2, %132 ], [ 1, %._crit_edge57 ], [ 1, %6 ]
   ret i32 %.2
 }
 

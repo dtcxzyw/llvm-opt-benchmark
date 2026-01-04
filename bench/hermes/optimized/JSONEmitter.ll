@@ -670,7 +670,7 @@ if.then.i.i21:                                    ; preds = %for.end
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit129, %if.then.i.i52, %if.then4.i.i49, %if.then.i.i67, %if.then4.i.i64, %if.then.i.i82, %if.then4.i.i79, %if.then.i.i97, %if.then4.i.i94, %if.then.i.i112, %if.then4.i.i109, %if.end.i37, %if.then.i34, %if.then.i.i21, %for.end
-  %begin8.0.be = phi ptr [ %begin8.1151, %for.end ], [ %begin8.1151, %if.then.i.i21 ], [ %incdec.ptr.i17, %if.then.i34 ], [ %incdec.ptr.i17, %if.end.i37 ], [ %incdec.ptr.i17, %if.then4.i.i109 ], [ %incdec.ptr.i17, %if.then.i.i112 ], [ %incdec.ptr.i17, %if.then4.i.i94 ], [ %incdec.ptr.i17, %if.then.i.i97 ], [ %incdec.ptr.i17, %if.then4.i.i79 ], [ %incdec.ptr.i17, %if.then.i.i82 ], [ %incdec.ptr.i17, %if.then4.i.i64 ], [ %incdec.ptr.i17, %if.then.i.i67 ], [ %incdec.ptr.i17, %if.then4.i.i49 ], [ %incdec.ptr.i17, %if.then.i.i52 ], [ %incdec.ptr.i17, %_ZN4llvh11raw_ostreamlsEPKc.exit129 ]
+  %begin8.0.be = phi ptr [ %incdec.ptr.i17, %if.end.i37 ], [ %begin8.1151, %if.then.i.i21 ], [ %begin8.1151, %for.end ], [ %incdec.ptr.i17, %if.then.i34 ], [ %incdec.ptr.i17, %if.then4.i.i109 ], [ %incdec.ptr.i17, %if.then.i.i112 ], [ %incdec.ptr.i17, %if.then4.i.i94 ], [ %incdec.ptr.i17, %if.then.i.i97 ], [ %incdec.ptr.i17, %if.then4.i.i79 ], [ %incdec.ptr.i17, %if.then.i.i82 ], [ %incdec.ptr.i17, %if.then4.i.i64 ], [ %incdec.ptr.i17, %if.then.i.i67 ], [ %incdec.ptr.i17, %if.then4.i.i49 ], [ %incdec.ptr.i17, %if.then.i.i52 ], [ %incdec.ptr.i17, %_ZN4llvh11raw_ostreamlsEPKc.exit129 ]
   %cmp.not = icmp eq ptr %begin8.0.be, %add.ptr.i13
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !9
 
@@ -1261,7 +1261,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit16.i:             ; preds = %if.then4.i.i11.i, %
   br i1 %cmp.i, label %for.body.i, label %if.end, !llvm.loop !4
 
 if.end:                                           ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit16.i, %_ZN6hermes11JSONEmitter10indentLessEv.exit.thread, %_ZN4llvh11raw_ostreamlsEPKc.exit.i, %_ZN6hermes11JSONEmitter10indentLessEv.exit
-  %Size.i.i15 = phi ptr [ %Size.i.i, %_ZN6hermes11JSONEmitter10indentLessEv.exit ], [ %Size.i.i, %_ZN4llvh11raw_ostreamlsEPKc.exit.i ], [ %Size.i.i8, %_ZN6hermes11JSONEmitter10indentLessEv.exit.thread ], [ %Size.i.i, %_ZN4llvh11raw_ostreamlsEPKc.exit16.i ]
+  %Size.i.i15 = phi ptr [ %Size.i.i, %_ZN4llvh11raw_ostreamlsEPKc.exit.i ], [ %Size.i.i, %_ZN6hermes11JSONEmitter10indentLessEv.exit ], [ %Size.i.i8, %_ZN6hermes11JSONEmitter10indentLessEv.exit.thread ], [ %Size.i.i, %_ZN4llvh11raw_ostreamlsEPKc.exit16.i ]
   %OS = getelementptr inbounds nuw i8, ptr %this, i64 56
   %15 = load ptr, ptr %OS, align 8
   %OutBufCur.i = getelementptr inbounds nuw i8, ptr %15, i64 24
@@ -1458,7 +1458,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit16.i:             ; preds = %if.then4.i.i11.i, %
   br i1 %cmp.i, label %for.body.i, label %if.end, !llvm.loop !4
 
 if.end:                                           ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit16.i, %_ZN6hermes11JSONEmitter10indentLessEv.exit.thread, %_ZN4llvh11raw_ostreamlsEPKc.exit.i, %_ZN6hermes11JSONEmitter10indentLessEv.exit
-  %Size.i.i15 = phi ptr [ %Size.i.i, %_ZN6hermes11JSONEmitter10indentLessEv.exit ], [ %Size.i.i, %_ZN4llvh11raw_ostreamlsEPKc.exit.i ], [ %Size.i.i8, %_ZN6hermes11JSONEmitter10indentLessEv.exit.thread ], [ %Size.i.i, %_ZN4llvh11raw_ostreamlsEPKc.exit16.i ]
+  %Size.i.i15 = phi ptr [ %Size.i.i, %_ZN4llvh11raw_ostreamlsEPKc.exit.i ], [ %Size.i.i, %_ZN6hermes11JSONEmitter10indentLessEv.exit ], [ %Size.i.i8, %_ZN6hermes11JSONEmitter10indentLessEv.exit.thread ], [ %Size.i.i, %_ZN4llvh11raw_ostreamlsEPKc.exit16.i ]
   %OS = getelementptr inbounds nuw i8, ptr %this, i64 56
   %15 = load ptr, ptr %OS, align 8
   %OutBufCur.i = getelementptr inbounds nuw i8, ptr %15, i64 24

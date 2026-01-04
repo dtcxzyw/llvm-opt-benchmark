@@ -338,9 +338,9 @@ _ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit72:  ; preds = %137, %_ZN5zxing3Ref
   br i1 %.not.i.i73, label %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit57, label %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit57.sink.split
 
 _ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit57.sink.split: ; preds = %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit72, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit63, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit54
-  %.sink187 = phi ptr [ %110, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit54 ], [ %128, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit63 ], [ %142, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit72 ]
-  %.sroa.0159.0.ph = phi ptr [ %104, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit54 ], [ %122, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit63 ], [ %136, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit72 ]
-  %.sroa.0152.0.ph = phi ptr [ %98, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit54 ], [ %117, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit63 ], [ %131, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit72 ]
+  %.sink187 = phi ptr [ %128, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit63 ], [ %110, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit54 ], [ %142, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit72 ]
+  %.sroa.0159.0.ph = phi ptr [ %122, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit63 ], [ %104, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit54 ], [ %136, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit72 ]
+  %.sroa.0152.0.ph = phi ptr [ %117, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit63 ], [ %98, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit54 ], [ %131, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit72 ]
   %143 = getelementptr inbounds nuw i8, ptr %.sink187, i64 8
   %144 = load i32, ptr %143, align 8, !tbaa !3
   %145 = add i32 %144, 1
@@ -348,9 +348,9 @@ _ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit57.sink.split: ; preds = %_ZN5zxing
   br label %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit57
 
 _ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit57:  ; preds = %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit57.sink.split, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit72, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit63, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit54
-  %.sroa.0159.0 = phi ptr [ %104, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit54 ], [ %122, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit63 ], [ %136, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit72 ], [ %.sroa.0159.0.ph, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit57.sink.split ]
-  %.sroa.0152.0 = phi ptr [ %98, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit54 ], [ %117, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit63 ], [ %131, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit72 ], [ %.sroa.0152.0.ph, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit57.sink.split ]
-  %.sroa.0143.0 = phi ptr [ null, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit54 ], [ null, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit63 ], [ null, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit72 ], [ %.sink187, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit57.sink.split ]
+  %.sroa.0159.0 = phi ptr [ %122, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit63 ], [ %136, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit72 ], [ %104, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit54 ], [ %.sroa.0159.0.ph, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit57.sink.split ]
+  %.sroa.0152.0 = phi ptr [ %117, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit63 ], [ %131, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit72 ], [ %98, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit54 ], [ %.sroa.0152.0.ph, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit57.sink.split ]
+  %.sroa.0143.0 = phi ptr [ null, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit63 ], [ null, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit72 ], [ null, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit54 ], [ %.sink187, %_ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit57.sink.split ]
   %.not.i.i76 = icmp eq ptr %.sroa.0159.0, null
   br i1 %.not.i.i76, label %_ZN5zxing3RefINS_11ResultPointEEC2ERKS2_.exit, label %146
 
@@ -567,7 +567,7 @@ _ZN5zxing3RefINS_11ResultPointEEaSERKS2_.exit97:  ; preds = %228, %233
   br label %_ZN5zxing3RefINS_11ResultPointEED2Ev.exit101
 
 _ZN5zxing3RefINS_11ResultPointEED2Ev.exit101:     ; preds = %244, %245, %250
-  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %244 ], [ %lpad.phi169, %245 ], [ %lpad.phi169, %250 ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi169, %250 ], [ %lpad.thr_comm.split-lp, %244 ], [ %lpad.phi169, %245 ]
   %254 = getelementptr inbounds nuw i8, ptr %.sroa.0152.0, i64 8
   %255 = load i32, ptr %254, align 8, !tbaa !3
   %256 = add i32 %255, -1

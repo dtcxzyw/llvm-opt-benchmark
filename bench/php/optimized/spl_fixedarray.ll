@@ -905,7 +905,7 @@ spl_fixedarray_init.exit:                         ; preds = %.lr.ph.i.i
   br label %92
 
 92:                                               ; preds = %.sink.split, %76, %82
-  %.0122 = phi ptr [ %84, %82 ], [ %.0123170, %76 ], [ %.sink.in, %.sink.split ]
+  %.0122 = phi ptr [ %.0123170, %76 ], [ %84, %82 ], [ %.sink.in, %.sink.split ]
   %93 = getelementptr inbounds nuw %struct._zval_struct, ptr %51, i64 %.0119
   %94 = load ptr, ptr %.0122, align 8, !tbaa !8
   %95 = getelementptr inbounds nuw i8, ptr %.0122, i64 8
@@ -1000,7 +1000,7 @@ spl_fixedarray_init.exit140:                      ; preds = %.lr.ph.i.i137
   br label %139
 
 139:                                              ; preds = %.sink.split189, %123, %129
-  %.0107 = phi ptr [ %131, %129 ], [ %.0108159, %123 ], [ %.sink193.in, %.sink.split189 ]
+  %.0107 = phi ptr [ %.0108159, %123 ], [ %131, %129 ], [ %.sink193.in, %.sink.split189 ]
   %140 = getelementptr inbounds %struct._zval_struct, ptr %103, i64 %.0114157
   %141 = load ptr, ptr %.0107, align 8, !tbaa !8
   %142 = getelementptr inbounds nuw i8, ptr %.0107, i64 8
@@ -1276,7 +1276,7 @@ spl_fixedarray_object_has_dimension_helper.exit:  ; preds = %15
   br label %spl_fixedarray_object_has_dimension_helper.exit.thread
 
 spl_fixedarray_object_has_dimension_helper.exit.thread: ; preds = %spl_fixedarray_object_has_dimension_helper.exit, %15, %8
-  %23 = phi i32 [ 2, %8 ], [ 2, %15 ], [ %spec.select, %spl_fixedarray_object_has_dimension_helper.exit ]
+  %23 = phi i32 [ 2, %15 ], [ %spec.select, %spl_fixedarray_object_has_dimension_helper.exit ], [ 2, %8 ]
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %23, ptr %24, align 8, !tbaa !8
   br label %25
@@ -1369,15 +1369,15 @@ spl_fixedarray_object_read_dimension_helper.exit: ; preds = %19
   br label %44
 
 44:                                               ; preds = %.sink.split, %27, %34
-  %.0 = phi ptr [ %36, %34 ], [ %26, %27 ], [ %.sink.in, %.sink.split ]
+  %.0 = phi ptr [ %26, %27 ], [ %36, %34 ], [ %.sink.in, %.sink.split ]
   %45 = load ptr, ptr %.0, align 8, !tbaa !8
   %46 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %47 = load i32, ptr %46, align 8, !tbaa !8
   store ptr %45, ptr %1, align 8, !tbaa !8
   br label %.sink.split31
 
-.sink.split31:                                    ; preds = %spl_fixedarray_object_read_dimension_helper.exit, %21, %13, %14, %44
-  %.sink32 = phi i32 [ %47, %44 ], [ 1, %14 ], [ 1, %13 ], [ 1, %21 ], [ 1, %spl_fixedarray_object_read_dimension_helper.exit ]
+.sink.split31:                                    ; preds = %spl_fixedarray_object_read_dimension_helper.exit, %13, %21, %14, %44
+  %.sink32 = phi i32 [ %47, %44 ], [ 1, %14 ], [ 1, %21 ], [ 1, %13 ], [ 1, %spl_fixedarray_object_read_dimension_helper.exit ]
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %.sink32, ptr %48, align 8, !tbaa !8
   br label %49
@@ -1488,7 +1488,7 @@ define internal fastcc void @spl_fixedarray_object_write_dimension_helper(ptr no
   br label %40
 
 40:                                               ; preds = %.sink.split, %16, %30
-  %.0 = phi ptr [ %32, %30 ], [ %2, %16 ], [ %.sink.in, %.sink.split ]
+  %.0 = phi ptr [ %2, %16 ], [ %32, %30 ], [ %.sink.in, %.sink.split ]
   %41 = load ptr, ptr %.0, align 8, !tbaa !8
   %42 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %43 = load i32, ptr %42, align 8, !tbaa !8
@@ -1960,7 +1960,7 @@ spl_fixedarray_object_has_dimension.exit:         ; preds = %24
   br label %spl_fixedarray_object_read_dimension_helper.exit
 
 spl_fixedarray_object_read_dimension_helper.exit: ; preds = %19, %24, %.critedge.i, %61, %58, %51, %50, %spl_fixedarray_object_has_dimension.exit, %45
-  %.0 = phi ptr [ %executor_globals., %45 ], [ @executor_globals, %spl_fixedarray_object_has_dimension.exit ], [ null, %58 ], [ %64, %61 ], [ null, %50 ], [ null, %51 ], [ @executor_globals, %.critedge.i ], [ @executor_globals, %24 ], [ @executor_globals, %19 ]
+  %.0 = phi ptr [ %executor_globals., %45 ], [ null, %51 ], [ @executor_globals, %spl_fixedarray_object_has_dimension.exit ], [ null, %50 ], [ null, %58 ], [ %64, %61 ], [ @executor_globals, %.critedge.i ], [ @executor_globals, %24 ], [ @executor_globals, %19 ]
   ret ptr %.0
 }
 
@@ -2131,7 +2131,7 @@ define internal range(i32 0, 2) i32 @spl_fixedarray_object_has_dimension(ptr nou
   br label %spl_fixedarray_object_has_dimension_helper.exit
 
 spl_fixedarray_object_has_dimension_helper.exit:  ; preds = %29, %27, %20, %.critedge, %15
-  %.0.in = phi i1 [ %16, %15 ], [ %28, %27 ], [ %32, %29 ], [ false, %.critedge ], [ false, %20 ]
+  %.0.in = phi i1 [ %16, %15 ], [ %32, %29 ], [ false, %.critedge ], [ %28, %27 ], [ false, %20 ]
   %.0 = zext i1 %.0.in to i32
   ret i32 %.0
 }
@@ -2211,7 +2211,7 @@ define internal ptr @spl_fixedarray_object_get_properties_for(ptr noundef %0, i3
   br label %14
 
 14:                                               ; preds = %2, %12
-  %15 = phi ptr [ %13, %12 ], [ %6, %2 ]
+  %15 = phi ptr [ %6, %2 ], [ %13, %12 ]
   %16 = load i64, ptr %4, align 8, !tbaa !16
   %17 = icmp eq i64 %16, 0
   br i1 %17, label %20, label %24
@@ -2339,7 +2339,7 @@ define internal ptr @spl_fixedarray_object_get_properties_for(ptr noundef %0, i3
   br i1 %.not68, label %.thread72, label %.lr.ph77
 
 .thread72:                                        ; preds = %76, %45, %.thread, %.loopexit, %42, %20, %21
-  %.0 = phi ptr [ null, %21 ], [ null, %20 ], [ %30, %42 ], [ %30, %.loopexit ], [ null, %.thread ], [ %30, %45 ], [ %30, %76 ]
+  %.0 = phi ptr [ null, %20 ], [ null, %21 ], [ null, %.thread ], [ %30, %42 ], [ %30, %.loopexit ], [ %30, %45 ], [ %30, %76 ]
   ret ptr %.0
 }
 
@@ -2470,7 +2470,7 @@ _zend_handle_numeric_str.exit:                    ; preds = %13, %16
   br label %zend_dval_to_lval.exit
 
 zend_dval_to_lval.exit:                           ; preds = %22, %29, %31
-  %.0.i13 = phi i64 [ %30, %29 ], [ %32, %31 ], [ 0, %22 ]
+  %.0.i13 = phi i64 [ %32, %31 ], [ %30, %29 ], [ 0, %22 ]
   %33 = sitofp i64 %.0.i13 to double
   %34 = fcmp oeq double %23, %33
   br i1 %34, label %zend_dval_to_lval_safe.exit, label %35
@@ -2506,7 +2506,7 @@ zend_dval_to_lval_safe.exit.loopexit:             ; preds = %3
   br label %zend_dval_to_lval_safe.exit
 
 zend_dval_to_lval_safe.exit:                      ; preds = %3, %zend_dval_to_lval_safe.exit.loopexit, %35, %zend_dval_to_lval.exit, %_zend_handle_numeric_str.exit, %.loopexit, %41, %36
-  %.1 = phi i64 [ 0, %.loopexit ], [ %21, %_zend_handle_numeric_str.exit ], [ %37, %36 ], [ %44, %41 ], [ %.0.i13, %zend_dval_to_lval.exit ], [ %.0.i13, %35 ], [ 0, %zend_dval_to_lval_safe.exit.loopexit ], [ 1, %3 ]
+  %.1 = phi i64 [ 0, %.loopexit ], [ %21, %_zend_handle_numeric_str.exit ], [ %.0.i13, %35 ], [ %37, %36 ], [ %44, %41 ], [ 0, %zend_dval_to_lval_safe.exit.loopexit ], [ %.0.i13, %zend_dval_to_lval.exit ], [ 1, %3 ]
   ret i64 %.1
 }
 
@@ -2749,7 +2749,7 @@ define internal nonnull ptr @spl_fixedarray_it_get_current_data(ptr noundef read
   br label %spl_fixedarray_object_read_dimension_helper.exit
 
 spl_fixedarray_object_read_dimension_helper.exit: ; preds = %1, %15, %18
-  %.0.i = phi ptr [ null, %15 ], [ %21, %18 ], [ null, %1 ]
+  %.0.i = phi ptr [ null, %1 ], [ null, %15 ], [ %21, %18 ]
   %22 = icmp eq ptr %.0.i, null
   %spec.store.select = select i1 %22, ptr @executor_globals, ptr %.0.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

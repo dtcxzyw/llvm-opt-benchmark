@@ -19234,7 +19234,7 @@ dom_get_prop_handler.exit.thread20:               ; preds = %13, %dom_get_prop_h
   br label %35
 
 35:                                               ; preds = %dom_get_prop_handler.exit.thread20, %23, %34
-  %.0 = phi i1 [ %.1.shrunk, %34 ], [ false, %23 ], [ true, %dom_get_prop_handler.exit.thread20 ]
+  %.0 = phi i1 [ false, %23 ], [ %.1.shrunk, %34 ], [ true, %dom_get_prop_handler.exit.thread20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %38
 
@@ -19612,7 +19612,7 @@ is_numeric_string_ex.exit.i:                      ; preds = %22
   br label %.thread14.i
 
 .thread14.i:                                      ; preds = %41, %38, %31
-  %.0.i.i = phi i64 [ %40, %38 ], [ %42, %41 ], [ 0, %31 ]
+  %.0.i.i = phi i64 [ %42, %41 ], [ %40, %38 ], [ 0, %31 ]
   store i64 %.0.i.i, ptr %6, align 8, !tbaa !151
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %dom_nodemap_or_nodelist_process_offset_as_named.exit
@@ -19741,7 +19741,7 @@ is_numeric_string_ex.exit.i:                      ; preds = %14
   br label %.thread14.i
 
 .thread14.i:                                      ; preds = %33, %30, %23
-  %.0.i.i = phi i64 [ %32, %30 ], [ %34, %33 ], [ 0, %23 ]
+  %.0.i.i = phi i64 [ %34, %33 ], [ %32, %30 ], [ 0, %23 ]
   store i64 %.0.i.i, ptr %5, align 8, !tbaa !151
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %dom_nodemap_or_nodelist_process_offset_as_named.exit
@@ -19877,7 +19877,7 @@ is_numeric_string_ex.exit.i:                      ; preds = %22
   br label %.thread14.i
 
 .thread14.i:                                      ; preds = %41, %38, %31
-  %.0.i.i = phi i64 [ %40, %38 ], [ %42, %41 ], [ 0, %31 ]
+  %.0.i.i = phi i64 [ %42, %41 ], [ %40, %38 ], [ 0, %31 ]
   store i64 %.0.i.i, ptr %6, align 8, !tbaa !151
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %dom_nodemap_or_nodelist_process_offset_as_named.exit
@@ -19991,7 +19991,7 @@ is_numeric_string_ex.exit.i:                      ; preds = %14
   br label %.thread14.i
 
 .thread14.i:                                      ; preds = %33, %30, %23
-  %.0.i.i = phi i64 [ %32, %30 ], [ %34, %33 ], [ 0, %23 ]
+  %.0.i.i = phi i64 [ %34, %33 ], [ %32, %30 ], [ 0, %23 ]
   store i64 %.0.i.i, ptr %5, align 8, !tbaa !151
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %dom_nodemap_or_nodelist_process_offset_as_named.exit
@@ -20031,7 +20031,7 @@ dom_nodemap_or_nodelist_process_offset_as_named.exit: ; preds = %dom_nodemap_or_
   br label %dom_nodemap_or_nodelist_process_offset_as_named.exit.thread
 
 dom_nodemap_or_nodelist_process_offset_as_named.exit.thread: ; preds = %.thread.i, %35, %dom_nodemap_or_nodelist_process_offset_as_named.exit, %43
-  %.0 = phi i32 [ 0, %dom_nodemap_or_nodelist_process_offset_as_named.exit ], [ %47, %43 ], [ 0, %35 ], [ 0, %.thread.i ]
+  %.0 = phi i32 [ %47, %43 ], [ 0, %dom_nodemap_or_nodelist_process_offset_as_named.exit ], [ 0, %35 ], [ 0, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -20148,7 +20148,7 @@ _zend_handle_numeric_str.exit.thread:             ; preds = %_zend_handle_numeri
   br label %zend_dval_to_lval.exit
 
 zend_dval_to_lval.exit:                           ; preds = %44, %51, %53
-  %.0.i27 = phi i64 [ %52, %51 ], [ %54, %53 ], [ 0, %44 ]
+  %.0.i27 = phi i64 [ %54, %53 ], [ %52, %51 ], [ 0, %44 ]
   %55 = sitofp i64 %.0.i27 to double
   %56 = fcmp oeq double %45, %55
   br i1 %56, label %zend_dval_to_lval_safe.exit, label %57
@@ -20285,7 +20285,7 @@ _zend_handle_numeric_str.exit.thread:             ; preds = %_zend_handle_numeri
   br label %zend_dval_to_lval.exit
 
 zend_dval_to_lval.exit:                           ; preds = %46, %53, %55
-  %.0.i28 = phi i64 [ %54, %53 ], [ %56, %55 ], [ 0, %46 ]
+  %.0.i28 = phi i64 [ %56, %55 ], [ %54, %53 ], [ 0, %46 ]
   %57 = sitofp i64 %.0.i28 to double
   %58 = fcmp oeq double %47, %57
   br i1 %58, label %zend_dval_to_lval_safe.exit, label %59
@@ -20312,7 +20312,7 @@ zend_dval_to_lval_safe.exit:                      ; preds = %zend_dval_to_lval.e
   br label %69
 
 69:                                               ; preds = %zend_dval_to_lval_safe.exit, %61, %40, %43, %64, %39
-  %.1.shrunk = phi i1 [ %.0.shrunk, %39 ], [ false, %64 ], [ false, %40 ], [ %45, %43 ], [ false, %zend_dval_to_lval_safe.exit ], [ %63, %61 ]
+  %.1.shrunk = phi i1 [ %.0.shrunk, %39 ], [ false, %64 ], [ %45, %43 ], [ false, %40 ], [ false, %zend_dval_to_lval_safe.exit ], [ %63, %61 ]
   %.1 = zext i1 %.1.shrunk to i32
   ret i32 %.1
 }
@@ -21050,8 +21050,8 @@ define hidden void @dom_namednode_iter(ptr noundef %0, i32 noundef %1, ptr nound
   br label %49
 
 .thread62:                                        ; preds = %20, %.thread57, %27
-  %.not48566065 = phi i1 [ false, %27 ], [ true, %.thread57 ], [ true, %20 ]
-  %37 = phi ptr [ %17, %27 ], [ null, %.thread57 ], [ null, %20 ]
+  %.not48566065 = phi i1 [ true, %.thread57 ], [ false, %27 ], [ true, %20 ]
+  %37 = phi ptr [ null, %.thread57 ], [ %17, %27 ], [ null, %20 ]
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %39 = load i32, ptr %38, align 4, !tbaa !44
   %40 = and i32 %39, 64
@@ -21427,7 +21427,7 @@ zend_hash_find_ptr.exit.i:                        ; preds = %87
   br label %dom_get_doc_classmap.exit
 
 dom_get_doc_classmap.exit:                        ; preds = %zend_hash_find_ptr.exit.i, %87, %dom_get_doc_props_read_only.exit.i, %81, %80
-  %.1 = phi ptr [ %.0, %81 ], [ %.0, %80 ], [ %91, %zend_hash_find_ptr.exit.i ], [ %.0, %dom_get_doc_props_read_only.exit.i ], [ %.0, %87 ]
+  %.1 = phi ptr [ %.0, %80 ], [ %.0, %81 ], [ %91, %zend_hash_find_ptr.exit.i ], [ %.0, %87 ], [ %.0, %dom_get_doc_props_read_only.exit.i ]
   %92 = tail call i32 @object_init_ex(ptr noundef %1, ptr noundef %.1) #17
   %93 = load ptr, ptr %1, align 8, !tbaa !44
   %94 = getelementptr inbounds i8, ptr %93, i64 -24
@@ -21720,8 +21720,8 @@ define hidden ptr @dom_get_elements_by_tag_name_ns_raw(ptr noundef readonly capt
   br label %php_dom_follow_spec_node.exit
 
 php_dom_follow_spec_node.exit:                    ; preds = %28, %21, %18, %33, %25
-  %.fr97 = phi i1 [ true, %25 ], [ true, %33 ], [ %24, %21 ], [ false, %18 ], [ true, %28 ]
-  %.fr79 = phi i1 [ false, %25 ], [ %37, %33 ], [ false, %21 ], [ false, %18 ], [ false, %28 ]
+  %.fr97 = phi i1 [ true, %33 ], [ true, %25 ], [ false, %18 ], [ %24, %21 ], [ true, %28 ]
+  %.fr79 = phi i1 [ %37, %33 ], [ false, %25 ], [ false, %18 ], [ false, %21 ], [ false, %28 ]
   %38 = load i64, ptr %5, align 8, !tbaa !151
   %.not54 = icmp sgt i64 %38, %6
   br i1 %.not54, label %php_dom_next_in_tree_order.exit.thread, label %.lr.ph
@@ -21811,7 +21811,7 @@ dom_match_qualified_name_for_tag_name_equality.exit.thread.us: ; preds = %59, %.
   br i1 %75, label %.preheader.us, label %php_dom_next_in_tree_order.exit.us
 
 php_dom_next_in_tree_order.exit.us:               ; preds = %72, %.thread47.us, %62
-  %.0.i.us = phi ptr [ %64, %62 ], [ %66, %.thread47.us ], [ %74, %72 ]
+  %.0.i.us = phi ptr [ %66, %.thread47.us ], [ %64, %62 ], [ %74, %72 ]
   %76 = load i64, ptr %5, align 8, !tbaa !151
   %.not.us = icmp sgt i64 %76, %6
   br i1 %.not.us, label %php_dom_next_in_tree_order.exit.thread, label %.lr.ph.split.us
@@ -21849,13 +21849,13 @@ php_dom_next_in_tree_order.exit.us:               ; preds = %72, %.thread47.us, 
   %94 = getelementptr inbounds nuw i8, ptr %.03055.us60, i64 72
   %95 = load ptr, ptr %94, align 8, !tbaa !157
   %.not.i.i.us = icmp eq ptr %95, null
-  br i1 %.not.i.i.us, label %107, label %96
+  br i1 %.not.i.i.us, label %dom_match_qualified_name_for_tag_name_equality.exit.us, label %96
 
 96:                                               ; preds = %90
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 24
   %98 = load ptr, ptr %97, align 8, !tbaa !160
   %.not17.i.i.us = icmp eq ptr %98, null
-  br i1 %.not17.i.i.us, label %107, label %99
+  br i1 %.not17.i.i.us, label %dom_match_qualified_name_for_tag_name_equality.exit.us, label %99
 
 99:                                               ; preds = %96
   %100 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %98) #21
@@ -21867,20 +21867,20 @@ php_dom_next_in_tree_order.exit.us:               ; preds = %72, %.thread47.us, 
   %103 = getelementptr inbounds nuw i8, ptr %91, i64 %100
   %104 = load i8, ptr %103, align 1, !tbaa !44
   %.not19.i.i.us = icmp eq i8 %104, 58
-  br i1 %.not19.i.i.us, label %dom_match_qualified_name_for_tag_name_equality.exit.us, label %dom_match_qualified_name_for_tag_name_equality.exit.thread.us63
+  br i1 %.not19.i.i.us, label %105, label %dom_match_qualified_name_for_tag_name_equality.exit.thread.us63
 
-dom_match_qualified_name_for_tag_name_equality.exit.us: ; preds = %102
-  %105 = getelementptr inbounds nuw i8, ptr %103, i64 1
-  %106 = tail call i32 @xmlStrEqual(ptr noundef nonnull %105, ptr noundef %93) #17
-  %.not51.us = icmp eq i32 %106, 0
+105:                                              ; preds = %102
+  %106 = getelementptr inbounds nuw i8, ptr %103, i64 1
+  %107 = tail call i32 @xmlStrEqual(ptr noundef nonnull %106, ptr noundef %93) #17
+  %.not51.us = icmp eq i32 %107, 0
   br i1 %.not51.us, label %dom_match_qualified_name_for_tag_name_equality.exit.thread.us63, label %109
 
-107:                                              ; preds = %96, %90
+dom_match_qualified_name_for_tag_name_equality.exit.us: ; preds = %96, %90
   %108 = tail call i32 @xmlStrEqual(ptr noundef %93, ptr noundef nonnull %91) #17
   %.not52.us = icmp eq i32 %108, 0
   br i1 %.not52.us, label %dom_match_qualified_name_for_tag_name_equality.exit.thread.us63, label %109
 
-109:                                              ; preds = %107, %dom_match_qualified_name_for_tag_name_equality.exit.us
+109:                                              ; preds = %dom_match_qualified_name_for_tag_name_equality.exit.us, %105
   br i1 %.fr97, label %119, label %110
 
 110:                                              ; preds = %109
@@ -21913,7 +21913,7 @@ dom_match_qualified_name_for_tag_name_equality.exit.us: ; preds = %102
   store i64 %123, ptr %5, align 8, !tbaa !151
   br label %dom_match_qualified_name_for_tag_name_equality.exit.thread.us63
 
-dom_match_qualified_name_for_tag_name_equality.exit.thread.us63: ; preds = %122, %.thread157, %115, %107, %dom_match_qualified_name_for_tag_name_equality.exit.us, %102, %99
+dom_match_qualified_name_for_tag_name_equality.exit.thread.us63: ; preds = %122, %.thread157, %115, %dom_match_qualified_name_for_tag_name_equality.exit.us, %105, %102, %99
   %.pr.us64 = load i32, ptr %77, align 8, !tbaa !4
   %124 = icmp eq i32 %.pr.us64, 1
   br i1 %124, label %125, label %.thread47.us66
@@ -21948,7 +21948,7 @@ dom_match_qualified_name_for_tag_name_equality.exit.thread.us63: ; preds = %122,
   br i1 %138, label %.preheader.us72, label %php_dom_next_in_tree_order.exit.us69
 
 php_dom_next_in_tree_order.exit.us69:             ; preds = %135, %.thread47.us66, %125
-  %.0.i.us70 = phi ptr [ %127, %125 ], [ %129, %.thread47.us66 ], [ %137, %135 ]
+  %.0.i.us70 = phi ptr [ %129, %.thread47.us66 ], [ %127, %125 ], [ %137, %135 ]
   %139 = load i64, ptr %5, align 8, !tbaa !151
   %.not.us71 = icmp sgt i64 %139, %6
   br i1 %.not.us71, label %php_dom_next_in_tree_order.exit.thread, label %.lr.ph.split.split.us
@@ -22015,7 +22015,7 @@ dom_match_qualified_name_for_tag_name_equality.exit.thread.us81: ; preds = %150,
   br i1 %166, label %.preheader.us90, label %php_dom_next_in_tree_order.exit.us87
 
 php_dom_next_in_tree_order.exit.us87:             ; preds = %163, %.thread47.us84, %153
-  %.0.i.us88 = phi ptr [ %155, %153 ], [ %157, %.thread47.us84 ], [ %165, %163 ]
+  %.0.i.us88 = phi ptr [ %157, %.thread47.us84 ], [ %155, %153 ], [ %165, %163 ]
   %167 = load i64, ptr %5, align 8, !tbaa !151
   %.not.us89 = icmp sgt i64 %167, %6
   br i1 %.not.us89, label %php_dom_next_in_tree_order.exit.thread, label %.lr.ph.split.split.split.us
@@ -22104,13 +22104,13 @@ dom_match_qualified_name_for_tag_name_equality.exit.thread: ; preds = %171, %189
   br i1 %205, label %.preheader, label %php_dom_next_in_tree_order.exit
 
 php_dom_next_in_tree_order.exit:                  ; preds = %202, %192, %.thread47
-  %.0.i = phi ptr [ %194, %192 ], [ %196, %.thread47 ], [ %204, %202 ]
+  %.0.i = phi ptr [ %196, %.thread47 ], [ %194, %192 ], [ %204, %202 ]
   %206 = load i64, ptr %5, align 8, !tbaa !151
   %.not = icmp sgt i64 %206, %6
   br i1 %.not, label %php_dom_next_in_tree_order.exit.thread, label %.lr.ph.split.split.split
 
 php_dom_next_in_tree_order.exit.thread:           ; preds = %php_dom_next_in_tree_order.exit, %186, %.preheader, %php_dom_next_in_tree_order.exit.us87, %147, %.preheader.us90, %php_dom_next_in_tree_order.exit.us69, %119, %.preheader.us72, %php_dom_next_in_tree_order.exit.us, %56, %.preheader.us, %php_dom_follow_spec_node.exit, %.split.us, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %.split.us ], [ null, %php_dom_follow_spec_node.exit ], [ null, %.preheader.us ], [ null, %php_dom_next_in_tree_order.exit.us ], [ %.03055.us, %56 ], [ null, %.preheader.us72 ], [ null, %php_dom_next_in_tree_order.exit.us69 ], [ %.03055.us60, %119 ], [ null, %.preheader.us90 ], [ null, %php_dom_next_in_tree_order.exit.us87 ], [ %.03055.us80, %147 ], [ null, %.preheader ], [ null, %php_dom_next_in_tree_order.exit ], [ %.03055, %186 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %.split.us ], [ null, %.preheader.us90 ], [ null, %.preheader.us72 ], [ null, %.preheader ], [ null, %php_dom_next_in_tree_order.exit.us ], [ null, %php_dom_follow_spec_node.exit ], [ %.03055.us80, %147 ], [ null, %.preheader.us ], [ null, %php_dom_next_in_tree_order.exit.us69 ], [ %.03055.us, %56 ], [ %.03055.us60, %119 ], [ null, %php_dom_next_in_tree_order.exit.us87 ], [ %.03055, %186 ], [ null, %php_dom_next_in_tree_order.exit ]
   ret ptr %.0
 }
 
@@ -22616,7 +22616,7 @@ zend_string_equals_cstr.exit.thread:              ; preds = %33, %zend_string_eq
   br label %zend_string_equals_cstr.exit32.thread
 
 zend_string_equals_cstr.exit32.thread:            ; preds = %27, %.critedge26, %40, %zend_string_equals_cstr.exit.thread, %zend_string_equals_cstr.exit32, %zend_string_equals_cstr.exit38.thread, %12, %4
-  %.0 = phi i32 [ 5, %4 ], [ 14, %12 ], [ 14, %zend_string_equals_cstr.exit38.thread ], [ 14, %zend_string_equals_cstr.exit32 ], [ 14, %zend_string_equals_cstr.exit.thread ], [ 0, %40 ], [ 0, %.critedge26 ], [ 14, %27 ]
+  %.0 = phi i32 [ 14, %zend_string_equals_cstr.exit.thread ], [ 5, %4 ], [ 14, %12 ], [ 14, %zend_string_equals_cstr.exit38.thread ], [ 14, %zend_string_equals_cstr.exit32 ], [ 0, %40 ], [ 0, %.critedge26 ], [ 14, %27 ]
   ret i32 %.0
 }
 
@@ -22660,7 +22660,7 @@ define hidden range(i32 0, 15) i32 @dom_check_qname(ptr noundef %0, ptr noundef 
   br label %21
 
 21:                                               ; preds = %17, %15, %10, %5
-  %.0 = phi i32 [ 14, %5 ], [ 0, %10 ], [ 14, %15 ], [ %., %17 ]
+  %.0 = phi i32 [ 14, %15 ], [ 14, %5 ], [ 0, %10 ], [ %., %17 ]
   ret i32 %.0
 }
 
@@ -22836,7 +22836,7 @@ define hidden ptr @dom_get_nsdecl(ptr noundef readonly captures(address_is_null)
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %22, %24, %14, %17, %18, %9, %2
-  %.019 = phi ptr [ null, %2 ], [ null, %9 ], [ null, %18 ], [ %.01836, %14 ], [ null, %17 ], [ %.131, %22 ], [ null, %24 ]
+  %.019 = phi ptr [ null, %2 ], [ null, %18 ], [ null, %9 ], [ null, %17 ], [ %.01836, %14 ], [ %.131, %22 ], [ null, %24 ]
   ret ptr %.019
 }
 
@@ -23271,7 +23271,7 @@ dom_clone_helper.exit:                            ; preds = %.preheader.i, %11, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %78, %dom_clone_helper.exit.thread, %dom_clone_helper.exit, %70, %81, %82, %8
-  %.031 = phi ptr [ %9, %8 ], [ %85, %82 ], [ %12, %81 ], [ %12, %70 ], [ null, %dom_clone_helper.exit ], [ null, %dom_clone_helper.exit.thread ], [ %12, %78 ], [ %12, %.lr.ph ]
+  %.031 = phi ptr [ %9, %8 ], [ %85, %82 ], [ null, %dom_clone_helper.exit.thread ], [ %12, %81 ], [ %12, %70 ], [ null, %dom_clone_helper.exit ], [ %12, %78 ], [ %12, %.lr.ph ]
   ret ptr %.031
 }
 
@@ -23463,7 +23463,7 @@ define hidden ptr @php_dom_libxml_fix_file_path(ptr noundef %0) local_unnamed_ad
   br label %16
 
 16:                                               ; preds = %1, %4, %4, %7, %7, %13, %10
-  %.1 = phi ptr [ %14, %13 ], [ %0, %10 ], [ %0, %7 ], [ %0, %7 ], [ %0, %4 ], [ %0, %4 ], [ %0, %1 ]
+  %.1 = phi ptr [ %0, %10 ], [ %14, %13 ], [ %0, %7 ], [ %0, %7 ], [ %0, %4 ], [ %0, %4 ], [ %0, %1 ]
   ret ptr %.1
 }
 
@@ -24066,7 +24066,7 @@ define internal fastcc ptr @dom_clone_container_helper(ptr noundef nonnull %0, p
   br label %.critedge
 
 .critedge:                                        ; preds = %33, %.loopexit, %3, %5, %39
-  %.3 = phi ptr [ null, %39 ], [ %4, %5 ], [ null, %3 ], [ %4, %.loopexit ], [ %4, %33 ]
+  %.3 = phi ptr [ null, %39 ], [ null, %3 ], [ %4, %5 ], [ %4, %.loopexit ], [ %4, %33 ]
   ret ptr %.3
 }
 

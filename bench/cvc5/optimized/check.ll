@@ -422,7 +422,7 @@ define hidden void @_ZN4cvc58internal23AssertArgumentException9constructEPKcS3_S
   br i1 %.not, label %.lr.ph, label %.split37.us
 
 .split37.us:                                      ; preds = %.lr.ph, %.lr.ph38, %.split, %.split.us
-  %.us-phi = phi ptr [ %10, %.split.us ], [ %10, %.split ], [ %17, %.lr.ph38 ], [ %25, %.lr.ph ]
+  %.us-phi = phi ptr [ %17, %.lr.ph38 ], [ %10, %.split.us ], [ %10, %.split ], [ %25, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %27, ptr %8, align 8, !tbaa !34

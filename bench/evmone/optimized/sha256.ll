@@ -133,10 +133,10 @@ define internal void @_ZN6evmone6cryptoL15sha_256_x86_shaEPjPKSt4bytem(ptr nound
   br label %.loopexit
 
 .loopexit:                                        ; preds = %35, %19, %39
-  %.sroa.17.2.ph = phi i1 [ true, %39 ], [ %.sroa.17.0272, %19 ], [ true, %35 ]
-  %.sroa.20.1.ph = phi i1 [ false, %39 ], [ false, %19 ], [ true, %35 ]
-  %.sroa.9.1.ph = phi i64 [ 0, %39 ], [ %21, %19 ], [ 0, %35 ]
-  %.sroa.0.2.ph = phi ptr [ %.sroa.0.1, %39 ], [ %20, %19 ], [ %.sroa.0.1, %35 ]
+  %.sroa.17.2.ph = phi i1 [ %.sroa.17.0272, %19 ], [ true, %39 ], [ true, %35 ]
+  %.sroa.20.1.ph = phi i1 [ false, %19 ], [ false, %39 ], [ true, %35 ]
+  %.sroa.9.1.ph = phi i64 [ %21, %19 ], [ 0, %39 ], [ 0, %35 ]
+  %.sroa.0.2.ph = phi ptr [ %20, %19 ], [ %.sroa.0.1, %39 ], [ %.sroa.0.1, %35 ]
   %40 = load <16 x i8>, ptr %4, align 16, !tbaa !8
   %41 = shufflevector <16 x i8> %40, <16 x i8> poison, <16 x i32> <i32 3, i32 2, i32 1, i32 0, i32 7, i32 6, i32 5, i32 4, i32 11, i32 10, i32 9, i32 8, i32 15, i32 14, i32 13, i32 12>
   %42 = bitcast <16 x i8> %41 to <4 x i32>
@@ -360,10 +360,10 @@ define internal void @_ZN6evmone6cryptoL15sha_256_x86_bmiEPjPKSt4bytem(ptr nound
   br label %.loopexit
 
 .loopexit:                                        ; preds = %34, %18, %38
-  %.sroa.17.2.ph = phi i1 [ true, %38 ], [ %.sroa.17.077, %18 ], [ true, %34 ]
-  %.sroa.20.1.ph = phi i1 [ false, %38 ], [ false, %18 ], [ true, %34 ]
-  %.sroa.9.1.ph = phi i64 [ 0, %38 ], [ %20, %18 ], [ 0, %34 ]
-  %.sroa.0.2.ph = phi ptr [ %.sroa.0.1, %38 ], [ %19, %18 ], [ %.sroa.0.1, %34 ]
+  %.sroa.17.2.ph = phi i1 [ %.sroa.17.077, %18 ], [ true, %38 ], [ true, %34 ]
+  %.sroa.20.1.ph = phi i1 [ false, %18 ], [ false, %38 ], [ true, %34 ]
+  %.sroa.9.1.ph = phi i64 [ %20, %18 ], [ 0, %38 ], [ 0, %34 ]
+  %.sroa.0.2.ph = phi ptr [ %19, %18 ], [ %.sroa.0.1, %38 ], [ %.sroa.0.1, %34 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, ptr noundef nonnull align 4 dereferenceable(32) %0, i64 32, i1 false), !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %6) #11
@@ -725,10 +725,10 @@ define internal void @_ZN6evmone6cryptoL15sha_256_genericEPjPKSt4bytem(ptr nound
   br label %.loopexit
 
 .loopexit:                                        ; preds = %34, %18, %38
-  %.sroa.17.2.ph = phi i1 [ true, %38 ], [ %.sroa.17.077, %18 ], [ true, %34 ]
-  %.sroa.20.1.ph = phi i1 [ false, %38 ], [ false, %18 ], [ true, %34 ]
-  %.sroa.9.1.ph = phi i64 [ 0, %38 ], [ %20, %18 ], [ 0, %34 ]
-  %.sroa.0.2.ph = phi ptr [ %.sroa.0.1, %38 ], [ %19, %18 ], [ %.sroa.0.1, %34 ]
+  %.sroa.17.2.ph = phi i1 [ %.sroa.17.077, %18 ], [ true, %38 ], [ true, %34 ]
+  %.sroa.20.1.ph = phi i1 [ false, %18 ], [ false, %38 ], [ true, %34 ]
+  %.sroa.9.1.ph = phi i64 [ %20, %18 ], [ 0, %38 ], [ 0, %34 ]
+  %.sroa.0.2.ph = phi ptr [ %19, %18 ], [ %.sroa.0.1, %38 ], [ %.sroa.0.1, %34 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, ptr noundef nonnull align 4 dereferenceable(32) %0, i64 32, i1 false), !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %6) #11

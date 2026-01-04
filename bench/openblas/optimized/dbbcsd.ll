@@ -176,7 +176,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %or.cond, label %.thread1909, label %.sink.split
 
 .sink.split:                                      ; preds = %109, %101, %97, %93, %89, %82, %80, %78, %29
-  %.sink = phi i32 [ -6, %29 ], [ -7, %78 ], [ -8, %80 ], [ -8, %82 ], [ -12, %89 ], [ -14, %93 ], [ -16, %97 ], [ -18, %101 ], [ -28, %109 ]
+  %.sink = phi i32 [ -18, %101 ], [ -6, %29 ], [ -8, %80 ], [ -12, %89 ], [ -16, %97 ], [ -14, %93 ], [ -8, %82 ], [ -7, %78 ], [ -28, %109 ]
   store i32 %.sink, ptr %28, align 4, !tbaa !3
   br label %122
 
@@ -550,8 +550,8 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %306, label %.thread.sink.split, label %307
 
 307:                                              ; preds = %302, %297
-  %308 = phi double [ %295, %302 ], [ %300, %297 ]
-  %309 = phi double [ %305, %302 ], [ %294, %297 ]
+  %308 = phi double [ %300, %297 ], [ %295, %302 ]
+  %309 = phi double [ %294, %297 ], [ %305, %302 ]
   %310 = fcmp ugt double %309, %308
   br i1 %310, label %.thread, label %.thread2154
 

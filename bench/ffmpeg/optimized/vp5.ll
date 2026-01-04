@@ -989,11 +989,11 @@ vpx_rac_renorm.exit160:                           ; preds = %298, %310, %314
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %.loopexit.sink.split.sink.split, %348, %358, %334, %344
-  %.018.i.i188.sink = phi i32 [ %342, %344 ], [ %342, %334 ], [ %356, %358 ], [ %356, %348 ], [ %368, %.loopexit.sink.split.sink.split ]
-  %.sink349 = phi i32 [ %340, %344 ], [ %340, %334 ], [ %354, %358 ], [ %354, %348 ], [ %.sink349.ph, %.loopexit.sink.split.sink.split ]
-  %.0.i.i189.sink345 = phi i32 [ %341, %344 ], [ %341, %334 ], [ %355, %358 ], [ %355, %348 ], [ %367, %.loopexit.sink.split.sink.split ]
-  %.3.ph = phi i32 [ %.2125, %344 ], [ %.2125, %334 ], [ 1, %358 ], [ 1, %348 ], [ %.3.ph.ph, %.loopexit.sink.split.sink.split ]
-  %.1.ph = phi i32 [ 2, %344 ], [ 2, %334 ], [ 1, %358 ], [ 1, %348 ], [ %.1.ph.ph, %.loopexit.sink.split.sink.split ]
+  %.018.i.i188.sink = phi i32 [ %342, %334 ], [ %356, %358 ], [ %342, %344 ], [ %356, %348 ], [ %368, %.loopexit.sink.split.sink.split ]
+  %.sink349 = phi i32 [ %340, %334 ], [ %354, %358 ], [ %340, %344 ], [ %354, %348 ], [ %.sink349.ph, %.loopexit.sink.split.sink.split ]
+  %.0.i.i189.sink345 = phi i32 [ %341, %334 ], [ %355, %358 ], [ %341, %344 ], [ %355, %348 ], [ %367, %.loopexit.sink.split.sink.split ]
+  %.3.ph = phi i32 [ %.2125, %334 ], [ 1, %358 ], [ %.2125, %344 ], [ 1, %348 ], [ %.3.ph.ph, %.loopexit.sink.split.sink.split ]
+  %.1.ph = phi i32 [ 2, %334 ], [ 1, %358 ], [ 2, %344 ], [ 1, %348 ], [ %.1.ph.ph, %.loopexit.sink.split.sink.split ]
   store i32 %.018.i.i188.sink, ptr %26, align 4, !tbaa !52
   %369 = add nsw i32 %.sink349, 1
   %370 = ashr i32 %369, 1
@@ -3083,8 +3083,8 @@ vp56_rac_gets.exit194._crit_edge:                 ; preds = %vp56_rac_gets.exit1
 411:                                              ; preds = %401, %408
   br label %.thread
 
-.thread:                                          ; preds = %vp56_rac_gets.exit180, %366, %vp56_rac_gets.exit96, %299, %vp56_rac_gets.exit194._crit_edge, %408, %3, %411
-  %.0 = phi i32 [ 0, %411 ], [ %5, %3 ], [ -1094995529, %408 ], [ -1094995529, %vp56_rac_gets.exit180 ], [ -1094995529, %366 ], [ -1094995529, %vp56_rac_gets.exit96 ], [ -1094995529, %299 ], [ %., %vp56_rac_gets.exit194._crit_edge ]
+.thread:                                          ; preds = %366, %vp56_rac_gets.exit180, %vp56_rac_gets.exit194._crit_edge, %vp56_rac_gets.exit96, %299, %408, %3, %411
+  %.0 = phi i32 [ %5, %3 ], [ 0, %411 ], [ -1094995529, %408 ], [ -1094995529, %366 ], [ -1094995529, %vp56_rac_gets.exit180 ], [ %., %vp56_rac_gets.exit194._crit_edge ], [ -1094995529, %vp56_rac_gets.exit96 ], [ -1094995529, %299 ]
   ret i32 %.0
 }
 

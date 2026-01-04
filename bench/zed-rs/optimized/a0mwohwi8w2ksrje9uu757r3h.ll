@@ -133,7 +133,7 @@ define hidden void @"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as
           to label %35 unwind label %33
 
 .loopexit.loopexit:                               ; preds = %14, %18, %26
-  %.sroa.5.029.i.ph = phi i64 [ %.sroa.5.033.i, %18 ], [ %2, %26 ], [ %.sroa.5.033.i, %14 ]
+  %.sroa.5.029.i.ph = phi i64 [ %.sroa.5.033.i, %18 ], [ %.sroa.5.033.i, %14 ], [ %2, %26 ]
   %32 = trunc i64 %.sroa.5.029.i.ph to i32
   br label %.loopexit
 
@@ -852,7 +852,7 @@ define hidden void @"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as
   unreachable
 
 .body:                                            ; preds = %17, %10
-  %.pn.i = phi { ptr, i32 } [ %18, %17 ], [ %11, %10 ]
+  %.pn.i = phi { ptr, i32 } [ %11, %10 ], [ %18, %17 ]
   %24 = and i64 %.sroa.5.0.i6, 4294967295
   %.not.i.i = icmp eq i64 %24, 0
   br i1 %.not.i.i, label %"_ZN4core3ptr82drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$text..Fragment$C$12_usize$GT$$GT$17h6e2f2e94e0762e21E.exit", label %25
@@ -2428,7 +2428,7 @@ define hidden void @"_ZN4core3ptr51drop_in_place$LT$gpui..elements..list..ListIt
   unreachable
 
 common.resume:                                    ; preds = %28, %34, %9, %15
-  %common.resume.op = phi { ptr, i32 } [ %10, %15 ], [ %10, %9 ], [ %29, %34 ], [ %29, %28 ]
+  %common.resume.op = phi { ptr, i32 } [ %10, %9 ], [ %10, %15 ], [ %29, %34 ], [ %29, %28 ]
   resume { ptr, i32 } %common.resume.op
 
 23:                                               ; preds = %1
@@ -4810,7 +4810,7 @@ default.unreachable:                              ; preds = %103, %"_ZN4core5sli
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit": ; preds = %2, %9, %22
-  %.sroa.0.0.i.i = phi i1 [ %21, %9 ], [ false, %22 ], [ true, %2 ]
+  %.sroa.0.0.i.i = phi i1 [ false, %22 ], [ %21, %9 ], [ true, %2 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1382)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1385)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1387)
@@ -4883,10 +4883,10 @@ default.unreachable:                              ; preds = %103, %"_ZN4core5sli
   br label %59
 
 59:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit34", %.thread, %.thread11
-  %60 = phi ptr [ %40, %.thread11 ], [ %34, %.thread ], [ %spec.select, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit34" ]
-  %61 = phi ptr [ %36, %.thread11 ], [ %30, %.thread ], [ %55, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit34" ]
-  %62 = phi ptr [ %39, %.thread11 ], [ %33, %.thread ], [ %58, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit34" ]
-  %63 = phi i64 [ 3, %.thread11 ], [ 2, %.thread ], [ %spec.select83, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit34" ]
+  %60 = phi ptr [ %40, %.thread11 ], [ %spec.select, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit34" ], [ %34, %.thread ]
+  %61 = phi ptr [ %36, %.thread11 ], [ %55, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit34" ], [ %30, %.thread ]
+  %62 = phi ptr [ %39, %.thread11 ], [ %58, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit34" ], [ %33, %.thread ]
+  %63 = phi i64 [ 3, %.thread11 ], [ %spec.select83, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit34" ], [ 2, %.thread ]
   %64 = getelementptr inbounds nuw { { { i64, [2 x i64] } }, i8, [7 x i8] }, ptr %0, i64 %63
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1405)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1408)
@@ -4935,7 +4935,7 @@ default.unreachable:                              ; preds = %103, %"_ZN4core5sli
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit48"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit48": ; preds = %59, %71, %83
-  %.sroa.0.0.i.i36 = phi i1 [ %82, %71 ], [ false, %83 ], [ true, %59 ]
+  %.sroa.0.0.i.i36 = phi i1 [ false, %83 ], [ %82, %71 ], [ true, %59 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1428)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1431)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1433)
@@ -5002,10 +5002,10 @@ default.unreachable:                              ; preds = %103, %"_ZN4core5sli
   br label %103
 
 103:                                              ; preds = %101, %.thread71, %102, %.thread42
-  %.sroa.02.049 = phi ptr [ %.sroa.02.0, %102 ], [ %.sroa.02.045, %.thread42 ], [ %.sroa.02.05074, %.thread71 ], [ %.sroa.02.050, %101 ]
-  %.233348 = phi ptr [ %., %102 ], [ %.27, %.thread42 ], [ %.19, %.thread71 ], [ %., %101 ]
-  %104 = phi ptr [ %64, %102 ], [ %64, %.thread42 ], [ %62, %.thread71 ], [ %62, %101 ]
-  %105 = phi ptr [ %.sroa.09.0, %102 ], [ %.sroa.09.046, %.thread42 ], [ %64, %.thread71 ], [ %64, %101 ]
+  %.sroa.02.049 = phi ptr [ %.sroa.02.050, %101 ], [ %.sroa.02.0, %102 ], [ %.sroa.02.045, %.thread42 ], [ %.sroa.02.05074, %.thread71 ]
+  %.233348 = phi ptr [ %., %101 ], [ %., %102 ], [ %.27, %.thread42 ], [ %.19, %.thread71 ]
+  %104 = phi ptr [ %62, %101 ], [ %64, %102 ], [ %64, %.thread42 ], [ %62, %.thread71 ]
+  %105 = phi ptr [ %64, %101 ], [ %.sroa.09.0, %102 ], [ %.sroa.09.046, %.thread42 ], [ %64, %.thread71 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1451)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1454)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1456)
@@ -6406,8 +6406,8 @@ default.unreachable:                              ; preds = %.noexc42, %.noexc25
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit.thread.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit.thread.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit.thread8.i", %.noexc23
-  %.sroa.0.0.i.i6.i = phi i1 [ false, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit.thread8.i" ], [ true, %.noexc23 ], [ %54, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit.i" ]
-  %55 = phi ptr [ %.sroa.0.039.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit.thread8.i" ], [ %.sroa.06.038.i, %.noexc23 ], [ %spec.select.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit.i" ]
+  %.sroa.0.0.i.i6.i = phi i1 [ false, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit.thread8.i" ], [ %54, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit.i" ], [ true, %.noexc23 ]
+  %55 = phi ptr [ %.sroa.0.039.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit.thread8.i" ], [ %spec.select.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit.i" ], [ %.sroa.06.038.i, %.noexc23 ]
   %56 = xor i1 %.sroa.0.0.i.i6.i, true
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.010.037.i, ptr noundef nonnull align 8 dereferenceable(32) %55, i64 32, i1 false), !noalias !1981
   %57 = zext i1 %.sroa.0.0.i.i6.i to i64
@@ -6470,8 +6470,8 @@ default.unreachable:                              ; preds = %.noexc42, %.noexc25
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit37.thread.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit37.thread.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit37.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit37.thread16.i", %.noexc25
-  %.sroa.0.0.i.i2514.i = phi i1 [ false, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit37.thread16.i" ], [ true, %.noexc25 ], [ %78, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit37.i" ]
-  %79 = phi ptr [ %.sroa.015.035.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit37.thread16.i" ], [ %.sroa.013.036.i, %.noexc25 ], [ %spec.select19.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit37.i" ]
+  %.sroa.0.0.i.i2514.i = phi i1 [ false, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit37.thread16.i" ], [ %78, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit37.i" ], [ true, %.noexc25 ]
+  %79 = phi ptr [ %.sroa.015.035.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit37.thread16.i" ], [ %spec.select19.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit37.i" ], [ %.sroa.013.036.i, %.noexc25 ]
   %80 = xor i1 %.sroa.0.0.i.i2514.i, true
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.017.034.i, ptr noundef nonnull align 8 dereferenceable(32) %79, i64 32, i1 false), !noalias !2009
   %.neg.i.i = sext i1 %80 to i64
@@ -6883,7 +6883,7 @@ define hidden noundef ptr @"_ZN4gpui4view17WeakView$LT$V$GT$6update17h12645c7f4f
   unreachable
 
 common.resume:                                    ; preds = %30, %20, %23, %14
-  %common.resume.op = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %30 ], [ %21, %20 ], [ %24, %23 ]
+  %common.resume.op = phi { ptr, i32 } [ %15, %14 ], [ %21, %20 ], [ %lpad.thr_comm, %30 ], [ %24, %23 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr133drop_in_place$LT$workspace..modal_layer..ModalLayer..show_modal$LT$theme_selector..ThemeSelector$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h12e08659367950c1E.exit": ; preds = %13
@@ -6929,7 +6929,7 @@ common.resume:                                    ; preds = %30, %20, %23, %14
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #22
   unreachable
 
-30:                                               ; preds = %3, %10, %.noexc21
+30:                                               ; preds = %.noexc21, %3, %10
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$workspace..modal_layer..ModalLayer..show_modal$LT$theme_selector..ThemeSelector$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h12e08659367950c1E"(ptr noalias noundef align 8 dereferenceable(32) %2) #21
@@ -7401,7 +7401,7 @@ define hidden noundef ptr @"_ZN4gpui4view17WeakView$LT$V$GT$6update17h3634949fc7
   unreachable
 
 common.resume:                                    ; preds = %31, %21, %24, %15
-  %common.resume.op = phi { ptr, i32 } [ %16, %15 ], [ %lpad.thr_comm, %31 ], [ %22, %21 ], [ %25, %24 ]
+  %common.resume.op = phi { ptr, i32 } [ %16, %15 ], [ %22, %21 ], [ %lpad.thr_comm, %31 ], [ %25, %24 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr423drop_in_place$LT$gpui..window..ViewContext$LT$workspace..modal_layer..ModalLayer$GT$..subscribe$LT$theme_selector..ThemeSelector$C$gpui..view..View$LT$theme_selector..ThemeSelector$GT$$C$gpui..window..DismissEvent$C$workspace..modal_layer..ModalLayer..show_modal$LT$theme_selector..ThemeSelector$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he704462de779e82cE.exit": ; preds = %13
@@ -7447,7 +7447,7 @@ common.resume:                                    ; preds = %31, %21, %24, %15
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #22
   unreachable
 
-31:                                               ; preds = %3, %10, %.noexc21
+31:                                               ; preds = %.noexc21, %3, %10
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr423drop_in_place$LT$gpui..window..ViewContext$LT$workspace..modal_layer..ModalLayer$GT$..subscribe$LT$theme_selector..ThemeSelector$C$gpui..view..View$LT$theme_selector..ThemeSelector$GT$$C$gpui..window..DismissEvent$C$workspace..modal_layer..ModalLayer..show_modal$LT$theme_selector..ThemeSelector$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he704462de779e82cE"(ptr noalias noundef align 8 dereferenceable(48) %2) #21
@@ -7633,7 +7633,7 @@ define hidden noundef ptr @"_ZN4gpui4view17WeakView$LT$V$GT$6update17h5d1af1988e
   %.pn35 = phi { ptr, i32 } [ %19, %18 ], [ %22, %21 ], [ %lpad.thr_comm, %28 ]
   resume { ptr, i32 } %.pn35
 
-28:                                               ; preds = %3, %11, %.noexc22
+28:                                               ; preds = %.noexc22, %3, %11
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr71drop_in_place$LT$alloc..vec..Vec$LT$fuzzy..strings..StringMatch$GT$$GT$17h75b85c208d47394cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
@@ -7975,7 +7975,7 @@ define hidden noundef ptr @"_ZN4gpui4view17WeakView$LT$V$GT$6update17h8b665768a9
   unreachable
 
 common.resume:                                    ; preds = %31, %21, %24, %15
-  %common.resume.op = phi { ptr, i32 } [ %16, %15 ], [ %lpad.thr_comm, %31 ], [ %22, %21 ], [ %25, %24 ]
+  %common.resume.op = phi { ptr, i32 } [ %16, %15 ], [ %22, %21 ], [ %lpad.thr_comm, %31 ], [ %25, %24 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr381drop_in_place$LT$gpui..window..ViewContext$LT$picker..Picker$LT$theme_selector..ThemeSelectorDelegate$GT$$GT$..subscribe$LT$editor..Editor$C$gpui..view..View$LT$editor..Editor$GT$$C$editor..EditorEvent$C$picker..Picker$LT$theme_selector..ThemeSelectorDelegate$GT$..on_input_editor_event$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc12e0dc7b50a88b0E.exit": ; preds = %13
@@ -8021,7 +8021,7 @@ common.resume:                                    ; preds = %31, %21, %24, %15
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #22
   unreachable
 
-31:                                               ; preds = %3, %10, %.noexc21
+31:                                               ; preds = %.noexc21, %3, %10
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr381drop_in_place$LT$gpui..window..ViewContext$LT$picker..Picker$LT$theme_selector..ThemeSelectorDelegate$GT$$GT$..subscribe$LT$editor..Editor$C$gpui..view..View$LT$editor..Editor$GT$$C$editor..EditorEvent$C$picker..Picker$LT$theme_selector..ThemeSelectorDelegate$GT$..on_input_editor_event$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc12e0dc7b50a88b0E"(ptr noalias noundef align 8 dereferenceable(48) %2) #21
@@ -13732,7 +13732,7 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
   ret void
 
 49:                                               ; preds = %36, %41
-  %.pn = phi { ptr, i32 } [ %37, %36 ], [ %42, %41 ]
+  %.pn = phi { ptr, i32 } [ %42, %41 ], [ %37, %36 ]
   %50 = trunc i64 %.sroa.5.0 to i32
   store i32 %50, ptr %0, align 8, !noalias !4023
   resume { ptr, i32 } %.pn
@@ -13844,7 +13844,7 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
   ret void
 
 44:                                               ; preds = %28, %37, %33
-  %.pn = phi { ptr, i32 } [ %29, %28 ], [ %34, %37 ], [ %34, %33 ]
+  %.pn = phi { ptr, i32 } [ %29, %28 ], [ %34, %33 ], [ %34, %37 ]
   %45 = trunc i64 %.sroa.5.028 to i32
   store i32 %45, ptr %0, align 8, !noalias !4071
   resume { ptr, i32 } %.pn
@@ -13949,7 +13949,7 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
   ret void
 
 39:                                               ; preds = %31, %25
-  %.pn = phi { ptr, i32 } [ %32, %31 ], [ %26, %25 ]
+  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %32, %31 ]
   %40 = trunc i64 %.sroa.5.037 to i32
   store i32 %40, ptr %0, align 8, !noalias !4107
   resume { ptr, i32 } %.pn
@@ -14052,7 +14052,7 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
   ret void
 
 41:                                               ; preds = %25, %34, %30
-  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %31, %34 ], [ %31, %30 ]
+  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %31, %30 ], [ %31, %34 ]
   %42 = trunc i64 %.sroa.5.0 to i32
   store i32 %42, ptr %0, align 8, !noalias !4155
   resume { ptr, i32 } %.pn
@@ -14164,7 +14164,7 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
   ret void
 
 44:                                               ; preds = %28, %37, %33
-  %.pn = phi { ptr, i32 } [ %29, %28 ], [ %34, %37 ], [ %34, %33 ]
+  %.pn = phi { ptr, i32 } [ %29, %28 ], [ %34, %33 ], [ %34, %37 ]
   %45 = trunc i64 %.sroa.5.028 to i32
   store i32 %45, ptr %0, align 8, !noalias !4203
   resume { ptr, i32 } %.pn
@@ -14545,7 +14545,7 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
   ret void
 
 36:                                               ; preds = %29, %23
-  %.pn = phi { ptr, i32 } [ %30, %29 ], [ %24, %23 ]
+  %.pn = phi { ptr, i32 } [ %24, %23 ], [ %30, %29 ]
   %37 = trunc i64 %.sroa.5.0 to i32
   store i32 %37, ptr %0, align 8, !noalias !4336
   resume { ptr, i32 } %.pn
@@ -14634,7 +14634,7 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
   unreachable
 
 .loopexit.loopexit:                               ; preds = %17, %29, %21
-  %.sroa.5.029.ph = phi i64 [ %.sroa.5.033, %17 ], [ %12, %29 ], [ %.sroa.5.033, %21 ]
+  %.sroa.5.029.ph = phi i64 [ %12, %29 ], [ %.sroa.5.033, %17 ], [ %.sroa.5.033, %21 ]
   %34 = trunc i64 %.sroa.5.029.ph to i32
   br label %.loopexit
 
@@ -14747,7 +14747,7 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
   ret void
 
 41:                                               ; preds = %27, %32
-  %.pn = phi { ptr, i32 } [ %28, %27 ], [ %33, %32 ]
+  %.pn = phi { ptr, i32 } [ %33, %32 ], [ %28, %27 ]
   %42 = trunc i64 %.sroa.5.029 to i32
   store i32 %42, ptr %0, align 8, !noalias !4403
   resume { ptr, i32 } %.pn
@@ -15135,7 +15135,7 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
   unreachable
 
 .loopexit:                                        ; preds = %31, %39, %28, %21, %16, %16, %4
-  %.sroa.5.027 = phi i64 [ %7, %4 ], [ %15, %21 ], [ %.sroa.5.031.us, %16 ], [ %.sroa.5.031.us, %16 ], [ %.sroa.5.031, %31 ], [ %15, %39 ], [ %.sroa.5.031, %28 ]
+  %.sroa.5.027 = phi i64 [ %7, %4 ], [ %.sroa.5.031.us, %16 ], [ %.sroa.5.031.us, %16 ], [ %15, %21 ], [ %.sroa.5.031, %28 ], [ %15, %39 ], [ %.sroa.5.031, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10)
   %44 = trunc i64 %.sroa.5.027 to i32
   store i32 %44, ptr %0, align 8, !noalias !4505
@@ -15429,7 +15429,7 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
   ret void
 
 52:                                               ; preds = %38, %43
-  %.pn = phi { ptr, i32 } [ %39, %38 ], [ %44, %43 ]
+  %.pn = phi { ptr, i32 } [ %44, %43 ], [ %39, %38 ]
   %53 = trunc i64 %.sroa.5.037 to i32
   store i32 %53, ptr %0, align 8, !noalias !4620
   resume { ptr, i32 } %.pn
@@ -15685,7 +15685,7 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
   ret void
 
 28:                                               ; preds = %20, %13
-  %.pn = phi { ptr, i32 } [ %21, %20 ], [ %14, %13 ]
+  %.pn = phi { ptr, i32 } [ %14, %13 ], [ %21, %20 ]
   %29 = trunc i64 %.sroa.5.035 to i32
   store i32 %29, ptr %0, align 8, !noalias !4693
   resume { ptr, i32 } %.pn
@@ -16204,7 +16204,7 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
   ret void
 
 41:                                               ; preds = %25, %34, %30
-  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %31, %34 ], [ %31, %30 ]
+  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %31, %30 ], [ %31, %34 ]
   %42 = trunc i64 %.sroa.5.0 to i32
   store i32 %42, ptr %0, align 8, !noalias !4892
   resume { ptr, i32 } %.pn

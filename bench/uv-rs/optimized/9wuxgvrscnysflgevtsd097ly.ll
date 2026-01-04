@@ -408,8 +408,8 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup3arg17h8bc20c4c5
   %6 = icmp eq i64 %.sroa.0.0.copyload10, 2
   br i1 %6, label %28, label %9
 
-"_ZN4core3ptr47drop_in_place$LT$clap_builder..util..id..Id$GT$17hafb57be87719c2a5E.exit9": ; preds = %.body, %16, %20, %58, %7
-  %.pn = phi { ptr, i32 } [ %8, %7 ], [ %42, %58 ], [ %17, %16 ], [ %17, %20 ], [ %42, %.body ]
+"_ZN4core3ptr47drop_in_place$LT$clap_builder..util..id..Id$GT$17hafb57be87719c2a5E.exit9": ; preds = %.body, %20, %16, %58, %7
+  %.pn = phi { ptr, i32 } [ %8, %7 ], [ %17, %20 ], [ %42, %.body ], [ %42, %58 ], [ %17, %16 ]
   invoke void @"_ZN4core3ptr63drop_in_place$LT$clap_builder..builder..arg_group..ArgGroup$GT$17h15837aaedbd8d199E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %1) #25
           to label %62 unwind label %60
 

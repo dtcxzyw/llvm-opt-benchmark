@@ -548,8 +548,8 @@ define internal i32 @nfulnl_recv_config(ptr noundef readonly captures(none) %0, 
   br label %232
 
 232:                                              ; preds = %229, %226, %167, %92, %90, %82
-  %233 = phi i32 [ 0, %167 ], [ 0, %229 ], [ 0, %226 ], [ %86, %82 ], [ -16, %92 ], [ -524, %90 ]
-  %234 = phi ptr [ %69, %167 ], [ %170, %229 ], [ %170, %226 ], [ %69, %82 ], [ %69, %92 ], [ %69, %90 ]
+  %233 = phi i32 [ 0, %167 ], [ 0, %229 ], [ 0, %226 ], [ -524, %90 ], [ %86, %82 ], [ -16, %92 ]
+  %234 = phi ptr [ %69, %167 ], [ %170, %229 ], [ %170, %226 ], [ %69, %90 ], [ %69, %82 ], [ %69, %92 ]
   %235 = icmp eq ptr %234, null
   br i1 %235, label %.thread, label %.thread26
 
@@ -576,7 +576,7 @@ define internal i32 @nfulnl_recv_config(ptr noundef readonly captures(none) %0, 
   br label %.thread
 
 .thread:                                          ; preds = %241, %243, %23, %26, %244, %232, %168, %166, %163
-  %246 = phi i32 [ %165, %163 ], [ -19, %166 ], [ -19, %168 ], [ %233, %232 ], [ %237, %244 ], [ %25, %23 ], [ 0, %26 ], [ %237, %243 ], [ %237, %241 ]
+  %246 = phi i32 [ %237, %244 ], [ %165, %163 ], [ -19, %166 ], [ -19, %168 ], [ %233, %232 ], [ 0, %26 ], [ %25, %23 ], [ %237, %243 ], [ %237, %241 ]
   ret i32 %246
 }
 
@@ -1216,7 +1216,7 @@ define internal ptr @seq_start(ptr noundef readonly captures(none) %0, ptr nound
   br label %.thread12
 
 .thread12:                                        ; preds = %._crit_edge, %.lr.ph, %.thread7
-  %57 = phi ptr [ %spec.select, %.thread7 ], [ null, %.lr.ph ], [ %.lcssa, %._crit_edge ]
+  %57 = phi ptr [ null, %.lr.ph ], [ %spec.select, %.thread7 ], [ %.lcssa, %._crit_edge ]
   ret ptr %57
 }
 

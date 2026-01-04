@@ -1033,7 +1033,7 @@ define internal void @get_median_factor(ptr noundef readonly captures(none) %0, 
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit, %14, %112, %119
-  %.1153 = phi i32 [ %113, %112 ], [ %113, %119 ], [ %15, %14 ], [ %.1153.ph, %.thread.loopexit ]
+  %.1153 = phi i32 [ %113, %119 ], [ %113, %112 ], [ %15, %14 ], [ %.1153.ph, %.thread.loopexit ]
   %.not = icmp eq i32 %.1153, 0
   br i1 %.not, label %122, label %14, !llvm.loop !86
 
@@ -1373,7 +1373,7 @@ ff_bufqueue_peek.exit:                            ; preds = %14
   br label %.critedge
 
 .critedge:                                        ; preds = %14, %ff_bufqueue_peek.exit, %29, %1, %10, %31
-  %.118 = phi i32 [ %35, %31 ], [ -541478725, %10 ], [ %8, %1 ], [ -12, %29 ], [ -12, %ff_bufqueue_peek.exit ], [ -12, %14 ]
+  %.118 = phi i32 [ %8, %1 ], [ %35, %31 ], [ -541478725, %10 ], [ -12, %29 ], [ -12, %ff_bufqueue_peek.exit ], [ -12, %14 ]
   ret i32 %.118
 }
 

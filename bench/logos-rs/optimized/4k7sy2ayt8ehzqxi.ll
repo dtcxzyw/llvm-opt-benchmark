@@ -459,7 +459,7 @@ _ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.exit: ; preds =
   unreachable
 
 .thread:                                          ; preds = %.thread49.loopexit, %.thread49.loopexit.split-lp, %90, %117
-  %.pn47 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp55, %90 ], [ %lpad.phi, %117 ], [ %lpad.loopexit61, %.thread49.loopexit ], [ %lpad.loopexit.split-lp62, %.thread49.loopexit.split-lp ]
+  %.pn47 = phi { ptr, i32 } [ %lpad.phi, %117 ], [ %lpad.thr_comm.split-lp55, %90 ], [ %lpad.loopexit61, %.thread49.loopexit ], [ %lpad.loopexit.split-lp62, %.thread49.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr63drop_in_place$LT$logos_codegen..parser..nested..NestedValue$GT$17h2da3a33f6ba165f2E"(ptr nonnull align 8 %18) #7
           to label %106 unwind label %118
 
@@ -915,8 +915,8 @@ define hidden void @_ZN13logos_codegen6parser6Parser14parse_callback17h0a39ffdf0
           to label %31 unwind label %.thread45
 
 28:                                               ; preds = %103, %90
-  %.pn32.ph = phi { ptr, i32 } [ %.pn.pn.ph, %103 ], [ %91, %90 ]
-  %.sroa.020.1.ph = phi i8 [ %.sroa.020.2.ph, %103 ], [ %.sroa.020.4, %90 ]
+  %.pn32.ph = phi { ptr, i32 } [ %91, %90 ], [ %.pn.pn.ph, %103 ]
+  %.sroa.020.1.ph = phi i8 [ %.sroa.020.4, %90 ], [ %.sroa.020.2.ph, %103 ]
   %29 = trunc nuw i8 %.sroa.020.1.ph to i1
   br i1 %29, label %.thread86, label %.thread
 
@@ -1182,7 +1182,7 @@ define hidden void @_ZN13logos_codegen6parser6Parser14parse_callback17h0a39ffdf0
           to label %.thread unwind label %41
 
 .thread:                                          ; preds = %37, %28, %.thread86, %109
-  %.pn34.pn40 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %109 ], [ %.pn32.ph, %28 ], [ %.pn3449, %.thread86 ], [ %38, %37 ]
+  %.pn34.pn40 = phi { ptr, i32 } [ %38, %37 ], [ %lpad.thr_comm.split-lp, %109 ], [ %.pn32.ph, %28 ], [ %.pn3449, %.thread86 ]
   resume { ptr, i32 } %.pn34.pn40
 
 109:                                              ; preds = %25, %3

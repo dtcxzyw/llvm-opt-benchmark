@@ -268,8 +268,8 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_un
   br label %84
 
 84:                                               ; preds = %56, %53, %77, %81, %71, %62, %49, %41, %26, %21, %19, %17
-  %.045 = phi i32 [ 1, %17 ], [ 1, %41 ], [ 0, %19 ], [ 1, %21 ], [ 1, %26 ], [ 1, %49 ], [ %65, %62 ], [ 1, %71 ], [ 1, %81 ], [ 1, %77 ], [ 0, %53 ], [ 0, %56 ]
-  %.0 = phi ptr [ null, %17 ], [ %.1.ph, %41 ], [ %.1.ph, %19 ], [ %.1.ph, %21 ], [ %.1.ph, %26 ], [ %.1.ph, %49 ], [ %.1.ph, %62 ], [ %.3, %71 ], [ %.3, %81 ], [ %.3, %77 ], [ %.1.ph, %53 ], [ %.1.ph, %56 ]
+  %.045 = phi i32 [ 1, %17 ], [ 1, %41 ], [ 0, %19 ], [ 1, %21 ], [ 1, %26 ], [ 1, %49 ], [ 0, %53 ], [ %65, %62 ], [ 1, %71 ], [ 1, %81 ], [ 1, %77 ], [ 0, %56 ]
+  %.0 = phi ptr [ null, %17 ], [ %.1.ph, %41 ], [ %.1.ph, %19 ], [ %.1.ph, %21 ], [ %.1.ph, %26 ], [ %.1.ph, %49 ], [ %.1.ph, %53 ], [ %.1.ph, %62 ], [ %.3, %71 ], [ %.3, %81 ], [ %.3, %77 ], [ %.1.ph, %56 ]
   call void @extcap_base_cleanup(ptr noundef nonnull %5)
   call void @g_free(ptr noundef %.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -446,7 +446,7 @@ define internal fastcc void @run_listener(ptr noundef %0, i16 noundef zeroext %1
   br label %174
 
 38:                                               ; preds = %32, %18
-  %.0 = phi ptr [ %19, %18 ], [ %25, %32 ]
+  %.0 = phi ptr [ %25, %32 ], [ %19, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)

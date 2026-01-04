@@ -293,7 +293,7 @@ define dso_local range(i32 0, 2) i32 @get_cpuset(ptr noundef initializes((0, 128
   br label %.critedge116
 
 .critedge116:                                     ; preds = %.lr.ph136, %101, %.preheader, %77, %103, %68, %65, %50, %._crit_edge128, %20, %14, %113, %53, %19
-  %.070 = phi i32 [ 1, %19 ], [ 0, %53 ], [ 1, %113 ], [ 0, %14 ], [ 0, %20 ], [ 0, %._crit_edge128 ], [ 1, %50 ], [ 1, %65 ], [ 1, %68 ], [ 0, %103 ], [ 1, %77 ], [ 0, %.preheader ], [ 0, %.lr.ph136 ], [ 1, %101 ]
+  %.070 = phi i32 [ 0, %14 ], [ 1, %19 ], [ 0, %53 ], [ 0, %._crit_edge128 ], [ 1, %50 ], [ 1, %68 ], [ 1, %113 ], [ 0, %103 ], [ 0, %20 ], [ 1, %65 ], [ 1, %77 ], [ 0, %.preheader ], [ 1, %101 ], [ 0, %.lr.ph136 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.070

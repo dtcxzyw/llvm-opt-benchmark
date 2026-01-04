@@ -522,7 +522,7 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficients(i32 nound
   br label %SplittingStepCoefficients_LieTrotter.exit
 
 SplittingStepCoefficients_LieTrotter.exit:        ; preds = %67, %._crit_edge.us.i.i, %13, %102, %97, %90, %85, %46, %15, %2, %1, %109, %69, %33
-  %.0 = phi ptr [ null, %109 ], [ %34, %33 ], [ %70, %69 ], [ null, %1 ], [ null, %2 ], [ null, %15 ], [ null, %46 ], [ %88, %90 ], [ null, %85 ], [ %100, %102 ], [ null, %97 ], [ %3, %13 ], [ %18, %._crit_edge.us.i.i ], [ %47, %67 ]
+  %.0 = phi ptr [ null, %109 ], [ %88, %90 ], [ null, %1 ], [ %100, %102 ], [ %34, %33 ], [ %18, %._crit_edge.us.i.i ], [ %70, %69 ], [ %3, %13 ], [ null, %2 ], [ null, %15 ], [ null, %46 ], [ null, %85 ], [ null, %97 ], [ %47, %67 ]
   ret ptr %.0
 }
 
@@ -954,7 +954,7 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficientsByName(ptr
   br label %SplittingStepCoefficients_LieTrotter.exit
 
 SplittingStepCoefficients_LieTrotter.exit:        ; preds = %81, %._crit_edge.us.i.i, %18, %110, %105, %60, %23, %7, %1, %122, %120, %86, %44
-  %.0 = phi ptr [ %45, %44 ], [ %87, %86 ], [ %121, %120 ], [ null, %122 ], [ null, %1 ], [ null, %7 ], [ null, %23 ], [ null, %60 ], [ %108, %110 ], [ null, %105 ], [ %8, %18 ], [ %26, %._crit_edge.us.i.i ], [ %61, %81 ]
+  %.0 = phi ptr [ null, %122 ], [ null, %1 ], [ %108, %110 ], [ %45, %44 ], [ %26, %._crit_edge.us.i.i ], [ %87, %86 ], [ %8, %18 ], [ %121, %120 ], [ null, %7 ], [ null, %23 ], [ null, %60 ], [ null, %105 ], [ %61, %81 ]
   ret ptr %.0
 }
 

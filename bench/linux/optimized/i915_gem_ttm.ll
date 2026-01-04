@@ -1052,7 +1052,7 @@ define internal i32 @i915_ttm_tt_populate(ptr noundef %0, ptr noundef %1, ptr no
   br label %89
 
 89:                                               ; preds = %86, %81
-  %90 = phi ptr [ %88, %86 ], [ %82, %81 ]
+  %90 = phi ptr [ %82, %81 ], [ %88, %86 ]
   %91 = icmp eq ptr %90, null
   br i1 %91, label %.thread13, label %92
 
@@ -1108,7 +1108,7 @@ define internal i32 @i915_ttm_tt_populate(ptr noundef %0, ptr noundef %1, ptr no
   br label %127
 
 127:                                              ; preds = %.thread, %124, %122, %120, %.loopexit, %33
-  %128 = phi i32 [ %126, %124 ], [ %43, %122 ], [ %38, %33 ], [ 0, %120 ], [ 0, %.loopexit ], [ %28, %.thread ]
+  %128 = phi i32 [ %126, %124 ], [ %43, %122 ], [ %28, %.thread ], [ %38, %33 ], [ 0, %120 ], [ 0, %.loopexit ]
   ret i32 %128
 }
 
@@ -1499,7 +1499,7 @@ define internal noundef i32 @i915_ttm_access_memory(ptr noundef %0, i64 noundef 
   br i1 %64, label %.critedge, label %.split, !llvm.loop !25
 
 .critedge:                                        ; preds = %60, %.split, %44, %.split.us, %20
-  %65 = phi i32 [ -5, %20 ], [ -5, %.split.us ], [ %3, %44 ], [ -5, %.split ], [ %3, %60 ]
+  %65 = phi i32 [ -5, %20 ], [ -5, %.split.us ], [ %3, %44 ], [ %3, %60 ], [ -5, %.split ]
   ret i32 %65
 }
 
@@ -2059,7 +2059,7 @@ define internal fastcc i32 @__i915_ttm_get_pages(ptr noundef %0, ptr noundef %1)
   br label %.thread3
 
 .thread3:                                         ; preds = %2, %.thread3.fold.split, %.thread4, %42, %20, %10, %9, %.thread
-  %43 = phi i32 [ 0, %42 ], [ %23, %20 ], [ %8, %10 ], [ -6, %9 ], [ -11, %.thread ], [ %38, %.thread4 ], [ -11, %2 ], [ %7, %.thread3.fold.split ]
+  %43 = phi i32 [ 0, %42 ], [ %38, %.thread4 ], [ %8, %10 ], [ -6, %9 ], [ -11, %.thread ], [ -11, %2 ], [ %23, %20 ], [ %7, %.thread3.fold.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %43
 }
@@ -2555,7 +2555,7 @@ define internal i32 @vm_fault_ttm(ptr noundef %0) #1 align 16 {
   br label %172
 
 172:                                              ; preds = %.thread15, %169, %167, %40, %28, %20, %15
-  %173 = phi i32 [ 2, %28 ], [ 2, %40 ], [ 2, %15 ], [ %21, %20 ], [ %133, %169 ], [ %133, %167 ], [ 2, %.thread15 ]
+  %173 = phi i32 [ 2, %28 ], [ %133, %167 ], [ 2, %40 ], [ 2, %15 ], [ %21, %20 ], [ %133, %169 ], [ 2, %.thread15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %173
 }

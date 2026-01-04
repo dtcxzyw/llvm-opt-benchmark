@@ -132,7 +132,7 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit60: ; preds = %_ZNSolsEPFRSoS_E.e
   br label %39
 
 39:                                               ; preds = %37, %35
-  %.pn13.pn.pn = phi { ptr, i32 } [ %36, %35 ], [ %38, %37 ]
+  %.pn13.pn.pn = phi { ptr, i32 } [ %38, %37 ], [ %36, %35 ]
   call void @_ZN4cvc58internal9CodeTimerD1Ev(ptr noundef nonnull align 8 dereferenceable(9) %2) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn13.pn.pn

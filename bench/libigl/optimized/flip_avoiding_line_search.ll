@@ -198,7 +198,7 @@ define dso_local noundef double @_ZN3igl13flip_avoiding26get_smallest_pos_quad_z
   br label %39
 
 39:                                               ; preds = %32, %6, %26, %29, %34
-  %.2 = phi double [ %38, %34 ], [ 0x7FF0000000000000, %6 ], [ %31, %29 ], [ 0x7FF0000000000000, %26 ], [ 0x7FF0000000000000, %32 ]
+  %.2 = phi double [ %38, %34 ], [ 0x7FF0000000000000, %26 ], [ 0x7FF0000000000000, %6 ], [ %31, %29 ], [ 0x7FF0000000000000, %32 ]
   ret double %.2
 }
 
@@ -339,7 +339,7 @@ define dso_local noundef double @_ZN3igl13flip_avoiding19get_min_pos_root_2DERKN
   br label %_ZN3igl13flip_avoiding26get_smallest_pos_quad_zeroEddd.exit
 
 _ZN3igl13flip_avoiding26get_smallest_pos_quad_zeroEddd.exit: ; preds = %82, %102, %105, %108, %110
-  %.2.i = phi double [ %114, %110 ], [ 0x7FF0000000000000, %82 ], [ %107, %105 ], [ 0x7FF0000000000000, %102 ], [ 0x7FF0000000000000, %108 ]
+  %.2.i = phi double [ %114, %110 ], [ 0x7FF0000000000000, %102 ], [ 0x7FF0000000000000, %82 ], [ %107, %105 ], [ 0x7FF0000000000000, %108 ]
   ret double %.2.i
 }
 
@@ -853,13 +853,13 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %.noexc, %433
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit661
 
 _ZNSt6vectorIdSaIdEED2Ev.exit661:                 ; preds = %437, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEvT_S7_.exit, %440, %423, %420, %444, %424
-  %.1 = phi double [ %442, %444 ], [ %.2, %424 ], [ %421, %423 ], [ 0x7FF0000000000000, %420 ], [ 0x7FF0000000000000, %440 ], [ %434, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEvT_S7_.exit ], [ %438, %437 ]
+  %.1 = phi double [ 0x7FF0000000000000, %440 ], [ %434, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEvT_S7_.exit ], [ %442, %444 ], [ 0x7FF0000000000000, %420 ], [ %.2, %424 ], [ %421, %423 ], [ %438, %437 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %411, i64 noundef 24) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN3igl13flip_avoiding26get_smallest_pos_quad_zeroEddd.exit
 
 _ZN3igl13flip_avoiding26get_smallest_pos_quad_zeroEddd.exit: ; preds = %405, %403, %400, %397, %377, %_ZNSt6vectorIdSaIdEED2Ev.exit661
-  %.0 = phi double [ %.1, %_ZNSt6vectorIdSaIdEED2Ev.exit661 ], [ %409, %405 ], [ 0x7FF0000000000000, %377 ], [ %402, %400 ], [ 0x7FF0000000000000, %397 ], [ 0x7FF0000000000000, %403 ]
+  %.0 = phi double [ %.1, %_ZNSt6vectorIdSaIdEED2Ev.exit661 ], [ %409, %405 ], [ 0x7FF0000000000000, %397 ], [ 0x7FF0000000000000, %377 ], [ %402, %400 ], [ 0x7FF0000000000000, %403 ]
   ret double %.0
 }
 
@@ -905,7 +905,7 @@ define dso_local noundef double @_ZN3igl13flip_avoiding35compute_max_step_from_s
   br i1 %17, label %.lr.ph, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph29, %.preheader23, %.preheader
-  %.1 = phi double [ 0x7FF0000000000000, %.preheader ], [ 0x7FF0000000000000, %.preheader23 ], [ %.sroa.speculated17, %.lr.ph29 ], [ %.sroa.speculated, %.lr.ph ]
+  %.1 = phi double [ %.sroa.speculated17, %.lr.ph29 ], [ 0x7FF0000000000000, %.preheader ], [ 0x7FF0000000000000, %.preheader23 ], [ %.sroa.speculated, %.lr.ph ]
   ret double %.1
 }
 
@@ -962,7 +962,7 @@ define dso_local noundef double @_ZN3igl25flip_avoiding_line_searchERKN5Eigen6Ma
   br i1 %23, label %.lr.ph.i, label %_ZN3igl13flip_avoiding35compute_max_step_from_singularitiesERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS2_IiLin1ELin1ELi0ELin1ELin1EEERS3_.exit, !llvm.loop !27
 
 _ZN3igl13flip_avoiding35compute_max_step_from_singularitiesERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS2_IiLin1ELin1ELi0ELin1ELin1EEERS3_.exit: ; preds = %.noexc, %.lr.ph29.i, %.preheader.i, %.preheader23.i
-  %.1.i = phi double [ 0x7FF0000000000000, %.preheader.i ], [ 0x7FF0000000000000, %.preheader23.i ], [ %.sroa.speculated17.i, %.lr.ph29.i ], [ %.sroa.speculated.i, %.noexc ]
+  %.1.i = phi double [ %.sroa.speculated17.i, %.lr.ph29.i ], [ 0x7FF0000000000000, %.preheader.i ], [ 0x7FF0000000000000, %.preheader23.i ], [ %.sroa.speculated.i, %.noexc ]
   %24 = fmul double %.1.i, 8.000000e-01
   %25 = fcmp olt double %24, 1.000000e+00
   %.sroa.speculated = select i1 %25, double %24, double 1.000000e+00
@@ -1054,7 +1054,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %45, %47
   unreachable
 
 .body:                                            ; preds = %58, %55, %39, %36, %53
-  %.pn.pn = phi { ptr, i32 } [ %54, %53 ], [ %37, %39 ], [ %37, %36 ], [ %56, %55 ], [ %56, %58 ]
+  %.pn.pn = phi { ptr, i32 } [ %54, %53 ], [ %37, %36 ], [ %56, %58 ], [ %37, %39 ], [ %56, %55 ]
   %63 = load ptr, ptr %6, align 8, !tbaa !19
   call void @free(ptr noundef %63) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1346,7 +1346,7 @@ define linkonce_odr dso_local void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__
   br i1 %21, label %.lr.ph.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T_S8_S7_.exit.i, !llvm.loop !45
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %.lr.ph.i.i, %16, %14, %13
-  %.sink.i = phi ptr [ %0, %13 ], [ %0, %14 ], [ %.sroa.0.018.i.ptr, %16 ], [ %.sroa.0.09.i.i, %.lr.ph.i.i ]
+  %.sink.i = phi ptr [ %0, %14 ], [ %0, %13 ], [ %.sroa.0.018.i.ptr, %16 ], [ %.sroa.0.09.i.i, %.lr.ph.i.i ]
   store double %8, ptr %.sink.i, align 8, !tbaa !12
   %.sroa.0.018.i.add = add nuw nsw i64 %.sroa.0.018.i.idx, 8
   %.not.i = icmp eq i64 %.sroa.0.018.i.add, 128
@@ -1436,7 +1436,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaId
   br i1 %53, label %.lr.ph.i.i22, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T_S8_S7_.exit.i18, !llvm.loop !45
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T_S8_S7_.exit.i18: ; preds = %.lr.ph.i.i22, %48, %46, %44, %40
-  %.sink.i19 = phi ptr [ %0, %40 ], [ %0, %44 ], [ %0, %46 ], [ %.sroa.0.018.i16, %48 ], [ %.sroa.0.09.i.i23, %.lr.ph.i.i22 ]
+  %.sink.i19 = phi ptr [ %0, %46 ], [ %0, %40 ], [ %0, %44 ], [ %.sroa.0.018.i16, %48 ], [ %.sroa.0.09.i.i23, %.lr.ph.i.i22 ]
   store double %32, ptr %.sink.i19, align 8, !tbaa !12
   %.sroa.0.0.i20 = getelementptr inbounds nuw i8, ptr %.sroa.0.018.i16, i64 8
   %.not.i21 = icmp eq ptr %.sroa.0.0.i20, %1
@@ -1698,7 +1698,7 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iter
   br i1 %41, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us, !llvm.loop !38
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %39, %.split.us, %._crit_edge.i.us
-  %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.07.us, %.split.us ], [ %.0920.i.i.us, %39 ], [ %.019.i.i.us, %.lr.ph.i.i.us ]
+  %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.07.us, %.split.us ], [ %.019.i.i.us, %.lr.ph.i.i.us ], [ %.0920.i.i.us, %39 ]
   %42 = getelementptr inbounds nuw double, ptr %.fr15, i64 %.0.lcssa.i.i.us
   store double %21, ptr %42, align 8, !tbaa !12
   %.not.us = icmp eq i64 %.07.us, 0

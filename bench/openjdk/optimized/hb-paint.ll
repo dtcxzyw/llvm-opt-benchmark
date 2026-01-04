@@ -115,7 +115,7 @@ define hidden void @hb_paint_funcs_set_push_transform_func(ptr noundef captures(
   tail call void %.0.ph(ptr noundef %.034.ph)
   br label %_ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit
 
-36:                                               ; preds = %33, %31, %30
+36:                                               ; preds = %30, %33, %31
   %spec.select = select i1 %.not, ptr @_ZL27hb_paint_push_transform_nilP16hb_paint_funcs_tPvffffffS1_, ptr %1
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %spec.select, ptr %37, align 8
@@ -242,7 +242,7 @@ define hidden void @hb_paint_funcs_set_pop_transform_func(ptr noundef captures(n
   tail call void %.0.ph(ptr noundef %.034.ph)
   br label %_ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit
 
-38:                                               ; preds = %35, %33, %32
+38:                                               ; preds = %32, %35, %33
   %spec.select = select i1 %.not, ptr @_ZL26hb_paint_pop_transform_nilP16hb_paint_funcs_tPvS1_, ptr %1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %spec.select, ptr %39, align 8
@@ -371,7 +371,7 @@ define hidden void @hb_paint_funcs_set_color_glyph_func(ptr noundef captures(non
   tail call void %.0.ph(ptr noundef %.034.ph)
   br label %_ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit
 
-38:                                               ; preds = %35, %33, %32
+38:                                               ; preds = %32, %35, %33
   %spec.select = select i1 %.not, ptr @_ZL24hb_paint_color_glyph_nilP16hb_paint_funcs_tPvjP9hb_font_tS1_, ptr %1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %spec.select, ptr %39, align 8
@@ -500,7 +500,7 @@ define hidden void @hb_paint_funcs_set_push_clip_glyph_func(ptr noundef captures
   tail call void %.0.ph(ptr noundef %.034.ph)
   br label %_ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit
 
-38:                                               ; preds = %35, %33, %32
+38:                                               ; preds = %32, %35, %33
   %spec.select = select i1 %.not, ptr @_ZL28hb_paint_push_clip_glyph_nilP16hb_paint_funcs_tPvjP9hb_font_tS1_, ptr %1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %spec.select, ptr %39, align 8
@@ -629,7 +629,7 @@ define hidden void @hb_paint_funcs_set_push_clip_rectangle_func(ptr noundef capt
   tail call void %.0.ph(ptr noundef %.034.ph)
   br label %_ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit
 
-38:                                               ; preds = %35, %33, %32
+38:                                               ; preds = %32, %35, %33
   %spec.select = select i1 %.not, ptr @_ZL32hb_paint_push_clip_rectangle_nilP16hb_paint_funcs_tPvffffS1_, ptr %1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %spec.select, ptr %39, align 8
@@ -758,7 +758,7 @@ define hidden void @hb_paint_funcs_set_pop_clip_func(ptr noundef captures(none) 
   tail call void %.0.ph(ptr noundef %.034.ph)
   br label %_ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit
 
-38:                                               ; preds = %35, %33, %32
+38:                                               ; preds = %32, %35, %33
   %spec.select = select i1 %.not, ptr @_ZL21hb_paint_pop_clip_nilP16hb_paint_funcs_tPvS1_, ptr %1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %spec.select, ptr %39, align 8
@@ -887,7 +887,7 @@ define hidden void @hb_paint_funcs_set_color_func(ptr noundef captures(none) %0,
   tail call void %.0.ph(ptr noundef %.034.ph)
   br label %_ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit
 
-38:                                               ; preds = %35, %33, %32
+38:                                               ; preds = %32, %35, %33
   %spec.select = select i1 %.not, ptr @_ZL18hb_paint_color_nilP16hb_paint_funcs_tPvijS1_, ptr %1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %spec.select, ptr %39, align 8
@@ -1016,7 +1016,7 @@ define hidden void @hb_paint_funcs_set_image_func(ptr noundef captures(none) %0,
   tail call void %.0.ph(ptr noundef %.034.ph)
   br label %_ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit
 
-38:                                               ; preds = %35, %33, %32
+38:                                               ; preds = %32, %35, %33
   %spec.select = select i1 %.not, ptr @_ZL18hb_paint_image_nilP16hb_paint_funcs_tPvP9hb_blob_tjjjfP18hb_glyph_extents_tS1_, ptr %1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %spec.select, ptr %39, align 8
@@ -1145,7 +1145,7 @@ define hidden void @hb_paint_funcs_set_linear_gradient_func(ptr noundef captures
   tail call void %.0.ph(ptr noundef %.034.ph)
   br label %_ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit
 
-38:                                               ; preds = %35, %33, %32
+38:                                               ; preds = %32, %35, %33
   %spec.select = select i1 %.not, ptr @_ZL28hb_paint_linear_gradient_nilP16hb_paint_funcs_tPvP15hb_color_line_tffffffS1_, ptr %1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %spec.select, ptr %39, align 8
@@ -1274,7 +1274,7 @@ define hidden void @hb_paint_funcs_set_radial_gradient_func(ptr noundef captures
   tail call void %.0.ph(ptr noundef %.034.ph)
   br label %_ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit
 
-38:                                               ; preds = %35, %33, %32
+38:                                               ; preds = %32, %35, %33
   %spec.select = select i1 %.not, ptr @_ZL28hb_paint_radial_gradient_nilP16hb_paint_funcs_tPvP15hb_color_line_tffffffS1_, ptr %1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %spec.select, ptr %39, align 8
@@ -1403,7 +1403,7 @@ define hidden void @hb_paint_funcs_set_sweep_gradient_func(ptr noundef captures(
   tail call void %.0.ph(ptr noundef %.034.ph)
   br label %_ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit
 
-38:                                               ; preds = %35, %33, %32
+38:                                               ; preds = %32, %35, %33
   %spec.select = select i1 %.not, ptr @_ZL27hb_paint_sweep_gradient_nilP16hb_paint_funcs_tPvP15hb_color_line_tffffS1_, ptr %1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %spec.select, ptr %39, align 8
@@ -1532,7 +1532,7 @@ define hidden void @hb_paint_funcs_set_push_group_func(ptr noundef captures(none
   tail call void %.0.ph(ptr noundef %.034.ph)
   br label %_ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit
 
-38:                                               ; preds = %35, %33, %32
+38:                                               ; preds = %32, %35, %33
   %spec.select = select i1 %.not, ptr @_ZL23hb_paint_push_group_nilP16hb_paint_funcs_tPvS1_, ptr %1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %spec.select, ptr %39, align 8
@@ -1661,7 +1661,7 @@ define hidden void @hb_paint_funcs_set_pop_group_func(ptr noundef captures(none)
   tail call void %.0.ph(ptr noundef %.034.ph)
   br label %_ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit
 
-38:                                               ; preds = %35, %33, %32
+38:                                               ; preds = %32, %35, %33
   %spec.select = select i1 %.not, ptr @_ZL22hb_paint_pop_group_nilP16hb_paint_funcs_tPv25hb_paint_composite_mode_tS1_, ptr %1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %spec.select, ptr %39, align 8
@@ -1790,7 +1790,7 @@ define hidden void @hb_paint_funcs_set_custom_palette_color_func(ptr noundef cap
   tail call void %.0.ph(ptr noundef %.034.ph)
   br label %_ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit
 
-38:                                               ; preds = %35, %33, %32
+38:                                               ; preds = %32, %35, %33
   %spec.select = select i1 %.not, ptr @_ZL33hb_paint_custom_palette_color_nilP16hb_paint_funcs_tPvjPjS1_, ptr %1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %spec.select, ptr %39, align 8
@@ -2252,7 +2252,7 @@ _ZL17hb_object_destroyI16hb_paint_funcs_tEbPT_.exit: ; preds = %10, %7
   tail call void @free(ptr noundef nonnull %0) #12
   br label %_ZL17hb_object_destroyI16hb_paint_funcs_tEbPT_.exit.thread
 
-_ZL17hb_object_destroyI16hb_paint_funcs_tEbPT_.exit.thread: ; preds = %1, %5, %2, %181
+_ZL17hb_object_destroyI16hb_paint_funcs_tEbPT_.exit.thread: ; preds = %1, %2, %5, %181
   ret void
 }
 
@@ -2309,7 +2309,7 @@ define hidden range(i32 0, 2) i32 @hb_paint_funcs_set_user_data(ptr noundef capt
   br label %_ZL23hb_object_set_user_dataI16hb_paint_funcs_tEbPT_P18hb_user_data_key_tPvPFvS5_Ei.exit
 
 _ZL23hb_object_set_user_dataI16hb_paint_funcs_tEbPT_P18hb_user_data_key_tPvPFvS5_Ei.exit: ; preds = %.lr.ph.i, %5, %6, %.split.loop.exit.i
-  %.015.i = phi i32 [ %22, %.split.loop.exit.i ], [ 0, %6 ], [ 0, %5 ], [ 0, %.lr.ph.i ]
+  %.015.i = phi i32 [ 0, %5 ], [ %22, %.split.loop.exit.i ], [ 0, %6 ], [ 0, %.lr.ph.i ]
   ret i32 %.015.i
 }
 
@@ -2365,7 +2365,7 @@ _ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i: ; preds = %17, %18, 
   br label %_ZL23hb_object_get_user_dataIK16hb_paint_funcs_tEPvPT_P18hb_user_data_key_t.exit
 
 _ZL23hb_object_get_user_dataIK16hb_paint_funcs_tEPvPT_P18hb_user_data_key_t.exit: ; preds = %2, %3, %5, %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i
-  %.0.i = phi ptr [ %21, %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i ], [ null, %3 ], [ null, %2 ], [ null, %5 ]
+  %.0.i = phi ptr [ null, %2 ], [ %21, %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i ], [ null, %3 ], [ null, %5 ]
   ret ptr %.0.i
 }
 
@@ -3005,7 +3005,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EE
   br label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit
 
 _ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit: ; preds = %19, %17, %20, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit
-  %.0 = phi ptr [ null, %20 ], [ %.0.i, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit ], [ %16, %17 ], [ %16, %19 ]
+  %.0 = phi ptr [ %.0.i, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit ], [ null, %20 ], [ %16, %17 ], [ %16, %19 ]
   %43 = load i32, ptr %0, align 8
   %44 = icmp slt i32 %43, 0
   %45 = select i1 %44, ptr null, ptr %.0

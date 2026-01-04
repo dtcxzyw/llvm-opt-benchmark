@@ -270,7 +270,7 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %exitcond194.not.i, label %92, label %.preheader122.us.us.us.i
 
 .critedge.us.us.us.i:                             ; preds = %92, %91, %56
-  %.2105.us.us.us.i = phi i32 [ %.1104132.us.us.us.i, %56 ], [ %93, %92 ], [ %.1104132.us.us.us.i, %91 ]
+  %.2105.us.us.us.i = phi i32 [ %.1104132.us.us.us.i, %56 ], [ %.1104132.us.us.us.i, %91 ], [ %93, %92 ]
   %95 = add nuw nsw i32 %.0107131.us.us.us.i, 1
   %96 = getelementptr inbounds nuw float, ptr %.0109129.us.us.us.i, i64 %14
   %97 = getelementptr inbounds nuw float, ptr %.0108130.us.us.us.i, i64 %14
@@ -544,7 +544,7 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br label %.critedge.us.us.us.i45
 
 .critedge.us.us.us.i45:                           ; preds = %199, %198, %194
-  %.2.us.us.us.i46 = phi i32 [ %.1120163.us.us.us.i, %194 ], [ %200, %199 ], [ %.1120163.us.us.us.i, %198 ]
+  %.2.us.us.us.i46 = phi i32 [ %.1120163.us.us.us.i, %194 ], [ %.1120163.us.us.us.i, %198 ], [ %200, %199 ]
   %201 = add nuw nsw i32 %.0115166.us.us.us.i, 1
   %202 = getelementptr inbounds nuw i8, ptr %.0117164.us.us.us.i, i64 4
   %203 = getelementptr inbounds nuw i8, ptr %.0116165.us.us.us.i, i64 4
@@ -953,7 +953,7 @@ process_xtrans.exit:                              ; preds = %._crit_edge.split.u
   br label %.critedge.us.us.us.i61
 
 .critedge.us.us.us.i61:                           ; preds = %397, %396, %361
-  %.283.us.us.us.i = phi i32 [ %.182104.us.us.us.i, %361 ], [ %398, %397 ], [ %.182104.us.us.us.i, %396 ]
+  %.283.us.us.us.i = phi i32 [ %.182104.us.us.us.i, %361 ], [ %.182104.us.us.us.i, %396 ], [ %398, %397 ]
   %399 = add nuw nsw i32 %.085103.us.us.us.i, 1
   %400 = getelementptr inbounds nuw i8, ptr %.087101.us.us.us.i, i64 4
   %401 = getelementptr inbounds nuw i8, ptr %.086102.us.us.us.i, i64 4
@@ -1103,7 +1103,7 @@ process_xtrans.exit:                              ; preds = %._crit_edge.split.u
   br i1 %exitcond145.not.i, label %process_monochrome.exit, label %.lr.ph105.us.i
 
 process_monochrome.exit:                          ; preds = %._crit_edge.split.us156.i, %._crit_edge.split.us.us.us.i, %._crit_edge.split.us127.i, %._crit_edge.split.us.us.us.i62, %.lr.ph109.i, %335, %.lr.ph136.i, %28, %process_xtrans.exit
-  %.0 = phi i32 [ %.0119.lcssa.i, %process_xtrans.exit ], [ 0, %28 ], [ 0, %.lr.ph136.i ], [ 0, %335 ], [ 0, %.lr.ph109.i ], [ %.283.us.us.us.i, %._crit_edge.split.us.us.us.i62 ], [ %.283.us126.i, %._crit_edge.split.us127.i ], [ %.2105.us.us.us.i, %._crit_edge.split.us.us.us.i ], [ %.2105.us154.i, %._crit_edge.split.us156.i ]
+  %.0 = phi i32 [ %.2105.us.us.us.i, %._crit_edge.split.us.us.us.i ], [ %.0119.lcssa.i, %process_xtrans.exit ], [ 0, %28 ], [ 0, %.lr.ph136.i ], [ %.283.us126.i, %._crit_edge.split.us127.i ], [ 0, %335 ], [ 0, %.lr.ph109.i ], [ %.283.us.us.us.i, %._crit_edge.split.us.us.us.i62 ], [ %.2105.us154.i, %._crit_edge.split.us156.i ]
   %.not32 = icmp eq ptr %9, null
   br i1 %.not32, label %467, label %455
 
@@ -1518,7 +1518,7 @@ define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, pt
   br label %15
 
 15:                                               ; preds = %12, %2, %10, %6
-  %.0 = phi ptr [ %11, %10 ], [ %7, %6 ], [ %0, %2 ], [ %spec.select, %12 ]
+  %.0 = phi ptr [ %0, %2 ], [ %spec.select, %12 ], [ %11, %10 ], [ %7, %6 ]
   ret ptr %.0
 }
 
@@ -1548,7 +1548,7 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #1 {
   br label %9
 
 9:                                                ; preds = %7, %5, %3, %1
-  %.0 = phi ptr [ @introspection_linear, %1 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ %., %7 ]
+  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ %., %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ @introspection_linear, %1 ]
   ret ptr %.0
 }
 

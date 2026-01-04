@@ -992,7 +992,7 @@ fl6_renew.exit:                                   ; preds = %112, %120, %143
   br label %327
 
 319:                                              ; preds = %307, %303, %303
-  %320 = phi i8 [ %.pre65, %307 ], [ %306, %303 ], [ %306, %303 ]
+  %320 = phi i8 [ %306, %303 ], [ %.pre65, %307 ], [ %306, %303 ]
   %321 = add i8 %320, -1
   %322 = icmp ult i8 %321, 3
   br i1 %322, label %327, label %323
@@ -1010,8 +1010,8 @@ fl6_renew.exit:                                   ; preds = %112, %120, %143
   %330 = call zeroext i1 @static_key_slow_inc(ptr noundef nonnull @ipv6_flowlabel_exclusive) #13
   br label %334
 
-331:                                              ; preds = %281, %293, %303, %.thread33
-  %.ph35 = phi i32 [ %.ph, %.thread33 ], [ -22, %303 ], [ -22, %293 ], [ -1, %281 ]
+331:                                              ; preds = %.thread33, %281, %293, %303
+  %.ph35 = phi i32 [ -22, %303 ], [ -22, %293 ], [ -1, %281 ], [ %.ph, %.thread33 ]
   %332 = getelementptr inbounds nuw i8, ptr %242, i64 32
   %333 = load ptr, ptr %332, align 8
   call void @kfree(ptr noundef %333) #13
@@ -1238,7 +1238,7 @@ fl6_renew.exit:                                   ; preds = %112, %120, %143
   br label %.thread39
 
 .thread39:                                        ; preds = %237, %240, %331, %145, %149, %.thread31, %184, %454, %442, %416, %230, %225, %223, %219, %217, %214, %fl6_renew.exit, %71, %62, %45, %40, %36, %17, %13, %4
-  %456 = phi i32 [ -22, %4 ], [ -14, %13 ], [ -22, %17 ], [ 0, %45 ], [ 0, %71 ], [ -3, %62 ], [ -92, %36 ], [ -3, %40 ], [ %144, %fl6_renew.exit ], [ %191, %184 ], [ 0, %223 ], [ %444, %454 ], [ 0, %416 ], [ 0, %442 ], [ -1, %217 ], [ -1, %214 ], [ -92, %219 ], [ -22, %225 ], [ -34, %230 ], [ -3, %.thread31 ], [ -3, %149 ], [ -3, %145 ], [ -12, %240 ], [ -22, %237 ], [ %.ph35, %331 ]
+  %456 = phi i32 [ -22, %4 ], [ -14, %13 ], [ -22, %17 ], [ 0, %45 ], [ 0, %71 ], [ -3, %62 ], [ -92, %36 ], [ -3, %40 ], [ %144, %fl6_renew.exit ], [ -3, %145 ], [ %191, %184 ], [ 0, %223 ], [ %444, %454 ], [ 0, %416 ], [ 0, %442 ], [ -1, %217 ], [ -1, %214 ], [ -92, %219 ], [ -22, %225 ], [ -34, %230 ], [ -3, %.thread31 ], [ -3, %149 ], [ -12, %240 ], [ -22, %237 ], [ %.ph35, %331 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %456
 }
@@ -1421,7 +1421,7 @@ define internal fastcc ptr @fl_lookup(ptr noundef readnone captures(address) %0,
   br i1 %31, label %.thread, label %.lr.ph, !prof !8, !llvm.loop !9
 
 .thread:                                          ; preds = %16, %29, %.lr.ph, %19, %2
-  %32 = phi ptr [ null, %2 ], [ null, %19 ], [ null, %29 ], [ %8, %.lr.ph ], [ null, %16 ]
+  %32 = phi ptr [ null, %2 ], [ null, %19 ], [ %8, %.lr.ph ], [ null, %29 ], [ null, %16 ]
   tail call void @__rcu_read_unlock() #13
   ret ptr %32
 }
@@ -1621,7 +1621,7 @@ define internal fastcc ptr @fl_intern(ptr noundef readnone captures(address) %0,
   br label %56
 
 .thread:                                          ; preds = %43, %11, %25, %28
-  %.pre-phi13 = phi i64 [ %31, %28 ], [ %13, %25 ], [ %13, %11 ], [ %31, %43 ]
+  %.pre-phi13 = phi i64 [ %13, %11 ], [ %13, %25 ], [ %31, %28 ], [ %31, %43 ]
   %48 = load volatile i64, ptr @jiffies, align 64
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i64 %48, ptr %49, align 8
@@ -1908,7 +1908,7 @@ define internal ptr @ip6fl_seq_start(ptr noundef readonly captures(none) %0, ptr
   br i1 %75, label %.thread11, label %.preheader
 
 .thread11:                                        ; preds = %33, %.loopexit, %46, %57, %37, %2
-  %76 = phi ptr [ inttoptr (i64 1 to ptr), %2 ], [ %27, %37 ], [ null, %57 ], [ %73, %.loopexit ], [ null, %46 ], [ null, %33 ]
+  %76 = phi ptr [ inttoptr (i64 1 to ptr), %2 ], [ null, %57 ], [ %27, %37 ], [ %73, %.loopexit ], [ null, %46 ], [ null, %33 ]
   ret ptr %76
 }
 
@@ -2005,7 +2005,7 @@ define internal ptr @ip6fl_seq_next(ptr noundef readonly captures(none) %0, ptr 
   br i1 %54, label %.loopexit, label %47, !llvm.loop !37
 
 .loopexit:                                        ; preds = %35, %39, %51, %21, %17, %28
-  %55 = phi ptr [ null, %28 ], [ %15, %17 ], [ null, %21 ], [ %49, %51 ], [ null, %39 ], [ %26, %35 ]
+  %55 = phi ptr [ null, %28 ], [ %49, %51 ], [ null, %39 ], [ %15, %17 ], [ null, %21 ], [ %26, %35 ]
   %56 = load i64, ptr %2, align 8
   %57 = add i64 %56, 1
   store i64 %57, ptr %2, align 8
@@ -2191,7 +2191,7 @@ define internal void @ip6_fl_gc(ptr readnone captures(none) %0) #1 align 16 {
   br i1 %55, label %._crit_edge, label %15, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %.loopexit, %52, %3
-  %.lcssa = phi i64 [ %5, %3 ], [ %14, %52 ], [ %9, %.loopexit ]
+  %.lcssa = phi i64 [ %14, %52 ], [ %5, %3 ], [ %9, %.loopexit ]
   %56 = add nuw nsw i64 %4, 1
   %57 = icmp eq i64 %56, 256
   br i1 %57, label %58, label %3, !llvm.loop !39
@@ -2209,7 +2209,7 @@ define internal void @ip6_fl_gc(ptr readnone captures(none) %0) #1 align 16 {
   br i1 %or.cond, label %.thread4, label %.thread5
 
 .thread5:                                         ; preds = %60, %58
-  %65 = phi i64 [ %.lcssa, %58 ], [ %63, %60 ]
+  %65 = phi i64 [ %63, %60 ], [ %.lcssa, %58 ]
   %66 = tail call i32 @mod_timer(ptr noundef nonnull @ip6_fl_gc_timer, i64 noundef %65) #13
   br label %.thread4
 

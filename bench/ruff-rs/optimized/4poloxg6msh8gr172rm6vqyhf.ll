@@ -500,7 +500,7 @@ define hidden { ptr, i64 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_fro
   br label %.body
 
 .body:                                            ; preds = %65, %54, %57, %39
-  %eh.lpad-body = phi { ptr, i32 } [ %40, %39 ], [ %55, %57 ], [ %55, %54 ], [ %66, %65 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %55, %54 ], [ %40, %39 ], [ %55, %57 ], [ %66, %65 ]
   invoke void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$wasm_bindgen..JsValue$GT$$GT$17h7436d23da1ee0d87E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9) #13
           to label %.thread15 unwind label %75
 
@@ -708,7 +708,7 @@ define hidden { ptr, i64 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_fro
   br label %.body
 
 .body:                                            ; preds = %62, %52, %55, %38
-  %eh.lpad-body = phi { ptr, i32 } [ %39, %38 ], [ %53, %55 ], [ %53, %52 ], [ %63, %62 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %53, %52 ], [ %39, %38 ], [ %53, %55 ], [ %63, %62 ]
   invoke void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$wasm_bindgen..JsValue$GT$$GT$17h7436d23da1ee0d87E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9) #13
           to label %.thread15 unwind label %73
 
@@ -919,7 +919,7 @@ define hidden { ptr, i64 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_fro
   br label %.body
 
 .body:                                            ; preds = %63, %53, %56, %39
-  %eh.lpad-body = phi { ptr, i32 } [ %40, %39 ], [ %54, %56 ], [ %54, %53 ], [ %64, %63 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %54, %53 ], [ %40, %39 ], [ %54, %56 ], [ %64, %63 ]
   invoke void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$wasm_bindgen..JsValue$GT$$GT$17h7436d23da1ee0d87E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9) #13
           to label %.thread15 unwind label %74
 
@@ -1510,7 +1510,7 @@ define hidden { ptr, i64 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_fro
   br label %.body
 
 .body:                                            ; preds = %62, %52, %55, %38
-  %eh.lpad-body = phi { ptr, i32 } [ %39, %38 ], [ %53, %55 ], [ %53, %52 ], [ %63, %62 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %53, %52 ], [ %39, %38 ], [ %53, %55 ], [ %63, %62 ]
   invoke void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$wasm_bindgen..JsValue$GT$$GT$17h7436d23da1ee0d87E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9) #13
           to label %.thread15 unwind label %73
 
@@ -1717,7 +1717,7 @@ define hidden { ptr, i64 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_fro
   br label %.body
 
 .body:                                            ; preds = %62, %52, %55, %38
-  %eh.lpad-body = phi { ptr, i32 } [ %39, %38 ], [ %53, %55 ], [ %53, %52 ], [ %63, %62 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %53, %52 ], [ %39, %38 ], [ %53, %55 ], [ %63, %62 ]
   invoke void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$wasm_bindgen..JsValue$GT$$GT$17h7436d23da1ee0d87E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9) #13
           to label %.thread15 unwind label %73
 
@@ -1924,7 +1924,7 @@ define hidden { ptr, i64 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_fro
   br label %.body
 
 .body:                                            ; preds = %62, %52, %55, %38
-  %eh.lpad-body = phi { ptr, i32 } [ %39, %38 ], [ %53, %55 ], [ %53, %52 ], [ %63, %62 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %53, %52 ], [ %39, %38 ], [ %53, %55 ], [ %63, %62 ]
   invoke void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$wasm_bindgen..JsValue$GT$$GT$17h7436d23da1ee0d87E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9) #13
           to label %.thread15 unwind label %73
 

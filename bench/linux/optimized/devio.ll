@@ -351,9 +351,9 @@ define internal i64 @usbdev_read(ptr noundef readonly captures(none) %0, ptr nou
   br label %.thread14
 
 35:                                               ; preds = %.thread, %21
-  %36 = phi i64 [ 0, %21 ], [ %26, %.thread ]
-  %37 = phi i64 [ %2, %21 ], [ %33, %.thread ]
-  %38 = phi ptr [ %1, %21 ], [ %32, %.thread ]
+  %36 = phi i64 [ %26, %.thread ], [ 0, %21 ]
+  %37 = phi i64 [ %33, %.thread ], [ %2, %21 ]
+  %38 = phi ptr [ %32, %.thread ], [ %1, %21 ]
   %39 = icmp eq i64 %37, 0
   br i1 %39, label %.thread14, label %40
 
@@ -503,7 +503,7 @@ define internal range(i32 0, 288) i32 @usbdev_poll(ptr noundef %0, ptr noundef %
   br label %32
 
 32:                                               ; preds = %25, %.thread
-  %33 = phi i32 [ %24, %.thread ], [ %spec.select, %25 ]
+  %33 = phi i32 [ %spec.select, %25 ], [ %24, %.thread ]
   %34 = load volatile ptr, ptr %4, align 8
   %35 = icmp eq ptr %34, %4
   %36 = or disjoint i32 %33, 8
@@ -1297,7 +1297,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @usbdev_ioctl(ptr noundef
   br label %404
 
 .thread31:                                        ; preds = %179, %192, %209, %215, %242, %255, %262, %268, %274, %280, %286, %292, %298, %317, %319, %321, %323, %325, %328, %330, %332, %388, %135, %98, %72, %35
-  %395 = phi i32 [ %389, %388 ], [ %36, %35 ], [ %73, %72 ], [ %99, %98 ], [ %136, %135 ], [ %180, %179 ], [ %193, %192 ], [ %210, %209 ], [ %216, %215 ], [ %243, %242 ], [ %257, %255 ], [ %263, %262 ], [ %269, %268 ], [ %275, %274 ], [ %281, %280 ], [ %287, %286 ], [ %293, %292 ], [ %299, %298 ], [ %318, %317 ], [ %320, %319 ], [ %322, %321 ], [ %324, %323 ], [ %327, %325 ], [ %329, %328 ], [ %331, %330 ], [ %333, %332 ]
+  %395 = phi i32 [ %389, %388 ], [ %136, %135 ], [ %36, %35 ], [ %73, %72 ], [ %99, %98 ], [ %333, %332 ], [ %318, %317 ], [ %257, %255 ], [ %320, %319 ], [ %263, %262 ], [ %322, %321 ], [ %180, %179 ], [ %269, %268 ], [ %324, %323 ], [ %193, %192 ], [ %275, %274 ], [ %210, %209 ], [ %216, %215 ], [ %281, %280 ], [ %327, %325 ], [ %287, %286 ], [ %329, %328 ], [ %293, %292 ], [ %331, %330 ], [ %243, %242 ], [ %299, %298 ]
   call void @mutex_unlock(ptr noundef nonnull %19) #17
   %396 = icmp sgt i32 %395, -1
   br i1 %396, label %397, label %404
@@ -1618,7 +1618,7 @@ define internal i32 @usbdev_open(ptr noundef readonly captures(none) %0, ptr nou
   br label %.thread
 
 .thread:                                          ; preds = %12, %7, %72, %2
-  %74 = phi i32 [ %73, %72 ], [ -12, %2 ], [ -19, %7 ], [ -19, %12 ]
+  %74 = phi i32 [ %73, %72 ], [ -19, %12 ], [ -12, %2 ], [ -19, %7 ]
   call void @kfree(ptr noundef %5) #17
   br label %75
 
@@ -2112,7 +2112,7 @@ define internal fastcc i32 @proc_resetep(ptr noundef %0, ptr noundef %1) unnamed
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit14, %67, %60, %20, %16, %11, %105, %75, %2
-  %107 = phi i32 [ 0, %105 ], [ -14, %2 ], [ %83, %75 ], [ -2, %20 ], [ -3, %16 ], [ -22, %11 ], [ -22, %67 ], [ -113, %60 ], [ -2, %.loopexit14 ]
+  %107 = phi i32 [ 0, %105 ], [ -14, %2 ], [ -113, %60 ], [ %83, %75 ], [ -22, %11 ], [ -22, %67 ], [ -2, %20 ], [ -3, %16 ], [ -2, %.loopexit14 ]
   ret i32 %107
 }
 
@@ -2367,7 +2367,7 @@ define internal fastcc i32 @proc_clearhalt(ptr noundef %0, ptr noundef %1) unnam
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit14, %67, %60, %20, %16, %11, %106, %75, %2
-  %116 = phi i32 [ %115, %106 ], [ -14, %2 ], [ %83, %75 ], [ -2, %20 ], [ -3, %16 ], [ -22, %11 ], [ -22, %67 ], [ -113, %60 ], [ -2, %.loopexit14 ]
+  %116 = phi i32 [ %115, %106 ], [ -14, %2 ], [ -113, %60 ], [ %83, %75 ], [ -22, %11 ], [ -22, %67 ], [ -2, %20 ], [ -3, %16 ], [ -2, %.loopexit14 ]
   ret i32 %116
 }
 
@@ -3293,7 +3293,7 @@ define internal fastcc i32 @proc_disconnect_claim(ptr noundef %0, ptr noundef %1
   br label %.thread
 
 .thread:                                          ; preds = %59, %34, %26, %16, %72, %62, %54, %45, %40, %6, %2
-  %73 = phi i32 [ -14, %2 ], [ -22, %6 ], [ -22, %40 ], [ 0, %45 ], [ -13, %54 ], [ %67, %62 ], [ 0, %72 ], [ -16, %34 ], [ -16, %26 ], [ -13, %16 ], [ -2, %59 ]
+  %73 = phi i32 [ -13, %16 ], [ -14, %2 ], [ -22, %6 ], [ -22, %40 ], [ 0, %45 ], [ -13, %54 ], [ %67, %62 ], [ 0, %72 ], [ -16, %34 ], [ -16, %26 ], [ -2, %59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %73
 }
@@ -4527,8 +4527,8 @@ define internal fastcc i32 @do_proc_control(ptr noundef %0, ptr noundef readonly
   br label %126
 
 126:                                              ; preds = %124, %87
-  %127 = phi i32 [ %88, %87 ], [ %125, %124 ]
-  %128 = phi i32 [ %81, %87 ], [ %118, %124 ]
+  %127 = phi i32 [ %125, %124 ], [ %88, %87 ]
+  %128 = phi i32 [ %118, %124 ], [ %81, %87 ]
   %.fr = freeze i32 %128
   %129 = icmp slt i32 %.fr, 0
   %130 = icmp ne i32 %.fr, -32
@@ -4554,9 +4554,9 @@ define internal fastcc i32 @do_proc_control(ptr noundef %0, ptr noundef readonly
   br label %.thread7
 
 .thread7:                                         ; preds = %143, %95, %132, %102, %94, %39, %36, %32
-  %144 = phi i32 [ -12, %39 ], [ -12, %36 ], [ -12, %32 ], [ -14, %102 ], [ -14, %94 ], [ %.fr, %132 ], [ %spec.select, %95 ], [ %spec.select10, %143 ]
-  %145 = phi ptr [ %37, %39 ], [ null, %36 ], [ null, %32 ], [ %37, %102 ], [ %37, %94 ], [ %37, %132 ], [ %37, %95 ], [ %37, %143 ]
-  %146 = phi ptr [ null, %39 ], [ null, %36 ], [ null, %32 ], [ %41, %102 ], [ %41, %94 ], [ %41, %132 ], [ %41, %95 ], [ %41, %143 ]
+  %144 = phi i32 [ -14, %94 ], [ -12, %39 ], [ -12, %36 ], [ -12, %32 ], [ %.fr, %132 ], [ -14, %102 ], [ %spec.select, %95 ], [ %spec.select10, %143 ]
+  %145 = phi ptr [ %37, %94 ], [ %37, %39 ], [ null, %36 ], [ null, %32 ], [ %37, %132 ], [ %37, %102 ], [ %37, %95 ], [ %37, %143 ]
+  %146 = phi ptr [ %41, %94 ], [ null, %39 ], [ null, %36 ], [ null, %32 ], [ %41, %132 ], [ %41, %102 ], [ %41, %95 ], [ %41, %143 ]
   tail call void @kfree(ptr noundef %146) #17
   tail call void @usb_free_urb(ptr noundef %145) #17
   tail call void @free_pages(i64 noundef %33, i32 noundef 0) #17
@@ -4573,7 +4573,7 @@ define internal fastcc i32 @do_proc_control(ptr noundef %0, ptr noundef readonly
   br label %150
 
 150:                                              ; preds = %.sink.split, %16, %2
-  %151 = phi i32 [ %14, %2 ], [ -22, %16 ], [ %.ph, %.sink.split ]
+  %151 = phi i32 [ -22, %16 ], [ %14, %2 ], [ %.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %151
 }
@@ -4863,7 +4863,7 @@ define internal fastcc i32 @check_ctrlrecip(ptr noundef %0, i32 noundef range(i3
   br label %.thread22.thread28
 
 .thread22.thread28:                               ; preds = %.loopexit29, %36, %33, %.thread22.thread.thread57, %171, %157, %155, %151, %137, %135, %132, %30, %27, %23, %9, %4
-  %174 = phi i32 [ -113, %4 ], [ 0, %9 ], [ 0, %23 ], [ 0, %30 ], [ 0, %27 ], [ -113, %132 ], [ -22, %135 ], [ 0, %137 ], [ -113, %151 ], [ -22, %155 ], [ 0, %157 ], [ %173, %171 ], [ -2, %.thread22.thread.thread57 ], [ -22, %33 ], [ -3, %36 ], [ -2, %.loopexit29 ]
+  %174 = phi i32 [ -113, %4 ], [ 0, %9 ], [ 0, %23 ], [ 0, %30 ], [ 0, %27 ], [ %173, %171 ], [ -113, %132 ], [ -22, %135 ], [ 0, %137 ], [ -113, %151 ], [ -22, %155 ], [ 0, %157 ], [ -22, %33 ], [ -2, %.thread22.thread.thread57 ], [ -3, %36 ], [ -2, %.loopexit29 ]
   ret i32 %174
 }
 
@@ -5086,7 +5086,7 @@ define internal fastcc i32 @claimintf(ptr noundef %0, i32 noundef range(i32 0, 6
   br label %.thread
 
 .thread:                                          ; preds = %19, %32, %22, %14, %2
-  %33 = phi i32 [ 0, %2 ], [ -13, %14 ], [ %27, %22 ], [ 0, %32 ], [ -2, %19 ]
+  %33 = phi i32 [ 0, %32 ], [ 0, %2 ], [ -13, %14 ], [ %27, %22 ], [ -2, %19 ]
   ret i32 %33
 }
 
@@ -5428,16 +5428,16 @@ define internal fastcc i32 @do_proc_bulk(ptr noundef %0, ptr noundef readonly ca
   br label %192
 
 192:                                              ; preds = %188, %165
-  %193 = phi i32 [ %168, %165 ], [ %191, %188 ]
-  %194 = phi i32 [ %167, %165 ], [ %190, %188 ]
+  %193 = phi i32 [ %191, %188 ], [ %168, %165 ]
+  %194 = phi i32 [ %190, %188 ], [ %167, %165 ]
   %.fr = freeze i32 %194
   %195 = icmp slt i32 %.fr, 0
   %spec.select23 = select i1 %195, i32 %.fr, i32 %193
   br label %.thread21
 
 .thread21:                                        ; preds = %192, %175, %183, %174, %120, %117
-  %196 = phi i32 [ -12, %120 ], [ -12, %117 ], [ -14, %183 ], [ -14, %174 ], [ %spec.select, %175 ], [ %spec.select23, %192 ]
-  %197 = phi ptr [ null, %120 ], [ null, %117 ], [ %121, %183 ], [ %121, %174 ], [ %121, %175 ], [ %121, %192 ]
+  %196 = phi i32 [ -14, %174 ], [ -12, %120 ], [ -12, %117 ], [ %spec.select23, %192 ], [ -14, %183 ], [ %spec.select, %175 ]
+  %197 = phi ptr [ %121, %174 ], [ null, %120 ], [ null, %117 ], [ %121, %192 ], [ %121, %183 ], [ %121, %175 ]
   tail call void @usb_free_urb(ptr noundef %197) #17
   tail call void @kfree(ptr noundef %118) #17
   %198 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @usbfs_memory_usage_lock) #17
@@ -5453,7 +5453,7 @@ define internal fastcc i32 @do_proc_bulk(ptr noundef %0, ptr noundef readonly ca
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit24, %.thread.sink.split, %60, %53, %13, %9, %2, %101, %82, %.thread19, %68
-  %201 = phi i32 [ %76, %68 ], [ -22, %.thread19 ], [ -22, %101 ], [ -22, %82 ], [ -2, %13 ], [ -3, %9 ], [ -22, %2 ], [ -22, %60 ], [ -113, %53 ], [ %.ph, %.thread.sink.split ], [ -2, %.loopexit24 ]
+  %201 = phi i32 [ -3, %9 ], [ -113, %53 ], [ %76, %68 ], [ -22, %.thread19 ], [ -22, %101 ], [ -22, %82 ], [ %.ph, %.thread.sink.split ], [ -22, %2 ], [ -22, %60 ], [ -2, %13 ], [ -2, %.loopexit24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %201
 }
@@ -5627,7 +5627,7 @@ define internal fastcc i32 @proc_do_submiturb(ptr noundef %0, ptr noundef captur
   br i1 %101, label %.thread39, label %.thread
 
 .thread39:                                        ; preds = %24, %86, %92
-  %102 = phi i32 [ %80, %92 ], [ %80, %86 ], [ -1, %24 ]
+  %102 = phi i32 [ -1, %24 ], [ %80, %92 ], [ %80, %86 ]
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -6428,10 +6428,10 @@ default.unreachable92:                            ; preds = %178
   br label %.loopexit40
 
 .loopexit40:                                      ; preds = %235, %.split47, %331, %.split47.us, %.critedge, %629, %401, %386, %301, %284, %276, %269, %260, %232, %140, %133, %128
-  %637 = phi i32 [ %234, %232 ], [ %278, %276 ], [ %291, %284 ], [ %627, %629 ], [ %149, %140 ], [ -14, %128 ], [ -22, %133 ], [ -14, %260 ], [ -12, %269 ], [ -12, %301 ], [ -12, %386 ], [ -14, %401 ], [ -14, %.critedge ], [ -14, %331 ], [ -12, %.split47.us ], [ -12, %.split47 ], [ -22, %235 ]
-  %638 = phi ptr [ null, %232 ], [ %256, %276 ], [ %256, %284 ], [ null, %629 ], [ %126, %140 ], [ %126, %128 ], [ %126, %133 ], [ %256, %260 ], [ %256, %269 ], [ %256, %301 ], [ %256, %386 ], [ %256, %401 ], [ %256, %.critedge ], [ %256, %.split47.us ], [ %256, %331 ], [ %256, %.split47 ], [ null, %235 ]
-  %639 = phi ptr [ null, %232 ], [ %270, %276 ], [ %270, %284 ], [ %270, %629 ], [ null, %140 ], [ null, %128 ], [ null, %133 ], [ null, %260 ], [ null, %269 ], [ %270, %301 ], [ %270, %386 ], [ %270, %401 ], [ %270, %.critedge ], [ %270, %.split47.us ], [ %270, %331 ], [ %270, %.split47 ], [ null, %235 ]
-  %640 = phi ptr [ null, %232 ], [ %257, %276 ], [ %257, %284 ], [ null, %629 ], [ null, %140 ], [ null, %128 ], [ null, %133 ], [ %257, %260 ], [ %257, %269 ], [ %257, %301 ], [ %257, %386 ], [ %257, %401 ], [ %257, %.critedge ], [ %257, %.split47.us ], [ %257, %331 ], [ %257, %.split47 ], [ %228, %235 ]
+  %637 = phi i32 [ %234, %232 ], [ %278, %276 ], [ %291, %284 ], [ %627, %629 ], [ %149, %140 ], [ -14, %128 ], [ -22, %133 ], [ -14, %260 ], [ -12, %269 ], [ -12, %301 ], [ -12, %386 ], [ -14, %401 ], [ -12, %.split47 ], [ -14, %.critedge ], [ -12, %.split47.us ], [ -14, %331 ], [ -22, %235 ]
+  %638 = phi ptr [ null, %232 ], [ %256, %276 ], [ %256, %284 ], [ null, %629 ], [ %126, %140 ], [ %126, %128 ], [ %126, %133 ], [ %256, %260 ], [ %256, %269 ], [ %256, %301 ], [ %256, %386 ], [ %256, %401 ], [ %256, %.split47 ], [ %256, %.critedge ], [ %256, %331 ], [ %256, %.split47.us ], [ null, %235 ]
+  %639 = phi ptr [ null, %232 ], [ %270, %276 ], [ %270, %284 ], [ %270, %629 ], [ null, %140 ], [ null, %128 ], [ null, %133 ], [ null, %260 ], [ null, %269 ], [ %270, %301 ], [ %270, %386 ], [ %270, %401 ], [ %270, %.split47 ], [ %270, %.critedge ], [ %270, %331 ], [ %270, %.split47.us ], [ null, %235 ]
+  %640 = phi ptr [ null, %232 ], [ %257, %276 ], [ %257, %284 ], [ null, %629 ], [ null, %140 ], [ null, %128 ], [ null, %133 ], [ %257, %260 ], [ %257, %269 ], [ %257, %301 ], [ %257, %386 ], [ %257, %401 ], [ %257, %.split47 ], [ %257, %.critedge ], [ %257, %331 ], [ %257, %.split47.us ], [ %228, %235 ]
   tail call void @kfree(ptr noundef %640) #17
   tail call void @kfree(ptr noundef %638) #17
   %641 = icmp eq ptr %639, null
@@ -6442,7 +6442,7 @@ default.unreachable92:                            ; preds = %178
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit44, %84, %77, %38, %34, %._crit_edge, %178, %178, %642, %.loopexit40, %626, %220, %215, %205, %124, %121, %116, %113, %.thread39, %92, %20, %14, %5
-  %643 = phi i32 [ -22, %5 ], [ -22, %14 ], [ -22, %20 ], [ %100, %92 ], [ -2, %.thread39 ], [ -22, %116 ], [ -22, %121 ], [ -12, %124 ], [ -22, %178 ], [ -22, %178 ], [ -22, %205 ], [ -22, %215 ], [ -22, %220 ], [ -22, %113 ], [ 0, %626 ], [ %637, %642 ], [ %637, %.loopexit40 ], [ -2, %38 ], [ -3, %34 ], [ -22, %._crit_edge ], [ -22, %84 ], [ -113, %77 ], [ -2, %.loopexit44 ]
+  %643 = phi i32 [ -22, %5 ], [ -22, %14 ], [ -22, %20 ], [ -113, %77 ], [ %100, %92 ], [ -2, %.thread39 ], [ -22, %116 ], [ -22, %121 ], [ -12, %124 ], [ -22, %178 ], [ -22, %178 ], [ -22, %205 ], [ -22, %215 ], [ -22, %220 ], [ -22, %113 ], [ 0, %626 ], [ %637, %642 ], [ %637, %.loopexit40 ], [ -22, %._crit_edge ], [ -22, %84 ], [ -2, %38 ], [ -3, %34 ], [ -2, %.loopexit44 ]
   ret i32 %643
 }
 
@@ -6787,7 +6787,7 @@ define internal void @async_completed(ptr noundef readonly captures(none) %0) #1
   br i1 %134, label %.loopexit, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %131, %124
-  %.be = phi ptr [ %133, %131 ], [ %129, %124 ]
+  %.be = phi ptr [ %129, %124 ], [ %133, %131 ]
   br label %.preheader, !llvm.loop !83
 
 .loopexit:                                        ; preds = %131, %124, %.loopexit14, %96, %96, %90, %87
@@ -7099,7 +7099,7 @@ define internal fastcc i32 @proc_ioctl(ptr noundef %0, ptr noundef readonly capt
   br label %82
 
 82:                                               ; preds = %.sink.split, %21, %9, %6, %2
-  %83 = phi i32 [ -13, %2 ], [ -19, %9 ], [ -12, %21 ], [ -19, %6 ], [ %.ph, %.sink.split ]
+  %83 = phi i32 [ -12, %21 ], [ -19, %6 ], [ -13, %2 ], [ -19, %9 ], [ %.ph, %.sink.split ]
   ret i32 %83
 }
 
@@ -7340,7 +7340,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_usbdevfs_streams(ptr
   br label %150
 
 .thread:                                          ; preds = %118, %114, %70, %66, %137, %125, %55, %43, %.loopexit18
-  %149 = phi i32 [ -2, %.loopexit18 ], [ -113, %114 ], [ -22, %118 ], [ -3, %66 ], [ -2, %70 ], [ -22, %137 ], [ -22, %55 ], [ -14, %43 ], [ %133, %125 ]
+  %149 = phi i32 [ -2, %.loopexit18 ], [ -2, %70 ], [ -3, %66 ], [ -22, %118 ], [ -22, %137 ], [ -113, %114 ], [ -22, %55 ], [ -14, %43 ], [ %133, %125 ]
   tail call void @kfree(ptr noundef nonnull %36) #17
   br label %150
 

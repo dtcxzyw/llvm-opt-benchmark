@@ -292,7 +292,7 @@ sub_2:                                            ; preds = %sub_1128
   br label %.tail126
 
 .tail126:                                         ; preds = %sub_0, %sub_1128, %sub_2
-  %43 = phi i1 [ false, %sub_1128 ], [ %42, %sub_2 ], [ false, %sub_0 ]
+  %43 = phi i1 [ %42, %sub_2 ], [ false, %sub_1128 ], [ false, %sub_0 ]
   switch i32 %.174140, label %134 [
     i32 0, label %44
     i32 1, label %50
@@ -530,9 +530,9 @@ append_subdir_to_path.exit125:                    ; preds = %131, %132
   br label %134
 
 134:                                              ; preds = %trim_directory.exit, %.tail126, %append_subdir_to_path.exit, %44, %append_subdir_to_path.exit103, %append_subdir_to_path.exit107, %append_subdir_to_path.exit105, %trim_directory.exit119, %append_subdir_to_path.exit121, %append_subdir_to_path.exit125, %append_subdir_to_path.exit123, %117, %.tail
-  %.282 = phi ptr [ %.181138, %.tail ], [ %.181138, %.tail126 ], [ %.181138, %44 ], [ %48, %append_subdir_to_path.exit ], [ %80, %append_subdir_to_path.exit103 ], [ %86, %append_subdir_to_path.exit105 ], [ %89, %append_subdir_to_path.exit107 ], [ %.024.i118, %trim_directory.exit119 ], [ %123, %append_subdir_to_path.exit121 ], [ %130, %append_subdir_to_path.exit123 ], [ %133, %append_subdir_to_path.exit125 ], [ %.024.i, %trim_directory.exit ], [ %.024.i118, %117 ]
-  %.275 = phi i32 [ %.174140, %.tail ], [ %.174140, %.tail126 ], [ 0, %44 ], [ 1, %append_subdir_to_path.exit ], [ 1, %append_subdir_to_path.exit103 ], [ 4, %append_subdir_to_path.exit105 ], [ 3, %append_subdir_to_path.exit107 ], [ 3, %trim_directory.exit119 ], [ 3, %append_subdir_to_path.exit121 ], [ 4, %append_subdir_to_path.exit123 ], [ 3, %append_subdir_to_path.exit125 ], [ %spec.select, %trim_directory.exit ], [ %., %117 ]
-  %.172 = phi i32 [ %.071141, %.tail ], [ %.071141, %.tail126 ], [ %.071141, %44 ], [ %49, %append_subdir_to_path.exit ], [ %81, %append_subdir_to_path.exit103 ], [ %.071141, %append_subdir_to_path.exit105 ], [ %90, %append_subdir_to_path.exit107 ], [ %115, %trim_directory.exit119 ], [ %124, %append_subdir_to_path.exit121 ], [ %.071141, %append_subdir_to_path.exit123 ], [ 1, %append_subdir_to_path.exit125 ], [ %74, %trim_directory.exit ], [ 0, %117 ]
+  %.282 = phi ptr [ %.181138, %.tail ], [ %.181138, %.tail126 ], [ %.181138, %44 ], [ %48, %append_subdir_to_path.exit ], [ %133, %append_subdir_to_path.exit125 ], [ %130, %append_subdir_to_path.exit123 ], [ %80, %append_subdir_to_path.exit103 ], [ %86, %append_subdir_to_path.exit105 ], [ %89, %append_subdir_to_path.exit107 ], [ %.024.i118, %117 ], [ %.024.i, %trim_directory.exit ], [ %.024.i118, %trim_directory.exit119 ], [ %123, %append_subdir_to_path.exit121 ]
+  %.275 = phi i32 [ %.174140, %.tail ], [ %.174140, %.tail126 ], [ 0, %44 ], [ 1, %append_subdir_to_path.exit ], [ 3, %append_subdir_to_path.exit125 ], [ 4, %append_subdir_to_path.exit123 ], [ 1, %append_subdir_to_path.exit103 ], [ 4, %append_subdir_to_path.exit105 ], [ 3, %append_subdir_to_path.exit107 ], [ %., %117 ], [ %spec.select, %trim_directory.exit ], [ 3, %trim_directory.exit119 ], [ 3, %append_subdir_to_path.exit121 ]
+  %.172 = phi i32 [ %.071141, %.tail ], [ %.071141, %.tail126 ], [ %.071141, %44 ], [ %49, %append_subdir_to_path.exit ], [ 1, %append_subdir_to_path.exit125 ], [ %.071141, %append_subdir_to_path.exit123 ], [ %81, %append_subdir_to_path.exit103 ], [ %.071141, %append_subdir_to_path.exit105 ], [ %90, %append_subdir_to_path.exit107 ], [ 0, %117 ], [ %74, %trim_directory.exit ], [ %115, %trim_directory.exit119 ], [ %124, %append_subdir_to_path.exit121 ]
   %135 = load i8, ptr %.1, align 1
   %.not95 = icmp eq i8 %135, 0
   br i1 %.not95, label %._crit_edge142, label %.preheader
@@ -608,7 +608,7 @@ path_contains_parent_reference.exit.thread.fold.split: ; preds = %1
   br label %path_contains_parent_reference.exit.thread
 
 path_contains_parent_reference.exit.thread:       ; preds = %path_contains_parent_reference.exit, %1, %path_contains_parent_reference.exit.thread.fold.split, %3
-  %.0 = phi i1 [ false, %1 ], [ true, %3 ], [ true, %path_contains_parent_reference.exit.thread.fold.split ], [ %switch.selectcmp.i.not, %path_contains_parent_reference.exit ]
+  %.0 = phi i1 [ false, %1 ], [ true, %path_contains_parent_reference.exit.thread.fold.split ], [ %switch.selectcmp.i.not, %path_contains_parent_reference.exit ], [ true, %3 ]
   ret i1 %.0
 }
 
@@ -855,7 +855,7 @@ define internal fastcc void @make_relative_path(ptr noundef %0, ptr noundef %1, 
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !16
 
 .critedge:                                        ; preds = %.lr.ph, %15, %17
-  %.040.lcssa = phi i32 [ %.0403, %.lr.ph ], [ %.0403, %15 ], [ %.1, %17 ]
+  %.040.lcssa = phi i32 [ %.1, %17 ], [ %.0403, %.lr.ph ], [ %.0403, %15 ]
   %20 = icmp eq i32 %.040.lcssa, 0
   br i1 %20, label %dir_strcmp.exit.thread, label %21
 

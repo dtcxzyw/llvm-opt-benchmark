@@ -231,7 +231,7 @@ list_length.exit119:                              ; preds = %105, %114
   br label %125
 
 125:                                              ; preds = %list_length.exit119, %100
-  %.0 = phi ptr [ %124, %list_length.exit119 ], [ null, %100 ]
+  %.0 = phi ptr [ null, %100 ], [ %124, %list_length.exit119 ]
   %126 = and i32 %102, 32
   %.not111 = icmp ne i32 %126, 0
   %127 = and i32 %.099, 32
@@ -297,7 +297,7 @@ list_length.exit121:                              ; preds = %147, %156
   br label %167
 
 167:                                              ; preds = %list_length.exit121, %125
-  %.1 = phi ptr [ %166, %list_length.exit121 ], [ %.0, %125 ]
+  %.1 = phi ptr [ %.0, %125 ], [ %166, %list_length.exit121 ]
   br i1 %.097, label %188, label %168
 
 168:                                              ; preds = %167
@@ -651,7 +651,7 @@ list_length.exit106:                              ; preds = %88
   br label %104
 
 104:                                              ; preds = %.lr.ph.split, %96, %.critedge
-  %.0100 = phi ptr [ %102, %96 ], [ %103, %.critedge ], [ @.str.5, %.lr.ph.split ]
+  %.0100 = phi ptr [ %103, %.critedge ], [ %102, %96 ], [ @.str.5, %.lr.ph.split ]
   %105 = tail call ptr @pstrdup(ptr noundef %.0100) #6
   %106 = tail call ptr @makeString(ptr noundef %105) #6
   %107 = tail call ptr @lappend(ptr noundef %.0108, ptr noundef %106) #6
@@ -862,22 +862,22 @@ define dso_local noundef zeroext i1 @apply_child_basequals(ptr noundef %0, ptr n
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph180
+  br i1 %.not, label %._crit_edge, label %.lr.ph181
 
-.lr.ph180:                                        ; preds = %5
+.lr.ph181:                                        ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 599
   %12 = load i32, ptr %9, align 4
   %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %.lr.ph245, label %._crit_edge
+  br i1 %13, label %.lr.ph246, label %._crit_edge
 
-.lr.ph245:                                        ; preds = %.lr.ph180, %.critedge122
-  %.088178244 = phi i32 [ %.290, %.critedge122 ], [ -1, %.lr.ph180 ]
-  %.081179243 = phi ptr [ %.283, %.critedge122 ], [ null, %.lr.ph180 ]
-  %indvars.iv216242 = phi i64 [ %indvars.iv.next217, %.critedge122 ], [ 0, %.lr.ph180 ]
+.lr.ph246:                                        ; preds = %.lr.ph181, %.critedge122
+  %.088179245 = phi i32 [ %.290, %.critedge122 ], [ -1, %.lr.ph181 ]
+  %.081180244 = phi ptr [ %.283, %.critedge122 ], [ null, %.lr.ph181 ]
+  %indvars.iv217243 = phi i64 [ %indvars.iv.next218, %.critedge122 ], [ 0, %.lr.ph181 ]
   %14 = load ptr, ptr %10, align 8
-  %15 = getelementptr inbounds nuw %union.ListCell, ptr %14, i64 %indvars.iv216242
+  %15 = getelementptr inbounds nuw %union.ListCell, ptr %14, i64 %indvars.iv217243
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
@@ -886,7 +886,7 @@ define dso_local noundef zeroext i1 @apply_child_basequals(ptr noundef %0, ptr n
   %.not113 = icmp eq ptr %20, null
   br i1 %.not113, label %31, label %21
 
-21:                                               ; preds = %.lr.ph245
+21:                                               ; preds = %.lr.ph246
   %22 = load i32, ptr %20, align 4
   %23 = icmp eq i32 %22, 7
   br i1 %23, label %24, label %31
@@ -903,7 +903,7 @@ define dso_local noundef zeroext i1 @apply_child_basequals(ptr noundef %0, ptr n
   %.not154 = icmp eq i64 %30, 0
   br i1 %.not154, label %.critedge, label %.critedge122
 
-31:                                               ; preds = %21, %.lr.ph245
+31:                                               ; preds = %21, %.lr.ph246
   %32 = call ptr @make_ands_implicit(ptr noundef %20) #6
   %.not114 = icmp eq ptr %32, null
   br i1 %.not114, label %.critedge122, label %.lr.ph
@@ -921,8 +921,8 @@ define dso_local noundef zeroext i1 @apply_child_basequals(ptr noundef %0, ptr n
 
 .lr.ph175:                                        ; preds = %.lr.ph, %63
   %indvars.iv = phi i64 [ %indvars.iv.next, %63 ], [ 0, %.lr.ph ]
-  %.391163173 = phi i32 [ %.593.ph, %63 ], [ %.088178244, %.lr.ph ]
-  %.384164172 = phi ptr [ %.586.ph, %63 ], [ %.081179243, %.lr.ph ]
+  %.391163173 = phi i32 [ %.593.ph, %63 ], [ %.088179245, %.lr.ph ]
+  %.384164172 = phi ptr [ %.586.ph, %63 ], [ %.081180244, %.lr.ph ]
   %41 = load ptr, ptr %34, align 8
   %42 = getelementptr inbounds nuw %union.ListCell, ptr %41, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8
@@ -938,7 +938,7 @@ define dso_local noundef zeroext i1 @apply_child_basequals(ptr noundef %0, ptr n
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph175, %47, %45
-  %48 = phi i1 [ true, %47 ], [ false, %45 ], [ false, %.lr.ph175 ]
+  %48 = phi i1 [ false, %45 ], [ true, %47 ], [ false, %.lr.ph175 ]
   %49 = load i8, ptr %35, align 8, !range !4, !noundef !5
   %50 = trunc nuw i8 %49 to i1
   %51 = load i8, ptr %36, align 1, !range !4, !noundef !5
@@ -970,17 +970,17 @@ define dso_local noundef zeroext i1 @apply_child_basequals(ptr noundef %0, ptr n
   br i1 %66, label %.lr.ph175, label %.critedge122
 
 .critedge122:                                     ; preds = %63, %31, %.lr.ph, %28
-  %.290 = phi i32 [ %.088178244, %28 ], [ %.088178244, %31 ], [ %.088178244, %.lr.ph ], [ %.593.ph, %63 ]
-  %.283 = phi ptr [ %.081179243, %28 ], [ %.081179243, %31 ], [ %.081179243, %.lr.ph ], [ %.586.ph, %63 ]
-  %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216242, 1
+  %.290 = phi i32 [ %.088179245, %28 ], [ %.088179245, %31 ], [ %.088179245, %.lr.ph ], [ %.593.ph, %63 ]
+  %.283 = phi ptr [ %.081180244, %28 ], [ %.081180244, %31 ], [ %.081180244, %.lr.ph ], [ %.586.ph, %63 ]
+  %indvars.iv.next218 = add nuw nsw i64 %indvars.iv217243, 1
   %67 = load i32, ptr %9, align 4
   %68 = sext i32 %67 to i64
-  %69 = icmp slt i64 %indvars.iv.next217, %68
-  br i1 %69, label %.lr.ph245, label %._crit_edge
+  %69 = icmp slt i64 %indvars.iv.next218, %68
+  br i1 %69, label %.lr.ph246, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.critedge122, %.lr.ph180, %5
-  %.088.lcssa = phi i32 [ -1, %5 ], [ -1, %.lr.ph180 ], [ %.290, %.critedge122 ]
-  %.081.lcssa = phi ptr [ null, %5 ], [ null, %.lr.ph180 ], [ %.283, %.critedge122 ]
+._crit_edge:                                      ; preds = %.critedge122, %.lr.ph181, %5
+  %.088.lcssa = phi i32 [ -1, %5 ], [ -1, %.lr.ph181 ], [ %.290, %.critedge122 ]
+  %.081.lcssa = phi ptr [ null, %5 ], [ null, %.lr.ph181 ], [ %.283, %.critedge122 ]
   %70 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %71 = load ptr, ptr %70, align 8
   %.not116 = icmp eq ptr %71, null
@@ -989,58 +989,58 @@ define dso_local noundef zeroext i1 @apply_child_basequals(ptr noundef %0, ptr n
 .preheader:                                       ; preds = %._crit_edge
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 4
   %73 = load i32, ptr %72, align 4
-  %.not118205 = icmp sgt i32 %73, 0
-  br i1 %.not118205, label %.lr.ph211, label %.critedge124
+  %.not118206 = icmp sgt i32 %73, 0
+  br i1 %.not118206, label %.lr.ph212, label %.critedge124
 
-.lr.ph211:                                        ; preds = %.preheader
+.lr.ph212:                                        ; preds = %.preheader
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 16
   br label %75
 
-75:                                               ; preds = %.lr.ph211, %.critedge126
-  %76 = phi i32 [ %73, %.lr.ph211 ], [ %93, %.critedge126 ]
-  %indvars.iv222 = phi i64 [ 0, %.lr.ph211 ], [ %indvars.iv.next223, %.critedge126 ]
-  %.7210 = phi ptr [ %.081.lcssa, %.lr.ph211 ], [ %.8.lcssa, %.critedge126 ]
-  %.795209 = phi i32 [ %.088.lcssa, %.lr.ph211 ], [ %.896.lcssa, %.critedge126 ]
-  %indvars226 = trunc i64 %indvars.iv222 to i32
+75:                                               ; preds = %.lr.ph212, %.critedge126
+  %76 = phi i32 [ %73, %.lr.ph212 ], [ %93, %.critedge126 ]
+  %indvars.iv223 = phi i64 [ 0, %.lr.ph212 ], [ %indvars.iv.next224, %.critedge126 ]
+  %.7211 = phi ptr [ %.081.lcssa, %.lr.ph212 ], [ %.8.lcssa, %.critedge126 ]
+  %.795210 = phi i32 [ %.088.lcssa, %.lr.ph212 ], [ %.896.lcssa, %.critedge126 ]
+  %indvars227 = trunc i64 %indvars.iv223 to i32
   %77 = load ptr, ptr %74, align 8
-  %78 = getelementptr inbounds nuw %union.ListCell, ptr %77, i64 %indvars.iv222
+  %78 = getelementptr inbounds nuw %union.ListCell, ptr %77, i64 %indvars.iv223
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %.not119 = icmp eq ptr %79, null
-  br i1 %.not119, label %.critedge126, label %.lr.ph190
+  br i1 %.not119, label %.critedge126, label %.lr.ph191
 
-.lr.ph190:                                        ; preds = %75
+.lr.ph191:                                        ; preds = %75
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  %82 = call i32 @llvm.umin.i32(i32 %.795209, i32 %indvars226)
+  %82 = call i32 @llvm.umin.i32(i32 %.795210, i32 %indvars227)
   %83 = load i32, ptr %80, align 4
   %84 = icmp sgt i32 %83, 0
-  br i1 %84, label %.lr.ph202, label %.critedge126
+  br i1 %84, label %.lr.ph203, label %.critedge126
 
-.lr.ph202:                                        ; preds = %.lr.ph190, %.lr.ph202
-  %indvars.iv219 = phi i64 [ %indvars.iv.next220, %.lr.ph202 ], [ 0, %.lr.ph190 ]
-  %.8188200 = phi ptr [ %89, %.lr.ph202 ], [ %.7210, %.lr.ph190 ]
+.lr.ph203:                                        ; preds = %.lr.ph191, %.lr.ph203
+  %indvars.iv220 = phi i64 [ %indvars.iv.next221, %.lr.ph203 ], [ 0, %.lr.ph191 ]
+  %.8189201 = phi ptr [ %89, %.lr.ph203 ], [ %.7211, %.lr.ph191 ]
   %85 = load ptr, ptr %81, align 8
-  %86 = getelementptr inbounds nuw %union.ListCell, ptr %85, i64 %indvars.iv219
+  %86 = getelementptr inbounds nuw %union.ListCell, ptr %85, i64 %indvars.iv220
   %87 = load ptr, ptr %86, align 8
-  %88 = call ptr @make_restrictinfo(ptr noundef %0, ptr noundef %87, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %indvars226, ptr noundef null, ptr noundef null, ptr noundef null) #6
-  %89 = call ptr @lappend(ptr noundef %.8188200, ptr noundef %88) #6
-  %indvars.iv.next220 = add nuw nsw i64 %indvars.iv219, 1
+  %88 = call ptr @make_restrictinfo(ptr noundef %0, ptr noundef %87, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %indvars227, ptr noundef null, ptr noundef null, ptr noundef null) #6
+  %89 = call ptr @lappend(ptr noundef %.8189201, ptr noundef %88) #6
+  %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
   %90 = load i32, ptr %80, align 4
   %91 = sext i32 %90 to i64
-  %92 = icmp slt i64 %indvars.iv.next220, %91
-  br i1 %92, label %.lr.ph202, label %.critedge126.loopexit
+  %92 = icmp slt i64 %indvars.iv.next221, %91
+  br i1 %92, label %.lr.ph203, label %.critedge126.loopexit
 
-.critedge126.loopexit:                            ; preds = %.lr.ph202
+.critedge126.loopexit:                            ; preds = %.lr.ph203
   %.pre = load i32, ptr %72, align 4
   br label %.critedge126
 
-.critedge126:                                     ; preds = %.critedge126.loopexit, %.lr.ph190, %75
-  %93 = phi i32 [ %76, %75 ], [ %76, %.lr.ph190 ], [ %.pre, %.critedge126.loopexit ]
-  %.896.lcssa = phi i32 [ %.795209, %75 ], [ %.795209, %.lr.ph190 ], [ %82, %.critedge126.loopexit ]
-  %.8.lcssa = phi ptr [ %.7210, %75 ], [ %.7210, %.lr.ph190 ], [ %89, %.critedge126.loopexit ]
-  %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
+.critedge126:                                     ; preds = %.critedge126.loopexit, %.lr.ph191, %75
+  %93 = phi i32 [ %76, %75 ], [ %76, %.lr.ph191 ], [ %.pre, %.critedge126.loopexit ]
+  %.896.lcssa = phi i32 [ %.795210, %75 ], [ %.795210, %.lr.ph191 ], [ %82, %.critedge126.loopexit ]
+  %.8.lcssa = phi ptr [ %.7211, %75 ], [ %.7211, %.lr.ph191 ], [ %89, %.critedge126.loopexit ]
+  %indvars.iv.next224 = add nuw nsw i64 %indvars.iv223, 1
   %94 = sext i32 %93 to i64
-  %.not118 = icmp slt i64 %indvars.iv.next223, %94
+  %.not118 = icmp slt i64 %indvars.iv.next224, %94
   br i1 %.not118, label %75, label %.critedge124, !llvm.loop !9
 
 .critedge124:                                     ; preds = %.critedge126, %.preheader, %._crit_edge
@@ -1052,8 +1052,8 @@ define dso_local noundef zeroext i1 @apply_child_basequals(ptr noundef %0, ptr n
   store i32 %.694, ptr %96, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %28, %24, %.thread, %.critedge124
-  %cond152 = phi i1 [ true, %.critedge124 ], [ false, %.thread ], [ false, %24 ], [ false, %28 ]
+.critedge:                                        ; preds = %24, %28, %.thread, %.critedge124
+  %cond152 = phi i1 [ true, %.critedge124 ], [ false, %.thread ], [ false, %28 ], [ false, %24 ]
   ret i1 %cond152
 }
 
@@ -1178,7 +1178,7 @@ define internal fastcc ptr @translate_col_privs(ptr noundef %0, ptr noundef read
   br i1 %34, label %44, label %35
 
 .critedge:                                        ; preds = %44, %27, %.lr.ph.split.us.split, %.lr.ph.split.split, %10
-  %.2.lcssa = phi ptr [ %.1, %10 ], [ %.1, %.lr.ph.split.us.split ], [ %.1, %.lr.ph.split.split ], [ %.3.us, %27 ], [ %.3, %44 ]
+  %.2.lcssa = phi ptr [ %.1, %10 ], [ %.1, %.lr.ph.split.split ], [ %.1, %.lr.ph.split.us.split ], [ %.3.us, %27 ], [ %.3, %44 ]
   ret ptr %.2.lcssa
 
 35:                                               ; preds = %.lr.ph45

@@ -743,7 +743,7 @@ sort_and_merge_range_set.exit.i:                  ; preds = %217, %sane_qsort.ex
   br i1 %.not52.i, label %parse_lines.exit, label %.lr.ph97.i, !llvm.loop !123
 
 parse_lines.exit:                                 ; preds = %sort_and_merge_range_set.exit.i, %.lr.ph.i11, %check_single_commit.exit, %.critedge.i
-  %.067.lcssa140.i = phi ptr [ null, %.critedge.i ], [ null, %check_single_commit.exit ], [ null, %.lr.ph.i11 ], [ %.1.i13, %sort_and_merge_range_set.exit.i ]
+  %.067.lcssa140.i = phi ptr [ null, %check_single_commit.exit ], [ null, %.critedge.i ], [ null, %.lr.ph.i11 ], [ %.1.i13, %sort_and_merge_range_set.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1343,7 +1343,7 @@ define dso_local noundef i32 @line_log_print(ptr noundef %0, ptr noundef %1) loc
   br i1 %exitcond224.not.i.i, label %.loopexit.i.i, label %.lr.ph209.i.i, !llvm.loop !146
 
 .loopexit.i.i:                                    ; preds = %94, %.lr.ph209.i.i, %.critedge7.i.i, %97, %.critedge.i.i
-  %.2157.i.i = phi i32 [ %.1156.lcssa.i.i, %97 ], [ %84, %.critedge.i.i ], [ %.3158.lcssa.i.i, %.critedge7.i.i ], [ %.3158.lcssa.i.i, %.lr.ph209.i.i ], [ %84, %94 ]
+  %.2157.i.i = phi i32 [ %84, %.critedge.i.i ], [ %.1156.lcssa.i.i, %97 ], [ %.3158.lcssa.i.i, %.critedge7.i.i ], [ %.3158.lcssa.i.i, %.lr.ph209.i.i ], [ %84, %94 ]
   %indvars.iv.next226.i.i = add nuw nsw i64 %indvars.iv225.i.i, 1
   %196 = load i32, ptr %72, align 4, !tbaa !120
   %197 = zext i32 %196 to i64
@@ -1351,8 +1351,8 @@ define dso_local noundef i32 @line_log_print(ptr noundef %0, ptr noundef %1) loc
   br i1 %198, label %78, label %dump_diff_hacky_one.exit.i, !llvm.loop !147
 
 dump_diff_hacky_one.exit.i:                       ; preds = %.loopexit.i.i, %64, %20
-  %199 = phi ptr [ %.pre230.i.i, %64 ], [ null, %20 ], [ %.pre230.i.i, %.loopexit.i.i ]
-  %200 = phi ptr [ %.pre229.i.i, %64 ], [ null, %20 ], [ %.pre229.i.i, %.loopexit.i.i ]
+  %199 = phi ptr [ null, %20 ], [ %.pre230.i.i, %64 ], [ %.pre230.i.i, %.loopexit.i.i ]
+  %200 = phi ptr [ null, %20 ], [ %.pre229.i.i, %64 ], [ %.pre229.i.i, %.loopexit.i.i ]
   tail call void @free(ptr noundef %200) #16
   tail call void @free(ptr noundef %199) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1415,7 +1415,7 @@ define dso_local i32 @line_log_process_ranges_arbitrary_commit(ptr noundef %0, p
   %26 = select i1 %.not21.i, i1 %25, i1 false
   br i1 %26, label %.preheader.i, label %bloom_filter_check.exit, !llvm.loop !154
 
-bloom_filter_check.exit.thread:                   ; preds = %14, %11
+bloom_filter_check.exit.thread:                   ; preds = %11, %14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %31
 
@@ -2916,7 +2916,7 @@ diff_ranges_filter_touched.exit.i.i:              ; preds = %107, %diff_ranges_f
   br i1 %191, label %.critedge.i.i.i, label %203
 
 .critedge.i.i.i:                                  ; preds = %186, %.preheader.i12.i.i, %185
-  %.357.i.i.i = phi i32 [ %177, %185 ], [ %187, %186 ], [ %.14167.i.i.i, %.preheader.i12.i.i ]
+  %.357.i.i.i = phi i32 [ %177, %185 ], [ %.14167.i.i.i, %.preheader.i12.i.i ], [ %187, %186 ]
   %.not.i.i.i13.i.i = icmp ult i32 %.sroa.8.2.i.i, %.sroa.0.2.i.i
   %.pre121.i.i = zext i32 %.sroa.8.2.i.i to i64
   br i1 %.not.i.i.i13.i.i, label %range_set_append.exit.i18.i.i, label %st_mult.exit.i.i.i.i14.i.i
@@ -3114,8 +3114,8 @@ process_diff_filepair.exit.thread:                ; preds = %45, %47, %.lr.ph.sp
   br label %.thread
 
 process_diff_filepair.exit:                       ; preds = %diff_ranges_filter_touched.exit.i.i, %range_set_difference.exit.i.i, %range_set_shift_diff.exit.loopexit.i.i
-  %263 = phi ptr [ null, %range_set_difference.exit.i.i ], [ null, %diff_ranges_filter_touched.exit.i.i ], [ %.pre.i.i.i3792.i.i, %range_set_shift_diff.exit.loopexit.i.i ]
-  %.sroa.15.758.i.i = phi ptr [ %.sroa.15.1.i.i, %range_set_difference.exit.i.i ], [ null, %diff_ranges_filter_touched.exit.i.i ], [ %.sroa.15.1.i.i, %range_set_shift_diff.exit.loopexit.i.i ]
+  %263 = phi ptr [ null, %diff_ranges_filter_touched.exit.i.i ], [ null, %range_set_difference.exit.i.i ], [ %.pre.i.i.i3792.i.i, %range_set_shift_diff.exit.loopexit.i.i ]
+  %.sroa.15.758.i.i = phi ptr [ null, %diff_ranges_filter_touched.exit.i.i ], [ %.sroa.15.1.i.i, %range_set_difference.exit.i.i ], [ %.sroa.15.1.i.i, %range_set_shift_diff.exit.loopexit.i.i ]
   call fastcc void @range_set_union(ptr noundef nonnull %10, ptr noundef nonnull %5, ptr noundef nonnull %87)
   call void @free(ptr noundef %.sroa.15.758.i.i) #16
   call void @free(ptr noundef %263) #16

@@ -260,9 +260,9 @@ bsearch.exit:                                     ; preds = %42
   br label %71
 
 71:                                               ; preds = %bsearch.exit, %.loopexit, %64, %63, %62, %60, %54
-  %.2119 = phi i1 [ false, %64 ], [ false, %54 ], [ false, %60 ], [ false, %62 ], [ false, %63 ], [ false, %.loopexit ], [ %14, %bsearch.exit ]
-  %.2110 = phi i8 [ %.0108.ph210, %64 ], [ 0, %54 ], [ 0, %60 ], [ %.0108.ph210, %62 ], [ %.0108.ph210, %63 ], [ %.0108.ph210, %.loopexit ], [ %.0108.ph210, %bsearch.exit ]
-  %.2 = phi ptr [ %.0.ph213, %64 ], [ %55, %54 ], [ %61, %60 ], [ %.0.ph213, %62 ], [ %.0.ph213, %63 ], [ %.0.ph213, %.loopexit ], [ %.0.ph213, %bsearch.exit ]
+  %.2119 = phi i1 [ false, %64 ], [ false, %.loopexit ], [ false, %63 ], [ false, %54 ], [ false, %60 ], [ false, %62 ], [ %14, %bsearch.exit ]
+  %.2110 = phi i8 [ %.0108.ph210, %64 ], [ %.0108.ph210, %.loopexit ], [ %.0108.ph210, %63 ], [ 0, %54 ], [ 0, %60 ], [ %.0108.ph210, %62 ], [ %.0108.ph210, %bsearch.exit ]
+  %.2 = phi ptr [ %.0.ph213, %64 ], [ %.0.ph213, %.loopexit ], [ %.0.ph213, %63 ], [ %55, %54 ], [ %61, %60 ], [ %.0.ph213, %62 ], [ %.0.ph213, %bsearch.exit ]
   %72 = getelementptr inbounds nuw i8, ptr %26, i64 1
   br label %.thread
 
@@ -428,10 +428,10 @@ bsearch.exit:                                     ; preds = %42
   br label %.thread
 
 .thread:                                          ; preds = %71, %127, %94, %96, %125, %123, %146, %.thread159, %22
-  %.5122 = phi i1 [ false, %22 ], [ false, %146 ], [ false, %.thread159 ], [ false, %123 ], [ false, %125 ], [ false, %96 ], [ false, %94 ], [ false, %127 ], [ %.2119, %71 ]
-  %.8116 = phi i8 [ %.0108.ph210, %22 ], [ %.0108.ph210, %146 ], [ %.0108.ph210, %.thread159 ], [ %.5113, %123 ], [ %.0108.ph210, %125 ], [ %.0108.ph210, %96 ], [ %.0108.ph210, %94 ], [ %.0108.ph210, %127 ], [ %.2110, %71 ]
-  %.6103 = phi ptr [ %24, %22 ], [ %148, %146 ], [ %152, %.thread159 ], [ %124, %123 ], [ %.4101, %125 ], [ %77, %96 ], [ %95, %94 ], [ %132, %127 ], [ %72, %71 ]
-  %.8 = phi ptr [ %.0.ph213, %22 ], [ %.0.ph213, %146 ], [ %.0.ph213, %.thread159 ], [ %.5, %123 ], [ %.0.ph213, %125 ], [ %.0.ph213, %96 ], [ %.0.ph213, %94 ], [ %.0.ph213, %127 ], [ %.2, %71 ]
+  %.5122 = phi i1 [ false, %22 ], [ %.2119, %71 ], [ false, %146 ], [ false, %.thread159 ], [ false, %123 ], [ false, %125 ], [ false, %94 ], [ false, %96 ], [ false, %127 ]
+  %.8116 = phi i8 [ %.0108.ph210, %22 ], [ %.2110, %71 ], [ %.0108.ph210, %146 ], [ %.0108.ph210, %.thread159 ], [ %.5113, %123 ], [ %.0108.ph210, %125 ], [ %.0108.ph210, %94 ], [ %.0108.ph210, %96 ], [ %.0108.ph210, %127 ]
+  %.6103 = phi ptr [ %24, %22 ], [ %72, %71 ], [ %148, %146 ], [ %152, %.thread159 ], [ %124, %123 ], [ %.4101, %125 ], [ %95, %94 ], [ %77, %96 ], [ %132, %127 ]
+  %.8 = phi ptr [ %.0.ph213, %22 ], [ %.2, %71 ], [ %.0.ph213, %146 ], [ %.0.ph213, %.thread159 ], [ %.5, %123 ], [ %.0.ph213, %125 ], [ %.0.ph213, %94 ], [ %.0.ph213, %96 ], [ %.0.ph213, %127 ]
   %153 = load i8, ptr %.6103, align 1, !tbaa !25
   %154 = icmp eq i8 %153, 0
   %or.cond.not202 = or i1 %154, %.5122
@@ -659,7 +659,7 @@ define internal noundef i32 @writeString(ptr noundef %0, ptr noundef readonly ca
   br i1 %.not82, label %.thread99.loopexit, label %.lr.ph, !llvm.loop !61
 
 .thread99.loopexit:                               ; preds = %62, %53, %50, %64
-  %.259.ph = phi i1 [ false, %64 ], [ true, %50 ], [ true, %53 ], [ true, %62 ]
+  %.259.ph = phi i1 [ false, %64 ], [ true, %62 ], [ true, %53 ], [ true, %50 ]
   %.pre = load ptr, ptr %38, align 8, !tbaa !53
   %.pre125 = load i32, ptr %.pre, align 8, !tbaa !54
   br label %.thread99
@@ -801,9 +801,9 @@ urlpart.exit:                                     ; preds = %106
   br label %.thread103
 
 109:                                              ; preds = %._crit_edge, %._crit_edge.thread, %urlpart.exit.thread145, %27, %.loopexit, %89, %85, %80
-  %110 = phi ptr [ %26, %.loopexit ], [ %81, %80 ], [ %84, %85 ], [ %88, %89 ], [ %32, %27 ], [ %.pre.i, %urlpart.exit.thread145 ], [ %spec.store.select, %._crit_edge.thread ], [ null, %._crit_edge ]
-  %.055 = phi ptr [ null, %.loopexit ], [ null, %80 ], [ null, %85 ], [ null, %89 ], [ null, %27 ], [ %.pre.i, %urlpart.exit.thread145 ], [ null, %._crit_edge.thread ], [ null, %._crit_edge ]
-  %.3 = phi i1 [ %.0, %.loopexit ], [ true, %80 ], [ true, %85 ], [ true, %89 ], [ %or.cond, %27 ], [ true, %urlpart.exit.thread145 ], [ true, %._crit_edge.thread ], [ false, %._crit_edge ]
+  %110 = phi ptr [ %26, %.loopexit ], [ %88, %89 ], [ %32, %27 ], [ %84, %85 ], [ %.pre.i, %urlpart.exit.thread145 ], [ %81, %80 ], [ %spec.store.select, %._crit_edge.thread ], [ null, %._crit_edge ]
+  %.055 = phi ptr [ null, %.loopexit ], [ null, %89 ], [ null, %27 ], [ null, %85 ], [ %.pre.i, %urlpart.exit.thread145 ], [ null, %80 ], [ null, %._crit_edge.thread ], [ null, %._crit_edge ]
+  %.3 = phi i1 [ %.0, %.loopexit ], [ true, %89 ], [ %or.cond, %27 ], [ true, %85 ], [ true, %urlpart.exit.thread145 ], [ true, %80 ], [ true, %._crit_edge.thread ], [ false, %._crit_edge ]
   %111 = icmp ne ptr %110, null
   %or.cond3 = select i1 %.3, i1 %111, i1 false
   br i1 %or.cond3, label %112, label %.thread103
@@ -822,8 +822,8 @@ urlpart.exit:                                     ; preds = %106
   %118 = call i32 @fputs(ptr noundef nonnull %110, ptr noundef %0)
   br label %122
 
-.thread103:                                       ; preds = %urlpart.exit, %93, %urlpart.exit.thread142, %90, %86, %82, %72, %71, %34, %109
-  %.055108 = phi ptr [ %.055, %109 ], [ null, %34 ], [ null, %71 ], [ null, %72 ], [ null, %82 ], [ null, %86 ], [ null, %90 ], [ null, %urlpart.exit.thread142 ], [ null, %93 ], [ null, %urlpart.exit ]
+.thread103:                                       ; preds = %urlpart.exit, %93, %urlpart.exit.thread142, %86, %82, %72, %71, %34, %90, %109
+  %.055108 = phi ptr [ %.055, %109 ], [ null, %90 ], [ null, %34 ], [ null, %71 ], [ null, %72 ], [ null, %82 ], [ null, %86 ], [ null, %93 ], [ null, %urlpart.exit.thread142 ], [ null, %urlpart.exit ]
   br i1 %4, label %119, label %122
 
 119:                                              ; preds = %.thread103
@@ -961,8 +961,8 @@ certinfo.exit.thread:                             ; preds = %20, %certinfo.exit
   %42 = zext nneg i32 %39 to i64
   br label %.critedge29.sink.split
 
-.critedge29.sink.split:                           ; preds = %certinfo.exit.thread, %certinfo.exit, %41, %35, %32, %17
-  %.sink = phi i64 [ %19, %17 ], [ %34, %32 ], [ %36, %35 ], [ %42, %41 ], [ %31, %certinfo.exit.thread ], [ 0, %certinfo.exit ]
+.critedge29.sink.split:                           ; preds = %certinfo.exit.thread, %certinfo.exit, %35, %32, %17, %41
+  %.sink = phi i64 [ %42, %41 ], [ %19, %17 ], [ %36, %35 ], [ %34, %32 ], [ %31, %certinfo.exit.thread ], [ 0, %certinfo.exit ]
   store i64 %.sink, ptr %7, align 8, !tbaa !48
   br label %.critedge29
 
@@ -991,7 +991,7 @@ certinfo.exit.thread:                             ; preds = %20, %certinfo.exit
   %54 = call i32 (ptr, ptr, ...) @curl_mfprintf(ptr noundef %0, ptr noundef nonnull @.str.90, i64 noundef %50) #7
   br label %58
 
-.critedge:                                        ; preds = %14, %37, %10
+.critedge:                                        ; preds = %37, %14, %10
   br i1 %4, label %55, label %58
 
 55:                                               ; preds = %.critedge

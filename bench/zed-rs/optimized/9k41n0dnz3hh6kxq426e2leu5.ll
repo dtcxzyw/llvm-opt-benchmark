@@ -209,7 +209,7 @@ define hidden { ptr, ptr } @_ZN11http_client10HttpClient3get17h7c18eeda3b579930E
   invoke void @_ZN4http7request5Parts3new17h9e3fa6aca9203c00E(ptr noalias noundef nonnull sret([224 x i8]) align 8 captures(none) dereferenceable(224) %10)
           to label %14 unwind label %.body.thread64
 
-.body.thread64:                                   ; preds = %33, %5, %30
+.body.thread64:                                   ; preds = %5, %30, %33
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread59
@@ -534,7 +534,7 @@ default.unreachable15:                            ; preds = %3
   br label %21
 
 .body:                                            ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.5005022800651993668.exit.i1.i.i", %43, %12, %28
-  %.pn2 = phi { ptr, i32 } [ %29, %28 ], [ %13, %12 ], [ %44, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.5005022800651993668.exit.i1.i.i" ], [ %44, %43 ]
+  %.pn2 = phi { ptr, i32 } [ %13, %12 ], [ %29, %28 ], [ %44, %43 ], [ %44, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.5005022800651993668.exit.i1.i.i" ]
   store i8 2, ptr %6, align 8
   resume { ptr, i32 } %.pn2
 
@@ -1610,7 +1610,7 @@ define hidden void @"_ZN4core3ptr32drop_in_place$LT$heed..Error$GT$17h3b9bc221a1
   br label %common.resume
 
 common.resume:                                    ; preds = %53, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8271119346295809160.exit.i1.i3", %32, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8271119346295809160.exit.i1.i"
-  %common.resume.op = phi { ptr, i32 } [ %33, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8271119346295809160.exit.i1.i" ], [ %33, %32 ], [ %54, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8271119346295809160.exit.i1.i3" ], [ %54, %53 ]
+  %common.resume.op = phi { ptr, i32 } [ %33, %32 ], [ %33, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8271119346295809160.exit.i1.i" ], [ %54, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8271119346295809160.exit.i1.i3" ], [ %54, %53 ]
   resume { ptr, i32 } %common.resume.op
 
 40:                                               ; preds = %1
@@ -3134,8 +3134,8 @@ define hidden { ptr, ptr } @_ZN4core5error5Error5cause17ha5a4b158ab8a07ecE.llvm.
   br label %"_ZN68_$LT$cargo_metadata..errors..Error$u20$as$u20$core..error..Error$GT$6source17h9dc66a4357ae76a2E.llvm.8271119346295809160.exit"
 
 "_ZN68_$LT$cargo_metadata..errors..Error$u20$as$u20$core..error..Error$GT$6source17h9dc66a4357ae76a2E.llvm.8271119346295809160.exit": ; preds = %1, %1, %7, %9, %11, %12
-  %.sroa.7.0.i = phi ptr [ @anon.29eebd7db1f9a93b7f855764ee7d5248.71.llvm.8271119346295809160, %7 ], [ @anon.29eebd7db1f9a93b7f855764ee7d5248.120, %9 ], [ @anon.29eebd7db1f9a93b7f855764ee7d5248.122.llvm.8271119346295809160, %11 ], [ @anon.29eebd7db1f9a93b7f855764ee7d5248.124, %12 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0.i = phi ptr [ %8, %7 ], [ %10, %9 ], [ %0, %11 ], [ %13, %12 ], [ null, %1 ], [ null, %1 ]
+  %.sroa.7.0.i = phi ptr [ undef, %1 ], [ @anon.29eebd7db1f9a93b7f855764ee7d5248.71.llvm.8271119346295809160, %7 ], [ @anon.29eebd7db1f9a93b7f855764ee7d5248.120, %9 ], [ @anon.29eebd7db1f9a93b7f855764ee7d5248.122.llvm.8271119346295809160, %11 ], [ @anon.29eebd7db1f9a93b7f855764ee7d5248.124, %12 ], [ undef, %1 ]
+  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %8, %7 ], [ %10, %9 ], [ %0, %11 ], [ %13, %12 ], [ null, %1 ]
   %14 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
   %15 = insertvalue { ptr, ptr } %14, ptr %.sroa.7.0.i, 1
   ret { ptr, ptr } %15
@@ -5611,8 +5611,8 @@ define hidden { ptr, ptr } @"_ZN68_$LT$cargo_metadata..errors..Error$u20$as$u20$
   br label %14
 
 14:                                               ; preds = %1, %1, %12, %11, %9, %7
-  %.sroa.7.0 = phi ptr [ @anon.29eebd7db1f9a93b7f855764ee7d5248.71.llvm.8271119346295809160, %7 ], [ @anon.29eebd7db1f9a93b7f855764ee7d5248.120, %9 ], [ @anon.29eebd7db1f9a93b7f855764ee7d5248.122.llvm.8271119346295809160, %11 ], [ @anon.29eebd7db1f9a93b7f855764ee7d5248.124, %12 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %8, %7 ], [ %10, %9 ], [ %0, %11 ], [ %13, %12 ], [ null, %1 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ undef, %1 ], [ @anon.29eebd7db1f9a93b7f855764ee7d5248.71.llvm.8271119346295809160, %7 ], [ @anon.29eebd7db1f9a93b7f855764ee7d5248.120, %9 ], [ @anon.29eebd7db1f9a93b7f855764ee7d5248.122.llvm.8271119346295809160, %11 ], [ @anon.29eebd7db1f9a93b7f855764ee7d5248.124, %12 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ null, %1 ], [ %8, %7 ], [ %10, %9 ], [ %0, %11 ], [ %13, %12 ], [ null, %1 ]
   %15 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %16 = insertvalue { ptr, ptr } %15, ptr %.sroa.7.0, 1
   ret { ptr, ptr } %16
@@ -7048,7 +7048,7 @@ define hidden void @_ZN6anyhow5error23context_chain_drop_rest17h4d84fcc8e52979c4
   br label %common.resume
 
 common.resume:                                    ; preds = %41, %47, %15, %30
-  %common.resume.op = phi { ptr, i32 } [ %31, %30 ], [ %16, %15 ], [ %48, %47 ], [ %42, %41 ]
+  %common.resume.op = phi { ptr, i32 } [ %16, %15 ], [ %31, %30 ], [ %48, %47 ], [ %42, %41 ]
   tail call void @__rust_dealloc(ptr noundef nonnull %0, i64 noundef 88, i64 noundef 8) #47
   resume { ptr, i32 } %common.resume.op
 
@@ -9730,7 +9730,7 @@ common.resume:                                    ; preds = %.body, %34
   resume { ptr, i32 } %common.resume.op
 
 .body:                                            ; preds = %.body.i80, %.body.i, %38, %"_ZN4core3ptr121drop_in_place$LT$alloc..rc..Rc$LT$core..cell..RefCell$LT$dyn$u20$html_to_markdown..markdown_writer..HandleTag$GT$$GT$$GT$17h0538815990a611bdE.exit", %144
-  %.pn36 = phi { ptr, i32 } [ %.pn33.pn, %144 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %"_ZN4core3ptr121drop_in_place$LT$alloc..rc..Rc$LT$core..cell..RefCell$LT$dyn$u20$html_to_markdown..markdown_writer..HandleTag$GT$$GT$$GT$17h0538815990a611bdE.exit" ], [ %39, %38 ], [ %164, %.body.i ], [ %195, %.body.i80 ]
+  %.pn36 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %"_ZN4core3ptr121drop_in_place$LT$alloc..rc..Rc$LT$core..cell..RefCell$LT$dyn$u20$html_to_markdown..markdown_writer..HandleTag$GT$$GT$$GT$17h0538815990a611bdE.exit" ], [ %.pn33.pn, %144 ], [ %195, %.body.i80 ], [ %39, %38 ], [ %164, %.body.i ]
   invoke void @"_ZN4core3ptr136drop_in_place$LT$alloc..rc..Rc$LT$core..cell..RefCell$LT$indexed_docs..providers..rustdoc..to_markdown..RustdocItemCollector$GT$$GT$$GT$17hc2f6e72a4df67db0E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %21) #45
           to label %common.resume unwind label %210
 

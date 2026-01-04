@@ -138,12 +138,12 @@ define ptr @SplittingStepCreate(ptr noundef readonly captures(address_is_null) %
   br label %40
 
 40:                                               ; preds = %18, %23, %37, %38, %14
-  %.1 = phi ptr [ null, %14 ], [ null, %18 ], [ null, %23 ], [ null, %37 ], [ %12, %38 ]
+  %.1 = phi ptr [ null, %14 ], [ null, %18 ], [ null, %23 ], [ %12, %38 ], [ null, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %41
 
 41:                                               ; preds = %5, %40, %10
-  %.0 = phi ptr [ null, %10 ], [ %.1, %40 ], [ null, %5 ]
+  %.0 = phi ptr [ %.1, %40 ], [ null, %10 ], [ null, %5 ]
   ret ptr %.0
 }
 
@@ -242,7 +242,7 @@ splittingStep_CheckNVector.exit.thread:           ; preds = %31, %splittingStep_
   br label %.thread
 
 .thread:                                          ; preds = %splittingStep_CheckSUNStepper.exit.thread, %13, %splittingStep_CheckNVector.exit, %splittingStep_CheckNVector.exit.thread, %30, %9, %6
-  %.020 = phi i32 [ -22, %6 ], [ -22, %9 ], [ -22, %30 ], [ -22, %splittingStep_CheckNVector.exit.thread ], [ 0, %splittingStep_CheckNVector.exit ], [ -22, %13 ], [ -22, %splittingStep_CheckSUNStepper.exit.thread ]
+  %.020 = phi i32 [ -22, %6 ], [ -22, %9 ], [ -22, %30 ], [ 0, %splittingStep_CheckNVector.exit ], [ -22, %splittingStep_CheckNVector.exit.thread ], [ -22, %13 ], [ -22, %splittingStep_CheckSUNStepper.exit.thread ]
   ret i32 %.020
 }
 
@@ -444,7 +444,7 @@ splittingStep_SetCoefficients.exit:               ; preds = %59
   br label %69
 
 69:                                               ; preds = %splittingStep_SetCoefficients.exit, %22, %splittingStep_AccessStepMem.exit, %.critedge, %61, %29
-  %.024 = phi i32 [ 0, %61 ], [ -22, %29 ], [ -22, %22 ], [ -21, %splittingStep_AccessStepMem.exit ], [ 0, %.critedge ], [ -20, %splittingStep_SetCoefficients.exit ]
+  %.024 = phi i32 [ -22, %22 ], [ -21, %splittingStep_AccessStepMem.exit ], [ 0, %.critedge ], [ 0, %61 ], [ -22, %29 ], [ -20, %splittingStep_SetCoefficients.exit ]
   ret i32 %.024
 }
 
@@ -653,7 +653,7 @@ splittingStep_AccessStepMem.exit:                 ; preds = %3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %16, %.preheader24, %.preheader, %splittingStep_AccessStepMem.exit, %34
-  %.016 = phi i32 [ -22, %34 ], [ -21, %splittingStep_AccessStepMem.exit ], [ 0, %.preheader ], [ 0, %.preheader24 ], [ 0, %16 ], [ 0, %25 ]
+  %.016 = phi i32 [ -21, %splittingStep_AccessStepMem.exit ], [ -22, %34 ], [ 0, %.preheader ], [ 0, %.preheader24 ], [ 0, %16 ], [ 0, %25 ]
   ret i32 %.016
 }
 
@@ -862,7 +862,7 @@ splittingStep_AccessARKODEStepMem.exit:           ; preds = %8
   br label %splittingStep_AccessARKODEStepMem.exit.thread
 
 splittingStep_AccessARKODEStepMem.exit.thread:    ; preds = %12, %7, %19, %17, %22, %16
-  %.0 = phi i32 [ -23, %16 ], [ %21, %22 ], [ %18, %17 ], [ 0, %19 ], [ -21, %7 ], [ -21, %12 ]
+  %.0 = phi i32 [ %18, %17 ], [ -23, %16 ], [ 0, %19 ], [ %21, %22 ], [ -21, %7 ], [ -21, %12 ]
   ret i32 %.0
 }
 
@@ -918,7 +918,7 @@ splittingStep_AccessARKODEStepMem.exit:           ; preds = %5
   br label %splittingStep_AccessARKODEStepMem.exit.thread
 
 splittingStep_AccessARKODEStepMem.exit.thread:    ; preds = %9, %4, %18, %22, %17, %11
-  %.0 = phi i32 [ -22, %11 ], [ -22, %17 ], [ -21, %22 ], [ 0, %18 ], [ -21, %4 ], [ -21, %9 ]
+  %.0 = phi i32 [ 0, %18 ], [ -22, %11 ], [ -22, %17 ], [ -21, %22 ], [ -21, %4 ], [ -21, %9 ]
   ret i32 %.0
 }
 
@@ -991,7 +991,7 @@ splittingStep_AccessARKODEStepMem.exit:           ; preds = %6
   br label %splittingStep_AccessARKODEStepMem.exit.thread
 
 splittingStep_AccessARKODEStepMem.exit.thread:    ; preds = %20, %16, %10, %5, %25, %13
-  %.013 = phi i32 [ -22, %13 ], [ 0, %25 ], [ -21, %5 ], [ -21, %10 ], [ 0, %16 ], [ 0, %20 ]
+  %.013 = phi i32 [ 0, %25 ], [ -22, %13 ], [ -21, %10 ], [ -21, %5 ], [ 0, %16 ], [ 0, %20 ]
   ret i32 %.013
 }
 
@@ -1127,7 +1127,7 @@ define internal fastcc range(i32 -51, 1) i32 @splittingStep_SequentialMethod(ptr
   br i1 %.not58, label %.preheader, label %.thread, !llvm.loop !78
 
 .thread:                                          ; preds = %.critedge, %46, %43, %34, %.preheader.lr.ph, %4, %.thread63
-  %spec.select = phi i32 [ -51, %.thread63 ], [ 0, %4 ], [ 0, %.preheader.lr.ph ], [ -51, %34 ], [ -51, %43 ], [ -51, %46 ], [ 0, %.critedge ]
+  %spec.select = phi i32 [ -51, %46 ], [ -51, %.thread63 ], [ 0, %.preheader.lr.ph ], [ 0, %4 ], [ -51, %34 ], [ -51, %43 ], [ 0, %.critedge ]
   ret i32 %spec.select
 }
 

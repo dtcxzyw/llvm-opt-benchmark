@@ -397,7 +397,7 @@ _ZN6asmjit9_abi_1_104Zone6_allocEmm.exit:         ; preds = %65, %44, %79
   br label %_ZN6asmjit9_abi_1_104Zone6_allocEmm.exit.thread
 
 _ZN6asmjit9_abi_1_104Zone6_allocEmm.exit.thread:  ; preds = %54, %48, %83, %_ZN6asmjit9_abi_1_104Zone6_allocEmm.exit
-  %84 = phi ptr [ %81, %83 ], [ null, %_ZN6asmjit9_abi_1_104Zone6_allocEmm.exit ], [ null, %48 ], [ null, %54 ]
+  %84 = phi ptr [ null, %_ZN6asmjit9_abi_1_104Zone6_allocEmm.exit ], [ %81, %83 ], [ null, %48 ], [ null, %54 ]
   ret ptr %84
 }
 

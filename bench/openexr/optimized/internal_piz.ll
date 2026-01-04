@@ -357,7 +357,7 @@ applyLut.exit:                                    ; preds = %.lr.ph25.i, %.prehe
   br label %._crit_edge203
 
 ._crit_edge203:                                   ; preds = %154, %.lr.ph202, %._crit_edge203.loopexit210
-  %168 = phi i16 [ %.pre225, %._crit_edge203.loopexit210 ], [ %155, %.lr.ph202 ], [ %155, %154 ]
+  %168 = phi i16 [ %155, %.lr.ph202 ], [ %.pre225, %._crit_edge203.loopexit210 ], [ %155, %154 ]
   %169 = mul i32 %166, %160
   %170 = sext i32 %169 to i64
   %171 = getelementptr inbounds i16, ptr %.0140204, i64 %170
@@ -669,7 +669,7 @@ wav_2D_encode.exit.loopexit:                      ; preds = %.loopexit.i
   br label %347
 
 347:                                              ; preds = %331, %342, %344, %335
-  %.1 = phi i64 [ %8, %335 ], [ %340, %342 ], [ %8, %344 ], [ %.0138, %331 ]
+  %.1 = phi i64 [ %8, %335 ], [ %.0138, %331 ], [ %340, %342 ], [ %8, %344 ]
   %348 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i64 %.1, ptr %348, align 8, !tbaa !54
   br label %349
@@ -1287,7 +1287,7 @@ wav_2D_decode.exit:                               ; preds = %.loopexit.i, %105
   br i1 %267, label %.lr.ph188, label %._crit_edge189.loopexit, !llvm.loop !77
 
 .critedge:                                        ; preds = %25, %64, %59, %reverseLutFromBitmap.exit, %21, %16, %11, %5, %._crit_edge196
-  %.0 = phi i32 [ %223, %._crit_edge196 ], [ %10, %5 ], [ %15, %11 ], [ 23, %16 ], [ 23, %21 ], [ 23, %reverseLutFromBitmap.exit ], [ 23, %59 ], [ %68, %64 ], [ 23, %25 ]
+  %.0 = phi i32 [ 23, %25 ], [ %10, %5 ], [ %15, %11 ], [ 23, %16 ], [ %68, %64 ], [ 23, %reverseLutFromBitmap.exit ], [ 23, %59 ], [ %223, %._crit_edge196 ], [ 23, %21 ]
   ret i32 %.0
 }
 

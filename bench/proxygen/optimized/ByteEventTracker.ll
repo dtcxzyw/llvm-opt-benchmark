@@ -708,7 +708,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 common.resume:                                    ; preds = %lpad3, %lpad.body, %if.then.i.i13, %lpad.i, %if.then.i.i
-  %common.resume.op = phi { ptr, i32 } [ %3, %if.then.i.i ], [ %3, %lpad.i ], [ %20, %lpad3 ], [ %9, %lpad.body ], [ %9, %if.then.i.i13 ]
+  %common.resume.op = phi { ptr, i32 } [ %3, %lpad.i ], [ %3, %if.then.i.i ], [ %20, %lpad3 ], [ %9, %lpad.body ], [ %9, %if.then.i.i13 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIFvRN8proxygen9ByteEventEEEC2ERKS4_.exit: ; preds = %entry, %invoke.cont.i
@@ -1192,7 +1192,7 @@ terminate.lpad.i.i75:                             ; preds = %if.then.i.i73
   unreachable
 
 cleanup.action76:                                 ; preds = %if.then.i.i73, %lpad71, %if.then.i.i60, %lpad.i
-  %.pn = phi { ptr, i32 } [ %22, %if.then.i.i60 ], [ %22, %lpad.i ], [ %31, %lpad71 ], [ %31, %if.then.i.i73 ]
+  %.pn = phi { ptr, i32 } [ %22, %lpad.i ], [ %31, %if.then.i.i73 ], [ %22, %if.then.i.i60 ], [ %31, %lpad71 ]
   call void @_ZdlPv(ptr noundef nonnull %call64) #16
   br label %common.resume
 
@@ -1362,7 +1362,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 common.resume:                                    ; preds = %if.then.i.i12, %lpad.body, %lpad.i, %if.then.i.i
-  %common.resume.op = phi { ptr, i32 } [ %3, %if.then.i.i ], [ %3, %lpad.i ], [ %8, %lpad.body ], [ %8, %if.then.i.i12 ]
+  %common.resume.op = phi { ptr, i32 } [ %3, %lpad.i ], [ %3, %if.then.i.i ], [ %8, %lpad.body ], [ %8, %if.then.i.i12 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIFvRN8proxygen9ByteEventEEEC2ERKS4_.exit: ; preds = %entry, %invoke.cont.i
@@ -1545,7 +1545,7 @@ terminate.lpad.i.i12:                             ; preds = %if.then.i.i10
   unreachable
 
 cleanup.action:                                   ; preds = %if.then.i.i10, %lpad2, %if.then.i.i, %lpad.i
-  %.pn = phi { ptr, i32 } [ %3, %if.then.i.i ], [ %3, %lpad.i ], [ %12, %lpad2 ], [ %12, %if.then.i.i10 ]
+  %.pn = phi { ptr, i32 } [ %3, %lpad.i ], [ %12, %if.then.i.i10 ], [ %3, %if.then.i.i ], [ %12, %lpad2 ]
   call void @_ZdlPv(ptr noundef nonnull %call) #16
   resume { ptr, i32 } %.pn
 }
@@ -1648,7 +1648,7 @@ terminate.lpad.i.i12:                             ; preds = %if.then.i.i10
   unreachable
 
 cleanup.action:                                   ; preds = %if.then.i.i10, %lpad2, %if.then.i.i, %lpad.i
-  %.pn = phi { ptr, i32 } [ %3, %if.then.i.i ], [ %3, %lpad.i ], [ %12, %lpad2 ], [ %12, %if.then.i.i10 ]
+  %.pn = phi { ptr, i32 } [ %3, %lpad.i ], [ %12, %if.then.i.i10 ], [ %3, %if.then.i.i ], [ %12, %lpad2 ]
   call void @_ZdlPv(ptr noundef nonnull %call) #16
   resume { ptr, i32 } %.pn
 }

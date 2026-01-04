@@ -371,8 +371,8 @@ define internal range(i32 -1163346256, 1) i32 @adpcm_encode_init(ptr noundef %0)
   store i32 %141, ptr %145, align 4, !tbaa !46
   br label %.thread
 
-.thread:                                          ; preds = %76, %46, %56, %86, %97, %103, %116, %133, %135, %139, %60, %23, %28, %33, %22, %20, %39, %124, %36, %115, %113, %96, %14
-  %.095 = phi i32 [ -22, %14 ], [ -22, %96 ], [ -22, %113 ], [ -22, %115 ], [ -12, %36 ], [ -12, %124 ], [ -22, %39 ], [ -12, %23 ], [ -12, %28 ], [ -12, %33 ], [ -1163346256, %22 ], [ -22, %20 ], [ -12, %60 ], [ 0, %139 ], [ 0, %135 ], [ 0, %133 ], [ 0, %116 ], [ 0, %103 ], [ 0, %97 ], [ 0, %86 ], [ 0, %56 ], [ 0, %46 ], [ 0, %76 ]
+.thread:                                          ; preds = %76, %46, %56, %86, %97, %103, %116, %133, %135, %139, %60, %28, %33, %23, %22, %20, %39, %124, %36, %115, %113, %96, %14
+  %.095 = phi i32 [ -22, %14 ], [ -12, %124 ], [ -1163346256, %22 ], [ -12, %60 ], [ -22, %96 ], [ -22, %113 ], [ -22, %115 ], [ -12, %36 ], [ -22, %39 ], [ -22, %20 ], [ -12, %28 ], [ -12, %33 ], [ -12, %23 ], [ 0, %46 ], [ 0, %139 ], [ 0, %135 ], [ 0, %133 ], [ 0, %116 ], [ 0, %103 ], [ 0, %97 ], [ 0, %86 ], [ 0, %56 ], [ 0, %76 ]
   ret i32 %.095
 }
 
@@ -3329,7 +3329,7 @@ put_bits.exit730:                                 ; preds = %1603, %1610, %1596
   br label %.critedge
 
 .critedge:                                        ; preds = %1294, %885, %31, %1021, %69, %27, %.critedge549
-  %.0 = phi i32 [ 0, %.critedge549 ], [ %29, %27 ], [ -12, %69 ], [ -12, %1021 ], [ -22, %31 ], [ -12, %885 ], [ -12, %1294 ]
+  %.0 = phi i32 [ -12, %1294 ], [ -12, %885 ], [ 0, %.critedge549 ], [ %29, %27 ], [ -12, %1021 ], [ -22, %31 ], [ -12, %69 ]
   ret i32 %.0
 }
 
@@ -4044,7 +4044,7 @@ define internal fastcc void @adpcm_compress_trellis(ptr noundef readonly capture
   br i1 %exitcond630.not, label %.critedge, label %.lr.ph571.split.split, !llvm.loop !135
 
 .critedge:                                        ; preds = %.lr.ph571.split.split.us, %.loopexit531.us, %.lr.ph571.split.split, %.loopexit530, %.lr.ph571.split.us, %.loopexit.us, %71
-  %.1412.lcssa = phi i32 [ %.0411599, %71 ], [ %.2413.lcssa.us, %.loopexit.us ], [ %.1412570.us, %.lr.ph571.split.us ], [ %.9.lcssa, %.loopexit530 ], [ %.1412570, %.lr.ph571.split.split ], [ %.6.lcssa.us, %.loopexit531.us ], [ %.1412570.us576, %.lr.ph571.split.split.us ]
+  %.1412.lcssa = phi i32 [ %.0411599, %71 ], [ %.9.lcssa, %.loopexit530 ], [ %.2413.lcssa.us, %.loopexit.us ], [ %.1412570.us, %.lr.ph571.split.us ], [ %.1412570, %.lr.ph571.split.split ], [ %.1412570.us576, %.lr.ph571.split.split.us ], [ %.6.lcssa.us, %.loopexit531.us ]
   %358 = add nsw i32 %.0423593, 1
   %359 = icmp eq i32 %358, 255
   br i1 %359, label %360, label %361

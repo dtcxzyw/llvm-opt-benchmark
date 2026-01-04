@@ -98,7 +98,7 @@ define range(i32 -1, 2) i32 @uriCompareRangeA(ptr noundef readonly captures(addr
   br label %36
 
 36:                                               ; preds = %35, %32, %30, %17, %12, %5
-  %.0 = phi i32 [ %7, %5 ], [ %16, %12 ], [ 1, %17 ], [ -1, %30 ], [ 1, %32 ], [ %., %35 ]
+  %.0 = phi i32 [ %7, %5 ], [ %16, %12 ], [ 1, %32 ], [ 1, %17 ], [ -1, %30 ], [ %., %35 ]
   ret i32 %.0
 }
 
@@ -515,7 +515,7 @@ uriIsHostSetA.exit.thread:                        ; preds = %59, %62, %65, %uriI
   tail call void %169(ptr noundef nonnull %3, ptr noundef nonnull %82) #11
   br label %.critedge
 
-.thread301:                                       ; preds = %.lr.ph, %97, %73, %76, %23, %15, %85
+.thread301:                                       ; preds = %.lr.ph, %97, %76, %23, %73, %15, %85
   %170 = getelementptr inbounds nuw i8, ptr %.0186, i64 16
   %171 = load ptr, ptr %170, align 8, !tbaa !23
   %.not255 = icmp eq ptr %171, null
@@ -530,13 +530,13 @@ uriIsHostSetA.exit.thread:                        ; preds = %59, %62, %65, %uriI
   store ptr %.0186, ptr %13, align 8, !tbaa !33
   br label %.critedge
 
-.thread297:                                       ; preds = %157, %137, %52, %172, %.thread305
-  %.5191 = phi ptr [ %84, %.thread305 ], [ %171, %172 ], [ %30, %52 ], [ %84, %137 ], [ %84, %157 ]
+.thread297:                                       ; preds = %137, %157, %52, %172, %.thread305
+  %.5191 = phi ptr [ %84, %.thread305 ], [ %30, %52 ], [ %171, %172 ], [ %84, %157 ], [ %84, %137 ]
   %.not256 = icmp eq ptr %.5191, null
   br i1 %.not256, label %.critedge, label %15, !llvm.loop !34
 
 .critedge:                                        ; preds = %.thread297, %72, %70, %uriIsHostSetA.exit.thread, %.thread309, %168, %4, %6
-  %.0 = phi i32 [ 1, %6 ], [ 1, %4 ], [ 0, %168 ], [ 1, %.thread309 ], [ 1, %uriIsHostSetA.exit.thread ], [ 1, %70 ], [ 1, %72 ], [ 1, %.thread297 ]
+  %.0 = phi i32 [ 1, %72 ], [ 1, %4 ], [ 1, %6 ], [ 0, %168 ], [ 1, %.thread309 ], [ 1, %uriIsHostSetA.exit.thread ], [ 1, %70 ], [ 1, %.thread297 ]
   ret i32 %.0
 }
 
@@ -702,7 +702,7 @@ define signext range(i8 48, 103) i8 @uriHexToLetterExA(i32 noundef %0, i32 nound
   br label %30
 
 30:                                               ; preds = %2, %27, %24, %21, %18, %15, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3
-  %.0 = phi i8 [ %29, %27 ], [ 49, %3 ], [ 50, %4 ], [ 51, %5 ], [ 52, %6 ], [ 53, %7 ], [ 54, %8 ], [ 55, %9 ], [ 56, %10 ], [ 57, %11 ], [ %14, %12 ], [ %17, %15 ], [ %20, %18 ], [ %23, %21 ], [ %26, %24 ], [ 48, %2 ]
+  %.0 = phi i8 [ %29, %27 ], [ %26, %24 ], [ 49, %3 ], [ 50, %4 ], [ 51, %5 ], [ 52, %6 ], [ 53, %7 ], [ 54, %8 ], [ 55, %9 ], [ 56, %10 ], [ 57, %11 ], [ %14, %12 ], [ %17, %15 ], [ %20, %18 ], [ %23, %21 ], [ 48, %2 ]
   ret i8 %.0
 }
 
@@ -843,7 +843,7 @@ define range(i32 0, 2) i32 @uriCopyAuthorityA(ptr noundef writeonly captures(non
   br label %37
 
 37:                                               ; preds = %23, %10, %34
-  %.0 = phi i32 [ 1, %34 ], [ 0, %10 ], [ 0, %23 ]
+  %.0 = phi i32 [ 0, %10 ], [ 1, %34 ], [ 0, %23 ]
   ret i32 %.0
 }
 
@@ -908,7 +908,7 @@ define range(i32 0, 2) i32 @uriFixAmbiguityA(ptr noundef captures(none) %0, ptr 
   br label %.thread
 
 .thread:                                          ; preds = %7, %8, %27, %13, %14, %17, %22, %31
-  %.0 = phi i32 [ 1, %31 ], [ 1, %22 ], [ 1, %17 ], [ 1, %14 ], [ 1, %13 ], [ 0, %27 ], [ 1, %8 ], [ 1, %7 ]
+  %.0 = phi i32 [ 0, %27 ], [ 1, %31 ], [ 1, %22 ], [ 1, %17 ], [ 1, %14 ], [ 1, %13 ], [ 1, %8 ], [ 1, %7 ]
   ret i32 %.0
 }
 
@@ -1051,7 +1051,7 @@ define range(i32 -1, 2) i32 @uriCompareRangeW(ptr noundef readonly captures(addr
   br label %40
 
 40:                                               ; preds = %39, %36, %34, %17, %12, %5
-  %.0 = phi i32 [ %7, %5 ], [ %16, %12 ], [ 1, %17 ], [ -1, %34 ], [ 1, %36 ], [ %., %39 ]
+  %.0 = phi i32 [ %7, %5 ], [ %16, %12 ], [ 1, %36 ], [ 1, %17 ], [ -1, %34 ], [ %., %39 ]
   ret i32 %.0
 }
 
@@ -1469,7 +1469,7 @@ uriIsHostSetW.exit.thread:                        ; preds = %61, %64, %67, %uriI
   tail call void %171(ptr noundef nonnull %3, ptr noundef nonnull %84) #11
   br label %.critedge
 
-.thread301:                                       ; preds = %.lr.ph, %99, %75, %78, %24, %15, %87
+.thread301:                                       ; preds = %.lr.ph, %99, %78, %24, %75, %15, %87
   %172 = getelementptr inbounds nuw i8, ptr %.0186, i64 16
   %173 = load ptr, ptr %172, align 8, !tbaa !55
   %.not255 = icmp eq ptr %173, null
@@ -1484,13 +1484,13 @@ uriIsHostSetW.exit.thread:                        ; preds = %61, %64, %67, %uriI
   store ptr %.0186, ptr %13, align 8, !tbaa !61
   br label %.critedge
 
-.thread297:                                       ; preds = %159, %139, %54, %174, %.thread305
-  %.5191 = phi ptr [ %86, %.thread305 ], [ %173, %174 ], [ %31, %54 ], [ %86, %139 ], [ %86, %159 ]
+.thread297:                                       ; preds = %139, %159, %54, %174, %.thread305
+  %.5191 = phi ptr [ %86, %.thread305 ], [ %31, %54 ], [ %173, %174 ], [ %86, %159 ], [ %86, %139 ]
   %.not256 = icmp eq ptr %.5191, null
   br i1 %.not256, label %.critedge, label %15, !llvm.loop !62
 
 .critedge:                                        ; preds = %.thread297, %74, %72, %uriIsHostSetW.exit.thread, %.thread309, %170, %4, %6
-  %.0 = phi i32 [ 1, %6 ], [ 1, %4 ], [ 0, %170 ], [ 1, %.thread309 ], [ 1, %uriIsHostSetW.exit.thread ], [ 1, %72 ], [ 1, %74 ], [ 1, %.thread297 ]
+  %.0 = phi i32 [ 1, %74 ], [ 1, %4 ], [ 1, %6 ], [ 0, %170 ], [ 1, %.thread309 ], [ 1, %uriIsHostSetW.exit.thread ], [ 1, %72 ], [ 1, %.thread297 ]
   ret i32 %.0
 }
 
@@ -1656,7 +1656,7 @@ define range(i32 48, 103) i32 @uriHexToLetterExW(i32 noundef %0, i32 noundef %1)
   br label %30
 
 30:                                               ; preds = %2, %27, %24, %21, %18, %15, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3
-  %.0 = phi i32 [ %29, %27 ], [ 49, %3 ], [ 50, %4 ], [ 51, %5 ], [ 52, %6 ], [ 53, %7 ], [ 54, %8 ], [ 55, %9 ], [ 56, %10 ], [ 57, %11 ], [ %14, %12 ], [ %17, %15 ], [ %20, %18 ], [ %23, %21 ], [ %26, %24 ], [ 48, %2 ]
+  %.0 = phi i32 [ %29, %27 ], [ %26, %24 ], [ 49, %3 ], [ 50, %4 ], [ 51, %5 ], [ 52, %6 ], [ 53, %7 ], [ 54, %8 ], [ 55, %9 ], [ 56, %10 ], [ 57, %11 ], [ %14, %12 ], [ %17, %15 ], [ %20, %18 ], [ %23, %21 ], [ 48, %2 ]
   ret i32 %.0
 }
 
@@ -1794,7 +1794,7 @@ define range(i32 0, 2) i32 @uriCopyAuthorityW(ptr noundef writeonly captures(non
   br label %37
 
 37:                                               ; preds = %23, %10, %34
-  %.0 = phi i32 [ 1, %34 ], [ 0, %10 ], [ 0, %23 ]
+  %.0 = phi i32 [ 0, %10 ], [ 1, %34 ], [ 0, %23 ]
   ret i32 %.0
 }
 
@@ -1859,7 +1859,7 @@ define range(i32 0, 2) i32 @uriFixAmbiguityW(ptr noundef captures(none) %0, ptr 
   br label %.thread
 
 .thread:                                          ; preds = %7, %8, %27, %13, %14, %17, %22, %31
-  %.0 = phi i32 [ 1, %31 ], [ 1, %22 ], [ 1, %17 ], [ 1, %14 ], [ 1, %13 ], [ 0, %27 ], [ 1, %8 ], [ 1, %7 ]
+  %.0 = phi i32 [ 0, %27 ], [ 1, %31 ], [ 1, %22 ], [ 1, %17 ], [ 1, %14 ], [ 1, %13 ], [ 1, %8 ], [ 1, %7 ]
   ret i32 %.0
 }
 

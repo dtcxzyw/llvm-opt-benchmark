@@ -772,8 +772,8 @@ select.unfold.i:                                  ; preds = %68, %61, %54, %20
   br i1 %.not.i, label %tailrecurse._crit_edge.i, label %14
 
 tailrecurse._crit_edge.i:                         ; preds = %tailrecurse.i, %select.unfold.i, %2
-  %.tr.lcssa.i = phi ptr [ null, %2 ], [ %.tr110.i, %select.unfold.i ], [ %15, %tailrecurse.i ]
-  %.0.lcssa.i = phi ptr [ %0, %2 ], [ %187, %select.unfold.i ], [ %70, %tailrecurse.i ]
+  %.tr.lcssa.i = phi ptr [ %.tr110.i, %select.unfold.i ], [ null, %2 ], [ %15, %tailrecurse.i ]
+  %.0.lcssa.i = phi ptr [ %187, %select.unfold.i ], [ %0, %2 ], [ %70, %tailrecurse.i ]
   %189 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store ptr %.tr.lcssa.i, ptr %189, align 8, !tbaa !62
   %190 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -850,7 +850,7 @@ define noundef i32 @hwloc_pcidisc_tree_attach(ptr noundef %0, ptr noundef %1) lo
   br label %31
 
 31:                                               ; preds = %28, %24, %17
-  %.1.i = phi i8 [ %.044.i, %24 ], [ %.044.i, %17 ], [ %spec.select.i, %28 ]
+  %.1.i = phi i8 [ %.044.i, %17 ], [ %spec.select.i, %28 ], [ %.044.i, %24 ]
   %.not61.i = icmp eq ptr %20, null
   br i1 %.not61.i, label %41, label %32
 
@@ -1151,7 +1151,7 @@ hwloc_obj_get_info_by_name.exit.i:                ; preds = %37
   br label %hwloc_obj_get_info_by_name.exit.thread.i
 
 hwloc_obj_get_info_by_name.exit.thread.i:         ; preds = %36, %45, %43, %hwloc_obj_get_info_by_name.exit.i, %30
-  %46 = phi i64 [ 0, %30 ], [ 1, %45 ], [ 0, %43 ], [ 0, %hwloc_obj_get_info_by_name.exit.i ], [ 0, %36 ]
+  %46 = phi i64 [ 0, %hwloc_obj_get_info_by_name.exit.i ], [ 0, %30 ], [ 1, %45 ], [ 0, %43 ], [ 0, %36 ]
   %47 = tail call ptr @getenv(ptr noundef nonnull @.str.129) #22
   %.not58.i = icmp eq ptr %47, null
   br i1 %.not58.i, label %53, label %48
@@ -1509,7 +1509,7 @@ tailrecurse.loopexit.i:                           ; preds = %82, %66
   br i1 %.not.i, label %hwloc__pci_find_by_busid.exit, label %23, !llvm.loop !95
 
 hwloc__pci_find_by_busid.exit:                    ; preds = %tailrecurse.loopexit.i, %45, %50, %.thread.i, %86, %.loopexit
-  %.050.i = phi ptr [ %spec.select, %.loopexit ], [ %.070.i, %45 ], [ %.tr79.i, %50 ], [ %.tr79.i, %86 ], [ %.tr79.i, %.thread.i ], [ %.070.i, %tailrecurse.loopexit.i ]
+  %.050.i = phi ptr [ %.tr79.i, %86 ], [ %spec.select, %.loopexit ], [ %.070.i, %45 ], [ %.tr79.i, %.thread.i ], [ %.tr79.i, %50 ], [ %.070.i, %tailrecurse.loopexit.i ]
   %88 = icmp eq ptr %.050.i, %6
   %.043 = select i1 %88, ptr null, ptr %.050.i
   ret ptr %.043
@@ -1565,7 +1565,7 @@ define range(i32 0, 253) i32 @hwloc_pcidisc_find_cap(ptr noundef readonly captur
   br i1 %.not17, label %.thread, label %.lr.ph, !llvm.loop !96
 
 .thread:                                          ; preds = %20, %.lr.ph, %18, %7, %.thread21, %2
-  %.0 = phi i32 [ 0, %2 ], [ %17, %.thread21 ], [ 0, %7 ], [ 0, %18 ], [ 0, %.lr.ph ], [ 0, %20 ]
+  %.0 = phi i32 [ %17, %.thread21 ], [ 0, %2 ], [ 0, %7 ], [ 0, %18 ], [ 0, %.lr.ph ], [ 0, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -1894,7 +1894,7 @@ switch.lookup49:                                  ; preds = %30
   br label %58
 
 58:                                               ; preds = %30, %switch.lookup49, %20, %switch.lookup45, %18, %switch.lookup41, %16, %switch.lookup37, %14, %switch.lookup33, %12, %switch.lookup29, %10, %switch.lookup25, %8, %switch.lookup21, %6, %switch.lookup17, %4, %switch.lookup, %40, %32, %22, %1, %3, %47, %46, %45, %44, %43, %42, %41, %39, %38, %37, %36, %35, %34, %33, %29, %28, %27, %26, %25, %24, %23
-  %.0 = phi ptr [ @.str.112, %47 ], [ @.str.86, %29 ], [ @.str.80, %23 ], [ @.str.81, %24 ], [ @.str.82, %25 ], [ @.str.83, %26 ], [ @.str.84, %27 ], [ @.str.85, %28 ], [ @.str.104, %39 ], [ @.str.98, %33 ], [ @.str.99, %34 ], [ @.str.100, %35 ], [ @.str.101, %36 ], [ @.str.102, %37 ], [ @.str.103, %38 ], [ @.str.107, %41 ], [ @.str.108, %42 ], [ @.str.109, %43 ], [ @.str.110, %44 ], [ @.str.111, %45 ], [ @.str.85, %46 ], [ @.str.12, %3 ], [ @.str.78, %1 ], [ @.str.79, %22 ], [ @.str.97, %32 ], [ %.str.105..str.106, %40 ], [ %switch.load, %switch.lookup ], [ @.str.22, %4 ], [ %switch.load19, %switch.lookup17 ], [ @.str.32, %6 ], [ %switch.load23, %switch.lookup21 ], [ @.str.35, %8 ], [ %switch.load27, %switch.lookup25 ], [ @.str.40, %10 ], [ %switch.load31, %switch.lookup29 ], [ @.str.44, %12 ], [ %switch.load35, %switch.lookup33 ], [ @.str.56, %14 ], [ %switch.load39, %switch.lookup37 ], [ @.str.63, %16 ], [ %switch.load43, %switch.lookup41 ], [ @.str.71, %18 ], [ %switch.load47, %switch.lookup45 ], [ @.str.77, %20 ], [ %switch.load51, %switch.lookup49 ], [ @.str.96, %30 ]
+  %.0 = phi ptr [ @.str.112, %47 ], [ @.str.85, %46 ], [ @.str.102, %37 ], [ @.str.12, %3 ], [ @.str.111, %45 ], [ @.str.110, %44 ], [ @.str.109, %43 ], [ @.str.108, %42 ], [ @.str.107, %41 ], [ @.str.97, %32 ], [ %.str.105..str.106, %40 ], [ @.str.103, %38 ], [ @.str.71, %18 ], [ %switch.load, %switch.lookup ], [ @.str.22, %4 ], [ @.str.101, %36 ], [ @.str.100, %35 ], [ @.str.99, %34 ], [ @.str.98, %33 ], [ %switch.load51, %switch.lookup49 ], [ @.str.104, %39 ], [ @.str.78, %1 ], [ @.str.56, %14 ], [ %switch.load19, %switch.lookup17 ], [ @.str.32, %6 ], [ %switch.load35, %switch.lookup33 ], [ @.str.63, %16 ], [ %switch.load23, %switch.lookup21 ], [ @.str.35, %8 ], [ %switch.load47, %switch.lookup45 ], [ %switch.load39, %switch.lookup37 ], [ @.str.77, %20 ], [ %switch.load27, %switch.lookup25 ], [ @.str.40, %10 ], [ %switch.load43, %switch.lookup41 ], [ @.str.86, %29 ], [ %switch.load31, %switch.lookup29 ], [ @.str.44, %12 ], [ @.str.79, %22 ], [ @.str.80, %23 ], [ @.str.85, %28 ], [ @.str.84, %27 ], [ @.str.83, %26 ], [ @.str.82, %25 ], [ @.str.81, %24 ], [ @.str.96, %30 ]
   ret ptr %.0
 }
 

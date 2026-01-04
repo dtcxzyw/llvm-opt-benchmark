@@ -577,12 +577,12 @@ inflate_flush.exit820:                            ; preds = %189
   br i1 %.not801, label %257, label %.thread895.backedge
 
 .thread895.backedge:                              ; preds = %247, %257, %368, %1020, %109, %133, %140, %982, %._crit_edge1168, %788, %780, %668, %661, %653, %647, %179
-  %.sroa.265.0.be = phi i32 [ %.sroa.265.8.lcssa, %109 ], [ %.sroa.265.8.lcssa, %133 ], [ %.sroa.265.8.lcssa, %140 ], [ %.sroa.265.11.lcssa, %179 ], [ %.sroa.265.21.lcssa, %647 ], [ %.sroa.265.21.lcssa, %653 ], [ %.sroa.265.21.lcssa, %661 ], [ %.sroa.265.21.lcssa, %668 ], [ %.sroa.265.14.lcssa, %368 ], [ %.sroa.265.23.lcssa, %780 ], [ %.sroa.265.23.lcssa, %788 ], [ %.sroa.265.6, %._crit_edge1168 ], [ %.sroa.265.0, %982 ], [ %.sroa.265.7, %1020 ], [ %252, %257 ], [ %252, %247 ]
-  %.sroa.219199.0.be = phi ptr [ %.sroa.219199.8.lcssa, %109 ], [ %.sroa.219199.8.lcssa, %133 ], [ %.sroa.219199.8.lcssa, %140 ], [ %.sroa.219199.11.lcssa, %179 ], [ %.sroa.219199.21.lcssa, %647 ], [ %.sroa.219199.21.lcssa, %653 ], [ %.sroa.219199.21.lcssa, %661 ], [ %.sroa.219199.21.lcssa, %668 ], [ %.sroa.219199.14.lcssa, %368 ], [ %.sroa.219199.23.lcssa, %780 ], [ %.sroa.219199.23.lcssa, %788 ], [ %.sroa.219199.6, %._crit_edge1168 ], [ %.sroa.219199.0, %982 ], [ %.sroa.219199.7, %1020 ], [ %251, %257 ], [ %251, %247 ]
-  %.sroa.323276.0.be = phi ptr [ %.sroa.323276.0, %109 ], [ %.sroa.323276.0, %133 ], [ %.sroa.323276.0, %140 ], [ %.sroa.323276.0, %179 ], [ %.sroa.323276.0, %647 ], [ %.sroa.323276.0, %653 ], [ %.sroa.323276.0, %661 ], [ %.sroa.323276.0, %668 ], [ %.sroa.323276.0, %368 ], [ %.sroa.323276.0, %780 ], [ %.sroa.323276.0, %788 ], [ %.sroa.323276.6.lcssa, %._crit_edge1168 ], [ %985, %982 ], [ %1018, %1020 ], [ %253, %257 ], [ %253, %247 ]
-  %.sroa.130.0.be = phi i32 [ %113, %109 ], [ %104, %133 ], [ %104, %140 ], [ 0, %179 ], [ %643, %647 ], [ %643, %653 ], [ %643, %661 ], [ %643, %668 ], [ %.sroa.130.13.lcssa, %368 ], [ %776, %780 ], [ %776, %788 ], [ %.sroa.130.6, %._crit_edge1168 ], [ %.sroa.130.0, %982 ], [ %.sroa.130.7, %1020 ], [ %.sroa.130.0, %257 ], [ %.sroa.130.0, %247 ]
-  %.sroa.5684.0.be = phi i64 [ %112, %109 ], [ %103, %133 ], [ %103, %140 ], [ 0, %179 ], [ %642, %647 ], [ %642, %653 ], [ %642, %661 ], [ %642, %668 ], [ %.sroa.5684.12.lcssa, %368 ], [ %775, %780 ], [ %775, %788 ], [ %.sroa.5684.6, %._crit_edge1168 ], [ %.sroa.5684.0, %982 ], [ %.sroa.5684.0, %1020 ], [ %.sroa.5684.0, %257 ], [ %.sroa.5684.0, %247 ]
-  %.sroa.407.0.be = phi i32 [ %.sroa.407.0, %109 ], [ %.sroa.407.0, %133 ], [ %.sroa.407.0, %140 ], [ %.sroa.407.0, %179 ], [ %.sroa.407.0, %647 ], [ %.sroa.407.0, %653 ], [ %.sroa.407.0, %661 ], [ %.sroa.407.0, %668 ], [ %.sroa.407.0, %368 ], [ %.sroa.407.0, %780 ], [ %.sroa.407.0, %788 ], [ %.sroa.407.6.lcssa, %._crit_edge1168 ], [ %986, %982 ], [ %1024, %1020 ], [ %254, %257 ], [ %254, %247 ]
+  %.sroa.265.0.be = phi i32 [ %.sroa.265.7, %1020 ], [ %.sroa.265.8.lcssa, %109 ], [ %.sroa.265.8.lcssa, %133 ], [ %.sroa.265.8.lcssa, %140 ], [ %.sroa.265.11.lcssa, %179 ], [ %.sroa.265.0, %982 ], [ %.sroa.265.21.lcssa, %647 ], [ %.sroa.265.21.lcssa, %653 ], [ %.sroa.265.21.lcssa, %661 ], [ %.sroa.265.21.lcssa, %668 ], [ %.sroa.265.14.lcssa, %368 ], [ %.sroa.265.23.lcssa, %780 ], [ %.sroa.265.23.lcssa, %788 ], [ %.sroa.265.6, %._crit_edge1168 ], [ %252, %257 ], [ %252, %247 ]
+  %.sroa.219199.0.be = phi ptr [ %.sroa.219199.7, %1020 ], [ %.sroa.219199.8.lcssa, %109 ], [ %.sroa.219199.8.lcssa, %133 ], [ %.sroa.219199.8.lcssa, %140 ], [ %.sroa.219199.11.lcssa, %179 ], [ %.sroa.219199.0, %982 ], [ %.sroa.219199.21.lcssa, %647 ], [ %.sroa.219199.21.lcssa, %653 ], [ %.sroa.219199.21.lcssa, %661 ], [ %.sroa.219199.21.lcssa, %668 ], [ %.sroa.219199.14.lcssa, %368 ], [ %.sroa.219199.23.lcssa, %780 ], [ %.sroa.219199.23.lcssa, %788 ], [ %.sroa.219199.6, %._crit_edge1168 ], [ %251, %257 ], [ %251, %247 ]
+  %.sroa.323276.0.be = phi ptr [ %1018, %1020 ], [ %.sroa.323276.0, %109 ], [ %.sroa.323276.0, %133 ], [ %.sroa.323276.0, %140 ], [ %.sroa.323276.0, %179 ], [ %985, %982 ], [ %.sroa.323276.0, %647 ], [ %.sroa.323276.0, %653 ], [ %.sroa.323276.0, %661 ], [ %.sroa.323276.0, %668 ], [ %.sroa.323276.0, %368 ], [ %.sroa.323276.0, %780 ], [ %.sroa.323276.0, %788 ], [ %.sroa.323276.6.lcssa, %._crit_edge1168 ], [ %253, %257 ], [ %253, %247 ]
+  %.sroa.130.0.be = phi i32 [ %.sroa.130.7, %1020 ], [ %113, %109 ], [ %104, %133 ], [ %104, %140 ], [ 0, %179 ], [ %.sroa.130.0, %982 ], [ %643, %647 ], [ %643, %653 ], [ %643, %661 ], [ %643, %668 ], [ %.sroa.130.13.lcssa, %368 ], [ %776, %780 ], [ %776, %788 ], [ %.sroa.130.6, %._crit_edge1168 ], [ %.sroa.130.0, %257 ], [ %.sroa.130.0, %247 ]
+  %.sroa.5684.0.be = phi i64 [ %.sroa.5684.0, %1020 ], [ %112, %109 ], [ %103, %133 ], [ %103, %140 ], [ 0, %179 ], [ %.sroa.5684.0, %982 ], [ %642, %647 ], [ %642, %653 ], [ %642, %661 ], [ %642, %668 ], [ %.sroa.5684.12.lcssa, %368 ], [ %775, %780 ], [ %775, %788 ], [ %.sroa.5684.6, %._crit_edge1168 ], [ %.sroa.5684.0, %257 ], [ %.sroa.5684.0, %247 ]
+  %.sroa.407.0.be = phi i32 [ %1024, %1020 ], [ %.sroa.407.0, %109 ], [ %.sroa.407.0, %133 ], [ %.sroa.407.0, %140 ], [ %.sroa.407.0, %179 ], [ %986, %982 ], [ %.sroa.407.0, %647 ], [ %.sroa.407.0, %653 ], [ %.sroa.407.0, %661 ], [ %.sroa.407.0, %668 ], [ %.sroa.407.0, %368 ], [ %.sroa.407.0, %780 ], [ %.sroa.407.0, %788 ], [ %.sroa.407.6.lcssa, %._crit_edge1168 ], [ %254, %257 ], [ %254, %247 ]
   br label %.thread895
 
 257:                                              ; preds = %247
@@ -1221,11 +1221,11 @@ inflate_flush.exit845:                            ; preds = %505
   br label %538
 
 538:                                              ; preds = %432, %537
-  %.lcssa9951289 = phi i32 [ %436, %432 ], [ %533, %537 ]
-  %.sroa.265.18 = phi i32 [ %.sroa.265.17.lcssa, %432 ], [ %.sroa.265.20.lcssa, %537 ]
-  %.sroa.219199.18 = phi ptr [ %.sroa.219199.17.lcssa, %432 ], [ %.sroa.219199.20.lcssa, %537 ]
-  %.sroa.130.17 = phi i32 [ %435, %432 ], [ %493, %537 ]
-  %.sroa.5684.16 = phi i64 [ %434, %432 ], [ %492, %537 ]
+  %.lcssa9951289 = phi i32 [ %533, %537 ], [ %436, %432 ]
+  %.sroa.265.18 = phi i32 [ %.sroa.265.20.lcssa, %537 ], [ %.sroa.265.17.lcssa, %432 ]
+  %.sroa.219199.18 = phi ptr [ %.sroa.219199.20.lcssa, %537 ], [ %.sroa.219199.17.lcssa, %432 ]
+  %.sroa.130.17 = phi i32 [ %493, %537 ], [ %435, %432 ]
+  %.sroa.5684.16 = phi i64 [ %492, %537 ], [ %434, %432 ]
   %539 = icmp ult i32 %.lcssa9951289, %376
   br i1 %539, label %.lr.ph1296, label %._crit_edge1297
 
@@ -1926,7 +1926,7 @@ inflate_flush.exit870:                            ; preds = %805
   br i1 %868, label %.sink.split.preheader, label %924
 
 .sink.split.preheader:                            ; preds = %857, %860
-  %.sink.ph = phi ptr [ %.sroa.323276.61163, %857 ], [ %41, %860 ]
+  %.sink.ph = phi ptr [ %41, %860 ], [ %.sroa.323276.61163, %857 ]
   br label %.sink.split
 
 .sink.split:                                      ; preds = %885, %.sink.split.preheader
@@ -2087,7 +2087,7 @@ inflate_flush.exit880:                            ; preds = %905
   br i1 %946, label %.sink.split2206.preheader, label %982
 
 .sink.split2206.preheader:                        ; preds = %935, %938
-  %.sink2209.ph = phi ptr [ %.sroa.323276.0, %935 ], [ %41, %938 ]
+  %.sink2209.ph = phi ptr [ %41, %938 ], [ %.sroa.323276.0, %935 ]
   br label %.sink.split2206
 
 .sink.split2206:                                  ; preds = %963, %.sink.split2206.preheader
@@ -2282,8 +2282,8 @@ inflate_flush.exit890:                            ; preds = %999
 default.unreachable1789:                          ; preds = %101
   unreachable
 
-.thread905:                                       ; preds = %inflate_flush.exit845, %inflate_flush.exit840, %inflate_flush.exit835, %580, %inflate_flush.exit820, %246, %1028, %1027, %1019, %981, %inflate_flush.exit880, %inflate_flush.exit870, %inflate_flush.exit865, %inflate_flush.exit860, %inflate_flush.exit855, %inflate_flush.exit830, %300, %inflate_flush.exit825, %inflate_flush.exit815, %inflate_flush.exit
-  %.3 = phi i32 [ -2, %1028 ], [ 0, %inflate_flush.exit ], [ 0, %inflate_flush.exit815 ], [ 0, %inflate_flush.exit825 ], [ -3, %300 ], [ 0, %inflate_flush.exit830 ], [ 0, %inflate_flush.exit855 ], [ -3, %580 ], [ 0, %inflate_flush.exit860 ], [ 0, %inflate_flush.exit865 ], [ 0, %inflate_flush.exit870 ], [ 0, %inflate_flush.exit880 ], [ 0, %981 ], [ 0, %1019 ], [ 1, %1027 ], [ 0, %inflate_flush.exit820 ], [ 0, %246 ], [ -3, %inflate_flush.exit845 ], [ 0, %inflate_flush.exit840 ], [ 0, %inflate_flush.exit835 ]
+.thread905:                                       ; preds = %inflate_flush.exit840, %inflate_flush.exit845, %inflate_flush.exit835, %580, %inflate_flush.exit820, %246, %1028, %1027, %1019, %981, %inflate_flush.exit880, %inflate_flush.exit870, %inflate_flush.exit865, %inflate_flush.exit860, %inflate_flush.exit855, %inflate_flush.exit830, %300, %inflate_flush.exit825, %inflate_flush.exit815, %inflate_flush.exit
+  %.3 = phi i32 [ -2, %1028 ], [ 0, %inflate_flush.exit ], [ 0, %inflate_flush.exit815 ], [ 1, %1027 ], [ 0, %inflate_flush.exit825 ], [ -3, %300 ], [ 0, %inflate_flush.exit830 ], [ 0, %246 ], [ 0, %inflate_flush.exit855 ], [ -3, %580 ], [ 0, %inflate_flush.exit860 ], [ 0, %inflate_flush.exit865 ], [ 0, %inflate_flush.exit870 ], [ 0, %inflate_flush.exit880 ], [ 0, %981 ], [ 0, %1019 ], [ 0, %inflate_flush.exit820 ], [ 0, %inflate_flush.exit840 ], [ -3, %inflate_flush.exit845 ], [ 0, %inflate_flush.exit835 ]
   ret i32 %.3
 }
 
@@ -2712,9 +2712,9 @@ define internal fastcc range(i32 -5, 1) i32 @huft_build(ptr noundef readonly cap
   br label %159
 
 159:                                              ; preds = %._crit_edge280, %144, %149
-  %.7 = phi ptr [ %147, %144 ], [ %156, %149 ], [ %.5433, %._crit_edge280 ]
-  %.sroa.10.5 = phi i16 [ %148, %144 ], [ %158, %149 ], [ %.sroa.10.2.lcssa, %._crit_edge280 ]
-  %.sroa.0.0 = phi i8 [ %146, %144 ], [ %155, %149 ], [ -64, %._crit_edge280 ]
+  %.7 = phi ptr [ %156, %149 ], [ %147, %144 ], [ %.5433, %._crit_edge280 ]
+  %.sroa.10.5 = phi i16 [ %158, %149 ], [ %148, %144 ], [ %.sroa.10.2.lcssa, %._crit_edge280 ]
+  %.sroa.0.0 = phi i8 [ %155, %149 ], [ %146, %144 ], [ -64, %._crit_edge280 ]
   %160 = shl nuw i32 1, %.pre-phi363
   %161 = lshr i32 %.5183432, %.2158.lcssa
   %162 = icmp ult i32 %161, %.2.lcssa
@@ -2803,7 +2803,7 @@ define internal fastcc range(i32 -5, 1) i32 @huft_build(ptr noundef readonly cap
   br label %.loopexit233
 
 .loopexit233:                                     ; preds = %.lr.ph, %.critedge, %._crit_edge, %._crit_edge318, %23
-  %.0191 = phi i32 [ 0, %23 ], [ %186, %._crit_edge318 ], [ -3, %._crit_edge ], [ -4, %.critedge ], [ -3, %.lr.ph ]
+  %.0191 = phi i32 [ 0, %23 ], [ %186, %._crit_edge318 ], [ -4, %.critedge ], [ -3, %._crit_edge ], [ -3, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

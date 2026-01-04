@@ -444,7 +444,7 @@ define hidden void @_ZN12clap_builder4util9any_value8AnyValue13downcast_into17hf
   unreachable
 
 common.resume:                                    ; preds = %49, %53, %21, %25
-  %common.resume.op = phi { ptr, i32 } [ %22, %25 ], [ %22, %21 ], [ %50, %53 ], [ %50, %49 ]
+  %common.resume.op = phi { ptr, i32 } [ %22, %21 ], [ %22, %25 ], [ %50, %53 ], [ %50, %49 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc4sync83Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$C$A$GT$8downcast17hc0b63bb4f6e29656E.exit": ; preds = %2
@@ -976,7 +976,7 @@ _ZN4core3ops8function6FnOnce9call_once17h19448b8dd46029e3E.exit.thread.i6.i: ; p
   br label %.body
 
 .body:                                            ; preds = %57, %62, %52, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h52db68c9d55aae58E.llvm.17257708092590423667.exit.i.i", %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h52db68c9d55aae58E.llvm.17257708092590423667.exit.i4.i"
-  %eh.lpad-body = phi { ptr, i32 } [ %29, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h52db68c9d55aae58E.llvm.17257708092590423667.exit.i.i" ], [ %48, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h52db68c9d55aae58E.llvm.17257708092590423667.exit.i4.i" ], [ %53, %52 ], [ %58, %62 ], [ %58, %57 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %48, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h52db68c9d55aae58E.llvm.17257708092590423667.exit.i4.i" ], [ %29, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h52db68c9d55aae58E.llvm.17257708092590423667.exit.i.i" ], [ %53, %52 ], [ %58, %62 ], [ %58, %57 ]
   invoke void @"_ZN4core3ptr255drop_in_place$LT$core..iter..adapters..flatten..FlattenCompat$LT$alloc..vec..into_iter..IntoIter$LT$alloc..vec..Vec$LT$clap_builder..util..any_value..AnyValue$GT$$GT$$C$alloc..vec..into_iter..IntoIter$LT$clap_builder..util..any_value..AnyValue$GT$$GT$$GT$17h8af4d3e0363f8a78E.llvm.8210316318964160252"(ptr noalias noundef nonnull align 8 dereferenceable(96) %9)
           to label %"_ZN4core3ptr299drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$alloc..vec..into_iter..IntoIter$LT$alloc..vec..Vec$LT$clap_builder..util..any_value..AnyValue$GT$$GT$$GT$$C$clap_builder..parser..matches..arg_matches..unwrap_downcast_into$LT$std..path..PathBuf$GT$$GT$$GT$17hd3685f5c216f88aaE.exit" unwind label %70
 
@@ -1227,7 +1227,7 @@ _ZN4core3ops8function6FnOnce9call_once17h19448b8dd46029e3E.exit.thread.i6.i: ; p
   br label %.body
 
 .body:                                            ; preds = %57, %62, %52, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h52db68c9d55aae58E.llvm.17257708092590423667.exit.i.i", %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h52db68c9d55aae58E.llvm.17257708092590423667.exit.i4.i"
-  %eh.lpad-body = phi { ptr, i32 } [ %29, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h52db68c9d55aae58E.llvm.17257708092590423667.exit.i.i" ], [ %48, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h52db68c9d55aae58E.llvm.17257708092590423667.exit.i4.i" ], [ %53, %52 ], [ %58, %62 ], [ %58, %57 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %48, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h52db68c9d55aae58E.llvm.17257708092590423667.exit.i4.i" ], [ %29, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h52db68c9d55aae58E.llvm.17257708092590423667.exit.i.i" ], [ %53, %52 ], [ %58, %62 ], [ %58, %57 ]
   invoke void @"_ZN4core3ptr255drop_in_place$LT$core..iter..adapters..flatten..FlattenCompat$LT$alloc..vec..into_iter..IntoIter$LT$alloc..vec..Vec$LT$clap_builder..util..any_value..AnyValue$GT$$GT$$C$alloc..vec..into_iter..IntoIter$LT$clap_builder..util..any_value..AnyValue$GT$$GT$$GT$17h8af4d3e0363f8a78E.llvm.8210316318964160252"(ptr noalias noundef nonnull align 8 dereferenceable(96) %9)
           to label %"_ZN4core3ptr285drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$alloc..vec..into_iter..IntoIter$LT$alloc..vec..Vec$LT$clap_builder..util..any_value..AnyValue$GT$$GT$$GT$$C$clap_builder..parser..matches..arg_matches..unwrap_downcast_into$LT$bool$GT$$GT$$GT$17h16752feac79a9171E.exit" unwind label %71
 

@@ -173,7 +173,7 @@ define hidden i32 @uv__kernel_version() local_unnamed_addr #0 {
   br label %44
 
 44:                                               ; preds = %22, %13, %0, %36
-  %.0 = phi i32 [ %43, %36 ], [ %6, %0 ], [ 0, %13 ], [ 0, %22 ]
+  %.0 = phi i32 [ 0, %13 ], [ %43, %36 ], [ %6, %0 ], [ 0, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -592,7 +592,7 @@ watcher_root_RB_MINMAX.exit.preheader.i:          ; preds = %thread-pre-split.i
   br i1 %42, label %36, label %watcher_root_RB_NEXT.exit.i
 
 watcher_root_RB_NEXT.exit.i:                      ; preds = %.preheader.i.i, %39, %36, %33
-  %.1.i.i = phi ptr [ %32, %33 ], [ %38, %39 ], [ null, %36 ], [ %.0.i40.i, %.preheader.i.i ]
+  %.1.i.i = phi ptr [ null, %36 ], [ %32, %33 ], [ %38, %39 ], [ %.0.i40.i, %.preheader.i.i ]
   %43 = getelementptr inbounds nuw i8, ptr %.050.i, i64 48
   store i32 1, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %.050.i, i64 32
@@ -1000,7 +1000,7 @@ define hidden range(i32 0, 2) i32 @uv__iou_fs_close(ptr noundef %0, ptr noundef 
   br label %uv__iou_submit.exit
 
 uv__iou_submit.exit:                              ; preds = %31, %28, %23, %11, %5, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %5 ], [ 1, %11 ], [ 1, %23 ], [ 1, %28 ], [ 1, %31 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %2 ], [ 1, %11 ], [ 1, %23 ], [ 1, %28 ], [ 1, %31 ]
   ret i32 %.0
 }
 
@@ -1173,7 +1173,7 @@ define hidden range(i32 0, 2) i32 @uv__iou_fs_ftruncate(ptr noundef %0, ptr noun
   br label %uv__iou_submit.exit
 
 uv__iou_submit.exit:                              ; preds = %35, %32, %27, %11, %5, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %5 ], [ 1, %11 ], [ 1, %27 ], [ 1, %32 ], [ 1, %35 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %2 ], [ 1, %11 ], [ 1, %27 ], [ 1, %32 ], [ 1, %35 ]
   ret i32 %.0
 }
 
@@ -1290,7 +1290,7 @@ define hidden range(i32 0, 2) i32 @uv__iou_fs_link(ptr noundef %0, ptr noundef %
   br label %uv__iou_submit.exit
 
 uv__iou_submit.exit:                              ; preds = %38, %35, %30, %11, %5, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %5 ], [ 1, %11 ], [ 1, %30 ], [ 1, %35 ], [ 1, %38 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %2 ], [ 1, %11 ], [ 1, %30 ], [ 1, %35 ], [ 1, %38 ]
   ret i32 %.0
 }
 
@@ -1352,7 +1352,7 @@ define hidden range(i32 0, 2) i32 @uv__iou_fs_mkdir(ptr noundef %0, ptr noundef 
   br label %uv__iou_submit.exit
 
 uv__iou_submit.exit:                              ; preds = %36, %33, %28, %11, %5, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %5 ], [ 1, %11 ], [ 1, %28 ], [ 1, %33 ], [ 1, %36 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %2 ], [ 1, %11 ], [ 1, %28 ], [ 1, %33 ], [ 1, %36 ]
   ret i32 %.0
 }
 
@@ -1537,7 +1537,7 @@ define hidden range(i32 0, 2) i32 @uv__iou_fs_symlink(ptr noundef %0, ptr nounde
   br label %uv__iou_submit.exit
 
 uv__iou_submit.exit:                              ; preds = %37, %34, %29, %11, %5, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %5 ], [ 1, %11 ], [ 1, %29 ], [ 1, %34 ], [ 1, %37 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %2 ], [ 1, %11 ], [ 1, %29 ], [ 1, %34 ], [ 1, %37 ]
   ret i32 %.0
 }
 
@@ -1764,7 +1764,7 @@ define hidden range(i32 0, 2) i32 @uv__iou_fs_statx(ptr noundef %0, ptr noundef 
   br label %uv__iou_submit.exit
 
 uv__iou_submit.exit:                              ; preds = %52, %49, %44, %35, %4, %13
-  %.0 = phi i32 [ 0, %13 ], [ 0, %4 ], [ 1, %35 ], [ 1, %44 ], [ 1, %49 ], [ 1, %52 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %13 ], [ 1, %35 ], [ 1, %44 ], [ 1, %49 ], [ 1, %52 ]
   ret i32 %.0
 }
 
@@ -2132,7 +2132,7 @@ define hidden void @uv__io_poll(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   br label %128
 
 128:                                              ; preds = %123, %118
-  %.09.i.i = phi i64 [ %122, %118 ], [ %spec.select.i.i, %123 ]
+  %.09.i.i = phi i64 [ %spec.select.i.i, %123 ], [ %122, %118 ]
   %129 = trunc nuw nsw i64 %.09.i.i to i32
   %130 = call i32 @clock_gettime(i32 noundef %129, ptr noundef nonnull %3) #17
   %.not12.i.i = icmp eq i32 %130, 0
@@ -2476,9 +2476,9 @@ uv__iou_fs_statx_post.exit.i:                     ; preds = %178, %174
   br label %uv__poll_io_uring.exit
 
 uv__poll_io_uring.exit:                           ; preds = %315, %303, %294, %329, %.lr.ph186, %313
-  %.1131 = phi i32 [ %.0130181, %.lr.ph186 ], [ %.0130181, %313 ], [ %.0130181, %329 ], [ 1, %294 ], [ 1, %303 ], [ %.0130181, %315 ]
-  %.1128 = phi i32 [ %.0127182, %.lr.ph186 ], [ %.0127182, %313 ], [ %.2129, %329 ], [ %.0127182, %294 ], [ %.0127182, %303 ], [ %.0127182, %315 ]
-  %.1126 = phi i32 [ %.0125183, %.lr.ph186 ], [ %.0125183, %313 ], [ %330, %329 ], [ %.0125183, %294 ], [ %.0125183, %303 ], [ %.0125183, %315 ]
+  %.1131 = phi i32 [ %.0130181, %.lr.ph186 ], [ %.0130181, %315 ], [ %.0130181, %313 ], [ %.0130181, %329 ], [ 1, %294 ], [ 1, %303 ]
+  %.1128 = phi i32 [ %.0127182, %.lr.ph186 ], [ %.0127182, %315 ], [ %.0127182, %313 ], [ %.2129, %329 ], [ %.0127182, %294 ], [ %.0127182, %303 ]
+  %.1126 = phi i32 [ %.0125183, %.lr.ph186 ], [ %.0125183, %315 ], [ %.0125183, %313 ], [ %330, %329 ], [ %.0125183, %294 ], [ %.0125183, %303 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge187, label %.lr.ph186
@@ -2891,7 +2891,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_uptime(ptr noundef 
   br label %18
 
 18:                                               ; preds = %6, %15, %11
-  %.0 = phi i32 [ %14, %11 ], [ 0, %15 ], [ 0, %6 ]
+  %.0 = phi i32 [ 0, %15 ], [ %14, %11 ], [ 0, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
@@ -3230,7 +3230,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_cpu_info(ptr nounde
   br label %164
 
 164:                                              ; preds = %2, %._crit_edge102, %117, %14
-  %.0 = phi i32 [ %17, %14 ], [ -12, %117 ], [ 0, %._crit_edge102 ], [ -12, %2 ]
+  %.0 = phi i32 [ 0, %._crit_edge102 ], [ %17, %14 ], [ -12, %117 ], [ -12, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -3488,7 +3488,7 @@ uv__ifaddr_exclude.exit70.thread:                 ; preds = %86, %67, %62, %.lr.
   br i1 %.not59, label %._crit_edge98, label %.lr.ph97
 
 ._crit_edge98:                                    ; preds = %uv__ifaddr_exclude.exit70.thread, %.preheader80, %.preheader
-  %91 = phi ptr [ null, %.preheader ], [ null, %.preheader80 ], [ %.294.pre, %uv__ifaddr_exclude.exit70.thread ]
+  %91 = phi ptr [ null, %.preheader80 ], [ null, %.preheader ], [ %.294.pre, %uv__ifaddr_exclude.exit70.thread ]
   call void @freeifaddrs(ptr noundef %91) #17
   br label %92
 
@@ -3586,7 +3586,7 @@ uv__read_proc_meminfo.exit:                       ; preds = %5
   br label %22
 
 22:                                               ; preds = %12, %uv__read_proc_meminfo.exit, %15
-  %.0 = phi i64 [ %21, %15 ], [ %11, %uv__read_proc_meminfo.exit ], [ 0, %12 ]
+  %.0 = phi i64 [ %11, %uv__read_proc_meminfo.exit ], [ %21, %15 ], [ 0, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0
 }
@@ -3642,7 +3642,7 @@ uv__read_proc_meminfo.exit:                       ; preds = %5
   br label %22
 
 22:                                               ; preds = %12, %uv__read_proc_meminfo.exit, %15
-  %.0 = phi i64 [ %21, %15 ], [ %11, %uv__read_proc_meminfo.exit ], [ 0, %12 ]
+  %.0 = phi i64 [ %11, %uv__read_proc_meminfo.exit ], [ %21, %15 ], [ 0, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0
 }
@@ -3979,7 +3979,7 @@ uv__read_proc_meminfo.exit.i:                     ; preds = %25
   br label %uv_get_free_memory.exit
 
 uv_get_free_memory.exit:                          ; preds = %uv__read_proc_meminfo.exit.i, %32, %35
-  %.0.i = phi i64 [ %41, %35 ], [ %31, %uv__read_proc_meminfo.exit.i ], [ 0, %32 ]
+  %.0.i = phi i64 [ %31, %uv__read_proc_meminfo.exit.i ], [ %41, %35 ], [ 0, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %122
 
@@ -4031,7 +4031,7 @@ uv_get_total_memory.exit.thread:                  ; preds = %51
   br label %uv_get_total_memory.exit
 
 uv_get_total_memory.exit:                         ; preds = %uv__read_proc_meminfo.exit.i15, %54
-  %.0.i14 = phi i64 [ %60, %54 ], [ %50, %uv__read_proc_meminfo.exit.i15 ]
+  %.0.i14 = phi i64 [ %50, %uv__read_proc_meminfo.exit.i15 ], [ %60, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %61 = icmp ugt i64 %21, %.0.i14
   br i1 %61, label %62, label %81
@@ -4080,7 +4080,7 @@ uv__read_proc_meminfo.exit.i20:                   ; preds = %64
   br label %uv_get_free_memory.exit22
 
 uv_get_free_memory.exit22:                        ; preds = %uv__read_proc_meminfo.exit.i20, %71, %74
-  %.0.i19 = phi i64 [ %80, %74 ], [ %70, %uv__read_proc_meminfo.exit.i20 ], [ 0, %71 ]
+  %.0.i19 = phi i64 [ %70, %uv__read_proc_meminfo.exit.i20 ], [ %80, %74 ], [ 0, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %122
 
@@ -4218,7 +4218,7 @@ uv__get_cgroup2_current_memory.exit:              ; preds = %108, %115, %117, %1
   br label %122
 
 122:                                              ; preds = %121, %0, %uv_get_free_memory.exit22, %uv_get_free_memory.exit
-  %.0 = phi i64 [ %.0.i, %uv_get_free_memory.exit ], [ %.0.i19, %uv_get_free_memory.exit22 ], [ 0, %0 ], [ %spec.select, %121 ]
+  %.0 = phi i64 [ %spec.select, %121 ], [ %.0.i, %uv_get_free_memory.exit ], [ %.0.i19, %uv_get_free_memory.exit22 ], [ 0, %0 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   ret i64 %.0
 }
@@ -4296,7 +4296,7 @@ define hidden range(i32 -22, 1) i32 @uv__get_constrained_cpu(ptr noundef %0) loc
   br label %uv__get_cgroupv2_constrained_cpu.exit
 
 uv__get_cgroupv2_constrained_cpu.exit:            ; preds = %13, %20, %26, %28, %32, %34
-  %.0.i = phi i32 [ 0, %34 ], [ -5, %13 ], [ -22, %20 ], [ -22, %26 ], [ -5, %28 ], [ -22, %32 ]
+  %.0.i = phi i32 [ -22, %20 ], [ -22, %32 ], [ -5, %13 ], [ -22, %26 ], [ -5, %28 ], [ 0, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -4357,14 +4357,14 @@ uv__get_cgroupv2_constrained_cpu.exit:            ; preds = %13, %20, %26, %28, 
   br label %uv__get_cgroupv1_constrained_cpu.exit
 
 uv__get_cgroupv1_constrained_cpu.exit:            ; preds = %39, %41, %48, %50, %54, %57, %61, %63
-  %.0.i4 = phi i32 [ 0, %63 ], [ -5, %41 ], [ -22, %48 ], [ -5, %50 ], [ -22, %54 ], [ -5, %57 ], [ -22, %61 ], [ -5, %39 ]
+  %.0.i4 = phi i32 [ 0, %63 ], [ -22, %61 ], [ -5, %41 ], [ -22, %48 ], [ -5, %50 ], [ -22, %54 ], [ -5, %57 ], [ -5, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %68
 
 68:                                               ; preds = %1, %uv__get_cgroupv1_constrained_cpu.exit, %uv__get_cgroupv2_constrained_cpu.exit
-  %.0 = phi i32 [ %.0.i, %uv__get_cgroupv2_constrained_cpu.exit ], [ %.0.i4, %uv__get_cgroupv1_constrained_cpu.exit ], [ -5, %1 ]
+  %.0 = phi i32 [ %.0.i4, %uv__get_cgroupv1_constrained_cpu.exit ], [ %.0.i, %uv__get_cgroupv2_constrained_cpu.exit ], [ -5, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
@@ -4864,7 +4864,7 @@ watcher_root_RB_INSERT_COLOR.exit.i:              ; preds = %.backedge.i.i, %.lr
   br label %find_watcher.exit
 
 find_watcher.exit:                                ; preds = %32, %50, %watcher_root_RB_INSERT_COLOR.exit.i
-  %.037 = phi ptr [ %38, %watcher_root_RB_INSERT_COLOR.exit.i ], [ %38, %50 ], [ %.093.i.i, %32 ]
+  %.037 = phi ptr [ %38, %50 ], [ %38, %watcher_root_RB_INSERT_COLOR.exit.i ], [ %.093.i.i, %32 ]
   %173 = load i32, ptr %5, align 8
   %174 = and i32 %173, 4
   %.not44 = icmp eq i32 %174, 0
@@ -4906,7 +4906,7 @@ find_watcher.exit:                                ; preds = %32, %50, %watcher_r
   br label %194
 
 194:                                              ; preds = %.loopexit, %init_inotify.exit, %4, %183, %24
-  %.0 = phi i32 [ %27, %24 ], [ 0, %183 ], [ -22, %4 ], [ %20, %init_inotify.exit ], [ -12, %.loopexit ]
+  %.0 = phi i32 [ %20, %init_inotify.exit ], [ -22, %4 ], [ %27, %24 ], [ 0, %183 ], [ -12, %.loopexit ]
   ret i32 %.0
 }
 
@@ -5581,7 +5581,7 @@ split.thread.i.i:                                 ; preds = %125, %151, %split.t
   br label %.critedge.sink.split.i.i
 
 262:                                              ; preds = %212, %208, %125, %121
-  %.2.sink.i.i = phi ptr [ %.0.i.i, %125 ], [ %.0.i.i, %121 ], [ %.2.i.i, %212 ], [ %.2.i.i, %208 ]
+  %.2.sink.i.i = phi ptr [ %.0.i.i, %121 ], [ %.0.i.i, %125 ], [ %.2.i.i, %212 ], [ %.2.i.i, %208 ]
   %263 = getelementptr inbounds nuw i8, ptr %.2.sink.i.i, i64 24
   store i32 1, ptr %263, align 8
   %.1180.in.i.i = getelementptr inbounds nuw i8, ptr %.0179.i.i, i64 16

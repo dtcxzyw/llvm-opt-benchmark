@@ -195,7 +195,7 @@ define internal void @compute_range_stats(ptr noundef %0, ptr noundef readonly c
   br label %88
 
 88:                                               ; preds = %74, %82
-  %.0190 = phi double [ %87, %82 ], [ %.mux, %74 ]
+  %.0190 = phi double [ %.mux, %74 ], [ %87, %82 ]
   %89 = getelementptr inbounds double, ptr %27, i64 %75
   store double %.0190, ptr %89, align 8
   %90 = add i32 %.0193229, 1

@@ -1014,7 +1014,7 @@ define i32 @Sim_UtilCountSuppSizes(ptr noundef readonly captures(none) %0, i32 n
   br i1 %exitcond76.not, label %.critedge, label %.preheader.us, !llvm.loop !76
 
 .critedge:                                        ; preds = %..critedge2_crit_edge.us, %..critedge6_crit_edge.us, %.preheader.lr.ph, %.lr.ph55, %.preheader49, %.preheader48
-  %.2 = phi i32 [ 0, %.preheader48 ], [ 0, %.preheader49 ], [ 0, %.lr.ph55 ], [ 0, %.preheader.lr.ph ], [ %49, %..critedge6_crit_edge.us ], [ %30, %..critedge2_crit_edge.us ]
+  %.2 = phi i32 [ 0, %.preheader.lr.ph ], [ 0, %.preheader48 ], [ %49, %..critedge6_crit_edge.us ], [ 0, %.preheader49 ], [ 0, %.lr.ph55 ], [ %30, %..critedge2_crit_edge.us ]
   ret i32 %.2
 }
 

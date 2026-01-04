@@ -100,7 +100,7 @@ pmix_pointer_array_get_item.exit26.thread:        ; preds = %29, %pmix_pointer_a
   br label %pmix_pointer_array_get_item.exit.thread
 
 pmix_pointer_array_get_item.exit.thread:          ; preds = %6, %27, %20, %14, %pmix_pointer_array_get_item.exit, %pmix_pointer_array_get_item.exit26.thread
-  %.0 = phi i32 [ %.016, %pmix_pointer_array_get_item.exit26.thread ], [ 0, %pmix_pointer_array_get_item.exit ], [ 0, %14 ], [ -47, %20 ], [ -1, %27 ], [ 0, %6 ]
+  %.0 = phi i32 [ -47, %20 ], [ 0, %14 ], [ %.016, %pmix_pointer_array_get_item.exit26.thread ], [ 0, %pmix_pointer_array_get_item.exit ], [ -1, %27 ], [ 0, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -205,7 +205,7 @@ define range(i32 -47, 1) i32 @pmix_hwloc_copy_cpuset(ptr noundef writeonly captu
   br label %15
 
 15:                                               ; preds = %7, %2, %5, %11
-  %.0 = phi i32 [ 0, %11 ], [ -47, %5 ], [ -47, %2 ], [ -27, %7 ]
+  %.0 = phi i32 [ 0, %11 ], [ -47, %2 ], [ -47, %5 ], [ -27, %7 ]
   ret i32 %.0
 }
 
@@ -238,7 +238,7 @@ define ptr @pmix_hwloc_print_cpuset(ptr noundef readonly captures(none) %0) loca
   br label %14
 
 14:                                               ; preds = %11, %7, %1, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %1 ], [ null, %7 ], [ %spec.select, %11 ]
+  %.0 = phi ptr [ %spec.select, %11 ], [ null, %1 ], [ null, %7 ], [ null, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
@@ -578,7 +578,7 @@ pmix_pointer_array_get_item.exit66:               ; preds = %66
   br label %pmix_pointer_array_get_item.exit.thread
 
 pmix_pointer_array_get_item.exit.thread:          ; preds = %72, %pmix_pointer_array_get_item.exit66, %66, %54, %pmix_pointer_array_get_item.exit63, %41, %pmix_pointer_array_get_item.exit60, %7, %.thread, %60, %49, %36, %23, %21, %15, %pmix_pointer_array_get_item.exit
-  %.0 = phi i32 [ 0, %pmix_pointer_array_get_item.exit ], [ 0, %15 ], [ -47, %21 ], [ -1, %23 ], [ %39, %36 ], [ %53, %49 ], [ %65, %60 ], [ -16, %.thread ], [ 0, %7 ], [ -16, %pmix_pointer_array_get_item.exit60 ], [ -16, %41 ], [ -16, %pmix_pointer_array_get_item.exit63 ], [ -16, %54 ], [ %77, %72 ], [ -16, %pmix_pointer_array_get_item.exit66 ], [ -16, %66 ]
+  %.0 = phi i32 [ %65, %60 ], [ 0, %15 ], [ -47, %21 ], [ -1, %23 ], [ %39, %36 ], [ %53, %49 ], [ -16, %54 ], [ 0, %pmix_pointer_array_get_item.exit ], [ -16, %41 ], [ -16, %.thread ], [ 0, %7 ], [ -16, %pmix_pointer_array_get_item.exit60 ], [ -16, %pmix_pointer_array_get_item.exit63 ], [ %77, %72 ], [ -16, %pmix_pointer_array_get_item.exit66 ], [ -16, %66 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -776,7 +776,7 @@ pmix_pointer_array_get_item.exit61:               ; preds = %77
   br label %.thread
 
 .thread:                                          ; preds = %3, %pmix_pointer_array_get_item.exit, %14, %91, %.critedge52, %.critedge50, %.critedge, %48, %44, %40, %36, %26, %21
-  %.0 = phi i32 [ 0, %21 ], [ -1, %26 ], [ -1, %36 ], [ -1, %40 ], [ -1, %44 ], [ -1, %48 ], [ -1, %.critedge ], [ -1, %.critedge50 ], [ -1, %.critedge52 ], [ 0, %91 ], [ %17, %14 ], [ -16, %pmix_pointer_array_get_item.exit ], [ -16, %3 ]
+  %.0 = phi i32 [ 0, %91 ], [ 0, %21 ], [ -1, %26 ], [ -1, %36 ], [ -1, %40 ], [ -1, %44 ], [ -1, %48 ], [ -1, %.critedge ], [ -1, %.critedge50 ], [ -1, %.critedge52 ], [ %17, %14 ], [ -16, %pmix_pointer_array_get_item.exit ], [ -16, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -821,7 +821,7 @@ define range(i32 -47, 1) i32 @pmix_hwloc_copy_topology(ptr noundef %0, ptr nound
   br label %13
 
 13:                                               ; preds = %7, %2, %5
-  %.0 = phi i32 [ -47, %5 ], [ -47, %2 ], [ %., %7 ]
+  %.0 = phi i32 [ -47, %2 ], [ %., %7 ], [ -47, %5 ]
   ret i32 %.0
 }
 

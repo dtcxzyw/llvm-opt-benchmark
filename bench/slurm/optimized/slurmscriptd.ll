@@ -321,7 +321,7 @@ define internal range(i32 -1, 1) i32 @_msg_accept(ptr noundef readonly captures(
   br label %.thread
 
 .split124:                                        ; preds = %.lr.ph161, %.lr.ph146.preheader, %.lr.ph161.preheader, %.lr.ph146.preheader.preheader
-  %.us-phi125 = phi i64 [ %55, %.lr.ph146.preheader.preheader ], [ %43, %.lr.ph161.preheader ], [ %28, %.lr.ph146.preheader ], [ %52, %.lr.ph161 ]
+  %.us-phi125 = phi i64 [ %28, %.lr.ph146.preheader ], [ %55, %.lr.ph146.preheader.preheader ], [ %43, %.lr.ph161.preheader ], [ %52, %.lr.ph161 ]
   %34 = and i64 %.us-phi125, 2147483647
   %35 = getelementptr inbounds nuw i8, ptr %.060.ph165, i64 %34
   %36 = sub i64 %.061.ph163, %34
@@ -513,7 +513,7 @@ define internal range(i32 -1, 1) i32 @_msg_accept(ptr noundef readonly captures(
   br label %.thread
 
 .split175.us:                                     ; preds = %.lr.ph220, %.lr.ph203.preheader, %.lr.ph220.preheader, %.lr.ph203.preheader.preheader
-  %.us-phi176 = phi i64 [ %78, %.lr.ph203.preheader.preheader ], [ %66, %.lr.ph220.preheader ], [ %97, %.lr.ph203.preheader ], [ %75, %.lr.ph220 ]
+  %.us-phi176 = phi i64 [ %97, %.lr.ph203.preheader ], [ %78, %.lr.ph203.preheader.preheader ], [ %66, %.lr.ph220.preheader ], [ %75, %.lr.ph220 ]
   %103 = and i64 %.us-phi176, 2147483647
   %104 = getelementptr inbounds nuw i8, ptr %.057.ph227, i64 %103
   %105 = sub i64 %.058.ph225, %103
@@ -615,12 +615,12 @@ define internal range(i32 -1, 1) i32 @_msg_accept(ptr noundef readonly captures(
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %7, !llvm.loop !14
 
-.thread:                                          ; preds = %.split178.us, %102, %91, %86, %.split127, %33, %22, %17
+.thread:                                          ; preds = %102, %.split178.us, %91, %86, %33, %.split127, %22, %17
   %142 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.62, ptr noundef nonnull @__func__._msg_accept) #13
   br label %.loopexit
 
 .loopexit:                                        ; preds = %7, %13, %10, %.thread
-  %.0 = phi i32 [ -1, %.thread ], [ -1, %13 ], [ -1, %10 ], [ %trunc, %7 ]
+  %.0 = phi i32 [ -1, %.thread ], [ -1, %10 ], [ -1, %13 ], [ %trunc, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -1215,7 +1215,7 @@ _wait_for_script_resp.exit:                       ; preds = %74
   unreachable
 
 _script_resp_map_remove.exit:                     ; preds = %83, %33, %_incr_script_cnt.exit
-  %.019 = phi i32 [ %51, %_incr_script_cnt.exit ], [ -1, %33 ], [ %65, %83 ]
+  %.019 = phi i32 [ -1, %33 ], [ %51, %_incr_script_cnt.exit ], [ %65, %83 ]
   %.not15 = icmp eq ptr %7, null
   br i1 %.not15, label %91, label %90
 
@@ -1451,7 +1451,7 @@ define dso_local void @slurmscriptd_handle_bb_lua_mode(i32 noundef %0, ptr nound
   br label %_recv_bb_script_msg.exit.thread.i
 
 .split124.us.i.i:                                 ; preds = %.lr.ph161.i.i, %.lr.ph146.preheader.i.i, %.lr.ph146.preheader.i.preheader.i, %.lr.ph161.i.preheader.i
-  %.us-phi125.i.i = phi i64 [ %29, %.lr.ph146.preheader.i.preheader.i ], [ %17, %.lr.ph161.i.preheader.i ], [ %48, %.lr.ph146.preheader.i.i ], [ %26, %.lr.ph161.i.i ]
+  %.us-phi125.i.i = phi i64 [ %48, %.lr.ph146.preheader.i.i ], [ %29, %.lr.ph146.preheader.i.preheader.i ], [ %17, %.lr.ph161.i.preheader.i ], [ %26, %.lr.ph161.i.i ]
   %54 = and i64 %.us-phi125.i.i, 2147483647
   %55 = getelementptr inbounds nuw i8, ptr %.066.ph165.i.i, i64 %54
   %56 = sub i64 %.067.ph163.i.i, %54
@@ -1537,7 +1537,7 @@ define dso_local void @slurmscriptd_handle_bb_lua_mode(i32 noundef %0, ptr nound
   br label %_recv_bb_script_msg.exit.thread.i
 
 .split174.i.i:                                    ; preds = %.lr.ph212.i.i, %.lr.ph197.preheader.i.i, %.lr.ph197.preheader.i.preheader.i, %.lr.ph212.i.preheader.i
-  %.us-phi175.i.i = phi i64 [ %104, %.lr.ph197.preheader.i.preheader.i ], [ %92, %.lr.ph212.i.preheader.i ], [ %78, %.lr.ph197.preheader.i.i ], [ %101, %.lr.ph212.i.i ]
+  %.us-phi175.i.i = phi i64 [ %78, %.lr.ph197.preheader.i.i ], [ %104, %.lr.ph197.preheader.i.preheader.i ], [ %92, %.lr.ph212.i.preheader.i ], [ %101, %.lr.ph212.i.i ]
   %84 = and i64 %.us-phi175.i.i, 2147483647
   %85 = getelementptr inbounds nuw i8, ptr %.063.ph217.i.i, i64 %84
   %86 = sub i64 %.064.ph215.i.i, %84
@@ -1728,7 +1728,7 @@ define dso_local void @slurmscriptd_handle_bb_lua_mode(i32 noundef %0, ptr nound
   br label %_recv_bb_script_msg.exit.thread.i
 
 .split226.us.i.i:                                 ; preds = %.lr.ph264.i.i, %.lr.ph249.preheader.i.i, %.lr.ph249.preheader.i.preheader.i, %.lr.ph264.i.preheader.i
-  %.us-phi227.i.i = phi i64 [ %127, %.lr.ph249.preheader.i.preheader.i ], [ %115, %.lr.ph264.i.preheader.i ], [ %146, %.lr.ph249.preheader.i.i ], [ %124, %.lr.ph264.i.i ]
+  %.us-phi227.i.i = phi i64 [ %146, %.lr.ph249.preheader.i.i ], [ %127, %.lr.ph249.preheader.i.preheader.i ], [ %115, %.lr.ph264.i.preheader.i ], [ %124, %.lr.ph264.i.i ]
   %152 = and i64 %.us-phi227.i.i, 2147483647
   %153 = getelementptr inbounds nuw i8, ptr %.061.ph269.i.i, i64 %152
   %154 = sub i64 %.062.ph267.i.i, %152
@@ -3030,7 +3030,7 @@ define dso_local noundef i32 @slurmscriptd_fini() local_unnamed_addr #0 {
   br label %_script_resp_map_remove.exit.i.i
 
 _script_resp_map_remove.exit.i.i:                 ; preds = %16, %11
-  %.019.i.i = phi i1 [ %20, %16 ], [ false, %11 ]
+  %.019.i.i = phi i1 [ false, %11 ], [ %20, %16 ]
   %.not15.i.i = icmp eq ptr %13, null
   br i1 %.not15.i.i, label %_send_to_slurmscriptd.exit.i, label %21
 
@@ -4284,7 +4284,7 @@ define internal fastcc range(i32 -1, 1) i32 @_write_msg(i32 noundef %0, i32 noun
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.54, ptr noundef nonnull @__func__._write_msg) #15
   unreachable
 
-.thread:                                          ; preds = %.split192, %78, %.split173.us, %63, %.split155.us, %42, %.split137.us, %21
+.thread:                                          ; preds = %78, %.split192, %63, %.split173.us, %42, %.split155.us, %21, %.split137.us
   %93 = tail call zeroext i1 @running_in_slurmctld() #13
   br i1 %93, label %94, label %96
 
@@ -4307,7 +4307,7 @@ define internal fastcc range(i32 -1, 1) i32 @_write_msg(i32 noundef %0, i32 noun
   unreachable
 
 101:                                              ; preds = %96, %97, %.loopexit, %89
-  %.0 = phi i32 [ 0, %89 ], [ 0, %.loopexit ], [ -1, %97 ], [ -1, %96 ]
+  %.0 = phi i32 [ 0, %.loopexit ], [ 0, %89 ], [ -1, %97 ], [ -1, %96 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

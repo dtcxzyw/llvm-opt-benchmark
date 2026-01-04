@@ -154,8 +154,8 @@ rbimpl_intern_const.exit40:                       ; preds = %.lr.ph.i38, %rbimpl
   br label %32
 
 32:                                               ; preds = %29, %23
-  %.087.i = phi i64 [ %30, %29 ], [ 4, %23 ]
-  %.0.i = phi i32 [ %31, %29 ], [ %0, %23 ]
+  %.087.i = phi i64 [ 4, %23 ], [ %30, %29 ]
+  %.0.i = phi i32 [ %0, %23 ], [ %31, %29 ]
   %33 = icmp samesign ult i32 %.0.i, 2
   br i1 %33, label %.thread, label %.preheader56
 
@@ -218,7 +218,7 @@ rbimpl_intern_const.exit40:                       ; preds = %.lr.ph.i38, %rbimpl
   br i1 %54, label %rb_scan_args_set.exit, label %.thread
 
 .thread:                                          ; preds = %17, %53, %32
-  %.0.i43 = phi i32 [ %.0.i, %53 ], [ %.0.i, %32 ], [ %0, %17 ]
+  %.0.i43 = phi i32 [ %.0.i, %32 ], [ %.0.i, %53 ], [ %0, %17 ]
   call void @rb_error_arity(i32 noundef %.0.i43, i32 noundef 2, i32 noundef 4) #8
   unreachable
 
@@ -248,9 +248,9 @@ rb_scan_args_set.exit:                            ; preds = %53
   ]
 
 .thread44:                                        ; preds = %57, %57, %rb_scan_args_set.exit
-  %.054 = phi i64 [ 4, %rb_scan_args_set.exit ], [ %spec.select21, %57 ], [ %spec.select21, %57 ]
-  %.0952 = phi i64 [ 4, %rb_scan_args_set.exit ], [ %.110, %57 ], [ %.110, %57 ]
-  %.01150 = phi i64 [ 4, %rb_scan_args_set.exit ], [ %spec.select, %57 ], [ %spec.select, %57 ]
+  %.054 = phi i64 [ %spec.select21, %57 ], [ 4, %rb_scan_args_set.exit ], [ %spec.select21, %57 ]
+  %.0952 = phi i64 [ %.110, %57 ], [ 4, %rb_scan_args_set.exit ], [ %.110, %57 ]
+  %.01150 = phi i64 [ %spec.select, %57 ], [ 4, %rb_scan_args_set.exit ], [ %spec.select, %57 ]
   %66 = load i64, ptr @rb_cSocket, align 8, !tbaa !6
   %67 = load i64, ptr @tcp_fast_fallback, align 8, !tbaa !6
   %68 = call i64 @rb_ivar_get(i64 noundef %66, i64 noundef %67) #6

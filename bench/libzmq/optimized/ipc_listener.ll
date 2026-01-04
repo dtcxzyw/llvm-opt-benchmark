@@ -194,7 +194,7 @@ define noundef i32 @_ZN3zmq14ipc_listener_t6acceptEv(ptr noundef nonnull readonl
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %13, %20, %22, %18, %13, %13, %13, %13
-  %.0 = phi i32 [ -1, %13 ], [ -1, %13 ], [ -1, %13 ], [ -1, %13 ], [ -1, %18 ], [ -1, %22 ], [ %11, %20 ], [ -1, %13 ], [ -1, %.critedge.sink.split ]
+  %.0 = phi i32 [ -1, %13 ], [ -1, %18 ], [ -1, %22 ], [ -1, %13 ], [ -1, %13 ], [ -1, %13 ], [ -1, %13 ], [ %11, %20 ], [ -1, %.critedge.sink.split ]
   ret i32 %.0
 }
 
@@ -649,7 +649,7 @@ _ZN3zmq19endpoint_uri_pair_tD2Ev.exit:            ; preds = %_ZNSt7__cxx1112basi
   br label %148
 
 147:                                              ; preds = %75, %79, %48, %52, %144, %_ZN3zmq19endpoint_uri_pair_tD2Ev.exit
-  %.1 = phi i32 [ 0, %_ZN3zmq19endpoint_uri_pair_tD2Ev.exit ], [ -1, %144 ], [ -1, %52 ], [ -1, %48 ], [ -1, %79 ], [ -1, %75 ]
+  %.1 = phi i32 [ -1, %144 ], [ 0, %_ZN3zmq19endpoint_uri_pair_tD2Ev.exit ], [ -1, %48 ], [ -1, %52 ], [ -1, %79 ], [ -1, %75 ]
   call void @_ZN3zmq13ipc_address_tD1Ev(ptr noundef nonnull align 4 dereferenceable(116) %5) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %150
@@ -972,7 +972,7 @@ _ZNSt3setIjSt4lessIjESaIjEE4findERKj.exit:        ; preds = %_ZNSt8_Rb_treeIjjSt
   %29 = icmp ult i32 %21, %28
   br i1 %29, label %_ZNSt3setIjSt4lessIjESaIjEE4findERKj.exit.thread, label %.critedge
 
-_ZNSt3setIjSt4lessIjESaIjEE4findERKj.exit.thread: ; preds = %16, %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPSt13_Rb_tree_nodeIjEPSt18_Rb_tree_node_baseRKj.exit.i.i, %_ZNSt3setIjSt4lessIjESaIjEE4findERKj.exit
+_ZNSt3setIjSt4lessIjESaIjEE4findERKj.exit.thread: ; preds = %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPSt13_Rb_tree_nodeIjEPSt18_Rb_tree_node_baseRKj.exit.i.i, %16, %_ZNSt3setIjSt4lessIjESaIjEE4findERKj.exit
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %31 = load ptr, ptr %30, align 8, !tbaa !83
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 592
@@ -1007,7 +1007,7 @@ _ZNSt3setIjSt4lessIjESaIjEE4findERKj.exit34:      ; preds = %_ZNSt8_Rb_treeIjjSt
   %42 = icmp ult i32 %34, %41
   br i1 %42, label %_ZNSt3setIjSt4lessIjESaIjEE4findERKj.exit34.thread, label %.critedge
 
-_ZNSt3setIjSt4lessIjESaIjEE4findERKj.exit34.thread: ; preds = %_ZNSt3setIjSt4lessIjESaIjEE4findERKj.exit.thread, %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPSt13_Rb_tree_nodeIjEPSt18_Rb_tree_node_baseRKj.exit.i.i31, %_ZNSt3setIjSt4lessIjESaIjEE4findERKj.exit34
+_ZNSt3setIjSt4lessIjESaIjEE4findERKj.exit34.thread: ; preds = %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPSt13_Rb_tree_nodeIjEPSt18_Rb_tree_node_baseRKj.exit.i.i31, %_ZNSt3setIjSt4lessIjESaIjEE4findERKj.exit.thread, %_ZNSt3setIjSt4lessIjESaIjEE4findERKj.exit34
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %44 = load ptr, ptr %43, align 8, !tbaa !83
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 640
@@ -1041,7 +1041,7 @@ _ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit:        ; preds = %_ZNSt8_Rb_treeIiiSt
   %54 = icmp slt i32 %46, %53
   br i1 %54, label %_ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit.thread, label %.critedge
 
-_ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit.thread: ; preds = %_ZNSt3setIjSt4lessIjESaIjEE4findERKj.exit34.thread, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i, %_ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit
+_ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit.thread: ; preds = %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i, %_ZNSt3setIjSt4lessIjESaIjEE4findERKj.exit34.thread, %_ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit
   %55 = load i32, ptr %17, align 4, !tbaa !88
   %56 = call ptr @getpwuid(i32 noundef %55)
   %.not16 = icmp eq ptr %56, null
@@ -1089,7 +1089,7 @@ _ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit.thread: ; preds = %_ZNSt3setIjSt4lessI
   br i1 %.not67, label %.critedge, label %.lr.ph73, !llvm.loop !98
 
 .critedge:                                        ; preds = %.critedge21, %70, %_ZNSt3setIjSt4lessIjESaIjEE4findERKj.exit34, %_ZNSt3setIjSt4lessIjESaIjEE4findERKj.exit, %_ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit.thread, %_ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit, %14
-  %.1 = phi i1 [ false, %14 ], [ true, %_ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit ], [ false, %_ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit.thread ], [ true, %_ZNSt3setIjSt4lessIjESaIjEE4findERKj.exit ], [ true, %_ZNSt3setIjSt4lessIjESaIjEE4findERKj.exit34 ], [ true, %70 ], [ false, %.critedge21 ]
+  %.1 = phi i1 [ true, %_ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit ], [ false, %14 ], [ true, %_ZNSt3setIjSt4lessIjESaIjEE4findERKj.exit34 ], [ false, %_ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit.thread ], [ true, %_ZNSt3setIjSt4lessIjESaIjEE4findERKj.exit ], [ true, %70 ], [ false, %.critedge21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %74

@@ -664,7 +664,7 @@ _ZN7obj_refIN10polynomial10polynomialENS0_7managerEED2Ev.exit84: ; preds = %_ZN7
   br label %_ZN10z3_log_ctxD2Ev.exit
 
 214:                                              ; preds = %135, %187, %139, %184, %137, %44
-  %.pn63.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %45, %44 ], [ %188, %187 ], [ %136, %135 ], [ %138, %137 ], [ %.pn63, %184 ], [ %140, %139 ]
+  %.pn63.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %45, %44 ], [ %136, %135 ], [ %188, %187 ], [ %138, %137 ], [ %.pn63, %184 ], [ %140, %139 ]
   call void @_ZN23default_expr2polynomialD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #18
   br label %215
 

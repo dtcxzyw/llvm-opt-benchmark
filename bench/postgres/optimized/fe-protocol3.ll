@@ -340,7 +340,7 @@ getReadyForQuery.exit:                            ; preds = %99
   br label %.loopexit
 
 106:                                              ; preds = %101, %103, %104, %105
-  %.sink.i = phi i32 [ 2, %103 ], [ 3, %104 ], [ 4, %105 ], [ 0, %101 ]
+  %.sink.i = phi i32 [ 4, %105 ], [ 2, %103 ], [ 3, %104 ], [ 0, %101 ]
   store i32 %.sink.i, ptr %29, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %107 = load i32, ptr %30, align 4
@@ -767,7 +767,7 @@ getParameterStatus.exit209:                       ; preds = %152
   br i1 %.not39.i, label %268, label %getAnotherTuple.exit
 
 .sink.split.i212:                                 ; preds = %263, %252, %245, %239, %235
-  %.str.38.sink.i = phi ptr [ @.str.38, %235 ], [ @.str.39, %239 ], [ null, %245 ], [ @.str.38, %252 ], [ @.str.38, %263 ]
+  %.str.38.sink.i = phi ptr [ @.str.38, %235 ], [ null, %245 ], [ @.str.39, %239 ], [ @.str.38, %252 ], [ @.str.38, %263 ]
   store ptr %.str.38.sink.i, ptr %2, align 8
   br label %268
 
@@ -1004,7 +1004,7 @@ define internal fastcc range(i32 -1, 1) i32 @getNotify(ptr noundef %0) unnamed_a
   br label %38
 
 38:                                               ; preds = %.sink.split, %7, %4, %1
-  %.0 = phi i32 [ -1, %1 ], [ -1, %4 ], [ -1, %7 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ -1, %4 ], [ -1, %1 ], [ -1, %7 ], [ %.0.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -1259,7 +1259,7 @@ define internal fastcc range(i32 -1, 1) i32 @getReadyForQuery(ptr noundef %0) un
   br label %.sink.split
 
 .sink.split:                                      ; preds = %4, %9, %8, %7
-  %.sink = phi i32 [ 2, %7 ], [ 3, %8 ], [ 4, %9 ], [ 0, %4 ]
+  %.sink = phi i32 [ 4, %9 ], [ 2, %7 ], [ 3, %8 ], [ 0, %4 ]
   store i32 %.sink, ptr %6, align 8
   br label %10
 
@@ -1489,8 +1489,8 @@ define internal fastcc void @getRowDescriptions(ptr noundef %0, i32 noundef %1) 
   store i32 2, ptr %105, align 4
   br label %116
 
-106:                                              ; preds = %57, %55, %53, %51, %49, %47, %45, %59
-  %.2.ph = phi ptr [ null, %59 ], [ @.str.35, %45 ], [ @.str.35, %47 ], [ @.str.35, %49 ], [ @.str.35, %51 ], [ @.str.35, %53 ], [ @.str.35, %55 ], [ @.str.35, %57 ]
+106:                                              ; preds = %45, %59, %57, %55, %53, %51, %49, %47
+  %.2.ph = phi ptr [ @.str.35, %47 ], [ @.str.35, %49 ], [ @.str.35, %51 ], [ @.str.35, %53 ], [ @.str.35, %55 ], [ @.str.35, %57 ], [ null, %59 ], [ @.str.35, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1713,8 +1713,8 @@ define void @pqBuildErrorMessage3(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br label %.thread
 
 .thread:                                          ; preds = %21, %22, %25, %27
-  %28 = phi i1 [ true, %25 ], [ true, %27 ], [ false, %22 ], [ false, %21 ]
-  %.0161 = phi i32 [ 2, %25 ], [ 2, %27 ], [ 0, %22 ], [ %2, %21 ]
+  %28 = phi i1 [ false, %21 ], [ true, %25 ], [ true, %27 ], [ false, %22 ]
+  %.0161 = phi i32 [ %2, %21 ], [ 2, %25 ], [ 2, %27 ], [ 0, %22 ]
   %29 = tail call ptr @PQresultErrorField(ptr noundef nonnull %1, i32 noundef 77) #16
   %.not143 = icmp eq ptr %29, null
   br i1 %.not143, label %31, label %30
@@ -1960,11 +1960,11 @@ define void @pqBuildErrorMessage3(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %139, label %.preheader.i, label %.loopexit.i, !llvm.loop !13
 
 .loopexit.i:                                      ; preds = %.preheader193.i, %.preheader.i, %111
-  %141 = phi i32 [ %115, %111 ], [ %137, %.preheader.i ], [ %115, %.preheader193.i ]
-  %.pre-phi.i = phi i64 [ %112, %111 ], [ %130, %.preheader.i ], [ %124, %.preheader193.i ]
-  %.4152.i = phi i32 [ %.0148204.i, %111 ], [ %.5153.i, %.preheader.i ], [ %.0148204.i, %.preheader193.i ]
-  %.0135.i = phi i1 [ false, %111 ], [ %.1136.i, %.preheader.i ], [ false, %.preheader193.i ]
-  %.0133.i = phi i1 [ false, %111 ], [ %.1134.i, %.preheader.i ], [ true, %.preheader193.i ]
+  %141 = phi i32 [ %137, %.preheader.i ], [ %115, %111 ], [ %115, %.preheader193.i ]
+  %.pre-phi.i = phi i64 [ %130, %.preheader.i ], [ %112, %111 ], [ %124, %.preheader193.i ]
+  %.4152.i = phi i32 [ %.5153.i, %.preheader.i ], [ %.0148204.i, %111 ], [ %.0148204.i, %.preheader193.i ]
+  %.0135.i = phi i1 [ %.1136.i, %.preheader.i ], [ false, %111 ], [ false, %.preheader193.i ]
+  %.0133.i = phi i1 [ %.1134.i, %.preheader.i ], [ false, %111 ], [ true, %.preheader193.i ]
   %142 = getelementptr inbounds i32, ptr %65, i64 %.pre-phi.i
   %143 = load i32, ptr %142, align 4
   %144 = sext i32 %143 to i64
@@ -2294,12 +2294,12 @@ define range(i32 -1, 1) i32 @pqGetNegotiateProtocolVersion3(ptr noundef %0) loca
   br label %.sink.split
 
 .sink.split:                                      ; preds = %13, %40, %44
-  %.022.ph = phi i32 [ 0, %44 ], [ 0, %40 ], [ -1, %13 ]
+  %.022.ph = phi i32 [ 0, %40 ], [ 0, %44 ], [ -1, %13 ]
   call void @termPQExpBuffer(ptr noundef nonnull %4) #16
   br label %45
 
 45:                                               ; preds = %.sink.split, %6, %1
-  %.022 = phi i32 [ -1, %1 ], [ -1, %6 ], [ %.022.ph, %.sink.split ]
+  %.022 = phi i32 [ -1, %6 ], [ -1, %1 ], [ %.022.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -2391,7 +2391,7 @@ define range(i32 -2, 2147483644) i32 @pqGetCopyData3(ptr noundef initializes((10
   br i1 %41, label %.loopexit, label %.lr.ph.split
 
 .loopexit:                                        ; preds = %.backedge, %.lr.ph.split, %.backedge.us, %15, %13, %3, %29, %28
-  %.0 = phi i32 [ -2, %28 ], [ %30, %29 ], [ %4, %3 ], [ %18, %.backedge.us ], [ -2, %15 ], [ -2, %13 ], [ %40, %.backedge ], [ 0, %.lr.ph.split ]
+  %.0 = phi i32 [ %30, %29 ], [ -2, %28 ], [ %4, %3 ], [ -2, %15 ], [ %18, %.backedge.us ], [ -2, %13 ], [ %40, %.backedge ], [ 0, %.lr.ph.split ]
   ret i32 %.0
 }
 
@@ -2539,7 +2539,7 @@ getParameterStatus.exit:                          ; preds = %47
   br i1 %.not, label %11, label %.loopexit
 
 .loopexit:                                        ; preds = %57, %11, %41, %43, %39, %1, %getParameterStatus.exit, %getParameterStatus.exit.thread, %27, %55, %51, %33, %16
-  %.0 = phi i32 [ -2, %16 ], [ -2, %33 ], [ -1, %55 ], [ -1, %51 ], [ 0, %27 ], [ 0, %getParameterStatus.exit ], [ 0, %getParameterStatus.exit.thread ], [ 0, %1 ], [ 0, %57 ], [ 0, %11 ], [ 0, %41 ], [ 0, %43 ], [ %14, %39 ]
+  %.0 = phi i32 [ -1, %51 ], [ 0, %getParameterStatus.exit ], [ -2, %16 ], [ -2, %33 ], [ 0, %getParameterStatus.exit.thread ], [ -1, %55 ], [ 0, %27 ], [ 0, %1 ], [ 0, %43 ], [ 0, %41 ], [ 0, %11 ], [ 0, %57 ], [ %14, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -2693,7 +2693,7 @@ define i32 @pqGetlineAsync3(ptr noundef %0, ptr noundef writeonly captures(none)
   br label %32
 
 32:                                               ; preds = %.sink.split, %3, %9, %6
-  %.0 = phi i32 [ -1, %3 ], [ -1, %6 ], [ 0, %9 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ 0, %9 ], [ -1, %3 ], [ -1, %6 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 
@@ -2821,7 +2821,7 @@ define range(i32 0, 2) i32 @pqEndcopy3(ptr noundef %0) local_unnamed_addr #0 {
   br label %56
 
 56:                                               ; preds = %28, %26, %17, %20, %6, %9, %55, %36, %4
-  %.0 = phi i32 [ 1, %4 ], [ 0, %36 ], [ 1, %55 ], [ 1, %9 ], [ 1, %6 ], [ 1, %20 ], [ 1, %17 ], [ 1, %26 ], [ 1, %28 ]
+  %.0 = phi i32 [ 1, %4 ], [ 1, %55 ], [ 1, %6 ], [ 1, %17 ], [ 1, %26 ], [ 0, %36 ], [ 1, %9 ], [ 1, %20 ], [ 1, %28 ]
   ret i32 %.0
 }
 
@@ -3118,7 +3118,7 @@ switch.early.test:                                ; preds = %68
   br label %.loopexit131.sink.split
 
 128:                                              ; preds = %97, %89, %95, %93, %120, %101, %99
-  %.1 = phi i32 [ %.0103, %99 ], [ %.0103, %101 ], [ %.0103, %120 ], [ 1, %93 ], [ 1, %95 ], [ 1, %89 ], [ 7, %97 ]
+  %.1 = phi i32 [ %.0103, %120 ], [ 1, %89 ], [ %.0103, %99 ], [ %.0103, %101 ], [ 1, %93 ], [ 1, %95 ], [ 7, %97 ]
   %129 = load i32, ptr %50, align 4
   %130 = add i32 %129, 5
   %131 = load i32, ptr %9, align 4
@@ -3127,8 +3127,8 @@ switch.early.test:                                ; preds = %68
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %128, %58, %61, %78, %87, %93, %95, %97, %99, %101, %103, %120
-  %.0104.be = phi i1 [ true, %58 ], [ true, %61 ], [ true, %78 ], [ true, %87 ], [ true, %93 ], [ false, %128 ], [ true, %95 ], [ true, %97 ], [ true, %99 ], [ true, %101 ], [ true, %103 ], [ true, %120 ]
-  %.0103.be = phi i32 [ %.0103, %58 ], [ %.0103, %61 ], [ %.0103, %78 ], [ %.0103, %87 ], [ %.0103, %93 ], [ %.1, %128 ], [ %.0103, %95 ], [ %.0103, %97 ], [ %.0103, %99 ], [ %.0103, %101 ], [ %.0103, %103 ], [ %.0103, %120 ]
+  %.0104.be = phi i1 [ true, %120 ], [ true, %58 ], [ true, %61 ], [ true, %78 ], [ true, %87 ], [ true, %93 ], [ false, %128 ], [ true, %95 ], [ true, %97 ], [ true, %99 ], [ true, %101 ], [ true, %103 ]
+  %.0103.be = phi i32 [ %.0103, %120 ], [ %.0103, %58 ], [ %.0103, %61 ], [ %.0103, %78 ], [ %.0103, %87 ], [ %.0103, %93 ], [ %.1, %128 ], [ %.0103, %95 ], [ %.0103, %97 ], [ %.0103, %99 ], [ %.0103, %101 ], [ %.0103, %103 ]
   br label %.backedge
 
 .loopexit:                                        ; preds = %53, %55, %83, %71, %66
@@ -3140,7 +3140,7 @@ switch.early.test:                                ; preds = %68
   br label %.loopexit131
 
 .loopexit131:                                     ; preds = %39, %36, %.lr.ph, %.loopexit131.sink.split, %45, %48, %._crit_edge, %7, %12, %15, %18, %21
-  %.0102 = phi ptr [ null, %21 ], [ null, %18 ], [ null, %15 ], [ null, %12 ], [ null, %7 ], [ null, %._crit_edge ], [ null, %48 ], [ null, %45 ], [ %133, %.loopexit131.sink.split ], [ null, %.lr.ph ], [ null, %36 ], [ null, %39 ]
+  %.0102 = phi ptr [ null, %18 ], [ null, %7 ], [ null, %12 ], [ null, %48 ], [ null, %45 ], [ null, %._crit_edge ], [ null, %15 ], [ %133, %.loopexit131.sink.split ], [ null, %21 ], [ null, %.lr.ph ], [ null, %36 ], [ null, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.0102

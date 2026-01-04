@@ -309,7 +309,7 @@ missing__target.exit.i:                           ; preds = %60
   br label %missing__target.exit.thread.i
 
 missing__target.exit.thread.i:                    ; preds = %84, %80, %78, %70, %65, %missing__target.exit.i, %60, %57, %51
-  %91 = phi i1 [ false, %51 ], [ false, %65 ], [ false, %70 ], [ false, %84 ], [ true, %80 ], [ false, %78 ], [ false, %missing__target.exit.i ], [ false, %57 ], [ false, %60 ]
+  %91 = phi i1 [ false, %51 ], [ false, %78 ], [ false, %65 ], [ false, %70 ], [ false, %84 ], [ true, %80 ], [ false, %missing__target.exit.i ], [ false, %60 ], [ false, %57 ]
   call void @release_http_object_request(ptr noundef nonnull %38) #11
   %92 = load ptr, ptr %38, align 8, !tbaa !38
   %.not.i64.i = icmp eq ptr %92, null
@@ -438,7 +438,7 @@ http_fetch_pack.exit:                             ; preds = %143
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %155
 
-146:                                              ; preds = %fetch_indices.exit.i, %fetch_indices.exit.thread.i, %143, %126, %141, %138
+146:                                              ; preds = %fetch_indices.exit.i, %143, %fetch_indices.exit.thread.i, %126, %141, %138
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %147 = load ptr, ptr %6, align 8, !tbaa !4
   %148 = load ptr, ptr %147, align 8, !tbaa !12
@@ -456,7 +456,7 @@ http_fetch_pack.exit:                             ; preds = %143
   br label %155
 
 155:                                              ; preds = %http_fetch_pack.exit, %fetch_object.exit.thread, %release_object_request.exit.i, %._crit_edge
-  %.013 = phi i32 [ -1, %._crit_edge ], [ 0, %release_object_request.exit.i ], [ 0, %http_fetch_pack.exit ], [ 0, %fetch_object.exit.thread ]
+  %.013 = phi i32 [ 0, %release_object_request.exit.i ], [ -1, %._crit_edge ], [ 0, %http_fetch_pack.exit ], [ 0, %fetch_object.exit.thread ]
   ret i32 %.013
 }
 
@@ -882,7 +882,7 @@ missing__target.exit:                             ; preds = %54
   store i32 -1, ptr %60, align 8, !tbaa !19
   br label %179
 
-missing__target.exit.thread:                      ; preds = %54, %50, %49, %missing__target.exit, %19
+missing__target.exit.thread:                      ; preds = %50, %54, %49, %missing__target.exit, %19
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %62 = load ptr, ptr %61, align 8, !tbaa !92
   %63 = call i64 @fwrite_buffer(ptr noundef nonnull %2, i64 noundef 1, i64 noundef 1, ptr noundef %62) #11
@@ -1167,7 +1167,7 @@ is_alternate_allowed.exit:                        ; preds = %158
   br label %171
 
 .loopexit:                                        ; preds = %skip_prefix.exit.i, %strbuf_strip_suffix.exit, %158
-  %.str.29.sink.i = phi ptr [ @.str.27, %strbuf_strip_suffix.exit ], [ @.str.29, %158 ], [ @.str.28, %skip_prefix.exit.i ]
+  %.str.29.sink.i = phi ptr [ @.str.29, %158 ], [ @.str.27, %strbuf_strip_suffix.exit ], [ @.str.28, %skip_prefix.exit.i ]
   call void (ptr, ...) @warning(ptr noundef nonnull %.str.29.sink.i, ptr noundef %145) #11
   call void @strbuf_release(ptr noundef nonnull %3) #11
   br label %171
@@ -1268,7 +1268,7 @@ missing__target.exit:                             ; preds = %22
   %.not24 = or i1 %25, %26
   br i1 %.not24, label %45, label %missing__target.exit.thread
 
-missing__target.exit.thread:                      ; preds = %22, %1, %missing__target.exit
+missing__target.exit.thread:                      ; preds = %1, %22, %missing__target.exit
   %27 = load ptr, ptr %6, align 8, !tbaa !12
   tail call fastcc void @fetch_alternates(ptr noundef nonnull %3, ptr noundef %27)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 48

@@ -192,7 +192,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -775,7 +775,7 @@ _ZN6icu_775MutexD2Ev.exit:                        ; preds = %.thread
   ret void
 
 103:                                              ; preds = %.loopexit, %.loopexit.split-lp, %33, %43, %18
-  %.pn62.pn = phi { ptr, i32 } [ %19, %18 ], [ %44, %43 ], [ %34, %33 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn62.pn = phi { ptr, i32 } [ %19, %18 ], [ %34, %33 ], [ %44, %43 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @umtx_unlock_77(ptr noundef nonnull @_ZN6icu_77L18gTimeZoneNamesLockE)
           to label %_ZN6icu_775MutexD2Ev.exit69 unwind label %104
 
@@ -1453,7 +1453,7 @@ _ZN6icu_7713TimeZoneNames19MatchInfoCollection7matchesER10UErrorCode.exit: ; pre
   br label %43
 
 _ZN6icu_7713TimeZoneNames19MatchInfoCollection7matchesER10UErrorCode.exit.thread27: ; preds = %33, %23
-  %.0.i29 = phi ptr [ %27, %33 ], [ %25, %23 ]
+  %.0.i29 = phi ptr [ %25, %23 ], [ %27, %33 ]
   store ptr null, ptr %6, align 8, !tbaa !47
   invoke void @_ZN6icu_777UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %.0.i29, ptr noundef nonnull %10, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %_ZN6icu_7712LocalPointerINS_9MatchInfoEED2Ev.exit unwind label %39
@@ -1524,7 +1524,7 @@ define noundef ptr @_ZN6icu_7713TimeZoneNames19MatchInfoCollection7matchesER10UE
   br label %22
 
 22:                                               ; preds = %12, %18, %15, %5, %2
-  %.0 = phi ptr [ null, %2 ], [ %7, %5 ], [ %9, %15 ], [ null, %18 ], [ null, %12 ]
+  %.0 = phi ptr [ %7, %5 ], [ null, %2 ], [ %9, %15 ], [ null, %18 ], [ null, %12 ]
   ret ptr %.0
 }
 
@@ -1645,7 +1645,7 @@ _ZN6icu_7713TimeZoneNames19MatchInfoCollection7matchesER10UErrorCode.exit: ; pre
   br label %43
 
 _ZN6icu_7713TimeZoneNames19MatchInfoCollection7matchesER10UErrorCode.exit.thread27: ; preds = %33, %23
-  %.0.i29 = phi ptr [ %27, %33 ], [ %25, %23 ]
+  %.0.i29 = phi ptr [ %25, %23 ], [ %27, %33 ]
   store ptr null, ptr %6, align 8, !tbaa !47
   invoke void @_ZN6icu_777UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %.0.i29, ptr noundef nonnull %10, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %_ZN6icu_7712LocalPointerINS_9MatchInfoEED2Ev.exit unwind label %39

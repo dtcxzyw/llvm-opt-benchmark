@@ -110,7 +110,7 @@ define internal range(i32 0, 2) i32 @dummy_bind_diagnostic(ptr noundef captures(
   br label %dummy_update_diag.exit
 
 dummy_update_diag.exit:                           ; preds = %16, %14, %4, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %4 ], [ 1, %14 ], [ 1, %16 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %7 ], [ 1, %14 ], [ 1, %16 ]
   ret i32 %.0
 }
 

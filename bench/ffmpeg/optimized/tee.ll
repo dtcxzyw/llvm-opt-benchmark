@@ -537,7 +537,7 @@ open_slave.exit.thread:                           ; preds = %65
   br label %228
 
 228:                                              ; preds = %225, %219
-  %.1182.i = phi i32 [ %.0181355.i, %225 ], [ %220, %219 ]
+  %.1182.i = phi i32 [ %220, %219 ], [ %.0181355.i, %225 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %229 = load i32, ptr %52, align 4, !tbaa !34
   %230 = zext i32 %229 to i64
@@ -777,8 +777,8 @@ open_slave.exit.thread:                           ; preds = %65
   br label %open_slave.exit
 
 349:                                              ; preds = %._crit_edge427.i, %.lr.ph370.i
-  %350 = phi i32 [ %306, %.lr.ph370.i ], [ %.pre428.i, %._crit_edge427.i ]
-  %.21.i = phi i32 [ %.19368.i, %.lr.ph370.i ], [ %345, %._crit_edge427.i ]
+  %350 = phi i32 [ %.pre428.i, %._crit_edge427.i ], [ %306, %.lr.ph370.i ]
+  %.21.i = phi i32 [ %345, %._crit_edge427.i ], [ %.19368.i, %.lr.ph370.i ]
   %indvars.iv.next421.i = add nuw nsw i64 %indvars.iv420.i, 1
   %351 = zext i32 %350 to i64
   %352 = icmp samesign ult i64 %indvars.iv.next421.i, %351
@@ -806,8 +806,8 @@ open_slave.exit.thread:                           ; preds = %65
   br i1 %.not253.i, label %open_slave.exit, label %.lr.ph374.i, !llvm.loop !82
 
 open_slave.exit:                                  ; preds = %.lr.ph357.split.i, %219, %.lr.ph357.split.us.i, %321, %.lr.ph374.i, %105, %118, %123, %.thread285.i, %158, %167, %171, %217, %236, %242, %244, %260, %277, %294, %319, %347, %._crit_edge371.i, %.preheader.i
-  %.1177.i = phi ptr [ null, %158 ], [ %.2178.i, %167 ], [ %.2178.i, %236 ], [ %.2178.i, %242 ], [ %.2178.i, %._crit_edge371.i ], [ %.0176.i, %118 ], [ %.0176.i, %105 ], [ %.2178.i, %171 ], [ %.2178.i, %244 ], [ %.0176.i, %.thread285.i ], [ %.2178.i, %217 ], [ %.2178.i, %347 ], [ %.2178.i, %319 ], [ %.0176.i, %123 ], [ %.2178.i, %260 ], [ %.2178.i, %294 ], [ %.2178.i, %277 ], [ %.2178.i, %.preheader.i ], [ %.2178.i, %.lr.ph374.i ], [ %.2178.i, %321 ], [ %.2178.i, %.lr.ph357.split.us.i ], [ %.2178.i, %219 ], [ %.2178.i, %.lr.ph357.split.i ]
-  %.2.i = phi i32 [ %160, %158 ], [ %169, %167 ], [ %234, %236 ], [ %240, %242 ], [ %.19.lcssa.i, %._crit_edge371.i ], [ -22, %118 ], [ -22, %105 ], [ -12, %171 ], [ -12, %244 ], [ %.7.ph.i, %.thread285.i ], [ %215, %217 ], [ %345, %347 ], [ %317, %319 ], [ %127, %123 ], [ -22, %260 ], [ %292, %294 ], [ %275, %277 ], [ -1414549496, %.preheader.i ], [ -1414549496, %.lr.ph374.i ], [ %339, %321 ], [ -12, %.lr.ph357.split.us.i ], [ -12, %219 ], [ -12, %.lr.ph357.split.i ]
+  %.1177.i = phi ptr [ null, %158 ], [ %.2178.i, %167 ], [ %.2178.i, %236 ], [ %.2178.i, %242 ], [ %.2178.i, %294 ], [ %.2178.i, %244 ], [ %.2178.i, %._crit_edge371.i ], [ %.0176.i, %123 ], [ %.2178.i, %171 ], [ %.2178.i, %277 ], [ %.0176.i, %105 ], [ %.0176.i, %.thread285.i ], [ %.2178.i, %.lr.ph357.split.us.i ], [ %.0176.i, %118 ], [ %.2178.i, %217 ], [ %.2178.i, %.preheader.i ], [ %.2178.i, %319 ], [ %.2178.i, %347 ], [ %.2178.i, %260 ], [ %.2178.i, %.lr.ph374.i ], [ %.2178.i, %321 ], [ %.2178.i, %219 ], [ %.2178.i, %.lr.ph357.split.i ]
+  %.2.i = phi i32 [ %160, %158 ], [ %169, %167 ], [ %234, %236 ], [ %240, %242 ], [ %292, %294 ], [ -12, %244 ], [ %.19.lcssa.i, %._crit_edge371.i ], [ %127, %123 ], [ -12, %171 ], [ %275, %277 ], [ -22, %105 ], [ %.7.ph.i, %.thread285.i ], [ -12, %.lr.ph357.split.us.i ], [ -22, %118 ], [ %215, %217 ], [ -1414549496, %.preheader.i ], [ %317, %319 ], [ %345, %347 ], [ -22, %260 ], [ -1414549496, %.lr.ph374.i ], [ %339, %321 ], [ -12, %219 ], [ -12, %.lr.ph357.split.i ]
   call void @av_free(ptr noundef %.1177.i) #6
   call void @av_free(ptr noundef %.0180.i) #6
   call void @av_dict_free(ptr noundef nonnull %2) #6
@@ -966,7 +966,7 @@ log_slave.exit:                                   ; preds = %406, %365, %361
   br i1 %438, label %.preheader, label %._crit_edge140, !llvm.loop !101
 
 .thread:                                          ; preds = %.lr.ph, %361, %56, %26, %._crit_edge
-  %.2 = phi i32 [ -12, %._crit_edge ], [ %24, %26 ], [ %63, %56 ], [ %363, %361 ], [ -12, %.lr.ph ]
+  %.2 = phi i32 [ -12, %._crit_edge ], [ %24, %26 ], [ %363, %361 ], [ %63, %56 ], [ -12, %.lr.ph ]
   %439 = load i32, ptr %14, align 4, !tbaa !24
   %.not147 = icmp eq i32 %439, 0
   br i1 %.not147, label %._crit_edge143, label %.lr.ph142
@@ -1062,7 +1062,7 @@ define internal range(i32 -2147483648, 1) i32 @tee_write_packet(ptr noundef %0, 
   br label %24
 
 24:                                               ; preds = %19, %16, %.lr.ph.split.us
-  %.1.us = phi i32 [ %.087.us, %.lr.ph.split.us ], [ %.087.us, %16 ], [ %spec.select.us, %19 ]
+  %.1.us = phi i32 [ %spec.select.us, %19 ], [ %.087.us, %16 ], [ %.087.us, %.lr.ph.split.us ]
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %25 = load i32, ptr %8, align 8, !tbaa !33
   %26 = zext i32 %25 to i64
@@ -1155,8 +1155,8 @@ define internal range(i32 -2147483648, 1) i32 @tee_write_packet(ptr noundef %0, 
   %75 = icmp slt i32 %74, 0
   br i1 %75, label %76, label %62
 
-76:                                               ; preds = %65, %67
-  %.066.ph = phi i32 [ %74, %67 ], [ %63, %65 ]
+76:                                               ; preds = %67, %65
+  %.066.ph = phi i32 [ %63, %65 ], [ %74, %67 ]
   %77 = trunc nuw i64 %indvars.iv to i32
   %78 = call fastcc i32 @tee_process_slave_failure(ptr noundef %0, i32 noundef %77, i32 noundef %.066.ph)
   %79 = icmp eq i32 %.4, 0
@@ -1166,7 +1166,7 @@ define internal range(i32 -2147483648, 1) i32 @tee_write_packet(ptr noundef %0, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %62, %76, %31, %.lr.ph.split, %42
-  %.1 = phi i32 [ %spec.select81, %42 ], [ %.087, %.lr.ph.split ], [ %.087, %31 ], [ %spec.select83, %76 ], [ %.4, %62 ]
+  %.1 = phi i32 [ %spec.select83, %76 ], [ %spec.select81, %42 ], [ %.087, %31 ], [ %.087, %.lr.ph.split ], [ %.4, %62 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %81 = load i32, ptr %8, align 8, !tbaa !33
   %82 = zext i32 %81 to i64

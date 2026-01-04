@@ -410,7 +410,7 @@ define internal range(i32 0, 2) i32 @aes_init_key(ptr noundef readonly captures(
   br label %58
 
 58:                                               ; preds = %52, %55, %41, %32, %35, %21
-  %.065 = phi i32 [ %45, %41 ], [ %53, %52 ], [ %56, %55 ], [ %25, %21 ], [ %33, %32 ], [ %36, %35 ]
+  %.065 = phi i32 [ %25, %21 ], [ %33, %32 ], [ %36, %35 ], [ %45, %41 ], [ %53, %52 ], [ %56, %55 ]
   %59 = icmp slt i32 %.065, 0
   br i1 %59, label %60, label %61
 
@@ -660,8 +660,8 @@ define internal noundef i32 @aesni_gcm_init_key(ptr noundef readonly captures(no
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %21, %18
-  %.sink44 = phi i64 [ 248, %18 ], [ 248, %21 ], [ %.sink44.ph, %.sink.split.sink.split ]
-  %.sink = phi i32 [ 1, %18 ], [ 1, %21 ], [ %.sink.ph, %.sink.split.sink.split ]
+  %.sink44 = phi i64 [ 248, %21 ], [ 248, %18 ], [ %.sink44.ph, %.sink.split.sink.split ]
+  %.sink = phi i32 [ 1, %21 ], [ 1, %18 ], [ %.sink.ph, %.sink.split.sink.split ]
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink44
   store i32 %.sink, ptr %42, align 8, !tbaa !6
   br label %43
@@ -773,7 +773,7 @@ define internal noundef i32 @aes_gcm_cipher(ptr noundef %0, ptr noundef %1, ptr 
   br label %53
 
 53:                                               ; preds = %39, %43, %32, %30, %27, %25, %15, %9, %4, %49, %48, %34
-  %.0 = phi i32 [ %35, %34 ], [ 0, %49 ], [ 0, %48 ], [ -1, %4 ], [ -1, %9 ], [ -1, %15 ], [ -1, %25 ], [ -1, %27 ], [ -1, %30 ], [ -1, %32 ], [ -1, %43 ], [ -1, %39 ]
+  %.0 = phi i32 [ %35, %34 ], [ -1, %9 ], [ -1, %15 ], [ -1, %25 ], [ -1, %27 ], [ -1, %30 ], [ 0, %49 ], [ -1, %32 ], [ 0, %48 ], [ -1, %4 ], [ -1, %43 ], [ -1, %39 ]
   ret i32 %.0
 }
 
@@ -1085,7 +1085,7 @@ ctr64_inc.exit:                                   ; preds = %116
   br label %165
 
 165:                                              ; preds = %4, %157, %163, %154, %121, %125, %129, %88, %92, %79, %66, %68, %45, %47, %50, %36, %38, %31, %18, %132, %ctr64_inc.exit, %86, %59, %54, %41, %34, %7
-  %.0 = phi i32 [ 1, %7 ], [ 1, %34 ], [ 1, %41 ], [ 1, %54 ], [ 1, %59 ], [ 1, %86 ], [ 1, %ctr64_inc.exit ], [ 1, %132 ], [ 0, %18 ], [ 0, %31 ], [ 0, %38 ], [ 0, %36 ], [ 0, %50 ], [ 0, %47 ], [ 0, %45 ], [ 0, %68 ], [ 0, %66 ], [ 0, %79 ], [ 0, %92 ], [ 0, %88 ], [ 0, %129 ], [ 0, %125 ], [ 0, %121 ], [ 0, %157 ], [ 1, %163 ], [ 1, %154 ], [ -1, %4 ]
+  %.0 = phi i32 [ 1, %154 ], [ 1, %7 ], [ 0, %121 ], [ 1, %34 ], [ 0, %18 ], [ 0, %31 ], [ 1, %41 ], [ 0, %36 ], [ 1, %54 ], [ 1, %59 ], [ 0, %45 ], [ 1, %86 ], [ 0, %66 ], [ 0, %79 ], [ 1, %ctr64_inc.exit ], [ 0, %88 ], [ 1, %132 ], [ 0, %38 ], [ 0, %50 ], [ 0, %47 ], [ 0, %68 ], [ 0, %92 ], [ 0, %129 ], [ 0, %125 ], [ 0, %157 ], [ 1, %163 ], [ -1, %4 ]
   ret i32 %.0
 }
 
@@ -1157,7 +1157,7 @@ define internal noundef i32 @aes_gcm_init_key(ptr noundef readonly captures(none
   br label %aes_ctr_set_key.exit
 
 aes_ctr_set_key.exit:                             ; preds = %19, %16
-  %.0.i = phi ptr [ @aesni_ctr32_encrypt_blocks, %16 ], [ %.bsaes_ctr32_encrypt_blocks, %19 ]
+  %.0.i = phi ptr [ %.bsaes_ctr32_encrypt_blocks, %19 ], [ @aesni_ctr32_encrypt_blocks, %16 ]
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 664
   store ptr %.0.i, ptr %23, align 8, !tbaa !25
   %24 = icmp eq ptr %2, null
@@ -1214,8 +1214,8 @@ aes_ctr_set_key.exit:                             ; preds = %19, %16
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %28, %25
-  %.sink43 = phi i64 [ 248, %25 ], [ 248, %28 ], [ %.sink43.ph, %.sink.split.sink.split ]
-  %.sink = phi i32 [ 1, %25 ], [ 1, %28 ], [ %.sink.ph, %.sink.split.sink.split ]
+  %.sink43 = phi i64 [ 248, %28 ], [ 248, %25 ], [ %.sink43.ph, %.sink.split.sink.split ]
+  %.sink = phi i32 [ 1, %28 ], [ 1, %25 ], [ %.sink.ph, %.sink.split.sink.split ]
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink43
   store i32 %.sink, ptr %49, align 8, !tbaa !6
   br label %50
@@ -1276,7 +1276,7 @@ define internal range(i32 0, 2) i32 @aead_aes_gcm_init(ptr noundef writeonly cap
   br label %aes_ctr_set_key.exit
 
 aes_ctr_set_key.exit:                             ; preds = %21, %18
-  %.0.i = phi ptr [ @aesni_ctr32_encrypt_blocks, %18 ], [ %.bsaes_ctr32_encrypt_blocks, %21 ]
+  %.0.i = phi ptr [ %.bsaes_ctr32_encrypt_blocks, %21 ], [ @aesni_ctr32_encrypt_blocks, %18 ]
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 632
   store ptr %.0.i, ptr %25, align 8, !tbaa !37
   %26 = trunc nuw nsw i64 %spec.store.select to i8
@@ -1640,7 +1640,7 @@ define internal range(i32 0, 2) i32 @aead_aes_key_wrap_seal(ptr noundef readonly
   br label %68
 
 68:                                               ; preds = %.split54.us, %38, %32, %28, %24, %21, %18, %15
-  %.0 = phi i32 [ 0, %15 ], [ 0, %18 ], [ 0, %21 ], [ 0, %24 ], [ 0, %28 ], [ 0, %32 ], [ 0, %38 ], [ 1, %.split54.us ]
+  %.0 = phi i32 [ 0, %15 ], [ 0, %18 ], [ 0, %21 ], [ 0, %24 ], [ 0, %28 ], [ 1, %.split54.us ], [ 0, %32 ], [ 0, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0
@@ -1865,8 +1865,8 @@ define internal range(i32 0, 2) i32 @aead_aes_ctr_hmac_sha256_init(ptr noundef w
   br label %aes_ctr_set_key.exit
 
 aes_ctr_set_key.exit:                             ; preds = %26, %23
-  %AES_encrypt.sink.i = phi ptr [ @aesni_encrypt, %23 ], [ @AES_encrypt, %26 ]
-  %.0.ph.i = phi ptr [ @aesni_ctr32_encrypt_blocks, %23 ], [ %spec.select, %26 ]
+  %AES_encrypt.sink.i = phi ptr [ @AES_encrypt, %26 ], [ @aesni_encrypt, %23 ]
+  %.0.ph.i = phi ptr [ %spec.select, %26 ], [ @aesni_ctr32_encrypt_blocks, %23 ]
   store ptr %AES_encrypt.sink.i, ptr %20, align 8, !tbaa !51
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 248
   store ptr %.0.ph.i, ptr %30, align 8, !tbaa !52

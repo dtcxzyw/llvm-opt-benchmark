@@ -652,7 +652,7 @@ define dso_local range(i32 -1, 1) i32 @sodium_pad(ptr noundef writeonly captures
   br i1 %exitcond.not, label %.loopexit, label %26, !llvm.loop !18
 
 .loopexit:                                        ; preds = %26, %19, %5
-  %.0 = phi i32 [ -1, %5 ], [ -1, %19 ], [ 0, %26 ]
+  %.0 = phi i32 [ -1, %19 ], [ -1, %5 ], [ 0, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

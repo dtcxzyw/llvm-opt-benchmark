@@ -1250,7 +1250,7 @@ proto_item_set_hidden.exit320.i:                  ; preds = %277, %273, %270, %p
   br label %proto_item_set_generated.exit323.i
 
 proto_item_set_generated.exit323.i:               ; preds = %293, %290, %289, %250, %249, %247, %243, %241, %223, %220, %220, %220, %proto_item_set_hidden.exit311.i
-  %.3.i = phi i32 [ %214, %223 ], [ %214, %220 ], [ %214, %proto_item_set_hidden.exit311.i ], [ %.1427.i, %241 ], [ %.1427.i, %247 ], [ %.1427.i, %243 ], [ %.1427.i, %250 ], [ %.1427.i, %249 ], [ %214, %220 ], [ %214, %220 ], [ %.1427.i, %289 ], [ %.1427.i, %290 ], [ %.1427.i, %293 ]
+  %.3.i = phi i32 [ %214, %223 ], [ %214, %220 ], [ %214, %proto_item_set_hidden.exit311.i ], [ %.1427.i, %241 ], [ %.1427.i, %247 ], [ %.1427.i, %243 ], [ %214, %220 ], [ %.1427.i, %250 ], [ %.1427.i, %249 ], [ %214, %220 ], [ %.1427.i, %289 ], [ %.1427.i, %290 ], [ %.1427.i, %293 ]
   %297 = load ptr, ptr %19, align 8
   %298 = getelementptr inbounds nuw i8, ptr %297, i64 57
   %299 = load i16, ptr %298, align 1
@@ -1369,9 +1369,9 @@ zbee_get_bit_field.exit333.i:                     ; preds = %.lr.ph.i329.i
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !8
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %337, %336, %proto_item_set_hidden.exit305.i, %zbee_get_bit_field.exit290.i
-  %356 = phi i16 [ %100, %336 ], [ 0, %zbee_get_bit_field.exit290.i ], [ %100, %337 ], [ %100, %proto_item_set_hidden.exit305.i ], [ %100, %.lr.ph.i ]
-  %357 = phi i16 [ %132, %336 ], [ 0, %zbee_get_bit_field.exit290.i ], [ %132, %337 ], [ %132, %proto_item_set_hidden.exit305.i ], [ %132, %.lr.ph.i ]
-  %.0238.i = phi i32 [ %.4.i, %336 ], [ 2, %zbee_get_bit_field.exit290.i ], [ %.5357.i, %337 ], [ 8, %proto_item_set_hidden.exit305.i ], [ %.5.i, %.lr.ph.i ]
+  %356 = phi i16 [ 0, %zbee_get_bit_field.exit290.i ], [ %100, %336 ], [ %100, %337 ], [ %100, %proto_item_set_hidden.exit305.i ], [ %100, %.lr.ph.i ]
+  %357 = phi i16 [ 0, %zbee_get_bit_field.exit290.i ], [ %132, %336 ], [ %132, %337 ], [ %132, %proto_item_set_hidden.exit305.i ], [ %132, %.lr.ph.i ]
+  %.0238.i = phi i32 [ 2, %zbee_get_bit_field.exit290.i ], [ %.4.i, %336 ], [ %.5357.i, %337 ], [ 8, %proto_item_set_hidden.exit305.i ], [ %.5.i, %.lr.ph.i ]
   %358 = call i32 @tvb_captured_length(ptr noundef %0)
   %.not260.i = icmp ult i32 %.0238.i, %358
   br i1 %.not260.i, label %361, label %359
@@ -1823,7 +1823,7 @@ dissect_zbee_nwk_update.exit.i.i:                 ; preds = %.lr.ph.i103.i.i, %5
   br label %dissect_zbee_nwk_status.exit.i.i
 
 dissect_zbee_nwk_status.exit.i.i:                 ; preds = %.lr.ph.i106.i.i, %.lr.ph.i97.i.i, %616, %614, %596, %572, %561, %556, %dissect_zbee_nwk_update.exit.i.i, %dissect_zbee_nwk_report.exit.i.i, %485, %483, %481, %465, %dissect_zbee_nwk_route_rec.exit.i.i, %451, %444, %432, %dissect_zbee_nwk_route_rep.exit.i.i, %dissect_zbee_nwk_route_req.exit.i.i, %368
-  %.0.i.i = phi i32 [ 1, %368 ], [ %.0.i.i.i, %dissect_zbee_nwk_route_req.exit.i.i ], [ %.1.i.i.i, %dissect_zbee_nwk_route_rep.exit.i.i ], [ 2, %451 ], [ %.021.lcssa.i.i.i, %dissect_zbee_nwk_route_rec.exit.i.i ], [ 2, %465 ], [ %.2.i.i.i, %dissect_zbee_nwk_report.exit.i.i ], [ %.034.i.i.i, %dissect_zbee_nwk_update.exit.i.i ], [ 3, %556 ], [ 3, %561 ], [ 3, %596 ], [ 5, %444 ], [ 4, %432 ], [ 4, %481 ], [ 4, %483 ], [ 2, %485 ], [ 3, %572 ], [ 4, %614 ], [ 4, %616 ], [ %499, %.lr.ph.i97.i.i ], [ %593, %.lr.ph.i106.i.i ]
+  %.0.i.i = phi i32 [ 1, %368 ], [ %.0.i.i.i, %dissect_zbee_nwk_route_req.exit.i.i ], [ %.1.i.i.i, %dissect_zbee_nwk_route_rep.exit.i.i ], [ %499, %.lr.ph.i97.i.i ], [ 2, %451 ], [ %.021.lcssa.i.i.i, %dissect_zbee_nwk_route_rec.exit.i.i ], [ 2, %465 ], [ 4, %432 ], [ 4, %483 ], [ %.2.i.i.i, %dissect_zbee_nwk_report.exit.i.i ], [ %.034.i.i.i, %dissect_zbee_nwk_update.exit.i.i ], [ 3, %556 ], [ 3, %561 ], [ 4, %616 ], [ 3, %596 ], [ 5, %444 ], [ 4, %481 ], [ 2, %485 ], [ 3, %572 ], [ 4, %614 ], [ %593, %.lr.ph.i106.i.i ]
   %618 = call i32 @dissect_zbee_tlvs(ptr noundef %.0237.i, ptr noundef %1, ptr noundef %42, i32 noundef %.0.i.i, ptr noundef null, i8 noundef zeroext 1, i32 noundef %371)
   %619 = call i32 @tvb_captured_length(ptr noundef %.0237.i)
   %620 = icmp ult i32 %618, %619
@@ -2285,7 +2285,7 @@ define internal noundef zeroext i1 @dissect_zbee_beacon_heur(ptr noundef %0, ptr
   br label %15
 
 15:                                               ; preds = %11, %8, %5, %4, %13
-  %.0 = phi i1 [ true, %13 ], [ false, %4 ], [ false, %5 ], [ false, %8 ], [ false, %11 ]
+  %.0 = phi i1 [ false, %4 ], [ false, %5 ], [ false, %8 ], [ true, %13 ], [ false, %11 ]
   ret i1 %.0
 }
 
@@ -2315,7 +2315,7 @@ define internal noundef zeroext i1 @dissect_zbip_beacon_heur(ptr noundef %0, ptr
   br label %15
 
 15:                                               ; preds = %11, %8, %5, %4, %13
-  %.0 = phi i1 [ true, %13 ], [ false, %4 ], [ false, %5 ], [ false, %8 ], [ false, %11 ]
+  %.0 = phi i1 [ false, %4 ], [ false, %5 ], [ false, %8 ], [ true, %13 ], [ false, %11 ]
   ret i1 %.0
 }
 
@@ -2375,7 +2375,7 @@ zbee_get_bit_field.exit:                          ; preds = %.lr.ph.i
   br label %28
 
 28:                                               ; preds = %23, %22, %21, %15, %zbee_get_bit_field.exit, %4, %26
-  %.0 = phi i1 [ true, %26 ], [ false, %4 ], [ false, %zbee_get_bit_field.exit ], [ false, %15 ], [ false, %21 ], [ false, %22 ], [ false, %23 ]
+  %.0 = phi i1 [ false, %zbee_get_bit_field.exit ], [ false, %4 ], [ false, %15 ], [ true, %26 ], [ false, %21 ], [ false, %22 ], [ false, %23 ]
   ret i1 %.0
 }
 

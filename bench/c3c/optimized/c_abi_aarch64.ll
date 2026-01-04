@@ -103,36 +103,36 @@ define dso_local ptr @aarch64_classify_argument_type(ptr noundef readonly captur
 11:                                               ; preds = %1
   %12 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %12, 37
-  br i1 %.not, label %13, label %.critedge49
+  br i1 %.not, label %13, label %.critedge47
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %15 = load i32, ptr %14, align 8
   %16 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %15)
   %or.cond = icmp eq i32 %16, 1
-  br i1 %or.cond, label %17, label %.critedge47
+  br i1 %or.cond, label %17, label %.critedge49
 
 17:                                               ; preds = %13
   %18 = tail call i32 @type_size(ptr noundef nonnull %4) #4
-  switch i32 %18, label %.critedge47 [
-    i32 8, label %.critedge49
+  switch i32 %18, label %.critedge49 [
+    i32 8, label %.critedge47
     i32 16, label %19
   ]
 
 19:                                               ; preds = %17
   %20 = icmp eq i32 %15, 1
-  br i1 %20, label %.critedge47, label %.critedge49
+  br i1 %20, label %.critedge49, label %.critedge47
 
-.critedge47:                                      ; preds = %13, %17, %19
+.critedge49:                                      ; preds = %13, %17, %19
   %21 = tail call ptr @aarch64_coerce_illegal_vector(ptr noundef nonnull %4)
   br label %96
 
-.critedge49:                                      ; preds = %11, %17, %19
+.critedge47:                                      ; preds = %11, %17, %19
   %22 = tail call i32 @type_size(ptr noundef nonnull %4) #4
   %23 = tail call zeroext i1 @type_is_abi_aggregate(ptr noundef nonnull %4) #4
   br i1 %23, label %45, label %24
 
-24:                                               ; preds = %.critedge49
+24:                                               ; preds = %.critedge47
   %25 = load i32, ptr %4, align 8
   %26 = icmp eq i32 %25, 31
   br i1 %26, label %27, label %30
@@ -170,7 +170,7 @@ define dso_local ptr @aarch64_classify_argument_type(ptr noundef readonly captur
   %44 = tail call ptr @abi_arg_new_direct() #4
   br label %96
 
-45:                                               ; preds = %.critedge49
+45:                                               ; preds = %.critedge47
   %.not45 = icmp eq i32 %22, 0
   br i1 %.not45, label %46, label %48
 
@@ -230,7 +230,7 @@ define dso_local ptr @aarch64_classify_argument_type(ptr noundef readonly captur
   br label %84
 
 76:                                               ; preds = %67, %71
-  %.036 = phi i32 [ %73, %71 ], [ %62, %67 ]
+  %.036 = phi i32 [ %62, %67 ], [ %73, %71 ]
   %77 = add nsw i32 %22, -1
   %78 = add i32 %77, %.036
   %79 = urem i32 %78, %.036
@@ -264,8 +264,8 @@ define dso_local ptr @aarch64_classify_argument_type(ptr noundef readonly captur
   %95 = call ptr @abi_arg_new_indirect_not_by_val(ptr noundef nonnull %4) #4
   br label %96
 
-96:                                               ; preds = %94, %92, %89, %.thread, %57, %54, %46, %.critedge, %42, %.critedge47, %9
-  %.037 = phi ptr [ %10, %9 ], [ %21, %.critedge47 ], [ %56, %54 ], [ %58, %57 ], [ %83, %.thread ], [ %91, %89 ], [ %93, %92 ], [ %95, %94 ], [ %47, %46 ], [ %43, %42 ], [ %44, %.critedge ]
+96:                                               ; preds = %94, %92, %89, %.thread, %57, %54, %46, %.critedge, %42, %.critedge49, %9
+  %.037 = phi ptr [ %10, %9 ], [ %21, %.critedge49 ], [ %56, %54 ], [ %58, %57 ], [ %83, %.thread ], [ %91, %89 ], [ %93, %92 ], [ %95, %94 ], [ %47, %46 ], [ %43, %42 ], [ %44, %.critedge ]
   ret ptr %.037
 }
 
@@ -399,7 +399,7 @@ define internal fastcc ptr @type_lowering(ptr noundef readonly captures(none) %0
   unreachable
 
 .loopexit:                                        ; preds = %.backedge, %44, %37, %61, %57, %53, %51, %42, %26, %24
-  %.0 = phi ptr [ %25, %24 ], [ %29, %26 ], [ %43, %42 ], [ %52, %51 ], [ %56, %53 ], [ %60, %57 ], [ %62, %61 ], [ %4, %37 ], [ %4, %44 ], [ %4, %.backedge ]
+  %.0 = phi ptr [ %4, %44 ], [ %25, %24 ], [ %29, %26 ], [ %62, %61 ], [ %43, %42 ], [ %4, %37 ], [ %52, %51 ], [ %56, %53 ], [ %60, %57 ], [ %4, %.backedge ]
   ret ptr %.0
 }
 
@@ -435,31 +435,31 @@ define dso_local ptr @aarch64_classify_return_type(ptr noundef readonly captures
 12:                                               ; preds = %2
   %13 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %13, 37
-  br i1 %.not, label %14, label %.critedge53
+  br i1 %.not, label %14, label %.critedge51
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %16 = load i32, ptr %15, align 8
   %17 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %16)
   %or.cond57 = icmp eq i32 %17, 1
-  br i1 %or.cond57, label %18, label %.critedge51
+  br i1 %or.cond57, label %18, label %.critedge53
 
 18:                                               ; preds = %14
   %19 = tail call i32 @type_size(ptr noundef nonnull %5) #4
-  switch i32 %19, label %.critedge51 [
-    i32 8, label %.critedge53
+  switch i32 %19, label %.critedge53 [
+    i32 8, label %.critedge51
     i32 16, label %20
   ]
 
 20:                                               ; preds = %18
   %21 = icmp eq i32 %16, 1
-  br i1 %21, label %.critedge51, label %.critedge53
+  br i1 %21, label %.critedge53, label %.critedge51
 
-.critedge51:                                      ; preds = %14, %18, %20
+.critedge53:                                      ; preds = %14, %18, %20
   %22 = tail call ptr @aarch64_coerce_illegal_vector(ptr noundef nonnull %5)
   br label %90
 
-.critedge53:                                      ; preds = %12, %18, %20
+.critedge51:                                      ; preds = %12, %18, %20
   %23 = tail call i32 @type_size(ptr noundef nonnull %5) #4
   %24 = load i32, ptr %5, align 8
   %25 = icmp eq i32 %24, 37
@@ -467,11 +467,11 @@ define dso_local ptr @aarch64_classify_return_type(ptr noundef readonly captures
   %or.cond = select i1 %25, i1 %26, i1 false
   br i1 %or.cond, label %27, label %29
 
-27:                                               ; preds = %.critedge53
+27:                                               ; preds = %.critedge51
   %28 = tail call ptr @abi_arg_new_direct_coerce_type(ptr noundef nonnull %5) #4
   br label %90
 
-29:                                               ; preds = %.critedge53
+29:                                               ; preds = %.critedge51
   %30 = tail call zeroext i1 @type_is_abi_aggregate(ptr noundef nonnull %5) #4
   br i1 %30, label %52, label %31
 
@@ -581,8 +581,8 @@ define dso_local ptr @aarch64_classify_return_type(ptr noundef readonly captures
   %89 = call ptr @abi_arg_new_indirect_by_val(ptr noundef nonnull %5) #4
   br label %90
 
-90:                                               ; preds = %88, %83, %79, %68, %60, %53, %.critedge, %49, %27, %.critedge51, %10
-  %.044 = phi ptr [ %11, %10 ], [ %22, %.critedge51 ], [ %28, %27 ], [ %82, %79 ], [ %87, %83 ], [ %72, %68 ], [ %89, %88 ], [ %61, %60 ], [ %54, %53 ], [ %50, %49 ], [ %51, %.critedge ]
+90:                                               ; preds = %88, %83, %79, %68, %60, %53, %.critedge, %49, %27, %.critedge53, %10
+  %.044 = phi ptr [ %11, %10 ], [ %22, %.critedge53 ], [ %28, %27 ], [ %82, %79 ], [ %87, %83 ], [ %72, %68 ], [ %89, %88 ], [ %61, %60 ], [ %54, %53 ], [ %50, %49 ], [ %51, %.critedge ]
   ret ptr %.044
 }
 

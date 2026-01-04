@@ -1400,7 +1400,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit273: ; preds = %_Z
   br i1 %490, label %.lr.ph, label %._crit_edge, !llvm.loop !91
 
 491:                                              ; preds = %.loopexit, %.loopexit.split-lp, %477, %480
-  %.pn110.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn110.pn.pn.pn, %477 ], [ %481, %480 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn110.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %481, %480 ], [ %.pn110.pn.pn.pn, %477 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %532
 

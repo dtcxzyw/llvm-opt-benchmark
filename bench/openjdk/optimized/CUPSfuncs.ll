@@ -311,7 +311,7 @@ define ptr @Java_sun_print_CUPSPrinter_getCupsDefaultPrinters(ptr noundef %0, pt
   br label %59
 
 59:                                               ; preds = %9, %2, %._crit_edge, %._crit_edge56, %21
-  %.0 = phi ptr [ null, %21 ], [ null, %._crit_edge56 ], [ %18, %._crit_edge ], [ null, %2 ], [ null, %9 ]
+  %.0 = phi ptr [ %18, %._crit_edge ], [ null, %2 ], [ null, %21 ], [ null, %._crit_edge56 ], [ null, %9 ]
   ret ptr %.0
 }
 
@@ -612,7 +612,7 @@ define ptr @Java_sun_print_CUPSPrinter_getMedia(ptr noundef %0, ptr noundef read
   br label %156
 
 156:                                              ; preds = %.split148, %144, %.split146, %124, %.split142, %102, %.split, %83, %59, %66, %20, %13, %.loopexit, %30, %9
-  %.0117 = phi ptr [ null, %9 ], [ null, %30 ], [ %.0, %.loopexit ], [ null, %13 ], [ null, %20 ], [ null, %66 ], [ null, %59 ], [ null, %83 ], [ null, %.split ], [ null, %102 ], [ null, %.split142 ], [ null, %124 ], [ null, %.split146 ], [ null, %144 ], [ null, %.split148 ]
+  %.0117 = phi ptr [ null, %9 ], [ %.0, %.loopexit ], [ null, %13 ], [ null, %30 ], [ null, %20 ], [ null, %59 ], [ null, %.split ], [ null, %.split142 ], [ null, %.split146 ], [ null, %66 ], [ null, %83 ], [ null, %102 ], [ null, %124 ], [ null, %144 ], [ null, %.split148 ]
   ret ptr %.0117
 }
 
@@ -778,14 +778,14 @@ define ptr @Java_sun_print_CUPSPrinter_getOutputBins(ptr noundef %0, ptr noundef
   br i1 %exitcond.not, label %.thread, label %55, !llvm.loop !11
 
 .thread:                                          ; preds = %89, %32, %35
-  %.0 = phi ptr [ null, %35 ], [ null, %32 ], [ %44, %89 ]
+  %.0 = phi ptr [ null, %32 ], [ null, %35 ], [ %44, %89 ]
   %98 = load ptr, ptr @j2d_ppdClose, align 8
   tail call void %98(ptr noundef nonnull %28) #5
   %99 = tail call i32 @unlink(ptr noundef nonnull %15) #5
   br label %100
 
 100:                                              ; preds = %81, %88, %61, %68, %47, %54, %20, %13, %.thread, %30, %9
-  %.073 = phi ptr [ null, %9 ], [ null, %30 ], [ %.0, %.thread ], [ null, %13 ], [ null, %20 ], [ null, %54 ], [ null, %47 ], [ null, %68 ], [ null, %61 ], [ null, %88 ], [ null, %81 ]
+  %.073 = phi ptr [ null, %9 ], [ %.0, %.thread ], [ null, %13 ], [ null, %30 ], [ null, %20 ], [ null, %47 ], [ null, %61 ], [ null, %54 ], [ null, %68 ], [ null, %88 ], [ null, %81 ]
   ret ptr %.073
 }
 
@@ -963,7 +963,7 @@ define ptr @Java_sun_print_CUPSPrinter_getPageSizes(ptr noundef %0, ptr noundef 
   br label %107
 
 107:                                              ; preds = %13, %104, %57, %41, %24, %9
-  %.0 = phi ptr [ null, %9 ], [ null, %24 ], [ null, %41 ], [ null, %57 ], [ %.074, %104 ], [ null, %13 ]
+  %.0 = phi ptr [ null, %9 ], [ %.074, %104 ], [ null, %24 ], [ null, %41 ], [ null, %57 ], [ null, %13 ]
   ret ptr %.0
 }
 
@@ -1123,7 +1123,7 @@ define void @Java_sun_print_CUPSPrinter_getResolutions(ptr noundef %0, ptr nound
   %99 = call zeroext i8 (ptr, ptr, ptr, ...) %98(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %30, ptr noundef nonnull %89) #5
   br label %.thread106
 
-.thread106:                                       ; preds = %67, %74, %91, %76
+.thread106:                                       ; preds = %74, %67, %91, %76
   %100 = getelementptr inbounds nuw i8, ptr %57, i64 176
   %101 = load i32, ptr %100, align 8
   %102 = icmp sgt i32 %101, 0
@@ -1217,7 +1217,7 @@ define void @Java_sun_print_CUPSPrinter_getResolutions(ptr noundef %0, ptr nound
   %152 = call zeroext i8 (ptr, ptr, ptr, ...) %151(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %30, ptr noundef nonnull %142) #5
   br label %.thread113
 
-.thread113:                                       ; preds = %115, %122, %124, %128, %144
+.thread113:                                       ; preds = %122, %115, %124, %128, %144
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %153 = load i32, ptr %100, align 8
   %154 = sext i32 %153 to i64

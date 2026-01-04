@@ -1061,7 +1061,7 @@ getModeInfo.exit:                                 ; preds = %33, %34, %12
   br label %104
 
 102:                                              ; preds = %._crit_edge, %71
-  %103 = phi ptr [ %.pre89, %71 ], [ %.pre, %._crit_edge ]
+  %103 = phi ptr [ %.pre, %._crit_edge ], [ %.pre89, %71 ]
   %.not = icmp eq ptr %103, null
   br i1 %.not, label %108, label %104
 

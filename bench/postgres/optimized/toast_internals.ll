@@ -59,7 +59,7 @@ define dso_local i64 @toast_compress_datum(i64 noundef %0, i8 noundef signext %1
   br label %24
 
 24:                                               ; preds = %6, %11, %16, %20
-  %25 = phi i32 [ %19, %16 ], [ %23, %20 ], [ 8, %6 ], [ %13, %11 ]
+  %25 = phi i32 [ %23, %20 ], [ %19, %16 ], [ 8, %6 ], [ %13, %11 ]
   %.not23 = icmp eq i8 %1, 0
   %26 = load i32, ptr @default_toast_compression, align 4
   %27 = trunc i32 %26 to i8
@@ -109,7 +109,7 @@ define dso_local i64 @toast_compress_datum(i64 noundef %0, i8 noundef signext %1
   br label %48
 
 48:                                               ; preds = %37, %47, %44
-  %.020 = phi i64 [ %46, %44 ], [ 0, %47 ], [ 0, %37 ]
+  %.020 = phi i64 [ 0, %47 ], [ %46, %44 ], [ 0, %37 ]
   ret i64 %.020
 }
 
@@ -242,10 +242,10 @@ define dso_local noundef i64 @toast_save_datum(ptr noundef readonly captures(non
   br i1 %68, label %61, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %61, %56, %43
-  %.pre = phi ptr [ %.pre.pre, %56 ], [ %46, %43 ], [ %.pre.pre98, %61 ]
-  %.sroa.17.077 = phi i32 [ %42, %56 ], [ %45, %43 ], [ %42, %61 ]
-  %.1 = phi i32 [ %spec.select, %56 ], [ %.066, %43 ], [ %.297, %61 ]
-  %.sroa.9.0 = phi i32 [ %.sroa.3.0.copyload, %56 ], [ %52, %43 ], [ %65, %61 ]
+  %.pre = phi ptr [ %46, %43 ], [ %.pre.pre, %56 ], [ %.pre.pre98, %61 ]
+  %.sroa.17.077 = phi i32 [ %45, %43 ], [ %42, %56 ], [ %42, %61 ]
+  %.1 = phi i32 [ %.066, %43 ], [ %spec.select, %56 ], [ %.297, %61 ]
+  %.sroa.9.0 = phi i32 [ %52, %43 ], [ %.sroa.3.0.copyload, %56 ], [ %65, %61 ]
   %69 = zext i32 %.sroa.9.0 to i64
   store i64 %69, ptr %6, align 16
   %70 = ptrtoint ptr %8 to i64

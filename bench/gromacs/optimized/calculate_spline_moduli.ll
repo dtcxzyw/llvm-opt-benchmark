@@ -619,7 +619,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %_ZNSt6vectorI
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
-  %.0.i.i.i.i.i = phi ptr [ %26, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %29, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ %29, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %26, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i.i.i.i.i, ptr %30, align 8, !tbaa !15
   %31 = uitofp nneg i32 %1 to double
@@ -1073,7 +1073,7 @@ define internal fastcc noundef double @_ZL16do_p3m_influencedi(double noundef %0
   br label %113
 
 113:                                              ; preds = %2, %82, %57, %39, %24, %14, %9, %5
-  %.0 = phi double [ %8, %5 ], [ %13, %9 ], [ %23, %14 ], [ %38, %24 ], [ %56, %39 ], [ %81, %57 ], [ %112, %82 ], [ 0.000000e+00, %2 ]
+  %.0 = phi double [ %112, %82 ], [ %8, %5 ], [ %13, %9 ], [ %23, %14 ], [ %38, %24 ], [ %56, %39 ], [ %81, %57 ], [ 0.000000e+00, %2 ]
   ret double %.0
 }
 

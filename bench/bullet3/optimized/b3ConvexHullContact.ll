@@ -1775,7 +1775,7 @@ _Z9b3ProjectPK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionPS3_S8_PfS9_.e
   br label %.critedge123.critedge
 
 .critedge123.critedge:                            ; preds = %_Z9b3ProjectPK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionPS3_S8_PfS9_.exit164, %_Z9b3ProjectPK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionPS3_S8_PfS9_.exit142, %.critedge121, %431
-  %.7 = phi i1 [ true, %431 ], [ true, %.critedge121 ], [ false, %_Z9b3ProjectPK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionPS3_S8_PfS9_.exit142 ], [ false, %_Z9b3ProjectPK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionPS3_S8_PfS9_.exit164 ]
+  %.7 = phi i1 [ false, %_Z9b3ProjectPK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionPS3_S8_PfS9_.exit142 ], [ true, %.critedge121 ], [ true, %431 ], [ false, %_Z9b3ProjectPK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionPS3_S8_PfS9_.exit164 ]
   ret i1 %.7
 }
 
@@ -3386,7 +3386,7 @@ define dso_local noundef range(i32 -2147483648, 5) i32 @_Z33b3ExtractManifoldSeq
   br label %127
 
 127:                                              ; preds = %80, %120, %122, %124, %126, %6, %4
-  %.056 = phi i32 [ 0, %4 ], [ %1, %6 ], [ 4, %126 ], [ 4, %124 ], [ 4, %122 ], [ 4, %120 ], [ 4, %80 ]
+  %.056 = phi i32 [ %1, %6 ], [ 0, %4 ], [ 4, %126 ], [ 4, %124 ], [ 4, %122 ], [ 4, %120 ], [ 4, %80 ]
   ret i32 %.056
 }
 
@@ -3965,7 +3965,7 @@ _ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS
   br label %207
 
 207:                                              ; preds = %203, %205, %115, %117
-  %.pn63.pn = phi { ptr, i32 } [ %118, %117 ], [ %116, %115 ], [ %206, %205 ], [ %204, %203 ]
+  %.pn63.pn = phi { ptr, i32 } [ %116, %115 ], [ %118, %117 ], [ %206, %205 ], [ %204, %203 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %214
 
@@ -4064,7 +4064,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN13b3OpenCLArrayIiE9push_bac
   br label %_ZNK13b3OpenCLArrayIiE8copyToCLEP7_cl_memmmm.exit.i
 
 _ZNK13b3OpenCLArrayIiE8copyToCLEP7_cl_memmmm.exit.i: ; preds = %28, %25, %.thread.i
-  %.017.i = phi i64 [ 0, %.thread.i ], [ %12, %25 ], [ %12, %28 ]
+  %.017.i = phi i64 [ 0, %.thread.i ], [ %12, %28 ], [ %12, %25 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load ptr, ptr %36, align 8, !tbaa !121
   %.not.i.i = icmp ne ptr %37, null
@@ -5235,7 +5235,7 @@ define dso_local noundef range(i32 -2147483648, 5) i32 @_Z31extractManifoldSeque
   br label %127
 
 127:                                              ; preds = %80, %120, %122, %124, %126, %6, %4
-  %.054 = phi i32 [ 0, %4 ], [ %1, %6 ], [ 4, %126 ], [ 4, %124 ], [ 4, %122 ], [ 4, %120 ], [ 4, %80 ]
+  %.054 = phi i32 [ %1, %6 ], [ 0, %4 ], [ 4, %126 ], [ 4, %124 ], [ 4, %122 ], [ 4, %120 ], [ 4, %80 ]
   ret i32 %.054
 }
 
@@ -6380,7 +6380,7 @@ define dso_local noundef range(i32 -2147483648, 5) i32 @_Z15extractManifoldPK9b3
   br label %127
 
 127:                                              ; preds = %80, %120, %122, %124, %126, %6, %4
-  %.054 = phi i32 [ 0, %4 ], [ %1, %6 ], [ 4, %126 ], [ 4, %124 ], [ 4, %122 ], [ 4, %120 ], [ 4, %80 ]
+  %.054 = phi i32 [ %1, %6 ], [ 0, %4 ], [ 4, %126 ], [ 4, %124 ], [ 4, %122 ], [ 4, %120 ], [ 4, %80 ]
   ret i32 %.054
 }
 
@@ -8682,7 +8682,7 @@ _ZNK20b3AlignedObjectArrayI6b3Int2E4copyEiiPS0_.exit15.i.i: ; preds = %.noexc
   br label %_Z21b3TestAabbAgainstAabbRK9b3Vector3S1_S1_S1_.exit440.thread
 
 _Z21b3TestAabbAgainstAabbRK9b3Vector3S1_S1_S1_.exit440.thread: ; preds = %779, %881, %932, %936, %896, %912, %918
-  %.5 = phi i32 [ %500, %881 ], [ %928, %918 ], [ %910, %896 ], [ %913, %912 ], [ %500, %936 ], [ %500, %932 ], [ %500, %779 ]
+  %.5 = phi i32 [ %500, %779 ], [ %500, %881 ], [ %913, %912 ], [ %928, %918 ], [ %910, %896 ], [ %500, %936 ], [ %500, %932 ]
   %.not348 = icmp eq i32 %.5, 0
   br i1 %.not348, label %943, label %492, !llvm.loop !202
 
@@ -10483,7 +10483,7 @@ _Z12IsAlmostZeroRK9b3Vector3.exit.thread63:       ; preds = %377, %_Z12IsAlmostZ
   br label %426
 
 426:                                              ; preds = %409, %.thread60, %.thread54, %._crit_edge100, %422
-  %.3 = phi i1 [ true, %._crit_edge100 ], [ true, %422 ], [ false, %409 ], [ false, %.thread54 ], [ false, %.thread60 ]
+  %.3 = phi i1 [ false, %.thread54 ], [ false, %.thread60 ], [ true, %._crit_edge100 ], [ true, %422 ], [ false, %409 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   invoke void @b3LeaveProfileZone()
@@ -11990,11 +11990,11 @@ _Z16IsPointInPolygonRK9b3Vector3PK9b3GpuFacePS0_PKiPS_.exit: ; preds = %125
 171:                                              ; preds = %_Z16IsPointInPolygonRK9b3Vector3PK9b3GpuFacePS0_PKiPS_.exit
   br label %.thread231
 
-172:                                              ; preds = %109, %162, %154, %149, %160
-  %.sroa.15.2.ph = phi float [ %.sroa.016.sroa.7.0.copyload.i, %160 ], [ %.sroa.12.0127.i, %149 ], [ %.sroa.12.0127.i, %154 ], [ %.sroa.15.0316, %162 ], [ %.sroa.15.0316, %109 ]
-  %.sroa.11.2.ph = phi float [ %.sroa.016.sroa.6.0.copyload.i, %160 ], [ %.sroa.10.0126.i, %149 ], [ %.sroa.10.0126.i, %154 ], [ %169, %162 ], [ %.sroa.11.0317, %109 ]
-  %.sroa.7121.2.ph = phi float [ %.sroa.016.sroa.5.0.copyload.i, %160 ], [ %.sroa.8.0125.i, %149 ], [ %.sroa.8.0125.i, %154 ], [ %167, %162 ], [ %.sroa.7121.0318, %109 ]
-  %.sroa.0120.2.ph = phi float [ %.sroa.016.sroa.0.0.copyload.i, %160 ], [ %.sroa.086.0124.i, %149 ], [ %.sroa.086.0124.i, %154 ], [ %165, %162 ], [ %.sroa.0120.0319, %109 ]
+172:                                              ; preds = %109, %149, %162, %154, %160
+  %.sroa.15.2.ph = phi float [ %.sroa.016.sroa.7.0.copyload.i, %160 ], [ %.sroa.12.0127.i, %154 ], [ %.sroa.12.0127.i, %149 ], [ %.sroa.15.0316, %162 ], [ %.sroa.15.0316, %109 ]
+  %.sroa.11.2.ph = phi float [ %.sroa.016.sroa.6.0.copyload.i, %160 ], [ %.sroa.10.0126.i, %154 ], [ %.sroa.10.0126.i, %149 ], [ %169, %162 ], [ %.sroa.11.0317, %109 ]
+  %.sroa.7121.2.ph = phi float [ %.sroa.016.sroa.5.0.copyload.i, %160 ], [ %.sroa.8.0125.i, %154 ], [ %.sroa.8.0125.i, %149 ], [ %167, %162 ], [ %.sroa.7121.0318, %109 ]
+  %.sroa.0120.2.ph = phi float [ %.sroa.016.sroa.0.0.copyload.i, %160 ], [ %.sroa.086.0124.i, %154 ], [ %.sroa.086.0124.i, %149 ], [ %165, %162 ], [ %.sroa.0120.0319, %109 ]
   %173 = fsub float %74, %.sroa.0120.2.ph
   %174 = fsub float %75, %.sroa.7121.2.ph
   %175 = fsub float %76, %.sroa.11.2.ph
@@ -12031,15 +12031,15 @@ _Z16IsPointInPolygonRK9b3Vector3PK9b3GpuFacePS0_PKiPS_.exit: ; preds = %125
   br label %.thread231
 
 .thread231:                                       ; preds = %180, %182, %171, %_Z16IsPointInPolygonRK9b3Vector3PK9b3GpuFacePS0_PKiPS_.exit, %189, %187
-  %.2252 = phi float [ %.0321, %187 ], [ %99, %189 ], [ %.0321, %180 ], [ %sqrt, %182 ], [ %.0321, %_Z16IsPointInPolygonRK9b3Vector3PK9b3GpuFacePS0_PKiPS_.exit ], [ %99, %171 ]
-  %.sroa.0120.1250 = phi float [ %.sroa.0120.0319, %187 ], [ %.sroa.0120.0319, %189 ], [ %.sroa.0120.2.ph, %180 ], [ %.sroa.0120.2.ph, %182 ], [ %.sroa.0120.0319, %_Z16IsPointInPolygonRK9b3Vector3PK9b3GpuFacePS0_PKiPS_.exit ], [ %.sroa.0120.0319, %171 ]
-  %.sroa.7121.1249 = phi float [ %.sroa.7121.0318, %187 ], [ %.sroa.7121.0318, %189 ], [ %.sroa.7121.2.ph, %180 ], [ %.sroa.7121.2.ph, %182 ], [ %.sroa.7121.0318, %_Z16IsPointInPolygonRK9b3Vector3PK9b3GpuFacePS0_PKiPS_.exit ], [ %.sroa.7121.0318, %171 ]
-  %.sroa.11.1248 = phi float [ %.sroa.11.0317, %187 ], [ %.sroa.11.0317, %189 ], [ %.sroa.11.2.ph, %180 ], [ %.sroa.11.2.ph, %182 ], [ %.sroa.11.0317, %_Z16IsPointInPolygonRK9b3Vector3PK9b3GpuFacePS0_PKiPS_.exit ], [ %.sroa.11.0317, %171 ]
-  %.sroa.15.1247 = phi float [ %.sroa.15.0316, %187 ], [ %.sroa.15.0316, %189 ], [ %.sroa.15.2.ph, %180 ], [ %.sroa.15.2.ph, %182 ], [ %.sroa.15.0316, %_Z16IsPointInPolygonRK9b3Vector3PK9b3GpuFacePS0_PKiPS_.exit ], [ %.sroa.15.0316, %171 ]
-  %.sroa.0140.2246 = phi <2 x float> [ %.sroa.0140.0315, %187 ], [ %.sroa.0.4.vec.insert.i, %189 ], [ %.sroa.0140.0315, %180 ], [ %.sroa.0.4.vec.insert.i.i.i100, %182 ], [ %.sroa.0140.0315, %_Z16IsPointInPolygonRK9b3Vector3PK9b3GpuFacePS0_PKiPS_.exit ], [ %.sroa.0.4.vec.insert.i, %171 ]
-  %.sroa.7141.2245 = phi <2 x float> [ %.sroa.7141.0314, %187 ], [ %.sroa.7129.12.vec.insert, %189 ], [ %.sroa.7141.0314, %180 ], [ %.sroa.3.12.vec.insert.i.i.i101, %182 ], [ %.sroa.7141.0314, %_Z16IsPointInPolygonRK9b3Vector3PK9b3GpuFacePS0_PKiPS_.exit ], [ %.sroa.7129.12.vec.insert, %171 ]
-  %.sroa.0142.2244 = phi <2 x float> [ %.sroa.0142.0313, %187 ], [ %.sroa.0.4.vec.insert.i.i.i, %189 ], [ %.sroa.0142.0313, %180 ], [ %.sroa.0142.4.vec.insert, %182 ], [ %.sroa.0142.0313, %_Z16IsPointInPolygonRK9b3Vector3PK9b3GpuFacePS0_PKiPS_.exit ], [ %.sroa.0.4.vec.insert.i.i.i, %171 ]
-  %.sroa.9145.2243 = phi <2 x float> [ %.sroa.9145.0312, %187 ], [ %.sroa.3.12.vec.insert.i.i.i, %189 ], [ %.sroa.9145.0312, %180 ], [ %.sroa.9145.12.vec.insert, %182 ], [ %.sroa.9145.0312, %_Z16IsPointInPolygonRK9b3Vector3PK9b3GpuFacePS0_PKiPS_.exit ], [ %.sroa.3.12.vec.insert.i.i.i, %171 ]
+  %.2252 = phi float [ %99, %189 ], [ %.0321, %187 ], [ %.0321, %180 ], [ %sqrt, %182 ], [ %.0321, %_Z16IsPointInPolygonRK9b3Vector3PK9b3GpuFacePS0_PKiPS_.exit ], [ %99, %171 ]
+  %.sroa.0120.1250 = phi float [ %.sroa.0120.0319, %189 ], [ %.sroa.0120.0319, %187 ], [ %.sroa.0120.2.ph, %180 ], [ %.sroa.0120.2.ph, %182 ], [ %.sroa.0120.0319, %_Z16IsPointInPolygonRK9b3Vector3PK9b3GpuFacePS0_PKiPS_.exit ], [ %.sroa.0120.0319, %171 ]
+  %.sroa.7121.1249 = phi float [ %.sroa.7121.0318, %189 ], [ %.sroa.7121.0318, %187 ], [ %.sroa.7121.2.ph, %180 ], [ %.sroa.7121.2.ph, %182 ], [ %.sroa.7121.0318, %_Z16IsPointInPolygonRK9b3Vector3PK9b3GpuFacePS0_PKiPS_.exit ], [ %.sroa.7121.0318, %171 ]
+  %.sroa.11.1248 = phi float [ %.sroa.11.0317, %189 ], [ %.sroa.11.0317, %187 ], [ %.sroa.11.2.ph, %180 ], [ %.sroa.11.2.ph, %182 ], [ %.sroa.11.0317, %_Z16IsPointInPolygonRK9b3Vector3PK9b3GpuFacePS0_PKiPS_.exit ], [ %.sroa.11.0317, %171 ]
+  %.sroa.15.1247 = phi float [ %.sroa.15.0316, %189 ], [ %.sroa.15.0316, %187 ], [ %.sroa.15.2.ph, %180 ], [ %.sroa.15.2.ph, %182 ], [ %.sroa.15.0316, %_Z16IsPointInPolygonRK9b3Vector3PK9b3GpuFacePS0_PKiPS_.exit ], [ %.sroa.15.0316, %171 ]
+  %.sroa.0140.2246 = phi <2 x float> [ %.sroa.0.4.vec.insert.i, %189 ], [ %.sroa.0140.0315, %187 ], [ %.sroa.0140.0315, %180 ], [ %.sroa.0.4.vec.insert.i.i.i100, %182 ], [ %.sroa.0140.0315, %_Z16IsPointInPolygonRK9b3Vector3PK9b3GpuFacePS0_PKiPS_.exit ], [ %.sroa.0.4.vec.insert.i, %171 ]
+  %.sroa.7141.2245 = phi <2 x float> [ %.sroa.7129.12.vec.insert, %189 ], [ %.sroa.7141.0314, %187 ], [ %.sroa.7141.0314, %180 ], [ %.sroa.3.12.vec.insert.i.i.i101, %182 ], [ %.sroa.7141.0314, %_Z16IsPointInPolygonRK9b3Vector3PK9b3GpuFacePS0_PKiPS_.exit ], [ %.sroa.7129.12.vec.insert, %171 ]
+  %.sroa.0142.2244 = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i.i, %189 ], [ %.sroa.0142.0313, %187 ], [ %.sroa.0142.0313, %180 ], [ %.sroa.0142.4.vec.insert, %182 ], [ %.sroa.0142.0313, %_Z16IsPointInPolygonRK9b3Vector3PK9b3GpuFacePS0_PKiPS_.exit ], [ %.sroa.0.4.vec.insert.i.i.i, %171 ]
+  %.sroa.9145.2243 = phi <2 x float> [ %.sroa.3.12.vec.insert.i.i.i, %189 ], [ %.sroa.9145.0312, %187 ], [ %.sroa.9145.0312, %180 ], [ %.sroa.9145.12.vec.insert, %182 ], [ %.sroa.9145.0312, %_Z16IsPointInPolygonRK9b3Vector3PK9b3GpuFacePS0_PKiPS_.exit ], [ %.sroa.3.12.vec.insert.i.i.i, %171 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %95, !llvm.loop !237
@@ -15966,7 +15966,7 @@ _ZN20b3AlignedObjectArrayI10b3Contact4E10deallocateEv.exit.i.i: ; preds = %1440,
   br i1 %1778, label %1463, label %._crit_edge, !llvm.loop !298
 
 1779:                                             ; preds = %1773, %1688, %1748
-  %.pn855.pn.pn.pn = phi { ptr, i32 } [ %.pn855, %1748 ], [ %.pn848.pn, %1688 ], [ %.pn842.pn, %1773 ]
+  %.pn855.pn.pn.pn = phi { ptr, i32 } [ %.pn855, %1748 ], [ %.pn842.pn, %1773 ], [ %.pn848.pn, %1688 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %126)
   call void @llvm.lifetime.end.p0(ptr nonnull %125)
   call void @llvm.lifetime.end.p0(ptr nonnull %124)
@@ -16257,7 +16257,7 @@ _ZN20b3AlignedObjectArrayI6b3Int4ED2Ev.exit:      ; preds = %_ZN20b3AlignedObjec
   unreachable
 
 1880:                                             ; preds = %1779, %1789, %1461, %1418
-  %.pn855.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1462, %1461 ], [ %1419, %1418 ], [ %.pn855.pn.pn.pn, %1779 ], [ %1790, %1789 ]
+  %.pn855.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1419, %1418 ], [ %1462, %1461 ], [ %.pn855.pn.pn.pn, %1779 ], [ %1790, %1789 ]
   call void @_ZN20b3AlignedObjectArrayI10b3Contact4ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %121) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %121)
   br label %1881
@@ -18706,7 +18706,7 @@ _ZN20b3AlignedObjectArrayI6b3Int4ED2Ev.exit1425:  ; preds = %_ZN20b3AlignedObjec
   br label %_ZN13b3ProfileZoneD2Ev.exit1359
 
 2845:                                             ; preds = %2782, %2780
-  %.pn926 = phi { ptr, i32 } [ %2783, %2782 ], [ %2781, %2780 ]
+  %.pn926 = phi { ptr, i32 } [ %2781, %2780 ], [ %2783, %2782 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %152)
   br label %2846
 
@@ -20806,7 +20806,7 @@ _ZN20b3AlignedObjectArrayI6b3Int4ED2Ev.exit1644:  ; preds = %_ZN20b3AlignedObjec
   br label %_ZN13b3ProfileZoneD2Ev.exit1453
 
 3697:                                             ; preds = %3446, %3549, %3551, %3553, %3555, %3577, %3444, %3442
-  %.pn951.pn = phi { ptr, i32 } [ %3445, %3444 ], [ %3443, %3442 ], [ %3578, %3577 ], [ %3447, %3446 ], [ %3556, %3555 ], [ %3554, %3553 ], [ %3552, %3551 ], [ %3550, %3549 ]
+  %.pn951.pn = phi { ptr, i32 } [ %3443, %3442 ], [ %3445, %3444 ], [ %3578, %3577 ], [ %3447, %3446 ], [ %3556, %3555 ], [ %3554, %3553 ], [ %3552, %3551 ], [ %3550, %3549 ]
   call void @_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %174) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %174)
   br label %3698
@@ -21800,7 +21800,7 @@ _ZN20b3AlignedObjectArrayI6b3Int4ED2Ev.exit1724:  ; preds = %_ZN20b3AlignedObjec
   br label %_ZN13b3ProfileZoneD2Ev.exit1741
 
 4065:                                             ; preds = %4002, %4000
-  %.pn1037 = phi { ptr, i32 } [ %4001, %4000 ], [ %4003, %4002 ]
+  %.pn1037 = phi { ptr, i32 } [ %4003, %4002 ], [ %4001, %4000 ]
   call void @_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %183) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %183)
   br label %4066
@@ -23558,7 +23558,7 @@ _ZN20b3AlignedObjectArrayI6b3Int4ED2Ev.exit1850:  ; preds = %_ZN20b3AlignedObjec
   br label %4739
 
 4739:                                             ; preds = %4737, %4648
-  %.pn1006 = phi { ptr, i32 } [ %4649, %4648 ], [ %4738, %4737 ]
+  %.pn1006 = phi { ptr, i32 } [ %4738, %4737 ], [ %4649, %4648 ]
   call void @_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %197) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %197)
   call void @_ZN20b3AlignedObjectArrayI6b3Int4ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %196) #28
@@ -24573,7 +24573,7 @@ _ZN13b3ProfileZoneD2Ev.exit1891:                  ; preds = %5146
   unreachable
 
 5153:                                             ; preds = %5145, %4943
-  %.pn1032.pn.pn = phi { ptr, i32 } [ %.pn1032.pn, %5145 ], [ %.pn1028.pn, %4943 ]
+  %.pn1028.pn.pn = phi { ptr, i32 } [ %.pn1028.pn, %4943 ], [ %.pn1032.pn, %5145 ]
   invoke void @b3LeaveProfileZone()
           to label %_ZN13b3ProfileZoneD2Ev.exit1360 unwind label %5154
 
@@ -24588,12 +24588,12 @@ _ZN13b3ProfileZoneD2Ev.exit1892:                  ; preds = %_ZN13b3ProfileZoneD
   ret void
 
 _ZN13b3ProfileZoneD2Ev.exit1360:                  ; preds = %4747, %5153, %4273, %4285, %3896, %3912, %3300, %3309, %3162, %3171, %3149, %3158, %2647, %2659, %3990, %_ZN13b3ProfileZoneD2Ev.exit1776, %4068, %3992, %3707, %2853, %2645
-  %.pn1037.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %2646, %2645 ], [ %.pn951.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %3707 ], [ %.pn926.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2853 ], [ %3991, %3990 ], [ %.pn1037.pn.pn.pn.pn.pn.pn, %4068 ], [ %.pn1024, %_ZN13b3ProfileZoneD2Ev.exit1776 ], [ %3993, %3992 ], [ %2648, %2647 ], [ %.pn944.pn.pn, %2659 ], [ %3150, %3149 ], [ %.pn984.pn, %3158 ], [ %3163, %3162 ], [ %.pn988.pn, %3171 ], [ %3301, %3300 ], [ %.pn980.pn, %3309 ], [ %3897, %3896 ], [ %.pn994.pn.pn, %3912 ], [ %4274, %4273 ], [ %.pn1000.pn.pn, %4285 ], [ %4748, %4747 ], [ %.pn1032.pn.pn, %5153 ]
+  %.pn1037.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn926.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2853 ], [ %.pn980.pn, %3309 ], [ %.pn984.pn, %3158 ], [ %.pn944.pn.pn, %2659 ], [ %2646, %2645 ], [ %.pn988.pn, %3171 ], [ %.pn951.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %3707 ], [ %3993, %3992 ], [ %3991, %3990 ], [ %.pn1037.pn.pn.pn.pn.pn.pn, %4068 ], [ %.pn1000.pn.pn, %4285 ], [ %.pn1024, %_ZN13b3ProfileZoneD2Ev.exit1776 ], [ %.pn994.pn.pn, %3912 ], [ %2648, %2647 ], [ %3150, %3149 ], [ %3163, %3162 ], [ %3301, %3300 ], [ %3897, %3896 ], [ %4274, %4273 ], [ %4748, %4747 ], [ %.pn1028.pn.pn, %5153 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %142)
   br label %_ZN13b3ProfileZoneD2Ev.exit1096
 
 _ZN13b3ProfileZoneD2Ev.exit1096:                  ; preds = %2455, %2464, %2319, %2332, %2097, %2106, %1394, %1891, %1285, %1294, %1152, %1164, %1126, %1135, %664, %677, %2112, %_ZN13b3ProfileZoneD2Ev.exit1360, %_ZN13b3ProfileZoneD2Ev.exit1137, %662
-  %.pn1037.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1037.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN13b3ProfileZoneD2Ev.exit1360 ], [ %663, %662 ], [ %.pn898.pn.pn, %_ZN13b3ProfileZoneD2Ev.exit1137 ], [ %2113, %2112 ], [ %665, %664 ], [ %.pn890.pn, %677 ], [ %1127, %1126 ], [ %.pn894.pn, %1135 ], [ %1153, %1152 ], [ %.pn902.pn.pn, %1164 ], [ %1286, %1285 ], [ %.pn886.pn, %1294 ], [ %1395, %1394 ], [ %.pn855.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1891 ], [ %2098, %2097 ], [ %.pn907.pn, %2106 ], [ %2320, %2319 ], [ %.pn913.pn, %2332 ], [ %2456, %2455 ], [ %.pn918.pn, %2464 ]
+  %.pn1037.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1037.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN13b3ProfileZoneD2Ev.exit1360 ], [ %.pn886.pn, %1294 ], [ %663, %662 ], [ %.pn894.pn, %1135 ], [ %.pn898.pn.pn, %_ZN13b3ProfileZoneD2Ev.exit1137 ], [ %.pn890.pn, %677 ], [ %.pn855.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1891 ], [ %.pn902.pn.pn, %1164 ], [ %.pn913.pn, %2332 ], [ %.pn907.pn, %2106 ], [ %2113, %2112 ], [ %665, %664 ], [ %1127, %1126 ], [ %1153, %1152 ], [ %1286, %1285 ], [ %1395, %1394 ], [ %2098, %2097 ], [ %2320, %2319 ], [ %2456, %2455 ], [ %.pn918.pn, %2464 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %97)
   call void @llvm.lifetime.end.p0(ptr nonnull %96)
   br label %5157
@@ -26875,7 +26875,7 @@ _Z20portalReachTolerancePK15_b3MprSimplex_tPK15_b3MprSupport_tPK9b3Vector3.exit.
   br label %_Z14b3ExpandPortalP15_b3MprSimplex_tPK15_b3MprSupport_t.exit.i
 
 _Z14b3ExpandPortalP15_b3MprSimplex_tPK15_b3MprSupport_t.exit.i: ; preds = %411, %406, %405, %400
-  %.sink.i.i = phi ptr [ %137, %411 ], [ %201, %405 ], [ %73, %400 ], [ %73, %406 ]
+  %.sink.i.i = phi ptr [ %137, %411 ], [ %73, %400 ], [ %201, %405 ], [ %73, %406 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %.sink.i.i, ptr noundef nonnull align 16 dereferenceable(48) %18, i64 48, i1 false)
   %412 = add nuw nsw i32 %.01626.i, 1
   %exitcond.i = icmp eq i32 %412, 1000
@@ -27246,7 +27246,7 @@ _Z20portalReachTolerancePK15_b3MprSimplex_tPK15_b3MprSupport_tPK9b3Vector3.exit.
   br label %_Z14b3ExpandPortalP15_b3MprSimplex_tPK15_b3MprSupport_t.exit.i62
 
 _Z14b3ExpandPortalP15_b3MprSimplex_tPK15_b3MprSupport_t.exit.i62: ; preds = %668, %663, %662, %657
-  %.sink.i.i63 = phi ptr [ %137, %668 ], [ %201, %662 ], [ %73, %657 ], [ %73, %663 ]
+  %.sink.i.i63 = phi ptr [ %137, %668 ], [ %73, %657 ], [ %201, %662 ], [ %73, %663 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %.sink.i.i63, ptr noundef nonnull align 16 dereferenceable(48) %15, i64 48, i1 false)
   %669 = add nuw nsw i64 %.03229.i, 1
   %.pre = load float, ptr %137, align 16, !tbaa !16
@@ -27368,7 +27368,7 @@ _ZL16b3DiscoverPortaliiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3Colli
   br label %731
 
 731:                                              ; preds = %_ZL14b3RefinePortaliiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_P15_b3MprSimplex_t.exit.thread, %_ZL12b3FindPenetriiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_P15_b3MprSimplex_tPfSB_SB_.exit, %690, %_ZL16b3DiscoverPortaliiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_PiP15_b3MprSimplex_t.exit, %.loopexit
-  %.0 = phi i32 [ -1, %.loopexit ], [ 0, %_ZL16b3DiscoverPortaliiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_PiP15_b3MprSimplex_t.exit ], [ 0, %690 ], [ 0, %_ZL12b3FindPenetriiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_P15_b3MprSimplex_tPfSB_SB_.exit ], [ -1, %_ZL14b3RefinePortaliiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_P15_b3MprSimplex_t.exit.thread ]
+  %.0 = phi i32 [ -1, %.loopexit ], [ -1, %_ZL14b3RefinePortaliiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_P15_b3MprSimplex_t.exit.thread ], [ 0, %_ZL16b3DiscoverPortaliiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_PiP15_b3MprSimplex_t.exit ], [ 0, %690 ], [ 0, %_ZL12b3FindPenetriiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_P15_b3MprSimplex_tPfSB_SB_.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   ret i32 %.0
 }

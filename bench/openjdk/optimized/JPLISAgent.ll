@@ -157,7 +157,7 @@ define hidden range(i32 0, 4) i32 @createNewJPLISAgent(ptr noundef %0, ptr nound
   br label %29
 
 29:                                               ; preds = %20, %4, %21
-  %.0 = phi i32 [ %.1.ph, %21 ], [ 0, %20 ], [ 1, %4 ]
+  %.0 = phi i32 [ 0, %20 ], [ %.1.ph, %21 ], [ 1, %4 ]
   ret i32 %.0
 }
 
@@ -291,7 +291,7 @@ checkCapabilities.exit:                           ; preds = %5, %33, %40, %42
   br label %.critedge
 
 .critedge:                                        ; preds = %59, %68, %51, %62, %52, %checkCapabilities.exit, %50
-  %.044 = phi i32 [ 2, %50 ], [ 0, %checkCapabilities.exit ], [ 2, %52 ], [ 2, %62 ], [ %71, %68 ], [ 2, %59 ], [ 2, %51 ]
+  %.044 = phi i32 [ 2, %62 ], [ 2, %50 ], [ 0, %checkCapabilities.exit ], [ 2, %52 ], [ %71, %68 ], [ 2, %59 ], [ 2, %51 ]
   ret i32 %.044
 }
 
@@ -407,8 +407,8 @@ define hidden range(i32 0, 5) i32 @recordCommandLineData(ptr noundef captures(no
   store ptr %.041, ptr %30, align 8
   br label %.thread
 
-.thread:                                          ; preds = %8, %3, %5, %23, %28
-  %.02233 = phi i32 [ 0, %28 ], [ 3, %8 ], [ 4, %3 ], [ 4, %5 ], [ 3, %23 ]
+.thread:                                          ; preds = %8, %5, %23, %3, %28
+  %.02233 = phi i32 [ 0, %28 ], [ 3, %8 ], [ 4, %5 ], [ 3, %23 ], [ 4, %3 ]
   ret i32 %.02233
 }
 
@@ -460,7 +460,7 @@ define hidden zeroext range(i8 0, 2) i8 @processJavaStart(ptr noundef %0, ptr no
   %24 = icmp eq i32 %23, 112
   br i1 %24, label %setLivePhaseEventHandlers.exit.thread, label %setLivePhaseEventHandlers.exit
 
-setLivePhaseEventHandlers.exit.thread:            ; preds = %.critedge, %19, %16
+setLivePhaseEventHandlers.exit.thread:            ; preds = %19, %.critedge, %16
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @JPLISAssertConditionWithMessage(i8 noundef zeroext 0, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 419) #10
   br label %.critedge22.thread
@@ -496,7 +496,7 @@ setLivePhaseEventHandlers.exit:                   ; preds = %19
   br label %.critedge22.thread
 
 .critedge22.thread:                               ; preds = %setLivePhaseEventHandlers.exit.thread, %5, %2, %setLivePhaseEventHandlers.exit, %34, %.critedge22
-  %.226 = phi i8 [ 1, %34 ], [ 0, %.critedge22 ], [ 0, %setLivePhaseEventHandlers.exit ], [ 0, %2 ], [ 0, %5 ], [ 0, %setLivePhaseEventHandlers.exit.thread ]
+  %.226 = phi i8 [ 0, %.critedge22 ], [ 1, %34 ], [ 0, %setLivePhaseEventHandlers.exit ], [ 0, %2 ], [ 0, %5 ], [ 0, %setLivePhaseEventHandlers.exit.thread ]
   ret i8 %.226
 }
 
@@ -616,7 +616,7 @@ define hidden zeroext range(i8 0, 2) i8 @createInstrumentationImpl(ptr noundef %
   br label %.thread112
 
 .thread112:                                       ; preds = %11, %2, %.critedge, %.critedge93, %44, %53, %71, %62
-  %.5118 = phi i8 [ 1, %71 ], [ 0, %62 ], [ 0, %53 ], [ 0, %44 ], [ 0, %.critedge93 ], [ 0, %.critedge ], [ 0, %2 ], [ 0, %11 ]
+  %.5118 = phi i8 [ 0, %62 ], [ 1, %71 ], [ 0, %53 ], [ 0, %44 ], [ 0, %.critedge93 ], [ 0, %.critedge ], [ 0, %2 ], [ 0, %11 ]
   ret i8 %.5118
 }
 
@@ -656,7 +656,7 @@ define hidden zeroext range(i8 0, 2) i8 @setLivePhaseEventHandlers(ptr noundef r
   br label %23
 
 23:                                               ; preds = %11, %20, %14, %1
-  %.011 = phi i8 [ 0, %1 ], [ 0, %14 ], [ %22, %20 ], [ 0, %11 ]
+  %.011 = phi i8 [ 0, %14 ], [ 0, %1 ], [ %22, %20 ], [ 0, %11 ]
   ret i8 %.011
 }
 
@@ -1410,7 +1410,7 @@ define hidden ptr @retransformableEnvironment(ptr noundef %0) local_unnamed_addr
   br label %60
 
 60:                                               ; preds = %50, %41, %7, %1, %33
-  %.0 = phi ptr [ null, %33 ], [ %6, %1 ], [ null, %7 ], [ null, %41 ], [ %spec.select, %50 ]
+  %.0 = phi ptr [ null, %7 ], [ %6, %1 ], [ null, %33 ], [ null, %41 ], [ %spec.select, %50 ]
   ret ptr %.0
 }
 
@@ -1505,7 +1505,7 @@ define hidden void @retransformClasses(ptr noundef %0, ptr noundef %1, ptr nound
 
 .thread:                                          ; preds = %3
   tail call void @JPLISAssertCondition(i8 noundef zeroext 0, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.1, i32 noundef 1140) #10
-  br label %.thread113.thread
+  br label %.thread99.thread.thread
 
 5:                                                ; preds = %3
   %6 = icmp eq ptr %2, null
@@ -1513,7 +1513,7 @@ define hidden void @retransformClasses(ptr noundef %0, ptr noundef %1, ptr nound
 
 7:                                                ; preds = %5
   tail call void @JPLISAssertCondition(i8 noundef zeroext 0, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.1, i32 noundef 1147) #10
-  br label %.thread113.thread
+  br label %.thread99.thread.thread
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr %0, align 8
@@ -1530,10 +1530,10 @@ define hidden void @retransformClasses(ptr noundef %0, ptr noundef %1, ptr nound
 
 16:                                               ; preds = %8
   tail call void @JPLISAssertCondition(i8 noundef zeroext 0, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.1, i32 noundef 1158) #10
-  br label %.thread113.thread
+  br label %.thread99.thread.thread
 
 17:                                               ; preds = %8
-  br i1 %.not68, label %18, label %.thread113.thread119
+  br i1 %.not68, label %18, label %.thread99.thread.thread119
 
 18:                                               ; preds = %17
   %19 = sext i32 %12 to i64
@@ -1543,11 +1543,11 @@ define hidden void @retransformClasses(ptr noundef %0, ptr noundef %1, ptr nound
   %23 = zext i1 %22 to i8
   tail call void @JPLISAssertCondition(i8 noundef zeroext %23, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.1, i32 noundef 1168) #10
   %spec.select75 = select i1 %22, i32 0, i32 110
-  br i1 %22, label %.preheader, label %.thread113.thread
+  br i1 %22, label %.preheader, label %.thread99.thread.thread
 
 .preheader:                                       ; preds = %18
   %24 = icmp sgt i32 %12, 0
-  br i1 %24, label %.lr.ph.preheader, label %.thread105
+  br i1 %24, label %.lr.ph.preheader, label %.thread99
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %wide.trip.count = zext nneg i32 %12 to i64
@@ -1556,7 +1556,7 @@ define hidden void @retransformClasses(ptr noundef %0, ptr noundef %1, ptr nound
 25:                                               ; preds = %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread105, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %.thread99, label %.lr.ph, !llvm.loop !8
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %25 ]
@@ -1571,43 +1571,43 @@ define hidden void @retransformClasses(ptr noundef %0, ptr noundef %1, ptr nound
   %.not71 = icmp eq i8 %32, 0
   %33 = zext i1 %.not71 to i8
   tail call void @JPLISAssertCondition(i8 noundef zeroext %33, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.1, i32 noundef 1179) #10
-  br i1 %.not71, label %34, label %.thread113
+  br i1 %.not71, label %34, label %.thread99.thread
 
 34:                                               ; preds = %.lr.ph
   %35 = load ptr, ptr %31, align 8
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %.thread113.thread128, label %25
+  br i1 %36, label %.thread99.thread.thread128, label %25
 
-.thread113.thread128:                             ; preds = %34
+.thread99.thread.thread128:                       ; preds = %34
   tail call void @JPLISAssertCondition(i8 noundef zeroext 0, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.1, i32 noundef 1185) #10
   tail call void @deallocate(ptr noundef nonnull %4, ptr noundef nonnull %21) #10
-  br label %.thread113.thread
+  br label %.thread99.thread.thread
 
-.thread105:                                       ; preds = %25, %.preheader
+.thread99:                                        ; preds = %25, %.preheader
   %37 = load ptr, ptr %4, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 1208
   %39 = load ptr, ptr %38, align 8
   %40 = tail call i32 %39(ptr noundef nonnull %4, i32 noundef %12, ptr noundef nonnull %21) #10
-  br label %.thread113
+  br label %.thread99.thread
 
-.thread113:                                       ; preds = %.lr.ph, %.thread105
-  %.5110 = phi i32 [ %40, %.thread105 ], [ %spec.select75, %.lr.ph ]
+.thread99.thread:                                 ; preds = %.lr.ph, %.thread99
+  %.5116 = phi i32 [ %40, %.thread99 ], [ %spec.select75, %.lr.ph ]
   tail call void @deallocate(ptr noundef nonnull %4, ptr noundef nonnull %21) #10
-  switch i32 %.5110, label %.thread113.thread [
+  switch i32 %.5116, label %.thread99.thread.thread [
     i32 112, label %41
-    i32 0, label %.thread113.thread119
+    i32 0, label %.thread99.thread.thread119
   ]
 
-.thread113.thread:                                ; preds = %18, %.thread113.thread128, %7, %.thread, %16, %.thread113
-  %.5111118 = phi i32 [ %.5110, %.thread113 ], [ 100, %7 ], [ 99, %.thread ], [ 100, %16 ], [ 100, %.thread113.thread128 ], [ 110, %18 ]
-  tail call void @createAndThrowThrowableFromJVMTIErrorCode(ptr noundef %0, i32 noundef %.5111118) #10
-  br label %.thread113.thread119
+.thread99.thread.thread:                          ; preds = %18, %.thread99.thread.thread128, %16, %.thread, %7, %.thread99.thread
+  %.5108118 = phi i32 [ %.5116, %.thread99.thread ], [ 100, %16 ], [ 99, %.thread ], [ 100, %7 ], [ 100, %.thread99.thread.thread128 ], [ 110, %18 ]
+  tail call void @createAndThrowThrowableFromJVMTIErrorCode(ptr noundef %0, i32 noundef %.5108118) #10
+  br label %.thread99.thread.thread119
 
-.thread113.thread119:                             ; preds = %17, %.thread113, %.thread113.thread
+.thread99.thread.thread119:                       ; preds = %17, %.thread99.thread, %.thread99.thread.thread
   tail call void @mapThrownThrowableIfNecessary(ptr noundef %0, ptr noundef nonnull @redefineClassMapper) #10
   br label %41
 
-41:                                               ; preds = %.thread113, %.thread113.thread119
+41:                                               ; preds = %.thread99.thread, %.thread99.thread.thread119
   ret void
 }
 
@@ -1790,8 +1790,8 @@ define hidden void @redefineClasses(ptr noundef %0, ptr noundef readonly capture
   br label %.thread
 
 .thread:                                          ; preds = %83, %74, %66, %58, %.lr.ph, %._crit_edge, %._crit_edge, %97
-  %.0116154 = phi i32 [ %.0116.lcssa, %97 ], [ %.0116.lcssa, %._crit_edge ], [ %.0116.lcssa, %._crit_edge ], [ %54, %.lr.ph ], [ %54, %58 ], [ %54, %66 ], [ %54, %74 ], [ %54, %83 ]
-  %.5 = phi i8 [ 1, %97 ], [ 0, %._crit_edge ], [ 0, %._crit_edge ], [ %90, %83 ], [ %81, %74 ], [ %72, %66 ], [ %64, %58 ], [ %56, %.lr.ph ]
+  %.0116154 = phi i32 [ %.0116.lcssa, %._crit_edge ], [ %.0116.lcssa, %._crit_edge ], [ %.0116.lcssa, %97 ], [ %54, %.lr.ph ], [ %54, %58 ], [ %54, %66 ], [ %54, %74 ], [ %54, %83 ]
+  %.5 = phi i8 [ 0, %._crit_edge ], [ 0, %._crit_edge ], [ 1, %97 ], [ %90, %83 ], [ %81, %74 ], [ %72, %66 ], [ %64, %58 ], [ %56, %.lr.ph ]
   %.not160 = icmp eq i32 %.0116154, 0
   br i1 %.not160, label %._crit_edge159, label %.lr.ph158.preheader
 

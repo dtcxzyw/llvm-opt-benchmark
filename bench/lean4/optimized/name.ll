@@ -97,7 +97,7 @@ switch.early.test:                                ; preds = %4
   br label %13
 
 13:                                               ; preds = %switch.early.test, %6, %1, %10
-  %14 = phi i1 [ %12, %10 ], [ true, %1 ], [ true, %switch.early.test ], [ true, %6 ]
+  %14 = phi i1 [ true, %1 ], [ %12, %10 ], [ true, %6 ], [ true, %switch.early.test ]
   ret i1 %14
 }
 
@@ -170,7 +170,7 @@ switch.early.test.i:                              ; preds = %13
   br label %_ZN4lean22is_letter_like_unicodeEj.exit
 
 _ZN4lean22is_letter_like_unicodeEj.exit:          ; preds = %19, %15, %switch.early.test.i, %10, %7, %2
-  %.0 = phi i1 [ true, %2 ], [ true, %7 ], [ %21, %19 ], [ true, %10 ], [ true, %switch.early.test.i ], [ true, %15 ]
+  %.0 = phi i1 [ true, %2 ], [ true, %7 ], [ true, %10 ], [ %21, %19 ], [ true, %15 ], [ true, %switch.early.test.i ]
   ret i1 %.0
 }
 
@@ -245,8 +245,8 @@ switch.hole_check:                                ; preds = %switch.early.test
   %switch.lobit = trunc i64 %switch.shifted to i1
   br i1 %switch.lobit, label %_ZN4lean27is_sub_script_alnum_unicodeEj.exit, label %7
 
-_ZN4lean27is_sub_script_alnum_unicodeEj.exit:     ; preds = %switch.hole_check, %13, %switch.early.test.i, %7, %22, %19, %2
-  %.0 = phi i1 [ true, %2 ], [ %24, %22 ], [ true, %19 ], [ true, %7 ], [ true, %switch.early.test.i ], [ true, %13 ], [ true, %switch.hole_check ]
+_ZN4lean27is_sub_script_alnum_unicodeEj.exit:     ; preds = %switch.hole_check, %switch.early.test.i, %13, %7, %22, %19, %2
+  %.0 = phi i1 [ %24, %22 ], [ true, %switch.early.test.i ], [ true, %19 ], [ true, %2 ], [ true, %13 ], [ true, %7 ], [ true, %switch.hole_check ]
   ret i1 %.0
 }
 
@@ -967,7 +967,7 @@ _ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit.i50: ; preds = %_ZN4le
   br i1 %102, label %.lr.ph.i.i.i56, label %_ZN4leanL10copy_limbsEP11lean_objectRNS_6bufferIS1_Lm16EEE.exit64, !llvm.loop !32
 
 _ZN4leanL10copy_limbsEP11lean_objectRNS_6bufferIS1_Lm16EEE.exit64: ; preds = %.lr.ph.i.i.i56, %._crit_edge.i52, %_ZN4leanL10copy_limbsEP11lean_objectRNS_6bufferIS1_Lm16EEE.exit
-  %103 = phi i64 [ %91, %._crit_edge.i52 ], [ 0, %_ZN4leanL10copy_limbsEP11lean_objectRNS_6bufferIS1_Lm16EEE.exit ], [ %91, %.lr.ph.i.i.i56 ]
+  %103 = phi i64 [ 0, %_ZN4leanL10copy_limbsEP11lean_objectRNS_6bufferIS1_Lm16EEE.exit ], [ %91, %._crit_edge.i52 ], [ %91, %.lr.ph.i.i.i56 ]
   %104 = load i64, ptr %32, align 8, !tbaa !30
   %105 = trunc i64 %104 to i32
   %106 = trunc i64 %103 to i32
@@ -1102,7 +1102,7 @@ _ZN4leanneERKNS_10string_refES2_.exit.thread83:   ; preds = %151, %138, %_ZN4lea
   br i1 %.not35, label %_ZN4leanneERKNS_10string_refES2_.exit.thread, label %.lr.ph, !llvm.loop !35
 
 _ZN4leanneERKNS_10string_refES2_.exit.thread:     ; preds = %_ZN4leanneERKNS_10string_refES2_.exit.thread83, %154, %_ZN4leanneERKNS_10string_refES2_.exit, %.lr.ph, %140, %151, %121, %_ZNK4lean4name4hashEv.exit69, %_ZN4leanL10copy_limbsEP11lean_objectRNS_6bufferIS1_Lm16EEE.exit64
-  %.1 = phi i1 [ false, %_ZN4leanL10copy_limbsEP11lean_objectRNS_6bufferIS1_Lm16EEE.exit64 ], [ false, %_ZNK4lean4name4hashEv.exit69 ], [ true, %121 ], [ false, %151 ], [ true, %_ZN4leanneERKNS_10string_refES2_.exit.thread83 ], [ false, %154 ], [ false, %_ZN4leanneERKNS_10string_refES2_.exit ], [ false, %.lr.ph ], [ false, %140 ]
+  %.1 = phi i1 [ false, %_ZNK4lean4name4hashEv.exit69 ], [ false, %_ZN4leanL10copy_limbsEP11lean_objectRNS_6bufferIS1_Lm16EEE.exit64 ], [ true, %121 ], [ false, %151 ], [ false, %.lr.ph ], [ false, %_ZN4leanneERKNS_10string_refES2_.exit ], [ false, %154 ], [ true, %_ZN4leanneERKNS_10string_refES2_.exit.thread83 ], [ false, %140 ]
   %160 = load ptr, ptr %4, align 8, !tbaa !27
   %.not.i.i.i76 = icmp eq ptr %160, %34
   br i1 %.not.i.i.i76, label %_ZN4lean6bufferIP11lean_objectLm16EED2Ev.exit, label %161
@@ -1420,7 +1420,7 @@ _ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit.i54: ; preds = %_ZN4le
   br i1 %77, label %.lr.ph.i.i.i60, label %_ZN4leanL10copy_limbsEP11lean_objectRNS_6bufferIS1_Lm16EEE.exit68, !llvm.loop !32
 
 _ZN4leanL10copy_limbsEP11lean_objectRNS_6bufferIS1_Lm16EEE.exit68: ; preds = %.lr.ph.i.i.i60, %._crit_edge.i56, %_ZN4leanL10copy_limbsEP11lean_objectRNS_6bufferIS1_Lm16EEE.exit
-  %78 = phi i64 [ %66, %._crit_edge.i56 ], [ 0, %_ZN4leanL10copy_limbsEP11lean_objectRNS_6bufferIS1_Lm16EEE.exit ], [ %66, %.lr.ph.i.i.i60 ]
+  %78 = phi i64 [ 0, %_ZN4leanL10copy_limbsEP11lean_objectRNS_6bufferIS1_Lm16EEE.exit ], [ %66, %._crit_edge.i56 ], [ %66, %.lr.ph.i.i.i60 ]
   %79 = load ptr, ptr %4, align 8, !tbaa !27
   %80 = load i64, ptr %6, align 8, !tbaa !30
   %.not94 = icmp eq i64 %80, 0
@@ -1564,14 +1564,14 @@ _ZN4leanltERKNS_3natES2_.exit79:                  ; preds = %.critedge.i.i.i77
   %spec.select = sext i1 %133 to i32
   br label %.thread
 
-.thread.loopexit:                                 ; preds = %_ZN4leanltERKNS_10string_refES2_.exit, %_ZN4leanltERKNS_10string_refES2_.exit72, %_ZN4leanltERKNS_3natES2_.exit, %_ZN4leanltERKNS_3natES2_.exit79, %113, %121, %.lr.ph
-  %.2.ph = phi i32 [ 1, %121 ], [ -1, %113 ], [ 1, %_ZN4leanltERKNS_3natES2_.exit79 ], [ -1, %_ZN4leanltERKNS_3natES2_.exit ], [ 1, %_ZN4leanltERKNS_10string_refES2_.exit72 ], [ -1, %_ZN4leanltERKNS_10string_refES2_.exit ], [ 1, %.lr.ph ]
+.thread.loopexit:                                 ; preds = %_ZN4leanltERKNS_3natES2_.exit, %_ZN4leanltERKNS_10string_refES2_.exit, %_ZN4leanltERKNS_10string_refES2_.exit72, %_ZN4leanltERKNS_3natES2_.exit79, %113, %121, %.lr.ph
+  %.2.ph = phi i32 [ 1, %121 ], [ -1, %113 ], [ 1, %_ZN4leanltERKNS_3natES2_.exit79 ], [ 1, %_ZN4leanltERKNS_10string_refES2_.exit72 ], [ -1, %_ZN4leanltERKNS_10string_refES2_.exit ], [ -1, %_ZN4leanltERKNS_3natES2_.exit ], [ 1, %.lr.ph ]
   %.pre105 = load ptr, ptr %4, align 8, !tbaa !27
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit, %._crit_edge, %93
-  %134 = phi ptr [ %82, %93 ], [ %131, %._crit_edge ], [ %.pre105, %.thread.loopexit ]
-  %.2 = phi i32 [ %94, %93 ], [ %spec.select, %._crit_edge ], [ %.2.ph, %.thread.loopexit ]
+  %134 = phi ptr [ %131, %._crit_edge ], [ %82, %93 ], [ %.pre105, %.thread.loopexit ]
+  %.2 = phi i32 [ %spec.select, %._crit_edge ], [ %94, %93 ], [ %.2.ph, %.thread.loopexit ]
   %.not.i.i.i = icmp eq ptr %134, %8
   br i1 %.not.i.i.i, label %_ZN4lean6bufferIP11lean_objectLm16EED2Ev.exit, label %135
 
@@ -1916,12 +1916,12 @@ _ZN4leanL10num_digitsENS_3natE.exit:              ; preds = %_ZN4leanL10num_digi
   unreachable
 
 .body:                                            ; preds = %40, %48, %88
-  %eh.lpad-body = phi { ptr, i32 } [ %41, %40 ], [ %49, %48 ], [ %.pn.i, %88 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i, %88 ], [ %41, %40 ], [ %49, %48 ]
   call void @_ZN4lean10object_refD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #19
   resume { ptr, i32 } %eh.lpad-body
 
 _ZN4lean10object_refD2Ev.exit:                    ; preds = %99, %98, %96, %_ZN4leanL10num_digitsENS_3natE.exit, %23, %25
-  %.pn = phi i64 [ %.val.i.i, %23 ], [ %27, %25 ], [ %.06.i, %_ZN4leanL10num_digitsENS_3natE.exit ], [ %.06.i, %96 ], [ %.06.i, %98 ], [ %.06.i, %99 ]
+  %.pn = phi i64 [ %27, %25 ], [ %.val.i.i, %23 ], [ %.06.i, %_ZN4leanL10num_digitsENS_3natE.exit ], [ %.06.i, %96 ], [ %.06.i, %98 ], [ %.06.i, %99 ]
   %.1 = add i64 %.pn, %.016
   %103 = getelementptr inbounds nuw i8, ptr %.015, i64 8
   %104 = load ptr, ptr %103, align 8, !tbaa !26
@@ -4279,7 +4279,7 @@ _ZN4lean4nameaSERKS0_.exit:                       ; preds = %59, %_ZN4lean3incEP
   unreachable
 
 _ZN4lean10object_refD2Ev.exit:                    ; preds = %.thread, %60, %63, %65, %66
-  %.023 = phi i1 [ true, %60 ], [ %.036, %63 ], [ %.036, %65 ], [ %.036, %66 ], [ false, %.thread ]
+  %.023 = phi i1 [ %.036, %66 ], [ true, %60 ], [ %.036, %63 ], [ %.036, %65 ], [ false, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.023
 }
@@ -4857,7 +4857,7 @@ switch.early.test.i.i.i61:                        ; preds = %129
   %or.cond93 = or i1 %141, %or.cond9.i.i.i
   br i1 %or.cond93, label %_ZN4lean10is_id_restEPKcS1_.exit.thread, label %switch.lookup
 
-_ZN4lean10is_id_restEPKcS1_.exit.thread:          ; preds = %131, %switch.early.test.i.i.i61, %.noexc62, %137, %.lr.ph
+_ZN4lean10is_id_restEPKcS1_.exit.thread:          ; preds = %131, %.noexc62, %.lr.ph, %137, %switch.early.test.i.i.i61
   br label %switch.lookup
 
 switch.hole_check:                                ; preds = %switch.early.test.i.i
@@ -5016,7 +5016,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i81
   br label %.body
 
 .body:                                            ; preds = %195, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i81, %193, %181
-  %.pn = phi { ptr, i32 } [ %194, %193 ], [ %182, %181 ], [ %196, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i81 ], [ %196, %195 ]
+  %.pn = phi { ptr, i32 } [ %182, %181 ], [ %194, %193 ], [ %196, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i81 ], [ %196, %195 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %213
 

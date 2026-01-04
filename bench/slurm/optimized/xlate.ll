@@ -403,8 +403,8 @@ define internal void @_set_bsub_options(i32 noundef %0, ptr noundef %1) unnamed_
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph, %14, %.lr.ph32, %18, %32, %46, %43, %41, %11, %8
-  %52 = phi ptr [ %10, %8 ], [ %13, %11 ], [ %.pre, %32 ], [ %20, %18 ], [ %42, %41 ], [ %45, %43 ], [ %48, %46 ], [ null, %.lr.ph32 ], [ %16, %14 ], [ %17, %.lr.ph ]
-  %.0 = phi i32 [ 68, %8 ], [ %7, %11 ], [ 316, %32 ], [ 316, %18 ], [ 110, %41 ], [ 112, %43 ], [ 116, %46 ], [ 288, %.lr.ph32 ], [ 119, %14 ], [ 119, %.lr.ph ]
+  %52 = phi ptr [ %10, %8 ], [ %13, %11 ], [ null, %.lr.ph32 ], [ %.pre, %32 ], [ %20, %18 ], [ %42, %41 ], [ %45, %43 ], [ %48, %46 ], [ %16, %14 ], [ %17, %.lr.ph ]
+  %.0 = phi i32 [ 68, %8 ], [ %7, %11 ], [ 288, %.lr.ph32 ], [ 316, %32 ], [ 316, %18 ], [ 110, %41 ], [ 112, %43 ], [ 116, %46 ], [ 119, %14 ], [ 119, %.lr.ph ]
   call void @slurm_process_option_or_exit(ptr noundef nonnull @opt, i32 noundef %.0, ptr noundef %52, i1 noundef zeroext false, i1 noundef zeroext false) #11
   call void @slurm_xfree(ptr noundef nonnull %5) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1378,9 +1378,9 @@ _get_next_pbs_node_part.exit.loopexit.i.i:        ; preds = %352
   br label %_get_next_pbs_node_part.exit.i.i
 
 _get_next_pbs_node_part.exit.i.i:                 ; preds = %371, %_get_next_pbs_node_part.exit.loopexit.i.i, %396, %.critedge.i38.i.i, %376, %356, %.critedge.i.i.i
-  %.156.i.i = phi i32 [ %spec.select.i.i, %.critedge.i.i.i ], [ %397, %396 ], [ %spec.select58.i.i, %.critedge.i38.i.i ], [ %357, %356 ], [ %378, %376 ], [ %indvars75.le88.i.i, %_get_next_pbs_node_part.exit.loopexit.i.i ], [ %.6.i.i, %371 ]
-  %.124.i.i = phi i32 [ %.02366.i.i, %.critedge.i.i.i ], [ %.02366.i.i, %396 ], [ %.02366.i.i, %.critedge.i38.i.i ], [ %.02366.i.i, %356 ], [ %370, %376 ], [ %.02366.i.i, %_get_next_pbs_node_part.exit.loopexit.i.i ], [ %370, %371 ]
-  %.1.i.i = phi i32 [ %.067.i.i, %.critedge.i.i.i ], [ %.067.i.i, %396 ], [ %.067.i.i, %.critedge.i38.i.i ], [ %351, %356 ], [ %.067.i.i, %376 ], [ %351, %_get_next_pbs_node_part.exit.loopexit.i.i ], [ %.067.i.i, %371 ]
+  %.156.i.i = phi i32 [ %spec.select.i.i, %.critedge.i.i.i ], [ %357, %356 ], [ %397, %396 ], [ %spec.select58.i.i, %.critedge.i38.i.i ], [ %378, %376 ], [ %indvars75.le88.i.i, %_get_next_pbs_node_part.exit.loopexit.i.i ], [ %.6.i.i, %371 ]
+  %.124.i.i = phi i32 [ %.02366.i.i, %.critedge.i.i.i ], [ %.02366.i.i, %356 ], [ %.02366.i.i, %396 ], [ %.02366.i.i, %.critedge.i38.i.i ], [ %370, %376 ], [ %.02366.i.i, %_get_next_pbs_node_part.exit.loopexit.i.i ], [ %370, %371 ]
+  %.1.i.i = phi i32 [ %.067.i.i, %.critedge.i.i.i ], [ %351, %356 ], [ %.067.i.i, %396 ], [ %.067.i.i, %.critedge.i38.i.i ], [ %.067.i.i, %376 ], [ %351, %_get_next_pbs_node_part.exit.loopexit.i.i ], [ %.067.i.i, %371 ]
   %398 = sext i32 %.156.i.i to i64
   %399 = getelementptr inbounds i8, ptr %307, i64 %398
   %400 = load i8, ptr %399, align 1
@@ -1819,8 +1819,8 @@ _get_pbs_option_value.exit239.i:                  ; preds = %466, %.critedge.i23
   br label %_get_next_pbs_option.exit.i
 
 _get_next_pbs_option.exit.i:                      ; preds = %559, %543, %517, %501, %480, %435, %419, %135, %47, %579, %578, %564, %548, %533, %530, %522, %506, %485, %471, %440, %424, %_parse_pbs_nodes_opts.exit.i, %_get_pbs_option_value.exit200.i, %265, %_get_pbs_option_value.exit186.i, %238, %_get_pbs_option_value.exit172.i, %211, %_get_pbs_option_value.exit158.i, %184, %140, %125, %83, %52, %32
-  %.162.i = phi i32 [ %.061310.i, %579 ], [ %.061310.i, %578 ], [ %534, %533 ], [ %.061310.i, %530 ], [ %.061310.i, %471 ], [ %.061310.i, %_parse_pbs_nodes_opts.exit.i ], [ %.061310.i, %_get_pbs_option_value.exit200.i ], [ %266, %265 ], [ %.061310.i, %_get_pbs_option_value.exit186.i ], [ %.061310.i, %238 ], [ %.061310.i, %_get_pbs_option_value.exit172.i ], [ %212, %211 ], [ %.061310.i, %_get_pbs_option_value.exit158.i ], [ %.061310.i, %184 ], [ %.061310.i, %125 ], [ %.061310.i, %83 ], [ %.061310.i, %32 ], [ %.061310.i, %52 ], [ %.061310.i, %140 ], [ %.061310.i, %424 ], [ %.061310.i, %440 ], [ %.061310.i, %485 ], [ %.061310.i, %506 ], [ %.061310.i, %522 ], [ %.061310.i, %548 ], [ %.061310.i, %564 ], [ %.061310.i, %47 ], [ %.061310.i, %135 ], [ %.061310.i, %419 ], [ %.061310.i, %435 ], [ %.061310.i, %480 ], [ %.061310.i, %501 ], [ %.061310.i, %517 ], [ %.061310.i, %543 ], [ %.061310.i, %559 ]
-  %.1.i = phi i32 [ %.0311.i, %579 ], [ %.0311.i, %578 ], [ %.0311.i, %533 ], [ %.0311.i, %530 ], [ %.0311.i, %471 ], [ %.0311.i, %_parse_pbs_nodes_opts.exit.i ], [ %.0311.i, %_get_pbs_option_value.exit200.i ], [ %.0311.i, %265 ], [ %.0311.i, %_get_pbs_option_value.exit186.i ], [ %239, %238 ], [ %.0311.i, %_get_pbs_option_value.exit172.i ], [ %.0311.i, %211 ], [ %.0311.i, %_get_pbs_option_value.exit158.i ], [ %.0311.i, %184 ], [ %.0311.i, %125 ], [ %.0311.i, %83 ], [ %spec.store.select.i, %32 ], [ %.0311.i, %52 ], [ %.0311.i, %140 ], [ %.0311.i, %424 ], [ %.0311.i, %440 ], [ %.0311.i, %485 ], [ %.0311.i, %506 ], [ %.0311.i, %522 ], [ %.0311.i, %548 ], [ %.0311.i, %564 ], [ %.0311.i, %47 ], [ %.0311.i, %135 ], [ %.0311.i, %419 ], [ %.0311.i, %435 ], [ %.0311.i, %480 ], [ %.0311.i, %501 ], [ %.0311.i, %517 ], [ %.0311.i, %543 ], [ %.0311.i, %559 ]
+  %.162.i = phi i32 [ %.061310.i, %579 ], [ %.061310.i, %578 ], [ %.061310.i, %548 ], [ %.061310.i, %522 ], [ %534, %533 ], [ %.061310.i, %530 ], [ %.061310.i, %506 ], [ %.061310.i, %485 ], [ %.061310.i, %440 ], [ %.061310.i, %471 ], [ %.061310.i, %424 ], [ %.061310.i, %140 ], [ %.061310.i, %_parse_pbs_nodes_opts.exit.i ], [ %.061310.i, %_get_pbs_option_value.exit200.i ], [ %266, %265 ], [ %.061310.i, %_get_pbs_option_value.exit186.i ], [ %.061310.i, %238 ], [ %.061310.i, %_get_pbs_option_value.exit172.i ], [ %212, %211 ], [ %.061310.i, %_get_pbs_option_value.exit158.i ], [ %.061310.i, %184 ], [ %.061310.i, %52 ], [ %.061310.i, %125 ], [ %.061310.i, %83 ], [ %.061310.i, %32 ], [ %.061310.i, %564 ], [ %.061310.i, %135 ], [ %.061310.i, %419 ], [ %.061310.i, %435 ], [ %.061310.i, %480 ], [ %.061310.i, %501 ], [ %.061310.i, %517 ], [ %.061310.i, %543 ], [ %.061310.i, %47 ], [ %.061310.i, %559 ]
+  %.1.i = phi i32 [ %.0311.i, %579 ], [ %.0311.i, %578 ], [ %.0311.i, %548 ], [ %.0311.i, %522 ], [ %.0311.i, %533 ], [ %.0311.i, %530 ], [ %.0311.i, %506 ], [ %.0311.i, %485 ], [ %.0311.i, %440 ], [ %.0311.i, %471 ], [ %.0311.i, %424 ], [ %.0311.i, %140 ], [ %.0311.i, %_parse_pbs_nodes_opts.exit.i ], [ %.0311.i, %_get_pbs_option_value.exit200.i ], [ %.0311.i, %265 ], [ %.0311.i, %_get_pbs_option_value.exit186.i ], [ %239, %238 ], [ %.0311.i, %_get_pbs_option_value.exit172.i ], [ %.0311.i, %211 ], [ %.0311.i, %_get_pbs_option_value.exit158.i ], [ %.0311.i, %184 ], [ %.0311.i, %52 ], [ %.0311.i, %125 ], [ %.0311.i, %83 ], [ %spec.store.select.i, %32 ], [ %.0311.i, %564 ], [ %.0311.i, %135 ], [ %.0311.i, %419 ], [ %.0311.i, %435 ], [ %.0311.i, %480 ], [ %.0311.i, %501 ], [ %.0311.i, %517 ], [ %.0311.i, %543 ], [ %.0311.i, %47 ], [ %.0311.i, %559 ]
   %581 = load i32, ptr %7, align 4
   %582 = sext i32 %581 to i64
   %583 = getelementptr inbounds i8, ptr %27, i64 %582
@@ -2042,8 +2042,8 @@ _xlate_pbs_mail_type.exit:                        ; preds = %._crit_edge.i20, %6
   unreachable
 
 670:                                              ; preds = %.lr.ph, %14, %17, %20, %23, %_xlate_pbs_mail_type.exit, %630, %633, %636, %639, %646, %658, %653
-  %671 = phi ptr [ %655, %653 ], [ %661, %658 ], [ %.pre, %646 ], [ %641, %639 ], [ %638, %636 ], [ %635, %633 ], [ %632, %630 ], [ %629, %_xlate_pbs_mail_type.exit ], [ %25, %23 ], [ %22, %20 ], [ %19, %17 ], [ %16, %14 ], [ null, %.lr.ph ]
-  %.0.ph = phi i32 [ 376, %653 ], [ 100, %658 ], [ 289, %646 ], [ 112, %639 ], [ 327, %636 ], [ 74, %633 ], [ 312, %630 ], [ 311, %_xlate_pbs_mail_type.exit ], [ 97, %23 ], [ 68, %20 ], [ %13, %17 ], [ 98, %14 ], [ 72, %.lr.ph ]
+  %671 = phi ptr [ %655, %653 ], [ %661, %658 ], [ %.pre, %646 ], [ %641, %639 ], [ %638, %636 ], [ %635, %633 ], [ %632, %630 ], [ %629, %_xlate_pbs_mail_type.exit ], [ %25, %23 ], [ %16, %14 ], [ %22, %20 ], [ %19, %17 ], [ null, %.lr.ph ]
+  %.0.ph = phi i32 [ 376, %653 ], [ 100, %658 ], [ 289, %646 ], [ 112, %639 ], [ 327, %636 ], [ 74, %633 ], [ 312, %630 ], [ 311, %_xlate_pbs_mail_type.exit ], [ 97, %23 ], [ 98, %14 ], [ 68, %20 ], [ %13, %17 ], [ 72, %.lr.ph ]
   call void @slurm_process_option_or_exit(ptr noundef nonnull @opt, i32 noundef %.0.ph, ptr noundef %671, i1 noundef zeroext false, i1 noundef zeroext false) #11
   br label %672
 

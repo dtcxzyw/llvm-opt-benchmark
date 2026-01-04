@@ -2151,7 +2151,7 @@ _connect_srun_cr.exit.i:                          ; preds = %72
   br i1 %.not17.i, label %112, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %102, %93, %88, %85
-  %.str.31.sink.i = phi ptr [ @.str.28, %85 ], [ @.str.29, %88 ], [ @.str.30, %93 ], [ @.str.31, %102 ]
+  %.str.31.sink.i = phi ptr [ @.str.30, %93 ], [ @.str.29, %88 ], [ @.str.28, %85 ], [ @.str.31, %102 ]
   %111 = call i32 (ptr, ...) @error(ptr noundef nonnull %.str.31.sink.i) #14
   br label %112
 
@@ -2172,7 +2172,7 @@ _cr_notify_step_launch.exit:                      ; preds = %69, %81, %84, %112
   unreachable
 
 117:                                              ; preds = %_cr_notify_step_launch.exit, %65, %_step_abort.exit
-  %.0 = phi i32 [ -1, %_step_abort.exit ], [ -1, %65 ], [ 0, %_cr_notify_step_launch.exit ]
+  %.0 = phi i32 [ -1, %65 ], [ -1, %_step_abort.exit ], [ 0, %_cr_notify_step_launch.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -2319,7 +2319,7 @@ define dso_local void @slurm_step_launch_wait_finish(ptr noundef readonly captur
   br label %.thread
 
 68:                                               ; preds = %53, %25, %27
-  %.2 = phi i8 [ %.0133, %27 ], [ %.0133, %25 ], [ 1, %53 ]
+  %.2 = phi i8 [ 1, %53 ], [ %.0133, %27 ], [ %.0133, %25 ]
   %69 = load ptr, ptr %9, align 8
   %70 = call i32 @bit_set_count(ptr noundef %69) #14
   %71 = load i32, ptr %12, align 8

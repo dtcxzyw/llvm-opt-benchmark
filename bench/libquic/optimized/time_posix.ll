@@ -330,7 +330,7 @@ define noundef zeroext i1 @_ZN4base4Time12FromExplodedEbRKNS0_8ExplodedEPS0_(i1 
   br label %53
 
 .thread:                                          ; preds = %38, %40, %3, %43, %41
-  %.02434 = phi i64 [ -1, %43 ], [ %36, %41 ], [ %35, %38 ], [ %.sroa.speculated, %40 ], [ %32, %3 ]
+  %.02434 = phi i64 [ %36, %41 ], [ -1, %43 ], [ %35, %38 ], [ %.sroa.speculated, %40 ], [ %32, %3 ]
   %48 = mul nsw i64 %.02434, 1000
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %50 = load i32, ptr %49, align 4, !tbaa !31
@@ -424,11 +424,11 @@ define i64 @_ZN4base9TimeTicks3NowEv() local_unnamed_addr #0 align 2 personality
 
 6:                                                ; preds = %4
   %7 = icmp sgt i64 %.val.i, 0
-  %.not26.i.i.i.i.i = icmp samesign ugt i64 %.val.i, 9223372036854
-  %8 = select i1 %.not26.i.i.i.i.i, i32 2, i32 0
   %.not24.i.i.i.i.i = icmp samesign ult i64 %.val.i, -9223372036854
-  %9 = zext i1 %.not24.i.i.i.i.i to i32
-  %.sink.i.i.i.i.i = select i1 %7, i32 %8, i32 %9
+  %8 = zext i1 %.not24.i.i.i.i.i to i32
+  %.not26.i.i.i.i.i = icmp samesign ugt i64 %.val.i, 9223372036854
+  %9 = select i1 %.not26.i.i.i.i.i, i32 2, i32 0
+  %.sink.i.i.i.i.i = select i1 %7, i32 %9, i32 %8
   %10 = icmp eq i32 %.sink.i.i.i.i.i, 0
   %11 = mul nsw i64 %.val.i, 1000000
   %12 = select i1 %10, i64 %11, i64 0
@@ -492,11 +492,11 @@ define i64 @_ZN4base11ThreadTicks3NowEv() local_unnamed_addr #0 align 2 personal
 
 6:                                                ; preds = %4
   %7 = icmp sgt i64 %.val.i, 0
-  %.not26.i.i.i.i.i = icmp samesign ugt i64 %.val.i, 9223372036854
-  %8 = select i1 %.not26.i.i.i.i.i, i32 2, i32 0
   %.not24.i.i.i.i.i = icmp samesign ult i64 %.val.i, -9223372036854
-  %9 = zext i1 %.not24.i.i.i.i.i to i32
-  %.sink.i.i.i.i.i = select i1 %7, i32 %8, i32 %9
+  %8 = zext i1 %.not24.i.i.i.i.i to i32
+  %.not26.i.i.i.i.i = icmp samesign ugt i64 %.val.i, 9223372036854
+  %9 = select i1 %.not26.i.i.i.i.i, i32 2, i32 0
+  %.sink.i.i.i.i.i = select i1 %7, i32 %9, i32 %8
   %10 = icmp eq i32 %.sink.i.i.i.i.i, 0
   %11 = mul nsw i64 %.val.i, 1000000
   %12 = select i1 %10, i64 %11, i64 0

@@ -236,53 +236,53 @@ define internal fastcc noundef zeroext i1 @can_minmax_aggs(ptr readonly captures
   %2 = getelementptr inbounds nuw i8, ptr %.608.val, i64 4
   %3 = getelementptr inbounds nuw i8, ptr %.608.val, i64 16
   %.not = icmp eq ptr %.608.val, null
-  br i1 %.not, label %.critedge42, label %.lr.ph.preheader
+  br i1 %.not, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %1
   %4 = load i32, ptr %2, align 4
   %.not2728 = icmp sgt i32 %4, 0
-  br i1 %.not2728, label %.lr.ph30, label %.critedge42
+  br i1 %.not2728, label %.lr.ph30, label %.critedge
 
-.lr.ph30:                                         ; preds = %.lr.ph.preheader, %.critedge
-  %indvars.iv29 = phi i64 [ %indvars.iv.next, %.critedge ], [ 0, %.lr.ph.preheader ]
+.lr.ph30:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv29 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %union.ListCell, ptr %5, i64 %indvars.iv29
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %9, i64 16
-  %.val43 = load ptr, ptr %10, align 8
-  %11 = load ptr, ptr %.val43, align 8
+  %.val42 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %.val42, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %13 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %13, null
-  br i1 %.not.i, label %.critedge42, label %list_length.exit
+  br i1 %.not.i, label %.critedge, label %list_length.exit
 
 list_length.exit:                                 ; preds = %.lr.ph30
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
   %.not37 = icmp eq i32 %15, 1
-  br i1 %.not37, label %16, label %.critedge42
+  br i1 %.not37, label %16, label %.critedge
 
 16:                                               ; preds = %list_length.exit
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %18 = load ptr, ptr %17, align 8
   %.not38 = icmp eq ptr %18, null
-  br i1 %.not38, label %19, label %.critedge42
+  br i1 %.not38, label %19, label %.critedge
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %21 = load ptr, ptr %20, align 8
   %.not39 = icmp eq ptr %21, null
-  br i1 %.not39, label %22, label %.critedge42
+  br i1 %.not39, label %22, label %.critedge
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = zext i32 %24 to i64
   %26 = tail call ptr @SearchSysCache1(i32 noundef 0, i64 noundef %25) #7
-  %.not.i44 = icmp eq ptr %26, null
-  br i1 %.not.i44, label %.critedge42, label %fetch_agg_sort_op.exit
+  %.not.i43 = icmp eq ptr %26, null
+  br i1 %.not.i43, label %.critedge, label %fetch_agg_sort_op.exit
 
 fetch_agg_sort_op.exit:                           ; preds = %22
   %27 = getelementptr i8, ptr %26, i64 16
@@ -295,7 +295,7 @@ fetch_agg_sort_op.exit:                           ; preds = %22
   %33 = load i32, ptr %32, align 4
   tail call void @ReleaseSysCache(ptr noundef nonnull %26) #7
   %.not40 = icmp eq i32 %33, 0
-  br i1 %.not40, label %.critedge42, label %34
+  br i1 %.not40, label %.critedge, label %34
 
 34:                                               ; preds = %fetch_agg_sort_op.exit
   %35 = load ptr, ptr %12, align 8
@@ -305,15 +305,15 @@ fetch_agg_sort_op.exit:                           ; preds = %22
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = tail call zeroext i1 @contain_mutable_functions(ptr noundef %39) #7
-  br i1 %40, label %.critedge42, label %41
+  br i1 %40, label %.critedge, label %41
 
 41:                                               ; preds = %34
   %42 = load ptr, ptr %38, align 8
   %43 = tail call i32 @exprType(ptr noundef %42) #7
   %44 = tail call zeroext i1 @type_is_rowtype(i32 noundef %43) #7
-  br i1 %44, label %.critedge42, label %.critedge
+  br i1 %44, label %.critedge, label %.lr.ph
 
-.critedge:                                        ; preds = %41
+.lr.ph:                                           ; preds = %41
   %45 = tail call noundef ptr @palloc0(i64 noundef 56) #7
   store i32 324, ptr %45, align 4
   %46 = load i32, ptr %23, align 4
@@ -333,10 +333,10 @@ fetch_agg_sort_op.exit:                           ; preds = %22
   %54 = load i32, ptr %2, align 4
   %55 = sext i32 %54 to i64
   %.not27 = icmp slt i64 %indvars.iv.next, %55
-  br i1 %.not27, label %.lr.ph30, label %.critedge42
+  br i1 %.not27, label %.lr.ph30, label %.critedge
 
-.critedge42:                                      ; preds = %22, %.lr.ph30, %.critedge, %41, %34, %fetch_agg_sort_op.exit, %19, %16, %list_length.exit, %.lr.ph.preheader, %1
-  %.not363 = phi i1 [ true, %1 ], [ true, %.lr.ph.preheader ], [ false, %list_length.exit ], [ false, %16 ], [ false, %19 ], [ false, %fetch_agg_sort_op.exit ], [ false, %34 ], [ false, %41 ], [ true, %.critedge ], [ false, %.lr.ph30 ], [ false, %22 ]
+.critedge:                                        ; preds = %22, %.lr.ph30, %.lr.ph, %41, %34, %fetch_agg_sort_op.exit, %16, %list_length.exit, %19, %.lr.ph.preheader, %1
+  %.not363 = phi i1 [ true, %1 ], [ true, %.lr.ph.preheader ], [ false, %19 ], [ false, %list_length.exit ], [ false, %16 ], [ false, %fetch_agg_sort_op.exit ], [ false, %34 ], [ false, %41 ], [ true, %.lr.ph ], [ false, %.lr.ph30 ], [ false, %22 ]
   ret i1 %.not363
 }
 

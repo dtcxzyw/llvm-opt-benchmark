@@ -1558,8 +1558,8 @@ Cbs3_ManAssign.exit.i:                            ; preds = %146, %._crit_edge.i
   br i1 %164, label %Cbs3_ManPropagateClauses.exit, label %165
 
 165:                                              ; preds = %163, %Cbs3_ManAssign.exit.i, %Cbs3_ManWatchClause.exit.i, %60
-  %.val82114.i = phi ptr [ %.val82.i, %163 ], [ %.val82115.i, %Cbs3_ManWatchClause.exit.i ], [ %.val86.i, %Cbs3_ManAssign.exit.i ], [ %.val82.i, %60 ]
-  %.175.ph.i = phi ptr [ %.074104.i, %163 ], [ %.074104.i, %Cbs3_ManWatchClause.exit.i ], [ %162, %Cbs3_ManAssign.exit.i ], [ %64, %60 ]
+  %.val82114.i = phi ptr [ %.val82.i, %163 ], [ %.val86.i, %Cbs3_ManAssign.exit.i ], [ %.val82115.i, %Cbs3_ManWatchClause.exit.i ], [ %.val82.i, %60 ]
+  %.175.ph.i = phi ptr [ %.074104.i, %163 ], [ %162, %Cbs3_ManAssign.exit.i ], [ %.074104.i, %Cbs3_ManWatchClause.exit.i ], [ %64, %60 ]
   %.073.i = load i32, ptr %.175.ph.i, align 4, !tbaa !37
   %.not.i = icmp eq i32 %.073.i, 0
   br i1 %.not.i, label %Cbs3_ManPropagateClauses.exit.thread, label %32, !llvm.loop !62
@@ -1621,8 +1621,8 @@ Cbs3_ManPropagateClauses.exit.thread:             ; preds = %165, %28, %Cbs3_Man
   br i1 %197, label %.thread, label %.thread105
 
 .thread:                                          ; preds = %178, %194, %188
-  %198 = phi i1 [ false, %194 ], [ true, %188 ], [ true, %178 ]
-  %199 = phi i32 [ %195, %194 ], [ -1, %188 ], [ -1, %178 ]
+  %198 = phi i1 [ true, %188 ], [ false, %194 ], [ true, %178 ]
+  %199 = phi i32 [ -1, %188 ], [ %195, %194 ], [ -1, %178 ]
   %200 = icmp sgt i8 %184, 1
   br i1 %200, label %201, label %230
 
@@ -1702,8 +1702,8 @@ Cbs3_ManAssign.exit..thread105_crit_edge:         ; preds = %Cbs3_ManAssign.exit
   br i1 %198, label %283, label %.thread105
 
 .thread105:                                       ; preds = %Cbs3_ManAssign.exit..thread105_crit_edge, %194, %236
-  %237 = phi i32 [ %180, %236 ], [ %.pre, %Cbs3_ManAssign.exit..thread105_crit_edge ], [ %180, %194 ]
-  %238 = phi i32 [ %199, %236 ], [ %199, %Cbs3_ManAssign.exit..thread105_crit_edge ], [ %195, %194 ]
+  %237 = phi i32 [ %.pre, %Cbs3_ManAssign.exit..thread105_crit_edge ], [ %180, %236 ], [ %180, %194 ]
+  %238 = phi i32 [ %199, %Cbs3_ManAssign.exit..thread105_crit_edge ], [ %199, %236 ], [ %195, %194 ]
   %239 = and i32 %237, 1
   %240 = icmp eq i32 %239, %185
   br i1 %240, label %241, label %283
@@ -2340,7 +2340,7 @@ Cbs3_ManAssign.exit:                              ; preds = %._crit_edge.i.i, %9
   br label %126
 
 126:                                              ; preds = %116, %114, %107, %Cbs3_ManAssign.exit, %7, %4, %2, %122
-  %.0 = phi i32 [ %123, %122 ], [ %3, %2 ], [ 0, %4 ], [ 0, %7 ], [ 0, %Cbs3_ManAssign.exit ], [ %106, %107 ], [ 0, %114 ], [ %115, %116 ]
+  %.0 = phi i32 [ 0, %7 ], [ %3, %2 ], [ 0, %4 ], [ 0, %Cbs3_ManAssign.exit ], [ 0, %114 ], [ %123, %122 ], [ %106, %107 ], [ %115, %116 ]
   ret i32 %.0
 }
 
@@ -2914,8 +2914,8 @@ Vec_IntPush.exit.i.i:                             ; preds = %113, %Vec_IntGrow.e
   br i1 %123, label %74, label %Cbs3_ManSaveModel.exit.i, !llvm.loop !77
 
 Cbs3_ManSaveModel.exit.i:                         ; preds = %120, %74, %56, %Cbs3_ManAssign.exit.Cbs3_ManSaveModel.exit_crit_edge.i
-  %124 = phi i32 [ %.pre30.i, %56 ], [ %.pre.i, %Cbs3_ManAssign.exit.Cbs3_ManSaveModel.exit_crit_edge.i ], [ %75, %74 ], [ %121, %120 ]
-  %.0.i = phi i32 [ 1, %56 ], [ 1, %Cbs3_ManAssign.exit.Cbs3_ManSaveModel.exit_crit_edge.i ], [ 0, %74 ], [ 0, %120 ]
+  %124 = phi i32 [ %.pre.i, %Cbs3_ManAssign.exit.Cbs3_ManSaveModel.exit_crit_edge.i ], [ %.pre30.i, %56 ], [ %121, %120 ], [ %75, %74 ]
+  %.0.i = phi i32 [ 1, %Cbs3_ManAssign.exit.Cbs3_ManSaveModel.exit_crit_edge.i ], [ 1, %56 ], [ 0, %74 ], [ 0, %120 ]
   store i32 0, ptr %22, align 8, !tbaa !58
   %125 = icmp sgt i32 %124, 0
   br i1 %125, label %.lr.ph.i23.i, label %Cbs3_ManSolveInt.exit
@@ -2948,7 +2948,7 @@ Cbs3_ManSaveModel.exit.i:                         ; preds = %120, %74, %56, %Cbs
   br i1 %140, label %.lr.ph.i23.i, label %Cbs3_ManSolveInt.exit, !llvm.loop !72
 
 Cbs3_ManSolveInt.exit:                            ; preds = %.lr.ph.i23.i, %129, %70, %Cbs3_ManSaveModel.exit.i
-  %.039.i = phi i32 [ %.0.i, %Cbs3_ManSaveModel.exit.i ], [ 0, %70 ], [ %.0.i, %129 ], [ %.0.i, %.lr.ph.i23.i ]
+  %.039.i = phi i32 [ 0, %70 ], [ %.0.i, %Cbs3_ManSaveModel.exit.i ], [ %.0.i, %129 ], [ %.0.i, %.lr.ph.i23.i ]
   store i32 0, ptr %13, align 4, !tbaa !59
   store i32 0, ptr %26, align 4, !tbaa !51
   store i32 0, ptr %25, align 8, !tbaa !56
@@ -3724,9 +3724,9 @@ Vec_WecInit.exit.i.i:                             ; preds = %247, %Cbs3_ManGrow.
   store i32 %237, ptr %48, align 4, !tbaa !38
   %.val1618.i.i = load i32, ptr %47, align 4, !tbaa !31
   %255 = icmp sgt i32 %.val1618.i.i, 3
-  br i1 %255, label %.lr.ph.i.i, label %Cbs3_ManToSolver2.exit
+  br i1 %255, label %.critedge.i.i, label %Cbs3_ManToSolver2.exit
 
-.lr.ph.i.i:                                       ; preds = %Vec_WecInit.exit.i.i, %435
+.critedge.i.i:                                    ; preds = %Vec_WecInit.exit.i.i, %435
   %.val1625.i.i = phi i32 [ %.val16.i.i, %435 ], [ %.val1618.i.i, %Vec_WecInit.exit.i.i ]
   %indvars.iv20.i.i = phi i64 [ %indvars.iv.next21.i.i, %435 ], [ 2, %Vec_WecInit.exit.i.i ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %435 ], [ 3, %Vec_WecInit.exit.i.i ]
@@ -3738,7 +3738,7 @@ Vec_WecInit.exit.i.i:                             ; preds = %247, %Cbs3_ManGrow.
   %.not.i.i = icmp eq i32 %257, 0
   br i1 %.not.i.i, label %435, label %260
 
-260:                                              ; preds = %.lr.ph.i.i
+260:                                              ; preds = %.critedge.i.i
   %261 = load i32, ptr %48, align 4, !tbaa !38
   %262 = sext i32 %261 to i64
   %.not.i.i17.i.i = icmp slt i64 %indvars.iv20.i.i, %262
@@ -4099,14 +4099,14 @@ Cbs3_ManAddConstr.exit.i.i:                       ; preds = %Vec_WecGrow.exit.i6
   %.val16.pre.i.i = load i32, ptr %47, align 4, !tbaa !31
   br label %435
 
-435:                                              ; preds = %Cbs3_ManAddConstr.exit.i.i, %.lr.ph.i.i
-  %.val16.i.i = phi i32 [ %.val1625.i.i, %.lr.ph.i.i ], [ %.val16.pre.i.i, %Cbs3_ManAddConstr.exit.i.i ]
+435:                                              ; preds = %Cbs3_ManAddConstr.exit.i.i, %.critedge.i.i
+  %.val16.i.i = phi i32 [ %.val1625.i.i, %.critedge.i.i ], [ %.val16.pre.i.i, %Cbs3_ManAddConstr.exit.i.i ]
   %indvars.iv.next21.i.i = add nuw nsw i64 %indvars.iv20.i.i, 2
   %436 = trunc i64 %indvars.iv.next21.i.i to i32
   %437 = or disjoint i32 %436, 1
   %438 = icmp slt i32 %437, %.val16.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 2
-  br i1 %438, label %.lr.ph.i.i, label %Cbs3_ManToSolver2.exit, !llvm.loop !121
+  br i1 %438, label %.critedge.i.i, label %Cbs3_ManToSolver2.exit, !llvm.loop !121
 
 Cbs3_ManToSolver2.exit:                           ; preds = %435, %Vec_WecInit.exit.i.i
   %439 = load i64, ptr %89, align 4
@@ -4836,9 +4836,9 @@ Cbs3_QuePush.exit89:                              ; preds = %._crit_edge.i83, %1
   br label %Cbs3_QuePush.exit.i
 
 Cbs3_QuePush.exit.i:                              ; preds = %226, %._crit_edge.i47.i, %206, %._crit_edge.i.i
-  %.sink115.i = phi i32 [ %187, %._crit_edge.i.i ], [ %.pre11.i.i, %206 ], [ %187, %._crit_edge.i47.i ], [ %.pre11.i52.i, %226 ]
-  %.sink111.i = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %207, %206 ], [ %.pre.i49.i, %._crit_edge.i47.i ], [ %227, %226 ]
-  %.sink.i = phi i32 [ %190, %._crit_edge.i.i ], [ %190, %206 ], [ %214, %._crit_edge.i47.i ], [ %214, %226 ]
+  %.sink115.i = phi i32 [ %.pre11.i.i, %206 ], [ %187, %._crit_edge.i.i ], [ %187, %._crit_edge.i47.i ], [ %.pre11.i52.i, %226 ]
+  %.sink111.i = phi ptr [ %207, %206 ], [ %.pre.i.i, %._crit_edge.i.i ], [ %.pre.i49.i, %._crit_edge.i47.i ], [ %227, %226 ]
+  %.sink.i = phi i32 [ %190, %206 ], [ %190, %._crit_edge.i.i ], [ %214, %._crit_edge.i47.i ], [ %214, %226 ]
   %228 = add nsw i32 %.sink115.i, 1
   store i32 %228, ptr %9, align 4, !tbaa !53
   %229 = sext i32 %.sink115.i to i64
@@ -5171,7 +5171,7 @@ Gia_ObjUpdateTravIdCurrentId.exit:                ; preds = %4
   br label %common.ret42
 
 common.ret42:                                     ; preds = %17, %Gia_ObjUpdateTravIdCurrentId.exit, %20
-  %common.ret42.op = phi i32 [ %45, %20 ], [ %13, %Gia_ObjUpdateTravIdCurrentId.exit ], [ %18, %17 ]
+  %common.ret42.op = phi i32 [ %45, %20 ], [ %18, %17 ], [ %13, %Gia_ObjUpdateTravIdCurrentId.exit ]
   ret i32 %common.ret42.op
 
 20:                                               ; preds = %14

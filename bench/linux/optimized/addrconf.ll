@@ -803,9 +803,9 @@ define internal fastcc range(i32 0, 2) i32 @__ipv6_dev_get_saddr(ptr noundef %0,
   br i1 %55, label %.thread, label %35, !llvm.loop !23
 
 .thread:                                          ; preds = %53, %40, %42, %48, %17, %26
-  %.ph9 = phi ptr [ %21, %26 ], [ %21, %17 ], [ %20, %48 ], [ %21, %42 ], [ %21, %40 ], [ %21, %53 ]
-  %.ph10 = phi ptr [ %20, %26 ], [ %20, %17 ], [ %21, %48 ], [ %20, %42 ], [ %20, %40 ], [ %20, %53 ]
-  %.ph11 = phi i32 [ %19, %26 ], [ %19, %17 ], [ %49, %48 ], [ %19, %42 ], [ %19, %40 ], [ %19, %53 ]
+  %.ph9 = phi ptr [ %21, %40 ], [ %21, %17 ], [ %21, %26 ], [ %20, %48 ], [ %21, %42 ], [ %21, %53 ]
+  %.ph10 = phi ptr [ %20, %40 ], [ %20, %17 ], [ %20, %26 ], [ %21, %48 ], [ %20, %42 ], [ %20, %53 ]
+  %.ph11 = phi i32 [ %19, %40 ], [ %19, %17 ], [ %19, %26 ], [ %49, %48 ], [ %19, %42 ], [ %19, %53 ]
   %56 = getelementptr inbounds nuw i8, ptr %.ph10, i64 8
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 200
@@ -1047,7 +1047,7 @@ define internal fastcc ptr @__ipv6_chk_addr_and_flags(ptr noundef readonly captu
   br i1 %117, label %.loopexit, label %.split.split, !llvm.loop !26
 
 .loopexit:                                        ; preds = %.split.split.us, %79, %111, %107, %105, %52, %.split.us, %6
-  %118 = phi ptr [ null, %6 ], [ %36, %.split.us ], [ null, %52 ], [ %89, %107 ], [ %89, %105 ], [ null, %111 ], [ null, %79 ], [ %62, %.split.split.us ]
+  %118 = phi ptr [ null, %6 ], [ null, %52 ], [ %89, %105 ], [ %36, %.split.us ], [ null, %111 ], [ %89, %107 ], [ null, %79 ], [ %62, %.split.split.us ]
   tail call void @__rcu_read_unlock() #20
   ret ptr %118
 }
@@ -1140,7 +1140,7 @@ define dso_local noundef zeroext i1 @ipv6_chk_custom_prefix(ptr noundef readonly
   br i1 %53, label %.loopexit, label %.critedge, !llvm.loop !27
 
 .loopexit:                                        ; preds = %47, %.critedge, %34, %.critedge.us, %.split.us.split.us, %.critedge.us.us, %.split, %7, %3
-  %54 = phi i1 [ false, %3 ], [ false, %7 ], [ true, %.split ], [ %27, %.critedge.us.us ], [ %27, %.split.us.split.us ], [ true, %34 ], [ false, %.critedge.us ], [ %53, %.critedge ], [ %53, %47 ]
+  %54 = phi i1 [ false, %3 ], [ false, %7 ], [ true, %.split ], [ true, %34 ], [ %27, %.split.us.split.us ], [ %27, %.critedge.us.us ], [ false, %.critedge.us ], [ %53, %.critedge ], [ %53, %47 ]
   tail call void @__rcu_read_unlock() #20
   ret i1 %54
 }
@@ -1216,7 +1216,7 @@ define dso_local noundef range(i32 0, 2) i32 @ipv6_chk_prefix(ptr noundef readon
   br i1 %49, label %.loopexit, label %12, !llvm.loop !28
 
 .loopexit:                                        ; preds = %12, %27, %25, %40, %38, %6, %2
-  %50 = phi i32 [ 0, %2 ], [ 0, %6 ], [ 1, %38 ], [ 1, %40 ], [ 1, %25 ], [ 1, %27 ], [ 0, %12 ]
+  %50 = phi i32 [ 0, %2 ], [ 0, %6 ], [ 1, %38 ], [ 1, %40 ], [ 1, %27 ], [ 1, %25 ], [ 0, %12 ]
   tail call void @__rcu_read_unlock() #20
   ret i32 %50
 }
@@ -1334,7 +1334,7 @@ define dso_local noundef ptr @ipv6_get_ifaddr(ptr noundef readonly captures(none
   br i1 %.not11, label %.split6.us, label %86
 
 .split6.us:                                       ; preds = %51, %75, %70, %.split.us
-  %.us-phi = phi ptr [ %30, %.split.us ], [ %63, %70 ], [ %63, %75 ], [ %44, %51 ]
+  %.us-phi = phi ptr [ %63, %75 ], [ %30, %.split.us ], [ %63, %70 ], [ %44, %51 ]
   %79 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 32
   %80 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %79, i32 1, ptr nonnull elementtype(i32) %79) #20, !srcloc !30
   %81 = icmp eq i32 %80, 0
@@ -2023,7 +2023,7 @@ define internal fastcc ptr @ipv6_add_addr(ptr noundef %0, ptr noundef readonly c
   br label %.thread16
 
 .thread16:                                        ; preds = %.thread16.sink.split, %66, %53, %47, %56
-  %.ph12.ph = phi i32 [ %63, %56 ], [ -19, %47 ], [ -13, %53 ], [ -105, %66 ], [ %.ph12.ph.ph, %.thread16.sink.split ]
+  %.ph12.ph = phi i32 [ %63, %56 ], [ -13, %53 ], [ -19, %47 ], [ -105, %66 ], [ %.ph12.ph.ph, %.thread16.sink.split ]
   call fastcc void @fib6_info_release(ptr noundef null)
   br label %152
 
@@ -2397,7 +2397,7 @@ define dso_local noundef range(i32 -1, 1) i32 @addrconf_prefix_rcv_add_addr(ptr 
   br label %135
 
 135:                                              ; preds = %.critedge, %.thread9, %83
-  %136 = phi i32 [ 0, %.thread9 ], [ 0, %83 ], [ -1, %.critedge ]
+  %136 = phi i32 [ -1, %.critedge ], [ 0, %.thread9 ], [ 0, %83 ]
   ret i32 %136
 }
 
@@ -3143,7 +3143,7 @@ define internal fastcc ptr @addrconf_get_prefix_route(ptr noundef %0, i32 nounde
   br i1 %108, label %.loopexit, label %.split, !llvm.loop !43
 
 .loopexit:                                        ; preds = %103, %105, %63, %61, %15, %11
-  %109 = phi ptr [ null, %11 ], [ null, %15 ], [ %21, %61 ], [ null, %63 ], [ %67, %103 ], [ null, %105 ]
+  %109 = phi ptr [ null, %11 ], [ null, %15 ], [ null, %63 ], [ %21, %61 ], [ %67, %103 ], [ null, %105 ]
   tail call void @__rcu_read_unlock() #20
   br label %110
 
@@ -5934,7 +5934,7 @@ ipv6_find_idev.exit:                              ; preds = %113, %116, %122
   br label %inet6_addr_modify.exit
 
 inet6_addr_modify.exit:                           ; preds = %377, %158, %155, %149, %142, %140
-  %378 = phi i32 [ -17, %142 ], [ -17, %140 ], [ 0, %377 ], [ -22, %149 ], [ -22, %158 ], [ -22, %155 ]
+  %378 = phi i32 [ -17, %140 ], [ -17, %142 ], [ 0, %377 ], [ -22, %155 ], [ -22, %149 ], [ -22, %158 ]
   %379 = getelementptr inbounds nuw i8, ptr %130, i64 32
   %380 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %379, i32 -1, ptr nonnull elementtype(i32) %379) #20, !srcloc !17
   %381 = icmp eq i32 %380, 1
@@ -5954,7 +5954,7 @@ inet6_addr_modify.exit:                           ; preds = %377, %158, %155, %1
   br label %.thread
 
 .thread:                                          ; preds = %382, %384, %15, %17, %385, %132, %125, %89, %87, %42, %18
-  %386 = phi i32 [ %127, %125 ], [ %134, %132 ], [ %21, %18 ], [ -22, %42 ], [ -19, %89 ], [ -19, %87 ], [ %378, %385 ], [ -22, %17 ], [ -22, %15 ], [ %378, %384 ], [ %378, %382 ]
+  %386 = phi i32 [ %127, %125 ], [ %134, %132 ], [ %21, %18 ], [ -22, %42 ], [ -19, %89 ], [ -19, %87 ], [ -22, %15 ], [ %378, %385 ], [ -22, %17 ], [ %378, %384 ], [ %378, %382 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %386
@@ -6172,7 +6172,7 @@ define internal i32 @inet6_rtm_getaddr(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %66, label %.thread18, label %.preheader, !llvm.loop !88
 
 67:                                               ; preds = %52, %33
-  %68 = phi i32 [ %53, %52 ], [ %36, %33 ]
+  %68 = phi i32 [ %36, %33 ], [ %53, %52 ]
   %69 = icmp slt i32 %68, 0
   br i1 %69, label %.thread, label %.thread18
 
@@ -6293,7 +6293,7 @@ define internal i32 @inet6_rtm_getaddr(ptr noundef %0, ptr noundef %1, ptr nound
   br label %.thread20
 
 .thread20:                                        ; preds = %131, %133, %134, %109
-  %135 = phi i32 [ -99, %109 ], [ %127, %134 ], [ %127, %133 ], [ %127, %131 ]
+  %135 = phi i32 [ %127, %134 ], [ -99, %109 ], [ %127, %133 ], [ %127, %131 ]
   %136 = icmp eq ptr %110, null
   br i1 %136, label %.thread21, label %137
 
@@ -6304,7 +6304,7 @@ define internal i32 @inet6_rtm_getaddr(ptr noundef %0, ptr noundef %1, ptr nound
   br label %.thread21
 
 .thread21:                                        ; preds = %100, %137, %.thread20
-  %140 = phi i32 [ %135, %137 ], [ %135, %.thread20 ], [ -22, %100 ]
+  %140 = phi i32 [ %135, %.thread20 ], [ %135, %137 ], [ -22, %100 ]
   %141 = icmp sgt i32 %84, -1
   br i1 %141, label %142, label %.thread
 
@@ -6328,7 +6328,7 @@ define internal i32 @inet6_rtm_getaddr(ptr noundef %0, ptr noundef %1, ptr nound
   br label %.thread
 
 .thread:                                          ; preds = %146, %148, %30, %32, %61, %63, %49, %51, %22, %24, %149, %.thread21, %80, %67
-  %150 = phi i32 [ %82, %80 ], [ %68, %67 ], [ %140, %.thread21 ], [ %140, %149 ], [ -22, %24 ], [ -22, %22 ], [ -22, %51 ], [ -22, %49 ], [ -22, %63 ], [ -22, %61 ], [ -22, %32 ], [ -22, %30 ], [ %140, %148 ], [ %140, %146 ]
+  %150 = phi i32 [ %82, %80 ], [ %68, %67 ], [ %140, %.thread21 ], [ -22, %30 ], [ %140, %149 ], [ -22, %24 ], [ -22, %22 ], [ -22, %51 ], [ -22, %49 ], [ -22, %63 ], [ -22, %61 ], [ -22, %32 ], [ %140, %148 ], [ %140, %146 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %150
@@ -6441,7 +6441,7 @@ define internal i32 @inet6_netconf_get_devconf(ptr noundef %0, ptr noundef %1, p
   br label %.thread16
 
 47:                                               ; preds = %30, %22
-  %48 = phi i32 [ %33, %30 ], [ %25, %22 ]
+  %48 = phi i32 [ %25, %22 ], [ %33, %30 ]
   %49 = icmp slt i32 %48, 0
   br i1 %49, label %.thread16, label %.thread17
 
@@ -6758,7 +6758,7 @@ define internal i32 @inet6_netconf_dump_devconf(ptr noundef %0, ptr noundef capt
   br i1 %110, label %122, label %.thread10
 
 .thread10:                                        ; preds = %100, %.thread
-  %111 = phi i32 [ %101, %.thread ], [ %31, %100 ]
+  %111 = phi i32 [ %31, %100 ], [ %101, %.thread ]
   %112 = getelementptr inbounds nuw i8, ptr %8, i64 1856
   %113 = load ptr, ptr %112, align 64
   %114 = load ptr, ptr %1, align 8
@@ -6772,8 +6772,8 @@ define internal i32 @inet6_netconf_dump_devconf(ptr noundef %0, ptr noundef capt
   br label %122
 
 122:                                              ; preds = %100, %.thread10, %.thread, %75
-  %123 = phi i32 [ %58, %75 ], [ %101, %.thread ], [ %111, %.thread10 ], [ %31, %100 ]
-  %124 = phi i64 [ %44, %75 ], [ 256, %.thread ], [ %121, %.thread10 ], [ %27, %100 ]
+  %123 = phi i32 [ %58, %75 ], [ %101, %.thread ], [ %31, %100 ], [ %111, %.thread10 ]
+  %124 = phi i64 [ %44, %75 ], [ 256, %.thread ], [ %27, %100 ], [ %121, %.thread10 ]
   %sext = shl i64 %124, 32
   %125 = ashr exact i64 %sext, 32
   store i64 %125, ptr %26, align 8
@@ -7018,7 +7018,7 @@ define internal fastcc void @addrconf_ifdown(ptr noundef %0, i1 noundef zeroext 
   br i1 %99, label %.loopexit41.split.us.us, label %.preheader40.us.backedge
 
 .preheader40.us.backedge:                         ; preds = %94, %76
-  %.be82 = phi ptr [ %80, %76 ], [ %97, %94 ]
+  %.be82 = phi ptr [ %97, %94 ], [ %80, %76 ]
   br label %.preheader40.us, !llvm.loop !105
 
 .split:                                           ; preds = %.split.preheader, %.loopexit41.split
@@ -7095,7 +7095,7 @@ define internal fastcc void @addrconf_ifdown(ptr noundef %0, i1 noundef zeroext 
   br i1 %143, label %.loopexit41.split, label %.preheader40.backedge
 
 .preheader40.backedge:                            ; preds = %137, %131
-  %.be = phi ptr [ %141, %137 ], [ %134, %131 ]
+  %.be = phi ptr [ %134, %131 ], [ %141, %137 ]
   br label %.preheader40, !llvm.loop !105
 
 .loopexit41.split:                                ; preds = %137, %131, %.split
@@ -7761,7 +7761,7 @@ define internal fastcc i32 @ipv6_get_saddr_eval(ptr noundef %0, ptr noundef %1, 
   br label %158
 
 158:                                              ; preds = %.loopexit, %119, %111, %80, %70, %58, %40, %26, %21
-  %159 = phi i32 [ %156, %.loopexit ], [ %130, %119 ], [ %118, %111 ], [ %94, %80 ], [ %51, %40 ], [ %39, %26 ], [ %25, %21 ], [ %65, %58 ], [ %79, %70 ]
+  %159 = phi i32 [ %156, %.loopexit ], [ %130, %119 ], [ %118, %111 ], [ %94, %80 ], [ %51, %40 ], [ %39, %26 ], [ %25, %21 ], [ %79, %70 ], [ %65, %58 ]
   %160 = icmp eq i32 %159, 0
   br i1 %160, label %.thread4, label %.thread3
 
@@ -8347,7 +8347,7 @@ define internal fastcc noundef range(i32 -17, 1) i32 @ipv6_add_addr_hash(ptr nou
   br label %.loopexit
 
 .loopexit:                                        ; preds = %48, %.split.us, %60, %.critedge
-  %62 = phi i32 [ 0, %.critedge ], [ 0, %60 ], [ -17, %.split.us ], [ -17, %48 ]
+  %62 = phi i32 [ 0, %60 ], [ 0, %.critedge ], [ -17, %.split.us ], [ -17, %48 ]
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull %17) #20
   ret i32 %62
 }
@@ -9764,7 +9764,7 @@ define internal fastcc void @addrconf_verify_rtnl(ptr noundef %0) unnamed_addr #
   br i1 %25, label %.loopexit, label %.preheader
 
 .thread19:                                        ; preds = %190, %192, %147, %.thread16, %193
-  %.ph = phi i64 [ %169, %193 ], [ %89, %.thread16 ], [ %130, %147 ], [ %169, %192 ], [ %169, %190 ]
+  %.ph = phi i64 [ %169, %193 ], [ %130, %147 ], [ %89, %.thread16 ], [ %169, %192 ], [ %169, %190 ]
   %26 = load ptr, ptr %14, align 8
   %27 = getelementptr %struct.hlist_head, ptr %26, i64 %17
   %28 = load volatile ptr, ptr %27, align 8
@@ -9939,7 +9939,7 @@ define internal fastcc void @addrconf_verify_rtnl(ptr noundef %0) unnamed_addr #
   br label %.thread19
 
 129:                                              ; preds = %.thread17, %60, %56, %52, %43
-  %130 = phi i64 [ %33, %56 ], [ %33, %60 ], [ %33, %52 ], [ %33, %43 ], [ %128, %.thread17 ]
+  %130 = phi i64 [ %33, %56 ], [ %128, %.thread17 ], [ %33, %60 ], [ %33, %52 ], [ %33, %43 ]
   %131 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %132 = load i32, ptr %131, align 8
   %133 = icmp eq i32 %132, -1
@@ -10073,7 +10073,7 @@ define internal fastcc void @addrconf_verify_rtnl(ptr noundef %0) unnamed_addr #
   br label %201
 
 201:                                              ; preds = %.sink.split, %39, %168
-  %202 = phi i64 [ %33, %39 ], [ %169, %168 ], [ %.ph42, %.sink.split ]
+  %202 = phi i64 [ %169, %168 ], [ %33, %39 ], [ %.ph42, %.sink.split ]
   %203 = getelementptr inbounds nuw i8, ptr %34, i64 184
   %204 = load volatile ptr, ptr %203, align 8
   %205 = icmp eq ptr %204, null
@@ -10083,8 +10083,8 @@ define internal fastcc void @addrconf_verify_rtnl(ptr noundef %0) unnamed_addr #
   br i1 %208, label %.loopexit, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %201, %.thread19
-  %.be = phi i64 [ %202, %201 ], [ %.ph, %.thread19 ]
-  %.be45 = phi ptr [ %206, %201 ], [ %30, %.thread19 ]
+  %.be = phi i64 [ %.ph, %.thread19 ], [ %202, %201 ]
+  %.be45 = phi ptr [ %30, %.thread19 ], [ %206, %201 ]
   br label %.preheader, !llvm.loop !133
 
 .loopexit:                                        ; preds = %201, %.thread19, %16
@@ -12364,7 +12364,7 @@ define internal i32 @addrconf_sysctl_disable(ptr noundef readonly captures(none)
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit, %31, %102, %100
-  %104 = phi i32 [ %103, %102 ], [ 0, %100 ], [ 0, %31 ], [ 0, %.loopexit ]
+  %104 = phi i32 [ 0, %100 ], [ %103, %102 ], [ 0, %31 ], [ 0, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %104
@@ -12857,7 +12857,7 @@ define internal i32 @addrconf_sysctl_disable_policy(ptr noundef readonly capture
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit, %31, %54, %52
-  %56 = phi i32 [ %55, %54 ], [ 0, %52 ], [ 0, %31 ], [ 0, %.loopexit ]
+  %56 = phi i32 [ 0, %52 ], [ %55, %54 ], [ 0, %31 ], [ 0, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %56
@@ -13467,7 +13467,7 @@ addrconf_sysctl_register.exit:                    ; preds = %166
   br label %206
 
 206:                                              ; preds = %205, %201, %197, %196, %195, %184, %181, %addrconf_sysctl_register.exit, %176, %137, %135, %131, %126, %.thread, %102, %88, %69, %67, %62, %57, %49, %41, %38, %35, %29, %18, %15, %11, %9, %3
-  %207 = phi i32 [ %178, %176 ], [ %183, %181 ], [ %24, %18 ], [ 1, %69 ], [ 1, %197 ], [ 1, %201 ], [ 1, %205 ], [ 1, %184 ], [ 1, %137 ], [ 1, %addrconf_sysctl_register.exit ], [ 1, %.thread ], [ 1, %131 ], [ 1, %126 ], [ 1, %57 ], [ 1, %62 ], [ 1, %67 ], [ 1, %49 ], [ 1, %41 ], [ 1, %38 ], [ 1, %9 ], [ 1, %11 ], [ 1, %15 ], [ 1, %3 ], [ 1, %135 ], [ 1, %102 ], [ 1, %88 ], [ 1, %35 ], [ 1, %29 ], [ 1, %195 ], [ 1, %196 ]
+  %207 = phi i32 [ %178, %176 ], [ %183, %181 ], [ %24, %18 ], [ 1, %69 ], [ 1, %197 ], [ 1, %201 ], [ 1, %205 ], [ 1, %184 ], [ 1, %137 ], [ 1, %addrconf_sysctl_register.exit ], [ 1, %.thread ], [ 1, %131 ], [ 1, %126 ], [ 1, %57 ], [ 1, %62 ], [ 1, %67 ], [ 1, %49 ], [ 1, %41 ], [ 1, %38 ], [ 1, %9 ], [ 1, %11 ], [ 1, %15 ], [ 1, %3 ], [ 1, %135 ], [ 1, %102 ], [ 1, %88 ], [ 1, %35 ], [ 1, %29 ], [ 1, %196 ], [ 1, %195 ]
   ret i32 %207
 }
 
@@ -15223,7 +15223,7 @@ define internal noundef range(i32 -97, 1) i32 @inet6_set_link_af(ptr noundef %0,
   br i1 %116, label %.loopexit, label %.preheader, !llvm.loop !214
 
 .thread.sink.split:                               ; preds = %57, %51, %40, %35
-  %inet6_set_iftoken.__msg.sink = phi ptr [ @inet6_set_iftoken.__msg, %35 ], [ @inet6_set_iftoken.__msg.91, %40 ], [ @inet6_set_iftoken.__msg.92, %51 ], [ @inet6_set_iftoken.__msg.93, %57 ]
+  %inet6_set_iftoken.__msg.sink = phi ptr [ @inet6_set_iftoken.__msg.92, %51 ], [ @inet6_set_iftoken.__msg, %35 ], [ @inet6_set_iftoken.__msg.91, %40 ], [ @inet6_set_iftoken.__msg.93, %57 ]
   store ptr %inet6_set_iftoken.__msg.sink, ptr %2, align 8
   br label %.thread
 
@@ -15255,7 +15255,7 @@ define internal noundef range(i32 -97, 1) i32 @inet6_set_link_af(ptr noundef %0,
   br label %128
 
 128:                                              ; preds = %.thread, %123, %119, %9, %3
-  %129 = phi i32 [ -97, %3 ], [ -22, %9 ], [ 0, %123 ], [ 0, %119 ], [ -22, %.thread ]
+  %129 = phi i32 [ -97, %3 ], [ -22, %9 ], [ -22, %.thread ], [ 0, %123 ], [ 0, %119 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %129
 }
@@ -15587,14 +15587,14 @@ define internal fastcc i32 @inet6_dump_addr(ptr noundef %0, ptr noundef captures
   br label %100
 
 .thread20.sink.split:                             ; preds = %90, %65, %54, %40
-  %inet6_valid_dump_ifaddr_req.__msg.sink = phi ptr [ @inet6_valid_dump_ifaddr_req.__msg, %40 ], [ @inet6_valid_dump_ifaddr_req.__msg.100, %54 ], [ @__nlmsg_parse.__msg, %65 ], [ @inet6_valid_dump_ifaddr_req.__msg.102, %90 ]
-  %.ph.ph = phi ptr [ %22, %40 ], [ %22, %54 ], [ %22, %65 ], [ %76, %90 ]
+  %inet6_valid_dump_ifaddr_req.__msg.sink = phi ptr [ @inet6_valid_dump_ifaddr_req.__msg.100, %54 ], [ @__nlmsg_parse.__msg, %65 ], [ @inet6_valid_dump_ifaddr_req.__msg, %40 ], [ @inet6_valid_dump_ifaddr_req.__msg.102, %90 ]
+  %.ph.ph = phi ptr [ %22, %54 ], [ %22, %65 ], [ %22, %40 ], [ %76, %90 ]
   store ptr %inet6_valid_dump_ifaddr_req.__msg.sink, ptr %37, align 8
   br label %.thread20
 
 .thread20:                                        ; preds = %.thread20.sink.split, %40, %.thread, %90, %54, %65
-  %.ph = phi ptr [ %22, %54 ], [ %76, %90 ], [ %22, %.thread ], [ %22, %40 ], [ %22, %65 ], [ %.ph.ph, %.thread20.sink.split ]
-  %.ph19 = phi i32 [ -22, %54 ], [ -22, %90 ], [ %70, %.thread ], [ -22, %40 ], [ -22, %65 ], [ -22, %.thread20.sink.split ]
+  %.ph = phi ptr [ %22, %40 ], [ %22, %.thread ], [ %22, %54 ], [ %22, %65 ], [ %76, %90 ], [ %.ph.ph, %.thread20.sink.split ]
+  %.ph19 = phi i32 [ -22, %40 ], [ %70, %.thread ], [ -22, %54 ], [ -22, %65 ], [ -22, %90 ], [ -22, %.thread20.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %191
 
@@ -15733,8 +15733,8 @@ define internal fastcc i32 @inet6_dump_addr(ptr noundef %0, ptr noundef captures
   br i1 %185, label %.loopexit, label %127, !llvm.loop !217
 
 .loopexit:                                        ; preds = %.loopexit27, %169, %148, %112
-  %186 = phi i64 [ %.fr48, %112 ], [ %128, %148 ], [ %128, %169 ], [ 256, %.loopexit27 ]
-  %187 = phi i32 [ %28, %112 ], [ %140, %148 ], [ %160, %169 ], [ %182, %.loopexit27 ]
+  %186 = phi i64 [ %.fr48, %112 ], [ %128, %169 ], [ %128, %148 ], [ 256, %.loopexit27 ]
+  %187 = phi i32 [ %28, %112 ], [ %160, %169 ], [ %140, %148 ], [ %182, %.loopexit27 ]
   call void @__rcu_read_unlock() #20
   %188 = shl i64 %186, 32
   %189 = ashr exact i64 %188, 32
@@ -15770,7 +15770,7 @@ define internal fastcc i32 @inet6_dump_addr(ptr noundef %0, ptr noundef captures
   br label %.thread24
 
 .thread24:                                        ; preds = %197, %199, %96, %200, %191
-  %201 = phi i32 [ %.ph23, %200 ], [ %.ph23, %191 ], [ %98, %96 ], [ %.ph23, %199 ], [ %.ph23, %197 ]
+  %201 = phi i32 [ %.ph23, %191 ], [ %.ph23, %200 ], [ %98, %96 ], [ %.ph23, %199 ], [ %.ph23, %197 ]
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %203 = load i32, ptr %202, align 8
   %204 = icmp eq i32 %203, 0
@@ -16020,8 +16020,8 @@ define internal fastcc range(i32 -90, 2) i32 @in6_dump_addrs(ptr noundef nonnull
   br label %.thread20
 
 .thread20:                                        ; preds = %70, %86, %91, %140, %.thread20.sink.split, %48
-  %150 = phi i32 [ 0, %48 ], [ %67, %.thread20.sink.split ], [ %67, %70 ], [ %67, %86 ], [ %67, %91 ], [ %142, %140 ]
-  %151 = phi i32 [ 1, %48 ], [ -90, %.thread20.sink.split ], [ -90, %70 ], [ -90, %86 ], [ -90, %91 ], [ %141, %140 ]
+  %150 = phi i32 [ 0, %48 ], [ %67, %.thread20.sink.split ], [ %67, %91 ], [ %142, %140 ], [ %67, %70 ], [ %67, %86 ]
+  %151 = phi i32 [ 1, %48 ], [ -90, %.thread20.sink.split ], [ -90, %91 ], [ %141, %140 ], [ -90, %70 ], [ -90, %86 ]
   call void @_raw_read_lock_bh(ptr noundef nonnull %10) #20
   br label %.thread25
 
@@ -16248,8 +16248,8 @@ define internal fastcc range(i32 -90, 2) i32 @in6_dump_addrs(ptr noundef nonnull
   br i1 %294, label %.thread25, label %169, !llvm.loop !220
 
 .thread25:                                        ; preds = %211, %223, %228, %289, %43, %27, %274, %241, %152, %.thread20, %13, %5
-  %295 = phi i32 [ 1, %5 ], [ %151, %.thread20 ], [ 1, %13 ], [ 1, %152 ], [ -90, %241 ], [ -90, %274 ], [ %29, %27 ], [ %44, %43 ], [ -90, %211 ], [ -90, %223 ], [ -90, %228 ], [ %290, %289 ]
-  %296 = phi i32 [ 0, %5 ], [ %150, %.thread20 ], [ 0, %13 ], [ 0, %152 ], [ %171, %241 ], [ %171, %274 ], [ %24, %27 ], [ %45, %43 ], [ %171, %211 ], [ %171, %223 ], [ %171, %228 ], [ %292, %289 ]
+  %295 = phi i32 [ 1, %5 ], [ %151, %.thread20 ], [ 1, %13 ], [ 1, %152 ], [ -90, %241 ], [ -90, %274 ], [ %44, %43 ], [ %29, %27 ], [ -90, %228 ], [ %290, %289 ], [ -90, %211 ], [ -90, %223 ]
+  %296 = phi i32 [ 0, %5 ], [ %150, %.thread20 ], [ 0, %13 ], [ 0, %152 ], [ %171, %241 ], [ %171, %274 ], [ %45, %43 ], [ %24, %27 ], [ %171, %228 ], [ %292, %289 ], [ %171, %211 ], [ %171, %223 ]
   call void @_raw_read_unlock_bh(ptr noundef nonnull %10) #20
   %297 = sext i32 %296 to i64
   %298 = getelementptr i8, ptr %2, i64 96

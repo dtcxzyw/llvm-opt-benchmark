@@ -2158,7 +2158,7 @@ _ZN3std2io5error14repr_bitpacked11decode_repr17h8fa4f9b230ef4fc6E.exit.thread.i.
   unreachable
 
 .thread45.i.i:                                    ; preds = %.thread49.i.i, %103, %101
-  %.pn48.i.i = phi { ptr, i32 } [ %eh.lpad-body52.i.i, %.thread49.i.i ], [ %102, %101 ], [ %104, %103 ]
+  %.pn48.i.i = phi { ptr, i32 } [ %104, %103 ], [ %eh.lpad-body52.i.i, %.thread49.i.i ], [ %102, %101 ]
   resume { ptr, i32 } %.pn48.i.i
 
 .thread49.i.i:                                    ; preds = %65, %.thread54.i.i

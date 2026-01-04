@@ -527,7 +527,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_d
   br label %"_ZN10serde_json2de21Deserializer$LT$R$GT$14f64_from_parts17h28ece30c8f8c958aE.exit"
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %63, %61
-  %.1.i = phi double [ %64, %63 ], [ %62, %61 ], [ %.01828.i, %.lr.ph.i ]
+  %.1.i = phi double [ %62, %61 ], [ %64, %63 ], [ %.01828.i, %.lr.ph.i ]
   %59 = fneg double %.1.i
   %.2.i = select i1 %2, double %.1.i, double %59
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -684,8 +684,8 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_i
   br label %"_ZN10serde_json2de21Deserializer$LT$R$GT$12parse_number17hba2e78dbc5a00631E.exit"
 
 45:                                               ; preds = %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17h075868fe726cf1aaE.exit.thread.i", %46, %40
-  %.sroa.9.0.i = phi i64 [ %41, %40 ], [ %47, %46 ], [ %spec.select, %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17h075868fe726cf1aaE.exit.thread.i" ]
-  %.sroa.0.0.i = phi i64 [ 0, %40 ], [ 0, %46 ], [ %spec.select50, %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17h075868fe726cf1aaE.exit.thread.i" ]
+  %.sroa.9.0.i = phi i64 [ %47, %46 ], [ %41, %40 ], [ %spec.select, %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17h075868fe726cf1aaE.exit.thread.i" ]
+  %.sroa.0.0.i = phi i64 [ 0, %46 ], [ 0, %40 ], [ %spec.select50, %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17h075868fe726cf1aaE.exit.thread.i" ]
   store i64 %.sroa.0.0.i, ptr %0, align 8, !alias.scope !98, !noalias !104
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.9.0.i, ptr %.sroa.9.0..sroa_idx.i, align 8, !alias.scope !98, !noalias !104
@@ -788,8 +788,8 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_i
   br label %"_ZN10serde_json2de21Deserializer$LT$R$GT$12parse_number17hba2e78dbc5a00631E.exit"
 
 75:                                               ; preds = %84, %81, %76, %70, %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17h075868fe726cf1aaE.exit.thread.i26"
-  %.sroa.9.0.i27 = phi i64 [ %87, %84 ], [ %71, %70 ], [ %77, %76 ], [ %.055, %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17h075868fe726cf1aaE.exit.thread.i26" ], [ %82, %81 ]
-  %.sroa.0.0.i28 = phi i64 [ 0, %84 ], [ 0, %70 ], [ 0, %76 ], [ 1, %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17h075868fe726cf1aaE.exit.thread.i26" ], [ 2, %81 ]
+  %.sroa.9.0.i27 = phi i64 [ %77, %76 ], [ %87, %84 ], [ %.055, %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17h075868fe726cf1aaE.exit.thread.i26" ], [ %71, %70 ], [ %82, %81 ]
+  %.sroa.0.0.i28 = phi i64 [ 0, %76 ], [ 0, %84 ], [ 1, %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17h075868fe726cf1aaE.exit.thread.i26" ], [ 0, %70 ], [ 2, %81 ]
   store i64 %.sroa.0.0.i28, ptr %0, align 8, !alias.scope !115, !noalias !120
   %.sroa.9.0..sroa_idx.i29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.9.0.i27, ptr %.sroa.9.0..sroa_idx.i29, align 8, !alias.scope !115, !noalias !120
@@ -1020,7 +1020,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
   br label %"_ZN10serde_json2de21Deserializer$LT$R$GT$14f64_from_parts17h28ece30c8f8c958aE.exit"
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %71, %69
-  %.1.i = phi double [ %72, %71 ], [ %70, %69 ], [ %.01828.i, %.lr.ph.i ]
+  %.1.i = phi double [ %70, %69 ], [ %72, %71 ], [ %.01828.i, %.lr.ph.i ]
   %67 = fneg double %.1.i
   %.2.i = select i1 %2, double %.1.i, double %67
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1200,7 +1200,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$18parse_l
   br label %"_ZN10serde_json2de21Deserializer$LT$R$GT$14f64_from_parts17h28ece30c8f8c958aE.exit"
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %41, %39
-  %.1.i = phi double [ %42, %41 ], [ %40, %39 ], [ %.01828.i, %.lr.ph.i ]
+  %.1.i = phi double [ %40, %39 ], [ %42, %41 ], [ %.01828.i, %.lr.ph.i ]
   %37 = fneg double %.1.i
   %.2.i = select i1 %2, double %.1.i, double %37
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1387,7 +1387,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$22parse_d
   br label %"_ZN10serde_json2de21Deserializer$LT$R$GT$14f64_from_parts17h28ece30c8f8c958aE.exit"
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %40, %38
-  %.1.i = phi double [ %41, %40 ], [ %39, %38 ], [ %.01828.i, %.lr.ph.i ]
+  %.1.i = phi double [ %39, %38 ], [ %41, %40 ], [ %.01828.i, %.lr.ph.i ]
   %36 = fneg double %.1.i
   %.2.i = select i1 %2, double %.1.i, double %36
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1694,7 +1694,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %40
-  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %41, %40 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %35, %.thread, %39
@@ -1778,7 +1778,7 @@ define hidden void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$10const_
   %22 = icmp eq i64 %21, 5
   br i1 %22, label %.thread96, label %23
 
-.thread93:                                        ; preds = %.invoke, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit51", %32, %29
+.thread93:                                        ; preds = %.invoke, %29, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit51", %32
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread85
@@ -2008,7 +2008,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
           to label %.noexc56 unwind label %75
 
 .critedge38:                                      ; preds = %71, %64, %.noexc56
-  %.pn84 = phi { ptr, i32 } [ %eh.lpad-body89, %.noexc56 ], [ %65, %64 ], [ %72, %71 ]
+  %.pn84 = phi { ptr, i32 } [ %65, %64 ], [ %72, %71 ], [ %eh.lpad-body89, %.noexc56 ]
   resume { ptr, i32 } %.pn84
 
 .noexc56:                                         ; preds = %82, %.thread85, %79
@@ -2139,7 +2139,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %52, %59, %43
-  %common.resume.op = phi { ptr, i32 } [ %44, %43 ], [ %60, %59 ], [ %53, %52 ]
+  %common.resume.op = phi { ptr, i32 } [ %60, %59 ], [ %44, %43 ], [ %53, %52 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit32", %.thread, %42
@@ -2324,7 +2324,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %40
-  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %41, %40 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %35, %.thread, %39
@@ -2490,7 +2490,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %49, %56, %41
-  %common.resume.op = phi { ptr, i32 } [ %42, %41 ], [ %57, %56 ], [ %50, %49 ]
+  %common.resume.op = phi { ptr, i32 } [ %57, %56 ], [ %42, %41 ], [ %50, %49 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %36, %.thread, %40
@@ -2667,7 +2667,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %52, %59, %43
-  %common.resume.op = phi { ptr, i32 } [ %44, %43 ], [ %60, %59 ], [ %53, %52 ]
+  %common.resume.op = phi { ptr, i32 } [ %60, %59 ], [ %44, %43 ], [ %53, %52 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit32", %.thread, %42
@@ -2763,7 +2763,7 @@ define hidden void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$11trait_
   %20 = icmp eq i64 %19, 5
   br i1 %20, label %.thread89, label %21
 
-.thread86:                                        ; preds = %.invoke, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit46", %30, %27
+.thread86:                                        ; preds = %.invoke, %27, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit46", %30
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread79
@@ -2974,7 +2974,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 .thread:                                          ; preds = %67, %60, %.thread79
-  %.pn78 = phi { ptr, i32 } [ %eh.lpad-body82, %.thread79 ], [ %61, %60 ], [ %68, %67 ]
+  %.pn78 = phi { ptr, i32 } [ %61, %60 ], [ %eh.lpad-body82, %.thread79 ], [ %68, %67 ]
   resume { ptr, i32 } %.pn78
 
 .thread79:                                        ; preds = %47, %.thread86
@@ -3096,7 +3096,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %49, %56, %42
-  %common.resume.op = phi { ptr, i32 } [ %43, %42 ], [ %57, %56 ], [ %50, %49 ]
+  %common.resume.op = phi { ptr, i32 } [ %57, %56 ], [ %43, %42 ], [ %50, %49 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %37, %.thread, %41
@@ -3273,7 +3273,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %52, %59, %43
-  %common.resume.op = phi { ptr, i32 } [ %44, %43 ], [ %60, %59 ], [ %53, %52 ]
+  %common.resume.op = phi { ptr, i32 } [ %60, %59 ], [ %44, %43 ], [ %53, %52 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit32", %.thread, %42
@@ -3458,7 +3458,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %40, %39 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %34, %.thread, %38
@@ -3530,7 +3530,7 @@ define hidden void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$12layout
   %16 = icmp eq i64 %15, 5
   br i1 %16, label %.thread74, label %17
 
-.thread71:                                        ; preds = %.invoke, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit40", %26, %23
+.thread71:                                        ; preds = %.invoke, %23, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit40", %26
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread63
@@ -3729,7 +3729,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
           to label %.noexc45 unwind label %64
 
 .critedge33:                                      ; preds = %60, %53, %.noexc45
-  %.pn62 = phi { ptr, i32 } [ %eh.lpad-body67, %.noexc45 ], [ %54, %53 ], [ %61, %60 ]
+  %.pn62 = phi { ptr, i32 } [ %54, %53 ], [ %61, %60 ], [ %eh.lpad-body67, %.noexc45 ]
   resume { ptr, i32 } %.pn62
 
 .noexc45:                                         ; preds = %69, %.thread63
@@ -3762,7 +3762,7 @@ define hidden void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$13layout
   %22 = icmp eq i64 %21, 5
   br i1 %22, label %.thread96, label %23
 
-.thread93:                                        ; preds = %.invoke, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit51", %32, %29
+.thread93:                                        ; preds = %.invoke, %29, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit51", %32
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread85
@@ -3987,7 +3987,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
           to label %.noexc56 unwind label %75
 
 .critedge38:                                      ; preds = %71, %64, %.noexc56
-  %.pn84 = phi { ptr, i32 } [ %eh.lpad-body89, %.noexc56 ], [ %65, %64 ], [ %72, %71 ]
+  %.pn84 = phi { ptr, i32 } [ %65, %64 ], [ %72, %71 ], [ %eh.lpad-body89, %.noexc56 ]
   resume { ptr, i32 } %.pn84
 
 .noexc56:                                         ; preds = %80, %.thread85
@@ -4105,7 +4105,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %45, %52, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %53, %52 ], [ %46, %45 ]
+  %common.resume.op = phi { ptr, i32 } [ %53, %52 ], [ %40, %39 ], [ %46, %45 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %34, %.thread, %38
@@ -4277,7 +4277,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %40
-  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %41, %40 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %35, %.thread, %39
@@ -4441,7 +4441,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %45, %52, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %53, %52 ], [ %46, %45 ]
+  %common.resume.op = phi { ptr, i32 } [ %53, %52 ], [ %40, %39 ], [ %46, %45 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %34, %.thread, %38
@@ -4611,7 +4611,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %40
-  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %41, %40 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %35, %.thread, %39
@@ -4775,7 +4775,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %45, %52, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %53, %52 ], [ %46, %45 ]
+  %common.resume.op = phi { ptr, i32 } [ %53, %52 ], [ %40, %39 ], [ %46, %45 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %34, %.thread, %38
@@ -4939,7 +4939,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %40, %39 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %34, %.thread, %38
@@ -5103,7 +5103,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %45, %52, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %53, %52 ], [ %46, %45 ]
+  %common.resume.op = phi { ptr, i32 } [ %53, %52 ], [ %40, %39 ], [ %46, %45 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %34, %.thread, %38
@@ -5179,7 +5179,7 @@ define hidden { i32, ptr } @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$
   %19 = icmp eq i64 %18, 5
   br i1 %19, label %.thread96, label %20
 
-.thread93:                                        ; preds = %.invoke, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit51", %29, %26
+.thread93:                                        ; preds = %.invoke, %26, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit51", %29
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread85
@@ -5393,7 +5393,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
           to label %74 unwind label %72
 
 .critedge38:                                      ; preds = %74, %78, %68, %61
-  %.pn84 = phi { ptr, i32 } [ %62, %61 ], [ %69, %68 ], [ %eh.lpad-body89, %78 ], [ %eh.lpad-body89, %74 ]
+  %.pn84 = phi { ptr, i32 } [ %62, %61 ], [ %69, %68 ], [ %eh.lpad-body89, %74 ], [ %eh.lpad-body89, %78 ]
   resume { ptr, i32 } %.pn84
 
 74:                                               ; preds = %.thread85
@@ -5522,7 +5522,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %40
-  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %41, %40 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %35, %.thread, %39
@@ -5698,7 +5698,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %52, %59, %43
-  %common.resume.op = phi { ptr, i32 } [ %44, %43 ], [ %60, %59 ], [ %53, %52 ]
+  %common.resume.op = phi { ptr, i32 } [ %60, %59 ], [ %44, %43 ], [ %53, %52 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit32", %.thread, %42
@@ -5889,7 +5889,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %40, %39 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %34, %.thread, %38
@@ -6059,7 +6059,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %40
-  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %41, %40 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %35, %.thread, %39
@@ -6229,7 +6229,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %40, %39 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %34, %.thread, %38
@@ -6393,7 +6393,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %40, %39 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %34, %.thread, %38
@@ -6477,7 +6477,7 @@ define hidden void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$22monomo
   %22 = icmp eq i64 %21, 5
   br i1 %22, label %.thread96, label %23
 
-.thread93:                                        ; preds = %.invoke, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit51", %32, %29
+.thread93:                                        ; preds = %.invoke, %29, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit51", %32
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread85
@@ -6702,7 +6702,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
           to label %.noexc56 unwind label %75
 
 .critedge38:                                      ; preds = %71, %64, %.noexc56
-  %.pn84 = phi { ptr, i32 } [ %eh.lpad-body89, %.noexc56 ], [ %65, %64 ], [ %72, %71 ]
+  %.pn84 = phi { ptr, i32 } [ %65, %64 ], [ %72, %71 ], [ %eh.lpad-body89, %.noexc56 ]
   resume { ptr, i32 } %.pn84
 
 .noexc56:                                         ; preds = %80, %.thread85
@@ -6821,7 +6821,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %40, %39 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %34, %.thread, %38
@@ -6987,7 +6987,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %49, %56, %42
-  %common.resume.op = phi { ptr, i32 } [ %43, %42 ], [ %57, %56 ], [ %50, %49 ]
+  %common.resume.op = phi { ptr, i32 } [ %57, %56 ], [ %43, %42 ], [ %50, %49 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %37, %.thread, %41
@@ -7152,7 +7152,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %40
-  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %41, %40 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %35, %.thread, %39
@@ -7316,7 +7316,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %40, %39 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %34, %.thread, %38
@@ -7480,7 +7480,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %40, %39 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %34, %.thread, %38
@@ -7650,7 +7650,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %40, %39 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %34, %.thread, %38
@@ -7748,7 +7748,7 @@ define hidden { ptr, i64 } @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$
   %19 = icmp eq i64 %18, 5
   br i1 %19, label %.thread90, label %20
 
-.thread87:                                        ; preds = %.invoke, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit47", %29, %26
+.thread87:                                        ; preds = %.invoke, %26, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit47", %29
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread80
@@ -7961,7 +7961,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 .thread:                                          ; preds = %65, %58, %.thread80
-  %.pn79 = phi { ptr, i32 } [ %eh.lpad-body83, %.thread80 ], [ %59, %58 ], [ %66, %65 ]
+  %.pn79 = phi { ptr, i32 } [ %59, %58 ], [ %eh.lpad-body83, %.thread80 ], [ %66, %65 ]
   resume { ptr, i32 } %.pn79
 
 .thread80:                                        ; preds = %46, %.thread87
@@ -7999,7 +7999,7 @@ define hidden noundef nonnull ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatab
   %19 = icmp eq i64 %18, 5
   br i1 %19, label %.thread89, label %20
 
-.thread86:                                        ; preds = %.invoke, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit46", %29, %26
+.thread86:                                        ; preds = %.invoke, %26, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit46", %29
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread79
@@ -8208,7 +8208,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 .thread:                                          ; preds = %68, %61, %.thread79
-  %.pn78 = phi { ptr, i32 } [ %eh.lpad-body82, %.thread79 ], [ %62, %61 ], [ %69, %68 ]
+  %.pn78 = phi { ptr, i32 } [ %62, %61 ], [ %eh.lpad-body82, %.thread79 ], [ %69, %68 ]
   resume { ptr, i32 } %.pn78
 
 .thread79:                                        ; preds = %46, %.thread86
@@ -8328,7 +8328,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %45, %52, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %53, %52 ], [ %46, %45 ]
+  %common.resume.op = phi { ptr, i32 } [ %53, %52 ], [ %40, %39 ], [ %46, %45 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %34, %.thread, %38
@@ -8504,7 +8504,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %51, %58, %44
-  %common.resume.op = phi { ptr, i32 } [ %45, %44 ], [ %59, %58 ], [ %52, %51 ]
+  %common.resume.op = phi { ptr, i32 } [ %59, %58 ], [ %45, %44 ], [ %52, %51 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33", %.thread, %43
@@ -8607,7 +8607,7 @@ define hidden void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$34monomo
   %20 = icmp eq i64 %19, 5
   br i1 %20, label %.thread96, label %21
 
-.thread93:                                        ; preds = %.invoke, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit51", %30, %27
+.thread93:                                        ; preds = %.invoke, %27, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit51", %30
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread85
@@ -8831,7 +8831,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
           to label %.noexc56 unwind label %72
 
 .critedge38:                                      ; preds = %68, %61, %.noexc56
-  %.pn84 = phi { ptr, i32 } [ %eh.lpad-body89, %.noexc56 ], [ %62, %61 ], [ %69, %68 ]
+  %.pn84 = phi { ptr, i32 } [ %62, %61 ], [ %69, %68 ], [ %eh.lpad-body89, %.noexc56 ]
   resume { ptr, i32 } %.pn84
 
 .noexc56:                                         ; preds = %77, %.thread85
@@ -8958,7 +8958,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %49, %56, %41
-  %common.resume.op = phi { ptr, i32 } [ %42, %41 ], [ %57, %56 ], [ %50, %49 ]
+  %common.resume.op = phi { ptr, i32 } [ %57, %56 ], [ %42, %41 ], [ %50, %49 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %36, %.thread, %40
@@ -9125,7 +9125,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %49, %56, %42
-  %common.resume.op = phi { ptr, i32 } [ %43, %42 ], [ %57, %56 ], [ %50, %49 ]
+  %common.resume.op = phi { ptr, i32 } [ %57, %56 ], [ %43, %42 ], [ %50, %49 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %37, %.thread, %41
@@ -9292,7 +9292,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %49, %56, %42
-  %common.resume.op = phi { ptr, i32 } [ %43, %42 ], [ %57, %56 ], [ %50, %49 ]
+  %common.resume.op = phi { ptr, i32 } [ %57, %56 ], [ %43, %42 ], [ %50, %49 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %37, %.thread, %41
@@ -9459,7 +9459,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %49, %56, %41
-  %common.resume.op = phi { ptr, i32 } [ %42, %41 ], [ %57, %56 ], [ %50, %49 ]
+  %common.resume.op = phi { ptr, i32 } [ %57, %56 ], [ %42, %41 ], [ %50, %49 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %36, %.thread, %40
@@ -9638,7 +9638,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %55, %62, %45
-  %common.resume.op = phi { ptr, i32 } [ %46, %45 ], [ %63, %62 ], [ %56, %55 ]
+  %common.resume.op = phi { ptr, i32 } [ %63, %62 ], [ %46, %45 ], [ %56, %55 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit32", %.thread, %44
@@ -9824,7 +9824,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %40, %39 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %34, %.thread, %38
@@ -9988,7 +9988,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %40, %39 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %34, %.thread, %38
@@ -10220,7 +10220,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %49, %56, %41
-  %common.resume.op = phi { ptr, i32 } [ %42, %41 ], [ %57, %56 ], [ %50, %49 ]
+  %common.resume.op = phi { ptr, i32 } [ %57, %56 ], [ %42, %41 ], [ %50, %49 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %36, %.thread, %40
@@ -10385,7 +10385,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %40, %39 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %34, %.thread, %38
@@ -10549,7 +10549,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %40, %39 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %34, %.thread, %38
@@ -10748,7 +10748,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %49, %56, %41
-  %common.resume.op = phi { ptr, i32 } [ %42, %41 ], [ %57, %56 ], [ %50, %49 ]
+  %common.resume.op = phi { ptr, i32 } [ %57, %56 ], [ %42, %41 ], [ %50, %49 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %36, %.thread, %40
@@ -10919,7 +10919,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %40, %39 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %34, %.thread, %38
@@ -11083,7 +11083,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %40, %39 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %34, %.thread, %38
@@ -11247,7 +11247,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %40, %39 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %34, %.thread, %38
@@ -11411,7 +11411,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %40, %39 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %34, %.thread, %38
@@ -11575,7 +11575,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %45, %52, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %53, %52 ], [ %46, %45 ]
+  %common.resume.op = phi { ptr, i32 } [ %53, %52 ], [ %40, %39 ], [ %46, %45 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %34, %.thread, %38
@@ -11739,7 +11739,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %40, %39 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %34, %.thread, %38
@@ -11903,7 +11903,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %40, %39 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %34, %.thread, %38
@@ -12067,7 +12067,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %40, %39 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %34, %.thread, %38
@@ -12231,7 +12231,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %40
-  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %41, %40 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %35, %.thread, %39
@@ -12395,7 +12395,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %40, %39 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %34, %.thread, %38
@@ -12559,7 +12559,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %40, %39 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %34, %.thread, %38
@@ -12723,7 +12723,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %40, %39 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %34, %.thread, %38
@@ -12922,7 +12922,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %49, %56, %41
-  %common.resume.op = phi { ptr, i32 } [ %42, %41 ], [ %57, %56 ], [ %50, %49 ]
+  %common.resume.op = phi { ptr, i32 } [ %57, %56 ], [ %42, %41 ], [ %50, %49 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %36, %.thread, %40
@@ -13087,7 +13087,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %40
-  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %41, %40 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %35, %.thread, %39
@@ -13251,7 +13251,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %40
-  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %41, %40 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %35, %.thread, %39
@@ -13417,7 +13417,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %49, %56, %41
-  %common.resume.op = phi { ptr, i32 } [ %42, %41 ], [ %57, %56 ], [ %50, %49 ]
+  %common.resume.op = phi { ptr, i32 } [ %57, %56 ], [ %42, %41 ], [ %50, %49 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %36, %.thread, %40
@@ -13582,7 +13582,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %40, %39 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %34, %.thread, %38
@@ -13746,7 +13746,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %40, %39 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %34, %.thread, %38
@@ -13910,7 +13910,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %40, %39 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %34, %.thread, %38
@@ -14074,7 +14074,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %40, %39 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %34, %.thread, %38
@@ -14246,7 +14246,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %49, %56, %41
-  %common.resume.op = phi { ptr, i32 } [ %42, %41 ], [ %57, %56 ], [ %50, %49 ]
+  %common.resume.op = phi { ptr, i32 } [ %57, %56 ], [ %42, %41 ], [ %50, %49 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %36, %.thread, %40
@@ -14411,7 +14411,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %40, %39 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %34, %.thread, %38
@@ -14581,7 +14581,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %40, %39 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %34, %.thread, %38
@@ -14745,7 +14745,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %40, %39 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %34, %.thread, %38
@@ -14909,7 +14909,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %40, %39 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %34, %.thread, %38
@@ -15073,7 +15073,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %40, %39 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %34, %.thread, %38
@@ -15245,7 +15245,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %49, %56, %41
-  %common.resume.op = phi { ptr, i32 } [ %42, %41 ], [ %57, %56 ], [ %50, %49 ]
+  %common.resume.op = phi { ptr, i32 } [ %57, %56 ], [ %42, %41 ], [ %50, %49 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %36, %.thread, %40
@@ -15409,7 +15409,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %45, %52, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %53, %52 ], [ %46, %45 ]
+  %common.resume.op = phi { ptr, i32 } [ %53, %52 ], [ %40, %39 ], [ %46, %45 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %34, %.thread, %38
@@ -15575,7 +15575,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %40, %39 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %34, %.thread, %38
@@ -15790,7 +15790,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %52, %59, %43
-  %common.resume.op = phi { ptr, i32 } [ %44, %43 ], [ %60, %59 ], [ %53, %52 ]
+  %common.resume.op = phi { ptr, i32 } [ %60, %59 ], [ %44, %43 ], [ %53, %52 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit32", %.thread, %42
@@ -15977,7 +15977,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %49, %56, %42
-  %common.resume.op = phi { ptr, i32 } [ %43, %42 ], [ %57, %56 ], [ %50, %49 ]
+  %common.resume.op = phi { ptr, i32 } [ %57, %56 ], [ %43, %42 ], [ %50, %49 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %37, %.thread, %41
@@ -16160,7 +16160,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %40, %39 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %34, %.thread, %38
@@ -16360,7 +16360,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %40, %39 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %34, %.thread, %38
@@ -17087,7 +17087,7 @@ define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$core..option..Optio
   br i1 %8, label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.exit.sink.split.i", label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.exit.sink.split.sink.split.i"
 
 "_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.exit.sink.split.sink.split.i": ; preds = %19, %15, %11, %5
-  %.sink4.i = phi i64 [ %13, %11 ], [ %17, %15 ], [ %21, %19 ], [ %7, %5 ]
+  %.sink4.i = phi i64 [ %21, %19 ], [ %17, %15 ], [ %13, %11 ], [ %7, %5 ]
   %9 = load ptr, ptr %.8.val, align 8, !nonnull !5, !noundef !5
   tail call void @__rust_dealloc(ptr noundef nonnull %9, i64 noundef range(i64 1, 0) %.sink4.i, i64 noundef 1) #24, !noalias !5
   br label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.exit.sink.split.i"
@@ -17656,7 +17656,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %40, %39 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %34, %.thread, %38
@@ -17826,7 +17826,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %40, %39 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %34, %.thread, %38
@@ -18004,7 +18004,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %49, %56, %42
-  %common.resume.op = phi { ptr, i32 } [ %43, %42 ], [ %57, %56 ], [ %50, %49 ]
+  %common.resume.op = phi { ptr, i32 } [ %57, %56 ], [ %43, %42 ], [ %50, %49 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %37, %.thread, %41
@@ -18175,7 +18175,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %40
-  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %41, %40 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %35, %.thread, %39
@@ -18365,7 +18365,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %55, %62, %45
-  %common.resume.op = phi { ptr, i32 } [ %46, %45 ], [ %63, %62 ], [ %56, %55 ]
+  %common.resume.op = phi { ptr, i32 } [ %63, %62 ], [ %46, %45 ], [ %56, %55 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit32", %.thread, %44
@@ -18563,7 +18563,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %40
-  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %41, %40 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %35, %.thread, %39
@@ -18745,7 +18745,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %40
-  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %41, %40 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %35, %.thread, %39
@@ -18913,7 +18913,7 @@ define hidden { i64, ptr } @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatab
   br i1 %38, label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.exit.sink.split.i.i.i", label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.exit.sink.split.sink.split.i.i.i"
 
 "_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.exit.sink.split.sink.split.i.i.i": ; preds = %49, %45, %41, %35
-  %.sink4.i.i.i = phi i64 [ %43, %41 ], [ %47, %45 ], [ %51, %49 ], [ %37, %35 ]
+  %.sink4.i.i.i = phi i64 [ %51, %49 ], [ %47, %45 ], [ %43, %41 ], [ %37, %35 ]
   %39 = load ptr, ptr %.val7.i, align 8, !nonnull !5, !noundef !5
   call void @__rust_dealloc(ptr noundef nonnull %39, i64 noundef range(i64 1, 0) %.sink4.i.i.i, i64 noundef 1) #24, !noalias !5
   br label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h2478595ea8988a12E.exit.sink.split.i.i.i"
@@ -19069,7 +19069,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %46, %53, %40
-  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %54, %53 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %41, %40 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %35, %.thread, %39
@@ -20151,8 +20151,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %123 = trunc nuw i8 %122 to i1
   br i1 %123, label %293, label %288
 
-124:                                              ; preds = %63, %70
-  %.0.i.ph = phi ptr [ %71, %70 ], [ %64, %63 ]
+124:                                              ; preds = %70, %63
+  %.0.i.ph = phi ptr [ %64, %63 ], [ %71, %70 ]
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i.ph, ptr %125, align 8
   store i64 -9223372036854775803, ptr %0, align 8
@@ -20167,15 +20167,15 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %127 = icmp eq i64 %.sroa.0111.0, -9223372036854775803
   br i1 %127, label %363, label %.thread
 
-128:                                              ; preds = %79, %86
-  %.0.i55.ph = phi ptr [ %87, %86 ], [ %80, %79 ]
+128:                                              ; preds = %86, %79
+  %.0.i55.ph = phi ptr [ %80, %79 ], [ %87, %86 ]
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i55.ph, ptr %129, align 8
   store i64 -9223372036854775803, ptr %0, align 8
   br label %367
 
-130:                                              ; preds = %95, %102
-  %.0.i60.ph = phi ptr [ %103, %102 ], [ %96, %95 ]
+130:                                              ; preds = %102, %95
+  %.0.i60.ph = phi ptr [ %96, %95 ], [ %103, %102 ]
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i60.ph, ptr %131, align 8
   store i64 -9223372036854775803, ptr %0, align 8
@@ -20461,7 +20461,7 @@ common.resume.sink.split:                         ; preds = %284, %345
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %319, %.body, %.body90, %191
-  %common.resume.op = phi { ptr, i32 } [ %192, %191 ], [ %eh.lpad-body91, %.body90 ], [ %eh.lpad-body, %.body ], [ %320, %319 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body91, %.body90 ], [ %192, %191 ], [ %320, %319 ], [ %eh.lpad-body, %.body ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17h8a8dded0ceb14c53E.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5f9ed97c8105e227E.llvm.12053455592450410520.exit.i", %195, %199
@@ -20672,7 +20672,7 @@ common.resume:                                    ; preds = %common.resume.sink.
           to label %common.resume unwind label %286
 
 "_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17haf8ee3e4b694a4ceE.exit": ; preds = %256, %255, %.noexc66, %.noexc
-  %.1.i = phi ptr [ %241, %.noexc ], [ %243, %.noexc66 ], [ %254, %255 ], [ %252, %256 ]
+  %.1.i = phi ptr [ %241, %.noexc ], [ %243, %.noexc66 ], [ %252, %256 ], [ %254, %255 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %34, ptr noundef nonnull align 8 dereferenceable(72) %33, i64 72, i1 false)
   %261 = getelementptr inbounds nuw i8, ptr %34, i64 72
   store ptr %.1.i, ptr %261, align 8
@@ -20715,10 +20715,10 @@ common.resume:                                    ; preds = %common.resume.sink.
   br label %.thread317
 
 .thread317:                                       ; preds = %.thread487, %.thread481, %268, %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h173a77afc731d07aE.exit"
-  %.sroa.21.sroa.20.sroa.0.2279329.in.in = phi i64 [ %273, %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h173a77afc731d07aE.exit" ], [ %269, %268 ], [ %.sroa.2169.0.copyload, %.thread481 ], [ %267, %.thread487 ]
-  %.sroa.43.2283327 = phi i64 [ undef, %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h173a77afc731d07aE.exit" ], [ undef, %268 ], [ %.sroa.4.0.copyload171, %.thread481 ], [ undef, %.thread487 ]
-  %.sroa.35.2285326 = phi i64 [ undef, %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h173a77afc731d07aE.exit" ], [ undef, %268 ], [ %.sroa.3.0.copyload, %.thread481 ], [ undef, %.thread487 ]
-  %.sroa.0111.2287325 = phi i64 [ -9223372036854775803, %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h173a77afc731d07aE.exit" ], [ -9223372036854775803, %268 ], [ %264, %.thread481 ], [ -9223372036854775803, %.thread487 ]
+  %.sroa.21.sroa.20.sroa.0.2279329.in.in = phi i64 [ %267, %.thread487 ], [ %273, %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h173a77afc731d07aE.exit" ], [ %269, %268 ], [ %.sroa.2169.0.copyload, %.thread481 ]
+  %.sroa.43.2283327 = phi i64 [ undef, %.thread487 ], [ undef, %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h173a77afc731d07aE.exit" ], [ undef, %268 ], [ %.sroa.4.0.copyload171, %.thread481 ]
+  %.sroa.35.2285326 = phi i64 [ undef, %.thread487 ], [ undef, %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h173a77afc731d07aE.exit" ], [ undef, %268 ], [ %.sroa.3.0.copyload, %.thread481 ]
+  %.sroa.0111.2287325 = phi i64 [ -9223372036854775803, %.thread487 ], [ -9223372036854775803, %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h173a77afc731d07aE.exit" ], [ -9223372036854775803, %268 ], [ %264, %.thread481 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %126
 
@@ -20929,10 +20929,10 @@ common.resume:                                    ; preds = %common.resume.sink.
   br label %.thread385
 
 .thread385:                                       ; preds = %.thread495, %.thread489, %329, %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h173a77afc731d07aE.exit77"
-  %.sroa.21.sroa.20.sroa.0.3347397.in.in = phi i64 [ %334, %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h173a77afc731d07aE.exit77" ], [ %330, %329 ], [ %.sroa.2174.0.copyload, %.thread489 ], [ %327, %.thread495 ]
-  %.sroa.43.3351395 = phi i64 [ undef, %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h173a77afc731d07aE.exit77" ], [ undef, %329 ], [ %.sroa.4176.0.copyload, %.thread489 ], [ undef, %.thread495 ]
-  %.sroa.35.3353394 = phi i64 [ undef, %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h173a77afc731d07aE.exit77" ], [ undef, %329 ], [ %.sroa.3175.0.copyload, %.thread489 ], [ undef, %.thread495 ]
-  %.sroa.0111.3355393 = phi i64 [ -9223372036854775803, %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h173a77afc731d07aE.exit77" ], [ -9223372036854775803, %329 ], [ %324, %.thread489 ], [ -9223372036854775803, %.thread495 ]
+  %.sroa.21.sroa.20.sroa.0.3347397.in.in = phi i64 [ %327, %.thread495 ], [ %334, %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h173a77afc731d07aE.exit77" ], [ %330, %329 ], [ %.sroa.2174.0.copyload, %.thread489 ]
+  %.sroa.43.3351395 = phi i64 [ undef, %.thread495 ], [ undef, %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h173a77afc731d07aE.exit77" ], [ undef, %329 ], [ %.sroa.4176.0.copyload, %.thread489 ]
+  %.sroa.35.3353394 = phi i64 [ undef, %.thread495 ], [ undef, %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h173a77afc731d07aE.exit77" ], [ undef, %329 ], [ %.sroa.3175.0.copyload, %.thread489 ]
+  %.sroa.0111.3355393 = phi i64 [ -9223372036854775803, %.thread495 ], [ -9223372036854775803, %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h173a77afc731d07aE.exit77" ], [ -9223372036854775803, %329 ], [ %324, %.thread489 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %126
 
@@ -21048,11 +21048,11 @@ _ZN10serde_json2de12ParserNumber5visit17h46b9335972b5985dE.exit88: ; preds = %35
   br label %367
 
 .thread:                                          ; preds = %90, %74, %58, %142, %_ZN10serde_json2de12ParserNumber5visit17h46b9335972b5985dE.exit, %_ZN10serde_json2de12ParserNumber5visit17h46b9335972b5985dE.exit88, %126
-  %.sroa.0111.0235 = phi i64 [ %.sroa.0111.0, %126 ], [ -9223372036854775805, %142 ], [ %.sroa.0111.4, %_ZN10serde_json2de12ParserNumber5visit17h46b9335972b5985dE.exit ], [ %.sroa.0111.5, %_ZN10serde_json2de12ParserNumber5visit17h46b9335972b5985dE.exit88 ], [ -9223372036854775808, %58 ], [ -9223372036854775807, %74 ], [ -9223372036854775807, %90 ]
-  %.sroa.35.0234 = phi i64 [ %.sroa.35.0, %126 ], [ %.sroa.35.1, %142 ], [ %.sroa.2.0.copyload, %_ZN10serde_json2de12ParserNumber5visit17h46b9335972b5985dE.exit ], [ %.sroa.2163.0.copyload, %_ZN10serde_json2de12ParserNumber5visit17h46b9335972b5985dE.exit88 ], [ undef, %58 ], [ undef, %74 ], [ undef, %90 ]
-  %.sroa.43.0233 = phi i64 [ %.sroa.43.0, %126 ], [ %.sroa.4.0.copyload, %142 ], [ undef, %_ZN10serde_json2de12ParserNumber5visit17h46b9335972b5985dE.exit ], [ undef, %_ZN10serde_json2de12ParserNumber5visit17h46b9335972b5985dE.exit88 ], [ undef, %58 ], [ undef, %74 ], [ undef, %90 ]
-  %.sroa.21.sroa.0.0232 = phi i64 [ %.sroa.21.sroa.20.sroa.0.0.in.in, %126 ], [ %.sroa.21.sroa.20.sroa.0.1.in.in, %142 ], [ %.sroa.21.sroa.0.4, %_ZN10serde_json2de12ParserNumber5visit17h46b9335972b5985dE.exit ], [ %.sroa.21.sroa.0.5, %_ZN10serde_json2de12ParserNumber5visit17h46b9335972b5985dE.exit88 ], [ 0, %58 ], [ 1, %74 ], [ 0, %90 ]
-  %.sroa.21.sroa.20.sroa.0.0231 = phi i64 [ %.sroa.21.sroa.20.sroa.0.0.in, %126 ], [ %.sroa.21.sroa.20.sroa.0.1.in, %142 ], [ 0, %_ZN10serde_json2de12ParserNumber5visit17h46b9335972b5985dE.exit ], [ 0, %_ZN10serde_json2de12ParserNumber5visit17h46b9335972b5985dE.exit88 ], [ 0, %58 ], [ 0, %74 ], [ 0, %90 ]
+  %.sroa.0111.0235 = phi i64 [ %.sroa.0111.0, %126 ], [ -9223372036854775805, %142 ], [ %.sroa.0111.4, %_ZN10serde_json2de12ParserNumber5visit17h46b9335972b5985dE.exit ], [ -9223372036854775807, %74 ], [ -9223372036854775808, %58 ], [ %.sroa.0111.5, %_ZN10serde_json2de12ParserNumber5visit17h46b9335972b5985dE.exit88 ], [ -9223372036854775807, %90 ]
+  %.sroa.35.0234 = phi i64 [ %.sroa.35.0, %126 ], [ %.sroa.35.1, %142 ], [ %.sroa.2.0.copyload, %_ZN10serde_json2de12ParserNumber5visit17h46b9335972b5985dE.exit ], [ undef, %74 ], [ undef, %58 ], [ %.sroa.2163.0.copyload, %_ZN10serde_json2de12ParserNumber5visit17h46b9335972b5985dE.exit88 ], [ undef, %90 ]
+  %.sroa.43.0233 = phi i64 [ %.sroa.43.0, %126 ], [ %.sroa.4.0.copyload, %142 ], [ undef, %_ZN10serde_json2de12ParserNumber5visit17h46b9335972b5985dE.exit ], [ undef, %74 ], [ undef, %58 ], [ undef, %_ZN10serde_json2de12ParserNumber5visit17h46b9335972b5985dE.exit88 ], [ undef, %90 ]
+  %.sroa.21.sroa.0.0232 = phi i64 [ %.sroa.21.sroa.20.sroa.0.0.in.in, %126 ], [ %.sroa.21.sroa.20.sroa.0.1.in.in, %142 ], [ %.sroa.21.sroa.0.4, %_ZN10serde_json2de12ParserNumber5visit17h46b9335972b5985dE.exit ], [ 1, %74 ], [ 0, %58 ], [ %.sroa.21.sroa.0.5, %_ZN10serde_json2de12ParserNumber5visit17h46b9335972b5985dE.exit88 ], [ 0, %90 ]
+  %.sroa.21.sroa.20.sroa.0.0231 = phi i64 [ %.sroa.21.sroa.20.sroa.0.0.in, %126 ], [ %.sroa.21.sroa.20.sroa.0.1.in, %142 ], [ 0, %_ZN10serde_json2de12ParserNumber5visit17h46b9335972b5985dE.exit ], [ 0, %74 ], [ 0, %58 ], [ 0, %_ZN10serde_json2de12ParserNumber5visit17h46b9335972b5985dE.exit88 ], [ 0, %90 ]
   %.sroa.21.sroa.20.0.insert.shift = shl nuw i64 %.sroa.21.sroa.20.sroa.0.0231, 8
   %.sroa.21.sroa.0.0.insert.ext = and i64 %.sroa.21.sroa.0.0232, 255
   %.sroa.21.sroa.0.0.insert.insert = or disjoint i64 %.sroa.21.sroa.20.0.insert.shift, %.sroa.21.sroa.0.0.insert.ext

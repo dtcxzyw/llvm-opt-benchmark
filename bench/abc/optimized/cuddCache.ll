@@ -428,7 +428,7 @@ define ptr @cuddCacheLookup(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr 
   br label %91
 
 91:                                               ; preds = %65, %75, %76, %83, %90
-  %.0 = phi ptr [ null, %90 ], [ null, %83 ], [ null, %76 ], [ %.pre, %75 ], [ %50, %65 ]
+  %.0 = phi ptr [ null, %76 ], [ null, %90 ], [ null, %83 ], [ %.pre, %75 ], [ %50, %65 ]
   ret ptr %.0
 }
 
@@ -702,7 +702,7 @@ define ptr @cuddCacheLookupZdd(ptr noundef %0, i64 noundef %1, ptr noundef %2, p
   br label %91
 
 91:                                               ; preds = %65, %75, %76, %83, %90
-  %.0 = phi ptr [ null, %90 ], [ null, %83 ], [ null, %76 ], [ %.pre, %75 ], [ %50, %65 ]
+  %.0 = phi ptr [ null, %76 ], [ null, %90 ], [ null, %83 ], [ %.pre, %75 ], [ %50, %65 ]
   ret ptr %.0
 }
 
@@ -805,7 +805,7 @@ define ptr @cuddCacheLookup2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   br label %75
 
 75:                                               ; preds = %49, %59, %60, %67, %74
-  %.0 = phi ptr [ null, %74 ], [ null, %67 ], [ null, %60 ], [ %.pre, %59 ], [ %37, %49 ]
+  %.0 = phi ptr [ null, %60 ], [ null, %74 ], [ null, %67 ], [ %.pre, %59 ], [ %37, %49 ]
   ret ptr %.0
 }
 
@@ -891,7 +891,7 @@ define ptr @cuddCacheLookup1(ptr noundef %0, ptr noundef %1, ptr noundef %2) loc
   br label %61
 
 61:                                               ; preds = %35, %45, %46, %53, %60
-  %.0 = phi ptr [ null, %60 ], [ null, %53 ], [ null, %46 ], [ %.pre, %45 ], [ %27, %35 ]
+  %.0 = phi ptr [ null, %46 ], [ null, %60 ], [ null, %53 ], [ %.pre, %45 ], [ %27, %35 ]
   ret ptr %.0
 }
 
@@ -992,7 +992,7 @@ define ptr @cuddCacheLookup2Zdd(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br label %75
 
 75:                                               ; preds = %49, %59, %60, %67, %74
-  %.0 = phi ptr [ null, %74 ], [ null, %67 ], [ null, %60 ], [ %.pre, %59 ], [ %37, %49 ]
+  %.0 = phi ptr [ null, %60 ], [ null, %74 ], [ null, %67 ], [ %.pre, %59 ], [ %37, %49 ]
   ret ptr %.0
 }
 
@@ -1078,7 +1078,7 @@ define ptr @cuddCacheLookup1Zdd(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   br label %61
 
 61:                                               ; preds = %35, %45, %46, %53, %60
-  %.0 = phi ptr [ null, %60 ], [ null, %53 ], [ null, %46 ], [ %.pre, %45 ], [ %27, %35 ]
+  %.0 = phi ptr [ null, %46 ], [ null, %60 ], [ null, %53 ], [ %.pre, %45 ], [ %27, %35 ]
   ret ptr %.0
 }
 

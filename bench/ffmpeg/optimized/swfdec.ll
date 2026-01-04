@@ -223,7 +223,7 @@ get_bits_long.exit48:                             ; preds = %37, %70
   br label %161
 
 161:                                              ; preds = %5, %155, %get_bits_long.exit48, %30, %24, %20, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %5 ], [ 26, %20 ], [ 0, %24 ], [ 0, %30 ], [ 0, %get_bits_long.exit48 ], [ %., %155 ]
+  %.0 = phi i32 [ 0, %24 ], [ 0, %1 ], [ 0, %5 ], [ 26, %20 ], [ %., %155 ], [ 0, %get_bits_long.exit48 ], [ 0, %30 ]
   ret i32 %.0
 }
 
@@ -345,7 +345,7 @@ define internal i32 @swf_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   br label %get_swf_tag.exit
 
 get_swf_tag.exit:                                 ; preds = %18, %24
-  %.13399 = phi i32 [ %25, %24 ], [ %21, %18 ]
+  %.13399 = phi i32 [ %21, %18 ], [ %25, %24 ]
   %26 = icmp slt i32 %22, 0
   br i1 %26, label %.thread437, label %27
 
@@ -1056,7 +1056,7 @@ get_swf_tag.exit:                                 ; preds = %18, %24
   br label %.thread
 
 .loopexit:                                        ; preds = %254, %259, %368, %291, %._crit_edge569.thread, %309, %._crit_edge579
-  %.0307 = phi i32 [ %296, %291 ], [ %374, %368 ], [ -12, %._crit_edge569.thread ], [ -1094995529, %309 ], [ -12, %._crit_edge579 ], [ -12, %259 ], [ -12, %254 ]
+  %.0307 = phi i32 [ %296, %291 ], [ -12, %._crit_edge569.thread ], [ %374, %368 ], [ -1094995529, %309 ], [ -12, %._crit_edge579 ], [ -12, %259 ], [ -12, %254 ]
   call void @av_freep(ptr noundef nonnull %5) #9
   call void @av_freep(ptr noundef nonnull %4) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1250,7 +1250,7 @@ get_swf_tag.exit:                                 ; preds = %18, %24
   br label %.thread429
 
 .thread:                                          ; preds = %213, %117, %73, %43, %409, %167, %183, %53, %.thread423, %101, %432, %390
-  %.3390 = phi i32 [ %392, %390 ], [ %434, %432 ], [ %105, %101 ], [ %.9395, %.thread423 ], [ %62, %53 ], [ %185, %183 ], [ %169, %167 ], [ %.13399, %409 ], [ %33, %43 ], [ %.13399, %73 ], [ %.13399, %117 ], [ %169, %213 ]
+  %.3390 = phi i32 [ %.13399, %117 ], [ %.9395, %.thread423 ], [ %392, %390 ], [ %.13399, %409 ], [ %185, %183 ], [ %434, %432 ], [ %105, %101 ], [ %33, %43 ], [ %.13399, %73 ], [ %62, %53 ], [ %169, %167 ], [ %169, %213 ]
   %477 = icmp slt i32 %.3390, 0
   br i1 %477, label %478, label %.thread429
 
@@ -1259,7 +1259,7 @@ get_swf_tag.exit:                                 ; preds = %18, %24
   br label %.thread429
 
 .thread429:                                       ; preds = %.preheader446, %397, %193, %476, %478, %.thread
-  %.3390433 = phi i32 [ %.3390, %478 ], [ %.3390, %.thread ], [ %.13399, %476 ], [ 0, %193 ], [ %.13399, %.preheader446 ], [ 0, %397 ]
+  %.3390433 = phi i32 [ %.3390, %.thread ], [ %.3390, %478 ], [ %.13399, %476 ], [ 0, %193 ], [ %.13399, %.preheader446 ], [ 0, %397 ]
   %479 = call i32 @llvm.smax.i32(i32 %.3390433, i32 0)
   %480 = zext nneg i32 %479 to i64
   %481 = call i64 @avio_skip(ptr noundef %spec.select, i64 noundef %480) #9
@@ -1268,8 +1268,8 @@ get_swf_tag.exit:                                 ; preds = %18, %24
   %.not.i = icmp eq i32 %483, 0
   br i1 %.not.i, label %18, label %.thread437
 
-.thread437:                                       ; preds = %get_swf_tag.exit, %._crit_edge533.thread, %._crit_edge529, %.thread429, %._crit_edge524, %2, %.split.loop.exit544, %201, %._crit_edge, %160, %156, %467, %439, %436, %399, %394, %470, %402, %.loopexit, %29
-  %.1443 = phi i32 [ %.1308, %467 ], [ -1094995529, %439 ], [ %437, %436 ], [ %400, %399 ], [ %395, %394 ], [ %471, %470 ], [ %408, %402 ], [ %.0307, %.loopexit ], [ -1094995529, %29 ], [ %158, %156 ], [ %166, %160 ], [ -12, %._crit_edge ], [ %199, %.split.loop.exit544 ], [ %212, %201 ], [ -541478725, %2 ], [ %22, %get_swf_tag.exit ], [ -12, %._crit_edge533.thread ], [ -12, %._crit_edge529 ], [ -541478725, %.thread429 ], [ -12, %._crit_edge524 ]
+.thread437:                                       ; preds = %get_swf_tag.exit, %._crit_edge533.thread, %._crit_edge529, %.thread429, %._crit_edge524, %2, %201, %.split.loop.exit544, %._crit_edge, %160, %156, %467, %470, %439, %436, %394, %402, %.loopexit, %29, %399
+  %.1443 = phi i32 [ %199, %.split.loop.exit544 ], [ -12, %._crit_edge ], [ %400, %399 ], [ %.1308, %467 ], [ %471, %470 ], [ -1094995529, %439 ], [ %437, %436 ], [ -1094995529, %29 ], [ %395, %394 ], [ %408, %402 ], [ %158, %156 ], [ %.0307, %.loopexit ], [ %166, %160 ], [ %212, %201 ], [ -541478725, %2 ], [ -541478725, %.thread429 ], [ -12, %._crit_edge529 ], [ %22, %get_swf_tag.exit ], [ -12, %._crit_edge533.thread ], [ -12, %._crit_edge524 ]
   ret i32 %.1443
 }
 

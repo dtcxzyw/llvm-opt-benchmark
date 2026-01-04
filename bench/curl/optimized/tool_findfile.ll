@@ -73,9 +73,9 @@ define dso_local ptr @findfile(ptr noundef %0, i32 noundef %1) local_unnamed_add
   br i1 %.not70, label %.thread83, label %checkhome.exit
 
 .thread83.sink.split:                             ; preds = %20, %9
-  %.051.sink = phi ptr [ %8, %9 ], [ %.051, %20 ]
+  %.sink = phi ptr [ %8, %9 ], [ %.051, %20 ]
   %.44387.ph = phi i32 [ %.039102, %9 ], [ 0, %20 ]
-  tail call void @curl_free(ptr noundef nonnull %.051.sink) #5
+  tail call void @curl_free(ptr noundef nonnull %.sink) #5
   br label %.thread83
 
 .thread83:                                        ; preds = %.thread83.sink.split, %21, %5
@@ -121,8 +121,8 @@ checkhome.exit.sink.split:                        ; preds = %33, %.split30.us.i
   tail call void @curl_free(ptr noundef nonnull %32) #5
   br label %checkhome.exit
 
-checkhome.exit:                                   ; preds = %21, %12, %checkhome.exit.sink.split, %.split.i.preheader, %24, %30, %27, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %24 ], [ null, %30 ], [ null, %27 ], [ null, %.split.i.preheader ], [ %.0.ph, %checkhome.exit.sink.split ], [ %.fr, %21 ], [ null, %12 ]
+checkhome.exit:                                   ; preds = %21, %12, %checkhome.exit.sink.split, %.split.i.preheader, %24, %27, %30, %2
+  %.0 = phi ptr [ null, %30 ], [ null, %2 ], [ %.0.ph, %checkhome.exit.sink.split ], [ null, %.split.i.preheader ], [ null, %24 ], [ null, %27 ], [ %.fr, %21 ], [ null, %12 ]
   ret ptr %.0
 }
 

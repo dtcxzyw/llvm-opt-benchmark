@@ -564,11 +564,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit: ;
   ret void
 
 .body239:                                         ; preds = %325, %333, %183, %342
-  %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %342 ], [ %.sroa.16.1443, %183 ], [ %207, %333 ], [ %207, %325 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %342 ], [ %.sroa.12.1444, %183 ], [ %206, %333 ], [ %206, %325 ]
-  %.sroa.0259.2 = phi ptr [ %.sroa.0259.1446, %342 ], [ %.sroa.0259.1446, %183 ], [ %318, %333 ], [ %318, %325 ]
-  %.5141 = phi i8 [ %.10.ph, %342 ], [ 1, %183 ], [ 1, %333 ], [ 1, %325 ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %342 ], [ %184, %183 ], [ %326, %333 ], [ %326, %325 ]
+  %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %183 ], [ %.sroa.16.1443, %342 ], [ %207, %325 ], [ %207, %333 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %183 ], [ %.sroa.12.1444, %342 ], [ %206, %325 ], [ %206, %333 ]
+  %.sroa.0259.2 = phi ptr [ %.sroa.0259.1446, %183 ], [ %.sroa.0259.1446, %342 ], [ %318, %325 ], [ %318, %333 ]
+  %.5141 = phi i8 [ 1, %183 ], [ %.10.ph, %342 ], [ 1, %325 ], [ 1, %333 ]
+  %.pn.pn = phi { ptr, i32 } [ %184, %183 ], [ %.pn.ph, %342 ], [ %326, %325 ], [ %326, %333 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %27) #15
           to label %344 unwind label %315
 
@@ -1474,11 +1474,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit: ;
   ret void
 
 .body239:                                         ; preds = %325, %333, %183, %342
-  %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %342 ], [ %.sroa.16.1443, %183 ], [ %207, %333 ], [ %207, %325 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %342 ], [ %.sroa.12.1444, %183 ], [ %206, %333 ], [ %206, %325 ]
-  %.sroa.0259.2 = phi ptr [ %.sroa.0259.1446, %342 ], [ %.sroa.0259.1446, %183 ], [ %318, %333 ], [ %318, %325 ]
-  %.5141 = phi i8 [ %.10.ph, %342 ], [ 1, %183 ], [ 1, %333 ], [ 1, %325 ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %342 ], [ %184, %183 ], [ %326, %333 ], [ %326, %325 ]
+  %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %183 ], [ %.sroa.16.1443, %342 ], [ %207, %325 ], [ %207, %333 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %183 ], [ %.sroa.12.1444, %342 ], [ %206, %325 ], [ %206, %333 ]
+  %.sroa.0259.2 = phi ptr [ %.sroa.0259.1446, %183 ], [ %.sroa.0259.1446, %342 ], [ %318, %325 ], [ %318, %333 ]
+  %.5141 = phi i8 [ 1, %183 ], [ %.10.ph, %342 ], [ 1, %325 ], [ 1, %333 ]
+  %.pn.pn = phi { ptr, i32 } [ %184, %183 ], [ %.pn.ph, %342 ], [ %326, %325 ], [ %326, %333 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %27) #15
           to label %344 unwind label %315
 
@@ -2384,11 +2384,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit: ;
   ret void
 
 .body239:                                         ; preds = %325, %333, %183, %342
-  %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %342 ], [ %.sroa.16.1443, %183 ], [ %207, %333 ], [ %207, %325 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %342 ], [ %.sroa.12.1444, %183 ], [ %206, %333 ], [ %206, %325 ]
-  %.sroa.0259.2 = phi ptr [ %.sroa.0259.1446, %342 ], [ %.sroa.0259.1446, %183 ], [ %318, %333 ], [ %318, %325 ]
-  %.5141 = phi i8 [ %.10.ph, %342 ], [ 1, %183 ], [ 1, %333 ], [ 1, %325 ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %342 ], [ %184, %183 ], [ %326, %333 ], [ %326, %325 ]
+  %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %183 ], [ %.sroa.16.1443, %342 ], [ %207, %325 ], [ %207, %333 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %183 ], [ %.sroa.12.1444, %342 ], [ %206, %325 ], [ %206, %333 ]
+  %.sroa.0259.2 = phi ptr [ %.sroa.0259.1446, %183 ], [ %.sroa.0259.1446, %342 ], [ %318, %325 ], [ %318, %333 ]
+  %.5141 = phi i8 [ 1, %183 ], [ %.10.ph, %342 ], [ 1, %325 ], [ 1, %333 ]
+  %.pn.pn = phi { ptr, i32 } [ %184, %183 ], [ %.pn.ph, %342 ], [ %326, %325 ], [ %326, %333 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %27) #15
           to label %344 unwind label %315
 
@@ -3294,11 +3294,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit: ;
   ret void
 
 .body239:                                         ; preds = %325, %333, %183, %342
-  %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %342 ], [ %.sroa.16.1443, %183 ], [ %207, %333 ], [ %207, %325 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %342 ], [ %.sroa.12.1444, %183 ], [ %206, %333 ], [ %206, %325 ]
-  %.sroa.0259.2 = phi ptr [ %.sroa.0259.1446, %342 ], [ %.sroa.0259.1446, %183 ], [ %318, %333 ], [ %318, %325 ]
-  %.5141 = phi i8 [ %.10.ph, %342 ], [ 1, %183 ], [ 1, %333 ], [ 1, %325 ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %342 ], [ %184, %183 ], [ %326, %333 ], [ %326, %325 ]
+  %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %183 ], [ %.sroa.16.1443, %342 ], [ %207, %325 ], [ %207, %333 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %183 ], [ %.sroa.12.1444, %342 ], [ %206, %325 ], [ %206, %333 ]
+  %.sroa.0259.2 = phi ptr [ %.sroa.0259.1446, %183 ], [ %.sroa.0259.1446, %342 ], [ %318, %325 ], [ %318, %333 ]
+  %.5141 = phi i8 [ 1, %183 ], [ %.10.ph, %342 ], [ 1, %325 ], [ 1, %333 ]
+  %.pn.pn = phi { ptr, i32 } [ %184, %183 ], [ %.pn.ph, %342 ], [ %326, %325 ], [ %326, %333 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %27) #15
           to label %344 unwind label %315
 
@@ -4204,11 +4204,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit: ;
   ret void
 
 .body239:                                         ; preds = %325, %333, %183, %342
-  %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %342 ], [ %.sroa.16.1443, %183 ], [ %207, %333 ], [ %207, %325 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %342 ], [ %.sroa.12.1444, %183 ], [ %206, %333 ], [ %206, %325 ]
-  %.sroa.0259.2 = phi ptr [ %.sroa.0259.1446, %342 ], [ %.sroa.0259.1446, %183 ], [ %318, %333 ], [ %318, %325 ]
-  %.5141 = phi i8 [ %.10.ph, %342 ], [ 1, %183 ], [ 1, %333 ], [ 1, %325 ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %342 ], [ %184, %183 ], [ %326, %333 ], [ %326, %325 ]
+  %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %183 ], [ %.sroa.16.1443, %342 ], [ %207, %325 ], [ %207, %333 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %183 ], [ %.sroa.12.1444, %342 ], [ %206, %325 ], [ %206, %333 ]
+  %.sroa.0259.2 = phi ptr [ %.sroa.0259.1446, %183 ], [ %.sroa.0259.1446, %342 ], [ %318, %325 ], [ %318, %333 ]
+  %.5141 = phi i8 [ 1, %183 ], [ %.10.ph, %342 ], [ 1, %325 ], [ 1, %333 ]
+  %.pn.pn = phi { ptr, i32 } [ %184, %183 ], [ %.pn.ph, %342 ], [ %326, %325 ], [ %326, %333 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %27) #15
           to label %344 unwind label %315
 
@@ -5114,11 +5114,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit: ;
   ret void
 
 .body239:                                         ; preds = %325, %333, %183, %342
-  %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %342 ], [ %.sroa.16.1443, %183 ], [ %207, %333 ], [ %207, %325 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %342 ], [ %.sroa.12.1444, %183 ], [ %206, %333 ], [ %206, %325 ]
-  %.sroa.0259.2 = phi ptr [ %.sroa.0259.1446, %342 ], [ %.sroa.0259.1446, %183 ], [ %318, %333 ], [ %318, %325 ]
-  %.5141 = phi i8 [ %.10.ph, %342 ], [ 1, %183 ], [ 1, %333 ], [ 1, %325 ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %342 ], [ %184, %183 ], [ %326, %333 ], [ %326, %325 ]
+  %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %183 ], [ %.sroa.16.1443, %342 ], [ %207, %325 ], [ %207, %333 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %183 ], [ %.sroa.12.1444, %342 ], [ %206, %325 ], [ %206, %333 ]
+  %.sroa.0259.2 = phi ptr [ %.sroa.0259.1446, %183 ], [ %.sroa.0259.1446, %342 ], [ %318, %325 ], [ %318, %333 ]
+  %.5141 = phi i8 [ 1, %183 ], [ %.10.ph, %342 ], [ 1, %325 ], [ 1, %333 ]
+  %.pn.pn = phi { ptr, i32 } [ %184, %183 ], [ %.pn.ph, %342 ], [ %326, %325 ], [ %326, %333 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %27) #15
           to label %344 unwind label %315
 
@@ -6024,11 +6024,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit: ;
   ret void
 
 .body239:                                         ; preds = %325, %333, %183, %342
-  %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %342 ], [ %.sroa.16.1443, %183 ], [ %207, %333 ], [ %207, %325 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %342 ], [ %.sroa.12.1444, %183 ], [ %206, %333 ], [ %206, %325 ]
-  %.sroa.0259.2 = phi ptr [ %.sroa.0259.1446, %342 ], [ %.sroa.0259.1446, %183 ], [ %318, %333 ], [ %318, %325 ]
-  %.5141 = phi i8 [ %.10.ph, %342 ], [ 1, %183 ], [ 1, %333 ], [ 1, %325 ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %342 ], [ %184, %183 ], [ %326, %333 ], [ %326, %325 ]
+  %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %183 ], [ %.sroa.16.1443, %342 ], [ %207, %325 ], [ %207, %333 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %183 ], [ %.sroa.12.1444, %342 ], [ %206, %325 ], [ %206, %333 ]
+  %.sroa.0259.2 = phi ptr [ %.sroa.0259.1446, %183 ], [ %.sroa.0259.1446, %342 ], [ %318, %325 ], [ %318, %333 ]
+  %.5141 = phi i8 [ 1, %183 ], [ %.10.ph, %342 ], [ 1, %325 ], [ 1, %333 ]
+  %.pn.pn = phi { ptr, i32 } [ %184, %183 ], [ %.pn.ph, %342 ], [ %326, %325 ], [ %326, %333 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %27) #15
           to label %344 unwind label %315
 
@@ -6934,11 +6934,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit: ;
   ret void
 
 .body239:                                         ; preds = %325, %333, %183, %342
-  %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %342 ], [ %.sroa.16.1443, %183 ], [ %207, %333 ], [ %207, %325 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %342 ], [ %.sroa.12.1444, %183 ], [ %206, %333 ], [ %206, %325 ]
-  %.sroa.0259.2 = phi ptr [ %.sroa.0259.1446, %342 ], [ %.sroa.0259.1446, %183 ], [ %318, %333 ], [ %318, %325 ]
-  %.5141 = phi i8 [ %.10.ph, %342 ], [ 1, %183 ], [ 1, %333 ], [ 1, %325 ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %342 ], [ %184, %183 ], [ %326, %333 ], [ %326, %325 ]
+  %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %183 ], [ %.sroa.16.1443, %342 ], [ %207, %325 ], [ %207, %333 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %183 ], [ %.sroa.12.1444, %342 ], [ %206, %325 ], [ %206, %333 ]
+  %.sroa.0259.2 = phi ptr [ %.sroa.0259.1446, %183 ], [ %.sroa.0259.1446, %342 ], [ %318, %325 ], [ %318, %333 ]
+  %.5141 = phi i8 [ 1, %183 ], [ %.10.ph, %342 ], [ 1, %325 ], [ 1, %333 ]
+  %.pn.pn = phi { ptr, i32 } [ %184, %183 ], [ %.pn.ph, %342 ], [ %326, %325 ], [ %326, %333 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %27) #15
           to label %344 unwind label %315
 
@@ -7844,11 +7844,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit: ;
   ret void
 
 .body239:                                         ; preds = %325, %333, %183, %342
-  %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %342 ], [ %.sroa.16.1443, %183 ], [ %207, %333 ], [ %207, %325 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %342 ], [ %.sroa.12.1444, %183 ], [ %206, %333 ], [ %206, %325 ]
-  %.sroa.0259.2 = phi ptr [ %.sroa.0259.1446, %342 ], [ %.sroa.0259.1446, %183 ], [ %318, %333 ], [ %318, %325 ]
-  %.5141 = phi i8 [ %.10.ph, %342 ], [ 1, %183 ], [ 1, %333 ], [ 1, %325 ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %342 ], [ %184, %183 ], [ %326, %333 ], [ %326, %325 ]
+  %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %183 ], [ %.sroa.16.1443, %342 ], [ %207, %325 ], [ %207, %333 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %183 ], [ %.sroa.12.1444, %342 ], [ %206, %325 ], [ %206, %333 ]
+  %.sroa.0259.2 = phi ptr [ %.sroa.0259.1446, %183 ], [ %.sroa.0259.1446, %342 ], [ %318, %325 ], [ %318, %333 ]
+  %.5141 = phi i8 [ 1, %183 ], [ %.10.ph, %342 ], [ 1, %325 ], [ 1, %333 ]
+  %.pn.pn = phi { ptr, i32 } [ %184, %183 ], [ %.pn.ph, %342 ], [ %326, %325 ], [ %326, %333 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %27) #15
           to label %344 unwind label %315
 
@@ -8754,11 +8754,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit: ;
   ret void
 
 .body239:                                         ; preds = %325, %333, %183, %342
-  %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %342 ], [ %.sroa.16.1443, %183 ], [ %207, %333 ], [ %207, %325 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %342 ], [ %.sroa.12.1444, %183 ], [ %206, %333 ], [ %206, %325 ]
-  %.sroa.0259.2 = phi ptr [ %.sroa.0259.1446, %342 ], [ %.sroa.0259.1446, %183 ], [ %318, %333 ], [ %318, %325 ]
-  %.5141 = phi i8 [ %.10.ph, %342 ], [ 1, %183 ], [ 1, %333 ], [ 1, %325 ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %342 ], [ %184, %183 ], [ %326, %333 ], [ %326, %325 ]
+  %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %183 ], [ %.sroa.16.1443, %342 ], [ %207, %325 ], [ %207, %333 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %183 ], [ %.sroa.12.1444, %342 ], [ %206, %325 ], [ %206, %333 ]
+  %.sroa.0259.2 = phi ptr [ %.sroa.0259.1446, %183 ], [ %.sroa.0259.1446, %342 ], [ %318, %325 ], [ %318, %333 ]
+  %.5141 = phi i8 [ 1, %183 ], [ %.10.ph, %342 ], [ 1, %325 ], [ 1, %333 ]
+  %.pn.pn = phi { ptr, i32 } [ %184, %183 ], [ %.pn.ph, %342 ], [ %326, %325 ], [ %326, %333 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %27) #15
           to label %344 unwind label %315
 
@@ -9664,11 +9664,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit: ;
   ret void
 
 .body239:                                         ; preds = %325, %333, %183, %342
-  %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %342 ], [ %.sroa.16.1443, %183 ], [ %207, %333 ], [ %207, %325 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %342 ], [ %.sroa.12.1444, %183 ], [ %206, %333 ], [ %206, %325 ]
-  %.sroa.0259.2 = phi ptr [ %.sroa.0259.1446, %342 ], [ %.sroa.0259.1446, %183 ], [ %318, %333 ], [ %318, %325 ]
-  %.5141 = phi i8 [ %.10.ph, %342 ], [ 1, %183 ], [ 1, %333 ], [ 1, %325 ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %342 ], [ %184, %183 ], [ %326, %333 ], [ %326, %325 ]
+  %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %183 ], [ %.sroa.16.1443, %342 ], [ %207, %325 ], [ %207, %333 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %183 ], [ %.sroa.12.1444, %342 ], [ %206, %325 ], [ %206, %333 ]
+  %.sroa.0259.2 = phi ptr [ %.sroa.0259.1446, %183 ], [ %.sroa.0259.1446, %342 ], [ %318, %325 ], [ %318, %333 ]
+  %.5141 = phi i8 [ 1, %183 ], [ %.10.ph, %342 ], [ 1, %325 ], [ 1, %333 ]
+  %.pn.pn = phi { ptr, i32 } [ %184, %183 ], [ %.pn.ph, %342 ], [ %326, %325 ], [ %326, %333 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %27) #15
           to label %344 unwind label %315
 
@@ -10574,11 +10574,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit: ;
   ret void
 
 .body239:                                         ; preds = %325, %333, %183, %342
-  %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %342 ], [ %.sroa.16.1443, %183 ], [ %207, %333 ], [ %207, %325 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %342 ], [ %.sroa.12.1444, %183 ], [ %206, %333 ], [ %206, %325 ]
-  %.sroa.0259.2 = phi ptr [ %.sroa.0259.1446, %342 ], [ %.sroa.0259.1446, %183 ], [ %318, %333 ], [ %318, %325 ]
-  %.5141 = phi i8 [ %.10.ph, %342 ], [ 1, %183 ], [ 1, %333 ], [ 1, %325 ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %342 ], [ %184, %183 ], [ %326, %333 ], [ %326, %325 ]
+  %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %183 ], [ %.sroa.16.1443, %342 ], [ %207, %325 ], [ %207, %333 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %183 ], [ %.sroa.12.1444, %342 ], [ %206, %325 ], [ %206, %333 ]
+  %.sroa.0259.2 = phi ptr [ %.sroa.0259.1446, %183 ], [ %.sroa.0259.1446, %342 ], [ %318, %325 ], [ %318, %333 ]
+  %.5141 = phi i8 [ 1, %183 ], [ %.10.ph, %342 ], [ 1, %325 ], [ 1, %333 ]
+  %.pn.pn = phi { ptr, i32 } [ %184, %183 ], [ %.pn.ph, %342 ], [ %326, %325 ], [ %326, %333 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %27) #15
           to label %344 unwind label %315
 
@@ -11484,11 +11484,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit: ;
   ret void
 
 .body239:                                         ; preds = %325, %333, %183, %342
-  %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %342 ], [ %.sroa.16.1443, %183 ], [ %207, %333 ], [ %207, %325 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %342 ], [ %.sroa.12.1444, %183 ], [ %206, %333 ], [ %206, %325 ]
-  %.sroa.0259.2 = phi ptr [ %.sroa.0259.1446, %342 ], [ %.sroa.0259.1446, %183 ], [ %318, %333 ], [ %318, %325 ]
-  %.5141 = phi i8 [ %.10.ph, %342 ], [ 1, %183 ], [ 1, %333 ], [ 1, %325 ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %342 ], [ %184, %183 ], [ %326, %333 ], [ %326, %325 ]
+  %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %183 ], [ %.sroa.16.1443, %342 ], [ %207, %325 ], [ %207, %333 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %183 ], [ %.sroa.12.1444, %342 ], [ %206, %325 ], [ %206, %333 ]
+  %.sroa.0259.2 = phi ptr [ %.sroa.0259.1446, %183 ], [ %.sroa.0259.1446, %342 ], [ %318, %325 ], [ %318, %333 ]
+  %.5141 = phi i8 [ 1, %183 ], [ %.10.ph, %342 ], [ 1, %325 ], [ 1, %333 ]
+  %.pn.pn = phi { ptr, i32 } [ %184, %183 ], [ %.pn.ph, %342 ], [ %326, %325 ], [ %326, %333 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %27) #15
           to label %344 unwind label %315
 
@@ -12394,11 +12394,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit: ;
   ret void
 
 .body239:                                         ; preds = %325, %333, %183, %342
-  %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %342 ], [ %.sroa.16.1443, %183 ], [ %207, %333 ], [ %207, %325 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %342 ], [ %.sroa.12.1444, %183 ], [ %206, %333 ], [ %206, %325 ]
-  %.sroa.0259.2 = phi ptr [ %.sroa.0259.1446, %342 ], [ %.sroa.0259.1446, %183 ], [ %318, %333 ], [ %318, %325 ]
-  %.5141 = phi i8 [ %.10.ph, %342 ], [ 1, %183 ], [ 1, %333 ], [ 1, %325 ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %342 ], [ %184, %183 ], [ %326, %333 ], [ %326, %325 ]
+  %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %183 ], [ %.sroa.16.1443, %342 ], [ %207, %325 ], [ %207, %333 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %183 ], [ %.sroa.12.1444, %342 ], [ %206, %325 ], [ %206, %333 ]
+  %.sroa.0259.2 = phi ptr [ %.sroa.0259.1446, %183 ], [ %.sroa.0259.1446, %342 ], [ %318, %325 ], [ %318, %333 ]
+  %.5141 = phi i8 [ 1, %183 ], [ %.10.ph, %342 ], [ 1, %325 ], [ 1, %333 ]
+  %.pn.pn = phi { ptr, i32 } [ %184, %183 ], [ %.pn.ph, %342 ], [ %326, %325 ], [ %326, %333 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %27) #15
           to label %344 unwind label %315
 
@@ -13304,11 +13304,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit: ;
   ret void
 
 .body239:                                         ; preds = %325, %333, %183, %342
-  %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %342 ], [ %.sroa.16.1443, %183 ], [ %207, %333 ], [ %207, %325 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %342 ], [ %.sroa.12.1444, %183 ], [ %206, %333 ], [ %206, %325 ]
-  %.sroa.0259.2 = phi ptr [ %.sroa.0259.1446, %342 ], [ %.sroa.0259.1446, %183 ], [ %318, %333 ], [ %318, %325 ]
-  %.5141 = phi i8 [ %.10.ph, %342 ], [ 1, %183 ], [ 1, %333 ], [ 1, %325 ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %342 ], [ %184, %183 ], [ %326, %333 ], [ %326, %325 ]
+  %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %183 ], [ %.sroa.16.1443, %342 ], [ %207, %325 ], [ %207, %333 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %183 ], [ %.sroa.12.1444, %342 ], [ %206, %325 ], [ %206, %333 ]
+  %.sroa.0259.2 = phi ptr [ %.sroa.0259.1446, %183 ], [ %.sroa.0259.1446, %342 ], [ %318, %325 ], [ %318, %333 ]
+  %.5141 = phi i8 [ 1, %183 ], [ %.10.ph, %342 ], [ 1, %325 ], [ 1, %333 ]
+  %.pn.pn = phi { ptr, i32 } [ %184, %183 ], [ %.pn.ph, %342 ], [ %326, %325 ], [ %326, %333 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %27) #15
           to label %344 unwind label %315
 
@@ -14214,11 +14214,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit: ;
   ret void
 
 .body239:                                         ; preds = %325, %333, %183, %342
-  %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %342 ], [ %.sroa.16.1443, %183 ], [ %207, %333 ], [ %207, %325 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %342 ], [ %.sroa.12.1444, %183 ], [ %206, %333 ], [ %206, %325 ]
-  %.sroa.0259.2 = phi ptr [ %.sroa.0259.1446, %342 ], [ %.sroa.0259.1446, %183 ], [ %318, %333 ], [ %318, %325 ]
-  %.5141 = phi i8 [ %.10.ph, %342 ], [ 1, %183 ], [ 1, %333 ], [ 1, %325 ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %342 ], [ %184, %183 ], [ %326, %333 ], [ %326, %325 ]
+  %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %183 ], [ %.sroa.16.1443, %342 ], [ %207, %325 ], [ %207, %333 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %183 ], [ %.sroa.12.1444, %342 ], [ %206, %325 ], [ %206, %333 ]
+  %.sroa.0259.2 = phi ptr [ %.sroa.0259.1446, %183 ], [ %.sroa.0259.1446, %342 ], [ %318, %325 ], [ %318, %333 ]
+  %.5141 = phi i8 [ 1, %183 ], [ %.10.ph, %342 ], [ 1, %325 ], [ 1, %333 ]
+  %.pn.pn = phi { ptr, i32 } [ %184, %183 ], [ %.pn.ph, %342 ], [ %326, %325 ], [ %326, %333 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %27) #15
           to label %344 unwind label %315
 
@@ -15124,11 +15124,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit: ;
   ret void
 
 .body239:                                         ; preds = %325, %333, %183, %342
-  %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %342 ], [ %.sroa.16.1443, %183 ], [ %207, %333 ], [ %207, %325 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %342 ], [ %.sroa.12.1444, %183 ], [ %206, %333 ], [ %206, %325 ]
-  %.sroa.0259.2 = phi ptr [ %.sroa.0259.1446, %342 ], [ %.sroa.0259.1446, %183 ], [ %318, %333 ], [ %318, %325 ]
-  %.5141 = phi i8 [ %.10.ph, %342 ], [ 1, %183 ], [ 1, %333 ], [ 1, %325 ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %342 ], [ %184, %183 ], [ %326, %333 ], [ %326, %325 ]
+  %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %183 ], [ %.sroa.16.1443, %342 ], [ %207, %325 ], [ %207, %333 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %183 ], [ %.sroa.12.1444, %342 ], [ %206, %325 ], [ %206, %333 ]
+  %.sroa.0259.2 = phi ptr [ %.sroa.0259.1446, %183 ], [ %.sroa.0259.1446, %342 ], [ %318, %325 ], [ %318, %333 ]
+  %.5141 = phi i8 [ 1, %183 ], [ %.10.ph, %342 ], [ 1, %325 ], [ 1, %333 ]
+  %.pn.pn = phi { ptr, i32 } [ %184, %183 ], [ %.pn.ph, %342 ], [ %326, %325 ], [ %326, %333 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %27) #15
           to label %344 unwind label %315
 
@@ -16034,11 +16034,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit: ;
   ret void
 
 .body239:                                         ; preds = %325, %333, %183, %342
-  %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %342 ], [ %.sroa.16.1443, %183 ], [ %207, %333 ], [ %207, %325 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %342 ], [ %.sroa.12.1444, %183 ], [ %206, %333 ], [ %206, %325 ]
-  %.sroa.0259.2 = phi ptr [ %.sroa.0259.1446, %342 ], [ %.sroa.0259.1446, %183 ], [ %318, %333 ], [ %318, %325 ]
-  %.5141 = phi i8 [ %.10.ph, %342 ], [ 1, %183 ], [ 1, %333 ], [ 1, %325 ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %342 ], [ %184, %183 ], [ %326, %333 ], [ %326, %325 ]
+  %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %183 ], [ %.sroa.16.1443, %342 ], [ %207, %325 ], [ %207, %333 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %183 ], [ %.sroa.12.1444, %342 ], [ %206, %325 ], [ %206, %333 ]
+  %.sroa.0259.2 = phi ptr [ %.sroa.0259.1446, %183 ], [ %.sroa.0259.1446, %342 ], [ %318, %325 ], [ %318, %333 ]
+  %.5141 = phi i8 [ 1, %183 ], [ %.10.ph, %342 ], [ 1, %325 ], [ 1, %333 ]
+  %.pn.pn = phi { ptr, i32 } [ %184, %183 ], [ %.pn.ph, %342 ], [ %326, %325 ], [ %326, %333 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %27) #15
           to label %344 unwind label %315
 

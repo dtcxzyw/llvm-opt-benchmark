@@ -251,8 +251,8 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %33
   br i1 %.not.i.i103, label %pmix_cmd_line_is_taken.exit, label %.lr.ph.i.i100, !llvm.loop !37
 
 pmix_cmd_line_is_taken.exit:                      ; preds = %77, %.lr.ph.i.i100, %83, %72
-  %.08.i.i125 = phi i1 [ false, %72 ], [ true, %83 ], [ true, %.lr.ph.i.i100 ], [ false, %77 ]
-  %85 = phi i1 [ false, %72 ], [ %82, %83 ], [ %82, %.lr.ph.i.i100 ], [ false, %77 ]
+  %.08.i.i125 = phi i1 [ false, %72 ], [ true, %.lr.ph.i.i100 ], [ true, %83 ], [ false, %77 ]
+  %85 = phi i1 [ false, %72 ], [ %82, %.lr.ph.i.i100 ], [ %82, %83 ], [ false, %77 ]
   %.071 = phi i64 [ 0, %72 ], [ 2, %.lr.ph.i.i100 ], [ 1, %83 ], [ 0, %77 ]
   %86 = getelementptr inbounds nuw i8, ptr %5, i64 392
   %87 = load ptr, ptr %86, align 8, !tbaa !38

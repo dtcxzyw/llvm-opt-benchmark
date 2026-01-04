@@ -372,8 +372,8 @@ define hidden { ptr, ptr } @_ZN4core5error5Error5cause17h22e381d92685cc3bE(ptr n
   br label %"_ZN93_$LT$uv_publish..trusted_publishing..TrustedPublishingError$u20$as$u20$core..error..Error$GT$6source17h1e8a80eba88b5f94E.exit"
 
 "_ZN93_$LT$uv_publish..trusted_publishing..TrustedPublishingError$u20$as$u20$core..error..Error$GT$6source17h1e8a80eba88b5f94E.exit": ; preds = %1, %1, %1, %1, %7, %12, %14, %16
-  %.sroa.9.0.i = phi ptr [ %11, %7 ], [ @anon.6c41dd9bacf45627f441883ad8301670.34.llvm.1865484931753558622, %12 ], [ @anon.6c41dd9bacf45627f441883ad8301670.36.llvm.1865484931753558622, %14 ], [ %20, %16 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0.i = phi ptr [ %10, %7 ], [ %13, %12 ], [ %15, %14 ], [ %19, %16 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
+  %.sroa.9.0.i = phi ptr [ undef, %1 ], [ undef, %1 ], [ %11, %7 ], [ @anon.6c41dd9bacf45627f441883ad8301670.34.llvm.1865484931753558622, %12 ], [ @anon.6c41dd9bacf45627f441883ad8301670.36.llvm.1865484931753558622, %14 ], [ %20, %16 ], [ undef, %1 ], [ undef, %1 ]
+  %.sroa.0.0.i = phi ptr [ null, %1 ], [ null, %1 ], [ %10, %7 ], [ %13, %12 ], [ %15, %14 ], [ %19, %16 ], [ null, %1 ], [ null, %1 ]
   %21 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
   %22 = insertvalue { ptr, ptr } %21, ptr %.sroa.9.0.i, 1
   ret { ptr, ptr } %22
@@ -447,8 +447,8 @@ define hidden { ptr, ptr } @_ZN4core5error5Error5cause17hc1bacaa751c75becE(ptr n
   br label %"_ZN70_$LT$uv_publish..PublishPrepareError$u20$as$u20$core..error..Error$GT$6source17h5715f76d9358d1baE.exit"
 
 "_ZN70_$LT$uv_publish..PublishPrepareError$u20$as$u20$core..error..Error$GT$6source17h5715f76d9358d1baE.exit": ; preds = %1, %7, %12, %14, %15
-  %.sroa.8.0.i = phi ptr [ %11, %7 ], [ @anon.417ee57c2b5c22351b856cf25504d5b4.194.llvm.5955437837880099222, %12 ], [ undef, %14 ], [ @anon.417ee57c2b5c22351b856cf25504d5b4.47.llvm.5955437837880099222, %15 ], [ @anon.417ee57c2b5c22351b856cf25504d5b4.196.llvm.5955437837880099222, %1 ]
-  %.sroa.0.0.i = phi ptr [ %10, %7 ], [ %13, %12 ], [ null, %14 ], [ %16, %15 ], [ %0, %1 ]
+  %.sroa.8.0.i = phi ptr [ %11, %7 ], [ @anon.417ee57c2b5c22351b856cf25504d5b4.194.llvm.5955437837880099222, %12 ], [ @anon.417ee57c2b5c22351b856cf25504d5b4.47.llvm.5955437837880099222, %15 ], [ undef, %14 ], [ @anon.417ee57c2b5c22351b856cf25504d5b4.196.llvm.5955437837880099222, %1 ]
+  %.sroa.0.0.i = phi ptr [ %10, %7 ], [ %13, %12 ], [ %16, %15 ], [ null, %14 ], [ %0, %1 ]
   %17 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
   %18 = insertvalue { ptr, ptr } %17, ptr %.sroa.8.0.i, 1
   ret { ptr, ptr } %18
@@ -917,7 +917,7 @@ define hidden void @"_ZN202_$LT$uv_publish..trusted_publishing.._..$LT$impl$u20$
   br label %10
 
 10:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfbda8732075de463E.exit20", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfbda8732075de463E.exit16", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfbda8732075de463E.exit12", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfbda8732075de463E.exit8", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfbda8732075de463E.exit4", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfbda8732075de463E.exit", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfbda8732075de463E.exit20.thread"
-  %.sink = phi i8 [ 6, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfbda8732075de463E.exit20.thread" ], [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfbda8732075de463E.exit" ], [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfbda8732075de463E.exit4" ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfbda8732075de463E.exit8" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfbda8732075de463E.exit12" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfbda8732075de463E.exit16" ], [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfbda8732075de463E.exit20" ]
+  %.sink = phi i8 [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfbda8732075de463E.exit16" ], [ 6, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfbda8732075de463E.exit20.thread" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfbda8732075de463E.exit12" ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfbda8732075de463E.exit8" ], [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfbda8732075de463E.exit4" ], [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfbda8732075de463E.exit" ], [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfbda8732075de463E.exit20" ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sink, ptr %11, align 1
   store i8 0, ptr %0, align 8
@@ -942,7 +942,7 @@ define hidden void @"_ZN238_$LT$uv_publish..PublishSendError..extract_error_mess
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfbda8732075de463E.exit.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfbda8732075de463E.exit.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfbda8732075de463E.exit", %3
-  %.sink = phi i8 [ 1, %3 ], [ %spec.select, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfbda8732075de463E.exit" ]
+  %.sink = phi i8 [ %spec.select, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfbda8732075de463E.exit" ], [ 1, %3 ]
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sink, ptr %5, align 1
   store i8 0, ptr %0, align 8

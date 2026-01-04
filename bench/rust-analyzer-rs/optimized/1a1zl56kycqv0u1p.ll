@@ -3129,8 +3129,8 @@ define hidden void @_ZN10lsp_server5stdio15stdio_transport17h5bc7c2ad76683e68E(p
   br i1 %74, label %79, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h620d235539d0761bE.exit"
 
 .body:                                            ; preds = %81, %77, %66, %90
-  %.023 = phi i1 [ true, %90 ], [ true, %66 ], [ false, %77 ], [ false, %81 ]
-  %.pn = phi { ptr, i32 } [ %91, %90 ], [ %67, %66 ], [ %78, %77 ], [ %82, %81 ]
+  %.023 = phi i1 [ true, %66 ], [ true, %90 ], [ false, %77 ], [ false, %81 ]
+  %.pn = phi { ptr, i32 } [ %67, %66 ], [ %91, %90 ], [ %78, %77 ], [ %82, %81 ]
   invoke void @"_ZN4core3ptr89drop_in_place$LT$crossbeam_channel..channel..Receiver$LT$lsp_server..msg..Message$GT$$GT$17h223c478f5b49bbb3E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10) #23
           to label %94 unwind label %92
 
@@ -3211,7 +3211,7 @@ define hidden void @_ZN10lsp_server5stdio15stdio_transport17h5bc7c2ad76683e68E(p
           to label %98 unwind label %92
 
 .body27:                                          ; preds = %51, %45, %41, %98
-  %.pn.pn.pn45 = phi { ptr, i32 } [ %.pn.pn.pn.ph, %98 ], [ %42, %41 ], [ %46, %45 ], [ %.pn.pn, %51 ]
+  %.pn.pn.pn45 = phi { ptr, i32 } [ %.pn.pn.pn.ph, %98 ], [ %46, %45 ], [ %42, %41 ], [ %.pn.pn, %51 ]
   invoke void @"_ZN4core3ptr87drop_in_place$LT$crossbeam_channel..channel..Sender$LT$lsp_server..msg..Message$GT$$GT$17h44ad5bd3fcf02e0eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %18) #23
           to label %99 unwind label %92
 

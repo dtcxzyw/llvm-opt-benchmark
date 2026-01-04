@@ -206,7 +206,7 @@ define ptr @PEM_read_bio_RSAPrivateKey(ptr noundef %0, ptr noundef captures(addr
   br label %pkey_get_rsa.exit
 
 pkey_get_rsa.exit:                                ; preds = %4, %6, %8, %9
-  %.0.i = phi ptr [ null, %4 ], [ null, %6 ], [ %7, %9 ], [ %7, %8 ]
+  %.0.i = phi ptr [ null, %6 ], [ null, %4 ], [ %7, %9 ], [ %7, %8 ]
   ret ptr %.0.i
 }
 
@@ -235,7 +235,7 @@ define ptr @PEM_read_RSAPrivateKey(ptr noundef %0, ptr noundef captures(address_
   br label %pkey_get_rsa.exit
 
 pkey_get_rsa.exit:                                ; preds = %4, %6, %8, %9
-  %.0.i = phi ptr [ null, %4 ], [ null, %6 ], [ %7, %9 ], [ %7, %8 ]
+  %.0.i = phi ptr [ null, %6 ], [ null, %4 ], [ %7, %9 ], [ %7, %8 ]
   ret ptr %.0.i
 }
 
@@ -334,7 +334,7 @@ define ptr @PEM_read_bio_DSAPrivateKey(ptr noundef %0, ptr noundef captures(addr
   br label %pkey_get_dsa.exit
 
 pkey_get_dsa.exit:                                ; preds = %4, %6, %8, %9
-  %.0.i = phi ptr [ null, %4 ], [ null, %6 ], [ %7, %9 ], [ %7, %8 ]
+  %.0.i = phi ptr [ null, %6 ], [ null, %4 ], [ %7, %9 ], [ %7, %8 ]
   ret ptr %.0.i
 }
 
@@ -403,7 +403,7 @@ define ptr @PEM_read_DSAPrivateKey(ptr noundef %0, ptr noundef captures(address_
   br label %pkey_get_dsa.exit
 
 pkey_get_dsa.exit:                                ; preds = %4, %6, %8, %9
-  %.0.i = phi ptr [ null, %4 ], [ null, %6 ], [ %7, %9 ], [ %7, %8 ]
+  %.0.i = phi ptr [ null, %6 ], [ null, %4 ], [ %7, %9 ], [ %7, %8 ]
   ret ptr %.0.i
 }
 
@@ -458,7 +458,7 @@ define ptr @PEM_read_bio_ECPrivateKey(ptr noundef %0, ptr noundef captures(addre
   br label %pkey_get_eckey.exit
 
 pkey_get_eckey.exit:                              ; preds = %4, %6, %8, %9
-  %.0.i = phi ptr [ null, %4 ], [ null, %6 ], [ %7, %9 ], [ %7, %8 ]
+  %.0.i = phi ptr [ null, %6 ], [ null, %4 ], [ %7, %9 ], [ %7, %8 ]
   ret ptr %.0.i
 }
 
@@ -555,7 +555,7 @@ define ptr @PEM_read_ECPrivateKey(ptr noundef %0, ptr noundef captures(address_i
   br label %pkey_get_eckey.exit
 
 pkey_get_eckey.exit:                              ; preds = %4, %6, %8, %9
-  %.0.i = phi ptr [ null, %4 ], [ null, %6 ], [ %7, %9 ], [ %7, %8 ]
+  %.0.i = phi ptr [ null, %6 ], [ null, %4 ], [ %7, %9 ], [ %7, %8 ]
   ret ptr %.0.i
 }
 

@@ -1517,7 +1517,7 @@ define dso_local range(i32 -22, 1) i32 @blk_mq_tag_update_depth(ptr noundef read
   br label %.thread
 
 .thread:                                          ; preds = %24, %19, %12, %32, %29, %4
-  %35 = phi i32 [ -22, %4 ], [ 0, %29 ], [ 0, %32 ], [ -12, %24 ], [ 0, %19 ], [ -22, %12 ]
+  %35 = phi i32 [ -22, %4 ], [ 0, %32 ], [ 0, %29 ], [ -12, %24 ], [ 0, %19 ], [ -22, %12 ]
   ret i32 %35
 }
 

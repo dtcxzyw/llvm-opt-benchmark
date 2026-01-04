@@ -1618,7 +1618,7 @@ addStringToQASM.exit:                             ; preds = %62, %74
   br label %._crit_edge69.thread
 
 ._crit_edge69.thread:                             ; preds = %86, %102, %._crit_edge69
-  %.2.lcssa92 = phi i32 [ %101, %102 ], [ %101, %._crit_edge69 ], [ 8, %86 ]
+  %.2.lcssa92 = phi i32 [ %101, %._crit_edge69 ], [ %101, %102 ], [ 8, %86 ]
   %103 = load ptr, ptr %14, align 8, !tbaa !18
   %104 = load i32, ptr %64, align 8, !tbaa !17
   %105 = load i32, ptr %66, align 4, !tbaa !20
@@ -2666,7 +2666,7 @@ getPhaseFuncSymbol.exit233:                       ; preds = %.lr.ph266, %getPhas
   br label %178
 
 178:                                              ; preds = %168, %.sink.split332
-  %.11 = phi i32 [ %177, %.sink.split332 ], [ %.10, %168 ]
+  %.11 = phi i32 [ %.10, %168 ], [ %177, %.sink.split332 ]
   %179 = icmp slt i32 %3, 25
   br i1 %179, label %.preheader254, label %254
 
@@ -2799,7 +2799,7 @@ getPhaseFuncSymbol.exit241:                       ; preds = %.lr.ph.split, %getP
   br label %.loopexit
 
 .loopexit:                                        ; preds = %getPhaseFuncSymbol.exit241, %getPhaseFuncSymbol.exit241.us, %.lr.ph.split.us, %.lr.ph272.split, %.lr.ph272.split.us, %.preheader254, %.preheader, %147, %262, %259, %83, %80
-  %.4 = phi i32 [ %82, %80 ], [ %85, %83 ], [ %153, %147 ], [ %261, %259 ], [ %264, %262 ], [ %.1, %.preheader ], [ %.11, %.preheader254 ], [ %59, %.lr.ph272.split.us ], [ %74, %.lr.ph272.split ], [ %207, %.lr.ph.split.us ], [ %229, %getPhaseFuncSymbol.exit241.us ], [ %251, %getPhaseFuncSymbol.exit241 ]
+  %.4 = phi i32 [ %74, %.lr.ph272.split ], [ %82, %80 ], [ %85, %83 ], [ %153, %147 ], [ %264, %262 ], [ %261, %259 ], [ %.1, %.preheader ], [ %59, %.lr.ph272.split.us ], [ %.11, %.preheader254 ], [ %207, %.lr.ph.split.us ], [ %229, %getPhaseFuncSymbol.exit241.us ], [ %251, %getPhaseFuncSymbol.exit241 ]
   %265 = icmp sgt i32 %.4, 1023
   br i1 %265, label %266, label %.thread248
 
@@ -2808,7 +2808,7 @@ getPhaseFuncSymbol.exit241:                       ; preds = %.lr.ph.split, %getP
   br label %.thread248
 
 .thread248:                                       ; preds = %154, %266, %.loopexit
-  %.4250 = phi i32 [ %.4, %266 ], [ %.4, %.loopexit ], [ 13, %154 ]
+  %.4250 = phi i32 [ %.4, %.loopexit ], [ %.4, %266 ], [ 13, %154 ]
   %267 = load ptr, ptr %14, align 8, !tbaa !18
   %268 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %269 = load i32, ptr %268, align 8, !tbaa !17

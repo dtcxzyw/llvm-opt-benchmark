@@ -411,7 +411,7 @@ define noundef i32 @_ZNK15dtProximityGrid10queryItemsEffffPti(ptr noundef nonnul
   br label %.critedge
 
 .critedge:                                        ; preds = %53, %55, %42, %.lr.ph62
-  %.3 = phi i32 [ %57, %55 ], [ %.259, %42 ], [ %.259, %.lr.ph62 ], [ %.259, %53 ]
+  %.3 = phi i32 [ %57, %55 ], [ %.259, %.lr.ph62 ], [ %.259, %42 ], [ %.259, %53 ]
   %58 = getelementptr inbounds nuw i8, ptr %37, i64 6
   %.042 = load i16, ptr %58, align 2
   %.not47 = icmp eq i16 %.042, -1
@@ -429,7 +429,7 @@ define noundef i32 @_ZNK15dtProximityGrid10queryItemsEffffPti(ptr noundef nonnul
   br i1 %exitcond77.not, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %._crit_edge68, %._crit_edge, %.preheader.lr.ph, %7
-  %.040 = phi i32 [ 0, %7 ], [ 0, %.preheader.lr.ph ], [ %.259, %._crit_edge ], [ %.2.lcssa, %._crit_edge68 ]
+  %.040 = phi i32 [ %.259, %._crit_edge ], [ 0, %7 ], [ 0, %.preheader.lr.ph ], [ %.2.lcssa, %._crit_edge68 ]
   ret i32 %.040
 }
 

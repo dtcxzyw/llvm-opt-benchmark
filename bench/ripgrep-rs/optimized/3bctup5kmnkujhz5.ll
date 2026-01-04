@@ -371,7 +371,7 @@ define hidden void @_ZN10grep_regex7literal9Extractor14extract_concat17habfd5ce4
   unreachable
 
 common.resume:                                    ; preds = %96, %45, %91, %23
-  %common.resume.op = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %23 ], [ %.pn, %45 ], [ %.pn, %96 ], [ %92, %91 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %23 ], [ %.pn, %96 ], [ %.pn, %45 ], [ %92, %91 ]
   resume { ptr, i32 } %common.resume.op
 
 23:                                               ; preds = %22, %4
@@ -417,8 +417,8 @@ _ZN10grep_regex7literal4TSeq9singleton17h92584f9566197e07E.exit: ; preds = %.noe
   br label %.body38
 
 .loopexit.split-lp:                               ; preds = %68, %38, %_ZN10grep_regex7literal4TSeq21has_poisonous_literal17h83e0672257217638E.llvm.16979978850130570624.exit.thread.i, %_ZN12regex_syntax3hir7literal3Seq9singleton17h321c098a400a64b5E.llvm.16979978850130570624.exit.i
-  %.120.ph = phi i1 [ true, %_ZN12regex_syntax3hir7literal3Seq9singleton17h321c098a400a64b5E.llvm.16979978850130570624.exit.i ], [ true, %_ZN10grep_regex7literal4TSeq21has_poisonous_literal17h83e0672257217638E.llvm.16979978850130570624.exit.thread.i ], [ true, %38 ], [ false, %68 ]
-  %.1.ph = phi i1 [ false, %_ZN12regex_syntax3hir7literal3Seq9singleton17h321c098a400a64b5E.llvm.16979978850130570624.exit.i ], [ true, %_ZN10grep_regex7literal4TSeq21has_poisonous_literal17h83e0672257217638E.llvm.16979978850130570624.exit.thread.i ], [ true, %38 ], [ false, %68 ]
+  %.120.ph = phi i1 [ true, %_ZN10grep_regex7literal4TSeq21has_poisonous_literal17h83e0672257217638E.llvm.16979978850130570624.exit.thread.i ], [ false, %68 ], [ true, %_ZN12regex_syntax3hir7literal3Seq9singleton17h321c098a400a64b5E.llvm.16979978850130570624.exit.i ], [ true, %38 ]
+  %.1.ph = phi i1 [ true, %_ZN10grep_regex7literal4TSeq21has_poisonous_literal17h83e0672257217638E.llvm.16979978850130570624.exit.thread.i ], [ false, %68 ], [ false, %_ZN12regex_syntax3hir7literal3Seq9singleton17h321c098a400a64b5E.llvm.16979978850130570624.exit.i ], [ true, %38 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body38
@@ -455,9 +455,9 @@ _ZN10grep_regex7literal4TSeq9singleton17h92584f9566197e07E.exit: ; preds = %.noe
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$grep_regex..literal..TSeq$GT$$GT$17hf5c1065dbe97c0baE.exit"
 
 .body38:                                          ; preds = %.loopexit, %.loopexit.split-lp, %79, %74, %84
-  %.221 = phi i1 [ true, %84 ], [ true, %79 ], [ true, %74 ], [ true, %.loopexit ], [ %.120.ph, %.loopexit.split-lp ]
-  %.2 = phi i1 [ false, %84 ], [ false, %79 ], [ false, %74 ], [ true, %.loopexit ], [ %.1.ph, %.loopexit.split-lp ]
-  %.pn = phi { ptr, i32 } [ %85, %84 ], [ %80, %79 ], [ %lpad.phi72, %74 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.221 = phi i1 [ true, %74 ], [ true, %84 ], [ true, %79 ], [ true, %.loopexit ], [ %.120.ph, %.loopexit.split-lp ]
+  %.2 = phi i1 [ false, %74 ], [ false, %84 ], [ false, %79 ], [ true, %.loopexit ], [ %.1.ph, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi72, %74 ], [ %85, %84 ], [ %80, %79 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %43 = load i64, ptr %17, align 8, !range !89, !noundef !7
   %44 = icmp ne i64 %43, -9223372036854775807
   %or.cond3 = and i1 %.221, %44
@@ -533,7 +533,7 @@ _ZN10grep_regex7literal4TSeq21has_poisonous_literal17h83e0672257217638E.llvm.169
   br label %_ZN10grep_regex7literal4TSeq21has_poisonous_literal17h83e0672257217638E.llvm.16979978850130570624.exit.thread.i
 
 _ZN10grep_regex7literal4TSeq21has_poisonous_literal17h83e0672257217638E.llvm.16979978850130570624.exit.thread.i: ; preds = %34, %_ZN10grep_regex7literal4TSeq21has_poisonous_literal17h83e0672257217638E.llvm.16979978850130570624.exit.i, %49
-  %.not.i.i6366 = phi i1 [ true, %_ZN10grep_regex7literal4TSeq21has_poisonous_literal17h83e0672257217638E.llvm.16979978850130570624.exit.i ], [ false, %49 ], [ false, %34 ]
+  %.not.i.i6366 = phi i1 [ false, %49 ], [ true, %_ZN10grep_regex7literal4TSeq21has_poisonous_literal17h83e0672257217638E.llvm.16979978850130570624.exit.i ], [ false, %34 ]
   %58 = invoke { i64, i64 } @_ZN12regex_syntax3hir7literal3Seq15min_literal_len17h495f07da7a76dcc0E.llvm.16979978850130570624(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %18)
           to label %.noexc32 unwind label %.loopexit.split-lp
 
@@ -551,7 +551,7 @@ _ZN10grep_regex7literal4TSeq14is_really_good17h65e3c8eae218649cE.exit: ; preds =
   %spec.select.i = select i1 %or.cond.i, i1 %64, i1 false
   br i1 %spec.select.i, label %88, label %_ZN10grep_regex7literal4TSeq14is_really_good17h65e3c8eae218649cE.exit.thread
 
-_ZN10grep_regex7literal4TSeq14is_really_good17h65e3c8eae218649cE.exit.thread: ; preds = %_ZN10grep_regex7literal4TSeq21has_poisonous_literal17h83e0672257217638E.llvm.16979978850130570624.exit.thread4.i, %.noexc32, %_ZN10grep_regex7literal4TSeq14is_really_good17h65e3c8eae218649cE.exit
+_ZN10grep_regex7literal4TSeq14is_really_good17h65e3c8eae218649cE.exit.thread: ; preds = %.noexc32, %_ZN10grep_regex7literal4TSeq21has_poisonous_literal17h83e0672257217638E.llvm.16979978850130570624.exit.thread4.i, %_ZN10grep_regex7literal4TSeq14is_really_good17h65e3c8eae218649cE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %65 = load i64, ptr %17, align 8, !range !89, !noundef !7
   %66 = icmp eq i64 %65, -9223372036854775807
@@ -798,7 +798,7 @@ define hidden void @_ZN10grep_regex7literal9Extractor19extract_alternation17hfd8
           to label %.body unwind label %31
 
 .body:                                            ; preds = %20, %17, %33
-  %.pn8 = phi { ptr, i32 } [ %.pn.ph, %33 ], [ %21, %20 ], [ %18, %17 ]
+  %.pn8 = phi { ptr, i32 } [ %.pn.ph, %33 ], [ %18, %17 ], [ %21, %20 ]
   resume { ptr, i32 } %.pn8
 }
 

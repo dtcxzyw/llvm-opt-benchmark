@@ -2345,7 +2345,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version5MicroEi(i32 noundef %0) local_unnam
   br label %30
 
 30:                                               ; preds = %29, %_ZN5ZXing6QRCode7VersionD2Ev.exit
-  %31 = phi ptr [ %32, %_ZN5ZXing6QRCode7VersionD2Ev.exit ], [ %.114, %29 ]
+  %31 = phi ptr [ %.114, %29 ], [ %32, %_ZN5ZXing6QRCode7VersionD2Ev.exit ]
   %32 = getelementptr inbounds i8, ptr %31, i64 -120
   %33 = getelementptr inbounds i8, ptr %31, i64 -112
   %34 = load ptr, ptr %33, align 8, !tbaa !13
@@ -4329,7 +4329,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5ZXing6QRCode7Version11IsValidSizeENS
   br label %45
 
 45:                                               ; preds = %2, %28, %30, %37, %21, %25, %14, %18, %7, %11
-  %.0 = phi i1 [ false, %7 ], [ %13, %11 ], [ false, %14 ], [ %20, %18 ], [ false, %21 ], [ %27, %25 ], [ false, %30 ], [ false, %28 ], [ %44, %37 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %28 ], [ %27, %25 ], [ %13, %11 ], [ %20, %18 ], [ false, %7 ], [ false, %14 ], [ false, %21 ], [ false, %30 ], [ %44, %37 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -4390,7 +4390,7 @@ _ZN5ZXing6QRCode7Version11IsValidSizeENS_6PointTIiEENS0_4TypeE.exit: ; preds = %
   br label %_ZN5ZXing6QRCode7Version11IsValidSizeENS_6PointTIiEENS0_4TypeE.exit3.thread
 
 _ZN5ZXing6QRCode7Version11IsValidSizeENS_6PointTIiEENS0_4TypeE.exit3.thread: ; preds = %_ZN5ZXing6QRCode7Version11IsValidSizeENS_6PointTIiEENS0_4TypeE.exit, %23, %29, %20, %6
-  %.0 = phi i32 [ %14, %6 ], [ %22, %20 ], [ %31, %29 ], [ 0, %23 ], [ 0, %_ZN5ZXing6QRCode7Version11IsValidSizeENS_6PointTIiEENS0_4TypeE.exit ]
+  %.0 = phi i32 [ %14, %6 ], [ %22, %20 ], [ %31, %29 ], [ 0, %_ZN5ZXing6QRCode7Version11IsValidSizeENS_6PointTIiEENS0_4TypeE.exit ], [ 0, %23 ]
   ret i32 %.0
 }
 
@@ -4476,8 +4476,8 @@ define void @_ZNK5ZXing6QRCode7Version20buildFunctionPatternEv(ptr dead_on_unwin
   br label %_ZN5ZXing6QRCode7Version10SymbolSizeEiNS0_4TypeE.exit
 
 _ZN5ZXing6QRCode7Version10SymbolSizeEiNS0_4TypeE.exit: ; preds = %7, %10
-  %.sroa.014.0.i = phi i32 [ %15, %10 ], [ 0, %7 ]
-  %.sroa.15.0.i = phi i32 [ %.sroa.15.0.extract.trunc23.i, %10 ], [ 0, %7 ]
+  %.sroa.014.0.i = phi i32 [ 0, %7 ], [ %15, %10 ]
+  %.sroa.15.0.i = phi i32 [ 0, %7 ], [ %.sroa.15.0.extract.trunc23.i, %10 ]
   tail call void @_ZN5ZXing9BitMatrixC2Eii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.sroa.014.0.i, i32 noundef %.sroa.15.0.i) #16
   invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 0, i32 noundef 0, i32 noundef %.sroa.014.0.i, i32 noundef 1) #16
           to label %16 unwind label %35
@@ -4786,7 +4786,7 @@ _ZN5ZXing9BitMatrixD2Ev.exit.sink.split:          ; preds = %147, %87
   br label %_ZN5ZXing9BitMatrixD2Ev.exit
 
 _ZN5ZXing9BitMatrixD2Ev.exit:                     ; preds = %_ZN5ZXing9BitMatrixD2Ev.exit.sink.split, %147, %87
-  %.pn68.pn.pn = phi { ptr, i32 } [ %.pn68.pn, %87 ], [ %.pn66, %147 ], [ %.pn68.pn.pn.ph, %_ZN5ZXing9BitMatrixD2Ev.exit.sink.split ]
+  %.pn68.pn.pn = phi { ptr, i32 } [ %.pn66, %147 ], [ %.pn68.pn, %87 ], [ %.pn68.pn.pn.ph, %_ZN5ZXing9BitMatrixD2Ev.exit.sink.split ]
   resume { ptr, i32 } %.pn68.pn.pn
 }
 
@@ -4845,8 +4845,8 @@ define linkonce_odr i64 @_ZN5ZXing6QRCode7Version10SymbolSizeEiNS0_4TypeE(i32 no
   br label %29
 
 29:                                               ; preds = %2, %21, %15, %9, %3, %24, %18, %12, %6
-  %.sroa.014.0 = phi i32 [ %8, %6 ], [ %14, %12 ], [ %20, %18 ], [ %.sroa.014.0.extract.trunc17, %24 ], [ 0, %3 ], [ 0, %9 ], [ 0, %15 ], [ 0, %21 ], [ 0, %2 ]
-  %.sroa.15.0 = phi i32 [ %8, %6 ], [ %14, %12 ], [ %20, %18 ], [ %.sroa.15.0.extract.trunc23, %24 ], [ 0, %3 ], [ 0, %9 ], [ 0, %15 ], [ 0, %21 ], [ 0, %2 ]
+  %.sroa.014.0 = phi i32 [ 0, %21 ], [ %8, %6 ], [ 0, %15 ], [ %14, %12 ], [ 0, %3 ], [ %20, %18 ], [ 0, %9 ], [ %.sroa.014.0.extract.trunc17, %24 ], [ 0, %2 ]
+  %.sroa.15.0 = phi i32 [ 0, %21 ], [ %8, %6 ], [ 0, %15 ], [ %14, %12 ], [ 0, %3 ], [ %20, %18 ], [ 0, %9 ], [ %.sroa.15.0.extract.trunc23, %24 ], [ 0, %2 ]
   %.sroa.15.0.insert.ext = zext i32 %.sroa.15.0 to i64
   %.sroa.15.0.insert.shift = shl nuw i64 %.sroa.15.0.insert.ext, 32
   %.sroa.014.0.insert.ext = zext i32 %.sroa.014.0 to i64
@@ -5161,7 +5161,7 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5
   br label %.loopexit
 
 .loopexit:                                        ; preds = %13, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit60, %.loopexit.loopexit.split.loop.exit62, %72, %61, %49, %81
-  %.028 = phi ptr [ %1, %81 ], [ %.029.lcssa, %49 ], [ %.1, %61 ], [ %.2, %72 ], [ %82, %.loopexit.loopexit.split.loop.exit ], [ %83, %.loopexit.loopexit.split.loop.exit60 ], [ %84, %.loopexit.loopexit.split.loop.exit62 ], [ %.02946, %13 ]
+  %.028 = phi ptr [ %.1, %61 ], [ %1, %81 ], [ %.2, %72 ], [ %.029.lcssa, %49 ], [ %84, %.loopexit.loopexit.split.loop.exit62 ], [ %82, %.loopexit.loopexit.split.loop.exit ], [ %83, %.loopexit.loopexit.split.loop.exit60 ], [ %.02946, %13 ]
   ret ptr %.028
 }
 

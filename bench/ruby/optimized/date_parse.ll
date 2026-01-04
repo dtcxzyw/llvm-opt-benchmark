@@ -501,7 +501,7 @@ str_end_with_word.exit172:                        ; preds = %56, %57
   %68 = sub nsw i64 %43, %67
   br label %str_end_with_word.exit187.thread
 
-str_end_with_word.exit172.thread.thread:          ; preds = %str_end_with_word.exit172, %44, %52
+str_end_with_word.exit172.thread.thread:          ; preds = %str_end_with_word.exit172, %52, %44
   %69 = getelementptr i8, ptr %.sroa.2.0.i, i64 %43
   %70 = getelementptr i8, ptr %69, i64 -9
   %71 = load i8, ptr %70, align 1, !tbaa !20
@@ -554,7 +554,7 @@ str_end_with_word.exit.thread:                    ; preds = %RSTRING_PTR.exit, %
   %.not.i189 = icmp sgt i64 %12, 3
   br i1 %.not.i189, label %str_end_with_word.exit.thread.thread, label %str_end_with_word.exit187.thread
 
-str_end_with_word.exit.thread.thread:             ; preds = %17, %27, %str_end_with_word.exit.thread
+str_end_with_word.exit.thread.thread:             ; preds = %27, %17, %str_end_with_word.exit.thread
   %93 = tail call ptr @__ctype_b_loc() #11
   %94 = load ptr, ptr %93, align 8, !tbaa !17
   %95 = getelementptr i8, ptr %.sroa.2.0.i, i64 %12
@@ -605,15 +605,15 @@ str_end_with_word.exit202:                        ; preds = %106, %107
   %118 = sub nsw i64 %12, %117
   br label %str_end_with_word.exit187.thread
 
-str_end_with_word.exit187.thread:                 ; preds = %41, %str_end_with_word.exit.thread, %76, %str_end_with_word.exit172.thread.thread, %66, %90, %str_end_with_word.exit187, %str_end_with_word.exit202, %116
-  %.1137 = phi i1 [ false, %116 ], [ true, %str_end_with_word.exit202 ], [ true, %66 ], [ false, %90 ], [ true, %str_end_with_word.exit187 ], [ true, %str_end_with_word.exit172.thread.thread ], [ true, %76 ], [ true, %str_end_with_word.exit.thread ], [ true, %41 ]
-  %.1114 = phi i64 [ %118, %116 ], [ %12, %str_end_with_word.exit202 ], [ %68, %66 ], [ %92, %90 ], [ %12, %str_end_with_word.exit187 ], [ %12, %str_end_with_word.exit172.thread.thread ], [ %12, %76 ], [ %12, %str_end_with_word.exit.thread ], [ %12, %41 ]
+str_end_with_word.exit187.thread:                 ; preds = %41, %str_end_with_word.exit.thread, %str_end_with_word.exit172.thread.thread, %76, %66, %90, %str_end_with_word.exit187, %str_end_with_word.exit202, %116
+  %.1137 = phi i1 [ true, %str_end_with_word.exit202 ], [ false, %116 ], [ true, %66 ], [ false, %90 ], [ true, %str_end_with_word.exit187 ], [ true, %str_end_with_word.exit172.thread.thread ], [ true, %76 ], [ true, %41 ], [ true, %str_end_with_word.exit.thread ]
+  %.1114 = phi i64 [ %12, %str_end_with_word.exit202 ], [ %118, %116 ], [ %68, %66 ], [ %92, %90 ], [ %12, %str_end_with_word.exit187 ], [ %12, %str_end_with_word.exit172.thread.thread ], [ %12, %76 ], [ %12, %41 ], [ %12, %str_end_with_word.exit.thread ]
   %119 = icmp sgt i64 %.1114, 0
   br i1 %119, label %.lr.ph.i, label %shrunk_size.exit
 
-.lr.ph.i:                                         ; preds = %102, %str_end_with_word.exit.thread.thread, %str_end_with_word.exit187.thread
-  %.1114264 = phi i64 [ %.1114, %str_end_with_word.exit187.thread ], [ %12, %str_end_with_word.exit.thread.thread ], [ %12, %102 ]
-  %.1137262 = phi i1 [ %.1137, %str_end_with_word.exit187.thread ], [ true, %str_end_with_word.exit.thread.thread ], [ true, %102 ]
+.lr.ph.i:                                         ; preds = %str_end_with_word.exit.thread.thread, %102, %str_end_with_word.exit187.thread
+  %.1114264 = phi i64 [ %.1114, %str_end_with_word.exit187.thread ], [ %12, %102 ], [ %12, %str_end_with_word.exit.thread.thread ]
+  %.1137262 = phi i1 [ %.1137, %str_end_with_word.exit187.thread ], [ true, %102 ], [ true, %str_end_with_word.exit.thread.thread ]
   %120 = tail call ptr @__ctype_b_loc() #11
   %121 = load ptr, ptr %120, align 8, !tbaa !17
   br label %122
@@ -817,7 +817,7 @@ hash.exit.i:                                      ; preds = %183, %157
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %326
 
-.critedge.i:                                      ; preds = %205, %212, %214, %shrink_space.exit, %200, %hash.exit.i
+.critedge.i:                                      ; preds = %205, %212, %214, %shrink_space.exit, %hash.exit.i, %200
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %224 = icmp sgt i64 %.1114263, 3
@@ -920,7 +920,7 @@ hash.exit.i:                                      ; preds = %183, %157
   br label %273
 
 273:                                              ; preds = %265, %254
-  %.1117 = phi i64 [ %260, %254 ], [ %spec.select157, %265 ]
+  %.1117 = phi i64 [ %spec.select157, %265 ], [ %260, %254 ]
   %274 = mul nsw i64 %.1117, 36
   %275 = sub nsw i64 0, %239
   %276 = sub nsw i64 0, %274
@@ -1017,8 +1017,8 @@ hash.exit.i:                                      ; preds = %183, %157
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %326
 
-323:                                              ; preds = %234, %314
-  %.3112.ph = phi i64 [ 4, %234 ], [ %321, %314 ]
+323:                                              ; preds = %314, %234
+  %.3112.ph = phi i64 [ %321, %314 ], [ 4, %234 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %2, ptr %9, align 8, !tbaa !33
@@ -2466,8 +2466,8 @@ rbimpl_intern_const.exit506:                      ; preds = %.lr.ph.i504, %578
   br i1 %.not.i517, label %.lr.ph.i516, label %.sink.split, !llvm.loop !36
 
 .sink.split:                                      ; preds = %.lr.ph.i510, %.lr.ph.i516, %583, %581
-  %.lcssa.i515.sink = phi i64 [ %.pr.i507, %581 ], [ %.pr.i513, %583 ], [ %584, %.lr.ph.i516 ], [ %582, %.lr.ph.i510 ]
-  %.sink835 = phi i64 [ 3801, %581 ], [ 4001, %583 ], [ 4001, %.lr.ph.i516 ], [ 3801, %.lr.ph.i510 ]
+  %.lcssa.i515.sink = phi i64 [ %584, %.lr.ph.i516 ], [ %.pr.i507, %581 ], [ %.pr.i513, %583 ], [ %582, %.lr.ph.i510 ]
+  %.sink835 = phi i64 [ 4001, %.lr.ph.i516 ], [ 3801, %581 ], [ 4001, %583 ], [ 3801, %.lr.ph.i510 ]
   %585 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i515.sink) #13
   %586 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %570, i64 noundef 43, i32 noundef 1, i64 noundef %.sink835) #13
   %587 = tail call i64 @rb_hash_aset(i64 noundef %15, i64 noundef %585, i64 noundef %586) #13
@@ -2565,8 +2565,8 @@ rbimpl_intern_const.exit542:                      ; preds = %.lr.ph.i540, %599
   br i1 %.not.i553, label %.lr.ph.i552, label %.sink.split836, !llvm.loop !36
 
 .sink.split836:                                   ; preds = %.lr.ph.i546, %.lr.ph.i552, %604, %602
-  %.lcssa.i545.sink = phi i64 [ %.pr.i543, %602 ], [ %.pr.i549, %604 ], [ %605, %.lr.ph.i552 ], [ %603, %.lr.ph.i546 ]
-  %.sink838 = phi i64 [ 3801, %602 ], [ 4001, %604 ], [ 4001, %.lr.ph.i552 ], [ 3801, %.lr.ph.i546 ]
+  %.lcssa.i545.sink = phi i64 [ %605, %.lr.ph.i552 ], [ %.pr.i543, %602 ], [ %.pr.i549, %604 ], [ %603, %.lr.ph.i546 ]
+  %.sink838 = phi i64 [ 4001, %.lr.ph.i552 ], [ 3801, %602 ], [ 4001, %604 ], [ 3801, %.lr.ph.i546 ]
   %606 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i545.sink) #13
   %607 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %591, i64 noundef 43, i32 noundef 1, i64 noundef %.sink838) #13
   %608 = tail call i64 @rb_hash_aset(i64 noundef %15, i64 noundef %606, i64 noundef %607) #13
@@ -4998,7 +4998,7 @@ RSTRING_PTR.exit.i.i.i:                           ; preds = %38, %.split.i.i.i
   br i1 %exitcond.not.i.i.i, label %day_num.exit.i.i, label %RSTRING_PTR.exit.i.i.i, !llvm.loop !108
 
 day_num.exit.i.i:                                 ; preds = %38, %RSTRING_PTR.exit.i.i.i, %34, %RSTRING_PTR.exit.us.i.i.i
-  %.us-phi.i.i.i = phi i64 [ %indvars.iv11.i.i.i, %RSTRING_PTR.exit.us.i.i.i ], [ 7, %34 ], [ %indvars.iv.i.i.i, %RSTRING_PTR.exit.i.i.i ], [ 7, %38 ]
+  %.us-phi.i.i.i = phi i64 [ 7, %34 ], [ %indvars.iv11.i.i.i, %RSTRING_PTR.exit.us.i.i.i ], [ 7, %38 ], [ %indvars.iv.i.i.i, %RSTRING_PTR.exit.i.i.i ]
   %sext.i.i = shl i64 %.us-phi.i.i.i, 32
   %39 = ashr exact i64 %sext.i.i, 31
   %40 = or disjoint i64 %39, 1
@@ -5074,7 +5074,7 @@ RSTRING_PTR.exit.i41.i.i:                         ; preds = %64, %.split.i39.i.i
   br i1 %exitcond.not.i44.i.i, label %mon_num.exit.i.i, label %RSTRING_PTR.exit.i41.i.i, !llvm.loop !112
 
 mon_num.exit.i.i:                                 ; preds = %64, %RSTRING_PTR.exit.i41.i.i, %60, %RSTRING_PTR.exit.us.i47.i.i
-  %.us-phi.i45.i.i = phi i64 [ %indvars.iv11.i48.i.i, %RSTRING_PTR.exit.us.i47.i.i ], [ 12, %60 ], [ %indvars.iv.i42.i.i, %RSTRING_PTR.exit.i41.i.i ], [ 12, %64 ]
+  %.us-phi.i45.i.i = phi i64 [ 12, %60 ], [ %indvars.iv11.i48.i.i, %RSTRING_PTR.exit.us.i47.i.i ], [ 12, %64 ], [ %indvars.iv.i42.i.i, %RSTRING_PTR.exit.i41.i.i ]
   %65 = shl i64 %.us-phi.i45.i.i, 32
   %sext89.i.i = add i64 %65, 4294967296
   %66 = ashr exact i64 %sext89.i.i, 31
@@ -5324,7 +5324,7 @@ RSTRING_PTR.exit.i.i.i:                           ; preds = %38, %.split.i.i.i
   br i1 %exitcond.not.i.i.i, label %day_num.exit.i.i, label %RSTRING_PTR.exit.i.i.i, !llvm.loop !108
 
 day_num.exit.i.i:                                 ; preds = %38, %RSTRING_PTR.exit.i.i.i, %34, %RSTRING_PTR.exit.us.i.i.i
-  %.us-phi.i.i.i = phi i64 [ %indvars.iv11.i.i.i, %RSTRING_PTR.exit.us.i.i.i ], [ 7, %34 ], [ %indvars.iv.i.i.i, %RSTRING_PTR.exit.i.i.i ], [ 7, %38 ]
+  %.us-phi.i.i.i = phi i64 [ 7, %34 ], [ %indvars.iv11.i.i.i, %RSTRING_PTR.exit.us.i.i.i ], [ 7, %38 ], [ %indvars.iv.i.i.i, %RSTRING_PTR.exit.i.i.i ]
   %sext.i.i = shl i64 %.us-phi.i.i.i, 32
   %39 = ashr exact i64 %sext.i.i, 31
   %40 = or disjoint i64 %39, 1
@@ -5397,7 +5397,7 @@ RSTRING_PTR.exit.i38.i.i:                         ; preds = %63, %.split.i36.i.i
   br i1 %exitcond.not.i41.i.i, label %mon_num.exit.i.i, label %RSTRING_PTR.exit.i38.i.i, !llvm.loop !112
 
 mon_num.exit.i.i:                                 ; preds = %63, %RSTRING_PTR.exit.i38.i.i, %59, %RSTRING_PTR.exit.us.i44.i.i
-  %.us-phi.i42.i.i = phi i64 [ %indvars.iv11.i45.i.i, %RSTRING_PTR.exit.us.i44.i.i ], [ 12, %59 ], [ %indvars.iv.i39.i.i, %RSTRING_PTR.exit.i38.i.i ], [ 12, %63 ]
+  %.us-phi.i42.i.i = phi i64 [ 12, %59 ], [ %indvars.iv11.i45.i.i, %RSTRING_PTR.exit.us.i44.i.i ], [ 12, %63 ], [ %indvars.iv.i39.i.i, %RSTRING_PTR.exit.i38.i.i ]
   %64 = shl i64 %.us-phi.i42.i.i, 32
   %sext85.i.i = add i64 %64, 4294967296
   %65 = ashr exact i64 %sext85.i.i, 31
@@ -5600,7 +5600,7 @@ RSTRING_PTR.exit.i.i.i24:                         ; preds = %132, %.split.i.i.i2
   br i1 %exitcond.not.i.i.i27, label %day_num.exit.i.i28, label %RSTRING_PTR.exit.i.i.i24, !llvm.loop !108
 
 day_num.exit.i.i28:                               ; preds = %132, %RSTRING_PTR.exit.i.i.i24, %128, %RSTRING_PTR.exit.us.i.i.i33
-  %.us-phi.i.i.i29 = phi i64 [ %indvars.iv11.i.i.i34, %RSTRING_PTR.exit.us.i.i.i33 ], [ 7, %128 ], [ %indvars.iv.i.i.i25, %RSTRING_PTR.exit.i.i.i24 ], [ 7, %132 ]
+  %.us-phi.i.i.i29 = phi i64 [ 7, %128 ], [ %indvars.iv11.i.i.i34, %RSTRING_PTR.exit.us.i.i.i33 ], [ 7, %132 ], [ %indvars.iv.i.i.i25, %RSTRING_PTR.exit.i.i.i24 ]
   %sext.i.i30 = shl i64 %.us-phi.i.i.i29, 32
   %133 = ashr exact i64 %sext.i.i30, 31
   %134 = or disjoint i64 %133, 1
@@ -5673,7 +5673,7 @@ RSTRING_PTR.exit.i46.i.i:                         ; preds = %157, %.split.i44.i.
   br i1 %exitcond.not.i49.i.i, label %mon_num.exit.i.i31, label %RSTRING_PTR.exit.i46.i.i, !llvm.loop !112
 
 mon_num.exit.i.i31:                               ; preds = %157, %RSTRING_PTR.exit.i46.i.i, %153, %RSTRING_PTR.exit.us.i52.i.i
-  %.us-phi.i50.i.i = phi i64 [ %indvars.iv11.i53.i.i, %RSTRING_PTR.exit.us.i52.i.i ], [ 12, %153 ], [ %indvars.iv.i47.i.i, %RSTRING_PTR.exit.i46.i.i ], [ 12, %157 ]
+  %.us-phi.i50.i.i = phi i64 [ 12, %153 ], [ %indvars.iv11.i53.i.i, %RSTRING_PTR.exit.us.i52.i.i ], [ 12, %157 ], [ %indvars.iv.i47.i.i, %RSTRING_PTR.exit.i46.i.i ]
   %158 = shl i64 %.us-phi.i50.i.i, 32
   %sext106.i.i = add i64 %158, 4294967296
   %159 = ashr exact i64 %sext106.i.i, 31
@@ -5930,7 +5930,7 @@ RSTRING_PTR.exit.i.i.i53:                         ; preds = %236, %.split.i.i.i5
   br i1 %exitcond.not.i.i.i56, label %day_num.exit.i.i57, label %RSTRING_PTR.exit.i.i.i53, !llvm.loop !108
 
 day_num.exit.i.i57:                               ; preds = %236, %RSTRING_PTR.exit.i.i.i53, %232, %RSTRING_PTR.exit.us.i.i.i73
-  %.us-phi.i.i.i58 = phi i64 [ %indvars.iv11.i.i.i74, %RSTRING_PTR.exit.us.i.i.i73 ], [ 7, %232 ], [ %indvars.iv.i.i.i54, %RSTRING_PTR.exit.i.i.i53 ], [ 7, %236 ]
+  %.us-phi.i.i.i58 = phi i64 [ 7, %232 ], [ %indvars.iv11.i.i.i74, %RSTRING_PTR.exit.us.i.i.i73 ], [ 7, %236 ], [ %indvars.iv.i.i.i54, %RSTRING_PTR.exit.i.i.i53 ]
   %sext.i.i59 = shl i64 %.us-phi.i.i.i58, 32
   %237 = ashr exact i64 %sext.i.i59, 31
   %238 = or disjoint i64 %237, 1
@@ -5986,7 +5986,7 @@ RSTRING_PTR.exit.i28.i.i:                         ; preds = %255, %.split.i26.i.
   br i1 %exitcond.not.i31.i.i, label %mon_num.exit.i.i60, label %RSTRING_PTR.exit.i28.i.i, !llvm.loop !112
 
 mon_num.exit.i.i60:                               ; preds = %255, %RSTRING_PTR.exit.i28.i.i, %251, %RSTRING_PTR.exit.us.i34.i.i
-  %.us-phi.i32.i.i = phi i64 [ %indvars.iv11.i35.i.i, %RSTRING_PTR.exit.us.i34.i.i ], [ 12, %251 ], [ %indvars.iv.i29.i.i, %RSTRING_PTR.exit.i28.i.i ], [ 12, %255 ]
+  %.us-phi.i32.i.i = phi i64 [ 12, %251 ], [ %indvars.iv11.i35.i.i, %RSTRING_PTR.exit.us.i34.i.i ], [ 12, %255 ], [ %indvars.iv.i29.i.i, %RSTRING_PTR.exit.i28.i.i ]
   %256 = shl i64 %.us-phi.i32.i.i, 32
   %sext69.i.i = add i64 %256, 4294967296
   %257 = ashr exact i64 %sext69.i.i, 31
@@ -6184,7 +6184,7 @@ rbimpl_intern_const.exit.i.i:                     ; preds = %.lr.ph.i.i.i, %10
   br label %gengo.exit.i.i
 
 gengo.exit.i.i:                                   ; preds = %35, %34, %.thread.i.i, %33, %32, %30, %30
-  %.0.i.i.i = phi i64 [ 1, %35 ], [ 3823, %32 ], [ 3851, %33 ], [ 3977, %.thread.i.i ], [ 4037, %34 ], [ 3735, %30 ], [ 3735, %30 ]
+  %.0.i.i.i = phi i64 [ 1, %35 ], [ 4037, %34 ], [ 3823, %32 ], [ 3851, %33 ], [ 3977, %.thread.i.i ], [ 3735, %30 ], [ 3735, %30 ]
   %.pr.i.i2.i = load i64, ptr @jisx0301_cb.rbimpl_id, align 8, !tbaa !6
   %.not4.i.i3.i = icmp eq i64 %.pr.i.i2.i, 0
   br i1 %.not4.i.i3.i, label %.lr.ph.i.i6.i, label %rbimpl_intern_const.exit.i4.i
@@ -6589,7 +6589,7 @@ RSTRING_PTR.exit.i:                               ; preds = %17, %.split.i
   br i1 %exitcond.not.i, label %day_num.exit, label %RSTRING_PTR.exit.i, !llvm.loop !108
 
 day_num.exit:                                     ; preds = %RSTRING_PTR.exit.i, %17, %RSTRING_PTR.exit.us.i, %13
-  %.us-phi.i = phi i64 [ %indvars.iv11.i, %RSTRING_PTR.exit.us.i ], [ 7, %13 ], [ %indvars.iv.i, %RSTRING_PTR.exit.i ], [ 7, %17 ]
+  %.us-phi.i = phi i64 [ 7, %13 ], [ %indvars.iv11.i, %RSTRING_PTR.exit.us.i ], [ 7, %17 ], [ %indvars.iv.i, %RSTRING_PTR.exit.i ]
   %sext = shl i64 %.us-phi.i, 32
   %18 = ashr exact i64 %sext, 31
   %19 = or disjoint i64 %18, 1
@@ -6908,7 +6908,7 @@ RSTRING_PTR.exit.i:                               ; preds = %18, %.split.i
   br i1 %exitcond.not.i, label %mon_num.exit, label %RSTRING_PTR.exit.i, !llvm.loop !112
 
 mon_num.exit:                                     ; preds = %RSTRING_PTR.exit.i, %18, %RSTRING_PTR.exit.us.i, %14
-  %.us-phi.i = phi i64 [ %indvars.iv11.i, %RSTRING_PTR.exit.us.i ], [ 12, %14 ], [ %indvars.iv.i, %RSTRING_PTR.exit.i ], [ 12, %18 ]
+  %.us-phi.i = phi i64 [ 12, %14 ], [ %indvars.iv11.i, %RSTRING_PTR.exit.us.i ], [ 12, %18 ], [ %indvars.iv.i, %RSTRING_PTR.exit.i ]
   %19 = icmp eq i64 %5, 4
   br i1 %19, label %32, label %20
 
@@ -7028,10 +7028,10 @@ RSTRING_PTR.exit:                                 ; preds = %31, %35
   %37 = icmp eq i8 %36, 39
   br i1 %37, label %.thread342, label %.critedge
 
-.thread342:                                       ; preds = %.thread327, %RSTRING_PTR.exit, %21, %19
-  %.1349 = phi i64 [ %1, %21 ], [ %1, %19 ], [ %.0178.ph331, %RSTRING_PTR.exit ], [ %.0178.ph331, %.thread327 ]
-  %.1179348 = phi i64 [ %3, %21 ], [ %3, %19 ], [ 4, %RSTRING_PTR.exit ], [ 4, %.thread327 ]
-  %.1175324346 = phi i64 [ %.0174, %21 ], [ 4, %19 ], [ %.1175.ph332, %RSTRING_PTR.exit ], [ %.1175.ph332, %.thread327 ]
+.thread342:                                       ; preds = %.thread327, %RSTRING_PTR.exit, %19, %21
+  %.1349 = phi i64 [ %.0178.ph331, %RSTRING_PTR.exit ], [ %1, %21 ], [ %1, %19 ], [ %.0178.ph331, %.thread327 ]
+  %.1179348 = phi i64 [ 4, %RSTRING_PTR.exit ], [ %3, %21 ], [ %3, %19 ], [ 4, %.thread327 ]
+  %.1175324346 = phi i64 [ %.1175.ph332, %RSTRING_PTR.exit ], [ %.0174, %21 ], [ 4, %19 ], [ %.1175.ph332, %.thread327 ]
   %38 = inttoptr i64 %.1349 to ptr
   %39 = load i64, ptr %38, align 8, !tbaa !13, !noalias !153
   %40 = and i64 %39, 8192
@@ -7127,10 +7127,10 @@ digit_span.exit:                                  ; preds = %64, %71, %57
   %79 = tail call i64 @rb_str_new(ptr noundef nonnull %.0191394, i64 noundef %78) #13
   br label %.critedge
 
-.critedge:                                        ; preds = %53, %RSTRING_PTR.exit, %29, %RSTRING_END.exit, %23, %75, %digit_span.exit
-  %.1175324347 = phi i64 [ %.1175324346, %75 ], [ %.1175324346, %digit_span.exit ], [ %.0174, %23 ], [ %.1175324346, %RSTRING_END.exit ], [ %.1175.ph332, %29 ], [ %.1175.ph332, %RSTRING_PTR.exit ], [ %.1175324346, %53 ]
-  %.3181 = phi i64 [ %79, %75 ], [ %.1179348, %digit_span.exit ], [ 4, %23 ], [ %.1179348, %RSTRING_END.exit ], [ %.0178.ph331, %29 ], [ %.0178.ph331, %RSTRING_PTR.exit ], [ %.1179348, %53 ]
-  %.3 = phi i64 [ %.1179348, %75 ], [ %.1349, %digit_span.exit ], [ 4, %23 ], [ %.1349, %RSTRING_END.exit ], [ 4, %29 ], [ 4, %RSTRING_PTR.exit ], [ %.1349, %53 ]
+.critedge:                                        ; preds = %53, %29, %RSTRING_PTR.exit, %RSTRING_END.exit, %23, %75, %digit_span.exit
+  %.1175324347 = phi i64 [ %.1175.ph332, %29 ], [ %.1175324346, %digit_span.exit ], [ %.1175324346, %75 ], [ %.0174, %23 ], [ %.1175324346, %RSTRING_END.exit ], [ %.1175.ph332, %RSTRING_PTR.exit ], [ %.1175324346, %53 ]
+  %.3181 = phi i64 [ %.0178.ph331, %29 ], [ %.1179348, %digit_span.exit ], [ %79, %75 ], [ 4, %23 ], [ %.1179348, %RSTRING_END.exit ], [ %.0178.ph331, %RSTRING_PTR.exit ], [ %.1179348, %53 ]
+  %.3 = phi i64 [ 4, %29 ], [ %.1349, %digit_span.exit ], [ %.1179348, %75 ], [ 4, %23 ], [ %.1349, %RSTRING_END.exit ], [ 4, %RSTRING_PTR.exit ], [ %.1349, %53 ]
   %80 = icmp eq i64 %.1175324347, 4
   br i1 %80, label %94, label %81
 
@@ -7286,7 +7286,7 @@ RSTRING_END.exit250:                              ; preds = %.thread352, %111
   br i1 %exitcond.not.i255, label %digit_span.exit256, label %134, !llvm.loop !157
 
 digit_span.exit256:                               ; preds = %134, %141
-  %.0.lcssa.i251 = phi i64 [ %133, %141 ], [ %.07.i253, %134 ]
+  %.0.lcssa.i251 = phi i64 [ %.07.i253, %134 ], [ %133, %141 ]
   %.0.lcssa.i251.fr = freeze i64 %.0.lcssa.i251
   %143 = getelementptr inbounds nuw i8, ptr %.1195365, i64 %.0.lcssa.i251.fr
   %144 = icmp ugt i64 %.0.lcssa.i251.fr, 2
@@ -7427,7 +7427,7 @@ RSTRING_END.exit278:                              ; preds = %171, %176
   br i1 %exitcond.not.i283, label %digit_span.exit284, label %193, !llvm.loop !157
 
 digit_span.exit284:                               ; preds = %193, %200
-  %.0.lcssa.i279 = phi i64 [ %192, %200 ], [ %.07.i281, %193 ]
+  %.0.lcssa.i279 = phi i64 [ %.07.i281, %193 ], [ %192, %200 ]
   %202 = add nsw i64 %.0.lcssa.i279, 1
   %203 = icmp ult i64 %202, 1024
   br i1 %203, label %204, label %206
@@ -7533,7 +7533,7 @@ RSTRING_END.exit300:                              ; preds = %218, %223
   br i1 %exitcond.not.i305, label %digit_span.exit306, label %240, !llvm.loop !157
 
 digit_span.exit306:                               ; preds = %240, %247
-  %.0.lcssa.i301 = phi i64 [ %239, %247 ], [ %.07.i303, %240 ]
+  %.0.lcssa.i301 = phi i64 [ %.07.i303, %240 ], [ %239, %247 ]
   %249 = add nsw i64 %.0.lcssa.i301, 1
   %250 = icmp ult i64 %249, 1024
   br i1 %250, label %251, label %253
@@ -7649,7 +7649,7 @@ RSTRING_PTR.exit.i:                               ; preds = %18, %.split.i
   br i1 %exitcond.not.i, label %mon_num.exit, label %RSTRING_PTR.exit.i, !llvm.loop !112
 
 mon_num.exit:                                     ; preds = %RSTRING_PTR.exit.i, %18, %RSTRING_PTR.exit.us.i, %14
-  %.us-phi.i = phi i64 [ %indvars.iv11.i, %RSTRING_PTR.exit.us.i ], [ 12, %14 ], [ %indvars.iv.i, %RSTRING_PTR.exit.i ], [ 12, %18 ]
+  %.us-phi.i = phi i64 [ 12, %14 ], [ %indvars.iv11.i, %RSTRING_PTR.exit.us.i ], [ 12, %18 ], [ %indvars.iv.i, %RSTRING_PTR.exit.i ]
   %19 = icmp eq i64 %5, 4
   br i1 %19, label %32, label %20
 
@@ -7746,7 +7746,7 @@ RSTRING_PTR.exit:                                 ; preds = %2, %11
   br label %gengo.exit
 
 gengo.exit:                                       ; preds = %RSTRING_PTR.exit, %RSTRING_PTR.exit, %13, %14, %15, %16, %17
-  %.0.i = phi i64 [ 1, %17 ], [ 3823, %13 ], [ 3851, %14 ], [ 3977, %15 ], [ 4037, %16 ], [ 3735, %RSTRING_PTR.exit ], [ 3735, %RSTRING_PTR.exit ]
+  %.0.i = phi i64 [ 1, %17 ], [ 4037, %16 ], [ 3823, %13 ], [ 3851, %14 ], [ 3977, %15 ], [ 3735, %RSTRING_PTR.exit ], [ 3735, %RSTRING_PTR.exit ]
   %.pr.i = load i64, ptr @parse_jis_cb.rbimpl_id, align 8, !tbaa !6
   %.not4.i = icmp eq i64 %.pr.i, 0
   br i1 %.not4.i, label %.lr.ph.i, label %rbimpl_intern_const.exit
@@ -7837,7 +7837,7 @@ RSTRING_PTR.exit.i:                               ; preds = %17, %.split.i
   br i1 %exitcond.not.i, label %mon_num.exit, label %RSTRING_PTR.exit.i, !llvm.loop !112
 
 mon_num.exit:                                     ; preds = %RSTRING_PTR.exit.i, %17, %RSTRING_PTR.exit.us.i, %13
-  %.us-phi.i = phi i64 [ %indvars.iv11.i, %RSTRING_PTR.exit.us.i ], [ 12, %13 ], [ %indvars.iv.i, %RSTRING_PTR.exit.i ], [ 12, %17 ]
+  %.us-phi.i = phi i64 [ 12, %13 ], [ %indvars.iv11.i, %RSTRING_PTR.exit.us.i ], [ 12, %17 ], [ %indvars.iv.i, %RSTRING_PTR.exit.i ]
   %18 = shl i64 %.us-phi.i, 32
   %sext = add i64 %18, 4294967296
   %19 = ashr exact i64 %sext, 31
@@ -7887,7 +7887,7 @@ RSTRING_PTR.exit.i:                               ; preds = %17, %.split.i
   br i1 %exitcond.not.i, label %mon_num.exit, label %RSTRING_PTR.exit.i, !llvm.loop !112
 
 mon_num.exit:                                     ; preds = %RSTRING_PTR.exit.i, %17, %RSTRING_PTR.exit.us.i, %13
-  %.us-phi.i = phi i64 [ %indvars.iv11.i, %RSTRING_PTR.exit.us.i ], [ 12, %13 ], [ %indvars.iv.i, %RSTRING_PTR.exit.i ], [ 12, %17 ]
+  %.us-phi.i = phi i64 [ 12, %13 ], [ %indvars.iv11.i, %RSTRING_PTR.exit.us.i ], [ 12, %17 ], [ %indvars.iv.i, %RSTRING_PTR.exit.i ]
   %18 = shl i64 %.us-phi.i, 32
   %sext = add i64 %18, 4294967296
   %19 = ashr exact i64 %sext, 31
@@ -8333,7 +8333,7 @@ RSTRING_PTR.exit.i:                               ; preds = %17, %.split.i
   br i1 %exitcond.not.i, label %mon_num.exit, label %RSTRING_PTR.exit.i, !llvm.loop !112
 
 mon_num.exit:                                     ; preds = %RSTRING_PTR.exit.i, %17, %RSTRING_PTR.exit.us.i, %13
-  %.us-phi.i = phi i64 [ %indvars.iv11.i, %RSTRING_PTR.exit.us.i ], [ 12, %13 ], [ %indvars.iv.i, %RSTRING_PTR.exit.i ], [ 12, %17 ]
+  %.us-phi.i = phi i64 [ 12, %13 ], [ %indvars.iv11.i, %RSTRING_PTR.exit.us.i ], [ 12, %17 ], [ %indvars.iv.i, %RSTRING_PTR.exit.i ]
   %18 = shl i64 %.us-phi.i, 32
   %sext = add i64 %18, 4294967296
   %19 = ashr exact i64 %sext, 31

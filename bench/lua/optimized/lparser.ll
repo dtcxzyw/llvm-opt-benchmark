@@ -2121,8 +2121,8 @@ checknext.exit.i130:                              ; preds = %732
   unreachable
 
 getlocalattribute.exit:                           ; preds = %str_checkname.exit132, %checknext.exit.i130, %738
-  %744 = phi i1 [ false, %checknext.exit.i130 ], [ true, %738 ], [ false, %str_checkname.exit132 ]
-  %.1.i127 = phi i8 [ 1, %checknext.exit.i130 ], [ 2, %738 ], [ 0, %str_checkname.exit132 ]
+  %744 = phi i1 [ true, %738 ], [ false, %checknext.exit.i130 ], [ false, %str_checkname.exit132 ]
+  %.1.i127 = phi i8 [ 2, %738 ], [ 1, %checknext.exit.i130 ], [ 0, %str_checkname.exit132 ]
   %745 = load ptr, ptr %714, align 8, !tbaa !60
   %746 = load ptr, ptr %717, align 8, !tbaa !38
   %747 = getelementptr inbounds nuw i8, ptr %746, i64 8
@@ -2562,8 +2562,8 @@ luaY_nvarstack.exit152:                           ; preds = %907, %.thread.i.i15
   br label %retstat.exit
 
 retstat.exit:                                     ; preds = %luaY_nvarstack.exit152, %luaY_nvarstack.exit152, %luaY_nvarstack.exit152, %luaY_nvarstack.exit152, %luaY_nvarstack.exit152, %luaY_nvarstack.exit152, %925, %929, %934, %947, %949
-  %.020.i = phi i32 [ 1, %947 ], [ %922, %949 ], [ -1, %934 ], [ -1, %929 ], [ -1, %925 ], [ 0, %luaY_nvarstack.exit152 ], [ 0, %luaY_nvarstack.exit152 ], [ 0, %luaY_nvarstack.exit152 ], [ 0, %luaY_nvarstack.exit152 ], [ 0, %luaY_nvarstack.exit152 ], [ 0, %luaY_nvarstack.exit152 ]
-  %.0.i43 = phi i32 [ %948, %947 ], [ %.2.i.i145, %949 ], [ %.2.i.i145, %934 ], [ %.2.i.i145, %929 ], [ %.2.i.i145, %925 ], [ %.2.i.i145, %luaY_nvarstack.exit152 ], [ %.2.i.i145, %luaY_nvarstack.exit152 ], [ %.2.i.i145, %luaY_nvarstack.exit152 ], [ %.2.i.i145, %luaY_nvarstack.exit152 ], [ %.2.i.i145, %luaY_nvarstack.exit152 ], [ %.2.i.i145, %luaY_nvarstack.exit152 ]
+  %.020.i = phi i32 [ %922, %949 ], [ -1, %925 ], [ 1, %947 ], [ 0, %luaY_nvarstack.exit152 ], [ -1, %934 ], [ -1, %929 ], [ 0, %luaY_nvarstack.exit152 ], [ 0, %luaY_nvarstack.exit152 ], [ 0, %luaY_nvarstack.exit152 ], [ 0, %luaY_nvarstack.exit152 ], [ 0, %luaY_nvarstack.exit152 ]
+  %.0.i43 = phi i32 [ %.2.i.i145, %949 ], [ %.2.i.i145, %925 ], [ %948, %947 ], [ %.2.i.i145, %luaY_nvarstack.exit152 ], [ %.2.i.i145, %934 ], [ %.2.i.i145, %929 ], [ %.2.i.i145, %luaY_nvarstack.exit152 ], [ %.2.i.i145, %luaY_nvarstack.exit152 ], [ %.2.i.i145, %luaY_nvarstack.exit152 ], [ %.2.i.i145, %luaY_nvarstack.exit152 ], [ %.2.i.i145, %luaY_nvarstack.exit152 ]
   call void @luaK_ret(ptr noundef nonnull %901, i32 noundef %.0.i43, i32 noundef %.020.i) #11
   %950 = load i32, ptr %30, align 8, !tbaa !91
   %951 = icmp eq i32 %950, 59
@@ -2817,8 +2817,8 @@ define internal fastcc range(i32 0, 22) i32 @subexpr(ptr noundef nonnull %0, ptr
 11:                                               ; preds = %3
   br label %12
 
-12:                                               ; preds = %3, %9, %10, %11
-  %.0.i.ph = phi i32 [ 2, %3 ], [ 3, %11 ], [ 1, %10 ], [ 0, %9 ]
+12:                                               ; preds = %3, %11, %9, %10
+  %.0.i.ph = phi i32 [ 2, %3 ], [ 1, %10 ], [ 0, %9 ], [ 3, %11 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %14 = load i32, ptr %13, align 4, !tbaa !113
   tail call void @luaX_next(ptr noundef nonnull %0) #11
@@ -3026,8 +3026,8 @@ simpleexp.exit:                                   ; preds = %66, %65, %62, %61, 
 87:                                               ; preds = %simpleexp.exit
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %68, %69, %70, %71, %72, %73, %74, %75, %76, %77, %78, %79, %80, %81, %82, %83, %84, %85, %86, %87, %simpleexp.exit
-  %.0.i32.ph = phi i32 [ 0, %simpleexp.exit ], [ 20, %87 ], [ 19, %86 ], [ 18, %85 ], [ 17, %84 ], [ 15, %83 ], [ 14, %82 ], [ 13, %81 ], [ 16, %80 ], [ 12, %79 ], [ 11, %78 ], [ 10, %77 ], [ 9, %76 ], [ 8, %75 ], [ 7, %74 ], [ 6, %73 ], [ 5, %72 ], [ 4, %71 ], [ 3, %70 ], [ 2, %69 ], [ 1, %68 ]
+.lr.ph:                                           ; preds = %87, %68, %69, %70, %71, %72, %73, %74, %75, %76, %77, %78, %79, %80, %81, %82, %83, %84, %85, %86, %simpleexp.exit
+  %.0.i32.ph = phi i32 [ 0, %simpleexp.exit ], [ 19, %86 ], [ 18, %85 ], [ 17, %84 ], [ 15, %83 ], [ 14, %82 ], [ 13, %81 ], [ 16, %80 ], [ 12, %79 ], [ 11, %78 ], [ 10, %77 ], [ 9, %76 ], [ 8, %75 ], [ 7, %74 ], [ 6, %73 ], [ 5, %72 ], [ 4, %71 ], [ 3, %70 ], [ 2, %69 ], [ 1, %68 ], [ 20, %87 ]
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %90 = trunc nuw i32 %2 to i8
@@ -5098,7 +5098,7 @@ reglevel.exit41.thread.i:                         ; preds = %233, %247, %regleve
   br label %solvegotos.exit
 
 solvegotos.exit:                                  ; preds = %reglevel.exit41.thread.us.i, %reglevel.exit41.thread.us.us.i, %reglevel.exit.i, %._crit_edge.loopexit.i
-  %255 = phi ptr [ %.pre65.i, %._crit_edge.loopexit.i ], [ %93, %reglevel.exit.i ], [ %93, %reglevel.exit41.thread.us.us.i ], [ %93, %reglevel.exit41.thread.us.i ]
+  %255 = phi ptr [ %93, %reglevel.exit41.thread.us.us.i ], [ %93, %reglevel.exit.i ], [ %.pre65.i, %._crit_edge.loopexit.i ], [ %93, %reglevel.exit41.thread.us.i ]
   %256 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %257 = load i32, ptr %256, align 8, !tbaa !76
   %258 = getelementptr inbounds nuw i8, ptr %255, i64 40
@@ -5614,7 +5614,7 @@ check_readonly.exit:                              ; preds = %10, %22, %36, %46
   br label %.thread46
 
 .thread46:                                        ; preds = %94, %86, %101, %95, %85, %79, %77, %70
-  %.2.i = phi i32 [ 1, %85 ], [ %.02.i, %79 ], [ %.02.i, %77 ], [ 1, %101 ], [ %.1.i, %95 ], [ %.1.i, %94 ], [ %.02.i, %70 ], [ %.02.i, %86 ]
+  %.2.i = phi i32 [ 1, %85 ], [ %.02.i, %79 ], [ %.02.i, %77 ], [ 1, %101 ], [ %.1.i, %95 ], [ %.02.i, %86 ], [ %.1.i, %94 ], [ %.02.i, %70 ]
   %102 = load ptr, ptr %.0321.i, align 8, !tbaa !135
   %.not.i37 = icmp eq ptr %102, null
   br i1 %.not.i37, label %103, label %70

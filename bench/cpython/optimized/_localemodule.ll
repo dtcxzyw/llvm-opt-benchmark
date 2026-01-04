@@ -283,7 +283,7 @@ define internal ptr @_locale_setlocale(ptr noundef %0, ptr noundef readonly capt
   call void @PyErr_SetString(ptr noundef %31, ptr noundef nonnull @.str.14) #8
   br label %.thread
 
-.thread:                                          ; preds = %30, %24
+.thread:                                          ; preds = %24, %30
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_locale_setlocale_impl.exit
 
@@ -323,7 +323,7 @@ define internal ptr @_locale_setlocale(ptr noundef %0, ptr noundef readonly capt
   br label %_locale_setlocale_impl.exit
 
 _locale_setlocale_impl.exit:                      ; preds = %45, %42, %38, %35, %.thread, %32, %6, %12
-  %.020 = phi ptr [ null, %12 ], [ null, %32 ], [ null, %6 ], [ null, %.thread ], [ null, %35 ], [ null, %42 ], [ %46, %45 ], [ %39, %38 ]
+  %.020 = phi ptr [ null, %12 ], [ null, %6 ], [ null, %.thread ], [ null, %32 ], [ %39, %38 ], [ null, %42 ], [ null, %35 ], [ %46, %45 ]
   ret ptr %.020
 }
 
@@ -532,7 +532,7 @@ Py_DECREF.exit82.i.i:                             ; preds = %98, %95, %91
   br label %.thread97.i.i
 
 .thread97.i.i:                                    ; preds = %.thread109.i.i, %Py_DECREF.exit82.i.i, %Py_DECREF.exit80.i.i, %73, %Py_DECREF.exit78.i.i, %60, %Py_DECREF.exit.i.i, %.thread.i.i
-  %99 = phi i1 [ true, %.thread109.i.i ], [ false, %Py_DECREF.exit82.i.i ], [ true, %.thread.i.i ], [ true, %Py_DECREF.exit.i.i ], [ true, %60 ], [ true, %Py_DECREF.exit78.i.i ], [ true, %73 ], [ true, %Py_DECREF.exit80.i.i ]
+  %99 = phi i1 [ false, %Py_DECREF.exit82.i.i ], [ true, %Py_DECREF.exit.i.i ], [ true, %Py_DECREF.exit78.i.i ], [ true, %.thread109.i.i ], [ true, %.thread.i.i ], [ true, %60 ], [ true, %73 ], [ true, %Py_DECREF.exit80.i.i ]
   br i1 %.046.i.i, label %locale_decode_monetary.exit.i, label %100
 
 100:                                              ; preds = %.thread97.i.i
@@ -1144,7 +1144,7 @@ Py_DECREF.exit149.sink.split.i:                   ; preds = %368, %364
   br label %_locale_localeconv_impl.exit
 
 _locale_localeconv_impl.exit:                     ; preds = %2, %363, %364, %Py_DECREF.exit.i, %368, %Py_DECREF.exit149.sink.split.i
-  %.0.i = phi ptr [ null, %2 ], [ %5, %363 ], [ %5, %364 ], [ null, %Py_DECREF.exit.i ], [ null, %368 ], [ %.0.ph.i, %Py_DECREF.exit149.sink.split.i ]
+  %.0.i = phi ptr [ null, %368 ], [ null, %2 ], [ %5, %363 ], [ %5, %364 ], [ null, %Py_DECREF.exit.i ], [ %.0.ph.i, %Py_DECREF.exit149.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0.i
@@ -1213,7 +1213,7 @@ define internal ptr @_locale_strcoll(ptr readnone captures(none) %0, ptr noundef
   br label %_locale_strcoll_impl.exit
 
 _locale_strcoll_impl.exit:                        ; preds = %.thread7.sink.split.i, %19, %4, %18, %11
-  %.0 = phi ptr [ null, %18 ], [ null, %11 ], [ null, %4 ], [ null, %19 ], [ %.011411.ph.i, %.thread7.sink.split.i ]
+  %.0 = phi ptr [ null, %4 ], [ null, %18 ], [ null, %11 ], [ null, %19 ], [ %.011411.ph.i, %.thread7.sink.split.i ]
   ret ptr %.0
 }
 
@@ -1433,7 +1433,7 @@ define internal ptr @_locale_dgettext(ptr readnone captures(none) %0, ptr nounde
   call void @PyErr_SetString(ptr noundef %22, ptr noundef nonnull @.str.14) #8
   br label %.thread
 
-.thread:                                          ; preds = %21, %15
+.thread:                                          ; preds = %15, %21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %43
 
@@ -1483,7 +1483,7 @@ define internal ptr @_locale_dgettext(ptr readnone captures(none) %0, ptr nounde
   br label %43
 
 43:                                               ; preds = %.thread, %24, %31, %38, %40, %6, %32
-  %.022 = phi ptr [ null, %32 ], [ null, %38 ], [ %42, %40 ], [ null, %31 ], [ null, %24 ], [ null, %6 ], [ null, %.thread ]
+  %.022 = phi ptr [ null, %32 ], [ null, %38 ], [ %42, %40 ], [ null, %31 ], [ null, %.thread ], [ null, %24 ], [ null, %6 ]
   ret ptr %.022
 }
 
@@ -1530,7 +1530,7 @@ define internal ptr @_locale_dcgettext(ptr readnone captures(none) %0, ptr nound
   call void @PyErr_SetString(ptr noundef %22, ptr noundef nonnull @.str.14) #8
   br label %.thread
 
-.thread:                                          ; preds = %21, %15
+.thread:                                          ; preds = %15, %21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %51
 
@@ -1597,7 +1597,7 @@ define internal ptr @_locale_dcgettext(ptr readnone captures(none) %0, ptr nound
   br label %51
 
 51:                                               ; preds = %.thread, %24, %31, %38, %6, %32, %47, %.split26, %.split
-  %.024 = phi ptr [ null, %32 ], [ null, %38 ], [ null, %47 ], [ null, %31 ], [ null, %24 ], [ null, %6 ], [ %46, %.split ], [ %50, %.split26 ], [ null, %.thread ]
+  %.024 = phi ptr [ null, %32 ], [ null, %38 ], [ null, %47 ], [ null, %6 ], [ null, %31 ], [ null, %.thread ], [ null, %24 ], [ %46, %.split ], [ %50, %.split26 ]
   ret ptr %.024
 }
 
@@ -1633,7 +1633,7 @@ define internal ptr @_locale_textdomain(ptr readnone captures(none) %0, ptr noun
   call void @PyErr_SetString(ptr noundef %16, ptr noundef nonnull @.str.14) #8
   br label %.thread
 
-.thread:                                          ; preds = %15, %9
+.thread:                                          ; preds = %9, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_locale_textdomain_impl.exit
 
@@ -1786,7 +1786,7 @@ define internal ptr @_locale_bindtextdomain(ptr noundef %0, ptr noundef readonly
   br label %_locale_bindtextdomain_impl.exit
 
 _locale_bindtextdomain_impl.exit:                 ; preds = %25, %29, %37, %41, %43, %46, %47, %50, %52, %55
-  %.0.i = phi ptr [ null, %25 ], [ null, %29 ], [ null, %37 ], [ null, %41 ], [ null, %43 ], [ null, %46 ], [ %48, %47 ], [ %48, %50 ], [ %48, %52 ], [ %48, %55 ]
+  %.0.i = phi ptr [ null, %29 ], [ null, %46 ], [ null, %25 ], [ null, %37 ], [ null, %41 ], [ null, %43 ], [ %48, %47 ], [ %48, %50 ], [ %48, %52 ], [ %48, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %56
 
@@ -1869,7 +1869,7 @@ define internal ptr @_locale_bind_textdomain_codeset(ptr readnone captures(none)
   call void @PyErr_SetString(ptr noundef %37, ptr noundef nonnull @.str.14) #8
   br label %.thread
 
-.thread:                                          ; preds = %36, %30
+.thread:                                          ; preds = %30, %36
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_locale_bind_textdomain_codeset_impl.exit
 
@@ -1892,7 +1892,7 @@ define internal ptr @_locale_bind_textdomain_codeset(ptr readnone captures(none)
   br label %_locale_bind_textdomain_codeset_impl.exit
 
 _locale_bind_textdomain_codeset_impl.exit:        ; preds = %42, %40, %.thread, %13, %20, %39, %6, %14
-  %.022 = phi ptr [ null, %14 ], [ null, %20 ], [ null, %39 ], [ null, %13 ], [ null, %6 ], [ null, %.thread ], [ %43, %42 ], [ @_Py_NoneStruct, %40 ]
+  %.022 = phi ptr [ null, %14 ], [ null, %20 ], [ null, %6 ], [ null, %.thread ], [ null, %39 ], [ null, %13 ], [ %43, %42 ], [ @_Py_NoneStruct, %40 ]
   ret ptr %.022
 }
 
@@ -2000,7 +2000,7 @@ define internal fastcc ptr @copy_grouping(ptr noundef readonly captures(none) %0
   ]
 
 .critedge2:                                       ; preds = %25, %25, %24, %21, %19, %.critedge, %4
-  %.0 = phi ptr [ %5, %4 ], [ null, %.critedge ], [ null, %19 ], [ null, %21 ], [ null, %24 ], [ %9, %25 ], [ %9, %25 ]
+  %.0 = phi ptr [ %5, %4 ], [ null, %21 ], [ null, %.critedge ], [ null, %24 ], [ null, %19 ], [ %9, %25 ], [ %9, %25 ]
   ret ptr %.0
 }
 
@@ -2145,7 +2145,7 @@ is_all_ascii.exit:                                ; preds = %.lr.ph.i
   br label %change_locale.exit
 
 change_locale.exit:                               ; preds = %14, %12, %34, %33, %7
-  %.12 = phi ptr [ null, %7 ], [ null, %33 ], [ %24, %34 ], [ null, %12 ], [ null, %14 ]
+  %.12 = phi ptr [ null, %7 ], [ %24, %34 ], [ null, %33 ], [ null, %12 ], [ null, %14 ]
   switch i32 %0, label %44 [
     i32 131119, label %36
     i32 131116, label %40
@@ -2193,8 +2193,8 @@ change_locale.exit:                               ; preds = %14, %12, %34, %33, 
   tail call void @PyErr_SetString(ptr noundef %51, ptr noundef nonnull @.str.42) #8
   br label %restore_locale.exit
 
-restore_locale.exit:                              ; preds = %21, %25, %46, %47, %50
-  %.1 = phi ptr [ null, %50 ], [ %.0, %46 ], [ %.0, %47 ], [ null, %25 ], [ null, %21 ]
+restore_locale.exit:                              ; preds = %25, %21, %46, %47, %50
+  %.1 = phi ptr [ null, %50 ], [ %.0, %47 ], [ %.0, %46 ], [ null, %21 ], [ null, %25 ]
   ret ptr %.1
 }
 
@@ -2360,7 +2360,7 @@ define internal range(i32 -1, 1) i32 @_locale_exec(ptr noundef %0) #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %25, %38, %22, %19, %16, %13, %10, %7, %4, %1
-  %.0 = phi i32 [ -1, %1 ], [ -1, %4 ], [ -1, %7 ], [ -1, %10 ], [ -1, %13 ], [ -1, %16 ], [ -1, %19 ], [ -1, %22 ], [ -1, %25 ], [ %., %38 ], [ -1, %.preheader ]
+  %.0 = phi i32 [ -1, %22 ], [ -1, %1 ], [ -1, %4 ], [ -1, %7 ], [ -1, %10 ], [ -1, %13 ], [ -1, %16 ], [ -1, %19 ], [ %., %38 ], [ -1, %25 ], [ -1, %.preheader ]
   ret i32 %.0
 }
 

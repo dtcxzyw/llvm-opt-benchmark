@@ -154,7 +154,7 @@ define hidden i64 @rb_dbl_complex_new_polar_pi(double noundef %0, double noundef
   br label %rb_float_new_inline.exit
 
 rb_float_new_inline.exit:                         ; preds = %21, %25, %27
-  %.0.i = phi i64 [ %28, %27 ], [ %24, %21 ], [ -9223372036854775806, %25 ]
+  %.0.i = phi i64 [ %24, %21 ], [ %28, %27 ], [ -9223372036854775806, %25 ]
   %29 = load i64, ptr @rb_cComplex, align 8, !tbaa !11
   %30 = tail call fastcc noundef i64 @nucomp_s_canonicalize_internal(i64 noundef %29, i64 noundef -9223372036854775806, i64 noundef %.0.i)
   br label %rb_float_new_inline.exit22
@@ -229,7 +229,7 @@ rb_float_new_inline.exit:                         ; preds = %21, %25, %27
   br label %rb_float_new_inline.exit25
 
 rb_float_new_inline.exit25:                       ; preds = %67, %71, %73
-  %.0.i24 = phi i64 [ %74, %73 ], [ %70, %67 ], [ -9223372036854775806, %71 ]
+  %.0.i24 = phi i64 [ %70, %67 ], [ %74, %73 ], [ -9223372036854775806, %71 ]
   %75 = bitcast double %59 to i64
   %cond.i26 = icmp eq i64 %75, 3458764513820540928
   br i1 %cond.i26, label %88, label %76
@@ -257,13 +257,13 @@ rb_float_new_inline.exit25:                       ; preds = %67, %71, %73
   br label %rb_float_new_inline.exit28
 
 rb_float_new_inline.exit28:                       ; preds = %82, %86, %88
-  %.0.i27 = phi i64 [ %89, %88 ], [ %85, %82 ], [ -9223372036854775806, %86 ]
+  %.0.i27 = phi i64 [ %85, %82 ], [ %89, %88 ], [ -9223372036854775806, %86 ]
   %90 = load i64, ptr @rb_cComplex, align 8, !tbaa !11
   %91 = tail call fastcc noundef i64 @nucomp_s_canonicalize_internal(i64 noundef %90, i64 noundef %.0.i24, i64 noundef %.0.i27)
   br label %rb_float_new_inline.exit22
 
 rb_float_new_inline.exit22:                       ; preds = %52, %50, %46, %rb_float_new_inline.exit28, %rb_float_new_inline.exit
-  %.0 = phi i64 [ %30, %rb_float_new_inline.exit ], [ %91, %rb_float_new_inline.exit28 ], [ %53, %52 ], [ %49, %46 ], [ -9223372036854775806, %50 ]
+  %.0 = phi i64 [ %30, %rb_float_new_inline.exit ], [ %91, %rb_float_new_inline.exit28 ], [ %49, %46 ], [ %53, %52 ], [ -9223372036854775806, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0
 }
@@ -307,7 +307,7 @@ define internal fastcc i64 @rb_float_new_inline(double noundef %0) unnamed_addr 
   br label %17
 
 17:                                               ; preds = %13, %15, %9
-  %.0 = phi i64 [ %16, %15 ], [ %12, %9 ], [ -9223372036854775806, %13 ]
+  %.0 = phi i64 [ %12, %9 ], [ %16, %15 ], [ -9223372036854775806, %13 ]
   ret i64 %.0
 }
 
@@ -371,7 +371,7 @@ define dso_local noundef i64 @rb_complex_uminus(i64 noundef %0) #0 {
   br label %rb_class_of.exit
 
 rb_class_of.exit:                                 ; preds = %7, %9, %10, %11, %12, %14
-  %.0.in.i = phi ptr [ @rb_cNilClass, %10 ], [ @rb_cTrueClass, %11 ], [ %8, %7 ], [ @rb_cFalseClass, %9 ], [ @rb_cInteger, %12 ], [ %spec.select.i, %14 ]
+  %.0.in.i = phi ptr [ %8, %7 ], [ @rb_cNilClass, %10 ], [ @rb_cTrueClass, %11 ], [ @rb_cFalseClass, %9 ], [ @rb_cInteger, %12 ], [ %spec.select.i, %14 ]
   %.0.i = load i64, ptr %.0.in.i, align 8, !tbaa !11
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %18 = load i64, ptr %17, align 8, !tbaa !15
@@ -445,7 +445,7 @@ define internal fastcc i64 @rb_class_of(i64 noundef %0) unnamed_addr #5 {
   br label %17
 
 17:                                               ; preds = %14, %12, %9, %11, %10, %6
-  %.0.in = phi ptr [ @rb_cNilClass, %10 ], [ @rb_cTrueClass, %11 ], [ %8, %6 ], [ @rb_cFalseClass, %9 ], [ @rb_cInteger, %12 ], [ %spec.select, %14 ]
+  %.0.in = phi ptr [ %8, %6 ], [ @rb_cNilClass, %10 ], [ @rb_cTrueClass, %11 ], [ @rb_cFalseClass, %9 ], [ @rb_cInteger, %12 ], [ %spec.select, %14 ]
   %.0 = load i64, ptr %.0.in, align 8, !tbaa !11
   ret i64 %.0
 }
@@ -584,7 +584,7 @@ rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %2
   br label %rb_class_of.exit
 
 rb_class_of.exit:                                 ; preds = %27, %29, %30, %31, %32, %34
-  %.0.in.i = phi ptr [ @rb_cNilClass, %30 ], [ @rb_cTrueClass, %31 ], [ %28, %27 ], [ @rb_cFalseClass, %29 ], [ @rb_cInteger, %32 ], [ %spec.select.i, %34 ]
+  %.0.in.i = phi ptr [ %28, %27 ], [ @rb_cNilClass, %30 ], [ @rb_cTrueClass, %31 ], [ @rb_cFalseClass, %29 ], [ @rb_cInteger, %32 ], [ %spec.select.i, %34 ]
   %.0.i19 = load i64, ptr %.0.in.i, align 8, !tbaa !11
   %37 = icmp eq i64 %17, 0
   %38 = and i64 %17, 7
@@ -661,7 +661,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %2, %rbimpl_RB_TYPE_
   br label %rb_class_of.exit25
 
 rb_class_of.exit25:                               ; preds = %63, %65, %66, %67, %68, %70
-  %.0.in.i21 = phi ptr [ @rb_cNilClass, %66 ], [ @rb_cTrueClass, %67 ], [ %64, %63 ], [ @rb_cFalseClass, %65 ], [ @rb_cInteger, %68 ], [ %spec.select.i24, %70 ]
+  %.0.in.i21 = phi ptr [ %64, %63 ], [ @rb_cNilClass, %66 ], [ @rb_cTrueClass, %67 ], [ @rb_cFalseClass, %65 ], [ @rb_cInteger, %68 ], [ %spec.select.i24, %70 ]
   %.0.i22 = load i64, ptr %.0.in.i21, align 8, !tbaa !11
   %73 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %74 = load i64, ptr %73, align 8, !tbaa !15
@@ -812,7 +812,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %RB_FLOAT_TYPE_P.exi
   br label %53
 
 53:                                               ; preds = %48, %34, %17, %15, %rbimpl_RB_TYPE_P_fastpath.exit.thread, %50, %36, %19
-  %.0 = phi i64 [ %20, %19 ], [ %37, %36 ], [ %51, %50 ], [ %52, %rbimpl_RB_TYPE_P_fastpath.exit.thread ], [ %1, %15 ], [ %0, %17 ], [ %0, %34 ], [ %0, %48 ]
+  %.0 = phi i64 [ %52, %rbimpl_RB_TYPE_P_fastpath.exit.thread ], [ %1, %15 ], [ %20, %19 ], [ %0, %17 ], [ %37, %36 ], [ %0, %34 ], [ %51, %50 ], [ %0, %48 ]
   ret i64 %.0
 }
 
@@ -943,7 +943,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %rbimpl_RB_TYPE_P_fa
   br label %nucomp_real_p.exit
 
 nucomp_real_p.exit:                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit7, %rb_integer_type_p.exit.thread11, %1, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i, %53, %rb_integer_type_p.exit.thread.i.i, %FLOAT_ZERO_P.exit.i.i, %RB_FLOAT_TYPE_P.exit, %rb_integer_type_p.exit, %rbimpl_RB_TYPE_P_fastpath.exit.thread
-  %.0 = phi i1 [ %61, %rbimpl_RB_TYPE_P_fastpath.exit.thread ], [ true, %rb_integer_type_p.exit ], [ true, %RB_FLOAT_TYPE_P.exit ], [ true, %rbimpl_RB_TYPE_P_fastpath.exit7 ], [ %43, %FLOAT_ZERO_P.exit.i.i ], [ %52, %rb_integer_type_p.exit.thread.i.i ], [ %56, %53 ], [ %58, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i ], [ true, %1 ], [ true, %rb_integer_type_p.exit.thread11 ]
+  %.0 = phi i1 [ %61, %rbimpl_RB_TYPE_P_fastpath.exit.thread ], [ true, %rb_integer_type_p.exit ], [ true, %RB_FLOAT_TYPE_P.exit ], [ true, %1 ], [ true, %rbimpl_RB_TYPE_P_fastpath.exit7 ], [ %58, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i ], [ %43, %FLOAT_ZERO_P.exit.i.i ], [ %52, %rb_integer_type_p.exit.thread.i.i ], [ %56, %53 ], [ true, %rb_integer_type_p.exit.thread11 ]
   ret i1 %.0
 }
 
@@ -1010,7 +1010,7 @@ rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %2
   br label %rb_class_of.exit.i
 
 rb_class_of.exit.i:                               ; preds = %31, %29, %28, %27, %26, %23
-  %.0.in.i.i = phi ptr [ @rb_cNilClass, %27 ], [ @rb_cTrueClass, %28 ], [ %25, %23 ], [ @rb_cFalseClass, %26 ], [ @rb_cInteger, %29 ], [ %spec.select.i.i, %31 ]
+  %.0.in.i.i = phi ptr [ %25, %23 ], [ @rb_cNilClass, %27 ], [ @rb_cTrueClass, %28 ], [ @rb_cFalseClass, %26 ], [ @rb_cInteger, %29 ], [ %spec.select.i.i, %31 ]
   %.0.i.i = load i64, ptr %.0.in.i.i, align 8, !tbaa !11
   %34 = tail call i32 @rb_method_basic_definition_p(i64 noundef %.0.i.i, i64 noundef 45) #18
   %.not.i = icmp eq i32 %34, 0
@@ -1066,7 +1066,7 @@ f_sub.exit:                                       ; preds = %rb_class_of.exit.i,
   br label %rb_class_of.exit.i21
 
 rb_class_of.exit.i21:                             ; preds = %55, %53, %52, %51, %50, %47
-  %.0.in.i.i22 = phi ptr [ @rb_cNilClass, %51 ], [ @rb_cTrueClass, %52 ], [ %49, %47 ], [ @rb_cFalseClass, %50 ], [ @rb_cInteger, %53 ], [ %spec.select.i.i26, %55 ]
+  %.0.in.i.i22 = phi ptr [ %49, %47 ], [ @rb_cNilClass, %51 ], [ @rb_cTrueClass, %52 ], [ @rb_cFalseClass, %50 ], [ @rb_cInteger, %53 ], [ %spec.select.i.i26, %55 ]
   %.0.i.i23 = load i64, ptr %.0.in.i.i22, align 8, !tbaa !11
   %58 = tail call i32 @rb_method_basic_definition_p(i64 noundef %.0.i.i23, i64 noundef 45) #18
   %.not.i24 = icmp eq i32 %58, 0
@@ -1113,7 +1113,7 @@ f_sub.exit27:                                     ; preds = %rb_class_of.exit.i2
   br label %rb_class_of.exit
 
 rb_class_of.exit:                                 ; preds = %65, %67, %68, %69, %70, %72
-  %.0.in.i = phi ptr [ @rb_cNilClass, %68 ], [ @rb_cTrueClass, %69 ], [ %66, %65 ], [ @rb_cFalseClass, %67 ], [ @rb_cInteger, %70 ], [ %spec.select.i, %72 ]
+  %.0.in.i = phi ptr [ %66, %65 ], [ @rb_cNilClass, %68 ], [ @rb_cTrueClass, %69 ], [ @rb_cFalseClass, %67 ], [ @rb_cInteger, %70 ], [ %spec.select.i, %72 ]
   %.0.i28 = load i64, ptr %.0.in.i, align 8, !tbaa !11
   %75 = icmp eq i64 %.0.i19, 0
   %76 = and i64 %.0.i19, 7
@@ -1190,7 +1190,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %2, %rbimpl_RB_TYPE_
   br label %rb_class_of.exit35
 
 rb_class_of.exit35:                               ; preds = %101, %103, %104, %105, %106, %108
-  %.0.in.i31 = phi ptr [ @rb_cNilClass, %104 ], [ @rb_cTrueClass, %105 ], [ %102, %101 ], [ @rb_cFalseClass, %103 ], [ @rb_cInteger, %106 ], [ %spec.select.i34, %108 ]
+  %.0.in.i31 = phi ptr [ %102, %101 ], [ @rb_cNilClass, %104 ], [ @rb_cTrueClass, %105 ], [ @rb_cFalseClass, %103 ], [ @rb_cInteger, %106 ], [ %spec.select.i34, %108 ]
   %.0.i32 = load i64, ptr %.0.in.i31, align 8, !tbaa !11
   %111 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %112 = load i64, ptr %111, align 8, !tbaa !15
@@ -1234,7 +1234,7 @@ rb_class_of.exit35:                               ; preds = %101, %103, %104, %1
   br label %rb_class_of.exit.i37
 
 rb_class_of.exit.i37:                             ; preds = %127, %125, %124, %123, %122, %119
-  %.0.in.i.i38 = phi ptr [ @rb_cNilClass, %123 ], [ @rb_cTrueClass, %124 ], [ %121, %119 ], [ @rb_cFalseClass, %122 ], [ @rb_cInteger, %125 ], [ %spec.select.i.i42, %127 ]
+  %.0.in.i.i38 = phi ptr [ %121, %119 ], [ @rb_cNilClass, %123 ], [ @rb_cTrueClass, %124 ], [ @rb_cFalseClass, %122 ], [ @rb_cInteger, %125 ], [ %spec.select.i.i42, %127 ]
   %.0.i.i39 = load i64, ptr %.0.in.i.i38, align 8, !tbaa !11
   %130 = tail call i32 @rb_method_basic_definition_p(i64 noundef %.0.i.i39, i64 noundef 45) #18
   %.not.i40 = icmp eq i32 %130, 0
@@ -1349,7 +1349,7 @@ rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %2
   br label %rb_class_of.exit
 
 rb_class_of.exit:                                 ; preds = %27, %29, %30, %31, %32, %34
-  %.0.in.i = phi ptr [ @rb_cNilClass, %30 ], [ @rb_cTrueClass, %31 ], [ %28, %27 ], [ @rb_cFalseClass, %29 ], [ @rb_cInteger, %32 ], [ %spec.select.i, %34 ]
+  %.0.in.i = phi ptr [ %28, %27 ], [ @rb_cNilClass, %30 ], [ @rb_cTrueClass, %31 ], [ @rb_cFalseClass, %29 ], [ @rb_cInteger, %32 ], [ %spec.select.i, %34 ]
   %.0.i18 = load i64, ptr %.0.in.i, align 8, !tbaa !11
   %37 = load i64, ptr %3, align 8, !tbaa !11
   %38 = load i64, ptr %4, align 8, !tbaa !11
@@ -1430,7 +1430,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %2, %rbimpl_RB_TYPE_
   br label %rb_class_of.exit24
 
 rb_class_of.exit24:                               ; preds = %65, %67, %68, %69, %70, %72
-  %.0.in.i20 = phi ptr [ @rb_cNilClass, %68 ], [ @rb_cTrueClass, %69 ], [ %66, %65 ], [ @rb_cFalseClass, %67 ], [ @rb_cInteger, %70 ], [ %spec.select.i23, %72 ]
+  %.0.in.i20 = phi ptr [ %66, %65 ], [ @rb_cNilClass, %68 ], [ @rb_cTrueClass, %69 ], [ @rb_cFalseClass, %67 ], [ @rb_cInteger, %70 ], [ %spec.select.i23, %72 ]
   %.0.i21 = load i64, ptr %.0.in.i20, align 8, !tbaa !11
   %75 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %76 = load i64, ptr %75, align 8, !tbaa !15
@@ -1830,7 +1830,7 @@ f_zero_p.exit59:                                  ; preds = %FLOAT_ZERO_P.exit.i
   br label %rb_class_of.exit.i
 
 rb_class_of.exit.i:                               ; preds = %171, %169, %168, %167, %166, %163
-  %.0.in.i.i = phi ptr [ @rb_cNilClass, %167 ], [ @rb_cTrueClass, %168 ], [ %165, %163 ], [ @rb_cFalseClass, %166 ], [ @rb_cInteger, %169 ], [ %spec.select.i.i, %171 ]
+  %.0.in.i.i = phi ptr [ %165, %163 ], [ @rb_cNilClass, %167 ], [ @rb_cTrueClass, %168 ], [ @rb_cFalseClass, %166 ], [ @rb_cInteger, %169 ], [ %spec.select.i.i, %171 ]
   %.0.i.i = load i64, ptr %.0.in.i.i, align 8, !tbaa !11
   %174 = tail call i32 @rb_method_basic_definition_p(i64 noundef %.0.i.i, i64 noundef 45) #18
   %.not.i = icmp eq i32 %174, 0
@@ -2005,7 +2005,7 @@ rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %RB_FLOAT_TYPE_P.exi
   br label %rb_class_of.exit
 
 rb_class_of.exit:                                 ; preds = %63, %65, %66, %67, %68, %69
-  %.0.in.i = phi ptr [ @rb_cNilClass, %66 ], [ @rb_cTrueClass, %67 ], [ %64, %63 ], [ @rb_cFalseClass, %65 ], [ @rb_cInteger, %68 ], [ %spec.select.i, %69 ]
+  %.0.in.i = phi ptr [ %64, %63 ], [ @rb_cNilClass, %66 ], [ @rb_cTrueClass, %67 ], [ @rb_cFalseClass, %65 ], [ @rb_cInteger, %68 ], [ %spec.select.i, %69 ]
   %.0.i36 = load i64, ptr %.0.in.i, align 8, !tbaa !11
   %72 = tail call i32 @rb_method_basic_definition_p(i64 noundef %.0.i36, i64 noundef 42) #18
   %73 = icmp ne i32 %72, 0
@@ -2018,7 +2018,7 @@ rb_class_of.exit:                                 ; preds = %63, %65, %66, %67, 
   br label %rb_integer_type_p.exit34.thread
 
 rb_integer_type_p.exit34.thread:                  ; preds = %17, %18, %rb_class_of.exit, %59, %45, %.thread, %rb_integer_type_p.exit34, %15, %75, %61, %47, %30
-  %.0 = phi i64 [ %31, %30 ], [ %48, %47 ], [ %62, %61 ], [ %76, %75 ], [ 1, %15 ], [ 1, %rb_integer_type_p.exit34 ], [ %0, %.thread ], [ %0, %45 ], [ %0, %59 ], [ %0, %rb_class_of.exit ], [ 1, %18 ], [ %1, %17 ]
+  %.0 = phi i64 [ %76, %75 ], [ 1, %15 ], [ 1, %rb_integer_type_p.exit34 ], [ %1, %17 ], [ %31, %30 ], [ %0, %.thread ], [ %48, %47 ], [ %0, %45 ], [ %62, %61 ], [ %0, %59 ], [ %0, %rb_class_of.exit ], [ 1, %18 ]
   ret i64 %.0
 }
 
@@ -2129,7 +2129,7 @@ RB_FLOAT_TYPE_P.exit70.thread139:                 ; preds = %45, %RB_FLOAT_TYPE_
   br label %RB_FLOAT_TYPE_P.exit72
 
 RB_FLOAT_TYPE_P.exit72:                           ; preds = %RB_FLOAT_TYPE_P.exit68.thread136, %RB_FLOAT_TYPE_P.exit.thread133, %13, %63, %58, %RB_FLOAT_TYPE_P.exit70.thread139, %RB_FLOAT_TYPE_P.exit70, %RB_FLOAT_TYPE_P.exit68, %RB_FLOAT_TYPE_P.exit
-  %68 = phi i1 [ true, %RB_FLOAT_TYPE_P.exit70 ], [ true, %RB_FLOAT_TYPE_P.exit68 ], [ true, %RB_FLOAT_TYPE_P.exit ], [ %67, %63 ], [ true, %RB_FLOAT_TYPE_P.exit70.thread139 ], [ false, %58 ], [ true, %13 ], [ true, %RB_FLOAT_TYPE_P.exit.thread133 ], [ true, %RB_FLOAT_TYPE_P.exit68.thread136 ]
+  %68 = phi i1 [ true, %RB_FLOAT_TYPE_P.exit70 ], [ true, %RB_FLOAT_TYPE_P.exit68 ], [ true, %RB_FLOAT_TYPE_P.exit ], [ true, %RB_FLOAT_TYPE_P.exit.thread133 ], [ false, %58 ], [ true, %13 ], [ %67, %63 ], [ true, %RB_FLOAT_TYPE_P.exit70.thread139 ], [ true, %RB_FLOAT_TYPE_P.exit68.thread136 ]
   %69 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %70 = load i64, ptr %69, align 8, !tbaa !15
   %71 = and i64 %70, 1
@@ -2274,409 +2274,409 @@ rb_integer_type_p.exit.i88:                       ; preds = %126
   %132 = load i64, ptr %131, align 8, !tbaa !19
   %133 = and i64 %132, 31
   %134 = icmp eq i64 %133, 10
-  br i1 %134, label %139, label %rb_integer_type_p.exit.thread22.i
+  br i1 %134, label %f_gt_p.exit, label %rb_integer_type_p.exit.thread22.i
 
 135:                                              ; preds = %f_abs.exit84
   %136 = and i64 %.0.i76, 1
   %.not.i86 = icmp eq i64 %136, 0
-  br i1 %.not.i86, label %139, label %137
+  br i1 %.not.i86, label %f_gt_p.exit, label %137
 
 137:                                              ; preds = %135
   %138 = icmp sgt i64 %.0.i73, %.0.i76
-  br i1 %138, label %158, label %202
-
-139:                                              ; preds = %135, %rb_integer_type_p.exit.i88
-  %140 = tail call i64 @rb_int_gt(i64 noundef %.0.i73, i64 noundef %.0.i76) #18
-  %141 = and i64 %140, -5
-  %.not155 = icmp eq i64 %141, 0
-  br i1 %.not155, label %202, label %158
+  br i1 %138, label %157, label %201
 
 rb_integer_type_p.exit.thread22.i:                ; preds = %rb_integer_type_p.exit.i88, %126
-  %142 = and i64 %.0.i73, 2
-  %.not28.i = icmp eq i64 %142, 0
-  br i1 %.not28.i, label %143, label %RB_FLOAT_TYPE_P.exit.thread.i89
+  %139 = and i64 %.0.i73, 2
+  %.not28.i = icmp eq i64 %139, 0
+  br i1 %.not28.i, label %140, label %RB_FLOAT_TYPE_P.exit.thread.i89
 
-143:                                              ; preds = %rb_integer_type_p.exit.thread22.i
-  %144 = and i64 %.0.i73, 4
-  %145 = icmp ne i64 %144, 0
-  %146 = or i1 %127, %145
-  br i1 %146, label %f_gt_p.exit, label %RB_FLOAT_TYPE_P.exit.i90
+140:                                              ; preds = %rb_integer_type_p.exit.thread22.i
+  %141 = and i64 %.0.i73, 4
+  %142 = icmp ne i64 %141, 0
+  %143 = or i1 %127, %142
+  br i1 %143, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i91, label %RB_FLOAT_TYPE_P.exit.i90
 
-RB_FLOAT_TYPE_P.exit.i90:                         ; preds = %143
-  %147 = inttoptr i64 %.0.i73 to ptr
-  %148 = load i64, ptr %147, align 8, !tbaa !19
-  %149 = and i64 %148, 31
-  switch i64 %149, label %f_gt_p.exit [
+RB_FLOAT_TYPE_P.exit.i90:                         ; preds = %140
+  %144 = inttoptr i64 %.0.i73 to ptr
+  %145 = load i64, ptr %144, align 8, !tbaa !19
+  %146 = and i64 %145, 31
+  switch i64 %146, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i91 [
     i64 4, label %RB_FLOAT_TYPE_P.exit.thread.i89
-    i64 15, label %152
+    i64 15, label %149
   ]
 
 RB_FLOAT_TYPE_P.exit.thread.i89:                  ; preds = %RB_FLOAT_TYPE_P.exit.i90, %rb_integer_type_p.exit.thread22.i
-  %150 = tail call i64 @rb_float_gt(i64 noundef %.0.i73, i64 noundef %.0.i76) #18
-  %151 = and i64 %150, -5
-  %.not156 = icmp eq i64 %151, 0
-  br i1 %.not156, label %202, label %158
+  %147 = tail call i64 @rb_float_gt(i64 noundef %.0.i73, i64 noundef %.0.i76) #18
+  %148 = and i64 %147, -5
+  %.not156 = icmp eq i64 %148, 0
+  br i1 %.not156, label %201, label %157
 
-152:                                              ; preds = %RB_FLOAT_TYPE_P.exit.i90
-  %153 = tail call i64 @rb_rational_cmp(i64 noundef %.0.i73, i64 noundef %.0.i76) #18
-  %154 = tail call i32 @rb_cmpint(i64 noundef %153, i64 noundef %.0.i73, i64 noundef %.0.i76) #18
-  %155 = icmp sgt i32 %154, 0
-  br i1 %155, label %158, label %202
+149:                                              ; preds = %RB_FLOAT_TYPE_P.exit.i90
+  %150 = tail call i64 @rb_rational_cmp(i64 noundef %.0.i73, i64 noundef %.0.i76) #18
+  %151 = tail call i32 @rb_cmpint(i64 noundef %150, i64 noundef %.0.i73, i64 noundef %.0.i76) #18
+  %152 = icmp sgt i32 %151, 0
+  br i1 %152, label %157, label %201
 
-f_gt_p.exit:                                      ; preds = %143, %RB_FLOAT_TYPE_P.exit.i90
-  %156 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.0.i73, i64 noundef 62, i32 noundef 1, i64 noundef %.0.i76) #18
-  %157 = and i64 %156, -5
-  %.not157 = icmp eq i64 %157, 0
-  br i1 %.not157, label %202, label %158
+rbimpl_RB_TYPE_P_fastpath.exit.thread.i91:        ; preds = %RB_FLOAT_TYPE_P.exit.i90, %140
+  %153 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.0.i73, i64 noundef 62, i32 noundef 1, i64 noundef %.0.i76) #18
+  %154 = and i64 %153, -5
+  %.not157 = icmp eq i64 %154, 0
+  br i1 %.not157, label %201, label %157
 
-158:                                              ; preds = %152, %RB_FLOAT_TYPE_P.exit.thread.i89, %139, %137, %f_gt_p.exit
-  %159 = load i64, ptr %97, align 8, !tbaa !18
-  %160 = load i64, ptr %69, align 8, !tbaa !15
-  %161 = tail call i64 %2(i64 noundef %159, i64 noundef %160) #18, !callees !26
-  %162 = load i64, ptr %69, align 8, !tbaa !15
-  %163 = tail call fastcc i64 @f_mul(i64 noundef %161, i64 noundef %161)
-  %164 = load i64, ptr @rb_cInteger, align 8, !tbaa !11
-  %165 = tail call i32 @rb_method_basic_definition_p(i64 noundef %164, i64 noundef 43) #18
-  %.not.i93 = icmp eq i32 %165, 0
-  br i1 %.not.i93, label %rb_integer_type_p.exit.thread25.i, label %166, !prof !20
+f_gt_p.exit:                                      ; preds = %rb_integer_type_p.exit.i88, %135
+  %155 = tail call i64 @rb_int_gt(i64 noundef %.0.i73, i64 noundef %.0.i76) #18
+  %156 = and i64 %155, -5
+  %.not155 = icmp eq i64 %156, 0
+  br i1 %.not155, label %201, label %157
 
-166:                                              ; preds = %158
-  %167 = icmp eq i64 %163, 1
-  br i1 %167, label %f_add.exit, label %168
+157:                                              ; preds = %RB_FLOAT_TYPE_P.exit.thread.i89, %149, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i91, %137, %f_gt_p.exit
+  %158 = load i64, ptr %97, align 8, !tbaa !18
+  %159 = load i64, ptr %69, align 8, !tbaa !15
+  %160 = tail call i64 %2(i64 noundef %158, i64 noundef %159) #18, !callees !26
+  %161 = load i64, ptr %69, align 8, !tbaa !15
+  %162 = tail call fastcc i64 @f_mul(i64 noundef %160, i64 noundef %160)
+  %163 = load i64, ptr @rb_cInteger, align 8, !tbaa !11
+  %164 = tail call i32 @rb_method_basic_definition_p(i64 noundef %163, i64 noundef 43) #18
+  %.not.i93 = icmp eq i32 %164, 0
+  br i1 %.not.i93, label %rb_integer_type_p.exit.thread25.i, label %165, !prof !20
 
-168:                                              ; preds = %166
-  %169 = tail call i64 @rb_int_plus(i64 noundef 3, i64 noundef %163) #18
+165:                                              ; preds = %157
+  %166 = icmp eq i64 %162, 1
+  br i1 %166, label %f_add.exit, label %167
+
+167:                                              ; preds = %165
+  %168 = tail call i64 @rb_int_plus(i64 noundef 3, i64 noundef %162) #18
   br label %f_add.exit
 
-rb_integer_type_p.exit.thread25.i:                ; preds = %158
-  %170 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef 3, i64 noundef 43, i32 noundef 1, i64 noundef %163) #18
+rb_integer_type_p.exit.thread25.i:                ; preds = %157
+  %169 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef 3, i64 noundef 43, i32 noundef 1, i64 noundef %162) #18
   br label %f_add.exit
 
-f_add.exit:                                       ; preds = %166, %168, %rb_integer_type_p.exit.thread25.i
-  %.0.i94 = phi i64 [ %169, %168 ], [ %170, %rb_integer_type_p.exit.thread25.i ], [ 3, %166 ]
-  %171 = tail call fastcc i64 @f_mul(i64 noundef %162, i64 noundef %.0.i94)
-  %172 = load i64, ptr %15, align 8, !tbaa !15
-  %173 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %174 = load i64, ptr %173, align 8, !tbaa !18
-  %175 = tail call fastcc i64 @f_mul(i64 noundef %174, i64 noundef %161)
-  %176 = tail call fastcc i64 @f_add(i64 noundef %172, i64 noundef %175)
-  %177 = tail call i64 %2(i64 noundef %176, i64 noundef %171) #18, !callees !26
-  %178 = load i64, ptr %173, align 8, !tbaa !18
-  %179 = load i64, ptr %15, align 8, !tbaa !15
-  %180 = tail call fastcc i64 @f_mul(i64 noundef %179, i64 noundef %161)
-  %181 = icmp eq i64 %180, 1
-  br i1 %181, label %182, label %199
+f_add.exit:                                       ; preds = %165, %167, %rb_integer_type_p.exit.thread25.i
+  %.0.i94 = phi i64 [ %169, %rb_integer_type_p.exit.thread25.i ], [ 3, %165 ], [ %168, %167 ]
+  %170 = tail call fastcc i64 @f_mul(i64 noundef %161, i64 noundef %.0.i94)
+  %171 = load i64, ptr %15, align 8, !tbaa !15
+  %172 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %173 = load i64, ptr %172, align 8, !tbaa !18
+  %174 = tail call fastcc i64 @f_mul(i64 noundef %173, i64 noundef %160)
+  %175 = tail call fastcc i64 @f_add(i64 noundef %171, i64 noundef %174)
+  %176 = tail call i64 %2(i64 noundef %175, i64 noundef %170) #18, !callees !26
+  %177 = load i64, ptr %172, align 8, !tbaa !18
+  %178 = load i64, ptr %15, align 8, !tbaa !15
+  %179 = tail call fastcc i64 @f_mul(i64 noundef %178, i64 noundef %160)
+  %180 = icmp eq i64 %179, 1
+  br i1 %180, label %181, label %198
 
-182:                                              ; preds = %f_add.exit
-  %183 = icmp eq i64 %178, 0
-  %184 = and i64 %178, 7
-  %185 = icmp ne i64 %184, 0
-  %186 = or i1 %183, %185
-  br i1 %186, label %190, label %187
+181:                                              ; preds = %f_add.exit
+  %182 = icmp eq i64 %177, 0
+  %183 = and i64 %177, 7
+  %184 = icmp ne i64 %183, 0
+  %185 = or i1 %182, %184
+  br i1 %185, label %189, label %186
 
-187:                                              ; preds = %182
-  %188 = inttoptr i64 %178 to ptr
-  %189 = getelementptr inbounds nuw i8, ptr %188, i64 8
+186:                                              ; preds = %181
+  %187 = inttoptr i64 %177 to ptr
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
   br label %rb_class_of.exit.i
 
-190:                                              ; preds = %182
-  switch i64 %178, label %193 [
+189:                                              ; preds = %181
+  switch i64 %177, label %192 [
     i64 0, label %rb_class_of.exit.i
-    i64 4, label %191
-    i64 20, label %192
+    i64 4, label %190
+    i64 20, label %191
   ]
 
-191:                                              ; preds = %190
+190:                                              ; preds = %189
   br label %rb_class_of.exit.i
 
-192:                                              ; preds = %190
+191:                                              ; preds = %189
   br label %rb_class_of.exit.i
 
-193:                                              ; preds = %190
-  %194 = and i64 %178, 1
-  %.not.i.i99 = icmp eq i64 %194, 0
-  br i1 %.not.i.i99, label %195, label %rb_class_of.exit.i
+192:                                              ; preds = %189
+  %193 = and i64 %177, 1
+  %.not.i.i99 = icmp eq i64 %193, 0
+  br i1 %.not.i.i99, label %194, label %rb_class_of.exit.i
 
-195:                                              ; preds = %193
-  %196 = and i64 %178, 254
-  %197 = icmp eq i64 %196, 12
-  %spec.select.i.i = select i1 %197, ptr @rb_cSymbol, ptr @rb_cFloat
+194:                                              ; preds = %192
+  %195 = and i64 %177, 254
+  %196 = icmp eq i64 %195, 12
+  %spec.select.i.i = select i1 %196, ptr @rb_cSymbol, ptr @rb_cFloat
   br label %rb_class_of.exit.i
 
-rb_class_of.exit.i:                               ; preds = %195, %193, %192, %191, %190, %187
-  %.0.in.i.i = phi ptr [ @rb_cNilClass, %191 ], [ @rb_cTrueClass, %192 ], [ %189, %187 ], [ @rb_cFalseClass, %190 ], [ @rb_cInteger, %193 ], [ %spec.select.i.i, %195 ]
+rb_class_of.exit.i:                               ; preds = %194, %192, %191, %190, %189, %186
+  %.0.in.i.i = phi ptr [ %188, %186 ], [ @rb_cNilClass, %190 ], [ @rb_cTrueClass, %191 ], [ @rb_cFalseClass, %189 ], [ @rb_cInteger, %192 ], [ %spec.select.i.i, %194 ]
   %.0.i.i = load i64, ptr %.0.in.i.i, align 8, !tbaa !11
-  %198 = tail call i32 @rb_method_basic_definition_p(i64 noundef %.0.i.i, i64 noundef 45) #18
-  %.not.i98 = icmp eq i32 %198, 0
-  br i1 %.not.i98, label %199, label %f_sub.exit, !prof !20
+  %197 = tail call i32 @rb_method_basic_definition_p(i64 noundef %.0.i.i, i64 noundef 45) #18
+  %.not.i98 = icmp eq i32 %197, 0
+  br i1 %.not.i98, label %198, label %f_sub.exit, !prof !20
 
-199:                                              ; preds = %rb_class_of.exit.i, %f_add.exit
-  %200 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %178, i64 noundef 45, i32 noundef 1, i64 noundef %180) #18
+198:                                              ; preds = %rb_class_of.exit.i, %f_add.exit
+  %199 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %177, i64 noundef 45, i32 noundef 1, i64 noundef %179) #18
   br label %f_sub.exit
 
-f_sub.exit:                                       ; preds = %rb_class_of.exit.i, %199
-  %.0.i97 = phi i64 [ %200, %199 ], [ %178, %rb_class_of.exit.i ]
-  %201 = tail call i64 %2(i64 noundef %.0.i97, i64 noundef %171) #18, !callees !26
-  br label %246
+f_sub.exit:                                       ; preds = %rb_class_of.exit.i, %198
+  %.0.i97 = phi i64 [ %199, %198 ], [ %177, %rb_class_of.exit.i ]
+  %200 = tail call i64 %2(i64 noundef %.0.i97, i64 noundef %170) #18, !callees !26
+  br label %245
 
-202:                                              ; preds = %152, %RB_FLOAT_TYPE_P.exit.thread.i89, %139, %137, %f_gt_p.exit
-  %203 = load i64, ptr %69, align 8, !tbaa !15
-  %204 = load i64, ptr %97, align 8, !tbaa !18
-  %205 = tail call i64 %2(i64 noundef %203, i64 noundef %204) #18, !callees !26
-  %206 = load i64, ptr %97, align 8, !tbaa !18
-  %207 = tail call fastcc i64 @f_mul(i64 noundef %205, i64 noundef %205)
-  %208 = load i64, ptr @rb_cInteger, align 8, !tbaa !11
-  %209 = tail call i32 @rb_method_basic_definition_p(i64 noundef %208, i64 noundef 43) #18
-  %.not.i101 = icmp eq i32 %209, 0
-  br i1 %.not.i101, label %rb_integer_type_p.exit.thread25.i103, label %210, !prof !20
+201:                                              ; preds = %RB_FLOAT_TYPE_P.exit.thread.i89, %149, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i91, %137, %f_gt_p.exit
+  %202 = load i64, ptr %69, align 8, !tbaa !15
+  %203 = load i64, ptr %97, align 8, !tbaa !18
+  %204 = tail call i64 %2(i64 noundef %202, i64 noundef %203) #18, !callees !26
+  %205 = load i64, ptr %97, align 8, !tbaa !18
+  %206 = tail call fastcc i64 @f_mul(i64 noundef %204, i64 noundef %204)
+  %207 = load i64, ptr @rb_cInteger, align 8, !tbaa !11
+  %208 = tail call i32 @rb_method_basic_definition_p(i64 noundef %207, i64 noundef 43) #18
+  %.not.i101 = icmp eq i32 %208, 0
+  br i1 %.not.i101, label %rb_integer_type_p.exit.thread25.i103, label %209, !prof !20
 
-210:                                              ; preds = %202
-  %211 = icmp eq i64 %207, 1
-  br i1 %211, label %f_add.exit106, label %212
+209:                                              ; preds = %201
+  %210 = icmp eq i64 %206, 1
+  br i1 %210, label %f_add.exit106, label %211
 
-212:                                              ; preds = %210
-  %213 = tail call i64 @rb_int_plus(i64 noundef 3, i64 noundef %207) #18
+211:                                              ; preds = %209
+  %212 = tail call i64 @rb_int_plus(i64 noundef 3, i64 noundef %206) #18
   br label %f_add.exit106
 
-rb_integer_type_p.exit.thread25.i103:             ; preds = %202
-  %214 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef 3, i64 noundef 43, i32 noundef 1, i64 noundef %207) #18
+rb_integer_type_p.exit.thread25.i103:             ; preds = %201
+  %213 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef 3, i64 noundef 43, i32 noundef 1, i64 noundef %206) #18
   br label %f_add.exit106
 
-f_add.exit106:                                    ; preds = %210, %212, %rb_integer_type_p.exit.thread25.i103
-  %.0.i102 = phi i64 [ %213, %212 ], [ %214, %rb_integer_type_p.exit.thread25.i103 ], [ 3, %210 ]
-  %215 = tail call fastcc i64 @f_mul(i64 noundef %206, i64 noundef %.0.i102)
-  %216 = load i64, ptr %15, align 8, !tbaa !15
-  %217 = tail call fastcc i64 @f_mul(i64 noundef %216, i64 noundef %205)
-  %218 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %219 = load i64, ptr %218, align 8, !tbaa !18
-  %220 = tail call fastcc i64 @f_add(i64 noundef %217, i64 noundef %219)
-  %221 = tail call i64 %2(i64 noundef %220, i64 noundef %215) #18, !callees !26
-  %222 = load i64, ptr %218, align 8, !tbaa !18
-  %223 = tail call fastcc i64 @f_mul(i64 noundef %222, i64 noundef %205)
-  %224 = load i64, ptr %15, align 8, !tbaa !15
-  %225 = icmp eq i64 %224, 1
-  br i1 %225, label %226, label %243
+f_add.exit106:                                    ; preds = %209, %211, %rb_integer_type_p.exit.thread25.i103
+  %.0.i102 = phi i64 [ %213, %rb_integer_type_p.exit.thread25.i103 ], [ 3, %209 ], [ %212, %211 ]
+  %214 = tail call fastcc i64 @f_mul(i64 noundef %205, i64 noundef %.0.i102)
+  %215 = load i64, ptr %15, align 8, !tbaa !15
+  %216 = tail call fastcc i64 @f_mul(i64 noundef %215, i64 noundef %204)
+  %217 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %218 = load i64, ptr %217, align 8, !tbaa !18
+  %219 = tail call fastcc i64 @f_add(i64 noundef %216, i64 noundef %218)
+  %220 = tail call i64 %2(i64 noundef %219, i64 noundef %214) #18, !callees !26
+  %221 = load i64, ptr %217, align 8, !tbaa !18
+  %222 = tail call fastcc i64 @f_mul(i64 noundef %221, i64 noundef %204)
+  %223 = load i64, ptr %15, align 8, !tbaa !15
+  %224 = icmp eq i64 %223, 1
+  br i1 %224, label %225, label %242
 
-226:                                              ; preds = %f_add.exit106
-  %227 = icmp eq i64 %223, 0
-  %228 = and i64 %223, 7
-  %229 = icmp ne i64 %228, 0
-  %230 = or i1 %227, %229
-  br i1 %230, label %234, label %231
+225:                                              ; preds = %f_add.exit106
+  %226 = icmp eq i64 %222, 0
+  %227 = and i64 %222, 7
+  %228 = icmp ne i64 %227, 0
+  %229 = or i1 %226, %228
+  br i1 %229, label %233, label %230
 
-231:                                              ; preds = %226
-  %232 = inttoptr i64 %223 to ptr
-  %233 = getelementptr inbounds nuw i8, ptr %232, i64 8
+230:                                              ; preds = %225
+  %231 = inttoptr i64 %222 to ptr
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 8
   br label %rb_class_of.exit.i108
 
-234:                                              ; preds = %226
-  switch i64 %223, label %237 [
+233:                                              ; preds = %225
+  switch i64 %222, label %236 [
     i64 0, label %rb_class_of.exit.i108
-    i64 4, label %235
-    i64 20, label %236
+    i64 4, label %234
+    i64 20, label %235
   ]
 
-235:                                              ; preds = %234
+234:                                              ; preds = %233
   br label %rb_class_of.exit.i108
 
-236:                                              ; preds = %234
+235:                                              ; preds = %233
   br label %rb_class_of.exit.i108
 
-237:                                              ; preds = %234
-  %238 = and i64 %223, 1
-  %.not.i.i112 = icmp eq i64 %238, 0
-  br i1 %.not.i.i112, label %239, label %rb_class_of.exit.i108
+236:                                              ; preds = %233
+  %237 = and i64 %222, 1
+  %.not.i.i112 = icmp eq i64 %237, 0
+  br i1 %.not.i.i112, label %238, label %rb_class_of.exit.i108
 
-239:                                              ; preds = %237
-  %240 = and i64 %223, 254
-  %241 = icmp eq i64 %240, 12
-  %spec.select.i.i113 = select i1 %241, ptr @rb_cSymbol, ptr @rb_cFloat
+238:                                              ; preds = %236
+  %239 = and i64 %222, 254
+  %240 = icmp eq i64 %239, 12
+  %spec.select.i.i113 = select i1 %240, ptr @rb_cSymbol, ptr @rb_cFloat
   br label %rb_class_of.exit.i108
 
-rb_class_of.exit.i108:                            ; preds = %239, %237, %236, %235, %234, %231
-  %.0.in.i.i109 = phi ptr [ @rb_cNilClass, %235 ], [ @rb_cTrueClass, %236 ], [ %233, %231 ], [ @rb_cFalseClass, %234 ], [ @rb_cInteger, %237 ], [ %spec.select.i.i113, %239 ]
+rb_class_of.exit.i108:                            ; preds = %238, %236, %235, %234, %233, %230
+  %.0.in.i.i109 = phi ptr [ %232, %230 ], [ @rb_cNilClass, %234 ], [ @rb_cTrueClass, %235 ], [ @rb_cFalseClass, %233 ], [ @rb_cInteger, %236 ], [ %spec.select.i.i113, %238 ]
   %.0.i.i110 = load i64, ptr %.0.in.i.i109, align 8, !tbaa !11
-  %242 = tail call i32 @rb_method_basic_definition_p(i64 noundef %.0.i.i110, i64 noundef 45) #18
-  %.not.i111 = icmp eq i32 %242, 0
-  br i1 %.not.i111, label %243, label %f_sub.exit114, !prof !20
+  %241 = tail call i32 @rb_method_basic_definition_p(i64 noundef %.0.i.i110, i64 noundef 45) #18
+  %.not.i111 = icmp eq i32 %241, 0
+  br i1 %.not.i111, label %242, label %f_sub.exit114, !prof !20
 
-243:                                              ; preds = %rb_class_of.exit.i108, %f_add.exit106
-  %244 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %223, i64 noundef 45, i32 noundef 1, i64 noundef %224) #18
+242:                                              ; preds = %rb_class_of.exit.i108, %f_add.exit106
+  %243 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %222, i64 noundef 45, i32 noundef 1, i64 noundef %223) #18
   br label %f_sub.exit114
 
-f_sub.exit114:                                    ; preds = %rb_class_of.exit.i108, %243
-  %.0.i107 = phi i64 [ %244, %243 ], [ %223, %rb_class_of.exit.i108 ]
-  %245 = tail call i64 %2(i64 noundef %.0.i107, i64 noundef %215) #18, !callees !26
-  br label %246
+f_sub.exit114:                                    ; preds = %rb_class_of.exit.i108, %242
+  %.0.i107 = phi i64 [ %243, %242 ], [ %222, %rb_class_of.exit.i108 ]
+  %244 = tail call i64 %2(i64 noundef %.0.i107, i64 noundef %214) #18, !callees !26
+  br label %245
 
-246:                                              ; preds = %f_sub.exit114, %f_sub.exit
-  %.063 = phi i64 [ %201, %f_sub.exit ], [ %245, %f_sub.exit114 ]
-  %.062 = phi i64 [ %177, %f_sub.exit ], [ %221, %f_sub.exit114 ]
-  br i1 %68, label %250, label %247
+245:                                              ; preds = %f_sub.exit114, %f_sub.exit
+  %.063 = phi i64 [ %200, %f_sub.exit ], [ %244, %f_sub.exit114 ]
+  %.062 = phi i64 [ %176, %f_sub.exit ], [ %220, %f_sub.exit114 ]
+  br i1 %68, label %249, label %246
 
-247:                                              ; preds = %246
-  %248 = tail call i64 @rb_rational_canonicalize(i64 noundef %.062) #18
-  %249 = tail call i64 @rb_rational_canonicalize(i64 noundef %.063) #18
-  br label %250
+246:                                              ; preds = %245
+  %247 = tail call i64 @rb_rational_canonicalize(i64 noundef %.062) #18
+  %248 = tail call i64 @rb_rational_canonicalize(i64 noundef %.063) #18
+  br label %249
 
-250:                                              ; preds = %247, %246
-  %.164 = phi i64 [ %.063, %246 ], [ %249, %247 ]
-  %.1 = phi i64 [ %.062, %246 ], [ %248, %247 ]
-  %251 = icmp eq i64 %0, 0
-  %252 = and i64 %0, 7
-  %253 = icmp ne i64 %252, 0
-  %254 = or i1 %251, %253
-  br i1 %254, label %257, label %255
+249:                                              ; preds = %246, %245
+  %.164 = phi i64 [ %.063, %245 ], [ %248, %246 ]
+  %.1 = phi i64 [ %.062, %245 ], [ %247, %246 ]
+  %250 = icmp eq i64 %0, 0
+  %251 = and i64 %0, 7
+  %252 = icmp ne i64 %251, 0
+  %253 = or i1 %250, %252
+  br i1 %253, label %256, label %254
 
-255:                                              ; preds = %250
-  %256 = getelementptr inbounds nuw i8, ptr %14, i64 8
+254:                                              ; preds = %249
+  %255 = getelementptr inbounds nuw i8, ptr %14, i64 8
   br label %rb_class_of.exit
 
-257:                                              ; preds = %250
-  switch i64 %0, label %260 [
+256:                                              ; preds = %249
+  switch i64 %0, label %259 [
     i64 0, label %rb_class_of.exit
-    i64 4, label %258
-    i64 20, label %259
+    i64 4, label %257
+    i64 20, label %258
   ]
 
-258:                                              ; preds = %257
+257:                                              ; preds = %256
   br label %rb_class_of.exit
 
-259:                                              ; preds = %257
+258:                                              ; preds = %256
   br label %rb_class_of.exit
 
-260:                                              ; preds = %257
-  %261 = and i64 %0, 1
-  %.not.i117 = icmp eq i64 %261, 0
-  br i1 %.not.i117, label %262, label %rb_class_of.exit
+259:                                              ; preds = %256
+  %260 = and i64 %0, 1
+  %.not.i117 = icmp eq i64 %260, 0
+  br i1 %.not.i117, label %261, label %rb_class_of.exit
 
-262:                                              ; preds = %260
-  %263 = and i64 %0, 254
-  %264 = icmp eq i64 %263, 12
-  %spec.select.i = select i1 %264, ptr @rb_cSymbol, ptr @rb_cFloat
+261:                                              ; preds = %259
+  %262 = and i64 %0, 254
+  %263 = icmp eq i64 %262, 12
+  %spec.select.i = select i1 %263, ptr @rb_cSymbol, ptr @rb_cFloat
   br label %rb_class_of.exit
 
-rb_class_of.exit:                                 ; preds = %255, %257, %258, %259, %260, %262
-  %.0.in.i115 = phi ptr [ @rb_cNilClass, %258 ], [ @rb_cTrueClass, %259 ], [ %256, %255 ], [ @rb_cFalseClass, %257 ], [ @rb_cInteger, %260 ], [ %spec.select.i, %262 ]
+rb_class_of.exit:                                 ; preds = %254, %256, %257, %258, %259, %261
+  %.0.in.i115 = phi ptr [ %255, %254 ], [ @rb_cNilClass, %257 ], [ @rb_cTrueClass, %258 ], [ @rb_cFalseClass, %256 ], [ @rb_cInteger, %259 ], [ %spec.select.i, %261 ]
   %.0.i116 = load i64, ptr %.0.in.i115, align 8, !tbaa !11
-  %265 = icmp eq i64 %.1, 0
-  %266 = and i64 %.1, 7
-  %267 = icmp ne i64 %266, 0
-  %268 = or i1 %265, %267
-  br i1 %268, label %f_complex_new2.exit, label %rbimpl_RB_TYPE_P_fastpath.exit.i118
+  %264 = icmp eq i64 %.1, 0
+  %265 = and i64 %.1, 7
+  %266 = icmp ne i64 %265, 0
+  %267 = or i1 %264, %266
+  br i1 %267, label %f_complex_new2.exit, label %rbimpl_RB_TYPE_P_fastpath.exit.i118
 
 rbimpl_RB_TYPE_P_fastpath.exit.i118:              ; preds = %rb_class_of.exit
-  %269 = inttoptr i64 %.1 to ptr
-  %270 = load i64, ptr %269, align 8, !tbaa !19
-  %271 = and i64 %270, 31
-  %272 = icmp eq i64 %271, 14
-  br i1 %272, label %273, label %f_complex_new2.exit
+  %268 = inttoptr i64 %.1 to ptr
+  %269 = load i64, ptr %268, align 8, !tbaa !19
+  %270 = and i64 %269, 31
+  %271 = icmp eq i64 %270, 14
+  br i1 %271, label %272, label %f_complex_new2.exit
 
-273:                                              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i118
-  %274 = getelementptr inbounds nuw i8, ptr %269, i64 16
-  %275 = load i64, ptr %274, align 8, !tbaa !15
-  %276 = getelementptr inbounds nuw i8, ptr %269, i64 24
-  %277 = load i64, ptr %276, align 8, !tbaa !18
-  %278 = tail call fastcc i64 @f_add(i64 noundef %277, i64 noundef %.164)
+272:                                              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i118
+  %273 = getelementptr inbounds nuw i8, ptr %268, i64 16
+  %274 = load i64, ptr %273, align 8, !tbaa !15
+  %275 = getelementptr inbounds nuw i8, ptr %268, i64 24
+  %276 = load i64, ptr %275, align 8, !tbaa !18
+  %277 = tail call fastcc i64 @f_add(i64 noundef %276, i64 noundef %.164)
   br label %f_complex_new2.exit
 
-f_complex_new2.exit:                              ; preds = %rb_class_of.exit, %rbimpl_RB_TYPE_P_fastpath.exit.i118, %273
-  %.07.i = phi i64 [ %278, %273 ], [ %.164, %rbimpl_RB_TYPE_P_fastpath.exit.i118 ], [ %.164, %rb_class_of.exit ]
-  %.0.i120 = phi i64 [ %275, %273 ], [ %.1, %rbimpl_RB_TYPE_P_fastpath.exit.i118 ], [ %.1, %rb_class_of.exit ]
-  %279 = tail call fastcc noundef i64 @nucomp_s_canonicalize_internal(i64 noundef %.0.i116, i64 noundef %.0.i120, i64 noundef %.07.i)
-  br label %326
+f_complex_new2.exit:                              ; preds = %rb_class_of.exit, %rbimpl_RB_TYPE_P_fastpath.exit.i118, %272
+  %.07.i = phi i64 [ %277, %272 ], [ %.164, %rbimpl_RB_TYPE_P_fastpath.exit.i118 ], [ %.164, %rb_class_of.exit ]
+  %.0.i120 = phi i64 [ %274, %272 ], [ %.1, %rbimpl_RB_TYPE_P_fastpath.exit.i118 ], [ %.1, %rb_class_of.exit ]
+  %278 = tail call fastcc noundef i64 @nucomp_s_canonicalize_internal(i64 noundef %.0.i116, i64 noundef %.0.i120, i64 noundef %.07.i)
+  br label %325
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %4, %rbimpl_RB_TYPE_P_fastpath.exit
-  %280 = load i64, ptr @rb_cNumeric, align 8, !tbaa !11
-  %281 = tail call i64 @rb_obj_is_kind_of(i64 noundef %1, i64 noundef %280) #18
-  %282 = and i64 %281, 4294967295
-  %.not = icmp eq i64 %282, 0
-  br i1 %.not, label %324, label %283
+  %279 = load i64, ptr @rb_cNumeric, align 8, !tbaa !11
+  %280 = tail call i64 @rb_obj_is_kind_of(i64 noundef %1, i64 noundef %279) #18
+  %281 = and i64 %280, 4294967295
+  %.not = icmp eq i64 %281, 0
+  br i1 %.not, label %323, label %282
 
-283:                                              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread
-  %284 = tail call fastcc zeroext i1 @f_real_p(i64 noundef %1)
-  br i1 %284, label %285, label %324
+282:                                              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread
+  %283 = tail call fastcc zeroext i1 @f_real_p(i64 noundef %1)
+  br i1 %283, label %284, label %323
 
-285:                                              ; preds = %283
-  %286 = inttoptr i64 %0 to ptr
-  %287 = getelementptr inbounds nuw i8, ptr %286, i64 16
-  %288 = load i64, ptr %287, align 8, !tbaa !15
-  %289 = tail call i64 %2(i64 noundef %288, i64 noundef %1) #18, !callees !26
-  %290 = tail call i64 @rb_rational_canonicalize(i64 noundef %289) #18
-  %291 = getelementptr inbounds nuw i8, ptr %286, i64 24
-  %292 = load i64, ptr %291, align 8, !tbaa !18
-  %293 = tail call i64 %2(i64 noundef %292, i64 noundef %1) #18, !callees !26
-  %294 = tail call i64 @rb_rational_canonicalize(i64 noundef %293) #18
-  %295 = icmp eq i64 %0, 0
-  %296 = and i64 %0, 7
-  %297 = icmp ne i64 %296, 0
-  %298 = or i1 %295, %297
-  br i1 %298, label %301, label %299
+284:                                              ; preds = %282
+  %285 = inttoptr i64 %0 to ptr
+  %286 = getelementptr inbounds nuw i8, ptr %285, i64 16
+  %287 = load i64, ptr %286, align 8, !tbaa !15
+  %288 = tail call i64 %2(i64 noundef %287, i64 noundef %1) #18, !callees !26
+  %289 = tail call i64 @rb_rational_canonicalize(i64 noundef %288) #18
+  %290 = getelementptr inbounds nuw i8, ptr %285, i64 24
+  %291 = load i64, ptr %290, align 8, !tbaa !18
+  %292 = tail call i64 %2(i64 noundef %291, i64 noundef %1) #18, !callees !26
+  %293 = tail call i64 @rb_rational_canonicalize(i64 noundef %292) #18
+  %294 = icmp eq i64 %0, 0
+  %295 = and i64 %0, 7
+  %296 = icmp ne i64 %295, 0
+  %297 = or i1 %294, %296
+  br i1 %297, label %300, label %298
 
-299:                                              ; preds = %285
-  %300 = getelementptr inbounds nuw i8, ptr %286, i64 8
+298:                                              ; preds = %284
+  %299 = getelementptr inbounds nuw i8, ptr %285, i64 8
   br label %rb_class_of.exit125
 
-301:                                              ; preds = %285
-  switch i64 %0, label %304 [
+300:                                              ; preds = %284
+  switch i64 %0, label %303 [
     i64 0, label %rb_class_of.exit125
-    i64 4, label %302
-    i64 20, label %303
+    i64 4, label %301
+    i64 20, label %302
   ]
 
-302:                                              ; preds = %301
+301:                                              ; preds = %300
   br label %rb_class_of.exit125
 
-303:                                              ; preds = %301
+302:                                              ; preds = %300
   br label %rb_class_of.exit125
 
-304:                                              ; preds = %301
-  %305 = and i64 %0, 1
-  %.not.i123 = icmp eq i64 %305, 0
-  br i1 %.not.i123, label %306, label %rb_class_of.exit125
+303:                                              ; preds = %300
+  %304 = and i64 %0, 1
+  %.not.i123 = icmp eq i64 %304, 0
+  br i1 %.not.i123, label %305, label %rb_class_of.exit125
 
-306:                                              ; preds = %304
-  %307 = and i64 %0, 254
-  %308 = icmp eq i64 %307, 12
-  %spec.select.i124 = select i1 %308, ptr @rb_cSymbol, ptr @rb_cFloat
+305:                                              ; preds = %303
+  %306 = and i64 %0, 254
+  %307 = icmp eq i64 %306, 12
+  %spec.select.i124 = select i1 %307, ptr @rb_cSymbol, ptr @rb_cFloat
   br label %rb_class_of.exit125
 
-rb_class_of.exit125:                              ; preds = %299, %301, %302, %303, %304, %306
-  %.0.in.i121 = phi ptr [ @rb_cNilClass, %302 ], [ @rb_cTrueClass, %303 ], [ %300, %299 ], [ @rb_cFalseClass, %301 ], [ @rb_cInteger, %304 ], [ %spec.select.i124, %306 ]
+rb_class_of.exit125:                              ; preds = %298, %300, %301, %302, %303, %305
+  %.0.in.i121 = phi ptr [ %299, %298 ], [ @rb_cNilClass, %301 ], [ @rb_cTrueClass, %302 ], [ @rb_cFalseClass, %300 ], [ @rb_cInteger, %303 ], [ %spec.select.i124, %305 ]
   %.0.i122 = load i64, ptr %.0.in.i121, align 8, !tbaa !11
-  %309 = icmp eq i64 %290, 0
-  %310 = and i64 %290, 7
-  %311 = icmp ne i64 %310, 0
-  %312 = or i1 %309, %311
-  br i1 %312, label %f_complex_new2.exit130, label %rbimpl_RB_TYPE_P_fastpath.exit.i126
+  %308 = icmp eq i64 %289, 0
+  %309 = and i64 %289, 7
+  %310 = icmp ne i64 %309, 0
+  %311 = or i1 %308, %310
+  br i1 %311, label %f_complex_new2.exit130, label %rbimpl_RB_TYPE_P_fastpath.exit.i126
 
 rbimpl_RB_TYPE_P_fastpath.exit.i126:              ; preds = %rb_class_of.exit125
-  %313 = inttoptr i64 %290 to ptr
-  %314 = load i64, ptr %313, align 8, !tbaa !19
-  %315 = and i64 %314, 31
-  %316 = icmp eq i64 %315, 14
-  br i1 %316, label %317, label %f_complex_new2.exit130
+  %312 = inttoptr i64 %289 to ptr
+  %313 = load i64, ptr %312, align 8, !tbaa !19
+  %314 = and i64 %313, 31
+  %315 = icmp eq i64 %314, 14
+  br i1 %315, label %316, label %f_complex_new2.exit130
 
-317:                                              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i126
-  %318 = getelementptr inbounds nuw i8, ptr %313, i64 16
-  %319 = load i64, ptr %318, align 8, !tbaa !15
-  %320 = getelementptr inbounds nuw i8, ptr %313, i64 24
-  %321 = load i64, ptr %320, align 8, !tbaa !18
-  %322 = tail call fastcc i64 @f_add(i64 noundef %321, i64 noundef %294)
+316:                                              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i126
+  %317 = getelementptr inbounds nuw i8, ptr %312, i64 16
+  %318 = load i64, ptr %317, align 8, !tbaa !15
+  %319 = getelementptr inbounds nuw i8, ptr %312, i64 24
+  %320 = load i64, ptr %319, align 8, !tbaa !18
+  %321 = tail call fastcc i64 @f_add(i64 noundef %320, i64 noundef %293)
   br label %f_complex_new2.exit130
 
-f_complex_new2.exit130:                           ; preds = %rb_class_of.exit125, %rbimpl_RB_TYPE_P_fastpath.exit.i126, %317
-  %.07.i128 = phi i64 [ %322, %317 ], [ %294, %rbimpl_RB_TYPE_P_fastpath.exit.i126 ], [ %294, %rb_class_of.exit125 ]
-  %.0.i129 = phi i64 [ %319, %317 ], [ %290, %rbimpl_RB_TYPE_P_fastpath.exit.i126 ], [ %290, %rb_class_of.exit125 ]
-  %323 = tail call fastcc noundef i64 @nucomp_s_canonicalize_internal(i64 noundef %.0.i122, i64 noundef %.0.i129, i64 noundef %.07.i128)
-  br label %326
+f_complex_new2.exit130:                           ; preds = %rb_class_of.exit125, %rbimpl_RB_TYPE_P_fastpath.exit.i126, %316
+  %.07.i128 = phi i64 [ %321, %316 ], [ %293, %rbimpl_RB_TYPE_P_fastpath.exit.i126 ], [ %293, %rb_class_of.exit125 ]
+  %.0.i129 = phi i64 [ %318, %316 ], [ %289, %rbimpl_RB_TYPE_P_fastpath.exit.i126 ], [ %289, %rb_class_of.exit125 ]
+  %322 = tail call fastcc noundef i64 @nucomp_s_canonicalize_internal(i64 noundef %.0.i122, i64 noundef %.0.i129, i64 noundef %.07.i128)
+  br label %325
 
-324:                                              ; preds = %283, %rbimpl_RB_TYPE_P_fastpath.exit.thread
-  %325 = tail call i64 @rb_num_coerce_bin(i64 noundef %0, i64 noundef %1, i64 noundef %3) #18
-  br label %326
+323:                                              ; preds = %282, %rbimpl_RB_TYPE_P_fastpath.exit.thread
+  %324 = tail call i64 @rb_num_coerce_bin(i64 noundef %0, i64 noundef %1, i64 noundef %3) #18
+  br label %325
 
-326:                                              ; preds = %324, %f_complex_new2.exit130, %f_complex_new2.exit
-  %.0 = phi i64 [ %279, %f_complex_new2.exit ], [ %323, %f_complex_new2.exit130 ], [ %325, %324 ]
+325:                                              ; preds = %323, %f_complex_new2.exit130, %f_complex_new2.exit
+  %.0 = phi i64 [ %278, %f_complex_new2.exit ], [ %322, %f_complex_new2.exit130 ], [ %324, %323 ]
   ret i64 %.0
 }
 
@@ -2797,39 +2797,39 @@ FLOAT_ZERO_P.exit.i:                              ; preds = %RB_FLOAT_TYPE_P.exi
 RB_FLOAT_TYPE_P.exit.thread11.i:                  ; preds = %12, %RB_FLOAT_TYPE_P.exit.i
   %28 = and i64 %1, 1
   %.not.i.i = icmp eq i64 %28, 0
-  br i1 %.not.i.i, label %29, label %rb_integer_type_p.exit.thread.i
+  br i1 %.not.i.i, label %29, label %f_zero_p.exit
 
 29:                                               ; preds = %RB_FLOAT_TYPE_P.exit.thread11.i
   %30 = and i64 %1, 6
   %31 = icmp ne i64 %30, 0
   %32 = or i1 %13, %31
-  br i1 %32, label %f_zero_p.exit, label %rb_integer_type_p.exit.i
+  br i1 %32, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, label %rb_integer_type_p.exit.i
 
 rb_integer_type_p.exit.i:                         ; preds = %29
   %33 = inttoptr i64 %1 to ptr
   %34 = load i64, ptr %33, align 8, !tbaa !19
   %35 = and i64 %34, 31
-  switch i64 %35, label %f_zero_p.exit [
-    i64 10, label %rb_integer_type_p.exit.thread.i
-    i64 15, label %37
+  switch i64 %35, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i [
+    i64 10, label %f_zero_p.exit
+    i64 15, label %36
   ]
 
-rb_integer_type_p.exit.thread.i:                  ; preds = %rb_integer_type_p.exit.i, %RB_FLOAT_TYPE_P.exit.thread11.i
-  %36 = icmp eq i64 %1, 1
-  br i1 %36, label %42, label %RB_FLOAT_TYPE_P.exit.thread
+36:                                               ; preds = %rb_integer_type_p.exit.i
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %38 = load i64, ptr %37, align 8, !tbaa !23
+  %39 = icmp eq i64 %38, 1
+  br i1 %39, label %42, label %RB_FLOAT_TYPE_P.exit.thread
 
-37:                                               ; preds = %rb_integer_type_p.exit.i
-  %38 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %39 = load i64, ptr %38, align 8, !tbaa !23
-  %40 = icmp eq i64 %39, 1
-  br i1 %40, label %42, label %RB_FLOAT_TYPE_P.exit.thread
-
-f_zero_p.exit:                                    ; preds = %rb_integer_type_p.exit.i, %29
-  %41 = tail call i64 @rb_equal(i64 noundef %1, i64 noundef 1) #18
-  %.not201 = icmp eq i64 %41, 0
+rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rb_integer_type_p.exit.i, %29
+  %40 = tail call i64 @rb_equal(i64 noundef %1, i64 noundef 1) #18
+  %.not201 = icmp eq i64 %40, 0
   br i1 %.not201, label %RB_FLOAT_TYPE_P.exit.thread, label %42
 
-42:                                               ; preds = %37, %rb_integer_type_p.exit.thread.i, %FLOAT_ZERO_P.exit.i, %f_zero_p.exit
+f_zero_p.exit:                                    ; preds = %rb_integer_type_p.exit.i, %RB_FLOAT_TYPE_P.exit.thread11.i
+  %41 = icmp eq i64 %1, 1
+  br i1 %41, label %42, label %RB_FLOAT_TYPE_P.exit.thread
+
+42:                                               ; preds = %36, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, %FLOAT_ZERO_P.exit.i, %f_zero_p.exit
   %43 = icmp eq i64 %0, 0
   %44 = and i64 %0, 7
   %45 = icmp ne i64 %44, 0
@@ -2866,7 +2866,7 @@ f_zero_p.exit:                                    ; preds = %rb_integer_type_p.e
   br label %rb_class_of.exit
 
 rb_class_of.exit:                                 ; preds = %47, %50, %51, %52, %53, %55
-  %.0.in.i = phi ptr [ @rb_cNilClass, %51 ], [ @rb_cTrueClass, %52 ], [ %49, %47 ], [ @rb_cFalseClass, %50 ], [ @rb_cInteger, %53 ], [ %spec.select.i, %55 ]
+  %.0.in.i = phi ptr [ %49, %47 ], [ @rb_cNilClass, %51 ], [ @rb_cTrueClass, %52 ], [ @rb_cFalseClass, %50 ], [ @rb_cInteger, %53 ], [ %spec.select.i, %55 ]
   %.0.i108 = load i64, ptr %.0.in.i, align 8, !tbaa !11
   %58 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %59 = load ptr, ptr %58, align 8, !tbaa !27
@@ -2879,8 +2879,8 @@ rb_class_of.exit:                                 ; preds = %47, %50, %51, %52, 
   tail call void @rb_obj_freeze_inline(i64 noundef %60) #18
   br label %791
 
-RB_FLOAT_TYPE_P.exit.thread:                      ; preds = %.RB_FLOAT_TYPE_P.exit.thread_crit_edge, %37, %rb_integer_type_p.exit.thread.i, %FLOAT_ZERO_P.exit.i, %RB_FLOAT_TYPE_P.exit, %f_zero_p.exit
-  %.pre-phi = phi i64 [ %.pre, %.RB_FLOAT_TYPE_P.exit.thread_crit_edge ], [ %14, %37 ], [ %14, %rb_integer_type_p.exit.thread.i ], [ 0, %FLOAT_ZERO_P.exit.i ], [ 0, %RB_FLOAT_TYPE_P.exit ], [ %14, %f_zero_p.exit ]
+RB_FLOAT_TYPE_P.exit.thread:                      ; preds = %.RB_FLOAT_TYPE_P.exit.thread_crit_edge, %36, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, %FLOAT_ZERO_P.exit.i, %RB_FLOAT_TYPE_P.exit, %f_zero_p.exit
+  %.pre-phi = phi i64 [ %.pre, %.RB_FLOAT_TYPE_P.exit.thread_crit_edge ], [ %14, %36 ], [ %14, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ], [ 0, %FLOAT_ZERO_P.exit.i ], [ 0, %RB_FLOAT_TYPE_P.exit ], [ %14, %f_zero_p.exit ]
   %64 = icmp eq i64 %1, 0
   %65 = icmp ne i64 %.pre-phi, 0
   %66 = or i1 %64, %65
@@ -2956,45 +2956,45 @@ FLOAT_ZERO_P.exit.i119:                           ; preds = %RB_FLOAT_TYPE_P.exi
 RB_FLOAT_TYPE_P.exit.thread11.i112:               ; preds = %91, %RB_FLOAT_TYPE_P.exit.i111
   %107 = and i64 %88, 1
   %.not.i.i113 = icmp eq i64 %107, 0
-  br i1 %.not.i.i113, label %108, label %rb_integer_type_p.exit.thread.i114
+  br i1 %.not.i.i113, label %108, label %f_zero_p.exit123
 
 108:                                              ; preds = %RB_FLOAT_TYPE_P.exit.thread11.i112
   %109 = and i64 %88, 6
   %110 = icmp ne i64 %109, 0
   %111 = or i1 %92, %110
-  br i1 %111, label %f_zero_p.exit123, label %rb_integer_type_p.exit.i116
+  br i1 %111, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i118, label %rb_integer_type_p.exit.i116
 
 rb_integer_type_p.exit.i116:                      ; preds = %108
   %112 = inttoptr i64 %88 to ptr
   %113 = load i64, ptr %112, align 8, !tbaa !19
   %114 = and i64 %113, 31
-  switch i64 %114, label %f_zero_p.exit123 [
-    i64 10, label %rb_integer_type_p.exit.thread.i114
-    i64 15, label %116
+  switch i64 %114, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i118 [
+    i64 10, label %f_zero_p.exit123
+    i64 15, label %115
   ]
 
-rb_integer_type_p.exit.thread.i114:               ; preds = %rb_integer_type_p.exit.i116, %RB_FLOAT_TYPE_P.exit.thread11.i112
-  %115 = icmp eq i64 %88, 1
-  br i1 %115, label %121, label %rbimpl_RB_TYPE_P_fastpath.exit103.thread
+115:                                              ; preds = %rb_integer_type_p.exit.i116
+  %116 = getelementptr inbounds nuw i8, ptr %112, i64 16
+  %117 = load i64, ptr %116, align 8, !tbaa !23
+  %118 = icmp eq i64 %117, 1
+  br i1 %118, label %121, label %rbimpl_RB_TYPE_P_fastpath.exit103.thread
 
-116:                                              ; preds = %rb_integer_type_p.exit.i116
-  %117 = getelementptr inbounds nuw i8, ptr %112, i64 16
-  %118 = load i64, ptr %117, align 8, !tbaa !23
-  %119 = icmp eq i64 %118, 1
-  br i1 %119, label %121, label %rbimpl_RB_TYPE_P_fastpath.exit103.thread
-
-f_zero_p.exit123:                                 ; preds = %rb_integer_type_p.exit.i116, %108
-  %120 = tail call i64 @rb_equal(i64 noundef %88, i64 noundef 1) #18
-  %.not202 = icmp eq i64 %120, 0
+rbimpl_RB_TYPE_P_fastpath.exit.thread.i118:       ; preds = %rb_integer_type_p.exit.i116, %108
+  %119 = tail call i64 @rb_equal(i64 noundef %88, i64 noundef 1) #18
+  %.not202 = icmp eq i64 %119, 0
   br i1 %.not202, label %rbimpl_RB_TYPE_P_fastpath.exit103.thread, label %121
 
-121:                                              ; preds = %116, %rb_integer_type_p.exit.thread.i114, %FLOAT_ZERO_P.exit.i119, %f_zero_p.exit123
+f_zero_p.exit123:                                 ; preds = %rb_integer_type_p.exit.i116, %RB_FLOAT_TYPE_P.exit.thread11.i112
+  %120 = icmp eq i64 %88, 1
+  br i1 %120, label %121, label %rbimpl_RB_TYPE_P_fastpath.exit103.thread
+
+121:                                              ; preds = %115, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i118, %FLOAT_ZERO_P.exit.i119, %f_zero_p.exit123
   %122 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %123 = load i64, ptr %122, align 8, !tbaa !15
   br label %rbimpl_RB_TYPE_P_fastpath.exit103.thread
 
-rbimpl_RB_TYPE_P_fastpath.exit103.thread:         ; preds = %86, %rbimpl_RB_TYPE_P_fastpath.exit105.thread, %116, %rb_integer_type_p.exit.thread.i114, %FLOAT_ZERO_P.exit.i119, %RB_FLOAT_TYPE_P.exit110, %f_zero_p.exit123, %121, %rbimpl_RB_TYPE_P_fastpath.exit103
-  %.185 = phi i64 [ %.084, %rbimpl_RB_TYPE_P_fastpath.exit103 ], [ %.084, %RB_FLOAT_TYPE_P.exit110 ], [ %123, %121 ], [ %.084, %f_zero_p.exit123 ], [ %.084, %FLOAT_ZERO_P.exit.i119 ], [ %.084, %rb_integer_type_p.exit.thread.i114 ], [ %.084, %116 ], [ %.084, %rbimpl_RB_TYPE_P_fastpath.exit105.thread ], [ %.084, %86 ]
+rbimpl_RB_TYPE_P_fastpath.exit103.thread:         ; preds = %86, %rbimpl_RB_TYPE_P_fastpath.exit105.thread, %115, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i118, %FLOAT_ZERO_P.exit.i119, %RB_FLOAT_TYPE_P.exit110, %f_zero_p.exit123, %121, %rbimpl_RB_TYPE_P_fastpath.exit103
+  %.185 = phi i64 [ %.084, %rbimpl_RB_TYPE_P_fastpath.exit103 ], [ %.084, %RB_FLOAT_TYPE_P.exit110 ], [ %123, %121 ], [ %.084, %f_zero_p.exit123 ], [ %.084, %115 ], [ %.084, %rbimpl_RB_TYPE_P_fastpath.exit105.thread ], [ %.084, %FLOAT_ZERO_P.exit.i119 ], [ %.084, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i118 ], [ %.084, %86 ]
   %124 = icmp eq i64 %.185, 3
   br i1 %124, label %125, label %161
 
@@ -3035,7 +3035,7 @@ rbimpl_RB_TYPE_P_fastpath.exit103.thread:         ; preds = %86, %rbimpl_RB_TYPE
   br label %rb_class_of.exit128
 
 rb_class_of.exit128:                              ; preds = %131, %133, %134, %135, %136, %138
-  %.0.in.i124 = phi ptr [ @rb_cNilClass, %134 ], [ @rb_cTrueClass, %135 ], [ %132, %131 ], [ @rb_cFalseClass, %133 ], [ @rb_cInteger, %136 ], [ %spec.select.i127, %138 ]
+  %.0.in.i124 = phi ptr [ %132, %131 ], [ @rb_cNilClass, %134 ], [ @rb_cTrueClass, %135 ], [ @rb_cFalseClass, %133 ], [ @rb_cInteger, %136 ], [ %spec.select.i127, %138 ]
   %.0.i125 = load i64, ptr %.0.in.i124, align 8, !tbaa !11
   %141 = getelementptr inbounds nuw i8, ptr %126, i64 16
   %142 = load i64, ptr %141, align 8, !tbaa !15
@@ -3141,43 +3141,43 @@ FLOAT_ZERO_P.exit.i.i:                            ; preds = %193, %187
 RB_FLOAT_TYPE_P.exit.thread11.i.i:                ; preds = %RB_FLOAT_TYPE_P.exit.i.i, %177
   %197 = and i64 %174, 1
   %.not.i.i.i = icmp eq i64 %197, 0
-  br i1 %.not.i.i.i, label %198, label %rb_integer_type_p.exit.thread.i.i
+  br i1 %.not.i.i.i, label %198, label %f_zero_p.exit.i
 
 198:                                              ; preds = %RB_FLOAT_TYPE_P.exit.thread11.i.i
   %199 = and i64 %174, 6
   %200 = icmp ne i64 %199, 0
   %201 = or i1 %178, %200
-  br i1 %201, label %f_zero_p.exit.i, label %rb_integer_type_p.exit.i.i
+  br i1 %201, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i, label %rb_integer_type_p.exit.i.i
 
 rb_integer_type_p.exit.i.i:                       ; preds = %198
   %202 = inttoptr i64 %174 to ptr
   %203 = load i64, ptr %202, align 8, !tbaa !19
   %204 = and i64 %203, 31
-  switch i64 %204, label %f_zero_p.exit.i [
-    i64 10, label %rb_integer_type_p.exit.thread.i.i
-    i64 15, label %206
+  switch i64 %204, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i [
+    i64 10, label %f_zero_p.exit.i
+    i64 15, label %205
   ]
 
-rb_integer_type_p.exit.thread.i.i:                ; preds = %rb_integer_type_p.exit.i.i, %RB_FLOAT_TYPE_P.exit.thread11.i.i
-  %205 = icmp eq i64 %174, 1
-  br i1 %205, label %FLOAT_ZERO_P.exit.i.thread.i, label %212
+205:                                              ; preds = %rb_integer_type_p.exit.i.i
+  %206 = getelementptr inbounds nuw i8, ptr %202, i64 16
+  %207 = load i64, ptr %206, align 8, !tbaa !23
+  %208 = icmp eq i64 %207, 1
+  br i1 %208, label %FLOAT_ZERO_P.exit.i.thread.i, label %212
 
-206:                                              ; preds = %rb_integer_type_p.exit.i.i
-  %207 = getelementptr inbounds nuw i8, ptr %202, i64 16
-  %208 = load i64, ptr %207, align 8, !tbaa !23
-  %209 = icmp eq i64 %208, 1
-  br i1 %209, label %FLOAT_ZERO_P.exit.i.thread.i, label %212
-
-f_zero_p.exit.i:                                  ; preds = %rb_integer_type_p.exit.i.i, %198
-  %210 = tail call i64 @rb_equal(i64 noundef %174, i64 noundef 1) #18
-  %.not142.i = icmp eq i64 %210, 0
+rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i:        ; preds = %rb_integer_type_p.exit.i.i, %198
+  %209 = tail call i64 @rb_equal(i64 noundef %174, i64 noundef 1) #18
+  %.not142.i = icmp eq i64 %209, 0
   br i1 %.not142.i, label %212, label %FLOAT_ZERO_P.exit.i.thread.i
 
-FLOAT_ZERO_P.exit.i.thread.i:                     ; preds = %f_zero_p.exit.i, %206, %rb_integer_type_p.exit.thread.i.i, %FLOAT_ZERO_P.exit.i.i, %186
+f_zero_p.exit.i:                                  ; preds = %rb_integer_type_p.exit.i.i, %RB_FLOAT_TYPE_P.exit.thread11.i.i
+  %210 = icmp eq i64 %174, 1
+  br i1 %210, label %FLOAT_ZERO_P.exit.i.thread.i, label %212
+
+FLOAT_ZERO_P.exit.i.thread.i:                     ; preds = %f_zero_p.exit.i, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i, %205, %FLOAT_ZERO_P.exit.i.i, %186
   %211 = getelementptr inbounds nuw i8, ptr %172, i64 16
   br label %FLOAT_ZERO_P.exit.i58.thread.i
 
-212:                                              ; preds = %f_zero_p.exit.i, %206, %rb_integer_type_p.exit.thread.i.i, %FLOAT_ZERO_P.exit.i.i
+212:                                              ; preds = %f_zero_p.exit.i, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i, %205, %FLOAT_ZERO_P.exit.i.i
   %213 = getelementptr inbounds nuw i8, ptr %172, i64 16
   %214 = load i64, ptr %213, align 8, !tbaa !15
   %215 = and i64 %214, 3
@@ -3224,44 +3224,44 @@ FLOAT_ZERO_P.exit.i58.i:                          ; preds = %233, %227
 RB_FLOAT_TYPE_P.exit.thread11.i51.i:              ; preds = %RB_FLOAT_TYPE_P.exit.i50.i, %217
   %237 = and i64 %214, 1
   %.not.i.i52.i = icmp eq i64 %237, 0
-  br i1 %.not.i.i52.i, label %238, label %rb_integer_type_p.exit.thread.i53.i
+  br i1 %.not.i.i52.i, label %238, label %f_zero_p.exit62.i
 
 238:                                              ; preds = %RB_FLOAT_TYPE_P.exit.thread11.i51.i
   %239 = and i64 %214, 6
   %240 = icmp ne i64 %239, 0
   %241 = or i1 %218, %240
-  br i1 %241, label %f_zero_p.exit62.i, label %rb_integer_type_p.exit.i55.i
+  br i1 %241, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i57.i, label %rb_integer_type_p.exit.i55.i
 
 rb_integer_type_p.exit.i55.i:                     ; preds = %238
   %242 = inttoptr i64 %214 to ptr
   %243 = load i64, ptr %242, align 8, !tbaa !19
   %244 = and i64 %243, 31
-  switch i64 %244, label %f_zero_p.exit62.i [
-    i64 10, label %rb_integer_type_p.exit.thread.i53.i
-    i64 15, label %246
+  switch i64 %244, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i57.i [
+    i64 10, label %f_zero_p.exit62.i
+    i64 15, label %245
   ]
 
-rb_integer_type_p.exit.thread.i53.i:              ; preds = %rb_integer_type_p.exit.i55.i, %RB_FLOAT_TYPE_P.exit.thread11.i51.i
-  %245 = icmp eq i64 %214, 1
-  br i1 %245, label %FLOAT_ZERO_P.exit.i58.thread.i, label %251
+245:                                              ; preds = %rb_integer_type_p.exit.i55.i
+  %246 = getelementptr inbounds nuw i8, ptr %242, i64 16
+  %247 = load i64, ptr %246, align 8, !tbaa !23
+  %248 = icmp eq i64 %247, 1
+  br i1 %248, label %FLOAT_ZERO_P.exit.i58.thread.i, label %251
 
-246:                                              ; preds = %rb_integer_type_p.exit.i55.i
-  %247 = getelementptr inbounds nuw i8, ptr %242, i64 16
-  %248 = load i64, ptr %247, align 8, !tbaa !23
-  %249 = icmp eq i64 %248, 1
-  br i1 %249, label %FLOAT_ZERO_P.exit.i58.thread.i, label %251
+rbimpl_RB_TYPE_P_fastpath.exit.thread.i57.i:      ; preds = %rb_integer_type_p.exit.i55.i, %238
+  %249 = tail call i64 @rb_equal(i64 noundef %214, i64 noundef 1) #18
+  %.not143.i = icmp eq i64 %249, 0
+  br i1 %.not143.i, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i57._crit_edge.i, label %FLOAT_ZERO_P.exit.i58.thread.i
 
-f_zero_p.exit62.i:                                ; preds = %rb_integer_type_p.exit.i55.i, %238
-  %250 = tail call i64 @rb_equal(i64 noundef %214, i64 noundef 1) #18
-  %.not143.i = icmp eq i64 %250, 0
-  br i1 %.not143.i, label %f_zero_p.exit62._crit_edge.i, label %FLOAT_ZERO_P.exit.i58.thread.i
-
-f_zero_p.exit62._crit_edge.i:                     ; preds = %f_zero_p.exit62.i
+rbimpl_RB_TYPE_P_fastpath.exit.thread.i57._crit_edge.i: ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread.i57.i
   %.pre.i = load i64, ptr %213, align 8, !tbaa !15
   br label %251
 
-251:                                              ; preds = %f_zero_p.exit62._crit_edge.i, %246, %rb_integer_type_p.exit.thread.i53.i, %FLOAT_ZERO_P.exit.i58.i
-  %252 = phi i64 [ %.pre.i, %f_zero_p.exit62._crit_edge.i ], [ %214, %246 ], [ %214, %rb_integer_type_p.exit.thread.i53.i ], [ %214, %FLOAT_ZERO_P.exit.i58.i ]
+f_zero_p.exit62.i:                                ; preds = %rb_integer_type_p.exit.i55.i, %RB_FLOAT_TYPE_P.exit.thread11.i51.i
+  %250 = icmp eq i64 %214, 1
+  br i1 %250, label %FLOAT_ZERO_P.exit.i58.thread.i, label %251
+
+251:                                              ; preds = %f_zero_p.exit62.i, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i57._crit_edge.i, %245, %FLOAT_ZERO_P.exit.i58.i
+  %252 = phi i64 [ %.pre.i, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i57._crit_edge.i ], [ %214, %245 ], [ %214, %FLOAT_ZERO_P.exit.i58.i ], [ %214, %f_zero_p.exit62.i ]
   %253 = load i64, ptr %173, align 8, !tbaa !18
   %254 = and i64 %252, 1
   %255 = and i64 %254, %253
@@ -3275,7 +3275,7 @@ f_zero_p.exit62._crit_edge.i:                     ; preds = %f_zero_p.exit62.i
 257:                                              ; preds = %251
   %258 = and i64 %252, 3
   %259 = icmp eq i64 %258, 2
-  br i1 %259, label %RB_FLOAT_TYPE_P.exit.thread.i.i, label %260
+  br i1 %259, label %f_eqeq_p.exit.i, label %260
 
 260:                                              ; preds = %257
   %261 = icmp eq i64 %252, 0
@@ -3292,40 +3292,40 @@ RB_FLOAT_TYPE_P.exit.i64.i:                       ; preds = %260
   %269 = and i64 %253, 3
   %270 = icmp eq i64 %269, 2
   %or.cond21.i.i = or i1 %270, %268
-  br i1 %or.cond21.i.i, label %RB_FLOAT_TYPE_P.exit.thread.i.i, label %271
+  br i1 %or.cond21.i.i, label %f_eqeq_p.exit.i, label %271
 
 RB_FLOAT_TYPE_P.exit.thread14.i.i:                ; preds = %260
   %.old.i.i = and i64 %253, 3
   %.old20.i.i = icmp eq i64 %.old.i.i, 2
-  br i1 %.old20.i.i, label %RB_FLOAT_TYPE_P.exit.thread.i.i, label %271
+  br i1 %.old20.i.i, label %f_eqeq_p.exit.i, label %271
 
 271:                                              ; preds = %RB_FLOAT_TYPE_P.exit.thread14.i.i, %RB_FLOAT_TYPE_P.exit.i64.i
   %272 = icmp eq i64 %253, 0
   %273 = and i64 %253, 7
   %274 = icmp ne i64 %273, 0
   %275 = or i1 %272, %274
-  br i1 %275, label %f_eqeq_p.exit.i, label %RB_FLOAT_TYPE_P.exit12.i.i
+  br i1 %275, label %RB_FLOAT_TYPE_P.exit12.thread17.i.i, label %RB_FLOAT_TYPE_P.exit12.i.i
 
 RB_FLOAT_TYPE_P.exit12.i.i:                       ; preds = %271
   %276 = inttoptr i64 %253 to ptr
   %277 = load i64, ptr %276, align 8, !tbaa !19
   %278 = and i64 %277, 31
   %279 = icmp eq i64 %278, 4
-  br i1 %279, label %RB_FLOAT_TYPE_P.exit.thread.i.i, label %f_eqeq_p.exit.i
+  br i1 %279, label %f_eqeq_p.exit.i, label %RB_FLOAT_TYPE_P.exit12.thread17.i.i
 
-RB_FLOAT_TYPE_P.exit.thread.i.i:                  ; preds = %RB_FLOAT_TYPE_P.exit12.i.i, %RB_FLOAT_TYPE_P.exit.thread14.i.i, %RB_FLOAT_TYPE_P.exit.i64.i, %257
-  %280 = tail call double @rb_num2dbl(i64 noundef %252) #18
-  %281 = tail call double @rb_num2dbl(i64 noundef %253) #18
-  %282 = fcmp une double %280, %281
+RB_FLOAT_TYPE_P.exit12.thread17.i.i:              ; preds = %RB_FLOAT_TYPE_P.exit12.i.i, %271
+  %280 = tail call i64 @rb_equal(i64 noundef %252, i64 noundef %253) #18
+  %281 = and i64 %280, 4294967295
+  %282 = icmp eq i64 %281, 0
   br i1 %282, label %286, label %FLOAT_ZERO_P.exit.i58.thread.i
 
-f_eqeq_p.exit.i:                                  ; preds = %RB_FLOAT_TYPE_P.exit12.i.i, %271
-  %283 = tail call i64 @rb_equal(i64 noundef %252, i64 noundef %253) #18
-  %284 = and i64 %283, 4294967295
-  %285 = icmp eq i64 %284, 0
+f_eqeq_p.exit.i:                                  ; preds = %RB_FLOAT_TYPE_P.exit12.i.i, %RB_FLOAT_TYPE_P.exit.thread14.i.i, %RB_FLOAT_TYPE_P.exit.i64.i, %257
+  %283 = tail call double @rb_num2dbl(i64 noundef %252) #18
+  %284 = tail call double @rb_num2dbl(i64 noundef %253) #18
+  %285 = fcmp une double %283, %284
   br i1 %285, label %286, label %FLOAT_ZERO_P.exit.i58.thread.i
 
-286:                                              ; preds = %f_eqeq_p.exit.i, %RB_FLOAT_TYPE_P.exit.thread.i.i, %256
+286:                                              ; preds = %f_eqeq_p.exit.i, %RB_FLOAT_TYPE_P.exit12.thread17.i.i, %256
   %287 = load i64, ptr %213, align 8, !tbaa !15
   %288 = load i64, ptr %173, align 8, !tbaa !18
   %289 = and i64 %288, 1
@@ -3401,7 +3401,7 @@ f_negate.exit.i:                                  ; preds = %rbimpl_RB_TYPE_P_fa
 317:                                              ; preds = %f_negate.exit.i
   %318 = and i64 %287, 3
   %319 = icmp eq i64 %318, 2
-  br i1 %319, label %RB_FLOAT_TYPE_P.exit.thread.i79.i, label %320
+  br i1 %319, label %f_eqeq_p.exit83.i, label %320
 
 320:                                              ; preds = %317
   %321 = icmp eq i64 %287, 0
@@ -3418,42 +3418,42 @@ RB_FLOAT_TYPE_P.exit.i75.i:                       ; preds = %320
   %329 = and i64 %.0.i67.i, 3
   %330 = icmp eq i64 %329, 2
   %or.cond21.i76.i = or i1 %330, %328
-  br i1 %or.cond21.i76.i, label %RB_FLOAT_TYPE_P.exit.thread.i79.i, label %331
+  br i1 %or.cond21.i76.i, label %f_eqeq_p.exit83.i, label %331
 
 RB_FLOAT_TYPE_P.exit.thread14.i80.i:              ; preds = %320
   %.old.i81.i = and i64 %.0.i67.i, 3
   %.old20.i82.i = icmp eq i64 %.old.i81.i, 2
-  br i1 %.old20.i82.i, label %RB_FLOAT_TYPE_P.exit.thread.i79.i, label %331
+  br i1 %.old20.i82.i, label %f_eqeq_p.exit83.i, label %331
 
 331:                                              ; preds = %RB_FLOAT_TYPE_P.exit.thread14.i80.i, %RB_FLOAT_TYPE_P.exit.i75.i
   %332 = icmp eq i64 %.0.i67.i, 0
   %333 = and i64 %.0.i67.i, 7
   %334 = icmp ne i64 %333, 0
   %335 = or i1 %332, %334
-  br i1 %335, label %f_eqeq_p.exit83.i, label %RB_FLOAT_TYPE_P.exit12.i77.i
+  br i1 %335, label %RB_FLOAT_TYPE_P.exit12.thread17.i78.i, label %RB_FLOAT_TYPE_P.exit12.i77.i
 
 RB_FLOAT_TYPE_P.exit12.i77.i:                     ; preds = %331
   %336 = inttoptr i64 %.0.i67.i to ptr
   %337 = load i64, ptr %336, align 8, !tbaa !19
   %338 = and i64 %337, 31
   %339 = icmp eq i64 %338, 4
-  br i1 %339, label %RB_FLOAT_TYPE_P.exit.thread.i79.i, label %f_eqeq_p.exit83.i
+  br i1 %339, label %f_eqeq_p.exit83.i, label %RB_FLOAT_TYPE_P.exit12.thread17.i78.i
 
-RB_FLOAT_TYPE_P.exit.thread.i79.i:                ; preds = %RB_FLOAT_TYPE_P.exit12.i77.i, %RB_FLOAT_TYPE_P.exit.thread14.i80.i, %RB_FLOAT_TYPE_P.exit.i75.i, %317
-  %340 = tail call double @rb_num2dbl(i64 noundef %287) #18
-  %341 = tail call double @rb_num2dbl(i64 noundef %.0.i67.i) #18
-  %342 = fcmp une double %340, %341
+RB_FLOAT_TYPE_P.exit12.thread17.i78.i:            ; preds = %RB_FLOAT_TYPE_P.exit12.i77.i, %331
+  %340 = tail call i64 @rb_equal(i64 noundef %287, i64 noundef %.0.i67.i) #18
+  %341 = and i64 %340, 4294967295
+  %342 = icmp eq i64 %341, 0
   br i1 %342, label %complex_pow_for_special_angle.exit.thread, label %FLOAT_ZERO_P.exit.i58.thread.i
 
-f_eqeq_p.exit83.i:                                ; preds = %RB_FLOAT_TYPE_P.exit12.i77.i, %331
-  %343 = tail call i64 @rb_equal(i64 noundef %287, i64 noundef %.0.i67.i) #18
-  %344 = and i64 %343, 4294967295
-  %345 = icmp eq i64 %344, 0
+f_eqeq_p.exit83.i:                                ; preds = %RB_FLOAT_TYPE_P.exit12.i77.i, %RB_FLOAT_TYPE_P.exit.thread14.i80.i, %RB_FLOAT_TYPE_P.exit.i75.i, %317
+  %343 = tail call double @rb_num2dbl(i64 noundef %287) #18
+  %344 = tail call double @rb_num2dbl(i64 noundef %.0.i67.i) #18
+  %345 = fcmp une double %343, %344
   br i1 %345, label %complex_pow_for_special_angle.exit.thread, label %FLOAT_ZERO_P.exit.i58.thread.i
 
-FLOAT_ZERO_P.exit.i58.thread.i:                   ; preds = %f_eqeq_p.exit83.i, %RB_FLOAT_TYPE_P.exit.thread.i79.i, %316, %f_eqeq_p.exit.i, %RB_FLOAT_TYPE_P.exit.thread.i.i, %256, %f_zero_p.exit62.i, %246, %rb_integer_type_p.exit.thread.i53.i, %FLOAT_ZERO_P.exit.i58.i, %226, %FLOAT_ZERO_P.exit.i.thread.i
-  %.044.in.i = phi ptr [ %211, %FLOAT_ZERO_P.exit.i.thread.i ], [ %173, %226 ], [ %173, %246 ], [ %173, %rb_integer_type_p.exit.thread.i53.i ], [ %173, %FLOAT_ZERO_P.exit.i58.i ], [ %173, %f_zero_p.exit62.i ], [ %213, %f_eqeq_p.exit.i ], [ %173, %f_eqeq_p.exit83.i ], [ %213, %256 ], [ %213, %RB_FLOAT_TYPE_P.exit.thread.i.i ], [ %173, %316 ], [ %173, %RB_FLOAT_TYPE_P.exit.thread.i79.i ]
-  %.042.i = phi i32 [ 0, %FLOAT_ZERO_P.exit.i.thread.i ], [ 2, %226 ], [ 2, %246 ], [ 2, %rb_integer_type_p.exit.thread.i53.i ], [ 2, %FLOAT_ZERO_P.exit.i58.i ], [ 2, %f_zero_p.exit62.i ], [ 1, %f_eqeq_p.exit.i ], [ 3, %f_eqeq_p.exit83.i ], [ 1, %256 ], [ 1, %RB_FLOAT_TYPE_P.exit.thread.i.i ], [ 3, %316 ], [ 3, %RB_FLOAT_TYPE_P.exit.thread.i79.i ]
+FLOAT_ZERO_P.exit.i58.thread.i:                   ; preds = %f_eqeq_p.exit83.i, %RB_FLOAT_TYPE_P.exit12.thread17.i78.i, %316, %f_eqeq_p.exit.i, %RB_FLOAT_TYPE_P.exit12.thread17.i.i, %256, %f_zero_p.exit62.i, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i57.i, %245, %FLOAT_ZERO_P.exit.i58.i, %226, %FLOAT_ZERO_P.exit.i.thread.i
+  %.044.in.i = phi ptr [ %211, %FLOAT_ZERO_P.exit.i.thread.i ], [ %213, %f_eqeq_p.exit.i ], [ %173, %f_zero_p.exit62.i ], [ %173, %226 ], [ %173, %245 ], [ %173, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i57.i ], [ %173, %FLOAT_ZERO_P.exit.i58.i ], [ %173, %f_eqeq_p.exit83.i ], [ %213, %256 ], [ %213, %RB_FLOAT_TYPE_P.exit12.thread17.i.i ], [ %173, %316 ], [ %173, %RB_FLOAT_TYPE_P.exit12.thread17.i78.i ]
+  %.042.i = phi i32 [ 0, %FLOAT_ZERO_P.exit.i.thread.i ], [ 1, %f_eqeq_p.exit.i ], [ 2, %f_zero_p.exit62.i ], [ 2, %226 ], [ 2, %245 ], [ 2, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i57.i ], [ 2, %FLOAT_ZERO_P.exit.i58.i ], [ 3, %f_eqeq_p.exit83.i ], [ 1, %256 ], [ 1, %RB_FLOAT_TYPE_P.exit12.thread17.i.i ], [ 3, %316 ], [ 3, %RB_FLOAT_TYPE_P.exit12.thread17.i78.i ]
   %.044.i = load i64, ptr %.044.in.i, align 8, !tbaa !11
   %346 = icmp eq i64 %.044.i, 36
   br i1 %346, label %complex_pow_for_special_angle.exit.thread, label %347
@@ -3480,11 +3480,11 @@ rb_integer_type_p.exit.i86.i:                     ; preds = %349
 INT_NEGATIVE_P.exit.i.i:                          ; preds = %rb_integer_type_p.exit.i86.i
   %358 = and i64 %355, 8192
   %.not.i.i.i.not.i = icmp eq i64 %358, 0
-  br i1 %.not.i.i.i.not.i, label %rb_integer_type_p.exit.i94.i, label %rb_float_value_inline.exit.i.thread.i
+  br i1 %.not.i.i.i.not.i, label %rb_integer_type_p.exit.i94.i, label %f_negative_p.exit.thread.i
 
 INT_NEGATIVE_P.exit.i.thread.i:                   ; preds = %347
   %359 = icmp sgt i64 %.044.i, -1
-  br i1 %359, label %rb_float_value_inline.exit.i.thread.i, label %rb_integer_type_p.exit.thread.i92.i
+  br i1 %359, label %f_negative_p.exit.thread.i, label %rb_integer_type_p.exit.thread.i92.i
 
 rb_integer_type_p.exit.thread19.i.i:              ; preds = %rb_integer_type_p.exit.i86.i, %349
   %360 = and i64 %.044.i, 2
@@ -3495,20 +3495,20 @@ rb_integer_type_p.exit.thread19.i.i:              ; preds = %rb_integer_type_p.e
   %362 = and i64 %.044.i, 4
   %363 = icmp ne i64 %362, 0
   %364 = or i1 %350, %363
-  br i1 %364, label %f_negative_p.exit.i, label %RB_FLOAT_TYPE_P.exit.i88.i
+  br i1 %364, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i90.i, label %RB_FLOAT_TYPE_P.exit.i88.i
 
 RB_FLOAT_TYPE_P.exit.i88.i:                       ; preds = %361
   %365 = inttoptr i64 %.044.i to ptr
   %366 = load i64, ptr %365, align 8, !tbaa !19
   %367 = and i64 %366, 31
-  switch i64 %367, label %f_negative_p.exit.i [
+  switch i64 %367, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i90.i [
     i64 4, label %375
-    i64 15, label %379
+    i64 15, label %378
   ]
 
 368:                                              ; preds = %rb_integer_type_p.exit.thread19.i.i
   %.not.i.i13.i.i = icmp eq i64 %.044.i, -9223372036854775806
-  br i1 %.not.i.i13.i.i, label %rb_float_value_inline.exit.i.thread.i, label %369
+  br i1 %.not.i.i13.i.i, label %f_negative_p.exit.thread.i, label %369
 
 369:                                              ; preds = %368
   %.neg.i.i.i.i133 = ashr i64 %.044.i, 63
@@ -3517,42 +3517,42 @@ RB_FLOAT_TYPE_P.exit.i88.i:                       ; preds = %361
   %372 = or i64 %370, %371
   %373 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %372, i64 range(i64 1, 0) %372, i64 61)
   %374 = bitcast i64 %373 to double
-  br label %rb_float_value_inline.exit.i.i
+  br label %f_negative_p.exit.i
 
 375:                                              ; preds = %RB_FLOAT_TYPE_P.exit.i88.i
   %376 = getelementptr inbounds nuw i8, ptr %365, i64 16
   %377 = load double, ptr %376, align 8, !tbaa !21
-  br label %rb_float_value_inline.exit.i.i
+  br label %f_negative_p.exit.i
 
-rb_float_value_inline.exit.i.i:                   ; preds = %375, %369
+378:                                              ; preds = %RB_FLOAT_TYPE_P.exit.i88.i
+  %379 = getelementptr inbounds nuw i8, ptr %365, i64 16
+  %380 = load i64, ptr %379, align 8, !tbaa !23
+  %381 = and i64 %380, 1
+  %.not.i14.i.i = icmp eq i64 %381, 0
+  br i1 %.not.i14.i.i, label %INT_NEGATIVE_P.exit17.i.i, label %382
+
+382:                                              ; preds = %378
+  %383 = icmp slt i64 %380, 0
+  br i1 %383, label %.thread.i, label %f_negative_p.exit.thread.i
+
+INT_NEGATIVE_P.exit17.i.i:                        ; preds = %378
+  %384 = inttoptr i64 %380 to ptr
+  %385 = load i64, ptr %384, align 8, !tbaa !19
+  %386 = and i64 %385, 8192
+  %.not.i.i16.i.i = icmp eq i64 %386, 0
+  br i1 %.not.i.i16.i.i, label %.thread.i, label %f_negative_p.exit.thread.i
+
+rbimpl_RB_TYPE_P_fastpath.exit.thread.i90.i:      ; preds = %RB_FLOAT_TYPE_P.exit.i88.i, %361
+  %387 = tail call i32 @rb_num_negative_p(i64 noundef %.044.i) #18
+  %388 = icmp eq i32 %387, 0
+  br i1 %388, label %f_negative_p.exit.thread.i, label %.thread.i
+
+f_negative_p.exit.i:                              ; preds = %375, %369
   %.0.i12.i.i = phi double [ %377, %375 ], [ %374, %369 ]
-  %378 = fcmp uge double %.0.i12.i.i, 0.000000e+00
-  br i1 %378, label %rb_float_value_inline.exit.i.thread.i, label %.thread.i
+  %389 = fcmp uge double %.0.i12.i.i, 0.000000e+00
+  br i1 %389, label %f_negative_p.exit.thread.i, label %.thread.i
 
-379:                                              ; preds = %RB_FLOAT_TYPE_P.exit.i88.i
-  %380 = getelementptr inbounds nuw i8, ptr %365, i64 16
-  %381 = load i64, ptr %380, align 8, !tbaa !23
-  %382 = and i64 %381, 1
-  %.not.i14.i.i = icmp eq i64 %382, 0
-  br i1 %.not.i14.i.i, label %INT_NEGATIVE_P.exit17.i.i, label %383
-
-383:                                              ; preds = %379
-  %384 = icmp slt i64 %381, 0
-  br i1 %384, label %.thread.i, label %rb_float_value_inline.exit.i.thread.i
-
-INT_NEGATIVE_P.exit17.i.i:                        ; preds = %379
-  %385 = inttoptr i64 %381 to ptr
-  %386 = load i64, ptr %385, align 8, !tbaa !19
-  %387 = and i64 %386, 8192
-  %.not.i.i16.i.i = icmp eq i64 %387, 0
-  br i1 %.not.i.i16.i.i, label %.thread.i, label %rb_float_value_inline.exit.i.thread.i
-
-f_negative_p.exit.i:                              ; preds = %RB_FLOAT_TYPE_P.exit.i88.i, %361
-  %388 = tail call i32 @rb_num_negative_p(i64 noundef %.044.i) #18
-  %389 = icmp eq i32 %388, 0
-  br i1 %389, label %rb_float_value_inline.exit.i.thread.i, label %.thread.i
-
-.thread.i:                                        ; preds = %383, %f_negative_p.exit.i, %INT_NEGATIVE_P.exit17.i.i, %rb_float_value_inline.exit.i.i
+.thread.i:                                        ; preds = %382, %f_negative_p.exit.i, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i90.i, %INT_NEGATIVE_P.exit17.i.i
   br i1 %353, label %rb_integer_type_p.exit.thread15.i95.i, label %.thread.i.rb_integer_type_p.exit.i94.i_crit_edge
 
 .thread.i.rb_integer_type_p.exit.i94.i_crit_edge: ; preds = %.thread.i
@@ -3614,20 +3614,20 @@ rbimpl_RB_TYPE_P_fastpath.exit11.thread.i100.i:   ; preds = %RB_FLOAT_TYPE_P.exi
 f_negate.exit101.i:                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit11.thread.i100.i, %404, %402, %RB_FLOAT_TYPE_P.exit.thread.i97.i, %rb_integer_type_p.exit.thread.i92.i
   %.0.i93.i = phi i64 [ %393, %rb_integer_type_p.exit.thread.i92.i ], [ %401, %RB_FLOAT_TYPE_P.exit.thread.i97.i ], [ %403, %402 ], [ %405, %404 ], [ %406, %rbimpl_RB_TYPE_P_fastpath.exit11.thread.i100.i ]
   %407 = or disjoint i32 %.042.i, 4
-  br label %rb_float_value_inline.exit.i.thread.i
+  br label %f_negative_p.exit.thread.i
 
-rb_float_value_inline.exit.i.thread.i:            ; preds = %383, %f_negate.exit101.i, %f_negative_p.exit.i, %INT_NEGATIVE_P.exit17.i.i, %rb_float_value_inline.exit.i.i, %368, %INT_NEGATIVE_P.exit.i.thread.i, %INT_NEGATIVE_P.exit.i.i
-  %.145.i = phi i64 [ %.0.i93.i, %f_negate.exit101.i ], [ %.044.i, %f_negative_p.exit.i ], [ %.044.i, %INT_NEGATIVE_P.exit.i.i ], [ %.044.i, %rb_float_value_inline.exit.i.i ], [ %.044.i, %INT_NEGATIVE_P.exit17.i.i ], [ %.044.i, %INT_NEGATIVE_P.exit.i.thread.i ], [ -9223372036854775806, %368 ], [ %.044.i, %383 ]
-  %.143.i = phi i32 [ %407, %f_negate.exit101.i ], [ %.042.i, %f_negative_p.exit.i ], [ %.042.i, %INT_NEGATIVE_P.exit.i.i ], [ %.042.i, %rb_float_value_inline.exit.i.i ], [ %.042.i, %INT_NEGATIVE_P.exit17.i.i ], [ %.042.i, %INT_NEGATIVE_P.exit.i.thread.i ], [ %.042.i, %368 ], [ %.042.i, %383 ]
+f_negative_p.exit.thread.i:                       ; preds = %382, %f_negate.exit101.i, %f_negative_p.exit.i, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i90.i, %INT_NEGATIVE_P.exit17.i.i, %368, %INT_NEGATIVE_P.exit.i.thread.i, %INT_NEGATIVE_P.exit.i.i
+  %.145.i = phi i64 [ %.0.i93.i, %f_negate.exit101.i ], [ %.044.i, %f_negative_p.exit.i ], [ %.044.i, %INT_NEGATIVE_P.exit.i.i ], [ %.044.i, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i90.i ], [ %.044.i, %INT_NEGATIVE_P.exit17.i.i ], [ %.044.i, %INT_NEGATIVE_P.exit.i.thread.i ], [ -9223372036854775806, %368 ], [ %.044.i, %382 ]
+  %.143.i = phi i32 [ %407, %f_negate.exit101.i ], [ %.042.i, %f_negative_p.exit.i ], [ %.042.i, %INT_NEGATIVE_P.exit.i.i ], [ %.042.i, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i90.i ], [ %.042.i, %INT_NEGATIVE_P.exit17.i.i ], [ %.042.i, %INT_NEGATIVE_P.exit.i.thread.i ], [ %.042.i, %368 ], [ %.042.i, %382 ]
   %408 = and i32 %.143.i, 1
   %409 = icmp eq i32 %408, 0
   br i1 %409, label %410, label %412
 
-410:                                              ; preds = %rb_float_value_inline.exit.i.thread.i
+410:                                              ; preds = %f_negative_p.exit.thread.i
   %411 = tail call i64 @rb_num_pow(i64 noundef %.145.i, i64 noundef range(i64 4, 3) %.185) #18
   br label %420
 
-412:                                              ; preds = %rb_float_value_inline.exit.i.thread.i
+412:                                              ; preds = %f_negative_p.exit.thread.i
   %413 = tail call i64 @rb_int_mul(i64 noundef 5, i64 noundef %.145.i) #18
   %414 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %413, i64 noundef 42, i32 noundef 1, i64 noundef %.145.i) #18
   %415 = tail call i64 @rb_int_div(i64 noundef range(i64 4, 3) %.185, i64 noundef 5) #18
@@ -3750,7 +3750,7 @@ zero_for.exit.fold.split.i:                       ; preds = %RB_FLOAT_TYPE_P.exi
   br label %zero_for.exit.i
 
 zero_for.exit.i:                                  ; preds = %zero_for.exit.fold.split.i, %rbimpl_RB_TYPE_P_fastpath.exit11.thread.i115.i, %467, %465, %RB_FLOAT_TYPE_P.exit.thread.i112.i, %rb_integer_type_p.exit.thread.i107.i, %443, %441, %RB_FLOAT_TYPE_P.exit.i102.i, %433, %430, %420
-  %.039.i = phi i64 [ 0, %420 ], [ %.041.i, %443 ], [ %442, %441 ], [ -9223372036854775806, %RB_FLOAT_TYPE_P.exit.i102.i ], [ -9223372036854775806, %430 ], [ 1, %433 ], [ %455, %rb_integer_type_p.exit.thread.i107.i ], [ %464, %RB_FLOAT_TYPE_P.exit.thread.i112.i ], [ %466, %465 ], [ %468, %467 ], [ %469, %rbimpl_RB_TYPE_P_fastpath.exit11.thread.i115.i ], [ 1, %zero_for.exit.fold.split.i ]
+  %.039.i = phi i64 [ 0, %420 ], [ 1, %433 ], [ %.041.i, %443 ], [ %469, %rbimpl_RB_TYPE_P_fastpath.exit11.thread.i115.i ], [ %442, %441 ], [ -9223372036854775806, %430 ], [ -9223372036854775806, %RB_FLOAT_TYPE_P.exit.i102.i ], [ %455, %rb_integer_type_p.exit.thread.i107.i ], [ %464, %RB_FLOAT_TYPE_P.exit.thread.i112.i ], [ %466, %465 ], [ %468, %467 ], [ 1, %zero_for.exit.fold.split.i ]
   %470 = getelementptr i8, ptr %428, i64 4
   %471 = load i32, ptr %470, align 4, !tbaa !13
   switch i32 %471, label %zero_for.exit121.i [
@@ -3851,7 +3851,7 @@ zero_for.exit121.fold.split.i:                    ; preds = %RB_FLOAT_TYPE_P.exi
   br label %zero_for.exit121.i
 
 zero_for.exit121.i:                               ; preds = %zero_for.exit121.fold.split.i, %rbimpl_RB_TYPE_P_fastpath.exit11.thread.i131.i, %509, %507, %RB_FLOAT_TYPE_P.exit.thread.i128.i, %rb_integer_type_p.exit.thread.i123.i, %485, %483, %RB_FLOAT_TYPE_P.exit.i117.i, %475, %472, %zero_for.exit.i
-  %.0.i132 = phi i64 [ 0, %zero_for.exit.i ], [ %.041.i, %485 ], [ %484, %483 ], [ -9223372036854775806, %RB_FLOAT_TYPE_P.exit.i117.i ], [ -9223372036854775806, %472 ], [ 1, %475 ], [ %497, %rb_integer_type_p.exit.thread.i123.i ], [ %506, %RB_FLOAT_TYPE_P.exit.thread.i128.i ], [ %508, %507 ], [ %510, %509 ], [ %511, %rbimpl_RB_TYPE_P_fastpath.exit11.thread.i131.i ], [ 1, %zero_for.exit121.fold.split.i ]
+  %.0.i132 = phi i64 [ 0, %zero_for.exit.i ], [ 1, %475 ], [ %.041.i, %485 ], [ %511, %rbimpl_RB_TYPE_P_fastpath.exit11.thread.i131.i ], [ %484, %483 ], [ -9223372036854775806, %472 ], [ -9223372036854775806, %RB_FLOAT_TYPE_P.exit.i117.i ], [ %497, %rb_integer_type_p.exit.thread.i123.i ], [ %506, %RB_FLOAT_TYPE_P.exit.thread.i128.i ], [ %508, %507 ], [ %510, %509 ], [ 1, %zero_for.exit121.fold.split.i ]
   %512 = icmp eq i64 %0, 0
   %513 = and i64 %0, 7
   %514 = icmp ne i64 %513, 0
@@ -3887,7 +3887,7 @@ zero_for.exit121.i:                               ; preds = %zero_for.exit121.fo
   br label %rb_class_of.exit.i
 
 rb_class_of.exit.i:                               ; preds = %523, %521, %520, %519, %518, %516
-  %.0.in.i.i = phi ptr [ @rb_cNilClass, %519 ], [ @rb_cTrueClass, %520 ], [ %517, %516 ], [ @rb_cFalseClass, %518 ], [ @rb_cInteger, %521 ], [ %spec.select.i.i, %523 ]
+  %.0.in.i.i = phi ptr [ %517, %516 ], [ @rb_cNilClass, %519 ], [ @rb_cTrueClass, %520 ], [ @rb_cFalseClass, %518 ], [ @rb_cInteger, %521 ], [ %spec.select.i.i, %523 ]
   %.0.i133.i = load i64, ptr %.0.in.i.i, align 8, !tbaa !11
   %526 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %527 = load ptr, ptr %526, align 8, !tbaa !27
@@ -3923,7 +3923,7 @@ complex_pow_for_special_angle.exit:               ; preds = %rb_obj_write.exit.i
   %542 = icmp eq i64 %528, 36
   br i1 %542, label %complex_pow_for_special_angle.exit.thread, label %791
 
-complex_pow_for_special_angle.exit.thread:        ; preds = %RB_FLOAT_TYPE_P.exit.thread.i79.i, %316, %f_eqeq_p.exit83.i, %163, %FLOAT_ZERO_P.exit.i58.thread.i, %rb_integer_type_p.exit.i134, %complex_pow_for_special_angle.exit
+complex_pow_for_special_angle.exit.thread:        ; preds = %RB_FLOAT_TYPE_P.exit12.thread17.i78.i, %316, %f_eqeq_p.exit83.i, %163, %FLOAT_ZERO_P.exit.i58.thread.i, %rb_integer_type_p.exit.i134, %complex_pow_for_special_angle.exit
   %543 = icmp eq i64 %.185, 0
   %544 = and i64 %.185, 7
   %545 = icmp ne i64 %544, 0
@@ -4051,7 +4051,7 @@ f_abs.exit:                                       ; preds = %rb_integer_type_p.e
   br label %rb_class_of.exit.i143
 
 rb_class_of.exit.i143:                            ; preds = %600, %598, %597, %596, %595, %592
-  %.0.in.i.i144 = phi ptr [ @rb_cNilClass, %596 ], [ @rb_cTrueClass, %597 ], [ %594, %592 ], [ @rb_cFalseClass, %595 ], [ @rb_cInteger, %598 ], [ %spec.select.i.i147, %600 ]
+  %.0.in.i.i144 = phi ptr [ %594, %592 ], [ @rb_cNilClass, %596 ], [ @rb_cTrueClass, %597 ], [ @rb_cFalseClass, %595 ], [ @rb_cInteger, %598 ], [ %spec.select.i.i147, %600 ]
   %.0.i.i = load i64, ptr %.0.in.i.i144, align 8, !tbaa !11
   %603 = call i32 @rb_method_basic_definition_p(i64 noundef %.0.i.i, i64 noundef 45) #18
   %.not.i145 = icmp eq i32 %603, 0
@@ -4107,7 +4107,7 @@ f_sub.exit:                                       ; preds = %rb_class_of.exit.i1
   br label %rb_class_of.exit152
 
 rb_class_of.exit152:                              ; preds = %617, %620, %621, %622, %623, %624
-  %.0.in.i148 = phi ptr [ @rb_cNilClass, %621 ], [ @rb_cTrueClass, %622 ], [ %619, %617 ], [ @rb_cFalseClass, %620 ], [ @rb_cInteger, %623 ], [ %spec.select.i151, %624 ]
+  %.0.in.i148 = phi ptr [ %619, %617 ], [ @rb_cNilClass, %621 ], [ @rb_cTrueClass, %622 ], [ @rb_cFalseClass, %620 ], [ @rb_cInteger, %623 ], [ %spec.select.i151, %624 ]
   %.0.i149 = load i64, ptr %.0.in.i148, align 8, !tbaa !11
   %627 = call fastcc i64 @nucomp_real_check(i64 noundef %606)
   %628 = call fastcc i64 @nucomp_real_check(i64 noundef %612)
@@ -4194,44 +4194,44 @@ FLOAT_ZERO_P.exit.i161:                           ; preds = %666, %660
 RB_FLOAT_TYPE_P.exit.thread11.i154:               ; preds = %RB_FLOAT_TYPE_P.exit.i153, %650
   %670 = and i64 %647, 1
   %.not.i.i155 = icmp eq i64 %670, 0
-  br i1 %.not.i.i155, label %671, label %rb_integer_type_p.exit.thread.i156
+  br i1 %.not.i.i155, label %671, label %f_zero_p.exit165
 
 671:                                              ; preds = %RB_FLOAT_TYPE_P.exit.thread11.i154
   %672 = and i64 %647, 6
   %673 = icmp ne i64 %672, 0
   %674 = or i1 %651, %673
-  br i1 %674, label %f_zero_p.exit165, label %rb_integer_type_p.exit.i158
+  br i1 %674, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i160, label %rb_integer_type_p.exit.i158
 
 rb_integer_type_p.exit.i158:                      ; preds = %671
   %675 = inttoptr i64 %647 to ptr
   %676 = load i64, ptr %675, align 8, !tbaa !19
   %677 = and i64 %676, 31
-  switch i64 %677, label %f_zero_p.exit165 [
-    i64 10, label %rb_integer_type_p.exit.thread.i156
-    i64 15, label %679
+  switch i64 %677, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i160 [
+    i64 10, label %f_zero_p.exit165
+    i64 15, label %678
   ]
 
-rb_integer_type_p.exit.thread.i156:               ; preds = %rb_integer_type_p.exit.i158, %RB_FLOAT_TYPE_P.exit.thread11.i154
-  %678 = icmp eq i64 %647, 1
-  br i1 %678, label %FLOAT_ZERO_P.exit.i161.thread, label %685
+678:                                              ; preds = %rb_integer_type_p.exit.i158
+  %679 = getelementptr inbounds nuw i8, ptr %675, i64 16
+  %680 = load i64, ptr %679, align 8, !tbaa !23
+  %681 = icmp eq i64 %680, 1
+  br i1 %681, label %FLOAT_ZERO_P.exit.i161.thread, label %685
 
-679:                                              ; preds = %rb_integer_type_p.exit.i158
-  %680 = getelementptr inbounds nuw i8, ptr %675, i64 16
-  %681 = load i64, ptr %680, align 8, !tbaa !23
-  %682 = icmp eq i64 %681, 1
-  br i1 %682, label %FLOAT_ZERO_P.exit.i161.thread, label %685
-
-f_zero_p.exit165:                                 ; preds = %rb_integer_type_p.exit.i158, %671
-  %683 = tail call i64 @rb_equal(i64 noundef %647, i64 noundef 1) #18
-  %.not204 = icmp eq i64 %683, 0
+rbimpl_RB_TYPE_P_fastpath.exit.thread.i160:       ; preds = %rb_integer_type_p.exit.i158, %671
+  %682 = tail call i64 @rb_equal(i64 noundef %647, i64 noundef 1) #18
+  %.not204 = icmp eq i64 %682, 0
   br i1 %.not204, label %685, label %FLOAT_ZERO_P.exit.i161.thread
 
-FLOAT_ZERO_P.exit.i161.thread:                    ; preds = %659, %679, %rb_integer_type_p.exit.thread.i156, %FLOAT_ZERO_P.exit.i161, %f_zero_p.exit165
+f_zero_p.exit165:                                 ; preds = %rb_integer_type_p.exit.i158, %RB_FLOAT_TYPE_P.exit.thread11.i154
+  %683 = icmp eq i64 %647, 1
+  br i1 %683, label %FLOAT_ZERO_P.exit.i161.thread, label %685
+
+FLOAT_ZERO_P.exit.i161.thread:                    ; preds = %659, %678, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i160, %FLOAT_ZERO_P.exit.i161, %f_zero_p.exit165
   %684 = tail call i64 @rb_num_pow(i64 noundef %645, i64 noundef %.3) #18
   store i64 %684, ptr %5, align 8, !tbaa !11
   br label %.loopexit
 
-685:                                              ; preds = %679, %rb_integer_type_p.exit.thread.i156, %FLOAT_ZERO_P.exit.i161, %f_zero_p.exit165
+685:                                              ; preds = %678, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i160, %FLOAT_ZERO_P.exit.i161, %f_zero_p.exit165
   %686 = tail call fastcc zeroext i1 @f_zero_p(i64 noundef %645)
   br i1 %686, label %688, label %.preheader205
 
@@ -4318,7 +4318,7 @@ FLOAT_ZERO_P.exit.i161.thread:                    ; preds = %659, %679, %rb_inte
   br label %rb_class_of.exit.i167
 
 rb_class_of.exit.i167:                            ; preds = %717, %715, %714, %713, %712, %709
-  %.0.in.i.i168 = phi ptr [ @rb_cNilClass, %713 ], [ @rb_cTrueClass, %714 ], [ %711, %709 ], [ @rb_cFalseClass, %712 ], [ @rb_cInteger, %715 ], [ %spec.select.i.i172, %717 ]
+  %.0.in.i.i168 = phi ptr [ %711, %709 ], [ @rb_cNilClass, %713 ], [ @rb_cTrueClass, %714 ], [ @rb_cFalseClass, %712 ], [ @rb_cInteger, %715 ], [ %spec.select.i.i172, %717 ]
   %.0.i.i169 = load i64, ptr %.0.in.i.i168, align 8, !tbaa !11
   %720 = tail call i32 @rb_method_basic_definition_p(i64 noundef %.0.i.i169, i64 noundef 45) #18
   %.not.i170 = icmp eq i32 %720, 0
@@ -4361,7 +4361,7 @@ f_mul.exit.fold.split:                            ; preds = %725
   br label %f_mul.exit
 
 f_mul.exit:                                       ; preds = %725, %f_mul.exit.fold.split, %726, %rb_integer_type_p.exit.thread39.i, %731
-  %.0.i177 = phi i64 [ %727, %726 ], [ %732, %731 ], [ %.191207, %725 ], [ 5, %rb_integer_type_p.exit.thread39.i ], [ 5, %f_mul.exit.fold.split ]
+  %.0.i177 = phi i64 [ %732, %731 ], [ %.191207, %725 ], [ %727, %726 ], [ 5, %rb_integer_type_p.exit.thread39.i ], [ 5, %f_mul.exit.fold.split ]
   %733 = tail call fastcc i64 @f_mul(i64 noundef %.0.i177, i64 noundef %.193206)
   %734 = and i64 %.289208, 2
   %735 = icmp eq i64 %734, 0
@@ -4414,7 +4414,7 @@ f_mul.exit:                                       ; preds = %725, %f_mul.exit.fo
   br label %rb_class_of.exit185
 
 rb_class_of.exit185:                              ; preds = %743, %745, %746, %747, %748, %750
-  %.0.in.i181 = phi ptr [ @rb_cNilClass, %746 ], [ @rb_cTrueClass, %747 ], [ %744, %743 ], [ @rb_cFalseClass, %745 ], [ @rb_cInteger, %748 ], [ %spec.select.i184, %750 ]
+  %.0.in.i181 = phi ptr [ %744, %743 ], [ @rb_cNilClass, %746 ], [ @rb_cTrueClass, %747 ], [ @rb_cFalseClass, %745 ], [ @rb_cInteger, %748 ], [ %spec.select.i184, %750 ]
   %.0.i182 = load i64, ptr %.0.in.i181, align 8, !tbaa !11
   %753 = load i64, ptr %5, align 8, !tbaa !11
   %754 = load i64, ptr %6, align 8, !tbaa !11
@@ -4492,7 +4492,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %777, %782, %rbimpl_
   br label %791
 
 791:                                              ; preds = %rb_class_of.exit152, %rbimpl_RB_TYPE_P_fastpath.exit.thread, %789, %complex_pow_for_special_angle.exit, %nucomp_s_new_internal.exit187, %633, %nucomp_s_new_internal.exit, %rb_class_of.exit
-  %.0 = phi i64 [ %147, %nucomp_s_new_internal.exit ], [ %60, %rb_class_of.exit ], [ %629, %rb_class_of.exit152 ], [ %788, %rbimpl_RB_TYPE_P_fastpath.exit.thread ], [ %790, %789 ], [ %528, %complex_pow_for_special_angle.exit ], [ %635, %633 ], [ %757, %nucomp_s_new_internal.exit187 ]
+  %.0 = phi i64 [ %147, %nucomp_s_new_internal.exit ], [ %60, %rb_class_of.exit ], [ %629, %rb_class_of.exit152 ], [ %528, %complex_pow_for_special_angle.exit ], [ %788, %rbimpl_RB_TYPE_P_fastpath.exit.thread ], [ %790, %789 ], [ %635, %633 ], [ %757, %nucomp_s_new_internal.exit187 ]
   ret i64 %.0
 }
 
@@ -4796,7 +4796,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %rbimpl_RB_TYPE_P_fa
   br label %float_arg.exit
 
 float_arg.exit:                                   ; preds = %34, %rb_float_value_inline.exit.thread.i, %rb_float_value_inline.exit.i, %rbimpl_RB_TYPE_P_fastpath.exit.thread, %43, %41, %rb_integer_type_p.exit.thread
-  %.0 = phi i64 [ %12, %rb_integer_type_p.exit.thread ], [ %42, %41 ], [ %48, %43 ], [ %50, %rbimpl_RB_TYPE_P_fastpath.exit.thread ], [ %37, %34 ], [ %0, %rb_float_value_inline.exit.i ], [ 1, %rb_float_value_inline.exit.thread.i ]
+  %.0 = phi i64 [ %12, %rb_integer_type_p.exit.thread ], [ %50, %rbimpl_RB_TYPE_P_fastpath.exit.thread ], [ %42, %41 ], [ %48, %43 ], [ %37, %34 ], [ %0, %rb_float_value_inline.exit.i ], [ 1, %rb_float_value_inline.exit.thread.i ]
   ret i64 %.0
 }
 
@@ -4864,39 +4864,39 @@ FLOAT_ZERO_P.exit.i:                              ; preds = %23, %17
 RB_FLOAT_TYPE_P.exit.thread11.i:                  ; preds = %RB_FLOAT_TYPE_P.exit.i, %7
   %27 = and i64 %4, 1
   %.not.i.i = icmp eq i64 %27, 0
-  br i1 %.not.i.i, label %28, label %rb_integer_type_p.exit.thread.i
+  br i1 %.not.i.i, label %28, label %f_zero_p.exit
 
 28:                                               ; preds = %RB_FLOAT_TYPE_P.exit.thread11.i
   %29 = and i64 %4, 6
   %30 = icmp ne i64 %29, 0
   %31 = or i1 %8, %30
-  br i1 %31, label %f_zero_p.exit, label %rb_integer_type_p.exit.i
+  br i1 %31, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, label %rb_integer_type_p.exit.i
 
 rb_integer_type_p.exit.i:                         ; preds = %28
   %32 = inttoptr i64 %4 to ptr
   %33 = load i64, ptr %32, align 8, !tbaa !19
   %34 = and i64 %33, 31
-  switch i64 %34, label %f_zero_p.exit [
-    i64 10, label %rb_integer_type_p.exit.thread.i
-    i64 15, label %36
+  switch i64 %34, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i [
+    i64 10, label %f_zero_p.exit
+    i64 15, label %35
   ]
 
-rb_integer_type_p.exit.thread.i:                  ; preds = %rb_integer_type_p.exit.i, %RB_FLOAT_TYPE_P.exit.thread11.i
-  %35 = icmp eq i64 %4, 1
-  br i1 %35, label %FLOAT_ZERO_P.exit.i.thread, label %94
+35:                                               ; preds = %rb_integer_type_p.exit.i
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %37 = load i64, ptr %36, align 8, !tbaa !23
+  %38 = icmp eq i64 %37, 1
+  br i1 %38, label %FLOAT_ZERO_P.exit.i.thread, label %94
 
-36:                                               ; preds = %rb_integer_type_p.exit.i
-  %37 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %38 = load i64, ptr %37, align 8, !tbaa !23
-  %39 = icmp eq i64 %38, 1
-  br i1 %39, label %FLOAT_ZERO_P.exit.i.thread, label %94
-
-f_zero_p.exit:                                    ; preds = %rb_integer_type_p.exit.i, %28
-  %40 = tail call i64 @rb_equal(i64 noundef %4, i64 noundef 1) #18
-  %.not = icmp eq i64 %40, 0
+rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rb_integer_type_p.exit.i, %28
+  %39 = tail call i64 @rb_equal(i64 noundef %4, i64 noundef 1) #18
+  %.not = icmp eq i64 %39, 0
   br i1 %.not, label %94, label %FLOAT_ZERO_P.exit.i.thread
 
-FLOAT_ZERO_P.exit.i.thread:                       ; preds = %16, %36, %rb_integer_type_p.exit.thread.i, %FLOAT_ZERO_P.exit.i, %f_zero_p.exit
+f_zero_p.exit:                                    ; preds = %rb_integer_type_p.exit.i, %RB_FLOAT_TYPE_P.exit.thread11.i
+  %40 = icmp eq i64 %4, 1
+  br i1 %40, label %FLOAT_ZERO_P.exit.i.thread, label %94
+
+FLOAT_ZERO_P.exit.i.thread:                       ; preds = %16, %35, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, %FLOAT_ZERO_P.exit.i, %f_zero_p.exit
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %42 = load i64, ptr %41, align 8, !tbaa !18
   %43 = tail call fastcc i64 @f_abs(i64 noundef %42)
@@ -4985,7 +4985,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i21:        ; preds = %rbimpl_RB_TYPE_P_fa
   %93 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %43, i64 noundef 3393, i32 noundef 0) #18
   br label %f_to_f.exit
 
-94:                                               ; preds = %36, %rb_integer_type_p.exit.thread.i, %FLOAT_ZERO_P.exit.i, %f_zero_p.exit
+94:                                               ; preds = %35, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, %FLOAT_ZERO_P.exit.i, %f_zero_p.exit
   %95 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %96 = load i64, ptr %95, align 8, !tbaa !18
   %97 = and i64 %96, 3
@@ -5032,43 +5032,43 @@ FLOAT_ZERO_P.exit.i31:                            ; preds = %115, %109
 RB_FLOAT_TYPE_P.exit.thread11.i24:                ; preds = %RB_FLOAT_TYPE_P.exit.i23, %99
   %119 = and i64 %96, 1
   %.not.i.i25 = icmp eq i64 %119, 0
-  br i1 %.not.i.i25, label %120, label %rb_integer_type_p.exit.thread.i26
+  br i1 %.not.i.i25, label %120, label %f_zero_p.exit35
 
 120:                                              ; preds = %RB_FLOAT_TYPE_P.exit.thread11.i24
   %121 = and i64 %96, 6
   %122 = icmp ne i64 %121, 0
   %123 = or i1 %100, %122
-  br i1 %123, label %f_zero_p.exit35, label %rb_integer_type_p.exit.i28
+  br i1 %123, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i30, label %rb_integer_type_p.exit.i28
 
 rb_integer_type_p.exit.i28:                       ; preds = %120
   %124 = inttoptr i64 %96 to ptr
   %125 = load i64, ptr %124, align 8, !tbaa !19
   %126 = and i64 %125, 31
-  switch i64 %126, label %f_zero_p.exit35 [
-    i64 10, label %rb_integer_type_p.exit.thread.i26
-    i64 15, label %128
+  switch i64 %126, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i30 [
+    i64 10, label %f_zero_p.exit35
+    i64 15, label %127
   ]
 
-rb_integer_type_p.exit.thread.i26:                ; preds = %rb_integer_type_p.exit.i28, %RB_FLOAT_TYPE_P.exit.thread11.i24
-  %127 = icmp eq i64 %96, 1
-  br i1 %127, label %FLOAT_ZERO_P.exit.i31.thread, label %185
+127:                                              ; preds = %rb_integer_type_p.exit.i28
+  %128 = getelementptr inbounds nuw i8, ptr %124, i64 16
+  %129 = load i64, ptr %128, align 8, !tbaa !23
+  %130 = icmp eq i64 %129, 1
+  br i1 %130, label %FLOAT_ZERO_P.exit.i31.thread, label %185
 
-128:                                              ; preds = %rb_integer_type_p.exit.i28
-  %129 = getelementptr inbounds nuw i8, ptr %124, i64 16
-  %130 = load i64, ptr %129, align 8, !tbaa !23
-  %131 = icmp eq i64 %130, 1
-  br i1 %131, label %FLOAT_ZERO_P.exit.i31.thread, label %185
+rbimpl_RB_TYPE_P_fastpath.exit.thread.i30:        ; preds = %rb_integer_type_p.exit.i28, %120
+  %131 = tail call i64 @rb_equal(i64 noundef %96, i64 noundef 1) #18
+  %.not59 = icmp eq i64 %131, 0
+  br i1 %.not59, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i30._crit_edge, label %FLOAT_ZERO_P.exit.i31.thread
 
-f_zero_p.exit35:                                  ; preds = %rb_integer_type_p.exit.i28, %120
-  %132 = tail call i64 @rb_equal(i64 noundef %96, i64 noundef 1) #18
-  %.not59 = icmp eq i64 %132, 0
-  br i1 %.not59, label %f_zero_p.exit35._crit_edge, label %FLOAT_ZERO_P.exit.i31.thread
-
-f_zero_p.exit35._crit_edge:                       ; preds = %f_zero_p.exit35
+rbimpl_RB_TYPE_P_fastpath.exit.thread.i30._crit_edge: ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread.i30
   %.pre = load i64, ptr %95, align 8, !tbaa !18
   br label %185
 
-FLOAT_ZERO_P.exit.i31.thread:                     ; preds = %108, %128, %rb_integer_type_p.exit.thread.i26, %FLOAT_ZERO_P.exit.i31, %f_zero_p.exit35
+f_zero_p.exit35:                                  ; preds = %rb_integer_type_p.exit.i28, %RB_FLOAT_TYPE_P.exit.thread11.i24
+  %132 = icmp eq i64 %96, 1
+  br i1 %132, label %FLOAT_ZERO_P.exit.i31.thread, label %185
+
+FLOAT_ZERO_P.exit.i31.thread:                     ; preds = %108, %127, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i30, %FLOAT_ZERO_P.exit.i31, %f_zero_p.exit35
   %133 = load i64, ptr %3, align 8, !tbaa !15
   %134 = tail call fastcc i64 @f_abs(i64 noundef %133)
   %135 = load i64, ptr %3, align 8, !tbaa !15
@@ -5156,14 +5156,14 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i41:        ; preds = %rbimpl_RB_TYPE_P_fa
   %184 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %134, i64 noundef 3393, i32 noundef 0) #18
   br label %f_to_f.exit
 
-185:                                              ; preds = %f_zero_p.exit35._crit_edge, %128, %rb_integer_type_p.exit.thread.i26, %FLOAT_ZERO_P.exit.i31
-  %186 = phi i64 [ %.pre, %f_zero_p.exit35._crit_edge ], [ %96, %128 ], [ %96, %rb_integer_type_p.exit.thread.i26 ], [ %96, %FLOAT_ZERO_P.exit.i31 ]
+185:                                              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread.i30._crit_edge, %127, %FLOAT_ZERO_P.exit.i31, %f_zero_p.exit35
+  %186 = phi i64 [ %.pre, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i30._crit_edge ], [ %96, %127 ], [ %96, %FLOAT_ZERO_P.exit.i31 ], [ %96, %f_zero_p.exit35 ]
   %187 = load i64, ptr %3, align 8, !tbaa !15
   %188 = tail call i64 @rb_math_hypot(i64 noundef %187, i64 noundef %186) #18
   br label %f_to_f.exit
 
 f_to_f.exit:                                      ; preds = %150, %FLOAT_ZERO_P.exit.i31.thread, %RB_FLOAT_TYPE_P.exit.thread, %47, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i41, %182, %180, %176, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i21, %91, %89, %85, %RB_FLOAT_TYPE_P.exit37, %RB_FLOAT_TYPE_P.exit39, %RB_FLOAT_TYPE_P.exit, %RB_FLOAT_TYPE_P.exit19, %185
-  %.016 = phi i64 [ %188, %185 ], [ %43, %RB_FLOAT_TYPE_P.exit19 ], [ %43, %RB_FLOAT_TYPE_P.exit ], [ %134, %RB_FLOAT_TYPE_P.exit37 ], [ %134, %RB_FLOAT_TYPE_P.exit39 ], [ %93, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i21 ], [ %92, %91 ], [ %88, %85 ], [ -9223372036854775806, %89 ], [ %184, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i41 ], [ %183, %182 ], [ %179, %176 ], [ -9223372036854775806, %180 ], [ %43, %47 ], [ %43, %RB_FLOAT_TYPE_P.exit.thread ], [ %134, %FLOAT_ZERO_P.exit.i31.thread ], [ %134, %150 ]
+  %.016 = phi i64 [ %188, %185 ], [ %43, %RB_FLOAT_TYPE_P.exit ], [ %43, %RB_FLOAT_TYPE_P.exit19 ], [ %43, %47 ], [ %134, %RB_FLOAT_TYPE_P.exit37 ], [ %134, %FLOAT_ZERO_P.exit.i31.thread ], [ %134, %RB_FLOAT_TYPE_P.exit39 ], [ -9223372036854775806, %180 ], [ %93, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i21 ], [ %88, %85 ], [ %92, %91 ], [ -9223372036854775806, %89 ], [ %43, %RB_FLOAT_TYPE_P.exit.thread ], [ %184, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i41 ], [ %179, %176 ], [ %183, %182 ], [ %134, %150 ]
   ret i64 %.016
 }
 
@@ -5220,7 +5220,7 @@ define dso_local noundef i64 @rb_complex_conjugate(i64 noundef %0) #0 {
   br label %rb_class_of.exit
 
 rb_class_of.exit:                                 ; preds = %7, %9, %10, %11, %12, %14
-  %.0.in.i = phi ptr [ @rb_cNilClass, %10 ], [ @rb_cTrueClass, %11 ], [ %8, %7 ], [ @rb_cFalseClass, %9 ], [ @rb_cInteger, %12 ], [ %spec.select.i, %14 ]
+  %.0.in.i = phi ptr [ %8, %7 ], [ @rb_cNilClass, %10 ], [ @rb_cTrueClass, %11 ], [ @rb_cFalseClass, %9 ], [ @rb_cInteger, %12 ], [ %spec.select.i, %14 ]
   %.0.i = load i64, ptr %.0.in.i, align 8, !tbaa !11
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %18 = load i64, ptr %17, align 8, !tbaa !15
@@ -5503,7 +5503,7 @@ rb_obj_write.exit.i:                              ; preds = %28, %22
   br label %rb_class_of.exit.i
 
 rb_class_of.exit.i:                               ; preds = %46, %44, %43, %42, %41, %38
-  %.0.in.i.i = phi ptr [ @rb_cNilClass, %42 ], [ @rb_cTrueClass, %43 ], [ %40, %38 ], [ @rb_cFalseClass, %41 ], [ @rb_cInteger, %44 ], [ %spec.select.i.i, %46 ]
+  %.0.in.i.i = phi ptr [ %40, %38 ], [ @rb_cNilClass, %42 ], [ @rb_cTrueClass, %43 ], [ @rb_cFalseClass, %41 ], [ @rb_cInteger, %44 ], [ %spec.select.i.i, %46 ]
   %.0.i.i = load i64, ptr %.0.in.i.i, align 8, !tbaa !11
   %49 = tail call i32 @rb_method_basic_definition_p(i64 noundef %.0.i.i, i64 noundef 45) #18
   %.not.i = icmp eq i32 %49, 0
@@ -5642,7 +5642,7 @@ rb_obj_write.exit.i34:                            ; preds = %90, %75
   br label %rb_class_of.exit.i37
 
 rb_class_of.exit.i37:                             ; preds = %117, %115, %114, %113, %112, %109
-  %.0.in.i.i38 = phi ptr [ @rb_cNilClass, %113 ], [ @rb_cTrueClass, %114 ], [ %111, %109 ], [ @rb_cFalseClass, %112 ], [ @rb_cInteger, %115 ], [ %spec.select.i.i42, %117 ]
+  %.0.in.i.i38 = phi ptr [ %111, %109 ], [ @rb_cNilClass, %113 ], [ @rb_cTrueClass, %114 ], [ @rb_cFalseClass, %112 ], [ @rb_cInteger, %115 ], [ %spec.select.i.i42, %117 ]
   %.0.i.i39 = load i64, ptr %.0.in.i.i38, align 8, !tbaa !11
   %120 = tail call i32 @rb_method_basic_definition_p(i64 noundef %.0.i.i39, i64 noundef 45) #18
   %.not.i40 = icmp eq i32 %120, 0
@@ -5689,7 +5689,7 @@ rb_obj_write.exit.i44:                            ; preds = %137, %f_sub.exit43
   br label %nucomp_s_new_internal.exit
 
 nucomp_s_new_internal.exit:                       ; preds = %143, %rb_obj_write.exit.i44, %96, %rb_obj_write.exit.i34, %72, %rb_obj_write.exit.i32, %30, %rb_obj_write.exit.i
-  %.sink = phi i64 [ %25, %rb_obj_write.exit.i ], [ %25, %30 ], [ %59, %rb_obj_write.exit.i32 ], [ %59, %72 ], [ %83, %rb_obj_write.exit.i34 ], [ %83, %96 ], [ %130, %rb_obj_write.exit.i44 ], [ %130, %143 ]
+  %.sink = phi i64 [ %83, %96 ], [ %59, %72 ], [ %25, %30 ], [ %25, %rb_obj_write.exit.i ], [ %59, %rb_obj_write.exit.i32 ], [ %83, %rb_obj_write.exit.i34 ], [ %130, %rb_obj_write.exit.i44 ], [ %130, %143 ]
   tail call void @rb_obj_freeze_inline(i64 noundef %.sink) #18
   ret i64 %.sink
 }
@@ -5774,7 +5774,7 @@ define dso_local i64 @rb_dbl_complex_new(double noundef %0, double noundef %1) l
   br label %rb_float_new_inline.exit
 
 rb_float_new_inline.exit:                         ; preds = %10, %14, %16
-  %.0.i = phi i64 [ %17, %16 ], [ %13, %10 ], [ -9223372036854775806, %14 ]
+  %.0.i = phi i64 [ %13, %10 ], [ %17, %16 ], [ -9223372036854775806, %14 ]
   %18 = bitcast double %1 to i64
   %cond.i2 = icmp eq i64 %18, 3458764513820540928
   br i1 %cond.i2, label %31, label %19
@@ -5802,7 +5802,7 @@ rb_float_new_inline.exit:                         ; preds = %10, %14, %16
   br label %rb_float_new_inline.exit4
 
 rb_float_new_inline.exit4:                        ; preds = %25, %29, %31
-  %.0.i3 = phi i64 [ %32, %31 ], [ %28, %25 ], [ -9223372036854775806, %29 ]
+  %.0.i3 = phi i64 [ %28, %25 ], [ %32, %31 ], [ -9223372036854775806, %29 ]
   %33 = load i64, ptr @rb_cComplex, align 8, !tbaa !11
   %34 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %35 = load ptr, ptr %34, align 8, !tbaa !27
@@ -5899,7 +5899,7 @@ define hidden void @Init_Complex() local_unnamed_addr #0 {
   br label %rb_class_of.exit
 
 rb_class_of.exit:                                 ; preds = %17, %20, %21, %22, %23, %25
-  %.0.in.i = phi ptr [ @rb_cNilClass, %21 ], [ @rb_cTrueClass, %22 ], [ %19, %17 ], [ @rb_cFalseClass, %20 ], [ @rb_cInteger, %23 ], [ %spec.select.i, %25 ]
+  %.0.in.i = phi ptr [ %19, %17 ], [ @rb_cNilClass, %21 ], [ @rb_cTrueClass, %22 ], [ @rb_cFalseClass, %20 ], [ @rb_cInteger, %23 ], [ %spec.select.i, %25 ]
   %.0.i = load i64, ptr %.0.in.i, align 8, !tbaa !11
   tail call void @rb_undef_method(i64 noundef %.0.i, ptr noundef nonnull @.str.13) #18
   %28 = load i64, ptr @rb_cComplex, align 8, !tbaa !11
@@ -5939,7 +5939,7 @@ rb_class_of.exit:                                 ; preds = %17, %20, %21, %22, 
   br label %rb_class_of.exit6
 
 rb_class_of.exit6:                                ; preds = %33, %36, %37, %38, %39, %41
-  %.0.in.i2 = phi ptr [ @rb_cNilClass, %37 ], [ @rb_cTrueClass, %38 ], [ %35, %33 ], [ @rb_cFalseClass, %36 ], [ @rb_cInteger, %39 ], [ %spec.select.i5, %41 ]
+  %.0.in.i2 = phi ptr [ %35, %33 ], [ @rb_cNilClass, %37 ], [ @rb_cTrueClass, %38 ], [ @rb_cFalseClass, %36 ], [ @rb_cInteger, %39 ], [ %spec.select.i5, %41 ]
   %.0.i3 = load i64, ptr %.0.in.i2, align 8, !tbaa !11
   tail call void @rb_undef_method(i64 noundef %.0.i3, ptr noundef nonnull @.str.14) #18
   %44 = load i64, ptr @rb_cComplex, align 8, !tbaa !11
@@ -6110,7 +6110,7 @@ rb_class_of.exit6:                                ; preds = %33, %36, %37, %38, 
   br label %rb_class_of.exit11
 
 rb_class_of.exit11:                               ; preds = %117, %120, %121, %122, %123, %125
-  %.0.in.i7 = phi ptr [ @rb_cNilClass, %121 ], [ @rb_cTrueClass, %122 ], [ %119, %117 ], [ @rb_cFalseClass, %120 ], [ @rb_cInteger, %123 ], [ %spec.select.i10, %125 ]
+  %.0.in.i7 = phi ptr [ %119, %117 ], [ @rb_cNilClass, %121 ], [ @rb_cTrueClass, %122 ], [ @rb_cFalseClass, %120 ], [ @rb_cInteger, %123 ], [ %spec.select.i10, %125 ]
   %.0.i8 = load i64, ptr %.0.in.i7, align 8, !tbaa !11
   tail call void @rb_define_private_method(i64 noundef %.0.i8, ptr noundef nonnull @.str.62, ptr noundef nonnull @nucomp_s_convert, i32 noundef -1) #18
   %128 = load i64, ptr @rb_cNumeric, align 8, !tbaa !11
@@ -6305,7 +6305,7 @@ rb_scan_args_n_opt.exit:
   br i1 %19, label %rb_scan_args_set.exit, label %.thread
 
 .thread:                                          ; preds = %rb_scan_args_n_opt.exit, %16, %10
-  %.0.i11 = phi i32 [ %.0.i27, %16 ], [ 0, %10 ], [ %0, %rb_scan_args_n_opt.exit ]
+  %.0.i11 = phi i32 [ 0, %10 ], [ %.0.i27, %16 ], [ %0, %rb_scan_args_n_opt.exit ]
   tail call void @rb_error_arity(i32 noundef %.0.i11, i32 noundef 1, i32 noundef 2) #22
   unreachable
 
@@ -6356,7 +6356,7 @@ rb_scan_args_set.exit:                            ; preds = %.preheader, %16
   br label %rb_class_of.exit
 
 rb_class_of.exit:                                 ; preds = %29, %32, %33, %34, %35, %37
-  %.0.in.i = phi ptr [ @rb_cNilClass, %33 ], [ @rb_cTrueClass, %34 ], [ %31, %29 ], [ @rb_cFalseClass, %32 ], [ @rb_cInteger, %35 ], [ %spec.select.i8, %37 ]
+  %.0.in.i = phi ptr [ %31, %29 ], [ @rb_cNilClass, %33 ], [ @rb_cTrueClass, %34 ], [ @rb_cFalseClass, %32 ], [ @rb_cInteger, %35 ], [ %spec.select.i8, %37 ]
   %.0.i6 = load i64, ptr %.0.in.i, align 8, !tbaa !11
   %40 = load i64, ptr @rb_cComplex, align 8, !tbaa !11
   %41 = icmp eq i64 %.0.i6, %40
@@ -6478,7 +6478,7 @@ RB_FLOAT_TYPE_P.exit70.thread139.i:               ; preds = %RB_FLOAT_TYPE_P.exi
   br label %RB_FLOAT_TYPE_P.exit72.i
 
 RB_FLOAT_TYPE_P.exit72.i:                         ; preds = %61, %56, %RB_FLOAT_TYPE_P.exit70.thread139.i, %RB_FLOAT_TYPE_P.exit70.i, %RB_FLOAT_TYPE_P.exit68.thread136.i, %RB_FLOAT_TYPE_P.exit68.i, %RB_FLOAT_TYPE_P.exit.thread133.i, %RB_FLOAT_TYPE_P.exit.i, %11
-  %66 = phi i1 [ true, %RB_FLOAT_TYPE_P.exit70.i ], [ true, %RB_FLOAT_TYPE_P.exit68.i ], [ true, %RB_FLOAT_TYPE_P.exit.i ], [ %65, %61 ], [ true, %RB_FLOAT_TYPE_P.exit70.thread139.i ], [ false, %56 ], [ true, %11 ], [ true, %RB_FLOAT_TYPE_P.exit.thread133.i ], [ true, %RB_FLOAT_TYPE_P.exit68.thread136.i ]
+  %66 = phi i1 [ true, %RB_FLOAT_TYPE_P.exit70.i ], [ true, %RB_FLOAT_TYPE_P.exit68.i ], [ true, %RB_FLOAT_TYPE_P.exit.i ], [ true, %RB_FLOAT_TYPE_P.exit.thread133.i ], [ false, %56 ], [ true, %11 ], [ %65, %61 ], [ true, %RB_FLOAT_TYPE_P.exit70.thread139.i ], [ true, %RB_FLOAT_TYPE_P.exit68.thread136.i ]
   %67 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %68 = load i64, ptr %67, align 8, !tbaa !15
   %69 = and i64 %68, 1
@@ -6623,409 +6623,409 @@ rb_integer_type_p.exit.i88.i:                     ; preds = %124
   %130 = load i64, ptr %129, align 8, !tbaa !19
   %131 = and i64 %130, 31
   %132 = icmp eq i64 %131, 10
-  br i1 %132, label %137, label %rb_integer_type_p.exit.thread22.i.i
+  br i1 %132, label %f_gt_p.exit.i, label %rb_integer_type_p.exit.thread22.i.i
 
 133:                                              ; preds = %f_abs.exit84.i
   %134 = and i64 %.0.i76.i, 1
   %.not.i86.i = icmp eq i64 %134, 0
-  br i1 %.not.i86.i, label %137, label %135
+  br i1 %.not.i86.i, label %f_gt_p.exit.i, label %135
 
 135:                                              ; preds = %133
   %136 = icmp sgt i64 %.0.i73.i, %.0.i76.i
-  br i1 %136, label %156, label %200
-
-137:                                              ; preds = %133, %rb_integer_type_p.exit.i88.i
-  %138 = tail call i64 @rb_int_gt(i64 noundef %.0.i73.i, i64 noundef %.0.i76.i) #18
-  %139 = and i64 %138, -5
-  %.not155.i = icmp eq i64 %139, 0
-  br i1 %.not155.i, label %200, label %156
+  br i1 %136, label %155, label %199
 
 rb_integer_type_p.exit.thread22.i.i:              ; preds = %rb_integer_type_p.exit.i88.i, %124
-  %140 = and i64 %.0.i73.i, 2
-  %.not28.i.i = icmp eq i64 %140, 0
-  br i1 %.not28.i.i, label %141, label %RB_FLOAT_TYPE_P.exit.thread.i89.i
+  %137 = and i64 %.0.i73.i, 2
+  %.not28.i.i = icmp eq i64 %137, 0
+  br i1 %.not28.i.i, label %138, label %RB_FLOAT_TYPE_P.exit.thread.i89.i
 
-141:                                              ; preds = %rb_integer_type_p.exit.thread22.i.i
-  %142 = and i64 %.0.i73.i, 4
-  %143 = icmp ne i64 %142, 0
-  %144 = or i1 %125, %143
-  br i1 %144, label %f_gt_p.exit.i, label %RB_FLOAT_TYPE_P.exit.i90.i
+138:                                              ; preds = %rb_integer_type_p.exit.thread22.i.i
+  %139 = and i64 %.0.i73.i, 4
+  %140 = icmp ne i64 %139, 0
+  %141 = or i1 %125, %140
+  br i1 %141, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i91.i, label %RB_FLOAT_TYPE_P.exit.i90.i
 
-RB_FLOAT_TYPE_P.exit.i90.i:                       ; preds = %141
-  %145 = inttoptr i64 %.0.i73.i to ptr
-  %146 = load i64, ptr %145, align 8, !tbaa !19
-  %147 = and i64 %146, 31
-  switch i64 %147, label %f_gt_p.exit.i [
+RB_FLOAT_TYPE_P.exit.i90.i:                       ; preds = %138
+  %142 = inttoptr i64 %.0.i73.i to ptr
+  %143 = load i64, ptr %142, align 8, !tbaa !19
+  %144 = and i64 %143, 31
+  switch i64 %144, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i91.i [
     i64 4, label %RB_FLOAT_TYPE_P.exit.thread.i89.i
-    i64 15, label %150
+    i64 15, label %147
   ]
 
 RB_FLOAT_TYPE_P.exit.thread.i89.i:                ; preds = %RB_FLOAT_TYPE_P.exit.i90.i, %rb_integer_type_p.exit.thread22.i.i
-  %148 = tail call i64 @rb_float_gt(i64 noundef %.0.i73.i, i64 noundef %.0.i76.i) #18
-  %149 = and i64 %148, -5
-  %.not156.i = icmp eq i64 %149, 0
-  br i1 %.not156.i, label %200, label %156
+  %145 = tail call i64 @rb_float_gt(i64 noundef %.0.i73.i, i64 noundef %.0.i76.i) #18
+  %146 = and i64 %145, -5
+  %.not156.i = icmp eq i64 %146, 0
+  br i1 %.not156.i, label %199, label %155
 
-150:                                              ; preds = %RB_FLOAT_TYPE_P.exit.i90.i
-  %151 = tail call i64 @rb_rational_cmp(i64 noundef %.0.i73.i, i64 noundef %.0.i76.i) #18
-  %152 = tail call i32 @rb_cmpint(i64 noundef %151, i64 noundef %.0.i73.i, i64 noundef %.0.i76.i) #18
-  %153 = icmp sgt i32 %152, 0
-  br i1 %153, label %156, label %200
+147:                                              ; preds = %RB_FLOAT_TYPE_P.exit.i90.i
+  %148 = tail call i64 @rb_rational_cmp(i64 noundef %.0.i73.i, i64 noundef %.0.i76.i) #18
+  %149 = tail call i32 @rb_cmpint(i64 noundef %148, i64 noundef %.0.i73.i, i64 noundef %.0.i76.i) #18
+  %150 = icmp sgt i32 %149, 0
+  br i1 %150, label %155, label %199
 
-f_gt_p.exit.i:                                    ; preds = %RB_FLOAT_TYPE_P.exit.i90.i, %141
-  %154 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.0.i73.i, i64 noundef 62, i32 noundef 1, i64 noundef %.0.i76.i) #18
-  %155 = and i64 %154, -5
-  %.not157.i = icmp eq i64 %155, 0
-  br i1 %.not157.i, label %200, label %156
+rbimpl_RB_TYPE_P_fastpath.exit.thread.i91.i:      ; preds = %RB_FLOAT_TYPE_P.exit.i90.i, %138
+  %151 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.0.i73.i, i64 noundef 62, i32 noundef 1, i64 noundef %.0.i76.i) #18
+  %152 = and i64 %151, -5
+  %.not157.i = icmp eq i64 %152, 0
+  br i1 %.not157.i, label %199, label %155
 
-156:                                              ; preds = %f_gt_p.exit.i, %150, %RB_FLOAT_TYPE_P.exit.thread.i89.i, %137, %135
-  %157 = load i64, ptr %95, align 8, !tbaa !18
-  %158 = load i64, ptr %67, align 8, !tbaa !15
-  %159 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %157, i64 noundef 3601, i32 noundef 1, i64 noundef %158) #18
-  %160 = load i64, ptr %67, align 8, !tbaa !15
-  %161 = tail call fastcc i64 @f_mul(i64 noundef %159, i64 noundef %159)
-  %162 = load i64, ptr @rb_cInteger, align 8, !tbaa !11
-  %163 = tail call i32 @rb_method_basic_definition_p(i64 noundef %162, i64 noundef 43) #18
-  %.not.i93.i = icmp eq i32 %163, 0
-  br i1 %.not.i93.i, label %rb_integer_type_p.exit.thread25.i.i, label %164, !prof !20
+f_gt_p.exit.i:                                    ; preds = %133, %rb_integer_type_p.exit.i88.i
+  %153 = tail call i64 @rb_int_gt(i64 noundef %.0.i73.i, i64 noundef %.0.i76.i) #18
+  %154 = and i64 %153, -5
+  %.not155.i = icmp eq i64 %154, 0
+  br i1 %.not155.i, label %199, label %155
 
-164:                                              ; preds = %156
-  %165 = icmp eq i64 %161, 1
-  br i1 %165, label %f_add.exit.i, label %166
+155:                                              ; preds = %f_gt_p.exit.i, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i91.i, %147, %RB_FLOAT_TYPE_P.exit.thread.i89.i, %135
+  %156 = load i64, ptr %95, align 8, !tbaa !18
+  %157 = load i64, ptr %67, align 8, !tbaa !15
+  %158 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %156, i64 noundef 3601, i32 noundef 1, i64 noundef %157) #18
+  %159 = load i64, ptr %67, align 8, !tbaa !15
+  %160 = tail call fastcc i64 @f_mul(i64 noundef %158, i64 noundef %158)
+  %161 = load i64, ptr @rb_cInteger, align 8, !tbaa !11
+  %162 = tail call i32 @rb_method_basic_definition_p(i64 noundef %161, i64 noundef 43) #18
+  %.not.i93.i = icmp eq i32 %162, 0
+  br i1 %.not.i93.i, label %rb_integer_type_p.exit.thread25.i.i, label %163, !prof !20
 
-166:                                              ; preds = %164
-  %167 = tail call i64 @rb_int_plus(i64 noundef 3, i64 noundef %161) #18
+163:                                              ; preds = %155
+  %164 = icmp eq i64 %160, 1
+  br i1 %164, label %f_add.exit.i, label %165
+
+165:                                              ; preds = %163
+  %166 = tail call i64 @rb_int_plus(i64 noundef 3, i64 noundef %160) #18
   br label %f_add.exit.i
 
-rb_integer_type_p.exit.thread25.i.i:              ; preds = %156
-  %168 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef 3, i64 noundef 43, i32 noundef 1, i64 noundef %161) #18
+rb_integer_type_p.exit.thread25.i.i:              ; preds = %155
+  %167 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef 3, i64 noundef 43, i32 noundef 1, i64 noundef %160) #18
   br label %f_add.exit.i
 
-f_add.exit.i:                                     ; preds = %rb_integer_type_p.exit.thread25.i.i, %166, %164
-  %.0.i94.i = phi i64 [ %167, %166 ], [ %168, %rb_integer_type_p.exit.thread25.i.i ], [ 3, %164 ]
-  %169 = tail call fastcc i64 @f_mul(i64 noundef %160, i64 noundef %.0.i94.i)
-  %170 = load i64, ptr %13, align 8, !tbaa !15
-  %171 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %172 = load i64, ptr %171, align 8, !tbaa !18
-  %173 = tail call fastcc i64 @f_mul(i64 noundef %172, i64 noundef %159)
-  %174 = tail call fastcc i64 @f_add(i64 noundef %170, i64 noundef %173)
-  %175 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %174, i64 noundef 3601, i32 noundef 1, i64 noundef %169) #18
-  %176 = load i64, ptr %171, align 8, !tbaa !18
-  %177 = load i64, ptr %13, align 8, !tbaa !15
-  %178 = tail call fastcc i64 @f_mul(i64 noundef %177, i64 noundef %159)
-  %179 = icmp eq i64 %178, 1
-  br i1 %179, label %180, label %197
+f_add.exit.i:                                     ; preds = %rb_integer_type_p.exit.thread25.i.i, %165, %163
+  %.0.i94.i = phi i64 [ %167, %rb_integer_type_p.exit.thread25.i.i ], [ 3, %163 ], [ %166, %165 ]
+  %168 = tail call fastcc i64 @f_mul(i64 noundef %159, i64 noundef %.0.i94.i)
+  %169 = load i64, ptr %13, align 8, !tbaa !15
+  %170 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %171 = load i64, ptr %170, align 8, !tbaa !18
+  %172 = tail call fastcc i64 @f_mul(i64 noundef %171, i64 noundef %158)
+  %173 = tail call fastcc i64 @f_add(i64 noundef %169, i64 noundef %172)
+  %174 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %173, i64 noundef 3601, i32 noundef 1, i64 noundef %168) #18
+  %175 = load i64, ptr %170, align 8, !tbaa !18
+  %176 = load i64, ptr %13, align 8, !tbaa !15
+  %177 = tail call fastcc i64 @f_mul(i64 noundef %176, i64 noundef %158)
+  %178 = icmp eq i64 %177, 1
+  br i1 %178, label %179, label %196
 
-180:                                              ; preds = %f_add.exit.i
-  %181 = icmp eq i64 %176, 0
-  %182 = and i64 %176, 7
-  %183 = icmp ne i64 %182, 0
-  %184 = or i1 %181, %183
-  br i1 %184, label %188, label %185
+179:                                              ; preds = %f_add.exit.i
+  %180 = icmp eq i64 %175, 0
+  %181 = and i64 %175, 7
+  %182 = icmp ne i64 %181, 0
+  %183 = or i1 %180, %182
+  br i1 %183, label %187, label %184
 
-185:                                              ; preds = %180
-  %186 = inttoptr i64 %176 to ptr
-  %187 = getelementptr inbounds nuw i8, ptr %186, i64 8
+184:                                              ; preds = %179
+  %185 = inttoptr i64 %175 to ptr
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
   br label %rb_class_of.exit.i.i
 
-188:                                              ; preds = %180
-  switch i64 %176, label %191 [
+187:                                              ; preds = %179
+  switch i64 %175, label %190 [
     i64 0, label %rb_class_of.exit.i.i
-    i64 4, label %189
-    i64 20, label %190
+    i64 4, label %188
+    i64 20, label %189
   ]
 
-189:                                              ; preds = %188
+188:                                              ; preds = %187
   br label %rb_class_of.exit.i.i
 
-190:                                              ; preds = %188
+189:                                              ; preds = %187
   br label %rb_class_of.exit.i.i
 
-191:                                              ; preds = %188
-  %192 = and i64 %176, 1
-  %.not.i.i99.i = icmp eq i64 %192, 0
-  br i1 %.not.i.i99.i, label %193, label %rb_class_of.exit.i.i
+190:                                              ; preds = %187
+  %191 = and i64 %175, 1
+  %.not.i.i99.i = icmp eq i64 %191, 0
+  br i1 %.not.i.i99.i, label %192, label %rb_class_of.exit.i.i
 
-193:                                              ; preds = %191
-  %194 = and i64 %176, 254
-  %195 = icmp eq i64 %194, 12
-  %spec.select.i.i.i = select i1 %195, ptr @rb_cSymbol, ptr @rb_cFloat
+192:                                              ; preds = %190
+  %193 = and i64 %175, 254
+  %194 = icmp eq i64 %193, 12
+  %spec.select.i.i.i = select i1 %194, ptr @rb_cSymbol, ptr @rb_cFloat
   br label %rb_class_of.exit.i.i
 
-rb_class_of.exit.i.i:                             ; preds = %193, %191, %190, %189, %188, %185
-  %.0.in.i.i.i = phi ptr [ @rb_cNilClass, %189 ], [ @rb_cTrueClass, %190 ], [ %187, %185 ], [ @rb_cFalseClass, %188 ], [ @rb_cInteger, %191 ], [ %spec.select.i.i.i, %193 ]
+rb_class_of.exit.i.i:                             ; preds = %192, %190, %189, %188, %187, %184
+  %.0.in.i.i.i = phi ptr [ %186, %184 ], [ @rb_cNilClass, %188 ], [ @rb_cTrueClass, %189 ], [ @rb_cFalseClass, %187 ], [ @rb_cInteger, %190 ], [ %spec.select.i.i.i, %192 ]
   %.0.i.i.i = load i64, ptr %.0.in.i.i.i, align 8, !tbaa !11
-  %196 = tail call i32 @rb_method_basic_definition_p(i64 noundef %.0.i.i.i, i64 noundef 45) #18
-  %.not.i98.i = icmp eq i32 %196, 0
-  br i1 %.not.i98.i, label %197, label %f_sub.exit.i, !prof !20
+  %195 = tail call i32 @rb_method_basic_definition_p(i64 noundef %.0.i.i.i, i64 noundef 45) #18
+  %.not.i98.i = icmp eq i32 %195, 0
+  br i1 %.not.i98.i, label %196, label %f_sub.exit.i, !prof !20
 
-197:                                              ; preds = %rb_class_of.exit.i.i, %f_add.exit.i
-  %198 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %176, i64 noundef 45, i32 noundef 1, i64 noundef %178) #18
+196:                                              ; preds = %rb_class_of.exit.i.i, %f_add.exit.i
+  %197 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %175, i64 noundef 45, i32 noundef 1, i64 noundef %177) #18
   br label %f_sub.exit.i
 
-f_sub.exit.i:                                     ; preds = %197, %rb_class_of.exit.i.i
-  %.0.i97.i = phi i64 [ %198, %197 ], [ %176, %rb_class_of.exit.i.i ]
-  %199 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.0.i97.i, i64 noundef 3601, i32 noundef 1, i64 noundef %169) #18
-  br label %244
+f_sub.exit.i:                                     ; preds = %196, %rb_class_of.exit.i.i
+  %.0.i97.i = phi i64 [ %197, %196 ], [ %175, %rb_class_of.exit.i.i ]
+  %198 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.0.i97.i, i64 noundef 3601, i32 noundef 1, i64 noundef %168) #18
+  br label %243
 
-200:                                              ; preds = %f_gt_p.exit.i, %150, %RB_FLOAT_TYPE_P.exit.thread.i89.i, %137, %135
-  %201 = load i64, ptr %67, align 8, !tbaa !15
-  %202 = load i64, ptr %95, align 8, !tbaa !18
-  %203 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %201, i64 noundef 3601, i32 noundef 1, i64 noundef %202) #18
-  %204 = load i64, ptr %95, align 8, !tbaa !18
-  %205 = tail call fastcc i64 @f_mul(i64 noundef %203, i64 noundef %203)
-  %206 = load i64, ptr @rb_cInteger, align 8, !tbaa !11
-  %207 = tail call i32 @rb_method_basic_definition_p(i64 noundef %206, i64 noundef 43) #18
-  %.not.i101.i = icmp eq i32 %207, 0
-  br i1 %.not.i101.i, label %rb_integer_type_p.exit.thread25.i103.i, label %208, !prof !20
+199:                                              ; preds = %f_gt_p.exit.i, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i91.i, %147, %RB_FLOAT_TYPE_P.exit.thread.i89.i, %135
+  %200 = load i64, ptr %67, align 8, !tbaa !15
+  %201 = load i64, ptr %95, align 8, !tbaa !18
+  %202 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %200, i64 noundef 3601, i32 noundef 1, i64 noundef %201) #18
+  %203 = load i64, ptr %95, align 8, !tbaa !18
+  %204 = tail call fastcc i64 @f_mul(i64 noundef %202, i64 noundef %202)
+  %205 = load i64, ptr @rb_cInteger, align 8, !tbaa !11
+  %206 = tail call i32 @rb_method_basic_definition_p(i64 noundef %205, i64 noundef 43) #18
+  %.not.i101.i = icmp eq i32 %206, 0
+  br i1 %.not.i101.i, label %rb_integer_type_p.exit.thread25.i103.i, label %207, !prof !20
 
-208:                                              ; preds = %200
-  %209 = icmp eq i64 %205, 1
-  br i1 %209, label %f_add.exit106.i, label %210
+207:                                              ; preds = %199
+  %208 = icmp eq i64 %204, 1
+  br i1 %208, label %f_add.exit106.i, label %209
 
-210:                                              ; preds = %208
-  %211 = tail call i64 @rb_int_plus(i64 noundef 3, i64 noundef %205) #18
+209:                                              ; preds = %207
+  %210 = tail call i64 @rb_int_plus(i64 noundef 3, i64 noundef %204) #18
   br label %f_add.exit106.i
 
-rb_integer_type_p.exit.thread25.i103.i:           ; preds = %200
-  %212 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef 3, i64 noundef 43, i32 noundef 1, i64 noundef %205) #18
+rb_integer_type_p.exit.thread25.i103.i:           ; preds = %199
+  %211 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef 3, i64 noundef 43, i32 noundef 1, i64 noundef %204) #18
   br label %f_add.exit106.i
 
-f_add.exit106.i:                                  ; preds = %rb_integer_type_p.exit.thread25.i103.i, %210, %208
-  %.0.i102.i = phi i64 [ %211, %210 ], [ %212, %rb_integer_type_p.exit.thread25.i103.i ], [ 3, %208 ]
-  %213 = tail call fastcc i64 @f_mul(i64 noundef %204, i64 noundef %.0.i102.i)
-  %214 = load i64, ptr %13, align 8, !tbaa !15
-  %215 = tail call fastcc i64 @f_mul(i64 noundef %214, i64 noundef %203)
-  %216 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %217 = load i64, ptr %216, align 8, !tbaa !18
-  %218 = tail call fastcc i64 @f_add(i64 noundef %215, i64 noundef %217)
-  %219 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %218, i64 noundef 3601, i32 noundef 1, i64 noundef %213) #18
-  %220 = load i64, ptr %216, align 8, !tbaa !18
-  %221 = tail call fastcc i64 @f_mul(i64 noundef %220, i64 noundef %203)
-  %222 = load i64, ptr %13, align 8, !tbaa !15
-  %223 = icmp eq i64 %222, 1
-  br i1 %223, label %224, label %241
+f_add.exit106.i:                                  ; preds = %rb_integer_type_p.exit.thread25.i103.i, %209, %207
+  %.0.i102.i = phi i64 [ %211, %rb_integer_type_p.exit.thread25.i103.i ], [ 3, %207 ], [ %210, %209 ]
+  %212 = tail call fastcc i64 @f_mul(i64 noundef %203, i64 noundef %.0.i102.i)
+  %213 = load i64, ptr %13, align 8, !tbaa !15
+  %214 = tail call fastcc i64 @f_mul(i64 noundef %213, i64 noundef %202)
+  %215 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %216 = load i64, ptr %215, align 8, !tbaa !18
+  %217 = tail call fastcc i64 @f_add(i64 noundef %214, i64 noundef %216)
+  %218 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %217, i64 noundef 3601, i32 noundef 1, i64 noundef %212) #18
+  %219 = load i64, ptr %215, align 8, !tbaa !18
+  %220 = tail call fastcc i64 @f_mul(i64 noundef %219, i64 noundef %202)
+  %221 = load i64, ptr %13, align 8, !tbaa !15
+  %222 = icmp eq i64 %221, 1
+  br i1 %222, label %223, label %240
 
-224:                                              ; preds = %f_add.exit106.i
-  %225 = icmp eq i64 %221, 0
-  %226 = and i64 %221, 7
-  %227 = icmp ne i64 %226, 0
-  %228 = or i1 %225, %227
-  br i1 %228, label %232, label %229
+223:                                              ; preds = %f_add.exit106.i
+  %224 = icmp eq i64 %220, 0
+  %225 = and i64 %220, 7
+  %226 = icmp ne i64 %225, 0
+  %227 = or i1 %224, %226
+  br i1 %227, label %231, label %228
 
-229:                                              ; preds = %224
-  %230 = inttoptr i64 %221 to ptr
-  %231 = getelementptr inbounds nuw i8, ptr %230, i64 8
+228:                                              ; preds = %223
+  %229 = inttoptr i64 %220 to ptr
+  %230 = getelementptr inbounds nuw i8, ptr %229, i64 8
   br label %rb_class_of.exit.i108.i
 
-232:                                              ; preds = %224
-  switch i64 %221, label %235 [
+231:                                              ; preds = %223
+  switch i64 %220, label %234 [
     i64 0, label %rb_class_of.exit.i108.i
-    i64 4, label %233
-    i64 20, label %234
+    i64 4, label %232
+    i64 20, label %233
   ]
 
-233:                                              ; preds = %232
+232:                                              ; preds = %231
   br label %rb_class_of.exit.i108.i
 
-234:                                              ; preds = %232
+233:                                              ; preds = %231
   br label %rb_class_of.exit.i108.i
 
-235:                                              ; preds = %232
-  %236 = and i64 %221, 1
-  %.not.i.i112.i = icmp eq i64 %236, 0
-  br i1 %.not.i.i112.i, label %237, label %rb_class_of.exit.i108.i
+234:                                              ; preds = %231
+  %235 = and i64 %220, 1
+  %.not.i.i112.i = icmp eq i64 %235, 0
+  br i1 %.not.i.i112.i, label %236, label %rb_class_of.exit.i108.i
 
-237:                                              ; preds = %235
-  %238 = and i64 %221, 254
-  %239 = icmp eq i64 %238, 12
-  %spec.select.i.i113.i = select i1 %239, ptr @rb_cSymbol, ptr @rb_cFloat
+236:                                              ; preds = %234
+  %237 = and i64 %220, 254
+  %238 = icmp eq i64 %237, 12
+  %spec.select.i.i113.i = select i1 %238, ptr @rb_cSymbol, ptr @rb_cFloat
   br label %rb_class_of.exit.i108.i
 
-rb_class_of.exit.i108.i:                          ; preds = %237, %235, %234, %233, %232, %229
-  %.0.in.i.i109.i = phi ptr [ @rb_cNilClass, %233 ], [ @rb_cTrueClass, %234 ], [ %231, %229 ], [ @rb_cFalseClass, %232 ], [ @rb_cInteger, %235 ], [ %spec.select.i.i113.i, %237 ]
+rb_class_of.exit.i108.i:                          ; preds = %236, %234, %233, %232, %231, %228
+  %.0.in.i.i109.i = phi ptr [ %230, %228 ], [ @rb_cNilClass, %232 ], [ @rb_cTrueClass, %233 ], [ @rb_cFalseClass, %231 ], [ @rb_cInteger, %234 ], [ %spec.select.i.i113.i, %236 ]
   %.0.i.i110.i = load i64, ptr %.0.in.i.i109.i, align 8, !tbaa !11
-  %240 = tail call i32 @rb_method_basic_definition_p(i64 noundef %.0.i.i110.i, i64 noundef 45) #18
-  %.not.i111.i = icmp eq i32 %240, 0
-  br i1 %.not.i111.i, label %241, label %f_sub.exit114.i, !prof !20
+  %239 = tail call i32 @rb_method_basic_definition_p(i64 noundef %.0.i.i110.i, i64 noundef 45) #18
+  %.not.i111.i = icmp eq i32 %239, 0
+  br i1 %.not.i111.i, label %240, label %f_sub.exit114.i, !prof !20
 
-241:                                              ; preds = %rb_class_of.exit.i108.i, %f_add.exit106.i
-  %242 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %221, i64 noundef 45, i32 noundef 1, i64 noundef %222) #18
+240:                                              ; preds = %rb_class_of.exit.i108.i, %f_add.exit106.i
+  %241 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %220, i64 noundef 45, i32 noundef 1, i64 noundef %221) #18
   br label %f_sub.exit114.i
 
-f_sub.exit114.i:                                  ; preds = %241, %rb_class_of.exit.i108.i
-  %.0.i107.i = phi i64 [ %242, %241 ], [ %221, %rb_class_of.exit.i108.i ]
-  %243 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.0.i107.i, i64 noundef 3601, i32 noundef 1, i64 noundef %213) #18
-  br label %244
+f_sub.exit114.i:                                  ; preds = %240, %rb_class_of.exit.i108.i
+  %.0.i107.i = phi i64 [ %241, %240 ], [ %220, %rb_class_of.exit.i108.i ]
+  %242 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.0.i107.i, i64 noundef 3601, i32 noundef 1, i64 noundef %212) #18
+  br label %243
 
-244:                                              ; preds = %f_sub.exit114.i, %f_sub.exit.i
-  %.063.i = phi i64 [ %199, %f_sub.exit.i ], [ %243, %f_sub.exit114.i ]
-  %.062.i = phi i64 [ %175, %f_sub.exit.i ], [ %219, %f_sub.exit114.i ]
-  br i1 %66, label %248, label %245
+243:                                              ; preds = %f_sub.exit114.i, %f_sub.exit.i
+  %.063.i = phi i64 [ %198, %f_sub.exit.i ], [ %242, %f_sub.exit114.i ]
+  %.062.i = phi i64 [ %174, %f_sub.exit.i ], [ %218, %f_sub.exit114.i ]
+  br i1 %66, label %247, label %244
 
-245:                                              ; preds = %244
-  %246 = tail call i64 @rb_rational_canonicalize(i64 noundef %.062.i) #18
-  %247 = tail call i64 @rb_rational_canonicalize(i64 noundef %.063.i) #18
-  br label %248
+244:                                              ; preds = %243
+  %245 = tail call i64 @rb_rational_canonicalize(i64 noundef %.062.i) #18
+  %246 = tail call i64 @rb_rational_canonicalize(i64 noundef %.063.i) #18
+  br label %247
 
-248:                                              ; preds = %245, %244
-  %.164.i = phi i64 [ %.063.i, %244 ], [ %247, %245 ]
-  %.1.i = phi i64 [ %.062.i, %244 ], [ %246, %245 ]
-  %249 = icmp eq i64 %0, 0
-  %250 = and i64 %0, 7
-  %251 = icmp ne i64 %250, 0
-  %252 = or i1 %249, %251
-  br i1 %252, label %255, label %253
+247:                                              ; preds = %244, %243
+  %.164.i = phi i64 [ %.063.i, %243 ], [ %246, %244 ]
+  %.1.i = phi i64 [ %.062.i, %243 ], [ %245, %244 ]
+  %248 = icmp eq i64 %0, 0
+  %249 = and i64 %0, 7
+  %250 = icmp ne i64 %249, 0
+  %251 = or i1 %248, %250
+  br i1 %251, label %254, label %252
 
-253:                                              ; preds = %248
-  %254 = getelementptr inbounds nuw i8, ptr %12, i64 8
+252:                                              ; preds = %247
+  %253 = getelementptr inbounds nuw i8, ptr %12, i64 8
   br label %rb_class_of.exit.i
 
-255:                                              ; preds = %248
-  switch i64 %0, label %258 [
+254:                                              ; preds = %247
+  switch i64 %0, label %257 [
     i64 0, label %rb_class_of.exit.i
-    i64 4, label %256
-    i64 20, label %257
+    i64 4, label %255
+    i64 20, label %256
   ]
 
-256:                                              ; preds = %255
+255:                                              ; preds = %254
   br label %rb_class_of.exit.i
 
-257:                                              ; preds = %255
+256:                                              ; preds = %254
   br label %rb_class_of.exit.i
 
-258:                                              ; preds = %255
-  %259 = and i64 %0, 1
-  %.not.i117.i = icmp eq i64 %259, 0
-  br i1 %.not.i117.i, label %260, label %rb_class_of.exit.i
+257:                                              ; preds = %254
+  %258 = and i64 %0, 1
+  %.not.i117.i = icmp eq i64 %258, 0
+  br i1 %.not.i117.i, label %259, label %rb_class_of.exit.i
 
-260:                                              ; preds = %258
-  %261 = and i64 %0, 254
-  %262 = icmp eq i64 %261, 12
-  %spec.select.i.i = select i1 %262, ptr @rb_cSymbol, ptr @rb_cFloat
+259:                                              ; preds = %257
+  %260 = and i64 %0, 254
+  %261 = icmp eq i64 %260, 12
+  %spec.select.i.i = select i1 %261, ptr @rb_cSymbol, ptr @rb_cFloat
   br label %rb_class_of.exit.i
 
-rb_class_of.exit.i:                               ; preds = %260, %258, %257, %256, %255, %253
-  %.0.in.i115.i = phi ptr [ @rb_cNilClass, %256 ], [ @rb_cTrueClass, %257 ], [ %254, %253 ], [ @rb_cFalseClass, %255 ], [ @rb_cInteger, %258 ], [ %spec.select.i.i, %260 ]
+rb_class_of.exit.i:                               ; preds = %259, %257, %256, %255, %254, %252
+  %.0.in.i115.i = phi ptr [ %253, %252 ], [ @rb_cNilClass, %255 ], [ @rb_cTrueClass, %256 ], [ @rb_cFalseClass, %254 ], [ @rb_cInteger, %257 ], [ %spec.select.i.i, %259 ]
   %.0.i116.i = load i64, ptr %.0.in.i115.i, align 8, !tbaa !11
-  %263 = icmp eq i64 %.1.i, 0
-  %264 = and i64 %.1.i, 7
-  %265 = icmp ne i64 %264, 0
-  %266 = or i1 %263, %265
-  br i1 %266, label %f_complex_new2.exit.i, label %rbimpl_RB_TYPE_P_fastpath.exit.i118.i
+  %262 = icmp eq i64 %.1.i, 0
+  %263 = and i64 %.1.i, 7
+  %264 = icmp ne i64 %263, 0
+  %265 = or i1 %262, %264
+  br i1 %265, label %f_complex_new2.exit.i, label %rbimpl_RB_TYPE_P_fastpath.exit.i118.i
 
 rbimpl_RB_TYPE_P_fastpath.exit.i118.i:            ; preds = %rb_class_of.exit.i
-  %267 = inttoptr i64 %.1.i to ptr
-  %268 = load i64, ptr %267, align 8, !tbaa !19
-  %269 = and i64 %268, 31
-  %270 = icmp eq i64 %269, 14
-  br i1 %270, label %271, label %f_complex_new2.exit.i
+  %266 = inttoptr i64 %.1.i to ptr
+  %267 = load i64, ptr %266, align 8, !tbaa !19
+  %268 = and i64 %267, 31
+  %269 = icmp eq i64 %268, 14
+  br i1 %269, label %270, label %f_complex_new2.exit.i
 
-271:                                              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i118.i
-  %272 = getelementptr inbounds nuw i8, ptr %267, i64 16
-  %273 = load i64, ptr %272, align 8, !tbaa !15
-  %274 = getelementptr inbounds nuw i8, ptr %267, i64 24
-  %275 = load i64, ptr %274, align 8, !tbaa !18
-  %276 = tail call fastcc i64 @f_add(i64 noundef %275, i64 noundef %.164.i)
+270:                                              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i118.i
+  %271 = getelementptr inbounds nuw i8, ptr %266, i64 16
+  %272 = load i64, ptr %271, align 8, !tbaa !15
+  %273 = getelementptr inbounds nuw i8, ptr %266, i64 24
+  %274 = load i64, ptr %273, align 8, !tbaa !18
+  %275 = tail call fastcc i64 @f_add(i64 noundef %274, i64 noundef %.164.i)
   br label %f_complex_new2.exit.i
 
-f_complex_new2.exit.i:                            ; preds = %271, %rbimpl_RB_TYPE_P_fastpath.exit.i118.i, %rb_class_of.exit.i
-  %.07.i.i = phi i64 [ %276, %271 ], [ %.164.i, %rbimpl_RB_TYPE_P_fastpath.exit.i118.i ], [ %.164.i, %rb_class_of.exit.i ]
-  %.0.i120.i = phi i64 [ %273, %271 ], [ %.1.i, %rbimpl_RB_TYPE_P_fastpath.exit.i118.i ], [ %.1.i, %rb_class_of.exit.i ]
-  %277 = tail call fastcc noundef i64 @nucomp_s_canonicalize_internal(i64 noundef %.0.i116.i, i64 noundef %.0.i120.i, i64 noundef %.07.i.i)
+f_complex_new2.exit.i:                            ; preds = %270, %rbimpl_RB_TYPE_P_fastpath.exit.i118.i, %rb_class_of.exit.i
+  %.07.i.i = phi i64 [ %275, %270 ], [ %.164.i, %rbimpl_RB_TYPE_P_fastpath.exit.i118.i ], [ %.164.i, %rb_class_of.exit.i ]
+  %.0.i120.i = phi i64 [ %272, %270 ], [ %.1.i, %rbimpl_RB_TYPE_P_fastpath.exit.i118.i ], [ %.1.i, %rb_class_of.exit.i ]
+  %276 = tail call fastcc noundef i64 @nucomp_s_canonicalize_internal(i64 noundef %.0.i116.i, i64 noundef %.0.i120.i, i64 noundef %.07.i.i)
   br label %f_divide.exit
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i, %2
-  %278 = load i64, ptr @rb_cNumeric, align 8, !tbaa !11
-  %279 = tail call i64 @rb_obj_is_kind_of(i64 noundef %1, i64 noundef %278) #18
-  %280 = and i64 %279, 4294967295
-  %.not.i = icmp eq i64 %280, 0
-  br i1 %.not.i, label %322, label %281
+  %277 = load i64, ptr @rb_cNumeric, align 8, !tbaa !11
+  %278 = tail call i64 @rb_obj_is_kind_of(i64 noundef %1, i64 noundef %277) #18
+  %279 = and i64 %278, 4294967295
+  %.not.i = icmp eq i64 %279, 0
+  br i1 %.not.i, label %321, label %280
 
-281:                                              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread.i
-  %282 = tail call fastcc zeroext i1 @f_real_p(i64 noundef %1)
-  br i1 %282, label %283, label %322
+280:                                              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread.i
+  %281 = tail call fastcc zeroext i1 @f_real_p(i64 noundef %1)
+  br i1 %281, label %282, label %321
 
-283:                                              ; preds = %281
-  %284 = inttoptr i64 %0 to ptr
-  %285 = getelementptr inbounds nuw i8, ptr %284, i64 16
-  %286 = load i64, ptr %285, align 8, !tbaa !15
-  %287 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %286, i64 noundef 3601, i32 noundef 1, i64 noundef %1) #18
-  %288 = tail call i64 @rb_rational_canonicalize(i64 noundef %287) #18
-  %289 = getelementptr inbounds nuw i8, ptr %284, i64 24
-  %290 = load i64, ptr %289, align 8, !tbaa !18
-  %291 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %290, i64 noundef 3601, i32 noundef 1, i64 noundef %1) #18
-  %292 = tail call i64 @rb_rational_canonicalize(i64 noundef %291) #18
-  %293 = icmp eq i64 %0, 0
-  %294 = and i64 %0, 7
-  %295 = icmp ne i64 %294, 0
-  %296 = or i1 %293, %295
-  br i1 %296, label %299, label %297
+282:                                              ; preds = %280
+  %283 = inttoptr i64 %0 to ptr
+  %284 = getelementptr inbounds nuw i8, ptr %283, i64 16
+  %285 = load i64, ptr %284, align 8, !tbaa !15
+  %286 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %285, i64 noundef 3601, i32 noundef 1, i64 noundef %1) #18
+  %287 = tail call i64 @rb_rational_canonicalize(i64 noundef %286) #18
+  %288 = getelementptr inbounds nuw i8, ptr %283, i64 24
+  %289 = load i64, ptr %288, align 8, !tbaa !18
+  %290 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %289, i64 noundef 3601, i32 noundef 1, i64 noundef %1) #18
+  %291 = tail call i64 @rb_rational_canonicalize(i64 noundef %290) #18
+  %292 = icmp eq i64 %0, 0
+  %293 = and i64 %0, 7
+  %294 = icmp ne i64 %293, 0
+  %295 = or i1 %292, %294
+  br i1 %295, label %298, label %296
 
-297:                                              ; preds = %283
-  %298 = getelementptr inbounds nuw i8, ptr %284, i64 8
+296:                                              ; preds = %282
+  %297 = getelementptr inbounds nuw i8, ptr %283, i64 8
   br label %rb_class_of.exit125.i
 
-299:                                              ; preds = %283
-  switch i64 %0, label %302 [
+298:                                              ; preds = %282
+  switch i64 %0, label %301 [
     i64 0, label %rb_class_of.exit125.i
-    i64 4, label %300
-    i64 20, label %301
+    i64 4, label %299
+    i64 20, label %300
   ]
 
-300:                                              ; preds = %299
+299:                                              ; preds = %298
   br label %rb_class_of.exit125.i
 
-301:                                              ; preds = %299
+300:                                              ; preds = %298
   br label %rb_class_of.exit125.i
 
-302:                                              ; preds = %299
-  %303 = and i64 %0, 1
-  %.not.i123.i = icmp eq i64 %303, 0
-  br i1 %.not.i123.i, label %304, label %rb_class_of.exit125.i
+301:                                              ; preds = %298
+  %302 = and i64 %0, 1
+  %.not.i123.i = icmp eq i64 %302, 0
+  br i1 %.not.i123.i, label %303, label %rb_class_of.exit125.i
 
-304:                                              ; preds = %302
-  %305 = and i64 %0, 254
-  %306 = icmp eq i64 %305, 12
-  %spec.select.i124.i = select i1 %306, ptr @rb_cSymbol, ptr @rb_cFloat
+303:                                              ; preds = %301
+  %304 = and i64 %0, 254
+  %305 = icmp eq i64 %304, 12
+  %spec.select.i124.i = select i1 %305, ptr @rb_cSymbol, ptr @rb_cFloat
   br label %rb_class_of.exit125.i
 
-rb_class_of.exit125.i:                            ; preds = %304, %302, %301, %300, %299, %297
-  %.0.in.i121.i = phi ptr [ @rb_cNilClass, %300 ], [ @rb_cTrueClass, %301 ], [ %298, %297 ], [ @rb_cFalseClass, %299 ], [ @rb_cInteger, %302 ], [ %spec.select.i124.i, %304 ]
+rb_class_of.exit125.i:                            ; preds = %303, %301, %300, %299, %298, %296
+  %.0.in.i121.i = phi ptr [ %297, %296 ], [ @rb_cNilClass, %299 ], [ @rb_cTrueClass, %300 ], [ @rb_cFalseClass, %298 ], [ @rb_cInteger, %301 ], [ %spec.select.i124.i, %303 ]
   %.0.i122.i = load i64, ptr %.0.in.i121.i, align 8, !tbaa !11
-  %307 = icmp eq i64 %288, 0
-  %308 = and i64 %288, 7
-  %309 = icmp ne i64 %308, 0
-  %310 = or i1 %307, %309
-  br i1 %310, label %f_complex_new2.exit130.i, label %rbimpl_RB_TYPE_P_fastpath.exit.i126.i
+  %306 = icmp eq i64 %287, 0
+  %307 = and i64 %287, 7
+  %308 = icmp ne i64 %307, 0
+  %309 = or i1 %306, %308
+  br i1 %309, label %f_complex_new2.exit130.i, label %rbimpl_RB_TYPE_P_fastpath.exit.i126.i
 
 rbimpl_RB_TYPE_P_fastpath.exit.i126.i:            ; preds = %rb_class_of.exit125.i
-  %311 = inttoptr i64 %288 to ptr
-  %312 = load i64, ptr %311, align 8, !tbaa !19
-  %313 = and i64 %312, 31
-  %314 = icmp eq i64 %313, 14
-  br i1 %314, label %315, label %f_complex_new2.exit130.i
+  %310 = inttoptr i64 %287 to ptr
+  %311 = load i64, ptr %310, align 8, !tbaa !19
+  %312 = and i64 %311, 31
+  %313 = icmp eq i64 %312, 14
+  br i1 %313, label %314, label %f_complex_new2.exit130.i
 
-315:                                              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i126.i
-  %316 = getelementptr inbounds nuw i8, ptr %311, i64 16
-  %317 = load i64, ptr %316, align 8, !tbaa !15
-  %318 = getelementptr inbounds nuw i8, ptr %311, i64 24
-  %319 = load i64, ptr %318, align 8, !tbaa !18
-  %320 = tail call fastcc i64 @f_add(i64 noundef %319, i64 noundef %292)
+314:                                              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i126.i
+  %315 = getelementptr inbounds nuw i8, ptr %310, i64 16
+  %316 = load i64, ptr %315, align 8, !tbaa !15
+  %317 = getelementptr inbounds nuw i8, ptr %310, i64 24
+  %318 = load i64, ptr %317, align 8, !tbaa !18
+  %319 = tail call fastcc i64 @f_add(i64 noundef %318, i64 noundef %291)
   br label %f_complex_new2.exit130.i
 
-f_complex_new2.exit130.i:                         ; preds = %315, %rbimpl_RB_TYPE_P_fastpath.exit.i126.i, %rb_class_of.exit125.i
-  %.07.i128.i = phi i64 [ %320, %315 ], [ %292, %rbimpl_RB_TYPE_P_fastpath.exit.i126.i ], [ %292, %rb_class_of.exit125.i ]
-  %.0.i129.i = phi i64 [ %317, %315 ], [ %288, %rbimpl_RB_TYPE_P_fastpath.exit.i126.i ], [ %288, %rb_class_of.exit125.i ]
-  %321 = tail call fastcc noundef i64 @nucomp_s_canonicalize_internal(i64 noundef %.0.i122.i, i64 noundef %.0.i129.i, i64 noundef %.07.i128.i)
+f_complex_new2.exit130.i:                         ; preds = %314, %rbimpl_RB_TYPE_P_fastpath.exit.i126.i, %rb_class_of.exit125.i
+  %.07.i128.i = phi i64 [ %319, %314 ], [ %291, %rbimpl_RB_TYPE_P_fastpath.exit.i126.i ], [ %291, %rb_class_of.exit125.i ]
+  %.0.i129.i = phi i64 [ %316, %314 ], [ %287, %rbimpl_RB_TYPE_P_fastpath.exit.i126.i ], [ %287, %rb_class_of.exit125.i ]
+  %320 = tail call fastcc noundef i64 @nucomp_s_canonicalize_internal(i64 noundef %.0.i122.i, i64 noundef %.0.i129.i, i64 noundef %.07.i128.i)
   br label %f_divide.exit
 
-322:                                              ; preds = %281, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i
-  %323 = tail call i64 @rb_num_coerce_bin(i64 noundef %0, i64 noundef %1, i64 noundef 3601) #18
+321:                                              ; preds = %280, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i
+  %322 = tail call i64 @rb_num_coerce_bin(i64 noundef %0, i64 noundef %1, i64 noundef 3601) #18
   br label %f_divide.exit
 
-f_divide.exit:                                    ; preds = %f_complex_new2.exit.i, %f_complex_new2.exit130.i, %322
-  %.0.i = phi i64 [ %277, %f_complex_new2.exit.i ], [ %321, %f_complex_new2.exit130.i ], [ %323, %322 ]
+f_divide.exit:                                    ; preds = %f_complex_new2.exit.i, %f_complex_new2.exit130.i, %321
+  %.0.i = phi i64 [ %276, %f_complex_new2.exit.i ], [ %320, %f_complex_new2.exit130.i ], [ %322, %321 ]
   ret i64 %.0.i
 }
 
@@ -7062,7 +7062,7 @@ rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %2
 20:                                               ; preds = %11
   %21 = and i64 %14, 3
   %22 = icmp eq i64 %21, 2
-  br i1 %22, label %RB_FLOAT_TYPE_P.exit.thread.i, label %23
+  br i1 %22, label %f_eqeq_p.exit, label %23
 
 23:                                               ; preds = %20
   %24 = icmp eq i64 %14, 0
@@ -7079,40 +7079,40 @@ RB_FLOAT_TYPE_P.exit.i:                           ; preds = %23
   %32 = and i64 %16, 3
   %33 = icmp eq i64 %32, 2
   %or.cond21.i = or i1 %33, %31
-  br i1 %or.cond21.i, label %RB_FLOAT_TYPE_P.exit.thread.i, label %34
+  br i1 %or.cond21.i, label %f_eqeq_p.exit, label %34
 
 RB_FLOAT_TYPE_P.exit.thread14.i:                  ; preds = %23
   %.old.i = and i64 %16, 3
   %.old20.i = icmp eq i64 %.old.i, 2
-  br i1 %.old20.i, label %RB_FLOAT_TYPE_P.exit.thread.i, label %34
+  br i1 %.old20.i, label %f_eqeq_p.exit, label %34
 
 34:                                               ; preds = %RB_FLOAT_TYPE_P.exit.thread14.i, %RB_FLOAT_TYPE_P.exit.i
   %35 = icmp eq i64 %16, 0
   %36 = and i64 %16, 7
   %37 = icmp ne i64 %36, 0
   %38 = or i1 %35, %37
-  br i1 %38, label %f_eqeq_p.exit, label %RB_FLOAT_TYPE_P.exit12.i
+  br i1 %38, label %RB_FLOAT_TYPE_P.exit12.thread17.i, label %RB_FLOAT_TYPE_P.exit12.i
 
 RB_FLOAT_TYPE_P.exit12.i:                         ; preds = %34
   %39 = inttoptr i64 %16 to ptr
   %40 = load i64, ptr %39, align 8, !tbaa !19
   %41 = and i64 %40, 31
   %42 = icmp eq i64 %41, 4
-  br i1 %42, label %RB_FLOAT_TYPE_P.exit.thread.i, label %f_eqeq_p.exit
+  br i1 %42, label %f_eqeq_p.exit, label %RB_FLOAT_TYPE_P.exit12.thread17.i
 
-RB_FLOAT_TYPE_P.exit.thread.i:                    ; preds = %RB_FLOAT_TYPE_P.exit12.i, %RB_FLOAT_TYPE_P.exit.thread14.i, %RB_FLOAT_TYPE_P.exit.i, %20
-  %43 = tail call double @rb_num2dbl(i64 noundef %14) #18
-  %44 = tail call double @rb_num2dbl(i64 noundef %16) #18
-  %45 = fcmp une double %43, %44
+RB_FLOAT_TYPE_P.exit12.thread17.i:                ; preds = %RB_FLOAT_TYPE_P.exit12.i, %34
+  %43 = tail call i64 @rb_equal(i64 noundef %14, i64 noundef %16) #18
+  %44 = and i64 %43, 4294967295
+  %45 = icmp eq i64 %44, 0
   br i1 %45, label %197, label %49
 
-f_eqeq_p.exit:                                    ; preds = %34, %RB_FLOAT_TYPE_P.exit12.i
-  %46 = tail call i64 @rb_equal(i64 noundef %14, i64 noundef %16) #18
-  %47 = and i64 %46, 4294967295
-  %48 = icmp eq i64 %47, 0
+f_eqeq_p.exit:                                    ; preds = %20, %RB_FLOAT_TYPE_P.exit.i, %RB_FLOAT_TYPE_P.exit.thread14.i, %RB_FLOAT_TYPE_P.exit12.i
+  %46 = tail call double @rb_num2dbl(i64 noundef %14) #18
+  %47 = tail call double @rb_num2dbl(i64 noundef %16) #18
+  %48 = fcmp une double %46, %47
   br i1 %48, label %197, label %49
 
-49:                                               ; preds = %RB_FLOAT_TYPE_P.exit.thread.i, %19, %f_eqeq_p.exit
+49:                                               ; preds = %RB_FLOAT_TYPE_P.exit12.thread17.i, %19, %f_eqeq_p.exit
   %50 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %51 = load i64, ptr %50, align 8, !tbaa !18
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -7211,7 +7211,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %2, %rbimpl_RB_TYPE_
 100:                                              ; preds = %93
   %101 = and i64 %96, 3
   %102 = icmp eq i64 %101, 2
-  br i1 %102, label %RB_FLOAT_TYPE_P.exit.thread.i37, label %103
+  br i1 %102, label %f_eqeq_p.exit41, label %103
 
 103:                                              ; preds = %100
   %104 = icmp eq i64 %96, 0
@@ -7228,36 +7228,36 @@ RB_FLOAT_TYPE_P.exit.i33:                         ; preds = %103
   %112 = and i64 %1, 3
   %113 = icmp eq i64 %112, 2
   %or.cond21.i34 = or i1 %113, %111
-  br i1 %or.cond21.i34, label %RB_FLOAT_TYPE_P.exit.thread.i37, label %114
+  br i1 %or.cond21.i34, label %f_eqeq_p.exit41, label %114
 
 RB_FLOAT_TYPE_P.exit.thread14.i38:                ; preds = %103
   %.old.i39 = and i64 %1, 3
   %.old20.i40 = icmp eq i64 %.old.i39, 2
-  br i1 %.old20.i40, label %RB_FLOAT_TYPE_P.exit.thread.i37, label %114
+  br i1 %.old20.i40, label %f_eqeq_p.exit41, label %114
 
 114:                                              ; preds = %RB_FLOAT_TYPE_P.exit.thread14.i38, %RB_FLOAT_TYPE_P.exit.i33
-  br i1 %6, label %f_eqeq_p.exit41, label %RB_FLOAT_TYPE_P.exit12.i35
+  br i1 %6, label %RB_FLOAT_TYPE_P.exit12.thread17.i36, label %RB_FLOAT_TYPE_P.exit12.i35
 
 RB_FLOAT_TYPE_P.exit12.i35:                       ; preds = %114
   %115 = inttoptr i64 %1 to ptr
   %116 = load i64, ptr %115, align 8, !tbaa !19
   %117 = and i64 %116, 31
   %118 = icmp eq i64 %117, 4
-  br i1 %118, label %RB_FLOAT_TYPE_P.exit.thread.i37, label %f_eqeq_p.exit41
+  br i1 %118, label %f_eqeq_p.exit41, label %RB_FLOAT_TYPE_P.exit12.thread17.i36
 
-RB_FLOAT_TYPE_P.exit.thread.i37:                  ; preds = %RB_FLOAT_TYPE_P.exit12.i35, %RB_FLOAT_TYPE_P.exit.thread14.i38, %RB_FLOAT_TYPE_P.exit.i33, %100
-  %119 = tail call double @rb_num2dbl(i64 noundef %96) #18
-  %120 = tail call double @rb_num2dbl(i64 noundef %1) #18
-  %121 = fcmp une double %119, %120
+RB_FLOAT_TYPE_P.exit12.thread17.i36:              ; preds = %RB_FLOAT_TYPE_P.exit12.i35, %114
+  %119 = tail call i64 @rb_equal(i64 noundef %96, i64 noundef %1) #18
+  %120 = and i64 %119, 4294967295
+  %121 = icmp eq i64 %120, 0
   br i1 %121, label %197, label %125
 
-f_eqeq_p.exit41:                                  ; preds = %114, %RB_FLOAT_TYPE_P.exit12.i35
-  %122 = tail call i64 @rb_equal(i64 noundef %96, i64 noundef %1) #18
-  %123 = and i64 %122, 4294967295
-  %124 = icmp eq i64 %123, 0
+f_eqeq_p.exit41:                                  ; preds = %100, %RB_FLOAT_TYPE_P.exit.i33, %RB_FLOAT_TYPE_P.exit.thread14.i38, %RB_FLOAT_TYPE_P.exit12.i35
+  %122 = tail call double @rb_num2dbl(i64 noundef %96) #18
+  %123 = tail call double @rb_num2dbl(i64 noundef %1) #18
+  %124 = fcmp une double %122, %123
   br i1 %124, label %197, label %125
 
-125:                                              ; preds = %RB_FLOAT_TYPE_P.exit.thread.i37, %99, %f_eqeq_p.exit41
+125:                                              ; preds = %RB_FLOAT_TYPE_P.exit12.thread17.i36, %99, %f_eqeq_p.exit41
   %126 = getelementptr inbounds nuw i8, ptr %94, i64 24
   %127 = load i64, ptr %126, align 8, !tbaa !18
   %128 = and i64 %127, 3
@@ -7405,8 +7405,8 @@ f_eqeq_p.exit54:                                  ; preds = %169, %RB_FLOAT_TYPE
   %196 = select i1 %.0.i45, i64 0, i64 20
   br label %197
 
-197:                                              ; preds = %RB_FLOAT_TYPE_P.exit.thread.i37, %99, %RB_FLOAT_TYPE_P.exit.thread.i, %19, %f_eqeq_p.exit41, %f_zero_p.exit, %f_eqeq_p.exit, %f_eqeq_p.exit30, %f_eqeq_p.exit54
-  %.0 = phi i64 [ %196, %f_eqeq_p.exit54 ], [ 0, %f_eqeq_p.exit ], [ %87, %f_eqeq_p.exit30 ], [ 0, %f_eqeq_p.exit41 ], [ %165, %f_zero_p.exit ], [ 0, %19 ], [ 0, %RB_FLOAT_TYPE_P.exit.thread.i ], [ 0, %99 ], [ 0, %RB_FLOAT_TYPE_P.exit.thread.i37 ]
+197:                                              ; preds = %RB_FLOAT_TYPE_P.exit12.thread17.i36, %99, %RB_FLOAT_TYPE_P.exit12.thread17.i, %19, %f_eqeq_p.exit41, %f_zero_p.exit, %f_eqeq_p.exit, %f_eqeq_p.exit30, %f_eqeq_p.exit54
+  %.0 = phi i64 [ %196, %f_eqeq_p.exit54 ], [ %87, %f_eqeq_p.exit30 ], [ 0, %f_eqeq_p.exit ], [ 0, %f_eqeq_p.exit41 ], [ %165, %f_zero_p.exit ], [ 0, %19 ], [ 0, %RB_FLOAT_TYPE_P.exit12.thread17.i ], [ 0, %99 ], [ 0, %RB_FLOAT_TYPE_P.exit12.thread17.i36 ]
   ret i64 %.0
 }
 
@@ -7470,39 +7470,39 @@ FLOAT_ZERO_P.exit.i.i:                            ; preds = %30, %24
 RB_FLOAT_TYPE_P.exit.thread11.i.i:                ; preds = %RB_FLOAT_TYPE_P.exit.i.i, %14
   %34 = and i64 %11, 1
   %.not.i.i.i = icmp eq i64 %34, 0
-  br i1 %.not.i.i.i, label %35, label %rb_integer_type_p.exit.thread.i.i
+  br i1 %.not.i.i.i, label %35, label %nucomp_real_p.exit
 
 35:                                               ; preds = %RB_FLOAT_TYPE_P.exit.thread11.i.i
   %36 = and i64 %11, 6
   %37 = icmp ne i64 %36, 0
   %38 = or i1 %15, %37
-  br i1 %38, label %nucomp_real_p.exit, label %rb_integer_type_p.exit.i.i
+  br i1 %38, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i, label %rb_integer_type_p.exit.i.i
 
 rb_integer_type_p.exit.i.i:                       ; preds = %35
   %39 = inttoptr i64 %11 to ptr
   %40 = load i64, ptr %39, align 8, !tbaa !19
   %41 = and i64 %40, 31
-  switch i64 %41, label %nucomp_real_p.exit [
-    i64 10, label %rb_integer_type_p.exit.thread.i.i
-    i64 15, label %43
+  switch i64 %41, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i [
+    i64 10, label %nucomp_real_p.exit
+    i64 15, label %42
   ]
 
-rb_integer_type_p.exit.thread.i.i:                ; preds = %rb_integer_type_p.exit.i.i, %RB_FLOAT_TYPE_P.exit.thread11.i.i
-  %42 = icmp eq i64 %11, 1
-  br i1 %42, label %FLOAT_ZERO_P.exit.i.i.thread, label %107
+42:                                               ; preds = %rb_integer_type_p.exit.i.i
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  %44 = load i64, ptr %43, align 8, !tbaa !23
+  %45 = icmp eq i64 %44, 1
+  br i1 %45, label %FLOAT_ZERO_P.exit.i.i.thread, label %107
 
-43:                                               ; preds = %rb_integer_type_p.exit.i.i
-  %44 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %45 = load i64, ptr %44, align 8, !tbaa !23
-  %46 = icmp eq i64 %45, 1
-  br i1 %46, label %FLOAT_ZERO_P.exit.i.i.thread, label %107
-
-nucomp_real_p.exit:                               ; preds = %35, %rb_integer_type_p.exit.i.i
-  %47 = tail call i64 @rb_equal(i64 noundef %11, i64 noundef 1) #18
-  %.not31 = icmp eq i64 %47, 0
+rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i:        ; preds = %rb_integer_type_p.exit.i.i, %35
+  %46 = tail call i64 @rb_equal(i64 noundef %11, i64 noundef 1) #18
+  %.not31 = icmp eq i64 %46, 0
   br i1 %.not31, label %107, label %FLOAT_ZERO_P.exit.i.i.thread
 
-FLOAT_ZERO_P.exit.i.i.thread:                     ; preds = %23, %43, %rb_integer_type_p.exit.thread.i.i, %FLOAT_ZERO_P.exit.i.i, %nucomp_real_p.exit
+nucomp_real_p.exit:                               ; preds = %RB_FLOAT_TYPE_P.exit.thread11.i.i, %rb_integer_type_p.exit.i.i
+  %47 = icmp eq i64 %11, 1
+  br i1 %47, label %FLOAT_ZERO_P.exit.i.i.thread, label %107
+
+FLOAT_ZERO_P.exit.i.i.thread:                     ; preds = %23, %42, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i, %FLOAT_ZERO_P.exit.i.i, %nucomp_real_p.exit
   %48 = icmp eq i64 %1, 0
   %49 = and i64 %1, 7
   %50 = icmp ne i64 %49, 0
@@ -7563,39 +7563,39 @@ FLOAT_ZERO_P.exit.i.i23:                          ; preds = %77, %71
 RB_FLOAT_TYPE_P.exit.thread11.i.i17:              ; preds = %RB_FLOAT_TYPE_P.exit.i.i16, %61
   %81 = and i64 %58, 1
   %.not.i.i.i18 = icmp eq i64 %81, 0
-  br i1 %.not.i.i.i18, label %82, label %rb_integer_type_p.exit.thread.i.i19
+  br i1 %.not.i.i.i18, label %82, label %nucomp_real_p.exit27
 
 82:                                               ; preds = %RB_FLOAT_TYPE_P.exit.thread11.i.i17
   %83 = and i64 %58, 6
   %84 = icmp ne i64 %83, 0
   %85 = or i1 %62, %84
-  br i1 %85, label %nucomp_real_p.exit27, label %rb_integer_type_p.exit.i.i21
+  br i1 %85, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i22, label %rb_integer_type_p.exit.i.i21
 
 rb_integer_type_p.exit.i.i21:                     ; preds = %82
   %86 = inttoptr i64 %58 to ptr
   %87 = load i64, ptr %86, align 8, !tbaa !19
   %88 = and i64 %87, 31
-  switch i64 %88, label %nucomp_real_p.exit27 [
-    i64 10, label %rb_integer_type_p.exit.thread.i.i19
-    i64 15, label %90
+  switch i64 %88, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i22 [
+    i64 10, label %nucomp_real_p.exit27
+    i64 15, label %89
   ]
 
-rb_integer_type_p.exit.thread.i.i19:              ; preds = %rb_integer_type_p.exit.i.i21, %RB_FLOAT_TYPE_P.exit.thread11.i.i17
-  %89 = icmp eq i64 %58, 1
-  br i1 %89, label %FLOAT_ZERO_P.exit.i.i23.thread, label %107
+89:                                               ; preds = %rb_integer_type_p.exit.i.i21
+  %90 = getelementptr inbounds nuw i8, ptr %86, i64 16
+  %91 = load i64, ptr %90, align 8, !tbaa !23
+  %92 = icmp eq i64 %91, 1
+  br i1 %92, label %FLOAT_ZERO_P.exit.i.i23.thread, label %107
 
-90:                                               ; preds = %rb_integer_type_p.exit.i.i21
-  %91 = getelementptr inbounds nuw i8, ptr %86, i64 16
-  %92 = load i64, ptr %91, align 8, !tbaa !23
-  %93 = icmp eq i64 %92, 1
-  br i1 %93, label %FLOAT_ZERO_P.exit.i.i23.thread, label %107
-
-nucomp_real_p.exit27:                             ; preds = %82, %rb_integer_type_p.exit.i.i21
-  %94 = tail call i64 @rb_equal(i64 noundef %58, i64 noundef 1) #18
-  %.not32 = icmp eq i64 %94, 0
+rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i22:      ; preds = %rb_integer_type_p.exit.i.i21, %82
+  %93 = tail call i64 @rb_equal(i64 noundef %58, i64 noundef 1) #18
+  %.not32 = icmp eq i64 %93, 0
   br i1 %.not32, label %107, label %FLOAT_ZERO_P.exit.i.i23.thread
 
-FLOAT_ZERO_P.exit.i.i23.thread:                   ; preds = %70, %90, %rb_integer_type_p.exit.thread.i.i19, %FLOAT_ZERO_P.exit.i.i23, %nucomp_real_p.exit27
+nucomp_real_p.exit27:                             ; preds = %RB_FLOAT_TYPE_P.exit.thread11.i.i17, %rb_integer_type_p.exit.i.i21
+  %94 = icmp eq i64 %58, 1
+  br i1 %94, label %FLOAT_ZERO_P.exit.i.i23.thread, label %107
+
+FLOAT_ZERO_P.exit.i.i23.thread:                   ; preds = %70, %89, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i22, %FLOAT_ZERO_P.exit.i.i23, %nucomp_real_p.exit27
   %95 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %96 = load i64, ptr %95, align 8, !tbaa !15
   %97 = getelementptr inbounds nuw i8, ptr %52, i64 16
@@ -7617,8 +7617,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %FLOAT_ZERO_P.exit.i
   %106 = tail call i64 @rb_num_coerce_cmp(i64 noundef %102, i64 noundef %1, i64 noundef 135) #18
   br label %107
 
-107:                                              ; preds = %90, %rb_integer_type_p.exit.thread.i.i19, %FLOAT_ZERO_P.exit.i.i23, %43, %rb_integer_type_p.exit.thread.i.i, %FLOAT_ZERO_P.exit.i.i, %nucomp_real_p.exit27, %103, %105, %nucomp_real_p.exit, %FLOAT_ZERO_P.exit.i.i23.thread, %6
-  %.0 = phi i64 [ %99, %FLOAT_ZERO_P.exit.i.i23.thread ], [ %7, %6 ], [ 4, %nucomp_real_p.exit ], [ %104, %103 ], [ %106, %105 ], [ 4, %nucomp_real_p.exit27 ], [ 4, %FLOAT_ZERO_P.exit.i.i ], [ 4, %rb_integer_type_p.exit.thread.i.i ], [ 4, %43 ], [ 4, %FLOAT_ZERO_P.exit.i.i23 ], [ 4, %rb_integer_type_p.exit.thread.i.i19 ], [ 4, %90 ]
+107:                                              ; preds = %89, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i22, %FLOAT_ZERO_P.exit.i.i23, %42, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i, %FLOAT_ZERO_P.exit.i.i, %nucomp_real_p.exit27, %103, %105, %nucomp_real_p.exit, %FLOAT_ZERO_P.exit.i.i23.thread, %6
+  %.0 = phi i64 [ %99, %FLOAT_ZERO_P.exit.i.i23.thread ], [ %106, %105 ], [ 4, %nucomp_real_p.exit ], [ %7, %6 ], [ %104, %103 ], [ 4, %nucomp_real_p.exit27 ], [ 4, %FLOAT_ZERO_P.exit.i.i ], [ 4, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i ], [ 4, %42 ], [ 4, %FLOAT_ZERO_P.exit.i.i23 ], [ 4, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i22 ], [ 4, %89 ]
   ret i64 %.0
 }
 
@@ -7685,7 +7685,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %2, %rbimpl_RB_TYPE_
   br label %rb_class_of.exit
 
 rb_class_of.exit:                                 ; preds = %21, %24, %25, %26, %27, %29
-  %.0.in.i = phi ptr [ @rb_cNilClass, %25 ], [ @rb_cTrueClass, %26 ], [ %23, %21 ], [ @rb_cFalseClass, %24 ], [ @rb_cInteger, %27 ], [ %spec.select.i, %29 ]
+  %.0.in.i = phi ptr [ %23, %21 ], [ @rb_cNilClass, %25 ], [ @rb_cTrueClass, %26 ], [ @rb_cFalseClass, %24 ], [ @rb_cInteger, %27 ], [ %spec.select.i, %29 ]
   %.0.i11 = load i64, ptr %.0.in.i, align 8, !tbaa !11
   %32 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %33 = load ptr, ptr %32, align 8, !tbaa !27
@@ -7851,7 +7851,7 @@ RB_FLOAT_TYPE_P.exit.thread.i.i:                  ; preds = %rbimpl_RB_TYPE_P_fa
   br label %f_denominator.exit.i
 
 f_denominator.exit.i:                             ; preds = %RB_FLOAT_TYPE_P.exit.thread.i.i, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i, %12, %rbimpl_RB_TYPE_P_fastpath.exit.i.i
-  %.0.i.i = phi i64 [ %14, %12 ], [ %17, %RB_FLOAT_TYPE_P.exit.thread.i.i ], [ 3, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i ], [ 3, %rbimpl_RB_TYPE_P_fastpath.exit.i.i ]
+  %.0.i.i = phi i64 [ %14, %12 ], [ %17, %RB_FLOAT_TYPE_P.exit.thread.i.i ], [ 3, %rbimpl_RB_TYPE_P_fastpath.exit.i.i ], [ 3, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i ]
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %19 = load i64, ptr %18, align 8, !tbaa !18
   %20 = icmp eq i64 %19, 0
@@ -7884,7 +7884,7 @@ RB_FLOAT_TYPE_P.exit.thread.i3.i:                 ; preds = %rbimpl_RB_TYPE_P_fa
   br label %nucomp_denominator.exit
 
 nucomp_denominator.exit:                          ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i2.i, %27, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i5.i, %RB_FLOAT_TYPE_P.exit.thread.i3.i
-  %.0.i4.i = phi i64 [ %29, %27 ], [ %32, %RB_FLOAT_TYPE_P.exit.thread.i3.i ], [ 3, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i5.i ], [ 3, %rbimpl_RB_TYPE_P_fastpath.exit.i2.i ]
+  %.0.i4.i = phi i64 [ %29, %27 ], [ %32, %RB_FLOAT_TYPE_P.exit.thread.i3.i ], [ 3, %rbimpl_RB_TYPE_P_fastpath.exit.i2.i ], [ 3, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i5.i ]
   %33 = tail call i64 @rb_lcm(i64 noundef %.0.i.i, i64 noundef %.0.i4.i) #18
   %34 = icmp eq i64 %0, 0
   %35 = and i64 %0, 7
@@ -7921,7 +7921,7 @@ nucomp_denominator.exit:                          ; preds = %rbimpl_RB_TYPE_P_fa
   br label %rb_class_of.exit
 
 rb_class_of.exit:                                 ; preds = %38, %40, %41, %42, %43, %45
-  %.0.in.i = phi ptr [ @rb_cNilClass, %41 ], [ @rb_cTrueClass, %42 ], [ %39, %38 ], [ @rb_cFalseClass, %40 ], [ @rb_cInteger, %43 ], [ %spec.select.i, %45 ]
+  %.0.in.i = phi ptr [ %39, %38 ], [ @rb_cNilClass, %41 ], [ @rb_cTrueClass, %42 ], [ @rb_cFalseClass, %40 ], [ @rb_cInteger, %43 ], [ %spec.select.i, %45 ]
   %.0.i = load i64, ptr %.0.in.i, align 8, !tbaa !11
   %48 = load i64, ptr %3, align 8, !tbaa !15
   %49 = icmp eq i64 %48, 0
@@ -7955,8 +7955,8 @@ RB_FLOAT_TYPE_P.exit.thread.i:                    ; preds = %rbimpl_RB_TYPE_P_fa
   br label %f_numerator.exit
 
 f_numerator.exit:                                 ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i, %56, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, %RB_FLOAT_TYPE_P.exit.thread.i
-  %62 = phi i64 [ %48, %56 ], [ %.pre, %RB_FLOAT_TYPE_P.exit.thread.i ], [ %48, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ], [ %48, %rbimpl_RB_TYPE_P_fastpath.exit.i ]
-  %.0.i8 = phi i64 [ %58, %56 ], [ %61, %RB_FLOAT_TYPE_P.exit.thread.i ], [ %48, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ], [ %48, %rbimpl_RB_TYPE_P_fastpath.exit.i ]
+  %62 = phi i64 [ %48, %56 ], [ %.pre, %RB_FLOAT_TYPE_P.exit.thread.i ], [ %48, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %48, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ]
+  %.0.i8 = phi i64 [ %58, %56 ], [ %61, %RB_FLOAT_TYPE_P.exit.thread.i ], [ %48, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %48, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ]
   %63 = icmp eq i64 %62, 0
   %64 = and i64 %62, 7
   %65 = icmp ne i64 %64, 0
@@ -7995,8 +7995,8 @@ f_denominator.exit:                               ; preds = %70, %RB_FLOAT_TYPE_
   %77 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %33, i64 noundef 47, i32 noundef 1, i64 noundef %.0.i11) #18
   br label %f_div.exit
 
-f_div.exit:                                       ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i9, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i12, %f_denominator.exit, %76
-  %.0.i13 = phi i64 [ %77, %76 ], [ %33, %f_denominator.exit ], [ %33, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i12 ], [ %33, %rbimpl_RB_TYPE_P_fastpath.exit.i9 ]
+f_div.exit:                                       ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread.i12, %rbimpl_RB_TYPE_P_fastpath.exit.i9, %f_denominator.exit, %76
+  %.0.i13 = phi i64 [ %77, %76 ], [ %33, %f_denominator.exit ], [ %33, %rbimpl_RB_TYPE_P_fastpath.exit.i9 ], [ %33, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i12 ]
   %78 = tail call fastcc i64 @f_mul(i64 noundef %.0.i8, i64 noundef %.0.i13)
   %79 = load i64, ptr %18, align 8, !tbaa !18
   %80 = icmp eq i64 %79, 0
@@ -8030,8 +8030,8 @@ RB_FLOAT_TYPE_P.exit.thread.i15:                  ; preds = %rbimpl_RB_TYPE_P_fa
   br label %f_numerator.exit18
 
 f_numerator.exit18:                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i14, %87, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i17, %RB_FLOAT_TYPE_P.exit.thread.i15
-  %93 = phi i64 [ %79, %87 ], [ %.pre34, %RB_FLOAT_TYPE_P.exit.thread.i15 ], [ %79, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i17 ], [ %79, %rbimpl_RB_TYPE_P_fastpath.exit.i14 ]
-  %.0.i16 = phi i64 [ %89, %87 ], [ %92, %RB_FLOAT_TYPE_P.exit.thread.i15 ], [ %79, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i17 ], [ %79, %rbimpl_RB_TYPE_P_fastpath.exit.i14 ]
+  %93 = phi i64 [ %79, %87 ], [ %.pre34, %RB_FLOAT_TYPE_P.exit.thread.i15 ], [ %79, %rbimpl_RB_TYPE_P_fastpath.exit.i14 ], [ %79, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i17 ]
+  %.0.i16 = phi i64 [ %89, %87 ], [ %92, %RB_FLOAT_TYPE_P.exit.thread.i15 ], [ %79, %rbimpl_RB_TYPE_P_fastpath.exit.i14 ], [ %79, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i17 ]
   %94 = icmp eq i64 %93, 0
   %95 = and i64 %93, 7
   %96 = icmp ne i64 %95, 0
@@ -8070,8 +8070,8 @@ f_denominator.exit23:                             ; preds = %101, %RB_FLOAT_TYPE
   %108 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %33, i64 noundef 47, i32 noundef 1, i64 noundef %.0.i21) #18
   br label %f_div.exit26
 
-f_div.exit26:                                     ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i19, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i22, %f_denominator.exit23, %107
-  %.0.i25 = phi i64 [ %108, %107 ], [ %33, %f_denominator.exit23 ], [ %33, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i22 ], [ %33, %rbimpl_RB_TYPE_P_fastpath.exit.i19 ]
+f_div.exit26:                                     ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread.i22, %rbimpl_RB_TYPE_P_fastpath.exit.i19, %f_denominator.exit23, %107
+  %.0.i25 = phi i64 [ %108, %107 ], [ %33, %f_denominator.exit23 ], [ %33, %rbimpl_RB_TYPE_P_fastpath.exit.i19 ], [ %33, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i22 ]
   %109 = tail call fastcc i64 @f_mul(i64 noundef %.0.i16, i64 noundef %.0.i25)
   %110 = icmp eq i64 %78, 0
   %111 = and i64 %78, 7
@@ -8136,7 +8136,7 @@ RB_FLOAT_TYPE_P.exit.thread.i:                    ; preds = %rbimpl_RB_TYPE_P_fa
   br label %f_denominator.exit
 
 f_denominator.exit:                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i, %12, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, %RB_FLOAT_TYPE_P.exit.thread.i
-  %.0.i = phi i64 [ %14, %12 ], [ %17, %RB_FLOAT_TYPE_P.exit.thread.i ], [ 3, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ], [ 3, %rbimpl_RB_TYPE_P_fastpath.exit.i ]
+  %.0.i = phi i64 [ %14, %12 ], [ %17, %RB_FLOAT_TYPE_P.exit.thread.i ], [ 3, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ 3, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ]
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %19 = load i64, ptr %18, align 8, !tbaa !18
   %20 = icmp eq i64 %19, 0
@@ -8169,7 +8169,7 @@ RB_FLOAT_TYPE_P.exit.thread.i3:                   ; preds = %rbimpl_RB_TYPE_P_fa
   br label %f_denominator.exit6
 
 f_denominator.exit6:                              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i2, %27, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i5, %RB_FLOAT_TYPE_P.exit.thread.i3
-  %.0.i4 = phi i64 [ %29, %27 ], [ %32, %RB_FLOAT_TYPE_P.exit.thread.i3 ], [ 3, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i5 ], [ 3, %rbimpl_RB_TYPE_P_fastpath.exit.i2 ]
+  %.0.i4 = phi i64 [ %29, %27 ], [ %32, %RB_FLOAT_TYPE_P.exit.thread.i3 ], [ 3, %rbimpl_RB_TYPE_P_fastpath.exit.i2 ], [ 3, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i5 ]
   %33 = tail call i64 @rb_lcm(i64 noundef %.0.i, i64 noundef %.0.i4) #18
   ret i64 %33
 }
@@ -8282,7 +8282,7 @@ rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %2
   br label %rb_class_of.exit
 
 rb_class_of.exit:                                 ; preds = %19, %22, %23, %24, %25, %27
-  %.0.in.i = phi ptr [ @rb_cNilClass, %23 ], [ @rb_cTrueClass, %24 ], [ %21, %19 ], [ @rb_cFalseClass, %22 ], [ @rb_cInteger, %25 ], [ %spec.select.i, %27 ]
+  %.0.in.i = phi ptr [ %21, %19 ], [ @rb_cNilClass, %23 ], [ @rb_cTrueClass, %24 ], [ @rb_cFalseClass, %22 ], [ @rb_cInteger, %25 ], [ %spec.select.i, %27 ]
   %.0.i9 = load i64, ptr %.0.in.i, align 8, !tbaa !11
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %31 = load i64, ptr %30, align 8, !tbaa !15
@@ -8322,7 +8322,7 @@ rb_class_of.exit:                                 ; preds = %19, %22, %23, %24, 
   br label %rb_class_of.exit14
 
 rb_class_of.exit14:                               ; preds = %36, %39, %40, %41, %42, %44
-  %.0.in.i10 = phi ptr [ @rb_cNilClass, %40 ], [ @rb_cTrueClass, %41 ], [ %38, %36 ], [ @rb_cFalseClass, %39 ], [ @rb_cInteger, %42 ], [ %spec.select.i13, %44 ]
+  %.0.in.i10 = phi ptr [ %38, %36 ], [ @rb_cNilClass, %40 ], [ @rb_cTrueClass, %41 ], [ @rb_cFalseClass, %39 ], [ @rb_cInteger, %42 ], [ %spec.select.i13, %44 ]
   %.0.i11 = load i64, ptr %.0.in.i10, align 8, !tbaa !11
   %47 = icmp eq i64 %.0.i9, %.0.i11
   br i1 %47, label %48, label %rbimpl_RB_TYPE_P_fastpath.exit.thread
@@ -8366,7 +8366,7 @@ rb_class_of.exit14:                               ; preds = %36, %39, %40, %41, 
   br label %rb_class_of.exit19
 
 rb_class_of.exit19:                               ; preds = %55, %58, %59, %60, %61, %63
-  %.0.in.i15 = phi ptr [ @rb_cNilClass, %59 ], [ @rb_cTrueClass, %60 ], [ %57, %55 ], [ @rb_cFalseClass, %58 ], [ @rb_cInteger, %61 ], [ %spec.select.i18, %63 ]
+  %.0.in.i15 = phi ptr [ %57, %55 ], [ @rb_cNilClass, %59 ], [ @rb_cTrueClass, %60 ], [ @rb_cFalseClass, %58 ], [ @rb_cInteger, %61 ], [ %spec.select.i18, %63 ]
   %.0.i16 = load i64, ptr %.0.in.i15, align 8, !tbaa !11
   %66 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %67 = load i64, ptr %66, align 8, !tbaa !18
@@ -8406,7 +8406,7 @@ rb_class_of.exit19:                               ; preds = %55, %58, %59, %60, 
   br label %rb_class_of.exit24
 
 rb_class_of.exit24:                               ; preds = %72, %75, %76, %77, %78, %80
-  %.0.in.i20 = phi ptr [ @rb_cNilClass, %76 ], [ @rb_cTrueClass, %77 ], [ %74, %72 ], [ @rb_cFalseClass, %75 ], [ @rb_cInteger, %78 ], [ %spec.select.i23, %80 ]
+  %.0.in.i20 = phi ptr [ %74, %72 ], [ @rb_cNilClass, %76 ], [ @rb_cTrueClass, %77 ], [ @rb_cFalseClass, %75 ], [ @rb_cInteger, %78 ], [ %spec.select.i23, %80 ]
   %.0.i21 = load i64, ptr %.0.in.i20, align 8, !tbaa !11
   %83 = icmp eq i64 %.0.i16, %.0.i21
   br i1 %83, label %84, label %rbimpl_RB_TYPE_P_fastpath.exit.thread
@@ -8442,12 +8442,12 @@ RB_FLOAT_TYPE_P.exit12.thread17.i:                ; preds = %RB_FLOAT_TYPE_P.exi
   br label %f_eqeq_p.exit
 
 f_eqeq_p.exit:                                    ; preds = %RB_FLOAT_TYPE_P.exit.thread.i, %RB_FLOAT_TYPE_P.exit12.thread17.i
-  %.0.i25 = phi i1 [ %97, %RB_FLOAT_TYPE_P.exit.thread.i ], [ %100, %RB_FLOAT_TYPE_P.exit12.thread17.i ]
+  %.0.i25 = phi i1 [ %100, %RB_FLOAT_TYPE_P.exit12.thread17.i ], [ %97, %RB_FLOAT_TYPE_P.exit.thread.i ]
   %101 = select i1 %.0.i25, i64 0, i64 20
   br label %rbimpl_RB_TYPE_P_fastpath.exit.thread
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %2, %rbimpl_RB_TYPE_P_fastpath.exit, %rb_class_of.exit14, %rb_class_of.exit24, %f_eqeq_p.exit
-  %.0 = phi i64 [ 0, %rb_class_of.exit24 ], [ 0, %rb_class_of.exit14 ], [ %101, %f_eqeq_p.exit ], [ 0, %rbimpl_RB_TYPE_P_fastpath.exit ], [ 0, %2 ]
+  %.0 = phi i64 [ %101, %f_eqeq_p.exit ], [ 0, %rb_class_of.exit24 ], [ 0, %rb_class_of.exit14 ], [ 0, %rbimpl_RB_TYPE_P_fastpath.exit ], [ 0, %2 ]
   ret i64 %.0
 }
 
@@ -8691,33 +8691,33 @@ define internal range(i64 0, 21) i64 @rb_complex_finite_p(i64 noundef %0) #0 {
   %11 = and i64 %4, 6
   %12 = icmp ne i64 %11, 0
   %13 = or i1 %10, %12
-  br i1 %13, label %f_finite_p.exit, label %rb_integer_type_p.exit.i.i
+  br i1 %13, label %RB_FLOAT_TYPE_P.exit.thread11.i, label %rb_integer_type_p.exit.i.i
 
 rb_integer_type_p.exit.i.i:                       ; preds = %9
   %14 = inttoptr i64 %4 to ptr
   %15 = load i64, ptr %14, align 8, !tbaa !19
   %16 = and i64 %15, 31
-  switch i64 %16, label %f_finite_p.exit [
+  switch i64 %16, label %RB_FLOAT_TYPE_P.exit.thread11.i [
     i64 10, label %f_finite_p.exit.thread
     i64 15, label %f_finite_p.exit.thread
-    i64 4, label %rb_float_value_inline.exit.i
+    i64 4, label %f_finite_p.exit
   ]
 
-rb_float_value_inline.exit.i:                     ; preds = %rb_integer_type_p.exit.i.i
-  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %18 = load double, ptr %17, align 8, !tbaa !21
-  %19 = tail call double @llvm.fabs.f64(double %18)
-  %20 = fcmp ueq double %19, 0x7FF0000000000000
-  br i1 %20, label %45, label %f_finite_p.exit.thread
-
-f_finite_p.exit:                                  ; preds = %9, %rb_integer_type_p.exit.i.i
-  %21 = load i64, ptr @id_finite_p, align 8, !tbaa !11
-  %22 = tail call i64 @rb_funcallv(i64 noundef %4, i64 noundef %21, i32 noundef 0, ptr noundef null) #18
-  %23 = and i64 %22, -5
-  %.not = icmp eq i64 %23, 0
+RB_FLOAT_TYPE_P.exit.thread11.i:                  ; preds = %rb_integer_type_p.exit.i.i, %9
+  %17 = load i64, ptr @id_finite_p, align 8, !tbaa !11
+  %18 = tail call i64 @rb_funcallv(i64 noundef %4, i64 noundef %17, i32 noundef 0, ptr noundef null) #18
+  %19 = and i64 %18, -5
+  %.not = icmp eq i64 %19, 0
   br i1 %.not, label %45, label %f_finite_p.exit.thread
 
-f_finite_p.exit.thread:                           ; preds = %rb_float_value_inline.exit.i, %rb_integer_type_p.exit.i.i, %rb_integer_type_p.exit.i.i, %1, %f_finite_p.exit
+f_finite_p.exit:                                  ; preds = %rb_integer_type_p.exit.i.i
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %21 = load double, ptr %20, align 8, !tbaa !21
+  %22 = tail call double @llvm.fabs.f64(double %21)
+  %23 = fcmp ueq double %22, 0x7FF0000000000000
+  br i1 %23, label %45, label %f_finite_p.exit.thread
+
+f_finite_p.exit.thread:                           ; preds = %RB_FLOAT_TYPE_P.exit.thread11.i, %rb_integer_type_p.exit.i.i, %rb_integer_type_p.exit.i.i, %1, %f_finite_p.exit
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %25 = load i64, ptr %24, align 8, !tbaa !18
   %26 = and i64 %25, 1
@@ -8732,39 +8732,39 @@ f_finite_p.exit.thread:                           ; preds = %rb_float_value_inli
   %32 = and i64 %25, 6
   %33 = icmp ne i64 %32, 0
   %34 = or i1 %31, %33
-  br i1 %34, label %f_finite_p.exit10, label %rb_integer_type_p.exit.i.i4
+  br i1 %34, label %RB_FLOAT_TYPE_P.exit.thread11.i8, label %rb_integer_type_p.exit.i.i4
 
 rb_integer_type_p.exit.i.i4:                      ; preds = %30
   %35 = inttoptr i64 %25 to ptr
   %36 = load i64, ptr %35, align 8, !tbaa !19
   %37 = and i64 %36, 31
-  switch i64 %37, label %f_finite_p.exit10 [
+  switch i64 %37, label %RB_FLOAT_TYPE_P.exit.thread11.i8 [
     i64 10, label %f_finite_p.exit10.thread
     i64 15, label %f_finite_p.exit10.thread
-    i64 4, label %rb_float_value_inline.exit.i9
+    i64 4, label %f_finite_p.exit10
   ]
 
-rb_float_value_inline.exit.i9:                    ; preds = %rb_integer_type_p.exit.i.i4
-  %38 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %39 = load double, ptr %38, align 8, !tbaa !21
-  %.fr = freeze double %39
-  %40 = tail call double @llvm.fabs.f64(double %.fr)
-  %41 = fcmp ueq double %40, 0x7FF0000000000000
-  br i1 %41, label %45, label %f_finite_p.exit10.thread
-
-f_finite_p.exit10:                                ; preds = %30, %rb_integer_type_p.exit.i.i4
-  %42 = load i64, ptr @id_finite_p, align 8, !tbaa !11
-  %43 = tail call i64 @rb_funcallv(i64 noundef %25, i64 noundef %42, i32 noundef 0, ptr noundef null) #18
-  %.fr18 = freeze i64 %43
-  %44 = and i64 %.fr18, -5
-  %.not19 = icmp eq i64 %44, 0
+RB_FLOAT_TYPE_P.exit.thread11.i8:                 ; preds = %rb_integer_type_p.exit.i.i4, %30
+  %38 = load i64, ptr @id_finite_p, align 8, !tbaa !11
+  %39 = tail call i64 @rb_funcallv(i64 noundef %25, i64 noundef %38, i32 noundef 0, ptr noundef null) #18
+  %.fr18 = freeze i64 %39
+  %40 = and i64 %.fr18, -5
+  %.not19 = icmp eq i64 %40, 0
   br i1 %.not19, label %45, label %f_finite_p.exit10.thread
 
-f_finite_p.exit10.thread:                         ; preds = %rb_integer_type_p.exit.i.i4, %rb_integer_type_p.exit.i.i4, %f_finite_p.exit.thread, %rb_float_value_inline.exit.i9, %f_finite_p.exit10
+f_finite_p.exit10:                                ; preds = %rb_integer_type_p.exit.i.i4
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %42 = load double, ptr %41, align 8, !tbaa !21
+  %.fr = freeze double %42
+  %43 = tail call double @llvm.fabs.f64(double %.fr)
+  %44 = fcmp ueq double %43, 0x7FF0000000000000
+  br i1 %44, label %45, label %f_finite_p.exit10.thread
+
+f_finite_p.exit10.thread:                         ; preds = %f_finite_p.exit.thread, %rb_integer_type_p.exit.i.i4, %rb_integer_type_p.exit.i.i4, %RB_FLOAT_TYPE_P.exit.thread11.i8, %f_finite_p.exit10
   br label %45
 
-45:                                               ; preds = %f_finite_p.exit10.thread, %f_finite_p.exit10, %rb_float_value_inline.exit.i9, %rb_float_value_inline.exit.i, %f_finite_p.exit
-  %46 = phi i64 [ 0, %f_finite_p.exit ], [ 0, %rb_float_value_inline.exit.i ], [ 20, %f_finite_p.exit10.thread ], [ 0, %f_finite_p.exit10 ], [ 0, %rb_float_value_inline.exit.i9 ]
+45:                                               ; preds = %f_finite_p.exit10.thread, %f_finite_p.exit10, %RB_FLOAT_TYPE_P.exit.thread11.i8, %RB_FLOAT_TYPE_P.exit.thread11.i, %f_finite_p.exit
+  %46 = phi i64 [ 0, %f_finite_p.exit ], [ 0, %RB_FLOAT_TYPE_P.exit.thread11.i ], [ 20, %f_finite_p.exit10.thread ], [ 0, %f_finite_p.exit10 ], [ 0, %RB_FLOAT_TYPE_P.exit.thread11.i8 ]
   ret i64 %46
 }
 
@@ -8856,7 +8856,7 @@ f_infinite_p.exit.thread13:                       ; preds = %rb_float_value_inli
   br label %f_infinite_p.exit10.thread
 
 f_infinite_p.exit10.thread:                       ; preds = %rb_integer_type_p.exit.i.i5, %rb_integer_type_p.exit.i.i5, %f_infinite_p.exit.thread, %rb_float_value_inline.exit.i9, %f_infinite_p.exit10, %f_infinite_p.exit.thread13
-  %.0 = phi i64 [ 3, %f_infinite_p.exit.thread13 ], [ 4, %f_infinite_p.exit10 ], [ 4, %rb_float_value_inline.exit.i9 ], [ 4, %f_infinite_p.exit.thread ], [ 4, %rb_integer_type_p.exit.i.i5 ], [ 4, %rb_integer_type_p.exit.i.i5 ]
+  %.0 = phi i64 [ 3, %f_infinite_p.exit.thread13 ], [ 4, %f_infinite_p.exit10 ], [ 4, %rb_float_value_inline.exit.i9 ], [ 4, %rb_integer_type_p.exit.i.i5 ], [ 4, %rb_integer_type_p.exit.i.i5 ], [ 4, %f_infinite_p.exit.thread ]
   ret i64 %.0
 }
 
@@ -9038,44 +9038,44 @@ FLOAT_ZERO_P.exit.i:                              ; preds = %RB_FLOAT_TYPE_P.exi
 RB_FLOAT_TYPE_P.exit.thread11.i:                  ; preds = %7, %RB_FLOAT_TYPE_P.exit.i
   %23 = and i64 %4, 1
   %.not.i.i = icmp eq i64 %23, 0
-  br i1 %.not.i.i, label %24, label %rb_integer_type_p.exit.thread.i
+  br i1 %.not.i.i, label %24, label %f_zero_p.exit
 
 24:                                               ; preds = %RB_FLOAT_TYPE_P.exit.thread11.i
   %25 = and i64 %4, 6
   %26 = icmp ne i64 %25, 0
   %27 = or i1 %8, %26
-  br i1 %27, label %f_zero_p.exit, label %rb_integer_type_p.exit.i
+  br i1 %27, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, label %rb_integer_type_p.exit.i
 
 rb_integer_type_p.exit.i:                         ; preds = %24
   %28 = inttoptr i64 %4 to ptr
   %29 = load i64, ptr %28, align 8, !tbaa !19
   %30 = and i64 %29, 31
-  switch i64 %30, label %f_zero_p.exit [
-    i64 10, label %rb_integer_type_p.exit.thread.i
-    i64 15, label %32
+  switch i64 %30, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i [
+    i64 10, label %f_zero_p.exit
+    i64 15, label %31
   ]
 
-rb_integer_type_p.exit.thread.i:                  ; preds = %rb_integer_type_p.exit.i, %RB_FLOAT_TYPE_P.exit.thread11.i
-  %31 = icmp eq i64 %4, 1
-  br i1 %31, label %38, label %RB_FLOAT_TYPE_P.exit.thread
+31:                                               ; preds = %rb_integer_type_p.exit.i
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %33 = load i64, ptr %32, align 8, !tbaa !23
+  %34 = icmp eq i64 %33, 1
+  br i1 %34, label %38, label %RB_FLOAT_TYPE_P.exit.thread
 
-32:                                               ; preds = %rb_integer_type_p.exit.i
-  %33 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %34 = load i64, ptr %33, align 8, !tbaa !23
-  %35 = icmp eq i64 %34, 1
-  br i1 %35, label %38, label %RB_FLOAT_TYPE_P.exit.thread
-
-f_zero_p.exit:                                    ; preds = %rb_integer_type_p.exit.i, %24
-  %36 = tail call i64 @rb_equal(i64 noundef %4, i64 noundef 1) #18
-  %.not = icmp eq i64 %36, 0
+rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rb_integer_type_p.exit.i, %24
+  %35 = tail call i64 @rb_equal(i64 noundef %4, i64 noundef 1) #18
+  %.not = icmp eq i64 %35, 0
   br i1 %.not, label %RB_FLOAT_TYPE_P.exit.thread, label %38
 
-RB_FLOAT_TYPE_P.exit.thread:                      ; preds = %1, %32, %rb_integer_type_p.exit.thread.i, %FLOAT_ZERO_P.exit.i, %f_zero_p.exit, %RB_FLOAT_TYPE_P.exit
+f_zero_p.exit:                                    ; preds = %rb_integer_type_p.exit.i, %RB_FLOAT_TYPE_P.exit.thread11.i
+  %36 = icmp eq i64 %4, 1
+  br i1 %36, label %38, label %RB_FLOAT_TYPE_P.exit.thread
+
+RB_FLOAT_TYPE_P.exit.thread:                      ; preds = %1, %31, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, %FLOAT_ZERO_P.exit.i, %f_zero_p.exit, %RB_FLOAT_TYPE_P.exit
   %37 = load i64, ptr @rb_eRangeError, align 8, !tbaa !11
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %37, ptr noundef nonnull @.str.77, i64 noundef %0) #22
   unreachable
 
-38:                                               ; preds = %32, %rb_integer_type_p.exit.thread.i, %FLOAT_ZERO_P.exit.i, %f_zero_p.exit
+38:                                               ; preds = %31, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, %FLOAT_ZERO_P.exit.i, %f_zero_p.exit
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %40 = load i64, ptr %39, align 8, !tbaa !15
   %41 = icmp eq i64 %40, 0
@@ -9143,44 +9143,44 @@ FLOAT_ZERO_P.exit.i:                              ; preds = %RB_FLOAT_TYPE_P.exi
 RB_FLOAT_TYPE_P.exit.thread11.i:                  ; preds = %7, %RB_FLOAT_TYPE_P.exit.i
   %23 = and i64 %4, 1
   %.not.i.i = icmp eq i64 %23, 0
-  br i1 %.not.i.i, label %24, label %rb_integer_type_p.exit.thread.i
+  br i1 %.not.i.i, label %24, label %f_zero_p.exit
 
 24:                                               ; preds = %RB_FLOAT_TYPE_P.exit.thread11.i
   %25 = and i64 %4, 6
   %26 = icmp ne i64 %25, 0
   %27 = or i1 %8, %26
-  br i1 %27, label %f_zero_p.exit, label %rb_integer_type_p.exit.i
+  br i1 %27, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, label %rb_integer_type_p.exit.i
 
 rb_integer_type_p.exit.i:                         ; preds = %24
   %28 = inttoptr i64 %4 to ptr
   %29 = load i64, ptr %28, align 8, !tbaa !19
   %30 = and i64 %29, 31
-  switch i64 %30, label %f_zero_p.exit [
-    i64 10, label %rb_integer_type_p.exit.thread.i
-    i64 15, label %32
+  switch i64 %30, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i [
+    i64 10, label %f_zero_p.exit
+    i64 15, label %31
   ]
 
-rb_integer_type_p.exit.thread.i:                  ; preds = %rb_integer_type_p.exit.i, %RB_FLOAT_TYPE_P.exit.thread11.i
-  %31 = icmp eq i64 %4, 1
-  br i1 %31, label %38, label %RB_FLOAT_TYPE_P.exit.thread
+31:                                               ; preds = %rb_integer_type_p.exit.i
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %33 = load i64, ptr %32, align 8, !tbaa !23
+  %34 = icmp eq i64 %33, 1
+  br i1 %34, label %38, label %RB_FLOAT_TYPE_P.exit.thread
 
-32:                                               ; preds = %rb_integer_type_p.exit.i
-  %33 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %34 = load i64, ptr %33, align 8, !tbaa !23
-  %35 = icmp eq i64 %34, 1
-  br i1 %35, label %38, label %RB_FLOAT_TYPE_P.exit.thread
-
-f_zero_p.exit:                                    ; preds = %rb_integer_type_p.exit.i, %24
-  %36 = tail call i64 @rb_equal(i64 noundef %4, i64 noundef 1) #18
-  %.not = icmp eq i64 %36, 0
+rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rb_integer_type_p.exit.i, %24
+  %35 = tail call i64 @rb_equal(i64 noundef %4, i64 noundef 1) #18
+  %.not = icmp eq i64 %35, 0
   br i1 %.not, label %RB_FLOAT_TYPE_P.exit.thread, label %38
 
-RB_FLOAT_TYPE_P.exit.thread:                      ; preds = %1, %32, %rb_integer_type_p.exit.thread.i, %FLOAT_ZERO_P.exit.i, %f_zero_p.exit, %RB_FLOAT_TYPE_P.exit
+f_zero_p.exit:                                    ; preds = %rb_integer_type_p.exit.i, %RB_FLOAT_TYPE_P.exit.thread11.i
+  %36 = icmp eq i64 %4, 1
+  br i1 %36, label %38, label %RB_FLOAT_TYPE_P.exit.thread
+
+RB_FLOAT_TYPE_P.exit.thread:                      ; preds = %1, %31, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, %FLOAT_ZERO_P.exit.i, %f_zero_p.exit, %RB_FLOAT_TYPE_P.exit
   %37 = load i64, ptr @rb_eRangeError, align 8, !tbaa !11
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %37, ptr noundef nonnull @.str.78, i64 noundef %0) #22
   unreachable
 
-38:                                               ; preds = %32, %rb_integer_type_p.exit.thread.i, %FLOAT_ZERO_P.exit.i, %f_zero_p.exit
+38:                                               ; preds = %31, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, %FLOAT_ZERO_P.exit.i, %f_zero_p.exit
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %40 = load i64, ptr %39, align 8, !tbaa !15
   %41 = icmp eq i64 %40, 0
@@ -9229,7 +9229,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i6:         ; preds = %rbimpl_RB_TYPE_P_fa
   br label %f_to_f.exit
 
 f_to_f.exit:                                      ; preds = %58, %62, %64, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i6
-  %.0.i7 = phi i64 [ %66, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i6 ], [ %65, %64 ], [ %61, %58 ], [ -9223372036854775806, %62 ]
+  %.0.i7 = phi i64 [ %66, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i6 ], [ %61, %58 ], [ %65, %64 ], [ -9223372036854775806, %62 ]
   ret i64 %.0.i7
 }
 
@@ -9299,44 +9299,44 @@ FLOAT_ZERO_P.exit.i:                              ; preds = %RB_FLOAT_TYPE_P.exi
 RB_FLOAT_TYPE_P.exit.thread11.i:                  ; preds = %7, %RB_FLOAT_TYPE_P.exit.i
   %37 = and i64 %4, 1
   %.not.i.i = icmp eq i64 %37, 0
-  br i1 %.not.i.i, label %38, label %rb_integer_type_p.exit.thread.i
+  br i1 %.not.i.i, label %38, label %f_zero_p.exit
 
 38:                                               ; preds = %RB_FLOAT_TYPE_P.exit.thread11.i
   %39 = and i64 %4, 6
   %40 = icmp ne i64 %39, 0
   %41 = or i1 %8, %40
-  br i1 %41, label %f_zero_p.exit, label %rb_integer_type_p.exit.i
+  br i1 %41, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, label %rb_integer_type_p.exit.i
 
 rb_integer_type_p.exit.i:                         ; preds = %38
   %42 = inttoptr i64 %4 to ptr
   %43 = load i64, ptr %42, align 8, !tbaa !19
   %44 = and i64 %43, 31
-  switch i64 %44, label %f_zero_p.exit [
-    i64 10, label %rb_integer_type_p.exit.thread.i
-    i64 15, label %46
+  switch i64 %44, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i [
+    i64 10, label %f_zero_p.exit
+    i64 15, label %45
   ]
 
-rb_integer_type_p.exit.thread.i:                  ; preds = %rb_integer_type_p.exit.i, %RB_FLOAT_TYPE_P.exit.thread11.i
-  %45 = icmp eq i64 %4, 1
-  br i1 %45, label %FLOAT_ZERO_P.exit.thread, label %RB_FLOAT_TYPE_P.exit11.thread
+45:                                               ; preds = %rb_integer_type_p.exit.i
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %47 = load i64, ptr %46, align 8, !tbaa !23
+  %48 = icmp eq i64 %47, 1
+  br i1 %48, label %FLOAT_ZERO_P.exit.thread, label %RB_FLOAT_TYPE_P.exit11.thread
 
-46:                                               ; preds = %rb_integer_type_p.exit.i
-  %47 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %48 = load i64, ptr %47, align 8, !tbaa !23
-  %49 = icmp eq i64 %48, 1
-  br i1 %49, label %FLOAT_ZERO_P.exit.thread, label %RB_FLOAT_TYPE_P.exit11.thread
+rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rb_integer_type_p.exit.i, %38
+  %49 = tail call i64 @rb_equal(i64 noundef %4, i64 noundef 1) #18
+  %.not = icmp eq i64 %49, 0
+  br i1 %.not, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.RB_FLOAT_TYPE_P.exit11.thread_crit_edge, label %FLOAT_ZERO_P.exit.thread
 
-f_zero_p.exit:                                    ; preds = %rb_integer_type_p.exit.i, %38
-  %50 = tail call i64 @rb_equal(i64 noundef %4, i64 noundef 1) #18
-  %.not = icmp eq i64 %50, 0
-  br i1 %.not, label %f_zero_p.exit.RB_FLOAT_TYPE_P.exit11.thread_crit_edge, label %FLOAT_ZERO_P.exit.thread
-
-f_zero_p.exit.RB_FLOAT_TYPE_P.exit11.thread_crit_edge: ; preds = %f_zero_p.exit
+rbimpl_RB_TYPE_P_fastpath.exit.thread.i.RB_FLOAT_TYPE_P.exit11.thread_crit_edge: ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread.i
   %.pre = load i64, ptr %3, align 8, !tbaa !18
   br label %RB_FLOAT_TYPE_P.exit11.thread
 
-RB_FLOAT_TYPE_P.exit11.thread:                    ; preds = %f_zero_p.exit.RB_FLOAT_TYPE_P.exit11.thread_crit_edge, %FLOAT_ZERO_P.exit, %46, %rb_integer_type_p.exit.thread.i, %FLOAT_ZERO_P.exit.i, %RB_FLOAT_TYPE_P.exit11
-  %51 = phi i64 [ %.pre, %f_zero_p.exit.RB_FLOAT_TYPE_P.exit11.thread_crit_edge ], [ %4, %FLOAT_ZERO_P.exit ], [ %4, %46 ], [ %4, %rb_integer_type_p.exit.thread.i ], [ %4, %FLOAT_ZERO_P.exit.i ], [ %4, %RB_FLOAT_TYPE_P.exit11 ]
+f_zero_p.exit:                                    ; preds = %rb_integer_type_p.exit.i, %RB_FLOAT_TYPE_P.exit.thread11.i
+  %50 = icmp eq i64 %4, 1
+  br i1 %50, label %FLOAT_ZERO_P.exit.thread, label %RB_FLOAT_TYPE_P.exit11.thread
+
+RB_FLOAT_TYPE_P.exit11.thread:                    ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.RB_FLOAT_TYPE_P.exit11.thread_crit_edge, %FLOAT_ZERO_P.exit, %45, %FLOAT_ZERO_P.exit.i, %f_zero_p.exit, %RB_FLOAT_TYPE_P.exit11
+  %51 = phi i64 [ %.pre, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.RB_FLOAT_TYPE_P.exit11.thread_crit_edge ], [ %4, %FLOAT_ZERO_P.exit ], [ %4, %45 ], [ %4, %FLOAT_ZERO_P.exit.i ], [ %4, %f_zero_p.exit ], [ %4, %RB_FLOAT_TYPE_P.exit11 ]
   %52 = tail call i64 @rb_check_convert_type_with_id(i64 noundef %51, i32 noundef 15, ptr noundef nonnull @.str.79, i64 noundef 3409) #18
   %53 = icmp eq i64 %52, 4
   %54 = and i64 %52, 3
@@ -9374,44 +9374,44 @@ FLOAT_ZERO_P.exit.i23:                            ; preds = %RB_FLOAT_TYPE_P.exi
 RB_FLOAT_TYPE_P.exit.thread11.i16:                ; preds = %56, %RB_FLOAT_TYPE_P.exit.i15
   %72 = and i64 %52, 1
   %.not.i.i17 = icmp eq i64 %72, 0
-  br i1 %.not.i.i17, label %73, label %rb_integer_type_p.exit.thread.i18
+  br i1 %.not.i.i17, label %73, label %f_zero_p.exit27
 
 73:                                               ; preds = %RB_FLOAT_TYPE_P.exit.thread11.i16
   %74 = and i64 %52, 6
   %75 = icmp ne i64 %74, 0
   %76 = or i1 %57, %75
-  br i1 %76, label %f_zero_p.exit27, label %rb_integer_type_p.exit.i20
+  br i1 %76, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i22, label %rb_integer_type_p.exit.i20
 
 rb_integer_type_p.exit.i20:                       ; preds = %73
   %77 = inttoptr i64 %52 to ptr
   %78 = load i64, ptr %77, align 8, !tbaa !19
   %79 = and i64 %78, 31
-  switch i64 %79, label %f_zero_p.exit27 [
-    i64 10, label %rb_integer_type_p.exit.thread.i18
-    i64 15, label %81
+  switch i64 %79, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i22 [
+    i64 10, label %f_zero_p.exit27
+    i64 15, label %80
   ]
 
-rb_integer_type_p.exit.thread.i18:                ; preds = %rb_integer_type_p.exit.i20, %RB_FLOAT_TYPE_P.exit.thread11.i16
-  %80 = icmp eq i64 %52, 1
-  br i1 %80, label %FLOAT_ZERO_P.exit.thread, label %RB_FLOAT_TYPE_P.exit14.thread
+80:                                               ; preds = %rb_integer_type_p.exit.i20
+  %81 = getelementptr inbounds nuw i8, ptr %77, i64 16
+  %82 = load i64, ptr %81, align 8, !tbaa !23
+  %83 = icmp eq i64 %82, 1
+  br i1 %83, label %FLOAT_ZERO_P.exit.thread, label %RB_FLOAT_TYPE_P.exit14.thread
 
-81:                                               ; preds = %rb_integer_type_p.exit.i20
-  %82 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %83 = load i64, ptr %82, align 8, !tbaa !23
-  %84 = icmp eq i64 %83, 1
-  br i1 %84, label %FLOAT_ZERO_P.exit.thread, label %RB_FLOAT_TYPE_P.exit14.thread
-
-f_zero_p.exit27:                                  ; preds = %rb_integer_type_p.exit.i20, %73
-  %85 = tail call i64 @rb_equal(i64 noundef %52, i64 noundef 1) #18
-  %.not43 = icmp eq i64 %85, 0
+rbimpl_RB_TYPE_P_fastpath.exit.thread.i22:        ; preds = %rb_integer_type_p.exit.i20, %73
+  %84 = tail call i64 @rb_equal(i64 noundef %52, i64 noundef 1) #18
+  %.not43 = icmp eq i64 %84, 0
   br i1 %.not43, label %RB_FLOAT_TYPE_P.exit14.thread, label %FLOAT_ZERO_P.exit.thread
 
-RB_FLOAT_TYPE_P.exit14.thread:                    ; preds = %81, %rb_integer_type_p.exit.thread.i18, %FLOAT_ZERO_P.exit.i23, %f_zero_p.exit27, %RB_FLOAT_TYPE_P.exit14, %RB_FLOAT_TYPE_P.exit11.thread
+f_zero_p.exit27:                                  ; preds = %rb_integer_type_p.exit.i20, %RB_FLOAT_TYPE_P.exit.thread11.i16
+  %85 = icmp eq i64 %52, 1
+  br i1 %85, label %FLOAT_ZERO_P.exit.thread, label %RB_FLOAT_TYPE_P.exit14.thread
+
+RB_FLOAT_TYPE_P.exit14.thread:                    ; preds = %80, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i22, %FLOAT_ZERO_P.exit.i23, %f_zero_p.exit27, %RB_FLOAT_TYPE_P.exit14, %RB_FLOAT_TYPE_P.exit11.thread
   %86 = load i64, ptr @rb_eRangeError, align 8, !tbaa !11
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %86, ptr noundef nonnull @.str.80, i64 noundef %0) #22
   unreachable
 
-FLOAT_ZERO_P.exit.thread:                         ; preds = %16, %81, %rb_integer_type_p.exit.thread.i18, %FLOAT_ZERO_P.exit.i23, %46, %rb_integer_type_p.exit.thread.i, %FLOAT_ZERO_P.exit.i, %FLOAT_ZERO_P.exit.thread33, %f_zero_p.exit27, %f_zero_p.exit, %FLOAT_ZERO_P.exit
+FLOAT_ZERO_P.exit.thread:                         ; preds = %16, %80, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i22, %FLOAT_ZERO_P.exit.i23, %45, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, %FLOAT_ZERO_P.exit.i, %FLOAT_ZERO_P.exit.thread33, %f_zero_p.exit27, %f_zero_p.exit, %FLOAT_ZERO_P.exit
   %87 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %88 = load i64, ptr %87, align 8, !tbaa !15
   %89 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %88, i64 noundef 3409, i32 noundef 0) #18
@@ -9465,44 +9465,44 @@ FLOAT_ZERO_P.exit.i:                              ; preds = %RB_FLOAT_TYPE_P.exi
 RB_FLOAT_TYPE_P.exit.thread11.i:                  ; preds = %10, %RB_FLOAT_TYPE_P.exit.i
   %26 = and i64 %7, 1
   %.not.i.i = icmp eq i64 %26, 0
-  br i1 %.not.i.i, label %27, label %rb_integer_type_p.exit.thread.i
+  br i1 %.not.i.i, label %27, label %f_zero_p.exit
 
 27:                                               ; preds = %RB_FLOAT_TYPE_P.exit.thread11.i
   %28 = and i64 %7, 6
   %29 = icmp ne i64 %28, 0
   %30 = or i1 %11, %29
-  br i1 %30, label %f_zero_p.exit, label %rb_integer_type_p.exit.i
+  br i1 %30, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, label %rb_integer_type_p.exit.i
 
 rb_integer_type_p.exit.i:                         ; preds = %27
   %31 = inttoptr i64 %7 to ptr
   %32 = load i64, ptr %31, align 8, !tbaa !19
   %33 = and i64 %32, 31
-  switch i64 %33, label %f_zero_p.exit [
-    i64 10, label %rb_integer_type_p.exit.thread.i
-    i64 15, label %35
+  switch i64 %33, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i [
+    i64 10, label %f_zero_p.exit
+    i64 15, label %34
   ]
 
-rb_integer_type_p.exit.thread.i:                  ; preds = %rb_integer_type_p.exit.i, %RB_FLOAT_TYPE_P.exit.thread11.i
-  %34 = icmp eq i64 %7, 1
-  br i1 %34, label %41, label %RB_FLOAT_TYPE_P.exit.thread
+34:                                               ; preds = %rb_integer_type_p.exit.i
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %36 = load i64, ptr %35, align 8, !tbaa !23
+  %37 = icmp eq i64 %36, 1
+  br i1 %37, label %41, label %RB_FLOAT_TYPE_P.exit.thread
 
-35:                                               ; preds = %rb_integer_type_p.exit.i
-  %36 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %37 = load i64, ptr %36, align 8, !tbaa !23
-  %38 = icmp eq i64 %37, 1
-  br i1 %38, label %41, label %RB_FLOAT_TYPE_P.exit.thread
-
-f_zero_p.exit:                                    ; preds = %rb_integer_type_p.exit.i, %27
-  %39 = tail call i64 @rb_equal(i64 noundef %7, i64 noundef 1) #18
-  %.not = icmp eq i64 %39, 0
+rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rb_integer_type_p.exit.i, %27
+  %38 = tail call i64 @rb_equal(i64 noundef %7, i64 noundef 1) #18
+  %.not = icmp eq i64 %38, 0
   br i1 %.not, label %RB_FLOAT_TYPE_P.exit.thread, label %41
 
-RB_FLOAT_TYPE_P.exit.thread:                      ; preds = %rb_check_arity.exit, %35, %rb_integer_type_p.exit.thread.i, %FLOAT_ZERO_P.exit.i, %f_zero_p.exit, %RB_FLOAT_TYPE_P.exit
+f_zero_p.exit:                                    ; preds = %rb_integer_type_p.exit.i, %RB_FLOAT_TYPE_P.exit.thread11.i
+  %39 = icmp eq i64 %7, 1
+  br i1 %39, label %41, label %RB_FLOAT_TYPE_P.exit.thread
+
+RB_FLOAT_TYPE_P.exit.thread:                      ; preds = %rb_check_arity.exit, %34, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, %FLOAT_ZERO_P.exit.i, %f_zero_p.exit, %RB_FLOAT_TYPE_P.exit
   %40 = load i64, ptr @rb_eRangeError, align 8, !tbaa !11
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %40, ptr noundef nonnull @.str.80, i64 noundef %2) #22
   unreachable
 
-41:                                               ; preds = %35, %rb_integer_type_p.exit.thread.i, %FLOAT_ZERO_P.exit.i, %f_zero_p.exit
+41:                                               ; preds = %34, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, %FLOAT_ZERO_P.exit.i, %f_zero_p.exit
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %43 = load i64, ptr %42, align 8, !tbaa !15
   %44 = load i64, ptr @id_rationalize, align 8, !tbaa !11
@@ -9801,8 +9801,8 @@ f_abs.exit:                                       ; preds = %rb_integer_type_p.e
   br label %float_arg.exit
 
 float_arg.exit:                                   ; preds = %39, %rb_float_value_inline.exit.thread.i, %rb_float_value_inline.exit.i, %f_abs.exit, %47, %rb_integer_type_p.exit.thread
-  %.013 = phi i64 [ %12, %rb_integer_type_p.exit.thread ], [ %48, %47 ], [ %.0.i18, %f_abs.exit ], [ %37, %39 ], [ %35, %rb_float_value_inline.exit.i ], [ %37, %rb_float_value_inline.exit.thread.i ]
-  %.0 = phi i64 [ %13, %rb_integer_type_p.exit.thread ], [ %49, %47 ], [ %65, %f_abs.exit ], [ %42, %39 ], [ %0, %rb_float_value_inline.exit.i ], [ 1, %rb_float_value_inline.exit.thread.i ]
+  %.013 = phi i64 [ %12, %rb_integer_type_p.exit.thread ], [ %.0.i18, %f_abs.exit ], [ %48, %47 ], [ %37, %39 ], [ %35, %rb_float_value_inline.exit.i ], [ %37, %rb_float_value_inline.exit.thread.i ]
+  %.0 = phi i64 [ %13, %rb_integer_type_p.exit.thread ], [ %65, %f_abs.exit ], [ %49, %47 ], [ %42, %39 ], [ %0, %rb_float_value_inline.exit.i ], [ 1, %rb_float_value_inline.exit.thread.i ]
   %66 = tail call i64 @rb_assoc_new(i64 noundef %.013, i64 noundef %.0) #18
   ret i64 %66
 }
@@ -9948,7 +9948,7 @@ rb_float_value_inline.exit.thread:                ; preds = %17, %rb_float_value
   br label %RB_FLOAT_TYPE_P.exit.thread30
 
 RB_FLOAT_TYPE_P.exit.thread30:                    ; preds = %rb_float_value_inline.exit.thread, %8, %rb_float_value_inline.exit, %RB_FLOAT_TYPE_P.exit, %4
-  %.0 = phi i64 [ %0, %rb_float_value_inline.exit ], [ %0, %RB_FLOAT_TYPE_P.exit ], [ %0, %4 ], [ %0, %8 ], [ %spec.select, %rb_float_value_inline.exit.thread ]
+  %.0 = phi i64 [ %0, %4 ], [ %0, %rb_float_value_inline.exit ], [ %0, %RB_FLOAT_TYPE_P.exit ], [ %spec.select, %rb_float_value_inline.exit.thread ], [ %0, %8 ]
   %.not2 = xor i1 %3, true
   %or.cond4 = and i1 %2, %.not2
   br i1 %or.cond4, label %30, label %RB_FLOAT_TYPE_P.exit22.thread35
@@ -10003,7 +10003,7 @@ rb_float_value_inline.exit26.thread:              ; preds = %42, %rb_float_value
   br label %RB_FLOAT_TYPE_P.exit22.thread35
 
 RB_FLOAT_TYPE_P.exit22.thread35:                  ; preds = %rb_float_value_inline.exit26.thread, %33, %rb_float_value_inline.exit26, %RB_FLOAT_TYPE_P.exit22, %RB_FLOAT_TYPE_P.exit.thread30
-  %.017 = phi i64 [ %1, %rb_float_value_inline.exit26 ], [ %1, %RB_FLOAT_TYPE_P.exit22 ], [ %1, %RB_FLOAT_TYPE_P.exit.thread30 ], [ %1, %33 ], [ %spec.select40, %rb_float_value_inline.exit26.thread ]
+  %.017 = phi i64 [ %1, %RB_FLOAT_TYPE_P.exit.thread30 ], [ %1, %rb_float_value_inline.exit26 ], [ %1, %RB_FLOAT_TYPE_P.exit22 ], [ %spec.select40, %rb_float_value_inline.exit26.thread ], [ %1, %33 ]
   %55 = tail call fastcc i64 @f_mul(i64 noundef %.0, i64 noundef %.017)
   ret i64 %55
 }
@@ -10153,44 +10153,44 @@ FLOAT_ZERO_P.exit.i.i:                            ; preds = %40, %34
 RB_FLOAT_TYPE_P.exit.thread11.i.i:                ; preds = %RB_FLOAT_TYPE_P.exit.i.i, %24
   %44 = and i64 %21, 1
   %.not.i.i.i = icmp eq i64 %44, 0
-  br i1 %.not.i.i.i, label %45, label %rb_integer_type_p.exit.thread.i.i
+  br i1 %.not.i.i.i, label %45, label %nucomp_real_p.exit
 
 45:                                               ; preds = %RB_FLOAT_TYPE_P.exit.thread11.i.i
   %46 = and i64 %21, 6
   %47 = icmp ne i64 %46, 0
   %48 = or i1 %25, %47
-  br i1 %48, label %nucomp_real_p.exit, label %rb_integer_type_p.exit.i.i
+  br i1 %48, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i, label %rb_integer_type_p.exit.i.i
 
 rb_integer_type_p.exit.i.i:                       ; preds = %45
   %49 = inttoptr i64 %21 to ptr
   %50 = load i64, ptr %49, align 8, !tbaa !19
   %51 = and i64 %50, 31
-  switch i64 %51, label %nucomp_real_p.exit [
-    i64 10, label %rb_integer_type_p.exit.thread.i.i
-    i64 15, label %53
+  switch i64 %51, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i [
+    i64 10, label %nucomp_real_p.exit
+    i64 15, label %52
   ]
 
-rb_integer_type_p.exit.thread.i.i:                ; preds = %rb_integer_type_p.exit.i.i, %RB_FLOAT_TYPE_P.exit.thread11.i.i
-  %52 = icmp eq i64 %21, 1
-  br i1 %52, label %FLOAT_ZERO_P.exit.i.i.thread, label %rbimpl_RB_TYPE_P_fastpath.exit.thread
+52:                                               ; preds = %rb_integer_type_p.exit.i.i
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %54 = load i64, ptr %53, align 8, !tbaa !23
+  %55 = icmp eq i64 %54, 1
+  br i1 %55, label %FLOAT_ZERO_P.exit.i.i.thread, label %rbimpl_RB_TYPE_P_fastpath.exit.thread
 
-53:                                               ; preds = %rb_integer_type_p.exit.i.i
-  %54 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %55 = load i64, ptr %54, align 8, !tbaa !23
-  %56 = icmp eq i64 %55, 1
-  br i1 %56, label %FLOAT_ZERO_P.exit.i.i.thread, label %rbimpl_RB_TYPE_P_fastpath.exit.thread
-
-nucomp_real_p.exit:                               ; preds = %45, %rb_integer_type_p.exit.i.i
-  %57 = tail call i64 @rb_equal(i64 noundef %21, i64 noundef 1) #18
-  %.not25 = icmp eq i64 %57, 0
+rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i:        ; preds = %rb_integer_type_p.exit.i.i, %45
+  %56 = tail call i64 @rb_equal(i64 noundef %21, i64 noundef 1) #18
+  %.not25 = icmp eq i64 %56, 0
   br i1 %.not25, label %rbimpl_RB_TYPE_P_fastpath.exit.thread, label %FLOAT_ZERO_P.exit.i.i.thread
 
-FLOAT_ZERO_P.exit.i.i.thread:                     ; preds = %33, %53, %rb_integer_type_p.exit.thread.i.i, %FLOAT_ZERO_P.exit.i.i, %nucomp_real_p.exit
+nucomp_real_p.exit:                               ; preds = %RB_FLOAT_TYPE_P.exit.thread11.i.i, %rb_integer_type_p.exit.i.i
+  %57 = icmp eq i64 %21, 1
+  br i1 %57, label %FLOAT_ZERO_P.exit.i.i.thread, label %rbimpl_RB_TYPE_P_fastpath.exit.thread
+
+FLOAT_ZERO_P.exit.i.i.thread:                     ; preds = %33, %52, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i, %FLOAT_ZERO_P.exit.i.i, %nucomp_real_p.exit
   %58 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %59 = load i64, ptr %58, align 8, !tbaa !15
   br label %rb_integer_type_p.exit.thread
 
-rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %rbimpl_RB_TYPE_P_fastpath.exit12, %rb_integer_type_p.exit.thread16, %53, %rb_integer_type_p.exit.thread.i.i, %FLOAT_ZERO_P.exit.i.i, %nucomp_real_p.exit
+rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %rbimpl_RB_TYPE_P_fastpath.exit12, %rb_integer_type_p.exit.thread16, %52, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i, %FLOAT_ZERO_P.exit.i.i, %nucomp_real_p.exit
   %60 = load i64, ptr @rb_cNumeric, align 8, !tbaa !11
   %61 = tail call i64 @rb_obj_is_kind_of(i64 noundef %0, i64 noundef %60) #18
   %62 = and i64 %61, 4294967295
@@ -10257,39 +10257,39 @@ FLOAT_ZERO_P.exit.i:                              ; preds = %22, %16
 RB_FLOAT_TYPE_P.exit.thread11.i:                  ; preds = %RB_FLOAT_TYPE_P.exit.i, %6
   %26 = and i64 %1, 1
   %.not.i.i = icmp eq i64 %26, 0
-  br i1 %.not.i.i, label %27, label %rb_integer_type_p.exit.thread.i
+  br i1 %.not.i.i, label %27, label %f_zero_p.exit
 
 27:                                               ; preds = %RB_FLOAT_TYPE_P.exit.thread11.i
   %28 = and i64 %1, 6
   %29 = icmp ne i64 %28, 0
   %30 = or i1 %7, %29
-  br i1 %30, label %f_zero_p.exit, label %rb_integer_type_p.exit.i
+  br i1 %30, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, label %rb_integer_type_p.exit.i
 
 rb_integer_type_p.exit.i:                         ; preds = %27
   %31 = inttoptr i64 %1 to ptr
   %32 = load i64, ptr %31, align 8, !tbaa !19
   %33 = and i64 %32, 31
-  switch i64 %33, label %f_zero_p.exit [
-    i64 10, label %rb_integer_type_p.exit.thread.i
-    i64 15, label %35
+  switch i64 %33, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i [
+    i64 10, label %f_zero_p.exit
+    i64 15, label %34
   ]
 
-rb_integer_type_p.exit.thread.i:                  ; preds = %rb_integer_type_p.exit.i, %RB_FLOAT_TYPE_P.exit.thread11.i
-  %34 = icmp eq i64 %1, 1
-  br i1 %34, label %FLOAT_ZERO_P.exit.i.thread, label %40
+34:                                               ; preds = %rb_integer_type_p.exit.i
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %36 = load i64, ptr %35, align 8, !tbaa !23
+  %37 = icmp eq i64 %36, 1
+  br i1 %37, label %FLOAT_ZERO_P.exit.i.thread, label %40
 
-35:                                               ; preds = %rb_integer_type_p.exit.i
-  %36 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %37 = load i64, ptr %36, align 8, !tbaa !23
-  %38 = icmp eq i64 %37, 1
-  br i1 %38, label %FLOAT_ZERO_P.exit.i.thread, label %40
-
-f_zero_p.exit:                                    ; preds = %rb_integer_type_p.exit.i, %27
-  %39 = tail call i64 @rb_equal(i64 noundef %1, i64 noundef 1) #18
-  %.not = icmp eq i64 %39, 0
+rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rb_integer_type_p.exit.i, %27
+  %38 = tail call i64 @rb_equal(i64 noundef %1, i64 noundef 1) #18
+  %.not = icmp eq i64 %38, 0
   br i1 %.not, label %40, label %FLOAT_ZERO_P.exit.i.thread
 
-40:                                               ; preds = %35, %rb_integer_type_p.exit.thread.i, %FLOAT_ZERO_P.exit.i, %f_zero_p.exit
+f_zero_p.exit:                                    ; preds = %rb_integer_type_p.exit.i, %RB_FLOAT_TYPE_P.exit.thread11.i
+  %39 = icmp eq i64 %1, 1
+  br i1 %39, label %FLOAT_ZERO_P.exit.i.thread, label %40
+
+40:                                               ; preds = %34, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, %FLOAT_ZERO_P.exit.i, %f_zero_p.exit
   %41 = and i64 %2, 3
   %42 = icmp eq i64 %41, 2
   br i1 %42, label %52, label %43
@@ -10331,39 +10331,39 @@ FLOAT_ZERO_P.exit.i45.thread:                     ; preds = %RB_FLOAT_TYPE_P.exi
 RB_FLOAT_TYPE_P.exit.thread11.i38:                ; preds = %RB_FLOAT_TYPE_P.exit.i37, %43
   %62 = and i64 %2, 1
   %.not.i.i39 = icmp eq i64 %62, 0
-  br i1 %.not.i.i39, label %63, label %rb_integer_type_p.exit.thread.i40
+  br i1 %.not.i.i39, label %63, label %f_zero_p.exit49
 
 63:                                               ; preds = %RB_FLOAT_TYPE_P.exit.thread11.i38
   %64 = and i64 %2, 6
   %65 = icmp ne i64 %64, 0
   %66 = or i1 %44, %65
-  br i1 %66, label %f_zero_p.exit49, label %rb_integer_type_p.exit.i42
+  br i1 %66, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i44, label %rb_integer_type_p.exit.i42
 
 rb_integer_type_p.exit.i42:                       ; preds = %63
   %67 = inttoptr i64 %2 to ptr
   %68 = load i64, ptr %67, align 8, !tbaa !19
   %69 = and i64 %68, 31
-  switch i64 %69, label %f_zero_p.exit49 [
-    i64 10, label %rb_integer_type_p.exit.thread.i40
-    i64 15, label %71
+  switch i64 %69, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i44 [
+    i64 10, label %f_zero_p.exit49
+    i64 15, label %70
   ]
 
-rb_integer_type_p.exit.thread.i40:                ; preds = %rb_integer_type_p.exit.i42, %RB_FLOAT_TYPE_P.exit.thread11.i38
-  %70 = icmp eq i64 %2, 1
-  br i1 %70, label %FLOAT_ZERO_P.exit.i.thread, label %.thread81
+70:                                               ; preds = %rb_integer_type_p.exit.i42
+  %71 = getelementptr inbounds nuw i8, ptr %67, i64 16
+  %72 = load i64, ptr %71, align 8, !tbaa !23
+  %73 = icmp eq i64 %72, 1
+  br i1 %73, label %FLOAT_ZERO_P.exit.i.thread, label %.thread81
 
-71:                                               ; preds = %rb_integer_type_p.exit.i42
-  %72 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  %73 = load i64, ptr %72, align 8, !tbaa !23
-  %74 = icmp eq i64 %73, 1
-  br i1 %74, label %FLOAT_ZERO_P.exit.i.thread, label %.thread81
-
-f_zero_p.exit49:                                  ; preds = %rb_integer_type_p.exit.i42, %63
-  %75 = tail call i64 @rb_equal(i64 noundef %2, i64 noundef 1) #18
-  %.not102 = icmp eq i64 %75, 0
+rbimpl_RB_TYPE_P_fastpath.exit.thread.i44:        ; preds = %rb_integer_type_p.exit.i42, %63
+  %74 = tail call i64 @rb_equal(i64 noundef %2, i64 noundef 1) #18
+  %.not102 = icmp eq i64 %74, 0
   br i1 %.not102, label %.thread81, label %FLOAT_ZERO_P.exit.i.thread
 
-FLOAT_ZERO_P.exit.i.thread:                       ; preds = %52, %15, %FLOAT_ZERO_P.exit.i45.thread, %71, %rb_integer_type_p.exit.thread.i40, %FLOAT_ZERO_P.exit.i45, %35, %rb_integer_type_p.exit.thread.i, %FLOAT_ZERO_P.exit.i, %f_zero_p.exit49, %f_zero_p.exit
+f_zero_p.exit49:                                  ; preds = %rb_integer_type_p.exit.i42, %RB_FLOAT_TYPE_P.exit.thread11.i38
+  %75 = icmp eq i64 %2, 1
+  br i1 %75, label %FLOAT_ZERO_P.exit.i.thread, label %.thread81
+
+FLOAT_ZERO_P.exit.i.thread:                       ; preds = %52, %15, %FLOAT_ZERO_P.exit.i45.thread, %70, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i44, %FLOAT_ZERO_P.exit.i45, %34, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, %FLOAT_ZERO_P.exit.i, %f_zero_p.exit49, %f_zero_p.exit
   %76 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %77 = load ptr, ptr %76, align 8, !tbaa !27
   %78 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %77, i64 noundef %0, i64 noundef 14, i64 noundef 32) #18
@@ -10386,7 +10386,7 @@ nucomp_s_new_internal.exit:                       ; preds = %FLOAT_ZERO_P.exit.i
   tail call void @rb_obj_freeze_inline(i64 noundef %78) #18
   br label %276
 
-.thread81:                                        ; preds = %f_zero_p.exit49, %rb_integer_type_p.exit.thread.i40, %71
+.thread81:                                        ; preds = %f_zero_p.exit49, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i44, %70
   br i1 %47, label %m_cos.exit, label %RB_FLOAT_TYPE_P.exit
 
 RB_FLOAT_TYPE_P.exit:                             ; preds = %FLOAT_ZERO_P.exit.i45.thread, %.thread81
@@ -10537,8 +10537,8 @@ RB_FLOAT_TYPE_P.exit64.thread95:                  ; preds = %130, %RB_FLOAT_TYPE
   br label %f_negate.exit
 
 f_negate.exit:                                    ; preds = %123, %rbimpl_RB_TYPE_P_fastpath.exit11.thread.i, %120, %118, %RB_FLOAT_TYPE_P.exit.thread.i, %rb_integer_type_p.exit.thread.i55, %rb_float_value_inline.exit68, %RB_FLOAT_TYPE_P.exit64.thread95, %127
-  %.035 = phi i64 [ %128, %127 ], [ %154, %rb_float_value_inline.exit68 ], [ %158, %RB_FLOAT_TYPE_P.exit64.thread95 ], [ -9223372036854775806, %rb_integer_type_p.exit.thread.i55 ], [ -9223372036854775806, %RB_FLOAT_TYPE_P.exit.thread.i ], [ -9223372036854775806, %118 ], [ -9223372036854775806, %120 ], [ -9223372036854775806, %rbimpl_RB_TYPE_P_fastpath.exit11.thread.i ], [ %1, %123 ]
-  %.034 = phi i64 [ -9223372036854775806, %127 ], [ %153, %rb_float_value_inline.exit68 ], [ %160, %RB_FLOAT_TYPE_P.exit64.thread95 ], [ %108, %rb_integer_type_p.exit.thread.i55 ], [ %117, %RB_FLOAT_TYPE_P.exit.thread.i ], [ %119, %118 ], [ %121, %120 ], [ %122, %rbimpl_RB_TYPE_P_fastpath.exit11.thread.i ], [ -9223372036854775806, %123 ]
+  %.035 = phi i64 [ %158, %RB_FLOAT_TYPE_P.exit64.thread95 ], [ -9223372036854775806, %rbimpl_RB_TYPE_P_fastpath.exit11.thread.i ], [ %128, %127 ], [ %154, %rb_float_value_inline.exit68 ], [ -9223372036854775806, %rb_integer_type_p.exit.thread.i55 ], [ -9223372036854775806, %RB_FLOAT_TYPE_P.exit.thread.i ], [ -9223372036854775806, %118 ], [ -9223372036854775806, %120 ], [ %1, %123 ]
+  %.034 = phi i64 [ %160, %RB_FLOAT_TYPE_P.exit64.thread95 ], [ %122, %rbimpl_RB_TYPE_P_fastpath.exit11.thread.i ], [ -9223372036854775806, %127 ], [ %153, %rb_float_value_inline.exit68 ], [ %108, %rb_integer_type_p.exit.thread.i55 ], [ %117, %RB_FLOAT_TYPE_P.exit.thread.i ], [ %119, %118 ], [ %121, %120 ], [ -9223372036854775806, %123 ]
   %161 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %162 = load ptr, ptr %161, align 8, !tbaa !27
   %163 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %162, i64 noundef %0, i64 noundef 14, i64 noundef 32) #18
@@ -10880,45 +10880,45 @@ FLOAT_ZERO_P.exit.i:                              ; preds = %RB_FLOAT_TYPE_P.exi
 RB_FLOAT_TYPE_P.exit.thread11.i:                  ; preds = %47, %RB_FLOAT_TYPE_P.exit.i
   %63 = and i64 %44, 1
   %.not.i.i = icmp eq i64 %63, 0
-  br i1 %.not.i.i, label %64, label %rb_integer_type_p.exit.thread.i
+  br i1 %.not.i.i, label %64, label %f_zero_p.exit
 
 64:                                               ; preds = %RB_FLOAT_TYPE_P.exit.thread11.i
   %65 = and i64 %44, 6
   %66 = icmp ne i64 %65, 0
   %67 = or i1 %48, %66
-  br i1 %67, label %f_zero_p.exit, label %rb_integer_type_p.exit.i
+  br i1 %67, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, label %rb_integer_type_p.exit.i
 
 rb_integer_type_p.exit.i:                         ; preds = %64
   %68 = inttoptr i64 %44 to ptr
   %69 = load i64, ptr %68, align 8, !tbaa !19
   %70 = and i64 %69, 31
-  switch i64 %70, label %f_zero_p.exit [
-    i64 10, label %rb_integer_type_p.exit.thread.i
-    i64 15, label %72
+  switch i64 %70, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i [
+    i64 10, label %f_zero_p.exit
+    i64 15, label %71
   ]
 
-rb_integer_type_p.exit.thread.i:                  ; preds = %rb_integer_type_p.exit.i, %RB_FLOAT_TYPE_P.exit.thread11.i
-  %71 = icmp eq i64 %44, 1
-  br i1 %71, label %77, label %rbimpl_RB_TYPE_P_fastpath.exit69.thread
+71:                                               ; preds = %rb_integer_type_p.exit.i
+  %72 = getelementptr inbounds nuw i8, ptr %68, i64 16
+  %73 = load i64, ptr %72, align 8, !tbaa !23
+  %74 = icmp eq i64 %73, 1
+  br i1 %74, label %77, label %rbimpl_RB_TYPE_P_fastpath.exit69.thread
 
-72:                                               ; preds = %rb_integer_type_p.exit.i
-  %73 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  %74 = load i64, ptr %73, align 8, !tbaa !23
-  %75 = icmp eq i64 %74, 1
-  br i1 %75, label %77, label %rbimpl_RB_TYPE_P_fastpath.exit69.thread
-
-f_zero_p.exit:                                    ; preds = %rb_integer_type_p.exit.i, %64
-  %76 = tail call i64 @rb_equal(i64 noundef %44, i64 noundef 1) #18
-  %.not120 = icmp eq i64 %76, 0
+rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rb_integer_type_p.exit.i, %64
+  %75 = tail call i64 @rb_equal(i64 noundef %44, i64 noundef 1) #18
+  %.not120 = icmp eq i64 %75, 0
   br i1 %.not120, label %rbimpl_RB_TYPE_P_fastpath.exit69.thread, label %77
 
-77:                                               ; preds = %72, %rb_integer_type_p.exit.thread.i, %FLOAT_ZERO_P.exit.i, %f_zero_p.exit
+f_zero_p.exit:                                    ; preds = %rb_integer_type_p.exit.i, %RB_FLOAT_TYPE_P.exit.thread11.i
+  %76 = icmp eq i64 %44, 1
+  br i1 %76, label %77, label %rbimpl_RB_TYPE_P_fastpath.exit69.thread
+
+77:                                               ; preds = %71, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, %FLOAT_ZERO_P.exit.i, %f_zero_p.exit
   %78 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %79 = load i64, ptr %78, align 8, !tbaa !15
   br label %rbimpl_RB_TYPE_P_fastpath.exit69.thread
 
-rbimpl_RB_TYPE_P_fastpath.exit69.thread:          ; preds = %42, %rbimpl_RB_TYPE_P_fastpath.exit71.thread, %72, %rb_integer_type_p.exit.thread.i, %FLOAT_ZERO_P.exit.i, %RB_FLOAT_TYPE_P.exit, %f_zero_p.exit, %77, %rbimpl_RB_TYPE_P_fastpath.exit69
-  %.2 = phi i64 [ %.051, %rbimpl_RB_TYPE_P_fastpath.exit69 ], [ %.051, %RB_FLOAT_TYPE_P.exit ], [ %79, %77 ], [ %.051, %f_zero_p.exit ], [ %.051, %FLOAT_ZERO_P.exit.i ], [ %.051, %rb_integer_type_p.exit.thread.i ], [ %.051, %72 ], [ %.051, %rbimpl_RB_TYPE_P_fastpath.exit71.thread ], [ %.051, %42 ]
+rbimpl_RB_TYPE_P_fastpath.exit69.thread:          ; preds = %42, %rbimpl_RB_TYPE_P_fastpath.exit71.thread, %71, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, %FLOAT_ZERO_P.exit.i, %RB_FLOAT_TYPE_P.exit, %f_zero_p.exit, %77, %rbimpl_RB_TYPE_P_fastpath.exit69
+  %.2 = phi i64 [ %.051, %rbimpl_RB_TYPE_P_fastpath.exit69 ], [ %.051, %RB_FLOAT_TYPE_P.exit ], [ %79, %77 ], [ %.051, %f_zero_p.exit ], [ %.051, %71 ], [ %.051, %rbimpl_RB_TYPE_P_fastpath.exit71.thread ], [ %.051, %FLOAT_ZERO_P.exit.i ], [ %.051, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ], [ %.051, %42 ]
   %80 = icmp eq i64 %.053, 0
   %81 = and i64 %.053, 7
   %82 = icmp ne i64 %81, 0
@@ -10969,45 +10969,45 @@ FLOAT_ZERO_P.exit.i86:                            ; preds = %RB_FLOAT_TYPE_P.exi
 RB_FLOAT_TYPE_P.exit.thread11.i79:                ; preds = %93, %RB_FLOAT_TYPE_P.exit.i78
   %109 = and i64 %90, 1
   %.not.i.i80 = icmp eq i64 %109, 0
-  br i1 %.not.i.i80, label %110, label %rb_integer_type_p.exit.thread.i81
+  br i1 %.not.i.i80, label %110, label %f_zero_p.exit90
 
 110:                                              ; preds = %RB_FLOAT_TYPE_P.exit.thread11.i79
   %111 = and i64 %90, 6
   %112 = icmp ne i64 %111, 0
   %113 = or i1 %94, %112
-  br i1 %113, label %f_zero_p.exit90, label %rb_integer_type_p.exit.i83
+  br i1 %113, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i85, label %rb_integer_type_p.exit.i83
 
 rb_integer_type_p.exit.i83:                       ; preds = %110
   %114 = inttoptr i64 %90 to ptr
   %115 = load i64, ptr %114, align 8, !tbaa !19
   %116 = and i64 %115, 31
-  switch i64 %116, label %f_zero_p.exit90 [
-    i64 10, label %rb_integer_type_p.exit.thread.i81
-    i64 15, label %118
+  switch i64 %116, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i85 [
+    i64 10, label %f_zero_p.exit90
+    i64 15, label %117
   ]
 
-rb_integer_type_p.exit.thread.i81:                ; preds = %rb_integer_type_p.exit.i83, %RB_FLOAT_TYPE_P.exit.thread11.i79
-  %117 = icmp eq i64 %90, 1
-  br i1 %117, label %123, label %rbimpl_RB_TYPE_P_fastpath.exit67.thread
+117:                                              ; preds = %rb_integer_type_p.exit.i83
+  %118 = getelementptr inbounds nuw i8, ptr %114, i64 16
+  %119 = load i64, ptr %118, align 8, !tbaa !23
+  %120 = icmp eq i64 %119, 1
+  br i1 %120, label %123, label %rbimpl_RB_TYPE_P_fastpath.exit67.thread
 
-118:                                              ; preds = %rb_integer_type_p.exit.i83
-  %119 = getelementptr inbounds nuw i8, ptr %114, i64 16
-  %120 = load i64, ptr %119, align 8, !tbaa !23
-  %121 = icmp eq i64 %120, 1
-  br i1 %121, label %123, label %rbimpl_RB_TYPE_P_fastpath.exit67.thread
-
-f_zero_p.exit90:                                  ; preds = %rb_integer_type_p.exit.i83, %110
-  %122 = tail call i64 @rb_equal(i64 noundef %90, i64 noundef 1) #18
-  %.not121 = icmp eq i64 %122, 0
+rbimpl_RB_TYPE_P_fastpath.exit.thread.i85:        ; preds = %rb_integer_type_p.exit.i83, %110
+  %121 = tail call i64 @rb_equal(i64 noundef %90, i64 noundef 1) #18
+  %.not121 = icmp eq i64 %121, 0
   br i1 %.not121, label %rbimpl_RB_TYPE_P_fastpath.exit67.thread, label %123
 
-123:                                              ; preds = %118, %rb_integer_type_p.exit.thread.i81, %FLOAT_ZERO_P.exit.i86, %f_zero_p.exit90
+f_zero_p.exit90:                                  ; preds = %rb_integer_type_p.exit.i83, %RB_FLOAT_TYPE_P.exit.thread11.i79
+  %122 = icmp eq i64 %90, 1
+  br i1 %122, label %123, label %rbimpl_RB_TYPE_P_fastpath.exit67.thread
+
+123:                                              ; preds = %117, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i85, %FLOAT_ZERO_P.exit.i86, %f_zero_p.exit90
   %124 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %125 = load i64, ptr %124, align 8, !tbaa !15
   br label %rbimpl_RB_TYPE_P_fastpath.exit67.thread
 
-rbimpl_RB_TYPE_P_fastpath.exit67.thread:          ; preds = %88, %rbimpl_RB_TYPE_P_fastpath.exit69.thread, %118, %rb_integer_type_p.exit.thread.i81, %FLOAT_ZERO_P.exit.i86, %RB_FLOAT_TYPE_P.exit77, %f_zero_p.exit90, %123, %rbimpl_RB_TYPE_P_fastpath.exit67
-  %.255 = phi i64 [ %.053, %rbimpl_RB_TYPE_P_fastpath.exit67 ], [ %.053, %RB_FLOAT_TYPE_P.exit77 ], [ %125, %123 ], [ %.053, %f_zero_p.exit90 ], [ %.053, %FLOAT_ZERO_P.exit.i86 ], [ %.053, %rb_integer_type_p.exit.thread.i81 ], [ %.053, %118 ], [ %.053, %rbimpl_RB_TYPE_P_fastpath.exit69.thread ], [ %.053, %88 ]
+rbimpl_RB_TYPE_P_fastpath.exit67.thread:          ; preds = %88, %rbimpl_RB_TYPE_P_fastpath.exit69.thread, %117, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i85, %FLOAT_ZERO_P.exit.i86, %RB_FLOAT_TYPE_P.exit77, %f_zero_p.exit90, %123, %rbimpl_RB_TYPE_P_fastpath.exit67
+  %.255 = phi i64 [ %.053, %rbimpl_RB_TYPE_P_fastpath.exit67 ], [ %.053, %RB_FLOAT_TYPE_P.exit77 ], [ %125, %123 ], [ %.053, %f_zero_p.exit90 ], [ %.053, %117 ], [ %.053, %rbimpl_RB_TYPE_P_fastpath.exit69.thread ], [ %.053, %FLOAT_ZERO_P.exit.i86 ], [ %.053, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i85 ], [ %.053, %88 ]
   %126 = icmp eq i64 %.2, 0
   %127 = and i64 %.2, 7
   %128 = icmp ne i64 %127, 0
@@ -11187,7 +11187,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %rb_integer_type_p.e
   br label %212
 
 212:                                              ; preds = %154, %134, %RB_FLOAT_TYPE_P.exit92.thread108, %31, %20, %8, %rbimpl_RB_TYPE_P_fastpath.exit.thread, %174, %163, %161
-  %.050 = phi i64 [ %.1, %rbimpl_RB_TYPE_P_fastpath.exit.thread ], [ %164, %163 ], [ %162, %161 ], [ %178, %174 ], [ 4, %8 ], [ 4, %20 ], [ 4, %31 ], [ %.2, %RB_FLOAT_TYPE_P.exit92.thread108 ], [ %.2, %134 ], [ %.2, %154 ]
+  %.050 = phi i64 [ %178, %174 ], [ 4, %8 ], [ 4, %20 ], [ 4, %31 ], [ %.1, %rbimpl_RB_TYPE_P_fastpath.exit.thread ], [ %164, %163 ], [ %162, %161 ], [ %.2, %134 ], [ %.2, %RB_FLOAT_TYPE_P.exit92.thread108 ], [ %.2, %154 ]
   ret i64 %.050
 }
 
@@ -11468,9 +11468,9 @@ read_comp.exit.thread:                            ; preds = %isimagunit.exit74.t
   store i64 %91, ptr %2, align 8, !tbaa !11
   br label %111
 
-read_comp.exit.thread17:                          ; preds = %87, %isimagunit.exit75.thread.i, %isimagunit.exit71.thread.i, %isimagunit.exit.thread.i
-  %.promoted.i724 = phi ptr [ %41, %isimagunit.exit.thread.i ], [ %51, %isimagunit.exit71.thread.i ], [ %84, %isimagunit.exit75.thread.i ], [ %49, %87 ]
-  %.sink.i.ph16 = phi i64 [ %43, %isimagunit.exit.thread.i ], [ %53, %isimagunit.exit71.thread.i ], [ %86, %isimagunit.exit75.thread.i ], [ %89, %87 ]
+read_comp.exit.thread17:                          ; preds = %isimagunit.exit.thread.i, %87, %isimagunit.exit75.thread.i, %isimagunit.exit71.thread.i
+  %.promoted.i724 = phi ptr [ %51, %isimagunit.exit71.thread.i ], [ %84, %isimagunit.exit75.thread.i ], [ %49, %87 ], [ %41, %isimagunit.exit.thread.i ]
+  %.sink.i.ph16 = phi i64 [ %53, %isimagunit.exit71.thread.i ], [ %86, %isimagunit.exit75.thread.i ], [ %89, %87 ], [ %43, %isimagunit.exit.thread.i ]
   store i64 %.sink.i.ph16, ptr %2, align 8, !tbaa !11
   br label %94
 
@@ -11523,7 +11523,7 @@ skip_ws.exit11:                                   ; preds = %skip_ws.exit11.loop
   br label %111
 
 111:                                              ; preds = %read_comp.exit.thread, %109, %read_comp.exit, %skip_ws.exit11
-  %.0 = phi i32 [ 1, %skip_ws.exit11 ], [ 0, %read_comp.exit ], [ %spec.select, %109 ], [ 0, %read_comp.exit.thread ]
+  %.0 = phi i32 [ 0, %read_comp.exit ], [ %spec.select, %109 ], [ 1, %skip_ws.exit11 ], [ 0, %read_comp.exit.thread ]
   call void @rb_free_tmp_buffer(ptr noundef nonnull %6) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -11707,7 +11707,7 @@ read_digits.exit.thread.i:                        ; preds = %3, %read_digits.exi
   br i1 %59, label %.preheader.i47.i, label %read_digits.exit50.i, !llvm.loop !62
 
 read_digits.exit50.i:                             ; preds = %.preheader.i47.i, %.loopexit19.i48.i, %read_digits.exit.i
-  %60 = phi i8 [ %44, %.loopexit19.i48.i ], [ %29, %read_digits.exit.i ], [ %58, %.preheader.i47.i ]
+  %60 = phi i8 [ %29, %read_digits.exit.i ], [ %44, %.loopexit19.i48.i ], [ %58, %.preheader.i47.i ]
   %61 = and i8 %60, -33
   %.not81.i = icmp eq i8 %61, 69
   br i1 %.not81.i, label %62, label %read_num.exit
@@ -11816,7 +11816,7 @@ read_sign.exit.i:                                 ; preds = %70, %62
   br i1 %100, label %.preheader.i71.i, label %read_num.exit, !llvm.loop !62
 
 read_num.exit:                                    ; preds = %.preheader.i71.i, %.loopexit19.i72.i, %read_digits.exit50.i
-  %101 = phi i8 [ %85, %.loopexit19.i72.i ], [ %60, %read_digits.exit50.i ], [ %99, %.preheader.i71.i ]
+  %101 = phi i8 [ %60, %read_digits.exit50.i ], [ %85, %.loopexit19.i72.i ], [ %99, %.preheader.i71.i ]
   %102 = icmp eq i8 %101, 47
   br i1 %102, label %103, label %read_den.exit
 
@@ -11907,13 +11907,13 @@ read_den.exit.sink.split.sink.split:              ; preds = %122, %48, %89
   br label %read_den.exit.sink.split
 
 read_den.exit.sink.split:                         ; preds = %read_den.exit.sink.split.sink.split, %103, %read_digits.exit.thread.i, %read_sign.exit.i
-  %.sink126.i.sink = phi ptr [ %35, %read_digits.exit.thread.i ], [ %75, %read_sign.exit.i ], [ %108, %103 ], [ %.pre, %read_den.exit.sink.split.sink.split ]
+  %.sink126.i.sink = phi ptr [ %108, %103 ], [ %35, %read_digits.exit.thread.i ], [ %75, %read_sign.exit.i ], [ %.pre, %read_den.exit.sink.split.sink.split ]
   %134 = getelementptr i8, ptr %.sink126.i.sink, i64 -1
   store ptr %134, ptr %2, align 8, !tbaa !54
   br label %read_den.exit
 
-read_den.exit:                                    ; preds = %.preheader.i.i32, %read_den.exit.sink.split, %17, %6, %.loopexit19.i.i33, %read_num.exit
-  %.0 = phi i32 [ 1, %read_num.exit ], [ 1, %.loopexit19.i.i33 ], [ 0, %6 ], [ 0, %17 ], [ 0, %read_den.exit.sink.split ], [ 1, %.preheader.i.i32 ]
+read_den.exit:                                    ; preds = %.preheader.i.i32, %read_den.exit.sink.split, %6, %17, %.loopexit19.i.i33, %read_num.exit
+  %.0 = phi i32 [ 0, %6 ], [ 0, %read_den.exit.sink.split ], [ 1, %read_num.exit ], [ 1, %.loopexit19.i.i33 ], [ 0, %17 ], [ 1, %.preheader.i.i32 ]
   ret i32 %.0
 }
 
@@ -11965,7 +11965,7 @@ define internal fastcc i64 @str2num(ptr noundef %0) unnamed_addr #0 {
   br label %rb_float_new_inline.exit
 
 rb_float_new_inline.exit:                         ; preds = %22, %20, %16, %24, %3
-  %.0 = phi i64 [ %4, %3 ], [ %25, %24 ], [ %23, %22 ], [ %19, %16 ], [ -9223372036854775806, %20 ]
+  %.0 = phi i64 [ %4, %3 ], [ %25, %24 ], [ %19, %16 ], [ %23, %22 ], [ -9223372036854775806, %20 ]
   ret i64 %.0
 }
 

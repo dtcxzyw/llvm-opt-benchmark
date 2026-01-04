@@ -636,7 +636,7 @@ define dso_local void @intel_pmu_lbr_save(ptr noundef writeonly captures(none) %
   br i1 %96, label %.split, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %70, %92, %49, %37, %16
-  %97 = phi i32 [ 0, %16 ], [ %21, %37 ], [ %51, %49 ], [ %54, %70 ], [ %94, %92 ]
+  %97 = phi i32 [ %51, %49 ], [ 0, %16 ], [ %21, %37 ], [ %54, %70 ], [ %94, %92 ]
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %97, ptr %98, align 4
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -909,7 +909,7 @@ define dso_local void @intel_pmu_lbr_sched_task(ptr noundef readonly captures(ad
   br label %84
 
 84:                                               ; preds = %81, %75, %82, %78
-  %85 = phi i64 [ %79, %78 ], [ %83, %82 ], [ %77, %75 ], [ %70, %81 ]
+  %85 = phi i64 [ %77, %75 ], [ %79, %78 ], [ %83, %82 ], [ %70, %81 ]
   %86 = icmp eq i64 %85, 0
   br i1 %86, label %92, label %87
 
@@ -1880,14 +1880,14 @@ define dso_local void @intel_pmu_lbr_read_64(ptr noundef captures(none) %0) loca
   br label %.thread9
 
 .thread9:                                         ; preds = %78, %72, %62, %99, %108
-  %115 = phi i64 [ %104, %99 ], [ %104, %108 ], [ 0, %62 ], [ %70, %72 ], [ %98, %78 ]
-  %116 = phi i64 [ 0, %99 ], [ 8, %108 ], [ 0, %62 ], [ 0, %72 ], [ 0, %78 ]
-  %117 = phi i64 [ %105, %99 ], [ %105, %108 ], [ 0, %62 ], [ 0, %72 ], [ 0, %78 ]
-  %118 = phi i1 [ %103, %99 ], [ %103, %108 ], [ false, %62 ], [ %73, %72 ], [ %84, %78 ]
-  %119 = phi i64 [ %102, %99 ], [ %102, %108 ], [ 0, %62 ], [ %74, %72 ], [ %83, %78 ]
-  %120 = phi i64 [ %101, %99 ], [ %101, %108 ], [ %53, %62 ], [ %53, %72 ], [ %97, %78 ]
-  %121 = phi i64 [ %100, %99 ], [ %100, %108 ], [ %46, %62 ], [ %46, %72 ], [ %91, %78 ]
-  %122 = phi i32 [ %30, %99 ], [ %114, %108 ], [ %30, %62 ], [ %30, %72 ], [ %30, %78 ]
+  %115 = phi i64 [ %104, %99 ], [ %104, %108 ], [ %70, %72 ], [ 0, %62 ], [ %98, %78 ]
+  %116 = phi i64 [ 0, %99 ], [ 8, %108 ], [ 0, %72 ], [ 0, %62 ], [ 0, %78 ]
+  %117 = phi i64 [ %105, %99 ], [ %105, %108 ], [ 0, %72 ], [ 0, %62 ], [ 0, %78 ]
+  %118 = phi i1 [ %103, %99 ], [ %103, %108 ], [ %73, %72 ], [ false, %62 ], [ %84, %78 ]
+  %119 = phi i64 [ %102, %99 ], [ %102, %108 ], [ %74, %72 ], [ 0, %62 ], [ %83, %78 ]
+  %120 = phi i64 [ %101, %99 ], [ %101, %108 ], [ %53, %72 ], [ %53, %62 ], [ %97, %78 ]
+  %121 = phi i64 [ %100, %99 ], [ %100, %108 ], [ %46, %72 ], [ %46, %62 ], [ %91, %78 ]
+  %122 = phi i32 [ %30, %99 ], [ %114, %108 ], [ %30, %72 ], [ %30, %62 ], [ %30, %78 ]
   %123 = sext i32 %122 to i64
   %124 = getelementptr %struct.perf_branch_entry, ptr %4, i64 %123
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
@@ -2076,8 +2076,8 @@ define dso_local void @intel_pmu_lbr_save_brstack(ptr noundef captures(none) %0,
   br i1 %96, label %.split, label %.loopexit4, !llvm.loop !46
 
 .loopexit4:                                       ; preds = %.loopexit.us, %.split, %.thread, %46
-  %97 = phi ptr [ %47, %46 ], [ %50, %.thread ], [ %58, %.split ], [ %47, %.loopexit.us ]
-  %98 = phi i64 [ 0, %46 ], [ 0, %.thread ], [ %95, %.split ], [ %85, %.loopexit.us ]
+  %97 = phi ptr [ %58, %.split ], [ %50, %.thread ], [ %47, %46 ], [ %47, %.loopexit.us ]
+  %98 = phi i64 [ %95, %.split ], [ 0, %.thread ], [ 0, %46 ], [ %85, %.loopexit.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 3240
   %100 = getelementptr inbounds nuw i8, ptr %2, i64 288
@@ -2463,7 +2463,7 @@ define dso_local noundef range(i32 -95, 1) i32 @intel_pmu_setup_lbr_filter(ptr n
   br label %.thread
 
 .thread:                                          ; preds = %59, %29, %36, %32, %85, %81, %78, %72, %40, %1
-  %87 = phi i32 [ -95, %1 ], [ 0, %40 ], [ 0, %78 ], [ 0, %85 ], [ 0, %81 ], [ 0, %72 ], [ -95, %29 ], [ -22, %36 ], [ -95, %32 ], [ -95, %59 ]
+  %87 = phi i32 [ -95, %1 ], [ -95, %32 ], [ 0, %40 ], [ 0, %78 ], [ 0, %85 ], [ 0, %81 ], [ 0, %72 ], [ -95, %29 ], [ -22, %36 ], [ -95, %59 ]
   ret i32 %87
 }
 

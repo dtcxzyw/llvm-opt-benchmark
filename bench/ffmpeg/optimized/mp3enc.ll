@@ -267,8 +267,8 @@ mp3_queue_flush.exit49:                           ; preds = %83
 .thread:                                          ; preds = %68, %13, %mp3_queue_flush.exit49, %65
   br label %.thread53
 
-.thread53:                                        ; preds = %35, %mp3_queue_flush.exit49, %61, %49, %52, %.thread51, %.thread, %37
-  %.133 = phi i32 [ 0, %.thread ], [ %36, %35 ], [ %38, %37 ], [ %28, %.thread51 ], [ %.114.i45, %mp3_queue_flush.exit49 ], [ %63, %61 ], [ 0, %49 ], [ 0, %52 ]
+.thread53:                                        ; preds = %35, %mp3_queue_flush.exit49, %52, %49, %61, %.thread51, %.thread, %37
+  %.133 = phi i32 [ 0, %.thread ], [ %36, %35 ], [ %38, %37 ], [ %28, %.thread51 ], [ %.114.i45, %mp3_queue_flush.exit49 ], [ 0, %52 ], [ 0, %49 ], [ %63, %61 ]
   ret i32 %.133
 }
 
@@ -866,7 +866,7 @@ define internal range(i32 -22, 1) i32 @mp3_init(ptr noundef %0) #0 {
   br label %.critedge
 
 .critedge:                                        ; preds = %25, %28, %32, %35, %._crit_edge.thread, %6
-  %.0 = phi i32 [ -22, %6 ], [ -22, %._crit_edge.thread ], [ -22, %35 ], [ 0, %32 ], [ -22, %28 ], [ -22, %25 ]
+  %.0 = phi i32 [ -22, %6 ], [ 0, %32 ], [ -22, %._crit_edge.thread ], [ -22, %35 ], [ -22, %25 ], [ -22, %28 ]
   ret i32 %.0
 }
 

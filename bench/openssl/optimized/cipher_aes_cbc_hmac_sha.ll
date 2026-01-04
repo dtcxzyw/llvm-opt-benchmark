@@ -83,7 +83,7 @@ define internal noalias ptr @aes_cbc_hmac_sha1_dupctx(ptr noundef %0) #0 {
   br label %6
 
 6:                                                ; preds = %1, %4
-  %.0 = phi ptr [ %5, %4 ], [ null, %1 ]
+  %.0 = phi ptr [ null, %1 ], [ %5, %4 ]
   ret ptr %.0
 }
 
@@ -258,7 +258,7 @@ define internal range(i32 0, 2) i32 @aes_get_ctx_params(ptr noundef %0, ptr noun
   br i1 %.not77, label %.sink.split, label %66
 
 .sink.split:                                      ; preds = %63, %53, %43, %37, %31, %25, %19, %13, %4
-  %.sink = phi i32 [ 233, %4 ], [ 240, %13 ], [ 246, %19 ], [ 252, %25 ], [ 259, %31 ], [ 264, %37 ], [ 269, %43 ], [ 276, %53 ], [ 283, %63 ]
+  %.sink = phi i32 [ 233, %4 ], [ 276, %53 ], [ 269, %43 ], [ 264, %37 ], [ 259, %31 ], [ 252, %25 ], [ 246, %19 ], [ 240, %13 ], [ 283, %63 ]
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink, ptr noundef nonnull @__func__.aes_get_ctx_params) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 104, ptr noundef null) #4
@@ -528,7 +528,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %2, %111, %105, %119, %.critedge102, %86, %.critedge100, %.critedge, %ossl_param_is_empty.exit, %39, %67, %118, %110, %85, %27, %14
-  %.0 = phi i32 [ 0, %14 ], [ 0, %85 ], [ 0, %118 ], [ 0, %110 ], [ 0, %67 ], [ 0, %39 ], [ 0, %27 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %.critedge ], [ 0, %.critedge100 ], [ 0, %86 ], [ 0, %.critedge102 ], [ 1, %111 ], [ 1, %119 ], [ 1, %105 ], [ 1, %2 ]
+  %.0 = phi i32 [ 0, %27 ], [ 0, %14 ], [ 0, %85 ], [ 0, %.critedge100 ], [ 0, %86 ], [ 0, %118 ], [ 0, %110 ], [ 0, %.critedge102 ], [ 0, %67 ], [ 0, %39 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %.critedge ], [ 1, %111 ], [ 1, %119 ], [ 1, %105 ], [ 1, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

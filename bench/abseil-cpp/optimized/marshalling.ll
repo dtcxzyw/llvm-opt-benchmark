@@ -221,7 +221,7 @@ _ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.l
   br label %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit35, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit37, %._crit_edge.i.i.i.i.i, %44, %51, %58
-  %.sink.i.i.i.i.i = phi ptr [ %.sroa.03.0.i.i.i.i, %44 ], [ %.sroa.03.2.i.i.i.i, %51 ], [ %7, %._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i, %58 ], [ %65, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit ], [ %66, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit35 ], [ %67, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit37 ], [ %.sroa.03.3.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.sink.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i, %58 ], [ %.sroa.03.2.i.i.i.i, %51 ], [ %.sroa.03.0.i.i.i.i, %44 ], [ %7, %._crit_edge.i.i.i.i.i ], [ %67, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit37 ], [ %66, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit35 ], [ %65, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit ], [ %.sroa.03.3.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %68 = ptrtoint ptr %.sink.i.i.i.i.i to i64
   %69 = sub i64 %68, %9
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %6, i64 %69)
@@ -282,7 +282,7 @@ define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt1
   br label %12
 
 12:                                               ; preds = %7, %4, %10
-  %.0 = phi i1 [ true, %10 ], [ false, %4 ], [ false, %7 ]
+  %.0 = phi i1 [ false, %4 ], [ true, %10 ], [ false, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
@@ -407,7 +407,7 @@ _ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.l
   br label %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit22, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit24, %._crit_edge.i.i.i.i.i, %44, %51, %58
-  %.sink.i.i.i.i.i = phi ptr [ %.sroa.03.0.i.i.i.i, %44 ], [ %.sroa.03.2.i.i.i.i, %51 ], [ %7, %._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i, %58 ], [ %65, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit ], [ %66, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit22 ], [ %67, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit24 ], [ %.sroa.03.3.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.sink.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i, %58 ], [ %.sroa.03.2.i.i.i.i, %51 ], [ %.sroa.03.0.i.i.i.i, %44 ], [ %7, %._crit_edge.i.i.i.i.i ], [ %67, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit24 ], [ %66, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit22 ], [ %65, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit ], [ %.sroa.03.3.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %68 = ptrtoint ptr %.sink.i.i.i.i.i to i64
   %69 = sub i64 %68, %9
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %6, i64 %69)
@@ -470,7 +470,7 @@ define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt1
   br label %11
 
 11:                                               ; preds = %7, %4, %9
-  %.0 = phi i1 [ true, %9 ], [ false, %4 ], [ false, %7 ]
+  %.0 = phi i1 [ false, %4 ], [ true, %9 ], [ false, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
@@ -595,7 +595,7 @@ _ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.l
   br label %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit22, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit24, %._crit_edge.i.i.i.i.i, %44, %51, %58
-  %.sink.i.i.i.i.i = phi ptr [ %.sroa.03.0.i.i.i.i, %44 ], [ %.sroa.03.2.i.i.i.i, %51 ], [ %7, %._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i, %58 ], [ %65, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit ], [ %66, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit22 ], [ %67, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit24 ], [ %.sroa.03.3.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.sink.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i, %58 ], [ %.sroa.03.2.i.i.i.i, %51 ], [ %.sroa.03.0.i.i.i.i, %44 ], [ %7, %._crit_edge.i.i.i.i.i ], [ %67, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit24 ], [ %66, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit22 ], [ %65, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit ], [ %.sroa.03.3.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %68 = ptrtoint ptr %.sink.i.i.i.i.i to i64
   %69 = sub i64 %68, %9
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %6, i64 %69)
@@ -778,7 +778,7 @@ _ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.l
   br label %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit22, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit24, %._crit_edge.i.i.i.i.i, %44, %51, %58
-  %.sink.i.i.i.i.i = phi ptr [ %.sroa.03.0.i.i.i.i, %44 ], [ %.sroa.03.2.i.i.i.i, %51 ], [ %7, %._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i, %58 ], [ %65, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit ], [ %66, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit22 ], [ %67, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit24 ], [ %.sroa.03.3.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.sink.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i, %58 ], [ %.sroa.03.2.i.i.i.i, %51 ], [ %.sroa.03.0.i.i.i.i, %44 ], [ %7, %._crit_edge.i.i.i.i.i ], [ %67, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit24 ], [ %66, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit22 ], [ %65, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit ], [ %.sroa.03.3.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %68 = ptrtoint ptr %.sink.i.i.i.i.i to i64
   %69 = sub i64 %68, %9
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %6, i64 %69)
@@ -949,7 +949,7 @@ _ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.l
   br label %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit22, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit24, %._crit_edge.i.i.i.i.i, %44, %51, %58
-  %.sink.i.i.i.i.i = phi ptr [ %.sroa.03.0.i.i.i.i, %44 ], [ %.sroa.03.2.i.i.i.i, %51 ], [ %7, %._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i, %58 ], [ %65, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit ], [ %66, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit22 ], [ %67, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit24 ], [ %.sroa.03.3.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.sink.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i, %58 ], [ %.sroa.03.2.i.i.i.i, %51 ], [ %.sroa.03.0.i.i.i.i, %44 ], [ %7, %._crit_edge.i.i.i.i.i ], [ %67, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit24 ], [ %66, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit22 ], [ %65, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit ], [ %.sroa.03.3.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %68 = ptrtoint ptr %.sink.i.i.i.i.i to i64
   %69 = sub i64 %68, %9
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %6, i64 %69)
@@ -1120,7 +1120,7 @@ _ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.l
   br label %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit22, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit24, %._crit_edge.i.i.i.i.i, %44, %51, %58
-  %.sink.i.i.i.i.i = phi ptr [ %.sroa.03.0.i.i.i.i, %44 ], [ %.sroa.03.2.i.i.i.i, %51 ], [ %7, %._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i, %58 ], [ %65, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit ], [ %66, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit22 ], [ %67, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit24 ], [ %.sroa.03.3.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.sink.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i, %58 ], [ %.sroa.03.2.i.i.i.i, %51 ], [ %.sroa.03.0.i.i.i.i, %44 ], [ %7, %._crit_edge.i.i.i.i.i ], [ %67, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit24 ], [ %66, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit22 ], [ %65, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit ], [ %.sroa.03.3.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %68 = ptrtoint ptr %.sink.i.i.i.i.i to i64
   %69 = sub i64 %68, %9
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %6, i64 %69)
@@ -1291,7 +1291,7 @@ _ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.l
   br label %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit22, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit24, %._crit_edge.i.i.i.i.i, %44, %51, %58
-  %.sink.i.i.i.i.i = phi ptr [ %.sroa.03.0.i.i.i.i, %44 ], [ %.sroa.03.2.i.i.i.i, %51 ], [ %7, %._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i, %58 ], [ %65, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit ], [ %66, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit22 ], [ %67, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit24 ], [ %.sroa.03.3.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.sink.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i, %58 ], [ %.sroa.03.2.i.i.i.i, %51 ], [ %.sroa.03.0.i.i.i.i, %44 ], [ %7, %._crit_edge.i.i.i.i.i ], [ %67, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit24 ], [ %66, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit22 ], [ %65, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit ], [ %.sroa.03.3.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %68 = ptrtoint ptr %.sink.i.i.i.i.i to i64
   %69 = sub i64 %68, %9
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %6, i64 %69)
@@ -1455,7 +1455,7 @@ _ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.l
   br label %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit36, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit38, %._crit_edge.i.i.i.i.i, %44, %51, %58
-  %.sink.i.i.i.i.i = phi ptr [ %.sroa.03.0.i.i.i.i, %44 ], [ %.sroa.03.2.i.i.i.i, %51 ], [ %7, %._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i, %58 ], [ %65, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit ], [ %66, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit36 ], [ %67, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit38 ], [ %.sroa.03.3.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.sink.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i, %58 ], [ %.sroa.03.2.i.i.i.i, %51 ], [ %.sroa.03.0.i.i.i.i, %44 ], [ %7, %._crit_edge.i.i.i.i.i ], [ %67, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit38 ], [ %66, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit36 ], [ %65, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit ], [ %.sroa.03.3.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %68 = ptrtoint ptr %.sink.i.i.i.i.i to i64
   %69 = sub i64 %68, %9
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %6, i64 %69)
@@ -1505,7 +1505,7 @@ _ZN4absl14flags_internalL11NumericBaseESt17basic_string_viewIcSt11char_traitsIcE
   br label %.sink.split
 
 .sink.split:                                      ; preds = %91, %_ZN4absl14flags_internalL11NumericBaseESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread
-  %.sink = phi i32 [ 16, %_ZN4absl14flags_internalL11NumericBaseESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread ], [ %spec.select, %91 ]
+  %.sink = phi i32 [ %spec.select, %91 ], [ 16, %_ZN4absl14flags_internalL11NumericBaseESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread ]
   %93 = tail call noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strto128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_6int128Ei(i64 %.sroa.speculated.i.i.i, ptr %7, ptr noundef %2, i32 noundef %.sink)
   br label %94
 
@@ -1635,7 +1635,7 @@ _ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.l
   br label %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit36, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit38, %._crit_edge.i.i.i.i.i, %44, %51, %58
-  %.sink.i.i.i.i.i = phi ptr [ %.sroa.03.0.i.i.i.i, %44 ], [ %.sroa.03.2.i.i.i.i, %51 ], [ %7, %._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i, %58 ], [ %65, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit ], [ %66, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit36 ], [ %67, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit38 ], [ %.sroa.03.3.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.sink.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i, %58 ], [ %.sroa.03.2.i.i.i.i, %51 ], [ %.sroa.03.0.i.i.i.i, %44 ], [ %7, %._crit_edge.i.i.i.i.i ], [ %67, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit38 ], [ %66, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit36 ], [ %65, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit ], [ %.sroa.03.3.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %68 = ptrtoint ptr %.sink.i.i.i.i.i to i64
   %69 = sub i64 %68, %9
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %6, i64 %69)
@@ -1685,7 +1685,7 @@ _ZN4absl14flags_internalL11NumericBaseESt17basic_string_viewIcSt11char_traitsIcE
   br label %.sink.split
 
 .sink.split:                                      ; preds = %91, %_ZN4absl14flags_internalL11NumericBaseESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread
-  %.sink = phi i32 [ 16, %_ZN4absl14flags_internalL11NumericBaseESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread ], [ %spec.select, %91 ]
+  %.sink = phi i32 [ %spec.select, %91 ], [ 16, %_ZN4absl14flags_internalL11NumericBaseESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread ]
   %93 = tail call noundef zeroext i1 @_ZN4absl16numbers_internal19safe_strtou128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_7uint128Ei(i64 %.sroa.speculated.i.i.i, ptr %7, ptr noundef %2, i32 noundef %.sink)
   br label %94
 
@@ -3231,7 +3231,7 @@ _ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.l
   br label %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit60, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit62, %._crit_edge.i.i.i.i.i, %45, %52, %59
-  %.sink.i.i.i.i.i = phi ptr [ %.sroa.03.0.i.i.i.i, %45 ], [ %.sroa.03.2.i.i.i.i, %52 ], [ %8, %._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i, %59 ], [ %66, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit ], [ %67, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit60 ], [ %68, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit62 ], [ %.sroa.03.3.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.sink.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i, %59 ], [ %.sroa.03.2.i.i.i.i, %52 ], [ %.sroa.03.0.i.i.i.i, %45 ], [ %8, %._crit_edge.i.i.i.i.i ], [ %68, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit62 ], [ %67, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit60 ], [ %66, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit ], [ %.sroa.03.3.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %69 = ptrtoint ptr %.sink.i.i.i.i.i to i64
   %70 = sub i64 %69, %10
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %7, i64 %70)
@@ -3571,7 +3571,7 @@ _ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit28: ; preds 
   br label %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit
 
 _ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit:      ; preds = %.lr.ph.i.i.i, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit26, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit28, %40, %48, %56, %62
-  %.028.i.i.i = phi ptr [ %3, %62 ], [ %.029.lcssa.i.i.i, %40 ], [ %.1.i.i.i, %48 ], [ %.2.i.i.i, %56 ], [ %63, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit ], [ %64, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit26 ], [ %65, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit28 ], [ %.02946.i.i.i, %.lr.ph.i.i.i ]
+  %.028.i.i.i = phi ptr [ %.1.i.i.i, %48 ], [ %3, %62 ], [ %.2.i.i.i, %56 ], [ %.029.lcssa.i.i.i, %40 ], [ %65, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit28 ], [ %64, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit26 ], [ %63, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i, %.lr.ph.i.i.i ]
   %66 = ptrtoint ptr %.028.i.i.i to i64
   %67 = sub i64 %66, %5
   %68 = icmp ugt i64 %67, %0

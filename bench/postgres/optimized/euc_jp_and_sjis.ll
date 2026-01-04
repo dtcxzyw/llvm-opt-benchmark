@@ -242,8 +242,8 @@ define range(i64 -2147483648, 2147483648) i64 @euc_jp_to_sjis(ptr noundef readon
   br label %.backedge.i
 
 euc_jp2sjis.exit:                                 ; preds = %.backedge.i, %1, %24, %34
-  %.06987.i = phi ptr [ %.06992.i, %34 ], [ %.06992.i, %24 ], [ %8, %1 ], [ %.069.be.i, %.backedge.i ]
-  %.084.i = phi ptr [ %.093.i, %34 ], [ %.093.i, %24 ], [ %5, %1 ], [ %.0.be.i, %.backedge.i ]
+  %.06987.i = phi ptr [ %.06992.i, %24 ], [ %.06992.i, %34 ], [ %8, %1 ], [ %.069.be.i, %.backedge.i ]
+  %.084.i = phi ptr [ %.093.i, %24 ], [ %.093.i, %34 ], [ %5, %1 ], [ %.0.be.i, %.backedge.i ]
   store i8 0, ptr %.06987.i, align 1
   %101 = ptrtoint ptr %.084.i to i64
   %102 = sub i64 %101, %4
@@ -532,8 +532,8 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_euc_jp(ptr noundef readon
   br label %.backedge.i
 
 sjis2euc_jp.exit:                                 ; preds = %.backedge.i, %1, %24, %34
-  %.0114134.i = phi ptr [ %.0114145.i, %34 ], [ %.0114145.i, %24 ], [ %8, %1 ], [ %.0114.be.i, %.backedge.i ]
-  %.0131.i = phi ptr [ %.0146.i, %34 ], [ %.0146.i, %24 ], [ %5, %1 ], [ %.0.be.i, %.backedge.i ]
+  %.0114134.i = phi ptr [ %.0114145.i, %24 ], [ %.0114145.i, %34 ], [ %8, %1 ], [ %.0114.be.i, %.backedge.i ]
+  %.0131.i = phi ptr [ %.0146.i, %24 ], [ %.0146.i, %34 ], [ %5, %1 ], [ %.0.be.i, %.backedge.i ]
   store i8 0, ptr %.0114134.i, align 1
   %156 = ptrtoint ptr %.0131.i to i64
   %157 = sub i64 %156, %4
@@ -656,8 +656,8 @@ define range(i64 -2147483648, 2147483648) i64 @euc_jp_to_mic(ptr noundef readonl
   br label %.backedge.i
 
 euc_jp2mic.exit:                                  ; preds = %.backedge.i, %1, %23, %33
-  %.03948.i = phi ptr [ %.03952.i, %33 ], [ %.03952.i, %23 ], [ %8, %1 ], [ %.039.be.i, %.backedge.i ]
-  %.045.i = phi ptr [ %.053.i, %33 ], [ %.053.i, %23 ], [ %5, %1 ], [ %.0.be.i, %.backedge.i ]
+  %.03948.i = phi ptr [ %.03952.i, %23 ], [ %.03952.i, %33 ], [ %8, %1 ], [ %.039.be.i, %.backedge.i ]
+  %.045.i = phi ptr [ %.053.i, %23 ], [ %.053.i, %33 ], [ %5, %1 ], [ %.0.be.i, %.backedge.i ]
   store i8 0, ptr %.03948.i, align 1
   %57 = ptrtoint ptr %.045.i to i64
   %58 = sub i64 %57, %4
@@ -790,8 +790,8 @@ define range(i64 -2147483648, 2147483648) i64 @mic_to_euc_jp(ptr noundef readonl
   br label %.backedge.i
 
 mic2euc_jp.exit:                                  ; preds = %.backedge.i, %1, %23, %33, %56
-  %.04253.i = phi ptr [ %.04258.i, %56 ], [ %.04258.i, %33 ], [ %.04258.i, %23 ], [ %8, %1 ], [ %.042.be.i, %.backedge.i ]
-  %.049.i = phi ptr [ %.059.i, %56 ], [ %.059.i, %33 ], [ %.059.i, %23 ], [ %5, %1 ], [ %.0.be.i, %.backedge.i ]
+  %.04253.i = phi ptr [ %.04258.i, %23 ], [ %.04258.i, %56 ], [ %.04258.i, %33 ], [ %8, %1 ], [ %.042.be.i, %.backedge.i ]
+  %.049.i = phi ptr [ %.059.i, %23 ], [ %.059.i, %56 ], [ %.059.i, %33 ], [ %5, %1 ], [ %.0.be.i, %.backedge.i ]
   store i8 0, ptr %.04253.i, align 1
   %62 = ptrtoint ptr %.049.i to i64
   %63 = sub i64 %62, %4
@@ -1069,17 +1069,17 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_mic(ptr noundef readonly 
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %140, %146, %122, %104, %84, %78, %57, %23
-  %.sink191.i = phi i64 [ 1, %146 ], [ 1, %23 ], [ 2, %78 ], [ 2, %104 ], [ 2, %122 ], [ 2, %84 ], [ 2, %57 ], [ 2, %140 ]
-  %.sink190.i = phi i32 [ -1, %146 ], [ -1, %23 ], [ -2, %78 ], [ -2, %104 ], [ -2, %122 ], [ -2, %84 ], [ -2, %57 ], [ -2, %140 ]
-  %.1130.i = phi ptr [ %147, %146 ], [ %25, %23 ], [ %81, %78 ], [ %121, %104 ], [ %.0129167.i, %122 ], [ %101, %84 ], [ %73, %57 ], [ %.4133.i, %140 ]
+  %.sink191.i = phi i64 [ 1, %23 ], [ 1, %146 ], [ 2, %57 ], [ 2, %78 ], [ 2, %104 ], [ 2, %122 ], [ 2, %84 ], [ 2, %140 ]
+  %.sink190.i = phi i32 [ -1, %23 ], [ -1, %146 ], [ -2, %57 ], [ -2, %78 ], [ -2, %104 ], [ -2, %122 ], [ -2, %84 ], [ -2, %140 ]
+  %.1130.i = phi ptr [ %25, %23 ], [ %147, %146 ], [ %73, %57 ], [ %81, %78 ], [ %121, %104 ], [ %.0129167.i, %122 ], [ %101, %84 ], [ %.4133.i, %140 ]
   %148 = getelementptr inbounds nuw i8, ptr %.0127168.i, i64 %.sink191.i
   %149 = add nsw i32 %.sink190.i, %.0134166.i
   %150 = icmp sgt i32 %149, 0
   br i1 %150, label %.lr.ph.i, label %sjis2mic.exit, !llvm.loop !8
 
 sjis2mic.exit:                                    ; preds = %.loopexit.i, %1, %37, %144
-  %.0129156.i = phi ptr [ %.0129167.i, %144 ], [ %.0129167.i, %37 ], [ %8, %1 ], [ %.1130.i, %.loopexit.i ]
-  %.0127153.i = phi ptr [ %.0127168.i, %144 ], [ %.0127168.i, %37 ], [ %5, %1 ], [ %148, %.loopexit.i ]
+  %.0129156.i = phi ptr [ %.0129167.i, %37 ], [ %.0129167.i, %144 ], [ %8, %1 ], [ %.1130.i, %.loopexit.i ]
+  %.0127153.i = phi ptr [ %.0127168.i, %37 ], [ %.0127168.i, %144 ], [ %5, %1 ], [ %148, %.loopexit.i ]
   store i8 0, ptr %.0129156.i, align 1
   %151 = ptrtoint ptr %.0127153.i to i64
   %152 = sub i64 %151, %4
@@ -1292,8 +1292,8 @@ define range(i64 -2147483648, 2147483648) i64 @mic_to_sjis(ptr noundef readonly 
   br label %.backedge.i
 
 mic2sjis.exit:                                    ; preds = %.backedge.i, %1, %23, %33, %102
-  %.07494.i = phi ptr [ %.074100.i, %102 ], [ %.074100.i, %33 ], [ %.074100.i, %23 ], [ %8, %1 ], [ %.074.be.i, %.backedge.i ]
-  %.090.i = phi ptr [ %.0101.i, %102 ], [ %.0101.i, %33 ], [ %.0101.i, %23 ], [ %5, %1 ], [ %.0.be.i, %.backedge.i ]
+  %.07494.i = phi ptr [ %.074100.i, %23 ], [ %.074100.i, %102 ], [ %.074100.i, %33 ], [ %8, %1 ], [ %.074.be.i, %.backedge.i ]
+  %.090.i = phi ptr [ %.0101.i, %23 ], [ %.0101.i, %102 ], [ %.0101.i, %33 ], [ %5, %1 ], [ %.0.be.i, %.backedge.i ]
   store i8 0, ptr %.07494.i, align 1
   %108 = ptrtoint ptr %.090.i to i64
   %109 = sub i64 %108, %4

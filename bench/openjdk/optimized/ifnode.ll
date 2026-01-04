@@ -236,7 +236,7 @@ define hidden noundef ptr @_ZNK6IfNode5ValueEP8PhaseGVN(ptr noundef nonnull read
   br label %43
 
 43:                                               ; preds = %8, %41, %39, %34, %29, %6
-  %.0 = phi ptr [ %30, %29 ], [ %35, %34 ], [ %40, %39 ], [ %42, %41 ], [ %7, %6 ], [ %18, %8 ]
+  %.0 = phi ptr [ %7, %6 ], [ %30, %29 ], [ %35, %34 ], [ %40, %39 ], [ %42, %41 ], [ %18, %8 ]
   ret ptr %.0
 }
 
@@ -398,7 +398,7 @@ _ZN4Node8init_reqEjPS_.exit.i.i:                  ; preds = %61, %50, %40
   br label %_ZN6IfNodeC2EP4NodeS1_ff.exit
 
 _ZN6IfNodeC2EP4NodeS1_ff.exit:                    ; preds = %80, %69, %_ZN4Node8init_reqEjPS_.exit.i.i, %_ZN4NodenwEm.exit14, %_ZN4NodenwEm.exit, %29
-  %.0 = phi ptr [ %.0.i.i.i, %29 ], [ null, %_ZN4NodenwEm.exit ], [ null, %_ZN4NodenwEm.exit14 ], [ %.0.i.i.i13, %_ZN4Node8init_reqEjPS_.exit.i.i ], [ %.0.i.i.i13, %69 ], [ %.0.i.i.i13, %80 ]
+  %.0 = phi ptr [ null, %_ZN4NodenwEm.exit ], [ %.0.i.i.i, %29 ], [ null, %_ZN4NodenwEm.exit14 ], [ %.0.i.i.i13, %_ZN4Node8init_reqEjPS_.exit.i.i ], [ %.0.i.i.i13, %69 ], [ %.0.i.i.i13, %80 ]
   ret ptr %.0
 }
 
@@ -622,7 +622,7 @@ define hidden noundef ptr @_ZN6IfNode21range_check_trap_projERiRP4NodeS3_(ptr no
   br label %65
 
 65:                                               ; preds = %55, %45, %28, %24, %18, %7, %13, %4, %60
-  %.0 = phi ptr [ %64, %60 ], [ null, %4 ], [ null, %13 ], [ null, %7 ], [ null, %18 ], [ null, %24 ], [ null, %28 ], [ null, %45 ], [ null, %55 ]
+  %.0 = phi ptr [ null, %24 ], [ null, %4 ], [ null, %7 ], [ null, %18 ], [ null, %28 ], [ %64, %60 ], [ null, %45 ], [ null, %13 ], [ null, %55 ]
   ret ptr %.0
 }
 
@@ -801,15 +801,15 @@ _ZNK4Node12find_int_conEi.exit22:                 ; preds = %97, %99
   br label %_ZNK4Node12find_int_conEi.exit19.thread
 
 _ZNK4Node12find_int_conEi.exit19.thread:          ; preds = %86, %_ZNK4Node12find_int_conEi.exit.thread, %_ZNK4Node12find_int_conEi.exit22, %92, %77
-  %.08 = phi ptr [ %81, %77 ], [ %96, %92 ], [ %., %_ZNK4Node12find_int_conEi.exit22 ], [ %.034, %_ZNK4Node12find_int_conEi.exit.thread ], [ %.034, %86 ]
-  %.0 = phi i32 [ %73, %77 ], [ %88, %92 ], [ %.15, %_ZNK4Node12find_int_conEi.exit22 ], [ 0, %_ZNK4Node12find_int_conEi.exit.thread ], [ 0, %86 ]
+  %.08 = phi ptr [ %81, %77 ], [ %96, %92 ], [ %.034, %86 ], [ %., %_ZNK4Node12find_int_conEi.exit22 ], [ %.034, %_ZNK4Node12find_int_conEi.exit.thread ]
+  %.0 = phi i32 [ %73, %77 ], [ %88, %92 ], [ 0, %86 ], [ %.15, %_ZNK4Node12find_int_conEi.exit22 ], [ 0, %_ZNK4Node12find_int_conEi.exit.thread ]
   store ptr %.08, ptr %2, align 8
   store i32 %.0, ptr %3, align 4
   store ptr %.033, ptr %1, align 8
   br label %_ZN6IfNode21range_check_trap_projERiRP4NodeS3_.exit.thread
 
-_ZN6IfNode21range_check_trap_projERiRP4NodeS3_.exit.thread: ; preds = %47, %38, %28, %24, %18, %7, %13, %4, %57, %54, %_ZN6IfNode21range_check_trap_projERiRP4NodeS3_.exit, %_ZNK4Node12find_int_conEi.exit19.thread
-  %.09 = phi i32 [ %.036, %_ZNK4Node12find_int_conEi.exit19.thread ], [ 0, %_ZN6IfNode21range_check_trap_projERiRP4NodeS3_.exit ], [ 0, %54 ], [ 0, %57 ], [ 0, %4 ], [ 0, %13 ], [ 0, %7 ], [ 0, %18 ], [ 0, %24 ], [ 0, %28 ], [ 0, %38 ], [ 0, %47 ]
+_ZN6IfNode21range_check_trap_projERiRP4NodeS3_.exit.thread: ; preds = %47, %13, %38, %28, %18, %7, %4, %24, %57, %54, %_ZN6IfNode21range_check_trap_projERiRP4NodeS3_.exit, %_ZNK4Node12find_int_conEi.exit19.thread
+  %.09 = phi i32 [ %.036, %_ZNK4Node12find_int_conEi.exit19.thread ], [ 0, %_ZN6IfNode21range_check_trap_projERiRP4NodeS3_.exit ], [ 0, %54 ], [ 0, %57 ], [ 0, %24 ], [ 0, %4 ], [ 0, %7 ], [ 0, %18 ], [ 0, %28 ], [ 0, %38 ], [ 0, %13 ], [ 0, %47 ]
   ret i32 %.09
 }
 
@@ -947,7 +947,7 @@ define hidden noundef ptr @_ZN6IfNode10up_one_domEP4Nodeb(ptr noundef %0, i1 nou
   br label %76
 
 76:                                               ; preds = %8, %70, %9, %75, %17, %6
-  %.027 = phi ptr [ %21, %17 ], [ null, %75 ], [ %7, %6 ], [ %.mux, %8 ], [ null, %9 ], [ %.026, %70 ]
+  %.027 = phi ptr [ %7, %6 ], [ %.mux, %8 ], [ %.026, %70 ], [ %21, %17 ], [ null, %9 ], [ null, %75 ]
   ret ptr %.027
 }
 
@@ -1135,8 +1135,8 @@ define hidden noundef ptr @_ZN6IfNode17filtered_int_typeEP8PhaseGVNP4NodeS3_(ptr
   br label %126
 
 126:                                              ; preds = %109, %53, %122, %118, %114
-  %.045 = phi i32 [ %57, %53 ], [ %57, %114 ], [ %121, %118 ], [ %125, %122 ], [ %spec.select, %109 ]
-  %.044 = phi i32 [ %55, %53 ], [ %117, %114 ], [ %spec.select62, %118 ], [ %55, %122 ], [ %112, %109 ]
+  %.045 = phi i32 [ %57, %53 ], [ %125, %122 ], [ %spec.select, %109 ], [ %57, %114 ], [ %121, %118 ]
+  %.044 = phi i32 [ %55, %53 ], [ %55, %122 ], [ %112, %109 ], [ %117, %114 ], [ %spec.select62, %118 ]
   %127 = getelementptr inbounds nuw i8, ptr %49, i64 20
   %128 = load i16, ptr %127, align 4
   %129 = sext i16 %128 to i32
@@ -1144,7 +1144,7 @@ define hidden noundef ptr @_ZN6IfNode17filtered_int_typeEP8PhaseGVNP4NodeS3_(ptr
   br label %131
 
 131:                                              ; preds = %3, %7, %22, %27, %38, %32, %17, %12, %53, %66, %78, %83, %99, %126, %103, %91
-  %.0 = phi ptr [ %130, %126 ], [ %98, %91 ], [ %108, %103 ], [ null, %99 ], [ null, %83 ], [ null, %78 ], [ null, %66 ], [ %49, %53 ], [ null, %12 ], [ null, %17 ], [ null, %32 ], [ null, %38 ], [ null, %27 ], [ null, %22 ], [ null, %7 ], [ null, %3 ]
+  %.0 = phi ptr [ %130, %126 ], [ %49, %53 ], [ %98, %91 ], [ %108, %103 ], [ null, %66 ], [ null, %99 ], [ null, %83 ], [ null, %78 ], [ null, %12 ], [ null, %17 ], [ null, %32 ], [ null, %38 ], [ null, %27 ], [ null, %22 ], [ null, %7 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1371,7 +1371,7 @@ _ZN6IfNode10cmpi_foldsEP12PhaseIterGVNb.exit.thread16: ; preds = %61, %61, %61, 
   br label %_ZN6IfNode10cmpi_foldsEP12PhaseIterGVNb.exit.thread
 
 _ZN6IfNode10cmpi_foldsEP12PhaseIterGVNb.exit.thread: ; preds = %61, %24, %29, %34, %39, %44, %56, %78, %_ZN6IfNode10cmpi_foldsEP12PhaseIterGVNb.exit.thread16, %18, %13, %9, %4, %3
-  %92 = phi i1 [ false, %_ZN6IfNode10cmpi_foldsEP12PhaseIterGVNb.exit.thread16 ], [ false, %18 ], [ false, %13 ], [ false, %9 ], [ false, %4 ], [ false, %3 ], [ %91, %78 ], [ false, %56 ], [ false, %44 ], [ false, %39 ], [ false, %34 ], [ false, %29 ], [ false, %24 ], [ false, %61 ]
+  %92 = phi i1 [ false, %24 ], [ false, %_ZN6IfNode10cmpi_foldsEP12PhaseIterGVNb.exit.thread16 ], [ false, %61 ], [ false, %18 ], [ false, %13 ], [ false, %9 ], [ false, %4 ], [ false, %3 ], [ %91, %78 ], [ false, %56 ], [ false, %44 ], [ false, %39 ], [ false, %34 ], [ false, %29 ]
   ret i1 %92
 }
 
@@ -1528,7 +1528,7 @@ define hidden noundef zeroext i1 @_ZN6IfNode16is_dominator_uncEP18CallStaticJava
   br label %48
 
 48:                                               ; preds = %33, %31, %17, %2, %15
-  %.0 = phi i1 [ false, %15 ], [ false, %2 ], [ false, %17 ], [ false, %31 ], [ %47, %33 ]
+  %.0 = phi i1 [ false, %17 ], [ false, %2 ], [ false, %31 ], [ %47, %33 ], [ false, %15 ]
   ret i1 %.0
 }
 
@@ -1690,7 +1690,7 @@ _ZNK6IfNode18uncommon_trap_projERP18CallStaticJavaNode.exit: ; preds = %.prehead
   br label %_ZNK6IfNode18uncommon_trap_projERP18CallStaticJavaNode.exit.thread
 
 _ZNK6IfNode18uncommon_trap_projERP18CallStaticJavaNode.exit.thread: ; preds = %23, %5, %56, %72, %75, %25, %_ZNK6IfNode18uncommon_trap_projERP18CallStaticJavaNode.exit, %54, %46, %50, %31, %37, %40, %43, %12, %78
-  %.0 = phi i1 [ true, %78 ], [ false, %12 ], [ false, %43 ], [ false, %40 ], [ false, %37 ], [ false, %31 ], [ false, %50 ], [ false, %46 ], [ false, %54 ], [ false, %_ZNK6IfNode18uncommon_trap_projERP18CallStaticJavaNode.exit ], [ false, %25 ], [ false, %75 ], [ false, %72 ], [ false, %56 ], [ false, %5 ], [ false, %23 ]
+  %.0 = phi i1 [ false, %12 ], [ false, %54 ], [ true, %78 ], [ false, %46 ], [ false, %31 ], [ false, %43 ], [ false, %40 ], [ false, %37 ], [ false, %50 ], [ false, %_ZNK6IfNode18uncommon_trap_projERP18CallStaticJavaNode.exit ], [ false, %25 ], [ false, %75 ], [ false, %72 ], [ false, %56 ], [ false, %5 ], [ false, %23 ]
   ret i1 %.0
 }
 
@@ -2309,7 +2309,7 @@ _ZN4NodenwEm.exit132:                             ; preds = %281, %283
   br label %352
 
 352:                                              ; preds = %71, %292, %296, %.thread, %170, %168, %114, %148, %118, %58, %345, %329, %_ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit
-  %.0 = phi i1 [ true, %345 ], [ false, %329 ], [ true, %_ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit ], [ false, %58 ], [ false, %118 ], [ false, %148 ], [ false, %114 ], [ false, %168 ], [ false, %170 ], [ false, %.thread ], [ false, %296 ], [ false, %292 ], [ false, %71 ]
+  %.0 = phi i1 [ false, %.thread ], [ true, %345 ], [ false, %329 ], [ false, %114 ], [ false, %71 ], [ false, %58 ], [ false, %118 ], [ false, %148 ], [ true, %_ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit ], [ false, %168 ], [ false, %170 ], [ false, %296 ], [ false, %292 ]
   ret i1 %.0
 }
 
@@ -2857,7 +2857,7 @@ _ZN4NodenwEm.exit60:                              ; preds = %266, %268
   %284 = tail call noundef ptr %283(ptr noundef nonnull align 8 dereferenceable(2416) %4, ptr noundef %.0.i.i.i59) #9
   br label %286
 
-_ZN6IfNode21range_check_trap_projERiRP4NodeS3_.exit.thread: ; preds = %243, %234, %224, %220, %214, %203, %209, %192, %_ZN6IfNode21range_check_trap_projERiRP4NodeS3_.exit
+_ZN6IfNode21range_check_trap_projERiRP4NodeS3_.exit.thread: ; preds = %243, %209, %234, %224, %214, %203, %192, %220, %_ZN6IfNode21range_check_trap_projERiRP4NodeS3_.exit
   %285 = sub i32 -185, %.0.i54
   %spec.select = select i1 %.not, i32 %193, i32 %285
   br label %286
@@ -3350,7 +3350,7 @@ _ZN6IfNode10up_one_domEP4Nodeb.exit.thread:       ; preds = %116, %177, %175, %1
   br i1 %.not83177, label %185, label %_ZN16Unique_Node_List4pushEP4Node.exit
 
 _ZN6IfNode10up_one_domEP4Nodeb.exit:              ; preds = %113, %115, %124, %177
-  %.027.i = phi ptr [ %128, %124 ], [ %114, %113 ], [ %112, %115 ], [ %.026.i, %177 ]
+  %.027.i = phi ptr [ %114, %113 ], [ %112, %115 ], [ %.026.i, %177 ], [ %128, %124 ]
   %182 = add nuw nsw i32 %.070122, 1
   %183 = icmp samesign ugt i32 %.070122, 8
   %184 = icmp eq ptr %.027.i, null
@@ -3530,7 +3530,7 @@ _ZN16Unique_Node_List4pushEP4Node.exit:           ; preds = %_ZN6IfNode10up_one_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %50, %.loopexit.loopexit, %_ZN10Node_Stack4pushEP4Nodej.exit100, %_ZN10Node_Stack4pushEP4Nodej.exit93
-  %.0113 = phi i32 [ %269, %_ZN10Node_Stack4pushEP4Nodej.exit100 ], [ %91, %_ZN10Node_Stack4pushEP4Nodej.exit93 ], [ %54, %50 ], [ %279, %.loopexit.loopexit ]
+  %.0113 = phi i32 [ %91, %_ZN10Node_Stack4pushEP4Nodej.exit93 ], [ %269, %_ZN10Node_Stack4pushEP4Nodej.exit100 ], [ %54, %50 ], [ %279, %.loopexit.loopexit ]
   %280 = load i32, ptr %55, align 8
   %281 = icmp eq i32 %.0113, %280
   %.pre = load ptr, ptr %5, align 8
@@ -3997,7 +3997,7 @@ define hidden noundef zeroext i1 @_ZN6IfNode24is_side_effect_free_testEP8ProjNod
   br label %_ZN6IfNode21is_cmp_with_loadrangeEP8ProjNode.exit
 
 _ZN6IfNode21is_cmp_with_loadrangeEP8ProjNode.exit: ; preds = %57, %52, %47, %42, %39, %37, %28, %23, %18, %13, %5, %7, %69, %100, %71, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %71 ], [ %101, %100 ], [ false, %69 ], [ false, %7 ], [ false, %5 ], [ false, %13 ], [ false, %18 ], [ false, %23 ], [ false, %28 ], [ false, %37 ], [ false, %39 ], [ false, %42 ], [ false, %47 ], [ false, %52 ], [ false, %57 ]
+  %.0 = phi i1 [ %101, %100 ], [ false, %3 ], [ false, %71 ], [ false, %5 ], [ false, %69 ], [ false, %7 ], [ false, %13 ], [ false, %18 ], [ false, %23 ], [ false, %28 ], [ false, %37 ], [ false, %39 ], [ false, %42 ], [ false, %47 ], [ false, %52 ], [ false, %57 ]
   ret i1 %.0
 }
 
@@ -4555,7 +4555,7 @@ _ZN6IfNode17has_shared_regionEP8ProjNodeRS1_S2_.exit.thread: ; preds = %68, %64,
   br label %_ZN6IfNode10cmpi_foldsEP12PhaseIterGVNb.exit.thread
 
 _ZN6IfNode10cmpi_foldsEP12PhaseIterGVNb.exit.thread: ; preds = %47, %10, %15, %20, %25, %30, %42, %100, %104, %118, %116, %114, %108, %_ZN6IfNode17has_shared_regionEP8ProjNodeRS1_S2_.exit.thread, %94, %91, %2, %122, %98
-  %.0 = phi ptr [ %99, %98 ], [ %123, %122 ], [ null, %2 ], [ %0, %91 ], [ null, %94 ], [ null, %_ZN6IfNode17has_shared_regionEP8ProjNodeRS1_S2_.exit.thread ], [ null, %108 ], [ null, %114 ], [ null, %116 ], [ null, %118 ], [ null, %104 ], [ null, %100 ], [ null, %42 ], [ null, %30 ], [ null, %25 ], [ null, %20 ], [ null, %15 ], [ null, %10 ], [ null, %47 ]
+  %.0 = phi ptr [ null, %_ZN6IfNode17has_shared_regionEP8ProjNodeRS1_S2_.exit.thread ], [ null, %2 ], [ %99, %98 ], [ %0, %91 ], [ %123, %122 ], [ null, %94 ], [ null, %108 ], [ null, %114 ], [ null, %116 ], [ null, %118 ], [ null, %104 ], [ null, %100 ], [ null, %47 ], [ null, %42 ], [ null, %30 ], [ null, %25 ], [ null, %20 ], [ null, %15 ], [ null, %10 ]
   ret ptr %.0
 }
 
@@ -4935,7 +4935,7 @@ _ZL13idealize_testP8PhaseGVNP6IfNode.exit:        ; preds = %_ZN4NodenwEm.exit55
   tail call void @_ZN12PhaseIterGVN12subsume_nodeEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %1, ptr noundef %29, ptr noundef %.0.i.i.i51.i) #9
   br label %227
 
-222:                                              ; preds = %26, %27, %34, %42, %75
+222:                                              ; preds = %27, %26, %34, %42, %75
   %223 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %224 = load i8, ptr %223, align 8
   %225 = trunc i8 %224 to i1
@@ -4946,7 +4946,7 @@ _ZL13idealize_testP8PhaseGVNP6IfNode.exit:        ; preds = %_ZN4NodenwEm.exit55
   br label %227
 
 227:                                              ; preds = %_ZL13idealize_testP8PhaseGVNP6IfNode.exit, %3, %222, %22, %18, %12, %5
-  %.0 = phi ptr [ %.mux, %3 ], [ null, %5 ], [ null, %12 ], [ null, %18 ], [ null, %22 ], [ %.041.i, %_ZL13idealize_testP8PhaseGVNP6IfNode.exit ], [ %., %222 ]
+  %.0 = phi ptr [ %.mux, %3 ], [ %.041.i, %_ZL13idealize_testP8PhaseGVNP6IfNode.exit ], [ null, %5 ], [ null, %12 ], [ null, %18 ], [ null, %22 ], [ %., %222 ]
   ret ptr %.0
 }
 
@@ -5800,10 +5800,10 @@ _ZN4Node7set_reqEjPS_.exit377:                    ; preds = %_ZN4Node7set_reqEjP
   br label %470
 
 470:                                              ; preds = %463, %465, %456, %458
-  %.2326 = phi ptr [ %462, %458 ], [ %.0324449, %456 ], [ %.0324449, %465 ], [ %.0324449, %463 ]
-  %.1323 = phi ptr [ %.0322450, %458 ], [ %.0322450, %456 ], [ %469, %465 ], [ %.0322450, %463 ]
-  %.0314 = phi ptr [ %462, %458 ], [ %.0324449, %456 ], [ %469, %465 ], [ %.0322450, %463 ]
-  %.0313 = phi ptr [ %358, %458 ], [ %358, %456 ], [ %364, %465 ], [ %364, %463 ]
+  %.2326 = phi ptr [ %.0324449, %456 ], [ %462, %458 ], [ %.0324449, %465 ], [ %.0324449, %463 ]
+  %.1323 = phi ptr [ %.0322450, %456 ], [ %.0322450, %458 ], [ %469, %465 ], [ %.0322450, %463 ]
+  %.0314 = phi ptr [ %.0324449, %456 ], [ %462, %458 ], [ %469, %465 ], [ %.0322450, %463 ]
+  %.0313 = phi ptr [ %358, %456 ], [ %358, %458 ], [ %364, %465 ], [ %364, %463 ]
   br i1 %423, label %.preheader, label %482
 
 .preheader:                                       ; preds = %470
@@ -6033,7 +6033,7 @@ _ZN4Node7set_reqEjPS_.exit381:                    ; preds = %538, %541, %553
   br label %_ZN16Unique_Node_List4pushEP4Node.exit
 
 _ZN16Unique_Node_List4pushEP4Node.exit:           ; preds = %112, %161, %172, %182, %177, %_ZN4Node17may_be_loop_entryEPS_.exit, %37, %_ZN9Node_List4pushEP4Node.exit.i, %_ZN9VectorSet8test_setEj.exit.i, %._crit_edge476, %562, %._crit_edge429, %._crit_edge, %_ZNK10RegionNode7is_copyEv.exit.thread, %144, %126, %133, %_ZNK10RegionNode7is_copyEv.exit, %113, %31, %20, %26, %11, %2, %236
-  %.0 = phi ptr [ null, %236 ], [ null, %2 ], [ null, %11 ], [ null, %26 ], [ null, %20 ], [ null, %31 ], [ null, %113 ], [ null, %_ZNK10RegionNode7is_copyEv.exit ], [ null, %133 ], [ null, %126 ], [ null, %144 ], [ null, %_ZNK10RegionNode7is_copyEv.exit.thread ], [ null, %._crit_edge ], [ null, %._crit_edge429 ], [ %560, %562 ], [ null, %._crit_edge476 ], [ null, %_ZN9VectorSet8test_setEj.exit.i ], [ null, %_ZN9Node_List4pushEP4Node.exit.i ], [ null, %37 ], [ null, %_ZN4Node17may_be_loop_entryEPS_.exit ], [ null, %177 ], [ null, %182 ], [ null, %172 ], [ null, %161 ], [ null, %112 ]
+  %.0 = phi ptr [ null, %11 ], [ %560, %562 ], [ null, %31 ], [ null, %113 ], [ null, %126 ], [ null, %37 ], [ null, %._crit_edge476 ], [ null, %161 ], [ null, %_ZNK10RegionNode7is_copyEv.exit.thread ], [ null, %_ZN9VectorSet8test_setEj.exit.i ], [ null, %._crit_edge ], [ null, %_ZN4Node17may_be_loop_entryEPS_.exit ], [ null, %236 ], [ null, %._crit_edge429 ], [ null, %_ZN9Node_List4pushEP4Node.exit.i ], [ null, %20 ], [ null, %2 ], [ null, %26 ], [ null, %_ZNK10RegionNode7is_copyEv.exit ], [ null, %133 ], [ null, %144 ], [ null, %172 ], [ null, %177 ], [ null, %182 ], [ null, %112 ]
   ret ptr %.0
 }
 
@@ -6206,7 +6206,7 @@ _ZL19remove_useless_boolP6IfNodeP8PhaseGVN.exit:  ; preds = %101, %104
   store i32 %114, ptr %112, align 4
   br label %164
 
-115:                                              ; preds = %5, %14, %22, %38, %45, %52, %55, %67, %97, %100
+115:                                              ; preds = %5, %14, %38, %45, %52, %67, %97, %100, %55, %22
   %116 = load ptr, ptr %6, align 8
   %117 = load ptr, ptr %116, align 8
   %118 = icmp eq ptr %117, null
@@ -6268,7 +6268,7 @@ _ZL19remove_useless_boolP6IfNodeP8PhaseGVN.exit:  ; preds = %101, %104
   br label %158
 
 158:                                              ; preds = %151, %137, %146, %129, %124
-  %.021 = phi i32 [ 4, %146 ], [ 4, %137 ], [ 4, %129 ], [ 4, %124 ], [ %spec.select, %151 ]
+  %.021 = phi i32 [ 4, %124 ], [ %spec.select, %151 ], [ 4, %146 ], [ 4, %137 ], [ 4, %129 ]
   %159 = tail call noundef ptr @_ZN6IfNode16search_identicalEiP12PhaseIterGVN(ptr noundef nonnull align 8 dereferenceable(60) %0, i32 noundef %.021, ptr poison)
   %.not29 = icmp eq ptr %159, null
   br i1 %.not29, label %162, label %160
@@ -6282,7 +6282,7 @@ _ZL19remove_useless_boolP6IfNodeP8PhaseGVN.exit:  ; preds = %101, %104
   br label %164
 
 164:                                              ; preds = %_ZL19remove_useless_boolP6IfNodeP8PhaseGVN.exit, %119, %115, %3, %162, %160
-  %.0 = phi ptr [ %161, %160 ], [ %163, %162 ], [ %4, %3 ], [ %0, %_ZL19remove_useless_boolP6IfNodeP8PhaseGVN.exit ], [ null, %115 ], [ %123, %119 ]
+  %.0 = phi ptr [ %163, %162 ], [ %4, %3 ], [ %0, %_ZL19remove_useless_boolP6IfNodeP8PhaseGVN.exit ], [ null, %115 ], [ %161, %160 ], [ %123, %119 ]
   ret ptr %.0
 }
 
@@ -6400,7 +6400,7 @@ _ZNK6IfNode14same_conditionEPK4NodeP12PhaseIterGVN.exit.thread21: ; preds = %14,
   %.not18 = icmp eq ptr %77, %.015
   br i1 %.not18, label %82, label %.critedge
 
-.critedge:                                        ; preds = %57, %66, %36, %46, %52, %23, %25, %31, %_ZNK6IfNode14same_conditionEPK4NodeP12PhaseIterGVN.exit, %10, %_ZNK6IfNode14same_conditionEPK4NodeP12PhaseIterGVN.exit.thread21
+.critedge:                                        ; preds = %66, %46, %52, %25, %31, %36, %23, %57, %_ZNK6IfNode14same_conditionEPK4NodeP12PhaseIterGVN.exit, %10, %_ZNK6IfNode14same_conditionEPK4NodeP12PhaseIterGVN.exit.thread21
   %78 = icmp slt i32 %.016, 0
   br i1 %78, label %.loopexit, label %79
 
@@ -6969,7 +6969,7 @@ _ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit: ; preds = %_ZN9VectorSet8te
   br label %129
 
 129:                                              ; preds = %2, %.loopexit, %128, %58, %_ZL26subsuming_bool_test_encodeP4Node.exit48, %45, %36, %27, %20, %12
-  %.0 = phi ptr [ null, %12 ], [ null, %20 ], [ null, %27 ], [ null, %36 ], [ null, %45 ], [ null, %_ZL26subsuming_bool_test_encodeP4Node.exit48 ], [ null, %58 ], [ %0, %128 ], [ %0, %.loopexit ], [ null, %2 ]
+  %.0 = phi ptr [ null, %36 ], [ null, %45 ], [ null, %_ZL26subsuming_bool_test_encodeP4Node.exit48 ], [ null, %58 ], [ null, %27 ], [ null, %20 ], [ null, %12 ], [ null, %2 ], [ %0, %128 ], [ %0, %.loopexit ]
   ret ptr %.0
 }
 
@@ -7133,7 +7133,7 @@ define hidden noundef zeroext i1 @_ZNK6IfNode14same_conditionEPK4NodeP12PhaseIte
   br label %66
 
 66:                                               ; preds = %61, %47, %56, %26, %36, %42, %13, %15, %21, %3
-  %.0 = phi i1 [ true, %3 ], [ false, %21 ], [ false, %15 ], [ false, %13 ], [ false, %42 ], [ false, %36 ], [ false, %26 ], [ false, %56 ], [ false, %47 ], [ %.not31, %61 ]
+  %.0 = phi i1 [ false, %47 ], [ true, %3 ], [ false, %13 ], [ false, %26 ], [ false, %21 ], [ false, %15 ], [ false, %42 ], [ false, %36 ], [ %.not31, %61 ], [ false, %56 ]
   ret i1 %.0
 }
 
@@ -7598,9 +7598,9 @@ define hidden noundef ptr @_ZN14RangeCheckNode5IdealEP8PhaseGVNb(ptr noundef non
   br label %73
 
 73:                                               ; preds = %36, %43, %67, %58, %29, %24
-  %.299 = phi i32 [ %62, %67 ], [ %.097125, %58 ], [ %.097125, %43 ], [ %.097125, %36 ], [ %.097125, %29 ], [ %.097125, %24 ]
-  %.296 = phi i32 [ %60, %67 ], [ %.094126, %58 ], [ %.094126, %43 ], [ %.094126, %36 ], [ %.094126, %29 ], [ %.094126, %24 ]
-  %.293 = phi i32 [ %72, %67 ], [ %.091127, %58 ], [ %.091127, %43 ], [ %.091127, %36 ], [ %.091127, %29 ], [ %.091127, %24 ]
+  %.299 = phi i32 [ %62, %67 ], [ %.097125, %58 ], [ %.097125, %43 ], [ %.097125, %29 ], [ %.097125, %24 ], [ %.097125, %36 ]
+  %.296 = phi i32 [ %60, %67 ], [ %.094126, %58 ], [ %.094126, %43 ], [ %.094126, %29 ], [ %.094126, %24 ], [ %.094126, %36 ]
+  %.293 = phi i32 [ %72, %67 ], [ %.091127, %58 ], [ %.091127, %43 ], [ %.091127, %29 ], [ %.091127, %24 ], [ %.091127, %36 ]
   %74 = tail call noundef ptr @_ZN6IfNode10up_one_domEP4Nodeb(ptr noundef nonnull %.090128, i1 noundef zeroext false)
   %.not110 = icmp eq ptr %74, null
   %75 = add nuw nsw i32 %.0101124, 1
@@ -7715,7 +7715,7 @@ define hidden noundef ptr @_ZN14RangeCheckNode5IdealEP8PhaseGVNb(ptr noundef non
   br label %.loopexit
 
 .loopexit:                                        ; preds = %34, %120, %106, %92, %87, %76, %3, %.loopexit121, %118, %86
-  %.0 = phi ptr [ %123, %.loopexit121 ], [ %119, %118 ], [ null, %86 ], [ %11, %3 ], [ null, %76 ], [ null, %87 ], [ null, %92 ], [ null, %106 ], [ null, %120 ], [ null, %34 ]
+  %.0 = phi ptr [ null, %106 ], [ %11, %3 ], [ %123, %.loopexit121 ], [ null, %76 ], [ null, %87 ], [ %119, %118 ], [ null, %92 ], [ null, %86 ], [ null, %120 ], [ null, %34 ]
   ret ptr %.0
 }
 
@@ -8212,7 +8212,7 @@ define hidden noundef ptr @_ZNK18ParsePredicateNode5ValueEP8PhaseGVN(ptr noundef
   br label %34
 
 34:                                               ; preds = %2, %29, %27
-  %.0 = phi ptr [ %28, %27 ], [ %33, %29 ], [ %15, %2 ]
+  %.0 = phi ptr [ %33, %29 ], [ %28, %27 ], [ %15, %2 ]
   ret ptr %.0
 }
 

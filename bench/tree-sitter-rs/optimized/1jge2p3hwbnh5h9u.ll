@@ -305,7 +305,7 @@ define noundef range(i32 0, 8) i32 @ts_highlighter_add_language(ptr noundef %0, 
   br i1 %48, label %209, label %"_ZN4core3ptr42drop_in_place$LT$tree_sitter..Language$GT$17h871aa3ec46d7ecc6E.exit.i"
 
 49:                                               ; preds = %201, %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$regex..regex..string..Regex$GT$$GT$17hd65aca9c4fbb62a3E.exit.i", %59, %_ZN21tree_sitter_highlight5c_lib14unwrap_mut_ptr17h2875e458d3fbf8d4E.exit.i, %.noexc.i, %43
-  %.0134.i = phi i8 [ 1, %_ZN21tree_sitter_highlight5c_lib14unwrap_mut_ptr17h2875e458d3fbf8d4E.exit.i ], [ 1, %43 ], [ 1, %.noexc.i ], [ 1, %59 ], [ %.6.i, %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$regex..regex..string..Regex$GT$$GT$17hd65aca9c4fbb62a3E.exit.i" ], [ %.6.i, %201 ]
+  %.0134.i = phi i8 [ %.6.i, %201 ], [ 1, %59 ], [ 1, %_ZN21tree_sitter_highlight5c_lib14unwrap_mut_ptr17h2875e458d3fbf8d4E.exit.i ], [ 1, %.noexc.i ], [ 1, %43 ], [ %.6.i, %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$regex..regex..string..Regex$GT$$GT$17hd65aca9c4fbb62a3E.exit.i" ]
   %50 = landingpad { ptr, i32 }
           cleanup
   br label %.body168.thread.i
@@ -369,7 +369,7 @@ _ZN21tree_sitter_highlight5c_lib14unwrap_mut_ptr17h2875e458d3fbf8d4E.exit.i: ; p
           to label %97 unwind label %95, !noalias !42
 
 72:                                               ; preds = %89, %86, %196, %80, %67
-  %.3137.i = phi i8 [ 1, %80 ], [ 1, %67 ], [ %.8.i, %196 ], [ 1, %86 ], [ 1, %89 ]
+  %.3137.i = phi i8 [ %.8.i, %196 ], [ 1, %89 ], [ 1, %80 ], [ 1, %67 ], [ 1, %86 ]
   %73 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -443,7 +443,7 @@ _ZN21tree_sitter_highlight5c_lib14unwrap_mut_ptr17h2875e458d3fbf8d4E.exit.i: ; p
   br label %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$regex..regex..string..Regex$GT$$GT$17hd65aca9c4fbb62a3E.exit.i"
 
 95:                                               ; preds = %137, %134, %130, %115, %113, %104, %70
-  %.4.i = phi i8 [ 0, %130 ], [ 1, %115 ], [ 1, %113 ], [ 1, %104 ], [ 1, %70 ], [ 0, %134 ], [ 0, %137 ]
+  %.4.i = phi i8 [ 0, %137 ], [ 0, %130 ], [ 1, %115 ], [ 1, %113 ], [ 1, %104 ], [ 1, %70 ], [ 0, %134 ]
   %96 = landingpad { ptr, i32 }
           cleanup
   br label %205
@@ -716,8 +716,8 @@ _ZN21tree_sitter_highlight5c_lib14unwrap_mut_ptr17h2875e458d3fbf8d4E.exit.i: ; p
   unreachable
 
 "_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$regex..regex..string..Regex$GT$$GT$17hd65aca9c4fbb62a3E.exit.i": ; preds = %196, %191, %180, %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$regex..regex..string..Regex$C$regex..error..Error$GT$$GT$17h16129e056ebe067fE.exit", %74
-  %.6.i = phi i8 [ 1, %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$regex..regex..string..Regex$C$regex..error..Error$GT$$GT$17h16129e056ebe067fE.exit" ], [ %.8.i, %196 ], [ %.8.i, %180 ], [ %.8.i, %191 ], [ 1, %74 ]
-  %.1.i = phi i32 [ 5, %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$regex..regex..string..Regex$C$regex..error..Error$GT$$GT$17h16129e056ebe067fE.exit" ], [ %.2.i, %196 ], [ %.2.i, %180 ], [ %.2.i, %191 ], [ 4, %74 ]
+  %.6.i = phi i8 [ 1, %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$regex..regex..string..Regex$C$regex..error..Error$GT$$GT$17h16129e056ebe067fE.exit" ], [ %.8.i, %191 ], [ %.8.i, %196 ], [ %.8.i, %180 ], [ 1, %74 ]
+  %.1.i = phi i32 [ 5, %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$regex..regex..string..Regex$C$regex..error..Error$GT$$GT$17h16129e056ebe067fE.exit" ], [ %.2.i, %191 ], [ %.2.i, %196 ], [ %.2.i, %180 ], [ 4, %74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !42
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !150
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17haee51611dfd7056eE.llvm.12279157293026222448"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30)
@@ -749,8 +749,8 @@ _ZN21tree_sitter_highlight5c_lib14unwrap_mut_ptr17h2875e458d3fbf8d4E.exit.i: ; p
   br i1 %207, label %208, label %"_ZN21tree_sitter_highlight5c_lib27ts_highlighter_add_language28_$u7b$$u7b$closure$u7d$$u7d$17haa9ff4bbaaacd4e2E.exit.thread"
 
 .body:                                            ; preds = %72, %205, %190, %184
-  %.5.ph.i = phi i8 [ %.7.ph.i, %205 ], [ %.8.i, %190 ], [ %.8.i, %184 ], [ %.3137.i, %72 ]
-  %.pn148.ph.i = phi { ptr, i32 } [ %.pn.ph.i, %205 ], [ %185, %190 ], [ %185, %184 ], [ %73, %72 ]
+  %.5.ph.i = phi i8 [ %.7.ph.i, %205 ], [ %.8.i, %184 ], [ %.8.i, %190 ], [ %.3137.i, %72 ]
+  %.pn148.ph.i = phi { ptr, i32 } [ %.pn.ph.i, %205 ], [ %185, %184 ], [ %185, %190 ], [ %73, %72 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h22a7f5941fdcd6dcE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %30) #18
           to label %.body168.thread.i unwind label %178, !noalias !42
 
@@ -760,7 +760,7 @@ _ZN21tree_sitter_highlight5c_lib14unwrap_mut_ptr17h2875e458d3fbf8d4E.exit.i: ; p
   br label %"_ZN21tree_sitter_highlight5c_lib27ts_highlighter_add_language28_$u7b$$u7b$closure$u7d$$u7d$17haa9ff4bbaaacd4e2E.exit.thread"
 
 "_ZN4core3ptr42drop_in_place$LT$tree_sitter..Language$GT$17h871aa3ec46d7ecc6E.exit.i": ; preds = %209, %.body.i.i.i, %.body168.thread.i
-  %.pn150233.i = phi { ptr, i32 } [ %.pn150.i, %209 ], [ %.pn150.i, %.body168.thread.i ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ]
+  %.pn150233.i = phi { ptr, i32 } [ %.pn150.i, %.body168.thread.i ], [ %.pn150.i, %209 ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ]
   resume { ptr, i32 } %.pn150233.i
 
 209:                                              ; preds = %.body168.thread.i

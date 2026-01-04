@@ -823,7 +823,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @pagemap_read(ptr noundef
   br label %.critedge
 
 .critedge:                                        ; preds = %107, %94, %62, %111, %.critedge14, %50
-  %116 = phi i32 [ %47, %50 ], [ -14, %.critedge14 ], [ %spec.select, %111 ], [ 0, %62 ], [ %91, %94 ], [ -14, %107 ]
+  %116 = phi i32 [ %47, %50 ], [ -14, %.critedge14 ], [ %spec.select, %111 ], [ 0, %62 ], [ -14, %107 ], [ %91, %94 ]
   %117 = load ptr, ptr %36, align 8
   call void @kfree(ptr noundef %117) #13
   %118 = sext i32 %116 to i64
@@ -1146,8 +1146,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @do_pagemap_cmd(ptr nound
   br label %.thread17
 
 .thread17:                                        ; preds = %173, %155, %152
-  %187 = phi i64 [ %101, %152 ], [ %101, %155 ], [ %186, %173 ]
-  %188 = phi i32 [ %134, %152 ], [ %134, %155 ], [ %spec.select, %173 ]
+  %187 = phi i64 [ %101, %155 ], [ %186, %173 ], [ %101, %152 ]
+  %188 = phi i32 [ %134, %155 ], [ %spec.select, %173 ], [ %134, %152 ]
   %189 = icmp eq i32 %188, -28
   br i1 %189, label %190, label %202
 
@@ -1184,8 +1184,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @do_pagemap_cmd(ptr nound
   br label %.thread24
 
 202:                                              ; preds = %115, %.thread17
-  %.ph21 = phi i64 [ %187, %.thread17 ], [ %101, %115 ]
-  %.ph22 = phi i32 [ %188, %.thread17 ], [ %112, %115 ]
+  %.ph21 = phi i64 [ %101, %115 ], [ %187, %.thread17 ]
+  %.ph22 = phi i32 [ %112, %115 ], [ %188, %.thread17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   switch i32 %.ph22, label %.thread24 [
     i32 -28, label %203
@@ -1197,7 +1197,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @do_pagemap_cmd(ptr nound
   br label %.thread24
 
 .thread24:                                        ; preds = %82, %.thread26, %.thread31, %.thread28, %203, %202
-  %205 = phi i32 [ %.ph22, %202 ], [ %.ph22.ph, %.thread28 ], [ %201, %.thread26 ], [ %193, %.thread31 ], [ %204, %203 ], [ 0, %82 ]
+  %205 = phi i32 [ %.ph22.ph, %.thread28 ], [ %.ph22, %202 ], [ %204, %203 ], [ %201, %.thread26 ], [ %193, %.thread31 ], [ 0, %82 ]
   %206 = load i64, ptr %61, align 8
   %207 = icmp eq i64 %206, 0
   br i1 %207, label %208, label %210
@@ -2288,9 +2288,9 @@ define internal noundef i32 @smaps_pte_range(ptr noundef %0, i64 noundef %1, i64
   br label %.thread
 
 142:                                              ; preds = %112, %80, %32
-  %143 = phi i1 [ %35, %32 ], [ false, %80 ], [ false, %112 ]
-  %144 = phi i1 [ %37, %32 ], [ false, %80 ], [ false, %112 ]
-  %145 = phi ptr [ %33, %32 ], [ %83, %80 ], [ %83, %112 ]
+  %143 = phi i1 [ %35, %32 ], [ false, %112 ], [ false, %80 ]
+  %144 = phi i1 [ %37, %32 ], [ false, %112 ], [ false, %80 ]
+  %145 = phi ptr [ %33, %32 ], [ %83, %112 ], [ %83, %80 ]
   %146 = icmp eq ptr %145, null
   br i1 %146, label %.thread, label %147
 
@@ -3975,9 +3975,9 @@ define internal range(i32 0, 2) i32 @pagemap_pmd_range(ptr noundef %0, i64 nound
   unreachable
 
 115:                                              ; preds = %109, %77, %37
-  %116 = phi i64 [ -9223372036854775808, %37 ], [ 4611686018427387904, %109 ], [ 4611686018427387904, %77 ]
-  %117 = phi ptr [ %39, %37 ], [ %80, %109 ], [ %80, %77 ]
-  %118 = phi i64 [ %38, %37 ], [ %66, %109 ], [ %66, %77 ]
+  %116 = phi i64 [ -9223372036854775808, %37 ], [ 4611686018427387904, %77 ], [ 4611686018427387904, %109 ]
+  %117 = phi ptr [ %39, %37 ], [ %80, %77 ], [ %80, %109 ]
+  %118 = phi i64 [ %38, %37 ], [ %66, %77 ], [ %66, %109 ]
   %119 = icmp eq ptr %117, null
   br i1 %119, label %.thread13, label %120
 
@@ -4231,7 +4231,7 @@ define internal range(i32 0, 2) i32 @pagemap_pte_hole(i64 noundef %0, i64 nounde
   br i1 %54, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %.loopexit, %.loopexit13, %.preheader11, %.preheader, %4
-  %55 = phi i32 [ 0, %4 ], [ 1, %.preheader ], [ 1, %.preheader11 ], [ 0, %.loopexit13 ], [ 0, %.loopexit ]
+  %55 = phi i32 [ 0, %4 ], [ 1, %.preheader11 ], [ 1, %.preheader ], [ 0, %.loopexit13 ], [ 0, %.loopexit ]
   ret i32 %55
 }
 
@@ -4679,8 +4679,8 @@ define internal range(i32 -28, 1) i32 @pagemap_scan_pmd_entry(ptr noundef %0, i6
   br label %146
 
 146:                                              ; preds = %.thread, %141
-  %147 = phi i64 [ %115, %141 ], [ %145, %.thread ]
-  %148 = phi i32 [ 0, %141 ], [ %144, %.thread ]
+  %147 = phi i64 [ %145, %.thread ], [ %115, %141 ]
+  %148 = phi i32 [ %144, %.thread ], [ 0, %141 ]
   %149 = icmp eq i64 %147, %96
   br i1 %149, label %.loopexit, label %.thread32
 
@@ -5093,8 +5093,8 @@ define internal range(i32 -28, 1) i32 @pagemap_scan_pmd_entry(ptr noundef %0, i6
   br label %399
 
 399:                                              ; preds = %.thread35, %394
-  %400 = phi i64 [ %368, %394 ], [ %398, %.thread35 ]
-  %401 = phi i32 [ 0, %394 ], [ %397, %.thread35 ]
+  %400 = phi i64 [ %398, %.thread35 ], [ %368, %394 ]
+  %401 = phi i32 [ %397, %.thread35 ], [ 0, %394 ]
   %402 = icmp eq i64 %400, %191
   br i1 %402, label %.loopexit, label %.thread36
 
@@ -5154,10 +5154,10 @@ define internal range(i32 -28, 1) i32 @pagemap_scan_pmd_entry(ptr noundef %0, i6
   br label %183
 
 .loopexit:                                        ; preds = %57, %399, %183, %146, %89
-  %425 = phi i64 [ %96, %146 ], [ %97, %89 ], [ %191, %399 ], [ %2, %183 ], [ %2, %57 ]
-  %426 = phi i64 [ %95, %146 ], [ %.ph, %89 ], [ %190, %399 ], [ %.ph38, %183 ], [ %2, %57 ]
-  %427 = phi i32 [ %148, %146 ], [ %150, %89 ], [ %401, %399 ], [ %.ph39, %183 ], [ 0, %57 ]
-  %428 = phi i64 [ %93, %146 ], [ %.ph33, %89 ], [ %187, %399 ], [ %.ph40, %183 ], [ %59, %57 ]
+  %425 = phi i64 [ %96, %146 ], [ %2, %183 ], [ %97, %89 ], [ %191, %399 ], [ %2, %57 ]
+  %426 = phi i64 [ %95, %146 ], [ %.ph38, %183 ], [ %.ph, %89 ], [ %190, %399 ], [ %2, %57 ]
+  %427 = phi i32 [ %148, %146 ], [ %.ph39, %183 ], [ %150, %89 ], [ %401, %399 ], [ 0, %57 ]
+  %428 = phi i64 [ %93, %146 ], [ %.ph40, %183 ], [ %.ph33, %89 ], [ %187, %399 ], [ %59, %57 ]
   %429 = icmp eq i64 %426, 0
   br i1 %429, label %.thread43, label %430
 
@@ -5191,7 +5191,7 @@ define internal range(i32 -28, 1) i32 @pagemap_scan_pmd_entry(ptr noundef %0, i6
   br label %.thread43
 
 .thread43:                                        ; preds = %40, %169, %79, %450, %.loopexit
-  %452 = phi i32 [ %427, %450 ], [ %427, %.loopexit ], [ 0, %79 ], [ 0, %169 ], [ 0, %40 ]
+  %452 = phi i32 [ %427, %.loopexit ], [ %427, %450 ], [ 0, %79 ], [ 0, %169 ], [ 0, %40 ]
   %453 = load ptr, ptr %20, align 8
   call void @_raw_spin_unlock(ptr noundef %453) #13
   call void @__rcu_read_unlock() #13

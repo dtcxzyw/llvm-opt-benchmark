@@ -141,12 +141,12 @@ define hidden range(i32 -1, 2) i32 @netxray_open(ptr noundef %0, ptr noundef %1,
   br label %242
 
 .thread153:                                       ; preds = %.thread, %28, %26, %24, %22, %20, %18
-  %32 = phi i1 [ true, %18 ], [ true, %20 ], [ false, %22 ], [ false, %24 ], [ false, %26 ], [ false, %28 ], [ false, %.thread ]
-  %33 = phi i1 [ false, %18 ], [ false, %20 ], [ true, %22 ], [ true, %24 ], [ true, %26 ], [ true, %28 ], [ false, %.thread ]
-  %.0132 = phi i32 [ 1, %18 ], [ 1, %20 ], [ 2, %22 ], [ 2, %24 ], [ 2, %26 ], [ 2, %28 ], [ 0, %.thread ]
-  %or.cond7 = phi i1 [ false, %18 ], [ false, %20 ], [ false, %22 ], [ false, %24 ], [ true, %26 ], [ true, %28 ], [ false, %.thread ]
-  %.0131 = phi i32 [ 0, %18 ], [ 1, %20 ], [ 0, %22 ], [ 1, %24 ], [ 2, %26 ], [ 3, %28 ], [ 0, %.thread ]
-  %.0130.in = phi ptr [ @netxray_1_0_file_type_subtype, %18 ], [ @netxray_1_1_file_type_subtype, %20 ], [ @netxray_2_00x_file_type_subtype, %22 ], [ @netxray_2_00x_file_type_subtype, %24 ], [ @netxray_2_00x_file_type_subtype, %26 ], [ @netxray_2_00x_file_type_subtype, %28 ], [ @netxray_old_file_type_subtype, %.thread ]
+  %32 = phi i1 [ false, %26 ], [ false, %28 ], [ true, %18 ], [ true, %20 ], [ false, %22 ], [ false, %24 ], [ false, %.thread ]
+  %33 = phi i1 [ true, %26 ], [ true, %28 ], [ false, %18 ], [ false, %20 ], [ true, %22 ], [ true, %24 ], [ false, %.thread ]
+  %.0132 = phi i32 [ 2, %26 ], [ 2, %28 ], [ 1, %18 ], [ 1, %20 ], [ 2, %22 ], [ 2, %24 ], [ 0, %.thread ]
+  %or.cond7 = phi i1 [ true, %26 ], [ true, %28 ], [ false, %18 ], [ false, %20 ], [ false, %22 ], [ false, %24 ], [ false, %.thread ]
+  %.0131 = phi i32 [ 2, %26 ], [ 3, %28 ], [ 0, %18 ], [ 1, %20 ], [ 0, %22 ], [ 1, %24 ], [ 0, %.thread ]
+  %.0130.in = phi ptr [ @netxray_2_00x_file_type_subtype, %26 ], [ @netxray_2_00x_file_type_subtype, %28 ], [ @netxray_1_0_file_type_subtype, %18 ], [ @netxray_1_1_file_type_subtype, %20 ], [ @netxray_2_00x_file_type_subtype, %22 ], [ @netxray_2_00x_file_type_subtype, %24 ], [ @netxray_old_file_type_subtype, %.thread ]
   %.0130 = load i32, ptr %.0130.in, align 4
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 41
   %35 = load i8, ptr %34, align 1
@@ -499,8 +499,8 @@ switch.lookup:                                    ; preds = %185
   br label %200
 
 200:                                              ; preds = %switch.lookup, %180, %181, %193, %192, %184, %197
-  %.0127 = phi i32 [ 27, %184 ], [ 36, %192 ], [ 40, %193 ], [ %198, %197 ], [ 19, %181 ], [ 1, %180 ], [ %switch.load, %switch.lookup ]
-  %.0126 = phi i32 [ 0, %184 ], [ 0, %192 ], [ 0, %193 ], [ 0, %197 ], [ 0, %181 ], [ 0, %180 ], [ %switch.idx.cast, %switch.lookup ]
+  %.0127 = phi i32 [ %198, %197 ], [ 27, %184 ], [ 19, %181 ], [ 1, %180 ], [ 36, %192 ], [ 40, %193 ], [ %switch.load, %switch.lookup ]
+  %.0126 = phi i32 [ 0, %197 ], [ 0, %184 ], [ 0, %181 ], [ 0, %180 ], [ 0, %192 ], [ 0, %193 ], [ %switch.idx.cast, %switch.lookup ]
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %.0130, ptr %201, align 4
   %202 = call noalias dereferenceable_or_null(64) ptr @g_malloc(i64 noundef 64) #8
@@ -579,7 +579,7 @@ switch.lookup:                                    ; preds = %185
   br label %242
 
 242:                                              ; preds = %.thread, %224, %13, %11, %8, %241, %194, %189, %175, %160, %153, %148, %134, %121, %107, %86, %74, %55, %45, %30
-  %.0 = phi i32 [ -1, %45 ], [ -1, %55 ], [ -1, %194 ], [ 1, %241 ], [ -1, %189 ], [ -1, %74 ], [ -1, %153 ], [ -1, %86 ], [ -1, %107 ], [ -1, %121 ], [ -1, %134 ], [ -1, %148 ], [ -1, %160 ], [ -1, %175 ], [ -1, %30 ], [ %., %8 ], [ 0, %11 ], [ -1, %13 ], [ -1, %224 ], [ -1, %.thread ]
+  %.0 = phi i32 [ -1, %45 ], [ -1, %55 ], [ -1, %194 ], [ -1, %13 ], [ 1, %241 ], [ -1, %189 ], [ -1, %74 ], [ -1, %153 ], [ -1, %86 ], [ -1, %107 ], [ -1, %121 ], [ -1, %134 ], [ -1, %148 ], [ -1, %160 ], [ -1, %175 ], [ -1, %30 ], [ 0, %11 ], [ %., %8 ], [ -1, %224 ], [ -1, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -700,7 +700,7 @@ define internal noundef zeroext i1 @netxray_read(ptr noundef readonly captures(n
   br label %netxray_guess_atm_type.exit
 
 netxray_guess_atm_type.exit:                      ; preds = %28, %31, %21, %59, %55, %54, %51, %47, %44, %41, %35, %27, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %27 ], [ false, %35 ], [ false, %41 ], [ true, %44 ], [ true, %47 ], [ true, %51 ], [ true, %54 ], [ true, %55 ], [ true, %59 ], [ false, %21 ], [ false, %31 ], [ false, %28 ]
+  %.0 = phi i1 [ false, %16 ], [ true, %54 ], [ false, %27 ], [ true, %55 ], [ true, %59 ], [ false, %41 ], [ false, %35 ], [ true, %44 ], [ true, %47 ], [ true, %51 ], [ false, %21 ], [ false, %31 ], [ false, %28 ]
   ret i1 %.0
 }
 
@@ -771,7 +771,7 @@ define internal noundef zeroext i1 @netxray_seek_read(ptr noundef readonly captu
   br label %netxray_guess_atm_type.exit
 
 netxray_guess_atm_type.exit:                      ; preds = %39, %35, %34, %31, %27, %24, %18, %14, %17, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %17 ], [ false, %14 ], [ false, %18 ], [ true, %24 ], [ true, %27 ], [ true, %31 ], [ true, %34 ], [ true, %35 ], [ true, %39 ]
+  %.0 = phi i1 [ false, %14 ], [ false, %5 ], [ false, %18 ], [ false, %17 ], [ true, %24 ], [ true, %27 ], [ true, %31 ], [ true, %34 ], [ true, %35 ], [ true, %39 ]
   ret i1 %.0
 }
 
@@ -993,7 +993,7 @@ define internal fastcc range(i32 -1, 5) i32 @netxray_process_rec_header(ptr noun
   br label %.sink.split147
 
 .sink.split147:                                   ; preds = %95, %89, %93, %99
-  %.sink148 = phi i8 [ %100, %99 ], [ %94, %93 ], [ 0, %89 ], [ 0, %95 ]
+  %.sink148 = phi i8 [ 0, %89 ], [ %100, %99 ], [ %94, %93 ], [ 0, %95 ]
   store i8 %.sink148, ptr %86, align 1
   br label %101
 
@@ -1173,7 +1173,7 @@ default.unreachable146:                           ; preds = %166, %137
   unreachable
 
 183:                                              ; preds = %108, %101, %30, %20, %120, %34, %36, %71, %50, %168, %171, %174, %177, %180, %163, %160, %157, %154, %18, %15, %13
-  %.0 = phi i32 [ 0, %13 ], [ 0, %18 ], [ 0, %15 ], [ 0, %20 ], [ 0, %34 ], [ 0, %36 ], [ %.1, %71 ], [ %.1, %50 ], [ 0, %120 ], [ 0, %154 ], [ 0, %157 ], [ 0, %160 ], [ 0, %163 ], [ 0, %168 ], [ 0, %171 ], [ 0, %174 ], [ 0, %177 ], [ 0, %180 ], [ 4, %30 ], [ %spec.select, %101 ], [ %spec.select136, %108 ]
+  %.0 = phi i32 [ 0, %13 ], [ 0, %18 ], [ 0, %15 ], [ 0, %20 ], [ 0, %34 ], [ 0, %180 ], [ 0, %36 ], [ %.1, %71 ], [ %.1, %50 ], [ 4, %30 ], [ 0, %177 ], [ %spec.select, %101 ], [ %spec.select136, %108 ], [ 0, %120 ], [ 0, %154 ], [ 0, %157 ], [ 0, %160 ], [ 0, %163 ], [ 0, %168 ], [ 0, %171 ], [ 0, %174 ]
   store i32 0, ptr %2, align 8
   %184 = call ptr @wtap_block_create(i32 noundef 5)
   %185 = getelementptr inbounds nuw i8, ptr %2, i64 232
@@ -1514,7 +1514,7 @@ wtap_encap_to_netxray_1_1_encap.exit:             ; preds = %22, %27
   br label %35
 
 35:                                               ; preds = %wtap_encap_to_netxray_1_1_encap.exit, %12, %9, %3, %33
-  %.0 = phi i1 [ true, %33 ], [ false, %3 ], [ false, %9 ], [ false, %12 ], [ false, %wtap_encap_to_netxray_1_1_encap.exit ]
+  %.0 = phi i1 [ false, %9 ], [ false, %3 ], [ true, %33 ], [ false, %12 ], [ false, %wtap_encap_to_netxray_1_1_encap.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
@@ -1847,7 +1847,7 @@ wtap_encap_to_netxray_2_0_encap.exit:             ; preds = %22, %27
   br label %36
 
 36:                                               ; preds = %wtap_encap_to_netxray_2_0_encap.exit, %35, %34, %33, %32
-  %.sroa.1222.0 = phi i8 [ 0, %35 ], [ 4, %32 ], [ 6, %33 ], [ 7, %34 ], [ 3, %wtap_encap_to_netxray_2_0_encap.exit ]
+  %.sroa.1222.0 = phi i8 [ 0, %35 ], [ 7, %34 ], [ 4, %32 ], [ 6, %33 ], [ 3, %wtap_encap_to_netxray_2_0_encap.exit ]
   store i64 13845257350426672, ptr %4, align 16
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %16, ptr %.sroa.5.0..sroa_idx, align 8
@@ -1878,7 +1878,7 @@ wtap_encap_to_netxray_2_0_encap.exit:             ; preds = %22, %27
   br label %40
 
 40:                                               ; preds = %36, %12, %9, %3, %38
-  %.0 = phi i1 [ true, %38 ], [ false, %3 ], [ false, %9 ], [ false, %12 ], [ false, %36 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %3 ], [ true, %38 ], [ false, %12 ], [ false, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }

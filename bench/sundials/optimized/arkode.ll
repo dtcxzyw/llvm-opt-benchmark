@@ -865,7 +865,7 @@ arkResizeVec.exit134:                             ; preds = %186, %arkResizeVec.
   br label %arkResizeVec.exit.thread
 
 arkResizeVec.exit.thread:                         ; preds = %185, %182, %167, %164, %149, %146, %131, %128, %113, %110, %95, %92, %77, %74, %53, %50, %35, %32, %17, %14, %195, %arkResizeVec.exit134
-  %.0 = phi i32 [ 0, %arkResizeVec.exit134 ], [ %197, %195 ], [ 0, %14 ], [ 0, %17 ], [ 0, %32 ], [ 0, %35 ], [ 0, %50 ], [ 0, %53 ], [ 0, %74 ], [ 0, %77 ], [ 0, %92 ], [ 0, %95 ], [ 0, %110 ], [ 0, %113 ], [ 0, %128 ], [ 0, %131 ], [ 0, %146 ], [ 0, %149 ], [ 0, %164 ], [ 0, %167 ], [ 0, %182 ], [ 0, %185 ]
+  %.0 = phi i32 [ 0, %arkResizeVec.exit134 ], [ %197, %195 ], [ 0, %167 ], [ 0, %149 ], [ 0, %131 ], [ 0, %113 ], [ 0, %95 ], [ 0, %77 ], [ 0, %53 ], [ 0, %35 ], [ 0, %17 ], [ 0, %14 ], [ 0, %32 ], [ 0, %50 ], [ 0, %74 ], [ 0, %92 ], [ 0, %110 ], [ 0, %128 ], [ 0, %146 ], [ 0, %164 ], [ 0, %182 ], [ 0, %185 ]
   ret i32 %.0
 }
 
@@ -939,7 +939,7 @@ define range(i32 -47, 1) i32 @arkInit(ptr noundef %0, double noundef %1, ptr nou
   br label %17
 
 17:                                               ; preds = %14, %12
-  %.053 = phi i32 [ %3, %12 ], [ %spec.select, %14 ]
+  %.053 = phi i32 [ %spec.select, %14 ], [ %3, %12 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %19 = load i32, ptr %18, align 8, !tbaa !3
   %20 = icmp eq i32 %19, 0
@@ -963,7 +963,7 @@ arkCheckTimestepper.exit:                         ; preds = %25
   %.not70 = icmp eq ptr %30, null
   br i1 %.not70, label %arkCheckTimestepper.exit.thread, label %31
 
-arkCheckTimestepper.exit.thread:                  ; preds = %21, %25, %arkCheckTimestepper.exit
+arkCheckTimestepper.exit.thread:                  ; preds = %25, %21, %arkCheckTimestepper.exit
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 1728, ptr noundef nonnull @__func__.arkInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.83)
   br label %120
 
@@ -1035,7 +1035,7 @@ arkCheckNvector.exit:                             ; preds = %69
   %.not71 = icmp eq ptr %74, null
   br i1 %.not71, label %arkCheckNvector.exit.thread, label %75
 
-arkCheckNvector.exit.thread:                      ; preds = %31, %37, %41, %45, %49, %53, %57, %61, %65, %69, %arkCheckNvector.exit
+arkCheckNvector.exit.thread:                      ; preds = %37, %41, %45, %49, %53, %57, %61, %65, %69, %31, %arkCheckNvector.exit
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 1737, ptr noundef nonnull @__func__.arkInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.84)
   br label %120
 
@@ -1630,7 +1630,7 @@ arkRwtSetSS.exit.sink.split:                      ; preds = %31, %40, %17, %27
   br label %arkRwtSetSS.exit
 
 arkRwtSetSS.exit:                                 ; preds = %arkRwtSetSS.exit.sink.split, %40, %27, %14, %11, %3
-  %.019 = phi i32 [ 0, %3 ], [ -18, %11 ], [ 0, %14 ], [ -1, %27 ], [ -1, %40 ], [ 0, %arkRwtSetSS.exit.sink.split ]
+  %.019 = phi i32 [ -18, %11 ], [ 0, %3 ], [ 0, %14 ], [ -1, %27 ], [ -1, %40 ], [ 0, %arkRwtSetSS.exit.sink.split ]
   ret i32 %.019
 }
 
@@ -2378,7 +2378,7 @@ arkCheckConvergence.exit:                         ; preds = %193
   br label %.thread337
 
 .thread337:                                       ; preds = %253, %.thread334, %195, %235, %229, %222, %189, %217, %.thread337.loopexit, %205, %202
-  %.5340 = phi i32 [ %spec.select.i, %205 ], [ -21, %202 ], [ -10, %217 ], [ -4, %195 ], [ %191, %189 ], [ %223, %222 ], [ %230, %229 ], [ %237, %235 ], [ -4, %.thread337.loopexit ], [ %.3, %253 ], [ %256, %.thread334 ]
+  %.5340 = phi i32 [ -4, %.thread337.loopexit ], [ -10, %217 ], [ -21, %202 ], [ %spec.select.i, %205 ], [ -4, %195 ], [ %191, %189 ], [ %223, %222 ], [ %230, %229 ], [ %237, %235 ], [ %.3, %253 ], [ %256, %.thread334 ]
   %257 = call i32 @arkHandleFailure(ptr noundef nonnull %0, i32 noundef %.5340)
   %258 = load double, ptr %64, align 8, !tbaa !17
   store double %258, ptr %3, align 8, !tbaa !113
@@ -2605,7 +2605,7 @@ arkCheckConvergence.exit:                         ; preds = %193
   br label %.loopexit
 
 .loopexit:                                        ; preds = %244, %98, %117, %124, %138, %.thread337, %270, %276, %326, %330, %356, %360, %363, %41, %48, %28, %25, %22, %18, %13
-  %.0258 = phi i32 [ -21, %13 ], [ -23, %18 ], [ -22, %22 ], [ -22, %25 ], [ -22, %28 ], [ %49, %48 ], [ %45, %41 ], [ -1, %124 ], [ %257, %.thread337 ], [ 2, %270 ], [ -12, %276 ], [ %325, %326 ], [ 1, %330 ], [ %355, %356 ], [ 0, %360 ], [ 0, %363 ], [ -2, %138 ], [ -22, %98 ], [ -22, %117 ], [ -3, %244 ]
+  %.0258 = phi i32 [ -21, %13 ], [ -23, %18 ], [ -22, %22 ], [ -22, %25 ], [ -22, %28 ], [ %49, %48 ], [ -22, %117 ], [ %45, %41 ], [ -1, %124 ], [ %257, %.thread337 ], [ 2, %270 ], [ -12, %276 ], [ %325, %326 ], [ 1, %330 ], [ %355, %356 ], [ 0, %360 ], [ 0, %363 ], [ -2, %138 ], [ -22, %98 ], [ -3, %244 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -3190,7 +3190,7 @@ define i32 @arkInitialSetup(ptr noundef %0, double noundef %1) local_unnamed_add
   br label %309
 
 309:                                              ; preds = %306, %114, %115, %83, %84, %308, %220, %201, %180, %175, %159, %153, %146, %140, %130, %94, %89, %68, %56, %40, %23, %9
-  %.0 = phi i32 [ -22, %9 ], [ -22, %56 ], [ -22, %89 ], [ %93, %94 ], [ -22, %140 ], [ -22, %146 ], [ -22, %201 ], [ %221, %220 ], [ 0, %308 ], [ -20, %180 ], [ -22, %175 ], [ -22, %159 ], [ -22, %153 ], [ -20, %130 ], [ -22, %68 ], [ -22, %40 ], [ -22, %23 ], [ -22, %84 ], [ -22, %83 ], [ -22, %115 ], [ -22, %114 ], [ %307, %306 ]
+  %.0 = phi i32 [ -22, %9 ], [ -22, %56 ], [ -22, %23 ], [ -22, %89 ], [ %93, %94 ], [ -22, %140 ], [ -22, %146 ], [ -22, %201 ], [ %221, %220 ], [ -22, %114 ], [ 0, %308 ], [ -20, %180 ], [ -22, %175 ], [ -22, %159 ], [ -22, %153 ], [ -20, %130 ], [ -22, %83 ], [ -22, %68 ], [ -22, %40 ], [ -22, %84 ], [ -22, %115 ], [ %307, %306 ]
   ret i32 %.0
 }
 
@@ -3566,7 +3566,7 @@ define range(i32 -32, 12) i32 @arkCheckConvergence(ptr noundef captures(address_
   br label %switch.lookup
 
 switch.lookup:                                    ; preds = %3, %18, %34, %5, %3, %37, %36, %15
-  %.0 = phi i32 [ -21, %15 ], [ -10, %36 ], [ 3, %37 ], [ %4, %3 ], [ -4, %5 ], [ -4, %34 ], [ %spec.select, %18 ], [ %4, %3 ]
+  %.0 = phi i32 [ 3, %37 ], [ %spec.select, %18 ], [ %4, %3 ], [ -21, %15 ], [ -4, %5 ], [ -4, %34 ], [ -10, %36 ], [ %4, %3 ]
   ret i32 %.0
 }
 
@@ -3919,7 +3919,7 @@ define i32 @arkCompleteStep(ptr noundef initializes((752, 760)) %0, double nound
   br label %103
 
 103:                                              ; preds = %67, %58, %85, %84
-  %.0 = phi i32 [ -47, %84 ], [ 0, %85 ], [ -37, %58 ], [ %69, %67 ]
+  %.0 = phi i32 [ 0, %85 ], [ -37, %58 ], [ -47, %84 ], [ %69, %67 ]
   ret i32 %.0
 }
 
@@ -4816,7 +4816,7 @@ define i32 @ARKodeCreateMRIStepInnerStepper(ptr noundef %0, ptr noundef %1) loca
   br label %34
 
 34:                                               ; preds = %31, %28, %25, %22, %19, %16, %13, %10, %9, %4
-  %.0 = phi i32 [ -21, %4 ], [ -48, %9 ], [ %12, %10 ], [ %15, %13 ], [ %18, %16 ], [ %21, %19 ], [ %24, %22 ], [ %27, %25 ], [ %30, %28 ], [ %33, %31 ]
+  %.0 = phi i32 [ -21, %4 ], [ -48, %9 ], [ %30, %28 ], [ %12, %10 ], [ %15, %13 ], [ %18, %16 ], [ %21, %19 ], [ %24, %22 ], [ %27, %25 ], [ %33, %31 ]
   ret i32 %.0
 }
 
@@ -4897,7 +4897,7 @@ define range(i32 -1, 2) i32 @ark_MRIStepInnerEvolve(ptr noundef %0, double %1, d
   br label %37
 
 37:                                               ; preds = %34, %33, %26, %18, %16, %4, %15
-  %.022 = phi i32 [ -1, %15 ], [ -1, %4 ], [ -1, %16 ], [ -1, %18 ], [ -1, %26 ], [ -1, %33 ], [ %.0., %34 ]
+  %.022 = phi i32 [ -1, %26 ], [ -1, %15 ], [ -1, %4 ], [ -1, %16 ], [ -1, %18 ], [ %.0., %34 ], [ -1, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -4935,7 +4935,7 @@ define range(i32 -1, 1) i32 @ark_MRIStepInnerFullRhs(ptr noundef %0, double noun
   br label %17
 
 17:                                               ; preds = %12, %5, %11
-  %.0 = phi i32 [ -1, %11 ], [ -1, %5 ], [ %., %12 ]
+  %.0 = phi i32 [ -1, %5 ], [ -1, %11 ], [ %., %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -5011,7 +5011,7 @@ define range(i32 -1, 2) i32 @ark_MRIStepInnerGetAccumulatedError(ptr noundef %0,
   br label %10
 
 10:                                               ; preds = %9, %5, %2
-  %.0 = phi i32 [ -1, %2 ], [ 0, %5 ], [ %., %9 ]
+  %.0 = phi i32 [ 0, %5 ], [ -1, %2 ], [ %., %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -5068,7 +5068,7 @@ define range(i32 -1, 1) i32 @ark_MRIStepInnerSetRTol(ptr noundef %0, double noun
   br label %13
 
 13:                                               ; preds = %9, %2, %11, %8
-  %.0 = phi i32 [ -1, %8 ], [ 0, %11 ], [ -1, %2 ], [ -1, %9 ]
+  %.0 = phi i32 [ -1, %2 ], [ -1, %8 ], [ 0, %11 ], [ -1, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -5258,7 +5258,7 @@ define range(i32 0, 2) i32 @arkCheckTimestepper(ptr noundef readonly captures(no
   br label %13
 
 13:                                               ; preds = %9, %1, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %1 ], [ %spec.select, %9 ]
+  %.0 = phi i32 [ 0, %1 ], [ %spec.select, %9 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -5333,7 +5333,7 @@ define range(i32 0, 2) i32 @arkCheckNvector(ptr noundef readonly captures(none) 
   br label %47
 
 47:                                               ; preds = %43, %1, %7, %11, %15, %19, %23, %27, %31, %35, %39
-  %.0 = phi i32 [ 0, %39 ], [ 0, %35 ], [ 0, %31 ], [ 0, %27 ], [ 0, %23 ], [ 0, %19 ], [ 0, %15 ], [ 0, %11 ], [ 0, %7 ], [ 0, %1 ], [ %spec.select, %43 ]
+  %.0 = phi i32 [ 0, %1 ], [ %spec.select, %43 ], [ 0, %39 ], [ 0, %35 ], [ 0, %31 ], [ 0, %27 ], [ 0, %23 ], [ 0, %19 ], [ 0, %15 ], [ 0, %11 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -5537,7 +5537,7 @@ arkAllocVec.exit34:                               ; preds = %84
   br label %arkAllocVec.exit36.thread
 
 arkAllocVec.exit36.thread:                        ; preds = %98, %105, %116, %arkAllocVec.exit34, %arkAllocVec.exit32, %arkAllocVec.exit30, %arkAllocVec.exit28, %arkAllocVec.exit
-  %.0 = phi i32 [ 0, %arkAllocVec.exit ], [ 0, %arkAllocVec.exit28 ], [ 0, %arkAllocVec.exit30 ], [ 0, %arkAllocVec.exit32 ], [ 0, %arkAllocVec.exit34 ], [ 0, %116 ], [ 1, %105 ], [ 1, %98 ]
+  %.0 = phi i32 [ 0, %arkAllocVec.exit34 ], [ 0, %arkAllocVec.exit ], [ 0, %arkAllocVec.exit32 ], [ 0, %arkAllocVec.exit30 ], [ 0, %arkAllocVec.exit28 ], [ 0, %116 ], [ 1, %105 ], [ 1, %98 ]
   ret i32 %.0
 }
 
@@ -5783,7 +5783,7 @@ define range(i32 -27, 1) i32 @arkHin(ptr noundef %0, double noundef %1) local_un
   br i1 %or.cond3, label %.split.us, label %94
 
 .split.us:                                        ; preds = %109, %112, %116, %81, %84, %88
-  %.us-phi = phi double [ %82, %81 ], [ %82, %84 ], [ %.083100.us, %88 ], [ %110, %109 ], [ %110, %112 ], [ %.083100, %116 ]
+  %.us-phi = phi double [ %.083100.us, %88 ], [ %82, %81 ], [ %82, %84 ], [ %110, %109 ], [ %110, %112 ], [ %.083100, %116 ]
   %119 = fmul double %.us-phi, 5.000000e-01
   %120 = fcmp olt double %119, %34
   %.078 = select i1 %120, double %34, double %119
@@ -5800,7 +5800,7 @@ define range(i32 -27, 1) i32 @arkHin(ptr noundef %0, double noundef %1) local_un
   br label %.loopexit
 
 .loopexit:                                        ; preds = %94, %69, %.loopexit.sink.split, %.preheader, %22, %8, %2
-  %.079 = phi i32 [ -27, %2 ], [ -27, %8 ], [ -8, %22 ], [ -8, %.preheader ], [ 0, %.loopexit.sink.split ], [ -8, %69 ], [ -8, %94 ]
+  %.079 = phi i32 [ -27, %8 ], [ -27, %2 ], [ -8, %22 ], [ -8, %.preheader ], [ 0, %.loopexit.sink.split ], [ -8, %69 ], [ -8, %94 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.079
 }
@@ -6242,7 +6242,7 @@ define range(i32 0, 2) i32 @arkResizeVecArray(ptr noundef readonly captures(addr
   br label %.loopexit27
 
 .loopexit27:                                      ; preds = %.lr.ph, %9, %.loopexit, %14
-  %.023 = phi i32 [ 0, %14 ], [ 1, %.loopexit ], [ 1, %9 ], [ 0, %.lr.ph ]
+  %.023 = phi i32 [ 0, %14 ], [ 1, %9 ], [ 1, %.loopexit ], [ 0, %.lr.ph ]
   ret i32 %.023
 }
 

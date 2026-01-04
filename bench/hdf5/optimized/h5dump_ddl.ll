@@ -787,7 +787,7 @@ define internal range(i32 -1, 1) i32 @dump_all_cb(i64 noundef %0, ptr noundef %1
   br label %.thread
 
 .thread:                                          ; preds = %197, %142, %220, %61, %51, %.thread174, %206, %215, %214, %44
-  %.1113 = phi i32 [ -1, %44 ], [ -1, %220 ], [ -1, %51 ], [ 0, %61 ], [ 0, %206 ], [ -1, %.thread174 ], [ -1, %214 ], [ 0, %215 ], [ 0, %197 ], [ -1, %142 ]
+  %.1113 = phi i32 [ -1, %44 ], [ 0, %215 ], [ -1, %220 ], [ -1, %51 ], [ 0, %61 ], [ 0, %206 ], [ -1, %.thread174 ], [ -1, %214 ], [ 0, %197 ], [ -1, %142 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %444
 
@@ -2506,7 +2506,7 @@ define dso_local void @dump_fcpl(i64 noundef %0) local_unnamed_addr #0 {
   br i1 %.not42, label %105, label %.sink.split
 
 .sink.split:                                      ; preds = %103, %102, %101, %100, %99
-  %.str.39.sink = phi ptr [ @.str.38, %99 ], [ @.str.39, %100 ], [ @.str.40, %101 ], [ @.str.41, %102 ], [ @.str.42, %103 ]
+  %.str.39.sink = phi ptr [ @.str.38, %99 ], [ @.str.40, %101 ], [ @.str.41, %102 ], [ @.str.39, %100 ], [ @.str.42, %103 ]
   %104 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %98, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, ptr noundef nonnull %.str.39.sink) #15
   br label %105
 
@@ -3407,7 +3407,7 @@ define dso_local void @handle_datasets(i64 noundef %0, ptr noundef %1, ptr nound
   br i1 %exitcond.not, label %.loopexit174, label %.lr.ph, !llvm.loop !142
 
 .loopexit174:                                     ; preds = %.lr.ph, %48, %45, %.thread
-  %61 = phi ptr [ %.pre, %.thread ], [ %44, %45 ], [ %44, %48 ], [ %58, %.lr.ph ]
+  %61 = phi ptr [ %.pre, %.thread ], [ %44, %48 ], [ %44, %45 ], [ %58, %.lr.ph ]
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %63 = load ptr, ptr %62, align 8, !tbaa !138
   %.not147 = icmp eq ptr %63, null
@@ -3454,8 +3454,8 @@ define dso_local void @handle_datasets(i64 noundef %0, ptr noundef %1, ptr nound
   br label %.loopexit173
 
 .loopexit173:                                     ; preds = %.lr.ph177, %.loopexit173.sink.split, %.loopexit174.thread, %.loopexit174
-  %73 = phi ptr [ %61, %.loopexit174 ], [ null, %.loopexit174.thread ], [ %.ph, %.loopexit173.sink.split ], [ %61, %.lr.ph177 ]
-  %74 = phi ptr [ %63, %.loopexit174 ], [ %66, %.loopexit174.thread ], [ null, %.loopexit173.sink.split ], [ %69, %.lr.ph177 ]
+  %73 = phi ptr [ null, %.loopexit174.thread ], [ %.ph, %.loopexit173.sink.split ], [ %61, %.loopexit174 ], [ %61, %.lr.ph177 ]
+  %74 = phi ptr [ %66, %.loopexit174.thread ], [ null, %.loopexit173.sink.split ], [ %63, %.loopexit174 ], [ %69, %.lr.ph177 ]
   %75 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %76 = load ptr, ptr %75, align 8, !tbaa !139
   %.not150 = icmp eq ptr %76, null
@@ -3489,9 +3489,9 @@ define dso_local void @handle_datasets(i64 noundef %0, ptr noundef %1, ptr nound
   br i1 %exitcond196.not, label %.loopexit172, label %.lr.ph179, !llvm.loop !146
 
 .loopexit172:                                     ; preds = %.lr.ph179, %.thread246, %.loopexit173, %48
-  %83 = phi ptr [ %76, %.loopexit173 ], [ %50, %48 ], [ null, %.thread246 ], [ %80, %.lr.ph179 ]
-  %84 = phi ptr [ %73, %.loopexit173 ], [ %44, %48 ], [ %73, %.thread246 ], [ %73, %.lr.ph179 ]
-  %85 = phi ptr [ %74, %.loopexit173 ], [ %47, %48 ], [ %74, %.thread246 ], [ %74, %.lr.ph179 ]
+  %83 = phi ptr [ %50, %48 ], [ null, %.thread246 ], [ %76, %.loopexit173 ], [ %80, %.lr.ph179 ]
+  %84 = phi ptr [ %44, %48 ], [ %73, %.thread246 ], [ %73, %.loopexit173 ], [ %73, %.lr.ph179 ]
+  %85 = phi ptr [ %47, %48 ], [ %74, %.thread246 ], [ %74, %.loopexit173 ], [ %74, %.lr.ph179 ]
   %86 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %87 = load i32, ptr %86, align 8, !tbaa !140
   %88 = icmp ugt i32 %87, %36

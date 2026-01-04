@@ -722,7 +722,7 @@ define ptr @rtp_dyn_payload_get_name(ptr noundef readonly captures(address_is_nu
   br label %11
 
 11:                                               ; preds = %9, %5, %2, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %2 ], [ %10, %9 ], [ null, %5 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %3 ], [ %10, %9 ], [ null, %5 ]
   ret ptr %.0
 }
 
@@ -811,7 +811,7 @@ define noundef zeroext i1 @rtp_dyn_payload_get_full(ptr noundef readonly capture
   br label %36
 
 36:                                               ; preds = %17, %33, %32, %14, %15
-  %.0 = phi i1 [ false, %15 ], [ false, %14 ], [ true, %32 ], [ true, %33 ], [ false, %17 ]
+  %.0 = phi i1 [ false, %14 ], [ false, %15 ], [ true, %32 ], [ true, %33 ], [ false, %17 ]
   ret i1 %.0
 }
 
@@ -2247,7 +2247,7 @@ get_rtp_packet_info.exit:                         ; preds = %153, %calculate_ext
   br label %.thread573
 
 .thread565:                                       ; preds = %.critedge.thread, %303
-  %319 = phi ptr [ %287, %303 ], [ %300, %.critedge.thread ]
+  %319 = phi ptr [ %300, %.critedge.thread ], [ %287, %303 ]
   %320 = load ptr, ptr @rtp_pt_dissector_table, align 8
   %321 = call ptr @dissector_get_uint_handle(ptr noundef %320, i32 noundef %107)
   %.not506 = icmp eq ptr %321, null
@@ -2307,8 +2307,8 @@ get_rtp_packet_info.exit:                         ; preds = %153, %calculate_ext
   br label %342
 
 342:                                              ; preds = %.critedge538.thread, %.critedge538, %338, %336, %331, %329
-  %343 = phi ptr [ %326, %331 ], [ %326, %329 ], [ %326, %338 ], [ %326, %336 ], [ %340, %.critedge538.thread ], [ %326, %.critedge538 ]
-  %.0463 = phi ptr [ %332, %331 ], [ @.str.2, %329 ], [ %339, %338 ], [ @.str.2, %336 ], [ %341, %.critedge538.thread ], [ %.0560575, %.critedge538 ]
+  %343 = phi ptr [ %326, %336 ], [ %326, %329 ], [ %326, %331 ], [ %326, %338 ], [ %340, %.critedge538.thread ], [ %326, %.critedge538 ]
+  %.0463 = phi ptr [ @.str.2, %336 ], [ @.str.2, %329 ], [ %332, %331 ], [ %339, %338 ], [ %341, %.critedge538.thread ], [ %.0560575, %.critedge538 ]
   %344 = load ptr, ptr %343, align 8
   %345 = select i1 %106, ptr @.str.321, ptr @.str.322
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %344, i32 noundef 25, ptr noundef nonnull @.str.320, ptr noundef %.0463, i32 noundef %125, i32 noundef %131, i32 noundef %123, ptr noundef nonnull %345)
@@ -2791,7 +2791,7 @@ proto_item_set_generated.exit551:                 ; preds = %468, %465, %proto_i
   br i1 %exitcond595.not, label %dissect_rtp_hext_rfc5285_onebyte.exit, label %568, !llvm.loop !17
 
 dissect_rtp_hext_rfc5285_onebyte.exit:            ; preds = %568, %555, %531, %526, %517, %492, %511, %564, %561
-  %.pre-phi = phi i32 [ %505, %511 ], [ %505, %564 ], [ %505, %561 ], [ 0, %492 ], [ %505, %517 ], [ %505, %526 ], [ %505, %531 ], [ %505, %555 ], [ %505, %568 ]
+  %.pre-phi = phi i32 [ %505, %561 ], [ %505, %555 ], [ %505, %517 ], [ 0, %492 ], [ %505, %511 ], [ %505, %564 ], [ %505, %526 ], [ %505, %531 ], [ %505, %568 ]
   %.0..0..0..0.219 = load volatile i32, ptr %6, align 4
   %573 = add i32 %.0..0..0..0.219, %.pre-phi
   store volatile i32 %573, ptr %6, align 4
@@ -3422,8 +3422,8 @@ define internal i32 @dissect_rtp_rfc2198(ptr noundef %0, ptr noundef %1, ptr nou
   br label %.sink.split
 
 .sink.split:                                      ; preds = %62, %58, %53, %73
-  %.sink = phi ptr [ %74, %73 ], [ null, %53 ], [ null, %58 ], [ %63, %62 ]
-  %.0153.ph = phi ptr [ null, %73 ], [ null, %53 ], [ null, %58 ], [ %63, %62 ]
+  %.sink = phi ptr [ %74, %73 ], [ %63, %62 ], [ null, %53 ], [ null, %58 ]
+  %.0153.ph = phi ptr [ null, %73 ], [ %63, %62 ], [ null, %53 ], [ null, %58 ]
   %75 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store ptr %.sink, ptr %75, align 8
   br label %76
@@ -4009,7 +4009,7 @@ define internal zeroext i1 @dissect_rtp_heur(ptr noundef %0, ptr noundef %1, ptr
   br label %111
 
 111:                                              ; preds = %60, %51, %41, %32, %7, %16, %4, %109, %29, %26, %22, %18, %13
-  %.081 = phi i1 [ %21, %18 ], [ %25, %22 ], [ true, %26 ], [ true, %29 ], [ true, %13 ], [ true, %109 ], [ false, %4 ], [ false, %16 ], [ false, %7 ], [ false, %32 ], [ false, %41 ], [ false, %51 ], [ false, %60 ]
+  %.081 = phi i1 [ true, %109 ], [ false, %4 ], [ %21, %18 ], [ %25, %22 ], [ true, %26 ], [ true, %29 ], [ true, %13 ], [ false, %16 ], [ false, %7 ], [ false, %32 ], [ false, %41 ], [ false, %51 ], [ false, %60 ]
   ret i1 %.081
 }
 
@@ -4133,7 +4133,7 @@ define internal fastcc void @dissect_rtp_hext_rfc5285_twobytes(ptr noundef %0, i
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %19, %._crit_edge
-  %.152.lcssa71 = phi i32 [ %16, %19 ], [ %16, %._crit_edge ], [ %.05166, %.preheader ]
+  %.152.lcssa71 = phi i32 [ %16, %._crit_edge ], [ %16, %19 ], [ %.05166, %.preheader ]
   %23 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %3, i32 noundef %.152.lcssa71)
   %24 = add i32 %.152.lcssa71, 1
   %25 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %3, i32 noundef %24)
@@ -4286,8 +4286,8 @@ define internal fastcc void @dissect_rtp_data(ptr noundef %0, ptr noundef %1, pt
   %.not116.not = icmp eq i32 %50, 0
   br i1 %.not116.not, label %.critedge, label %.thread125
 
-.thread125:                                       ; preds = %42, %45, %48
-  %.0128 = phi ptr [ %49, %48 ], [ %39, %45 ], [ %39, %42 ]
+.thread125:                                       ; preds = %45, %42, %48
+  %.0128 = phi ptr [ %49, %48 ], [ %39, %42 ], [ %39, %45 ]
   %51 = load i32, ptr %25, align 4
   %52 = tail call i32 @tvb_reported_length_remaining(ptr noundef %.0128, i32 noundef %51)
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -4365,7 +4365,7 @@ proto_item_set_generated.exit:                    ; preds = %69, %81, %78, %73, 
   tail call void @col_set_str(ptr noundef %92, i32 noundef 25, ptr noundef nonnull @.str.330)
   br label %.critedge
 
-.critedge:                                        ; preds = %40, %36, %proto_item_set_generated.exit, %89, %48
+.critedge:                                        ; preds = %36, %40, %proto_item_set_generated.exit, %89, %48
   store i16 %24, ptr %23, align 8
   store i32 0, ptr %25, align 4
   store i32 0, ptr %26, align 8
@@ -4591,7 +4591,7 @@ rtp_dyn_payload_get_name.exit:                    ; preds = %83
   store i32 %98, ptr %96, align 4
   br label %proto_item_set_hidden.exit
 
-.critedge116:                                     ; preds = %83, %81, %rtp_dyn_payload_get_name.exit, %78, %.critedge114
+.critedge116:                                     ; preds = %81, %83, %rtp_dyn_payload_get_name.exit, %78, %.critedge114
   %99 = load ptr, ptr @rtp_pt_dissector_table, align 8
   %100 = tail call i32 @dissector_try_uint_with_data(ptr noundef %99, i32 noundef %4, ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, ptr noundef %5)
   %.not108 = icmp eq i32 %100, 0

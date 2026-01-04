@@ -666,7 +666,7 @@ if.end18:                                         ; preds = %init.end
   br label %return
 
 return:                                           ; preds = %init.end, %if.end, %entry, %if.end18
-  %retval.0 = phi i1 [ %cmp19, %if.end18 ], [ false, %entry ], [ false, %if.end ], [ false, %init.end ]
+  %retval.0 = phi i1 [ false, %init.end ], [ false, %entry ], [ false, %if.end ], [ %cmp19, %if.end18 ]
   ret i1 %retval.0
 }
 
@@ -766,7 +766,7 @@ _ZN5folly26getTCMallocNumericPropertyEPKcPm.exit5: ; preds = %if.end6
   br label %return
 
 return:                                           ; preds = %init.end, %entry, %_ZN5folly26getTCMallocNumericPropertyEPKcPm.exit5
-  %retval.0 = phi i1 [ %cmp, %_ZN5folly26getTCMallocNumericPropertyEPKcPm.exit5 ], [ false, %entry ], [ false, %init.end ]
+  %retval.0 = phi i1 [ false, %entry ], [ %cmp, %_ZN5folly26getTCMallocNumericPropertyEPKcPm.exit5 ], [ false, %init.end ]
   ret i1 %retval.0
 }
 

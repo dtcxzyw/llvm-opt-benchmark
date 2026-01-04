@@ -1727,7 +1727,7 @@ dissect_PNDCP_Suboption_IP.exit:                  ; preds = %98, %136, %174, %20
   br label %dissect_PNDCP_Suboption_Device.exit
 
 dissect_PNDCP_Suboption_Device.exit:              ; preds = %.lr.ph.i, %280, %337, %388, %419, %422, %439, %466, %485, %504, %547, %548, %552
-  %.2245.i = phi i32 [ %555, %552 ], [ %283, %280 ], [ %340, %337 ], [ %345, %388 ], [ %397, %422 ], [ %397, %419 ], [ %470, %466 ], [ %475, %485 ], [ %494, %504 ], [ %517, %548 ], [ %517, %547 ], [ %.1244.i, %439 ], [ %444, %.lr.ph.i ]
+  %.2245.i = phi i32 [ %555, %552 ], [ %283, %280 ], [ %340, %337 ], [ %345, %388 ], [ %397, %422 ], [ %397, %419 ], [ %517, %547 ], [ %470, %466 ], [ %475, %485 ], [ %494, %504 ], [ %517, %548 ], [ %.1244.i, %439 ], [ %444, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
   call void @llvm.lifetime.end.p0(ptr nonnull %53)

@@ -588,7 +588,7 @@ Map_CanonComputeSlow.exit.sink.split:             ; preds = %65, %._crit_edge, %
   br label %Map_CanonComputeSlow.exit
 
 Map_CanonComputeSlow.exit:                        ; preds = %120, %97, %59, %Map_CanonComputeSlow.exit.sink.split, %108, %83, %8
-  %.0125 = phi i32 [ 0, %8 ], [ %spec.select, %83 ], [ %spec.select139, %108 ], [ 1, %Map_CanonComputeSlow.exit.sink.split ], [ %.4.i, %59 ], [ %spec.select, %97 ], [ %spec.select139, %120 ]
+  %.0125 = phi i32 [ %spec.select139, %108 ], [ %spec.select, %97 ], [ 1, %Map_CanonComputeSlow.exit.sink.split ], [ %spec.select, %83 ], [ %.4.i, %59 ], [ 0, %8 ], [ %spec.select139, %120 ]
   ret i32 %.0125
 }
 

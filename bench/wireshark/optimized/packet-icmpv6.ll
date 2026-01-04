@@ -2287,7 +2287,7 @@ define internal i32 @dissect_icmpv6(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %75
 
 75:                                               ; preds = %72, %69, %66, %63, %60, %57, %54, %51, %48
-  %.0640 = phi ptr [ %50, %48 ], [ %53, %51 ], [ %56, %54 ], [ %59, %57 ], [ %62, %60 ], [ %65, %63 ], [ %68, %66 ], [ %71, %69 ], [ %74, %72 ]
+  %.0640 = phi ptr [ %74, %72 ], [ %50, %48 ], [ %53, %51 ], [ %56, %54 ], [ %59, %57 ], [ %62, %60 ], [ %65, %63 ], [ %68, %66 ], [ %71, %69 ]
   %.not664 = icmp eq ptr %.0640, null
   br i1 %.not664, label %.thread720, label %85
 
@@ -2318,8 +2318,8 @@ define internal i32 @dissect_icmpv6(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %.thread717
 
 .thread717:                                       ; preds = %77, %82, %.thread720, %85
-  %88 = phi ptr [ %87, %85 ], [ %76, %.thread720 ], [ %78, %82 ], [ %78, %77 ]
-  %89 = phi i1 [ false, %85 ], [ false, %.thread720 ], [ true, %82 ], [ %81, %77 ]
+  %88 = phi ptr [ %76, %.thread720 ], [ %87, %85 ], [ %78, %82 ], [ %78, %77 ]
+  %89 = phi i1 [ false, %.thread720 ], [ false, %85 ], [ true, %82 ], [ %81, %77 ]
   %90 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2)
   %91 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %92 = tail call i32 @tvb_reported_length(ptr noundef %0)
@@ -2839,7 +2839,7 @@ proto_item_set_generated.exit58.i:                ; preds = %.critedge55.i, %356
   br label %transaction_end.exit
 
 transaction_end.exit:                             ; preds = %286, %296, %324, %325, %proto_item_set_generated.exit58.i
-  %.043.i = phi ptr [ %.045.i, %proto_item_set_generated.exit58.i ], [ null, %325 ], [ null, %324 ], [ null, %286 ], [ null, %296 ]
+  %.043.i = phi ptr [ null, %324 ], [ null, %286 ], [ %.045.i, %proto_item_set_generated.exit58.i ], [ null, %325 ], [ null, %296 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -4285,7 +4285,7 @@ default.unreachable:                              ; preds = %1275, %994
   br label %1287
 
 1287:                                             ; preds = %1285, %1283, %1279, %1277
-  %.1.i = phi ptr [ %1278, %1277 ], [ %1282, %1279 ], [ %1284, %1283 ], [ %1286, %1285 ]
+  %.1.i = phi ptr [ %1286, %1285 ], [ %1278, %1277 ], [ %1282, %1279 ], [ %1284, %1283 ]
   %1288 = load i32, ptr @hf_icmpv6_mpl_seed_info_seed_id, align 4
   %1289 = call ptr @proto_tree_add_string(ptr noundef %1251, i32 noundef %1288, ptr noundef %0, i32 noundef %1264, i32 noundef %1268, ptr noundef %.1.i)
   %1290 = add i32 %1264, %1268
@@ -4407,7 +4407,7 @@ default.unreachable:                              ; preds = %1275, %994
   br label %dissect_rrenum.exit
 
 dissect_rrenum.exit:                              ; preds = %.lr.ph, %.lr.ph763, %._crit_edge._crit_edge.i, %.lr.ph.i691, %.lr.ph94.i, %748, %714, %.lr.ph767, %1200, %903, %509, %1323, %._crit_edge.i703, %1294, %1271, %1238, %1191, %1172, %1145, %1143, %1122, %1100, %1079, %1032, %1024, %1023, %846, %.critedge.i693, %._crit_edge.i, %.preheader.i694, %.preheader85.i, %797, %793, %782, %778, %777, %761, %655, %.preheader.i, %629, %610, %419, %427, %390, %390, %986, %522, %390, %390, %1362, %1344, %1328, %1221, %980, %939, %931, %922, %915, %896, %841, %599, %592, %555, %537, %532, %dissect_contained_icmpv6.exit688, %dissect_contained_icmpv6.exit686
-  %.6 = phi i32 [ %.0641, %1362 ], [ %449, %dissect_contained_icmpv6.exit686 ], [ %470, %dissect_contained_icmpv6.exit688 ], [ %531, %522 ], [ %536, %532 ], [ %554, %537 ], [ %566, %555 ], [ %598, %592 ], [ %609, %599 ], [ %845, %841 ], [ %902, %896 ], [ %921, %915 ], [ %930, %922 ], [ %938, %931 ], [ %952, %939 ], [ %985, %980 ], [ %992, %986 ], [ %.0641, %390 ], [ %.0641, %390 ], [ %.0641, %390 ], [ %.0641, %390 ], [ %1236, %1221 ], [ %1343, %1328 ], [ %1361, %1344 ], [ %426, %419 ], [ %428, %427 ], [ %626, %610 ], [ %626, %629 ], [ %677, %655 ], [ %626, %.preheader.i ], [ %772, %761 ], [ %805, %.critedge.i693 ], [ %772, %777 ], [ %781, %778 ], [ %792, %782 ], [ %796, %793 ], [ %772, %797 ], [ %.2.lcssa.i, %._crit_edge.i ], [ %772, %.preheader.i694 ], [ %772, %.preheader85.i ], [ %852, %846 ], [ %.0.i699, %1023 ], [ %1031, %1024 ], [ %1058, %1032 ], [ %1080, %1079 ], [ %1101, %1100 ], [ %1123, %1122 ], [ %1144, %1143 ], [ %1162, %1145 ], [ %1181, %1172 ], [ %1199, %1191 ], [ %.0641, %1238 ], [ %1269, %1271 ], [ %.0120153.i, %1294 ], [ %.0120.lcssa.i, %1323 ], [ %.0120.lcssa.i, %._crit_edge.i703 ], [ %517, %509 ], [ %909, %903 ], [ %1210, %1200 ], [ %520, %.lr.ph767 ], [ %726, %714 ], [ %758, %748 ], [ %838, %.lr.ph94.i ], [ %830, %.lr.ph.i691 ], [ %.2.i, %._crit_edge._crit_edge.i ], [ %913, %.lr.ph763 ], [ %1219, %.lr.ph ]
+  %.6 = phi i32 [ %.0641, %1362 ], [ %1361, %1344 ], [ %449, %dissect_contained_icmpv6.exit686 ], [ %470, %dissect_contained_icmpv6.exit688 ], [ %428, %427 ], [ %531, %522 ], [ %536, %532 ], [ %554, %537 ], [ %566, %555 ], [ %598, %592 ], [ %609, %599 ], [ %830, %.lr.ph.i691 ], [ %913, %.lr.ph763 ], [ %845, %841 ], [ %726, %714 ], [ %902, %896 ], [ %838, %.lr.ph94.i ], [ %921, %915 ], [ %930, %922 ], [ %938, %931 ], [ %952, %939 ], [ %985, %980 ], [ %992, %986 ], [ %.0641, %390 ], [ %.0641, %390 ], [ %.0641, %390 ], [ %.0641, %390 ], [ %758, %748 ], [ %.0120.lcssa.i, %._crit_edge.i703 ], [ %1236, %1221 ], [ %1199, %1191 ], [ %1343, %1328 ], [ %426, %419 ], [ %626, %610 ], [ %626, %629 ], [ %.2.i, %._crit_edge._crit_edge.i ], [ %677, %655 ], [ %626, %.preheader.i ], [ %.2.lcssa.i, %._crit_edge.i ], [ %805, %.critedge.i693 ], [ %772, %761 ], [ %772, %777 ], [ %781, %778 ], [ %792, %782 ], [ %796, %793 ], [ %772, %797 ], [ %520, %.lr.ph767 ], [ %772, %.preheader.i694 ], [ %772, %.preheader85.i ], [ %852, %846 ], [ %.0.i699, %1023 ], [ %1031, %1024 ], [ %1058, %1032 ], [ %1080, %1079 ], [ %1101, %1100 ], [ %1123, %1122 ], [ %1144, %1143 ], [ %1162, %1145 ], [ %1181, %1172 ], [ %.0641, %1238 ], [ %1269, %1271 ], [ %.0120153.i, %1294 ], [ %.0120.lcssa.i, %1323 ], [ %517, %509 ], [ %909, %903 ], [ %1210, %1200 ], [ %1219, %.lr.ph ]
   %1366 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %1367 = load ptr, ptr %1366, align 8
   %1368 = getelementptr inbounds nuw i8, ptr %1367, i64 57
@@ -5929,7 +5929,7 @@ proto_item_set_url.exit:                          ; preds = %805, %809, %812
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph1014, %283, %463, %467, %222, %dissect_contained_icmpv6.exit, %852, %850, %proto_item_set_url.exit, %796, %778, %777, %706, %695, %.loopexit997, %649, %634, %612, %593, %588, %._crit_edge, %567, %507, %505, %446, %429, %412, %411, %383, %356, %349, %338, %._crit_edge1010, %273, %265, %254, %246, %211, %proto_item_set_hidden.exit989, %proto_item_set_hidden.exit980
-  %.0951 = phi i32 [ %857, %852 ], [ %132, %proto_item_set_hidden.exit980 ], [ %187, %proto_item_set_hidden.exit989 ], [ %221, %211 ], [ %245, %dissect_contained_icmpv6.exit ], [ %225, %222 ], [ %253, %246 ], [ %264, %254 ], [ %272, %265 ], [ %282, %273 ], [ %337, %._crit_edge1010 ], [ %348, %338 ], [ %355, %349 ], [ %360, %356 ], [ %387, %383 ], [ %.3, %411 ], [ %428, %412 ], [ %445, %429 ], [ %453, %446 ], [ %506, %505 ], [ %525, %507 ], [ %.7, %567 ], [ %.8.lcssa, %._crit_edge ], [ %592, %588 ], [ %611, %593 ], [ %633, %612 ], [ %43, %634 ], [ %43, %649 ], [ %.10, %.loopexit997 ], [ %705, %695 ], [ %730, %706 ], [ %.11, %777 ], [ %795, %778 ], [ %804, %796 ], [ %816, %proto_item_set_url.exit ], [ %851, %850 ], [ %466, %463 ], [ %471, %467 ], [ %286, %283 ], [ %293, %.lr.ph1014 ]
+  %.0951 = phi i32 [ %857, %852 ], [ %132, %proto_item_set_hidden.exit980 ], [ %187, %proto_item_set_hidden.exit989 ], [ %221, %211 ], [ %245, %dissect_contained_icmpv6.exit ], [ %225, %222 ], [ %253, %246 ], [ %264, %254 ], [ %272, %265 ], [ %282, %273 ], [ %471, %467 ], [ %337, %._crit_edge1010 ], [ %348, %338 ], [ %355, %349 ], [ %360, %356 ], [ %387, %383 ], [ %.3, %411 ], [ %428, %412 ], [ %445, %429 ], [ %453, %446 ], [ %851, %850 ], [ %506, %505 ], [ %525, %507 ], [ %.7, %567 ], [ %.8.lcssa, %._crit_edge ], [ %592, %588 ], [ %611, %593 ], [ %633, %612 ], [ %43, %634 ], [ %43, %649 ], [ %.10, %.loopexit997 ], [ %705, %695 ], [ %730, %706 ], [ %.11, %777 ], [ %795, %778 ], [ %804, %796 ], [ %816, %proto_item_set_url.exit ], [ %466, %463 ], [ %286, %283 ], [ %293, %.lr.ph1014 ]
   %858 = add i32 %43, %.09501016
   %859 = icmp sgt i32 %858, %.0951
   br i1 %859, label %860, label %865
@@ -6379,7 +6379,7 @@ define internal fastcc i32 @dissect_icmpv6_rpl_opt(ptr noundef %0, i32 noundef %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %159, %.lr.ph533, %.lr.ph538, %.lr.ph542, %.lr.ph546, %.lr.ph550, %.lr.ph555, %132, %.preheader506, %117, %.preheader503, %.preheader501, %.preheader, %69, %163, %102
-  %.3 = phi i32 [ %68, %163 ], [ %106, %102 ], [ %73, %69 ], [ %68, %.preheader ], [ %68, %.preheader501 ], [ %68, %.preheader503 ], [ %120, %117 ], [ %68, %.preheader506 ], [ %135, %132 ], [ %93, %.lr.ph555 ], [ %99, %.lr.ph550 ], [ %109, %.lr.ph546 ], [ %114, %.lr.ph542 ], [ %125, %.lr.ph538 ], [ %129, %.lr.ph533 ], [ %160, %159 ]
+  %.3 = phi i32 [ %68, %163 ], [ %109, %.lr.ph546 ], [ %114, %.lr.ph542 ], [ %106, %102 ], [ %125, %.lr.ph538 ], [ %129, %.lr.ph533 ], [ %93, %.lr.ph555 ], [ %99, %.lr.ph550 ], [ %73, %69 ], [ %68, %.preheader ], [ %68, %.preheader501 ], [ %68, %.preheader503 ], [ %120, %117 ], [ %68, %.preheader506 ], [ %135, %132 ], [ %160, %159 ]
   %165 = icmp slt i32 %.3, %46
   br i1 %165, label %.lr.ph558, label %.loopexit510, !llvm.loop !36
 
@@ -6822,8 +6822,8 @@ define internal fastcc i32 @dissect_icmpv6_rpl_opt(ptr noundef %0, i32 noundef %
   br label %.loopexit510
 
 .loopexit510:                                     ; preds = %.loopexit, %.preheader509, %276, %292, %425, %._crit_edge524, %345, %334, %298, %275, %203, %202, %48
-  %.0472 = phi i32 [ %429, %425 ], [ %51, %48 ], [ %.10, %202 ], [ %247, %203 ], [ %.11, %275 ], [ %297, %292 ], [ %290, %276 ], [ %311, %298 ], [ %344, %334 ], [ %348, %345 ], [ %.12.lcssa, %._crit_edge524 ], [ %45, %.preheader509 ], [ %.3, %.loopexit ]
-  %.1 = phi ptr [ %.0471.ph560, %425 ], [ %.0471.ph560, %48 ], [ %.0471.ph560, %202 ], [ %.0471.ph560, %203 ], [ %.0471.ph560, %275 ], [ %.0471.ph560, %292 ], [ %.0471.ph560, %276 ], [ %.0471.ph560, %298 ], [ %.0471.ph560, %334 ], [ %.0471.ph560, %345 ], [ %.2, %._crit_edge524 ], [ %.0471.ph560, %.preheader509 ], [ %.0471.ph560, %.loopexit ]
+  %.0472 = phi i32 [ %429, %425 ], [ %51, %48 ], [ %.12.lcssa, %._crit_edge524 ], [ %.10, %202 ], [ %247, %203 ], [ %.11, %275 ], [ %297, %292 ], [ %290, %276 ], [ %311, %298 ], [ %344, %334 ], [ %348, %345 ], [ %45, %.preheader509 ], [ %.3, %.loopexit ]
+  %.1 = phi ptr [ %.0471.ph560, %425 ], [ %.0471.ph560, %48 ], [ %.2, %._crit_edge524 ], [ %.0471.ph560, %202 ], [ %.0471.ph560, %203 ], [ %.0471.ph560, %275 ], [ %.0471.ph560, %292 ], [ %.0471.ph560, %276 ], [ %.0471.ph560, %298 ], [ %.0471.ph560, %334 ], [ %.0471.ph560, %345 ], [ %.0471.ph560, %.preheader509 ], [ %.0471.ph560, %.loopexit ]
   %430 = add i32 %44, %.0470517
   %431 = icmp sgt i32 %430, %.0472
   br i1 %431, label %432, label %.outer
@@ -6842,7 +6842,7 @@ define internal fastcc i32 @dissect_icmpv6_rpl_opt(ptr noundef %0, i32 noundef %
   br i1 %438, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !28
 
 .outer._crit_edge:                                ; preds = %.outer, %36, %5
-  %.0470.lcssa = phi i32 [ %1, %5 ], [ %32, %36 ], [ %430, %.outer ]
+  %.0470.lcssa = phi i32 [ %32, %36 ], [ %1, %5 ], [ %430, %.outer ]
   ret i32 %.0470.lcssa
 }
 

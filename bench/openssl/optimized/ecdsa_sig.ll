@@ -158,7 +158,7 @@ ecdsa_signverify_message_update.exit:             ; preds = %12
   br label %ecdsa_sign_message_final.exit25
 
 ecdsa_sign_message_final.exit25:                  ; preds = %32, %35, %38, %.split10.i
-  %.0.i23 = phi i32 [ 0, %32 ], [ 0, %35 ], [ 0, %38 ], [ %42, %.split10.i ]
+  %.0.i23 = phi i32 [ 0, %35 ], [ 0, %32 ], [ 0, %38 ], [ %42, %.split10.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %ecdsa_sign_message_final.exit
@@ -168,7 +168,7 @@ ecdsa_sign_message_final.exit25:                  ; preds = %32, %35, %38, %.spl
   br label %ecdsa_sign_message_final.exit
 
 ecdsa_sign_message_final.exit:                    ; preds = %26, %21, %17, %14, %ecdsa_signverify_message_update.exit, %43, %ecdsa_sign_message_final.exit25
-  %.0 = phi i32 [ %.0.i23, %ecdsa_sign_message_final.exit25 ], [ %44, %43 ], [ 0, %ecdsa_signverify_message_update.exit ], [ 0, %14 ], [ 0, %17 ], [ 0, %21 ], [ 1, %26 ]
+  %.0 = phi i32 [ 0, %ecdsa_signverify_message_update.exit ], [ %44, %43 ], [ %.0.i23, %ecdsa_sign_message_final.exit25 ], [ 0, %17 ], [ 0, %14 ], [ 1, %26 ], [ 0, %21 ]
   ret i32 %.0
 }
 
@@ -254,7 +254,7 @@ ecdsa_signverify_message_update.exit:             ; preds = %13
   br label %ecdsa_verify_message_final.exit
 
 ecdsa_verify_message_final.exit:                  ; preds = %20, %23, %26, %28, %35, %39
-  %.0.i14 = phi i32 [ 0, %23 ], [ 0, %20 ], [ 0, %26 ], [ %43, %39 ], [ 0, %35 ], [ 0, %28 ]
+  %.0.i14 = phi i32 [ 0, %20 ], [ 0, %26 ], [ 0, %23 ], [ %43, %39 ], [ 0, %35 ], [ 0, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %ecdsa_verify_directly.exit
@@ -281,7 +281,7 @@ ecdsa_verify_message_final.exit:                  ; preds = %20, %23, %26, %28, 
   br label %ecdsa_verify_directly.exit
 
 ecdsa_verify_directly.exit:                       ; preds = %49, %46, %44, %ecdsa_signverify_message_update.exit, %13, %ecdsa_verify_message_final.exit
-  %.0 = phi i32 [ %.0.i14, %ecdsa_verify_message_final.exit ], [ 0, %13 ], [ 0, %ecdsa_signverify_message_update.exit ], [ %54, %49 ], [ 0, %46 ], [ 0, %44 ]
+  %.0 = phi i32 [ 0, %ecdsa_signverify_message_update.exit ], [ 0, %13 ], [ %.0.i14, %ecdsa_verify_message_final.exit ], [ %54, %49 ], [ 0, %46 ], [ 0, %44 ]
   ret i32 %.0
 }
 
@@ -314,7 +314,7 @@ ecdsa_signverify_message_update.exit:             ; preds = %9
   br label %14
 
 14:                                               ; preds = %9, %3, %5, %ecdsa_signverify_message_update.exit
-  %.0 = phi i32 [ %13, %ecdsa_signverify_message_update.exit ], [ 0, %5 ], [ 0, %3 ], [ 0, %9 ]
+  %.0 = phi i32 [ %13, %ecdsa_signverify_message_update.exit ], [ 0, %3 ], [ 0, %5 ], [ 0, %9 ]
   ret i32 %.0
 }
 
@@ -375,7 +375,7 @@ define internal range(i32 0, 2) i32 @ecdsa_digest_sign_final(ptr noundef %0, ptr
   br label %ecdsa_sign_message_final.exit
 
 ecdsa_sign_message_final.exit:                    ; preds = %12, %15, %.split.i, %24, %26, %.split10.i
-  %.0.i = phi i32 [ 0, %12 ], [ 0, %15 ], [ 0, %26 ], [ %30, %.split10.i ], [ 0, %.split.i ], [ 1, %24 ]
+  %.0.i = phi i32 [ 0, %15 ], [ 0, %12 ], [ 0, %26 ], [ %30, %.split10.i ], [ 1, %24 ], [ 0, %.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %31 = load i8, ptr %9, align 4
@@ -477,7 +477,7 @@ define internal i32 @ecdsa_digest_verify_final(ptr noundef %0, ptr noundef %1, i
   br label %ecdsa_verify_message_final.exit
 
 ecdsa_verify_message_final.exit:                  ; preds = %22, %25, %28, %30, %37, %41
-  %.0.i = phi i32 [ 0, %25 ], [ 0, %22 ], [ 0, %28 ], [ %45, %41 ], [ 0, %37 ], [ 0, %30 ]
+  %.0.i = phi i32 [ 0, %22 ], [ 0, %28 ], [ 0, %25 ], [ %45, %41 ], [ 0, %37 ], [ 0, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %46
@@ -490,7 +490,7 @@ ecdsa_verify_message_final.exit:                  ; preds = %22, %25, %28, %30, 
   br label %49
 
 49:                                               ; preds = %15, %3, %11, %46
-  %.011 = phi i32 [ %.0, %46 ], [ 0, %11 ], [ 0, %3 ], [ 0, %15 ]
+  %.011 = phi i32 [ %.0, %46 ], [ 0, %3 ], [ 0, %11 ], [ 0, %15 ]
   ret i32 %.011
 }
 
@@ -633,7 +633,7 @@ define internal ptr @ecdsa_dupctx(ptr noundef readonly captures(none) %0) #0 {
   br label %55
 
 55:                                               ; preds = %37, %40, %3, %1, %43
-  %.0 = phi ptr [ null, %43 ], [ null, %1 ], [ null, %3 ], [ %4, %40 ], [ %4, %37 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %43 ], [ null, %3 ], [ %4, %40 ], [ %4, %37 ]
   ret ptr %.0
 }
 
@@ -710,7 +710,7 @@ define internal range(i32 0, 2) i32 @ecdsa_get_ctx_params(ptr noundef %0, ptr no
   br label %39
 
 39:                                               ; preds = %34, %29, %15, %6, %2, %38
-  %.0 = phi i32 [ 1, %38 ], [ 0, %2 ], [ 0, %6 ], [ 0, %15 ], [ 0, %29 ], [ 0, %34 ]
+  %.0 = phi i32 [ 0, %2 ], [ 1, %38 ], [ 0, %29 ], [ 0, %15 ], [ 0, %6 ], [ 0, %34 ]
   ret i32 %.0
 }
 
@@ -817,7 +817,7 @@ ecdsa_common_set_ctx_params.exit:                 ; preds = %14, %12
   store i64 %.pre, ptr %38, align 8, !tbaa !27
   br label %ossl_param_is_empty.exit.thread
 
-.critedge:                                        ; preds = %22, %18
+.critedge:                                        ; preds = %18, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -825,7 +825,7 @@ ecdsa_common_set_ctx_params.exit:                 ; preds = %14, %12
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %14, %9, %26, %37, %28, %34, %.critedge, %ossl_param_is_empty.exit, %2, %24
-  %.0 = phi i32 [ 0, %24 ], [ 0, %2 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %.critedge ], [ 0, %34 ], [ 0, %28 ], [ 1, %37 ], [ 1, %26 ], [ 1, %9 ], [ 0, %14 ]
+  %.0 = phi i32 [ 0, %24 ], [ 0, %2 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %28 ], [ 0, %.critedge ], [ 1, %9 ], [ 0, %34 ], [ 1, %37 ], [ 1, %26 ], [ 0, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -975,7 +975,7 @@ define internal range(i32 0, 2) i32 @ecdsa_sign_message_final(ptr noundef %0, pt
   br label %ecdsa_sign_directly.exit
 
 ecdsa_sign_directly.exit:                         ; preds = %19, %.split, %.split10, %21, %10, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %10 ], [ 0, %21 ], [ %25, %.split10 ], [ 0, %.split ], [ 1, %19 ]
+  %.0 = phi i32 [ 0, %10 ], [ 0, %4 ], [ 0, %21 ], [ %25, %.split10 ], [ 1, %19 ], [ 0, %.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -1044,7 +1044,7 @@ define internal i32 @ecdsa_verify_message_final(ptr noundef readonly captures(ad
   br label %ecdsa_verify_directly.exit
 
 ecdsa_verify_directly.exit:                       ; preds = %24, %20, %13, %11, %1, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %1 ], [ 0, %11 ], [ %28, %24 ], [ 0, %20 ], [ 0, %13 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %11 ], [ 0, %7 ], [ %28, %24 ], [ 0, %20 ], [ 0, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
@@ -1105,7 +1105,7 @@ ecdsa_common_set_ctx_params.exit:                 ; preds = %9, %7
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %9, %4, %17, %ossl_param_is_empty.exit, %2, %22
-  %.0 = phi i32 [ 1, %22 ], [ 0, %2 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %17 ], [ 1, %4 ], [ 0, %9 ]
+  %.0 = phi i32 [ 1, %4 ], [ 0, %2 ], [ 1, %ossl_param_is_empty.exit ], [ 1, %22 ], [ 0, %17 ], [ 0, %9 ]
   ret i32 %.0
 }
 
@@ -1375,7 +1375,7 @@ define internal fastcc range(i32 0, 2) i32 @ecdsa_signverify_init(ptr noundef %0
   br label %23
 
 23:                                               ; preds = %20, %15, %5, %14
-  %.0 = phi i32 [ 0, %14 ], [ 0, %5 ], [ 0, %15 ], [ %., %20 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %14 ], [ 0, %15 ], [ %., %20 ]
   ret i32 %.0
 }
 
@@ -1461,7 +1461,7 @@ define internal fastcc range(i32 0, 2) i32 @ecdsa_sign_directly(ptr noundef %0, 
   br label %44
 
 44:                                               ; preds = %.sink.split, %39, %17, %15, %6
-  %.029 = phi i32 [ 0, %6 ], [ 0, %15 ], [ 0, %17 ], [ 0, %39 ], [ 1, %.sink.split ]
+  %.029 = phi i32 [ 0, %39 ], [ 0, %6 ], [ 0, %15 ], [ 0, %17 ], [ 1, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.029
 }
@@ -1547,7 +1547,7 @@ define internal fastcc range(i32 0, 2) i32 @ecdsa_digest_signverify_init(ptr nou
   br label %35
 
 35:                                               ; preds = %28, %16, %7, %5, %33
-  %.0 = phi i32 [ 0, %33 ], [ 0, %5 ], [ 0, %7 ], [ 0, %16 ], [ 1, %28 ]
+  %.0 = phi i32 [ 0, %33 ], [ 0, %16 ], [ 0, %7 ], [ 0, %5 ], [ 1, %28 ]
   ret i32 %.0
 }
 
@@ -1715,7 +1715,7 @@ define internal fastcc range(i32 0, 2) i32 @ecdsa_setup_md(ptr noundef %0, ptr n
   br label %68
 
 68:                                               ; preds = %3, %67, %62, %41, %19, %9
-  %.046 = phi i32 [ 0, %9 ], [ 0, %19 ], [ 0, %67 ], [ 1, %62 ], [ 1, %41 ], [ 1, %3 ]
+  %.046 = phi i32 [ 1, %41 ], [ 0, %9 ], [ 0, %19 ], [ 0, %67 ], [ 1, %62 ], [ 1, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.046
 }
@@ -1847,7 +1847,7 @@ define internal fastcc range(i32 0, 2) i32 @ecdsa_sigalg_signverify_init(ptr nou
   br label %29
 
 29:                                               ; preds = %22, %9, %7, %5, %27
-  %.0 = phi i32 [ 0, %27 ], [ 0, %5 ], [ 0, %7 ], [ 0, %9 ], [ 1, %22 ]
+  %.0 = phi i32 [ 0, %27 ], [ 0, %9 ], [ 0, %7 ], [ 0, %5 ], [ 1, %22 ]
   ret i32 %.0
 }
 

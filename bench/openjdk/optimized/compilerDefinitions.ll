@@ -219,22 +219,22 @@ _ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i:     ; preds = %_ZN14CompilerConfig
   %66 = load i8, ptr @UseJVMCICompiler, align 1
   %67 = trunc i8 %66 to i1
   %68 = select i1 %spec.select.i.i.i.i, i1 true, i1 %67
-  br i1 %68, label %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i, label %_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit
+  br i1 %68, label %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i, label %_ZN14CompilerConfig10is_c2_onlyEv.exit.i
+
+_ZN14CompilerConfig10is_c2_onlyEv.exit.i:         ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i
+  br i1 %62, label %.thread, label %70
 
 _ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i
   %69 = xor i1 %62, true
   %or.cond12 = and i1 %69, %67
   br i1 %or.cond12, label %70, label %.thread
 
-_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i
-  br i1 %62, label %.thread, label %70
-
-70:                                               ; preds = %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i, %_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit
+70:                                               ; preds = %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i, %_ZN14CompilerConfig10is_c2_onlyEv.exit.i
   store i32 2, ptr @_ZN19CompilationModeFlag5_modeE, align 4
   br label %.thread
 
-.thread:                                          ; preds = %_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit, %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i, %.thread6, %11, %22, %15, %54, %70, %64, %23
-  %.0 = phi i1 [ false, %23 ], [ true, %64 ], [ true, %70 ], [ true, %54 ], [ true, %15 ], [ true, %22 ], [ true, %11 ], [ true, %.thread6 ], [ true, %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i ], [ true, %_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit ]
+.thread:                                          ; preds = %_ZN14CompilerConfig10is_c2_onlyEv.exit.i, %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i, %.thread6, %11, %22, %15, %54, %70, %64, %23
+  %.0 = phi i1 [ false, %23 ], [ true, %64 ], [ true, %22 ], [ true, %.thread6 ], [ true, %15 ], [ true, %70 ], [ true, %54 ], [ true, %11 ], [ true, %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i ], [ true, %_ZN14CompilerConfig10is_c2_onlyEv.exit.i ]
   ret i1 %.0
 }
 
@@ -307,7 +307,7 @@ define hidden noundef i64 @_ZN14CompilerConfig24scaled_compile_thresholdEl(i64 n
   br label %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit
 
 _ZN14CompilerConfig24scaled_compile_thresholdEld.exit: ; preds = %1, %6, %11
-  %.0.i = phi i64 [ %0, %1 ], [ 9223372036854775807, %6 ], [ %spec.select.i, %11 ]
+  %.0.i = phi i64 [ %spec.select.i, %11 ], [ %0, %1 ], [ 9223372036854775807, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0.i
 }
@@ -336,7 +336,7 @@ define hidden noundef i64 @_ZN14CompilerConfig24scaled_compile_thresholdEld(i64 
   br label %16
 
 16:                                               ; preds = %11, %6, %2
-  %.0 = phi i64 [ %0, %2 ], [ 9223372036854775807, %6 ], [ %spec.select, %11 ]
+  %.0 = phi i64 [ %spec.select, %11 ], [ %0, %2 ], [ 9223372036854775807, %6 ]
   ret i64 %.0
 }
 
@@ -473,7 +473,7 @@ define hidden noundef range(i64 0, 2147483648) i64 @_ZN14CompilerConfig32jvmflag
   br label %_ZN14CompilerConfig24scaled_compile_thresholdEl.exit
 
 _ZN14CompilerConfig24scaled_compile_thresholdEl.exit: ; preds = %1, %6, %11
-  %.0.i.i = phi i64 [ %0, %1 ], [ 9223372036854775807, %6 ], [ %spec.select.i.i, %11 ]
+  %.0.i.i = phi i64 [ %spec.select.i.i, %11 ], [ %0, %1 ], [ 9223372036854775807, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %16 = tail call i64 @llvm.smax.i64(i64 %.0.i.i, i64 0)
   %17 = tail call i64 @llvm.umin.i64(i64 %16, i64 2147483647)
@@ -883,22 +883,22 @@ _ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i38:   ; preds = %98
   %114 = load i8, ptr @UseJVMCICompiler, align 1
   %115 = trunc i8 %114 to i1
   %116 = select i1 %113, i1 true, i1 %115
-  br i1 %116, label %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i43, label %_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit46
+  br i1 %116, label %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i43, label %_ZN14CompilerConfig10is_c2_onlyEv.exit.i40
+
+_ZN14CompilerConfig10is_c2_onlyEv.exit.i40:       ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i38
+  %117 = icmp ne i32 %111, 2
+  %.not6.i41 = and i1 %117, %109
+  br i1 %.not6.i41, label %_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit.thread, label %120
 
 _ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i43: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i38
   %.not.i44 = xor i1 %115, true
-  %117 = icmp ne i32 %111, 2
-  %.not64 = and i1 %117, %109
-  %118 = or i1 %.not64, %.not.i44
-  %or.cond66 = or i1 %118, %113
+  %118 = icmp ne i32 %111, 2
+  %.not64 = and i1 %118, %109
+  %119 = or i1 %.not64, %.not.i44
+  %or.cond66 = or i1 %119, %113
   br i1 %or.cond66, label %_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit.thread, label %120
 
-_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit46: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i38
-  %119 = icmp ne i32 %111, 2
-  %.not6.i41 = and i1 %119, %109
-  br i1 %.not6.i41, label %_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit.thread, label %120
-
-120:                                              ; preds = %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i43, %_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit46
+120:                                              ; preds = %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i43, %_ZN14CompilerConfig10is_c2_onlyEv.exit.i40
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %52, ptr %7, align 8
   %121 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 405, i32 noundef 3, ptr noundef nonnull %7, i32 noundef 5) #10
@@ -922,7 +922,7 @@ _ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit46: ; preds = %_ZN14Comp
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit.thread
 
-_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit.thread: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit, %98, %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i43, %19, %120, %_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit46, %17
+_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit.thread: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit, %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i43, %98, %19, %_ZN14CompilerConfig10is_c2_onlyEv.exit.i40, %120, %17
   %127 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 391) #10
   %.not = xor i1 %127, true
   %128 = load double, ptr @CompileThresholdScaling, align 8
@@ -953,7 +953,7 @@ _ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit.thread: ; preds = %_ZN1
   br label %_ZN14CompilerConfig24scaled_compile_thresholdEl.exit
 
 _ZN14CompilerConfig24scaled_compile_thresholdEl.exit: ; preds = %132, %134, %138
-  %.0.i.i = phi i64 [ %130, %132 ], [ 9223372036854775807, %134 ], [ %spec.select.i.i, %138 ]
+  %.0.i.i = phi i64 [ %spec.select.i.i, %138 ], [ %130, %132 ], [ 9223372036854775807, %134 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %143 = call noundef i32 @_Z30CompileThresholdConstraintFunclb(i64 noundef %.0.i.i, i1 noundef zeroext true) #10
   %.not26 = icmp eq i32 %143, 6
@@ -966,7 +966,7 @@ _ZN14CompilerConfig24scaled_compile_thresholdEl.exit: ; preds = %132, %134, %138
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %_ZL18check_legacy_flagsv.exit.thread
 
-_ZL18check_legacy_flagsv.exit.thread:             ; preds = %_ZN12JVMFlagLimit14get_constraintEPK7JVMFlag.exit12.i, %33, %_ZN14CompilerConfig24scaled_compile_thresholdEl.exit, %144, %_ZL18check_legacy_flagsv.exit, %_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit.thread
+_ZL18check_legacy_flagsv.exit.thread:             ; preds = %33, %_ZN12JVMFlagLimit14get_constraintEPK7JVMFlag.exit12.i, %_ZN14CompilerConfig24scaled_compile_thresholdEl.exit, %144, %_ZL18check_legacy_flagsv.exit, %_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit.thread
   ret void
 }
 
@@ -1321,7 +1321,7 @@ _ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit14: ; preds = %_ZN14CompilerC
   br label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit
 
 _ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit: ; preds = %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit14, %175, %180
-  %.0.i.i.i16 = phi i64 [ %171, %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit14 ], [ 9223372036854775807, %175 ], [ %spec.select.i.i.i, %180 ]
+  %.0.i.i.i16 = phi i64 [ %spec.select.i.i.i, %180 ], [ %171, %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit14 ], [ 9223372036854775807, %175 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %185 = call i64 @llvm.smax.i64(i64 %.0.i.i.i16, i64 0)
   %186 = call noundef range(i64 0, 2147483648) i64 @llvm.umin.i64(i64 %185, i64 2147483647)
@@ -1353,7 +1353,7 @@ _ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit: ; preds = %_ZN14Co
   br label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit20
 
 _ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit20: ; preds = %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit, %192, %197
-  %.0.i.i.i19 = phi i64 [ %188, %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit ], [ 9223372036854775807, %192 ], [ %spec.select.i.i.i18, %197 ]
+  %.0.i.i.i19 = phi i64 [ %spec.select.i.i.i18, %197 ], [ %188, %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit ], [ 9223372036854775807, %192 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %202 = call i64 @llvm.smax.i64(i64 %.0.i.i.i19, i64 0)
   %203 = call noundef range(i64 0, 2147483648) i64 @llvm.umin.i64(i64 %202, i64 2147483647)
@@ -1385,7 +1385,7 @@ _ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit20: ; preds = %_ZN14
   br label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit24
 
 _ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit24: ; preds = %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit20, %209, %214
-  %.0.i.i.i23 = phi i64 [ %205, %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit20 ], [ 9223372036854775807, %209 ], [ %spec.select.i.i.i22, %214 ]
+  %.0.i.i.i23 = phi i64 [ %spec.select.i.i.i22, %214 ], [ %205, %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit20 ], [ 9223372036854775807, %209 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %219 = call i64 @llvm.smax.i64(i64 %.0.i.i.i23, i64 0)
   %220 = call noundef range(i64 0, 2147483648) i64 @llvm.umin.i64(i64 %219, i64 2147483647)
@@ -1417,7 +1417,7 @@ _ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit24: ; preds = %_ZN14
   br label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit28
 
 _ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit28: ; preds = %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit24, %226, %231
-  %.0.i.i.i27 = phi i64 [ %222, %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit24 ], [ 9223372036854775807, %226 ], [ %spec.select.i.i.i26, %231 ]
+  %.0.i.i.i27 = phi i64 [ %spec.select.i.i.i26, %231 ], [ %222, %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit24 ], [ 9223372036854775807, %226 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %236 = call i64 @llvm.smax.i64(i64 %.0.i.i.i27, i64 0)
   %237 = call noundef range(i64 0, 2147483648) i64 @llvm.umin.i64(i64 %236, i64 2147483647)
@@ -1724,7 +1724,7 @@ _ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit63: ; preds = %_ZN14CompilerC
   br label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit67
 
 _ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit67: ; preds = %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit63, %383, %388
-  %.0.i.i.i66 = phi i64 [ %379, %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit63 ], [ 9223372036854775807, %383 ], [ %spec.select.i.i.i65, %388 ]
+  %.0.i.i.i66 = phi i64 [ %spec.select.i.i.i65, %388 ], [ %379, %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit63 ], [ 9223372036854775807, %383 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %393 = call i64 @llvm.smax.i64(i64 %.0.i.i.i66, i64 0)
   %394 = call noundef range(i64 0, 2147483648) i64 @llvm.umin.i64(i64 %393, i64 2147483647)
@@ -1756,7 +1756,7 @@ _ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit67: ; preds = %_ZN14
   br label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit71
 
 _ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit71: ; preds = %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit67, %400, %405
-  %.0.i.i.i70 = phi i64 [ %396, %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit67 ], [ 9223372036854775807, %400 ], [ %spec.select.i.i.i69, %405 ]
+  %.0.i.i.i70 = phi i64 [ %spec.select.i.i.i69, %405 ], [ %396, %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit67 ], [ 9223372036854775807, %400 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %410 = call i64 @llvm.smax.i64(i64 %.0.i.i.i70, i64 0)
   %411 = call noundef range(i64 0, 2147483648) i64 @llvm.umin.i64(i64 %410, i64 2147483647)
@@ -1788,7 +1788,7 @@ _ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit71: ; preds = %_ZN14
   br label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit75
 
 _ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit75: ; preds = %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit71, %417, %422
-  %.0.i.i.i74 = phi i64 [ %413, %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit71 ], [ 9223372036854775807, %417 ], [ %spec.select.i.i.i73, %422 ]
+  %.0.i.i.i74 = phi i64 [ %spec.select.i.i.i73, %422 ], [ %413, %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit71 ], [ 9223372036854775807, %417 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %427 = call i64 @llvm.smax.i64(i64 %.0.i.i.i74, i64 0)
   %428 = call noundef range(i64 0, 2147483648) i64 @llvm.umin.i64(i64 %427, i64 2147483647)
@@ -1820,7 +1820,7 @@ _ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit75: ; preds = %_ZN14
   br label %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit79
 
 _ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit79: ; preds = %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit75, %434, %439
-  %.0.i.i.i78 = phi i64 [ %430, %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit75 ], [ 9223372036854775807, %434 ], [ %spec.select.i.i.i77, %439 ]
+  %.0.i.i.i78 = phi i64 [ %spec.select.i.i.i77, %439 ], [ %430, %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit75 ], [ 9223372036854775807, %434 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %444 = call i64 @llvm.smax.i64(i64 %.0.i.i.i78, i64 0)
   %445 = call noundef range(i64 0, 2147483648) i64 @llvm.umin.i64(i64 %444, i64 2147483647)

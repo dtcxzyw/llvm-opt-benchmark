@@ -1253,8 +1253,8 @@ define hidden range(i32 0, 2) i32 @png_set_text_2(ptr noalias noundef %0, ptr no
   br label %59
 
 59:                                               ; preds = %54, %46, %57
-  %.0129 = phi i64 [ %.1, %57 ], [ 0, %46 ], [ %.1, %54 ]
-  %.0128 = phi i64 [ %58, %57 ], [ 0, %46 ], [ 0, %54 ]
+  %.0129 = phi i64 [ 0, %46 ], [ %.1, %57 ], [ %.1, %54 ]
+  %.0128 = phi i64 [ 0, %46 ], [ %58, %57 ], [ 0, %54 ]
   %60 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
@@ -1275,8 +1275,8 @@ define hidden range(i32 0, 2) i32 @png_set_text_2(ptr noalias noundef %0, ptr no
   br label %69
 
 69:                                               ; preds = %66, %67
-  %.sink = phi i32 [ %43, %67 ], [ %., %66 ]
-  %.0131 = phi i64 [ %68, %67 ], [ 0, %66 ]
+  %.sink = phi i32 [ %., %66 ], [ %43, %67 ]
+  %.0131 = phi i64 [ 0, %66 ], [ %68, %67 ]
   store i32 %.sink, ptr %37, align 8
   %70 = add i64 %47, 4
   %71 = add i64 %70, %.0129
@@ -1356,7 +1356,7 @@ define hidden range(i32 0, 2) i32 @png_set_text_2(ptr noalias noundef %0, ptr no
   br i1 %exitcond.not, label %.loopexit, label %34, !llvm.loop !22
 
 .loopexit.sink.split:                             ; preds = %69, %18, %16
-  %.str.35.sink = phi ptr [ @.str.33, %16 ], [ @.str.33, %18 ], [ @.str.35, %69 ]
+  %.str.35.sink = phi ptr [ @.str.33, %18 ], [ @.str.33, %16 ], [ @.str.35, %69 ]
   tail call void @png_chunk_report(ptr noundef %0, ptr noundef nonnull %.str.35.sink, i32 noundef 1) #12
   br label %.loopexit
 
@@ -1839,7 +1839,7 @@ define hidden void @png_set_unknown_chunk_location(ptr noalias noundef %0, ptr n
   br label %17
 
 17:                                               ; preds = %15, %12
-  %.0 = phi i32 [ %3, %12 ], [ %., %15 ]
+  %.0 = phi i32 [ %., %15 ], [ %3, %12 ]
   %18 = and i32 %.0, 11
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %.preheader.i.preheader
@@ -2106,8 +2106,8 @@ add_one_chunk.exit.us:                            ; preds = %40, %.sink.split.i.
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %33, %._crit_edge, %66, %34
-  %.169.ph = phi ptr [ null, %34 ], [ null, %66 ], [ %.068124126, %._crit_edge ], [ null, %33 ]
-  %.3.ph = phi i32 [ 0, %34 ], [ 0, %66 ], [ %.2, %._crit_edge ], [ 0, %33 ]
+  %.169.ph = phi ptr [ %.068124126, %._crit_edge ], [ null, %34 ], [ null, %66 ], [ null, %33 ]
+  %.3.ph = phi i32 [ %.2, %._crit_edge ], [ 0, %34 ], [ 0, %66 ], [ 0, %33 ]
   %.pr = load ptr, ptr %18, align 8
   br label %67
 

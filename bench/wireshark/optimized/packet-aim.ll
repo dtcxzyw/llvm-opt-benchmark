@@ -3428,7 +3428,7 @@ define internal noundef i32 @dissect_generic_rateinfo(ptr noundef %0, ptr readno
   br i1 %.not10.i, label %aim_get_family.exit, label %40
 
 aim_get_family.exit:                              ; preds = %40, %.lr.ph.i
-  %.2.i = phi ptr [ %42, %.lr.ph.i ], [ null, %40 ]
+  %.2.i = phi ptr [ null, %40 ], [ %42, %.lr.ph.i ]
   br label %.lr.ph34.i
 
 .lr.ph34.i:                                       ; preds = %aim_get_family.exit, %.thread.i
@@ -3887,7 +3887,7 @@ define internal range(i32 10, 13) i32 @dissect_aim_tlv_value_icq(ptr noundef %0,
   br label %37
 
 37:                                               ; preds = %4, %35, %16
-  %.0 = phi i32 [ 11, %16 ], [ 10, %4 ], [ 12, %35 ]
+  %.0 = phi i32 [ 12, %35 ], [ 11, %16 ], [ 10, %4 ]
   ret i32 %.0
 }
 
@@ -4097,7 +4097,7 @@ define internal i32 @dissect_aim_msg_outgoing(ptr noundef %0, ptr noundef %1, pt
   br i1 %29, label %.lr.ph.i31, label %dissect_aim_tlv_sequence.exit, !llvm.loop !8
 
 dissect_aim_tlv_sequence.exit:                    ; preds = %.lr.ph.i31, %.lr.ph.i, %.split, %.split29, %3
-  %.0 = phi i32 [ %19, %3 ], [ %19, %.split29 ], [ %19, %.split ], [ %22, %.lr.ph.i ], [ %27, %.lr.ph.i31 ]
+  %.0 = phi i32 [ %19, %3 ], [ %22, %.lr.ph.i ], [ %19, %.split29 ], [ %19, %.split ], [ %27, %.lr.ph.i31 ]
   ret i32 %.0
 }
 
@@ -4139,7 +4139,7 @@ define internal i32 @dissect_aim_msg_incoming(ptr noundef %0, ptr noundef %1, pt
   br i1 %19, label %.lr.ph.i25, label %dissect_aim_tlv_sequence.exit, !llvm.loop !8
 
 dissect_aim_tlv_sequence.exit:                    ; preds = %.lr.ph.i25, %.lr.ph.i, %.split, %.split23, %3
-  %.0 = phi i32 [ %9, %3 ], [ %9, %.split23 ], [ %9, %.split ], [ %12, %.lr.ph.i ], [ %17, %.lr.ph.i25 ]
+  %.0 = phi i32 [ %9, %3 ], [ %12, %.lr.ph.i ], [ %9, %.split23 ], [ %9, %.split ], [ %17, %.lr.ph.i25 ]
   ret i32 %.0
 }
 

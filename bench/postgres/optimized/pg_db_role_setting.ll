@@ -314,7 +314,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, ptr noundef %1,
   br label %fastgetattr.exit
 
 fastgetattr.exit:                                 ; preds = %58, %57, %52, %50, %45, %42, %39, %36, %10
-  %.0 = phi i64 [ %11, %10 ], [ 0, %57 ], [ %59, %58 ], [ %53, %52 ], [ %38, %36 ], [ %41, %39 ], [ %44, %42 ], [ %46, %45 ], [ %51, %50 ]
+  %.0 = phi i64 [ %11, %10 ], [ %59, %58 ], [ 0, %57 ], [ %53, %52 ], [ %38, %36 ], [ %41, %39 ], [ %44, %42 ], [ %46, %45 ], [ %51, %50 ]
   ret i64 %.0
 }
 

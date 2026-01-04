@@ -1225,9 +1225,9 @@ define internal i32 @virtio_gpu_resource_create_blob_ioctl(ptr noundef readonly 
   br i1 %63, label %92, label %.thread24
 
 .thread24:                                        ; preds = %54, %84, %87
-  %88 = phi ptr [ %62, %87 ], [ %62, %84 ], [ %60, %54 ]
-  %89 = phi i8 [ %64, %87 ], [ %64, %84 ], [ 1, %54 ]
-  %90 = phi i8 [ %66, %87 ], [ %66, %84 ], [ 0, %54 ]
+  %88 = phi ptr [ %62, %84 ], [ %62, %87 ], [ %60, %54 ]
+  %89 = phi i8 [ %64, %84 ], [ %64, %87 ], [ 1, %54 ]
+  %90 = phi i8 [ %66, %84 ], [ %66, %87 ], [ 0, %54 ]
   %91 = call i32 @virtio_gpu_object_create(ptr noundef %8, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef null) #6
   br label %95
 
@@ -1312,7 +1312,7 @@ define internal i32 @virtio_gpu_resource_create_blob_ioctl(ptr noundef readonly 
   br label %.critedge
 
 .critedge:                                        ; preds = %131, %133, %.thread10, %3, %24, %50, %46, %27, %31, %20, %14, %134, %120, %119, %115, %95, %92
-  %135 = phi i32 [ %113, %115 ], [ %117, %119 ], [ -22, %92 ], [ %99, %95 ], [ 0, %120 ], [ 0, %134 ], [ -22, %14 ], [ -22, %20 ], [ -22, %31 ], [ -22, %27 ], [ -22, %46 ], [ -22, %50 ], [ -22, %24 ], [ -22, %3 ], [ %83, %.thread10 ], [ 0, %133 ], [ 0, %131 ]
+  %135 = phi i32 [ %113, %115 ], [ %117, %119 ], [ %83, %.thread10 ], [ 0, %134 ], [ -22, %92 ], [ %99, %95 ], [ 0, %120 ], [ -22, %3 ], [ -22, %14 ], [ -22, %20 ], [ -22, %31 ], [ -22, %27 ], [ -22, %46 ], [ -22, %50 ], [ -22, %24 ], [ 0, %133 ], [ 0, %131 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1525,7 +1525,7 @@ virtio_gpu_create_context_locked.exit:            ; preds = %113, %120
   br label %.loopexit
 
 .loopexit:                                        ; preds = %80, %77, %73, %65, %58, %53, %51, %45, %92, %virtio_gpu_create_context_locked.exit, %105, %30
-  %129 = phi i32 [ 0, %virtio_gpu_create_context_locked.exit ], [ -17, %30 ], [ -22, %105 ], [ -22, %92 ], [ -22, %45 ], [ -22, %77 ], [ -22, %73 ], [ -22, %65 ], [ -22, %58 ], [ -22, %53 ], [ -22, %51 ], [ %83, %80 ]
+  %129 = phi i32 [ 0, %virtio_gpu_create_context_locked.exit ], [ -17, %30 ], [ -22, %105 ], [ -22, %92 ], [ -22, %77 ], [ -22, %73 ], [ -22, %65 ], [ -22, %58 ], [ -22, %53 ], [ -22, %51 ], [ %83, %80 ], [ -22, %45 ]
   tail call void @mutex_unlock(ptr noundef nonnull %31) #6
   tail call void @kfree(ptr noundef %25) #6
   br label %130

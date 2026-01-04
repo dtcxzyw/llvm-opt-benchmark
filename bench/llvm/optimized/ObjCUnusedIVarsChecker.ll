@@ -620,7 +620,7 @@ _ZNK5clang17ObjCInterfaceDecl13getDefinitionEv.exit.i.i.i.i: ; preds = %_ZNK5cla
   br i1 %.not.i.i4.i.i.i.i, label %_ZNK5clang17ObjCInterfaceDecl10ivar_beginEv.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !79
 
 _ZNK5clang17ObjCInterfaceDecl10ivar_beginEv.exit.i.i.i: ; preds = %33, %.lr.ph.i.i.i.i.i.i, %26, %_ZNK5clang17ObjCInterfaceDecl13getDefinitionEv.exit.i.i.i.i, %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i.i.i.i
-  %.sroa.0.1.i.i.i.i = phi ptr [ null, %26 ], [ null, %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i.i.i.i ], [ null, %_ZNK5clang17ObjCInterfaceDecl13getDefinitionEv.exit.i.i.i.i ], [ %36, %33 ], [ %.sroa.0.2.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
+  %.sroa.0.1.i.i.i.i = phi ptr [ null, %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i.i.i.i ], [ null, %26 ], [ null, %_ZNK5clang17ObjCInterfaceDecl13getDefinitionEv.exit.i.i.i.i ], [ %.sroa.0.2.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %36, %33 ]
   %.0.copyload.i.i.i.i.i2.i.i.i = load i64, ptr %16, align 8
   %.not.i.i.i3.i.i.i = icmp eq i64 %.0.copyload.i.i.i.i.i2.i.i.i, 0
   br i1 %.not.i.i.i3.i.i.i, label %37, label %_ZNK5clang17ObjCInterfaceDecl5ivarsEv.exit.i.i
@@ -841,7 +841,7 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_12ObjCIvarDeclEEppEv.exit.i.i:
   br i1 %.not.i9.i15.i7.i.i.i.i.i.i, label %_ZN4llvm17make_second_rangeIRNS_8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S6_EEEEEEDaOT_.exit.i.i, label %.lr.ph.i6.i12.i3.i.i.i.i.i.i, !llvm.loop !101
 
 _ZN4llvm17make_second_rangeIRNS_8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S6_EEEEEEDaOT_.exit.i.i: ; preds = %.critedge2.i8.i14.i6.i.i.i.i.i.i, %.lr.ph.i6.i12.i3.i.i.i.i.i.i, %127, %125
-  %.pn14.i.i.i.i.i.i = phi ptr [ %126, %125 ], [ %121, %127 ], [ %.sroa.0.3.i4.i.i.i.i.i.i, %.lr.ph.i6.i12.i3.i.i.i.i.i.i ], [ %128, %.critedge2.i8.i14.i6.i.i.i.i.i.i ]
+  %.pn14.i.i.i.i.i.i = phi ptr [ %126, %125 ], [ %121, %127 ], [ %128, %.critedge2.i8.i14.i6.i.i.i.i.i.i ], [ %.sroa.0.3.i4.i.i.i.i.i.i, %.lr.ph.i6.i12.i3.i.i.i.i.i.i ]
   %.pn12.i.i.i.i.i.i = phi ptr [ %126, %125 ], [ %128, %127 ], [ %128, %.lr.ph.i6.i12.i3.i.i.i.i.i.i ], [ %128, %.critedge2.i8.i14.i6.i.i.i.i.i.i ]
   %131 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.252", ptr %121, i64 %124
   %.not8294.i.i = icmp eq ptr %.pn14.i.i.i.i.i.i, %131
@@ -1004,7 +1004,7 @@ _ZL4ScanRN4llvm8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS4_
   br i1 %.not.i9.i15.i7.i.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S6_EEEES5_S6_S8_SB_E5beginEv.exit.i.i, label %.lr.ph.i6.i12.i3.i.i.i, !llvm.loop !101
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S6_EEEES5_S6_S8_SB_E5beginEv.exit.i.i: ; preds = %.critedge2.i8.i14.i6.i.i.i, %.lr.ph.i6.i12.i3.i.i.i, %188, %186
-  %.pn14.i.i.i = phi ptr [ %187, %186 ], [ %183, %188 ], [ %189, %.critedge2.i8.i14.i6.i.i.i ], [ %.sroa.0.3.i4.i.i.i, %.lr.ph.i6.i12.i3.i.i.i ]
+  %.pn14.i.i.i = phi ptr [ %187, %186 ], [ %183, %188 ], [ %.sroa.0.3.i4.i.i.i, %.lr.ph.i6.i12.i3.i.i.i ], [ %189, %.critedge2.i8.i14.i6.i.i.i ]
   %.pn12.i.i.i = phi ptr [ %187, %186 ], [ %189, %188 ], [ %189, %.lr.ph.i6.i12.i3.i.i.i ], [ %189, %.critedge2.i8.i14.i6.i.i.i ]
   %192 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.252", ptr %183, i64 %185
   %.not8399.i.i = icmp eq ptr %.pn14.i.i.i, %192
@@ -2441,7 +2441,7 @@ _ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit: ; preds = %_ZNK4llvm11Page
   br label %102
 
 102:                                              ; preds = %50, %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit, %_ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit, %57
-  %.0 = phi i1 [ %60, %57 ], [ %101, %_ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit ], [ false, %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit ], [ true, %50 ]
+  %.0 = phi i1 [ %101, %_ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit ], [ false, %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit ], [ %60, %57 ], [ true, %50 ]
   ret i1 %.0
 }
 

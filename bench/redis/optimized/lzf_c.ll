@@ -358,10 +358,10 @@ define dso_local i64 @lzf_compress(ptr noundef %0, i64 noundef %1, ptr noundef %
   br label %.thread
 
 .thread:                                          ; preds = %186, %220, %214
-  %.4221 = phi ptr [ %223, %220 ], [ %218, %214 ], [ %182, %186 ]
-  %.3214 = phi ptr [ %216, %220 ], [ %216, %214 ], [ %185, %186 ]
-  %.2209 = phi i32 [ %27, %220 ], [ %27, %214 ], [ %208, %186 ]
-  %.3205 = phi i32 [ 0, %220 ], [ %215, %214 ], [ 0, %186 ]
+  %.4221 = phi ptr [ %182, %186 ], [ %218, %214 ], [ %223, %220 ]
+  %.3214 = phi ptr [ %185, %186 ], [ %216, %214 ], [ %216, %220 ]
+  %.2209 = phi i32 [ %208, %186 ], [ %27, %214 ], [ %27, %220 ]
+  %.3205 = phi i32 [ 0, %186 ], [ %215, %214 ], [ 0, %220 ]
   %224 = icmp ult ptr %.3214, %12
   br i1 %224, label %22, label %.thread.thread297
 
@@ -420,7 +420,7 @@ define dso_local i64 @lzf_compress(ptr noundef %0, i64 noundef %1, ptr noundef %
   br label %.thread286
 
 .thread286:                                       ; preds = %53, %213, %.thread.thread297, %4, %._crit_edge
-  %.0197 = phi i64 [ %247, %._crit_edge ], [ 0, %4 ], [ 0, %.thread.thread297 ], [ 0, %213 ], [ 0, %53 ]
+  %.0197 = phi i64 [ 0, %.thread.thread297 ], [ 0, %4 ], [ %247, %._crit_edge ], [ 0, %213 ], [ 0, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.0197
 }

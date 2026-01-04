@@ -461,7 +461,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i23
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit237
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit237: ; preds = %124, %.loopexit, %.loopexit.split-lp, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i235
-  %.pn191 = phi { ptr, i32 } [ %125, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i235 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %125, %124 ]
+  %.pn191 = phi { ptr, i32 } [ %125, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i235 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %125, %124 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %665
 
@@ -2035,7 +2035,7 @@ _ZN13sentencepiece24ScopedResourceDestructorD2Ev.exit: ; preds = %.noexc.i480
   ret i32 0
 
 663:                                              ; preds = %340, %642, %452, %325, %271, %217, %192
-  %.pn184.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn184.pn.pn.pn, %452 ], [ %.pn173.pn.pn.pn.pn.pn, %642 ], [ %193, %192 ], [ %341, %340 ], [ %.pn159.pn.pn, %325 ], [ %.pn155.pn.pn, %271 ], [ %.pn151.pn.pn, %217 ]
+  %.pn184.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn184.pn.pn.pn, %452 ], [ %.pn173.pn.pn.pn.pn.pn, %642 ], [ %193, %192 ], [ %341, %340 ], [ %.pn151.pn.pn, %217 ], [ %.pn159.pn.pn, %325 ], [ %.pn155.pn.pn, %271 ]
   call void @_ZN13sentencepiece14NormalizerSpecD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %9) #21
   br label %664
 

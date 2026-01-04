@@ -496,7 +496,7 @@ define hidden noundef zeroext i1 @atm_is_oam_cell(i16 noundef zeroext %0, i8 nou
   br label %9
 
 9:                                                ; preds = %2, %6
-  %10 = phi i1 [ %8, %6 ], [ true, %2 ]
+  %10 = phi i1 [ true, %2 ], [ %8, %6 ]
   ret i1 %10
 }
 
@@ -1197,7 +1197,7 @@ define internal fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, p
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %83, %82, %75
-  %hf_atm_traffic_vcmx.sink.i = phi ptr [ @hf_atm_traffic_lane, %82 ], [ @hf_atm_traffic_ipsilon, %83 ], [ @hf_atm_traffic_vcmx, %75 ]
+  %hf_atm_traffic_vcmx.sink.i = phi ptr [ @hf_atm_traffic_ipsilon, %83 ], [ @hf_atm_traffic_lane, %82 ], [ @hf_atm_traffic_vcmx, %75 ]
   %84 = load i32, ptr %hf_atm_traffic_vcmx.sink.i, align 4
   %85 = getelementptr inbounds nuw i8, ptr %4, i64 6
   %86 = load i8, ptr %85, align 2
@@ -1366,7 +1366,7 @@ define internal fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, p
   switch i8 %196, label %.thread.i [
     i8 6, label %197
     i8 4, label %203
-    i8 2, label %259
+    i8 2, label %256
   ]
 
 197:                                              ; preds = %195
@@ -1477,66 +1477,66 @@ define internal fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, p
 
 254:                                              ; preds = %249, %243
   %255 = and i8 %217, -16
-  switch i8 %255, label %258 [
+  switch i8 %255, label %282 [
     i8 64, label %.thread201.i
     i8 96, label %.thread201.i
   ]
 
+256:                                              ; preds = %195
+  %257 = load i32, ptr @hf_atm_cid, align 4
+  %258 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %259 = load i8, ptr %258, align 4
+  %260 = zext i8 %259 to i32
+  %261 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %257, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %260)
+  %262 = load i16, ptr %186, align 4
+  %263 = zext i16 %262 to i32
+  %264 = load i16, ptr %190, align 2
+  %265 = zext i16 %264 to i32
+  %266 = load i8, ptr %258, align 4
+  %267 = zext i8 %266 to i32
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.050, ptr noundef nonnull @.str.344, i32 noundef %263, i32 noundef %265, i32 noundef %267)
+  %268 = load i32, ptr %4, align 4
+  %269 = and i32 %268, 8
+  %.not188.i = icmp eq i32 %269, 0
+  br i1 %.not188.i, label %270, label %.thread.i
+
+270:                                              ; preds = %256
+  %271 = and i32 %268, 4
+  %.not189.i = icmp eq i32 %271, 0
+  br i1 %.not189.i, label %272, label %274
+
+272:                                              ; preds = %270
+  %273 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 4)
+  br label %274
+
+274:                                              ; preds = %272, %270
+  %.3.i = phi ptr [ %273, %272 ], [ %0, %270 ]
+  %275 = load ptr, ptr @atm_type_aal2_table, align 8
+  %276 = getelementptr inbounds nuw i8, ptr %4, i64 5
+  %277 = load i8, ptr %276, align 1
+  %278 = zext i8 %277 to i32
+  %279 = tail call i32 @dissector_try_uint(ptr noundef %275, i32 noundef %278, ptr noundef %.3.i, ptr noundef %1, ptr noundef %2)
+  %.not190.not.i = icmp eq i32 %279, 0
+  br i1 %.not190.not.i, label %.thread.i, label %dissect_reassembled_pdu.exit
+
 .thread201.i:                                     ; preds = %254, %254, %249, %246, %246, %238, %235, %235, %230, %225, %215
-  %llc_handle.sink.i = phi ptr [ @eth_maybefcs_handle, %230 ], [ @llc_handle, %215 ], [ @ppp_handle, %225 ], [ @fr_handle, %235 ], [ @fr_handle, %235 ], [ @fr_handle, %238 ], [ @fr_handle, %246 ], [ @fr_handle, %246 ], [ @fr_handle, %249 ], [ @ip_handle, %254 ], [ @ip_handle, %254 ]
-  %.0.sink.i = phi ptr [ %233, %230 ], [ %.0.i, %215 ], [ %.0.i, %225 ], [ %.0.i, %235 ], [ %.0.i, %235 ], [ %.0.i, %238 ], [ %.0.i, %246 ], [ %.0.i, %246 ], [ %.0.i, %249 ], [ %.0.i, %254 ], [ %.0.i, %254 ]
-  %256 = load ptr, ptr %llc_handle.sink.i, align 8
-  %257 = call i32 @call_dissector(ptr noundef %256, ptr noundef %.0.sink.i, ptr noundef %1, ptr noundef %2)
+  %llc_handle.sink.i = phi ptr [ @fr_handle, %249 ], [ @llc_handle, %215 ], [ @eth_maybefcs_handle, %230 ], [ @ppp_handle, %225 ], [ @fr_handle, %238 ], [ @fr_handle, %235 ], [ @fr_handle, %235 ], [ @fr_handle, %246 ], [ @fr_handle, %246 ], [ @ip_handle, %254 ], [ @ip_handle, %254 ]
+  %.0.sink.i = phi ptr [ %.0.i, %249 ], [ %.0.i, %215 ], [ %233, %230 ], [ %.0.i, %225 ], [ %.0.i, %238 ], [ %.0.i, %235 ], [ %.0.i, %235 ], [ %.0.i, %246 ], [ %.0.i, %246 ], [ %.0.i, %254 ], [ %.0.i, %254 ]
+  %280 = load ptr, ptr %llc_handle.sink.i, align 8
+  %281 = call i32 @call_dissector(ptr noundef %280, ptr noundef %.0.sink.i, ptr noundef %1, ptr noundef %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %dissect_reassembled_pdu.exit
 
-258:                                              ; preds = %254
+282:                                              ; preds = %254
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread.i
 
-259:                                              ; preds = %195
-  %260 = load i32, ptr @hf_atm_cid, align 4
-  %261 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %262 = load i8, ptr %261, align 4
-  %263 = zext i8 %262 to i32
-  %264 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %260, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %263)
-  %265 = load i16, ptr %186, align 4
-  %266 = zext i16 %265 to i32
-  %267 = load i16, ptr %190, align 2
-  %268 = zext i16 %267 to i32
-  %269 = load i8, ptr %261, align 4
-  %270 = zext i8 %269 to i32
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.050, ptr noundef nonnull @.str.344, i32 noundef %266, i32 noundef %268, i32 noundef %270)
-  %271 = load i32, ptr %4, align 4
-  %272 = and i32 %271, 8
-  %.not188.i = icmp eq i32 %272, 0
-  br i1 %.not188.i, label %273, label %.thread.i
-
-273:                                              ; preds = %259
-  %274 = and i32 %271, 4
-  %.not189.i = icmp eq i32 %274, 0
-  br i1 %.not189.i, label %275, label %277
-
-275:                                              ; preds = %273
-  %276 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 4)
-  br label %277
-
-277:                                              ; preds = %275, %273
-  %.3.i = phi ptr [ %276, %275 ], [ %0, %273 ]
-  %278 = load ptr, ptr @atm_type_aal2_table, align 8
-  %279 = getelementptr inbounds nuw i8, ptr %4, i64 5
-  %280 = load i8, ptr %279, align 1
-  %281 = zext i8 %280 to i32
-  %282 = tail call i32 @dissector_try_uint(ptr noundef %278, i32 noundef %281, ptr noundef %.3.i, ptr noundef %1, ptr noundef %2)
-  %.not190.not.i = icmp eq i32 %282, 0
-  br i1 %.not190.not.i, label %.thread.i, label %dissect_reassembled_pdu.exit
-
-.thread.i:                                        ; preds = %277, %259, %258, %212, %203, %197, %195
-  %.1199.i = phi ptr [ %.3.i, %277 ], [ %.0.i, %258 ], [ %.0.i, %195 ], [ %.0.i, %197 ], [ %.0.i, %203 ], [ %.0.i, %212 ], [ %.0.i, %259 ]
+.thread.i:                                        ; preds = %282, %274, %256, %212, %203, %197, %195
+  %.1199.i = phi ptr [ %.3.i, %274 ], [ %.0.i, %282 ], [ %.0.i, %195 ], [ %.0.i, %197 ], [ %.0.i, %256 ], [ %.0.i, %203 ], [ %.0.i, %212 ]
   %283 = call i32 @call_data_dissector(ptr noundef %.1199.i, ptr noundef %1, ptr noundef %2)
   br label %dissect_reassembled_pdu.exit
 
-dissect_reassembled_pdu.exit:                     ; preds = %.thread.i, %277, %.thread201.i, %206, %200, %184, %65
+dissect_reassembled_pdu.exit:                     ; preds = %.thread.i, %.thread201.i, %274, %206, %200, %184, %65
   %284 = call i32 @tvb_reported_length(ptr noundef %0)
   ret i32 %284
 }
@@ -1658,7 +1658,7 @@ get_header_err.exit:                              ; preds = %44
   br label %63
 
 63:                                               ; preds = %7, %60, %62, %61
-  %.072 = phi i32 [ 5, %61 ], [ 5, %62 ], [ 5, %60 ], [ 4, %7 ]
+  %.072 = phi i32 [ 5, %60 ], [ 5, %61 ], [ 5, %62 ], [ 4, %7 ]
   %trunc = trunc nuw i32 %4 to i8
   switch i8 %trunc, label %atm_is_oam_cell.exit.thread [
     i8 5, label %64

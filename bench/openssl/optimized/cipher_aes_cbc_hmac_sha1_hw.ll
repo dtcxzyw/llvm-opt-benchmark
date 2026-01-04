@@ -105,8 +105,8 @@ define internal range(i32 0, 2) i32 @aesni_cbc_hmac_sha1_cipher(ptr noundef %0, 
   br label %27
 
 27:                                               ; preds = %23, %18
-  %.0345 = phi i64 [ 0, %18 ], [ %spec.select, %23 ]
-  %.0343 = phi i64 [ %3, %18 ], [ %7, %23 ]
+  %.0345 = phi i64 [ %spec.select, %23 ], [ 0, %18 ]
+  %.0343 = phi i64 [ %7, %23 ], [ %3, %18 ]
   %28 = add nuw nsw i64 %.0345, %12
   %29 = icmp ugt i64 %.0343, %28
   br i1 %29, label %30, label %79
@@ -884,7 +884,7 @@ sha1_update.exit439:                              ; preds = %427
   br label %483
 
 483:                                              ; preds = %140, %._crit_edge, %sha1_update.exit439.thread, %sha1_update.exit439, %sha1_update.exit439.thread457, %20, %4
-  %.0 = phi i32 [ %482, %sha1_update.exit439 ], [ 0, %4 ], [ 0, %20 ], [ 0, %sha1_update.exit439.thread457 ], [ 1, %sha1_update.exit439.thread ], [ 1, %._crit_edge ], [ 1, %140 ]
+  %.0 = phi i32 [ %482, %sha1_update.exit439 ], [ 0, %sha1_update.exit439.thread457 ], [ 0, %4 ], [ 0, %20 ], [ 1, %sha1_update.exit439.thread ], [ 1, %._crit_edge ], [ 1, %140 ]
   ret i32 %.0
 }
 
@@ -1195,7 +1195,7 @@ sha1_update.exit:                                 ; preds = %41, %.thread45
   br label %57
 
 57:                                               ; preds = %.sink.split, %29, %3
-  %.038 = phi i32 [ -1, %3 ], [ 0, %29 ], [ 1, %.sink.split ]
+  %.038 = phi i32 [ 0, %29 ], [ -1, %3 ], [ 1, %.sink.split ]
   ret i32 %.038
 }
 
@@ -1285,8 +1285,8 @@ define internal range(i32 -1, 2) i32 @aesni_cbc_hmac_sha1_tls1_multiblock_aad(pt
   br label %45
 
 45:                                               ; preds = %34, %32, %41
-  %.050 = phi i32 [ 1, %32 ], [ %38, %41 ], [ %spec.select, %34 ]
-  %.0 = phi i32 [ %12, %32 ], [ %44, %41 ], [ %12, %34 ]
+  %.050 = phi i32 [ %38, %41 ], [ %spec.select, %34 ], [ 1, %32 ]
+  %.0 = phi i32 [ %44, %41 ], [ %12, %34 ], [ %12, %32 ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 504
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %46, ptr noundef nonnull align 8 dereferenceable(96) %47, i64 96, i1 false), !tbaa.struct !7
@@ -1352,7 +1352,7 @@ sha1_update.exit:                                 ; preds = %51, %.thread62
   br label %84
 
 84:                                               ; preds = %2, %37, %30, %19, %74
-  %.047 = phi i32 [ 1, %74 ], [ -1, %19 ], [ 0, %30 ], [ -1, %37 ], [ -1, %2 ]
+  %.047 = phi i32 [ -1, %37 ], [ -1, %19 ], [ 1, %74 ], [ 0, %30 ], [ -1, %2 ]
   ret i32 %.047
 }
 

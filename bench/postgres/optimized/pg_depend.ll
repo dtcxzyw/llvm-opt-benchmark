@@ -478,7 +478,7 @@ define dso_local i64 @deleteDependencyRecordsFor(i32 noundef %0, i32 noundef %1,
   br i1 %.not, label %.split.us, label %.split14, !llvm.loop !9
 
 .split.us:                                        ; preds = %.split14, %10, %.split16
-  %.us-phi = phi i64 [ 0, %.split16 ], [ %.0.ph.us, %10 ], [ %26, %.split14 ]
+  %.us-phi = phi i64 [ %.0.ph.us, %10 ], [ 0, %.split16 ], [ %26, %.split14 ]
   call void @systable_endscan(ptr noundef %9) #6
   call void @table_close(ptr noundef %5, i32 noundef 3) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -737,7 +737,7 @@ define dso_local i64 @changeDependencyFor(i32 noundef %0, i32 noundef %1, i32 no
   br label %67
 
 67:                                               ; preds = %13, %._crit_edge, %14
-  %.0 = phi i64 [ 1, %14 ], [ %.031.lcssa, %._crit_edge ], [ 1, %13 ]
+  %.0 = phi i64 [ %.031.lcssa, %._crit_edge ], [ 1, %14 ], [ 1, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1063,7 +1063,7 @@ define internal fastcc ptr @getOwnedSequences_internal(i32 noundef %0, i16 nound
   br label %41
 
 41:                                               ; preds = %38, %33, %30, %27, %23, %.lr.ph.split.us
-  %.1.us = phi ptr [ %40, %38 ], [ %.029.us, %33 ], [ %.029.us, %27 ], [ %.029.us, %23 ], [ %.029.us, %.lr.ph.split.us ], [ %.029.us, %30 ]
+  %.1.us = phi ptr [ %40, %38 ], [ %.029.us, %.lr.ph.split.us ], [ %.029.us, %33 ], [ %.029.us, %30 ], [ %.029.us, %27 ], [ %.029.us, %23 ]
   %42 = call ptr @systable_getnext(ptr noundef %13) #6
   %.not25.us = icmp eq ptr %42, null
   br i1 %.not25.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !16
@@ -1119,7 +1119,7 @@ define internal fastcc ptr @getOwnedSequences_internal(i32 noundef %0, i16 nound
   br label %72
 
 72:                                               ; preds = %58, %66, %69, %61, %55, %51, %.lr.ph.split
-  %.1 = phi ptr [ %71, %69 ], [ %.029, %66 ], [ %.029, %61 ], [ %.029, %55 ], [ %.029, %51 ], [ %.029, %.lr.ph.split ], [ %.029, %58 ]
+  %.1 = phi ptr [ %71, %69 ], [ %.029, %66 ], [ %.029, %61 ], [ %.029, %58 ], [ %.029, %55 ], [ %.029, %51 ], [ %.029, %.lr.ph.split ]
   %73 = call ptr @systable_getnext(ptr noundef %13) #6
   %.not25 = icmp eq ptr %73, null
   br i1 %.not25, label %._crit_edge, label %.lr.ph.split, !llvm.loop !16

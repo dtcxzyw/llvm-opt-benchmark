@@ -442,7 +442,7 @@ define hidden noundef ptr @_ZN4Type14get_const_typeEP6ciTypeNS_17InterfaceHandli
   br label %14
 
 14:                                               ; preds = %2, %12, %8
-  %.0 = phi ptr [ %11, %8 ], [ %13, %12 ], [ null, %2 ]
+  %.0 = phi ptr [ %13, %12 ], [ %11, %8 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -484,7 +484,7 @@ define hidden noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noun
   br label %24
 
 24:                                               ; preds = %1, %21, %18, %15, %12, %9
-  %.0 = phi i8 [ 10, %9 ], [ 5, %12 ], [ 8, %15 ], [ 4, %18 ], [ %., %21 ], [ %7, %1 ]
+  %.0 = phi i8 [ 4, %18 ], [ 10, %9 ], [ 5, %12 ], [ 8, %15 ], [ %., %21 ], [ %7, %1 ]
   ret i8 %.0
 }
 
@@ -803,7 +803,7 @@ _ZN10TypeRawPtr4makeEPh.exit:                     ; preds = %35, %37
   br label %_ZN4Type14get_const_typeEP6ciTypeNS_17InterfaceHandlingE.exit
 
 _ZN4Type14get_const_typeEP6ciTypeNS_17InterfaceHandlingE.exit: ; preds = %54, %50, %_ZN10TypeRawPtr4makeEPh.exit, %12, %10, %8, %6, %4
-  %.0 = phi ptr [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %47, %_ZN10TypeRawPtr4makeEPh.exit ], [ %53, %50 ], [ %55, %54 ]
+  %.0 = phi ptr [ %47, %_ZN10TypeRawPtr4makeEPh.exit ], [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %55, %54 ], [ %53, %50 ]
   ret ptr %.0
 }
 
@@ -1367,7 +1367,7 @@ _ZNK4Type14make_narrowoopEv.exit.sink.split:      ; preds = %_ZN7TypeInt4makeEi.
   br label %_ZNK4Type14make_narrowoopEv.exit
 
 _ZNK4Type14make_narrowoopEv.exit:                 ; preds = %_ZNK4Type14make_narrowoopEv.exit.sink.split, %260, %256, %6, %255
-  %.0 = phi ptr [ %.014, %255 ], [ null, %6 ], [ null, %260 ], [ %.014, %256 ], [ %287, %_ZNK4Type14make_narrowoopEv.exit.sink.split ]
+  %.0 = phi ptr [ null, %6 ], [ null, %260 ], [ %.014, %256 ], [ %.014, %255 ], [ %287, %_ZNK4Type14make_narrowoopEv.exit.sink.split ]
   ret ptr %.0
 }
 
@@ -1750,7 +1750,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread.i:       ; preds = %_ZNK10ciMetadata9is
   br label %108
 
 108:                                              ; preds = %101, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i, %_ZNK10ciMetadata9is_loadedEv.exit.i
-  %.0.i = phi ptr [ %8, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i ], [ %8, %_ZNK10ciMetadata9is_loadedEv.exit.i ], [ %spec.select.i, %101 ]
+  %.0.i = phi ptr [ %8, %_ZNK10ciMetadata9is_loadedEv.exit.i ], [ %spec.select.i, %101 ], [ %8, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i ]
   %109 = load ptr, ptr %62, align 8
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 1808
   %111 = load ptr, ptr %110, align 8
@@ -1815,7 +1815,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread.i31:     ; preds = %_ZNK10ciMetadata9is
   br label %146
 
 146:                                              ; preds = %139, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i31, %_ZNK10ciMetadata9is_loadedEv.exit.i36
-  %.0.i32 = phi ptr [ %8, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i31 ], [ %8, %_ZNK10ciMetadata9is_loadedEv.exit.i36 ], [ %spec.select.i35, %139 ]
+  %.0.i32 = phi ptr [ %8, %_ZNK10ciMetadata9is_loadedEv.exit.i36 ], [ %spec.select.i35, %139 ], [ %8, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i31 ]
   %147 = load ptr, ptr %62, align 8
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 1808
   %149 = load ptr, ptr %148, align 8
@@ -1948,7 +1948,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread.i43:     ; preds = %_ZNK10ciMetadata9is
   br label %229
 
 229:                                              ; preds = %222, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i43, %_ZNK10ciMetadata9is_loadedEv.exit.i48
-  %.0.i44 = phi ptr [ %8, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i43 ], [ %8, %_ZNK10ciMetadata9is_loadedEv.exit.i48 ], [ %spec.select.i47, %222 ]
+  %.0.i44 = phi ptr [ %8, %_ZNK10ciMetadata9is_loadedEv.exit.i48 ], [ %spec.select.i47, %222 ], [ %8, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i43 ]
   %230 = load ptr, ptr %183, align 8
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 1808
   %232 = load ptr, ptr %231, align 8
@@ -2013,7 +2013,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread.i52:     ; preds = %_ZNK10ciMetadata9is
   br label %267
 
 267:                                              ; preds = %260, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i52, %_ZNK10ciMetadata9is_loadedEv.exit.i57
-  %.0.i53 = phi ptr [ %8, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i52 ], [ %8, %_ZNK10ciMetadata9is_loadedEv.exit.i57 ], [ %spec.select.i56, %260 ]
+  %.0.i53 = phi ptr [ %8, %_ZNK10ciMetadata9is_loadedEv.exit.i57 ], [ %spec.select.i56, %260 ], [ %8, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i52 ]
   %268 = load ptr, ptr %183, align 8
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 1808
   %270 = load ptr, ptr %269, align 8
@@ -2250,7 +2250,7 @@ define hidden noundef ptr @_ZN4Type32make_constant_from_array_elementEP7ciArrayi
   br label %13
 
 13:                                               ; preds = %5, %12, %11
-  %.0.i = phi i8 [ 8, %11 ], [ 12, %12 ], [ %9, %5 ]
+  %.0.i = phi i8 [ %9, %5 ], [ 8, %11 ], [ 12, %12 ]
   switch i8 %3, label %16 [
     i8 4, label %14
     i8 16, label %15
@@ -2396,7 +2396,7 @@ define hidden noundef ptr @_ZN4Type24make_constant_from_fieldEP7ciFieldP10ciInst
   br label %18
 
 18:                                               ; preds = %15, %17, %16
-  %.0.i = phi i8 [ 8, %16 ], [ 12, %17 ], [ %.sroa.037.0, %15 ]
+  %.0.i = phi i8 [ %.sroa.037.0, %15 ], [ 8, %16 ], [ 12, %17 ]
   switch i8 %2, label %21 [
     i8 4, label %19
     i8 16, label %20
@@ -2433,8 +2433,8 @@ define hidden noundef ptr @_ZN4Type24make_constant_from_fieldEP7ciFieldP10ciInst
   br label %_ZL23check_mismatched_access10ciConstant9BasicTypeb.exit
 
 _ZL23check_mismatched_access10ciConstant9BasicTypeb.exit: ; preds = %23, %26
-  %.sroa.019.0.i = phi i8 [ %spec.select.i, %26 ], [ %spec.select21.i, %23 ]
-  %.sroa.11.0.i = phi i64 [ %spec.select20.i, %26 ], [ %spec.select22.i, %23 ]
+  %.sroa.019.0.i = phi i8 [ %spec.select21.i, %23 ], [ %spec.select.i, %26 ]
+  %.sroa.11.0.i = phi i64 [ %spec.select22.i, %23 ], [ %spec.select20.i, %26 ]
   %30 = load i8, ptr @FoldStableValues, align 1
   %31 = trunc i8 %30 to i1
   br i1 %31, label %32, label %.critedge
@@ -2510,7 +2510,7 @@ _ZN7ciField4typeEv.exit36:                        ; preds = %45, %48
   br label %.thread
 
 .thread:                                          ; preds = %15, %12, %.critedge, %57, %61, %59, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %15 ], [ %56, %59 ], [ %56, %61 ], [ %56, %57 ], [ null, %.critedge ], [ null, %12 ]
+  %.0 = phi ptr [ null, %15 ], [ null, %4 ], [ %56, %59 ], [ %56, %61 ], [ %56, %57 ], [ null, %.critedge ], [ null, %12 ]
   ret ptr %.0
 }
 
@@ -2670,7 +2670,7 @@ _ZN4Type6equalsEPKS_S1_.exit.thread:              ; preds = %28, %_ZN4Type6equal
   br label %_ZN4TypedlEPv.exit
 
 _ZN4TypedlEPv.exit:                               ; preds = %27, %13, %41, %_ZN4TypedlEPv.exit11, %11, %_ZN4Type6equalsEPKS_S1_.exit.thread
-  %.0 = phi ptr [ %0, %_ZN4Type6equalsEPKS_S1_.exit.thread ], [ %10, %11 ], [ %0, %_ZN4TypedlEPv.exit11 ], [ %0, %41 ], [ %10, %13 ], [ %10, %27 ]
+  %.0 = phi ptr [ %0, %_ZN4Type6equalsEPKS_S1_.exit.thread ], [ %10, %11 ], [ %0, %41 ], [ %0, %_ZN4TypedlEPv.exit11 ], [ %10, %13 ], [ %10, %27 ]
   ret ptr %.0
 }
 
@@ -5657,7 +5657,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread.i:       ; preds = %_ZNK10ciMetadata9is
   br label %1698
 
 1698:                                             ; preds = %.thread.i, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i, %_ZNK10ciMetadata9is_loadedEv.exit.i
-  %.0.shrunk.i = phi i1 [ false, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i ], [ false, %_ZNK10ciMetadata9is_loadedEv.exit.i ], [ %not..i, %.thread.i ]
+  %.0.shrunk.i = phi i1 [ false, %_ZNK10ciMetadata9is_loadedEv.exit.i ], [ false, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i ], [ %not..i, %.thread.i ]
   %1699 = load ptr, ptr %12, align 8
   %1700 = getelementptr inbounds nuw i8, ptr %1699, i64 1808
   %1701 = load ptr, ptr %1700, align 8
@@ -5728,7 +5728,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread.i321:    ; preds = %_ZNK10ciMetadata9is
   br label %1735
 
 1735:                                             ; preds = %.thread.i324, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i321, %_ZNK10ciMetadata9is_loadedEv.exit.i329
-  %.0.shrunk.i326 = phi i1 [ false, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i321 ], [ false, %_ZNK10ciMetadata9is_loadedEv.exit.i329 ], [ %not..i325, %.thread.i324 ]
+  %.0.shrunk.i326 = phi i1 [ false, %_ZNK10ciMetadata9is_loadedEv.exit.i329 ], [ false, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i321 ], [ %not..i325, %.thread.i324 ]
   %1736 = load ptr, ptr %12, align 8
   %1737 = getelementptr inbounds nuw i8, ptr %1736, i64 1808
   %1738 = load ptr, ptr %1737, align 8
@@ -7335,7 +7335,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread.i:       ; preds = %_ZNK10ciMetadata9is
   br label %21
 
 21:                                               ; preds = %.thread.i, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i, %_ZNK10ciMetadata9is_loadedEv.exit.i, %3
-  %.0.shrunk.i = phi i1 [ false, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i ], [ false, %_ZNK10ciMetadata9is_loadedEv.exit.i ], [ true, %3 ], [ %not..i, %.thread.i ]
+  %.0.shrunk.i = phi i1 [ false, %_ZNK10ciMetadata9is_loadedEv.exit.i ], [ true, %3 ], [ %not..i, %.thread.i ], [ false, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i ]
   %22 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 1808
@@ -7708,7 +7708,7 @@ _ZN4TypenwEm.exit7:                               ; preds = %43, %45
   br label %48
 
 48:                                               ; preds = %_ZN4TypenwEm.exit7, %_ZN4TypenwEm.exit
-  %49 = phi ptr [ %.0.i.i.i, %_ZN4TypenwEm.exit ], [ %.0.i.i.i6, %_ZN4TypenwEm.exit7 ]
+  %49 = phi ptr [ %.0.i.i.i6, %_ZN4TypenwEm.exit7 ], [ %.0.i.i.i, %_ZN4TypenwEm.exit ]
   %50 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %49)
   ret ptr %50
 }
@@ -7757,7 +7757,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %12, %_ZNK10ciMetada
   br label %30
 
 30:                                               ; preds = %23, %_ZNK10ciMetadata9is_loadedEv.exit.thread, %_ZNK10ciMetadata9is_loadedEv.exit, %11
-  %.0 = phi ptr [ %2, %_ZNK10ciMetadata9is_loadedEv.exit.thread ], [ %2, %_ZNK10ciMetadata9is_loadedEv.exit ], [ null, %11 ], [ %spec.select, %23 ]
+  %.0 = phi ptr [ null, %11 ], [ %spec.select, %23 ], [ %2, %_ZNK10ciMetadata9is_loadedEv.exit.thread ], [ %2, %_ZNK10ciMetadata9is_loadedEv.exit ]
   %31 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 1808
@@ -7856,7 +7856,7 @@ _ZN13TypeNarrowOop4makeEPK7TypePtr.exit.i:        ; preds = %29, %27
   br label %_ZNK4Type14make_narrowoopEv.exit
 
 _ZNK4Type14make_narrowoopEv.exit:                 ; preds = %_ZN13TypeNarrowOop4makeEPK7TypePtr.exit.i, %6, %3
-  %.0 = phi ptr [ %0, %6 ], [ %0, %3 ], [ %35, %_ZN13TypeNarrowOop4makeEPK7TypePtr.exit.i ]
+  %.0 = phi ptr [ %0, %3 ], [ %0, %6 ], [ %35, %_ZN13TypeNarrowOop4makeEPK7TypePtr.exit.i ]
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %37 = load i16, ptr %36, align 4
   %.not.i = icmp eq i16 %37, 0
@@ -8192,7 +8192,7 @@ _ZNK4Type24maybe_remove_speculativeEb.exit32:     ; preds = %86, %87
   br label %_ZNK4Type14make_narrowoopEv.exit
 
 _ZNK4Type14make_narrowoopEv.exit:                 ; preds = %_ZN15TypeNarrowKlass4makeEPK7TypePtr.exit.i, %58, %_ZNK4Type8make_ptrEv.exit27, %_ZN13TypeNarrowOop4makeEPK7TypePtr.exit.i, %18, %_ZNK4Type8make_ptrEv.exit20, %_ZNK4Type24maybe_remove_speculativeEb.exit32
-  %.0 = phi ptr [ %99, %_ZNK4Type24maybe_remove_speculativeEb.exit32 ], [ %45, %_ZN13TypeNarrowOop4makeEPK7TypePtr.exit.i ], [ null, %18 ], [ %14, %_ZNK4Type8make_ptrEv.exit20 ], [ %85, %_ZN15TypeNarrowKlass4makeEPK7TypePtr.exit.i ], [ null, %58 ], [ %54, %_ZNK4Type8make_ptrEv.exit27 ]
+  %.0 = phi ptr [ %99, %_ZNK4Type24maybe_remove_speculativeEb.exit32 ], [ %14, %_ZNK4Type8make_ptrEv.exit20 ], [ null, %18 ], [ %45, %_ZN13TypeNarrowOop4makeEPK7TypePtr.exit.i ], [ null, %58 ], [ %85, %_ZN15TypeNarrowKlass4makeEPK7TypePtr.exit.i ], [ %54, %_ZNK4Type8make_ptrEv.exit27 ]
   ret ptr %.0
 }
 
@@ -8370,7 +8370,7 @@ define hidden noundef ptr @_ZNK4Type5xmeetEPKS_(ptr noundef nonnull align 8 dere
   br label %70
 
 70:                                               ; preds = %57, %49, %65, %9, %4, %2, %69, %61, %59, %53, %51, %42, %37, %32, %27, %22, %17, %12, %7
-  %.0 = phi ptr [ %8, %7 ], [ %16, %12 ], [ %21, %17 ], [ %26, %22 ], [ %31, %27 ], [ %36, %32 ], [ %41, %37 ], [ %46, %42 ], [ %0, %69 ], [ %52, %51 ], [ %54, %53 ], [ %60, %59 ], [ %62, %61 ], [ %0, %2 ], [ %1, %4 ], [ %1, %9 ], [ %0, %49 ], [ %0, %57 ], [ %0, %65 ]
+  %.0 = phi ptr [ %62, %61 ], [ %0, %2 ], [ %8, %7 ], [ %0, %65 ], [ %16, %12 ], [ %21, %17 ], [ %26, %22 ], [ %31, %27 ], [ %36, %32 ], [ %41, %37 ], [ %46, %42 ], [ %0, %69 ], [ %1, %4 ], [ %1, %9 ], [ %52, %51 ], [ %54, %53 ], [ %0, %57 ], [ %0, %49 ], [ %60, %59 ]
   ret ptr %.0
 }
 
@@ -8592,7 +8592,7 @@ define hidden noundef ptr @_ZNK5TypeF5xmeetEPK4Type(ptr noundef nonnull readonly
   br label %19
 
 19:                                               ; preds = %4, %2, %18, %16, %7
-  %.0 = phi ptr [ %17, %16 ], [ %0, %18 ], [ %8, %7 ], [ %0, %2 ], [ %1, %4 ]
+  %.0 = phi ptr [ %0, %2 ], [ %17, %16 ], [ %0, %18 ], [ %8, %7 ], [ %1, %4 ]
   ret ptr %.0
 }
 
@@ -8703,7 +8703,7 @@ define hidden noundef ptr @_ZNK5TypeD5xmeetEPK4Type(ptr noundef nonnull readonly
   br label %19
 
 19:                                               ; preds = %4, %2, %18, %16, %7
-  %.0 = phi ptr [ %17, %16 ], [ %0, %18 ], [ %8, %7 ], [ %0, %2 ], [ %1, %4 ]
+  %.0 = phi ptr [ %0, %2 ], [ %17, %16 ], [ %0, %18 ], [ %8, %7 ], [ %1, %4 ]
   ret ptr %.0
 }
 
@@ -9104,7 +9104,7 @@ _ZN7TypeInt4makeEiii.exit:                        ; preds = %51, %53
   br label %62
 
 62:                                               ; preds = %4, %2, %_ZN7TypeInt4makeEiii.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %61, %_ZN7TypeInt4makeEiii.exit ], [ %0, %2 ], [ %0, %4 ]
+  %.0 = phi ptr [ %61, %_ZN7TypeInt4makeEiii.exit ], [ %0, %2 ], [ %8, %7 ], [ %0, %4 ]
   ret ptr %.0
 }
 
@@ -9371,7 +9371,7 @@ _ZN7TypeInt4makeEiii.exit:                        ; preds = %82, %84
   br label %101
 
 101:                                              ; preds = %94, %24, %12, %3, %99, %_ZN7TypeInt4makeEiii.exit, %54, %52, %50
-  %.024 = phi ptr [ %51, %50 ], [ %53, %52 ], [ %55, %54 ], [ %92, %_ZN7TypeInt4makeEiii.exit ], [ %100, %99 ], [ %0, %3 ], [ %1, %12 ], [ %0, %24 ], [ %1, %94 ]
+  %.024 = phi ptr [ %100, %99 ], [ %0, %3 ], [ %1, %12 ], [ %0, %24 ], [ %51, %50 ], [ %53, %52 ], [ %55, %54 ], [ %92, %_ZN7TypeInt4makeEiii.exit ], [ %1, %94 ]
   ret ptr %.024
 }
 
@@ -9428,7 +9428,7 @@ define hidden noundef nonnull ptr @_ZNK7TypeInt6narrowEPK4Type(ptr noundef nonnu
   br label %32
 
 32:                                               ; preds = %26, %18, %11, %8, %2, %31
-  %.0 = phi ptr [ %0, %31 ], [ %0, %2 ], [ %0, %8 ], [ %1, %11 ], [ %0, %18 ], [ %1, %26 ]
+  %.0 = phi ptr [ %0, %31 ], [ %0, %2 ], [ %1, %26 ], [ %0, %8 ], [ %1, %11 ], [ %0, %18 ]
   ret ptr %.0
 }
 
@@ -9757,7 +9757,7 @@ _ZN8TypeLong4makeElli.exit:                       ; preds = %51, %53
   br label %62
 
 62:                                               ; preds = %4, %2, %_ZN8TypeLong4makeElli.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %61, %_ZN8TypeLong4makeElli.exit ], [ %0, %2 ], [ %0, %4 ]
+  %.0 = phi ptr [ %61, %_ZN8TypeLong4makeElli.exit ], [ %0, %2 ], [ %8, %7 ], [ %0, %4 ]
   ret ptr %.0
 }
 
@@ -10034,7 +10034,7 @@ _ZN8TypeLong4makeElli.exit:                       ; preds = %87, %89
   br label %106
 
 106:                                              ; preds = %99, %24, %12, %3, %104, %_ZN8TypeLong4makeElli.exit, %59, %57, %55, %53
-  %.025 = phi ptr [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ], [ %97, %_ZN8TypeLong4makeElli.exit ], [ %105, %104 ], [ %0, %3 ], [ %1, %12 ], [ %0, %24 ], [ %1, %99 ]
+  %.025 = phi ptr [ %105, %104 ], [ %0, %3 ], [ %1, %12 ], [ %0, %24 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ], [ %97, %_ZN8TypeLong4makeElli.exit ], [ %1, %99 ]
   ret ptr %.025
 }
 
@@ -10091,7 +10091,7 @@ define hidden noundef nonnull ptr @_ZNK8TypeLong6narrowEPK4Type(ptr noundef nonn
   br label %32
 
 32:                                               ; preds = %26, %18, %11, %8, %2, %31
-  %.0 = phi ptr [ %0, %31 ], [ %0, %2 ], [ %0, %8 ], [ %1, %11 ], [ %0, %18 ], [ %1, %26 ]
+  %.0 = phi ptr [ %0, %31 ], [ %0, %2 ], [ %1, %26 ], [ %0, %8 ], [ %1, %11 ], [ %0, %18 ]
   ret ptr %.0
 }
 
@@ -10385,8 +10385,8 @@ _ZN9TypeTuple6fieldsEj.exit:                      ; preds = %28, %30
   unreachable
 
 .sink.split:                                      ; preds = %56, %52, %42, %46
-  %.sink14 = phi i64 [ 48, %46 ], [ 48, %42 ], [ 40, %52 ], [ 40, %56 ]
-  %.0.i.sink = phi ptr [ %49, %46 ], [ %45, %42 ], [ %55, %52 ], [ %57, %56 ]
+  %.sink14 = phi i64 [ 48, %42 ], [ 48, %46 ], [ 40, %52 ], [ 40, %56 ]
+  %.0.i.sink = phi ptr [ %45, %42 ], [ %49, %46 ], [ %55, %52 ], [ %57, %56 ]
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 %.sink14
   store ptr %.0.i.sink, ptr %60, align 8
   br label %61
@@ -10508,7 +10508,7 @@ define hidden noundef nonnull ptr @_ZN9TypeTuple11make_domainEP15ciInstanceKlass
   br label %_ZN4Type14get_const_typeEP6ciTypeNS_17InterfaceHandlingE.exit
 
 _ZN4Type14get_const_typeEP6ciTypeNS_17InterfaceHandlingE.exit: ; preds = %42, %46
-  %.0.i = phi ptr [ %45, %42 ], [ %47, %46 ]
+  %.0.i = phi ptr [ %47, %46 ], [ %45, %42 ]
   %48 = load ptr, ptr @_ZN7TypePtr7NOTNULLE, align 8
   %49 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %50 = load ptr, ptr %49, align 8
@@ -10636,9 +10636,9 @@ _ZN9TypeTuple6fieldsEj.exit37:                    ; preds = %65, %67
   unreachable
 
 _ZN4Type14get_const_typeEP6ciTypeNS_17InterfaceHandlingE.exit40: ; preds = %105, %101, %107, %93, %87
-  %.sink53 = phi i32 [ 1, %107 ], [ 2, %93 ], [ 2, %87 ], [ 1, %101 ], [ 1, %105 ]
-  %.144.sink = phi i32 [ %.144, %107 ], [ %95, %93 ], [ %89, %87 ], [ %.144, %101 ], [ %.144, %105 ]
-  %.sink = phi ptr [ %108, %107 ], [ %98, %93 ], [ %92, %87 ], [ %104, %101 ], [ %106, %105 ]
+  %.sink53 = phi i32 [ 1, %107 ], [ 2, %87 ], [ 2, %93 ], [ 1, %101 ], [ 1, %105 ]
+  %.144.sink = phi i32 [ %.144, %107 ], [ %89, %87 ], [ %95, %93 ], [ %.144, %101 ], [ %.144, %105 ]
+  %.sink = phi ptr [ %108, %107 ], [ %92, %87 ], [ %98, %93 ], [ %104, %101 ], [ %106, %105 ]
   %111 = add i32 %.144, %.sink53
   %112 = zext i32 %.144.sink to i64
   %113 = getelementptr inbounds nuw ptr, ptr %.031, i64 %112
@@ -10827,7 +10827,7 @@ _ZN9TypeTuple4makeEjPPK4Type.exit:                ; preds = %66, %68
   br label %77
 
 77:                                               ; preds = %4, %2, %76, %_ZN9TypeTuple4makeEjPPK4Type.exit
-  %.014 = phi ptr [ %75, %_ZN9TypeTuple4makeEjPPK4Type.exit ], [ %0, %76 ], [ %0, %2 ], [ %1, %4 ]
+  %.014 = phi ptr [ %0, %76 ], [ %75, %_ZN9TypeTuple4makeEjPPK4Type.exit ], [ %0, %2 ], [ %1, %4 ]
   ret ptr %.014
 }
 
@@ -11108,7 +11108,7 @@ define hidden noundef ptr @_ZNK7TypeAry5xmeetEPK4Type(ptr noundef nonnull readon
   br label %38
 
 38:                                               ; preds = %4, %2, %37, %34
-  %.0 = phi ptr [ %36, %34 ], [ %0, %37 ], [ %0, %2 ], [ %1, %4 ]
+  %.0 = phi ptr [ %0, %37 ], [ %36, %34 ], [ %0, %2 ], [ %1, %4 ]
   ret ptr %.0
 }
 
@@ -11513,7 +11513,7 @@ select.unfold32:                                  ; preds = %_ZNK4Type8make_ptrE
   br label %.thread
 
 select.unfold39:                                  ; preds = %_ZNK4Type8make_ptrEv.exit21, %35
-  %.0 = phi ptr [ %27, %35 ], [ %32, %_ZNK4Type8make_ptrEv.exit21 ]
+  %.0 = phi ptr [ %32, %_ZNK4Type8make_ptrEv.exit21 ], [ %27, %35 ]
   %43 = getelementptr inbounds nuw i8, ptr %.0, i64 80
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
@@ -11526,7 +11526,7 @@ select.unfold39:                                  ; preds = %_ZNK4Type8make_ptrE
   br i1 %or.cond, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %select.unfold39, %select.unfold, %_ZNK4Type8make_ptrEv.exit, %.lr.ph._crit_edge, %35, %_ZNK4Type8make_ptrEv.exit21, %1, %select.unfold32
-  %.010 = phi i1 [ %42, %select.unfold32 ], [ false, %1 ], [ false, %select.unfold39 ], [ false, %select.unfold ], [ true, %_ZNK4Type8make_ptrEv.exit ], [ true, %.lr.ph._crit_edge ], [ false, %35 ], [ false, %_ZNK4Type8make_ptrEv.exit21 ]
+  %.010 = phi i1 [ %42, %select.unfold32 ], [ false, %1 ], [ true, %.lr.ph._crit_edge ], [ false, %select.unfold ], [ false, %select.unfold39 ], [ false, %_ZNK4Type8make_ptrEv.exit21 ], [ true, %_ZNK4Type8make_ptrEv.exit ], [ false, %35 ]
   ret i1 %.010
 }
 
@@ -11575,7 +11575,7 @@ define hidden noundef nonnull ptr @_ZN8TypeVect4makeEPK4Typejb(ptr noundef %0, i
   br label %_ZNK4Type24array_element_basic_typeEv.exit
 
 _ZNK4Type24array_element_basic_typeEv.exit:       ; preds = %6, %14, %17, %20, %23, %26
-  %.0.i = phi i8 [ 10, %14 ], [ 5, %17 ], [ 8, %20 ], [ 4, %23 ], [ %..i, %26 ], [ %12, %6 ]
+  %.0.i = phi i8 [ 4, %23 ], [ 10, %14 ], [ 5, %17 ], [ 8, %20 ], [ %..i, %26 ], [ %12, %6 ]
   %29 = zext i8 %.0.i to i64
   %30 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %29
   %31 = load i32, ptr %30, align 4
@@ -11917,7 +11917,7 @@ define hidden noundef nonnull ptr @_ZN8TypeVect8makemaskEPK4Typej(ptr noundef %0
   br label %_ZNK4Type24array_element_basic_typeEv.exit
 
 _ZNK4Type24array_element_basic_typeEv.exit:       ; preds = %2, %10, %13, %16, %19, %22
-  %.0.i = phi i8 [ 10, %10 ], [ 5, %13 ], [ 8, %16 ], [ 4, %19 ], [ %..i, %22 ], [ %8, %2 ]
+  %.0.i = phi i8 [ 4, %19 ], [ 10, %10 ], [ 5, %13 ], [ 8, %16 ], [ %..i, %22 ], [ %8, %2 ]
   %25 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %26 = and i64 %25, 134217728
   %.not = icmp eq i64 %26, 0
@@ -12010,7 +12010,7 @@ define hidden noundef ptr @_ZNK8TypeVect5xmeetEPK4Type(ptr noundef nonnull reado
   br label %34
 
 34:                                               ; preds = %4, %2, %33, %21, %9
-  %.0 = phi ptr [ %20, %9 ], [ %32, %21 ], [ %0, %33 ], [ %0, %2 ], [ %1, %4 ]
+  %.0 = phi ptr [ %0, %33 ], [ %20, %9 ], [ %0, %2 ], [ %32, %21 ], [ %1, %4 ]
   ret ptr %.0
 }
 
@@ -12336,7 +12336,7 @@ define hidden noundef ptr @_ZNK7TypePtr5xmeetEPK4Type(ptr noundef nonnull align 
   br label %32
 
 32:                                               ; preds = %12, %17, %2, %27
-  %.0 = phi ptr [ %31, %27 ], [ %6, %2 ], [ %6, %17 ], [ %6, %12 ]
+  %.0 = phi ptr [ %6, %2 ], [ %31, %27 ], [ %6, %17 ], [ %6, %12 ]
   ret ptr %.0
 }
 
@@ -12432,7 +12432,7 @@ _ZNK7TypePtr17xmeet_speculativeEPKS_.exit:        ; preds = %9, %18
   br label %_ZNK7TypePtr11meet_offsetEi.exit
 
 _ZNK7TypePtr11meet_offsetEi.exit:                 ; preds = %_ZNK7TypePtr17xmeet_speculativeEPKS_.exit, %44, %46
-  %.0.i14 = phi i32 [ %40, %_ZNK7TypePtr17xmeet_speculativeEPKS_.exit ], [ %42, %44 ], [ %..i, %46 ]
+  %.0.i14 = phi i32 [ %42, %44 ], [ %40, %_ZNK7TypePtr17xmeet_speculativeEPKS_.exit ], [ %..i, %46 ]
   %47 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 1808
@@ -12496,7 +12496,7 @@ _ZN7TypePtr4makeEN4Type5TYPESENS_3PTREiPKS_i.exit: ; preds = %63, %65
   unreachable
 
 82:                                               ; preds = %4, %2, %75, %_ZN7TypePtr4makeEN4Type5TYPESENS_3PTREiPKS_i.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %74, %_ZN7TypePtr4makeEN4Type5TYPESENS_3PTREiPKS_i.exit ], [ %79, %75 ], [ %0, %2 ], [ %0, %4 ]
+  %.0 = phi ptr [ %79, %75 ], [ %0, %4 ], [ %8, %7 ], [ %0, %2 ], [ %74, %_ZN7TypePtr4makeEN4Type5TYPESENS_3PTREiPKS_i.exit ]
   ret ptr %.0
 }
 
@@ -12554,7 +12554,7 @@ define hidden noundef i32 @_ZNK7TypePtr11meet_offsetEi(ptr noundef nonnull reado
   br label %9
 
 9:                                                ; preds = %8, %6, %2
-  %.0 = phi i32 [ %1, %2 ], [ %4, %6 ], [ %., %8 ]
+  %.0 = phi i32 [ %4, %6 ], [ %1, %2 ], [ %., %8 ]
   ret i32 %.0
 }
 
@@ -12574,7 +12574,7 @@ define hidden noundef i32 @_ZNK7TypePtr11dual_offsetEv(ptr noundef nonnull reado
   br label %6
 
 6:                                                ; preds = %1, %5, %4
-  %.0 = phi i32 [ -2000000000, %4 ], [ %3, %5 ], [ -2000000001, %1 ]
+  %.0 = phi i32 [ %3, %5 ], [ -2000000000, %4 ], [ -2000000001, %1 ]
   ret i32 %.0
 }
 
@@ -12634,7 +12634,7 @@ _ZN4TypenwEm.exit:                                ; preds = %18, %20
   br label %_ZNK7TypePtr11dual_offsetEv.exit
 
 _ZNK7TypePtr11dual_offsetEv.exit:                 ; preds = %23, %31, %32
-  %.0.i = phi i32 [ -2000000000, %31 ], [ %30, %32 ], [ -2000000001, %23 ]
+  %.0.i = phi i32 [ %30, %32 ], [ -2000000000, %31 ], [ -2000000001, %23 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
@@ -12721,7 +12721,7 @@ define hidden noundef i32 @_ZNK7TypePtr11xadd_offsetEl(ptr noundef nonnull reado
   br label %17
 
 17:                                               ; preds = %10, %7, %2
-  %.0 = phi i32 [ -2000000000, %2 ], [ -2000000001, %7 ], [ %spec.select, %10 ]
+  %.0 = phi i32 [ %spec.select, %10 ], [ -2000000000, %2 ], [ -2000000001, %7 ]
   ret i32 %.0
 }
 
@@ -12754,7 +12754,7 @@ define hidden noundef nonnull ptr @_ZNK7TypePtr10add_offsetEl(ptr noundef nonnul
   br label %_ZNK7TypePtr11xadd_offsetEl.exit
 
 _ZNK7TypePtr11xadd_offsetEl.exit:                 ; preds = %2, %9, %12
-  %.0.i = phi i32 [ -2000000000, %2 ], [ -2000000001, %9 ], [ %spec.select.i, %12 ]
+  %.0.i = phi i32 [ %spec.select.i, %12 ], [ -2000000000, %2 ], [ -2000000001, %9 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -13374,7 +13374,7 @@ define hidden noundef zeroext i1 @_ZNK7TypePtr18would_improve_typeEP7ciKlassi(pt
   br label %25
 
 25:                                               ; preds = %18, %12, %5, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %5 ], [ true, %12 ], [ %spec.select, %18 ]
+  %.0 = phi i1 [ %spec.select, %18 ], [ false, %3 ], [ false, %5 ], [ true, %12 ]
   ret i1 %.0
 }
 
@@ -13436,7 +13436,7 @@ define hidden noundef zeroext i1 @_ZNK7TypePtr17would_improve_ptrE14ProfilePtrKi
   br label %36
 
 36:                                               ; preds = %27, %15, %8, %3, %2, %35
-  %.0 = phi i1 [ true, %35 ], [ false, %2 ], [ false, %3 ], [ false, %8 ], [ false, %15 ], [ false, %27 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %27 ], [ false, %15 ], [ true, %35 ], [ false, %3 ]
   ret i1 %.0
 }
 
@@ -13756,7 +13756,7 @@ _ZN7TypePtr4makeEN4Type5TYPESENS_3PTREiPKS_i.exit: ; preds = %96, %98
   unreachable
 
 119:                                              ; preds = %60, %108, %56, %21, %19, %4, %2, %112, %_ZN7TypePtr4makeEN4Type5TYPESENS_3PTREiPKS_i.exit, %59, %52, %_ZN10TypeRawPtr4makeEN7TypePtr3PTRE.exit, %7
-  %.0 = phi ptr [ %1, %59 ], [ %107, %_ZN7TypePtr4makeEN4Type5TYPESENS_3PTREiPKS_i.exit ], [ %116, %112 ], [ %0, %7 ], [ %51, %_ZN10TypeRawPtr4makeEN7TypePtr3PTRE.exit ], [ %53, %52 ], [ %0, %2 ], [ %1, %4 ], [ %1, %19 ], [ %0, %21 ], [ %0, %56 ], [ %0, %108 ], [ %spec.select, %60 ]
+  %.0 = phi ptr [ %53, %52 ], [ %0, %21 ], [ %1, %59 ], [ %0, %56 ], [ %0, %108 ], [ %107, %_ZN7TypePtr4makeEN4Type5TYPESENS_3PTREiPKS_i.exit ], [ %spec.select, %60 ], [ %116, %112 ], [ %0, %2 ], [ %0, %7 ], [ %1, %4 ], [ %1, %19 ], [ %51, %_ZN10TypeRawPtr4makeEN7TypePtr3PTRE.exit ]
   ret ptr %.0
 }
 
@@ -14444,7 +14444,7 @@ _ZNK17GrowableArrayViewIP15ciInstanceKlassE11find_sortedIS1_TnPFiRKT_RKS1_EXadL_
   br i1 %exitcond.not.i.i, label %_ZNK14TypeInterfaces2eqEP15ciInstanceKlass.exit.i, label %.lr.ph.i.i.i, !llvm.loop !19
 
 _ZNK14TypeInterfaces2eqEP15ciInstanceKlass.exit.i: ; preds = %_ZNK17GrowableArrayViewIP15ciInstanceKlassE11find_sortedIS1_TnPFiRKT_RKS1_EXadL_ZN14TypeInterfaces7compareES8_S8_EEEEiS6_Rb.exit.i.i, %44, %.preheader.i.i, %.lr.ph.i1
-  %45 = phi ptr [ %.010.i, %.lr.ph.i1 ], [ %21, %.preheader.i.i ], [ %.010.i, %44 ], [ %21, %_ZNK17GrowableArrayViewIP15ciInstanceKlassE11find_sortedIS1_TnPFiRKT_RKS1_EXadL_ZN14TypeInterfaces7compareES8_S8_EEEEiS6_Rb.exit.i.i ]
+  %45 = phi ptr [ %.010.i, %44 ], [ %.010.i, %.lr.ph.i1 ], [ %21, %.preheader.i.i ], [ %21, %_ZNK17GrowableArrayViewIP15ciInstanceKlassE11find_sortedIS1_TnPFiRKT_RKS1_EXadL_ZN14TypeInterfaces7compareES8_S8_EEEEiS6_Rb.exit.i.i ]
   %indvars.iv.next.i3 = add nuw nsw i64 %indvars.iv.i2, 1
   %46 = sext i32 %23 to i64
   %47 = icmp slt i64 %indvars.iv.next.i3, %46
@@ -14566,7 +14566,7 @@ _ZNK17GrowableArrayViewIP15ciInstanceKlassE11find_sortedIS1_TnPFiRKT_RKS1_EXadL_
   br i1 %exitcond.not.i, label %_ZNK14TypeInterfaces2eqEP15ciInstanceKlass.exit, label %.lr.ph.i.i, !llvm.loop !19
 
 _ZNK14TypeInterfaces2eqEP15ciInstanceKlass.exit:  ; preds = %_ZNK17GrowableArrayViewIP15ciInstanceKlassE11find_sortedIS1_TnPFiRKT_RKS1_EXadL_ZN14TypeInterfaces7compareES8_S8_EEEEiS6_Rb.exit.i, %32, %.preheader.i, %6
-  %33 = phi ptr [ %.010, %6 ], [ %9, %.preheader.i ], [ %.010, %32 ], [ %9, %_ZNK17GrowableArrayViewIP15ciInstanceKlassE11find_sortedIS1_TnPFiRKT_RKS1_EXadL_ZN14TypeInterfaces7compareES8_S8_EEEEiS6_Rb.exit.i ]
+  %33 = phi ptr [ %.010, %32 ], [ %.010, %6 ], [ %9, %.preheader.i ], [ %9, %_ZNK17GrowableArrayViewIP15ciInstanceKlassE11find_sortedIS1_TnPFiRKT_RKS1_EXadL_ZN14TypeInterfaces7compareES8_S8_EEEEiS6_Rb.exit.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = sext i32 %11 to i64
   %35 = icmp slt i64 %indvars.iv.next, %34
@@ -14691,7 +14691,7 @@ _ZNK17GrowableArrayViewIP15ciInstanceKlassE11find_sortedIS1_TnPFiRKT_RKS1_EXadL_
   br i1 %exitcond.not, label %_ZNK17GrowableArrayViewIP15ciInstanceKlassE11find_sortedIS1_TnPFiRKT_RKS1_EXadL_ZN14TypeInterfaces7compareES8_S8_EEEEiS6_Rb.exit.thread, label %.lr.ph.i, !llvm.loop !19
 
 _ZNK17GrowableArrayViewIP15ciInstanceKlassE11find_sortedIS1_TnPFiRKT_RKS1_EXadL_ZN14TypeInterfaces7compareES8_S8_EEEEiS6_Rb.exit.thread: ; preds = %_ZNK17GrowableArrayViewIP15ciInstanceKlassE11find_sortedIS1_TnPFiRKT_RKS1_EXadL_ZN14TypeInterfaces7compareES8_S8_EEEEiS6_Rb.exit, %27, %.preheader, %2
-  %.08 = phi i1 [ false, %2 ], [ true, %.preheader ], [ false, %27 ], [ true, %_ZNK17GrowableArrayViewIP15ciInstanceKlassE11find_sortedIS1_TnPFiRKT_RKS1_EXadL_ZN14TypeInterfaces7compareES8_S8_EEEEiS6_Rb.exit ]
+  %.08 = phi i1 [ false, %27 ], [ false, %2 ], [ true, %.preheader ], [ true, %_ZNK17GrowableArrayViewIP15ciInstanceKlassE11find_sortedIS1_TnPFiRKT_RKS1_EXadL_ZN14TypeInterfaces7compareES8_S8_EEEEiS6_Rb.exit ]
   ret i1 %.08
 }
 
@@ -15338,8 +15338,8 @@ define hidden noundef nonnull ptr @_ZNK14TypeInterfaces17intersection_withEPKS_(
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge4.us, %.critedge2.loopexit.split.loop.exit, %.lr.ph, %18
-  %.1.lcssa = phi i32 [ %.0, %18 ], [ %16, %.lr.ph ], [ %34, %.critedge2.loopexit.split.loop.exit ], [ %16, %.critedge4.us ]
-  %.lcssa = phi i1 [ false, %18 ], [ false, %.lr.ph ], [ true, %.critedge2.loopexit.split.loop.exit ], [ false, %.critedge4.us ]
+  %.1.lcssa = phi i32 [ %16, %.lr.ph ], [ %.0, %18 ], [ %34, %.critedge2.loopexit.split.loop.exit ], [ %16, %.critedge4.us ]
+  %.lcssa = phi i1 [ false, %.lr.ph ], [ false, %18 ], [ true, %.critedge2.loopexit.split.loop.exit ], [ false, %.critedge4.us ]
   %35 = icmp slt i32 %.035, %.pre.pre
   br i1 %35, label %.lr.ph61, label %.critedge6
 
@@ -15912,7 +15912,7 @@ define hidden noundef ptr @_ZNK10TypeOopPtr12xmeet_helperEPK4Type(ptr noundef no
   br label %_ZNK7TypePtr11meet_offsetEi.exit
 
 _ZNK7TypePtr11meet_offsetEi.exit:                 ; preds = %13, %19, %21
-  %.0.i = phi i32 [ %15, %13 ], [ %17, %19 ], [ %..i, %21 ]
+  %.0.i = phi i32 [ %17, %19 ], [ %15, %13 ], [ %..i, %21 ]
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %23 = load i32, ptr %22, align 8
   %24 = zext i32 %23 to i64
@@ -16002,7 +16002,7 @@ _ZNK10TypeOopPtr16meet_instance_idEi.exit:        ; preds = %52, %_ZNK7TypePtr17
   br label %_ZNK10TypeOopPtr16meet_instance_idEi.exit44
 
 _ZNK10TypeOopPtr16meet_instance_idEi.exit44:      ; preds = %63, %69, %71
-  %.0.i43 = phi i32 [ %65, %63 ], [ %67, %69 ], [ %..i42, %71 ]
+  %.0.i43 = phi i32 [ %67, %69 ], [ %65, %63 ], [ %..i42, %71 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %73 = load ptr, ptr %72, align 8
   %74 = icmp ne ptr %73, null
@@ -16058,7 +16058,7 @@ _ZNK7TypePtr17xmeet_speculativeEPKS_.exit49:      ; preds = %_ZNK10TypeOopPtr16m
   br label %_ZNK7TypePtr11meet_offsetEi.exit53
 
 _ZNK7TypePtr11meet_offsetEi.exit53:               ; preds = %_ZNK7TypePtr17xmeet_speculativeEPKS_.exit49, %106, %108
-  %.0.i52 = phi i32 [ %102, %_ZNK7TypePtr17xmeet_speculativeEPKS_.exit49 ], [ %104, %106 ], [ %..i51, %108 ]
+  %.0.i52 = phi i32 [ %104, %106 ], [ %102, %_ZNK7TypePtr17xmeet_speculativeEPKS_.exit49 ], [ %..i51, %108 ]
   %109 = tail call noundef ptr @_ZN10TypeOopPtr4makeEN7TypePtr3PTREiiPKS0_i(i32 noundef %100, i32 noundef %.0.i52, i32 noundef %.0.i43, ptr noundef %.012.i46, i32 noundef %91)
   br label %115
 
@@ -16070,7 +16070,7 @@ _ZNK7TypePtr11meet_offsetEi.exit53:               ; preds = %_ZNK7TypePtr17xmeet
   br label %115
 
 115:                                              ; preds = %4, %2, %110, %_ZNK7TypePtr11meet_offsetEi.exit53, %59, %_ZNK10TypeOopPtr16meet_instance_idEi.exit, %54, %11, %7
-  %.0 = phi ptr [ %12, %11 ], [ %8, %7 ], [ %109, %_ZNK7TypePtr11meet_offsetEi.exit53 ], [ %55, %54 ], [ %58, %_ZNK10TypeOopPtr16meet_instance_idEi.exit ], [ %60, %59 ], [ %114, %110 ], [ %0, %2 ], [ %0, %4 ]
+  %.0 = phi ptr [ %114, %110 ], [ %12, %11 ], [ %8, %7 ], [ %0, %2 ], [ %109, %_ZNK7TypePtr11meet_offsetEi.exit53 ], [ %55, %54 ], [ %58, %_ZNK10TypeOopPtr16meet_instance_idEi.exit ], [ %60, %59 ], [ %0, %4 ]
   ret ptr %.0
 }
 
@@ -16091,7 +16091,7 @@ define hidden noundef i32 @_ZNK10TypeOopPtr16meet_instance_idEi(ptr noundef nonn
   br label %9
 
 9:                                                ; preds = %8, %6, %2
-  %.0 = phi i32 [ %1, %2 ], [ %4, %6 ], [ %., %8 ]
+  %.0 = phi i32 [ %4, %6 ], [ %1, %2 ], [ %., %8 ]
   ret i32 %.0
 }
 
@@ -16165,7 +16165,7 @@ _ZN4TypenwEm.exit:                                ; preds = %18, %20
   br label %_ZNK7TypePtr11dual_offsetEv.exit
 
 _ZNK7TypePtr11dual_offsetEv.exit:                 ; preds = %23, %45, %46
-  %.0.i = phi i32 [ -2000000000, %45 ], [ %44, %46 ], [ -2000000001, %23 ]
+  %.0.i = phi i32 [ %44, %46 ], [ -2000000000, %45 ], [ -2000000001, %23 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %48 = load i32, ptr %47, align 4
   switch i32 %48, label %50 [
@@ -16180,7 +16180,7 @@ _ZNK7TypePtr11dual_offsetEv.exit:                 ; preds = %23, %45, %46
   br label %_ZNK10TypeOopPtr16dual_instance_idEv.exit
 
 _ZNK10TypeOopPtr16dual_instance_idEv.exit:        ; preds = %_ZNK7TypePtr11dual_offsetEv.exit, %49, %50
-  %.0.i1 = phi i32 [ -1, %49 ], [ %48, %50 ], [ 0, %_ZNK7TypePtr11dual_offsetEv.exit ]
+  %.0.i1 = phi i32 [ %48, %50 ], [ -1, %49 ], [ 0, %_ZNK7TypePtr11dual_offsetEv.exit ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, null
@@ -16219,7 +16219,7 @@ define hidden noundef i32 @_ZNK10TypeOopPtr16dual_instance_idEv(ptr noundef nonn
   br label %6
 
 6:                                                ; preds = %1, %5, %4
-  %.0 = phi i32 [ -1, %4 ], [ %3, %5 ], [ 0, %1 ]
+  %.0 = phi i32 [ %3, %5 ], [ -1, %4 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -16352,7 +16352,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread.i:       ; preds = %_ZNK10ciMetadata9is
   br label %66
 
 66:                                               ; preds = %.thread.i, %59, %_ZNK10ciMetadata9is_loadedEv.exit.i
-  %.0.shrunk.i = phi i1 [ false, %59 ], [ %.041.shrunk, %_ZNK10ciMetadata9is_loadedEv.exit.i ], [ %not..i, %.thread.i ]
+  %.0.shrunk.i = phi i1 [ %.041.shrunk, %_ZNK10ciMetadata9is_loadedEv.exit.i ], [ false, %59 ], [ %not..i, %.thread.i ]
   %67 = load ptr, ptr %11, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 1808
   %69 = load ptr, ptr %68, align 8
@@ -16713,7 +16713,7 @@ _ZNK10ciMetadata9is_loadedEv.exit26.thread:       ; preds = %117, %_ZNK10ciMetad
   br label %143
 
 143:                                              ; preds = %75, %66, %141, %_ZN14TypeInterfaces4makeEP13GrowableArrayIP15ciInstanceKlassE.exit24, %_ZN14TypeInterfaces4makeEP13GrowableArrayIP15ciInstanceKlassE.exit
-  %.0 = phi ptr [ %65, %_ZN14TypeInterfaces4makeEP13GrowableArrayIP15ciInstanceKlassE.exit ], [ %116, %_ZN14TypeInterfaces4makeEP13GrowableArrayIP15ciInstanceKlassE.exit24 ], [ %142, %141 ], [ %69, %66 ], [ %69, %75 ]
+  %.0 = phi ptr [ %65, %_ZN14TypeInterfaces4makeEP13GrowableArrayIP15ciInstanceKlassE.exit ], [ %142, %141 ], [ %116, %_ZN14TypeInterfaces4makeEP13GrowableArrayIP15ciInstanceKlassE.exit24 ], [ %69, %66 ], [ %69, %75 ]
   ret ptr %.0
 }
 
@@ -16754,7 +16754,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %11, %_ZNK10ciMetada
   br label %25
 
 25:                                               ; preds = %.thread, %9, %_ZNK10ciMetadata9is_loadedEv.exit, %18
-  %.0.shrunk = phi i1 [ false, %18 ], [ %3, %_ZNK10ciMetadata9is_loadedEv.exit ], [ true, %9 ], [ %not., %.thread ]
+  %.0.shrunk = phi i1 [ %3, %_ZNK10ciMetadata9is_loadedEv.exit ], [ true, %9 ], [ %not., %.thread ], [ false, %18 ]
   %26 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 1808
@@ -16888,7 +16888,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %14, %_ZNK10ciMetada
   br label %32
 
 32:                                               ; preds = %25, %_ZNK10ciMetadata9is_loadedEv.exit.thread, %_ZNK10ciMetadata9is_loadedEv.exit, %13
-  %.0 = phi ptr [ %3, %_ZNK10ciMetadata9is_loadedEv.exit.thread ], [ %3, %_ZNK10ciMetadata9is_loadedEv.exit ], [ null, %13 ], [ %spec.select, %25 ]
+  %.0 = phi ptr [ null, %13 ], [ %spec.select, %25 ], [ %3, %_ZNK10ciMetadata9is_loadedEv.exit.thread ], [ %3, %_ZNK10ciMetadata9is_loadedEv.exit ]
   %33 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 1808
@@ -17147,7 +17147,7 @@ _ZNK7TypePtr2eqEPK4Type.exit.sink.split:          ; preds = %93, %_ZNK7TypePtr14
   br label %_ZNK7TypePtr2eqEPK4Type.exit
 
 _ZNK7TypePtr2eqEPK4Type.exit:                     ; preds = %_ZNK7TypePtr2eqEPK4Type.exit.sink.split, %_ZNK7TypePtr14eq_speculativeEPKS_.exit.i20, %100, %93, %77, %71, %_ZNK7TypePtr14eq_speculativeEPKS_.exit.i, %52, %45, %29, %23, %69, %21, %2, %9
-  %.0 = phi i1 [ false, %9 ], [ false, %2 ], [ false, %21 ], [ false, %69 ], [ false, %_ZNK7TypePtr14eq_speculativeEPKS_.exit.i ], [ false, %29 ], [ false, %23 ], [ false, %45 ], [ false, %52 ], [ false, %_ZNK7TypePtr14eq_speculativeEPKS_.exit.i20 ], [ false, %77 ], [ false, %71 ], [ false, %93 ], [ false, %100 ], [ %121, %_ZNK7TypePtr2eqEPK4Type.exit.sink.split ]
+  %.0 = phi i1 [ false, %52 ], [ false, %2 ], [ false, %9 ], [ false, %21 ], [ false, %69 ], [ false, %_ZNK7TypePtr14eq_speculativeEPKS_.exit.i ], [ false, %29 ], [ false, %23 ], [ false, %93 ], [ false, %45 ], [ false, %_ZNK7TypePtr14eq_speculativeEPKS_.exit.i20 ], [ false, %77 ], [ false, %71 ], [ false, %100 ], [ %121, %_ZNK7TypePtr2eqEPK4Type.exit.sink.split ]
   ret i1 %.0
 }
 
@@ -17244,7 +17244,7 @@ define hidden noundef nonnull ptr @_ZNK10TypeOopPtr10add_offsetEl(ptr noundef no
   br label %_ZNK7TypePtr11xadd_offsetEl.exit
 
 _ZNK7TypePtr11xadd_offsetEl.exit:                 ; preds = %2, %9, %12
-  %.0.i = phi i32 [ -2000000000, %2 ], [ -2000000001, %9 ], [ %spec.select.i, %12 ]
+  %.0.i = phi i32 [ %spec.select.i, %12 ], [ -2000000000, %2 ], [ -2000000001, %9 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %20 = load i32, ptr %19, align 4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -17536,7 +17536,7 @@ define hidden noundef zeroext i1 @_ZNK10TypeOopPtr18would_improve_typeEP7ciKlass
   br label %_ZNK7TypePtr18would_improve_typeEP7ciKlassi.exit
 
 _ZNK7TypePtr18would_improve_typeEP7ciKlassi.exit: ; preds = %22, %16, %9, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %9 ], [ true, %16 ], [ %spec.select.i, %22 ]
+  %.0 = phi i1 [ false, %3 ], [ %spec.select.i, %22 ], [ true, %16 ], [ false, %9 ]
   ret i1 %.0
 }
 
@@ -17629,7 +17629,7 @@ _ZNK17GrowableArrayViewIP15ciInstanceKlassE11find_sortedIS1_TnPFiRKT_RKS1_EXadL_
   br label %_ZNK14TypeInterfaces2eqEP15ciInstanceKlass.exit
 
 _ZNK14TypeInterfaces2eqEP15ciInstanceKlass.exit:  ; preds = %38, %1, %13, %.loopexit, %40
-  %.0 = phi ptr [ %42, %40 ], [ %39, %.loopexit ], [ null, %13 ], [ %9, %1 ], [ null, %38 ]
+  %.0 = phi ptr [ %9, %1 ], [ %42, %40 ], [ %39, %.loopexit ], [ null, %13 ], [ null, %38 ]
   ret ptr %.0
 }
 
@@ -18204,7 +18204,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %_ZNK10ciMetadata9is
   br label %40
 
 40:                                               ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread, %_ZNK10ciMetadata9is_loadedEv.exit, %2, %21
-  %.0 = phi ptr [ %39, %21 ], [ %0, %2 ], [ %0, %_ZNK10ciMetadata9is_loadedEv.exit ], [ %0, %_ZNK10ciMetadata9is_loadedEv.exit.thread ]
+  %.0 = phi ptr [ %0, %2 ], [ %0, %_ZNK10ciMetadata9is_loadedEv.exit ], [ %39, %21 ], [ %0, %_ZNK10ciMetadata9is_loadedEv.exit.thread ]
   ret ptr %.0
 }
 
@@ -18262,7 +18262,7 @@ define hidden noundef nonnull ptr @_ZNK11TypeInstPtr14xmeet_unloadedEPKS_PK14Typ
   br label %_ZNK7TypePtr11meet_offsetEi.exit
 
 _ZNK7TypePtr11meet_offsetEi.exit:                 ; preds = %3, %9, %11
-  %.0.i = phi i32 [ %5, %3 ], [ %7, %9 ], [ %..i, %11 ]
+  %.0.i = phi i32 [ %7, %9 ], [ %5, %3 ], [ %..i, %11 ]
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
@@ -18289,7 +18289,7 @@ _ZNK7TypePtr11meet_offsetEi.exit:                 ; preds = %3, %9, %11
   br label %_ZNK10TypeOopPtr16meet_instance_idEi.exit
 
 _ZNK10TypeOopPtr16meet_instance_idEi.exit:        ; preds = %_ZNK7TypePtr11meet_offsetEi.exit, %26, %28
-  %.0.i37 = phi i32 [ %22, %_ZNK7TypePtr11meet_offsetEi.exit ], [ %24, %26 ], [ %..i36, %28 ]
+  %.0.i37 = phi i32 [ %24, %26 ], [ %22, %_ZNK7TypePtr11meet_offsetEi.exit ], [ %..i36, %28 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %30 = load ptr, ptr %29, align 8
   %31 = icmp ne ptr %30, null
@@ -18410,7 +18410,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread.i:       ; preds = %_ZNK10ciMetadata9is
   br label %110
 
 110:                                              ; preds = %.thread.i, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i, %_ZNK10ciMetadata9is_loadedEv.exit.i, %91
-  %.0.shrunk.i = phi i1 [ false, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i ], [ false, %_ZNK10ciMetadata9is_loadedEv.exit.i ], [ true, %91 ], [ %not..i, %.thread.i ]
+  %.0.shrunk.i = phi i1 [ false, %_ZNK10ciMetadata9is_loadedEv.exit.i ], [ true, %91 ], [ %not..i, %.thread.i ], [ false, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i ]
   %111 = load ptr, ptr %63, align 8
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 1808
   %113 = load ptr, ptr %112, align 8
@@ -18707,7 +18707,7 @@ define hidden noundef ptr @_ZNK11TypeInstPtr12xmeet_helperEPK4Type(ptr noundef n
   br label %_ZNK7TypePtr11meet_offsetEi.exit
 
 _ZNK7TypePtr11meet_offsetEi.exit:                 ; preds = %22, %28, %30
-  %.0.i = phi i32 [ %24, %22 ], [ %26, %28 ], [ %..i, %30 ]
+  %.0.i = phi i32 [ %26, %28 ], [ %24, %22 ], [ %..i, %30 ]
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %32 = load i32, ptr %31, align 8
   %33 = zext i32 %32 to i64
@@ -18774,7 +18774,7 @@ _ZNK10TypeOopPtr16meet_instance_idEi.exit:        ; preds = %_ZNK7TypePtr11meet_
   br label %_ZNK10TypeOopPtr16meet_instance_idEi.exit101
 
 _ZNK10TypeOopPtr16meet_instance_idEi.exit101:     ; preds = %63, %69, %71
-  %.0.i100 = phi i32 [ %65, %63 ], [ %67, %69 ], [ %..i99, %71 ]
+  %.0.i100 = phi i32 [ %67, %69 ], [ %65, %63 ], [ %..i99, %71 ]
   %72 = tail call noundef ptr @_ZNK7TypePtr17xmeet_speculativeEPKS_(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull %1)
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %74 = load i32, ptr %73, align 8
@@ -18808,7 +18808,7 @@ _ZNK10TypeOopPtr16meet_instance_idEi.exit101:     ; preds = %63, %69, %71
   br label %_ZNK7TypePtr11meet_offsetEi.exit106
 
 _ZNK7TypePtr11meet_offsetEi.exit106:              ; preds = %81, %87, %89
-  %.0.i105 = phi i32 [ %83, %81 ], [ %85, %87 ], [ %..i104, %89 ]
+  %.0.i105 = phi i32 [ %85, %87 ], [ %83, %81 ], [ %..i104, %89 ]
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %91 = load i32, ptr %90, align 8
   %92 = zext i32 %91 to i64
@@ -18918,7 +18918,7 @@ _ZNK7TypePtr17xmeet_speculativeEPKS_.exit:        ; preds = %_ZNK7TypePtr11meet_
   br label %_ZNK7TypePtr11meet_offsetEi.exit114
 
 _ZNK7TypePtr11meet_offsetEi.exit114:              ; preds = %146, %152, %154
-  %.0.i113 = phi i32 [ %148, %146 ], [ %150, %152 ], [ %..i112, %154 ]
+  %.0.i113 = phi i32 [ %150, %152 ], [ %148, %146 ], [ %..i112, %154 ]
   %155 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %156 = load i32, ptr %155, align 8
   %157 = zext i32 %156 to i64
@@ -18946,7 +18946,7 @@ _ZNK7TypePtr11meet_offsetEi.exit114:              ; preds = %146, %152, %154
   br label %_ZNK10TypeOopPtr16meet_instance_idEi.exit118
 
 _ZNK10TypeOopPtr16meet_instance_idEi.exit118:     ; preds = %_ZNK7TypePtr11meet_offsetEi.exit114, %169, %171
-  %.0.i117 = phi i32 [ %165, %_ZNK7TypePtr11meet_offsetEi.exit114 ], [ %167, %169 ], [ %..i116, %171 ]
+  %.0.i117 = phi i32 [ %167, %169 ], [ %165, %_ZNK7TypePtr11meet_offsetEi.exit114 ], [ %..i116, %171 ]
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %173 = load ptr, ptr %172, align 8
   %174 = icmp ne ptr %173, null
@@ -19074,7 +19074,7 @@ _ZNK10TypeOopPtr15meet_interfacesEPKS_.exit:      ; preds = %197, %203, %.thread
   br label %251
 
 251:                                              ; preds = %247, %244, %242, %250, %228
-  %.082 = phi ptr [ null, %250 ], [ null, %228 ], [ %234, %242 ], [ %236, %244 ], [ %234, %247 ]
+  %.082 = phi ptr [ null, %228 ], [ %234, %242 ], [ %236, %244 ], [ null, %250 ], [ %234, %247 ]
   %252 = load i32, ptr %3, align 4
   %253 = load ptr, ptr %5, align 8
   %254 = load ptr, ptr %4, align 8
@@ -19084,7 +19084,7 @@ _ZNK10TypeOopPtr15meet_interfacesEPKS_.exit:      ; preds = %197, %203, %.thread
   br label %258
 
 258:                                              ; preds = %222, %251, %.split86, %.split87, %.split, %.split84, %8, %2, %142, %124, %_ZNK10TypeOopPtr16meet_instance_idEi.exit101, %17, %15, %11
-  %.0 = phi ptr [ %16, %15 ], [ %12, %11 ], [ %21, %17 ], [ %125, %124 ], [ %143, %142 ], [ %78, %_ZNK10TypeOopPtr16meet_instance_idEi.exit101 ], [ %0, %2 ], [ %0, %8 ], [ %62, %.split ], [ %59, %.split84 ], [ %141, %.split86 ], [ %138, %.split87 ], [ %227, %222 ], [ %257, %251 ]
+  %.0 = phi ptr [ %78, %_ZNK10TypeOopPtr16meet_instance_idEi.exit101 ], [ %16, %15 ], [ %12, %11 ], [ %0, %2 ], [ %21, %17 ], [ %138, %.split87 ], [ %125, %124 ], [ %59, %.split84 ], [ %143, %142 ], [ %0, %8 ], [ %62, %.split ], [ %141, %.split86 ], [ %227, %222 ], [ %257, %251 ]
   ret ptr %.0
 }
 
@@ -19227,10 +19227,10 @@ _ZNK10ciMetadata9is_loadedEv.exit79.thread:       ; preds = %_ZNK10ciMetadata9is
 .thread92:                                        ; preds = %80, %81
   br label %.thread87
 
-.thread87:                                        ; preds = %69, %68, %81, %80, %.thread, %.thread92, %74
-  %.072 = phi i1 [ %.0688495, %.thread92 ], [ %18, %74 ], [ %.06884, %.thread ], [ %22, %80 ], [ %18, %81 ], [ true, %68 ], [ %18, %69 ]
-  %.071 = phi ptr [ %3, %.thread92 ], [ %3, %74 ], [ %.06983, %.thread ], [ %3, %80 ], [ %2, %81 ], [ %3, %68 ], [ %3, %69 ]
-  %.070 = phi ptr [ %2, %.thread92 ], [ %2, %74 ], [ %.06983, %.thread ], [ %3, %80 ], [ %2, %81 ], [ %2, %68 ], [ %2, %69 ]
+.thread87:                                        ; preds = %68, %69, %81, %80, %.thread, %.thread92, %74
+  %.072 = phi i1 [ %18, %74 ], [ %.0688495, %.thread92 ], [ %22, %80 ], [ %.06884, %.thread ], [ %18, %81 ], [ %18, %69 ], [ true, %68 ]
+  %.071 = phi ptr [ %3, %74 ], [ %3, %.thread92 ], [ %3, %80 ], [ %.06983, %.thread ], [ %2, %81 ], [ %3, %69 ], [ %3, %68 ]
+  %.070 = phi ptr [ %2, %74 ], [ %2, %.thread92 ], [ %3, %80 ], [ %.06983, %.thread ], [ %2, %81 ], [ %2, %69 ], [ %2, %68 ]
   %82 = load ptr, ptr %.070, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 240
   %84 = load ptr, ptr %83, align 8
@@ -19260,16 +19260,16 @@ _ZNK10ciMetadata9is_loadedEv.exit79.thread:       ; preds = %_ZNK10ciMetadata9is
   br label %.sink.split
 
 .sink.split:                                      ; preds = %36, %86, %94
-  %.sink99 = phi ptr [ %90, %86 ], [ %96, %94 ], [ %10, %36 ]
-  %.sink.shrunk = phi i1 [ %.072, %86 ], [ false, %94 ], [ %18, %36 ]
-  %.0.ph = phi i32 [ 2, %86 ], [ 4, %94 ], [ 0, %36 ]
+  %.sink99 = phi ptr [ %96, %94 ], [ %90, %86 ], [ %10, %36 ]
+  %.sink.shrunk = phi i1 [ false, %94 ], [ %.072, %86 ], [ %18, %36 ]
+  %.0.ph = phi i32 [ 4, %94 ], [ 2, %86 ], [ 0, %36 ]
   store ptr %.sink99, ptr %4, align 8
   %.sink = zext i1 %.sink.shrunk to i8
   store i8 %.sink, ptr %5, align 1
   br label %97
 
 97:                                               ; preds = %.sink.split, %_ZNK10ciMetadata9is_loadedEv.exit, %_ZNK10ciMetadata9is_loadedEv.exit79
-  %.0 = phi i32 [ 1, %_ZNK10ciMetadata9is_loadedEv.exit79 ], [ 1, %_ZNK10ciMetadata9is_loadedEv.exit ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ 1, %_ZNK10ciMetadata9is_loadedEv.exit ], [ 1, %_ZNK10ciMetadata9is_loadedEv.exit79 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 
@@ -19367,7 +19367,7 @@ _ZN4TypenwEm.exit:                                ; preds = %18, %20
   br label %_ZNK7TypePtr11dual_offsetEv.exit
 
 _ZNK7TypePtr11dual_offsetEv.exit:                 ; preds = %23, %43, %44
-  %.0.i = phi i32 [ -2000000000, %43 ], [ %42, %44 ], [ -2000000001, %23 ]
+  %.0.i = phi i32 [ %42, %44 ], [ -2000000000, %43 ], [ -2000000001, %23 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %46 = load i32, ptr %45, align 4
   switch i32 %46, label %48 [
@@ -19382,7 +19382,7 @@ _ZNK7TypePtr11dual_offsetEv.exit:                 ; preds = %23, %43, %44
   br label %_ZNK10TypeOopPtr16dual_instance_idEv.exit
 
 _ZNK10TypeOopPtr16dual_instance_idEv.exit:        ; preds = %_ZNK7TypePtr11dual_offsetEv.exit, %47, %48
-  %.0.i1 = phi i32 [ -1, %47 ], [ %46, %48 ], [ 0, %_ZNK7TypePtr11dual_offsetEv.exit ]
+  %.0.i1 = phi i32 [ %46, %48 ], [ -1, %47 ], [ 0, %_ZNK7TypePtr11dual_offsetEv.exit ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null
@@ -19564,7 +19564,7 @@ define hidden noundef zeroext i1 @_ZNK11TypeInstPtr25is_java_subtype_of_helperEP
   br label %_ZN7TypePtr38is_java_subtype_of_helper_for_instanceI11TypeInstPtr10TypeOopPtrEEbPKT_PKT0_bb.exit
 
 _ZN7TypePtr38is_java_subtype_of_helper_for_instanceI11TypeInstPtr10TypeOopPtrEEbPKT_PKT0_bb.exit: ; preds = %4, %9, %14, %25, %32, %42
-  %.0.i = phi i1 [ false, %9 ], [ false, %4 ], [ false, %14 ], [ true, %25 ], [ false, %32 ], [ %50, %42 ]
+  %.0.i = phi i1 [ %50, %42 ], [ true, %25 ], [ false, %14 ], [ false, %4 ], [ false, %9 ], [ false, %32 ]
   ret i1 %.0.i
 }
 
@@ -19612,7 +19612,7 @@ define hidden noundef zeroext i1 @_ZNK11TypeInstPtr27is_same_java_type_as_helper
   br label %_ZN7TypePtr40is_same_java_type_as_helper_for_instanceI11TypeInstPtr10TypeOopPtrEEbPKT_PKT0_.exit
 
 _ZN7TypePtr40is_same_java_type_as_helper_for_instanceI11TypeInstPtr10TypeOopPtrEEbPKT_PKT0_.exit: ; preds = %2, %7, %12, %15, %25
-  %.0.i = phi i1 [ false, %7 ], [ false, %2 ], [ false, %12 ], [ false, %15 ], [ %32, %25 ]
+  %.0.i = phi i1 [ false, %12 ], [ false, %2 ], [ false, %7 ], [ false, %15 ], [ %32, %25 ]
   ret i1 %.0.i
 }
 
@@ -19736,7 +19736,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7TypePtr41maybe_java_subtype_o
   br label %87
 
 87:                                               ; preds = %57, %67, %68, %78, %17, %18, %25, %4, %9, %36
-  %.0 = phi i1 [ %47, %36 ], [ true, %9 ], [ true, %4 ], [ false, %18 ], [ false, %17 ], [ %33, %25 ], [ %66, %57 ], [ false, %68 ], [ %86, %78 ], [ true, %67 ]
+  %.0 = phi i1 [ true, %4 ], [ %47, %36 ], [ %66, %57 ], [ %86, %78 ], [ %33, %25 ], [ true, %9 ], [ false, %18 ], [ false, %17 ], [ false, %68 ], [ true, %67 ]
   ret i1 %.0
 }
 
@@ -19781,7 +19781,7 @@ define hidden noundef nonnull ptr @_ZNK11TypeInstPtr10add_offsetEl(ptr noundef n
   br label %_ZNK7TypePtr11xadd_offsetEl.exit
 
 _ZNK7TypePtr11xadd_offsetEl.exit:                 ; preds = %2, %21, %24
-  %.0.i = phi i32 [ -2000000000, %2 ], [ -2000000001, %21 ], [ %spec.select.i, %24 ]
+  %.0.i = phi i32 [ %spec.select.i, %24 ], [ -2000000000, %2 ], [ -2000000001, %21 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %32 = load i32, ptr %31, align 4
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -20360,7 +20360,7 @@ _ZNK4Type8make_ptrEv.exit9.i:                     ; preds = %49, %46, %43
   br label %.preheader56.backedge
 
 .preheader56.backedge:                            ; preds = %56, %60, %57
-  %.pn15.i.be = phi ptr [ %59, %57 ], [ %62, %60 ], [ %.0.i, %56 ]
+  %.pn15.i.be = phi ptr [ %62, %60 ], [ %59, %57 ], [ %.0.i, %56 ]
   br label %.preheader56, !llvm.loop !31
 
 _ZNK10TypeAryPtr17base_element_typeERi.exit:      ; preds = %40, %_ZNK4Type8make_ptrEv.exit.i, %_ZNK4Type8make_ptrEv.exit9.i
@@ -20439,7 +20439,7 @@ _ZNK4Type8make_ptrEv.exit9.i40:                   ; preds = %77, %74, %71
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %84, %88, %85
-  %.pn15.i32.be = phi ptr [ %87, %85 ], [ %90, %88 ], [ %.0.i36, %84 ]
+  %.pn15.i32.be = phi ptr [ %90, %88 ], [ %87, %85 ], [ %.0.i36, %84 ]
   br label %.preheader, !llvm.loop !31
 
 _ZNK10TypeAryPtr17base_element_typeERi.exit49:    ; preds = %68, %_ZNK4Type8make_ptrEv.exit.i46, %_ZNK4Type8make_ptrEv.exit9.i40
@@ -20542,7 +20542,7 @@ _ZNK4Type8make_ptrEv.exit52:                      ; preds = %116, %119, %122
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNK10TypeAryPtr17base_element_typeERi.exit, %137, %_ZNK10TypeAryPtr17base_element_typeERi.exit49, %21, %28, %11, %140, %128
-  %.0 = phi i1 [ %136, %128 ], [ %149, %140 ], [ true, %11 ], [ false, %21 ], [ %36, %28 ], [ false, %_ZNK10TypeAryPtr17base_element_typeERi.exit49 ], [ false, %137 ], [ false, %_ZNK10TypeAryPtr17base_element_typeERi.exit ]
+  %.0 = phi i1 [ false, %_ZNK10TypeAryPtr17base_element_typeERi.exit49 ], [ true, %11 ], [ %36, %28 ], [ %136, %128 ], [ %149, %140 ], [ false, %21 ], [ false, %137 ], [ false, %_ZNK10TypeAryPtr17base_element_typeERi.exit ]
   ret i1 %.0
 }
 
@@ -20776,7 +20776,7 @@ _ZNK4Type8make_ptrEv.exit40:                      ; preds = %66, %69, %72
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit, %87, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit37, %21, %28, %11, %90, %78
-  %.0 = phi i1 [ %86, %78 ], [ %99, %90 ], [ true, %11 ], [ false, %21 ], [ %36, %28 ], [ false, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit37 ], [ false, %87 ], [ false, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit ]
+  %.0 = phi i1 [ false, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit37 ], [ true, %11 ], [ %36, %28 ], [ %86, %78 ], [ %99, %90 ], [ false, %21 ], [ false, %87 ], [ false, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit ]
   ret i1 %.0
 }
 
@@ -21233,7 +21233,7 @@ define hidden noundef ptr @_ZNK10TypeAryPtr16narrow_size_typeEPK7TypeInt(ptr nou
   br label %_ZNK4Type24array_element_basic_typeEv.exit
 
 _ZNK4Type24array_element_basic_typeEv.exit:       ; preds = %2, %18, %21, %24, %27, %30
-  %.0.i = phi i8 [ 10, %18 ], [ 5, %21 ], [ 8, %24 ], [ 4, %27 ], [ %..i, %30 ], [ %16, %2 ]
+  %.0.i = phi i8 [ 4, %27 ], [ 10, %18 ], [ 5, %21 ], [ 8, %24 ], [ %..i, %30 ], [ %16, %2 ]
   %33 = tail call noundef i32 @_ZN10TypeAryPtr16max_array_lengthE9BasicType(i8 noundef zeroext %.0.i)
   %34 = icmp slt i32 %6, 0
   br i1 %34, label %35, label %39
@@ -21609,7 +21609,7 @@ _ZNK4Type8make_ptrEv.exit9.i:                     ; preds = %30, %27, %24
   br label %_ZNK4Type8make_ptrEv.exit11.i.backedge
 
 _ZNK4Type8make_ptrEv.exit11.i.backedge:           ; preds = %37, %41, %38
-  %.pn15.i.be = phi ptr [ %40, %38 ], [ %43, %41 ], [ %.0.i, %37 ]
+  %.pn15.i.be = phi ptr [ %43, %41 ], [ %40, %38 ], [ %.0.i, %37 ]
   br label %_ZNK4Type8make_ptrEv.exit11.i, !llvm.loop !31
 
 _ZNK10TypeAryPtr17base_element_typeERi.exit:      ; preds = %21, %_ZNK4Type8make_ptrEv.exit.i, %_ZNK4Type8make_ptrEv.exit9.i
@@ -21688,7 +21688,7 @@ _ZNK4Type8make_ptrEv.exit9.i52:                   ; preds = %58, %55, %52
   br label %.preheader108.backedge
 
 .preheader108.backedge:                           ; preds = %65, %69, %66
-  %.pn15.i44.be = phi ptr [ %68, %66 ], [ %71, %69 ], [ %.0.i48, %65 ]
+  %.pn15.i44.be = phi ptr [ %71, %69 ], [ %68, %66 ], [ %.0.i48, %65 ]
   br label %.preheader108, !llvm.loop !31
 
 _ZNK10TypeAryPtr17base_element_typeERi.exit61:    ; preds = %49, %_ZNK4Type8make_ptrEv.exit.i58, %_ZNK4Type8make_ptrEv.exit9.i52
@@ -21811,7 +21811,7 @@ _ZNK4Type8make_ptrEv.exit9.i72:                   ; preds = %116, %113, %110
   br label %.preheader107.backedge
 
 .preheader107.backedge:                           ; preds = %123, %127, %124
-  %.pn15.i64.be = phi ptr [ %126, %124 ], [ %129, %127 ], [ %.0.i68, %123 ]
+  %.pn15.i64.be = phi ptr [ %129, %127 ], [ %126, %124 ], [ %.0.i68, %123 ]
   br label %.preheader107, !llvm.loop !31
 
 _ZNK10TypeAryPtr17base_element_typeERi.exit81:    ; preds = %107, %_ZNK4Type8make_ptrEv.exit.i78, %_ZNK4Type8make_ptrEv.exit9.i72
@@ -21890,7 +21890,7 @@ _ZNK4Type8make_ptrEv.exit9.i91:                   ; preds = %144, %141, %138
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %151, %155, %152
-  %.pn15.i83.be = phi ptr [ %154, %152 ], [ %157, %155 ], [ %.0.i87, %151 ]
+  %.pn15.i83.be = phi ptr [ %157, %155 ], [ %154, %152 ], [ %.0.i87, %151 ]
   br label %.preheader, !llvm.loop !31
 
 _ZNK10TypeAryPtr17base_element_typeERi.exit100:   ; preds = %135, %_ZNK4Type8make_ptrEv.exit.i97, %_ZNK4Type8make_ptrEv.exit9.i91
@@ -21993,7 +21993,7 @@ _ZNK4Type8make_ptrEv.exit102:                     ; preds = %183, %186, %189
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNK10TypeAryPtr17base_element_typeERi.exit81, %95, %204, %_ZNK10TypeAryPtr17base_element_typeERi.exit100, %88, %74, %80, %11, %207, %195
-  %.0 = phi i1 [ %203, %195 ], [ %216, %207 ], [ true, %11 ], [ false, %80 ], [ false, %74 ], [ false, %88 ], [ %spec.select, %95 ], [ false, %_ZNK10TypeAryPtr17base_element_typeERi.exit100 ], [ false, %204 ], [ false, %_ZNK10TypeAryPtr17base_element_typeERi.exit81 ]
+  %.0 = phi i1 [ false, %_ZNK10TypeAryPtr17base_element_typeERi.exit100 ], [ true, %11 ], [ false, %74 ], [ false, %204 ], [ %203, %195 ], [ %216, %207 ], [ false, %80 ], [ %spec.select, %95 ], [ false, %88 ], [ false, %_ZNK10TypeAryPtr17base_element_typeERi.exit81 ]
   ret i1 %.0
 }
 
@@ -22157,7 +22157,7 @@ _ZNK4Type8make_ptrEv.exit9.i41:                   ; preds = %43, %40, %37
   br label %.preheader96.backedge
 
 .preheader96.backedge:                            ; preds = %50, %54, %51
-  %.pn15.i33.be = phi ptr [ %53, %51 ], [ %56, %54 ], [ %.0.i37, %50 ]
+  %.pn15.i33.be = phi ptr [ %56, %54 ], [ %53, %51 ], [ %.0.i37, %50 ]
   br label %.preheader96, !llvm.loop !31
 
 _ZNK10TypeAryPtr17base_element_typeERi.exit50:    ; preds = %34, %_ZNK4Type8make_ptrEv.exit.i47, %_ZNK4Type8make_ptrEv.exit9.i41
@@ -22261,7 +22261,7 @@ _ZNK4Type8make_ptrEv.exit9.i61:                   ; preds = %86, %83, %80
   br label %.preheader95.backedge
 
 .preheader95.backedge:                            ; preds = %93, %97, %94
-  %.pn15.i53.be = phi ptr [ %96, %94 ], [ %99, %97 ], [ %.0.i57, %93 ]
+  %.pn15.i53.be = phi ptr [ %99, %97 ], [ %96, %94 ], [ %.0.i57, %93 ]
   br label %.preheader95, !llvm.loop !31
 
 _ZNK10TypeAryPtr17base_element_typeERi.exit70:    ; preds = %77, %_ZNK4Type8make_ptrEv.exit.i67, %_ZNK4Type8make_ptrEv.exit9.i61
@@ -22340,7 +22340,7 @@ _ZNK4Type8make_ptrEv.exit9.i80:                   ; preds = %114, %111, %108
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %121, %125, %122
-  %.pn15.i72.be = phi ptr [ %124, %122 ], [ %127, %125 ], [ %.0.i76, %121 ]
+  %.pn15.i72.be = phi ptr [ %127, %125 ], [ %124, %122 ], [ %.0.i76, %121 ]
   br label %.preheader, !llvm.loop !31
 
 _ZNK10TypeAryPtr17base_element_typeERi.exit89:    ; preds = %105, %_ZNK4Type8make_ptrEv.exit.i86, %_ZNK4Type8make_ptrEv.exit9.i80
@@ -22443,7 +22443,7 @@ _ZNK4Type8make_ptrEv.exit91:                      ; preds = %153, %156, %159
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNK10TypeAryPtr17base_element_typeERi.exit70, %174, %_ZNK10TypeAryPtr17base_element_typeERi.exit89, %59, %64, %69, %177, %165
-  %.0 = phi i1 [ %173, %165 ], [ %186, %177 ], [ false, %69 ], [ false, %64 ], [ false, %59 ], [ false, %_ZNK10TypeAryPtr17base_element_typeERi.exit89 ], [ false, %174 ], [ false, %_ZNK10TypeAryPtr17base_element_typeERi.exit70 ]
+  %.0 = phi i1 [ false, %_ZNK10TypeAryPtr17base_element_typeERi.exit89 ], [ false, %59 ], [ %173, %165 ], [ %186, %177 ], [ false, %69 ], [ false, %64 ], [ false, %174 ], [ false, %_ZNK10TypeAryPtr17base_element_typeERi.exit70 ]
   ret i1 %.0
 }
 
@@ -22585,7 +22585,7 @@ _ZNK4Type8make_ptrEv.exit9.i:                     ; preds = %60, %57, %54
   br label %.preheader92.backedge
 
 .preheader92.backedge:                            ; preds = %67, %71, %68
-  %.pn15.i.be = phi ptr [ %70, %68 ], [ %73, %71 ], [ %.0.i, %67 ]
+  %.pn15.i.be = phi ptr [ %73, %71 ], [ %70, %68 ], [ %.0.i, %67 ]
   br label %.preheader92, !llvm.loop !31
 
 _ZNK10TypeAryPtr17base_element_typeERi.exit:      ; preds = %51, %_ZNK4Type8make_ptrEv.exit.i, %_ZNK4Type8make_ptrEv.exit9.i
@@ -22664,7 +22664,7 @@ _ZNK4Type8make_ptrEv.exit9.i56:                   ; preds = %88, %85, %82
   br label %.preheader91.backedge
 
 .preheader91.backedge:                            ; preds = %95, %99, %96
-  %.pn15.i48.be = phi ptr [ %98, %96 ], [ %101, %99 ], [ %.0.i52, %95 ]
+  %.pn15.i48.be = phi ptr [ %101, %99 ], [ %98, %96 ], [ %.0.i52, %95 ]
   br label %.preheader91, !llvm.loop !31
 
 _ZNK10TypeAryPtr17base_element_typeERi.exit65:    ; preds = %79, %_ZNK4Type8make_ptrEv.exit.i62, %_ZNK4Type8make_ptrEv.exit9.i56
@@ -22743,7 +22743,7 @@ _ZNK4Type8make_ptrEv.exit9.i76:                   ; preds = %116, %113, %110
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %123, %127, %124
-  %.pn15.i68.be = phi ptr [ %126, %124 ], [ %129, %127 ], [ %.0.i72, %123 ]
+  %.pn15.i68.be = phi ptr [ %129, %127 ], [ %126, %124 ], [ %.0.i72, %123 ]
   br label %.preheader, !llvm.loop !31
 
 _ZNK10TypeAryPtr17base_element_typeERi.exit85:    ; preds = %107, %_ZNK4Type8make_ptrEv.exit.i82, %_ZNK4Type8make_ptrEv.exit9.i76
@@ -22869,7 +22869,7 @@ _ZNK4Type8make_ptrEv.exit87:                      ; preds = %171, %174, %177
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNK10TypeAryPtr17base_element_typeERi.exit85, %_ZNK10TypeAryPtr17base_element_typeERi.exit, %192, %131, %_ZNK10TypeAryPtr17base_element_typeERi.exit65, %32, %39, %19, %24, %12, %195, %183, %135
-  %.0 = phi i1 [ %147, %135 ], [ %191, %183 ], [ %204, %195 ], [ true, %12 ], [ true, %24 ], [ true, %19 ], [ false, %32 ], [ %47, %39 ], [ true, %_ZNK10TypeAryPtr17base_element_typeERi.exit65 ], [ true, %131 ], [ false, %192 ], [ true, %_ZNK10TypeAryPtr17base_element_typeERi.exit ], [ true, %_ZNK10TypeAryPtr17base_element_typeERi.exit85 ]
+  %.0 = phi i1 [ true, %12 ], [ true, %19 ], [ %47, %39 ], [ true, %_ZNK10TypeAryPtr17base_element_typeERi.exit65 ], [ %147, %135 ], [ %191, %183 ], [ %204, %195 ], [ true, %131 ], [ true, %24 ], [ false, %32 ], [ false, %192 ], [ true, %_ZNK10TypeAryPtr17base_element_typeERi.exit ], [ true, %_ZNK10TypeAryPtr17base_element_typeERi.exit85 ]
   ret i1 %.0
 }
 
@@ -22937,7 +22937,7 @@ define hidden noundef ptr @_ZNK10TypeAryPtr12xmeet_helperEPK4Type(ptr noundef no
   br label %_ZNK7TypePtr11meet_offsetEi.exit
 
 _ZNK7TypePtr11meet_offsetEi.exit:                 ; preds = %15, %21, %23
-  %.0.i = phi i32 [ %17, %15 ], [ %19, %21 ], [ %..i, %23 ]
+  %.0.i = phi i32 [ %19, %21 ], [ %17, %15 ], [ %..i, %23 ]
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %25 = load i32, ptr %24, align 8
   %26 = zext i32 %25 to i64
@@ -23032,7 +23032,7 @@ _ZNK10TypeOopPtr16meet_instance_idEi.exit:        ; preds = %_ZNK7TypePtr17xmeet
   br label %_ZNK10TypeOopPtr16meet_instance_idEi.exit142
 
 _ZNK10TypeOopPtr16meet_instance_idEi.exit142:     ; preds = %75, %81, %83
-  %.0.i141 = phi i32 [ %77, %75 ], [ %79, %81 ], [ %..i140, %83 ]
+  %.0.i141 = phi i32 [ %79, %81 ], [ %77, %75 ], [ %..i140, %83 ]
   %84 = tail call noundef ptr @_ZN10TypeOopPtr4makeEN7TypePtr3PTREiiPKS0_i(i32 noundef %32, i32 noundef %.0.i, i32 noundef %.0.i141, ptr noundef %.012.i, i32 noundef %37)
   br label %391
 
@@ -23060,7 +23060,7 @@ _ZNK10TypeOopPtr16meet_instance_idEi.exit142:     ; preds = %75, %81, %83
   br label %_ZNK7TypePtr11meet_offsetEi.exit146
 
 _ZNK7TypePtr11meet_offsetEi.exit146:              ; preds = %87, %93, %95
-  %.0.i145 = phi i32 [ %89, %87 ], [ %91, %93 ], [ %..i144, %95 ]
+  %.0.i145 = phi i32 [ %91, %93 ], [ %89, %87 ], [ %..i144, %95 ]
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %97 = load i32, ptr %96, align 8
   %98 = zext i32 %97 to i64
@@ -23178,7 +23178,7 @@ _ZNK10TypeOopPtr16meet_instance_idEi.exit153:     ; preds = %128, %_ZNK7TypePtr1
   br label %_ZNK7TypePtr11meet_offsetEi.exit157
 
 _ZNK7TypePtr11meet_offsetEi.exit157:              ; preds = %157, %163, %165
-  %.0.i156 = phi i32 [ %159, %157 ], [ %161, %163 ], [ %..i155, %165 ]
+  %.0.i156 = phi i32 [ %161, %163 ], [ %159, %157 ], [ %..i155, %165 ]
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %167 = load ptr, ptr %166, align 8
   %168 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -23215,7 +23215,7 @@ _ZNK7TypePtr11meet_offsetEi.exit157:              ; preds = %157, %163, %165
   br label %_ZNK10TypeOopPtr16meet_instance_idEi.exit161
 
 _ZNK10TypeOopPtr16meet_instance_idEi.exit161:     ; preds = %_ZNK7TypePtr11meet_offsetEi.exit157, %189, %191
-  %.0.i160 = phi i32 [ %185, %_ZNK7TypePtr11meet_offsetEi.exit157 ], [ %187, %189 ], [ %..i159, %191 ]
+  %.0.i160 = phi i32 [ %187, %189 ], [ %185, %_ZNK7TypePtr11meet_offsetEi.exit157 ], [ %..i159, %191 ]
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %193 = load ptr, ptr %192, align 8
   %194 = icmp ne ptr %193, null
@@ -23289,7 +23289,7 @@ _ZNK7TypePtr17xmeet_speculativeEPKS_.exit166:     ; preds = %_ZNK10TypeOopPtr16m
   br label %234
 
 234:                                              ; preds = %230, %229, %225, %233, %_ZNK7TypePtr17xmeet_speculativeEPKS_.exit166
-  %.0119 = phi ptr [ null, %233 ], [ null, %_ZNK7TypePtr17xmeet_speculativeEPKS_.exit166 ], [ %219, %225 ], [ %219, %229 ], [ %217, %230 ]
+  %.0119 = phi ptr [ null, %_ZNK7TypePtr17xmeet_speculativeEPKS_.exit166 ], [ %219, %225 ], [ %219, %229 ], [ null, %233 ], [ %217, %230 ]
   %235 = load i32, ptr %3, align 4
   %236 = load ptr, ptr %6, align 8
   %237 = getelementptr inbounds nuw i8, ptr %174, i64 32
@@ -23322,7 +23322,7 @@ _ZNK7TypePtr17xmeet_speculativeEPKS_.exit166:     ; preds = %_ZNK10TypeOopPtr16m
   br label %_ZNK7TypePtr11meet_offsetEi.exit170
 
 _ZNK7TypePtr11meet_offsetEi.exit170:              ; preds = %247, %253, %255
-  %.0.i169 = phi i32 [ %249, %247 ], [ %251, %253 ], [ %..i168, %255 ]
+  %.0.i169 = phi i32 [ %251, %253 ], [ %249, %247 ], [ %..i168, %255 ]
   %256 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %257 = load i32, ptr %256, align 8
   %258 = zext i32 %257 to i64
@@ -23349,7 +23349,7 @@ _ZNK7TypePtr11meet_offsetEi.exit170:              ; preds = %247, %253, %255
   br label %_ZNK10TypeOopPtr16meet_instance_idEi.exit174
 
 _ZNK10TypeOopPtr16meet_instance_idEi.exit174:     ; preds = %_ZNK7TypePtr11meet_offsetEi.exit170, %270, %272
-  %.0.i173 = phi i32 [ %266, %_ZNK7TypePtr11meet_offsetEi.exit170 ], [ %268, %270 ], [ %..i172, %272 ]
+  %.0.i173 = phi i32 [ %268, %270 ], [ %266, %_ZNK7TypePtr11meet_offsetEi.exit170 ], [ %..i172, %272 ]
   %273 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %274 = load ptr, ptr %273, align 8
   %275 = icmp ne ptr %274, null
@@ -23532,7 +23532,7 @@ _ZNK10TypeOopPtr15meet_interfacesEPKS_.exit:      ; preds = %297, %298, %.thread
   unreachable
 
 391:                                              ; preds = %.split126, %.split127, %.split122, %.split123, %_ZNK7TypePtr17xmeet_speculativeEPKS_.exit151, %.split, %.split120, %8, %2, %384, %340, %331, %234, %155, %130, %126, %_ZNK10TypeOopPtr16meet_instance_idEi.exit142, %11
-  %.0 = phi ptr [ %84, %_ZNK10TypeOopPtr16meet_instance_idEi.exit142 ], [ %12, %11 ], [ %127, %126 ], [ %131, %130 ], [ %156, %155 ], [ %246, %234 ], [ %343, %340 ], [ %339, %331 ], [ %388, %384 ], [ %0, %2 ], [ %0, %8 ], [ %74, %.split ], [ %64, %.split120 ], [ %0, %_ZNK7TypePtr17xmeet_speculativeEPKS_.exit151 ], [ %152, %.split122 ], [ %142, %.split123 ], [ %383, %.split126 ], [ %373, %.split127 ]
+  %.0 = phi ptr [ %142, %.split123 ], [ %0, %8 ], [ %84, %_ZNK10TypeOopPtr16meet_instance_idEi.exit142 ], [ %12, %11 ], [ %0, %2 ], [ %64, %.split120 ], [ %127, %126 ], [ %131, %130 ], [ %0, %_ZNK7TypePtr17xmeet_speculativeEPKS_.exit151 ], [ %156, %155 ], [ %246, %234 ], [ %373, %.split127 ], [ %343, %340 ], [ %339, %331 ], [ %388, %384 ], [ %74, %.split ], [ %152, %.split122 ], [ %383, %.split126 ]
   ret ptr %.0
 }
 
@@ -23690,7 +23690,7 @@ _ZNK4Type8make_ptrEv.exit9.i101:                  ; preds = %47, %44, %41
   br label %.preheader156.backedge
 
 .preheader156.backedge:                           ; preds = %54, %58, %55
-  %.pn15.i93.be = phi ptr [ %57, %55 ], [ %60, %58 ], [ %.0.i97, %54 ]
+  %.pn15.i93.be = phi ptr [ %60, %58 ], [ %57, %55 ], [ %.0.i97, %54 ]
   br label %.preheader156, !llvm.loop !31
 
 _ZNK10TypeAryPtr17base_element_typeERi.exit110:   ; preds = %38, %_ZNK4Type8make_ptrEv.exit.i107, %_ZNK4Type8make_ptrEv.exit9.i101
@@ -23851,7 +23851,7 @@ _ZNK4Type8make_ptrEv.exit9.i139:                  ; preds = %104, %101, %98
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %111, %115, %112
-  %.pn15.i131.be = phi ptr [ %114, %112 ], [ %117, %115 ], [ %.0.i135, %111 ]
+  %.pn15.i131.be = phi ptr [ %117, %115 ], [ %114, %112 ], [ %.0.i135, %111 ]
   br label %.preheader, !llvm.loop !31
 
 _ZNK10TypeAryPtr17base_element_typeERi.exit148:   ; preds = %95, %_ZNK4Type8make_ptrEv.exit.i145, %_ZNK4Type8make_ptrEv.exit9.i139
@@ -24003,7 +24003,7 @@ _ZNK4Type8make_ptrEv.exit.thread:                 ; preds = %181, %191, %_ZNK4Ty
   br label %193
 
 193:                                              ; preds = %.sink.split, %153, %149, %155, %167, %168
-  %.0 = phi i32 [ 2, %155 ], [ 2, %168 ], [ 2, %167 ], [ 3, %149 ], [ 2, %153 ], [ 2, %.sink.split ]
+  %.0 = phi i32 [ 2, %167 ], [ 2, %153 ], [ 3, %149 ], [ 2, %155 ], [ 2, %168 ], [ 2, %.sink.split ]
   store i8 0, ptr %5, align 1
   switch i32 %141, label %213 [
     i32 1, label %194
@@ -24058,8 +24058,8 @@ _ZNK4Type8make_ptrEv.exit.thread:                 ; preds = %181, %191, %_ZNK4Ty
   unreachable
 
 215:                                              ; preds = %198, %204, %206, %207, %197, %194, %_ZNK4Type8make_ptrEv.exit.thread, %152
-  %.sink158.shrunk = phi i1 [ %spec.select, %194 ], [ false, %_ZNK4Type8make_ptrEv.exit.thread ], [ false, %152 ], [ %not.or.cond160, %197 ], [ %spec.select162, %198 ], [ %137, %204 ], [ false, %206 ], [ %spec.select155, %207 ]
-  %.083 = phi i32 [ %.0, %194 ], [ 3, %_ZNK4Type8make_ptrEv.exit.thread ], [ 3, %152 ], [ %.0, %197 ], [ %.0, %198 ], [ %.0, %204 ], [ %.0, %206 ], [ %.0, %207 ]
+  %.sink158.shrunk = phi i1 [ false, %152 ], [ %spec.select155, %207 ], [ %not.or.cond160, %197 ], [ %spec.select162, %198 ], [ %spec.select, %194 ], [ false, %_ZNK4Type8make_ptrEv.exit.thread ], [ %137, %204 ], [ false, %206 ]
+  %.083 = phi i32 [ 3, %152 ], [ %.0, %207 ], [ %.0, %197 ], [ %.0, %198 ], [ %.0, %194 ], [ 3, %_ZNK4Type8make_ptrEv.exit.thread ], [ %.0, %204 ], [ %.0, %206 ]
   %.sink158 = zext i1 %.sink158.shrunk to i8
   store i8 %.sink158, ptr %5, align 1
   ret i32 %.083
@@ -24132,7 +24132,7 @@ _ZN4TypenwEm.exit:                                ; preds = %18, %20
   br label %_ZNK7TypePtr11dual_offsetEv.exit
 
 _ZNK7TypePtr11dual_offsetEv.exit:                 ; preds = %23, %42, %43
-  %.0.i = phi i32 [ -2000000000, %42 ], [ %41, %43 ], [ -2000000001, %23 ]
+  %.0.i = phi i32 [ %41, %43 ], [ -2000000000, %42 ], [ -2000000001, %23 ]
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %45 = load i32, ptr %44, align 4
   switch i32 %45, label %47 [
@@ -24147,7 +24147,7 @@ _ZNK7TypePtr11dual_offsetEv.exit:                 ; preds = %23, %42, %43
   br label %_ZNK10TypeOopPtr16dual_instance_idEv.exit
 
 _ZNK10TypeOopPtr16dual_instance_idEv.exit:        ; preds = %_ZNK7TypePtr11dual_offsetEv.exit, %46, %47
-  %.0.i1 = phi i32 [ -1, %46 ], [ %45, %47 ], [ 0, %_ZNK7TypePtr11dual_offsetEv.exit ]
+  %.0.i1 = phi i32 [ %45, %47 ], [ -1, %46 ], [ 0, %_ZNK7TypePtr11dual_offsetEv.exit ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %49 = load i8, ptr %48, align 8
   %50 = trunc i8 %49 to i1
@@ -24235,7 +24235,7 @@ define hidden noundef nonnull ptr @_ZNK10TypeAryPtr10add_offsetEl(ptr noundef no
   br label %_ZNK7TypePtr11xadd_offsetEl.exit
 
 _ZNK7TypePtr11xadd_offsetEl.exit:                 ; preds = %2, %17, %20
-  %.0.i = phi i32 [ -2000000000, %2 ], [ -2000000001, %17 ], [ %spec.select.i, %20 ]
+  %.0.i = phi i32 [ %spec.select.i, %20 ], [ -2000000000, %2 ], [ -2000000001, %17 ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %28 = load i32, ptr %27, align 4
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -24491,7 +24491,7 @@ define hidden noundef zeroext i1 @_ZNK13TypeNarrowPtr2eqEPK4Type(ptr noundef non
   br label %20
 
 20:                                               ; preds = %2, %7, %16
-  %.0 = phi i1 [ %19, %16 ], [ false, %7 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %7 ], [ %19, %16 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -24586,7 +24586,7 @@ define hidden noundef ptr @_ZNK13TypeNarrowPtr13filter_helperEPK4Typeb(ptr nound
   br label %57
 
 57:                                               ; preds = %40, %27, %55, %31, %25
-  %.0 = phi ptr [ %26, %25 ], [ %35, %31 ], [ %56, %55 ], [ %20, %27 ], [ %spec.select, %40 ]
+  %.0 = phi ptr [ %26, %25 ], [ %35, %31 ], [ %56, %55 ], [ %spec.select, %40 ], [ %20, %27 ]
   ret ptr %.0
 }
 
@@ -24684,7 +24684,7 @@ _ZNK4Type8make_ptrEv.exit:                        ; preds = %13, %16, %19
   unreachable
 
 40:                                               ; preds = %35, %_ZNK4Type8make_ptrEv.exit, %2, %36, %30
-  %.0 = phi ptr [ %34, %30 ], [ %37, %36 ], [ %0, %2 ], [ %26, %_ZNK4Type8make_ptrEv.exit ], [ %0, %35 ]
+  %.0 = phi ptr [ %26, %_ZNK4Type8make_ptrEv.exit ], [ %34, %30 ], [ %0, %2 ], [ %0, %35 ], [ %37, %36 ]
   ret ptr %.0
 }
 
@@ -24945,7 +24945,7 @@ _ZNK7TypePtr2eqEPK4Type.exit.sink.split:          ; preds = %80, %_ZNK7TypePtr14
   br label %_ZNK7TypePtr2eqEPK4Type.exit
 
 _ZNK7TypePtr2eqEPK4Type.exit:                     ; preds = %_ZNK7TypePtr2eqEPK4Type.exit.sink.split, %_ZNK7TypePtr14eq_speculativeEPKS_.exit.i17, %87, %80, %64, %58, %_ZNK7TypePtr14eq_speculativeEPKS_.exit.i, %40, %33, %17, %11, %57, %10
-  %.0 = phi i1 [ false, %10 ], [ false, %57 ], [ false, %_ZNK7TypePtr14eq_speculativeEPKS_.exit.i ], [ false, %17 ], [ false, %11 ], [ false, %33 ], [ false, %40 ], [ false, %_ZNK7TypePtr14eq_speculativeEPKS_.exit.i17 ], [ false, %64 ], [ false, %58 ], [ false, %80 ], [ false, %87 ], [ %108, %_ZNK7TypePtr2eqEPK4Type.exit.sink.split ]
+  %.0 = phi i1 [ false, %40 ], [ false, %10 ], [ false, %57 ], [ false, %_ZNK7TypePtr14eq_speculativeEPKS_.exit.i ], [ false, %17 ], [ false, %11 ], [ false, %80 ], [ false, %33 ], [ false, %_ZNK7TypePtr14eq_speculativeEPKS_.exit.i17 ], [ false, %64 ], [ false, %58 ], [ false, %87 ], [ %108, %_ZNK7TypePtr2eqEPK4Type.exit.sink.split ]
   ret i1 %.0
 }
 
@@ -25033,7 +25033,7 @@ define hidden noundef nonnull ptr @_ZNK15TypeMetadataPtr10add_offsetEl(ptr nound
   br label %_ZNK7TypePtr11xadd_offsetEl.exit
 
 _ZNK7TypePtr11xadd_offsetEl.exit:                 ; preds = %2, %11, %14
-  %.0.i = phi i32 [ -2000000000, %2 ], [ -2000000001, %11 ], [ %spec.select.i, %14 ]
+  %.0.i = phi i32 [ %spec.select.i, %14 ], [ -2000000000, %2 ], [ -2000000001, %11 ]
   %21 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 1808
@@ -25270,7 +25270,7 @@ define hidden noundef ptr @_ZNK15TypeMetadataPtr5xmeetEPK4Type(ptr noundef nonnu
   br label %_ZNK7TypePtr11meet_offsetEi.exit
 
 _ZNK7TypePtr11meet_offsetEi.exit:                 ; preds = %11, %17, %19
-  %.0.i = phi i32 [ %13, %11 ], [ %15, %17 ], [ %..i, %19 ]
+  %.0.i = phi i32 [ %15, %17 ], [ %13, %11 ], [ %..i, %19 ]
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %21 = load i32, ptr %20, align 8
   %22 = zext i32 %21 to i64
@@ -25394,7 +25394,7 @@ _ZN15TypeMetadataPtr4makeEN7TypePtr3PTREP10ciMetadatai.exit: ; preds = %58, %60
   br label %_ZNK7TypePtr11meet_offsetEi.exit49
 
 _ZNK7TypePtr11meet_offsetEi.exit49:               ; preds = %83, %89, %91
-  %.0.i48 = phi i32 [ %85, %83 ], [ %87, %89 ], [ %..i47, %91 ]
+  %.0.i48 = phi i32 [ %87, %89 ], [ %85, %83 ], [ %..i47, %91 ]
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %93 = load i32, ptr %92, align 8
   %94 = zext i32 %93 to i64
@@ -25495,7 +25495,7 @@ _ZN15TypeMetadataPtr4makeEN7TypePtr3PTREP10ciMetadatai.exit52: ; preds = %129, %
   br label %149
 
 149:                                              ; preds = %146, %144, %4, %2, %147, %_ZN15TypeMetadataPtr4makeEN7TypePtr3PTREP10ciMetadatai.exit52, %81, %71, %_ZN15TypeMetadataPtr4makeEN7TypePtr3PTREP10ciMetadatai.exit, %31, %7
-  %.0 = phi ptr [ %82, %81 ], [ %38, %31 ], [ %70, %_ZN15TypeMetadataPtr4makeEN7TypePtr3PTREP10ciMetadatai.exit ], [ %78, %71 ], [ %8, %7 ], [ %141, %_ZN15TypeMetadataPtr4makeEN7TypePtr3PTREP10ciMetadatai.exit52 ], [ %148, %147 ], [ %0, %2 ], [ %0, %4 ], [ %1, %144 ], [ %0, %146 ]
+  %.0 = phi ptr [ %148, %147 ], [ %82, %81 ], [ %38, %31 ], [ %70, %_ZN15TypeMetadataPtr4makeEN7TypePtr3PTREP10ciMetadatai.exit ], [ %78, %71 ], [ %8, %7 ], [ %0, %2 ], [ %141, %_ZN15TypeMetadataPtr4makeEN7TypePtr3PTREP10ciMetadatai.exit52 ], [ %0, %4 ], [ %1, %144 ], [ %0, %146 ]
   ret ptr %.0
 }
 
@@ -25557,7 +25557,7 @@ _ZN4TypenwEm.exit:                                ; preds = %18, %20
   br label %_ZNK7TypePtr11dual_offsetEv.exit
 
 _ZNK7TypePtr11dual_offsetEv.exit:                 ; preds = %23, %33, %34
-  %.0.i = phi i32 [ -2000000000, %33 ], [ %32, %34 ], [ -2000000001, %23 ]
+  %.0.i = phi i32 [ %32, %34 ], [ -2000000000, %33 ], [ -2000000001, %23 ]
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store ptr null, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
@@ -26200,9 +26200,9 @@ _ZN12TypeKlassPtr4makeEP7ciKlassN4Type17InterfaceHandlingE.exit: ; preds = %_ZN1
   unreachable
 
 _ZN15TypeAryKlassPtr4makeEN7TypePtr3PTREPK4TypeP7ciKlassi.exit: ; preds = %105, %103, %72, %70
-  %.0.i.i.i.i14.sink38 = phi ptr [ %66, %70 ], [ %73, %72 ], [ %99, %103 ], [ %106, %105 ]
-  %.sink22 = phi ptr [ null, %70 ], [ null, %72 ], [ %1, %103 ], [ %1, %105 ]
-  %.sink = phi ptr [ %54, %70 ], [ %54, %72 ], [ %86, %103 ], [ %86, %105 ]
+  %.0.i.i.i.i14.sink38 = phi ptr [ %73, %72 ], [ %66, %70 ], [ %99, %103 ], [ %106, %105 ]
+  %.sink22 = phi ptr [ null, %72 ], [ null, %70 ], [ %1, %103 ], [ %1, %105 ]
+  %.sink = phi ptr [ %54, %72 ], [ %54, %70 ], [ %86, %103 ], [ %86, %105 ]
   %109 = icmp ne ptr %.0.i.i.i.i14.sink38, null
   tail call void @llvm.assume(i1 %109)
   %110 = load ptr, ptr @_ZN15TypeAryKlassPtr17_array_interfacesE, align 8
@@ -26340,7 +26340,7 @@ _ZNK17GrowableArrayViewIP15ciInstanceKlassE11find_sortedIS1_TnPFiRKT_RKS1_EXadL_
   br label %_ZNK14TypeInterfaces2eqEP15ciInstanceKlass.exit
 
 _ZNK14TypeInterfaces2eqEP15ciInstanceKlass.exit:  ; preds = %38, %1, %13, %.loopexit, %40
-  %.0 = phi ptr [ %42, %40 ], [ %39, %.loopexit ], [ null, %13 ], [ %9, %1 ], [ null, %38 ]
+  %.0 = phi ptr [ %9, %1 ], [ %42, %40 ], [ %39, %.loopexit ], [ null, %13 ], [ null, %38 ]
   ret ptr %.0
 }
 
@@ -26740,7 +26740,7 @@ define hidden noundef nonnull ptr @_ZNK16TypeInstKlassPtr10add_offsetEl(ptr noun
   br label %_ZNK7TypePtr11xadd_offsetEl.exit
 
 _ZNK7TypePtr11xadd_offsetEl.exit:                 ; preds = %2, %15, %18
-  %.0.i = phi i32 [ -2000000000, %2 ], [ -2000000001, %15 ], [ %spec.select.i, %18 ]
+  %.0.i = phi i32 [ %spec.select.i, %18 ], [ -2000000000, %2 ], [ -2000000001, %15 ]
   %25 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 1808
@@ -26961,7 +26961,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %_ZNK10ciMetadata9is
   br label %14
 
 14:                                               ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread, %_ZNK10ciMetadata9is_loadedEv.exit
-  %.0 = phi i1 [ false, %_ZNK10ciMetadata9is_loadedEv.exit ], [ %13, %_ZNK10ciMetadata9is_loadedEv.exit.thread ]
+  %.0 = phi i1 [ %13, %_ZNK10ciMetadata9is_loadedEv.exit.thread ], [ false, %_ZNK10ciMetadata9is_loadedEv.exit ]
   ret i1 %.0
 }
 
@@ -27168,8 +27168,8 @@ _ZNK17GrowableArrayViewIP15ciInstanceKlassE11find_sortedIS1_TnPFiRKT_RKS1_EXadL_
   br label %_ZNK14TypeInterfaces2eqEP15ciInstanceKlass.exit
 
 _ZNK14TypeInterfaces2eqEP15ciInstanceKlass.exit:  ; preds = %60, %34, %_ZNK10ciMetadata9is_loadedEv.exit.thread, %.loopexit, %32, %_ZNK10ciMetadata9is_loadedEv.exit
-  %.021.in = phi i1 [ %63, %.loopexit ], [ %10, %32 ], [ %10, %_ZNK10ciMetadata9is_loadedEv.exit.thread ], [ %10, %_ZNK10ciMetadata9is_loadedEv.exit ], [ %10, %34 ], [ %10, %60 ]
-  %.0 = phi ptr [ %33, %.loopexit ], [ %6, %32 ], [ %6, %_ZNK10ciMetadata9is_loadedEv.exit.thread ], [ %6, %_ZNK10ciMetadata9is_loadedEv.exit ], [ %6, %34 ], [ %6, %60 ]
+  %.021.in = phi i1 [ %63, %.loopexit ], [ %10, %_ZNK10ciMetadata9is_loadedEv.exit ], [ %10, %32 ], [ %10, %_ZNK10ciMetadata9is_loadedEv.exit.thread ], [ %10, %34 ], [ %10, %60 ]
+  %.0 = phi ptr [ %33, %.loopexit ], [ %6, %_ZNK10ciMetadata9is_loadedEv.exit ], [ %6, %32 ], [ %6, %_ZNK10ciMetadata9is_loadedEv.exit.thread ], [ %6, %34 ], [ %6, %60 ]
   %64 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %65 = load ptr, ptr %64, align 8
   %.not.i.i27 = icmp eq ptr %65, null
@@ -27201,7 +27201,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread.i:       ; preds = %_ZNK10ciMetadata9is
   br label %77
 
 77:                                               ; preds = %.thread.i, %70, %_ZNK10ciMetadata9is_loadedEv.exit.i
-  %.0.shrunk.i = phi i1 [ false, %70 ], [ %.021.in, %_ZNK10ciMetadata9is_loadedEv.exit.i ], [ %not..i, %.thread.i ]
+  %.0.shrunk.i = phi i1 [ %.021.in, %_ZNK10ciMetadata9is_loadedEv.exit.i ], [ false, %70 ], [ %not..i, %.thread.i ]
   %78 = load ptr, ptr %11, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 1808
   %80 = load ptr, ptr %79, align 8
@@ -27303,7 +27303,7 @@ define hidden noundef ptr @_ZNK16TypeInstKlassPtr5xmeetEPK4Type(ptr noundef nonn
   br label %_ZNK7TypePtr11meet_offsetEi.exit
 
 _ZNK7TypePtr11meet_offsetEi.exit:                 ; preds = %15, %21, %23
-  %.0.i = phi i32 [ %17, %15 ], [ %19, %21 ], [ %..i, %23 ]
+  %.0.i = phi i32 [ %19, %21 ], [ %17, %15 ], [ %..i, %23 ]
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %25 = load i32, ptr %24, align 8
   %26 = zext i32 %25 to i64
@@ -27383,7 +27383,7 @@ _ZNK7TypePtr11meet_offsetEi.exit:                 ; preds = %15, %21, %23
   br label %_ZNK7TypePtr11meet_offsetEi.exit63
 
 _ZNK7TypePtr11meet_offsetEi.exit63:               ; preds = %63, %69, %71
-  %.0.i62 = phi i32 [ %65, %63 ], [ %67, %69 ], [ %..i61, %71 ]
+  %.0.i62 = phi i32 [ %67, %69 ], [ %65, %63 ], [ %..i61, %71 ]
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %73 = load i32, ptr %72, align 8
   %74 = zext i32 %73 to i64
@@ -27526,7 +27526,7 @@ _ZN16TypeInstKlassPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesi.exit: ; pr
   br label %_ZNK7TypePtr11meet_offsetEi.exit68
 
 _ZNK7TypePtr11meet_offsetEi.exit68:               ; preds = %138, %144, %146
-  %.0.i67 = phi i32 [ %140, %138 ], [ %142, %144 ], [ %..i66, %146 ]
+  %.0.i67 = phi i32 [ %142, %144 ], [ %140, %138 ], [ %..i66, %146 ]
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %148 = load i32, ptr %147, align 8
   %149 = zext i32 %148 to i64
@@ -27669,7 +27669,7 @@ _ZNK12TypeKlassPtr15meet_interfacesEPKS_.exit71:  ; preds = %158, %159, %.thread
   unreachable
 
 241:                                              ; preds = %_ZNK7TypePtr11meet_offsetEi.exit, %8, %2, %234, %226, %200, %192, %_ZN16TypeInstKlassPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesi.exit, %61, %51, %43, %35, %11
-  %.0 = phi ptr [ %62, %61 ], [ %42, %35 ], [ %50, %43 ], [ %58, %51 ], [ %12, %11 ], [ %135, %_ZN16TypeInstKlassPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesi.exit ], [ %205, %200 ], [ %199, %192 ], [ %238, %234 ], [ %233, %226 ], [ %0, %2 ], [ %0, %8 ], [ %0, %_ZNK7TypePtr11meet_offsetEi.exit ]
+  %.0 = phi ptr [ %233, %226 ], [ %62, %61 ], [ %0, %8 ], [ %42, %35 ], [ %50, %43 ], [ %58, %51 ], [ %12, %11 ], [ %0, %2 ], [ %135, %_ZN16TypeInstKlassPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesi.exit ], [ %0, %_ZNK7TypePtr11meet_offsetEi.exit ], [ %205, %200 ], [ %199, %192 ], [ %238, %234 ]
   ret ptr %.0
 }
 
@@ -27812,10 +27812,10 @@ _ZNK10ciMetadata9is_loadedEv.exit79.thread:       ; preds = %_ZNK10ciMetadata9is
 .thread92:                                        ; preds = %80, %81
   br label %.thread87
 
-.thread87:                                        ; preds = %69, %68, %81, %80, %.thread, %.thread92, %74
-  %.072 = phi i1 [ %.0688495, %.thread92 ], [ %18, %74 ], [ %.06884, %.thread ], [ %22, %80 ], [ %18, %81 ], [ true, %68 ], [ %18, %69 ]
-  %.071 = phi ptr [ %3, %.thread92 ], [ %3, %74 ], [ %.06983, %.thread ], [ %3, %80 ], [ %2, %81 ], [ %3, %68 ], [ %3, %69 ]
-  %.070 = phi ptr [ %2, %.thread92 ], [ %2, %74 ], [ %.06983, %.thread ], [ %3, %80 ], [ %2, %81 ], [ %2, %68 ], [ %2, %69 ]
+.thread87:                                        ; preds = %68, %69, %81, %80, %.thread, %.thread92, %74
+  %.072 = phi i1 [ %18, %74 ], [ %.0688495, %.thread92 ], [ %22, %80 ], [ %.06884, %.thread ], [ %18, %81 ], [ %18, %69 ], [ true, %68 ]
+  %.071 = phi ptr [ %3, %74 ], [ %3, %.thread92 ], [ %3, %80 ], [ %.06983, %.thread ], [ %2, %81 ], [ %3, %69 ], [ %3, %68 ]
+  %.070 = phi ptr [ %2, %74 ], [ %2, %.thread92 ], [ %3, %80 ], [ %.06983, %.thread ], [ %2, %81 ], [ %2, %69 ], [ %2, %68 ]
   %82 = load ptr, ptr %.070, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 248
   %84 = load ptr, ptr %83, align 8
@@ -27845,16 +27845,16 @@ _ZNK10ciMetadata9is_loadedEv.exit79.thread:       ; preds = %_ZNK10ciMetadata9is
   br label %.sink.split
 
 .sink.split:                                      ; preds = %36, %86, %94
-  %.sink99 = phi ptr [ %90, %86 ], [ %96, %94 ], [ %10, %36 ]
-  %.sink.shrunk = phi i1 [ %.072, %86 ], [ false, %94 ], [ %18, %36 ]
-  %.0.ph = phi i32 [ 2, %86 ], [ 4, %94 ], [ 0, %36 ]
+  %.sink99 = phi ptr [ %96, %94 ], [ %90, %86 ], [ %10, %36 ]
+  %.sink.shrunk = phi i1 [ false, %94 ], [ %.072, %86 ], [ %18, %36 ]
+  %.0.ph = phi i32 [ 4, %94 ], [ 2, %86 ], [ 0, %36 ]
   store ptr %.sink99, ptr %4, align 8
   %.sink = zext i1 %.sink.shrunk to i8
   store i8 %.sink, ptr %5, align 1
   br label %97
 
 97:                                               ; preds = %.sink.split, %_ZNK10ciMetadata9is_loadedEv.exit, %_ZNK10ciMetadata9is_loadedEv.exit79
-  %.0 = phi i32 [ 1, %_ZNK10ciMetadata9is_loadedEv.exit79 ], [ 1, %_ZNK10ciMetadata9is_loadedEv.exit ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ 1, %_ZNK10ciMetadata9is_loadedEv.exit ], [ 1, %_ZNK10ciMetadata9is_loadedEv.exit79 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 
@@ -27920,7 +27920,7 @@ _ZN4TypenwEm.exit:                                ; preds = %18, %20
   br label %_ZNK7TypePtr11dual_offsetEv.exit
 
 _ZNK7TypePtr11dual_offsetEv.exit:                 ; preds = %23, %37, %38
-  %.0.i = phi i32 [ -2000000000, %37 ], [ %36, %38 ], [ -2000000001, %23 ]
+  %.0.i = phi i32 [ %36, %38 ], [ -2000000000, %37 ], [ -2000000001, %23 ]
   %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store ptr null, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
@@ -28008,7 +28008,7 @@ define hidden noundef zeroext i1 @_ZNK16TypeInstKlassPtr25is_java_subtype_of_hel
   br label %_ZN7TypePtr38is_java_subtype_of_helper_for_instanceI16TypeInstKlassPtr12TypeKlassPtrEEbPKT_PKT0_bb.exit
 
 _ZN7TypePtr38is_java_subtype_of_helper_for_instanceI16TypeInstKlassPtr12TypeKlassPtrEEbPKT_PKT0_bb.exit: ; preds = %4, %9, %14, %25, %32, %42
-  %.0.i = phi i1 [ false, %9 ], [ false, %4 ], [ false, %14 ], [ true, %25 ], [ false, %32 ], [ %50, %42 ]
+  %.0.i = phi i1 [ %50, %42 ], [ true, %25 ], [ false, %14 ], [ false, %4 ], [ false, %9 ], [ false, %32 ]
   ret i1 %.0.i
 }
 
@@ -28056,7 +28056,7 @@ define hidden noundef zeroext i1 @_ZNK16TypeInstKlassPtr27is_same_java_type_as_h
   br label %_ZN7TypePtr40is_same_java_type_as_helper_for_instanceI16TypeInstKlassPtr12TypeKlassPtrEEbPKT_PKT0_.exit
 
 _ZN7TypePtr40is_same_java_type_as_helper_for_instanceI16TypeInstKlassPtr12TypeKlassPtrEEbPKT_PKT0_.exit: ; preds = %2, %7, %12, %15, %25
-  %.0.i = phi i1 [ false, %7 ], [ false, %2 ], [ false, %12 ], [ false, %15 ], [ %32, %25 ]
+  %.0.i = phi i1 [ false, %12 ], [ false, %2 ], [ false, %7 ], [ false, %15 ], [ %32, %25 ]
   ret i1 %.0.i
 }
 
@@ -28180,7 +28180,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7TypePtr41maybe_java_subtype_o
   br label %87
 
 87:                                               ; preds = %57, %67, %68, %78, %17, %18, %25, %4, %9, %36
-  %.0 = phi i1 [ %47, %36 ], [ true, %9 ], [ true, %4 ], [ false, %18 ], [ false, %17 ], [ %33, %25 ], [ %66, %57 ], [ false, %68 ], [ %86, %78 ], [ true, %67 ]
+  %.0 = phi i1 [ true, %4 ], [ %47, %36 ], [ %66, %57 ], [ %86, %78 ], [ %33, %25 ], [ true, %9 ], [ false, %18 ], [ false, %17 ], [ false, %68 ], [ true, %67 ]
   ret i1 %.0
 }
 
@@ -28304,7 +28304,7 @@ _ZNK17GrowableArrayViewIP15ciInstanceKlassE11find_sortedIS1_TnPFiRKT_RKS1_EXadL_
   br label %_ZNK14TypeInterfaces2eqEP15ciInstanceKlass.exit
 
 _ZNK14TypeInterfaces2eqEP15ciInstanceKlass.exit:  ; preds = %55, %29, %_ZNK10ciMetadata9is_loadedEv.exit, %27, %_ZNK10ciMetadata9is_loadedEv.exit.thread, %.loopexit
-  %.0 = phi ptr [ %63, %.loopexit ], [ %0, %_ZNK10ciMetadata9is_loadedEv.exit.thread ], [ %0, %27 ], [ %0, %_ZNK10ciMetadata9is_loadedEv.exit ], [ %0, %29 ], [ %0, %55 ]
+  %.0 = phi ptr [ %63, %.loopexit ], [ %0, %_ZNK10ciMetadata9is_loadedEv.exit.thread ], [ %0, %_ZNK10ciMetadata9is_loadedEv.exit ], [ %0, %27 ], [ %0, %29 ], [ %0, %55 ]
   ret ptr %.0
 }
 
@@ -28661,7 +28661,7 @@ _ZNK4Type8make_ptrEv.exit.thread:                 ; preds = %9, %_ZNK4Type8make_
   br label %47
 
 47:                                               ; preds = %_ZNK4Type8make_ptrEv.exit10, %_ZNK4Type8make_ptrEv.exit.thread, %41
-  %.0 = phi ptr [ %42, %41 ], [ %46, %_ZNK4Type8make_ptrEv.exit.thread ], [ null, %_ZNK4Type8make_ptrEv.exit10 ]
+  %.0 = phi ptr [ %46, %_ZNK4Type8make_ptrEv.exit.thread ], [ %42, %41 ], [ null, %_ZNK4Type8make_ptrEv.exit10 ]
   ret ptr %.0
 }
 
@@ -28793,7 +28793,7 @@ define hidden noundef nonnull ptr @_ZNK15TypeAryKlassPtr10add_offsetEl(ptr nound
   br label %_ZNK7TypePtr11xadd_offsetEl.exit
 
 _ZNK7TypePtr11xadd_offsetEl.exit:                 ; preds = %2, %15, %18
-  %.0.i = phi i32 [ -2000000000, %2 ], [ -2000000001, %15 ], [ %spec.select.i, %18 ]
+  %.0.i = phi i32 [ %spec.select.i, %18 ], [ -2000000000, %2 ], [ -2000000001, %15 ]
   %25 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 1808
@@ -29022,7 +29022,7 @@ define hidden noundef zeroext i1 @_ZNK15TypeAryKlassPtr13must_be_exactEv(ptr nou
   br label %17
 
 17:                                               ; preds = %8, %1, %12
-  %.0 = phi i1 [ %16, %12 ], [ false, %1 ], [ true, %8 ]
+  %.0 = phi i1 [ true, %8 ], [ false, %1 ], [ %16, %12 ]
   ret i1 %.0
 }
 
@@ -29224,7 +29224,7 @@ define hidden noundef ptr @_ZNK15TypeAryKlassPtr5xmeetEPK4Type(ptr noundef nonnu
   br label %_ZNK7TypePtr11meet_offsetEi.exit
 
 _ZNK7TypePtr11meet_offsetEi.exit:                 ; preds = %15, %21, %23
-  %.0.i = phi i32 [ %17, %15 ], [ %19, %21 ], [ %..i, %23 ]
+  %.0.i = phi i32 [ %19, %21 ], [ %17, %15 ], [ %..i, %23 ]
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %25 = load i32, ptr %24, align 8
   %26 = zext i32 %25 to i64
@@ -29304,7 +29304,7 @@ _ZNK7TypePtr11meet_offsetEi.exit:                 ; preds = %15, %21, %23
   br label %_ZNK7TypePtr11meet_offsetEi.exit64
 
 _ZNK7TypePtr11meet_offsetEi.exit64:               ; preds = %63, %69, %71
-  %.0.i63 = phi i32 [ %65, %63 ], [ %67, %69 ], [ %..i62, %71 ]
+  %.0.i63 = phi i32 [ %67, %69 ], [ %65, %63 ], [ %..i62, %71 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -29401,7 +29401,7 @@ _ZN15TypeAryKlassPtr4makeEN7TypePtr3PTREPK4TypeP7ciKlassi.exit: ; preds = %106, 
   br label %_ZNK7TypePtr11meet_offsetEi.exit68
 
 _ZNK7TypePtr11meet_offsetEi.exit68:               ; preds = %122, %128, %130
-  %.0.i67 = phi i32 [ %124, %122 ], [ %126, %128 ], [ %..i66, %130 ]
+  %.0.i67 = phi i32 [ %126, %128 ], [ %124, %122 ], [ %..i66, %130 ]
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %132 = load i32, ptr %131, align 8
   %133 = zext i32 %132 to i64
@@ -29539,7 +29539,7 @@ _ZNK12TypeKlassPtr15meet_interfacesEPKS_.exit:    ; preds = %142, %143, %.thread
   unreachable
 
 220:                                              ; preds = %_ZNK7TypePtr11meet_offsetEi.exit, %8, %2, %213, %207, %182, %176, %_ZN15TypeAryKlassPtr4makeEN7TypePtr3PTREPK4TypeP7ciKlassi.exit, %61, %51, %43, %35, %11
-  %.0 = phi ptr [ %62, %61 ], [ %42, %35 ], [ %50, %43 ], [ %58, %51 ], [ %12, %11 ], [ %121, %_ZN15TypeAryKlassPtr4makeEN7TypePtr3PTREPK4TypeP7ciKlassi.exit ], [ %186, %182 ], [ %181, %176 ], [ %217, %213 ], [ %212, %207 ], [ %0, %2 ], [ %0, %8 ], [ %0, %_ZNK7TypePtr11meet_offsetEi.exit ]
+  %.0 = phi ptr [ %212, %207 ], [ %62, %61 ], [ %0, %8 ], [ %42, %35 ], [ %50, %43 ], [ %58, %51 ], [ %12, %11 ], [ %0, %2 ], [ %121, %_ZN15TypeAryKlassPtr4makeEN7TypePtr3PTREPK4TypeP7ciKlassi.exit ], [ %0, %_ZNK7TypePtr11meet_offsetEi.exit ], [ %186, %182 ], [ %181, %176 ], [ %217, %213 ]
   ret ptr %.0
 }
 
@@ -29758,7 +29758,7 @@ _ZNK4Type8make_ptrEv.exit.thread:                 ; preds = %91, %101, %_ZNK4Typ
   br label %103
 
 103:                                              ; preds = %.sink.split, %63, %59, %65, %77, %78
-  %.0 = phi i32 [ 2, %65 ], [ 2, %78 ], [ 2, %77 ], [ 3, %59 ], [ 2, %63 ], [ 2, %.sink.split ]
+  %.0 = phi i32 [ 2, %77 ], [ 2, %63 ], [ 3, %59 ], [ 2, %65 ], [ 2, %78 ], [ 2, %.sink.split ]
   store i8 0, ptr %5, align 1
   switch i32 %51, label %123 [
     i32 1, label %104
@@ -29813,8 +29813,8 @@ _ZNK4Type8make_ptrEv.exit.thread:                 ; preds = %91, %101, %_ZNK4Typ
   unreachable
 
 125:                                              ; preds = %108, %114, %116, %117, %107, %104, %_ZNK4Type8make_ptrEv.exit.thread, %62
-  %.sink122.shrunk = phi i1 [ %spec.select, %104 ], [ false, %_ZNK4Type8make_ptrEv.exit.thread ], [ false, %62 ], [ %not.or.cond124, %107 ], [ %spec.select126, %108 ], [ %47, %114 ], [ false, %116 ], [ %spec.select119, %117 ]
-  %.083 = phi i32 [ %.0, %104 ], [ 3, %_ZNK4Type8make_ptrEv.exit.thread ], [ 3, %62 ], [ %.0, %107 ], [ %.0, %108 ], [ %.0, %114 ], [ %.0, %116 ], [ %.0, %117 ]
+  %.sink122.shrunk = phi i1 [ false, %62 ], [ %spec.select119, %117 ], [ %not.or.cond124, %107 ], [ %spec.select126, %108 ], [ %spec.select, %104 ], [ false, %_ZNK4Type8make_ptrEv.exit.thread ], [ %47, %114 ], [ false, %116 ]
+  %.083 = phi i32 [ 3, %62 ], [ %.0, %117 ], [ %.0, %107 ], [ %.0, %108 ], [ %.0, %104 ], [ 3, %_ZNK4Type8make_ptrEv.exit.thread ], [ %.0, %114 ], [ %.0, %116 ]
   %.sink122 = zext i1 %.sink122.shrunk to i8
   store i8 %.sink122, ptr %5, align 1
   ret i32 %.083
@@ -30048,7 +30048,7 @@ _ZNK4Type8make_ptrEv.exit66:                      ; preds = %88, %91, %94
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit57, %50, %109, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit64, %43, %29, %35, %11, %112, %100
-  %.0 = phi i1 [ %108, %100 ], [ %121, %112 ], [ true, %11 ], [ false, %35 ], [ false, %29 ], [ false, %43 ], [ %spec.select, %50 ], [ false, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit64 ], [ false, %109 ], [ false, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit57 ]
+  %.0 = phi i1 [ false, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit64 ], [ true, %11 ], [ false, %29 ], [ false, %109 ], [ %108, %100 ], [ %121, %112 ], [ false, %35 ], [ %spec.select, %50 ], [ false, %43 ], [ false, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit57 ]
   ret i1 %.0
 }
 
@@ -30242,7 +30242,7 @@ _ZNK4Type8make_ptrEv.exit55:                      ; preds = %58, %61, %64
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit46, %79, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit53, %14, %19, %24, %82, %70
-  %.0 = phi i1 [ %78, %70 ], [ %91, %82 ], [ false, %24 ], [ false, %19 ], [ false, %14 ], [ false, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit53 ], [ false, %79 ], [ false, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit46 ]
+  %.0 = phi i1 [ false, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit53 ], [ false, %14 ], [ %78, %70 ], [ %91, %82 ], [ false, %24 ], [ false, %19 ], [ false, %79 ], [ false, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit46 ]
   ret i1 %.0
 }
 
@@ -30484,7 +30484,7 @@ _ZNK4Type8make_ptrEv.exit70:                      ; preds = %98, %101, %104
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit61, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit, %119, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit68, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit53, %31, %38, %18, %23, %11, %122, %110, %66
-  %.0 = phi i1 [ %78, %66 ], [ %118, %110 ], [ %131, %122 ], [ true, %11 ], [ true, %23 ], [ true, %18 ], [ false, %31 ], [ %46, %38 ], [ true, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit53 ], [ true, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit68 ], [ false, %119 ], [ true, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit ], [ true, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit61 ]
+  %.0 = phi i1 [ true, %11 ], [ true, %18 ], [ %46, %38 ], [ true, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit53 ], [ %78, %66 ], [ %118, %110 ], [ %131, %122 ], [ true, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit68 ], [ true, %23 ], [ false, %31 ], [ false, %119 ], [ true, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit ], [ true, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit61 ]
   ret i1 %.0
 }
 
@@ -30552,7 +30552,7 @@ _ZN4TypenwEm.exit:                                ; preds = %18, %20
   br label %_ZNK7TypePtr11dual_offsetEv.exit
 
 _ZNK7TypePtr11dual_offsetEv.exit:                 ; preds = %23, %39, %40
-  %.0.i = phi i32 [ -2000000000, %39 ], [ %38, %40 ], [ -2000000001, %23 ]
+  %.0.i = phi i32 [ %38, %40 ], [ -2000000000, %39 ], [ -2000000001, %23 ]
   %41 = load ptr, ptr @_ZN15TypeAryKlassPtr17_array_interfacesE, align 8
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store ptr null, ptr %42, align 8
@@ -30611,7 +30611,7 @@ define hidden noundef ptr @_ZNK15TypeAryKlassPtr18exact_klass_helperEv(ptr nound
   br label %20
 
 20:                                               ; preds = %7, %15, %13
-  %.0 = phi ptr [ %14, %13 ], [ %19, %15 ], [ null, %7 ]
+  %.0 = phi ptr [ %19, %15 ], [ %14, %13 ], [ null, %7 ]
   ret ptr %.0
 }
 
@@ -30836,7 +30836,7 @@ define hidden noundef ptr @_ZNK8TypeFunc5xmeetEPK4Type(ptr noundef nonnull readn
   br label %10
 
 10:                                               ; preds = %4, %2, %9
-  %.0 = phi ptr [ %0, %9 ], [ %0, %2 ], [ %1, %4 ]
+  %.0 = phi ptr [ %0, %2 ], [ %0, %9 ], [ %1, %4 ]
   ret ptr %.0
 }
 

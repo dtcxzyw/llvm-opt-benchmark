@@ -429,7 +429,7 @@ define void @_ZN3tbb6detail2r15arena11out_of_workEv(ptr noundef nonnull align 12
   br label %"_ZN3tbb6detail2r111atomic_flag12try_clear_ifIZNS1_5arena11out_of_workEvE3$_0EEbOT_.exit"
 
 "_ZN3tbb6detail2r111atomic_flag12try_clear_ifIZNS1_5arena11out_of_workEvE3$_0EEbOT_.exit": ; preds = %1, %8, %16, %19
-  %.0.i = phi i1 [ false, %1 ], [ false, %8 ], [ %18, %16 ], [ false, %19 ]
+  %.0.i = phi i1 [ false, %8 ], [ false, %19 ], [ false, %1 ], [ %18, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 232
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -517,7 +517,7 @@ _ZNK3tbb6detail2r110arena_slot8is_emptyEv.exit.thread.i.i.i: ; preds = %.backedg
   br label %"_ZN3tbb6detail2r111atomic_flag12try_clear_ifIZNS1_5arena11out_of_workEvE3$_1EEbOT_.exit"
 
 "_ZN3tbb6detail2r111atomic_flag12try_clear_ifIZNS1_5arena11out_of_workEvE3$_1EEbOT_.exit": ; preds = %"_ZN3tbb6detail2r111atomic_flag12try_clear_ifIZNS1_5arena11out_of_workEvE3$_0EEbOT_.exit", %25, %54, %"_ZZN3tbb6detail2r15arena11out_of_workEvENK3$_1clEv.exit.thread.i"
-  %.0.i8 = phi i1 [ false, %"_ZN3tbb6detail2r111atomic_flag12try_clear_ifIZNS1_5arena11out_of_workEvE3$_0EEbOT_.exit" ], [ false, %25 ], [ %57, %54 ], [ false, %"_ZZN3tbb6detail2r15arena11out_of_workEvENK3$_1clEv.exit.thread.i" ]
+  %.0.i8 = phi i1 [ false, %25 ], [ false, %"_ZZN3tbb6detail2r15arena11out_of_workEvENK3$_1clEv.exit.thread.i" ], [ false, %"_ZN3tbb6detail2r111atomic_flag12try_clear_ifIZNS1_5arena11out_of_workEvE3$_0EEbOT_.exit" ], [ %57, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %or.cond = or i1 %.0.i, %.0.i8
   br i1 %or.cond, label %60, label %71
@@ -833,7 +833,7 @@ _ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.thread: ; preds = %32, %_ZN3t
   br i1 %exitcond49.not, label %.loopexit, label %32, !llvm.loop !110
 
 .loopexit:                                        ; preds = %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit, %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38, %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.thread, %.critedge.preheader, %4
-  %.030 = phi i64 [ -1, %4 ], [ -1, %.critedge.preheader ], [ %.044, %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38 ], [ -1, %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.thread ], [ %.02842, %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit ]
+  %.030 = phi i64 [ -1, %4 ], [ -1, %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.thread ], [ -1, %.critedge.preheader ], [ %.044, %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38 ], [ %.02842, %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit ]
   ret i64 %.030
 }
 
@@ -967,7 +967,7 @@ _ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit.i:
   %or.cond.not.i = select i1 %57, i1 true, i1 %59
   br i1 %or.cond.not.i, label %_ZN3tbb6detail2r110mail_inbox11set_is_idleEb.exit, label %.lr.ph.i8.i, !llvm.loop !114
 
-.loopexit:                                        ; preds = %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.thread.i.i, %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit.i, %2, %.critedge.preheader.i.i
+.loopexit:                                        ; preds = %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.thread.i.i, %.critedge.preheader.i.i, %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit.i, %2
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %61 = load ptr, ptr %60, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -3237,7 +3237,7 @@ _ZN3tbb6detail2r18governor19default_num_threadsEv.exit: ; preds = %.critedge, %4
   br label %51
 
 51:                                               ; preds = %.thread44, %_ZN3tbb6detail2r18governor19default_num_threadsEv.exit, %_ZN3tbb6detail2d119default_concurrencyENS1_11constraintsE.exit, %24
-  %.0 = phi i32 [ %29, %24 ], [ %40, %_ZN3tbb6detail2d119default_concurrencyENS1_11constraintsE.exit ], [ %50, %_ZN3tbb6detail2r18governor19default_num_threadsEv.exit ], [ 1, %.thread44 ]
+  %.0 = phi i32 [ %29, %24 ], [ %50, %_ZN3tbb6detail2r18governor19default_num_threadsEv.exit ], [ %40, %_ZN3tbb6detail2d119default_concurrencyENS1_11constraintsE.exit ], [ 1, %.thread44 ]
   ret i32 %.0
 }
 
@@ -3599,7 +3599,7 @@ _ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit.th
   br i1 %or.cond.not, label %_ZN3tbb6detail2r113atomic_updateIjSt4lessIjEEET_RSt6atomicIS5_ES5_T0_.exit, label %.lr.ph.i28, !llvm.loop !114
 
 _ZN3tbb6detail2r113atomic_updateIjSt4lessIjEEET_RSt6atomicIS5_ES5_T0_.exit: ; preds = %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.thread.i20, %.lr.ph.i28, %.critedge.preheader.i15, %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit.thread, %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit.thread62, %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit27
-  %.07 = phi i64 [ -1, %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit27 ], [ %.0, %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit.thread62 ], [ -1, %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit.thread ], [ -1, %.critedge.preheader.i15 ], [ %.0, %.lr.ph.i28 ], [ -1, %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.thread.i20 ]
+  %.07 = phi i64 [ -1, %.critedge.preheader.i15 ], [ -1, %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit27 ], [ %.0, %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit.thread62 ], [ %.0, %.lr.ph.i28 ], [ -1, %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit.thread ], [ -1, %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.thread.i20 ]
   ret i64 %.07
 }
 
@@ -6481,7 +6481,7 @@ _ZN3tbb6detail2r120get_self_recall_taskERNS1_10arena_slotE.exit: ; preds = %_ZNK
   br label %.thread
 
 .thread:                                          ; preds = %58, %63, %50, %41, %_ZN3tbb6detail2r120get_self_recall_taskERNS1_10arena_slotE.exit
-  %.1 = phi i1 [ true, %_ZN3tbb6detail2r120get_self_recall_taskERNS1_10arena_slotE.exit ], [ false, %41 ], [ false, %58 ], [ false, %63 ], [ true, %50 ]
+  %.1 = phi i1 [ false, %41 ], [ true, %_ZN3tbb6detail2r120get_self_recall_taskERNS1_10arena_slotE.exit ], [ false, %58 ], [ false, %63 ], [ true, %50 ]
   ret i1 %.1
 }
 
@@ -6892,7 +6892,7 @@ _ZN3tbb6detail2r15arena10steal_taskEjRNS1_10FastRandomERNS1_18execution_data_ext
   %190 = inttoptr i64 %184 to ptr
   br label %_ZN3tbb6detail2r115task_dispatcher21steal_or_get_criticalERNS1_18execution_data_extERNS1_5arenaEjRNS1_10FastRandomElb.exit
 
-_ZN3tbb6detail2r115task_dispatcher21steal_or_get_criticalERNS1_18execution_data_extERNS1_5arenaEjRNS1_10FastRandomElb.exit.thread: ; preds = %.thread.i.i, %156, %170, %153
+_ZN3tbb6detail2r115task_dispatcher21steal_or_get_criticalERNS1_18execution_data_extERNS1_5arenaEjRNS1_10FastRandomElb.exit.thread: ; preds = %156, %170, %.thread.i.i, %153
   store ptr null, ptr %9, align 8, !tbaa !196
   br label %197
 
@@ -6919,13 +6919,13 @@ _ZN3tbb6detail2r115task_dispatcher21steal_or_get_criticalERNS1_18execution_data_
   %.not55 = icmp eq ptr %198, null
   br i1 %.not55, label %214, label %.thread
 
-.thread.sink.split:                               ; preds = %65, %51, %130, %118
-  %.lcssa144.sink = phi ptr [ %108, %118 ], [ %108, %130 ], [ %52, %51 ], [ %66, %65 ]
+.thread.sink.split:                               ; preds = %65, %51, %118, %130
+  %.lcssa144.sink = phi ptr [ %108, %130 ], [ %108, %118 ], [ %66, %65 ], [ %52, %51 ]
   store ptr %.lcssa144.sink, ptr %9, align 8, !tbaa !196
   br label %.thread
 
 .thread:                                          ; preds = %45, %_ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit, %_ZN3tbb6detail2r115task_dispatcher21steal_or_get_criticalERNS1_18execution_data_extERNS1_5arenaEjRNS1_10FastRandomElb.exit, %_ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit74, %_ZN3tbb6detail2r115task_dispatcher26get_inbox_or_critical_taskERNS1_18execution_data_extERNS1_10mail_inboxElb.exit, %197, %.thread.sink.split
-  %199 = phi ptr [ %.lcssa144.sink, %.thread.sink.split ], [ %54, %_ZN3tbb6detail2r115task_dispatcher26get_inbox_or_critical_taskERNS1_18execution_data_extERNS1_10mail_inboxElb.exit ], [ %142, %_ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit74 ], [ %196, %_ZN3tbb6detail2r115task_dispatcher21steal_or_get_criticalERNS1_18execution_data_extERNS1_5arenaEjRNS1_10FastRandomElb.exit ], [ %76, %_ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit ], [ %46, %45 ], [ %198, %197 ]
+  %199 = phi ptr [ %.lcssa144.sink, %.thread.sink.split ], [ %76, %_ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit ], [ %46, %45 ], [ %198, %197 ], [ %54, %_ZN3tbb6detail2r115task_dispatcher26get_inbox_or_critical_taskERNS1_18execution_data_extERNS1_10mail_inboxElb.exit ], [ %142, %_ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit74 ], [ %196, %_ZN3tbb6detail2r115task_dispatcher21steal_or_get_criticalERNS1_18execution_data_extERNS1_5arenaEjRNS1_10FastRandomElb.exit ]
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 16
   %201 = load ptr, ptr %200, align 8, !tbaa !191
   store ptr %201, ptr %2, align 8, !tbaa !169
@@ -7347,7 +7347,7 @@ _ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specif
   br label %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit.thread
 
 _ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit.thread: ; preds = %83, %82, %85, %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit
-  %.2.i52 = phi ptr [ %46, %85 ], [ %46, %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit ], [ %46, %82 ], [ null, %83 ]
+  %.2.i52 = phi ptr [ %46, %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit ], [ %46, %85 ], [ %46, %82 ], [ null, %83 ]
   %.not = icmp eq ptr %.2.i52, null
   br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread
 
@@ -7533,7 +7533,7 @@ _ZN3tbb6detail2r120task_stream_accessorILNS1_25task_stream_accessor_typeE1EE8get
   unreachable
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit: ; preds = %7, %_ZN3tbb6detail2d15mutex8try_lockEv.exit.i, %55, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %7 ], [ null, %_ZN3tbb6detail2d15mutex8try_lockEv.exit.i ], [ %.011.ph, %55 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %_ZN3tbb6detail2d15mutex8try_lockEv.exit.i ], [ null, %7 ], [ %.011.ph, %55 ]
   ret ptr %.0
 }
 
@@ -7787,7 +7787,7 @@ _ZN3tbb6detail2r120task_stream_accessorILNS1_25task_stream_accessor_typeE0EE8get
   unreachable
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit: ; preds = %7, %_ZN3tbb6detail2d15mutex8try_lockEv.exit.i, %45, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %7 ], [ null, %_ZN3tbb6detail2d15mutex8try_lockEv.exit.i ], [ %.011.ph, %45 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %_ZN3tbb6detail2d15mutex8try_lockEv.exit.i ], [ null, %7 ], [ %.011.ph, %45 ]
   ret ptr %.0
 }
 
@@ -8215,7 +8215,7 @@ _ZN3tbb6detail2r15arena10steal_taskEjRNS1_10FastRandomERNS1_18execution_data_ext
   %190 = inttoptr i64 %184 to ptr
   br label %_ZN3tbb6detail2r115task_dispatcher21steal_or_get_criticalERNS1_18execution_data_extERNS1_5arenaEjRNS1_10FastRandomElb.exit
 
-_ZN3tbb6detail2r115task_dispatcher21steal_or_get_criticalERNS1_18execution_data_extERNS1_5arenaEjRNS1_10FastRandomElb.exit.thread: ; preds = %.thread.i.i, %156, %170, %153
+_ZN3tbb6detail2r115task_dispatcher21steal_or_get_criticalERNS1_18execution_data_extERNS1_5arenaEjRNS1_10FastRandomElb.exit.thread: ; preds = %156, %170, %.thread.i.i, %153
   store ptr null, ptr %9, align 8, !tbaa !196
   br label %197
 
@@ -8242,13 +8242,13 @@ _ZN3tbb6detail2r115task_dispatcher21steal_or_get_criticalERNS1_18execution_data_
   %.not55 = icmp eq ptr %198, null
   br i1 %.not55, label %214, label %.thread
 
-.thread.sink.split:                               ; preds = %65, %51, %130, %118
-  %.lcssa144.sink = phi ptr [ %108, %118 ], [ %108, %130 ], [ %52, %51 ], [ %66, %65 ]
+.thread.sink.split:                               ; preds = %65, %51, %118, %130
+  %.lcssa144.sink = phi ptr [ %108, %130 ], [ %108, %118 ], [ %66, %65 ], [ %52, %51 ]
   store ptr %.lcssa144.sink, ptr %9, align 8, !tbaa !196
   br label %.thread
 
 .thread:                                          ; preds = %45, %_ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit, %_ZN3tbb6detail2r115task_dispatcher21steal_or_get_criticalERNS1_18execution_data_extERNS1_5arenaEjRNS1_10FastRandomElb.exit, %_ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit74, %_ZN3tbb6detail2r115task_dispatcher26get_inbox_or_critical_taskERNS1_18execution_data_extERNS1_10mail_inboxElb.exit, %197, %.thread.sink.split
-  %199 = phi ptr [ %.lcssa144.sink, %.thread.sink.split ], [ %54, %_ZN3tbb6detail2r115task_dispatcher26get_inbox_or_critical_taskERNS1_18execution_data_extERNS1_10mail_inboxElb.exit ], [ %142, %_ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit74 ], [ %196, %_ZN3tbb6detail2r115task_dispatcher21steal_or_get_criticalERNS1_18execution_data_extERNS1_5arenaEjRNS1_10FastRandomElb.exit ], [ %76, %_ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit ], [ %46, %45 ], [ %198, %197 ]
+  %199 = phi ptr [ %.lcssa144.sink, %.thread.sink.split ], [ %76, %_ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit ], [ %46, %45 ], [ %198, %197 ], [ %54, %_ZN3tbb6detail2r115task_dispatcher26get_inbox_or_critical_taskERNS1_18execution_data_extERNS1_10mail_inboxElb.exit ], [ %142, %_ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit74 ], [ %196, %_ZN3tbb6detail2r115task_dispatcher21steal_or_get_criticalERNS1_18execution_data_extERNS1_5arenaEjRNS1_10FastRandomElb.exit ]
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 16
   %201 = load ptr, ptr %200, align 8, !tbaa !191
   store ptr %201, ptr %2, align 8, !tbaa !169
@@ -8739,7 +8739,7 @@ _ZNSt11_Deque_baseIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE17_
   br label %_ZSt4copyIPPPN3tbb6detail2d14taskES6_ET0_T_S8_S7_.exit
 
 _ZSt4copyIPPPN3tbb6detail2d14taskES6_ET0_T_S8_S7_.exit: ; preds = %32, %31, %28, %27, %_ZNSt11_Deque_baseIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE17_M_deallocate_mapEPPS4_m.exit
-  %.0 = phi ptr [ %48, %_ZNSt11_Deque_baseIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE17_M_deallocate_mapEPPS4_m.exit ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %48, %_ZNSt11_Deque_baseIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE17_M_deallocate_mapEPPS4_m.exit ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !349
   %60 = load ptr, ptr %.0, align 8, !tbaa !265
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 24

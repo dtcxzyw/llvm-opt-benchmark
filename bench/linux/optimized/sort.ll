@@ -47,7 +47,7 @@ define dso_local void @sort_r(ptr noundef %0, i64 noundef %1, i64 noundef %2, pt
   br label %.thread18
 
 .thread18:                                        ; preds = %12, %13, %20, %.thread
-  %24 = phi ptr [ null, %.thread ], [ %23, %20 ], [ inttoptr (i64 3 to ptr), %13 ], [ %4, %12 ]
+  %24 = phi ptr [ %4, %12 ], [ null, %.thread ], [ %23, %20 ], [ inttoptr (i64 3 to ptr), %13 ]
   %25 = ptrtoint ptr %24 to i64
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %27 = trunc i64 %2 to i32

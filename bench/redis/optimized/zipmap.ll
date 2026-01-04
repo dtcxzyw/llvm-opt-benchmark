@@ -137,7 +137,7 @@ zipmapDecodeLength.exit.i:                        ; preds = %50, %48
   br label %60
 
 60:                                               ; preds = %57, %55, %zipmapDecodeLength.exit.i
-  %.136.i = phi ptr [ null, %55 ], [ %.035.i, %zipmapDecodeLength.exit.i ], [ %spec.select.i81, %57 ]
+  %.136.i = phi ptr [ %spec.select.i81, %57 ], [ %.035.i, %zipmapDecodeLength.exit.i ], [ null, %55 ]
   %61 = add i32 %53, %.0.i.i
   %62 = zext i32 %61 to i64
   %63 = getelementptr inbounds nuw i8, ptr %.033.i, i64 %62
@@ -415,7 +415,7 @@ zipmapDecodeLength.exit.i:                        ; preds = %10, %8
   br label %20
 
 20:                                               ; preds = %17, %15, %zipmapDecodeLength.exit.i
-  %.136.i = phi ptr [ null, %15 ], [ %.035.i, %zipmapDecodeLength.exit.i ], [ %spec.select.i, %17 ]
+  %.136.i = phi ptr [ %spec.select.i, %17 ], [ %.035.i, %zipmapDecodeLength.exit.i ], [ null, %15 ]
   %21 = add i32 %13, %.0.i.i
   %22 = zext i32 %21 to i64
   %23 = getelementptr inbounds nuw i8, ptr %.033.i, i64 %22
@@ -540,7 +540,7 @@ zipmapLookupRaw.exit.thread:                      ; preds = %4, %zipmapLookupRaw
   br label %91
 
 91:                                               ; preds = %.sink.split, %zipmapLookupRaw.exit.thread, %90
-  %.0 = phi ptr [ %82, %90 ], [ %0, %zipmapLookupRaw.exit.thread ], [ %.0.ph, %.sink.split ]
+  %.0 = phi ptr [ %0, %zipmapLookupRaw.exit.thread ], [ %82, %90 ], [ %.0.ph, %.sink.split ]
   ret ptr %.0
 }
 
@@ -858,7 +858,7 @@ define dso_local range(i32 0, 2) i32 @zipmapExists(ptr noundef readonly captures
   br label %.split.split.us.i, !llvm.loop !10
 
 zipmapLookupRaw.exit:                             ; preds = %.split.split.us.i, %15, %3
-  %.2.i = phi i32 [ 0, %3 ], [ 0, %.split.split.us.i ], [ 1, %15 ]
+  %.2.i = phi i32 [ 0, %3 ], [ 1, %15 ], [ 0, %.split.split.us.i ]
   ret i32 %.2.i
 }
 
@@ -1109,7 +1109,7 @@ zipmapDecodeLength.exit78:                        ; preds = %26, %28
   br label %.loopexit
 
 .loopexit:                                        ; preds = %11, %zipmapDecodeLength.exit, %21, %zipmapDecodeLength.exit78, %38, %36, %9, %5, %3
-  %.050 = phi i32 [ 0, %3 ], [ 0, %5 ], [ 1, %9 ], [ 0, %36 ], [ %spec.select, %38 ], [ 0, %zipmapDecodeLength.exit78 ], [ 0, %21 ], [ 0, %zipmapDecodeLength.exit ], [ 0, %11 ]
+  %.050 = phi i32 [ 0, %5 ], [ 0, %3 ], [ 1, %9 ], [ %spec.select, %38 ], [ 0, %36 ], [ 0, %zipmapDecodeLength.exit78 ], [ 0, %21 ], [ 0, %zipmapDecodeLength.exit ], [ 0, %11 ]
   ret i32 %.050
 }
 

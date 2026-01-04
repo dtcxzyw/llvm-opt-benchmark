@@ -159,7 +159,7 @@ sub_144:                                          ; preds = %sub_039
   br label %39
 
 39:                                               ; preds = %.tail42.thread, %.thread60, %.thread, %.tail42, %.tail34, %.tail34.thread, %.tail30, %.tail30.thread, %.tail26, %15, %10, %.tail, %.tail.thread, %1, %3, %37
-  %.0 = phi ptr [ %38, %37 ], [ @set_none, %3 ], [ @set_none, %1 ], [ @set_first_parent, %.tail.thread ], [ @set_first_parent, %.tail ], [ @set_separate, %10 ], [ @set_combined, %15 ], [ @set_combined, %.tail26 ], [ @set_dense_combined, %.tail30.thread ], [ @set_dense_combined, %.tail30 ], [ @set_remerge_diff, %.tail34.thread ], [ @set_remerge_diff, %.tail34 ], [ null, %.tail42 ], [ @set_combined, %.thread ], [ @set_remerge_diff, %.thread60 ], [ null, %.tail42.thread ]
+  %.0 = phi ptr [ @set_remerge_diff, %.tail34 ], [ %38, %37 ], [ @set_dense_combined, %.tail30 ], [ @set_combined, %.tail26 ], [ @set_separate, %10 ], [ @set_first_parent, %.tail ], [ @set_none, %1 ], [ @set_none, %3 ], [ @set_first_parent, %.tail.thread ], [ @set_combined, %15 ], [ @set_dense_combined, %.tail30.thread ], [ @set_remerge_diff, %.tail34.thread ], [ null, %.tail42 ], [ @set_combined, %.thread ], [ @set_remerge_diff, %.thread60 ], [ null, %.tail42.thread ]
   ret ptr %.0
 }
 

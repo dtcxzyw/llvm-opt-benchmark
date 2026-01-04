@@ -145,7 +145,7 @@ phpdbg_mixed_read.exit.thread:                    ; preds = %phpdbg_mixed_read.e
   tail call void @_zend_bailout(ptr noundef nonnull @.str, i32 noundef 67) #10
   unreachable
 
-53:                                               ; preds = %31, %30
+53:                                               ; preds = %30, %31
   ret i32 %.04169
 }
 
@@ -270,7 +270,7 @@ define dso_local i32 @phpdbg_mixed_write(i32 noundef %0, ptr noundef %1, i32 nou
   br i1 %.not.i, label %.loopexit.i, label %18
 
 .loopexit.i:                                      ; preds = %42, %24, %41
-  %.137.i = phi i32 [ %32, %41 ], [ %32, %24 ], [ %.2.i, %42 ]
+  %.137.i = phi i32 [ %32, %41 ], [ %.2.i, %42 ], [ %32, %24 ]
   %.not41.i = icmp eq i32 %.137.i, 0
   br i1 %.not41.i, label %.critedge.i, label %45
 

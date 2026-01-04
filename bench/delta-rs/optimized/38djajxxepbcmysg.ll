@@ -1500,7 +1500,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit48:  ; preds = %75
   ret void
 
 145:                                              ; preds = %64, %92, %137
-  %.pn = phi { ptr, i32 } [ %138, %137 ], [ %93, %92 ], [ %65, %64 ]
+  %.pn = phi { ptr, i32 } [ %65, %64 ], [ %138, %137 ], [ %93, %92 ]
   resume { ptr, i32 } %.pn
 }
 

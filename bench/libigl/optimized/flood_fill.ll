@@ -192,10 +192,10 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1E
   br label %_ZZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEENS2_IfLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiifE_clEiiiiiif.exit.us104.us.us.us
 
 _ZZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEENS2_IfLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiifE_clEiiiiiif.exit.us104.us.us.us: ; preds = %..loopexit_crit_edge.split.us.us.us.i.us.us.us.us, %68, %66, %.preheader36.i.us103.us.us.us
-  %.5.us105.us.us.us = phi float [ %.466.us89.us.us.us, %68 ], [ %.466.us89.us.us.us, %66 ], [ %41, %.preheader36.i.us103.us.us.us ], [ %41, %..loopexit_crit_edge.split.us.us.us.i.us.us.us.us ]
-  %.253.us106.us.us.us = phi i32 [ %.15267.us88.us.us.us, %68 ], [ %.15267.us88.us.us.us, %66 ], [ %.pre-phi139, %.preheader36.i.us103.us.us.us ], [ %.pre-phi139, %..loopexit_crit_edge.split.us.us.us.i.us.us.us.us ]
-  %.149.us107.us.us.us = phi i32 [ %.04868.us87.us.us.us, %68 ], [ %.04868.us87.us.us.us, %66 ], [ %58, %.preheader36.i.us103.us.us.us ], [ %58, %..loopexit_crit_edge.split.us.us.us.i.us.us.us.us ]
-  %.3.us108.us.us.us = phi i32 [ %.270.us85.us.us.us, %68 ], [ %.270.us85.us.us.us, %66 ], [ %24, %.preheader36.i.us103.us.us.us ], [ %24, %..loopexit_crit_edge.split.us.us.us.i.us.us.us.us ]
+  %.5.us105.us.us.us = phi float [ %.466.us89.us.us.us, %66 ], [ %.466.us89.us.us.us, %68 ], [ %41, %.preheader36.i.us103.us.us.us ], [ %41, %..loopexit_crit_edge.split.us.us.us.i.us.us.us.us ]
+  %.253.us106.us.us.us = phi i32 [ %.15267.us88.us.us.us, %66 ], [ %.15267.us88.us.us.us, %68 ], [ %.pre-phi139, %.preheader36.i.us103.us.us.us ], [ %.pre-phi139, %..loopexit_crit_edge.split.us.us.us.i.us.us.us.us ]
+  %.149.us107.us.us.us = phi i32 [ %.04868.us87.us.us.us, %66 ], [ %.04868.us87.us.us.us, %68 ], [ %58, %.preheader36.i.us103.us.us.us ], [ %58, %..loopexit_crit_edge.split.us.us.us.i.us.us.us.us ]
+  %.3.us108.us.us.us = phi i32 [ %.270.us85.us.us.us, %66 ], [ %.270.us85.us.us.us, %68 ], [ %24, %.preheader36.i.us103.us.us.us ], [ %24, %..loopexit_crit_edge.split.us.us.us.i.us.us.us.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %13
   br i1 %exitcond.not, label %._crit_edge.split.us111.us.us.us, label %39, !llvm.loop !17
@@ -391,10 +391,10 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0E
   br label %_ZZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEENS2_IfLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiifE_clEiiiiiif.exit.us104.us.us.us
 
 _ZZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEENS2_IfLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiifE_clEiiiiiif.exit.us104.us.us.us: ; preds = %..loopexit_crit_edge.split.us.us.us.i.us.us.us.us, %68, %66, %.preheader36.i.us103.us.us.us
-  %.5.us105.us.us.us = phi float [ %.466.us89.us.us.us, %68 ], [ %.466.us89.us.us.us, %66 ], [ %41, %.preheader36.i.us103.us.us.us ], [ %41, %..loopexit_crit_edge.split.us.us.us.i.us.us.us.us ]
-  %.253.us106.us.us.us = phi i32 [ %.15267.us88.us.us.us, %68 ], [ %.15267.us88.us.us.us, %66 ], [ %.pre-phi139, %.preheader36.i.us103.us.us.us ], [ %.pre-phi139, %..loopexit_crit_edge.split.us.us.us.i.us.us.us.us ]
-  %.149.us107.us.us.us = phi i32 [ %.04868.us87.us.us.us, %68 ], [ %.04868.us87.us.us.us, %66 ], [ %58, %.preheader36.i.us103.us.us.us ], [ %58, %..loopexit_crit_edge.split.us.us.us.i.us.us.us.us ]
-  %.3.us108.us.us.us = phi i32 [ %.270.us85.us.us.us, %68 ], [ %.270.us85.us.us.us, %66 ], [ %24, %.preheader36.i.us103.us.us.us ], [ %24, %..loopexit_crit_edge.split.us.us.us.i.us.us.us.us ]
+  %.5.us105.us.us.us = phi float [ %.466.us89.us.us.us, %66 ], [ %.466.us89.us.us.us, %68 ], [ %41, %.preheader36.i.us103.us.us.us ], [ %41, %..loopexit_crit_edge.split.us.us.us.i.us.us.us.us ]
+  %.253.us106.us.us.us = phi i32 [ %.15267.us88.us.us.us, %66 ], [ %.15267.us88.us.us.us, %68 ], [ %.pre-phi139, %.preheader36.i.us103.us.us.us ], [ %.pre-phi139, %..loopexit_crit_edge.split.us.us.us.i.us.us.us.us ]
+  %.149.us107.us.us.us = phi i32 [ %.04868.us87.us.us.us, %66 ], [ %.04868.us87.us.us.us, %68 ], [ %58, %.preheader36.i.us103.us.us.us ], [ %58, %..loopexit_crit_edge.split.us.us.us.i.us.us.us.us ]
+  %.3.us108.us.us.us = phi i32 [ %.270.us85.us.us.us, %66 ], [ %.270.us85.us.us.us, %68 ], [ %24, %.preheader36.i.us103.us.us.us ], [ %24, %..loopexit_crit_edge.split.us.us.us.i.us.us.us.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %13
   br i1 %exitcond.not, label %._crit_edge.split.us111.us.us.us, label %39, !llvm.loop !26
@@ -590,10 +590,10 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0E
   br label %_ZZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEENS2_IdLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiidE_clEiiiiiid.exit.us104.us.us.us
 
 _ZZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEENS2_IdLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiidE_clEiiiiiid.exit.us104.us.us.us: ; preds = %..loopexit_crit_edge.split.us.us.us.i.us.us.us.us, %68, %66, %.preheader36.i.us103.us.us.us
-  %.5.us105.us.us.us = phi double [ %.466.us89.us.us.us, %68 ], [ %.466.us89.us.us.us, %66 ], [ %41, %.preheader36.i.us103.us.us.us ], [ %41, %..loopexit_crit_edge.split.us.us.us.i.us.us.us.us ]
-  %.253.us106.us.us.us = phi i32 [ %.15267.us88.us.us.us, %68 ], [ %.15267.us88.us.us.us, %66 ], [ %.pre-phi139, %.preheader36.i.us103.us.us.us ], [ %.pre-phi139, %..loopexit_crit_edge.split.us.us.us.i.us.us.us.us ]
-  %.149.us107.us.us.us = phi i32 [ %.04868.us87.us.us.us, %68 ], [ %.04868.us87.us.us.us, %66 ], [ %58, %.preheader36.i.us103.us.us.us ], [ %58, %..loopexit_crit_edge.split.us.us.us.i.us.us.us.us ]
-  %.3.us108.us.us.us = phi i32 [ %.270.us85.us.us.us, %68 ], [ %.270.us85.us.us.us, %66 ], [ %24, %.preheader36.i.us103.us.us.us ], [ %24, %..loopexit_crit_edge.split.us.us.us.i.us.us.us.us ]
+  %.5.us105.us.us.us = phi double [ %.466.us89.us.us.us, %66 ], [ %.466.us89.us.us.us, %68 ], [ %41, %.preheader36.i.us103.us.us.us ], [ %41, %..loopexit_crit_edge.split.us.us.us.i.us.us.us.us ]
+  %.253.us106.us.us.us = phi i32 [ %.15267.us88.us.us.us, %66 ], [ %.15267.us88.us.us.us, %68 ], [ %.pre-phi139, %.preheader36.i.us103.us.us.us ], [ %.pre-phi139, %..loopexit_crit_edge.split.us.us.us.i.us.us.us.us ]
+  %.149.us107.us.us.us = phi i32 [ %.04868.us87.us.us.us, %66 ], [ %.04868.us87.us.us.us, %68 ], [ %58, %.preheader36.i.us103.us.us.us ], [ %58, %..loopexit_crit_edge.split.us.us.us.i.us.us.us.us ]
+  %.3.us108.us.us.us = phi i32 [ %.270.us85.us.us.us, %66 ], [ %.270.us85.us.us.us, %68 ], [ %24, %.preheader36.i.us103.us.us.us ], [ %24, %..loopexit_crit_edge.split.us.us.us.i.us.us.us.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %13
   br i1 %exitcond.not, label %._crit_edge.split.us111.us.us.us, label %39, !llvm.loop !37
@@ -789,10 +789,10 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1E
   br label %_ZZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEENS2_IdLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiidE_clEiiiiiid.exit.us104.us.us.us
 
 _ZZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEENS2_IdLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiidE_clEiiiiiid.exit.us104.us.us.us: ; preds = %..loopexit_crit_edge.split.us.us.us.i.us.us.us.us, %68, %66, %.preheader36.i.us103.us.us.us
-  %.5.us105.us.us.us = phi double [ %.466.us89.us.us.us, %68 ], [ %.466.us89.us.us.us, %66 ], [ %41, %.preheader36.i.us103.us.us.us ], [ %41, %..loopexit_crit_edge.split.us.us.us.i.us.us.us.us ]
-  %.253.us106.us.us.us = phi i32 [ %.15267.us88.us.us.us, %68 ], [ %.15267.us88.us.us.us, %66 ], [ %.pre-phi139, %.preheader36.i.us103.us.us.us ], [ %.pre-phi139, %..loopexit_crit_edge.split.us.us.us.i.us.us.us.us ]
-  %.149.us107.us.us.us = phi i32 [ %.04868.us87.us.us.us, %68 ], [ %.04868.us87.us.us.us, %66 ], [ %58, %.preheader36.i.us103.us.us.us ], [ %58, %..loopexit_crit_edge.split.us.us.us.i.us.us.us.us ]
-  %.3.us108.us.us.us = phi i32 [ %.270.us85.us.us.us, %68 ], [ %.270.us85.us.us.us, %66 ], [ %24, %.preheader36.i.us103.us.us.us ], [ %24, %..loopexit_crit_edge.split.us.us.us.i.us.us.us.us ]
+  %.5.us105.us.us.us = phi double [ %.466.us89.us.us.us, %66 ], [ %.466.us89.us.us.us, %68 ], [ %41, %.preheader36.i.us103.us.us.us ], [ %41, %..loopexit_crit_edge.split.us.us.us.i.us.us.us.us ]
+  %.253.us106.us.us.us = phi i32 [ %.15267.us88.us.us.us, %66 ], [ %.15267.us88.us.us.us, %68 ], [ %.pre-phi139, %.preheader36.i.us103.us.us.us ], [ %.pre-phi139, %..loopexit_crit_edge.split.us.us.us.i.us.us.us.us ]
+  %.149.us107.us.us.us = phi i32 [ %.04868.us87.us.us.us, %66 ], [ %.04868.us87.us.us.us, %68 ], [ %58, %.preheader36.i.us103.us.us.us ], [ %58, %..loopexit_crit_edge.split.us.us.us.i.us.us.us.us ]
+  %.3.us108.us.us.us = phi i32 [ %.270.us85.us.us.us, %66 ], [ %.270.us85.us.us.us, %68 ], [ %24, %.preheader36.i.us103.us.us.us ], [ %24, %..loopexit_crit_edge.split.us.us.us.i.us.us.us.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %13
   br i1 %exitcond.not, label %._crit_edge.split.us111.us.us.us, label %39, !llvm.loop !46
@@ -1021,9 +1021,9 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIfLi1ELi3ELi1E
   br i1 %104, label %.lr.ph41.i, label %.loopexit38.i, !llvm.loop !54
 
 .loopexit.i:                                      ; preds = %._crit_edge.i, %.preheader.lr.ph.i, %.preheader35.i
-  %105 = phi float [ %110, %.preheader35.i ], [ %110, %.preheader.lr.ph.i ], [ %120, %._crit_edge.i ]
-  %106 = phi float [ %111, %.preheader35.i ], [ %111, %.preheader.lr.ph.i ], [ %120, %._crit_edge.i ]
-  %107 = phi float [ %112, %.preheader35.i ], [ %111, %.preheader.lr.ph.i ], [ %120, %._crit_edge.i ]
+  %105 = phi float [ %110, %.preheader.lr.ph.i ], [ %110, %.preheader35.i ], [ %120, %._crit_edge.i ]
+  %106 = phi float [ %111, %.preheader.lr.ph.i ], [ %111, %.preheader35.i ], [ %120, %._crit_edge.i ]
+  %107 = phi float [ %111, %.preheader.lr.ph.i ], [ %112, %.preheader35.i ], [ %120, %._crit_edge.i ]
   %108 = add nsw i32 %113, -1
   %109 = icmp slt i32 %.273, %108
   br i1 %109, label %.preheader35.i, label %_ZZN3igl10flood_fillIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEENS2_IfLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiifE_clEiiiiiif.exit, !llvm.loop !55
@@ -1080,10 +1080,10 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIfLi1ELi3ELi1E
   br i1 %138, label %.lr.ph43.i, label %._crit_edge.loopexit.i, !llvm.loop !57
 
 _ZZN3igl10flood_fillIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEENS2_IfLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiifE_clEiiiiiif.exit: ; preds = %.loopexit.i, %.preheader35.lr.ph.i, %.preheader36.i, %60, %62
-  %.5 = phi float [ %.469, %62 ], [ %.469, %60 ], [ %58, %.preheader36.i ], [ %58, %.preheader35.lr.ph.i ], [ %58, %.loopexit.i ]
-  %.253 = phi i32 [ %.15270, %62 ], [ %.15270, %60 ], [ %.05078, %.preheader36.i ], [ %.05078, %.preheader35.lr.ph.i ], [ %.05078, %.loopexit.i ]
-  %.149 = phi i32 [ %.04871, %62 ], [ %.04871, %60 ], [ %.04772, %.preheader36.i ], [ %.04772, %.preheader35.lr.ph.i ], [ %.04772, %.loopexit.i ]
-  %.3 = phi i32 [ %.273, %62 ], [ %.273, %60 ], [ %.05486, %.preheader36.i ], [ %.05486, %.preheader35.lr.ph.i ], [ %.05486, %.loopexit.i ]
+  %.5 = phi float [ %.469, %60 ], [ %.469, %62 ], [ %58, %.preheader36.i ], [ %58, %.preheader35.lr.ph.i ], [ %58, %.loopexit.i ]
+  %.253 = phi i32 [ %.15270, %60 ], [ %.15270, %62 ], [ %.05078, %.preheader36.i ], [ %.05078, %.preheader35.lr.ph.i ], [ %.05078, %.loopexit.i ]
+  %.149 = phi i32 [ %.04871, %60 ], [ %.04871, %62 ], [ %.04772, %.preheader36.i ], [ %.04772, %.preheader35.lr.ph.i ], [ %.04772, %.loopexit.i ]
+  %.3 = phi i32 [ %.273, %60 ], [ %.273, %62 ], [ %.05486, %.preheader36.i ], [ %.05486, %.preheader35.lr.ph.i ], [ %.05486, %.loopexit.i ]
   %139 = add nuw nsw i32 %.04772, 1
   %140 = uitofp nneg i32 %139 to float
   %141 = load float, ptr %0, align 4, !tbaa !8

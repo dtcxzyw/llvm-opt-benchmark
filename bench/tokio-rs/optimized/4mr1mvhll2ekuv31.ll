@@ -567,9 +567,9 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4ite
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9as_slices17hed672a0009874d1fE.llvm.12437615349492784998.exit"
 
 "_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9as_slices17hed672a0009874d1fE.llvm.12437615349492784998.exit": ; preds = %2, %17, %19
-  %.sroa.0.0.i = phi i64 [ %.0.i.i.i, %17 ], [ %.0.i.i.i, %19 ], [ 0, %2 ]
-  %.sroa.5.0.i = phi i64 [ %14, %17 ], [ %20, %19 ], [ 0, %2 ]
-  %.sroa.11.0.i = phi i64 [ %18, %17 ], [ 0, %19 ], [ 0, %2 ]
+  %.sroa.0.0.i = phi i64 [ %.0.i.i.i, %19 ], [ %.0.i.i.i, %17 ], [ 0, %2 ]
+  %.sroa.5.0.i = phi i64 [ %20, %19 ], [ %14, %17 ], [ 0, %2 ]
+  %.sroa.11.0.i = phi i64 [ 0, %19 ], [ %18, %17 ], [ 0, %2 ]
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8, !alias.scope !139, !noalias !142, !nonnull !16, !noundef !16
   %23 = getelementptr inbounds { i64, [3 x i64] }, ptr %22, i64 %.sroa.0.0.i
@@ -643,9 +643,9 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9as_
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h845f8ff4d732a3e7E.exit"
 
 "_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h845f8ff4d732a3e7E.exit": ; preds = %2, %17, %19
-  %.sroa.0.0 = phi i64 [ %.0.i.i, %17 ], [ %.0.i.i, %19 ], [ 0, %2 ]
-  %.sroa.5.0 = phi i64 [ %14, %17 ], [ %20, %19 ], [ 0, %2 ]
-  %.sroa.11.0 = phi i64 [ %18, %17 ], [ 0, %19 ], [ 0, %2 ]
+  %.sroa.0.0 = phi i64 [ %.0.i.i, %19 ], [ %.0.i.i, %17 ], [ 0, %2 ]
+  %.sroa.5.0 = phi i64 [ %20, %19 ], [ %14, %17 ], [ 0, %2 ]
+  %.sroa.11.0 = phi i64 [ 0, %19 ], [ %18, %17 ], [ 0, %2 ]
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8, !nonnull !16, !noundef !16
   %23 = getelementptr inbounds { i64, [3 x i64] }, ptr %22, i64 %.sroa.0.0
@@ -844,9 +844,9 @@ define hidden void @"_ZN91_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$
           to label %39 unwind label %37
 
 30:                                               ; preds = %26, %24, %.noexc
-  %.sroa.0.0.i.i = phi i64 [ %.0.i.i.i.i, %24 ], [ %.0.i.i.i.i, %26 ], [ 0, %.noexc ]
-  %.sroa.5.0.i.i = phi i64 [ %21, %24 ], [ %27, %26 ], [ 0, %.noexc ]
-  %.sroa.11.0.i.i = phi i64 [ %25, %24 ], [ 0, %26 ], [ 0, %.noexc ]
+  %.sroa.0.0.i.i = phi i64 [ %.0.i.i.i.i, %26 ], [ %.0.i.i.i.i, %24 ], [ 0, %.noexc ]
+  %.sroa.5.0.i.i = phi i64 [ %27, %26 ], [ %21, %24 ], [ 0, %.noexc ]
+  %.sroa.11.0.i.i = phi i64 [ 0, %26 ], [ %25, %24 ], [ 0, %.noexc ]
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load ptr, ptr %31, align 8, !alias.scope !190, !noalias !191, !nonnull !16, !noundef !16
   %33 = getelementptr inbounds { i64, [3 x i64] }, ptr %32, i64 %.sroa.0.0.i.i

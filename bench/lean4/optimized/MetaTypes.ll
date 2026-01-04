@@ -46,7 +46,7 @@ define noundef nonnull ptr @l_Lean_Meta_TransparencyMode_toCtorIdx(i8 noundef ze
   br label %5
 
 5:                                                ; preds = %1, %4, %3, %2
-  %.0 = phi ptr [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 1 to ptr), %1 ]
+  %.0 = phi ptr [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 1 to ptr), %1 ]
   ret ptr %.0
 }
 
@@ -94,7 +94,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
   br label %l_Lean_Meta_TransparencyMode_toCtorIdx.exit
 
 l_Lean_Meta_TransparencyMode_toCtorIdx.exit:      ; preds = %lean_dec.exit, %13, %14, %15
-  %.0.i = phi ptr [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
+  %.0.i = phi ptr [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
   ret ptr %.0.i
 }
 
@@ -277,7 +277,7 @@ define zeroext range(i8 0, 2) i8 @l_Lean_Meta_beqTransparencyMode____x40_Init_Me
   br label %l_Lean_Meta_TransparencyMode_toCtorIdx.exit
 
 l_Lean_Meta_TransparencyMode_toCtorIdx.exit:      ; preds = %2, %3, %4, %5
-  %.0.i9 = phi ptr [ inttoptr (i64 7 to ptr), %5 ], [ inttoptr (i64 3 to ptr), %3 ], [ inttoptr (i64 5 to ptr), %4 ], [ inttoptr (i64 1 to ptr), %2 ]
+  %.0.i9 = phi ptr [ inttoptr (i64 7 to ptr), %5 ], [ inttoptr (i64 5 to ptr), %4 ], [ inttoptr (i64 3 to ptr), %3 ], [ inttoptr (i64 1 to ptr), %2 ]
   switch i8 %1, label %8 [
     i8 0, label %lean_dec.exit
     i8 1, label %6
@@ -294,7 +294,7 @@ l_Lean_Meta_TransparencyMode_toCtorIdx.exit:      ; preds = %2, %3, %4, %5
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %8, %7, %6, %l_Lean_Meta_TransparencyMode_toCtorIdx.exit
-  %.0.i10 = phi ptr [ inttoptr (i64 7 to ptr), %8 ], [ inttoptr (i64 3 to ptr), %6 ], [ inttoptr (i64 5 to ptr), %7 ], [ inttoptr (i64 1 to ptr), %l_Lean_Meta_TransparencyMode_toCtorIdx.exit ]
+  %.0.i10 = phi ptr [ inttoptr (i64 7 to ptr), %8 ], [ inttoptr (i64 5 to ptr), %7 ], [ inttoptr (i64 3 to ptr), %6 ], [ inttoptr (i64 1 to ptr), %l_Lean_Meta_TransparencyMode_toCtorIdx.exit ]
   %9 = icmp eq ptr %.0.i9, %.0.i10
   %10 = zext i1 %9 to i8
   ret i8 %10
@@ -370,7 +370,7 @@ lean_dec.exit:                                    ; preds = %24, %23, %21, %lean
   br label %l_Lean_Meta_TransparencyMode_toCtorIdx.exit.i
 
 l_Lean_Meta_TransparencyMode_toCtorIdx.exit.i:    ; preds = %27, %26, %25, %lean_dec.exit
-  %.0.i9.i = phi ptr [ inttoptr (i64 7 to ptr), %27 ], [ inttoptr (i64 3 to ptr), %25 ], [ inttoptr (i64 5 to ptr), %26 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
+  %.0.i9.i = phi ptr [ inttoptr (i64 7 to ptr), %27 ], [ inttoptr (i64 5 to ptr), %26 ], [ inttoptr (i64 3 to ptr), %25 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
   switch i8 %16, label %30 [
     i8 0, label %l_Lean_Meta_beqTransparencyMode____x40_Init_MetaTypes___hyg_73_.exit
     i8 1, label %28
@@ -387,7 +387,7 @@ l_Lean_Meta_TransparencyMode_toCtorIdx.exit.i:    ; preds = %27, %26, %25, %lean
   br label %l_Lean_Meta_beqTransparencyMode____x40_Init_MetaTypes___hyg_73_.exit
 
 l_Lean_Meta_beqTransparencyMode____x40_Init_MetaTypes___hyg_73_.exit: ; preds = %l_Lean_Meta_TransparencyMode_toCtorIdx.exit.i, %28, %29, %30
-  %.0.i10.i = phi ptr [ inttoptr (i64 7 to ptr), %30 ], [ inttoptr (i64 3 to ptr), %28 ], [ inttoptr (i64 5 to ptr), %29 ], [ inttoptr (i64 1 to ptr), %l_Lean_Meta_TransparencyMode_toCtorIdx.exit.i ]
+  %.0.i10.i = phi ptr [ inttoptr (i64 7 to ptr), %30 ], [ inttoptr (i64 5 to ptr), %29 ], [ inttoptr (i64 3 to ptr), %28 ], [ inttoptr (i64 1 to ptr), %l_Lean_Meta_TransparencyMode_toCtorIdx.exit.i ]
   %31 = icmp eq ptr %.0.i9.i, %.0.i10.i
   %32 = select i1 %31, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
   ret ptr %32
@@ -837,13 +837,13 @@ l_Lean_Meta_beqEtaStructMode____x40_Init_MetaTypes___hyg_106_.exit: ; preds = %l
 93:                                               ; preds = %l_Lean_Meta_beqEtaStructMode____x40_Init_MetaTypes___hyg_106_.exit
   %94 = icmp eq i8 %12, 0
   %.not178 = icmp eq i8 %38, 0
-  br i1 %94, label %95, label %96
+  br i1 %94, label %96, label %95
 
 95:                                               ; preds = %93
-  br i1 %.not178, label %84, label %.critedge174
+  br i1 %.not178, label %.critedge174, label %84
 
 96:                                               ; preds = %93
-  br i1 %.not178, label %.critedge174, label %84
+  br i1 %.not178, label %84, label %.critedge174
 
 .critedge176:                                     ; preds = %106, %105
   %97 = icmp eq i8 %8, 0
@@ -871,7 +871,7 @@ l_Lean_Meta_beqEtaStructMode____x40_Init_MetaTypes___hyg_106_.exit: ; preds = %l
   br i1 %104, label %.critedge174, label %.critedge176
 
 .critedge174:                                     ; preds = %56, %95, %96, %l_Lean_Meta_beqEtaStructMode____x40_Init_MetaTypes___hyg_106_.exit, %106, %105, %101, %100, %99, %88, %87, %83, %82, %79, %78, %75, %74, %71, %70, %67, %66, %63, %62, %.critedge, %58
-  %.0 = phi i8 [ 0, %96 ], [ %.156, %58 ], [ %54, %.critedge ], [ 0, %62 ], [ 0, %63 ], [ 0, %66 ], [ 0, %67 ], [ 0, %70 ], [ 0, %71 ], [ 0, %74 ], [ 0, %75 ], [ 0, %78 ], [ 0, %79 ], [ 0, %82 ], [ 0, %83 ], [ 0, %87 ], [ 0, %88 ], [ 0, %99 ], [ 0, %100 ], [ 0, %101 ], [ 0, %105 ], [ 0, %106 ], [ 0, %l_Lean_Meta_beqEtaStructMode____x40_Init_MetaTypes___hyg_106_.exit ], [ 0, %95 ], [ 0, %56 ]
+  %.0 = phi i8 [ 0, %100 ], [ 0, %106 ], [ 0, %88 ], [ 0, %83 ], [ 0, %79 ], [ 0, %75 ], [ 0, %71 ], [ 0, %67 ], [ 0, %63 ], [ %54, %.critedge ], [ 0, %96 ], [ %.156, %58 ], [ 0, %62 ], [ 0, %66 ], [ 0, %70 ], [ 0, %74 ], [ 0, %78 ], [ 0, %82 ], [ 0, %87 ], [ 0, %l_Lean_Meta_beqEtaStructMode____x40_Init_MetaTypes___hyg_106_.exit ], [ 0, %105 ], [ 0, %99 ], [ 0, %101 ], [ 0, %95 ], [ 0, %56 ]
   ret i8 %.0
 }
 
@@ -1061,13 +1061,13 @@ lean_nat_eq.exit288:                              ; preds = %100
 110:                                              ; preds = %107, %lean_nat_eq.exit288
   %111 = icmp eq i8 %8, 0
   %.not = icmp eq i8 %52, 0
-  br i1 %111, label %112, label %113
+  br i1 %111, label %113, label %112
 
 112:                                              ; preds = %110
-  br i1 %.not, label %186, label %.critedge
+  br i1 %.not, label %.critedge, label %186
 
 113:                                              ; preds = %110
-  br i1 %.not, label %.critedge, label %186
+  br i1 %.not, label %186, label %.critedge
 
 .critedge249:                                     ; preds = %120, %119
   %114 = icmp eq i8 %46, 0
@@ -1232,13 +1232,13 @@ l_Lean_Meta_beqEtaStructMode____x40_Init_MetaTypes___hyg_106_.exit: ; preds = %l
 166:                                              ; preds = %l_Lean_Meta_beqEtaStructMode____x40_Init_MetaTypes___hyg_106_.exit
   %167 = icmp eq i8 %22, 0
   %.not295 = icmp eq i8 %66, 0
-  br i1 %167, label %168, label %169
+  br i1 %167, label %169, label %168
 
 168:                                              ; preds = %166
-  br i1 %.not295, label %157, label %.critedge
+  br i1 %.not295, label %.critedge, label %157
 
 169:                                              ; preds = %166
-  br i1 %.not295, label %.critedge, label %157
+  br i1 %.not295, label %157, label %.critedge
 
 .critedge278:                                     ; preds = %177, %176
   %170 = icmp eq i8 %18, 0
@@ -1296,7 +1296,7 @@ l_Lean_Meta_beqEtaStructMode____x40_Init_MetaTypes___hyg_106_.exit: ; preds = %l
   br i1 %188, label %.critedge, label %.critedge284
 
 .critedge:                                        ; preds = %107, %97, %168, %112, %113, %169, %l_Lean_Meta_beqEtaStructMode____x40_Init_MetaTypes___hyg_106_.exit, %lean_nat_eq.exit288, %190, %189, %185, %184, %181, %180, %177, %176, %173, %172, %161, %160, %156, %155, %152, %151, %148, %147, %144, %143, %140, %139, %136, %135, %132, %131, %128, %127, %124, %123, %120, %119, %.critedge249, %115, %lean_nat_eq.exit
-  %.0 = phi i8 [ 0, %169 ], [ 0, %113 ], [ 0, %lean_nat_eq.exit ], [ %.250, %115 ], [ %90, %.critedge249 ], [ 0, %119 ], [ 0, %120 ], [ 0, %123 ], [ 0, %124 ], [ 0, %127 ], [ 0, %128 ], [ 0, %131 ], [ 0, %132 ], [ 0, %135 ], [ 0, %136 ], [ 0, %139 ], [ 0, %140 ], [ 0, %143 ], [ 0, %144 ], [ 0, %147 ], [ 0, %148 ], [ 0, %151 ], [ 0, %152 ], [ 0, %155 ], [ 0, %156 ], [ 0, %160 ], [ 0, %161 ], [ 0, %172 ], [ 0, %173 ], [ 0, %176 ], [ 0, %177 ], [ 0, %180 ], [ 0, %181 ], [ 0, %184 ], [ 0, %185 ], [ 0, %189 ], [ 0, %190 ], [ 0, %lean_nat_eq.exit288 ], [ 0, %l_Lean_Meta_beqEtaStructMode____x40_Init_MetaTypes___hyg_106_.exit ], [ 0, %112 ], [ 0, %168 ], [ 0, %97 ], [ 0, %107 ]
+  %.0 = phi i8 [ 0, %113 ], [ 0, %185 ], [ 0, %181 ], [ 0, %177 ], [ 0, %173 ], [ 0, %lean_nat_eq.exit288 ], [ 0, %161 ], [ 0, %156 ], [ 0, %152 ], [ 0, %148 ], [ 0, %144 ], [ 0, %140 ], [ 0, %136 ], [ 0, %132 ], [ 0, %128 ], [ 0, %124 ], [ 0, %120 ], [ %90, %.critedge249 ], [ 0, %190 ], [ %.250, %115 ], [ 0, %119 ], [ 0, %123 ], [ 0, %169 ], [ 0, %lean_nat_eq.exit ], [ 0, %127 ], [ 0, %131 ], [ 0, %135 ], [ 0, %139 ], [ 0, %143 ], [ 0, %147 ], [ 0, %151 ], [ 0, %155 ], [ 0, %160 ], [ 0, %l_Lean_Meta_beqEtaStructMode____x40_Init_MetaTypes___hyg_106_.exit ], [ 0, %176 ], [ 0, %172 ], [ 0, %180 ], [ 0, %184 ], [ 0, %189 ], [ 0, %112 ], [ 0, %168 ], [ 0, %97 ], [ 0, %107 ]
   ret i8 %.0
 }
 
@@ -1750,7 +1750,7 @@ lean_nat_eq.exit.i39:                             ; preds = %119
   br label %.backedge.i41
 
 l_List_hasDecEq___at_Lean_Meta_beqOccurrences____x40_Init_MetaTypes___hyg_1231____spec__1.exit: ; preds = %lean_nat_eq.exit.i, %76, %lean_obj_tag.exit31.i, %lean_nat_eq.exit.i39, %134, %lean_obj_tag.exit31.i36, %lean_obj_tag.exit27.i44, %lean_obj_tag.exit27.i, %lean_obj_tag.exit29, %lean_obj_tag.exit25, %lean_obj_tag.exit21
-  %.0.shrunk = phi i1 [ %20, %lean_obj_tag.exit21 ], [ false, %lean_obj_tag.exit25 ], [ false, %lean_obj_tag.exit29 ], [ %52, %lean_obj_tag.exit27.i ], [ %110, %lean_obj_tag.exit27.i44 ], [ false, %lean_obj_tag.exit31.i36 ], [ false, %134 ], [ false, %lean_nat_eq.exit.i39 ], [ false, %lean_obj_tag.exit31.i ], [ false, %76 ], [ false, %lean_nat_eq.exit.i ]
+  %.0.shrunk = phi i1 [ false, %lean_nat_eq.exit.i39 ], [ false, %lean_obj_tag.exit25 ], [ %20, %lean_obj_tag.exit21 ], [ false, %lean_obj_tag.exit29 ], [ %52, %lean_obj_tag.exit27.i ], [ %110, %lean_obj_tag.exit27.i44 ], [ false, %lean_obj_tag.exit31.i36 ], [ false, %134 ], [ false, %lean_obj_tag.exit31.i ], [ false, %76 ], [ false, %lean_nat_eq.exit.i ]
   %.0 = zext i1 %.0.shrunk to i8
   ret i8 %.0
 }

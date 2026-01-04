@@ -225,7 +225,7 @@ lean_obj_tag.exit.thread:                         ; preds = %lean_dec.exit
   br label %lean_dec.exit15
 
 lean_dec.exit15:                                  ; preds = %lean_obj_tag.exit, %30, %32, %33, %lean_obj_tag.exit.thread, %5, %2
-  %.0 = phi i8 [ 2, %2 ], [ 1, %5 ], [ 0, %lean_obj_tag.exit.thread ], [ 1, %33 ], [ 1, %32 ], [ 1, %30 ], [ %spec.select, %lean_obj_tag.exit ]
+  %.0 = phi i8 [ 2, %2 ], [ 1, %5 ], [ 0, %lean_obj_tag.exit.thread ], [ %spec.select, %lean_obj_tag.exit ], [ 1, %33 ], [ 1, %32 ], [ 1, %30 ]
   ret i8 %.0
 }
 
@@ -373,7 +373,7 @@ lean_obj_tag.exit.thread:                         ; preds = %lean_dec.exit19
   br label %lean_dec.exit21
 
 lean_dec.exit21:                                  ; preds = %lean_obj_tag.exit, %54, %56, %57, %lean_obj_tag.exit.thread, %18, %24, %26, %27, %5, %11, %13, %14
-  %.0 = phi i8 [ 1, %14 ], [ 1, %13 ], [ 1, %11 ], [ 1, %5 ], [ 0, %27 ], [ 0, %26 ], [ 0, %24 ], [ 0, %18 ], [ 1, %lean_obj_tag.exit.thread ], [ 0, %57 ], [ 0, %56 ], [ 0, %54 ], [ %spec.select, %lean_obj_tag.exit ]
+  %.0 = phi i8 [ %spec.select, %lean_obj_tag.exit ], [ 1, %5 ], [ 1, %lean_obj_tag.exit.thread ], [ 1, %14 ], [ 1, %13 ], [ 1, %11 ], [ 0, %27 ], [ 0, %26 ], [ 0, %24 ], [ 0, %18 ], [ 0, %57 ], [ 0, %56 ], [ 0, %54 ]
   ret i8 %.0
 }
 

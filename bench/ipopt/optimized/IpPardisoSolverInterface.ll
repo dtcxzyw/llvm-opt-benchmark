@@ -5534,7 +5534,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit356: ; preds = %54
   br label %.thread
 
 .thread:                                          ; preds = %586, %.thread379, %601
-  %.251 = phi i32 [ 1, %601 ], [ %590, %.thread379 ], [ 1, %586 ]
+  %.251 = phi i32 [ %590, %.thread379 ], [ 1, %601 ], [ 1, %586 ]
   %607 = load i32, ptr %34, align 4, !tbaa !43
   %608 = load ptr, ptr %566, align 8, !tbaa !39
   %609 = getelementptr inbounds nuw i8, ptr %608, i64 4
@@ -6301,7 +6301,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63: ; preds = %272
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %286
 
-.critedge:                                        ; preds = %204, %259, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit60, %237
+.critedge:                                        ; preds = %204, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit60, %237, %259
   %277 = getelementptr inbounds nuw i8, ptr %0, i64 83
   %278 = load i8, ptr %277, align 1, !tbaa !99, !range !41, !noundef !42
   %279 = trunc nuw i8 %278 to i1
@@ -6320,7 +6320,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63: ; preds = %272
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit38, %.critedge, %240, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46, %281, %199, %194, %102, %97
-  %.023 = phi i32 [ 1, %194 ], [ 4, %199 ], [ 1, %97 ], [ 4, %102 ], [ 2, %281 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46 ], [ 1, %240 ], [ 0, %.critedge ], [ 1, %_ZN5Ipopt9TimedTask3EndEv.exit38 ]
+  %.023 = phi i32 [ 1, %194 ], [ 1, %240 ], [ 4, %199 ], [ 0, %.critedge ], [ 1, %97 ], [ 4, %102 ], [ 2, %281 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46 ], [ 1, %_ZN5Ipopt9TimedTask3EndEv.exit38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

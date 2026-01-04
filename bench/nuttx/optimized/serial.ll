@@ -235,7 +235,7 @@ up_irq_restore.exit37:                            ; preds = %52, %47, %14
   br label %up_irq_restore.exit
 
 up_irq_restore.exit:                              ; preds = %46, %44, %29, %27, %10, %up_irq_restore.exit37
-  %.027 = phi i32 [ %.1, %up_irq_restore.exit37 ], [ -24, %10 ], [ %25, %27 ], [ %25, %29 ], [ %35, %44 ], [ %35, %46 ]
+  %.027 = phi i32 [ -24, %10 ], [ %25, %29 ], [ %.1, %up_irq_restore.exit37 ], [ %25, %27 ], [ %35, %44 ], [ %35, %46 ]
   %53 = call i32 @nxmutex_unlock(ptr noundef nonnull %7) #5
   br label %54
 
@@ -442,7 +442,7 @@ select.unfold:                                    ; preds = %47, %42
   br i1 %.not91, label %.split178, label %.lr.ph.split.backedge
 
 .split178:                                        ; preds = %33, %select.unfold, %47, %45, %select.unfold.us.us, %75, %73, %.lr.ph225
-  %.us-phi = phi i8 [ 13, %select.unfold.us.us ], [ %66, %.lr.ph225 ], [ %66, %73 ], [ 10, %75 ], [ 13, %select.unfold ], [ %37, %33 ], [ %37, %45 ], [ 10, %47 ]
+  %.us-phi = phi i8 [ 10, %75 ], [ 13, %select.unfold.us.us ], [ %66, %.lr.ph225 ], [ %66, %73 ], [ 10, %47 ], [ 13, %select.unfold ], [ %37, %33 ], [ %37, %45 ]
   %50 = getelementptr inbounds nuw i8, ptr %.078.ph231, i64 1
   store i8 %.us-phi, ptr %.078.ph231, align 1
   %51 = add i64 %.075.ph233, 1
@@ -837,9 +837,9 @@ up_irq_restore.exit130:                           ; preds = %205, %207
   br label %uart_putxmitchar.exit
 
 uart_putxmitchar.exit:                            ; preds = %.split178, %up_irq_restore.exit24.i, %up_irq_restore.exit24.i124, %._crit_edge.i114, %._crit_edge.i, %up_irq_restore.exit128, %up_irq_restore.exit130, %.loopexit135
-  %.179 = phi ptr [ %50, %.loopexit135 ], [ %.078.ph231, %up_irq_restore.exit128 ], [ %.078.ph231, %up_irq_restore.exit130 ], [ %50, %._crit_edge.i ], [ %50, %._crit_edge.i114 ], [ %50, %up_irq_restore.exit24.i124 ], [ %50, %up_irq_restore.exit24.i ], [ %50, %.split178 ]
-  %.2 = phi i64 [ %51, %.loopexit135 ], [ %.075.ph233, %up_irq_restore.exit128 ], [ %.075.ph233, %up_irq_restore.exit130 ], [ %51, %._crit_edge.i ], [ %51, %._crit_edge.i114 ], [ %51, %up_irq_restore.exit24.i124 ], [ %51, %up_irq_restore.exit24.i ], [ %51, %.split178 ]
-  %.174 = phi i1 [ %.073.ph.ph242, %.loopexit135 ], [ %.073.ph.ph242, %up_irq_restore.exit128 ], [ %.073.ph.ph242, %up_irq_restore.exit130 ], [ true, %._crit_edge.i ], [ true, %._crit_edge.i114 ], [ true, %up_irq_restore.exit24.i124 ], [ true, %up_irq_restore.exit24.i ], [ %.073.ph.ph242, %.split178 ]
+  %.179 = phi ptr [ %.078.ph231, %up_irq_restore.exit130 ], [ %50, %.loopexit135 ], [ %50, %up_irq_restore.exit24.i124 ], [ %.078.ph231, %up_irq_restore.exit128 ], [ %50, %up_irq_restore.exit24.i ], [ %50, %._crit_edge.i ], [ %50, %._crit_edge.i114 ], [ %50, %.split178 ]
+  %.2 = phi i64 [ %.075.ph233, %up_irq_restore.exit130 ], [ %51, %.loopexit135 ], [ %51, %up_irq_restore.exit24.i124 ], [ %.075.ph233, %up_irq_restore.exit128 ], [ %51, %up_irq_restore.exit24.i ], [ %51, %._crit_edge.i ], [ %51, %._crit_edge.i114 ], [ %51, %.split178 ]
+  %.174 = phi i1 [ %.073.ph.ph242, %up_irq_restore.exit130 ], [ %.073.ph.ph242, %.loopexit135 ], [ true, %up_irq_restore.exit24.i124 ], [ %.073.ph.ph242, %up_irq_restore.exit128 ], [ true, %up_irq_restore.exit24.i ], [ true, %._crit_edge.i ], [ true, %._crit_edge.i114 ], [ %.073.ph.ph242, %.split178 ]
   %211 = icmp ult i64 %.2, %2
   br i1 %211, label %.lr.ph.lr.ph, label %.loopexit, !llvm.loop !11
 
@@ -849,8 +849,8 @@ uart_putxmitchar.exit:                            ; preds = %.split178, %up_irq_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %uart_putxmitchar.exit, %.lr.ph.split.us.split.us, %174, %177, %60, %.loopexit.loopexit304.split.loop.exit337
-  %.073.ph.ph164 = phi i1 [ %.073.ph.ph242, %.loopexit.loopexit304.split.loop.exit337 ], [ %.073.ph.ph242, %60 ], [ %.073.ph.ph242, %177 ], [ %.073.ph.ph242, %174 ], [ %.073.ph.ph242, %.lr.ph.split.us.split.us ], [ %.174, %uart_putxmitchar.exit ]
-  %.176 = phi i64 [ %umax.le, %.loopexit.loopexit304.split.loop.exit337 ], [ %.075.ph233, %60 ], [ -77, %174 ], [ -11, %177 ], [ %.075.ph233, %.lr.ph.split.us.split.us ], [ %.2, %uart_putxmitchar.exit ]
+  %.073.ph.ph164 = phi i1 [ %.073.ph.ph242, %.loopexit.loopexit304.split.loop.exit337 ], [ %.073.ph.ph242, %174 ], [ %.073.ph.ph242, %.lr.ph.split.us.split.us ], [ %.073.ph.ph242, %60 ], [ %.073.ph.ph242, %177 ], [ %.174, %uart_putxmitchar.exit ]
+  %.176 = phi i64 [ %umax.le, %.loopexit.loopexit304.split.loop.exit337 ], [ -77, %174 ], [ %.075.ph233, %.lr.ph.split.us.split.us ], [ %.075.ph233, %60 ], [ -11, %177 ], [ %.2, %uart_putxmitchar.exit ]
   br i1 %.073.ph.ph164, label %213, label %.loopexit.thread
 
 213:                                              ; preds = %202, %.loopexit
@@ -863,7 +863,7 @@ uart_putxmitchar.exit:                            ; preds = %.split178, %up_irq_
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.preheader, %202, %213, %.loopexit
-  %.176298 = phi i64 [ %.176299, %213 ], [ %.176, %.loopexit ], [ %spec.select95, %202 ], [ 0, %.preheader ]
+  %.176298 = phi i64 [ %spec.select95, %202 ], [ %.176299, %213 ], [ %.176, %.loopexit ], [ 0, %.preheader ]
   %218 = getelementptr inbounds nuw i8, ptr %11, i64 272
   %219 = load ptr, ptr %218, align 8
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 48
@@ -1110,8 +1110,8 @@ up_irq_restore.exit24.i:                          ; preds = %110, %100
   %.not21.i = icmp eq i32 %spec.store.select.i, %112
   br i1 %.not21.i, label %.lr.ph.split.i, label %._crit_edge.i
 
-113:                                              ; preds = %80, %75, %70, %._crit_edge.i
-  %.040.ph = phi i8 [ 10, %._crit_edge.i ], [ %72, %70 ], [ %72, %75 ], [ 10, %80 ]
+113:                                              ; preds = %70, %80, %75, %._crit_edge.i
+  %.040.ph = phi i8 [ 10, %._crit_edge.i ], [ %72, %75 ], [ 10, %80 ], [ %72, %70 ]
   %114 = load volatile i16, ptr %65, align 8
   %115 = sext i16 %114 to i32
   %116 = add nsw i32 %115, 1
@@ -1176,7 +1176,7 @@ up_irq_restore.exit24.i69:                        ; preds = %136, %126
   br i1 %.not21.i67, label %.lr.ph.split.i62, label %.loopexit78
 
 .loopexit:                                        ; preds = %.lr.ph.i55, %.lr.ph.i61, %up_irq_restore.exit24.i, %up_irq_restore.exit24.i69
-  %.142.ph = phi i64 [ -4, %up_irq_restore.exit24.i69 ], [ -4, %up_irq_restore.exit24.i ], [ -11, %.lr.ph.i61 ], [ -11, %.lr.ph.i55 ]
+  %.142.ph = phi i64 [ -4, %up_irq_restore.exit24.i ], [ -4, %up_irq_restore.exit24.i69 ], [ -11, %.lr.ph.i61 ], [ -11, %.lr.ph.i55 ]
   %139 = icmp ult i64 %.04587, %2
   %140 = sub nuw i64 %2, %.04587
   %spec.select = select i1 %139, i64 %140, i64 %.142.ph
@@ -1544,7 +1544,7 @@ uart_datasent.exit:                               ; preds = %.lr.ph.i.i, %108, %
   br label %up_irq_restore.exit99
 
 up_irq_restore.exit99:                            ; preds = %178, %151, %125, %17
-  %.0 = phi i32 [ %126, %125 ], [ %18, %17 ], [ %.0.i, %151 ], [ %.0.i102, %178 ]
+  %.0 = phi i32 [ %18, %17 ], [ %126, %125 ], [ %.0.i102, %178 ], [ %.0.i, %151 ]
   switch i32 %.0, label %up_irq_restore.exit99.thread.thread [
     i32 -25, label %up_irq_restore.exit99.thread
     i32 0, label %up_irq_restore.exit99.thread
@@ -1595,8 +1595,8 @@ up_irq_restore.exit99.thread:                     ; preds = %.thread, %up_irq_re
   store i32 %200, ptr %201, align 4
   br label %up_irq_restore.exit99.thread.thread
 
-up_irq_restore.exit99.thread.thread:              ; preds = %up_irq_restore.exit, %up_irq_restore.exit95, %up_irq_restore.exit97, %122, %124, %127, %153, %191, %180, %up_irq_restore.exit99, %up_irq_restore.exit99.thread, %181, %192
-  %.1 = phi i32 [ %.0106, %up_irq_restore.exit99.thread ], [ 0, %181 ], [ 0, %192 ], [ %.0, %up_irq_restore.exit99 ], [ -22, %180 ], [ -22, %191 ], [ 0, %up_irq_restore.exit ], [ 0, %up_irq_restore.exit95 ], [ 0, %up_irq_restore.exit97 ], [ 0, %122 ], [ 0, %124 ], [ -25, %127 ], [ -25, %153 ]
+up_irq_restore.exit99.thread.thread:              ; preds = %up_irq_restore.exit, %up_irq_restore.exit95, %up_irq_restore.exit97, %124, %127, %122, %153, %191, %180, %up_irq_restore.exit99, %up_irq_restore.exit99.thread, %181, %192
+  %.1 = phi i32 [ %.0106, %up_irq_restore.exit99.thread ], [ 0, %181 ], [ %.0, %up_irq_restore.exit99 ], [ 0, %192 ], [ -22, %180 ], [ -22, %191 ], [ 0, %up_irq_restore.exit ], [ 0, %up_irq_restore.exit95 ], [ 0, %up_irq_restore.exit97 ], [ 0, %124 ], [ -25, %127 ], [ 0, %122 ], [ -25, %153 ]
   ret i32 %.1
 }
 

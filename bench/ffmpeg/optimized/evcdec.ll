@@ -157,7 +157,7 @@ define internal i32 @evc_read_header(ptr noundef %0) #1 {
   br label %27
 
 27:                                               ; preds = %24, %1, %17, %6
-  %.022 = phi i32 [ %15, %6 ], [ %22, %17 ], [ %26, %24 ], [ -12, %1 ]
+  %.022 = phi i32 [ -12, %1 ], [ %15, %6 ], [ %22, %17 ], [ %26, %24 ]
   ret i32 %.022
 }
 
@@ -241,8 +241,8 @@ switch.early.test:                                ; preds = %34
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull %.str.10.sink) #5
   br label %.loopexit
 
-.loopexit:                                        ; preds = %switch.early.test, %34, %29, %22, %20, %19, %15, %11, %.loopexit.sink.split
-  %.2 = phi i32 [ %.2.ph, %.loopexit.sink.split ], [ %13, %11 ], [ %17, %15 ], [ -1094995529, %19 ], [ -1094995529, %20 ], [ %27, %22 ], [ -1094995529, %29 ], [ %.fr, %34 ], [ %.fr, %switch.early.test ]
+.loopexit:                                        ; preds = %switch.early.test, %34, %20, %19, %15, %11, %22, %29, %.loopexit.sink.split
+  %.2 = phi i32 [ %.2.ph, %.loopexit.sink.split ], [ -1094995529, %20 ], [ %.fr, %switch.early.test ], [ -1094995529, %29 ], [ %27, %22 ], [ %13, %11 ], [ %17, %15 ], [ -1094995529, %19 ], [ %.fr, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.2
 }

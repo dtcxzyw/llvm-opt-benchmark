@@ -35,8 +35,8 @@ define dso_local { ptr, i64 } @_ZN4llvm17AArch64BuildAttrs13getVendorNameEj(i32 
   br label %4
 
 4:                                                ; preds = %1, %3, %2
-  %.sroa.5.0 = phi i64 [ 0, %3 ], [ 14, %2 ], [ 22, %1 ]
-  %.sroa.0.0 = phi ptr [ @.str.2, %3 ], [ @.str.1, %2 ], [ @.str, %1 ]
+  %.sroa.5.0 = phi i64 [ 0, %3 ], [ 22, %1 ], [ 14, %2 ]
+  %.sroa.0.0 = phi ptr [ @.str.2, %3 ], [ @.str, %1 ], [ @.str.1, %2 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.5.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -63,8 +63,8 @@ _ZN4llvm12StringSwitchINS_17AArch64BuildAttrs8VendorIDES2_E4CaseENS_13StringLite
   %.sroa.8.1 = phi i32 [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7 ]
   br label %5
 
-5:                                                ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7, %2, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvm12StringSwitchINS_17AArch64BuildAttrs8VendorIDES2_E4CaseENS_13StringLiteralES2_.exit10
-  %6 = phi i32 [ %.sroa.8.1, %_ZN4llvm12StringSwitchINS_17AArch64BuildAttrs8VendorIDES2_E4CaseENS_13StringLiteralES2_.exit10 ], [ 404, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ 404, %2 ], [ 404, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7 ]
+5:                                                ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %2, %_ZN4llvm12StringSwitchINS_17AArch64BuildAttrs8VendorIDES2_E4CaseENS_13StringLiteralES2_.exit10
+  %6 = phi i32 [ %.sroa.8.1, %_ZN4llvm12StringSwitchINS_17AArch64BuildAttrs8VendorIDES2_E4CaseENS_13StringLiteralES2_.exit10 ], [ 404, %2 ], [ 404, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ 404, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7 ]
   ret i32 %6
 }
 
@@ -106,7 +106,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i7:           ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvm12StringSwitchINS_17AArch64BuildAttrs18SubsectionOptionalES2_E4CaseENS_13StringLiteralES2_.exit10
 
 _ZN4llvm12StringSwitchINS_17AArch64BuildAttrs18SubsectionOptionalES2_E4CaseENS_13StringLiteralES2_.exit10: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %2
-  %5 = phi i32 [ 404, %2 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ %spec.select, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7 ]
+  %5 = phi i32 [ 404, %2 ], [ %spec.select, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ]
   ret i32 %5
 }
 
@@ -221,8 +221,8 @@ _ZN4llvm12StringSwitchINS_17AArch64BuildAttrs12PauthABITagsES2_E4CaseENS_13Strin
   %.sroa.8.1 = phi i32 [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ 2, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7 ]
   br label %5
 
-5:                                                ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7, %2, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvm12StringSwitchINS_17AArch64BuildAttrs12PauthABITagsES2_E4CaseENS_13StringLiteralES2_.exit10
-  %6 = phi i32 [ %.sroa.8.1, %_ZN4llvm12StringSwitchINS_17AArch64BuildAttrs12PauthABITagsES2_E4CaseENS_13StringLiteralES2_.exit10 ], [ 404, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ 404, %2 ], [ 404, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7 ]
+5:                                                ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %2, %_ZN4llvm12StringSwitchINS_17AArch64BuildAttrs12PauthABITagsES2_E4CaseENS_13StringLiteralES2_.exit10
+  %6 = phi i32 [ %.sroa.8.1, %_ZN4llvm12StringSwitchINS_17AArch64BuildAttrs12PauthABITagsES2_E4CaseENS_13StringLiteralES2_.exit10 ], [ 404, %2 ], [ 404, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ 404, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7 ]
   ret i32 %6
 }
 
@@ -266,8 +266,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i15:          ; preds = %_ZN4llvmeqENS_9Stri
   %spec.select = select i1 %5, i32 2, i32 404
   br label %_ZN4llvm12StringSwitchINS_17AArch64BuildAttrs18FeatureAndBitsTagsES2_E4CaseENS_13StringLiteralES2_.exit18.thread
 
-_ZN4llvm12StringSwitchINS_17AArch64BuildAttrs18FeatureAndBitsTagsES2_E4CaseENS_13StringLiteralES2_.exit18.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i15, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7, %2
-  %6 = phi i32 [ 404, %2 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7 ], [ %spec.select, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i15 ]
+_ZN4llvm12StringSwitchINS_17AArch64BuildAttrs18FeatureAndBitsTagsES2_E4CaseENS_13StringLiteralES2_.exit18.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i15, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %2
+  %6 = phi i32 [ %spec.select, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i15 ], [ 404, %2 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7 ]
   ret i32 %6
 }
 

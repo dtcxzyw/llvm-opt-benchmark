@@ -540,7 +540,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang12CompoundStmtELb1EE9push_backES3_.exi
   br label %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit.thread
 
 _ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit.thread: ; preds = %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit, %_ZN4llvm3isaIN5clang21OMPLoopBasedDirectiveEPNS1_4StmtEEEbRKT0_.exit.thread, %46, %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang12CompoundStmtELb1EE9push_backES3_.exit
-  %.6.ph = phi ptr [ %.462, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang12CompoundStmtELb1EE9push_backES3_.exit ], [ %.462, %.lr.ph ], [ %.462, %46 ], [ %.462, %_ZN4llvm3isaIN5clang21OMPLoopBasedDirectiveEPNS1_4StmtEEEbRKT0_.exit.thread ], [ %.045, %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit ]
+  %.6.ph = phi ptr [ %.462, %_ZN4llvm3isaIN5clang21OMPLoopBasedDirectiveEPNS1_4StmtEEEbRKT0_.exit.thread ], [ %.462, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang12CompoundStmtELb1EE9push_backES3_.exit ], [ %.462, %.lr.ph ], [ %.462, %46 ], [ %.045, %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit ]
   %62 = getelementptr inbounds nuw i8, ptr %.02061, i64 8
   %.not26 = icmp eq ptr %62, %28
   br i1 %.not26, label %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit._crit_edge.loopexit, label %.lr.ph
@@ -938,7 +938,7 @@ define dso_local void @_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefI
   br label %_ZN5clang16OMPLoopDirective11getCountersEv.exit
 
 _ZN5clang16OMPLoopDirective11getCountersEv.exit:  ; preds = %3, %10, %12, %14, %16
-  %.0.i.i = phi i64 [ 29, %3 ], [ 16, %14 ], [ 16, %12 ], [ 16, %10 ], [ %18, %16 ]
+  %.0.i.i = phi i64 [ 16, %10 ], [ 29, %3 ], [ %18, %16 ], [ 16, %14 ], [ 16, %12 ]
   %.not.i.i.i.i.i.i = icmp eq i64 %2, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm4copyIRNS_8ArrayRefIPN5clang4ExprEEEPS4_EET0_OT_S8_.exit, label %19
 
@@ -983,7 +983,7 @@ define dso_local void @_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8Ar
   br label %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit
 
 _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit: ; preds = %3, %10, %12, %14, %16
-  %.0.i.i = phi i32 [ 29, %3 ], [ 16, %14 ], [ 16, %12 ], [ 16, %10 ], [ %spec.select.i.i, %16 ]
+  %.0.i.i = phi i32 [ 16, %10 ], [ 29, %3 ], [ %spec.select.i.i, %16 ], [ 16, %14 ], [ 16, %12 ]
   %.not.i.i.i.i.i.i = icmp eq i64 %2, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm4copyIRNS_8ArrayRefIPN5clang4ExprEEEPS4_EET0_OT_S8_.exit, label %18
 
@@ -1032,7 +1032,7 @@ define dso_local void @_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_
   br label %_ZN5clang16OMPLoopDirective8getInitsEv.exit
 
 _ZN5clang16OMPLoopDirective8getInitsEv.exit:      ; preds = %3, %10, %12, %14, %16
-  %.0.i.i = phi i32 [ 29, %3 ], [ 16, %14 ], [ 16, %12 ], [ 16, %10 ], [ %spec.select.i.i, %16 ]
+  %.0.i.i = phi i32 [ 16, %10 ], [ 29, %3 ], [ %spec.select.i.i, %16 ], [ 16, %14 ], [ 16, %12 ]
   %.not.i.i.i.i.i.i = icmp eq i64 %2, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm4copyIRNS_8ArrayRefIPN5clang4ExprEEEPS4_EET0_OT_S8_.exit, label %18
 
@@ -1082,7 +1082,7 @@ define dso_local void @_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIP
   br label %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit
 
 _ZN5clang16OMPLoopDirective10getUpdatesEv.exit:   ; preds = %3, %10, %12, %14, %16
-  %.0.i.i = phi i32 [ 29, %3 ], [ 16, %14 ], [ 16, %12 ], [ 16, %10 ], [ %spec.select.i.i, %16 ]
+  %.0.i.i = phi i32 [ 16, %10 ], [ 29, %3 ], [ %spec.select.i.i, %16 ], [ 16, %14 ], [ 16, %12 ]
   %.not.i.i.i.i.i.i = icmp eq i64 %2, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm4copyIRNS_8ArrayRefIPN5clang4ExprEEEPS4_EET0_OT_S8_.exit, label %18
 
@@ -1132,7 +1132,7 @@ define dso_local void @_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS
   br label %_ZN5clang16OMPLoopDirective9getFinalsEv.exit
 
 _ZN5clang16OMPLoopDirective9getFinalsEv.exit:     ; preds = %3, %10, %12, %14, %16
-  %.0.i.i = phi i32 [ 29, %3 ], [ 16, %14 ], [ 16, %12 ], [ 16, %10 ], [ %spec.select.i.i, %16 ]
+  %.0.i.i = phi i32 [ 16, %10 ], [ 29, %3 ], [ %spec.select.i.i, %16 ], [ 16, %14 ], [ 16, %12 ]
   %.not.i.i.i.i.i.i = icmp eq i64 %2, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm4copyIRNS_8ArrayRefIPN5clang4ExprEEEPS4_EET0_OT_S8_.exit, label %18
 
@@ -1182,7 +1182,7 @@ define dso_local void @_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8
   br label %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit
 
 _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit: ; preds = %3, %10, %12, %14, %16
-  %.0.i.i = phi i32 [ 29, %3 ], [ 16, %14 ], [ 16, %12 ], [ 16, %10 ], [ %spec.select.i.i, %16 ]
+  %.0.i.i = phi i32 [ 16, %10 ], [ 29, %3 ], [ %spec.select.i.i, %16 ], [ 16, %14 ], [ 16, %12 ]
   %.not.i.i.i.i.i.i = icmp eq i64 %2, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm4copyIRNS_8ArrayRefIPN5clang4ExprEEEPS4_EET0_OT_S8_.exit, label %18
 
@@ -1232,7 +1232,7 @@ define dso_local void @_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8Arr
   br label %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit
 
 _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit: ; preds = %3, %10, %12, %14, %16
-  %.0.i.i = phi i32 [ 29, %3 ], [ 16, %14 ], [ 16, %12 ], [ 16, %10 ], [ %spec.select.i.i, %16 ]
+  %.0.i.i = phi i32 [ 16, %10 ], [ 29, %3 ], [ %spec.select.i.i, %16 ], [ 16, %14 ], [ 16, %12 ]
   %.not.i.i.i.i.i.i = icmp eq i64 %2, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm4copyIRNS_8ArrayRefIPN5clang4ExprEEEPS4_EET0_OT_S8_.exit, label %18
 
@@ -1282,7 +1282,7 @@ define dso_local void @_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8A
   br label %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit
 
 _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit: ; preds = %3, %10, %12, %14, %16
-  %.0.i.i = phi i32 [ 29, %3 ], [ 16, %14 ], [ 16, %12 ], [ 16, %10 ], [ %spec.select.i.i, %16 ]
+  %.0.i.i = phi i32 [ 16, %10 ], [ 29, %3 ], [ %spec.select.i.i, %16 ], [ 16, %14 ], [ 16, %12 ]
   %.not.i.i.i.i.i.i = icmp eq i64 %2, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm4copyIRNS_8ArrayRefIPN5clang4ExprEEEPS4_EET0_OT_S8_.exit, label %18
 
@@ -1652,7 +1652,7 @@ define dso_local noundef ptr @_ZN5clang16OMPSimdDirective6CreateERKNS_10ASTConte
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %8, %10, %12, %14, %16
-  %.0.i.i = phi i32 [ 29, %8 ], [ 16, %14 ], [ 16, %12 ], [ 16, %10 ], [ %spec.select.i.i, %16 ]
+  %.0.i.i = phi i32 [ 16, %10 ], [ 29, %8 ], [ %spec.select.i.i, %16 ], [ 16, %14 ], [ 16, %12 ]
   %18 = shl i32 %3, 3
   %19 = add i32 %.0.i.i, %18
   %20 = trunc i64 %5 to i32
@@ -1803,7 +1803,7 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_16OMPSimdDirectiveEJRNS_14
   br label %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %106, %104, %102, %100, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_16OMPSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit
-  %.0.i.i.i = phi i64 [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_16OMPSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ 16, %104 ], [ 16, %102 ], [ 16, %100 ], [ %108, %106 ]
+  %.0.i.i.i = phi i64 [ 16, %100 ], [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_16OMPSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ %108, %106 ], [ 16, %104 ], [ 16, %102 ]
   %.not.i.i.i.i.i.i.i = icmp eq i32 %97, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %109
 
@@ -1843,7 +1843,7 @@ _ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pr
   br label %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %126, %124, %122, %120, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i37 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %124 ], [ 16, %122 ], [ 16, %120 ], [ %spec.select.i.i.i, %126 ]
+  %.0.i.i.i37 = phi i32 [ 16, %120 ], [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i, %126 ], [ 16, %124 ], [ 16, %122 ]
   %.not.i.i.i.i.i.i.i38 = icmp eq i32 %114, 0
   br i1 %.not.i.i.i.i.i.i.i38, label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %128
 
@@ -1889,7 +1889,7 @@ _ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exi
   br label %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %151, %149, %147, %145, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i41 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %149 ], [ 16, %147 ], [ 16, %145 ], [ %spec.select.i.i.i40, %151 ]
+  %.0.i.i.i41 = phi i32 [ 16, %145 ], [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i40, %151 ], [ 16, %149 ], [ 16, %147 ]
   %.not.i.i.i.i.i.i.i42 = icmp eq i32 %139, 0
   br i1 %.not.i.i.i.i.i.i.i42, label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %153
 
@@ -1936,7 +1936,7 @@ _ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds 
   br label %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
 
 _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %177, %175, %173, %171, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i45 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %175 ], [ 16, %173 ], [ 16, %171 ], [ %spec.select.i.i.i44, %177 ]
+  %.0.i.i.i45 = phi i32 [ 16, %171 ], [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i44, %177 ], [ 16, %175 ], [ 16, %173 ]
   %.not.i.i.i.i.i.i.i46 = icmp eq i32 %165, 0
   br i1 %.not.i.i.i.i.i.i.i46, label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %179
 
@@ -1983,7 +1983,7 @@ _ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pre
   br label %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
 
 _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %203, %201, %199, %197, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i49 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %201 ], [ 16, %199 ], [ 16, %197 ], [ %spec.select.i.i.i48, %203 ]
+  %.0.i.i.i49 = phi i32 [ 16, %197 ], [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i48, %203 ], [ 16, %201 ], [ 16, %199 ]
   %.not.i.i.i.i.i.i.i50 = icmp eq i32 %191, 0
   br i1 %.not.i.i.i.i.i.i.i50, label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %205
 
@@ -2030,7 +2030,7 @@ _ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds
   br label %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %229, %227, %225, %223, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i53 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %227 ], [ 16, %225 ], [ 16, %223 ], [ %spec.select.i.i.i52, %229 ]
+  %.0.i.i.i53 = phi i32 [ 16, %223 ], [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i52, %229 ], [ 16, %227 ], [ 16, %225 ]
   %.not.i.i.i.i.i.i.i54 = icmp eq i32 %217, 0
   br i1 %.not.i.i.i.i.i.i.i54, label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %231
 
@@ -2077,7 +2077,7 @@ _ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.e
   br label %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %255, %253, %251, %249, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i57 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %253 ], [ 16, %251 ], [ 16, %249 ], [ %spec.select.i.i.i56, %255 ]
+  %.0.i.i.i57 = phi i32 [ 16, %249 ], [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i56, %255 ], [ 16, %253 ], [ 16, %251 ]
   %.not.i.i.i.i.i.i.i58 = icmp eq i32 %243, 0
   br i1 %.not.i.i.i.i.i.i.i58, label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %257
 
@@ -2124,7 +2124,7 @@ _ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
   br label %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
 
 _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %281, %279, %277, %275, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i61 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %279 ], [ 16, %277 ], [ 16, %275 ], [ %spec.select.i.i.i60, %281 ]
+  %.0.i.i.i61 = phi i32 [ 16, %275 ], [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i60, %281 ], [ 16, %279 ], [ 16, %277 ]
   %.not.i.i.i.i.i.i.i62 = icmp eq i32 %269, 0
   br i1 %.not.i.i.i.i.i.i.i62, label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %283
 
@@ -2176,7 +2176,7 @@ define dso_local noundef nonnull ptr @_ZN5clang16OMPSimdDirective11CreateEmptyER
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %3, %5, %7, %9, %11
-  %.0.i.i = phi i32 [ 29, %3 ], [ 16, %9 ], [ 16, %7 ], [ 16, %5 ], [ %spec.select.i.i, %11 ]
+  %.0.i.i = phi i32 [ 16, %5 ], [ 29, %3 ], [ %spec.select.i.i, %11 ], [ 16, %9 ], [ 16, %7 ]
   %13 = shl i32 %2, 3
   %14 = add i32 %.0.i.i, %13
   %15 = zext i32 %1 to i64
@@ -2272,7 +2272,7 @@ define dso_local noundef ptr @_ZN5clang15OMPForDirective6CreateERKNS_10ASTContex
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %10, %12, %14, %16, %18
-  %.0.i.i = phi i32 [ 29, %10 ], [ 16, %16 ], [ 16, %14 ], [ 16, %12 ], [ %spec.select.i.i, %18 ]
+  %.0.i.i = phi i32 [ 16, %12 ], [ 29, %10 ], [ %spec.select.i.i, %18 ], [ 16, %16 ], [ 16, %14 ]
   %20 = shl i32 %3, 3
   %21 = or disjoint i32 %20, 1
   %22 = add i32 %21, %.0.i.i
@@ -2458,7 +2458,7 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_15OMPForDirectiveEJRNS_14S
   br label %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %134, %132, %130, %128, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_15OMPForDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit
-  %.0.i.i.i = phi i64 [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_15OMPForDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ 16, %132 ], [ 16, %130 ], [ 16, %128 ], [ %136, %134 ]
+  %.0.i.i.i = phi i64 [ 16, %128 ], [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_15OMPForDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ %136, %134 ], [ 16, %132 ], [ 16, %130 ]
   %.not.i.i.i.i.i.i.i = icmp eq i32 %125, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %137
 
@@ -2498,7 +2498,7 @@ _ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pr
   br label %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %154, %152, %150, %148, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i56 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %152 ], [ 16, %150 ], [ 16, %148 ], [ %spec.select.i.i.i, %154 ]
+  %.0.i.i.i56 = phi i32 [ 16, %148 ], [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i, %154 ], [ 16, %152 ], [ 16, %150 ]
   %.not.i.i.i.i.i.i.i57 = icmp eq i32 %142, 0
   br i1 %.not.i.i.i.i.i.i.i57, label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %156
 
@@ -2544,7 +2544,7 @@ _ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exi
   br label %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %179, %177, %175, %173, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i60 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %177 ], [ 16, %175 ], [ 16, %173 ], [ %spec.select.i.i.i59, %179 ]
+  %.0.i.i.i60 = phi i32 [ 16, %173 ], [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i59, %179 ], [ 16, %177 ], [ 16, %175 ]
   %.not.i.i.i.i.i.i.i61 = icmp eq i32 %167, 0
   br i1 %.not.i.i.i.i.i.i.i61, label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %181
 
@@ -2591,7 +2591,7 @@ _ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds 
   br label %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
 
 _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %205, %203, %201, %199, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i64 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %203 ], [ 16, %201 ], [ 16, %199 ], [ %spec.select.i.i.i63, %205 ]
+  %.0.i.i.i64 = phi i32 [ 16, %199 ], [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i63, %205 ], [ 16, %203 ], [ 16, %201 ]
   %.not.i.i.i.i.i.i.i65 = icmp eq i32 %193, 0
   br i1 %.not.i.i.i.i.i.i.i65, label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %207
 
@@ -2638,7 +2638,7 @@ _ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pre
   br label %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
 
 _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %231, %229, %227, %225, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i68 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %229 ], [ 16, %227 ], [ 16, %225 ], [ %spec.select.i.i.i67, %231 ]
+  %.0.i.i.i68 = phi i32 [ 16, %225 ], [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i67, %231 ], [ 16, %229 ], [ 16, %227 ]
   %.not.i.i.i.i.i.i.i69 = icmp eq i32 %219, 0
   br i1 %.not.i.i.i.i.i.i.i69, label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %233
 
@@ -2685,7 +2685,7 @@ _ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds
   br label %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %257, %255, %253, %251, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i72 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %255 ], [ 16, %253 ], [ 16, %251 ], [ %spec.select.i.i.i71, %257 ]
+  %.0.i.i.i72 = phi i32 [ 16, %251 ], [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i71, %257 ], [ 16, %255 ], [ 16, %253 ]
   %.not.i.i.i.i.i.i.i73 = icmp eq i32 %245, 0
   br i1 %.not.i.i.i.i.i.i.i73, label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %259
 
@@ -2732,7 +2732,7 @@ _ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.e
   br label %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %283, %281, %279, %277, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i76 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %281 ], [ 16, %279 ], [ 16, %277 ], [ %spec.select.i.i.i75, %283 ]
+  %.0.i.i.i76 = phi i32 [ 16, %277 ], [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i75, %283 ], [ 16, %281 ], [ 16, %279 ]
   %.not.i.i.i.i.i.i.i77 = icmp eq i32 %271, 0
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %285
 
@@ -2779,7 +2779,7 @@ _ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
   br label %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
 
 _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %309, %307, %305, %303, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i80 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %307 ], [ 16, %305 ], [ 16, %303 ], [ %spec.select.i.i.i79, %309 ]
+  %.0.i.i.i80 = phi i32 [ 16, %303 ], [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i79, %309 ], [ 16, %307 ], [ 16, %305 ]
   %.not.i.i.i.i.i.i.i81 = icmp eq i32 %297, 0
   br i1 %.not.i.i.i.i.i.i.i81, label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %311
 
@@ -2827,7 +2827,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   br label %_ZN5clang15OMPForDirective23setTaskReductionRefExprEPNS_4ExprE.exit
 
 _ZN5clang15OMPForDirective23setTaskReductionRefExprEPNS_4ExprE.exit: ; preds = %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, %329, %331, %333, %335
-  %.0.i.i.i84 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %333 ], [ 16, %331 ], [ 16, %329 ], [ %spec.select.i.i.i83, %335 ]
+  %.0.i.i.i84 = phi i32 [ 16, %329 ], [ 29, %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i83, %335 ], [ 16, %333 ], [ 16, %331 ]
   %337 = getelementptr inbounds nuw i8, ptr %322, i64 16
   %338 = getelementptr inbounds nuw ptr, ptr %337, i64 %324
   %339 = shl i32 %327, 3
@@ -2875,7 +2875,7 @@ define dso_local noundef nonnull ptr @_ZN5clang15OMPForDirective11CreateEmptyERK
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %3, %5, %7, %9, %11
-  %.0.i.i = phi i32 [ 29, %3 ], [ 16, %9 ], [ 16, %7 ], [ 16, %5 ], [ %spec.select.i.i, %11 ]
+  %.0.i.i = phi i32 [ 16, %5 ], [ 29, %3 ], [ %spec.select.i.i, %11 ], [ 16, %9 ], [ 16, %7 ]
   %13 = shl i32 %2, 3
   %14 = add i32 %.0.i.i, %13
   %15 = add nuw nsw i32 %14, 1
@@ -3654,7 +3654,7 @@ define dso_local noundef ptr @_ZN5clang19OMPForSimdDirective6CreateERKNS_10ASTCo
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %8, %10, %12, %14, %16
-  %.0.i.i = phi i32 [ 29, %8 ], [ 16, %14 ], [ 16, %12 ], [ 16, %10 ], [ %spec.select.i.i, %16 ]
+  %.0.i.i = phi i32 [ 16, %10 ], [ 29, %8 ], [ %spec.select.i.i, %16 ], [ 16, %14 ], [ 16, %12 ]
   %18 = shl i32 %3, 3
   %19 = add i32 %.0.i.i, %18
   %20 = trunc i64 %5 to i32
@@ -3837,7 +3837,7 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_19OMPForSimdDirectiveEJRNS
   br label %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %130, %128, %126, %124, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_19OMPForSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit
-  %.0.i.i.i = phi i64 [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_19OMPForSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ 16, %128 ], [ 16, %126 ], [ 16, %124 ], [ %132, %130 ]
+  %.0.i.i.i = phi i64 [ 16, %124 ], [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_19OMPForSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ %132, %130 ], [ 16, %128 ], [ 16, %126 ]
   %.not.i.i.i.i.i.i.i = icmp eq i32 %121, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %133
 
@@ -3877,7 +3877,7 @@ _ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pr
   br label %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %150, %148, %146, %144, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i53 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %148 ], [ 16, %146 ], [ 16, %144 ], [ %spec.select.i.i.i, %150 ]
+  %.0.i.i.i53 = phi i32 [ 16, %144 ], [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i, %150 ], [ 16, %148 ], [ 16, %146 ]
   %.not.i.i.i.i.i.i.i54 = icmp eq i32 %138, 0
   br i1 %.not.i.i.i.i.i.i.i54, label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %152
 
@@ -3923,7 +3923,7 @@ _ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exi
   br label %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %175, %173, %171, %169, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i57 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %173 ], [ 16, %171 ], [ 16, %169 ], [ %spec.select.i.i.i56, %175 ]
+  %.0.i.i.i57 = phi i32 [ 16, %169 ], [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i56, %175 ], [ 16, %173 ], [ 16, %171 ]
   %.not.i.i.i.i.i.i.i58 = icmp eq i32 %163, 0
   br i1 %.not.i.i.i.i.i.i.i58, label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %177
 
@@ -3970,7 +3970,7 @@ _ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds 
   br label %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
 
 _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %201, %199, %197, %195, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i61 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %199 ], [ 16, %197 ], [ 16, %195 ], [ %spec.select.i.i.i60, %201 ]
+  %.0.i.i.i61 = phi i32 [ 16, %195 ], [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i60, %201 ], [ 16, %199 ], [ 16, %197 ]
   %.not.i.i.i.i.i.i.i62 = icmp eq i32 %189, 0
   br i1 %.not.i.i.i.i.i.i.i62, label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %203
 
@@ -4017,7 +4017,7 @@ _ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pre
   br label %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
 
 _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %227, %225, %223, %221, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i65 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %225 ], [ 16, %223 ], [ 16, %221 ], [ %spec.select.i.i.i64, %227 ]
+  %.0.i.i.i65 = phi i32 [ 16, %221 ], [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i64, %227 ], [ 16, %225 ], [ 16, %223 ]
   %.not.i.i.i.i.i.i.i66 = icmp eq i32 %215, 0
   br i1 %.not.i.i.i.i.i.i.i66, label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %229
 
@@ -4064,7 +4064,7 @@ _ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds
   br label %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %253, %251, %249, %247, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i69 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %251 ], [ 16, %249 ], [ 16, %247 ], [ %spec.select.i.i.i68, %253 ]
+  %.0.i.i.i69 = phi i32 [ 16, %247 ], [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i68, %253 ], [ 16, %251 ], [ 16, %249 ]
   %.not.i.i.i.i.i.i.i70 = icmp eq i32 %241, 0
   br i1 %.not.i.i.i.i.i.i.i70, label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %255
 
@@ -4111,7 +4111,7 @@ _ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.e
   br label %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %279, %277, %275, %273, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i73 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %277 ], [ 16, %275 ], [ 16, %273 ], [ %spec.select.i.i.i72, %279 ]
+  %.0.i.i.i73 = phi i32 [ 16, %273 ], [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i72, %279 ], [ 16, %277 ], [ 16, %275 ]
   %.not.i.i.i.i.i.i.i74 = icmp eq i32 %267, 0
   br i1 %.not.i.i.i.i.i.i.i74, label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %281
 
@@ -4158,7 +4158,7 @@ _ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
   br label %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
 
 _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %305, %303, %301, %299, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i77 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %303 ], [ 16, %301 ], [ 16, %299 ], [ %spec.select.i.i.i76, %305 ]
+  %.0.i.i.i77 = phi i32 [ 16, %299 ], [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i76, %305 ], [ 16, %303 ], [ 16, %301 ]
   %.not.i.i.i.i.i.i.i78 = icmp eq i32 %293, 0
   br i1 %.not.i.i.i.i.i.i.i78, label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %307
 
@@ -4210,7 +4210,7 @@ define dso_local noundef nonnull ptr @_ZN5clang19OMPForSimdDirective11CreateEmpt
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %3, %5, %7, %9, %11
-  %.0.i.i = phi i32 [ 29, %3 ], [ 16, %9 ], [ 16, %7 ], [ 16, %5 ], [ %spec.select.i.i, %11 ]
+  %.0.i.i = phi i32 [ 16, %5 ], [ 29, %3 ], [ %spec.select.i.i, %11 ], [ 16, %9 ], [ 16, %7 ]
   %13 = shl i32 %2, 3
   %14 = add i32 %.0.i.i, %13
   %15 = zext i32 %1 to i64
@@ -5227,7 +5227,7 @@ define dso_local noundef ptr @_ZN5clang23OMPParallelForDirective6CreateERKNS_10A
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %10, %12, %14, %16, %18
-  %.0.i.i = phi i32 [ 29, %10 ], [ 16, %16 ], [ 16, %14 ], [ 16, %12 ], [ %spec.select.i.i, %18 ]
+  %.0.i.i = phi i32 [ 16, %12 ], [ 29, %10 ], [ %spec.select.i.i, %18 ], [ 16, %16 ], [ 16, %14 ]
   %20 = shl i32 %3, 3
   %21 = or disjoint i32 %20, 1
   %22 = add i32 %21, %.0.i.i
@@ -5413,7 +5413,7 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_23OMPParallelForDirectiveE
   br label %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %134, %132, %130, %128, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_23OMPParallelForDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit
-  %.0.i.i.i = phi i64 [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_23OMPParallelForDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ 16, %132 ], [ 16, %130 ], [ 16, %128 ], [ %136, %134 ]
+  %.0.i.i.i = phi i64 [ 16, %128 ], [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_23OMPParallelForDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ %136, %134 ], [ 16, %132 ], [ 16, %130 ]
   %.not.i.i.i.i.i.i.i = icmp eq i32 %125, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %137
 
@@ -5453,7 +5453,7 @@ _ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pr
   br label %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %154, %152, %150, %148, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i56 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %152 ], [ 16, %150 ], [ 16, %148 ], [ %spec.select.i.i.i, %154 ]
+  %.0.i.i.i56 = phi i32 [ 16, %148 ], [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i, %154 ], [ 16, %152 ], [ 16, %150 ]
   %.not.i.i.i.i.i.i.i57 = icmp eq i32 %142, 0
   br i1 %.not.i.i.i.i.i.i.i57, label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %156
 
@@ -5499,7 +5499,7 @@ _ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exi
   br label %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %179, %177, %175, %173, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i60 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %177 ], [ 16, %175 ], [ 16, %173 ], [ %spec.select.i.i.i59, %179 ]
+  %.0.i.i.i60 = phi i32 [ 16, %173 ], [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i59, %179 ], [ 16, %177 ], [ 16, %175 ]
   %.not.i.i.i.i.i.i.i61 = icmp eq i32 %167, 0
   br i1 %.not.i.i.i.i.i.i.i61, label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %181
 
@@ -5546,7 +5546,7 @@ _ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds 
   br label %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
 
 _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %205, %203, %201, %199, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i64 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %203 ], [ 16, %201 ], [ 16, %199 ], [ %spec.select.i.i.i63, %205 ]
+  %.0.i.i.i64 = phi i32 [ 16, %199 ], [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i63, %205 ], [ 16, %203 ], [ 16, %201 ]
   %.not.i.i.i.i.i.i.i65 = icmp eq i32 %193, 0
   br i1 %.not.i.i.i.i.i.i.i65, label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %207
 
@@ -5593,7 +5593,7 @@ _ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pre
   br label %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
 
 _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %231, %229, %227, %225, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i68 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %229 ], [ 16, %227 ], [ 16, %225 ], [ %spec.select.i.i.i67, %231 ]
+  %.0.i.i.i68 = phi i32 [ 16, %225 ], [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i67, %231 ], [ 16, %229 ], [ 16, %227 ]
   %.not.i.i.i.i.i.i.i69 = icmp eq i32 %219, 0
   br i1 %.not.i.i.i.i.i.i.i69, label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %233
 
@@ -5640,7 +5640,7 @@ _ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds
   br label %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %257, %255, %253, %251, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i72 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %255 ], [ 16, %253 ], [ 16, %251 ], [ %spec.select.i.i.i71, %257 ]
+  %.0.i.i.i72 = phi i32 [ 16, %251 ], [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i71, %257 ], [ 16, %255 ], [ 16, %253 ]
   %.not.i.i.i.i.i.i.i73 = icmp eq i32 %245, 0
   br i1 %.not.i.i.i.i.i.i.i73, label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %259
 
@@ -5687,7 +5687,7 @@ _ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.e
   br label %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %283, %281, %279, %277, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i76 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %281 ], [ 16, %279 ], [ 16, %277 ], [ %spec.select.i.i.i75, %283 ]
+  %.0.i.i.i76 = phi i32 [ 16, %277 ], [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i75, %283 ], [ 16, %281 ], [ 16, %279 ]
   %.not.i.i.i.i.i.i.i77 = icmp eq i32 %271, 0
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %285
 
@@ -5734,7 +5734,7 @@ _ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
   br label %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
 
 _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %309, %307, %305, %303, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i80 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %307 ], [ 16, %305 ], [ 16, %303 ], [ %spec.select.i.i.i79, %309 ]
+  %.0.i.i.i80 = phi i32 [ 16, %303 ], [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i79, %309 ], [ 16, %307 ], [ 16, %305 ]
   %.not.i.i.i.i.i.i.i81 = icmp eq i32 %297, 0
   br i1 %.not.i.i.i.i.i.i.i81, label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %311
 
@@ -5782,7 +5782,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   br label %_ZN5clang23OMPParallelForDirective23setTaskReductionRefExprEPNS_4ExprE.exit
 
 _ZN5clang23OMPParallelForDirective23setTaskReductionRefExprEPNS_4ExprE.exit: ; preds = %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, %329, %331, %333, %335
-  %.0.i.i.i84 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %333 ], [ 16, %331 ], [ 16, %329 ], [ %spec.select.i.i.i83, %335 ]
+  %.0.i.i.i84 = phi i32 [ 16, %329 ], [ 29, %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i83, %335 ], [ 16, %333 ], [ 16, %331 ]
   %337 = getelementptr inbounds nuw i8, ptr %322, i64 16
   %338 = getelementptr inbounds nuw ptr, ptr %337, i64 %324
   %339 = shl i32 %327, 3
@@ -5818,7 +5818,7 @@ define dso_local noundef nonnull ptr @_ZN5clang23OMPParallelForDirective11Create
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %3, %5, %7, %9, %11
-  %.0.i.i = phi i32 [ 29, %3 ], [ 16, %9 ], [ 16, %7 ], [ 16, %5 ], [ %spec.select.i.i, %11 ]
+  %.0.i.i = phi i32 [ 16, %5 ], [ 29, %3 ], [ %spec.select.i.i, %11 ], [ 16, %9 ], [ 16, %7 ]
   %13 = shl i32 %2, 3
   %14 = add i32 %.0.i.i, %13
   %15 = add nuw nsw i32 %14, 1
@@ -5917,7 +5917,7 @@ define dso_local noundef ptr @_ZN5clang27OMPParallelForSimdDirective6CreateERKNS
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %8, %10, %12, %14, %16
-  %.0.i.i = phi i32 [ 29, %8 ], [ 16, %14 ], [ 16, %12 ], [ 16, %10 ], [ %spec.select.i.i, %16 ]
+  %.0.i.i = phi i32 [ 16, %10 ], [ 29, %8 ], [ %spec.select.i.i, %16 ], [ 16, %14 ], [ 16, %12 ]
   %18 = shl i32 %3, 3
   %19 = add i32 %.0.i.i, %18
   %20 = trunc i64 %5 to i32
@@ -6100,7 +6100,7 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_27OMPParallelForSimdDirect
   br label %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %130, %128, %126, %124, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_27OMPParallelForSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit
-  %.0.i.i.i = phi i64 [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_27OMPParallelForSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ 16, %128 ], [ 16, %126 ], [ 16, %124 ], [ %132, %130 ]
+  %.0.i.i.i = phi i64 [ 16, %124 ], [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_27OMPParallelForSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ %132, %130 ], [ 16, %128 ], [ 16, %126 ]
   %.not.i.i.i.i.i.i.i = icmp eq i32 %121, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %133
 
@@ -6140,7 +6140,7 @@ _ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pr
   br label %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %150, %148, %146, %144, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i53 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %148 ], [ 16, %146 ], [ 16, %144 ], [ %spec.select.i.i.i, %150 ]
+  %.0.i.i.i53 = phi i32 [ 16, %144 ], [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i, %150 ], [ 16, %148 ], [ 16, %146 ]
   %.not.i.i.i.i.i.i.i54 = icmp eq i32 %138, 0
   br i1 %.not.i.i.i.i.i.i.i54, label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %152
 
@@ -6186,7 +6186,7 @@ _ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exi
   br label %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %175, %173, %171, %169, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i57 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %173 ], [ 16, %171 ], [ 16, %169 ], [ %spec.select.i.i.i56, %175 ]
+  %.0.i.i.i57 = phi i32 [ 16, %169 ], [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i56, %175 ], [ 16, %173 ], [ 16, %171 ]
   %.not.i.i.i.i.i.i.i58 = icmp eq i32 %163, 0
   br i1 %.not.i.i.i.i.i.i.i58, label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %177
 
@@ -6233,7 +6233,7 @@ _ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds 
   br label %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
 
 _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %201, %199, %197, %195, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i61 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %199 ], [ 16, %197 ], [ 16, %195 ], [ %spec.select.i.i.i60, %201 ]
+  %.0.i.i.i61 = phi i32 [ 16, %195 ], [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i60, %201 ], [ 16, %199 ], [ 16, %197 ]
   %.not.i.i.i.i.i.i.i62 = icmp eq i32 %189, 0
   br i1 %.not.i.i.i.i.i.i.i62, label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %203
 
@@ -6280,7 +6280,7 @@ _ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pre
   br label %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
 
 _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %227, %225, %223, %221, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i65 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %225 ], [ 16, %223 ], [ 16, %221 ], [ %spec.select.i.i.i64, %227 ]
+  %.0.i.i.i65 = phi i32 [ 16, %221 ], [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i64, %227 ], [ 16, %225 ], [ 16, %223 ]
   %.not.i.i.i.i.i.i.i66 = icmp eq i32 %215, 0
   br i1 %.not.i.i.i.i.i.i.i66, label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %229
 
@@ -6327,7 +6327,7 @@ _ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds
   br label %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %253, %251, %249, %247, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i69 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %251 ], [ 16, %249 ], [ 16, %247 ], [ %spec.select.i.i.i68, %253 ]
+  %.0.i.i.i69 = phi i32 [ 16, %247 ], [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i68, %253 ], [ 16, %251 ], [ 16, %249 ]
   %.not.i.i.i.i.i.i.i70 = icmp eq i32 %241, 0
   br i1 %.not.i.i.i.i.i.i.i70, label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %255
 
@@ -6374,7 +6374,7 @@ _ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.e
   br label %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %279, %277, %275, %273, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i73 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %277 ], [ 16, %275 ], [ 16, %273 ], [ %spec.select.i.i.i72, %279 ]
+  %.0.i.i.i73 = phi i32 [ 16, %273 ], [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i72, %279 ], [ 16, %277 ], [ 16, %275 ]
   %.not.i.i.i.i.i.i.i74 = icmp eq i32 %267, 0
   br i1 %.not.i.i.i.i.i.i.i74, label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %281
 
@@ -6421,7 +6421,7 @@ _ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
   br label %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
 
 _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %305, %303, %301, %299, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i77 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %303 ], [ 16, %301 ], [ 16, %299 ], [ %spec.select.i.i.i76, %305 ]
+  %.0.i.i.i77 = phi i32 [ 16, %299 ], [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i76, %305 ], [ 16, %303 ], [ 16, %301 ]
   %.not.i.i.i.i.i.i.i78 = icmp eq i32 %293, 0
   br i1 %.not.i.i.i.i.i.i.i78, label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %307
 
@@ -6473,7 +6473,7 @@ define dso_local noundef nonnull ptr @_ZN5clang27OMPParallelForSimdDirective11Cr
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %3, %5, %7, %9, %11
-  %.0.i.i = phi i32 [ 29, %3 ], [ 16, %9 ], [ 16, %7 ], [ 16, %5 ], [ %spec.select.i.i, %11 ]
+  %.0.i.i = phi i32 [ 16, %5 ], [ 29, %3 ], [ %spec.select.i.i, %11 ], [ 16, %9 ], [ 16, %7 ]
   %13 = shl i32 %2, 3
   %14 = add i32 %.0.i.i, %13
   %15 = zext i32 %1 to i64
@@ -9249,7 +9249,7 @@ define dso_local noundef ptr @_ZN5clang29OMPTargetParallelForDirective6CreateERK
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %10, %12, %14, %16, %18
-  %.0.i.i = phi i32 [ 29, %10 ], [ 16, %16 ], [ 16, %14 ], [ 16, %12 ], [ %spec.select.i.i, %18 ]
+  %.0.i.i = phi i32 [ 16, %12 ], [ 29, %10 ], [ %spec.select.i.i, %18 ], [ 16, %16 ], [ 16, %14 ]
   %20 = shl i32 %3, 3
   %21 = or disjoint i32 %20, 1
   %22 = add i32 %21, %.0.i.i
@@ -9435,7 +9435,7 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_29OMPTargetParallelForDire
   br label %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %134, %132, %130, %128, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_29OMPTargetParallelForDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit
-  %.0.i.i.i = phi i64 [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_29OMPTargetParallelForDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ 16, %132 ], [ 16, %130 ], [ 16, %128 ], [ %136, %134 ]
+  %.0.i.i.i = phi i64 [ 16, %128 ], [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_29OMPTargetParallelForDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ %136, %134 ], [ 16, %132 ], [ 16, %130 ]
   %.not.i.i.i.i.i.i.i = icmp eq i32 %125, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %137
 
@@ -9475,7 +9475,7 @@ _ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pr
   br label %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %154, %152, %150, %148, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i56 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %152 ], [ 16, %150 ], [ 16, %148 ], [ %spec.select.i.i.i, %154 ]
+  %.0.i.i.i56 = phi i32 [ 16, %148 ], [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i, %154 ], [ 16, %152 ], [ 16, %150 ]
   %.not.i.i.i.i.i.i.i57 = icmp eq i32 %142, 0
   br i1 %.not.i.i.i.i.i.i.i57, label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %156
 
@@ -9521,7 +9521,7 @@ _ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exi
   br label %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %179, %177, %175, %173, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i60 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %177 ], [ 16, %175 ], [ 16, %173 ], [ %spec.select.i.i.i59, %179 ]
+  %.0.i.i.i60 = phi i32 [ 16, %173 ], [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i59, %179 ], [ 16, %177 ], [ 16, %175 ]
   %.not.i.i.i.i.i.i.i61 = icmp eq i32 %167, 0
   br i1 %.not.i.i.i.i.i.i.i61, label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %181
 
@@ -9568,7 +9568,7 @@ _ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds 
   br label %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
 
 _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %205, %203, %201, %199, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i64 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %203 ], [ 16, %201 ], [ 16, %199 ], [ %spec.select.i.i.i63, %205 ]
+  %.0.i.i.i64 = phi i32 [ 16, %199 ], [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i63, %205 ], [ 16, %203 ], [ 16, %201 ]
   %.not.i.i.i.i.i.i.i65 = icmp eq i32 %193, 0
   br i1 %.not.i.i.i.i.i.i.i65, label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %207
 
@@ -9615,7 +9615,7 @@ _ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pre
   br label %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
 
 _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %231, %229, %227, %225, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i68 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %229 ], [ 16, %227 ], [ 16, %225 ], [ %spec.select.i.i.i67, %231 ]
+  %.0.i.i.i68 = phi i32 [ 16, %225 ], [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i67, %231 ], [ 16, %229 ], [ 16, %227 ]
   %.not.i.i.i.i.i.i.i69 = icmp eq i32 %219, 0
   br i1 %.not.i.i.i.i.i.i.i69, label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %233
 
@@ -9662,7 +9662,7 @@ _ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds
   br label %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %257, %255, %253, %251, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i72 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %255 ], [ 16, %253 ], [ 16, %251 ], [ %spec.select.i.i.i71, %257 ]
+  %.0.i.i.i72 = phi i32 [ 16, %251 ], [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i71, %257 ], [ 16, %255 ], [ 16, %253 ]
   %.not.i.i.i.i.i.i.i73 = icmp eq i32 %245, 0
   br i1 %.not.i.i.i.i.i.i.i73, label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %259
 
@@ -9709,7 +9709,7 @@ _ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.e
   br label %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %283, %281, %279, %277, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i76 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %281 ], [ 16, %279 ], [ 16, %277 ], [ %spec.select.i.i.i75, %283 ]
+  %.0.i.i.i76 = phi i32 [ 16, %277 ], [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i75, %283 ], [ 16, %281 ], [ 16, %279 ]
   %.not.i.i.i.i.i.i.i77 = icmp eq i32 %271, 0
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %285
 
@@ -9756,7 +9756,7 @@ _ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
   br label %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
 
 _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %309, %307, %305, %303, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i80 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %307 ], [ 16, %305 ], [ 16, %303 ], [ %spec.select.i.i.i79, %309 ]
+  %.0.i.i.i80 = phi i32 [ 16, %303 ], [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i79, %309 ], [ 16, %307 ], [ 16, %305 ]
   %.not.i.i.i.i.i.i.i81 = icmp eq i32 %297, 0
   br i1 %.not.i.i.i.i.i.i.i81, label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %311
 
@@ -9804,7 +9804,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   br label %_ZN5clang29OMPTargetParallelForDirective23setTaskReductionRefExprEPNS_4ExprE.exit
 
 _ZN5clang29OMPTargetParallelForDirective23setTaskReductionRefExprEPNS_4ExprE.exit: ; preds = %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, %329, %331, %333, %335
-  %.0.i.i.i84 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %333 ], [ 16, %331 ], [ 16, %329 ], [ %spec.select.i.i.i83, %335 ]
+  %.0.i.i.i84 = phi i32 [ 16, %329 ], [ 29, %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i83, %335 ], [ 16, %333 ], [ 16, %331 ]
   %337 = getelementptr inbounds nuw i8, ptr %322, i64 16
   %338 = getelementptr inbounds nuw ptr, ptr %337, i64 %324
   %339 = shl i32 %327, 3
@@ -9840,7 +9840,7 @@ define dso_local noundef nonnull ptr @_ZN5clang29OMPTargetParallelForDirective11
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %3, %5, %7, %9, %11
-  %.0.i.i = phi i32 [ 29, %3 ], [ 16, %9 ], [ 16, %7 ], [ 16, %5 ], [ %spec.select.i.i, %11 ]
+  %.0.i.i = phi i32 [ 16, %5 ], [ 29, %3 ], [ %spec.select.i.i, %11 ], [ 16, %9 ], [ 16, %7 ]
   %13 = shl i32 %2, 3
   %14 = add i32 %.0.i.i, %13
   %15 = add nuw nsw i32 %14, 1
@@ -10563,7 +10563,7 @@ define dso_local noundef ptr @_ZN5clang20OMPTaskLoopDirective6CreateERKNS_10ASTC
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %9, %11, %13, %15, %17
-  %.0.i.i = phi i32 [ 29, %9 ], [ 16, %15 ], [ 16, %13 ], [ 16, %11 ], [ %spec.select.i.i, %17 ]
+  %.0.i.i = phi i32 [ 16, %11 ], [ 29, %9 ], [ %spec.select.i.i, %17 ], [ 16, %15 ], [ 16, %13 ]
   %19 = shl i32 %3, 3
   %20 = add i32 %.0.i.i, %19
   %21 = trunc i64 %5 to i32
@@ -10748,7 +10748,7 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_20OMPTaskLoopDirectiveEJRN
   br label %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %132, %130, %128, %126, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_20OMPTaskLoopDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit
-  %.0.i.i.i = phi i64 [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_20OMPTaskLoopDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ 16, %130 ], [ 16, %128 ], [ 16, %126 ], [ %134, %132 ]
+  %.0.i.i.i = phi i64 [ 16, %126 ], [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_20OMPTaskLoopDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ %134, %132 ], [ 16, %130 ], [ 16, %128 ]
   %.not.i.i.i.i.i.i.i = icmp eq i32 %123, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %135
 
@@ -10788,7 +10788,7 @@ _ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pr
   br label %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %152, %150, %148, %146, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i54 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %150 ], [ 16, %148 ], [ 16, %146 ], [ %spec.select.i.i.i, %152 ]
+  %.0.i.i.i54 = phi i32 [ 16, %146 ], [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i, %152 ], [ 16, %150 ], [ 16, %148 ]
   %.not.i.i.i.i.i.i.i55 = icmp eq i32 %140, 0
   br i1 %.not.i.i.i.i.i.i.i55, label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %154
 
@@ -10834,7 +10834,7 @@ _ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exi
   br label %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %177, %175, %173, %171, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i58 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %175 ], [ 16, %173 ], [ 16, %171 ], [ %spec.select.i.i.i57, %177 ]
+  %.0.i.i.i58 = phi i32 [ 16, %171 ], [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i57, %177 ], [ 16, %175 ], [ 16, %173 ]
   %.not.i.i.i.i.i.i.i59 = icmp eq i32 %165, 0
   br i1 %.not.i.i.i.i.i.i.i59, label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %179
 
@@ -10881,7 +10881,7 @@ _ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds 
   br label %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
 
 _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %203, %201, %199, %197, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i62 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %201 ], [ 16, %199 ], [ 16, %197 ], [ %spec.select.i.i.i61, %203 ]
+  %.0.i.i.i62 = phi i32 [ 16, %197 ], [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i61, %203 ], [ 16, %201 ], [ 16, %199 ]
   %.not.i.i.i.i.i.i.i63 = icmp eq i32 %191, 0
   br i1 %.not.i.i.i.i.i.i.i63, label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %205
 
@@ -10928,7 +10928,7 @@ _ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pre
   br label %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
 
 _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %229, %227, %225, %223, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i66 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %227 ], [ 16, %225 ], [ 16, %223 ], [ %spec.select.i.i.i65, %229 ]
+  %.0.i.i.i66 = phi i32 [ 16, %223 ], [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i65, %229 ], [ 16, %227 ], [ 16, %225 ]
   %.not.i.i.i.i.i.i.i67 = icmp eq i32 %217, 0
   br i1 %.not.i.i.i.i.i.i.i67, label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %231
 
@@ -10975,7 +10975,7 @@ _ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds
   br label %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %255, %253, %251, %249, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i70 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %253 ], [ 16, %251 ], [ 16, %249 ], [ %spec.select.i.i.i69, %255 ]
+  %.0.i.i.i70 = phi i32 [ 16, %249 ], [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i69, %255 ], [ 16, %253 ], [ 16, %251 ]
   %.not.i.i.i.i.i.i.i71 = icmp eq i32 %243, 0
   br i1 %.not.i.i.i.i.i.i.i71, label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %257
 
@@ -11022,7 +11022,7 @@ _ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.e
   br label %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %281, %279, %277, %275, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i74 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %279 ], [ 16, %277 ], [ 16, %275 ], [ %spec.select.i.i.i73, %281 ]
+  %.0.i.i.i74 = phi i32 [ 16, %275 ], [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i73, %281 ], [ 16, %279 ], [ 16, %277 ]
   %.not.i.i.i.i.i.i.i75 = icmp eq i32 %269, 0
   br i1 %.not.i.i.i.i.i.i.i75, label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %283
 
@@ -11069,7 +11069,7 @@ _ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
   br label %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
 
 _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %307, %305, %303, %301, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i78 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %305 ], [ 16, %303 ], [ 16, %301 ], [ %spec.select.i.i.i77, %307 ]
+  %.0.i.i.i78 = phi i32 [ 16, %301 ], [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i77, %307 ], [ 16, %305 ], [ 16, %303 ]
   %.not.i.i.i.i.i.i.i79 = icmp eq i32 %295, 0
   br i1 %.not.i.i.i.i.i.i.i79, label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %309
 
@@ -11123,7 +11123,7 @@ define dso_local noundef nonnull ptr @_ZN5clang20OMPTaskLoopDirective11CreateEmp
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %3, %5, %7, %9, %11
-  %.0.i.i = phi i32 [ 29, %3 ], [ 16, %9 ], [ 16, %7 ], [ 16, %5 ], [ %spec.select.i.i, %11 ]
+  %.0.i.i = phi i32 [ 16, %5 ], [ 29, %3 ], [ %spec.select.i.i, %11 ], [ 16, %9 ], [ 16, %7 ]
   %13 = shl i32 %2, 3
   %14 = add i32 %.0.i.i, %13
   %15 = zext i32 %1 to i64
@@ -11221,7 +11221,7 @@ define dso_local noundef ptr @_ZN5clang24OMPTaskLoopSimdDirective6CreateERKNS_10
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %8, %10, %12, %14, %16
-  %.0.i.i = phi i32 [ 29, %8 ], [ 16, %14 ], [ 16, %12 ], [ 16, %10 ], [ %spec.select.i.i, %16 ]
+  %.0.i.i = phi i32 [ 16, %10 ], [ 29, %8 ], [ %spec.select.i.i, %16 ], [ 16, %14 ], [ 16, %12 ]
   %18 = shl i32 %3, 3
   %19 = add i32 %.0.i.i, %18
   %20 = trunc i64 %5 to i32
@@ -11404,7 +11404,7 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_24OMPTaskLoopSimdDirective
   br label %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %130, %128, %126, %124, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_24OMPTaskLoopSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit
-  %.0.i.i.i = phi i64 [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_24OMPTaskLoopSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ 16, %128 ], [ 16, %126 ], [ 16, %124 ], [ %132, %130 ]
+  %.0.i.i.i = phi i64 [ 16, %124 ], [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_24OMPTaskLoopSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ %132, %130 ], [ 16, %128 ], [ 16, %126 ]
   %.not.i.i.i.i.i.i.i = icmp eq i32 %121, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %133
 
@@ -11444,7 +11444,7 @@ _ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pr
   br label %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %150, %148, %146, %144, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i53 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %148 ], [ 16, %146 ], [ 16, %144 ], [ %spec.select.i.i.i, %150 ]
+  %.0.i.i.i53 = phi i32 [ 16, %144 ], [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i, %150 ], [ 16, %148 ], [ 16, %146 ]
   %.not.i.i.i.i.i.i.i54 = icmp eq i32 %138, 0
   br i1 %.not.i.i.i.i.i.i.i54, label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %152
 
@@ -11490,7 +11490,7 @@ _ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exi
   br label %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %175, %173, %171, %169, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i57 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %173 ], [ 16, %171 ], [ 16, %169 ], [ %spec.select.i.i.i56, %175 ]
+  %.0.i.i.i57 = phi i32 [ 16, %169 ], [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i56, %175 ], [ 16, %173 ], [ 16, %171 ]
   %.not.i.i.i.i.i.i.i58 = icmp eq i32 %163, 0
   br i1 %.not.i.i.i.i.i.i.i58, label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %177
 
@@ -11537,7 +11537,7 @@ _ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds 
   br label %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
 
 _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %201, %199, %197, %195, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i61 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %199 ], [ 16, %197 ], [ 16, %195 ], [ %spec.select.i.i.i60, %201 ]
+  %.0.i.i.i61 = phi i32 [ 16, %195 ], [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i60, %201 ], [ 16, %199 ], [ 16, %197 ]
   %.not.i.i.i.i.i.i.i62 = icmp eq i32 %189, 0
   br i1 %.not.i.i.i.i.i.i.i62, label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %203
 
@@ -11584,7 +11584,7 @@ _ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pre
   br label %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
 
 _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %227, %225, %223, %221, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i65 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %225 ], [ 16, %223 ], [ 16, %221 ], [ %spec.select.i.i.i64, %227 ]
+  %.0.i.i.i65 = phi i32 [ 16, %221 ], [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i64, %227 ], [ 16, %225 ], [ 16, %223 ]
   %.not.i.i.i.i.i.i.i66 = icmp eq i32 %215, 0
   br i1 %.not.i.i.i.i.i.i.i66, label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %229
 
@@ -11631,7 +11631,7 @@ _ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds
   br label %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %253, %251, %249, %247, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i69 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %251 ], [ 16, %249 ], [ 16, %247 ], [ %spec.select.i.i.i68, %253 ]
+  %.0.i.i.i69 = phi i32 [ 16, %247 ], [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i68, %253 ], [ 16, %251 ], [ 16, %249 ]
   %.not.i.i.i.i.i.i.i70 = icmp eq i32 %241, 0
   br i1 %.not.i.i.i.i.i.i.i70, label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %255
 
@@ -11678,7 +11678,7 @@ _ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.e
   br label %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %279, %277, %275, %273, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i73 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %277 ], [ 16, %275 ], [ 16, %273 ], [ %spec.select.i.i.i72, %279 ]
+  %.0.i.i.i73 = phi i32 [ 16, %273 ], [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i72, %279 ], [ 16, %277 ], [ 16, %275 ]
   %.not.i.i.i.i.i.i.i74 = icmp eq i32 %267, 0
   br i1 %.not.i.i.i.i.i.i.i74, label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %281
 
@@ -11725,7 +11725,7 @@ _ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
   br label %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
 
 _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %305, %303, %301, %299, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i77 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %303 ], [ 16, %301 ], [ 16, %299 ], [ %spec.select.i.i.i76, %305 ]
+  %.0.i.i.i77 = phi i32 [ 16, %299 ], [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i76, %305 ], [ 16, %303 ], [ 16, %301 ]
   %.not.i.i.i.i.i.i.i78 = icmp eq i32 %293, 0
   br i1 %.not.i.i.i.i.i.i.i78, label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %307
 
@@ -11777,7 +11777,7 @@ define dso_local noundef nonnull ptr @_ZN5clang24OMPTaskLoopSimdDirective11Creat
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %3, %5, %7, %9, %11
-  %.0.i.i = phi i32 [ 29, %3 ], [ 16, %9 ], [ 16, %7 ], [ 16, %5 ], [ %spec.select.i.i, %11 ]
+  %.0.i.i = phi i32 [ 16, %5 ], [ 29, %3 ], [ %spec.select.i.i, %11 ], [ 16, %9 ], [ 16, %7 ]
   %13 = shl i32 %2, 3
   %14 = add i32 %.0.i.i, %13
   %15 = zext i32 %1 to i64
@@ -11873,7 +11873,7 @@ define dso_local noundef ptr @_ZN5clang26OMPMasterTaskLoopDirective6CreateERKNS_
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %9, %11, %13, %15, %17
-  %.0.i.i = phi i32 [ 29, %9 ], [ 16, %15 ], [ 16, %13 ], [ 16, %11 ], [ %spec.select.i.i, %17 ]
+  %.0.i.i = phi i32 [ 16, %11 ], [ 29, %9 ], [ %spec.select.i.i, %17 ], [ 16, %15 ], [ 16, %13 ]
   %19 = shl i32 %3, 3
   %20 = add i32 %.0.i.i, %19
   %21 = trunc i64 %5 to i32
@@ -12058,7 +12058,7 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_26OMPMasterTaskLoopDirecti
   br label %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %132, %130, %128, %126, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_26OMPMasterTaskLoopDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit
-  %.0.i.i.i = phi i64 [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_26OMPMasterTaskLoopDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ 16, %130 ], [ 16, %128 ], [ 16, %126 ], [ %134, %132 ]
+  %.0.i.i.i = phi i64 [ 16, %126 ], [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_26OMPMasterTaskLoopDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ %134, %132 ], [ 16, %130 ], [ 16, %128 ]
   %.not.i.i.i.i.i.i.i = icmp eq i32 %123, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %135
 
@@ -12098,7 +12098,7 @@ _ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pr
   br label %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %152, %150, %148, %146, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i54 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %150 ], [ 16, %148 ], [ 16, %146 ], [ %spec.select.i.i.i, %152 ]
+  %.0.i.i.i54 = phi i32 [ 16, %146 ], [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i, %152 ], [ 16, %150 ], [ 16, %148 ]
   %.not.i.i.i.i.i.i.i55 = icmp eq i32 %140, 0
   br i1 %.not.i.i.i.i.i.i.i55, label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %154
 
@@ -12144,7 +12144,7 @@ _ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exi
   br label %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %177, %175, %173, %171, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i58 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %175 ], [ 16, %173 ], [ 16, %171 ], [ %spec.select.i.i.i57, %177 ]
+  %.0.i.i.i58 = phi i32 [ 16, %171 ], [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i57, %177 ], [ 16, %175 ], [ 16, %173 ]
   %.not.i.i.i.i.i.i.i59 = icmp eq i32 %165, 0
   br i1 %.not.i.i.i.i.i.i.i59, label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %179
 
@@ -12191,7 +12191,7 @@ _ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds 
   br label %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
 
 _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %203, %201, %199, %197, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i62 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %201 ], [ 16, %199 ], [ 16, %197 ], [ %spec.select.i.i.i61, %203 ]
+  %.0.i.i.i62 = phi i32 [ 16, %197 ], [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i61, %203 ], [ 16, %201 ], [ 16, %199 ]
   %.not.i.i.i.i.i.i.i63 = icmp eq i32 %191, 0
   br i1 %.not.i.i.i.i.i.i.i63, label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %205
 
@@ -12238,7 +12238,7 @@ _ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pre
   br label %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
 
 _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %229, %227, %225, %223, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i66 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %227 ], [ 16, %225 ], [ 16, %223 ], [ %spec.select.i.i.i65, %229 ]
+  %.0.i.i.i66 = phi i32 [ 16, %223 ], [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i65, %229 ], [ 16, %227 ], [ 16, %225 ]
   %.not.i.i.i.i.i.i.i67 = icmp eq i32 %217, 0
   br i1 %.not.i.i.i.i.i.i.i67, label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %231
 
@@ -12285,7 +12285,7 @@ _ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds
   br label %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %255, %253, %251, %249, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i70 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %253 ], [ 16, %251 ], [ 16, %249 ], [ %spec.select.i.i.i69, %255 ]
+  %.0.i.i.i70 = phi i32 [ 16, %249 ], [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i69, %255 ], [ 16, %253 ], [ 16, %251 ]
   %.not.i.i.i.i.i.i.i71 = icmp eq i32 %243, 0
   br i1 %.not.i.i.i.i.i.i.i71, label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %257
 
@@ -12332,7 +12332,7 @@ _ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.e
   br label %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %281, %279, %277, %275, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i74 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %279 ], [ 16, %277 ], [ 16, %275 ], [ %spec.select.i.i.i73, %281 ]
+  %.0.i.i.i74 = phi i32 [ 16, %275 ], [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i73, %281 ], [ 16, %279 ], [ 16, %277 ]
   %.not.i.i.i.i.i.i.i75 = icmp eq i32 %269, 0
   br i1 %.not.i.i.i.i.i.i.i75, label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %283
 
@@ -12379,7 +12379,7 @@ _ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
   br label %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
 
 _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %307, %305, %303, %301, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i78 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %305 ], [ 16, %303 ], [ 16, %301 ], [ %spec.select.i.i.i77, %307 ]
+  %.0.i.i.i78 = phi i32 [ 16, %301 ], [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i77, %307 ], [ 16, %305 ], [ 16, %303 ]
   %.not.i.i.i.i.i.i.i79 = icmp eq i32 %295, 0
   br i1 %.not.i.i.i.i.i.i.i79, label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %309
 
@@ -12433,7 +12433,7 @@ define dso_local noundef nonnull ptr @_ZN5clang26OMPMasterTaskLoopDirective11Cre
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %3, %5, %7, %9, %11
-  %.0.i.i = phi i32 [ 29, %3 ], [ 16, %9 ], [ 16, %7 ], [ 16, %5 ], [ %spec.select.i.i, %11 ]
+  %.0.i.i = phi i32 [ 16, %5 ], [ 29, %3 ], [ %spec.select.i.i, %11 ], [ 16, %9 ], [ 16, %7 ]
   %13 = shl i32 %2, 3
   %14 = add i32 %.0.i.i, %13
   %15 = zext i32 %1 to i64
@@ -12531,7 +12531,7 @@ define dso_local noundef ptr @_ZN5clang26OMPMaskedTaskLoopDirective6CreateERKNS_
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %9, %11, %13, %15, %17
-  %.0.i.i = phi i32 [ 29, %9 ], [ 16, %15 ], [ 16, %13 ], [ 16, %11 ], [ %spec.select.i.i, %17 ]
+  %.0.i.i = phi i32 [ 16, %11 ], [ 29, %9 ], [ %spec.select.i.i, %17 ], [ 16, %15 ], [ 16, %13 ]
   %19 = shl i32 %3, 3
   %20 = add i32 %.0.i.i, %19
   %21 = trunc i64 %5 to i32
@@ -12716,7 +12716,7 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_26OMPMaskedTaskLoopDirecti
   br label %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %132, %130, %128, %126, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_26OMPMaskedTaskLoopDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit
-  %.0.i.i.i = phi i64 [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_26OMPMaskedTaskLoopDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ 16, %130 ], [ 16, %128 ], [ 16, %126 ], [ %134, %132 ]
+  %.0.i.i.i = phi i64 [ 16, %126 ], [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_26OMPMaskedTaskLoopDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ %134, %132 ], [ 16, %130 ], [ 16, %128 ]
   %.not.i.i.i.i.i.i.i = icmp eq i32 %123, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %135
 
@@ -12756,7 +12756,7 @@ _ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pr
   br label %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %152, %150, %148, %146, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i54 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %150 ], [ 16, %148 ], [ 16, %146 ], [ %spec.select.i.i.i, %152 ]
+  %.0.i.i.i54 = phi i32 [ 16, %146 ], [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i, %152 ], [ 16, %150 ], [ 16, %148 ]
   %.not.i.i.i.i.i.i.i55 = icmp eq i32 %140, 0
   br i1 %.not.i.i.i.i.i.i.i55, label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %154
 
@@ -12802,7 +12802,7 @@ _ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exi
   br label %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %177, %175, %173, %171, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i58 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %175 ], [ 16, %173 ], [ 16, %171 ], [ %spec.select.i.i.i57, %177 ]
+  %.0.i.i.i58 = phi i32 [ 16, %171 ], [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i57, %177 ], [ 16, %175 ], [ 16, %173 ]
   %.not.i.i.i.i.i.i.i59 = icmp eq i32 %165, 0
   br i1 %.not.i.i.i.i.i.i.i59, label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %179
 
@@ -12849,7 +12849,7 @@ _ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds 
   br label %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
 
 _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %203, %201, %199, %197, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i62 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %201 ], [ 16, %199 ], [ 16, %197 ], [ %spec.select.i.i.i61, %203 ]
+  %.0.i.i.i62 = phi i32 [ 16, %197 ], [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i61, %203 ], [ 16, %201 ], [ 16, %199 ]
   %.not.i.i.i.i.i.i.i63 = icmp eq i32 %191, 0
   br i1 %.not.i.i.i.i.i.i.i63, label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %205
 
@@ -12896,7 +12896,7 @@ _ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pre
   br label %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
 
 _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %229, %227, %225, %223, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i66 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %227 ], [ 16, %225 ], [ 16, %223 ], [ %spec.select.i.i.i65, %229 ]
+  %.0.i.i.i66 = phi i32 [ 16, %223 ], [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i65, %229 ], [ 16, %227 ], [ 16, %225 ]
   %.not.i.i.i.i.i.i.i67 = icmp eq i32 %217, 0
   br i1 %.not.i.i.i.i.i.i.i67, label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %231
 
@@ -12943,7 +12943,7 @@ _ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds
   br label %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %255, %253, %251, %249, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i70 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %253 ], [ 16, %251 ], [ 16, %249 ], [ %spec.select.i.i.i69, %255 ]
+  %.0.i.i.i70 = phi i32 [ 16, %249 ], [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i69, %255 ], [ 16, %253 ], [ 16, %251 ]
   %.not.i.i.i.i.i.i.i71 = icmp eq i32 %243, 0
   br i1 %.not.i.i.i.i.i.i.i71, label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %257
 
@@ -12990,7 +12990,7 @@ _ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.e
   br label %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %281, %279, %277, %275, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i74 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %279 ], [ 16, %277 ], [ 16, %275 ], [ %spec.select.i.i.i73, %281 ]
+  %.0.i.i.i74 = phi i32 [ 16, %275 ], [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i73, %281 ], [ 16, %279 ], [ 16, %277 ]
   %.not.i.i.i.i.i.i.i75 = icmp eq i32 %269, 0
   br i1 %.not.i.i.i.i.i.i.i75, label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %283
 
@@ -13037,7 +13037,7 @@ _ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
   br label %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
 
 _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %307, %305, %303, %301, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i78 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %305 ], [ 16, %303 ], [ 16, %301 ], [ %spec.select.i.i.i77, %307 ]
+  %.0.i.i.i78 = phi i32 [ 16, %301 ], [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i77, %307 ], [ 16, %305 ], [ 16, %303 ]
   %.not.i.i.i.i.i.i.i79 = icmp eq i32 %295, 0
   br i1 %.not.i.i.i.i.i.i.i79, label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %309
 
@@ -13091,7 +13091,7 @@ define dso_local noundef nonnull ptr @_ZN5clang26OMPMaskedTaskLoopDirective11Cre
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %3, %5, %7, %9, %11
-  %.0.i.i = phi i32 [ 29, %3 ], [ 16, %9 ], [ 16, %7 ], [ 16, %5 ], [ %spec.select.i.i, %11 ]
+  %.0.i.i = phi i32 [ 16, %5 ], [ 29, %3 ], [ %spec.select.i.i, %11 ], [ 16, %9 ], [ 16, %7 ]
   %13 = shl i32 %2, 3
   %14 = add i32 %.0.i.i, %13
   %15 = zext i32 %1 to i64
@@ -13189,7 +13189,7 @@ define dso_local noundef ptr @_ZN5clang30OMPMasterTaskLoopSimdDirective6CreateER
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %8, %10, %12, %14, %16
-  %.0.i.i = phi i32 [ 29, %8 ], [ 16, %14 ], [ 16, %12 ], [ 16, %10 ], [ %spec.select.i.i, %16 ]
+  %.0.i.i = phi i32 [ 16, %10 ], [ 29, %8 ], [ %spec.select.i.i, %16 ], [ 16, %14 ], [ 16, %12 ]
   %18 = shl i32 %3, 3
   %19 = add i32 %.0.i.i, %18
   %20 = trunc i64 %5 to i32
@@ -13372,7 +13372,7 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_30OMPMasterTaskLoopSimdDir
   br label %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %130, %128, %126, %124, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_30OMPMasterTaskLoopSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit
-  %.0.i.i.i = phi i64 [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_30OMPMasterTaskLoopSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ 16, %128 ], [ 16, %126 ], [ 16, %124 ], [ %132, %130 ]
+  %.0.i.i.i = phi i64 [ 16, %124 ], [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_30OMPMasterTaskLoopSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ %132, %130 ], [ 16, %128 ], [ 16, %126 ]
   %.not.i.i.i.i.i.i.i = icmp eq i32 %121, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %133
 
@@ -13412,7 +13412,7 @@ _ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pr
   br label %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %150, %148, %146, %144, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i53 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %148 ], [ 16, %146 ], [ 16, %144 ], [ %spec.select.i.i.i, %150 ]
+  %.0.i.i.i53 = phi i32 [ 16, %144 ], [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i, %150 ], [ 16, %148 ], [ 16, %146 ]
   %.not.i.i.i.i.i.i.i54 = icmp eq i32 %138, 0
   br i1 %.not.i.i.i.i.i.i.i54, label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %152
 
@@ -13458,7 +13458,7 @@ _ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exi
   br label %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %175, %173, %171, %169, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i57 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %173 ], [ 16, %171 ], [ 16, %169 ], [ %spec.select.i.i.i56, %175 ]
+  %.0.i.i.i57 = phi i32 [ 16, %169 ], [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i56, %175 ], [ 16, %173 ], [ 16, %171 ]
   %.not.i.i.i.i.i.i.i58 = icmp eq i32 %163, 0
   br i1 %.not.i.i.i.i.i.i.i58, label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %177
 
@@ -13505,7 +13505,7 @@ _ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds 
   br label %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
 
 _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %201, %199, %197, %195, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i61 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %199 ], [ 16, %197 ], [ 16, %195 ], [ %spec.select.i.i.i60, %201 ]
+  %.0.i.i.i61 = phi i32 [ 16, %195 ], [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i60, %201 ], [ 16, %199 ], [ 16, %197 ]
   %.not.i.i.i.i.i.i.i62 = icmp eq i32 %189, 0
   br i1 %.not.i.i.i.i.i.i.i62, label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %203
 
@@ -13552,7 +13552,7 @@ _ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pre
   br label %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
 
 _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %227, %225, %223, %221, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i65 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %225 ], [ 16, %223 ], [ 16, %221 ], [ %spec.select.i.i.i64, %227 ]
+  %.0.i.i.i65 = phi i32 [ 16, %221 ], [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i64, %227 ], [ 16, %225 ], [ 16, %223 ]
   %.not.i.i.i.i.i.i.i66 = icmp eq i32 %215, 0
   br i1 %.not.i.i.i.i.i.i.i66, label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %229
 
@@ -13599,7 +13599,7 @@ _ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds
   br label %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %253, %251, %249, %247, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i69 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %251 ], [ 16, %249 ], [ 16, %247 ], [ %spec.select.i.i.i68, %253 ]
+  %.0.i.i.i69 = phi i32 [ 16, %247 ], [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i68, %253 ], [ 16, %251 ], [ 16, %249 ]
   %.not.i.i.i.i.i.i.i70 = icmp eq i32 %241, 0
   br i1 %.not.i.i.i.i.i.i.i70, label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %255
 
@@ -13646,7 +13646,7 @@ _ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.e
   br label %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %279, %277, %275, %273, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i73 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %277 ], [ 16, %275 ], [ 16, %273 ], [ %spec.select.i.i.i72, %279 ]
+  %.0.i.i.i73 = phi i32 [ 16, %273 ], [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i72, %279 ], [ 16, %277 ], [ 16, %275 ]
   %.not.i.i.i.i.i.i.i74 = icmp eq i32 %267, 0
   br i1 %.not.i.i.i.i.i.i.i74, label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %281
 
@@ -13693,7 +13693,7 @@ _ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
   br label %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
 
 _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %305, %303, %301, %299, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i77 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %303 ], [ 16, %301 ], [ 16, %299 ], [ %spec.select.i.i.i76, %305 ]
+  %.0.i.i.i77 = phi i32 [ 16, %299 ], [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i76, %305 ], [ 16, %303 ], [ 16, %301 ]
   %.not.i.i.i.i.i.i.i78 = icmp eq i32 %293, 0
   br i1 %.not.i.i.i.i.i.i.i78, label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %307
 
@@ -13745,7 +13745,7 @@ define dso_local noundef nonnull ptr @_ZN5clang30OMPMasterTaskLoopSimdDirective1
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %3, %5, %7, %9, %11
-  %.0.i.i = phi i32 [ 29, %3 ], [ 16, %9 ], [ 16, %7 ], [ 16, %5 ], [ %spec.select.i.i, %11 ]
+  %.0.i.i = phi i32 [ 16, %5 ], [ 29, %3 ], [ %spec.select.i.i, %11 ], [ 16, %9 ], [ 16, %7 ]
   %13 = shl i32 %2, 3
   %14 = add i32 %.0.i.i, %13
   %15 = zext i32 %1 to i64
@@ -13841,7 +13841,7 @@ define dso_local noundef ptr @_ZN5clang30OMPMaskedTaskLoopSimdDirective6CreateER
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %8, %10, %12, %14, %16
-  %.0.i.i = phi i32 [ 29, %8 ], [ 16, %14 ], [ 16, %12 ], [ 16, %10 ], [ %spec.select.i.i, %16 ]
+  %.0.i.i = phi i32 [ 16, %10 ], [ 29, %8 ], [ %spec.select.i.i, %16 ], [ 16, %14 ], [ 16, %12 ]
   %18 = shl i32 %3, 3
   %19 = add i32 %.0.i.i, %18
   %20 = trunc i64 %5 to i32
@@ -14024,7 +14024,7 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_30OMPMaskedTaskLoopSimdDir
   br label %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %130, %128, %126, %124, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_30OMPMaskedTaskLoopSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit
-  %.0.i.i.i = phi i64 [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_30OMPMaskedTaskLoopSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ 16, %128 ], [ 16, %126 ], [ 16, %124 ], [ %132, %130 ]
+  %.0.i.i.i = phi i64 [ 16, %124 ], [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_30OMPMaskedTaskLoopSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ %132, %130 ], [ 16, %128 ], [ 16, %126 ]
   %.not.i.i.i.i.i.i.i = icmp eq i32 %121, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %133
 
@@ -14064,7 +14064,7 @@ _ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pr
   br label %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %150, %148, %146, %144, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i53 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %148 ], [ 16, %146 ], [ 16, %144 ], [ %spec.select.i.i.i, %150 ]
+  %.0.i.i.i53 = phi i32 [ 16, %144 ], [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i, %150 ], [ 16, %148 ], [ 16, %146 ]
   %.not.i.i.i.i.i.i.i54 = icmp eq i32 %138, 0
   br i1 %.not.i.i.i.i.i.i.i54, label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %152
 
@@ -14110,7 +14110,7 @@ _ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exi
   br label %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %175, %173, %171, %169, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i57 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %173 ], [ 16, %171 ], [ 16, %169 ], [ %spec.select.i.i.i56, %175 ]
+  %.0.i.i.i57 = phi i32 [ 16, %169 ], [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i56, %175 ], [ 16, %173 ], [ 16, %171 ]
   %.not.i.i.i.i.i.i.i58 = icmp eq i32 %163, 0
   br i1 %.not.i.i.i.i.i.i.i58, label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %177
 
@@ -14157,7 +14157,7 @@ _ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds 
   br label %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
 
 _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %201, %199, %197, %195, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i61 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %199 ], [ 16, %197 ], [ 16, %195 ], [ %spec.select.i.i.i60, %201 ]
+  %.0.i.i.i61 = phi i32 [ 16, %195 ], [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i60, %201 ], [ 16, %199 ], [ 16, %197 ]
   %.not.i.i.i.i.i.i.i62 = icmp eq i32 %189, 0
   br i1 %.not.i.i.i.i.i.i.i62, label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %203
 
@@ -14204,7 +14204,7 @@ _ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pre
   br label %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
 
 _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %227, %225, %223, %221, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i65 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %225 ], [ 16, %223 ], [ 16, %221 ], [ %spec.select.i.i.i64, %227 ]
+  %.0.i.i.i65 = phi i32 [ 16, %221 ], [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i64, %227 ], [ 16, %225 ], [ 16, %223 ]
   %.not.i.i.i.i.i.i.i66 = icmp eq i32 %215, 0
   br i1 %.not.i.i.i.i.i.i.i66, label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %229
 
@@ -14251,7 +14251,7 @@ _ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds
   br label %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %253, %251, %249, %247, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i69 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %251 ], [ 16, %249 ], [ 16, %247 ], [ %spec.select.i.i.i68, %253 ]
+  %.0.i.i.i69 = phi i32 [ 16, %247 ], [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i68, %253 ], [ 16, %251 ], [ 16, %249 ]
   %.not.i.i.i.i.i.i.i70 = icmp eq i32 %241, 0
   br i1 %.not.i.i.i.i.i.i.i70, label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %255
 
@@ -14298,7 +14298,7 @@ _ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.e
   br label %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %279, %277, %275, %273, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i73 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %277 ], [ 16, %275 ], [ 16, %273 ], [ %spec.select.i.i.i72, %279 ]
+  %.0.i.i.i73 = phi i32 [ 16, %273 ], [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i72, %279 ], [ 16, %277 ], [ 16, %275 ]
   %.not.i.i.i.i.i.i.i74 = icmp eq i32 %267, 0
   br i1 %.not.i.i.i.i.i.i.i74, label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %281
 
@@ -14345,7 +14345,7 @@ _ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
   br label %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
 
 _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %305, %303, %301, %299, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i77 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %303 ], [ 16, %301 ], [ 16, %299 ], [ %spec.select.i.i.i76, %305 ]
+  %.0.i.i.i77 = phi i32 [ 16, %299 ], [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i76, %305 ], [ 16, %303 ], [ 16, %301 ]
   %.not.i.i.i.i.i.i.i78 = icmp eq i32 %293, 0
   br i1 %.not.i.i.i.i.i.i.i78, label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %307
 
@@ -14397,7 +14397,7 @@ define dso_local noundef nonnull ptr @_ZN5clang30OMPMaskedTaskLoopSimdDirective1
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %3, %5, %7, %9, %11
-  %.0.i.i = phi i32 [ 29, %3 ], [ 16, %9 ], [ 16, %7 ], [ 16, %5 ], [ %spec.select.i.i, %11 ]
+  %.0.i.i = phi i32 [ 16, %5 ], [ 29, %3 ], [ %spec.select.i.i, %11 ], [ 16, %9 ], [ 16, %7 ]
   %13 = shl i32 %2, 3
   %14 = add i32 %.0.i.i, %13
   %15 = zext i32 %1 to i64
@@ -14493,7 +14493,7 @@ define dso_local noundef ptr @_ZN5clang34OMPParallelMasterTaskLoopDirective6Crea
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %9, %11, %13, %15, %17
-  %.0.i.i = phi i32 [ 29, %9 ], [ 16, %15 ], [ 16, %13 ], [ 16, %11 ], [ %spec.select.i.i, %17 ]
+  %.0.i.i = phi i32 [ 16, %11 ], [ 29, %9 ], [ %spec.select.i.i, %17 ], [ 16, %15 ], [ 16, %13 ]
   %19 = shl i32 %3, 3
   %20 = add i32 %.0.i.i, %19
   %21 = trunc i64 %5 to i32
@@ -14678,7 +14678,7 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_34OMPParallelMasterTaskLoo
   br label %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %132, %130, %128, %126, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_34OMPParallelMasterTaskLoopDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit
-  %.0.i.i.i = phi i64 [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_34OMPParallelMasterTaskLoopDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ 16, %130 ], [ 16, %128 ], [ 16, %126 ], [ %134, %132 ]
+  %.0.i.i.i = phi i64 [ 16, %126 ], [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_34OMPParallelMasterTaskLoopDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ %134, %132 ], [ 16, %130 ], [ 16, %128 ]
   %.not.i.i.i.i.i.i.i = icmp eq i32 %123, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %135
 
@@ -14718,7 +14718,7 @@ _ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pr
   br label %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %152, %150, %148, %146, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i54 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %150 ], [ 16, %148 ], [ 16, %146 ], [ %spec.select.i.i.i, %152 ]
+  %.0.i.i.i54 = phi i32 [ 16, %146 ], [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i, %152 ], [ 16, %150 ], [ 16, %148 ]
   %.not.i.i.i.i.i.i.i55 = icmp eq i32 %140, 0
   br i1 %.not.i.i.i.i.i.i.i55, label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %154
 
@@ -14764,7 +14764,7 @@ _ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exi
   br label %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %177, %175, %173, %171, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i58 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %175 ], [ 16, %173 ], [ 16, %171 ], [ %spec.select.i.i.i57, %177 ]
+  %.0.i.i.i58 = phi i32 [ 16, %171 ], [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i57, %177 ], [ 16, %175 ], [ 16, %173 ]
   %.not.i.i.i.i.i.i.i59 = icmp eq i32 %165, 0
   br i1 %.not.i.i.i.i.i.i.i59, label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %179
 
@@ -14811,7 +14811,7 @@ _ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds 
   br label %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
 
 _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %203, %201, %199, %197, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i62 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %201 ], [ 16, %199 ], [ 16, %197 ], [ %spec.select.i.i.i61, %203 ]
+  %.0.i.i.i62 = phi i32 [ 16, %197 ], [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i61, %203 ], [ 16, %201 ], [ 16, %199 ]
   %.not.i.i.i.i.i.i.i63 = icmp eq i32 %191, 0
   br i1 %.not.i.i.i.i.i.i.i63, label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %205
 
@@ -14858,7 +14858,7 @@ _ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pre
   br label %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
 
 _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %229, %227, %225, %223, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i66 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %227 ], [ 16, %225 ], [ 16, %223 ], [ %spec.select.i.i.i65, %229 ]
+  %.0.i.i.i66 = phi i32 [ 16, %223 ], [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i65, %229 ], [ 16, %227 ], [ 16, %225 ]
   %.not.i.i.i.i.i.i.i67 = icmp eq i32 %217, 0
   br i1 %.not.i.i.i.i.i.i.i67, label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %231
 
@@ -14905,7 +14905,7 @@ _ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds
   br label %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %255, %253, %251, %249, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i70 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %253 ], [ 16, %251 ], [ 16, %249 ], [ %spec.select.i.i.i69, %255 ]
+  %.0.i.i.i70 = phi i32 [ 16, %249 ], [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i69, %255 ], [ 16, %253 ], [ 16, %251 ]
   %.not.i.i.i.i.i.i.i71 = icmp eq i32 %243, 0
   br i1 %.not.i.i.i.i.i.i.i71, label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %257
 
@@ -14952,7 +14952,7 @@ _ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.e
   br label %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %281, %279, %277, %275, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i74 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %279 ], [ 16, %277 ], [ 16, %275 ], [ %spec.select.i.i.i73, %281 ]
+  %.0.i.i.i74 = phi i32 [ 16, %275 ], [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i73, %281 ], [ 16, %279 ], [ 16, %277 ]
   %.not.i.i.i.i.i.i.i75 = icmp eq i32 %269, 0
   br i1 %.not.i.i.i.i.i.i.i75, label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %283
 
@@ -14999,7 +14999,7 @@ _ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
   br label %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
 
 _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %307, %305, %303, %301, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i78 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %305 ], [ 16, %303 ], [ 16, %301 ], [ %spec.select.i.i.i77, %307 ]
+  %.0.i.i.i78 = phi i32 [ 16, %301 ], [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i77, %307 ], [ 16, %305 ], [ 16, %303 ]
   %.not.i.i.i.i.i.i.i79 = icmp eq i32 %295, 0
   br i1 %.not.i.i.i.i.i.i.i79, label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %309
 
@@ -15053,7 +15053,7 @@ define dso_local noundef nonnull ptr @_ZN5clang34OMPParallelMasterTaskLoopDirect
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %3, %5, %7, %9, %11
-  %.0.i.i = phi i32 [ 29, %3 ], [ 16, %9 ], [ 16, %7 ], [ 16, %5 ], [ %spec.select.i.i, %11 ]
+  %.0.i.i = phi i32 [ 16, %5 ], [ 29, %3 ], [ %spec.select.i.i, %11 ], [ 16, %9 ], [ 16, %7 ]
   %13 = shl i32 %2, 3
   %14 = add i32 %.0.i.i, %13
   %15 = zext i32 %1 to i64
@@ -15151,7 +15151,7 @@ define dso_local noundef ptr @_ZN5clang34OMPParallelMaskedTaskLoopDirective6Crea
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %9, %11, %13, %15, %17
-  %.0.i.i = phi i32 [ 29, %9 ], [ 16, %15 ], [ 16, %13 ], [ 16, %11 ], [ %spec.select.i.i, %17 ]
+  %.0.i.i = phi i32 [ 16, %11 ], [ 29, %9 ], [ %spec.select.i.i, %17 ], [ 16, %15 ], [ 16, %13 ]
   %19 = shl i32 %3, 3
   %20 = add i32 %.0.i.i, %19
   %21 = trunc i64 %5 to i32
@@ -15336,7 +15336,7 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_34OMPParallelMaskedTaskLoo
   br label %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %132, %130, %128, %126, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_34OMPParallelMaskedTaskLoopDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit
-  %.0.i.i.i = phi i64 [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_34OMPParallelMaskedTaskLoopDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ 16, %130 ], [ 16, %128 ], [ 16, %126 ], [ %134, %132 ]
+  %.0.i.i.i = phi i64 [ 16, %126 ], [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_34OMPParallelMaskedTaskLoopDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ %134, %132 ], [ 16, %130 ], [ 16, %128 ]
   %.not.i.i.i.i.i.i.i = icmp eq i32 %123, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %135
 
@@ -15376,7 +15376,7 @@ _ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pr
   br label %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %152, %150, %148, %146, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i54 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %150 ], [ 16, %148 ], [ 16, %146 ], [ %spec.select.i.i.i, %152 ]
+  %.0.i.i.i54 = phi i32 [ 16, %146 ], [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i, %152 ], [ 16, %150 ], [ 16, %148 ]
   %.not.i.i.i.i.i.i.i55 = icmp eq i32 %140, 0
   br i1 %.not.i.i.i.i.i.i.i55, label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %154
 
@@ -15422,7 +15422,7 @@ _ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exi
   br label %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %177, %175, %173, %171, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i58 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %175 ], [ 16, %173 ], [ 16, %171 ], [ %spec.select.i.i.i57, %177 ]
+  %.0.i.i.i58 = phi i32 [ 16, %171 ], [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i57, %177 ], [ 16, %175 ], [ 16, %173 ]
   %.not.i.i.i.i.i.i.i59 = icmp eq i32 %165, 0
   br i1 %.not.i.i.i.i.i.i.i59, label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %179
 
@@ -15469,7 +15469,7 @@ _ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds 
   br label %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
 
 _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %203, %201, %199, %197, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i62 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %201 ], [ 16, %199 ], [ 16, %197 ], [ %spec.select.i.i.i61, %203 ]
+  %.0.i.i.i62 = phi i32 [ 16, %197 ], [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i61, %203 ], [ 16, %201 ], [ 16, %199 ]
   %.not.i.i.i.i.i.i.i63 = icmp eq i32 %191, 0
   br i1 %.not.i.i.i.i.i.i.i63, label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %205
 
@@ -15516,7 +15516,7 @@ _ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pre
   br label %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
 
 _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %229, %227, %225, %223, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i66 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %227 ], [ 16, %225 ], [ 16, %223 ], [ %spec.select.i.i.i65, %229 ]
+  %.0.i.i.i66 = phi i32 [ 16, %223 ], [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i65, %229 ], [ 16, %227 ], [ 16, %225 ]
   %.not.i.i.i.i.i.i.i67 = icmp eq i32 %217, 0
   br i1 %.not.i.i.i.i.i.i.i67, label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %231
 
@@ -15563,7 +15563,7 @@ _ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds
   br label %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %255, %253, %251, %249, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i70 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %253 ], [ 16, %251 ], [ 16, %249 ], [ %spec.select.i.i.i69, %255 ]
+  %.0.i.i.i70 = phi i32 [ 16, %249 ], [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i69, %255 ], [ 16, %253 ], [ 16, %251 ]
   %.not.i.i.i.i.i.i.i71 = icmp eq i32 %243, 0
   br i1 %.not.i.i.i.i.i.i.i71, label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %257
 
@@ -15610,7 +15610,7 @@ _ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.e
   br label %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %281, %279, %277, %275, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i74 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %279 ], [ 16, %277 ], [ 16, %275 ], [ %spec.select.i.i.i73, %281 ]
+  %.0.i.i.i74 = phi i32 [ 16, %275 ], [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i73, %281 ], [ 16, %279 ], [ 16, %277 ]
   %.not.i.i.i.i.i.i.i75 = icmp eq i32 %269, 0
   br i1 %.not.i.i.i.i.i.i.i75, label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %283
 
@@ -15657,7 +15657,7 @@ _ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
   br label %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
 
 _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %307, %305, %303, %301, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i78 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %305 ], [ 16, %303 ], [ 16, %301 ], [ %spec.select.i.i.i77, %307 ]
+  %.0.i.i.i78 = phi i32 [ 16, %301 ], [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i77, %307 ], [ 16, %305 ], [ 16, %303 ]
   %.not.i.i.i.i.i.i.i79 = icmp eq i32 %295, 0
   br i1 %.not.i.i.i.i.i.i.i79, label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %309
 
@@ -15711,7 +15711,7 @@ define dso_local noundef nonnull ptr @_ZN5clang34OMPParallelMaskedTaskLoopDirect
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %3, %5, %7, %9, %11
-  %.0.i.i = phi i32 [ 29, %3 ], [ 16, %9 ], [ 16, %7 ], [ 16, %5 ], [ %spec.select.i.i, %11 ]
+  %.0.i.i = phi i32 [ 16, %5 ], [ 29, %3 ], [ %spec.select.i.i, %11 ], [ 16, %9 ], [ 16, %7 ]
   %13 = shl i32 %2, 3
   %14 = add i32 %.0.i.i, %13
   %15 = zext i32 %1 to i64
@@ -15809,7 +15809,7 @@ define dso_local noundef ptr @_ZN5clang38OMPParallelMasterTaskLoopSimdDirective6
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %8, %10, %12, %14, %16
-  %.0.i.i = phi i32 [ 29, %8 ], [ 16, %14 ], [ 16, %12 ], [ 16, %10 ], [ %spec.select.i.i, %16 ]
+  %.0.i.i = phi i32 [ 16, %10 ], [ 29, %8 ], [ %spec.select.i.i, %16 ], [ 16, %14 ], [ 16, %12 ]
   %18 = shl i32 %3, 3
   %19 = add i32 %.0.i.i, %18
   %20 = trunc i64 %5 to i32
@@ -15992,7 +15992,7 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_38OMPParallelMasterTaskLoo
   br label %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %130, %128, %126, %124, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_38OMPParallelMasterTaskLoopSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit
-  %.0.i.i.i = phi i64 [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_38OMPParallelMasterTaskLoopSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ 16, %128 ], [ 16, %126 ], [ 16, %124 ], [ %132, %130 ]
+  %.0.i.i.i = phi i64 [ 16, %124 ], [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_38OMPParallelMasterTaskLoopSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ %132, %130 ], [ 16, %128 ], [ 16, %126 ]
   %.not.i.i.i.i.i.i.i = icmp eq i32 %121, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %133
 
@@ -16032,7 +16032,7 @@ _ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pr
   br label %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %150, %148, %146, %144, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i53 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %148 ], [ 16, %146 ], [ 16, %144 ], [ %spec.select.i.i.i, %150 ]
+  %.0.i.i.i53 = phi i32 [ 16, %144 ], [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i, %150 ], [ 16, %148 ], [ 16, %146 ]
   %.not.i.i.i.i.i.i.i54 = icmp eq i32 %138, 0
   br i1 %.not.i.i.i.i.i.i.i54, label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %152
 
@@ -16078,7 +16078,7 @@ _ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exi
   br label %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %175, %173, %171, %169, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i57 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %173 ], [ 16, %171 ], [ 16, %169 ], [ %spec.select.i.i.i56, %175 ]
+  %.0.i.i.i57 = phi i32 [ 16, %169 ], [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i56, %175 ], [ 16, %173 ], [ 16, %171 ]
   %.not.i.i.i.i.i.i.i58 = icmp eq i32 %163, 0
   br i1 %.not.i.i.i.i.i.i.i58, label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %177
 
@@ -16125,7 +16125,7 @@ _ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds 
   br label %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
 
 _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %201, %199, %197, %195, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i61 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %199 ], [ 16, %197 ], [ 16, %195 ], [ %spec.select.i.i.i60, %201 ]
+  %.0.i.i.i61 = phi i32 [ 16, %195 ], [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i60, %201 ], [ 16, %199 ], [ 16, %197 ]
   %.not.i.i.i.i.i.i.i62 = icmp eq i32 %189, 0
   br i1 %.not.i.i.i.i.i.i.i62, label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %203
 
@@ -16172,7 +16172,7 @@ _ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pre
   br label %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
 
 _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %227, %225, %223, %221, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i65 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %225 ], [ 16, %223 ], [ 16, %221 ], [ %spec.select.i.i.i64, %227 ]
+  %.0.i.i.i65 = phi i32 [ 16, %221 ], [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i64, %227 ], [ 16, %225 ], [ 16, %223 ]
   %.not.i.i.i.i.i.i.i66 = icmp eq i32 %215, 0
   br i1 %.not.i.i.i.i.i.i.i66, label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %229
 
@@ -16219,7 +16219,7 @@ _ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds
   br label %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %253, %251, %249, %247, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i69 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %251 ], [ 16, %249 ], [ 16, %247 ], [ %spec.select.i.i.i68, %253 ]
+  %.0.i.i.i69 = phi i32 [ 16, %247 ], [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i68, %253 ], [ 16, %251 ], [ 16, %249 ]
   %.not.i.i.i.i.i.i.i70 = icmp eq i32 %241, 0
   br i1 %.not.i.i.i.i.i.i.i70, label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %255
 
@@ -16266,7 +16266,7 @@ _ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.e
   br label %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %279, %277, %275, %273, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i73 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %277 ], [ 16, %275 ], [ 16, %273 ], [ %spec.select.i.i.i72, %279 ]
+  %.0.i.i.i73 = phi i32 [ 16, %273 ], [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i72, %279 ], [ 16, %277 ], [ 16, %275 ]
   %.not.i.i.i.i.i.i.i74 = icmp eq i32 %267, 0
   br i1 %.not.i.i.i.i.i.i.i74, label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %281
 
@@ -16313,7 +16313,7 @@ _ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
   br label %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
 
 _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %305, %303, %301, %299, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i77 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %303 ], [ 16, %301 ], [ 16, %299 ], [ %spec.select.i.i.i76, %305 ]
+  %.0.i.i.i77 = phi i32 [ 16, %299 ], [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i76, %305 ], [ 16, %303 ], [ 16, %301 ]
   %.not.i.i.i.i.i.i.i78 = icmp eq i32 %293, 0
   br i1 %.not.i.i.i.i.i.i.i78, label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %307
 
@@ -16365,7 +16365,7 @@ define dso_local noundef nonnull ptr @_ZN5clang38OMPParallelMasterTaskLoopSimdDi
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %3, %5, %7, %9, %11
-  %.0.i.i = phi i32 [ 29, %3 ], [ 16, %9 ], [ 16, %7 ], [ 16, %5 ], [ %spec.select.i.i, %11 ]
+  %.0.i.i = phi i32 [ 16, %5 ], [ 29, %3 ], [ %spec.select.i.i, %11 ], [ 16, %9 ], [ 16, %7 ]
   %13 = shl i32 %2, 3
   %14 = add i32 %.0.i.i, %13
   %15 = zext i32 %1 to i64
@@ -16461,7 +16461,7 @@ define dso_local noundef ptr @_ZN5clang38OMPParallelMaskedTaskLoopSimdDirective6
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %8, %10, %12, %14, %16
-  %.0.i.i = phi i32 [ 29, %8 ], [ 16, %14 ], [ 16, %12 ], [ 16, %10 ], [ %spec.select.i.i, %16 ]
+  %.0.i.i = phi i32 [ 16, %10 ], [ 29, %8 ], [ %spec.select.i.i, %16 ], [ 16, %14 ], [ 16, %12 ]
   %18 = shl i32 %3, 3
   %19 = add i32 %.0.i.i, %18
   %20 = trunc i64 %5 to i32
@@ -16644,7 +16644,7 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_38OMPParallelMaskedTaskLoo
   br label %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %130, %128, %126, %124, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_38OMPParallelMaskedTaskLoopSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit
-  %.0.i.i.i = phi i64 [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_38OMPParallelMaskedTaskLoopSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ 16, %128 ], [ 16, %126 ], [ 16, %124 ], [ %132, %130 ]
+  %.0.i.i.i = phi i64 [ 16, %124 ], [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_38OMPParallelMaskedTaskLoopSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ %132, %130 ], [ 16, %128 ], [ 16, %126 ]
   %.not.i.i.i.i.i.i.i = icmp eq i32 %121, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %133
 
@@ -16684,7 +16684,7 @@ _ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pr
   br label %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %150, %148, %146, %144, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i53 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %148 ], [ 16, %146 ], [ 16, %144 ], [ %spec.select.i.i.i, %150 ]
+  %.0.i.i.i53 = phi i32 [ 16, %144 ], [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i, %150 ], [ 16, %148 ], [ 16, %146 ]
   %.not.i.i.i.i.i.i.i54 = icmp eq i32 %138, 0
   br i1 %.not.i.i.i.i.i.i.i54, label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %152
 
@@ -16730,7 +16730,7 @@ _ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exi
   br label %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %175, %173, %171, %169, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i57 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %173 ], [ 16, %171 ], [ 16, %169 ], [ %spec.select.i.i.i56, %175 ]
+  %.0.i.i.i57 = phi i32 [ 16, %169 ], [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i56, %175 ], [ 16, %173 ], [ 16, %171 ]
   %.not.i.i.i.i.i.i.i58 = icmp eq i32 %163, 0
   br i1 %.not.i.i.i.i.i.i.i58, label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %177
 
@@ -16777,7 +16777,7 @@ _ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds 
   br label %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
 
 _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %201, %199, %197, %195, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i61 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %199 ], [ 16, %197 ], [ 16, %195 ], [ %spec.select.i.i.i60, %201 ]
+  %.0.i.i.i61 = phi i32 [ 16, %195 ], [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i60, %201 ], [ 16, %199 ], [ 16, %197 ]
   %.not.i.i.i.i.i.i.i62 = icmp eq i32 %189, 0
   br i1 %.not.i.i.i.i.i.i.i62, label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %203
 
@@ -16824,7 +16824,7 @@ _ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pre
   br label %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
 
 _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %227, %225, %223, %221, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i65 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %225 ], [ 16, %223 ], [ 16, %221 ], [ %spec.select.i.i.i64, %227 ]
+  %.0.i.i.i65 = phi i32 [ 16, %221 ], [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i64, %227 ], [ 16, %225 ], [ 16, %223 ]
   %.not.i.i.i.i.i.i.i66 = icmp eq i32 %215, 0
   br i1 %.not.i.i.i.i.i.i.i66, label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %229
 
@@ -16871,7 +16871,7 @@ _ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds
   br label %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %253, %251, %249, %247, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i69 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %251 ], [ 16, %249 ], [ 16, %247 ], [ %spec.select.i.i.i68, %253 ]
+  %.0.i.i.i69 = phi i32 [ 16, %247 ], [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i68, %253 ], [ 16, %251 ], [ 16, %249 ]
   %.not.i.i.i.i.i.i.i70 = icmp eq i32 %241, 0
   br i1 %.not.i.i.i.i.i.i.i70, label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %255
 
@@ -16918,7 +16918,7 @@ _ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.e
   br label %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %279, %277, %275, %273, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i73 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %277 ], [ 16, %275 ], [ 16, %273 ], [ %spec.select.i.i.i72, %279 ]
+  %.0.i.i.i73 = phi i32 [ 16, %273 ], [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i72, %279 ], [ 16, %277 ], [ 16, %275 ]
   %.not.i.i.i.i.i.i.i74 = icmp eq i32 %267, 0
   br i1 %.not.i.i.i.i.i.i.i74, label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %281
 
@@ -16965,7 +16965,7 @@ _ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
   br label %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
 
 _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %305, %303, %301, %299, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i77 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %303 ], [ 16, %301 ], [ 16, %299 ], [ %spec.select.i.i.i76, %305 ]
+  %.0.i.i.i77 = phi i32 [ 16, %299 ], [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i76, %305 ], [ 16, %303 ], [ 16, %301 ]
   %.not.i.i.i.i.i.i.i78 = icmp eq i32 %293, 0
   br i1 %.not.i.i.i.i.i.i.i78, label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %307
 
@@ -17017,7 +17017,7 @@ define dso_local noundef nonnull ptr @_ZN5clang38OMPParallelMaskedTaskLoopSimdDi
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %3, %5, %7, %9, %11
-  %.0.i.i = phi i32 [ 29, %3 ], [ 16, %9 ], [ 16, %7 ], [ 16, %5 ], [ %spec.select.i.i, %11 ]
+  %.0.i.i = phi i32 [ 16, %5 ], [ 29, %3 ], [ %spec.select.i.i, %11 ], [ 16, %9 ], [ 16, %7 ]
   %13 = shl i32 %2, 3
   %14 = add i32 %.0.i.i, %13
   %15 = zext i32 %1 to i64
@@ -17113,7 +17113,7 @@ define dso_local noundef ptr @_ZN5clang22OMPDistributeDirective6CreateERKNS_10AS
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %8, %10, %12, %14, %16
-  %.0.i.i = phi i32 [ 29, %8 ], [ 16, %14 ], [ 16, %12 ], [ 16, %10 ], [ %spec.select.i.i, %16 ]
+  %.0.i.i = phi i32 [ 16, %10 ], [ 29, %8 ], [ %spec.select.i.i, %16 ], [ 16, %14 ], [ 16, %12 ]
   %18 = shl i32 %3, 3
   %19 = add i32 %.0.i.i, %18
   %20 = trunc i64 %5 to i32
@@ -17296,7 +17296,7 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_22OMPDistributeDirectiveEJ
   br label %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %130, %128, %126, %124, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_22OMPDistributeDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit
-  %.0.i.i.i = phi i64 [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_22OMPDistributeDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ 16, %128 ], [ 16, %126 ], [ 16, %124 ], [ %132, %130 ]
+  %.0.i.i.i = phi i64 [ 16, %124 ], [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_22OMPDistributeDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ %132, %130 ], [ 16, %128 ], [ 16, %126 ]
   %.not.i.i.i.i.i.i.i = icmp eq i32 %121, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %133
 
@@ -17336,7 +17336,7 @@ _ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pr
   br label %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %150, %148, %146, %144, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i53 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %148 ], [ 16, %146 ], [ 16, %144 ], [ %spec.select.i.i.i, %150 ]
+  %.0.i.i.i53 = phi i32 [ 16, %144 ], [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i, %150 ], [ 16, %148 ], [ 16, %146 ]
   %.not.i.i.i.i.i.i.i54 = icmp eq i32 %138, 0
   br i1 %.not.i.i.i.i.i.i.i54, label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %152
 
@@ -17382,7 +17382,7 @@ _ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exi
   br label %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %175, %173, %171, %169, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i57 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %173 ], [ 16, %171 ], [ 16, %169 ], [ %spec.select.i.i.i56, %175 ]
+  %.0.i.i.i57 = phi i32 [ 16, %169 ], [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i56, %175 ], [ 16, %173 ], [ 16, %171 ]
   %.not.i.i.i.i.i.i.i58 = icmp eq i32 %163, 0
   br i1 %.not.i.i.i.i.i.i.i58, label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %177
 
@@ -17429,7 +17429,7 @@ _ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds 
   br label %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
 
 _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %201, %199, %197, %195, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i61 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %199 ], [ 16, %197 ], [ 16, %195 ], [ %spec.select.i.i.i60, %201 ]
+  %.0.i.i.i61 = phi i32 [ 16, %195 ], [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i60, %201 ], [ 16, %199 ], [ 16, %197 ]
   %.not.i.i.i.i.i.i.i62 = icmp eq i32 %189, 0
   br i1 %.not.i.i.i.i.i.i.i62, label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %203
 
@@ -17476,7 +17476,7 @@ _ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pre
   br label %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
 
 _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %227, %225, %223, %221, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i65 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %225 ], [ 16, %223 ], [ 16, %221 ], [ %spec.select.i.i.i64, %227 ]
+  %.0.i.i.i65 = phi i32 [ 16, %221 ], [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i64, %227 ], [ 16, %225 ], [ 16, %223 ]
   %.not.i.i.i.i.i.i.i66 = icmp eq i32 %215, 0
   br i1 %.not.i.i.i.i.i.i.i66, label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %229
 
@@ -17523,7 +17523,7 @@ _ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds
   br label %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %253, %251, %249, %247, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i69 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %251 ], [ 16, %249 ], [ 16, %247 ], [ %spec.select.i.i.i68, %253 ]
+  %.0.i.i.i69 = phi i32 [ 16, %247 ], [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i68, %253 ], [ 16, %251 ], [ 16, %249 ]
   %.not.i.i.i.i.i.i.i70 = icmp eq i32 %241, 0
   br i1 %.not.i.i.i.i.i.i.i70, label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %255
 
@@ -17570,7 +17570,7 @@ _ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.e
   br label %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %279, %277, %275, %273, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i73 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %277 ], [ 16, %275 ], [ 16, %273 ], [ %spec.select.i.i.i72, %279 ]
+  %.0.i.i.i73 = phi i32 [ 16, %273 ], [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i72, %279 ], [ 16, %277 ], [ 16, %275 ]
   %.not.i.i.i.i.i.i.i74 = icmp eq i32 %267, 0
   br i1 %.not.i.i.i.i.i.i.i74, label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %281
 
@@ -17617,7 +17617,7 @@ _ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
   br label %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
 
 _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %305, %303, %301, %299, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i77 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %303 ], [ 16, %301 ], [ 16, %299 ], [ %spec.select.i.i.i76, %305 ]
+  %.0.i.i.i77 = phi i32 [ 16, %299 ], [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i76, %305 ], [ 16, %303 ], [ 16, %301 ]
   %.not.i.i.i.i.i.i.i78 = icmp eq i32 %293, 0
   br i1 %.not.i.i.i.i.i.i.i78, label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %307
 
@@ -17669,7 +17669,7 @@ define dso_local noundef nonnull ptr @_ZN5clang22OMPDistributeDirective11CreateE
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %3, %5, %7, %9, %11
-  %.0.i.i = phi i32 [ 29, %3 ], [ 16, %9 ], [ 16, %7 ], [ 16, %5 ], [ %spec.select.i.i, %11 ]
+  %.0.i.i = phi i32 [ 16, %5 ], [ 29, %3 ], [ %spec.select.i.i, %11 ], [ 16, %9 ], [ 16, %7 ]
   %13 = shl i32 %2, 3
   %14 = add i32 %.0.i.i, %13
   %15 = zext i32 %1 to i64
@@ -17921,7 +17921,7 @@ define dso_local noundef ptr @_ZN5clang33OMPDistributeParallelForDirective6Creat
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %10, %12, %14, %16, %18
-  %.0.i.i = phi i32 [ 29, %10 ], [ 16, %16 ], [ 16, %14 ], [ 16, %12 ], [ %spec.select.i.i, %18 ]
+  %.0.i.i = phi i32 [ 16, %12 ], [ 29, %10 ], [ %spec.select.i.i, %18 ], [ 16, %16 ], [ 16, %14 ]
   %20 = shl i32 %3, 3
   %21 = or disjoint i32 %20, 1
   %22 = add i32 %21, %.0.i.i
@@ -18123,7 +18123,7 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_33OMPDistributeParallelFor
   br label %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %146, %144, %142, %140, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_33OMPDistributeParallelForDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit
-  %.0.i.i.i = phi i64 [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_33OMPDistributeParallelForDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ 16, %144 ], [ 16, %142 ], [ 16, %140 ], [ %148, %146 ]
+  %.0.i.i.i = phi i64 [ 16, %140 ], [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_33OMPDistributeParallelForDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ %148, %146 ], [ 16, %144 ], [ 16, %142 ]
   %.not.i.i.i.i.i.i.i = icmp eq i32 %137, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %149
 
@@ -18163,7 +18163,7 @@ _ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pr
   br label %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %166, %164, %162, %160, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i82 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %164 ], [ 16, %162 ], [ 16, %160 ], [ %spec.select.i.i.i, %166 ]
+  %.0.i.i.i82 = phi i32 [ 16, %160 ], [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i, %166 ], [ 16, %164 ], [ 16, %162 ]
   %.not.i.i.i.i.i.i.i83 = icmp eq i32 %154, 0
   br i1 %.not.i.i.i.i.i.i.i83, label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %168
 
@@ -18209,7 +18209,7 @@ _ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exi
   br label %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %191, %189, %187, %185, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i86 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %189 ], [ 16, %187 ], [ 16, %185 ], [ %spec.select.i.i.i85, %191 ]
+  %.0.i.i.i86 = phi i32 [ 16, %185 ], [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i85, %191 ], [ 16, %189 ], [ 16, %187 ]
   %.not.i.i.i.i.i.i.i87 = icmp eq i32 %179, 0
   br i1 %.not.i.i.i.i.i.i.i87, label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %193
 
@@ -18256,7 +18256,7 @@ _ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds 
   br label %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
 
 _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %217, %215, %213, %211, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i90 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %215 ], [ 16, %213 ], [ 16, %211 ], [ %spec.select.i.i.i89, %217 ]
+  %.0.i.i.i90 = phi i32 [ 16, %211 ], [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i89, %217 ], [ 16, %215 ], [ 16, %213 ]
   %.not.i.i.i.i.i.i.i91 = icmp eq i32 %205, 0
   br i1 %.not.i.i.i.i.i.i.i91, label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %219
 
@@ -18303,7 +18303,7 @@ _ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pre
   br label %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
 
 _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %243, %241, %239, %237, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i94 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %241 ], [ 16, %239 ], [ 16, %237 ], [ %spec.select.i.i.i93, %243 ]
+  %.0.i.i.i94 = phi i32 [ 16, %237 ], [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i93, %243 ], [ 16, %241 ], [ 16, %239 ]
   %.not.i.i.i.i.i.i.i95 = icmp eq i32 %231, 0
   br i1 %.not.i.i.i.i.i.i.i95, label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %245
 
@@ -18350,7 +18350,7 @@ _ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds
   br label %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %269, %267, %265, %263, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i98 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %267 ], [ 16, %265 ], [ 16, %263 ], [ %spec.select.i.i.i97, %269 ]
+  %.0.i.i.i98 = phi i32 [ 16, %263 ], [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i97, %269 ], [ 16, %267 ], [ 16, %265 ]
   %.not.i.i.i.i.i.i.i99 = icmp eq i32 %257, 0
   br i1 %.not.i.i.i.i.i.i.i99, label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %271
 
@@ -18397,7 +18397,7 @@ _ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.e
   br label %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %295, %293, %291, %289, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i102 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %293 ], [ 16, %291 ], [ 16, %289 ], [ %spec.select.i.i.i101, %295 ]
+  %.0.i.i.i102 = phi i32 [ 16, %289 ], [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i101, %295 ], [ 16, %293 ], [ 16, %291 ]
   %.not.i.i.i.i.i.i.i103 = icmp eq i32 %283, 0
   br i1 %.not.i.i.i.i.i.i.i103, label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %297
 
@@ -18444,7 +18444,7 @@ _ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
   br label %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
 
 _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %321, %319, %317, %315, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i106 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %319 ], [ 16, %317 ], [ 16, %315 ], [ %spec.select.i.i.i105, %321 ]
+  %.0.i.i.i106 = phi i32 [ 16, %315 ], [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i105, %321 ], [ 16, %319 ], [ 16, %317 ]
   %.not.i.i.i.i.i.i.i107 = icmp eq i32 %309, 0
   br i1 %.not.i.i.i.i.i.i.i107, label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %323
 
@@ -18528,7 +18528,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   br label %_ZN5clang33OMPDistributeParallelForDirective23setTaskReductionRefExprEPNS_4ExprE.exit
 
 _ZN5clang33OMPDistributeParallelForDirective23setTaskReductionRefExprEPNS_4ExprE.exit: ; preds = %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, %368, %370, %372, %374
-  %.0.i.i.i110 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %372 ], [ 16, %370 ], [ 16, %368 ], [ %spec.select.i.i.i109, %374 ]
+  %.0.i.i.i110 = phi i32 [ 16, %368 ], [ 29, %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i109, %374 ], [ 16, %372 ], [ 16, %370 ]
   %376 = zext i1 %9 to i8
   %377 = getelementptr inbounds nuw i8, ptr %334, i64 16
   %378 = getelementptr inbounds nuw ptr, ptr %377, i64 %336
@@ -18564,7 +18564,7 @@ define dso_local noundef nonnull ptr @_ZN5clang33OMPDistributeParallelForDirecti
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %3, %5, %7, %9, %11
-  %.0.i.i = phi i32 [ 29, %3 ], [ 16, %9 ], [ 16, %7 ], [ 16, %5 ], [ %spec.select.i.i, %11 ]
+  %.0.i.i = phi i32 [ 16, %5 ], [ 29, %3 ], [ %spec.select.i.i, %11 ], [ 16, %9 ], [ 16, %7 ]
   %13 = shl i32 %2, 3
   %14 = add i32 %.0.i.i, %13
   %15 = add nuw nsw i32 %14, 1
@@ -18663,7 +18663,7 @@ define dso_local noundef ptr @_ZN5clang37OMPDistributeParallelForSimdDirective6C
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %8, %10, %12, %14, %16
-  %.0.i.i = phi i32 [ 29, %8 ], [ 16, %14 ], [ 16, %12 ], [ 16, %10 ], [ %spec.select.i.i, %16 ]
+  %.0.i.i = phi i32 [ 16, %10 ], [ 29, %8 ], [ %spec.select.i.i, %16 ], [ 16, %14 ], [ 16, %12 ]
   %18 = shl i32 %3, 3
   %19 = add i32 %.0.i.i, %18
   %20 = trunc i64 %5 to i32
@@ -18862,7 +18862,7 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_37OMPDistributeParallelFor
   br label %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %142, %140, %138, %136, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_37OMPDistributeParallelForSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit
-  %.0.i.i.i = phi i64 [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_37OMPDistributeParallelForSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ 16, %140 ], [ 16, %138 ], [ 16, %136 ], [ %144, %142 ]
+  %.0.i.i.i = phi i64 [ 16, %136 ], [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_37OMPDistributeParallelForSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ %144, %142 ], [ 16, %140 ], [ 16, %138 ]
   %.not.i.i.i.i.i.i.i = icmp eq i32 %133, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %145
 
@@ -18902,7 +18902,7 @@ _ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pr
   br label %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %162, %160, %158, %156, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i79 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %160 ], [ 16, %158 ], [ 16, %156 ], [ %spec.select.i.i.i, %162 ]
+  %.0.i.i.i79 = phi i32 [ 16, %156 ], [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i, %162 ], [ 16, %160 ], [ 16, %158 ]
   %.not.i.i.i.i.i.i.i80 = icmp eq i32 %150, 0
   br i1 %.not.i.i.i.i.i.i.i80, label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %164
 
@@ -18948,7 +18948,7 @@ _ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exi
   br label %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %187, %185, %183, %181, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i83 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %185 ], [ 16, %183 ], [ 16, %181 ], [ %spec.select.i.i.i82, %187 ]
+  %.0.i.i.i83 = phi i32 [ 16, %181 ], [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i82, %187 ], [ 16, %185 ], [ 16, %183 ]
   %.not.i.i.i.i.i.i.i84 = icmp eq i32 %175, 0
   br i1 %.not.i.i.i.i.i.i.i84, label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %189
 
@@ -18995,7 +18995,7 @@ _ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds 
   br label %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
 
 _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %213, %211, %209, %207, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i87 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %211 ], [ 16, %209 ], [ 16, %207 ], [ %spec.select.i.i.i86, %213 ]
+  %.0.i.i.i87 = phi i32 [ 16, %207 ], [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i86, %213 ], [ 16, %211 ], [ 16, %209 ]
   %.not.i.i.i.i.i.i.i88 = icmp eq i32 %201, 0
   br i1 %.not.i.i.i.i.i.i.i88, label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %215
 
@@ -19042,7 +19042,7 @@ _ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pre
   br label %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
 
 _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %239, %237, %235, %233, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i91 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %237 ], [ 16, %235 ], [ 16, %233 ], [ %spec.select.i.i.i90, %239 ]
+  %.0.i.i.i91 = phi i32 [ 16, %233 ], [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i90, %239 ], [ 16, %237 ], [ 16, %235 ]
   %.not.i.i.i.i.i.i.i92 = icmp eq i32 %227, 0
   br i1 %.not.i.i.i.i.i.i.i92, label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %241
 
@@ -19089,7 +19089,7 @@ _ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds
   br label %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %265, %263, %261, %259, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i95 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %263 ], [ 16, %261 ], [ 16, %259 ], [ %spec.select.i.i.i94, %265 ]
+  %.0.i.i.i95 = phi i32 [ 16, %259 ], [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i94, %265 ], [ 16, %263 ], [ 16, %261 ]
   %.not.i.i.i.i.i.i.i96 = icmp eq i32 %253, 0
   br i1 %.not.i.i.i.i.i.i.i96, label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %267
 
@@ -19136,7 +19136,7 @@ _ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.e
   br label %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %291, %289, %287, %285, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i99 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %289 ], [ 16, %287 ], [ 16, %285 ], [ %spec.select.i.i.i98, %291 ]
+  %.0.i.i.i99 = phi i32 [ 16, %285 ], [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i98, %291 ], [ 16, %289 ], [ 16, %287 ]
   %.not.i.i.i.i.i.i.i100 = icmp eq i32 %279, 0
   br i1 %.not.i.i.i.i.i.i.i100, label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %293
 
@@ -19183,7 +19183,7 @@ _ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
   br label %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
 
 _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %317, %315, %313, %311, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i103 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %315 ], [ 16, %313 ], [ 16, %311 ], [ %spec.select.i.i.i102, %317 ]
+  %.0.i.i.i103 = phi i32 [ 16, %311 ], [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i102, %317 ], [ 16, %315 ], [ 16, %313 ]
   %.not.i.i.i.i.i.i.i104 = icmp eq i32 %305, 0
   br i1 %.not.i.i.i.i.i.i.i104, label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %319
 
@@ -19271,7 +19271,7 @@ define dso_local noundef nonnull ptr @_ZN5clang37OMPDistributeParallelForSimdDir
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %3, %5, %7, %9, %11
-  %.0.i.i = phi i32 [ 29, %3 ], [ 16, %9 ], [ 16, %7 ], [ 16, %5 ], [ %spec.select.i.i, %11 ]
+  %.0.i.i = phi i32 [ 16, %5 ], [ 29, %3 ], [ %spec.select.i.i, %11 ], [ 16, %9 ], [ 16, %7 ]
   %13 = shl i32 %2, 3
   %14 = add i32 %.0.i.i, %13
   %15 = zext i32 %1 to i64
@@ -19367,7 +19367,7 @@ define dso_local noundef ptr @_ZN5clang26OMPDistributeSimdDirective6CreateERKNS_
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %8, %10, %12, %14, %16
-  %.0.i.i = phi i32 [ 29, %8 ], [ 16, %14 ], [ 16, %12 ], [ 16, %10 ], [ %spec.select.i.i, %16 ]
+  %.0.i.i = phi i32 [ 16, %10 ], [ 29, %8 ], [ %spec.select.i.i, %16 ], [ 16, %14 ], [ 16, %12 ]
   %18 = shl i32 %3, 3
   %19 = add i32 %.0.i.i, %18
   %20 = trunc i64 %5 to i32
@@ -19550,7 +19550,7 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_26OMPDistributeSimdDirecti
   br label %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %130, %128, %126, %124, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_26OMPDistributeSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit
-  %.0.i.i.i = phi i64 [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_26OMPDistributeSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ 16, %128 ], [ 16, %126 ], [ 16, %124 ], [ %132, %130 ]
+  %.0.i.i.i = phi i64 [ 16, %124 ], [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_26OMPDistributeSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ %132, %130 ], [ 16, %128 ], [ 16, %126 ]
   %.not.i.i.i.i.i.i.i = icmp eq i32 %121, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %133
 
@@ -19590,7 +19590,7 @@ _ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pr
   br label %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %150, %148, %146, %144, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i53 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %148 ], [ 16, %146 ], [ 16, %144 ], [ %spec.select.i.i.i, %150 ]
+  %.0.i.i.i53 = phi i32 [ 16, %144 ], [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i, %150 ], [ 16, %148 ], [ 16, %146 ]
   %.not.i.i.i.i.i.i.i54 = icmp eq i32 %138, 0
   br i1 %.not.i.i.i.i.i.i.i54, label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %152
 
@@ -19636,7 +19636,7 @@ _ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exi
   br label %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %175, %173, %171, %169, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i57 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %173 ], [ 16, %171 ], [ 16, %169 ], [ %spec.select.i.i.i56, %175 ]
+  %.0.i.i.i57 = phi i32 [ 16, %169 ], [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i56, %175 ], [ 16, %173 ], [ 16, %171 ]
   %.not.i.i.i.i.i.i.i58 = icmp eq i32 %163, 0
   br i1 %.not.i.i.i.i.i.i.i58, label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %177
 
@@ -19683,7 +19683,7 @@ _ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds 
   br label %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
 
 _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %201, %199, %197, %195, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i61 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %199 ], [ 16, %197 ], [ 16, %195 ], [ %spec.select.i.i.i60, %201 ]
+  %.0.i.i.i61 = phi i32 [ 16, %195 ], [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i60, %201 ], [ 16, %199 ], [ 16, %197 ]
   %.not.i.i.i.i.i.i.i62 = icmp eq i32 %189, 0
   br i1 %.not.i.i.i.i.i.i.i62, label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %203
 
@@ -19730,7 +19730,7 @@ _ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pre
   br label %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
 
 _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %227, %225, %223, %221, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i65 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %225 ], [ 16, %223 ], [ 16, %221 ], [ %spec.select.i.i.i64, %227 ]
+  %.0.i.i.i65 = phi i32 [ 16, %221 ], [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i64, %227 ], [ 16, %225 ], [ 16, %223 ]
   %.not.i.i.i.i.i.i.i66 = icmp eq i32 %215, 0
   br i1 %.not.i.i.i.i.i.i.i66, label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %229
 
@@ -19777,7 +19777,7 @@ _ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds
   br label %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %253, %251, %249, %247, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i69 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %251 ], [ 16, %249 ], [ 16, %247 ], [ %spec.select.i.i.i68, %253 ]
+  %.0.i.i.i69 = phi i32 [ 16, %247 ], [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i68, %253 ], [ 16, %251 ], [ 16, %249 ]
   %.not.i.i.i.i.i.i.i70 = icmp eq i32 %241, 0
   br i1 %.not.i.i.i.i.i.i.i70, label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %255
 
@@ -19824,7 +19824,7 @@ _ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.e
   br label %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %279, %277, %275, %273, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i73 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %277 ], [ 16, %275 ], [ 16, %273 ], [ %spec.select.i.i.i72, %279 ]
+  %.0.i.i.i73 = phi i32 [ 16, %273 ], [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i72, %279 ], [ 16, %277 ], [ 16, %275 ]
   %.not.i.i.i.i.i.i.i74 = icmp eq i32 %267, 0
   br i1 %.not.i.i.i.i.i.i.i74, label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %281
 
@@ -19871,7 +19871,7 @@ _ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
   br label %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
 
 _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %305, %303, %301, %299, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i77 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %303 ], [ 16, %301 ], [ 16, %299 ], [ %spec.select.i.i.i76, %305 ]
+  %.0.i.i.i77 = phi i32 [ 16, %299 ], [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i76, %305 ], [ 16, %303 ], [ 16, %301 ]
   %.not.i.i.i.i.i.i.i78 = icmp eq i32 %293, 0
   br i1 %.not.i.i.i.i.i.i.i78, label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %307
 
@@ -19923,7 +19923,7 @@ define dso_local noundef nonnull ptr @_ZN5clang26OMPDistributeSimdDirective11Cre
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %3, %5, %7, %9, %11
-  %.0.i.i = phi i32 [ 29, %3 ], [ 16, %9 ], [ 16, %7 ], [ 16, %5 ], [ %spec.select.i.i, %11 ]
+  %.0.i.i = phi i32 [ 16, %5 ], [ 29, %3 ], [ %spec.select.i.i, %11 ], [ 16, %9 ], [ 16, %7 ]
   %13 = shl i32 %2, 3
   %14 = add i32 %.0.i.i, %13
   %15 = zext i32 %1 to i64
@@ -20019,7 +20019,7 @@ define dso_local noundef ptr @_ZN5clang33OMPTargetParallelForSimdDirective6Creat
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %8, %10, %12, %14, %16
-  %.0.i.i = phi i32 [ 29, %8 ], [ 16, %14 ], [ 16, %12 ], [ 16, %10 ], [ %spec.select.i.i, %16 ]
+  %.0.i.i = phi i32 [ 16, %10 ], [ 29, %8 ], [ %spec.select.i.i, %16 ], [ 16, %14 ], [ 16, %12 ]
   %18 = shl i32 %3, 3
   %19 = add i32 %.0.i.i, %18
   %20 = trunc i64 %5 to i32
@@ -20202,7 +20202,7 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_33OMPTargetParallelForSimd
   br label %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %130, %128, %126, %124, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_33OMPTargetParallelForSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit
-  %.0.i.i.i = phi i64 [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_33OMPTargetParallelForSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ 16, %128 ], [ 16, %126 ], [ 16, %124 ], [ %132, %130 ]
+  %.0.i.i.i = phi i64 [ 16, %124 ], [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_33OMPTargetParallelForSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ %132, %130 ], [ 16, %128 ], [ 16, %126 ]
   %.not.i.i.i.i.i.i.i = icmp eq i32 %121, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %133
 
@@ -20242,7 +20242,7 @@ _ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pr
   br label %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %150, %148, %146, %144, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i53 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %148 ], [ 16, %146 ], [ 16, %144 ], [ %spec.select.i.i.i, %150 ]
+  %.0.i.i.i53 = phi i32 [ 16, %144 ], [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i, %150 ], [ 16, %148 ], [ 16, %146 ]
   %.not.i.i.i.i.i.i.i54 = icmp eq i32 %138, 0
   br i1 %.not.i.i.i.i.i.i.i54, label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %152
 
@@ -20288,7 +20288,7 @@ _ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exi
   br label %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %175, %173, %171, %169, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i57 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %173 ], [ 16, %171 ], [ 16, %169 ], [ %spec.select.i.i.i56, %175 ]
+  %.0.i.i.i57 = phi i32 [ 16, %169 ], [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i56, %175 ], [ 16, %173 ], [ 16, %171 ]
   %.not.i.i.i.i.i.i.i58 = icmp eq i32 %163, 0
   br i1 %.not.i.i.i.i.i.i.i58, label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %177
 
@@ -20335,7 +20335,7 @@ _ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds 
   br label %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
 
 _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %201, %199, %197, %195, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i61 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %199 ], [ 16, %197 ], [ 16, %195 ], [ %spec.select.i.i.i60, %201 ]
+  %.0.i.i.i61 = phi i32 [ 16, %195 ], [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i60, %201 ], [ 16, %199 ], [ 16, %197 ]
   %.not.i.i.i.i.i.i.i62 = icmp eq i32 %189, 0
   br i1 %.not.i.i.i.i.i.i.i62, label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %203
 
@@ -20382,7 +20382,7 @@ _ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pre
   br label %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
 
 _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %227, %225, %223, %221, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i65 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %225 ], [ 16, %223 ], [ 16, %221 ], [ %spec.select.i.i.i64, %227 ]
+  %.0.i.i.i65 = phi i32 [ 16, %221 ], [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i64, %227 ], [ 16, %225 ], [ 16, %223 ]
   %.not.i.i.i.i.i.i.i66 = icmp eq i32 %215, 0
   br i1 %.not.i.i.i.i.i.i.i66, label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %229
 
@@ -20429,7 +20429,7 @@ _ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds
   br label %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %253, %251, %249, %247, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i69 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %251 ], [ 16, %249 ], [ 16, %247 ], [ %spec.select.i.i.i68, %253 ]
+  %.0.i.i.i69 = phi i32 [ 16, %247 ], [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i68, %253 ], [ 16, %251 ], [ 16, %249 ]
   %.not.i.i.i.i.i.i.i70 = icmp eq i32 %241, 0
   br i1 %.not.i.i.i.i.i.i.i70, label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %255
 
@@ -20476,7 +20476,7 @@ _ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.e
   br label %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %279, %277, %275, %273, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i73 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %277 ], [ 16, %275 ], [ 16, %273 ], [ %spec.select.i.i.i72, %279 ]
+  %.0.i.i.i73 = phi i32 [ 16, %273 ], [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i72, %279 ], [ 16, %277 ], [ 16, %275 ]
   %.not.i.i.i.i.i.i.i74 = icmp eq i32 %267, 0
   br i1 %.not.i.i.i.i.i.i.i74, label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %281
 
@@ -20523,7 +20523,7 @@ _ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
   br label %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
 
 _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %305, %303, %301, %299, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i77 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %303 ], [ 16, %301 ], [ 16, %299 ], [ %spec.select.i.i.i76, %305 ]
+  %.0.i.i.i77 = phi i32 [ 16, %299 ], [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i76, %305 ], [ 16, %303 ], [ 16, %301 ]
   %.not.i.i.i.i.i.i.i78 = icmp eq i32 %293, 0
   br i1 %.not.i.i.i.i.i.i.i78, label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %307
 
@@ -20575,7 +20575,7 @@ define dso_local noundef nonnull ptr @_ZN5clang33OMPTargetParallelForSimdDirecti
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %3, %5, %7, %9, %11
-  %.0.i.i = phi i32 [ 29, %3 ], [ 16, %9 ], [ 16, %7 ], [ 16, %5 ], [ %spec.select.i.i, %11 ]
+  %.0.i.i = phi i32 [ 16, %5 ], [ 29, %3 ], [ %spec.select.i.i, %11 ], [ 16, %9 ], [ 16, %7 ]
   %13 = shl i32 %2, 3
   %14 = add i32 %.0.i.i, %13
   %15 = zext i32 %1 to i64
@@ -20671,7 +20671,7 @@ define dso_local noundef ptr @_ZN5clang22OMPTargetSimdDirective6CreateERKNS_10AS
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %8, %10, %12, %14, %16
-  %.0.i.i = phi i32 [ 29, %8 ], [ 16, %14 ], [ 16, %12 ], [ 16, %10 ], [ %spec.select.i.i, %16 ]
+  %.0.i.i = phi i32 [ 16, %10 ], [ 29, %8 ], [ %spec.select.i.i, %16 ], [ 16, %14 ], [ 16, %12 ]
   %18 = shl i32 %3, 3
   %19 = add i32 %.0.i.i, %18
   %20 = trunc i64 %5 to i32
@@ -20822,7 +20822,7 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_22OMPTargetSimdDirectiveEJ
   br label %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %106, %104, %102, %100, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_22OMPTargetSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit
-  %.0.i.i.i = phi i64 [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_22OMPTargetSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ 16, %104 ], [ 16, %102 ], [ 16, %100 ], [ %108, %106 ]
+  %.0.i.i.i = phi i64 [ 16, %100 ], [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_22OMPTargetSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ %108, %106 ], [ 16, %104 ], [ 16, %102 ]
   %.not.i.i.i.i.i.i.i = icmp eq i32 %97, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %109
 
@@ -20862,7 +20862,7 @@ _ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pr
   br label %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %126, %124, %122, %120, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i37 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %124 ], [ 16, %122 ], [ 16, %120 ], [ %spec.select.i.i.i, %126 ]
+  %.0.i.i.i37 = phi i32 [ 16, %120 ], [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i, %126 ], [ 16, %124 ], [ 16, %122 ]
   %.not.i.i.i.i.i.i.i38 = icmp eq i32 %114, 0
   br i1 %.not.i.i.i.i.i.i.i38, label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %128
 
@@ -20908,7 +20908,7 @@ _ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exi
   br label %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %151, %149, %147, %145, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i41 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %149 ], [ 16, %147 ], [ 16, %145 ], [ %spec.select.i.i.i40, %151 ]
+  %.0.i.i.i41 = phi i32 [ 16, %145 ], [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i40, %151 ], [ 16, %149 ], [ 16, %147 ]
   %.not.i.i.i.i.i.i.i42 = icmp eq i32 %139, 0
   br i1 %.not.i.i.i.i.i.i.i42, label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %153
 
@@ -20955,7 +20955,7 @@ _ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds 
   br label %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
 
 _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %177, %175, %173, %171, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i45 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %175 ], [ 16, %173 ], [ 16, %171 ], [ %spec.select.i.i.i44, %177 ]
+  %.0.i.i.i45 = phi i32 [ 16, %171 ], [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i44, %177 ], [ 16, %175 ], [ 16, %173 ]
   %.not.i.i.i.i.i.i.i46 = icmp eq i32 %165, 0
   br i1 %.not.i.i.i.i.i.i.i46, label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %179
 
@@ -21002,7 +21002,7 @@ _ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pre
   br label %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
 
 _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %203, %201, %199, %197, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i49 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %201 ], [ 16, %199 ], [ 16, %197 ], [ %spec.select.i.i.i48, %203 ]
+  %.0.i.i.i49 = phi i32 [ 16, %197 ], [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i48, %203 ], [ 16, %201 ], [ 16, %199 ]
   %.not.i.i.i.i.i.i.i50 = icmp eq i32 %191, 0
   br i1 %.not.i.i.i.i.i.i.i50, label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %205
 
@@ -21049,7 +21049,7 @@ _ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds
   br label %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %229, %227, %225, %223, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i53 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %227 ], [ 16, %225 ], [ 16, %223 ], [ %spec.select.i.i.i52, %229 ]
+  %.0.i.i.i53 = phi i32 [ 16, %223 ], [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i52, %229 ], [ 16, %227 ], [ 16, %225 ]
   %.not.i.i.i.i.i.i.i54 = icmp eq i32 %217, 0
   br i1 %.not.i.i.i.i.i.i.i54, label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %231
 
@@ -21096,7 +21096,7 @@ _ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.e
   br label %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %255, %253, %251, %249, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i57 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %253 ], [ 16, %251 ], [ 16, %249 ], [ %spec.select.i.i.i56, %255 ]
+  %.0.i.i.i57 = phi i32 [ 16, %249 ], [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i56, %255 ], [ 16, %253 ], [ 16, %251 ]
   %.not.i.i.i.i.i.i.i58 = icmp eq i32 %243, 0
   br i1 %.not.i.i.i.i.i.i.i58, label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %257
 
@@ -21143,7 +21143,7 @@ _ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
   br label %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
 
 _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %281, %279, %277, %275, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i61 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %279 ], [ 16, %277 ], [ 16, %275 ], [ %spec.select.i.i.i60, %281 ]
+  %.0.i.i.i61 = phi i32 [ 16, %275 ], [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i60, %281 ], [ 16, %279 ], [ 16, %277 ]
   %.not.i.i.i.i.i.i.i62 = icmp eq i32 %269, 0
   br i1 %.not.i.i.i.i.i.i.i62, label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %283
 
@@ -21195,7 +21195,7 @@ define dso_local noundef nonnull ptr @_ZN5clang22OMPTargetSimdDirective11CreateE
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %3, %5, %7, %9, %11
-  %.0.i.i = phi i32 [ 29, %3 ], [ 16, %9 ], [ 16, %7 ], [ 16, %5 ], [ %spec.select.i.i, %11 ]
+  %.0.i.i = phi i32 [ 16, %5 ], [ 29, %3 ], [ %spec.select.i.i, %11 ], [ 16, %9 ], [ 16, %7 ]
   %13 = shl i32 %2, 3
   %14 = add i32 %.0.i.i, %13
   %15 = zext i32 %1 to i64
@@ -21291,7 +21291,7 @@ define dso_local noundef ptr @_ZN5clang27OMPTeamsDistributeDirective6CreateERKNS
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %8, %10, %12, %14, %16
-  %.0.i.i = phi i32 [ 29, %8 ], [ 16, %14 ], [ 16, %12 ], [ 16, %10 ], [ %spec.select.i.i, %16 ]
+  %.0.i.i = phi i32 [ 16, %10 ], [ 29, %8 ], [ %spec.select.i.i, %16 ], [ 16, %14 ], [ 16, %12 ]
   %18 = shl i32 %3, 3
   %19 = add i32 %.0.i.i, %18
   %20 = trunc i64 %5 to i32
@@ -21474,7 +21474,7 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_27OMPTeamsDistributeDirect
   br label %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %130, %128, %126, %124, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_27OMPTeamsDistributeDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit
-  %.0.i.i.i = phi i64 [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_27OMPTeamsDistributeDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ 16, %128 ], [ 16, %126 ], [ 16, %124 ], [ %132, %130 ]
+  %.0.i.i.i = phi i64 [ 16, %124 ], [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_27OMPTeamsDistributeDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ %132, %130 ], [ 16, %128 ], [ 16, %126 ]
   %.not.i.i.i.i.i.i.i = icmp eq i32 %121, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %133
 
@@ -21514,7 +21514,7 @@ _ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pr
   br label %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %150, %148, %146, %144, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i53 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %148 ], [ 16, %146 ], [ 16, %144 ], [ %spec.select.i.i.i, %150 ]
+  %.0.i.i.i53 = phi i32 [ 16, %144 ], [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i, %150 ], [ 16, %148 ], [ 16, %146 ]
   %.not.i.i.i.i.i.i.i54 = icmp eq i32 %138, 0
   br i1 %.not.i.i.i.i.i.i.i54, label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %152
 
@@ -21560,7 +21560,7 @@ _ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exi
   br label %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %175, %173, %171, %169, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i57 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %173 ], [ 16, %171 ], [ 16, %169 ], [ %spec.select.i.i.i56, %175 ]
+  %.0.i.i.i57 = phi i32 [ 16, %169 ], [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i56, %175 ], [ 16, %173 ], [ 16, %171 ]
   %.not.i.i.i.i.i.i.i58 = icmp eq i32 %163, 0
   br i1 %.not.i.i.i.i.i.i.i58, label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %177
 
@@ -21607,7 +21607,7 @@ _ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds 
   br label %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
 
 _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %201, %199, %197, %195, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i61 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %199 ], [ 16, %197 ], [ 16, %195 ], [ %spec.select.i.i.i60, %201 ]
+  %.0.i.i.i61 = phi i32 [ 16, %195 ], [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i60, %201 ], [ 16, %199 ], [ 16, %197 ]
   %.not.i.i.i.i.i.i.i62 = icmp eq i32 %189, 0
   br i1 %.not.i.i.i.i.i.i.i62, label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %203
 
@@ -21654,7 +21654,7 @@ _ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pre
   br label %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
 
 _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %227, %225, %223, %221, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i65 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %225 ], [ 16, %223 ], [ 16, %221 ], [ %spec.select.i.i.i64, %227 ]
+  %.0.i.i.i65 = phi i32 [ 16, %221 ], [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i64, %227 ], [ 16, %225 ], [ 16, %223 ]
   %.not.i.i.i.i.i.i.i66 = icmp eq i32 %215, 0
   br i1 %.not.i.i.i.i.i.i.i66, label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %229
 
@@ -21701,7 +21701,7 @@ _ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds
   br label %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %253, %251, %249, %247, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i69 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %251 ], [ 16, %249 ], [ 16, %247 ], [ %spec.select.i.i.i68, %253 ]
+  %.0.i.i.i69 = phi i32 [ 16, %247 ], [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i68, %253 ], [ 16, %251 ], [ 16, %249 ]
   %.not.i.i.i.i.i.i.i70 = icmp eq i32 %241, 0
   br i1 %.not.i.i.i.i.i.i.i70, label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %255
 
@@ -21748,7 +21748,7 @@ _ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.e
   br label %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %279, %277, %275, %273, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i73 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %277 ], [ 16, %275 ], [ 16, %273 ], [ %spec.select.i.i.i72, %279 ]
+  %.0.i.i.i73 = phi i32 [ 16, %273 ], [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i72, %279 ], [ 16, %277 ], [ 16, %275 ]
   %.not.i.i.i.i.i.i.i74 = icmp eq i32 %267, 0
   br i1 %.not.i.i.i.i.i.i.i74, label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %281
 
@@ -21795,7 +21795,7 @@ _ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
   br label %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
 
 _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %305, %303, %301, %299, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i77 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %303 ], [ 16, %301 ], [ 16, %299 ], [ %spec.select.i.i.i76, %305 ]
+  %.0.i.i.i77 = phi i32 [ 16, %299 ], [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i76, %305 ], [ 16, %303 ], [ 16, %301 ]
   %.not.i.i.i.i.i.i.i78 = icmp eq i32 %293, 0
   br i1 %.not.i.i.i.i.i.i.i78, label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %307
 
@@ -21847,7 +21847,7 @@ define dso_local noundef nonnull ptr @_ZN5clang27OMPTeamsDistributeDirective11Cr
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %3, %5, %7, %9, %11
-  %.0.i.i = phi i32 [ 29, %3 ], [ 16, %9 ], [ 16, %7 ], [ 16, %5 ], [ %spec.select.i.i, %11 ]
+  %.0.i.i = phi i32 [ 16, %5 ], [ 29, %3 ], [ %spec.select.i.i, %11 ], [ 16, %9 ], [ 16, %7 ]
   %13 = shl i32 %2, 3
   %14 = add i32 %.0.i.i, %13
   %15 = zext i32 %1 to i64
@@ -21943,7 +21943,7 @@ define dso_local noundef ptr @_ZN5clang31OMPTeamsDistributeSimdDirective6CreateE
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %8, %10, %12, %14, %16
-  %.0.i.i = phi i32 [ 29, %8 ], [ 16, %14 ], [ 16, %12 ], [ 16, %10 ], [ %spec.select.i.i, %16 ]
+  %.0.i.i = phi i32 [ 16, %10 ], [ 29, %8 ], [ %spec.select.i.i, %16 ], [ 16, %14 ], [ 16, %12 ]
   %18 = shl i32 %3, 3
   %19 = add i32 %.0.i.i, %18
   %20 = trunc i64 %5 to i32
@@ -22126,7 +22126,7 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_31OMPTeamsDistributeSimdDi
   br label %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %130, %128, %126, %124, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_31OMPTeamsDistributeSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit
-  %.0.i.i.i = phi i64 [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_31OMPTeamsDistributeSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ 16, %128 ], [ 16, %126 ], [ 16, %124 ], [ %132, %130 ]
+  %.0.i.i.i = phi i64 [ 16, %124 ], [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_31OMPTeamsDistributeSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ %132, %130 ], [ 16, %128 ], [ 16, %126 ]
   %.not.i.i.i.i.i.i.i = icmp eq i32 %121, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %133
 
@@ -22166,7 +22166,7 @@ _ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pr
   br label %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %150, %148, %146, %144, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i53 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %148 ], [ 16, %146 ], [ 16, %144 ], [ %spec.select.i.i.i, %150 ]
+  %.0.i.i.i53 = phi i32 [ 16, %144 ], [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i, %150 ], [ 16, %148 ], [ 16, %146 ]
   %.not.i.i.i.i.i.i.i54 = icmp eq i32 %138, 0
   br i1 %.not.i.i.i.i.i.i.i54, label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %152
 
@@ -22212,7 +22212,7 @@ _ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exi
   br label %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %175, %173, %171, %169, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i57 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %173 ], [ 16, %171 ], [ 16, %169 ], [ %spec.select.i.i.i56, %175 ]
+  %.0.i.i.i57 = phi i32 [ 16, %169 ], [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i56, %175 ], [ 16, %173 ], [ 16, %171 ]
   %.not.i.i.i.i.i.i.i58 = icmp eq i32 %163, 0
   br i1 %.not.i.i.i.i.i.i.i58, label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %177
 
@@ -22259,7 +22259,7 @@ _ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds 
   br label %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
 
 _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %201, %199, %197, %195, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i61 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %199 ], [ 16, %197 ], [ 16, %195 ], [ %spec.select.i.i.i60, %201 ]
+  %.0.i.i.i61 = phi i32 [ 16, %195 ], [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i60, %201 ], [ 16, %199 ], [ 16, %197 ]
   %.not.i.i.i.i.i.i.i62 = icmp eq i32 %189, 0
   br i1 %.not.i.i.i.i.i.i.i62, label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %203
 
@@ -22306,7 +22306,7 @@ _ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pre
   br label %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
 
 _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %227, %225, %223, %221, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i65 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %225 ], [ 16, %223 ], [ 16, %221 ], [ %spec.select.i.i.i64, %227 ]
+  %.0.i.i.i65 = phi i32 [ 16, %221 ], [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i64, %227 ], [ 16, %225 ], [ 16, %223 ]
   %.not.i.i.i.i.i.i.i66 = icmp eq i32 %215, 0
   br i1 %.not.i.i.i.i.i.i.i66, label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %229
 
@@ -22353,7 +22353,7 @@ _ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds
   br label %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %253, %251, %249, %247, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i69 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %251 ], [ 16, %249 ], [ 16, %247 ], [ %spec.select.i.i.i68, %253 ]
+  %.0.i.i.i69 = phi i32 [ 16, %247 ], [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i68, %253 ], [ 16, %251 ], [ 16, %249 ]
   %.not.i.i.i.i.i.i.i70 = icmp eq i32 %241, 0
   br i1 %.not.i.i.i.i.i.i.i70, label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %255
 
@@ -22400,7 +22400,7 @@ _ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.e
   br label %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %279, %277, %275, %273, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i73 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %277 ], [ 16, %275 ], [ 16, %273 ], [ %spec.select.i.i.i72, %279 ]
+  %.0.i.i.i73 = phi i32 [ 16, %273 ], [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i72, %279 ], [ 16, %277 ], [ 16, %275 ]
   %.not.i.i.i.i.i.i.i74 = icmp eq i32 %267, 0
   br i1 %.not.i.i.i.i.i.i.i74, label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %281
 
@@ -22447,7 +22447,7 @@ _ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
   br label %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
 
 _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %305, %303, %301, %299, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i77 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %303 ], [ 16, %301 ], [ 16, %299 ], [ %spec.select.i.i.i76, %305 ]
+  %.0.i.i.i77 = phi i32 [ 16, %299 ], [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i76, %305 ], [ 16, %303 ], [ 16, %301 ]
   %.not.i.i.i.i.i.i.i78 = icmp eq i32 %293, 0
   br i1 %.not.i.i.i.i.i.i.i78, label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %307
 
@@ -22499,7 +22499,7 @@ define dso_local noundef nonnull ptr @_ZN5clang31OMPTeamsDistributeSimdDirective
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %3, %5, %7, %9, %11
-  %.0.i.i = phi i32 [ 29, %3 ], [ 16, %9 ], [ 16, %7 ], [ 16, %5 ], [ %spec.select.i.i, %11 ]
+  %.0.i.i = phi i32 [ 16, %5 ], [ 29, %3 ], [ %spec.select.i.i, %11 ], [ 16, %9 ], [ 16, %7 ]
   %13 = shl i32 %2, 3
   %14 = add i32 %.0.i.i, %13
   %15 = zext i32 %1 to i64
@@ -22595,7 +22595,7 @@ define dso_local noundef ptr @_ZN5clang42OMPTeamsDistributeParallelForSimdDirect
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %8, %10, %12, %14, %16
-  %.0.i.i = phi i32 [ 29, %8 ], [ 16, %14 ], [ 16, %12 ], [ 16, %10 ], [ %spec.select.i.i, %16 ]
+  %.0.i.i = phi i32 [ 16, %10 ], [ 29, %8 ], [ %spec.select.i.i, %16 ], [ 16, %14 ], [ 16, %12 ]
   %18 = shl i32 %3, 3
   %19 = add i32 %.0.i.i, %18
   %20 = trunc i64 %5 to i32
@@ -22794,7 +22794,7 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_42OMPTeamsDistributeParall
   br label %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %142, %140, %138, %136, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_42OMPTeamsDistributeParallelForSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit
-  %.0.i.i.i = phi i64 [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_42OMPTeamsDistributeParallelForSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ 16, %140 ], [ 16, %138 ], [ 16, %136 ], [ %144, %142 ]
+  %.0.i.i.i = phi i64 [ 16, %136 ], [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_42OMPTeamsDistributeParallelForSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ %144, %142 ], [ 16, %140 ], [ 16, %138 ]
   %.not.i.i.i.i.i.i.i = icmp eq i32 %133, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %145
 
@@ -22834,7 +22834,7 @@ _ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pr
   br label %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %162, %160, %158, %156, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i79 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %160 ], [ 16, %158 ], [ 16, %156 ], [ %spec.select.i.i.i, %162 ]
+  %.0.i.i.i79 = phi i32 [ 16, %156 ], [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i, %162 ], [ 16, %160 ], [ 16, %158 ]
   %.not.i.i.i.i.i.i.i80 = icmp eq i32 %150, 0
   br i1 %.not.i.i.i.i.i.i.i80, label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %164
 
@@ -22880,7 +22880,7 @@ _ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exi
   br label %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %187, %185, %183, %181, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i83 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %185 ], [ 16, %183 ], [ 16, %181 ], [ %spec.select.i.i.i82, %187 ]
+  %.0.i.i.i83 = phi i32 [ 16, %181 ], [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i82, %187 ], [ 16, %185 ], [ 16, %183 ]
   %.not.i.i.i.i.i.i.i84 = icmp eq i32 %175, 0
   br i1 %.not.i.i.i.i.i.i.i84, label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %189
 
@@ -22927,7 +22927,7 @@ _ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds 
   br label %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
 
 _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %213, %211, %209, %207, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i87 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %211 ], [ 16, %209 ], [ 16, %207 ], [ %spec.select.i.i.i86, %213 ]
+  %.0.i.i.i87 = phi i32 [ 16, %207 ], [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i86, %213 ], [ 16, %211 ], [ 16, %209 ]
   %.not.i.i.i.i.i.i.i88 = icmp eq i32 %201, 0
   br i1 %.not.i.i.i.i.i.i.i88, label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %215
 
@@ -22974,7 +22974,7 @@ _ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pre
   br label %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
 
 _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %239, %237, %235, %233, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i91 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %237 ], [ 16, %235 ], [ 16, %233 ], [ %spec.select.i.i.i90, %239 ]
+  %.0.i.i.i91 = phi i32 [ 16, %233 ], [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i90, %239 ], [ 16, %237 ], [ 16, %235 ]
   %.not.i.i.i.i.i.i.i92 = icmp eq i32 %227, 0
   br i1 %.not.i.i.i.i.i.i.i92, label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %241
 
@@ -23021,7 +23021,7 @@ _ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds
   br label %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %265, %263, %261, %259, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i95 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %263 ], [ 16, %261 ], [ 16, %259 ], [ %spec.select.i.i.i94, %265 ]
+  %.0.i.i.i95 = phi i32 [ 16, %259 ], [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i94, %265 ], [ 16, %263 ], [ 16, %261 ]
   %.not.i.i.i.i.i.i.i96 = icmp eq i32 %253, 0
   br i1 %.not.i.i.i.i.i.i.i96, label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %267
 
@@ -23068,7 +23068,7 @@ _ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.e
   br label %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %291, %289, %287, %285, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i99 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %289 ], [ 16, %287 ], [ 16, %285 ], [ %spec.select.i.i.i98, %291 ]
+  %.0.i.i.i99 = phi i32 [ 16, %285 ], [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i98, %291 ], [ 16, %289 ], [ 16, %287 ]
   %.not.i.i.i.i.i.i.i100 = icmp eq i32 %279, 0
   br i1 %.not.i.i.i.i.i.i.i100, label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %293
 
@@ -23115,7 +23115,7 @@ _ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
   br label %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
 
 _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %317, %315, %313, %311, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i103 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %315 ], [ 16, %313 ], [ 16, %311 ], [ %spec.select.i.i.i102, %317 ]
+  %.0.i.i.i103 = phi i32 [ 16, %311 ], [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i102, %317 ], [ 16, %315 ], [ 16, %313 ]
   %.not.i.i.i.i.i.i.i104 = icmp eq i32 %305, 0
   br i1 %.not.i.i.i.i.i.i.i104, label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %319
 
@@ -23203,7 +23203,7 @@ define dso_local noundef nonnull ptr @_ZN5clang42OMPTeamsDistributeParallelForSi
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %3, %5, %7, %9, %11
-  %.0.i.i = phi i32 [ 29, %3 ], [ 16, %9 ], [ 16, %7 ], [ 16, %5 ], [ %spec.select.i.i, %11 ]
+  %.0.i.i = phi i32 [ 16, %5 ], [ 29, %3 ], [ %spec.select.i.i, %11 ], [ 16, %9 ], [ 16, %7 ]
   %13 = shl i32 %2, 3
   %14 = add i32 %.0.i.i, %13
   %15 = zext i32 %1 to i64
@@ -23299,7 +23299,7 @@ define dso_local noundef ptr @_ZN5clang38OMPTeamsDistributeParallelForDirective6
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %10, %12, %14, %16, %18
-  %.0.i.i = phi i32 [ 29, %10 ], [ 16, %16 ], [ 16, %14 ], [ 16, %12 ], [ %spec.select.i.i, %18 ]
+  %.0.i.i = phi i32 [ 16, %12 ], [ 29, %10 ], [ %spec.select.i.i, %18 ], [ 16, %16 ], [ 16, %14 ]
   %20 = shl i32 %3, 3
   %21 = or disjoint i32 %20, 1
   %22 = add i32 %21, %.0.i.i
@@ -23501,7 +23501,7 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_38OMPTeamsDistributeParall
   br label %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %146, %144, %142, %140, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_38OMPTeamsDistributeParallelForDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit
-  %.0.i.i.i = phi i64 [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_38OMPTeamsDistributeParallelForDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ 16, %144 ], [ 16, %142 ], [ 16, %140 ], [ %148, %146 ]
+  %.0.i.i.i = phi i64 [ 16, %140 ], [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_38OMPTeamsDistributeParallelForDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ %148, %146 ], [ 16, %144 ], [ 16, %142 ]
   %.not.i.i.i.i.i.i.i = icmp eq i32 %137, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %149
 
@@ -23541,7 +23541,7 @@ _ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pr
   br label %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %166, %164, %162, %160, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i82 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %164 ], [ 16, %162 ], [ 16, %160 ], [ %spec.select.i.i.i, %166 ]
+  %.0.i.i.i82 = phi i32 [ 16, %160 ], [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i, %166 ], [ 16, %164 ], [ 16, %162 ]
   %.not.i.i.i.i.i.i.i83 = icmp eq i32 %154, 0
   br i1 %.not.i.i.i.i.i.i.i83, label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %168
 
@@ -23587,7 +23587,7 @@ _ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exi
   br label %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %191, %189, %187, %185, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i86 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %189 ], [ 16, %187 ], [ 16, %185 ], [ %spec.select.i.i.i85, %191 ]
+  %.0.i.i.i86 = phi i32 [ 16, %185 ], [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i85, %191 ], [ 16, %189 ], [ 16, %187 ]
   %.not.i.i.i.i.i.i.i87 = icmp eq i32 %179, 0
   br i1 %.not.i.i.i.i.i.i.i87, label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %193
 
@@ -23634,7 +23634,7 @@ _ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds 
   br label %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
 
 _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %217, %215, %213, %211, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i90 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %215 ], [ 16, %213 ], [ 16, %211 ], [ %spec.select.i.i.i89, %217 ]
+  %.0.i.i.i90 = phi i32 [ 16, %211 ], [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i89, %217 ], [ 16, %215 ], [ 16, %213 ]
   %.not.i.i.i.i.i.i.i91 = icmp eq i32 %205, 0
   br i1 %.not.i.i.i.i.i.i.i91, label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %219
 
@@ -23681,7 +23681,7 @@ _ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pre
   br label %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
 
 _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %243, %241, %239, %237, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i94 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %241 ], [ 16, %239 ], [ 16, %237 ], [ %spec.select.i.i.i93, %243 ]
+  %.0.i.i.i94 = phi i32 [ 16, %237 ], [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i93, %243 ], [ 16, %241 ], [ 16, %239 ]
   %.not.i.i.i.i.i.i.i95 = icmp eq i32 %231, 0
   br i1 %.not.i.i.i.i.i.i.i95, label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %245
 
@@ -23728,7 +23728,7 @@ _ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds
   br label %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %269, %267, %265, %263, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i98 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %267 ], [ 16, %265 ], [ 16, %263 ], [ %spec.select.i.i.i97, %269 ]
+  %.0.i.i.i98 = phi i32 [ 16, %263 ], [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i97, %269 ], [ 16, %267 ], [ 16, %265 ]
   %.not.i.i.i.i.i.i.i99 = icmp eq i32 %257, 0
   br i1 %.not.i.i.i.i.i.i.i99, label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %271
 
@@ -23775,7 +23775,7 @@ _ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.e
   br label %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %295, %293, %291, %289, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i102 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %293 ], [ 16, %291 ], [ 16, %289 ], [ %spec.select.i.i.i101, %295 ]
+  %.0.i.i.i102 = phi i32 [ 16, %289 ], [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i101, %295 ], [ 16, %293 ], [ 16, %291 ]
   %.not.i.i.i.i.i.i.i103 = icmp eq i32 %283, 0
   br i1 %.not.i.i.i.i.i.i.i103, label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %297
 
@@ -23822,7 +23822,7 @@ _ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
   br label %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
 
 _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %321, %319, %317, %315, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i106 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %319 ], [ 16, %317 ], [ 16, %315 ], [ %spec.select.i.i.i105, %321 ]
+  %.0.i.i.i106 = phi i32 [ 16, %315 ], [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i105, %321 ], [ 16, %319 ], [ 16, %317 ]
   %.not.i.i.i.i.i.i.i107 = icmp eq i32 %309, 0
   br i1 %.not.i.i.i.i.i.i.i107, label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %323
 
@@ -23906,7 +23906,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   br label %_ZN5clang38OMPTeamsDistributeParallelForDirective23setTaskReductionRefExprEPNS_4ExprE.exit
 
 _ZN5clang38OMPTeamsDistributeParallelForDirective23setTaskReductionRefExprEPNS_4ExprE.exit: ; preds = %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, %368, %370, %372, %374
-  %.0.i.i.i110 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %372 ], [ 16, %370 ], [ 16, %368 ], [ %spec.select.i.i.i109, %374 ]
+  %.0.i.i.i110 = phi i32 [ 16, %368 ], [ 29, %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i109, %374 ], [ 16, %372 ], [ 16, %370 ]
   %376 = zext i1 %9 to i8
   %377 = getelementptr inbounds nuw i8, ptr %334, i64 16
   %378 = getelementptr inbounds nuw ptr, ptr %377, i64 %336
@@ -23942,7 +23942,7 @@ define dso_local noundef nonnull ptr @_ZN5clang38OMPTeamsDistributeParallelForDi
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %3, %5, %7, %9, %11
-  %.0.i.i = phi i32 [ 29, %3 ], [ 16, %9 ], [ 16, %7 ], [ 16, %5 ], [ %spec.select.i.i, %11 ]
+  %.0.i.i = phi i32 [ 16, %5 ], [ 29, %3 ], [ %spec.select.i.i, %11 ], [ 16, %9 ], [ 16, %7 ]
   %13 = shl i32 %2, 3
   %14 = add i32 %.0.i.i, %13
   %15 = add nuw nsw i32 %14, 1
@@ -24197,7 +24197,7 @@ define dso_local noundef ptr @_ZN5clang33OMPTargetTeamsDistributeDirective6Creat
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %8, %10, %12, %14, %16
-  %.0.i.i = phi i32 [ 29, %8 ], [ 16, %14 ], [ 16, %12 ], [ 16, %10 ], [ %spec.select.i.i, %16 ]
+  %.0.i.i = phi i32 [ 16, %10 ], [ 29, %8 ], [ %spec.select.i.i, %16 ], [ 16, %14 ], [ 16, %12 ]
   %18 = shl i32 %3, 3
   %19 = add i32 %.0.i.i, %18
   %20 = trunc i64 %5 to i32
@@ -24380,7 +24380,7 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_33OMPTargetTeamsDistribute
   br label %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %130, %128, %126, %124, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_33OMPTargetTeamsDistributeDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit
-  %.0.i.i.i = phi i64 [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_33OMPTargetTeamsDistributeDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ 16, %128 ], [ 16, %126 ], [ 16, %124 ], [ %132, %130 ]
+  %.0.i.i.i = phi i64 [ 16, %124 ], [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_33OMPTargetTeamsDistributeDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ %132, %130 ], [ 16, %128 ], [ 16, %126 ]
   %.not.i.i.i.i.i.i.i = icmp eq i32 %121, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %133
 
@@ -24420,7 +24420,7 @@ _ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pr
   br label %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %150, %148, %146, %144, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i53 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %148 ], [ 16, %146 ], [ 16, %144 ], [ %spec.select.i.i.i, %150 ]
+  %.0.i.i.i53 = phi i32 [ 16, %144 ], [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i, %150 ], [ 16, %148 ], [ 16, %146 ]
   %.not.i.i.i.i.i.i.i54 = icmp eq i32 %138, 0
   br i1 %.not.i.i.i.i.i.i.i54, label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %152
 
@@ -24466,7 +24466,7 @@ _ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exi
   br label %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %175, %173, %171, %169, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i57 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %173 ], [ 16, %171 ], [ 16, %169 ], [ %spec.select.i.i.i56, %175 ]
+  %.0.i.i.i57 = phi i32 [ 16, %169 ], [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i56, %175 ], [ 16, %173 ], [ 16, %171 ]
   %.not.i.i.i.i.i.i.i58 = icmp eq i32 %163, 0
   br i1 %.not.i.i.i.i.i.i.i58, label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %177
 
@@ -24513,7 +24513,7 @@ _ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds 
   br label %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
 
 _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %201, %199, %197, %195, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i61 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %199 ], [ 16, %197 ], [ 16, %195 ], [ %spec.select.i.i.i60, %201 ]
+  %.0.i.i.i61 = phi i32 [ 16, %195 ], [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i60, %201 ], [ 16, %199 ], [ 16, %197 ]
   %.not.i.i.i.i.i.i.i62 = icmp eq i32 %189, 0
   br i1 %.not.i.i.i.i.i.i.i62, label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %203
 
@@ -24560,7 +24560,7 @@ _ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pre
   br label %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
 
 _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %227, %225, %223, %221, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i65 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %225 ], [ 16, %223 ], [ 16, %221 ], [ %spec.select.i.i.i64, %227 ]
+  %.0.i.i.i65 = phi i32 [ 16, %221 ], [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i64, %227 ], [ 16, %225 ], [ 16, %223 ]
   %.not.i.i.i.i.i.i.i66 = icmp eq i32 %215, 0
   br i1 %.not.i.i.i.i.i.i.i66, label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %229
 
@@ -24607,7 +24607,7 @@ _ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds
   br label %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %253, %251, %249, %247, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i69 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %251 ], [ 16, %249 ], [ 16, %247 ], [ %spec.select.i.i.i68, %253 ]
+  %.0.i.i.i69 = phi i32 [ 16, %247 ], [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i68, %253 ], [ 16, %251 ], [ 16, %249 ]
   %.not.i.i.i.i.i.i.i70 = icmp eq i32 %241, 0
   br i1 %.not.i.i.i.i.i.i.i70, label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %255
 
@@ -24654,7 +24654,7 @@ _ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.e
   br label %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %279, %277, %275, %273, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i73 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %277 ], [ 16, %275 ], [ 16, %273 ], [ %spec.select.i.i.i72, %279 ]
+  %.0.i.i.i73 = phi i32 [ 16, %273 ], [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i72, %279 ], [ 16, %277 ], [ 16, %275 ]
   %.not.i.i.i.i.i.i.i74 = icmp eq i32 %267, 0
   br i1 %.not.i.i.i.i.i.i.i74, label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %281
 
@@ -24701,7 +24701,7 @@ _ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
   br label %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
 
 _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %305, %303, %301, %299, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i77 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %303 ], [ 16, %301 ], [ 16, %299 ], [ %spec.select.i.i.i76, %305 ]
+  %.0.i.i.i77 = phi i32 [ 16, %299 ], [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i76, %305 ], [ 16, %303 ], [ 16, %301 ]
   %.not.i.i.i.i.i.i.i78 = icmp eq i32 %293, 0
   br i1 %.not.i.i.i.i.i.i.i78, label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %307
 
@@ -24753,7 +24753,7 @@ define dso_local noundef nonnull ptr @_ZN5clang33OMPTargetTeamsDistributeDirecti
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %3, %5, %7, %9, %11
-  %.0.i.i = phi i32 [ 29, %3 ], [ 16, %9 ], [ 16, %7 ], [ 16, %5 ], [ %spec.select.i.i, %11 ]
+  %.0.i.i = phi i32 [ 16, %5 ], [ 29, %3 ], [ %spec.select.i.i, %11 ], [ 16, %9 ], [ 16, %7 ]
   %13 = shl i32 %2, 3
   %14 = add i32 %.0.i.i, %13
   %15 = zext i32 %1 to i64
@@ -24849,7 +24849,7 @@ define dso_local noundef ptr @_ZN5clang44OMPTargetTeamsDistributeParallelForDire
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %10, %12, %14, %16, %18
-  %.0.i.i = phi i32 [ 29, %10 ], [ 16, %16 ], [ 16, %14 ], [ 16, %12 ], [ %spec.select.i.i, %18 ]
+  %.0.i.i = phi i32 [ 16, %12 ], [ 29, %10 ], [ %spec.select.i.i, %18 ], [ 16, %16 ], [ 16, %14 ]
   %20 = shl i32 %3, 3
   %21 = or disjoint i32 %20, 1
   %22 = add i32 %21, %.0.i.i
@@ -25051,7 +25051,7 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_44OMPTargetTeamsDistribute
   br label %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %146, %144, %142, %140, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_44OMPTargetTeamsDistributeParallelForDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit
-  %.0.i.i.i = phi i64 [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_44OMPTargetTeamsDistributeParallelForDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ 16, %144 ], [ 16, %142 ], [ 16, %140 ], [ %148, %146 ]
+  %.0.i.i.i = phi i64 [ 16, %140 ], [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_44OMPTargetTeamsDistributeParallelForDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ %148, %146 ], [ 16, %144 ], [ 16, %142 ]
   %.not.i.i.i.i.i.i.i = icmp eq i32 %137, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %149
 
@@ -25091,7 +25091,7 @@ _ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pr
   br label %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %166, %164, %162, %160, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i82 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %164 ], [ 16, %162 ], [ 16, %160 ], [ %spec.select.i.i.i, %166 ]
+  %.0.i.i.i82 = phi i32 [ 16, %160 ], [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i, %166 ], [ 16, %164 ], [ 16, %162 ]
   %.not.i.i.i.i.i.i.i83 = icmp eq i32 %154, 0
   br i1 %.not.i.i.i.i.i.i.i83, label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %168
 
@@ -25137,7 +25137,7 @@ _ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exi
   br label %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %191, %189, %187, %185, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i86 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %189 ], [ 16, %187 ], [ 16, %185 ], [ %spec.select.i.i.i85, %191 ]
+  %.0.i.i.i86 = phi i32 [ 16, %185 ], [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i85, %191 ], [ 16, %189 ], [ 16, %187 ]
   %.not.i.i.i.i.i.i.i87 = icmp eq i32 %179, 0
   br i1 %.not.i.i.i.i.i.i.i87, label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %193
 
@@ -25184,7 +25184,7 @@ _ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds 
   br label %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
 
 _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %217, %215, %213, %211, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i90 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %215 ], [ 16, %213 ], [ 16, %211 ], [ %spec.select.i.i.i89, %217 ]
+  %.0.i.i.i90 = phi i32 [ 16, %211 ], [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i89, %217 ], [ 16, %215 ], [ 16, %213 ]
   %.not.i.i.i.i.i.i.i91 = icmp eq i32 %205, 0
   br i1 %.not.i.i.i.i.i.i.i91, label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %219
 
@@ -25231,7 +25231,7 @@ _ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pre
   br label %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
 
 _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %243, %241, %239, %237, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i94 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %241 ], [ 16, %239 ], [ 16, %237 ], [ %spec.select.i.i.i93, %243 ]
+  %.0.i.i.i94 = phi i32 [ 16, %237 ], [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i93, %243 ], [ 16, %241 ], [ 16, %239 ]
   %.not.i.i.i.i.i.i.i95 = icmp eq i32 %231, 0
   br i1 %.not.i.i.i.i.i.i.i95, label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %245
 
@@ -25278,7 +25278,7 @@ _ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds
   br label %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %269, %267, %265, %263, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i98 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %267 ], [ 16, %265 ], [ 16, %263 ], [ %spec.select.i.i.i97, %269 ]
+  %.0.i.i.i98 = phi i32 [ 16, %263 ], [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i97, %269 ], [ 16, %267 ], [ 16, %265 ]
   %.not.i.i.i.i.i.i.i99 = icmp eq i32 %257, 0
   br i1 %.not.i.i.i.i.i.i.i99, label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %271
 
@@ -25325,7 +25325,7 @@ _ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.e
   br label %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %295, %293, %291, %289, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i102 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %293 ], [ 16, %291 ], [ 16, %289 ], [ %spec.select.i.i.i101, %295 ]
+  %.0.i.i.i102 = phi i32 [ 16, %289 ], [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i101, %295 ], [ 16, %293 ], [ 16, %291 ]
   %.not.i.i.i.i.i.i.i103 = icmp eq i32 %283, 0
   br i1 %.not.i.i.i.i.i.i.i103, label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %297
 
@@ -25372,7 +25372,7 @@ _ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
   br label %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
 
 _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %321, %319, %317, %315, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i106 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %319 ], [ 16, %317 ], [ 16, %315 ], [ %spec.select.i.i.i105, %321 ]
+  %.0.i.i.i106 = phi i32 [ 16, %315 ], [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i105, %321 ], [ 16, %319 ], [ 16, %317 ]
   %.not.i.i.i.i.i.i.i107 = icmp eq i32 %309, 0
   br i1 %.not.i.i.i.i.i.i.i107, label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %323
 
@@ -25456,7 +25456,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   br label %_ZN5clang44OMPTargetTeamsDistributeParallelForDirective23setTaskReductionRefExprEPNS_4ExprE.exit
 
 _ZN5clang44OMPTargetTeamsDistributeParallelForDirective23setTaskReductionRefExprEPNS_4ExprE.exit: ; preds = %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, %368, %370, %372, %374
-  %.0.i.i.i110 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %372 ], [ 16, %370 ], [ 16, %368 ], [ %spec.select.i.i.i109, %374 ]
+  %.0.i.i.i110 = phi i32 [ 16, %368 ], [ 29, %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i109, %374 ], [ 16, %372 ], [ 16, %370 ]
   %376 = zext i1 %9 to i8
   %377 = getelementptr inbounds nuw i8, ptr %334, i64 16
   %378 = getelementptr inbounds nuw ptr, ptr %377, i64 %336
@@ -25492,7 +25492,7 @@ define dso_local noundef nonnull ptr @_ZN5clang44OMPTargetTeamsDistributeParalle
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %3, %5, %7, %9, %11
-  %.0.i.i = phi i32 [ 29, %3 ], [ 16, %9 ], [ 16, %7 ], [ 16, %5 ], [ %spec.select.i.i, %11 ]
+  %.0.i.i = phi i32 [ 16, %5 ], [ 29, %3 ], [ %spec.select.i.i, %11 ], [ 16, %9 ], [ 16, %7 ]
   %13 = shl i32 %2, 3
   %14 = add i32 %.0.i.i, %13
   %15 = add nuw nsw i32 %14, 1
@@ -25591,7 +25591,7 @@ define dso_local noundef ptr @_ZN5clang48OMPTargetTeamsDistributeParallelForSimd
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %8, %10, %12, %14, %16
-  %.0.i.i = phi i32 [ 29, %8 ], [ 16, %14 ], [ 16, %12 ], [ 16, %10 ], [ %spec.select.i.i, %16 ]
+  %.0.i.i = phi i32 [ 16, %10 ], [ 29, %8 ], [ %spec.select.i.i, %16 ], [ 16, %14 ], [ 16, %12 ]
   %18 = shl i32 %3, 3
   %19 = add i32 %.0.i.i, %18
   %20 = trunc i64 %5 to i32
@@ -25790,7 +25790,7 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_48OMPTargetTeamsDistribute
   br label %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %142, %140, %138, %136, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_48OMPTargetTeamsDistributeParallelForSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit
-  %.0.i.i.i = phi i64 [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_48OMPTargetTeamsDistributeParallelForSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ 16, %140 ], [ 16, %138 ], [ 16, %136 ], [ %144, %142 ]
+  %.0.i.i.i = phi i64 [ 16, %136 ], [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_48OMPTargetTeamsDistributeParallelForSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ %144, %142 ], [ 16, %140 ], [ 16, %138 ]
   %.not.i.i.i.i.i.i.i = icmp eq i32 %133, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %145
 
@@ -25830,7 +25830,7 @@ _ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pr
   br label %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %162, %160, %158, %156, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i79 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %160 ], [ 16, %158 ], [ 16, %156 ], [ %spec.select.i.i.i, %162 ]
+  %.0.i.i.i79 = phi i32 [ 16, %156 ], [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i, %162 ], [ 16, %160 ], [ 16, %158 ]
   %.not.i.i.i.i.i.i.i80 = icmp eq i32 %150, 0
   br i1 %.not.i.i.i.i.i.i.i80, label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %164
 
@@ -25876,7 +25876,7 @@ _ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exi
   br label %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %187, %185, %183, %181, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i83 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %185 ], [ 16, %183 ], [ 16, %181 ], [ %spec.select.i.i.i82, %187 ]
+  %.0.i.i.i83 = phi i32 [ 16, %181 ], [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i82, %187 ], [ 16, %185 ], [ 16, %183 ]
   %.not.i.i.i.i.i.i.i84 = icmp eq i32 %175, 0
   br i1 %.not.i.i.i.i.i.i.i84, label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %189
 
@@ -25923,7 +25923,7 @@ _ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds 
   br label %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
 
 _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %213, %211, %209, %207, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i87 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %211 ], [ 16, %209 ], [ 16, %207 ], [ %spec.select.i.i.i86, %213 ]
+  %.0.i.i.i87 = phi i32 [ 16, %207 ], [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i86, %213 ], [ 16, %211 ], [ 16, %209 ]
   %.not.i.i.i.i.i.i.i88 = icmp eq i32 %201, 0
   br i1 %.not.i.i.i.i.i.i.i88, label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %215
 
@@ -25970,7 +25970,7 @@ _ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pre
   br label %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
 
 _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %239, %237, %235, %233, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i91 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %237 ], [ 16, %235 ], [ 16, %233 ], [ %spec.select.i.i.i90, %239 ]
+  %.0.i.i.i91 = phi i32 [ 16, %233 ], [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i90, %239 ], [ 16, %237 ], [ 16, %235 ]
   %.not.i.i.i.i.i.i.i92 = icmp eq i32 %227, 0
   br i1 %.not.i.i.i.i.i.i.i92, label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %241
 
@@ -26017,7 +26017,7 @@ _ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds
   br label %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %265, %263, %261, %259, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i95 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %263 ], [ 16, %261 ], [ 16, %259 ], [ %spec.select.i.i.i94, %265 ]
+  %.0.i.i.i95 = phi i32 [ 16, %259 ], [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i94, %265 ], [ 16, %263 ], [ 16, %261 ]
   %.not.i.i.i.i.i.i.i96 = icmp eq i32 %253, 0
   br i1 %.not.i.i.i.i.i.i.i96, label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %267
 
@@ -26064,7 +26064,7 @@ _ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.e
   br label %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %291, %289, %287, %285, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i99 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %289 ], [ 16, %287 ], [ 16, %285 ], [ %spec.select.i.i.i98, %291 ]
+  %.0.i.i.i99 = phi i32 [ 16, %285 ], [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i98, %291 ], [ 16, %289 ], [ 16, %287 ]
   %.not.i.i.i.i.i.i.i100 = icmp eq i32 %279, 0
   br i1 %.not.i.i.i.i.i.i.i100, label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %293
 
@@ -26111,7 +26111,7 @@ _ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
   br label %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
 
 _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %317, %315, %313, %311, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i103 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %315 ], [ 16, %313 ], [ 16, %311 ], [ %spec.select.i.i.i102, %317 ]
+  %.0.i.i.i103 = phi i32 [ 16, %311 ], [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i102, %317 ], [ 16, %315 ], [ 16, %313 ]
   %.not.i.i.i.i.i.i.i104 = icmp eq i32 %305, 0
   br i1 %.not.i.i.i.i.i.i.i104, label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %319
 
@@ -26199,7 +26199,7 @@ define dso_local noundef nonnull ptr @_ZN5clang48OMPTargetTeamsDistributeParalle
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %3, %5, %7, %9, %11
-  %.0.i.i = phi i32 [ 29, %3 ], [ 16, %9 ], [ 16, %7 ], [ 16, %5 ], [ %spec.select.i.i, %11 ]
+  %.0.i.i = phi i32 [ 16, %5 ], [ 29, %3 ], [ %spec.select.i.i, %11 ], [ 16, %9 ], [ 16, %7 ]
   %13 = shl i32 %2, 3
   %14 = add i32 %.0.i.i, %13
   %15 = zext i32 %1 to i64
@@ -26295,7 +26295,7 @@ define dso_local noundef ptr @_ZN5clang37OMPTargetTeamsDistributeSimdDirective6C
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %8, %10, %12, %14, %16
-  %.0.i.i = phi i32 [ 29, %8 ], [ 16, %14 ], [ 16, %12 ], [ 16, %10 ], [ %spec.select.i.i, %16 ]
+  %.0.i.i = phi i32 [ 16, %10 ], [ 29, %8 ], [ %spec.select.i.i, %16 ], [ 16, %14 ], [ 16, %12 ]
   %18 = shl i32 %3, 3
   %19 = add i32 %.0.i.i, %18
   %20 = trunc i64 %5 to i32
@@ -26478,7 +26478,7 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_37OMPTargetTeamsDistribute
   br label %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %130, %128, %126, %124, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_37OMPTargetTeamsDistributeSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit
-  %.0.i.i.i = phi i64 [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_37OMPTargetTeamsDistributeSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ 16, %128 ], [ 16, %126 ], [ 16, %124 ], [ %132, %130 ]
+  %.0.i.i.i = phi i64 [ 16, %124 ], [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_37OMPTargetTeamsDistributeSimdDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ %132, %130 ], [ 16, %128 ], [ 16, %126 ]
   %.not.i.i.i.i.i.i.i = icmp eq i32 %121, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %133
 
@@ -26518,7 +26518,7 @@ _ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pr
   br label %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %150, %148, %146, %144, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i53 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %148 ], [ 16, %146 ], [ 16, %144 ], [ %spec.select.i.i.i, %150 ]
+  %.0.i.i.i53 = phi i32 [ 16, %144 ], [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i, %150 ], [ 16, %148 ], [ 16, %146 ]
   %.not.i.i.i.i.i.i.i54 = icmp eq i32 %138, 0
   br i1 %.not.i.i.i.i.i.i.i54, label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %152
 
@@ -26564,7 +26564,7 @@ _ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exi
   br label %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %175, %173, %171, %169, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i57 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %173 ], [ 16, %171 ], [ 16, %169 ], [ %spec.select.i.i.i56, %175 ]
+  %.0.i.i.i57 = phi i32 [ 16, %169 ], [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i56, %175 ], [ 16, %173 ], [ 16, %171 ]
   %.not.i.i.i.i.i.i.i58 = icmp eq i32 %163, 0
   br i1 %.not.i.i.i.i.i.i.i58, label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %177
 
@@ -26611,7 +26611,7 @@ _ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds 
   br label %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
 
 _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %201, %199, %197, %195, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i61 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %199 ], [ 16, %197 ], [ 16, %195 ], [ %spec.select.i.i.i60, %201 ]
+  %.0.i.i.i61 = phi i32 [ 16, %195 ], [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i60, %201 ], [ 16, %199 ], [ 16, %197 ]
   %.not.i.i.i.i.i.i.i62 = icmp eq i32 %189, 0
   br i1 %.not.i.i.i.i.i.i.i62, label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %203
 
@@ -26658,7 +26658,7 @@ _ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pre
   br label %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
 
 _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %227, %225, %223, %221, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i65 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %225 ], [ 16, %223 ], [ 16, %221 ], [ %spec.select.i.i.i64, %227 ]
+  %.0.i.i.i65 = phi i32 [ 16, %221 ], [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i64, %227 ], [ 16, %225 ], [ 16, %223 ]
   %.not.i.i.i.i.i.i.i66 = icmp eq i32 %215, 0
   br i1 %.not.i.i.i.i.i.i.i66, label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %229
 
@@ -26705,7 +26705,7 @@ _ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds
   br label %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %253, %251, %249, %247, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i69 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %251 ], [ 16, %249 ], [ 16, %247 ], [ %spec.select.i.i.i68, %253 ]
+  %.0.i.i.i69 = phi i32 [ 16, %247 ], [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i68, %253 ], [ 16, %251 ], [ 16, %249 ]
   %.not.i.i.i.i.i.i.i70 = icmp eq i32 %241, 0
   br i1 %.not.i.i.i.i.i.i.i70, label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %255
 
@@ -26752,7 +26752,7 @@ _ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.e
   br label %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %279, %277, %275, %273, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i73 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %277 ], [ 16, %275 ], [ 16, %273 ], [ %spec.select.i.i.i72, %279 ]
+  %.0.i.i.i73 = phi i32 [ 16, %273 ], [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i72, %279 ], [ 16, %277 ], [ 16, %275 ]
   %.not.i.i.i.i.i.i.i74 = icmp eq i32 %267, 0
   br i1 %.not.i.i.i.i.i.i.i74, label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %281
 
@@ -26799,7 +26799,7 @@ _ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
   br label %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
 
 _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %305, %303, %301, %299, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i77 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %303 ], [ 16, %301 ], [ 16, %299 ], [ %spec.select.i.i.i76, %305 ]
+  %.0.i.i.i77 = phi i32 [ 16, %299 ], [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i76, %305 ], [ 16, %303 ], [ 16, %301 ]
   %.not.i.i.i.i.i.i.i78 = icmp eq i32 %293, 0
   br i1 %.not.i.i.i.i.i.i.i78, label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %307
 
@@ -26851,7 +26851,7 @@ define dso_local noundef nonnull ptr @_ZN5clang37OMPTargetTeamsDistributeSimdDir
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %3, %5, %7, %9, %11
-  %.0.i.i = phi i32 [ 29, %3 ], [ 16, %9 ], [ 16, %7 ], [ 16, %5 ], [ %spec.select.i.i, %11 ]
+  %.0.i.i = phi i32 [ 16, %5 ], [ 29, %3 ], [ %spec.select.i.i, %11 ], [ 16, %9 ], [ 16, %7 ]
   %13 = shl i32 %2, 3
   %14 = add i32 %.0.i.i, %13
   %15 = zext i32 %1 to i64
@@ -27405,7 +27405,7 @@ define dso_local noundef ptr @_ZN5clang23OMPGenericLoopDirective6CreateERKNS_10A
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %8, %10, %12, %14, %16
-  %.0.i.i = phi i32 [ 29, %8 ], [ 16, %14 ], [ 16, %12 ], [ 16, %10 ], [ %spec.select.i.i, %16 ]
+  %.0.i.i = phi i32 [ 16, %10 ], [ 29, %8 ], [ %spec.select.i.i, %16 ], [ 16, %14 ], [ 16, %12 ]
   %18 = shl i32 %3, 3
   %19 = add i32 %.0.i.i, %18
   %20 = trunc i64 %5 to i32
@@ -27588,7 +27588,7 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_23OMPGenericLoopDirectiveE
   br label %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %130, %128, %126, %124, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_23OMPGenericLoopDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit
-  %.0.i.i.i = phi i64 [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_23OMPGenericLoopDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ 16, %128 ], [ 16, %126 ], [ 16, %124 ], [ %132, %130 ]
+  %.0.i.i.i = phi i64 [ 16, %124 ], [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_23OMPGenericLoopDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ %132, %130 ], [ 16, %128 ], [ 16, %126 ]
   %.not.i.i.i.i.i.i.i = icmp eq i32 %121, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %133
 
@@ -27628,7 +27628,7 @@ _ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pr
   br label %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %150, %148, %146, %144, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i53 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %148 ], [ 16, %146 ], [ 16, %144 ], [ %spec.select.i.i.i, %150 ]
+  %.0.i.i.i53 = phi i32 [ 16, %144 ], [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i, %150 ], [ 16, %148 ], [ 16, %146 ]
   %.not.i.i.i.i.i.i.i54 = icmp eq i32 %138, 0
   br i1 %.not.i.i.i.i.i.i.i54, label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %152
 
@@ -27674,7 +27674,7 @@ _ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exi
   br label %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %175, %173, %171, %169, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i57 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %173 ], [ 16, %171 ], [ 16, %169 ], [ %spec.select.i.i.i56, %175 ]
+  %.0.i.i.i57 = phi i32 [ 16, %169 ], [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i56, %175 ], [ 16, %173 ], [ 16, %171 ]
   %.not.i.i.i.i.i.i.i58 = icmp eq i32 %163, 0
   br i1 %.not.i.i.i.i.i.i.i58, label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %177
 
@@ -27721,7 +27721,7 @@ _ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds 
   br label %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
 
 _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %201, %199, %197, %195, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i61 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %199 ], [ 16, %197 ], [ 16, %195 ], [ %spec.select.i.i.i60, %201 ]
+  %.0.i.i.i61 = phi i32 [ 16, %195 ], [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i60, %201 ], [ 16, %199 ], [ 16, %197 ]
   %.not.i.i.i.i.i.i.i62 = icmp eq i32 %189, 0
   br i1 %.not.i.i.i.i.i.i.i62, label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %203
 
@@ -27768,7 +27768,7 @@ _ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pre
   br label %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
 
 _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %227, %225, %223, %221, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i65 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %225 ], [ 16, %223 ], [ 16, %221 ], [ %spec.select.i.i.i64, %227 ]
+  %.0.i.i.i65 = phi i32 [ 16, %221 ], [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i64, %227 ], [ 16, %225 ], [ 16, %223 ]
   %.not.i.i.i.i.i.i.i66 = icmp eq i32 %215, 0
   br i1 %.not.i.i.i.i.i.i.i66, label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %229
 
@@ -27815,7 +27815,7 @@ _ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds
   br label %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %253, %251, %249, %247, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i69 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %251 ], [ 16, %249 ], [ 16, %247 ], [ %spec.select.i.i.i68, %253 ]
+  %.0.i.i.i69 = phi i32 [ 16, %247 ], [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i68, %253 ], [ 16, %251 ], [ 16, %249 ]
   %.not.i.i.i.i.i.i.i70 = icmp eq i32 %241, 0
   br i1 %.not.i.i.i.i.i.i.i70, label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %255
 
@@ -27862,7 +27862,7 @@ _ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.e
   br label %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %279, %277, %275, %273, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i73 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %277 ], [ 16, %275 ], [ 16, %273 ], [ %spec.select.i.i.i72, %279 ]
+  %.0.i.i.i73 = phi i32 [ 16, %273 ], [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i72, %279 ], [ 16, %277 ], [ 16, %275 ]
   %.not.i.i.i.i.i.i.i74 = icmp eq i32 %267, 0
   br i1 %.not.i.i.i.i.i.i.i74, label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %281
 
@@ -27909,7 +27909,7 @@ _ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
   br label %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
 
 _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %305, %303, %301, %299, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i77 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %303 ], [ 16, %301 ], [ 16, %299 ], [ %spec.select.i.i.i76, %305 ]
+  %.0.i.i.i77 = phi i32 [ 16, %299 ], [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i76, %305 ], [ 16, %303 ], [ 16, %301 ]
   %.not.i.i.i.i.i.i.i78 = icmp eq i32 %293, 0
   br i1 %.not.i.i.i.i.i.i.i78, label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %307
 
@@ -27961,7 +27961,7 @@ define dso_local noundef nonnull ptr @_ZN5clang23OMPGenericLoopDirective11Create
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %3, %5, %7, %9, %11
-  %.0.i.i = phi i32 [ 29, %3 ], [ 16, %9 ], [ 16, %7 ], [ 16, %5 ], [ %spec.select.i.i, %11 ]
+  %.0.i.i = phi i32 [ 16, %5 ], [ 29, %3 ], [ %spec.select.i.i, %11 ], [ 16, %9 ], [ 16, %7 ]
   %13 = shl i32 %2, 3
   %14 = add i32 %.0.i.i, %13
   %15 = zext i32 %1 to i64
@@ -28057,7 +28057,7 @@ define dso_local noundef ptr @_ZN5clang28OMPTeamsGenericLoopDirective6CreateERKN
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %8, %10, %12, %14, %16
-  %.0.i.i = phi i32 [ 29, %8 ], [ 16, %14 ], [ 16, %12 ], [ 16, %10 ], [ %spec.select.i.i, %16 ]
+  %.0.i.i = phi i32 [ 16, %10 ], [ 29, %8 ], [ %spec.select.i.i, %16 ], [ 16, %14 ], [ 16, %12 ]
   %18 = shl i32 %3, 3
   %19 = add i32 %.0.i.i, %18
   %20 = trunc i64 %5 to i32
@@ -28256,7 +28256,7 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_28OMPTeamsGenericLoopDirec
   br label %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %142, %140, %138, %136, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_28OMPTeamsGenericLoopDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit
-  %.0.i.i.i = phi i64 [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_28OMPTeamsGenericLoopDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ 16, %140 ], [ 16, %138 ], [ 16, %136 ], [ %144, %142 ]
+  %.0.i.i.i = phi i64 [ 16, %136 ], [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_28OMPTeamsGenericLoopDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ %144, %142 ], [ 16, %140 ], [ 16, %138 ]
   %.not.i.i.i.i.i.i.i = icmp eq i32 %133, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %145
 
@@ -28296,7 +28296,7 @@ _ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pr
   br label %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %162, %160, %158, %156, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i79 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %160 ], [ 16, %158 ], [ 16, %156 ], [ %spec.select.i.i.i, %162 ]
+  %.0.i.i.i79 = phi i32 [ 16, %156 ], [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i, %162 ], [ 16, %160 ], [ 16, %158 ]
   %.not.i.i.i.i.i.i.i80 = icmp eq i32 %150, 0
   br i1 %.not.i.i.i.i.i.i.i80, label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %164
 
@@ -28342,7 +28342,7 @@ _ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exi
   br label %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %187, %185, %183, %181, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i83 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %185 ], [ 16, %183 ], [ 16, %181 ], [ %spec.select.i.i.i82, %187 ]
+  %.0.i.i.i83 = phi i32 [ 16, %181 ], [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i82, %187 ], [ 16, %185 ], [ 16, %183 ]
   %.not.i.i.i.i.i.i.i84 = icmp eq i32 %175, 0
   br i1 %.not.i.i.i.i.i.i.i84, label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %189
 
@@ -28389,7 +28389,7 @@ _ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds 
   br label %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
 
 _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %213, %211, %209, %207, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i87 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %211 ], [ 16, %209 ], [ 16, %207 ], [ %spec.select.i.i.i86, %213 ]
+  %.0.i.i.i87 = phi i32 [ 16, %207 ], [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i86, %213 ], [ 16, %211 ], [ 16, %209 ]
   %.not.i.i.i.i.i.i.i88 = icmp eq i32 %201, 0
   br i1 %.not.i.i.i.i.i.i.i88, label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %215
 
@@ -28436,7 +28436,7 @@ _ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pre
   br label %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
 
 _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %239, %237, %235, %233, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i91 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %237 ], [ 16, %235 ], [ 16, %233 ], [ %spec.select.i.i.i90, %239 ]
+  %.0.i.i.i91 = phi i32 [ 16, %233 ], [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i90, %239 ], [ 16, %237 ], [ 16, %235 ]
   %.not.i.i.i.i.i.i.i92 = icmp eq i32 %227, 0
   br i1 %.not.i.i.i.i.i.i.i92, label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %241
 
@@ -28483,7 +28483,7 @@ _ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds
   br label %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %265, %263, %261, %259, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i95 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %263 ], [ 16, %261 ], [ 16, %259 ], [ %spec.select.i.i.i94, %265 ]
+  %.0.i.i.i95 = phi i32 [ 16, %259 ], [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i94, %265 ], [ 16, %263 ], [ 16, %261 ]
   %.not.i.i.i.i.i.i.i96 = icmp eq i32 %253, 0
   br i1 %.not.i.i.i.i.i.i.i96, label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %267
 
@@ -28530,7 +28530,7 @@ _ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.e
   br label %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %291, %289, %287, %285, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i99 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %289 ], [ 16, %287 ], [ 16, %285 ], [ %spec.select.i.i.i98, %291 ]
+  %.0.i.i.i99 = phi i32 [ 16, %285 ], [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i98, %291 ], [ 16, %289 ], [ 16, %287 ]
   %.not.i.i.i.i.i.i.i100 = icmp eq i32 %279, 0
   br i1 %.not.i.i.i.i.i.i.i100, label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %293
 
@@ -28577,7 +28577,7 @@ _ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
   br label %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
 
 _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %317, %315, %313, %311, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i103 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %315 ], [ 16, %313 ], [ 16, %311 ], [ %spec.select.i.i.i102, %317 ]
+  %.0.i.i.i103 = phi i32 [ 16, %311 ], [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i102, %317 ], [ 16, %315 ], [ 16, %313 ]
   %.not.i.i.i.i.i.i.i104 = icmp eq i32 %305, 0
   br i1 %.not.i.i.i.i.i.i.i104, label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %319
 
@@ -28665,7 +28665,7 @@ define dso_local noundef nonnull ptr @_ZN5clang28OMPTeamsGenericLoopDirective11C
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %3, %5, %7, %9, %11
-  %.0.i.i = phi i32 [ 29, %3 ], [ 16, %9 ], [ 16, %7 ], [ 16, %5 ], [ %spec.select.i.i, %11 ]
+  %.0.i.i = phi i32 [ 16, %5 ], [ 29, %3 ], [ %spec.select.i.i, %11 ], [ 16, %9 ], [ 16, %7 ]
   %13 = shl i32 %2, 3
   %14 = add i32 %.0.i.i, %13
   %15 = zext i32 %1 to i64
@@ -28761,7 +28761,7 @@ define dso_local noundef ptr @_ZN5clang34OMPTargetTeamsGenericLoopDirective6Crea
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %9, %11, %13, %15, %17
-  %.0.i.i = phi i32 [ 29, %9 ], [ 16, %15 ], [ 16, %13 ], [ 16, %11 ], [ %spec.select.i.i, %17 ]
+  %.0.i.i = phi i32 [ 16, %11 ], [ 29, %9 ], [ %spec.select.i.i, %17 ], [ 16, %15 ], [ 16, %13 ]
   %19 = shl i32 %3, 3
   %20 = add i32 %.0.i.i, %19
   %21 = trunc i64 %5 to i32
@@ -28962,7 +28962,7 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_34OMPTargetTeamsGenericLoo
   br label %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %144, %142, %140, %138, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_34OMPTargetTeamsGenericLoopDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit
-  %.0.i.i.i = phi i64 [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_34OMPTargetTeamsGenericLoopDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ 16, %142 ], [ 16, %140 ], [ 16, %138 ], [ %146, %144 ]
+  %.0.i.i.i = phi i64 [ 16, %138 ], [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_34OMPTargetTeamsGenericLoopDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ %146, %144 ], [ 16, %142 ], [ 16, %140 ]
   %.not.i.i.i.i.i.i.i = icmp eq i32 %135, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %147
 
@@ -29002,7 +29002,7 @@ _ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pr
   br label %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %164, %162, %160, %158, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i80 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %162 ], [ 16, %160 ], [ 16, %158 ], [ %spec.select.i.i.i, %164 ]
+  %.0.i.i.i80 = phi i32 [ 16, %158 ], [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i, %164 ], [ 16, %162 ], [ 16, %160 ]
   %.not.i.i.i.i.i.i.i81 = icmp eq i32 %152, 0
   br i1 %.not.i.i.i.i.i.i.i81, label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %166
 
@@ -29048,7 +29048,7 @@ _ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exi
   br label %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %189, %187, %185, %183, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i84 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %187 ], [ 16, %185 ], [ 16, %183 ], [ %spec.select.i.i.i83, %189 ]
+  %.0.i.i.i84 = phi i32 [ 16, %183 ], [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i83, %189 ], [ 16, %187 ], [ 16, %185 ]
   %.not.i.i.i.i.i.i.i85 = icmp eq i32 %177, 0
   br i1 %.not.i.i.i.i.i.i.i85, label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %191
 
@@ -29095,7 +29095,7 @@ _ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds 
   br label %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
 
 _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %215, %213, %211, %209, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i88 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %213 ], [ 16, %211 ], [ 16, %209 ], [ %spec.select.i.i.i87, %215 ]
+  %.0.i.i.i88 = phi i32 [ 16, %209 ], [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i87, %215 ], [ 16, %213 ], [ 16, %211 ]
   %.not.i.i.i.i.i.i.i89 = icmp eq i32 %203, 0
   br i1 %.not.i.i.i.i.i.i.i89, label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %217
 
@@ -29142,7 +29142,7 @@ _ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pre
   br label %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
 
 _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %241, %239, %237, %235, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i92 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %239 ], [ 16, %237 ], [ 16, %235 ], [ %spec.select.i.i.i91, %241 ]
+  %.0.i.i.i92 = phi i32 [ 16, %235 ], [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i91, %241 ], [ 16, %239 ], [ 16, %237 ]
   %.not.i.i.i.i.i.i.i93 = icmp eq i32 %229, 0
   br i1 %.not.i.i.i.i.i.i.i93, label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %243
 
@@ -29189,7 +29189,7 @@ _ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds
   br label %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %267, %265, %263, %261, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i96 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %265 ], [ 16, %263 ], [ 16, %261 ], [ %spec.select.i.i.i95, %267 ]
+  %.0.i.i.i96 = phi i32 [ 16, %261 ], [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i95, %267 ], [ 16, %265 ], [ 16, %263 ]
   %.not.i.i.i.i.i.i.i97 = icmp eq i32 %255, 0
   br i1 %.not.i.i.i.i.i.i.i97, label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %269
 
@@ -29236,7 +29236,7 @@ _ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.e
   br label %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %293, %291, %289, %287, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i100 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %291 ], [ 16, %289 ], [ 16, %287 ], [ %spec.select.i.i.i99, %293 ]
+  %.0.i.i.i100 = phi i32 [ 16, %287 ], [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i99, %293 ], [ 16, %291 ], [ 16, %289 ]
   %.not.i.i.i.i.i.i.i101 = icmp eq i32 %281, 0
   br i1 %.not.i.i.i.i.i.i.i101, label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %295
 
@@ -29283,7 +29283,7 @@ _ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
   br label %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
 
 _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %319, %317, %315, %313, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i104 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %317 ], [ 16, %315 ], [ 16, %313 ], [ %spec.select.i.i.i103, %319 ]
+  %.0.i.i.i104 = phi i32 [ 16, %313 ], [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i103, %319 ], [ 16, %317 ], [ 16, %315 ]
   %.not.i.i.i.i.i.i.i105 = icmp eq i32 %307, 0
   br i1 %.not.i.i.i.i.i.i.i105, label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %321
 
@@ -29373,7 +29373,7 @@ define dso_local noundef nonnull ptr @_ZN5clang34OMPTargetTeamsGenericLoopDirect
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %3, %5, %7, %9, %11
-  %.0.i.i = phi i32 [ 29, %3 ], [ 16, %9 ], [ 16, %7 ], [ 16, %5 ], [ %spec.select.i.i, %11 ]
+  %.0.i.i = phi i32 [ 16, %5 ], [ 29, %3 ], [ %spec.select.i.i, %11 ], [ 16, %9 ], [ 16, %7 ]
   %13 = shl i32 %2, 3
   %14 = add i32 %.0.i.i, %13
   %15 = zext i32 %1 to i64
@@ -29471,7 +29471,7 @@ define dso_local noundef ptr @_ZN5clang31OMPParallelGenericLoopDirective6CreateE
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %8, %10, %12, %14, %16
-  %.0.i.i = phi i32 [ 29, %8 ], [ 16, %14 ], [ 16, %12 ], [ 16, %10 ], [ %spec.select.i.i, %16 ]
+  %.0.i.i = phi i32 [ 16, %10 ], [ 29, %8 ], [ %spec.select.i.i, %16 ], [ 16, %14 ], [ 16, %12 ]
   %18 = shl i32 %3, 3
   %19 = add i32 %.0.i.i, %18
   %20 = trunc i64 %5 to i32
@@ -29654,7 +29654,7 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_31OMPParallelGenericLoopDi
   br label %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %130, %128, %126, %124, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_31OMPParallelGenericLoopDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit
-  %.0.i.i.i = phi i64 [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_31OMPParallelGenericLoopDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ 16, %128 ], [ 16, %126 ], [ 16, %124 ], [ %132, %130 ]
+  %.0.i.i.i = phi i64 [ 16, %124 ], [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_31OMPParallelGenericLoopDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ %132, %130 ], [ 16, %128 ], [ 16, %126 ]
   %.not.i.i.i.i.i.i.i = icmp eq i32 %121, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %133
 
@@ -29694,7 +29694,7 @@ _ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pr
   br label %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %150, %148, %146, %144, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i53 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %148 ], [ 16, %146 ], [ 16, %144 ], [ %spec.select.i.i.i, %150 ]
+  %.0.i.i.i53 = phi i32 [ 16, %144 ], [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i, %150 ], [ 16, %148 ], [ 16, %146 ]
   %.not.i.i.i.i.i.i.i54 = icmp eq i32 %138, 0
   br i1 %.not.i.i.i.i.i.i.i54, label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %152
 
@@ -29740,7 +29740,7 @@ _ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exi
   br label %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %175, %173, %171, %169, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i57 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %173 ], [ 16, %171 ], [ 16, %169 ], [ %spec.select.i.i.i56, %175 ]
+  %.0.i.i.i57 = phi i32 [ 16, %169 ], [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i56, %175 ], [ 16, %173 ], [ 16, %171 ]
   %.not.i.i.i.i.i.i.i58 = icmp eq i32 %163, 0
   br i1 %.not.i.i.i.i.i.i.i58, label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %177
 
@@ -29787,7 +29787,7 @@ _ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds 
   br label %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
 
 _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %201, %199, %197, %195, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i61 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %199 ], [ 16, %197 ], [ 16, %195 ], [ %spec.select.i.i.i60, %201 ]
+  %.0.i.i.i61 = phi i32 [ 16, %195 ], [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i60, %201 ], [ 16, %199 ], [ 16, %197 ]
   %.not.i.i.i.i.i.i.i62 = icmp eq i32 %189, 0
   br i1 %.not.i.i.i.i.i.i.i62, label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %203
 
@@ -29834,7 +29834,7 @@ _ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pre
   br label %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
 
 _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %227, %225, %223, %221, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i65 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %225 ], [ 16, %223 ], [ 16, %221 ], [ %spec.select.i.i.i64, %227 ]
+  %.0.i.i.i65 = phi i32 [ 16, %221 ], [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i64, %227 ], [ 16, %225 ], [ 16, %223 ]
   %.not.i.i.i.i.i.i.i66 = icmp eq i32 %215, 0
   br i1 %.not.i.i.i.i.i.i.i66, label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %229
 
@@ -29881,7 +29881,7 @@ _ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds
   br label %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %253, %251, %249, %247, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i69 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %251 ], [ 16, %249 ], [ 16, %247 ], [ %spec.select.i.i.i68, %253 ]
+  %.0.i.i.i69 = phi i32 [ 16, %247 ], [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i68, %253 ], [ 16, %251 ], [ 16, %249 ]
   %.not.i.i.i.i.i.i.i70 = icmp eq i32 %241, 0
   br i1 %.not.i.i.i.i.i.i.i70, label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %255
 
@@ -29928,7 +29928,7 @@ _ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.e
   br label %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %279, %277, %275, %273, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i73 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %277 ], [ 16, %275 ], [ 16, %273 ], [ %spec.select.i.i.i72, %279 ]
+  %.0.i.i.i73 = phi i32 [ 16, %273 ], [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i72, %279 ], [ 16, %277 ], [ 16, %275 ]
   %.not.i.i.i.i.i.i.i74 = icmp eq i32 %267, 0
   br i1 %.not.i.i.i.i.i.i.i74, label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %281
 
@@ -29975,7 +29975,7 @@ _ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
   br label %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
 
 _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %305, %303, %301, %299, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i77 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %303 ], [ 16, %301 ], [ 16, %299 ], [ %spec.select.i.i.i76, %305 ]
+  %.0.i.i.i77 = phi i32 [ 16, %299 ], [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i76, %305 ], [ 16, %303 ], [ 16, %301 ]
   %.not.i.i.i.i.i.i.i78 = icmp eq i32 %293, 0
   br i1 %.not.i.i.i.i.i.i.i78, label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %307
 
@@ -30027,7 +30027,7 @@ define dso_local noundef nonnull ptr @_ZN5clang31OMPParallelGenericLoopDirective
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %3, %5, %7, %9, %11
-  %.0.i.i = phi i32 [ 29, %3 ], [ 16, %9 ], [ 16, %7 ], [ 16, %5 ], [ %spec.select.i.i, %11 ]
+  %.0.i.i = phi i32 [ 16, %5 ], [ 29, %3 ], [ %spec.select.i.i, %11 ], [ 16, %9 ], [ 16, %7 ]
   %13 = shl i32 %2, 3
   %14 = add i32 %.0.i.i, %13
   %15 = zext i32 %1 to i64
@@ -30123,7 +30123,7 @@ define dso_local noundef ptr @_ZN5clang37OMPTargetParallelGenericLoopDirective6C
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %8, %10, %12, %14, %16
-  %.0.i.i = phi i32 [ 29, %8 ], [ 16, %14 ], [ 16, %12 ], [ 16, %10 ], [ %spec.select.i.i, %16 ]
+  %.0.i.i = phi i32 [ 16, %10 ], [ 29, %8 ], [ %spec.select.i.i, %16 ], [ 16, %14 ], [ 16, %12 ]
   %18 = shl i32 %3, 3
   %19 = add i32 %.0.i.i, %18
   %20 = trunc i64 %5 to i32
@@ -30306,7 +30306,7 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_37OMPTargetParallelGeneric
   br label %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %130, %128, %126, %124, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_37OMPTargetParallelGenericLoopDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit
-  %.0.i.i.i = phi i64 [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_37OMPTargetParallelGenericLoopDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ 16, %128 ], [ 16, %126 ], [ 16, %124 ], [ %132, %130 ]
+  %.0.i.i.i = phi i64 [ 16, %124 ], [ 29, %_ZN5clang22OMPExecutableDirective15createDirectiveINS_37OMPTargetParallelGenericLoopDirectiveEJRNS_14SourceLocationES4_RjEEEPT_RKNS_10ASTContextEN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjDpOT0_.exit ], [ %132, %130 ], [ 16, %128 ], [ 16, %126 ]
   %.not.i.i.i.i.i.i.i = icmp eq i32 %121, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %133
 
@@ -30346,7 +30346,7 @@ _ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pr
   br label %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %150, %148, %146, %144, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i53 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %148 ], [ 16, %146 ], [ 16, %144 ], [ %spec.select.i.i.i, %150 ]
+  %.0.i.i.i53 = phi i32 [ 16, %144 ], [ 29, %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i, %150 ], [ 16, %148 ], [ 16, %146 ]
   %.not.i.i.i.i.i.i.i54 = icmp eq i32 %138, 0
   br i1 %.not.i.i.i.i.i.i.i54, label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %152
 
@@ -30392,7 +30392,7 @@ _ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exi
   br label %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %175, %173, %171, %169, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i57 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %173 ], [ 16, %171 ], [ 16, %169 ], [ %spec.select.i.i.i56, %175 ]
+  %.0.i.i.i57 = phi i32 [ 16, %169 ], [ 29, %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i56, %175 ], [ 16, %173 ], [ 16, %171 ]
   %.not.i.i.i.i.i.i.i58 = icmp eq i32 %163, 0
   br i1 %.not.i.i.i.i.i.i.i58, label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %177
 
@@ -30439,7 +30439,7 @@ _ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds 
   br label %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
 
 _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %201, %199, %197, %195, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i61 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %199 ], [ 16, %197 ], [ 16, %195 ], [ %spec.select.i.i.i60, %201 ]
+  %.0.i.i.i61 = phi i32 [ 16, %195 ], [ 29, %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i60, %201 ], [ 16, %199 ], [ 16, %197 ]
   %.not.i.i.i.i.i.i.i62 = icmp eq i32 %189, 0
   br i1 %.not.i.i.i.i.i.i.i62, label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %203
 
@@ -30486,7 +30486,7 @@ _ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; pre
   br label %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
 
 _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %227, %225, %223, %221, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i65 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %225 ], [ 16, %223 ], [ 16, %221 ], [ %spec.select.i.i.i64, %227 ]
+  %.0.i.i.i65 = phi i32 [ 16, %221 ], [ 29, %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i64, %227 ], [ 16, %225 ], [ 16, %223 ]
   %.not.i.i.i.i.i.i.i66 = icmp eq i32 %215, 0
   br i1 %.not.i.i.i.i.i.i.i66, label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %229
 
@@ -30533,7 +30533,7 @@ _ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit: ; preds
   br label %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
 
 _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %253, %251, %249, %247, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i69 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %251 ], [ 16, %249 ], [ 16, %247 ], [ %spec.select.i.i.i68, %253 ]
+  %.0.i.i.i69 = phi i32 [ 16, %247 ], [ 29, %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i68, %253 ], [ 16, %251 ], [ 16, %249 ]
   %.not.i.i.i.i.i.i.i70 = icmp eq i32 %241, 0
   br i1 %.not.i.i.i.i.i.i.i70, label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %255
 
@@ -30580,7 +30580,7 @@ _ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.e
   br label %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
 
 _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %279, %277, %275, %273, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i73 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %277 ], [ 16, %275 ], [ 16, %273 ], [ %spec.select.i.i.i72, %279 ]
+  %.0.i.i.i73 = phi i32 [ 16, %273 ], [ 29, %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i72, %279 ], [ 16, %277 ], [ 16, %275 ]
   %.not.i.i.i.i.i.i.i74 = icmp eq i32 %267, 0
   br i1 %.not.i.i.i.i.i.i.i74, label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %281
 
@@ -30627,7 +30627,7 @@ _ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
   br label %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
 
 _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %305, %303, %301, %299, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.0.i.i.i77 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %303 ], [ 16, %301 ], [ 16, %299 ], [ %spec.select.i.i.i76, %305 ]
+  %.0.i.i.i77 = phi i32 [ 16, %299 ], [ 29, %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %spec.select.i.i.i76, %305 ], [ 16, %303 ], [ 16, %301 ]
   %.not.i.i.i.i.i.i.i78 = icmp eq i32 %293, 0
   br i1 %.not.i.i.i.i.i.i.i78, label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, label %307
 
@@ -30679,7 +30679,7 @@ define dso_local noundef nonnull ptr @_ZN5clang37OMPTargetParallelGenericLoopDir
   br label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit
 
 _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; preds = %3, %5, %7, %9, %11
-  %.0.i.i = phi i32 [ 29, %3 ], [ 16, %9 ], [ 16, %7 ], [ 16, %5 ], [ %spec.select.i.i, %11 ]
+  %.0.i.i = phi i32 [ 16, %5 ], [ 29, %3 ], [ %spec.select.i.i, %11 ], [ 16, %9 ], [ 16, %7 ]
   %13 = shl i32 %2, 3
   %14 = add i32 %.0.i.i, %13
   %15 = zext i32 %1 to i64

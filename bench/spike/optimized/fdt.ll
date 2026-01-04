@@ -110,7 +110,7 @@ define range(i32 -10, 2147483647) i32 @fdt_ro_probe_(ptr noundef readonly captur
   br label %92
 
 92:                                               ; preds = %1, %90, %77, %57, %37
-  %.0 = phi i32 [ -10, %37 ], [ -10, %57 ], [ -7, %77 ], [ %., %90 ], [ -9, %1 ]
+  %.0 = phi i32 [ -7, %77 ], [ -10, %37 ], [ %., %90 ], [ -9, %1 ], [ -10, %57 ]
   ret i32 %.0
 }
 
@@ -133,7 +133,7 @@ define range(i64 28, 41) i64 @fdt_header_size_(i32 noundef %0) local_unnamed_add
   br label %9
 
 9:                                                ; preds = %7, %5, %3, %1
-  %.0 = phi i64 [ 28, %1 ], [ 32, %3 ], [ 36, %5 ], [ %., %7 ]
+  %.0 = phi i64 [ 36, %5 ], [ 28, %1 ], [ 32, %3 ], [ %., %7 ]
   ret i64 %.0
 }
 
@@ -195,7 +195,7 @@ define range(i32 -10, 1) i32 @fdt_check_header(ptr noundef readonly captures(non
   br label %45
 
 45:                                               ; preds = %39, %41, %43
-  %.0.i.i.ph = phi i64 [ %..i.i, %43 ], [ 36, %41 ], [ 32, %39 ]
+  %.0.i.i.ph = phi i64 [ %..i.i, %43 ], [ 32, %39 ], [ 36, %41 ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %47 = load i8, ptr %46, align 1, !tbaa !3
   %48 = zext i8 %47 to i32
@@ -390,7 +390,7 @@ check_block_.exit32.thread:                       ; preds = %176, %155
   br label %check_block_.exit.thread
 
 check_block_.exit.thread:                         ; preds = %19, %176, %134, %133, %check_block_.exit32.thread, %132, %88, %66, %45, %1
-  %.0 = phi i32 [ -9, %1 ], [ -10, %45 ], [ -8, %66 ], [ -8, %88 ], [ -8, %132 ], [ -8, %check_block_.exit32.thread ], [ -8, %133 ], [ -8, %134 ], [ 0, %176 ], [ -10, %19 ]
+  %.0 = phi i32 [ -8, %66 ], [ -9, %1 ], [ -8, %133 ], [ -8, %134 ], [ -8, %check_block_.exit32.thread ], [ 0, %176 ], [ -8, %88 ], [ -8, %132 ], [ -10, %45 ], [ -10, %19 ]
   ret i32 %.0
 }
 
@@ -511,7 +511,7 @@ define ptr @fdt_offset_ptr(ptr noundef readonly captures(ret: address, provenanc
   br label %104
 
 104:                                              ; preds = %67, %70, %3, %24, %27, %90
-  %.0 = phi ptr [ %103, %90 ], [ null, %27 ], [ null, %24 ], [ null, %3 ], [ null, %70 ], [ null, %67 ]
+  %.0 = phi ptr [ %103, %90 ], [ null, %3 ], [ null, %27 ], [ null, %24 ], [ null, %70 ], [ null, %67 ]
   ret ptr %.0
 }
 
@@ -588,7 +588,7 @@ define noundef i32 @fdt_next_tag(ptr noundef readonly captures(address) %0, i32 
   br label %.critedge
 
 .critedge:                                        ; preds = %9, %38, %5, %5, %5, %14
-  %.1 = phi i32 [ %17, %14 ], [ %7, %5 ], [ %7, %5 ], [ %7, %5 ], [ %spec.select, %38 ], [ %10, %9 ]
+  %.1 = phi i32 [ %7, %5 ], [ %7, %5 ], [ %spec.select, %38 ], [ %7, %5 ], [ %17, %14 ], [ %10, %9 ]
   %41 = sub nsw i32 %.1, %1
   %42 = tail call ptr @fdt_offset_ptr(ptr noundef %0, i32 noundef %1, i32 noundef %41)
   %.not39 = icmp eq ptr %42, null
@@ -601,7 +601,7 @@ define noundef i32 @fdt_next_tag(ptr noundef readonly captures(address) %0, i32 
   br label %.critedge40
 
 .critedge40:                                      ; preds = %.preheader, %.critedge, %5, %12, %3, %43
-  %.0 = phi i32 [ %rev.i, %43 ], [ 9, %3 ], [ 9, %12 ], [ 9, %5 ], [ 9, %.critedge ], [ 9, %.preheader ]
+  %.0 = phi i32 [ 9, %12 ], [ %rev.i, %43 ], [ 9, %5 ], [ 9, %3 ], [ 9, %.critedge ], [ 9, %.preheader ]
   ret i32 %.0
 }
 
@@ -730,7 +730,7 @@ fdt_check_node_offset_.exit:                      ; preds = %9
   br label %.thread
 
 .thread:                                          ; preds = %.split.us, %.split27.us, %fdt_check_node_offset_.exit.thread, %29, %.split25.us, %fdt_check_node_offset_.exit, %25
-  %.0 = phi i32 [ %26, %25 ], [ %11, %fdt_check_node_offset_.exit ], [ -1, %.split25.us ], [ %spec.select, %29 ], [ -4, %fdt_check_node_offset_.exit.thread ], [ %17, %.split27.us ], [ %15, %.split.us ]
+  %.0 = phi i32 [ %26, %25 ], [ -1, %.split25.us ], [ %11, %fdt_check_node_offset_.exit ], [ -4, %fdt_check_node_offset_.exit.thread ], [ %spec.select, %29 ], [ %17, %.split27.us ], [ %15, %.split.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -791,8 +791,8 @@ fdt_check_node_offset_.exit.i:                    ; preds = %8
   br label %fdt_next_node.exit
 
 fdt_next_node.exit:                               ; preds = %.split.i, %.split25.us.i, %fdt_check_node_offset_.exit.thread.i, %fdt_check_node_offset_.exit.i, %14
-  %17 = phi i1 [ true, %fdt_check_node_offset_.exit.i ], [ true, %14 ], [ true, %fdt_check_node_offset_.exit.thread.i ], [ true, %.split25.us.i ], [ false, %.split.i ]
-  %.0.i = phi i32 [ %10, %fdt_check_node_offset_.exit.i ], [ %15, %14 ], [ -4, %fdt_check_node_offset_.exit.thread.i ], [ %spec.select, %.split25.us.i ], [ %12, %.split.i ]
+  %17 = phi i1 [ true, %fdt_check_node_offset_.exit.i ], [ true, %.split25.us.i ], [ true, %fdt_check_node_offset_.exit.thread.i ], [ true, %14 ], [ false, %.split.i ]
+  %.0.i = phi i32 [ %10, %fdt_check_node_offset_.exit.i ], [ %spec.select, %.split25.us.i ], [ -4, %fdt_check_node_offset_.exit.thread.i ], [ %15, %14 ], [ %12, %.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %18 = icmp slt i32 %.0.i, 0
   %or.cond = or i1 %18, %17
@@ -1030,7 +1030,7 @@ fdt_offset_ptr.exit:                              ; preds = %120, %117
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge.i.loopexit, %145, %139, %fdt_offset_ptr.exit11._crit_edge, %fdt_offset_ptr.exit11._crit_edge, %fdt_offset_ptr.exit11._crit_edge
-  %.1.i = phi i32 [ %142, %139 ], [ %93, %fdt_offset_ptr.exit11._crit_edge ], [ %93, %fdt_offset_ptr.exit11._crit_edge ], [ %93, %fdt_offset_ptr.exit11._crit_edge ], [ %spec.select.i, %145 ], [ %148, %.critedge.i.loopexit ]
+  %.1.i = phi i32 [ %93, %fdt_offset_ptr.exit11._crit_edge ], [ %93, %fdt_offset_ptr.exit11._crit_edge ], [ %spec.select.i, %145 ], [ %93, %fdt_offset_ptr.exit11._crit_edge ], [ %142, %139 ], [ %148, %.critedge.i.loopexit ]
   %149 = sub nsw i32 %.1.i, %74
   %150 = tail call ptr @fdt_offset_ptr(ptr noundef nonnull readonly %0, i32 noundef %74, i32 noundef %149)
   %.not39.i = icmp eq ptr %150, null
@@ -1069,8 +1069,8 @@ fdt_next_node.exit:                               ; preds = %fdt_next_tag.exit
   %.not78 = icmp eq i32 %.142, 0
   br i1 %.not78, label %fdt_next_node.exit.thread, label %20, !llvm.loop !11
 
-fdt_next_node.exit.thread:                        ; preds = %fdt_check_node_offset_.exit.i, %161, %fdt_next_node.exit, %28, %156, %94, %.backedge.i, %72, %.critedge.i, %fdt_offset_ptr.exit11._crit_edge, %137, %fdt_next_tag.exit, %.preheader.i, %120, %118, %fdt_check_node_offset_.exit.thread.i
-  %.05 = phi i32 [ -1, %fdt_check_node_offset_.exit.thread.i ], [ -1, %118 ], [ -1, %120 ], [ -1, %.preheader.i ], [ -1, %fdt_next_tag.exit ], [ -1, %137 ], [ -1, %fdt_offset_ptr.exit11._crit_edge ], [ -1, %.critedge.i ], [ -1, %72 ], [ -1, %.backedge.i ], [ -1, %94 ], [ -1, %156 ], [ -1, %28 ], [ -1, %fdt_check_node_offset_.exit.i ], [ %74, %161 ], [ -1, %fdt_next_node.exit ]
+fdt_next_node.exit.thread:                        ; preds = %fdt_check_node_offset_.exit.i, %161, %fdt_next_node.exit, %28, %156, %94, %72, %.backedge.i, %.critedge.i, %fdt_offset_ptr.exit11._crit_edge, %137, %fdt_next_tag.exit, %.preheader.i, %120, %118, %fdt_check_node_offset_.exit.thread.i
+  %.05 = phi i32 [ -1, %156 ], [ -1, %fdt_check_node_offset_.exit.thread.i ], [ -1, %.preheader.i ], [ -1, %118 ], [ -1, %120 ], [ -1, %fdt_next_tag.exit ], [ -1, %137 ], [ -1, %fdt_offset_ptr.exit11._crit_edge ], [ -1, %.critedge.i ], [ -1, %.backedge.i ], [ -1, %72 ], [ -1, %94 ], [ -1, %28 ], [ -1, %fdt_check_node_offset_.exit.i ], [ %74, %161 ], [ -1, %fdt_next_node.exit ]
   ret i32 %.05
 }
 
@@ -1139,7 +1139,7 @@ define range(i32 -10, 1) i32 @fdt_move(ptr noundef readonly captures(none) %0, p
   br label %28
 
 28:                                               ; preds = %3, %6, %26
-  %.1 = phi i32 [ 0, %26 ], [ %4, %3 ], [ -3, %6 ]
+  %.1 = phi i32 [ %4, %3 ], [ 0, %26 ], [ -3, %6 ]
   ret i32 %.1
 }
 

@@ -135,7 +135,7 @@ define internal range(i32 -20, 1) i32 @archive_compressor_bzip2_options(ptr noun
   br label %17
 
 17:                                               ; preds = %3, %9, %12, %15
-  %.0 = phi i32 [ 0, %15 ], [ -20, %12 ], [ -20, %9 ], [ -20, %3 ]
+  %.0 = phi i32 [ -20, %3 ], [ 0, %15 ], [ -20, %12 ], [ -20, %9 ]
   ret i32 %.0
 }
 
@@ -266,7 +266,7 @@ define internal range(i32 -30, 1) i32 @archive_compressor_bzip2_open(ptr noundef
   br label %20
 
 20:                                               ; preds = %12, %17, %16, %7
-  %.035 = phi i64 [ %19, %17 ], [ 65536, %16 ], [ 65536, %7 ], [ %14, %12 ]
+  %.035 = phi i64 [ 65536, %7 ], [ %19, %17 ], [ 65536, %16 ], [ %14, %12 ]
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 104
   store i64 %.035, ptr %21, align 8, !tbaa !27
   %22 = tail call noalias ptr @malloc(i64 noundef %.035) #12

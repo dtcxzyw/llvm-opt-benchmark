@@ -14869,7 +14869,7 @@ define internal i32 @glk_color_check(ptr noundef %0) #0 align 16 {
   br label %31
 
 31:                                               ; preds = %.thread13, %25, %.thread
-  %32 = phi i32 [ %21, %.thread ], [ %30, %25 ], [ %12, %.thread13 ]
+  %32 = phi i32 [ %21, %.thread ], [ %12, %.thread13 ], [ %30, %25 ]
   %33 = tail call fastcc i32 @_check_luts(ptr noundef %0, i32 noundef %7, i32 noundef %32), !range !42
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %35, label %302
@@ -16646,9 +16646,9 @@ define internal i32 @ivb_color_check(ptr noundef %0) #0 align 16 {
   br label %71
 
 71:                                               ; preds = %.thread, %67
-  %72 = phi ptr [ %.pr, %67 ], [ null, %.thread ]
-  %73 = phi i1 [ false, %67 ], [ true, %.thread ]
-  %74 = phi i1 [ %26, %67 ], [ %spec.select, %.thread ]
+  %72 = phi ptr [ null, %.thread ], [ %.pr, %67 ]
+  %73 = phi i1 [ true, %.thread ], [ false, %67 ]
+  %74 = phi i1 [ %spec.select, %.thread ], [ %26, %67 ]
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 4752
   %76 = zext i1 %74 to i8
   store i8 %76, ptr %75, align 8
@@ -17623,10 +17623,10 @@ define internal void @bdw_read_luts(ptr noundef captures(none) %0) #0 align 16 {
   br label %20
 
 20:                                               ; preds = %14, %.thread, %.thread9
-  %21 = phi i8 [ 0, %.thread9 ], [ %.pre, %.thread ], [ 1, %14 ]
-  %22 = phi ptr [ %13, %.thread9 ], [ %7, %.thread ], [ %19, %14 ]
-  %23 = phi ptr [ %12, %.thread9 ], [ %6, %.thread ], [ %18, %14 ]
-  %24 = phi ptr [ %13, %.thread9 ], [ %6, %.thread ], [ %spec.select, %14 ]
+  %21 = phi i8 [ 0, %.thread9 ], [ 1, %14 ], [ %.pre, %.thread ]
+  %22 = phi ptr [ %13, %.thread9 ], [ %19, %14 ], [ %7, %.thread ]
+  %23 = phi ptr [ %12, %.thread9 ], [ %18, %14 ], [ %6, %.thread ]
+  %24 = phi ptr [ %13, %.thread9 ], [ %spec.select, %14 ], [ %6, %.thread ]
   %25 = or i8 %21, %4
   %26 = icmp eq i8 %25, 0
   br i1 %26, label %43, label %27
@@ -18909,10 +18909,10 @@ define internal void @ivb_read_luts(ptr noundef captures(none) %0) #0 align 16 {
   br label %20
 
 20:                                               ; preds = %14, %.thread, %.thread9
-  %21 = phi i8 [ 0, %.thread9 ], [ %.pre, %.thread ], [ 1, %14 ]
-  %22 = phi ptr [ %13, %.thread9 ], [ %7, %.thread ], [ %19, %14 ]
-  %23 = phi ptr [ %12, %.thread9 ], [ %6, %.thread ], [ %18, %14 ]
-  %24 = phi ptr [ %13, %.thread9 ], [ %6, %.thread ], [ %spec.select, %14 ]
+  %21 = phi i8 [ 0, %.thread9 ], [ 1, %14 ], [ %.pre, %.thread ]
+  %22 = phi ptr [ %13, %.thread9 ], [ %19, %14 ], [ %7, %.thread ]
+  %23 = phi ptr [ %12, %.thread9 ], [ %18, %14 ], [ %6, %.thread ]
+  %24 = phi ptr [ %13, %.thread9 ], [ %spec.select, %14 ], [ %6, %.thread ]
   %25 = or i8 %21, %4
   %26 = icmp eq i8 %25, 0
   br i1 %26, label %43, label %27
@@ -20015,8 +20015,8 @@ define internal void @ilk_read_luts(ptr noundef captures(none) %0) #0 align 16 {
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %1, %10, %8
-  %16 = phi i8 [ 0, %8 ], [ 1, %10 ], [ %7, %1 ]
-  %17 = phi i64 [ 736, %8 ], [ %15, %10 ], [ 744, %1 ]
+  %16 = phi i8 [ 1, %10 ], [ 0, %8 ], [ %7, %1 ]
+  %17 = phi i64 [ %15, %10 ], [ 736, %8 ], [ 744, %1 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 %17
   %19 = or i8 %16, %4
   %20 = icmp eq i8 %19, 0

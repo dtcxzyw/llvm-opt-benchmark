@@ -1141,7 +1141,7 @@ H5P__facc_set_def_driver_check_predefined.exitthread-pre-split: ; preds = %29
   br label %H5P__facc_set_def_driver_check_predefined.exit
 
 H5P__facc_set_def_driver_check_predefined.exit:   ; preds = %H5P__facc_set_def_driver_check_predefined.exitthread-pre-split, %96, %87, %78, %67, %58, %49, %38
-  %149 = phi i64 [ %.pr, %H5P__facc_set_def_driver_check_predefined.exitthread-pre-split ], [ %97, %96 ], [ %88, %87 ], [ %79, %78 ], [ %68, %67 ], [ %59, %58 ], [ %50, %49 ], [ %39, %38 ]
+  %149 = phi i64 [ %.pr, %H5P__facc_set_def_driver_check_predefined.exitthread-pre-split ], [ %39, %38 ], [ %97, %96 ], [ %88, %87 ], [ %79, %78 ], [ %68, %67 ], [ %59, %58 ], [ %50, %49 ]
   %150 = icmp sgt i64 %149, 0
   br i1 %150, label %151, label %158
 
@@ -1228,7 +1228,7 @@ H5P__facc_set_def_driver_check_predefined.exit:   ; preds = %H5P__facc_set_def_d
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.thread
 
-.thread48:                                        ; preds = %161, %154, %145, %25, %16
+.thread48:                                        ; preds = %154, %145, %161, %25, %16
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.thread
 
@@ -1249,8 +1249,8 @@ H5P__facc_set_def_driver_check_predefined.exit:   ; preds = %H5P__facc_set_def_d
   %212 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5P__facc_set_def_driver, i32 noundef 934, i64 noundef %210, i64 noundef %211, ptr noundef nonnull @.str.14) #15
   br label %.thread
 
-.thread:                                          ; preds = %9, %11, %.thread48, %202, %0, %203, %206, %209
-  %.026 = phi i32 [ -1, %209 ], [ -1, %206 ], [ -1, %203 ], [ 0, %202 ], [ 0, %0 ], [ -1, %.thread48 ], [ 0, %11 ], [ 0, %9 ]
+.thread:                                          ; preds = %11, %9, %.thread48, %202, %0, %203, %206, %209
+  %.026 = phi i32 [ -1, %209 ], [ -1, %206 ], [ -1, %203 ], [ 0, %202 ], [ 0, %0 ], [ -1, %.thread48 ], [ 0, %9 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.026
 }
@@ -1355,7 +1355,7 @@ define range(i32 -1, 1) i32 @H5P_set_driver(ptr noundef %0, i64 noundef %1, ptr 
   br label %48
 
 48:                                               ; preds = %18, %44, %24, %14, %43
-  %.012 = phi i32 [ -1, %14 ], [ -1, %24 ], [ %.1, %43 ], [ -1, %44 ], [ 0, %18 ]
+  %.012 = phi i32 [ -1, %14 ], [ -1, %24 ], [ 0, %18 ], [ %.1, %43 ], [ -1, %44 ]
   ret i32 %.012
 }
 
@@ -1810,7 +1810,7 @@ define range(i32 -1, 1) i32 @H5P_set_driver_by_name(ptr noundef %0, ptr noundef 
   br label %.thread
 
 .thread:                                          ; preds = %23, %13, %27, %36, %30, %17
-  %.1 = phi i32 [ -1, %36 ], [ -1, %30 ], [ 0, %17 ], [ 0, %27 ], [ -1, %23 ], [ -1, %13 ]
+  %.1 = phi i32 [ -1, %36 ], [ -1, %30 ], [ -1, %13 ], [ 0, %17 ], [ 0, %27 ], [ -1, %23 ]
   ret i32 %.1
 }
 
@@ -2002,7 +2002,7 @@ define range(i32 -1, 1) i32 @H5P_set_driver_by_value(ptr noundef %0, i32 noundef
   br label %.thread
 
 .thread:                                          ; preds = %23, %13, %27, %36, %30, %17
-  %.1 = phi i32 [ -1, %36 ], [ -1, %30 ], [ 0, %17 ], [ 0, %27 ], [ -1, %23 ], [ -1, %13 ]
+  %.1 = phi i32 [ -1, %36 ], [ -1, %30 ], [ -1, %13 ], [ 0, %17 ], [ 0, %27 ], [ -1, %23 ]
   ret i32 %.1
 }
 
@@ -2375,7 +2375,7 @@ define ptr @H5P_peek_driver_info(ptr noundef %0) local_unnamed_addr #0 {
   br label %39
 
 39:                                               ; preds = %15, %35, %11, %34
-  %.07 = phi ptr [ null, %11 ], [ %.1, %34 ], [ null, %35 ], [ null, %15 ]
+  %.07 = phi ptr [ null, %11 ], [ null, %15 ], [ %.1, %34 ], [ null, %35 ]
   ret ptr %.07
 }
 
@@ -2553,7 +2553,7 @@ define ptr @H5P_peek_driver_config_str(ptr noundef %0) local_unnamed_addr #0 {
   br label %39
 
 39:                                               ; preds = %15, %35, %11, %34
-  %.07 = phi ptr [ null, %11 ], [ %.1, %34 ], [ null, %35 ], [ null, %15 ]
+  %.07 = phi ptr [ null, %11 ], [ null, %15 ], [ %.1, %34 ], [ null, %35 ]
   ret ptr %.07
 }
 
@@ -2661,8 +2661,8 @@ define i64 @H5Pget_driver_config_str(i64 noundef %0, ptr noundef %1, i64 noundef
   store i8 0, ptr %61, align 1, !tbaa !21
   br label %.thread44
 
-.thread44:                                        ; preds = %53, %55, %59, %57
-  %.023.ph.ph = phi i64 [ %56, %57 ], [ %56, %59 ], [ %56, %55 ], [ 0, %53 ]
+.thread44:                                        ; preds = %53, %59, %57, %55
+  %.023.ph.ph = phi i64 [ %56, %55 ], [ %56, %57 ], [ %56, %59 ], [ 0, %53 ]
   %62 = call i32 @H5CX_pop(i1 noundef zeroext true) #15
   br label %66
 
@@ -5497,7 +5497,7 @@ define range(i32 -1, -2147483648) i32 @H5Pset_file_image(i64 noundef %0, ptr nou
   %46 = icmp ne ptr %1, null
   %47 = icmp ne i64 %2, 0
   %or.cond3 = and i1 %46, %47
-  br i1 %or.cond3, label %52, label %48
+  br i1 %or.cond3, label %52, label %48, !prof !37
 
 48:                                               ; preds = %45
   %49 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !3
@@ -5703,7 +5703,7 @@ define range(i32 -1, -2147483648) i32 @H5Pset_file_image(i64 noundef %0, ptr nou
   %158 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pset_file_image, i32 noundef 3052, i64 noundef %156, i64 noundef %157, ptr noundef nonnull @.str.103) #15
   br label %.thread108
 
-.thread108:                                       ; preds = %.thread76, %.thread, %48, %121, %155, %114, %88, %63, %56, %145, %.thread81
+.thread108:                                       ; preds = %48, %.thread, %121, %.thread76, %155, %114, %88, %63, %56, %145, %.thread81
   %159 = call i32 @H5CX_pop(i1 noundef zeroext true) #15
   br label %.thread102
 
@@ -5890,7 +5890,7 @@ define range(i32 -1, 1) i32 @H5Pget_file_image(i64 noundef %0, ptr noundef write
   %89 = load i64, ptr %88, align 8, !tbaa !47
   %90 = call noalias ptr @malloc(i64 noundef %89) #17
   %91 = icmp eq ptr %90, null
-  br i1 %91, label %92, label %96
+  br i1 %91, label %92, label %96, !prof !30
 
 92:                                               ; preds = %87
   %93 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !3
@@ -5951,11 +5951,11 @@ define range(i32 -1, 1) i32 @H5Pget_file_image(i64 noundef %0, ptr noundef write
   br label %124
 
 124:                                              ; preds = %115, %120, %61
-  %.034 = phi ptr [ %.236, %120 ], [ null, %61 ], [ %.236, %115 ]
+  %.034 = phi ptr [ null, %61 ], [ %.236, %120 ], [ %.236, %115 ]
   store ptr %.034, ptr %1, align 8, !tbaa !48
   br label %126
 
-.thread92:                                        ; preds = %.thread, %92, %83, %52, %45, %116, %.thread64
+.thread92:                                        ; preds = %92, %.thread, %83, %52, %45, %116, %.thread64
   %125 = call i32 @H5CX_pop(i1 noundef zeroext true) #15
   br label %.thread86
 
@@ -6249,7 +6249,7 @@ define range(i32 -1, -2147483648) i32 @H5Pset_file_image_callbacks(i64 noundef %
   br label %.loopexit.thread116
 
 .loopexit.thread116:                              ; preds = %.split.us, %155
-  %.553.ph = phi i32 [ %147, %.split.us ], [ -1, %155 ]
+  %.553.ph = phi i32 [ -1, %155 ], [ %147, %.split.us ]
   %159 = call i32 @H5CX_pop(i1 noundef zeroext true) #15
   br label %.loopexit.thread111
 
@@ -6656,7 +6656,7 @@ define range(i32 -1, 1) i32 @H5Pget_metadata_read_attempts(i64 noundef %0, ptr n
   br label %61
 
 61:                                               ; preds = %.thread36, %.thread30
-  %.0182533 = phi i32 [ -1, %.thread30 ], [ 0, %.thread36 ]
+  %.0182533 = phi i32 [ 0, %.thread36 ], [ -1, %.thread30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0182533
 }
@@ -8093,7 +8093,7 @@ define range(i32 -1, 1) i32 @H5P_set_vol(ptr noundef %0, ptr noundef %1, ptr nou
   br label %39
 
 39:                                               ; preds = %17, %35, %13, %34
-  %.09 = phi i32 [ -1, %13 ], [ %.1, %34 ], [ -1, %35 ], [ 0, %17 ]
+  %.09 = phi i32 [ -1, %13 ], [ 0, %17 ], [ %.1, %34 ], [ -1, %35 ]
   ret i32 %.09
 }
 
@@ -9182,7 +9182,7 @@ define internal noundef i32 @H5P__facc_cache_config_enc(ptr noundef readonly cap
   br label %H5VM_limit_enc_size.exit
 
 H5VM_limit_enc_size.exit:                         ; preds = %96, %101, %108, %113, %122, %127, %134, %139
-  %.0.i.i = phi i32 [ %100, %96 ], [ %105, %101 ], [ %112, %108 ], [ %117, %113 ], [ %126, %122 ], [ %131, %127 ], [ %138, %134 ], [ %142, %139 ]
+  %.0.i.i = phi i32 [ %131, %127 ], [ %105, %101 ], [ %117, %113 ], [ %100, %96 ], [ %112, %108 ], [ %126, %122 ], [ %138, %134 ], [ %142, %139 ]
   %143 = lshr i32 %.0.i.i, 3
   %144 = add nuw nsw i32 %143, 1
   %145 = trunc nuw nsw i32 %144 to i8
@@ -9320,7 +9320,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %96, %101, %108, %11
   br label %H5VM_limit_enc_size.exit396
 
 H5VM_limit_enc_size.exit396:                      ; preds = %173, %178, %185, %190, %199, %204, %211, %216
-  %.0.i.i391 = phi i32 [ %177, %173 ], [ %182, %178 ], [ %189, %185 ], [ %194, %190 ], [ %203, %199 ], [ %208, %204 ], [ %215, %211 ], [ %219, %216 ]
+  %.0.i.i391 = phi i32 [ %208, %204 ], [ %182, %178 ], [ %194, %190 ], [ %177, %173 ], [ %189, %185 ], [ %203, %199 ], [ %215, %211 ], [ %219, %216 ]
   %220 = lshr i32 %.0.i.i391, 3
   %221 = add nuw nsw i32 %220, 1
   %222 = trunc nuw nsw i32 %221 to i8
@@ -9438,7 +9438,7 @@ H5VM_limit_enc_size.exit396:                      ; preds = %173, %178, %185, %1
   br label %H5VM_limit_enc_size.exit405
 
 H5VM_limit_enc_size.exit405:                      ; preds = %241, %246, %253, %258, %267, %272, %279, %284
-  %.0.i.i400 = phi i32 [ %245, %241 ], [ %250, %246 ], [ %257, %253 ], [ %262, %258 ], [ %271, %267 ], [ %276, %272 ], [ %283, %279 ], [ %287, %284 ]
+  %.0.i.i400 = phi i32 [ %276, %272 ], [ %250, %246 ], [ %262, %258 ], [ %245, %241 ], [ %257, %253 ], [ %271, %267 ], [ %283, %279 ], [ %287, %284 ]
   %288 = lshr i32 %.0.i.i400, 3
   %289 = add nuw nsw i32 %288, 1
   %290 = trunc nuw nsw i32 %289 to i8
@@ -9640,7 +9640,7 @@ H5VM_limit_enc_size.exit405:                      ; preds = %241, %246, %253, %2
   br label %H5VM_limit_enc_size.exit414
 
 H5VM_limit_enc_size.exit414:                      ; preds = %352, %357, %364, %369, %378, %383, %390, %395
-  %.0.i.i409 = phi i32 [ %356, %352 ], [ %361, %357 ], [ %368, %364 ], [ %373, %369 ], [ %382, %378 ], [ %387, %383 ], [ %394, %390 ], [ %398, %395 ]
+  %.0.i.i409 = phi i32 [ %387, %383 ], [ %361, %357 ], [ %373, %369 ], [ %356, %352 ], [ %368, %364 ], [ %382, %378 ], [ %394, %390 ], [ %398, %395 ]
   %399 = lshr i32 %.0.i.i409, 3
   %400 = add nuw nsw i32 %399, 1
   %401 = trunc nuw nsw i32 %400 to i8
@@ -9868,7 +9868,7 @@ H5VM_limit_enc_size.exit414:                      ; preds = %352, %357, %364, %3
   br label %H5VM_limit_enc_size.exit423
 
 H5VM_limit_enc_size.exit423:                      ; preds = %476, %481, %488, %493, %502, %507, %514, %519
-  %.0.i.i418 = phi i32 [ %480, %476 ], [ %485, %481 ], [ %492, %488 ], [ %497, %493 ], [ %506, %502 ], [ %511, %507 ], [ %518, %514 ], [ %522, %519 ]
+  %.0.i.i418 = phi i32 [ %511, %507 ], [ %485, %481 ], [ %497, %493 ], [ %480, %476 ], [ %492, %488 ], [ %506, %502 ], [ %518, %514 ], [ %522, %519 ]
   %523 = lshr i32 %.0.i.i418, 3
   %524 = add nuw nsw i32 %523, 1
   %525 = trunc nuw nsw i32 %524 to i8
@@ -10112,7 +10112,7 @@ H5VM_limit_enc_size.exit423:                      ; preds = %476, %481, %488, %4
   br label %H5VM_limit_enc_size.exit432
 
 H5VM_limit_enc_size.exit432:                      ; preds = %624, %629, %636, %641, %650, %655, %662, %667
-  %.0.i.i427 = phi i32 [ %628, %624 ], [ %633, %629 ], [ %640, %636 ], [ %645, %641 ], [ %654, %650 ], [ %659, %655 ], [ %666, %662 ], [ %670, %667 ]
+  %.0.i.i427 = phi i32 [ %659, %655 ], [ %633, %629 ], [ %645, %641 ], [ %628, %624 ], [ %640, %636 ], [ %654, %650 ], [ %666, %662 ], [ %670, %667 ]
   %671 = lshr i32 %.0.i.i427, 3
   %672 = add nuw nsw i32 %671, 2
   %673 = zext nneg i32 %672 to i64
@@ -10211,7 +10211,7 @@ H5VM_limit_enc_size.exit432:                      ; preds = %624, %629, %636, %6
   br label %H5VM_limit_enc_size.exit441
 
 H5VM_limit_enc_size.exit441:                      ; preds = %683, %688, %695, %700, %709, %714, %721, %726
-  %.0.i.i436 = phi i32 [ %687, %683 ], [ %692, %688 ], [ %699, %695 ], [ %704, %700 ], [ %713, %709 ], [ %718, %714 ], [ %725, %721 ], [ %729, %726 ]
+  %.0.i.i436 = phi i32 [ %718, %714 ], [ %692, %688 ], [ %704, %700 ], [ %687, %683 ], [ %699, %695 ], [ %713, %709 ], [ %725, %721 ], [ %729, %726 ]
   %730 = lshr i32 %.0.i.i436, 3
   %731 = add nuw nsw i32 %730, 2
   %732 = zext nneg i32 %731 to i64
@@ -10309,7 +10309,7 @@ H5VM_limit_enc_size.exit441:                      ; preds = %683, %688, %695, %7
   br label %H5VM_limit_enc_size.exit450
 
 H5VM_limit_enc_size.exit450:                      ; preds = %741, %746, %753, %758, %767, %772, %779, %784
-  %.0.i.i445 = phi i32 [ %745, %741 ], [ %750, %746 ], [ %757, %753 ], [ %762, %758 ], [ %771, %767 ], [ %776, %772 ], [ %783, %779 ], [ %787, %784 ]
+  %.0.i.i445 = phi i32 [ %776, %772 ], [ %750, %746 ], [ %762, %758 ], [ %745, %741 ], [ %757, %753 ], [ %771, %767 ], [ %783, %779 ], [ %787, %784 ]
   %788 = lshr i32 %.0.i.i445, 3
   %789 = add nuw nsw i32 %788, 2
   %790 = zext nneg i32 %789 to i64
@@ -10407,7 +10407,7 @@ H5VM_limit_enc_size.exit450:                      ; preds = %741, %746, %753, %7
   br label %H5VM_limit_enc_size.exit459
 
 H5VM_limit_enc_size.exit459:                      ; preds = %799, %804, %811, %816, %825, %830, %837, %842
-  %.0.i.i454 = phi i32 [ %803, %799 ], [ %808, %804 ], [ %815, %811 ], [ %820, %816 ], [ %829, %825 ], [ %834, %830 ], [ %841, %837 ], [ %845, %842 ]
+  %.0.i.i454 = phi i32 [ %834, %830 ], [ %808, %804 ], [ %820, %816 ], [ %803, %799 ], [ %815, %811 ], [ %829, %825 ], [ %841, %837 ], [ %845, %842 ]
   %846 = lshr i32 %.0.i.i454, 3
   %847 = add nuw nsw i32 %846, 2
   %848 = zext nneg i32 %847 to i64
@@ -10505,7 +10505,7 @@ H5VM_limit_enc_size.exit459:                      ; preds = %799, %804, %811, %8
   br label %H5VM_limit_enc_size.exit468
 
 H5VM_limit_enc_size.exit468:                      ; preds = %857, %862, %869, %874, %883, %888, %895, %900
-  %.0.i.i463 = phi i32 [ %861, %857 ], [ %866, %862 ], [ %873, %869 ], [ %878, %874 ], [ %887, %883 ], [ %892, %888 ], [ %899, %895 ], [ %903, %900 ]
+  %.0.i.i463 = phi i32 [ %892, %888 ], [ %866, %862 ], [ %878, %874 ], [ %861, %857 ], [ %873, %869 ], [ %887, %883 ], [ %899, %895 ], [ %903, %900 ]
   %904 = lshr i32 %.0.i.i463, 3
   %905 = add nuw nsw i32 %904, 2
   %906 = zext nneg i32 %905 to i64
@@ -11840,7 +11840,7 @@ define internal i32 @H5P__facc_file_driver_cmp(ptr noundef readonly captures(non
   br label %.thread54
 
 .thread54:                                        ; preds = %18, %49, %52, %50, %42, %41, %40, %32, %26, %.thread, %24, %14, %10, %3
-  %.0 = phi i32 [ 0, %3 ], [ -1, %10 ], [ 1, %14 ], [ 1, %24 ], [ %25, %.thread ], [ -1, %26 ], [ 1, %32 ], [ -1, %40 ], [ 1, %41 ], [ %43, %42 ], [ 1, %50 ], [ %53, %52 ], [ %spec.select, %49 ], [ -1, %18 ]
+  %.0 = phi i32 [ 0, %3 ], [ -1, %10 ], [ 1, %14 ], [ %53, %52 ], [ 1, %24 ], [ %25, %.thread ], [ -1, %26 ], [ 1, %32 ], [ -1, %40 ], [ 1, %41 ], [ %43, %42 ], [ %spec.select, %49 ], [ 1, %50 ], [ -1, %18 ]
   ret i32 %.0
 }
 
@@ -12244,7 +12244,7 @@ define internal i32 @H5P__facc_file_image_info_cmp(ptr noundef readonly captures
   br label %.thread46
 
 .thread46:                                        ; preds = %61, %59, %54, %48, %43, %38, %33, %28, %23, %18, %16, %10, %62, %3
-  %.0 = phi i32 [ %63, %62 ], [ 0, %3 ], [ -1, %10 ], [ 1, %16 ], [ 1, %18 ], [ -1, %23 ], [ 1, %28 ], [ -1, %33 ], [ 1, %38 ], [ -1, %43 ], [ -1, %48 ], [ 1, %54 ], [ -1, %59 ], [ %spec.select, %61 ]
+  %.0 = phi i32 [ 0, %3 ], [ -1, %10 ], [ 1, %16 ], [ 1, %18 ], [ -1, %23 ], [ 1, %28 ], [ -1, %33 ], [ 1, %38 ], [ -1, %43 ], [ -1, %48 ], [ 1, %54 ], [ -1, %59 ], [ %63, %62 ], [ %spec.select, %61 ]
   ret i32 %.0
 }
 
@@ -12386,8 +12386,8 @@ define internal noundef i32 @H5P__facc_mdc_log_location_enc(ptr noundef readonly
   br label %H5VM_limit_enc_size.exit
 
 H5VM_limit_enc_size.exit:                         ; preds = %19, %24, %31, %36, %45, %50, %57, %.thread45
-  %.03239 = phi i64 [ %13, %19 ], [ %13, %24 ], [ %13, %31 ], [ %13, %36 ], [ %13, %45 ], [ %13, %50 ], [ %13, %57 ], [ %.032404448, %.thread45 ]
-  %.0.i.i = phi i32 [ %23, %19 ], [ %28, %24 ], [ %35, %31 ], [ %40, %36 ], [ %49, %45 ], [ %54, %50 ], [ %61, %57 ], [ %64, %.thread45 ]
+  %.03239 = phi i64 [ %13, %50 ], [ %13, %24 ], [ %13, %36 ], [ %13, %19 ], [ %13, %31 ], [ %13, %45 ], [ %13, %57 ], [ %.032404448, %.thread45 ]
+  %.0.i.i = phi i32 [ %54, %50 ], [ %28, %24 ], [ %40, %36 ], [ %23, %19 ], [ %35, %31 ], [ %49, %45 ], [ %61, %57 ], [ %64, %.thread45 ]
   %65 = lshr i32 %.0.i.i, 3
   %66 = load ptr, ptr %1, align 8, !tbaa !59
   %.not36 = icmp eq ptr %66, null
@@ -12609,7 +12609,7 @@ define internal i32 @H5P__facc_mdc_log_location_cmp(ptr noundef readonly capture
   br label %21
 
 21:                                               ; preds = %15, %12, %19, %18, %3
-  %.0 = phi i32 [ %20, %19 ], [ 0, %18 ], [ 0, %3 ], [ 1, %12 ], [ -1, %15 ]
+  %.0 = phi i32 [ 0, %3 ], [ 1, %12 ], [ %20, %19 ], [ 0, %18 ], [ -1, %15 ]
   ret i32 %.0
 }
 
@@ -13277,7 +13277,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5P__file_driver_copy(ptr noundef c
   br label %.thread
 
 .thread:                                          ; preds = %53, %47, %37, %26, %63, %67, %1, %9, %58, %15
-  %.034 = phi i32 [ 0, %1 ], [ -1, %15 ], [ 0, %58 ], [ 0, %9 ], [ -1, %63 ], [ 0, %67 ], [ -1, %26 ], [ -1, %37 ], [ -1, %47 ], [ -1, %53 ]
+  %.034 = phi i32 [ 0, %1 ], [ -1, %15 ], [ 0, %67 ], [ 0, %9 ], [ 0, %58 ], [ -1, %63 ], [ -1, %26 ], [ -1, %37 ], [ -1, %47 ], [ -1, %53 ]
   ret i32 %.034
 }
 
@@ -13529,7 +13529,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5P__file_image_info_copy(ptr nound
   br label %.thread82
 
 .thread82:                                        ; preds = %.thread76, %69, %.thread, %44, %37, %81, %96, %1, %74
-  %.056 = phi i32 [ 0, %1 ], [ 0, %74 ], [ -1, %81 ], [ %.11, %96 ], [ -1, %37 ], [ -1, %44 ], [ -1, %.thread ], [ -1, %69 ], [ -1, %.thread76 ]
+  %.056 = phi i32 [ 0, %1 ], [ -1, %.thread ], [ 0, %74 ], [ -1, %81 ], [ %.11, %96 ], [ -1, %37 ], [ -1, %44 ], [ -1, %69 ], [ -1, %.thread76 ]
   ret i32 %.056
 }
 
@@ -13658,7 +13658,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5P__file_image_info_free
   br label %70
 
 70:                                               ; preds = %.thread41, %.thread, %1, %41, %64, %66, %48, %35
-  %.029 = phi i32 [ 0, %1 ], [ -1, %35 ], [ -1, %48 ], [ -1, %66 ], [ %58, %64 ], [ %.130, %41 ], [ -1, %.thread ], [ -1, %.thread41 ]
+  %.029 = phi i32 [ 0, %1 ], [ -1, %35 ], [ -1, %48 ], [ -1, %66 ], [ -1, %.thread ], [ %58, %64 ], [ %.130, %41 ], [ -1, %.thread41 ]
   ret i32 %.029
 }
 

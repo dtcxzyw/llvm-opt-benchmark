@@ -556,7 +556,7 @@ _ZN13MonitorLocker4waitEl.exit18.backedge:        ; preds = %29, %32
   br label %.thread27
 
 .thread27:                                        ; preds = %_ZN13MonitorLocker4waitEl.exit, %35, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread
-  %.025 = phi i32 [ 0, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread ], [ 0, %_ZN13MonitorLocker4waitEl.exit ], [ %.013, %35 ]
+  %.025 = phi i32 [ 0, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread ], [ %.013, %35 ], [ 0, %_ZN13MonitorLocker4waitEl.exit ]
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #11
   br label %_ZN13MonitorLockerD2Ev.exit
 

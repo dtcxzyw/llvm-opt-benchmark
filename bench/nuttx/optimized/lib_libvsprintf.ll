@@ -340,8 +340,8 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
   br label %150
 
 150:                                              ; preds = %147, %144, %135
-  %.not572 = phi i1 [ false, %135 ], [ false, %144 ], [ %.not568, %147 ]
-  %.0435 = phi i32 [ 45, %135 ], [ 43, %144 ], [ %149, %147 ]
+  %.not572 = phi i1 [ %.not568, %147 ], [ false, %135 ], [ false, %144 ]
+  %.0435 = phi i32 [ %149, %147 ], [ 45, %135 ], [ 43, %144 ]
   %151 = and i8 %142, 12
   %.not569 = icmp eq i8 %151, 0
   br i1 %.not569, label %179, label %152
@@ -372,8 +372,8 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
   br label %.loopexit55
 
 .loopexit55:                                      ; preds = %.loopexit55.loopexit, %152, %155
-  %.4488 = phi i32 [ %156, %155 ], [ 0, %152 ], [ 0, %.loopexit55.loopexit ]
-  %.3454 = phi i32 [ %.1452.ph, %155 ], [ %.1452.ph, %152 ], [ %162, %.loopexit55.loopexit ]
+  %.4488 = phi i32 [ 0, %152 ], [ %156, %155 ], [ 0, %.loopexit55.loopexit ]
+  %.3454 = phi i32 [ %.1452.ph, %152 ], [ %.1452.ph, %155 ], [ %162, %.loopexit55.loopexit ]
   br i1 %.not572, label %166, label %163
 
 163:                                              ; preds = %.loopexit55
@@ -460,9 +460,9 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
   br label %201
 
 201:                                              ; preds = %193, %199, %197, %179
-  %.4480 = phi i32 [ %198, %197 ], [ %200, %199 ], [ %spec.select590, %179 ], [ 0, %193 ]
-  %.9450 = phi i16 [ %194, %197 ], [ %.8449, %199 ], [ %.8449, %179 ], [ %194, %193 ]
-  %.2432 = phi i8 [ %.3433.lcssa87, %197 ], [ %.3433.lcssa87, %199 ], [ %140, %179 ], [ %.3433.lcssa87, %193 ]
+  %.4480 = phi i32 [ %198, %197 ], [ %spec.select590, %179 ], [ %200, %199 ], [ 0, %193 ]
+  %.9450 = phi i16 [ %194, %197 ], [ %.8449, %179 ], [ %.8449, %199 ], [ %194, %193 ]
+  %.2432 = phi i8 [ %.3433.lcssa87, %197 ], [ %140, %179 ], [ %.3433.lcssa87, %199 ], [ %.3433.lcssa87, %193 ]
   %.4480.fr = freeze i32 %.4480
   %202 = zext i16 %.9450 to i32
   %.not571 = icmp sgt i16 %.9450, -1
@@ -680,7 +680,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
   br label %.loopexit47
 
 .loopexit47:                                      ; preds = %292, %296, %299
-  %.15466 = phi i32 [ %300, %299 ], [ %297, %296 ], [ %284, %292 ]
+  %.15466 = phi i32 [ %297, %296 ], [ %300, %299 ], [ %284, %292 ]
   %302 = load ptr, ptr %6, align 8
   %303 = and i32 %202, 8192
   %.not578 = icmp eq i32 %303, 0
@@ -1160,9 +1160,9 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
   br label %538
 
 538:                                              ; preds = %.loopexit, %529, %526, %507
-  %.13 = phi i16 [ %508, %507 ], [ %spec.select601, %526 ], [ %spec.select602, %529 ], [ %537, %.loopexit ]
-  %.0422 = phi i32 [ 10, %507 ], [ 16, %526 ], [ 528, %529 ], [ 8, %.loopexit ]
-  %.8 = phi ptr [ %.4152540, %507 ], [ %.7, %526 ], [ %.4152540, %529 ], [ %.4152540, %.loopexit ]
+  %.13 = phi i16 [ %508, %507 ], [ %spec.select602, %529 ], [ %spec.select601, %526 ], [ %537, %.loopexit ]
+  %.0422 = phi i32 [ 10, %507 ], [ 528, %529 ], [ 16, %526 ], [ 8, %.loopexit ]
+  %.8 = phi ptr [ %.4152540, %507 ], [ %.4152540, %529 ], [ %.7, %526 ], [ %.4152540, %.loopexit ]
   %539 = and i16 %.13, 256
   %540 = icmp ne i16 %539, 0
   %541 = icmp eq i32 %.2478112738, 0
@@ -1185,12 +1185,12 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
   br label %550
 
 550:                                              ; preds = %446, %548
-  %.pre-phi = phi i16 [ %441, %446 ], [ %.pre, %548 ]
-  %.2478112737 = phi i32 [ %.0476, %446 ], [ %.2478112738, %548 ]
-  %.2486102835 = phi i32 [ %.0484, %446 ], [ %.2486102836, %548 ]
-  %.11 = phi i16 [ %.10, %446 ], [ %549, %548 ]
-  %.5418 = phi i8 [ %450, %446 ], [ %.6419, %548 ]
-  %.6 = phi ptr [ %.3, %446 ], [ %.8, %548 ]
+  %.pre-phi = phi i16 [ %.pre, %548 ], [ %441, %446 ]
+  %.2478112737 = phi i32 [ %.2478112738, %548 ], [ %.0476, %446 ]
+  %.2486102835 = phi i32 [ %.2486102836, %548 ], [ %.0484, %446 ]
+  %.11 = phi i16 [ %549, %548 ], [ %.10, %446 ]
+  %.5418 = phi i8 [ %.6419, %548 ], [ %450, %446 ]
+  %.6 = phi ptr [ %.8, %548 ], [ %.3, %446 ]
   %.not553 = icmp eq i16 %.pre-phi, 0
   br i1 %.not553, label %559, label %551
 
@@ -1380,9 +1380,9 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
   br i1 %.not565.wide, label %.loopexit44, label %.lr.ph115, !llvm.loop !16
 
 .loopexit44:                                      ; preds = %171, %.lr.ph101, %.lr.ph115, %166, %323, %.preheader, %268, %261, %.loopexit57
-  %.5489 = phi i32 [ %.8492, %268 ], [ %.8492, %261 ], [ %382, %.loopexit57 ], [ %598, %.preheader ], [ %.8492, %323 ], [ %.4488, %166 ], [ %598, %.lr.ph115 ], [ %.8492, %.lr.ph101 ], [ %.4488, %171 ]
-  %.6457 = phi i32 [ %269, %268 ], [ %262, %261 ], [ %378, %.loopexit57 ], [ %.23.lcssa, %.preheader ], [ %.16467, %323 ], [ %.4455, %166 ], [ %627, %.lr.ph115 ], [ %326, %.lr.ph101 ], [ %174, %171 ]
-  %.5 = phi ptr [ %.3, %268 ], [ %.3, %261 ], [ %.3, %.loopexit57 ], [ %.6226, %.preheader ], [ %.3, %323 ], [ %.3, %166 ], [ %.6226, %.lr.ph115 ], [ %.3, %.lr.ph101 ], [ %.3, %171 ]
+  %.5489 = phi i32 [ %598, %.preheader ], [ %.8492, %268 ], [ %.8492, %261 ], [ %.8492, %323 ], [ %382, %.loopexit57 ], [ %.4488, %166 ], [ %.8492, %.lr.ph101 ], [ %598, %.lr.ph115 ], [ %.4488, %171 ]
+  %.6457 = phi i32 [ %.23.lcssa, %.preheader ], [ %269, %268 ], [ %262, %261 ], [ %.16467, %323 ], [ %378, %.loopexit57 ], [ %.4455, %166 ], [ %326, %.lr.ph101 ], [ %627, %.lr.ph115 ], [ %174, %171 ]
+  %.5 = phi ptr [ %.6226, %.preheader ], [ %.3, %268 ], [ %.3, %261 ], [ %.3, %323 ], [ %.3, %.loopexit57 ], [ %.3, %166 ], [ %.3, %.lr.ph101 ], [ %.6226, %.lr.ph115 ], [ %.3, %171 ]
   %.not588117 = icmp eq i32 %.5489, 0
   br i1 %.not588117, label %.backedge.outer.backedge, label %.lr.ph120
 

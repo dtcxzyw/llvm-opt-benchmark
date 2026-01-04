@@ -1601,7 +1601,7 @@ define dso_local range(i32 0, 1073741831) i32 @SpGistGetInnerTypeSize(ptr nounde
   br label %31
 
 31:                                               ; preds = %17, %28, %26, %2, %10
-  %.0 = phi i32 [ %11, %10 ], [ 8, %2 ], [ %23, %17 ], [ %27, %26 ], [ %30, %28 ]
+  %.0 = phi i32 [ 8, %2 ], [ %11, %10 ], [ %23, %17 ], [ %27, %26 ], [ %30, %28 ]
   %32 = add nuw nsw i32 %.0, 7
   %33 = and i32 %32, -8
   ret i32 %33
@@ -1752,7 +1752,7 @@ define dso_local noundef ptr @spgFormNodeTuple(ptr noundef readonly captures(non
   br label %.thread
 
 36:                                               ; preds = %30, %12
-  %.0.i = phi i32 [ %13, %12 ], [ %32, %30 ]
+  %.0.i = phi i32 [ %32, %30 ], [ %13, %12 ]
   %37 = add nuw nsw i32 %.0.i, 7
   %38 = and i32 %37, 2147483640
   %39 = add nuw nsw i32 %38, 8
@@ -1768,7 +1768,7 @@ define dso_local noundef ptr @spgFormNodeTuple(ptr noundef readonly captures(non
   unreachable
 
 .thread:                                          ; preds = %.thread29, %4, %3, %36
-  %.01924 = phi i32 [ %39, %36 ], [ 8, %3 ], [ 16, %4 ], [ %35, %.thread29 ]
+  %.01924 = phi i32 [ 8, %3 ], [ %39, %36 ], [ 16, %4 ], [ %35, %.thread29 ]
   %45 = zext nneg i32 %.01924 to i64
   %46 = tail call ptr @palloc0(i64 noundef %45) #9
   %47 = or disjoint i32 %.01924, 32768
@@ -1899,7 +1899,7 @@ define dso_local noundef ptr @spgFormInnerTuple(ptr noundef readonly captures(no
   br label %SpGistGetInnerTypeSize.exit
 
 SpGistGetInnerTypeSize.exit:                      ; preds = %6, %14, %21, %30, %32
-  %.0.i = phi i32 [ %15, %14 ], [ 8, %6 ], [ %27, %21 ], [ %31, %30 ], [ %34, %32 ]
+  %.0.i = phi i32 [ 8, %6 ], [ %15, %14 ], [ %27, %21 ], [ %31, %30 ], [ %34, %32 ]
   %35 = add nuw nsw i32 %.0.i, 7
   %36 = and i32 %35, -8
   br label %37
@@ -2385,7 +2385,7 @@ define dso_local zeroext i16 @SpGistPageAddNewItem(ptr noundef readnone captures
   unreachable
 
 64:                                               ; preds = %58, %53, %50
-  %.046 = phi i16 [ %49, %50 ], [ %49, %53 ], [ %59, %58 ]
+  %.046 = phi i16 [ %49, %53 ], [ %49, %50 ], [ %59, %58 ]
   ret i16 %.046
 }
 

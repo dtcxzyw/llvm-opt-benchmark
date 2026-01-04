@@ -256,7 +256,7 @@ switch.early.test:                                ; preds = %66
   ]
 
 72:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %66, %64, %62, %._crit_edge
-  %.050 = phi ptr [ @out_rgb8_pix_fmts, %._crit_edge ], [ @out_rgb9_pix_fmts, %62 ], [ @out_rgb10_pix_fmts, %64 ], [ %out_rgb12_pix_fmts.mux.mux.mux, %switch.early.test ], [ @out_rgb12_pix_fmts, %66 ], [ %out_rgb12_pix_fmts.mux.mux.mux, %switch.early.test ], [ %out_rgb12_pix_fmts.mux.mux.mux, %switch.early.test ], [ %out_rgb12_pix_fmts.mux.mux.mux, %switch.early.test ]
+  %.050 = phi ptr [ %out_rgb12_pix_fmts.mux.mux.mux, %switch.early.test ], [ @out_rgb8_pix_fmts, %._crit_edge ], [ @out_rgb9_pix_fmts, %62 ], [ @out_rgb10_pix_fmts, %64 ], [ @out_rgb12_pix_fmts, %66 ], [ %out_rgb12_pix_fmts.mux.mux.mux, %switch.early.test ], [ %out_rgb12_pix_fmts.mux.mux.mux, %switch.early.test ], [ %out_rgb12_pix_fmts.mux.mux.mux, %switch.early.test ]
   %73 = tail call ptr @ff_make_format_list(ptr noundef nonnull %.050) #13
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %75 = load ptr, ptr %74, align 8, !tbaa !52
@@ -267,7 +267,7 @@ switch.early.test:                                ; preds = %66
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %56, %switch.early.test, %72, %1, %9, %25
-  %.049 = phi i32 [ %30, %25 ], [ -11, %9 ], [ -11, %1 ], [ %., %72 ], [ -11, %switch.early.test ], [ -11, %56 ], [ -11, %.lr.ph ]
+  %.049 = phi i32 [ -11, %1 ], [ %., %72 ], [ -11, %switch.early.test ], [ -11, %9 ], [ %30, %25 ], [ -11, %56 ], [ -11, %.lr.ph ]
   ret i32 %.049
 }
 
@@ -514,7 +514,7 @@ define internal range(i32 -22, 1) i32 @config_input(ptr noundef readonly capture
   br label %.thread103.sink.split
 
 .thread103.sink.split:                            ; preds = %45, %42, %51, %52
-  %.sink = phi i32 [ 2, %52 ], [ 1, %51 ], [ 0, %42 ], [ 0, %45 ]
+  %.sink = phi i32 [ 1, %51 ], [ 2, %52 ], [ 0, %42 ], [ 0, %45 ]
   %53 = getelementptr inbounds nuw i8, ptr %8, i64 84
   store i32 %.sink, ptr %53, align 4, !tbaa !73
   br label %.thread103
@@ -576,7 +576,7 @@ define internal range(i32 -22, 1) i32 @config_input(ptr noundef readonly capture
   br label %.thread114
 
 .thread111:                                       ; preds = %.thread107, %.thread107.thread
-  %69 = phi ptr [ %60, %.thread107.thread ], [ %56, %.thread107 ]
+  %69 = phi ptr [ %56, %.thread107 ], [ %60, %.thread107.thread ]
   %70 = getelementptr inbounds nuw i8, ptr %8, i64 108
   %71 = load i32, ptr %70, align 4, !tbaa !85
   switch i32 %71, label %.thread114 [
@@ -1420,9 +1420,9 @@ define internal void @vectorscope8(ptr noundef readonly captures(none) %0, ptr n
   br i1 %368, label %.lr.ph72.split.i.i, label %._crit_edge73.i.i, !llvm.loop !110
 
 ._crit_edge73.i.i:                                ; preds = %364, %326, %.preheader.i.i
-  %369 = phi i32 [ %314, %.preheader.i.i ], [ %327, %326 ], [ %365, %364 ]
-  %370 = phi i32 [ %315, %.preheader.i.i ], [ %327, %326 ], [ %366, %364 ]
-  %371 = phi i32 [ %316, %.preheader.i.i ], [ %327, %326 ], [ %366, %364 ]
+  %369 = phi i32 [ %327, %326 ], [ %314, %.preheader.i.i ], [ %365, %364 ]
+  %370 = phi i32 [ %327, %326 ], [ %315, %.preheader.i.i ], [ %366, %364 ]
+  %371 = phi i32 [ %327, %326 ], [ %316, %.preheader.i.i ], [ %366, %364 ]
   %indvars.iv.next93.i.i = add nuw nsw i64 %indvars.iv92.i.i, 1
   %372 = load i32, ptr %53, align 4, !tbaa !90
   %373 = sext i32 %372 to i64
@@ -9612,9 +9612,9 @@ define internal fastcc void @envelope_instant(ptr noundef readonly captures(none
   br i1 %70, label %.lr.ph.split, label %._crit_edge, !llvm.loop !181
 
 ._crit_edge:                                      ; preds = %66, %38, %.preheader
-  %71 = phi i32 [ %25, %.preheader ], [ %39, %38 ], [ %67, %66 ]
-  %72 = phi i32 [ %26, %.preheader ], [ %39, %38 ], [ %68, %66 ]
-  %73 = phi i32 [ %27, %.preheader ], [ %39, %38 ], [ %68, %66 ]
+  %71 = phi i32 [ %39, %38 ], [ %25, %.preheader ], [ %67, %66 ]
+  %72 = phi i32 [ %39, %38 ], [ %26, %.preheader ], [ %68, %66 ]
+  %73 = phi i32 [ %39, %38 ], [ %27, %.preheader ], [ %68, %66 ]
   %74 = load i32, ptr %18, align 4, !tbaa !90
   %75 = sext i32 %74 to i64
   %76 = icmp slt i64 %29, %75
@@ -10096,7 +10096,7 @@ define internal range(i32 -12, 1) i32 @config_output(ptr noundef captures(none) 
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !187
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %14, %1
-  %.0 = phi i32 [ -12, %1 ], [ -12, %14 ], [ 0, %.preheader ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ -12, %14 ], [ -12, %1 ], [ 0, %.preheader ], [ 0, %.lr.ph ]
   ret i32 %.0
 }
 

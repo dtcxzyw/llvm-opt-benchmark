@@ -194,7 +194,7 @@ mbc_enc_len.exit.thread25:                        ; preds = %22, %35, %39
   br label %.lr.ph.preheader
 
 mbc_enc_len.exit:                                 ; preds = %37, %24, %11
-  %.sink = phi i32 [ 0, %11 ], [ 1, %24 ], [ 2, %37 ]
+  %.sink = phi i32 [ 1, %24 ], [ 0, %11 ], [ 2, %37 ]
   %48 = getelementptr i32, ptr @EncLen_UTF8, i64 %6
   %49 = load i32, ptr %48, align 4, !tbaa !10
   %50 = sub i32 %.sink, %49
@@ -237,7 +237,7 @@ mbc_enc_len.exit:                                 ; preds = %37, %24, %11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %62, %65
-  %.017 = phi i32 [ %67, %65 ], [ %63, %62 ], [ %61, %.lr.ph ]
+  %.017 = phi i32 [ %63, %62 ], [ %67, %65 ], [ %61, %.lr.ph ]
   ret i32 %.017
 }
 
@@ -264,7 +264,7 @@ define internal range(i32 -401, 5) i32 @code_to_mbclen(i32 noundef %0, ptr readn
   br label %11
 
 11:                                               ; preds = %10, %8, %6, %4, %2
-  %.0 = phi i32 [ 1, %2 ], [ 2, %4 ], [ 3, %6 ], [ 4, %8 ], [ %spec.select, %10 ]
+  %.0 = phi i32 [ %spec.select, %10 ], [ 1, %2 ], [ 2, %4 ], [ 3, %6 ], [ 4, %8 ]
   ret i32 %.0
 }
 

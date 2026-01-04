@@ -108,7 +108,7 @@ define internal void @add_median_pred_c(ptr noundef writeonly captures(none) %0,
   br label %mid_pred.exit
 
 mid_pred.exit:                                    ; preds = %18, %20, %21, %23
-  %.0.i = phi i32 [ %15, %18 ], [ %15, %21 ], [ %..i, %20 ], [ %.20.i, %23 ]
+  %.0.i = phi i32 [ %..i, %20 ], [ %15, %21 ], [ %15, %18 ], [ %.20.i, %23 ]
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %25 = load i8, ptr %24, align 1, !tbaa !17
   %26 = trunc nuw i32 %.0.i to i8

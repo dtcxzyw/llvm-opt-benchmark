@@ -700,8 +700,8 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i: ; preds = %317
   br i1 %326, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i.i, %.thread281, %.thread, %324
-  %327 = phi i64 [ 0, %.thread ], [ %325, %324 ], [ %316, %.thread281 ], [ %325, %.lr.ph.i.i.i.i.i.i.i ]
-  %.pre.i143280 = phi ptr [ null, %.thread ], [ %321, %324 ], [ null, %.thread281 ], [ %321, %.lr.ph.i.i.i.i.i.i.i ]
+  %327 = phi i64 [ 0, %.thread ], [ %316, %.thread281 ], [ %325, %324 ], [ %325, %.lr.ph.i.i.i.i.i.i.i ]
+  %.pre.i143280 = phi ptr [ null, %.thread ], [ null, %.thread281 ], [ %321, %324 ], [ %321, %.lr.ph.i.i.i.i.i.i.i ]
   %328 = icmp slt i64 %327, %312
   br i1 %328, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2INS_15PlainObjectBaseIS1_EEEERKT_.exit
 

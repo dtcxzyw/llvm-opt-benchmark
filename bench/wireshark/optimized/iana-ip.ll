@@ -82,7 +82,7 @@ define ptr @ws_iana_ipv4_special_block_lookup(i32 noundef %0) local_unnamed_addr
   br i1 %16, label %.lr.ph.i, label %bsearch.exit, !llvm.loop !6
 
 bsearch.exit:                                     ; preds = %12, %15
-  %.0.i = phi ptr [ null, %15 ], [ %5, %12 ]
+  %.0.i = phi ptr [ %5, %12 ], [ null, %15 ]
   ret ptr %.0.i
 }
 
@@ -158,7 +158,7 @@ compare_ipv6_block.exit:                          ; preds = %.lr.ph.i2, %21
   br i1 %32, label %.lr.ph.i, label %bsearch.exit, !llvm.loop !6
 
 bsearch.exit:                                     ; preds = %21, %._crit_edge.i, %compare_ipv6_block.exit
-  %.0.i = phi ptr [ null, %compare_ipv6_block.exit ], [ %5, %._crit_edge.i ], [ %5, %21 ]
+  %.0.i = phi ptr [ %5, %21 ], [ null, %compare_ipv6_block.exit ], [ %5, %._crit_edge.i ]
   ret ptr %.0.i
 }
 

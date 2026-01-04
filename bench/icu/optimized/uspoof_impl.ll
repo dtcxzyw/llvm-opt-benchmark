@@ -685,12 +685,12 @@ _ZN6icu_7713IcuCApiHelperI13USpoofCheckerNS_9SpoofImplELi944111087EE8validateEPK
   br i1 %.not8.i, label %_ZNK6icu_779SpoofData19validateDataVersionER10UErrorCode.exit, label %_ZNK6icu_779SpoofData19validateDataVersionER10UErrorCode.exit.sink.split
 
 _ZNK6icu_779SpoofData19validateDataVersionER10UErrorCode.exit.sink.split: ; preds = %26, %23, %20, %17, %15, %12, %5, %7
-  %.sink.i.sink = phi i32 [ 1, %5 ], [ 3, %7 ], [ 3, %12 ], [ 3, %15 ], [ 3, %17 ], [ 3, %20 ], [ 3, %23 ], [ 3, %26 ]
+  %.sink.i.sink = phi i32 [ 3, %7 ], [ 1, %5 ], [ 3, %12 ], [ 3, %15 ], [ 3, %17 ], [ 3, %20 ], [ 3, %23 ], [ 3, %26 ]
   store i32 %.sink.i.sink, ptr %1, align 4, !tbaa !19
   br label %_ZNK6icu_779SpoofData19validateDataVersionER10UErrorCode.exit
 
 _ZNK6icu_779SpoofData19validateDataVersionER10UErrorCode.exit: ; preds = %_ZNK6icu_779SpoofData19validateDataVersionER10UErrorCode.exit.sink.split, %2, %_ZN6icu_7713IcuCApiHelperI13USpoofCheckerNS_9SpoofImplELi944111087EE8validateEPKS1_R10UErrorCode.exit, %26
-  %.0 = phi ptr [ %0, %26 ], [ %0, %_ZN6icu_7713IcuCApiHelperI13USpoofCheckerNS_9SpoofImplELi944111087EE8validateEPKS1_R10UErrorCode.exit ], [ null, %2 ], [ null, %_ZNK6icu_779SpoofData19validateDataVersionER10UErrorCode.exit.sink.split ]
+  %.0 = phi ptr [ %0, %_ZN6icu_7713IcuCApiHelperI13USpoofCheckerNS_9SpoofImplELi944111087EE8validateEPKS1_R10UErrorCode.exit ], [ null, %2 ], [ %0, %26 ], [ null, %_ZNK6icu_779SpoofData19validateDataVersionER10UErrorCode.exit.sink.split ]
   ret ptr %.0
 }
 
@@ -800,12 +800,12 @@ _ZN6icu_7713IcuCApiHelperI13USpoofCheckerNS_9SpoofImplELi944111087EE8validateEPK
   br i1 %.not8.i.i, label %_ZN6icu_779SpoofImpl12validateThisEPK13USpoofCheckerR10UErrorCode.exit, label %_ZNK6icu_779SpoofData19validateDataVersionER10UErrorCode.exit.sink.split.i
 
 _ZNK6icu_779SpoofData19validateDataVersionER10UErrorCode.exit.sink.split.i: ; preds = %26, %23, %20, %17, %15, %12, %7, %5
-  %.sink.i.sink.i = phi i32 [ 1, %5 ], [ 3, %7 ], [ 3, %12 ], [ 3, %15 ], [ 3, %17 ], [ 3, %20 ], [ 3, %23 ], [ 3, %26 ]
+  %.sink.i.sink.i = phi i32 [ 3, %7 ], [ 1, %5 ], [ 3, %12 ], [ 3, %15 ], [ 3, %17 ], [ 3, %20 ], [ 3, %23 ], [ 3, %26 ]
   store i32 %.sink.i.sink.i, ptr %1, align 4, !tbaa !19
   br label %_ZN6icu_779SpoofImpl12validateThisEPK13USpoofCheckerR10UErrorCode.exit
 
 _ZN6icu_779SpoofImpl12validateThisEPK13USpoofCheckerR10UErrorCode.exit: ; preds = %2, %_ZN6icu_7713IcuCApiHelperI13USpoofCheckerNS_9SpoofImplELi944111087EE8validateEPKS1_R10UErrorCode.exit.i, %26, %_ZNK6icu_779SpoofData19validateDataVersionER10UErrorCode.exit.sink.split.i
-  %.0.i = phi ptr [ %0, %26 ], [ %0, %_ZN6icu_7713IcuCApiHelperI13USpoofCheckerNS_9SpoofImplELi944111087EE8validateEPKS1_R10UErrorCode.exit.i ], [ null, %2 ], [ null, %_ZNK6icu_779SpoofData19validateDataVersionER10UErrorCode.exit.sink.split.i ]
+  %.0.i = phi ptr [ %0, %_ZN6icu_7713IcuCApiHelperI13USpoofCheckerNS_9SpoofImplELi944111087EE8validateEPKS1_R10UErrorCode.exit.i ], [ null, %2 ], [ %0, %26 ], [ null, %_ZNK6icu_779SpoofData19validateDataVersionER10UErrorCode.exit.sink.split.i ]
   ret ptr %.0.i
 }
 
@@ -1056,7 +1056,7 @@ define void @_ZN6icu_779SpoofImpl17setAllowedLocalesEPKcR10UErrorCode(ptr nounde
   br label %107
 
 107:                                              ; preds = %51, %106, %49, %29
-  %.pn72 = phi { ptr, i32 } [ %50, %49 ], [ %52, %51 ], [ %.pn.pn, %106 ], [ %30, %29 ]
+  %.pn72 = phi { ptr, i32 } [ %50, %49 ], [ %52, %51 ], [ %30, %29 ], [ %.pn.pn, %106 ]
   call void @_ZN6icu_7710UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %4) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn72
@@ -1564,7 +1564,7 @@ _ZNK6icu_779SpoofImpl20getResolvedScriptSetERKNS_13UnicodeStringERNS_9ScriptSetE
   br label %66
 
 66:                                               ; preds = %64, %46, %49, %52, %37, %65
-  %.3 = phi i32 [ 1342177280, %65 ], [ 1610612736, %37 ], [ 805306368, %52 ], [ 805306368, %49 ], [ 805306368, %46 ], [ 1073741824, %64 ]
+  %.3 = phi i32 [ 805306368, %46 ], [ 1610612736, %37 ], [ 1342177280, %65 ], [ 805306368, %52 ], [ 805306368, %49 ], [ 1073741824, %64 ]
   call void @_ZN6icu_779ScriptSetD1Ev(ptr noundef nonnull align 4 dereferenceable(28) %5) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %68
@@ -1575,7 +1575,7 @@ _ZNK6icu_779SpoofImpl20getResolvedScriptSetERKNS_13UnicodeStringERNS_9ScriptSetE
   br label %69
 
 68:                                               ; preds = %34, %_ZNK6icu_779SpoofImpl20getResolvedScriptSetERKNS_13UnicodeStringERNS_9ScriptSetER10UErrorCode.exit, %66
-  %.2 = phi i32 [ %.3, %66 ], [ 1610612736, %_ZNK6icu_779SpoofImpl20getResolvedScriptSetERKNS_13UnicodeStringERNS_9ScriptSetER10UErrorCode.exit ], [ 536870912, %34 ]
+  %.2 = phi i32 [ 1610612736, %_ZNK6icu_779SpoofImpl20getResolvedScriptSetERKNS_13UnicodeStringERNS_9ScriptSetER10UErrorCode.exit ], [ %.3, %66 ], [ 536870912, %34 ]
   call void @_ZN6icu_779ScriptSetD1Ev(ptr noundef nonnull align 4 dereferenceable(28) %4) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge
@@ -2683,7 +2683,7 @@ define i32 @uspoof_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr n
   br i1 %48, label %70, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %18, %45, %41, %37, %33, %29, %25
-  %49 = phi i8 [ 102, %45 ], [ 102, %41 ], [ 102, %37 ], [ 102, %33 ], [ 102, %29 ], [ 102, %25 ], [ %23, %18 ]
+  %49 = phi i8 [ %23, %18 ], [ 102, %45 ], [ 102, %41 ], [ 102, %37 ], [ 102, %33 ], [ 102, %29 ], [ 102, %25 ]
   %50 = zext i8 %20 to i32
   %51 = zext i8 %49 to i32
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 14
@@ -2826,7 +2826,7 @@ define i32 @uspoof_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr n
   br label %156
 
 156:                                              ; preds = %._crit_edge, %93, %152, %85, %84, %5, %7, %17
-  %.0 = phi i32 [ 0, %17 ], [ 0, %7 ], [ 0, %5 ], [ 0, %._crit_edge ], [ 0, %84 ], [ 0, %93 ], [ %89, %152 ], [ %89, %85 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %17 ], [ 0, %7 ], [ 0, %._crit_edge ], [ 0, %84 ], [ %89, %152 ], [ 0, %93 ], [ %89, %85 ]
   ret i32 %.0
 }
 
@@ -2903,7 +2903,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZN6icu_77L21spoofDataIsAccep
   br label %39
 
 39:                                               ; preds = %4, %7, %11, %15, %19, %23, %27, %31, %35, %36
-  %.0 = phi i8 [ 1, %36 ], [ 1, %35 ], [ 0, %31 ], [ 0, %27 ], [ 0, %23 ], [ 0, %19 ], [ 0, %15 ], [ 0, %11 ], [ 0, %7 ], [ 0, %4 ]
+  %.0 = phi i8 [ 1, %35 ], [ 1, %36 ], [ 0, %31 ], [ 0, %27 ], [ 0, %23 ], [ 0, %19 ], [ 0, %15 ], [ 0, %11 ], [ 0, %7 ], [ 0, %4 ]
   ret i8 %.0
 }
 

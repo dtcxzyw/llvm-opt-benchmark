@@ -114,7 +114,7 @@ define hidden range(i32 -1, 1) i32 @_PyTestLimitedCAPI_Init_HeaptypeRelative(ptr
   br label %22
 
 22:                                               ; preds = %7, %9, %12, %14, %17, %20, %4, %1
-  %.0 = phi i32 [ -1, %1 ], [ -1, %4 ], [ -1, %7 ], [ -1, %9 ], [ -1, %12 ], [ -1, %14 ], [ -1, %17 ], [ %.lobit, %20 ]
+  %.0 = phi i32 [ -1, %4 ], [ -1, %1 ], [ -1, %7 ], [ -1, %12 ], [ -1, %14 ], [ %.lobit, %20 ], [ -1, %17 ], [ -1, %9 ]
   ret i32 %.0
 }
 
@@ -207,8 +207,8 @@ Py_XDECREF.exit41.sink.split:                     ; preds = %Py_XDECREF.exit39, 
   call void @_Py_DecRef(ptr noundef nonnull %.sink) #7
   br label %Py_XDECREF.exit41
 
-Py_XDECREF.exit41:                                ; preds = %Py_XDECREF.exit41.sink.split, %2, %8, %Py_XDECREF.exit39
-  %.026485972 = phi ptr [ %.026.ph.ph, %Py_XDECREF.exit39 ], [ null, %8 ], [ null, %2 ], [ %.026485972.ph, %Py_XDECREF.exit41.sink.split ]
+Py_XDECREF.exit41:                                ; preds = %Py_XDECREF.exit41.sink.split, %8, %2, %Py_XDECREF.exit39
+  %.026485972 = phi ptr [ null, %2 ], [ %.026.ph.ph, %Py_XDECREF.exit39 ], [ null, %8 ], [ %.026485972.ph, %Py_XDECREF.exit41.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.026485972
@@ -525,13 +525,13 @@ define internal ptr @heaptype_with_member_get_memb(ptr noundef %0, ptr readnone 
   br i1 %.not14.i, label %heaptype_with_member_extract_and_check_memb.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %14, %12, %9, %7, %5
-  %.str.33.sink.i = phi ptr [ @.str.33, %5 ], [ @.str.34, %7 ], [ @.str.35, %9 ], [ @.str.36, %12 ], [ @.str.37, %14 ]
+  %.str.33.sink.i = phi ptr [ @.str.33, %5 ], [ @.str.36, %12 ], [ @.str.35, %9 ], [ @.str.34, %7 ], [ @.str.37, %14 ]
   %17 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !15
   tail call void @PyErr_SetString(ptr noundef %17, ptr noundef nonnull %.str.33.sink.i) #7
   br label %heaptype_with_member_extract_and_check_memb.exit
 
 heaptype_with_member_extract_and_check_memb.exit: ; preds = %5, %14, %.sink.split.i
-  %.0.i = phi ptr [ null, %5 ], [ %4, %14 ], [ null, %.sink.split.i ]
+  %.0.i = phi ptr [ %4, %14 ], [ null, %5 ], [ null, %.sink.split.i ]
   %18 = tail call ptr @PyMember_GetOne(ptr noundef nonnull %0, ptr noundef %.0.i) #7
   ret ptr %18
 }
@@ -572,13 +572,13 @@ define internal ptr @heaptype_with_member_set_memb(ptr noundef %0, ptr noundef %
   br i1 %.not14.i, label %heaptype_with_member_extract_and_check_memb.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %14, %12, %9, %7, %5
-  %.str.33.sink.i = phi ptr [ @.str.33, %5 ], [ @.str.34, %7 ], [ @.str.35, %9 ], [ @.str.36, %12 ], [ @.str.37, %14 ]
+  %.str.33.sink.i = phi ptr [ @.str.33, %5 ], [ @.str.36, %12 ], [ @.str.35, %9 ], [ @.str.34, %7 ], [ @.str.37, %14 ]
   %17 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !15
   tail call void @PyErr_SetString(ptr noundef %17, ptr noundef nonnull %.str.33.sink.i) #7
   br label %heaptype_with_member_extract_and_check_memb.exit
 
 heaptype_with_member_extract_and_check_memb.exit: ; preds = %5, %14, %.sink.split.i
-  %.0.i = phi ptr [ null, %5 ], [ %4, %14 ], [ null, %.sink.split.i ]
+  %.0.i = phi ptr [ %4, %14 ], [ null, %5 ], [ null, %.sink.split.i ]
   %18 = tail call i32 @PyMember_SetOne(ptr noundef nonnull %0, ptr noundef %.0.i, ptr noundef %1) #7
   %19 = icmp slt i32 %18, 0
   %._Py_NoneStruct = select i1 %19, ptr null, ptr @_Py_NoneStruct
@@ -620,7 +620,7 @@ define internal ptr @get_memb_offset(ptr noundef readonly captures(none) %0, ptr
   br i1 %.not14.i, label %heaptype_with_member_extract_and_check_memb.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %5, %14, %12, %9, %7
-  %.str.33.sink.i = phi ptr [ @.str.33, %5 ], [ @.str.34, %7 ], [ @.str.35, %9 ], [ @.str.36, %12 ], [ @.str.37, %14 ]
+  %.str.33.sink.i = phi ptr [ @.str.33, %5 ], [ @.str.36, %12 ], [ @.str.35, %9 ], [ @.str.34, %7 ], [ @.str.37, %14 ]
   %17 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !15
   tail call void @PyErr_SetString(ptr noundef %17, ptr noundef nonnull %.str.33.sink.i) #7
   unreachable

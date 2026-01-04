@@ -1049,7 +1049,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i, %.noexc75
-  %164 = phi i1 [ false, %.noexc75 ], [ false, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i ], [ %163, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ]
+  %164 = phi i1 [ false, %.noexc75 ], [ %163, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ], [ false, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i ]
   %165 = icmp eq ptr %.pre, %135
   br i1 %165, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
@@ -1232,8 +1232,8 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %200, %205
           to label %222 unwind label %218
 
 222:                                              ; preds = %._crit_edge, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit, %220
-  %223 = phi ptr [ %.pre165, %._crit_edge ], [ %.us-phi131, %220 ], [ %.us-phi131, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ]
-  %.1 = phi i1 [ %215, %._crit_edge ], [ %221, %220 ], [ false, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ]
+  %223 = phi ptr [ %.us-phi131, %220 ], [ %.pre165, %._crit_edge ], [ %.us-phi131, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ]
+  %.1 = phi i1 [ %221, %220 ], [ %215, %._crit_edge ], [ false, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ]
   %.not.i.i.i93 = icmp eq ptr %223, null
   br i1 %.not.i.i.i93, label %_ZNSt6vectorIjSaIjEED2Ev.exit94, label %224
 
@@ -1250,8 +1250,8 @@ _ZNSt6vectorIjSaIjEED2Ev.exit94:                  ; preds = %222, %224
   br label %235
 
 _ZNSt6vectorIjSaIjEED2Ev.exit85:                  ; preds = %.loopexit, %.loopexit.split-lp, %186, %188, %218, %216, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit91, %185, %183, %181
-  %229 = phi ptr [ %.us-phi131, %181 ], [ %.us-phi131, %183 ], [ %.us-phi131, %185 ], [ %.us-phi131, %186 ], [ %.pre166, %218 ], [ %.us-phi131, %216 ], [ %.us-phi131, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit91 ], [ %.us-phi131, %188 ], [ %.us-phi127, %.loopexit ], [ %180, %.loopexit.split-lp ]
-  %.pn56.pn.pn.pn = phi { ptr, i32 } [ %182, %181 ], [ %184, %183 ], [ %184, %185 ], [ %187, %186 ], [ %219, %218 ], [ %217, %216 ], [ %.pn54, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit91 ], [ %189, %188 ], [ %.us-phi129, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %229 = phi ptr [ %.us-phi131, %188 ], [ %.us-phi131, %185 ], [ %.us-phi131, %181 ], [ %.us-phi131, %183 ], [ %.us-phi131, %186 ], [ %.pre166, %218 ], [ %.us-phi131, %216 ], [ %.us-phi131, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit91 ], [ %.us-phi127, %.loopexit ], [ %180, %.loopexit.split-lp ]
+  %.pn56.pn.pn.pn = phi { ptr, i32 } [ %189, %188 ], [ %184, %185 ], [ %182, %181 ], [ %184, %183 ], [ %187, %186 ], [ %219, %218 ], [ %217, %216 ], [ %.pn54, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit91 ], [ %.us-phi129, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i95 = icmp eq ptr %229, null
   br i1 %.not.i.i.i95, label %_ZNSt6vectorIjSaIjEED2Ev.exit96, label %230
 
@@ -1700,7 +1700,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i, %.noexc.i
-  %45 = phi i1 [ false, %.noexc.i ], [ false, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i ], [ %44, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ]
+  %45 = phi i1 [ false, %.noexc.i ], [ %44, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ], [ false, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i ]
   %46 = icmp eq ptr %.pre, %17
   br i1 %46, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
@@ -1910,7 +1910,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %.thread145, %85
   br label %130
 
 130:                                              ; preds = %94, %96, %98, %100, %102, %104, %106, %108, %110, %112, %114, %116, %118, %120, %122, %124, %126, %128, %13
-  %.0102 = phi i1 [ false, %13 ], [ %95, %94 ], [ %97, %96 ], [ %99, %98 ], [ %101, %100 ], [ %103, %102 ], [ %105, %104 ], [ %107, %106 ], [ %109, %108 ], [ %111, %110 ], [ %113, %112 ], [ %115, %114 ], [ %117, %116 ], [ %119, %118 ], [ %121, %120 ], [ %123, %122 ], [ %125, %124 ], [ %127, %126 ], [ %129, %128 ]
+  %.0102 = phi i1 [ false, %13 ], [ %129, %128 ], [ %95, %94 ], [ %97, %96 ], [ %99, %98 ], [ %101, %100 ], [ %103, %102 ], [ %105, %104 ], [ %107, %106 ], [ %109, %108 ], [ %111, %110 ], [ %113, %112 ], [ %115, %114 ], [ %117, %116 ], [ %119, %118 ], [ %121, %120 ], [ %123, %122 ], [ %125, %124 ], [ %127, %126 ]
   ret i1 %.0102
 }
 
@@ -2248,7 +2248,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc
-  %.0.i.i.i.i.i = phi ptr [ %44, %.noexc ], [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %44, %.noexc ]
   br label %62
 
 48:                                               ; preds = %62
@@ -2863,7 +2863,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_base
   br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !92
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
   %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !81
   %.not56 = icmp ult i32 %96, %97
@@ -3526,7 +3526,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !101
 
 _ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit: ; preds = %._crit_edge, %._crit_edge102, %.lr.ph.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, %5, %3
-  %.sroa.025.0 = phi ptr [ %2, %3 ], [ %0, %5 ], [ %23, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit ], [ %23, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge102 ], [ %23, %._crit_edge ]
+  %.sroa.025.0 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit ], [ %23, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge102 ], [ %23, %._crit_edge ]
   ret ptr %.sroa.025.0
 }
 
@@ -3998,7 +3998,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
 _ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %153, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %168, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %182
-  %.sroa.032.0.i = phi ptr [ %166, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %181, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %183, %182 ], [ %.sroa.0112.0, %153 ], [ %.sroa.0.0, %168 ]
+  %.sroa.032.0.i = phi ptr [ %166, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %183, %182 ], [ %181, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %.sroa.0112.0, %153 ], [ %.sroa.0.0, %168 ]
   tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElS2_NS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEEvT_SE_SE_T0_SF_T1_SF_T2_(ptr %.tr181, ptr %.sroa.0112.0, ptr %.sroa.032.0.i, i64 noundef %.0, i64 noundef %.073, ptr noundef %5, i64 noundef %6, i64 %7)
   %184 = sub nsw i64 %.tr120186, %.073
   %.not = icmp sgt i64 %151, %184
@@ -4493,7 +4493,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco12EncodeVarintIjEEbT_PNS_13Enco
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %27, %23, %7, %12
-  %spec.select = phi i1 [ %22, %12 ], [ false, %7 ], [ false, %23 ], [ true, %27 ]
+  %spec.select = phi i1 [ false, %7 ], [ %22, %12 ], [ false, %23 ], [ true, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %spec.select
 }
@@ -4551,7 +4551,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco12EncodeVarintImEEbT_PNS_13Enco
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %27, %23, %7, %12
-  %spec.select = phi i1 [ %22, %12 ], [ false, %7 ], [ false, %23 ], [ true, %27 ]
+  %spec.select = phi i1 [ false, %7 ], [ %22, %12 ], [ false, %23 ], [ true, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %spec.select
 }
@@ -8119,7 +8119,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc
-  %.0.i.i.i.i.i = phi ptr [ %44, %.noexc ], [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %44, %.noexc ]
   br label %62
 
 48:                                               ; preds = %62
@@ -8688,7 +8688,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_base
   br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !229
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
   %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !220
   %.not56 = icmp ult i32 %96, %97
@@ -9541,7 +9541,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
 _ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %153, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %168, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %182
-  %.sroa.032.0.i = phi ptr [ %166, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %181, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %183, %182 ], [ %.sroa.0112.0, %153 ], [ %.sroa.0.0, %168 ]
+  %.sroa.032.0.i = phi ptr [ %166, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %183, %182 ], [ %181, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %.sroa.0112.0, %153 ], [ %.sroa.0.0, %168 ]
   tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElS2_NS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEEvT_SE_SE_T0_SF_T1_SF_T2_(ptr %.tr181, ptr %.sroa.0112.0, ptr %.sroa.032.0.i, i64 noundef %.0, i64 noundef %.073, ptr noundef %5, i64 noundef %6, i64 %7)
   %184 = sub nsw i64 %.tr120186, %.073
   %.not = icmp sgt i64 %151, %184
@@ -10092,7 +10092,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc
-  %.0.i.i.i.i.i = phi ptr [ %44, %.noexc ], [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %44, %.noexc ]
   br label %62
 
 48:                                               ; preds = %62
@@ -10661,7 +10661,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_base
   br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !251
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
   %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !242
   %.not56 = icmp ult i32 %96, %97
@@ -11514,7 +11514,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
 _ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %153, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %168, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %182
-  %.sroa.032.0.i = phi ptr [ %166, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %181, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %183, %182 ], [ %.sroa.0112.0, %153 ], [ %.sroa.0.0, %168 ]
+  %.sroa.032.0.i = phi ptr [ %166, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %183, %182 ], [ %181, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %.sroa.0112.0, %153 ], [ %.sroa.0.0, %168 ]
   tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElS2_NS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEEvT_SE_SE_T0_SF_T1_SF_T2_(ptr %.tr181, ptr %.sroa.0112.0, ptr %.sroa.032.0.i, i64 noundef %.0, i64 noundef %.073, ptr noundef %5, i64 noundef %6, i64 %7)
   %184 = sub nsw i64 %.tr120186, %.073
   %.not = icmp sgt i64 %151, %184
@@ -12065,7 +12065,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc
-  %.0.i.i.i.i.i = phi ptr [ %44, %.noexc ], [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %44, %.noexc ]
   br label %62
 
 48:                                               ; preds = %62
@@ -12634,7 +12634,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_base
   br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !273
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
   %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !264
   %.not56 = icmp ult i32 %96, %97
@@ -13487,7 +13487,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
 _ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %153, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %168, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %182
-  %.sroa.032.0.i = phi ptr [ %166, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %181, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %183, %182 ], [ %.sroa.0112.0, %153 ], [ %.sroa.0.0, %168 ]
+  %.sroa.032.0.i = phi ptr [ %166, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %183, %182 ], [ %181, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %.sroa.0112.0, %153 ], [ %.sroa.0.0, %168 ]
   tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElS2_NS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEEvT_SE_SE_T0_SF_T1_SF_T2_(ptr %.tr181, ptr %.sroa.0112.0, ptr %.sroa.032.0.i, i64 noundef %.0, i64 noundef %.073, ptr noundef %5, i64 noundef %6, i64 %7)
   %184 = sub nsw i64 %.tr120186, %.073
   %.not = icmp sgt i64 %151, %184
@@ -14038,7 +14038,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc
-  %.0.i.i.i.i.i = phi ptr [ %44, %.noexc ], [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %44, %.noexc ]
   br label %62
 
 48:                                               ; preds = %62
@@ -14607,7 +14607,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_base
   br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !295
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
   %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !286
   %.not56 = icmp ult i32 %96, %97
@@ -15460,7 +15460,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
 _ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %153, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %168, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %182
-  %.sroa.032.0.i = phi ptr [ %166, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %181, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %183, %182 ], [ %.sroa.0112.0, %153 ], [ %.sroa.0.0, %168 ]
+  %.sroa.032.0.i = phi ptr [ %166, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %183, %182 ], [ %181, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %.sroa.0112.0, %153 ], [ %.sroa.0.0, %168 ]
   tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElS2_NS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEEvT_SE_SE_T0_SF_T1_SF_T2_(ptr %.tr181, ptr %.sroa.0112.0, ptr %.sroa.032.0.i, i64 noundef %.0, i64 noundef %.073, ptr noundef %5, i64 noundef %6, i64 %7)
   %184 = sub nsw i64 %.tr120186, %.073
   %.not = icmp sgt i64 %151, %184
@@ -16011,7 +16011,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc
-  %.0.i.i.i.i.i = phi ptr [ %44, %.noexc ], [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %44, %.noexc ]
   br label %62
 
 48:                                               ; preds = %62
@@ -16580,7 +16580,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_base
   br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !317
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
   %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !308
   %.not56 = icmp ult i32 %96, %97
@@ -17433,7 +17433,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
 _ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %153, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %168, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %182
-  %.sroa.032.0.i = phi ptr [ %166, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %181, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %183, %182 ], [ %.sroa.0112.0, %153 ], [ %.sroa.0.0, %168 ]
+  %.sroa.032.0.i = phi ptr [ %166, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %183, %182 ], [ %181, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %.sroa.0112.0, %153 ], [ %.sroa.0.0, %168 ]
   tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElS2_NS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEEvT_SE_SE_T0_SF_T1_SF_T2_(ptr %.tr181, ptr %.sroa.0112.0, ptr %.sroa.032.0.i, i64 noundef %.0, i64 noundef %.073, ptr noundef %5, i64 noundef %6, i64 %7)
   %184 = sub nsw i64 %.tr120186, %.073
   %.not = icmp sgt i64 %151, %184
@@ -17984,7 +17984,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc
-  %.0.i.i.i.i.i = phi ptr [ %44, %.noexc ], [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %44, %.noexc ]
   br label %62
 
 48:                                               ; preds = %62
@@ -18553,7 +18553,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_base
   br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !339
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
   %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !330
   %.not56 = icmp ult i32 %96, %97
@@ -19406,7 +19406,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
 _ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %153, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %168, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %182
-  %.sroa.032.0.i = phi ptr [ %166, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %181, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %183, %182 ], [ %.sroa.0112.0, %153 ], [ %.sroa.0.0, %168 ]
+  %.sroa.032.0.i = phi ptr [ %166, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %183, %182 ], [ %181, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %.sroa.0112.0, %153 ], [ %.sroa.0.0, %168 ]
   tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElS2_NS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEEvT_SE_SE_T0_SF_T1_SF_T2_(ptr %.tr181, ptr %.sroa.0112.0, ptr %.sroa.032.0.i, i64 noundef %.0, i64 noundef %.073, ptr noundef %5, i64 noundef %6, i64 %7)
   %184 = sub nsw i64 %.tr120186, %.073
   %.not = icmp sgt i64 %151, %184
@@ -19957,7 +19957,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc
-  %.0.i.i.i.i.i = phi ptr [ %44, %.noexc ], [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %44, %.noexc ]
   br label %62
 
 48:                                               ; preds = %62
@@ -20526,7 +20526,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_base
   br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !361
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
   %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !352
   %.not56 = icmp ult i32 %96, %97
@@ -21379,7 +21379,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
 _ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %153, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %168, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %182
-  %.sroa.032.0.i = phi ptr [ %166, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %181, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %183, %182 ], [ %.sroa.0112.0, %153 ], [ %.sroa.0.0, %168 ]
+  %.sroa.032.0.i = phi ptr [ %166, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %183, %182 ], [ %181, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %.sroa.0112.0, %153 ], [ %.sroa.0.0, %168 ]
   tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElS2_NS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEEvT_SE_SE_T0_SF_T1_SF_T2_(ptr %.tr181, ptr %.sroa.0112.0, ptr %.sroa.032.0.i, i64 noundef %.0, i64 noundef %.073, ptr noundef %5, i64 noundef %6, i64 %7)
   %184 = sub nsw i64 %.tr120186, %.073
   %.not = icmp sgt i64 %151, %184
@@ -21930,7 +21930,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc
-  %.0.i.i.i.i.i = phi ptr [ %44, %.noexc ], [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %44, %.noexc ]
   br label %62
 
 48:                                               ; preds = %62
@@ -22500,7 +22500,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_base
   br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !383
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
   %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !374
   %.not56 = icmp ult i32 %96, %97
@@ -23353,7 +23353,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
 _ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %153, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %168, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %182
-  %.sroa.032.0.i = phi ptr [ %166, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %181, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %183, %182 ], [ %.sroa.0112.0, %153 ], [ %.sroa.0.0, %168 ]
+  %.sroa.032.0.i = phi ptr [ %166, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %183, %182 ], [ %181, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %.sroa.0112.0, %153 ], [ %.sroa.0.0, %168 ]
   tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElS2_NS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEEvT_SE_SE_T0_SF_T1_SF_T2_(ptr %.tr181, ptr %.sroa.0112.0, ptr %.sroa.032.0.i, i64 noundef %.0, i64 noundef %.073, ptr noundef %5, i64 noundef %6, i64 %7)
   %184 = sub nsw i64 %.tr120186, %.073
   %.not = icmp sgt i64 %151, %184
@@ -23904,7 +23904,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc
-  %.0.i.i.i.i.i = phi ptr [ %44, %.noexc ], [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %44, %.noexc ]
   br label %62
 
 48:                                               ; preds = %62
@@ -24474,7 +24474,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_base
   br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !405
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
   %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !396
   %.not56 = icmp ult i32 %96, %97
@@ -25327,7 +25327,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
 _ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %153, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %168, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %182
-  %.sroa.032.0.i = phi ptr [ %166, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %181, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %183, %182 ], [ %.sroa.0112.0, %153 ], [ %.sroa.0.0, %168 ]
+  %.sroa.032.0.i = phi ptr [ %166, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %183, %182 ], [ %181, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %.sroa.0112.0, %153 ], [ %.sroa.0.0, %168 ]
   tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElS2_NS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEEvT_SE_SE_T0_SF_T1_SF_T2_(ptr %.tr181, ptr %.sroa.0112.0, ptr %.sroa.032.0.i, i64 noundef %.0, i64 noundef %.073, ptr noundef %5, i64 noundef %6, i64 %7)
   %184 = sub nsw i64 %.tr120186, %.073
   %.not = icmp sgt i64 %151, %184
@@ -25878,7 +25878,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc
-  %.0.i.i.i.i.i = phi ptr [ %44, %.noexc ], [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %44, %.noexc ]
   br label %62
 
 48:                                               ; preds = %62
@@ -26448,7 +26448,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_base
   br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !427
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
   %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !418
   %.not56 = icmp ult i32 %96, %97
@@ -27301,7 +27301,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
 _ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %153, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %168, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %182
-  %.sroa.032.0.i = phi ptr [ %166, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %181, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %183, %182 ], [ %.sroa.0112.0, %153 ], [ %.sroa.0.0, %168 ]
+  %.sroa.032.0.i = phi ptr [ %166, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %183, %182 ], [ %181, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %.sroa.0112.0, %153 ], [ %.sroa.0.0, %168 ]
   tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElS2_NS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEEvT_SE_SE_T0_SF_T1_SF_T2_(ptr %.tr181, ptr %.sroa.0112.0, ptr %.sroa.032.0.i, i64 noundef %.0, i64 noundef %.073, ptr noundef %5, i64 noundef %6, i64 %7)
   %184 = sub nsw i64 %.tr120186, %.073
   %.not = icmp sgt i64 %151, %184
@@ -27852,7 +27852,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc
-  %.0.i.i.i.i.i = phi ptr [ %44, %.noexc ], [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %44, %.noexc ]
   br label %62
 
 48:                                               ; preds = %62
@@ -28422,7 +28422,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_base
   br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !449
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
   %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !440
   %.not56 = icmp ult i32 %96, %97
@@ -29275,7 +29275,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
 _ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %153, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %168, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %182
-  %.sroa.032.0.i = phi ptr [ %166, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %181, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %183, %182 ], [ %.sroa.0112.0, %153 ], [ %.sroa.0.0, %168 ]
+  %.sroa.032.0.i = phi ptr [ %166, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %183, %182 ], [ %181, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %.sroa.0112.0, %153 ], [ %.sroa.0.0, %168 ]
   tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElS2_NS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEEvT_SE_SE_T0_SF_T1_SF_T2_(ptr %.tr181, ptr %.sroa.0112.0, ptr %.sroa.032.0.i, i64 noundef %.0, i64 noundef %.073, ptr noundef %5, i64 noundef %6, i64 %7)
   %184 = sub nsw i64 %.tr120186, %.073
   %.not = icmp sgt i64 %151, %184
@@ -29826,7 +29826,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc
-  %.0.i.i.i.i.i = phi ptr [ %44, %.noexc ], [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %44, %.noexc ]
   br label %62
 
 48:                                               ; preds = %62
@@ -30396,7 +30396,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_base
   br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !471
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
   %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !462
   %.not56 = icmp ult i32 %96, %97
@@ -31249,7 +31249,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
 _ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %153, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %168, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %182
-  %.sroa.032.0.i = phi ptr [ %166, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %181, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %183, %182 ], [ %.sroa.0112.0, %153 ], [ %.sroa.0.0, %168 ]
+  %.sroa.032.0.i = phi ptr [ %166, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %183, %182 ], [ %181, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %.sroa.0112.0, %153 ], [ %.sroa.0.0, %168 ]
   tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElS2_NS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEEvT_SE_SE_T0_SF_T1_SF_T2_(ptr %.tr181, ptr %.sroa.0112.0, ptr %.sroa.032.0.i, i64 noundef %.0, i64 noundef %.073, ptr noundef %5, i64 noundef %6, i64 %7)
   %184 = sub nsw i64 %.tr120186, %.073
   %.not = icmp sgt i64 %151, %184
@@ -31800,7 +31800,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc
-  %.0.i.i.i.i.i = phi ptr [ %44, %.noexc ], [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %44, %.noexc ]
   br label %62
 
 48:                                               ; preds = %62
@@ -32370,7 +32370,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_base
   br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !493
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
   %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !484
   %.not56 = icmp ult i32 %96, %97
@@ -33223,7 +33223,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
 _ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %153, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %168, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %182
-  %.sroa.032.0.i = phi ptr [ %166, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %181, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %183, %182 ], [ %.sroa.0112.0, %153 ], [ %.sroa.0.0, %168 ]
+  %.sroa.032.0.i = phi ptr [ %166, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %183, %182 ], [ %181, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %.sroa.0112.0, %153 ], [ %.sroa.0.0, %168 ]
   tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElS2_NS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEEvT_SE_SE_T0_SF_T1_SF_T2_(ptr %.tr181, ptr %.sroa.0112.0, ptr %.sroa.032.0.i, i64 noundef %.0, i64 noundef %.073, ptr noundef %5, i64 noundef %6, i64 %7)
   %184 = sub nsw i64 %.tr120186, %.073
   %.not = icmp sgt i64 %151, %184
@@ -33774,7 +33774,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc
-  %.0.i.i.i.i.i = phi ptr [ %44, %.noexc ], [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %44, %.noexc ]
   br label %62
 
 48:                                               ; preds = %62
@@ -34344,7 +34344,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_base
   br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !515
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
   %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !506
   %.not56 = icmp ult i32 %96, %97
@@ -35197,7 +35197,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
 _ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %153, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %168, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %182
-  %.sroa.032.0.i = phi ptr [ %166, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %181, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %183, %182 ], [ %.sroa.0112.0, %153 ], [ %.sroa.0.0, %168 ]
+  %.sroa.032.0.i = phi ptr [ %166, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %183, %182 ], [ %181, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %.sroa.0112.0, %153 ], [ %.sroa.0.0, %168 ]
   tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElS2_NS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEEvT_SE_SE_T0_SF_T1_SF_T2_(ptr %.tr181, ptr %.sroa.0112.0, ptr %.sroa.032.0.i, i64 noundef %.0, i64 noundef %.073, ptr noundef %5, i64 noundef %6, i64 %7)
   %184 = sub nsw i64 %.tr120186, %.073
   %.not = icmp sgt i64 %151, %184
@@ -35748,7 +35748,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc
-  %.0.i.i.i.i.i = phi ptr [ %44, %.noexc ], [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %44, %.noexc ]
   br label %62
 
 48:                                               ; preds = %62
@@ -36318,7 +36318,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_base
   br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !537
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
   %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !528
   %.not56 = icmp ult i32 %96, %97
@@ -37171,7 +37171,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
 _ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %153, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %168, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %182
-  %.sroa.032.0.i = phi ptr [ %166, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %181, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %183, %182 ], [ %.sroa.0112.0, %153 ], [ %.sroa.0.0, %168 ]
+  %.sroa.032.0.i = phi ptr [ %166, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %183, %182 ], [ %181, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %.sroa.0112.0, %153 ], [ %.sroa.0.0, %168 ]
   tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElS2_NS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEEvT_SE_SE_T0_SF_T1_SF_T2_(ptr %.tr181, ptr %.sroa.0112.0, ptr %.sroa.032.0.i, i64 noundef %.0, i64 noundef %.073, ptr noundef %5, i64 noundef %6, i64 %7)
   %184 = sub nsw i64 %.tr120186, %.073
   %.not = icmp sgt i64 %151, %184
@@ -37722,7 +37722,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc
-  %.0.i.i.i.i.i = phi ptr [ %44, %.noexc ], [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %44, %.noexc ]
   br label %62
 
 48:                                               ; preds = %62
@@ -38292,7 +38292,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_base
   br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !559
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
   %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !550
   %.not56 = icmp ult i32 %96, %97
@@ -39145,7 +39145,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
 _ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %153, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %168, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %182
-  %.sroa.032.0.i = phi ptr [ %166, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %181, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %183, %182 ], [ %.sroa.0112.0, %153 ], [ %.sroa.0.0, %168 ]
+  %.sroa.032.0.i = phi ptr [ %166, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %183, %182 ], [ %181, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %.sroa.0112.0, %153 ], [ %.sroa.0.0, %168 ]
   tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElS2_NS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEEvT_SE_SE_T0_SF_T1_SF_T2_(ptr %.tr181, ptr %.sroa.0112.0, ptr %.sroa.032.0.i, i64 noundef %.0, i64 noundef %.073, ptr noundef %5, i64 noundef %6, i64 %7)
   %184 = sub nsw i64 %.tr120186, %.073
   %.not = icmp sgt i64 %151, %184
@@ -39696,7 +39696,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc
-  %.0.i.i.i.i.i = phi ptr [ %44, %.noexc ], [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %44, %.noexc ]
   br label %62
 
 48:                                               ; preds = %62
@@ -40266,7 +40266,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_base
   br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !581
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
   %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !572
   %.not56 = icmp ult i32 %96, %97
@@ -41119,7 +41119,7 @@ _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
 _ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %153, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %168, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %182
-  %.sroa.032.0.i = phi ptr [ %166, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %181, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %183, %182 ], [ %.sroa.0112.0, %153 ], [ %.sroa.0.0, %168 ]
+  %.sroa.032.0.i = phi ptr [ %166, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %183, %182 ], [ %181, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %.sroa.0112.0, %153 ], [ %.sroa.0.0, %168 ]
   tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElS2_NS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEEvT_SE_SE_T0_SF_T1_SF_T2_(ptr %.tr181, ptr %.sroa.0112.0, ptr %.sroa.032.0.i, i64 noundef %.0, i64 noundef %.073, ptr noundef %5, i64 noundef %6, i64 %7)
   %184 = sub nsw i64 %.tr120186, %.073
   %.not = icmp sgt i64 %151, %184

@@ -311,7 +311,7 @@ rank_up.exit:                                     ; preds = %9, %10
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
 .loopexit:                                        ; preds = %.lr.ph, %23, %17, %14
-  %26 = phi i64 [ %19, %17 ], [ %15, %14 ], [ %.pre.pre, %.lr.ph ], [ %24, %23 ]
+  %26 = phi i64 [ %15, %14 ], [ %19, %17 ], [ %.pre.pre, %.lr.ph ], [ %24, %23 ]
   %27 = sitofp i64 %26 to double
   %28 = sitofp i64 %4 to double
   %29 = fdiv double %27, %28

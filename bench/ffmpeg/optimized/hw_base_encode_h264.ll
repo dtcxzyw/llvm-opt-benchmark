@@ -582,7 +582,7 @@ define range(i32 -22, 1) i32 @ff_hw_base_encode_init_params_h264(ptr noundef rea
   br label %319
 
 319:                                              ; preds = %302, %302, %316
-  %320 = phi i8 [ 0, %302 ], [ %318, %316 ], [ 0, %302 ]
+  %320 = phi i8 [ 0, %302 ], [ 0, %302 ], [ %318, %316 ]
   %321 = getelementptr inbounds nuw i8, ptr %2, i64 2510
   %322 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %323 = load i32, ptr %322, align 8, !tbaa !153

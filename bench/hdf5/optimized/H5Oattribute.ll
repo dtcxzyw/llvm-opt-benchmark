@@ -490,7 +490,7 @@ define range(i32 -1, 1) i32 @H5O__attr_create(ptr noundef %0, ptr noundef %1) lo
   br label %206
 
 .thread101:                                       ; preds = %.thread, %60, %127, %120, %106, %40, %181, %188, %192, %184, %150, %143, %28
-  %.174.ph = phi i32 [ -1, %28 ], [ -1, %150 ], [ -1, %184 ], [ -1, %181 ], [ 0, %188 ], [ -1, %192 ], [ -1, %143 ], [ -1, %40 ], [ -1, %106 ], [ -1, %120 ], [ -1, %127 ], [ -1, %60 ], [ -1, %.thread ]
+  %.174.ph = phi i32 [ -1, %28 ], [ -1, %143 ], [ -1, %150 ], [ -1, %184 ], [ -1, %181 ], [ 0, %188 ], [ -1, %192 ], [ -1, %40 ], [ -1, %106 ], [ -1, %120 ], [ -1, %127 ], [ -1, %60 ], [ -1, %.thread ]
   %200 = call i32 @H5O_unpin(ptr noundef nonnull %14) #10
   %201 = icmp slt i32 %200, 0
   br i1 %201, label %202, label %206
@@ -746,8 +746,8 @@ define ptr @H5O__attr_open_by_name(ptr noundef %0, ptr noundef %1) local_unnamed
   br label %109
 
 92:                                               ; preds = %.thread, %76, %41, %85, %55, %45, %35, %28
-  %.037.ph = phi ptr [ null, %.thread ], [ %.239, %76 ], [ %43, %41 ], [ %.239, %85 ], [ null, %55 ], [ null, %45 ], [ null, %35 ], [ null, %28 ]
-  %.1.ph = phi ptr [ null, %.thread ], [ %.239, %76 ], [ %43, %41 ], [ null, %85 ], [ null, %55 ], [ null, %45 ], [ null, %35 ], [ null, %28 ]
+  %.037.ph = phi ptr [ %.239, %76 ], [ %43, %41 ], [ %.239, %85 ], [ null, %55 ], [ null, %.thread ], [ null, %45 ], [ null, %35 ], [ null, %28 ]
+  %.1.ph = phi ptr [ %.239, %76 ], [ %43, %41 ], [ null, %85 ], [ null, %55 ], [ null, %.thread ], [ null, %45 ], [ null, %35 ], [ null, %28 ]
   %93 = call i32 @H5O_unprotect(ptr noundef nonnull %0, ptr noundef nonnull %17, i32 noundef 0) #10
   %94 = icmp slt i32 %93, 0
   br i1 %94, label %95, label %99
@@ -949,13 +949,13 @@ define internal fastcc range(i32 -1, 2) i32 @H5O__attr_find_opened_attr(ptr noun
   br label %.thread48
 
 .thread48:                                        ; preds = %89, %93, %.preheader, %.thread, %51, %43
-  %.251 = phi i32 [ -1, %43 ], [ -1, %51 ], [ -1, %.thread ], [ 1, %93 ], [ 0, %.preheader ], [ 0, %89 ]
+  %.251 = phi i32 [ -1, %.thread ], [ -1, %43 ], [ -1, %51 ], [ 1, %93 ], [ 0, %.preheader ], [ 0, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @free(ptr noundef nonnull %34) #10
   br label %.thread43
 
 .thread43:                                        ; preds = %30, %26, %18, %.thread52, %3, %.thread48
-  %.030 = phi i32 [ %.251, %.thread48 ], [ 0, %3 ], [ -1, %.thread52 ], [ 0, %30 ], [ -1, %26 ], [ -1, %18 ]
+  %.030 = phi i32 [ 0, %3 ], [ %.251, %.thread48 ], [ -1, %18 ], [ -1, %.thread52 ], [ 0, %30 ], [ -1, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.030
@@ -1021,7 +1021,7 @@ define internal range(i32 -1, 2) i32 @H5O__attr_open_cb(ptr noundef readonly cap
   br label %42
 
 42:                                               ; preds = %34, %38, %26, %12, %5
-  %.0 = phi i32 [ -1, %26 ], [ 0, %12 ], [ 0, %5 ], [ 1, %38 ], [ 1, %34 ]
+  %.0 = phi i32 [ -1, %26 ], [ 0, %5 ], [ 0, %12 ], [ 1, %38 ], [ 1, %34 ]
   ret i32 %.0
 }
 
@@ -2125,7 +2125,7 @@ define internal range(i32 -1, 2) i32 @H5O__attr_rename_mod_cb(ptr noundef %0, pt
   br label %.thread66
 
 .thread66:                                        ; preds = %101, %90, %107, %73, %30, %12, %5, %115, %111
-  %.054 = phi i32 [ -1, %115 ], [ -1, %111 ], [ 0, %5 ], [ 1, %107 ], [ -1, %73 ], [ -1, %30 ], [ 0, %12 ], [ -1, %90 ], [ -1, %101 ]
+  %.054 = phi i32 [ -1, %115 ], [ -1, %111 ], [ 0, %5 ], [ 0, %12 ], [ 1, %107 ], [ -1, %73 ], [ -1, %30 ], [ -1, %90 ], [ -1, %101 ]
   ret i32 %.054
 }
 
@@ -2626,7 +2626,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__attr_remove_update(ptr noundef
   br label %135
 
 135:                                              ; preds = %.thread77, %.thread73, %124, %127, %131, %120
-  %.7 = phi i32 [ -1, %120 ], [ -1, %131 ], [ 0, %127 ], [ 0, %124 ], [ -1, %.thread73 ], [ -1, %.thread77 ]
+  %.7 = phi i32 [ -1, %120 ], [ -1, %131 ], [ 0, %127 ], [ 0, %124 ], [ -1, %.thread77 ], [ -1, %.thread73 ]
   %136 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %137 = load ptr, ptr %136, align 8, !tbaa !77
   %.not65 = icmp eq ptr %137, null
@@ -2938,7 +2938,7 @@ define range(i32 -1, 1) i32 @H5O__attr_count_real(ptr noundef %0, ptr noundef %1
   br label %39
 
 39:                                               ; preds = %3, %._crit_edge, %29
-  %.019 = phi i32 [ %.120, %29 ], [ 0, %._crit_edge ], [ 0, %3 ]
+  %.019 = phi i32 [ 0, %3 ], [ %.120, %29 ], [ 0, %._crit_edge ]
   ret i32 %.019
 }
 

@@ -235,7 +235,7 @@ arequest_frame.exit.thread.thread:                ; preds = %52
   store i32 %109, ptr %71, align 8, !tbaa !45
   br label %arequest_frame.exit.thread.thread117
 
-arequest_frame.exit.thread.thread117:             ; preds = %91, %108, %105
+arequest_frame.exit.thread.thread117:             ; preds = %108, %105, %91
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
@@ -495,7 +495,7 @@ arequest_frame.exit.thread:                       ; preds = %44
   br label %afilter_frame.exit
 
 afilter_frame.exit:                               ; preds = %112, %52, %.critedge.thread.sink.split.i, %205, %166, %arequest_frame.exit, %14, %253, %255, %251, %.loopexit
-  %.1 = phi i32 [ %111, %.loopexit ], [ 0, %251 ], [ 0, %255 ], [ 0, %14 ], [ %.0.i.i, %arequest_frame.exit ], [ -1497649742, %253 ], [ %209, %205 ], [ %171, %166 ], [ %241, %.critedge.thread.sink.split.i ], [ -12, %52 ], [ %113, %112 ]
+  %.1 = phi i32 [ 0, %14 ], [ %111, %.loopexit ], [ %.0.i.i, %arequest_frame.exit ], [ %241, %.critedge.thread.sink.split.i ], [ 0, %251 ], [ 0, %255 ], [ -12, %52 ], [ -1497649742, %253 ], [ %171, %166 ], [ %209, %205 ], [ %113, %112 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.1
@@ -877,7 +877,7 @@ filter_frame.exit:                                ; preds = %93, %105, %111, %11
   br label %free_frames.exit
 
 free_frames.exit:                                 ; preds = %19, %149, %139, %14, %164, %167, %49, %173, %166, %filter_frame.exit
-  %.0 = phi i32 [ %174, %173 ], [ 0, %166 ], [ %.0.i, %filter_frame.exit ], [ %50, %49 ], [ -1497649742, %167 ], [ -1497649742, %164 ], [ 0, %14 ], [ 0, %139 ], [ 0, %149 ], [ 0, %19 ]
+  %.0 = phi i32 [ -1497649742, %164 ], [ %174, %173 ], [ %50, %49 ], [ 0, %166 ], [ 0, %139 ], [ %.0.i, %filter_frame.exit ], [ 0, %149 ], [ -1497649742, %167 ], [ 0, %14 ], [ 0, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

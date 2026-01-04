@@ -373,8 +373,8 @@ graph_is_interesting.exit.i.i:                    ; preds = %28, %24, %22
   %.not13.i.i = icmp eq i32 %31, 1
   br i1 %.not13.i.i, label %.lr.ph, label %.preheader.i.i, !llvm.loop !100
 
-.lr.ph:                                           ; preds = %graph_is_interesting.exit.i.i, %28, %graph_is_interesting.exit.i, %13
-  %.0.i.ph = phi ptr [ %5, %13 ], [ %5, %graph_is_interesting.exit.i ], [ %.0.i11.i, %28 ], [ %.0.i11.i, %graph_is_interesting.exit.i.i ]
+.lr.ph:                                           ; preds = %28, %graph_is_interesting.exit.i.i, %13, %graph_is_interesting.exit.i
+  %.0.i.ph = phi ptr [ %5, %graph_is_interesting.exit.i ], [ %5, %13 ], [ %.0.i11.i, %graph_is_interesting.exit.i.i ], [ %.0.i11.i, %28 ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load i32, ptr %3, align 8, !tbaa !80
   %34 = add nsw i32 %33, 1
@@ -664,7 +664,7 @@ graph_is_interesting.exit.i.i.i:                  ; preds = %154, %150, %148
   br i1 %.not13.i.i.i, label %.lr.ph124.i, label %.preheader.i.i.i, !llvm.loop !100
 
 .lr.ph124.i:                                      ; preds = %graph_is_interesting.exit.i.i.i, %154, %graph_is_interesting.exit.i.i35, %139
-  %.0.i.ph.i = phi ptr [ %132, %139 ], [ %132, %graph_is_interesting.exit.i.i35 ], [ %.0.i11.i.i, %154 ], [ %.0.i11.i.i, %graph_is_interesting.exit.i.i.i ]
+  %.0.i.ph.i = phi ptr [ %132, %graph_is_interesting.exit.i.i35 ], [ %132, %139 ], [ %.0.i11.i.i, %154 ], [ %.0.i11.i.i, %graph_is_interesting.exit.i.i.i ]
   %158 = icmp ne i32 %.265.i, 0
   br label %159
 
@@ -1067,7 +1067,7 @@ graph_needs_pre_commit_line.exit.thread:          ; preds = %324, %327, %graph_n
   br label %335
 
 335:                                              ; preds = %graph_needs_pre_commit_line.exit, %graph_update_columns.exit, %graph_needs_pre_commit_line.exit.thread
-  %.sink = phi i32 [ 3, %graph_needs_pre_commit_line.exit.thread ], [ 1, %graph_update_columns.exit ], [ 2, %graph_needs_pre_commit_line.exit ]
+  %.sink = phi i32 [ 1, %graph_update_columns.exit ], [ 3, %graph_needs_pre_commit_line.exit.thread ], [ 2, %graph_needs_pre_commit_line.exit ]
   store i32 %.sink, ptr %322, align 4, !tbaa !121
   ret void
 }
@@ -1528,13 +1528,13 @@ graph_output_commit_char.exit.i:                  ; preds = %163, %graph_line_ad
   br label %graph_draw_octopus_merge.exit.sink.split.i
 
 graph_draw_octopus_merge.exit.sink.split.i:       ; preds = %224, %218, %207, %203, %192
-  %.sink.i32 = phi i8 [ 124, %224 ], [ 124, %207 ], [ 92, %192 ], [ 92, %203 ], [ 47, %218 ]
-  %.2.ph.i = phi i32 [ %.05071.i, %224 ], [ 1, %207 ], [ 1, %192 ], [ 1, %203 ], [ %.05071.i, %218 ]
+  %.sink.i32 = phi i8 [ 124, %207 ], [ 92, %203 ], [ 124, %224 ], [ 92, %192 ], [ 47, %218 ]
+  %.2.ph.i = phi i32 [ 1, %207 ], [ 1, %203 ], [ %.05071.i, %224 ], [ 1, %192 ], [ %.05071.i, %218 ]
   call fastcc void @graph_line_write_column(ptr noundef nonnull %3, ptr noundef nonnull %140, i8 noundef signext %.sink.i32)
   br label %graph_draw_octopus_merge.exit.i
 
 graph_draw_octopus_merge.exit.i:                  ; preds = %176, %graph_draw_octopus_merge.exit.sink.split.i, %171, %graph_output_commit_char.exit.i
-  %.2.i = phi i32 [ 1, %graph_output_commit_char.exit.i ], [ 1, %171 ], [ %.2.ph.i, %graph_draw_octopus_merge.exit.sink.split.i ], [ 1, %176 ]
+  %.2.i = phi i32 [ %.2.ph.i, %graph_draw_octopus_merge.exit.sink.split.i ], [ 1, %graph_output_commit_char.exit.i ], [ 1, %171 ], [ 1, %176 ]
   %225 = load ptr, ptr %3, align 8, !tbaa !122
   %226 = load i64, ptr %225, align 8, !tbaa !126
   %.not.i.i.i56.i = icmp eq i64 %226, 0
@@ -1681,7 +1681,7 @@ graph_is_interesting.exit.i.i.i:                  ; preds = %283, %279, %277
   br i1 %.not13.i.i.i, label %first_interesting_parent.exit.i, label %.preheader.i.i.i, !llvm.loop !100
 
 first_interesting_parent.exit.i:                  ; preds = %graph_is_interesting.exit.i.i.i, %283, %.preheader.i.i.i, %272, %graph_is_interesting.exit.i.i, %268, %258
-  %.0.i.i = phi ptr [ null, %258 ], [ %260, %graph_is_interesting.exit.i.i ], [ null, %272 ], [ %260, %268 ], [ %.0.i11.i.i, %graph_is_interesting.exit.i.i.i ], [ null, %.preheader.i.i.i ], [ %.0.i11.i.i, %283 ]
+  %.0.i.i = phi ptr [ null, %258 ], [ %260, %268 ], [ %260, %graph_is_interesting.exit.i.i ], [ null, %272 ], [ null, %.preheader.i.i.i ], [ %.0.i11.i.i, %283 ], [ %.0.i11.i.i, %graph_is_interesting.exit.i.i.i ]
   %287 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %288 = load i32, ptr %287, align 4, !tbaa !81
   %.not141.i = icmp slt i32 %288, 0
@@ -2084,8 +2084,8 @@ graph_line_addch.exit114.i:                       ; preds = %strbuf_avail.exit.t
   br label %452
 
 452:                                              ; preds = %graph_line_addch.exit114.i, %436, %431, %graph_line_addch.exit104.i, %graph_line_addch.exit94.i, %._crit_edge.i53
-  %.062121.i = phi ptr [ %.062.i, %graph_line_addch.exit104.i ], [ %.062.i, %436 ], [ %.062.i, %graph_line_addch.exit114.i ], [ %.062.i, %431 ], [ %.062123.i, %graph_line_addch.exit94.i ], [ %.062123.i, %._crit_edge.i53 ]
-  %.2.i47 = phi i32 [ 1, %graph_line_addch.exit104.i ], [ 0, %436 ], [ 0, %graph_line_addch.exit114.i ], [ 0, %431 ], [ 1, %graph_line_addch.exit94.i ], [ 1, %._crit_edge.i53 ]
+  %.062121.i = phi ptr [ %.062.i, %431 ], [ %.062.i, %graph_line_addch.exit104.i ], [ %.062.i, %436 ], [ %.062.i, %graph_line_addch.exit114.i ], [ %.062123.i, %graph_line_addch.exit94.i ], [ %.062123.i, %._crit_edge.i53 ]
+  %.2.i47 = phi i32 [ 0, %431 ], [ 1, %graph_line_addch.exit104.i ], [ 0, %436 ], [ 0, %graph_line_addch.exit114.i ], [ 1, %graph_line_addch.exit94.i ], [ 1, %._crit_edge.i53 ]
   %453 = load ptr, ptr %.0.i.i, align 8, !tbaa !97
   %454 = icmp eq ptr %.062121.i, %453
   %spec.select.i = select i1 %454, ptr %300, ptr %.064142.i
@@ -2234,8 +2234,8 @@ graph_line_addch.exit114.i:                       ; preds = %strbuf_avail.exit.t
   br i1 %520, label %.lr.ph120.i, label %.loopexit114.i, !llvm.loop !137
 
 .loopexit114.i:                                   ; preds = %.lr.ph120.i, %.lr.ph122.i, %514, %510, %508, %500, %498, %490, %.lr.ph126.i
-  %.1100.i = phi i32 [ %.099123.i, %.lr.ph126.i ], [ %.099123.i, %490 ], [ %.099123.i, %498 ], [ %.099123.i, %508 ], [ %.099123.i, %510 ], [ %484, %500 ], [ %484, %514 ], [ %484, %.lr.ph122.i ], [ %484, %.lr.ph120.i ]
-  %.197.i = phi i32 [ %.096124.i, %.lr.ph126.i ], [ %.096124.i, %490 ], [ %.096124.i, %498 ], [ %.096124.i, %508 ], [ %.096124.i, %510 ], [ %indvars147.i, %500 ], [ %493, %514 ], [ %indvars147.i, %.lr.ph122.i ], [ %493, %.lr.ph120.i ]
+  %.1100.i = phi i32 [ %.099123.i, %.lr.ph126.i ], [ %.099123.i, %490 ], [ %.099123.i, %510 ], [ %.099123.i, %498 ], [ %.099123.i, %508 ], [ %484, %500 ], [ %484, %514 ], [ %484, %.lr.ph122.i ], [ %484, %.lr.ph120.i ]
+  %.197.i = phi i32 [ %.096124.i, %.lr.ph126.i ], [ %.096124.i, %490 ], [ %.096124.i, %510 ], [ %.096124.i, %498 ], [ %.096124.i, %508 ], [ %indvars147.i, %500 ], [ %493, %514 ], [ %indvars147.i, %.lr.ph122.i ], [ %493, %.lr.ph120.i ]
   %indvars.iv.next146.i = add nuw nsw i64 %indvars.iv145.i, 1
   %521 = load i32, ptr %473, align 4, !tbaa !83
   %522 = sext i32 %521 to i64
@@ -2243,10 +2243,10 @@ graph_line_addch.exit114.i:                       ; preds = %strbuf_avail.exit.t
   br i1 %523, label %.lr.ph126.i, label %._crit_edge.i80, !llvm.loop !138
 
 ._crit_edge.i80:                                  ; preds = %.loopexit114.i, %.preheader.i, %..preheader.._crit_edge_crit_edge.i_crit_edge
-  %.pre-phi.i = phi i64 [ %.pre, %..preheader.._crit_edge_crit_edge.i_crit_edge ], [ %481, %.preheader.i ], [ %522, %.loopexit114.i ]
-  %.099.lcssa.i = phi i32 [ -1, %..preheader.._crit_edge_crit_edge.i_crit_edge ], [ -1, %.preheader.i ], [ %.1100.i, %.loopexit114.i ]
-  %.096.lcssa.i = phi i32 [ -1, %..preheader.._crit_edge_crit_edge.i_crit_edge ], [ -1, %.preheader.i ], [ %.197.i, %.loopexit114.i ]
-  %.lcssa116.i = phi i32 [ %474, %..preheader.._crit_edge_crit_edge.i_crit_edge ], [ %480, %.preheader.i ], [ %521, %.loopexit114.i ]
+  %.pre-phi.i = phi i64 [ %481, %.preheader.i ], [ %.pre, %..preheader.._crit_edge_crit_edge.i_crit_edge ], [ %522, %.loopexit114.i ]
+  %.099.lcssa.i = phi i32 [ -1, %.preheader.i ], [ -1, %..preheader.._crit_edge_crit_edge.i_crit_edge ], [ %.1100.i, %.loopexit114.i ]
+  %.096.lcssa.i = phi i32 [ -1, %.preheader.i ], [ -1, %..preheader.._crit_edge_crit_edge.i_crit_edge ], [ %.197.i, %.loopexit114.i ]
+  %.lcssa116.i = phi i32 [ %480, %.preheader.i ], [ %474, %..preheader.._crit_edge_crit_edge.i_crit_edge ], [ %521, %.loopexit114.i ]
   %.not.i.i81 = icmp eq i32 %.lcssa116.i, 0
   br i1 %.not.i.i81, label %copy_array.exit.i, label %524
 
@@ -2426,8 +2426,8 @@ graph_line_addch.exit.i94:                        ; preds = %strbuf_avail.exit.t
   br i1 %or.cond.i.i87, label %594, label %graph_output_padding_line.exit
 
 graph_output_padding_line.exit.sink.split:        ; preds = %594, %.critedge.i.i51, %462, %.critedge.i.i, %251, %536, %._crit_edge133.i, %._crit_edge146.i, %245, %._crit_edge.i38, %._crit_edge.i, %111, %graph_needs_pre_commit_line.exit.i13, %graph_needs_pre_commit_line.exit.thread.i, %graph_needs_pre_commit_line.exit.i
-  %.sink = phi i32 [ 3, %graph_needs_pre_commit_line.exit.thread.i ], [ 2, %graph_needs_pre_commit_line.exit.i ], [ 3, %graph_needs_pre_commit_line.exit.i13 ], [ 3, %111 ], [ 3, %._crit_edge.i ], [ 4, %._crit_edge.i38 ], [ 0, %245 ], [ 0, %._crit_edge146.i ], [ 0, %._crit_edge133.i ], [ 0, %536 ], [ 5, %.critedge.i.i ], [ 0, %251 ], [ 5, %.critedge.i.i51 ], [ 0, %462 ], [ 0, %594 ]
-  %.0.ph = phi i32 [ 0, %graph_needs_pre_commit_line.exit.thread.i ], [ 0, %graph_needs_pre_commit_line.exit.i ], [ 0, %graph_needs_pre_commit_line.exit.i13 ], [ 0, %111 ], [ 0, %._crit_edge.i ], [ 1, %._crit_edge.i38 ], [ 1, %245 ], [ 0, %._crit_edge146.i ], [ 0, %._crit_edge133.i ], [ 0, %536 ], [ 1, %251 ], [ 1, %.critedge.i.i ], [ 0, %462 ], [ 0, %.critedge.i.i51 ], [ 0, %594 ]
+  %.sink = phi i32 [ 0, %251 ], [ 2, %graph_needs_pre_commit_line.exit.i ], [ 0, %._crit_edge133.i ], [ 3, %._crit_edge.i ], [ 3, %graph_needs_pre_commit_line.exit.thread.i ], [ 3, %graph_needs_pre_commit_line.exit.i13 ], [ 3, %111 ], [ 4, %._crit_edge.i38 ], [ 0, %245 ], [ 0, %536 ], [ 0, %._crit_edge146.i ], [ 5, %.critedge.i.i51 ], [ 5, %.critedge.i.i ], [ 0, %462 ], [ 0, %594 ]
+  %.0.ph = phi i32 [ 1, %.critedge.i.i ], [ 0, %graph_needs_pre_commit_line.exit.i ], [ 0, %._crit_edge133.i ], [ 0, %._crit_edge.i ], [ 0, %graph_needs_pre_commit_line.exit.thread.i ], [ 0, %graph_needs_pre_commit_line.exit.i13 ], [ 0, %111 ], [ 1, %._crit_edge.i38 ], [ 1, %245 ], [ 0, %536 ], [ 0, %._crit_edge146.i ], [ 0, %.critedge.i.i51 ], [ 1, %251 ], [ 0, %462 ], [ 0, %594 ]
   %601 = load i32, ptr %7, align 4, !tbaa !121
   %602 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %601, ptr %602, align 8, !tbaa !128
@@ -2435,7 +2435,7 @@ graph_output_padding_line.exit.sink.split:        ; preds = %594, %.critedge.i.i
   br label %graph_output_padding_line.exit
 
 graph_output_padding_line.exit:                   ; preds = %.critedge.i.i85, %graph_line_addch.exit.i, %graph_output_padding_line.exit.sink.split, %graph_needs_pre_commit_line.exit.i13, %9, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %9 ], [ 0, %graph_needs_pre_commit_line.exit.i13 ], [ %.0.ph, %graph_output_padding_line.exit.sink.split ], [ 0, %graph_line_addch.exit.i ], [ 0, %.critedge.i.i85 ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %graph_line_addch.exit.i ], [ 0, %9 ], [ 0, %graph_needs_pre_commit_line.exit.i13 ], [ %.0.ph, %graph_output_padding_line.exit.sink.split ], [ 0, %.critedge.i.i85 ]
   %603 = getelementptr i8, ptr %0, i64 20
   %.val = load i32, ptr %603, align 4, !tbaa !106
   %604 = load i64, ptr %4, align 8, !tbaa !125
@@ -2893,7 +2893,7 @@ graph_show_line_prefix.exit13.backedge:           ; preds = %27, %35
   br label %40
 
 40:                                               ; preds = %11, %graph_show_line_prefix.exit, %39
-  %.0 = phi i32 [ 1, %39 ], [ 0, %graph_show_line_prefix.exit ], [ 0, %11 ]
+  %.0 = phi i32 [ 0, %graph_show_line_prefix.exit ], [ 1, %39 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -3012,7 +3012,7 @@ graph_show_line_prefix.exit.i.i:                  ; preds = %42, %39, %37
   br i1 %.not19.i, label %._crit_edge.sink.split.i, label %.lr.ph, !llvm.loop !144
 
 ._crit_edge.sink.split.i:                         ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %.lr.ph.split.i.preheader, %.lr.ph.split.us.i.preheader
-  %.01727.lcssa.sink44.i = phi ptr [ %6, %.lr.ph.split.us.i.preheader ], [ %6, %.lr.ph.split.i.preheader ], [ %14, %.lr.ph.split.us.i ], [ %31, %.lr.ph.split.i ]
+  %.01727.lcssa.sink44.i = phi ptr [ %14, %.lr.ph.split.us.i ], [ %6, %.lr.ph.split.us.i.preheader ], [ %6, %.lr.ph.split.i.preheader ], [ %31, %.lr.ph.split.i ]
   %54 = load ptr, ptr %5, align 8, !tbaa !29
   %55 = load i64, ptr %10, align 8, !tbaa !27
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 %55

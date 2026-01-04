@@ -140,8 +140,8 @@ define dso_local range(i64 0, 281474976710656) i64 @_ZN4llvm13ScaledNumbers8divi
   br label %_ZN4llvm13ScaledNumbers11getAdjustedIjEESt4pairIT_sEms.exit
 
 _ZN4llvm13ScaledNumbers11getAdjustedIjEESt4pairIT_sEms.exit: ; preds = %13, %25
-  %.sroa.010.sroa.0.0.i = phi i32 [ %19, %13 ], [ %spec.select.i, %25 ]
-  %.sroa.010.sroa.3.0.i = phi i16 [ %21, %13 ], [ %spec.select14.i, %25 ]
+  %.sroa.010.sroa.0.0.i = phi i32 [ %spec.select.i, %25 ], [ %19, %13 ]
+  %.sroa.010.sroa.3.0.i = phi i16 [ %spec.select14.i, %25 ], [ %21, %13 ]
   %.sroa.010.sroa.3.0.insert.ext.i = zext i16 %.sroa.010.sroa.3.0.i to i64
   %.sroa.010.sroa.3.0.insert.shift.i = shl nuw nsw i64 %.sroa.010.sroa.3.0.insert.ext.i, 32
   %.sroa.010.sroa.0.0.insert.ext.i = zext i32 %.sroa.010.sroa.0.0.i to i64
@@ -373,12 +373,12 @@ define dso_local void @_ZN4llvm16ScaledNumberBase8toStringB5cxx11Emsij(ptr dead_
   br label %176
 
 60:                                               ; preds = %31, %29, %49, %47, %38
-  %.0139 = phi i16 [ %2, %29 ], [ %35, %31 ], [ %2, %38 ], [ %2, %49 ], [ %2, %47 ]
-  %.074 = phi i32 [ 0, %29 ], [ 0, %31 ], [ 0, %38 ], [ %50, %49 ], [ 0, %47 ]
-  %.072 = phi i64 [ 0, %29 ], [ 0, %31 ], [ 0, %38 ], [ %56, %49 ], [ 0, %47 ]
-  %.067 = phi i64 [ 0, %29 ], [ 0, %31 ], [ %44, %38 ], [ %52, %49 ], [ 0, %47 ]
-  %.065 = phi i64 [ 0, %29 ], [ %spec.select, %31 ], [ %41, %38 ], [ 0, %49 ], [ 0, %47 ]
-  %.0 = phi i64 [ %1, %29 ], [ %34, %31 ], [ %1, %38 ], [ %1, %49 ], [ %1, %47 ]
+  %.0139 = phi i16 [ %2, %49 ], [ %2, %29 ], [ %35, %31 ], [ %2, %38 ], [ %2, %47 ]
+  %.074 = phi i32 [ %50, %49 ], [ 0, %29 ], [ 0, %31 ], [ 0, %38 ], [ 0, %47 ]
+  %.072 = phi i64 [ %56, %49 ], [ 0, %29 ], [ 0, %31 ], [ 0, %38 ], [ 0, %47 ]
+  %.067 = phi i64 [ %52, %49 ], [ 0, %29 ], [ 0, %31 ], [ %44, %38 ], [ 0, %47 ]
+  %.065 = phi i64 [ 0, %49 ], [ 0, %29 ], [ %spec.select, %31 ], [ %41, %38 ], [ 0, %47 ]
+  %.0 = phi i64 [ %1, %49 ], [ %1, %29 ], [ %34, %31 ], [ %1, %38 ], [ %1, %47 ]
   %61 = icmp ne i64 %.065, 0
   %62 = icmp ne i64 %.067, 0
   %or.cond = select i1 %61, i1 true, i1 %62
@@ -534,13 +534,13 @@ _ZL15toStringAPFloatB5cxx11mij.exit:              ; preds = %112, %113
   br i1 %61, label %117, label %.thread194
 
 117:                                              ; preds = %.thread.thread, %114
-  %118 = phi ptr [ %116, %114 ], [ %26, %.thread.thread ]
-  %119 = phi ptr [ %115, %114 ], [ %25, %.thread.thread ]
-  %.074147160 = phi i32 [ %.074, %114 ], [ 0, %.thread.thread ]
-  %.072148157 = phi i64 [ %.072, %114 ], [ 0, %.thread.thread ]
-  %.067149154 = phi i64 [ %.067, %114 ], [ 0, %.thread.thread ]
-  %.065150151 = phi i64 [ %.065, %114 ], [ %1, %.thread.thread ]
-  %120 = phi i1 [ %62, %114 ], [ false, %.thread.thread ]
+  %118 = phi ptr [ %26, %.thread.thread ], [ %116, %114 ]
+  %119 = phi ptr [ %25, %.thread.thread ], [ %115, %114 ]
+  %.074147160 = phi i32 [ 0, %.thread.thread ], [ %.074, %114 ]
+  %.072148157 = phi i64 [ 0, %.thread.thread ], [ %.072, %114 ]
+  %.067149154 = phi i64 [ 0, %.thread.thread ], [ %.067, %114 ]
+  %.065150151 = phi i64 [ %1, %.thread.thread ], [ %.065, %114 ]
+  %120 = phi i1 [ false, %.thread.thread ], [ %62, %114 ]
   br label %121
 
 121:                                              ; preds = %_ZL11appendDigitRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit.i, %117

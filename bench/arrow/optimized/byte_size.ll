@@ -821,7 +821,7 @@ _ZN5arrow4util12_GLOBAL__N_117DoTotalBufferSizeERKNS_12ChunkedArrayEPSt13unorder
   br i1 %.not.i.i.i.i, label %_ZNSt10_HashtableIPKhS1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !44
 
 _ZNSt10_HashtableIPKhS1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i: ; preds = %.lr.ph.i.i.i.i, %1, %_ZN5arrow4util12_GLOBAL__N_117DoTotalBufferSizeERKNS_12ChunkedArrayEPSt13unordered_setIPKhSt4hashIS7_ESt8equal_toIS7_ESaIS7_EE.exit
-  %.0.lcssa.i7 = phi i64 [ %12, %_ZN5arrow4util12_GLOBAL__N_117DoTotalBufferSizeERKNS_12ChunkedArrayEPSt13unordered_setIPKhSt4hashIS7_ESt8equal_toIS7_ESaIS7_EE.exit ], [ 0, %1 ], [ %12, %.lr.ph.i.i.i.i ]
+  %.0.lcssa.i7 = phi i64 [ 0, %1 ], [ %12, %_ZN5arrow4util12_GLOBAL__N_117DoTotalBufferSizeERKNS_12ChunkedArrayEPSt13unordered_setIPKhSt4hashIS7_ESt8equal_toIS7_ESaIS7_EE.exit ], [ %12, %.lr.ph.i.i.i.i ]
   %15 = load ptr, ptr %2, align 8, !tbaa !32
   %16 = load i64, ptr %4, align 8, !tbaa !40
   %17 = shl i64 %16, 3
@@ -4371,8 +4371,8 @@ _ZNSt10_HashtableIPKhS1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1
   resume { ptr, i32 } %47
 
 _ZNKSt10_HashtableIPKhS1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS3_10_Hash_nodeIS1_Lb0EEEmRKT_m.exit: ; preds = %33, %19, %.critedge, %28
-  %.sroa.031.1 = phi ptr [ %29, %28 ], [ %46, %.critedge ], [ %.sroa.028.0, %19 ], [ %35, %33 ]
-  %.sroa.432.1 = phi i8 [ 0, %28 ], [ 1, %.critedge ], [ 0, %19 ], [ 0, %33 ]
+  %.sroa.031.1 = phi ptr [ %.sroa.028.0, %19 ], [ %46, %.critedge ], [ %29, %28 ], [ %35, %33 ]
+  %.sroa.432.1 = phi i8 [ 0, %19 ], [ 1, %.critedge ], [ 0, %28 ], [ 0, %33 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -5378,7 +5378,7 @@ _ZN5arrow6StatusD2Ev.exit111.lr.ph:               ; preds = %.preheader157
   br label %_ZN5arrow6StatusD2Ev.exit111
 
 common.resume:                                    ; preds = %468, %483, %_ZNSt6vectorIlSaIlEED2Ev.exit, %679, %639, %390
-  %common.resume.op = phi { ptr, i32 } [ %391, %390 ], [ %640, %639 ], [ %680, %679 ], [ %.pn.pn.i, %_ZNSt6vectorIlSaIlEED2Ev.exit ], [ %484, %483 ], [ %469, %468 ]
+  %common.resume.op = phi { ptr, i32 } [ %391, %390 ], [ %680, %679 ], [ %640, %639 ], [ %.pn.pn.i, %_ZNSt6vectorIlSaIlEED2Ev.exit ], [ %484, %483 ], [ %469, %468 ]
   resume { ptr, i32 } %common.resume.op
 
 390:                                              ; preds = %_ZSt20dynamic_pointer_castIN5arrow14FixedWidthTypeENS0_8DataTypeEESt10shared_ptrIT_ERKS3_IT0_E.exit
@@ -10371,7 +10371,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %_ZN5arrow6StatusD2E
   br label %_ZNK5arrow4util12_GLOBAL__N_118GetByteRangesArray15VisitBaseBinaryINS_10BinaryTypeEEENS_6StatusERKT_.exit.sink.split
 
 _ZNK5arrow4util12_GLOBAL__N_118GetByteRangesArray15VisitBaseBinaryINS_10BinaryTypeEEENS_6StatusERKT_.exit.sink.split: ; preds = %_ZN5arrow6StatusD2Ev.exit.i75.i, %_ZN5arrow6StatusD2Ev.exit.i65.i, %_ZN5arrow6StatusD2Ev.exit.i54.i, %_ZN5arrow6StatusD2Ev.exit.i44.i, %_ZN5arrow6StatusD2Ev.exit.i.i, %259
-  %.sink = phi ptr [ null, %259 ], [ %.pr.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i ], [ %.pr.i46.i, %_ZN5arrow6StatusD2Ev.exit.i44.i ], [ %.pr.i56.i, %_ZN5arrow6StatusD2Ev.exit.i54.i ], [ %.pr.i67.i, %_ZN5arrow6StatusD2Ev.exit.i65.i ], [ %.pr.i77.i, %_ZN5arrow6StatusD2Ev.exit.i75.i ]
+  %.sink = phi ptr [ null, %259 ], [ %.pr.i67.i, %_ZN5arrow6StatusD2Ev.exit.i65.i ], [ %.pr.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i ], [ %.pr.i46.i, %_ZN5arrow6StatusD2Ev.exit.i44.i ], [ %.pr.i56.i, %_ZN5arrow6StatusD2Ev.exit.i54.i ], [ %.pr.i77.i, %_ZN5arrow6StatusD2Ev.exit.i75.i ]
   store ptr %.sink, ptr %0, align 8, !tbaa !147
   br label %_ZNK5arrow4util12_GLOBAL__N_118GetByteRangesArray15VisitBaseBinaryINS_10BinaryTypeEEENS_6StatusERKT_.exit
 
@@ -10914,7 +10914,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %_ZN5arrow6StatusD2E
   br label %_ZNK5arrow4util12_GLOBAL__N_118GetByteRangesArray15VisitBaseBinaryINS_15LargeBinaryTypeEEENS_6StatusERKT_.exit.sink.split
 
 _ZNK5arrow4util12_GLOBAL__N_118GetByteRangesArray15VisitBaseBinaryINS_15LargeBinaryTypeEEENS_6StatusERKT_.exit.sink.split: ; preds = %_ZN5arrow6StatusD2Ev.exit.i75.i, %_ZN5arrow6StatusD2Ev.exit.i65.i, %_ZN5arrow6StatusD2Ev.exit.i54.i, %_ZN5arrow6StatusD2Ev.exit.i44.i, %_ZN5arrow6StatusD2Ev.exit.i.i, %257
-  %.sink = phi ptr [ null, %257 ], [ %.pr.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i ], [ %.pr.i46.i, %_ZN5arrow6StatusD2Ev.exit.i44.i ], [ %.pr.i56.i, %_ZN5arrow6StatusD2Ev.exit.i54.i ], [ %.pr.i67.i, %_ZN5arrow6StatusD2Ev.exit.i65.i ], [ %.pr.i77.i, %_ZN5arrow6StatusD2Ev.exit.i75.i ]
+  %.sink = phi ptr [ null, %257 ], [ %.pr.i67.i, %_ZN5arrow6StatusD2Ev.exit.i65.i ], [ %.pr.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i ], [ %.pr.i46.i, %_ZN5arrow6StatusD2Ev.exit.i44.i ], [ %.pr.i56.i, %_ZN5arrow6StatusD2Ev.exit.i54.i ], [ %.pr.i77.i, %_ZN5arrow6StatusD2Ev.exit.i75.i ]
   store ptr %.sink, ptr %0, align 8, !tbaa !147
   br label %_ZNK5arrow4util12_GLOBAL__N_118GetByteRangesArray15VisitBaseBinaryINS_15LargeBinaryTypeEEENS_6StatusERKT_.exit
 
@@ -11138,7 +11138,7 @@ _ZN5arrow6StatusD2Ev.exit38:                      ; preds = %_ZN5arrow6StatusD2E
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %2, %_ZN5arrow6StatusD2Ev.exit38, %_ZN5arrow6StatusD2Ev.exit.i30, %_ZN5arrow6StatusD2Ev.exit.i20, %_ZN5arrow6StatusD2Ev.exit.i
-  %.pr.i32.sink = phi ptr [ %.pr.i, %_ZN5arrow6StatusD2Ev.exit.i ], [ %.pr.i22, %_ZN5arrow6StatusD2Ev.exit.i20 ], [ %.pr.i32, %_ZN5arrow6StatusD2Ev.exit.i30 ], [ null, %_ZN5arrow6StatusD2Ev.exit38 ], [ null, %2 ]
+  %.pr.i32.sink = phi ptr [ %.pr.i22, %_ZN5arrow6StatusD2Ev.exit.i20 ], [ %.pr.i, %_ZN5arrow6StatusD2Ev.exit.i ], [ %.pr.i32, %_ZN5arrow6StatusD2Ev.exit.i30 ], [ null, %_ZN5arrow6StatusD2Ev.exit38 ], [ null, %2 ]
   store ptr %.pr.i32.sink, ptr %0, align 8, !tbaa !147
   ret void
 }
@@ -11793,7 +11793,7 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %6
   br label %15
 
 15:                                               ; preds = %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %6, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread
-  %.0.i.i.i.i = phi ptr [ %11, %6 ], [ %14, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread ]
+  %.0.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread ], [ %11, %6 ], [ %14, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i.i.i.i, ptr %16, align 8, !tbaa !807
   ret void
@@ -12383,34 +12383,34 @@ define linkonce_odr { i64, i8 } @_ZNK5arrow3stl13ArrayIteratorINS_12NumericArray
   %22 = load ptr, ptr %8, align 8, !tbaa !106
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %24 = load i32, ptr %23, align 8, !tbaa !241
-  switch i32 %24, label %_ZNK5arrow5Array6IsNullEl.exit [
-    i32 27, label %25
-    i32 28, label %27
-    i32 38, label %29
+  switch i32 %24, label %29 [
+    i32 27, label %_ZNK5arrow5Array6IsNullEl.exit
+    i32 28, label %25
+    i32 38, label %27
   ]
 
 25:                                               ; preds = %21
-  %26 = tail call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %8, i64 noundef %4)
+  %26 = tail call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %8, i64 noundef %4)
   br i1 %26, label %43, label %36
 
 27:                                               ; preds = %21
-  %28 = tail call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %8, i64 noundef %4)
+  %28 = tail call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %8, i64 noundef %4)
   br i1 %28, label %43, label %36
 
 29:                                               ; preds = %21
-  %30 = tail call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %8, i64 noundef %4)
-  br i1 %30, label %43, label %36
-
-_ZNK5arrow5Array6IsNullEl.exit:                   ; preds = %21
-  %31 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %32 = load atomic i64, ptr %31 seq_cst, align 8
-  %33 = load ptr, ptr %7, align 8, !tbaa !71
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %35 = load i64, ptr %34, align 8, !tbaa !139
-  %.not1 = icmp eq i64 %32, %35
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %31 = load atomic i64, ptr %30 seq_cst, align 8
+  %32 = load ptr, ptr %7, align 8, !tbaa !71
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %34 = load i64, ptr %33, align 8, !tbaa !139
+  %.not1 = icmp eq i64 %31, %34
   br i1 %.not1, label %43, label %36
 
-36:                                               ; preds = %29, %27, %25, %9, %_ZNK5arrow5Array6IsNullEl.exit
+_ZNK5arrow5Array6IsNullEl.exit:                   ; preds = %21
+  %35 = tail call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %8, i64 noundef %4)
+  br i1 %35, label %43, label %36
+
+36:                                               ; preds = %25, %27, %29, %9, %_ZNK5arrow5Array6IsNullEl.exit
   %37 = load ptr, ptr %0, align 8, !tbaa !811
   %38 = load i64, ptr %3, align 8, !tbaa !225
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 40
@@ -12419,9 +12419,9 @@ _ZNK5arrow5Array6IsNullEl.exit:                   ; preds = %21
   %42 = load i64, ptr %41, align 8, !tbaa !211
   br label %43
 
-43:                                               ; preds = %29, %27, %25, %9, %_ZNK5arrow5Array6IsNullEl.exit, %36
-  %.sroa.0.0 = phi i64 [ %42, %36 ], [ undef, %_ZNK5arrow5Array6IsNullEl.exit ], [ undef, %9 ], [ undef, %25 ], [ undef, %27 ], [ undef, %29 ]
-  %.sroa.2.0 = phi i8 [ 1, %36 ], [ 0, %_ZNK5arrow5Array6IsNullEl.exit ], [ 0, %9 ], [ 0, %25 ], [ 0, %27 ], [ 0, %29 ]
+43:                                               ; preds = %25, %27, %29, %9, %_ZNK5arrow5Array6IsNullEl.exit, %36
+  %.sroa.0.0 = phi i64 [ %42, %36 ], [ undef, %_ZNK5arrow5Array6IsNullEl.exit ], [ undef, %9 ], [ undef, %29 ], [ undef, %27 ], [ undef, %25 ]
+  %.sroa.2.0 = phi i8 [ 1, %36 ], [ 0, %_ZNK5arrow5Array6IsNullEl.exit ], [ 0, %9 ], [ 0, %29 ], [ 0, %27 ], [ 0, %25 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.2.0, 1
   ret { i64, i8 } %.fca.1.insert

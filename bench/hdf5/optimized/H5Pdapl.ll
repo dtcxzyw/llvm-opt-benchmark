@@ -159,7 +159,7 @@ define internal range(i32 -1, 1) i32 @H5P__dacc_reg_prop(ptr noundef %0) #0 {
   br i1 %36, label %.sink.split, label %40
 
 .sink.split:                                      ; preds = %34, %31, %28, %25, %22, %19, %16, %13
-  %.sink = phi i32 [ 204, %13 ], [ 210, %16 ], [ 216, %19 ], [ 221, %22 ], [ 227, %25 ], [ 234, %28 ], [ 240, %31 ], [ 248, %34 ]
+  %.sink = phi i32 [ 240, %31 ], [ 204, %13 ], [ 210, %16 ], [ 216, %19 ], [ 221, %22 ], [ 227, %25 ], [ 234, %28 ], [ 248, %34 ]
   %37 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !3
   %38 = load i64, ptr @H5E_CANTINSERT_g, align 8, !tbaa !3
   %39 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5P__dacc_reg_prop, i32 noundef %.sink, i64 noundef %37, i64 noundef %38, ptr noundef nonnull @.str.39) #15
@@ -1869,7 +1869,7 @@ define internal noundef i32 @H5P__encode_chunk_cache_nslots(ptr noundef readonly
   br label %66
 
 66:                                               ; preds = %62, %57, %50, %45, %36, %31, %24, %19
-  %.0.i.i = phi i32 [ %23, %19 ], [ %28, %24 ], [ %35, %31 ], [ %40, %36 ], [ %49, %45 ], [ %54, %50 ], [ %61, %57 ], [ %65, %62 ]
+  %.0.i.i = phi i32 [ %54, %50 ], [ %28, %24 ], [ %40, %36 ], [ %23, %19 ], [ %35, %31 ], [ %49, %45 ], [ %61, %57 ], [ %65, %62 ]
   %67 = lshr i32 %.0.i.i, 3
   %68 = add nuw nsw i32 %67, 2
   %69 = zext nneg i32 %68 to i64
@@ -2083,7 +2083,7 @@ define internal noundef i32 @H5P__encode_chunk_cache_nbytes(ptr noundef readonly
   br label %66
 
 66:                                               ; preds = %62, %57, %50, %45, %36, %31, %24, %19
-  %.0.i.i = phi i32 [ %23, %19 ], [ %28, %24 ], [ %35, %31 ], [ %40, %36 ], [ %49, %45 ], [ %54, %50 ], [ %61, %57 ], [ %65, %62 ]
+  %.0.i.i = phi i32 [ %54, %50 ], [ %28, %24 ], [ %40, %36 ], [ %23, %19 ], [ %35, %31 ], [ %49, %45 ], [ %61, %57 ], [ %65, %62 ]
   %67 = lshr i32 %.0.i.i, 3
   %68 = add nuw nsw i32 %67, 2
   %69 = zext nneg i32 %68 to i64
@@ -2403,8 +2403,8 @@ define internal noundef i32 @H5P__dapl_vds_file_pref_enc(ptr noundef readonly ca
   br label %H5VM_limit_enc_size.exit
 
 H5VM_limit_enc_size.exit:                         ; preds = %19, %24, %31, %36, %45, %50, %57, %.thread45
-  %.03239 = phi i64 [ %13, %19 ], [ %13, %24 ], [ %13, %31 ], [ %13, %36 ], [ %13, %45 ], [ %13, %50 ], [ %13, %57 ], [ %.032404448, %.thread45 ]
-  %.0.i.i = phi i32 [ %23, %19 ], [ %28, %24 ], [ %35, %31 ], [ %40, %36 ], [ %49, %45 ], [ %54, %50 ], [ %61, %57 ], [ %64, %.thread45 ]
+  %.03239 = phi i64 [ %13, %50 ], [ %13, %24 ], [ %13, %36 ], [ %13, %19 ], [ %13, %31 ], [ %13, %45 ], [ %13, %57 ], [ %.032404448, %.thread45 ]
+  %.0.i.i = phi i32 [ %54, %50 ], [ %28, %24 ], [ %40, %36 ], [ %23, %19 ], [ %35, %31 ], [ %49, %45 ], [ %61, %57 ], [ %64, %.thread45 ]
   %65 = lshr i32 %.0.i.i, 3
   %66 = load ptr, ptr %1, align 8, !tbaa !28
   %.not36 = icmp eq ptr %66, null
@@ -2626,7 +2626,7 @@ define internal i32 @H5P__dapl_vds_file_pref_cmp(ptr noundef readonly captures(n
   br label %21
 
 21:                                               ; preds = %15, %12, %19, %18, %3
-  %.0 = phi i32 [ %20, %19 ], [ 0, %18 ], [ 0, %3 ], [ 1, %12 ], [ -1, %15 ]
+  %.0 = phi i32 [ 0, %3 ], [ 1, %12 ], [ %20, %19 ], [ 0, %18 ], [ -1, %15 ]
   ret i32 %.0
 }
 
@@ -2797,8 +2797,8 @@ define internal noundef i32 @H5P__dapl_efile_pref_enc(ptr noundef readonly captu
   br label %H5VM_limit_enc_size.exit
 
 H5VM_limit_enc_size.exit:                         ; preds = %19, %24, %31, %36, %45, %50, %57, %.thread45
-  %.03239 = phi i64 [ %13, %19 ], [ %13, %24 ], [ %13, %31 ], [ %13, %36 ], [ %13, %45 ], [ %13, %50 ], [ %13, %57 ], [ %.032404448, %.thread45 ]
-  %.0.i.i = phi i32 [ %23, %19 ], [ %28, %24 ], [ %35, %31 ], [ %40, %36 ], [ %49, %45 ], [ %54, %50 ], [ %61, %57 ], [ %64, %.thread45 ]
+  %.03239 = phi i64 [ %13, %50 ], [ %13, %24 ], [ %13, %36 ], [ %13, %19 ], [ %13, %31 ], [ %13, %45 ], [ %13, %57 ], [ %.032404448, %.thread45 ]
+  %.0.i.i = phi i32 [ %54, %50 ], [ %28, %24 ], [ %40, %36 ], [ %23, %19 ], [ %35, %31 ], [ %49, %45 ], [ %61, %57 ], [ %64, %.thread45 ]
   %65 = lshr i32 %.0.i.i, 3
   %66 = load ptr, ptr %1, align 8, !tbaa !28
   %.not36 = icmp eq ptr %66, null
@@ -3020,7 +3020,7 @@ define internal i32 @H5P__dapl_efile_pref_cmp(ptr noundef readonly captures(none
   br label %21
 
 21:                                               ; preds = %15, %12, %19, %18, %3
-  %.0 = phi i32 [ %20, %19 ], [ 0, %18 ], [ 0, %3 ], [ 1, %12 ], [ -1, %15 ]
+  %.0 = phi i32 [ 0, %3 ], [ 1, %12 ], [ %20, %19 ], [ 0, %18 ], [ -1, %15 ]
   ret i32 %.0
 }
 

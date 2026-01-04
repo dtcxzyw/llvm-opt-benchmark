@@ -648,7 +648,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35: ; preds = %100
   br label %105
 
 _ZN2cv10HdrDecoder10readHeaderEv.exit.thread:     ; preds = %20, %30, %73, %92, %86
-  %.018 = phi i1 [ true, %86 ], [ true, %92 ], [ true, %73 ], [ false, %30 ], [ false, %20 ]
+  %.018 = phi i1 [ true, %73 ], [ true, %86 ], [ true, %92 ], [ false, %30 ], [ false, %20 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.018
@@ -1153,7 +1153,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   ret i1 %.not48
 
 108:                                              ; preds = %81, %87, %58, %49, %44, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn49.pn = phi { ptr, i32 } [ %59, %58 ], [ %.pn42.pn.pn, %44 ], [ %50, %49 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %88, %87 ], [ %82, %81 ]
+  %.pn49.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %59, %58 ], [ %.pn42.pn.pn, %44 ], [ %50, %49 ], [ %88, %87 ], [ %82, %81 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn49.pn

@@ -209,8 +209,8 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
   ]
 
 .invoke:                                          ; preds = %30, %40, %54
-  %55 = phi ptr [ @.str.4, %54 ], [ @.str.4, %40 ], [ @.str.3, %30 ]
-  %56 = phi i64 [ 32, %54 ], [ 32, %40 ], [ 42, %30 ]
+  %55 = phi ptr [ @.str.4, %40 ], [ @.str.4, %54 ], [ @.str.3, %30 ]
+  %56 = phi i64 [ 32, %40 ], [ 32, %54 ], [ 42, %30 ]
   %57 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull %55, i64 noundef %56)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit36 unwind label %38
 
@@ -353,7 +353,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit52: ; preds = %119
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit36 unwind label %89
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit36: ; preds = %.invoke65, %.invoke, %125
-  %.1 = phi i1 [ true, %125 ], [ false, %.invoke ], [ false, %.invoke65 ]
+  %.1 = phi i1 [ false, %.invoke65 ], [ true, %125 ], [ false, %.invoke ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit34
 
@@ -551,7 +551,7 @@ define dso_local noundef zeroext i1 @_ZN8TGAImage13load_rle_dataERSt14basic_ifst
   br i1 %85, label %12, label %.thread71, !llvm.loop !52
 
 .thread71:                                        ; preds = %.thread65, %52, %83, %.thread, %21, %67
-  %cond76 = phi i1 [ false, %52 ], [ false, %83 ], [ false, %67 ], [ false, %21 ], [ false, %.thread ], [ true, %.thread65 ]
+  %cond76 = phi i1 [ false, %.thread ], [ false, %52 ], [ false, %83 ], [ false, %67 ], [ false, %21 ], [ true, %.thread65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %cond76
 }
@@ -1085,9 +1085,9 @@ define dso_local noundef zeroext i1 @_ZNK8TGAImage15unload_rle_dataERSt14basic_o
   br label %.thread.thread101
 
 .thread.thread101:                                ; preds = %21, %39, %.thread, %.split, %.split68.us
-  %.14595 = phi i1 [ true, %.split68.us ], [ true, %.split ], [ %45, %.thread ], [ false, %39 ], [ false, %21 ]
-  %.14793 = phi i8 [ %38, %.split68.us ], [ 1, %.split ], [ %18, %.thread ], [ %42, %39 ], [ %18, %21 ]
-  %46 = phi i8 [ -1, %.split68.us ], [ -1, %.split ], [ %spec.select, %.thread ], [ 127, %39 ], [ 127, %21 ]
+  %.14595 = phi i1 [ true, %.split68.us ], [ false, %39 ], [ %45, %.thread ], [ true, %.split ], [ false, %21 ]
+  %.14793 = phi i8 [ %38, %.split68.us ], [ %42, %39 ], [ %18, %.thread ], [ 1, %.split ], [ %18, %21 ]
+  %46 = phi i8 [ -1, %.split68.us ], [ 127, %39 ], [ %spec.select, %.thread ], [ -1, %.split ], [ 127, %21 ]
   %47 = add i8 %46, %.14793
   %48 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %1, i8 noundef signext %47)
   %49 = load ptr, ptr %1, align 8, !tbaa !25

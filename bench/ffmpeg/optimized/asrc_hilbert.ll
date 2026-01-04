@@ -910,7 +910,7 @@ define internal range(i32 -12, 1) i32 @config_props(ptr noundef readonly capture
   br label %392
 
 392:                                              ; preds = %385, %382, %374, %366, %358
-  %.sink561.i = phi float [ %370, %366 ], [ %391, %385 ], [ %381, %374 ], [ %362, %358 ], [ 0.000000e+00, %382 ]
+  %.sink561.i = phi float [ %370, %366 ], [ %391, %385 ], [ %362, %358 ], [ %381, %374 ], [ 0.000000e+00, %382 ]
   %393 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv463.i
   store float %.sink561.i, ptr %393, align 4, !tbaa !48
   %indvars.iv.next464.i = add nuw nsw i64 %indvars.iv463.i, 1

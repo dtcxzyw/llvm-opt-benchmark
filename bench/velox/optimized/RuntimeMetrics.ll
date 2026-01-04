@@ -260,8 +260,8 @@ sw.epilog:                                        ; preds = %sw.default, %invoke
   ret void
 
 eh.resume:                                        ; preds = %lpad27, %ehcleanup52, %lpad, %ehcleanup
-  %ref.tmp25.sink = phi ptr [ %ref.tmp, %ehcleanup ], [ %ref.tmp, %lpad ], [ %ref.tmp25, %ehcleanup52 ], [ %ref.tmp25, %lpad27 ]
-  %.pn5.pn.pn = phi { ptr, i32 } [ %.pn5, %ehcleanup ], [ %5, %lpad ], [ %.pn, %ehcleanup52 ], [ %11, %lpad27 ]
+  %ref.tmp25.sink = phi ptr [ %ref.tmp, %lpad ], [ %ref.tmp, %ehcleanup ], [ %ref.tmp25, %ehcleanup52 ], [ %ref.tmp25, %lpad27 ]
+  %.pn5.pn.pn = phi { ptr, i32 } [ %5, %lpad ], [ %.pn5, %ehcleanup ], [ %.pn, %ehcleanup52 ], [ %11, %lpad27 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25.sink) #8
   resume { ptr, i32 } %.pn5.pn.pn
 }

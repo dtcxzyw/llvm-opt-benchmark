@@ -200,7 +200,7 @@ close_tempfile_gently.exit:                       ; preds = %3, %19
   br label %remove_template_directory.exit
 
 remove_template_directory.exit:                   ; preds = %close_tempfile_gently.exit, %26
-  %.0.i12 = phi i32 [ %27, %26 ], [ 0, %close_tempfile_gently.exit ]
+  %.0.i12 = phi i32 [ 0, %close_tempfile_gently.exit ], [ %27, %26 ]
   %28 = or i32 %24, %.0.i12
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %30 = load volatile ptr, ptr %29, align 8, !tbaa !25

@@ -1711,7 +1711,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorI7SEGME
   br label %.loopexit.split-lp198
 
 .loopexit.split-lp198:                            ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit197, %.loopexit.split-lp198.loopexit.split-lp, %.loopexit.split-lp198.loopexit, %.loopexit203, %.loopexit.split-lp204, %433, %452
-  %.pn87.pn.pn = phi { ptr, i32 } [ %434, %433 ], [ %453, %452 ], [ %lpad.loopexit205, %.loopexit203 ], [ %lpad.loopexit.split-lp206, %.loopexit.split-lp204 ], [ %lpad.loopexit199, %.loopexit197 ], [ %lpad.loopexit208, %.loopexit.split-lp198.loopexit ], [ %lpad.loopexit.split-lp209, %.loopexit.split-lp198.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn87.pn.pn = phi { ptr, i32 } [ %453, %452 ], [ %434, %433 ], [ %lpad.loopexit.split-lp209, %.loopexit.split-lp198.loopexit.split-lp ], [ %lpad.loopexit.split-lp206, %.loopexit.split-lp204 ], [ %lpad.loopexit205, %.loopexit203 ], [ %lpad.loopexit199, %.loopexit197 ], [ %lpad.loopexit208, %.loopexit.split-lp198.loopexit ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
@@ -2097,7 +2097,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge, %51
   br i1 %exitcond.not, label %._crit_edge, label %62, !llvm.loop !136
 
 146:                                              ; preds = %139, %143, %141, %60, %59
-  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn, %59 ], [ %61, %60 ], [ %140, %139 ], [ %144, %143 ], [ %142, %141 ]
+  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn, %59 ], [ %61, %60 ], [ %142, %141 ], [ %140, %139 ], [ %144, %143 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %147
@@ -2633,7 +2633,7 @@ define hidden noundef zeroext i1 @_ZN2cv8ximgproc20FastLineDetectorImpl13mergeSe
   br label %151
 
 151:                                              ; preds = %147, %149
-  %.pn61.pn = phi { ptr, i32 } [ %150, %149 ], [ %148, %147 ]
+  %.pn61.pn = phi { ptr, i32 } [ %148, %147 ], [ %150, %149 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %155
@@ -3152,7 +3152,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit: ; preds = %176, %_ZNS
   br label %256
 
 256:                                              ; preds = %252, %254
-  %.pn98.pn = phi { ptr, i32 } [ %255, %254 ], [ %253, %252 ]
+  %.pn98.pn = phi { ptr, i32 } [ %253, %252 ], [ %255, %254 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %596
@@ -3755,7 +3755,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17_
   br label %455
 
 455:                                              ; preds = %451, %453
-  %.pn111.pn = phi { ptr, i32 } [ %454, %453 ], [ %452, %451 ]
+  %.pn111.pn = phi { ptr, i32 } [ %452, %451 ], [ %454, %453 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %595
@@ -3845,7 +3845,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17_
   br label %478
 
 478:                                              ; preds = %474, %476
-  %.pn124.pn = phi { ptr, i32 } [ %477, %476 ], [ %475, %474 ]
+  %.pn124.pn = phi { ptr, i32 } [ %475, %474 ], [ %477, %476 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %595
@@ -3921,10 +3921,10 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17_
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit207
 
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit207: ; preds = %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i204, %480
-  %.sroa.0.13 = phi ptr [ %493, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i204 ], [ %.sroa.0.11569, %480 ]
-  %.0.lcssa.i.i.i.i.i.i202.pn = phi ptr [ %.0.lcssa.i.i.i.i.i.i202, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i204 ], [ %.sroa.18.5570, %480 ]
-  %.sroa.39.7 = phi ptr [ %499, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i204 ], [ %.sroa.39.5571, %480 ]
-  %.sroa.18.7 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i202.pn, i64 8
+  %.sroa.0.13 = phi ptr [ %.sroa.0.11569, %480 ], [ %493, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i204 ]
+  %.sroa.18.5.pn = phi ptr [ %.sroa.18.5570, %480 ], [ %.0.lcssa.i.i.i.i.i.i202, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i204 ]
+  %.sroa.39.7 = phi ptr [ %.sroa.39.5571, %480 ], [ %499, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i204 ]
+  %.sroa.18.7 = getelementptr inbounds nuw i8, ptr %.sroa.18.5.pn, i64 8
   %indvars.iv.next762 = add nsw i64 %indvars.iv761, 1
   %500 = icmp slt i64 %indvars.iv.next762, %invariant.op
   %indvars.iv.next760 = add nsw i64 %indvars.iv759, 1
@@ -4264,7 +4264,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit167.thread316: ; preds 
   br label %593
 
 593:                                              ; preds = %589, %591
-  %.pn139.pn = phi { ptr, i32 } [ %592, %591 ], [ %590, %589 ]
+  %.pn139.pn = phi { ptr, i32 } [ %590, %589 ], [ %592, %591 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   br label %595
@@ -4286,14 +4286,14 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit167.thread316: ; preds 
   br label %595
 
 595:                                              ; preds = %.loopexit, %.loopexit.split-lp, %456, %465, %473, %478, %594, %593, %588, %580, %571, %455, %450, %442, %433, %431
-  %.sroa.0.14 = phi ptr [ %.sroa.0.11.lcssa, %594 ], [ %.sroa.0.11.lcssa, %593 ], [ %.sroa.0.11.lcssa, %588 ], [ %.sroa.0.11.lcssa, %580 ], [ %.sroa.0.11.lcssa, %571 ], [ %.sroa.0.11569, %478 ], [ %.sroa.0.11569, %473 ], [ %.sroa.0.11569, %465 ], [ %.sroa.0.11569, %456 ], [ %.sroa.0.17, %431 ], [ %.sroa.0.17, %455 ], [ %.sroa.0.17, %450 ], [ %.sroa.0.17, %442 ], [ %.sroa.0.17, %433 ], [ %.sroa.0.11569, %.loopexit ], [ %.sroa.0.11569, %.loopexit.split-lp ]
-  %.pn142 = phi { ptr, i32 } [ %lpad.phi344, %594 ], [ %.pn139.pn, %593 ], [ %.pn136.pn, %588 ], [ %.pn133.pn, %580 ], [ %572, %571 ], [ %.pn124.pn, %478 ], [ %.pn121.pn, %473 ], [ %.pn118.pn, %465 ], [ %457, %456 ], [ %432, %431 ], [ %.pn111.pn, %455 ], [ %.pn108.pn, %450 ], [ %.pn105.pn, %442 ], [ %434, %433 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.0.14 = phi ptr [ %.sroa.0.11.lcssa, %594 ], [ %.sroa.0.11.lcssa, %593 ], [ %.sroa.0.11.lcssa, %588 ], [ %.sroa.0.11.lcssa, %580 ], [ %.sroa.0.11.lcssa, %571 ], [ %.sroa.0.17, %433 ], [ %.sroa.0.11569, %478 ], [ %.sroa.0.11569, %473 ], [ %.sroa.0.11569, %465 ], [ %.sroa.0.11569, %456 ], [ %.sroa.0.17, %431 ], [ %.sroa.0.17, %455 ], [ %.sroa.0.17, %450 ], [ %.sroa.0.17, %442 ], [ %.sroa.0.11569, %.loopexit ], [ %.sroa.0.11569, %.loopexit.split-lp ]
+  %.pn142 = phi { ptr, i32 } [ %lpad.phi344, %594 ], [ %.pn139.pn, %593 ], [ %.pn136.pn, %588 ], [ %.pn133.pn, %580 ], [ %572, %571 ], [ %434, %433 ], [ %.pn124.pn, %478 ], [ %.pn121.pn, %473 ], [ %.pn118.pn, %465 ], [ %457, %456 ], [ %432, %431 ], [ %.pn111.pn, %455 ], [ %.pn108.pn, %450 ], [ %.pn105.pn, %442 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %596
 
 596:                                              ; preds = %.loopexit329, %.loopexit.split-lp330, %.loopexit334, %.loopexit.split-lp335, %595, %256
-  %.sroa.0.9 = phi ptr [ %.sroa.0.14, %595 ], [ %.sroa.0.0588, %256 ], [ %.sroa.0.1.ph, %.loopexit334 ], [ %.sroa.0.1.ph336, %.loopexit.split-lp335 ], [ %.sroa.0.2558, %.loopexit329 ], [ %.sroa.0.2558, %.loopexit.split-lp330 ]
-  %.pn142.pn = phi { ptr, i32 } [ %.pn142, %595 ], [ %.pn98.pn, %256 ], [ %lpad.loopexit337, %.loopexit334 ], [ %lpad.loopexit.split-lp338, %.loopexit.split-lp335 ], [ %lpad.loopexit331, %.loopexit329 ], [ %lpad.loopexit.split-lp332, %.loopexit.split-lp330 ]
+  %.sroa.0.9 = phi ptr [ %.sroa.0.0588, %256 ], [ %.sroa.0.14, %595 ], [ %.sroa.0.1.ph336, %.loopexit.split-lp335 ], [ %.sroa.0.1.ph, %.loopexit334 ], [ %.sroa.0.2558, %.loopexit329 ], [ %.sroa.0.2558, %.loopexit.split-lp330 ]
+  %.pn142.pn = phi { ptr, i32 } [ %.pn98.pn, %256 ], [ %.pn142, %595 ], [ %lpad.loopexit.split-lp338, %.loopexit.split-lp335 ], [ %lpad.loopexit337, %.loopexit334 ], [ %lpad.loopexit331, %.loopexit329 ], [ %lpad.loopexit.split-lp332, %.loopexit.split-lp330 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #29
   br label %597
 
@@ -4598,7 +4598,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc20FastLineDetectorImpl13incident
   br label %112
 
 112:                                              ; preds = %108, %110
-  %.pn24.pn = phi { ptr, i32 } [ %111, %110 ], [ %109, %108 ]
+  %.pn24.pn = phi { ptr, i32 } [ %109, %108 ], [ %111, %110 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %120
@@ -4615,7 +4615,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc20FastLineDetectorImpl13incident
   br label %117
 
 117:                                              ; preds = %113, %115
-  %.pn27.pn = phi { ptr, i32 } [ %116, %115 ], [ %114, %113 ]
+  %.pn27.pn = phi { ptr, i32 } [ %114, %113 ], [ %116, %115 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %120
@@ -4627,7 +4627,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc20FastLineDetectorImpl13incident
   br label %120
 
 120:                                              ; preds = %118, %117, %112
-  %.pn32 = phi { ptr, i32 } [ %119, %118 ], [ %.pn27.pn, %117 ], [ %.pn24.pn, %112 ]
+  %.pn32 = phi { ptr, i32 } [ %.pn24.pn, %112 ], [ %119, %118 ], [ %.pn27.pn, %117 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #29
   br label %121
 
@@ -4891,7 +4891,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc20FastLineDetectorImpl13incident
   br label %108
 
 108:                                              ; preds = %104, %106
-  %.pn24.pn = phi { ptr, i32 } [ %107, %106 ], [ %105, %104 ]
+  %.pn24.pn = phi { ptr, i32 } [ %105, %104 ], [ %107, %106 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %116
@@ -4908,7 +4908,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc20FastLineDetectorImpl13incident
   br label %113
 
 113:                                              ; preds = %109, %111
-  %.pn27.pn = phi { ptr, i32 } [ %112, %111 ], [ %110, %109 ]
+  %.pn27.pn = phi { ptr, i32 } [ %110, %109 ], [ %112, %111 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %116

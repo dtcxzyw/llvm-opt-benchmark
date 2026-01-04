@@ -225,7 +225,7 @@ define dso_local ptr @php_uuencode(ptr noundef %0, i64 noundef %1) local_unnamed
   br label %121
 
 121:                                              ; preds = %.thread, %118, %105
-  %122 = phi i8 [ 96, %105 ], [ %spec.select110, %118 ], [ 96, %.thread ]
+  %122 = phi i8 [ %spec.select110, %118 ], [ 96, %105 ], [ 96, %.thread ]
   %123 = getelementptr inbounds nuw i8, ptr %.4, i64 3
   %124 = getelementptr inbounds nuw i8, ptr %.4, i64 4
   store i8 %122, ptr %123, align 1, !tbaa !9
@@ -493,7 +493,7 @@ define dso_local noundef ptr @php_uudecode(ptr noundef readonly captures(address
   br label %108
 
 108:                                              ; preds = %2, %.loopexit, %106
-  %.0 = phi ptr [ %10, %106 ], [ null, %.loopexit ], [ null, %2 ]
+  %.0 = phi ptr [ null, %.loopexit ], [ %10, %106 ], [ null, %2 ]
   ret ptr %.0
 }
 

@@ -555,7 +555,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   br label %11
 
 11:                                               ; preds = %9, %7, %2
-  %.sroa.0.0.i = phi i64 [ 1, %2 ], [ %..i, %9 ], [ 2, %7 ]
+  %.sroa.0.0.i = phi i64 [ 2, %7 ], [ %..i, %9 ], [ 1, %2 ]
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hd62ed5b6ad3554e2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %.sroa.0.0.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cfe99184cf4cf3d5fcc1f691f01e1203.15)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !alias.scope !40, !nonnull !3, !noundef !3
@@ -830,7 +830,7 @@ _ZN5rowan6cursor10SyntaxNode20preorder_with_tokens17h29bb23a024cbbb0cE.exit: ; p
   br i1 %.not.i44, label %72, label %70
 
 69:                                               ; preds = %.loopexit123, %.loopexit.split-lp124, %135, %.thread115
-  %.pn30 = phi { ptr, i32 } [ %.pn28, %.thread115 ], [ %.pn28, %135 ], [ %lpad.loopexit125, %.loopexit123 ], [ %lpad.loopexit.split-lp126, %.loopexit.split-lp124 ]
+  %.pn30 = phi { ptr, i32 } [ %.pn28, %135 ], [ %.pn28, %.thread115 ], [ %lpad.loopexit125, %.loopexit123 ], [ %lpad.loopexit.split-lp126, %.loopexit.split-lp124 ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$rowan..api..PreorderWithTokens$LT$yara_x_parser..cst..YARA$GT$$GT$17h9beb0a6da7a9e253E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %18) #15
           to label %143 unwind label %109
 
@@ -961,9 +961,9 @@ _ZN5rowan6cursor10SyntaxNode20preorder_with_tokens17h29bb23a024cbbb0cE.exit: ; p
           to label %103 unwind label %.loopexit.split-lp.loopexit
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit
-  %.pn = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit130, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp131, %.loopexit.split-lp.loopexit.split-lp ]
-  %.sroa.07.1 = phi i1 [ true, %.loopexit ], [ %.sroa.07.0.ph.ph, %.loopexit.split-lp.loopexit ], [ %.sroa.07.0.ph.ph128, %.loopexit.split-lp.loopexit.split-lp ]
-  %.sroa.05.1 = phi i1 [ true, %.loopexit ], [ %86, %.loopexit.split-lp.loopexit ], [ %86, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp131, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit130, %.loopexit.split-lp.loopexit ]
+  %.sroa.07.1 = phi i1 [ %.sroa.07.0.ph.ph128, %.loopexit.split-lp.loopexit.split-lp ], [ true, %.loopexit ], [ %.sroa.07.0.ph.ph, %.loopexit.split-lp.loopexit ]
+  %.sroa.05.1 = phi i1 [ %86, %.loopexit.split-lp.loopexit.split-lp ], [ true, %.loopexit ], [ %86, %.loopexit.split-lp.loopexit ]
   %97 = load i64, ptr %16, align 8, !range !29, !noundef !3
   %98 = icmp eq i64 %97, 0
   br i1 %98, label %133, label %134
@@ -1386,7 +1386,7 @@ _ZN4core3fmt9Formatter9write_fmt17h698142d355d1673aE.exit64: ; preds = %70
   br label %75
 
 75:                                               ; preds = %_ZN4core3fmt9Formatter9write_fmt17h698142d355d1673aE.exit, %_ZN4core3fmt9Formatter9write_fmt17h698142d355d1673aE.exit64, %_ZN4core3fmt9Formatter9write_fmt17h698142d355d1673aE.exit56
-  %.sroa.0.0.shrunk = phi i1 [ %61, %_ZN4core3fmt9Formatter9write_fmt17h698142d355d1673aE.exit56 ], [ %72, %_ZN4core3fmt9Formatter9write_fmt17h698142d355d1673aE.exit64 ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h698142d355d1673aE.exit ]
+  %.sroa.0.0.shrunk = phi i1 [ %72, %_ZN4core3fmt9Formatter9write_fmt17h698142d355d1673aE.exit64 ], [ %61, %_ZN4core3fmt9Formatter9write_fmt17h698142d355d1673aE.exit56 ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h698142d355d1673aE.exit ]
   ret i1 %.sroa.0.0.shrunk
 
 76:                                               ; preds = %73
@@ -1531,7 +1531,7 @@ _ZN4core5slice6memchr6memchr17h2cbc5c3ccb35b62bE.exit.thread16.i.i: ; preds = %.
   br i1 %.not12.i.i, label %50, label %48
 
 _ZN4core5slice6memchr6memchr17h2cbc5c3ccb35b62bE.exit.thread.i.i: ; preds = %.preheader.i.i.i, %37, %_ZN4core5slice6memchr6memchr17h2cbc5c3ccb35b62bE.exit._ZN4core5slice6memchr6memchr17h2cbc5c3ccb35b62bE.exit.thread.loopexit20_crit_edge.i.i
-  %47 = phi i64 [ %.pre46.pre.i.i, %_ZN4core5slice6memchr6memchr17h2cbc5c3ccb35b62bE.exit._ZN4core5slice6memchr6memchr17h2cbc5c3ccb35b62bE.exit.thread.loopexit20_crit_edge.i.i ], [ %23, %37 ], [ %23, %.preheader.i.i.i ]
+  %47 = phi i64 [ %23, %37 ], [ %.pre46.pre.i.i, %_ZN4core5slice6memchr6memchr17h2cbc5c3ccb35b62bE.exit._ZN4core5slice6memchr6memchr17h2cbc5c3ccb35b62bE.exit.thread.loopexit20_crit_edge.i.i ], [ %23, %.preheader.i.i.i ]
   store i64 %47, ptr %.sroa.337.sroa.3.0..sroa.337.0..sroa_idx.sroa_idx, align 8, !alias.scope !97, !noalias !100
   br label %.loopexit.i
 
@@ -1597,15 +1597,15 @@ _ZN4core5slice6memchr6memchr17h2cbc5c3ccb35b62bE.exit.thread.i.i: ; preds = %.pr
   br label %70
 
 70:                                               ; preds = %._crit_edge.i.i, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h8b55eca284de6ec9E.exit.i"
-  %.sroa.4.0.i = phi i64 [ %61, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h8b55eca284de6ec9E.exit.i" ], [ %68, %._crit_edge.i.i ]
-  %.sroa.0.0.i = phi ptr [ %62, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h8b55eca284de6ec9E.exit.i" ], [ %69, %._crit_edge.i.i ]
+  %.sroa.4.0.i = phi i64 [ %68, %._crit_edge.i.i ], [ %61, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h8b55eca284de6ec9E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %69, %._crit_edge.i.i ], [ %62, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h8b55eca284de6ec9E.exit.i" ]
   %71 = call { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17ha33917e0d6bfb107E"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.4.0.i)
   %72 = extractvalue { ptr, i64 } %71, 0
   %73 = extractvalue { ptr, i64 } %71, 1
   %74 = icmp eq i64 %73, 0
   br i1 %74, label %77, label %78
 
-._crit_edge:                                      ; preds = %65, %.loopexit.i, %109
+._crit_edge:                                      ; preds = %.loopexit.i, %65, %109
   %.pre = load i8, ptr %11, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2125,7 +2125,7 @@ define hidden void @"_ZN112_$LT$yara_x_parser..cst..CST$u20$as$u20$core..convert
   br label %.body61
 
 .body61:                                          ; preds = %.loopexit, %.loopexit.split-lp, %167, %117, %104
-  %eh.lpad-body62 = phi { ptr, i32 } [ %105, %104 ], [ %118, %117 ], [ %168, %167 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body62 = phi { ptr, i32 } [ %118, %117 ], [ %105, %104 ], [ %168, %167 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr87drop_in_place$LT$yara_x_parser..cst..CSTStream$LT$yara_x_parser..parser..Parser$GT$$GT$17h6f9456422c90bd81E"(ptr noalias noundef nonnull align 8 dereferenceable(424) %18) #15
           to label %.body unwind label %183
 
@@ -2157,7 +2157,7 @@ define hidden void @"_ZN112_$LT$yara_x_parser..cst..CST$u20$as$u20$core..convert
           to label %176 unwind label %183
 
 49:                                               ; preds = %68, %151, %75, %48
-  %.sroa.033.1 = phi i1 [ true, %151 ], [ false, %75 ], [ true, %48 ], [ false, %68 ]
+  %.sroa.033.1 = phi i1 [ true, %151 ], [ false, %75 ], [ false, %68 ], [ true, %48 ]
   %50 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -2549,7 +2549,7 @@ _ZN5rowan5green7builder16GreenNodeBuilder11finish_node17h967b48be2dec03baE.exit:
           to label %.thread unwind label %183
 
 .thread:                                          ; preds = %176, %185, %186
-  %.pn.pn.pn70 = phi { ptr, i32 } [ %187, %186 ], [ %.pn, %176 ], [ %.pn.pn82, %185 ]
+  %.pn.pn.pn70 = phi { ptr, i32 } [ %.pn.pn82, %185 ], [ %187, %186 ], [ %.pn, %176 ]
   resume { ptr, i32 } %.pn.pn.pn70
 
 186:                                              ; preds = %2

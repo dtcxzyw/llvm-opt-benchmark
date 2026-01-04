@@ -112,12 +112,12 @@ define dso_local void @generateSkyscraper(ptr noundef %0, ptr noundef readonly c
   br i1 %53, label %.lr.ph.split.us.split, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us.split, %40, %90, %15
-  %54 = phi i32 [ %16, %15 ], [ %91, %90 ], [ %41, %40 ], [ %51, %.lr.ph.split.us.split ]
-  %55 = phi i32 [ %17, %15 ], [ %92, %90 ], [ %42, %40 ], [ %50, %.lr.ph.split.us.split ]
-  %56 = phi i32 [ %18, %15 ], [ %91, %90 ], [ %43, %40 ], [ %51, %.lr.ph.split.us.split ]
-  %57 = phi i32 [ %19, %15 ], [ %92, %90 ], [ %44, %40 ], [ %50, %.lr.ph.split.us.split ]
-  %58 = phi i32 [ %20, %15 ], [ %91, %90 ], [ %43, %40 ], [ %51, %.lr.ph.split.us.split ]
-  %59 = phi i32 [ %21, %15 ], [ %92, %90 ], [ %44, %40 ], [ %50, %.lr.ph.split.us.split ]
+  %54 = phi i32 [ %41, %40 ], [ %91, %90 ], [ %16, %15 ], [ %51, %.lr.ph.split.us.split ]
+  %55 = phi i32 [ %42, %40 ], [ %92, %90 ], [ %17, %15 ], [ %50, %.lr.ph.split.us.split ]
+  %56 = phi i32 [ %43, %40 ], [ %91, %90 ], [ %18, %15 ], [ %51, %.lr.ph.split.us.split ]
+  %57 = phi i32 [ %44, %40 ], [ %92, %90 ], [ %19, %15 ], [ %50, %.lr.ph.split.us.split ]
+  %58 = phi i32 [ %43, %40 ], [ %91, %90 ], [ %20, %15 ], [ %51, %.lr.ph.split.us.split ]
+  %59 = phi i32 [ %44, %40 ], [ %92, %90 ], [ %21, %15 ], [ %50, %.lr.ph.split.us.split ]
   %60 = add i32 %.065, -1
   %.not.not = icmp sgt i32 %60, %8
   br i1 %.not.not, label %15, label %._crit_edge70, !llvm.loop !19
@@ -178,7 +178,7 @@ define dso_local void @generateSkyscraper(ptr noundef %0, ptr noundef readonly c
   br label %89
 
 89:                                               ; preds = %76, %86, %84, %71, %68
-  %.045 = phi i32 [ %69, %71 ], [ %69, %68 ], [ %88, %86 ], [ %81, %84 ], [ %69, %76 ]
+  %.045 = phi i32 [ %69, %76 ], [ %69, %71 ], [ %69, %68 ], [ %88, %86 ], [ %81, %84 ]
   tail call void @lwDrawPixel(ptr noundef %0, i32 noundef %.04661, i32 noundef %.065, i32 noundef %.045) #4
   %.pre84 = load i32, ptr %1, align 4, !tbaa !14
   %.pre85 = load i32, ptr %10, align 4, !tbaa !15
@@ -256,7 +256,7 @@ define dso_local void @generateSkyline(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %29, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.split
-  %30 = phi i32 [ %11, %.split ], [ %28, %.lr.ph.split.us ], [ %47, %.lr.ph.split ]
+  %30 = phi i32 [ %28, %.lr.ph.split.us ], [ %11, %.split ], [ %47, %.lr.ph.split ]
   %31 = add nsw i32 %.02427, -1
   %32 = icmp samesign ugt i32 %.02427, 1
   br i1 %32, label %.split, label %.split29, !llvm.loop !24
@@ -506,7 +506,7 @@ renderCanvas.exit:                                ; preds = %54, %30
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %renderCanvas.exit, %65, %68, %72, %76, %80
-  %.0.i17 = phi i64 [ %67, %65 ], [ %71, %68 ], [ %75, %72 ], [ %79, %76 ], [ %82, %80 ], [ 0, %renderCanvas.exit ]
+  %.0.i17 = phi i64 [ %82, %80 ], [ %67, %65 ], [ %71, %68 ], [ %75, %72 ], [ %79, %76 ], [ 0, %renderCanvas.exit ]
   call void @addReplyVerbatim(ptr noundef %0, ptr noundef nonnull %60, i64 noundef %.0.i17, ptr noundef nonnull @.str.3) #4
   call void @sdsfree(ptr noundef nonnull %60) #4
   call void @lwFreeCanvas(ptr noundef nonnull %34) #4

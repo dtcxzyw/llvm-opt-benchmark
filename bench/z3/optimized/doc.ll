@@ -1443,7 +1443,7 @@ _ZN11doc_manager11diff_by_012ERK3tbvS2_Rj.exit.thread: ; preds = %_ZN11doc_manag
   br i1 %70, label %.thread49, label %.lr.ph.backedge
 
 .thread49:                                        ; preds = %_ZN11doc_manager11diff_by_012ERK3tbvS2_Rj.exit, %52, %_ZN11doc_manager11diff_by_012ERK3tbvS2_Rj.exit.thread, %.lr.ph, %14, %.thread.i.thread, %2
-  %71 = phi i1 [ true, %2 ], [ false, %.thread.i.thread ], [ false, %_ZN11doc_manager11diff_by_012ERK3tbvS2_Rj.exit ], [ true, %52 ], [ true, %_ZN11doc_manager11diff_by_012ERK3tbvS2_Rj.exit.thread ], [ false, %.lr.ph ], [ false, %14 ]
+  %71 = phi i1 [ true, %2 ], [ false, %.thread.i.thread ], [ true, %52 ], [ true, %_ZN11doc_manager11diff_by_012ERK3tbvS2_Rj.exit.thread ], [ false, %.lr.ph ], [ false, %_ZN11doc_manager11diff_by_012ERK3tbvS2_Rj.exit ], [ false, %14 ]
   ret i1 %71
 }
 
@@ -1524,7 +1524,7 @@ define hidden noundef zeroext i1 @_ZNK11doc_manager11well_formedERK3doc(ptr noun
   br i1 %21, label %9, label %.loopexit
 
 .loopexit:                                        ; preds = %16, %.lr.ph, %9, %.preheader, %2
-  %.012 = phi i1 [ false, %2 ], [ true, %.preheader ], [ false, %16 ], [ false, %.lr.ph ], [ true, %9 ]
+  %.012 = phi i1 [ false, %2 ], [ true, %.preheader ], [ false, %.lr.ph ], [ false, %16 ], [ true, %9 ]
   ret i1 %.012
 }
 
@@ -1593,7 +1593,7 @@ define hidden noundef range(i32 0, 4) i32 @_ZN11doc_manager11diff_by_012ERK3tbvS
   br i1 %exitcond.not, label %.thread38, label %.lr.ph, !llvm.loop !46
 
 .thread38:                                        ; preds = %35, %.thread, %30, %4
-  %spec.select = phi i32 [ 0, %4 ], [ 2, %30 ], [ %.32236, %.thread ], [ 3, %35 ]
+  %spec.select = phi i32 [ 0, %4 ], [ %.32236, %.thread ], [ 2, %30 ], [ 3, %35 ]
   ret i32 %spec.select
 }
 
@@ -1888,9 +1888,9 @@ default.unreachable:                              ; preds = %_ZNK10union_findI22
   br label %44
 
 44:                                               ; preds = %33, %31, %29, %43
-  %.174 = phi i32 [ %.073, %43 ], [ %.073, %29 ], [ %.073, %31 ], [ %34, %33 ]
-  %.172 = phi i32 [ %.071, %43 ], [ %.071, %29 ], [ %.071, %31 ], [ %spec.select, %33 ]
-  %.170 = phi i32 [ %.069, %43 ], [ 1, %29 ], [ 2, %31 ], [ %.069, %33 ]
+  %.174 = phi i32 [ %.073, %43 ], [ %.073, %31 ], [ %.073, %29 ], [ %34, %33 ]
+  %.172 = phi i32 [ %.071, %43 ], [ %.071, %31 ], [ %.071, %29 ], [ %spec.select, %33 ]
+  %.170 = phi i32 [ %.069, %43 ], [ 2, %31 ], [ 1, %29 ], [ %.069, %33 ]
   %45 = load ptr, ptr %13, align 8, !tbaa !52
   %46 = zext i32 %.075 to i64
   %47 = getelementptr inbounds nuw i32, ptr %45, i64 %46
@@ -2035,7 +2035,7 @@ default.unreachable:                              ; preds = %_ZNK10union_findI22
   br i1 %.not86, label %.loopexit, label %104, !llvm.loop !61
 
 .loopexit:                                        ; preds = %31, %29, %70, %122, %49
-  %.0 = phi i1 [ true, %49 ], [ true, %122 ], [ true, %70 ], [ false, %29 ], [ false, %31 ]
+  %.0 = phi i1 [ true, %70 ], [ true, %122 ], [ true, %49 ], [ false, %29 ], [ false, %31 ]
   ret i1 %.0
 }
 
@@ -2894,7 +2894,7 @@ _ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i204:     ; preds = %.noexc209, %._crit_
   br i1 %307, label %.lr.ph308, label %._crit_edge309.loopexit, !llvm.loop !66
 
 .loopexit287:                                     ; preds = %.noexc188, %._crit_edge306.thread, %._crit_edge306, %._crit_edge311
-  %308 = phi ptr [ %258, %._crit_edge311 ], [ null, %._crit_edge306 ], [ null, %._crit_edge306.thread ], [ %258, %.noexc188 ]
+  %308 = phi ptr [ null, %._crit_edge306.thread ], [ %258, %._crit_edge311 ], [ null, %._crit_edge306 ], [ %258, %.noexc188 ]
   store i32 0, ptr %39, align 8, !tbaa !25
   %309 = load i32, ptr %42, align 8, !tbaa !25
   %.not.i211 = icmp eq i32 %309, 0
@@ -3224,9 +3224,9 @@ default.unreachable388:                           ; preds = %81
   unreachable
 
 .loopexit294.thread396.sink.split:                ; preds = %_ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i.i246, %._crit_edge.i.i248, %_ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i.i, %._crit_edge.i.i104
-  %.sink = phi i32 [ %87, %._crit_edge.i.i104 ], [ %.pre2.i.i, %_ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i.i ], [ 0, %._crit_edge.i.i248 ], [ %.pre2.i.i247, %_ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i.i246 ]
-  %.sink416 = phi ptr [ %.pre.i.i105, %._crit_edge.i.i104 ], [ %93, %_ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i.i ], [ %.pre.i.i249, %._crit_edge.i.i248 ], [ %357, %_ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i.i246 ]
-  %.lcssa.sink = phi ptr [ %85, %._crit_edge.i.i104 ], [ %85, %_ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i.i ], [ %339, %._crit_edge.i.i248 ], [ %339, %_ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i.i246 ]
+  %.sink = phi i32 [ %.pre2.i.i, %_ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i.i ], [ %87, %._crit_edge.i.i104 ], [ 0, %._crit_edge.i.i248 ], [ %.pre2.i.i247, %_ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i.i246 ]
+  %.sink416 = phi ptr [ %93, %_ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i.i ], [ %.pre.i.i105, %._crit_edge.i.i104 ], [ %.pre.i.i249, %._crit_edge.i.i248 ], [ %357, %_ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i.i246 ]
+  %.lcssa.sink = phi ptr [ %85, %_ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i.i ], [ %85, %._crit_edge.i.i104 ], [ %339, %._crit_edge.i.i248 ], [ %339, %_ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i.i246 ]
   %396 = zext i32 %.sink to i64
   %397 = getelementptr inbounds nuw ptr, ptr %.sink416, i64 %396
   store ptr %.lcssa.sink, ptr %397, align 8, !tbaa !27
@@ -3244,7 +3244,7 @@ default.unreachable388:                           ; preds = %81
   br i1 %399, label %.preheader, label %78, !llvm.loop !68
 
 ._crit_edge321:                                   ; preds = %418, %.preheader293, %._crit_edge, %.preheader
-  %400 = phi ptr [ %75, %.preheader ], [ null, %._crit_edge ], [ null, %.preheader293 ], [ %75, %418 ]
+  %400 = phi ptr [ null, %.preheader293 ], [ %75, %.preheader ], [ null, %._crit_edge ], [ %75, %418 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %401 = load ptr, ptr %7, align 8, !tbaa !24
   %.not.i.i.i272 = icmp eq ptr %401, %34
@@ -3303,7 +3303,7 @@ _ZN6bufferIP3tbvLb0ELj8EED2Ev.exit:               ; preds = %._crit_edge321, %40
   br i1 %421, label %.lr.ph320, label %._crit_edge321, !llvm.loop !69
 
 .loopexit.split-lp289:                            ; preds = %.loopexit402, %.loopexit.split-lp403, %.loopexit288, %.loopexit.split-lp289.loopexit.split-lp, %.loopexit.split-lp289.loopexit, %144, %146, %413, %334
-  %.pn88 = phi { ptr, i32 } [ %.pn83.pn, %334 ], [ %414, %413 ], [ %147, %146 ], [ %145, %144 ], [ %lpad.loopexit290, %.loopexit288 ], [ %lpad.loopexit295, %.loopexit.split-lp289.loopexit ], [ %lpad.loopexit.split-lp296, %.loopexit.split-lp289.loopexit.split-lp ], [ %lpad.loopexit404, %.loopexit402 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp403 ]
+  %.pn88 = phi { ptr, i32 } [ %lpad.loopexit.split-lp296, %.loopexit.split-lp289.loopexit.split-lp ], [ %414, %413 ], [ %.pn83.pn, %334 ], [ %145, %144 ], [ %147, %146 ], [ %lpad.loopexit290, %.loopexit288 ], [ %lpad.loopexit295, %.loopexit.split-lp289.loopexit ], [ %lpad.loopexit404, %.loopexit402 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp403 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %422
 
@@ -3504,9 +3504,9 @@ define hidden noundef range(i32 0, 6) i32 @_ZN11doc_manager14pick_resolventERK3t
   br label %.thread102
 
 .thread102:                                       ; preds = %86, %81, %85, %74, %32, %24
-  %.186 = phi i32 [ %.085129, %32 ], [ %.085129, %24 ], [ %.085129, %85 ], [ %.085129, %81 ], [ %.173.lcssa, %86 ], [ %.085129, %74 ]
-  %.182 = phi i32 [ %.081130, %32 ], [ %.081130, %24 ], [ %.081130, %85 ], [ %.081130, %81 ], [ %.170.lcssa, %86 ], [ %.081130, %74 ]
-  %.278 = phi i32 [ %.076131, %32 ], [ %.076131, %24 ], [ %.076131, %85 ], [ %.076131, %81 ], [ %.075132, %86 ], [ %.076131, %74 ]
+  %.186 = phi i32 [ %.085129, %32 ], [ %.085129, %24 ], [ %.085129, %81 ], [ %.085129, %85 ], [ %.173.lcssa, %86 ], [ %.085129, %74 ]
+  %.182 = phi i32 [ %.081130, %32 ], [ %.081130, %24 ], [ %.081130, %81 ], [ %.081130, %85 ], [ %.170.lcssa, %86 ], [ %.081130, %74 ]
+  %.278 = phi i32 [ %.076131, %32 ], [ %.076131, %24 ], [ %.076131, %81 ], [ %.076131, %85 ], [ %.075132, %86 ], [ %.076131, %74 ]
   %87 = add nuw nsw i32 %.075132, 1
   %exitcond142.not = icmp eq i32 %87, %15
   br i1 %exitcond142.not, label %.thread108, label %24, !llvm.loop !72
@@ -3522,7 +3522,7 @@ define hidden noundef range(i32 0, 6) i32 @_ZN11doc_manager14pick_resolventERK3t
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %.thread.sink.split, %.preheader, %.thread108, %5
-  %.0 = phi i32 [ 1, %5 ], [ 1, %.thread108 ], [ 1, %.preheader ], [ %.0.ph, %.thread.sink.split ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ 1, %.thread108 ], [ 1, %5 ], [ 1, %.preheader ], [ %.0.ph, %.thread.sink.split ], [ 0, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -3643,7 +3643,7 @@ _ZN6bufferIP3tbvLb0ELj8EE6expandEv.exit.i.i:      ; preds = %.noexc17.i, %._crit
   unreachable
 
 _ZN6bufferIP3tbvLb0ELj8EEC2EOS2_.exit:            ; preds = %._crit_edge.i.i, %10, %35
-  %.pre4143 = phi ptr [ %4, %10 ], [ %7, %35 ], [ %.pre.i21.i, %._crit_edge.i.i ]
+  %.pre4143 = phi ptr [ %7, %35 ], [ %4, %10 ], [ %.pre.i21.i, %._crit_edge.i.i ]
   %43 = icmp eq ptr %0, %1
   br i1 %43, label %_ZN6bufferIP3tbvLb0ELj8EEaSERKS2_.exit, label %44
 
@@ -4530,14 +4530,14 @@ _ZN10union_bvecI11tbv_manager3tbvE9push_backEPS1_.exit176: ; preds = %._crit_edg
   unreachable
 
 _ZN7tbv_refD2Ev.exit:                             ; preds = %80, %.loopexit, %263
-  %.3221 = phi ptr [ %262, %.loopexit ], [ %262, %263 ], [ null, %80 ]
+  %.3221 = phi ptr [ %262, %263 ], [ %262, %.loopexit ], [ null, %80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN7doc_refD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.3221
 
 268:                                              ; preds = %36, %184, %222, %75, %176
-  %.pn97.pn.pn = phi { ptr, i32 } [ %185, %184 ], [ %223, %222 ], [ %37, %36 ], [ %76, %75 ], [ %177, %176 ]
+  %.pn97.pn.pn = phi { ptr, i32 } [ %76, %75 ], [ %177, %176 ], [ %185, %184 ], [ %223, %222 ], [ %37, %36 ]
   call void @_ZN7tbv_refD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN7doc_refD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #22
@@ -5171,7 +5171,7 @@ _ZN11doc_manager7set_andER3docRK3tbv.exit.thread: ; preds = %.noexc22, %_ZN11doc
   br i1 %108, label %68, label %._crit_edge, !llvm.loop !93
 
 109:                                              ; preds = %66, %104, %53, %21
-  %.pn.pn = phi { ptr, i32 } [ %54, %53 ], [ %22, %21 ], [ %105, %104 ], [ %67, %66 ]
+  %.pn.pn = phi { ptr, i32 } [ %22, %21 ], [ %54, %53 ], [ %105, %104 ], [ %67, %66 ]
   call void @_ZN7tbv_refD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN7doc_refD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #22
@@ -6274,7 +6274,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; p
   br label %131
 
 131:                                              ; preds = %89, %129, %43
-  %.pn22.pn.pn = phi { ptr, i32 } [ %130, %129 ], [ %.pn, %43 ], [ %.pn22, %89 ]
+  %.pn22.pn.pn = phi { ptr, i32 } [ %.pn, %43 ], [ %130, %129 ], [ %.pn22, %89 ]
   call void @_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #22
@@ -6435,7 +6435,7 @@ define hidden noundef zeroext i1 @_ZNK11doc_manager8containsERK3docS2_(ptr nound
   br i1 %.not, label %.preheader, label %.critedge, !llvm.loop !315
 
 .critedge:                                        ; preds = %.critedge22, %13, %.preheader23, %3
-  %.020 = phi i1 [ false, %3 ], [ true, %.preheader23 ], [ false, %13 ], [ true, %.critedge22 ]
+  %.020 = phi i1 [ false, %3 ], [ false, %13 ], [ true, %.preheader23 ], [ true, %.critedge22 ]
   ret i1 %.020
 }
 
@@ -6488,7 +6488,7 @@ define hidden noundef zeroext i1 @_ZNK11doc_manager8containsERK3docRK7svectorIjj
   br i1 %.not, label %.preheader, label %.critedge, !llvm.loop !317
 
 .critedge:                                        ; preds = %.critedge26, %15, %.preheader27, %5
-  %.024 = phi i1 [ false, %5 ], [ true, %.preheader27 ], [ false, %15 ], [ true, %.critedge26 ]
+  %.024 = phi i1 [ false, %5 ], [ false, %15 ], [ true, %.preheader27 ], [ true, %.critedge26 ]
   ret i1 %.024
 }
 

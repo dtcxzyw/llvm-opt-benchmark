@@ -320,7 +320,7 @@ define internal i32 @p4_pmu_handle_irq(ptr noundef %0) #4 align 16 {
   br label %.thread1
 
 .thread1:                                         ; preds = %1, %97, %95
-  %98 = phi i32 [ %90, %97 ], [ 0, %95 ], [ 0, %1 ]
+  %98 = phi i32 [ 0, %95 ], [ %90, %97 ], [ 0, %1 ]
   call void @__SCT__apic_call_write(i32 noundef 832, i32 noundef 1024) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %98
@@ -700,7 +700,7 @@ define internal i32 @p4_hw_config(ptr noundef %0) #4 align 16 {
   br label %.thread12
 
 .thread12:                                        ; preds = %106, %93, %111, %108, %85, %126, %141
-  %143 = phi i32 [ %142, %141 ], [ -22, %126 ], [ -22, %93 ], [ -22, %111 ], [ %109, %108 ], [ -22, %85 ], [ -13, %106 ]
+  %143 = phi i32 [ %142, %141 ], [ -22, %126 ], [ -13, %106 ], [ -22, %85 ], [ -22, %93 ], [ -22, %111 ], [ %109, %108 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !36
   %144 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #13, !srcloc !37
   %145 = icmp ult i8 %144, 2

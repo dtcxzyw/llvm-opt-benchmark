@@ -525,7 +525,7 @@ _ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit14: ; preds = %_ZNSt3__14__fs1
   br label %_ZNSt3__110unique_ptrIcPDoFvPvEED2B8ne210000Ev.exit16
 
 _ZNSt3__110unique_ptrIcPDoFvPvEED2B8ne210000Ev.exit16: ; preds = %.body.thread31, %.body.thread
-  %.pn30 = phi { ptr, i32 } [ %34, %.body.thread ], [ %30, %.body.thread31 ]
+  %.pn30 = phi { ptr, i32 } [ %30, %.body.thread31 ], [ %34, %.body.thread ]
   %55 = load i8, ptr %6, align 8
   %56 = and i8 %55, 1
   %.not.i.i17 = icmp eq i8 %56, 0
@@ -1344,7 +1344,7 @@ _ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit140: ; preds = %_ZNSt3__14__fs
   br label %.body
 
 .body:                                            ; preds = %261, %257, %255, %236, %232
-  %.pn = phi { ptr, i32 } [ %256, %255 ], [ %233, %236 ], [ %233, %232 ], [ %258, %257 ], [ %258, %261 ]
+  %.pn = phi { ptr, i32 } [ %233, %232 ], [ %256, %255 ], [ %233, %236 ], [ %258, %257 ], [ %258, %261 ]
   %265 = load i8, ptr %24, align 8
   %266 = and i8 %265, 1
   %.not.i.i143 = icmp eq i8 %266, 0
@@ -1358,7 +1358,7 @@ _ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit140: ; preds = %_ZNSt3__14__fs
   br label %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit144
 
 _ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit144: ; preds = %.loopexit223, %.loopexit.split-lp224, %267, %.body
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %.pn, %267 ], [ %lpad.loopexit225, %.loopexit223 ], [ %lpad.loopexit.split-lp226, %.loopexit.split-lp224 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %267 ], [ %.pn, %.body ], [ %lpad.loopexit225, %.loopexit223 ], [ %lpad.loopexit.split-lp226, %.loopexit.split-lp224 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %278
@@ -1421,7 +1421,7 @@ default.unreachable:                              ; preds = %.thread204
   ret void
 
 281:                                              ; preds = %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit129, %279
-  %.pn103.pn = phi { ptr, i32 } [ %.pn99.pn, %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit129 ], [ %.pn93.pn, %279 ]
+  %.pn103.pn = phi { ptr, i32 } [ %.pn93.pn, %279 ], [ %.pn99.pn, %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit129 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -2056,7 +2056,7 @@ _ZNSt3__14__fs10filesystem6detail12ErrorHandlerIbEC2B8ne210000EPKcPNS_10error_co
           to label %141 unwind label %112
 
 141:                                              ; preds = %.invoke, %139, %128
-  %.5 = phi i1 [ %127, %128 ], [ true, %139 ], [ %140, %.invoke ]
+  %.5 = phi i1 [ %127, %128 ], [ %140, %.invoke ], [ true, %139 ]
   call void @_ZNSt3__14__fs10filesystem6detail14FileDescriptorD2B8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(168) %14) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %"_ZZNSt3__14__fs10filesystem11__copy_fileERKNS1_4pathES4_NS1_12copy_optionsEPNS_10error_codeEENK3$_0clEv.exit.thread75"
@@ -2072,7 +2072,7 @@ _ZNSt3__14__fs10filesystem6detail12ErrorHandlerIbEC2B8ne210000EPKcPNS_10error_co
   br label %144
 
 "_ZZNSt3__14__fs10filesystem11__copy_fileERKNS1_4pathES4_NS1_12copy_optionsEPNS_10error_codeEENK3$_0clEv.exit.thread75": ; preds = %92, %94, %74, %89, %"_ZZNSt3__14__fs10filesystem11__copy_fileERKNS1_4pathES4_NS1_12copy_optionsEPNS_10error_codeEENK3$_0clEv.exit", %141, %.noexc, %59
-  %.2 = phi i1 [ %60, %59 ], [ %73, %74 ], [ %88, %89 ], [ %.5, %141 ], [ false, %"_ZZNSt3__14__fs10filesystem11__copy_fileERKNS1_4pathES4_NS1_12copy_optionsEPNS_10error_codeEENK3$_0clEv.exit" ], [ false, %.noexc ], [ false, %94 ], [ false, %92 ]
+  %.2 = phi i1 [ %60, %59 ], [ %73, %74 ], [ %88, %89 ], [ false, %92 ], [ %.5, %141 ], [ false, %"_ZZNSt3__14__fs10filesystem11__copy_fileERKNS1_4pathES4_NS1_12copy_optionsEPNS_10error_codeEENK3$_0clEv.exit" ], [ false, %.noexc ], [ false, %94 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %145
@@ -2408,7 +2408,7 @@ _ZNSt3__14__fs10filesystem6statusB8ne210000ERKNS1_4pathERNS_10error_codeE.exit: 
   br label %87
 
 87:                                               ; preds = %36, %65, %40, %86, %38
-  %.0 = phi i1 [ %39, %38 ], [ %.1, %86 ], [ %37, %36 ], [ true, %40 ], [ %66, %65 ]
+  %.0 = phi i1 [ %.1, %86 ], [ %39, %38 ], [ %37, %36 ], [ true, %40 ], [ %66, %65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -3272,7 +3272,7 @@ _ZNSt3__14__fs10filesystem6detail12_GLOBAL__N_122copy_file_impl_fstreamERNS2_14F
   br label %210
 
 210:                                              ; preds = %23, %_ZNSt3__14__fs10filesystem6detail12_GLOBAL__N_123copy_file_impl_sendfileERNS2_14FileDescriptorES5_RNS_10error_codeE.exit, %_ZNSt3__14__fs10filesystem6detail12_GLOBAL__N_130copy_file_impl_copy_file_rangeERNS2_14FileDescriptorES5_RNS_10error_codeE.exit.thread36, %41, %_ZNSt3__14__fs10filesystem6detail12_GLOBAL__N_122copy_file_impl_fstreamERNS2_14FileDescriptorES5_RNS_10error_codeE.exit
-  %.0 = phi i1 [ %.0.i34, %_ZNSt3__14__fs10filesystem6detail12_GLOBAL__N_122copy_file_impl_fstreamERNS2_14FileDescriptorES5_RNS_10error_codeE.exit ], [ true, %_ZNSt3__14__fs10filesystem6detail12_GLOBAL__N_123copy_file_impl_sendfileERNS2_14FileDescriptorES5_RNS_10error_codeE.exit ], [ false, %41 ], [ true, %_ZNSt3__14__fs10filesystem6detail12_GLOBAL__N_130copy_file_impl_copy_file_rangeERNS2_14FileDescriptorES5_RNS_10error_codeE.exit.thread36 ], [ false, %23 ]
+  %.0 = phi i1 [ %.0.i34, %_ZNSt3__14__fs10filesystem6detail12_GLOBAL__N_122copy_file_impl_fstreamERNS2_14FileDescriptorES5_RNS_10error_codeE.exit ], [ true, %_ZNSt3__14__fs10filesystem6detail12_GLOBAL__N_130copy_file_impl_copy_file_rangeERNS2_14FileDescriptorES5_RNS_10error_codeE.exit.thread36 ], [ false, %23 ], [ true, %_ZNSt3__14__fs10filesystem6detail12_GLOBAL__N_123copy_file_impl_sendfileERNS2_14FileDescriptorES5_RNS_10error_codeE.exit ], [ false, %41 ]
   ret i1 %.0
 }
 
@@ -3667,8 +3667,8 @@ _ZNSt3__14__fs10filesystem6statusB8ne210000ERKNS1_4pathERNS_10error_codeE.exit: 
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %116
 
-.thread:                                          ; preds = %100, %112, %90, %106
-  %.1.ph = phi i1 [ false, %106 ], [ %91, %90 ], [ %111, %112 ], [ %99, %100 ]
+.thread:                                          ; preds = %112, %100, %90, %106
+  %.1.ph = phi i1 [ false, %106 ], [ %91, %90 ], [ %99, %100 ], [ %111, %112 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %125
 
@@ -3700,7 +3700,7 @@ _ZNSt3__14__fs10filesystem6statusB8ne210000ERKNS1_4pathERNS_10error_codeE.exit: 
   br label %133
 
 125:                                              ; preds = %.thread, %121, %119
-  %.2 = phi i1 [ %122, %121 ], [ %118, %119 ], [ %.1.ph, %.thread ]
+  %.2 = phi i1 [ %.1.ph, %.thread ], [ %122, %121 ], [ %118, %119 ]
   %126 = load i8, ptr %12, align 8
   %127 = and i8 %126, 1
   %.not.i.i = icmp eq i8 %127, 0
@@ -3741,7 +3741,7 @@ _ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit34: ; preds = %136, %133
   resume { ptr, i32 } %.pn24
 
 141:                                              ; preds = %37, %_ZNSt3__14__fs10filesystem6detail10posix_statB8ne210000ERKNS1_4pathEPNS_10error_codeE.exit, %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit, %41
-  %.0 = phi i1 [ %44, %41 ], [ %.2, %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit ], [ %38, %37 ], [ false, %_ZNSt3__14__fs10filesystem6detail10posix_statB8ne210000ERKNS1_4pathEPNS_10error_codeE.exit ]
+  %.0 = phi i1 [ %.2, %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit ], [ %38, %37 ], [ %44, %41 ], [ false, %_ZNSt3__14__fs10filesystem6detail10posix_statB8ne210000ERKNS1_4pathEPNS_10error_codeE.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -5001,7 +5001,7 @@ _ZNSt3__14__fs10filesystem18directory_iteratorD2B8ne210000Ev.exit19: ; preds = %
   br label %59
 
 59:                                               ; preds = %31, %55, %_ZNSt3__14__fs10filesystem18directory_iteratorD2B8ne210000Ev.exit19, %35
-  %.014 = phi i1 [ %38, %35 ], [ %.1, %_ZNSt3__14__fs10filesystem18directory_iteratorD2B8ne210000Ev.exit19 ], [ %58, %55 ], [ %32, %31 ]
+  %.014 = phi i1 [ %58, %55 ], [ %38, %35 ], [ %.1, %_ZNSt3__14__fs10filesystem18directory_iteratorD2B8ne210000Ev.exit19 ], [ %32, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -5802,7 +5802,7 @@ _ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EE
   br label %67
 
 _ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit67.thread: ; preds = %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit, %_ZNSt3__14__fs10filesystem6detail13posix_readdirB8ne210000EP11__dirstreamRNS_10error_codeE.exit, %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit67
-  %.sroa.8.1119 = phi i64 [ 1, %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit ], [ %36, %_ZNSt3__14__fs10filesystem6detail13posix_readdirB8ne210000EP11__dirstreamRNS_10error_codeE.exit ], [ 2, %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit67 ]
+  %.sroa.8.1119 = phi i64 [ 2, %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit67 ], [ 1, %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit ], [ %36, %_ZNSt3__14__fs10filesystem6detail13posix_readdirB8ne210000EP11__dirstreamRNS_10error_codeE.exit ]
   %41 = load i32, ptr %2, align 8, !tbaa !8
   %42 = icmp ne i32 %41, 0
   %43 = icmp eq i64 %.sroa.8.1119, 0
@@ -6035,7 +6035,7 @@ _ZNSt3__1eqB8ne210000ERKNS_10error_codeERKNS_15error_conditionE.exit83: ; preds 
   br label %147
 
 147:                                              ; preds = %_ZNSt3__1eqB8ne210000ERKNS_10error_codeERKNS_15error_conditionE.exit83, %137, %23, %80, %145, %96
-  %.2 = phi i64 [ 0, %96 ], [ 0, %145 ], [ 0, %23 ], [ %.1, %80 ], [ 1, %137 ], [ 0, %_ZNSt3__1eqB8ne210000ERKNS_10error_codeERKNS_15error_conditionE.exit83 ]
+  %.2 = phi i64 [ 1, %137 ], [ 0, %96 ], [ 0, %145 ], [ %.1, %80 ], [ 0, %23 ], [ 0, %_ZNSt3__1eqB8ne210000ERKNS_10error_codeERKNS_15error_conditionE.exit83 ]
   ret i64 %.2
 }
 
@@ -6944,8 +6944,8 @@ _ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit47: ; preds = %131, %128
   unreachable
 
 _ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit: ; preds = %139, %139, %139, %141, %145
-  %.sroa.6.0.i = phi i64 [ %.sroa.6.0.copyload.i, %145 ], [ 0, %139 ], [ 0, %139 ], [ 0, %139 ], [ 1, %141 ]
-  %.sroa.0.0.i = phi ptr [ %.sroa.0.0.copyload.i, %145 ], [ @.str.32, %139 ], [ @.str.32, %139 ], [ @.str.32, %139 ], [ %.str.57..str.58.i, %141 ]
+  %.sroa.6.0.i = phi i64 [ %.sroa.6.0.copyload.i, %145 ], [ 1, %141 ], [ 0, %139 ], [ 0, %139 ], [ 0, %139 ]
+  %.sroa.0.0.i = phi ptr [ %.sroa.0.0.copyload.i, %145 ], [ %.str.57..str.58.i, %141 ], [ @.str.32, %139 ], [ @.str.32, %139 ], [ @.str.32, %139 ]
   %147 = icmp ult ptr %.sroa.10.0169, %.sroa.17.0168
   br i1 %147, label %148, label %150
 
@@ -7228,9 +7228,9 @@ _ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit80: ; preds = %_ZNSt3__14__fs1
   br label %259
 
 239:                                              ; preds = %218, %208, %.body, %174, %121
-  %.sroa.17.0157 = phi ptr [ %.sroa.17.0160, %208 ], [ %.sroa.17.0162, %.body ], [ %.sroa.17.0168, %174 ], [ %.sroa.17.0168, %121 ], [ %.sroa.17.0161, %218 ]
-  %.sroa.098.0129 = phi ptr [ %.sroa.098.0132, %208 ], [ %.sroa.098.0134, %.body ], [ %.sroa.098.0170, %174 ], [ %.sroa.098.0170, %121 ], [ %.sroa.098.0133, %218 ]
-  %.pn23 = phi { ptr, i32 } [ %209, %208 ], [ %.pn19, %.body ], [ %.pn.pn, %174 ], [ %122, %121 ], [ %219, %218 ]
+  %.sroa.17.0157 = phi ptr [ %.sroa.17.0160, %208 ], [ %.sroa.17.0168, %121 ], [ %.sroa.17.0162, %.body ], [ %.sroa.17.0168, %174 ], [ %.sroa.17.0161, %218 ]
+  %.sroa.098.0129 = phi ptr [ %.sroa.098.0132, %208 ], [ %.sroa.098.0170, %121 ], [ %.sroa.098.0134, %.body ], [ %.sroa.098.0170, %174 ], [ %.sroa.098.0133, %218 ]
+  %.pn23 = phi { ptr, i32 } [ %209, %208 ], [ %122, %121 ], [ %.pn19, %.body ], [ %.pn.pn, %174 ], [ %219, %218 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.not.i.i81 = icmp eq ptr %.sroa.098.0129, null
   br i1 %.not.i.i81, label %_ZNSt3__16vectorINS_17basic_string_viewIcNS_11char_traitsIcEEEENS_9allocatorIS4_EEED2B8ne210000Ev.exit82, label %240
@@ -9285,8 +9285,8 @@ _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sgetcEv.exit.i.i.i: ; preds = 
   br label %_ZNKSt3__119istreambuf_iteratorIcNS_11char_traitsIcEEE14__test_for_eofB8ne210000Ev.exit.i.i
 
 _ZNKSt3__119istreambuf_iteratorIcNS_11char_traitsIcEEE14__test_for_eofB8ne210000Ev.exit.i.i: ; preds = %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sgetcEv.exit.i.i.i, %5, %_ZNSt3__119istreambuf_iteratorIcNS_11char_traitsIcEEEppB8ne210000Ev.exit
-  %.sroa.02.1 = phi ptr [ null, %_ZNSt3__119istreambuf_iteratorIcNS_11char_traitsIcEEEppB8ne210000Ev.exit ], [ %.sroa.02.0, %5 ], [ %spec.select, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sgetcEv.exit.i.i.i ]
-  %16 = phi i1 [ true, %_ZNSt3__119istreambuf_iteratorIcNS_11char_traitsIcEEEppB8ne210000Ev.exit ], [ false, %5 ], [ %15, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sgetcEv.exit.i.i.i ]
+  %.sroa.02.1 = phi ptr [ null, %_ZNSt3__119istreambuf_iteratorIcNS_11char_traitsIcEEEppB8ne210000Ev.exit ], [ %spec.select, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sgetcEv.exit.i.i.i ], [ %.sroa.02.0, %5 ]
+  %16 = phi i1 [ true, %_ZNSt3__119istreambuf_iteratorIcNS_11char_traitsIcEEEppB8ne210000Ev.exit ], [ %15, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sgetcEv.exit.i.i.i ], [ false, %5 ]
   %.not.i2.i.i = icmp eq ptr %.sroa.01.0, null
   br i1 %.not.i2.i.i, label %_ZNKSt3__119istreambuf_iteratorIcNS_11char_traitsIcEEE14__test_for_eofB8ne210000Ev.exit.i.i._ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEEEEbRKNS_19istreambuf_iteratorIT_T0_EES8_.exit_crit_edge, label %17
 
@@ -9665,7 +9665,7 @@ define linkonce_odr hidden void @_ZNSt3__14__fs10filesystem6parser10PathParser9d
   unreachable
 
 _ZNKSt3__14__fs10filesystem6parser10PathParser23getCurrentTokenStartPosB8ne210000Ev.exit: ; preds = %6, %9
-  %.0.i = phi ptr [ %8, %6 ], [ %12, %9 ]
+  %.0.i = phi ptr [ %12, %9 ], [ %8, %6 ]
   %14 = getelementptr inbounds i8, ptr %.0.i, i64 -1
   %15 = icmp eq ptr %.0.i, %2
   br i1 %15, label %_ZNKSt3__14__fs10filesystem6parser10PathParser23getCurrentTokenStartPosB8ne210000Ev.exit.thread, label %17
@@ -9836,8 +9836,8 @@ _ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EP
   br i1 %81, label %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit85, label %78, !llvm.loop !318
 
 _ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit85: ; preds = %78, %79, %59, %_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit76
-  %.0.i729295 = phi ptr [ %.014.i74, %_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit76 ], [ null, %59 ], [ %.014.i74, %79 ], [ %.014.i74, %78 ]
-  %.0.i84 = phi ptr [ null, %_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit76 ], [ null, %59 ], [ %.025.i82, %79 ], [ %.025.i82, %78 ]
+  %.0.i729295 = phi ptr [ null, %59 ], [ %.014.i74, %_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit76 ], [ %.014.i74, %79 ], [ %.014.i74, %78 ]
+  %.0.i84 = phi ptr [ null, %59 ], [ null, %_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit76 ], [ %.025.i82, %79 ], [ %.025.i82, %78 ]
   %82 = getelementptr inbounds nuw i8, ptr %.0.i84, i64 1
   %83 = getelementptr inbounds nuw i8, ptr %.0.i729295, i64 1
   store i8 4, ptr %4, align 8, !tbaa !259

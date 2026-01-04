@@ -651,7 +651,7 @@ _ZNSt10shared_ptrIN3nix13InputAccessorEEC2INS0_20MountedInputAccessorEvEERKS_IT_
   br label %_ZNSt10shared_ptrIN3nix13InputAccessorEEC2ERKS2_.exit.i
 
 _ZNSt10shared_ptrIN3nix13InputAccessorEEC2ERKS2_.exit.i: ; preds = %23, %20, %_ZNSt10shared_ptrIN3nix13InputAccessorEEC2INS0_20MountedInputAccessorEvEERKS_IT_E.exit.thread, %_ZNSt10shared_ptrIN3nix13InputAccessorEEC2INS0_20MountedInputAccessorEvEERKS_IT_E.exit
-  %25 = phi ptr [ %4, %_ZNSt10shared_ptrIN3nix13InputAccessorEEC2INS0_20MountedInputAccessorEvEERKS_IT_E.exit.thread ], [ %.pre, %_ZNSt10shared_ptrIN3nix13InputAccessorEEC2INS0_20MountedInputAccessorEvEERKS_IT_E.exit ], [ %17, %20 ], [ %.pr6.pre, %23 ]
+  %25 = phi ptr [ %.pre, %_ZNSt10shared_ptrIN3nix13InputAccessorEEC2INS0_20MountedInputAccessorEvEERKS_IT_E.exit ], [ %4, %_ZNSt10shared_ptrIN3nix13InputAccessorEEC2INS0_20MountedInputAccessorEvEERKS_IT_E.exit.thread ], [ %17, %20 ], [ %.pr6.pre, %23 ]
   %.not.i = icmp eq ptr %25, null
   br i1 %.not.i, label %26, label %_ZN3nix3refINS_13InputAccessorEEC2ERKSt10shared_ptrIS1_E.exit
 
@@ -2593,7 +2593,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
           cleanup
   br label %133
 
-_ZNSt3mapIN3nix9CanonPathENS0_3refINS0_13InputAccessorEEESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.thread: ; preds = %47, %13, %_ZNSt8_Rb_treeIN3nix9CanonPathESt4pairIKS1_NS0_3refINS0_13InputAccessorEEEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit.i.i
+_ZNSt3mapIN3nix9CanonPathENS0_3refINS0_13InputAccessorEEESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.thread: ; preds = %47, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit.i.i, %_ZNSt8_Rb_treeIN3nix9CanonPathESt4pairIKS1_NS0_3refINS0_13InputAccessorEEEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i, %13
   %100 = icmp ult i64 %.pre31, 2
   br i1 %100, label %_ZNK3nix9CanonPath8baseNameEv.exit, label %101
 

@@ -286,7 +286,7 @@ _ZNKSt14default_deleteIN4llvm7ECErrorEEclEPS1_.exit.i.i.i.i: ; preds = %_ZNSt10e
   br label %_ZN4llvm5ErrorD2Ev.exit7.i
 
 _ZN4llvm5ErrorD2Ev.exit7.i:                       ; preds = %_ZNKSt14default_deleteIN4llvm7ECErrorEEclEPS1_.exit.i.i.i.i, %_ZNSt10error_codeC2IN4llvm6object12object_errorEvEET_.exit.i.i.i.i, %.lr.ph.i
-  %storemerge.i.i = phi ptr [ null, %_ZNKSt14default_deleteIN4llvm7ECErrorEEclEPS1_.exit.i.i.i.i ], [ %19, %_ZNSt10error_codeC2IN4llvm6object12object_errorEvEET_.exit.i.i.i.i ], [ %19, %.lr.ph.i ]
+  %storemerge.i.i = phi ptr [ %19, %_ZNSt10error_codeC2IN4llvm6object12object_errorEvEET_.exit.i.i.i.i ], [ null, %_ZNKSt14default_deleteIN4llvm7ECErrorEEclEPS1_.exit.i.i.i.i ], [ %19, %.lr.ph.i ]
   store ptr %storemerge.i.i, ptr %5, align 8, !tbaa !22, !alias.scope !31, !noalias !25
   call void @_ZN4llvm9ErrorList4joinENS_5ErrorES1_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %3, ptr noundef nonnull %4, ptr noundef nonnull %5), !noalias !25
   %43 = load ptr, ptr %3, align 8, !tbaa !22, !noalias !25
@@ -364,7 +364,7 @@ _ZNKSt14default_deleteIN4llvm7ECErrorEEclEPS1_.exit.i.i.i12.i: ; preds = %_ZNSt1
   br label %.thread.i
 
 .thread.i:                                        ; preds = %_ZNKSt14default_deleteIN4llvm7ECErrorEEclEPS1_.exit.i.i.i12.i, %_ZNSt10error_codeC2IN4llvm6object12object_errorEvEET_.exit.i.i.i11.i, %57
-  %storemerge.i10.i = phi ptr [ null, %_ZNKSt14default_deleteIN4llvm7ECErrorEEclEPS1_.exit.i.i.i12.i ], [ %6, %_ZNSt10error_codeC2IN4llvm6object12object_errorEvEET_.exit.i.i.i11.i ], [ %6, %57 ]
+  %storemerge.i10.i = phi ptr [ %6, %_ZNSt10error_codeC2IN4llvm6object12object_errorEvEET_.exit.i.i.i11.i ], [ null, %_ZNKSt14default_deleteIN4llvm7ECErrorEEclEPS1_.exit.i.i.i12.i ], [ %6, %57 ]
   store ptr %storemerge.i10.i, ptr %0, align 8, !tbaa !22, !alias.scope !44
   br label %_ZN4llvm5ErrorD2Ev.exit
 

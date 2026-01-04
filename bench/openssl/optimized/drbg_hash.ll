@@ -239,7 +239,7 @@ define internal i32 @drbg_hash_get_ctx_params(ptr noundef %0, ptr noundef %1) #0
   br label %27
 
 27:                                               ; preds = %23, %25, %11, %7, %2
-  %.017 = phi i32 [ 0, %2 ], [ 1, %7 ], [ 0, %11 ], [ %.0, %25 ], [ %.0, %23 ]
+  %.017 = phi i32 [ 0, %2 ], [ 0, %11 ], [ 1, %7 ], [ %.0, %25 ], [ %.0, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.017
 }
@@ -306,7 +306,7 @@ define internal range(i32 0, 2) i32 @drbg_hash_verify_zeroization(ptr noundef re
   br i1 %.not32, label %21, label %.thread
 
 .thread:                                          ; preds = %12, %18, %23, %21
-  %.025 = phi i32 [ 1, %21 ], [ 0, %23 ], [ 0, %18 ], [ 0, %12 ]
+  %.025 = phi i32 [ 0, %18 ], [ 1, %21 ], [ 0, %23 ], [ 0, %12 ]
   %26 = load ptr, ptr %0, align 8, !tbaa !18
   %.not33 = icmp eq ptr %26, null
   br i1 %.not33, label %29, label %27
@@ -680,8 +680,8 @@ add_bytes.exit:                                   ; preds = %add_bytes.exit.loop
   %or.cond.i47 = select i1 %.not28.i45, i1 true, i1 %.not27.i46
   br i1 %or.cond.i47, label %add_bytes.exit48, label %.lr.ph41.i42, !llvm.loop !33
 
-add_bytes.exit48:                                 ; preds = %52, %add_bytes.exit.i, %41, %.lr.ph41.i42, %31, %49, %109, %._crit_edge.i40, %hash_gen.exit, %26, %5
-  %116 = phi i32 [ 0, %hash_gen.exit ], [ 0, %26 ], [ 0, %5 ], [ 1, %._crit_edge.i40 ], [ 1, %109 ], [ 0, %49 ], [ 0, %31 ], [ 1, %.lr.ph41.i42 ], [ 0, %41 ], [ 0, %add_bytes.exit.i ], [ 0, %52 ]
+add_bytes.exit48:                                 ; preds = %41, %add_bytes.exit.i, %52, %.lr.ph41.i42, %31, %49, %109, %._crit_edge.i40, %hash_gen.exit, %26, %5
+  %116 = phi i32 [ 0, %5 ], [ 0, %hash_gen.exit ], [ 1, %.lr.ph41.i42 ], [ 0, %26 ], [ 1, %._crit_edge.i40 ], [ 1, %109 ], [ 0, %49 ], [ 0, %31 ], [ 0, %52 ], [ 0, %add_bytes.exit.i ], [ 0, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %116
 }
@@ -895,8 +895,8 @@ define internal fastcc range(i32 0, 2) i32 @hash_df(i64 %.224.val, ptr %.240.val
   br i1 %100, label %.split.us, label %104
 
 .split.us:                                        ; preds = %98, %76, %56, %36
-  %.us-phi20 = phi ptr [ %.0504.us.us, %36 ], [ %.0504.us, %56 ], [ %.0504.us27, %76 ], [ %.0504, %98 ]
-  %.us-phi21 = phi i64 [ %.0485.us.us, %36 ], [ %.0485.us, %56 ], [ %.0485.us26, %76 ], [ %.0485, %98 ]
+  %.us-phi20 = phi ptr [ %.0504.us27, %76 ], [ %.0504.us, %56 ], [ %.0504.us.us, %36 ], [ %.0504, %98 ]
+  %.us-phi21 = phi i64 [ %.0485.us26, %76 ], [ %.0485.us, %56 ], [ %.0485.us.us, %36 ], [ %.0485, %98 ]
   %101 = call i32 @EVP_DigestFinal(ptr noundef %11, ptr noundef nonnull %12, ptr noundef null) #6
   %.not60 = icmp eq i32 %101, 0
   br i1 %.not60, label %.loopexit, label %102
@@ -929,7 +929,7 @@ define internal fastcc range(i32 0, 2) i32 @hash_df(i64 %.224.val, ptr %.240.val
   br i1 %.not54, label %.loopexit, label %.lr.ph.split.split
 
 .loopexit:                                        ; preds = %96, %94, %92, %.lr.ph.split.split, %110, %104, %106, %74, %72, %.lr.ph.split.split.us, %85, %79, %81, %54, %52, %.lr.ph.split.us.split, %65, %59, %61, %34, %.lr.ph.split.us.split.us, %45, %39, %41, %27, %102, %.split.us
-  %.0 = phi i32 [ 0, %.split.us ], [ 1, %102 ], [ 0, %27 ], [ 0, %34 ], [ 0, %.lr.ph.split.us.split.us ], [ 0, %45 ], [ 0, %39 ], [ 1, %41 ], [ 0, %54 ], [ 0, %52 ], [ 0, %.lr.ph.split.us.split ], [ 0, %65 ], [ 0, %59 ], [ 1, %61 ], [ 0, %74 ], [ 0, %72 ], [ 0, %.lr.ph.split.split.us ], [ 0, %85 ], [ 0, %79 ], [ 1, %81 ], [ 0, %96 ], [ 0, %94 ], [ 0, %92 ], [ 0, %.lr.ph.split.split ], [ 0, %110 ], [ 0, %104 ], [ 1, %106 ]
+  %.0 = phi i32 [ 0, %.split.us ], [ 1, %102 ], [ 0, %27 ], [ 0, %54 ], [ 0, %72 ], [ 0, %34 ], [ 0, %.lr.ph.split.us.split.us ], [ 0, %45 ], [ 0, %39 ], [ 1, %41 ], [ 0, %52 ], [ 0, %.lr.ph.split.us.split ], [ 1, %61 ], [ 0, %65 ], [ 0, %59 ], [ 0, %85 ], [ 0, %.lr.ph.split.split.us ], [ 1, %81 ], [ 0, %79 ], [ 0, %74 ], [ 0, %104 ], [ 0, %92 ], [ 0, %94 ], [ 0, %96 ], [ 0, %.lr.ph.split.split ], [ 0, %110 ], [ 1, %106 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
@@ -1108,11 +1108,11 @@ define internal fastcc i32 @drbg_hash_set_ctx_params_locked(ptr noundef %0, ptr 
   tail call void @EVP_MD_free(ptr noundef null) #6
   br label %32
 
-drbg_fetch_digest_from_prov.exit.thread44:        ; preds = %22, %25
+drbg_fetch_digest_from_prov.exit.thread44:        ; preds = %25, %22
   tail call void @ossl_provider_free(ptr noundef nonnull %17) #6
   br label %drbg_fetch_digest_from_prov.exit.thread
 
-drbg_fetch_digest_from_prov.exit.thread:          ; preds = %14, %11, %2, %drbg_fetch_digest_from_prov.exit.thread44
+drbg_fetch_digest_from_prov.exit.thread:          ; preds = %14, %2, %11, %drbg_fetch_digest_from_prov.exit.thread44
   %30 = tail call i32 @ERR_pop_to_mark() #6
   %31 = tail call i32 @ossl_prov_digest_load_from_params(ptr noundef %4, ptr noundef %1, ptr noundef %7) #6
   %.not34 = icmp eq i32 %31, 0
@@ -1171,7 +1171,7 @@ drbg_fetch_digest_from_prov.exit.thread:          ; preds = %14, %11, %2, %drbg_
   br label %57
 
 57:                                               ; preds = %39, %37, %drbg_fetch_digest_from_prov.exit.thread, %55
-  %.0 = phi i32 [ %56, %55 ], [ 0, %drbg_fetch_digest_from_prov.exit.thread ], [ 0, %37 ], [ 0, %39 ]
+  %.0 = phi i32 [ 0, %37 ], [ %56, %55 ], [ 0, %drbg_fetch_digest_from_prov.exit.thread ], [ 0, %39 ]
   ret i32 %.0
 }
 

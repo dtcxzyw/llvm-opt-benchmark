@@ -112,7 +112,7 @@ define dso_local noundef ptr @zip_dir_iterator(ptr noundef %0, ptr noundef write
   br label %.thread
 
 .thread:                                          ; preds = %18, %21, %25, %11, %7, %4, %2, %26
-  %.0 = phi ptr [ null, %26 ], [ @.str, %2 ], [ @.str.1, %4 ], [ @.str.2, %7 ], [ @.str.3, %11 ], [ @.str.5, %25 ], [ @.str.5, %21 ], [ @.str.4, %18 ]
+  %.0 = phi ptr [ @.str.2, %7 ], [ @.str, %2 ], [ @.str.1, %4 ], [ @.str.3, %11 ], [ @.str.5, %21 ], [ null, %26 ], [ @.str.5, %25 ], [ @.str.4, %18 ]
   ret ptr %.0
 }
 
@@ -261,7 +261,7 @@ define dso_local ptr @zip_dir_iterator_next(ptr noundef captures(none) %0, ptr n
   br label %82
 
 82:                                               ; preds = %2, %64, %62, %53, %47, %33, %26, %19, %14
-  %.0 = phi ptr [ %21, %19 ], [ %28, %26 ], [ %48, %47 ], [ %54, %53 ], [ %63, %62 ], [ null, %64 ], [ %35, %33 ], [ %16, %14 ], [ @.str.6, %2 ]
+  %.0 = phi ptr [ %16, %14 ], [ %21, %19 ], [ %28, %26 ], [ %48, %47 ], [ %54, %53 ], [ %63, %62 ], [ null, %64 ], [ %35, %33 ], [ @.str.6, %2 ]
   ret ptr %.0
 }
 
@@ -397,8 +397,8 @@ define dso_local noundef ptr @zip_file_read(ptr noundef captures(none) %0, ptr n
 .thread.loopexit66:                               ; preds = %57, %57
   br label %.thread
 
-.thread:                                          ; preds = %57, %.thread.loopexit66, %.thread.loopexit, %13, %10, %3, %34, %36, %30, %16, %._crit_edge, %55
-  %.050 = phi ptr [ @.str.16, %55 ], [ null, %._crit_edge ], [ @.str.29, %16 ], [ @.str.14, %30 ], [ @.str.15, %36 ], [ %spec.select, %34 ], [ @.str.28, %13 ], [ @.str.27, %10 ], [ @.str.26, %3 ], [ @.str.17, %.thread.loopexit ], [ @.str.18, %.thread.loopexit66 ], [ @.str.19, %57 ]
+.thread:                                          ; preds = %57, %.thread.loopexit66, %.thread.loopexit, %10, %13, %3, %34, %36, %30, %16, %._crit_edge, %55
+  %.050 = phi ptr [ null, %._crit_edge ], [ @.str.29, %16 ], [ @.str.26, %3 ], [ @.str.14, %30 ], [ @.str.16, %55 ], [ @.str.15, %36 ], [ @.str.18, %.thread.loopexit66 ], [ @.str.17, %.thread.loopexit ], [ %spec.select, %34 ], [ @.str.27, %10 ], [ @.str.28, %13 ], [ @.str.19, %57 ]
   ret ptr %.050
 }
 
@@ -616,8 +616,8 @@ define dso_local noundef ptr @zip_file_write(ptr noundef captures(none) %0, ptr 
   %101 = call i32 @mz_inflateEnd(ptr noundef nonnull %9) #7
   br label %.thread
 
-.thread:                                          ; preds = %44, %16, %13, %4, %56, %38, %36, %26, %19, %._crit_edge, %91, %82, %80, %78, %72, %54, %50
-  %.069 = phi ptr [ @.str.25, %54 ], [ @.str.24, %50 ], [ @.str.16, %72 ], [ @.str.25, %91 ], [ @.str.17, %78 ], [ @.str.18, %80 ], [ @.str.19, %82 ], [ null, %._crit_edge ], [ @.str.29, %19 ], [ @.str.20, %26 ], [ null, %36 ], [ @.str.23, %38 ], [ @.str.15, %56 ], [ @.str.28, %16 ], [ @.str.27, %13 ], [ @.str.26, %4 ], [ null, %44 ]
+.thread:                                          ; preds = %44, %13, %16, %4, %56, %38, %36, %26, %19, %._crit_edge, %91, %82, %80, %78, %72, %54, %50
+  %.069 = phi ptr [ @.str.29, %19 ], [ @.str.25, %54 ], [ @.str.24, %50 ], [ @.str.23, %38 ], [ @.str.26, %4 ], [ @.str.16, %72 ], [ @.str.25, %91 ], [ @.str.17, %78 ], [ @.str.18, %80 ], [ @.str.19, %82 ], [ null, %._crit_edge ], [ null, %36 ], [ @.str.20, %26 ], [ @.str.15, %56 ], [ @.str.27, %13 ], [ @.str.28, %16 ], [ null, %44 ]
   ret ptr %.069
 }
 

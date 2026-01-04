@@ -321,8 +321,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL15FixupMultiply10Ei
   br label %.split.split.i, !llvm.loop !6
 
 .split5.us.i:                                     ; preds = %.split.split.i, %.split.split.us.i, %.split.us.split.i, %.split.us.split.us.i
-  %.us-phi.i = phi i1 [ %104, %.split.us.split.us.i ], [ %116, %.split.us.split.i ], [ %128, %.split.split.us.i ], [ %140, %.split.split.i ]
-  %.us-phi6.i = phi i1 [ %106, %.split.us.split.us.i ], [ %118, %.split.us.split.i ], [ %130, %.split.split.us.i ], [ %142, %.split.split.i ]
+  %.us-phi.i = phi i1 [ %128, %.split.split.us.i ], [ %116, %.split.us.split.i ], [ %104, %.split.us.split.us.i ], [ %140, %.split.split.i ]
+  %.us-phi6.i = phi i1 [ %130, %.split.split.us.i ], [ %118, %.split.us.split.i ], [ %106, %.split.us.split.us.i ], [ %142, %.split.split.i ]
   %or.cond3.i = and i1 %.us-phi.i, %.us-phi6.i
   br i1 %or.cond3.i, label %144, label %160
 

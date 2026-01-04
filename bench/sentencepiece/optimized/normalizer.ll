@@ -590,9 +590,9 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %36
   tail call void @_ZN13sentencepiece4util6StatusC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
   br label %389
 
-48:                                               ; preds = %29, %.thread113
-  %.sroa.0103.0.ph = phi i64 [ %.sroa.0103.1135, %.thread113 ], [ %2, %29 ]
-  %.sroa.12.0.ph = phi ptr [ %.sroa.12.1136, %.thread113 ], [ %3, %29 ]
+48:                                               ; preds = %.thread113, %29
+  %.sroa.0103.0.ph = phi i64 [ %2, %29 ], [ %.sroa.0103.1135, %.thread113 ]
+  %.sroa.12.0.ph = phi ptr [ %3, %29 ], [ %.sroa.12.1136, %.thread113 ]
   %49 = mul i64 %.sroa.0103.0.ph, 3
   %50 = load ptr, ptr %7, align 8, !tbaa !73
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %50, i64 noundef %49)
@@ -2126,7 +2126,7 @@ define noundef i32 @_ZNK13sentencepiece10normalizer13PrefixMatcher11PrefixMatchE
   br i1 %.not51.i, label %_ZNK5Darts15DoubleArrayImplIvvivE18commonPrefixSearchINS1_16result_pair_typeEEEmPKcPT_mmm.exit, label %.lr.ph.i, !llvm.loop !148
 
 _ZNK5Darts15DoubleArrayImplIvvivE18commonPrefixSearchINS1_16result_pair_typeEEEmPKcPT_mmm.exit: ; preds = %.preheader63.i, %54, %.lr.ph.i, %82, %.preheader.i
-  %.148.i = phi i64 [ 0, %.preheader.i ], [ %.4.i, %82 ], [ %.372.i, %.lr.ph.i ], [ %.1.i, %54 ], [ %.04366.i, %.preheader63.i ]
+  %.148.i = phi i64 [ %.4.i, %82 ], [ 0, %.preheader.i ], [ %.372.i, %.lr.ph.i ], [ %.1.i, %54 ], [ %.04366.i, %.preheader63.i ]
   %86 = trunc i64 %.148.i to i32
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %90, label %87
@@ -3006,7 +3006,7 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !80
   br label %41
 
@@ -3640,7 +3640,7 @@ _ZN5Darts7Details9AutoArrayINS0_27DoubleArrayBuilderExtraUnitEE5resetEPS2_.exit:
   br label %_ZN5Darts7Details18DoubleArrayBuilder10reserve_idEj.exit
 
 _ZN5Darts7Details18DoubleArrayBuilder10reserve_idEj.exit: ; preds = %36, %43, %45
-  %48 = phi i32 [ %42, %43 ], [ 0, %45 ], [ %42, %36 ]
+  %48 = phi i32 [ 0, %45 ], [ %42, %43 ], [ %42, %36 ]
   %49 = load i32, ptr %40, align 4, !tbaa !223
   %50 = and i32 %49, 4095
   %51 = zext nneg i32 %50 to i64
@@ -4284,7 +4284,7 @@ _ZN5Darts7Details9AutoArrayINS0_27DoubleArrayBuilderExtraUnitEE5resetEPS2_.exit:
   br label %_ZN5Darts7Details18DoubleArrayBuilder10reserve_idEj.exit
 
 _ZN5Darts7Details18DoubleArrayBuilder10reserve_idEj.exit: ; preds = %23, %30, %32
-  %35 = phi i32 [ %29, %30 ], [ 0, %32 ], [ %29, %23 ]
+  %35 = phi i32 [ 0, %32 ], [ %29, %30 ], [ %29, %23 ]
   %36 = load i32, ptr %27, align 4, !tbaa !223
   %37 = and i32 %36, 4095
   %38 = zext nneg i32 %37 to i64
@@ -5476,7 +5476,7 @@ _ZN5Darts7Details9AutoArrayIcE5resetEPc.exit.i59: ; preds = %.loopexit30.i55
   br label %_ZN5Darts7Details8AutoPoolIjE6appendERKj.exit.i.i
 
 common.resume:                                    ; preds = %229, %239, %144, %154, %110, %120, %73, %83
-  %common.resume.op = phi { ptr, i32 } [ %74, %73 ], [ %84, %83 ], [ %111, %110 ], [ %121, %120 ], [ %145, %144 ], [ %155, %154 ], [ %230, %229 ], [ %240, %239 ]
+  %common.resume.op = phi { ptr, i32 } [ %155, %154 ], [ %84, %83 ], [ %121, %120 ], [ %74, %73 ], [ %111, %110 ], [ %145, %144 ], [ %230, %229 ], [ %240, %239 ]
   resume { ptr, i32 } %common.resume.op
 
 90:                                               ; preds = %83
@@ -6252,7 +6252,7 @@ _ZNK5Darts7Details8DawgNode4unitEv.exit.i15:      ; preds = %88, %86
   %.not23.i = icmp eq i32 %107, 0
   br i1 %.not23.i, label %_ZNK5Darts7Details11DawgBuilder9are_equalEjj.exit, label %79, !llvm.loop !270
 
-.loopexit:                                        ; preds = %.lr.ph.i13, %_ZNK5Darts7Details8DawgNode4unitEv.exit.i15, %102, %._crit_edge.i
+.loopexit:                                        ; preds = %.lr.ph.i13, %102, %_ZNK5Darts7Details8DawgNode4unitEv.exit.i15, %._crit_edge.i
   %109 = add nuw nsw i64 %storemerge39, 1
   %.pn = and i64 %109, 4294967295
   %storemerge.in = urem i64 %.pn, %45
@@ -6264,7 +6264,7 @@ _ZNK5Darts7Details8DawgNode4unitEv.exit.i15:      ; preds = %88, %86
   br i1 %112, label %_ZNK5Darts7Details11DawgBuilder9are_equalEjj.exit, label %.lr.ph.split, !llvm.loop !269
 
 _ZNK5Darts7Details11DawgBuilder9are_equalEjj.exit: ; preds = %.loopexit, %105, %.loopexit31.us, %._crit_edge.i.us, %_ZNK5Darts7Details11DawgBuilder9hash_nodeEj.exit
-  %113 = phi i32 [ 0, %_ZNK5Darts7Details11DawgBuilder9hash_nodeEj.exit ], [ 0, %.loopexit31.us ], [ %52, %._crit_edge.i.us ], [ %67, %105 ], [ 0, %.loopexit ]
+  %113 = phi i32 [ %67, %105 ], [ 0, %_ZNK5Darts7Details11DawgBuilder9hash_nodeEj.exit ], [ 0, %.loopexit31.us ], [ %52, %._crit_edge.i.us ], [ 0, %.loopexit ]
   ret i32 %113
 }
 

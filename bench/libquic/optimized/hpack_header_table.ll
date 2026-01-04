@@ -173,7 +173,7 @@ define noundef zeroext i1 @_ZNK3net16HpackHeaderTable9EntriesEqclEPKNS_10HpackEn
   br label %24
 
 24:                                               ; preds = %3, %22
-  %.0 = phi i1 [ %23, %22 ], [ %.mux, %3 ]
+  %.0 = phi i1 [ %.mux, %3 ], [ %23, %22 ]
   ret i1 %.0
 }
 
@@ -624,7 +624,7 @@ _ZNSt5dequeIN3net10HpackEntryESaIS1_EEixEm.exit:  ; preds = %102, %108
   br label %_ZNKSt5dequeIN3net10HpackEntryESaIS1_EEixEm.exit
 
 _ZNKSt5dequeIN3net10HpackEntryESaIS1_EEixEm.exit: ; preds = %53, %47, %60, %_ZNSt5dequeIN3net10HpackEntryESaIS1_EEixEm.exit, %117, %2
-  %.0 = phi ptr [ null, %2 ], [ %storemerge.i.i.i.i15, %117 ], [ %storemerge.i.i.i.i15, %_ZNSt5dequeIN3net10HpackEntryESaIS1_EEixEm.exit ], [ null, %60 ], [ %59, %53 ], [ %48, %47 ]
+  %.0 = phi ptr [ %storemerge.i.i.i.i15, %_ZNSt5dequeIN3net10HpackEntryESaIS1_EEixEm.exit ], [ null, %60 ], [ null, %2 ], [ %storemerge.i.i.i.i15, %117 ], [ %59, %53 ], [ %48, %47 ]
   ret ptr %.0
 }
 
@@ -833,7 +833,7 @@ _ZNSt13unordered_mapIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11cha
   br label %.thread49
 
 .thread49:                                        ; preds = %80, %_ZNKSt8__detail15_Hashtable_baseIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS9_PKN3net10HpackEntryEENS_10_Select1stESt8equal_toIS9_ENS1_15StringPieceHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSB_mRKNS_16_Hash_node_valueISG_Lb1EEE.exit.thread.i.i.i.i21, %53, %_ZNSt13unordered_mapIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKN3net10HpackEntryENS0_15StringPieceHashESt8equal_toIS8_ESaISt4pairIKS8_SC_EEE4findERSH_.exit, %_ZNKSt8__detail15_Hash_code_baseIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS9_PKN3net10HpackEntryEENS_10_Select1stENS1_15StringPieceHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERSB_.exit.i.i14, %90, %_ZNSt13unordered_mapIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKN3net10HpackEntryENS0_15StringPieceHashESt8equal_toIS8_ESaISt4pairIKS8_SC_EEE4findERSH_.exit.thread45, %45, %.thread42
-  %.1 = phi ptr [ %47, %45 ], [ %44, %.thread42 ], [ %87, %_ZNSt13unordered_mapIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKN3net10HpackEntryENS0_15StringPieceHashESt8equal_toIS8_ESaISt4pairIKS8_SC_EEE4findERSH_.exit.thread45 ], [ %87, %90 ], [ null, %_ZNKSt8__detail15_Hash_code_baseIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS9_PKN3net10HpackEntryEENS_10_Select1stENS1_15StringPieceHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERSB_.exit.i.i14 ], [ null, %_ZNSt13unordered_mapIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKN3net10HpackEntryENS0_15StringPieceHashESt8equal_toIS8_ESaISt4pairIKS8_SC_EEE4findERSH_.exit ], [ null, %53 ], [ null, %_ZNKSt8__detail15_Hashtable_baseIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS9_PKN3net10HpackEntryEENS_10_Select1stESt8equal_toIS9_ENS1_15StringPieceHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSB_mRKNS_16_Hash_node_valueISG_Lb1EEE.exit.thread.i.i.i.i21 ], [ null, %80 ]
+  %.1 = phi ptr [ %47, %45 ], [ %44, %.thread42 ], [ %87, %90 ], [ %87, %_ZNSt13unordered_mapIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKN3net10HpackEntryENS0_15StringPieceHashESt8equal_toIS8_ESaISt4pairIKS8_SC_EEE4findERSH_.exit.thread45 ], [ null, %_ZNKSt8__detail15_Hash_code_baseIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS9_PKN3net10HpackEntryEENS_10_Select1stENS1_15StringPieceHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERSB_.exit.i.i14 ], [ null, %53 ], [ null, %_ZNSt13unordered_mapIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKN3net10HpackEntryENS0_15StringPieceHashESt8equal_toIS8_ESaISt4pairIKS8_SC_EEE4findERSH_.exit ], [ null, %_ZNKSt8__detail15_Hashtable_baseIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS9_PKN3net10HpackEntryEENS_10_Select1stESt8equal_toIS9_ENS1_15StringPieceHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSB_mRKNS_16_Hash_node_valueISG_Lb1EEE.exit.thread.i.i.i.i21 ], [ null, %80 ]
   ret ptr %.1
 }
 
@@ -906,7 +906,7 @@ _ZNSt13unordered_setIPN3net10HpackEntryENS0_16HpackHeaderTable11EntryHasherENS3_
   br label %33
 
 32:                                               ; preds = %24, %19, %_ZNSt13unordered_setIPN3net10HpackEntryENS0_16HpackHeaderTable11EntryHasherENS3_9EntriesEqESaIS2_EE4findERKS2_.exit, %.thread
-  %.1 = phi ptr [ %13, %.thread ], [ %21, %24 ], [ %21, %19 ], [ null, %_ZNSt13unordered_setIPN3net10HpackEntryENS0_16HpackHeaderTable11EntryHasherENS3_9EntriesEqESaIS2_EE4findERKS2_.exit ]
+  %.1 = phi ptr [ %13, %.thread ], [ %21, %19 ], [ %21, %24 ], [ null, %_ZNSt13unordered_setIPN3net10HpackEntryENS0_16HpackHeaderTable11EntryHasherENS3_9EntriesEqESaIS2_EE4findERKS2_.exit ]
   call void @_ZN3net10HpackEntryD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %6) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.1
@@ -982,7 +982,7 @@ define noundef i64 @_ZNK3net16HpackHeaderTable7IndexOfEPKNS_10HpackEntryE(ptr no
   br label %46
 
 46:                                               ; preds = %2, %9, %5
-  %.0 = phi i64 [ %8, %5 ], [ %45, %9 ], [ 0, %2 ]
+  %.0 = phi i64 [ %45, %9 ], [ %8, %5 ], [ 0, %2 ]
   ret i64 %.0
 }
 
@@ -2443,7 +2443,7 @@ _ZNKSt8__detail15_Hash_code_baseIPN3net10HpackEntryES3_NS_9_IdentityENS1_16Hpack
   br label %_ZNKSt10_HashtableIPN3net10HpackEntryES2_SaIS2_ENSt8__detail9_IdentityENS0_16HpackHeaderTable9EntriesEqENS6_11EntryHasherENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_find_nodeEmRKS2_m.exit
 
 _ZNKSt10_HashtableIPN3net10HpackEntryES2_SaIS2_ENSt8__detail9_IdentityENS0_16HpackHeaderTable9EntriesEqENS6_11EntryHasherENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_find_nodeEmRKS2_m.exit: ; preds = %_ZNKSt8__detail15_Hashtable_baseIPN3net10HpackEntryES3_NS_9_IdentityENS1_16HpackHeaderTable9EntriesEqENS5_11EntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS3_RKNS_16_Hash_node_valueIS3_Lb1EEE.exit, %25, %29, %9, %51, %_ZNKSt8__detail15_Hash_code_baseIPN3net10HpackEntryES3_NS_9_IdentityENS1_16HpackHeaderTable11EntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERKS3_.exit
-  %.sroa.09.1 = phi ptr [ %52, %51 ], [ null, %_ZNKSt8__detail15_Hash_code_baseIPN3net10HpackEntryES3_NS_9_IdentityENS1_16HpackHeaderTable11EntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERKS3_.exit ], [ null, %9 ], [ %.sroa.09.016, %_ZNKSt8__detail15_Hashtable_baseIPN3net10HpackEntryES3_NS_9_IdentityENS1_16HpackHeaderTable9EntriesEqENS5_11EntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS3_RKNS_16_Hash_node_valueIS3_Lb1EEE.exit ], [ %.sroa.09.016, %25 ], [ null, %29 ]
+  %.sroa.09.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseIPN3net10HpackEntryES3_NS_9_IdentityENS1_16HpackHeaderTable11EntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERKS3_.exit ], [ %52, %51 ], [ null, %9 ], [ %.sroa.09.016, %_ZNKSt8__detail15_Hashtable_baseIPN3net10HpackEntryES3_NS_9_IdentityENS1_16HpackHeaderTable9EntriesEqENS5_11EntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS3_RKNS_16_Hash_node_valueIS3_Lb1EEE.exit ], [ %.sroa.09.016, %25 ], [ null, %29 ]
   ret ptr %.sroa.09.1
 }
 
@@ -2705,7 +2705,7 @@ _ZNKSt8__detail15_Hash_code_baseIPN3net10HpackEntryES3_NS_9_IdentityENS1_16Hpack
   br label %_ZNKSt10_HashtableIPN3net10HpackEntryES2_SaIS2_ENSt8__detail9_IdentityENS0_16HpackHeaderTable9EntriesEqENS6_11EntryHasherENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_find_nodeEmRKS2_m.exit
 
 _ZNKSt10_HashtableIPN3net10HpackEntryES2_SaIS2_ENSt8__detail9_IdentityENS0_16HpackHeaderTable9EntriesEqENS6_11EntryHasherENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_find_nodeEmRKS2_m.exit: ; preds = %_ZNKSt8__detail15_Hashtable_baseIPN3net10HpackEntryES3_NS_9_IdentityENS1_16HpackHeaderTable9EntriesEqENS5_11EntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS3_RKNS_16_Hash_node_valueIS3_Lb1EEE.exit, %25, %29, %9, %51, %_ZNKSt8__detail15_Hash_code_baseIPN3net10HpackEntryES3_NS_9_IdentityENS1_16HpackHeaderTable11EntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERKS3_.exit
-  %.sroa.09.1 = phi ptr [ %52, %51 ], [ null, %_ZNKSt8__detail15_Hash_code_baseIPN3net10HpackEntryES3_NS_9_IdentityENS1_16HpackHeaderTable11EntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERKS3_.exit ], [ null, %9 ], [ %.sroa.09.016, %_ZNKSt8__detail15_Hashtable_baseIPN3net10HpackEntryES3_NS_9_IdentityENS1_16HpackHeaderTable9EntriesEqENS5_11EntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS3_RKNS_16_Hash_node_valueIS3_Lb1EEE.exit ], [ %.sroa.09.016, %25 ], [ null, %29 ]
+  %.sroa.09.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseIPN3net10HpackEntryES3_NS_9_IdentityENS1_16HpackHeaderTable11EntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERKS3_.exit ], [ %52, %51 ], [ null, %9 ], [ %.sroa.09.016, %_ZNKSt8__detail15_Hashtable_baseIPN3net10HpackEntryES3_NS_9_IdentityENS1_16HpackHeaderTable9EntriesEqENS5_11EntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS3_RKNS_16_Hash_node_valueIS3_Lb1EEE.exit ], [ %.sroa.09.016, %25 ], [ null, %29 ]
   ret ptr %.sroa.09.1
 }
 
@@ -2931,7 +2931,7 @@ _ZSt4copyIPPN3net10HpackEntryES3_ET0_T_S5_S4_.exit26: ; preds = %_ZNSt11_Deque_b
   br label %_ZSt4copyIPPN3net10HpackEntryES3_ET0_T_S5_S4_.exit
 
 _ZSt4copyIPPN3net10HpackEntryES3_ET0_T_S5_S4_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPN3net10HpackEntryES3_ET0_T_S5_S4_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPN3net10HpackEntryES3_ET0_T_S5_S4_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPN3net10HpackEntryES3_ET0_T_S5_S4_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !52
   %57 = load ptr, ptr %.0, align 8, !tbaa !64
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3574,7 +3574,7 @@ _ZNSt10_HashtableIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_t
   ret { ptr, i8 } %.fca.1.insert
 
 _ZNSt10_HashtableIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS8_PKN3net10HpackEntryEESaISF_ENSt8__detail10_Select1stESt8equal_toIS8_ENS0_15StringPieceHashENSH_18_Mod_range_hashingENSH_20_Default_ranged_hashENSH_20_Prime_rehash_policyENSH_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit30: ; preds = %52, %49, %16
-  %.pn.pn.pn = phi { ptr, i32 } [ %17, %16 ], [ %53, %52 ], [ %50, %49 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %17, %16 ], [ %50, %49 ], [ %53, %52 ]
   tail call void @_ZdlPv(ptr noundef nonnull %3) #17
   resume { ptr, i32 } %.pn.pn.pn
 }

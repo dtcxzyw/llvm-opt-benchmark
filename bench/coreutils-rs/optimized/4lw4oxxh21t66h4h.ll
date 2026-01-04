@@ -101,7 +101,7 @@ define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
   br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h587a07265a5a9200E.exit.i.i.i"
 
 common.resume.i.i.i.i.i.i.i.i.i:                  ; preds = %41, %33, %26
-  %common.resume.op.i.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %34, %41 ], [ %34, %33 ], [ %27, %26 ]
+  %common.resume.op.i.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %34, %33 ], [ %34, %41 ], [ %27, %26 ]
   resume { ptr, i32 } %common.resume.op.i.i.i.i.i.i.i.i.i
 
 50:                                               ; preds = %26
@@ -282,7 +282,7 @@ define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
   br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h587a07265a5a9200E.exit.i"
 
 common.resume.i.i.i.i.i.i.i:                      ; preds = %38, %30, %23
-  %common.resume.op.i.i.i.i.i.i.i = phi { ptr, i32 } [ %31, %38 ], [ %31, %30 ], [ %24, %23 ]
+  %common.resume.op.i.i.i.i.i.i.i = phi { ptr, i32 } [ %31, %30 ], [ %31, %38 ], [ %24, %23 ]
   resume { ptr, i32 } %common.resume.op.i.i.i.i.i.i.i
 
 47:                                               ; preds = %23
@@ -423,7 +423,7 @@ define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterM
   br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h587a07265a5a9200E.exit.i.i"
 
 common.resume.i.i.i.i.i.i.i.i:                    ; preds = %41, %33, %26
-  %common.resume.op.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %34, %41 ], [ %34, %33 ], [ %27, %26 ]
+  %common.resume.op.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %34, %33 ], [ %34, %41 ], [ %27, %26 ]
   resume { ptr, i32 } %common.resume.op.i.i.i.i.i.i.i.i
 
 50:                                               ; preds = %26
@@ -1042,7 +1042,7 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h587a07265a5a9200E.exit.i"
 
 common.resume.i.i.i.i.i.i.i:                      ; preds = %41, %33, %26
-  %common.resume.op.i.i.i.i.i.i.i = phi { ptr, i32 } [ %34, %41 ], [ %34, %33 ], [ %27, %26 ]
+  %common.resume.op.i.i.i.i.i.i.i = phi { ptr, i32 } [ %34, %33 ], [ %34, %41 ], [ %27, %26 ]
   resume { ptr, i32 } %common.resume.op.i.i.i.i.i.i.i
 
 50:                                               ; preds = %26
@@ -1155,7 +1155,7 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h587a07265a5a9200E.exit"
 
 common.resume.i.i.i.i.i.i:                        ; preds = %38, %30, %23
-  %common.resume.op.i.i.i.i.i.i = phi { ptr, i32 } [ %31, %38 ], [ %31, %30 ], [ %24, %23 ]
+  %common.resume.op.i.i.i.i.i.i = phi { ptr, i32 } [ %31, %30 ], [ %31, %38 ], [ %24, %23 ]
   resume { ptr, i32 } %common.resume.op.i.i.i.i.i.i
 
 47:                                               ; preds = %23

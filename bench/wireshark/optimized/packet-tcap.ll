@@ -1005,7 +1005,7 @@ proto_item_set_generated.exit92.sink.split.i:     ; preds = %240, %170
   br label %tcaphash_begin_matching.exit
 
 tcaphash_begin_matching.exit:                     ; preds = %150, %proto_item_set_generated.exit.i, %170, %.loopexit.i, %211, %proto_item_set_generated.exit98.i, %237, %240, %proto_item_set_generated.exit92.sink.split.i
-  %.074.i = phi ptr [ %49, %150 ], [ %.073.i, %proto_item_set_generated.exit98.i ], [ %.073.i, %211 ], [ %.073.i, %.loopexit.i ], [ %49, %proto_item_set_generated.exit.i ], [ %49, %170 ], [ %.073.i, %237 ], [ %.073.i, %240 ], [ %.074.ph.i, %proto_item_set_generated.exit92.sink.split.i ]
+  %.074.i = phi ptr [ %49, %150 ], [ %.073.i, %.loopexit.i ], [ %.073.i, %proto_item_set_generated.exit98.i ], [ %.073.i, %240 ], [ %.073.i, %211 ], [ %49, %proto_item_set_generated.exit.i ], [ %49, %170 ], [ %.073.i, %237 ], [ %.074.ph.i, %proto_item_set_generated.exit92.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %869
@@ -1479,7 +1479,7 @@ proto_item_set_generated.exit.i32:                ; preds = %489, %486, %482
   br label %tcaphash_cont_matching.exit
 
 tcaphash_cont_matching.exit:                      ; preds = %364, %351, %475, %create_tcaphash_end.exit.i, %479, %proto_item_set_generated.exit.i32, %496, %499
-  %.066120.i = phi ptr [ %.066.i, %479 ], [ %.066.i, %create_tcaphash_end.exit.i ], [ %.066.i, %proto_item_set_generated.exit.i32 ], [ %.066.i, %496 ], [ %.066.i, %499 ], [ null, %475 ], [ null, %351 ], [ null, %364 ]
+  %.066120.i = phi ptr [ %.066.i, %499 ], [ %.066.i, %create_tcaphash_end.exit.i ], [ %.066.i, %479 ], [ %.066.i, %proto_item_set_generated.exit.i32 ], [ %.066.i, %496 ], [ null, %475 ], [ null, %351 ], [ null, %364 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -2007,10 +2007,10 @@ proto_item_set_generated.exit170.i:               ; preds = %759, %756, %proto_i
   br label %proto_item_set_generated.exit157.i
 
 proto_item_set_generated.exit157.i:               ; preds = %546, %541, %764, %proto_item_set_generated.exit170.i, %append_tcaphash_ansicall.exit158.i, %append_tcaphash_ansicall.exit.i, %604, %601, %proto_item_set_generated.exit154.i, %553
-  %.0131.i = phi ptr [ %560, %553 ], [ %643, %append_tcaphash_ansicall.exit.i ], [ %684, %append_tcaphash_ansicall.exit158.i ], [ %763, %proto_item_set_generated.exit170.i ], [ %770, %764 ], [ %560, %proto_item_set_generated.exit154.i ], [ %560, %601 ], [ %560, %604 ], [ %543, %541 ], [ %543, %546 ]
-  %.1130.i = phi ptr [ %.0129.i, %553 ], [ %650, %append_tcaphash_ansicall.exit.i ], [ %691, %append_tcaphash_ansicall.exit158.i ], [ %.0129.i, %proto_item_set_generated.exit170.i ], [ %787, %764 ], [ %.0129.i, %proto_item_set_generated.exit154.i ], [ %.0129.i, %601 ], [ %.0129.i, %604 ], [ %.0129.i, %541 ], [ %.0129.i, %546 ]
-  %.0128.i = phi i1 [ true, %553 ], [ false, %append_tcaphash_ansicall.exit.i ], [ false, %append_tcaphash_ansicall.exit158.i ], [ false, %proto_item_set_generated.exit170.i ], [ false, %764 ], [ true, %proto_item_set_generated.exit154.i ], [ true, %601 ], [ true, %604 ], [ %.not102.i.not.not, %541 ], [ %.not102.i.not.not, %546 ]
-  %.1.i = phi ptr [ null, %553 ], [ null, %append_tcaphash_ansicall.exit.i ], [ null, %append_tcaphash_ansicall.exit158.i ], [ %.0.i42, %proto_item_set_generated.exit170.i ], [ null, %764 ], [ %566, %proto_item_set_generated.exit154.i ], [ %566, %601 ], [ %566, %604 ], [ null, %541 ], [ null, %546 ]
+  %.0131.i = phi ptr [ %763, %proto_item_set_generated.exit170.i ], [ %560, %601 ], [ %560, %604 ], [ %560, %553 ], [ %770, %764 ], [ %643, %append_tcaphash_ansicall.exit.i ], [ %684, %append_tcaphash_ansicall.exit158.i ], [ %560, %proto_item_set_generated.exit154.i ], [ %543, %541 ], [ %543, %546 ]
+  %.1130.i = phi ptr [ %.0129.i, %proto_item_set_generated.exit170.i ], [ %.0129.i, %601 ], [ %.0129.i, %604 ], [ %.0129.i, %553 ], [ %787, %764 ], [ %650, %append_tcaphash_ansicall.exit.i ], [ %691, %append_tcaphash_ansicall.exit158.i ], [ %.0129.i, %proto_item_set_generated.exit154.i ], [ %.0129.i, %541 ], [ %.0129.i, %546 ]
+  %.0128.i = phi i1 [ false, %proto_item_set_generated.exit170.i ], [ true, %601 ], [ true, %604 ], [ true, %553 ], [ false, %764 ], [ false, %append_tcaphash_ansicall.exit.i ], [ false, %append_tcaphash_ansicall.exit158.i ], [ true, %proto_item_set_generated.exit154.i ], [ %.not102.i.not.not, %541 ], [ %.not102.i.not.not, %546 ]
+  %.1.i = phi ptr [ %.0.i42, %proto_item_set_generated.exit170.i ], [ %566, %601 ], [ %566, %604 ], [ null, %553 ], [ null, %764 ], [ null, %append_tcaphash_ansicall.exit.i ], [ null, %append_tcaphash_ansicall.exit158.i ], [ %566, %proto_item_set_generated.exit154.i ], [ null, %541 ], [ null, %546 ]
   %804 = load i8, ptr @gtcap_DisplaySRT, align 1, !range !6, !noundef !7
   %805 = trunc nuw i8 %804 to i1
   %806 = icmp ne ptr %2, null
@@ -2066,7 +2066,7 @@ proto_item_set_generated.exit173.i:               ; preds = %818, %815, %811
   br label %proto_item_set_generated.exit176.i
 
 proto_item_set_generated.exit176.i:               ; preds = %828, %825, %proto_item_set_generated.exit173.i, %808, %proto_item_set_generated.exit157.i
-  %.2.i = phi ptr [ %.1.i, %808 ], [ %.1.i, %proto_item_set_generated.exit157.i ], [ %813, %proto_item_set_generated.exit173.i ], [ %813, %825 ], [ %813, %828 ]
+  %.2.i = phi ptr [ %.1.i, %proto_item_set_generated.exit157.i ], [ %.1.i, %808 ], [ %813, %proto_item_set_generated.exit173.i ], [ %813, %825 ], [ %813, %828 ]
   %832 = load i8, ptr @gtcap_DisplaySRT, align 1, !range !6, !noundef !7
   %833 = trunc nuw i8 %832 to i1
   %834 = icmp ne ptr %.2.i, null
@@ -2147,7 +2147,7 @@ tcaphash_ansi_matching.exit:                      ; preds = %proto_item_set_gene
   br label %869
 
 869:                                              ; preds = %tcaphash_begin_matching.exit, %tcaphash_cont_matching.exit, %503, %505, %tcaphash_ansi_matching.exit, %19, %4, %15
-  %.025 = phi ptr [ null, %15 ], [ null, %4 ], [ null, %19 ], [ %.074.i, %tcaphash_begin_matching.exit ], [ %.066120.i, %tcaphash_cont_matching.exit ], [ %504, %503 ], [ %506, %505 ], [ %.0131.i, %tcaphash_ansi_matching.exit ]
+  %.025 = phi ptr [ null, %4 ], [ null, %15 ], [ null, %19 ], [ %.074.i, %tcaphash_begin_matching.exit ], [ %.066120.i, %tcaphash_cont_matching.exit ], [ %504, %503 ], [ %506, %505 ], [ %.0131.i, %tcaphash_ansi_matching.exit ]
   ret ptr %.025
 }
 
@@ -3894,7 +3894,7 @@ define internal i32 @dissect_tcap_Component(i1 zeroext %0, ptr noundef %1, i32 n
   br label %dissect_tcap_ITU_ComponentPDU.exit
 
 dissect_tcap_ITU_ComponentPDU.exit:               ; preds = %.thread.i, %79, %86, %88, %95
-  %.3.i = phi ptr [ %80, %79 ], [ %87, %86 ], [ %spec.select77.i, %88 ], [ %spec.select78.i, %95 ], [ %78, %.thread.i ]
+  %.3.i = phi ptr [ %80, %79 ], [ %spec.select77.i, %88 ], [ %87, %86 ], [ %spec.select78.i, %95 ], [ %78, %.thread.i ]
   %102 = load ptr, ptr %17, align 8
   %103 = load ptr, ptr %28, align 8
   %104 = call i32 @call_dissector_only(ptr noundef %.3.i, ptr noundef nonnull %25, ptr noundef %102, ptr noundef %27, ptr noundef %103)
@@ -4031,7 +4031,7 @@ dissect_tcap_ITU_ComponentPDU.exit:               ; preds = %.thread.i, %79, %86
   br label %157
 
 157:                                              ; preds = %dissect_tcap_ITU_ComponentPDU.exit, %6, %153
-  %.0 = phi i32 [ %.0..0..0..0.18, %153 ], [ %21, %6 ], [ %21, %dissect_tcap_ITU_ComponentPDU.exit ]
+  %.0 = phi i32 [ %21, %6 ], [ %.0..0..0..0.18, %153 ], [ %21, %dissect_tcap_ITU_ComponentPDU.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -4382,7 +4382,7 @@ proto_item_set_generated.exit:                    ; preds = %6, %14, %17
   br label %43
 
 43:                                               ; preds = %26, %40, %37, %33, %29
-  %.sink = phi i32 [ %42, %40 ], [ %39, %37 ], [ %36, %33 ], [ %32, %29 ], [ 0, %26 ]
+  %.sink = phi i32 [ %32, %29 ], [ %42, %40 ], [ %39, %37 ], [ %36, %33 ], [ 0, %26 ]
   %44 = load ptr, ptr @gp_tcapsrt_info, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
   store i32 %.sink, ptr %45, align 4
@@ -4524,7 +4524,7 @@ proto_item_set_generated.exit:                    ; preds = %6, %14, %17
   br label %43
 
 43:                                               ; preds = %26, %40, %37, %33, %29
-  %.sink = phi i32 [ %42, %40 ], [ %39, %37 ], [ %36, %33 ], [ %32, %29 ], [ 0, %26 ]
+  %.sink = phi i32 [ %32, %29 ], [ %42, %40 ], [ %39, %37 ], [ %36, %33 ], [ 0, %26 ]
   %44 = load ptr, ptr @gp_tcapsrt_info, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i32 %.sink, ptr %45, align 4

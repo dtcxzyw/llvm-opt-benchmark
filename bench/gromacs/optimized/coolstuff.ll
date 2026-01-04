@@ -1558,7 +1558,7 @@ define void @_ZN3gmx7bromacsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%
   br label %_ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIPKcEERKT_NS_8ArrayRefIS5_EE.exit
 
 _ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIPKcEERKT_NS_8ArrayRefIS5_EE.exit: ; preds = %15, %..loopexit_crit_edge.i.i.i.i
-  %.0.i.i.i = phi i64 [ %extract.t16.i.i.i.i, %15 ], [ %extract.t20.le.i.i.i.i, %..loopexit_crit_edge.i.i.i.i ]
+  %.0.i.i.i = phi i64 [ %extract.t20.le.i.i.i.i, %..loopexit_crit_edge.i.i.i.i ], [ %extract.t16.i.i.i.i, %15 ]
   %26 = getelementptr inbounds nuw ptr, ptr @__const._ZN3gmx7bromacsB5cxx11Ev.bromacsArray, i64 %.0.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %27 = load ptr, ptr %26, align 8, !tbaa !13
@@ -1784,7 +1784,7 @@ define void @_ZN3gmx12getCoolQuoteB5cxx11Ev(ptr dead_on_unwind noalias writable 
   br label %_ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIZNS_12getCoolQuoteB5cxx11EvE5QuoteEERKT_NS_8ArrayRefIS4_EE.exit
 
 _ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIZNS_12getCoolQuoteB5cxx11EvE5QuoteEERKT_NS_8ArrayRefIS4_EE.exit: ; preds = %15, %..loopexit_crit_edge.i.i.i.i
-  %.0.i.i.i = phi i64 [ %extract.t16.i.i.i.i, %15 ], [ %extract.t20.le.i.i.i.i, %..loopexit_crit_edge.i.i.i.i ]
+  %.0.i.i.i = phi i64 [ %extract.t20.le.i.i.i.i, %..loopexit_crit_edge.i.i.i.i ], [ %extract.t16.i.i.i.i, %15 ]
   %26 = getelementptr inbounds nuw %struct.Quote, ptr @__const._ZN3gmx12getCoolQuoteB5cxx11Ev.quoteArray, i64 %.0.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.sroa.0.0.copyload = load ptr, ptr %26, align 16, !tbaa !13

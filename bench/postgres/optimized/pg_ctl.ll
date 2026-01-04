@@ -438,8 +438,8 @@ sub_012.i:                                        ; preds = %.tail7.thread.i
   unreachable
 
 set_mode.exit:                                    ; preds = %.tail.i, %.tail.thread.i, %.thread.i, %.tail7.i, %.tail7.thread.i, %.tail7.thread.thread.i, %.thread18.i, %.tail11.i, %.tail11.thread.i
-  %.sink22.i = phi i32 [ 0, %.thread.i ], [ 0, %.tail.thread.i ], [ 0, %.tail.i ], [ 1, %.tail7.thread.thread.i ], [ 1, %.thread18.i ], [ 1, %.tail7.thread.i ], [ 1, %.tail7.i ], [ 2, %.tail11.thread.i ], [ 2, %.tail11.i ]
-  %.sink.i = phi i32 [ 15, %.thread.i ], [ 15, %.tail.thread.i ], [ 15, %.tail.i ], [ 2, %.tail7.thread.thread.i ], [ 2, %.thread18.i ], [ 2, %.tail7.thread.i ], [ 2, %.tail7.i ], [ 3, %.tail11.thread.i ], [ 3, %.tail11.i ]
+  %.sink22.i = phi i32 [ 0, %.tail.i ], [ 1, %.tail7.i ], [ 0, %.thread.i ], [ 0, %.tail.thread.i ], [ 1, %.tail7.thread.thread.i ], [ 1, %.thread18.i ], [ 1, %.tail7.thread.i ], [ 2, %.tail11.thread.i ], [ 2, %.tail11.i ]
+  %.sink.i = phi i32 [ 15, %.tail.i ], [ 2, %.tail7.i ], [ 15, %.thread.i ], [ 15, %.tail.thread.i ], [ 2, %.tail7.thread.thread.i ], [ 2, %.thread18.i ], [ 2, %.tail7.thread.i ], [ 3, %.tail11.thread.i ], [ 3, %.tail11.i ]
   store i32 %.sink22.i, ptr @shutdown_mode, align 4
   store i32 %.sink.i, ptr @sig, align 4
   br label %.backedge
@@ -1052,7 +1052,7 @@ define internal fastcc void @set_sig(ptr noundef %0) unnamed_addr #4 {
   unreachable
 
 27:                                               ; preds = %22, %19, %16, %13, %10, %7, %4, %1
-  %.sink = phi i32 [ 1, %1 ], [ 2, %4 ], [ 3, %7 ], [ 6, %10 ], [ 9, %13 ], [ 15, %16 ], [ 10, %19 ], [ 12, %22 ]
+  %.sink = phi i32 [ 1, %1 ], [ 3, %7 ], [ 9, %13 ], [ 10, %19 ], [ 15, %16 ], [ 6, %10 ], [ 2, %4 ], [ 12, %22 ]
   store i32 %.sink, ptr @sig, align 4
   ret void
 }
@@ -1216,7 +1216,7 @@ free_readfile.exit:                               ; preds = %.lr.ph.i, %.prehead
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %42
 
-postmaster_is_alive.exit.thread:                  ; preds = %20, %17, %9, %5, %postmaster_is_alive.exit, %postmaster_is_alive.exit18, %0
+postmaster_is_alive.exit.thread:                  ; preds = %17, %20, %5, %9, %postmaster_is_alive.exit, %postmaster_is_alive.exit18, %0
   %40 = load ptr, ptr @progname, align 8
   %41 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.114, ptr noundef %40) #17
   tail call void @exit(i32 noundef 3) #20
@@ -1813,8 +1813,8 @@ postmaster_is_alive.exit:                         ; preds = %11
   tail call void @exit(i32 noundef 1) #20
   unreachable
 
-postmaster_is_alive.exit.thread:                  ; preds = %11, %7, %5, %postmaster_is_alive.exit
-  %.0 = phi i32 [ %8, %postmaster_is_alive.exit ], [ %1, %5 ], [ %8, %7 ], [ %8, %11 ]
+postmaster_is_alive.exit.thread:                  ; preds = %7, %11, %5, %postmaster_is_alive.exit
+  %.0 = phi i32 [ %8, %postmaster_is_alive.exit ], [ %1, %5 ], [ %8, %11 ], [ %8, %7 ]
   %18 = tail call i32 @getpid() #17
   %19 = icmp eq i32 %.0, %18
   br i1 %19, label %postmaster_is_alive.exit11.thread, label %20
@@ -1891,7 +1891,7 @@ print_msg.exit13:                                 ; preds = %43
   %52 = tail call i32 @fflush(ptr noundef %51)
   br label %print_msg.exit15
 
-postmaster_is_alive.exit11.thread:                ; preds = %20, %postmaster_is_alive.exit.thread, %postmaster_is_alive.exit11
+postmaster_is_alive.exit11.thread:                ; preds = %postmaster_is_alive.exit.thread, %20, %postmaster_is_alive.exit11
   %53 = load ptr, ptr @progname, align 8
   tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.159, ptr noundef %53, i32 noundef %.0)
   tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.160)
@@ -2149,7 +2149,7 @@ print_msg.exit11:                                 ; preds = %wait_for_postmaster
   %85 = call i64 @fwrite(ptr nonnull @.str.173, i64 16, i64 1, ptr %84)
   br label %print_msg.exit13.sink.split
 
-.loopexit:                                        ; preds = %54, %.lr.ph.i, %74, %print_msg.exit
+.loopexit:                                        ; preds = %.lr.ph.i, %54, %74, %print_msg.exit
   call fastcc void @print_msg(ptr noundef nonnull @.str.127)
   %86 = load ptr, ptr @progname, align 8
   call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.174, ptr noundef %86)
@@ -2593,7 +2593,7 @@ define internal fastcc ptr @readfile(ptr noundef readonly captures(none) %0, ptr
   br label %64
 
 64:                                               ; preds = %2, %._crit_edge74, %26, %15, %9
-  %.0 = phi ptr [ null, %9 ], [ %17, %15 ], [ null, %26 ], [ %34, %._crit_edge74 ], [ null, %2 ]
+  %.0 = phi ptr [ %34, %._crit_edge74 ], [ null, %9 ], [ %17, %15 ], [ null, %26 ], [ null, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }

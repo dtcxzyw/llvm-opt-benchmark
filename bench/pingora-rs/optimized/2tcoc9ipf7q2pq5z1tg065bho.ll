@@ -138,9 +138,9 @@ _ZN3rmp6decode11read_marker17h8b6e48375ee9758eE.exit: ; preds = %2
     i8 -36, label %27
   ]
 
-.thread:                                          ; preds = %20, %18, %6, %12, %26
-  %.sroa.5.0.ph85 = phi i8 [ %10, %26 ], [ -128, %18 ], [ 0, %6 ], [ -32, %12 ], [ -96, %20 ]
-  %.sroa.7.0.ph84 = phi i8 [ %22, %26 ], [ %19, %18 ], [ %10, %6 ], [ %10, %12 ], [ %22, %20 ]
+.thread:                                          ; preds = %20, %12, %6, %18, %26
+  %.sroa.5.0.ph85 = phi i8 [ %10, %26 ], [ -128, %18 ], [ -32, %12 ], [ 0, %6 ], [ -96, %20 ]
+  %.sroa.7.0.ph84 = phi i8 [ %22, %26 ], [ %19, %18 ], [ %10, %12 ], [ %10, %6 ], [ %22, %20 ]
   store i8 2, ptr %0, align 8
   %.sroa.431.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.5.0.ph85, ptr %.sroa.431.0..sroa_idx, align 1
@@ -599,7 +599,7 @@ define internal fastcc noundef i8 @_ZN3rmp6marker6Marker5to_u817hbfbec136f258ed4
   br label %12
 
 12:                                               ; preds = %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %9, %6, %3, %2
-  %.sroa.0.0 = phi i8 [ %.1.val, %2 ], [ %5, %3 ], [ %8, %6 ], [ %11, %9 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ]
+  %.sroa.0.0 = phi i8 [ %.1.val, %2 ], [ %.0.val, %0 ], [ %5, %3 ], [ %8, %6 ], [ %11, %9 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ], [ %.0.val, %0 ]
   ret i8 %.sroa.0.0
 }
 
@@ -951,7 +951,7 @@ define internal fastcc void @"_ZN4core3ptr278drop_in_place$LT$core..result..Resu
   br label %common.resume
 
 common.resume:                                    ; preds = %9, %28, %36, %40
-  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %29, %36 ], [ %29, %28 ], [ %10, %9 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %29, %28 ], [ %29, %36 ], [ %10, %9 ]
   resume { ptr, i32 } %common.resume.op
 
 37:                                               ; preds = %9
@@ -1646,7 +1646,7 @@ _ZN13pingora_cache6memory11CompleteHit3get17hc462e898645c45acE.exit: ; preds = %
   br label %45
 
 "_ZN4core3ptr89drop_in_place$LT$pingora_cache..memory..PartialHit..read..$u7b$$u7b$closure$u7d$$u7d$$GT$17hca9b70fa0a1ce000E.exit20": ; preds = %168, %.body14.thread, %.body14, %165, %36
-  %.pn5.pn = phi { ptr, i32 } [ %37, %36 ], [ %.pn26.pn.i, %.body14.thread ], [ %161, %.body14 ], [ %161, %165 ], [ %161, %168 ]
+  %.pn5.pn = phi { ptr, i32 } [ %37, %36 ], [ %161, %168 ], [ %.pn26.pn.i, %.body14.thread ], [ %161, %.body14 ], [ %161, %165 ]
   store i8 2, ptr %7, align 8
   resume { ptr, i32 } %.pn5.pn
 
@@ -1852,8 +1852,8 @@ _ZN13pingora_cache6memory11CompleteHit3get17hc462e898645c45acE.exit: ; preds = %
   unreachable
 
 .body14.thread:                                   ; preds = %.body.thread.i, %.body.i, %88, %99, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h584764b599bcf8d8E.exit.i", %159
-  %102 = phi ptr [ %51, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h584764b599bcf8d8E.exit.i" ], [ %51, %99 ], [ %51, %88 ], [ %67, %.body.thread.i ], [ %44, %.body.i ], [ %44, %159 ]
-  %.pn26.pn.i = phi { ptr, i32 } [ %.pn26.i, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h584764b599bcf8d8E.exit.i" ], [ %100, %99 ], [ %.pn.i, %88 ], [ %.pn7.i.i, %.body.thread.i ], [ %80, %.body.i ], [ %80, %159 ]
+  %102 = phi ptr [ %51, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h584764b599bcf8d8E.exit.i" ], [ %51, %88 ], [ %51, %99 ], [ %44, %159 ], [ %67, %.body.thread.i ], [ %44, %.body.i ]
+  %.pn26.pn.i = phi { ptr, i32 } [ %.pn26.i, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h584764b599bcf8d8E.exit.i" ], [ %.pn.i, %88 ], [ %100, %99 ], [ %80, %159 ], [ %.pn7.i.i, %.body.thread.i ], [ %80, %.body.i ]
   store i8 2, ptr %102, align 8, !noalias !276
   br label %"_ZN4core3ptr89drop_in_place$LT$pingora_cache..memory..PartialHit..read..$u7b$$u7b$closure$u7d$$u7d$$GT$17hca9b70fa0a1ce000E.exit20"
 
@@ -1990,7 +1990,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E
   unreachable
 
 "_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h584764b599bcf8d8E.exit.i": ; preds = %145, %137, %133, %115
-  %.pn26.i = phi { ptr, i32 } [ %146, %145 ], [ %116, %115 ], [ %.pn23.i, %137 ], [ %.pn23.i, %133 ]
+  %.pn26.i = phi { ptr, i32 } [ %146, %145 ], [ %.pn23.i, %133 ], [ %116, %115 ], [ %.pn23.i, %137 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !276
   br label %.body14.thread
 
@@ -2013,8 +2013,8 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E
   br label %common.ret
 
 163:                                              ; preds = %"_ZN4core3ptr124drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h5eb13028cd7d7948E.exit43.i", %91, %81
-  %164 = phi ptr [ %51, %"_ZN4core3ptr124drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h5eb13028cd7d7948E.exit43.i" ], [ %67, %81 ], [ %51, %91 ]
-  %.sroa.09.0.i = phi ptr [ %.sroa.012.0.copyload.i, %"_ZN4core3ptr124drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h5eb13028cd7d7948E.exit43.i" ], [ null, %81 ], [ null, %91 ]
+  %164 = phi ptr [ %51, %91 ], [ %51, %"_ZN4core3ptr124drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h5eb13028cd7d7948E.exit43.i" ], [ %67, %81 ]
+  %.sroa.09.0.i = phi ptr [ null, %91 ], [ %.sroa.012.0.copyload.i, %"_ZN4core3ptr124drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h5eb13028cd7d7948E.exit43.i" ], [ null, %81 ]
   store i8 1, ptr %164, align 8, !noalias !276
   br label %9
 
@@ -2201,7 +2201,7 @@ define noalias noundef align 8 ptr @"_ZN90_$LT$pingora_cache..memory..MemHitHand
   unreachable
 
 common.resume:                                    ; preds = %60, %64, %67, %70, %27, %31, %34, %37
-  %common.resume.op = phi { ptr, i32 } [ %28, %27 ], [ %32, %31 ], [ %32, %34 ], [ %32, %37 ], [ %61, %60 ], [ %65, %64 ], [ %65, %67 ], [ %65, %70 ]
+  %common.resume.op = phi { ptr, i32 } [ %32, %37 ], [ %28, %27 ], [ %32, %31 ], [ %32, %34 ], [ %61, %60 ], [ %65, %64 ], [ %65, %67 ], [ %65, %70 ]
   resume { ptr, i32 } %common.resume.op
 
 31:                                               ; preds = %16
@@ -2604,7 +2604,7 @@ default.unreachable41:                            ; preds = %2
   ret { i64, ptr } zeroinitializer
 
 "_ZN4core3ptr125drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h6fee91266e5a9806E.exit": ; preds = %46, %33, %35, %36, %52, %23
-  %.pn8.pn.pn = phi { ptr, i32 } [ %.pn8.pn, %23 ], [ %53, %52 ], [ %47, %46 ], [ %34, %33 ], [ %37, %35 ], [ %37, %36 ]
+  %.pn8.pn.pn = phi { ptr, i32 } [ %.pn8.pn, %23 ], [ %53, %52 ], [ %34, %33 ], [ %37, %35 ], [ %47, %46 ], [ %37, %36 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !358)
   call void @llvm.experimental.noalias.scope.decl(metadata !361)
   %63 = load ptr, ptr %5, align 8, !alias.scope !364, !nonnull !21, !align !64, !noundef !21
@@ -2730,7 +2730,7 @@ default.unreachable194:                           ; preds = %3
   unreachable
 
 .body.thread:                                     ; preds = %253, %"_ZN4core3ptr250drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$std..collections..hash..map..HashMap$LT$u64$C$pingora_cache..memory..TempObject$GT$$GT$$GT$$GT$17hd9b68eb47dc3343dE.exit116"
-  %.pn26.pn160 = phi { ptr, i32 } [ %254, %253 ], [ %.pn22.pn.pn, %"_ZN4core3ptr250drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$std..collections..hash..map..HashMap$LT$u64$C$pingora_cache..memory..TempObject$GT$$GT$$GT$$GT$17hd9b68eb47dc3343dE.exit116" ]
+  %.pn26.pn160 = phi { ptr, i32 } [ %.pn22.pn.pn, %"_ZN4core3ptr250drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$std..collections..hash..map..HashMap$LT$u64$C$pingora_cache..memory..TempObject$GT$$GT$$GT$$GT$17hd9b68eb47dc3343dE.exit116" ], [ %254, %253 ]
   store i8 2, ptr %15, align 8
   resume { ptr, i32 } %.pn26.pn160
 
@@ -2983,7 +2983,7 @@ select.unfold130:                                 ; preds = %._crit_edge.i.i.i65
   br i1 %or.cond.i.i, label %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E.exit.thread.i, label %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E.exit.i, !prof !285
 
 "_ZN4core3ptr124drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h5eb13028cd7d7948E.exit.i": ; preds = %153, %148, %131, %.body.i, %118
-  %.pn.i = phi { ptr, i32 } [ %119, %118 ], [ %eh.lpad-body.i, %131 ], [ %eh.lpad-body.i, %.body.i ], [ %149, %153 ], [ %149, %148 ]
+  %.pn.i = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %119, %118 ], [ %eh.lpad-body.i, %131 ], [ %149, %153 ], [ %149, %148 ]
   invoke fastcc void @"_ZN4core3ptr82drop_in_place$LT$$LP$alloc..vec..Vec$LT$u8$GT$$C$alloc..vec..Vec$LT$u8$GT$$RP$$GT$17h43e5f5ae7dc3de3eE"(ptr noalias noundef align 8 dereferenceable(48) %8) #24
           to label %.body74 unwind label %154, !noalias !411
 
@@ -3090,7 +3090,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E
   unreachable
 
 .body74:                                          ; preds = %.loopexit164, %.loopexit.split-lp165, %156, %"_ZN4core3ptr124drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h5eb13028cd7d7948E.exit.i", %107, %69
-  %.pn = phi { ptr, i32 } [ %70, %69 ], [ %157, %156 ], [ %108, %107 ], [ %.pn.i, %"_ZN4core3ptr124drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h5eb13028cd7d7948E.exit.i" ], [ %lpad.loopexit166, %.loopexit164 ], [ %lpad.loopexit.split-lp167, %.loopexit.split-lp165 ]
+  %.pn = phi { ptr, i32 } [ %70, %69 ], [ %.pn.i, %"_ZN4core3ptr124drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h5eb13028cd7d7948E.exit.i" ], [ %157, %156 ], [ %108, %107 ], [ %lpad.loopexit166, %.loopexit164 ], [ %lpad.loopexit.split-lp167, %.loopexit.split-lp165 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %259
 
@@ -3366,7 +3366,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E
           to label %"_ZN4core3ptr251drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$std..collections..hash..map..HashMap$LT$u64$C$pingora_cache..memory..TempObject$GT$$GT$$GT$$GT$17h1ce82ff4e4adf9ecE.exit112" unwind label %251
 
 .thread141:                                       ; preds = %251, %201, %246, %244
-  %.pn22 = phi { ptr, i32 } [ %252, %251 ], [ %202, %201 ], [ %.pn20, %246 ], [ %.pn20, %244 ]
+  %.pn22 = phi { ptr, i32 } [ %252, %251 ], [ %.pn20, %244 ], [ %202, %201 ], [ %.pn20, %246 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %"_ZN4core3ptr250drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$std..collections..hash..map..HashMap$LT$u64$C$pingora_cache..memory..TempObject$GT$$GT$$GT$$GT$17hd9b68eb47dc3343dE.exit116"
 
@@ -3408,13 +3408,13 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E
   br label %187
 
 "_ZN4core3ptr250drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$std..collections..hash..map..HashMap$LT$u64$C$pingora_cache..memory..TempObject$GT$$GT$$GT$$GT$17hd9b68eb47dc3343dE.exit116": ; preds = %29, %263, %259, %.thread148, %.thread141, %.thread137, %.noexc80
-  %.pn22.pn.pn = phi { ptr, i32 } [ %.pn22.pn140, %.thread137 ], [ %.pn16, %.noexc80 ], [ %.pn22, %.thread141 ], [ %194, %.thread148 ], [ %30, %29 ], [ %.pn.pn, %263 ], [ %.pn.pn, %259 ]
+  %.pn22.pn.pn = phi { ptr, i32 } [ %.pn22.pn140, %.thread137 ], [ %.pn16, %.noexc80 ], [ %194, %.thread148 ], [ %.pn22, %.thread141 ], [ %.pn.pn, %259 ], [ %30, %29 ], [ %.pn.pn, %263 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   invoke fastcc void @"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$pingora_cache..memory..MemMissHandler$GT$$GT$17ha8bd4d0a1fd1404aE"(ptr %18) #24
           to label %.body.thread unwind label %256
 
 .thread137:                                       ; preds = %165, %.thread145, %.noexc80
-  %.pn22.pn140 = phi { ptr, i32 } [ %.pn16, %.noexc80 ], [ %176, %.thread145 ], [ %166, %165 ]
+  %.pn22.pn140 = phi { ptr, i32 } [ %176, %.thread145 ], [ %.pn16, %.noexc80 ], [ %166, %165 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$pingora_cache..memory..CacheObject$GT$17h1183c63e4bb801edE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %14) #24
           to label %"_ZN4core3ptr250drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$std..collections..hash..map..HashMap$LT$u64$C$pingora_cache..memory..TempObject$GT$$GT$$GT$$GT$17hd9b68eb47dc3343dE.exit116" unwind label %256
 
@@ -3644,7 +3644,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E
           to label %"_ZN4core3ptr201drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$pingora_cache..memory..CacheObject$GT$$GT$$GT$17hfdb63cb0c499dea5E.exit85" unwind label %72
 
 "_ZN4core3ptr201drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$pingora_cache..memory..CacheObject$GT$$GT$$GT$17hfdb63cb0c499dea5E.exit": ; preds = %.loopexit121, %.loopexit.split-lp122, %168, %83, %123, %119, %72
-  %.pn28 = phi { ptr, i32 } [ %73, %72 ], [ %169, %168 ], [ %84, %83 ], [ %.pn22.pn.pn, %123 ], [ %.pn22.pn.pn, %119 ], [ %lpad.loopexit123, %.loopexit121 ], [ %lpad.loopexit.split-lp124, %.loopexit.split-lp122 ]
+  %.pn28 = phi { ptr, i32 } [ %73, %72 ], [ %.pn22.pn.pn, %123 ], [ %169, %168 ], [ %.pn22.pn.pn, %119 ], [ %84, %83 ], [ %lpad.loopexit123, %.loopexit121 ], [ %lpad.loopexit.split-lp124, %.loopexit.split-lp122 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5d17c4a107d2fad0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #24
           to label %170 unwind label %160
 
@@ -3750,7 +3750,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E
   br label %98
 
 119:                                              ; preds = %124, %162, %.loopexit, %.loopexit.split-lp
-  %.pn22.pn.pn = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %151, %162 ], [ %125, %124 ]
+  %.pn22.pn.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %151, %162 ], [ %125, %124 ]
   %120 = atomicrmw sub ptr %74, i64 16 release, align 8
   %121 = and i64 %120, -14
   %122 = icmp eq i64 %121, 18
@@ -3966,7 +3966,7 @@ select.unfold108:                                 ; preds = %._crit_edge.i.i.i73
   br label %192
 
 192:                                              ; preds = %15, %188, %191, %181, %190, %170
-  %.pn34 = phi { ptr, i32 } [ %189, %188 ], [ %16, %15 ], [ %182, %181 ], [ %29, %191 ], [ %.pn30, %190 ], [ %.pn30, %170 ]
+  %.pn34 = phi { ptr, i32 } [ %189, %188 ], [ %16, %15 ], [ %29, %191 ], [ %182, %181 ], [ %.pn30, %190 ], [ %.pn30, %170 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store i8 2, ptr %9, align 8
   resume { ptr, i32 } %.pn34
@@ -4178,7 +4178,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E
   br label %57
 
 78:                                               ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit53, %.loopexit.split-lp54
-  %.pn6 = phi { ptr, i32 } [ %lpad.loopexit55, %.loopexit53 ], [ %lpad.loopexit.split-lp56, %.loopexit.split-lp54 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn6 = phi { ptr, i32 } [ %lpad.loopexit.split-lp56, %.loopexit.split-lp54 ], [ %lpad.loopexit55, %.loopexit53 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5d17c4a107d2fad0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #24
           to label %133 unwind label %131
 
@@ -4366,7 +4366,7 @@ select.unfold45:                                  ; preds = %._crit_edge.i.i.i.i
           to label %.sink.split unwind label %131
 
 .sink.split:                                      ; preds = %42, %19, %138
-  %.pn14.ph = phi { ptr, i32 } [ %.pn, %138 ], [ %20, %19 ], [ %43, %42 ]
+  %.pn14.ph = phi { ptr, i32 } [ %20, %19 ], [ %.pn, %138 ], [ %43, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %139
 
@@ -4564,7 +4564,7 @@ default.unreachable126:                           ; preds = %3
   unreachable
 
 .body.i:                                          ; preds = %78, %.body19.i, %61
-  %.pn.i = phi { ptr, i32 } [ %62, %61 ], [ %73, %78 ], [ %73, %.body19.i ]
+  %.pn.i = phi { ptr, i32 } [ %73, %.body19.i ], [ %62, %61 ], [ %73, %78 ]
   invoke fastcc void @"_ZN4core3ptr82drop_in_place$LT$$LP$alloc..vec..Vec$LT$u8$GT$$C$alloc..vec..Vec$LT$u8$GT$$RP$$GT$17h43e5f5ae7dc3de3eE"(ptr noalias noundef align 8 dereferenceable(48) %10) #24
           to label %85 unwind label %83, !noalias !572
 
@@ -5031,13 +5031,13 @@ default.unreachable126:                           ; preds = %3
   br i1 %.sroa.05.1, label %.thread98, label %196
 
 .thread98:                                        ; preds = %.thread104, %195
-  %.pn23.pn.pn103 = phi { ptr, i32 } [ %.pn21, %195 ], [ %.pn.pn.pn, %.thread104 ]
-  %.sroa.06.1102 = phi i1 [ %.sroa.06.2, %195 ], [ true, %.thread104 ]
+  %.pn23.pn.pn103 = phi { ptr, i32 } [ %.pn.pn.pn, %.thread104 ], [ %.pn21, %195 ]
+  %.sroa.06.1102 = phi i1 [ true, %.thread104 ], [ %.sroa.06.2, %195 ]
   invoke void @"_ZN4core3ptr54drop_in_place$LT$pingora_cache..memory..TempObject$GT$17hc51c4b0c87f2c935E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %24) #24
           to label %196 unwind label %179
 
 .thread116:                                       ; preds = %82, %86, %87, %89
-  %.pn23.pn.pn.pn.ph = phi { ptr, i32 } [ %.pn.i, %86 ], [ %.pn.i, %82 ], [ %88, %87 ], [ %90, %89 ]
+  %.pn23.pn.pn.pn.ph = phi { ptr, i32 } [ %.pn.i, %82 ], [ %.pn.i, %86 ], [ %88, %87 ], [ %90, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %198
 
@@ -5188,7 +5188,7 @@ default.unreachable50:                            ; preds = %3
           to label %39 unwind label %37
 
 "_ZN4core3ptr251drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$std..collections..hash..map..HashMap$LT$u64$C$pingora_cache..memory..TempObject$GT$$GT$$GT$$GT$17h1ce82ff4e4adf9ecE.exit": ; preds = %30, %32, %21, %37
-  %.pn8 = phi { ptr, i32 } [ %38, %37 ], [ %22, %21 ], [ %.pn, %32 ], [ %.pn, %30 ]
+  %.pn8 = phi { ptr, i32 } [ %38, %37 ], [ %.pn, %30 ], [ %22, %21 ], [ %.pn, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %69
 
@@ -5259,7 +5259,7 @@ default.unreachable50:                            ; preds = %3
           to label %"_ZN4core3ptr202drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$pingora_cache..memory..CacheObject$GT$$GT$$GT$17h09aac44bf26be754E.exit46" unwind label %61
 
 "_ZN4core3ptr202drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$pingora_cache..memory..CacheObject$GT$$GT$$GT$17h09aac44bf26be754E.exit": ; preds = %54, %56, %45, %61
-  %.pn12 = phi { ptr, i32 } [ %62, %61 ], [ %46, %45 ], [ %.pn10, %56 ], [ %.pn10, %54 ]
+  %.pn12 = phi { ptr, i32 } [ %62, %61 ], [ %.pn10, %54 ], [ %46, %45 ], [ %.pn10, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %69
 
@@ -5347,8 +5347,8 @@ default.unreachable66:                            ; preds = %3
   unreachable
 
 "_ZN4core3ptr202drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$pingora_cache..memory..CacheObject$GT$$GT$$GT$17h09aac44bf26be754E.exit": ; preds = %92, %90, %84, %82
-  %.sroa.049.0 = phi i8 [ 0, %82 ], [ 0, %84 ], [ 1, %90 ], [ 1, %92 ]
-  %.sroa.552.0 = phi ptr [ undef, %82 ], [ undef, %84 ], [ %67, %90 ], [ %67, %92 ]
+  %.sroa.049.0 = phi i8 [ 0, %84 ], [ 0, %82 ], [ 1, %90 ], [ 1, %92 ]
+  %.sroa.552.0 = phi ptr [ undef, %84 ], [ undef, %82 ], [ %67, %90 ], [ %67, %92 ]
   store i8 %.sroa.049.0, ptr %0, align 8
   %.sroa.350.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 1, ptr %.sroa.350.0..sroa_idx, align 1
@@ -5456,7 +5456,7 @@ default.unreachable66:                            ; preds = %3
   br label %35
 
 56:                                               ; preds = %61, %.body25, %.loopexit, %.loopexit.split-lp, %95
-  %.pn4.pn = phi { ptr, i32 } [ %96, %95 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %eh.lpad-body26, %.body25 ], [ %62, %61 ]
+  %.pn4.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %96, %95 ], [ %lpad.loopexit, %.loopexit ], [ %62, %61 ], [ %eh.lpad-body26, %.body25 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5d17c4a107d2fad0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #24
           to label %78 unwind label %87
 
@@ -5575,7 +5575,7 @@ default.unreachable66:                            ; preds = %3
   unreachable
 
 "_ZN4core3ptr202drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$pingora_cache..memory..CacheObject$GT$$GT$$GT$17h09aac44bf26be754E.exit33": ; preds = %78, %102, %93, %103, %85, %12
-  %.pn10.pn = phi { ptr, i32 } [ %86, %85 ], [ %13, %12 ], [ %94, %93 ], [ %21, %103 ], [ %.pn7, %102 ], [ %.pn7, %78 ]
+  %.pn10.pn = phi { ptr, i32 } [ %13, %12 ], [ %86, %85 ], [ %94, %93 ], [ %21, %103 ], [ %.pn7, %102 ], [ %.pn7, %78 ]
   store i8 2, ptr %7, align 8
   resume { ptr, i32 } %.pn10.pn
 

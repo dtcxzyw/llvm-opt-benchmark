@@ -453,8 +453,8 @@ valid_ctrl_field.exit:                            ; preds = %28
   %.not.i.not = icmp eq ptr %33, null
   br i1 %.not.i.not, label %65, label %valid_ctrl_field.exit.thread
 
-valid_ctrl_field.exit.thread:                     ; preds = %25, %28, %valid_ctrl_field.exit, %19, %7, %10
-  %.0 = phi i1 [ true, %10 ], [ true, %7 ], [ true, %19 ], [ false, %valid_ctrl_field.exit ], [ false, %28 ], [ false, %25 ]
+valid_ctrl_field.exit.thread:                     ; preds = %28, %25, %valid_ctrl_field.exit, %19, %7, %10
+  %.0 = phi i1 [ true, %19 ], [ true, %7 ], [ true, %10 ], [ false, %valid_ctrl_field.exit ], [ false, %25 ], [ false, %28 ]
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %35 = load ptr, ptr %34, align 8
   tail call void @col_set_str(ptr noundef %35, i32 noundef 35, ptr noundef nonnull @.str.99)
@@ -611,7 +611,7 @@ dissect_zvt_bitmap.exit.thread:                   ; preds = %12
   br label %dissect_zvt_bitmap.exit
 
 dissect_zvt_bitmap.exit:                          ; preds = %17, %32, %35, %38
-  %.030.i = phi i32 [ %40, %38 ], [ %24, %35 ], [ %24, %17 ], [ %spec.select.i, %32 ]
+  %.030.i = phi i32 [ %24, %17 ], [ %spec.select.i, %32 ], [ %40, %38 ], [ %24, %35 ]
   %41 = load ptr, ptr %7, align 8
   %42 = sub i32 %.030.i, %.0
   call void @proto_item_set_len(ptr noundef %41, i32 noundef %42)
@@ -1135,7 +1135,7 @@ dissect_zvt_tlv_len.exit:                         ; preds = %.dissect_zvt_tlv_le
   br i1 %77, label %.lr.ph, label %dissect_zvt_tlv_tag.exit.thread, !llvm.loop !12
 
 dissect_zvt_tlv_tag.exit.thread:                  ; preds = %dissect_zvt_tlv_tag.exit, %.backedge, %.preheader.i, %12
-  %78 = phi i32 [ 0, %12 ], [ %14, %.preheader.i ], [ %14, %dissect_zvt_tlv_tag.exit ], [ %76, %.backedge ]
+  %78 = phi i32 [ %14, %.preheader.i ], [ 0, %12 ], [ %14, %dissect_zvt_tlv_tag.exit ], [ %76, %.backedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %78
 }
@@ -1395,8 +1395,8 @@ define internal fastcc range(i32 -1, 65543) i32 @dissect_zvt_apdu(ptr noundef %0
   br label %.critedge
 
 .critedge:                                        ; preds = %87, %84, %81, %53, %50, %46, %27, %91, %78, %74, %69, %44
-  %.0107 = phi i16 [ 0, %44 ], [ %58, %78 ], [ %58, %74 ], [ %58, %69 ], [ %58, %91 ], [ 0, %27 ], [ 0, %46 ], [ 0, %50 ], [ 0, %53 ], [ %58, %81 ], [ %58, %84 ], [ %58, %87 ]
-  %.0 = phi ptr [ %39, %44 ], [ %73, %78 ], [ %73, %74 ], [ null, %69 ], [ %93, %91 ], [ null, %27 ], [ %39, %46 ], [ %39, %50 ], [ %39, %53 ], [ %73, %81 ], [ %73, %84 ], [ %73, %87 ]
+  %.0107 = phi i16 [ %58, %91 ], [ 0, %44 ], [ 0, %27 ], [ 0, %53 ], [ %58, %78 ], [ %58, %74 ], [ %58, %69 ], [ 0, %46 ], [ 0, %50 ], [ %58, %81 ], [ %58, %84 ], [ %58, %87 ]
+  %.0 = phi ptr [ %93, %91 ], [ %39, %44 ], [ null, %27 ], [ %39, %53 ], [ %73, %78 ], [ %73, %74 ], [ null, %69 ], [ %39, %46 ], [ %39, %50 ], [ %73, %81 ], [ %73, %84 ], [ %73, %87 ]
   %99 = load ptr, ptr @apdu_table, align 8
   %100 = zext i16 %.0107 to i64
   %101 = inttoptr i64 %100 to ptr

@@ -252,8 +252,8 @@ _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i: ; preds = %29, %35
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit
 
 _ZN3url12CanonOutputTIcE9push_backEc.exit:        ; preds = %select.unfold.i.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i, %28
-  %44 = phi i32 [ %.pre71, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i ], [ %.pre72, %28 ], [ %.pre72, %select.unfold.i.i ]
-  %45 = phi i32 [ %43, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i ], [ %.pre70, %28 ], [ %.pre70, %select.unfold.i.i ]
+  %44 = phi i32 [ %.pre72, %28 ], [ %.pre71, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i ], [ %.pre72, %select.unfold.i.i ]
+  %45 = phi i32 [ %.pre70, %28 ], [ %43, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i ], [ %.pre70, %select.unfold.i.i ]
   %46 = icmp slt i32 %45, %44
   br i1 %46, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i28, label %select.unfold.i.preheader.i23
 
@@ -465,10 +465,10 @@ define noundef zeroext i1 @_ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_(p
 23:                                               ; preds = %15
   %24 = icmp eq i32 %.042.i.ph, 0
   %or.cond.i = select i1 %.not.i, i1 true, i1 %24
-  br i1 %or.cond.i, label %_ZN3url12_GLOBAL__N_120DoFindIPv4ComponentsIchEEbPKT_RKNS_9ComponentEPS5_.exit, label %select.unfold.i
+  br i1 %or.cond.i, label %_ZN3url12_GLOBAL__N_120DoFindIPv4ComponentsIchEEbPKT_RKNS_9ComponentEPS5_.exit, label %select.unfold10.i
 
 25:                                               ; preds = %15
-  br i1 %.not.i, label %26, label %select.unfold.i
+  br i1 %.not.i, label %26, label %select.unfold10.i
 
 26:                                               ; preds = %25
   %27 = icmp eq i32 %21, 4
@@ -501,11 +501,11 @@ define noundef zeroext i1 @_ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_(p
   %.pre.i = add nsw i64 %indvars.iv.i, 1
   br label %10, !llvm.loop !24
 
-select.unfold.i:                                  ; preds = %25, %23
+select.unfold10.i:                                ; preds = %25, %23
   %42 = icmp samesign ult i32 %.042.i.ph, 3
   br i1 %42, label %.lr.ph.preheader.i, label %_ZN3url12_GLOBAL__N_120DoFindIPv4ComponentsIchEEbPKT_RKNS_9ComponentEPS5_.exit
 
-.lr.ph.preheader.i:                               ; preds = %select.unfold.i
+.lr.ph.preheader.i:                               ; preds = %select.unfold10.i
   %43 = zext nneg i32 %21 to i64
   br label %.lr.ph.i
 
@@ -518,8 +518,8 @@ select.unfold.i:                                  ; preds = %25, %23
   %exitcond.not.i = icmp eq i64 %45, 4
   br i1 %exitcond.not.i, label %_ZN3url12_GLOBAL__N_120DoFindIPv4ComponentsIchEEbPKT_RKNS_9ComponentEPS5_.exit, label %.lr.ph.i, !llvm.loop !25
 
-_ZN3url12_GLOBAL__N_120DoFindIPv4ComponentsIchEEbPKT_RKNS_9ComponentEPS5_.exit: ; preds = %35, %37, %.lr.ph.i, %3, %23, %29, %select.unfold.i
-  %.039.i = phi i1 [ false, %3 ], [ false, %23 ], [ true, %select.unfold.i ], [ %or.cond49.i, %29 ], [ true, %.lr.ph.i ], [ false, %37 ], [ false, %35 ]
+_ZN3url12_GLOBAL__N_120DoFindIPv4ComponentsIchEEbPKT_RKNS_9ComponentEPS5_.exit: ; preds = %35, %37, %.lr.ph.i, %3, %23, %29, %select.unfold10.i
+  %.039.i = phi i1 [ false, %3 ], [ false, %23 ], [ %or.cond49.i, %29 ], [ true, %select.unfold10.i ], [ true, %.lr.ph.i ], [ false, %37 ], [ false, %35 ]
   ret i1 %.039.i
 }
 
@@ -572,10 +572,10 @@ define noundef zeroext i1 @_ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_(p
 23:                                               ; preds = %15
   %24 = icmp eq i32 %.042.i.ph, 0
   %or.cond.i = select i1 %.not.i, i1 true, i1 %24
-  br i1 %or.cond.i, label %_ZN3url12_GLOBAL__N_120DoFindIPv4ComponentsIttEEbPKT_RKNS_9ComponentEPS5_.exit, label %select.unfold.i
+  br i1 %or.cond.i, label %_ZN3url12_GLOBAL__N_120DoFindIPv4ComponentsIttEEbPKT_RKNS_9ComponentEPS5_.exit, label %select.unfold10.i
 
 25:                                               ; preds = %15
-  br i1 %.not.i, label %26, label %select.unfold.i
+  br i1 %.not.i, label %26, label %select.unfold10.i
 
 26:                                               ; preds = %25
   %27 = icmp eq i32 %21, 4
@@ -608,11 +608,11 @@ define noundef zeroext i1 @_ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_(p
   %.pre.i = add nsw i64 %indvars.iv.i, 1
   br label %10, !llvm.loop !28
 
-select.unfold.i:                                  ; preds = %25, %23
+select.unfold10.i:                                ; preds = %25, %23
   %42 = icmp samesign ult i32 %.042.i.ph, 3
   br i1 %42, label %.lr.ph.preheader.i, label %_ZN3url12_GLOBAL__N_120DoFindIPv4ComponentsIttEEbPKT_RKNS_9ComponentEPS5_.exit
 
-.lr.ph.preheader.i:                               ; preds = %select.unfold.i
+.lr.ph.preheader.i:                               ; preds = %select.unfold10.i
   %43 = zext nneg i32 %21 to i64
   br label %.lr.ph.i
 
@@ -625,8 +625,8 @@ select.unfold.i:                                  ; preds = %25, %23
   %exitcond.not.i = icmp eq i64 %45, 4
   br i1 %exitcond.not.i, label %_ZN3url12_GLOBAL__N_120DoFindIPv4ComponentsIttEEbPKT_RKNS_9ComponentEPS5_.exit, label %.lr.ph.i, !llvm.loop !29
 
-_ZN3url12_GLOBAL__N_120DoFindIPv4ComponentsIttEEbPKT_RKNS_9ComponentEPS5_.exit: ; preds = %35, %37, %.lr.ph.i, %3, %23, %29, %select.unfold.i
-  %.039.i = phi i1 [ false, %3 ], [ false, %23 ], [ true, %select.unfold.i ], [ %or.cond50.i, %29 ], [ true, %.lr.ph.i ], [ false, %37 ], [ false, %35 ]
+_ZN3url12_GLOBAL__N_120DoFindIPv4ComponentsIttEEbPKT_RKNS_9ComponentEPS5_.exit: ; preds = %35, %37, %.lr.ph.i, %3, %23, %29, %select.unfold10.i
+  %.039.i = phi i1 [ false, %3 ], [ false, %23 ], [ %or.cond50.i, %29 ], [ true, %select.unfold10.i ], [ true, %.lr.ph.i ], [ false, %37 ], [ false, %35 ]
   ret i1 %.039.i
 }
 
@@ -782,7 +782,7 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit33.i:    ; preds = %select.unfold.i.i26
   br label %_ZN3url12_GLOBAL__N_125DoCanonicalizeIPv6AddressIchEEbPKT_RKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE.exit
 
 _ZN3url12_GLOBAL__N_125DoCanonicalizeIPv6AddressIchEEbPKT_RKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE.exit: ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %27, %17, %_ZN3url12CanonOutputTIcE9push_backEc.exit33.i
-  %.sink.i = phi i32 [ 3, %_ZN3url12CanonOutputTIcE9push_backEc.exit33.i ], [ 0, %17 ], [ 0, %27 ], [ 1, %.lr.ph.i ], [ 1, %.lr.ph.i ], [ 1, %.lr.ph.i ]
+  %.sink.i = phi i32 [ 0, %17 ], [ 3, %_ZN3url12CanonOutputTIcE9push_backEc.exit33.i ], [ 0, %27 ], [ 1, %.lr.ph.i ], [ 1, %.lr.ph.i ], [ 1, %.lr.ph.i ]
   store i32 %.sink.i, ptr %3, align 4, !tbaa !30
   br label %_ZN3url12_GLOBAL__N_125DoCanonicalizeIPv4AddressIchEEbPKT_RKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE.exit.thread
 
@@ -942,7 +942,7 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit33.i:    ; preds = %select.unfold.i.i26
   br label %_ZN3url12_GLOBAL__N_125DoCanonicalizeIPv6AddressIttEEbPKT_RKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE.exit
 
 _ZN3url12_GLOBAL__N_125DoCanonicalizeIPv6AddressIttEEbPKT_RKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE.exit: ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %27, %17, %_ZN3url12CanonOutputTIcE9push_backEc.exit33.i
-  %.sink.i = phi i32 [ 3, %_ZN3url12CanonOutputTIcE9push_backEc.exit33.i ], [ 0, %17 ], [ 0, %27 ], [ 1, %.lr.ph.i ], [ 1, %.lr.ph.i ], [ 1, %.lr.ph.i ]
+  %.sink.i = phi i32 [ 0, %17 ], [ 3, %_ZN3url12CanonOutputTIcE9push_backEc.exit33.i ], [ 0, %27 ], [ 1, %.lr.ph.i ], [ 1, %.lr.ph.i ], [ 1, %.lr.ph.i ]
   store i32 %.sink.i, ptr %3, align 4, !tbaa !30
   br label %_ZN3url12_GLOBAL__N_125DoCanonicalizeIPv4AddressIttEEbPKT_RKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE.exit.thread
 
@@ -1016,10 +1016,10 @@ define noundef range(i32 0, 3) i32 @_ZN3url19IPv4AddressToNumberEPKcRKNS_9Compon
 31:                                               ; preds = %23
   %32 = icmp eq i32 %.042.i.i.i.ph, 0
   %or.cond.i.i.i = select i1 %.not.i.i.i, i1 true, i1 %32
-  br i1 %or.cond.i.i.i, label %_ZN3url12_GLOBAL__N_121DoIPv4AddressToNumberIcEENS_13CanonHostInfo6FamilyEPKT_RKNS_9ComponentEPhPi.exit, label %select.unfold.i.i.i
+  br i1 %or.cond.i.i.i, label %_ZN3url12_GLOBAL__N_121DoIPv4AddressToNumberIcEENS_13CanonHostInfo6FamilyEPKT_RKNS_9ComponentEPhPi.exit, label %select.unfold10.i.i.i
 
 33:                                               ; preds = %23
-  br i1 %.not.i.i.i, label %34, label %select.unfold.i.i.i
+  br i1 %.not.i.i.i, label %34, label %select.unfold10.i.i.i
 
 34:                                               ; preds = %33
   %35 = icmp eq i32 %29, 4
@@ -1042,11 +1042,11 @@ define noundef range(i32 0, 3) i32 @_ZN3url19IPv4AddressToNumberEPKcRKNS_9Compon
   %.pre.i.i.i = add nsw i64 %indvars.iv.i.i.i, 1
   br label %18, !llvm.loop !24
 
-select.unfold.i.i.i:                              ; preds = %33, %31
+select.unfold10.i.i.i:                            ; preds = %33, %31
   %44 = icmp samesign ult i32 %.042.i.i.i.ph, 3
   br i1 %44, label %.lr.ph.preheader.i.i.i, label %_ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_.exit.thread3.i
 
-.lr.ph.preheader.i.i.i:                           ; preds = %select.unfold.i.i.i
+.lr.ph.preheader.i.i.i:                           ; preds = %select.unfold10.i.i.i
   %45 = zext nneg i32 %29 to i64
   br label %.lr.ph.i.i.i
 
@@ -1069,7 +1069,7 @@ _ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_.exit.i: ; preds = %34
   %or.cond49.i.i.i = select i1 %51, i1 %52, i1 false
   br i1 %or.cond49.i.i.i, label %_ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_.exit.thread3.i, label %_ZN3url12_GLOBAL__N_121DoIPv4AddressToNumberIcEENS_13CanonHostInfo6FamilyEPKT_RKNS_9ComponentEPhPi.exit
 
-_ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_.exit.thread3.i: ; preds = %.lr.ph.i.i.i, %_ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_.exit.i, %select.unfold.i.i.i
+_ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_.exit.thread3.i: ; preds = %.lr.ph.i.i.i, %_ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_.exit.i, %select.unfold10.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %53
 
@@ -1107,8 +1107,8 @@ _ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_.exit.thread3.i: ; preds = %.
   br label %70
 
 70:                                               ; preds = %69, %66, %66, %58
-  %.041.i.i = phi i32 [ 1, %69 ], [ 2, %66 ], [ 2, %66 ], [ 0, %58 ]
-  %.033.i.i = phi i32 [ 32, %69 ], [ 8, %66 ], [ 8, %66 ], [ 16, %58 ]
+  %.041.i.i = phi i32 [ 2, %66 ], [ 0, %58 ], [ 1, %69 ], [ 2, %66 ]
+  %.033.i.i = phi i32 [ 8, %66 ], [ 16, %58 ], [ 32, %69 ], [ 8, %66 ]
   %71 = icmp samesign ult i32 %.041.i.i, %56
   br i1 %71, label %.lr.ph.preheader.i.i, label %.critedge.i.i
 
@@ -1205,7 +1205,7 @@ _ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_.exit.thread3.i: ; preds = %.
   unreachable
 
 _ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i: ; preds = %98, %97, %._crit_edge.i.i
-  %.0.i.i.i = phi i32 [ 10, %97 ], [ 8, %98 ], [ 16, %._crit_edge.i.i ]
+  %.0.i.i.i = phi i32 [ 16, %._crit_edge.i.i ], [ 8, %98 ], [ 10, %97 ]
   %99 = call noundef i64 @strtoull(ptr noundef nonnull captures(none) %5, ptr noundef null, i32 noundef %.0.i.i.i) #9
   %100 = icmp ugt i64 %99, 4294967295
   br i1 %100, label %.thread.i, label %.fold.split.i
@@ -1298,7 +1298,7 @@ _ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i: ; preds = %98
   br label %.thread19.i
 
 .thread19.i:                                      ; preds = %.lr.ph.i, %123, %._crit_edge51.i, %.thread12.i, %104
-  %.5.i = phi i32 [ 0, %104 ], [ 1, %.thread12.i ], [ 2, %123 ], [ 1, %._crit_edge51.i ], [ 1, %.lr.ph.i ]
+  %.5.i = phi i32 [ 0, %104 ], [ 1, %.thread12.i ], [ 1, %._crit_edge51.i ], [ 2, %123 ], [ 1, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN3url12_GLOBAL__N_121DoIPv4AddressToNumberIcEENS_13CanonHostInfo6FamilyEPKT_RKNS_9ComponentEPhPi.exit
 
@@ -1374,10 +1374,10 @@ define noundef range(i32 0, 3) i32 @_ZN3url19IPv4AddressToNumberEPKtRKNS_9Compon
 31:                                               ; preds = %23
   %32 = icmp eq i32 %.042.i.i.i.ph, 0
   %or.cond.i.i.i = select i1 %.not.i.i.i, i1 true, i1 %32
-  br i1 %or.cond.i.i.i, label %_ZN3url12_GLOBAL__N_121DoIPv4AddressToNumberItEENS_13CanonHostInfo6FamilyEPKT_RKNS_9ComponentEPhPi.exit, label %select.unfold.i.i.i
+  br i1 %or.cond.i.i.i, label %_ZN3url12_GLOBAL__N_121DoIPv4AddressToNumberItEENS_13CanonHostInfo6FamilyEPKT_RKNS_9ComponentEPhPi.exit, label %select.unfold10.i.i.i
 
 33:                                               ; preds = %23
-  br i1 %.not.i.i.i, label %34, label %select.unfold.i.i.i
+  br i1 %.not.i.i.i, label %34, label %select.unfold10.i.i.i
 
 34:                                               ; preds = %33
   %35 = icmp eq i32 %29, 4
@@ -1400,11 +1400,11 @@ define noundef range(i32 0, 3) i32 @_ZN3url19IPv4AddressToNumberEPKtRKNS_9Compon
   %.pre.i.i.i = add nsw i64 %indvars.iv.i.i.i, 1
   br label %18, !llvm.loop !28
 
-select.unfold.i.i.i:                              ; preds = %33, %31
+select.unfold10.i.i.i:                            ; preds = %33, %31
   %44 = icmp samesign ult i32 %.042.i.i.i.ph, 3
   br i1 %44, label %.lr.ph.preheader.i.i.i, label %_ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_.exit.thread3.i
 
-.lr.ph.preheader.i.i.i:                           ; preds = %select.unfold.i.i.i
+.lr.ph.preheader.i.i.i:                           ; preds = %select.unfold10.i.i.i
   %45 = zext nneg i32 %29 to i64
   br label %.lr.ph.i.i.i
 
@@ -1427,7 +1427,7 @@ _ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_.exit.i: ; preds = %34
   %or.cond50.i.i.i = select i1 %51, i1 %52, i1 false
   br i1 %or.cond50.i.i.i, label %_ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_.exit.thread3.i, label %_ZN3url12_GLOBAL__N_121DoIPv4AddressToNumberItEENS_13CanonHostInfo6FamilyEPKT_RKNS_9ComponentEPhPi.exit
 
-_ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_.exit.thread3.i: ; preds = %.lr.ph.i.i.i, %_ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_.exit.i, %select.unfold.i.i.i
+_ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_.exit.thread3.i: ; preds = %.lr.ph.i.i.i, %_ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_.exit.i, %select.unfold10.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %53
 
@@ -1465,8 +1465,8 @@ _ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_.exit.thread3.i: ; preds = %.
   br label %70
 
 70:                                               ; preds = %69, %66, %66, %58
-  %.041.i.i = phi i32 [ 1, %69 ], [ 2, %66 ], [ 2, %66 ], [ 0, %58 ]
-  %.033.i.i = phi i32 [ 32, %69 ], [ 8, %66 ], [ 8, %66 ], [ 16, %58 ]
+  %.041.i.i = phi i32 [ 2, %66 ], [ 0, %58 ], [ 1, %69 ], [ 2, %66 ]
+  %.033.i.i = phi i32 [ 8, %66 ], [ 16, %58 ], [ 32, %69 ], [ 8, %66 ]
   %71 = icmp samesign ult i32 %.041.i.i, %56
   br i1 %71, label %.lr.ph.preheader.i.i, label %.critedge.i.i
 
@@ -1565,7 +1565,7 @@ _ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_.exit.thread3.i: ; preds = %.
   unreachable
 
 _ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i: ; preds = %99, %98, %._crit_edge.i.i
-  %.0.i.i.i = phi i32 [ 10, %98 ], [ 8, %99 ], [ 16, %._crit_edge.i.i ]
+  %.0.i.i.i = phi i32 [ 16, %._crit_edge.i.i ], [ 8, %99 ], [ 10, %98 ]
   %100 = call noundef i64 @strtoull(ptr noundef nonnull captures(none) %5, ptr noundef null, i32 noundef %.0.i.i.i) #9
   %101 = icmp ugt i64 %100, 4294967295
   br i1 %101, label %.thread.i, label %.fold.split.i
@@ -1658,7 +1658,7 @@ _ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i: ; preds = %99
   br label %.thread19.i
 
 .thread19.i:                                      ; preds = %.lr.ph.i, %124, %._crit_edge51.i, %.thread12.i, %105
-  %.5.i = phi i32 [ 0, %105 ], [ 1, %.thread12.i ], [ 2, %124 ], [ 1, %._crit_edge51.i ], [ 1, %.lr.ph.i ]
+  %.5.i = phi i32 [ 0, %105 ], [ 1, %.thread12.i ], [ 1, %._crit_edge51.i ], [ 2, %124 ], [ 1, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN3url12_GLOBAL__N_121DoIPv4AddressToNumberItEENS_13CanonHostInfo6FamilyEPKT_RKNS_9ComponentEPhPi.exit
 
@@ -2023,7 +2023,7 @@ _ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberIcEEtPKT_RKNS_9ComponentE.exit.i:
   br label %_ZN3url12_GLOBAL__N_111DoParseIPv6IchEEbPKT_RKNS_9ComponentEPNS0_10IPv6ParsedE.exit.thread.i
 
 _ZN3url12_GLOBAL__N_111DoParseIPv6IchEEbPKT_RKNS_9ComponentEPNS0_10IPv6ParsedE.exit.thread.i: ; preds = %.thread94.i.i, %64, %55, %44, %139, %135, %_ZN3url12_GLOBAL__N_111DoParseIPv6IchEEbPKT_RKNS_9ComponentEPNS0_10IPv6ParsedE.exit.thread4.i, %_ZN3url12_GLOBAL__N_111DoParseIPv6IchEEbPKT_RKNS_9ComponentEPNS0_10IPv6ParsedE.exit.i, %79, %52, %_ZN3url12_GLOBAL__N_110IPv6ParsedC2Ev.exit.i
-  %.1.i = phi i1 [ false, %_ZN3url12_GLOBAL__N_111DoParseIPv6IchEEbPKT_RKNS_9ComponentEPNS0_10IPv6ParsedE.exit.i ], [ false, %_ZN3url12_GLOBAL__N_111DoParseIPv6IchEEbPKT_RKNS_9ComponentEPNS0_10IPv6ParsedE.exit.thread4.i ], [ true, %139 ], [ false, %135 ], [ false, %_ZN3url12_GLOBAL__N_110IPv6ParsedC2Ev.exit.i ], [ false, %52 ], [ false, %79 ], [ false, %44 ], [ false, %55 ], [ false, %64 ], [ false, %.thread94.i.i ]
+  %.1.i = phi i1 [ false, %135 ], [ false, %_ZN3url12_GLOBAL__N_111DoParseIPv6IchEEbPKT_RKNS_9ComponentEPNS0_10IPv6ParsedE.exit.i ], [ false, %_ZN3url12_GLOBAL__N_111DoParseIPv6IchEEbPKT_RKNS_9ComponentEPNS0_10IPv6ParsedE.exit.thread4.i ], [ true, %139 ], [ false, %_ZN3url12_GLOBAL__N_110IPv6ParsedC2Ev.exit.i ], [ false, %79 ], [ false, %52 ], [ false, %44 ], [ false, %55 ], [ false, %64 ], [ false, %.thread94.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN3url12_GLOBAL__N_121DoIPv6AddressToNumberIchEEbPKT_RKNS_9ComponentEPh.exit
 
@@ -2407,7 +2407,7 @@ _ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberItEEtPKT_RKNS_9ComponentE.exit.i:
   br label %_ZN3url12_GLOBAL__N_111DoParseIPv6IttEEbPKT_RKNS_9ComponentEPNS0_10IPv6ParsedE.exit.thread.i
 
 _ZN3url12_GLOBAL__N_111DoParseIPv6IttEEbPKT_RKNS_9ComponentEPNS0_10IPv6ParsedE.exit.thread.i: ; preds = %.thread94.i.i, %64, %55, %44, %143, %139, %_ZN3url12_GLOBAL__N_111DoParseIPv6IttEEbPKT_RKNS_9ComponentEPNS0_10IPv6ParsedE.exit.thread4.i, %_ZN3url12_GLOBAL__N_111DoParseIPv6IttEEbPKT_RKNS_9ComponentEPNS0_10IPv6ParsedE.exit.i, %79, %52, %_ZN3url12_GLOBAL__N_110IPv6ParsedC2Ev.exit.i
-  %.1.i = phi i1 [ false, %_ZN3url12_GLOBAL__N_111DoParseIPv6IttEEbPKT_RKNS_9ComponentEPNS0_10IPv6ParsedE.exit.i ], [ false, %_ZN3url12_GLOBAL__N_111DoParseIPv6IttEEbPKT_RKNS_9ComponentEPNS0_10IPv6ParsedE.exit.thread4.i ], [ true, %143 ], [ false, %139 ], [ false, %_ZN3url12_GLOBAL__N_110IPv6ParsedC2Ev.exit.i ], [ false, %52 ], [ false, %79 ], [ false, %44 ], [ false, %55 ], [ false, %64 ], [ false, %.thread94.i.i ]
+  %.1.i = phi i1 [ false, %139 ], [ false, %_ZN3url12_GLOBAL__N_111DoParseIPv6IttEEbPKT_RKNS_9ComponentEPNS0_10IPv6ParsedE.exit.i ], [ false, %_ZN3url12_GLOBAL__N_111DoParseIPv6IttEEbPKT_RKNS_9ComponentEPNS0_10IPv6ParsedE.exit.thread4.i ], [ true, %143 ], [ false, %_ZN3url12_GLOBAL__N_110IPv6ParsedC2Ev.exit.i ], [ false, %79 ], [ false, %52 ], [ false, %44 ], [ false, %55 ], [ false, %64 ], [ false, %.thread94.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN3url12_GLOBAL__N_121DoIPv6AddressToNumberIttEEbPKT_RKNS_9ComponentEPh.exit
 

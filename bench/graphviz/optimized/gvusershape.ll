@@ -124,7 +124,7 @@ define noundef zeroext i1 @gvusershape_file_access(ptr noundef captures(none) %0
   br label %25
 
 25:                                               ; preds = %4, %23, %21, %14, %9
-  %.0 = phi i1 [ false, %14 ], [ false, %9 ], [ true, %21 ], [ true, %23 ], [ true, %4 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %14 ], [ true, %21 ], [ true, %23 ], [ true, %4 ]
   ret i1 %.0
 }
 
@@ -396,7 +396,7 @@ freeUsershape.exit.i:                             ; preds = %48, %46
   br i1 %.not48, label %._crit_edge.i.i, label %74
 
 .thread52.i.i:                                    ; preds = %74, %._crit_edge.i.i, %.thread49.i.i
-  %.4.i.i = phi i32 [ 8, %._crit_edge.i.i ], [ %65, %.thread49.i.i ], [ %65, %74 ]
+  %.4.i.i = phi i32 [ %65, %.thread49.i.i ], [ 8, %._crit_edge.i.i ], [ %65, %74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %imagetype.exit.i
 
@@ -426,7 +426,7 @@ imagetype.exit.thread.i:                          ; preds = %80, %53, %50
   br label %84
 
 imagetype.exit.i:                                 ; preds = %.preheader58.i.i, %78, %.thread52.i.i, %60
-  %.7.i.i = phi i32 [ %65, %78 ], [ %65, %60 ], [ %.4.i.i, %.thread52.i.i ], [ %65, %.preheader58.i.i ]
+  %.7.i.i = phi i32 [ %.4.i.i, %.thread52.i.i ], [ %65, %60 ], [ %65, %78 ], [ %65, %.preheader58.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   switch i32 %.7.i.i, label %100 [
     i32 0, label %84
@@ -562,7 +562,7 @@ gvusershape_file_release.exit.i:                  ; preds = %106, %104, %100
   br label %gvusershape_size_dpi.exit
 
 gvusershape_size_dpi.exit:                        ; preds = %120, %freeUsershape.exit.i, %freeUsershape.exit, %2, %5
-  %.sroa.07.0.insert.insert = phi i64 [ -1, %5 ], [ -1, %2 ], [ %137, %120 ], [ -1, %freeUsershape.exit.i ], [ -1, %freeUsershape.exit ]
+  %.sroa.07.0.insert.insert = phi i64 [ -1, %2 ], [ -1, %5 ], [ %137, %120 ], [ -1, %freeUsershape.exit.i ], [ -1, %freeUsershape.exit ]
   ret i64 %.sroa.07.0.insert.insert
 }
 
@@ -1533,8 +1533,8 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.i, %
   br label %.loopexit58.i
 
 .loopexit58.i:                                    ; preds = %121, %107, %.critedge2.i
-  %123 = phi i8 [ 61, %107 ], [ %102, %.critedge2.i ], [ %.pre.i79, %121 ]
-  %.3.i = phi i64 [ %.1.i, %107 ], [ %.1.i, %.critedge2.i ], [ %122, %121 ]
+  %123 = phi i8 [ %.pre.i79, %121 ], [ 61, %107 ], [ %102, %.critedge2.i ]
+  %.3.i = phi i64 [ %122, %121 ], [ %.1.i, %107 ], [ %.1.i, %.critedge2.i ]
   %124 = getelementptr inbounds nuw i8, ptr %.069267, i64 %.3.i
   %.not.i80 = icmp eq i8 %123, 0
   br i1 %.not.i80, label %find_attribute.exit.thread, label %.lr.ph.i, !llvm.loop !74
@@ -1671,8 +1671,8 @@ sub_140.i:                                        ; preds = %139
   br label %svg_units_convert.exit
 
 svg_units_convert.exit:                           ; preds = %sub_116.i, %.tail14.i, %.tail19.i, %176, %sub_140.i, %170, %sub_135.i, %165, %.tail29.i, %.tail24.i, %157, %151, %145, %sub_1.i, %139, %179, %182
-  %.sroa.13.4 = phi double [ %184, %182 ], [ %.sroa.13.2272, %179 ], [ %147, %145 ], [ %154, %151 ], [ %160, %157 ], [ %166, %165 ], [ %172, %170 ], [ %178, %176 ], [ 0.000000e+00, %sub_140.i ], [ 0.000000e+00, %sub_135.i ], [ 0.000000e+00, %.tail29.i ], [ 0.000000e+00, %sub_1.i ], [ 0.000000e+00, %.tail24.i ], [ 0.000000e+00, %139 ], [ 0.000000e+00, %.tail19.i ], [ 0.000000e+00, %.tail14.i ], [ 0.000000e+00, %sub_116.i ]
-  %.sroa.044.4 = phi i8 [ 1, %182 ], [ %.sroa.044.2273, %179 ], [ 1, %145 ], [ 1, %151 ], [ 1, %157 ], [ 1, %165 ], [ 1, %170 ], [ 1, %176 ], [ 1, %sub_140.i ], [ 1, %sub_135.i ], [ 1, %.tail29.i ], [ 1, %sub_1.i ], [ 1, %.tail24.i ], [ 1, %139 ], [ 1, %.tail19.i ], [ 1, %.tail14.i ], [ 1, %sub_116.i ]
+  %.sroa.13.4 = phi double [ %.sroa.13.2272, %179 ], [ %184, %182 ], [ %147, %145 ], [ %154, %151 ], [ %160, %157 ], [ %166, %165 ], [ %172, %170 ], [ %178, %176 ], [ 0.000000e+00, %sub_116.i ], [ 0.000000e+00, %139 ], [ 0.000000e+00, %sub_140.i ], [ 0.000000e+00, %.tail19.i ], [ 0.000000e+00, %sub_135.i ], [ 0.000000e+00, %.tail29.i ], [ 0.000000e+00, %sub_1.i ], [ 0.000000e+00, %.tail14.i ], [ 0.000000e+00, %.tail24.i ]
+  %.sroa.044.4 = phi i8 [ %.sroa.044.2273, %179 ], [ 1, %182 ], [ 1, %145 ], [ 1, %151 ], [ 1, %157 ], [ 1, %165 ], [ 1, %170 ], [ 1, %176 ], [ 1, %sub_116.i ], [ 1, %139 ], [ 1, %sub_140.i ], [ 1, %.tail19.i ], [ 1, %sub_135.i ], [ 1, %.tail29.i ], [ 1, %sub_1.i ], [ 1, %.tail14.i ], [ 1, %.tail24.i ]
   call void @free(ptr noundef nonnull %131) #21
   %185 = trunc nuw i8 %.sroa.051.2275 to i1
   br i1 %185, label %find_attribute.exit.thread, label %263
@@ -1807,8 +1807,8 @@ sub_140.i85:                                      ; preds = %199
   br label %svg_units_convert.exit105
 
 svg_units_convert.exit105:                        ; preds = %sub_116.i93, %.tail14.i101, %.tail19.i100, %236, %sub_140.i85, %230, %sub_135.i89, %225, %.tail29.i92, %.tail24.i99, %217, %211, %205, %sub_1.i102, %199, %239, %242
-  %.sroa.1356.5 = phi double [ %244, %242 ], [ %.sroa.1356.2274, %239 ], [ %207, %205 ], [ %214, %211 ], [ %220, %217 ], [ %226, %225 ], [ %232, %230 ], [ %238, %236 ], [ 0.000000e+00, %sub_140.i85 ], [ 0.000000e+00, %sub_135.i89 ], [ 0.000000e+00, %.tail29.i92 ], [ 0.000000e+00, %sub_1.i102 ], [ 0.000000e+00, %.tail24.i99 ], [ 0.000000e+00, %199 ], [ 0.000000e+00, %.tail19.i100 ], [ 0.000000e+00, %.tail14.i101 ], [ 0.000000e+00, %sub_116.i93 ]
-  %.sroa.051.5 = phi i8 [ 1, %242 ], [ %.sroa.051.2275, %239 ], [ 1, %205 ], [ 1, %211 ], [ 1, %217 ], [ 1, %225 ], [ 1, %230 ], [ 1, %236 ], [ 1, %sub_140.i85 ], [ 1, %sub_135.i89 ], [ 1, %.tail29.i92 ], [ 1, %sub_1.i102 ], [ 1, %.tail24.i99 ], [ 1, %199 ], [ 1, %.tail19.i100 ], [ 1, %.tail14.i101 ], [ 1, %sub_116.i93 ]
+  %.sroa.1356.5 = phi double [ %.sroa.1356.2274, %239 ], [ %244, %242 ], [ %207, %205 ], [ %214, %211 ], [ %220, %217 ], [ %226, %225 ], [ %232, %230 ], [ %238, %236 ], [ 0.000000e+00, %sub_116.i93 ], [ 0.000000e+00, %199 ], [ 0.000000e+00, %sub_140.i85 ], [ 0.000000e+00, %.tail19.i100 ], [ 0.000000e+00, %sub_135.i89 ], [ 0.000000e+00, %.tail29.i92 ], [ 0.000000e+00, %sub_1.i102 ], [ 0.000000e+00, %.tail14.i101 ], [ 0.000000e+00, %.tail24.i99 ]
+  %.sroa.051.5 = phi i8 [ %.sroa.051.2275, %239 ], [ 1, %242 ], [ 1, %205 ], [ 1, %211 ], [ 1, %217 ], [ 1, %225 ], [ 1, %230 ], [ 1, %236 ], [ 1, %sub_116.i93 ], [ 1, %199 ], [ 1, %sub_140.i85 ], [ 1, %.tail19.i100 ], [ 1, %sub_135.i89 ], [ 1, %.tail29.i92 ], [ 1, %sub_1.i102 ], [ 1, %.tail14.i101 ], [ 1, %.tail24.i99 ]
   call void @free(ptr noundef nonnull %191) #21
   %245 = trunc nuw i8 %.sroa.044.2273 to i1
   br i1 %245, label %find_attribute.exit.thread, label %263
@@ -1869,14 +1869,14 @@ strview_str.exit109:                              ; preds = %250
   br i1 %.not61.i, label %find_attribute.exit.thread, label %.lr.ph.i.preheader, !llvm.loop !76
 
 find_attribute.exit.thread:                       ; preds = %svg_units_convert.exit, %svg_units_convert.exit105, %263, %.loopexit58.i, %115, %agxbuse.exit
-  %.sroa.6.1233 = phi double [ %.sroa.6.0603, %agxbuse.exit ], [ %.sroa.6.1268, %115 ], [ %.sroa.6.1268, %.loopexit58.i ], [ %.sroa.6.1268, %svg_units_convert.exit ], [ %.sroa.6.1268, %svg_units_convert.exit105 ], [ %.sroa.6.2, %263 ]
-  %.sroa.040.1227 = phi i1 [ %.sroa.040.0604, %agxbuse.exit ], [ %.sroa.040.1269, %115 ], [ %.sroa.040.1269, %.loopexit58.i ], [ %.sroa.040.1269, %svg_units_convert.exit ], [ %.sroa.040.1269, %svg_units_convert.exit105 ], [ %.sroa.040.2, %263 ]
-  %.sroa.643.1221 = phi double [ %.sroa.643.0605, %agxbuse.exit ], [ %.sroa.643.1270, %115 ], [ %.sroa.643.1270, %.loopexit58.i ], [ %.sroa.643.1270, %svg_units_convert.exit ], [ %.sroa.643.1270, %svg_units_convert.exit105 ], [ %.sroa.643.2, %263 ]
-  %.sroa.041.1215 = phi i1 [ %.sroa.041.0606, %agxbuse.exit ], [ %.sroa.041.1271, %115 ], [ %.sroa.041.1271, %.loopexit58.i ], [ %.sroa.041.1271, %svg_units_convert.exit ], [ %.sroa.041.1271, %svg_units_convert.exit105 ], [ %.sroa.041.2, %263 ]
-  %.sroa.13.3 = phi double [ %.sroa.13.0607, %agxbuse.exit ], [ %.sroa.13.2272, %115 ], [ %.sroa.13.2272, %.loopexit58.i ], [ %.sroa.13.4, %svg_units_convert.exit ], [ %.sroa.13.2272, %svg_units_convert.exit105 ], [ %.sroa.13.5, %263 ]
-  %.sroa.044.3 = phi i8 [ %.sroa.044.0608, %agxbuse.exit ], [ %.sroa.044.2273, %115 ], [ %.sroa.044.2273, %.loopexit58.i ], [ %.sroa.044.4, %svg_units_convert.exit ], [ 1, %svg_units_convert.exit105 ], [ %.sroa.044.5, %263 ]
-  %.sroa.1356.3 = phi double [ %.sroa.1356.0609, %agxbuse.exit ], [ %.sroa.1356.2274, %115 ], [ %.sroa.1356.2274, %.loopexit58.i ], [ %.sroa.1356.2274, %svg_units_convert.exit ], [ %.sroa.1356.5, %svg_units_convert.exit105 ], [ %.sroa.1356.4, %263 ]
-  %.sroa.051.3 = phi i8 [ %.sroa.051.0610, %agxbuse.exit ], [ %.sroa.051.2275, %115 ], [ %.sroa.051.2275, %.loopexit58.i ], [ 1, %svg_units_convert.exit ], [ %.sroa.051.5, %svg_units_convert.exit105 ], [ %.sroa.051.4, %263 ]
+  %.sroa.6.1233 = phi double [ %.sroa.6.1268, %115 ], [ %.sroa.6.1268, %.loopexit58.i ], [ %.sroa.6.0603, %agxbuse.exit ], [ %.sroa.6.1268, %svg_units_convert.exit ], [ %.sroa.6.1268, %svg_units_convert.exit105 ], [ %.sroa.6.2, %263 ]
+  %.sroa.040.1227 = phi i1 [ %.sroa.040.1269, %115 ], [ %.sroa.040.1269, %.loopexit58.i ], [ %.sroa.040.0604, %agxbuse.exit ], [ %.sroa.040.1269, %svg_units_convert.exit ], [ %.sroa.040.1269, %svg_units_convert.exit105 ], [ %.sroa.040.2, %263 ]
+  %.sroa.643.1221 = phi double [ %.sroa.643.1270, %115 ], [ %.sroa.643.1270, %.loopexit58.i ], [ %.sroa.643.0605, %agxbuse.exit ], [ %.sroa.643.1270, %svg_units_convert.exit ], [ %.sroa.643.1270, %svg_units_convert.exit105 ], [ %.sroa.643.2, %263 ]
+  %.sroa.041.1215 = phi i1 [ %.sroa.041.1271, %115 ], [ %.sroa.041.1271, %.loopexit58.i ], [ %.sroa.041.0606, %agxbuse.exit ], [ %.sroa.041.1271, %svg_units_convert.exit ], [ %.sroa.041.1271, %svg_units_convert.exit105 ], [ %.sroa.041.2, %263 ]
+  %.sroa.13.3 = phi double [ %.sroa.13.2272, %115 ], [ %.sroa.13.2272, %.loopexit58.i ], [ %.sroa.13.0607, %agxbuse.exit ], [ %.sroa.13.4, %svg_units_convert.exit ], [ %.sroa.13.2272, %svg_units_convert.exit105 ], [ %.sroa.13.5, %263 ]
+  %.sroa.044.3 = phi i8 [ %.sroa.044.2273, %115 ], [ %.sroa.044.2273, %.loopexit58.i ], [ %.sroa.044.0608, %agxbuse.exit ], [ %.sroa.044.4, %svg_units_convert.exit ], [ 1, %svg_units_convert.exit105 ], [ %.sroa.044.5, %263 ]
+  %.sroa.1356.3 = phi double [ %.sroa.1356.2274, %115 ], [ %.sroa.1356.2274, %.loopexit58.i ], [ %.sroa.1356.0609, %agxbuse.exit ], [ %.sroa.1356.2274, %svg_units_convert.exit ], [ %.sroa.1356.5, %svg_units_convert.exit105 ], [ %.sroa.1356.4, %263 ]
+  %.sroa.051.3 = phi i8 [ %.sroa.051.2275, %115 ], [ %.sroa.051.2275, %.loopexit58.i ], [ %.sroa.051.0610, %agxbuse.exit ], [ 1, %svg_units_convert.exit ], [ %.sroa.051.5, %svg_units_convert.exit105 ], [ %.sroa.051.4, %263 ]
   %or.cond = select i1 %.sroa.041.1215, i1 %.sroa.040.1227, i1 false
   br i1 %or.cond, label %.thread412, label %14
 
@@ -2056,7 +2056,7 @@ nxtc.exit.thread9.i.i61.i:                        ; preds = %nxtc.exit.i.i75.i, 
   br label %.preheader.i, !llvm.loop !78
 
 skipWS.exit.i63.i.preheader:                      ; preds = %nxtc.exit.thread9.i.i61.i, %nxtc.exit.i.i75.i, %31
-  %.sroa.0.21.i.ph = phi ptr [ %.sroa.0.18.i, %31 ], [ %34, %nxtc.exit.thread9.i.i61.i ], [ %7, %nxtc.exit.i.i75.i ]
+  %.sroa.0.21.i.ph = phi ptr [ %.sroa.0.18.i, %31 ], [ %7, %nxtc.exit.i.i75.i ], [ %34, %nxtc.exit.thread9.i.i61.i ]
   br label %skipWS.exit.i63.i
 
 skipWS.exit.i63.i:                                ; preds = %skipWS.exit.i63.i.preheader, %44
@@ -2119,7 +2119,7 @@ getNum.exit79.i:                                  ; preds = %44, %nxtc.exit.thre
   br i1 %.not.i.i.i53.i, label %skipWS.exit.i42.i.preheader, label %nxtc.exit.i.i54.i
 
 skipWS.exit.i42.i.preheader:                      ; preds = %nxtc.exit.thread9.i.i40.i, %nxtc.exit.i.i54.i, %54
-  %.sroa.0.15.i.ph = phi ptr [ %.sroa.0.12.i, %54 ], [ %57, %nxtc.exit.thread9.i.i40.i ], [ %7, %nxtc.exit.i.i54.i ]
+  %.sroa.0.15.i.ph = phi ptr [ %.sroa.0.12.i, %54 ], [ %7, %nxtc.exit.i.i54.i ], [ %57, %nxtc.exit.thread9.i.i40.i ]
   br label %skipWS.exit.i42.i
 
 nxtc.exit.i.i54.i:                                ; preds = %54
@@ -2203,7 +2203,7 @@ getNum.exit58.i:                                  ; preds = %69, %nxtc.exit.thre
   br i1 %.not.i.i.i32.i, label %skipWS.exit.i21.i.preheader, label %nxtc.exit.i.i33.i
 
 skipWS.exit.i21.i.preheader:                      ; preds = %nxtc.exit.thread9.i.i19.i, %nxtc.exit.i.i33.i, %79
-  %.sroa.0.9.i.ph = phi ptr [ %.sroa.0.6.i, %79 ], [ %82, %nxtc.exit.thread9.i.i19.i ], [ %7, %nxtc.exit.i.i33.i ]
+  %.sroa.0.9.i.ph = phi ptr [ %.sroa.0.6.i, %79 ], [ %7, %nxtc.exit.i.i33.i ], [ %82, %nxtc.exit.thread9.i.i19.i ]
   br label %skipWS.exit.i21.i
 
 nxtc.exit.i.i33.i:                                ; preds = %79
@@ -2287,7 +2287,7 @@ getNum.exit37.i:                                  ; preds = %94, %nxtc.exit.thre
   br i1 %.not.i.i.i14.i, label %skipWS.exit.i10.i.preheader, label %nxtc.exit.i.i15.i
 
 skipWS.exit.i10.i.preheader:                      ; preds = %nxtc.exit.thread9.i.i8.i, %nxtc.exit.i.i15.i, %104
-  %.sroa.0.4.i.ph = phi ptr [ %.sroa.0.1.i, %104 ], [ %107, %nxtc.exit.thread9.i.i8.i ], [ %7, %nxtc.exit.i.i15.i ]
+  %.sroa.0.4.i.ph = phi ptr [ %.sroa.0.1.i, %104 ], [ %7, %nxtc.exit.i.i15.i ], [ %107, %nxtc.exit.thread9.i.i8.i ]
   br label %skipWS.exit.i10.i
 
 nxtc.exit.i.i15.i:                                ; preds = %104
@@ -2327,8 +2327,8 @@ skipWS.exit.i10.i:                                ; preds = %skipWS.exit.i10.i.p
   br i1 %or.cond.i, label %getNum.exit.i, label %nxtc.exit.thread20.i.i
 
 nxtc.exit.thread20.i.i:                           ; preds = %111, %skipWS.exit.i10.i
-  %.sroa.0.5.i = phi ptr [ %.sroa.0.4.i, %skipWS.exit.i10.i ], [ %7, %111 ]
-  %.in23.i.i = phi i8 [ %110, %skipWS.exit.i10.i ], [ %113, %111 ]
+  %.sroa.0.5.i = phi ptr [ %7, %111 ], [ %.sroa.0.4.i, %skipWS.exit.i10.i ]
+  %.in23.i.i = phi i8 [ %113, %111 ], [ %110, %skipWS.exit.i10.i ]
   %114 = sext i8 %.in23.i.i to i32
   %115 = add nsw i32 %114, -48
   %116 = icmp ult i32 %115, 10
@@ -2621,7 +2621,7 @@ sub_140:                                          ; preds = %sub_0
   br label %.tail38.thread
 
 .tail38.thread:                                   ; preds = %sub_0, %sub_126, %.tail24, %.tail, %sub_1, %.tail29, %sub_135, %.tail33, %sub_140, %.tail38, %52, %44, %37, %25, %16, %8
-  %.0 = phi double [ %10, %8 ], [ %19, %16 ], [ %28, %25 ], [ %38, %37 ], [ %46, %44 ], [ %54, %52 ], [ 0.000000e+00, %.tail38 ], [ 0.000000e+00, %sub_140 ], [ 0.000000e+00, %.tail33 ], [ 0.000000e+00, %sub_135 ], [ 0.000000e+00, %.tail29 ], [ 0.000000e+00, %sub_1 ], [ 0.000000e+00, %.tail ], [ 0.000000e+00, %.tail24 ], [ 0.000000e+00, %sub_126 ], [ 0.000000e+00, %sub_0 ]
+  %.0 = phi double [ %10, %8 ], [ %19, %16 ], [ %28, %25 ], [ %38, %37 ], [ %46, %44 ], [ %54, %52 ], [ 0.000000e+00, %.tail38 ], [ 0.000000e+00, %sub_0 ], [ 0.000000e+00, %sub_140 ], [ 0.000000e+00, %.tail33 ], [ 0.000000e+00, %sub_135 ], [ 0.000000e+00, %.tail29 ], [ 0.000000e+00, %sub_1 ], [ 0.000000e+00, %.tail ], [ 0.000000e+00, %.tail24 ], [ 0.000000e+00, %sub_126 ]
   ret double %.0
 }
 

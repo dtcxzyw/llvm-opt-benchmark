@@ -1188,7 +1188,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
           to label %33 unwind label %.loopexit.split-lp
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %114, %130, %81, %133
-  %.pn91 = phi { ptr, i32 } [ %.pn.pn.ph, %133 ], [ %82, %81 ], [ %lpad.thr_comm.split-lp, %114 ], [ %lpad.phi133, %130 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn91 = phi { ptr, i32 } [ %82, %81 ], [ %.pn.pn.ph, %133 ], [ %lpad.phi133, %130 ], [ %lpad.thr_comm.split-lp, %114 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr147drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$alloc..string..String$C$core..option..Option$LT$std..ffi..os_str..OsString$GT$$GT$$GT$17h9c0c84f4ff1d66e9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #25
           to label %134 unwind label %69
 
@@ -1677,8 +1677,8 @@ define hidden noundef ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   ret ptr %.sroa.0.0
 
 106:                                              ; preds = %84, %88
-  %107 = phi i8 [ %86, %84 ], [ %.pre, %88 ]
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %84 ], [ %94, %88 ]
+  %107 = phi i8 [ %.pre, %88 ], [ %86, %84 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %94, %88 ], [ %.sroa.6.1.i.i, %84 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 88, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !336)
@@ -1995,9 +1995,9 @@ define void @_ZN6uv_git6source9GitSource5fetch17he3f12e8da30b1c13E(ptr dead_on_u
   br i1 %or.cond.not, label %705, label %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17hdd1d654b2232127cE.exit351"
 
 92:                                               ; preds = %.invoke, %670, %666, %538, %534, %131, %129, %124, %123, %119, %.thread, %100, %86
-  %.sroa.0101.0 = phi i1 [ true, %131 ], [ true, %86 ], [ true, %129 ], [ true, %124 ], [ true, %123 ], [ true, %119 ], [ true, %.thread ], [ true, %100 ], [ false, %534 ], [ false, %538 ], [ true, %666 ], [ true, %670 ], [ true, %.invoke ]
-  %.sroa.095.1 = phi i8 [ %.sroa.092.0, %131 ], [ %.sroa.092.0, %86 ], [ 1, %129 ], [ 0, %124 ], [ 0, %123 ], [ 0, %119 ], [ 0, %.thread ], [ 0, %100 ], [ %.sroa.092.0, %534 ], [ %.sroa.092.0, %538 ], [ %.sroa.092.0, %666 ], [ %.sroa.092.0, %670 ], [ 0, %.invoke ]
-  %.sroa.092.1 = phi i8 [ %.sroa.092.0, %131 ], [ %.sroa.092.0, %86 ], [ 0, %129 ], [ 0, %124 ], [ 0, %123 ], [ 0, %119 ], [ 0, %.thread ], [ 0, %100 ], [ %.sroa.092.0, %534 ], [ %.sroa.092.0, %538 ], [ %.sroa.092.0, %666 ], [ %.sroa.092.0, %670 ], [ 0, %.invoke ]
+  %.sroa.0101.0 = phi i1 [ true, %666 ], [ true, %.invoke ], [ true, %670 ], [ false, %538 ], [ true, %131 ], [ true, %86 ], [ true, %129 ], [ true, %124 ], [ true, %123 ], [ true, %119 ], [ true, %.thread ], [ true, %100 ], [ false, %534 ]
+  %.sroa.095.1 = phi i8 [ %.sroa.092.0, %666 ], [ 0, %.invoke ], [ %.sroa.092.0, %670 ], [ %.sroa.092.0, %538 ], [ %.sroa.092.0, %131 ], [ %.sroa.092.0, %86 ], [ 1, %129 ], [ 0, %124 ], [ 0, %123 ], [ 0, %119 ], [ 0, %.thread ], [ 0, %100 ], [ %.sroa.092.0, %534 ]
+  %.sroa.092.1 = phi i8 [ %.sroa.092.0, %666 ], [ 0, %.invoke ], [ %.sroa.092.0, %670 ], [ %.sroa.092.0, %538 ], [ %.sroa.092.0, %131 ], [ %.sroa.092.0, %86 ], [ 0, %129 ], [ 0, %124 ], [ 0, %123 ], [ 0, %119 ], [ 0, %.thread ], [ 0, %100 ], [ %.sroa.092.0, %534 ]
   %93 = landingpad { ptr, i32 }
           cleanup
   br label %88
@@ -2169,7 +2169,7 @@ define void @_ZN6uv_git6source9GitSource5fetch17he3f12e8da30b1c13E(ptr dead_on_u
           to label %88 unwind label %227
 
 135:                                              ; preds = %662, %658, %530, %526, %.noexc250, %.noexc, %132, %137
-  %.sroa.0101.3 = phi i1 [ true, %137 ], [ true, %132 ], [ true, %.noexc ], [ true, %.noexc250 ], [ false, %526 ], [ false, %530 ], [ true, %658 ], [ true, %662 ]
+  %.sroa.0101.3 = phi i1 [ true, %662 ], [ false, %530 ], [ true, %137 ], [ true, %.noexc250 ], [ true, %132 ], [ true, %.noexc ], [ false, %526 ], [ true, %658 ]
   %136 = landingpad { ptr, i32 }
           cleanup
   br label %134
@@ -2197,7 +2197,7 @@ define void @_ZN6uv_git6source9GitSource5fetch17he3f12e8da30b1c13E(ptr dead_on_u
           to label %134 unwind label %227
 
 145:                                              ; preds = %654, %"_ZN4core3ptr55drop_in_place$LT$alloc..borrow..Cow$LT$url..Url$GT$$GT$17hd1b6986664f94ba5E.exit332", %522, %"_ZN4core3ptr55drop_in_place$LT$alloc..borrow..Cow$LT$url..Url$GT$$GT$17hd1b6986664f94ba5E.exit299", %138
-  %.sroa.0101.5 = phi i1 [ true, %138 ], [ false, %"_ZN4core3ptr55drop_in_place$LT$alloc..borrow..Cow$LT$url..Url$GT$$GT$17hd1b6986664f94ba5E.exit299" ], [ false, %522 ], [ true, %"_ZN4core3ptr55drop_in_place$LT$alloc..borrow..Cow$LT$url..Url$GT$$GT$17hd1b6986664f94ba5E.exit332" ], [ true, %654 ]
+  %.sroa.0101.5 = phi i1 [ true, %654 ], [ false, %522 ], [ true, %138 ], [ false, %"_ZN4core3ptr55drop_in_place$LT$alloc..borrow..Cow$LT$url..Url$GT$$GT$17hd1b6986664f94ba5E.exit299" ], [ true, %"_ZN4core3ptr55drop_in_place$LT$alloc..borrow..Cow$LT$url..Url$GT$$GT$17hd1b6986664f94ba5E.exit332" ]
   %146 = landingpad { ptr, i32 }
           cleanup
   br label %144
@@ -2245,7 +2245,7 @@ _ZN3std4path4Path4join17hc0a29b32e58b8de2E.exit:  ; preds = %_ZN3std4path4Path4j
           to label %144 unwind label %227
 
 164:                                              ; preds = %646, %642, %514, %510, %223, %169, %160, %_ZN3std4path4Path4join17hc0a29b32e58b8de2E.exit, %229, %_ZN3std4sync6poison4once4Once9call_once17h6a908dedfc867e87E.exit
-  %.sroa.0101.7 = phi i1 [ true, %229 ], [ true, %_ZN3std4sync6poison4once4Once9call_once17h6a908dedfc867e87E.exit ], [ true, %_ZN3std4path4Path4join17hc0a29b32e58b8de2E.exit ], [ true, %160 ], [ true, %169 ], [ true, %223 ], [ false, %510 ], [ false, %514 ], [ true, %642 ], [ true, %646 ]
+  %.sroa.0101.7 = phi i1 [ true, %646 ], [ false, %514 ], [ true, %229 ], [ true, %642 ], [ true, %223 ], [ true, %_ZN3std4sync6poison4once4Once9call_once17h6a908dedfc867e87E.exit ], [ true, %169 ], [ true, %160 ], [ true, %_ZN3std4path4Path4join17hc0a29b32e58b8de2E.exit ], [ false, %510 ]
   %165 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$GT$17h66c8dfbdebcce7ffE.exit"
@@ -2420,7 +2420,7 @@ _ZN3std4sync6poison4once4Once9call_once17h6a908dedfc867e87E.exit: ; preds = %.no
           to label %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$GT$17h66c8dfbdebcce7ffE.exit" unwind label %227
 
 234:                                              ; preds = %634, %630, %502, %498, %226
-  %.sroa.0101.9 = phi i1 [ true, %226 ], [ false, %498 ], [ false, %502 ], [ true, %630 ], [ true, %634 ]
+  %.sroa.0101.9 = phi i1 [ true, %634 ], [ false, %502 ], [ true, %226 ], [ false, %498 ], [ true, %630 ]
   %235 = landingpad { ptr, i32 }
           cleanup
   br label %233
@@ -2438,7 +2438,7 @@ _ZN6uv_git3git9GitRemote3new17h7dc652cae7a04b13E.exit: ; preds = %226
           to label %233 unwind label %227
 
 236:                                              ; preds = %625, %621, %494, %490, %252, %238, %_ZN6uv_git3git9GitRemote3new17h7dc652cae7a04b13E.exit
-  %.sroa.0101.11 = phi i1 [ true, %_ZN6uv_git3git9GitRemote3new17h7dc652cae7a04b13E.exit ], [ true, %238 ], [ true, %252 ], [ false, %490 ], [ false, %494 ], [ true, %621 ], [ true, %625 ]
+  %.sroa.0101.11 = phi i1 [ true, %625 ], [ false, %494 ], [ true, %252 ], [ true, %238 ], [ true, %_ZN6uv_git3git9GitRemote3new17h7dc652cae7a04b13E.exit ], [ true, %621 ], [ false, %490 ]
   %237 = landingpad { ptr, i32 }
           cleanup
   br label %.thread418
@@ -2887,7 +2887,7 @@ _ZN6uv_git3git9GitRemote3new17h7dc652cae7a04b13E.exit: ; preds = %226
           to label %.thread418 unwind label %227
 
 381:                                              ; preds = %617, %613, %486, %481, %292
-  %.sroa.0101.13 = phi i1 [ true, %292 ], [ false, %481 ], [ false, %486 ], [ true, %613 ], [ true, %617 ]
+  %.sroa.0101.13 = phi i1 [ true, %617 ], [ false, %486 ], [ true, %292 ], [ false, %481 ], [ true, %613 ]
   %382 = landingpad { ptr, i32 }
           cleanup
   br label %380
@@ -3020,7 +3020,7 @@ _ZN3std4path4Path4join17hd7191ba3578f741cE.exit277: ; preds = %_ZN3std4path4Path
           to label %393 unwind label %227
 
 431:                                              ; preds = %447, %443, %426, %422, %470, %466, %465, %433
-  %.sroa.0101.17 = phi i1 [ false, %465 ], [ true, %470 ], [ true, %466 ], [ true, %433 ], [ true, %422 ], [ true, %426 ], [ true, %443 ], [ true, %447 ]
+  %.sroa.0101.17 = phi i1 [ false, %465 ], [ true, %470 ], [ true, %466 ], [ true, %443 ], [ true, %447 ], [ true, %433 ], [ true, %426 ], [ true, %422 ]
   %432 = landingpad { ptr, i32 }
           cleanup
   br label %430
@@ -3315,7 +3315,7 @@ _ZN3std4path4Path4join17hd7191ba3578f741cE.exit277: ; preds = %_ZN3std4path4Path
   br i1 %549, label %707, label %584
 
 .thread401:                                       ; preds = %547, %679
-  %.sroa.0101.18 = phi i1 [ false, %547 ], [ true, %679 ]
+  %.sroa.0101.18 = phi i1 [ true, %679 ], [ false, %547 ]
   %550 = landingpad { ptr, i32 }
           cleanup
   br label %707
@@ -3498,7 +3498,7 @@ _ZN3std4path4Path4join17hd7191ba3578f741cE.exit277: ; preds = %_ZN3std4path4Path
   ret void
 
 "_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$uv_git..source..Reporter$GT$$GT$$GT$17ha197914cdf5e5b13E.exit": ; preds = %715, %711, %718, %599, %595, %602
-  %.pn233.pn.pn.pn = phi { ptr, i32 } [ %.pn217, %602 ], [ %.pn217, %595 ], [ %.pn217, %599 ], [ %.pn233.pn.pn407, %718 ], [ %.pn233.pn.pn407, %711 ], [ %.pn233.pn.pn407, %715 ]
+  %.pn233.pn.pn.pn = phi { ptr, i32 } [ %.pn217, %599 ], [ %.pn217, %602 ], [ %.pn217, %595 ], [ %.pn233.pn.pn407, %718 ], [ %.pn233.pn.pn407, %711 ], [ %.pn233.pn.pn407, %715 ]
   resume { ptr, i32 } %.pn233.pn.pn.pn
 
 613:                                              ; preds = %.noexc286, %456
@@ -3767,7 +3767,7 @@ _ZN3std4path4Path4join17hd7191ba3578f741cE.exit277: ; preds = %_ZN3std4path4Path
           to label %709 unwind label %227
 
 .body312.thread:                                  ; preds = %685, %.body312.thread414, %584
-  %.pn233.pn.pn408 = phi { ptr, i32 } [ %.pn233.pn.pn, %584 ], [ %695, %.body312.thread414 ], [ %686, %685 ]
+  %.pn233.pn.pn408 = phi { ptr, i32 } [ %695, %.body312.thread414 ], [ %.pn233.pn.pn, %584 ], [ %686, %685 ]
   invoke void @"_ZN4core3ptr41drop_in_place$LT$uv_git_types..GitUrl$GT$17ha3e6d52ab71a1f30E"(ptr noalias noundef nonnull align 8 dereferenceable(176) %1) #25
           to label %.body312.thread411 unwind label %227
 

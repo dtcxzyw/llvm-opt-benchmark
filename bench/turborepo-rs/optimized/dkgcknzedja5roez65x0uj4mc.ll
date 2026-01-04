@@ -861,7 +861,7 @@ _RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8
   br i1 %61, label %.thread, label %62
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %211, %182, %154, %85, %.body43
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body44, %.body43 ], [ %86, %85 ], [ %155, %154 ], [ %183, %182 ], [ %212, %211 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body44, %.body43 ], [ %183, %182 ], [ %86, %85 ], [ %155, %154 ], [ %212, %211 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtBL_6string6StringEECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #13
           to label %common.resume unwind label %215
 
@@ -885,7 +885,7 @@ _RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8
   ]
 
 .thread:                                          ; preds = %62, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe36c38de9a872aaE.exit.i", %99
-  %.sroa.07.0.lcssa = phi i64 [ %.sroa.07.0100, %62 ], [ %.sroa.07.0100, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe36c38de9a872aaE.exit.i" ], [ %.sroa.07.1, %99 ]
+  %.sroa.07.0.lcssa = phi i64 [ %.sroa.07.1, %99 ], [ %.sroa.07.0100, %62 ], [ %.sroa.07.0100, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe36c38de9a872aaE.exit.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %65 = icmp eq i64 %.sroa.07.0.lcssa, 0
   br i1 %65, label %77, label %66

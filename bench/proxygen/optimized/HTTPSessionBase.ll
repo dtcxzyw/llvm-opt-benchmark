@@ -3645,7 +3645,7 @@ lpad51:                                           ; preds = %invoke.cont63, %inv
   br label %ehcleanup
 
 if.then.i:                                        ; preds = %if.then78, %if.then76, %cleanup.done, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit
-  %retval.0 = phi i1 [ true, %if.then78 ], [ true, %if.then76 ], [ false, %cleanup.done ], [ false, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit ]
+  %retval.0 = phi i1 [ true, %if.then76 ], [ true, %if.then78 ], [ false, %cleanup.done ], [ false, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit ]
   %guardCount_.i18 = getelementptr inbounds nuw i8, ptr %this, i64 72
   %25 = load i32, ptr %guardCount_.i18, align 8
   %dec.i = add i32 %25, -1
@@ -3671,7 +3671,7 @@ _ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit: ; preds = %if.then.
   ret i1 %retval.0
 
 ehcleanup:                                        ; preds = %lpad, %lpad.i.i, %lpad51, %lpad36
-  %.pn = phi { ptr, i32 } [ %24, %lpad51 ], [ %23, %lpad36 ], [ %5, %lpad ], [ %4, %lpad.i.i ]
+  %.pn = phi { ptr, i32 } [ %23, %lpad36 ], [ %24, %lpad51 ], [ %5, %lpad ], [ %4, %lpad.i.i ]
   call void @_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %dg) #22
   resume { ptr, i32 } %.pn
 }

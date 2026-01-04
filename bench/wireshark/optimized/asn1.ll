@@ -428,7 +428,7 @@ rose_ctx_check_signature.exit:                    ; preds = %asn1_ctx_check_sign
   br label %rose_ctx_check_signature.exit.thread
 
 rose_ctx_check_signature.exit.thread:             ; preds = %rose_ctx_check_signature.exit, %1, %.thread
-  %8 = phi ptr [ null, %.thread ], [ null, %1 ], [ %spec.select, %rose_ctx_check_signature.exit ]
+  %8 = phi ptr [ null, %1 ], [ %spec.select, %rose_ctx_check_signature.exit ], [ null, %.thread ]
   ret ptr %8
 }
 
@@ -467,7 +467,7 @@ default.unreachable:                              ; preds = %9
   unreachable
 
 15:                                               ; preds = %9, %14, %13
-  %.052 = phi double [ 8.000000e+00, %13 ], [ 1.600000e+01, %14 ], [ 2.000000e+00, %9 ]
+  %.052 = phi double [ 1.600000e+01, %14 ], [ 8.000000e+00, %13 ], [ 2.000000e+00, %9 ]
   %16 = lshr i8 %5, 2
   %17 = and i8 %16, 3
   %18 = and i8 %5, 3
@@ -598,7 +598,7 @@ switch.lookup:                                    ; preds = %61
   br label %.critedge
 
 .critedge:                                        ; preds = %switch.lookup, %61, %9, %64, %._crit_edge, %2
-  %.0 = phi double [ 0.000000e+00, %2 ], [ %59, %._crit_edge ], [ 0.000000e+00, %61 ], [ %67, %64 ], [ 0.000000e+00, %9 ], [ %switch.load, %switch.lookup ]
+  %.0 = phi double [ %67, %64 ], [ 0.000000e+00, %2 ], [ %59, %._crit_edge ], [ 0.000000e+00, %61 ], [ %switch.load, %switch.lookup ], [ 0.000000e+00, %9 ]
   ret double %.0
 }
 

@@ -310,7 +310,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev30Dy
   br label %.body
 
 .body:                                            ; preds = %73, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i
-  %.pn = phi { ptr, i32 } [ %74, %73 ], [ %69, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i ]
+  %.pn = phi { ptr, i32 } [ %69, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i ], [ %74, %73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev6OpDataE, i64 16), ptr %0, align 8, !tbaa !3
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -558,7 +558,7 @@ _ZN19OpenColorIO_v2_5dev17GradingToneOpDataaSERKS0_.exit: ; preds = %95, %.noexc
   br label %.body
 
 .body:                                            ; preds = %98, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i
-  %.pn = phi { ptr, i32 } [ %99, %98 ], [ %71, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i ]
+  %.pn = phi { ptr, i32 } [ %71, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i ], [ %99, %98 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %102
 
@@ -928,7 +928,7 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev17GradingToneOpData9i
   br label %32
 
 32:                                               ; preds = %23, %2, %8, %31
-  %.0 = phi i1 [ false, %31 ], [ false, %8 ], [ false, %2 ], [ true, %23 ]
+  %.0 = phi i1 [ false, %31 ], [ false, %2 ], [ false, %8 ], [ true, %23 ]
   ret i1 %.0
 }
 
@@ -1494,7 +1494,7 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev17GradingToneOpData6e
   br label %20
 
 20:                                               ; preds = %14, %9, %4, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %9 ], [ false, %4 ], [ %19, %14 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %4 ], [ %19, %14 ], [ false, %9 ]
   ret i1 %.0
 }
 

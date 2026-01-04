@@ -1854,7 +1854,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
   br label %"_ZN4core3fmt8builders11DebugStruct10field_with28_$u7b$$u7b$closure$u7d$$u7d$17h0ce211459b96652dE.exit"
 
 "_ZN4core3fmt8builders11DebugStruct10field_with28_$u7b$$u7b$closure$u7d$$u7d$17h0ce211459b96652dE.exit": ; preds = %20, %23, %25, %27, %30, %38, %40
-  %.sroa.0.1.shrunk.i = phi i1 [ %29, %27 ], [ true, %40 ], [ %39, %38 ], [ true, %25 ], [ true, %23 ], [ true, %20 ], [ true, %30 ]
+  %.sroa.0.1.shrunk.i = phi i1 [ true, %20 ], [ %29, %27 ], [ true, %40 ], [ %39, %38 ], [ true, %25 ], [ true, %23 ], [ true, %30 ]
   %41 = zext i1 %.sroa.0.1.shrunk.i to i8
   br label %42
 
@@ -1948,7 +1948,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
   br label %"_ZN4core3fmt8builders11DebugStruct10field_with28_$u7b$$u7b$closure$u7d$$u7d$17h7b7ac3eb69677347E.exit"
 
 "_ZN4core3fmt8builders11DebugStruct10field_with28_$u7b$$u7b$closure$u7d$$u7d$17h7b7ac3eb69677347E.exit": ; preds = %20, %23, %25, %27, %30, %38, %40
-  %.sroa.0.1.shrunk.i = phi i1 [ %29, %27 ], [ true, %40 ], [ %39, %38 ], [ true, %25 ], [ true, %23 ], [ true, %20 ], [ true, %30 ]
+  %.sroa.0.1.shrunk.i = phi i1 [ true, %20 ], [ %29, %27 ], [ true, %40 ], [ %39, %38 ], [ true, %25 ], [ true, %23 ], [ true, %30 ]
   %41 = zext i1 %.sroa.0.1.shrunk.i to i8
   br label %42
 
@@ -2042,7 +2042,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
   br label %"_ZN4core3fmt8builders11DebugStruct10field_with28_$u7b$$u7b$closure$u7d$$u7d$17h3e8750f73ca31a96E.exit"
 
 "_ZN4core3fmt8builders11DebugStruct10field_with28_$u7b$$u7b$closure$u7d$$u7d$17h3e8750f73ca31a96E.exit": ; preds = %20, %23, %25, %27, %30, %38, %40
-  %.sroa.0.1.shrunk.i = phi i1 [ %29, %27 ], [ true, %40 ], [ %39, %38 ], [ true, %25 ], [ true, %23 ], [ true, %20 ], [ true, %30 ]
+  %.sroa.0.1.shrunk.i = phi i1 [ true, %20 ], [ %29, %27 ], [ true, %40 ], [ %39, %38 ], [ true, %25 ], [ true, %23 ], [ true, %30 ]
   %41 = zext i1 %.sroa.0.1.shrunk.i to i8
   br label %42
 
@@ -7904,7 +7904,7 @@ common.resume.sink.split:                         ; preds = %132, %167, %304
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %.body, %239, %.body191, %288
-  %common.resume.op = phi { ptr, i32 } [ %289, %288 ], [ %eh.lpad-body, %.body ], [ %240, %239 ], [ %eh.lpad-body192, %.body191 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %289, %288 ], [ %eh.lpad-body192, %.body191 ], [ %240, %239 ], [ %eh.lpad-body, %.body ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN7matchit4tree13Node$LT$T$GT$9add_child17h6d5d956849cae55cE.exit199.thread": ; preds = %284, %287
@@ -9162,9 +9162,9 @@ define hidden void @"_ZN7matchit4tree13Node$LT$T$GT$6insert17h7be6e6e9d7575ebbE"
   br label %.outer.backedge
 
 .invoke:                                          ; preds = %427, %322, %136, %331, %.lr.ph.split.us, %406, %294, %"_ZN7matchit4tree13Node$LT$T$GT$9add_child17h6d5d956849cae55cE.exit", %245, %232
-  %433 = phi i64 [ %.sroa.4.0.i.i.i, %232 ], [ 0, %245 ], [ 0, %"_ZN7matchit4tree13Node$LT$T$GT$9add_child17h6d5d956849cae55cE.exit" ], [ %.sroa.0.0.i370, %294 ], [ %405, %406 ], [ %.sroa.0304.0551.us, %.lr.ph.split.us ], [ %160, %331 ], [ 0, %136 ], [ %.sroa.8.0, %322 ], [ %426, %427 ]
-  %434 = phi i64 [ %233, %232 ], [ 0, %245 ], [ 0, %"_ZN7matchit4tree13Node$LT$T$GT$9add_child17h6d5d956849cae55cE.exit" ], [ %299, %294 ], [ %407, %406 ], [ %164, %.lr.ph.split.us ], [ %160, %331 ], [ 0, %136 ], [ %323, %322 ], [ %428, %427 ]
-  %435 = phi ptr [ @anon.ab07cbd181e9ffbfcaa9350913085d13.401, %232 ], [ @anon.ab07cbd181e9ffbfcaa9350913085d13.402, %245 ], [ @anon.ab07cbd181e9ffbfcaa9350913085d13.403, %"_ZN7matchit4tree13Node$LT$T$GT$9add_child17h6d5d956849cae55cE.exit" ], [ @anon.ab07cbd181e9ffbfcaa9350913085d13.405, %294 ], [ @anon.ab07cbd181e9ffbfcaa9350913085d13.410, %406 ], [ @anon.ab07cbd181e9ffbfcaa9350913085d13.411, %.lr.ph.split.us ], [ @anon.ab07cbd181e9ffbfcaa9350913085d13.411, %331 ], [ @anon.ab07cbd181e9ffbfcaa9350913085d13.400, %136 ], [ @anon.ab07cbd181e9ffbfcaa9350913085d13.406, %322 ], [ @anon.ab07cbd181e9ffbfcaa9350913085d13.412, %427 ]
+  %433 = phi i64 [ %160, %331 ], [ %405, %406 ], [ %.sroa.0304.0551.us, %.lr.ph.split.us ], [ %.sroa.0.0.i370, %294 ], [ 0, %"_ZN7matchit4tree13Node$LT$T$GT$9add_child17h6d5d956849cae55cE.exit" ], [ 0, %245 ], [ %.sroa.4.0.i.i.i, %232 ], [ 0, %136 ], [ %426, %427 ], [ %.sroa.8.0, %322 ]
+  %434 = phi i64 [ %160, %331 ], [ %407, %406 ], [ %164, %.lr.ph.split.us ], [ %299, %294 ], [ 0, %"_ZN7matchit4tree13Node$LT$T$GT$9add_child17h6d5d956849cae55cE.exit" ], [ 0, %245 ], [ %233, %232 ], [ 0, %136 ], [ %428, %427 ], [ %323, %322 ]
+  %435 = phi ptr [ @anon.ab07cbd181e9ffbfcaa9350913085d13.411, %331 ], [ @anon.ab07cbd181e9ffbfcaa9350913085d13.410, %406 ], [ @anon.ab07cbd181e9ffbfcaa9350913085d13.411, %.lr.ph.split.us ], [ @anon.ab07cbd181e9ffbfcaa9350913085d13.405, %294 ], [ @anon.ab07cbd181e9ffbfcaa9350913085d13.403, %"_ZN7matchit4tree13Node$LT$T$GT$9add_child17h6d5d956849cae55cE.exit" ], [ @anon.ab07cbd181e9ffbfcaa9350913085d13.402, %245 ], [ @anon.ab07cbd181e9ffbfcaa9350913085d13.401, %232 ], [ @anon.ab07cbd181e9ffbfcaa9350913085d13.400, %136 ], [ @anon.ab07cbd181e9ffbfcaa9350913085d13.412, %427 ], [ @anon.ab07cbd181e9ffbfcaa9350913085d13.406, %322 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h1a9bf3d94de0fc80E(i64 noundef %433, i64 noundef %434, ptr noalias noundef readonly align 8 dereferenceable(24) %435) #25
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -9400,7 +9400,7 @@ define hidden void @"_ZN7matchit4tree13Node$LT$T$GT$6insert17h7be6e6e9d7575ebbE"
           to label %.body unwind label %317
 
 .body:                                            ; preds = %.thread405.loopexit, %.thread405.loopexit.split-lp, %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split.us, %460, %475, %477, %486, %274, %229, %449, %489
-  %.pn350 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %489 ], [ %450, %449 ], [ %230, %229 ], [ %275, %274 ], [ %461, %460 ], [ %476, %475 ], [ %478, %477 ], [ %487, %486 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit409.us, %.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit412, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp415, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit419, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp420, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp ], [ %lpad.loopexit417, %.thread405.loopexit ], [ %lpad.loopexit.split-lp, %.thread405.loopexit.split-lp ]
+  %.pn350 = phi { ptr, i32 } [ %230, %229 ], [ %450, %449 ], [ %lpad.thr_comm.split-lp, %489 ], [ %lpad.loopexit.split-lp420, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp ], [ %487, %486 ], [ %275, %274 ], [ %461, %460 ], [ %476, %475 ], [ %478, %477 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit409.us, %.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit412, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp415, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit419, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit417, %.thread405.loopexit ], [ %lpad.loopexit.split-lp, %.thread405.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr69drop_in_place$LT$alloc..vec..Vec$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h12566086cf5c1232E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %48) #23
           to label %.thread389 unwind label %317
 

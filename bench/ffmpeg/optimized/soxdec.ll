@@ -36,7 +36,7 @@ define internal range(i32 0, 101) i32 @sox_probe(ptr noundef readonly captures(n
   br label %13
 
 13:                                               ; preds = %1, %9, %5
-  %.0 = phi i32 [ 0, %5 ], [ %., %9 ], [ 0, %1 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %1 ], [ %., %9 ]
   ret i32 %.0
 }
 
@@ -190,7 +190,7 @@ define internal range(i32 -1094995529, 1) i32 @sox_read_header(ptr noundef %0) #
   br label %75
 
 75:                                               ; preds = %.thread, %1, %60, %46, %33, %29
-  %.068 = phi i32 [ -1094995529, %29 ], [ -1094995529, %33 ], [ -1094995529, %46 ], [ 0, %60 ], [ -12, %1 ], [ %.1.ph, %.thread ]
+  %.068 = phi i32 [ -1094995529, %29 ], [ -1094995529, %33 ], [ -1094995529, %46 ], [ 0, %60 ], [ %.1.ph, %.thread ], [ -12, %1 ]
   ret i32 %.068
 }
 

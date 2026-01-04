@@ -84,7 +84,7 @@ define hidden i32 @lj_strfmt_parse(ptr noundef captures(none) initializes((16, 2
   br label %26
 
 26:                                               ; preds = %.lr.ph95, %23, %25, %24, %22
-  %.sink = phi i32 [ 1024, %23 ], [ 4096, %25 ], [ 2048, %24 ], [ 512, %22 ], [ 256, %.lr.ph95 ]
+  %.sink = phi i32 [ 512, %22 ], [ 1024, %23 ], [ 4096, %25 ], [ 2048, %24 ], [ 256, %.lr.ph95 ]
   %27 = or i32 %.07493, %.sink
   %28 = getelementptr inbounds nuw i8, ptr %.494, i64 1
   %.pr = load i8, ptr %28, align 1, !tbaa !13
@@ -214,7 +214,7 @@ define hidden i32 @lj_strfmt_parse(ptr noundef captures(none) initializes((16, 2
   br label %96
 
 96:                                               ; preds = %84, %.thread, %.thread88
-  %.2 = phi i32 [ %95, %.thread88 ], [ 1, %84 ], [ %83, %.thread ]
+  %.2 = phi i32 [ %95, %.thread88 ], [ %83, %.thread ], [ 1, %84 ]
   ret i32 %.2
 }
 
@@ -981,7 +981,7 @@ define hidden noundef ptr @lj_strfmt_putfxint(ptr noundef returned %0, i32 nound
   br label %17
 
 17:                                               ; preds = %15, %13, %3
-  %.094 = phi i32 [ 0, %3 ], [ 299, %13 ], [ %spec.select, %15 ]
+  %.094 = phi i32 [ %spec.select, %15 ], [ 0, %3 ], [ 299, %13 ]
   %18 = lshr i32 %1, 24
   %19 = add nsw i32 %18, -1
   %.not102 = icmp eq i32 %18, 0
@@ -1103,10 +1103,10 @@ define hidden noundef ptr @lj_strfmt_putfxint(ptr noundef returned %0, i32 nound
   br label %.loopexit141
 
 .loopexit141:                                     ; preds = %34, %22, %56, %58, %49, %25
-  %spec.select124135 = phi i32 [ %spec.select124, %25 ], [ %spec.select124134, %49 ], [ %spec.select124134, %58 ], [ %spec.select124134, %56 ], [ %spec.select124, %22 ], [ %spec.select124134, %34 ]
-  %59 = phi i32 [ %19, %25 ], [ %27, %49 ], [ %27, %58 ], [ %27, %56 ], [ 0, %22 ], [ %27, %34 ]
-  %.195 = phi i32 [ %.094, %25 ], [ %spec.select126, %49 ], [ %.094132, %58 ], [ %.094132, %56 ], [ %.094, %22 ], [ %.094132, %34 ]
-  %.081.idx = phi i64 [ 22, %25 ], [ %.384.add, %49 ], [ %.485.add115, %58 ], [ %.485.add, %56 ], [ 23, %22 ], [ %.283.add, %34 ]
+  %spec.select124135 = phi i32 [ %spec.select124, %25 ], [ %spec.select124, %22 ], [ %spec.select124134, %49 ], [ %spec.select124134, %58 ], [ %spec.select124134, %56 ], [ %spec.select124134, %34 ]
+  %59 = phi i32 [ %19, %25 ], [ 0, %22 ], [ %27, %49 ], [ %27, %58 ], [ %27, %56 ], [ %27, %34 ]
+  %.195 = phi i32 [ %.094, %25 ], [ %.094, %22 ], [ %spec.select126, %49 ], [ %.094132, %58 ], [ %.094132, %56 ], [ %.094132, %34 ]
+  %.081.idx = phi i64 [ 22, %25 ], [ 23, %22 ], [ %.384.add, %49 ], [ %.485.add115, %58 ], [ %.485.add, %56 ], [ %.283.add, %34 ]
   %60 = trunc i64 %.081.idx to i32
   %61 = sub i32 23, %60
   %spec.select127 = tail call i32 @llvm.smax.i32(i32 %59, i32 %61)
@@ -1380,7 +1380,7 @@ lj_strfmt_putfnum_int.exit:                       ; preds = %lj_strfmt_putfnum_i
   br label %42
 
 42:                                               ; preds = %41, %40, %39, %38, %.lr.ph95.i
-  %.sink.i = phi i32 [ 1024, %39 ], [ 4096, %41 ], [ 2048, %40 ], [ 512, %38 ], [ 256, %.lr.ph95.i ]
+  %.sink.i = phi i32 [ 512, %38 ], [ 1024, %39 ], [ 4096, %41 ], [ 2048, %40 ], [ 256, %.lr.ph95.i ]
   %43 = or i32 %.sink.i, %.07493.i
   %44 = getelementptr inbounds nuw i8, ptr %.494.i, i64 1
   %.pr.i = load i8, ptr %44, align 1, !tbaa !13
@@ -1619,10 +1619,10 @@ lj_strfmt_putint.exit.i:                          ; preds = %146, %137
   br label %lj_strfmt_putfnum_int.exit.backedge
 
 lj_strfmt_putfnum_int.exit.backedge:              ; preds = %159, %149, %lj_strfmt_putint.exit.i, %128, %.thread159, %167, %lj_strfmt_putfchar.exit, %lj_strfmt_putptr.exit, %118, %230, %strfmt_putfstrlen.exit, %183, %lj_strfmt_parse.exit.thread145
-  %.sroa.12.0.be = phi i32 [ %.sroa.12.1150, %lj_strfmt_parse.exit.thread145 ], [ %.sroa.12.0, %118 ], [ %.sroa.12.0, %128 ], [ %.sroa.12.0, %.thread159 ], [ %.sroa.12.0, %159 ], [ %.sroa.12.0, %167 ], [ %.sroa.12.0, %lj_strfmt_putfchar.exit ], [ %.sroa.12.0, %lj_strfmt_putptr.exit ], [ %.sroa.12.0, %183 ], [ %.sroa.12.0, %strfmt_putfstrlen.exit ], [ %.sroa.12.0, %230 ], [ %.sroa.12.0, %lj_strfmt_putint.exit.i ], [ %.sroa.12.0, %149 ]
-  %.sroa.0.0.be = phi ptr [ %.sroa.0.1152, %lj_strfmt_parse.exit.thread145 ], [ %104, %118 ], [ %104, %128 ], [ %104, %.thread159 ], [ %104, %159 ], [ %104, %167 ], [ %104, %lj_strfmt_putfchar.exit ], [ %104, %lj_strfmt_putptr.exit ], [ %104, %183 ], [ %104, %strfmt_putfstrlen.exit ], [ %104, %230 ], [ %104, %lj_strfmt_putint.exit.i ], [ %104, %149 ]
-  %.097.be = phi i32 [ %.097, %lj_strfmt_parse.exit.thread145 ], [ %.097, %118 ], [ %.097, %128 ], [ %.097, %.thread159 ], [ %.097, %159 ], [ %.097, %167 ], [ %.097, %lj_strfmt_putfchar.exit ], [ %.097, %lj_strfmt_putptr.exit ], [ 1, %183 ], [ %.097, %strfmt_putfstrlen.exit ], [ %.097, %230 ], [ %.097, %lj_strfmt_putint.exit.i ], [ %.097, %149 ]
-  %.0.be = phi i32 [ %.0, %lj_strfmt_parse.exit.thread145 ], [ %114, %118 ], [ %114, %128 ], [ %114, %.thread159 ], [ %114, %159 ], [ %114, %167 ], [ %114, %lj_strfmt_putfchar.exit ], [ %114, %lj_strfmt_putptr.exit ], [ %114, %183 ], [ %114, %strfmt_putfstrlen.exit ], [ %114, %230 ], [ %114, %lj_strfmt_putint.exit.i ], [ %114, %149 ]
+  %.sroa.12.0.be = phi i32 [ %.sroa.12.1150, %lj_strfmt_parse.exit.thread145 ], [ %.sroa.12.0, %118 ], [ %.sroa.12.0, %230 ], [ %.sroa.12.0, %128 ], [ %.sroa.12.0, %.thread159 ], [ %.sroa.12.0, %159 ], [ %.sroa.12.0, %167 ], [ %.sroa.12.0, %lj_strfmt_putptr.exit ], [ %.sroa.12.0, %lj_strfmt_putfchar.exit ], [ %.sroa.12.0, %183 ], [ %.sroa.12.0, %strfmt_putfstrlen.exit ], [ %.sroa.12.0, %lj_strfmt_putint.exit.i ], [ %.sroa.12.0, %149 ]
+  %.sroa.0.0.be = phi ptr [ %.sroa.0.1152, %lj_strfmt_parse.exit.thread145 ], [ %104, %118 ], [ %104, %230 ], [ %104, %128 ], [ %104, %.thread159 ], [ %104, %159 ], [ %104, %167 ], [ %104, %lj_strfmt_putptr.exit ], [ %104, %lj_strfmt_putfchar.exit ], [ %104, %183 ], [ %104, %strfmt_putfstrlen.exit ], [ %104, %lj_strfmt_putint.exit.i ], [ %104, %149 ]
+  %.097.be = phi i32 [ %.097, %lj_strfmt_parse.exit.thread145 ], [ %.097, %118 ], [ %.097, %230 ], [ %.097, %128 ], [ %.097, %.thread159 ], [ %.097, %159 ], [ %.097, %167 ], [ %.097, %lj_strfmt_putptr.exit ], [ %.097, %lj_strfmt_putfchar.exit ], [ 1, %183 ], [ %.097, %strfmt_putfstrlen.exit ], [ %.097, %lj_strfmt_putint.exit.i ], [ %.097, %149 ]
+  %.0.be = phi i32 [ %.0, %lj_strfmt_parse.exit.thread145 ], [ %114, %118 ], [ %114, %230 ], [ %114, %128 ], [ %114, %.thread159 ], [ %114, %159 ], [ %114, %167 ], [ %114, %lj_strfmt_putptr.exit ], [ %114, %lj_strfmt_putfchar.exit ], [ %114, %183 ], [ %114, %strfmt_putfstrlen.exit ], [ %114, %lj_strfmt_putint.exit.i ], [ %114, %149 ]
   br label %lj_strfmt_putfnum_int.exit, !llvm.loop !51
 
 .thread159:                                       ; preds = %154, %151

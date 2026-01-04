@@ -107,7 +107,7 @@ define noundef zeroext i1 @_ZN3net17AeadBaseDecrypter6SetKeyEN4base16BasicString
   br i1 %.not.i.i, label %_ZN3net12_GLOBAL__N_117DLogOpenSslErrorsEv.exit, label %.preheader, !llvm.loop !20
 
 _ZN3net12_GLOBAL__N_117DLogOpenSslErrorsEv.exit:  ; preds = %.preheader, %6, %3
-  %.0 = phi i1 [ false, %3 ], [ true, %6 ], [ false, %.preheader ]
+  %.0 = phi i1 [ true, %6 ], [ false, %3 ], [ false, %.preheader ]
   ret i1 %.0
 }
 

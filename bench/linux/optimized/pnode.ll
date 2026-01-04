@@ -434,7 +434,7 @@ select.unfold:                                    ; preds = %57, %51
   br i1 %102, label %.preheader37.backedge, label %.preheader36
 
 .preheader37.backedge:                            ; preds = %98, %96, %select.unfold29
-  %.be = phi ptr [ %120, %select.unfold29 ], [ %91, %96 ], [ %91, %98 ]
+  %.be = phi ptr [ %91, %98 ], [ %120, %select.unfold29 ], [ %91, %96 ]
   br label %.preheader37, !llvm.loop !12
 
 .preheader36:                                     ; preds = %98, %115
@@ -473,7 +473,7 @@ select.unfold29:                                  ; preds = %115, %109
   br i1 %123, label %.thread24, label %.preheader40, !llvm.loop !14
 
 .thread24:                                        ; preds = %13, %38, %select.unfold, %.thread27, %67, %96, %select.unfold29, %.thread
-  %124 = phi i32 [ 0, %.thread ], [ 0, %select.unfold29 ], [ 0, %96 ], [ %69, %67 ], [ 0, %.thread27 ], [ 0, %select.unfold ], [ 0, %38 ], [ %14, %13 ]
+  %124 = phi i32 [ 0, %.thread ], [ 0, %96 ], [ 0, %38 ], [ 0, %.thread27 ], [ %69, %67 ], [ 0, %select.unfold29 ], [ 0, %select.unfold ], [ %14, %13 ]
   tail call void @_raw_spin_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mount_lock, i64 4)) #4
   %125 = load ptr, ptr %3, align 8
   %126 = icmp eq ptr %125, null
@@ -610,7 +610,7 @@ define internal fastcc i32 @propagate_one(ptr noundef %0, ptr noundef %1) unname
   br i1 %69, label %.thread, label %.lr.ph, !llvm.loop !17
 
 .thread:                                          ; preds = %62, %37, %53, %.thread5
-  %70 = phi ptr [ %41, %37 ], [ %48, %53 ], [ %61, %.thread5 ], [ %64, %62 ]
+  %70 = phi ptr [ %61, %.thread5 ], [ %41, %37 ], [ %48, %53 ], [ %64, %62 ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %72 = load i32, ptr %71, align 8
   %73 = and i32 %72, 4096

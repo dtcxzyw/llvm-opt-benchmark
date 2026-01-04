@@ -195,7 +195,7 @@ define void @dhsein_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not263, label %107, label %.thread
 
 .thread.sink.split:                               ; preds = %99, %95, %91, %88, %85, %83, %80, %._crit_edge
-  %.sink = phi i32 [ -1, %._crit_edge ], [ -2, %80 ], [ -3, %83 ], [ -5, %85 ], [ -7, %88 ], [ -11, %91 ], [ -13, %95 ], [ -14, %99 ]
+  %.sink = phi i32 [ -1, %._crit_edge ], [ -2, %80 ], [ -5, %85 ], [ -11, %91 ], [ -13, %95 ], [ -7, %88 ], [ -3, %83 ], [ -14, %99 ]
   store i32 %.sink, ptr %18, align 4, !tbaa !3
   br label %.thread
 

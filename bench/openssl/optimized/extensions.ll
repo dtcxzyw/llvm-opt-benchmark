@@ -127,8 +127,8 @@ validate_context.exit:                            ; preds = %42, %40, %14
   %exitcond.not = icmp eq i64 %44, %12
   br i1 %exitcond.not, label %.critedge, label %14, !llvm.loop !87
 
-.critedge:                                        ; preds = %validate_context.exit, %22, %30, %40, %42, %3
-  %.4 = phi i32 [ 1, %3 ], [ 0, %42 ], [ 0, %40 ], [ 0, %30 ], [ 0, %22 ], [ 1, %validate_context.exit ]
+.critedge:                                        ; preds = %validate_context.exit, %22, %40, %30, %42, %3
+  %.4 = phi i32 [ 1, %3 ], [ 0, %22 ], [ 0, %40 ], [ 0, %30 ], [ 0, %42 ], [ 1, %validate_context.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.4
 }
@@ -209,7 +209,7 @@ define range(i32 0, 2) i32 @extension_is_relevant(ptr noundef readonly captures(
   br label %37
 
 37:                                               ; preds = %33, %._crit_edge, %16, %22, %24, %29
-  %.019 = phi i32 [ 0, %29 ], [ 0, %24 ], [ 0, %22 ], [ 0, %16 ], [ 0, %._crit_edge ], [ %spec.select38, %33 ]
+  %.019 = phi i32 [ 0, %._crit_edge ], [ %spec.select38, %33 ], [ 0, %29 ], [ 0, %24 ], [ 0, %22 ], [ 0, %16 ]
   ret i32 %.019
 }
 
@@ -391,7 +391,7 @@ verify_extension.exit.thread127.thread:           ; preds = %83
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %108
 
-verify_extension.exit.thread133:                  ; preds = %85, %97, %99
+verify_extension.exit.thread133:                  ; preds = %97, %85, %99
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %verify_extension.exit.thread
 
@@ -422,7 +422,7 @@ verify_extension.exit.thread127:                  ; preds = %validate_context.ex
   %or.cond = select i1 %brmerge, i1 true, i1 %.not78
   br i1 %or.cond, label %110, label %verify_extension.exit.thread
 
-verify_extension.exit.thread:                     ; preds = %108, %77, %75, %63, %104, %verify_extension.exit.thread133
+verify_extension.exit.thread:                     ; preds = %108, %77, %63, %75, %104, %verify_extension.exit.thread133
   call void @ERR_new() #8
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 656, ptr noundef nonnull @__func__.tls_collect_extensions) #8
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %0, i32 noundef 47, i32 noundef 110, ptr noundef null) #8
@@ -593,7 +593,7 @@ extension_is_relevant.exit:                       ; preds = %169
   %.not73 = icmp eq i32 %175, 0
   br i1 %.not73, label %.thread, label %extension_is_relevant.exit.thread
 
-extension_is_relevant.exit.thread:                ; preds = %._crit_edge.i, %159, %164, %166, %169, %141, %144, %extension_is_relevant.exit, %174
+extension_is_relevant.exit.thread:                ; preds = %159, %164, %166, %169, %._crit_edge.i, %141, %144, %extension_is_relevant.exit, %174
   %176 = add nuw nsw i64 %.3156, 1
   %177 = getelementptr inbounds nuw i8, ptr %.058157, i64 56
   %exitcond.not = icmp eq i64 %176, 29
@@ -608,7 +608,7 @@ extension_is_relevant.exit.thread:                ; preds = %._crit_edge.i, %159
   store i64 %16, ptr %4, align 8, !tbaa !94
   br label %179
 
-.thread:                                          ; preds = %174, %PACKET_get_net_2.exit.thread, %122, %verify_extension.exit.thread
+.thread:                                          ; preds = %174, %122, %PACKET_get_net_2.exit.thread, %verify_extension.exit.thread
   call void @CRYPTO_free(ptr noundef nonnull %18, ptr noundef nonnull @.str, i32 noundef 726) #8
   br label %179
 
@@ -733,8 +733,8 @@ extension_is_relevant.exit:                       ; preds = %44
   %55 = tail call i32 @custom_ext_parse(ptr noundef %0, i32 noundef %2, i32 noundef %53, ptr noundef %.val35, i64 noundef %.val, ptr noundef %4, i64 noundef %5) #8
   br label %.thread
 
-.thread:                                          ; preds = %._crit_edge.i, %31, %36, %39, %44, %49, %11, %6, %51
-  %.0 = phi i32 [ %55, %51 ], [ 1, %6 ], [ 1, %11 ], [ %50, %49 ], [ 1, %44 ], [ 1, %39 ], [ 1, %36 ], [ 1, %31 ], [ 1, %._crit_edge.i ]
+.thread:                                          ; preds = %31, %36, %39, %44, %._crit_edge.i, %49, %11, %6, %51
+  %.0 = phi i32 [ 1, %6 ], [ %55, %51 ], [ 1, %11 ], [ %50, %49 ], [ 1, %31 ], [ 1, %._crit_edge.i ], [ 1, %44 ], [ 1, %39 ], [ 1, %36 ]
   ret i32 %.0
 }
 
@@ -796,7 +796,7 @@ define range(i32 0, 2) i32 @tls_parse_all_extensions(ptr noundef %0, i32 noundef
   br i1 %exitcond36.not, label %.loopexit, label %.preheader, !llvm.loop !115
 
 .loopexit:                                        ; preds = %.lr.ph, %27, %22, %._crit_edge
-  %.024 = phi i32 [ 1, %._crit_edge ], [ 1, %27 ], [ 0, %22 ], [ 0, %.lr.ph ]
+  %.024 = phi i32 [ 1, %._crit_edge ], [ 0, %22 ], [ 1, %27 ], [ 0, %.lr.ph ]
   ret i32 %.024
 }
 
@@ -891,8 +891,8 @@ extension_is_relevant.exit:                       ; preds = %33
 44:                                               ; preds = %41, %40
   br label %extension_is_relevant.exit.thread
 
-extension_is_relevant.exit.thread:                ; preds = %._crit_edge.i, %20, %26, %28, %33, %extension_is_relevant.exit, %41, %4, %44
-  %.0 = phi i32 [ 1, %44 ], [ 0, %4 ], [ 0, %41 ], [ 0, %extension_is_relevant.exit ], [ 0, %33 ], [ 0, %28 ], [ 0, %26 ], [ 0, %20 ], [ 0, %._crit_edge.i ]
+extension_is_relevant.exit.thread:                ; preds = %20, %26, %28, %33, %._crit_edge.i, %extension_is_relevant.exit, %41, %4, %44
+  %.0 = phi i32 [ 1, %44 ], [ 0, %4 ], [ 0, %41 ], [ 0, %extension_is_relevant.exit ], [ 0, %._crit_edge.i ], [ 0, %33 ], [ 0, %28 ], [ 0, %26 ], [ 0, %20 ]
   ret i32 %.0
 }
 
@@ -1081,7 +1081,7 @@ should_add_extension.exit:                        ; preds = %69, %68
   store i8 %80, ptr %78, align 1, !tbaa !98
   br label %should_add_extension.exit.thread
 
-should_add_extension.exit.thread:                 ; preds = %76, %77, %74, %._crit_edge.i.i, %53, %58, %60, %63, %extension_is_relevant.exit.i, %69, %36, %should_add_extension.exit
+should_add_extension.exit.thread:                 ; preds = %76, %77, %74, %53, %58, %60, %63, %._crit_edge.i.i, %extension_is_relevant.exit.i, %69, %36, %should_add_extension.exit
   %81 = add nuw nsw i64 %.04464, 1
   %82 = getelementptr inbounds nuw i8, ptr %.04663, i64 56
   %exitcond.not = icmp eq i64 %81, 29
@@ -1102,7 +1102,7 @@ should_add_extension.exit.thread:                 ; preds = %76, %77, %74, %._cr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %74, %83, %86, %.critedge, %20, %21, %14, %15
-  %.0 = phi i32 [ 0, %15 ], [ 0, %14 ], [ 0, %21 ], [ 0, %20 ], [ 0, %.critedge ], [ 0, %86 ], [ %.mux, %83 ], [ %75, %74 ]
+  %.0 = phi i32 [ 0, %14 ], [ 0, %86 ], [ %.mux, %83 ], [ 0, %.critedge ], [ 0, %20 ], [ 0, %15 ], [ 0, %21 ], [ %75, %74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -1169,8 +1169,8 @@ define range(i32 -1, 2) i32 @tls_psk_do_binder(ptr noundef %0, ptr noundef %1, p
   br label %37
 
 37:                                               ; preds = %34, %28, %24, %21
-  %tls_psk_do_binder.resumption_label.tls_psk_do_binder.external_label = phi ptr [ @tls_psk_do_binder.external_label, %28 ], [ @tls_psk_do_binder.external_label, %24 ], [ @tls_psk_do_binder.resumption_label, %21 ], [ @tls_psk_do_binder.external_label, %34 ]
-  %38 = phi i1 [ false, %28 ], [ false, %24 ], [ false, %21 ], [ %.not, %34 ]
+  %tls_psk_do_binder.resumption_label.tls_psk_do_binder.external_label = phi ptr [ @tls_psk_do_binder.resumption_label, %21 ], [ @tls_psk_do_binder.external_label, %34 ], [ @tls_psk_do_binder.external_label, %28 ], [ @tls_psk_do_binder.external_label, %24 ]
+  %38 = phi i1 [ false, %21 ], [ %.not, %34 ], [ false, %28 ], [ false, %24 ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %40 = load i32, ptr %39, align 8, !tbaa !91
   %41 = icmp ne i32 %40, 0
@@ -1302,14 +1302,14 @@ define range(i32 -1, 2) i32 @tls_psk_do_binder(ptr noundef %0, ptr noundef %1, p
   br label %117
 
 117:                                              ; preds = %.thread, %76
-  %.087 = phi i64 [ %74, %76 ], [ %116, %.thread ]
+  %.087 = phi i64 [ %116, %.thread ], [ %74, %76 ]
   %118 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %50, ptr noundef %.pre, i64 noundef %.087) #8
   %119 = icmp slt i32 %118, 1
   br i1 %119, label %.thread147, label %120
 
 .thread147:                                       ; preds = %117, %78, %80, %95, %99, %71
-  %.sink159 = phi i32 [ 1619, %71 ], [ 1636, %99 ], [ 1636, %95 ], [ 1636, %80 ], [ 1636, %78 ], [ 1643, %117 ]
-  %.sink = phi i32 [ 332, %71 ], [ 786691, %99 ], [ 786691, %95 ], [ 786691, %80 ], [ 786691, %78 ], [ 786691, %117 ]
+  %.sink159 = phi i32 [ 1619, %71 ], [ 1636, %78 ], [ 1636, %99 ], [ 1636, %95 ], [ 1636, %80 ], [ 1643, %117 ]
+  %.sink = phi i32 [ 332, %71 ], [ 786691, %78 ], [ 786691, %99 ], [ 786691, %95 ], [ 786691, %80 ], [ 786691, %117 ]
   call void @ERR_new() #8
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink159, ptr noundef nonnull @__func__.tls_psk_do_binder) #8
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef %.sink, ptr noundef null) #8
@@ -1395,9 +1395,9 @@ define range(i32 -1, 2) i32 @tls_psk_do_binder(ptr noundef %0, ptr noundef %1, p
   br label %154
 
 154:                                              ; preds = %.thread147, %149, %153, %150, %61, %59, %37, %148, %134, %127, %66, %58, %20
-  %.093 = phi ptr [ %50, %58 ], [ %50, %66 ], [ %50, %127 ], [ %50, %134 ], [ %50, %148 ], [ %50, %150 ], [ %50, %153 ], [ %50, %61 ], [ %50, %59 ], [ null, %37 ], [ null, %20 ], [ %50, %149 ], [ %50, %.thread147 ]
-  %.092 = phi ptr [ null, %58 ], [ null, %66 ], [ null, %127 ], [ null, %134 ], [ %132, %148 ], [ %132, %150 ], [ %132, %153 ], [ null, %61 ], [ null, %59 ], [ null, %37 ], [ null, %20 ], [ %132, %149 ], [ null, %.thread147 ]
-  %.091 = phi i32 [ -1, %58 ], [ -1, %66 ], [ -1, %127 ], [ -1, %134 ], [ -1, %148 ], [ 1, %150 ], [ 0, %153 ], [ -1, %61 ], [ -1, %59 ], [ -1, %37 ], [ -1, %20 ], [ 1, %149 ], [ -1, %.thread147 ]
+  %.093 = phi ptr [ %50, %58 ], [ %50, %66 ], [ %50, %127 ], [ %50, %134 ], [ %50, %148 ], [ null, %20 ], [ %50, %150 ], [ %50, %153 ], [ %50, %.thread147 ], [ %50, %61 ], [ %50, %59 ], [ null, %37 ], [ %50, %149 ]
+  %.092 = phi ptr [ null, %58 ], [ null, %66 ], [ null, %127 ], [ null, %134 ], [ %132, %148 ], [ null, %20 ], [ %132, %150 ], [ %132, %153 ], [ null, %.thread147 ], [ null, %61 ], [ null, %59 ], [ null, %37 ], [ %132, %149 ]
+  %.091 = phi i32 [ -1, %58 ], [ -1, %66 ], [ -1, %127 ], [ -1, %134 ], [ -1, %148 ], [ -1, %20 ], [ 1, %150 ], [ 0, %153 ], [ -1, %.thread147 ], [ -1, %61 ], [ -1, %59 ], [ -1, %37 ], [ 1, %149 ]
   call void @OPENSSL_cleanse(ptr noundef nonnull %11, i64 noundef 64) #8
   call void @OPENSSL_cleanse(ptr noundef nonnull %12, i64 noundef 64) #8
   call void @EVP_PKEY_free(ptr noundef %.092) #8
@@ -1498,7 +1498,7 @@ define internal range(i32 0, 2) i32 @final_renegotiate(ptr noundef %0, i32 %1, i
   br label %23
 
 23:                                               ; preds = %.sink.split, %14, %17, %6, %10
-  %.0 = phi i32 [ 1, %10 ], [ 1, %6 ], [ 1, %17 ], [ 1, %14 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %6 ], [ 1, %17 ], [ 1, %14 ], [ 1, %10 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -1747,8 +1747,8 @@ define internal range(i32 0, 2) i32 @final_server_name(ptr noundef %0, i32 %1, i
   store i32 0, ptr %106, align 8, !tbaa !144
   br label %.critedge
 
-.critedge:                                        ; preds = %69, %73, %76, %81, %85, %86, %68, %105, %103, %87, %15
-  %.0 = phi i32 [ 0, %87 ], [ 1, %103 ], [ 1, %105 ], [ 0, %15 ], [ 1, %68 ], [ 0, %86 ], [ 0, %85 ], [ 1, %81 ], [ 1, %76 ], [ 1, %73 ], [ 1, %69 ]
+.critedge:                                        ; preds = %69, %73, %76, %81, %86, %85, %68, %105, %103, %87, %15
+  %.0 = phi i32 [ 0, %15 ], [ 0, %87 ], [ 1, %103 ], [ 1, %105 ], [ 0, %86 ], [ 1, %68 ], [ 0, %85 ], [ 1, %81 ], [ 1, %76 ], [ 1, %73 ], [ 1, %69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -2175,7 +2175,7 @@ define internal range(i32 0, 2) i32 @final_ems(ptr noundef %0, i32 %1, i32 %2) #
   br label %20
 
 20:                                               ; preds = %.sink.split, %8, %11, %14
-  %.0 = phi i32 [ 1, %14 ], [ 1, %11 ], [ 1, %8 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %11 ], [ 1, %8 ], [ 1, %14 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -2547,7 +2547,7 @@ define internal range(i32 0, 2) i32 @final_key_share(ptr noundef %0, i32 noundef
   br label %87
 
 87:                                               ; preds = %82, %78, %84, %83, %3, %11, %86, %77, %76, %67, %61, %46, %45, %29, %25
-  %.0 = phi i32 [ 1, %46 ], [ 0, %45 ], [ 1, %61 ], [ 0, %67 ], [ 1, %77 ], [ 0, %76 ], [ 0, %86 ], [ 0, %25 ], [ 0, %29 ], [ 1, %11 ], [ 1, %3 ], [ 1, %83 ], [ 1, %84 ], [ 1, %78 ], [ 1, %82 ]
+  %.0 = phi i32 [ 0, %29 ], [ 1, %3 ], [ 1, %82 ], [ 1, %46 ], [ 0, %45 ], [ 1, %61 ], [ 0, %67 ], [ 1, %77 ], [ 0, %76 ], [ 0, %86 ], [ 0, %25 ], [ 1, %11 ], [ 1, %83 ], [ 1, %84 ], [ 1, %78 ]
   ret i32 %.0
 }
 
@@ -2674,7 +2674,7 @@ define internal range(i32 0, 2) i32 @final_early_data(ptr noundef %0, i32 nounde
   br label %44
 
 44:                                               ; preds = %40, %7, %9, %3, %43, %12
-  %.0 = phi i32 [ 1, %43 ], [ 0, %12 ], [ 1, %3 ], [ 1, %9 ], [ 1, %7 ], [ 0, %40 ]
+  %.0 = phi i32 [ 1, %43 ], [ 1, %7 ], [ 1, %3 ], [ 0, %12 ], [ 1, %9 ], [ 0, %40 ]
   ret i32 %.0
 }
 
@@ -2742,14 +2742,14 @@ define internal range(i32 0, 3) i32 @tls_construct_certificate_authorities(ptr n
   br i1 %.not14, label %.sink.split, label %19
 
 .sink.split:                                      ; preds = %17, %11, %13
-  %.sink = phi i32 [ 1302, %13 ], [ 1302, %11 ], [ 1312, %17 ]
+  %.sink = phi i32 [ 1302, %11 ], [ 1302, %13 ], [ 1312, %17 ]
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink, ptr noundef nonnull @__func__.tls_construct_certificate_authorities) #8
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #8
   br label %19
 
 19:                                               ; preds = %.sink.split, %17, %15, %5, %8
-  %.0 = phi i32 [ 2, %8 ], [ 2, %5 ], [ 0, %15 ], [ 1, %17 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 2, %8 ], [ 0, %15 ], [ 1, %17 ], [ 2, %5 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 

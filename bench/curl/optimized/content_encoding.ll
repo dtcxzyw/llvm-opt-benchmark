@@ -191,7 +191,7 @@ define hidden i32 @Curl_build_unencoding_stack(ptr noundef %0, ptr noundef %1, i
   br label %24
 
 24:                                               ; preds = %19, %17, %17, %21
-  %.1105 = phi i64 [ %23, %21 ], [ %.0104, %17 ], [ %.0104, %17 ], [ %.0104, %19 ]
+  %.1105 = phi i64 [ %.0104, %17 ], [ %.0104, %17 ], [ %.0104, %19 ], [ %23, %21 ]
   %25 = getelementptr inbounds nuw i8, ptr %.2110, i64 1
   %.pr = load i8, ptr %25, align 1, !tbaa !3
   br label %17, !llvm.loop !17
@@ -334,7 +334,7 @@ define hidden i32 @Curl_build_unencoding_stack(ptr noundef %0, ptr noundef %1, i
   br i1 %.not52.i, label %find_unencode_writer.exit, label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.thread145, %81, %79, %78
-  %84 = phi i1 [ %48, %81 ], [ %48, %79 ], [ %48, %78 ], [ false, %.thread145 ]
+  %84 = phi i1 [ false, %.thread145 ], [ %48, %81 ], [ %48, %79 ], [ %48, %78 ]
   br label %85
 
 85:                                               ; preds = %102, %.loopexit.i
@@ -377,8 +377,8 @@ define hidden i32 @Curl_build_unencoding_stack(ptr noundef %0, ptr noundef %1, i
   br i1 %.not42.i, label %find_unencode_writer.exit.thread, label %85, !llvm.loop !88
 
 find_unencode_writer.exit:                        ; preds = %89, %98, %75, %81
-  %105 = phi i1 [ %48, %81 ], [ %48, %75 ], [ %84, %98 ], [ %84, %89 ]
-  %.3.i = phi ptr [ @Curl_httpchunk_unencoder, %81 ], [ @Curl_httpchunk_unencoder, %75 ], [ %86, %98 ], [ %86, %89 ]
+  %105 = phi i1 [ %48, %75 ], [ %48, %81 ], [ %84, %98 ], [ %84, %89 ]
+  %.3.i = phi ptr [ @Curl_httpchunk_unencoder, %75 ], [ @Curl_httpchunk_unencoder, %81 ], [ %86, %98 ], [ %86, %89 ]
   br i1 %105, label %106, label %find_unencode_writer.exit.thread
 
 106:                                              ; preds = %find_unencode_writer.exit
@@ -434,7 +434,7 @@ find_unencode_writer.exit.thread:                 ; preds = %102, %find_unencode
   br label %.thread154
 
 find_unencode_writer.exit.thread.thread:          ; preds = %106, %123, %find_unencode_writer.exit.thread
-  %spec.store.select209 = phi ptr [ %spec.store.select, %123 ], [ %spec.store.select, %find_unencode_writer.exit.thread ], [ %.3.i, %106 ]
+  %spec.store.select209 = phi ptr [ %spec.store.select, %find_unencode_writer.exit.thread ], [ %spec.store.select, %123 ], [ %.3.i, %106 ]
   %126 = call i32 @Curl_cwriter_create(ptr noundef nonnull %4, ptr noundef %0, ptr noundef nonnull %spec.store.select209, i32 noundef %6) #8
   br i1 %.not126, label %141, label %127
 
@@ -483,8 +483,8 @@ find_unencode_writer.exit.thread.thread:          ; preds = %106, %123, %find_un
   call void @Curl_cwriter_free(ptr noundef %0, ptr noundef %146) #8
   br label %.thread154
 
-.thread154:                                       ; preds = %141, %73, %145, %125, %64, %63, %57, %52, %121, %120, %114, %109, %108
-  %.2.ph = phi i32 [ 0, %108 ], [ 0, %109 ], [ 0, %114 ], [ 0, %120 ], [ 0, %121 ], [ 0, %52 ], [ 0, %57 ], [ 0, %63 ], [ 0, %64 ], [ 61, %125 ], [ %144, %145 ], [ 61, %73 ], [ %126, %141 ]
+.thread154:                                       ; preds = %141, %73, %108, %145, %125, %64, %63, %57, %52, %121, %120, %114, %109
+  %.2.ph = phi i32 [ 0, %109 ], [ 0, %114 ], [ 0, %120 ], [ 0, %121 ], [ 0, %52 ], [ 0, %57 ], [ 0, %63 ], [ 0, %64 ], [ 61, %125 ], [ 61, %73 ], [ %144, %145 ], [ 0, %108 ], [ %126, %141 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
@@ -724,7 +724,7 @@ process_zlib_error.exit.i26:                      ; preds = %24, %23, %19
   br label %exit_zlib.exit
 
 exit_zlib.exit:                                   ; preds = %process_zlib_error.exit.i26, %.split19, %process_zlib_error.exit.i, %.split, %25
-  %.1 = phi i32 [ 0, %25 ], [ 23, %process_zlib_error.exit.i ], [ 23, %.split ], [ %.1.i27, %process_zlib_error.exit.i26 ], [ 0, %.split19 ]
+  %.1 = phi i32 [ 0, %25 ], [ 23, %.split ], [ 23, %process_zlib_error.exit.i ], [ %.1.i27, %process_zlib_error.exit.i26 ], [ 0, %.split19 ]
   ret i32 %.1
 }
 
@@ -869,8 +869,8 @@ process_zlib_error.exit88:                        ; preds = %48, %49
   store i32 0, ptr %9, align 4, !tbaa !101
   br label %exit_zlib.exit77.thread
 
-exit_zlib.exit77.thread:                          ; preds = %30, %51, %process_zlib_error.exit88, %45, %process_zlib_error.exit, %31, %process_zlib_error.exit.i, %27
-  %.1 = phi i32 [ %26, %27 ], [ %26, %process_zlib_error.exit.i ], [ 61, %51 ], [ 61, %process_zlib_error.exit88 ], [ 61, %45 ], [ 61, %process_zlib_error.exit ], [ %32, %31 ], [ 0, %30 ]
+exit_zlib.exit77.thread:                          ; preds = %30, %process_zlib_error.exit, %51, %31, %45, %process_zlib_error.exit88, %27, %process_zlib_error.exit.i
+  %.1 = phi i32 [ %26, %27 ], [ %26, %process_zlib_error.exit.i ], [ 61, %process_zlib_error.exit ], [ 61, %51 ], [ %32, %31 ], [ 61, %process_zlib_error.exit88 ], [ 61, %45 ], [ 0, %30 ]
   %.not72 = icmp eq i32 %7, 0
   br i1 %.not72, label %exit_zlib.exit, label %53
 
@@ -884,7 +884,7 @@ exit_zlib.exit77.thread:                          ; preds = %30, %51, %process_z
   br label %exit_zlib.exit
 
 exit_zlib.exit:                                   ; preds = %4, %11, %exit_zlib.exit77.thread, %53, %56
-  %.0 = phi i32 [ %.1, %56 ], [ %.1, %53 ], [ %.1, %exit_zlib.exit77.thread ], [ 23, %11 ], [ 23, %4 ]
+  %.0 = phi i32 [ %.1, %exit_zlib.exit77.thread ], [ %.1, %56 ], [ %.1, %53 ], [ 23, %4 ], [ 23, %11 ]
   ret i32 %.0
 }
 
@@ -935,7 +935,7 @@ define internal range(i32 0, 62) i32 @gzip_do_init(ptr noundef %0, ptr noundef i
   br label %process_zlib_error.exit
 
 process_zlib_error.exit:                          ; preds = %14, %13, %15, %17
-  %.0 = phi i32 [ 0, %15 ], [ 2, %17 ], [ 61, %13 ], [ 61, %14 ]
+  %.0 = phi i32 [ 2, %17 ], [ 0, %15 ], [ 61, %13 ], [ 61, %14 ]
   ret i32 %.0
 }
 
@@ -976,7 +976,7 @@ define internal i32 @gzip_do_write(ptr noundef %0, ptr noundef %1, i32 noundef %
   br label %exit_zlib.exit
 
 exit_zlib.exit:                                   ; preds = %14, %21, %17, %10
-  %.0 = phi i32 [ %20, %17 ], [ %13, %10 ], [ 23, %21 ], [ 23, %14 ]
+  %.0 = phi i32 [ %20, %17 ], [ %13, %10 ], [ 23, %14 ], [ 23, %21 ]
   ret i32 %.0
 }
 
@@ -1099,7 +1099,7 @@ define internal i32 @brotli_do_write(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %36, label %switch.lookup, label %.critedge
 
 brotli_map_error.exit:                            ; preds = %30, %29, %29
-  %.2 = phi i32 [ 0, %29 ], [ 0, %29 ], [ %spec.select, %30 ]
+  %.2 = phi i32 [ %spec.select, %30 ], [ 0, %29 ], [ 0, %29 ]
   %37 = load i64, ptr %6, align 8, !tbaa !109
   %38 = icmp ne i64 %37, 0
   %39 = icmp eq i32 %24, 3
@@ -1116,7 +1116,7 @@ switch.lookup:                                    ; preds = %33
   br label %.critedge
 
 .critedge:                                        ; preds = %22, %brotli_map_error.exit, %33, %switch.lookup, %17, %13
-  %.028 = phi i32 [ %16, %13 ], [ 23, %17 ], [ %switch.load, %switch.lookup ], [ 23, %33 ], [ %.2, %brotli_map_error.exit ], [ %28, %22 ]
+  %.028 = phi i32 [ 23, %17 ], [ %16, %13 ], [ 23, %33 ], [ %switch.load, %switch.lookup ], [ %.2, %brotli_map_error.exit ], [ %28, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

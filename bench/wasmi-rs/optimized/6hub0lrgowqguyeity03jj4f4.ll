@@ -933,10 +933,10 @@ _ZN5wasmi6engine9resumable19ResumableCallCommon15prepare_outputs17h748e46591cd2e
   unreachable
 
 .thread:                                          ; preds = %25, %43
-  %.pn14 = phi { ptr, i32 } [ %lpad.thr_comm, %43 ], [ %26, %25 ]
+  %.pn14 = phi { ptr, i32 } [ %26, %25 ], [ %lpad.thr_comm, %43 ]
   resume { ptr, i32 } %.pn14
 
-43:                                               ; preds = %5, %.noexc, %.noexc10
+43:                                               ; preds = %.noexc10, %5, %.noexc
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr69drop_in_place$LT$wasmi..engine..resumable..ResumableCallOutOfFuel$GT$17h5ce62346ec7ce2c8E"(ptr noalias noundef nonnull align 8 dereferenceable(128) %1) #15
@@ -1517,25 +1517,25 @@ _ZN5wasmi6global6Global2ty17hf1554efe813039caE.exit.i: ; preds = %.noexc96.i
           to label %234 unwind label %.loopexit.i, !noalias !114
 
 .loopexit439:                                     ; preds = %_ZN5wasmi6global6Global2ty17hf1554efe813039caE.exit.i, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i", %242, %183, %177
-  %.sroa.17.sroa.8.sroa.0.0 = phi i32 [ 0, %177 ], [ 0, %183 ], [ 0, %242 ], [ %.sroa.17.sroa.8.0.extract.shift212, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ 0, %_ZN5wasmi6global6Global2ty17hf1554efe813039caE.exit.i ]
-  %.sroa.17.sroa.0.0 = phi i8 [ undef, %177 ], [ undef, %183 ], [ undef, %242 ], [ %.sroa.17.sroa.0.0.extract.trunc209, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ %164, %_ZN5wasmi6global6Global2ty17hf1554efe813039caE.exit.i ]
-  %.sroa.19.sroa.11.0 = phi i32 [ %.sroa.19.sroa.11.0.extract.trunc203, %177 ], [ %.sroa.19.sroa.11.0.extract.trunc, %183 ], [ %.sroa.655.0.i, %242 ], [ %.sroa.19.sroa.11.0.extract.trunc207, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ undef, %_ZN5wasmi6global6Global2ty17hf1554efe813039caE.exit.i ]
-  %.sroa.19.sroa.10.0 = phi i16 [ %.sroa.19.sroa.10.0.extract.trunc197, %177 ], [ %.sroa.19.sroa.10.0.extract.trunc, %183 ], [ %.sroa.552.0.i, %242 ], [ %.sroa.19.sroa.10.0.extract.trunc201, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ undef, %_ZN5wasmi6global6Global2ty17hf1554efe813039caE.exit.i ]
-  %.sroa.19.sroa.9.0 = phi i8 [ %.sroa.19.sroa.9.0.extract.trunc191, %177 ], [ %.sroa.19.sroa.9.0.extract.trunc, %183 ], [ %.sroa.549.0.i, %242 ], [ %.sroa.19.sroa.9.0.extract.trunc195, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ undef, %_ZN5wasmi6global6Global2ty17hf1554efe813039caE.exit.i ]
-  %.sroa.19.sroa.0.0 = phi i64 [ %.sroa.47.i.sroa.6.7.copyload, %177 ], [ %.sroa.410.i.sroa.6.7.copyload, %183 ], [ %.sroa.047.0.i, %242 ], [ %.sroa.7.0.copyload4.i.i, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ 0, %_ZN5wasmi6global6Global2ty17hf1554efe813039caE.exit.i ]
-  %.sroa.25.sroa.9.sroa.0.0 = phi i56 [ %.sroa.25.sroa.9.0.extract.trunc182, %177 ], [ %.sroa.25.sroa.9.0.extract.trunc, %183 ], [ %.sroa.25.sroa.9.0.extract.trunc184, %242 ], [ %.sroa.7.i.sroa.0.0, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ undef, %_ZN5wasmi6global6Global2ty17hf1554efe813039caE.exit.i ]
-  %.sroa.25.sroa.0.0 = phi i8 [ %.sroa.25.sroa.0.0.extract.trunc178, %177 ], [ %.sroa.25.sroa.0.0.extract.trunc, %183 ], [ %.sroa.25.sroa.0.0.extract.trunc179, %242 ], [ %131, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ undef, %_ZN5wasmi6global6Global2ty17hf1554efe813039caE.exit.i ]
-  %.sroa.29.sroa.10.0 = phi i32 [ %.sroa.29.sroa.10.0.extract.trunc175, %177 ], [ %.sroa.29.sroa.10.0.extract.trunc, %183 ], [ %.sroa.29.sroa.10.0.extract.trunc177, %242 ], [ %.sroa.10.0.i, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ undef, %_ZN5wasmi6global6Global2ty17hf1554efe813039caE.exit.i ]
-  %.sroa.29.sroa.9.0 = phi i16 [ %.sroa.29.sroa.9.0.extract.trunc171, %177 ], [ %.sroa.29.sroa.9.0.extract.trunc, %183 ], [ %.sroa.29.sroa.9.0.extract.trunc173, %242 ], [ %.sroa.9.0.i, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ undef, %_ZN5wasmi6global6Global2ty17hf1554efe813039caE.exit.i ]
-  %.sroa.29.sroa.8.0 = phi i8 [ %.sroa.29.sroa.8.0.extract.trunc167, %177 ], [ %.sroa.29.sroa.8.0.extract.trunc, %183 ], [ %.sroa.29.sroa.8.0.extract.trunc169, %242 ], [ %.sroa.8.0.i, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ undef, %_ZN5wasmi6global6Global2ty17hf1554efe813039caE.exit.i ]
-  %.sroa.29.sroa.0.0 = phi i8 [ %.sroa.29.sroa.0.0.extract.trunc164, %177 ], [ %.sroa.29.sroa.0.0.extract.trunc, %183 ], [ %.sroa.29.sroa.0.0.extract.trunc165, %242 ], [ %.sroa.7124.0.i, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ undef, %_ZN5wasmi6global6Global2ty17hf1554efe813039caE.exit.i ]
-  %.sroa.39.0 = phi i64 [ %.sroa.39.40.copyload162, %177 ], [ %.sroa.39.40.copyload, %183 ], [ %.sroa.7340.0, %242 ], [ %.sroa.13.0.i, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ undef, %_ZN5wasmi6global6Global2ty17hf1554efe813039caE.exit.i ]
-  %.sroa.36.0 = phi i64 [ %.sroa.36.40.copyload160, %177 ], [ %.sroa.36.40.copyload, %183 ], [ %.sroa.6337.0, %242 ], [ %.sroa.12.0.i, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ undef, %_ZN5wasmi6global6Global2ty17hf1554efe813039caE.exit.i ]
-  %.sroa.34.0 = phi ptr [ %.sroa.47.i.sroa.10.7.copyload, %177 ], [ %.sroa.410.i.sroa.10.7.copyload, %183 ], [ %.sroa.0335.0, %242 ], [ %.sroa.11145.0.i, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ undef, %_ZN5wasmi6global6Global2ty17hf1554efe813039caE.exit.i ]
-  %.sroa.16.0 = phi i8 [ undef, %177 ], [ undef, %183 ], [ undef, %242 ], [ undef, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ %165, %_ZN5wasmi6global6Global2ty17hf1554efe813039caE.exit.i ]
-  %.sroa.15.0 = phi i8 [ undef, %177 ], [ undef, %183 ], [ undef, %242 ], [ undef, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ %169, %_ZN5wasmi6global6Global2ty17hf1554efe813039caE.exit.i ]
-  %.sroa.12.0 = phi i8 [ undef, %177 ], [ undef, %183 ], [ undef, %242 ], [ undef, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ %167, %_ZN5wasmi6global6Global2ty17hf1554efe813039caE.exit.i ]
-  %.sroa.0151.0 = phi i8 [ 4, %177 ], [ 5, %183 ], [ 3, %242 ], [ 1, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ 2, %_ZN5wasmi6global6Global2ty17hf1554efe813039caE.exit.i ]
+  %.sroa.17.sroa.8.sroa.0.0 = phi i32 [ %.sroa.17.sroa.8.0.extract.shift212, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ 0, %177 ], [ 0, %183 ], [ 0, %242 ], [ 0, %_ZN5wasmi6global6Global2ty17hf1554efe813039caE.exit.i ]
+  %.sroa.17.sroa.0.0 = phi i8 [ %.sroa.17.sroa.0.0.extract.trunc209, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ undef, %177 ], [ undef, %183 ], [ undef, %242 ], [ %164, %_ZN5wasmi6global6Global2ty17hf1554efe813039caE.exit.i ]
+  %.sroa.19.sroa.11.0 = phi i32 [ %.sroa.19.sroa.11.0.extract.trunc207, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ %.sroa.19.sroa.11.0.extract.trunc203, %177 ], [ %.sroa.19.sroa.11.0.extract.trunc, %183 ], [ %.sroa.655.0.i, %242 ], [ undef, %_ZN5wasmi6global6Global2ty17hf1554efe813039caE.exit.i ]
+  %.sroa.19.sroa.10.0 = phi i16 [ %.sroa.19.sroa.10.0.extract.trunc201, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ %.sroa.19.sroa.10.0.extract.trunc197, %177 ], [ %.sroa.19.sroa.10.0.extract.trunc, %183 ], [ %.sroa.552.0.i, %242 ], [ undef, %_ZN5wasmi6global6Global2ty17hf1554efe813039caE.exit.i ]
+  %.sroa.19.sroa.9.0 = phi i8 [ %.sroa.19.sroa.9.0.extract.trunc195, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ %.sroa.19.sroa.9.0.extract.trunc191, %177 ], [ %.sroa.19.sroa.9.0.extract.trunc, %183 ], [ %.sroa.549.0.i, %242 ], [ undef, %_ZN5wasmi6global6Global2ty17hf1554efe813039caE.exit.i ]
+  %.sroa.19.sroa.0.0 = phi i64 [ %.sroa.7.0.copyload4.i.i, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ %.sroa.47.i.sroa.6.7.copyload, %177 ], [ %.sroa.410.i.sroa.6.7.copyload, %183 ], [ %.sroa.047.0.i, %242 ], [ 0, %_ZN5wasmi6global6Global2ty17hf1554efe813039caE.exit.i ]
+  %.sroa.25.sroa.9.sroa.0.0 = phi i56 [ %.sroa.7.i.sroa.0.0, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ %.sroa.25.sroa.9.0.extract.trunc182, %177 ], [ %.sroa.25.sroa.9.0.extract.trunc, %183 ], [ %.sroa.25.sroa.9.0.extract.trunc184, %242 ], [ undef, %_ZN5wasmi6global6Global2ty17hf1554efe813039caE.exit.i ]
+  %.sroa.25.sroa.0.0 = phi i8 [ %131, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ %.sroa.25.sroa.0.0.extract.trunc178, %177 ], [ %.sroa.25.sroa.0.0.extract.trunc, %183 ], [ %.sroa.25.sroa.0.0.extract.trunc179, %242 ], [ undef, %_ZN5wasmi6global6Global2ty17hf1554efe813039caE.exit.i ]
+  %.sroa.29.sroa.10.0 = phi i32 [ %.sroa.10.0.i, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ %.sroa.29.sroa.10.0.extract.trunc175, %177 ], [ %.sroa.29.sroa.10.0.extract.trunc, %183 ], [ %.sroa.29.sroa.10.0.extract.trunc177, %242 ], [ undef, %_ZN5wasmi6global6Global2ty17hf1554efe813039caE.exit.i ]
+  %.sroa.29.sroa.9.0 = phi i16 [ %.sroa.9.0.i, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ %.sroa.29.sroa.9.0.extract.trunc171, %177 ], [ %.sroa.29.sroa.9.0.extract.trunc, %183 ], [ %.sroa.29.sroa.9.0.extract.trunc173, %242 ], [ undef, %_ZN5wasmi6global6Global2ty17hf1554efe813039caE.exit.i ]
+  %.sroa.29.sroa.8.0 = phi i8 [ %.sroa.8.0.i, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ %.sroa.29.sroa.8.0.extract.trunc167, %177 ], [ %.sroa.29.sroa.8.0.extract.trunc, %183 ], [ %.sroa.29.sroa.8.0.extract.trunc169, %242 ], [ undef, %_ZN5wasmi6global6Global2ty17hf1554efe813039caE.exit.i ]
+  %.sroa.29.sroa.0.0 = phi i8 [ %.sroa.7124.0.i, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ %.sroa.29.sroa.0.0.extract.trunc164, %177 ], [ %.sroa.29.sroa.0.0.extract.trunc, %183 ], [ %.sroa.29.sroa.0.0.extract.trunc165, %242 ], [ undef, %_ZN5wasmi6global6Global2ty17hf1554efe813039caE.exit.i ]
+  %.sroa.39.0 = phi i64 [ %.sroa.13.0.i, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ %.sroa.39.40.copyload162, %177 ], [ %.sroa.39.40.copyload, %183 ], [ %.sroa.7340.0, %242 ], [ undef, %_ZN5wasmi6global6Global2ty17hf1554efe813039caE.exit.i ]
+  %.sroa.36.0 = phi i64 [ %.sroa.12.0.i, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ %.sroa.36.40.copyload160, %177 ], [ %.sroa.36.40.copyload, %183 ], [ %.sroa.6337.0, %242 ], [ undef, %_ZN5wasmi6global6Global2ty17hf1554efe813039caE.exit.i ]
+  %.sroa.34.0 = phi ptr [ %.sroa.11145.0.i, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ %.sroa.47.i.sroa.10.7.copyload, %177 ], [ %.sroa.410.i.sroa.10.7.copyload, %183 ], [ %.sroa.0335.0, %242 ], [ undef, %_ZN5wasmi6global6Global2ty17hf1554efe813039caE.exit.i ]
+  %.sroa.16.0 = phi i8 [ undef, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ undef, %177 ], [ undef, %183 ], [ undef, %242 ], [ %165, %_ZN5wasmi6global6Global2ty17hf1554efe813039caE.exit.i ]
+  %.sroa.15.0 = phi i8 [ undef, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ undef, %177 ], [ undef, %183 ], [ undef, %242 ], [ %169, %_ZN5wasmi6global6Global2ty17hf1554efe813039caE.exit.i ]
+  %.sroa.12.0 = phi i8 [ undef, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ undef, %177 ], [ undef, %183 ], [ undef, %242 ], [ %167, %_ZN5wasmi6global6Global2ty17hf1554efe813039caE.exit.i ]
+  %.sroa.0151.0 = phi i8 [ 1, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ 4, %177 ], [ 5, %183 ], [ 3, %242 ], [ 2, %_ZN5wasmi6global6Global2ty17hf1554efe813039caE.exit.i ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$wasmi..module..ImportType$GT$17h8ea2097f5c13b117E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %64)
           to label %247 unwind label %.loopexit.split-lp.i, !noalias !114
 
@@ -1872,37 +1872,37 @@ _ZN5wasmi4func4Func2ty17hf6abec812912b588E.exit.i: ; preds = %.noexc109.i
   invoke void @"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$wasmi..instance..exports..Extern$GT$$GT$17h95a607202742997eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %71) #15
           to label %.body.thread unwind label %245, !noalias !159
 
-.body.thread359.loopexit:                         ; preds = %.noexc148, %.noexc.i133, %.noexc146, %.noexc149, %.noexc144, %522, %.noexc141, %.noexc140, %.noexc139, %.noexc138, %"_ZN5wasmi6module11instantiate39_$LT$impl$u20$wasmi..module..Module$GT$14eval_init_expr17hf8764d2a487ea520E.exit.i128", %502
+.body.thread359.loopexit:                         ; preds = %.noexc.i133, %.noexc146, %.noexc149, %.noexc144, %522, %.noexc141, %.noexc140, %.noexc139, %.noexc138, %"_ZN5wasmi6module11instantiate39_$LT$impl$u20$wasmi..module..Module$GT$14eval_init_expr17hf8764d2a487ea520E.exit.i128", %502, %.noexc148
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
 
-.body.thread359.loopexit.split-lp.loopexit:       ; preds = %445, %.noexc104, %455, %.noexc106, %"_ZN5wasmi6module11instantiate39_$LT$impl$u20$wasmi..module..Module$GT$14eval_init_expr17hf8764d2a487ea520E.exit.i", %.noexc109, %.noexc110, %.noexc111, %.noexc112, %.noexc113, %.noexc114, %.noexc122, %481, %.noexc118, %.noexc119, %492
+.body.thread359.loopexit.split-lp.loopexit:       ; preds = %492, %445, %.noexc104, %455, %.noexc106, %"_ZN5wasmi6module11instantiate39_$LT$impl$u20$wasmi..module..Module$GT$14eval_init_expr17hf8764d2a487ea520E.exit.i", %.noexc109, %.noexc110, %.noexc111, %.noexc112, %.noexc113, %.noexc114, %.noexc122, %481, %.noexc118, %.noexc119
   %lpad.loopexit421 = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
 
-.body.thread359.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %.noexc94, %.noexc93, %.noexc92, %.noexc91, %.noexc90, %.noexc89, %"_ZN5wasmi6module11instantiate39_$LT$impl$u20$wasmi..module..Module$GT$14eval_init_expr17habcbf45e90498702E.exit.i", %.noexc86, %416
+.body.thread359.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %.noexc93, %.noexc92, %.noexc91, %.noexc90, %.noexc89, %"_ZN5wasmi6module11instantiate39_$LT$impl$u20$wasmi..module..Module$GT$14eval_init_expr17habcbf45e90498702E.exit.i", %.noexc86, %416, %.noexc94
   %lpad.loopexit425 = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
 
-.body.thread359.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %371, %.noexc70, %403, %.noexc77
+.body.thread359.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %.noexc77, %371, %.noexc70, %403
   %lpad.loopexit428 = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
 
-.body.thread359.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %.noexc50, %349, %.noexc43, %.noexc42, %_ZN5wasmi5value3Val7default17hd59a259cd0adad81E.exit.i, %314, %310, %309, %302
+.body.thread359.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %349, %.noexc43, %.noexc42, %_ZN5wasmi5value3Val7default17hd59a259cd0adad81E.exit.i, %314, %310, %309, %302, %.noexc50
   %lpad.loopexit432 = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
 
-.body.thread359.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %276, %.noexc28, %.noexc29, %.noexc30, %.noexc31
+.body.thread359.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %.noexc31, %276, %.noexc28, %.noexc29, %.noexc30
   %lpad.loopexit435 = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
 
-.body.thread359.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke, %432, %.loopexit427, %126, %247, %.thread181.i, %267, %270, %.noexc26, %.loopexit438, %.noexc35, %287, %325, %"_ZN5wasmi6module11instantiate39_$LT$impl$u20$wasmi..module..Module$GT$14extract_tables28_$u7b$$u7b$closure$u7d$$u7d$17h30474d86d2f024b2E.exit.i", %354, %.loopexit434, %.noexc67, %359, %379, %"_ZN5wasmi6module11instantiate39_$LT$impl$u20$wasmi..module..Module$GT$16extract_memories28_$u7b$$u7b$closure$u7d$$u7d$17hce8f5802c86de5a0E.exit.i", %409, %.loopexit431, %.noexc84, %433, %477, %487, %.loopexit424, %.noexc134, %517
+.body.thread359.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke, %267, %354, %409, %432, %.loopexit427, %.thread181.i, %126, %247, %270, %.noexc26, %.loopexit438, %.noexc35, %287, %325, %"_ZN5wasmi6module11instantiate39_$LT$impl$u20$wasmi..module..Module$GT$14extract_tables28_$u7b$$u7b$closure$u7d$$u7d$17h30474d86d2f024b2E.exit.i", %.loopexit434, %.noexc67, %359, %379, %"_ZN5wasmi6module11instantiate39_$LT$impl$u20$wasmi..module..Module$GT$16extract_memories28_$u7b$$u7b$closure$u7d$$u7d$17hce8f5802c86de5a0E.exit.i", %.loopexit431, %.noexc84, %433, %477, %487, %.loopexit424, %.noexc134, %517
   %lpad.loopexit.split-lp436 = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -2287,9 +2287,9 @@ _ZN5wasmi5value3Val7default17hd59a259cd0adad81E.exit.i: ; preds = %309, %.noexc4
   br i1 %353, label %.loopexit434, label %302
 
 354:                                              ; preds = %.noexc36, %.noexc49
-  %.sroa.10.0 = phi i64 [ %348, %.noexc49 ], [ undef, %.noexc36 ]
-  %.sroa.8215.0 = phi i32 [ %.sroa.649.sroa.0.0.extract.trunc.i, %.noexc49 ], [ undef, %.noexc36 ]
-  %.sroa.0214.0 = phi i8 [ 12, %.noexc49 ], [ 9, %.noexc36 ]
+  %.sroa.10.0 = phi i64 [ undef, %.noexc36 ], [ %348, %.noexc49 ]
+  %.sroa.8215.0 = phi i32 [ undef, %.noexc36 ], [ %.sroa.649.sroa.0.0.extract.trunc.i, %.noexc49 ]
+  %.sroa.0214.0 = phi i8 [ 9, %.noexc36 ], [ 12, %.noexc49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
   call void @llvm.lifetime.start.p0(ptr nonnull %36), !noalias !197
@@ -2474,9 +2474,9 @@ _ZN5wasmi5value3Val7default17hd59a259cd0adad81E.exit.i: ; preds = %309, %.noexc4
   br i1 %408, label %.loopexit431, label %371
 
 409:                                              ; preds = %.noexc68, %.noexc76
-  %.sroa.10220.0 = phi i64 [ %402, %.noexc76 ], [ undef, %.noexc68 ]
-  %.sroa.8218.0 = phi i32 [ %.sroa.649.sroa.0.0.extract.trunc.i63, %.noexc76 ], [ undef, %.noexc68 ]
-  %.sroa.0216.0 = phi i8 [ 11, %.noexc76 ], [ 10, %.noexc68 ]
+  %.sroa.10220.0 = phi i64 [ undef, %.noexc68 ], [ %402, %.noexc76 ]
+  %.sroa.8218.0 = phi i32 [ undef, %.noexc68 ], [ %.sroa.649.sroa.0.0.extract.trunc.i63, %.noexc76 ]
+  %.sroa.0216.0 = phi i8 [ 10, %.noexc68 ], [ 11, %.noexc76 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !220
   %410 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i8 %.sroa.0216.0, ptr %410, align 8
@@ -2782,7 +2782,7 @@ _ZN5wasmi5value3Val7default17hd59a259cd0adad81E.exit.i: ; preds = %309, %.noexc4
           to label %.noexc122 unwind label %.body.thread359.loopexit.split-lp.loopexit
 
 493:                                              ; preds = %.noexc117, %.noexc121
-  %.sroa.0.0.i = phi ptr [ %480, %.noexc117 ], [ %491, %.noexc121 ]
+  %.sroa.0.0.i = phi ptr [ %491, %.noexc121 ], [ %480, %.noexc117 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
@@ -2974,11 +2974,11 @@ _ZN5wasmi5value3Val7default17hd59a259cd0adad81E.exit.i: ; preds = %309, %.noexc4
   br label %534
 
 .thread:                                          ; preds = %.body.thread, %541
-  %.pn347 = phi { ptr, i32 } [ %lpad.thr_comm, %541 ], [ %eh.lpad-body355, %.body.thread ]
+  %.pn347 = phi { ptr, i32 } [ %eh.lpad-body355, %.body.thread ], [ %lpad.thr_comm, %541 ]
   resume { ptr, i32 } %.pn347
 
-.body.thread:                                     ; preds = %.body.thread359.loopexit, %.body.thread359.loopexit.split-lp.loopexit.split-lp.loopexit, %.body.thread359.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.body.thread359.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.body.thread359.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.body.thread359.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.body.thread359.loopexit.split-lp.loopexit, %384, %330, %123, %264, %265
-  %eh.lpad-body355 = phi { ptr, i32 } [ %.pn83.i, %123 ], [ %lpad.thr_comm.i, %264 ], [ %266, %265 ], [ %331, %330 ], [ %385, %384 ], [ %lpad.loopexit, %.body.thread359.loopexit ], [ %lpad.loopexit421, %.body.thread359.loopexit.split-lp.loopexit ], [ %lpad.loopexit425, %.body.thread359.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit428, %.body.thread359.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit432, %.body.thread359.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit435, %.body.thread359.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp436, %.body.thread359.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+.body.thread:                                     ; preds = %.body.thread359.loopexit, %.body.thread359.loopexit.split-lp.loopexit.split-lp.loopexit, %.body.thread359.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.body.thread359.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.body.thread359.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.body.thread359.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.body.thread359.loopexit.split-lp.loopexit, %384, %330, %264, %265, %123
+  %eh.lpad-body355 = phi { ptr, i32 } [ %385, %384 ], [ %331, %330 ], [ %lpad.thr_comm.i, %264 ], [ %266, %265 ], [ %.pn83.i, %123 ], [ %lpad.loopexit, %.body.thread359.loopexit ], [ %lpad.loopexit421, %.body.thread359.loopexit.split-lp.loopexit ], [ %lpad.loopexit425, %.body.thread359.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit428, %.body.thread359.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit432, %.body.thread359.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit435, %.body.thread359.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp436, %.body.thread359.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr68drop_in_place$LT$wasmi..instance..builder..InstanceEntityBuilder$GT$17h9f10b03dd2937426E"(ptr noalias noundef nonnull align 8 dereferenceable(192) %72) #15
           to label %.thread unwind label %539
 
@@ -2988,7 +2988,7 @@ _ZN5wasmi5value3Val7default17hd59a259cd0adad81E.exit.i: ; preds = %309, %.noexc4
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #16
   unreachable
 
-541:                                              ; preds = %76, %4, %79, %83
+541:                                              ; preds = %4, %76, %79, %83
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$wasmi..instance..exports..Extern$GT$$GT$17h95a607202742997eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #15
@@ -3152,7 +3152,7 @@ _ZN5wasmi4func4Func4call17h1c0ff14f23ca01deE.exit: ; preds = %56
   ret void
 
 .body.thread:                                     ; preds = %54, %66
-  %eh.lpad-body24 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %66 ], [ %55, %54 ]
+  %eh.lpad-body24 = phi { ptr, i32 } [ %55, %54 ], [ %lpad.thr_comm.split-lp, %66 ]
   resume { ptr, i32 } %eh.lpad-body24
 
 66:                                               ; preds = %3

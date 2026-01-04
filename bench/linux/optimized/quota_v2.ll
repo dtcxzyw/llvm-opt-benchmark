@@ -268,7 +268,7 @@ define internal i32 @v2_read_file_info(ptr noundef %0, i32 noundef %1) #2 align 
   br label %.thread
 
 .thread:                                          ; preds = %15, %87, %90, %41, %37, %27, %.thread9, %17
-  %92 = phi i32 [ %18, %17 ], [ -117, %90 ], [ -22, %27 ], [ -22, %.thread9 ], [ -12, %41 ], [ %40, %37 ], [ 0, %87 ], [ -5, %15 ]
+  %92 = phi i32 [ %18, %17 ], [ -117, %90 ], [ 0, %87 ], [ -22, %27 ], [ -22, %.thread9 ], [ -12, %41 ], [ %40, %37 ], [ -5, %15 ]
   call void @up_read(ptr noundef nonnull %8) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

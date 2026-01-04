@@ -350,7 +350,7 @@ BufferGetPage.exit47:                             ; preds = %90, %96
   br label %103
 
 103:                                              ; preds = %79, %BufferGetPage.exit47, %73, %77
-  %.0 = phi i32 [ 2, %77 ], [ 2, %73 ], [ %., %BufferGetPage.exit47 ], [ 3, %79 ]
+  %.0 = phi i32 [ 2, %77 ], [ %., %BufferGetPage.exit47 ], [ 2, %73 ], [ 3, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -450,7 +450,7 @@ BufferGetPage.exit:                               ; preds = %28, %34
   br label %.critedge
 
 .critedge:                                        ; preds = %.thread57, %25, %BufferGetPage.exit, %42, %18, %17
-  %.0 = phi i32 [ 0, %42 ], [ 0, %17 ], [ 0, %18 ], [ %.05156, %BufferGetPage.exit ], [ %26, %25 ], [ %24, %.thread57 ]
+  %.0 = phi i32 [ 0, %18 ], [ 0, %42 ], [ 0, %17 ], [ %.05156, %BufferGetPage.exit ], [ %26, %25 ], [ %24, %.thread57 ]
   ret i32 %.0
 }
 
@@ -1054,8 +1054,8 @@ define internal fastcc i32 @read_local_xlog_page_guts(ptr noundef %0, i64 nounde
   br label %.loopexit
 
 .loopexit:                                        ; preds = %21, %36, %.split41.us, %37
-  %.1 = phi i64 [ %.029, %37 ], [ %41, %.split41.us ], [ %.029, %36 ], [ %.029.us, %21 ]
-  %.028 = phi i32 [ %32, %37 ], [ %.us-phi, %.split41.us ], [ %32, %36 ], [ %17, %21 ]
+  %.1 = phi i64 [ %41, %.split41.us ], [ %.029, %37 ], [ %.029, %36 ], [ %.029.us, %21 ]
+  %.028 = phi i32 [ %.us-phi, %.split41.us ], [ %32, %37 ], [ %32, %36 ], [ %17, %21 ]
   %42 = add i64 %1, 8192
   %.not32 = icmp ugt i64 %42, %.1
   br i1 %.not32, label %43, label %48

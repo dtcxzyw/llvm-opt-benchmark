@@ -62,8 +62,8 @@ define void @dlaed9_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br i1 %44, label %.thread, label %46
 
 .thread:                                          ; preds = %42, %39, %36, %32, %27, %30, %13
-  %.sink = phi i32 [ -1, %13 ], [ -2, %30 ], [ -2, %27 ], [ -3, %32 ], [ -4, %36 ], [ -7, %39 ], [ -12, %42 ]
-  %.neg288 = phi i32 [ 1, %13 ], [ 2, %30 ], [ 2, %27 ], [ 3, %32 ], [ 4, %36 ], [ 7, %39 ], [ 12, %42 ]
+  %.sink = phi i32 [ -1, %13 ], [ -2, %27 ], [ -4, %36 ], [ -7, %39 ], [ -3, %32 ], [ -2, %30 ], [ -12, %42 ]
+  %.neg288 = phi i32 [ 1, %13 ], [ 2, %27 ], [ 4, %36 ], [ 7, %39 ], [ 3, %32 ], [ 2, %30 ], [ 12, %42 ]
   store i32 %.sink, ptr %12, align 4, !tbaa !3
   store i32 %.neg288, ptr %14, align 4, !tbaa !3
   %45 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %14, i32 noundef 6) #5

@@ -230,9 +230,9 @@ define dso_local void @gres_filter_sock_core(ptr noundef readonly captures(none)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %.thread
 
-.thread:                                          ; preds = %87, %92, %84, %118, %95
-  %.promoted919 = phi i16 [ %.lcssa890, %118 ], [ 0, %95 ], [ 0, %84 ], [ 0, %92 ], [ 0, %87 ]
-  %.0641831 = phi i1 [ true, %118 ], [ false, %95 ], [ false, %84 ], [ false, %92 ], [ false, %87 ]
+.thread:                                          ; preds = %92, %87, %84, %118, %95
+  %.promoted919 = phi i16 [ 0, %95 ], [ %.lcssa890, %118 ], [ 0, %84 ], [ 0, %87 ], [ 0, %92 ]
+  %.0641831 = phi i1 [ false, %95 ], [ true, %118 ], [ false, %84 ], [ false, %87 ], [ false, %92 ]
   %119 = call i32 @llvm.smax.i32(i32 %.05971005, i32 1)
   %120 = load i16, ptr %45, align 4
   %narrow = call i16 @llvm.umax.i16(i16 %120, i16 1)
@@ -273,7 +273,7 @@ define dso_local void @gres_filter_sock_core(ptr noundef readonly captures(none)
   br label %.thread.i
 
 .thread.i:                                        ; preds = %132, %129
-  %.024.ph.i = phi i64 [ %131, %129 ], [ %spec.select.i, %132 ]
+  %.024.ph.i = phi i64 [ %spec.select.i, %132 ], [ %131, %129 ]
   %141 = getelementptr inbounds nuw i8, ptr %72, i64 48
   %142 = load i64, ptr %141, align 8
   %143 = call i64 @llvm.umin.i64(i64 %.024.ph.i, i64 %142)
@@ -292,8 +292,8 @@ define dso_local void @gres_filter_sock_core(ptr noundef readonly captures(none)
   br label %_set_max_gres.exit
 
 _set_max_gres.exit:                               ; preds = %.thread44.i, %.thread.i, %144
-  %.not3243.in.i = phi i64 [ %142, %.thread.i ], [ %124, %.thread44.i ], [ %150, %144 ]
-  %152 = phi i64 [ %143, %.thread.i ], [ %124, %.thread44.i ], [ %spec.select50.i, %144 ]
+  %.not3243.in.i = phi i64 [ %142, %.thread.i ], [ %150, %144 ], [ %124, %.thread44.i ]
+  %152 = phi i64 [ %143, %.thread.i ], [ %spec.select50.i, %144 ], [ %124, %.thread44.i ]
   %.not3243.i = icmp eq i64 %.not3243.in.i, 0
   %.0.i = select i1 %.not3243.i, i64 0, i64 %152
   %.not728 = icmp eq i64 %.0.i, 0
@@ -439,7 +439,7 @@ switch.early.test.i:                              ; preds = %202
   br label %_estimate_cpus_per_gres.exit
 
 _estimate_cpus_per_gres.exit:                     ; preds = %211, %220, %202, %switch.early.test.i, %switch.early.test.i, %213, %216
-  %.1829 = phi i16 [ 0, %202 ], [ 0, %216 ], [ 0, %213 ], [ 0, %switch.early.test.i ], [ 0, %switch.early.test.i ], [ %221, %220 ], [ %212, %211 ]
+  %.1829 = phi i16 [ 0, %202 ], [ 0, %switch.early.test.i ], [ 0, %216 ], [ 0, %213 ], [ 0, %switch.early.test.i ], [ %221, %220 ], [ %212, %211 ]
   %222 = load i32, ptr %50, align 8
   %.not735 = icmp eq i32 %222, 0
   br i1 %.not735, label %223, label %228
@@ -452,8 +452,8 @@ _estimate_cpus_per_gres.exit:                     ; preds = %211, %220, %202, %s
   br label %228
 
 228:                                              ; preds = %195, %181, %193, %198, %223, %_estimate_cpus_per_gres.exit
-  %.0828 = phi i16 [ %194, %193 ], [ 0, %198 ], [ %227, %223 ], [ %.1829, %_estimate_cpus_per_gres.exit ], [ %189, %181 ], [ %197, %195 ]
-  %.3604 = phi i8 [ %.06011003, %193 ], [ %.06011003, %198 ], [ %.06011003, %223 ], [ %.06011003, %_estimate_cpus_per_gres.exit ], [ 1, %181 ], [ %.mux851, %195 ]
+  %.0828 = phi i16 [ %194, %193 ], [ 0, %198 ], [ %227, %223 ], [ %.1829, %_estimate_cpus_per_gres.exit ], [ %197, %195 ], [ %189, %181 ]
+  %.3604 = phi i8 [ %.06011003, %193 ], [ %.06011003, %198 ], [ %.06011003, %223 ], [ %.06011003, %_estimate_cpus_per_gres.exit ], [ %.mux851, %195 ], [ 1, %181 ]
   %229 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %230 = load i64, ptr %229, align 8
   %.fr857 = freeze i64 %230
@@ -685,7 +685,7 @@ _estimate_cpus_per_gres.exit:                     ; preds = %211, %220, %202, %s
   br i1 %335, label %.lr.ph905.split, label %.thread833, !llvm.loop !14
 
 .thread833:                                       ; preds = %334, %329, %330, %312, %306, %308, %..thread833_crit_edge
-  %.pre-phi1097 = phi i64 [ %.pre1096, %..thread833_crit_edge ], [ %278, %308 ], [ %278, %306 ], [ %278, %312 ], [ %278, %330 ], [ %278, %329 ], [ %278, %334 ]
+  %.pre-phi1097 = phi i64 [ %.pre1096, %..thread833_crit_edge ], [ %278, %312 ], [ %278, %308 ], [ %278, %306 ], [ %278, %330 ], [ %278, %329 ], [ %278, %334 ]
   %336 = phi i16 [ %241, %..thread833_crit_edge ], [ %313, %312 ], [ %307, %306 ], [ %307, %308 ], [ %241, %330 ], [ %241, %329 ], [ %241, %334 ]
   %.6 = phi i32 [ %.3927, %..thread833_crit_edge ], [ %.7.us, %312 ], [ %288, %306 ], [ %288, %308 ], [ %.7, %334 ], [ %322, %329 ], [ %322, %330 ]
   %337 = load ptr, ptr @avail_cores_per_sock, align 8
@@ -755,9 +755,9 @@ _estimate_cpus_per_gres.exit:                     ; preds = %211, %220, %202, %s
   br label %372
 
 372:                                              ; preds = %350, %368, %371
-  %.1639 = phi i32 [ %.2640, %371 ], [ %.2640, %368 ], [ %.0638924, %350 ]
-  %.1621 = phi i64 [ %359, %371 ], [ %359, %368 ], [ %.0620925, %350 ]
-  %.1618 = phi i1 [ true, %371 ], [ %.0617926, %368 ], [ %.0617926, %350 ]
+  %.1639 = phi i32 [ %.0638924, %350 ], [ %.2640, %371 ], [ %.2640, %368 ]
+  %.1621 = phi i64 [ %.0620925, %350 ], [ %359, %371 ], [ %359, %368 ]
+  %.1618 = phi i1 [ %.0617926, %350 ], [ true, %371 ], [ %.0617926, %368 ]
   %indvars.iv.next1063 = add nuw nsw i64 %indvars.iv1062, 1
   %exitcond1065.not = icmp eq i64 %indvars.iv.next1063, %wide.trip.count1064
   br i1 %exitcond1065.not, label %._crit_edge930, label %240, !llvm.loop !15
@@ -926,7 +926,7 @@ _estimate_cpus_per_gres.exit:                     ; preds = %211, %220, %202, %s
   br label %458
 
 458:                                              ; preds = %456, %454, %437
-  %.1.us.us.i = phi i32 [ %.03655.us.us.i, %437 ], [ %455, %454 ], [ %457, %456 ]
+  %.1.us.us.i = phi i32 [ %.03655.us.us.i, %437 ], [ %457, %456 ], [ %455, %454 ]
   %indvars.iv.next115.i = add nuw nsw i64 %indvars.iv114.i, 1
   %exitcond119.not.i = icmp eq i64 %indvars.iv.next115.i, %wide.trip.count118.i
   br i1 %exitcond119.not.i, label %_shared_gres_task_limit.exit, label %.lr.ph.split.us.split.us.i, !llvm.loop !18
@@ -1156,7 +1156,7 @@ _estimate_cpus_per_gres.exit:                     ; preds = %211, %220, %202, %s
   br i1 %567, label %.lr.ph.split.split.split.i, label %_shared_gres_task_limit.exit, !llvm.loop !18
 
 _shared_gres_task_limit.exit:                     ; preds = %529, %564, %458, %498, %478, %426
-  %.036.lcssa.i = phi i32 [ 0, %426 ], [ %.1.us.us88.i, %478 ], [ %.1.us.i, %498 ], [ %.1.us.us.i, %458 ], [ %.1.i, %564 ], [ %.1.us66.i, %529 ]
+  %.036.lcssa.i = phi i32 [ 0, %426 ], [ %.1.i, %564 ], [ %.1.us.i, %498 ], [ %.1.us.us88.i, %478 ], [ %.1.us.us.i, %458 ], [ %.1.us66.i, %529 ]
   %568 = sext i32 %.036.lcssa.i to i64
   br label %572
 
@@ -1940,7 +1940,7 @@ _shared_gres_task_limit.exit:                     ; preds = %529, %564, %458, %4
   br label %953
 
 .thread844.sink.split:                            ; preds = %165, %168, %172, %153, %155, %825, %831, %828, %812, %818, %815
-  %.2603.ph.ph = phi i8 [ %.3604, %815 ], [ %.3604, %818 ], [ %.3604, %812 ], [ %.3604, %828 ], [ %.3604, %831 ], [ %.3604, %825 ], [ %.06011003, %155 ], [ %.06011003, %153 ], [ %.06011003, %172 ], [ %.06011003, %168 ], [ %.06011003, %165 ]
+  %.2603.ph.ph = phi i8 [ %.3604, %815 ], [ %.3604, %812 ], [ %.3604, %818 ], [ %.3604, %828 ], [ %.3604, %831 ], [ %.3604, %825 ], [ %.06011003, %155 ], [ %.06011003, %153 ], [ %.06011003, %172 ], [ %.06011003, %168 ], [ %.06011003, %165 ]
   store i32 0, ptr %8, align 4
   br label %.thread844
 
@@ -1951,9 +1951,9 @@ _shared_gres_task_limit.exit:                     ; preds = %529, %564, %458, %4
   br label %.loopexit867
 
 953:                                              ; preds = %951, %947, %664, %670, %667, %81
-  %.2603 = phi i8 [ %.06011003, %81 ], [ %.3604, %667 ], [ %.3604, %670 ], [ %.3604, %664 ], [ 0, %947 ], [ %.3604, %951 ]
-  %.2 = phi i32 [ %.15991004, %81 ], [ %.3.lcssa, %667 ], [ %.3.lcssa, %670 ], [ %.3.lcssa, %664 ], [ %.3.lcssa, %947 ], [ %.3.lcssa, %951 ]
-  %.1 = phi i32 [ %.05971005, %81 ], [ %119, %667 ], [ %119, %670 ], [ %119, %664 ], [ %119, %947 ], [ %119, %951 ]
+  %.2603 = phi i8 [ %.3604, %664 ], [ %.3604, %667 ], [ %.06011003, %81 ], [ %.3604, %670 ], [ 0, %947 ], [ %.3604, %951 ]
+  %.2 = phi i32 [ %.3.lcssa, %664 ], [ %.3.lcssa, %667 ], [ %.15991004, %81 ], [ %.3.lcssa, %670 ], [ %.3.lcssa, %947 ], [ %.3.lcssa, %951 ]
+  %.1 = phi i32 [ %119, %664 ], [ %119, %667 ], [ %.05971005, %81 ], [ %119, %670 ], [ %119, %947 ], [ %119, %951 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %954 = call ptr @list_next(ptr noundef %39) #5

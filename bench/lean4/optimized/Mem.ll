@@ -5478,7 +5478,7 @@ _init_l_Array___aux__Init__Data__Array__Mem______macroRules__Array__tacticArray_
   br label %339
 
 339:                                              ; preds = %.sink.split, %lean_dec_ref.exit13, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit13 ], [ %.sink45, %.sink.split ]
+  %.0 = phi ptr [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit13 ], [ %8, %7 ], [ %.sink45, %.sink.split ]
   ret ptr %.0
 }
 

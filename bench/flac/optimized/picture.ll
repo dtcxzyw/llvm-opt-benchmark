@@ -361,8 +361,8 @@ thread-pre-split:                                 ; preds = %114
   %.not99 = icmp eq i32 %136, 32
   br i1 %.not99, label %.thread136.thread191, label %.thread136.thread.sink.split
 
-.thread136.thread.sink.split:                     ; preds = %20, %local__parse_resolution_.exit, %79, %81, %53, %46, %safe_malloc_add_2op_.exit.i106, %43, %36, %safe_malloc_add_2op_.exit.i, %68, %.preheader.i, %63, %70, %134, %131, %129, %106, %110, %114, %103, %100, %94
-  %.str.4.sink = phi ptr [ @.str.4, %94 ], [ @.str.4, %100 ], [ @.str.3, %103 ], [ @.str.6, %114 ], [ @.str.6, %110 ], [ @.str.6, %106 ], [ @.str.12, %129 ], [ @.str.12, %131 ], [ @.str.12, %134 ], [ @.str.5, %70 ], [ @.str.5, %63 ], [ @.str.10, %.preheader.i ], [ @.str.5, %68 ], [ @.str.3, %safe_malloc_add_2op_.exit.i ], [ @.str.3, %36 ], [ @.str.3, %43 ], [ @.str.3, %safe_malloc_add_2op_.exit.i106 ], [ @.str.3, %46 ], [ @.str.3, %53 ], [ @.str.5, %81 ], [ @.str.5, %79 ], [ @.str.5, %local__parse_resolution_.exit ], [ @.str.4, %20 ]
+.thread136.thread.sink.split:                     ; preds = %20, %local__parse_resolution_.exit, %79, %81, %53, %46, %safe_malloc_add_2op_.exit.i106, %43, %36, %safe_malloc_add_2op_.exit.i, %68, %.preheader.i, %70, %63, %134, %131, %129, %106, %110, %114, %103, %100, %94
+  %.str.4.sink = phi ptr [ @.str.12, %131 ], [ @.str.6, %106 ], [ @.str.5, %70 ], [ @.str.6, %114 ], [ @.str.6, %110 ], [ @.str.12, %129 ], [ @.str.5, %68 ], [ @.str.10, %.preheader.i ], [ @.str.4, %94 ], [ @.str.3, %103 ], [ @.str.4, %100 ], [ @.str.12, %134 ], [ @.str.5, %63 ], [ @.str.3, %43 ], [ @.str.3, %53 ], [ @.str.4, %20 ], [ @.str.3, %safe_malloc_add_2op_.exit.i ], [ @.str.3, %safe_malloc_add_2op_.exit.i106 ], [ @.str.5, %81 ], [ @.str.5, %79 ], [ @.str.5, %local__parse_resolution_.exit ], [ @.str.3, %36 ], [ @.str.3, %46 ]
   store ptr %.str.4.sink, ptr %1, align 8, !tbaa !4
   br label %.thread136.thread
 
@@ -371,7 +371,7 @@ thread-pre-split:                                 ; preds = %114
   br label %.thread136.thread191
 
 .thread136.thread191:                             ; preds = %134, %122, %.thread136.thread, %2, %8
-  %.078 = phi ptr [ null, %8 ], [ null, %2 ], [ null, %.thread136.thread ], [ %6, %122 ], [ %6, %134 ]
+  %.078 = phi ptr [ null, %.thread136.thread ], [ null, %2 ], [ null, %8 ], [ %6, %122 ], [ %6, %134 ]
   ret ptr %.078
 }
 
@@ -484,7 +484,7 @@ fread.inline.exit:                                ; preds = %14
   br label %49
 
 49:                                               ; preds = %46, %21, %30, %44, %11, %7, %5, %2, %20, %17
-  %.025 = phi ptr [ @.str.8, %17 ], [ @.str.9, %20 ], [ @.str.8, %2 ], [ @.str.15, %5 ], [ @.str.14, %7 ], [ @.str.3, %11 ], [ @.str.9, %21 ], [ @.str.11, %30 ], [ @.str.7, %44 ], [ %spec.select, %46 ]
+  %.025 = phi ptr [ @.str.3, %11 ], [ @.str.8, %2 ], [ @.str.15, %5 ], [ @.str.14, %7 ], [ @.str.8, %17 ], [ @.str.9, %20 ], [ @.str.7, %44 ], [ %spec.select, %46 ], [ @.str.11, %30 ], [ @.str.9, %21 ]
   ret ptr %.025
 }
 
@@ -643,7 +643,7 @@ thread-pre-split:                                 ; preds = %59
   br i1 %.not66, label %.thread.thread77, label %.thread.thread.sink.split
 
 .thread.thread.sink.split:                        ; preds = %78, %75, %73, %51, %55, %59, %47
-  %.str.3.sink = phi ptr [ @.str.3, %47 ], [ @.str.6, %59 ], [ @.str.6, %55 ], [ @.str.6, %51 ], [ @.str.12, %73 ], [ @.str.12, %75 ], [ @.str.12, %78 ]
+  %.str.3.sink = phi ptr [ @.str.6, %51 ], [ @.str.3, %47 ], [ @.str.6, %59 ], [ @.str.6, %55 ], [ @.str.12, %73 ], [ @.str.12, %75 ], [ @.str.12, %78 ]
   store ptr %.str.3.sink, ptr %5, align 8, !tbaa !4
   br label %.thread.thread
 
@@ -652,7 +652,7 @@ thread-pre-split:                                 ; preds = %59
   br label %.thread.thread77
 
 .thread.thread77:                                 ; preds = %78, %67, %.thread.thread, %6, %23, %19, %13
-  %.054 = phi ptr [ null, %13 ], [ %11, %23 ], [ %11, %19 ], [ null, %6 ], [ null, %.thread.thread ], [ %11, %67 ], [ %11, %78 ]
+  %.054 = phi ptr [ %11, %19 ], [ null, %13 ], [ null, %6 ], [ %11, %23 ], [ null, %.thread.thread ], [ %11, %67 ], [ %11, %78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.054
 }
@@ -724,12 +724,12 @@ define internal fastcc i32 @local__extract_mime_type_(ptr noundef nonnull %0) un
   br i1 %18, label %.sink.split, label %20
 
 .sink.split:                                      ; preds = %.thread10, %.thread, %13, %5
-  %.str.22.sink = phi ptr [ @.str.2, %5 ], [ @.str.20, %13 ], [ @.str.20, %.thread ], [ @.str.22, %.thread10 ]
+  %.str.22.sink = phi ptr [ @.str.20, %.thread ], [ @.str.2, %5 ], [ @.str.20, %13 ], [ @.str.22, %.thread10 ]
   %19 = tail call i32 @FLAC__metadata_object_picture_set_mime_type(ptr noundef nonnull %0, ptr noundef nonnull %.str.22.sink, i32 noundef 1) #12
   br label %20
 
 20:                                               ; preds = %.sink.split, %15, %.thread10
-  %.0 = phi i32 [ 0, %.thread10 ], [ 0, %15 ], [ %19, %.sink.split ]
+  %.0 = phi i32 [ 0, %15 ], [ 0, %.thread10 ], [ %19, %.sink.split ]
   ret i32 %.0
 }
 
@@ -1083,13 +1083,13 @@ define internal fastcc range(i32 0, 2) i32 @local__extract_resolution_color_info
   br label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %44, %.loopexit.sink.split, %192, %143, %106
-  %.sink279 = phi i32 [ %107, %106 ], [ 0, %143 ], [ %206, %192 ], [ 0, %.loopexit.sink.split ], [ 0, %44 ]
+  %.sink279 = phi i32 [ %206, %192 ], [ %107, %106 ], [ 0, %143 ], [ 0, %.loopexit.sink.split ], [ 0, %44 ]
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %.sink279, ptr %207, align 4, !tbaa !19
   br label %.critedge
 
-.critedge:                                        ; preds = %125, %171, %170, %120, %.preheader.preheader, %108, %20, %.critedge.sink.split, %13, %10, %12, %186, %191, %131, %130, %113, %115
-  %.5 = phi i32 [ 0, %115 ], [ 0, %113 ], [ 0, %130 ], [ 0, %131 ], [ 0, %191 ], [ 0, %186 ], [ 0, %10 ], [ 0, %12 ], [ 0, %13 ], [ 1, %.critedge.sink.split ], [ 0, %20 ], [ 0, %108 ], [ 0, %.preheader.preheader ], [ 0, %120 ], [ 0, %170 ], [ 0, %171 ], [ 0, %125 ]
+.critedge:                                        ; preds = %125, %171, %170, %120, %.preheader.preheader, %108, %20, %.critedge.sink.split, %13, %12, %10, %186, %191, %131, %130, %113, %115
+  %.5 = phi i32 [ 0, %115 ], [ 0, %186 ], [ 0, %108 ], [ 0, %113 ], [ 0, %13 ], [ 0, %12 ], [ 0, %10 ], [ 0, %130 ], [ 0, %131 ], [ 0, %191 ], [ 1, %.critedge.sink.split ], [ 0, %.preheader.preheader ], [ 0, %20 ], [ 0, %120 ], [ 0, %170 ], [ 0, %171 ], [ 0, %125 ]
   ret i32 %.5
 }
 

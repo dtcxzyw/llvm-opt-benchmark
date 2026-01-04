@@ -161,14 +161,14 @@ pkcs5_parse_pbkdf2_params.exit.thread:            ; preds = %57, %62, %69
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %71
 
-pkcs5_parse_pbkdf2_params.exit.thread58:          ; preds = %67, %41, %69
-  %.0.i.ph = phi i32 [ -12134, %69 ], [ -12130, %41 ], [ -11904, %67 ]
+pkcs5_parse_pbkdf2_params.exit.thread58:          ; preds = %69, %67, %41
+  %.0.i.ph = phi i32 [ -12130, %41 ], [ -11904, %67 ], [ -12134, %69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge
 
 pkcs5_parse_pbkdf2_params.exit:                   ; preds = %65, %60, %51, %48
-  %.0.i.in = phi i32 [ %50, %48 ], [ %56, %51 ], [ %61, %60 ], [ %66, %65 ]
+  %.0.i.in = phi i32 [ %56, %51 ], [ %61, %60 ], [ %50, %48 ], [ %66, %65 ]
   %.0.i = add nsw i32 %.0.i.in, -12032
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -282,7 +282,7 @@ pkcs5_parse_pbkdf2_params.exit:                   ; preds = %65, %60, %51, %48
   br label %.critedge
 
 .critedge:                                        ; preds = %pkcs5_parse_pbkdf2_params.exit.thread58, %9, %35, %97, %92, %81, %86, %77, %75, %pkcs5_parse_pbkdf2_params.exit, %38, %128, %73, %33
-  %.0 = phi i32 [ %34, %33 ], [ %74, %73 ], [ %.033, %128 ], [ -11904, %38 ], [ %.0.i, %pkcs5_parse_pbkdf2_params.exit ], [ -11904, %75 ], [ -11904, %77 ], [ -12032, %86 ], [ -12032, %81 ], [ -108, %92 ], [ -108, %97 ], [ -11904, %35 ], [ -12130, %9 ], [ %.0.i.ph, %pkcs5_parse_pbkdf2_params.exit.thread58 ]
+  %.0 = phi i32 [ -12032, %86 ], [ %34, %33 ], [ -11904, %35 ], [ -11904, %38 ], [ %74, %73 ], [ %.0.i, %pkcs5_parse_pbkdf2_params.exit ], [ -11904, %75 ], [ -11904, %77 ], [ -12032, %81 ], [ -108, %92 ], [ %.033, %128 ], [ -108, %97 ], [ -12130, %9 ], [ %.0.i.ph, %pkcs5_parse_pbkdf2_params.exit.thread58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
@@ -539,7 +539,7 @@ mbedtls_xor.exit.us:                              ; preds = %.lr.ph70.us, %.preh
   br i1 %.not52, label %.loopexit, label %.lr.ph76.split, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.lr.ph76.split, %56, %58, %60, %73, %.lr.ph76.split.us, %19, %21, %23, %31, %36, %34, %32, %.preheader64
-  %.140 = phi i32 [ 0, %.preheader64 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %18, %.lr.ph76.split.us ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ 0, %31 ], [ %55, %.lr.ph76.split ], [ %57, %56 ], [ %59, %58 ], [ %61, %60 ], [ 0, %73 ]
+  %.140 = phi i32 [ 0, %.preheader64 ], [ %24, %23 ], [ %33, %32 ], [ %37, %36 ], [ %35, %34 ], [ 0, %31 ], [ %18, %.lr.ph76.split.us ], [ %20, %19 ], [ %22, %21 ], [ %55, %.lr.ph76.split ], [ 0, %73 ], [ %61, %60 ], [ %59, %58 ], [ %57, %56 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %10, i64 noundef 64) #8
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %9, i64 noundef 64) #8
   br label %74
@@ -674,8 +674,8 @@ mbedtls_pkcs5_pbkdf2_hmac_ext.exit:               ; preds = %37
   %putchar = call i32 @putchar(i32 10)
   br label %.critedge
 
-.critedge:                                        ; preds = %mbedtls_pkcs5_pbkdf2_hmac_ext.exit.us, %19, %.loopexit, %.critedge36, %.split35.us, %44
-  %.1 = phi i32 [ 0, %44 ], [ 0, %.split35.us ], [ 1, %.critedge36 ], [ 1, %.loopexit ], [ 1, %19 ], [ 1, %mbedtls_pkcs5_pbkdf2_hmac_ext.exit.us ]
+.critedge:                                        ; preds = %19, %mbedtls_pkcs5_pbkdf2_hmac_ext.exit.us, %.loopexit, %.critedge36, %.split35.us, %44
+  %.1 = phi i32 [ 0, %.split35.us ], [ 0, %44 ], [ 1, %.critedge36 ], [ 1, %.loopexit ], [ 1, %mbedtls_pkcs5_pbkdf2_hmac_ext.exit.us ], [ 1, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.1
 }

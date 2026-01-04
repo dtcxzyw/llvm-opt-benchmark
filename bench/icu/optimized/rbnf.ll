@@ -290,7 +290,7 @@ _ZN6icu_77L5streqEPKDsS1_.exit62:                 ; preds = %84
   br i1 %exitcond120.not, label %.thread84, label %.lr.ph108.split, !llvm.loop !9
 
 .thread84:                                        ; preds = %24, %_ZN6icu_77L5streqEPKDsS1_.exit, %.critedge98.preheader, %84, %_ZN6icu_77L5streqEPKDsS1_.exit62, %.critedge98._crit_edge.us, %52, %_ZN6icu_77L5streqEPKDsS1_.exit62.us, %_ZN6icu_77L5streqEPKDsS1_.exit65.us, %65, %.preheader, %.critedge, %5, %2, %3
-  %.040 = phi i1 [ true, %3 ], [ false, %2 ], [ false, %5 ], [ false, %.critedge ], [ true, %.preheader ], [ false, %65 ], [ false, %_ZN6icu_77L5streqEPKDsS1_.exit65.us ], [ true, %.critedge98._crit_edge.us ], [ false, %52 ], [ false, %_ZN6icu_77L5streqEPKDsS1_.exit62.us ], [ true, %.critedge98.preheader ], [ false, %84 ], [ false, %_ZN6icu_77L5streqEPKDsS1_.exit62 ], [ false, %_ZN6icu_77L5streqEPKDsS1_.exit ], [ false, %24 ]
+  %.040 = phi i1 [ true, %.critedge98._crit_edge.us ], [ false, %.critedge ], [ true, %3 ], [ true, %.preheader ], [ false, %5 ], [ false, %2 ], [ false, %_ZN6icu_77L5streqEPKDsS1_.exit65.us ], [ false, %_ZN6icu_77L5streqEPKDsS1_.exit62 ], [ false, %65 ], [ false, %52 ], [ false, %_ZN6icu_77L5streqEPKDsS1_.exit62.us ], [ false, %84 ], [ true, %.critedge98.preheader ], [ false, %_ZN6icu_77L5streqEPKDsS1_.exit ], [ false, %24 ]
   ret i1 %.040
 }
 
@@ -353,7 +353,7 @@ _ZN6icu_77L5streqEPKDsS1_.exit.thread:            ; preds = %24, %_ZN6icu_77L5st
   br i1 %31, label %.lr.ph.split, label %.thread, !llvm.loop !10
 
 .thread:                                          ; preds = %_ZN6icu_77L5streqEPKDsS1_.exit.thread, %_ZN6icu_77L5streqEPKDsS1_.exit, %.lr.ph.split, %_ZN6icu_77L5streqEPKDsS1_.exit.thread.us, %.lr.ph.split.us, %2
-  %32 = phi i32 [ -1, %2 ], [ %.0715.us, %.lr.ph.split.us ], [ -1, %_ZN6icu_77L5streqEPKDsS1_.exit.thread.us ], [ %.0715, %.lr.ph.split ], [ %.0715, %_ZN6icu_77L5streqEPKDsS1_.exit ], [ -1, %_ZN6icu_77L5streqEPKDsS1_.exit.thread ]
+  %32 = phi i32 [ -1, %2 ], [ %.0715.us, %.lr.ph.split.us ], [ -1, %_ZN6icu_77L5streqEPKDsS1_.exit.thread.us ], [ -1, %_ZN6icu_77L5streqEPKDsS1_.exit.thread ], [ %.0715, %_ZN6icu_77L5streqEPKDsS1_.exit ], [ %.0715, %.lr.ph.split ]
   ret i32 %32
 }
 
@@ -398,7 +398,7 @@ _ZN6icu_77L5streqEPKDsS1_.exit.thread:            ; preds = %13, %_ZN6icu_77L5st
   br i1 %20, label %.lr.ph, label %.thread, !llvm.loop !11
 
 .thread:                                          ; preds = %_ZN6icu_77L5streqEPKDsS1_.exit.thread, %_ZN6icu_77L5streqEPKDsS1_.exit, %.lr.ph, %.preheader, %2
-  %.1 = phi i32 [ -1, %2 ], [ -1, %.preheader ], [ -1, %_ZN6icu_77L5streqEPKDsS1_.exit.thread ], [ %.0820, %_ZN6icu_77L5streqEPKDsS1_.exit ], [ %.0820, %.lr.ph ]
+  %.1 = phi i32 [ -1, %2 ], [ -1, %.preheader ], [ %.0820, %_ZN6icu_77L5streqEPKDsS1_.exit ], [ -1, %_ZN6icu_77L5streqEPKDsS1_.exit.thread ], [ %.0820, %.lr.ph ]
   ret i32 %.1
 }
 
@@ -458,7 +458,7 @@ define noundef ptr @_ZN6icu_7713LocDataParser5parseEPDsi(ptr noundef nonnull ali
   br label %28
 
 28:                                               ; preds = %8, %9, %21, %20, %17
-  %.0 = phi ptr [ null, %17 ], [ null, %20 ], [ %27, %21 ], [ null, %9 ], [ null, %8 ]
+  %.0 = phi ptr [ %27, %21 ], [ null, %17 ], [ null, %20 ], [ null, %9 ], [ null, %8 ]
   ret ptr %.0
 }
 
@@ -944,8 +944,8 @@ _ZN6icu_776VArray3addEPvR10UErrorCode.exit63:     ; preds = %182, %173, %148
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZN6icu_7713LocDataParser5checkEDs.exit51.invoke, %195, %.thread, %_ZN6icu_776VArray3addEPvR10UErrorCode.exit63, %190
-  %205 = phi i1 [ false, %195 ], [ false, %190 ], [ true, %_ZN6icu_776VArray3addEPvR10UErrorCode.exit63 ], [ false, %.thread ], [ false, %_ZN6icu_7713LocDataParser5checkEDs.exit51.invoke ]
-  %.3 = phi ptr [ %193, %195 ], [ null, %190 ], [ null, %_ZN6icu_776VArray3addEPvR10UErrorCode.exit63 ], [ null, %.thread ], [ null, %_ZN6icu_7713LocDataParser5checkEDs.exit51.invoke ]
+  %205 = phi i1 [ true, %_ZN6icu_776VArray3addEPvR10UErrorCode.exit63 ], [ false, %.thread ], [ false, %195 ], [ false, %190 ], [ false, %_ZN6icu_7713LocDataParser5checkEDs.exit51.invoke ]
+  %.3 = phi ptr [ null, %_ZN6icu_776VArray3addEPvR10UErrorCode.exit63 ], [ null, %.thread ], [ %193, %195 ], [ null, %190 ], [ null, %_ZN6icu_7713LocDataParser5checkEDs.exit51.invoke ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %206 = load ptr, ptr %32, align 8, !tbaa !32
   %.not.i64 = icmp eq ptr %206, null
@@ -1003,7 +1003,7 @@ _ZN6icu_776VArrayD2Ev.exit:                       ; preds = %.loopexit.i
   br i1 %205, label %.sink.split, label %217
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %.loopexit81, %.loopexit.split-lp82, %.loopexit77, %.loopexit.split-lp78
-  %.pn.pn = phi { ptr, i32 } [ %lpad.loopexit79, %.loopexit77 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp78 ], [ %lpad.loopexit83, %.loopexit81 ], [ %lpad.loopexit.split-lp84, %.loopexit.split-lp82 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit74, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp75, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp78 ], [ %lpad.loopexit.split-lp84, %.loopexit.split-lp82 ], [ %lpad.loopexit79, %.loopexit77 ], [ %lpad.loopexit83, %.loopexit81 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit74, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp75, %.loopexit.split-lp.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN6icu_776VArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -1555,7 +1555,7 @@ _ZN6icu_776VArray3addEPvR10UErrorCode.exit54:     ; preds = %172, %163, %137
   br label %.critedge
 
 .critedge:                                        ; preds = %.invoke, %.thread, %188
-  %.3 = phi ptr [ %189, %188 ], [ null, %.thread ], [ null, %.invoke ]
+  %.3 = phi ptr [ null, %.invoke ], [ %189, %188 ], [ null, %.thread ]
   %190 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %191 = load ptr, ptr %190, align 8, !tbaa !32
   %.not.i55 = icmp eq ptr %191, null
@@ -1613,13 +1613,13 @@ _ZN6icu_776VArrayD2Ev.exit:                       ; preds = %.loopexit.i
   br label %203
 
 202:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit70, %.loopexit.split-lp71, %.loopexit65, %.loopexit.split-lp66
-  %.pn.pn = phi { ptr, i32 } [ %lpad.loopexit67, %.loopexit65 ], [ %lpad.loopexit.split-lp68, %.loopexit.split-lp66 ], [ %lpad.loopexit72, %.loopexit70 ], [ %lpad.loopexit.split-lp73, %.loopexit.split-lp71 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp73, %.loopexit.split-lp71 ], [ %lpad.loopexit.split-lp68, %.loopexit.split-lp66 ], [ %lpad.loopexit67, %.loopexit65 ], [ %lpad.loopexit72, %.loopexit70 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6icu_776VArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn
 
 203:                                              ; preds = %2, %_ZN6icu_776VArrayD2Ev.exit, %_ZN6icu_7713LocDataParser14skipWhitespaceEv.exit.thread
-  %.012 = phi ptr [ %.3, %_ZN6icu_776VArrayD2Ev.exit ], [ null, %_ZN6icu_7713LocDataParser14skipWhitespaceEv.exit.thread ], [ null, %2 ]
+  %.012 = phi ptr [ null, %_ZN6icu_7713LocDataParser14skipWhitespaceEv.exit.thread ], [ %.3, %_ZN6icu_776VArrayD2Ev.exit ], [ null, %2 ]
   ret ptr %.012
 }
 
@@ -1819,8 +1819,8 @@ _ZNK6icu_7713LocDataParser6inListEDsPKDs.exit:    ; preds = %45
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNK6icu_7713LocDataParser6inListEDsPKDs.exit, %48, %.critedge.loopexit, %29
-  %51 = phi ptr [ %.pre42, %.critedge.loopexit ], [ %20, %29 ], [ %20, %48 ], [ %20, %_ZNK6icu_7713LocDataParser6inListEDsPKDs.exit ]
-  %52 = phi ptr [ %.pre41, %.critedge.loopexit ], [ %.promoted, %29 ], [ %43, %_ZNK6icu_7713LocDataParser6inListEDsPKDs.exit ], [ %49, %48 ]
+  %51 = phi ptr [ %20, %29 ], [ %.pre42, %.critedge.loopexit ], [ %20, %48 ], [ %20, %_ZNK6icu_7713LocDataParser6inListEDsPKDs.exit ]
+  %52 = phi ptr [ %.promoted, %29 ], [ %.pre41, %.critedge.loopexit ], [ %43, %_ZNK6icu_7713LocDataParser6inListEDsPKDs.exit ], [ %49, %48 ]
   %53 = icmp eq ptr %52, %51
   br i1 %53, label %54, label %55
 
@@ -1881,7 +1881,7 @@ _ZNK6icu_7713LocDataParser6inListEDsPKDs.exit:    ; preds = %45
   br label %.critedge34
 
 .critedge34:                                      ; preds = %54, %62, %65, %70, %_ZN6icu_7713LocDataParser14skipWhitespaceEv.exit, %69, %66
-  %.2 = phi ptr [ null, %_ZN6icu_7713LocDataParser14skipWhitespaceEv.exit ], [ %.227, %69 ], [ %.227, %66 ], [ null, %70 ], [ null, %65 ], [ null, %62 ], [ null, %54 ]
+  %.2 = phi ptr [ %.227, %66 ], [ null, %_ZN6icu_7713LocDataParser14skipWhitespaceEv.exit ], [ %.227, %69 ], [ null, %70 ], [ null, %65 ], [ null, %62 ], [ null, %54 ]
   ret ptr %.2
 }
 
@@ -1978,7 +1978,7 @@ define noundef ptr @_ZN6icu_7722StringLocalizationInfo6createERKNS_13UnicodeStri
   br label %_ZN6icu_7713LocDataParser5parseEPDsi.exit
 
 _ZN6icu_7713LocDataParser5parseEPDsi.exit:        ; preds = %32, %40, %41
-  %.0.i = phi ptr [ null, %32 ], [ null, %40 ], [ %47, %41 ]
+  %.0.i = phi ptr [ null, %40 ], [ null, %32 ], [ %47, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %48
 
@@ -2998,7 +2998,7 @@ _ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCo
           to label %.critedge156 unwind label %97
 
 .critedge156.sink.split:                          ; preds = %._crit_edge, %180, %41, %256, %198, %_ZN6icu_7713UnicodeString6removeEii.exit, %221
-  %.sink = phi i32 [ 7, %221 ], [ 7, %_ZN6icu_7713UnicodeString6removeEii.exit ], [ 7, %198 ], [ 7, %256 ], [ 7, %41 ], [ 7, %180 ], [ 1, %._crit_edge ]
+  %.sink = phi i32 [ 7, %221 ], [ 7, %_ZN6icu_7713UnicodeString6removeEii.exit ], [ 7, %41 ], [ 7, %180 ], [ 7, %198 ], [ 7, %256 ], [ 1, %._crit_edge ]
   store i32 %.sink, ptr %4, align 4, !tbaa !19
   br label %.critedge156
 
@@ -3011,7 +3011,7 @@ _ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCo
   ret void
 
 349:                                              ; preds = %.loopexit227, %.loopexit.split-lp, %.loopexit229, %.loopexit.split-lp230, %.loopexit234, %.loopexit.split-lp235, %97, %282, %99, %224, %261, %259, %345, %291, %51
-  %.pn152.pn = phi { ptr, i32 } [ %52, %51 ], [ %283, %282 ], [ %98, %97 ], [ %100, %99 ], [ %262, %261 ], [ %260, %259 ], [ %225, %224 ], [ %.pn148, %345 ], [ %292, %291 ], [ %lpad.loopexit236, %.loopexit234 ], [ %lpad.loopexit.split-lp237, %.loopexit.split-lp235 ], [ %lpad.loopexit231, %.loopexit229 ], [ %lpad.loopexit.split-lp232, %.loopexit.split-lp230 ], [ %lpad.loopexit, %.loopexit227 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn152.pn = phi { ptr, i32 } [ %52, %51 ], [ %lpad.loopexit.split-lp237, %.loopexit.split-lp235 ], [ %283, %282 ], [ %98, %97 ], [ %225, %224 ], [ %292, %291 ], [ %.pn148, %345 ], [ %100, %99 ], [ %lpad.loopexit.split-lp232, %.loopexit.split-lp230 ], [ %262, %261 ], [ %260, %259 ], [ %lpad.loopexit236, %.loopexit234 ], [ %lpad.loopexit231, %.loopexit229 ], [ %lpad.loopexit, %.loopexit227 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
@@ -4078,7 +4078,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %4, %_ZNKSt9type_inf
   br label %_ZNKSt9type_infoeqERKS_.exit.thread35
 
 _ZNKSt9type_infoeqERKS_.exit.thread35:            ; preds = %.lr.ph, %46, %.critedge..critedge.thread_crit_edge, %_ZNKSt9type_infoeqERKS_.exit.thread, %26, %39, %41, %40, %16, %_ZNKSt9type_infoeqERKS_.exit, %.critedge, %2
-  %.024 = phi i1 [ true, %2 ], [ false, %.critedge ], [ false, %_ZNKSt9type_infoeqERKS_.exit ], [ false, %16 ], [ false, %40 ], [ false, %41 ], [ false, %39 ], [ false, %26 ], [ false, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ %63, %.critedge..critedge.thread_crit_edge ], [ %.mux, %46 ], [ false, %.lr.ph ]
+  %.024 = phi i1 [ true, %2 ], [ false, %.critedge ], [ false, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ %63, %.critedge..critedge.thread_crit_edge ], [ %.mux, %46 ], [ false, %16 ], [ false, %_ZNKSt9type_infoeqERKS_.exit ], [ false, %40 ], [ false, %41 ], [ false, %39 ], [ false, %26 ], [ false, %.lr.ph ]
   ret i1 %.024
 }
 
@@ -4193,8 +4193,8 @@ define void @_ZNK6icu_7721RuleBasedNumberFormat14getRuleSetNameEi(ptr dead_on_un
   tail call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #23
   br label %39
 
-34:                                               ; preds = %26, %.lr.ph
-  %.2.ph = phi i32 [ %.042, %.lr.ph ], [ %27, %26 ]
+34:                                               ; preds = %.lr.ph, %26
+  %.2.ph = phi i32 [ %27, %26 ], [ %.042, %.lr.ph ]
   %35 = getelementptr inbounds nuw i8, ptr %.01841, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !96
   %.not29.not = icmp eq ptr %36, null
@@ -4407,7 +4407,7 @@ define void @_ZNK6icu_7721RuleBasedNumberFormat27getRuleSetDisplayNameLocaleEiR1
   br label %66
 
 63:                                               ; preds = %49, %60
-  %.pn.pn = phi { ptr, i32 } [ %50, %49 ], [ %61, %60 ]
+  %.pn.pn = phi { ptr, i32 } [ %61, %60 ], [ %50, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #23
   br label %64
@@ -4607,7 +4607,7 @@ define void @_ZN6icu_7721RuleBasedNumberFormat21getRuleSetDisplayNameEiRKNS_6Loc
   br label %88
 
 83:                                               ; preds = %.loopexit, %.loopexit.split-lp, %49, %79, %51
-  %.pn.pn.pn = phi { ptr, i32 } [ %80, %79 ], [ %50, %49 ], [ %52, %51 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %52, %51 ], [ %50, %49 ], [ %80, %79 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %89
@@ -4784,7 +4784,7 @@ _ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread: ; preds = %19, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit, %19, %3, %._crit_edge
-  %.3 = phi ptr [ null, %._crit_edge ], [ null, %3 ], [ %14, %19 ], [ %14, %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit ]
+  %.3 = phi ptr [ null, %3 ], [ null, %._crit_edge ], [ %14, %19 ], [ %14, %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit ]
   ret ptr %.3
 }
 
@@ -4936,7 +4936,7 @@ _ZN6icu_7712LocalPointerINS_6number4impl15DecimalQuantityEED2Ev.exit46.thread: ;
   br label %66
 
 66:                                               ; preds = %_ZN6icu_7712LocalPointerINS_6number4impl15DecimalQuantityEED2Ev.exit, %62, %64, %_ZN6icu_7712LocalPointerINS_6number4impl15DecimalQuantityEED2Ev.exit.thread
-  %.pn.pn61 = phi { ptr, i32 } [ %63, %62 ], [ %65, %64 ], [ %51, %_ZN6icu_7712LocalPointerINS_6number4impl15DecimalQuantityEED2Ev.exit ], [ %58, %_ZN6icu_7712LocalPointerINS_6number4impl15DecimalQuantityEED2Ev.exit.thread ]
+  %.pn.pn61 = phi { ptr, i32 } [ %63, %62 ], [ %65, %64 ], [ %58, %_ZN6icu_7712LocalPointerINS_6number4impl15DecimalQuantityEED2Ev.exit.thread ], [ %51, %_ZN6icu_7712LocalPointerINS_6number4impl15DecimalQuantityEED2Ev.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %67 = load ptr, ptr %35, align 8, !tbaa !3
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
@@ -5323,7 +5323,7 @@ _ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCo
   %58 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7721RuleBasedNumberFormat6formatElPNS_9NFRuleSetERNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(456) %0, i64 noundef %1, ptr noundef nonnull %29, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 4 dereferenceable(4) %5)
   br label %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit.thread
 
-_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit.thread: ; preds = %20, %._crit_edge.i, %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit, %19, %6
+_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit.thread: ; preds = %._crit_edge.i, %20, %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit, %19, %6
   ret ptr %3
 }
 
@@ -5464,7 +5464,7 @@ _ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCo
   tail call void @_ZNK6icu_7721RuleBasedNumberFormat6formatEdRNS_9NFRuleSetERNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(456) %0, double noundef %1, ptr noundef nonnull align 8 dereferenceable(163) %29, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 4 dereferenceable(4) %5)
   br label %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit.thread
 
-_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit.thread: ; preds = %20, %._crit_edge.i, %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit, %19, %6
+_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit.thread: ; preds = %._crit_edge.i, %20, %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit, %19, %6
   ret ptr %3
 }
 
@@ -5956,7 +5956,7 @@ _ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i: ; preds = %.n
   br label %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit
 
 _ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit: ; preds = %.noexc, %39, %._crit_edge.i, %22
-  %.3.i = phi ptr [ null, %._crit_edge.i ], [ null, %22 ], [ %34, %39 ], [ %34, %.noexc ]
+  %.3.i = phi ptr [ null, %22 ], [ null, %._crit_edge.i ], [ %34, %39 ], [ %34, %.noexc ]
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %.3.i, ptr %63, align 8, !tbaa !64
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #23
@@ -6142,7 +6142,7 @@ _ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCo
   store ptr %110, ptr %139, align 8, !tbaa !64
   br label %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit42.thread
 
-_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit42.thread: ; preds = %100, %._crit_edge.i36, %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit42, %70, %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit, %92, %3
+_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit42.thread: ; preds = %._crit_edge.i36, %100, %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit42, %70, %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit, %92, %3
   ret void
 
 140:                                              ; preds = %97, %69
@@ -6426,7 +6426,7 @@ define void @_ZN6icu_7721RuleBasedNumberFormat18initDefaultRuleSetEv(ptr noundef
   br i1 %.not21, label %136, label %.loopexit.sink.split, !llvm.loop !138
 
 .loopexit.sink.split:                             ; preds = %66, %38, %61, %89, %137, %._crit_edge61
-  %.lcssa.sink = phi ptr [ %.pre62, %._crit_edge61 ], [ %139, %137 ], [ %63, %66 ], [ %33, %38 ], [ %.pre63.pre, %89 ], [ %.pre64.pre, %61 ]
+  %.lcssa.sink = phi ptr [ %139, %137 ], [ %.pre62, %._crit_edge61 ], [ %63, %66 ], [ %33, %38 ], [ %.pre63.pre, %89 ], [ %.pre64.pre, %61 ]
   store ptr %.lcssa.sink, ptr %8, align 8, !tbaa !64
   br label %.loopexit
 
@@ -6986,7 +6986,7 @@ _ZN6icu_7713UnicodeString5setToERKS0_.exit:       ; preds = %_ZN6icu_7713Unicode
   ret void
 
 81:                                               ; preds = %.loopexit33, %.loopexit.split-lp34, %.loopexit, %.loopexit.split-lp
-  %.pn = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit35, %.loopexit33 ], [ %lpad.loopexit.split-lp36, %.loopexit.split-lp34 ]
+  %.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit35, %.loopexit33 ], [ %lpad.loopexit.split-lp36, %.loopexit.split-lp34 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
@@ -7319,7 +7319,7 @@ _ZN6icu_7713UnicodeString6appendERKS0_.exit:      ; preds = %25
   br label %52
 
 52:                                               ; preds = %6, %.thread35, %51, %1
-  %.014 = phi ptr [ null, %51 ], [ null, %1 ], [ %.pre42, %.thread35 ], [ %8, %6 ]
+  %.014 = phi ptr [ null, %1 ], [ null, %51 ], [ %.pre42, %.thread35 ], [ %8, %6 ]
   ret ptr %.014
 }
 

@@ -63,7 +63,7 @@ define range(i32 -2147483648, 1) i32 @ff_vlc_init_sparse(ptr noundef initializes
   br i1 %.not12.i, label %vlc_common_init.exit, label %.thread.i
 
 .thread.i:                                        ; preds = %25, %21, %18
-  %.1.ph = phi ptr [ %14, %18 ], [ %14, %21 ], [ %27, %25 ]
+  %.1.ph = phi ptr [ %14, %21 ], [ %14, %18 ], [ %27, %25 ]
   %28 = icmp sgt i32 %11, 2
   %29 = icmp ne ptr %9, null
   %or.cond = and i1 %29, %28
@@ -256,7 +256,7 @@ define range(i32 -2147483648, 1) i32 @ff_vlc_init_sparse(ptr noundef initializes
   br label %124
 
 124:                                              ; preds = %121, %47
-  %.2233 = phi i32 [ %123, %121 ], [ %.0231383, %47 ]
+  %.2233 = phi i32 [ %.0231383, %47 ], [ %123, %121 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %36, !llvm.loop !22
@@ -528,7 +528,7 @@ define range(i32 -2147483648, 1) i32 @ff_vlc_init_sparse(ptr noundef initializes
   br label %.thread348
 
 .thread348:                                       ; preds = %.thread348.loopexit, %129, %227, %234
-  %.1255373 = phi i32 [ %228, %227 ], [ %228, %234 ], [ %130, %129 ], [ %.1255373.ph, %.thread348.loopexit ]
+  %.1255373 = phi i32 [ %228, %234 ], [ %228, %227 ], [ %130, %129 ], [ %.1255373.ph, %.thread348.loopexit ]
   %.not282 = icmp eq i32 %.1255373, 0
   br i1 %.not282, label %237, label %129, !llvm.loop !29
 
@@ -715,7 +715,7 @@ define range(i32 -2147483648, 1) i32 @ff_vlc_init_sparse(ptr noundef initializes
   br label %331
 
 331:                                              ; preds = %328, %254
-  %.5236 = phi i32 [ %330, %328 ], [ %.3234408, %254 ]
+  %.5236 = phi i32 [ %.3234408, %254 ], [ %330, %328 ]
   %indvars.iv.next433 = add nuw nsw i64 %indvars.iv432, 1
   %exitcond437.not = icmp eq i64 %indvars.iv.next433, %wide.trip.count436
   br i1 %exitcond437.not, label %._crit_edge411, label %243, !llvm.loop !30
@@ -725,8 +725,8 @@ define range(i32 -2147483648, 1) i32 @ff_vlc_init_sparse(ptr noundef initializes
   %332 = call fastcc i32 @vlc_common_end(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %.3234.lcssa, ptr noundef nonnull %.1.ph, i32 noundef %12, ptr noundef nonnull %14)
   br label %vlc_common_init.exit
 
-vlc_common_init.exit:                             ; preds = %258, %257, %280, %278, %51, %50, %73, %71, %25, %._crit_edge411
-  %.0 = phi i32 [ %332, %._crit_edge411 ], [ -12, %25 ], [ -22, %71 ], [ -22, %73 ], [ -22, %50 ], [ -22, %51 ], [ -22, %278 ], [ -22, %280 ], [ -22, %257 ], [ -22, %258 ]
+vlc_common_init.exit:                             ; preds = %257, %258, %280, %278, %50, %51, %73, %71, %25, %._crit_edge411
+  %.0 = phi i32 [ -12, %25 ], [ %332, %._crit_edge411 ], [ -22, %50 ], [ -22, %71 ], [ -22, %73 ], [ -22, %51 ], [ -22, %278 ], [ -22, %280 ], [ -22, %258 ], [ -22, %257 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i32 %.0
 }
@@ -939,7 +939,7 @@ vlc_common_init.exit:                             ; preds = %17, %20
   br label %77
 
 77:                                               ; preds = %69, %72, %75
-  %.1 = phi i32 [ %76, %75 ], [ %71, %69 ], [ %74, %72 ]
+  %.1 = phi i32 [ %74, %72 ], [ %76, %75 ], [ %71, %69 ]
   %78 = add i32 %.1, %8
   %79 = trunc i32 %78 to i16
   %80 = getelementptr inbounds nuw i8, ptr %66, i64 2
@@ -974,7 +974,7 @@ vlc_common_init.exit:                             ; preds = %17, %20
   br i1 %.not66, label %96, label %.split.us
 
 .split.us:                                        ; preds = %88, %90, %46, %48
-  %.us-phi = phi i32 [ %.050.us, %48 ], [ %.050.us, %46 ], [ %.050, %90 ], [ %.050, %88 ]
+  %.us-phi = phi i32 [ %.050.us, %46 ], [ %.050.us, %48 ], [ %.050, %90 ], [ %.050, %88 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %10, i32 noundef 16, ptr noundef nonnull @.str.5, i32 noundef %.us-phi) #8
   br label %103
 
@@ -1011,7 +1011,7 @@ vlc_common_init.exit:                             ; preds = %17, %20
   br label %vlc_common_init.exit.thread
 
 vlc_common_init.exit.thread:                      ; preds = %24, %103, %104, %._crit_edge
-  %.0 = phi i32 [ %102, %._crit_edge ], [ -1094995529, %104 ], [ -1094995529, %103 ], [ -12, %24 ]
+  %.0 = phi i32 [ -1094995529, %104 ], [ -1094995529, %103 ], [ %102, %._crit_edge ], [ -12, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.0
 }
@@ -1157,7 +1157,7 @@ define range(i32 -1094995529, 1) i32 @ff_vlc_init_multi_from_lengths(ptr noundef
   br i1 %.not12.i, label %vlc_common_init.exit, label %.thread.i
 
 .thread.i:                                        ; preds = %27, %23, %20
-  %.192.ph = phi ptr [ %15, %20 ], [ %15, %23 ], [ %29, %27 ]
+  %.192.ph = phi ptr [ %15, %23 ], [ %15, %20 ], [ %29, %27 ]
   %30 = zext nneg i32 %2 to i64
   %31 = shl i64 8, %30
   %32 = tail call noalias ptr @av_malloc(i64 noundef %31) #8
@@ -1216,7 +1216,7 @@ define range(i32 -1094995529, 1) i32 @ff_vlc_init_multi_from_lengths(ptr noundef
   br label %55
 
 55:                                               ; preds = %40, %47, %50, %53
-  %.1 = phi i32 [ %54, %53 ], [ %49, %47 ], [ %52, %50 ], [ %43, %40 ]
+  %.1 = phi i32 [ %52, %50 ], [ %54, %53 ], [ %49, %47 ], [ %43, %40 ]
   %56 = add i32 %.1, %10
   %57 = trunc i32 %56 to i16
   %58 = getelementptr inbounds nuw i8, ptr %42, i64 2
@@ -1411,9 +1411,9 @@ vlc_common_end.exit:                              ; preds = %92
   br label %._crit_edge98.i
 
 ._crit_edge98.i:                                  ; preds = %134, %._crit_edge93.i.thread, %._crit_edge98.loopexit.split.loop.exit.i
-  %.077.lcssa.i107112 = phi i32 [ %125, %._crit_edge98.loopexit.split.loop.exit.i ], [ 0, %._crit_edge93.i.thread ], [ %125, %134 ]
-  %.075.lcssa.i108111 = phi i32 [ %..075.i, %._crit_edge98.loopexit.split.loop.exit.i ], [ 32, %._crit_edge93.i.thread ], [ %..075.i, %134 ]
-  %.076.lcssa.i = phi i32 [ %136, %._crit_edge98.loopexit.split.loop.exit.i ], [ %.067.lcssa, %._crit_edge93.i.thread ], [ %smin.i, %134 ]
+  %.077.lcssa.i107112 = phi i32 [ 0, %._crit_edge93.i.thread ], [ %125, %._crit_edge98.loopexit.split.loop.exit.i ], [ %125, %134 ]
+  %.075.lcssa.i108111 = phi i32 [ 32, %._crit_edge93.i.thread ], [ %..075.i, %._crit_edge98.loopexit.split.loop.exit.i ], [ %..075.i, %134 ]
+  %.076.lcssa.i = phi i32 [ %.067.lcssa, %._crit_edge93.i.thread ], [ %136, %._crit_edge98.loopexit.split.loop.exit.i ], [ %smin.i, %134 ]
   %smax119.i = tail call i32 @llvm.smax.i32(i32 %99, i32 1)
   %wide.trip.count120.i = zext nneg i32 %smax119.i to i64
   br i1 %97, label %.lr.ph104.split.i, label %.lr.ph104.split.us.i
@@ -1462,9 +1462,9 @@ vlc_common_end.exit:                              ; preds = %92
   br i1 %exitcond.not.i, label %vlc_multi_gen.exit, label %.lr.ph104.split.i, !llvm.loop !45
 
 vlc_multi_gen.exit:                               ; preds = %.lr.ph104.split.us.i, %.lr.ph104.split.i, %95
-  %.076.lcssa140.i = phi i32 [ %.067.lcssa, %95 ], [ %.076.lcssa.i, %.lr.ph104.split.i ], [ %.076.lcssa.i, %.lr.ph104.split.us.i ]
-  %.075.lcssa130133139.i = phi i32 [ 32, %95 ], [ %.075.lcssa.i108111, %.lr.ph104.split.i ], [ %.075.lcssa.i108111, %.lr.ph104.split.us.i ]
-  %.077.lcssa129134138.i = phi i32 [ 0, %95 ], [ %.077.lcssa.i107112, %.lr.ph104.split.i ], [ %.077.lcssa.i107112, %.lr.ph104.split.us.i ]
+  %.076.lcssa140.i = phi i32 [ %.076.lcssa.i, %.lr.ph104.split.i ], [ %.067.lcssa, %95 ], [ %.076.lcssa.i, %.lr.ph104.split.us.i ]
+  %.075.lcssa130133139.i = phi i32 [ %.075.lcssa.i108111, %.lr.ph104.split.i ], [ 32, %95 ], [ %.075.lcssa.i108111, %.lr.ph104.split.us.i ]
+  %.077.lcssa129134138.i = phi i32 [ %.077.lcssa.i107112, %.lr.ph104.split.i ], [ 0, %95 ], [ %.077.lcssa.i107112, %.lr.ph104.split.us.i ]
   call fastcc void @add_level(ptr noundef %96, i32 noundef range(i32 0, 2) %98, i32 noundef %.067.lcssa, i32 noundef %2, ptr noundef nonnull readonly %.192.ph, i32 noundef 0, i32 noundef 0, i32 noundef %.077.lcssa129134138.i, i32 noundef 0, i32 noundef %.075.lcssa130133139.i, i32 noundef %.076.lcssa140.i, ptr noundef %14, i64 0)
   %162 = load i32, ptr %14, align 16, !tbaa !17
   %163 = getelementptr inbounds nuw i8, ptr %14, i64 4
@@ -1497,7 +1497,7 @@ vlc_multi_gen.exit:                               ; preds = %.lr.ph104.split.us.
   br label %vlc_common_init.exit
 
 vlc_common_init.exit:                             ; preds = %27, %vlc_multi_gen.exit, %171, %174
-  %.0 = phi i32 [ -1094995529, %174 ], [ 0, %171 ], [ 0, %vlc_multi_gen.exit ], [ -12, %27 ]
+  %.0 = phi i32 [ 0, %vlc_multi_gen.exit ], [ -12, %27 ], [ -1094995529, %174 ], [ 0, %171 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret i32 %.0
 }
@@ -1838,8 +1838,8 @@ alloc_table.exit:                                 ; preds = %7, %26
   %exitcond242.not = icmp eq i64 %indvars.iv.next240, %wide.trip.count
   br i1 %exitcond242.not, label %.loopexit, label %.preheader, !llvm.loop !49
 
-.loopexit:                                        ; preds = %163, %185, %178, %.thread179, %alloc_table.exit.thread, %alloc_table.exit, %5
-  %.0134 = phi i32 [ -22, %5 ], [ %10, %alloc_table.exit ], [ -12, %alloc_table.exit.thread ], [ -1163346256, %178 ], [ -1094995529, %.thread179 ], [ %10, %185 ], [ %171, %163 ]
+.loopexit:                                        ; preds = %163, %185, %.thread179, %178, %alloc_table.exit.thread, %alloc_table.exit, %5
+  %.0134 = phi i32 [ -1163346256, %178 ], [ -22, %5 ], [ %10, %alloc_table.exit ], [ -12, %alloc_table.exit.thread ], [ %10, %185 ], [ -1094995529, %.thread179 ], [ %171, %163 ]
   ret i32 %.0134
 }
 

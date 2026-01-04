@@ -510,9 +510,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !21
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #21
   unreachable
 
@@ -571,9 +571,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !28
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #21
   unreachable
 
@@ -744,9 +744,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %12
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !34
   br label %40
 
-40:                                               ; preds = %36, %5, %9, %12
-  %.sroa.6.0.i.ph = phi i64 [ undef, %12 ], [ undef, %9 ], [ undef, %5 ], [ %39, %36 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %12 ], [ 0, %9 ], [ 0, %5 ], [ %37, %36 ]
+40:                                               ; preds = %5, %9, %36, %12
+  %.sroa.6.0.i.ph = phi i64 [ undef, %12 ], [ %39, %36 ], [ undef, %9 ], [ undef, %5 ]
+  %.sroa.04.0.i.ph = phi i64 [ 0, %12 ], [ %37, %36 ], [ 0, %9 ], [ 0, %5 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a812db04629ac4e7ffa519935094a828.31) #21
   unreachable
 
@@ -1264,8 +1264,8 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   br i1 %11, label %16, label %13
 
 13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %spec.select, %40 ], [ %4, %1 ], [ %10, %7 ], [ %19, %16 ], [ %25, %22 ], [ %31, %28 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ %spec.select33, %40 ], [ 0, %1 ], [ 1, %7 ], [ 2, %16 ], [ 3, %22 ], [ 4, %28 ], [ 5, %34 ]
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
   %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
   ret { i64, ptr } %15
@@ -1336,8 +1336,8 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   br i1 %11, label %16, label %13
 
 13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %spec.select, %40 ], [ %4, %1 ], [ %10, %7 ], [ %19, %16 ], [ %25, %22 ], [ %31, %28 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ %spec.select33, %40 ], [ 0, %1 ], [ 1, %7 ], [ 2, %16 ], [ 3, %22 ], [ 4, %28 ], [ 5, %34 ]
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
   %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
   ret { i64, ptr } %15
@@ -1408,8 +1408,8 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   br i1 %11, label %16, label %13
 
 13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %spec.select, %40 ], [ %4, %1 ], [ %10, %7 ], [ %19, %16 ], [ %25, %22 ], [ %31, %28 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ %spec.select33, %40 ], [ 0, %1 ], [ 1, %7 ], [ 2, %16 ], [ 3, %22 ], [ 4, %28 ], [ 5, %34 ]
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
   %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
   ret { i64, ptr } %15

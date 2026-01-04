@@ -440,7 +440,7 @@ if.else38.i:                                      ; preds = %land.rhs.i, %do.bod
   call void @abort() #14
   unreachable
 
-uv__spawn_and_init_child.exit.thread104:          ; preds = %do.body29.i, %land.rhs33.i
+uv__spawn_and_init_child.exit.thread104:          ; preds = %land.rhs33.i, %do.body29.i
   %21 = load i32, ptr %signal_pipe.i, align 8
   %call44.i106 = call i32 @uv__close_nocheckstdio(i32 noundef %21) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %signal_pipe.i)
@@ -449,7 +449,7 @@ uv__spawn_and_init_child.exit.thread104:          ; preds = %do.body29.i, %land.
   br label %if.end57
 
 uv__spawn_and_init_child.exit:                    ; preds = %uv__spawn_and_init_child_fork.exit.i, %do.end23.i
-  %err.0.i = phi i32 [ %19, %do.end23.i ], [ %retval.0.i.i, %uv__spawn_and_init_child_fork.exit.i ]
+  %err.0.i = phi i32 [ %retval.0.i.i, %uv__spawn_and_init_child_fork.exit.i ], [ %19, %do.end23.i ]
   %22 = load i32, ptr %signal_pipe.i, align 8
   %call44.i = call i32 @uv__close_nocheckstdio(i32 noundef %22) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %signal_pipe.i)
@@ -585,7 +585,7 @@ for.end80:                                        ; preds = %for.inc78, %if.end5
   br i1 %cmp82.not, label %return, label %return.sink.split
 
 error:                                            ; preds = %for.body21, %if.end.i, %sw.bb1.i, %uv__process_init_stdio.exit, %uv__process_close_stream.exit, %while.cond.preheader
-  %err.0 = phi i32 [ %call21.i, %while.cond.preheader ], [ %call21.i, %uv__process_close_stream.exit ], [ -22, %for.body21 ], [ -22, %if.end.i ], [ -22, %sw.bb1.i ], [ %call.i, %uv__process_init_stdio.exit ]
+  %err.0 = phi i32 [ %call21.i, %while.cond.preheader ], [ %call21.i, %uv__process_close_stream.exit ], [ -22, %if.end.i ], [ -22, %sw.bb1.i ], [ %call.i, %uv__process_init_stdio.exit ], [ -22, %for.body21 ]
   %stdio97 = getelementptr inbounds nuw i8, ptr %options, i64 48
   br label %for.body92
 
@@ -639,7 +639,7 @@ return.sink.split:                                ; preds = %for.end130, %for.en
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end6, %for.end130, %for.end80
-  %retval.0 = phi i32 [ %retval.0.i74103, %for.end80 ], [ %err.0, %for.end130 ], [ -12, %if.end6 ], [ %retval.0.ph, %return.sink.split ]
+  %retval.0 = phi i32 [ %retval.0.i74103, %for.end80 ], [ -12, %if.end6 ], [ %err.0, %for.end130 ], [ %retval.0.ph, %return.sink.split ]
   ret i32 %retval.0
 }
 
@@ -1011,8 +1011,8 @@ if.then65:                                        ; preds = %if.end62
   br label %if.end67
 
 if.end67:                                         ; preds = %if.end47, %if.then65, %if.end62
-  %close_fd.0140158 = phi i32 [ -1, %if.then65 ], [ %close_fd.0140, %if.end62 ], [ %fd.1174, %if.end47 ]
-  %fd.3151157 = phi i32 [ %fd.3151, %if.then65 ], [ %fd.3151, %if.end62 ], [ %fd.1174, %if.end47 ]
+  %close_fd.0140158 = phi i32 [ %close_fd.0140, %if.end62 ], [ -1, %if.then65 ], [ %fd.1174, %if.end47 ]
+  %fd.3151157 = phi i32 [ %fd.3151, %if.end62 ], [ %fd.3151, %if.then65 ], [ %fd.1174, %if.end47 ]
   %cmp68.not = icmp slt i32 %close_fd.0140158, %stdio_count
   br i1 %cmp68.not, label %for.inc72, label %if.then69
 

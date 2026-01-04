@@ -1339,7 +1339,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZNSt6vectorIiSaIiE
   ret void
 
 .body:                                            ; preds = %147, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %100, %88, %82
-  %.pn28.pn = phi { ptr, i32 } [ %.pn24, %88 ], [ %83, %82 ], [ %.pn26, %100 ], [ %148, %147 ], [ %142, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
+  %.pn28.pn = phi { ptr, i32 } [ %83, %82 ], [ %.pn24, %88 ], [ %.pn26, %100 ], [ %148, %147 ], [ %142, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #16
   br label %155
 
@@ -1451,10 +1451,10 @@ define internal void @_ZN2cvL12minMaxIdx_8uEPKhS1_PiS2_PmS3_im(ptr noundef reado
   br i1 %exitcond.not.i, label %_ZN2cvL10minMaxIdx_IhiEEvPKT_PKhPT0_S7_PmS8_im.exit, label %.lr.ph.i, !llvm.loop !64
 
 _ZN2cvL10minMaxIdx_IhiEEvPKT_PKhPT0_S7_PmS8_im.exit: ; preds = %.lr.ph.i, %.lr.ph90.i, %.preheader75.i, %.preheader.i
-  %.260.i = phi i64 [ %11, %.preheader.i ], [ %11, %.preheader75.i ], [ %spec.select.i, %.lr.ph90.i ], [ %.462.i, %.lr.ph.i ]
-  %.255.i = phi i64 [ %12, %.preheader.i ], [ %12, %.preheader75.i ], [ %.154.i, %.lr.ph90.i ], [ %.457.i, %.lr.ph.i ]
-  %.249.i = phi i32 [ %10, %.preheader.i ], [ %10, %.preheader75.i ], [ %.148.i, %.lr.ph90.i ], [ %.451.i, %.lr.ph.i ]
-  %.2.i = phi i32 [ %9, %.preheader.i ], [ %9, %.preheader75.i ], [ %spec.select70.i, %.lr.ph90.i ], [ %.4.i, %.lr.ph.i ]
+  %.260.i = phi i64 [ %spec.select.i, %.lr.ph90.i ], [ %11, %.preheader.i ], [ %11, %.preheader75.i ], [ %.462.i, %.lr.ph.i ]
+  %.255.i = phi i64 [ %.154.i, %.lr.ph90.i ], [ %12, %.preheader.i ], [ %12, %.preheader75.i ], [ %.457.i, %.lr.ph.i ]
+  %.249.i = phi i32 [ %.148.i, %.lr.ph90.i ], [ %10, %.preheader.i ], [ %10, %.preheader75.i ], [ %.451.i, %.lr.ph.i ]
+  %.2.i = phi i32 [ %spec.select70.i, %.lr.ph90.i ], [ %9, %.preheader.i ], [ %9, %.preheader75.i ], [ %.4.i, %.lr.ph.i ]
   store i64 %.260.i, ptr %4, align 8, !tbaa !33
   store i64 %.255.i, ptr %5, align 8, !tbaa !33
   store i32 %.2.i, ptr %2, align 4, !tbaa !34
@@ -1534,10 +1534,10 @@ define internal void @_ZN2cvL12minMaxIdx_8sEPKaPKhPiS4_PmS5_im(ptr noundef reado
   br i1 %exitcond.not.i, label %_ZN2cvL10minMaxIdx_IaiEEvPKT_PKhPT0_S7_PmS8_im.exit, label %.lr.ph.i, !llvm.loop !66
 
 _ZN2cvL10minMaxIdx_IaiEEvPKT_PKhPT0_S7_PmS8_im.exit: ; preds = %.lr.ph.i, %.lr.ph90.i, %.preheader75.i, %.preheader.i
-  %.260.i = phi i64 [ %11, %.preheader.i ], [ %11, %.preheader75.i ], [ %spec.select.i, %.lr.ph90.i ], [ %.462.i, %.lr.ph.i ]
-  %.255.i = phi i64 [ %12, %.preheader.i ], [ %12, %.preheader75.i ], [ %.154.i, %.lr.ph90.i ], [ %.457.i, %.lr.ph.i ]
-  %.249.i = phi i32 [ %10, %.preheader.i ], [ %10, %.preheader75.i ], [ %.148.i, %.lr.ph90.i ], [ %.451.i, %.lr.ph.i ]
-  %.2.i = phi i32 [ %9, %.preheader.i ], [ %9, %.preheader75.i ], [ %spec.select70.i, %.lr.ph90.i ], [ %.4.i, %.lr.ph.i ]
+  %.260.i = phi i64 [ %spec.select.i, %.lr.ph90.i ], [ %11, %.preheader.i ], [ %11, %.preheader75.i ], [ %.462.i, %.lr.ph.i ]
+  %.255.i = phi i64 [ %.154.i, %.lr.ph90.i ], [ %12, %.preheader.i ], [ %12, %.preheader75.i ], [ %.457.i, %.lr.ph.i ]
+  %.249.i = phi i32 [ %.148.i, %.lr.ph90.i ], [ %10, %.preheader.i ], [ %10, %.preheader75.i ], [ %.451.i, %.lr.ph.i ]
+  %.2.i = phi i32 [ %spec.select70.i, %.lr.ph90.i ], [ %9, %.preheader.i ], [ %9, %.preheader75.i ], [ %.4.i, %.lr.ph.i ]
   store i64 %.260.i, ptr %4, align 8, !tbaa !33
   store i64 %.255.i, ptr %5, align 8, !tbaa !33
   store i32 %.2.i, ptr %2, align 4, !tbaa !34
@@ -1617,10 +1617,10 @@ define internal void @_ZN2cvL13minMaxIdx_16uEPKtPKhPiS4_PmS5_im(ptr noundef read
   br i1 %exitcond.not.i, label %_ZN2cvL10minMaxIdx_ItiEEvPKT_PKhPT0_S7_PmS8_im.exit, label %.lr.ph.i, !llvm.loop !70
 
 _ZN2cvL10minMaxIdx_ItiEEvPKT_PKhPT0_S7_PmS8_im.exit: ; preds = %.lr.ph.i, %.lr.ph90.i, %.preheader75.i, %.preheader.i
-  %.260.i = phi i64 [ %11, %.preheader.i ], [ %11, %.preheader75.i ], [ %spec.select.i, %.lr.ph90.i ], [ %.462.i, %.lr.ph.i ]
-  %.255.i = phi i64 [ %12, %.preheader.i ], [ %12, %.preheader75.i ], [ %.154.i, %.lr.ph90.i ], [ %.457.i, %.lr.ph.i ]
-  %.249.i = phi i32 [ %10, %.preheader.i ], [ %10, %.preheader75.i ], [ %.148.i, %.lr.ph90.i ], [ %.451.i, %.lr.ph.i ]
-  %.2.i = phi i32 [ %9, %.preheader.i ], [ %9, %.preheader75.i ], [ %spec.select70.i, %.lr.ph90.i ], [ %.4.i, %.lr.ph.i ]
+  %.260.i = phi i64 [ %spec.select.i, %.lr.ph90.i ], [ %11, %.preheader.i ], [ %11, %.preheader75.i ], [ %.462.i, %.lr.ph.i ]
+  %.255.i = phi i64 [ %.154.i, %.lr.ph90.i ], [ %12, %.preheader.i ], [ %12, %.preheader75.i ], [ %.457.i, %.lr.ph.i ]
+  %.249.i = phi i32 [ %.148.i, %.lr.ph90.i ], [ %10, %.preheader.i ], [ %10, %.preheader75.i ], [ %.451.i, %.lr.ph.i ]
+  %.2.i = phi i32 [ %spec.select70.i, %.lr.ph90.i ], [ %9, %.preheader.i ], [ %9, %.preheader75.i ], [ %.4.i, %.lr.ph.i ]
   store i64 %.260.i, ptr %4, align 8, !tbaa !33
   store i64 %.255.i, ptr %5, align 8, !tbaa !33
   store i32 %.2.i, ptr %2, align 4, !tbaa !34
@@ -1700,10 +1700,10 @@ define internal void @_ZN2cvL13minMaxIdx_16sEPKsPKhPiS4_PmS5_im(ptr noundef read
   br i1 %exitcond.not.i, label %_ZN2cvL10minMaxIdx_IsiEEvPKT_PKhPT0_S7_PmS8_im.exit, label %.lr.ph.i, !llvm.loop !72
 
 _ZN2cvL10minMaxIdx_IsiEEvPKT_PKhPT0_S7_PmS8_im.exit: ; preds = %.lr.ph.i, %.lr.ph90.i, %.preheader75.i, %.preheader.i
-  %.260.i = phi i64 [ %11, %.preheader.i ], [ %11, %.preheader75.i ], [ %spec.select.i, %.lr.ph90.i ], [ %.462.i, %.lr.ph.i ]
-  %.255.i = phi i64 [ %12, %.preheader.i ], [ %12, %.preheader75.i ], [ %.154.i, %.lr.ph90.i ], [ %.457.i, %.lr.ph.i ]
-  %.249.i = phi i32 [ %10, %.preheader.i ], [ %10, %.preheader75.i ], [ %.148.i, %.lr.ph90.i ], [ %.451.i, %.lr.ph.i ]
-  %.2.i = phi i32 [ %9, %.preheader.i ], [ %9, %.preheader75.i ], [ %spec.select70.i, %.lr.ph90.i ], [ %.4.i, %.lr.ph.i ]
+  %.260.i = phi i64 [ %spec.select.i, %.lr.ph90.i ], [ %11, %.preheader.i ], [ %11, %.preheader75.i ], [ %.462.i, %.lr.ph.i ]
+  %.255.i = phi i64 [ %.154.i, %.lr.ph90.i ], [ %12, %.preheader.i ], [ %12, %.preheader75.i ], [ %.457.i, %.lr.ph.i ]
+  %.249.i = phi i32 [ %.148.i, %.lr.ph90.i ], [ %10, %.preheader.i ], [ %10, %.preheader75.i ], [ %.451.i, %.lr.ph.i ]
+  %.2.i = phi i32 [ %spec.select70.i, %.lr.ph90.i ], [ %9, %.preheader.i ], [ %9, %.preheader75.i ], [ %.4.i, %.lr.ph.i ]
   store i64 %.260.i, ptr %4, align 8, !tbaa !33
   store i64 %.255.i, ptr %5, align 8, !tbaa !33
   store i32 %.2.i, ptr %2, align 4, !tbaa !34
@@ -1779,10 +1779,10 @@ define internal void @_ZN2cvL13minMaxIdx_32sEPKiPKhPiS4_PmS5_im(ptr noundef read
   br i1 %exitcond.not.i, label %_ZN2cvL10minMaxIdx_IiiEEvPKT_PKhPT0_S7_PmS8_im.exit, label %.lr.ph.i, !llvm.loop !74
 
 _ZN2cvL10minMaxIdx_IiiEEvPKT_PKhPT0_S7_PmS8_im.exit: ; preds = %.lr.ph.i, %.lr.ph87.i, %.preheader72.i, %.preheader.i
-  %.260.i = phi i64 [ %11, %.preheader.i ], [ %11, %.preheader72.i ], [ %spec.select.i, %.lr.ph87.i ], [ %.462.i, %.lr.ph.i ]
-  %.255.i = phi i64 [ %12, %.preheader.i ], [ %12, %.preheader72.i ], [ %.154.i, %.lr.ph87.i ], [ %.457.i, %.lr.ph.i ]
-  %.249.i = phi i32 [ %10, %.preheader.i ], [ %10, %.preheader72.i ], [ %.148.i, %.lr.ph87.i ], [ %.451.i, %.lr.ph.i ]
-  %.2.i = phi i32 [ %9, %.preheader.i ], [ %9, %.preheader72.i ], [ %spec.select70.i, %.lr.ph87.i ], [ %.4.i, %.lr.ph.i ]
+  %.260.i = phi i64 [ %spec.select.i, %.lr.ph87.i ], [ %11, %.preheader.i ], [ %11, %.preheader72.i ], [ %.462.i, %.lr.ph.i ]
+  %.255.i = phi i64 [ %.154.i, %.lr.ph87.i ], [ %12, %.preheader.i ], [ %12, %.preheader72.i ], [ %.457.i, %.lr.ph.i ]
+  %.249.i = phi i32 [ %.148.i, %.lr.ph87.i ], [ %10, %.preheader.i ], [ %10, %.preheader72.i ], [ %.451.i, %.lr.ph.i ]
+  %.2.i = phi i32 [ %spec.select70.i, %.lr.ph87.i ], [ %9, %.preheader.i ], [ %9, %.preheader72.i ], [ %.4.i, %.lr.ph.i ]
   store i64 %.260.i, ptr %4, align 8, !tbaa !33
   store i64 %.255.i, ptr %5, align 8, !tbaa !33
   store i32 %.2.i, ptr %2, align 4, !tbaa !34
@@ -1858,10 +1858,10 @@ define internal void @_ZN2cvL13minMaxIdx_32fEPKfPKhPfS4_PmS5_im(ptr noundef read
   br i1 %exitcond.not.i, label %_ZN2cvL10minMaxIdx_IffEEvPKT_PKhPT0_S7_PmS8_im.exit, label %.lr.ph.i, !llvm.loop !76
 
 _ZN2cvL10minMaxIdx_IffEEvPKT_PKhPT0_S7_PmS8_im.exit: ; preds = %.lr.ph.i, %.lr.ph86.i, %.preheader71.i, %.preheader.i
-  %.260.i = phi i64 [ %11, %.preheader.i ], [ %11, %.preheader71.i ], [ %.159.i, %.lr.ph86.i ], [ %.462.i, %.lr.ph.i ]
-  %.255.i = phi i64 [ %12, %.preheader.i ], [ %12, %.preheader71.i ], [ %.154.i, %.lr.ph86.i ], [ %.457.i, %.lr.ph.i ]
-  %.249.i = phi float [ %10, %.preheader.i ], [ %10, %.preheader71.i ], [ %.148.i, %.lr.ph86.i ], [ %.451.i, %.lr.ph.i ]
-  %.2.i = phi float [ %9, %.preheader.i ], [ %9, %.preheader71.i ], [ %.1.i, %.lr.ph86.i ], [ %.4.i, %.lr.ph.i ]
+  %.260.i = phi i64 [ %.159.i, %.lr.ph86.i ], [ %11, %.preheader.i ], [ %11, %.preheader71.i ], [ %.462.i, %.lr.ph.i ]
+  %.255.i = phi i64 [ %.154.i, %.lr.ph86.i ], [ %12, %.preheader.i ], [ %12, %.preheader71.i ], [ %.457.i, %.lr.ph.i ]
+  %.249.i = phi float [ %.148.i, %.lr.ph86.i ], [ %10, %.preheader.i ], [ %10, %.preheader71.i ], [ %.451.i, %.lr.ph.i ]
+  %.2.i = phi float [ %.1.i, %.lr.ph86.i ], [ %9, %.preheader.i ], [ %9, %.preheader71.i ], [ %.4.i, %.lr.ph.i ]
   store i64 %.260.i, ptr %4, align 8, !tbaa !33
   store i64 %.255.i, ptr %5, align 8, !tbaa !33
   store float %.2.i, ptr %2, align 4, !tbaa !35
@@ -1937,10 +1937,10 @@ define internal void @_ZN2cvL13minMaxIdx_64fEPKdPKhPdS4_PmS5_im(ptr noundef read
   br i1 %exitcond.not.i, label %_ZN2cvL10minMaxIdx_IddEEvPKT_PKhPT0_S7_PmS8_im.exit, label %.lr.ph.i, !llvm.loop !78
 
 _ZN2cvL10minMaxIdx_IddEEvPKT_PKhPT0_S7_PmS8_im.exit: ; preds = %.lr.ph.i, %.lr.ph86.i, %.preheader71.i, %.preheader.i
-  %.260.i = phi i64 [ %11, %.preheader.i ], [ %11, %.preheader71.i ], [ %.159.i, %.lr.ph86.i ], [ %.462.i, %.lr.ph.i ]
-  %.255.i = phi i64 [ %12, %.preheader.i ], [ %12, %.preheader71.i ], [ %.154.i, %.lr.ph86.i ], [ %.457.i, %.lr.ph.i ]
-  %.249.i = phi double [ %10, %.preheader.i ], [ %10, %.preheader71.i ], [ %.148.i, %.lr.ph86.i ], [ %.451.i, %.lr.ph.i ]
-  %.2.i = phi double [ %9, %.preheader.i ], [ %9, %.preheader71.i ], [ %.1.i, %.lr.ph86.i ], [ %.4.i, %.lr.ph.i ]
+  %.260.i = phi i64 [ %.159.i, %.lr.ph86.i ], [ %11, %.preheader.i ], [ %11, %.preheader71.i ], [ %.462.i, %.lr.ph.i ]
+  %.255.i = phi i64 [ %.154.i, %.lr.ph86.i ], [ %12, %.preheader.i ], [ %12, %.preheader71.i ], [ %.457.i, %.lr.ph.i ]
+  %.249.i = phi double [ %.148.i, %.lr.ph86.i ], [ %10, %.preheader.i ], [ %10, %.preheader71.i ], [ %.451.i, %.lr.ph.i ]
+  %.2.i = phi double [ %.1.i, %.lr.ph86.i ], [ %9, %.preheader.i ], [ %9, %.preheader71.i ], [ %.4.i, %.lr.ph.i ]
   store i64 %.260.i, ptr %4, align 8, !tbaa !33
   store i64 %.255.i, ptr %5, align 8, !tbaa !33
   store double %.2.i, ptr %2, align 8, !tbaa !37

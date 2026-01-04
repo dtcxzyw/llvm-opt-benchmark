@@ -438,7 +438,7 @@ bytestream2_get_byte.exit100:                     ; preds = %208, %209
   br label %set_palette.exit
 
 set_palette.exit:                                 ; preds = %bytestream2_init.exit96, %bytestream2_get_byte.exit.thread, %.thread, %bytestream2_get_le16.exit, %25, %bytestream2_get_byte.exit, %226, %set_palette.exit109, %110
-  %.078 = phi i32 [ -1094995529, %110 ], [ %115, %set_palette.exit109 ], [ %227, %226 ], [ -1094995529, %bytestream2_get_byte.exit ], [ %27, %25 ], [ -1094995529, %bytestream2_get_le16.exit ], [ %224, %.thread ], [ -1094995529, %bytestream2_get_byte.exit.thread ], [ -1094995529, %bytestream2_init.exit96 ]
+  %.078 = phi i32 [ %227, %226 ], [ -1094995529, %bytestream2_get_byte.exit ], [ -1094995529, %bytestream2_get_byte.exit.thread ], [ -1094995529, %110 ], [ %115, %set_palette.exit109 ], [ %27, %25 ], [ -1094995529, %bytestream2_get_le16.exit ], [ %224, %.thread ], [ -1094995529, %bytestream2_init.exit96 ]
   ret i32 %.078
 }
 

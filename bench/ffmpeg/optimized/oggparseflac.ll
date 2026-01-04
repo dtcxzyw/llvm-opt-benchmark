@@ -119,8 +119,8 @@ bytestream2_get_byte.exit:                        ; preds = %bytestream2_init.ex
   %67 = tail call i32 @ff_vorbis_stream_comment(ptr noundef nonnull %0, ptr noundef %11, ptr noundef nonnull %65, i32 noundef %66) #7
   br label %bytestream2_get_byte.exit.thread
 
-bytestream2_get_byte.exit.thread:                 ; preds = %42, %35, %31, %28, %26, %bytestream2_init.exit, %64, %bytestream2_get_byte.exit, %63, %2
-  %.0 = phi i32 [ 0, %2 ], [ 1, %63 ], [ 1, %bytestream2_get_byte.exit ], [ 1, %64 ], [ 1, %bytestream2_init.exit ], [ -1094995529, %42 ], [ %40, %35 ], [ -1, %31 ], [ -1, %28 ], [ -1094995529, %26 ]
+bytestream2_get_byte.exit.thread:                 ; preds = %42, %31, %28, %26, %35, %bytestream2_init.exit, %64, %bytestream2_get_byte.exit, %63, %2
+  %.0 = phi i32 [ 1, %bytestream2_init.exit ], [ 0, %2 ], [ 1, %63 ], [ 1, %64 ], [ 1, %bytestream2_get_byte.exit ], [ -1094995529, %42 ], [ -1, %31 ], [ -1, %28 ], [ -1094995529, %26 ], [ %40, %35 ]
   ret i32 %.0
 }
 
@@ -170,7 +170,7 @@ define internal range(i32 0, 2) i32 @flac_packet(ptr noundef readonly captures(n
   br label %24
 
 24:                                               ; preds = %.thread, %11, %23
-  %.0 = phi i32 [ 0, %23 ], [ 1, %11 ], [ 1, %.thread ]
+  %.0 = phi i32 [ 1, %11 ], [ 0, %23 ], [ 1, %.thread ]
   ret i32 %.0
 }
 
@@ -240,7 +240,7 @@ define internal range(i32 -2147483648, 2) i32 @old_flac_header(ptr noundef reado
   br label %.sink.split
 
 .sink.split:                                      ; preds = %25, %38, %39
-  %.019.ph = phi i32 [ 0, %38 ], [ %.0, %39 ], [ 1, %25 ]
+  %.019.ph = phi i32 [ %.0, %39 ], [ 0, %38 ], [ 1, %25 ]
   call void @avcodec_free_context(ptr noundef nonnull %3) #7
   br label %40
 

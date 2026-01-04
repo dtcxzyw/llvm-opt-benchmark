@@ -1743,13 +1743,13 @@ _ZN5QListI7QStringED2Ev.exit:                     ; preds = %478, %_ZN17QArrayDa
   ret void
 
 _ZN7QStringD2Ev.exit336:                          ; preds = %429, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i338, %425, %424, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i330, %421, %_ZN7QStringD2Ev.exit328, %_ZN7QStringD2Ev.exit320, %_ZN7QStringD2Ev.exit296, %352
-  %.pn91 = phi { ptr, i32 } [ %353, %352 ], [ %416, %_ZN7QStringD2Ev.exit328 ], [ %.pn74.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN7QStringD2Ev.exit320 ], [ %.pn72, %_ZN7QStringD2Ev.exit296 ], [ %422, %421 ], [ %422, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i330 ], [ %422, %424 ], [ %426, %425 ], [ %426, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i338 ], [ %426, %429 ]
+  %.pn91 = phi { ptr, i32 } [ %353, %352 ], [ %422, %424 ], [ %426, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i338 ], [ %.pn72, %_ZN7QStringD2Ev.exit296 ], [ %416, %_ZN7QStringD2Ev.exit328 ], [ %.pn74.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN7QStringD2Ev.exit320 ], [ %426, %429 ], [ %422, %421 ], [ %422, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i330 ], [ %426, %425 ]
   call void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(24) %25) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %491
 
 491:                                              ; preds = %_ZN7QStringD2Ev.exit292, %348, %350, %_ZN7QStringD2Ev.exit336, %346, %338, %337, %_ZN7QStringD2Ev.exit288
-  %.pn91.pn.pn.pn.pn = phi { ptr, i32 } [ %339, %338 ], [ %.pn70, %337 ], [ %.pn.pn, %_ZN7QStringD2Ev.exit288 ], [ %341, %_ZN7QStringD2Ev.exit292 ], [ %347, %346 ], [ %.pn91, %_ZN7QStringD2Ev.exit336 ], [ %351, %350 ], [ %349, %348 ]
+  %.pn91.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZN7QStringD2Ev.exit288 ], [ %339, %338 ], [ %.pn70, %337 ], [ %341, %_ZN7QStringD2Ev.exit292 ], [ %347, %346 ], [ %.pn91, %_ZN7QStringD2Ev.exit336 ], [ %351, %350 ], [ %349, %348 ]
   call void @_ZN20PacketFormatGroupBoxD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(48) %60) #22
   br label %492
 
@@ -2205,7 +2205,7 @@ _ZNK4QMapI7QString13export_type_eE5valueERKS0_RKS1_.exit: ; preds = %_ZNKSt8_Rb_
   br label %_ZN22ExportDissectionDialog7isValidEv.exit.i
 
 _ZN22ExportDissectionDialog7isValidEv.exit.i:     ; preds = %52, %50, %47, %42
-  %.1.i.i = phi i1 [ %44, %47 ], [ %44, %50 ], [ %44, %42 ], [ %spec.select.i.i, %52 ]
+  %.1.i.i = phi i1 [ %44, %47 ], [ %44, %50 ], [ %spec.select.i.i, %52 ], [ %44, %42 ]
   tail call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable_or_null(40) %41, i1 noundef zeroext %.1.i.i)
   br label %_ZN22ExportDissectionDialog13checkValidityEv.exit
 
@@ -2288,7 +2288,7 @@ define void @_ZN22ExportDissectionDialog13checkValidityEv(ptr noundef align 8 de
   br label %_ZN22ExportDissectionDialog7isValidEv.exit
 
 _ZN22ExportDissectionDialog7isValidEv.exit:       ; preds = %4, %10, %13, %15
-  %.1.i = phi i1 [ %6, %10 ], [ %6, %13 ], [ %6, %4 ], [ %spec.select.i, %15 ]
+  %.1.i = phi i1 [ %6, %10 ], [ %6, %13 ], [ %spec.select.i, %15 ], [ %6, %4 ]
   tail call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable_or_null(40) %3, i1 noundef zeroext %.1.i)
   br label %17
 
@@ -2525,7 +2525,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i11:    ; preds = %38
           to label %104 unwind label %57
 
 104:                                              ; preds = %100, %96, %92, %88, %84, %80
-  %.0 = phi i32 [ %83, %80 ], [ %87, %84 ], [ %91, %88 ], [ %95, %92 ], [ %99, %96 ], [ %103, %100 ]
+  %.0 = phi i32 [ %99, %96 ], [ %83, %80 ], [ %87, %84 ], [ %91, %88 ], [ %95, %92 ], [ %103, %100 ]
   switch i32 %.0, label %113 [
     i32 2, label %109
     i32 1, label %105
@@ -2871,7 +2871,7 @@ define noundef zeroext i1 @_ZN22ExportDissectionDialog7isValidEv(ptr noundef ali
   br label %14
 
 14:                                               ; preds = %12, %7, %10, %1
-  %.1 = phi i1 [ %3, %7 ], [ %3, %10 ], [ %3, %1 ], [ %spec.select, %12 ]
+  %.1 = phi i1 [ %3, %7 ], [ %3, %10 ], [ %spec.select, %12 ], [ %3, %1 ]
   ret i1 %.1
 }
 

@@ -33,7 +33,7 @@ define zeroext i1 @b2IsValidVec2(<2 x float> %0) local_unnamed_addr #2 {
   br label %10
 
 10:                                               ; preds = %5, %1, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %1 ], [ %or.cond.not, %5 ]
+  %.0 = phi i1 [ %or.cond.not, %5 ], [ false, %1 ], [ false, %3 ]
   ret i1 %.0
 }
 
@@ -67,7 +67,7 @@ define zeroext i1 @b2IsValidRotation(<2 x float> %0) local_unnamed_addr #2 {
   br label %17
 
 17:                                               ; preds = %5, %1, %3, %10
-  %.0 = phi i1 [ %16, %10 ], [ false, %3 ], [ false, %1 ], [ false, %5 ]
+  %.0 = phi i1 [ %16, %10 ], [ false, %1 ], [ false, %3 ], [ false, %5 ]
   ret i1 %.0
 }
 

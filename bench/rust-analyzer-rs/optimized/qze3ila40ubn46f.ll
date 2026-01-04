@@ -140,7 +140,7 @@ define void @_ZN7profile10stop_watch9StopWatch5start17h6f84661d6bac0b93E(ptr noa
   unreachable
 
 common.resume:                                    ; preds = %52, %50, %77, %74, %27
-  %common.resume.op = phi { ptr, i32 } [ %28, %27 ], [ %.pn, %52 ], [ %.pn, %50 ], [ %75, %77 ], [ %75, %74 ]
+  %common.resume.op = phi { ptr, i32 } [ %28, %27 ], [ %.pn, %50 ], [ %.pn, %52 ], [ %75, %77 ], [ %75, %74 ]
   resume { ptr, i32 } %common.resume.op
 
 37:                                               ; preds = %1, %46

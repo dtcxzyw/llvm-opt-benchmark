@@ -6160,7 +6160,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i80
   br label %.body67
 
 .body67:                                          ; preds = %405, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i80, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %.body.i102, %403
-  %.pn14 = phi { ptr, i32 } [ %eh.lpad-body.i, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ %404, %403 ], [ %.pn.pn.i, %.body.i102 ], [ %406, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i80 ], [ %406, %405 ]
+  %.pn14 = phi { ptr, i32 } [ %.pn.pn.i, %.body.i102 ], [ %eh.lpad-body.i, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ %404, %403 ], [ %406, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i80 ], [ %406, %405 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %409 = load ptr, ptr %9, align 8
   %410 = icmp eq ptr %409, %52
@@ -6246,7 +6246,7 @@ _ZN7testing8internal13ParamIteratorIN12_GLOBAL__N_113expected_infoEED2Ev.exit59.
   unreachable
 
 _ZN7testing8internal13ParamIteratorIN12_GLOBAL__N_113expected_infoEED2Ev.exit91: ; preds = %.loopexit127, %.loopexit.split-lp128, %168, %.noexc.i.i90, %429, %_ZN7testing8internal13ParamIteratorIN12_GLOBAL__N_113expected_infoEED2Ev.exit59, %.body
-  %.pn19.pn.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %169, %168 ], [ %427, %_ZN7testing8internal13ParamIteratorIN12_GLOBAL__N_113expected_infoEED2Ev.exit59 ], [ %.pn19124, %429 ], [ %.pn19124, %.noexc.i.i90 ], [ %lpad.loopexit129, %.loopexit127 ], [ %lpad.loopexit.split-lp130, %.loopexit.split-lp128 ]
+  %.pn19.pn.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %.pn19124, %.noexc.i.i90 ], [ %169, %168 ], [ %427, %_ZN7testing8internal13ParamIteratorIN12_GLOBAL__N_113expected_infoEED2Ev.exit59 ], [ %.pn19124, %429 ], [ %lpad.loopexit129, %.loopexit127 ], [ %lpad.loopexit.split-lp130, %.loopexit.split-lp128 ]
   %436 = load ptr, ptr %6, align 8
   %437 = icmp eq ptr %436, %16
   br i1 %437, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i92

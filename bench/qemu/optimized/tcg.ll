@@ -389,13 +389,13 @@ memop_alignment_bits.exit.i:                      ; preds = %4
   unreachable
 
 atom_and_align_for_opc.exit:                      ; preds = %memop_alignment_bits.exit.i, %9, %10
-  %.050.i = phi i32 [ %6, %9 ], [ %11, %10 ], [ 0, %memop_alignment_bits.exit.i ]
+  %.050.i = phi i32 [ 0, %memop_alignment_bits.exit.i ], [ %6, %9 ], [ %11, %10 ]
   %13 = and i32 %.050.i, 2147483644
   %14 = icmp eq i32 %13, 0
   br label %15
 
 15:                                               ; preds = %4, %1, %atom_and_align_for_opc.exit
-  %.0 = phi i1 [ %14, %atom_and_align_for_opc.exit ], [ false, %1 ], [ true, %4 ]
+  %.0 = phi i1 [ false, %1 ], [ %14, %atom_and_align_for_opc.exit ], [ true, %4 ]
   ret i1 %.0
 }
 
@@ -632,7 +632,7 @@ define dso_local range(i32 -1, 1025) i32 @tcg_can_emit_vec_op(i32 noundef %0, i3
   br label %82
 
 82:                                               ; preds = %66, %56, %43, %35, %26, %26, %16, %14, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %81, %75, %72, %71, %67, %61, %57, %51, %48, %44, %40, %36, %33, %32, %27, %23, %22, %19, %15, %11, %5, %4
-  %.0 = phi i32 [ 0, %81 ], [ -1, %4 ], [ %10, %5 ], [ %13, %11 ], [ 0, %22 ], [ 1, %15 ], [ %21, %19 ], [ %25, %23 ], [ 0, %32 ], [ %31, %27 ], [ %34, %33 ], [ %39, %36 ], [ %42, %40 ], [ %47, %44 ], [ %50, %48 ], [ %55, %51 ], [ %60, %57 ], [ %65, %61 ], [ 1, %71 ], [ %70, %67 ], [ %74, %72 ], [ %80, %75 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ -1, %14 ], [ 1, %16 ], [ 1, %26 ], [ 1, %26 ], [ 0, %35 ], [ 0, %43 ], [ 0, %56 ], [ -1, %66 ]
+  %.0 = phi i32 [ 0, %81 ], [ %80, %75 ], [ -1, %4 ], [ %10, %5 ], [ %13, %11 ], [ 0, %22 ], [ 1, %3 ], [ 1, %15 ], [ -1, %14 ], [ %21, %19 ], [ %25, %23 ], [ 0, %32 ], [ 1, %16 ], [ %31, %27 ], [ %34, %33 ], [ 1, %26 ], [ %39, %36 ], [ %42, %40 ], [ 0, %35 ], [ %47, %44 ], [ %50, %48 ], [ %55, %51 ], [ 0, %43 ], [ %60, %57 ], [ %65, %61 ], [ 1, %71 ], [ 0, %56 ], [ %70, %67 ], [ %74, %72 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %26 ], [ -1, %66 ]
   ret i32 %.0
 }
 
@@ -2219,7 +2219,7 @@ define dso_local nonnull ptr @tcg_malloc_internal(ptr noundef captures(none) %0,
   br label %26
 
 26:                                               ; preds = %17, %14, %23, %24
-  %.0 = phi ptr [ %20, %23 ], [ %20, %24 ], [ %16, %14 ], [ %18, %17 ]
+  %.0 = phi ptr [ %16, %14 ], [ %20, %23 ], [ %20, %24 ], [ %18, %17 ]
   store ptr %.0, ptr %12, align 8
   %27 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %28 = sext i32 %1 to i64
@@ -4654,7 +4654,7 @@ define dso_local zeroext i1 @tcg_op_supported(i32 noundef %0, i32 noundef %1, i3
   br label %17
 
 17:                                               ; preds = %3, %3, %16, %12, %8, %4
-  %.0 = phi i8 [ 0, %16 ], [ %7, %4 ], [ %11, %8 ], [ %15, %12 ], [ 1, %3 ], [ 1, %3 ]
+  %.0 = phi i8 [ 0, %16 ], [ %15, %12 ], [ 1, %3 ], [ %7, %4 ], [ %11, %8 ], [ 1, %3 ]
   switch i32 %0, label %111 [
     i32 0, label %113
     i32 1, label %113
@@ -4997,7 +4997,7 @@ define dso_local zeroext i1 @tcg_op_supported(i32 noundef %0, i32 noundef %1, i3
   br label %113
 
 113:                                              ; preds = %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %111, %109, %103, %101, %99, %93, %87, %81, %79, %77, %75, %69, %63, %57, %51, %49, %47, %41, %39, %35, %31, %27, %23, %19, %18
-  %.033 = phi i1 [ true, %111 ], [ false, %18 ], [ %22, %19 ], [ %26, %23 ], [ %30, %27 ], [ %34, %31 ], [ %38, %35 ], [ %40, %39 ], [ %46, %41 ], [ %48, %47 ], [ %50, %49 ], [ %56, %51 ], [ %62, %57 ], [ %68, %63 ], [ %74, %69 ], [ %76, %75 ], [ %78, %77 ], [ %80, %79 ], [ %86, %81 ], [ %92, %87 ], [ %98, %93 ], [ %100, %99 ], [ %102, %101 ], [ %108, %103 ], [ %110, %109 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ]
+  %.033 = phi i1 [ true, %111 ], [ %110, %109 ], [ false, %18 ], [ %22, %19 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ %26, %23 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ %30, %27 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ %34, %31 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ %38, %35 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ %40, %39 ], [ true, %17 ], [ %46, %41 ], [ true, %17 ], [ %48, %47 ], [ %50, %49 ], [ %56, %51 ], [ %62, %57 ], [ %68, %63 ], [ %74, %69 ], [ %76, %75 ], [ %78, %77 ], [ %80, %79 ], [ %86, %81 ], [ %92, %87 ], [ true, %17 ], [ %98, %93 ], [ %100, %99 ], [ %102, %101 ], [ %108, %103 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ]
   ret i1 %.033
 }
 
@@ -5983,9 +5983,9 @@ define dso_local void @tcg_dump_ops(ptr noundef readonly captures(none) %0, ptr 
   br label %223
 
 194:                                              ; preds = %._crit_edge, %179, %166, %133
-  %.9322 = phi i32 [ %.8321, %133 ], [ %.10323, %166 ], [ %.11, %179 ], [ %.7320.lcssa, %._crit_edge ]
-  %.3309 = phi i32 [ %.2308, %133 ], [ %137, %166 ], [ 1, %179 ], [ %.1307.lcssa, %._crit_edge ]
-  %.5 = phi i32 [ 1, %133 ], [ 1, %166 ], [ 1, %179 ], [ 0, %._crit_edge ]
+  %.9322 = phi i32 [ %.7320.lcssa, %._crit_edge ], [ %.8321, %133 ], [ %.10323, %166 ], [ %.11, %179 ]
+  %.3309 = phi i32 [ %.1307.lcssa, %._crit_edge ], [ %.2308, %133 ], [ %137, %166 ], [ 1, %179 ]
+  %.5 = phi i32 [ 0, %._crit_edge ], [ 1, %133 ], [ 1, %166 ], [ 1, %179 ]
   switch i8 %trunc370, label %223 [
     i8 1, label %195
     i8 3, label %195
@@ -6063,8 +6063,8 @@ switch.lookup:                                    ; preds = %194
   br i1 %exitcond465.not, label %.loopexit374, label %227, !llvm.loop !31
 
 .loopexit374:                                     ; preds = %.lr.ph383, %17, %227, %.preheader377, %12, %223
-  %.1314 = phi i32 [ %.13, %223 ], [ %14, %12 ], [ %.3316.lcssa, %.preheader377 ], [ %233, %227 ], [ %22, %17 ], [ %69, %.lr.ph383 ]
-  %.0312 = phi i32 [ %76, %223 ], [ 0, %12 ], [ %24, %.preheader377 ], [ %76, %227 ], [ 0, %17 ], [ %24, %.lr.ph383 ]
+  %.1314 = phi i32 [ %22, %17 ], [ %233, %227 ], [ %.13, %223 ], [ %14, %12 ], [ %.3316.lcssa, %.preheader377 ], [ %69, %.lr.ph383 ]
+  %.0312 = phi i32 [ 0, %17 ], [ %76, %227 ], [ %76, %223 ], [ 0, %12 ], [ %24, %.preheader377 ], [ %24, %.lr.ph383 ]
   br i1 %2, label %239, label %235
 
 235:                                              ; preds = %.loopexit374
@@ -6168,8 +6168,8 @@ output_pref.exit:                                 ; preds = %267
   br label %output_pref.exit.thread
 
 output_pref.exit.thread:                          ; preds = %output_pref.exit, %267
-  %.str.13.sink = phi ptr [ @.str.13, %267 ], [ %spec.select, %output_pref.exit ]
-  %272 = phi i32 [ 0, %267 ], [ %270, %output_pref.exit ]
+  %.str.13.sink = phi ptr [ %spec.select, %output_pref.exit ], [ @.str.13, %267 ]
+  %272 = phi i32 [ %270, %output_pref.exit ], [ 0, %267 ]
   %273 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 1, ptr noundef nonnull %.str.13.sink) #31
   switch i32 %272, label %278 [
     i32 0, label %274
@@ -6442,15 +6442,15 @@ define dso_local void @tcg_op_remove(ptr noundef captures(none) %0, ptr noundef 
   unreachable
 
 .sink.split.sink.split:                           ; preds = %59, %63, %38, %42, %17, %21
-  %.sink67 = phi ptr [ %7, %21 ], [ %7, %17 ], [ %28, %42 ], [ %28, %38 ], [ %49, %63 ], [ %49, %59 ]
-  %.023.lcssa.sink.i41.sink = phi ptr [ %.023.i, %21 ], [ %8, %17 ], [ %.023.i26, %42 ], [ %29, %38 ], [ %.023.i37, %63 ], [ %50, %59 ]
-  %.0.lcssa32.sink.i.sink.ph = phi ptr [ %.0.i, %21 ], [ %15, %17 ], [ %.0.i23, %42 ], [ %36, %38 ], [ %.0.i34, %63 ], [ %57, %59 ]
+  %.sink67 = phi ptr [ %28, %38 ], [ %7, %17 ], [ %7, %21 ], [ %28, %42 ], [ %49, %63 ], [ %49, %59 ]
+  %.023.lcssa.sink.i41.sink = phi ptr [ %29, %38 ], [ %8, %17 ], [ %.023.i, %21 ], [ %.023.i26, %42 ], [ %.023.i37, %63 ], [ %50, %59 ]
+  %.0.lcssa32.sink.i.sink.ph = phi ptr [ %36, %38 ], [ %15, %17 ], [ %.0.i, %21 ], [ %.0.i23, %42 ], [ %.0.i34, %63 ], [ %57, %59 ]
   %67 = getelementptr inbounds nuw i8, ptr %.sink67, i64 24
   store ptr %.023.lcssa.sink.i41.sink, ptr %67, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %63, %59, %42, %38, %21, %17
-  %.0.lcssa32.sink.i.sink = phi ptr [ %15, %17 ], [ %.0.i, %21 ], [ %36, %38 ], [ %.0.i23, %42 ], [ %57, %59 ], [ %.0.i34, %63 ], [ %.0.lcssa32.sink.i.sink.ph, %.sink.split.sink.split ]
+  %.0.lcssa32.sink.i.sink = phi ptr [ %57, %59 ], [ %.0.i34, %63 ], [ %15, %17 ], [ %.0.i, %21 ], [ %36, %38 ], [ %.0.i23, %42 ], [ %.0.lcssa32.sink.i.sink.ph, %.sink.split.sink.split ]
   store ptr null, ptr %.0.lcssa32.sink.i.sink, align 8
   br label %68
 
@@ -7162,7 +7162,7 @@ tcg_malloc.exit.._crit_edge_crit_edge:            ; preds = %tcg_malloc.exit
   unreachable
 
 138:                                              ; preds = %136, %135, %131, %131
-  %.0.i.i.i = phi i64 [ 0, %135 ], [ 768, %136 ], [ 512, %131 ], [ 512, %131 ]
+  %.0.i.i.i = phi i64 [ 768, %136 ], [ 0, %135 ], [ 512, %131 ], [ 512, %131 ]
   %139 = and i64 %125, 65280
   %140 = icmp eq i64 %139, 256
   br i1 %140, label %141, label %set_temp_val_nonreg.exit.i.i.i
@@ -7246,7 +7246,7 @@ set_temp_val_nonreg.exit.i.i:                     ; preds = %151, %temp_dead.exi
   unreachable
 
 set_temp_val_nonreg.exit.i.i.i.i:                 ; preds = %171, %170, %166, %166
-  %.0.i.i.i.i = phi i64 [ 0, %170 ], [ 768, %171 ], [ 512, %166 ], [ 512, %166 ]
+  %.0.i.i.i.i = phi i64 [ 768, %171 ], [ 0, %170 ], [ 512, %166 ], [ 512, %166 ]
   %173 = or disjoint i64 %.0.i.i.i.i, %158
   store i64 %173, ptr %117, align 8
   br label %tcg_reg_alloc_mov.exit
@@ -7321,7 +7321,7 @@ set_temp_val_nonreg.exit.i.i.i.i:                 ; preds = %171, %170, %166, %1
   unreachable
 
 209:                                              ; preds = %207, %206, %201, %201
-  %.0.i.i84.i = phi i64 [ 0, %206 ], [ 768, %207 ], [ 512, %201 ], [ 512, %201 ]
+  %.0.i.i84.i = phi i64 [ 768, %207 ], [ 0, %206 ], [ 512, %201 ], [ 512, %201 ]
   %210 = and i64 %202, 65280
   %211 = icmp eq i64 %210, 256
   br i1 %211, label %212, label %set_temp_val_nonreg.exit.i.i85.i
@@ -7367,7 +7367,7 @@ temp_dead.exit87.i:                               ; preds = %set_temp_val_nonreg
   unreachable
 
 227:                                              ; preds = %225, %224, %temp_dead.exit87.i, %temp_dead.exit87.i
-  %.0.i.i88.i = phi i64 [ 0, %224 ], [ 768, %225 ], [ 512, %temp_dead.exit87.i ], [ 512, %temp_dead.exit87.i ]
+  %.0.i.i88.i = phi i64 [ 768, %225 ], [ 0, %224 ], [ 512, %temp_dead.exit87.i ], [ 512, %temp_dead.exit87.i ]
   %228 = and i64 %220, 65280
   %229 = icmp eq i64 %228, 256
   br i1 %229, label %230, label %set_temp_val_nonreg.exit.i.i89.i
@@ -7420,7 +7420,7 @@ set_temp_val_nonreg.exit.i.i89.i:                 ; preds = %230, %227
   unreachable
 
 set_temp_val_nonreg.exit.i.i93.i:                 ; preds = %246, %245, %241, %241
-  %.0.i.i92.i = phi i64 [ 0, %245 ], [ 768, %246 ], [ 512, %241 ], [ 512, %241 ]
+  %.0.i.i92.i = phi i64 [ 768, %246 ], [ 0, %245 ], [ 512, %241 ], [ 512, %241 ]
   %248 = and i64 %180, 255
   %249 = getelementptr inbounds nuw ptr, ptr %63, i64 %248
   %250 = load ptr, ptr %249, align 8
@@ -7558,7 +7558,7 @@ set_temp_val_reg.exit.i:                          ; preds = %282, %274
   unreachable
 
 set_temp_val_nonreg.exit.i.i.i156:                ; preds = %322, %321, %317, %317
-  %.0.i.i.i157 = phi i64 [ 0, %321 ], [ 768, %322 ], [ 512, %317 ], [ 512, %317 ]
+  %.0.i.i.i157 = phi i64 [ 768, %322 ], [ 0, %321 ], [ 512, %317 ], [ 512, %317 ]
   %324 = and i64 %305, -65281
   %325 = or disjoint i64 %.0.i.i.i157, %324
   store i64 %325, ptr %302, align 8
@@ -7628,7 +7628,7 @@ set_temp_val_nonreg.exit.i.i163:                  ; preds = %330, %temp_dead.exi
   unreachable
 
 set_temp_val_nonreg.exit.i.i.i.i166:              ; preds = %350, %349, %345, %345
-  %.0.i.i.i.i167 = phi i64 [ 0, %349 ], [ 768, %350 ], [ 512, %345 ], [ 512, %345 ]
+  %.0.i.i.i.i167 = phi i64 [ 768, %350 ], [ 0, %349 ], [ 512, %345 ], [ 512, %345 ]
   %352 = or disjoint i64 %.0.i.i.i.i167, %337
   store i64 %352, ptr %299, align 8
   br label %tcg_reg_alloc_mov.exit
@@ -7778,7 +7778,7 @@ set_temp_val_reg.exit.i148:                       ; preds = %383, %375, %353
   unreachable
 
 433:                                              ; preds = %431, %430, %425, %425
-  %.0.i.i86.i = phi i64 [ 0, %430 ], [ 768, %431 ], [ 512, %425 ], [ 512, %425 ]
+  %.0.i.i86.i = phi i64 [ 768, %431 ], [ 0, %430 ], [ 512, %425 ], [ 512, %425 ]
   %434 = and i64 %426, 65280
   %435 = icmp eq i64 %434, 256
   br i1 %435, label %436, label %set_temp_val_nonreg.exit.i.i87.i
@@ -7839,7 +7839,7 @@ temp_dead.exit89.i:                               ; preds = %set_temp_val_nonreg
   unreachable
 
 457:                                              ; preds = %455, %454, %449, %449
-  %.0.i.i90.i = phi i64 [ 0, %454 ], [ 768, %455 ], [ 512, %449 ], [ 512, %449 ]
+  %.0.i.i90.i = phi i64 [ 768, %455 ], [ 0, %454 ], [ 512, %449 ], [ 512, %449 ]
   %458 = and i64 %450, 65280
   %459 = icmp eq i64 %458, 256
   br i1 %459, label %460, label %set_temp_val_nonreg.exit.i.i91.i
@@ -7932,7 +7932,7 @@ set_temp_val_nonreg.exit.i.i91.i:                 ; preds = %460, %457
   unreachable
 
 502:                                              ; preds = %500, %499, %491, %491
-  %.0.i.i = phi i64 [ 0, %499 ], [ 768, %500 ], [ 512, %491 ], [ 512, %491 ]
+  %.0.i.i = phi i64 [ 768, %500 ], [ 0, %499 ], [ 512, %491 ], [ 512, %491 ]
   %503 = and i64 %495, 65280
   %504 = icmp eq i64 %503, 256
   br i1 %504, label %505, label %set_temp_val_nonreg.exit.i.i169
@@ -8406,7 +8406,7 @@ load_arg_normal.exit.i:                           ; preds = %713, %712, %708, %t
   unreachable
 
 746:                                              ; preds = %744, %743, %735, %735
-  %.0.i.i.i180 = phi i64 [ 0, %743 ], [ 768, %744 ], [ 512, %735 ], [ 512, %735 ]
+  %.0.i.i.i180 = phi i64 [ 768, %744 ], [ 0, %743 ], [ 512, %735 ], [ 512, %735 ]
   %747 = and i64 %739, 65280
   %748 = icmp eq i64 %747, 256
   br i1 %748, label %749, label %set_temp_val_nonreg.exit.i.i.i181
@@ -8693,7 +8693,7 @@ set_temp_val_reg.exit.i188:                       ; preds = %828, %820
   unreachable
 
 877:                                              ; preds = %875, %874, %869, %869
-  %.0.i.i110.i = phi i64 [ 0, %874 ], [ 768, %875 ], [ 512, %869 ], [ 512, %869 ]
+  %.0.i.i110.i = phi i64 [ 768, %875 ], [ 0, %874 ], [ 512, %869 ], [ 512, %869 ]
   %878 = and i64 %870, 65280
   %879 = icmp eq i64 %878, 256
   br i1 %879, label %880, label %set_temp_val_nonreg.exit.i.i111.i
@@ -8818,7 +8818,7 @@ tcg_out_goto_tb.exit:                             ; preds = %894, %tcg_out_nopn.
   br label %tcg_reg_alloc_mov.exit
 
 tcg_reg_alloc_mov.exit:                           ; preds = %temp_dead.exit113.i, %483, %479, %.preheader.i, %.preheader114.i, %set_temp_val_nonreg.exit.i.i169, %491, %set_temp_val_nonreg.exit.i.i91.i, %449, %447, %set_temp_val_nonreg.exit.i.i.i.i166, %345, %343, %340, %293, %set_temp_val_reg.exit.i, %set_temp_val_nonreg.exit.i.i89.i, %temp_dead.exit87.i, %set_temp_val_nonreg.exit.i.i.i.i, %166, %164, %161, %932, %tcg_out_goto_tb.exit, %tcg_out_exit_tb.exit, %tcg_reg_alloc_bb_end.exit
-  %.1118 = phi i32 [ %.0117280, %932 ], [ %.0117280, %tcg_reg_alloc_bb_end.exit ], [ %.0117280, %tcg_out_exit_tb.exit ], [ %.0117280, %tcg_out_goto_tb.exit ], [ %.0117280, %161 ], [ %.0117280, %164 ], [ %.0117280, %166 ], [ %.0117280, %set_temp_val_nonreg.exit.i.i.i.i ], [ %.0117280, %temp_dead.exit87.i ], [ %.0117280, %set_temp_val_nonreg.exit.i.i89.i ], [ %.0117280, %set_temp_val_reg.exit.i ], [ %.0117280, %293 ], [ %.0117280, %340 ], [ %.0117280, %343 ], [ %.0117280, %345 ], [ %.0117280, %set_temp_val_nonreg.exit.i.i.i.i166 ], [ %.0117280, %447 ], [ %.0117280, %449 ], [ %.0117280, %set_temp_val_nonreg.exit.i.i91.i ], [ %.0117280, %491 ], [ %.0117280, %set_temp_val_nonreg.exit.i.i169 ], [ %.0117280, %.preheader114.i ], [ %.0117280, %.preheader.i ], [ %480, %479 ], [ %480, %483 ], [ %.0117280, %temp_dead.exit113.i ]
+  %.1118 = phi i32 [ %.0117280, %932 ], [ %.0117280, %tcg_out_goto_tb.exit ], [ %.0117280, %293 ], [ %480, %479 ], [ %.0117280, %set_temp_val_nonreg.exit.i.i91.i ], [ %.0117280, %tcg_reg_alloc_bb_end.exit ], [ %.0117280, %set_temp_val_nonreg.exit.i.i169 ], [ %.0117280, %tcg_out_exit_tb.exit ], [ %.0117280, %161 ], [ %.0117280, %164 ], [ %.0117280, %166 ], [ %.0117280, %set_temp_val_nonreg.exit.i.i.i.i ], [ %.0117280, %temp_dead.exit87.i ], [ %.0117280, %set_temp_val_nonreg.exit.i.i89.i ], [ %.0117280, %set_temp_val_reg.exit.i ], [ %.0117280, %340 ], [ %.0117280, %343 ], [ %.0117280, %345 ], [ %.0117280, %set_temp_val_nonreg.exit.i.i.i.i166 ], [ %.0117280, %447 ], [ %.0117280, %449 ], [ %.0117280, %491 ], [ %.0117280, %.preheader114.i ], [ %.0117280, %.preheader.i ], [ %480, %483 ], [ %.0117280, %temp_dead.exit113.i ]
   %937 = load ptr, ptr %71, align 8
   %938 = load ptr, ptr %104, align 8
   %939 = icmp ugt ptr %937, %938
@@ -9026,10 +9026,10 @@ tcg_out_ld_helper_args.exit.i.i:                  ; preds = %1021, %tcg_out_help
   store i32 1, ptr %965, align 4
   %1042 = and i32 %1035, 128
   %.not.i.i.i201 = icmp eq i32 %1042, 0
-  %1043 = and i32 %1039, 15
-  %1044 = icmp eq i32 %1037, 0
-  %..i.i.i = select i1 %1044, i32 2, i32 3
-  %.sink.i.i.i = select i1 %.not.i.i.i201, i32 %..i.i.i, i32 %1043
+  %1043 = icmp eq i32 %1037, 0
+  %..i.i.i = select i1 %1043, i32 2, i32 3
+  %1044 = and i32 %1039, 15
+  %.sink.i.i.i = select i1 %.not.i.i.i201, i32 %..i.i.i, i32 %1044
   store i32 %.sink.i.i.i, ptr %966, align 16
   call fastcc void @tcg_out_movext1_new_src(ptr noundef nonnull %0, ptr noundef nonnull readonly %5, i32 noundef 0)
   br label %tcg_out_qemu_ld_slow_path.exit.i
@@ -9108,9 +9108,9 @@ tcg_out_qemu_ld_slow_path.exit.i:                 ; preds = %1045, %1038
   unreachable
 
 1076:                                             ; preds = %1074, %1073, %1069, %1069, %1069
-  %1077 = phi i1 [ true, %1073 ], [ false, %1074 ], [ true, %1069 ], [ true, %1069 ], [ true, %1069 ]
-  %.055.i.i.i = phi i32 [ 1, %1073 ], [ 2, %1074 ], [ 0, %1069 ], [ 0, %1069 ], [ 0, %1069 ]
-  %.0.i.i12.i = phi ptr [ @info_helper_st64_mmu, %1073 ], [ @info_helper_st128_mmu, %1074 ], [ @info_helper_st32_mmu, %1069 ], [ @info_helper_st32_mmu, %1069 ], [ @info_helper_st32_mmu, %1069 ]
+  %1077 = phi i1 [ false, %1074 ], [ true, %1073 ], [ true, %1069 ], [ true, %1069 ], [ true, %1069 ]
+  %.055.i.i.i = phi i32 [ 2, %1074 ], [ 1, %1073 ], [ 0, %1069 ], [ 0, %1069 ], [ 0, %1069 ]
+  %.0.i.i12.i = phi ptr [ @info_helper_st128_mmu, %1074 ], [ @info_helper_st64_mmu, %1073 ], [ @info_helper_st32_mmu, %1069 ], [ @info_helper_st32_mmu, %1069 ], [ @info_helper_st32_mmu, %1069 ]
   %1078 = getelementptr inbounds nuw i8, ptr %.0.i.i12.i, i64 36
   %1079 = load i32, ptr %950, align 4
   %1080 = getelementptr inbounds nuw i8, ptr %.021.i, i64 12
@@ -9687,8 +9687,8 @@ patch_reloc.exit.i211:                            ; preds = %1349, %1340
   %1358 = trunc i64 %1357 to i32
   br label %tcg_out_ldst_finalize.exit
 
-tcg_out_ldst_finalize.exit:                       ; preds = %tcg_reg_alloc_mov.exit, %940, %1250, %1311, %1303, %1284, %1342, %1333, %.loopexit
-  %.2 = phi i32 [ %1358, %.loopexit ], [ -2, %1333 ], [ -2, %1342 ], [ -1, %1284 ], [ -2, %1303 ], [ -2, %1311 ], [ -1, %1250 ], [ -1, %tcg_reg_alloc_mov.exit ], [ -2, %940 ]
+tcg_out_ldst_finalize.exit:                       ; preds = %tcg_reg_alloc_mov.exit, %940, %1250, %1303, %1311, %1284, %1342, %1333, %.loopexit
+  %.2 = phi i32 [ -2, %1311 ], [ -1, %1250 ], [ -2, %1342 ], [ %1358, %.loopexit ], [ -2, %1333 ], [ -2, %1303 ], [ -1, %1284 ], [ -1, %tcg_reg_alloc_mov.exit ], [ -2, %940 ]
   ret i32 %.2
 }
 
@@ -9845,13 +9845,13 @@ move_label_uses.exit:                             ; preds = %19, %._crit_edge.i,
 69:                                               ; preds = %.lr.ph
   br i1 %.02332, label %70, label %.thread
 
-70:                                               ; preds = %56, %51, %55, %69
-  %.235 = phi i1 [ true, %55 ], [ true, %69 ], [ %.1, %51 ], [ %spec.select, %56 ]
+70:                                               ; preds = %56, %55, %51, %69
+  %.235 = phi i1 [ %.1, %51 ], [ true, %69 ], [ true, %55 ], [ %spec.select, %56 ]
   tail call void @tcg_op_remove(ptr noundef %0, ptr noundef nonnull %.02531)
   br label %.thread
 
-.thread:                                          ; preds = %56, %51, %55, %.lr.ph, %70, %69
-  %.229 = phi i1 [ %.235, %70 ], [ false, %69 ], [ %.02332, %.lr.ph ], [ true, %55 ], [ false, %51 ], [ %spec.select, %56 ]
+.thread:                                          ; preds = %56, %55, %51, %.lr.ph, %70, %69
+  %.229 = phi i1 [ false, %69 ], [ %.235, %70 ], [ %.02332, %.lr.ph ], [ false, %51 ], [ true, %55 ], [ %spec.select, %56 ]
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !55
 
@@ -9963,7 +9963,7 @@ define internal fastcc void @liveness_pass_0(ptr noundef captures(none) %0) unna
   br i1 %exitcond71.not, label %.loopexit, label %31, !llvm.loop !57
 
 .loopexit:                                        ; preds = %42, %28, %.lr.ph59, %13
-  %.1 = phi ptr [ %.04055, %13 ], [ %.056, %.lr.ph59 ], [ %.04055, %28 ], [ %.04055, %42 ]
+  %.1 = phi ptr [ %.056, %.lr.ph59 ], [ %.04055, %13 ], [ %.04055, %28 ], [ %.04055, %42 ]
   %43 = getelementptr inbounds nuw i8, ptr %.056, i64 8
   %44 = load ptr, ptr %43, align 8
   %.not = icmp eq ptr %44, null
@@ -10484,7 +10484,7 @@ la_reset_pref.exit295:                            ; preds = %48
   br label %214
 
 214:                                              ; preds = %48, %213, %212, %211
-  %.0238 = phi i32 [ 18, %211 ], [ 78, %212 ], [ 79, %213 ], [ 17, %48 ]
+  %.0238 = phi i32 [ 79, %213 ], [ 18, %211 ], [ 78, %212 ], [ 17, %48 ]
   %215 = getelementptr inbounds nuw i8, ptr %.0217397, i64 40
   %216 = load i64, ptr %215, align 8
   %217 = inttoptr i64 %216 to ptr
@@ -10518,7 +10518,7 @@ la_reset_pref.exit295:                            ; preds = %48
   br label %236
 
 236:                                              ; preds = %48, %48, %235
-  %.1239 = phi i32 [ 80, %235 ], [ 19, %48 ], [ 19, %48 ]
+  %.1239 = phi i32 [ 19, %48 ], [ 19, %48 ], [ 80, %235 ]
   %237 = getelementptr inbounds nuw i8, ptr %.0217397, i64 40
   %238 = load i64, ptr %237, align 8
   %239 = inttoptr i64 %238 to ptr
@@ -10585,10 +10585,10 @@ la_reset_pref.exit295:                            ; preds = %48
   tail call void @tcg_op_remove(ptr noundef %0, ptr noundef nonnull %.0217397)
   br label %.thread
 
-.loopexit355.thread:                              ; preds = %228, %214, %250, %236
-  %.0223.ph = phi i32 [ %55, %236 ], [ %.1239, %250 ], [ %55, %214 ], [ %.0238, %228 ]
-  %.0222.shrunk.ph = phi i8 [ 2, %236 ], [ 1, %250 ], [ 2, %214 ], [ 1, %228 ]
-  %.0221.shrunk.ph = phi i8 [ 2, %236 ], [ 2, %250 ], [ 4, %214 ], [ 2, %228 ]
+.loopexit355.thread:                              ; preds = %236, %228, %214, %250
+  %.0223.ph = phi i32 [ %.1239, %250 ], [ %55, %214 ], [ %.0238, %228 ], [ %55, %236 ]
+  %.0222.shrunk.ph = phi i8 [ 1, %250 ], [ 2, %214 ], [ 1, %228 ], [ 2, %236 ]
+  %.0221.shrunk.ph = phi i8 [ 2, %250 ], [ 4, %214 ], [ 2, %228 ], [ 2, %236 ]
   %.0221473 = zext nneg i8 %.0221.shrunk.ph to i32
   br label %.lr.ph382
 
@@ -11065,7 +11065,7 @@ output_pref.exit.thread:                          ; preds = %467, %output_pref.e
   br i1 %480, label %455, label %.thread, !llvm.loop !77
 
 .thread:                                          ; preds = %205, %478, %la_cross_call.exit, %450, %440, %438, %.loopexit, %la_reset_pref.exit295, %48
-  %.0225 = phi i32 [ %.11.lcssa486, %440 ], [ %.11.lcssa486, %438 ], [ 0, %.loopexit ], [ 0, %48 ], [ 0, %la_reset_pref.exit295 ], [ %.11.lcssa486, %450 ], [ %.5230.lcssa, %la_cross_call.exit ], [ %.11.lcssa486, %478 ], [ %.5230.lcssa, %205 ]
+  %.0225 = phi i32 [ %.11.lcssa486, %450 ], [ %.11.lcssa486, %440 ], [ %.11.lcssa486, %438 ], [ 0, %.loopexit ], [ 0, %la_reset_pref.exit295 ], [ 0, %48 ], [ %.11.lcssa486, %478 ], [ %.5230.lcssa, %la_cross_call.exit ], [ %.5230.lcssa, %205 ]
   %481 = getelementptr inbounds nuw i8, ptr %.0217397, i64 4
   store i32 %.0225, ptr %481, align 4
   %.not = icmp eq ptr %53, null
@@ -11326,7 +11326,7 @@ tcg_temp_alloc.exit:                              ; preds = %11
   br label %tcg_malloc_internal.exit
 
 tcg_malloc_internal.exit:                         ; preds = %115, %118, %124, %125
-  %.0.i = phi ptr [ %121, %124 ], [ %121, %125 ], [ %117, %115 ], [ %119, %118 ]
+  %.0.i = phi ptr [ %117, %115 ], [ %121, %124 ], [ %121, %125 ], [ %119, %118 ]
   store ptr %.0.i, ptr %113, align 8
   %127 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %128 = getelementptr inbounds nuw i8, ptr %.0.i, i64 80
@@ -11608,7 +11608,7 @@ tcg_op_insert_before.exit:                        ; preds = %102, %tcg_malloc_in
   br label %tcg_malloc_internal.exit198
 
 tcg_malloc_internal.exit198:                      ; preds = %251, %254, %260, %261
-  %.0.i195 = phi ptr [ %257, %260 ], [ %257, %261 ], [ %253, %251 ], [ %255, %254 ]
+  %.0.i195 = phi ptr [ %253, %251 ], [ %257, %260 ], [ %257, %261 ], [ %255, %254 ]
   store ptr %.0.i195, ptr %249, align 8
   %263 = getelementptr inbounds nuw i8, ptr %.0.i195, i64 16
   %264 = getelementptr inbounds nuw i8, ptr %.0.i195, i64 80
@@ -11863,7 +11863,7 @@ define internal fastcc void @tcg_reg_alloc_op(ptr noundef %0, ptr noundef nonnul
   br i1 %or.cond39.i, label %tcg_target_const_match.exit.thread, label %tcg_target_const_match.exit.thread426
 
 80:                                               ; preds = %76, %65
-  %81 = phi i64 [ 64, %76 ], [ 32, %65 ]
+  %81 = phi i64 [ 32, %65 ], [ 64, %76 ]
   %82 = and i32 %60, 2048
   %.not29.i = icmp ne i32 %82, 0
   %83 = icmp eq i64 %59, %81
@@ -11877,7 +11877,7 @@ tcg_target_const_match.exit:                      ; preds = %80
   %or.cond.i = and i1 %86, %85
   br i1 %or.cond.i, label %tcg_target_const_match.exit.thread, label %tcg_target_const_match.exit.thread426
 
-tcg_target_const_match.exit.thread:               ; preds = %80, %78, %74, %71, %67, %65, %57, %tcg_target_const_match.exit
+tcg_target_const_match.exit.thread:               ; preds = %71, %67, %65, %80, %78, %57, %74, %tcg_target_const_match.exit
   %87 = getelementptr inbounds nuw i32, ptr %4, i64 %49
   store i32 1, ptr %87, align 4
   %88 = getelementptr inbounds nuw i64, ptr %3, i64 %49
@@ -11944,7 +11944,7 @@ output_pref.exit:                                 ; preds = %97, %101
   %or.cond469 = select i1 %118, i1 %120, i1 false
   br i1 %or.cond469, label %.thread437, label %.thread432
 
-.thread432:                                       ; preds = %95, %117
+.thread432:                                       ; preds = %117, %95
   %.0320435 = phi i32 [ 0, %95 ], [ %105, %117 ]
   tail call fastcc void @temp_load(ptr noundef %0, ptr noundef nonnull %53, i32 noundef %92, i32 noundef %.0477, i32 noundef %.0320435)
   %121 = load i64, ptr %53, align 8
@@ -11956,8 +11956,8 @@ output_pref.exit:                                 ; preds = %97, %101
   br i1 %126, label %.thread437, label %set_temp_val_reg.exit.thread
 
 .thread437:                                       ; preds = %117, %output_pref.exit, %108, %111, %.thread432
-  %127 = phi i64 [ %121, %.thread432 ], [ %54, %111 ], [ %54, %108 ], [ %54, %output_pref.exit ], [ %54, %117 ]
-  %.0320430441 = phi i32 [ %.0320435, %.thread432 ], [ %105, %111 ], [ %105, %108 ], [ %105, %output_pref.exit ], [ %105, %117 ]
+  %127 = phi i64 [ %121, %.thread432 ], [ %54, %117 ], [ %54, %111 ], [ %54, %108 ], [ %54, %output_pref.exit ]
+  %.0320430441 = phi i32 [ %.0320435, %.thread432 ], [ %105, %117 ], [ %105, %111 ], [ %105, %108 ], [ %105, %output_pref.exit ]
   %128 = lshr i64 %127, 24
   %129 = and i64 %128, 255
   %130 = getelementptr inbounds nuw i32, ptr @tcg_target_available_regs, i64 %129
@@ -12089,7 +12089,7 @@ output_pref.exit387:                              ; preds = %147, %151
   br i1 %.not359, label %205, label %set_temp_val_reg.exit.thread
 
 205:                                              ; preds = %190, %193, %197, %202, %output_pref.exit387, %158, %163, %167, %171, %176, %185
-  %.1321 = phi i32 [ %155, %171 ], [ %155, %176 ], [ %155, %185 ], [ %155, %167 ], [ %155, %163 ], [ %155, %158 ], [ %155, %output_pref.exit387 ], [ 0, %202 ], [ 0, %197 ], [ 0, %193 ], [ 0, %190 ]
+  %.1321 = phi i32 [ 0, %197 ], [ 0, %202 ], [ %155, %171 ], [ %155, %output_pref.exit387 ], [ 0, %193 ], [ %155, %176 ], [ %155, %185 ], [ %155, %167 ], [ 0, %190 ], [ %155, %163 ], [ %155, %158 ]
   %206 = and i64 %54, 68719476736
   %207 = icmp ne i64 %206, 0
   %208 = tail call fastcc i32 @tcg_reg_alloc_pair(ptr noundef %0, i32 noundef %92, i32 noundef %.0477, i32 noundef 0, i1 noundef zeroext %207)
@@ -12282,9 +12282,9 @@ set_temp_val_reg.exit.thread450:                  ; preds = %305, %.thread437, %
   tail call fastcc void @tcg_out_mov(ptr noundef %0, i32 noundef %316, i32 noundef %.1325454, i32 noundef %317)
   br label %set_temp_val_reg.exit.thread
 
-set_temp_val_reg.exit.thread:                     ; preds = %176, %297, %289, %247, %202, %185, %.thread432, %set_temp_val_reg.exit.thread450, %set_temp_val_reg.exit
-  %.2446 = phi i32 [ %.2455, %set_temp_val_reg.exit.thread450 ], [ %.3, %set_temp_val_reg.exit ], [ %.3, %297 ], [ %.3, %289 ], [ %248, %247 ], [ %.0477, %202 ], [ %.0477, %185 ], [ %.0477, %.thread432 ], [ %.0477, %176 ]
-  %.1325445 = phi i32 [ %.1325454, %set_temp_val_reg.exit.thread450 ], [ %.2326, %set_temp_val_reg.exit ], [ %.2326, %297 ], [ %.2326, %289 ], [ %90, %247 ], [ %90, %202 ], [ %90, %185 ], [ %123, %.thread432 ], [ %90, %176 ]
+set_temp_val_reg.exit.thread:                     ; preds = %176, %297, %289, %202, %185, %247, %.thread432, %set_temp_val_reg.exit.thread450, %set_temp_val_reg.exit
+  %.2446 = phi i32 [ %.3, %set_temp_val_reg.exit ], [ %.2455, %set_temp_val_reg.exit.thread450 ], [ %.3, %297 ], [ %.3, %289 ], [ %.0477, %202 ], [ %.0477, %185 ], [ %.0477, %176 ], [ %248, %247 ], [ %.0477, %.thread432 ]
+  %.1325445 = phi i32 [ %.2326, %set_temp_val_reg.exit ], [ %.1325454, %set_temp_val_reg.exit.thread450 ], [ %.2326, %297 ], [ %.2326, %289 ], [ %90, %202 ], [ %90, %185 ], [ %90, %176 ], [ %90, %247 ], [ %123, %.thread432 ]
   %318 = zext i32 %.1325445 to i64
   %319 = getelementptr inbounds nuw i64, ptr %3, i64 %49
   store i64 %318, ptr %319, align 8
@@ -12335,7 +12335,7 @@ set_temp_val_reg.exit.thread:                     ; preds = %176, %297, %289, %2
   unreachable
 
 339:                                              ; preds = %337, %336, %328, %328
-  %.0.i.i = phi i64 [ 0, %336 ], [ 768, %337 ], [ 512, %328 ], [ 512, %328 ]
+  %.0.i.i = phi i64 [ 768, %337 ], [ 0, %336 ], [ 512, %328 ], [ 512, %328 ]
   %340 = and i64 %332, 65280
   %341 = icmp eq i64 %340, 256
   br i1 %341, label %342, label %set_temp_val_nonreg.exit.i.i
@@ -12728,7 +12728,7 @@ set_temp_val_reg.exit402:                         ; preds = %.set_temp_val_reg.e
   br i1 %exitcond507.not, label %tcg_reg_alloc_cbranch.exit, label %406, !llvm.loop !89
 
 tcg_reg_alloc_cbranch.exit:                       ; preds = %374, %temp_save.exit.i, %set_temp_val_reg.exit402, %.loopexit, %377, %354
-  %.0314 = phi i32 [ %29, %354 ], [ %29, %377 ], [ %29, %.loopexit ], [ %511, %set_temp_val_reg.exit402 ], [ %29, %temp_save.exit.i ], [ %29, %374 ]
+  %.0314 = phi i32 [ %29, %temp_save.exit.i ], [ %511, %set_temp_val_reg.exit402 ], [ %29, %354 ], [ %29, %377 ], [ %29, %.loopexit ], [ %29, %374 ]
   %534 = load i32, ptr %1, align 8
   %trunc348 = trunc i32 %534 to i8
   switch i8 %trunc348, label %841 [
@@ -13432,9 +13432,9 @@ tcg_out_extrl_i64_i32.exit:                       ; preds = %814, %825
   br label %962
 
 962:                                              ; preds = %958, %952, %946, %942, %938, %934, %930, %926, %922, %918, %914, %910, %906, %902, %898, %894, %890, %886, %882, %881, %880, %876, %872, %868, %864, %860, %856, %852, %843
-  %.0133.i = phi i32 [ %855, %852 ], [ %859, %856 ], [ %863, %860 ], [ %867, %864 ], [ %871, %868 ], [ %875, %872 ], [ %879, %876 ], [ 1515, %880 ], [ 1519, %881 ], [ %885, %882 ], [ %889, %886 ], [ %893, %890 ], [ %897, %894 ], [ %901, %898 ], [ %905, %902 ], [ %909, %906 ], [ %913, %910 ], [ %917, %914 ], [ %921, %918 ], [ %925, %922 ], [ %929, %926 ], [ %933, %930 ], [ %937, %934 ], [ %941, %938 ], [ %945, %942 ], [ %949, %946 ], [ %955, %952 ], [ %961, %958 ], [ 1499, %843 ]
-  %.0129.i = phi i64 [ %849, %852 ], [ %849, %856 ], [ %849, %860 ], [ %849, %864 ], [ %849, %868 ], [ %849, %872 ], [ %849, %876 ], [ %849, %880 ], [ %849, %881 ], [ %849, %882 ], [ %849, %886 ], [ %849, %890 ], [ %849, %894 ], [ %849, %898 ], [ %849, %902 ], [ %849, %906 ], [ %849, %910 ], [ %849, %914 ], [ %849, %918 ], [ %849, %922 ], [ %849, %926 ], [ %849, %930 ], [ %849, %934 ], [ %849, %938 ], [ %849, %942 ], [ %851, %946 ], [ %851, %952 ], [ 0, %958 ], [ %849, %843 ]
-  %.0.i409 = phi i64 [ %851, %852 ], [ %851, %856 ], [ %851, %860 ], [ %851, %864 ], [ %851, %868 ], [ %851, %872 ], [ %851, %876 ], [ %851, %880 ], [ %851, %881 ], [ %851, %882 ], [ %851, %886 ], [ %851, %890 ], [ %851, %894 ], [ %851, %898 ], [ %851, %902 ], [ %851, %906 ], [ %851, %910 ], [ %851, %914 ], [ %851, %918 ], [ %851, %922 ], [ %851, %926 ], [ %851, %930 ], [ %851, %934 ], [ %851, %938 ], [ %851, %942 ], [ %951, %946 ], [ %957, %952 ], [ %849, %958 ], [ %851, %843 ]
+  %.0133.i = phi i32 [ %855, %852 ], [ %859, %856 ], [ %863, %860 ], [ %867, %864 ], [ %871, %868 ], [ %875, %872 ], [ %879, %876 ], [ %961, %958 ], [ 1515, %880 ], [ 1519, %881 ], [ %885, %882 ], [ %889, %886 ], [ %893, %890 ], [ %897, %894 ], [ %901, %898 ], [ %905, %902 ], [ %909, %906 ], [ %913, %910 ], [ %917, %914 ], [ %921, %918 ], [ %925, %922 ], [ %929, %926 ], [ %933, %930 ], [ %937, %934 ], [ %941, %938 ], [ %945, %942 ], [ %949, %946 ], [ %955, %952 ], [ 1499, %843 ]
+  %.0129.i = phi i64 [ %849, %852 ], [ %849, %856 ], [ %849, %860 ], [ %849, %864 ], [ %849, %868 ], [ %849, %872 ], [ %849, %876 ], [ 0, %958 ], [ %849, %880 ], [ %849, %881 ], [ %849, %882 ], [ %849, %886 ], [ %849, %890 ], [ %849, %894 ], [ %849, %898 ], [ %849, %902 ], [ %849, %906 ], [ %849, %910 ], [ %849, %914 ], [ %849, %918 ], [ %849, %922 ], [ %849, %926 ], [ %849, %930 ], [ %849, %934 ], [ %849, %938 ], [ %849, %942 ], [ %851, %946 ], [ %851, %952 ], [ %849, %843 ]
+  %.0.i409 = phi i64 [ %851, %852 ], [ %851, %856 ], [ %851, %860 ], [ %851, %864 ], [ %851, %868 ], [ %851, %872 ], [ %851, %876 ], [ %849, %958 ], [ %851, %880 ], [ %851, %881 ], [ %851, %882 ], [ %851, %886 ], [ %851, %890 ], [ %851, %894 ], [ %851, %898 ], [ %851, %902 ], [ %851, %906 ], [ %851, %910 ], [ %851, %914 ], [ %851, %918 ], [ %851, %922 ], [ %851, %926 ], [ %851, %930 ], [ %851, %934 ], [ %851, %938 ], [ %851, %942 ], [ %951, %946 ], [ %957, %952 ], [ %851, %843 ]
   %963 = icmp ne i32 %.0133.i, 267
   tail call void @llvm.assume(i1 %963)
   %964 = trunc i64 %847 to i32
@@ -13620,10 +13620,10 @@ tcg_out_extrl_i64_i32.exit:                       ; preds = %814, %825
   br label %1067
 
 1067:                                             ; preds = %1064, %1062, %1058, %1057, %1056, %1055, %1054, %1047, %1043, %1039, %1029, %843
-  %.5.i = phi i32 [ 454, %1029 ], [ %.4.i, %1039 ], [ 590918, %1043 ], [ %1050, %1047 ], [ 1119269, %1054 ], [ 1119269, %1055 ], [ 1119269, %1056 ], [ 1119269, %1057 ], [ 1119269, %1064 ], [ 1119269, %843 ], [ 1119269, %1058 ], [ 1119269, %1062 ]
-  %.1132.i = phi i8 [ %1032, %1029 ], [ %1042, %1039 ], [ %1046, %1043 ], [ %1053, %1047 ], [ 17, %1054 ], [ 119, %1055 ], [ -103, %1056 ], [ -35, %1057 ], [ -72, %1064 ], [ 51, %843 ], [ -54, %1058 ], [ -30, %1062 ]
-  %.1130.i = phi i64 [ %849, %1029 ], [ %849, %1039 ], [ %849, %1043 ], [ %849, %1047 ], [ %849, %1054 ], [ %849, %1055 ], [ %849, %1056 ], [ %849, %1057 ], [ %849, %1064 ], [ %849, %843 ], [ %851, %1058 ], [ %849, %1062 ]
-  %.1.i = phi i64 [ %851, %1029 ], [ %851, %1039 ], [ %851, %1043 ], [ %851, %1047 ], [ %851, %1054 ], [ %851, %1055 ], [ %851, %1056 ], [ %851, %1057 ], [ %851, %1064 ], [ %849, %843 ], [ %1060, %1058 ], [ %1060, %1062 ]
+  %.5.i = phi i32 [ 454, %1029 ], [ %.4.i, %1039 ], [ 590918, %1043 ], [ %1050, %1047 ], [ 1119269, %1064 ], [ 1119269, %1054 ], [ 1119269, %1055 ], [ 1119269, %1056 ], [ 1119269, %1057 ], [ 1119269, %843 ], [ 1119269, %1058 ], [ 1119269, %1062 ]
+  %.1132.i = phi i8 [ %1032, %1029 ], [ %1042, %1039 ], [ %1046, %1043 ], [ %1053, %1047 ], [ -72, %1064 ], [ 17, %1054 ], [ 119, %1055 ], [ -103, %1056 ], [ -35, %1057 ], [ 51, %843 ], [ -54, %1058 ], [ -30, %1062 ]
+  %.1130.i = phi i64 [ %849, %1029 ], [ %849, %1039 ], [ %849, %1043 ], [ %849, %1047 ], [ %849, %1064 ], [ %849, %1054 ], [ %849, %1055 ], [ %849, %1056 ], [ %849, %1057 ], [ %849, %843 ], [ %851, %1058 ], [ %849, %1062 ]
+  %.1.i = phi i64 [ %851, %1029 ], [ %851, %1039 ], [ %851, %1043 ], [ %851, %1047 ], [ %851, %1064 ], [ %851, %1054 ], [ %851, %1055 ], [ %851, %1056 ], [ %851, %1057 ], [ %849, %843 ], [ %1060, %1058 ], [ %1060, %1062 ]
   %1068 = icmp ne i32 %.5.i, 267
   tail call void @llvm.assume(i1 %1068)
   %1069 = trunc i64 %847 to i32
@@ -13928,7 +13928,7 @@ tcg_out_extrl_i64_i32.exit:                       ; preds = %814, %825
   br label %1171
 
 1171:                                             ; preds = %1170, %1169, %1168, %1155, %1090, %1090
-  %.0443.i = phi i32 [ 4, %1168 ], [ 1, %1169 ], [ 6, %1170 ], [ 0, %1155 ], [ 5, %1090 ], [ 5, %1090 ]
+  %.0443.i = phi i32 [ 6, %1170 ], [ 0, %1155 ], [ 4, %1168 ], [ 1, %1169 ], [ 5, %1090 ], [ 5, %1090 ]
   %.not475.i = icmp eq i32 %1097, 0
   br i1 %.not475.i, label %1175, label %1172
 
@@ -14056,8 +14056,8 @@ tcg_out_extrl_i64_i32.exit:                       ; preds = %814, %825
   br label %1247
 
 1236:                                             ; preds = %1234, %1223, %1222, %1090, %1090
-  %.1.i414 = phi i32 [ 7, %1234 ], [ 4, %1223 ], [ 4, %1222 ], [ 5, %1090 ], [ 5, %1090 ]
-  %.0442.i = phi i32 [ 131831, %1234 ], [ 1783, %1223 ], [ 1783, %1222 ], [ 262903, %1090 ], [ 262903, %1090 ]
+  %.1.i414 = phi i32 [ 7, %1234 ], [ 4, %1222 ], [ 4, %1223 ], [ 5, %1090 ], [ 5, %1090 ]
+  %.0442.i = phi i32 [ 131831, %1234 ], [ 1783, %1222 ], [ 1783, %1223 ], [ 262903, %1090 ], [ 262903, %1090 ]
   %1237 = load i32, ptr @cpuinfo, align 4
   %1238 = and i32 %1237, 64
   %.not468.i = icmp eq i32 %1238, 0
@@ -14082,7 +14082,7 @@ tcg_out_extrl_i64_i32.exit:                       ; preds = %814, %825
   br label %1248
 
 1247:                                             ; preds = %1236, %1235, %1090, %1090
-  %.2.i = phi i32 [ %.1.i414, %1236 ], [ 1, %1235 ], [ 0, %1090 ], [ 0, %1090 ]
+  %.2.i = phi i32 [ 0, %1090 ], [ %.1.i414, %1236 ], [ 1, %1235 ], [ 0, %1090 ]
   %.not471.i = icmp eq i32 %1097, 0
   br i1 %.not471.i, label %1261, label %._crit_edge.i
 
@@ -14891,7 +14891,7 @@ tcg_out_extu_i32_i64.exit:                        ; preds = %1635, %1625, %1621,
   unreachable
 
 1658:                                             ; preds = %1656, %1655, %1651, %1651
-  %.0.i.i417 = phi i64 [ 0, %1655 ], [ 768, %1656 ], [ 512, %1651 ], [ 512, %1651 ]
+  %.0.i.i417 = phi i64 [ 768, %1656 ], [ 0, %1655 ], [ 512, %1651 ], [ 512, %1651 ]
   %1659 = and i64 %.val386, 65280
   %1660 = icmp eq i64 %1659, 256
   br i1 %1660, label %1661, label %set_temp_val_nonreg.exit.i.i418
@@ -15024,7 +15024,7 @@ define internal fastcc i32 @expand_vec_cond(i32 noundef %0, i32 noundef %1, ptr 
   br label %47
 
 47:                                               ; preds = %7, %12, %5
-  %.0 = phi i32 [ %46, %12 ], [ %4, %5 ], [ %4, %7 ]
+  %.0 = phi i32 [ %4, %7 ], [ %46, %12 ], [ %4, %5 ]
   ret i32 %.0
 }
 
@@ -15280,7 +15280,7 @@ default.unreachable:                              ; preds = %57, %29
   br label %get_constraint_priority.exit
 
 get_constraint_priority.exit:                     ; preds = %15, %26, %33, %36, %42
-  %.0.i = phi i32 [ %35, %33 ], [ %39, %36 ], [ %43, %42 ], [ 2147483647, %26 ], [ 2147483647, %15 ]
+  %.0.i = phi i32 [ %43, %42 ], [ %35, %33 ], [ %39, %36 ], [ 2147483647, %26 ], [ 2147483647, %15 ]
   %gep = getelementptr inbounds nuw %struct.TCGArgConstraint, ptr %invariant.gep, i64 %indvars.iv55
   %44 = load i64, ptr %gep, align 4
   %45 = trunc i64 %44 to i32
@@ -15335,7 +15335,7 @@ get_constraint_priority.exit:                     ; preds = %15, %26, %33, %36, 
   br label %get_constraint_priority.exit44
 
 get_constraint_priority.exit44:                   ; preds = %get_constraint_priority.exit, %54, %61, %64, %70
-  %.0.i41 = phi i32 [ %63, %61 ], [ %67, %64 ], [ %71, %70 ], [ 2147483647, %54 ], [ 2147483647, %get_constraint_priority.exit ]
+  %.0.i41 = phi i32 [ %71, %70 ], [ %63, %61 ], [ %67, %64 ], [ 2147483647, %54 ], [ 2147483647, %get_constraint_priority.exit ]
   %72 = icmp slt i32 %.0.i, %.0.i41
   br i1 %72, label %73, label %81
 
@@ -16145,7 +16145,7 @@ define internal fastcc void @tcg_out_vex_opc(ptr noundef captures(none) %0, i32 
   unreachable
 
 36:                                               ; preds = %33, %31, %26
-  %.1 = phi i32 [ 3, %26 ], [ 2, %31 ], [ 1, %33 ]
+  %.1 = phi i32 [ 2, %31 ], [ 3, %26 ], [ 1, %33 ]
   %37 = shl i32 %2, 4
   %38 = and i32 %37, 128
   %39 = shl i32 %5, 3
@@ -16361,7 +16361,7 @@ define internal fastcc void @tcg_out_vex_modrm(ptr noundef captures(none) %0, i3
   unreachable
 
 14:                                               ; preds = %11, %9, %7
-  %.029.i = phi i32 [ 134484834, %7 ], [ 134484578, %9 ], [ 134484322, %11 ]
+  %.029.i = phi i32 [ 134484578, %9 ], [ 134484834, %7 ], [ 134484322, %11 ]
   %15 = and i32 %1, 1024
   %.not32.i = icmp eq i32 %15, 0
   br i1 %.not32.i, label %16, label %tcg_out_evex_opc.exit
@@ -16378,7 +16378,7 @@ define internal fastcc void @tcg_out_vex_modrm(ptr noundef captures(none) %0, i3
   br label %tcg_out_evex_opc.exit
 
 tcg_out_evex_opc.exit:                            ; preds = %14, %16, %18
-  %.0.i = phi i32 [ 65536, %14 ], [ 131072, %16 ], [ %..i, %18 ]
+  %.0.i = phi i32 [ 131072, %16 ], [ 65536, %14 ], [ %..i, %18 ]
   %20 = shl i32 %4, 10
   %21 = and i32 %20, 8192
   %22 = shl i32 %2, 12
@@ -17145,7 +17145,7 @@ define internal fastcc nonnull ptr @opcode_args_ct(i32 %.0.val) unnamed_addr #12
   br label %tcg_target_op_def.exit
 
 tcg_target_op_def.exit:                           ; preds = %7, %8, %9, %10, %11, %12, %13, %14, %15, %16, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %31, %35, %39, %40, %41, %42, %43, %44, %45, %46, %47, %48, %49, %50, %51, %52, %53
-  %.0.i = phi i32 [ -1, %53 ], [ 15, %8 ], [ 2, %9 ], [ 4, %10 ], [ 3, %11 ], [ 27, %12 ], [ 22, %13 ], [ 23, %14 ], [ 29, %15 ], [ %19, %16 ], [ 20, %20 ], [ 5, %21 ], [ 12, %22 ], [ 14, %23 ], [ 21, %24 ], [ 18, %25 ], [ 19, %26 ], [ 36, %27 ], [ 41, %28 ], [ 39, %29 ], [ 42, %30 ], [ %34, %31 ], [ %38, %35 ], [ 13, %39 ], [ 1, %40 ], [ 6, %41 ], [ 38, %42 ], [ 8, %43 ], [ 11, %44 ], [ 37, %45 ], [ 16, %46 ], [ 7, %47 ], [ 30, %48 ], [ 17, %49 ], [ 33, %50 ], [ 34, %51 ], [ 35, %52 ], [ 0, %7 ]
+  %.0.i = phi i32 [ -1, %53 ], [ 35, %52 ], [ 15, %8 ], [ 2, %9 ], [ 4, %10 ], [ 3, %11 ], [ 27, %12 ], [ 22, %13 ], [ 23, %14 ], [ 29, %15 ], [ %19, %16 ], [ 20, %20 ], [ 5, %21 ], [ 12, %22 ], [ 14, %23 ], [ 0, %7 ], [ 21, %24 ], [ 18, %25 ], [ 19, %26 ], [ 36, %27 ], [ 41, %28 ], [ 39, %29 ], [ 42, %30 ], [ %34, %31 ], [ %38, %35 ], [ 13, %39 ], [ 34, %51 ], [ 1, %40 ], [ 33, %50 ], [ 6, %41 ], [ 17, %49 ], [ 30, %48 ], [ 7, %47 ], [ 16, %46 ], [ 37, %45 ], [ 38, %42 ], [ 8, %43 ], [ 11, %44 ]
   %54 = zext nneg i32 %.0.i to i64
   %55 = icmp ult i32 %.0.i, 43
   tail call void @llvm.assume(i1 %55)
@@ -17756,7 +17756,7 @@ tcg_reg_free.exit:                                ; preds = %47
   br label %.thread73
 
 .thread73:                                        ; preds = %32, %28, %.thread73.sink.split, %52, %42
-  %.6 = phi i32 [ %43, %42 ], [ %49, %52 ], [ %.6.ph, %.thread73.sink.split ], [ %23, %28 ], [ %33, %32 ]
+  %.6 = phi i32 [ %.6.ph, %.thread73.sink.split ], [ %49, %52 ], [ %23, %28 ], [ %43, %42 ], [ %33, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.6
 }
@@ -17822,7 +17822,7 @@ define internal fastcc void @temp_sync(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %.not12.i, label %29, label %tcg_out_sti.exit.thread
 
 29:                                               ; preds = %27, %16
-  %.0.i = phi i32 [ 8, %27 ], [ 0, %16 ]
+  %.0.i = phi i32 [ 0, %16 ], [ 8, %27 ]
   %30 = lshr i32 %22, 3
   %31 = and i32 %30, 1
   %32 = or disjoint i32 %.0.i, %31
@@ -17918,7 +17918,7 @@ tcg_out_sti.exit.thread:                          ; preds = %.tcg_out_sti.exit.t
   unreachable
 
 76:                                               ; preds = %74, %70, %66, %66
-  %.0.i29 = phi i64 [ %73, %70 ], [ 768, %74 ], [ 512, %66 ], [ 512, %66 ]
+  %.0.i29 = phi i64 [ 768, %74 ], [ %73, %70 ], [ 512, %66 ], [ 512, %66 ]
   %77 = and i64 %65, 65280
   %78 = icmp eq i64 %77, 256
   br i1 %78, label %79, label %set_temp_val_nonreg.exit.i
@@ -18614,10 +18614,10 @@ define internal fastcc void @tcg_out_sib_offset(ptr noundef captures(none) %0, i
   br label %47
 
 47:                                               ; preds = %44, %41, %39
-  %.049 = phi i32 [ 0, %39 ], [ 0, %41 ], [ %., %44 ]
-  %48 = phi i1 [ false, %39 ], [ false, %41 ], [ %46, %44 ]
-  %49 = phi i1 [ true, %39 ], [ false, %41 ], [ %not., %44 ]
-  %.046 = phi i32 [ 5, %39 ], [ %2, %41 ], [ %2, %44 ]
+  %.049 = phi i32 [ 0, %41 ], [ 0, %39 ], [ %., %44 ]
+  %48 = phi i1 [ false, %41 ], [ false, %39 ], [ %46, %44 ]
+  %49 = phi i1 [ false, %41 ], [ true, %39 ], [ %not., %44 ]
+  %.046 = phi i32 [ %2, %41 ], [ 5, %39 ], [ %2, %44 ]
   br i1 %7, label %50, label %.critedge
 
 50:                                               ; preds = %47
@@ -19579,7 +19579,7 @@ tcg_out_cmp_vec_k1.exit.i:                        ; preds = %30, %24, %18
   unreachable
 
 57:                                               ; preds = %54, %52, %tcg_out_cmp_vec_k1.exit.i
-  %.029.i.i.i = phi i32 [ 134484834, %tcg_out_cmp_vec_k1.exit.i ], [ 134484578, %52 ], [ 134484322, %54 ]
+  %.029.i.i.i = phi i32 [ 134484578, %52 ], [ 134484834, %tcg_out_cmp_vec_k1.exit.i ], [ 134484322, %54 ]
   %58 = and i32 %spec.select.i.i, 1024
   %.not32.i.i.i = icmp eq i32 %58, 0
   br i1 %.not32.i.i.i, label %59, label %tcg_out_cmpsel_vec_k1.exit
@@ -19596,7 +19596,7 @@ tcg_out_cmp_vec_k1.exit.i:                        ; preds = %30, %24, %18
   br label %tcg_out_cmpsel_vec_k1.exit
 
 tcg_out_cmpsel_vec_k1.exit:                       ; preds = %57, %59, %61
-  %.0.i.i.i = phi i32 [ 65536, %57 ], [ 131072, %59 ], [ %..i.i.i, %61 ]
+  %.0.i.i.i = phi i32 [ 131072, %59 ], [ 65536, %57 ], [ %..i.i.i, %61 ]
   %spec.select.i = select i1 %.not.i, i32 %7, i32 %6
   %63 = shl i32 %spec.select.i, 10
   %64 = and i32 %63, 8192
@@ -20148,7 +20148,7 @@ define internal fastcc void @tcg_out_setcond(ptr noundef captures(none) %0, i32 
   br label %20
 
 20:                                               ; preds = %8, %19
-  %.4 = phi i1 [ true, %19 ], [ false, %8 ]
+  %.4 = phi i1 [ false, %8 ], [ true, %19 ]
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %.thread137, label %29
 
@@ -20184,9 +20184,9 @@ define internal fastcc void @tcg_out_setcond(ptr noundef captures(none) %0, i32 
   br label %.thread147.thread
 
 .thread147.thread:                                ; preds = %.thread147, %14
-  %.4135153163 = phi i1 [ %.1, %14 ], [ %.4135153, %.thread147 ]
-  %.080133154162 = phi i32 [ 7, %14 ], [ %34, %.thread147 ]
-  %.081132155161 = phi i64 [ 1, %14 ], [ %.081132155, %.thread147 ]
+  %.4135153163 = phi i1 [ %.4135153, %.thread147 ], [ %.1, %14 ]
+  %.080133154162 = phi i32 [ %34, %.thread147 ], [ 7, %14 ]
+  %.081132155161 = phi i64 [ %.081132155, %.thread147 ], [ 1, %14 ]
   %35 = trunc i64 %4 to i32
   tail call fastcc void @tgen_arithi(ptr noundef %0, i32 noundef %.080133154162, i32 noundef %35, i64 noundef %.081132155161, i32 noundef 0)
   br label %tcg_out_cmp.exit
@@ -20496,7 +20496,7 @@ tcg_out_modrm.exit126:                            ; preds = %172, %179
   br label %195
 
 195:                                              ; preds = %171, %tcg_out_modrm.exit126, %170
-  %.078 = phi i1 [ true, %tcg_out_modrm.exit126 ], [ false, %170 ], [ false, %171 ]
+  %.078 = phi i1 [ true, %tcg_out_modrm.exit126 ], [ false, %171 ], [ false, %170 ]
   %196 = tail call fastcc i32 @tcg_out_cmp(ptr noundef %0, i32 noundef %2, i64 noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %1)
   %197 = trunc i64 %3 to i32
   %198 = lshr i32 %197, 3
@@ -22206,7 +22206,7 @@ is_power_of_2.exit.thread:                        ; preds = %192
   br label %221
 
 221:                                              ; preds = %203, %206, %is_power_of_2.exit.thread, %tcg_out_modrm.exit123, %tcg_out_modrm.exit121, %tcg_out_modrm.exit119, %tcg_out_modrm.exit117, %tcg_out_modrm.exit115, %tcg_out_modrm.exit113, %tcg_out_modrm.exit111, %tcg_out_modrm.exit, %43, %31
-  %.0 = phi i32 [ %42, %tcg_out_modrm.exit ], [ %40, %tcg_out_modrm.exit111 ], [ %40, %tcg_out_modrm.exit113 ], [ %42, %tcg_out_modrm.exit115 ], [ %40, %tcg_out_modrm.exit117 ], [ %40, %tcg_out_modrm.exit119 ], [ %40, %tcg_out_modrm.exit121 ], [ %40, %tcg_out_modrm.exit123 ], [ %40, %is_power_of_2.exit.thread ], [ %40, %43 ], [ %35, %31 ], [ %42, %203 ], [ %207, %206 ]
+  %.0 = phi i32 [ %42, %tcg_out_modrm.exit ], [ %40, %tcg_out_modrm.exit111 ], [ %40, %tcg_out_modrm.exit113 ], [ %42, %tcg_out_modrm.exit115 ], [ %40, %tcg_out_modrm.exit117 ], [ %40, %tcg_out_modrm.exit119 ], [ %40, %tcg_out_modrm.exit121 ], [ %40, %tcg_out_modrm.exit123 ], [ %35, %31 ], [ %40, %is_power_of_2.exit.thread ], [ %40, %43 ], [ %42, %203 ], [ %207, %206 ]
   ret i32 %.0
 }
 
@@ -22251,7 +22251,7 @@ define internal fastcc noundef ptr @prepare_host_addr(ptr noundef %0, ptr nounde
   br label %memop_alignment_bits.exit.i
 
 memop_alignment_bits.exit.i:                      ; preds = %21, %20, %16
-  %.0.i.i = phi i32 [ %8, %20 ], [ %22, %21 ], [ 0, %16 ]
+  %.0.i.i = phi i32 [ %22, %21 ], [ %8, %20 ], [ 0, %16 ]
   %23 = tail call i32 @llvm.usub.sat.i32(i32 %8, i32 1)
   %24 = lshr i32 %3, 12
   %25 = and i32 %24, 7
@@ -22300,8 +22300,8 @@ memop_alignment_bits.exit.i:                      ; preds = %21, %20, %16
   unreachable
 
 atom_and_align_for_opc.exit:                      ; preds = %memop_alignment_bits.exit.i, %26, %27, %28, %29, %31, %32, %35, %37
-  %.050.i = phi i32 [ %8, %26 ], [ %23, %27 ], [ %8, %29 ], [ 4, %28 ], [ 4, %32 ], [ %8, %31 ], [ 4, %35 ], [ %8, %37 ], [ 0, %memop_alignment_bits.exit.i ]
-  %.0.i = phi i32 [ %.0.i.i, %26 ], [ %.0.i.i, %27 ], [ %30, %29 ], [ %.0.i.i, %28 ], [ %33, %32 ], [ %.0.i.i, %31 ], [ %36, %35 ], [ %38, %37 ], [ %.0.i.i, %memop_alignment_bits.exit.i ]
+  %.050.i = phi i32 [ %8, %37 ], [ %8, %26 ], [ %23, %27 ], [ %8, %29 ], [ 4, %28 ], [ 4, %32 ], [ %8, %31 ], [ 4, %35 ], [ 0, %memop_alignment_bits.exit.i ]
+  %.0.i = phi i32 [ %38, %37 ], [ %.0.i.i, %26 ], [ %.0.i.i, %27 ], [ %30, %29 ], [ %.0.i.i, %28 ], [ %33, %32 ], [ %.0.i.i, %31 ], [ %36, %35 ], [ %.0.i.i, %memop_alignment_bits.exit.i ]
   %.sroa.2.0.insert.ext.i = zext nneg i32 %.0.i to i64
   %.sroa.2.0.insert.shift.i = shl nuw nsw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.ext.i = zext nneg i32 %.050.i to i64
@@ -22443,7 +22443,7 @@ new_ldst_label.exit:                              ; preds = %52, %54
   br label %tcg_out_mov.exit
 
 tcg_out_mov.exit:                                 ; preds = %95, %94, %.split, %77, %76, %.split86
-  %.085 = phi i8 [ 64, %.split86 ], [ 64, %76 ], [ 64, %77 ], [ 72, %.split ], [ 72, %94 ], [ 72, %95 ]
+  %.085 = phi i8 [ 64, %77 ], [ 64, %.split86 ], [ 64, %76 ], [ 72, %.split ], [ 72, %94 ], [ 72, %95 ]
   %112 = load i8, ptr %65, align 4
   %113 = zext i8 %112 to i32
   %114 = add nsw i32 %113, -5

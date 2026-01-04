@@ -328,7 +328,7 @@ procfs_sort_pid.exit:                             ; preds = %._crit_edge.i, %9
   br label %.loopexit
 
 .loopexit:                                        ; preds = %55, %46, %33, %40, %7, %56
-  %.0 = phi i32 [ 0, %56 ], [ -12, %7 ], [ 0, %40 ], [ %38, %33 ], [ -12, %46 ], [ -2, %55 ]
+  %.0 = phi i32 [ 0, %56 ], [ %38, %33 ], [ -12, %7 ], [ -12, %46 ], [ 0, %40 ], [ -2, %55 ]
   ret i32 %.0
 }
 
@@ -538,7 +538,7 @@ define internal i32 @procfs_readdir(ptr readnone captures(none) %0, ptr noundef 
   br label %.thread
 
 .thread:                                          ; preds = %.critedge.thread, %12, %41, %51, %59, %63, %67, %._crit_edge, %108, %45
-  %.0 = phi i32 [ -2, %45 ], [ 0, %41 ], [ 0, %51 ], [ 0, %._crit_edge ], [ -2, %67 ], [ -2, %63 ], [ -2, %59 ], [ %113, %108 ], [ -2, %12 ], [ -2, %.critedge.thread ]
+  %.0 = phi i32 [ -2, %45 ], [ 0, %41 ], [ %113, %108 ], [ 0, %51 ], [ 0, %._crit_edge ], [ -2, %67 ], [ -2, %63 ], [ -2, %59 ], [ -2, %12 ], [ -2, %.critedge.thread ]
   ret i32 %.0
 }
 

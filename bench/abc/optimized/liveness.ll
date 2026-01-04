@@ -397,7 +397,7 @@ define ptr @retrieveLOName(ptr noundef readonly captures(none) %0, ptr noundef r
   br i1 %103, label %87, label %.critedge2, !llvm.loop !50
 
 .critedge2:                                       ; preds = %101, %73, %80, %53, %._crit_edge, %76, %96, %68, %31, %36, %22
-  %.0 = phi ptr [ %30, %22 ], [ %8, %36 ], [ @.str.2, %31 ], [ %8, %68 ], [ %8, %96 ], [ @.str.9, %76 ], [ @.str.9, %._crit_edge ], [ %8, %53 ], [ %8, %80 ], [ %8, %73 ], [ %8, %101 ]
+  %.0 = phi ptr [ %30, %22 ], [ %8, %96 ], [ %8, %36 ], [ @.str.2, %31 ], [ %8, %68 ], [ @.str.9, %._crit_edge ], [ %8, %53 ], [ @.str.9, %76 ], [ %8, %80 ], [ %8, %73 ], [ %8, %101 ]
   ret ptr %.0
 }
 
@@ -5192,7 +5192,7 @@ Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.e
   br label %.critedge17.thread.thread
 
 .critedge17.thread.thread:                        ; preds = %.thread512, %.critedge17, %526
-  %.0230.lcssa501 = phi i32 [ %434, %.critedge17 ], [ %.0230.lcssa502505, %526 ], [ 0, %.thread512 ]
+  %.0230.lcssa501 = phi i32 [ 0, %.thread512 ], [ %434, %.critedge17 ], [ %.0230.lcssa502505, %526 ]
   tail call void @Aig_ManSetRegNum(ptr noundef nonnull %56, i32 noundef %.0230.lcssa501) #17
   %532 = getelementptr i8, ptr %56, i64 136
   %533 = getelementptr inbounds nuw i8, ptr %56, i64 16
@@ -5975,7 +5975,7 @@ define range(i32 0, 2) i32 @Abc_CommandAbcLivenessToSafety(ptr noundef %0, i32 n
   br label %.backedge
 
 .backedge:                                        ; preds = %11, %14, %14, %12, %13
-  %.1.be = phi i32 [ 3, %13 ], [ 2, %12 ], [ 1, %14 ], [ 1, %14 ], [ %switch.select106, %11 ]
+  %.1.be = phi i32 [ 1, %14 ], [ %switch.select106, %11 ], [ 2, %12 ], [ 1, %14 ], [ 3, %13 ]
   br label %9, !llvm.loop !110
 
 12:                                               ; preds = %9
@@ -6063,13 +6063,13 @@ define range(i32 0, 2) i32 @Abc_CommandAbcLivenessToSafety(ptr noundef %0, i32 n
   br i1 %.not94, label %42, label %.sink.split
 
 .sink.split:                                      ; preds = %39, %36, %33, %30, %27
-  %str.11.sink = phi ptr [ @str.21, %27 ], [ @str.31, %30 ], [ @str.30, %33 ], [ @str.18, %36 ], [ @str.29, %39 ]
-  %.086.ph = phi ptr [ %28, %27 ], [ %31, %30 ], [ %34, %33 ], [ %37, %36 ], [ %40, %39 ]
+  %str.11.sink = phi ptr [ @str.18, %36 ], [ @str.30, %33 ], [ @str.31, %30 ], [ @str.21, %27 ], [ @str.29, %39 ]
+  %.086.ph = phi ptr [ %37, %36 ], [ %34, %33 ], [ %31, %30 ], [ %28, %27 ], [ %40, %39 ]
   %puts95 = tail call i32 @puts(ptr nonnull dereferenceable(1) %str.11.sink)
   br label %42
 
 42:                                               ; preds = %.sink.split, %39, %36, %33, %30, %27, %21
-  %.086 = phi ptr [ null, %21 ], [ %28, %27 ], [ %31, %30 ], [ %34, %33 ], [ %37, %36 ], [ %40, %39 ], [ %.086.ph, %.sink.split ]
+  %.086 = phi ptr [ null, %21 ], [ %34, %33 ], [ %28, %27 ], [ %40, %39 ], [ %31, %30 ], [ %37, %36 ], [ %.086.ph, %.sink.split ]
   %43 = tail call ptr @Abc_NtkFromAigPhase(ptr noundef %.086) #17
   %44 = load ptr, ptr %.086, align 8, !tbaa !56
   %.not.i = icmp eq ptr %44, null
@@ -6207,8 +6207,8 @@ Vec_IntAlloc.exit:                                ; preds = %2, %6
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %28, %30, %20, %22
-  %.sink12 = phi ptr [ %21, %20 ], [ %23, %22 ], [ %29, %28 ], [ %31, %30 ]
-  %.sink = phi i32 [ 16, %20 ], [ 16, %22 ], [ %25, %28 ], [ %25, %30 ]
+  %.sink12 = phi ptr [ %23, %22 ], [ %21, %20 ], [ %29, %28 ], [ %31, %30 ]
+  %.sink = phi i32 [ 16, %22 ], [ 16, %20 ], [ %25, %28 ], [ %25, %30 ]
   store ptr %.sink12, ptr %11, align 8, !tbaa !80
   store i32 %.sink, ptr %3, align 8, !tbaa !114
   br label %Vec_IntPush.exit
@@ -6258,7 +6258,7 @@ define range(i32 0, 2) i32 @Abc_CommandAbcLivenessToSafetyAbstraction(ptr nounde
   br label %.backedge
 
 .backedge:                                        ; preds = %11, %14, %14, %12, %13
-  %.1.be = phi i32 [ 3, %13 ], [ 2, %12 ], [ 1, %14 ], [ 1, %14 ], [ %switch.select113, %11 ]
+  %.1.be = phi i32 [ 1, %14 ], [ %switch.select113, %11 ], [ 2, %12 ], [ 1, %14 ], [ 3, %13 ]
   br label %9, !llvm.loop !116
 
 12:                                               ; preds = %9
@@ -6350,13 +6350,13 @@ define range(i32 0, 2) i32 @Abc_CommandAbcLivenessToSafetyAbstraction(ptr nounde
   br i1 %.not101, label %45, label %.sink.split
 
 .sink.split:                                      ; preds = %42, %39, %36, %33, %30
-  %str.17.sink = phi ptr [ @str.21, %30 ], [ @str.31, %33 ], [ @str.30, %36 ], [ @str.18, %39 ], [ @str.29, %42 ]
-  %.093.ph = phi ptr [ %31, %30 ], [ %34, %33 ], [ %37, %36 ], [ %40, %39 ], [ %43, %42 ]
+  %str.17.sink = phi ptr [ @str.18, %39 ], [ @str.30, %36 ], [ @str.31, %33 ], [ @str.21, %30 ], [ @str.29, %42 ]
+  %.093.ph = phi ptr [ %40, %39 ], [ %37, %36 ], [ %34, %33 ], [ %31, %30 ], [ %43, %42 ]
   %puts102 = tail call i32 @puts(ptr nonnull dereferenceable(1) %str.17.sink)
   br label %45
 
 45:                                               ; preds = %.sink.split, %42, %39, %36, %33, %30, %21
-  %.093 = phi ptr [ null, %21 ], [ %31, %30 ], [ %34, %33 ], [ %37, %36 ], [ %40, %39 ], [ %43, %42 ], [ %.093.ph, %.sink.split ]
+  %.093 = phi ptr [ null, %21 ], [ %37, %36 ], [ %31, %30 ], [ %43, %42 ], [ %34, %33 ], [ %40, %39 ], [ %.093.ph, %.sink.split ]
   %46 = tail call ptr @Abc_NtkFromAigPhase(ptr noundef %.093) #17
   %47 = load ptr, ptr %.093, align 8, !tbaa !56
   %.not.i = icmp eq ptr %47, null
@@ -7518,8 +7518,8 @@ Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.e
   br label %544
 
 544:                                              ; preds = %.sink.split, %.critedge19, %.thread623, %.critedge25, %.critedge13
-  %.0381 = phi ptr [ %497, %.critedge19 ], [ %537, %.critedge25 ], [ %542, %.thread623 ], [ null, %.critedge13 ], [ %.0381.ph, %.sink.split ]
-  %.3360 = phi ptr [ %.4361.lcssa, %.critedge19 ], [ %.6363.lcssa, %.critedge25 ], [ %.2359.lcssa, %.thread623 ], [ %.2359.lcssa, %.critedge13 ], [ %.3360.ph, %.sink.split ]
+  %.0381 = phi ptr [ null, %.critedge13 ], [ %497, %.critedge19 ], [ %542, %.thread623 ], [ %537, %.critedge25 ], [ %.0381.ph, %.sink.split ]
+  %.3360 = phi ptr [ %.2359.lcssa, %.critedge13 ], [ %.4361.lcssa, %.critedge19 ], [ %.2359.lcssa, %.thread623 ], [ %.6363.lcssa, %.critedge25 ], [ %.3360.ph, %.sink.split ]
   br i1 %or.cond, label %545, label %.loopexit
 
 545:                                              ; preds = %544
@@ -8480,7 +8480,7 @@ define range(i32 0, 2) i32 @Abc_CommandAbcLivenessToSafetyWithLTL(ptr noundef %0
   br label %.backedge
 
 .backedge:                                        ; preds = %12, %15, %15, %13, %14
-  %.1.be = phi i32 [ 3, %14 ], [ 2, %13 ], [ 1, %15 ], [ 1, %15 ], [ %switch.select113, %12 ]
+  %.1.be = phi i32 [ 1, %15 ], [ %switch.select113, %12 ], [ 2, %13 ], [ 1, %15 ], [ 3, %14 ]
   br label %10, !llvm.loop !137
 
 13:                                               ; preds = %10

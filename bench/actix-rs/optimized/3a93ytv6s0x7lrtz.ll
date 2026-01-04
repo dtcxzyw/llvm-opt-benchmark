@@ -750,7 +750,7 @@ default.unreachable183:                           ; preds = %3
   br label %42
 
 "_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h175db85c27cd6b8dE.exit34": ; preds = %177, %172, %24
-  %.pn11.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn11.pn.pn.pn, %172 ], [ %25, %24 ], [ %.pn11.pn.pn.pn, %177 ]
+  %.pn11.pn.pn.pn.pn = phi { ptr, i32 } [ %25, %24 ], [ %.pn11.pn.pn.pn, %172 ], [ %.pn11.pn.pn.pn, %177 ]
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 297
   store i8 0, ptr %23, align 1
   br label %171
@@ -936,7 +936,7 @@ common.ret:                                       ; preds = %161, %47
           to label %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h9ea36324aa321c77E.exit" unwind label %77
 
 "_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h9ea36324aa321c77E.exit23": ; preds = %.thread172, %69, %77
-  %.pn11.pn = phi { ptr, i32 } [ %70, %69 ], [ %78, %77 ], [ %55, %.thread172 ]
+  %.pn11.pn = phi { ptr, i32 } [ %78, %77 ], [ %70, %69 ], [ %55, %.thread172 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %172
 
@@ -1253,7 +1253,7 @@ common.ret:                                       ; preds = %161, %47
           to label %158 unwind label %81
 
 .body:                                            ; preds = %134, %127, %112
-  %.pn2.pn = phi { ptr, i32 } [ %128, %127 ], [ %113, %112 ], [ %135, %134 ]
+  %.pn2.pn = phi { ptr, i32 } [ %113, %112 ], [ %128, %127 ], [ %135, %134 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %172
 

@@ -5394,7 +5394,7 @@ _ZN19ruff_python_literal6escape6Escape10write_body17h688d1f19e1ddb465E.exit: ; p
   br label %49
 
 49:                                               ; preds = %37, %44, %_ZN19ruff_python_literal6escape6Escape10write_body17h688d1f19e1ddb465E.exit, %17, %2
-  %.sroa.0.0 = phi i1 [ true, %2 ], [ true, %17 ], [ true, %_ZN19ruff_python_literal6escape6Escape10write_body17h688d1f19e1ddb465E.exit ], [ %48, %44 ], [ true, %37 ]
+  %.sroa.0.0 = phi i1 [ true, %_ZN19ruff_python_literal6escape6Escape10write_body17h688d1f19e1ddb465E.exit ], [ true, %2 ], [ true, %17 ], [ %48, %44 ], [ true, %37 ]
   ret i1 %.sroa.0.0
 }
 
@@ -8823,7 +8823,7 @@ default.unreachable:                              ; preds = %6
   br label %"_ZN101_$LT$ty_python_semantic..semantic_index..symbol..NodeWithScopeKey$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2958fbbb64715e4E.exit"
 
 "_ZN101_$LT$ty_python_semantic..semantic_index..symbol..NodeWithScopeKey$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2958fbbb64715e4E.exit": ; preds = %2, %6, %7, %9, %11, %13, %15, %17, %19, %21, %23, %25, %27
-  %.sroa.0.0.shrunk.i = phi i1 [ false, %2 ], [ true, %6 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ]
+  %.sroa.0.0.shrunk.i = phi i1 [ true, %6 ], [ false, %2 ], [ %26, %25 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %28, %27 ]
   ret i1 %.sroa.0.0.shrunk.i
 }
 
@@ -10294,14 +10294,14 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN5salsa14tracked_struct23Ingredien
   %43 = alloca [48 x i8], align 8
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %45 = load ptr, ptr %44, align 8, !invariant.load !4, !nonnull !4
-  %.sink17.i.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sink17.i.sroa.gep144 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.sink17.i.sroa.gep146 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %.sink17.i.sroa.gep147 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %.sink17.i.sroa.gep149 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.sink17.i.sroa.gep150 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sink17.i.sroa.gep152 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %.sink17.i.sroa.gep153 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %.sink17.i.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.sink17.i.sroa.gep144 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sink17.i.sroa.gep146 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %.sink17.i.sroa.gep147 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %.sink17.i.sroa.gep149 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %.sink17.i.sroa.gep150 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.sink17.i.sroa.gep152 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %.sink17.i.sroa.gep153 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %46 = invoke { ptr, ptr } %45(ptr noundef nonnull align 1 %1)
           to label %48 unwind label %47
 
@@ -10799,7 +10799,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN5salsa14tracked_struct23Ingredien
 
 226:                                              ; preds = %.noexc.i
   %.not.i136 = icmp eq i64 %225, %75
-  br i1 %.not.i136, label %"_ZN5salsa14tracked_struct23IngredientImpl$LT$C$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h8cfda3dc6259cdc9E.exit.i", label %229
+  br i1 %.not.i136, label %"_ZN5salsa14tracked_struct23IngredientImpl$LT$C$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h8cfda3dc6259cdc9E.exit.i", label %228
 
 227:                                              ; preds = %.noexc.i
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !265
@@ -10810,33 +10810,15 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN5salsa14tracked_struct23Ingredien
   store ptr @anon.bd069b0397abcbf5d72b25326b9d08c3.139, ptr %10, align 8, !noalias !265
   br label %.invoke.i
 
-.invoke.i:                                        ; preds = %231, %227
-  %.sink17.i.sroa.phi = phi ptr [ %.sink17.i.sroa.gep, %231 ], [ %.sink17.i.sroa.gep144, %227 ]
-  %.sink17.i.sroa.phi145 = phi ptr [ %.sink17.i.sroa.gep146, %231 ], [ %.sink17.i.sroa.gep147, %227 ]
-  %.sink17.i.sroa.phi148 = phi ptr [ %.sink17.i.sroa.gep149, %231 ], [ %.sink17.i.sroa.gep150, %227 ]
-  %.sink17.i.sroa.phi151 = phi ptr [ %.sink17.i.sroa.gep152, %231 ], [ %.sink17.i.sroa.gep153, %227 ]
-  %.sink17.i = phi ptr [ %8, %231 ], [ %10, %227 ]
-  %.sink.i = phi ptr [ %7, %231 ], [ %9, %227 ]
-  %228 = phi ptr [ @anon.bd069b0397abcbf5d72b25326b9d08c3.136, %231 ], [ @anon.bd069b0397abcbf5d72b25326b9d08c3.140, %227 ]
-  store i64 2, ptr %.sink17.i.sroa.phi, align 8, !noalias !265
-  store ptr null, ptr %.sink17.i.sroa.phi145, align 8, !noalias !265
-  store ptr %.sink.i, ptr %.sink17.i.sroa.phi148, align 8, !noalias !265
-  store i64 1, ptr %.sink17.i.sroa.phi151, align 8, !noalias !265
-  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink17.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %228) #30
-          to label %.cont.i unwind label %257, !noalias !263
-
-.cont.i:                                          ; preds = %.invoke.i
-  unreachable
-
-229:                                              ; preds = %226
-  %230 = invoke noundef i64 @_ZN5salsa8revision22OptionalAtomicRevision4swap17hdfd9cb4e44109247E(ptr noundef nonnull align 8 %224, i64 noundef 0)
+228:                                              ; preds = %226
+  %229 = invoke noundef i64 @_ZN5salsa8revision22OptionalAtomicRevision4swap17hdfd9cb4e44109247E(ptr noundef nonnull align 8 %224, i64 noundef 0)
           to label %.noexc3.i unwind label %257, !noalias !263
 
-.noexc3.i:                                        ; preds = %229
-  %.not1.i.i = icmp eq i64 %230, %225
-  br i1 %.not1.i.i, label %.noexc6.i, label %231, !prof !217
+.noexc3.i:                                        ; preds = %228
+  %.not1.i.i = icmp eq i64 %229, %225
+  br i1 %.not1.i.i, label %.noexc6.i, label %230, !prof !217
 
-231:                                              ; preds = %.noexc3.i
+230:                                              ; preds = %.noexc3.i
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !265
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !265
   store ptr %11, ptr %7, align 8, !noalias !265
@@ -10844,6 +10826,24 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN5salsa14tracked_struct23Ingredien
   store ptr @"_ZN50_$LT$salsa..id..Id$u20$as$u20$core..fmt..Debug$GT$3fmt17h53e2edf51d852088E", ptr %.sroa.415.0..sroa_idx.i.i, align 8, !noalias !265
   store ptr @anon.bd069b0397abcbf5d72b25326b9d08c3.135, ptr %8, align 8, !noalias !265
   br label %.invoke.i
+
+.invoke.i:                                        ; preds = %230, %227
+  %.sink17.i.sroa.phi = phi ptr [ %.sink17.i.sroa.gep, %227 ], [ %.sink17.i.sroa.gep144, %230 ]
+  %.sink17.i.sroa.phi145 = phi ptr [ %.sink17.i.sroa.gep146, %227 ], [ %.sink17.i.sroa.gep147, %230 ]
+  %.sink17.i.sroa.phi148 = phi ptr [ %.sink17.i.sroa.gep149, %227 ], [ %.sink17.i.sroa.gep150, %230 ]
+  %.sink17.i.sroa.phi151 = phi ptr [ %.sink17.i.sroa.gep152, %227 ], [ %.sink17.i.sroa.gep153, %230 ]
+  %.sink17.i = phi ptr [ %10, %227 ], [ %8, %230 ]
+  %.sink.i = phi ptr [ %9, %227 ], [ %7, %230 ]
+  %231 = phi ptr [ @anon.bd069b0397abcbf5d72b25326b9d08c3.140, %227 ], [ @anon.bd069b0397abcbf5d72b25326b9d08c3.136, %230 ]
+  store i64 2, ptr %.sink17.i.sroa.phi, align 8, !noalias !265
+  store ptr null, ptr %.sink17.i.sroa.phi145, align 8, !noalias !265
+  store ptr %.sink.i, ptr %.sink17.i.sroa.phi148, align 8, !noalias !265
+  store i64 1, ptr %.sink17.i.sroa.phi151, align 8, !noalias !265
+  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink17.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %231) #30
+          to label %.cont.i unwind label %257, !noalias !263
+
+.cont.i:                                          ; preds = %.invoke.i
+  unreachable
 
 "_ZN5salsa14tracked_struct23IngredientImpl$LT$C$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h8cfda3dc6259cdc9E.exit.i": ; preds = %226
   call void @llvm.experimental.noalias.scope.decl(metadata !268)
@@ -10916,7 +10916,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN5salsa14tracked_struct23Ingredien
   call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.bd069b0397abcbf5d72b25326b9d08c3.141, i64 noundef 39, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bd069b0397abcbf5d72b25326b9d08c3.142) #30
   unreachable
 
-257:                                              ; preds = %229, %.invoke.i, %223, %220
+257:                                              ; preds = %.invoke.i, %228, %223, %220
   %lpad.thr_comm.i134 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr415drop_in_place$LT$$LP$ruff_db..files..File$C$ty_python_semantic..semantic_index..symbol..FileScopeId$C$ty_python_semantic..semantic_index..expression..Expression$C$ty_python_semantic..semantic_index..predicate..PatternPredicateKind$C$core..option..Option$LT$ty_python_semantic..semantic_index..expression..Expression$GT$$C$countme..Count$LT$ty_python_semantic..semantic_index..predicate..PatternPredicate$GT$$RP$$GT$17h07feaaf11aa3c3b1E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %32) #32
@@ -10935,7 +10935,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN5salsa14tracked_struct23Ingredien
   br label %172
 
 .thread158:                                       ; preds = %257, %241, %237, %124, %118, %.thread.i.i, %113, %109, %261
-  %.pn156 = phi { ptr, i32 } [ %.pn157, %261 ], [ %lpad.thr_comm.i, %124 ], [ %117, %.thread.i.i ], [ %119, %118 ], [ %114, %113 ], [ %110, %109 ], [ %238, %241 ], [ %238, %237 ], [ %lpad.thr_comm.i134, %257 ]
+  %.pn156 = phi { ptr, i32 } [ %.pn157, %261 ], [ %lpad.thr_comm.i134, %257 ], [ %114, %113 ], [ %110, %109 ], [ %lpad.thr_comm.i, %124 ], [ %117, %.thread.i.i ], [ %119, %118 ], [ %238, %237 ], [ %238, %241 ]
   resume { ptr, i32 } %.pn156
 
 261:                                              ; preds = %47, %.thread
@@ -13768,7 +13768,7 @@ define hidden void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h0920b7ec8acbb
           to label %16 unwind label %61
 
 .body:                                            ; preds = %39, %48
-  %eh.lpad-body = phi { ptr, i32 } [ %49, %48 ], [ %.pn.i, %39 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i, %39 ], [ %49, %48 ]
   %13 = cmpxchg ptr %8, i8 1, i8 0 release monotonic, align 1
   %14 = extractvalue { i8, i1 } %13, 1
   br i1 %14, label %.thread, label %15, !prof !217
@@ -13887,7 +13887,7 @@ define hidden void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h0920b7ec8acbb
   unreachable
 
 .thread:                                          ; preds = %15, %.body, %61
-  %.pn33 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %61 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %15 ]
+  %.pn33 = phi { ptr, i32 } [ %eh.lpad-body, %15 ], [ %lpad.thr_comm.split-lp, %61 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn33
 
 61:                                               ; preds = %11
@@ -14015,7 +14015,7 @@ define hidden void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h0af1aae682fd2
   unreachable
 
 .thread:                                          ; preds = %49, %13, %.body
-  %.pn41 = phi { ptr, i32 } [ %28, %.body ], [ %28, %13 ], [ %lpad.thr_comm.split-lp, %49 ]
+  %.pn41 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %49 ], [ %28, %13 ], [ %28, %.body ]
   resume { ptr, i32 } %.pn41
 
 49:                                               ; preds = %9
@@ -14139,7 +14139,7 @@ define hidden void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h0dd9849c6007e
   unreachable
 
 .thread:                                          ; preds = %49, %13, %.body
-  %.pn37 = phi { ptr, i32 } [ %28, %.body ], [ %28, %13 ], [ %lpad.thr_comm.split-lp, %49 ]
+  %.pn37 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %49 ], [ %28, %13 ], [ %28, %.body ]
   resume { ptr, i32 } %.pn37
 
 49:                                               ; preds = %9
@@ -14263,7 +14263,7 @@ define hidden void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h0eb476d40363f
   unreachable
 
 .thread:                                          ; preds = %50, %14, %.body
-  %.pn35 = phi { ptr, i32 } [ %29, %.body ], [ %29, %14 ], [ %lpad.thr_comm.split-lp, %50 ]
+  %.pn35 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %50 ], [ %29, %14 ], [ %29, %.body ]
   resume { ptr, i32 } %.pn35
 
 50:                                               ; preds = %10
@@ -14287,7 +14287,7 @@ define hidden void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h1037ffdbdc1a1
           to label %14 unwind label %61
 
 .body:                                            ; preds = %33, %36, %45, %49
-  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i, %33 ], [ %.pn.i, %36 ], [ %46, %49 ], [ %46, %45 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %46, %45 ], [ %.pn.i, %36 ], [ %.pn.i, %33 ], [ %46, %49 ]
   %11 = cmpxchg ptr %6, i8 1, i8 0 release monotonic, align 1
   %12 = extractvalue { i8, i1 } %11, 1
   br i1 %12, label %.thread, label %13, !prof !217
@@ -14416,7 +14416,7 @@ define hidden void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h1037ffdbdc1a1
   unreachable
 
 .thread:                                          ; preds = %61, %64, %13, %.body
-  %.pn36 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %13 ], [ %lpad.thr_comm.split-lp, %64 ], [ %lpad.thr_comm.split-lp, %61 ]
+  %.pn36 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %61 ], [ %eh.lpad-body, %13 ], [ %eh.lpad-body, %.body ], [ %lpad.thr_comm.split-lp, %64 ]
   resume { ptr, i32 } %.pn36
 
 61:                                               ; preds = %9
@@ -14678,7 +14678,7 @@ define hidden void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h31b44588c2458
           to label %16 unwind label %57
 
 .body:                                            ; preds = %38, %42
-  %eh.lpad-body = phi { ptr, i32 } [ %43, %42 ], [ %39, %38 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %39, %38 ], [ %43, %42 ]
   %13 = cmpxchg ptr %8, i8 1, i8 0 release monotonic, align 1
   %14 = extractvalue { i8, i1 } %13, 1
   br i1 %14, label %.thread, label %15, !prof !217
@@ -14788,7 +14788,7 @@ define hidden void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h31b44588c2458
   unreachable
 
 .thread:                                          ; preds = %57, %15, %.body
-  %.pn36 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %15 ], [ %lpad.thr_comm.split-lp, %57 ]
+  %.pn36 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %57 ], [ %eh.lpad-body, %15 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn36
 
 57:                                               ; preds = %11
@@ -15101,7 +15101,7 @@ define hidden void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h64ddb408238ab
   unreachable
 
 .thread:                                          ; preds = %14, %.body, %44
-  %.pn22 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %44 ], [ %29, %.body ], [ %29, %14 ]
+  %.pn22 = phi { ptr, i32 } [ %29, %14 ], [ %lpad.thr_comm.split-lp, %44 ], [ %29, %.body ]
   resume { ptr, i32 } %.pn22
 
 44:                                               ; preds = %10
@@ -15336,7 +15336,7 @@ define hidden void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h66e73d5870344
   unreachable
 
 .thread:                                          ; preds = %49, %14, %.body
-  %.pn34 = phi { ptr, i32 } [ %29, %.body ], [ %29, %14 ], [ %lpad.thr_comm.split-lp, %49 ]
+  %.pn34 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %49 ], [ %29, %14 ], [ %29, %.body ]
   resume { ptr, i32 } %.pn34
 
 49:                                               ; preds = %10
@@ -15732,7 +15732,7 @@ define hidden void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h94e3cb84cc22f
           to label %17 unwind label %55
 
 .body:                                            ; preds = %29, %34
-  %eh.lpad-body = phi { ptr, i32 } [ %30, %29 ], [ %35, %34 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %35, %34 ], [ %30, %29 ]
   %14 = cmpxchg ptr %9, i8 1, i8 0 release monotonic, align 1
   %15 = extractvalue { i8, i1 } %14, 1
   br i1 %15, label %.thread, label %16, !prof !217
@@ -15868,7 +15868,7 @@ define hidden void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h94e3cb84cc22f
   unreachable
 
 .thread:                                          ; preds = %55, %16, %.body
-  %.pn37 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %16 ], [ %lpad.thr_comm.split-lp, %55 ]
+  %.pn37 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %55 ], [ %eh.lpad-body, %16 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn37
 
 55:                                               ; preds = %12
@@ -15999,7 +15999,7 @@ define hidden void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17ha1d5ec2c48911
   unreachable
 
 .thread:                                          ; preds = %50, %14, %.body
-  %.pn40 = phi { ptr, i32 } [ %30, %.body ], [ %30, %14 ], [ %lpad.thr_comm.split-lp, %50 ]
+  %.pn40 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %50 ], [ %30, %14 ], [ %30, %.body ]
   resume { ptr, i32 } %.pn40
 
 50:                                               ; preds = %10
@@ -16559,7 +16559,7 @@ define hidden void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hcd7f2e19ebbd5
   unreachable
 
 .thread:                                          ; preds = %50, %14, %.body
-  %.pn39 = phi { ptr, i32 } [ %29, %.body ], [ %29, %14 ], [ %lpad.thr_comm.split-lp, %50 ]
+  %.pn39 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %50 ], [ %29, %14 ], [ %29, %.body ]
   resume { ptr, i32 } %.pn39
 
 50:                                               ; preds = %10
@@ -16682,7 +16682,7 @@ define hidden void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hce15bf14cc710
   unreachable
 
 .thread:                                          ; preds = %48, %13, %.body
-  %.pn37 = phi { ptr, i32 } [ %28, %.body ], [ %28, %13 ], [ %lpad.thr_comm.split-lp, %48 ]
+  %.pn37 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %48 ], [ %28, %13 ], [ %28, %.body ]
   resume { ptr, i32 } %.pn37
 
 48:                                               ; preds = %9
@@ -16823,7 +16823,7 @@ define hidden void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hd5e1b4749c0b4
           to label %16 unwind label %57
 
 .body:                                            ; preds = %31, %36
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %37, %36 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %37, %36 ], [ %32, %31 ]
   %13 = cmpxchg ptr %8, i8 1, i8 0 release monotonic, align 1
   %14 = extractvalue { i8, i1 } %13, 1
   br i1 %14, label %.thread, label %15, !prof !217
@@ -16983,7 +16983,7 @@ define hidden void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hd5e1b4749c0b4
   unreachable
 
 .thread:                                          ; preds = %57, %15, %.body
-  %.pn39 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %15 ], [ %lpad.thr_comm.split-lp, %57 ]
+  %.pn39 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %57 ], [ %eh.lpad-body, %15 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn39
 
 57:                                               ; preds = %11
@@ -17107,7 +17107,7 @@ define hidden void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hd6c0ca4adcb6b
   unreachable
 
 .thread:                                          ; preds = %49, %13, %.body
-  %.pn37 = phi { ptr, i32 } [ %28, %.body ], [ %28, %13 ], [ %lpad.thr_comm.split-lp, %49 ]
+  %.pn37 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %49 ], [ %28, %13 ], [ %28, %.body ]
   resume { ptr, i32 } %.pn37
 
 49:                                               ; preds = %9
@@ -17259,7 +17259,7 @@ define hidden void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hd78a6a34248d2
   unreachable
 
 .thread:                                          ; preds = %49, %14, %.body
-  %.pn39 = phi { ptr, i32 } [ %29, %.body ], [ %29, %14 ], [ %lpad.thr_comm.split-lp, %49 ]
+  %.pn39 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %49 ], [ %29, %14 ], [ %29, %.body ]
   resume { ptr, i32 } %.pn39
 
 49:                                               ; preds = %10
@@ -17421,7 +17421,7 @@ define hidden void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17he4c63c8fa404c
   unreachable
 
 .thread:                                          ; preds = %50, %14, %.body
-  %.pn39 = phi { ptr, i32 } [ %30, %.body ], [ %30, %14 ], [ %lpad.thr_comm.split-lp, %50 ]
+  %.pn39 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %50 ], [ %30, %14 ], [ %30, %.body ]
   resume { ptr, i32 } %.pn39
 
 50:                                               ; preds = %10
@@ -17545,7 +17545,7 @@ define hidden void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hec83cbd3d5116
   unreachable
 
 .thread:                                          ; preds = %50, %14, %.body
-  %.pn35 = phi { ptr, i32 } [ %29, %.body ], [ %29, %14 ], [ %lpad.thr_comm.split-lp, %50 ]
+  %.pn35 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %50 ], [ %29, %14 ], [ %29, %.body ]
   resume { ptr, i32 } %.pn35
 
 50:                                               ; preds = %10
@@ -17670,7 +17670,7 @@ define hidden void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hedaa7bb6d3205
   unreachable
 
 .thread:                                          ; preds = %48, %13, %.body
-  %.pn37 = phi { ptr, i32 } [ %28, %.body ], [ %28, %13 ], [ %lpad.thr_comm.split-lp, %48 ]
+  %.pn37 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %48 ], [ %28, %13 ], [ %28, %.body ]
   resume { ptr, i32 } %.pn37
 
 48:                                               ; preds = %9
@@ -17907,7 +17907,7 @@ define hidden void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hf79ee47731746
   unreachable
 
 .thread:                                          ; preds = %49, %14, %.body
-  %.pn36 = phi { ptr, i32 } [ %29, %.body ], [ %29, %14 ], [ %lpad.thr_comm.split-lp, %49 ]
+  %.pn36 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %49 ], [ %29, %14 ], [ %29, %.body ]
   resume { ptr, i32 } %.pn36
 
 49:                                               ; preds = %10
@@ -17932,7 +17932,7 @@ define hidden void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hf8738197a8dab
           to label %16 unwind label %61
 
 .body:                                            ; preds = %39, %48
-  %eh.lpad-body = phi { ptr, i32 } [ %49, %48 ], [ %.pn.i, %39 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i, %39 ], [ %49, %48 ]
   %13 = cmpxchg ptr %8, i8 1, i8 0 release monotonic, align 1
   %14 = extractvalue { i8, i1 } %13, 1
   br i1 %14, label %.thread, label %15, !prof !217
@@ -18051,7 +18051,7 @@ define hidden void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hf8738197a8dab
   unreachable
 
 .thread:                                          ; preds = %15, %.body, %61
-  %.pn33 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %61 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %15 ]
+  %.pn33 = phi { ptr, i32 } [ %eh.lpad-body, %15 ], [ %lpad.thr_comm.split-lp, %61 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn33
 
 61:                                               ; preds = %11
@@ -18184,7 +18184,7 @@ define hidden void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hfd10bc1fc97f4
   unreachable
 
 .thread:                                          ; preds = %52, %15, %.body
-  %.pn35 = phi { ptr, i32 } [ %32, %.body ], [ %32, %15 ], [ %lpad.thr_comm.split-lp, %52 ]
+  %.pn35 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %52 ], [ %32, %15 ], [ %32, %.body ]
   resume { ptr, i32 } %.pn35
 
 52:                                               ; preds = %11
@@ -18340,7 +18340,7 @@ define hidden void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hfd68f11b5ae8e
           to label %16 unwind label %55
 
 .body:                                            ; preds = %38, %42
-  %eh.lpad-body = phi { ptr, i32 } [ %43, %42 ], [ %39, %38 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %39, %38 ], [ %43, %42 ]
   %13 = cmpxchg ptr %8, i8 1, i8 0 release monotonic, align 1
   %14 = extractvalue { i8, i1 } %13, 1
   br i1 %14, label %.thread, label %15, !prof !217
@@ -18443,7 +18443,7 @@ define hidden void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hfd68f11b5ae8e
   unreachable
 
 .thread:                                          ; preds = %15, %.body, %55
-  %.pn31 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %55 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %15 ]
+  %.pn31 = phi { ptr, i32 } [ %eh.lpad-body, %15 ], [ %lpad.thr_comm.split-lp, %55 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn31
 
 55:                                               ; preds = %11
@@ -18551,13 +18551,13 @@ define internal fastcc void @_ZN5salsa5table4memo21MemoTableWithTypesMut4drop17h
   br label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h80d90020f4debf84E.exit"
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h80d90020f4debf84E.exit": ; preds = %.loopexit.i.i.i.i, %10, %27, %31
-  %.sroa.12.1 = phi i64 [ %.sroa.12.0, %10 ], [ %28, %27 ], [ %28, %31 ], [ %.sroa.12.0, %.loopexit.i.i.i.i ]
-  %.sroa.9.3 = phi i64 [ %.sroa.9.0, %10 ], [ %20, %27 ], [ %20, %31 ], [ 0, %.loopexit.i.i.i.i ]
-  %.sroa.7.2 = phi i64 [ %.sroa.7.0, %10 ], [ %.sroa.7.1, %27 ], [ %.sroa.7.1, %31 ], [ %.sroa.7.1, %.loopexit.i.i.i.i ]
-  %.sroa.4.2 = phi i64 [ %.sroa.4.0, %10 ], [ %.sroa.4.1, %27 ], [ %.sroa.4.1, %31 ], [ 59, %.loopexit.i.i.i.i ]
-  %.sroa.17.1 = phi ptr [ %.sroa.17.0, %10 ], [ %.sroa.17.0, %27 ], [ %32, %31 ], [ %.sroa.17.0, %.loopexit.i.i.i.i ]
-  %.sink25.i.sroa.phi = phi ptr [ %.sroa.49, %10 ], [ %.sroa.49, %27 ], [ %.sroa.10, %31 ], [ %.sroa.49, %.loopexit.i.i.i.i ]
-  %.sink.i = phi ptr [ null, %10 ], [ null, %27 ], [ %.sroa.17.0, %31 ], [ null, %.loopexit.i.i.i.i ]
+  %.sroa.12.1 = phi i64 [ %.sroa.12.0, %10 ], [ %28, %31 ], [ %28, %27 ], [ %.sroa.12.0, %.loopexit.i.i.i.i ]
+  %.sroa.9.3 = phi i64 [ %.sroa.9.0, %10 ], [ %20, %31 ], [ %20, %27 ], [ 0, %.loopexit.i.i.i.i ]
+  %.sroa.7.2 = phi i64 [ %.sroa.7.0, %10 ], [ %.sroa.7.1, %31 ], [ %.sroa.7.1, %27 ], [ %.sroa.7.1, %.loopexit.i.i.i.i ]
+  %.sroa.4.2 = phi i64 [ %.sroa.4.0, %10 ], [ %.sroa.4.1, %31 ], [ %.sroa.4.1, %27 ], [ 59, %.loopexit.i.i.i.i ]
+  %.sroa.17.1 = phi ptr [ %.sroa.17.0, %10 ], [ %32, %31 ], [ %.sroa.17.0, %27 ], [ %.sroa.17.0, %.loopexit.i.i.i.i ]
+  %.sink25.i.sroa.phi = phi ptr [ %.sroa.49, %10 ], [ %.sroa.10, %31 ], [ %.sroa.49, %27 ], [ %.sroa.49, %.loopexit.i.i.i.i ]
+  %.sink.i = phi ptr [ null, %10 ], [ %.sroa.17.0, %31 ], [ null, %27 ], [ null, %.loopexit.i.i.i.i ]
   store ptr %.sink.i, ptr %.sink25.i.sroa.phi, align 8, !alias.scope !536, !noalias !548
   %.sroa.49.0..sroa.49.0..sroa.49.0..sroa.49.8. = load i64, ptr %.sroa.49, align 8, !noundef !4
   %34 = inttoptr i64 %.sroa.49.0..sroa.49.0..sroa.49.0..sroa.49.8. to ptr
@@ -18634,7 +18634,7 @@ define internal fastcc void @_ZN5salsa5table4memo21MemoTableWithTypesMut4drop17h
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h13677b64e3c4ff84E.exit4.i.i": ; preds = %70, %62
   resume { ptr, i32 } %63
 
-"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$salsa..table..memo..Memo$GT$$GT$$GT$17hd479adc4afef2962E.exit": ; preds = %42, %39, %54, %61
+"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$salsa..table..memo..Memo$GT$$GT$$GT$17hd479adc4afef2962E.exit": ; preds = %39, %42, %54, %61
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.49)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10)
   br label %10
@@ -18877,7 +18877,7 @@ _ZN4core3ops8function6FnOnce9call_once17h9cd3babaadf8088eE.exit: ; preds = %89, 
   unreachable
 
 common.resume:                                    ; preds = %54, %51, %99, %103
-  %common.resume.op = phi { ptr, i32 } [ %100, %103 ], [ %100, %99 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
+  %common.resume.op = phi { ptr, i32 } [ %100, %99 ], [ %100, %103 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5salsa5table4Page3new17hc1e1e526f3ada6fdE.exit: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h9cd3babaadf8088eE.exit
@@ -19169,7 +19169,7 @@ _ZN4core3ops8function6FnOnce9call_once17h01bf24ad70d40ecfE.exit: ; preds = %89, 
   unreachable
 
 common.resume:                                    ; preds = %54, %51, %99, %103
-  %common.resume.op = phi { ptr, i32 } [ %100, %103 ], [ %100, %99 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
+  %common.resume.op = phi { ptr, i32 } [ %100, %99 ], [ %100, %103 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5salsa5table4Page3new17h60917d29b33046c6E.exit: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h01bf24ad70d40ecfE.exit
@@ -19461,7 +19461,7 @@ _ZN4core3ops8function6FnOnce9call_once17hfb9cc38c78824b98E.exit: ; preds = %89, 
   unreachable
 
 common.resume:                                    ; preds = %54, %51, %99, %103
-  %common.resume.op = phi { ptr, i32 } [ %100, %103 ], [ %100, %99 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
+  %common.resume.op = phi { ptr, i32 } [ %100, %99 ], [ %100, %103 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5salsa5table4Page3new17hf8ad216f9a0964dfE.exit: ; preds = %_ZN4core3ops8function6FnOnce9call_once17hfb9cc38c78824b98E.exit
@@ -19753,7 +19753,7 @@ _ZN4core3ops8function6FnOnce9call_once17h5e213cf320d68a3dE.exit: ; preds = %89, 
   unreachable
 
 common.resume:                                    ; preds = %54, %51, %99, %103
-  %common.resume.op = phi { ptr, i32 } [ %100, %103 ], [ %100, %99 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
+  %common.resume.op = phi { ptr, i32 } [ %100, %99 ], [ %100, %103 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5salsa5table4Page3new17haaaec2404d1e5e79E.exit: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h5e213cf320d68a3dE.exit
@@ -20045,7 +20045,7 @@ _ZN4core3ops8function6FnOnce9call_once17hc6124038f5c76c7fE.exit: ; preds = %89, 
   unreachable
 
 common.resume:                                    ; preds = %54, %51, %99, %103
-  %common.resume.op = phi { ptr, i32 } [ %100, %103 ], [ %100, %99 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
+  %common.resume.op = phi { ptr, i32 } [ %100, %99 ], [ %100, %103 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5salsa5table4Page3new17h8033d59780bd0224E.exit: ; preds = %_ZN4core3ops8function6FnOnce9call_once17hc6124038f5c76c7fE.exit
@@ -20337,7 +20337,7 @@ _ZN4core3ops8function6FnOnce9call_once17h4554845ca6c44e3dE.exit: ; preds = %89, 
   unreachable
 
 common.resume:                                    ; preds = %54, %51, %99, %103
-  %common.resume.op = phi { ptr, i32 } [ %100, %103 ], [ %100, %99 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
+  %common.resume.op = phi { ptr, i32 } [ %100, %99 ], [ %100, %103 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5salsa5table4Page3new17h5d9bf983e91b07e5E.exit: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h4554845ca6c44e3dE.exit
@@ -20629,7 +20629,7 @@ _ZN4core3ops8function6FnOnce9call_once17hca85a7f10b1bcab9E.exit: ; preds = %89, 
   unreachable
 
 common.resume:                                    ; preds = %54, %51, %99, %103
-  %common.resume.op = phi { ptr, i32 } [ %100, %103 ], [ %100, %99 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
+  %common.resume.op = phi { ptr, i32 } [ %100, %99 ], [ %100, %103 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5salsa5table4Page3new17hd2e35d68ba9acadeE.exit: ; preds = %_ZN4core3ops8function6FnOnce9call_once17hca85a7f10b1bcab9E.exit
@@ -20921,7 +20921,7 @@ _ZN4core3ops8function6FnOnce9call_once17h4589ab5cf869eee7E.exit: ; preds = %89, 
   unreachable
 
 common.resume:                                    ; preds = %54, %51, %99, %103
-  %common.resume.op = phi { ptr, i32 } [ %100, %103 ], [ %100, %99 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
+  %common.resume.op = phi { ptr, i32 } [ %100, %99 ], [ %100, %103 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5salsa5table4Page3new17hdae18c23e1051cf9E.exit: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h4589ab5cf869eee7E.exit
@@ -21213,7 +21213,7 @@ _ZN4core3ops8function6FnOnce9call_once17h9b19d1ff2f0ad029E.exit: ; preds = %89, 
   unreachable
 
 common.resume:                                    ; preds = %54, %51, %99, %103
-  %common.resume.op = phi { ptr, i32 } [ %100, %103 ], [ %100, %99 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
+  %common.resume.op = phi { ptr, i32 } [ %100, %99 ], [ %100, %103 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5salsa5table4Page3new17h8f43e8d495b8e75bE.exit: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h9b19d1ff2f0ad029E.exit
@@ -21505,7 +21505,7 @@ _ZN4core3ops8function6FnOnce9call_once17h1ff286feb01a0b03E.exit: ; preds = %89, 
   unreachable
 
 common.resume:                                    ; preds = %54, %51, %99, %103
-  %common.resume.op = phi { ptr, i32 } [ %100, %103 ], [ %100, %99 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
+  %common.resume.op = phi { ptr, i32 } [ %100, %99 ], [ %100, %103 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5salsa5table4Page3new17h2b9243a6df2c7c7fE.exit: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h1ff286feb01a0b03E.exit
@@ -21797,7 +21797,7 @@ _ZN4core3ops8function6FnOnce9call_once17hea2ffaa8a7539c15E.exit: ; preds = %89, 
   unreachable
 
 common.resume:                                    ; preds = %54, %51, %99, %103
-  %common.resume.op = phi { ptr, i32 } [ %100, %103 ], [ %100, %99 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
+  %common.resume.op = phi { ptr, i32 } [ %100, %99 ], [ %100, %103 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5salsa5table4Page3new17h979ca88f8edab0e0E.exit: ; preds = %_ZN4core3ops8function6FnOnce9call_once17hea2ffaa8a7539c15E.exit
@@ -22089,7 +22089,7 @@ _ZN4core3ops8function6FnOnce9call_once17h6b80939a51662e98E.exit: ; preds = %89, 
   unreachable
 
 common.resume:                                    ; preds = %54, %51, %99, %103
-  %common.resume.op = phi { ptr, i32 } [ %100, %103 ], [ %100, %99 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
+  %common.resume.op = phi { ptr, i32 } [ %100, %99 ], [ %100, %103 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5salsa5table4Page3new17hf4b1e8e0f6d45fadE.exit: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h6b80939a51662e98E.exit
@@ -22381,7 +22381,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd01f260377eb9615E.exit: ; preds = %89, 
   unreachable
 
 common.resume:                                    ; preds = %54, %51, %99, %103
-  %common.resume.op = phi { ptr, i32 } [ %100, %103 ], [ %100, %99 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
+  %common.resume.op = phi { ptr, i32 } [ %100, %99 ], [ %100, %103 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5salsa5table4Page3new17h9625344ee62c348fE.exit: ; preds = %_ZN4core3ops8function6FnOnce9call_once17hd01f260377eb9615E.exit
@@ -22673,7 +22673,7 @@ _ZN4core3ops8function6FnOnce9call_once17h013a190cfda9fe99E.exit: ; preds = %89, 
   unreachable
 
 common.resume:                                    ; preds = %54, %51, %99, %103
-  %common.resume.op = phi { ptr, i32 } [ %100, %103 ], [ %100, %99 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
+  %common.resume.op = phi { ptr, i32 } [ %100, %99 ], [ %100, %103 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5salsa5table4Page3new17h7ffcf5d3dad81598E.exit: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h013a190cfda9fe99E.exit
@@ -22965,7 +22965,7 @@ _ZN4core3ops8function6FnOnce9call_once17had5fa9c09f29e895E.exit: ; preds = %89, 
   unreachable
 
 common.resume:                                    ; preds = %54, %51, %99, %103
-  %common.resume.op = phi { ptr, i32 } [ %100, %103 ], [ %100, %99 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
+  %common.resume.op = phi { ptr, i32 } [ %100, %99 ], [ %100, %103 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5salsa5table4Page3new17hb76db50a982872fbE.exit: ; preds = %_ZN4core3ops8function6FnOnce9call_once17had5fa9c09f29e895E.exit
@@ -23257,7 +23257,7 @@ _ZN4core3ops8function6FnOnce9call_once17hce5cf47c7642a801E.exit: ; preds = %89, 
   unreachable
 
 common.resume:                                    ; preds = %54, %51, %99, %103
-  %common.resume.op = phi { ptr, i32 } [ %100, %103 ], [ %100, %99 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
+  %common.resume.op = phi { ptr, i32 } [ %100, %99 ], [ %100, %103 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5salsa5table4Page3new17h77eb64513c48b04cE.exit: ; preds = %_ZN4core3ops8function6FnOnce9call_once17hce5cf47c7642a801E.exit
@@ -23549,7 +23549,7 @@ _ZN4core3ops8function6FnOnce9call_once17h772c11a23fb097e6E.exit: ; preds = %89, 
   unreachable
 
 common.resume:                                    ; preds = %54, %51, %99, %103
-  %common.resume.op = phi { ptr, i32 } [ %100, %103 ], [ %100, %99 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
+  %common.resume.op = phi { ptr, i32 } [ %100, %99 ], [ %100, %103 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5salsa5table4Page3new17ha616ebe8772cc4aaE.exit: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h772c11a23fb097e6E.exit
@@ -23841,7 +23841,7 @@ _ZN4core3ops8function6FnOnce9call_once17h95a1e479dc1a25a6E.exit: ; preds = %89, 
   unreachable
 
 common.resume:                                    ; preds = %54, %51, %99, %103
-  %common.resume.op = phi { ptr, i32 } [ %100, %103 ], [ %100, %99 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
+  %common.resume.op = phi { ptr, i32 } [ %100, %99 ], [ %100, %103 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5salsa5table4Page3new17h2e2fea6693e72cc2E.exit: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h95a1e479dc1a25a6E.exit
@@ -24133,7 +24133,7 @@ _ZN4core3ops8function6FnOnce9call_once17hdf3f953ca755c66dE.exit: ; preds = %89, 
   unreachable
 
 common.resume:                                    ; preds = %54, %51, %99, %103
-  %common.resume.op = phi { ptr, i32 } [ %100, %103 ], [ %100, %99 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
+  %common.resume.op = phi { ptr, i32 } [ %100, %99 ], [ %100, %103 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5salsa5table4Page3new17h7ffcf5d3dad81598E.exit: ; preds = %_ZN4core3ops8function6FnOnce9call_once17hdf3f953ca755c66dE.exit
@@ -24425,7 +24425,7 @@ _ZN4core3ops8function6FnOnce9call_once17hc0fa1b9ff0774d51E.exit: ; preds = %89, 
   unreachable
 
 common.resume:                                    ; preds = %54, %51, %99, %103
-  %common.resume.op = phi { ptr, i32 } [ %100, %103 ], [ %100, %99 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
+  %common.resume.op = phi { ptr, i32 } [ %100, %99 ], [ %100, %103 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5salsa5table4Page3new17he0c4b2b5b981f44aE.exit: ; preds = %_ZN4core3ops8function6FnOnce9call_once17hc0fa1b9ff0774d51E.exit
@@ -24717,7 +24717,7 @@ _ZN4core3ops8function6FnOnce9call_once17h04f9b79b92a0dc01E.exit: ; preds = %89, 
   unreachable
 
 common.resume:                                    ; preds = %54, %51, %99, %103
-  %common.resume.op = phi { ptr, i32 } [ %100, %103 ], [ %100, %99 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
+  %common.resume.op = phi { ptr, i32 } [ %100, %99 ], [ %100, %103 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5salsa5table4Page3new17hcb97bf4eaa8e6fd2E.exit: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h04f9b79b92a0dc01E.exit
@@ -25009,7 +25009,7 @@ _ZN4core3ops8function6FnOnce9call_once17h436992acdcee3c6eE.exit: ; preds = %89, 
   unreachable
 
 common.resume:                                    ; preds = %54, %51, %99, %103
-  %common.resume.op = phi { ptr, i32 } [ %100, %103 ], [ %100, %99 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
+  %common.resume.op = phi { ptr, i32 } [ %100, %99 ], [ %100, %103 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5salsa5table4Page3new17h404f129946b298dcE.exit: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h436992acdcee3c6eE.exit
@@ -25301,7 +25301,7 @@ _ZN4core3ops8function6FnOnce9call_once17h90dba4f991957c46E.exit: ; preds = %89, 
   unreachable
 
 common.resume:                                    ; preds = %54, %51, %99, %103
-  %common.resume.op = phi { ptr, i32 } [ %100, %103 ], [ %100, %99 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
+  %common.resume.op = phi { ptr, i32 } [ %100, %99 ], [ %100, %103 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5salsa5table4Page3new17hf32b56b5d5e933dbE.exit: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h90dba4f991957c46E.exit
@@ -25593,7 +25593,7 @@ _ZN4core3ops8function6FnOnce9call_once17hfc7b4a70aa8c164aE.exit: ; preds = %89, 
   unreachable
 
 common.resume:                                    ; preds = %54, %51, %99, %103
-  %common.resume.op = phi { ptr, i32 } [ %100, %103 ], [ %100, %99 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
+  %common.resume.op = phi { ptr, i32 } [ %100, %99 ], [ %100, %103 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5salsa5table4Page3new17h0da202294dead98fE.exit: ; preds = %_ZN4core3ops8function6FnOnce9call_once17hfc7b4a70aa8c164aE.exit
@@ -25885,7 +25885,7 @@ _ZN4core3ops8function6FnOnce9call_once17h5d16edcd2c82809bE.exit: ; preds = %89, 
   unreachable
 
 common.resume:                                    ; preds = %54, %51, %99, %103
-  %common.resume.op = phi { ptr, i32 } [ %100, %103 ], [ %100, %99 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
+  %common.resume.op = phi { ptr, i32 } [ %100, %99 ], [ %100, %103 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5salsa5table4Page3new17hf88924c83a2ba0aaE.exit: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h5d16edcd2c82809bE.exit
@@ -26177,7 +26177,7 @@ _ZN4core3ops8function6FnOnce9call_once17h6522f683371514b4E.exit: ; preds = %89, 
   unreachable
 
 common.resume:                                    ; preds = %54, %51, %99, %103
-  %common.resume.op = phi { ptr, i32 } [ %100, %103 ], [ %100, %99 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
+  %common.resume.op = phi { ptr, i32 } [ %100, %99 ], [ %100, %103 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5salsa5table4Page3new17h1342fb57282088fdE.exit: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h6522f683371514b4E.exit
@@ -26469,7 +26469,7 @@ _ZN4core3ops8function6FnOnce9call_once17h090961d215760937E.exit: ; preds = %89, 
   unreachable
 
 common.resume:                                    ; preds = %54, %51, %99, %103
-  %common.resume.op = phi { ptr, i32 } [ %100, %103 ], [ %100, %99 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
+  %common.resume.op = phi { ptr, i32 } [ %100, %99 ], [ %100, %103 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5salsa5table4Page3new17h6d7ff9faf310750aE.exit: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h090961d215760937E.exit
@@ -26761,7 +26761,7 @@ _ZN4core3ops8function6FnOnce9call_once17hcc6456c0157d971aE.exit: ; preds = %89, 
   unreachable
 
 common.resume:                                    ; preds = %54, %51, %99, %103
-  %common.resume.op = phi { ptr, i32 } [ %100, %103 ], [ %100, %99 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
+  %common.resume.op = phi { ptr, i32 } [ %100, %99 ], [ %100, %103 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5salsa5table4Page3new17h1d027de40d326f8eE.exit: ; preds = %_ZN4core3ops8function6FnOnce9call_once17hcc6456c0157d971aE.exit
@@ -27053,7 +27053,7 @@ _ZN4core3ops8function6FnOnce9call_once17h2ba3bd22e35bfb7aE.exit: ; preds = %89, 
   unreachable
 
 common.resume:                                    ; preds = %54, %51, %99, %103
-  %common.resume.op = phi { ptr, i32 } [ %100, %103 ], [ %100, %99 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
+  %common.resume.op = phi { ptr, i32 } [ %100, %99 ], [ %100, %103 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5salsa5table4Page3new17h36d142fcf1f75dc3E.exit: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h2ba3bd22e35bfb7aE.exit
@@ -27345,7 +27345,7 @@ _ZN4core3ops8function6FnOnce9call_once17h1bb45278c82b6c44E.exit: ; preds = %89, 
   unreachable
 
 common.resume:                                    ; preds = %54, %51, %99, %103
-  %common.resume.op = phi { ptr, i32 } [ %100, %103 ], [ %100, %99 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
+  %common.resume.op = phi { ptr, i32 } [ %100, %99 ], [ %100, %103 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5salsa5table4Page3new17h86a5c105665a3cb4E.exit: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h1bb45278c82b6c44E.exit
@@ -27637,7 +27637,7 @@ _ZN4core3ops8function6FnOnce9call_once17h785062f293b98ed6E.exit: ; preds = %89, 
   unreachable
 
 common.resume:                                    ; preds = %54, %51, %99, %103
-  %common.resume.op = phi { ptr, i32 } [ %100, %103 ], [ %100, %99 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
+  %common.resume.op = phi { ptr, i32 } [ %100, %99 ], [ %100, %103 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5salsa5table4Page3new17hdb0dedf9d13fc7bfE.exit: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h785062f293b98ed6E.exit
@@ -27929,7 +27929,7 @@ _ZN4core3ops8function6FnOnce9call_once17h66d8fba2e7265489E.exit: ; preds = %89, 
   unreachable
 
 common.resume:                                    ; preds = %54, %51, %99, %103
-  %common.resume.op = phi { ptr, i32 } [ %100, %103 ], [ %100, %99 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
+  %common.resume.op = phi { ptr, i32 } [ %100, %99 ], [ %100, %103 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5salsa5table4Page3new17hfaf1bed9afc2805aE.exit: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h66d8fba2e7265489E.exit
@@ -28221,7 +28221,7 @@ _ZN4core3ops8function6FnOnce9call_once17h210ddc8697665f9eE.exit: ; preds = %89, 
   unreachable
 
 common.resume:                                    ; preds = %54, %51, %99, %103
-  %common.resume.op = phi { ptr, i32 } [ %100, %103 ], [ %100, %99 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
+  %common.resume.op = phi { ptr, i32 } [ %100, %99 ], [ %100, %103 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5salsa5table4Page3new17ha8139fe3cf33b640E.exit: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h210ddc8697665f9eE.exit
@@ -28513,7 +28513,7 @@ _ZN4core3ops8function6FnOnce9call_once17h80bca97a97c34d49E.exit: ; preds = %89, 
   unreachable
 
 common.resume:                                    ; preds = %54, %51, %99, %103
-  %common.resume.op = phi { ptr, i32 } [ %100, %103 ], [ %100, %99 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
+  %common.resume.op = phi { ptr, i32 } [ %100, %99 ], [ %100, %103 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5salsa5table4Page3new17ha616ebe8772cc4aaE.exit: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h80bca97a97c34d49E.exit
@@ -28805,7 +28805,7 @@ _ZN4core3ops8function6FnOnce9call_once17hc50c9a5358663ad8E.exit: ; preds = %89, 
   unreachable
 
 common.resume:                                    ; preds = %54, %51, %99, %103
-  %common.resume.op = phi { ptr, i32 } [ %100, %103 ], [ %100, %99 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
+  %common.resume.op = phi { ptr, i32 } [ %100, %99 ], [ %100, %103 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5salsa5table4Page3new17h111d1ad30006f7feE.exit: ; preds = %_ZN4core3ops8function6FnOnce9call_once17hc50c9a5358663ad8E.exit
@@ -29097,7 +29097,7 @@ _ZN4core3ops8function6FnOnce9call_once17h37a2634436a3e43dE.exit: ; preds = %89, 
   unreachable
 
 common.resume:                                    ; preds = %54, %51, %99, %103
-  %common.resume.op = phi { ptr, i32 } [ %100, %103 ], [ %100, %99 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
+  %common.resume.op = phi { ptr, i32 } [ %100, %99 ], [ %100, %103 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5salsa5table4Page3new17h53716cfe737bb4b7E.exit: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h37a2634436a3e43dE.exit
@@ -29389,7 +29389,7 @@ _ZN4core3ops8function6FnOnce9call_once17he2d361135e340928E.exit: ; preds = %89, 
   unreachable
 
 common.resume:                                    ; preds = %54, %51, %99, %103
-  %common.resume.op = phi { ptr, i32 } [ %100, %103 ], [ %100, %99 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
+  %common.resume.op = phi { ptr, i32 } [ %100, %99 ], [ %100, %103 ], [ %lpad.phi, %51 ], [ %lpad.phi, %54 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5salsa5table4Page3new17h5b673a2cf18e16e6E.exit: ; preds = %_ZN4core3ops8function6FnOnce9call_once17he2d361135e340928E.exit
@@ -35875,8 +35875,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   %.old.i.i = icmp eq i32 %.val, %.val6
   br i1 %.not.i.i, label %12, label %10
 
-_ZN4core3cmp9PartialEq2ne17h980158e6135be1c6E.exit.thread: ; preds = %_ZN4core3cmp9PartialEq2ne17h980158e6135be1c6E.exit, %10, %12, %.preheader.split, %4
-  %.sroa.0.0 = phi i1 [ false, %4 ], [ true, %.preheader.split ], [ true, %_ZN4core3cmp9PartialEq2ne17h980158e6135be1c6E.exit ], [ false, %10 ], [ false, %12 ]
+_ZN4core3cmp9PartialEq2ne17h980158e6135be1c6E.exit.thread: ; preds = %_ZN4core3cmp9PartialEq2ne17h980158e6135be1c6E.exit, %12, %10, %.preheader.split, %4
+  %.sroa.0.0 = phi i1 [ false, %4 ], [ true, %.preheader.split ], [ false, %12 ], [ true, %_ZN4core3cmp9PartialEq2ne17h980158e6135be1c6E.exit ], [ false, %10 ]
   ret i1 %.sroa.0.0
 
 10:                                               ; preds = %.lr.ph
@@ -36283,7 +36283,7 @@ define hidden void @"_ZN82_$LT$salsa..tracked_struct..JarImpl$LT$C$GT$$u20$as$u2
   br label %.body
 
 .body:                                            ; preds = %35, %26, %.body.i
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %21, %.body.i ], [ %36, %35 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %21, %.body.i ], [ %27, %26 ], [ %36, %35 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$salsa..memo_ingredient_indices..IngredientIndices$GT$17h8724664a90d04cedE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10) #32
           to label %43 unwind label %41
 
@@ -36415,7 +36415,7 @@ define hidden void @"_ZN82_$LT$salsa..tracked_struct..JarImpl$LT$C$GT$$u20$as$u2
   br label %.body
 
 .body:                                            ; preds = %35, %26, %.body.i
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %21, %.body.i ], [ %36, %35 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %21, %.body.i ], [ %27, %26 ], [ %36, %35 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$salsa..memo_ingredient_indices..IngredientIndices$GT$17h8724664a90d04cedE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10) #32
           to label %43 unwind label %41
 
@@ -36547,7 +36547,7 @@ define hidden void @"_ZN82_$LT$salsa..tracked_struct..JarImpl$LT$C$GT$$u20$as$u2
   br label %.body
 
 .body:                                            ; preds = %35, %26, %.body.i
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %21, %.body.i ], [ %36, %35 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %21, %.body.i ], [ %27, %26 ], [ %36, %35 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$salsa..memo_ingredient_indices..IngredientIndices$GT$17h8724664a90d04cedE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10) #32
           to label %43 unwind label %41
 
@@ -36679,7 +36679,7 @@ define hidden void @"_ZN82_$LT$salsa..tracked_struct..JarImpl$LT$C$GT$$u20$as$u2
   br label %.body
 
 .body:                                            ; preds = %35, %26, %.body.i
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %21, %.body.i ], [ %36, %35 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %21, %.body.i ], [ %27, %26 ], [ %36, %35 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$salsa..memo_ingredient_indices..IngredientIndices$GT$17h8724664a90d04cedE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10) #32
           to label %43 unwind label %41
 
@@ -36811,7 +36811,7 @@ define hidden void @"_ZN82_$LT$salsa..tracked_struct..JarImpl$LT$C$GT$$u20$as$u2
   br label %.body
 
 .body:                                            ; preds = %35, %26, %.body.i
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %21, %.body.i ], [ %36, %35 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %21, %.body.i ], [ %27, %26 ], [ %36, %35 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$salsa..memo_ingredient_indices..IngredientIndices$GT$17h8724664a90d04cedE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10) #32
           to label %43 unwind label %41
 
@@ -36943,7 +36943,7 @@ define hidden void @"_ZN82_$LT$salsa..tracked_struct..JarImpl$LT$C$GT$$u20$as$u2
   br label %.body
 
 .body:                                            ; preds = %35, %26, %.body.i
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %21, %.body.i ], [ %36, %35 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %21, %.body.i ], [ %27, %26 ], [ %36, %35 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$salsa..memo_ingredient_indices..IngredientIndices$GT$17h8724664a90d04cedE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10) #32
           to label %43 unwind label %41
 
@@ -37271,13 +37271,13 @@ define internal fastcc noundef zeroext i1 @"_ZN96_$LT$ruff_python_literal..escap
   switch i8 %14, label %19 [
     i8 9, label %21
     i8 10, label %23
-    i8 13, label %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hc09bafb18dd39ac4E.exit
+    i8 13, label %25
   ]
 
 19:                                               ; preds = %13
   %20 = add i8 %14, -32
   %or.cond.i = icmp ult i8 %20, 95
-  br i1 %or.cond.i, label %26, label %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit.i"
+  br i1 %or.cond.i, label %28, label %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit.i"
 
 21:                                               ; preds = %13
   %22 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hb24f36d7f3320158E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.bd069b0397abcbf5d72b25326b9d08c3.12, i64 noundef 2)
@@ -37286,6 +37286,10 @@ define internal fastcc noundef zeroext i1 @"_ZN96_$LT$ruff_python_literal..escap
 23:                                               ; preds = %13
   %24 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hb24f36d7f3320158E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.bd069b0397abcbf5d72b25326b9d08c3.13, i64 noundef 2)
   br i1 %24, label %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hc09bafb18dd39ac4E.exit.thread, label %35
+
+25:                                               ; preds = %13
+  %26 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hb24f36d7f3320158E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.bd069b0397abcbf5d72b25326b9d08c3.14, i64 noundef 2)
+  br i1 %26, label %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hc09bafb18dd39ac4E.exit.thread, label %35
 
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit.i": ; preds = %19
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !2130
@@ -37308,40 +37312,36 @@ define internal fastcc noundef zeroext i1 @"_ZN96_$LT$ruff_python_literal..escap
   store i64 1, ptr %.sroa.8.0..sroa_idx.i, align 8, !noalias !2130
   store ptr %4, ptr %.sroa.10.0..sroa_idx.i, align 8, !noalias !2130
   store i64 1, ptr %.sroa.11.0..sroa_idx.i, align 8, !noalias !2130
-  %25 = call noundef zeroext i1 @_ZN4core3fmt5write17hfe57b7174b7d8eabE(ptr noundef nonnull align 1 %.val.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val14.i, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3), !noalias !2133
+  %27 = call noundef zeroext i1 @_ZN4core3fmt5write17hfe57b7174b7d8eabE(ptr noundef nonnull align 1 %.val.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val14.i, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3), !noalias !2133
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !2133
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2130
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !2130
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !2130
-  br i1 %25, label %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hc09bafb18dd39ac4E.exit.thread, label %35
+  br i1 %27, label %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hc09bafb18dd39ac4E.exit.thread, label %35
 
-26:                                               ; preds = %19
+28:                                               ; preds = %19
   %..i = select i1 %18, i8 34, i8 39
-  %27 = icmp eq i8 %14, %..i
-  %28 = icmp eq i8 %14, 92
-  %or.cond13.i = or i1 %28, %27
-  br i1 %or.cond13.i, label %29, label %31
+  %29 = icmp eq i8 %14, %..i
+  %30 = icmp eq i8 %14, 92
+  %or.cond13.i = or i1 %30, %29
+  br i1 %or.cond13.i, label %31, label %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hc09bafb18dd39ac4E.exit
 
-29:                                               ; preds = %26
-  %30 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$10write_char17h7683f2c5b55d69bdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 92)
-  br i1 %30, label %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hc09bafb18dd39ac4E.exit.thread, label %31
+31:                                               ; preds = %28
+  %32 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$10write_char17h7683f2c5b55d69bdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 92)
+  br i1 %32, label %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hc09bafb18dd39ac4E.exit.thread, label %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hc09bafb18dd39ac4E.exit
 
-31:                                               ; preds = %29, %26
-  %32 = zext nneg i8 %14 to i32
-  %33 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$10write_char17h7683f2c5b55d69bdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %32)
-  br i1 %33, label %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hc09bafb18dd39ac4E.exit.thread, label %35
-
-_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hc09bafb18dd39ac4E.exit: ; preds = %13
-  %34 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hb24f36d7f3320158E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.bd069b0397abcbf5d72b25326b9d08c3.14, i64 noundef 2)
+_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hc09bafb18dd39ac4E.exit: ; preds = %28, %31
+  %33 = zext nneg i8 %14 to i32
+  %34 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$10write_char17h7683f2c5b55d69bdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %33)
   br i1 %34, label %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hc09bafb18dd39ac4E.exit.thread, label %35
 
-35:                                               ; preds = %23, %21, %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit.i", %31, %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hc09bafb18dd39ac4E.exit
+35:                                               ; preds = %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit.i", %21, %23, %25, %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hc09bafb18dd39ac4E.exit
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.02.04, i64 1
   %.not15 = icmp eq ptr %36, %11
   br i1 %.not15, label %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hc09bafb18dd39ac4E.exit.thread, label %13
 
-_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hc09bafb18dd39ac4E.exit.thread: ; preds = %35, %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hc09bafb18dd39ac4E.exit, %31, %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit.i", %21, %23, %29, %2
-  %.lcssa = phi i1 [ false, %2 ], [ true, %29 ], [ true, %23 ], [ true, %21 ], [ true, %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit.i" ], [ true, %31 ], [ true, %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hc09bafb18dd39ac4E.exit ], [ false, %35 ]
+_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hc09bafb18dd39ac4E.exit.thread: ; preds = %35, %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hc09bafb18dd39ac4E.exit, %25, %23, %21, %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit.i", %31, %2
+  %.lcssa = phi i1 [ false, %2 ], [ true, %31 ], [ true, %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE.exit.i" ], [ true, %21 ], [ true, %23 ], [ true, %25 ], [ true, %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hc09bafb18dd39ac4E.exit ], [ false, %35 ]
   ret i1 %.lcssa
 }
 
@@ -40104,7 +40104,7 @@ default.unreachable:                              ; preds = %217
   br label %.backedge71.i
 
 .thread.i:                                        ; preds = %306, %205
-  %.pn51.i = phi { ptr, i32 } [ %lpad.phi.i, %306 ], [ %206, %205 ]
+  %.pn51.i = phi { ptr, i32 } [ %206, %205 ], [ %lpad.phi.i, %306 ]
   resume { ptr, i32 } %.pn51.i
 
 .loopexit.i:                                      ; preds = %304, %300, %280, %254, %247
@@ -40394,7 +40394,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h89fcece587f5583bE.exit.i: ; pr
   br i1 %71, label %.sink.split.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .sink.split.i.i.i.i.i.i:                          ; preds = %.critedge.backedge.i.i.i.i.i.i.i, %"_ZN18ty_python_semantic11suppression12Suppressions17line_suppressions28_$u7b$$u7b$closure$u7d$$u7d$17h681d97bcac656819E.exit.thread.i.i.i.i.i.i.i.i.i", %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h4ee626707502a8b1E.exit.thread.i.i.i.i.i.i.i", %50
-  %.sroa.0.0.ph.i.i.i.i.i.i = phi ptr [ null, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h4ee626707502a8b1E.exit.thread.i.i.i.i.i.i.i" ], [ null, %50 ], [ %55, %"_ZN18ty_python_semantic11suppression12Suppressions17line_suppressions28_$u7b$$u7b$closure$u7d$$u7d$17h681d97bcac656819E.exit.thread.i.i.i.i.i.i.i.i.i" ], [ null, %.critedge.backedge.i.i.i.i.i.i.i ]
+  %.sroa.0.0.ph.i.i.i.i.i.i = phi ptr [ null, %50 ], [ null, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h4ee626707502a8b1E.exit.thread.i.i.i.i.i.i.i" ], [ %55, %"_ZN18ty_python_semantic11suppression12Suppressions17line_suppressions28_$u7b$$u7b$closure$u7d$$u7d$17h681d97bcac656819E.exit.thread.i.i.i.i.i.i.i.i.i" ], [ null, %.critedge.backedge.i.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !2434
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17hc9db4c792696cf61E.exit"
 
@@ -40461,7 +40461,7 @@ default.unreachable1:                             ; preds = %2
   br label %11
 
 11:                                               ; preds = %2, %10, %6
-  %.sroa.0.0 = phi i1 [ %9, %6 ], [ false, %10 ], [ true, %2 ]
+  %.sroa.0.0 = phi i1 [ false, %10 ], [ %9, %6 ], [ true, %2 ]
   ret i1 %.sroa.0.0
 }
 
@@ -40753,7 +40753,7 @@ _ZN18ty_python_semantic11suppression17SuppressionParser14eat_whitespace17h637485
   unreachable
 
 common.resume.i:                                  ; preds = %131, %127, %118, %114, %47
-  %common.resume.op.i = phi { ptr, i32 } [ %lpad.phi.i.i, %47 ], [ %115, %114 ], [ %115, %118 ], [ %128, %131 ], [ %128, %127 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %lpad.phi.i.i, %47 ], [ %115, %118 ], [ %115, %114 ], [ %128, %131 ], [ %128, %127 ]
   resume { ptr, i32 } %common.resume.op.i
 
 _ZN18ty_python_semantic11suppression17SuppressionParser9eat_codes17h91c1c40b7ffe4ac2E.exit.i: ; preds = %.invoke.i.i
@@ -41134,7 +41134,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN18ty_python_semantic7program1_67_
   unreachable
 
 .thread:                                          ; preds = %24, %28
-  %.pn6 = phi { ptr, i32 } [ %lpad.thr_comm, %28 ], [ %25, %24 ]
+  %.pn6 = phi { ptr, i32 } [ %25, %24 ], [ %lpad.thr_comm, %28 ]
   resume { ptr, i32 } %.pn6
 
 28:                                               ; preds = %12, %3
@@ -41220,14 +41220,14 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN18ty_python_semantic14semantic_in
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
-  %.sink17.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.sink17.i.sroa.gep1.i = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.sink17.i.sroa.gep3.i = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %.sink17.i.sroa.gep4.i = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %.sink17.i.sroa.gep6.i = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %.sink17.i.sroa.gep7.i = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %.sink17.i.sroa.gep9.i = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %.sink17.i.sroa.gep10.i = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %.sink17.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.sink17.i.sroa.gep1.i = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %.sink17.i.sroa.gep3.i = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %.sink17.i.sroa.gep4.i = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %.sink17.i.sroa.gep6.i = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %.sink17.i.sroa.gep7.i = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %.sink17.i.sroa.gep9.i = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %.sink17.i.sroa.gep10.i = getelementptr inbounds nuw i8, ptr %11, i64 24
   %66 = invoke { ptr, ptr } %.val(ptr noundef nonnull align 1 %58)
           to label %68 unwind label %67, !noalias !2539
 
@@ -41726,7 +41726,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN18ty_python_semantic14semantic_in
 
 238:                                              ; preds = %.noexc.i.i
   %.not.i136.i = icmp eq i64 %237, %86
-  br i1 %.not.i136.i, label %"_ZN5salsa14tracked_struct23IngredientImpl$LT$C$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h325fba27e944c8f4E.exit.i.i", label %241
+  br i1 %.not.i136.i, label %"_ZN5salsa14tracked_struct23IngredientImpl$LT$C$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h325fba27e944c8f4E.exit.i.i", label %240
 
 239:                                              ; preds = %.noexc.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !2566
@@ -41737,33 +41737,15 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN18ty_python_semantic14semantic_in
   store ptr @anon.bd069b0397abcbf5d72b25326b9d08c3.139, ptr %13, align 8, !noalias !2566
   br label %.invoke.i.i
 
-.invoke.i.i:                                      ; preds = %243, %239
-  %.sink17.i.sroa.phi.i = phi ptr [ %.sink17.i.sroa.gep.i, %243 ], [ %.sink17.i.sroa.gep1.i, %239 ]
-  %.sink17.i.sroa.phi2.i = phi ptr [ %.sink17.i.sroa.gep3.i, %243 ], [ %.sink17.i.sroa.gep4.i, %239 ]
-  %.sink17.i.sroa.phi5.i = phi ptr [ %.sink17.i.sroa.gep6.i, %243 ], [ %.sink17.i.sroa.gep7.i, %239 ]
-  %.sink17.i.sroa.phi8.i = phi ptr [ %.sink17.i.sroa.gep9.i, %243 ], [ %.sink17.i.sroa.gep10.i, %239 ]
-  %.sink17.i.i = phi ptr [ %11, %243 ], [ %13, %239 ]
-  %.sink.i.i = phi ptr [ %10, %243 ], [ %12, %239 ]
-  %240 = phi ptr [ @anon.bd069b0397abcbf5d72b25326b9d08c3.136, %243 ], [ @anon.bd069b0397abcbf5d72b25326b9d08c3.140, %239 ]
-  store i64 2, ptr %.sink17.i.sroa.phi.i, align 8, !noalias !2566
-  store ptr null, ptr %.sink17.i.sroa.phi2.i, align 8, !noalias !2566
-  store ptr %.sink.i.i, ptr %.sink17.i.sroa.phi5.i, align 8, !noalias !2566
-  store i64 1, ptr %.sink17.i.sroa.phi8.i, align 8, !noalias !2566
-  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink17.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %240) #30
-          to label %.cont.i.i unwind label %268, !noalias !2565
-
-.cont.i.i:                                        ; preds = %.invoke.i.i
-  unreachable
-
-241:                                              ; preds = %238
-  %242 = invoke noundef i64 @_ZN5salsa8revision22OptionalAtomicRevision4swap17hdfd9cb4e44109247E(ptr noundef nonnull align 8 %236, i64 noundef 0)
+240:                                              ; preds = %238
+  %241 = invoke noundef i64 @_ZN5salsa8revision22OptionalAtomicRevision4swap17hdfd9cb4e44109247E(ptr noundef nonnull align 8 %236, i64 noundef 0)
           to label %.noexc3.i.i unwind label %268, !noalias !2565
 
-.noexc3.i.i:                                      ; preds = %241
-  %.not1.i.i.i = icmp eq i64 %242, %237
-  br i1 %.not1.i.i.i, label %.noexc6.i.i, label %243, !prof !217
+.noexc3.i.i:                                      ; preds = %240
+  %.not1.i.i.i = icmp eq i64 %241, %237
+  br i1 %.not1.i.i.i, label %.noexc6.i.i, label %242, !prof !217
 
-243:                                              ; preds = %.noexc3.i.i
+242:                                              ; preds = %.noexc3.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !2566
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !2566
   store ptr %14, ptr %10, align 8, !noalias !2566
@@ -41771,6 +41753,24 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN18ty_python_semantic14semantic_in
   store ptr @"_ZN50_$LT$salsa..id..Id$u20$as$u20$core..fmt..Debug$GT$3fmt17h53e2edf51d852088E", ptr %.sroa.415.0..sroa_idx.i.i.i, align 8, !noalias !2566
   store ptr @anon.bd069b0397abcbf5d72b25326b9d08c3.135, ptr %11, align 8, !noalias !2566
   br label %.invoke.i.i
+
+.invoke.i.i:                                      ; preds = %242, %239
+  %.sink17.i.sroa.phi.i = phi ptr [ %.sink17.i.sroa.gep.i, %239 ], [ %.sink17.i.sroa.gep1.i, %242 ]
+  %.sink17.i.sroa.phi2.i = phi ptr [ %.sink17.i.sroa.gep3.i, %239 ], [ %.sink17.i.sroa.gep4.i, %242 ]
+  %.sink17.i.sroa.phi5.i = phi ptr [ %.sink17.i.sroa.gep6.i, %239 ], [ %.sink17.i.sroa.gep7.i, %242 ]
+  %.sink17.i.sroa.phi8.i = phi ptr [ %.sink17.i.sroa.gep9.i, %239 ], [ %.sink17.i.sroa.gep10.i, %242 ]
+  %.sink17.i.i = phi ptr [ %13, %239 ], [ %11, %242 ]
+  %.sink.i.i = phi ptr [ %12, %239 ], [ %10, %242 ]
+  %243 = phi ptr [ @anon.bd069b0397abcbf5d72b25326b9d08c3.140, %239 ], [ @anon.bd069b0397abcbf5d72b25326b9d08c3.136, %242 ]
+  store i64 2, ptr %.sink17.i.sroa.phi.i, align 8, !noalias !2566
+  store ptr null, ptr %.sink17.i.sroa.phi2.i, align 8, !noalias !2566
+  store ptr %.sink.i.i, ptr %.sink17.i.sroa.phi5.i, align 8, !noalias !2566
+  store i64 1, ptr %.sink17.i.sroa.phi8.i, align 8, !noalias !2566
+  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink17.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %243) #30
+          to label %.cont.i.i unwind label %268, !noalias !2565
+
+.cont.i.i:                                        ; preds = %.invoke.i.i
+  unreachable
 
 "_ZN5salsa14tracked_struct23IngredientImpl$LT$C$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h325fba27e944c8f4E.exit.i.i": ; preds = %238
   invoke fastcc void @"_ZN4core3ptr83drop_in_place$LT$ty_python_semantic..semantic_index..definition..DefinitionKind$GT$17h93cc500c9a40e565E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %35)
@@ -41840,7 +41840,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN18ty_python_semantic14semantic_in
   call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.bd069b0397abcbf5d72b25326b9d08c3.141, i64 noundef 39, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bd069b0397abcbf5d72b25326b9d08c3.142) #30
   unreachable
 
-268:                                              ; preds = %241, %.invoke.i.i, %235, %232
+268:                                              ; preds = %.invoke.i.i, %240, %235, %232
   %lpad.thr_comm.i134.i = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr323drop_in_place$LT$$LP$ruff_db..files..File$C$ty_python_semantic..semantic_index..symbol..FileScopeId$C$ty_python_semantic..semantic_index..symbol..ScopedSymbolId$C$ty_python_semantic..semantic_index..definition..DefinitionKind$C$bool$C$countme..Count$LT$ty_python_semantic..semantic_index..definition..Definition$GT$$RP$$GT$17ha3c245511be923a8E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %35) #32
@@ -41896,7 +41896,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN18ty_python_semantic14semantic_in
   unreachable
 
 .critedge:                                        ; preds = %271, %268, %248, %244, %141, %135, %.thread.i.i.i, %130, %121, %.noexc14
-  %eh.lpad-body17 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %.noexc14 ], [ %.pn14.i, %271 ], [ %lpad.thr_comm.i.i, %141 ], [ %134, %.thread.i.i.i ], [ %136, %135 ], [ %131, %130 ], [ %.pn.i.i.i.i, %121 ], [ %245, %248 ], [ %245, %244 ], [ %lpad.thr_comm.i134.i, %268 ]
+  %eh.lpad-body17 = phi { ptr, i32 } [ %245, %248 ], [ %245, %244 ], [ %lpad.thr_comm.split-lp, %.noexc14 ], [ %.pn14.i, %271 ], [ %lpad.thr_comm.i134.i, %268 ], [ %131, %130 ], [ %.pn.i.i.i.i, %121 ], [ %lpad.thr_comm.i.i, %141 ], [ %134, %.thread.i.i.i ], [ %136, %135 ]
   resume { ptr, i32 } %eh.lpad-body17
 
 .noexc14:                                         ; preds = %278, %275
@@ -42730,14 +42730,14 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN18ty_python_semantic14semantic_in
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
-  %.sink16.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.sink16.i.sroa.gep1.i = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %.sink16.i.sroa.gep3.i = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %.sink16.i.sroa.gep4.i = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %.sink16.i.sroa.gep6.i = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %.sink16.i.sroa.gep7.i = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %.sink16.i.sroa.gep9.i = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %.sink16.i.sroa.gep10.i = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %.sink16.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %.sink16.i.sroa.gep1.i = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.sink16.i.sroa.gep3.i = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %.sink16.i.sroa.gep4.i = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %.sink16.i.sroa.gep6.i = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %.sink16.i.sroa.gep7.i = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %.sink16.i.sroa.gep9.i = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %.sink16.i.sroa.gep10.i = getelementptr inbounds nuw i8, ptr %13, i64 24
   %76 = invoke { ptr, ptr } %.val(ptr noundef nonnull align 1 %66)
           to label %78 unwind label %77, !noalias !2596
 
@@ -43233,7 +43233,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN18ty_python_semantic14semantic_in
 
 246:                                              ; preds = %.noexc.i.i
   %.not.i136.i = icmp eq i64 %245, %99
-  br i1 %.not.i136.i, label %"_ZN5salsa14tracked_struct23IngredientImpl$LT$C$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hba7303db3c1b888cE.exit.i.i", label %249
+  br i1 %.not.i136.i, label %"_ZN5salsa14tracked_struct23IngredientImpl$LT$C$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hba7303db3c1b888cE.exit.i.i", label %248
 
 247:                                              ; preds = %.noexc.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !2627
@@ -43244,33 +43244,15 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN18ty_python_semantic14semantic_in
   store ptr @anon.bd069b0397abcbf5d72b25326b9d08c3.139, ptr %15, align 8, !noalias !2627
   br label %.invoke.i.i
 
-.invoke.i.i:                                      ; preds = %251, %247
-  %.sink16.i.sroa.phi.i = phi ptr [ %.sink16.i.sroa.gep.i, %251 ], [ %.sink16.i.sroa.gep1.i, %247 ]
-  %.sink16.i.sroa.phi2.i = phi ptr [ %.sink16.i.sroa.gep3.i, %251 ], [ %.sink16.i.sroa.gep4.i, %247 ]
-  %.sink16.i.sroa.phi5.i = phi ptr [ %.sink16.i.sroa.gep6.i, %251 ], [ %.sink16.i.sroa.gep7.i, %247 ]
-  %.sink16.i.sroa.phi8.i = phi ptr [ %.sink16.i.sroa.gep9.i, %251 ], [ %.sink16.i.sroa.gep10.i, %247 ]
-  %.sink16.i.i = phi ptr [ %13, %251 ], [ %15, %247 ]
-  %.sink.i.i = phi ptr [ %12, %251 ], [ %14, %247 ]
-  %248 = phi ptr [ @anon.bd069b0397abcbf5d72b25326b9d08c3.136, %251 ], [ @anon.bd069b0397abcbf5d72b25326b9d08c3.140, %247 ]
-  store i64 2, ptr %.sink16.i.sroa.phi.i, align 8, !noalias !2627
-  store ptr null, ptr %.sink16.i.sroa.phi2.i, align 8, !noalias !2627
-  store ptr %.sink.i.i, ptr %.sink16.i.sroa.phi5.i, align 8, !noalias !2627
-  store i64 1, ptr %.sink16.i.sroa.phi8.i, align 8, !noalias !2627
-  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink16.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %248) #30
-          to label %.cont.i.i unwind label %263, !noalias !2626
-
-.cont.i.i:                                        ; preds = %.invoke.i.i
-  unreachable
-
-249:                                              ; preds = %246
-  %250 = invoke noundef i64 @_ZN5salsa8revision22OptionalAtomicRevision4swap17hdfd9cb4e44109247E(ptr noundef nonnull align 8 %244, i64 noundef 0)
+248:                                              ; preds = %246
+  %249 = invoke noundef i64 @_ZN5salsa8revision22OptionalAtomicRevision4swap17hdfd9cb4e44109247E(ptr noundef nonnull align 8 %244, i64 noundef 0)
           to label %.noexc3.i.i unwind label %263, !noalias !2626
 
-.noexc3.i.i:                                      ; preds = %249
-  %.not1.i.i.i = icmp eq i64 %250, %245
-  br i1 %.not1.i.i.i, label %.noexc6.i.i, label %251, !prof !217
+.noexc3.i.i:                                      ; preds = %248
+  %.not1.i.i.i = icmp eq i64 %249, %245
+  br i1 %.not1.i.i.i, label %.noexc6.i.i, label %250, !prof !217
 
-251:                                              ; preds = %.noexc3.i.i
+250:                                              ; preds = %.noexc3.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !2627
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !2627
   store ptr %16, ptr %12, align 8, !noalias !2627
@@ -43278,6 +43260,24 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN18ty_python_semantic14semantic_in
   store ptr @"_ZN50_$LT$salsa..id..Id$u20$as$u20$core..fmt..Debug$GT$3fmt17h53e2edf51d852088E", ptr %.sroa.415.0..sroa_idx.i.i.i, align 8, !noalias !2627
   store ptr @anon.bd069b0397abcbf5d72b25326b9d08c3.135, ptr %13, align 8, !noalias !2627
   br label %.invoke.i.i
+
+.invoke.i.i:                                      ; preds = %250, %247
+  %.sink16.i.sroa.phi.i = phi ptr [ %.sink16.i.sroa.gep.i, %247 ], [ %.sink16.i.sroa.gep1.i, %250 ]
+  %.sink16.i.sroa.phi2.i = phi ptr [ %.sink16.i.sroa.gep3.i, %247 ], [ %.sink16.i.sroa.gep4.i, %250 ]
+  %.sink16.i.sroa.phi5.i = phi ptr [ %.sink16.i.sroa.gep6.i, %247 ], [ %.sink16.i.sroa.gep7.i, %250 ]
+  %.sink16.i.sroa.phi8.i = phi ptr [ %.sink16.i.sroa.gep9.i, %247 ], [ %.sink16.i.sroa.gep10.i, %250 ]
+  %.sink16.i.i = phi ptr [ %15, %247 ], [ %13, %250 ]
+  %.sink.i.i = phi ptr [ %14, %247 ], [ %12, %250 ]
+  %251 = phi ptr [ @anon.bd069b0397abcbf5d72b25326b9d08c3.140, %247 ], [ @anon.bd069b0397abcbf5d72b25326b9d08c3.136, %250 ]
+  store i64 2, ptr %.sink16.i.sroa.phi.i, align 8, !noalias !2627
+  store ptr null, ptr %.sink16.i.sroa.phi2.i, align 8, !noalias !2627
+  store ptr %.sink.i.i, ptr %.sink16.i.sroa.phi5.i, align 8, !noalias !2627
+  store i64 1, ptr %.sink16.i.sroa.phi8.i, align 8, !noalias !2627
+  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink16.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %251) #30
+          to label %.cont.i.i unwind label %263, !noalias !2626
+
+.cont.i.i:                                        ; preds = %.invoke.i.i
+  unreachable
 
 "_ZN5salsa14tracked_struct23IngredientImpl$LT$C$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hba7303db3c1b888cE.exit.i.i": ; preds = %246
   call fastcc void @"_ZN4core3ptr463drop_in_place$LT$$LP$ruff_db..files..File$C$ty_python_semantic..semantic_index..symbol..FileScopeId$C$ty_python_semantic..ast_node_ref..AstNodeRef$LT$ruff_python_ast..generated..Expr$GT$$C$core..option..Option$LT$ty_python_semantic..ast_node_ref..AstNodeRef$LT$ruff_python_ast..generated..StmtAssign$GT$$GT$$C$ty_python_semantic..semantic_index..expression..ExpressionKind$C$countme..Count$LT$ty_python_semantic..semantic_index..expression..Expression$GT$$RP$$GT$17h8a92f21a7c524f5dE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %37)
@@ -43321,7 +43321,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN18ty_python_semantic14semantic_in
   call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.bd069b0397abcbf5d72b25326b9d08c3.141, i64 noundef 39, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bd069b0397abcbf5d72b25326b9d08c3.142) #30
   unreachable
 
-263:                                              ; preds = %249, %.invoke.i.i, %243, %240
+263:                                              ; preds = %.invoke.i.i, %248, %243, %240
   %lpad.thr_comm.i134.i = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr463drop_in_place$LT$$LP$ruff_db..files..File$C$ty_python_semantic..semantic_index..symbol..FileScopeId$C$ty_python_semantic..ast_node_ref..AstNodeRef$LT$ruff_python_ast..generated..Expr$GT$$C$core..option..Option$LT$ty_python_semantic..ast_node_ref..AstNodeRef$LT$ruff_python_ast..generated..StmtAssign$GT$$GT$$C$ty_python_semantic..semantic_index..expression..ExpressionKind$C$countme..Count$LT$ty_python_semantic..semantic_index..expression..Expression$GT$$RP$$GT$17h8a92f21a7c524f5dE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %37) #32
@@ -43385,7 +43385,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN18ty_python_semantic14semantic_in
           to label %.critedge unwind label %274
 
 .critedge4:                                       ; preds = %266, %263, %149, %142, %.thread.i.i.i, %136, %132, %.critedge
-  %eh.lpad-body21 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %.critedge ], [ %.pn14.i, %266 ], [ %141, %.thread.i.i.i ], [ %137, %136 ], [ %133, %132 ], [ %143, %142 ], [ %lpad.thr_comm.i.i, %149 ], [ %lpad.thr_comm.i134.i, %263 ]
+  %eh.lpad-body21 = phi { ptr, i32 } [ %141, %.thread.i.i.i ], [ %143, %142 ], [ %133, %132 ], [ %lpad.thr_comm.split-lp, %.critedge ], [ %.pn14.i, %266 ], [ %lpad.thr_comm.i134.i, %263 ], [ %137, %136 ], [ %lpad.thr_comm.i.i, %149 ]
   resume { ptr, i32 } %eh.lpad-body21
 
 .critedge:                                        ; preds = %277, %.noexc17
@@ -43718,7 +43718,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN102_$LT$ty_python_semantic..semantic_index..predicate..PredicateNode$u20$as$u20$salsa..update..Update$GT$12maybe_update17hefd8adc927b49a69E.exit"
 
 "_ZN102_$LT$ty_python_semantic..semantic_index..predicate..PredicateNode$u20$as$u20$salsa..update..Update$GT$12maybe_update17hefd8adc927b49a69E.exit": ; preds = %15, %18, %19, %21, %24, %25, %27, %30, %31
-  %.sroa.011.0.shrunk.i = phi i1 [ true, %19 ], [ true, %25 ], [ true, %31 ], [ false, %15 ], [ true, %18 ], [ false, %21 ], [ true, %24 ], [ false, %27 ], [ true, %30 ]
+  %.sroa.011.0.shrunk.i = phi i1 [ true, %31 ], [ true, %19 ], [ true, %18 ], [ true, %25 ], [ true, %24 ], [ false, %15 ], [ false, %21 ], [ false, %27 ], [ true, %30 ]
   %33 = trunc nuw i8 %7 to i1
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = tail call noundef zeroext i1 @"_ZN46_$LT$bool$u20$as$u20$salsa..update..Update$GT$12maybe_update17hd3cf4196883ad4ebE"(ptr noundef nonnull %34, i1 noundef zeroext %33)
@@ -43767,7 +43767,7 @@ default.unreachable17:                            ; preds = %3
   br label %"_ZN18ty_python_semantic14semantic_index10expression1_110_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..semantic_index..expression..Expression$GT$12maybe_update17h78b4a1909c00be54E.exit"
 
 "_ZN18ty_python_semantic14semantic_index10expression1_110_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..semantic_index..expression..Expression$GT$12maybe_update17h78b4a1909c00be54E.exit": ; preds = %26, %23, %20, %17, %14, %11, %27, %21, %15
-  %.sroa.011.0.shrunk = phi i1 [ true, %15 ], [ true, %21 ], [ true, %27 ], [ false, %11 ], [ true, %14 ], [ false, %17 ], [ true, %20 ], [ false, %23 ], [ true, %26 ]
+  %.sroa.011.0.shrunk = phi i1 [ true, %27 ], [ true, %15 ], [ true, %14 ], [ true, %21 ], [ true, %20 ], [ false, %11 ], [ false, %17 ], [ false, %23 ], [ true, %26 ]
   ret i1 %.sroa.011.0.shrunk
 
 17:                                               ; preds = %7
@@ -43862,7 +43862,7 @@ define noundef zeroext i1 @"_ZN109_$LT$ty_python_semantic..semantic_index..predi
           to label %"_ZN4core3ptr88drop_in_place$LT$ty_python_semantic..semantic_index..predicate..PatternPredicateKind$GT$17hc1b9de89ecc3685eE.exit" unwind label %32
 
 "_ZN18ty_python_semantic14semantic_index10expression1_110_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..semantic_index..expression..Expression$GT$12maybe_update17h78b4a1909c00be54E.exit": ; preds = %62, %57, %40, %35, %20, %"_ZN4core3ptr88drop_in_place$LT$ty_python_semantic..semantic_index..predicate..PatternPredicateKind$GT$17hc1b9de89ecc3685eE.exit12", %"_ZN4core3ptr88drop_in_place$LT$ty_python_semantic..semantic_index..predicate..PatternPredicateKind$GT$17hc1b9de89ecc3685eE.exit10", %"_ZN4core3ptr88drop_in_place$LT$ty_python_semantic..semantic_index..predicate..PatternPredicateKind$GT$17hc1b9de89ecc3685eE.exit6", %48, %"_ZN4core3ptr88drop_in_place$LT$ty_python_semantic..semantic_index..predicate..PatternPredicateKind$GT$17hc1b9de89ecc3685eE.exit4", %"_ZN4core3ptr88drop_in_place$LT$ty_python_semantic..semantic_index..predicate..PatternPredicateKind$GT$17hc1b9de89ecc3685eE.exit", %22
-  %.sroa.0.0.shrunk = phi i1 [ %26, %22 ], [ true, %"_ZN4core3ptr88drop_in_place$LT$ty_python_semantic..semantic_index..predicate..PatternPredicateKind$GT$17hc1b9de89ecc3685eE.exit" ], [ true, %"_ZN4core3ptr88drop_in_place$LT$ty_python_semantic..semantic_index..predicate..PatternPredicateKind$GT$17hc1b9de89ecc3685eE.exit4" ], [ %49, %48 ], [ true, %"_ZN4core3ptr88drop_in_place$LT$ty_python_semantic..semantic_index..predicate..PatternPredicateKind$GT$17hc1b9de89ecc3685eE.exit6" ], [ true, %"_ZN4core3ptr88drop_in_place$LT$ty_python_semantic..semantic_index..predicate..PatternPredicateKind$GT$17hc1b9de89ecc3685eE.exit10" ], [ true, %"_ZN4core3ptr88drop_in_place$LT$ty_python_semantic..semantic_index..predicate..PatternPredicateKind$GT$17hc1b9de89ecc3685eE.exit12" ], [ false, %20 ], [ false, %35 ], [ true, %40 ], [ false, %57 ], [ true, %62 ]
+  %.sroa.0.0.shrunk = phi i1 [ %26, %22 ], [ true, %"_ZN4core3ptr88drop_in_place$LT$ty_python_semantic..semantic_index..predicate..PatternPredicateKind$GT$17hc1b9de89ecc3685eE.exit" ], [ false, %20 ], [ true, %"_ZN4core3ptr88drop_in_place$LT$ty_python_semantic..semantic_index..predicate..PatternPredicateKind$GT$17hc1b9de89ecc3685eE.exit4" ], [ %49, %48 ], [ true, %"_ZN4core3ptr88drop_in_place$LT$ty_python_semantic..semantic_index..predicate..PatternPredicateKind$GT$17hc1b9de89ecc3685eE.exit6" ], [ true, %40 ], [ true, %"_ZN4core3ptr88drop_in_place$LT$ty_python_semantic..semantic_index..predicate..PatternPredicateKind$GT$17hc1b9de89ecc3685eE.exit10" ], [ true, %"_ZN4core3ptr88drop_in_place$LT$ty_python_semantic..semantic_index..predicate..PatternPredicateKind$GT$17hc1b9de89ecc3685eE.exit12" ], [ false, %35 ], [ false, %57 ], [ true, %62 ]
   ret i1 %.sroa.0.0.shrunk
 
 32:                                               ; preds = %31
@@ -44489,14 +44489,14 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN18ty_python_semantic14semantic_in
   store i32 %2, ptr %37, align 4
   %51 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i32 %3, ptr %51, align 4
-  %.sink17.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sink17.i.sroa.gep1.i = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.sink17.i.sroa.gep3.i = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.sink17.i.sroa.gep4.i = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %.sink17.i.sroa.gep6.i = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sink17.i.sroa.gep7.i = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.sink17.i.sroa.gep9.i = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.sink17.i.sroa.gep10.i = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %.sink17.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sink17.i.sroa.gep1.i = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink17.i.sroa.gep3.i = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %.sink17.i.sroa.gep4.i = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sink17.i.sroa.gep6.i = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %.sink17.i.sroa.gep7.i = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink17.i.sroa.gep9.i = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %.sink17.i.sroa.gep10.i = getelementptr inbounds nuw i8, ptr %7, i64 24
   %52 = invoke { ptr, ptr } %.val(ptr noundef nonnull align 1 %48)
           to label %54 unwind label %53
 
@@ -44993,7 +44993,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN18ty_python_semantic14semantic_in
 
 226:                                              ; preds = %.noexc.i.i
   %.not.i136.i = icmp eq i64 %225, %72
-  br i1 %.not.i136.i, label %"_ZN5salsa14tracked_struct23IngredientImpl$LT$C$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h2966234147b79900E.exit.i.i", label %229
+  br i1 %.not.i136.i, label %"_ZN5salsa14tracked_struct23IngredientImpl$LT$C$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h2966234147b79900E.exit.i.i", label %228
 
 227:                                              ; preds = %.noexc.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !2670
@@ -45004,33 +45004,15 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN18ty_python_semantic14semantic_in
   store ptr @anon.bd069b0397abcbf5d72b25326b9d08c3.139, ptr %9, align 8, !noalias !2670
   br label %.invoke.i.i
 
-.invoke.i.i:                                      ; preds = %231, %227
-  %.sink17.i.sroa.phi.i = phi ptr [ %.sink17.i.sroa.gep.i, %231 ], [ %.sink17.i.sroa.gep1.i, %227 ]
-  %.sink17.i.sroa.phi2.i = phi ptr [ %.sink17.i.sroa.gep3.i, %231 ], [ %.sink17.i.sroa.gep4.i, %227 ]
-  %.sink17.i.sroa.phi5.i = phi ptr [ %.sink17.i.sroa.gep6.i, %231 ], [ %.sink17.i.sroa.gep7.i, %227 ]
-  %.sink17.i.sroa.phi8.i = phi ptr [ %.sink17.i.sroa.gep9.i, %231 ], [ %.sink17.i.sroa.gep10.i, %227 ]
-  %.sink17.i.i = phi ptr [ %7, %231 ], [ %9, %227 ]
-  %.sink.i.i = phi ptr [ %6, %231 ], [ %8, %227 ]
-  %228 = phi ptr [ @anon.bd069b0397abcbf5d72b25326b9d08c3.136, %231 ], [ @anon.bd069b0397abcbf5d72b25326b9d08c3.140, %227 ]
-  store i64 2, ptr %.sink17.i.sroa.phi.i, align 8, !noalias !2670
-  store ptr null, ptr %.sink17.i.sroa.phi2.i, align 8, !noalias !2670
-  store ptr %.sink.i.i, ptr %.sink17.i.sroa.phi5.i, align 8, !noalias !2670
-  store i64 1, ptr %.sink17.i.sroa.phi8.i, align 8, !noalias !2670
-  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink17.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %228) #30
-          to label %.cont.i.i unwind label %244, !noalias !2667
-
-.cont.i.i:                                        ; preds = %.invoke.i.i
-  unreachable
-
-229:                                              ; preds = %226
-  %230 = invoke noundef i64 @_ZN5salsa8revision22OptionalAtomicRevision4swap17hdfd9cb4e44109247E(ptr noundef nonnull align 8 %224, i64 noundef 0)
+228:                                              ; preds = %226
+  %229 = invoke noundef i64 @_ZN5salsa8revision22OptionalAtomicRevision4swap17hdfd9cb4e44109247E(ptr noundef nonnull align 8 %224, i64 noundef 0)
           to label %.noexc3.i.i unwind label %244, !noalias !2667
 
-.noexc3.i.i:                                      ; preds = %229
-  %.not1.i.i.i = icmp eq i64 %230, %225
-  br i1 %.not1.i.i.i, label %.noexc6.i.i, label %231, !prof !217
+.noexc3.i.i:                                      ; preds = %228
+  %.not1.i.i.i = icmp eq i64 %229, %225
+  br i1 %.not1.i.i.i, label %.noexc6.i.i, label %230, !prof !217
 
-231:                                              ; preds = %.noexc3.i.i
+230:                                              ; preds = %.noexc3.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !2670
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !2670
   store ptr %10, ptr %6, align 8, !noalias !2670
@@ -45038,6 +45020,24 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN18ty_python_semantic14semantic_in
   store ptr @"_ZN50_$LT$salsa..id..Id$u20$as$u20$core..fmt..Debug$GT$3fmt17h53e2edf51d852088E", ptr %.sroa.415.0..sroa_idx.i.i.i, align 8, !noalias !2670
   store ptr @anon.bd069b0397abcbf5d72b25326b9d08c3.135, ptr %7, align 8, !noalias !2670
   br label %.invoke.i.i
+
+.invoke.i.i:                                      ; preds = %230, %227
+  %.sink17.i.sroa.phi.i = phi ptr [ %.sink17.i.sroa.gep.i, %227 ], [ %.sink17.i.sroa.gep1.i, %230 ]
+  %.sink17.i.sroa.phi2.i = phi ptr [ %.sink17.i.sroa.gep3.i, %227 ], [ %.sink17.i.sroa.gep4.i, %230 ]
+  %.sink17.i.sroa.phi5.i = phi ptr [ %.sink17.i.sroa.gep6.i, %227 ], [ %.sink17.i.sroa.gep7.i, %230 ]
+  %.sink17.i.sroa.phi8.i = phi ptr [ %.sink17.i.sroa.gep9.i, %227 ], [ %.sink17.i.sroa.gep10.i, %230 ]
+  %.sink17.i.i = phi ptr [ %9, %227 ], [ %7, %230 ]
+  %.sink.i.i = phi ptr [ %8, %227 ], [ %6, %230 ]
+  %231 = phi ptr [ @anon.bd069b0397abcbf5d72b25326b9d08c3.140, %227 ], [ @anon.bd069b0397abcbf5d72b25326b9d08c3.136, %230 ]
+  store i64 2, ptr %.sink17.i.sroa.phi.i, align 8, !noalias !2670
+  store ptr null, ptr %.sink17.i.sroa.phi2.i, align 8, !noalias !2670
+  store ptr %.sink.i.i, ptr %.sink17.i.sroa.phi5.i, align 8, !noalias !2670
+  store i64 1, ptr %.sink17.i.sroa.phi8.i, align 8, !noalias !2670
+  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink17.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %231) #30
+          to label %.cont.i.i unwind label %244, !noalias !2667
+
+.cont.i.i:                                        ; preds = %.invoke.i.i
+  unreachable
 
 "_ZN5salsa14tracked_struct23IngredientImpl$LT$C$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h2966234147b79900E.exit.i.i": ; preds = %226
   %232 = load atomic i8, ptr @_ZN7countme3imp6ENABLE17he21284e89574dff6E monotonic, align 1, !noalias !2667
@@ -45079,7 +45079,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN18ty_python_semantic14semantic_in
   call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.bd069b0397abcbf5d72b25326b9d08c3.141, i64 noundef 39, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bd069b0397abcbf5d72b25326b9d08c3.142) #30
   unreachable
 
-244:                                              ; preds = %229, %.invoke.i.i, %223, %218
+244:                                              ; preds = %.invoke.i.i, %228, %223, %218
   %lpad.thr_comm.i134.i = landingpad { ptr, i32 }
           cleanup
   %245 = load atomic i8, ptr @_ZN7countme3imp6ENABLE17he21284e89574dff6E monotonic, align 1, !noalias !2667
@@ -45127,7 +45127,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN18ty_python_semantic14semantic_in
   ret i32 %.sroa.0.0.i
 
 .body.thread:                                     ; preds = %257, %260, %253, %250, %247, %244, %127, %124, %120, %116, %.thread.i.i.i, %113, %109, %100, %97
-  %eh.lpad-body16 = phi { ptr, i32 } [ %115, %.thread.i.i.i ], [ %.pn.i.i.i.i, %97 ], [ %.pn.i.i.i.i, %100 ], [ %110, %113 ], [ %110, %109 ], [ %117, %120 ], [ %117, %116 ], [ %lpad.thr_comm.i.i, %127 ], [ %lpad.thr_comm.i.i, %124 ], [ %lpad.thr_comm.i134.i, %244 ], [ %lpad.thr_comm.i134.i, %247 ], [ %.pn14.i, %253 ], [ %.pn14.i, %250 ], [ %lpad.thr_comm.split-lp, %260 ], [ %lpad.thr_comm.split-lp, %257 ]
+  %eh.lpad-body16 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %257 ], [ %.pn14.i, %253 ], [ %lpad.thr_comm.i134.i, %247 ], [ %.pn14.i, %250 ], [ %lpad.thr_comm.i.i, %127 ], [ %lpad.thr_comm.i.i, %124 ], [ %117, %116 ], [ %115, %.thread.i.i.i ], [ %110, %109 ], [ %.pn.i.i.i.i, %100 ], [ %.pn.i.i.i.i, %97 ], [ %110, %113 ], [ %117, %120 ], [ %lpad.thr_comm.i134.i, %244 ], [ %lpad.thr_comm.split-lp, %260 ]
   resume { ptr, i32 } %eh.lpad-body16
 
 257:                                              ; preds = %45, %41, %4
@@ -45701,9 +45701,9 @@ define void @"_ZN112_$LT$ty_python_semantic..suppression..suppressions..Configur
   br i1 %.not.i7.i.i, label %"_ZN112_$LT$ty_python_semantic..suppression..suppressions..Configuration_$u20$as$u20$salsa..function..Configuration$GT$7execute6inner_17hf7772ae407c5ce39E.exit", label %.invoke.i.i, !prof !217
 
 .invoke.i.i:                                      ; preds = %.noexc8.i.i, %.noexc4.i.i, %.noexc.i.i
-  %.sink.i.i = phi { i64, i64 } [ %77, %.noexc.i.i ], [ %88, %.noexc4.i.i ], [ %95, %.noexc8.i.i ]
-  %97 = phi i64 [ %78, %.noexc.i.i ], [ %89, %.noexc4.i.i ], [ %96, %.noexc8.i.i ]
-  %98 = phi ptr [ @anon.bd069b0397abcbf5d72b25326b9d08c3.381, %.noexc.i.i ], [ @anon.bd069b0397abcbf5d72b25326b9d08c3.382, %.noexc4.i.i ], [ @anon.bd069b0397abcbf5d72b25326b9d08c3.383, %.noexc8.i.i ]
+  %.sink.i.i = phi { i64, i64 } [ %88, %.noexc4.i.i ], [ %77, %.noexc.i.i ], [ %95, %.noexc8.i.i ]
+  %97 = phi i64 [ %89, %.noexc4.i.i ], [ %78, %.noexc.i.i ], [ %96, %.noexc8.i.i ]
+  %98 = phi ptr [ @anon.bd069b0397abcbf5d72b25326b9d08c3.382, %.noexc4.i.i ], [ @anon.bd069b0397abcbf5d72b25326b9d08c3.381, %.noexc.i.i ], [ @anon.bd069b0397abcbf5d72b25326b9d08c3.383, %.noexc8.i.i ]
   %99 = extractvalue { i64, i64 } %.sink.i.i, 1
   invoke void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef %97, i64 %99, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %98) #30
           to label %.cont.i.i unwind label %79, !noalias !2723
@@ -46692,7 +46692,7 @@ define void @"_ZN104_$LT$ty_python_semantic..suppression..suppressions..Configur
   unreachable
 
 .thread.i:                                        ; preds = %105, %102, %100, %82, %77, %.thread16.i
-  %.pn15.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %.thread16.i ], [ %78, %77 ], [ %78, %82 ], [ %lpad.thr_comm.split-lp.i, %105 ], [ %lpad.thr_comm.split-lp.i, %100 ], [ %lpad.thr_comm.split-lp.i, %102 ]
+  %.pn15.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %.thread16.i ], [ %78, %82 ], [ %78, %77 ], [ %lpad.thr_comm.split-lp.i, %105 ], [ %lpad.thr_comm.split-lp.i, %100 ], [ %lpad.thr_comm.split-lp.i, %102 ]
   invoke void @"_ZN4core3ptr54drop_in_place$LT$salsa..table..memo..MemoEntryType$GT$17h2693fda98968da6eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %21) #32
           to label %90 unwind label %97
 
@@ -46906,7 +46906,7 @@ define void @"_ZN104_$LT$ty_python_semantic..suppression..suppressions..Configur
           to label %174 unwind label %167
 
 "_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$salsa..table..memo..MemoTableTypes$GT$$GT$$GT$17h7d71d07eab0c3b3cE.exit": ; preds = %90, %138, %170, %177, %174, %180
-  %.pn.pn44 = phi { ptr, i32 } [ %.pn.i, %180 ], [ %.pn.i, %174 ], [ %.pn.i, %177 ], [ %160, %138 ], [ %171, %170 ], [ %.pn7.i, %90 ]
+  %.pn.pn44 = phi { ptr, i32 } [ %.pn.i, %177 ], [ %.pn.i, %180 ], [ %.pn.i, %174 ], [ %171, %170 ], [ %.pn7.i, %90 ], [ %160, %138 ]
   resume { ptr, i32 } %.pn.pn44
 
 174:                                              ; preds = %172
@@ -47058,14 +47058,14 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN18ty_python_semantic6unpack1_52_$
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
-  %.sink17.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.sink17.i.sroa.gep1.i = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %.sink17.i.sroa.gep3.i = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %.sink17.i.sroa.gep4.i = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %.sink17.i.sroa.gep6.i = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %.sink17.i.sroa.gep7.i = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %.sink17.i.sroa.gep9.i = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %.sink17.i.sroa.gep10.i = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %.sink17.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %.sink17.i.sroa.gep1.i = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.sink17.i.sroa.gep3.i = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %.sink17.i.sroa.gep4.i = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %.sink17.i.sroa.gep6.i = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %.sink17.i.sroa.gep7.i = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %.sink17.i.sroa.gep9.i = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %.sink17.i.sroa.gep10.i = getelementptr inbounds nuw i8, ptr %13, i64 24
   %71 = invoke { ptr, ptr } %.val(ptr noundef nonnull align 1 %62)
           to label %73 unwind label %72, !noalias !2884
 
@@ -47564,7 +47564,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN18ty_python_semantic6unpack1_52_$
 
 243:                                              ; preds = %.noexc.i.i
   %.not.i136.i = icmp eq i64 %242, %91
-  br i1 %.not.i136.i, label %"_ZN5salsa14tracked_struct23IngredientImpl$LT$C$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h0c6b97ce9df93da2E.exit.i.i", label %246
+  br i1 %.not.i136.i, label %"_ZN5salsa14tracked_struct23IngredientImpl$LT$C$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h0c6b97ce9df93da2E.exit.i.i", label %245
 
 244:                                              ; preds = %.noexc.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !2911
@@ -47575,33 +47575,15 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN18ty_python_semantic6unpack1_52_$
   store ptr @anon.bd069b0397abcbf5d72b25326b9d08c3.139, ptr %15, align 8, !noalias !2911
   br label %.invoke.i.i
 
-.invoke.i.i:                                      ; preds = %248, %244
-  %.sink17.i.sroa.phi.i = phi ptr [ %.sink17.i.sroa.gep.i, %248 ], [ %.sink17.i.sroa.gep1.i, %244 ]
-  %.sink17.i.sroa.phi2.i = phi ptr [ %.sink17.i.sroa.gep3.i, %248 ], [ %.sink17.i.sroa.gep4.i, %244 ]
-  %.sink17.i.sroa.phi5.i = phi ptr [ %.sink17.i.sroa.gep6.i, %248 ], [ %.sink17.i.sroa.gep7.i, %244 ]
-  %.sink17.i.sroa.phi8.i = phi ptr [ %.sink17.i.sroa.gep9.i, %248 ], [ %.sink17.i.sroa.gep10.i, %244 ]
-  %.sink17.i.i = phi ptr [ %13, %248 ], [ %15, %244 ]
-  %.sink.i.i = phi ptr [ %12, %248 ], [ %14, %244 ]
-  %245 = phi ptr [ @anon.bd069b0397abcbf5d72b25326b9d08c3.136, %248 ], [ @anon.bd069b0397abcbf5d72b25326b9d08c3.140, %244 ]
-  store i64 2, ptr %.sink17.i.sroa.phi.i, align 8, !noalias !2911
-  store ptr null, ptr %.sink17.i.sroa.phi2.i, align 8, !noalias !2911
-  store ptr %.sink.i.i, ptr %.sink17.i.sroa.phi5.i, align 8, !noalias !2911
-  store i64 1, ptr %.sink17.i.sroa.phi8.i, align 8, !noalias !2911
-  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink17.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %245) #30
-          to label %.cont.i.i unwind label %274, !noalias !2910
-
-.cont.i.i:                                        ; preds = %.invoke.i.i
-  unreachable
-
-246:                                              ; preds = %243
-  %247 = invoke noundef i64 @_ZN5salsa8revision22OptionalAtomicRevision4swap17hdfd9cb4e44109247E(ptr noundef nonnull align 8 %241, i64 noundef 0)
+245:                                              ; preds = %243
+  %246 = invoke noundef i64 @_ZN5salsa8revision22OptionalAtomicRevision4swap17hdfd9cb4e44109247E(ptr noundef nonnull align 8 %241, i64 noundef 0)
           to label %.noexc3.i.i unwind label %274, !noalias !2910
 
-.noexc3.i.i:                                      ; preds = %246
-  %.not1.i.i.i = icmp eq i64 %247, %242
-  br i1 %.not1.i.i.i, label %.noexc6.i.i, label %248, !prof !217
+.noexc3.i.i:                                      ; preds = %245
+  %.not1.i.i.i = icmp eq i64 %246, %242
+  br i1 %.not1.i.i.i, label %.noexc6.i.i, label %247, !prof !217
 
-248:                                              ; preds = %.noexc3.i.i
+247:                                              ; preds = %.noexc3.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !2911
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !2911
   store ptr %16, ptr %12, align 8, !noalias !2911
@@ -47609,6 +47591,24 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN18ty_python_semantic6unpack1_52_$
   store ptr @"_ZN50_$LT$salsa..id..Id$u20$as$u20$core..fmt..Debug$GT$3fmt17h53e2edf51d852088E", ptr %.sroa.415.0..sroa_idx.i.i.i, align 8, !noalias !2911
   store ptr @anon.bd069b0397abcbf5d72b25326b9d08c3.135, ptr %13, align 8, !noalias !2911
   br label %.invoke.i.i
+
+.invoke.i.i:                                      ; preds = %247, %244
+  %.sink17.i.sroa.phi.i = phi ptr [ %.sink17.i.sroa.gep.i, %244 ], [ %.sink17.i.sroa.gep1.i, %247 ]
+  %.sink17.i.sroa.phi2.i = phi ptr [ %.sink17.i.sroa.gep3.i, %244 ], [ %.sink17.i.sroa.gep4.i, %247 ]
+  %.sink17.i.sroa.phi5.i = phi ptr [ %.sink17.i.sroa.gep6.i, %244 ], [ %.sink17.i.sroa.gep7.i, %247 ]
+  %.sink17.i.sroa.phi8.i = phi ptr [ %.sink17.i.sroa.gep9.i, %244 ], [ %.sink17.i.sroa.gep10.i, %247 ]
+  %.sink17.i.i = phi ptr [ %15, %244 ], [ %13, %247 ]
+  %.sink.i.i = phi ptr [ %14, %244 ], [ %12, %247 ]
+  %248 = phi ptr [ @anon.bd069b0397abcbf5d72b25326b9d08c3.140, %244 ], [ @anon.bd069b0397abcbf5d72b25326b9d08c3.136, %247 ]
+  store i64 2, ptr %.sink17.i.sroa.phi.i, align 8, !noalias !2911
+  store ptr null, ptr %.sink17.i.sroa.phi2.i, align 8, !noalias !2911
+  store ptr %.sink.i.i, ptr %.sink17.i.sroa.phi5.i, align 8, !noalias !2911
+  store i64 1, ptr %.sink17.i.sroa.phi8.i, align 8, !noalias !2911
+  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink17.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %248) #30
+          to label %.cont.i.i unwind label %274, !noalias !2910
+
+.cont.i.i:                                        ; preds = %.invoke.i.i
+  unreachable
 
 "_ZN5salsa14tracked_struct23IngredientImpl$LT$C$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h0c6b97ce9df93da2E.exit.i.i": ; preds = %243
   %249 = getelementptr inbounds nuw i8, ptr %37, i64 8
@@ -47679,7 +47679,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN18ty_python_semantic6unpack1_52_$
   call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.bd069b0397abcbf5d72b25326b9d08c3.141, i64 noundef 39, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bd069b0397abcbf5d72b25326b9d08c3.142) #30
   unreachable
 
-274:                                              ; preds = %246, %.invoke.i.i, %240, %237
+274:                                              ; preds = %.invoke.i.i, %245, %240, %237
   %lpad.thr_comm.i134.i = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr353drop_in_place$LT$$LP$ruff_db..files..File$C$ty_python_semantic..semantic_index..symbol..FileScopeId$C$ty_python_semantic..semantic_index..symbol..FileScopeId$C$ty_python_semantic..ast_node_ref..AstNodeRef$LT$ruff_python_ast..generated..Expr$GT$$C$ty_python_semantic..unpack..UnpackValue$C$countme..Count$LT$ty_python_semantic..unpack..Unpack$GT$$RP$$GT$17h4c4eda9b7302412aE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %37) #32
@@ -47735,7 +47735,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN18ty_python_semantic6unpack1_52_$
   unreachable
 
 .critedge:                                        ; preds = %277, %274, %254, %250, %146, %140, %.thread.i.i.i, %135, %126, %.noexc14
-  %eh.lpad-body17 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %.noexc14 ], [ %.pn14.i, %277 ], [ %lpad.thr_comm.i.i, %146 ], [ %139, %.thread.i.i.i ], [ %141, %140 ], [ %136, %135 ], [ %.pn.i.i.i.i, %126 ], [ %251, %254 ], [ %251, %250 ], [ %lpad.thr_comm.i134.i, %274 ]
+  %eh.lpad-body17 = phi { ptr, i32 } [ %251, %254 ], [ %251, %250 ], [ %lpad.thr_comm.split-lp, %.noexc14 ], [ %.pn14.i, %277 ], [ %lpad.thr_comm.i134.i, %274 ], [ %136, %135 ], [ %.pn.i.i.i.i, %126 ], [ %lpad.thr_comm.i.i, %146 ], [ %139, %.thread.i.i.i ], [ %141, %140 ]
   resume { ptr, i32 } %eh.lpad-body17
 
 .noexc14:                                         ; preds = %284, %281

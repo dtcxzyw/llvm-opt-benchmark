@@ -1588,7 +1588,7 @@ _plugin_idx.exit:                                 ; preds = %32
   tail call void (ptr, ...) @slurm_fatal_abort(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.mpi_conf_send_stepd) #12
   unreachable
 
-.thread:                                          ; preds = %.split234.us, %128, %.split216.us, %104, %.split196.us, %78, %.split178.us, %59, %.split253.us, %16, %_plugin_idx.exit.thread
+.thread:                                          ; preds = %128, %.split234.us, %104, %.split216.us, %78, %.split196.us, %59, %.split178.us, %16, %.split253.us, %_plugin_idx.exit.thread
   %139 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @context_lock) #10
   %.not133 = icmp eq i32 %139, 0
   br i1 %.not133, label %.loopexit, label %140
@@ -1728,7 +1728,7 @@ define dso_local range(i32 -1, 1) i32 @mpi_conf_recv_stepd(i32 noundef %0) local
   br label %.thread144
 
 .split175.us:                                     ; preds = %.lr.ph212, %.lr.ph197.preheader, %.lr.ph212.preheader, %.lr.ph197.preheader.preheader
-  %.us-phi176 = phi i64 [ %16, %.lr.ph197.preheader.preheader ], [ %5, %.lr.ph212.preheader ], [ %34, %.lr.ph197.preheader ], [ %13, %.lr.ph212 ]
+  %.us-phi176 = phi i64 [ %34, %.lr.ph197.preheader ], [ %16, %.lr.ph197.preheader.preheader ], [ %5, %.lr.ph212.preheader ], [ %13, %.lr.ph212 ]
   %40 = and i64 %.us-phi176, 2147483647
   %41 = getelementptr inbounds nuw i8, ptr %.084.ph214, i64 %40
   %42 = sub i64 %.081.ph216, %40
@@ -1868,7 +1868,7 @@ define dso_local range(i32 -1, 1) i32 @mpi_conf_recv_stepd(i32 noundef %0) local
   br label %.thread144
 
 .split224.us:                                     ; preds = %.lr.ph262, %.lr.ph247.preheader, %.lr.ph262.preheader, %.lr.ph247.preheader.preheader
-  %.us-phi225 = phi i64 [ %65, %.lr.ph247.preheader.preheader ], [ %54, %.lr.ph262.preheader ], [ %83, %.lr.ph247.preheader ], [ %62, %.lr.ph262 ]
+  %.us-phi225 = phi i64 [ %83, %.lr.ph247.preheader ], [ %65, %.lr.ph247.preheader.preheader ], [ %54, %.lr.ph262.preheader ], [ %62, %.lr.ph262 ]
   %89 = and i64 %.us-phi225, 2147483647
   %90 = getelementptr inbounds nuw i8, ptr %.088.ph267, i64 %89
   %91 = sub i64 %.089.ph265, %89
@@ -1943,7 +1943,7 @@ define dso_local range(i32 -1, 1) i32 @mpi_conf_recv_stepd(i32 noundef %0) local
   br label %.thread144
 
 .split276:                                        ; preds = %.lr.ph314, %.lr.ph299.preheader, %.lr.ph314.preheader, %.lr.ph299.preheader.preheader
-  %.us-phi277 = phi i64 [ %134, %.lr.ph299.preheader.preheader ], [ %123, %.lr.ph314.preheader ], [ %109, %.lr.ph299.preheader ], [ %131, %.lr.ph314 ]
+  %.us-phi277 = phi i64 [ %109, %.lr.ph299.preheader ], [ %134, %.lr.ph299.preheader.preheader ], [ %123, %.lr.ph314.preheader ], [ %131, %.lr.ph314 ]
   %115 = and i64 %.us-phi277, 2147483647
   %116 = getelementptr inbounds nuw i8, ptr %.085.ph319, i64 %115
   %117 = sub i64 %.086.ph317, %115
@@ -2133,7 +2133,7 @@ define dso_local range(i32 -1, 1) i32 @mpi_conf_recv_stepd(i32 noundef %0) local
   br label %.thread141
 
 .split328.us:                                     ; preds = %.lr.ph366, %.lr.ph351.preheader, %.lr.ph366.preheader, %.lr.ph351.preheader.preheader
-  %.us-phi329 = phi i64 [ %158, %.lr.ph351.preheader.preheader ], [ %147, %.lr.ph366.preheader ], [ %176, %.lr.ph351.preheader ], [ %155, %.lr.ph366 ]
+  %.us-phi329 = phi i64 [ %176, %.lr.ph351.preheader ], [ %158, %.lr.ph351.preheader.preheader ], [ %147, %.lr.ph366.preheader ], [ %155, %.lr.ph366 ]
   %182 = and i64 %.us-phi329, 2147483647
   %183 = getelementptr inbounds nuw i8, ptr %.082.ph371, i64 %182
   %184 = sub i64 %.083.ph369, %182
@@ -2191,11 +2191,11 @@ define dso_local range(i32 -1, 1) i32 @mpi_conf_recv_stepd(i32 noundef %0) local
   call void @slurm_xfree(ptr noundef nonnull %3) #10
   br label %203
 
-.thread144:                                       ; preds = %199, %24, %29, %39, %.split178.us, %73, %78, %88, %.split227.us, %99, %104, %114, %.split279
+.thread144:                                       ; preds = %199, %24, %29, %.split178.us, %39, %73, %78, %.split227.us, %88, %99, %104, %.split279, %114
   call void @slurm_xfree(ptr noundef nonnull %3) #10
   br label %203
 
-.thread141:                                       ; preds = %.split331.us, %181, %171, %166, %198
+.thread141:                                       ; preds = %181, %.split331.us, %171, %166, %198
   call void @slurm_xfree(ptr noundef nonnull %3) #10
   %.not119 = icmp eq ptr %142, null
   br i1 %.not119, label %203, label %202
@@ -2266,7 +2266,7 @@ _is_none_plugin.exit:                             ; preds = %.thread
   %.not6.i = icmp eq i32 %19, 0
   br i1 %.not6.i, label %_is_none_plugin.exit.thread, label %21
 
-_is_none_plugin.exit.thread:                      ; preds = %14, %.thread, %_is_none_plugin.exit
+_is_none_plugin.exit.thread:                      ; preds = %.thread, %14, %_is_none_plugin.exit
   tail call void @slurm_xfree(ptr noundef nonnull %0) #10
   store i32 0, ptr @g_context_cnt, align 4
   store i32 -2, ptr @client_plugin_id, align 4
@@ -2624,7 +2624,7 @@ _is_none_plugin.exit.thread:                      ; preds = %14, %.thread, %_is_
   br i1 %187, label %.lr.ph117, label %._crit_edge118, !llvm.loop !31
 
 188:                                              ; preds = %67, %._crit_edge121, %63, %40, %_is_none_plugin.exit.thread
-  %.071 = phi i32 [ 0, %_is_none_plugin.exit.thread ], [ -1, %63 ], [ -1, %40 ], [ 0, %._crit_edge121 ], [ 0, %67 ]
+  %.071 = phi i32 [ 0, %_is_none_plugin.exit.thread ], [ -1, %40 ], [ -1, %63 ], [ 0, %._crit_edge121 ], [ 0, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2708,8 +2708,8 @@ _is_none_plugin.exit:                             ; preds = %2
   tail call void (ptr, ...) @slurm_fatal_abort(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.mpi_id_from_plugin_type) #12
   unreachable
 
-_is_none_plugin.exit.thread:                      ; preds = %1, %2, %.loopexit, %_is_none_plugin.exit
-  %.0 = phi i32 [ -2, %_is_none_plugin.exit ], [ %.012, %.loopexit ], [ -2, %2 ], [ -2, %1 ]
+_is_none_plugin.exit.thread:                      ; preds = %2, %1, %.loopexit, %_is_none_plugin.exit
+  %.0 = phi i32 [ -2, %_is_none_plugin.exit ], [ %.012, %.loopexit ], [ -2, %1 ], [ -2, %2 ]
   ret i32 %.0
 }
 

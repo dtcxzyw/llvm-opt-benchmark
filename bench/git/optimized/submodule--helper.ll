@@ -1901,7 +1901,7 @@ configure_added_submodule.exit:                   ; preds = %442, %.sink.split.i
   br label %450
 
 450:                                              ; preds = %270, %configure_added_submodule.exit
-  %.1 = phi i32 [ 0, %configure_added_submodule.exit ], [ %252, %270 ]
+  %.1 = phi i32 [ %252, %270 ], [ 0, %configure_added_submodule.exit ]
   %451 = load ptr, ptr %140, align 8, !tbaa !33
   call void @free(ptr noundef %451) #20
   call void @free(ptr noundef %.028) #20
@@ -3105,7 +3105,7 @@ remote_submodule_branch.exit.remote_submodule_branch.exit.thread_crit_edge.i.i: 
   br label %remote_submodule_branch.exit.thread.i.i
 
 remote_submodule_branch.exit.thread.i.i:          ; preds = %remote_submodule_branch.exit.remote_submodule_branch.exit.thread_crit_edge.i.i, %547, %.tail.i.i.i, %sub_0.i.i.i, %514
-  %548 = phi ptr [ %.pre.i.i, %remote_submodule_branch.exit.remote_submodule_branch.exit.thread_crit_edge.i.i ], [ %513, %sub_0.i.i.i ], [ %scevgep.i.i.i.i, %547 ], [ %513, %.tail.i.i.i ], [ @.str.107, %514 ]
+  %548 = phi ptr [ %.pre.i.i, %remote_submodule_branch.exit.remote_submodule_branch.exit.thread_crit_edge.i.i ], [ %513, %sub_0.i.i.i ], [ %scevgep.i.i.i.i, %547 ], [ @.str.107, %514 ], [ %513, %.tail.i.i.i ]
   %549 = load ptr, ptr %17, align 8, !tbaa !18
   %550 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.197, ptr noundef %549, ptr noundef %548) #20
   call void @free(ptr noundef %549) #20
@@ -3177,7 +3177,7 @@ _.exit78.i.i:                                     ; preds = %573, %571
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %_.exit78.i.i, %_.exit75.i.i, %remote_submodule_branch.exit.i.i, %get_default_remote_submodule.exit.i.i
-  %.1.ph.i.i = phi i32 [ %.0.i69.i.i, %remote_submodule_branch.exit.i.i ], [ %.0.i64.i.i, %get_default_remote_submodule.exit.i.i ], [ %566, %_.exit75.i.i ], [ %576, %_.exit78.i.i ]
+  %.1.ph.i.i = phi i32 [ %.0.i69.i.i, %remote_submodule_branch.exit.i.i ], [ %576, %_.exit78.i.i ], [ %.0.i64.i.i, %get_default_remote_submodule.exit.i.i ], [ %566, %_.exit75.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %update_submodule.exit.i
@@ -3434,7 +3434,7 @@ _.exit32.i.i.i:                                   ; preds = %647, %645
   unreachable
 
 .sink.split.i.i.i.i:                              ; preds = %662, %659, %656, %655
-  %.str.55.sink.i.i.i.i = phi ptr [ %663, %662 ], [ @.str.125, %655 ], [ @.str.55, %656 ], [ @.str.55, %659 ]
+  %.str.55.sink.i.i.i.i = phi ptr [ @.str.55, %656 ], [ @.str.125, %655 ], [ %663, %662 ], [ @.str.55, %659 ]
   %665 = call ptr @strvec_push(ptr noundef nonnull %9, ptr noundef %.str.55.sink.i.i.i.i) #20
   br label %666
 
@@ -3601,7 +3601,7 @@ _.exit59.i.i.i.i:                                 ; preds = %722, %720
   unreachable
 
 run_update_command.exit.i.i.i:                    ; preds = %_.exit59.i.i.i.i, %_.exit56.i.i.i.i, %_.exit53.i.i.i.i, %_.exit50.i.i.i.i, %698, %_.exit47.i.i.i.i, %_.exit44.i.i.i.i, %_.exit41.i.i.i.i, %_.exit.i.i.i.i
-  %.033.i.i.i.i = phi i32 [ %669, %_.exit.i.i.i.i ], [ %683, %_.exit41.i.i.i.i ], [ %689, %_.exit44.i.i.i.i ], [ %696, %_.exit47.i.i.i.i ], [ 0, %698 ], [ 0, %_.exit59.i.i.i.i ], [ 0, %_.exit56.i.i.i.i ], [ 0, %_.exit53.i.i.i.i ], [ 0, %_.exit50.i.i.i.i ]
+  %.033.i.i.i.i = phi i32 [ 0, %698 ], [ %696, %_.exit47.i.i.i.i ], [ %669, %_.exit.i.i.i.i ], [ %683, %_.exit41.i.i.i.i ], [ %689, %_.exit44.i.i.i.i ], [ 0, %_.exit59.i.i.i.i ], [ 0, %_.exit56.i.i.i.i ], [ 0, %_.exit53.i.i.i.i ], [ 0, %_.exit50.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %run_update_procedure.exit.i.i
 
@@ -3744,7 +3744,7 @@ run_update_procedure.exit.i.i:                    ; preds = %run_update_command.
   unreachable
 
 submodule_update_type_to_label.exit.i.i.i:        ; preds = %768, %767, %766
-  %.0.i.i88.i.i = phi ptr [ @.str.155, %767 ], [ @.str.157, %768 ], [ @.str.124, %766 ]
+  %.0.i.i88.i.i = phi ptr [ @.str.157, %768 ], [ @.str.155, %767 ], [ @.str.124, %766 ]
   %770 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %19, ptr noundef nonnull @.str.230, ptr noundef nonnull %.0.i.i88.i.i) #20
   br label %771
 
@@ -3840,14 +3840,14 @@ _.exit91.i.i:                                     ; preds = %797, %795
   br label %update_submodule.exit.i
 
 update_submodule.exit.i:                          ; preds = %801, %728, %run_update_procedure.exit.i.i, %.thread.i.i, %_.exit.i36.i, %determine_submodule_update_strategy.exit.i.i, %get_submodule_displaypath.exit.i
-  %.0.i33.i = phi i32 [ %794, %801 ], [ %477, %_.exit.i36.i ], [ -1, %get_submodule_displaypath.exit.i ], [ %461, %determine_submodule_update_strategy.exit.i.i ], [ %.0.i82.i.i, %run_update_procedure.exit.i.i ], [ 0, %728 ], [ %.1.ph.i.i, %.thread.i.i ]
+  %.0.i33.i = phi i32 [ %477, %_.exit.i36.i ], [ -1, %get_submodule_displaypath.exit.i ], [ %461, %determine_submodule_update_strategy.exit.i.i ], [ %794, %801 ], [ %.0.i82.i.i, %run_update_procedure.exit.i.i ], [ %.1.ph.i.i, %.thread.i.i ], [ 0, %728 ]
   %802 = load ptr, ptr %356, align 8, !tbaa !145
   call void @free(ptr noundef %802) #20
   store ptr null, ptr %356, align 8, !tbaa !145
   br label %803
 
 803:                                              ; preds = %update_submodule.exit.i, %ensure_core_worktree.exit.i
-  %.024.i = phi i32 [ %407, %ensure_core_worktree.exit.i ], [ %.0.i33.i, %update_submodule.exit.i ]
+  %.024.i = phi i32 [ %.0.i33.i, %update_submodule.exit.i ], [ %407, %ensure_core_worktree.exit.i ]
   switch i32 %.024.i, label %804 [
     i32 0, label %805
     i32 128, label %update_submodules.exit
@@ -3878,7 +3878,7 @@ update_submodules.exit:                           ; preds = %384, %803, %805, %3
   br label %813
 
 813:                                              ; preds = %333, %271, %update_submodules.exit
-  %.012 = phi i32 [ %.025.i, %update_submodules.exit ], [ 1, %333 ], [ 1, %271 ]
+  %.012 = phi i32 [ 1, %333 ], [ %.025.i, %update_submodules.exit ], [ 1, %271 ]
   %814 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %815 = load ptr, ptr %814, align 8, !tbaa !145
   call void @free(ptr noundef %815) #20
@@ -5208,7 +5208,7 @@ _.exit48.sink.split.i.i:                          ; preds = %102
   br label %_.exit48.i.i
 
 _.exit48.i.i:                                     ; preds = %_.exit48.sink.split.i.i, %102
-  %.033.i.i = phi ptr [ %106, %_.exit48.sink.split.i.i ], [ %.str.282..str.283.i.i, %102 ]
+  %.033.i.i = phi ptr [ %.str.282..str.283.i.i, %102 ], [ %106, %_.exit48.sink.split.i.i ]
   br i1 %.not.not, label %107, label %109
 
 107:                                              ; preds = %_.exit48.i.i
@@ -5488,8 +5488,8 @@ define internal range(i32 -1, 1) i32 @module_summary(i32 noundef %0, ptr noundef
   br label %95
 
 95:                                               ; preds = %62, %.critedge, %73, %83, %66
-  %.021 = phi ptr [ %1, %83 ], [ %81, %73 ], [ %67, %66 ], [ %1, %.critedge ], [ %1, %62 ]
-  %.020 = phi i32 [ %58, %83 ], [ %82, %73 ], [ %68, %66 ], [ 0, %.critedge ], [ 0, %62 ]
+  %.021 = phi ptr [ %1, %83 ], [ %81, %73 ], [ %1, %62 ], [ %67, %66 ], [ %1, %.critedge ]
+  %.020 = phi i32 [ %58, %83 ], [ %82, %73 ], [ 0, %62 ], [ %68, %66 ], [ 0, %.critedge ]
   %96 = load i32, ptr %14, align 4, !tbaa !17
   %.not27.not = icmp eq i32 %96, 0
   %.pre = load i32, ptr %12, align 4, !tbaa !17
@@ -5947,7 +5947,7 @@ define internal noundef i32 @push_check(i32 noundef %0, ptr noundef %1, ptr read
   br label %.split.us
 
 .split.us:                                        ; preds = %57, %61, %.split.us.loopexit, %45
-  %.us-phi = phi ptr [ %46, %45 ], [ %66, %.split.us.loopexit ], [ %58, %61 ], [ %58, %57 ]
+  %.us-phi = phi ptr [ %66, %.split.us.loopexit ], [ %46, %45 ], [ %58, %61 ], [ %58, %57 ]
   %67 = load ptr, ptr %.us-phi, align 8, !tbaa !255
   call void (ptr, ...) @die(ptr noundef nonnull @.str.331, ptr noundef %67) #21
   unreachable
@@ -7671,7 +7671,7 @@ st_mult.exit:                                     ; preds = %39
   br i1 %.not47, label %63, label %.critedge, !llvm.loop !276
 
 .critedge:                                        ; preds = %66, %63, %22, %31
-  %.1 = phi i64 [ %.03548, %31 ], [ %.03548, %22 ], [ %.2, %66 ], [ %62, %63 ]
+  %.1 = phi i64 [ %.03548, %22 ], [ %.03548, %31 ], [ %.2, %66 ], [ %62, %63 ]
   %72 = add nuw nsw i64 %.1, 1
   %73 = load ptr, ptr @the_repository, align 8, !tbaa !35
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 384
@@ -8030,7 +8030,7 @@ define internal range(i32 0, 2) i32 @update_clone_get_next_task(ptr noundef %0, 
   br label %48
 
 48:                                               ; preds = %._crit_edge, %41, %44, %19
-  %.0 = phi i32 [ 1, %19 ], [ 1, %44 ], [ 0, %41 ], [ 0, %._crit_edge ]
+  %.0 = phi i32 [ 1, %19 ], [ 0, %41 ], [ 1, %44 ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -8726,7 +8726,7 @@ st_mult.exit:                                     ; preds = %128
   br i1 %241, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %223, %216
-  %242 = phi ptr [ %220, %223 ], [ %220, %216 ], [ %226, %.lr.ph.preheader ], [ %235, %.lr.ph ]
+  %242 = phi ptr [ %220, %216 ], [ %220, %223 ], [ %226, %.lr.ph.preheader ], [ %235, %.lr.ph ]
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 188
   %244 = load i32, ptr %243, align 4, !tbaa !294
   %.not143 = icmp eq i32 %244, 0
@@ -9443,7 +9443,7 @@ st_mult.exit:                                     ; preds = %39
   br label %55
 
 55:                                               ; preds = %9, %49
-  %56 = phi i32 [ %.pre45, %49 ], [ %10, %9 ]
+  %56 = phi i32 [ %10, %9 ], [ %.pre45, %49 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %57 = sext i32 %56 to i64
   %58 = icmp slt i64 %indvars.iv.next, %57
@@ -9777,7 +9777,7 @@ _.exit.sink.split.i:                              ; preds = %154
   br label %_.exit.i
 
 _.exit.i:                                         ; preds = %_.exit.sink.split.i, %154, %146
-  %.0.i.sink.i = phi ptr [ @.str.318, %146 ], [ %159, %_.exit.sink.split.i ], [ %.str.316..str.317.i, %154 ]
+  %.0.i.sink.i = phi ptr [ %159, %_.exit.sink.split.i ], [ %.str.316..str.317.i, %154 ], [ @.str.318, %146 ]
   %160 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.0.i.sink.i, ptr noundef %.0.i86, ptr noundef %.1, ptr noundef %.065)
   %161 = icmp slt i32 %.167, 0
   br i1 %161, label %162, label %163

@@ -60795,9 +60795,9 @@ manuf_oui36_lookup.exit:                          ; preds = %85
   unreachable
 
 manuf_oui24_lookup.exit.thread:                   ; preds = %31, %manuf_oui36_lookup.exit.thread, %manuf_oui28_lookup.exit.thread, %manuf_oui36_lookup.exit, %90, %manuf_oui28_lookup.exit, %60, %manuf_oui24_lookup.exit, %33
-  %.121 = phi i32 [ 24, %33 ], [ 0, %manuf_oui24_lookup.exit ], [ 28, %60 ], [ 0, %manuf_oui28_lookup.exit ], [ 36, %90 ], [ 0, %manuf_oui36_lookup.exit ], [ 0, %manuf_oui28_lookup.exit.thread ], [ 0, %manuf_oui36_lookup.exit.thread ], [ 0, %31 ]
-  %.117 = phi ptr [ %37, %33 ], [ null, %manuf_oui24_lookup.exit ], [ %64, %60 ], [ null, %manuf_oui28_lookup.exit ], [ %94, %90 ], [ null, %manuf_oui36_lookup.exit ], [ null, %manuf_oui28_lookup.exit.thread ], [ null, %manuf_oui36_lookup.exit.thread ], [ null, %31 ]
-  %.1 = phi ptr [ %35, %33 ], [ null, %manuf_oui24_lookup.exit ], [ %62, %60 ], [ null, %manuf_oui28_lookup.exit ], [ %92, %90 ], [ null, %manuf_oui36_lookup.exit ], [ null, %manuf_oui28_lookup.exit.thread ], [ null, %manuf_oui36_lookup.exit.thread ], [ null, %31 ]
+  %.121 = phi i32 [ 0, %manuf_oui28_lookup.exit ], [ 0, %manuf_oui24_lookup.exit ], [ 24, %33 ], [ 28, %60 ], [ 36, %90 ], [ 0, %manuf_oui36_lookup.exit ], [ 0, %manuf_oui36_lookup.exit.thread ], [ 0, %manuf_oui28_lookup.exit.thread ], [ 0, %31 ]
+  %.117 = phi ptr [ null, %manuf_oui28_lookup.exit ], [ null, %manuf_oui24_lookup.exit ], [ %37, %33 ], [ %64, %60 ], [ %94, %90 ], [ null, %manuf_oui36_lookup.exit ], [ null, %manuf_oui36_lookup.exit.thread ], [ null, %manuf_oui28_lookup.exit.thread ], [ null, %31 ]
+  %.1 = phi ptr [ null, %manuf_oui28_lookup.exit ], [ null, %manuf_oui24_lookup.exit ], [ %35, %33 ], [ %62, %60 ], [ %92, %90 ], [ null, %manuf_oui36_lookup.exit ], [ null, %manuf_oui36_lookup.exit.thread ], [ null, %manuf_oui28_lookup.exit.thread ], [ null, %31 ]
   %.not31 = icmp eq ptr %2, null
   br i1 %.not31, label %97, label %96
 
@@ -61128,7 +61128,7 @@ define noundef zeroext i1 @ws_manuf_iter_next(ptr noundef %0, ptr noundef %1) lo
   br label %68
 
 68:                                               ; preds = %.sink.split, %35, %53, %44, %22
-  %69 = phi i1 [ true, %35 ], [ true, %53 ], [ true, %44 ], [ false, %22 ], [ true, %.sink.split ]
+  %69 = phi i1 [ true, %44 ], [ true, %35 ], [ false, %22 ], [ true, %53 ], [ true, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %69
 }

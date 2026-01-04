@@ -1934,7 +1934,7 @@ _ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit: ; preds = %.
   br i1 %128, label %129, label %.sink.split
 
 .sink.split:                                      ; preds = %127, %.split77.us, %_ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit, %_ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit.thread
-  %.us-phi92100.sink = phi ptr [ %.06773.us, %_ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit.thread ], [ %.06773, %_ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit ], [ %.06674, %127 ], [ %.06674.us, %.split77.us ]
+  %.us-phi92100.sink = phi ptr [ %.06773, %_ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit ], [ %.06773.us, %_ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit.thread ], [ %.06674, %127 ], [ %.06674.us, %.split77.us ]
   tail call void @_ZdaPv(ptr noundef nonnull %.us-phi92100.sink) #26
   br label %129
 
@@ -2339,7 +2339,7 @@ define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, pt
   br label %19
 
 19:                                               ; preds = %16, %2, %14, %10, %6
-  %.0 = phi ptr [ %15, %14 ], [ %11, %10 ], [ %7, %6 ], [ %0, %2 ], [ %spec.select, %16 ]
+  %.0 = phi ptr [ %0, %2 ], [ %spec.select, %16 ], [ %15, %14 ], [ %11, %10 ], [ %7, %6 ]
   ret ptr %.0
 }
 
@@ -2374,7 +2374,7 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #5 {
   br label %11
 
 11:                                               ; preds = %9, %7, %5, %3, %1
-  %.0 = phi ptr [ @_ZL20introspection_linear, %1 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 88), %3 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 264), %7 ], [ %., %9 ]
+  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 264), %7 ], [ %., %9 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 88), %3 ], [ @_ZL20introspection_linear, %1 ]
   ret ptr %.0
 }
 

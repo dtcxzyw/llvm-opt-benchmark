@@ -69,7 +69,7 @@ define i32 @ff_rle_count_pixels(ptr noundef readonly captures(none) %0, i32 noun
   br i1 %.not24, label %20, label %.loopexit
 
 .split.us:                                        ; preds = %.lr.ph.split.us.split.us, %14, %12
-  %.us-phi = phi i32 [ %.031.us, %12 ], [ %.031.us, %14 ], [ %.031.us.us, %.lr.ph.split.us.split.us ]
+  %.us-phi = phi i32 [ %.031.us, %14 ], [ %.031.us, %12 ], [ %.031.us.us, %.lr.ph.split.us.split.us ]
   %19 = add nsw i32 %.us-phi, -1
   br label %.loopexit
 
@@ -80,7 +80,7 @@ define i32 @ff_rle_count_pixels(ptr noundef readonly captures(none) %0, i32 noun
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !4
 
 .loopexit:                                        ; preds = %20, %.lr.ph.split, %9, %.lr.ph.split.us.split._crit_edge, %4, %.split.us
-  %.1 = phi i32 [ %19, %.split.us ], [ 1, %4 ], [ %6, %.lr.ph.split.us.split._crit_edge ], [ %6, %9 ], [ %6, %20 ], [ %.031, %.lr.ph.split ]
+  %.1 = phi i32 [ %19, %.split.us ], [ 1, %4 ], [ %6, %9 ], [ %6, %.lr.ph.split.us.split._crit_edge ], [ %.031, %.lr.ph.split ], [ %6, %20 ]
   ret i32 %.1
 }
 
@@ -298,7 +298,7 @@ ff_rle_count_pixels.exit56:                       ; preds = %67, %.lr.ph.split, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %57, %ff_rle_count_pixels.exit56, %36, %ff_rle_count_pixels.exit56.us, %._crit_edge
-  %.049 = phi i32 [ %86, %._crit_edge ], [ -1, %ff_rle_count_pixels.exit56.us ], [ -1, %36 ], [ -1, %ff_rle_count_pixels.exit56 ], [ -1, %57 ]
+  %.049 = phi i32 [ %86, %._crit_edge ], [ -1, %36 ], [ -1, %ff_rle_count_pixels.exit56.us ], [ -1, %ff_rle_count_pixels.exit56 ], [ -1, %57 ]
   ret i32 %.049
 }
 

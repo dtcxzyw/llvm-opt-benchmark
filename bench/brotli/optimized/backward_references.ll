@@ -492,7 +492,7 @@ FindMatchLengthWithLimit.exit276:                 ; preds = %174, %.critedge.i27
 215:                                              ; preds = %213
   br label %216
 
-216:                                              ; preds = %154, %167, %164, %201, %215, %213, %198
+216:                                              ; preds = %164, %154, %198, %167, %201, %215, %213
   %.sroa.29441.7.ph = phi i64 [ %.sroa.29441.2658, %167 ], [ %.sroa.29441.2658, %198 ], [ %.sroa.29441.2658, %201 ], [ %.sroa.29441.2658, %213 ], [ %.0147.i, %215 ], [ %.sroa.29441.2658, %164 ], [ %.sroa.29441.2658, %154 ]
   %.sroa.18437.7.ph = phi i64 [ %.sroa.18437.2659, %167 ], [ %.sroa.18437.2659, %198 ], [ %.sroa.18437.2659, %201 ], [ %.sroa.18437.2659, %213 ], [ %157, %215 ], [ %.sroa.18437.2659, %164 ], [ %.sroa.18437.2659, %154 ]
   %.sroa.0429.7.ph = phi i64 [ %.sroa.0429.2660, %167 ], [ %.sroa.0429.2660, %198 ], [ %.sroa.0429.2660, %201 ], [ %.sroa.0429.2660, %213 ], [ %.2.i272, %215 ], [ %.sroa.0429.2660, %164 ], [ %.sroa.0429.2660, %154 ]
@@ -654,11 +654,11 @@ FindMatchLengthWithLimit.exit290:                 ; preds = %249, %.critedge.i28
   br label %282
 
 282:                                              ; preds = %281, %273, %FindMatchLengthWithLimit.exit290, %242, %239
-  %.sroa.29441.6 = phi i64 [ %.sroa.29441.4693, %239 ], [ %279, %281 ], [ %.sroa.29441.4693, %273 ], [ %.sroa.29441.4693, %FindMatchLengthWithLimit.exit290 ], [ %.sroa.29441.4693, %242 ]
-  %.sroa.18437.6 = phi i64 [ %.sroa.18437.4694, %239 ], [ %233, %281 ], [ %.sroa.18437.4694, %273 ], [ %.sroa.18437.4694, %FindMatchLengthWithLimit.exit290 ], [ %.sroa.18437.4694, %242 ]
-  %.sroa.0429.6 = phi i64 [ %.sroa.0429.4695, %239 ], [ %.2.i286, %281 ], [ %.sroa.0429.4695, %273 ], [ %.sroa.0429.4695, %FindMatchLengthWithLimit.exit290 ], [ %.sroa.0429.4695, %242 ]
-  %.6142.i = phi i64 [ %.5141.i697, %239 ], [ %.2.i286, %281 ], [ %.5141.i697, %273 ], [ %.5141.i697, %FindMatchLengthWithLimit.exit290 ], [ %.5141.i697, %242 ]
-  %.6.i = phi i64 [ %.5.i698, %239 ], [ %279, %281 ], [ %.5.i698, %273 ], [ %.5.i698, %FindMatchLengthWithLimit.exit290 ], [ %.5.i698, %242 ]
+  %.sroa.29441.6 = phi i64 [ %.sroa.29441.4693, %FindMatchLengthWithLimit.exit290 ], [ %.sroa.29441.4693, %242 ], [ %.sroa.29441.4693, %239 ], [ %279, %281 ], [ %.sroa.29441.4693, %273 ]
+  %.sroa.18437.6 = phi i64 [ %.sroa.18437.4694, %FindMatchLengthWithLimit.exit290 ], [ %.sroa.18437.4694, %242 ], [ %.sroa.18437.4694, %239 ], [ %233, %281 ], [ %.sroa.18437.4694, %273 ]
+  %.sroa.0429.6 = phi i64 [ %.sroa.0429.4695, %FindMatchLengthWithLimit.exit290 ], [ %.sroa.0429.4695, %242 ], [ %.sroa.0429.4695, %239 ], [ %.2.i286, %281 ], [ %.sroa.0429.4695, %273 ]
+  %.6142.i = phi i64 [ %.5141.i697, %FindMatchLengthWithLimit.exit290 ], [ %.5141.i697, %242 ], [ %.5141.i697, %239 ], [ %.2.i286, %281 ], [ %.5141.i697, %273 ]
+  %.6.i = phi i64 [ %.5.i698, %FindMatchLengthWithLimit.exit290 ], [ %.5.i698, %242 ], [ %.5.i698, %239 ], [ %279, %281 ], [ %.5.i698, %273 ]
   %283 = icmp ugt i64 %228, %spec.select.i
   br i1 %283, label %227, label %.thread470
 
@@ -1445,7 +1445,7 @@ FindMatchLengthWithLimit.exit:                    ; preds = %628, %.critedge.i
 669:                                              ; preds = %667
   br label %670
 
-670:                                              ; preds = %608, %621, %618, %655, %669, %667, %652
+670:                                              ; preds = %618, %608, %652, %621, %655, %669, %667
   %.sroa.18.5.ph = phi i64 [ %.sroa.18.0826, %621 ], [ %.sroa.18.0826, %652 ], [ %.sroa.18.0826, %655 ], [ %.sroa.18.0826, %667 ], [ %.0147.i235, %669 ], [ %.sroa.18.0826, %618 ], [ %.sroa.18.0826, %608 ]
   %.sroa.12.5.ph = phi i64 [ %.sroa.12.0827, %621 ], [ %.sroa.12.0827, %652 ], [ %.sroa.12.0827, %655 ], [ %.sroa.12.0827, %667 ], [ %611, %669 ], [ %.sroa.12.0827, %618 ], [ %.sroa.12.0827, %608 ]
   %.sroa.0.5.ph = phi i64 [ %.sroa.0.0828, %621 ], [ %.sroa.0.0828, %652 ], [ %.sroa.0.0828, %655 ], [ %.sroa.0.0828, %667 ], [ %.2.i247, %669 ], [ %.sroa.0.0828, %618 ], [ %.sroa.0.0828, %608 ]
@@ -1598,11 +1598,11 @@ FindMatchLengthWithLimit.exit262:                 ; preds = %702, %.critedge.i25
   br label %735
 
 735:                                              ; preds = %734, %726, %FindMatchLengthWithLimit.exit262, %695, %692
-  %.sroa.18.4 = phi i64 [ %.sroa.18.2863, %692 ], [ %732, %734 ], [ %.sroa.18.2863, %726 ], [ %.sroa.18.2863, %FindMatchLengthWithLimit.exit262 ], [ %.sroa.18.2863, %695 ]
-  %.sroa.12.4 = phi i64 [ %.sroa.12.2864, %692 ], [ %686, %734 ], [ %.sroa.12.2864, %726 ], [ %.sroa.12.2864, %FindMatchLengthWithLimit.exit262 ], [ %.sroa.12.2864, %695 ]
-  %.sroa.0.4 = phi i64 [ %.sroa.0.2865, %692 ], [ %.2.i258, %734 ], [ %.sroa.0.2865, %726 ], [ %.sroa.0.2865, %FindMatchLengthWithLimit.exit262 ], [ %.sroa.0.2865, %695 ]
-  %.6142.i225 = phi i64 [ %.5141.i221867, %692 ], [ %.2.i258, %734 ], [ %.5141.i221867, %726 ], [ %.5141.i221867, %FindMatchLengthWithLimit.exit262 ], [ %.5141.i221867, %695 ]
-  %.6.i226 = phi i64 [ %.5.i222868, %692 ], [ %732, %734 ], [ %.5.i222868, %726 ], [ %.5.i222868, %FindMatchLengthWithLimit.exit262 ], [ %.5.i222868, %695 ]
+  %.sroa.18.4 = phi i64 [ %.sroa.18.2863, %FindMatchLengthWithLimit.exit262 ], [ %.sroa.18.2863, %695 ], [ %.sroa.18.2863, %692 ], [ %732, %734 ], [ %.sroa.18.2863, %726 ]
+  %.sroa.12.4 = phi i64 [ %.sroa.12.2864, %FindMatchLengthWithLimit.exit262 ], [ %.sroa.12.2864, %695 ], [ %.sroa.12.2864, %692 ], [ %686, %734 ], [ %.sroa.12.2864, %726 ]
+  %.sroa.0.4 = phi i64 [ %.sroa.0.2865, %FindMatchLengthWithLimit.exit262 ], [ %.sroa.0.2865, %695 ], [ %.sroa.0.2865, %692 ], [ %.2.i258, %734 ], [ %.sroa.0.2865, %726 ]
+  %.6142.i225 = phi i64 [ %.5141.i221867, %FindMatchLengthWithLimit.exit262 ], [ %.5141.i221867, %695 ], [ %.5141.i221867, %692 ], [ %.2.i258, %734 ], [ %.5141.i221867, %726 ]
+  %.6.i226 = phi i64 [ %.5.i222868, %FindMatchLengthWithLimit.exit262 ], [ %.5.i222868, %695 ], [ %.5.i222868, %692 ], [ %732, %734 ], [ %.5.i222868, %726 ]
   %736 = icmp ugt i64 %681, %spec.select.i219
   br i1 %736, label %680, label %.thread522
 
@@ -2248,8 +2248,8 @@ split:                                            ; preds = %1012, %LookupCompou
   %1055 = add i64 %.sroa.18437.1.ph, 15
   br label %ComputeDistanceCode.exit
 
-ComputeDistanceCode.exit:                         ; preds = %1047, %1031, %1042, %1035, %1051, %1054
-  %.1.i242 = phi i64 [ %1055, %1054 ], [ 3, %1051 ], [ 2, %1047 ], [ 1, %1031 ], [ %1046, %1042 ], [ %1039, %1035 ]
+ComputeDistanceCode.exit:                         ; preds = %1031, %1042, %1035, %1047, %1051, %1054
+  %.1.i242 = phi i64 [ %1055, %1054 ], [ 3, %1051 ], [ 1, %1031 ], [ %1046, %1042 ], [ %1039, %1035 ], [ 2, %1047 ]
   %1056 = icmp ule i64 %.sroa.18437.1.ph, %1021
   %1057 = icmp ne i64 %.1.i242, 0
   %or.cond = select i1 %1056, i1 %1057, i1 false
@@ -2301,7 +2301,7 @@ ComputeDistanceCode.exit:                         ; preds = %1047, %1031, %1042,
   br label %PrepareDistanceCache.exit
 
 PrepareDistanceCache.exit:                        ; preds = %1022, %1073, %1065, %1058, %ComputeDistanceCode.exit
-  %.1.i242580 = phi i64 [ %.1.i242, %1073 ], [ %.1.i242, %1065 ], [ %.1.i242, %1058 ], [ %.1.i242, %ComputeDistanceCode.exit ], [ 0, %1022 ]
+  %.1.i242580 = phi i64 [ %.1.i242, %ComputeDistanceCode.exit ], [ %.1.i242, %1073 ], [ %.1.i242, %1065 ], [ %.1.i242, %1058 ], [ 0, %1022 ]
   %1080 = getelementptr inbounds nuw i8, ptr %.0180973, i64 16
   %1081 = trunc i64 %.3185.ph to i32
   store i32 %1081, ptr %.0180973, align 4, !tbaa !146
@@ -2622,10 +2622,10 @@ CombineLengthCodes.exit:                          ; preds = %1173, %GetCopyLengt
   br i1 %1285, label %1266, label %StoreRangeH5.exit, !llvm.loop !168
 
 StoreRangeH5.exit:                                ; preds = %1266, %1239, %1207, %1259, %1232, %1202, %1225
-  %.1190 = phi i64 [ %.0189971, %1225 ], [ %1020, %1202 ], [ %.0189971, %1232 ], [ %.0189971, %1259 ], [ %1020, %1207 ], [ %.0189971, %1239 ], [ %.0189971, %1266 ]
-  %.4186 = phi i64 [ %1226, %1225 ], [ 0, %1202 ], [ %1226, %1232 ], [ %1226, %1259 ], [ 0, %1207 ], [ %1256, %1239 ], [ %1283, %1266 ]
-  %.1181 = phi ptr [ %.0180973, %1225 ], [ %1080, %1202 ], [ %.0180973, %1232 ], [ %.0180973, %1259 ], [ %1080, %1207 ], [ %.0180973, %1239 ], [ %.0180973, %1266 ]
-  %.4 = phi i64 [ %1227, %1225 ], [ %1193, %1202 ], [ %1227, %1232 ], [ %1227, %1259 ], [ %1193, %1207 ], [ %1257, %1239 ], [ %1284, %1266 ]
+  %.1190 = phi i64 [ %1020, %1202 ], [ %.0189971, %1225 ], [ %.0189971, %1232 ], [ %.0189971, %1259 ], [ %.0189971, %1239 ], [ %1020, %1207 ], [ %.0189971, %1266 ]
+  %.4186 = phi i64 [ 0, %1202 ], [ %1226, %1225 ], [ %1226, %1232 ], [ %1226, %1259 ], [ %1256, %1239 ], [ 0, %1207 ], [ %1283, %1266 ]
+  %.1181 = phi ptr [ %1080, %1202 ], [ %.0180973, %1225 ], [ %.0180973, %1232 ], [ %.0180973, %1259 ], [ %.0180973, %1239 ], [ %1080, %1207 ], [ %.0180973, %1266 ]
+  %.4 = phi i64 [ %1193, %1202 ], [ %1227, %1225 ], [ %1227, %1232 ], [ %1227, %1259 ], [ %1257, %1239 ], [ %1193, %1207 ], [ %1284, %1266 ]
   %1286 = add i64 %.4, 4
   %1287 = icmp ult i64 %1286, %21
   br i1 %1287, label %103, label %._crit_edge976, !llvm.loop !169
@@ -2991,7 +2991,7 @@ FindMatchLengthWithLimit.exit188.i:               ; preds = %174, %.critedge.i18
 215:                                              ; preds = %213
   br label %216
 
-216:                                              ; preds = %154, %167, %164, %201, %215, %213, %198
+216:                                              ; preds = %164, %154, %198, %167, %201, %215, %213
   %.sroa.29416.16.ph = phi i64 [ %.sroa.29416.7633, %167 ], [ %.sroa.29416.7633, %198 ], [ %.sroa.29416.7633, %201 ], [ %.sroa.29416.7633, %213 ], [ %.0154.i, %215 ], [ %.sroa.29416.7633, %164 ], [ %.sroa.29416.7633, %154 ]
   %.sroa.18412.16.ph = phi i64 [ %.sroa.18412.7634, %167 ], [ %.sroa.18412.7634, %198 ], [ %.sroa.18412.7634, %201 ], [ %.sroa.18412.7634, %213 ], [ %157, %215 ], [ %.sroa.18412.7634, %164 ], [ %.sroa.18412.7634, %154 ]
   %.sroa.0404.16.ph = phi i64 [ %.sroa.0404.7635, %167 ], [ %.sroa.0404.7635, %198 ], [ %.sroa.0404.7635, %201 ], [ %.sroa.0404.7635, %213 ], [ %.2.i184.i, %215 ], [ %.sroa.0404.7635, %164 ], [ %.sroa.0404.7635, %154 ]
@@ -3157,11 +3157,11 @@ FindMatchLengthWithLimit.exit.i298:               ; preds = %252, %.critedge.i.i
   br label %284
 
 284:                                              ; preds = %283, %FindMatchLengthWithLimit.exit.i298, %248, %243, %240
-  %.sroa.29416.15 = phi i64 [ %.sroa.29416.9668, %240 ], [ %281, %283 ], [ %.sroa.29416.9668, %FindMatchLengthWithLimit.exit.i298 ], [ %.sroa.29416.9668, %248 ], [ %.sroa.29416.9668, %243 ]
-  %.sroa.18412.15 = phi i64 [ %.sroa.18412.9669, %240 ], [ %234, %283 ], [ %.sroa.18412.9669, %FindMatchLengthWithLimit.exit.i298 ], [ %.sroa.18412.9669, %248 ], [ %.sroa.18412.9669, %243 ]
-  %.sroa.0404.15 = phi i64 [ %.sroa.0404.9670, %240 ], [ %275, %283 ], [ %.sroa.0404.9670, %FindMatchLengthWithLimit.exit.i298 ], [ %.sroa.0404.9670, %248 ], [ %.sroa.0404.9670, %243 ]
-  %.6148.i = phi i64 [ %.5147.i672, %240 ], [ %275, %283 ], [ %.5147.i672, %FindMatchLengthWithLimit.exit.i298 ], [ %.5147.i672, %248 ], [ %.5147.i672, %243 ]
-  %.6.i = phi i64 [ %.5.i287673, %240 ], [ %281, %283 ], [ %.5.i287673, %FindMatchLengthWithLimit.exit.i298 ], [ %.5.i287673, %248 ], [ %.5.i287673, %243 ]
+  %.sroa.29416.15 = phi i64 [ %.sroa.29416.9668, %248 ], [ %.sroa.29416.9668, %243 ], [ %.sroa.29416.9668, %240 ], [ %281, %283 ], [ %.sroa.29416.9668, %FindMatchLengthWithLimit.exit.i298 ]
+  %.sroa.18412.15 = phi i64 [ %.sroa.18412.9669, %248 ], [ %.sroa.18412.9669, %243 ], [ %.sroa.18412.9669, %240 ], [ %234, %283 ], [ %.sroa.18412.9669, %FindMatchLengthWithLimit.exit.i298 ]
+  %.sroa.0404.15 = phi i64 [ %.sroa.0404.9670, %248 ], [ %.sroa.0404.9670, %243 ], [ %.sroa.0404.9670, %240 ], [ %275, %283 ], [ %.sroa.0404.9670, %FindMatchLengthWithLimit.exit.i298 ]
+  %.6148.i = phi i64 [ %.5147.i672, %248 ], [ %.5147.i672, %243 ], [ %.5147.i672, %240 ], [ %275, %283 ], [ %.5147.i672, %FindMatchLengthWithLimit.exit.i298 ]
+  %.6.i = phi i64 [ %.5.i287673, %248 ], [ %.5.i287673, %243 ], [ %.5.i287673, %240 ], [ %281, %283 ], [ %.5.i287673, %FindMatchLengthWithLimit.exit.i298 ]
   %285 = icmp ugt i64 %229, %spec.select.i286
   br i1 %285, label %228, label %.thread445
 
@@ -3948,7 +3948,7 @@ FindMatchLengthWithLimit.exit188.i381:            ; preds = %630, %.critedge.i18
 671:                                              ; preds = %669
   br label %672
 
-672:                                              ; preds = %610, %623, %620, %657, %671, %669, %654
+672:                                              ; preds = %620, %610, %654, %623, %657, %671, %669
   %.sroa.18.14.ph = phi i64 [ %.sroa.18.5801, %623 ], [ %.sroa.18.5801, %654 ], [ %.sroa.18.5801, %657 ], [ %.sroa.18.5801, %669 ], [ %.0154.i386, %671 ], [ %.sroa.18.5801, %620 ], [ %.sroa.18.5801, %610 ]
   %.sroa.12.14.ph = phi i64 [ %.sroa.12.5802, %623 ], [ %.sroa.12.5802, %654 ], [ %.sroa.12.5802, %657 ], [ %.sroa.12.5802, %669 ], [ %613, %671 ], [ %.sroa.12.5802, %620 ], [ %.sroa.12.5802, %610 ]
   %.sroa.0.14.ph = phi i64 [ %.sroa.0.5803, %623 ], [ %.sroa.0.5803, %654 ], [ %.sroa.0.5803, %657 ], [ %.sroa.0.5803, %669 ], [ %.2.i184.i382, %671 ], [ %.sroa.0.5803, %620 ], [ %.sroa.0.5803, %610 ]
@@ -4105,11 +4105,11 @@ FindMatchLengthWithLimit.exit.i359:               ; preds = %707, %.critedge.i.i
   br label %739
 
 739:                                              ; preds = %738, %FindMatchLengthWithLimit.exit.i359, %703, %698, %695
-  %.sroa.18.13 = phi i64 [ %.sroa.18.7838, %695 ], [ %736, %738 ], [ %.sroa.18.7838, %FindMatchLengthWithLimit.exit.i359 ], [ %.sroa.18.7838, %703 ], [ %.sroa.18.7838, %698 ]
-  %.sroa.12.13 = phi i64 [ %.sroa.12.7839, %695 ], [ %689, %738 ], [ %.sroa.12.7839, %FindMatchLengthWithLimit.exit.i359 ], [ %.sroa.12.7839, %703 ], [ %.sroa.12.7839, %698 ]
-  %.sroa.0.13 = phi i64 [ %.sroa.0.7840, %695 ], [ %730, %738 ], [ %.sroa.0.7840, %FindMatchLengthWithLimit.exit.i359 ], [ %.sroa.0.7840, %703 ], [ %.sroa.0.7840, %698 ]
-  %.6148.i346 = phi i64 [ %.5147.i315842, %695 ], [ %730, %738 ], [ %.5147.i315842, %FindMatchLengthWithLimit.exit.i359 ], [ %.5147.i315842, %703 ], [ %.5147.i315842, %698 ]
-  %.6.i347 = phi i64 [ %.5.i316843, %695 ], [ %736, %738 ], [ %.5.i316843, %FindMatchLengthWithLimit.exit.i359 ], [ %.5.i316843, %703 ], [ %.5.i316843, %698 ]
+  %.sroa.18.13 = phi i64 [ %.sroa.18.7838, %703 ], [ %.sroa.18.7838, %698 ], [ %.sroa.18.7838, %695 ], [ %736, %738 ], [ %.sroa.18.7838, %FindMatchLengthWithLimit.exit.i359 ]
+  %.sroa.12.13 = phi i64 [ %.sroa.12.7839, %703 ], [ %.sroa.12.7839, %698 ], [ %.sroa.12.7839, %695 ], [ %689, %738 ], [ %.sroa.12.7839, %FindMatchLengthWithLimit.exit.i359 ]
+  %.sroa.0.13 = phi i64 [ %.sroa.0.7840, %703 ], [ %.sroa.0.7840, %698 ], [ %.sroa.0.7840, %695 ], [ %730, %738 ], [ %.sroa.0.7840, %FindMatchLengthWithLimit.exit.i359 ]
+  %.6148.i346 = phi i64 [ %.5147.i315842, %703 ], [ %.5147.i315842, %698 ], [ %.5147.i315842, %695 ], [ %730, %738 ], [ %.5147.i315842, %FindMatchLengthWithLimit.exit.i359 ]
+  %.6.i347 = phi i64 [ %.5.i316843, %703 ], [ %.5.i316843, %698 ], [ %.5.i316843, %695 ], [ %736, %738 ], [ %.5.i316843, %FindMatchLengthWithLimit.exit.i359 ]
   %740 = icmp ugt i64 %684, %spec.select.i312
   br i1 %740, label %683, label %.thread497
 
@@ -4755,8 +4755,8 @@ split:                                            ; preds = %1016, %LookupCompou
   %1059 = add i64 %.sroa.18412.1.ph, 15
   br label %ComputeDistanceCode.exit
 
-ComputeDistanceCode.exit:                         ; preds = %1051, %1035, %1046, %1039, %1055, %1058
-  %.1.i = phi i64 [ %1059, %1058 ], [ 3, %1055 ], [ 2, %1051 ], [ 1, %1035 ], [ %1050, %1046 ], [ %1043, %1039 ]
+ComputeDistanceCode.exit:                         ; preds = %1035, %1046, %1039, %1051, %1055, %1058
+  %.1.i = phi i64 [ %1059, %1058 ], [ 3, %1055 ], [ 1, %1035 ], [ %1050, %1046 ], [ %1043, %1039 ], [ 2, %1051 ]
   %1060 = icmp ule i64 %.sroa.18412.1.ph, %1025
   %1061 = icmp ne i64 %.1.i, 0
   %or.cond = select i1 %1060, i1 %1061, i1 false
@@ -4809,7 +4809,7 @@ ComputeDistanceCode.exit:                         ; preds = %1051, %1035, %1046,
   br label %PrepareDistanceCacheH6.exit282
 
 PrepareDistanceCacheH6.exit282:                   ; preds = %1026, %1077, %1069, %1062, %ComputeDistanceCode.exit
-  %.1.i555 = phi i64 [ %.1.i, %1077 ], [ %.1.i, %1069 ], [ %.1.i, %1062 ], [ %.1.i, %ComputeDistanceCode.exit ], [ 0, %1026 ]
+  %.1.i555 = phi i64 [ %.1.i, %ComputeDistanceCode.exit ], [ %.1.i, %1077 ], [ %.1.i, %1069 ], [ %.1.i, %1062 ], [ 0, %1026 ]
   %1084 = getelementptr inbounds nuw i8, ptr %.0180948, i64 16
   %1085 = trunc i64 %.3185.ph to i32
   store i32 %1085, ptr %.0180948, align 4, !tbaa !146
@@ -5125,10 +5125,10 @@ CombineLengthCodes.exit:                          ; preds = %1177, %GetCopyLengt
   br i1 %1284, label %1267, label %StoreRangeH6.exit, !llvm.loop !273
 
 StoreRangeH6.exit:                                ; preds = %1267, %1242, %1212, %1260, %1235, %1206, %1228
-  %.1190 = phi i64 [ %.0189946, %1228 ], [ %1024, %1206 ], [ %.0189946, %1235 ], [ %.0189946, %1260 ], [ %1024, %1212 ], [ %.0189946, %1242 ], [ %.0189946, %1267 ]
-  %.4186 = phi i64 [ %1229, %1228 ], [ 0, %1206 ], [ %1229, %1235 ], [ %1229, %1260 ], [ 0, %1212 ], [ %1257, %1242 ], [ %1282, %1267 ]
-  %.1181 = phi ptr [ %.0180948, %1228 ], [ %1084, %1206 ], [ %.0180948, %1235 ], [ %.0180948, %1260 ], [ %1084, %1212 ], [ %.0180948, %1242 ], [ %.0180948, %1267 ]
-  %.4 = phi i64 [ %1230, %1228 ], [ %1197, %1206 ], [ %1230, %1235 ], [ %1230, %1260 ], [ %1197, %1212 ], [ %1258, %1242 ], [ %1283, %1267 ]
+  %.1190 = phi i64 [ %1024, %1206 ], [ %.0189946, %1228 ], [ %.0189946, %1235 ], [ %.0189946, %1260 ], [ %.0189946, %1242 ], [ %1024, %1212 ], [ %.0189946, %1267 ]
+  %.4186 = phi i64 [ 0, %1206 ], [ %1229, %1228 ], [ %1229, %1235 ], [ %1229, %1260 ], [ %1257, %1242 ], [ 0, %1212 ], [ %1282, %1267 ]
+  %.1181 = phi ptr [ %1084, %1206 ], [ %.0180948, %1228 ], [ %.0180948, %1235 ], [ %.0180948, %1260 ], [ %.0180948, %1242 ], [ %1084, %1212 ], [ %.0180948, %1267 ]
+  %.4 = phi i64 [ %1197, %1206 ], [ %1230, %1228 ], [ %1230, %1235 ], [ %1230, %1260 ], [ %1258, %1242 ], [ %1197, %1212 ], [ %1283, %1267 ]
   %1285 = add i64 %.4, 8
   %1286 = icmp ult i64 %1285, %21
   br i1 %1286, label %102, label %._crit_edge951, !llvm.loop !274
@@ -5499,7 +5499,7 @@ FindMatchLengthWithLimit.exit204.i:               ; preds = %178, %.critedge.i19
 219:                                              ; preds = %217
   br label %220
 
-220:                                              ; preds = %158, %171, %168, %205, %219, %217, %202
+220:                                              ; preds = %168, %158, %202, %171, %205, %219, %217
   %.sroa.29417.16.ph = phi i64 [ %.sroa.29417.7644, %171 ], [ %.sroa.29417.7644, %202 ], [ %.sroa.29417.7644, %205 ], [ %.sroa.29417.7644, %217 ], [ %.0170.i, %219 ], [ %.sroa.29417.7644, %168 ], [ %.sroa.29417.7644, %158 ]
   %.sroa.18413.16.ph = phi i64 [ %.sroa.18413.7645, %171 ], [ %.sroa.18413.7645, %202 ], [ %.sroa.18413.7645, %205 ], [ %.sroa.18413.7645, %217 ], [ %161, %219 ], [ %.sroa.18413.7645, %168 ], [ %.sroa.18413.7645, %158 ]
   %.sroa.0405.16.ph = phi i64 [ %.sroa.0405.7646, %171 ], [ %.sroa.0405.7646, %202 ], [ %.sroa.0405.7646, %205 ], [ %.sroa.0405.7646, %217 ], [ %.2.i200.i, %219 ], [ %.sroa.0405.7646, %168 ], [ %.sroa.0405.7646, %158 ]
@@ -5721,7 +5721,7 @@ FindMatchLengthWithLimit.exit.i297:               ; preds = %289, %.critedge.i.i
 321:                                              ; preds = %313
   br label %322
 
-322:                                              ; preds = %282, %279, %313, %321, %FindMatchLengthWithLimit.exit.i297
+322:                                              ; preds = %279, %282, %313, %321, %FindMatchLengthWithLimit.exit.i297
   %.sroa.29417.10.ph = phi i64 [ %.sroa.29417.9686, %282 ], [ %.sroa.29417.9686, %FindMatchLengthWithLimit.exit.i297 ], [ %.sroa.29417.9686, %313 ], [ %319, %321 ], [ %.sroa.29417.9686, %279 ]
   %.sroa.18413.10.ph = phi i64 [ %.sroa.18413.9687, %282 ], [ %.sroa.18413.9687, %FindMatchLengthWithLimit.exit.i297 ], [ %.sroa.18413.9687, %313 ], [ %273, %321 ], [ %.sroa.18413.9687, %279 ]
   %.sroa.0405.10.ph = phi i64 [ %.sroa.0405.9688, %282 ], [ %.sroa.0405.9688, %FindMatchLengthWithLimit.exit.i297 ], [ %.sroa.0405.9688, %313 ], [ %.2.i.i298, %321 ], [ %.sroa.0405.9688, %279 ]
@@ -6531,7 +6531,7 @@ FindMatchLengthWithLimit.exit204.i377:            ; preds = %681, %.critedge.i19
 722:                                              ; preds = %720
   br label %723
 
-723:                                              ; preds = %661, %674, %671, %708, %722, %720, %705
+723:                                              ; preds = %671, %661, %705, %674, %708, %722, %720
   %.sroa.18.14.ph = phi i64 [ %.sroa.18.5818, %674 ], [ %.sroa.18.5818, %705 ], [ %.sroa.18.5818, %708 ], [ %.sroa.18.5818, %720 ], [ %.0170.i382, %722 ], [ %.sroa.18.5818, %671 ], [ %.sroa.18.5818, %661 ]
   %.sroa.12.14.ph = phi i64 [ %.sroa.12.5819, %674 ], [ %.sroa.12.5819, %705 ], [ %.sroa.12.5819, %708 ], [ %.sroa.12.5819, %720 ], [ %664, %722 ], [ %.sroa.12.5819, %671 ], [ %.sroa.12.5819, %661 ]
   %.sroa.0.14.ph = phi i64 [ %.sroa.0.5820, %674 ], [ %.sroa.0.5820, %705 ], [ %.sroa.0.5820, %708 ], [ %.sroa.0.5820, %720 ], [ %.2.i200.i378, %722 ], [ %.sroa.0.5820, %671 ], [ %.sroa.0.5820, %661 ]
@@ -6739,7 +6739,7 @@ FindMatchLengthWithLimit.exit.i355:               ; preds = %787, %.critedge.i.i
 819:                                              ; preds = %811
   br label %820
 
-820:                                              ; preds = %780, %777, %811, %819, %FindMatchLengthWithLimit.exit.i355
+820:                                              ; preds = %777, %780, %811, %819, %FindMatchLengthWithLimit.exit.i355
   %.sroa.18.8.ph = phi i64 [ %.sroa.18.7864, %780 ], [ %.sroa.18.7864, %FindMatchLengthWithLimit.exit.i355 ], [ %.sroa.18.7864, %811 ], [ %817, %819 ], [ %.sroa.18.7864, %777 ]
   %.sroa.12.8.ph = phi i64 [ %.sroa.12.7865, %780 ], [ %.sroa.12.7865, %FindMatchLengthWithLimit.exit.i355 ], [ %.sroa.12.7865, %811 ], [ %771, %819 ], [ %.sroa.12.7865, %777 ]
   %.sroa.0.8.ph = phi i64 [ %.sroa.0.7866, %780 ], [ %.sroa.0.7866, %FindMatchLengthWithLimit.exit.i355 ], [ %.sroa.0.7866, %811 ], [ %.2.i.i356, %819 ], [ %.sroa.0.7866, %777 ]
@@ -7398,8 +7398,8 @@ split:                                            ; preds = %1102, %LookupCompou
   %1145 = add i64 %.sroa.18413.1.ph, 15
   br label %ComputeDistanceCode.exit
 
-ComputeDistanceCode.exit:                         ; preds = %1137, %1121, %1132, %1125, %1141, %1144
-  %.1.i = phi i64 [ %1145, %1144 ], [ 3, %1141 ], [ 2, %1137 ], [ 1, %1121 ], [ %1136, %1132 ], [ %1129, %1125 ]
+ComputeDistanceCode.exit:                         ; preds = %1121, %1132, %1125, %1137, %1141, %1144
+  %.1.i = phi i64 [ %1145, %1144 ], [ 3, %1141 ], [ 1, %1121 ], [ %1136, %1132 ], [ %1129, %1125 ], [ 2, %1137 ]
   %1146 = icmp ule i64 %.sroa.18413.1.ph, %1111
   %1147 = icmp ne i64 %.1.i, 0
   %or.cond = select i1 %1146, i1 %1147, i1 false
@@ -7452,7 +7452,7 @@ ComputeDistanceCode.exit:                         ; preds = %1137, %1121, %1132,
   br label %PrepareDistanceCacheH58.exit282
 
 PrepareDistanceCacheH58.exit282:                  ; preds = %1112, %1163, %1155, %1148, %ComputeDistanceCode.exit
-  %.1.i566 = phi i64 [ %.1.i, %1163 ], [ %.1.i, %1155 ], [ %.1.i, %1148 ], [ %.1.i, %ComputeDistanceCode.exit ], [ 0, %1112 ]
+  %.1.i566 = phi i64 [ %.1.i, %ComputeDistanceCode.exit ], [ %.1.i, %1163 ], [ %.1.i, %1155 ], [ %.1.i, %1148 ], [ 0, %1112 ]
   %1170 = getelementptr inbounds nuw i8, ptr %.0180974, i64 16
   %1171 = trunc i64 %.3185.ph to i32
   store i32 %1171, ptr %.0180974, align 4, !tbaa !146
@@ -7794,10 +7794,10 @@ CombineLengthCodes.exit:                          ; preds = %1263, %GetCopyLengt
   br i1 %1393, label %1372, label %StoreRangeH58.exit, !llvm.loop !371
 
 StoreRangeH58.exit:                               ; preds = %1372, %1339, %1301, %1361, %1328, %1292, %1321
-  %.1190 = phi i64 [ %.0189972, %1321 ], [ %1110, %1292 ], [ %.0189972, %1328 ], [ %.0189972, %1361 ], [ %1110, %1301 ], [ %.0189972, %1339 ], [ %.0189972, %1372 ]
-  %.4186 = phi i64 [ %1322, %1321 ], [ 0, %1292 ], [ %1322, %1328 ], [ %1322, %1361 ], [ 0, %1301 ], [ %1358, %1339 ], [ %1391, %1372 ]
-  %.1181 = phi ptr [ %.0180974, %1321 ], [ %1170, %1292 ], [ %.0180974, %1328 ], [ %.0180974, %1361 ], [ %1170, %1301 ], [ %.0180974, %1339 ], [ %.0180974, %1372 ]
-  %.4 = phi i64 [ %1323, %1321 ], [ %1283, %1292 ], [ %1323, %1328 ], [ %1323, %1361 ], [ %1283, %1301 ], [ %1359, %1339 ], [ %1392, %1372 ]
+  %.1190 = phi i64 [ %1110, %1292 ], [ %.0189972, %1321 ], [ %.0189972, %1328 ], [ %.0189972, %1361 ], [ %.0189972, %1339 ], [ %1110, %1301 ], [ %.0189972, %1372 ]
+  %.4186 = phi i64 [ 0, %1292 ], [ %1322, %1321 ], [ %1322, %1328 ], [ %1322, %1361 ], [ %1358, %1339 ], [ 0, %1301 ], [ %1391, %1372 ]
+  %.1181 = phi ptr [ %1170, %1292 ], [ %.0180974, %1321 ], [ %.0180974, %1328 ], [ %.0180974, %1361 ], [ %.0180974, %1339 ], [ %1170, %1301 ], [ %.0180974, %1372 ]
+  %.4 = phi i64 [ %1283, %1292 ], [ %1323, %1321 ], [ %1323, %1328 ], [ %1323, %1361 ], [ %1359, %1339 ], [ %1283, %1301 ], [ %1392, %1372 ]
   %1394 = add i64 %.4, 4
   %1395 = icmp ult i64 %1394, %21
   br i1 %1395, label %102, label %._crit_edge977, !llvm.loop !372
@@ -8168,7 +8168,7 @@ FindMatchLengthWithLimit.exit209.i:               ; preds = %178, %.critedge.i20
 219:                                              ; preds = %217
   br label %220
 
-220:                                              ; preds = %158, %171, %168, %205, %219, %217, %202
+220:                                              ; preds = %168, %158, %202, %171, %205, %219, %217
   %.sroa.29419.16.ph = phi i64 [ %.sroa.29419.7646, %171 ], [ %.sroa.29419.7646, %202 ], [ %.sroa.29419.7646, %205 ], [ %.sroa.29419.7646, %217 ], [ %.0175.i, %219 ], [ %.sroa.29419.7646, %168 ], [ %.sroa.29419.7646, %158 ]
   %.sroa.18415.16.ph = phi i64 [ %.sroa.18415.7647, %171 ], [ %.sroa.18415.7647, %202 ], [ %.sroa.18415.7647, %205 ], [ %.sroa.18415.7647, %217 ], [ %161, %219 ], [ %.sroa.18415.7647, %168 ], [ %.sroa.18415.7647, %158 ]
   %.sroa.0407.16.ph = phi i64 [ %.sroa.0407.7648, %171 ], [ %.sroa.0407.7648, %202 ], [ %.sroa.0407.7648, %205 ], [ %.sroa.0407.7648, %217 ], [ %.2.i205.i, %219 ], [ %.sroa.0407.7648, %168 ], [ %.sroa.0407.7648, %158 ]
@@ -8394,7 +8394,7 @@ FindMatchLengthWithLimit.exit.i297:               ; preds = %292, %.critedge.i.i
 323:                                              ; preds = %FindMatchLengthWithLimit.exit.i297
   br label %324
 
-324:                                              ; preds = %283, %280, %288, %323, %FindMatchLengthWithLimit.exit.i297
+324:                                              ; preds = %288, %280, %283, %323, %FindMatchLengthWithLimit.exit.i297
   %.sroa.29419.10.ph = phi i64 [ %.sroa.29419.9688, %283 ], [ %.sroa.29419.9688, %288 ], [ %.sroa.29419.9688, %FindMatchLengthWithLimit.exit.i297 ], [ %321, %323 ], [ %.sroa.29419.9688, %280 ]
   %.sroa.18415.10.ph = phi i64 [ %.sroa.18415.9689, %283 ], [ %.sroa.18415.9689, %288 ], [ %.sroa.18415.9689, %FindMatchLengthWithLimit.exit.i297 ], [ %274, %323 ], [ %.sroa.18415.9689, %280 ]
   %.sroa.0407.10.ph = phi i64 [ %.sroa.0407.9690, %283 ], [ %.sroa.0407.9690, %288 ], [ %.sroa.0407.9690, %FindMatchLengthWithLimit.exit.i297 ], [ %315, %323 ], [ %.sroa.0407.9690, %280 ]
@@ -9205,7 +9205,7 @@ FindMatchLengthWithLimit.exit209.i384:            ; preds = %684, %.critedge.i20
 725:                                              ; preds = %723
   br label %726
 
-726:                                              ; preds = %664, %677, %674, %711, %725, %723, %708
+726:                                              ; preds = %674, %664, %708, %677, %711, %725, %723
   %.sroa.18.14.ph = phi i64 [ %.sroa.18.5820, %677 ], [ %.sroa.18.5820, %708 ], [ %.sroa.18.5820, %711 ], [ %.sroa.18.5820, %723 ], [ %.0175.i389, %725 ], [ %.sroa.18.5820, %674 ], [ %.sroa.18.5820, %664 ]
   %.sroa.12.14.ph = phi i64 [ %.sroa.12.5821, %677 ], [ %.sroa.12.5821, %708 ], [ %.sroa.12.5821, %711 ], [ %.sroa.12.5821, %723 ], [ %667, %725 ], [ %.sroa.12.5821, %674 ], [ %.sroa.12.5821, %664 ]
   %.sroa.0.14.ph = phi i64 [ %.sroa.0.5822, %677 ], [ %.sroa.0.5822, %708 ], [ %.sroa.0.5822, %711 ], [ %.sroa.0.5822, %723 ], [ %.2.i205.i385, %725 ], [ %.sroa.0.5822, %674 ], [ %.sroa.0.5822, %664 ]
@@ -9417,7 +9417,7 @@ FindMatchLengthWithLimit.exit.i362:               ; preds = %793, %.critedge.i.i
 824:                                              ; preds = %FindMatchLengthWithLimit.exit.i362
   br label %825
 
-825:                                              ; preds = %784, %781, %789, %824, %FindMatchLengthWithLimit.exit.i362
+825:                                              ; preds = %789, %781, %784, %824, %FindMatchLengthWithLimit.exit.i362
   %.sroa.18.8.ph = phi i64 [ %.sroa.18.7866, %784 ], [ %.sroa.18.7866, %789 ], [ %.sroa.18.7866, %FindMatchLengthWithLimit.exit.i362 ], [ %822, %824 ], [ %.sroa.18.7866, %781 ]
   %.sroa.12.8.ph = phi i64 [ %.sroa.12.7867, %784 ], [ %.sroa.12.7867, %789 ], [ %.sroa.12.7867, %FindMatchLengthWithLimit.exit.i362 ], [ %775, %824 ], [ %.sroa.12.7867, %781 ]
   %.sroa.0.8.ph = phi i64 [ %.sroa.0.7868, %784 ], [ %.sroa.0.7868, %789 ], [ %.sroa.0.7868, %FindMatchLengthWithLimit.exit.i362 ], [ %816, %824 ], [ %.sroa.0.7868, %781 ]
@@ -10076,8 +10076,8 @@ split:                                            ; preds = %1107, %LookupCompou
   %1150 = add i64 %.sroa.18415.1.ph, 15
   br label %ComputeDistanceCode.exit
 
-ComputeDistanceCode.exit:                         ; preds = %1142, %1126, %1137, %1130, %1146, %1149
-  %.1.i = phi i64 [ %1150, %1149 ], [ 3, %1146 ], [ 2, %1142 ], [ 1, %1126 ], [ %1141, %1137 ], [ %1134, %1130 ]
+ComputeDistanceCode.exit:                         ; preds = %1126, %1137, %1130, %1142, %1146, %1149
+  %.1.i = phi i64 [ %1150, %1149 ], [ 3, %1146 ], [ 1, %1126 ], [ %1141, %1137 ], [ %1134, %1130 ], [ 2, %1142 ]
   %1151 = icmp ule i64 %.sroa.18415.1.ph, %1116
   %1152 = icmp ne i64 %.1.i, 0
   %or.cond = select i1 %1151, i1 %1152, i1 false
@@ -10130,7 +10130,7 @@ ComputeDistanceCode.exit:                         ; preds = %1142, %1126, %1137,
   br label %PrepareDistanceCacheH68.exit282
 
 PrepareDistanceCacheH68.exit282:                  ; preds = %1117, %1168, %1160, %1153, %ComputeDistanceCode.exit
-  %.1.i568 = phi i64 [ %.1.i, %1168 ], [ %.1.i, %1160 ], [ %.1.i, %1153 ], [ %.1.i, %ComputeDistanceCode.exit ], [ 0, %1117 ]
+  %.1.i568 = phi i64 [ %.1.i, %ComputeDistanceCode.exit ], [ %.1.i, %1168 ], [ %.1.i, %1160 ], [ %.1.i, %1153 ], [ 0, %1117 ]
   %1175 = getelementptr inbounds nuw i8, ptr %.0180976, i64 16
   %1176 = trunc i64 %.3185.ph to i32
   store i32 %1176, ptr %.0180976, align 4, !tbaa !146
@@ -10469,10 +10469,10 @@ CombineLengthCodes.exit:                          ; preds = %1268, %GetCopyLengt
   br i1 %1395, label %1375, label %StoreRangeH68.exit, !llvm.loop !477
 
 StoreRangeH68.exit:                               ; preds = %1375, %1343, %1306, %1364, %1332, %1297, %1325
-  %.1190 = phi i64 [ %.0189974, %1325 ], [ %1115, %1297 ], [ %.0189974, %1332 ], [ %.0189974, %1364 ], [ %1115, %1306 ], [ %.0189974, %1343 ], [ %.0189974, %1375 ]
-  %.4186 = phi i64 [ %1326, %1325 ], [ 0, %1297 ], [ %1326, %1332 ], [ %1326, %1364 ], [ 0, %1306 ], [ %1361, %1343 ], [ %1393, %1375 ]
-  %.1181 = phi ptr [ %.0180976, %1325 ], [ %1175, %1297 ], [ %.0180976, %1332 ], [ %.0180976, %1364 ], [ %1175, %1306 ], [ %.0180976, %1343 ], [ %.0180976, %1375 ]
-  %.4 = phi i64 [ %1327, %1325 ], [ %1288, %1297 ], [ %1327, %1332 ], [ %1327, %1364 ], [ %1288, %1306 ], [ %1362, %1343 ], [ %1394, %1375 ]
+  %.1190 = phi i64 [ %1115, %1297 ], [ %.0189974, %1325 ], [ %.0189974, %1332 ], [ %.0189974, %1364 ], [ %.0189974, %1343 ], [ %1115, %1306 ], [ %.0189974, %1375 ]
+  %.4186 = phi i64 [ 0, %1297 ], [ %1326, %1325 ], [ %1326, %1332 ], [ %1326, %1364 ], [ %1361, %1343 ], [ 0, %1306 ], [ %1393, %1375 ]
+  %.1181 = phi ptr [ %1175, %1297 ], [ %.0180976, %1325 ], [ %.0180976, %1332 ], [ %.0180976, %1364 ], [ %.0180976, %1343 ], [ %1175, %1306 ], [ %.0180976, %1375 ]
+  %.4 = phi i64 [ %1288, %1297 ], [ %1327, %1325 ], [ %1327, %1332 ], [ %1327, %1364 ], [ %1362, %1343 ], [ %1288, %1306 ], [ %1394, %1375 ]
   %1396 = add i64 %.4, 8
   %1397 = icmp ult i64 %1396, %21
   br i1 %1397, label %101, label %._crit_edge979, !llvm.loop !478
@@ -10892,11 +10892,11 @@ FindMatchLengthWithLimit.exit.i302:               ; preds = %187, %.critedge.i.i
   br label %220
 
 220:                                              ; preds = %219, %211, %FindMatchLengthWithLimit.exit.i302, %180, %177, %167
-  %.sroa.29430.9 = phi i64 [ %.sroa.29430.8647, %167 ], [ %.sroa.29430.8647, %177 ], [ %217, %219 ], [ %.sroa.29430.8647, %211 ], [ %.sroa.29430.8647, %FindMatchLengthWithLimit.exit.i302 ], [ %.sroa.29430.8647, %180 ]
-  %.sroa.18426.9 = phi i64 [ %.sroa.18426.8648, %167 ], [ %.sroa.18426.8648, %177 ], [ %165, %219 ], [ %.sroa.18426.8648, %211 ], [ %.sroa.18426.8648, %FindMatchLengthWithLimit.exit.i302 ], [ %.sroa.18426.8648, %180 ]
-  %.sroa.0418.9 = phi i64 [ %.sroa.0418.8649, %167 ], [ %.sroa.0418.8649, %177 ], [ %.2.i.i303, %219 ], [ %.sroa.0418.8649, %211 ], [ %.sroa.0418.8649, %FindMatchLengthWithLimit.exit.i302 ], [ %.sroa.0418.8649, %180 ]
-  %.5124.i = phi i64 [ %.4123.i652, %167 ], [ %.4123.i652, %177 ], [ %.2.i.i303, %219 ], [ %.4123.i652, %211 ], [ %.4123.i652, %FindMatchLengthWithLimit.exit.i302 ], [ %.4123.i652, %180 ]
-  %.5.i292 = phi i64 [ %.4.i286653, %167 ], [ %.4.i286653, %177 ], [ %217, %219 ], [ %.4.i286653, %211 ], [ %.4.i286653, %FindMatchLengthWithLimit.exit.i302 ], [ %.4.i286653, %180 ]
+  %.sroa.29430.9 = phi i64 [ %.sroa.29430.8647, %180 ], [ %.sroa.29430.8647, %167 ], [ %.sroa.29430.8647, %177 ], [ %217, %219 ], [ %.sroa.29430.8647, %211 ], [ %.sroa.29430.8647, %FindMatchLengthWithLimit.exit.i302 ]
+  %.sroa.18426.9 = phi i64 [ %.sroa.18426.8648, %180 ], [ %.sroa.18426.8648, %167 ], [ %.sroa.18426.8648, %177 ], [ %165, %219 ], [ %.sroa.18426.8648, %211 ], [ %.sroa.18426.8648, %FindMatchLengthWithLimit.exit.i302 ]
+  %.sroa.0418.9 = phi i64 [ %.sroa.0418.8649, %180 ], [ %.sroa.0418.8649, %167 ], [ %.sroa.0418.8649, %177 ], [ %.2.i.i303, %219 ], [ %.sroa.0418.8649, %211 ], [ %.sroa.0418.8649, %FindMatchLengthWithLimit.exit.i302 ]
+  %.5124.i = phi i64 [ %.4123.i652, %180 ], [ %.4123.i652, %167 ], [ %.4123.i652, %177 ], [ %.2.i.i303, %219 ], [ %.4123.i652, %211 ], [ %.4123.i652, %FindMatchLengthWithLimit.exit.i302 ]
+  %.5.i292 = phi i64 [ %.4.i286653, %180 ], [ %.4.i286653, %167 ], [ %.4.i286653, %177 ], [ %217, %219 ], [ %.4.i286653, %211 ], [ %.4.i286653, %FindMatchLengthWithLimit.exit.i302 ]
   %.not.i287 = icmp eq i64 %164, 0
   br i1 %.not.i287, label %.thread446, label %163
 
@@ -11820,11 +11820,11 @@ FindMatchLengthWithLimit.exit.i367:               ; preds = %633, %.critedge.i.i
   br label %666
 
 666:                                              ; preds = %665, %657, %FindMatchLengthWithLimit.exit.i367, %626, %623, %613
-  %.sroa.18.7 = phi i64 [ %.sroa.18.6796, %613 ], [ %.sroa.18.6796, %623 ], [ %663, %665 ], [ %.sroa.18.6796, %657 ], [ %.sroa.18.6796, %FindMatchLengthWithLimit.exit.i367 ], [ %.sroa.18.6796, %626 ]
-  %.sroa.12.7 = phi i64 [ %.sroa.12.6797, %613 ], [ %.sroa.12.6797, %623 ], [ %611, %665 ], [ %.sroa.12.6797, %657 ], [ %.sroa.12.6797, %FindMatchLengthWithLimit.exit.i367 ], [ %.sroa.12.6797, %626 ]
-  %.sroa.0.7 = phi i64 [ %.sroa.0.6798, %613 ], [ %.sroa.0.6798, %623 ], [ %.2.i.i368, %665 ], [ %.sroa.0.6798, %657 ], [ %.sroa.0.6798, %FindMatchLengthWithLimit.exit.i367 ], [ %.sroa.0.6798, %626 ]
-  %.5124.i331 = phi i64 [ %.4123.i322801, %613 ], [ %.4123.i322801, %623 ], [ %.2.i.i368, %665 ], [ %.4123.i322801, %657 ], [ %.4123.i322801, %FindMatchLengthWithLimit.exit.i367 ], [ %.4123.i322801, %626 ]
-  %.5.i332 = phi i64 [ %.4.i323802, %613 ], [ %.4.i323802, %623 ], [ %663, %665 ], [ %.4.i323802, %657 ], [ %.4.i323802, %FindMatchLengthWithLimit.exit.i367 ], [ %.4.i323802, %626 ]
+  %.sroa.18.7 = phi i64 [ %.sroa.18.6796, %626 ], [ %.sroa.18.6796, %613 ], [ %.sroa.18.6796, %623 ], [ %663, %665 ], [ %.sroa.18.6796, %657 ], [ %.sroa.18.6796, %FindMatchLengthWithLimit.exit.i367 ]
+  %.sroa.12.7 = phi i64 [ %.sroa.12.6797, %626 ], [ %.sroa.12.6797, %613 ], [ %.sroa.12.6797, %623 ], [ %611, %665 ], [ %.sroa.12.6797, %657 ], [ %.sroa.12.6797, %FindMatchLengthWithLimit.exit.i367 ]
+  %.sroa.0.7 = phi i64 [ %.sroa.0.6798, %626 ], [ %.sroa.0.6798, %613 ], [ %.sroa.0.6798, %623 ], [ %.2.i.i368, %665 ], [ %.sroa.0.6798, %657 ], [ %.sroa.0.6798, %FindMatchLengthWithLimit.exit.i367 ]
+  %.5124.i331 = phi i64 [ %.4123.i322801, %626 ], [ %.4123.i322801, %613 ], [ %.4123.i322801, %623 ], [ %.2.i.i368, %665 ], [ %.4123.i322801, %657 ], [ %.4123.i322801, %FindMatchLengthWithLimit.exit.i367 ]
+  %.5.i332 = phi i64 [ %.4.i323802, %626 ], [ %.4.i323802, %613 ], [ %.4.i323802, %623 ], [ %663, %665 ], [ %.4.i323802, %657 ], [ %.4.i323802, %FindMatchLengthWithLimit.exit.i367 ]
   %.not.i324 = icmp eq i64 %610, 0
   br i1 %.not.i324, label %.thread486, label %609
 
@@ -12483,8 +12483,8 @@ split:                                            ; preds = %948, %LookupCompoun
   %991 = add i64 %.sroa.18426.1.ph, 15
   br label %ComputeDistanceCode.exit
 
-ComputeDistanceCode.exit:                         ; preds = %983, %967, %978, %971, %987, %990
-  %.1.i = phi i64 [ %991, %990 ], [ 3, %987 ], [ 2, %983 ], [ 1, %967 ], [ %982, %978 ], [ %975, %971 ]
+ComputeDistanceCode.exit:                         ; preds = %967, %978, %971, %983, %987, %990
+  %.1.i = phi i64 [ %991, %990 ], [ 3, %987 ], [ 1, %967 ], [ %982, %978 ], [ %975, %971 ], [ 2, %983 ]
   %992 = icmp ule i64 %.sroa.18426.1.ph, %957
   %993 = icmp ne i64 %.1.i, 0
   %or.cond = select i1 %992, i1 %993, i1 false
@@ -12502,7 +12502,7 @@ ComputeDistanceCode.exit:                         ; preds = %983, %967, %978, %9
   br label %ComputeDistanceCode.exit.thread
 
 ComputeDistanceCode.exit.thread:                  ; preds = %958, %994, %ComputeDistanceCode.exit
-  %.1.i545 = phi i64 [ %.1.i, %994 ], [ %.1.i, %ComputeDistanceCode.exit ], [ 0, %958 ]
+  %.1.i545 = phi i64 [ %.1.i, %ComputeDistanceCode.exit ], [ %.1.i, %994 ], [ 0, %958 ]
   %999 = getelementptr inbounds nuw i8, ptr %.0180901, i64 16
   %1000 = trunc i64 %.3185.ph to i32
   store i32 %1000, ptr %.0180901, align 4, !tbaa !146
@@ -12856,19 +12856,19 @@ CombineLengthCodes.exit:                          ; preds = %1092, %GetCopyLengt
   br i1 %1222, label %1198, label %StoreRangeH40.exit.sink.split, !llvm.loop !584
 
 StoreRangeH40.exit.sink.split:                    ; preds = %1198, %1165, %1127
-  %.lcssa1165.sink = phi i16 [ %1134, %1127 ], [ %1172, %1165 ], [ %1205, %1198 ]
-  %.1190.ph = phi i64 [ %956, %1127 ], [ %.0189899, %1165 ], [ %.0189899, %1198 ]
-  %.4186.ph = phi i64 [ 0, %1127 ], [ %1187, %1165 ], [ %1220, %1198 ]
-  %.1181.ph = phi ptr [ %999, %1127 ], [ %.0180901, %1165 ], [ %.0180901, %1198 ]
-  %.4.ph = phi i64 [ %1112, %1127 ], [ %1188, %1165 ], [ %1221, %1198 ]
+  %.lcssa1165.sink = phi i16 [ %1172, %1165 ], [ %1134, %1127 ], [ %1205, %1198 ]
+  %.1190.ph = phi i64 [ %.0189899, %1165 ], [ %956, %1127 ], [ %.0189899, %1198 ]
+  %.4186.ph = phi i64 [ %1187, %1165 ], [ 0, %1127 ], [ %1220, %1198 ]
+  %.1181.ph = phi ptr [ %.0180901, %1165 ], [ %999, %1127 ], [ %.0180901, %1198 ]
+  %.4.ph = phi i64 [ %1188, %1165 ], [ %1112, %1127 ], [ %1221, %1198 ]
   store i16 %.lcssa1165.sink, ptr %13, align 2, !tbaa !67, !noalias !585
   br label %StoreRangeH40.exit
 
 StoreRangeH40.exit:                               ; preds = %StoreRangeH40.exit.sink.split, %1190, %1157, %1121, %1150
-  %.1190 = phi i64 [ %.0189899, %1150 ], [ %956, %1121 ], [ %.0189899, %1157 ], [ %.0189899, %1190 ], [ %.1190.ph, %StoreRangeH40.exit.sink.split ]
-  %.4186 = phi i64 [ %1151, %1150 ], [ 0, %1121 ], [ %1151, %1157 ], [ %1151, %1190 ], [ %.4186.ph, %StoreRangeH40.exit.sink.split ]
-  %.1181 = phi ptr [ %.0180901, %1150 ], [ %999, %1121 ], [ %.0180901, %1157 ], [ %.0180901, %1190 ], [ %.1181.ph, %StoreRangeH40.exit.sink.split ]
-  %.4 = phi i64 [ %1152, %1150 ], [ %1112, %1121 ], [ %1152, %1157 ], [ %1152, %1190 ], [ %.4.ph, %StoreRangeH40.exit.sink.split ]
+  %.1190 = phi i64 [ %956, %1121 ], [ %.0189899, %1150 ], [ %.0189899, %1157 ], [ %.0189899, %1190 ], [ %.1190.ph, %StoreRangeH40.exit.sink.split ]
+  %.4186 = phi i64 [ 0, %1121 ], [ %1151, %1150 ], [ %1151, %1157 ], [ %1151, %1190 ], [ %.4186.ph, %StoreRangeH40.exit.sink.split ]
+  %.1181 = phi ptr [ %999, %1121 ], [ %.0180901, %1150 ], [ %.0180901, %1157 ], [ %.0180901, %1190 ], [ %.1181.ph, %StoreRangeH40.exit.sink.split ]
+  %.4 = phi i64 [ %1112, %1121 ], [ %1152, %1150 ], [ %1152, %1157 ], [ %1152, %1190 ], [ %.4.ph, %StoreRangeH40.exit.sink.split ]
   %1223 = add i64 %.4, 4
   %1224 = icmp ult i64 %1223, %22
   br i1 %1224, label %54, label %._crit_edge, !llvm.loop !586
@@ -13307,11 +13307,11 @@ FindMatchLengthWithLimit.exit.i302:               ; preds = %200, %.critedge.i.i
   br label %233
 
 233:                                              ; preds = %232, %224, %FindMatchLengthWithLimit.exit.i302, %193, %190, %180
-  %.sroa.29430.9 = phi i64 [ %.sroa.29430.8647, %180 ], [ %.sroa.29430.8647, %190 ], [ %230, %232 ], [ %.sroa.29430.8647, %224 ], [ %.sroa.29430.8647, %FindMatchLengthWithLimit.exit.i302 ], [ %.sroa.29430.8647, %193 ]
-  %.sroa.18426.9 = phi i64 [ %.sroa.18426.8648, %180 ], [ %.sroa.18426.8648, %190 ], [ %178, %232 ], [ %.sroa.18426.8648, %224 ], [ %.sroa.18426.8648, %FindMatchLengthWithLimit.exit.i302 ], [ %.sroa.18426.8648, %193 ]
-  %.sroa.0418.9 = phi i64 [ %.sroa.0418.8649, %180 ], [ %.sroa.0418.8649, %190 ], [ %.2.i.i303, %232 ], [ %.sroa.0418.8649, %224 ], [ %.sroa.0418.8649, %FindMatchLengthWithLimit.exit.i302 ], [ %.sroa.0418.8649, %193 ]
-  %.5124.i = phi i64 [ %.4123.i652, %180 ], [ %.4123.i652, %190 ], [ %.2.i.i303, %232 ], [ %.4123.i652, %224 ], [ %.4123.i652, %FindMatchLengthWithLimit.exit.i302 ], [ %.4123.i652, %193 ]
-  %.5.i292 = phi i64 [ %.4.i286653, %180 ], [ %.4.i286653, %190 ], [ %230, %232 ], [ %.4.i286653, %224 ], [ %.4.i286653, %FindMatchLengthWithLimit.exit.i302 ], [ %.4.i286653, %193 ]
+  %.sroa.29430.9 = phi i64 [ %.sroa.29430.8647, %193 ], [ %.sroa.29430.8647, %180 ], [ %.sroa.29430.8647, %190 ], [ %230, %232 ], [ %.sroa.29430.8647, %224 ], [ %.sroa.29430.8647, %FindMatchLengthWithLimit.exit.i302 ]
+  %.sroa.18426.9 = phi i64 [ %.sroa.18426.8648, %193 ], [ %.sroa.18426.8648, %180 ], [ %.sroa.18426.8648, %190 ], [ %178, %232 ], [ %.sroa.18426.8648, %224 ], [ %.sroa.18426.8648, %FindMatchLengthWithLimit.exit.i302 ]
+  %.sroa.0418.9 = phi i64 [ %.sroa.0418.8649, %193 ], [ %.sroa.0418.8649, %180 ], [ %.sroa.0418.8649, %190 ], [ %.2.i.i303, %232 ], [ %.sroa.0418.8649, %224 ], [ %.sroa.0418.8649, %FindMatchLengthWithLimit.exit.i302 ]
+  %.5124.i = phi i64 [ %.4123.i652, %193 ], [ %.4123.i652, %180 ], [ %.4123.i652, %190 ], [ %.2.i.i303, %232 ], [ %.4123.i652, %224 ], [ %.4123.i652, %FindMatchLengthWithLimit.exit.i302 ]
+  %.5.i292 = phi i64 [ %.4.i286653, %193 ], [ %.4.i286653, %180 ], [ %.4.i286653, %190 ], [ %230, %232 ], [ %.4.i286653, %224 ], [ %.4.i286653, %FindMatchLengthWithLimit.exit.i302 ]
   %.not.i287 = icmp eq i64 %177, 0
   br i1 %.not.i287, label %.thread446, label %176
 
@@ -14235,11 +14235,11 @@ FindMatchLengthWithLimit.exit.i367:               ; preds = %646, %.critedge.i.i
   br label %679
 
 679:                                              ; preds = %678, %670, %FindMatchLengthWithLimit.exit.i367, %639, %636, %626
-  %.sroa.18.7 = phi i64 [ %.sroa.18.6796, %626 ], [ %.sroa.18.6796, %636 ], [ %676, %678 ], [ %.sroa.18.6796, %670 ], [ %.sroa.18.6796, %FindMatchLengthWithLimit.exit.i367 ], [ %.sroa.18.6796, %639 ]
-  %.sroa.12.7 = phi i64 [ %.sroa.12.6797, %626 ], [ %.sroa.12.6797, %636 ], [ %624, %678 ], [ %.sroa.12.6797, %670 ], [ %.sroa.12.6797, %FindMatchLengthWithLimit.exit.i367 ], [ %.sroa.12.6797, %639 ]
-  %.sroa.0.7 = phi i64 [ %.sroa.0.6798, %626 ], [ %.sroa.0.6798, %636 ], [ %.2.i.i368, %678 ], [ %.sroa.0.6798, %670 ], [ %.sroa.0.6798, %FindMatchLengthWithLimit.exit.i367 ], [ %.sroa.0.6798, %639 ]
-  %.5124.i331 = phi i64 [ %.4123.i322801, %626 ], [ %.4123.i322801, %636 ], [ %.2.i.i368, %678 ], [ %.4123.i322801, %670 ], [ %.4123.i322801, %FindMatchLengthWithLimit.exit.i367 ], [ %.4123.i322801, %639 ]
-  %.5.i332 = phi i64 [ %.4.i323802, %626 ], [ %.4.i323802, %636 ], [ %676, %678 ], [ %.4.i323802, %670 ], [ %.4.i323802, %FindMatchLengthWithLimit.exit.i367 ], [ %.4.i323802, %639 ]
+  %.sroa.18.7 = phi i64 [ %.sroa.18.6796, %639 ], [ %.sroa.18.6796, %626 ], [ %.sroa.18.6796, %636 ], [ %676, %678 ], [ %.sroa.18.6796, %670 ], [ %.sroa.18.6796, %FindMatchLengthWithLimit.exit.i367 ]
+  %.sroa.12.7 = phi i64 [ %.sroa.12.6797, %639 ], [ %.sroa.12.6797, %626 ], [ %.sroa.12.6797, %636 ], [ %624, %678 ], [ %.sroa.12.6797, %670 ], [ %.sroa.12.6797, %FindMatchLengthWithLimit.exit.i367 ]
+  %.sroa.0.7 = phi i64 [ %.sroa.0.6798, %639 ], [ %.sroa.0.6798, %626 ], [ %.sroa.0.6798, %636 ], [ %.2.i.i368, %678 ], [ %.sroa.0.6798, %670 ], [ %.sroa.0.6798, %FindMatchLengthWithLimit.exit.i367 ]
+  %.5124.i331 = phi i64 [ %.4123.i322801, %639 ], [ %.4123.i322801, %626 ], [ %.4123.i322801, %636 ], [ %.2.i.i368, %678 ], [ %.4123.i322801, %670 ], [ %.4123.i322801, %FindMatchLengthWithLimit.exit.i367 ]
+  %.5.i332 = phi i64 [ %.4.i323802, %639 ], [ %.4.i323802, %626 ], [ %.4.i323802, %636 ], [ %676, %678 ], [ %.4.i323802, %670 ], [ %.4.i323802, %FindMatchLengthWithLimit.exit.i367 ]
   %.not.i324 = icmp eq i64 %623, 0
   br i1 %.not.i324, label %.thread486, label %622
 
@@ -14898,8 +14898,8 @@ split:                                            ; preds = %961, %LookupCompoun
   %1004 = add i64 %.sroa.18426.1.ph, 15
   br label %ComputeDistanceCode.exit
 
-ComputeDistanceCode.exit:                         ; preds = %996, %980, %991, %984, %1000, %1003
-  %.1.i = phi i64 [ %1004, %1003 ], [ 3, %1000 ], [ 2, %996 ], [ 1, %980 ], [ %995, %991 ], [ %988, %984 ]
+ComputeDistanceCode.exit:                         ; preds = %980, %991, %984, %996, %1000, %1003
+  %.1.i = phi i64 [ %1004, %1003 ], [ 3, %1000 ], [ 1, %980 ], [ %995, %991 ], [ %988, %984 ], [ 2, %996 ]
   %1005 = icmp ule i64 %.sroa.18426.1.ph, %970
   %1006 = icmp ne i64 %.1.i, 0
   %or.cond = select i1 %1005, i1 %1006, i1 false
@@ -14929,7 +14929,7 @@ ComputeDistanceCode.exit:                         ; preds = %996, %980, %991, %9
   br label %ComputeDistanceCode.exit.thread
 
 ComputeDistanceCode.exit.thread:                  ; preds = %971, %1007, %ComputeDistanceCode.exit
-  %.1.i545 = phi i64 [ %.1.i, %1007 ], [ %.1.i, %ComputeDistanceCode.exit ], [ 0, %971 ]
+  %.1.i545 = phi i64 [ %.1.i, %ComputeDistanceCode.exit ], [ %.1.i, %1007 ], [ 0, %971 ]
   %1018 = getelementptr inbounds nuw i8, ptr %.0180901, i64 16
   %1019 = trunc i64 %.3185.ph to i32
   store i32 %1019, ptr %.0180901, align 4, !tbaa !146
@@ -15283,19 +15283,19 @@ CombineLengthCodes.exit:                          ; preds = %1111, %GetCopyLengt
   br i1 %1241, label %1217, label %StoreRangeH41.exit.sink.split, !llvm.loop !701
 
 StoreRangeH41.exit.sink.split:                    ; preds = %1217, %1184, %1146
-  %.lcssa1165.sink = phi i16 [ %1153, %1146 ], [ %1191, %1184 ], [ %1224, %1217 ]
-  %.1190.ph = phi i64 [ %969, %1146 ], [ %.0189899, %1184 ], [ %.0189899, %1217 ]
-  %.4186.ph = phi i64 [ 0, %1146 ], [ %1206, %1184 ], [ %1239, %1217 ]
-  %.1181.ph = phi ptr [ %1018, %1146 ], [ %.0180901, %1184 ], [ %.0180901, %1217 ]
-  %.4.ph = phi i64 [ %1131, %1146 ], [ %1207, %1184 ], [ %1240, %1217 ]
+  %.lcssa1165.sink = phi i16 [ %1191, %1184 ], [ %1153, %1146 ], [ %1224, %1217 ]
+  %.1190.ph = phi i64 [ %.0189899, %1184 ], [ %969, %1146 ], [ %.0189899, %1217 ]
+  %.4186.ph = phi i64 [ %1206, %1184 ], [ 0, %1146 ], [ %1239, %1217 ]
+  %.1181.ph = phi ptr [ %.0180901, %1184 ], [ %1018, %1146 ], [ %.0180901, %1217 ]
+  %.4.ph = phi i64 [ %1207, %1184 ], [ %1131, %1146 ], [ %1240, %1217 ]
   store i16 %.lcssa1165.sink, ptr %13, align 2, !tbaa !67, !noalias !585
   br label %StoreRangeH41.exit
 
 StoreRangeH41.exit:                               ; preds = %StoreRangeH41.exit.sink.split, %1209, %1176, %1140, %1169
-  %.1190 = phi i64 [ %.0189899, %1169 ], [ %969, %1140 ], [ %.0189899, %1176 ], [ %.0189899, %1209 ], [ %.1190.ph, %StoreRangeH41.exit.sink.split ]
-  %.4186 = phi i64 [ %1170, %1169 ], [ 0, %1140 ], [ %1170, %1176 ], [ %1170, %1209 ], [ %.4186.ph, %StoreRangeH41.exit.sink.split ]
-  %.1181 = phi ptr [ %.0180901, %1169 ], [ %1018, %1140 ], [ %.0180901, %1176 ], [ %.0180901, %1209 ], [ %.1181.ph, %StoreRangeH41.exit.sink.split ]
-  %.4 = phi i64 [ %1171, %1169 ], [ %1131, %1140 ], [ %1171, %1176 ], [ %1171, %1209 ], [ %.4.ph, %StoreRangeH41.exit.sink.split ]
+  %.1190 = phi i64 [ %969, %1140 ], [ %.0189899, %1169 ], [ %.0189899, %1176 ], [ %.0189899, %1209 ], [ %.1190.ph, %StoreRangeH41.exit.sink.split ]
+  %.4186 = phi i64 [ 0, %1140 ], [ %1170, %1169 ], [ %1170, %1176 ], [ %1170, %1209 ], [ %.4186.ph, %StoreRangeH41.exit.sink.split ]
+  %.1181 = phi ptr [ %1018, %1140 ], [ %.0180901, %1169 ], [ %.0180901, %1176 ], [ %.0180901, %1209 ], [ %.1181.ph, %StoreRangeH41.exit.sink.split ]
+  %.4 = phi i64 [ %1131, %1140 ], [ %1171, %1169 ], [ %1171, %1176 ], [ %1171, %1209 ], [ %.4.ph, %StoreRangeH41.exit.sink.split ]
   %1242 = add i64 %.4, 4
   %1243 = icmp ult i64 %1242, %22
   br i1 %1243, label %67, label %._crit_edge, !llvm.loop !702
@@ -15755,11 +15755,11 @@ FindMatchLengthWithLimit.exit.i302:               ; preds = %215, %.critedge.i.i
   br label %248
 
 248:                                              ; preds = %247, %239, %FindMatchLengthWithLimit.exit.i302, %208, %205, %195
-  %.sroa.29430.9 = phi i64 [ %.sroa.29430.8647, %195 ], [ %.sroa.29430.8647, %205 ], [ %245, %247 ], [ %.sroa.29430.8647, %239 ], [ %.sroa.29430.8647, %FindMatchLengthWithLimit.exit.i302 ], [ %.sroa.29430.8647, %208 ]
-  %.sroa.18426.9 = phi i64 [ %.sroa.18426.8648, %195 ], [ %.sroa.18426.8648, %205 ], [ %193, %247 ], [ %.sroa.18426.8648, %239 ], [ %.sroa.18426.8648, %FindMatchLengthWithLimit.exit.i302 ], [ %.sroa.18426.8648, %208 ]
-  %.sroa.0418.9 = phi i64 [ %.sroa.0418.8649, %195 ], [ %.sroa.0418.8649, %205 ], [ %.2.i.i303, %247 ], [ %.sroa.0418.8649, %239 ], [ %.sroa.0418.8649, %FindMatchLengthWithLimit.exit.i302 ], [ %.sroa.0418.8649, %208 ]
-  %.5124.i = phi i64 [ %.4123.i652, %195 ], [ %.4123.i652, %205 ], [ %.2.i.i303, %247 ], [ %.4123.i652, %239 ], [ %.4123.i652, %FindMatchLengthWithLimit.exit.i302 ], [ %.4123.i652, %208 ]
-  %.5.i292 = phi i64 [ %.4.i286653, %195 ], [ %.4.i286653, %205 ], [ %245, %247 ], [ %.4.i286653, %239 ], [ %.4.i286653, %FindMatchLengthWithLimit.exit.i302 ], [ %.4.i286653, %208 ]
+  %.sroa.29430.9 = phi i64 [ %.sroa.29430.8647, %208 ], [ %.sroa.29430.8647, %195 ], [ %.sroa.29430.8647, %205 ], [ %245, %247 ], [ %.sroa.29430.8647, %239 ], [ %.sroa.29430.8647, %FindMatchLengthWithLimit.exit.i302 ]
+  %.sroa.18426.9 = phi i64 [ %.sroa.18426.8648, %208 ], [ %.sroa.18426.8648, %195 ], [ %.sroa.18426.8648, %205 ], [ %193, %247 ], [ %.sroa.18426.8648, %239 ], [ %.sroa.18426.8648, %FindMatchLengthWithLimit.exit.i302 ]
+  %.sroa.0418.9 = phi i64 [ %.sroa.0418.8649, %208 ], [ %.sroa.0418.8649, %195 ], [ %.sroa.0418.8649, %205 ], [ %.2.i.i303, %247 ], [ %.sroa.0418.8649, %239 ], [ %.sroa.0418.8649, %FindMatchLengthWithLimit.exit.i302 ]
+  %.5124.i = phi i64 [ %.4123.i652, %208 ], [ %.4123.i652, %195 ], [ %.4123.i652, %205 ], [ %.2.i.i303, %247 ], [ %.4123.i652, %239 ], [ %.4123.i652, %FindMatchLengthWithLimit.exit.i302 ]
+  %.5.i292 = phi i64 [ %.4.i286653, %208 ], [ %.4.i286653, %195 ], [ %.4.i286653, %205 ], [ %245, %247 ], [ %.4.i286653, %239 ], [ %.4.i286653, %FindMatchLengthWithLimit.exit.i302 ]
   %.not.i287 = icmp eq i64 %192, 0
   br i1 %.not.i287, label %.thread446, label %191
 
@@ -16683,11 +16683,11 @@ FindMatchLengthWithLimit.exit.i367:               ; preds = %664, %.critedge.i.i
   br label %697
 
 697:                                              ; preds = %696, %688, %FindMatchLengthWithLimit.exit.i367, %657, %654, %644
-  %.sroa.18.7 = phi i64 [ %.sroa.18.6793, %644 ], [ %.sroa.18.6793, %654 ], [ %694, %696 ], [ %.sroa.18.6793, %688 ], [ %.sroa.18.6793, %FindMatchLengthWithLimit.exit.i367 ], [ %.sroa.18.6793, %657 ]
-  %.sroa.12.7 = phi i64 [ %.sroa.12.6794, %644 ], [ %.sroa.12.6794, %654 ], [ %642, %696 ], [ %.sroa.12.6794, %688 ], [ %.sroa.12.6794, %FindMatchLengthWithLimit.exit.i367 ], [ %.sroa.12.6794, %657 ]
-  %.sroa.0.7 = phi i64 [ %.sroa.0.6795, %644 ], [ %.sroa.0.6795, %654 ], [ %.2.i.i368, %696 ], [ %.sroa.0.6795, %688 ], [ %.sroa.0.6795, %FindMatchLengthWithLimit.exit.i367 ], [ %.sroa.0.6795, %657 ]
-  %.5124.i331 = phi i64 [ %.4123.i322798, %644 ], [ %.4123.i322798, %654 ], [ %.2.i.i368, %696 ], [ %.4123.i322798, %688 ], [ %.4123.i322798, %FindMatchLengthWithLimit.exit.i367 ], [ %.4123.i322798, %657 ]
-  %.5.i332 = phi i64 [ %.4.i323799, %644 ], [ %.4.i323799, %654 ], [ %694, %696 ], [ %.4.i323799, %688 ], [ %.4.i323799, %FindMatchLengthWithLimit.exit.i367 ], [ %.4.i323799, %657 ]
+  %.sroa.18.7 = phi i64 [ %.sroa.18.6793, %657 ], [ %.sroa.18.6793, %644 ], [ %.sroa.18.6793, %654 ], [ %694, %696 ], [ %.sroa.18.6793, %688 ], [ %.sroa.18.6793, %FindMatchLengthWithLimit.exit.i367 ]
+  %.sroa.12.7 = phi i64 [ %.sroa.12.6794, %657 ], [ %.sroa.12.6794, %644 ], [ %.sroa.12.6794, %654 ], [ %642, %696 ], [ %.sroa.12.6794, %688 ], [ %.sroa.12.6794, %FindMatchLengthWithLimit.exit.i367 ]
+  %.sroa.0.7 = phi i64 [ %.sroa.0.6795, %657 ], [ %.sroa.0.6795, %644 ], [ %.sroa.0.6795, %654 ], [ %.2.i.i368, %696 ], [ %.sroa.0.6795, %688 ], [ %.sroa.0.6795, %FindMatchLengthWithLimit.exit.i367 ]
+  %.5124.i331 = phi i64 [ %.4123.i322798, %657 ], [ %.4123.i322798, %644 ], [ %.4123.i322798, %654 ], [ %.2.i.i368, %696 ], [ %.4123.i322798, %688 ], [ %.4123.i322798, %FindMatchLengthWithLimit.exit.i367 ]
+  %.5.i332 = phi i64 [ %.4.i323799, %657 ], [ %.4.i323799, %644 ], [ %.4.i323799, %654 ], [ %694, %696 ], [ %.4.i323799, %688 ], [ %.4.i323799, %FindMatchLengthWithLimit.exit.i367 ]
   %.not.i324 = icmp eq i64 %641, 0
   br i1 %.not.i324, label %.thread486, label %640
 
@@ -17350,8 +17350,8 @@ split:                                            ; preds = %983, %LookupCompoun
   %1026 = add i64 %.sroa.18426.1.ph, 15
   br label %ComputeDistanceCode.exit
 
-ComputeDistanceCode.exit:                         ; preds = %1018, %1002, %1013, %1006, %1022, %1025
-  %.1.i = phi i64 [ %1026, %1025 ], [ 3, %1022 ], [ 2, %1018 ], [ 1, %1002 ], [ %1017, %1013 ], [ %1010, %1006 ]
+ComputeDistanceCode.exit:                         ; preds = %1002, %1013, %1006, %1018, %1022, %1025
+  %.1.i = phi i64 [ %1026, %1025 ], [ 3, %1022 ], [ 1, %1002 ], [ %1017, %1013 ], [ %1010, %1006 ], [ 2, %1018 ]
   %1027 = icmp ule i64 %.sroa.18426.1.ph, %992
   %1028 = icmp ne i64 %.1.i, 0
   %or.cond = select i1 %1027, i1 %1028, i1 false
@@ -17393,7 +17393,7 @@ ComputeDistanceCode.exit:                         ; preds = %1018, %1002, %1013,
   br label %ComputeDistanceCode.exit.thread
 
 ComputeDistanceCode.exit.thread:                  ; preds = %993, %1029, %ComputeDistanceCode.exit
-  %.1.i545 = phi i64 [ %.1.i, %1029 ], [ %.1.i, %ComputeDistanceCode.exit ], [ 0, %993 ]
+  %.1.i545 = phi i64 [ %.1.i, %ComputeDistanceCode.exit ], [ %.1.i, %1029 ], [ 0, %993 ]
   %1046 = getelementptr inbounds nuw i8, ptr %.0180895, i64 16
   %1047 = trunc i64 %.3185.ph to i32
   store i32 %1047, ptr %.0180895, align 4, !tbaa !146
@@ -17759,10 +17759,10 @@ CombineLengthCodes.exit:                          ; preds = %1139, %GetCopyLengt
   br i1 %1281, label %1253, label %StoreRangeH42.exit, !llvm.loop !817
 
 StoreRangeH42.exit:                               ; preds = %1253, %1216, %1174, %1245, %1208, %1168, %1201
-  %.1190 = phi i64 [ %.0189893, %1201 ], [ %991, %1168 ], [ %.0189893, %1208 ], [ %.0189893, %1245 ], [ %991, %1174 ], [ %.0189893, %1216 ], [ %.0189893, %1253 ]
-  %.4186 = phi i64 [ %1202, %1201 ], [ 0, %1168 ], [ %1202, %1208 ], [ %1202, %1245 ], [ 0, %1174 ], [ %1242, %1216 ], [ %1279, %1253 ]
-  %.1181 = phi ptr [ %.0180895, %1201 ], [ %1046, %1168 ], [ %.0180895, %1208 ], [ %.0180895, %1245 ], [ %1046, %1174 ], [ %.0180895, %1216 ], [ %.0180895, %1253 ]
-  %.4 = phi i64 [ %1203, %1201 ], [ %1159, %1168 ], [ %1203, %1208 ], [ %1203, %1245 ], [ %1159, %1174 ], [ %1243, %1216 ], [ %1280, %1253 ]
+  %.1190 = phi i64 [ %991, %1168 ], [ %.0189893, %1201 ], [ %.0189893, %1208 ], [ %.0189893, %1245 ], [ %.0189893, %1216 ], [ %991, %1174 ], [ %.0189893, %1253 ]
+  %.4186 = phi i64 [ 0, %1168 ], [ %1202, %1201 ], [ %1202, %1208 ], [ %1202, %1245 ], [ %1242, %1216 ], [ 0, %1174 ], [ %1279, %1253 ]
+  %.1181 = phi ptr [ %1046, %1168 ], [ %.0180895, %1201 ], [ %.0180895, %1208 ], [ %.0180895, %1245 ], [ %.0180895, %1216 ], [ %1046, %1174 ], [ %.0180895, %1253 ]
+  %.4 = phi i64 [ %1159, %1168 ], [ %1203, %1201 ], [ %1203, %1208 ], [ %1203, %1245 ], [ %1243, %1216 ], [ %1159, %1174 ], [ %1280, %1253 ]
   %1282 = add i64 %.4, 4
   %1283 = icmp ult i64 %1282, %22
   br i1 %1283, label %80, label %._crit_edge, !llvm.loop !818
@@ -18251,9 +18251,9 @@ FindMatchLengthWithLimit.exit.i378:               ; preds = %209, %.critedge.i.i
   br label %242
 
 242:                                              ; preds = %241, %234, %FindMatchLengthWithLimit.exit.i378, %203, %194, %177
-  %.sroa.29.11 = phi i64 [ %.sroa.29.10617, %203 ], [ %239, %241 ], [ %.sroa.29.10617, %234 ], [ %.sroa.29.10617, %FindMatchLengthWithLimit.exit.i378 ], [ %.sroa.29.10617, %194 ], [ %.sroa.29.10617, %177 ]
-  %.sroa.18407.11 = phi i64 [ %.sroa.18407.10618, %203 ], [ %205, %241 ], [ %.sroa.18407.10618, %234 ], [ %.sroa.18407.10618, %FindMatchLengthWithLimit.exit.i378 ], [ %.sroa.18407.10618, %194 ], [ %.sroa.18407.10618, %177 ]
-  %.sroa.0398.11 = phi i64 [ %.sroa.0398.10619, %203 ], [ %.2.i.i379, %241 ], [ %.sroa.0398.10619, %234 ], [ %.sroa.0398.10619, %FindMatchLengthWithLimit.exit.i378 ], [ %.sroa.0398.10619, %194 ], [ %.sroa.0398.10619, %177 ]
+  %.sroa.29.11 = phi i64 [ %.sroa.29.10617, %203 ], [ %239, %241 ], [ %.sroa.29.10617, %234 ], [ %.sroa.29.10617, %177 ], [ %.sroa.29.10617, %FindMatchLengthWithLimit.exit.i378 ], [ %.sroa.29.10617, %194 ]
+  %.sroa.18407.11 = phi i64 [ %.sroa.18407.10618, %203 ], [ %205, %241 ], [ %.sroa.18407.10618, %234 ], [ %.sroa.18407.10618, %177 ], [ %.sroa.18407.10618, %FindMatchLengthWithLimit.exit.i378 ], [ %.sroa.18407.10618, %194 ]
+  %.sroa.0398.11 = phi i64 [ %.sroa.0398.10619, %203 ], [ %.2.i.i379, %241 ], [ %.sroa.0398.10619, %234 ], [ %.sroa.0398.10619, %177 ], [ %.sroa.0398.10619, %FindMatchLengthWithLimit.exit.i378 ], [ %.sroa.0398.10619, %194 ]
   %243 = add i64 %.0.i365620, 4
   %.not64.i366 = icmp ugt i64 %243, %.0828
   br i1 %.not64.i366, label %._crit_edge, label %177, !llvm.loop !849
@@ -19057,9 +19057,9 @@ FindMatchLengthWithLimit.exit.i357:               ; preds = %576, %.critedge.i.i
   br label %609
 
 609:                                              ; preds = %608, %601, %FindMatchLengthWithLimit.exit.i357, %571, %562, %545
-  %.sroa.18.9 = phi i64 [ %.sroa.18.8752, %571 ], [ %606, %608 ], [ %.sroa.18.8752, %601 ], [ %.sroa.18.8752, %FindMatchLengthWithLimit.exit.i357 ], [ %.sroa.18.8752, %562 ], [ %.sroa.18.8752, %545 ]
-  %.sroa.12.9 = phi i64 [ %.sroa.12.8753, %571 ], [ %573, %608 ], [ %.sroa.12.8753, %601 ], [ %.sroa.12.8753, %FindMatchLengthWithLimit.exit.i357 ], [ %.sroa.12.8753, %562 ], [ %.sroa.12.8753, %545 ]
-  %.sroa.0.9 = phi i64 [ %.sroa.0.8754, %571 ], [ %.2.i.i358, %608 ], [ %.sroa.0.8754, %601 ], [ %.sroa.0.8754, %FindMatchLengthWithLimit.exit.i357 ], [ %.sroa.0.8754, %562 ], [ %.sroa.0.8754, %545 ]
+  %.sroa.18.9 = phi i64 [ %.sroa.18.8752, %571 ], [ %606, %608 ], [ %.sroa.18.8752, %601 ], [ %.sroa.18.8752, %545 ], [ %.sroa.18.8752, %FindMatchLengthWithLimit.exit.i357 ], [ %.sroa.18.8752, %562 ]
+  %.sroa.12.9 = phi i64 [ %.sroa.12.8753, %571 ], [ %573, %608 ], [ %.sroa.12.8753, %601 ], [ %.sroa.12.8753, %545 ], [ %.sroa.12.8753, %FindMatchLengthWithLimit.exit.i357 ], [ %.sroa.12.8753, %562 ]
+  %.sroa.0.9 = phi i64 [ %.sroa.0.8754, %571 ], [ %.2.i.i358, %608 ], [ %.sroa.0.8754, %601 ], [ %.sroa.0.8754, %545 ], [ %.sroa.0.8754, %FindMatchLengthWithLimit.exit.i357 ], [ %.sroa.0.8754, %562 ]
   %610 = add i64 %.0.i346755, 4
   %.not64.i = icmp ugt i64 %610, %418
   br i1 %.not64.i, label %._crit_edge758, label %545, !llvm.loop !849
@@ -19524,8 +19524,8 @@ ComputeDistanceCode.exit.thread.thread:           ; preds = %787
   %823 = add i64 %.sroa.18407.1.ph, 15
   br label %ComputeDistanceCode.exit
 
-ComputeDistanceCode.exit:                         ; preds = %815, %799, %810, %803, %819, %822
-  %.1.i = phi i64 [ %823, %822 ], [ 3, %819 ], [ 2, %815 ], [ 1, %799 ], [ %814, %810 ], [ %807, %803 ]
+ComputeDistanceCode.exit:                         ; preds = %799, %810, %803, %815, %819, %822
+  %.1.i = phi i64 [ %823, %822 ], [ 3, %819 ], [ 1, %799 ], [ %814, %810 ], [ %807, %803 ], [ 2, %815 ]
   %824 = icmp ule i64 %.sroa.18407.1.ph, %786
   %825 = icmp ne i64 %.1.i, 0
   %or.cond = select i1 %824, i1 %825, i1 false
@@ -19826,10 +19826,10 @@ CombineLengthCodes.exit:                          ; preds = %932, %GetCopyLength
   br i1 %1011, label %.lr.ph688, label %StoreRangeH54.exit, !llvm.loop !905
 
 StoreRangeH54.exit:                               ; preds = %.lr.ph688, %.lr.ph694, %.lr.ph824, %996, %980, %961, %973
-  %.1190 = phi i64 [ %.0189825, %973 ], [ %785, %961 ], [ %.0189825, %980 ], [ %.0189825, %996 ], [ %785, %.lr.ph824 ], [ %.0189825, %.lr.ph694 ], [ %.0189825, %.lr.ph688 ]
-  %.4186 = phi i64 [ %974, %973 ], [ 0, %961 ], [ %974, %980 ], [ %974, %996 ], [ 0, %.lr.ph824 ], [ %993, %.lr.ph694 ], [ %1009, %.lr.ph688 ]
-  %.1181 = phi ptr [ %.0180827, %973 ], [ %870, %961 ], [ %.0180827, %980 ], [ %.0180827, %996 ], [ %870, %.lr.ph824 ], [ %.0180827, %.lr.ph694 ], [ %.0180827, %.lr.ph688 ]
-  %.4 = phi i64 [ %975, %973 ], [ %952, %961 ], [ %975, %980 ], [ %975, %996 ], [ %952, %.lr.ph824 ], [ %994, %.lr.ph694 ], [ %1010, %.lr.ph688 ]
+  %.1190 = phi i64 [ %785, %961 ], [ %.0189825, %973 ], [ %.0189825, %980 ], [ %.0189825, %996 ], [ %.0189825, %.lr.ph694 ], [ %785, %.lr.ph824 ], [ %.0189825, %.lr.ph688 ]
+  %.4186 = phi i64 [ 0, %961 ], [ %974, %973 ], [ %974, %980 ], [ %974, %996 ], [ %993, %.lr.ph694 ], [ 0, %.lr.ph824 ], [ %1009, %.lr.ph688 ]
+  %.1181 = phi ptr [ %870, %961 ], [ %.0180827, %973 ], [ %.0180827, %980 ], [ %.0180827, %996 ], [ %.0180827, %.lr.ph694 ], [ %870, %.lr.ph824 ], [ %.0180827, %.lr.ph688 ]
+  %.4 = phi i64 [ %952, %961 ], [ %975, %973 ], [ %975, %980 ], [ %975, %996 ], [ %994, %.lr.ph694 ], [ %952, %.lr.ph824 ], [ %1010, %.lr.ph688 ]
   %1012 = add i64 %.4, 8
   %1013 = icmp ult i64 %1012, %22
   br i1 %1013, label %.thread, label %._crit_edge829, !llvm.loop !906
@@ -20205,7 +20205,7 @@ FindMatchLengthWithLimit.exit188.i.i:             ; preds = %179, %.critedge.i18
 220:                                              ; preds = %218
   br label %221
 
-221:                                              ; preds = %159, %172, %169, %206, %220, %218, %203
+221:                                              ; preds = %169, %159, %203, %172, %206, %220, %218
   %.sroa.32.16.ph = phi i64 [ %.sroa.32.7679, %172 ], [ %.sroa.32.7679, %203 ], [ %.sroa.32.7679, %206 ], [ %.sroa.32.7679, %218 ], [ %.0154.i.i, %220 ], [ %.sroa.32.7679, %169 ], [ %.sroa.32.7679, %159 ]
   %.sroa.20.16.ph = phi i64 [ %.sroa.20.7680, %172 ], [ %.sroa.20.7680, %203 ], [ %.sroa.20.7680, %206 ], [ %.sroa.20.7680, %218 ], [ %162, %220 ], [ %.sroa.20.7680, %169 ], [ %.sroa.20.7680, %159 ]
   %.sroa.0426.16.ph = phi i64 [ %.sroa.0426.7681, %172 ], [ %.sroa.0426.7681, %203 ], [ %.sroa.0426.7681, %206 ], [ %.sroa.0426.7681, %218 ], [ %.2.i184.i.i, %220 ], [ %.sroa.0426.7681, %169 ], [ %.sroa.0426.7681, %159 ]
@@ -20371,11 +20371,11 @@ FindMatchLengthWithLimit.exit.i.i:                ; preds = %257, %.critedge.i.i
   br label %289
 
 289:                                              ; preds = %288, %FindMatchLengthWithLimit.exit.i.i, %253, %248, %245
-  %.sroa.32.15 = phi i64 [ %.sroa.32.9714, %245 ], [ %286, %288 ], [ %.sroa.32.9714, %FindMatchLengthWithLimit.exit.i.i ], [ %.sroa.32.9714, %253 ], [ %.sroa.32.9714, %248 ]
-  %.sroa.20.15 = phi i64 [ %.sroa.20.9715, %245 ], [ %239, %288 ], [ %.sroa.20.9715, %FindMatchLengthWithLimit.exit.i.i ], [ %.sroa.20.9715, %253 ], [ %.sroa.20.9715, %248 ]
-  %.sroa.0426.15 = phi i64 [ %.sroa.0426.9716, %245 ], [ %280, %288 ], [ %.sroa.0426.9716, %FindMatchLengthWithLimit.exit.i.i ], [ %.sroa.0426.9716, %253 ], [ %.sroa.0426.9716, %248 ]
-  %.6148.i.i = phi i64 [ %.5147.i.i718, %245 ], [ %280, %288 ], [ %.5147.i.i718, %FindMatchLengthWithLimit.exit.i.i ], [ %.5147.i.i718, %253 ], [ %.5147.i.i718, %248 ]
-  %.6.i.i = phi i64 [ %.5.i.i719, %245 ], [ %286, %288 ], [ %.5.i.i719, %FindMatchLengthWithLimit.exit.i.i ], [ %.5.i.i719, %253 ], [ %.5.i.i719, %248 ]
+  %.sroa.32.15 = phi i64 [ %.sroa.32.9714, %253 ], [ %.sroa.32.9714, %248 ], [ %.sroa.32.9714, %245 ], [ %286, %288 ], [ %.sroa.32.9714, %FindMatchLengthWithLimit.exit.i.i ]
+  %.sroa.20.15 = phi i64 [ %.sroa.20.9715, %253 ], [ %.sroa.20.9715, %248 ], [ %.sroa.20.9715, %245 ], [ %239, %288 ], [ %.sroa.20.9715, %FindMatchLengthWithLimit.exit.i.i ]
+  %.sroa.0426.15 = phi i64 [ %.sroa.0426.9716, %253 ], [ %.sroa.0426.9716, %248 ], [ %.sroa.0426.9716, %245 ], [ %280, %288 ], [ %.sroa.0426.9716, %FindMatchLengthWithLimit.exit.i.i ]
+  %.6148.i.i = phi i64 [ %.5147.i.i718, %253 ], [ %.5147.i.i718, %248 ], [ %.5147.i.i718, %245 ], [ %280, %288 ], [ %.5147.i.i718, %FindMatchLengthWithLimit.exit.i.i ]
+  %.6.i.i = phi i64 [ %.5.i.i719, %253 ], [ %.5.i.i719, %248 ], [ %.5.i.i719, %245 ], [ %286, %288 ], [ %.5.i.i719, %FindMatchLengthWithLimit.exit.i.i ]
   %290 = icmp ugt i64 %234, %spec.select.i.i
   br i1 %290, label %233, label %.thread467
 
@@ -20722,10 +20722,10 @@ FindMatchLengthWithLimit.exit.i409:               ; preds = %438, %.critedge.i.i
   br label %471
 
 471:                                              ; preds = %470, %463, %FindMatchLengthWithLimit.exit.i409, %433, %424, %407
-  %.sroa.32.19 = phi i64 [ %.sroa.32.18772, %433 ], [ %468, %470 ], [ %.sroa.32.18772, %463 ], [ %.sroa.32.18772, %FindMatchLengthWithLimit.exit.i409 ], [ %.sroa.32.18772, %424 ], [ %.sroa.32.18772, %407 ]
-  %.sroa.20.19 = phi i64 [ %.sroa.20.18773, %433 ], [ %435, %470 ], [ %.sroa.20.18773, %463 ], [ %.sroa.20.18773, %FindMatchLengthWithLimit.exit.i409 ], [ %.sroa.20.18773, %424 ], [ %.sroa.20.18773, %407 ]
-  %.sroa.0426.19 = phi i64 [ %.sroa.0426.18774, %433 ], [ %.2.i.i410, %470 ], [ %.sroa.0426.18774, %463 ], [ %.sroa.0426.18774, %FindMatchLengthWithLimit.exit.i409 ], [ %.sroa.0426.18774, %424 ], [ %.sroa.0426.18774, %407 ]
-  %.sroa.47.13 = phi i32 [ %.sroa.47.12775, %433 ], [ 0, %470 ], [ %.sroa.47.12775, %463 ], [ %.sroa.47.12775, %FindMatchLengthWithLimit.exit.i409 ], [ %.sroa.47.12775, %424 ], [ %.sroa.47.12775, %407 ]
+  %.sroa.32.19 = phi i64 [ %.sroa.32.18772, %433 ], [ %468, %470 ], [ %.sroa.32.18772, %463 ], [ %.sroa.32.18772, %407 ], [ %.sroa.32.18772, %FindMatchLengthWithLimit.exit.i409 ], [ %.sroa.32.18772, %424 ]
+  %.sroa.20.19 = phi i64 [ %.sroa.20.18773, %433 ], [ %435, %470 ], [ %.sroa.20.18773, %463 ], [ %.sroa.20.18773, %407 ], [ %.sroa.20.18773, %FindMatchLengthWithLimit.exit.i409 ], [ %.sroa.20.18773, %424 ]
+  %.sroa.0426.19 = phi i64 [ %.sroa.0426.18774, %433 ], [ %.2.i.i410, %470 ], [ %.sroa.0426.18774, %463 ], [ %.sroa.0426.18774, %407 ], [ %.sroa.0426.18774, %FindMatchLengthWithLimit.exit.i409 ], [ %.sroa.0426.18774, %424 ]
+  %.sroa.47.13 = phi i32 [ %.sroa.47.12775, %433 ], [ 0, %470 ], [ %.sroa.47.12775, %463 ], [ %.sroa.47.12775, %407 ], [ %.sroa.47.12775, %FindMatchLengthWithLimit.exit.i409 ], [ %.sroa.47.12775, %424 ]
   %472 = add i64 %.0.i396776, 1
   %.not.i397 = icmp ugt i64 %472, %.01057
   br i1 %.not.i397, label %._crit_edge779, label %407, !llvm.loop !960
@@ -21332,7 +21332,7 @@ FindMatchLengthWithLimit.exit188.i.i362:          ; preds = %706, %.critedge.i18
 747:                                              ; preds = %745
   br label %748
 
-748:                                              ; preds = %686, %699, %696, %733, %747, %745, %730
+748:                                              ; preds = %696, %686, %730, %699, %733, %747, %745
   %.sroa.21.14.ph = phi i64 [ %.sroa.21.5878, %699 ], [ %.sroa.21.5878, %730 ], [ %.sroa.21.5878, %733 ], [ %.sroa.21.5878, %745 ], [ %.0154.i.i367, %747 ], [ %.sroa.21.5878, %696 ], [ %.sroa.21.5878, %686 ]
   %.sroa.14.14.ph = phi i64 [ %.sroa.14.5879, %699 ], [ %.sroa.14.5879, %730 ], [ %.sroa.14.5879, %733 ], [ %.sroa.14.5879, %745 ], [ %689, %747 ], [ %.sroa.14.5879, %696 ], [ %.sroa.14.5879, %686 ]
   %.sroa.0.14.ph = phi i64 [ %.sroa.0.5880, %699 ], [ %.sroa.0.5880, %730 ], [ %.sroa.0.5880, %733 ], [ %.sroa.0.5880, %745 ], [ %.2.i184.i.i363, %747 ], [ %.sroa.0.5880, %696 ], [ %.sroa.0.5880, %686 ]
@@ -21489,11 +21489,11 @@ FindMatchLengthWithLimit.exit.i.i340:             ; preds = %783, %.critedge.i.i
   br label %815
 
 815:                                              ; preds = %814, %FindMatchLengthWithLimit.exit.i.i340, %779, %774, %771
-  %.sroa.21.13 = phi i64 [ %.sroa.21.7915, %771 ], [ %812, %814 ], [ %.sroa.21.7915, %FindMatchLengthWithLimit.exit.i.i340 ], [ %.sroa.21.7915, %779 ], [ %.sroa.21.7915, %774 ]
-  %.sroa.14.13 = phi i64 [ %.sroa.14.7916, %771 ], [ %765, %814 ], [ %.sroa.14.7916, %FindMatchLengthWithLimit.exit.i.i340 ], [ %.sroa.14.7916, %779 ], [ %.sroa.14.7916, %774 ]
-  %.sroa.0.13 = phi i64 [ %.sroa.0.7917, %771 ], [ %806, %814 ], [ %.sroa.0.7917, %FindMatchLengthWithLimit.exit.i.i340 ], [ %.sroa.0.7917, %779 ], [ %.sroa.0.7917, %774 ]
-  %.6148.i.i327 = phi i64 [ %.5147.i.i296919, %771 ], [ %806, %814 ], [ %.5147.i.i296919, %FindMatchLengthWithLimit.exit.i.i340 ], [ %.5147.i.i296919, %779 ], [ %.5147.i.i296919, %774 ]
-  %.6.i.i328 = phi i64 [ %.5.i.i297920, %771 ], [ %812, %814 ], [ %.5.i.i297920, %FindMatchLengthWithLimit.exit.i.i340 ], [ %.5.i.i297920, %779 ], [ %.5.i.i297920, %774 ]
+  %.sroa.21.13 = phi i64 [ %.sroa.21.7915, %779 ], [ %.sroa.21.7915, %774 ], [ %.sroa.21.7915, %771 ], [ %812, %814 ], [ %.sroa.21.7915, %FindMatchLengthWithLimit.exit.i.i340 ]
+  %.sroa.14.13 = phi i64 [ %.sroa.14.7916, %779 ], [ %.sroa.14.7916, %774 ], [ %.sroa.14.7916, %771 ], [ %765, %814 ], [ %.sroa.14.7916, %FindMatchLengthWithLimit.exit.i.i340 ]
+  %.sroa.0.13 = phi i64 [ %.sroa.0.7917, %779 ], [ %.sroa.0.7917, %774 ], [ %.sroa.0.7917, %771 ], [ %806, %814 ], [ %.sroa.0.7917, %FindMatchLengthWithLimit.exit.i.i340 ]
+  %.6148.i.i327 = phi i64 [ %.5147.i.i296919, %779 ], [ %.5147.i.i296919, %774 ], [ %.5147.i.i296919, %771 ], [ %806, %814 ], [ %.5147.i.i296919, %FindMatchLengthWithLimit.exit.i.i340 ]
+  %.6.i.i328 = phi i64 [ %.5.i.i297920, %779 ], [ %.5.i.i297920, %774 ], [ %.5.i.i297920, %771 ], [ %812, %814 ], [ %.5.i.i297920, %FindMatchLengthWithLimit.exit.i.i340 ]
   %816 = icmp ugt i64 %760, %spec.select.i.i293
   br i1 %816, label %759, label %.thread524
 
@@ -21841,10 +21841,10 @@ FindMatchLengthWithLimit.exit.i390:               ; preds = %965, %.critedge.i.i
   br label %998
 
 998:                                              ; preds = %997, %990, %FindMatchLengthWithLimit.exit.i390, %960, %951, %934
-  %.sroa.34.11 = phi i32 [ %.sroa.34.10974, %960 ], [ 0, %997 ], [ %.sroa.34.10974, %990 ], [ %.sroa.34.10974, %FindMatchLengthWithLimit.exit.i390 ], [ %.sroa.34.10974, %951 ], [ %.sroa.34.10974, %934 ]
-  %.sroa.21.17 = phi i64 [ %.sroa.21.16975, %960 ], [ %995, %997 ], [ %.sroa.21.16975, %990 ], [ %.sroa.21.16975, %FindMatchLengthWithLimit.exit.i390 ], [ %.sroa.21.16975, %951 ], [ %.sroa.21.16975, %934 ]
-  %.sroa.14.17 = phi i64 [ %.sroa.14.16976, %960 ], [ %962, %997 ], [ %.sroa.14.16976, %990 ], [ %.sroa.14.16976, %FindMatchLengthWithLimit.exit.i390 ], [ %.sroa.14.16976, %951 ], [ %.sroa.14.16976, %934 ]
-  %.sroa.0.17 = phi i64 [ %.sroa.0.16977, %960 ], [ %.2.i.i391, %997 ], [ %.sroa.0.16977, %990 ], [ %.sroa.0.16977, %FindMatchLengthWithLimit.exit.i390 ], [ %.sroa.0.16977, %951 ], [ %.sroa.0.16977, %934 ]
+  %.sroa.34.11 = phi i32 [ %.sroa.34.10974, %960 ], [ 0, %997 ], [ %.sroa.34.10974, %990 ], [ %.sroa.34.10974, %934 ], [ %.sroa.34.10974, %FindMatchLengthWithLimit.exit.i390 ], [ %.sroa.34.10974, %951 ]
+  %.sroa.21.17 = phi i64 [ %.sroa.21.16975, %960 ], [ %995, %997 ], [ %.sroa.21.16975, %990 ], [ %.sroa.21.16975, %934 ], [ %.sroa.21.16975, %FindMatchLengthWithLimit.exit.i390 ], [ %.sroa.21.16975, %951 ]
+  %.sroa.14.17 = phi i64 [ %.sroa.14.16976, %960 ], [ %962, %997 ], [ %.sroa.14.16976, %990 ], [ %.sroa.14.16976, %934 ], [ %.sroa.14.16976, %FindMatchLengthWithLimit.exit.i390 ], [ %.sroa.14.16976, %951 ]
+  %.sroa.0.17 = phi i64 [ %.sroa.0.16977, %960 ], [ %.2.i.i391, %997 ], [ %.sroa.0.16977, %990 ], [ %.sroa.0.16977, %934 ], [ %.sroa.0.16977, %FindMatchLengthWithLimit.exit.i390 ], [ %.sroa.0.16977, %951 ]
   %999 = add i64 %.0.i378978, 1
   %.not.i379 = icmp ugt i64 %999, %646
   br i1 %.not.i379, label %._crit_edge981, label %934, !llvm.loop !960
@@ -22311,8 +22311,8 @@ split:                                            ; preds = %1166, %LookupCompou
   %1209 = add i64 %.sroa.20.1.ph, 15
   br label %ComputeDistanceCode.exit
 
-ComputeDistanceCode.exit:                         ; preds = %1201, %1185, %1196, %1189, %1205, %1208
-  %.1.i = phi i64 [ %1209, %1208 ], [ 3, %1205 ], [ 2, %1201 ], [ 1, %1185 ], [ %1200, %1196 ], [ %1193, %1189 ]
+ComputeDistanceCode.exit:                         ; preds = %1185, %1196, %1189, %1201, %1205, %1208
+  %.1.i = phi i64 [ %1209, %1208 ], [ 3, %1205 ], [ 1, %1185 ], [ %1200, %1196 ], [ %1193, %1189 ], [ 2, %1201 ]
   %1210 = icmp ule i64 %.sroa.20.1.ph, %1175
   %1211 = icmp ne i64 %.1.i, 0
   %or.cond = select i1 %1210, i1 %1211, i1 false
@@ -22367,7 +22367,7 @@ ComputeDistanceCode.exit:                         ; preds = %1201, %1185, %1196,
   br label %PrepareDistanceCacheH65.exit282
 
 PrepareDistanceCacheH65.exit282:                  ; preds = %1176, %1227, %1219, %1212, %ComputeDistanceCode.exit
-  %.1.i587 = phi i64 [ %.1.i, %1227 ], [ %.1.i, %1219 ], [ %.1.i, %1212 ], [ %.1.i, %ComputeDistanceCode.exit ], [ 0, %1176 ]
+  %.1.i587 = phi i64 [ %.1.i, %ComputeDistanceCode.exit ], [ %.1.i, %1227 ], [ %.1.i, %1219 ], [ %.1.i, %1212 ], [ 0, %1176 ]
   %1234 = getelementptr inbounds nuw i8, ptr %.01801056, i64 16
   %1235 = trunc i64 %.3185.ph to i32
   store i32 %1235, ptr %.01801056, align 4, !tbaa !146
@@ -22689,10 +22689,10 @@ CombineLengthCodes.exit:                          ; preds = %1327, %GetCopyLengt
   br i1 %1434, label %1417, label %StoreRangeH65.exit, !llvm.loop !1080
 
 StoreRangeH65.exit:                               ; preds = %1417, %1392, %1362, %1410, %1385, %1356, %1378
-  %.1190 = phi i64 [ %.01891054, %1378 ], [ %1174, %1356 ], [ %.01891054, %1385 ], [ %.01891054, %1410 ], [ %1174, %1362 ], [ %.01891054, %1392 ], [ %.01891054, %1417 ]
-  %.4186 = phi i64 [ %1379, %1378 ], [ 0, %1356 ], [ %1379, %1385 ], [ %1379, %1410 ], [ 0, %1362 ], [ %1407, %1392 ], [ %1432, %1417 ]
-  %.1181 = phi ptr [ %.01801056, %1378 ], [ %1234, %1356 ], [ %.01801056, %1385 ], [ %.01801056, %1410 ], [ %1234, %1362 ], [ %.01801056, %1392 ], [ %.01801056, %1417 ]
-  %.4 = phi i64 [ %1380, %1378 ], [ %1347, %1356 ], [ %1380, %1385 ], [ %1380, %1410 ], [ %1347, %1362 ], [ %1408, %1392 ], [ %1433, %1417 ]
+  %.1190 = phi i64 [ %1174, %1356 ], [ %.01891054, %1378 ], [ %.01891054, %1385 ], [ %.01891054, %1410 ], [ %.01891054, %1392 ], [ %1174, %1362 ], [ %.01891054, %1417 ]
+  %.4186 = phi i64 [ 0, %1356 ], [ %1379, %1378 ], [ %1379, %1385 ], [ %1379, %1410 ], [ %1407, %1392 ], [ 0, %1362 ], [ %1432, %1417 ]
+  %.1181 = phi ptr [ %1234, %1356 ], [ %.01801056, %1378 ], [ %.01801056, %1385 ], [ %.01801056, %1410 ], [ %.01801056, %1392 ], [ %1234, %1362 ], [ %.01801056, %1417 ]
+  %.4 = phi i64 [ %1347, %1356 ], [ %1380, %1378 ], [ %1380, %1385 ], [ %1380, %1410 ], [ %1408, %1392 ], [ %1347, %1362 ], [ %1433, %1417 ]
   %1435 = add i64 %.4, 8
   %1436 = icmp ult i64 %1435, %21
   br i1 %1436, label %107, label %._crit_edge1059, !llvm.loop !1081
@@ -23002,7 +23002,7 @@ FindMatchLengthWithLimit.exit118.i:               ; preds = %99, %.critedge.i113
 FindMatchLengthWithLimit.exit.i:                  ; preds = %142, %.critedge.i.i
   %.2.i.i = phi i64 [ %149, %142 ], [ %164, %.critedge.i.i ]
   %165 = icmp ugt i64 %.2.i.i, 3
-  br i1 %165, label %166, label %.critedge104.i
+  br i1 %165, label %166, label %.critedge102.i
 
 166:                                              ; preds = %FindMatchLengthWithLimit.exit.i
   %167 = mul i64 %.2.i.i, 135
@@ -23014,9 +23014,9 @@ FindMatchLengthWithLimit.exit.i:                  ; preds = %142, %.critedge.i.i
   %171 = zext nneg i32 %narrow526 to i64
   %172 = add i64 %167, %171
   %.not98.i = icmp ugt i64 %172, 2020
-  br i1 %.not98.i, label %.preheader382, label %.critedge104.i
+  br i1 %.not98.i, label %.preheader382, label %.critedge102.i
 
-.critedge104.i:                                   ; preds = %FindMatchLengthWithLimit.exit.i, %166
+.critedge102.i:                                   ; preds = %FindMatchLengthWithLimit.exit.i, %166
   %173 = load ptr, ptr %13, align 8, !tbaa !1095, !alias.scope !1084, !noalias !1087
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 48
   %175 = load i64, ptr %174, align 8, !tbaa !74, !noalias !1093
@@ -23026,7 +23026,7 @@ FindMatchLengthWithLimit.exit.i:                  ; preds = %142, %.critedge.i.i
   %179 = icmp ult i64 %175, %178
   br i1 %179, label %FindLongestMatchH2.exit.thread, label %180
 
-180:                                              ; preds = %.critedge104.i
+180:                                              ; preds = %.critedge102.i
   %.0.copyload.i.i.i = load i32, ptr %85, align 1, !alias.scope !1091, !noalias !1093
   %181 = mul i32 %.0.copyload.i.i.i, 506832829
   %182 = lshr i32 %181, 17
@@ -23422,7 +23422,7 @@ FindMatchLengthWithLimit.exit118.i255:            ; preds = %316, %.critedge.i11
 FindMatchLengthWithLimit.exit.i212:               ; preds = %360, %.critedge.i.i211
   %.2.i.i213 = phi i64 [ %367, %360 ], [ %382, %.critedge.i.i211 ]
   %383 = icmp ugt i64 %.2.i.i213, 3
-  br i1 %383, label %384, label %.critedge104.i214
+  br i1 %383, label %384, label %.critedge102.i214
 
 384:                                              ; preds = %FindMatchLengthWithLimit.exit.i212
   %385 = mul i64 %.2.i.i213, 135
@@ -23434,9 +23434,9 @@ FindMatchLengthWithLimit.exit.i212:               ; preds = %360, %.critedge.i.i
   %389 = zext nneg i32 %narrow527 to i64
   %390 = add i64 %385, %389
   %.not98.i240 = icmp ugt i64 %390, 2020
-  br i1 %.not98.i240, label %FindLongestMatchH2.exit263, label %.critedge104.i214
+  br i1 %.not98.i240, label %FindLongestMatchH2.exit263, label %.critedge102.i214
 
-.critedge104.i214:                                ; preds = %FindMatchLengthWithLimit.exit.i212, %384
+.critedge102.i214:                                ; preds = %FindMatchLengthWithLimit.exit.i212, %384
   %391 = load ptr, ptr %13, align 8, !tbaa !1095, !alias.scope !1104, !noalias !1107
   %392 = getelementptr inbounds nuw i8, ptr %391, i64 48
   %393 = load i64, ptr %392, align 8, !tbaa !74, !noalias !1106
@@ -23446,7 +23446,7 @@ FindMatchLengthWithLimit.exit.i212:               ; preds = %360, %.critedge.i.i
   %397 = icmp ult i64 %393, %396
   br i1 %397, label %FindLongestMatchH2.exit263, label %398
 
-398:                                              ; preds = %.critedge104.i214
+398:                                              ; preds = %.critedge102.i214
   %.0.copyload.i.i.i215 = load i32, ptr %302, align 1, !alias.scope !1105, !noalias !1106
   %399 = mul i32 %.0.copyload.i.i.i215, 506832829
   %400 = lshr i32 %399, 17
@@ -23594,11 +23594,11 @@ FindMatchLengthWithLimit.exit.i.i229:             ; preds = %432, %.critedge.i.i
   store i64 %487, ptr %392, align 8, !tbaa !74, !noalias !1106
   br label %FindLongestMatchH2.exit263
 
-FindLongestMatchH2.exit263:                       ; preds = %398, %483, %412, %FindMatchLengthWithLimit.exit.i.i229, %458, %473, %.critedge104.i214, %384, %343, %.critedge100.i201, %355
-  %.sroa.20.4 = phi i32 [ 0, %343 ], [ 0, %355 ], [ 0, %.critedge100.i201 ], [ 0, %384 ], [ 0, %.critedge104.i214 ], [ 0, %398 ], [ %486, %483 ], [ 0, %412 ], [ 0, %FindMatchLengthWithLimit.exit.i.i229 ], [ 0, %458 ], [ 0, %473 ]
-  %.sroa.12.4 = phi i64 [ %342, %343 ], [ 2020, %355 ], [ 2020, %.critedge100.i201 ], [ %390, %384 ], [ 2020, %.critedge104.i214 ], [ 2020, %398 ], [ %481, %483 ], [ 2020, %412 ], [ 2020, %FindMatchLengthWithLimit.exit.i.i229 ], [ 2020, %458 ], [ 2020, %473 ]
-  %.sroa.8.4 = phi i64 [ %270, %343 ], [ 0, %355 ], [ 0, %.critedge100.i201 ], [ %350, %384 ], [ 0, %.critedge104.i214 ], [ 0, %398 ], [ %471, %483 ], [ 0, %412 ], [ 0, %FindMatchLengthWithLimit.exit.i.i229 ], [ 0, %458 ], [ 0, %473 ]
-  %.sroa.0.4 = phi i64 [ %.2.i114.i256, %343 ], [ %276, %355 ], [ %276, %.critedge100.i201 ], [ %.2.i.i213, %384 ], [ %276, %.critedge104.i214 ], [ %276, %398 ], [ %.2.i.i.i230, %483 ], [ %276, %412 ], [ %276, %FindMatchLengthWithLimit.exit.i.i229 ], [ %276, %458 ], [ %276, %473 ]
+FindLongestMatchH2.exit263:                       ; preds = %398, %483, %412, %FindMatchLengthWithLimit.exit.i.i229, %458, %473, %.critedge102.i214, %384, %343, %.critedge100.i201, %355
+  %.sroa.20.4 = phi i32 [ 0, %343 ], [ 0, %355 ], [ 0, %.critedge100.i201 ], [ 0, %384 ], [ 0, %.critedge102.i214 ], [ 0, %398 ], [ %486, %483 ], [ 0, %412 ], [ 0, %FindMatchLengthWithLimit.exit.i.i229 ], [ 0, %458 ], [ 0, %473 ]
+  %.sroa.12.4 = phi i64 [ %342, %343 ], [ 2020, %355 ], [ 2020, %.critedge100.i201 ], [ %390, %384 ], [ 2020, %.critedge102.i214 ], [ 2020, %398 ], [ %481, %483 ], [ 2020, %412 ], [ 2020, %FindMatchLengthWithLimit.exit.i.i229 ], [ 2020, %458 ], [ 2020, %473 ]
+  %.sroa.8.4 = phi i64 [ %270, %343 ], [ 0, %355 ], [ 0, %.critedge100.i201 ], [ %350, %384 ], [ 0, %.critedge102.i214 ], [ 0, %398 ], [ %471, %483 ], [ 0, %412 ], [ 0, %FindMatchLengthWithLimit.exit.i.i229 ], [ 0, %458 ], [ 0, %473 ]
+  %.sroa.0.4 = phi i64 [ %.2.i114.i256, %343 ], [ %276, %355 ], [ %276, %.critedge100.i201 ], [ %.2.i.i213, %384 ], [ %276, %.critedge102.i214 ], [ %276, %398 ], [ %.2.i.i.i230, %483 ], [ %276, %412 ], [ %276, %FindMatchLengthWithLimit.exit.i.i229 ], [ %276, %458 ], [ %276, %473 ]
   %488 = add i64 %.sroa.23282.0, 175
   %.not196 = icmp ult i64 %.sroa.12.4, %488
   br i1 %.not196, label %FindLongestMatchH2.exit263._crit_edge, label %489
@@ -23686,8 +23686,8 @@ split:                                            ; preds = %489, %FindLongestMa
   %532 = add i64 %.sroa.14.1.ph, 15
   br label %ComputeDistanceCode.exit
 
-ComputeDistanceCode.exit:                         ; preds = %524, %508, %519, %512, %528, %531
-  %.1.i = phi i64 [ %532, %531 ], [ 3, %528 ], [ 2, %524 ], [ 1, %508 ], [ %523, %519 ], [ %516, %512 ]
+ComputeDistanceCode.exit:                         ; preds = %508, %519, %512, %524, %528, %531
+  %.1.i = phi i64 [ %532, %531 ], [ 3, %528 ], [ 1, %508 ], [ %523, %519 ], [ %516, %512 ], [ 2, %524 ]
   %533 = icmp ule i64 %.sroa.14.1.ph, %498
   %534 = icmp ne i64 %.1.i, 0
   %or.cond = select i1 %533, i1 %534, i1 false
@@ -23705,7 +23705,7 @@ ComputeDistanceCode.exit:                         ; preds = %524, %508, %519, %5
   br label %ComputeDistanceCode.exit.thread
 
 ComputeDistanceCode.exit.thread:                  ; preds = %499, %535, %ComputeDistanceCode.exit
-  %.1.i362 = phi i64 [ %.1.i, %535 ], [ %.1.i, %ComputeDistanceCode.exit ], [ 0, %499 ]
+  %.1.i362 = phi i64 [ %.1.i, %ComputeDistanceCode.exit ], [ %.1.i, %535 ], [ 0, %499 ]
   %540 = getelementptr inbounds nuw i8, ptr %.0164520, i64 16
   %541 = trunc i64 %.3169.ph to i32
   store i32 %541, ptr %.0164520, align 4, !tbaa !146
@@ -23916,7 +23916,7 @@ CombineLengthCodes.exit:                          ; preds = %633, %GetCopyLength
   %exitcond.not = icmp eq i64 %670, %654
   br i1 %exitcond.not, label %StoreRangeH2.exit, label %.lr.ph517, !llvm.loop !1112
 
-FindLongestMatchH2.exit.thread:                   ; preds = %255, %240, %FindMatchLengthWithLimit.exit.i.i, %194, %180, %.critedge104.i, %.critedge100.i, %137, %FindLongestMatchH2.exit
+FindLongestMatchH2.exit.thread:                   ; preds = %255, %240, %FindMatchLengthWithLimit.exit.i.i, %194, %180, %.critedge102.i, %.critedge100.i, %137, %FindLongestMatchH2.exit
   %671 = add i64 %.0166519, 1
   %672 = add i64 %.0521, 1
   %673 = icmp ugt i64 %672, %.0173518
@@ -23972,10 +23972,10 @@ FindLongestMatchH2.exit.thread:                   ; preds = %255, %240, %FindMat
   br i1 %702, label %.lr.ph457, label %StoreRangeH2.exit, !llvm.loop !1120
 
 StoreRangeH2.exit:                                ; preds = %.lr.ph457, %.lr.ph462, %.lr.ph517, %690, %677, %662, %FindLongestMatchH2.exit.thread
-  %.1174 = phi i64 [ %.0173518, %FindLongestMatchH2.exit.thread ], [ %497, %662 ], [ %.0173518, %677 ], [ %.0173518, %690 ], [ %497, %.lr.ph517 ], [ %.0173518, %.lr.ph462 ], [ %.0173518, %.lr.ph457 ]
-  %.4170 = phi i64 [ %671, %FindLongestMatchH2.exit.thread ], [ 0, %662 ], [ %671, %677 ], [ %671, %690 ], [ 0, %.lr.ph517 ], [ %687, %.lr.ph462 ], [ %700, %.lr.ph457 ]
-  %.1165 = phi ptr [ %.0164520, %FindLongestMatchH2.exit.thread ], [ %540, %662 ], [ %.0164520, %677 ], [ %.0164520, %690 ], [ %540, %.lr.ph517 ], [ %.0164520, %.lr.ph462 ], [ %.0164520, %.lr.ph457 ]
-  %.4 = phi i64 [ %672, %FindLongestMatchH2.exit.thread ], [ %653, %662 ], [ %672, %677 ], [ %672, %690 ], [ %653, %.lr.ph517 ], [ %688, %.lr.ph462 ], [ %701, %.lr.ph457 ]
+  %.1174 = phi i64 [ %497, %662 ], [ %.0173518, %FindLongestMatchH2.exit.thread ], [ %.0173518, %677 ], [ %.0173518, %690 ], [ %.0173518, %.lr.ph462 ], [ %497, %.lr.ph517 ], [ %.0173518, %.lr.ph457 ]
+  %.4170 = phi i64 [ 0, %662 ], [ %671, %FindLongestMatchH2.exit.thread ], [ %671, %677 ], [ %671, %690 ], [ %687, %.lr.ph462 ], [ 0, %.lr.ph517 ], [ %700, %.lr.ph457 ]
+  %.1165 = phi ptr [ %540, %662 ], [ %.0164520, %FindLongestMatchH2.exit.thread ], [ %.0164520, %677 ], [ %.0164520, %690 ], [ %.0164520, %.lr.ph462 ], [ %540, %.lr.ph517 ], [ %.0164520, %.lr.ph457 ]
+  %.4 = phi i64 [ %653, %662 ], [ %672, %FindLongestMatchH2.exit.thread ], [ %672, %677 ], [ %672, %690 ], [ %688, %.lr.ph462 ], [ %653, %.lr.ph517 ], [ %701, %.lr.ph457 ]
   %703 = add i64 %.4, 8
   %704 = icmp ult i64 %703, %22
   br i1 %704, label %49, label %._crit_edge, !llvm.loop !1121
@@ -24656,8 +24656,8 @@ ComputeDistanceCode.exit.thread.thread:           ; preds = %288
   %324 = add i64 %.sroa.13.1.ph, 15
   br label %ComputeDistanceCode.exit
 
-ComputeDistanceCode.exit:                         ; preds = %316, %300, %311, %304, %320, %323
-  %.1.i = phi i64 [ %324, %323 ], [ 3, %320 ], [ 2, %316 ], [ 1, %300 ], [ %315, %311 ], [ %308, %304 ]
+ComputeDistanceCode.exit:                         ; preds = %300, %311, %304, %316, %320, %323
+  %.1.i = phi i64 [ %324, %323 ], [ 3, %320 ], [ 1, %300 ], [ %315, %311 ], [ %308, %304 ], [ 2, %316 ]
   %325 = icmp ule i64 %.sroa.13.1.ph, %287
   %326 = icmp ne i64 %.1.i, 0
   %or.cond = select i1 %325, i1 %326, i1 false
@@ -24958,10 +24958,10 @@ CombineLengthCodes.exit:                          ; preds = %433, %GetCopyLength
   br i1 %512, label %.lr.ph385, label %StoreRangeH3.exit, !llvm.loop !1158
 
 StoreRangeH3.exit:                                ; preds = %.lr.ph385, %.lr.ph390, %.lr.ph432, %497, %481, %462, %474
-  %.1174 = phi i64 [ %.0173433, %474 ], [ %284, %462 ], [ %.0173433, %481 ], [ %.0173433, %497 ], [ %284, %.lr.ph432 ], [ %.0173433, %.lr.ph390 ], [ %.0173433, %.lr.ph385 ]
-  %.4170 = phi i64 [ %475, %474 ], [ 0, %462 ], [ %475, %481 ], [ %475, %497 ], [ 0, %.lr.ph432 ], [ %494, %.lr.ph390 ], [ %510, %.lr.ph385 ]
-  %.1165 = phi ptr [ %.0164435, %474 ], [ %371, %462 ], [ %.0164435, %481 ], [ %.0164435, %497 ], [ %371, %.lr.ph432 ], [ %.0164435, %.lr.ph390 ], [ %.0164435, %.lr.ph385 ]
-  %.4 = phi i64 [ %476, %474 ], [ %453, %462 ], [ %476, %481 ], [ %476, %497 ], [ %453, %.lr.ph432 ], [ %495, %.lr.ph390 ], [ %511, %.lr.ph385 ]
+  %.1174 = phi i64 [ %284, %462 ], [ %.0173433, %474 ], [ %.0173433, %481 ], [ %.0173433, %497 ], [ %.0173433, %.lr.ph390 ], [ %284, %.lr.ph432 ], [ %.0173433, %.lr.ph385 ]
+  %.4170 = phi i64 [ 0, %462 ], [ %475, %474 ], [ %475, %481 ], [ %475, %497 ], [ %494, %.lr.ph390 ], [ 0, %.lr.ph432 ], [ %510, %.lr.ph385 ]
+  %.1165 = phi ptr [ %371, %462 ], [ %.0164435, %474 ], [ %.0164435, %481 ], [ %.0164435, %497 ], [ %.0164435, %.lr.ph390 ], [ %371, %.lr.ph432 ], [ %.0164435, %.lr.ph385 ]
+  %.4 = phi i64 [ %453, %462 ], [ %476, %474 ], [ %476, %481 ], [ %476, %497 ], [ %495, %.lr.ph390 ], [ %453, %.lr.ph432 ], [ %511, %.lr.ph385 ]
   %513 = add i64 %.4, 8
   %514 = icmp ult i64 %513, %22
   br i1 %514, label %.thread, label %._crit_edge, !llvm.loop !1159
@@ -26075,8 +26075,8 @@ split:                                            ; preds = %548, %FindLongestMa
   %591 = add i64 %.sroa.14.1.ph, 15
   br label %ComputeDistanceCode.exit
 
-ComputeDistanceCode.exit:                         ; preds = %583, %567, %578, %571, %587, %590
-  %.1.i = phi i64 [ %591, %590 ], [ 3, %587 ], [ 2, %583 ], [ 1, %567 ], [ %582, %578 ], [ %575, %571 ]
+ComputeDistanceCode.exit:                         ; preds = %567, %578, %571, %583, %587, %590
+  %.1.i = phi i64 [ %591, %590 ], [ 3, %587 ], [ 1, %567 ], [ %582, %578 ], [ %575, %571 ], [ 2, %583 ]
   %592 = icmp ule i64 %.sroa.14.1.ph, %557
   %593 = icmp ne i64 %.1.i, 0
   %or.cond = select i1 %592, i1 %593, i1 false
@@ -26094,7 +26094,7 @@ ComputeDistanceCode.exit:                         ; preds = %583, %567, %578, %5
   br label %ComputeDistanceCode.exit.thread
 
 ComputeDistanceCode.exit.thread:                  ; preds = %558, %594, %ComputeDistanceCode.exit
-  %.1.i370 = phi i64 [ %.1.i, %594 ], [ %.1.i, %ComputeDistanceCode.exit ], [ 0, %558 ]
+  %.1.i370 = phi i64 [ %.1.i, %ComputeDistanceCode.exit ], [ %.1.i, %594 ], [ 0, %558 ]
   %599 = getelementptr inbounds nuw i8, ptr %.0164544, i64 16
   %600 = trunc i64 %.3169.ph to i32
   store i32 %600, ptr %.0164544, align 4, !tbaa !146
@@ -26376,10 +26376,10 @@ CombineLengthCodes.exit:                          ; preds = %692, %GetCopyLength
   br i1 %773, label %.lr.ph534, label %StoreRangeH4.exit, !llvm.loop !1200
 
 StoreRangeH4.exit:                                ; preds = %.lr.ph531, %.lr.ph534, %.lr.ph539, %721, %758, %742, %735
-  %.1174 = phi i64 [ %.0173542, %735 ], [ %.0173542, %742 ], [ %.0173542, %758 ], [ %556, %721 ], [ %.0173542, %.lr.ph539 ], [ %.0173542, %.lr.ph534 ], [ %556, %.lr.ph531 ]
-  %.4170 = phi i64 [ %736, %735 ], [ %736, %742 ], [ %736, %758 ], [ 0, %721 ], [ %755, %.lr.ph539 ], [ %771, %.lr.ph534 ], [ 0, %.lr.ph531 ]
-  %.1165 = phi ptr [ %.0164544, %735 ], [ %.0164544, %742 ], [ %.0164544, %758 ], [ %599, %721 ], [ %.0164544, %.lr.ph539 ], [ %.0164544, %.lr.ph534 ], [ %599, %.lr.ph531 ]
-  %.4 = phi i64 [ %737, %735 ], [ %737, %742 ], [ %737, %758 ], [ %712, %721 ], [ %756, %.lr.ph539 ], [ %772, %.lr.ph534 ], [ %712, %.lr.ph531 ]
+  %.1174 = phi i64 [ %.0173542, %758 ], [ %.0173542, %735 ], [ %.0173542, %742 ], [ %556, %721 ], [ %.0173542, %.lr.ph534 ], [ %.0173542, %.lr.ph539 ], [ %556, %.lr.ph531 ]
+  %.4170 = phi i64 [ %736, %758 ], [ %736, %735 ], [ %736, %742 ], [ 0, %721 ], [ %771, %.lr.ph534 ], [ %755, %.lr.ph539 ], [ 0, %.lr.ph531 ]
+  %.1165 = phi ptr [ %.0164544, %758 ], [ %.0164544, %735 ], [ %.0164544, %742 ], [ %599, %721 ], [ %.0164544, %.lr.ph534 ], [ %.0164544, %.lr.ph539 ], [ %599, %.lr.ph531 ]
+  %.4 = phi i64 [ %737, %758 ], [ %737, %735 ], [ %737, %742 ], [ %712, %721 ], [ %772, %.lr.ph534 ], [ %756, %.lr.ph539 ], [ %712, %.lr.ph531 ]
   %774 = add i64 %.4, 8
   %775 = icmp ult i64 %774, %24
   br i1 %775, label %51, label %._crit_edge, !llvm.loop !1201
@@ -26741,7 +26741,7 @@ FindMatchLengthWithLimit.exit257:                 ; preds = %171, %.critedge.i25
 212:                                              ; preds = %210
   br label %213
 
-213:                                              ; preds = %151, %164, %161, %198, %212, %210, %195
+213:                                              ; preds = %161, %151, %195, %164, %198, %212, %210
   %.sroa.24336.7.ph = phi i64 [ %.sroa.24336.2512, %164 ], [ %.sroa.24336.2512, %195 ], [ %.sroa.24336.2512, %198 ], [ %.sroa.24336.2512, %210 ], [ %.0147.i, %212 ], [ %.sroa.24336.2512, %161 ], [ %.sroa.24336.2512, %151 ]
   %.sroa.15.7.ph = phi i64 [ %.sroa.15.2513, %164 ], [ %.sroa.15.2513, %195 ], [ %.sroa.15.2513, %198 ], [ %.sroa.15.2513, %210 ], [ %154, %212 ], [ %.sroa.15.2513, %161 ], [ %.sroa.15.2513, %151 ]
   %.sroa.0326.7.ph = phi i64 [ %.sroa.0326.2514, %164 ], [ %.sroa.0326.2514, %195 ], [ %.sroa.0326.2514, %198 ], [ %.sroa.0326.2514, %210 ], [ %.2.i253, %212 ], [ %.sroa.0326.2514, %161 ], [ %.sroa.0326.2514, %151 ]
@@ -26903,11 +26903,11 @@ FindMatchLengthWithLimit.exit271:                 ; preds = %246, %.critedge.i26
   br label %279
 
 279:                                              ; preds = %278, %270, %FindMatchLengthWithLimit.exit271, %239, %236
-  %.sroa.24336.6 = phi i64 [ %.sroa.24336.4547, %236 ], [ %276, %278 ], [ %.sroa.24336.4547, %270 ], [ %.sroa.24336.4547, %FindMatchLengthWithLimit.exit271 ], [ %.sroa.24336.4547, %239 ]
-  %.sroa.15.6 = phi i64 [ %.sroa.15.4548, %236 ], [ %230, %278 ], [ %.sroa.15.4548, %270 ], [ %.sroa.15.4548, %FindMatchLengthWithLimit.exit271 ], [ %.sroa.15.4548, %239 ]
-  %.sroa.0326.6 = phi i64 [ %.sroa.0326.4549, %236 ], [ %.2.i267, %278 ], [ %.sroa.0326.4549, %270 ], [ %.sroa.0326.4549, %FindMatchLengthWithLimit.exit271 ], [ %.sroa.0326.4549, %239 ]
-  %.6142.i = phi i64 [ %.5141.i551, %236 ], [ %.2.i267, %278 ], [ %.5141.i551, %270 ], [ %.5141.i551, %FindMatchLengthWithLimit.exit271 ], [ %.5141.i551, %239 ]
-  %.6.i = phi i64 [ %.5.i552, %236 ], [ %276, %278 ], [ %.5.i552, %270 ], [ %.5.i552, %FindMatchLengthWithLimit.exit271 ], [ %.5.i552, %239 ]
+  %.sroa.24336.6 = phi i64 [ %.sroa.24336.4547, %FindMatchLengthWithLimit.exit271 ], [ %.sroa.24336.4547, %239 ], [ %.sroa.24336.4547, %236 ], [ %276, %278 ], [ %.sroa.24336.4547, %270 ]
+  %.sroa.15.6 = phi i64 [ %.sroa.15.4548, %FindMatchLengthWithLimit.exit271 ], [ %.sroa.15.4548, %239 ], [ %.sroa.15.4548, %236 ], [ %230, %278 ], [ %.sroa.15.4548, %270 ]
+  %.sroa.0326.6 = phi i64 [ %.sroa.0326.4549, %FindMatchLengthWithLimit.exit271 ], [ %.sroa.0326.4549, %239 ], [ %.sroa.0326.4549, %236 ], [ %.2.i267, %278 ], [ %.sroa.0326.4549, %270 ]
+  %.6142.i = phi i64 [ %.5141.i551, %FindMatchLengthWithLimit.exit271 ], [ %.5141.i551, %239 ], [ %.5141.i551, %236 ], [ %.2.i267, %278 ], [ %.5141.i551, %270 ]
+  %.6.i = phi i64 [ %.5.i552, %FindMatchLengthWithLimit.exit271 ], [ %.5.i552, %239 ], [ %.5.i552, %236 ], [ %276, %278 ], [ %.5.i552, %270 ]
   %280 = icmp ugt i64 %225, %spec.select.i
   br i1 %280, label %224, label %.thread364
 
@@ -27335,7 +27335,7 @@ FindMatchLengthWithLimit.exit:                    ; preds = %461, %.critedge.i
 502:                                              ; preds = %500
   br label %503
 
-503:                                              ; preds = %441, %454, %451, %488, %502, %500, %485
+503:                                              ; preds = %451, %441, %485, %454, %488, %502, %500
   %.sroa.13.5.ph = phi i64 [ %.sroa.13.0604, %454 ], [ %.sroa.13.0604, %485 ], [ %.sroa.13.0604, %488 ], [ %.sroa.13.0604, %500 ], [ %.0147.i219, %502 ], [ %.sroa.13.0604, %451 ], [ %.sroa.13.0604, %441 ]
   %.sroa.9.5.ph = phi i64 [ %.sroa.9.0605, %454 ], [ %.sroa.9.0605, %485 ], [ %.sroa.9.0605, %488 ], [ %.sroa.9.0605, %500 ], [ %444, %502 ], [ %.sroa.9.0605, %451 ], [ %.sroa.9.0605, %441 ]
   %.sroa.0.5.ph = phi i64 [ %.sroa.0.0606, %454 ], [ %.sroa.0.0606, %485 ], [ %.sroa.0.0606, %488 ], [ %.sroa.0.0606, %500 ], [ %.2.i228, %502 ], [ %.sroa.0.0606, %451 ], [ %.sroa.0.0606, %441 ]
@@ -27486,11 +27486,11 @@ FindMatchLengthWithLimit.exit243:                 ; preds = %533, %.critedge.i23
   br label %566
 
 566:                                              ; preds = %565, %557, %FindMatchLengthWithLimit.exit243, %526, %523
-  %.sroa.13.4 = phi i64 [ %.sroa.13.2641, %523 ], [ %563, %565 ], [ %.sroa.13.2641, %557 ], [ %.sroa.13.2641, %FindMatchLengthWithLimit.exit243 ], [ %.sroa.13.2641, %526 ]
-  %.sroa.9.4 = phi i64 [ %.sroa.9.2642, %523 ], [ %517, %565 ], [ %.sroa.9.2642, %557 ], [ %.sroa.9.2642, %FindMatchLengthWithLimit.exit243 ], [ %.sroa.9.2642, %526 ]
-  %.sroa.0.4 = phi i64 [ %.sroa.0.2643, %523 ], [ %.2.i239, %565 ], [ %.sroa.0.2643, %557 ], [ %.sroa.0.2643, %FindMatchLengthWithLimit.exit243 ], [ %.sroa.0.2643, %526 ]
-  %.6142.i209 = phi i64 [ %.5141.i205645, %523 ], [ %.2.i239, %565 ], [ %.5141.i205645, %557 ], [ %.5141.i205645, %FindMatchLengthWithLimit.exit243 ], [ %.5141.i205645, %526 ]
-  %.6.i210 = phi i64 [ %.5.i206646, %523 ], [ %563, %565 ], [ %.5.i206646, %557 ], [ %.5.i206646, %FindMatchLengthWithLimit.exit243 ], [ %.5.i206646, %526 ]
+  %.sroa.13.4 = phi i64 [ %.sroa.13.2641, %FindMatchLengthWithLimit.exit243 ], [ %.sroa.13.2641, %526 ], [ %.sroa.13.2641, %523 ], [ %563, %565 ], [ %.sroa.13.2641, %557 ]
+  %.sroa.9.4 = phi i64 [ %.sroa.9.2642, %FindMatchLengthWithLimit.exit243 ], [ %.sroa.9.2642, %526 ], [ %.sroa.9.2642, %523 ], [ %517, %565 ], [ %.sroa.9.2642, %557 ]
+  %.sroa.0.4 = phi i64 [ %.sroa.0.2643, %FindMatchLengthWithLimit.exit243 ], [ %.sroa.0.2643, %526 ], [ %.sroa.0.2643, %523 ], [ %.2.i239, %565 ], [ %.sroa.0.2643, %557 ]
+  %.6142.i209 = phi i64 [ %.5141.i205645, %FindMatchLengthWithLimit.exit243 ], [ %.5141.i205645, %526 ], [ %.5141.i205645, %523 ], [ %.2.i239, %565 ], [ %.5141.i205645, %557 ]
+  %.6.i210 = phi i64 [ %.5.i206646, %FindMatchLengthWithLimit.exit243 ], [ %.5.i206646, %526 ], [ %.5.i206646, %523 ], [ %563, %565 ], [ %.5.i206646, %557 ]
   %567 = icmp ugt i64 %512, %spec.select.i203
   br i1 %567, label %511, label %.thread410
 
@@ -27779,8 +27779,8 @@ split:                                            ; preds = %680, %FindLongestMa
   %723 = add i64 %.sroa.15.1.ph, 15
   br label %ComputeDistanceCode.exit
 
-ComputeDistanceCode.exit:                         ; preds = %715, %699, %710, %703, %719, %722
-  %.1.i223 = phi i64 [ %723, %722 ], [ 3, %719 ], [ 2, %715 ], [ 1, %699 ], [ %714, %710 ], [ %707, %703 ]
+ComputeDistanceCode.exit:                         ; preds = %699, %710, %703, %715, %719, %722
+  %.1.i223 = phi i64 [ %723, %722 ], [ 3, %719 ], [ 1, %699 ], [ %714, %710 ], [ %707, %703 ], [ 2, %715 ]
   %724 = icmp ule i64 %.sroa.15.1.ph, %689
   %725 = icmp ne i64 %.1.i223, 0
   %or.cond = select i1 %724, i1 %725, i1 false
@@ -27832,7 +27832,7 @@ ComputeDistanceCode.exit:                         ; preds = %715, %699, %710, %7
   br label %PrepareDistanceCache.exit
 
 PrepareDistanceCache.exit:                        ; preds = %690, %741, %733, %726, %ComputeDistanceCode.exit
-  %.1.i223458 = phi i64 [ %.1.i223, %741 ], [ %.1.i223, %733 ], [ %.1.i223, %726 ], [ %.1.i223, %ComputeDistanceCode.exit ], [ 0, %690 ]
+  %.1.i223458 = phi i64 [ %.1.i223, %ComputeDistanceCode.exit ], [ %.1.i223, %741 ], [ %.1.i223, %733 ], [ %.1.i223, %726 ], [ 0, %690 ]
   %748 = getelementptr inbounds nuw i8, ptr %.0164700, i64 16
   %749 = trunc i64 %.3169.ph to i32
   store i32 %749, ptr %.0164700, align 4, !tbaa !146
@@ -28153,10 +28153,10 @@ FindLongestMatchH5.exit.thread:                   ; preds = %288, %FindLongestMa
   br i1 %952, label %933, label %StoreRangeH5.exit, !llvm.loop !1258
 
 StoreRangeH5.exit:                                ; preds = %875, %933, %906, %870, %926, %899, %FindLongestMatchH5.exit.thread
-  %.1174 = phi i64 [ %.0173698, %FindLongestMatchH5.exit.thread ], [ %.0173698, %899 ], [ %.0173698, %926 ], [ %688, %870 ], [ %.0173698, %906 ], [ %.0173698, %933 ], [ %688, %875 ]
-  %.4170 = phi i64 [ %893, %FindLongestMatchH5.exit.thread ], [ %893, %899 ], [ %893, %926 ], [ 0, %870 ], [ %923, %906 ], [ %950, %933 ], [ 0, %875 ]
-  %.1165 = phi ptr [ %.0164700, %FindLongestMatchH5.exit.thread ], [ %.0164700, %899 ], [ %.0164700, %926 ], [ %748, %870 ], [ %.0164700, %906 ], [ %.0164700, %933 ], [ %748, %875 ]
-  %.4 = phi i64 [ %894, %FindLongestMatchH5.exit.thread ], [ %894, %899 ], [ %894, %926 ], [ %861, %870 ], [ %924, %906 ], [ %951, %933 ], [ %861, %875 ]
+  %.1174 = phi i64 [ %.0173698, %926 ], [ %.0173698, %FindLongestMatchH5.exit.thread ], [ %.0173698, %899 ], [ %688, %870 ], [ %.0173698, %933 ], [ %.0173698, %906 ], [ %688, %875 ]
+  %.4170 = phi i64 [ %893, %926 ], [ %893, %FindLongestMatchH5.exit.thread ], [ %893, %899 ], [ 0, %870 ], [ %950, %933 ], [ %923, %906 ], [ 0, %875 ]
+  %.1165 = phi ptr [ %.0164700, %926 ], [ %.0164700, %FindLongestMatchH5.exit.thread ], [ %.0164700, %899 ], [ %748, %870 ], [ %.0164700, %933 ], [ %.0164700, %906 ], [ %748, %875 ]
+  %.4 = phi i64 [ %894, %926 ], [ %894, %FindLongestMatchH5.exit.thread ], [ %894, %899 ], [ %861, %870 ], [ %951, %933 ], [ %924, %906 ], [ %861, %875 ]
   %953 = add i64 %.4, 4
   %954 = icmp ult i64 %953, %21
   br i1 %954, label %100, label %._crit_edge703, !llvm.loop !1259
@@ -28519,7 +28519,7 @@ FindMatchLengthWithLimit.exit188.i:               ; preds = %171, %.critedge.i18
 212:                                              ; preds = %210
   br label %213
 
-213:                                              ; preds = %151, %164, %161, %198, %212, %210, %195
+213:                                              ; preds = %161, %151, %195, %164, %198, %212, %210
   %.sroa.24311.11.ph = phi i64 [ %.sroa.24311.2487, %164 ], [ %.sroa.24311.2487, %195 ], [ %.sroa.24311.2487, %198 ], [ %.sroa.24311.2487, %210 ], [ %.0154.i, %212 ], [ %.sroa.24311.2487, %161 ], [ %.sroa.24311.2487, %151 ]
   %.sroa.15.11.ph = phi i64 [ %.sroa.15.2488, %164 ], [ %.sroa.15.2488, %195 ], [ %.sroa.15.2488, %198 ], [ %.sroa.15.2488, %210 ], [ %154, %212 ], [ %.sroa.15.2488, %161 ], [ %.sroa.15.2488, %151 ]
   %.sroa.0301.11.ph = phi i64 [ %.sroa.0301.2489, %164 ], [ %.sroa.0301.2489, %195 ], [ %.sroa.0301.2489, %198 ], [ %.sroa.0301.2489, %210 ], [ %.2.i184.i, %212 ], [ %.sroa.0301.2489, %161 ], [ %.sroa.0301.2489, %151 ]
@@ -28685,11 +28685,11 @@ FindMatchLengthWithLimit.exit.i:                  ; preds = %249, %.critedge.i.i
   br label %281
 
 281:                                              ; preds = %280, %FindMatchLengthWithLimit.exit.i, %245, %240, %237
-  %.sroa.24311.10 = phi i64 [ %.sroa.24311.4522, %237 ], [ %278, %280 ], [ %.sroa.24311.4522, %FindMatchLengthWithLimit.exit.i ], [ %.sroa.24311.4522, %245 ], [ %.sroa.24311.4522, %240 ]
-  %.sroa.15.10 = phi i64 [ %.sroa.15.4523, %237 ], [ %231, %280 ], [ %.sroa.15.4523, %FindMatchLengthWithLimit.exit.i ], [ %.sroa.15.4523, %245 ], [ %.sroa.15.4523, %240 ]
-  %.sroa.0301.10 = phi i64 [ %.sroa.0301.4524, %237 ], [ %272, %280 ], [ %.sroa.0301.4524, %FindMatchLengthWithLimit.exit.i ], [ %.sroa.0301.4524, %245 ], [ %.sroa.0301.4524, %240 ]
-  %.6148.i = phi i64 [ %.5147.i526, %237 ], [ %272, %280 ], [ %.5147.i526, %FindMatchLengthWithLimit.exit.i ], [ %.5147.i526, %245 ], [ %.5147.i526, %240 ]
-  %.6.i = phi i64 [ %.5.i527, %237 ], [ %278, %280 ], [ %.5.i527, %FindMatchLengthWithLimit.exit.i ], [ %.5.i527, %245 ], [ %.5.i527, %240 ]
+  %.sroa.24311.10 = phi i64 [ %.sroa.24311.4522, %245 ], [ %.sroa.24311.4522, %240 ], [ %.sroa.24311.4522, %237 ], [ %278, %280 ], [ %.sroa.24311.4522, %FindMatchLengthWithLimit.exit.i ]
+  %.sroa.15.10 = phi i64 [ %.sroa.15.4523, %245 ], [ %.sroa.15.4523, %240 ], [ %.sroa.15.4523, %237 ], [ %231, %280 ], [ %.sroa.15.4523, %FindMatchLengthWithLimit.exit.i ]
+  %.sroa.0301.10 = phi i64 [ %.sroa.0301.4524, %245 ], [ %.sroa.0301.4524, %240 ], [ %.sroa.0301.4524, %237 ], [ %272, %280 ], [ %.sroa.0301.4524, %FindMatchLengthWithLimit.exit.i ]
+  %.6148.i = phi i64 [ %.5147.i526, %245 ], [ %.5147.i526, %240 ], [ %.5147.i526, %237 ], [ %272, %280 ], [ %.5147.i526, %FindMatchLengthWithLimit.exit.i ]
+  %.6.i = phi i64 [ %.5.i527, %245 ], [ %.5.i527, %240 ], [ %.5.i527, %237 ], [ %278, %280 ], [ %.5.i527, %FindMatchLengthWithLimit.exit.i ]
   %282 = icmp ugt i64 %226, %spec.select.i
   br i1 %282, label %225, label %.thread339
 
@@ -29117,7 +29117,7 @@ FindMatchLengthWithLimit.exit188.i280:            ; preds = %463, %.critedge.i18
 504:                                              ; preds = %502
   br label %505
 
-505:                                              ; preds = %443, %456, %453, %490, %504, %502, %487
+505:                                              ; preds = %453, %443, %487, %456, %490, %504, %502
   %.sroa.13.9.ph = phi i64 [ %.sroa.13.0579, %456 ], [ %.sroa.13.0579, %487 ], [ %.sroa.13.0579, %490 ], [ %.sroa.13.0579, %502 ], [ %.0154.i285, %504 ], [ %.sroa.13.0579, %453 ], [ %.sroa.13.0579, %443 ]
   %.sroa.9.9.ph = phi i64 [ %.sroa.9.0580, %456 ], [ %.sroa.9.0580, %487 ], [ %.sroa.9.0580, %490 ], [ %.sroa.9.0580, %502 ], [ %446, %504 ], [ %.sroa.9.0580, %453 ], [ %.sroa.9.0580, %443 ]
   %.sroa.0.9.ph = phi i64 [ %.sroa.0.0581, %456 ], [ %.sroa.0.0581, %487 ], [ %.sroa.0.0581, %490 ], [ %.sroa.0.0581, %502 ], [ %.2.i184.i281, %504 ], [ %.sroa.0.0581, %453 ], [ %.sroa.0.0581, %443 ]
@@ -29272,11 +29272,11 @@ FindMatchLengthWithLimit.exit.i258:               ; preds = %538, %.critedge.i.i
   br label %570
 
 570:                                              ; preds = %569, %FindMatchLengthWithLimit.exit.i258, %534, %529, %526
-  %.sroa.13.8 = phi i64 [ %.sroa.13.2616, %526 ], [ %567, %569 ], [ %.sroa.13.2616, %FindMatchLengthWithLimit.exit.i258 ], [ %.sroa.13.2616, %534 ], [ %.sroa.13.2616, %529 ]
-  %.sroa.9.8 = phi i64 [ %.sroa.9.2617, %526 ], [ %520, %569 ], [ %.sroa.9.2617, %FindMatchLengthWithLimit.exit.i258 ], [ %.sroa.9.2617, %534 ], [ %.sroa.9.2617, %529 ]
-  %.sroa.0.8 = phi i64 [ %.sroa.0.2618, %526 ], [ %561, %569 ], [ %.sroa.0.2618, %FindMatchLengthWithLimit.exit.i258 ], [ %.sroa.0.2618, %534 ], [ %.sroa.0.2618, %529 ]
-  %.6148.i245 = phi i64 [ %.5147.i214620, %526 ], [ %561, %569 ], [ %.5147.i214620, %FindMatchLengthWithLimit.exit.i258 ], [ %.5147.i214620, %534 ], [ %.5147.i214620, %529 ]
-  %.6.i246 = phi i64 [ %.5.i215621, %526 ], [ %567, %569 ], [ %.5.i215621, %FindMatchLengthWithLimit.exit.i258 ], [ %.5.i215621, %534 ], [ %.5.i215621, %529 ]
+  %.sroa.13.8 = phi i64 [ %.sroa.13.2616, %534 ], [ %.sroa.13.2616, %529 ], [ %.sroa.13.2616, %526 ], [ %567, %569 ], [ %.sroa.13.2616, %FindMatchLengthWithLimit.exit.i258 ]
+  %.sroa.9.8 = phi i64 [ %.sroa.9.2617, %534 ], [ %.sroa.9.2617, %529 ], [ %.sroa.9.2617, %526 ], [ %520, %569 ], [ %.sroa.9.2617, %FindMatchLengthWithLimit.exit.i258 ]
+  %.sroa.0.8 = phi i64 [ %.sroa.0.2618, %534 ], [ %.sroa.0.2618, %529 ], [ %.sroa.0.2618, %526 ], [ %561, %569 ], [ %.sroa.0.2618, %FindMatchLengthWithLimit.exit.i258 ]
+  %.6148.i245 = phi i64 [ %.5147.i214620, %534 ], [ %.5147.i214620, %529 ], [ %.5147.i214620, %526 ], [ %561, %569 ], [ %.5147.i214620, %FindMatchLengthWithLimit.exit.i258 ]
+  %.6.i246 = phi i64 [ %.5.i215621, %534 ], [ %.5.i215621, %529 ], [ %.5.i215621, %526 ], [ %567, %569 ], [ %.5.i215621, %FindMatchLengthWithLimit.exit.i258 ]
   %571 = icmp ugt i64 %515, %spec.select.i211
   br i1 %571, label %514, label %.thread385
 
@@ -29565,8 +29565,8 @@ split:                                            ; preds = %684, %FindLongestMa
   %727 = add i64 %.sroa.15.1.ph, 15
   br label %ComputeDistanceCode.exit
 
-ComputeDistanceCode.exit:                         ; preds = %719, %703, %714, %707, %723, %726
-  %.1.i = phi i64 [ %727, %726 ], [ 3, %723 ], [ 2, %719 ], [ 1, %703 ], [ %718, %714 ], [ %711, %707 ]
+ComputeDistanceCode.exit:                         ; preds = %703, %714, %707, %719, %723, %726
+  %.1.i = phi i64 [ %727, %726 ], [ 3, %723 ], [ 1, %703 ], [ %718, %714 ], [ %711, %707 ], [ 2, %719 ]
   %728 = icmp ule i64 %.sroa.15.1.ph, %693
   %729 = icmp ne i64 %.1.i, 0
   %or.cond = select i1 %728, i1 %729, i1 false
@@ -29619,7 +29619,7 @@ ComputeDistanceCode.exit:                         ; preds = %719, %703, %714, %7
   br label %PrepareDistanceCacheH6.exit200
 
 PrepareDistanceCacheH6.exit200:                   ; preds = %694, %745, %737, %730, %ComputeDistanceCode.exit
-  %.1.i433 = phi i64 [ %.1.i, %745 ], [ %.1.i, %737 ], [ %.1.i, %730 ], [ %.1.i, %ComputeDistanceCode.exit ], [ 0, %694 ]
+  %.1.i433 = phi i64 [ %.1.i, %ComputeDistanceCode.exit ], [ %.1.i, %745 ], [ %.1.i, %737 ], [ %.1.i, %730 ], [ 0, %694 ]
   %752 = getelementptr inbounds nuw i8, ptr %.0164675, i64 16
   %753 = trunc i64 %.3169.ph to i32
   store i32 %753, ptr %.0164675, align 4, !tbaa !146
@@ -29935,10 +29935,10 @@ FindLongestMatchH6.exit.thread:                   ; preds = %290, %FindLongestMa
   br i1 %951, label %934, label %StoreRangeH6.exit, !llvm.loop !1325
 
 StoreRangeH6.exit:                                ; preds = %880, %934, %909, %874, %927, %902, %FindLongestMatchH6.exit.thread
-  %.1174 = phi i64 [ %.0173673, %FindLongestMatchH6.exit.thread ], [ %.0173673, %902 ], [ %.0173673, %927 ], [ %692, %874 ], [ %.0173673, %909 ], [ %.0173673, %934 ], [ %692, %880 ]
-  %.4170 = phi i64 [ %896, %FindLongestMatchH6.exit.thread ], [ %896, %902 ], [ %896, %927 ], [ 0, %874 ], [ %924, %909 ], [ %949, %934 ], [ 0, %880 ]
-  %.1165 = phi ptr [ %.0164675, %FindLongestMatchH6.exit.thread ], [ %.0164675, %902 ], [ %.0164675, %927 ], [ %752, %874 ], [ %.0164675, %909 ], [ %.0164675, %934 ], [ %752, %880 ]
-  %.4 = phi i64 [ %897, %FindLongestMatchH6.exit.thread ], [ %897, %902 ], [ %897, %927 ], [ %865, %874 ], [ %925, %909 ], [ %950, %934 ], [ %865, %880 ]
+  %.1174 = phi i64 [ %.0173673, %927 ], [ %.0173673, %FindLongestMatchH6.exit.thread ], [ %.0173673, %902 ], [ %692, %874 ], [ %.0173673, %934 ], [ %.0173673, %909 ], [ %692, %880 ]
+  %.4170 = phi i64 [ %896, %927 ], [ %896, %FindLongestMatchH6.exit.thread ], [ %896, %902 ], [ 0, %874 ], [ %949, %934 ], [ %924, %909 ], [ 0, %880 ]
+  %.1165 = phi ptr [ %.0164675, %927 ], [ %.0164675, %FindLongestMatchH6.exit.thread ], [ %.0164675, %902 ], [ %752, %874 ], [ %.0164675, %934 ], [ %.0164675, %909 ], [ %752, %880 ]
+  %.4 = phi i64 [ %897, %927 ], [ %897, %FindLongestMatchH6.exit.thread ], [ %897, %902 ], [ %865, %874 ], [ %950, %934 ], [ %925, %909 ], [ %865, %880 ]
   %952 = add i64 %.4, 8
   %953 = icmp ult i64 %952, %21
   br i1 %953, label %99, label %._crit_edge678, !llvm.loop !1326
@@ -30355,11 +30355,11 @@ FindMatchLengthWithLimit.exit.i:                  ; preds = %184, %.critedge.i.i
   br label %217
 
 217:                                              ; preds = %216, %208, %FindMatchLengthWithLimit.exit.i, %177, %174, %164
-  %.sroa.24316.4 = phi i64 [ %.sroa.24316.3492, %164 ], [ %.sroa.24316.3492, %174 ], [ %214, %216 ], [ %.sroa.24316.3492, %208 ], [ %.sroa.24316.3492, %FindMatchLengthWithLimit.exit.i ], [ %.sroa.24316.3492, %177 ]
-  %.sroa.15.4 = phi i64 [ %.sroa.15.3493, %164 ], [ %.sroa.15.3493, %174 ], [ %162, %216 ], [ %.sroa.15.3493, %208 ], [ %.sroa.15.3493, %FindMatchLengthWithLimit.exit.i ], [ %.sroa.15.3493, %177 ]
-  %.sroa.0306.4 = phi i64 [ %.sroa.0306.3494, %164 ], [ %.sroa.0306.3494, %174 ], [ %.2.i.i, %216 ], [ %.sroa.0306.3494, %208 ], [ %.sroa.0306.3494, %FindMatchLengthWithLimit.exit.i ], [ %.sroa.0306.3494, %177 ]
-  %.5124.i = phi i64 [ %.4123.i497, %164 ], [ %.4123.i497, %174 ], [ %.2.i.i, %216 ], [ %.4123.i497, %208 ], [ %.4123.i497, %FindMatchLengthWithLimit.exit.i ], [ %.4123.i497, %177 ]
-  %.5.i = phi i64 [ %.4.i498, %164 ], [ %.4.i498, %174 ], [ %214, %216 ], [ %.4.i498, %208 ], [ %.4.i498, %FindMatchLengthWithLimit.exit.i ], [ %.4.i498, %177 ]
+  %.sroa.24316.4 = phi i64 [ %.sroa.24316.3492, %177 ], [ %.sroa.24316.3492, %164 ], [ %.sroa.24316.3492, %174 ], [ %214, %216 ], [ %.sroa.24316.3492, %208 ], [ %.sroa.24316.3492, %FindMatchLengthWithLimit.exit.i ]
+  %.sroa.15.4 = phi i64 [ %.sroa.15.3493, %177 ], [ %.sroa.15.3493, %164 ], [ %.sroa.15.3493, %174 ], [ %162, %216 ], [ %.sroa.15.3493, %208 ], [ %.sroa.15.3493, %FindMatchLengthWithLimit.exit.i ]
+  %.sroa.0306.4 = phi i64 [ %.sroa.0306.3494, %177 ], [ %.sroa.0306.3494, %164 ], [ %.sroa.0306.3494, %174 ], [ %.2.i.i, %216 ], [ %.sroa.0306.3494, %208 ], [ %.sroa.0306.3494, %FindMatchLengthWithLimit.exit.i ]
+  %.5124.i = phi i64 [ %.4123.i497, %177 ], [ %.4123.i497, %164 ], [ %.4123.i497, %174 ], [ %.2.i.i, %216 ], [ %.4123.i497, %208 ], [ %.4123.i497, %FindMatchLengthWithLimit.exit.i ]
+  %.5.i = phi i64 [ %.4.i498, %177 ], [ %.4.i498, %164 ], [ %.4.i498, %174 ], [ %214, %216 ], [ %.4.i498, %208 ], [ %.4.i498, %FindMatchLengthWithLimit.exit.i ]
   %.not.i201 = icmp eq i64 %161, 0
   br i1 %.not.i201, label %.thread331, label %160
 
@@ -30922,11 +30922,11 @@ FindMatchLengthWithLimit.exit.i257:               ; preds = %464, %.critedge.i.i
   br label %497
 
 497:                                              ; preds = %496, %488, %FindMatchLengthWithLimit.exit.i257, %457, %454, %444
-  %.sroa.13.2 = phi i64 [ %.sroa.13.1568, %444 ], [ %.sroa.13.1568, %454 ], [ %494, %496 ], [ %.sroa.13.1568, %488 ], [ %.sroa.13.1568, %FindMatchLengthWithLimit.exit.i257 ], [ %.sroa.13.1568, %457 ]
-  %.sroa.9.2 = phi i64 [ %.sroa.9.1569, %444 ], [ %.sroa.9.1569, %454 ], [ %442, %496 ], [ %.sroa.9.1569, %488 ], [ %.sroa.9.1569, %FindMatchLengthWithLimit.exit.i257 ], [ %.sroa.9.1569, %457 ]
-  %.sroa.0.2 = phi i64 [ %.sroa.0.1570, %444 ], [ %.sroa.0.1570, %454 ], [ %.2.i.i258, %496 ], [ %.sroa.0.1570, %488 ], [ %.sroa.0.1570, %FindMatchLengthWithLimit.exit.i257 ], [ %.sroa.0.1570, %457 ]
-  %.5124.i221 = phi i64 [ %.4123.i212573, %444 ], [ %.4123.i212573, %454 ], [ %.2.i.i258, %496 ], [ %.4123.i212573, %488 ], [ %.4123.i212573, %FindMatchLengthWithLimit.exit.i257 ], [ %.4123.i212573, %457 ]
-  %.5.i222 = phi i64 [ %.4.i213574, %444 ], [ %.4.i213574, %454 ], [ %494, %496 ], [ %.4.i213574, %488 ], [ %.4.i213574, %FindMatchLengthWithLimit.exit.i257 ], [ %.4.i213574, %457 ]
+  %.sroa.13.2 = phi i64 [ %.sroa.13.1568, %457 ], [ %.sroa.13.1568, %444 ], [ %.sroa.13.1568, %454 ], [ %494, %496 ], [ %.sroa.13.1568, %488 ], [ %.sroa.13.1568, %FindMatchLengthWithLimit.exit.i257 ]
+  %.sroa.9.2 = phi i64 [ %.sroa.9.1569, %457 ], [ %.sroa.9.1569, %444 ], [ %.sroa.9.1569, %454 ], [ %442, %496 ], [ %.sroa.9.1569, %488 ], [ %.sroa.9.1569, %FindMatchLengthWithLimit.exit.i257 ]
+  %.sroa.0.2 = phi i64 [ %.sroa.0.1570, %457 ], [ %.sroa.0.1570, %444 ], [ %.sroa.0.1570, %454 ], [ %.2.i.i258, %496 ], [ %.sroa.0.1570, %488 ], [ %.sroa.0.1570, %FindMatchLengthWithLimit.exit.i257 ]
+  %.5124.i221 = phi i64 [ %.4123.i212573, %457 ], [ %.4123.i212573, %444 ], [ %.4123.i212573, %454 ], [ %.2.i.i258, %496 ], [ %.4123.i212573, %488 ], [ %.4123.i212573, %FindMatchLengthWithLimit.exit.i257 ]
+  %.5.i222 = phi i64 [ %.4.i213574, %457 ], [ %.4.i213574, %444 ], [ %.4.i213574, %454 ], [ %494, %496 ], [ %.4.i213574, %488 ], [ %.4.i213574, %FindMatchLengthWithLimit.exit.i257 ]
   %.not.i214 = icmp eq i64 %441, 0
   br i1 %.not.i214, label %.thread365, label %440
 
@@ -31224,8 +31224,8 @@ split:                                            ; preds = %613, %FindLongestMa
   %656 = add i64 %.sroa.15.1.ph, 15
   br label %ComputeDistanceCode.exit
 
-ComputeDistanceCode.exit:                         ; preds = %648, %632, %643, %636, %652, %655
-  %.1.i = phi i64 [ %656, %655 ], [ 3, %652 ], [ 2, %648 ], [ 1, %632 ], [ %647, %643 ], [ %640, %636 ]
+ComputeDistanceCode.exit:                         ; preds = %632, %643, %636, %648, %652, %655
+  %.1.i = phi i64 [ %656, %655 ], [ 3, %652 ], [ 1, %632 ], [ %647, %643 ], [ %640, %636 ], [ 2, %648 ]
   %657 = icmp ule i64 %.sroa.15.1.ph, %622
   %658 = icmp ne i64 %.1.i, 0
   %or.cond = select i1 %657, i1 %658, i1 false
@@ -31243,7 +31243,7 @@ ComputeDistanceCode.exit:                         ; preds = %648, %632, %643, %6
   br label %ComputeDistanceCode.exit.thread
 
 ComputeDistanceCode.exit.thread:                  ; preds = %623, %659, %ComputeDistanceCode.exit
-  %.1.i414 = phi i64 [ %.1.i, %659 ], [ %.1.i, %ComputeDistanceCode.exit ], [ 0, %623 ]
+  %.1.i414 = phi i64 [ %.1.i, %ComputeDistanceCode.exit ], [ %.1.i, %659 ], [ 0, %623 ]
   %664 = getelementptr inbounds nuw i8, ptr %.0164626, i64 16
   %665 = trunc i64 %.3169.ph to i32
   store i32 %665, ptr %.0164626, align 4, !tbaa !146
@@ -31597,19 +31597,19 @@ FindLongestMatchH40.exit.thread:                  ; preds = %229, %FindLongestMa
   br i1 %886, label %862, label %StoreRangeH40.exit.sink.split, !llvm.loop !1396
 
 StoreRangeH40.exit.sink.split:                    ; preds = %792, %862, %829
-  %.lcssa817.sink = phi i16 [ %836, %829 ], [ %869, %862 ], [ %799, %792 ]
-  %.1174.ph = phi i64 [ %.0173624, %829 ], [ %.0173624, %862 ], [ %621, %792 ]
-  %.4170.ph = phi i64 [ %851, %829 ], [ %884, %862 ], [ 0, %792 ]
-  %.1165.ph = phi ptr [ %.0164626, %829 ], [ %.0164626, %862 ], [ %664, %792 ]
-  %.4.ph = phi i64 [ %852, %829 ], [ %885, %862 ], [ %777, %792 ]
+  %.lcssa817.sink = phi i16 [ %869, %862 ], [ %836, %829 ], [ %799, %792 ]
+  %.1174.ph = phi i64 [ %.0173624, %862 ], [ %.0173624, %829 ], [ %621, %792 ]
+  %.4170.ph = phi i64 [ %884, %862 ], [ %851, %829 ], [ 0, %792 ]
+  %.1165.ph = phi ptr [ %.0164626, %862 ], [ %.0164626, %829 ], [ %664, %792 ]
+  %.4.ph = phi i64 [ %885, %862 ], [ %852, %829 ], [ %777, %792 ]
   store i16 %.lcssa817.sink, ptr %13, align 2, !tbaa !67, !noalias !585
   br label %StoreRangeH40.exit
 
 StoreRangeH40.exit:                               ; preds = %StoreRangeH40.exit.sink.split, %786, %854, %821, %FindLongestMatchH40.exit.thread
-  %.1174 = phi i64 [ %.0173624, %FindLongestMatchH40.exit.thread ], [ %.0173624, %821 ], [ %.0173624, %854 ], [ %621, %786 ], [ %.1174.ph, %StoreRangeH40.exit.sink.split ]
-  %.4170 = phi i64 [ %815, %FindLongestMatchH40.exit.thread ], [ %815, %821 ], [ %815, %854 ], [ 0, %786 ], [ %.4170.ph, %StoreRangeH40.exit.sink.split ]
-  %.1165 = phi ptr [ %.0164626, %FindLongestMatchH40.exit.thread ], [ %.0164626, %821 ], [ %.0164626, %854 ], [ %664, %786 ], [ %.1165.ph, %StoreRangeH40.exit.sink.split ]
-  %.4 = phi i64 [ %816, %FindLongestMatchH40.exit.thread ], [ %816, %821 ], [ %816, %854 ], [ %777, %786 ], [ %.4.ph, %StoreRangeH40.exit.sink.split ]
+  %.1174 = phi i64 [ %.0173624, %854 ], [ %.0173624, %FindLongestMatchH40.exit.thread ], [ %.0173624, %821 ], [ %621, %786 ], [ %.1174.ph, %StoreRangeH40.exit.sink.split ]
+  %.4170 = phi i64 [ %815, %854 ], [ %815, %FindLongestMatchH40.exit.thread ], [ %815, %821 ], [ 0, %786 ], [ %.4170.ph, %StoreRangeH40.exit.sink.split ]
+  %.1165 = phi ptr [ %.0164626, %854 ], [ %.0164626, %FindLongestMatchH40.exit.thread ], [ %.0164626, %821 ], [ %664, %786 ], [ %.1165.ph, %StoreRangeH40.exit.sink.split ]
+  %.4 = phi i64 [ %816, %854 ], [ %816, %FindLongestMatchH40.exit.thread ], [ %816, %821 ], [ %777, %786 ], [ %.4.ph, %StoreRangeH40.exit.sink.split ]
   %887 = add i64 %.4, 4
   %888 = icmp ult i64 %887, %22
   br i1 %888, label %51, label %._crit_edge, !llvm.loop !1397
@@ -32045,11 +32045,11 @@ FindMatchLengthWithLimit.exit.i:                  ; preds = %197, %.critedge.i.i
   br label %230
 
 230:                                              ; preds = %229, %221, %FindMatchLengthWithLimit.exit.i, %190, %187, %177
-  %.sroa.24316.4 = phi i64 [ %.sroa.24316.3492, %177 ], [ %.sroa.24316.3492, %187 ], [ %227, %229 ], [ %.sroa.24316.3492, %221 ], [ %.sroa.24316.3492, %FindMatchLengthWithLimit.exit.i ], [ %.sroa.24316.3492, %190 ]
-  %.sroa.15.4 = phi i64 [ %.sroa.15.3493, %177 ], [ %.sroa.15.3493, %187 ], [ %175, %229 ], [ %.sroa.15.3493, %221 ], [ %.sroa.15.3493, %FindMatchLengthWithLimit.exit.i ], [ %.sroa.15.3493, %190 ]
-  %.sroa.0306.4 = phi i64 [ %.sroa.0306.3494, %177 ], [ %.sroa.0306.3494, %187 ], [ %.2.i.i, %229 ], [ %.sroa.0306.3494, %221 ], [ %.sroa.0306.3494, %FindMatchLengthWithLimit.exit.i ], [ %.sroa.0306.3494, %190 ]
-  %.5124.i = phi i64 [ %.4123.i497, %177 ], [ %.4123.i497, %187 ], [ %.2.i.i, %229 ], [ %.4123.i497, %221 ], [ %.4123.i497, %FindMatchLengthWithLimit.exit.i ], [ %.4123.i497, %190 ]
-  %.5.i = phi i64 [ %.4.i498, %177 ], [ %.4.i498, %187 ], [ %227, %229 ], [ %.4.i498, %221 ], [ %.4.i498, %FindMatchLengthWithLimit.exit.i ], [ %.4.i498, %190 ]
+  %.sroa.24316.4 = phi i64 [ %.sroa.24316.3492, %190 ], [ %.sroa.24316.3492, %177 ], [ %.sroa.24316.3492, %187 ], [ %227, %229 ], [ %.sroa.24316.3492, %221 ], [ %.sroa.24316.3492, %FindMatchLengthWithLimit.exit.i ]
+  %.sroa.15.4 = phi i64 [ %.sroa.15.3493, %190 ], [ %.sroa.15.3493, %177 ], [ %.sroa.15.3493, %187 ], [ %175, %229 ], [ %.sroa.15.3493, %221 ], [ %.sroa.15.3493, %FindMatchLengthWithLimit.exit.i ]
+  %.sroa.0306.4 = phi i64 [ %.sroa.0306.3494, %190 ], [ %.sroa.0306.3494, %177 ], [ %.sroa.0306.3494, %187 ], [ %.2.i.i, %229 ], [ %.sroa.0306.3494, %221 ], [ %.sroa.0306.3494, %FindMatchLengthWithLimit.exit.i ]
+  %.5124.i = phi i64 [ %.4123.i497, %190 ], [ %.4123.i497, %177 ], [ %.4123.i497, %187 ], [ %.2.i.i, %229 ], [ %.4123.i497, %221 ], [ %.4123.i497, %FindMatchLengthWithLimit.exit.i ]
+  %.5.i = phi i64 [ %.4.i498, %190 ], [ %.4.i498, %177 ], [ %.4.i498, %187 ], [ %227, %229 ], [ %.4.i498, %221 ], [ %.4.i498, %FindMatchLengthWithLimit.exit.i ]
   %.not.i201 = icmp eq i64 %174, 0
   br i1 %.not.i201, label %.thread331, label %173
 
@@ -32612,11 +32612,11 @@ FindMatchLengthWithLimit.exit.i257:               ; preds = %477, %.critedge.i.i
   br label %510
 
 510:                                              ; preds = %509, %501, %FindMatchLengthWithLimit.exit.i257, %470, %467, %457
-  %.sroa.13.2 = phi i64 [ %.sroa.13.1568, %457 ], [ %.sroa.13.1568, %467 ], [ %507, %509 ], [ %.sroa.13.1568, %501 ], [ %.sroa.13.1568, %FindMatchLengthWithLimit.exit.i257 ], [ %.sroa.13.1568, %470 ]
-  %.sroa.9.2 = phi i64 [ %.sroa.9.1569, %457 ], [ %.sroa.9.1569, %467 ], [ %455, %509 ], [ %.sroa.9.1569, %501 ], [ %.sroa.9.1569, %FindMatchLengthWithLimit.exit.i257 ], [ %.sroa.9.1569, %470 ]
-  %.sroa.0.2 = phi i64 [ %.sroa.0.1570, %457 ], [ %.sroa.0.1570, %467 ], [ %.2.i.i258, %509 ], [ %.sroa.0.1570, %501 ], [ %.sroa.0.1570, %FindMatchLengthWithLimit.exit.i257 ], [ %.sroa.0.1570, %470 ]
-  %.5124.i221 = phi i64 [ %.4123.i212573, %457 ], [ %.4123.i212573, %467 ], [ %.2.i.i258, %509 ], [ %.4123.i212573, %501 ], [ %.4123.i212573, %FindMatchLengthWithLimit.exit.i257 ], [ %.4123.i212573, %470 ]
-  %.5.i222 = phi i64 [ %.4.i213574, %457 ], [ %.4.i213574, %467 ], [ %507, %509 ], [ %.4.i213574, %501 ], [ %.4.i213574, %FindMatchLengthWithLimit.exit.i257 ], [ %.4.i213574, %470 ]
+  %.sroa.13.2 = phi i64 [ %.sroa.13.1568, %470 ], [ %.sroa.13.1568, %457 ], [ %.sroa.13.1568, %467 ], [ %507, %509 ], [ %.sroa.13.1568, %501 ], [ %.sroa.13.1568, %FindMatchLengthWithLimit.exit.i257 ]
+  %.sroa.9.2 = phi i64 [ %.sroa.9.1569, %470 ], [ %.sroa.9.1569, %457 ], [ %.sroa.9.1569, %467 ], [ %455, %509 ], [ %.sroa.9.1569, %501 ], [ %.sroa.9.1569, %FindMatchLengthWithLimit.exit.i257 ]
+  %.sroa.0.2 = phi i64 [ %.sroa.0.1570, %470 ], [ %.sroa.0.1570, %457 ], [ %.sroa.0.1570, %467 ], [ %.2.i.i258, %509 ], [ %.sroa.0.1570, %501 ], [ %.sroa.0.1570, %FindMatchLengthWithLimit.exit.i257 ]
+  %.5124.i221 = phi i64 [ %.4123.i212573, %470 ], [ %.4123.i212573, %457 ], [ %.4123.i212573, %467 ], [ %.2.i.i258, %509 ], [ %.4123.i212573, %501 ], [ %.4123.i212573, %FindMatchLengthWithLimit.exit.i257 ]
+  %.5.i222 = phi i64 [ %.4.i213574, %470 ], [ %.4.i213574, %457 ], [ %.4.i213574, %467 ], [ %507, %509 ], [ %.4.i213574, %501 ], [ %.4.i213574, %FindMatchLengthWithLimit.exit.i257 ]
   %.not.i214 = icmp eq i64 %454, 0
   br i1 %.not.i214, label %.thread365, label %453
 
@@ -32914,8 +32914,8 @@ split:                                            ; preds = %626, %FindLongestMa
   %669 = add i64 %.sroa.15.1.ph, 15
   br label %ComputeDistanceCode.exit
 
-ComputeDistanceCode.exit:                         ; preds = %661, %645, %656, %649, %665, %668
-  %.1.i = phi i64 [ %669, %668 ], [ 3, %665 ], [ 2, %661 ], [ 1, %645 ], [ %660, %656 ], [ %653, %649 ]
+ComputeDistanceCode.exit:                         ; preds = %645, %656, %649, %661, %665, %668
+  %.1.i = phi i64 [ %669, %668 ], [ 3, %665 ], [ 1, %645 ], [ %660, %656 ], [ %653, %649 ], [ 2, %661 ]
   %670 = icmp ule i64 %.sroa.15.1.ph, %635
   %671 = icmp ne i64 %.1.i, 0
   %or.cond = select i1 %670, i1 %671, i1 false
@@ -32945,7 +32945,7 @@ ComputeDistanceCode.exit:                         ; preds = %661, %645, %656, %6
   br label %ComputeDistanceCode.exit.thread
 
 ComputeDistanceCode.exit.thread:                  ; preds = %636, %672, %ComputeDistanceCode.exit
-  %.1.i414 = phi i64 [ %.1.i, %672 ], [ %.1.i, %ComputeDistanceCode.exit ], [ 0, %636 ]
+  %.1.i414 = phi i64 [ %.1.i, %ComputeDistanceCode.exit ], [ %.1.i, %672 ], [ 0, %636 ]
   %683 = getelementptr inbounds nuw i8, ptr %.0164626, i64 16
   %684 = trunc i64 %.3169.ph to i32
   store i32 %684, ptr %.0164626, align 4, !tbaa !146
@@ -33299,19 +33299,19 @@ FindLongestMatchH41.exit.thread:                  ; preds = %242, %FindLongestMa
   br i1 %905, label %881, label %StoreRangeH41.exit.sink.split, !llvm.loop !1477
 
 StoreRangeH41.exit.sink.split:                    ; preds = %811, %881, %848
-  %.lcssa817.sink = phi i16 [ %855, %848 ], [ %888, %881 ], [ %818, %811 ]
-  %.1174.ph = phi i64 [ %.0173624, %848 ], [ %.0173624, %881 ], [ %634, %811 ]
-  %.4170.ph = phi i64 [ %870, %848 ], [ %903, %881 ], [ 0, %811 ]
-  %.1165.ph = phi ptr [ %.0164626, %848 ], [ %.0164626, %881 ], [ %683, %811 ]
-  %.4.ph = phi i64 [ %871, %848 ], [ %904, %881 ], [ %796, %811 ]
+  %.lcssa817.sink = phi i16 [ %888, %881 ], [ %855, %848 ], [ %818, %811 ]
+  %.1174.ph = phi i64 [ %.0173624, %881 ], [ %.0173624, %848 ], [ %634, %811 ]
+  %.4170.ph = phi i64 [ %903, %881 ], [ %870, %848 ], [ 0, %811 ]
+  %.1165.ph = phi ptr [ %.0164626, %881 ], [ %.0164626, %848 ], [ %683, %811 ]
+  %.4.ph = phi i64 [ %904, %881 ], [ %871, %848 ], [ %796, %811 ]
   store i16 %.lcssa817.sink, ptr %13, align 2, !tbaa !67, !noalias !585
   br label %StoreRangeH41.exit
 
 StoreRangeH41.exit:                               ; preds = %StoreRangeH41.exit.sink.split, %805, %873, %840, %FindLongestMatchH41.exit.thread
-  %.1174 = phi i64 [ %.0173624, %FindLongestMatchH41.exit.thread ], [ %.0173624, %840 ], [ %.0173624, %873 ], [ %634, %805 ], [ %.1174.ph, %StoreRangeH41.exit.sink.split ]
-  %.4170 = phi i64 [ %834, %FindLongestMatchH41.exit.thread ], [ %834, %840 ], [ %834, %873 ], [ 0, %805 ], [ %.4170.ph, %StoreRangeH41.exit.sink.split ]
-  %.1165 = phi ptr [ %.0164626, %FindLongestMatchH41.exit.thread ], [ %.0164626, %840 ], [ %.0164626, %873 ], [ %683, %805 ], [ %.1165.ph, %StoreRangeH41.exit.sink.split ]
-  %.4 = phi i64 [ %835, %FindLongestMatchH41.exit.thread ], [ %835, %840 ], [ %835, %873 ], [ %796, %805 ], [ %.4.ph, %StoreRangeH41.exit.sink.split ]
+  %.1174 = phi i64 [ %.0173624, %873 ], [ %.0173624, %FindLongestMatchH41.exit.thread ], [ %.0173624, %840 ], [ %634, %805 ], [ %.1174.ph, %StoreRangeH41.exit.sink.split ]
+  %.4170 = phi i64 [ %834, %873 ], [ %834, %FindLongestMatchH41.exit.thread ], [ %834, %840 ], [ 0, %805 ], [ %.4170.ph, %StoreRangeH41.exit.sink.split ]
+  %.1165 = phi ptr [ %.0164626, %873 ], [ %.0164626, %FindLongestMatchH41.exit.thread ], [ %.0164626, %840 ], [ %683, %805 ], [ %.1165.ph, %StoreRangeH41.exit.sink.split ]
+  %.4 = phi i64 [ %835, %873 ], [ %835, %FindLongestMatchH41.exit.thread ], [ %835, %840 ], [ %796, %805 ], [ %.4.ph, %StoreRangeH41.exit.sink.split ]
   %906 = add i64 %.4, 4
   %907 = icmp ult i64 %906, %22
   br i1 %907, label %64, label %._crit_edge, !llvm.loop !1478
@@ -33768,11 +33768,11 @@ FindMatchLengthWithLimit.exit.i:                  ; preds = %212, %.critedge.i.i
   br label %245
 
 245:                                              ; preds = %244, %236, %FindMatchLengthWithLimit.exit.i, %205, %202, %192
-  %.sroa.24316.4 = phi i64 [ %.sroa.24316.3492, %192 ], [ %.sroa.24316.3492, %202 ], [ %242, %244 ], [ %.sroa.24316.3492, %236 ], [ %.sroa.24316.3492, %FindMatchLengthWithLimit.exit.i ], [ %.sroa.24316.3492, %205 ]
-  %.sroa.15.4 = phi i64 [ %.sroa.15.3493, %192 ], [ %.sroa.15.3493, %202 ], [ %190, %244 ], [ %.sroa.15.3493, %236 ], [ %.sroa.15.3493, %FindMatchLengthWithLimit.exit.i ], [ %.sroa.15.3493, %205 ]
-  %.sroa.0306.4 = phi i64 [ %.sroa.0306.3494, %192 ], [ %.sroa.0306.3494, %202 ], [ %.2.i.i, %244 ], [ %.sroa.0306.3494, %236 ], [ %.sroa.0306.3494, %FindMatchLengthWithLimit.exit.i ], [ %.sroa.0306.3494, %205 ]
-  %.5124.i = phi i64 [ %.4123.i497, %192 ], [ %.4123.i497, %202 ], [ %.2.i.i, %244 ], [ %.4123.i497, %236 ], [ %.4123.i497, %FindMatchLengthWithLimit.exit.i ], [ %.4123.i497, %205 ]
-  %.5.i = phi i64 [ %.4.i498, %192 ], [ %.4.i498, %202 ], [ %242, %244 ], [ %.4.i498, %236 ], [ %.4.i498, %FindMatchLengthWithLimit.exit.i ], [ %.4.i498, %205 ]
+  %.sroa.24316.4 = phi i64 [ %.sroa.24316.3492, %205 ], [ %.sroa.24316.3492, %192 ], [ %.sroa.24316.3492, %202 ], [ %242, %244 ], [ %.sroa.24316.3492, %236 ], [ %.sroa.24316.3492, %FindMatchLengthWithLimit.exit.i ]
+  %.sroa.15.4 = phi i64 [ %.sroa.15.3493, %205 ], [ %.sroa.15.3493, %192 ], [ %.sroa.15.3493, %202 ], [ %190, %244 ], [ %.sroa.15.3493, %236 ], [ %.sroa.15.3493, %FindMatchLengthWithLimit.exit.i ]
+  %.sroa.0306.4 = phi i64 [ %.sroa.0306.3494, %205 ], [ %.sroa.0306.3494, %192 ], [ %.sroa.0306.3494, %202 ], [ %.2.i.i, %244 ], [ %.sroa.0306.3494, %236 ], [ %.sroa.0306.3494, %FindMatchLengthWithLimit.exit.i ]
+  %.5124.i = phi i64 [ %.4123.i497, %205 ], [ %.4123.i497, %192 ], [ %.4123.i497, %202 ], [ %.2.i.i, %244 ], [ %.4123.i497, %236 ], [ %.4123.i497, %FindMatchLengthWithLimit.exit.i ]
+  %.5.i = phi i64 [ %.4.i498, %205 ], [ %.4.i498, %192 ], [ %.4.i498, %202 ], [ %242, %244 ], [ %.4.i498, %236 ], [ %.4.i498, %FindMatchLengthWithLimit.exit.i ]
   %.not.i201 = icmp eq i64 %189, 0
   br i1 %.not.i201, label %.thread331, label %188
 
@@ -34335,11 +34335,11 @@ FindMatchLengthWithLimit.exit.i257:               ; preds = %495, %.critedge.i.i
   br label %528
 
 528:                                              ; preds = %527, %519, %FindMatchLengthWithLimit.exit.i257, %488, %485, %475
-  %.sroa.13.2 = phi i64 [ %.sroa.13.1568, %475 ], [ %.sroa.13.1568, %485 ], [ %525, %527 ], [ %.sroa.13.1568, %519 ], [ %.sroa.13.1568, %FindMatchLengthWithLimit.exit.i257 ], [ %.sroa.13.1568, %488 ]
-  %.sroa.9.2 = phi i64 [ %.sroa.9.1569, %475 ], [ %.sroa.9.1569, %485 ], [ %473, %527 ], [ %.sroa.9.1569, %519 ], [ %.sroa.9.1569, %FindMatchLengthWithLimit.exit.i257 ], [ %.sroa.9.1569, %488 ]
-  %.sroa.0.2 = phi i64 [ %.sroa.0.1570, %475 ], [ %.sroa.0.1570, %485 ], [ %.2.i.i258, %527 ], [ %.sroa.0.1570, %519 ], [ %.sroa.0.1570, %FindMatchLengthWithLimit.exit.i257 ], [ %.sroa.0.1570, %488 ]
-  %.5124.i221 = phi i64 [ %.4123.i212573, %475 ], [ %.4123.i212573, %485 ], [ %.2.i.i258, %527 ], [ %.4123.i212573, %519 ], [ %.4123.i212573, %FindMatchLengthWithLimit.exit.i257 ], [ %.4123.i212573, %488 ]
-  %.5.i222 = phi i64 [ %.4.i213574, %475 ], [ %.4.i213574, %485 ], [ %525, %527 ], [ %.4.i213574, %519 ], [ %.4.i213574, %FindMatchLengthWithLimit.exit.i257 ], [ %.4.i213574, %488 ]
+  %.sroa.13.2 = phi i64 [ %.sroa.13.1568, %488 ], [ %.sroa.13.1568, %475 ], [ %.sroa.13.1568, %485 ], [ %525, %527 ], [ %.sroa.13.1568, %519 ], [ %.sroa.13.1568, %FindMatchLengthWithLimit.exit.i257 ]
+  %.sroa.9.2 = phi i64 [ %.sroa.9.1569, %488 ], [ %.sroa.9.1569, %475 ], [ %.sroa.9.1569, %485 ], [ %473, %527 ], [ %.sroa.9.1569, %519 ], [ %.sroa.9.1569, %FindMatchLengthWithLimit.exit.i257 ]
+  %.sroa.0.2 = phi i64 [ %.sroa.0.1570, %488 ], [ %.sroa.0.1570, %475 ], [ %.sroa.0.1570, %485 ], [ %.2.i.i258, %527 ], [ %.sroa.0.1570, %519 ], [ %.sroa.0.1570, %FindMatchLengthWithLimit.exit.i257 ]
+  %.5124.i221 = phi i64 [ %.4123.i212573, %488 ], [ %.4123.i212573, %475 ], [ %.4123.i212573, %485 ], [ %.2.i.i258, %527 ], [ %.4123.i212573, %519 ], [ %.4123.i212573, %FindMatchLengthWithLimit.exit.i257 ]
+  %.5.i222 = phi i64 [ %.4.i213574, %488 ], [ %.4.i213574, %475 ], [ %.4.i213574, %485 ], [ %525, %527 ], [ %.4.i213574, %519 ], [ %.4.i213574, %FindMatchLengthWithLimit.exit.i257 ]
   %.not.i214 = icmp eq i64 %472, 0
   br i1 %.not.i214, label %.thread365, label %471
 
@@ -34641,8 +34641,8 @@ split:                                            ; preds = %648, %FindLongestMa
   %691 = add i64 %.sroa.15.1.ph, 15
   br label %ComputeDistanceCode.exit
 
-ComputeDistanceCode.exit:                         ; preds = %683, %667, %678, %671, %687, %690
-  %.1.i = phi i64 [ %691, %690 ], [ 3, %687 ], [ 2, %683 ], [ 1, %667 ], [ %682, %678 ], [ %675, %671 ]
+ComputeDistanceCode.exit:                         ; preds = %667, %678, %671, %683, %687, %690
+  %.1.i = phi i64 [ %691, %690 ], [ 3, %687 ], [ 1, %667 ], [ %682, %678 ], [ %675, %671 ], [ 2, %683 ]
   %692 = icmp ule i64 %.sroa.15.1.ph, %657
   %693 = icmp ne i64 %.1.i, 0
   %or.cond = select i1 %692, i1 %693, i1 false
@@ -34684,7 +34684,7 @@ ComputeDistanceCode.exit:                         ; preds = %683, %667, %678, %6
   br label %ComputeDistanceCode.exit.thread
 
 ComputeDistanceCode.exit.thread:                  ; preds = %658, %694, %ComputeDistanceCode.exit
-  %.1.i414 = phi i64 [ %.1.i, %694 ], [ %.1.i, %ComputeDistanceCode.exit ], [ 0, %658 ]
+  %.1.i414 = phi i64 [ %.1.i, %ComputeDistanceCode.exit ], [ %.1.i, %694 ], [ 0, %658 ]
   %711 = getelementptr inbounds nuw i8, ptr %.0164620, i64 16
   %712 = trunc i64 %.3169.ph to i32
   store i32 %712, ptr %.0164620, align 4, !tbaa !146
@@ -35050,10 +35050,10 @@ FindLongestMatchH42.exit.thread:                  ; preds = %260, %FindLongestMa
   br i1 %945, label %917, label %StoreRangeH42.exit, !llvm.loop !1558
 
 StoreRangeH42.exit:                               ; preds = %839, %917, %880, %833, %909, %872, %FindLongestMatchH42.exit.thread
-  %.1174 = phi i64 [ %.0173618, %FindLongestMatchH42.exit.thread ], [ %.0173618, %872 ], [ %.0173618, %909 ], [ %656, %833 ], [ %.0173618, %880 ], [ %.0173618, %917 ], [ %656, %839 ]
-  %.4170 = phi i64 [ %866, %FindLongestMatchH42.exit.thread ], [ %866, %872 ], [ %866, %909 ], [ 0, %833 ], [ %906, %880 ], [ %943, %917 ], [ 0, %839 ]
-  %.1165 = phi ptr [ %.0164620, %FindLongestMatchH42.exit.thread ], [ %.0164620, %872 ], [ %.0164620, %909 ], [ %711, %833 ], [ %.0164620, %880 ], [ %.0164620, %917 ], [ %711, %839 ]
-  %.4 = phi i64 [ %867, %FindLongestMatchH42.exit.thread ], [ %867, %872 ], [ %867, %909 ], [ %824, %833 ], [ %907, %880 ], [ %944, %917 ], [ %824, %839 ]
+  %.1174 = phi i64 [ %.0173618, %909 ], [ %.0173618, %FindLongestMatchH42.exit.thread ], [ %.0173618, %872 ], [ %656, %833 ], [ %.0173618, %917 ], [ %.0173618, %880 ], [ %656, %839 ]
+  %.4170 = phi i64 [ %866, %909 ], [ %866, %FindLongestMatchH42.exit.thread ], [ %866, %872 ], [ 0, %833 ], [ %943, %917 ], [ %906, %880 ], [ 0, %839 ]
+  %.1165 = phi ptr [ %.0164620, %909 ], [ %.0164620, %FindLongestMatchH42.exit.thread ], [ %.0164620, %872 ], [ %711, %833 ], [ %.0164620, %917 ], [ %.0164620, %880 ], [ %711, %839 ]
+  %.4 = phi i64 [ %867, %909 ], [ %867, %FindLongestMatchH42.exit.thread ], [ %867, %872 ], [ %824, %833 ], [ %944, %917 ], [ %907, %880 ], [ %824, %839 ]
   %946 = add i64 %.4, 4
   %947 = icmp ult i64 %946, %22
   br i1 %947, label %77, label %._crit_edge, !llvm.loop !1559
@@ -35754,8 +35754,8 @@ ComputeDistanceCode.exit.thread.thread:           ; preds = %300
   %336 = add i64 %.sroa.13.1.ph, 15
   br label %ComputeDistanceCode.exit
 
-ComputeDistanceCode.exit:                         ; preds = %328, %312, %323, %316, %332, %335
-  %.1.i = phi i64 [ %336, %335 ], [ 3, %332 ], [ 2, %328 ], [ 1, %312 ], [ %327, %323 ], [ %320, %316 ]
+ComputeDistanceCode.exit:                         ; preds = %312, %323, %316, %328, %332, %335
+  %.1.i = phi i64 [ %336, %335 ], [ 3, %332 ], [ 1, %312 ], [ %327, %323 ], [ %320, %316 ], [ 2, %328 ]
   %337 = icmp ule i64 %.sroa.13.1.ph, %299
   %338 = icmp ne i64 %.1.i, 0
   %or.cond = select i1 %337, i1 %338, i1 false
@@ -36056,10 +36056,10 @@ CombineLengthCodes.exit:                          ; preds = %445, %GetCopyLength
   br i1 %524, label %.lr.ph385, label %StoreRangeH54.exit, !llvm.loop !1592
 
 StoreRangeH54.exit:                               ; preds = %.lr.ph385, %.lr.ph390, %.lr.ph432, %509, %493, %474, %486
-  %.1174 = phi i64 [ %.0173433, %486 ], [ %296, %474 ], [ %.0173433, %493 ], [ %.0173433, %509 ], [ %296, %.lr.ph432 ], [ %.0173433, %.lr.ph390 ], [ %.0173433, %.lr.ph385 ]
-  %.4170 = phi i64 [ %487, %486 ], [ 0, %474 ], [ %487, %493 ], [ %487, %509 ], [ 0, %.lr.ph432 ], [ %506, %.lr.ph390 ], [ %522, %.lr.ph385 ]
-  %.1165 = phi ptr [ %.0164435, %486 ], [ %383, %474 ], [ %.0164435, %493 ], [ %.0164435, %509 ], [ %383, %.lr.ph432 ], [ %.0164435, %.lr.ph390 ], [ %.0164435, %.lr.ph385 ]
-  %.4 = phi i64 [ %488, %486 ], [ %465, %474 ], [ %488, %493 ], [ %488, %509 ], [ %465, %.lr.ph432 ], [ %507, %.lr.ph390 ], [ %523, %.lr.ph385 ]
+  %.1174 = phi i64 [ %296, %474 ], [ %.0173433, %486 ], [ %.0173433, %493 ], [ %.0173433, %509 ], [ %.0173433, %.lr.ph390 ], [ %296, %.lr.ph432 ], [ %.0173433, %.lr.ph385 ]
+  %.4170 = phi i64 [ 0, %474 ], [ %487, %486 ], [ %487, %493 ], [ %487, %509 ], [ %506, %.lr.ph390 ], [ 0, %.lr.ph432 ], [ %522, %.lr.ph385 ]
+  %.1165 = phi ptr [ %383, %474 ], [ %.0164435, %486 ], [ %.0164435, %493 ], [ %.0164435, %509 ], [ %.0164435, %.lr.ph390 ], [ %383, %.lr.ph432 ], [ %.0164435, %.lr.ph385 ]
+  %.4 = phi i64 [ %465, %474 ], [ %488, %486 ], [ %488, %493 ], [ %488, %509 ], [ %507, %.lr.ph390 ], [ %465, %.lr.ph432 ], [ %523, %.lr.ph385 ]
   %525 = add i64 %.4, 8
   %526 = icmp ult i64 %525, %22
   br i1 %526, label %.thread, label %._crit_edge, !llvm.loop !1593
@@ -36427,7 +36427,7 @@ FindMatchLengthWithLimit.exit204.i:               ; preds = %175, %.critedge.i19
 216:                                              ; preds = %214
   br label %217
 
-217:                                              ; preds = %155, %168, %165, %202, %216, %214, %199
+217:                                              ; preds = %165, %155, %199, %168, %202, %216, %214
   %.sroa.24313.11.ph = phi i64 [ %.sroa.24313.2499, %168 ], [ %.sroa.24313.2499, %199 ], [ %.sroa.24313.2499, %202 ], [ %.sroa.24313.2499, %214 ], [ %.0170.i, %216 ], [ %.sroa.24313.2499, %165 ], [ %.sroa.24313.2499, %155 ]
   %.sroa.15.11.ph = phi i64 [ %.sroa.15.2500, %168 ], [ %.sroa.15.2500, %199 ], [ %.sroa.15.2500, %202 ], [ %.sroa.15.2500, %214 ], [ %158, %216 ], [ %.sroa.15.2500, %165 ], [ %.sroa.15.2500, %155 ]
   %.sroa.0303.11.ph = phi i64 [ %.sroa.0303.2501, %168 ], [ %.sroa.0303.2501, %199 ], [ %.sroa.0303.2501, %202 ], [ %.sroa.0303.2501, %214 ], [ %.2.i200.i, %216 ], [ %.sroa.0303.2501, %165 ], [ %.sroa.0303.2501, %155 ]
@@ -36649,7 +36649,7 @@ FindMatchLengthWithLimit.exit.i:                  ; preds = %286, %.critedge.i.i
 318:                                              ; preds = %310
   br label %319
 
-319:                                              ; preds = %279, %276, %310, %318, %FindMatchLengthWithLimit.exit.i
+319:                                              ; preds = %276, %279, %310, %318, %FindMatchLengthWithLimit.exit.i
   %.sroa.24313.5.ph = phi i64 [ %.sroa.24313.4541, %279 ], [ %.sroa.24313.4541, %FindMatchLengthWithLimit.exit.i ], [ %.sroa.24313.4541, %310 ], [ %316, %318 ], [ %.sroa.24313.4541, %276 ]
   %.sroa.15.5.ph = phi i64 [ %.sroa.15.4542, %279 ], [ %.sroa.15.4542, %FindMatchLengthWithLimit.exit.i ], [ %.sroa.15.4542, %310 ], [ %270, %318 ], [ %.sroa.15.4542, %276 ]
   %.sroa.0303.5.ph = phi i64 [ %.sroa.0303.4543, %279 ], [ %.sroa.0303.4543, %FindMatchLengthWithLimit.exit.i ], [ %.sroa.0303.4543, %310 ], [ %.2.i.i, %318 ], [ %.sroa.0303.4543, %276 ]
@@ -37098,7 +37098,7 @@ FindMatchLengthWithLimit.exit204.i277:            ; preds = %512, %.critedge.i19
 553:                                              ; preds = %551
   br label %554
 
-554:                                              ; preds = %492, %505, %502, %539, %553, %551, %536
+554:                                              ; preds = %502, %492, %536, %505, %539, %553, %551
   %.sroa.13.9.ph = phi i64 [ %.sroa.13.0598, %505 ], [ %.sroa.13.0598, %536 ], [ %.sroa.13.0598, %539 ], [ %.sroa.13.0598, %551 ], [ %.0170.i282, %553 ], [ %.sroa.13.0598, %502 ], [ %.sroa.13.0598, %492 ]
   %.sroa.9.9.ph = phi i64 [ %.sroa.9.0599, %505 ], [ %.sroa.9.0599, %536 ], [ %.sroa.9.0599, %539 ], [ %.sroa.9.0599, %551 ], [ %495, %553 ], [ %.sroa.9.0599, %502 ], [ %.sroa.9.0599, %492 ]
   %.sroa.0.9.ph = phi i64 [ %.sroa.0.0600, %505 ], [ %.sroa.0.0600, %536 ], [ %.sroa.0.0600, %539 ], [ %.sroa.0.0600, %551 ], [ %.2.i200.i278, %553 ], [ %.sroa.0.0600, %502 ], [ %.sroa.0.0600, %492 ]
@@ -37306,7 +37306,7 @@ FindMatchLengthWithLimit.exit.i255:               ; preds = %618, %.critedge.i.i
 650:                                              ; preds = %642
   br label %651
 
-651:                                              ; preds = %611, %608, %642, %650, %FindMatchLengthWithLimit.exit.i255
+651:                                              ; preds = %608, %611, %642, %650, %FindMatchLengthWithLimit.exit.i255
   %.sroa.13.3.ph = phi i64 [ %.sroa.13.2644, %611 ], [ %.sroa.13.2644, %FindMatchLengthWithLimit.exit.i255 ], [ %.sroa.13.2644, %642 ], [ %648, %650 ], [ %.sroa.13.2644, %608 ]
   %.sroa.9.3.ph = phi i64 [ %.sroa.9.2645, %611 ], [ %.sroa.9.2645, %FindMatchLengthWithLimit.exit.i255 ], [ %.sroa.9.2645, %642 ], [ %602, %650 ], [ %.sroa.9.2645, %608 ]
   %.sroa.0.3.ph = phi i64 [ %.sroa.0.2646, %611 ], [ %.sroa.0.2646, %FindMatchLengthWithLimit.exit.i255 ], [ %.sroa.0.2646, %642 ], [ %.2.i.i256, %650 ], [ %.sroa.0.2646, %608 ]
@@ -37604,8 +37604,8 @@ split:                                            ; preds = %767, %FindLongestMa
   %810 = add i64 %.sroa.15.1.ph, 15
   br label %ComputeDistanceCode.exit
 
-ComputeDistanceCode.exit:                         ; preds = %802, %786, %797, %790, %806, %809
-  %.1.i = phi i64 [ %810, %809 ], [ 3, %806 ], [ 2, %802 ], [ 1, %786 ], [ %801, %797 ], [ %794, %790 ]
+ComputeDistanceCode.exit:                         ; preds = %786, %797, %790, %802, %806, %809
+  %.1.i = phi i64 [ %810, %809 ], [ 3, %806 ], [ 1, %786 ], [ %801, %797 ], [ %794, %790 ], [ 2, %802 ]
   %811 = icmp ule i64 %.sroa.15.1.ph, %776
   %812 = icmp ne i64 %.1.i, 0
   %or.cond = select i1 %811, i1 %812, i1 false
@@ -37658,7 +37658,7 @@ ComputeDistanceCode.exit:                         ; preds = %802, %786, %797, %7
   br label %PrepareDistanceCacheH58.exit200
 
 PrepareDistanceCacheH58.exit200:                  ; preds = %777, %828, %820, %813, %ComputeDistanceCode.exit
-  %.1.i445 = phi i64 [ %.1.i, %828 ], [ %.1.i, %820 ], [ %.1.i, %813 ], [ %.1.i, %ComputeDistanceCode.exit ], [ 0, %777 ]
+  %.1.i445 = phi i64 [ %.1.i, %ComputeDistanceCode.exit ], [ %.1.i, %828 ], [ %.1.i, %820 ], [ %.1.i, %813 ], [ 0, %777 ]
   %835 = getelementptr inbounds nuw i8, ptr %.0164703, i64 16
   %836 = trunc i64 %.3169.ph to i32
   store i32 %836, ptr %.0164703, align 4, !tbaa !146
@@ -38000,10 +38000,10 @@ FindLongestMatchH58.exit.thread:                  ; preds = %330, %FindLongestMa
   br i1 %1057, label %1036, label %StoreRangeH58.exit, !llvm.loop !1650
 
 StoreRangeH58.exit:                               ; preds = %966, %1036, %1003, %957, %1025, %992, %FindLongestMatchH58.exit.thread
-  %.1174 = phi i64 [ %.0173701, %FindLongestMatchH58.exit.thread ], [ %.0173701, %992 ], [ %.0173701, %1025 ], [ %775, %957 ], [ %.0173701, %1003 ], [ %.0173701, %1036 ], [ %775, %966 ]
-  %.4170 = phi i64 [ %986, %FindLongestMatchH58.exit.thread ], [ %986, %992 ], [ %986, %1025 ], [ 0, %957 ], [ %1022, %1003 ], [ %1055, %1036 ], [ 0, %966 ]
-  %.1165 = phi ptr [ %.0164703, %FindLongestMatchH58.exit.thread ], [ %.0164703, %992 ], [ %.0164703, %1025 ], [ %835, %957 ], [ %.0164703, %1003 ], [ %.0164703, %1036 ], [ %835, %966 ]
-  %.4 = phi i64 [ %987, %FindLongestMatchH58.exit.thread ], [ %987, %992 ], [ %987, %1025 ], [ %948, %957 ], [ %1023, %1003 ], [ %1056, %1036 ], [ %948, %966 ]
+  %.1174 = phi i64 [ %.0173701, %1025 ], [ %.0173701, %FindLongestMatchH58.exit.thread ], [ %.0173701, %992 ], [ %775, %957 ], [ %.0173701, %1036 ], [ %.0173701, %1003 ], [ %775, %966 ]
+  %.4170 = phi i64 [ %986, %1025 ], [ %986, %FindLongestMatchH58.exit.thread ], [ %986, %992 ], [ 0, %957 ], [ %1055, %1036 ], [ %1022, %1003 ], [ 0, %966 ]
+  %.1165 = phi ptr [ %.0164703, %1025 ], [ %.0164703, %FindLongestMatchH58.exit.thread ], [ %.0164703, %992 ], [ %835, %957 ], [ %.0164703, %1036 ], [ %.0164703, %1003 ], [ %835, %966 ]
+  %.4 = phi i64 [ %987, %1025 ], [ %987, %FindLongestMatchH58.exit.thread ], [ %987, %992 ], [ %948, %957 ], [ %1056, %1036 ], [ %1023, %1003 ], [ %948, %966 ]
   %1058 = add i64 %.4, 4
   %1059 = icmp ult i64 %1058, %21
   br i1 %1059, label %99, label %._crit_edge706, !llvm.loop !1651
@@ -38371,7 +38371,7 @@ FindMatchLengthWithLimit.exit209.i:               ; preds = %175, %.critedge.i20
 216:                                              ; preds = %214
   br label %217
 
-217:                                              ; preds = %155, %168, %165, %202, %216, %214, %199
+217:                                              ; preds = %165, %155, %199, %168, %202, %216, %214
   %.sroa.24315.11.ph = phi i64 [ %.sroa.24315.2501, %168 ], [ %.sroa.24315.2501, %199 ], [ %.sroa.24315.2501, %202 ], [ %.sroa.24315.2501, %214 ], [ %.0175.i, %216 ], [ %.sroa.24315.2501, %165 ], [ %.sroa.24315.2501, %155 ]
   %.sroa.15.11.ph = phi i64 [ %.sroa.15.2502, %168 ], [ %.sroa.15.2502, %199 ], [ %.sroa.15.2502, %202 ], [ %.sroa.15.2502, %214 ], [ %158, %216 ], [ %.sroa.15.2502, %165 ], [ %.sroa.15.2502, %155 ]
   %.sroa.0305.11.ph = phi i64 [ %.sroa.0305.2503, %168 ], [ %.sroa.0305.2503, %199 ], [ %.sroa.0305.2503, %202 ], [ %.sroa.0305.2503, %214 ], [ %.2.i205.i, %216 ], [ %.sroa.0305.2503, %165 ], [ %.sroa.0305.2503, %155 ]
@@ -38597,7 +38597,7 @@ FindMatchLengthWithLimit.exit.i:                  ; preds = %289, %.critedge.i.i
 320:                                              ; preds = %FindMatchLengthWithLimit.exit.i
   br label %321
 
-321:                                              ; preds = %280, %277, %285, %320, %FindMatchLengthWithLimit.exit.i
+321:                                              ; preds = %285, %277, %280, %320, %FindMatchLengthWithLimit.exit.i
   %.sroa.24315.5.ph = phi i64 [ %.sroa.24315.4543, %280 ], [ %.sroa.24315.4543, %285 ], [ %.sroa.24315.4543, %FindMatchLengthWithLimit.exit.i ], [ %318, %320 ], [ %.sroa.24315.4543, %277 ]
   %.sroa.15.5.ph = phi i64 [ %.sroa.15.4544, %280 ], [ %.sroa.15.4544, %285 ], [ %.sroa.15.4544, %FindMatchLengthWithLimit.exit.i ], [ %271, %320 ], [ %.sroa.15.4544, %277 ]
   %.sroa.0305.5.ph = phi i64 [ %.sroa.0305.4545, %280 ], [ %.sroa.0305.4545, %285 ], [ %.sroa.0305.4545, %FindMatchLengthWithLimit.exit.i ], [ %312, %320 ], [ %.sroa.0305.4545, %277 ]
@@ -39047,7 +39047,7 @@ FindMatchLengthWithLimit.exit209.i284:            ; preds = %515, %.critedge.i20
 556:                                              ; preds = %554
   br label %557
 
-557:                                              ; preds = %495, %508, %505, %542, %556, %554, %539
+557:                                              ; preds = %505, %495, %539, %508, %542, %556, %554
   %.sroa.13.9.ph = phi i64 [ %.sroa.13.0600, %508 ], [ %.sroa.13.0600, %539 ], [ %.sroa.13.0600, %542 ], [ %.sroa.13.0600, %554 ], [ %.0175.i289, %556 ], [ %.sroa.13.0600, %505 ], [ %.sroa.13.0600, %495 ]
   %.sroa.9.9.ph = phi i64 [ %.sroa.9.0601, %508 ], [ %.sroa.9.0601, %539 ], [ %.sroa.9.0601, %542 ], [ %.sroa.9.0601, %554 ], [ %498, %556 ], [ %.sroa.9.0601, %505 ], [ %.sroa.9.0601, %495 ]
   %.sroa.0.9.ph = phi i64 [ %.sroa.0.0602, %508 ], [ %.sroa.0.0602, %539 ], [ %.sroa.0.0602, %542 ], [ %.sroa.0.0602, %554 ], [ %.2.i205.i285, %556 ], [ %.sroa.0.0602, %505 ], [ %.sroa.0.0602, %495 ]
@@ -39259,7 +39259,7 @@ FindMatchLengthWithLimit.exit.i262:               ; preds = %624, %.critedge.i.i
 655:                                              ; preds = %FindMatchLengthWithLimit.exit.i262
   br label %656
 
-656:                                              ; preds = %615, %612, %620, %655, %FindMatchLengthWithLimit.exit.i262
+656:                                              ; preds = %620, %612, %615, %655, %FindMatchLengthWithLimit.exit.i262
   %.sroa.13.3.ph = phi i64 [ %.sroa.13.2646, %615 ], [ %.sroa.13.2646, %620 ], [ %.sroa.13.2646, %FindMatchLengthWithLimit.exit.i262 ], [ %653, %655 ], [ %.sroa.13.2646, %612 ]
   %.sroa.9.3.ph = phi i64 [ %.sroa.9.2647, %615 ], [ %.sroa.9.2647, %620 ], [ %.sroa.9.2647, %FindMatchLengthWithLimit.exit.i262 ], [ %606, %655 ], [ %.sroa.9.2647, %612 ]
   %.sroa.0.3.ph = phi i64 [ %.sroa.0.2648, %615 ], [ %.sroa.0.2648, %620 ], [ %.sroa.0.2648, %FindMatchLengthWithLimit.exit.i262 ], [ %647, %655 ], [ %.sroa.0.2648, %612 ]
@@ -39557,8 +39557,8 @@ split:                                            ; preds = %772, %FindLongestMa
   %815 = add i64 %.sroa.15.1.ph, 15
   br label %ComputeDistanceCode.exit
 
-ComputeDistanceCode.exit:                         ; preds = %807, %791, %802, %795, %811, %814
-  %.1.i = phi i64 [ %815, %814 ], [ 3, %811 ], [ 2, %807 ], [ 1, %791 ], [ %806, %802 ], [ %799, %795 ]
+ComputeDistanceCode.exit:                         ; preds = %791, %802, %795, %807, %811, %814
+  %.1.i = phi i64 [ %815, %814 ], [ 3, %811 ], [ 1, %791 ], [ %806, %802 ], [ %799, %795 ], [ 2, %807 ]
   %816 = icmp ule i64 %.sroa.15.1.ph, %781
   %817 = icmp ne i64 %.1.i, 0
   %or.cond = select i1 %816, i1 %817, i1 false
@@ -39611,7 +39611,7 @@ ComputeDistanceCode.exit:                         ; preds = %807, %791, %802, %7
   br label %PrepareDistanceCacheH68.exit200
 
 PrepareDistanceCacheH68.exit200:                  ; preds = %782, %833, %825, %818, %ComputeDistanceCode.exit
-  %.1.i447 = phi i64 [ %.1.i, %833 ], [ %.1.i, %825 ], [ %.1.i, %818 ], [ %.1.i, %ComputeDistanceCode.exit ], [ 0, %782 ]
+  %.1.i447 = phi i64 [ %.1.i, %ComputeDistanceCode.exit ], [ %.1.i, %833 ], [ %.1.i, %825 ], [ %.1.i, %818 ], [ 0, %782 ]
   %840 = getelementptr inbounds nuw i8, ptr %.0164705, i64 16
   %841 = trunc i64 %.3169.ph to i32
   store i32 %841, ptr %.0164705, align 4, !tbaa !146
@@ -39950,10 +39950,10 @@ FindLongestMatchH68.exit.thread:                  ; preds = %332, %FindLongestMa
   br i1 %1059, label %1039, label %StoreRangeH68.exit, !llvm.loop !1717
 
 StoreRangeH68.exit:                               ; preds = %971, %1039, %1007, %962, %1028, %996, %FindLongestMatchH68.exit.thread
-  %.1174 = phi i64 [ %.0173703, %FindLongestMatchH68.exit.thread ], [ %.0173703, %996 ], [ %.0173703, %1028 ], [ %780, %962 ], [ %.0173703, %1007 ], [ %.0173703, %1039 ], [ %780, %971 ]
-  %.4170 = phi i64 [ %990, %FindLongestMatchH68.exit.thread ], [ %990, %996 ], [ %990, %1028 ], [ 0, %962 ], [ %1025, %1007 ], [ %1057, %1039 ], [ 0, %971 ]
-  %.1165 = phi ptr [ %.0164705, %FindLongestMatchH68.exit.thread ], [ %.0164705, %996 ], [ %.0164705, %1028 ], [ %840, %962 ], [ %.0164705, %1007 ], [ %.0164705, %1039 ], [ %840, %971 ]
-  %.4 = phi i64 [ %991, %FindLongestMatchH68.exit.thread ], [ %991, %996 ], [ %991, %1028 ], [ %953, %962 ], [ %1026, %1007 ], [ %1058, %1039 ], [ %953, %971 ]
+  %.1174 = phi i64 [ %.0173703, %1028 ], [ %.0173703, %FindLongestMatchH68.exit.thread ], [ %.0173703, %996 ], [ %780, %962 ], [ %.0173703, %1039 ], [ %.0173703, %1007 ], [ %780, %971 ]
+  %.4170 = phi i64 [ %990, %1028 ], [ %990, %FindLongestMatchH68.exit.thread ], [ %990, %996 ], [ 0, %962 ], [ %1057, %1039 ], [ %1025, %1007 ], [ 0, %971 ]
+  %.1165 = phi ptr [ %.0164705, %1028 ], [ %.0164705, %FindLongestMatchH68.exit.thread ], [ %.0164705, %996 ], [ %840, %962 ], [ %.0164705, %1039 ], [ %.0164705, %1007 ], [ %840, %971 ]
+  %.4 = phi i64 [ %991, %1028 ], [ %991, %FindLongestMatchH68.exit.thread ], [ %991, %996 ], [ %953, %962 ], [ %1058, %1039 ], [ %1026, %1007 ], [ %953, %971 ]
   %1060 = add i64 %.4, 8
   %1061 = icmp ult i64 %1060, %21
   br i1 %1061, label %98, label %._crit_edge708, !llvm.loop !1718
@@ -40431,9 +40431,9 @@ FindMatchLengthWithLimit.exit.i.i:                ; preds = %198, %.critedge.i.i
   br label %231
 
 231:                                              ; preds = %230, %223, %FindMatchLengthWithLimit.exit.i.i, %192, %183, %166
-  %.sroa.24.5 = phi i64 [ %.sroa.24.4450, %192 ], [ %228, %230 ], [ %.sroa.24.4450, %223 ], [ %.sroa.24.4450, %FindMatchLengthWithLimit.exit.i.i ], [ %.sroa.24.4450, %183 ], [ %.sroa.24.4450, %166 ]
-  %.sroa.15.5 = phi i64 [ %.sroa.15.4451, %192 ], [ %194, %230 ], [ %.sroa.15.4451, %223 ], [ %.sroa.15.4451, %FindMatchLengthWithLimit.exit.i.i ], [ %.sroa.15.4451, %183 ], [ %.sroa.15.4451, %166 ]
-  %.sroa.0278.5 = phi i64 [ %.sroa.0278.4452, %192 ], [ %.2.i.i.i, %230 ], [ %.sroa.0278.4452, %223 ], [ %.sroa.0278.4452, %FindMatchLengthWithLimit.exit.i.i ], [ %.sroa.0278.4452, %183 ], [ %.sroa.0278.4452, %166 ]
+  %.sroa.24.5 = phi i64 [ %.sroa.24.4450, %192 ], [ %228, %230 ], [ %.sroa.24.4450, %223 ], [ %.sroa.24.4450, %166 ], [ %.sroa.24.4450, %FindMatchLengthWithLimit.exit.i.i ], [ %.sroa.24.4450, %183 ]
+  %.sroa.15.5 = phi i64 [ %.sroa.15.4451, %192 ], [ %194, %230 ], [ %.sroa.15.4451, %223 ], [ %.sroa.15.4451, %166 ], [ %.sroa.15.4451, %FindMatchLengthWithLimit.exit.i.i ], [ %.sroa.15.4451, %183 ]
+  %.sroa.0278.5 = phi i64 [ %.sroa.0278.4452, %192 ], [ %.2.i.i.i, %230 ], [ %.sroa.0278.4452, %223 ], [ %.sroa.0278.4452, %166 ], [ %.sroa.0278.4452, %FindMatchLengthWithLimit.exit.i.i ], [ %.sroa.0278.4452, %183 ]
   %232 = add i64 %.0.i.i453, 4
   %.not64.i.i = icmp ugt i64 %232, %.0543
   br i1 %.not64.i.i, label %._crit_edge, label %166, !llvm.loop !849
@@ -40875,9 +40875,9 @@ FindMatchLengthWithLimit.exit.i.i224:             ; preds = %391, %.critedge.i.i
   br label %424
 
 424:                                              ; preds = %423, %416, %FindMatchLengthWithLimit.exit.i.i224, %386, %377, %360
-  %.sroa.13.3 = phi i64 [ %.sroa.13.2525, %386 ], [ %421, %423 ], [ %.sroa.13.2525, %416 ], [ %.sroa.13.2525, %FindMatchLengthWithLimit.exit.i.i224 ], [ %.sroa.13.2525, %377 ], [ %.sroa.13.2525, %360 ]
-  %.sroa.9.3 = phi i64 [ %.sroa.9.2526, %386 ], [ %388, %423 ], [ %.sroa.9.2526, %416 ], [ %.sroa.9.2526, %FindMatchLengthWithLimit.exit.i.i224 ], [ %.sroa.9.2526, %377 ], [ %.sroa.9.2526, %360 ]
-  %.sroa.0.3 = phi i64 [ %.sroa.0.2527, %386 ], [ %.2.i.i.i225, %423 ], [ %.sroa.0.2527, %416 ], [ %.sroa.0.2527, %FindMatchLengthWithLimit.exit.i.i224 ], [ %.sroa.0.2527, %377 ], [ %.sroa.0.2527, %360 ]
+  %.sroa.13.3 = phi i64 [ %.sroa.13.2525, %386 ], [ %421, %423 ], [ %.sroa.13.2525, %416 ], [ %.sroa.13.2525, %360 ], [ %.sroa.13.2525, %FindMatchLengthWithLimit.exit.i.i224 ], [ %.sroa.13.2525, %377 ]
+  %.sroa.9.3 = phi i64 [ %.sroa.9.2526, %386 ], [ %388, %423 ], [ %.sroa.9.2526, %416 ], [ %.sroa.9.2526, %360 ], [ %.sroa.9.2526, %FindMatchLengthWithLimit.exit.i.i224 ], [ %.sroa.9.2526, %377 ]
+  %.sroa.0.3 = phi i64 [ %.sroa.0.2527, %386 ], [ %.2.i.i.i225, %423 ], [ %.sroa.0.2527, %416 ], [ %.sroa.0.2527, %360 ], [ %.sroa.0.2527, %FindMatchLengthWithLimit.exit.i.i224 ], [ %.sroa.0.2527, %377 ]
   %425 = add i64 %.0.i.i211528, 4
   %.not64.i.i212 = icmp ugt i64 %425, %244
   br i1 %.not64.i.i212, label %._crit_edge531, label %360, !llvm.loop !849
@@ -40988,8 +40988,8 @@ ComputeDistanceCode.exit.thread.thread:           ; preds = %442
   %478 = add i64 %.sroa.15.1.ph, 15
   br label %ComputeDistanceCode.exit
 
-ComputeDistanceCode.exit:                         ; preds = %470, %454, %465, %458, %474, %477
-  %.1.i = phi i64 [ %478, %477 ], [ 3, %474 ], [ 2, %470 ], [ 1, %454 ], [ %469, %465 ], [ %462, %458 ]
+ComputeDistanceCode.exit:                         ; preds = %454, %465, %458, %470, %474, %477
+  %.1.i = phi i64 [ %478, %477 ], [ 3, %474 ], [ 1, %454 ], [ %469, %465 ], [ %462, %458 ], [ 2, %470 ]
   %479 = icmp ule i64 %.sroa.15.1.ph, %441
   %480 = icmp ne i64 %.1.i, 0
   %or.cond = select i1 %479, i1 %480, i1 false
@@ -41290,10 +41290,10 @@ CombineLengthCodes.exit:                          ; preds = %587, %GetCopyLength
   br i1 %666, label %.lr.ph461, label %StoreRangeH35.exit, !llvm.loop !1798
 
 StoreRangeH35.exit:                               ; preds = %.lr.ph461, %.lr.ph467, %.lr.ph539, %651, %635, %616, %628
-  %.1174 = phi i64 [ %.0173540, %628 ], [ %438, %616 ], [ %.0173540, %635 ], [ %.0173540, %651 ], [ %438, %.lr.ph539 ], [ %.0173540, %.lr.ph467 ], [ %.0173540, %.lr.ph461 ]
-  %.4170 = phi i64 [ %629, %628 ], [ 0, %616 ], [ %629, %635 ], [ %629, %651 ], [ 0, %.lr.ph539 ], [ %648, %.lr.ph467 ], [ %664, %.lr.ph461 ]
-  %.1165 = phi ptr [ %.0164542, %628 ], [ %525, %616 ], [ %.0164542, %635 ], [ %.0164542, %651 ], [ %525, %.lr.ph539 ], [ %.0164542, %.lr.ph467 ], [ %.0164542, %.lr.ph461 ]
-  %.4 = phi i64 [ %630, %628 ], [ %607, %616 ], [ %630, %635 ], [ %630, %651 ], [ %607, %.lr.ph539 ], [ %649, %.lr.ph467 ], [ %665, %.lr.ph461 ]
+  %.1174 = phi i64 [ %438, %616 ], [ %.0173540, %628 ], [ %.0173540, %635 ], [ %.0173540, %651 ], [ %.0173540, %.lr.ph467 ], [ %438, %.lr.ph539 ], [ %.0173540, %.lr.ph461 ]
+  %.4170 = phi i64 [ 0, %616 ], [ %629, %628 ], [ %629, %635 ], [ %629, %651 ], [ %648, %.lr.ph467 ], [ 0, %.lr.ph539 ], [ %664, %.lr.ph461 ]
+  %.1165 = phi ptr [ %525, %616 ], [ %.0164542, %628 ], [ %.0164542, %635 ], [ %.0164542, %651 ], [ %.0164542, %.lr.ph467 ], [ %525, %.lr.ph539 ], [ %.0164542, %.lr.ph461 ]
+  %.4 = phi i64 [ %607, %616 ], [ %630, %628 ], [ %630, %635 ], [ %630, %651 ], [ %649, %.lr.ph467 ], [ %607, %.lr.ph539 ], [ %665, %.lr.ph461 ]
   %667 = add i64 %.4, 8
   %668 = icmp ult i64 %667, %22
   br i1 %668, label %.thread, label %._crit_edge544, !llvm.loop !1799
@@ -41776,9 +41776,9 @@ FindMatchLengthWithLimit.exit.i280:               ; preds = %203, %.critedge.i.i
   br label %236
 
 236:                                              ; preds = %235, %228, %FindMatchLengthWithLimit.exit.i280, %197, %188, %171
-  %.sroa.24.6 = phi i64 [ %.sroa.24.5470, %197 ], [ %233, %235 ], [ %.sroa.24.5470, %228 ], [ %.sroa.24.5470, %FindMatchLengthWithLimit.exit.i280 ], [ %.sroa.24.5470, %188 ], [ %.sroa.24.5470, %171 ]
-  %.sroa.15.6 = phi i64 [ %.sroa.15.5471, %197 ], [ %199, %235 ], [ %.sroa.15.5471, %228 ], [ %.sroa.15.5471, %FindMatchLengthWithLimit.exit.i280 ], [ %.sroa.15.5471, %188 ], [ %.sroa.15.5471, %171 ]
-  %.sroa.0298.6 = phi i64 [ %.sroa.0298.5472, %197 ], [ %.2.i.i281, %235 ], [ %.sroa.0298.5472, %228 ], [ %.sroa.0298.5472, %FindMatchLengthWithLimit.exit.i280 ], [ %.sroa.0298.5472, %188 ], [ %.sroa.0298.5472, %171 ]
+  %.sroa.24.6 = phi i64 [ %.sroa.24.5470, %197 ], [ %233, %235 ], [ %.sroa.24.5470, %228 ], [ %.sroa.24.5470, %171 ], [ %.sroa.24.5470, %FindMatchLengthWithLimit.exit.i280 ], [ %.sroa.24.5470, %188 ]
+  %.sroa.15.6 = phi i64 [ %.sroa.15.5471, %197 ], [ %199, %235 ], [ %.sroa.15.5471, %228 ], [ %.sroa.15.5471, %171 ], [ %.sroa.15.5471, %FindMatchLengthWithLimit.exit.i280 ], [ %.sroa.15.5471, %188 ]
+  %.sroa.0298.6 = phi i64 [ %.sroa.0298.5472, %197 ], [ %.2.i.i281, %235 ], [ %.sroa.0298.5472, %228 ], [ %.sroa.0298.5472, %171 ], [ %.sroa.0298.5472, %FindMatchLengthWithLimit.exit.i280 ], [ %.sroa.0298.5472, %188 ]
   %237 = add i64 %.0.i267473, 4
   %.not64.i268 = icmp ugt i64 %237, %.0563
   br i1 %.not64.i268, label %._crit_edge, label %171, !llvm.loop !849
@@ -42226,9 +42226,9 @@ FindMatchLengthWithLimit.exit.i259:               ; preds = %402, %.critedge.i.i
   br label %435
 
 435:                                              ; preds = %434, %427, %FindMatchLengthWithLimit.exit.i259, %397, %388, %371
-  %.sroa.13.4 = phi i64 [ %.sroa.13.3545, %397 ], [ %432, %434 ], [ %.sroa.13.3545, %427 ], [ %.sroa.13.3545, %FindMatchLengthWithLimit.exit.i259 ], [ %.sroa.13.3545, %388 ], [ %.sroa.13.3545, %371 ]
-  %.sroa.9.4 = phi i64 [ %.sroa.9.3546, %397 ], [ %399, %434 ], [ %.sroa.9.3546, %427 ], [ %.sroa.9.3546, %FindMatchLengthWithLimit.exit.i259 ], [ %.sroa.9.3546, %388 ], [ %.sroa.9.3546, %371 ]
-  %.sroa.0.4 = phi i64 [ %.sroa.0.3547, %397 ], [ %.2.i.i260, %434 ], [ %.sroa.0.3547, %427 ], [ %.sroa.0.3547, %FindMatchLengthWithLimit.exit.i259 ], [ %.sroa.0.3547, %388 ], [ %.sroa.0.3547, %371 ]
+  %.sroa.13.4 = phi i64 [ %.sroa.13.3545, %397 ], [ %432, %434 ], [ %.sroa.13.3545, %427 ], [ %.sroa.13.3545, %371 ], [ %.sroa.13.3545, %FindMatchLengthWithLimit.exit.i259 ], [ %.sroa.13.3545, %388 ]
+  %.sroa.9.4 = phi i64 [ %.sroa.9.3546, %397 ], [ %399, %434 ], [ %.sroa.9.3546, %427 ], [ %.sroa.9.3546, %371 ], [ %.sroa.9.3546, %FindMatchLengthWithLimit.exit.i259 ], [ %.sroa.9.3546, %388 ]
+  %.sroa.0.4 = phi i64 [ %.sroa.0.3547, %397 ], [ %.2.i.i260, %434 ], [ %.sroa.0.3547, %427 ], [ %.sroa.0.3547, %371 ], [ %.sroa.0.3547, %FindMatchLengthWithLimit.exit.i259 ], [ %.sroa.0.3547, %388 ]
   %436 = add i64 %.0.i248548, 4
   %.not64.i = icmp ugt i64 %436, %246
   br i1 %.not64.i, label %._crit_edge551, label %371, !llvm.loop !849
@@ -42339,8 +42339,8 @@ ComputeDistanceCode.exit.thread.thread:           ; preds = %453
   %489 = add i64 %.sroa.15.1.ph, 15
   br label %ComputeDistanceCode.exit
 
-ComputeDistanceCode.exit:                         ; preds = %481, %465, %476, %469, %485, %488
-  %.1.i = phi i64 [ %489, %488 ], [ 3, %485 ], [ 2, %481 ], [ 1, %465 ], [ %480, %476 ], [ %473, %469 ]
+ComputeDistanceCode.exit:                         ; preds = %465, %476, %469, %481, %485, %488
+  %.1.i = phi i64 [ %489, %488 ], [ 3, %485 ], [ 1, %465 ], [ %480, %476 ], [ %473, %469 ], [ 2, %481 ]
   %490 = icmp ule i64 %.sroa.15.1.ph, %452
   %491 = icmp ne i64 %.1.i, 0
   %or.cond = select i1 %490, i1 %491, i1 false
@@ -42641,10 +42641,10 @@ CombineLengthCodes.exit:                          ; preds = %598, %GetCopyLength
   br i1 %677, label %.lr.ph481, label %StoreRangeH54.exit, !llvm.loop !1848
 
 StoreRangeH54.exit:                               ; preds = %.lr.ph481, %.lr.ph487, %.lr.ph559, %662, %646, %627, %639
-  %.1174 = phi i64 [ %.0173560, %639 ], [ %449, %627 ], [ %.0173560, %646 ], [ %.0173560, %662 ], [ %449, %.lr.ph559 ], [ %.0173560, %.lr.ph487 ], [ %.0173560, %.lr.ph481 ]
-  %.4170 = phi i64 [ %640, %639 ], [ 0, %627 ], [ %640, %646 ], [ %640, %662 ], [ 0, %.lr.ph559 ], [ %659, %.lr.ph487 ], [ %675, %.lr.ph481 ]
-  %.1165 = phi ptr [ %.0164562, %639 ], [ %536, %627 ], [ %.0164562, %646 ], [ %.0164562, %662 ], [ %536, %.lr.ph559 ], [ %.0164562, %.lr.ph487 ], [ %.0164562, %.lr.ph481 ]
-  %.4 = phi i64 [ %641, %639 ], [ %618, %627 ], [ %641, %646 ], [ %641, %662 ], [ %618, %.lr.ph559 ], [ %660, %.lr.ph487 ], [ %676, %.lr.ph481 ]
+  %.1174 = phi i64 [ %449, %627 ], [ %.0173560, %639 ], [ %.0173560, %646 ], [ %.0173560, %662 ], [ %.0173560, %.lr.ph487 ], [ %449, %.lr.ph559 ], [ %.0173560, %.lr.ph481 ]
+  %.4170 = phi i64 [ 0, %627 ], [ %640, %639 ], [ %640, %646 ], [ %640, %662 ], [ %659, %.lr.ph487 ], [ 0, %.lr.ph559 ], [ %675, %.lr.ph481 ]
+  %.1165 = phi ptr [ %536, %627 ], [ %.0164562, %639 ], [ %.0164562, %646 ], [ %.0164562, %662 ], [ %.0164562, %.lr.ph487 ], [ %536, %.lr.ph559 ], [ %.0164562, %.lr.ph481 ]
+  %.4 = phi i64 [ %618, %627 ], [ %641, %639 ], [ %641, %646 ], [ %641, %662 ], [ %660, %.lr.ph487 ], [ %618, %.lr.ph559 ], [ %676, %.lr.ph481 ]
   %678 = add i64 %.4, 8
   %679 = icmp ult i64 %678, %22
   br i1 %679, label %.thread, label %._crit_edge564, !llvm.loop !1849
@@ -43017,7 +43017,7 @@ FindMatchLengthWithLimit.exit188.i.i:             ; preds = %176, %.critedge.i18
 217:                                              ; preds = %215
   br label %218
 
-218:                                              ; preds = %156, %169, %166, %203, %217, %215, %200
+218:                                              ; preds = %166, %156, %200, %169, %203, %217, %215
   %.sroa.27.11.ph = phi i64 [ %.sroa.27.2534, %169 ], [ %.sroa.27.2534, %200 ], [ %.sroa.27.2534, %203 ], [ %.sroa.27.2534, %215 ], [ %.0154.i.i, %217 ], [ %.sroa.27.2534, %166 ], [ %.sroa.27.2534, %156 ]
   %.sroa.17.11.ph = phi i64 [ %.sroa.17.2535, %169 ], [ %.sroa.17.2535, %200 ], [ %.sroa.17.2535, %203 ], [ %.sroa.17.2535, %215 ], [ %159, %217 ], [ %.sroa.17.2535, %166 ], [ %.sroa.17.2535, %156 ]
   %.sroa.0327.11.ph = phi i64 [ %.sroa.0327.2536, %169 ], [ %.sroa.0327.2536, %200 ], [ %.sroa.0327.2536, %203 ], [ %.sroa.0327.2536, %215 ], [ %.2.i184.i.i, %217 ], [ %.sroa.0327.2536, %166 ], [ %.sroa.0327.2536, %156 ]
@@ -43183,11 +43183,11 @@ FindMatchLengthWithLimit.exit.i.i:                ; preds = %254, %.critedge.i.i
   br label %286
 
 286:                                              ; preds = %285, %FindMatchLengthWithLimit.exit.i.i, %250, %245, %242
-  %.sroa.27.10 = phi i64 [ %.sroa.27.4569, %242 ], [ %283, %285 ], [ %.sroa.27.4569, %FindMatchLengthWithLimit.exit.i.i ], [ %.sroa.27.4569, %250 ], [ %.sroa.27.4569, %245 ]
-  %.sroa.17.10 = phi i64 [ %.sroa.17.4570, %242 ], [ %236, %285 ], [ %.sroa.17.4570, %FindMatchLengthWithLimit.exit.i.i ], [ %.sroa.17.4570, %250 ], [ %.sroa.17.4570, %245 ]
-  %.sroa.0327.10 = phi i64 [ %.sroa.0327.4571, %242 ], [ %277, %285 ], [ %.sroa.0327.4571, %FindMatchLengthWithLimit.exit.i.i ], [ %.sroa.0327.4571, %250 ], [ %.sroa.0327.4571, %245 ]
-  %.6148.i.i = phi i64 [ %.5147.i.i573, %242 ], [ %277, %285 ], [ %.5147.i.i573, %FindMatchLengthWithLimit.exit.i.i ], [ %.5147.i.i573, %250 ], [ %.5147.i.i573, %245 ]
-  %.6.i.i = phi i64 [ %.5.i.i574, %242 ], [ %283, %285 ], [ %.5.i.i574, %FindMatchLengthWithLimit.exit.i.i ], [ %.5.i.i574, %250 ], [ %.5.i.i574, %245 ]
+  %.sroa.27.10 = phi i64 [ %.sroa.27.4569, %250 ], [ %.sroa.27.4569, %245 ], [ %.sroa.27.4569, %242 ], [ %283, %285 ], [ %.sroa.27.4569, %FindMatchLengthWithLimit.exit.i.i ]
+  %.sroa.17.10 = phi i64 [ %.sroa.17.4570, %250 ], [ %.sroa.17.4570, %245 ], [ %.sroa.17.4570, %242 ], [ %236, %285 ], [ %.sroa.17.4570, %FindMatchLengthWithLimit.exit.i.i ]
+  %.sroa.0327.10 = phi i64 [ %.sroa.0327.4571, %250 ], [ %.sroa.0327.4571, %245 ], [ %.sroa.0327.4571, %242 ], [ %277, %285 ], [ %.sroa.0327.4571, %FindMatchLengthWithLimit.exit.i.i ]
+  %.6148.i.i = phi i64 [ %.5147.i.i573, %250 ], [ %.5147.i.i573, %245 ], [ %.5147.i.i573, %242 ], [ %277, %285 ], [ %.5147.i.i573, %FindMatchLengthWithLimit.exit.i.i ]
+  %.6.i.i = phi i64 [ %.5.i.i574, %250 ], [ %.5.i.i574, %245 ], [ %.5.i.i574, %242 ], [ %283, %285 ], [ %.5.i.i574, %FindMatchLengthWithLimit.exit.i.i ]
   %287 = icmp ugt i64 %231, %spec.select.i.i
   br i1 %287, label %230, label %.thread366
 
@@ -43534,10 +43534,10 @@ FindMatchLengthWithLimit.exit.i312:               ; preds = %435, %.critedge.i.i
   br label %468
 
 468:                                              ; preds = %467, %460, %FindMatchLengthWithLimit.exit.i312, %430, %421, %404
-  %.sroa.27.14 = phi i64 [ %.sroa.27.13627, %430 ], [ %465, %467 ], [ %.sroa.27.13627, %460 ], [ %.sroa.27.13627, %FindMatchLengthWithLimit.exit.i312 ], [ %.sroa.27.13627, %421 ], [ %.sroa.27.13627, %404 ]
-  %.sroa.17.14 = phi i64 [ %.sroa.17.13628, %430 ], [ %432, %467 ], [ %.sroa.17.13628, %460 ], [ %.sroa.17.13628, %FindMatchLengthWithLimit.exit.i312 ], [ %.sroa.17.13628, %421 ], [ %.sroa.17.13628, %404 ]
-  %.sroa.0327.14 = phi i64 [ %.sroa.0327.13629, %430 ], [ %.2.i.i313, %467 ], [ %.sroa.0327.13629, %460 ], [ %.sroa.0327.13629, %FindMatchLengthWithLimit.exit.i312 ], [ %.sroa.0327.13629, %421 ], [ %.sroa.0327.13629, %404 ]
-  %.sroa.39.8 = phi i32 [ %.sroa.39.7630, %430 ], [ 0, %467 ], [ %.sroa.39.7630, %460 ], [ %.sroa.39.7630, %FindMatchLengthWithLimit.exit.i312 ], [ %.sroa.39.7630, %421 ], [ %.sroa.39.7630, %404 ]
+  %.sroa.27.14 = phi i64 [ %.sroa.27.13627, %430 ], [ %465, %467 ], [ %.sroa.27.13627, %460 ], [ %.sroa.27.13627, %404 ], [ %.sroa.27.13627, %FindMatchLengthWithLimit.exit.i312 ], [ %.sroa.27.13627, %421 ]
+  %.sroa.17.14 = phi i64 [ %.sroa.17.13628, %430 ], [ %432, %467 ], [ %.sroa.17.13628, %460 ], [ %.sroa.17.13628, %404 ], [ %.sroa.17.13628, %FindMatchLengthWithLimit.exit.i312 ], [ %.sroa.17.13628, %421 ]
+  %.sroa.0327.14 = phi i64 [ %.sroa.0327.13629, %430 ], [ %.2.i.i313, %467 ], [ %.sroa.0327.13629, %460 ], [ %.sroa.0327.13629, %404 ], [ %.sroa.0327.13629, %FindMatchLengthWithLimit.exit.i312 ], [ %.sroa.0327.13629, %421 ]
+  %.sroa.39.8 = phi i32 [ %.sroa.39.7630, %430 ], [ 0, %467 ], [ %.sroa.39.7630, %460 ], [ %.sroa.39.7630, %404 ], [ %.sroa.39.7630, %FindMatchLengthWithLimit.exit.i312 ], [ %.sroa.39.7630, %421 ]
   %469 = add i64 %.0.i299631, 1
   %.not.i300 = icmp ugt i64 %469, %.0784
   br i1 %.not.i300, label %._crit_edge634, label %404, !llvm.loop !960
@@ -43784,7 +43784,7 @@ FindMatchLengthWithLimit.exit188.i.i277:          ; preds = %538, %.critedge.i18
 579:                                              ; preds = %577
   br label %580
 
-580:                                              ; preds = %518, %531, %528, %565, %579, %577, %562
+580:                                              ; preds = %528, %518, %562, %531, %565, %579, %577
   %.sroa.16.9.ph = phi i64 [ %.sroa.16.0668, %531 ], [ %.sroa.16.0668, %562 ], [ %.sroa.16.0668, %565 ], [ %.sroa.16.0668, %577 ], [ %.0154.i.i282, %579 ], [ %.sroa.16.0668, %528 ], [ %.sroa.16.0668, %518 ]
   %.sroa.11.9.ph = phi i64 [ %.sroa.11.0669, %531 ], [ %.sroa.11.0669, %562 ], [ %.sroa.11.0669, %565 ], [ %.sroa.11.0669, %577 ], [ %521, %579 ], [ %.sroa.11.0669, %528 ], [ %.sroa.11.0669, %518 ]
   %.sroa.0.9.ph = phi i64 [ %.sroa.0.0670, %531 ], [ %.sroa.0.0670, %562 ], [ %.sroa.0.0670, %565 ], [ %.sroa.0.0670, %577 ], [ %.2.i184.i.i278, %579 ], [ %.sroa.0.0670, %528 ], [ %.sroa.0.0670, %518 ]
@@ -43941,11 +43941,11 @@ FindMatchLengthWithLimit.exit.i.i255:             ; preds = %614, %.critedge.i.i
   br label %646
 
 646:                                              ; preds = %645, %FindMatchLengthWithLimit.exit.i.i255, %610, %605, %602
-  %.sroa.16.8 = phi i64 [ %.sroa.16.2705, %602 ], [ %643, %645 ], [ %.sroa.16.2705, %FindMatchLengthWithLimit.exit.i.i255 ], [ %.sroa.16.2705, %610 ], [ %.sroa.16.2705, %605 ]
-  %.sroa.11.8 = phi i64 [ %.sroa.11.2706, %602 ], [ %596, %645 ], [ %.sroa.11.2706, %FindMatchLengthWithLimit.exit.i.i255 ], [ %.sroa.11.2706, %610 ], [ %.sroa.11.2706, %605 ]
-  %.sroa.0.8 = phi i64 [ %.sroa.0.2707, %602 ], [ %637, %645 ], [ %.sroa.0.2707, %FindMatchLengthWithLimit.exit.i.i255 ], [ %.sroa.0.2707, %610 ], [ %.sroa.0.2707, %605 ]
-  %.6148.i.i242 = phi i64 [ %.5147.i.i211709, %602 ], [ %637, %645 ], [ %.5147.i.i211709, %FindMatchLengthWithLimit.exit.i.i255 ], [ %.5147.i.i211709, %610 ], [ %.5147.i.i211709, %605 ]
-  %.6.i.i243 = phi i64 [ %.5.i.i212710, %602 ], [ %643, %645 ], [ %.5.i.i212710, %FindMatchLengthWithLimit.exit.i.i255 ], [ %.5.i.i212710, %610 ], [ %.5.i.i212710, %605 ]
+  %.sroa.16.8 = phi i64 [ %.sroa.16.2705, %610 ], [ %.sroa.16.2705, %605 ], [ %.sroa.16.2705, %602 ], [ %643, %645 ], [ %.sroa.16.2705, %FindMatchLengthWithLimit.exit.i.i255 ]
+  %.sroa.11.8 = phi i64 [ %.sroa.11.2706, %610 ], [ %.sroa.11.2706, %605 ], [ %.sroa.11.2706, %602 ], [ %596, %645 ], [ %.sroa.11.2706, %FindMatchLengthWithLimit.exit.i.i255 ]
+  %.sroa.0.8 = phi i64 [ %.sroa.0.2707, %610 ], [ %.sroa.0.2707, %605 ], [ %.sroa.0.2707, %602 ], [ %637, %645 ], [ %.sroa.0.2707, %FindMatchLengthWithLimit.exit.i.i255 ]
+  %.6148.i.i242 = phi i64 [ %.5147.i.i211709, %610 ], [ %.5147.i.i211709, %605 ], [ %.5147.i.i211709, %602 ], [ %637, %645 ], [ %.5147.i.i211709, %FindMatchLengthWithLimit.exit.i.i255 ]
+  %.6.i.i243 = phi i64 [ %.5.i.i212710, %610 ], [ %.5.i.i212710, %605 ], [ %.5.i.i212710, %602 ], [ %643, %645 ], [ %.5.i.i212710, %FindMatchLengthWithLimit.exit.i.i255 ]
   %647 = icmp ugt i64 %591, %spec.select.i.i208
   br i1 %647, label %590, label %.thread413
 
@@ -44292,10 +44292,10 @@ FindMatchLengthWithLimit.exit.i:                  ; preds = %795, %.critedge.i.i
   br label %828
 
 828:                                              ; preds = %827, %820, %FindMatchLengthWithLimit.exit.i, %790, %781, %764
-  %.sroa.26.6 = phi i32 [ %.sroa.26.5764, %790 ], [ 0, %827 ], [ %.sroa.26.5764, %820 ], [ %.sroa.26.5764, %FindMatchLengthWithLimit.exit.i ], [ %.sroa.26.5764, %781 ], [ %.sroa.26.5764, %764 ]
-  %.sroa.16.12 = phi i64 [ %.sroa.16.11765, %790 ], [ %825, %827 ], [ %.sroa.16.11765, %820 ], [ %.sroa.16.11765, %FindMatchLengthWithLimit.exit.i ], [ %.sroa.16.11765, %781 ], [ %.sroa.16.11765, %764 ]
-  %.sroa.11.12 = phi i64 [ %.sroa.11.11766, %790 ], [ %792, %827 ], [ %.sroa.11.11766, %820 ], [ %.sroa.11.11766, %FindMatchLengthWithLimit.exit.i ], [ %.sroa.11.11766, %781 ], [ %.sroa.11.11766, %764 ]
-  %.sroa.0.12 = phi i64 [ %.sroa.0.11767, %790 ], [ %.2.i.i297, %827 ], [ %.sroa.0.11767, %820 ], [ %.sroa.0.11767, %FindMatchLengthWithLimit.exit.i ], [ %.sroa.0.11767, %781 ], [ %.sroa.0.11767, %764 ]
+  %.sroa.26.6 = phi i32 [ %.sroa.26.5764, %790 ], [ 0, %827 ], [ %.sroa.26.5764, %820 ], [ %.sroa.26.5764, %764 ], [ %.sroa.26.5764, %FindMatchLengthWithLimit.exit.i ], [ %.sroa.26.5764, %781 ]
+  %.sroa.16.12 = phi i64 [ %.sroa.16.11765, %790 ], [ %825, %827 ], [ %.sroa.16.11765, %820 ], [ %.sroa.16.11765, %764 ], [ %.sroa.16.11765, %FindMatchLengthWithLimit.exit.i ], [ %.sroa.16.11765, %781 ]
+  %.sroa.11.12 = phi i64 [ %.sroa.11.11766, %790 ], [ %792, %827 ], [ %.sroa.11.11766, %820 ], [ %.sroa.11.11766, %764 ], [ %.sroa.11.11766, %FindMatchLengthWithLimit.exit.i ], [ %.sroa.11.11766, %781 ]
+  %.sroa.0.12 = phi i64 [ %.sroa.0.11767, %790 ], [ %.2.i.i297, %827 ], [ %.sroa.0.11767, %820 ], [ %.sroa.0.11767, %764 ], [ %.sroa.0.11767, %FindMatchLengthWithLimit.exit.i ], [ %.sroa.0.11767, %781 ]
   %829 = add i64 %.0.i293768, 1
   %.not.i294 = icmp ugt i64 %829, %478
   br i1 %.not.i294, label %._crit_edge771, label %764, !llvm.loop !960
@@ -44405,8 +44405,8 @@ split:                                            ; preds = %833, %FindLongestMa
   %876 = add i64 %.sroa.17.1.ph, 15
   br label %ComputeDistanceCode.exit
 
-ComputeDistanceCode.exit:                         ; preds = %868, %852, %863, %856, %872, %875
-  %.1.i = phi i64 [ %876, %875 ], [ 3, %872 ], [ 2, %868 ], [ 1, %852 ], [ %867, %863 ], [ %860, %856 ]
+ComputeDistanceCode.exit:                         ; preds = %852, %863, %856, %868, %872, %875
+  %.1.i = phi i64 [ %876, %875 ], [ 3, %872 ], [ 1, %852 ], [ %867, %863 ], [ %860, %856 ], [ 2, %868 ]
   %877 = icmp ule i64 %.sroa.17.1.ph, %842
   %878 = icmp ne i64 %.1.i, 0
   %or.cond = select i1 %877, i1 %878, i1 false
@@ -44461,7 +44461,7 @@ ComputeDistanceCode.exit:                         ; preds = %868, %852, %863, %8
   br label %PrepareDistanceCacheH65.exit200
 
 PrepareDistanceCacheH65.exit200:                  ; preds = %843, %894, %886, %879, %ComputeDistanceCode.exit
-  %.1.i466 = phi i64 [ %.1.i, %894 ], [ %.1.i, %886 ], [ %.1.i, %879 ], [ %.1.i, %ComputeDistanceCode.exit ], [ 0, %843 ]
+  %.1.i466 = phi i64 [ %.1.i, %ComputeDistanceCode.exit ], [ %.1.i, %894 ], [ %.1.i, %886 ], [ %.1.i, %879 ], [ 0, %843 ]
   %901 = getelementptr inbounds nuw i8, ptr %.0164783, i64 16
   %902 = trunc i64 %.3169.ph to i32
   store i32 %902, ptr %.0164783, align 4, !tbaa !146
@@ -44783,10 +44783,10 @@ CombineLengthCodes.exit:                          ; preds = %994, %GetCopyLength
   br i1 %1101, label %1084, label %StoreRangeH65.exit, !llvm.loop !1990
 
 StoreRangeH65.exit:                               ; preds = %1084, %1059, %1029, %1077, %1052, %1023, %1045
-  %.1174 = phi i64 [ %.0173781, %1045 ], [ %841, %1023 ], [ %.0173781, %1052 ], [ %.0173781, %1077 ], [ %841, %1029 ], [ %.0173781, %1059 ], [ %.0173781, %1084 ]
-  %.4170 = phi i64 [ %1046, %1045 ], [ 0, %1023 ], [ %1046, %1052 ], [ %1046, %1077 ], [ 0, %1029 ], [ %1074, %1059 ], [ %1099, %1084 ]
-  %.1165 = phi ptr [ %.0164783, %1045 ], [ %901, %1023 ], [ %.0164783, %1052 ], [ %.0164783, %1077 ], [ %901, %1029 ], [ %.0164783, %1059 ], [ %.0164783, %1084 ]
-  %.4 = phi i64 [ %1047, %1045 ], [ %1014, %1023 ], [ %1047, %1052 ], [ %1047, %1077 ], [ %1014, %1029 ], [ %1075, %1059 ], [ %1100, %1084 ]
+  %.1174 = phi i64 [ %841, %1023 ], [ %.0173781, %1045 ], [ %.0173781, %1052 ], [ %.0173781, %1077 ], [ %.0173781, %1059 ], [ %841, %1029 ], [ %.0173781, %1084 ]
+  %.4170 = phi i64 [ 0, %1023 ], [ %1046, %1045 ], [ %1046, %1052 ], [ %1046, %1077 ], [ %1074, %1059 ], [ 0, %1029 ], [ %1099, %1084 ]
+  %.1165 = phi ptr [ %901, %1023 ], [ %.0164783, %1045 ], [ %.0164783, %1052 ], [ %.0164783, %1077 ], [ %.0164783, %1059 ], [ %901, %1029 ], [ %.0164783, %1084 ]
+  %.4 = phi i64 [ %1014, %1023 ], [ %1047, %1045 ], [ %1047, %1052 ], [ %1047, %1077 ], [ %1075, %1059 ], [ %1014, %1029 ], [ %1100, %1084 ]
   %1102 = add i64 %.4, 8
   %1103 = icmp ult i64 %1102, %21
   br i1 %1103, label %104, label %._crit_edge786, !llvm.loop !1991

@@ -172,12 +172,12 @@ define hidden noundef ptr @_pcre2_find_bracket_8(ptr noundef readonly captures(r
   br label %88
 
 88:                                               ; preds = %.thread, %50, %10, %34, %71, %77, %81, %22
-  %.163 = phi ptr [ %19, %10 ], [ %31, %22 ], [ %39, %34 ], [ %87, %81 ], [ %76, %77 ], [ %76, %71 ], [ %55, %50 ], [ %70, %.thread ]
+  %.163 = phi ptr [ %76, %77 ], [ %55, %50 ], [ %70, %.thread ], [ %19, %10 ], [ %31, %22 ], [ %39, %34 ], [ %76, %71 ], [ %87, %81 ]
   %89 = load i8, ptr %.163, align 1, !tbaa !4
   %90 = icmp eq i8 %89, 0
   br i1 %90, label %._crit_edge, label %7
 
-._crit_edge:                                      ; preds = %41, %33, %88, %3
+._crit_edge:                                      ; preds = %41, %88, %33, %3
   %.1.ph = phi ptr [ null, %3 ], [ null, %88 ], [ %.06289, %33 ], [ %.06289, %41 ]
   ret ptr %.1.ph
 }

@@ -266,7 +266,7 @@ _ZNSt10unique_ptrIN3gmx14DataFileFinderESt14default_deleteIS1_EED2Ev.exit: ; pre
   br label %.body
 
 .body:                                            ; preds = %78, %68, %74, %59, %76
-  %.pn = phi { ptr, i32 } [ %77, %76 ], [ %75, %74 ], [ %60, %59 ], [ %79, %78 ], [ %69, %68 ]
+  %.pn = phi { ptr, i32 } [ %77, %76 ], [ %60, %59 ], [ %75, %74 ], [ %79, %78 ], [ %69, %68 ]
   %.011 = extractvalue { ptr, i32 } %.pn, 1
   %80 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %81 = icmp eq i32 %.011, %80

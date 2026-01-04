@@ -482,7 +482,7 @@ define noundef zeroext i1 @_Z28dtClosestHeightPointTrianglePKfS0_S0_S0_Rf(ptr no
   br label %57
 
 57:                                               ; preds = %32, %5, %52
-  %.025 = phi i1 [ true, %52 ], [ false, %5 ], [ false, %32 ]
+  %.025 = phi i1 [ false, %5 ], [ true, %52 ], [ false, %32 ]
   ret i1 %.025
 }
 
@@ -900,7 +900,7 @@ _ZL11projectPolyPKfS0_iRfS1_.exit68:              ; preds = %.lr.ph.i63, %_ZL11p
   br i1 %or.cond.not, label %101, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %_ZL11projectPolyPKfS0_iRfS1_.exit52.us, %_ZL11projectPolyPKfS0_iRfS1_.exit68, %_ZL11projectPolyPKfS0_iRfS1_.exit, %_ZL11projectPolyPKfS0_iRfS1_.exit52.loopexit.us128, %._crit_edge
-  %.0 = phi i1 [ true, %._crit_edge ], [ false, %_ZL11projectPolyPKfS0_iRfS1_.exit52.loopexit.us128 ], [ false, %_ZL11projectPolyPKfS0_iRfS1_.exit ], [ %not..i69, %_ZL11projectPolyPKfS0_iRfS1_.exit68 ], [ false, %_ZL11projectPolyPKfS0_iRfS1_.exit52.us ]
+  %.0 = phi i1 [ %not..i69, %_ZL11projectPolyPKfS0_iRfS1_.exit68 ], [ false, %_ZL11projectPolyPKfS0_iRfS1_.exit52.loopexit.us128 ], [ true, %._crit_edge ], [ false, %_ZL11projectPolyPKfS0_iRfS1_.exit ], [ false, %_ZL11projectPolyPKfS0_iRfS1_.exit52.us ]
   ret i1 %.0
 }
 

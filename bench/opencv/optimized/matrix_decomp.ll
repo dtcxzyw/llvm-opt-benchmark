@@ -315,7 +315,7 @@ define internal fastcc noundef range(i32 -1, 2) i32 @_ZN2cv3halL6LUImplIfEEiPT_m
   br i1 %exitcond247.not, label %..loopexit_crit_edge.us, label %.lr.ph182.us.us, !llvm.loop !20
 
 .loopexit144:                                     ; preds = %._crit_edge, %..loopexit_crit_edge.us, %._crit_edge175, %6, %.preheader.lr.ph
-  %.0124 = phi i32 [ %.1, %._crit_edge175 ], [ %.1, %.preheader.lr.ph ], [ 1, %6 ], [ %.1, %..loopexit_crit_edge.us ], [ 0, %._crit_edge ]
+  %.0124 = phi i32 [ 1, %6 ], [ %.1, %._crit_edge175 ], [ %.1, %..loopexit_crit_edge.us ], [ %.1, %.preheader.lr.ph ], [ 0, %._crit_edge ]
   ret i32 %.0124
 }
 
@@ -620,7 +620,7 @@ define internal fastcc noundef range(i32 -1, 2) i32 @_ZN2cv3halL6LUImplIdEEiPT_m
   br i1 %exitcond247.not, label %..loopexit_crit_edge.us, label %.lr.ph182.us.us, !llvm.loop !32
 
 .loopexit144:                                     ; preds = %._crit_edge, %..loopexit_crit_edge.us, %._crit_edge175, %6, %.preheader.lr.ph
-  %.0124 = phi i32 [ %.1, %._crit_edge175 ], [ %.1, %.preheader.lr.ph ], [ 1, %6 ], [ %.1, %..loopexit_crit_edge.us ], [ 0, %._crit_edge ]
+  %.0124 = phi i32 [ 1, %6 ], [ %.1, %._crit_edge175 ], [ %.1, %..loopexit_crit_edge.us ], [ %.1, %.preheader.lr.ph ], [ 0, %._crit_edge ]
   ret i32 %.0124
 }
 
@@ -940,7 +940,7 @@ define internal fastcc noundef zeroext i1 @_ZN2cv3halL8CholImplIfEEbPT_miS3_mi(p
   br i1 %exitcond280.not, label %.loopexit, label %119, !llvm.loop !47
 
 .loopexit:                                        ; preds = %._crit_edge172, %119, %80, %.preheader158, %.preheader
-  %124 = phi i1 [ true, %.preheader ], [ true, %.preheader158 ], [ true, %80 ], [ true, %119 ], [ false, %._crit_edge172 ]
+  %124 = phi i1 [ true, %80 ], [ true, %.preheader ], [ true, %.preheader158 ], [ true, %119 ], [ false, %._crit_edge172 ]
   ret i1 %124
 }
 
@@ -1244,7 +1244,7 @@ define internal fastcc noundef zeroext i1 @_ZN2cv3halL8CholImplIdEEbPT_miS3_mi(p
   br i1 %exitcond280.not, label %.loopexit, label %103, !llvm.loop !59
 
 .loopexit:                                        ; preds = %._crit_edge172, %103, %68, %.preheader158, %.preheader
-  %108 = phi i1 [ true, %.preheader ], [ true, %.preheader158 ], [ true, %68 ], [ true, %103 ], [ false, %._crit_edge172 ]
+  %108 = phi i1 [ true, %68 ], [ true, %.preheader ], [ true, %.preheader158 ], [ true, %103 ], [ false, %._crit_edge172 ]
   ret i1 %108
 }
 

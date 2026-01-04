@@ -565,7 +565,7 @@ _step_connect.exit:                               ; preds = %32
   br label %.thread
 
 .split105:                                        ; preds = %.lr.ph142, %.lr.ph127.preheader, %.lr.ph142.preheader, %.lr.ph127.preheader.preheader
-  %.us-phi106 = phi i64 [ %158, %.lr.ph127.preheader.preheader ], [ %147, %.lr.ph142.preheader ], [ %133, %.lr.ph127.preheader ], [ %155, %.lr.ph142 ]
+  %.us-phi106 = phi i64 [ %133, %.lr.ph127.preheader ], [ %158, %.lr.ph127.preheader.preheader ], [ %147, %.lr.ph142.preheader ], [ %155, %.lr.ph142 ]
   %139 = and i64 %.us-phi106, 2147483647
   %140 = getelementptr inbounds nuw i8, ptr %.044.ph147, i64 %139
   %141 = sub i64 %.045.ph145, %139
@@ -649,12 +649,12 @@ _step_connect.exit:                               ; preds = %32
   store i16 %167, ptr %3, align 2
   br label %.sink.split
 
-.thread:                                          ; preds = %.split108, %138, %128, %123, %.split88.us, %112, %.outer._crit_edge
+.thread:                                          ; preds = %138, %.split108, %128, %123, %112, %.split88.us, %.outer._crit_edge
   %168 = call i32 @close(i32 noundef %100) #12
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.thread, %_step_connect.exit, %_step_connect.exit.thread, %166, %165
-  %.0.ph = phi i32 [ %100, %165 ], [ %100, %166 ], [ -1, %_step_connect.exit.thread ], [ -1, %_step_connect.exit ], [ %100, %.thread ]
+  %.0.ph = phi i32 [ %100, %166 ], [ %100, %165 ], [ -1, %_step_connect.exit.thread ], [ -1, %_step_connect.exit ], [ %100, %.thread ]
   call void @slurm_xfree(ptr noundef nonnull %13) #12
   br label %169
 
@@ -787,7 +787,7 @@ define dso_local i32 @stepd_get_uid(i32 noundef %0, i16 noundef zeroext %1) #0 {
   br label %.thread
 
 .split82:                                         ; preds = %.lr.ph119, %.lr.ph104.preheader, %.lr.ph119.preheader, %.lr.ph104.preheader.preheader
-  %.us-phi83 = phi i64 [ %62, %.lr.ph104.preheader.preheader ], [ %51, %.lr.ph119.preheader ], [ %37, %.lr.ph104.preheader ], [ %59, %.lr.ph119 ]
+  %.us-phi83 = phi i64 [ %37, %.lr.ph104.preheader ], [ %62, %.lr.ph104.preheader.preheader ], [ %51, %.lr.ph119.preheader ], [ %59, %.lr.ph119 ]
   %43 = and i64 %.us-phi83, 2147483647
   %44 = getelementptr inbounds nuw i8, ptr %.032.ph124, i64 %43
   %45 = sub i64 %.033.ph122, %43
@@ -861,8 +861,8 @@ define dso_local i32 @stepd_get_uid(i32 noundef %0, i16 noundef zeroext %1) #0 {
   %67 = load i32, ptr %4, align 4
   br label %.thread
 
-.thread:                                          ; preds = %.split85, %42, %32, %27, %.split65.us, %16, %.loopexit
-  %.0 = phi i32 [ %67, %.loopexit ], [ -1, %16 ], [ -1, %.split65.us ], [ -1, %27 ], [ -1, %32 ], [ -1, %42 ], [ -1, %.split85 ]
+.thread:                                          ; preds = %42, %.split85, %32, %27, %16, %.split65.us, %.loopexit
+  %.0 = phi i32 [ %67, %.loopexit ], [ -1, %16 ], [ -1, %.split65.us ], [ -1, %27 ], [ -1, %32 ], [ -1, %.split85 ], [ -1, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -1043,7 +1043,7 @@ define dso_local i32 @stepd_add_extern_pid(i32 noundef %0, i16 zeroext %1, i32 n
   br label %.thread
 
 .split129:                                        ; preds = %.lr.ph166, %.lr.ph151.preheader, %.lr.ph166.preheader, %.lr.ph151.preheader.preheader
-  %.us-phi130 = phi i64 [ %81, %.lr.ph151.preheader.preheader ], [ %70, %.lr.ph166.preheader ], [ %56, %.lr.ph151.preheader ], [ %78, %.lr.ph166 ]
+  %.us-phi130 = phi i64 [ %56, %.lr.ph151.preheader ], [ %81, %.lr.ph151.preheader.preheader ], [ %70, %.lr.ph166.preheader ], [ %78, %.lr.ph166 ]
   %62 = and i64 %.us-phi130, 2147483647
   %63 = getelementptr inbounds nuw i8, ptr %.044.ph171, i64 %62
   %64 = sub i64 %.045.ph169, %62
@@ -1125,8 +1125,8 @@ define dso_local i32 @stepd_add_extern_pid(i32 noundef %0, i16 zeroext %1, i32 n
   %89 = load i32, ptr %6, align 4
   br label %.thread
 
-.thread:                                          ; preds = %.split132, %61, %51, %46, %.split111, %32, %.split94.us, %17, %88
-  %.0 = phi i32 [ %89, %88 ], [ -1, %17 ], [ -1, %.split94.us ], [ -1, %32 ], [ -1, %.split111 ], [ -1, %46 ], [ -1, %51 ], [ -1, %61 ], [ -1, %.split132 ]
+.thread:                                          ; preds = %61, %.split132, %51, %46, %32, %.split111, %17, %.split94.us, %88
+  %.0 = phi i32 [ %89, %88 ], [ -1, %32 ], [ -1, %17 ], [ -1, %.split94.us ], [ -1, %.split111 ], [ -1, %46 ], [ -1, %51 ], [ -1, %.split132 ], [ -1, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -1256,7 +1256,7 @@ define dso_local i32 @stepd_get_x11_display(i32 noundef %0, i16 noundef zeroext 
   br label %.thread
 
 .split164:                                        ; preds = %.lr.ph201, %.lr.ph186.preheader, %.lr.ph201.preheader, %.lr.ph186.preheader.preheader
-  %.us-phi165 = phi i64 [ %63, %.lr.ph186.preheader.preheader ], [ %52, %.lr.ph201.preheader ], [ %38, %.lr.ph186.preheader ], [ %60, %.lr.ph201 ]
+  %.us-phi165 = phi i64 [ %38, %.lr.ph186.preheader ], [ %63, %.lr.ph186.preheader.preheader ], [ %52, %.lr.ph201.preheader ], [ %60, %.lr.ph201 ]
   %44 = and i64 %.us-phi165, 2147483647
   %45 = getelementptr inbounds nuw i8, ptr %.077.ph206, i64 %44
   %46 = sub i64 %.078.ph204, %44
@@ -1437,7 +1437,7 @@ define dso_local i32 @stepd_get_x11_display(i32 noundef %0, i16 noundef zeroext 
   br label %.thread
 
 .split215.us:                                     ; preds = %.lr.ph253, %.lr.ph238.preheader, %.lr.ph253.preheader, %.lr.ph238.preheader.preheader
-  %.us-phi216 = phi i64 [ %81, %.lr.ph238.preheader.preheader ], [ %70, %.lr.ph253.preheader ], [ %99, %.lr.ph238.preheader ], [ %78, %.lr.ph253 ]
+  %.us-phi216 = phi i64 [ %99, %.lr.ph238.preheader ], [ %81, %.lr.ph238.preheader.preheader ], [ %70, %.lr.ph253.preheader ], [ %78, %.lr.ph253 ]
   %105 = and i64 %.us-phi216, 2147483647
   %106 = getelementptr inbounds nuw i8, ptr %.074.ph258, i64 %105
   %107 = sub i64 %.075.ph256, %105
@@ -1574,7 +1574,7 @@ define dso_local i32 @stepd_get_x11_display(i32 noundef %0, i16 noundef zeroext 
   br label %.thread
 
 .split266.us:                                     ; preds = %.lr.ph304, %.lr.ph289.preheader, %.lr.ph304.preheader, %.lr.ph289.preheader.preheader
-  %.us-phi267 = phi i64 [ %128, %.lr.ph289.preheader.preheader ], [ %117, %.lr.ph304.preheader ], [ %146, %.lr.ph289.preheader ], [ %125, %.lr.ph304 ]
+  %.us-phi267 = phi i64 [ %146, %.lr.ph289.preheader ], [ %128, %.lr.ph289.preheader.preheader ], [ %117, %.lr.ph304.preheader ], [ %125, %.lr.ph304 ]
   %152 = and i64 %.us-phi267, 2147483647
   %153 = getelementptr inbounds nuw i8, ptr %.071.ph309, i64 %152
   %154 = sub i64 %.072.ph307, %152
@@ -1606,8 +1606,8 @@ define dso_local i32 @stepd_get_x11_display(i32 noundef %0, i16 noundef zeroext 
   %163 = load i32, ptr %5, align 4
   br label %.thread
 
-.thread:                                          ; preds = %.split269.us, %151, %141, %136, %.split218.us, %104, %94, %89, %.split167, %43, %33, %28, %.split147.us, %17, %162
-  %.0 = phi i32 [ %163, %162 ], [ 0, %17 ], [ 0, %.split147.us ], [ 0, %28 ], [ 0, %33 ], [ 0, %43 ], [ 0, %.split167 ], [ 0, %89 ], [ 0, %94 ], [ 0, %104 ], [ 0, %.split218.us ], [ 0, %136 ], [ 0, %141 ], [ 0, %151 ], [ 0, %.split269.us ]
+.thread:                                          ; preds = %151, %.split269.us, %141, %136, %104, %.split218.us, %94, %89, %43, %.split167, %33, %28, %17, %.split147.us, %162
+  %.0 = phi i32 [ %163, %162 ], [ 0, %104 ], [ 0, %43 ], [ 0, %17 ], [ 0, %.split147.us ], [ 0, %28 ], [ 0, %33 ], [ 0, %.split167 ], [ 0, %89 ], [ 0, %94 ], [ 0, %.split218.us ], [ 0, %136 ], [ 0, %141 ], [ 0, %.split269.us ], [ 0, %151 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2089,7 +2089,7 @@ define dso_local ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2
   br label %.thread
 
 .split798.us:                                     ; preds = %.lr.ph835, %.lr.ph820.preheader, %.lr.ph835.preheader, %.lr.ph820.preheader.preheader
-  %.us-phi799 = phi i64 [ %138, %.lr.ph820.preheader.preheader ], [ %127, %.lr.ph835.preheader ], [ %156, %.lr.ph820.preheader ], [ %135, %.lr.ph835 ]
+  %.us-phi799 = phi i64 [ %156, %.lr.ph820.preheader ], [ %138, %.lr.ph820.preheader.preheader ], [ %127, %.lr.ph835.preheader ], [ %135, %.lr.ph835 ]
   %162 = and i64 %.us-phi799, 2147483647
   %163 = getelementptr inbounds nuw i8, ptr %.0353.ph840, i64 %162
   %164 = sub i64 %.0354.ph838, %162
@@ -2173,7 +2173,7 @@ define dso_local ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2
   br label %.thread
 
 .split849:                                        ; preds = %.lr.ph887, %.lr.ph872.preheader, %.lr.ph887.preheader, %.lr.ph872.preheader.preheader
-  %.us-phi850 = phi i64 [ %209, %.lr.ph872.preheader.preheader ], [ %198, %.lr.ph887.preheader ], [ %184, %.lr.ph872.preheader ], [ %206, %.lr.ph887 ]
+  %.us-phi850 = phi i64 [ %184, %.lr.ph872.preheader ], [ %209, %.lr.ph872.preheader.preheader ], [ %198, %.lr.ph887.preheader ], [ %206, %.lr.ph887 ]
   %190 = and i64 %.us-phi850, 2147483647
   %191 = getelementptr inbounds nuw i8, ptr %.0350.ph892, i64 %190
   %192 = sub i64 %.0351.ph890, %190
@@ -2364,7 +2364,7 @@ define dso_local ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2
   br label %.thread
 
 .split900.us:                                     ; preds = %.lr.ph938, %.lr.ph923.preheader, %.lr.ph938.preheader, %.lr.ph923.preheader.preheader
-  %.us-phi901 = phi i64 [ %231, %.lr.ph923.preheader.preheader ], [ %220, %.lr.ph938.preheader ], [ %249, %.lr.ph923.preheader ], [ %228, %.lr.ph938 ]
+  %.us-phi901 = phi i64 [ %249, %.lr.ph923.preheader ], [ %231, %.lr.ph923.preheader.preheader ], [ %220, %.lr.ph938.preheader ], [ %228, %.lr.ph938 ]
   %255 = and i64 %.us-phi901, 2147483647
   %256 = getelementptr inbounds nuw i8, ptr %.0347.ph944, i64 %255
   %257 = sub i64 %.0348.ph942, %255
@@ -2439,7 +2439,7 @@ define dso_local ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2
   br label %.thread
 
 .split953:                                        ; preds = %.lr.ph991, %.lr.ph976.preheader, %.lr.ph991.preheader, %.lr.ph976.preheader.preheader
-  %.us-phi954 = phi i64 [ %300, %.lr.ph976.preheader.preheader ], [ %289, %.lr.ph991.preheader ], [ %275, %.lr.ph976.preheader ], [ %297, %.lr.ph991 ]
+  %.us-phi954 = phi i64 [ %275, %.lr.ph976.preheader ], [ %300, %.lr.ph976.preheader.preheader ], [ %289, %.lr.ph991.preheader ], [ %297, %.lr.ph991 ]
   %281 = and i64 %.us-phi954, 2147483647
   %282 = getelementptr inbounds nuw i8, ptr %.0344.ph996, i64 %281
   %283 = sub i64 %.0345.ph994, %281
@@ -2629,7 +2629,7 @@ define dso_local ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2
   br label %.thread
 
 .split1005.us:                                    ; preds = %.lr.ph1043, %.lr.ph1028.preheader, %.lr.ph1043.preheader, %.lr.ph1028.preheader.preheader
-  %.us-phi1006 = phi i64 [ %323, %.lr.ph1028.preheader.preheader ], [ %312, %.lr.ph1043.preheader ], [ %341, %.lr.ph1028.preheader ], [ %320, %.lr.ph1043 ]
+  %.us-phi1006 = phi i64 [ %341, %.lr.ph1028.preheader ], [ %323, %.lr.ph1028.preheader.preheader ], [ %312, %.lr.ph1043.preheader ], [ %320, %.lr.ph1043 ]
   %347 = and i64 %.us-phi1006, 2147483647
   %348 = getelementptr inbounds nuw i8, ptr %.0341.ph1049, i64 %347
   %349 = sub i64 %.0342.ph1047, %347
@@ -2760,7 +2760,7 @@ define dso_local ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2
   br label %.thread
 
 .split1058.us:                                    ; preds = %.lr.ph1096, %.lr.ph1081.preheader, %.lr.ph1096.preheader, %.lr.ph1081.preheader.preheader
-  %.us-phi1059 = phi i64 [ %368, %.lr.ph1081.preheader.preheader ], [ %357, %.lr.ph1096.preheader ], [ %386, %.lr.ph1081.preheader ], [ %365, %.lr.ph1096 ]
+  %.us-phi1059 = phi i64 [ %386, %.lr.ph1081.preheader ], [ %368, %.lr.ph1081.preheader.preheader ], [ %357, %.lr.ph1096.preheader ], [ %365, %.lr.ph1096 ]
   %392 = and i64 %.us-phi1059, 2147483647
   %393 = getelementptr inbounds nuw i8, ptr %.0338.ph1101, i64 %392
   %394 = sub i64 %.0339.ph1099, %392
@@ -2890,7 +2890,7 @@ define dso_local ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2
   br label %.thread
 
 .split1109.us:                                    ; preds = %.lr.ph1147, %.lr.ph1132.preheader, %.lr.ph1147.preheader, %.lr.ph1132.preheader.preheader
-  %.us-phi1110 = phi i64 [ %412, %.lr.ph1132.preheader.preheader ], [ %401, %.lr.ph1147.preheader ], [ %430, %.lr.ph1132.preheader ], [ %409, %.lr.ph1147 ]
+  %.us-phi1110 = phi i64 [ %430, %.lr.ph1132.preheader ], [ %412, %.lr.ph1132.preheader.preheader ], [ %401, %.lr.ph1147.preheader ], [ %409, %.lr.ph1147 ]
   %436 = and i64 %.us-phi1110, 2147483647
   %437 = getelementptr inbounds nuw i8, ptr %.0335.ph1152, i64 %436
   %438 = sub i64 %.0336.ph1150, %436
@@ -2965,7 +2965,7 @@ define dso_local ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2
   br label %.thread
 
 .split1161:                                       ; preds = %.lr.ph1199, %.lr.ph1184.preheader, %.lr.ph1199.preheader, %.lr.ph1184.preheader.preheader
-  %.us-phi1162 = phi i64 [ %481, %.lr.ph1184.preheader.preheader ], [ %470, %.lr.ph1199.preheader ], [ %456, %.lr.ph1184.preheader ], [ %478, %.lr.ph1199 ]
+  %.us-phi1162 = phi i64 [ %456, %.lr.ph1184.preheader ], [ %481, %.lr.ph1184.preheader.preheader ], [ %470, %.lr.ph1199.preheader ], [ %478, %.lr.ph1199 ]
   %462 = and i64 %.us-phi1162, 2147483647
   %463 = getelementptr inbounds nuw i8, ptr %.0332.ph1204, i64 %462
   %464 = sub i64 %.0333.ph1202, %462
@@ -3157,7 +3157,7 @@ define dso_local ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2
   br label %.thread
 
 .split1212.us:                                    ; preds = %.lr.ph1250, %.lr.ph1235.preheader, %.lr.ph1250.preheader, %.lr.ph1235.preheader.preheader
-  %.us-phi1213 = phi i64 [ %504, %.lr.ph1235.preheader.preheader ], [ %493, %.lr.ph1250.preheader ], [ %522, %.lr.ph1235.preheader ], [ %501, %.lr.ph1250 ]
+  %.us-phi1213 = phi i64 [ %522, %.lr.ph1235.preheader ], [ %504, %.lr.ph1235.preheader.preheader ], [ %493, %.lr.ph1250.preheader ], [ %501, %.lr.ph1250 ]
   %528 = and i64 %.us-phi1213, 2147483647
   %529 = getelementptr inbounds nuw i8, ptr %.0329.ph1256, i64 %528
   %530 = sub i64 %.0330.ph1254, %528
@@ -3232,7 +3232,7 @@ define dso_local ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2
   br label %.thread
 
 .split1265:                                       ; preds = %.lr.ph1303, %.lr.ph1288.preheader, %.lr.ph1303.preheader, %.lr.ph1288.preheader.preheader
-  %.us-phi1266 = phi i64 [ %573, %.lr.ph1288.preheader.preheader ], [ %562, %.lr.ph1303.preheader ], [ %548, %.lr.ph1288.preheader ], [ %570, %.lr.ph1303 ]
+  %.us-phi1266 = phi i64 [ %548, %.lr.ph1288.preheader ], [ %573, %.lr.ph1288.preheader.preheader ], [ %562, %.lr.ph1303.preheader ], [ %570, %.lr.ph1303 ]
   %554 = and i64 %.us-phi1266, 2147483647
   %555 = getelementptr inbounds nuw i8, ptr %.0326.ph1308, i64 %554
   %556 = sub i64 %.0327.ph1306, %554
@@ -3424,7 +3424,7 @@ define dso_local ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2
   br label %.thread
 
 .split1316.us:                                    ; preds = %.lr.ph1354, %.lr.ph1339.preheader, %.lr.ph1354.preheader, %.lr.ph1339.preheader.preheader
-  %.us-phi1317 = phi i64 [ %596, %.lr.ph1339.preheader.preheader ], [ %585, %.lr.ph1354.preheader ], [ %614, %.lr.ph1339.preheader ], [ %593, %.lr.ph1354 ]
+  %.us-phi1317 = phi i64 [ %614, %.lr.ph1339.preheader ], [ %596, %.lr.ph1339.preheader.preheader ], [ %585, %.lr.ph1354.preheader ], [ %593, %.lr.ph1354 ]
   %620 = and i64 %.us-phi1317, 2147483647
   %621 = getelementptr inbounds nuw i8, ptr %.0323.ph1360, i64 %620
   %622 = sub i64 %.0324.ph1358, %620
@@ -3499,7 +3499,7 @@ define dso_local ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2
   br label %.thread
 
 .split1369:                                       ; preds = %.lr.ph1407, %.lr.ph1392.preheader, %.lr.ph1407.preheader, %.lr.ph1392.preheader.preheader
-  %.us-phi1370 = phi i64 [ %665, %.lr.ph1392.preheader.preheader ], [ %654, %.lr.ph1407.preheader ], [ %640, %.lr.ph1392.preheader ], [ %662, %.lr.ph1407 ]
+  %.us-phi1370 = phi i64 [ %640, %.lr.ph1392.preheader ], [ %665, %.lr.ph1392.preheader.preheader ], [ %654, %.lr.ph1407.preheader ], [ %662, %.lr.ph1407 ]
   %646 = and i64 %.us-phi1370, 2147483647
   %647 = getelementptr inbounds nuw i8, ptr %.0320.ph1412, i64 %646
   %648 = sub i64 %.0321.ph1410, %646
@@ -3689,7 +3689,7 @@ define dso_local ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2
   br label %.thread
 
 .split1421.us:                                    ; preds = %.lr.ph1459, %.lr.ph1444.preheader, %.lr.ph1459.preheader, %.lr.ph1444.preheader.preheader
-  %.us-phi1422 = phi i64 [ %688, %.lr.ph1444.preheader.preheader ], [ %677, %.lr.ph1459.preheader ], [ %706, %.lr.ph1444.preheader ], [ %685, %.lr.ph1459 ]
+  %.us-phi1422 = phi i64 [ %706, %.lr.ph1444.preheader ], [ %688, %.lr.ph1444.preheader.preheader ], [ %677, %.lr.ph1459.preheader ], [ %685, %.lr.ph1459 ]
   %712 = and i64 %.us-phi1422, 2147483647
   %713 = getelementptr inbounds nuw i8, ptr %.0317.ph1465, i64 %712
   %714 = sub i64 %.0318.ph1463, %712
@@ -3721,7 +3721,7 @@ define dso_local ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2
   %723 = load ptr, ptr %12, align 8
   br label %730
 
-.thread:                                          ; preds = %.split1424.us, %711, %701, %696, %.split1372, %645, %635, %630, %.split1319.us, %619, %609, %604, %.split1268, %553, %543, %538, %.split1215.us, %527, %517, %512, %.split1164, %461, %451, %446, %.split1112.us, %435, %425, %420, %.split1061.us, %391, %381, %376, %.split1008.us, %346, %336, %331, %.split956, %280, %270, %265, %.split903.us, %254, %244, %239, %.split852, %189, %179, %174, %.split801.us, %161, %151, %146, %.split779, %115, %.split760.us, %100, %.split742.us, %81, %.split723, %57, %.split705, %39, %.split688.us, %24
+.thread:                                          ; preds = %711, %.split1424.us, %701, %696, %645, %.split1372, %635, %630, %619, %.split1319.us, %609, %604, %553, %.split1268, %543, %538, %527, %.split1215.us, %517, %512, %461, %.split1164, %451, %446, %435, %.split1112.us, %425, %420, %391, %.split1061.us, %381, %376, %346, %.split1008.us, %336, %331, %280, %.split956, %270, %265, %254, %.split903.us, %244, %239, %189, %.split852, %179, %174, %161, %.split801.us, %151, %146, %115, %.split779, %100, %.split760.us, %81, %.split742.us, %57, %.split723, %39, %.split705, %24, %.split688.us
   %724 = load ptr, ptr %12, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %724, ptr %6, align 8
@@ -3746,7 +3746,7 @@ xfree_struct_passwd.exit:                         ; preds = %.thread, %725
   br label %730
 
 730:                                              ; preds = %xfree_struct_passwd.exit, %722, %170
-  %.0 = phi ptr [ %723, %722 ], [ null, %xfree_struct_passwd.exit ], [ null, %170 ]
+  %.0 = phi ptr [ %723, %722 ], [ null, %170 ], [ null, %xfree_struct_passwd.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -4248,7 +4248,7 @@ define dso_local ptr @stepd_getgr(i32 noundef %0, i16 zeroext %1, i32 noundef %2
   br label %.thread
 
 .split655.us:                                     ; preds = %.lr.ph692, %.lr.ph677.preheader, %.lr.ph692.preheader, %.lr.ph677.preheader.preheader
-  %.us-phi656 = phi i64 [ %135, %.lr.ph677.preheader.preheader ], [ %124, %.lr.ph692.preheader ], [ %153, %.lr.ph677.preheader ], [ %132, %.lr.ph692 ]
+  %.us-phi656 = phi i64 [ %153, %.lr.ph677.preheader ], [ %135, %.lr.ph677.preheader.preheader ], [ %124, %.lr.ph692.preheader ], [ %132, %.lr.ph692 ]
   %159 = and i64 %.us-phi656, 2147483647
   %160 = getelementptr inbounds nuw i8, ptr %.0277.ph697, i64 %159
   %161 = sub i64 %.0278.ph695, %159
@@ -4397,7 +4397,7 @@ define dso_local ptr @stepd_getgr(i32 noundef %0, i16 zeroext %1, i32 noundef %2
   br label %.thread
 
 .split706.us:                                     ; preds = %.lr.ph744, %.lr.ph729.preheader, %.lr.ph744.preheader, %.lr.ph729.preheader.preheader
-  %.us-phi707 = phi i64 [ %186, %.lr.ph729.preheader.preheader ], [ %175, %.lr.ph744.preheader ], [ %204, %.lr.ph729.preheader ], [ %183, %.lr.ph744 ]
+  %.us-phi707 = phi i64 [ %204, %.lr.ph729.preheader ], [ %186, %.lr.ph729.preheader.preheader ], [ %175, %.lr.ph744.preheader ], [ %183, %.lr.ph744 ]
   %210 = and i64 %.us-phi707, 2147483647
   %211 = getelementptr inbounds nuw i8, ptr %.0273.ph749, i64 %210
   %212 = sub i64 %.0274.ph747, %210
@@ -4543,7 +4543,7 @@ define dso_local ptr @stepd_getgr(i32 noundef %0, i16 zeroext %1, i32 noundef %2
   br label %.thread
 
 .split758.us:                                     ; preds = %.lr.ph803, %.lr.ph786.preheader, %.lr.ph803.preheader, %.lr.ph786.preheader.preheader
-  %.us-phi759 = phi i64 [ %236, %.lr.ph786.preheader.preheader ], [ %225, %.lr.ph803.preheader ], [ %254, %.lr.ph786.preheader ], [ %233, %.lr.ph803 ]
+  %.us-phi759 = phi i64 [ %254, %.lr.ph786.preheader ], [ %236, %.lr.ph786.preheader.preheader ], [ %225, %.lr.ph803.preheader ], [ %233, %.lr.ph803 ]
   %260 = and i64 %.us-phi759, 2147483647
   %261 = getelementptr inbounds nuw i8, ptr %.0270.ph811, i64 %260
   %262 = sub i64 %.0271.ph809, %260
@@ -4618,7 +4618,7 @@ define dso_local ptr @stepd_getgr(i32 noundef %0, i16 zeroext %1, i32 noundef %2
   br label %.thread
 
 .split820:                                        ; preds = %.lr.ph858, %.lr.ph843.preheader, %.lr.ph858.preheader, %.lr.ph843.preheader.preheader
-  %.us-phi821 = phi i64 [ %305, %.lr.ph843.preheader.preheader ], [ %294, %.lr.ph858.preheader ], [ %280, %.lr.ph843.preheader ], [ %302, %.lr.ph858 ]
+  %.us-phi821 = phi i64 [ %280, %.lr.ph843.preheader ], [ %305, %.lr.ph843.preheader.preheader ], [ %294, %.lr.ph858.preheader ], [ %302, %.lr.ph858 ]
   %286 = and i64 %.us-phi821, 2147483647
   %287 = getelementptr inbounds nuw i8, ptr %.0267.ph863, i64 %286
   %288 = sub i64 %.0268.ph861, %286
@@ -4814,7 +4814,7 @@ define dso_local ptr @stepd_getgr(i32 noundef %0, i16 zeroext %1, i32 noundef %2
   br label %.thread
 
 .split873.us:                                     ; preds = %.lr.ph918, %.lr.ph901.preheader, %.lr.ph918.preheader, %.lr.ph901.preheader.preheader
-  %.us-phi874 = phi i64 [ %328, %.lr.ph901.preheader.preheader ], [ %317, %.lr.ph918.preheader ], [ %346, %.lr.ph901.preheader ], [ %325, %.lr.ph918 ]
+  %.us-phi874 = phi i64 [ %346, %.lr.ph901.preheader ], [ %328, %.lr.ph901.preheader.preheader ], [ %317, %.lr.ph918.preheader ], [ %325, %.lr.ph918 ]
   %352 = and i64 %.us-phi874, 2147483647
   %353 = getelementptr inbounds nuw i8, ptr %.0264.ph926, i64 %352
   %354 = sub i64 %.0265.ph924, %352
@@ -4945,7 +4945,7 @@ define dso_local ptr @stepd_getgr(i32 noundef %0, i16 zeroext %1, i32 noundef %2
   br label %.thread
 
 .split935.us:                                     ; preds = %.lr.ph973, %.lr.ph958.preheader, %.lr.ph973.preheader, %.lr.ph958.preheader.preheader
-  %.us-phi936 = phi i64 [ %373, %.lr.ph958.preheader.preheader ], [ %362, %.lr.ph973.preheader ], [ %391, %.lr.ph958.preheader ], [ %370, %.lr.ph973 ]
+  %.us-phi936 = phi i64 [ %391, %.lr.ph958.preheader ], [ %373, %.lr.ph958.preheader.preheader ], [ %362, %.lr.ph973.preheader ], [ %370, %.lr.ph973 ]
   %397 = and i64 %.us-phi936, 2147483647
   %398 = getelementptr inbounds nuw i8, ptr %.0261.ph978, i64 %397
   %399 = sub i64 %.0262.ph976, %397
@@ -5078,7 +5078,7 @@ define dso_local ptr @stepd_getgr(i32 noundef %0, i16 zeroext %1, i32 noundef %2
   br label %.thread
 
 .split987.us:                                     ; preds = %.lr.ph1025, %.lr.ph1010.preheader, %.lr.ph1025.preheader, %.lr.ph1010.preheader.preheader
-  %.us-phi988 = phi i64 [ %419, %.lr.ph1010.preheader.preheader ], [ %408, %.lr.ph1025.preheader ], [ %437, %.lr.ph1010.preheader ], [ %416, %.lr.ph1025 ]
+  %.us-phi988 = phi i64 [ %437, %.lr.ph1010.preheader ], [ %419, %.lr.ph1010.preheader.preheader ], [ %408, %.lr.ph1025.preheader ], [ %416, %.lr.ph1025 ]
   %443 = and i64 %.us-phi988, 2147483647
   %444 = getelementptr inbounds nuw i8, ptr %.0258.ph1030, i64 %443
   %445 = sub i64 %.0259.ph1028, %443
@@ -5225,7 +5225,7 @@ define dso_local ptr @stepd_getgr(i32 noundef %0, i16 zeroext %1, i32 noundef %2
   br label %.thread
 
 .split1040.us:                                    ; preds = %.lr.ph1085, %.lr.ph1068.preheader, %.lr.ph1085.preheader, %.lr.ph1068.preheader.preheader
-  %.us-phi1041 = phi i64 [ %473, %.lr.ph1068.preheader.preheader ], [ %462, %.lr.ph1085.preheader ], [ %491, %.lr.ph1068.preheader ], [ %470, %.lr.ph1085 ]
+  %.us-phi1041 = phi i64 [ %491, %.lr.ph1068.preheader ], [ %473, %.lr.ph1068.preheader.preheader ], [ %462, %.lr.ph1085.preheader ], [ %470, %.lr.ph1085 ]
   %497 = and i64 %.us-phi1041, 2147483647
   %498 = getelementptr inbounds nuw i8, ptr %.0255.ph1093, i64 %497
   %499 = sub i64 %.0256.ph1091, %497
@@ -5258,13 +5258,13 @@ define dso_local ptr @stepd_getgr(i32 noundef %0, i16 zeroext %1, i32 noundef %2
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.22, ptr noundef nonnull @__func__.stepd_getgr) #12
   br label %507
 
-.thread:                                          ; preds = %481, %486, %496, %.split1043.us, %427, %432, %442, %.split990.us, %381, %386, %396, %.split938.us, %336, %341, %351, %.split876.us, %270, %275, %285, %.split823, %244, %249, %259, %.split761.us, %194, %199, %209, %.split709.us, %.split658.us, %158, %148, %143, %.split636, %112, %.split617.us, %97, %.split599.us, %78, %.split580, %54, %.split562, %36, %.split545.us, %21
-  %.0257 = phi ptr [ null, %21 ], [ null, %.split545.us ], [ null, %36 ], [ null, %.split562 ], [ null, %54 ], [ null, %.split580 ], [ null, %78 ], [ null, %.split599.us ], [ null, %97 ], [ null, %.split617.us ], [ null, %112 ], [ null, %.split636 ], [ null, %143 ], [ null, %148 ], [ null, %158 ], [ null, %.split658.us ], [ %170, %.split709.us ], [ %170, %209 ], [ %170, %199 ], [ %170, %194 ], [ %170, %.split761.us ], [ %170, %259 ], [ %170, %249 ], [ %170, %244 ], [ %170, %.split823 ], [ %170, %285 ], [ %170, %275 ], [ %170, %270 ], [ %170, %.split876.us ], [ %170, %351 ], [ %170, %341 ], [ %170, %336 ], [ %170, %.split938.us ], [ %170, %396 ], [ %170, %386 ], [ %170, %381 ], [ %170, %.split990.us ], [ %170, %442 ], [ %170, %432 ], [ %170, %427 ], [ %170, %.split1043.us ], [ %170, %496 ], [ %170, %486 ], [ %170, %481 ]
+.thread:                                          ; preds = %481, %486, %496, %.split1043.us, %427, %432, %442, %.split990.us, %381, %386, %396, %.split938.us, %336, %341, %351, %.split876.us, %270, %275, %285, %.split823, %244, %249, %259, %.split761.us, %194, %199, %209, %.split709.us, %158, %.split658.us, %148, %143, %112, %.split636, %97, %.split617.us, %78, %.split599.us, %54, %.split580, %36, %.split562, %21, %.split545.us
+  %.0257 = phi ptr [ null, %158 ], [ null, %112 ], [ null, %78 ], [ null, %54 ], [ null, %97 ], [ null, %36 ], [ null, %21 ], [ null, %.split545.us ], [ null, %.split562 ], [ null, %.split580 ], [ null, %.split599.us ], [ null, %.split617.us ], [ null, %.split636 ], [ null, %143 ], [ null, %148 ], [ null, %.split658.us ], [ %170, %.split709.us ], [ %170, %209 ], [ %170, %199 ], [ %170, %194 ], [ %170, %.split761.us ], [ %170, %259 ], [ %170, %249 ], [ %170, %244 ], [ %170, %.split823 ], [ %170, %285 ], [ %170, %275 ], [ %170, %270 ], [ %170, %.split876.us ], [ %170, %351 ], [ %170, %341 ], [ %170, %336 ], [ %170, %.split938.us ], [ %170, %396 ], [ %170, %386 ], [ %170, %381 ], [ %170, %.split990.us ], [ %170, %442 ], [ %170, %432 ], [ %170, %427 ], [ %170, %.split1043.us ], [ %170, %496 ], [ %170, %486 ], [ %170, %481 ]
   tail call void @xfree_struct_group_array(ptr noundef %.0257)
   br label %507
 
 507:                                              ; preds = %._crit_edge1099, %506, %.outer436._crit_edge, %.thread
-  %.0 = phi ptr [ null, %.thread ], [ null, %.outer436._crit_edge ], [ %170, %506 ], [ %170, %._crit_edge1099 ]
+  %.0 = phi ptr [ %170, %._crit_edge1099 ], [ null, %.outer436._crit_edge ], [ null, %.thread ], [ %170, %506 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -5727,7 +5727,7 @@ define dso_local ptr @stepd_gethostbyname(i32 noundef %0, i16 zeroext %1, i32 no
   br label %.thread
 
 .split614.us:                                     ; preds = %.lr.ph651, %.lr.ph636.preheader, %.lr.ph651.preheader, %.lr.ph636.preheader.preheader
-  %.us-phi615 = phi i64 [ %116, %.lr.ph636.preheader.preheader ], [ %105, %.lr.ph651.preheader ], [ %134, %.lr.ph636.preheader ], [ %113, %.lr.ph651 ]
+  %.us-phi615 = phi i64 [ %134, %.lr.ph636.preheader ], [ %116, %.lr.ph636.preheader.preheader ], [ %105, %.lr.ph651.preheader ], [ %113, %.lr.ph651 ]
   %140 = and i64 %.us-phi615, 2147483647
   %141 = getelementptr inbounds nuw i8, ptr %.0275.ph656, i64 %140
   %142 = sub i64 %.0276.ph654, %140
@@ -5862,7 +5862,7 @@ define dso_local ptr @stepd_gethostbyname(i32 noundef %0, i16 zeroext %1, i32 no
   br label %.thread
 
 .split665.us:                                     ; preds = %.lr.ph703, %.lr.ph688.preheader, %.lr.ph703.preheader, %.lr.ph688.preheader.preheader
-  %.us-phi666 = phi i64 [ %162, %.lr.ph688.preheader.preheader ], [ %151, %.lr.ph703.preheader ], [ %180, %.lr.ph688.preheader ], [ %159, %.lr.ph703 ]
+  %.us-phi666 = phi i64 [ %180, %.lr.ph688.preheader ], [ %162, %.lr.ph688.preheader.preheader ], [ %151, %.lr.ph703.preheader ], [ %159, %.lr.ph703 ]
   %186 = and i64 %.us-phi666, 2147483647
   %187 = getelementptr inbounds nuw i8, ptr %.0272.ph708, i64 %186
   %188 = sub i64 %.0273.ph706, %186
@@ -6002,7 +6002,7 @@ define dso_local ptr @stepd_gethostbyname(i32 noundef %0, i16 zeroext %1, i32 no
   br label %.thread
 
 .split716.us:                                     ; preds = %.lr.ph754, %.lr.ph739.preheader, %.lr.ph754.preheader, %.lr.ph739.preheader.preheader
-  %.us-phi717 = phi i64 [ %210, %.lr.ph739.preheader.preheader ], [ %199, %.lr.ph754.preheader ], [ %228, %.lr.ph739.preheader ], [ %207, %.lr.ph754 ]
+  %.us-phi717 = phi i64 [ %228, %.lr.ph739.preheader ], [ %210, %.lr.ph739.preheader.preheader ], [ %199, %.lr.ph754.preheader ], [ %207, %.lr.ph754 ]
   %234 = and i64 %.us-phi717, 2147483647
   %235 = getelementptr inbounds nuw i8, ptr %.0269.ph760, i64 %234
   %236 = sub i64 %.0270.ph758, %234
@@ -6077,7 +6077,7 @@ define dso_local ptr @stepd_gethostbyname(i32 noundef %0, i16 zeroext %1, i32 no
   br label %.thread
 
 .split769:                                        ; preds = %.lr.ph807, %.lr.ph792.preheader, %.lr.ph807.preheader, %.lr.ph792.preheader.preheader
-  %.us-phi770 = phi i64 [ %279, %.lr.ph792.preheader.preheader ], [ %268, %.lr.ph807.preheader ], [ %254, %.lr.ph792.preheader ], [ %276, %.lr.ph807 ]
+  %.us-phi770 = phi i64 [ %254, %.lr.ph792.preheader ], [ %279, %.lr.ph792.preheader.preheader ], [ %268, %.lr.ph807.preheader ], [ %276, %.lr.ph807 ]
   %260 = and i64 %.us-phi770, 2147483647
   %261 = getelementptr inbounds nuw i8, ptr %.0266.ph812, i64 %260
   %262 = sub i64 %.0267.ph810, %260
@@ -6272,7 +6272,7 @@ define dso_local ptr @stepd_gethostbyname(i32 noundef %0, i16 zeroext %1, i32 no
   br label %.thread
 
 .split821.us:                                     ; preds = %.lr.ph859, %.lr.ph844.preheader, %.lr.ph859.preheader, %.lr.ph844.preheader.preheader
-  %.us-phi822 = phi i64 [ %301, %.lr.ph844.preheader.preheader ], [ %290, %.lr.ph859.preheader ], [ %319, %.lr.ph844.preheader ], [ %298, %.lr.ph859 ]
+  %.us-phi822 = phi i64 [ %319, %.lr.ph844.preheader ], [ %301, %.lr.ph844.preheader.preheader ], [ %290, %.lr.ph859.preheader ], [ %298, %.lr.ph859 ]
   %325 = and i64 %.us-phi822, 2147483647
   %326 = getelementptr inbounds nuw i8, ptr %.0262.ph864, i64 %325
   %327 = sub i64 %.0263.ph862, %325
@@ -6417,7 +6417,7 @@ define dso_local ptr @stepd_gethostbyname(i32 noundef %0, i16 zeroext %1, i32 no
   br label %.thread
 
 .split874.us:                                     ; preds = %.lr.ph919, %.lr.ph902.preheader, %.lr.ph919.preheader, %.lr.ph902.preheader.preheader
-  %.us-phi875 = phi i64 [ %354, %.lr.ph902.preheader.preheader ], [ %343, %.lr.ph919.preheader ], [ %372, %.lr.ph902.preheader ], [ %351, %.lr.ph919 ]
+  %.us-phi875 = phi i64 [ %372, %.lr.ph902.preheader ], [ %354, %.lr.ph902.preheader.preheader ], [ %343, %.lr.ph919.preheader ], [ %351, %.lr.ph919 ]
   %378 = and i64 %.us-phi875, 2147483647
   %379 = getelementptr inbounds nuw i8, ptr %.0259.ph927, i64 %378
   %380 = sub i64 %.0260.ph925, %378
@@ -6552,7 +6552,7 @@ define dso_local ptr @stepd_gethostbyname(i32 noundef %0, i16 zeroext %1, i32 no
   br label %.thread
 
 .split937.us:                                     ; preds = %.lr.ph975, %.lr.ph960.preheader, %.lr.ph975.preheader, %.lr.ph960.preheader.preheader
-  %.us-phi938 = phi i64 [ %398, %.lr.ph960.preheader.preheader ], [ %387, %.lr.ph975.preheader ], [ %416, %.lr.ph960.preheader ], [ %395, %.lr.ph975 ]
+  %.us-phi938 = phi i64 [ %416, %.lr.ph960.preheader ], [ %398, %.lr.ph960.preheader.preheader ], [ %387, %.lr.ph975.preheader ], [ %395, %.lr.ph975 ]
   %422 = and i64 %.us-phi938, 2147483647
   %423 = getelementptr inbounds nuw i8, ptr %.0256.ph980, i64 %422
   %424 = sub i64 %.0257.ph978, %422
@@ -6627,7 +6627,7 @@ define dso_local ptr @stepd_gethostbyname(i32 noundef %0, i16 zeroext %1, i32 no
   br label %.thread
 
 .split989:                                        ; preds = %.lr.ph1027, %.lr.ph1012.preheader, %.lr.ph1027.preheader, %.lr.ph1012.preheader.preheader
-  %.us-phi990 = phi i64 [ %467, %.lr.ph1012.preheader.preheader ], [ %456, %.lr.ph1027.preheader ], [ %442, %.lr.ph1012.preheader ], [ %464, %.lr.ph1027 ]
+  %.us-phi990 = phi i64 [ %442, %.lr.ph1012.preheader ], [ %467, %.lr.ph1012.preheader.preheader ], [ %456, %.lr.ph1027.preheader ], [ %464, %.lr.ph1027 ]
   %448 = and i64 %.us-phi990, 2147483647
   %449 = getelementptr inbounds nuw i8, ptr %.0253.ph1032, i64 %448
   %450 = sub i64 %.0254.ph1030, %448
@@ -6823,7 +6823,7 @@ define dso_local ptr @stepd_gethostbyname(i32 noundef %0, i16 zeroext %1, i32 no
   br label %.thread
 
 .split1041.us:                                    ; preds = %.lr.ph1079, %.lr.ph1064.preheader, %.lr.ph1079.preheader, %.lr.ph1064.preheader.preheader
-  %.us-phi1042 = phi i64 [ %493, %.lr.ph1064.preheader.preheader ], [ %482, %.lr.ph1079.preheader ], [ %511, %.lr.ph1064.preheader ], [ %490, %.lr.ph1079 ]
+  %.us-phi1042 = phi i64 [ %511, %.lr.ph1064.preheader ], [ %493, %.lr.ph1064.preheader.preheader ], [ %482, %.lr.ph1079.preheader ], [ %490, %.lr.ph1079 ]
   %517 = and i64 %.us-phi1042, 2147483647
   %518 = getelementptr inbounds nuw i8, ptr %.0250.ph1085, i64 %517
   %519 = sub i64 %.0251.ph1083, %517
@@ -6851,13 +6851,13 @@ define dso_local ptr @stepd_gethostbyname(i32 noundef %0, i16 zeroext %1, i32 no
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.22, ptr noundef nonnull @__func__.stepd_gethostbyname) #12
   br label %527
 
-.thread:                                          ; preds = %.split1044.us, %516, %506, %501, %.split992, %447, %437, %432, %.split940.us, %421, %411, %406, %362, %367, %377, %.split877.us, %309, %314, %324, %.split824.us, %.split772, %259, %249, %244, %.split719.us, %233, %223, %218, %.split668.us, %185, %175, %170, %.split617.us, %139, %129, %124, %.split595, %93, %.split576.us, %78, %.split558.us, %59, %.split539, %35, %.split522.us, %20
-  %.0252 = phi ptr [ null, %20 ], [ null, %.split522.us ], [ null, %35 ], [ null, %.split539 ], [ null, %59 ], [ null, %.split558.us ], [ null, %78 ], [ null, %.split576.us ], [ null, %93 ], [ null, %.split595 ], [ null, %124 ], [ null, %129 ], [ null, %139 ], [ null, %.split617.us ], [ %149, %170 ], [ %149, %175 ], [ %149, %185 ], [ %149, %.split668.us ], [ %149, %218 ], [ %149, %223 ], [ %149, %233 ], [ %149, %.split719.us ], [ %149, %244 ], [ %149, %249 ], [ %149, %259 ], [ %149, %.split772 ], [ %149, %.split824.us ], [ %149, %324 ], [ %149, %314 ], [ %149, %309 ], [ %149, %.split877.us ], [ %149, %377 ], [ %149, %367 ], [ %149, %362 ], [ %149, %406 ], [ %149, %411 ], [ %149, %421 ], [ %149, %.split940.us ], [ %149, %432 ], [ %149, %437 ], [ %149, %447 ], [ %149, %.split992 ], [ %149, %501 ], [ %149, %506 ], [ %149, %516 ], [ %149, %.split1044.us ]
+.thread:                                          ; preds = %516, %.split1044.us, %506, %501, %447, %.split992, %437, %432, %421, %.split940.us, %411, %406, %362, %367, %377, %.split877.us, %309, %314, %324, %.split824.us, %259, %.split772, %249, %244, %233, %.split719.us, %223, %218, %185, %.split668.us, %175, %170, %139, %.split617.us, %129, %124, %93, %.split595, %78, %.split576.us, %59, %.split558.us, %35, %.split539, %20, %.split522.us
+  %.0252 = phi ptr [ %149, %447 ], [ %149, %421 ], [ %149, %362 ], [ %149, %259 ], [ %149, %233 ], [ %149, %185 ], [ null, %139 ], [ null, %93 ], [ null, %59 ], [ null, %35 ], [ null, %78 ], [ null, %20 ], [ null, %.split522.us ], [ null, %.split539 ], [ null, %.split558.us ], [ null, %.split576.us ], [ null, %.split595 ], [ null, %124 ], [ null, %129 ], [ null, %.split617.us ], [ %149, %170 ], [ %149, %175 ], [ %149, %.split668.us ], [ %149, %218 ], [ %149, %223 ], [ %149, %.split719.us ], [ %149, %244 ], [ %149, %249 ], [ %149, %.split772 ], [ %149, %.split824.us ], [ %149, %324 ], [ %149, %314 ], [ %149, %309 ], [ %149, %.split877.us ], [ %149, %377 ], [ %149, %367 ], [ %149, %406 ], [ %149, %411 ], [ %149, %.split940.us ], [ %149, %432 ], [ %149, %437 ], [ %149, %.split992 ], [ %149, %501 ], [ %149, %506 ], [ %149, %.split1044.us ], [ %149, %516 ]
   tail call void @xfree_struct_hostent(ptr noundef %.0252)
   br label %527
 
 527:                                              ; preds = %.outer._crit_edge, %526, %.outer442._crit_edge, %.thread
-  %.0 = phi ptr [ null, %.thread ], [ null, %.outer442._crit_edge ], [ %149, %526 ], [ %149, %.outer._crit_edge ]
+  %.0 = phi ptr [ null, %.outer442._crit_edge ], [ %149, %.outer._crit_edge ], [ null, %.thread ], [ %149, %526 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -7043,7 +7043,7 @@ define dso_local i32 @stepd_get_namespace_fd(i32 noundef %0, i16 zeroext %1) #0 
   br label %.thread
 
 .split81:                                         ; preds = %.lr.ph118, %.lr.ph103.preheader, %.lr.ph118.preheader, %.lr.ph103.preheader.preheader
-  %.us-phi82 = phi i64 [ %64, %.lr.ph103.preheader.preheader ], [ %53, %.lr.ph118.preheader ], [ %39, %.lr.ph103.preheader ], [ %61, %.lr.ph118 ]
+  %.us-phi82 = phi i64 [ %39, %.lr.ph103.preheader ], [ %64, %.lr.ph103.preheader.preheader ], [ %53, %.lr.ph118.preheader ], [ %61, %.lr.ph118 ]
   %45 = and i64 %.us-phi82, 2147483647
   %46 = getelementptr inbounds nuw i8, ptr %.032.ph123, i64 %45
   %47 = sub i64 %.033.ph121, %45
@@ -7122,8 +7122,8 @@ define dso_local i32 @stepd_get_namespace_fd(i32 noundef %0, i16 zeroext %1) #0 
   %72 = tail call i32 @receive_fd_over_socket(i32 noundef %0) #12
   br label %.thread
 
-.thread:                                          ; preds = %.outer._crit_edge, %71, %.split84, %44, %34, %29, %.split64.us, %18
-  %.0 = phi i32 [ -1, %18 ], [ -1, %.split64.us ], [ -1, %29 ], [ -1, %34 ], [ -1, %44 ], [ -1, %.split84 ], [ %72, %71 ], [ %69, %.outer._crit_edge ]
+.thread:                                          ; preds = %.outer._crit_edge, %71, %44, %.split84, %34, %29, %18, %.split64.us
+  %.0 = phi i32 [ -1, %44 ], [ -1, %18 ], [ -1, %.split64.us ], [ -1, %29 ], [ -1, %34 ], [ -1, %.split84 ], [ %72, %71 ], [ %69, %.outer._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -7314,7 +7314,7 @@ define dso_local i32 @stepd_state(i32 noundef %0, i16 noundef zeroext %1) local_
   br label %.thread
 
 .split76:                                         ; preds = %.lr.ph113, %.lr.ph98.preheader, %.lr.ph113.preheader, %.lr.ph98.preheader.preheader
-  %.us-phi77 = phi i64 [ %61, %.lr.ph98.preheader.preheader ], [ %50, %.lr.ph113.preheader ], [ %36, %.lr.ph98.preheader ], [ %58, %.lr.ph113 ]
+  %.us-phi77 = phi i64 [ %36, %.lr.ph98.preheader ], [ %61, %.lr.ph98.preheader.preheader ], [ %50, %.lr.ph113.preheader ], [ %58, %.lr.ph113 ]
   %42 = and i64 %.us-phi77, 2147483647
   %43 = getelementptr inbounds nuw i8, ptr %.031.ph118, i64 %42
   %44 = sub i64 %.032.ph116, %42
@@ -7384,7 +7384,7 @@ define dso_local i32 @stepd_state(i32 noundef %0, i16 noundef zeroext %1) local_
   %65 = tail call ptr @__errno_location() #13
   br label %.lr.ph195
 
-.thread:                                          ; preds = %.split76, %.split59.us, %15, %26, %31, %41, %.split79
+.thread:                                          ; preds = %.split76, %15, %.split59.us, %26, %31, %41, %.split79
   %66 = load i32, ptr %4, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -7751,7 +7751,7 @@ define dso_local i32 @stepd_notify_job(i32 noundef %0, i16 noundef zeroext %1, p
   br label %.thread
 
 .split240.us:                                     ; preds = %.lr.ph277, %.lr.ph262.preheader, %.lr.ph277.preheader, %.lr.ph262.preheader.preheader
-  %.us-phi241 = phi i64 [ %99, %.lr.ph262.preheader.preheader ], [ %88, %.lr.ph277.preheader ], [ %117, %.lr.ph262.preheader ], [ %96, %.lr.ph277 ]
+  %.us-phi241 = phi i64 [ %117, %.lr.ph262.preheader ], [ %99, %.lr.ph262.preheader.preheader ], [ %88, %.lr.ph277.preheader ], [ %96, %.lr.ph277 ]
   %123 = and i64 %.us-phi241, 2147483647
   %124 = getelementptr inbounds nuw i8, ptr %.075.ph282, i64 %123
   %125 = sub i64 %.076.ph280, %123
@@ -7774,8 +7774,8 @@ define dso_local i32 @stepd_notify_job(i32 noundef %0, i16 noundef zeroext %1, p
   %130 = load i32, ptr %5, align 4
   br label %.thread
 
-.thread:                                          ; preds = %.split243.us, %122, %112, %107, %.split221.us, %79, %.split200.us, %60, %.split181.us, %38, %.split163.us, %16, %.outer._crit_edge
-  %.0 = phi i32 [ %130, %.outer._crit_edge ], [ -1, %16 ], [ -1, %.split163.us ], [ -1, %38 ], [ -1, %.split181.us ], [ -1, %60 ], [ -1, %.split200.us ], [ -1, %79 ], [ -1, %.split221.us ], [ -1, %107 ], [ -1, %112 ], [ -1, %122 ], [ -1, %.split243.us ]
+.thread:                                          ; preds = %122, %.split243.us, %112, %107, %79, %.split221.us, %60, %.split200.us, %38, %.split181.us, %16, %.split163.us, %.outer._crit_edge
+  %.0 = phi i32 [ -1, %79 ], [ -1, %16 ], [ -1, %60 ], [ -1, %38 ], [ %130, %.outer._crit_edge ], [ -1, %.split163.us ], [ -1, %.split181.us ], [ -1, %.split200.us ], [ -1, %.split221.us ], [ -1, %107 ], [ -1, %112 ], [ -1, %.split243.us ], [ -1, %122 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -8219,7 +8219,7 @@ define dso_local i32 @stepd_signal_container(i32 noundef %0, i16 noundef zeroext
   br label %.thread
 
 .split373:                                        ; preds = %.lr.ph410, %.lr.ph395.preheader, %.lr.ph410.preheader, %.lr.ph395.preheader.preheader
-  %.us-phi374 = phi i64 [ %170, %.lr.ph395.preheader.preheader ], [ %159, %.lr.ph410.preheader ], [ %145, %.lr.ph395.preheader ], [ %167, %.lr.ph410 ]
+  %.us-phi374 = phi i64 [ %145, %.lr.ph395.preheader ], [ %170, %.lr.ph395.preheader.preheader ], [ %159, %.lr.ph410.preheader ], [ %167, %.lr.ph410 ]
   %151 = and i64 %.us-phi374, 2147483647
   %152 = getelementptr inbounds nuw i8, ptr %.0123.ph415, i64 %151
   %153 = sub i64 %.0124.ph413, %151
@@ -8345,7 +8345,7 @@ define dso_local i32 @stepd_signal_container(i32 noundef %0, i16 noundef zeroext
   br label %.thread
 
 .split424:                                        ; preds = %.lr.ph462, %.lr.ph447.preheader, %.lr.ph462.preheader, %.lr.ph447.preheader.preheader
-  %.us-phi425 = phi i64 [ %213, %.lr.ph447.preheader.preheader ], [ %202, %.lr.ph462.preheader ], [ %188, %.lr.ph447.preheader ], [ %210, %.lr.ph462 ]
+  %.us-phi425 = phi i64 [ %188, %.lr.ph447.preheader ], [ %213, %.lr.ph447.preheader.preheader ], [ %202, %.lr.ph462.preheader ], [ %210, %.lr.ph462 ]
   %194 = and i64 %.us-phi425, 2147483647
   %195 = getelementptr inbounds nuw i8, ptr %.0120.ph467, i64 %194
   %196 = sub i64 %.0121.ph465, %194
@@ -8422,8 +8422,8 @@ define dso_local i32 @stepd_signal_container(i32 noundef %0, i16 noundef zeroext
   %220 = load i32, ptr %12, align 4
   br label %.thread
 
-.thread:                                          ; preds = %.split427, %193, %183, %178, %.split376, %150, %140, %135, %.split355, %118, %.split336.us, %103, %.split318.us, %84, %.split299, %58, %.split280.us, %43, %.split263.us, %24, %129, %.outer._crit_edge
-  %.0 = phi i32 [ %220, %.outer._crit_edge ], [ -1, %129 ], [ -1, %24 ], [ -1, %.split263.us ], [ -1, %43 ], [ -1, %.split280.us ], [ -1, %58 ], [ -1, %.split299 ], [ -1, %84 ], [ -1, %.split318.us ], [ -1, %103 ], [ -1, %.split336.us ], [ -1, %118 ], [ -1, %.split355 ], [ -1, %135 ], [ -1, %140 ], [ -1, %150 ], [ -1, %.split376 ], [ -1, %178 ], [ -1, %183 ], [ -1, %193 ], [ -1, %.split427 ]
+.thread:                                          ; preds = %193, %.split427, %183, %178, %150, %.split376, %140, %135, %118, %.split355, %103, %.split336.us, %84, %.split318.us, %58, %.split299, %43, %.split280.us, %24, %.split263.us, %129, %.outer._crit_edge
+  %.0 = phi i32 [ %220, %.outer._crit_edge ], [ -1, %150 ], [ -1, %118 ], [ -1, %103 ], [ -1, %84 ], [ -1, %58 ], [ -1, %43 ], [ -1, %24 ], [ -1, %129 ], [ -1, %.split263.us ], [ -1, %.split280.us ], [ -1, %.split299 ], [ -1, %.split318.us ], [ -1, %.split336.us ], [ -1, %.split355 ], [ -1, %135 ], [ -1, %140 ], [ -1, %.split376 ], [ -1, %178 ], [ -1, %183 ], [ -1, %.split427 ], [ -1, %193 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -8903,7 +8903,7 @@ define dso_local i32 @stepd_attach(i32 noundef %0, i16 noundef zeroext %1, ptr n
   br label %.thread
 
 .split589:                                        ; preds = %.lr.ph626, %.lr.ph611.preheader, %.lr.ph626.preheader, %.lr.ph611.preheader.preheader
-  %.us-phi590 = phi i64 [ %184, %.lr.ph611.preheader.preheader ], [ %173, %.lr.ph626.preheader ], [ %159, %.lr.ph611.preheader ], [ %181, %.lr.ph626 ]
+  %.us-phi590 = phi i64 [ %159, %.lr.ph611.preheader ], [ %184, %.lr.ph611.preheader.preheader ], [ %173, %.lr.ph626.preheader ], [ %181, %.lr.ph626 ]
   %165 = and i64 %.us-phi590, 2147483647
   %166 = getelementptr inbounds nuw i8, ptr %.0235.ph631, i64 %165
   %167 = sub i64 %.0236.ph629, %165
@@ -9090,7 +9090,7 @@ define dso_local i32 @stepd_attach(i32 noundef %0, i16 noundef zeroext %1, ptr n
   br label %.thread382
 
 .split640.us:                                     ; preds = %.lr.ph678, %.lr.ph663.preheader, %.lr.ph678.preheader, %.lr.ph663.preheader.preheader
-  %.us-phi641 = phi i64 [ %204, %.lr.ph663.preheader.preheader ], [ %193, %.lr.ph678.preheader ], [ %222, %.lr.ph663.preheader ], [ %201, %.lr.ph678 ]
+  %.us-phi641 = phi i64 [ %222, %.lr.ph663.preheader ], [ %204, %.lr.ph663.preheader.preheader ], [ %193, %.lr.ph678.preheader ], [ %201, %.lr.ph678 ]
   %228 = and i64 %.us-phi641, 2147483647
   %229 = getelementptr inbounds nuw i8, ptr %.0231.ph683, i64 %228
   %230 = sub i64 %.0232.ph681, %228
@@ -9237,7 +9237,7 @@ define dso_local i32 @stepd_attach(i32 noundef %0, i16 noundef zeroext %1, ptr n
   br label %.thread382
 
 .split692.us:                                     ; preds = %.lr.ph730, %.lr.ph715.preheader, %.lr.ph730.preheader, %.lr.ph715.preheader.preheader
-  %.us-phi693 = phi i64 [ %256, %.lr.ph715.preheader.preheader ], [ %245, %.lr.ph730.preheader ], [ %274, %.lr.ph715.preheader ], [ %253, %.lr.ph730 ]
+  %.us-phi693 = phi i64 [ %274, %.lr.ph715.preheader ], [ %256, %.lr.ph715.preheader.preheader ], [ %245, %.lr.ph730.preheader ], [ %253, %.lr.ph730 ]
   %280 = and i64 %.us-phi693, 2147483647
   %281 = getelementptr inbounds nuw i8, ptr %.0228.ph736, i64 %280
   %282 = sub i64 %.0229.ph734, %280
@@ -9369,7 +9369,7 @@ define dso_local i32 @stepd_attach(i32 noundef %0, i16 noundef zeroext %1, ptr n
   br label %.thread382
 
 .split745.us:                                     ; preds = %.lr.ph783, %.lr.ph768.preheader, %.lr.ph783.preheader, %.lr.ph768.preheader.preheader
-  %.us-phi746 = phi i64 [ %301, %.lr.ph768.preheader.preheader ], [ %290, %.lr.ph783.preheader ], [ %319, %.lr.ph768.preheader ], [ %298, %.lr.ph783 ]
+  %.us-phi746 = phi i64 [ %319, %.lr.ph768.preheader ], [ %301, %.lr.ph768.preheader.preheader ], [ %290, %.lr.ph783.preheader ], [ %298, %.lr.ph783 ]
   %325 = and i64 %.us-phi746, 2147483647
   %326 = getelementptr inbounds nuw i8, ptr %.0225.ph789, i64 %325
   %327 = sub i64 %.0226.ph787, %325
@@ -9510,7 +9510,7 @@ define dso_local i32 @stepd_attach(i32 noundef %0, i16 noundef zeroext %1, ptr n
   br label %.thread382
 
 .split798.us:                                     ; preds = %.lr.ph836, %.lr.ph821.preheader, %.lr.ph836.preheader, %.lr.ph821.preheader.preheader
-  %.us-phi799 = phi i64 [ %346, %.lr.ph821.preheader.preheader ], [ %335, %.lr.ph836.preheader ], [ %364, %.lr.ph821.preheader ], [ %343, %.lr.ph836 ]
+  %.us-phi799 = phi i64 [ %364, %.lr.ph821.preheader ], [ %346, %.lr.ph821.preheader.preheader ], [ %335, %.lr.ph836.preheader ], [ %343, %.lr.ph836 ]
   %370 = and i64 %.us-phi799, 2147483647
   %371 = getelementptr inbounds nuw i8, ptr %.0222.ph841, i64 %370
   %372 = sub i64 %.0223.ph839, %370
@@ -9652,7 +9652,7 @@ define dso_local i32 @stepd_attach(i32 noundef %0, i16 noundef zeroext %1, ptr n
   br label %.thread382
 
 .split851.us:                                     ; preds = %.lr.ph896, %.lr.ph879.preheader, %.lr.ph896.preheader, %.lr.ph879.preheader.preheader
-  %.us-phi852 = phi i64 [ %397, %.lr.ph879.preheader.preheader ], [ %386, %.lr.ph896.preheader ], [ %415, %.lr.ph879.preheader ], [ %394, %.lr.ph896 ]
+  %.us-phi852 = phi i64 [ %415, %.lr.ph879.preheader ], [ %397, %.lr.ph879.preheader.preheader ], [ %386, %.lr.ph896.preheader ], [ %394, %.lr.ph896 ]
   %421 = and i64 %.us-phi852, 2147483647
   %422 = getelementptr inbounds nuw i8, ptr %.0219.ph904, i64 %421
   %423 = sub i64 %.0220.ph902, %421
@@ -9686,8 +9686,8 @@ define dso_local i32 @stepd_attach(i32 noundef %0, i16 noundef zeroext %1, ptr n
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.thread
 
-.thread:                                          ; preds = %.outer389._crit_edge, %._crit_edge908, %.split592, %164, %154, %149, %.split570, %135, %.split552, %117, %.split533.us, %102, %.split515, %80, %.split497, %62, %.split479, %44, %.split462.us, %29, %.thread382, %7
-  %.0 = phi i32 [ -1, %7 ], [ -1, %.thread382 ], [ -1, %29 ], [ -1, %.split462.us ], [ -1, %44 ], [ -1, %.split479 ], [ -1, %62 ], [ -1, %.split497 ], [ -1, %80 ], [ -1, %.split515 ], [ -1, %102 ], [ -1, %.split533.us ], [ -1, %117 ], [ -1, %.split552 ], [ -1, %135 ], [ -1, %.split570 ], [ -1, %149 ], [ -1, %154 ], [ -1, %164 ], [ -1, %.split592 ], [ %189, %._crit_edge908 ], [ %189, %.outer389._crit_edge ]
+.thread:                                          ; preds = %.outer389._crit_edge, %._crit_edge908, %164, %.split592, %154, %149, %135, %.split570, %117, %.split552, %102, %.split533.us, %80, %.split515, %62, %.split497, %44, %.split479, %29, %.split462.us, %.thread382, %7
+  %.0 = phi i32 [ -1, %164 ], [ -1, %.thread382 ], [ -1, %135 ], [ -1, %117 ], [ -1, %102 ], [ -1, %80 ], [ -1, %62 ], [ -1, %44 ], [ -1, %29 ], [ -1, %7 ], [ -1, %.split462.us ], [ -1, %.split479 ], [ -1, %.split497 ], [ -1, %.split515 ], [ -1, %.split533.us ], [ -1, %.split552 ], [ -1, %.split570 ], [ -1, %149 ], [ -1, %154 ], [ -1, %.split592 ], [ %189, %._crit_edge908 ], [ %189, %.outer389._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -9808,7 +9808,7 @@ define internal fastcc range(i32 -1, 1) i32 @_sockname_regex(ptr noundef nonnull
   br label %48
 
 48:                                               ; preds = %37, %46, %7, %3
-  %.0 = phi i32 [ -1, %3 ], [ -1, %7 ], [ 0, %46 ], [ 0, %37 ]
+  %.0 = phi i32 [ -1, %7 ], [ -1, %3 ], [ 0, %46 ], [ 0, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -10174,7 +10174,7 @@ define dso_local zeroext i1 @stepd_pid_in_container(i32 noundef %0, i16 noundef 
   br label %.thread
 
 .split129:                                        ; preds = %.lr.ph166, %.lr.ph151.preheader, %.lr.ph166.preheader, %.lr.ph151.preheader.preheader
-  %.us-phi130 = phi i64 [ %81, %.lr.ph151.preheader.preheader ], [ %70, %.lr.ph166.preheader ], [ %56, %.lr.ph151.preheader ], [ %78, %.lr.ph166 ]
+  %.us-phi130 = phi i64 [ %56, %.lr.ph151.preheader ], [ %81, %.lr.ph151.preheader.preheader ], [ %70, %.lr.ph166.preheader ], [ %78, %.lr.ph166 ]
   %62 = and i64 %.us-phi130, 2147483647
   %63 = getelementptr inbounds nuw i8, ptr %.044.ph171, i64 %62
   %64 = sub i64 %.045.ph169, %62
@@ -10257,8 +10257,8 @@ define dso_local zeroext i1 @stepd_pid_in_container(i32 noundef %0, i16 noundef 
   %90 = trunc nuw i8 %89 to i1
   br label %.thread
 
-.thread:                                          ; preds = %.split132, %61, %51, %46, %.split111, %32, %.split94.us, %17, %88
-  %.0 = phi i1 [ %90, %88 ], [ false, %17 ], [ false, %.split94.us ], [ false, %32 ], [ false, %.split111 ], [ false, %46 ], [ false, %51 ], [ false, %61 ], [ false, %.split132 ]
+.thread:                                          ; preds = %61, %.split132, %51, %46, %32, %.split111, %17, %.split94.us, %88
+  %.0 = phi i1 [ %90, %88 ], [ false, %32 ], [ false, %17 ], [ false, %.split94.us ], [ false, %.split111 ], [ false, %46 ], [ false, %51 ], [ false, %.split132 ], [ false, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
@@ -10383,7 +10383,7 @@ define dso_local i32 @stepd_daemon_pid(i32 noundef %0, i16 noundef zeroext %1) l
   br label %.thread
 
 .split80:                                         ; preds = %.lr.ph117, %.lr.ph102.preheader, %.lr.ph117.preheader, %.lr.ph102.preheader.preheader
-  %.us-phi81 = phi i64 [ %61, %.lr.ph102.preheader.preheader ], [ %50, %.lr.ph117.preheader ], [ %36, %.lr.ph102.preheader ], [ %58, %.lr.ph117 ]
+  %.us-phi81 = phi i64 [ %36, %.lr.ph102.preheader ], [ %61, %.lr.ph102.preheader.preheader ], [ %50, %.lr.ph117.preheader ], [ %58, %.lr.ph117 ]
   %42 = and i64 %.us-phi81, 2147483647
   %43 = getelementptr inbounds nuw i8, ptr %.031.ph122, i64 %42
   %44 = sub i64 %.032.ph120, %42
@@ -10457,8 +10457,8 @@ define dso_local i32 @stepd_daemon_pid(i32 noundef %0, i16 noundef zeroext %1) l
   %66 = load i32, ptr %4, align 4
   br label %.thread
 
-.thread:                                          ; preds = %.split83, %41, %31, %26, %.split63.us, %15, %.outer._crit_edge
-  %.0 = phi i32 [ %66, %.outer._crit_edge ], [ -1, %15 ], [ -1, %.split63.us ], [ -1, %26 ], [ -1, %31 ], [ -1, %41 ], [ -1, %.split83 ]
+.thread:                                          ; preds = %41, %.split83, %31, %26, %15, %.split63.us, %.outer._crit_edge
+  %.0 = phi i32 [ -1, %15 ], [ %66, %.outer._crit_edge ], [ -1, %.split63.us ], [ -1, %26 ], [ -1, %31 ], [ -1, %.split83 ], [ -1, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -10592,7 +10592,7 @@ define dso_local i32 @stepd_suspend(i32 noundef %0, i16 noundef zeroext %1, ptr 
   br label %.thread
 
 .split107:                                        ; preds = %.lr.ph144, %.lr.ph129.preheader, %.lr.ph144.preheader, %.lr.ph129.preheader.preheader
-  %.us-phi108 = phi i64 [ %67, %.lr.ph129.preheader.preheader ], [ %56, %.lr.ph144.preheader ], [ %42, %.lr.ph129.preheader ], [ %64, %.lr.ph144 ]
+  %.us-phi108 = phi i64 [ %42, %.lr.ph129.preheader ], [ %67, %.lr.ph129.preheader.preheader ], [ %56, %.lr.ph144.preheader ], [ %64, %.lr.ph144 ]
   %48 = and i64 %.us-phi108, 2147483647
   %49 = getelementptr inbounds nuw i8, ptr %.055.ph148, i64 %48
   %50 = sub i64 %.056.ph146, %48
@@ -10718,7 +10718,7 @@ define dso_local i32 @stepd_suspend(i32 noundef %0, i16 noundef zeroext %1, ptr 
   br label %.thread
 
 .split156:                                        ; preds = %.lr.ph194, %.lr.ph179.preheader, %.lr.ph194.preheader, %.lr.ph179.preheader.preheader
-  %.us-phi157 = phi i64 [ %110, %.lr.ph179.preheader.preheader ], [ %99, %.lr.ph194.preheader ], [ %85, %.lr.ph179.preheader ], [ %107, %.lr.ph194 ]
+  %.us-phi157 = phi i64 [ %85, %.lr.ph179.preheader ], [ %110, %.lr.ph179.preheader.preheader ], [ %99, %.lr.ph194.preheader ], [ %107, %.lr.ph194 ]
   %91 = and i64 %.us-phi157, 2147483647
   %92 = getelementptr inbounds nuw i8, ptr %.052.ph199, i64 %91
   %93 = sub i64 %.053.ph197, %91
@@ -10795,8 +10795,8 @@ define dso_local i32 @stepd_suspend(i32 noundef %0, i16 noundef zeroext %1, ptr 
   %.pre = load i32, ptr %6, align 4
   br label %.thread
 
-.thread:                                          ; preds = %.split204.us, %4, %.outer87._crit_edge, %.split159, %90, %80, %75, %.split110, %47, %37, %32, %.split207.us, %21
-  %.0 = phi i32 [ -1, %21 ], [ -1, %.split207.us ], [ -1, %32 ], [ -1, %37 ], [ -1, %47 ], [ -1, %.split110 ], [ -1, %75 ], [ -1, %80 ], [ -1, %90 ], [ -1, %.split159 ], [ %.pre, %.outer87._crit_edge ], [ 0, %4 ], [ 0, %.split204.us ]
+.thread:                                          ; preds = %.split204.us, %4, %.outer87._crit_edge, %90, %.split159, %80, %75, %47, %.split110, %37, %32, %21, %.split207.us
+  %.0 = phi i32 [ -1, %90 ], [ -1, %47 ], [ -1, %21 ], [ -1, %.split207.us ], [ -1, %32 ], [ -1, %37 ], [ -1, %.split110 ], [ -1, %75 ], [ -1, %80 ], [ -1, %.split159 ], [ 0, %4 ], [ %.pre, %.outer87._crit_edge ], [ 0, %.split204.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -10931,7 +10931,7 @@ define dso_local i32 @stepd_resume(i32 noundef %0, i16 noundef zeroext %1, ptr n
   br label %.thread
 
 .split107:                                        ; preds = %.lr.ph144, %.lr.ph129.preheader, %.lr.ph144.preheader, %.lr.ph129.preheader.preheader
-  %.us-phi108 = phi i64 [ %67, %.lr.ph129.preheader.preheader ], [ %56, %.lr.ph144.preheader ], [ %42, %.lr.ph129.preheader ], [ %64, %.lr.ph144 ]
+  %.us-phi108 = phi i64 [ %42, %.lr.ph129.preheader ], [ %67, %.lr.ph129.preheader.preheader ], [ %56, %.lr.ph144.preheader ], [ %64, %.lr.ph144 ]
   %48 = and i64 %.us-phi108, 2147483647
   %49 = getelementptr inbounds nuw i8, ptr %.055.ph148, i64 %48
   %50 = sub i64 %.056.ph146, %48
@@ -11057,7 +11057,7 @@ define dso_local i32 @stepd_resume(i32 noundef %0, i16 noundef zeroext %1, ptr n
   br label %.thread
 
 .split156:                                        ; preds = %.lr.ph194, %.lr.ph179.preheader, %.lr.ph194.preheader, %.lr.ph179.preheader.preheader
-  %.us-phi157 = phi i64 [ %110, %.lr.ph179.preheader.preheader ], [ %99, %.lr.ph194.preheader ], [ %85, %.lr.ph179.preheader ], [ %107, %.lr.ph194 ]
+  %.us-phi157 = phi i64 [ %85, %.lr.ph179.preheader ], [ %110, %.lr.ph179.preheader.preheader ], [ %99, %.lr.ph194.preheader ], [ %107, %.lr.ph194 ]
   %91 = and i64 %.us-phi157, 2147483647
   %92 = getelementptr inbounds nuw i8, ptr %.052.ph199, i64 %91
   %93 = sub i64 %.053.ph197, %91
@@ -11134,8 +11134,8 @@ define dso_local i32 @stepd_resume(i32 noundef %0, i16 noundef zeroext %1, ptr n
   %.pre = load i32, ptr %6, align 4
   br label %.thread
 
-.thread:                                          ; preds = %.split204.us, %4, %.outer87._crit_edge, %.split159, %90, %80, %75, %.split110, %47, %37, %32, %.split207.us, %21
-  %.0 = phi i32 [ -1, %21 ], [ -1, %.split207.us ], [ -1, %32 ], [ -1, %37 ], [ -1, %47 ], [ -1, %.split110 ], [ -1, %75 ], [ -1, %80 ], [ -1, %90 ], [ -1, %.split159 ], [ %.pre, %.outer87._crit_edge ], [ 0, %4 ], [ 0, %.split204.us ]
+.thread:                                          ; preds = %.split204.us, %4, %.outer87._crit_edge, %90, %.split159, %80, %75, %47, %.split110, %37, %32, %21, %.split207.us
+  %.0 = phi i32 [ -1, %90 ], [ -1, %47 ], [ -1, %21 ], [ -1, %.split207.us ], [ -1, %32 ], [ -1, %37 ], [ -1, %.split110 ], [ -1, %75 ], [ -1, %80 ], [ -1, %.split159 ], [ 0, %4 ], [ %.pre, %.outer87._crit_edge ], [ 0, %.split204.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -11515,7 +11515,7 @@ define dso_local i32 @stepd_reconfig(i32 noundef %0, i16 noundef zeroext %1, ptr
   br label %.thread
 
 .split274.us:                                     ; preds = %.lr.ph311, %.lr.ph296.preheader, %.lr.ph311.preheader, %.lr.ph296.preheader.preheader
-  %.us-phi275 = phi i64 [ %100, %.lr.ph296.preheader.preheader ], [ %89, %.lr.ph311.preheader ], [ %118, %.lr.ph296.preheader ], [ %97, %.lr.ph311 ]
+  %.us-phi275 = phi i64 [ %118, %.lr.ph296.preheader ], [ %100, %.lr.ph296.preheader.preheader ], [ %89, %.lr.ph311.preheader ], [ %97, %.lr.ph311 ]
   %124 = and i64 %.us-phi275, 2147483647
   %125 = getelementptr inbounds nuw i8, ptr %.099.ph316, i64 %124
   %126 = sub i64 %.0100.ph314, %124
@@ -11590,7 +11590,7 @@ define dso_local i32 @stepd_reconfig(i32 noundef %0, i16 noundef zeroext %1, ptr
   br label %.thread
 
 .split325:                                        ; preds = %.lr.ph363, %.lr.ph348.preheader, %.lr.ph363.preheader, %.lr.ph348.preheader.preheader
-  %.us-phi326 = phi i64 [ %169, %.lr.ph348.preheader.preheader ], [ %158, %.lr.ph363.preheader ], [ %144, %.lr.ph348.preheader ], [ %166, %.lr.ph363 ]
+  %.us-phi326 = phi i64 [ %144, %.lr.ph348.preheader ], [ %169, %.lr.ph348.preheader.preheader ], [ %158, %.lr.ph363.preheader ], [ %166, %.lr.ph363 ]
   %150 = and i64 %.us-phi326, 2147483647
   %151 = getelementptr inbounds nuw i8, ptr %.096.ph368, i64 %150
   %152 = sub i64 %.097.ph366, %150
@@ -11667,8 +11667,8 @@ define dso_local i32 @stepd_reconfig(i32 noundef %0, i16 noundef zeroext %1, ptr
   %176 = load i32, ptr %5, align 4
   br label %.thread
 
-.thread:                                          ; preds = %.split328, %149, %139, %134, %.split277.us, %123, %113, %108, %.split201.us, %18, %.thread162, %.outer._crit_edge
-  %.0 = phi i32 [ %176, %.outer._crit_edge ], [ -1, %.thread162 ], [ -1, %18 ], [ -1, %.split201.us ], [ -1, %108 ], [ -1, %113 ], [ -1, %123 ], [ -1, %.split277.us ], [ -1, %134 ], [ -1, %139 ], [ -1, %149 ], [ -1, %.split328 ]
+.thread:                                          ; preds = %149, %.split328, %139, %134, %123, %.split277.us, %113, %108, %18, %.split201.us, %.thread162, %.outer._crit_edge
+  %.0 = phi i32 [ %176, %.outer._crit_edge ], [ -1, %123 ], [ -1, %18 ], [ -1, %.thread162 ], [ -1, %.split201.us ], [ -1, %108 ], [ -1, %113 ], [ -1, %.split277.us ], [ -1, %134 ], [ -1, %139 ], [ -1, %.split328 ], [ -1, %149 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -11797,7 +11797,7 @@ define dso_local i32 @stepd_terminate(i32 noundef %0, i16 noundef zeroext %1) lo
   br label %.thread
 
 .split119:                                        ; preds = %.lr.ph156, %.lr.ph141.preheader, %.lr.ph156.preheader, %.lr.ph141.preheader.preheader
-  %.us-phi120 = phi i64 [ %62, %.lr.ph141.preheader.preheader ], [ %51, %.lr.ph156.preheader ], [ %37, %.lr.ph141.preheader ], [ %59, %.lr.ph156 ]
+  %.us-phi120 = phi i64 [ %37, %.lr.ph141.preheader ], [ %62, %.lr.ph141.preheader.preheader ], [ %51, %.lr.ph156.preheader ], [ %59, %.lr.ph156 ]
   %43 = and i64 %.us-phi120, 2147483647
   %44 = getelementptr inbounds nuw i8, ptr %.053.ph161, i64 %43
   %45 = sub i64 %.054.ph159, %43
@@ -11923,7 +11923,7 @@ define dso_local i32 @stepd_terminate(i32 noundef %0, i16 noundef zeroext %1) lo
   br label %.thread
 
 .split169:                                        ; preds = %.lr.ph207, %.lr.ph192.preheader, %.lr.ph207.preheader, %.lr.ph192.preheader.preheader
-  %.us-phi170 = phi i64 [ %105, %.lr.ph192.preheader.preheader ], [ %94, %.lr.ph207.preheader ], [ %80, %.lr.ph192.preheader ], [ %102, %.lr.ph207 ]
+  %.us-phi170 = phi i64 [ %80, %.lr.ph192.preheader ], [ %105, %.lr.ph192.preheader.preheader ], [ %94, %.lr.ph207.preheader ], [ %102, %.lr.ph207 ]
   %86 = and i64 %.us-phi170, 2147483647
   %87 = getelementptr inbounds nuw i8, ptr %.050.ph212, i64 %86
   %88 = sub i64 %.051.ph210, %86
@@ -12000,8 +12000,8 @@ define dso_local i32 @stepd_terminate(i32 noundef %0, i16 noundef zeroext %1) lo
   %112 = load i32, ptr %4, align 4
   br label %.thread
 
-.thread:                                          ; preds = %.split172, %85, %75, %70, %.split122, %42, %32, %27, %.split102.us, %16, %.outer._crit_edge
-  %.0 = phi i32 [ %112, %.outer._crit_edge ], [ -1, %16 ], [ -1, %.split102.us ], [ -1, %27 ], [ -1, %32 ], [ -1, %42 ], [ -1, %.split122 ], [ -1, %70 ], [ -1, %75 ], [ -1, %85 ], [ -1, %.split172 ]
+.thread:                                          ; preds = %85, %.split172, %75, %70, %42, %.split122, %32, %27, %16, %.split102.us, %.outer._crit_edge
+  %.0 = phi i32 [ %112, %.outer._crit_edge ], [ -1, %42 ], [ -1, %16 ], [ -1, %.split102.us ], [ -1, %27 ], [ -1, %32 ], [ -1, %.split122 ], [ -1, %70 ], [ -1, %75 ], [ -1, %.split172 ], [ -1, %85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -12624,7 +12624,7 @@ define dso_local i32 @stepd_completion(i32 noundef %0, i16 noundef zeroext %1, p
   br label %.thread522
 
 .split981.us:                                     ; preds = %.lr.ph1019, %.lr.ph1004.preheader, %.lr.ph1019.preheader, %.lr.ph1004.preheader.preheader
-  %.us-phi982 = phi i64 [ %187, %.lr.ph1004.preheader.preheader ], [ %176, %.lr.ph1019.preheader ], [ %205, %.lr.ph1004.preheader ], [ %184, %.lr.ph1019 ]
+  %.us-phi982 = phi i64 [ %205, %.lr.ph1004.preheader ], [ %187, %.lr.ph1004.preheader.preheader ], [ %176, %.lr.ph1019.preheader ], [ %184, %.lr.ph1019 ]
   %211 = and i64 %.us-phi982, 2147483647
   %212 = getelementptr inbounds nuw i8, ptr %.0314.ph1024, i64 %211
   %213 = sub i64 %.0315.ph1022, %211
@@ -12699,7 +12699,7 @@ define dso_local i32 @stepd_completion(i32 noundef %0, i16 noundef zeroext %1, p
   br label %.thread522
 
 .split1032:                                       ; preds = %.lr.ph1070, %.lr.ph1055.preheader, %.lr.ph1070.preheader, %.lr.ph1055.preheader.preheader
-  %.us-phi1033 = phi i64 [ %256, %.lr.ph1055.preheader.preheader ], [ %245, %.lr.ph1070.preheader ], [ %231, %.lr.ph1055.preheader ], [ %253, %.lr.ph1070 ]
+  %.us-phi1033 = phi i64 [ %231, %.lr.ph1055.preheader ], [ %256, %.lr.ph1055.preheader.preheader ], [ %245, %.lr.ph1070.preheader ], [ %253, %.lr.ph1070 ]
   %237 = and i64 %.us-phi1033, 2147483647
   %238 = getelementptr inbounds nuw i8, ptr %.0311.ph1075, i64 %237
   %239 = sub i64 %.0312.ph1073, %237
@@ -13242,7 +13242,7 @@ define dso_local i32 @stepd_completion(i32 noundef %0, i16 noundef zeroext %1, p
   br label %.thread522
 
 .split728.us:                                     ; preds = %.lr.ph765, %.lr.ph750.preheader, %.lr.ph765.preheader, %.lr.ph750.preheader.preheader
-  %.us-phi729 = phi i64 [ %393, %.lr.ph750.preheader.preheader ], [ %382, %.lr.ph765.preheader ], [ %411, %.lr.ph750.preheader ], [ %390, %.lr.ph765 ]
+  %.us-phi729 = phi i64 [ %411, %.lr.ph750.preheader ], [ %393, %.lr.ph750.preheader.preheader ], [ %382, %.lr.ph765.preheader ], [ %390, %.lr.ph765 ]
   %417 = and i64 %.us-phi729, 2147483647
   %418 = getelementptr inbounds nuw i8, ptr %.0290.ph770, i64 %417
   %419 = sub i64 %.0291.ph768, %417
@@ -13317,7 +13317,7 @@ define dso_local i32 @stepd_completion(i32 noundef %0, i16 noundef zeroext %1, p
   br label %.thread522
 
 .split778:                                        ; preds = %.lr.ph816, %.lr.ph801.preheader, %.lr.ph816.preheader, %.lr.ph801.preheader.preheader
-  %.us-phi779 = phi i64 [ %462, %.lr.ph801.preheader.preheader ], [ %451, %.lr.ph816.preheader ], [ %437, %.lr.ph801.preheader ], [ %459, %.lr.ph816 ]
+  %.us-phi779 = phi i64 [ %437, %.lr.ph801.preheader ], [ %462, %.lr.ph801.preheader.preheader ], [ %451, %.lr.ph816.preheader ], [ %459, %.lr.ph816 ]
   %443 = and i64 %.us-phi779, 2147483647
   %444 = getelementptr inbounds nuw i8, ptr %.0287.ph821, i64 %443
   %445 = sub i64 %.0288.ph819, %443
@@ -13399,7 +13399,7 @@ define dso_local i32 @stepd_completion(i32 noundef %0, i16 noundef zeroext %1, p
   %471 = load i32, ptr %5, align 4
   br label %.thread522
 
-.thread:                                          ; preds = %.split709.us, %372, %.split690.us, %351, %.split671.us, %329, %.split652.us, %310, %.split633, %288, %.split616.us, %273, %.split962.us, %166, %.split943.us, %145, %.split924.us, %123, %.split905.us, %104, %.split886.us, %85, %.split867.us, %66, %.split848, %44, %.split829.us, %29
+.thread:                                          ; preds = %372, %.split709.us, %351, %.split690.us, %329, %.split671.us, %310, %.split652.us, %288, %.split633, %273, %.split616.us, %166, %.split962.us, %145, %.split943.us, %123, %.split924.us, %104, %.split905.us, %85, %.split886.us, %66, %.split867.us, %44, %.split848, %29, %.split829.us
   %.not433 = icmp eq ptr %8, null
   br i1 %.not433, label %.thread522, label %472
 
@@ -13407,8 +13407,8 @@ define dso_local i32 @stepd_completion(i32 noundef %0, i16 noundef zeroext %1, p
   tail call void @free_buf(ptr noundef nonnull %8) #12
   br label %.thread522
 
-.thread522:                                       ; preds = %.split781, %442, %432, %427, %.split731.us, %416, %406, %401, %.split1035, %236, %226, %221, %.split984.us, %210, %200, %195, %.thread, %472, %.loopexit
-  %.0 = phi i32 [ %471, %.loopexit ], [ -1, %472 ], [ -1, %.thread ], [ -1, %195 ], [ -1, %200 ], [ -1, %210 ], [ -1, %.split984.us ], [ -1, %221 ], [ -1, %226 ], [ -1, %236 ], [ -1, %.split1035 ], [ -1, %401 ], [ -1, %406 ], [ -1, %416 ], [ -1, %.split731.us ], [ -1, %427 ], [ -1, %432 ], [ -1, %442 ], [ -1, %.split781 ]
+.thread522:                                       ; preds = %442, %.split781, %432, %427, %416, %.split731.us, %406, %401, %236, %.split1035, %226, %221, %210, %.split984.us, %200, %195, %.thread, %472, %.loopexit
+  %.0 = phi i32 [ %471, %.loopexit ], [ -1, %472 ], [ -1, %.thread ], [ -1, %195 ], [ -1, %200 ], [ -1, %.split984.us ], [ -1, %210 ], [ -1, %221 ], [ -1, %226 ], [ -1, %.split1035 ], [ -1, %236 ], [ -1, %401 ], [ -1, %406 ], [ -1, %.split731.us ], [ -1, %416 ], [ -1, %427 ], [ -1, %432 ], [ -1, %.split781 ], [ -1, %442 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -13626,7 +13626,7 @@ define dso_local i32 @stepd_stat_jobacct(i32 noundef %0, i16 noundef zeroext %1,
   br label %.thread
 
 .split93.us:                                      ; preds = %.lr.ph130, %.lr.ph115.preheader, %.lr.ph130.preheader, %.lr.ph115.preheader.preheader
-  %.us-phi94 = phi i64 [ %52, %.lr.ph115.preheader.preheader ], [ %40, %.lr.ph130.preheader ], [ %71, %.lr.ph115.preheader ], [ %49, %.lr.ph130 ]
+  %.us-phi94 = phi i64 [ %71, %.lr.ph115.preheader ], [ %52, %.lr.ph115.preheader.preheader ], [ %40, %.lr.ph130.preheader ], [ %49, %.lr.ph130 ]
   %77 = and i64 %.us-phi94, 2147483647
   %78 = getelementptr inbounds nuw i8, ptr %.040.ph135, i64 %77
   %79 = sub i64 %.041.ph133, %77
@@ -13651,8 +13651,8 @@ define dso_local i32 @stepd_stat_jobacct(i32 noundef %0, i16 noundef zeroext %1,
   store i32 %84, ptr %85, align 8
   br label %88
 
-.thread:                                          ; preds = %.split96.us, %76, %65, %60, %.split75.us, %25, %.outer65._crit_edge
-  %.042 = phi i32 [ 0, %.outer65._crit_edge ], [ 0, %25 ], [ 0, %.split75.us ], [ %37, %60 ], [ %37, %65 ], [ %37, %76 ], [ %37, %.split96.us ]
+.thread:                                          ; preds = %76, %.split96.us, %65, %60, %25, %.split75.us, %.outer65._crit_edge
+  %.042 = phi i32 [ 0, %.outer65._crit_edge ], [ 0, %25 ], [ 0, %.split75.us ], [ %37, %60 ], [ %37, %65 ], [ %37, %.split96.us ], [ %37, %76 ]
   %86 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.26, i32 noundef %.042) #12
   %87 = load ptr, ptr %3, align 8
   call void @jobacctinfo_destroy(ptr noundef %87) #12
@@ -13660,7 +13660,7 @@ define dso_local i32 @stepd_stat_jobacct(i32 noundef %0, i16 noundef zeroext %1,
   br label %88
 
 88:                                               ; preds = %4, %.thread, %.outer._crit_edge
-  %.0 = phi i32 [ %.042, %.thread ], [ %37, %.outer._crit_edge ], [ 0, %4 ]
+  %.0 = phi i32 [ 0, %4 ], [ %.042, %.thread ], [ %37, %.outer._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -13796,7 +13796,7 @@ define dso_local range(i32 -1, 1) i32 @stepd_task_info(i32 noundef %0, i16 nound
   br label %.thread
 
 .split302:                                        ; preds = %.lr.ph339, %.lr.ph324.preheader, %.lr.ph339.preheader, %.lr.ph324.preheader.preheader
-  %.us-phi303 = phi i64 [ %64, %.lr.ph324.preheader.preheader ], [ %53, %.lr.ph339.preheader ], [ %39, %.lr.ph324.preheader ], [ %61, %.lr.ph339 ]
+  %.us-phi303 = phi i64 [ %39, %.lr.ph324.preheader ], [ %64, %.lr.ph324.preheader.preheader ], [ %53, %.lr.ph339.preheader ], [ %61, %.lr.ph339 ]
   %45 = and i64 %.us-phi303, 2147483647
   %46 = getelementptr inbounds nuw i8, ptr %.0154.ph342, i64 %45
   %47 = sub i64 %.0153.ph344, %45
@@ -13987,7 +13987,7 @@ define dso_local range(i32 -1, 1) i32 @stepd_task_info(i32 noundef %0, i16 nound
   br label %.thread
 
 .split353.us:                                     ; preds = %.lr.ph391, %.lr.ph376.preheader, %.lr.ph391.preheader, %.lr.ph376.preheader.preheader
-  %.us-phi354 = phi i64 [ %86, %.lr.ph376.preheader.preheader ], [ %75, %.lr.ph391.preheader ], [ %104, %.lr.ph376.preheader ], [ %83, %.lr.ph391 ]
+  %.us-phi354 = phi i64 [ %104, %.lr.ph376.preheader ], [ %86, %.lr.ph376.preheader.preheader ], [ %75, %.lr.ph391.preheader ], [ %83, %.lr.ph391 ]
   %110 = and i64 %.us-phi354, 2147483647
   %111 = getelementptr inbounds nuw i8, ptr %.0151.ph396, i64 %110
   %112 = sub i64 %.0152.ph394, %110
@@ -14117,7 +14117,7 @@ define dso_local range(i32 -1, 1) i32 @stepd_task_info(i32 noundef %0, i16 nound
   br label %.thread
 
 .split405.us:                                     ; preds = %.lr.ph443, %.lr.ph428.preheader, %.lr.ph443.preheader, %.lr.ph428.preheader.preheader
-  %.us-phi406 = phi i64 [ %130, %.lr.ph428.preheader.preheader ], [ %119, %.lr.ph443.preheader ], [ %148, %.lr.ph428.preheader ], [ %127, %.lr.ph443 ]
+  %.us-phi406 = phi i64 [ %148, %.lr.ph428.preheader ], [ %130, %.lr.ph428.preheader.preheader ], [ %119, %.lr.ph443.preheader ], [ %127, %.lr.ph443 ]
   %154 = and i64 %.us-phi406, 2147483647
   %155 = getelementptr inbounds nuw i8, ptr %.0148.ph448, i64 %154
   %156 = sub i64 %.0149.ph446, %154
@@ -14247,7 +14247,7 @@ define dso_local range(i32 -1, 1) i32 @stepd_task_info(i32 noundef %0, i16 nound
   br label %.thread
 
 .split457.us:                                     ; preds = %.lr.ph495, %.lr.ph480.preheader, %.lr.ph495.preheader, %.lr.ph480.preheader.preheader
-  %.us-phi458 = phi i64 [ %174, %.lr.ph480.preheader.preheader ], [ %163, %.lr.ph495.preheader ], [ %192, %.lr.ph480.preheader ], [ %171, %.lr.ph495 ]
+  %.us-phi458 = phi i64 [ %192, %.lr.ph480.preheader ], [ %174, %.lr.ph480.preheader.preheader ], [ %163, %.lr.ph495.preheader ], [ %171, %.lr.ph495 ]
   %198 = and i64 %.us-phi458, 2147483647
   %199 = getelementptr inbounds nuw i8, ptr %.0145.ph500, i64 %198
   %200 = sub i64 %.0146.ph498, %198
@@ -14377,7 +14377,7 @@ define dso_local range(i32 -1, 1) i32 @stepd_task_info(i32 noundef %0, i16 nound
   br label %.thread
 
 .split509.us:                                     ; preds = %.lr.ph547, %.lr.ph532.preheader, %.lr.ph547.preheader, %.lr.ph532.preheader.preheader
-  %.us-phi510 = phi i64 [ %218, %.lr.ph532.preheader.preheader ], [ %207, %.lr.ph547.preheader ], [ %236, %.lr.ph532.preheader ], [ %215, %.lr.ph547 ]
+  %.us-phi510 = phi i64 [ %236, %.lr.ph532.preheader ], [ %218, %.lr.ph532.preheader.preheader ], [ %207, %.lr.ph547.preheader ], [ %215, %.lr.ph547 ]
   %242 = and i64 %.us-phi510, 2147483647
   %243 = getelementptr inbounds nuw i8, ptr %.0142.ph552, i64 %242
   %244 = sub i64 %.0143.ph550, %242
@@ -14503,7 +14503,7 @@ define dso_local range(i32 -1, 1) i32 @stepd_task_info(i32 noundef %0, i16 nound
   br label %.thread
 
 .split561.us:                                     ; preds = %.lr.ph599, %.lr.ph584.preheader, %.lr.ph599.preheader, %.lr.ph584.preheader.preheader
-  %.us-phi562 = phi i64 [ %261, %.lr.ph584.preheader.preheader ], [ %250, %.lr.ph599.preheader ], [ %279, %.lr.ph584.preheader ], [ %258, %.lr.ph599 ]
+  %.us-phi562 = phi i64 [ %279, %.lr.ph584.preheader ], [ %261, %.lr.ph584.preheader.preheader ], [ %250, %.lr.ph599.preheader ], [ %258, %.lr.ph599 ]
   %285 = and i64 %.us-phi562, 2147483647
   %286 = getelementptr inbounds nuw i8, ptr %.0139.ph604, i64 %285
   %287 = sub i64 %.0140.ph602, %285
@@ -14538,7 +14538,7 @@ define dso_local range(i32 -1, 1) i32 @stepd_task_info(i32 noundef %0, i16 nound
   store ptr %storemerge, ptr %2, align 8
   br label %292
 
-.thread:                                          ; preds = %.split564.us, %284, %274, %269, %.split512.us, %241, %231, %226, %.split460.us, %197, %187, %182, %.split408.us, %153, %143, %138, %.split356.us, %109, %99, %94, %.split305, %44, %34, %29, %.split285.us, %18
+.thread:                                          ; preds = %284, %.split564.us, %274, %269, %241, %.split512.us, %231, %226, %197, %.split460.us, %187, %182, %153, %.split408.us, %143, %138, %109, %.split356.us, %99, %94, %44, %.split305, %34, %29, %18, %.split285.us
   call void @slurm_xfree(ptr noundef nonnull %6) #12
   store i32 0, ptr %3, align 4
   store ptr null, ptr %2, align 8
@@ -14546,7 +14546,7 @@ define dso_local range(i32 -1, 1) i32 @stepd_task_info(i32 noundef %0, i16 nound
   br label %292
 
 292:                                              ; preds = %.thread, %._crit_edge610
-  %.0 = phi i32 [ -1, %.thread ], [ 0, %._crit_edge610 ]
+  %.0 = phi i32 [ 0, %._crit_edge610 ], [ -1, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -14675,7 +14675,7 @@ define dso_local range(i32 -1, 1) i32 @stepd_list_pids(i32 noundef %0, i16 nound
   br label %.thread
 
 .split127:                                        ; preds = %.lr.ph164, %.lr.ph149.preheader, %.lr.ph164.preheader, %.lr.ph149.preheader.preheader
-  %.us-phi128 = phi i64 [ %64, %.lr.ph149.preheader.preheader ], [ %53, %.lr.ph164.preheader ], [ %39, %.lr.ph149.preheader ], [ %61, %.lr.ph164 ]
+  %.us-phi128 = phi i64 [ %39, %.lr.ph149.preheader ], [ %64, %.lr.ph149.preheader.preheader ], [ %53, %.lr.ph164.preheader ], [ %61, %.lr.ph164 ]
   %45 = and i64 %.us-phi128, 2147483647
   %46 = getelementptr inbounds nuw i8, ptr %.060.ph169, i64 %45
   %47 = sub i64 %.061.ph167, %45
@@ -14865,7 +14865,7 @@ define dso_local range(i32 -1, 1) i32 @stepd_list_pids(i32 noundef %0, i16 nound
   br label %.thread
 
 .split178.us:                                     ; preds = %.lr.ph216, %.lr.ph201.preheader, %.lr.ph216.preheader, %.lr.ph201.preheader.preheader
-  %.us-phi179 = phi i64 [ %85, %.lr.ph201.preheader.preheader ], [ %74, %.lr.ph216.preheader ], [ %103, %.lr.ph201.preheader ], [ %82, %.lr.ph216 ]
+  %.us-phi179 = phi i64 [ %103, %.lr.ph201.preheader ], [ %85, %.lr.ph201.preheader.preheader ], [ %74, %.lr.ph216.preheader ], [ %82, %.lr.ph216 ]
   %109 = and i64 %.us-phi179, 2147483647
   %110 = getelementptr inbounds nuw i8, ptr %.057.ph221, i64 %109
   %111 = sub i64 %.058.ph219, %109
@@ -14894,7 +14894,7 @@ define dso_local range(i32 -1, 1) i32 @stepd_list_pids(i32 noundef %0, i16 nound
   %.pre = load ptr, ptr %7, align 8
   br label %._crit_edge227
 
-.thread:                                          ; preds = %.split181.us, %108, %98, %93, %.split130, %44, %34, %29, %.split110.us, %18
+.thread:                                          ; preds = %108, %.split181.us, %98, %93, %44, %.split130, %34, %29, %18, %.split110.us
   call void @slurm_xfree(ptr noundef nonnull %7) #12
   br label %._crit_edge227
 
@@ -15029,7 +15029,7 @@ define dso_local range(i32 -1, 1) i32 @stepd_get_mem_limits(i32 noundef %0, i16 
   br label %.thread
 
 .split123:                                        ; preds = %.lr.ph160, %.lr.ph145.preheader, %.lr.ph160.preheader, %.lr.ph145.preheader.preheader
-  %.us-phi124 = phi i64 [ %62, %.lr.ph145.preheader.preheader ], [ %51, %.lr.ph160.preheader ], [ %37, %.lr.ph145.preheader ], [ %59, %.lr.ph160 ]
+  %.us-phi124 = phi i64 [ %37, %.lr.ph145.preheader ], [ %62, %.lr.ph145.preheader.preheader ], [ %51, %.lr.ph160.preheader ], [ %59, %.lr.ph160 ]
   %43 = and i64 %.us-phi124, 2147483647
   %44 = getelementptr inbounds nuw i8, ptr %.057.ph165, i64 %43
   %45 = sub i64 %.058.ph163, %43
@@ -15210,7 +15210,7 @@ define dso_local range(i32 -1, 1) i32 @stepd_get_mem_limits(i32 noundef %0, i16 
   br label %.thread
 
 .split173.us:                                     ; preds = %.lr.ph211, %.lr.ph196.preheader, %.lr.ph211.preheader, %.lr.ph196.preheader.preheader
-  %.us-phi174 = phi i64 [ %80, %.lr.ph196.preheader.preheader ], [ %69, %.lr.ph211.preheader ], [ %98, %.lr.ph196.preheader ], [ %77, %.lr.ph211 ]
+  %.us-phi174 = phi i64 [ %98, %.lr.ph196.preheader ], [ %80, %.lr.ph196.preheader.preheader ], [ %69, %.lr.ph211.preheader ], [ %77, %.lr.ph211 ]
   %104 = and i64 %.us-phi174, 2147483647
   %105 = getelementptr inbounds nuw i8, ptr %.054.ph216, i64 %104
   %106 = sub i64 %.055.ph214, %104
@@ -15229,8 +15229,8 @@ define dso_local range(i32 -1, 1) i32 @stepd_get_mem_limits(i32 noundef %0, i16 
 .lr.ph168.backedge:                               ; preds = %110, %107
   br label %.lr.ph168, !llvm.loop !160
 
-.thread:                                          ; preds = %.split173.us, %.split176.us, %103, %93, %88, %.split126, %42, %32, %27, %.split106.us, %16, %3
-  %.0 = phi i32 [ 0, %3 ], [ -1, %16 ], [ -1, %.split106.us ], [ -1, %27 ], [ -1, %32 ], [ -1, %42 ], [ -1, %.split126 ], [ -1, %88 ], [ -1, %93 ], [ -1, %103 ], [ -1, %.split176.us ], [ 0, %.split173.us ]
+.thread:                                          ; preds = %.split173.us, %103, %.split176.us, %93, %88, %42, %.split126, %32, %27, %16, %.split106.us, %3
+  %.0 = phi i32 [ -1, %103 ], [ 0, %3 ], [ -1, %42 ], [ -1, %16 ], [ -1, %.split106.us ], [ -1, %27 ], [ -1, %32 ], [ -1, %.split126 ], [ -1, %88 ], [ -1, %93 ], [ -1, %.split176.us ], [ 0, %.split173.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -15359,7 +15359,7 @@ define dso_local i32 @stepd_get_nodeid(i32 noundef %0, i16 noundef zeroext %1) l
   br label %.thread
 
 .split82:                                         ; preds = %.lr.ph119, %.lr.ph104.preheader, %.lr.ph119.preheader, %.lr.ph104.preheader.preheader
-  %.us-phi83 = phi i64 [ %62, %.lr.ph104.preheader.preheader ], [ %51, %.lr.ph119.preheader ], [ %37, %.lr.ph104.preheader ], [ %59, %.lr.ph119 ]
+  %.us-phi83 = phi i64 [ %37, %.lr.ph104.preheader ], [ %62, %.lr.ph104.preheader.preheader ], [ %51, %.lr.ph119.preheader ], [ %59, %.lr.ph119 ]
   %43 = and i64 %.us-phi83, 2147483647
   %44 = getelementptr inbounds nuw i8, ptr %.032.ph124, i64 %43
   %45 = sub i64 %.033.ph122, %43
@@ -15433,8 +15433,8 @@ define dso_local i32 @stepd_get_nodeid(i32 noundef %0, i16 noundef zeroext %1) l
   %67 = load i32, ptr %4, align 4
   br label %.thread
 
-.thread:                                          ; preds = %.split85, %42, %32, %27, %.split65.us, %16, %.loopexit
-  %.0 = phi i32 [ %67, %.loopexit ], [ -2, %16 ], [ -2, %.split65.us ], [ -2, %27 ], [ -2, %32 ], [ -2, %42 ], [ -2, %.split85 ]
+.thread:                                          ; preds = %42, %.split85, %32, %27, %16, %.split65.us, %.loopexit
+  %.0 = phi i32 [ %67, %.loopexit ], [ -2, %16 ], [ -2, %.split65.us ], [ -2, %27 ], [ -2, %32 ], [ -2, %.split85 ], [ -2, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -15700,8 +15700,8 @@ define dso_local range(i32 -1, 1) i32 @stepd_relay_msg(i32 noundef %0, ptr nound
 .lr.ph174.split.backedge:                         ; preds = %97, %94
   br label %.lr.ph174.split, !llvm.loop !166
 
-.thread:                                          ; preds = %.split176.us, %.outer109._crit_edge, %.split179.us, %90, %.split161.us, %65, %.split142.us, %45, %.split124.us, %19
-  %.0 = phi i32 [ -1, %19 ], [ -1, %.split124.us ], [ -1, %45 ], [ -1, %.split142.us ], [ -1, %65 ], [ -1, %.split161.us ], [ -1, %90 ], [ -1, %.split179.us ], [ 0, %.outer109._crit_edge ], [ 0, %.split176.us ]
+.thread:                                          ; preds = %.split176.us, %.outer109._crit_edge, %90, %.split179.us, %65, %.split161.us, %45, %.split142.us, %19, %.split124.us
+  %.0 = phi i32 [ -1, %90 ], [ -1, %65 ], [ -1, %45 ], [ -1, %19 ], [ -1, %.split124.us ], [ -1, %.split142.us ], [ -1, %.split161.us ], [ -1, %.split179.us ], [ 0, %.outer109._crit_edge ], [ 0, %.split176.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0

@@ -91,7 +91,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN117_$LT$itert
   br label %.thread
 
 .thread:                                          ; preds = %19, %.split14.i, %.split.i, %.split.us.i, %3, %8
-  %.0 = phi ptr [ null, %8 ], [ null, %3 ], [ %.01824, %.split.us.i ], [ %.01824, %.split.i ], [ %.01824, %.split14.i ], [ %.01824, %19 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %8 ], [ %.01824, %.split.us.i ], [ %.01824, %.split.i ], [ %.01824, %.split14.i ], [ %.01824, %19 ]
   ret ptr %.0
 }
 
@@ -381,8 +381,8 @@ define hidden void @"_ZN117_$LT$itertools..adaptors..coalesce..CoalesceBy$LT$I$C
   br label %_ZN9itertools9size_hint10add_scalar17hf8d6812a184bf281E.llvm.2418678684784093286.exit
 
 _ZN9itertools9size_hint10add_scalar17hf8d6812a184bf281E.llvm.2418678684784093286.exit: ; preds = %2, %45
-  %.sroa.0.0.i = phi i64 [ 0, %2 ], [ %spec.select.i, %45 ]
-  %.sroa.6.0.i = phi i64 [ undef, %2 ], [ %50, %45 ]
+  %.sroa.0.0.i = phi i64 [ %spec.select.i, %45 ], [ 0, %2 ]
+  %.sroa.6.0.i = phi i64 [ %50, %45 ], [ undef, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %51 = or i64 %42, %.0
   %52 = icmp ne i64 %51, 0
@@ -414,8 +414,8 @@ define hidden void @_ZN9itertools9size_hint10add_scalar17hf8d6812a184bf281E.llvm
   br label %13
 
 13:                                               ; preds = %7, %3
-  %.sroa.0.0 = phi i64 [ 0, %3 ], [ %spec.select, %7 ]
-  %.sroa.6.0 = phi i64 [ undef, %3 ], [ %12, %7 ]
+  %.sroa.0.0 = phi i64 [ %spec.select, %7 ], [ 0, %3 ]
+  %.sroa.6.0 = phi i64 [ %12, %7 ], [ undef, %3 ]
   %14 = tail call i64 @llvm.uadd.sat.i64(i64 %4, i64 %2)
   store i64 %14, ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8

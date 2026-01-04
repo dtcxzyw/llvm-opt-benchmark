@@ -382,7 +382,7 @@ define internal range(i64 0, 21) i64 @rb_digest_instance_equal(i64 noundef %0, i
   br label %36
 
 36:                                               ; preds = %32, %15, %35
-  %.0 = phi i64 [ 0, %35 ], [ 0, %15 ], [ 20, %32 ]
+  %.0 = phi i64 [ 0, %15 ], [ 0, %35 ], [ 20, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0

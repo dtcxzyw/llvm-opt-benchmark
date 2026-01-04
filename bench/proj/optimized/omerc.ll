@@ -298,7 +298,7 @@ define hidden noundef ptr @_Z34pj_projection_specific_setup_omercP8PJconsts(ptr 
   br label %146
 
 146:                                              ; preds = %115, %141, %144
-  %.0241 = phi double [ %145, %144 ], [ %142, %141 ], [ 0.000000e+00, %115 ]
+  %.0241 = phi double [ %142, %141 ], [ %145, %144 ], [ 0.000000e+00, %115 ]
   %147 = fadd double %138, %.0241
   %148 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store double %147, ptr %148, align 8, !tbaa !52

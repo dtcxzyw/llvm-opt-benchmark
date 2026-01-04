@@ -101,7 +101,7 @@ define noundef i32 @_Z9tMPI_TestPP9tmpi_req_PiP12tmpi_status_(ptr noundef captur
   br label %19
 
 19:                                               ; preds = %13, %17, %3, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %3 ], [ %15, %17 ], [ %15, %13 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %6 ], [ %15, %17 ], [ %15, %13 ]
   ret i32 %.0
 }
 
@@ -422,7 +422,7 @@ _ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit: ; preds = %16, %4
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %57, %46, %36, %27, %19
-  %.027.lcssa = phi i32 [ 0, %19 ], [ %.2.us.us, %27 ], [ %.2.us, %36 ], [ %.2.us44, %46 ], [ %.2, %57 ]
+  %.027.lcssa = phi i32 [ 0, %19 ], [ %.2.us44, %46 ], [ %.2.us, %36 ], [ %.2.us.us, %27 ], [ %.2, %57 ]
   ret i32 %.027.lcssa
 }
 
@@ -935,7 +935,7 @@ _ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit: ; preds = %18
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %51, %34, %_ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit.thread
-  %.027.lcssa = phi i32 [ 0, %_ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit.thread ], [ %.2.us, %34 ], [ %.2, %51 ]
+  %.027.lcssa = phi i32 [ %.2.us, %34 ], [ 0, %_ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit.thread ], [ %.2, %51 ]
   ret i32 %.027.lcssa
 }
 

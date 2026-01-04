@@ -244,7 +244,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i25, %._crit
   br label %92
 
 92:                                               ; preds = %._crit_edge, %88, %pmix_obj_run_destructors.exit
-  %.0 = phi i32 [ %spec.store.select, %pmix_obj_run_destructors.exit ], [ 0, %88 ], [ -31, %._crit_edge ]
+  %.0 = phi i32 [ 0, %88 ], [ %spec.store.select, %pmix_obj_run_destructors.exit ], [ -31, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -965,7 +965,7 @@ pmix_obj_run_destructors.exit163:                 ; preds = %.lr.ph.i160, %311
   br label %355
 
 325:                                              ; preds = %16, %pmix_obj_update.exit135, %279, %277, %pmix_obj_update.exit134, %214, %212, %pmix_obj_update.exit133, %155, %153, %pmix_obj_update.exit, %96, %94, %13
-  %.0 = phi i32 [ -47, %13 ], [ %.1173, %94 ], [ %.1173, %96 ], [ %.1173, %pmix_obj_update.exit ], [ %.2177, %153 ], [ %.2177, %155 ], [ %.2177, %pmix_obj_update.exit133 ], [ %.3181, %212 ], [ %.3181, %214 ], [ %.3181, %pmix_obj_update.exit134 ], [ %.4185, %277 ], [ %.4185, %279 ], [ %.4185, %pmix_obj_update.exit135 ], [ -25, %16 ]
+  %.0 = phi i32 [ -47, %13 ], [ %.1173, %pmix_obj_update.exit ], [ %.2177, %pmix_obj_update.exit133 ], [ %.3181, %pmix_obj_update.exit134 ], [ %.4185, %pmix_obj_update.exit135 ], [ %.1173, %94 ], [ %.1173, %96 ], [ %.2177, %153 ], [ %.2177, %155 ], [ %.3181, %212 ], [ %.3181, %214 ], [ %.4185, %277 ], [ %.4185, %279 ], [ -25, %16 ]
   %326 = getelementptr inbounds nuw i8, ptr %2, i64 648
   %327 = load ptr, ptr %326, align 8, !tbaa !67
   %.not131 = icmp eq ptr %327, null
@@ -1349,8 +1349,8 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %60, %6
   ]
 
 .sink.split:                                      ; preds = %156, %150, %123, %117, %94, %86
-  %.2120.sink = phi i32 [ %100, %94 ], [ -20, %86 ], [ %129, %123 ], [ -20, %117 ], [ %162, %156 ], [ -20, %150 ]
-  %.sink136 = phi i32 [ 93, %94 ], [ 93, %86 ], [ 104, %123 ], [ 104, %117 ], [ 112, %156 ], [ 112, %150 ]
+  %.2120.sink = phi i32 [ -20, %117 ], [ -20, %86 ], [ %100, %94 ], [ %129, %123 ], [ %162, %156 ], [ -20, %150 ]
+  %.sink136 = phi i32 [ 104, %117 ], [ 93, %86 ], [ 93, %94 ], [ 104, %123 ], [ 112, %156 ], [ 112, %150 ]
   %163 = call ptr @PMIx_Error_string(i32 noundef %.2120.sink) #11
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %163, ptr noundef nonnull @.str.2, i32 noundef %.sink136) #11
   br label %164

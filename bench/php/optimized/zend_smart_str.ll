@@ -311,9 +311,9 @@ define dso_local void @smart_str_append_double(ptr noundef captures(none) %0, do
   br label %smart_str_appendl_ex.exit12
 
 smart_str_appendl_ex.exit12:                      ; preds = %10, %16
-  %17 = phi i64 [ %.pre14, %16 ], [ %12, %10 ]
-  %18 = phi ptr [ %.pre, %16 ], [ %9, %10 ]
-  %.1.i.i11 = phi i64 [ %.0.i.i10, %16 ], [ %13, %10 ]
+  %17 = phi i64 [ %12, %10 ], [ %.pre14, %16 ]
+  %18 = phi ptr [ %9, %10 ], [ %.pre, %16 ]
+  %.1.i.i11 = phi i64 [ %13, %10 ], [ %.0.i.i10, %16 ]
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 %17
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull align 16 %5, i64 %8, i1 false)
@@ -489,7 +489,7 @@ define dso_local void @_smart_string_alloc(ptr noundef captures(none) %0, i64 no
   br label %32
 
 32:                                               ; preds = %18, %7, %16, %25
-  %.sink = phi ptr [ %9, %7 ], [ %17, %16 ], [ %31, %25 ], [ %19, %18 ]
+  %.sink = phi ptr [ %9, %7 ], [ %31, %25 ], [ %17, %16 ], [ %19, %18 ]
   store ptr %.sink, ptr %0, align 8, !tbaa !22
   ret void
 }
@@ -536,9 +536,9 @@ define dso_local void @smart_str_append_escaped_truncated(ptr noundef captures(n
   br label %smart_str_appendl_ex.exit
 
 smart_str_appendl_ex.exit:                        ; preds = %11, %17
-  %18 = phi i64 [ %.pre9, %17 ], [ %13, %11 ]
-  %19 = phi ptr [ %.pre, %17 ], [ %10, %11 ]
-  %.1.i.i = phi i64 [ %.0.i.i, %17 ], [ %14, %11 ]
+  %18 = phi i64 [ %13, %11 ], [ %.pre9, %17 ]
+  %19 = phi ptr [ %10, %11 ], [ %.pre, %17 ]
+  %.1.i.i = phi i64 [ %14, %11 ], [ %.0.i.i, %17 ]
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %21, ptr noundef nonnull align 1 dereferenceable(3) @.str.2, i64 3, i1 false)
@@ -589,9 +589,9 @@ define dso_local void @smart_str_append_scalar(ptr noundef captures(none) %0, pt
   br label %smart_str_appendl_ex.exit
 
 smart_str_appendl_ex.exit:                        ; preds = %9, %15
-  %16 = phi i64 [ %.pre46, %15 ], [ %11, %9 ]
-  %17 = phi ptr [ %.pre44, %15 ], [ %8, %9 ]
-  %.1.i.i = phi i64 [ %.0.i.i, %15 ], [ %12, %9 ]
+  %16 = phi i64 [ %11, %9 ], [ %.pre46, %15 ]
+  %17 = phi ptr [ %8, %9 ], [ %.pre44, %15 ]
+  %.1.i.i = phi i64 [ %12, %9 ], [ %.0.i.i, %15 ]
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
   store i32 1280070990, ptr %19, align 1
@@ -626,9 +626,9 @@ smart_str_appendl_ex.exit:                        ; preds = %9, %15
   br label %smart_str_appendl_ex.exit16
 
 smart_str_appendl_ex.exit16:                      ; preds = %27, %33
-  %34 = phi i64 [ %.pre43, %33 ], [ %29, %27 ]
-  %35 = phi ptr [ %.pre41, %33 ], [ %26, %27 ]
-  %.1.i.i15 = phi i64 [ %.0.i.i14, %33 ], [ %30, %27 ]
+  %34 = phi i64 [ %29, %27 ], [ %.pre43, %33 ]
+  %35 = phi ptr [ %26, %27 ], [ %.pre41, %33 ]
+  %.1.i.i15 = phi i64 [ %30, %27 ], [ %.0.i.i14, %33 ]
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 %34
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(4) %37, ptr noundef nonnull align 1 dereferenceable(4) %24, i64 %25, i1 false)
@@ -716,9 +716,9 @@ zend_print_long_to_buf.exit:                      ; preds = %58, %zend_print_ulo
   br label %smart_str_append_long_ex.exit
 
 smart_str_append_long_ex.exit:                    ; preds = %68, %74
-  %75 = phi i64 [ %.pre40, %74 ], [ %70, %68 ]
-  %76 = phi ptr [ %.pre38, %74 ], [ %67, %68 ]
-  %.1.i.i.i = phi i64 [ %.0.i.i.i, %74 ], [ %71, %68 ]
+  %75 = phi i64 [ %70, %68 ], [ %.pre40, %74 ]
+  %76 = phi ptr [ %67, %68 ], [ %.pre38, %74 ]
+  %.1.i.i.i = phi i64 [ %71, %68 ], [ %.0.i.i.i, %74 ]
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 24
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 %75
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %78, ptr nonnull align 1 %.0.i, i64 %66, i1 false)
@@ -749,8 +749,8 @@ smart_str_append_long_ex.exit:                    ; preds = %68, %74
   br label %smart_str_appendc_ex.exit30
 
 smart_str_appendc_ex.exit30:                      ; preds = %83, %89
-  %90 = phi ptr [ %.pre, %89 ], [ %82, %83 ]
-  %.1.i.i29 = phi i64 [ %.0.i.i28, %89 ], [ %86, %83 ]
+  %90 = phi ptr [ %82, %83 ], [ %.pre, %89 ]
+  %.1.i.i29 = phi i64 [ %86, %83 ], [ %.0.i.i28, %89 ]
   %91 = getelementptr i8, ptr %90, i64 23
   %92 = getelementptr i8, ptr %91, i64 %.1.i.i29
   store i8 39, ptr %92, align 1, !tbaa !16
@@ -790,9 +790,9 @@ smart_str_appendc_ex.exit30:                      ; preds = %83, %89
   br label %smart_str_append_escaped_truncated.exit.thread
 
 smart_str_append_escaped_truncated.exit.thread:   ; preds = %103, %109
-  %110 = phi i64 [ %.pre9.i, %109 ], [ %105, %103 ]
-  %111 = phi ptr [ %.pre.i, %109 ], [ %101, %103 ]
-  %.1.i.i.i34 = phi i64 [ %.0.i.i.i33, %109 ], [ %106, %103 ]
+  %110 = phi i64 [ %105, %103 ], [ %.pre9.i, %109 ]
+  %111 = phi ptr [ %101, %103 ], [ %.pre.i, %109 ]
+  %.1.i.i.i34 = phi i64 [ %106, %103 ], [ %.0.i.i.i33, %109 ]
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 24
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 %110
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %113, ptr noundef nonnull align 1 dereferenceable(3) @.str.2, i64 3, i1 false)
@@ -825,8 +825,8 @@ smart_str_append_escaped_truncated.exit._crit_edge: ; preds = %smart_str_append_
   br label %smart_str_appendc_ex.exit
 
 smart_str_appendc_ex.exit:                        ; preds = %116, %122
-  %123 = phi ptr [ %.pre37, %122 ], [ %118, %116 ]
-  %.1.i.i25 = phi i64 [ %.0.i.i24, %122 ], [ %119, %116 ]
+  %123 = phi ptr [ %118, %116 ], [ %.pre37, %122 ]
+  %.1.i.i25 = phi i64 [ %119, %116 ], [ %.0.i.i24, %122 ]
   %124 = getelementptr i8, ptr %123, i64 23
   %125 = getelementptr i8, ptr %124, i64 %.1.i.i25
   store i8 39, ptr %125, align 1, !tbaa !16
@@ -895,9 +895,9 @@ define dso_local range(i32 -1, 1) i32 @smart_str_append_zval(ptr noundef capture
   br label %31
 
 31:                                               ; preds = %30, %24
-  %32 = phi i64 [ %.pre16, %30 ], [ %26, %24 ]
-  %33 = phi ptr [ %.pre, %30 ], [ %23, %24 ]
-  %.1.i.i.i14 = phi i64 [ %.0.i.i.i13, %30 ], [ %27, %24 ]
+  %32 = phi i64 [ %26, %24 ], [ %.pre16, %30 ]
+  %33 = phi ptr [ %23, %24 ], [ %.pre, %30 ]
+  %.1.i.i.i14 = phi i64 [ %27, %24 ], [ %.0.i.i.i13, %30 ]
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 %32
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr nonnull align 1 %20, i64 %22, i1 false)
@@ -956,7 +956,7 @@ smart_str_append_ex.exit:                         ; preds = %42, %57
   br label %64
 
 64:                                               ; preds = %7, %smart_str_append_ex.exit, %8, %10
-  %.0 = phi i32 [ -1, %10 ], [ -1, %8 ], [ 0, %smart_str_append_ex.exit ], [ 0, %7 ]
+  %.0 = phi i32 [ -1, %8 ], [ -1, %10 ], [ 0, %smart_str_append_ex.exit ], [ 0, %7 ]
   ret i32 %.0
 }
 

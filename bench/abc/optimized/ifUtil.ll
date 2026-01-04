@@ -282,8 +282,8 @@ define range(i32 0, -2147483648) i32 @If_ManCrossCut(ptr noundef readonly captur
   br i1 %.not46, label %.loopexit, label %.preheader, !llvm.loop !43
 
 .loopexit:                                        ; preds = %44, %34, %8
-  %.136 = phi i32 [ %.4, %34 ], [ %.03565, %8 ], [ %.6, %44 ]
-  %.1 = phi i32 [ %spec.select, %34 ], [ %.066, %8 ], [ %spec.select, %44 ]
+  %.136 = phi i32 [ %.03565, %8 ], [ %.4, %34 ], [ %.6, %44 ]
+  %.1 = phi i32 [ %.066, %8 ], [ %spec.select, %34 ], [ %spec.select, %44 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph70, label %8, !llvm.loop !44
@@ -1064,8 +1064,8 @@ Vec_IntAlloc.exit:                                ; preds = %If_ManMarkMapping.e
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %73, %75, %65, %67
-  %.sink72 = phi ptr [ %66, %65 ], [ %68, %67 ], [ %74, %73 ], [ %76, %75 ]
-  %.sink = phi i32 [ 16, %65 ], [ 16, %67 ], [ %70, %73 ], [ %70, %75 ]
+  %.sink72 = phi ptr [ %68, %67 ], [ %66, %65 ], [ %74, %73 ], [ %76, %75 ]
+  %.sink = phi i32 [ 16, %67 ], [ 16, %65 ], [ %70, %73 ], [ %70, %75 ]
   store ptr %.sink72, ptr %43, align 8, !tbaa !53
   store i32 %.sink, ptr %35, align 8, !tbaa !75
   br label %Vec_IntPush.exit
@@ -1161,8 +1161,8 @@ Vec_IntPush.exit34:                               ; preds = %Vec_IntPush.exit34.
   br label %Vec_IntPush.exit41.sink.split
 
 Vec_IntPush.exit41.sink.split:                    ; preds = %112, %114, %104, %106
-  %.sink77 = phi ptr [ %105, %104 ], [ %107, %106 ], [ %113, %112 ], [ %115, %114 ]
-  %.sink76 = phi i32 [ 16, %104 ], [ 16, %106 ], [ %109, %112 ], [ %109, %114 ]
+  %.sink77 = phi ptr [ %107, %106 ], [ %105, %104 ], [ %113, %112 ], [ %115, %114 ]
+  %.sink76 = phi i32 [ 16, %106 ], [ 16, %104 ], [ %109, %112 ], [ %109, %114 ]
   store ptr %.sink77, ptr %43, align 8, !tbaa !53
   store i32 %.sink76, ptr %35, align 8, !tbaa !75
   br label %Vec_IntPush.exit41

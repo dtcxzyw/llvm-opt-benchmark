@@ -309,7 +309,7 @@ define i32 @IDABBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
   br label %148
 
 148:                                              ; preds = %140, %146, %142
-  %149 = phi double [ %147, %146 ], [ 0.000000e+00, %142 ], [ %6, %140 ]
+  %149 = phi double [ 0.000000e+00, %142 ], [ %147, %146 ], [ %6, %140 ]
   %150 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store double %149, ptr %150, align 8, !tbaa !45
   %151 = getelementptr inbounds nuw i8, ptr %31, i64 56
@@ -803,7 +803,7 @@ define internal i32 @IDABBDPrecSetup(double noundef %0, ptr noundef %1, ptr noun
   br i1 %exitcond.not.i, label %.loopexit, label %67
 
 IBBDDQJac.exit:                                   ; preds = %._crit_edge.i, %39, %45
-  %.0.i = phi i32 [ %44, %39 ], [ %52, %45 ], [ %122, %._crit_edge.i ]
+  %.0.i = phi i32 [ %52, %45 ], [ %44, %39 ], [ %122, %._crit_edge.i ]
   %192 = icmp slt i32 %.0.i, 0
   br i1 %192, label %193, label %198
 
@@ -901,7 +901,7 @@ define range(i32 -5, 1) i32 @IDABBDPrecReInit(ptr noundef %0, i64 noundef %1, i6
   br label %32
 
 32:                                               ; preds = %17, %30, %26
-  %33 = phi double [ %31, %30 ], [ 0.000000e+00, %26 ], [ %3, %17 ]
+  %33 = phi double [ 0.000000e+00, %26 ], [ %31, %30 ], [ %3, %17 ]
   %34 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store double %33, ptr %34, align 8, !tbaa !45
   %35 = getelementptr inbounds nuw i8, ptr %14, i64 144
@@ -1066,7 +1066,7 @@ define i32 @IDABBDPrecInitB(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 
   br label %40
 
 40:                                               ; preds = %._crit_edge, %36, %35, %23, %17, %12
-  %.0 = phi i32 [ -1, %12 ], [ -101, %17 ], [ -3, %23 ], [ -4, %35 ], [ 0, %36 ], [ %31, %._crit_edge ]
+  %.0 = phi i32 [ -1, %12 ], [ -101, %17 ], [ -3, %23 ], [ 0, %36 ], [ -4, %35 ], [ %31, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -1164,7 +1164,7 @@ define internal i32 @IDAAgcomm(i64 noundef %0, double noundef %1, ptr noundef %2
   br label %37
 
 37:                                               ; preds = %5, %28, %27
-  %.0 = phi i32 [ -1, %27 ], [ %36, %28 ], [ 0, %5 ]
+  %.0 = phi i32 [ %36, %28 ], [ -1, %27 ], [ 0, %5 ]
   ret i32 %.0
 }
 

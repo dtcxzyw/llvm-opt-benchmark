@@ -1059,7 +1059,7 @@ define hidden void @"_ZN52_$LT$std..path..Path$u20$as$u20$core..hash..Hash$GT$4h
   br label %29
 
 29:                                               ; preds = %34, %24, %28
-  %.035 = phi i64 [ 0, %28 ], [ 1, %24 ], [ 1, %34 ]
+  %.035 = phi i64 [ 1, %24 ], [ 0, %28 ], [ 1, %34 ]
   %30 = add i64 %.035, %10
   br label %14
 
@@ -3618,7 +3618,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hb2
   br label %.thread
 
 .thread:                                          ; preds = %87, %83
-  %.sroa.4.0.ph = phi i64 [ %93, %87 ], [ %.sroa.6.1.i.i, %83 ]
+  %.sroa.4.0.ph = phi i64 [ %.sroa.6.1.i.i, %83 ], [ %93, %87 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %94 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -4963,7 +4963,7 @@ thread-pre-split:                                 ; preds = %42
   br i1 %40, label %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hade0d949a1a27019E.exit.thread", label %42
 
 "_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hade0d949a1a27019E.exit.thread": ; preds = %35, %42, %thread-pre-split, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hade0d949a1a27019E.exit", %1
-  %41 = phi i1 [ false, %1 ], [ true, %35 ], [ true, %42 ], [ false, %thread-pre-split ], [ false, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hade0d949a1a27019E.exit" ]
+  %41 = phi i1 [ false, %1 ], [ true, %35 ], [ false, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hade0d949a1a27019E.exit" ], [ true, %42 ], [ false, %thread-pre-split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %41
 
@@ -5118,7 +5118,7 @@ define hidden { ptr, ptr } @_ZN7uu_tail6follow5files12FileHandling13update_reade
   unreachable
 
 common.resume:                                    ; preds = %39, %47, %27, %15
-  %common.resume.op = phi { ptr, i32 } [ %16, %15 ], [ %28, %27 ], [ %40, %47 ], [ %40, %39 ]
+  %common.resume.op = phi { ptr, i32 } [ %28, %27 ], [ %16, %15 ], [ %40, %47 ], [ %40, %39 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN3std2io8buffered9bufreader18BufReader$LT$R$GT$13with_capacity17h80bce01616b83f92E.exit": ; preds = %13
@@ -6008,7 +6008,7 @@ define hidden void @_ZN7uu_tail6follow5files8PathData20from_other_with_path17h3b
   br label %62
 
 62:                                               ; preds = %54, %"_ZN4core3ptr86drop_in_place$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$GT$17hd1edb055d0a2e5dcE.exit"
-  %.sroa.0.144 = phi ptr [ null, %"_ZN4core3ptr86drop_in_place$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$GT$17hd1edb055d0a2e5dcE.exit" ], [ %45, %54 ]
+  %.sroa.0.144 = phi ptr [ %45, %54 ], [ null, %"_ZN4core3ptr86drop_in_place$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$GT$17hd1edb055d0a2e5dcE.exit" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %21
 
@@ -6110,7 +6110,7 @@ define hidden void @_ZN7uu_tail6follow5files8PathData20from_other_with_path17h3b
   ret void
 
 .body30:                                          ; preds = %.thread, %.body25
-  %.pn14 = phi { ptr, i32 } [ %.pn41, %.thread ], [ %.pn, %.body25 ]
+  %.pn14 = phi { ptr, i32 } [ %.pn, %.body25 ], [ %.pn41, %.thread ]
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 176
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h37738dca42e62947E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %93) #32
           to label %96 unwind label %52

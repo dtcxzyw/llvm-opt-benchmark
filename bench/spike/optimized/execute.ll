@@ -114,7 +114,7 @@ define noundef zeroext i1 @_ZN11processor_t9slow_pathEv(ptr noundef nonnull read
   br label %23
 
 23:                                               ; preds = %19, %1
-  %24 = phi i1 [ true, %1 ], [ %22, %19 ]
+  %24 = phi i1 [ %22, %19 ], [ true, %1 ]
   ret i1 %24
 }
 
@@ -149,7 +149,7 @@ define void @_ZN11processor_t4stepEm(ptr noundef nonnull align 8 dereferenceable
   br label %.sink.split
 
 .sink.split:                                      ; preds = %8, %11, %16
-  %.sink = phi i8 [ 5, %16 ], [ 6, %11 ], [ 3, %8 ]
+  %.sink = phi i8 [ 6, %11 ], [ 5, %16 ], [ 3, %8 ]
   tail call void @_ZN11processor_t16enter_debug_modeEhh(ptr noundef nonnull align 8 dereferenceable(266872) %0, i8 noundef zeroext %.sink, i8 noundef zeroext 0)
   br label %17
 
@@ -363,8 +363,8 @@ _ZN11processor_t9slow_pathEv.exit.preheader:      ; preds = %66, %_ZN11processor
           to label %128 unwind label %126
 
 126:                                              ; preds = %.invoke, %.loopexit.i.i.i.i, %116, %125
-  %.369 = phi i64 [ %.167181, %125 ], [ %.167181, %116 ], [ %.167181, %.loopexit.i.i.i.i ], [ %154, %.invoke ]
-  %.3 = phi i64 [ %.165182, %125 ], [ %.165182, %116 ], [ %.165182, %.loopexit.i.i.i.i ], [ %234, %.invoke ]
+  %.369 = phi i64 [ %.167181, %116 ], [ %154, %.invoke ], [ %.167181, %.loopexit.i.i.i.i ], [ %.167181, %125 ]
+  %.3 = phi i64 [ %.165182, %116 ], [ %234, %.invoke ], [ %.165182, %.loopexit.i.i.i.i ], [ %.165182, %125 ]
   %127 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTI6trap_t
@@ -628,7 +628,7 @@ _ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4
   br label %.body
 
 _ZNSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEEixERS5_.exit.i.i: ; preds = %209, %.noexc, %204
-  %.pn.i.i.i.i = phi ptr [ %205, %204 ], [ %219, %.noexc ], [ %211, %209 ]
+  %.pn.i.i.i.i = phi ptr [ %219, %.noexc ], [ %205, %204 ], [ %211, %209 ]
   %.1.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i, i64 16
   %221 = load i64, ptr %.1.i.i.i.i, align 8, !tbaa !160
   %222 = add i64 %221, 1
@@ -765,9 +765,9 @@ _ZL17execute_insn_fastP11processor_tm12insn_fetch_t.exit: ; preds = %_ZN5mmu_t13
   br i1 %.not91, label %310, label %305, !prof !147
 
 .body:                                            ; preds = %180, %191, %192, %_ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i.i.i, %126, %258, %260, %106, %90
-  %.pn94 = phi { ptr, i32 } [ %91, %90 ], [ %107, %106 ], [ %261, %260 ], [ %259, %258 ], [ %127, %126 ], [ %220, %_ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i.i.i ], [ %181, %180 ], [ %.pn.i, %191 ], [ %193, %192 ]
-  %.268 = phi i64 [ %.066, %90 ], [ %.167181, %106 ], [ %.672, %260 ], [ %.571179, %258 ], [ %.369, %126 ], [ %.167181, %_ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i.i.i ], [ %.167181, %180 ], [ %.167181, %191 ], [ %.167181, %192 ]
-  %.2 = phi i64 [ %.064, %90 ], [ %.165182, %106 ], [ %.7, %260 ], [ %.6180, %258 ], [ %.3, %126 ], [ %.165182, %_ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i.i.i ], [ %.165182, %180 ], [ %.165182, %191 ], [ %.165182, %192 ]
+  %.pn94 = phi { ptr, i32 } [ %91, %90 ], [ %259, %258 ], [ %107, %106 ], [ %261, %260 ], [ %127, %126 ], [ %220, %_ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i.i.i ], [ %.pn.i, %191 ], [ %181, %180 ], [ %193, %192 ]
+  %.268 = phi i64 [ %.066, %90 ], [ %.571179, %258 ], [ %.167181, %106 ], [ %.672, %260 ], [ %.369, %126 ], [ %.167181, %_ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i.i.i ], [ %.167181, %191 ], [ %.167181, %180 ], [ %.167181, %192 ]
+  %.2 = phi i64 [ %.064, %90 ], [ %.6180, %258 ], [ %.165182, %106 ], [ %.7, %260 ], [ %.3, %126 ], [ %.165182, %_ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i.i.i ], [ %.165182, %191 ], [ %.165182, %180 ], [ %.165182, %192 ]
   %.074 = extractvalue { ptr, i32 } %.pn94, 0
   %.078 = extractvalue { ptr, i32 } %.pn94, 1
   %268 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI6trap_t) #23
@@ -932,8 +932,8 @@ _ZL17execute_insn_fastP11processor_tm12insn_fetch_t.exit: ; preds = %_ZN5mmu_t13
   br label %.thread117
 
 .thread117:                                       ; preds = %310, %_ZN11processor_t9slow_pathEv.exit, %230, %229, %306, %307, %89, %339, %323, %302, %298
-  %.10 = phi i64 [ %.2, %339 ], [ %.2, %323 ], [ %.2, %298 ], [ %304, %302 ], [ %.165182, %89 ], [ %.7.lcssa192, %306 ], [ %308, %307 ], [ %.165182, %229 ], [ %231, %230 ], [ %.0184, %_ZN11processor_t9slow_pathEv.exit ], [ %311, %310 ]
-  %.1 = phi i64 [ %.2, %339 ], [ %.0184, %323 ], [ %.0184, %298 ], [ %304, %302 ], [ %.0184, %89 ], [ %.0184, %306 ], [ %.0184, %307 ], [ %.0184, %229 ], [ %.0184, %230 ], [ %.0184, %_ZN11processor_t9slow_pathEv.exit ], [ %.0184, %310 ]
+  %.10 = phi i64 [ %.2, %339 ], [ %.2, %323 ], [ %.2, %298 ], [ %304, %302 ], [ %308, %307 ], [ %.165182, %89 ], [ %231, %230 ], [ %.0184, %_ZN11processor_t9slow_pathEv.exit ], [ %.7.lcssa192, %306 ], [ %.165182, %229 ], [ %311, %310 ]
+  %.1 = phi i64 [ %.2, %339 ], [ %.0184, %323 ], [ %.0184, %298 ], [ %304, %302 ], [ %.0184, %307 ], [ %.0184, %89 ], [ %.0184, %230 ], [ %.0184, %_ZN11processor_t9slow_pathEv.exit ], [ %.0184, %306 ], [ %.0184, %229 ], [ %.0184, %310 ]
   %340 = load ptr, ptr %52, align 8, !tbaa !213
   %341 = load ptr, ptr %340, align 8, !tbaa !143
   %342 = getelementptr inbounds nuw i8, ptr %341, i64 8
@@ -974,7 +974,7 @@ _ZL17execute_insn_fastP11processor_tm12insn_fetch_t.exit: ; preds = %_ZN5mmu_t13
   br i1 %.not, label %._crit_edge, label %55, !llvm.loop !215
 
 .loopexit:                                        ; preds = %299, %348, %324, %313
-  %.merged = phi { ptr, i32 } [ %314, %313 ], [ %325, %324 ], [ %.pn98, %348 ], [ %.pn94, %299 ]
+  %.merged = phi { ptr, i32 } [ %325, %324 ], [ %314, %313 ], [ %.pn98, %348 ], [ %.pn94, %299 ]
   resume { ptr, i32 } %.merged
 
 ._crit_edge:                                      ; preds = %358, %17
@@ -1266,8 +1266,8 @@ _ZN5mmu_t27translate_insn_addr_to_hostEm.exit53:  ; preds = %118, %121
   br label %.thread56
 
 .thread56:                                        ; preds = %_ZN5mmu_t19translate_insn_addrEm.exit, %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit53, %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit44, %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit
-  %131 = phi i64 [ 4, %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit ], [ 6, %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit44 ], [ 8, %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit53 ], [ 2, %_ZN5mmu_t19translate_insn_addrEm.exit ]
-  %.0 = phi i64 [ %55, %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit ], [ %84, %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit44 ], [ %130, %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit53 ], [ %27, %_ZN5mmu_t19translate_insn_addrEm.exit ]
+  %131 = phi i64 [ 4, %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit ], [ 2, %_ZN5mmu_t19translate_insn_addrEm.exit ], [ 6, %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit44 ], [ 8, %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit53 ]
+  %.0 = phi i64 [ %55, %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit ], [ %27, %_ZN5mmu_t19translate_insn_addrEm.exit ], [ %84, %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit44 ], [ %130, %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit53 ]
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %133 = load ptr, ptr %132, align 8, !tbaa !223
   %134 = tail call noundef ptr @_ZN11processor_t11decode_insnE6insn_t(ptr noundef nonnull align 8 dereferenceable(266872) %133, i64 %.0)

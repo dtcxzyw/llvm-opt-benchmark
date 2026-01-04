@@ -510,7 +510,7 @@ define dso_local range(i32 0, 2) i32 @ctx_set_verify_locations(ptr noundef %0, p
   br label %34
 
 34:                                               ; preds = %31, %28, %25, %20, %16, %12, %33, %23
-  %.0 = phi i32 [ 1, %23 ], [ 1, %33 ], [ 0, %12 ], [ 0, %16 ], [ 0, %20 ], [ 0, %25 ], [ 0, %28 ], [ 0, %31 ]
+  %.0 = phi i32 [ 1, %23 ], [ 0, %16 ], [ 0, %12 ], [ 0, %20 ], [ 1, %33 ], [ 0, %28 ], [ 0, %25 ], [ 0, %31 ]
   ret i32 %.0
 }
 
@@ -702,7 +702,7 @@ app_passwd.exit.thread:                           ; preds = %4
   br label %app_passwd.exit.thread.thread
 
 app_passwd.exit.thread.thread:                    ; preds = %4, %2, %app_passwd.exit.thread, %13
-  %.0 = phi ptr [ null, %13 ], [ %11, %app_passwd.exit.thread ], [ %5, %4 ], [ null, %2 ]
+  %.0 = phi ptr [ null, %13 ], [ %11, %app_passwd.exit.thread ], [ null, %2 ], [ %5, %4 ]
   ret ptr %.0
 }
 
@@ -963,7 +963,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge
 
 .critedge:                                        ; preds = %.thread, %56, %81, %84, %102, %96, %70, %32, %19, %16, %6
-  %.0 = phi ptr [ %8, %6 ], [ null, %16 ], [ %20, %19 ], [ null, %32 ], [ null, %96 ], [ %103, %102 ], [ null, %70 ], [ null, %84 ], [ null, %81 ], [ null, %56 ], [ null, %.thread ]
+  %.0 = phi ptr [ %8, %6 ], [ null, %16 ], [ %20, %19 ], [ null, %32 ], [ null, %96 ], [ %103, %102 ], [ null, %81 ], [ null, %70 ], [ null, %84 ], [ null, %56 ], [ null, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -1239,7 +1239,7 @@ sub_0:                                            ; preds = %4
   br label %modestr.exit
 
 modestr.exit:                                     ; preds = %31, %34, %37
-  %.0.i = phi ptr [ %33, %31 ], [ %36, %34 ], [ %39, %37 ]
+  %.0.i = phi ptr [ %39, %37 ], [ %33, %31 ], [ %36, %34 ]
   %40 = tail call ptr @BIO_new_file(ptr noundef nonnull %0, ptr noundef nonnull %.0.i) #27
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %42, label %41
@@ -1270,7 +1270,7 @@ modestr.exit:                                     ; preds = %31, %34, %37
   br label %modeverb.exit
 
 modeverb.exit:                                    ; preds = %43, %45, %46, %47
-  %.0.i26 = phi ptr [ @.str.229, %47 ], [ @.str.227, %45 ], [ @.str.228, %46 ], [ @.str.226, %43 ]
+  %.0.i26 = phi ptr [ @.str.229, %47 ], [ @.str.228, %46 ], [ @.str.227, %45 ], [ @.str.226, %43 ]
   %48 = tail call ptr @__errno_location() #28
   %49 = load i32, ptr %48, align 4, !tbaa !30
   %50 = tail call ptr @strerror(i32 noundef %49) #27
@@ -1283,7 +1283,7 @@ modeverb.exit:                                    ; preds = %43, %45, %46, %47
   br label %54
 
 54:                                               ; preds = %42, %22, %52, %41, %21
-  %.0 = phi ptr [ %20, %21 ], [ null, %52 ], [ %40, %41 ], [ %20, %22 ], [ %40, %42 ]
+  %.0 = phi ptr [ %20, %21 ], [ %20, %22 ], [ null, %52 ], [ %40, %41 ], [ %40, %42 ]
   ret ptr %.0
 }
 
@@ -1430,7 +1430,7 @@ app_conf_try_string.exit.thread:                  ; preds = %1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %15, %.preheader, %app_conf_try_string.exit.thread, %26, %12
-  %.014 = phi i32 [ 0, %12 ], [ 0, %26 ], [ 1, %app_conf_try_string.exit.thread ], [ 1, %.preheader ], [ 1, %15 ]
+  %.014 = phi i32 [ 1, %app_conf_try_string.exit.thread ], [ 0, %12 ], [ 0, %26 ], [ 1, %.preheader ], [ 1, %15 ]
   ret i32 %.014
 }
 
@@ -1911,8 +1911,8 @@ define dso_local range(i32 0, 2) i32 @load_key_certs_crls(ptr noundef %0, i32 no
   br label %164
 
 164:                                              ; preds = %155, %159, %160
-  %.4198 = phi ptr [ null, %160 ], [ null, %159 ], [ %spec.select266, %155 ]
-  %.1 = phi i32 [ %163, %160 ], [ 1, %159 ], [ %158, %155 ]
+  %.4198 = phi ptr [ null, %159 ], [ %spec.select266, %155 ], [ null, %160 ]
+  %.1 = phi i32 [ 1, %159 ], [ %158, %155 ], [ %163, %160 ]
   %165 = add nsw i32 %.1, %.1191345
   br label %178
 
@@ -1937,26 +1937,26 @@ define dso_local range(i32 0, 2) i32 @load_key_certs_crls(ptr noundef %0, i32 no
   br label %176
 
 176:                                              ; preds = %167, %171, %172
-  %.4209 = phi ptr [ null, %172 ], [ null, %171 ], [ %spec.select267, %167 ]
-  %.2 = phi i32 [ %175, %172 ], [ 1, %171 ], [ %170, %167 ]
+  %.4209 = phi ptr [ null, %171 ], [ %spec.select267, %167 ], [ null, %172 ]
+  %.2 = phi i32 [ 1, %171 ], [ %170, %167 ], [ %175, %172 ]
   %177 = add nsw i32 %.2, %.1187346
   br label %178
 
-.thread296:                                       ; preds = %137, %144, %149
-  %.3177.ph = phi ptr [ null, %149 ], [ %.1175347, %144 ], [ %.1175347, %137 ]
-  %.3170.ph = phi ptr [ %.1168348, %149 ], [ null, %144 ], [ %.1168348, %137 ]
+.thread296:                                       ; preds = %137, %149, %144
+  %.3177.ph = phi ptr [ %.1175347, %144 ], [ null, %149 ], [ %.1175347, %137 ]
+  %.3170.ph = phi ptr [ null, %144 ], [ %.1168348, %149 ], [ %.1168348, %137 ]
   call void @OSSL_STORE_INFO_free(ptr noundef nonnull %135) #27
   br label %184
 
 178:                                              ; preds = %150, %145, %140, %176, %164
-  %.3208 = phi ptr [ %.1206343, %164 ], [ %.4209, %176 ], [ %.1206343, %140 ], [ %.1206343, %145 ], [ %.1206343, %150 ]
-  %.3197 = phi ptr [ %.4198, %164 ], [ %.1195344, %176 ], [ %.1195344, %140 ], [ %.1195344, %145 ], [ %.1195344, %150 ]
-  %.3193 = phi i32 [ %165, %164 ], [ %.1191345, %176 ], [ %.1191345, %140 ], [ %.1191345, %145 ], [ %.1191345, %150 ]
-  %.3189 = phi i32 [ %.1187346, %164 ], [ %177, %176 ], [ %.1187346, %140 ], [ %.1187346, %145 ], [ %.1187346, %150 ]
-  %.3177 = phi ptr [ %.1175347, %164 ], [ %.1175347, %176 ], [ %.1175347, %140 ], [ %.1175347, %145 ], [ %spec.select265, %150 ]
-  %.3170 = phi ptr [ %.1168348, %164 ], [ %.1168348, %176 ], [ %.1168348, %140 ], [ %spec.select264, %145 ], [ %.1168348, %150 ]
-  %.3 = phi ptr [ %.1165349, %164 ], [ %.1165349, %176 ], [ %spec.select, %140 ], [ %.1165349, %145 ], [ %.1165349, %150 ]
-  %.0160 = phi i32 [ %.1, %164 ], [ %.2, %176 ], [ %143, %140 ], [ %148, %145 ], [ %153, %150 ]
+  %.3208 = phi ptr [ %.1206343, %150 ], [ %.4209, %176 ], [ %.1206343, %145 ], [ %.1206343, %140 ], [ %.1206343, %164 ]
+  %.3197 = phi ptr [ %.1195344, %150 ], [ %.1195344, %176 ], [ %.1195344, %145 ], [ %.1195344, %140 ], [ %.4198, %164 ]
+  %.3193 = phi i32 [ %.1191345, %150 ], [ %.1191345, %176 ], [ %.1191345, %145 ], [ %.1191345, %140 ], [ %165, %164 ]
+  %.3189 = phi i32 [ %.1187346, %150 ], [ %177, %176 ], [ %.1187346, %145 ], [ %.1187346, %140 ], [ %.1187346, %164 ]
+  %.3177 = phi ptr [ %spec.select265, %150 ], [ %.1175347, %176 ], [ %.1175347, %145 ], [ %.1175347, %140 ], [ %.1175347, %164 ]
+  %.3170 = phi ptr [ %.1168348, %150 ], [ %.1168348, %176 ], [ %spec.select264, %145 ], [ %.1168348, %140 ], [ %.1168348, %164 ]
+  %.3 = phi ptr [ %.1165349, %150 ], [ %.1165349, %176 ], [ %.1165349, %145 ], [ %spec.select, %140 ], [ %.1165349, %164 ]
+  %.0160 = phi i32 [ %153, %150 ], [ %.2, %176 ], [ %148, %145 ], [ %143, %140 ], [ %.1, %164 ]
   call void @OSSL_STORE_INFO_free(ptr noundef nonnull %135) #27
   %.not245 = icmp eq i32 %.0160, 0
   br i1 %.not245, label %179, label %184
@@ -1996,10 +1996,10 @@ define dso_local range(i32 0, 2) i32 @load_key_certs_crls(ptr noundef %0, i32 no
   %190 = tail call i32 @OSSL_STORE_close(ptr noundef null) #27
   br label %212
 
-.critedge.thread379:                              ; preds = %76, %77, %.thread291.thread, %111, %118, %119, %95, %96
-  %.0200.ph = phi ptr [ null, %96 ], [ null, %95 ], [ %.3203, %119 ], [ %.3203, %118 ], [ null, %111 ], [ null, %.thread291.thread ], [ null, %77 ], [ null, %76 ]
-  %.0178.ph = phi ptr [ %88, %96 ], [ %88, %95 ], [ %88, %119 ], [ %88, %118 ], [ %88, %111 ], [ %88, %.thread291.thread ], [ %70, %77 ], [ %70, %76 ]
-  %.0161.ph = phi ptr [ null, %96 ], [ null, %95 ], [ %.2163, %119 ], [ %.2163, %118 ], [ %.2163331, %111 ], [ %.2163331, %.thread291.thread ], [ %0, %77 ], [ %0, %76 ]
+.critedge.thread379:                              ; preds = %95, %96, %76, %77, %.thread291.thread, %111, %119, %118
+  %.0200.ph = phi ptr [ %.3203, %118 ], [ %.3203, %119 ], [ null, %111 ], [ null, %.thread291.thread ], [ null, %77 ], [ null, %76 ], [ null, %96 ], [ null, %95 ]
+  %.0178.ph = phi ptr [ %88, %118 ], [ %88, %119 ], [ %88, %111 ], [ %88, %.thread291.thread ], [ %70, %77 ], [ %70, %76 ], [ %88, %96 ], [ %88, %95 ]
+  %.0161.ph = phi ptr [ %.2163, %118 ], [ %.2163, %119 ], [ %.2163331, %111 ], [ %.2163331, %.thread291.thread ], [ %0, %77 ], [ %0, %76 ], [ null, %96 ], [ null, %95 ]
   %191 = call i32 @OSSL_STORE_close(ptr noundef %.0200.ph) #27
   br label %212
 
@@ -2014,7 +2014,7 @@ define dso_local range(i32 0, 2) i32 @load_key_certs_crls(ptr noundef %0, i32 no
   %192 = call i32 @OSSL_STORE_close(ptr noundef nonnull %.3203) #27
   br label %195
 
-.critedge:                                        ; preds = %179, %181
+.critedge:                                        ; preds = %181, %179
   %193 = call i32 @OSSL_STORE_close(ptr noundef nonnull %.3203) #27
   %194 = icmp eq ptr %180, null
   br i1 %194, label %195, label %212
@@ -2144,7 +2144,7 @@ define dso_local range(i32 0, 2) i32 @load_key_certs_crls(ptr noundef %0, i32 no
   br label %250
 
 250:                                              ; preds = %27, %28, %248
-  %.0 = phi i32 [ %249, %248 ], [ 0, %28 ], [ 0, %27 ]
+  %.0 = phi i32 [ 0, %27 ], [ %249, %248 ], [ 0, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i32 %.0
@@ -2231,7 +2231,7 @@ define dso_local ptr @load_csr(ptr noundef %0, i32 noundef %1, ptr noundef %2) l
   br label %.thread
 
 13:                                               ; preds = %8, %10
-  %.0 = phi ptr [ %9, %8 ], [ %11, %10 ]
+  %.0 = phi ptr [ %11, %10 ], [ %9, %8 ]
   %14 = icmp eq ptr %.0, null
   br i1 %14, label %.thread, label %19
 
@@ -2575,7 +2575,7 @@ define dso_local ptr @next_item(ptr noundef captures(ret: address, provenance) %
   br i1 %.not12, label %.loopexit, label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %10, %1, %.critedge
-  %.018 = phi ptr [ %.020, %.critedge ], [ %0, %1 ], [ %11, %10 ]
+  %.018 = phi ptr [ %0, %1 ], [ %.020, %.critedge ], [ %11, %10 ]
   store i8 0, ptr %.018, align 1, !tbaa !13
   %13 = load ptr, ptr %.pre, align 8, !tbaa !14
   br label %14
@@ -2653,7 +2653,7 @@ get_passwd.exit.thread:                           ; preds = %30, %20
   br label %clear_free.exit
 
 34:                                               ; preds = %app_passwd.exit.thread.i, %21
-  %.0.i = phi ptr [ %28, %app_passwd.exit.thread.i ], [ %22, %21 ]
+  %.0.i = phi ptr [ %22, %21 ], [ %28, %app_passwd.exit.thread.i ]
   %35 = tail call i32 @load_key_certs_crls(ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %.0.i, ptr noundef nonnull %.028, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %1, ptr noundef %2, ptr noundef null, ptr noundef null)
   %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #29
   tail call void @CRYPTO_clear_free(ptr noundef nonnull %.0.i, i64 noundef %36, ptr noundef nonnull @.str.1, i32 noundef 602) #27
@@ -2796,7 +2796,7 @@ define dso_local ptr @load_certs_multifile(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not12.i, label %next_item.exit, label %.critedge.thread.i
 
 .critedge.thread.i:                               ; preds = %19, %.critedge.i, %10
-  %.018.i = phi ptr [ %.020.i, %.critedge.i ], [ %.01426, %10 ], [ %20, %19 ]
+  %.018.i = phi ptr [ %.01426, %10 ], [ %.020.i, %.critedge.i ], [ %20, %19 ]
   store i8 0, ptr %.018.i, align 1, !tbaa !13
   %22 = load ptr, ptr %.pre.i, align 8, !tbaa !14
   br label %23
@@ -2842,7 +2842,7 @@ next_item.exit:                                   ; preds = %.critedge.i, %.loop
   br label %.thread20
 
 .thread20:                                        ; preds = %next_item.exit, %4, %.thread
-  %39 = phi ptr [ null, %4 ], [ %36, %.thread ], [ %.pre, %next_item.exit ]
+  %39 = phi ptr [ %36, %.thread ], [ null, %4 ], [ %.pre, %next_item.exit ]
   call void @OSSL_STACK_OF_X509_free(ptr noundef %39) #27
   call void @OSSL_STACK_OF_X509_free(ptr noundef %6) #27
   br label %.loopexit
@@ -2902,7 +2902,7 @@ define dso_local ptr @load_certstore(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not12.i, label %next_item.exit, label %.critedge.thread.i
 
 .critedge.thread.i:                               ; preds = %16, %.critedge.i, %7
-  %.018.i = phi ptr [ %.020.i, %.critedge.i ], [ %.013, %7 ], [ %17, %16 ]
+  %.018.i = phi ptr [ %.013, %7 ], [ %.020.i, %.critedge.i ], [ %17, %16 ]
   store i8 0, ptr %.018.i, align 1, !tbaa !13
   %19 = load ptr, ptr %.pre.i, align 8, !tbaa !14
   br label %20
@@ -2967,7 +2967,7 @@ next_item.exit:                                   ; preds = %.critedge.i, %.loop
   br label %sk_X509_to_store.exit
 
 sk_X509_to_store.exit:                            ; preds = %38, %33, %.preheader.i, %44
-  %.010.i = phi ptr [ null, %44 ], [ null, %33 ], [ %.01116.i, %.preheader.i ], [ %.01116.i, %38 ]
+  %.010.i = phi ptr [ null, %33 ], [ null, %44 ], [ %.01116.i, %.preheader.i ], [ %.01116.i, %38 ]
   %.not20.not = icmp eq ptr %.010.i, null
   %45 = load ptr, ptr %5, align 8, !tbaa !39
   call void @OSSL_STACK_OF_X509_free(ptr noundef %45) #27
@@ -3283,7 +3283,7 @@ define dso_local range(i32 0, 2) i32 @copy_extensions(ptr noundef %0, ptr nounde
   br i1 %31, label %.lr.ph.split, label %._crit_edge, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %28, %.loopexit, %18, %16, %8
-  %.028 = phi i32 [ 1, %8 ], [ 0, %16 ], [ 1, %18 ], [ 0, %.loopexit ], [ 1, %28 ]
+  %.028 = phi i32 [ 0, %16 ], [ 1, %8 ], [ 1, %18 ], [ 0, %.loopexit ], [ 1, %28 ]
   tail call void @OPENSSL_sk_pop_free(ptr noundef %9, ptr noundef nonnull @X509_EXTENSION_free) #27
   br label %32
 
@@ -3610,7 +3610,7 @@ rand_serial.exit:                                 ; preds = %.thread.i
   br label %.thread
 
 38:                                               ; preds = %32, %rand_serial.exit
-  %.1 = phi ptr [ %18, %rand_serial.exit ], [ %33, %32 ]
+  %.1 = phi ptr [ %33, %32 ], [ %18, %rand_serial.exit ]
   %.not54 = icmp eq ptr %3, null
   br i1 %.not54, label %41, label %39
 
@@ -3619,15 +3619,15 @@ rand_serial.exit:                                 ; preds = %.thread.i
   br label %41
 
 .thread:                                          ; preds = %.critedge, %20, %4, %16, %35, %29
-  %.027.ph = phi ptr [ %9, %29 ], [ %9, %35 ], [ null, %16 ], [ null, %4 ], [ null, %20 ], [ null, %.critedge ]
+  %.027.ph = phi ptr [ null, %4 ], [ %9, %29 ], [ %9, %35 ], [ null, %16 ], [ null, %20 ], [ null, %.critedge ]
   %40 = load ptr, ptr @bio_err, align 8, !tbaa !26
   call void @ERR_print_errors(ptr noundef %40) #27
   br label %41
 
 41:                                               ; preds = %39, %38, %.thread
-  %.052 = phi ptr [ %6, %.thread ], [ null, %39 ], [ %6, %38 ]
-  %.02650 = phi ptr [ null, %.thread ], [ %.1, %39 ], [ %.1, %38 ]
-  %.02748 = phi ptr [ %.027.ph, %.thread ], [ %9, %39 ], [ %9, %38 ]
+  %.052 = phi ptr [ %6, %.thread ], [ %6, %38 ], [ null, %39 ]
+  %.02650 = phi ptr [ null, %.thread ], [ %.1, %38 ], [ %.1, %39 ]
+  %.02748 = phi ptr [ %.027.ph, %.thread ], [ %9, %38 ], [ %9, %39 ]
   %42 = call i32 @BIO_free(ptr noundef %.02748) #27
   call void @ASN1_INTEGER_free(ptr noundef %.052) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3759,9 +3759,9 @@ define dso_local range(i32 0, 2) i32 @save_serial(ptr noundef %0, ptr noundef %1
   br label %37
 
 37:                                               ; preds = %34, %31, %35
-  %.02041 = phi ptr [ null, %35 ], [ null, %34 ], [ %26, %31 ]
-  %.02139 = phi i32 [ 0, %35 ], [ 1, %34 ], [ 1, %31 ]
-  %.02237 = phi ptr [ %.022.ph, %35 ], [ %23, %34 ], [ %23, %31 ]
+  %.02041 = phi ptr [ null, %35 ], [ %26, %31 ], [ null, %34 ]
+  %.02139 = phi i32 [ 0, %35 ], [ 1, %31 ], [ 1, %34 ]
+  %.02237 = phi ptr [ %.022.ph, %35 ], [ %23, %31 ], [ %23, %34 ]
   call void @BIO_free_all(ptr noundef %.02237) #27
   call void @ASN1_INTEGER_free(ptr noundef %.02041) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -4498,10 +4498,10 @@ define dso_local ptr @parse_name(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.preheader.split.us, %.preheader.split.us, %.preheader.split, %.preheader.split, %.critedge2.loopexit147
-  %.us-phi = phi ptr [ %.163, %.critedge2.loopexit147 ], [ %.163, %.preheader.split ], [ %.163, %.preheader.split ], [ %.163.us, %.preheader.split.us ], [ %.163.us, %.preheader.split.us ]
-  %.us-phi89 = phi ptr [ %.1.pn, %.critedge2.loopexit147 ], [ %.1.pn, %.preheader.split ], [ %.1.pn, %.preheader.split ], [ %.1.pn.us, %.preheader.split.us ], [ %.1.pn.us, %.preheader.split.us ]
-  %.us-phi90 = phi ptr [ %.3, %.critedge2.loopexit147 ], [ %.3, %.preheader.split ], [ %.3, %.preheader.split ], [ %.3.us, %.preheader.split.us ], [ %.3.us, %.preheader.split.us ]
-  %.us-phi91 = phi i32 [ 1, %.critedge2.loopexit147 ], [ 0, %.preheader.split ], [ 0, %.preheader.split ], [ 0, %.preheader.split.us ], [ 0, %.preheader.split.us ]
+  %.us-phi = phi ptr [ %.163, %.preheader.split ], [ %.163, %.critedge2.loopexit147 ], [ %.163, %.preheader.split ], [ %.163.us, %.preheader.split.us ], [ %.163.us, %.preheader.split.us ]
+  %.us-phi89 = phi ptr [ %.1.pn, %.preheader.split ], [ %.1.pn, %.critedge2.loopexit147 ], [ %.1.pn, %.preheader.split ], [ %.1.pn.us, %.preheader.split.us ], [ %.1.pn.us, %.preheader.split.us ]
+  %.us-phi90 = phi ptr [ %.3, %.preheader.split ], [ %.3, %.critedge2.loopexit147 ], [ %.3, %.preheader.split ], [ %.3.us, %.preheader.split.us ], [ %.3.us, %.preheader.split.us ]
+  %.us-phi91 = phi i32 [ 0, %.preheader.split ], [ 1, %.critedge2.loopexit147 ], [ 0, %.preheader.split ], [ 0, %.preheader.split.us ], [ 0, %.preheader.split.us ]
   store i8 0, ptr %.us-phi, align 1, !tbaa !13
   %58 = load i8, ptr %.us-phi90, align 1, !tbaa !13
   %.not74 = icmp eq i8 %58, 0
@@ -4561,7 +4561,7 @@ define dso_local ptr @parse_name(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   tail call void @CRYPTO_free(ptr noundef nonnull %19, ptr noundef nonnull @.str.1, i32 noundef 2041) #27
   br label %89
 
-.thread:                                          ; preds = %.split.us, %82, %43, %22
+.thread:                                          ; preds = %82, %.split.us, %43, %22
   tail call void @X509_NAME_free(ptr noundef nonnull %12) #27
   tail call void @CRYPTO_free(ptr noundef %19, ptr noundef nonnull @.str.1, i32 noundef 2046) #27
   br label %89
@@ -4812,7 +4812,7 @@ app_malloc.exit:                                  ; preds = %25, %30, %18
   br label %38
 
 38:                                               ; preds = %2, %36, %35, %24
-  %.040 = phi ptr [ null, %24 ], [ null, %35 ], [ %7, %36 ], [ null, %2 ]
+  %.040 = phi ptr [ %7, %36 ], [ null, %24 ], [ null, %35 ], [ null, %2 ]
   ret ptr %.040
 }
 
@@ -4997,7 +4997,7 @@ define internal fastcc range(i32 0, 2) i32 @adapt_keyid_ext(ptr noundef %0, ptr 
   br label %25
 
 25:                                               ; preds = %20, %21, %13, %18
-  %.022 = phi i32 [ 1, %18 ], [ 1, %13 ], [ 1, %20 ], [ %24, %21 ]
+  %.022 = phi i32 [ 1, %13 ], [ 1, %18 ], [ 1, %20 ], [ %24, %21 ]
   tail call void @X509_EXTENSION_free(ptr noundef nonnull %7) #27
   br label %26
 
@@ -5083,7 +5083,7 @@ pkey_ctrl_string.exit.thread.i:                   ; preds = %pkey_ctrl_string.ex
   br label %do_pkey_ctx_init.exit
 
 do_pkey_ctx_init.exit:                            ; preds = %22, %pkey_ctrl_string.exit.thread.i, %.preheader.i, %17, %13, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %13 ], [ 0, %pkey_ctrl_string.exit.thread.i ], [ 1, %17 ], [ 1, %.preheader.i ], [ 1, %22 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %13 ], [ 1, %17 ], [ 0, %pkey_ctrl_string.exit.thread.i ], [ 1, %.preheader.i ], [ 1, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -5344,7 +5344,7 @@ define dso_local ptr @app_http_tls_cb(ptr noundef %0, ptr noundef readonly captu
   br label %58
 
 58:                                               ; preds = %57, %56, %55, %54, %53
-  %.03.i.ph.i = phi ptr [ @.str.213, %53 ], [ @.str.217, %57 ], [ @.str.216, %56 ], [ @.str.215, %55 ], [ @.str.214, %54 ]
+  %.03.i.ph.i = phi ptr [ @.str.213, %53 ], [ @.str.216, %56 ], [ @.str.215, %55 ], [ @.str.214, %54 ], [ @.str.217, %57 ]
   %59 = load ptr, ptr @bio_err, align 8, !tbaa !26
   %60 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %59, ptr noundef nonnull @.str.212, ptr noundef nonnull %.03.i.ph.i) #27
   br label %tls_error_hint.exit.i
@@ -5358,7 +5358,7 @@ tls_error_hint.exit.i:                            ; preds = %58, %53, %50
   br label %.critedge
 
 .critedge:                                        ; preds = %tls_error_hint.exit.i, %44, %36, %29, %19, %41, %4
-  %.0 = phi ptr [ %0, %4 ], [ %43, %41 ], [ null, %19 ], [ null, %29 ], [ null, %36 ], [ %62, %tls_error_hint.exit.i ], [ null, %44 ]
+  %.0 = phi ptr [ null, %36 ], [ %0, %4 ], [ %43, %41 ], [ null, %19 ], [ null, %29 ], [ %62, %tls_error_hint.exit.i ], [ null, %44 ]
   ret ptr %.0
 }
 
@@ -6072,7 +6072,7 @@ select.unfold:                                    ; preds = %41, %40
   br label %66
 
 66:                                               ; preds = %check_cert_time_string.exit30, %check_cert_time_string.exit, %61, %65, %53, %47, %37, %31
-  %.0 = phi i32 [ 0, %31 ], [ 0, %47 ], [ 1, %65 ], [ 0, %53 ], [ 0, %37 ], [ 0, %check_cert_time_string.exit ], [ 0, %check_cert_time_string.exit30 ], [ 0, %61 ]
+  %.0 = phi i32 [ 0, %31 ], [ 0, %47 ], [ 0, %check_cert_time_string.exit30 ], [ 1, %65 ], [ 0, %53 ], [ 0, %37 ], [ 0, %check_cert_time_string.exit ], [ 0, %61 ]
   ret i32 %.0
 }
 
@@ -6286,7 +6286,7 @@ app_params_free.exit:                             ; preds = %.lr.ph.i, %.prehead
   br label %39
 
 39:                                               ; preds = %8, %2, %app_params_free.exit, %._crit_edge
-  %.0 = phi ptr [ null, %app_params_free.exit ], [ %11, %._crit_edge ], [ null, %2 ], [ null, %8 ]
+  %.0 = phi ptr [ %11, %._crit_edge ], [ null, %2 ], [ null, %app_params_free.exit ], [ null, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -6548,7 +6548,7 @@ define internal fastcc ptr @load_crl_crldp(ptr noundef %0) unnamed_addr #0 {
   %29 = call ptr @load_crl(ptr noundef nonnull %21, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.211)
   br label %.loopexit18
 
-.loopexit:                                        ; preds = %.thread.i, %6, %.lr.ph, %8
+.loopexit:                                        ; preds = %.thread.i, %.lr.ph, %6, %8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %30 = add nuw nsw i32 %.01019, 1
   %31 = call i32 @OPENSSL_sk_num(ptr noundef %0) #27

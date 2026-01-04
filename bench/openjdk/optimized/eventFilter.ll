@@ -296,7 +296,7 @@ define hidden zeroext range(i8 0, 2) i8 @eventFilterRestricted_passesFilter(ptr 
   br label %isVersionGte12x.exit.i
 
 isVersionGte12x.exit.i:                           ; preds = %114, %109, %101
-  %.0.i.i = phi i8 [ 1, %109 ], [ %119, %114 ], [ 0, %101 ]
+  %.0.i.i = phi i8 [ %119, %114 ], [ 1, %109 ], [ 0, %101 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i8 %.0.i.i, ptr @eventInstance.is_version_gte_12x, align 1
   store i1 true, ptr @eventInstance.got_version, align 1
@@ -386,7 +386,7 @@ isVersionGte12x.exit.i:                           ; preds = %114, %109, %101
   %.not17.i = icmp eq i32 %.013.i, 0
   br i1 %.not17.i, label %eventInstance.exit, label %eventInstance.exit.thread
 
-eventInstance.exit.thread:                        ; preds = %120, %128, %122, %156
+eventInstance.exit.thread:                        ; preds = %120, %156, %122, %128
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %patternStringMatch.exit122.thread
@@ -485,7 +485,7 @@ eventInstance.exit:                               ; preds = %120, %120, %156
   br label %patternStringMatch.exit
 
 patternStringMatch.exit:                          ; preds = %190, %198
-  %.0.shrunk.i.in = phi i32 [ %191, %190 ], [ %201, %198 ]
+  %.0.shrunk.i.in = phi i32 [ %201, %198 ], [ %191, %190 ]
   %.0.shrunk.i.not = icmp eq i32 %.0.shrunk.i.in, 0
   br i1 %.0.shrunk.i.not, label %patternStringMatch.exit122.thread, label %patternStringMatch.exit.thread
 
@@ -535,7 +535,7 @@ patternStringMatch.exit:                          ; preds = %190, %198
   br label %patternStringMatch.exit122
 
 patternStringMatch.exit122:                       ; preds = %215, %223
-  %.0.shrunk.i116.in = phi i32 [ %216, %215 ], [ %226, %223 ]
+  %.0.shrunk.i116.in = phi i32 [ %226, %223 ], [ %216, %215 ]
   %.0.shrunk.i116.not = icmp eq i32 %.0.shrunk.i116.in, 0
   br i1 %.0.shrunk.i116.not, label %patternStringMatch.exit.thread, label %patternStringMatch.exit122.thread
 
@@ -627,7 +627,7 @@ patternStringMatch.exit122:                       ; preds = %215, %223
   br label %patternStringMatch.exit133
 
 patternStringMatch.exit133:                       ; preds = %263, %271
-  %.0.shrunk.i127.in = phi i32 [ %264, %263 ], [ %274, %271 ]
+  %.0.shrunk.i127.in = phi i32 [ %274, %271 ], [ %264, %263 ]
   %.0.shrunk.i127.not = icmp eq i32 %.0.shrunk.i127.in, 0
   br i1 %.0.shrunk.i127.not, label %275, label %patternStringMatch.exit133.thread
 
@@ -675,7 +675,7 @@ patternStringMatch.exit122.thread:                ; preds = %217, %202, %eventIn
   br i1 %293, label %29, label %patternStringMatch.exit.thread, !llvm.loop !8
 
 patternStringMatch.exit.thread:                   ; preds = %31, %41, %57, %53, %48, %64, %60, %75, %72, %88, %157, %171, %patternStringMatch.exit, %patternStringMatch.exit122, %227, %231, %282, %patternStringMatch.exit122.thread, %177, %192, %21, %19, %287, %patternStringMatch.exit133.thread
-  %.0 = phi i8 [ 0, %287 ], [ 0, %patternStringMatch.exit133.thread ], [ 0, %19 ], [ 1, %21 ], [ 0, %31 ], [ 0, %41 ], [ 0, %57 ], [ 0, %53 ], [ 0, %48 ], [ 0, %64 ], [ 0, %60 ], [ 0, %75 ], [ 0, %72 ], [ 0, %88 ], [ 0, %157 ], [ 0, %171 ], [ 0, %patternStringMatch.exit ], [ 0, %patternStringMatch.exit122 ], [ 0, %227 ], [ 0, %231 ], [ 0, %282 ], [ 1, %patternStringMatch.exit122.thread ], [ 0, %177 ], [ 0, %192 ]
+  %.0 = phi i8 [ 0, %patternStringMatch.exit133.thread ], [ 0, %287 ], [ 0, %19 ], [ 1, %21 ], [ 0, %177 ], [ 1, %patternStringMatch.exit122.thread ], [ 0, %282 ], [ 0, %60 ], [ 0, %48 ], [ 0, %57 ], [ 0, %41 ], [ 0, %227 ], [ 0, %patternStringMatch.exit ], [ 0, %patternStringMatch.exit122 ], [ 0, %171 ], [ 0, %157 ], [ 0, %88 ], [ 0, %72 ], [ 0, %64 ], [ 0, %75 ], [ 0, %53 ], [ 0, %31 ], [ 0, %231 ], [ 0, %192 ]
   ret i8 %.0
 }
 
@@ -805,7 +805,7 @@ define hidden zeroext range(i8 0, 2) i8 @eventFilterRestricted_passesUnloadFilte
   br label %patternStringMatch.exit
 
 patternStringMatch.exit:                          ; preds = %42, %50
-  %.0.shrunk.i.in = phi i32 [ %43, %42 ], [ %53, %50 ]
+  %.0.shrunk.i.in = phi i32 [ %53, %50 ], [ %43, %42 ]
   %.0.shrunk.i.not = icmp eq i32 %.0.shrunk.i.in, 0
   br i1 %.0.shrunk.i.not, label %patternStringMatch.exit30.thread, label %patternStringMatch.exit.thread
 
@@ -855,7 +855,7 @@ patternStringMatch.exit:                          ; preds = %42, %50
   br label %patternStringMatch.exit30
 
 patternStringMatch.exit30:                        ; preds = %67, %75
-  %.0.shrunk.i24.in = phi i32 [ %68, %67 ], [ %78, %75 ]
+  %.0.shrunk.i24.in = phi i32 [ %78, %75 ], [ %68, %67 ]
   %.0.shrunk.i24.not = icmp eq i32 %.0.shrunk.i24.in, 0
   br i1 %.0.shrunk.i24.not, label %patternStringMatch.exit.thread, label %patternStringMatch.exit30.thread
 
@@ -874,7 +874,7 @@ patternStringMatch.exit30.thread:                 ; preds = %69, %54, %28, %patt
   br i1 %85, label %10, label %patternStringMatch.exit.thread, !llvm.loop !9
 
 patternStringMatch.exit.thread:                   ; preds = %23, %patternStringMatch.exit, %patternStringMatch.exit30, %patternStringMatch.exit30.thread, %29, %44, %4, %79
-  %.015 = phi i8 [ 0, %79 ], [ 1, %4 ], [ 0, %23 ], [ 0, %patternStringMatch.exit ], [ 0, %patternStringMatch.exit30 ], [ 1, %patternStringMatch.exit30.thread ], [ 0, %29 ], [ 0, %44 ]
+  %.015 = phi i8 [ 0, %79 ], [ 1, %4 ], [ 0, %29 ], [ 1, %patternStringMatch.exit30.thread ], [ 0, %patternStringMatch.exit30 ], [ 0, %23 ], [ 0, %patternStringMatch.exit ], [ 0, %44 ]
   ret i8 %.015
 }
 
@@ -948,7 +948,7 @@ define hidden zeroext range(i8 0, 2) i8 @eventFilter_predictFiltering(ptr nounde
   %34 = trunc i64 %33 to i32
   %35 = load i8, ptr %30, align 1
   %.not.i = icmp eq i8 %35, 42
-  br i1 %.not.i, label %44, label %36
+  br i1 %.not.i, label %41, label %36
 
 36:                                               ; preds = %32
   %37 = shl i64 %33, 32
@@ -957,35 +957,35 @@ define hidden zeroext range(i8 0, 2) i8 @eventFilter_predictFiltering(ptr nounde
   %39 = getelementptr inbounds i8, ptr %30, i64 %38
   %40 = load i8, ptr %39, align 1
   %.not26.i = icmp eq i8 %40, 42
-  br i1 %.not26.i, label %44, label %41
+  br i1 %.not26.i, label %41, label %patternStringMatch.exit
 
-41:                                               ; preds = %36
-  %42 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %30, ptr noundef nonnull readonly dereferenceable(1) %2) #7
-  %.fr74 = freeze i32 %42
-  %43 = icmp eq i32 %.fr74, 0
-  br i1 %43, label %54, label %patternStringMatch.exit42.thread
+41:                                               ; preds = %36, %32
+  %42 = add nsw i32 %34, -1
+  %43 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #7
+  %44 = trunc i64 %43 to i32
+  %45 = sub nsw i32 %44, %42
+  %46 = icmp slt i32 %45, 0
+  br i1 %46, label %patternStringMatch.exit42.thread, label %47
 
-44:                                               ; preds = %36, %32
-  %45 = add nsw i32 %34, -1
-  %46 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #7
-  %47 = trunc i64 %46 to i32
-  %48 = sub nsw i32 %47, %45
-  %49 = icmp slt i32 %48, 0
-  br i1 %49, label %patternStringMatch.exit42.thread, label %patternStringMatch.exit
-
-patternStringMatch.exit:                          ; preds = %44
-  %50 = zext nneg i32 %48 to i64
+47:                                               ; preds = %41
+  %48 = zext nneg i32 %45 to i64
   %.022.idx.i = zext i1 %.not.i to i64
   %.022.i = getelementptr inbounds nuw i8, ptr %30, i64 %.022.idx.i
-  %.021.idx.i = select i1 %.not.i, i64 %50, i64 0
+  %.021.idx.i = select i1 %.not.i, i64 %48, i64 0
   %.021.i = getelementptr inbounds nuw i8, ptr %2, i64 %.021.idx.i
-  %51 = sext i32 %45 to i64
-  %52 = tail call i32 @strncmp(ptr noundef nonnull readonly %.022.i, ptr noundef nonnull readonly %.021.i, i64 noundef %51) #7
-  %.fr75 = freeze i32 %52
-  %53 = icmp eq i32 %.fr75, 0
+  %49 = sext i32 %42 to i64
+  %50 = tail call i32 @strncmp(ptr noundef nonnull readonly %.022.i, ptr noundef nonnull readonly %.021.i, i64 noundef %49) #7
+  %.fr75 = freeze i32 %50
+  %51 = icmp eq i32 %.fr75, 0
+  br i1 %51, label %54, label %patternStringMatch.exit42.thread
+
+patternStringMatch.exit:                          ; preds = %36
+  %52 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %30, ptr noundef nonnull readonly dereferenceable(1) %2) #7
+  %.fr74 = freeze i32 %52
+  %53 = icmp eq i32 %.fr74, 0
   br i1 %53, label %54, label %patternStringMatch.exit42.thread
 
-54:                                               ; preds = %41, %patternStringMatch.exit
+54:                                               ; preds = %47, %patternStringMatch.exit
   br label %patternStringMatch.exit42.thread
 
 55:                                               ; preds = %9
@@ -1000,7 +1000,7 @@ patternStringMatch.exit:                          ; preds = %44
   %61 = trunc i64 %60 to i32
   %62 = load i8, ptr %57, align 1
   %.not.i33 = icmp eq i8 %62, 42
-  br i1 %.not.i33, label %71, label %63
+  br i1 %.not.i33, label %68, label %63
 
 63:                                               ; preds = %59
   %64 = shl i64 %60, 32
@@ -1009,41 +1009,41 @@ patternStringMatch.exit:                          ; preds = %44
   %66 = getelementptr inbounds i8, ptr %57, i64 %65
   %67 = load i8, ptr %66, align 1
   %.not26.i35 = icmp eq i8 %67, 42
-  br i1 %.not26.i35, label %71, label %68
+  br i1 %.not26.i35, label %68, label %patternStringMatch.exit42
 
-68:                                               ; preds = %63
-  %69 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %57, ptr noundef nonnull readonly dereferenceable(1) %2) #7
-  %.fr = freeze i32 %69
-  %70 = icmp eq i32 %.fr, 0
-  br i1 %70, label %81, label %patternStringMatch.exit42.thread
+68:                                               ; preds = %63, %59
+  %69 = add nsw i32 %61, -1
+  %70 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #7
+  %71 = trunc i64 %70 to i32
+  %72 = sub nsw i32 %71, %69
+  %73 = icmp slt i32 %72, 0
+  br i1 %73, label %patternStringMatch.exit42.thread, label %74
 
-71:                                               ; preds = %63, %59
-  %72 = add nsw i32 %61, -1
-  %73 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #7
-  %74 = trunc i64 %73 to i32
-  %75 = sub nsw i32 %74, %72
-  %76 = icmp slt i32 %75, 0
-  br i1 %76, label %patternStringMatch.exit42.thread, label %patternStringMatch.exit42
-
-patternStringMatch.exit42:                        ; preds = %71
-  %77 = zext nneg i32 %75 to i64
+74:                                               ; preds = %68
+  %75 = zext nneg i32 %72 to i64
   %.022.idx.i38 = zext i1 %.not.i33 to i64
   %.022.i39 = getelementptr inbounds nuw i8, ptr %57, i64 %.022.idx.i38
-  %.021.idx.i40 = select i1 %.not.i33, i64 %77, i64 0
+  %.021.idx.i40 = select i1 %.not.i33, i64 %75, i64 0
   %.021.i41 = getelementptr inbounds nuw i8, ptr %2, i64 %.021.idx.i40
-  %78 = sext i32 %72 to i64
-  %79 = tail call i32 @strncmp(ptr noundef nonnull readonly %.022.i39, ptr noundef nonnull readonly %.021.i41, i64 noundef %78) #7
-  %.fr73 = freeze i32 %79
-  %80 = icmp eq i32 %.fr73, 0
+  %76 = sext i32 %69 to i64
+  %77 = tail call i32 @strncmp(ptr noundef nonnull readonly %.022.i39, ptr noundef nonnull readonly %.021.i41, i64 noundef %76) #7
+  %.fr73 = freeze i32 %77
+  %78 = icmp eq i32 %.fr73, 0
+  br i1 %78, label %81, label %patternStringMatch.exit42.thread
+
+patternStringMatch.exit42:                        ; preds = %63
+  %79 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %57, ptr noundef nonnull readonly dereferenceable(1) %2) #7
+  %.fr = freeze i32 %79
+  %80 = icmp eq i32 %.fr, 0
   br i1 %80, label %81, label %patternStringMatch.exit42.thread
 
-81:                                               ; preds = %68, %patternStringMatch.exit42
+81:                                               ; preds = %74, %patternStringMatch.exit42
   br label %patternStringMatch.exit42.thread
 
-patternStringMatch.exit42.thread:                 ; preds = %54, %patternStringMatch.exit, %41, %28, %44, %71, %55, %81, %patternStringMatch.exit42, %68, %21, %9
-  %.122 = phi i8 [ %.02143, %9 ], [ %spec.select, %21 ], [ 1, %81 ], [ %.02143, %patternStringMatch.exit42 ], [ %.02143, %68 ], [ %.02143, %55 ], [ %.02143, %71 ], [ %.02143, %54 ], [ 1, %patternStringMatch.exit ], [ 1, %41 ], [ 1, %28 ], [ 1, %44 ]
-  %.119.shrunk = phi i1 [ false, %9 ], [ %.not26, %21 ], [ true, %81 ], [ false, %patternStringMatch.exit42 ], [ false, %68 ], [ false, %55 ], [ false, %71 ], [ false, %54 ], [ true, %patternStringMatch.exit ], [ true, %41 ], [ true, %28 ], [ true, %44 ]
-  %.2 = phi ptr [ %.01746, %9 ], [ %.1, %21 ], [ %.01746, %81 ], [ %.01746, %patternStringMatch.exit42 ], [ %.01746, %68 ], [ %.01746, %55 ], [ %.01746, %71 ], [ %.01746, %54 ], [ %.01746, %patternStringMatch.exit ], [ %.01746, %41 ], [ %.01746, %28 ], [ %.01746, %44 ]
+patternStringMatch.exit42.thread:                 ; preds = %54, %patternStringMatch.exit, %47, %28, %41, %68, %55, %81, %patternStringMatch.exit42, %74, %21, %9
+  %.122 = phi i8 [ %.02143, %9 ], [ %spec.select, %21 ], [ %.02143, %68 ], [ %.02143, %74 ], [ 1, %81 ], [ %.02143, %patternStringMatch.exit42 ], [ %.02143, %55 ], [ %.02143, %54 ], [ 1, %patternStringMatch.exit ], [ 1, %47 ], [ 1, %28 ], [ 1, %41 ]
+  %.119.shrunk = phi i1 [ false, %9 ], [ %.not26, %21 ], [ false, %68 ], [ false, %74 ], [ true, %81 ], [ false, %patternStringMatch.exit42 ], [ false, %55 ], [ false, %54 ], [ true, %patternStringMatch.exit ], [ true, %47 ], [ true, %28 ], [ true, %41 ]
+  %.2 = phi ptr [ %.01746, %9 ], [ %.1, %21 ], [ %.01746, %68 ], [ %.01746, %74 ], [ %.01746, %81 ], [ %.01746, %patternStringMatch.exit42 ], [ %.01746, %55 ], [ %.01746, %54 ], [ %.01746, %patternStringMatch.exit ], [ %.01746, %47 ], [ %.01746, %28 ], [ %.01746, %41 ]
   %82 = add nuw nsw i32 %.047, 1
   %83 = getelementptr inbounds nuw i8, ptr %.02044, i64 32
   %84 = icmp sge i32 %82, %5
@@ -1431,7 +1431,7 @@ define hidden i32 @eventFilter_setStepFilter(ptr noundef %0, i32 noundef %1, ptr
   br label %23
 
 23:                                               ; preds = %13, %5, %21, %20
-  %.0 = phi i32 [ %19, %20 ], [ 0, %21 ], [ 202, %5 ], [ 202, %13 ]
+  %.0 = phi i32 [ 0, %21 ], [ 202, %5 ], [ %19, %20 ], [ 202, %13 ]
   ret i32 %.0
 }
 
@@ -1720,7 +1720,7 @@ findFilter.exit.i18.i:                            ; preds = %.lr.ph.i.i14.i
   br label %setWatchpoint.exit.i
 
 setWatchpoint.exit.i:                             ; preds = %59, %findFilter.exit.thread.sink.split.i.i
-  %.011.i = phi i32 [ %30, %findFilter.exit.thread.sink.split.i.i ], [ %69, %59 ]
+  %.011.i = phi i32 [ %69, %59 ], [ %30, %findFilter.exit.thread.sink.split.i.i ]
   %70 = icmp eq i32 %.011.i, 0
   br i1 %70, label %setWatchpoint.exit.thread23.i, label %enableEvents.exit
 
@@ -1765,7 +1765,7 @@ requestThread.exit.i:                             ; preds = %79, %76, %setWatchp
   br label %enableEvents.exit
 
 enableEvents.exit:                                ; preds = %38, %11, %1, %1, %1, %1, %1, %1, %1, %1, %4, %31, %setWatchpoint.exit.i, %requestThread.exit.i, %84
-  %.0.i = phi i32 [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %requestThread.exit.i ], [ %86, %84 ], [ %.011.i, %setWatchpoint.exit.i ], [ 181, %4 ], [ 181, %31 ], [ 181, %11 ], [ 181, %38 ]
+  %.0.i = phi i32 [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %requestThread.exit.i ], [ %86, %84 ], [ %.011.i, %setWatchpoint.exit.i ], [ 181, %4 ], [ 181, %11 ], [ 181, %31 ], [ 181, %38 ]
   ret i32 %.0.i
 }
 
@@ -1924,7 +1924,7 @@ findFilter.exit.i21.i:                            ; preds = %.lr.ph.i.i17.i
   br label %clearWatchpoint.exit.i
 
 clearWatchpoint.exit.i:                           ; preds = %38, %11, %59, %findFilter.exit.i21.i, %31, %findFilter.exit.thread.sink.split.i.i, %findFilter.exit.i.i, %4, %1
-  %.013.i = phi i32 [ 0, %1 ], [ 0, %findFilter.exit.i.i ], [ 181, %4 ], [ %30, %findFilter.exit.thread.sink.split.i.i ], [ 0, %findFilter.exit.i21.i ], [ %69, %59 ], [ 181, %31 ], [ 181, %11 ], [ 181, %38 ]
+  %.013.i = phi i32 [ 0, %1 ], [ %30, %findFilter.exit.thread.sink.split.i.i ], [ 181, %4 ], [ 0, %findFilter.exit.i.i ], [ 181, %11 ], [ %69, %59 ], [ 0, %findFilter.exit.i21.i ], [ 181, %31 ], [ 181, %38 ]
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %71 = load i32, ptr %70, align 8
   %72 = icmp sgt i32 %71, 0

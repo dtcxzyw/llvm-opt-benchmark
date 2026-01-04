@@ -272,8 +272,8 @@ mlib_ImageConvMxNS322S32_ext.exit.us.us.us:       ; preds = %.lr.ph33.i.us.us.us
   br label %.lr.ph.us.i.us.us.us
 
 .lr.ph.us.i.us.us.us:                             ; preds = %126, %122, %.lr.ph58.split.us.i.us.us.us
-  %.046.us.i.us.us.us = phi double [ 0.000000e+00, %126 ], [ %114, %122 ], [ %114, %.lr.ph58.split.us.i.us.us.us ]
-  %.045.us.i.us.us.us = phi double [ 0.000000e+00, %126 ], [ %124, %122 ], [ 0.000000e+00, %.lr.ph58.split.us.i.us.us.us ]
+  %.046.us.i.us.us.us = phi double [ %114, %122 ], [ 0.000000e+00, %126 ], [ %114, %.lr.ph58.split.us.i.us.us.us ]
+  %.045.us.i.us.us.us = phi double [ %124, %122 ], [ 0.000000e+00, %126 ], [ 0.000000e+00, %.lr.ph58.split.us.i.us.us.us ]
   br label %127
 
 127:                                              ; preds = %127, %.lr.ph.us.i.us.us.us
@@ -416,7 +416,7 @@ mlib_ImageConvMxNMedian_S32.exit.us179.us.us:     ; preds = %.lr.ph.i146.us173.u
   br label %169
 
 169:                                              ; preds = %.sink.split, %168, %38, %27
-  %.0105 = phi i32 [ 1, %27 ], [ 1, %38 ], [ 0, %168 ], [ %.0105.ph, %.sink.split ]
+  %.0105 = phi i32 [ 1, %38 ], [ 1, %27 ], [ 0, %168 ], [ %.0105.ph, %.sink.split ]
   ret i32 %.0105
 }
 

@@ -101,8 +101,8 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   br label %43
 
 43:                                               ; preds = %30, %41, %39, %37, %27, %12
-  %.0173 = phi i1 [ false, %27 ], [ false, %12 ], [ false, %30 ], [ true, %39 ], [ true, %37 ], [ %.not211, %41 ]
-  %.0172 = phi ptr [ %25, %27 ], [ null, %12 ], [ %25, %30 ], [ %25, %39 ], [ %25, %37 ], [ %25, %41 ]
+  %.0173 = phi i1 [ false, %12 ], [ false, %27 ], [ false, %30 ], [ true, %39 ], [ true, %37 ], [ %.not211, %41 ]
+  %.0172 = phi ptr [ null, %12 ], [ %25, %27 ], [ %25, %30 ], [ %25, %39 ], [ %25, %37 ], [ %25, %41 ]
   %44 = call ptr @xcf_open(ptr noundef %1) #17
   %.not207 = icmp eq ptr %44, null
   br i1 %.not207, label %45, label %46
@@ -330,7 +330,7 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   br label %156
 
 156:                                              ; preds = %.lr.ph260, %152, %150
-  %157 = phi i8 [ %155, %152 ], [ -1, %150 ], [ 0, %.lr.ph260 ]
+  %157 = phi i8 [ -1, %150 ], [ %155, %152 ], [ 0, %.lr.ph260 ]
   %158 = getelementptr inbounds nuw i8, ptr %146, i64 %.0168259
   store i8 %157, ptr %158, align 1, !tbaa !54
   %159 = add nuw i64 %.0168259, 1
@@ -371,14 +371,14 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   br label %178
 
 178:                                              ; preds = %.lr.ph258, %174, %172
-  %179 = phi i16 [ %177, %174 ], [ -1, %172 ], [ 0, %.lr.ph258 ]
+  %179 = phi i16 [ -1, %172 ], [ %177, %174 ], [ 0, %.lr.ph258 ]
   %180 = getelementptr inbounds nuw i16, ptr %167, i64 %.0257
   store i16 %179, ptr %180, align 2, !tbaa !55
   %181 = add nuw i64 %.0257, 1
   %exitcond.not = icmp eq i64 %181, %168
   br i1 %exitcond.not, label %.thread241, label %.lr.ph258
 
-.thread236:                                       ; preds = %137, %160, %140
+.thread236:                                       ; preds = %160, %140, %137
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.12, ptr noundef %1) #17
   br label %185
 
@@ -428,7 +428,7 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   br label %.thread249
 
 .thread249:                                       ; preds = %._crit_edge, %113, %.critedge, %192, %92, %62, %45
-  %.0169 = phi i32 [ 1, %192 ], [ 1, %92 ], [ 1, %62 ], [ 1, %45 ], [ 0, %.critedge ], [ 0, %113 ], [ 0, %._crit_edge ]
+  %.0169 = phi i32 [ 1, %62 ], [ 1, %192 ], [ 1, %92 ], [ 1, %45 ], [ 0, %.critedge ], [ 0, %113 ], [ 0, %._crit_edge ]
   %193 = call i32 @xcf_close(ptr noundef %44) #17
   call void @free(ptr noundef %.0172) #17
   br label %194
@@ -635,7 +635,7 @@ define void @gui_init(ptr noundef initializes((352, 360)) %0) local_unnamed_addr
   br label %.thread12
 
 .thread12:                                        ; preds = %6, %1
-  %12 = phi i32 [ 2, %1 ], [ %spec.select, %6 ]
+  %12 = phi i32 [ %spec.select, %6 ], [ 2, %1 ]
   %13 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.20, ptr noundef null, i32 noundef %12, ptr noundef nonnull @bpp_combobox_changed, ptr noundef null, ptr noundef nonnull @gui_init.texts) #17
   store ptr %13, ptr %3, align 8, !tbaa !61
   %14 = tail call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0) #17

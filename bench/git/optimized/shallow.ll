@@ -328,7 +328,7 @@ register_shallow.exit:                            ; preds = %36, %42, %45
   br label %54
 
 54:                                               ; preds = %1, %._crit_edge, %19
-  %.017 = phi i32 [ 0, %19 ], [ %53, %._crit_edge ], [ %7, %1 ]
+  %.017 = phi i32 [ %53, %._crit_edge ], [ 0, %19 ], [ %7, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.017
 }
@@ -593,10 +593,10 @@ commit_depth_at.exit90:                           ; preds = %._crit_edge4.i.i87,
   br label %.thread.outer.backedge
 
 .thread.outer.backedge:                           ; preds = %153, %91, %95
-  %.sroa.23.0.ph.be = phi i32 [ %.sroa.23.1, %95 ], [ %.sroa.23.1, %91 ], [ %.sroa.23.5, %153 ]
-  %.sroa.40143.0.ph.be = phi ptr [ %.sroa.40143.1, %95 ], [ %.sroa.40143.1, %91 ], [ %.sroa.40143.5, %153 ]
-  %.051.ph.be = phi ptr [ null, %95 ], [ null, %91 ], [ %.556, %153 ]
-  %.047.ph.be = phi i32 [ %76, %95 ], [ %76, %91 ], [ %.5, %153 ]
+  %.sroa.23.0.ph.be = phi i32 [ %.sroa.23.1, %91 ], [ %.sroa.23.1, %95 ], [ %.sroa.23.5, %153 ]
+  %.sroa.40143.0.ph.be = phi ptr [ %.sroa.40143.1, %91 ], [ %.sroa.40143.1, %95 ], [ %.sroa.40143.5, %153 ]
+  %.051.ph.be = phi ptr [ null, %91 ], [ null, %95 ], [ %.556, %153 ]
+  %.047.ph.be = phi i32 [ %76, %91 ], [ %76, %95 ], [ %.5, %153 ]
   br label %.thread.outer, !llvm.loop !62
 
 95:                                               ; preds = %87, %83, %80, %77
@@ -2001,10 +2001,10 @@ paint_alloc.exit70.i:                             ; preds = %151, %st_mult.exit.
   br i1 %.not64.i, label %.loopexit.i, label %.lr.ph79.i, !llvm.loop !130
 
 .loopexit.i:                                      ; preds = %182, %175, %166, %ref_bitmap_at.exit.i
-  %.sroa.62138.3 = phi ptr [ %.sroa.62138.6, %175 ], [ %.sroa.62138.6, %166 ], [ %.sroa.62138.2, %ref_bitmap_at.exit.i ], [ %.sroa.62138.6, %182 ]
-  %.sroa.70.2 = phi ptr [ %.sroa.70.4, %175 ], [ %.sroa.70.4, %166 ], [ %.sroa.70.1, %ref_bitmap_at.exit.i ], [ %.sroa.70.4, %182 ]
-  %.sroa.78.3 = phi ptr [ %.sroa.78.6, %175 ], [ %.sroa.78.6, %166 ], [ %.sroa.78.2, %ref_bitmap_at.exit.i ], [ %.sroa.78.6, %182 ]
-  %.sroa.82.3 = phi i32 [ %.sroa.82.6, %175 ], [ %.sroa.82.6, %166 ], [ %.sroa.82.2, %ref_bitmap_at.exit.i ], [ %.sroa.82.6, %182 ]
+  %.sroa.62138.3 = phi ptr [ %.sroa.62138.6, %175 ], [ %.sroa.62138.2, %ref_bitmap_at.exit.i ], [ %.sroa.62138.6, %166 ], [ %.sroa.62138.6, %182 ]
+  %.sroa.70.2 = phi ptr [ %.sroa.70.4, %175 ], [ %.sroa.70.1, %ref_bitmap_at.exit.i ], [ %.sroa.70.4, %166 ], [ %.sroa.70.4, %182 ]
+  %.sroa.78.3 = phi ptr [ %.sroa.78.6, %175 ], [ %.sroa.78.2, %ref_bitmap_at.exit.i ], [ %.sroa.78.6, %166 ], [ %.sroa.78.6, %182 ]
+  %.sroa.82.3 = phi i32 [ %.sroa.82.6, %175 ], [ %.sroa.82.2, %ref_bitmap_at.exit.i ], [ %.sroa.82.6, %166 ], [ %.sroa.82.6, %182 ]
   %184 = load ptr, ptr %5, align 8, !tbaa !54
   %.not57.i = icmp eq ptr %184, null
   br i1 %.not57.i, label %._crit_edge82.i, label %.lr.ph81.i
@@ -2815,7 +2815,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   store i8 0, ptr %49, align 1, !tbaa !50
   br label %.critedge
 
-.critedge:                                        ; preds = %24, %21, %35, %strbuf_addch.exit, %10, %2
+.critedge:                                        ; preds = %21, %24, %35, %strbuf_addch.exit, %10, %2
   ret i32 0
 }
 

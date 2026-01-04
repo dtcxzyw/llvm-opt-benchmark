@@ -241,8 +241,8 @@ Vec_IntPush.exit47.sink.split:                    ; preds = %87
   br label %.sink.split
 
 .sink.split:                                      ; preds = %87, %Vec_IntPush.exit47.sink.split, %83, %Vec_IntGrow.exit.i39, %.Vec_IntGrow.exit10_crit_edge.i34
-  %.sink68 = phi ptr [ %.pre.i36, %.Vec_IntGrow.exit10_crit_edge.i34 ], [ %84, %83 ], [ %73, %Vec_IntGrow.exit.i39 ], [ %88, %87 ], [ %101, %Vec_IntPush.exit47.sink.split ]
-  %.sink66 = phi i32 [ %61, %.Vec_IntGrow.exit10_crit_edge.i34 ], [ %61, %83 ], [ %61, %Vec_IntGrow.exit.i39 ], [ %94, %87 ], [ %94, %Vec_IntPush.exit47.sink.split ]
+  %.sink68 = phi ptr [ %73, %Vec_IntGrow.exit.i39 ], [ %.pre.i36, %.Vec_IntGrow.exit10_crit_edge.i34 ], [ %84, %83 ], [ %88, %87 ], [ %101, %Vec_IntPush.exit47.sink.split ]
+  %.sink66 = phi i32 [ %61, %Vec_IntGrow.exit.i39 ], [ %61, %.Vec_IntGrow.exit10_crit_edge.i34 ], [ %61, %83 ], [ %94, %87 ], [ %94, %Vec_IntPush.exit47.sink.split ]
   %102 = load i32, ptr %3, align 4, !tbaa !3
   %103 = add nsw i32 %102, 1
   store i32 %103, ptr %3, align 4, !tbaa !3
@@ -759,7 +759,7 @@ Vec_IntPush.exit120:                              ; preds = %.Vec_IntGrow.exit10
   br label %Ivy_TruthRecognizeMuxMaj.exit
 
 Ivy_TruthRecognizeMuxMaj.exit:                    ; preds = %Vec_IntPush.exit133, %.loopexit187, %.loopexit187.thread, %Vec_IntPush.exit120
-  %.057.i = phi i32 [ %257, %Vec_IntPush.exit120 ], [ %154, %Vec_IntPush.exit133 ], [ -1, %.loopexit187 ], [ -1, %.loopexit187.thread ]
+  %.057.i = phi i32 [ %154, %Vec_IntPush.exit133 ], [ -1, %.loopexit187 ], [ %257, %Vec_IntPush.exit120 ], [ -1, %.loopexit187.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %398
 
@@ -783,11 +783,11 @@ Ivy_TruthRecognizeMuxMaj.exit:                    ; preds = %Vec_IntPush.exit133
   br label %267
 
 267:                                              ; preds = %258, %262, %264, %266
-  %.sroa.0.0 = phi i32 [ 3, %262 ], [ 4, %266 ], [ 0, %264 ], [ 3, %258 ]
-  %.092 = phi ptr [ %6, %262 ], [ %7, %266 ], [ null, %264 ], [ %5, %258 ]
-  %.083 = phi i32 [ %.187, %262 ], [ %.185, %266 ], [ 0, %264 ], [ %.189, %258 ]
-  %.080 = phi i32 [ 1, %262 ], [ 0, %266 ], [ 0, %264 ], [ 0, %258 ]
-  %.077 = phi i32 [ %263, %262 ], [ %0, %266 ], [ %0, %264 ], [ %0, %258 ]
+  %.sroa.0.0 = phi i32 [ 0, %264 ], [ 3, %262 ], [ 4, %266 ], [ 3, %258 ]
+  %.092 = phi ptr [ null, %264 ], [ %6, %262 ], [ %7, %266 ], [ %5, %258 ]
+  %.083 = phi i32 [ 0, %264 ], [ %.187, %262 ], [ %.185, %266 ], [ %.189, %258 ]
+  %.080 = phi i32 [ 0, %264 ], [ 1, %262 ], [ 0, %266 ], [ 0, %258 ]
+  %.077 = phi i32 [ %0, %264 ], [ %263, %262 ], [ %0, %266 ], [ %0, %258 ]
   %268 = icmp sgt i32 %.191, 0
   %269 = zext i1 %268 to i32
   %270 = add nuw nsw i32 %.083, %269
@@ -964,8 +964,8 @@ Ivy_DecSetVar.exit:                               ; preds = %289, %294, %299, %3
   br label %Ivy_DecSetVar.exit113
 
 Ivy_DecSetVar.exit113:                            ; preds = %326, %355, %350, %345, %340, %335, %330, %359, %360
-  %.sroa.0.2 = phi i32 [ %.sroa.0.1.lcssa, %360 ], [ %.sroa.0.1.lcssa, %359 ], [ %.sroa.0.1.lcssa, %326 ], [ %358, %355 ], [ %354, %350 ], [ %349, %345 ], [ %344, %340 ], [ %339, %335 ], [ %334, %330 ]
-  %.3 = phi i32 [ %363, %360 ], [ %.080, %359 ], [ %.2, %326 ], [ %.2, %355 ], [ %.2, %350 ], [ %.2, %345 ], [ %.2, %340 ], [ %.2, %335 ], [ %.2, %330 ]
+  %.sroa.0.2 = phi i32 [ %.sroa.0.1.lcssa, %359 ], [ %.sroa.0.1.lcssa, %360 ], [ %.sroa.0.1.lcssa, %326 ], [ %358, %355 ], [ %354, %350 ], [ %349, %345 ], [ %344, %340 ], [ %339, %335 ], [ %334, %330 ]
+  %.3 = phi i32 [ %.080, %359 ], [ %363, %360 ], [ %.2, %326 ], [ %.2, %355 ], [ %.2, %350 ], [ %.2, %345 ], [ %.2, %340 ], [ %.2, %335 ], [ %.2, %330 ]
   %364 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %365 = load i32, ptr %364, align 4, !tbaa !3
   %366 = load i32, ptr %1, align 8, !tbaa !10
@@ -1180,7 +1180,7 @@ tailrecurse:                                      ; preds = %47, %2
   br label %Ivy_DecGetVar.exit
 
 Ivy_DecGetVar.exit:                               ; preds = %52, %53, %54, %55, %56, %57, %58
-  %.0.i = phi i32 [ %33, %53 ], [ %31, %54 ], [ %29, %55 ], [ %27, %56 ], [ %25, %57 ], [ %23, %58 ], [ -1, %52 ]
+  %.0.i = phi i32 [ %23, %58 ], [ %33, %53 ], [ %31, %54 ], [ %29, %55 ], [ %27, %56 ], [ %25, %57 ], [ -1, %52 ]
   %59 = ashr i32 %.0.i, 1
   %60 = tail call i32 @Ivy_TruthDsdCompute_rec(i32 noundef %59, ptr noundef %1)
   %61 = and i32 %.0.i, 1
@@ -1229,7 +1229,7 @@ Ivy_DecGetVar.exit:                               ; preds = %52, %53, %54, %55, 
   br label %Ivy_DecGetVar.exit71
 
 Ivy_DecGetVar.exit71:                             ; preds = %66, %67, %68, %69, %70, %71, %72
-  %.0.i70 = phi i32 [ %20, %67 ], [ %18, %68 ], [ %16, %69 ], [ %14, %70 ], [ %12, %71 ], [ %10, %72 ], [ -1, %66 ]
+  %.0.i70 = phi i32 [ %10, %72 ], [ %20, %67 ], [ %18, %68 ], [ %16, %69 ], [ %14, %70 ], [ %12, %71 ], [ -1, %66 ]
   %73 = ashr i32 %.0.i70, 1
   %74 = tail call i32 @Ivy_TruthDsdCompute_rec(i32 noundef %73, ptr noundef %1)
   %75 = xor i32 %74, %.152109
@@ -1281,7 +1281,7 @@ Ivy_DecGetVar.exit71:                             ; preds = %66, %67, %68, %69, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse, %99, %104, %._crit_edge, %._crit_edge113, %40, %34
-  %.0 = phi i32 [ %39, %34 ], [ %46, %40 ], [ %65, %._crit_edge113 ], [ %78, %._crit_edge ], [ %103, %99 ], [ %108, %104 ], [ 0, %tailrecurse ]
+  %.0 = phi i32 [ %39, %34 ], [ %46, %40 ], [ %103, %99 ], [ %65, %._crit_edge113 ], [ %78, %._crit_edge ], [ %108, %104 ], [ 0, %tailrecurse ]
   %accumulator.ret.tr = xor i32 %.0, %accumulator.tr
   ret i32 %accumulator.ret.tr
 }
@@ -1384,7 +1384,7 @@ common.ret98:                                     ; preds = %3, %13, %._crit_edg
   br label %Ivy_DecGetVar.exit
 
 Ivy_DecGetVar.exit:                               ; preds = %39, %40, %41, %42, %43, %44, %45
-  %.0.i = phi i32 [ %37, %40 ], [ %35, %41 ], [ %33, %42 ], [ %31, %43 ], [ %29, %44 ], [ %27, %45 ], [ -1, %39 ]
+  %.0.i = phi i32 [ %27, %45 ], [ %37, %40 ], [ %35, %41 ], [ %33, %42 ], [ %31, %43 ], [ %29, %44 ], [ -1, %39 ]
   %46 = ashr i32 %.0.i, 1
   tail call void @Ivy_TruthDsdPrint_rec(ptr noundef %0, i32 noundef %46, ptr noundef %2)
   %47 = and i32 %.0.i, 1
@@ -1462,7 +1462,7 @@ Ivy_DecGetVar.exit:                               ; preds = %39, %40, %41, %42, 
   br label %Ivy_DecGetVar.exit73
 
 Ivy_DecGetVar.exit73:                             ; preds = %71, %72, %73, %74, %75, %76, %77
-  %.0.i72 = phi i32 [ %69, %72 ], [ %67, %73 ], [ %65, %74 ], [ %63, %75 ], [ %61, %76 ], [ %59, %77 ], [ -1, %71 ]
+  %.0.i72 = phi i32 [ %59, %77 ], [ %69, %72 ], [ %67, %73 ], [ %65, %74 ], [ %63, %75 ], [ %61, %76 ], [ -1, %71 ]
   %78 = ashr i32 %.0.i72, 1
   tail call void @Ivy_TruthDsdPrint_rec(ptr noundef %0, i32 noundef %78, ptr noundef %2)
   %.not56 = icmp eq i32 %.187, %70
@@ -1644,7 +1644,7 @@ define ptr @Ivy_ManDsdConstruct_rec(ptr noundef %0, ptr noundef %1, i32 noundef 
   br label %Ivy_DecGetVar.exit
 
 Ivy_DecGetVar.exit:                               ; preds = %58, %60, %61, %62, %63, %64, %65
-  %.0.i = phi i32 [ %57, %60 ], [ %55, %61 ], [ %53, %62 ], [ %51, %63 ], [ %49, %64 ], [ %47, %65 ], [ -1, %58 ]
+  %.0.i = phi i32 [ %47, %65 ], [ %57, %60 ], [ %55, %61 ], [ %53, %62 ], [ %51, %63 ], [ %49, %64 ], [ -1, %58 ]
   %66 = ashr i32 %.0.i, 1
   %67 = tail call ptr @Ivy_ManDsdConstruct_rec(ptr noundef %0, ptr noundef %1, i32 noundef %66, ptr noundef %3)
   %68 = and i32 %.0.i, 1
@@ -1710,7 +1710,7 @@ Ivy_DecGetVar.exit:                               ; preds = %58, %60, %61, %62, 
   br label %116
 
 116:                                              ; preds = %4, %112, %114, %._crit_edge, %34, %19, %11
-  %.0 = phi ptr [ %18, %11 ], [ %33, %19 ], [ %43, %34 ], [ %82, %._crit_edge ], [ %113, %112 ], [ %115, %114 ], [ null, %4 ]
+  %.0 = phi ptr [ %18, %11 ], [ %33, %19 ], [ %43, %34 ], [ %82, %._crit_edge ], [ %115, %114 ], [ %113, %112 ], [ null, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }

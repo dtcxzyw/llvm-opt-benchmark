@@ -106,7 +106,7 @@ define hidden noundef zeroext i1 @SDL_GetSpanEnclosingRect(i32 noundef %0, i32 n
   br label %38
 
 38:                                               ; preds = %31, %33, %21, %17, %14, %11, %7
-  %.0 = phi i1 [ false, %7 ], [ false, %11 ], [ false, %21 ], [ true, %33 ], [ false, %17 ], [ false, %14 ], [ false, %31 ]
+  %.0 = phi i1 [ false, %7 ], [ false, %11 ], [ false, %21 ], [ true, %33 ], [ false, %14 ], [ false, %17 ], [ false, %31 ]
   ret i1 %.0
 }
 
@@ -179,7 +179,7 @@ SDL_RectCanOverflow.exit56:                       ; preds = %29
   %35 = icmp sgt i32 %34, 1073741822
   br i1 %35, label %SDL_RectCanOverflow.exit.thread, label %37
 
-SDL_RectCanOverflow.exit.thread:                  ; preds = %22, %25, %29, %8, %11, %15, %SDL_RectCanOverflow.exit56, %SDL_RectCanOverflow.exit
+SDL_RectCanOverflow.exit.thread:                  ; preds = %25, %29, %22, %11, %15, %8, %SDL_RectCanOverflow.exit56, %SDL_RectCanOverflow.exit
   %36 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8) #5
   br label %SDL_RectEmpty.exit.thread
 
@@ -210,7 +210,7 @@ SDL_RectCanOverflow.exit.thread:                  ; preds = %22, %25, %29, %8, %
   br label %SDL_RectEmpty.exit.thread
 
 SDL_RectEmpty.exit.thread:                        ; preds = %37, %45, %42, %SDL_RectCanOverflow.exit.thread, %6, %3
-  %.036 = phi i1 [ false, %SDL_RectCanOverflow.exit.thread ], [ false, %6 ], [ false, %3 ], [ false, %42 ], [ %.not49, %45 ], [ false, %37 ]
+  %.036 = phi i1 [ false, %SDL_RectCanOverflow.exit.thread ], [ false, %3 ], [ false, %37 ], [ false, %42 ], [ %.not49, %45 ], [ false, %6 ]
   ret i1 %.036
 }
 
@@ -281,7 +281,7 @@ SDL_RectCanOverflow.exit65:                       ; preds = %30
   %36 = icmp sgt i32 %35, 1073741822
   br i1 %36, label %SDL_RectCanOverflow.exit.thread, label %38
 
-SDL_RectCanOverflow.exit.thread:                  ; preds = %23, %26, %30, %9, %12, %16, %SDL_RectCanOverflow.exit65, %SDL_RectCanOverflow.exit
+SDL_RectCanOverflow.exit.thread:                  ; preds = %26, %30, %23, %12, %16, %9, %SDL_RectCanOverflow.exit65, %SDL_RectCanOverflow.exit
   %37 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8) #5
   br label %63
 
@@ -409,7 +409,7 @@ SDL_RectCanOverflow.exit68:                       ; preds = %30
   %36 = icmp sgt i32 %35, 1073741822
   br i1 %36, label %SDL_RectCanOverflow.exit.thread, label %38
 
-SDL_RectCanOverflow.exit.thread:                  ; preds = %23, %26, %30, %9, %12, %16, %SDL_RectCanOverflow.exit68, %SDL_RectCanOverflow.exit
+SDL_RectCanOverflow.exit.thread:                  ; preds = %26, %30, %23, %12, %16, %9, %SDL_RectCanOverflow.exit68, %SDL_RectCanOverflow.exit
   %37 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8) #5
   br label %62
 
@@ -473,7 +473,7 @@ SDL_RectEmpty.exit.thread:                        ; preds = %47
   br label %62
 
 62:                                               ; preds = %SDL_RectEmpty.exit63.thread, %46, %48, %SDL_RectEmpty.exit.thread, %39, %SDL_RectCanOverflow.exit.thread, %7, %4
-  %.049 = phi i1 [ %37, %SDL_RectCanOverflow.exit.thread ], [ true, %SDL_RectEmpty.exit.thread ], [ true, %48 ], [ %40, %39 ], [ %8, %7 ], [ %5, %4 ], [ true, %46 ], [ true, %SDL_RectEmpty.exit63.thread ]
+  %.049 = phi i1 [ %37, %SDL_RectCanOverflow.exit.thread ], [ %5, %4 ], [ true, %SDL_RectEmpty.exit.thread ], [ true, %48 ], [ %40, %39 ], [ %8, %7 ], [ true, %46 ], [ true, %SDL_RectEmpty.exit63.thread ]
   ret i1 %.049
 }
 
@@ -630,10 +630,10 @@ define hidden zeroext i1 @SDL_GetRectEnclosingPoints_REAL(ptr noundef readonly c
   br i1 %exitcond177.not, label %.loopexit.thread, label %.lr.ph162, !llvm.loop !6
 
 .loopexit.thread:                                 ; preds = %.lr.ph162, %._crit_edge, %45
-  %.4199 = phi i32 [ %46, %45 ], [ %.2, %._crit_edge ], [ %.6, %.lr.ph162 ]
-  %.381198 = phi i32 [ %48, %45 ], [ %.280, %._crit_edge ], [ %.583, %.lr.ph162 ]
-  %.488197 = phi i32 [ %46, %45 ], [ %.286, %._crit_edge ], [ %.690, %.lr.ph162 ]
-  %.399196 = phi i32 [ %48, %45 ], [ %.298, %._crit_edge ], [ %.5101, %.lr.ph162 ]
+  %.4199 = phi i32 [ %.2, %._crit_edge ], [ %46, %45 ], [ %.6, %.lr.ph162 ]
+  %.381198 = phi i32 [ %.280, %._crit_edge ], [ %48, %45 ], [ %.583, %.lr.ph162 ]
+  %.488197 = phi i32 [ %.286, %._crit_edge ], [ %46, %45 ], [ %.690, %.lr.ph162 ]
+  %.399196 = phi i32 [ %.298, %._crit_edge ], [ %48, %45 ], [ %.5101, %.lr.ph162 ]
   store i32 %.4199, ptr %3, align 4
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %.381198, ptr %55, align 4
@@ -648,7 +648,7 @@ define hidden zeroext i1 @SDL_GetRectEnclosingPoints_REAL(ptr noundef readonly c
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph.split.us, %12, %.loopexit.thread, %44, %._crit_edge, %9, %5
-  %.0 = phi i1 [ false, %9 ], [ false, %._crit_edge ], [ false, %5 ], [ true, %44 ], [ true, %.loopexit.thread ], [ false, %12 ], [ %or.cond119.us, %.lr.ph.split.us ]
+  %.0 = phi i1 [ false, %9 ], [ true, %44 ], [ false, %._crit_edge ], [ false, %5 ], [ true, %.loopexit.thread ], [ false, %12 ], [ %or.cond119.us, %.lr.ph.split.us ]
   ret i1 %.0
 }
 
@@ -686,7 +686,7 @@ SDL_RectCanOverflow.exit:                         ; preds = %15
   %21 = icmp sgt i32 %20, 1073741822
   br i1 %21, label %SDL_RectCanOverflow.exit.thread, label %23
 
-SDL_RectCanOverflow.exit.thread:                  ; preds = %8, %11, %15, %SDL_RectCanOverflow.exit
+SDL_RectCanOverflow.exit.thread:                  ; preds = %11, %15, %8, %SDL_RectCanOverflow.exit
   %22 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8) #5
   br label %SDL_RectEmpty.exit.thread
 
@@ -928,8 +928,8 @@ ComputeOutCode.exit:                              ; preds = %56
   br label %125
 
 125:                                              ; preds = %88, %112, %114, %101
-  %.1192 = phi i32 [ %46, %88 ], [ %111, %101 ], [ %124, %114 ], [ %.0191323, %112 ]
-  %.1190 = phi i32 [ %98, %88 ], [ %9, %101 ], [ %44, %114 ], [ %.0189324, %112 ]
+  %.1192 = phi i32 [ %.0191323, %112 ], [ %46, %88 ], [ %111, %101 ], [ %124, %114 ]
+  %.1190 = phi i32 [ %.0189324, %112 ], [ %98, %88 ], [ %9, %101 ], [ %44, %114 ]
   %126 = icmp slt i32 %.1192, %13
   br i1 %126, label %128, label %127
 
@@ -941,9 +941,9 @@ ComputeOutCode.exit:                              ; preds = %56
   br label %128
 
 128:                                              ; preds = %127, %125
-  %.1190298 = phi i32 [ %.1190, %125 ], [ %.1190297, %127 ]
-  %.1192296 = phi i32 [ %.1192, %125 ], [ %.1192295, %127 ]
-  %.0.i280 = phi i32 [ 2, %125 ], [ %spec.select.i279, %127 ]
+  %.1190298 = phi i32 [ %.1190297, %127 ], [ %.1190, %125 ]
+  %.1192296 = phi i32 [ %.1192295, %127 ], [ %.1192, %125 ]
+  %.0.i280 = phi i32 [ %spec.select.i279, %127 ], [ 2, %125 ]
   %129 = icmp slt i32 %.1190298, %9
   br i1 %129, label %130, label %132
 
@@ -1029,8 +1029,8 @@ ComputeOutCode.exit:                              ; preds = %56
   br label %184
 
 184:                                              ; preds = %148, %172, %173, %161
-  %.3194 = phi i32 [ %46, %148 ], [ %171, %161 ], [ %183, %173 ], [ %.0191323, %172 ]
-  %.3 = phi i32 [ %158, %148 ], [ %9, %161 ], [ %44, %173 ], [ %.0189324, %172 ]
+  %.3194 = phi i32 [ %.0191323, %172 ], [ %46, %148 ], [ %171, %161 ], [ %183, %173 ]
+  %.3 = phi i32 [ %.0189324, %172 ], [ %158, %148 ], [ %9, %161 ], [ %44, %173 ]
   %185 = icmp slt i32 %.3194, %13
   br i1 %185, label %187, label %186
 
@@ -1042,9 +1042,9 @@ ComputeOutCode.exit:                              ; preds = %56
   br label %187
 
 187:                                              ; preds = %186, %184
-  %.3305 = phi i32 [ %.3, %184 ], [ %.3304, %186 ]
-  %.3194303 = phi i32 [ %.3194, %184 ], [ %.3194302, %186 ]
-  %.0.i287 = phi i32 [ 2, %184 ], [ %spec.select.i286, %186 ]
+  %.3305 = phi i32 [ %.3304, %186 ], [ %.3, %184 ]
+  %.3194303 = phi i32 [ %.3194302, %186 ], [ %.3194, %184 ]
+  %.0.i287 = phi i32 [ %spec.select.i286, %186 ], [ 2, %184 ]
   %188 = icmp slt i32 %.3305, %9
   br i1 %188, label %189, label %191
 
@@ -1059,14 +1059,14 @@ ComputeOutCode.exit:                              ; preds = %56
   br label %ComputeOutCode.exit284
 
 ComputeOutCode.exit284:                           ; preds = %191, %189, %132, %130
-  %.1202 = phi i32 [ %.1192296, %130 ], [ %.1192296, %132 ], [ %.0201319, %189 ], [ %.0201319, %191 ]
-  %.1200 = phi i32 [ %.0199320, %130 ], [ %.0199320, %132 ], [ %.3305, %189 ], [ %.3305, %191 ]
-  %.1198 = phi i32 [ %.0197321, %130 ], [ %.0197321, %132 ], [ %.3194303, %189 ], [ %.3194303, %191 ]
-  %.1196 = phi i32 [ %.1190298, %130 ], [ %.1190298, %132 ], [ %.0195322, %189 ], [ %.0195322, %191 ]
-  %.2193 = phi i32 [ %.1192296, %130 ], [ %.1192296, %132 ], [ %.3194303, %189 ], [ %.3194303, %191 ]
-  %.2 = phi i32 [ %.1190298, %130 ], [ %.1190298, %132 ], [ %.3305, %189 ], [ %.3305, %191 ]
-  %.1187 = phi i32 [ %131, %130 ], [ %spec.select19.i282, %132 ], [ 0, %189 ], [ 0, %191 ]
-  %.1 = phi i32 [ %.0326, %130 ], [ %.0326, %132 ], [ %190, %189 ], [ %spec.select19.i289, %191 ]
+  %.1202 = phi i32 [ %.1192296, %132 ], [ %.1192296, %130 ], [ %.0201319, %189 ], [ %.0201319, %191 ]
+  %.1200 = phi i32 [ %.0199320, %132 ], [ %.0199320, %130 ], [ %.3305, %189 ], [ %.3305, %191 ]
+  %.1198 = phi i32 [ %.0197321, %132 ], [ %.0197321, %130 ], [ %.3194303, %189 ], [ %.3194303, %191 ]
+  %.1196 = phi i32 [ %.1190298, %132 ], [ %.1190298, %130 ], [ %.0195322, %189 ], [ %.0195322, %191 ]
+  %.2193 = phi i32 [ %.1192296, %132 ], [ %.1192296, %130 ], [ %.3194303, %189 ], [ %.3194303, %191 ]
+  %.2 = phi i32 [ %.1190298, %132 ], [ %.1190298, %130 ], [ %.3305, %189 ], [ %.3305, %191 ]
+  %.1187 = phi i32 [ %spec.select19.i282, %132 ], [ %131, %130 ], [ 0, %189 ], [ 0, %191 ]
+  %.1 = phi i32 [ %.0326, %132 ], [ %.0326, %130 ], [ %190, %189 ], [ %spec.select19.i289, %191 ]
   %193 = icmp ne i32 %.1187, 0
   %194 = icmp ne i32 %.1, 0
   %195 = select i1 %193, i1 true, i1 %194
@@ -1084,7 +1084,7 @@ ComputeOutCode.exit284:                           ; preds = %191, %189, %132, %1
   br label %SDL_RectEmpty.exit.thread
 
 SDL_RectEmpty.exit.thread:                        ; preds = %.lr.ph, %35, %61, %63, %62, %53, %55, %54, %47, %38, %._crit_edge, %33, %30, %27, %24, %SDL_RectCanOverflow.exit.thread, %6
-  %.0188 = phi i1 [ false, %SDL_RectCanOverflow.exit.thread ], [ true, %._crit_edge ], [ false, %33 ], [ false, %30 ], [ false, %27 ], [ false, %24 ], [ false, %6 ], [ true, %38 ], [ false, %47 ], [ true, %54 ], [ true, %55 ], [ true, %53 ], [ true, %62 ], [ true, %63 ], [ true, %61 ], [ false, %35 ], [ false, %.lr.ph ]
+  %.0188 = phi i1 [ false, %SDL_RectCanOverflow.exit.thread ], [ false, %6 ], [ true, %55 ], [ true, %38 ], [ false, %47 ], [ true, %53 ], [ true, %61 ], [ true, %._crit_edge ], [ false, %33 ], [ false, %30 ], [ false, %27 ], [ false, %24 ], [ true, %63 ], [ true, %62 ], [ false, %35 ], [ true, %54 ], [ false, %.lr.ph ]
   ret i1 %.0188
 }
 
@@ -1193,7 +1193,7 @@ SDL_RectCanOverflowFloat.exit53:                  ; preds = %33
   br label %SDL_RectEmptyFloat.exit.thread
 
 SDL_RectEmptyFloat.exit.thread:                   ; preds = %SDL_RectCanOverflowFloat.exit53, %48, %42, %54, %SDL_RectCanOverflowFloat.exit.thread, %6, %3
-  %.037 = phi i1 [ false, %SDL_RectCanOverflowFloat.exit.thread ], [ true, %54 ], [ false, %6 ], [ false, %3 ], [ false, %42 ], [ false, %48 ], [ false, %SDL_RectCanOverflowFloat.exit53 ]
+  %.037 = phi i1 [ false, %SDL_RectCanOverflowFloat.exit.thread ], [ false, %3 ], [ false, %SDL_RectCanOverflowFloat.exit53 ], [ false, %42 ], [ true, %54 ], [ false, %6 ], [ false, %48 ]
   ret i1 %.037
 }
 
@@ -1464,7 +1464,7 @@ SDL_RectEmptyFloat.exit.thread:                   ; preds = %47
   br label %66
 
 66:                                               ; preds = %SDL_RectEmptyFloat.exit64.thread, %46, %48, %SDL_RectEmptyFloat.exit.thread, %39, %SDL_RectCanOverflowFloat.exit.thread, %7, %4
-  %.050 = phi i1 [ %38, %SDL_RectCanOverflowFloat.exit.thread ], [ true, %SDL_RectEmptyFloat.exit.thread ], [ true, %48 ], [ %40, %39 ], [ %8, %7 ], [ %5, %4 ], [ true, %46 ], [ true, %SDL_RectEmptyFloat.exit64.thread ]
+  %.050 = phi i1 [ %38, %SDL_RectCanOverflowFloat.exit.thread ], [ %5, %4 ], [ true, %SDL_RectEmptyFloat.exit.thread ], [ true, %48 ], [ %40, %39 ], [ %8, %7 ], [ true, %46 ], [ true, %SDL_RectEmptyFloat.exit64.thread ]
   ret i1 %.050
 }
 
@@ -1563,8 +1563,8 @@ define hidden noundef zeroext i1 @SDL_GetRectEnclosingPointsFloat_REAL(ptr nound
   br label %47
 
 47:                                               ; preds = %42, %44, %46
-  %.387 = phi float [ %33, %46 ], [ %.185134, %44 ], [ %.185134, %42 ]
-  %.3 = phi float [ %.177136, %46 ], [ %.177136, %44 ], [ %33, %42 ]
+  %.387 = phi float [ %.185134, %44 ], [ %33, %46 ], [ %.185134, %42 ]
+  %.3 = phi float [ %.177136, %44 ], [ %.177136, %46 ], [ %33, %42 ]
   %48 = fcmp olt float %35, %.179135
   br i1 %48, label %52, label %49
 
@@ -1576,11 +1576,11 @@ define hidden noundef zeroext i1 @SDL_GetRectEnclosingPointsFloat_REAL(ptr nound
   br label %52
 
 52:                                               ; preds = %40, %47, %51, %49, %.lr.ph.split
-  %.298 = phi float [ %.197131, %.lr.ph.split ], [ %35, %51 ], [ %.197131, %49 ], [ %.197131, %47 ], [ %35, %40 ]
-  %.192 = phi i8 [ %.091133, %.lr.ph.split ], [ 1, %51 ], [ 1, %49 ], [ 1, %47 ], [ 1, %40 ]
-  %.286 = phi float [ %.185134, %.lr.ph.split ], [ %.387, %51 ], [ %.387, %49 ], [ %.387, %47 ], [ %33, %40 ]
-  %.280 = phi float [ %.179135, %.lr.ph.split ], [ %.179135, %51 ], [ %.179135, %49 ], [ %35, %47 ], [ %35, %40 ]
-  %.2 = phi float [ %.177136, %.lr.ph.split ], [ %.3, %51 ], [ %.3, %49 ], [ %.3, %47 ], [ %33, %40 ]
+  %.298 = phi float [ %.197131, %.lr.ph.split ], [ %.197131, %47 ], [ %.197131, %49 ], [ %35, %51 ], [ %35, %40 ]
+  %.192 = phi i8 [ %.091133, %.lr.ph.split ], [ 1, %47 ], [ 1, %49 ], [ 1, %51 ], [ 1, %40 ]
+  %.286 = phi float [ %.185134, %.lr.ph.split ], [ %.387, %47 ], [ %.387, %49 ], [ %.387, %51 ], [ %33, %40 ]
+  %.280 = phi float [ %.179135, %.lr.ph.split ], [ %35, %47 ], [ %.179135, %49 ], [ %.179135, %51 ], [ %35, %40 ]
+  %.2 = phi float [ %.177136, %.lr.ph.split ], [ %.3, %47 ], [ %.3, %49 ], [ %.3, %51 ], [ %33, %40 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count160
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !8
@@ -1625,8 +1625,8 @@ define hidden noundef zeroext i1 @SDL_GetRectEnclosingPointsFloat_REAL(ptr nound
   br label %67
 
 67:                                               ; preds = %.lr.ph151, %64, %66
-  %.690 = phi float [ %60, %66 ], [ %.589147, %64 ], [ %.589147, %.lr.ph151 ]
-  %.6 = phi float [ %.5149, %66 ], [ %.5149, %64 ], [ %60, %.lr.ph151 ]
+  %.690 = phi float [ %.589147, %64 ], [ %60, %66 ], [ %.589147, %.lr.ph151 ]
+  %.6 = phi float [ %.5149, %64 ], [ %.5149, %66 ], [ %60, %.lr.ph151 ]
   %68 = fcmp olt float %62, %.482148
   br i1 %68, label %72, label %69
 
@@ -1638,8 +1638,8 @@ define hidden noundef zeroext i1 @SDL_GetRectEnclosingPointsFloat_REAL(ptr nound
   br label %72
 
 72:                                               ; preds = %67, %71, %69
-  %.5101 = phi float [ %62, %71 ], [ %.4100145, %69 ], [ %.4100145, %67 ]
-  %.583 = phi float [ %.482148, %71 ], [ %.482148, %69 ], [ %62, %67 ]
+  %.5101 = phi float [ %.4100145, %69 ], [ %62, %71 ], [ %.4100145, %67 ]
+  %.583 = phi float [ %.482148, %69 ], [ %.482148, %71 ], [ %62, %67 ]
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %exitcond166.not = icmp eq i64 %indvars.iv.next163, %wide.trip.count165
   br i1 %exitcond166.not, label %.loopexit, label %.lr.ph151, !llvm.loop !9
@@ -1671,7 +1671,7 @@ define hidden noundef zeroext i1 @SDL_GetRectEnclosingPointsFloat_REAL(ptr nound
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph.split.us, %12, %.loopexit, %.loopexit.thread, %54, %._crit_edge, %9, %5
-  %.0 = phi i1 [ false, %9 ], [ false, %._crit_edge ], [ false, %5 ], [ true, %54 ], [ true, %.loopexit.thread ], [ true, %.loopexit ], [ false, %12 ], [ %or.cond117.us.not, %.lr.ph.split.us ]
+  %.0 = phi i1 [ false, %9 ], [ true, %54 ], [ false, %._crit_edge ], [ false, %5 ], [ true, %.loopexit.thread ], [ true, %.loopexit ], [ false, %12 ], [ %or.cond117.us.not, %.lr.ph.split.us ]
   ret i1 %.0
 }
 
@@ -1987,8 +1987,8 @@ ComputeOutCodeFloat.exit259:                      ; preds = %ComputeOutCodeFloat
   br label %152
 
 152:                                              ; preds = %112, %138, %140, %126
-  %.1192 = phi float [ %45, %112 ], [ %137, %126 ], [ %151, %140 ], [ %.0191292, %138 ]
-  %.1190 = phi float [ %123, %112 ], [ %9, %126 ], [ %44, %140 ], [ %.0189293, %138 ]
+  %.1192 = phi float [ %.0191292, %138 ], [ %45, %112 ], [ %137, %126 ], [ %151, %140 ]
+  %.1190 = phi float [ %.0189293, %138 ], [ %123, %112 ], [ %9, %126 ], [ %44, %140 ]
   %153 = fcmp olt float %.1192, %13
   br i1 %153, label %157, label %154
 
@@ -2002,9 +2002,9 @@ ComputeOutCodeFloat.exit259:                      ; preds = %ComputeOutCodeFloat
   br label %157
 
 157:                                              ; preds = %156, %154, %152
-  %.1190272 = phi float [ %.1190271, %156 ], [ %.1190271, %154 ], [ %.1190, %152 ]
-  %.1192270 = phi float [ %.1192269, %156 ], [ %.1192269, %154 ], [ %.1192, %152 ]
-  %.0.i260 = phi i32 [ 1, %156 ], [ 0, %154 ], [ 2, %152 ]
+  %.1190272 = phi float [ %.1190271, %154 ], [ %.1190271, %156 ], [ %.1190, %152 ]
+  %.1192270 = phi float [ %.1192269, %154 ], [ %.1192269, %156 ], [ %.1192, %152 ]
+  %.0.i260 = phi i32 [ 0, %154 ], [ 1, %156 ], [ 2, %152 ]
   %158 = fcmp olt float %.1190272, %9
   br i1 %158, label %159, label %161
 
@@ -2096,8 +2096,8 @@ ComputeOutCodeFloat.exit259:                      ; preds = %ComputeOutCodeFloat
   br label %219
 
 219:                                              ; preds = %180, %206, %207, %194
-  %.3194 = phi float [ %45, %180 ], [ %205, %194 ], [ %218, %207 ], [ %.0191292, %206 ]
-  %.3 = phi float [ %191, %180 ], [ %9, %194 ], [ %44, %207 ], [ %.0189293, %206 ]
+  %.3194 = phi float [ %.0191292, %206 ], [ %45, %180 ], [ %205, %194 ], [ %218, %207 ]
+  %.3 = phi float [ %.0189293, %206 ], [ %191, %180 ], [ %9, %194 ], [ %44, %207 ]
   %220 = fcmp olt float %.3194, %13
   br i1 %220, label %224, label %221
 
@@ -2111,9 +2111,9 @@ ComputeOutCodeFloat.exit259:                      ; preds = %ComputeOutCodeFloat
   br label %224
 
 224:                                              ; preds = %223, %221, %219
-  %.3279 = phi float [ %.3278, %223 ], [ %.3278, %221 ], [ %.3, %219 ]
-  %.3194277 = phi float [ %.3194276, %223 ], [ %.3194276, %221 ], [ %.3194, %219 ]
-  %.0.i263 = phi i32 [ 1, %223 ], [ 0, %221 ], [ 2, %219 ]
+  %.3279 = phi float [ %.3278, %221 ], [ %.3278, %223 ], [ %.3, %219 ]
+  %.3194277 = phi float [ %.3194276, %221 ], [ %.3194276, %223 ], [ %.3194, %219 ]
+  %.0.i263 = phi i32 [ 0, %221 ], [ 1, %223 ], [ 2, %219 ]
   %225 = fcmp olt float %.3279, %9
   br i1 %225, label %226, label %228
 
@@ -2130,14 +2130,14 @@ ComputeOutCodeFloat.exit259:                      ; preds = %ComputeOutCodeFloat
   br label %ComputeOutCodeFloat.exit262
 
 ComputeOutCodeFloat.exit262:                      ; preds = %230, %228, %226, %163, %161, %159
-  %.1202 = phi float [ %.1192270, %159 ], [ %.1192270, %161 ], [ %.1192270, %163 ], [ %.0201288, %226 ], [ %.0201288, %228 ], [ %.0201288, %230 ]
-  %.1200 = phi float [ %.0199289, %159 ], [ %.0199289, %161 ], [ %.0199289, %163 ], [ %.3279, %226 ], [ %.3279, %228 ], [ %.3279, %230 ]
-  %.1198 = phi float [ %.0197290, %159 ], [ %.0197290, %161 ], [ %.0197290, %163 ], [ %.3194277, %226 ], [ %.3194277, %228 ], [ %.3194277, %230 ]
-  %.1196 = phi float [ %.1190272, %159 ], [ %.1190272, %161 ], [ %.1190272, %163 ], [ %.0195291, %226 ], [ %.0195291, %228 ], [ %.0195291, %230 ]
-  %.2193 = phi float [ %.1192270, %159 ], [ %.1192270, %161 ], [ %.1192270, %163 ], [ %.3194277, %226 ], [ %.3194277, %228 ], [ %.3194277, %230 ]
-  %.2 = phi float [ %.1190272, %159 ], [ %.1190272, %161 ], [ %.1190272, %163 ], [ %.3279, %226 ], [ %.3279, %228 ], [ %.3279, %230 ]
-  %.1187 = phi i32 [ %160, %159 ], [ %.0.i260, %161 ], [ %164, %163 ], [ 0, %226 ], [ 0, %228 ], [ 0, %230 ]
-  %.1 = phi i32 [ %.0295, %159 ], [ %.0295, %161 ], [ %.0295, %163 ], [ %227, %226 ], [ %.0.i263, %228 ], [ %231, %230 ]
+  %.1202 = phi float [ %.1192270, %163 ], [ %.1192270, %159 ], [ %.1192270, %161 ], [ %.0201288, %226 ], [ %.0201288, %228 ], [ %.0201288, %230 ]
+  %.1200 = phi float [ %.0199289, %163 ], [ %.0199289, %159 ], [ %.0199289, %161 ], [ %.3279, %226 ], [ %.3279, %228 ], [ %.3279, %230 ]
+  %.1198 = phi float [ %.0197290, %163 ], [ %.0197290, %159 ], [ %.0197290, %161 ], [ %.3194277, %226 ], [ %.3194277, %228 ], [ %.3194277, %230 ]
+  %.1196 = phi float [ %.1190272, %163 ], [ %.1190272, %159 ], [ %.1190272, %161 ], [ %.0195291, %226 ], [ %.0195291, %228 ], [ %.0195291, %230 ]
+  %.2193 = phi float [ %.1192270, %163 ], [ %.1192270, %159 ], [ %.1192270, %161 ], [ %.3194277, %226 ], [ %.3194277, %228 ], [ %.3194277, %230 ]
+  %.2 = phi float [ %.1190272, %163 ], [ %.1190272, %159 ], [ %.1190272, %161 ], [ %.3279, %226 ], [ %.3279, %228 ], [ %.3279, %230 ]
+  %.1187 = phi i32 [ %164, %163 ], [ %160, %159 ], [ %.0.i260, %161 ], [ 0, %226 ], [ 0, %228 ], [ 0, %230 ]
+  %.1 = phi i32 [ %.0295, %163 ], [ %.0295, %159 ], [ %.0295, %161 ], [ %227, %226 ], [ %.0.i263, %228 ], [ %231, %230 ]
   %232 = icmp ne i32 %.1187, 0
   %233 = icmp ne i32 %.1, 0
   %234 = select i1 %232, i1 true, i1 %233
@@ -2155,7 +2155,7 @@ ComputeOutCodeFloat.exit262:                      ; preds = %230, %228, %226, %1
   br label %SDL_RectEmptyFloat.exit.thread
 
 SDL_RectEmptyFloat.exit.thread:                   ; preds = %.lr.ph, %36, %80, %82, %81, %73, %75, %74, %57, %60, %63, %66, %39, %._crit_edge, %34, %31, %28, %25, %23, %6
-  %.0188 = phi i1 [ false, %23 ], [ true, %._crit_edge ], [ false, %34 ], [ false, %31 ], [ false, %28 ], [ false, %25 ], [ false, %6 ], [ true, %39 ], [ false, %66 ], [ false, %63 ], [ false, %60 ], [ false, %57 ], [ true, %74 ], [ true, %75 ], [ true, %73 ], [ true, %81 ], [ true, %82 ], [ true, %80 ], [ false, %36 ], [ false, %.lr.ph ]
+  %.0188 = phi i1 [ false, %23 ], [ false, %6 ], [ false, %36 ], [ true, %39 ], [ false, %57 ], [ true, %73 ], [ true, %80 ], [ true, %._crit_edge ], [ false, %34 ], [ false, %31 ], [ false, %28 ], [ false, %25 ], [ false, %66 ], [ false, %63 ], [ false, %60 ], [ true, %74 ], [ true, %75 ], [ true, %81 ], [ true, %82 ], [ false, %.lr.ph ]
   ret i1 %.0188
 }
 

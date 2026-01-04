@@ -492,9 +492,9 @@ select.unfold:                                    ; preds = %79
   store i64 %169, ptr %5, align 8, !tbaa !32
   br label %.loopexit.thread
 
-.loopexit.thread:                                 ; preds = %.thread, %83, %.loopexit240, %select.unfold, %57, %67, %._crit_edge, %._crit_edge266, %114, %116, %119, %85, %127, %112, %106, %108, %110, %97, %99, %101, %104, %146, %143, %.preheader235, %137, %139, %132, %135, %33, %43, %30, %130, %168, %167, %161, %.lr.ph274, %.preheader
-  %.0177244323.shrunk = phi i32 [ 0, %.lr.ph274 ], [ 0, %161 ], [ 0, %.preheader ], [ 1, %168 ], [ 1, %167 ], [ 0, %130 ], [ 0, %30 ], [ 0, %43 ], [ 0, %33 ], [ 0, %135 ], [ 0, %132 ], [ 0, %139 ], [ 0, %137 ], [ 0, %.preheader235 ], [ 0, %143 ], [ 0, %146 ], [ 0, %104 ], [ 0, %101 ], [ 0, %99 ], [ 0, %97 ], [ 0, %110 ], [ 0, %108 ], [ 0, %106 ], [ 0, %112 ], [ 0, %127 ], [ 0, %85 ], [ 0, %119 ], [ 0, %116 ], [ 0, %114 ], [ 0, %._crit_edge266 ], [ 0, %._crit_edge ], [ 0, %67 ], [ 0, %57 ], [ 0, %select.unfold ], [ 0, %.loopexit240 ], [ 0, %83 ], [ 0, %.thread ]
-  %.0172.ph318321 = phi ptr [ %31, %.lr.ph274 ], [ %31, %161 ], [ %31, %.preheader ], [ %31, %168 ], [ %31, %167 ], [ %31, %130 ], [ null, %30 ], [ %31, %43 ], [ %31, %33 ], [ %31, %135 ], [ %31, %132 ], [ %31, %139 ], [ %31, %137 ], [ %31, %.preheader235 ], [ %31, %143 ], [ %31, %146 ], [ %31, %104 ], [ %31, %101 ], [ %31, %99 ], [ %31, %97 ], [ %31, %110 ], [ %31, %108 ], [ %31, %106 ], [ %31, %112 ], [ %31, %127 ], [ %31, %85 ], [ %31, %119 ], [ %31, %116 ], [ %31, %114 ], [ %31, %._crit_edge266 ], [ %31, %._crit_edge ], [ %31, %67 ], [ %31, %57 ], [ %31, %select.unfold ], [ %31, %.loopexit240 ], [ %31, %83 ], [ %31, %.thread ]
+.loopexit.thread:                                 ; preds = %.thread, %83, %select.unfold, %._crit_edge266, %67, %._crit_edge, %57, %.loopexit240, %114, %116, %119, %127, %112, %106, %108, %110, %85, %99, %101, %104, %97, %146, %143, %139, %30, %132, %130, %.preheader235, %135, %33, %43, %137, %168, %167, %161, %.lr.ph274, %.preheader
+  %.0177244323.shrunk = phi i32 [ 1, %168 ], [ 0, %146 ], [ 0, %.lr.ph274 ], [ 0, %161 ], [ 0, %.preheader ], [ 1, %167 ], [ 0, %137 ], [ 0, %43 ], [ 0, %33 ], [ 0, %135 ], [ 0, %.preheader235 ], [ 0, %130 ], [ 0, %132 ], [ 0, %30 ], [ 0, %139 ], [ 0, %114 ], [ 0, %99 ], [ 0, %143 ], [ 0, %97 ], [ 0, %104 ], [ 0, %101 ], [ 0, %85 ], [ 0, %110 ], [ 0, %108 ], [ 0, %106 ], [ 0, %112 ], [ 0, %127 ], [ 0, %119 ], [ 0, %116 ], [ 0, %.loopexit240 ], [ 0, %57 ], [ 0, %._crit_edge ], [ 0, %67 ], [ 0, %._crit_edge266 ], [ 0, %select.unfold ], [ 0, %83 ], [ 0, %.thread ]
+  %.0172.ph318321 = phi ptr [ %31, %168 ], [ %31, %146 ], [ %31, %.lr.ph274 ], [ %31, %161 ], [ %31, %.preheader ], [ %31, %167 ], [ %31, %137 ], [ %31, %43 ], [ %31, %33 ], [ %31, %135 ], [ %31, %.preheader235 ], [ %31, %130 ], [ %31, %132 ], [ null, %30 ], [ %31, %139 ], [ %31, %114 ], [ %31, %99 ], [ %31, %143 ], [ %31, %97 ], [ %31, %104 ], [ %31, %101 ], [ %31, %85 ], [ %31, %110 ], [ %31, %108 ], [ %31, %106 ], [ %31, %112 ], [ %31, %127 ], [ %31, %119 ], [ %31, %116 ], [ %31, %.loopexit240 ], [ %31, %57 ], [ %31, %._crit_edge ], [ %31, %67 ], [ %31, %._crit_edge266 ], [ %31, %select.unfold ], [ %31, %83 ], [ %31, %.thread ]
   call void @BN_CTX_end(ptr noundef nonnull %28) #9
   call void @BN_CTX_free(ptr noundef nonnull %28) #9
   br label %.loopexit.thread328
@@ -506,7 +506,7 @@ select.unfold:                                    ; preds = %79
   br label %170
 
 170:                                              ; preds = %23, %.loopexit.thread328
-  %.0 = phi i32 [ %.0177244324, %.loopexit.thread328 ], [ 0, %23 ]
+  %.0 = phi i32 [ 0, %23 ], [ %.0177244324, %.loopexit.thread328 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -625,7 +625,7 @@ DSA_new.exit.thread:                              ; preds = %1
   br label %26
 
 26:                                               ; preds = %DSA_new.exit.thread, %21, %25
-  %.0 = phi ptr [ null, %25 ], [ %calloc.i, %21 ], [ null, %DSA_new.exit.thread ]
+  %.0 = phi ptr [ null, %DSA_new.exit.thread ], [ null, %25 ], [ %calloc.i, %21 ]
   ret ptr %.0
 }
 
@@ -907,11 +907,11 @@ DSA_SIG_new.exit:                                 ; preds = %65
   store ptr %17, ptr %69, align 8, !tbaa !36
   br label %71
 
-.loopexit:                                        ; preds = %43, %59, %56, %50, %46, %67, %..loopexit.loopexit_crit_edge, %16, %19, %DSA_SIG_new.exit, %13, %10, %3
-  %70 = phi ptr [ null, %3 ], [ null, %10 ], [ null, %13 ], [ %.pre.pre73, %DSA_SIG_new.exit ], [ null, %19 ], [ null, %16 ], [ %.pre.pre, %..loopexit.loopexit_crit_edge ], [ %.pre.pre73, %67 ], [ %.pre.pre73, %46 ], [ %.pre.pre73, %50 ], [ %.pre.pre73, %56 ], [ %.pre.pre73, %59 ], [ %.pre.pre73, %43 ]
-  %.044.ph = phi ptr [ null, %3 ], [ null, %10 ], [ null, %13 ], [ %17, %DSA_SIG_new.exit ], [ %17, %19 ], [ null, %16 ], [ %17, %..loopexit.loopexit_crit_edge ], [ %17, %67 ], [ %17, %46 ], [ %17, %50 ], [ %17, %56 ], [ %17, %59 ], [ %17, %43 ]
-  %.043.ph = phi ptr [ null, %3 ], [ null, %10 ], [ null, %13 ], [ %20, %DSA_SIG_new.exit ], [ null, %19 ], [ null, %16 ], [ %20, %..loopexit.loopexit_crit_edge ], [ %20, %67 ], [ %20, %46 ], [ %20, %50 ], [ %20, %56 ], [ %20, %59 ], [ %20, %43 ]
-  %.042.ph = phi i32 [ 101, %3 ], [ 101, %10 ], [ 101, %13 ], [ 3, %DSA_SIG_new.exit ], [ 3, %19 ], [ 3, %16 ], [ 3, %..loopexit.loopexit_crit_edge ], [ 3, %43 ], [ 3, %59 ], [ 3, %56 ], [ 3, %50 ], [ 3, %46 ], [ 103, %67 ]
+.loopexit:                                        ; preds = %43, %59, %56, %50, %46, %67, %..loopexit.loopexit_crit_edge, %16, %19, %3, %DSA_SIG_new.exit, %13, %10
+  %70 = phi ptr [ null, %16 ], [ null, %10 ], [ null, %13 ], [ null, %19 ], [ %.pre.pre73, %DSA_SIG_new.exit ], [ null, %3 ], [ %.pre.pre, %..loopexit.loopexit_crit_edge ], [ %.pre.pre73, %67 ], [ %.pre.pre73, %46 ], [ %.pre.pre73, %50 ], [ %.pre.pre73, %56 ], [ %.pre.pre73, %59 ], [ %.pre.pre73, %43 ]
+  %.044.ph = phi ptr [ null, %16 ], [ null, %10 ], [ null, %13 ], [ %17, %19 ], [ %17, %DSA_SIG_new.exit ], [ null, %3 ], [ %17, %..loopexit.loopexit_crit_edge ], [ %17, %67 ], [ %17, %46 ], [ %17, %50 ], [ %17, %56 ], [ %17, %59 ], [ %17, %43 ]
+  %.043.ph = phi ptr [ null, %16 ], [ null, %10 ], [ null, %13 ], [ null, %19 ], [ %20, %DSA_SIG_new.exit ], [ null, %3 ], [ %20, %..loopexit.loopexit_crit_edge ], [ %20, %67 ], [ %20, %46 ], [ %20, %50 ], [ %20, %56 ], [ %20, %59 ], [ %20, %43 ]
+  %.042.ph = phi i32 [ 3, %16 ], [ 101, %10 ], [ 101, %13 ], [ 3, %19 ], [ 3, %DSA_SIG_new.exit ], [ 101, %3 ], [ 3, %..loopexit.loopexit_crit_edge ], [ 3, %43 ], [ 3, %59 ], [ 3, %56 ], [ 3, %50 ], [ 3, %46 ], [ 103, %67 ]
   call void @ERR_put_error(i32 noundef 10, i32 noundef 0, i32 noundef %.042.ph, ptr noundef nonnull @.str, i32 noundef 569) #9
   call void @BN_free(ptr noundef %70) #9
   call void @BN_free(ptr noundef %.044.ph) #9
@@ -1049,8 +1049,8 @@ define hidden range(i32 0, 2) i32 @DSA_sign_setup(ptr noundef %0, ptr noundef %1
   store ptr %22, ptr %3, align 8, !tbaa !37
   br label %60
 
-.thread78:                                        ; preds = %21, %18
-  %.1.ph.ph = phi ptr [ null, %18 ], [ %.042, %21 ]
+.thread78:                                        ; preds = %18, %21
+  %.1.ph.ph = phi ptr [ %.042, %21 ], [ null, %18 ]
   call void @ERR_put_error(i32 noundef 10, i32 noundef 0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 872) #9
   br label %60
 
@@ -1060,8 +1060,8 @@ define hidden range(i32 0, 2) i32 @DSA_sign_setup(ptr noundef %0, ptr noundef %1
   br label %60
 
 60:                                               ; preds = %.thread78, %57, %.thread71
-  %.068 = phi i32 [ 0, %.thread71 ], [ 1, %57 ], [ 0, %.thread78 ]
-  %.165 = phi ptr [ %.042, %.thread71 ], [ %.042, %57 ], [ %.1.ph.ph, %.thread78 ]
+  %.068 = phi i32 [ 0, %.thread78 ], [ 0, %.thread71 ], [ 1, %57 ]
+  %.165 = phi ptr [ %.1.ph.ph, %.thread78 ], [ %.042, %.thread71 ], [ %.042, %57 ]
   br i1 %17, label %61, label %62
 
 61:                                               ; preds = %60
@@ -1255,12 +1255,12 @@ define hidden range(i32 0, 2) i32 @DSA_do_check_signature(ptr noundef writeonly 
   store i32 %88, ptr %0, align 4, !tbaa !31
   br label %90
 
-89:                                               ; preds = %26, %52, %57, %81, %74, %69, %65, %62
+89:                                               ; preds = %26, %62, %52, %57, %81, %74, %69, %65
   call void @ERR_put_error(i32 noundef 10, i32 noundef 0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 688) #9
   br label %90
 
 90:                                               ; preds = %84, %35, %32, %29, %47, %44, %40, %89
-  %.05071 = phi i32 [ 0, %89 ], [ 1, %84 ], [ 1, %35 ], [ 1, %32 ], [ 1, %29 ], [ 1, %47 ], [ 1, %44 ], [ 1, %40 ]
+  %.05071 = phi i32 [ 0, %89 ], [ 1, %47 ], [ 1, %44 ], [ 1, %29 ], [ 1, %40 ], [ 1, %35 ], [ 1, %84 ], [ 1, %32 ]
   call void @BN_CTX_free(ptr noundef %27) #9
   call void @BN_free(ptr noundef nonnull %6) #9
   call void @BN_free(ptr noundef nonnull %7) #9
@@ -1375,8 +1375,8 @@ DSA_SIG_new.exit:
   br label %23
 
 23:                                               ; preds = %14, %19, %9, %DSA_SIG_new.exit, %20
-  %24 = phi ptr [ null, %DSA_SIG_new.exit ], [ null, %9 ], [ %.pre20, %14 ], [ %.pre20, %19 ], [ %.pre, %20 ]
-  %.0 = phi i32 [ 0, %DSA_SIG_new.exit ], [ 0, %9 ], [ 0, %14 ], [ 0, %19 ], [ %22, %20 ]
+  %24 = phi ptr [ null, %DSA_SIG_new.exit ], [ null, %9 ], [ %.pre, %20 ], [ %.pre20, %14 ], [ %.pre20, %19 ]
+  %.0 = phi i32 [ 0, %DSA_SIG_new.exit ], [ 0, %9 ], [ %22, %20 ], [ 0, %14 ], [ 0, %19 ]
   call void @free(ptr noundef %24) #9
   %25 = load ptr, ptr %6, align 8, !tbaa !41
   %.not.i19 = icmp eq ptr %25, null

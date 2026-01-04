@@ -131,7 +131,7 @@ define internal range(i32 0, 2) i32 @dtls_listen_test(i32 noundef %0) #0 {
   br label %47
 
 47:                                               ; preds = %40, %39, %43
-  %48 = phi i32 [ %46, %43 ], [ 0, %39 ], [ %spec.select, %40 ]
+  %48 = phi i32 [ %spec.select, %40 ], [ 0, %39 ], [ %46, %43 ]
   %49 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 330, ptr noundef nonnull @.str.12, i32 noundef %48) #5
   %.not40 = icmp eq i32 %49, 0
   br i1 %.not40, label %53, label %51

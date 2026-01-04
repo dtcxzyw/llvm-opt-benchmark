@@ -246,7 +246,7 @@ define internal i32 @process_frame(ptr noundef readonly captures(none) %0) #2 {
   br label %50
 
 50:                                               ; preds = %.critedge, %21, %1, %15, %40
-  %.028 = phi i32 [ %49, %40 ], [ %13, %1 ], [ %16, %15 ], [ -12, %21 ], [ -12, %.critedge ]
+  %.028 = phi i32 [ -12, %.critedge ], [ %49, %40 ], [ %16, %15 ], [ %13, %1 ], [ -12, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.028
@@ -385,7 +385,7 @@ multiply.exit.loopexit.us:                        ; preds = %.lr.ph.i.us
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.preheader.i.us, !llvm.loop !78
 
 .loopexit:                                        ; preds = %multiply.exit.loopexit.us, %.lr.ph, %61, %57
-  %80 = phi i32 [ %20, %61 ], [ %.pre, %57 ], [ %20, %.lr.ph ], [ %20, %multiply.exit.loopexit.us ]
+  %80 = phi i32 [ %.pre, %57 ], [ %20, %.lr.ph ], [ %20, %61 ], [ %20, %multiply.exit.loopexit.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %81 = sext i32 %80 to i64
   %82 = icmp slt i64 %indvars.iv.next, %81

@@ -509,7 +509,7 @@ _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit76: ; preds = %2
   br label %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit
 
 _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit: ; preds = %29, %69, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit76, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit71, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit66, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit61
-  %.sroa.0.0.in = phi i1 [ %.sroa.0.1.in, %69 ], [ %42, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit61 ], [ %48, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit66 ], [ %54, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit71 ], [ %60, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit76 ], [ %34, %29 ]
+  %.sroa.0.0.in = phi i1 [ %60, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit76 ], [ %.sroa.0.1.in, %69 ], [ %42, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit61 ], [ %48, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit66 ], [ %54, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit71 ], [ %34, %29 ]
   ret i1 %.sroa.0.0.in
 
 _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit81: ; preds = %35
@@ -1027,8 +1027,8 @@ define internal fastcc void @"_ZN90_$LT$uv_platform_tags..language_tag..Language
   store i64 %6, ptr %.sroa.5101.sroa.3.0..sroa.5101.0..sroa_idx.sroa_idx, align 8
   br label %139
 
-58:                                               ; preds = %26, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77f9bee9f16236b2E.exit16.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77f9bee9f16236b2E.exit14.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77f9bee9f16236b2E.exit12.i"
-  %.sroa.4.0.i.ph = phi i32 [ %24, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77f9bee9f16236b2E.exit12.i" ], [ %36, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77f9bee9f16236b2E.exit14.i" ], [ %47, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77f9bee9f16236b2E.exit16.i" ], [ %27, %26 ]
+58:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77f9bee9f16236b2E.exit12.i", %26, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77f9bee9f16236b2E.exit16.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77f9bee9f16236b2E.exit14.i"
+  %.sroa.4.0.i.ph = phi i32 [ %36, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77f9bee9f16236b2E.exit14.i" ], [ %47, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77f9bee9f16236b2E.exit16.i" ], [ %27, %26 ], [ %24, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77f9bee9f16236b2E.exit12.i" ]
   %59 = icmp samesign ult i32 %.sroa.4.0.i.ph, 1114112
   tail call void @llvm.assume(i1 %59)
   %60 = add nsw i32 %.sroa.4.0.i.ph, -48
@@ -1110,8 +1110,8 @@ define internal fastcc void @"_ZN90_$LT$uv_platform_tags..language_tag..Language
   ]
 
 .lr.ph.i.preheader:                               ; preds = %92, %96, %90
-  %.sroa.02.155.i.ph = phi ptr [ %93, %92 ], [ %76, %90 ], [ %76, %96 ]
-  %.sroa.14.154.i.ph = phi i64 [ %94, %92 ], [ 1, %90 ], [ 2, %96 ]
+  %.sroa.02.155.i.ph = phi ptr [ %93, %92 ], [ %76, %96 ], [ %76, %90 ]
+  %.sroa.14.154.i.ph = phi i64 [ %94, %92 ], [ 2, %96 ], [ 1, %90 ]
   br label %.lr.ph.i
 
 91:                                               ; preds = %88
@@ -1200,7 +1200,7 @@ define internal fastcc void @"_ZN90_$LT$uv_platform_tags..language_tag..Language
   store i64 %6, ptr %.sroa.4135.sroa.3.0..sroa.4135.0..sroa_idx.sroa_idx, align 8
   br label %139
 
-.loopexit:                                        ; preds = %109, %107, %98, %.lr.ph.i, %69, %90, %90
+.loopexit:                                        ; preds = %109, %98, %107, %.lr.ph.i, %69, %90, %90
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !168
   call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17hf07a2e550f93b03eE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, i64 noundef %6, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1), !noalias !168
   %127 = load i64, ptr %8, align 8, !range !3, !noalias !168, !noundef !4

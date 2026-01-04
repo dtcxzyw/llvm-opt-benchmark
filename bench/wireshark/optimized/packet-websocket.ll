@@ -462,7 +462,7 @@ define internal i32 @get_websocket_frame_length(ptr readnone captures(none) %0, 
   br label %29
 
 29:                                               ; preds = %20, %11, %26
-  %.0 = phi i32 [ %28, %26 ], [ 0, %11 ], [ 0, %20 ]
+  %.0 = phi i32 [ 0, %11 ], [ %28, %26 ], [ 0, %20 ]
   ret i32 %.0
 }
 
@@ -570,7 +570,7 @@ define internal i32 @dissect_websocket_frame(ptr noundef %0, ptr noundef %1, ptr
   br label %websocket_extract_wbits.exit.i
 
 websocket_extract_wbits.exit.i:                   ; preds = %60, %57, %53, %47, %45
-  %61 = phi i8 [ 8, %57 ], [ %spec.select.i.i, %60 ], [ 15, %53 ], [ 15, %47 ], [ 15, %45 ]
+  %61 = phi i8 [ 15, %45 ], [ 8, %57 ], [ %spec.select.i.i, %60 ], [ 15, %53 ], [ 15, %47 ]
   %62 = sub nsw i8 0, %61
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -640,7 +640,7 @@ websocket_init_z_stream_context.exit.i:           ; preds = %72, %65
   br label %websocket_extract_wbits.exit24.i
 
 websocket_extract_wbits.exit24.i:                 ; preds = %91, %88, %84, %78, %76
-  %92 = phi i8 [ 8, %88 ], [ %spec.select.i23.i, %91 ], [ 15, %84 ], [ 15, %78 ], [ 15, %76 ]
+  %92 = phi i8 [ 15, %76 ], [ 8, %88 ], [ %spec.select.i23.i, %91 ], [ 15, %84 ], [ 15, %78 ]
   %93 = sub nsw i8 0, %92
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1083,7 +1083,7 @@ tvb_unmasked.exit:                                ; preds = %.lr.ph.i, %194
   %335 = load i16, ptr %334, align 1
   %336 = and i16 %335, 8
   %.not88.i.i = icmp eq i16 %336, 0
-  br i1 %.not88.i.i, label %337, label %354
+  br i1 %.not88.i.i, label %337, label %355
 
 337:                                              ; preds = %332
   %338 = getelementptr inbounds nuw i8, ptr %1, i64 288
@@ -1096,76 +1096,76 @@ tvb_unmasked.exit:                                ; preds = %.lr.ph.i, %194
   %.077.in.i.i = getelementptr inbounds nuw i8, ptr %.0110, i64 %.077.in.v.i.i
   %.077.i.i = load ptr, ptr %.077.in.i.i, align 8
   %.not89.i.i = icmp eq ptr %.077.i.i, null
-  br i1 %.not89.i.i, label %346, label %344
+  br i1 %.not89.i.i, label %344, label %365
 
 344:                                              ; preds = %337
-  %345 = call fastcc zeroext i1 @websocket_uncompress(ptr noundef %.07898104.i, ptr noundef %1, ptr noundef nonnull %.077.i.i, ptr noundef nonnull %6, i32 noundef %219)
-  br i1 %345, label %.threadthread-pre-split.i.i, label %.thread97.i.i
-
-346:                                              ; preds = %337
   %.076.in.v.i.i = select i1 %343, i64 12, i64 13
   %.076.in.i.i = getelementptr inbounds nuw i8, ptr %.0110, i64 %.076.in.v.i.i
   %.076.i.i = load i8, ptr %.076.in.i.i, align 1
-  %347 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %348 = load ptr, ptr %347, align 8
-  %349 = call noalias dereferenceable_or_null(112) ptr @wmem_alloc0(ptr noundef %348, i64 noundef 112) #10
-  %350 = sext i8 %.076.i.i to i32
-  %351 = call i32 @inflateInit2_(ptr noundef %349, i32 noundef %350, ptr noundef nonnull @.str.145, i32 noundef 112)
-  %352 = icmp eq i32 %351, 0
-  br i1 %352, label %364, label %.thread100.i.i
+  %345 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %346 = load ptr, ptr %345, align 8
+  %347 = call noalias dereferenceable_or_null(112) ptr @wmem_alloc0(ptr noundef %346, i64 noundef 112) #10
+  %348 = sext i8 %.076.i.i to i32
+  %349 = call i32 @inflateInit2_(ptr noundef %347, i32 noundef %348, ptr noundef nonnull @.str.145, i32 noundef 112)
+  %350 = icmp eq i32 %349, 0
+  br i1 %350, label %352, label %.thread104.i.i
 
-.thread100.i.i:                                   ; preds = %346
-  %353 = call i32 @inflateEnd(ptr noundef %349)
+.thread104.i.i:                                   ; preds = %344
+  %351 = call i32 @inflateEnd(ptr noundef %347)
   br label %.thread97.i.i
 
-354:                                              ; preds = %332
-  %355 = call ptr @wmem_file_scope()
-  %356 = load i32, ptr @proto_websocket, align 4
-  %357 = call ptr @p_get_proto_data(ptr noundef %355, ptr noundef %1, i32 noundef %356, i32 noundef %219)
-  %.not90.not.i.i = icmp eq ptr %357, null
-  br i1 %.not90.not.i.i, label %.thread97.i.i, label %358
+352:                                              ; preds = %344
+  %353 = call fastcc zeroext i1 @websocket_uncompress(ptr noundef %.07898104.i, ptr noundef %1, ptr noundef %347, ptr noundef nonnull %6, i32 noundef %219)
+  %354 = call i32 @inflateEnd(ptr noundef %347)
+  br i1 %353, label %.threadthread-pre-split.i.i, label %.thread97.i.i
 
-358:                                              ; preds = %354
-  %359 = getelementptr inbounds nuw i8, ptr %357, i64 8
-  %360 = load i32, ptr %359, align 8
-  %.not91.i.i = icmp eq i32 %360, 0
-  br i1 %.not91.i.i, label %.threadthread-pre-split.i.i, label %361
+355:                                              ; preds = %332
+  %356 = call ptr @wmem_file_scope()
+  %357 = load i32, ptr @proto_websocket, align 4
+  %358 = call ptr @p_get_proto_data(ptr noundef %356, ptr noundef %1, i32 noundef %357, i32 noundef %219)
+  %.not90.not.i.i = icmp eq ptr %358, null
+  br i1 %.not90.not.i.i, label %.thread97.i.i, label %359
 
-361:                                              ; preds = %358
-  %362 = load ptr, ptr %357, align 8
-  %363 = call ptr @tvb_new_child_real_data(ptr noundef %.07898104.i, ptr noundef %362, i32 noundef %360, i32 noundef %360)
+359:                                              ; preds = %355
+  %360 = getelementptr inbounds nuw i8, ptr %358, i64 8
+  %361 = load i32, ptr %360, align 8
+  %.not91.i.i = icmp eq i32 %361, 0
+  br i1 %.not91.i.i, label %.threadthread-pre-split.i.i, label %362
+
+362:                                              ; preds = %359
+  %363 = load ptr, ptr %358, align 8
+  %364 = call ptr @tvb_new_child_real_data(ptr noundef %.07898104.i, ptr noundef %363, i32 noundef %361, i32 noundef %361)
   br label %.thread.i.i
 
-364:                                              ; preds = %346
-  %365 = call fastcc zeroext i1 @websocket_uncompress(ptr noundef %.07898104.i, ptr noundef %1, ptr noundef %349, ptr noundef nonnull %6, i32 noundef %219)
-  %366 = call i32 @inflateEnd(ptr noundef %349)
-  br i1 %365, label %.threadthread-pre-split.i.i, label %.thread97.i.i
+365:                                              ; preds = %337
+  %366 = call fastcc zeroext i1 @websocket_uncompress(ptr noundef %.07898104.i, ptr noundef %1, ptr noundef nonnull %.077.i.i, ptr noundef nonnull %6, i32 noundef %219)
+  br i1 %366, label %.threadthread-pre-split.i.i, label %.thread97.i.i
 
-.threadthread-pre-split.i.i:                      ; preds = %364, %358, %344
+.threadthread-pre-split.i.i:                      ; preds = %365, %359, %352
   %.pr.i.i = load ptr, ptr %6, align 8
   br label %.thread.i.i
 
-.thread.i.i:                                      ; preds = %.threadthread-pre-split.i.i, %361
-  %367 = phi ptr [ %.pr.i.i, %.threadthread-pre-split.i.i ], [ %363, %361 ]
+.thread.i.i:                                      ; preds = %.threadthread-pre-split.i.i, %362
+  %367 = phi ptr [ %.pr.i.i, %.threadthread-pre-split.i.i ], [ %364, %362 ]
   %.not92.i.i = icmp eq ptr %367, null
-  br i1 %.not92.i.i, label %.thread103.i.i, label %368
+  br i1 %.not92.i.i, label %.thread101.i.i, label %368
 
 368:                                              ; preds = %.thread.i.i
   call void @add_new_data_source(ptr noundef %1, ptr noundef nonnull %367, ptr noundef nonnull @.str.153)
-  br label %.thread103.i.i
+  br label %.thread101.i.i
 
-.thread103.i.i:                                   ; preds = %368, %.thread.i.i
+.thread101.i.i:                                   ; preds = %368, %.thread.i.i
   %.1.ph.i.i = phi ptr [ %.07898104.i, %.thread.i.i ], [ %367, %368 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %370
 
-.thread97.i.i:                                    ; preds = %364, %354, %.thread100.i.i, %344
+.thread97.i.i:                                    ; preds = %365, %355, %352, %.thread104.i.i
   %369 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ws_decompression_failed, ptr noundef %.07898104.i, i32 noundef 0, i32 noundef -1)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %dissect_websocket_data_frame.exit.i
 
-370:                                              ; preds = %.thread103.i.i, %328
-  %.0.i.i131 = phi ptr [ %.07898104.i, %328 ], [ %.1.ph.i.i, %.thread103.i.i ]
+370:                                              ; preds = %.thread101.i.i, %328
+  %.0.i.i131 = phi ptr [ %.1.ph.i.i, %.thread101.i.i ], [ %.07898104.i, %328 ]
   %371 = load i32, ptr @websocket_follow_tap, align 4
   %372 = call zeroext i1 @have_tap_listener(i32 noundef %371)
   br i1 %372, label %373, label %375
@@ -1441,8 +1441,8 @@ define internal fastcc noundef zeroext i1 @websocket_uncompress(ptr noundef %0, 
   br label %50
 
 50:                                               ; preds = %34, %36
-  %.266 = phi i32 [ %39, %36 ], [ %.064, %34 ]
-  %.2 = phi ptr [ %41, %36 ], [ %.063, %34 ]
+  %.266 = phi i32 [ %.064, %34 ], [ %39, %36 ]
+  %.2 = phi ptr [ %.063, %34 ], [ %41, %36 ]
   br i1 %33, label %31, label %.thread, !llvm.loop !14
 
 .thread:                                          ; preds = %31, %50

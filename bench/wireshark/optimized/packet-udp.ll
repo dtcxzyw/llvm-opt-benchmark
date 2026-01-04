@@ -1711,7 +1711,7 @@ define internal noalias ptr @udp_follow_conv_filter(ptr readnone captures(none) 
   br label %.thread
 
 .thread:                                          ; preds = %4, %8, %12, %16, %21, %24
-  %.0 = phi ptr [ %27, %24 ], [ null, %21 ], [ null, %16 ], [ null, %12 ], [ null, %8 ], [ null, %4 ]
+  %.0 = phi ptr [ null, %21 ], [ %27, %24 ], [ null, %16 ], [ null, %12 ], [ null, %4 ], [ null, %8 ]
   ret ptr %.0
 }
 
@@ -2109,7 +2109,7 @@ proto_item_set_generated.exit:                    ; preds = %170, %173, %176
   br label %192
 
 192:                                              ; preds = %proto_item_set_generated.exit, %159, %._crit_edge
-  %193 = phi i32 [ %.pre435, %._crit_edge ], [ %.pre436, %159 ], [ %.pre, %proto_item_set_generated.exit ]
+  %193 = phi i32 [ %.pre435, %._crit_edge ], [ %.pre, %proto_item_set_generated.exit ], [ %.pre436, %159 ]
   %194 = load ptr, ptr %37, align 8
   %195 = add i32 %193, -8
   tail call void @col_append_str_uint(ptr noundef %194, i32 noundef 25, ptr noundef nonnull @.str.125, i32 noundef %195, ptr noundef nonnull @.str.126)
@@ -2920,7 +2920,7 @@ switch.lookup:                                    ; preds = %2
   br label %16
 
 16:                                               ; preds = %switch.lookup, %9, %6, %5, %12, %4
-  %.0 = phi ptr [ @.str.138, %4 ], [ %switch.select19, %12 ], [ @.str.138, %5 ], [ %switch.select23, %6 ], [ %switch.select27, %9 ], [ %switch.load, %switch.lookup ]
+  %.0 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.138, %5 ], [ %switch.select27, %9 ], [ @.str.138, %4 ], [ %switch.select23, %6 ], [ %switch.select19, %12 ]
   ret ptr %.0
 }
 
@@ -2978,7 +2978,7 @@ switch.lookup:                                    ; preds = %2
   br label %16
 
 16:                                               ; preds = %switch.lookup, %9, %6, %5, %12, %4
-  %.0 = phi ptr [ @.str.138, %4 ], [ %switch.select19, %12 ], [ @.str.138, %5 ], [ %switch.select23, %6 ], [ %switch.select27, %9 ], [ %switch.load, %switch.lookup ]
+  %.0 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.138, %5 ], [ %switch.select27, %9 ], [ @.str.138, %4 ], [ %switch.select23, %6 ], [ %switch.select19, %12 ]
   ret ptr %.0
 }
 

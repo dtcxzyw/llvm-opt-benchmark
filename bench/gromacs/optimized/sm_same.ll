@@ -543,8 +543,8 @@ define internal void @_ZL17evaluate_same_intRKN3gmx20SelMethodEvalContextEP15gmx
   br label %.critedge4.loopexit92, !llvm.loop !39
 
 .critedge4.loopexit92:                            ; preds = %.lr.ph83, %..critedge4.loopexit92_crit_edge, %.lr.ph83.preheader
-  %92 = phi i32 [ %89, %..critedge4.loopexit92_crit_edge ], [ %15, %.lr.ph83.preheader ], [ %89, %.lr.ph83 ]
-  %.267.ph.in = phi i64 [ %indvars.iv.next95, %..critedge4.loopexit92_crit_edge ], [ %52, %.lr.ph83.preheader ], [ %indvars.iv.next95, %.lr.ph83 ]
+  %92 = phi i32 [ %15, %.lr.ph83.preheader ], [ %89, %..critedge4.loopexit92_crit_edge ], [ %89, %.lr.ph83 ]
+  %.267.ph.in = phi i64 [ %52, %.lr.ph83.preheader ], [ %indvars.iv.next95, %..critedge4.loopexit92_crit_edge ], [ %indvars.iv.next95, %.lr.ph83 ]
   %.267.ph = trunc i64 %.267.ph.in to i32
   br label %.critedge4
 
@@ -1784,8 +1784,8 @@ bsearch.exit:                                     ; preds = %30
   br label %.critedge.loopexit43, !llvm.loop !105
 
 .critedge.loopexit43:                             ; preds = %.lr.ph, %..critedge.loopexit43_crit_edge, %.lr.ph.preheader
-  %68 = phi i32 [ %65, %..critedge.loopexit43_crit_edge ], [ %15, %.lr.ph.preheader ], [ %65, %.lr.ph ]
-  %.2.ph.in = phi i64 [ %indvars.iv.next, %..critedge.loopexit43_crit_edge ], [ %17, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %68 = phi i32 [ %15, %.lr.ph.preheader ], [ %65, %..critedge.loopexit43_crit_edge ], [ %65, %.lr.ph ]
+  %.2.ph.in = phi i64 [ %17, %.lr.ph.preheader ], [ %indvars.iv.next, %..critedge.loopexit43_crit_edge ], [ %indvars.iv.next, %.lr.ph ]
   %.2.ph = trunc i64 %.2.ph.in to i32
   br label %.critedge
 

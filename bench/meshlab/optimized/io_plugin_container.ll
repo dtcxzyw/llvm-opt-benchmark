@@ -633,8 +633,8 @@ _ZN4QMapI7QStringP8IOPluginE6detachEv.exit.i:     ; preds = %.noexc, %_ZNKR7QStr
   br i1 %118, label %.thread.i, label %_ZN4QMapI7QStringP8IOPluginE6insertERKS0_RKS2_.exit
 
 .thread.i:                                        ; preds = %116, %115, %_ZN4QMapI7QStringP8IOPluginE6detachEv.exit.i
-  %.018.lcssa35.i = phi i1 [ %.119.le.i, %116 ], [ %.119.le.i, %115 ], [ true, %_ZN4QMapI7QStringP8IOPluginE6detachEv.exit.i ]
-  %.022.lcssa34.i = phi ptr [ %.027.i, %116 ], [ %.027.i, %115 ], [ %112, %_ZN4QMapI7QStringP8IOPluginE6detachEv.exit.i ]
+  %.018.lcssa35.i = phi i1 [ %.119.le.i, %115 ], [ %.119.le.i, %116 ], [ true, %_ZN4QMapI7QStringP8IOPluginE6detachEv.exit.i ]
+  %.022.lcssa34.i = phi ptr [ %.027.i, %115 ], [ %.027.i, %116 ], [ %112, %_ZN4QMapI7QStringP8IOPluginE6detachEv.exit.i ]
   %119 = load ptr, ptr %51, align 8
   %120 = invoke noundef ptr @_ZN12QMapDataBase10createNodeEiiP12QMapNodeBaseb(ptr noundef nonnull align 8 dereferenceable(40) %119, i32 noundef 40, i32 noundef 8, ptr noundef nonnull %.022.lcssa34.i, i1 noundef zeroext %.018.lcssa35.i)
           to label %.noexc74 unwind label %133
@@ -924,8 +924,8 @@ _ZN4QMapI7QStringP8IOPluginE6detachEv.exit.i109:  ; preds = %.noexc130, %_ZNKR7Q
   br i1 %202, label %.thread.i123, label %_ZN4QMapI7QStringP8IOPluginE6insertERKS0_RKS2_.exit132
 
 .thread.i123:                                     ; preds = %200, %199, %_ZN4QMapI7QStringP8IOPluginE6detachEv.exit.i109
-  %.018.lcssa35.i124 = phi i1 [ %.119.le.i120, %200 ], [ %.119.le.i120, %199 ], [ true, %_ZN4QMapI7QStringP8IOPluginE6detachEv.exit.i109 ]
-  %.022.lcssa34.i125 = phi ptr [ %.027.i113, %200 ], [ %.027.i113, %199 ], [ %196, %_ZN4QMapI7QStringP8IOPluginE6detachEv.exit.i109 ]
+  %.018.lcssa35.i124 = phi i1 [ %.119.le.i120, %199 ], [ %.119.le.i120, %200 ], [ true, %_ZN4QMapI7QStringP8IOPluginE6detachEv.exit.i109 ]
+  %.022.lcssa34.i125 = phi ptr [ %.027.i113, %199 ], [ %.027.i113, %200 ], [ %196, %_ZN4QMapI7QStringP8IOPluginE6detachEv.exit.i109 ]
   %203 = load ptr, ptr %58, align 8
   %204 = invoke noundef ptr @_ZN12QMapDataBase10createNodeEiiP12QMapNodeBaseb(ptr noundef nonnull align 8 dereferenceable(40) %203, i32 noundef 40, i32 noundef 8, ptr noundef nonnull %.022.lcssa34.i125, i1 noundef zeroext %.018.lcssa35.i124)
           to label %.noexc131 unwind label %217
@@ -1215,8 +1215,8 @@ _ZN4QMapI7QStringP8IOPluginE6detachEv.exit.i167:  ; preds = %.noexc188, %_ZNKR7Q
   br i1 %286, label %.thread.i181, label %_ZN4QMapI7QStringP8IOPluginE6insertERKS0_RKS2_.exit190
 
 .thread.i181:                                     ; preds = %284, %283, %_ZN4QMapI7QStringP8IOPluginE6detachEv.exit.i167
-  %.018.lcssa35.i182 = phi i1 [ %.119.le.i178, %284 ], [ %.119.le.i178, %283 ], [ true, %_ZN4QMapI7QStringP8IOPluginE6detachEv.exit.i167 ]
-  %.022.lcssa34.i183 = phi ptr [ %.027.i171, %284 ], [ %.027.i171, %283 ], [ %280, %_ZN4QMapI7QStringP8IOPluginE6detachEv.exit.i167 ]
+  %.018.lcssa35.i182 = phi i1 [ %.119.le.i178, %283 ], [ %.119.le.i178, %284 ], [ true, %_ZN4QMapI7QStringP8IOPluginE6detachEv.exit.i167 ]
+  %.022.lcssa34.i183 = phi ptr [ %.027.i171, %283 ], [ %.027.i171, %284 ], [ %280, %_ZN4QMapI7QStringP8IOPluginE6detachEv.exit.i167 ]
   %287 = load ptr, ptr %142, align 8
   %288 = invoke noundef ptr @_ZN12QMapDataBase10createNodeEiiP12QMapNodeBaseb(ptr noundef nonnull align 8 dereferenceable(40) %287, i32 noundef 40, i32 noundef 8, ptr noundef nonnull %.022.lcssa34.i183, i1 noundef zeroext %.018.lcssa35.i182)
           to label %.noexc189 unwind label %301
@@ -1506,8 +1506,8 @@ _ZN4QMapI7QStringP8IOPluginE6detachEv.exit.i225:  ; preds = %.noexc246, %_ZNKR7Q
   br i1 %370, label %.thread.i239, label %_ZN4QMapI7QStringP8IOPluginE6insertERKS0_RKS2_.exit248
 
 .thread.i239:                                     ; preds = %368, %367, %_ZN4QMapI7QStringP8IOPluginE6detachEv.exit.i225
-  %.018.lcssa35.i240 = phi i1 [ %.119.le.i236, %368 ], [ %.119.le.i236, %367 ], [ true, %_ZN4QMapI7QStringP8IOPluginE6detachEv.exit.i225 ]
-  %.022.lcssa34.i241 = phi ptr [ %.027.i229, %368 ], [ %.027.i229, %367 ], [ %364, %_ZN4QMapI7QStringP8IOPluginE6detachEv.exit.i225 ]
+  %.018.lcssa35.i240 = phi i1 [ %.119.le.i236, %367 ], [ %.119.le.i236, %368 ], [ true, %_ZN4QMapI7QStringP8IOPluginE6detachEv.exit.i225 ]
+  %.022.lcssa34.i241 = phi ptr [ %.027.i229, %367 ], [ %.027.i229, %368 ], [ %364, %_ZN4QMapI7QStringP8IOPluginE6detachEv.exit.i225 ]
   %371 = load ptr, ptr %226, align 8
   %372 = invoke noundef ptr @_ZN12QMapDataBase10createNodeEiiP12QMapNodeBaseb(ptr noundef nonnull align 8 dereferenceable(40) %371, i32 noundef 40, i32 noundef 8, ptr noundef nonnull %.022.lcssa34.i241, i1 noundef zeroext %.018.lcssa35.i240)
           to label %.noexc247 unwind label %385
@@ -1797,8 +1797,8 @@ _ZN4QMapI7QStringP8IOPluginE6detachEv.exit.i283:  ; preds = %.noexc304, %_ZNKR7Q
   br i1 %454, label %.thread.i297, label %_ZN4QMapI7QStringP8IOPluginE6insertERKS0_RKS2_.exit306
 
 .thread.i297:                                     ; preds = %452, %451, %_ZN4QMapI7QStringP8IOPluginE6detachEv.exit.i283
-  %.018.lcssa35.i298 = phi i1 [ %.119.le.i294, %452 ], [ %.119.le.i294, %451 ], [ true, %_ZN4QMapI7QStringP8IOPluginE6detachEv.exit.i283 ]
-  %.022.lcssa34.i299 = phi ptr [ %.027.i287, %452 ], [ %.027.i287, %451 ], [ %448, %_ZN4QMapI7QStringP8IOPluginE6detachEv.exit.i283 ]
+  %.018.lcssa35.i298 = phi i1 [ %.119.le.i294, %451 ], [ %.119.le.i294, %452 ], [ true, %_ZN4QMapI7QStringP8IOPluginE6detachEv.exit.i283 ]
+  %.022.lcssa34.i299 = phi ptr [ %.027.i287, %451 ], [ %.027.i287, %452 ], [ %448, %_ZN4QMapI7QStringP8IOPluginE6detachEv.exit.i283 ]
   %455 = load ptr, ptr %310, align 8
   %456 = invoke noundef ptr @_ZN12QMapDataBase10createNodeEiiP12QMapNodeBaseb(ptr noundef nonnull align 8 dereferenceable(40) %455, i32 noundef 40, i32 noundef 8, ptr noundef nonnull %.022.lcssa34.i299, i1 noundef zeroext %.018.lcssa35.i298)
           to label %.noexc305 unwind label %469
@@ -2078,8 +2078,8 @@ _ZN4QMapI7QStringP8IOPluginE6detachEv.exit.i341:  ; preds = %.noexc362, %_ZNKR7Q
   br i1 %534, label %.thread.i355, label %_ZN4QMapI7QStringP8IOPluginE6insertERKS0_RKS2_.exit364
 
 .thread.i355:                                     ; preds = %532, %531, %_ZN4QMapI7QStringP8IOPluginE6detachEv.exit.i341
-  %.018.lcssa35.i356 = phi i1 [ %.119.le.i352, %532 ], [ %.119.le.i352, %531 ], [ true, %_ZN4QMapI7QStringP8IOPluginE6detachEv.exit.i341 ]
-  %.022.lcssa34.i357 = phi ptr [ %.027.i345, %532 ], [ %.027.i345, %531 ], [ %528, %_ZN4QMapI7QStringP8IOPluginE6detachEv.exit.i341 ]
+  %.018.lcssa35.i356 = phi i1 [ %.119.le.i352, %531 ], [ %.119.le.i352, %532 ], [ true, %_ZN4QMapI7QStringP8IOPluginE6detachEv.exit.i341 ]
+  %.022.lcssa34.i357 = phi ptr [ %.027.i345, %531 ], [ %.027.i345, %532 ], [ %528, %_ZN4QMapI7QStringP8IOPluginE6detachEv.exit.i341 ]
   %535 = load ptr, ptr %394, align 8
   %536 = invoke noundef ptr @_ZN12QMapDataBase10createNodeEiiP12QMapNodeBaseb(ptr noundef nonnull align 8 dereferenceable(40) %535, i32 noundef 40, i32 noundef 8, ptr noundef nonnull %.022.lcssa34.i357, i1 noundef zeroext %.018.lcssa35.i356)
           to label %.noexc363 unwind label %549
@@ -2139,8 +2139,8 @@ _ZN7QStringD2Ev.exit370:                          ; preds = %_ZN9QtPrivate8RefCo
   br i1 %.not537, label %.loopexit, label %.lr.ph598
 
 552:                                              ; preds = %547, %549, %467, %469, %383, %385, %299, %301, %215, %217, %131, %133
-  %.sink = phi ptr [ %3, %133 ], [ %3, %131 ], [ %6, %217 ], [ %6, %215 ], [ %9, %301 ], [ %9, %299 ], [ %12, %385 ], [ %12, %383 ], [ %15, %469 ], [ %15, %467 ], [ %18, %549 ], [ %18, %547 ]
-  %.pn65.pn = phi { ptr, i32 } [ %134, %133 ], [ %132, %131 ], [ %218, %217 ], [ %216, %215 ], [ %302, %301 ], [ %300, %299 ], [ %386, %385 ], [ %384, %383 ], [ %470, %469 ], [ %468, %467 ], [ %550, %549 ], [ %548, %547 ]
+  %.sink = phi ptr [ %15, %467 ], [ %12, %383 ], [ %9, %299 ], [ %6, %215 ], [ %3, %131 ], [ %3, %133 ], [ %6, %217 ], [ %9, %301 ], [ %12, %385 ], [ %15, %469 ], [ %18, %549 ], [ %18, %547 ]
+  %.pn65.pn = phi { ptr, i32 } [ %468, %467 ], [ %384, %383 ], [ %300, %299 ], [ %216, %215 ], [ %132, %131 ], [ %134, %133 ], [ %218, %217 ], [ %302, %301 ], [ %386, %385 ], [ %470, %469 ], [ %550, %549 ], [ %548, %547 ]
   call void @_ZNSt7__cxx114listI10FileFormatSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %.sink) #20
   resume { ptr, i32 } %.pn65.pn
 }
@@ -2472,7 +2472,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPP8IOPluginSt6vectorIS3_SaIS3_EEEES3_ET
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPP8IOPluginSt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit
 
 _ZSt4findIN9__gnu_cxx17__normal_iteratorIPP8IOPluginSt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit: ; preds = %18, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPP8IOPluginSt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPP8IOPluginSt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit.loopexit.split.loop.exit272, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPP8IOPluginSt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit.loopexit.split.loop.exit274, %._crit_edge.i.i.i, %38, %._crit_edge._crit_edge.i.i.i, %._crit_edge._crit_edge57.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %38 ], [ %.sroa.032.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %11, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %49, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPP8IOPluginSt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit.loopexit.split.loop.exit ], [ %50, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPP8IOPluginSt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit.loopexit.split.loop.exit272 ], [ %51, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPP8IOPluginSt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit.loopexit.split.loop.exit274 ], [ %.sroa.032.051.i.i.i, %18 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %spec.select.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %11, %._crit_edge.i.i.i ], [ %.sroa.032.0.lcssa.i.i.i, %38 ], [ %51, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPP8IOPluginSt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit.loopexit.split.loop.exit274 ], [ %50, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPP8IOPluginSt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit.loopexit.split.loop.exit272 ], [ %49, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPP8IOPluginSt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit.loopexit.split.loop.exit ], [ %.sroa.032.051.i.i.i, %18 ]
   %52 = ptrtoint ptr %.sroa.08.0.in.sroa.speculated.i.i.i to i64
   %53 = sub i64 %52, %13
   %54 = getelementptr inbounds i8, ptr %9, i64 %53
@@ -3253,8 +3253,8 @@ _ZN7QStringD2Ev.exit116:                          ; preds = %_ZN4QMapI7QStringP8
   br label %264
 
 264:                                              ; preds = %261, %263, %197, %199, %129, %131
-  %.sink = phi ptr [ %3, %131 ], [ %3, %129 ], [ %5, %199 ], [ %5, %197 ], [ %7, %263 ], [ %7, %261 ]
-  %.pn29.pn = phi { ptr, i32 } [ %lpad.phi206, %131 ], [ %130, %129 ], [ %lpad.phi200, %199 ], [ %198, %197 ], [ %lpad.phi, %263 ], [ %262, %261 ]
+  %.sink = phi ptr [ %5, %197 ], [ %3, %129 ], [ %3, %131 ], [ %5, %199 ], [ %7, %263 ], [ %7, %261 ]
+  %.pn29.pn = phi { ptr, i32 } [ %198, %197 ], [ %130, %129 ], [ %lpad.phi206, %131 ], [ %lpad.phi200, %199 ], [ %lpad.phi, %263 ], [ %262, %261 ]
   call void @_ZNSt7__cxx114listI10FileFormatSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %.sink) #20
   resume { ptr, i32 } %.pn29.pn
 }

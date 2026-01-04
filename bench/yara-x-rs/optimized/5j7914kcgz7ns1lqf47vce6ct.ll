@@ -455,8 +455,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !61
 
@@ -540,7 +540,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb40ccc2902d9
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb40ccc2902d98a25E.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !35, !noalias !38, !noundef !3
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !35, !noalias !38
@@ -564,7 +564,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb40ccc2902d9
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb40ccc2902d98a25E.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb40ccc2902d98a25E.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb40ccc2902d98a25E.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb40ccc2902d98a25E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb40ccc2902d98a25E.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb40ccc2902d98a25E.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb40ccc2902d98a25E.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb40ccc2902d98a25E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb40ccc2902d98a25E.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 -9223372036854775808, ptr %0, align 8
@@ -683,8 +683,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf18coded_input_stream16CodedInputS
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i
 
 .loopexit.i.i:                                    ; preds = %29, %54, %48, %40
-  %.sroa.17.0.ph.ph.i.i = phi i64 [ 10, %40 ], [ 1, %54 ], [ 2, %48 ], [ %30, %29 ]
-  %.sroa.10.0.ph.ph.i.i = phi i64 [ %43, %40 ], [ %55, %54 ], [ %53, %48 ], [ %36, %29 ]
+  %.sroa.17.0.ph.ph.i.i = phi i64 [ 2, %48 ], [ 10, %40 ], [ 1, %54 ], [ %30, %29 ]
+  %.sroa.10.0.ph.ph.i.i = phi i64 [ %53, %48 ], [ %43, %40 ], [ %55, %54 ], [ %36, %29 ]
   %.not.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i, %17
   br i1 %.not.i.i, label %61, label %62, !prof !61
 
@@ -947,7 +947,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h74
   ret void
 
 57:                                               ; preds = %45, %41
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.128.i.i, %41 ], [ %51, %45 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %51, %45 ], [ %.sroa.6.128.i.i, %41 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 24

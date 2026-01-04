@@ -696,9 +696,9 @@ define hidden noundef double @_ZN5osgeo4proj8internal13c_locale_stodERKNSt7__cxx
   br label %28
 
 28:                                               ; preds = %20, %26
-  %.142 = phi i64 [ %24, %20 ], [ %.04148, %26 ]
-  %.2 = phi i64 [ %spec.select45, %20 ], [ %.140., %26 ]
-  %.138 = phi i1 [ %.03750, %20 ], [ %..037, %26 ]
+  %.142 = phi i64 [ %.04148, %26 ], [ %24, %20 ]
+  %.2 = phi i64 [ %.140., %26 ], [ %spec.select45, %20 ]
+  %.138 = phi i1 [ %..037, %26 ], [ %.03750, %20 ]
   %29 = add nuw nsw i64 %.13651, 1
   %exitcond.not = icmp eq i64 %29, %7
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
@@ -1008,7 +1008,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i23
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %57, %.loopexit, %.loopexit.split-lp, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i23
-  %.pn18 = phi { ptr, i32 } [ %58, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i23 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %58, %57 ]
+  %.pn18 = phi { ptr, i32 } [ %58, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i23 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %58, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %112
 
@@ -1387,7 +1387,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i24
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26: ; preds = %62, %.loopexit, %.loopexit.split-lp, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i24
-  %.pn19 = phi { ptr, i32 } [ %63, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i24 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %63, %62 ]
+  %.pn19 = phi { ptr, i32 } [ %63, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i24 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %63, %62 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %118
 

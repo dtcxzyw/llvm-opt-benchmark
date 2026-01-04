@@ -958,7 +958,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
   br label %331
 
 331:                                              ; preds = %.loopexit, %.loopexit.split-lp, %295, %265, %242, %240
-  %.pn90.pn.pn.pn = phi { ptr, i32 } [ %266, %265 ], [ %243, %242 ], [ %241, %240 ], [ %296, %295 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn90.pn.pn.pn = phi { ptr, i32 } [ %241, %240 ], [ %266, %265 ], [ %243, %242 ], [ %296, %295 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %332 = load ptr, ptr %26, align 8, !tbaa !75
   %.not.i.i.i170 = icmp eq ptr %332, null
   br i1 %.not.i.i.i170, label %_ZNSt6vectorIfSaIfEED2Ev.exit171, label %333

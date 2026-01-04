@@ -561,7 +561,7 @@ define dso_local noundef i32 @_ZN12b3LauncherCL15deserializeArgsEPhiP11_cl_conte
   br label %_ZNK13b3OpenCLArrayIhE8copyToCLEP7_cl_memmmm.exit.i.i
 
 _ZNK13b3OpenCLArrayIhE8copyToCLEP7_cl_memmmm.exit.i.i: ; preds = %52, %49, %.thread.i.i
-  %.017.i.i = phi i64 [ 0, %.thread.i.i ], [ %31, %49 ], [ %31, %52 ]
+  %.017.i.i = phi i64 [ 0, %.thread.i.i ], [ %31, %52 ], [ %31, %49 ]
   %59 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %60 = load ptr, ptr %59, align 8, !tbaa !68
   %.not.i.i.i = icmp ne ptr %60, null
@@ -810,7 +810,7 @@ define linkonce_odr dso_local void @_ZN13b3OpenCLArrayIhEC2EP11_cl_contextP17_cl
   br label %_ZNK13b3OpenCLArrayIhE8copyToCLEP7_cl_memmmm.exit.i
 
 _ZNK13b3OpenCLArrayIhE8copyToCLEP7_cl_memmmm.exit.i: ; preds = %21, %18, %.thread.i
-  %.017.i = phi i64 [ 0, %.thread.i ], [ %3, %18 ], [ %3, %21 ]
+  %.017.i = phi i64 [ 0, %.thread.i ], [ %3, %21 ], [ %3, %18 ]
   %26 = load ptr, ptr %9, align 8, !tbaa !68
   %.not.i.i = icmp ne ptr %26, null
   %27 = load i8, ptr %12, align 8, !range !35

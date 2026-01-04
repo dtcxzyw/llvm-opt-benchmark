@@ -964,7 +964,7 @@ define void @_ZN6LibRaw10dcb_decideEPA3_fS1_(ptr noundef nonnull readonly align 
   br label %84
 
 84:                                               ; preds = %.thread1025, %79, %83, %82
-  %85 = phi reassoc nsz arcp contract afn float [ %74, %82 ], [ %.986, %83 ], [ %73, %79 ], [ %73, %.thread1025 ]
+  %85 = phi reassoc nsz arcp contract afn float [ %.986, %83 ], [ %74, %82 ], [ %73, %79 ], [ %73, %.thread1025 ]
   %86 = fcmp reassoc nsz arcp contract afn olt float %75, %76
   %.990 = select reassoc nsz arcp contract afn i1 %86, float %75, float %76
   %87 = fcmp reassoc nsz arcp contract afn olt float %74, %.990
@@ -985,7 +985,7 @@ define void @_ZN6LibRaw10dcb_decideEPA3_fS1_(ptr noundef nonnull readonly align 
   br label %93
 
 93:                                               ; preds = %.thread1027, %88, %92, %91
-  %94 = phi reassoc nsz arcp contract afn float [ %74, %91 ], [ %.990, %92 ], [ %73, %88 ], [ %73, %.thread1027 ]
+  %94 = phi reassoc nsz arcp contract afn float [ %.990, %92 ], [ %74, %91 ], [ %73, %88 ], [ %73, %.thread1027 ]
   %gep1084 = getelementptr inbounds nuw [3 x float], ptr %invariant.gep1083, i64 %56
   %95 = load float, ptr %gep1084, align 4, !tbaa !74
   %gep1086 = getelementptr [3 x float], ptr %invariant.gep1083, i64 %58
@@ -1014,7 +1014,7 @@ define void @_ZN6LibRaw10dcb_decideEPA3_fS1_(ptr noundef nonnull readonly align 
   br label %106
 
 106:                                              ; preds = %.thread1029, %101, %105, %104
-  %107 = phi reassoc nsz arcp contract afn float [ %96, %104 ], [ %.994, %105 ], [ %95, %101 ], [ %95, %.thread1029 ]
+  %107 = phi reassoc nsz arcp contract afn float [ %.994, %105 ], [ %96, %104 ], [ %95, %101 ], [ %95, %.thread1029 ]
   %108 = fcmp reassoc nsz arcp contract afn olt float %97, %98
   %.998 = select reassoc nsz arcp contract afn i1 %108, float %97, float %98
   %109 = fcmp reassoc nsz arcp contract afn olt float %96, %.998
@@ -1035,7 +1035,7 @@ define void @_ZN6LibRaw10dcb_decideEPA3_fS1_(ptr noundef nonnull readonly align 
   br label %115
 
 115:                                              ; preds = %.thread1031, %110, %114, %113
-  %116 = phi reassoc nsz arcp contract afn float [ %96, %113 ], [ %.998, %114 ], [ %95, %110 ], [ %95, %.thread1031 ]
+  %116 = phi reassoc nsz arcp contract afn float [ %.998, %114 ], [ %96, %113 ], [ %95, %110 ], [ %95, %.thread1031 ]
   %gep1092 = getelementptr [3 x float], ptr %invariant.gep1091, i64 %44
   %117 = load float, ptr %gep1092, align 4, !tbaa !74
   %gep1094 = getelementptr [3 x float], ptr %invariant.gep1091, i64 %46
@@ -1064,7 +1064,7 @@ define void @_ZN6LibRaw10dcb_decideEPA3_fS1_(ptr noundef nonnull readonly align 
   br label %128
 
 128:                                              ; preds = %.thread1033, %123, %127, %126
-  %129 = phi reassoc nsz arcp contract afn float [ %118, %126 ], [ %.1002, %127 ], [ %117, %123 ], [ %117, %.thread1033 ]
+  %129 = phi reassoc nsz arcp contract afn float [ %.1002, %127 ], [ %118, %126 ], [ %117, %123 ], [ %117, %.thread1033 ]
   %130 = fcmp reassoc nsz arcp contract afn olt float %119, %120
   %.1006 = select reassoc nsz arcp contract afn i1 %130, float %119, float %120
   %131 = fcmp reassoc nsz arcp contract afn olt float %118, %.1006
@@ -1085,7 +1085,7 @@ define void @_ZN6LibRaw10dcb_decideEPA3_fS1_(ptr noundef nonnull readonly align 
   br label %137
 
 137:                                              ; preds = %.thread1035, %132, %136, %135
-  %138 = phi reassoc nsz arcp contract afn float [ %118, %135 ], [ %.1006, %136 ], [ %117, %132 ], [ %117, %.thread1035 ]
+  %138 = phi reassoc nsz arcp contract afn float [ %.1006, %136 ], [ %118, %135 ], [ %117, %132 ], [ %117, %.thread1035 ]
   %gep1100 = getelementptr inbounds nuw [3 x float], ptr %invariant.gep1099, i64 %56
   %139 = load float, ptr %gep1100, align 4, !tbaa !74
   %gep1102 = getelementptr [3 x float], ptr %invariant.gep1099, i64 %58
@@ -1114,7 +1114,7 @@ define void @_ZN6LibRaw10dcb_decideEPA3_fS1_(ptr noundef nonnull readonly align 
   br label %150
 
 150:                                              ; preds = %.thread1037, %145, %149, %148
-  %151 = phi reassoc nsz arcp contract afn float [ %140, %148 ], [ %.1010, %149 ], [ %139, %145 ], [ %139, %.thread1037 ]
+  %151 = phi reassoc nsz arcp contract afn float [ %.1010, %149 ], [ %140, %148 ], [ %139, %145 ], [ %139, %.thread1037 ]
   %152 = fcmp reassoc nsz arcp contract afn olt float %141, %142
   %.1014 = select reassoc nsz arcp contract afn i1 %152, float %141, float %142
   %153 = fcmp reassoc nsz arcp contract afn olt float %140, %.1014
@@ -1135,7 +1135,7 @@ define void @_ZN6LibRaw10dcb_decideEPA3_fS1_(ptr noundef nonnull readonly align 
   br label %159
 
 159:                                              ; preds = %.thread1039, %154, %158, %157
-  %160 = phi reassoc nsz arcp contract afn float [ %140, %157 ], [ %.1014, %158 ], [ %139, %154 ], [ %139, %.thread1039 ]
+  %160 = phi reassoc nsz arcp contract afn float [ %.1014, %158 ], [ %140, %157 ], [ %139, %154 ], [ %139, %.thread1039 ]
   %161 = fadd reassoc nsz arcp contract afn float %94, %72
   %162 = fadd reassoc nsz arcp contract afn float %85, %107
   %163 = fsub reassoc nsz arcp contract afn float %161, %162
@@ -2163,7 +2163,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   br label %459
 
 459:                                              ; preds = %452, %449
-  %460 = phi i16 [ %434, %449 ], [ %spec.select3501, %452 ]
+  %460 = phi i16 [ %spec.select3501, %452 ], [ %434, %449 ]
   %461 = icmp ult i16 %432, %460
   br i1 %461, label %473, label %462
 
@@ -2189,7 +2189,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   br label %473
 
 473:                                              ; preds = %.thread, %472, %459
-  %474 = phi i16 [ %432, %459 ], [ %spec.select3502, %472 ], [ %spec.select3503, %.thread ]
+  %474 = phi i16 [ %spec.select3502, %472 ], [ %432, %459 ], [ %spec.select3503, %.thread ]
   %475 = icmp ult i16 %429, %474
   br i1 %475, label %492, label %476
 
@@ -2223,7 +2223,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   br label %492
 
 492:                                              ; preds = %.thread3389, %491, %476, %473
-  %493 = phi i16 [ %429, %473 ], [ %478, %476 ], [ %spec.select3506, %491 ], [ %spec.select3507, %.thread3389 ]
+  %493 = phi i16 [ %spec.select3506, %491 ], [ %429, %473 ], [ %478, %476 ], [ %spec.select3507, %.thread3389 ]
   %494 = icmp ult i16 %425, %493
   br i1 %494, label %.thread3849, label %495
 
@@ -2270,7 +2270,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   br label %.thread3849
 
 .thread3849:                                      ; preds = %.thread3848, %511, %.thread3397, %514, %492
-  %515 = phi i16 [ %425, %492 ], [ %.mux, %511 ], [ %spec.select3514, %514 ], [ %spec.select3515, %.thread3397 ], [ %spec.select, %.thread3848 ]
+  %515 = phi i16 [ %spec.select3514, %514 ], [ %425, %492 ], [ %.mux, %511 ], [ %spec.select, %.thread3848 ], [ %spec.select3515, %.thread3397 ]
   %516 = icmp ult i16 %422, %515
   br i1 %516, label %.thread3853, label %517
 
@@ -2319,7 +2319,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   br label %.thread3851
 
 .thread3851:                                      ; preds = %.thread3850, %535, %.thread3405, %538
-  %539 = phi i16 [ %.mux3883, %535 ], [ %spec.select3522, %538 ], [ %spec.select3523, %.thread3405 ], [ %spec.select3881, %.thread3850 ]
+  %539 = phi i16 [ %spec.select3522, %538 ], [ %.mux3883, %535 ], [ %spec.select3881, %.thread3850 ], [ %spec.select3523, %.thread3405 ]
   %540 = icmp ult i16 %519, %539
   br i1 %540, label %.thread3853, label %541
 
@@ -2349,7 +2349,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   br label %.thread3853
 
 .thread3853:                                      ; preds = %.thread3852, %542, %.thread3413, %545, %.thread3851, %.thread3849
-  %546 = phi i16 [ %422, %.thread3849 ], [ %519, %.thread3851 ], [ %.mux3887, %542 ], [ %spec.select3530, %545 ], [ %spec.select3531, %.thread3413 ], [ %spec.select3885, %.thread3852 ]
+  %546 = phi i16 [ %spec.select3530, %545 ], [ %422, %.thread3849 ], [ %519, %.thread3851 ], [ %.mux3887, %542 ], [ %spec.select3885, %.thread3852 ], [ %spec.select3531, %.thread3413 ]
   %547 = zext i16 %546 to i32
   %.3190 = tail call i16 @llvm.umax.i16(i16 %439, i16 %442)
   %548 = icmp ugt i16 %436, %.3190
@@ -2380,7 +2380,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   br label %564
 
 564:                                              ; preds = %557, %554
-  %565 = phi i16 [ %434, %554 ], [ %spec.select3532, %557 ]
+  %565 = phi i16 [ %spec.select3532, %557 ], [ %434, %554 ]
   %566 = icmp ugt i16 %432, %565
   br i1 %566, label %578, label %567
 
@@ -2406,7 +2406,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   br label %578
 
 578:                                              ; preds = %.thread3415, %577, %564
-  %579 = phi i16 [ %432, %564 ], [ %spec.select3533, %577 ], [ %spec.select3534, %.thread3415 ]
+  %579 = phi i16 [ %spec.select3533, %577 ], [ %432, %564 ], [ %spec.select3534, %.thread3415 ]
   %580 = icmp ugt i16 %429, %579
   br i1 %580, label %597, label %581
 
@@ -2440,7 +2440,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   br label %597
 
 597:                                              ; preds = %.thread3419, %596, %581, %578
-  %598 = phi i16 [ %429, %578 ], [ %583, %581 ], [ %spec.select3537, %596 ], [ %spec.select3538, %.thread3419 ]
+  %598 = phi i16 [ %spec.select3537, %596 ], [ %429, %578 ], [ %583, %581 ], [ %spec.select3538, %.thread3419 ]
   %599 = icmp ugt i16 %425, %598
   br i1 %599, label %.thread3855, label %600
 
@@ -2487,7 +2487,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   br label %.thread3855
 
 .thread3855:                                      ; preds = %.thread3854, %616, %.thread3427, %619, %597
-  %620 = phi i16 [ %425, %597 ], [ %.mux3890, %616 ], [ %spec.select3545, %619 ], [ %spec.select3546, %.thread3427 ], [ %spec.select3888, %.thread3854 ]
+  %620 = phi i16 [ %spec.select3545, %619 ], [ %425, %597 ], [ %.mux3890, %616 ], [ %spec.select3888, %.thread3854 ], [ %spec.select3546, %.thread3427 ]
   %621 = icmp ugt i16 %422, %620
   br i1 %621, label %.thread3859, label %622
 
@@ -2536,7 +2536,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   br label %.thread3857
 
 .thread3857:                                      ; preds = %.thread3856, %640, %.thread3435, %643
-  %644 = phi i16 [ %.mux3893, %640 ], [ %spec.select3553, %643 ], [ %spec.select3554, %.thread3435 ], [ %spec.select3891, %.thread3856 ]
+  %644 = phi i16 [ %spec.select3553, %643 ], [ %.mux3893, %640 ], [ %spec.select3891, %.thread3856 ], [ %spec.select3554, %.thread3435 ]
   %645 = icmp ugt i16 %624, %644
   br i1 %645, label %.thread3859, label %646
 
@@ -2566,7 +2566,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   br label %.thread3859
 
 .thread3859:                                      ; preds = %.thread3858, %647, %.thread3443, %650, %.thread3857, %.thread3855
-  %651 = phi i16 [ %422, %.thread3855 ], [ %624, %.thread3857 ], [ %.mux3897, %647 ], [ %spec.select3561, %650 ], [ %spec.select3562, %.thread3443 ], [ %spec.select3895, %.thread3858 ]
+  %651 = phi i16 [ %spec.select3561, %650 ], [ %422, %.thread3855 ], [ %624, %.thread3857 ], [ %.mux3897, %647 ], [ %spec.select3895, %.thread3858 ], [ %spec.select3562, %.thread3443 ]
   %652 = icmp ult i16 %651, %546
   br i1 %652, label %653, label %658
 
@@ -2640,7 +2640,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   br label %701
 
 701:                                              ; preds = %691, %688
-  %702 = phi i16 [ %673, %688 ], [ %spec.select3565, %691 ]
+  %702 = phi i16 [ %spec.select3565, %691 ], [ %673, %688 ]
   %703 = icmp ult i16 %671, %702
   br i1 %703, label %719, label %704
 
@@ -2670,7 +2670,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   br label %719
 
 719:                                              ; preds = %.thread3445, %718, %701
-  %720 = phi i16 [ %671, %701 ], [ %spec.select3566, %718 ], [ %spec.select3567, %.thread3445 ]
+  %720 = phi i16 [ %spec.select3566, %718 ], [ %671, %701 ], [ %spec.select3567, %.thread3445 ]
   %721 = icmp ult i16 %669, %720
   br i1 %721, label %743, label %722
 
@@ -2709,7 +2709,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   br label %743
 
 743:                                              ; preds = %.thread3449, %742, %722, %719
-  %744 = phi i16 [ %669, %719 ], [ %725, %722 ], [ %spec.select3570, %742 ], [ %spec.select3571, %.thread3449 ]
+  %744 = phi i16 [ %spec.select3570, %742 ], [ %669, %719 ], [ %725, %722 ], [ %spec.select3571, %.thread3449 ]
   %745 = icmp ult i16 %667, %744
   br i1 %745, label %.thread3861, label %746
 
@@ -2762,7 +2762,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   br label %.thread3861
 
 .thread3861:                                      ; preds = %.thread3860, %768, %.thread3457, %771, %743
-  %772 = phi i16 [ %667, %743 ], [ %.mux3900, %768 ], [ %spec.select3578, %771 ], [ %spec.select3579, %.thread3457 ], [ %spec.select3898, %.thread3860 ]
+  %772 = phi i16 [ %spec.select3578, %771 ], [ %667, %743 ], [ %.mux3900, %768 ], [ %spec.select3898, %.thread3860 ], [ %spec.select3579, %.thread3457 ]
   %773 = icmp ult i16 %665, %772
   br i1 %773, label %935, label %774
 
@@ -2799,7 +2799,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   br label %795
 
 795:                                              ; preds = %785, %782
-  %796 = phi i16 [ %673, %782 ], [ %spec.select3580, %785 ]
+  %796 = phi i16 [ %spec.select3580, %785 ], [ %673, %782 ]
   %797 = icmp ult i16 %671, %796
   br i1 %797, label %813, label %798
 
@@ -2829,7 +2829,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   br label %813
 
 813:                                              ; preds = %.thread3459, %812, %795
-  %814 = phi i16 [ %671, %795 ], [ %spec.select3581, %812 ], [ %spec.select3582, %.thread3459 ]
+  %814 = phi i16 [ %spec.select3581, %812 ], [ %671, %795 ], [ %spec.select3582, %.thread3459 ]
   %815 = icmp ult i16 %669, %814
   br i1 %815, label %837, label %816
 
@@ -2868,7 +2868,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   br label %837
 
 837:                                              ; preds = %.thread3463, %836, %816, %813
-  %838 = phi i16 [ %669, %813 ], [ %819, %816 ], [ %spec.select3585, %836 ], [ %spec.select3586, %.thread3463 ]
+  %838 = phi i16 [ %spec.select3585, %836 ], [ %669, %813 ], [ %819, %816 ], [ %spec.select3586, %.thread3463 ]
   %839 = icmp ult i16 %667, %838
   br i1 %839, label %935, label %840
 
@@ -2905,7 +2905,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   br label %861
 
 861:                                              ; preds = %851, %848
-  %862 = phi i16 [ %673, %848 ], [ %spec.select3587, %851 ]
+  %862 = phi i16 [ %spec.select3587, %851 ], [ %673, %848 ]
   %863 = icmp ult i16 %671, %862
   br i1 %863, label %879, label %864
 
@@ -2935,7 +2935,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   br label %879
 
 879:                                              ; preds = %.thread3465, %878, %861
-  %880 = phi i16 [ %671, %861 ], [ %spec.select3588, %878 ], [ %spec.select3589, %.thread3465 ]
+  %880 = phi i16 [ %spec.select3588, %878 ], [ %671, %861 ], [ %spec.select3589, %.thread3465 ]
   %881 = icmp ult i16 %669, %880
   br i1 %881, label %935, label %882
 
@@ -2972,7 +2972,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   br label %903
 
 903:                                              ; preds = %893, %890
-  %904 = phi i16 [ %673, %890 ], [ %spec.select3590, %893 ]
+  %904 = phi i16 [ %spec.select3590, %893 ], [ %673, %890 ]
   %905 = icmp ult i16 %671, %904
   br i1 %905, label %935, label %906
 
@@ -3021,7 +3021,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   br label %935
 
 935:                                              ; preds = %925, %903, %879, %837, %.thread3861, %921
-  %936 = phi i16 [ %924, %921 ], [ %665, %.thread3861 ], [ %667, %837 ], [ %669, %879 ], [ %671, %903 ], [ %spec.select3591, %925 ]
+  %936 = phi i16 [ %spec.select3591, %925 ], [ %665, %.thread3861 ], [ %667, %837 ], [ %669, %879 ], [ %924, %921 ], [ %671, %903 ]
   %.3320 = tail call i16 @llvm.umax.i16(i16 %677, i16 %679)
   %937 = icmp ugt i16 %675, %.3320
   %minmaxop3645 = tail call i16 @llvm.umax.i16(i16 %675, i16 %.3320)
@@ -3052,7 +3052,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   br label %.thread3863
 
 .thread3863:                                      ; preds = %.thread3862, %940, %.thread3473, %943
-  %944 = phi i16 [ %.mux3903, %940 ], [ %spec.select3598, %943 ], [ %spec.select3599, %.thread3473 ], [ %spec.select3901, %.thread3862 ]
+  %944 = phi i16 [ %spec.select3598, %943 ], [ %.mux3903, %940 ], [ %spec.select3901, %.thread3862 ], [ %spec.select3599, %.thread3473 ]
   %945 = icmp ugt i16 %667, %944
   br i1 %945, label %.thread3865, label %946
 
@@ -3082,7 +3082,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   br label %.thread3865
 
 .thread3865:                                      ; preds = %.thread3864, %947, %.thread3481, %950, %.thread3863
-  %951 = phi i16 [ %667, %.thread3863 ], [ %.mux3907, %947 ], [ %spec.select3606, %950 ], [ %spec.select3607, %.thread3481 ], [ %spec.select3905, %.thread3864 ]
+  %951 = phi i16 [ %spec.select3606, %950 ], [ %667, %.thread3863 ], [ %.mux3907, %947 ], [ %spec.select3905, %.thread3864 ], [ %spec.select3607, %.thread3481 ]
   %952 = icmp ugt i16 %665, %951
   br i1 %952, label %.thread3869, label %953
 
@@ -3112,7 +3112,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   br label %.thread3867
 
 .thread3867:                                      ; preds = %.thread3866, %954, %.thread3489, %957
-  %958 = phi i16 [ %.mux3911, %954 ], [ %spec.select3614, %957 ], [ %spec.select3615, %.thread3489 ], [ %spec.select3909, %.thread3866 ]
+  %958 = phi i16 [ %spec.select3614, %957 ], [ %.mux3911, %954 ], [ %spec.select3909, %.thread3866 ], [ %spec.select3615, %.thread3489 ]
   %959 = icmp ugt i16 %667, %958
   br i1 %959, label %.thread3869, label %960
 
@@ -3142,7 +3142,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   br label %.thread3869
 
 .thread3869:                                      ; preds = %.thread3868, %961, %.thread3497, %964, %.thread3867, %.thread3865
-  %965 = phi i16 [ %665, %.thread3865 ], [ %667, %.thread3867 ], [ %.mux3915, %961 ], [ %spec.select3622, %964 ], [ %spec.select3623, %.thread3497 ], [ %spec.select3913, %.thread3868 ]
+  %965 = phi i16 [ %spec.select3622, %964 ], [ %665, %.thread3865 ], [ %667, %.thread3867 ], [ %.mux3915, %961 ], [ %spec.select3913, %.thread3868 ], [ %spec.select3623, %.thread3497 ]
   %.3924 = tail call i16 @llvm.umin.i16(i16 %965, i16 %936)
   %.3925 = tail call i16 @llvm.umax.i16(i16 %965, i16 %936)
   %966 = icmp ult i16 %420, %.3924
@@ -3946,7 +3946,7 @@ define void @_ZN6LibRaw14dcb_refinementEv(ptr noundef nonnull readonly align 8 c
   br label %258
 
 258:                                              ; preds = %248, %245
-  %259 = phi i16 [ %218, %245 ], [ %spec.select1731, %248 ]
+  %259 = phi i16 [ %spec.select1731, %248 ], [ %218, %245 ]
   %260 = icmp ult i16 %232, %259
   br i1 %260, label %276, label %261
 
@@ -3976,7 +3976,7 @@ define void @_ZN6LibRaw14dcb_refinementEv(ptr noundef nonnull readonly align 8 c
   br label %276
 
 276:                                              ; preds = %.thread1673, %275, %258
-  %277 = phi i16 [ %232, %258 ], [ %spec.select1732, %275 ], [ %spec.select1733, %.thread1673 ]
+  %277 = phi i16 [ %spec.select1732, %275 ], [ %232, %258 ], [ %spec.select1733, %.thread1673 ]
   %278 = icmp ult i16 %228, %277
   br i1 %278, label %300, label %279
 
@@ -4015,7 +4015,7 @@ define void @_ZN6LibRaw14dcb_refinementEv(ptr noundef nonnull readonly align 8 c
   br label %300
 
 300:                                              ; preds = %.thread1677, %299, %279, %276
-  %301 = phi i16 [ %228, %276 ], [ %282, %279 ], [ %spec.select1736, %299 ], [ %spec.select1737, %.thread1677 ]
+  %301 = phi i16 [ %spec.select1736, %299 ], [ %228, %276 ], [ %282, %279 ], [ %spec.select1737, %.thread1677 ]
   %302 = icmp ult i16 %224, %301
   br i1 %302, label %.thread1876, label %303
 
@@ -4068,7 +4068,7 @@ define void @_ZN6LibRaw14dcb_refinementEv(ptr noundef nonnull readonly align 8 c
   br label %.thread1876
 
 .thread1876:                                      ; preds = %.thread1875, %325, %.thread1685, %328, %300
-  %329 = phi i16 [ %224, %300 ], [ %.mux, %325 ], [ %spec.select1744, %328 ], [ %spec.select1745, %.thread1685 ], [ %spec.select, %.thread1875 ]
+  %329 = phi i16 [ %spec.select1744, %328 ], [ %224, %300 ], [ %.mux, %325 ], [ %spec.select, %.thread1875 ], [ %spec.select1745, %.thread1685 ]
   %330 = icmp ult i16 %220, %329
   br i1 %330, label %444, label %331
 
@@ -4105,7 +4105,7 @@ define void @_ZN6LibRaw14dcb_refinementEv(ptr noundef nonnull readonly align 8 c
   br label %352
 
 352:                                              ; preds = %342, %339
-  %353 = phi i16 [ %218, %339 ], [ %spec.select1746, %342 ]
+  %353 = phi i16 [ %spec.select1746, %342 ], [ %218, %339 ]
   %354 = icmp ult i16 %232, %353
   br i1 %354, label %370, label %355
 
@@ -4135,7 +4135,7 @@ define void @_ZN6LibRaw14dcb_refinementEv(ptr noundef nonnull readonly align 8 c
   br label %370
 
 370:                                              ; preds = %.thread1687, %369, %352
-  %371 = phi i16 [ %232, %352 ], [ %spec.select1747, %369 ], [ %spec.select1748, %.thread1687 ]
+  %371 = phi i16 [ %spec.select1747, %369 ], [ %232, %352 ], [ %spec.select1748, %.thread1687 ]
   %372 = icmp ult i16 %228, %371
   br i1 %372, label %394, label %373
 
@@ -4174,7 +4174,7 @@ define void @_ZN6LibRaw14dcb_refinementEv(ptr noundef nonnull readonly align 8 c
   br label %394
 
 394:                                              ; preds = %.thread1691, %393, %373, %370
-  %395 = phi i16 [ %228, %370 ], [ %376, %373 ], [ %spec.select1751, %393 ], [ %spec.select1752, %.thread1691 ]
+  %395 = phi i16 [ %spec.select1751, %393 ], [ %228, %370 ], [ %376, %373 ], [ %spec.select1752, %.thread1691 ]
   %396 = icmp ult i16 %224, %395
   br i1 %396, label %444, label %397
 
@@ -4211,7 +4211,7 @@ define void @_ZN6LibRaw14dcb_refinementEv(ptr noundef nonnull readonly align 8 c
   br label %418
 
 418:                                              ; preds = %408, %405
-  %419 = phi i16 [ %218, %405 ], [ %spec.select1753, %408 ]
+  %419 = phi i16 [ %spec.select1753, %408 ], [ %218, %405 ]
   %420 = icmp ult i16 %232, %419
   br i1 %420, label %436, label %421
 
@@ -4241,7 +4241,7 @@ define void @_ZN6LibRaw14dcb_refinementEv(ptr noundef nonnull readonly align 8 c
   br label %436
 
 436:                                              ; preds = %.thread1693, %435, %418
-  %437 = phi i16 [ %232, %418 ], [ %spec.select1754, %435 ], [ %spec.select1755, %.thread1693 ]
+  %437 = phi i16 [ %spec.select1754, %435 ], [ %232, %418 ], [ %spec.select1755, %.thread1693 ]
   %438 = icmp ult i16 %228, %437
   br i1 %438, label %444, label %439
 
@@ -4263,7 +4263,7 @@ define void @_ZN6LibRaw14dcb_refinementEv(ptr noundef nonnull readonly align 8 c
   br label %444
 
 444:                                              ; preds = %.thread1697, %443, %439, %436, %394, %.thread1876
-  %445 = phi i16 [ %220, %.thread1876 ], [ %224, %394 ], [ %228, %436 ], [ %232, %439 ], [ %spec.select1758, %443 ], [ %spec.select1759, %.thread1697 ]
+  %445 = phi i16 [ %spec.select1758, %443 ], [ %220, %.thread1876 ], [ %224, %394 ], [ %228, %436 ], [ %232, %439 ], [ %spec.select1759, %.thread1697 ]
   %446 = uitofp i16 %445 to float
   %.1594 = tail call i16 @llvm.umax.i16(i16 %234, i16 %236)
   %447 = icmp ugt i16 %217, %.1594
@@ -4295,7 +4295,7 @@ define void @_ZN6LibRaw14dcb_refinementEv(ptr noundef nonnull readonly align 8 c
   br label %.thread1878
 
 .thread1878:                                      ; preds = %.thread1877, %450, %.thread1705, %453
-  %454 = phi i16 [ %.mux1891, %450 ], [ %spec.select1766, %453 ], [ %spec.select1767, %.thread1705 ], [ %spec.select1889, %.thread1877 ]
+  %454 = phi i16 [ %spec.select1766, %453 ], [ %.mux1891, %450 ], [ %spec.select1889, %.thread1877 ], [ %spec.select1767, %.thread1705 ]
   %455 = icmp ugt i16 %224, %454
   br i1 %455, label %.thread1880, label %456
 
@@ -4325,7 +4325,7 @@ define void @_ZN6LibRaw14dcb_refinementEv(ptr noundef nonnull readonly align 8 c
   br label %.thread1880
 
 .thread1880:                                      ; preds = %.thread1879, %457, %.thread1713, %460, %.thread1878
-  %461 = phi i16 [ %224, %.thread1878 ], [ %.mux1895, %457 ], [ %spec.select1774, %460 ], [ %spec.select1775, %.thread1713 ], [ %spec.select1893, %.thread1879 ]
+  %461 = phi i16 [ %spec.select1774, %460 ], [ %224, %.thread1878 ], [ %.mux1895, %457 ], [ %spec.select1893, %.thread1879 ], [ %spec.select1775, %.thread1713 ]
   %462 = icmp ugt i16 %220, %461
   br i1 %462, label %.thread1884, label %463
 
@@ -4355,7 +4355,7 @@ define void @_ZN6LibRaw14dcb_refinementEv(ptr noundef nonnull readonly align 8 c
   br label %.thread1882
 
 .thread1882:                                      ; preds = %.thread1881, %464, %.thread1721, %467
-  %468 = phi i16 [ %.mux1899, %464 ], [ %spec.select1782, %467 ], [ %spec.select1783, %.thread1721 ], [ %spec.select1897, %.thread1881 ]
+  %468 = phi i16 [ %spec.select1782, %467 ], [ %.mux1899, %464 ], [ %spec.select1897, %.thread1881 ], [ %spec.select1783, %.thread1721 ]
   %469 = icmp ugt i16 %224, %468
   br i1 %469, label %.thread1884, label %470
 
@@ -4385,7 +4385,7 @@ define void @_ZN6LibRaw14dcb_refinementEv(ptr noundef nonnull readonly align 8 c
   br label %.thread1884
 
 .thread1884:                                      ; preds = %.thread1883, %471, %.thread1729, %474, %.thread1882, %.thread1880
-  %475 = phi i16 [ %220, %.thread1880 ], [ %224, %.thread1882 ], [ %.mux1903, %471 ], [ %spec.select1790, %474 ], [ %spec.select1791, %.thread1729 ], [ %spec.select1901, %.thread1883 ]
+  %475 = phi i16 [ %spec.select1790, %474 ], [ %220, %.thread1880 ], [ %224, %.thread1882 ], [ %.mux1903, %471 ], [ %spec.select1901, %.thread1883 ], [ %spec.select1791, %.thread1729 ]
   %476 = uitofp i16 %475 to float
   %477 = fcmp reassoc nsz arcp contract afn olt float %476, %446
   %478 = uitofp i16 %216 to float
@@ -4410,7 +4410,7 @@ define void @_ZN6LibRaw14dcb_refinementEv(ptr noundef nonnull readonly align 8 c
   br label %487
 
 487:                                              ; preds = %486, %483, %482, %479
-  %488 = phi reassoc nsz arcp contract afn float [ %476, %479 ], [ %.1658, %482 ], [ %446, %483 ], [ %.1660, %486 ]
+  %488 = phi reassoc nsz arcp contract afn float [ %476, %479 ], [ %446, %483 ], [ %.1658, %482 ], [ %.1660, %486 ]
   %489 = fptoui float %488 to i16
   %490 = getelementptr inbounds nuw i8, ptr %41, i64 2
   store i16 %489, ptr %490, align 2, !tbaa !73
@@ -4643,7 +4643,7 @@ define void @_ZN6LibRaw15fbdd_correctionEv(ptr noundef nonnull align 8 dereferen
   br label %.thread994
 
 .thread994:                                       ; preds = %41, %.thread949, %46, %.thread945, %45
-  %47 = phi i16 [ %spec.select972, %45 ], [ %spec.select973, %.thread945 ], [ %spec.select976, %46 ], [ %spec.select977, %.thread949 ], [ %36, %41 ]
+  %47 = phi i16 [ %spec.select976, %46 ], [ %spec.select977, %.thread949 ], [ %spec.select972, %45 ], [ %spec.select973, %.thread945 ], [ %36, %41 ]
   store i16 %47, ptr %35, align 2, !tbaa !73
   %48 = add nuw nsw i32 %.0868981, 1
   %49 = load i16, ptr %3, align 2, !tbaa !6
@@ -4744,7 +4744,7 @@ define void @_ZN6LibRaw16fbdd_correction2EPA3_d(ptr noundef nonnull readonly ali
   br label %44
 
 44:                                               ; preds = %43, %41, %40, %.thread.us
-  %45 = phi reassoc nsz arcp contract afn double [ %36, %43 ], [ %..us, %40 ], [ %34, %41 ], [ %34, %.thread.us ]
+  %45 = phi reassoc nsz arcp contract afn double [ %..us, %40 ], [ %36, %43 ], [ %34, %41 ], [ %34, %.thread.us ]
   %46 = fcmp reassoc nsz arcp contract afn olt double %32, %28
   %.335.us = select reassoc nsz arcp contract afn i1 %46, double %32, double %28
   %47 = fcmp reassoc nsz arcp contract afn olt double %36, %.335.us
@@ -4765,7 +4765,7 @@ define void @_ZN6LibRaw16fbdd_correction2EPA3_d(ptr noundef nonnull readonly ali
   br label %53
 
 53:                                               ; preds = %52, %50, %49, %.thread348.us
-  %54 = phi reassoc nsz arcp contract afn double [ %36, %52 ], [ %.335.us, %49 ], [ %34, %50 ], [ %34, %.thread348.us ]
+  %54 = phi reassoc nsz arcp contract afn double [ %.335.us, %49 ], [ %36, %52 ], [ %34, %50 ], [ %34, %.thread348.us ]
   %.neg355.us = fadd reassoc nsz arcp contract afn double %32, %28
   %55 = fadd reassoc nsz arcp contract afn double %.neg355.us, %34
   %56 = fadd reassoc nsz arcp contract afn double %55, %36
@@ -4800,7 +4800,7 @@ define void @_ZN6LibRaw16fbdd_correction2EPA3_d(ptr noundef nonnull readonly ali
   br label %75
 
 75:                                               ; preds = %74, %72, %71, %.thread350.us
-  %76 = phi reassoc nsz arcp contract afn double [ %67, %74 ], [ %.339.us, %71 ], [ %65, %72 ], [ %65, %.thread350.us ]
+  %76 = phi reassoc nsz arcp contract afn double [ %.339.us, %71 ], [ %67, %74 ], [ %65, %72 ], [ %65, %.thread350.us ]
   %77 = fcmp reassoc nsz arcp contract afn olt double %63, %61
   %.343.us = select reassoc nsz arcp contract afn i1 %77, double %63, double %61
   %78 = fcmp reassoc nsz arcp contract afn olt double %67, %.343.us
@@ -4821,7 +4821,7 @@ define void @_ZN6LibRaw16fbdd_correction2EPA3_d(ptr noundef nonnull readonly ali
   br label %84
 
 84:                                               ; preds = %83, %81, %80, %.thread352.us
-  %85 = phi reassoc nsz arcp contract afn double [ %67, %83 ], [ %.343.us, %80 ], [ %65, %81 ], [ %65, %.thread352.us ]
+  %85 = phi reassoc nsz arcp contract afn double [ %.343.us, %80 ], [ %67, %83 ], [ %65, %81 ], [ %65, %.thread352.us ]
   %.neg358.us = fadd reassoc nsz arcp contract afn double %63, %61
   %86 = fadd reassoc nsz arcp contract afn double %.neg358.us, %65
   %87 = fadd reassoc nsz arcp contract afn double %86, %67
@@ -5184,7 +5184,7 @@ define void @_ZN6LibRaw10fbdd_greenEv(ptr noundef nonnull readonly align 8 captu
   br label %275
 
 275:                                              ; preds = %265, %262
-  %276 = phi i16 [ %92, %262 ], [ %spec.select1876, %265 ]
+  %276 = phi i16 [ %spec.select1876, %265 ], [ %92, %262 ]
   %277 = icmp ult i16 %251, %276
   br i1 %277, label %293, label %278
 
@@ -5214,7 +5214,7 @@ define void @_ZN6LibRaw10fbdd_greenEv(ptr noundef nonnull readonly align 8 captu
   br label %293
 
 293:                                              ; preds = %.thread, %292, %275
-  %294 = phi i16 [ %251, %275 ], [ %spec.select1877, %292 ], [ %spec.select1878, %.thread ]
+  %294 = phi i16 [ %spec.select1877, %292 ], [ %251, %275 ], [ %spec.select1878, %.thread ]
   %295 = icmp ult i16 %247, %294
   br i1 %295, label %317, label %296
 
@@ -5253,7 +5253,7 @@ define void @_ZN6LibRaw10fbdd_greenEv(ptr noundef nonnull readonly align 8 captu
   br label %317
 
 317:                                              ; preds = %.thread1822, %316, %296, %293
-  %318 = phi i16 [ %247, %293 ], [ %299, %296 ], [ %spec.select1881, %316 ], [ %spec.select1882, %.thread1822 ]
+  %318 = phi i16 [ %spec.select1881, %316 ], [ %247, %293 ], [ %299, %296 ], [ %spec.select1882, %.thread1822 ]
   %319 = icmp ult i16 %243, %318
   br i1 %319, label %.thread2021, label %320
 
@@ -5306,7 +5306,7 @@ define void @_ZN6LibRaw10fbdd_greenEv(ptr noundef nonnull readonly align 8 captu
   br label %.thread2021
 
 .thread2021:                                      ; preds = %.thread2020, %342, %.thread1830, %345, %317
-  %346 = phi i16 [ %243, %317 ], [ %.mux, %342 ], [ %spec.select1889, %345 ], [ %spec.select1890, %.thread1830 ], [ %spec.select, %.thread2020 ]
+  %346 = phi i16 [ %spec.select1889, %345 ], [ %243, %317 ], [ %.mux, %342 ], [ %spec.select, %.thread2020 ], [ %spec.select1890, %.thread1830 ]
   %347 = icmp ult i16 %239, %346
   br i1 %347, label %461, label %348
 
@@ -5343,7 +5343,7 @@ define void @_ZN6LibRaw10fbdd_greenEv(ptr noundef nonnull readonly align 8 captu
   br label %369
 
 369:                                              ; preds = %359, %356
-  %370 = phi i16 [ %92, %356 ], [ %spec.select1891, %359 ]
+  %370 = phi i16 [ %spec.select1891, %359 ], [ %92, %356 ]
   %371 = icmp ult i16 %251, %370
   br i1 %371, label %387, label %372
 
@@ -5373,7 +5373,7 @@ define void @_ZN6LibRaw10fbdd_greenEv(ptr noundef nonnull readonly align 8 captu
   br label %387
 
 387:                                              ; preds = %.thread1832, %386, %369
-  %388 = phi i16 [ %251, %369 ], [ %spec.select1892, %386 ], [ %spec.select1893, %.thread1832 ]
+  %388 = phi i16 [ %spec.select1892, %386 ], [ %251, %369 ], [ %spec.select1893, %.thread1832 ]
   %389 = icmp ult i16 %247, %388
   br i1 %389, label %411, label %390
 
@@ -5412,7 +5412,7 @@ define void @_ZN6LibRaw10fbdd_greenEv(ptr noundef nonnull readonly align 8 captu
   br label %411
 
 411:                                              ; preds = %.thread1836, %410, %390, %387
-  %412 = phi i16 [ %247, %387 ], [ %393, %390 ], [ %spec.select1896, %410 ], [ %spec.select1897, %.thread1836 ]
+  %412 = phi i16 [ %spec.select1896, %410 ], [ %247, %387 ], [ %393, %390 ], [ %spec.select1897, %.thread1836 ]
   %413 = icmp ult i16 %243, %412
   br i1 %413, label %461, label %414
 
@@ -5449,7 +5449,7 @@ define void @_ZN6LibRaw10fbdd_greenEv(ptr noundef nonnull readonly align 8 captu
   br label %435
 
 435:                                              ; preds = %425, %422
-  %436 = phi i16 [ %92, %422 ], [ %spec.select1898, %425 ]
+  %436 = phi i16 [ %spec.select1898, %425 ], [ %92, %422 ]
   %437 = icmp ult i16 %251, %436
   br i1 %437, label %453, label %438
 
@@ -5479,7 +5479,7 @@ define void @_ZN6LibRaw10fbdd_greenEv(ptr noundef nonnull readonly align 8 captu
   br label %453
 
 453:                                              ; preds = %.thread1838, %452, %435
-  %454 = phi i16 [ %251, %435 ], [ %spec.select1899, %452 ], [ %spec.select1900, %.thread1838 ]
+  %454 = phi i16 [ %spec.select1899, %452 ], [ %251, %435 ], [ %spec.select1900, %.thread1838 ]
   %455 = icmp ult i16 %247, %454
   br i1 %455, label %461, label %456
 
@@ -5501,7 +5501,7 @@ define void @_ZN6LibRaw10fbdd_greenEv(ptr noundef nonnull readonly align 8 captu
   br label %461
 
 461:                                              ; preds = %.thread1842, %460, %456, %453, %411, %.thread2021
-  %462 = phi i16 [ %239, %.thread2021 ], [ %243, %411 ], [ %247, %453 ], [ %251, %456 ], [ %spec.select1903, %460 ], [ %spec.select1904, %.thread1842 ]
+  %462 = phi i16 [ %spec.select1903, %460 ], [ %239, %.thread2021 ], [ %243, %411 ], [ %247, %453 ], [ %251, %456 ], [ %spec.select1904, %.thread1842 ]
   %.1753 = tail call i16 @llvm.umax.i16(i16 %252, i16 %253)
   %463 = icmp ugt i16 %71, %.1753
   %minmaxop1948 = tail call i16 @llvm.umax.i16(i16 %71, i16 %.1753)
@@ -5532,7 +5532,7 @@ define void @_ZN6LibRaw10fbdd_greenEv(ptr noundef nonnull readonly align 8 captu
   br label %.thread2023
 
 .thread2023:                                      ; preds = %.thread2022, %466, %.thread1850, %469
-  %470 = phi i16 [ %.mux2042, %466 ], [ %spec.select1911, %469 ], [ %spec.select1912, %.thread1850 ], [ %spec.select2040, %.thread2022 ]
+  %470 = phi i16 [ %spec.select1911, %469 ], [ %.mux2042, %466 ], [ %spec.select2040, %.thread2022 ], [ %spec.select1912, %.thread1850 ]
   %471 = icmp ugt i16 %243, %470
   br i1 %471, label %.thread2025, label %472
 
@@ -5562,7 +5562,7 @@ define void @_ZN6LibRaw10fbdd_greenEv(ptr noundef nonnull readonly align 8 captu
   br label %.thread2025
 
 .thread2025:                                      ; preds = %.thread2024, %473, %.thread1858, %476, %.thread2023
-  %477 = phi i16 [ %243, %.thread2023 ], [ %.mux2046, %473 ], [ %spec.select1919, %476 ], [ %spec.select1920, %.thread1858 ], [ %spec.select2044, %.thread2024 ]
+  %477 = phi i16 [ %spec.select1919, %476 ], [ %243, %.thread2023 ], [ %.mux2046, %473 ], [ %spec.select2044, %.thread2024 ], [ %spec.select1920, %.thread1858 ]
   %478 = icmp ugt i16 %239, %477
   br i1 %478, label %.thread2029, label %479
 
@@ -5592,7 +5592,7 @@ define void @_ZN6LibRaw10fbdd_greenEv(ptr noundef nonnull readonly align 8 captu
   br label %.thread2027
 
 .thread2027:                                      ; preds = %.thread2026, %480, %.thread1866, %483
-  %484 = phi i16 [ %.mux2050, %480 ], [ %spec.select1927, %483 ], [ %spec.select1928, %.thread1866 ], [ %spec.select2048, %.thread2026 ]
+  %484 = phi i16 [ %spec.select1927, %483 ], [ %.mux2050, %480 ], [ %spec.select2048, %.thread2026 ], [ %spec.select1928, %.thread1866 ]
   %485 = icmp ugt i16 %243, %484
   br i1 %485, label %.thread2029, label %486
 
@@ -5622,7 +5622,7 @@ define void @_ZN6LibRaw10fbdd_greenEv(ptr noundef nonnull readonly align 8 captu
   br label %.thread2029
 
 .thread2029:                                      ; preds = %.thread2028, %487, %.thread1874, %490, %.thread2027, %.thread2025
-  %491 = phi i16 [ %239, %.thread2025 ], [ %243, %.thread2027 ], [ %.mux2054, %487 ], [ %spec.select1935, %490 ], [ %spec.select1936, %.thread1874 ], [ %spec.select2052, %.thread2028 ]
+  %491 = phi i16 [ %spec.select1935, %490 ], [ %239, %.thread2025 ], [ %243, %.thread2027 ], [ %.mux2054, %487 ], [ %spec.select2052, %.thread2028 ], [ %spec.select1936, %.thread1874 ]
   %.2064 = tail call i16 @llvm.umax.i16(i16 %491, i16 %462)
   %.2066.v = tail call i16 @llvm.umin.i16(i16 %491, i16 %462)
   %.2066 = zext i16 %.2066.v to i32

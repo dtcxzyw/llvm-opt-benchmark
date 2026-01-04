@@ -203,7 +203,7 @@ default.unreachable:                              ; preds = %67
   br i1 %exitcond.not, label %.loopexit, label %.preheader135.split, !llvm.loop !18
 
 .loopexit:                                        ; preds = %79, %41, %.split.us, %.split.us.thread
-  %.0102142 = phi i32 [ %.us-phi, %.split.us ], [ %.us-phi208, %.split.us.thread ], [ 12, %41 ], [ 12, %79 ]
+  %.0102142 = phi i32 [ %.us-phi208, %.split.us.thread ], [ %.us-phi, %.split.us ], [ 12, %41 ], [ 12, %79 ]
   %80 = zext nneg i32 %.0102142 to i64
   %81 = getelementptr inbounds nuw i8, ptr %8, i64 %80
   %82 = load i8, ptr %81, align 1, !tbaa !16
@@ -332,8 +332,8 @@ default.unreachable:                              ; preds = %67
   %143 = zext i1 %142 to i32
   br label %.thread
 
-.thread:                                          ; preds = %59, %63, %52, %47, %.preheader135.split._crit_edge, %37, %33, %26, %21, %.preheader135.split.us._crit_edge, %.preheader.split, %115, %128, %119, %106, %97, %93, %.preheader.split.us, %136, %85, %5, %2, %141
-  %.099 = phi i32 [ %143, %141 ], [ 0, %2 ], [ 0, %5 ], [ 0, %85 ], [ 0, %136 ], [ 0, %.preheader.split.us ], [ 0, %93 ], [ 0, %97 ], [ 0, %106 ], [ 0, %119 ], [ 0, %128 ], [ 0, %115 ], [ 0, %.preheader.split ], [ 0, %.preheader135.split.us._crit_edge ], [ 0, %21 ], [ 0, %26 ], [ 0, %33 ], [ 0, %37 ], [ 0, %.preheader135.split._crit_edge ], [ 0, %47 ], [ 0, %52 ], [ 0, %63 ], [ 0, %59 ]
+.thread:                                          ; preds = %59, %63, %52, %47, %.preheader135.split._crit_edge, %37, %33, %26, %21, %.preheader135.split.us._crit_edge, %119, %.preheader.split, %115, %128, %106, %97, %93, %.preheader.split.us, %136, %85, %5, %2, %141
+  %.099 = phi i32 [ 0, %5 ], [ 0, %2 ], [ %143, %141 ], [ 0, %85 ], [ 0, %136 ], [ 0, %119 ], [ 0, %106 ], [ 0, %37 ], [ 0, %.preheader.split.us ], [ 0, %93 ], [ 0, %97 ], [ 0, %128 ], [ 0, %115 ], [ 0, %.preheader.split ], [ 0, %.preheader135.split.us._crit_edge ], [ 0, %21 ], [ 0, %26 ], [ 0, %33 ], [ 0, %.preheader135.split._crit_edge ], [ 0, %47 ], [ 0, %52 ], [ 0, %63 ], [ 0, %59 ]
   ret i32 %.099
 }
 
@@ -375,7 +375,7 @@ define hidden range(i32 0, 2) i32 @ASN1_UTCTIME_set_string(ptr noundef %0, ptr n
   br label %14
 
 14:                                               ; preds = %2, %9, %12, %10
-  %.0 = phi i32 [ 0, %10 ], [ 1, %12 ], [ 1, %9 ], [ 0, %2 ]
+  %.0 = phi i32 [ 0, %10 ], [ 1, %9 ], [ 1, %12 ], [ 0, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -562,7 +562,7 @@ define hidden range(i32 -2, 2) i32 @ASN1_UTCTIME_cmp_time_t(ptr noundef readonly
   br label %22
 
 22:                                               ; preds = %21, %18, %16, %13, %11, %9, %2
-  %.0 = phi i32 [ -2, %2 ], [ -2, %9 ], [ -2, %11 ], [ 1, %13 ], [ -1, %16 ], [ 1, %18 ], [ %., %21 ]
+  %.0 = phi i32 [ -2, %11 ], [ 1, %13 ], [ -1, %16 ], [ %., %21 ], [ 1, %18 ], [ -2, %9 ], [ -2, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

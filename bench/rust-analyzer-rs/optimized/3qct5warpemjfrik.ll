@@ -888,8 +888,8 @@ define hidden { i64, i64 } @_ZN9hashbrown3raw13RawTableInner30find_or_find_inser
   br label %_ZN9hashbrown3raw13RawTableInner15fix_insert_slot17h4c5fe7659d6b77ebE.exit
 
 _ZN9hashbrown3raw13RawTableInner15fix_insert_slot17h4c5fe7659d6b77ebE.exit: ; preds = %17, %43, %39
-  %.sroa.3.0 = phi i64 [ %49, %43 ], [ %.sroa.6.1, %39 ], [ %23, %17 ]
-  %.sroa.0.0 = phi i64 [ 1, %43 ], [ 1, %39 ], [ 0, %17 ]
+  %.sroa.3.0 = phi i64 [ %.sroa.6.1, %39 ], [ %49, %43 ], [ %23, %17 ]
+  %.sroa.0.0 = phi i64 [ 1, %39 ], [ 1, %43 ], [ 0, %17 ]
   %50 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %51 = insertvalue { i64, i64 } %50, i64 %.sroa.3.0, 1
   ret { i64, i64 } %51
@@ -1101,7 +1101,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_inse
   tail call void @llvm.assume(i1 %66)
   br label %73
 
-69:                                               ; preds = %39, %43
+69:                                               ; preds = %43, %39
   %70 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
   %71 = getelementptr inbounds ptr, ptr %70, i64 %29
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1109,7 +1109,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_inse
   br label %75
 
 73:                                               ; preds = %62, %58
-  %.sroa.3.0.i = phi i64 [ %68, %62 ], [ %.sroa.6.1.i, %58 ]
+  %.sroa.3.0.i = phi i64 [ %.sroa.6.1.i, %58 ], [ %68, %62 ]
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.3.0.i, ptr %74, align 8
   br label %75
@@ -1312,7 +1312,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_inse
   br label %96
 
 94:                                               ; preds = %84, %.split13.us
-  %.sroa.3.0.i = phi i64 [ %90, %84 ], [ %.us-phi14, %.split13.us ]
+  %.sroa.3.0.i = phi i64 [ %.us-phi14, %.split13.us ], [ %90, %84 ]
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.3.0.i, ptr %95, align 8
   br label %96

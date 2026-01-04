@@ -167,7 +167,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -520,7 +520,7 @@ define noundef ptr @ulistfmt_open_77(ptr noundef %0, ptr noundef %1) local_unnam
   br label %_ZN6icu_7712LocalPointerINS_13ListFormatterEED2Ev.exit
 
 _ZN6icu_7712LocalPointerINS_13ListFormatterEED2Ev.exit: ; preds = %8, %15, %13, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %13 ], [ null, %15 ], [ %7, %8 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %15 ], [ null, %13 ], [ %7, %8 ]
   ret ptr %.0
 }
 
@@ -570,7 +570,7 @@ define noundef ptr @ulistfmt_openForType_77(ptr noundef %0, i32 noundef %1, i32 
   br label %_ZN6icu_7712LocalPointerINS_13ListFormatterEED2Ev.exit
 
 _ZN6icu_7712LocalPointerINS_13ListFormatterEED2Ev.exit: ; preds = %10, %17, %15, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %15 ], [ null, %17 ], [ %9, %10 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %17 ], [ null, %15 ], [ %9, %10 ]
   ret ptr %.0
 }
 
@@ -869,7 +869,7 @@ _ZN6icu_7710LocalArrayINS_13UnicodeStringEED2Ev.exit: ; preds = %48, %.loopexit.
   resume { ptr, i32 } %.pn.pn.pn
 
 70:                                               ; preds = %7, %64, %19
-  %.0 = phi i32 [ -1, %19 ], [ %.1, %64 ], [ -1, %7 ]
+  %.0 = phi i32 [ %.1, %64 ], [ -1, %19 ], [ -1, %7 ]
   ret i32 %.0
 }
 
@@ -1066,12 +1066,12 @@ _ZN6icu_7710LocalArrayINS_13UnicodeStringEE29adoptInsteadAndCheckErrorCodeEPS1_R
   resume { ptr, i32 } %.pn
 
 .loopexit.sink.split:                             ; preds = %43, %6, %10
-  %.sink = phi i32 [ 1, %10 ], [ 1, %6 ], [ 7, %43 ]
+  %.sink = phi i32 [ 1, %6 ], [ 1, %10 ], [ 7, %43 ]
   store i32 %.sink, ptr %5, align 4, !tbaa !13
   br label %.loopexit
 
 .loopexit:                                        ; preds = %70, %58, %.loopexit.sink.split, %.thread, %.preheader62, %.preheader, %_ZN6icu_7710LocalArrayINS_13UnicodeStringEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit
-  %.042 = phi ptr [ null, %_ZN6icu_7710LocalArrayINS_13UnicodeStringEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit ], [ %.043, %.preheader ], [ %.043, %.preheader62 ], [ null, %.thread ], [ null, %.loopexit.sink.split ], [ %.043, %58 ], [ %.043, %70 ]
+  %.042 = phi ptr [ null, %.thread ], [ null, %_ZN6icu_7710LocalArrayINS_13UnicodeStringEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit ], [ %.043, %.preheader ], [ %.043, %.preheader62 ], [ null, %.loopexit.sink.split ], [ %.043, %58 ], [ %.043, %70 ]
   ret ptr %.042
 }
 

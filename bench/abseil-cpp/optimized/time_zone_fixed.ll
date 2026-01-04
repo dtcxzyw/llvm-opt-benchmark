@@ -96,7 +96,7 @@ define dso_local noundef zeroext i1 @_ZN4absl13time_internal4cctz19FixedOffsetFr
   br label %45
 
 45:                                               ; preds = %.sink.split, %8, %11, %22, %30, %34, %26, %16, %19, %13
-  %.0 = phi i1 [ false, %8 ], [ false, %11 ], [ false, %13 ], [ false, %19 ], [ false, %16 ], [ false, %22 ], [ false, %26 ], [ false, %30 ], [ false, %34 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %30 ], [ false, %8 ], [ false, %11 ], [ false, %16 ], [ false, %13 ], [ false, %19 ], [ false, %22 ], [ false, %26 ], [ false, %34 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 
@@ -129,7 +129,7 @@ define internal fastcc noundef i32 @_ZN4absl13time_internal4cctz12_GLOBAL__N_18P
   br label %select.unfold
 
 select.unfold:                                    ; preds = %4, %1
-  %16 = phi i32 [ -1, %1 ], [ %spec.select, %4 ]
+  %16 = phi i32 [ %spec.select, %4 ], [ -1, %1 ]
   ret i32 %16
 }
 
@@ -362,8 +362,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit15: ; preds =
   br i1 %35, label %.invoke, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i16
 
 .invoke:                                          ; preds = %33, %21, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit5, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit
-  %36 = phi i64 [ 6, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit ], [ 3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit5 ], [ 5, %21 ], [ 3, %33 ]
-  %37 = phi i64 [ %7, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit ], [ %10, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit5 ], [ %22, %21 ], [ %34, %33 ]
+  %36 = phi i64 [ 5, %21 ], [ 3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit5 ], [ 6, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit ], [ 3, %33 ]
+  %37 = phi i64 [ %22, %21 ], [ %10, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit5 ], [ %7, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit ], [ %34, %33 ]
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.3, i64 noundef %36, i64 noundef %37) #13
           to label %.cont unwind label %39
 

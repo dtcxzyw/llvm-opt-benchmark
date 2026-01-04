@@ -129,8 +129,8 @@ define i32 @ff_aac_ac3_parse(ptr noundef captures(none) initializes((232, 236)) 
   br label %.thread
 
 .thread:                                          ; preds = %55, %44, %31, %42, %.thread.sink.split, %.preheader, %57
-  %.193 = phi i32 [ %49, %57 ], [ -100, %.preheader ], [ %.193.ph, %.thread.sink.split ], [ -100, %42 ], [ -100, %31 ], [ -100, %44 ], [ -100, %55 ]
-  %.291 = phi i32 [ 1, %57 ], [ 0, %.preheader ], [ %.291.ph, %.thread.sink.split ], [ %.190173, %42 ], [ 1, %55 ], [ %.190173, %44 ], [ %.190173, %31 ]
+  %.193 = phi i32 [ %.193.ph, %.thread.sink.split ], [ -100, %.preheader ], [ %49, %57 ], [ -100, %42 ], [ -100, %31 ], [ -100, %44 ], [ -100, %55 ]
+  %.291 = phi i32 [ %.291.ph, %.thread.sink.split ], [ 0, %.preheader ], [ 1, %57 ], [ %.190173, %42 ], [ %.190173, %44 ], [ %.190173, %31 ], [ 1, %55 ]
   %61 = call i32 @ff_combine_frame(ptr noundef nonnull %14, i32 noundef %.193, ptr noundef nonnull %7, ptr noundef nonnull %8) #5
   %62 = icmp slt i32 %61, 0
   br i1 %62, label %63, label %67
@@ -263,7 +263,7 @@ thread-pre-split:                                 ; preds = %100
   store i32 %127, ptr %128, align 4, !tbaa !57
   br label %129
 
-.thread138:                                       ; preds = %thread-pre-split, %.lr.ph237, %.lr.ph180, %75, %102
+.thread138:                                       ; preds = %.lr.ph237, %thread-pre-split, %.lr.ph180, %75, %102
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread148
@@ -383,7 +383,7 @@ thread-pre-split:                                 ; preds = %100
   br label %.thread148
 
 .thread148:                                       ; preds = %183, %188, %67, %.thread138, %.thread143, %63
-  %.0 = phi i32 [ %65, %63 ], [ %.092124, %.thread138 ], [ %.092124, %.thread143 ], [ %.193, %67 ], [ %.092124, %188 ], [ %.092124, %183 ]
+  %.0 = phi i32 [ %.092124, %.thread138 ], [ %65, %63 ], [ %.092124, %.thread143 ], [ %.193, %67 ], [ %.092124, %188 ], [ %.092124, %183 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }

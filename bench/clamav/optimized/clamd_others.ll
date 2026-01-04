@@ -649,7 +649,7 @@ buf_init.exit37:                                  ; preds = %65
   br label %buf_init.exit.thread
 
 buf_init.exit.thread:                             ; preds = %35, %40, %buf_init.exit37, %41, %77, %52, %8
-  %.028 = phi i32 [ -1, %8 ], [ 0, %77 ], [ -1, %52 ], [ -1, %buf_init.exit37 ], [ -1, %41 ], [ 0, %40 ], [ 0, %35 ]
+  %.028 = phi i32 [ -1, %8 ], [ -1, %buf_init.exit37 ], [ -1, %52 ], [ 0, %77 ], [ -1, %41 ], [ 0, %40 ], [ 0, %35 ]
   ret i32 %.028
 }
 
@@ -1118,7 +1118,7 @@ read_fd_data.exit..thread136_crit_edge:           ; preds = %read_fd_data.exit
   %.pre162 = load ptr, ptr %66, align 8, !tbaa !28
   br label %.thread136
 
-read_fd_data.exit.thread:                         ; preds = %.critedge.i, %133, %read_fd_data.exit
+read_fd_data.exit.thread:                         ; preds = %133, %.critedge.i, %read_fd_data.exit
   %218 = or i16 %.090, 8
   br label %read_fd_data.exit.thread131
 

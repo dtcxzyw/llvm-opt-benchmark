@@ -359,7 +359,7 @@ define dso_local i32 @sacctmgr_list_stats(i32 noundef %0, ptr noundef %1) local_
   br label %.critedge70
 
 .critedge70:                                      ; preds = %88, %87, %91
-  %_sort_rpc_obj_by_time.sink89 = phi ptr [ %spec.select, %91 ], [ @_sort_rpc_obj_by_cnt, %87 ], [ @_sort_rpc_obj_by_ave_time, %88 ]
+  %_sort_rpc_obj_by_time.sink89 = phi ptr [ @_sort_rpc_obj_by_cnt, %87 ], [ %spec.select, %91 ], [ @_sort_rpc_obj_by_ave_time, %88 ]
   %.pre81.sink = load ptr, ptr %3, align 8
   %94 = getelementptr inbounds nuw i8, ptr %.pre81.sink, i64 16
   %95 = load ptr, ptr %94, align 8
@@ -383,7 +383,7 @@ define dso_local i32 @sacctmgr_list_stats(i32 noundef %0, ptr noundef %1) local_
   br label %.sink.split
 
 .sink.split:                                      ; preds = %35, %.critedge70
-  %.040.ph = phi i32 [ 0, %.critedge70 ], [ %29, %35 ]
+  %.040.ph = phi i32 [ %29, %35 ], [ 0, %.critedge70 ]
   %107 = load ptr, ptr %3, align 8
   call void @slurmdb_destroy_stats_rec(ptr noundef %107) #8
   br label %108
@@ -584,7 +584,7 @@ define internal range(i32 -1, 2) i32 @_sort_rpc_obj_by_cnt(ptr noundef readonly 
   br label %_sort_rpc_obj_by_time.exit
 
 _sort_rpc_obj_by_time.exit:                       ; preds = %24, %22, %10, %8, %2
-  %.0 = phi i32 [ -1, %2 ], [ 1, %8 ], [ %.0.i.i, %24 ], [ -1, %10 ], [ 1, %22 ]
+  %.0 = phi i32 [ 1, %8 ], [ -1, %2 ], [ %.0.i.i, %24 ], [ -1, %10 ], [ 1, %22 ]
   ret i32 %.0
 }
 

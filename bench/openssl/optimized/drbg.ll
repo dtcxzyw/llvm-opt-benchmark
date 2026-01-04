@@ -78,7 +78,7 @@ define noundef i64 @ossl_drbg_get_seed(ptr noundef %0, ptr noundef writeonly cap
   br label %21
 
 21:                                               ; preds = %8, %20, %19
-  %.0 = phi i64 [ %.1, %20 ], [ 0, %19 ], [ 0, %8 ]
+  %.0 = phi i64 [ 0, %19 ], [ %.1, %20 ], [ 0, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i64 %.0
 }
@@ -297,7 +297,7 @@ rand_drbg_restart.exit:                           ; preds = %20, %23
   br label %94
 
 94:                                               ; preds = %90, %92, %11, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %11 ], [ %.046, %92 ], [ %.046, %90 ]
+  %.0 = phi i32 [ 0, %11 ], [ 0, %7 ], [ %.046, %92 ], [ %.046, %90 ]
   ret i32 %.0
 }
 
@@ -332,7 +332,7 @@ define ptr @ossl_prov_drbg_nonce_ctx_new(ptr noundef readnone captures(none) %0)
   br label %8
 
 8:                                                ; preds = %4, %1, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %1 ], [ %2, %4 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %7 ], [ %2, %4 ]
   ret ptr %.0
 }
 
@@ -653,7 +653,7 @@ define internal fastcc i64 @prov_drbg_get_nonce(ptr noundef %0, ptr noundef nonn
   br label %43
 
 43:                                               ; preds = %34, %4, %40, %32
-  %.0 = phi i64 [ %22, %32 ], [ %42, %40 ], [ 0, %4 ], [ 0, %34 ]
+  %.0 = phi i64 [ 0, %4 ], [ %22, %32 ], [ %42, %40 ], [ 0, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.0
 }
@@ -761,7 +761,7 @@ ossl_drbg_lock_parent.exit:                       ; preds = %34
   br label %ossl_drbg_unlock_parent.exit
 
 ossl_drbg_unlock_parent.exit:                     ; preds = %51, %48, %42, %ossl_drbg_lock_parent.exit, %21, %28, %20, %12
-  %.0 = phi i64 [ %15, %12 ], [ 0, %20 ], [ 0, %28 ], [ 0, %21 ], [ 0, %ossl_drbg_lock_parent.exit ], [ %44, %42 ], [ %44, %48 ], [ %44, %51 ]
+  %.0 = phi i64 [ %15, %12 ], [ 0, %20 ], [ 0, %28 ], [ 0, %ossl_drbg_lock_parent.exit ], [ 0, %21 ], [ %44, %42 ], [ %44, %48 ], [ %44, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i64 %.0
 }
@@ -1058,7 +1058,7 @@ rand_drbg_restart.exit:                           ; preds = %16, %19
   br label %87
 
 87:                                               ; preds = %83, %6, %53, %43, %36, %31, %25, %24
-  %.0 = phi i32 [ 0, %24 ], [ 0, %25 ], [ 0, %31 ], [ 0, %36 ], [ 0, %53 ], [ 0, %43 ], [ 0, %6 ], [ %., %83 ]
+  %.0 = phi i32 [ 0, %24 ], [ 0, %25 ], [ 0, %31 ], [ 0, %36 ], [ %., %83 ], [ 0, %6 ], [ 0, %53 ], [ 0, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -1185,7 +1185,7 @@ define range(i32 0, 2) i32 @ossl_drbg_enable_locking(ptr noundef captures(addres
   br label %15
 
 15:                                               ; preds = %.sink.split, %1, %2, %12
-  %.0 = phi i32 [ 1, %12 ], [ 1, %2 ], [ 1, %1 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %2 ], [ 1, %1 ], [ 1, %12 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -1425,7 +1425,7 @@ find_call.exit123.thread:                         ; preds = %69, %.preheader.i, 
   br label %93
 
 93:                                               ; preds = %83, %86, %12, %9, %92
-  %.0 = phi ptr [ null, %92 ], [ null, %9 ], [ null, %12 ], [ %13, %86 ], [ %13, %83 ]
+  %.0 = phi ptr [ null, %9 ], [ null, %92 ], [ null, %12 ], [ %13, %86 ], [ %13, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret ptr %.0
 }
@@ -1502,7 +1502,7 @@ ossl_drbg_unlock_parent.exit:                     ; preds = %18, %22, %25
   br label %27
 
 27:                                               ; preds = %ossl_drbg_unlock_parent.exit, %26, %17, %9
-  %.0 = phi i32 [ 0, %9 ], [ 0, %26 ], [ 0, %17 ], [ 1, %ossl_drbg_unlock_parent.exit ]
+  %.0 = phi i32 [ 0, %9 ], [ 0, %17 ], [ 0, %26 ], [ 1, %ossl_drbg_unlock_parent.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -1659,7 +1659,7 @@ define range(i32 0, 2) i32 @ossl_drbg_get_ctx_params(ptr noundef readonly captur
   br label %69
 
 69:                                               ; preds = %64, %58, %52, %46, %40, %34, %28, %22, %16, %10, %4, %68
-  %.0 = phi i32 [ 1, %68 ], [ 0, %4 ], [ 0, %10 ], [ 0, %16 ], [ 0, %22 ], [ 0, %28 ], [ 0, %34 ], [ 0, %40 ], [ 0, %46 ], [ 0, %52 ], [ 0, %58 ], [ 0, %64 ]
+  %.0 = phi i32 [ 1, %68 ], [ 0, %58 ], [ 0, %52 ], [ 0, %46 ], [ 0, %40 ], [ 0, %34 ], [ 0, %28 ], [ 0, %22 ], [ 0, %16 ], [ 0, %10 ], [ 0, %4 ], [ 0, %64 ]
   ret i32 %.0
 }
 
@@ -1753,7 +1753,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %2, %12, %7, %ossl_param_is_empty.exit, %15
-  %.0 = phi i32 [ 1, %15 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %7 ], [ 0, %12 ], [ 1, %2 ]
+  %.0 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ 1, %15 ], [ 0, %7 ], [ 0, %12 ], [ 1, %2 ]
   ret i32 %.0
 }
 

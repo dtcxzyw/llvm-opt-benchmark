@@ -324,7 +324,7 @@ ff_index_search_timestamp.exit.thread:            ; preds = %31, %ff_index_searc
   br label %104
 
 104:                                              ; preds = %83, %14, %12, %8, %97
-  %.053 = phi i32 [ %.0, %97 ], [ -1, %8 ], [ -22, %12 ], [ -1, %14 ], [ -1, %83 ]
+  %.053 = phi i32 [ -1, %83 ], [ -1, %8 ], [ -22, %12 ], [ %.0, %97 ], [ -1, %14 ]
   ret i32 %.053
 }
 
@@ -1000,7 +1000,7 @@ ff_read_frame_flush.exit:                         ; preds = %101
   br i1 %exitcond.not.i78, label %avpriv_update_cur_dts.exit, label %116, !llvm.loop !48
 
 avpriv_update_cur_dts.exit:                       ; preds = %116, %80, %ff_read_frame_flush.exit, %68, %4, %78
-  %.0 = phi i32 [ %79, %78 ], [ -1, %4 ], [ -1, %68 ], [ 0, %ff_read_frame_flush.exit ], [ 0, %80 ], [ 0, %116 ]
+  %.0 = phi i32 [ -1, %68 ], [ -1, %4 ], [ %79, %78 ], [ 0, %80 ], [ 0, %ff_read_frame_flush.exit ], [ 0, %116 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1270,7 +1270,7 @@ av_ts_make_string.exit91:                         ; preds = %102, %103
   br label %117
 
 117:                                              ; preds = %46, %read_timestamp.exit, %._crit_edge, %105, %52, %42
-  %.0 = phi i64 [ %43, %42 ], [ %.promoted, %52 ], [ -1, %105 ], [ %115, %._crit_edge ], [ -1, %read_timestamp.exit ], [ -1, %46 ]
+  %.0 = phi i64 [ %115, %._crit_edge ], [ %43, %42 ], [ -1, %read_timestamp.exit ], [ %.promoted, %52 ], [ -1, %105 ], [ -1, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret i64 %.0
 }
@@ -1468,7 +1468,7 @@ read_timestamp.exit39:                            ; preds = %61
   br i1 %64, label %.split47.us, label %.lr.ph
 
 .split47.us:                                      ; preds = %read_timestamp.exit39, %61, %45, %read_timestamp.exit39.us, %.preheader.split, %.preheader.split.us
-  %.us-phi48 = phi i64 [ %22, %.preheader.split.us ], [ %29, %.preheader.split ], [ %41, %read_timestamp.exit39.us ], [ %41, %45 ], [ %57, %61 ], [ %57, %read_timestamp.exit39 ]
+  %.us-phi48 = phi i64 [ %29, %.preheader.split ], [ %22, %.preheader.split.us ], [ %41, %45 ], [ %41, %read_timestamp.exit39.us ], [ %57, %61 ], [ %57, %read_timestamp.exit39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not35 = icmp eq ptr %2, null
   br i1 %.not35, label %66, label %65
@@ -2338,7 +2338,7 @@ ff_read_frame_flush.exit:                         ; preds = %45
   br label %88
 
 88:                                               ; preds = %73, %85, %81, %.thread, %71, %9, %11, %6
-  %.0 = phi i32 [ -1, %6 ], [ -22, %11 ], [ -22, %9 ], [ %72, %71 ], [ %69, %.thread ], [ %87, %85 ], [ %83, %81 ], [ %79, %73 ]
+  %.0 = phi i32 [ %69, %.thread ], [ -1, %6 ], [ -22, %9 ], [ -22, %11 ], [ %72, %71 ], [ %87, %85 ], [ %83, %81 ], [ %79, %73 ]
   ret i32 %.0
 }
 

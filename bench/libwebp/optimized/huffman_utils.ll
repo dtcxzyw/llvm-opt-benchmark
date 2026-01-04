@@ -36,7 +36,7 @@ define hidden i32 @VP8LBuildHuffmanTable(ptr noundef captures(address_is_null) %
   %7 = icmp eq i32 %6, 0
   %8 = icmp eq ptr %0, null
   %or.cond = or i1 %8, %7
-  br i1 %or.cond, label %.critedge, label %9
+  br i1 %or.cond, label %.critedge56, label %9
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -51,12 +51,12 @@ define hidden i32 @VP8LBuildHuffmanTable(ptr noundef captures(address_is_null) %
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds %struct.HuffmanCode, ptr %16, i64 %19
   %.not = icmp ult ptr %15, %20
-  br i1 %.not, label %36, label %21
+  br i1 %.not, label %35, label %21
 
 21:                                               ; preds = %9
   %22 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef 32) #6
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %.critedge, label %24
+  br i1 %23, label %.critedge56, label %24
 
 24:                                               ; preds = %21
   %25 = tail call i32 @llvm.smax.i32(i32 %6, i32 %18)
@@ -66,50 +66,50 @@ define hidden i32 @VP8LBuildHuffmanTable(ptr noundef captures(address_is_null) %
   %28 = tail call ptr @WebPSafeMalloc(i64 noundef %27, i64 noundef 4) #6
   store ptr %28, ptr %22, align 8, !tbaa !12
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %30, label %31
+  br i1 %29, label %30, label %.critedge
 
 30:                                               ; preds = %24
   tail call void @WebPSafeFree(ptr noundef nonnull %22) #6
-  br label %.critedge
+  br label %.critedge56
 
-31:                                               ; preds = %24
-  %32 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store ptr %28, ptr %32, align 8, !tbaa !11
-  %33 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store ptr null, ptr %33, align 8, !tbaa !14
-  %34 = load ptr, ptr %10, align 8, !tbaa !3
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  store ptr %22, ptr %35, align 8, !tbaa !14
+.critedge:                                        ; preds = %24
+  %31 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  store ptr %28, ptr %31, align 8, !tbaa !11
+  %32 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  store ptr null, ptr %32, align 8, !tbaa !14
+  %33 = load ptr, ptr %10, align 8, !tbaa !3
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  store ptr %22, ptr %34, align 8, !tbaa !14
   store ptr %22, ptr %10, align 8, !tbaa !3
-  br label %36
+  br label %35
 
-36:                                               ; preds = %31, %9
-  %37 = phi ptr [ %28, %31 ], [ %13, %9 ]
-  %38 = icmp slt i32 %3, 513
-  br i1 %38, label %39, label %41
+35:                                               ; preds = %.critedge, %9
+  %36 = phi ptr [ %28, %.critedge ], [ %13, %9 ]
+  %37 = icmp slt i32 %3, 513
+  br i1 %37, label %38, label %40
 
-39:                                               ; preds = %36
+38:                                               ; preds = %35
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %40 = call fastcc i32 @BuildHuffmanTable(ptr noundef %37, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %5)
+  %39 = call fastcc i32 @BuildHuffmanTable(ptr noundef %36, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.critedge
+  br label %.critedge56
 
-41:                                               ; preds = %36
-  %42 = zext nneg i32 %3 to i64
-  %43 = tail call ptr @WebPSafeMalloc(i64 noundef %42, i64 noundef 2) #6
-  %.not54 = icmp eq ptr %43, null
-  br i1 %.not54, label %.critedge, label %44
+40:                                               ; preds = %35
+  %41 = zext nneg i32 %3 to i64
+  %42 = tail call ptr @WebPSafeMalloc(i64 noundef %41, i64 noundef 2) #6
+  %.not54 = icmp eq ptr %42, null
+  br i1 %.not54, label %.critedge56, label %43
 
-44:                                               ; preds = %41
-  %45 = load ptr, ptr %10, align 8, !tbaa !3
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %47 = load ptr, ptr %46, align 8, !tbaa !11
-  %48 = tail call fastcc i32 @BuildHuffmanTable(ptr noundef %47, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %43)
-  tail call void @WebPSafeFree(ptr noundef nonnull %43) #6
-  br label %.critedge
+43:                                               ; preds = %40
+  %44 = load ptr, ptr %10, align 8, !tbaa !3
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %46 = load ptr, ptr %45, align 8, !tbaa !11
+  %47 = tail call fastcc i32 @BuildHuffmanTable(ptr noundef %46, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %42)
+  tail call void @WebPSafeFree(ptr noundef nonnull %42) #6
+  br label %.critedge56
 
-.critedge:                                        ; preds = %39, %44, %41, %30, %21, %4
-  %.0 = phi i32 [ %6, %4 ], [ 0, %21 ], [ 0, %30 ], [ 0, %41 ], [ %6, %44 ], [ %6, %39 ]
+.critedge56:                                      ; preds = %38, %43, %40, %30, %21, %4
+  %.0 = phi i32 [ %6, %4 ], [ 0, %30 ], [ 0, %40 ], [ 0, %21 ], [ %6, %43 ], [ %6, %38 ]
   ret i32 %.0
 }
 
@@ -483,11 +483,11 @@ ReplicateValue.exit176.us.loopexit:               ; preds = %145
   br label %ReplicateValue.exit176.us
 
 ReplicateValue.exit176.us:                        ; preds = %ReplicateValue.exit176.us.loopexit, %137, %NextTableBitSize.exit.us
-  %.2122188.us = phi ptr [ %.1121251.us, %137 ], [ %.1121251.us, %NextTableBitSize.exit.us ], [ %.2122198.us, %ReplicateValue.exit176.us.loopexit ]
-  %.3127187.us = phi i32 [ %.2126250.us, %137 ], [ %126, %NextTableBitSize.exit.us ], [ %.3127197.us, %ReplicateValue.exit176.us.loopexit ]
-  %.2139186.us = phi i32 [ %.1138248.us, %137 ], [ %122, %NextTableBitSize.exit.us ], [ %.2139196.us, %ReplicateValue.exit176.us.loopexit ]
-  %.2153185.us = phi i32 [ %.1152246.us, %137 ], [ %125, %NextTableBitSize.exit.us ], [ %.2153195.us, %ReplicateValue.exit176.us.loopexit ]
-  %.7.us = phi i32 [ %.6249.us, %137 ], [ %.6249.us, %NextTableBitSize.exit.us ], [ %150, %ReplicateValue.exit176.us.loopexit ]
+  %.2122188.us = phi ptr [ %.1121251.us, %NextTableBitSize.exit.us ], [ %.1121251.us, %137 ], [ %.2122198.us, %ReplicateValue.exit176.us.loopexit ]
+  %.3127187.us = phi i32 [ %126, %NextTableBitSize.exit.us ], [ %.2126250.us, %137 ], [ %.3127197.us, %ReplicateValue.exit176.us.loopexit ]
+  %.2139186.us = phi i32 [ %122, %NextTableBitSize.exit.us ], [ %.1138248.us, %137 ], [ %.2139196.us, %ReplicateValue.exit176.us.loopexit ]
+  %.2153185.us = phi i32 [ %125, %NextTableBitSize.exit.us ], [ %.1152246.us, %137 ], [ %.2153195.us, %ReplicateValue.exit176.us.loopexit ]
+  %.7.us = phi i32 [ %.6249.us, %NextTableBitSize.exit.us ], [ %.6249.us, %137 ], [ %150, %ReplicateValue.exit176.us.loopexit ]
   br label %151
 
 151:                                              ; preds = %151, %ReplicateValue.exit176.us
@@ -597,11 +597,11 @@ ReplicateValue.exit176.loopexit:                  ; preds = %190
   br label %ReplicateValue.exit176
 
 ReplicateValue.exit176:                           ; preds = %ReplicateValue.exit176.loopexit, %._crit_edge.loopexit.i, %182
-  %.2122188 = phi ptr [ %.1121251, %182 ], [ %.1121251, %._crit_edge.loopexit.i ], [ %.2122198, %ReplicateValue.exit176.loopexit ]
-  %.3127187 = phi i32 [ %.2126250, %182 ], [ %172, %._crit_edge.loopexit.i ], [ %.3127197, %ReplicateValue.exit176.loopexit ]
-  %.2139186 = phi i32 [ %.1138248, %182 ], [ %171, %._crit_edge.loopexit.i ], [ %.2139196, %ReplicateValue.exit176.loopexit ]
-  %.2153185 = phi i32 [ %.1152246, %182 ], [ %160, %._crit_edge.loopexit.i ], [ %.2153195, %ReplicateValue.exit176.loopexit ]
-  %.7 = phi i32 [ %.6249, %182 ], [ %.6249, %._crit_edge.loopexit.i ], [ %195, %ReplicateValue.exit176.loopexit ]
+  %.2122188 = phi ptr [ %.1121251, %._crit_edge.loopexit.i ], [ %.1121251, %182 ], [ %.2122198, %ReplicateValue.exit176.loopexit ]
+  %.3127187 = phi i32 [ %172, %._crit_edge.loopexit.i ], [ %.2126250, %182 ], [ %.3127197, %ReplicateValue.exit176.loopexit ]
+  %.2139186 = phi i32 [ %171, %._crit_edge.loopexit.i ], [ %.1138248, %182 ], [ %.2139196, %ReplicateValue.exit176.loopexit ]
+  %.2153185 = phi i32 [ %160, %._crit_edge.loopexit.i ], [ %.1152246, %182 ], [ %.2153195, %ReplicateValue.exit176.loopexit ]
+  %.7 = phi i32 [ %.6249, %._crit_edge.loopexit.i ], [ %.6249, %182 ], [ %195, %ReplicateValue.exit176.loopexit ]
   br label %196
 
 196:                                              ; preds = %196, %ReplicateValue.exit176
@@ -649,7 +649,7 @@ GetNextKey.exit179:                               ; preds = %196
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %31, %45, %.lr.ph238.split, %.lr.ph238.split.us, %111, %62, %._crit_edge282, %58, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ %8, %58 ], [ %spec.select, %._crit_edge282 ], [ %8, %62 ], [ 0, %111 ], [ 0, %.lr.ph238.split.us ], [ 0, %.lr.ph238.split ], [ 0, %45 ], [ 0, %31 ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ 0, %31 ], [ 0, %.lr.ph238.split.us ], [ 0, %._crit_edge ], [ 0, %.lr.ph238.split ], [ %8, %62 ], [ %8, %58 ], [ 0, %45 ], [ %spec.select, %._crit_edge282 ], [ 0, %111 ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0

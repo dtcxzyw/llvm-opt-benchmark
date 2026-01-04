@@ -656,8 +656,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %139
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
-  %.0133140 = phi ptr [ %156, %.lr.ph.preheader ], [ %160, %.lr.ph ]
-  %.0134139 = phi ptr [ %153, %.lr.ph.preheader ], [ %159, %.lr.ph ]
+  %.0133140 = phi ptr [ %160, %.lr.ph ], [ %156, %.lr.ph.preheader ]
+  %.0134139 = phi ptr [ %159, %.lr.ph ], [ %153, %.lr.ph.preheader ]
   %157 = load ptr, ptr %.0134139, align 8, !tbaa !7
   %158 = load ptr, ptr %.0133140, align 8, !tbaa !7
   %.not137 = icmp eq ptr %157, %158
@@ -668,7 +668,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %139
   br i1 %or.cond.not, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %152, %150, %2, %135, %133, %131, %129, %127, %125, %123, %121, %119, %117, %115, %113, %111, %109, %107, %105, %103, %101, %99, %97, %95, %93, %91, %89, %87, %85, %83, %81, %79, %77, %75, %73, %71, %69, %67, %65, %63, %61, %59, %57, %55, %53, %51, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21
-  %.0 = phi i1 [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ %64, %63 ], [ %66, %65 ], [ %68, %67 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %80, %79 ], [ %82, %81 ], [ %84, %83 ], [ %86, %85 ], [ %88, %87 ], [ %90, %89 ], [ %92, %91 ], [ %94, %93 ], [ %96, %95 ], [ %98, %97 ], [ %100, %99 ], [ %102, %101 ], [ %104, %103 ], [ %106, %105 ], [ %108, %107 ], [ %110, %109 ], [ %112, %111 ], [ %114, %113 ], [ %116, %115 ], [ %118, %117 ], [ %120, %119 ], [ %122, %121 ], [ %124, %123 ], [ %126, %125 ], [ %128, %127 ], [ %130, %129 ], [ %132, %131 ], [ %134, %133 ], [ %136, %135 ], [ false, %2 ], [ false, %150 ], [ true, %152 ], [ %.not137, %.lr.ph ]
+  %.0 = phi i1 [ false, %150 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ %64, %63 ], [ %66, %65 ], [ %68, %67 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %80, %79 ], [ %82, %81 ], [ %84, %83 ], [ %86, %85 ], [ %88, %87 ], [ %90, %89 ], [ %92, %91 ], [ %94, %93 ], [ %96, %95 ], [ %98, %97 ], [ %100, %99 ], [ %102, %101 ], [ %104, %103 ], [ %106, %105 ], [ %108, %107 ], [ %110, %109 ], [ %112, %111 ], [ %114, %113 ], [ %116, %115 ], [ %118, %117 ], [ %120, %119 ], [ %122, %121 ], [ %124, %123 ], [ %126, %125 ], [ %128, %127 ], [ %130, %129 ], [ %132, %131 ], [ %134, %133 ], [ %136, %135 ], [ false, %2 ], [ true, %152 ], [ %.not137, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -731,7 +731,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_22UninterpretedSortValueEEERKT_v.
   br label %31
 
 31:                                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_22UninterpretedSortValueEEERKT_v.exit10, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_22UninterpretedSortValueEEERKT_v.exit
-  %.0 = phi i1 [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_22UninterpretedSortValueEEERKT_v.exit ], [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_22UninterpretedSortValueEEERKT_v.exit10 ]
+  %.0 = phi i1 [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_22UninterpretedSortValueEEERKT_v.exit10 ], [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_22UninterpretedSortValueEEERKT_v.exit ]
   ret i1 %.0
 }
 
@@ -918,7 +918,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_12AbstractTypeEEERKT_v.exit10: ; 
   br label %31
 
 31:                                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12AbstractTypeEEERKT_v.exit10, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12AbstractTypeEEERKT_v.exit
-  %.0 = phi i1 [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12AbstractTypeEEERKT_v.exit ], [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12AbstractTypeEEERKT_v.exit10 ]
+  %.0 = phi i1 [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12AbstractTypeEEERKT_v.exit10 ], [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12AbstractTypeEEERKT_v.exit ]
   ret i1 %.0
 }
 
@@ -981,7 +981,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9GenericOpEEERKT_v.exit10: ; pred
   br label %31
 
 31:                                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9GenericOpEEERKT_v.exit10, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9GenericOpEEERKT_v.exit
-  %.0 = phi i1 [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9GenericOpEEERKT_v.exit ], [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9GenericOpEEERKT_v.exit10 ]
+  %.0 = phi i1 [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9GenericOpEEERKT_v.exit10 ], [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9GenericOpEEERKT_v.exit ]
   ret i1 %.0
 }
 
@@ -1044,7 +1044,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_10SortToTermEEERKT_v.exit10: ; pr
   br label %31
 
 31:                                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_10SortToTermEEERKT_v.exit10, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_10SortToTermEEERKT_v.exit
-  %.0 = phi i1 [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_10SortToTermEEERKT_v.exit ], [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_10SortToTermEEERKT_v.exit10 ]
+  %.0 = phi i1 [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_10SortToTermEEERKT_v.exit10 ], [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_10SortToTermEEERKT_v.exit ]
   ret i1 %.0
 }
 
@@ -1169,7 +1169,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_21CardinalityConstraintEEERKT_v.e
   br label %31
 
 31:                                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21CardinalityConstraintEEERKT_v.exit10, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21CardinalityConstraintEEERKT_v.exit
-  %.0 = phi i1 [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21CardinalityConstraintEEERKT_v.exit ], [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21CardinalityConstraintEEERKT_v.exit10 ]
+  %.0 = phi i1 [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21CardinalityConstraintEEERKT_v.exit10 ], [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21CardinalityConstraintEEERKT_v.exit ]
   ret i1 %.0
 }
 
@@ -1232,7 +1232,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_29CombinedCardinalityConstraintEE
   br label %31
 
 31:                                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_29CombinedCardinalityConstraintEEERKT_v.exit10, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_29CombinedCardinalityConstraintEEERKT_v.exit
-  %.0 = phi i1 [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_29CombinedCardinalityConstraintEEERKT_v.exit ], [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_29CombinedCardinalityConstraintEEERKT_v.exit10 ]
+  %.0 = phi i1 [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_29CombinedCardinalityConstraintEEERKT_v.exit10 ], [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_29CombinedCardinalityConstraintEEERKT_v.exit ]
   ret i1 %.0
 }
 
@@ -1295,7 +1295,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FunctionArrayConstEEERKT_v.exit
   br label %31
 
 31:                                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FunctionArrayConstEEERKT_v.exit10, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FunctionArrayConstEEERKT_v.exit
-  %.0 = phi i1 [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FunctionArrayConstEEERKT_v.exit ], [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FunctionArrayConstEEERKT_v.exit10 ]
+  %.0 = phi i1 [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FunctionArrayConstEEERKT_v.exit10 ], [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FunctionArrayConstEEERKT_v.exit ]
   ret i1 %.0
 }
 
@@ -1420,7 +1420,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9DivisibleEEERKT_v.exit10: ; pred
   br label %31
 
 31:                                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9DivisibleEEERKT_v.exit10, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9DivisibleEEERKT_v.exit
-  %.0 = phi i1 [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9DivisibleEEERKT_v.exit ], [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9DivisibleEEERKT_v.exit10 ]
+  %.0 = phi i1 [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9DivisibleEEERKT_v.exit10 ], [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9DivisibleEEERKT_v.exit ]
   ret i1 %.0
 }
 
@@ -1483,7 +1483,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit10: ; preds
   br label %31
 
 31:                                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit10, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit
-  %.0.in = phi i32 [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit ], [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit10 ]
+  %.0.in = phi i32 [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit10 ], [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit ]
   %.0 = icmp ne i32 %.0.in, 0
   ret i1 %.0
 }
@@ -1547,7 +1547,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit10: ; preds
   br label %31
 
 31:                                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit10, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit
-  %.0.in = phi i32 [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit ], [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit10 ]
+  %.0.in = phi i32 [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit10 ], [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit ]
   %.0 = icmp ne i32 %.0.in, 0
   ret i1 %.0
 }
@@ -1611,7 +1611,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_19RealAlgebraicNumberEEERKT_v.exi
   br label %31
 
 31:                                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19RealAlgebraicNumberEEERKT_v.exit10, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19RealAlgebraicNumberEEERKT_v.exit
-  %.0 = phi i1 [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19RealAlgebraicNumberEEERKT_v.exit ], [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19RealAlgebraicNumberEEERKT_v.exit10 ]
+  %.0 = phi i1 [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19RealAlgebraicNumberEEERKT_v.exit10 ], [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19RealAlgebraicNumberEEERKT_v.exit ]
   ret i1 %.0
 }
 
@@ -1859,7 +1859,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9BitVectorEEERKT_v.exit10: ; pred
   br label %31
 
 31:                                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9BitVectorEEERKT_v.exit10, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9BitVectorEEERKT_v.exit
-  %.0 = phi i1 [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9BitVectorEEERKT_v.exit ], [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9BitVectorEEERKT_v.exit10 ]
+  %.0 = phi i1 [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9BitVectorEEERKT_v.exit10 ], [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9BitVectorEEERKT_v.exit ]
   ret i1 %.0
 }
 
@@ -2360,7 +2360,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_6FfSizeEEERKT_v.exit10: ; preds =
   br label %31
 
 31:                                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6FfSizeEEERKT_v.exit10, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6FfSizeEEERKT_v.exit
-  %.0 = phi i1 [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6FfSizeEEERKT_v.exit ], [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6FfSizeEEERKT_v.exit10 ]
+  %.0 = phi i1 [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6FfSizeEEERKT_v.exit10 ], [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6FfSizeEEERKT_v.exit ]
   ret i1 %.0
 }
 
@@ -2423,7 +2423,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_16FiniteFieldValueEEERKT_v.exit10
   br label %31
 
 31:                                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16FiniteFieldValueEEERKT_v.exit10, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16FiniteFieldValueEEERKT_v.exit
-  %.0 = phi i1 [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16FiniteFieldValueEEERKT_v.exit ], [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16FiniteFieldValueEEERKT_v.exit10 ]
+  %.0 = phi i1 [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16FiniteFieldValueEEERKT_v.exit10 ], [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16FiniteFieldValueEEERKT_v.exit ]
   ret i1 %.0
 }
 
@@ -2486,7 +2486,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_13FloatingPointEEERKT_v.exit10: ;
   br label %31
 
 31:                                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13FloatingPointEEERKT_v.exit10, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13FloatingPointEEERKT_v.exit
-  %.0 = phi i1 [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13FloatingPointEEERKT_v.exit ], [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13FloatingPointEEERKT_v.exit10 ]
+  %.0 = phi i1 [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13FloatingPointEEERKT_v.exit10 ], [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13FloatingPointEEERKT_v.exit ]
   ret i1 %.0
 }
 
@@ -3261,7 +3261,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_13ArrayStoreAllEEERKT_v.exit10: ;
   br label %31
 
 31:                                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13ArrayStoreAllEEERKT_v.exit10, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13ArrayStoreAllEEERKT_v.exit
-  %.0 = phi i1 [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13ArrayStoreAllEEERKT_v.exit ], [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13ArrayStoreAllEEERKT_v.exit10 ]
+  %.0 = phi i1 [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13ArrayStoreAllEEERKT_v.exit10 ], [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13ArrayStoreAllEEERKT_v.exit ]
   ret i1 %.0
 }
 
@@ -3324,7 +3324,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_14AscriptionTypeEEERKT_v.exit10: 
   br label %31
 
 31:                                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14AscriptionTypeEEERKT_v.exit10, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14AscriptionTypeEEERKT_v.exit
-  %.0 = phi i1 [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14AscriptionTypeEEERKT_v.exit ], [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14AscriptionTypeEEERKT_v.exit10 ]
+  %.0 = phi i1 [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14AscriptionTypeEEERKT_v.exit10 ], [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14AscriptionTypeEEERKT_v.exit ]
   ret i1 %.0
 }
 
@@ -3387,7 +3387,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit10: ; pred
   br label %31
 
 31:                                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit10, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit
-  %.0 = phi i1 [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit ], [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit10 ]
+  %.0 = phi i1 [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit10 ], [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit ]
   ret i1 %.0
 }
 
@@ -3450,7 +3450,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_23CodatatypeBoundVariableEEERKT_v
   br label %31
 
 31:                                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23CodatatypeBoundVariableEEERKT_v.exit10, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23CodatatypeBoundVariableEEERKT_v.exit
-  %.0 = phi i1 [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23CodatatypeBoundVariableEEERKT_v.exit ], [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23CodatatypeBoundVariableEEERKT_v.exit10 ]
+  %.0 = phi i1 [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23CodatatypeBoundVariableEEERKT_v.exit10 ], [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23CodatatypeBoundVariableEEERKT_v.exit ]
   ret i1 %.0
 }
 
@@ -3513,7 +3513,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptySetEEERKT_v.exit10: ; preds
   br label %31
 
 31:                                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptySetEEERKT_v.exit10, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptySetEEERKT_v.exit
-  %.0 = phi i1 [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptySetEEERKT_v.exit ], [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptySetEEERKT_v.exit10 ]
+  %.0 = phi i1 [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptySetEEERKT_v.exit10 ], [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptySetEEERKT_v.exit ]
   ret i1 %.0
 }
 
@@ -3576,7 +3576,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit10: ; pred
   br label %31
 
 31:                                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit10, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit
-  %.0 = phi i1 [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit ], [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit10 ]
+  %.0 = phi i1 [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit10 ], [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit ]
   ret i1 %.0
 }
 
@@ -3639,7 +3639,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit10: ; pred
   br label %31
 
 31:                                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit10, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit
-  %.0 = phi i1 [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit ], [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit10 ]
+  %.0 = phi i1 [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit10 ], [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit ]
   ret i1 %.0
 }
 
@@ -3702,7 +3702,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit10: ; pred
   br label %31
 
 31:                                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit10, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit
-  %.0 = phi i1 [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit ], [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit10 ]
+  %.0 = phi i1 [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit10 ], [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit ]
   ret i1 %.0
 }
 
@@ -3765,7 +3765,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit10: ; pred
   br label %31
 
 31:                                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit10, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit
-  %.0 = phi i1 [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit ], [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit10 ]
+  %.0 = phi i1 [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit10 ], [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit ]
   ret i1 %.0
 }
 
@@ -3828,7 +3828,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptyBagEEERKT_v.exit10: ; preds
   br label %31
 
 31:                                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptyBagEEERKT_v.exit10, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptyBagEEERKT_v.exit
-  %.0 = phi i1 [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptyBagEEERKT_v.exit ], [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptyBagEEERKT_v.exit10 ]
+  %.0 = phi i1 [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptyBagEEERKT_v.exit10 ], [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptyBagEEERKT_v.exit ]
   ret i1 %.0
 }
 
@@ -3891,7 +3891,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit10: ; pred
   br label %31
 
 31:                                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit10, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit
-  %.0 = phi i1 [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit ], [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit10 ]
+  %.0 = phi i1 [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit10 ], [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit ]
   ret i1 %.0
 }
 
@@ -3954,7 +3954,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit10: ; pred
   br label %31
 
 31:                                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit10, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit
-  %.0 = phi i1 [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit ], [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit10 ]
+  %.0 = phi i1 [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit10 ], [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit ]
   ret i1 %.0
 }
 
@@ -4017,7 +4017,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit10: ; pred
   br label %31
 
 31:                                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit10, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit
-  %.0 = phi i1 [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit ], [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit10 ]
+  %.0 = phi i1 [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit10 ], [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit ]
   ret i1 %.0
 }
 
@@ -4080,7 +4080,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit10: ; pred
   br label %31
 
 31:                                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit10, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit
-  %.0 = phi i1 [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit ], [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit10 ]
+  %.0 = phi i1 [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit10 ], [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit ]
   ret i1 %.0
 }
 
@@ -4143,7 +4143,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_6StringEEERKT_v.exit10: ; preds =
   br label %31
 
 31:                                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6StringEEERKT_v.exit10, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6StringEEERKT_v.exit
-  %.0.in = phi i32 [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6StringEEERKT_v.exit ], [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6StringEEERKT_v.exit10 ]
+  %.0.in = phi i32 [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6StringEEERKT_v.exit10 ], [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6StringEEERKT_v.exit ]
   %.0 = icmp eq i32 %.0.in, 0
   ret i1 %.0
 }
@@ -4207,7 +4207,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_8SequenceEEERKT_v.exit10: ; preds
   br label %31
 
 31:                                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8SequenceEEERKT_v.exit10, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8SequenceEEERKT_v.exit
-  %.0.in = phi i32 [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8SequenceEEERKT_v.exit ], [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8SequenceEEERKT_v.exit10 ]
+  %.0.in = phi i32 [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8SequenceEEERKT_v.exit10 ], [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8SequenceEEERKT_v.exit ]
   %.0 = icmp eq i32 %.0.in, 0
   ret i1 %.0
 }
@@ -4271,7 +4271,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RegExpRepeatEEERKT_v.exit10: ; 
   br label %31
 
 31:                                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RegExpRepeatEEERKT_v.exit10, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RegExpRepeatEEERKT_v.exit
-  %.0 = phi i1 [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RegExpRepeatEEERKT_v.exit ], [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RegExpRepeatEEERKT_v.exit10 ]
+  %.0 = phi i1 [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RegExpRepeatEEERKT_v.exit10 ], [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RegExpRepeatEEERKT_v.exit ]
   ret i1 %.0
 }
 
@@ -4334,7 +4334,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_10RegExpLoopEEERKT_v.exit10: ; pr
   br label %31
 
 31:                                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_10RegExpLoopEEERKT_v.exit10, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_10RegExpLoopEEERKT_v.exit
-  %.0 = phi i1 [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_10RegExpLoopEEERKT_v.exit ], [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_10RegExpLoopEEERKT_v.exit10 ]
+  %.0 = phi i1 [ %30, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_10RegExpLoopEEERKT_v.exit10 ], [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_10RegExpLoopEEERKT_v.exit ]
   ret i1 %.0
 }
 
@@ -5146,8 +5146,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %391
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
-  %.0133140 = phi ptr [ %408, %.lr.ph.preheader ], [ %412, %.lr.ph ]
-  %.0134139 = phi ptr [ %405, %.lr.ph.preheader ], [ %411, %.lr.ph ]
+  %.0133140 = phi ptr [ %412, %.lr.ph ], [ %408, %.lr.ph.preheader ]
+  %.0134139 = phi ptr [ %411, %.lr.ph ], [ %405, %.lr.ph.preheader ]
   %409 = load ptr, ptr %.0134139, align 8, !tbaa !7
   %410 = load ptr, ptr %.0133140, align 8, !tbaa !7
   %.not137 = icmp eq ptr %409, %410
@@ -5158,7 +5158,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %391
   br i1 %or.cond.not, label %.lr.ph, label %.loopexit, !llvm.loop !48
 
 .loopexit:                                        ; preds = %.lr.ph, %404, %402, %2, %387, %385, %383, %381, %379, %377, %375, %373, %371, %369, %367, %365, %363, %361, %359, %357, %355, %353, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE203ENS0_23FloatingPointToSBVTotalELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE201ENS0_18FloatingPointToSBVELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE199ENS0_23FloatingPointToUBVTotalELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE197ENS0_18FloatingPointToUBVELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit, %287, %285, %283, %281, %279, %277, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE158ENS0_12RoundingModeELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit, %259, %257, %255, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE149ENS0_19BitVectorZeroExtendELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE147ENS0_19BitVectorSignExtendELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE145ENS0_20BitVectorRotateRightELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE143ENS0_19BitVectorRotateLeftELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE141ENS0_15BitVectorRepeatELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit, %173, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE137ENS0_12BitVectorBitELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit, %155, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE87ENS0_13BitVectorSizeELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE85ENS0_6IntAndELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE79ENS0_20IndexedRootPredicateELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit, %105, %103, %101, %99, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE37ENS0_14IntToBitVectorELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit, %81, %79, %77, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE20EbLb0EE7compareEPKNS0_4expr9NodeValueES9_.exit, %59, %57, %55, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE13ENS0_12TypeConstantELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE4ES4_Lb0EE7compareEPKNS0_4expr9NodeValueES9_.exit, %21
-  %.0 = phi i1 [ %22, %21 ], [ %38, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE4ES4_Lb0EE7compareEPKNS0_4expr9NodeValueES9_.exit ], [ %54, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE13ENS0_12TypeConstantELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ], [ %76, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE20EbLb0EE7compareEPKNS0_4expr9NodeValueES9_.exit ], [ %78, %77 ], [ %80, %79 ], [ %82, %81 ], [ %98, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE37ENS0_14IntToBitVectorELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit ], [ %100, %99 ], [ %102, %101 ], [ %104, %103 ], [ %106, %105 ], [ %122, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE79ENS0_20IndexedRootPredicateELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit ], [ %138, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE85ENS0_6IntAndELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit ], [ %154, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE87ENS0_13BitVectorSizeELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit ], [ %156, %155 ], [ %172, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE137ENS0_12BitVectorBitELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit ], [ %174, %173 ], [ %190, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE141ENS0_15BitVectorRepeatELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit ], [ %206, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE143ENS0_19BitVectorRotateLeftELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit ], [ %222, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE145ENS0_20BitVectorRotateRightELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit ], [ %238, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE147ENS0_19BitVectorSignExtendELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit ], [ %254, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE149ENS0_19BitVectorZeroExtendELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit ], [ %256, %255 ], [ %258, %257 ], [ %260, %259 ], [ %276, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE158ENS0_12RoundingModeELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit ], [ %278, %277 ], [ %280, %279 ], [ %282, %281 ], [ %284, %283 ], [ %286, %285 ], [ %288, %287 ], [ %304, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE197ENS0_18FloatingPointToUBVELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit ], [ %320, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE199ENS0_23FloatingPointToUBVTotalELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit ], [ %336, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE201ENS0_18FloatingPointToSBVELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit ], [ %352, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE203ENS0_23FloatingPointToSBVTotalELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit ], [ %354, %353 ], [ %356, %355 ], [ %358, %357 ], [ %360, %359 ], [ %362, %361 ], [ %364, %363 ], [ %366, %365 ], [ %368, %367 ], [ %370, %369 ], [ %372, %371 ], [ %374, %373 ], [ %376, %375 ], [ %378, %377 ], [ %380, %379 ], [ %382, %381 ], [ %384, %383 ], [ %386, %385 ], [ %388, %387 ], [ false, %2 ], [ false, %402 ], [ true, %404 ], [ %.not137, %.lr.ph ]
+  %.0 = phi i1 [ false, %402 ], [ %22, %21 ], [ %38, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE4ES4_Lb0EE7compareEPKNS0_4expr9NodeValueES9_.exit ], [ %54, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE13ENS0_12TypeConstantELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ], [ %76, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE20EbLb0EE7compareEPKNS0_4expr9NodeValueES9_.exit ], [ %78, %77 ], [ %80, %79 ], [ %82, %81 ], [ %98, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE37ENS0_14IntToBitVectorELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit ], [ %100, %99 ], [ %102, %101 ], [ %104, %103 ], [ %106, %105 ], [ %122, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE79ENS0_20IndexedRootPredicateELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit ], [ %138, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE85ENS0_6IntAndELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit ], [ %154, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE87ENS0_13BitVectorSizeELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit ], [ %156, %155 ], [ %172, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE137ENS0_12BitVectorBitELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit ], [ %174, %173 ], [ %190, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE141ENS0_15BitVectorRepeatELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit ], [ %206, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE143ENS0_19BitVectorRotateLeftELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit ], [ %222, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE145ENS0_20BitVectorRotateRightELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit ], [ %238, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE147ENS0_19BitVectorSignExtendELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit ], [ %254, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE149ENS0_19BitVectorZeroExtendELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit ], [ %256, %255 ], [ %258, %257 ], [ %260, %259 ], [ %276, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE158ENS0_12RoundingModeELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit ], [ %278, %277 ], [ %280, %279 ], [ %282, %281 ], [ %284, %283 ], [ %286, %285 ], [ %288, %287 ], [ %304, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE197ENS0_18FloatingPointToUBVELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit ], [ %320, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE199ENS0_23FloatingPointToUBVTotalELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit ], [ %336, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE201ENS0_18FloatingPointToSBVELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit ], [ %352, %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE203ENS0_23FloatingPointToSBVTotalELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit ], [ %354, %353 ], [ %356, %355 ], [ %358, %357 ], [ %360, %359 ], [ %362, %361 ], [ %364, %363 ], [ %366, %365 ], [ %368, %367 ], [ %370, %369 ], [ %372, %371 ], [ %374, %373 ], [ %376, %375 ], [ %378, %377 ], [ %380, %379 ], [ %382, %381 ], [ %384, %383 ], [ %386, %385 ], [ %388, %387 ], [ false, %2 ], [ true, %404 ], [ %.not137, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -10521,7 +10521,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_4kind6Kind_tEEERKT_v.exit: ; pred
   br label %54
 
 54:                                               ; preds = %1, %1, %.fold.split, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %31, %32, %33, %34, %35, %36, %37, %38, %39, %40, %41, %42, %43, %44, %45, %46, %47, %48, %49, %50, %51, %52, %53, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_4kind6Kind_tEEERKT_v.exit
-  %.0 = phi i32 [ %13, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_4kind6Kind_tEEERKT_v.exit ], [ -1, %53 ], [ 32, %14 ], [ 34, %15 ], [ 38, %16 ], [ 51, %17 ], [ 74, %18 ], [ 80, %19 ], [ 86, %20 ], [ 138, %21 ], [ 140, %22 ], [ 142, %23 ], [ 144, %24 ], [ 146, %25 ], [ 148, %26 ], [ 150, %27 ], [ 188, %28 ], [ 190, %29 ], [ 192, %30 ], [ 194, %31 ], [ 196, %32 ], [ 198, %33 ], [ 200, %34 ], [ 202, %35 ], [ 204, %36 ], [ 224, %37 ], [ 225, %38 ], [ 226, %39 ], [ 227, %40 ], [ 231, %41 ], [ 242, %42 ], [ 274, %43 ], [ 276, %44 ], [ 278, %45 ], [ 286, %46 ], [ 308, %47 ], [ 310, %48 ], [ 312, %49 ], [ 314, %50 ], [ 360, %51 ], [ 362, %52 ], [ 27, %1 ], [ 17, %.fold.split ], [ 27, %1 ]
+  %.0 = phi i32 [ %13, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_4kind6Kind_tEEERKT_v.exit ], [ 27, %1 ], [ -1, %53 ], [ 362, %52 ], [ 17, %.fold.split ], [ 32, %14 ], [ 34, %15 ], [ 38, %16 ], [ 51, %17 ], [ 74, %18 ], [ 80, %19 ], [ 86, %20 ], [ 138, %21 ], [ 140, %22 ], [ 142, %23 ], [ 144, %24 ], [ 146, %25 ], [ 148, %26 ], [ 150, %27 ], [ 188, %28 ], [ 190, %29 ], [ 192, %30 ], [ 194, %31 ], [ 196, %32 ], [ 198, %33 ], [ 200, %34 ], [ 202, %35 ], [ 204, %36 ], [ 224, %37 ], [ 225, %38 ], [ 226, %39 ], [ 227, %40 ], [ 231, %41 ], [ 242, %42 ], [ 274, %43 ], [ 276, %44 ], [ 278, %45 ], [ 286, %46 ], [ 308, %47 ], [ 310, %48 ], [ 312, %49 ], [ 314, %50 ], [ 360, %51 ], [ 27, %1 ]
   ret i32 %.0
 }
 

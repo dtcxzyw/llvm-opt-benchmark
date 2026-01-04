@@ -526,11 +526,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105: ; preds = %_Z
   br label %.loopexit
 
 .loopexit:                                        ; preds = %112, %125, %138, %151, %.critedge83, %.critedge81, %.critedge, %101, %96, %92, %.critedge85, %69
-  %.033 = phi i32 [ 1, %69 ], [ 0, %.critedge85 ], [ 0, %92 ], [ 0, %96 ], [ 0, %101 ], [ 0, %.critedge ], [ 0, %.critedge81 ], [ 0, %.critedge83 ], [ 0, %151 ], [ 0, %138 ], [ 0, %125 ], [ 0, %112 ]
+  %.033 = phi i32 [ 1, %69 ], [ 0, %.critedge83 ], [ 0, %92 ], [ 0, %96 ], [ 0, %101 ], [ 0, %.critedge ], [ 0, %.critedge81 ], [ 0, %.critedge85 ], [ 0, %151 ], [ 0, %138 ], [ 0, %125 ], [ 0, %112 ]
   ret i32 %.033
 
 159:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105, %99, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99
-  %.pn74.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99 ], [ %100, %99 ], [ %.pn53.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105 ]
+  %.pn74.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99 ], [ %.pn53.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105 ], [ %100, %99 ]
   resume { ptr, i32 } %.pn74.pn.pn
 }
 

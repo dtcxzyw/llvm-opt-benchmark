@@ -212,13 +212,13 @@ overlay_update_local_references.exit.thread:      ; preds = %23, %overlay_update
   br label %99
 
 .thread68.i.i:                                    ; preds = %95, %92, %90, %87, %81
-  %.0.i.ph.i.i = phi i32 [ %93, %95 ], [ -16, %92 ], [ -1, %90 ], [ %88, %87 ], [ -1, %81 ]
+  %.0.i.ph.i.i = phi i32 [ %93, %95 ], [ %88, %87 ], [ -16, %92 ], [ -1, %90 ], [ -1, %81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %overlay_fixup_phandle.exit.thread.sink.split.i
 
 99:                                               ; preds = %97, %85
-  %.0.i.i.i = phi i32 [ %98, %97 ], [ %86, %85 ]
+  %.0.i.i.i = phi i32 [ %86, %85 ], [ %98, %97 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not62.i.i = icmp eq i32 %.0.i.i.i, 0
@@ -241,7 +241,7 @@ overlay_fixup_phandle.exit.thread.sink.split.i:   ; preds = %75, %70, %68, %63, 
   br label %overlay_fixup_phandle.exit.thread.i
 
 overlay_fixup_phandle.exit.thread.i:              ; preds = %39, %99, %overlay_fixup_phandle.exit.thread.sink.split.i
-  %.0.i.ph.i = phi i32 [ %.0.i.ph.ph.i, %overlay_fixup_phandle.exit.thread.sink.split.i ], [ %.0.i.i.i, %99 ], [ -13, %39 ]
+  %.0.i.ph.i = phi i32 [ %.0.i.i.i, %99 ], [ %.0.i.ph.ph.i, %overlay_fixup_phandle.exit.thread.sink.split.i ], [ -13, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %overlay_update_local_references.exit.thread43
@@ -267,8 +267,8 @@ overlay_fixup_phandles.exit:                      ; preds = %103, %32, %overlay_
   %.not40 = icmp eq i32 %108, 0
   br i1 %.not40, label %.sink.split, label %overlay_update_local_references.exit.thread43
 
-overlay_update_local_references.exit.thread43:    ; preds = %overlay_fixup_phandle.exit.i, %overlay_fixup_phandle.exit.thread.i, %30, %28, %23, %107, %overlay_fixup_phandles.exit, %overlay_update_local_references.exit, %16, %14
-  %.026 = phi i32 [ %15, %14 ], [ %18, %16 ], [ %25, %overlay_update_local_references.exit ], [ %106, %overlay_fixup_phandles.exit ], [ %108, %107 ], [ %21, %23 ], [ %.0.i.ph.i, %overlay_fixup_phandle.exit.thread.i ], [ %31, %30 ], [ %26, %28 ], [ %38, %overlay_fixup_phandle.exit.i ]
+overlay_update_local_references.exit.thread43:    ; preds = %overlay_fixup_phandle.exit.i, %overlay_fixup_phandle.exit.thread.i, %28, %30, %23, %107, %overlay_fixup_phandles.exit, %overlay_update_local_references.exit, %16, %14
+  %.026 = phi i32 [ %15, %14 ], [ %18, %16 ], [ %25, %overlay_update_local_references.exit ], [ %21, %23 ], [ %106, %overlay_fixup_phandles.exit ], [ %108, %107 ], [ %31, %30 ], [ %.0.i.ph.i, %overlay_fixup_phandle.exit.thread.i ], [ %26, %28 ], [ %38, %overlay_fixup_phandle.exit.i ]
   store i32 -1, ptr %1, align 4
   br label %.sink.split
 
@@ -319,8 +319,8 @@ select.unfold:                                    ; preds = %12, %.lr.ph
   %15 = icmp sgt i32 %14, -1
   br i1 %15, label %.lr.ph, label %.thread, !llvm.loop !8
 
-.thread:                                          ; preds = %select.unfold, %7, %9, %12, %2
-  %.2 = phi i32 [ 0, %2 ], [ %13, %12 ], [ %10, %9 ], [ %5, %7 ], [ 0, %select.unfold ]
+.thread:                                          ; preds = %select.unfold, %9, %7, %12, %2
+  %.2 = phi i32 [ 0, %2 ], [ %10, %9 ], [ %13, %12 ], [ %5, %7 ], [ 0, %select.unfold ]
   ret i32 %.2
 }
 
@@ -572,7 +572,7 @@ get_path_len.exit:                                ; preds = %._crit_edge.i, %81
   br i1 %119, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %24, %22, %29, %55, %58, %61, %get_path_len.exit, %86, %96, %104, %.thread, %.lr.ph, %17, %get_path_len.exit.thread, %15, %2
-  %.094 = phi i32 [ 0, %2 ], [ %.093, %15 ], [ %.117.i.ph, %get_path_len.exit.thread ], [ 0, %17 ], [ %21, %.lr.ph ], [ -15, %24 ], [ -15, %22 ], [ -15, %29 ], [ -16, %55 ], [ -16, %58 ], [ %62, %61 ], [ %.117.i, %get_path_len.exit ], [ %93, %86 ], [ %97, %96 ], [ %105, %104 ], [ 0, %.thread ]
+  %.094 = phi i32 [ %.117.i.ph, %get_path_len.exit.thread ], [ 0, %2 ], [ %.093, %15 ], [ 0, %17 ], [ %21, %.lr.ph ], [ %105, %104 ], [ -16, %58 ], [ %.117.i, %get_path_len.exit ], [ %93, %86 ], [ %62, %61 ], [ -16, %55 ], [ -15, %29 ], [ -15, %22 ], [ -15, %24 ], [ %97, %96 ], [ 0, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -684,7 +684,7 @@ overlay_phandle_add_offset.exit35:                ; preds = %19, %28
   br i1 %37, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %35, %31, %overlay_phandle_add_offset.exit35.thread, %overlay_phandle_add_offset.exit.thread, %overlay_phandle_add_offset.exit35, %overlay_phandle_add_offset.exit
-  %.025 = phi i32 [ %.0.i, %overlay_phandle_add_offset.exit ], [ %.0.i31, %overlay_phandle_add_offset.exit35 ], [ %.0.i.ph, %overlay_phandle_add_offset.exit.thread ], [ %.0.i31.ph, %overlay_phandle_add_offset.exit35.thread ], [ 0, %31 ], [ %34, %.lr.ph ], [ 0, %35 ]
+  %.025 = phi i32 [ %.0.i.ph, %overlay_phandle_add_offset.exit.thread ], [ %.0.i, %overlay_phandle_add_offset.exit ], [ %.0.i31, %overlay_phandle_add_offset.exit35 ], [ %.0.i31.ph, %overlay_phandle_add_offset.exit35.thread ], [ 0, %31 ], [ %34, %.lr.ph ], [ 0, %35 ]
   ret i32 %.025
 }
 
@@ -784,8 +784,8 @@ define internal fastcc i32 @overlay_update_local_node_references(ptr noundef %0,
   %37 = icmp slt i64 %indvars.iv.next, %36
   br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
-.thread70:                                        ; preds = %13, %.lr.ph81, %21, %.thread
-  %.1.ph = phi i32 [ %.3.ph, %.thread ], [ %., %21 ], [ %12, %.lr.ph81 ], [ -16, %13 ]
+.thread70:                                        ; preds = %13, %.lr.ph81, %.thread, %21
+  %.1.ph = phi i32 [ %., %21 ], [ %.3.ph, %.thread ], [ %12, %.lr.ph81 ], [ -16, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -825,8 +825,8 @@ define internal fastcc i32 @overlay_update_local_node_references(ptr noundef %0,
   %51 = icmp sgt i32 %50, -1
   br i1 %51, label %.lr.ph85, label %.thread74, !llvm.loop !13
 
-.thread74:                                        ; preds = %47, %49, %.lr.ph85, %45, %._crit_edge82, %.thread70
-  %.4 = phi i32 [ %.1.ph, %.thread70 ], [ 0, %._crit_edge82 ], [ %48, %47 ], [ 0, %49 ], [ -16, %.lr.ph85 ], [ %43, %45 ]
+.thread74:                                        ; preds = %47, %49, %45, %.lr.ph85, %._crit_edge82, %.thread70
+  %.4 = phi i32 [ %.1.ph, %.thread70 ], [ 0, %._crit_edge82 ], [ 0, %49 ], [ %43, %45 ], [ %48, %47 ], [ -16, %.lr.ph85 ]
   ret i32 %.4
 }
 
@@ -928,7 +928,7 @@ overlay_get_target_phandle.exit:                  ; preds = %8
   br label %25
 
 25:                                               ; preds = %overlay_get_target_phandle.exit.thread, %24, %19, %overlay_get_target_phandle.exit
-  %.021 = phi i32 [ -6, %overlay_get_target_phandle.exit ], [ %spec.store.select, %19 ], [ %.0, %24 ], [ -6, %overlay_get_target_phandle.exit.thread ]
+  %.021 = phi i32 [ %spec.store.select, %19 ], [ -6, %overlay_get_target_phandle.exit ], [ %.0, %24 ], [ -6, %overlay_get_target_phandle.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.021
 }
@@ -956,8 +956,8 @@ define internal fastcc i32 @overlay_apply_node(ptr noundef %0, i32 noundef range
   %13 = icmp slt i32 %10, 0
   br i1 %13, label %.thread, label %14
 
-.thread:                                          ; preds = %.lr.ph, %12
-  %.1.ph = phi i32 [ %10, %12 ], [ -13, %.lr.ph ]
+.thread:                                          ; preds = %12, %.lr.ph
+  %.1.ph = phi i32 [ -13, %.lr.ph ], [ %10, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread53
@@ -1007,8 +1007,8 @@ define internal fastcc i32 @overlay_apply_node(ptr noundef %0, i32 noundef range
   %34 = icmp sgt i32 %33, -1
   br i1 %34, label %.lr.ph60, label %.thread53, !llvm.loop !15
 
-.thread53:                                        ; preds = %14, %30, %32, %25, %28, %._crit_edge, %.thread
-  %.2 = phi i32 [ %.1.ph, %.thread ], [ 0, %._crit_edge ], [ %31, %30 ], [ 0, %32 ], [ -13, %25 ], [ %.0, %28 ], [ %16, %14 ]
+.thread53:                                        ; preds = %14, %30, %32, %28, %25, %._crit_edge, %.thread
+  %.2 = phi i32 [ 0, %._crit_edge ], [ %.1.ph, %.thread ], [ -13, %25 ], [ 0, %32 ], [ %.0, %28 ], [ %31, %30 ], [ %16, %14 ]
   ret i32 %.2
 }
 

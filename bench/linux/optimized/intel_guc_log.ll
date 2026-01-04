@@ -773,7 +773,7 @@ define dso_local noundef range(i32 -19, 1) i32 @intel_guc_log_relay_open(ptr nou
   br label %.thread
 
 .thread:                                          ; preds = %12, %34, %57, %58, %10, %5
-  %59 = phi i32 [ 0, %57 ], [ -19, %58 ], [ -17, %5 ], [ -6, %10 ], [ -2, %12 ], [ -12, %34 ]
+  %59 = phi i32 [ 0, %57 ], [ -6, %10 ], [ -19, %58 ], [ -17, %5 ], [ -2, %12 ], [ -12, %34 ]
   tail call void @mutex_unlock(ptr noundef nonnull %6) #12
   br label %60
 

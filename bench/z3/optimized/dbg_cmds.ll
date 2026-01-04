@@ -5975,7 +5975,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
   br label %57
 
 57:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %55, %47
-  %.pn.pn = phi { ptr, i32 } [ %56, %55 ], [ %48, %47 ], [ %50, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ]
+  %.pn.pn = phi { ptr, i32 } [ %56, %55 ], [ %50, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %48, %47 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %5) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %77
@@ -6986,9 +6986,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29.thread: ; preds
           to label %.invoke unwind label %83
 
 .invoke:                                          ; preds = %100, %90, %85
-  %102 = phi ptr [ %89, %85 ], [ %94, %90 ], [ %101, %100 ]
-  %103 = phi ptr [ @.str.87, %85 ], [ @.str.88, %90 ], [ @.str.89, %100 ]
-  %104 = phi i64 [ 4, %85 ], [ 8, %90 ], [ 1, %100 ]
+  %102 = phi ptr [ %94, %90 ], [ %89, %85 ], [ %101, %100 ]
+  %103 = phi ptr [ @.str.88, %90 ], [ @.str.87, %85 ], [ @.str.89, %100 ]
+  %104 = phi i64 [ 8, %90 ], [ 4, %85 ], [ 1, %100 ]
   %105 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %102, ptr noundef nonnull %103, i64 noundef %104)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %83
 
@@ -7023,7 +7023,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZStlsISt11char_tra
   ret void
 
 117:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %71, %39, %83
-  %.pn22 = phi { ptr, i32 } [ %84, %83 ], [ %72, %71 ], [ %40, %39 ], [ %34, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %66, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29.thread ]
+  %.pn22 = phi { ptr, i32 } [ %84, %83 ], [ %72, %71 ], [ %66, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29.thread ], [ %40, %39 ], [ %34, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn22
 
@@ -7543,7 +7543,7 @@ _ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; pr
   br label %147
 
 147:                                              ; preds = %.loopexit, %.loopexit.split-lp, %51, %146, %21, %19
-  %.pn28.pn = phi { ptr, i32 } [ %.pn25.pn, %146 ], [ %20, %19 ], [ %22, %21 ], [ %52, %51 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn28.pn = phi { ptr, i32 } [ %22, %21 ], [ %.pn25.pn, %146 ], [ %20, %19 ], [ %52, %51 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN3refI5modelED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
@@ -10382,7 +10382,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI14obj_hash_entryI9func_decl
   br label %64
 
 43:                                               ; preds = %34, %28
-  %.1 = phi ptr [ %.04464, %28 ], [ %.04563, %34 ]
+  %.1 = phi ptr [ %.04563, %34 ], [ %.04464, %28 ]
   %44 = getelementptr inbounds nuw i8, ptr %.04563, i64 8
   %.not = icmp eq ptr %44, %25
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !418
@@ -10429,7 +10429,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI14obj_hash_entryI9func_decl
   br label %64
 
 62:                                               ; preds = %53, %47
-  %.3 = phi ptr [ %.267, %47 ], [ %.14666, %53 ]
+  %.3 = phi ptr [ %.14666, %53 ], [ %.267, %47 ]
   %63 = getelementptr inbounds nuw i8, ptr %.14666, i64 8
   %.not47 = icmp eq ptr %63, %23
   br i1 %.not47, label %._crit_edge, label %.lr.ph68, !llvm.loop !419
@@ -11523,7 +11523,7 @@ _ZN15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit
   br label %248
 
 248:                                              ; preds = %247, %53, %120, %77
-  %.pn51.pn = phi { ptr, i32 } [ %78, %77 ], [ %121, %120 ], [ %54, %53 ], [ %.pn45.pn.pn.pn, %247 ]
+  %.pn51.pn = phi { ptr, i32 } [ %121, %120 ], [ %78, %77 ], [ %.pn45.pn.pn.pn, %247 ], [ %54, %53 ]
   call void @_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
@@ -13785,7 +13785,7 @@ _ZN15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit
   ret void
 
 412:                                              ; preds = %303, %305, %276
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %277, %276 ], [ %306, %305 ], [ %304, %303 ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %277, %276 ], [ %304, %303 ], [ %306, %305 ]
   call void @_ZN3qelD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #21
   br label %413
 
@@ -13797,7 +13797,7 @@ _ZN15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit
   br label %414
 
 414:                                              ; preds = %209, %211, %413, %182
-  %.pn77.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %413 ], [ %183, %182 ], [ %212, %211 ], [ %210, %209 ]
+  %.pn77.pn.pn.pn.pn = phi { ptr, i32 } [ %183, %182 ], [ %.pn.pn.pn.pn.pn.pn, %413 ], [ %210, %209 ], [ %212, %211 ]
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #21
   br label %415
 
@@ -13807,7 +13807,7 @@ _ZN15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit
   br label %416
 
 416:                                              ; preds = %103, %415, %134, %58
-  %.pn84.pn = phi { ptr, i32 } [ %135, %134 ], [ %.pn77.pn.pn.pn.pn.pn, %415 ], [ %59, %58 ], [ %104, %103 ]
+  %.pn84.pn = phi { ptr, i32 } [ %59, %58 ], [ %135, %134 ], [ %.pn77.pn.pn.pn.pn.pn, %415 ], [ %104, %103 ]
   call void @_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #21
@@ -15052,7 +15052,7 @@ _ZN15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit
   ret void
 
 412:                                              ; preds = %303, %305, %276
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %277, %276 ], [ %306, %305 ], [ %304, %303 ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %277, %276 ], [ %304, %303 ], [ %306, %305 ]
   call void @_ZN7qe_liteD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #21
   br label %413
 
@@ -15064,7 +15064,7 @@ _ZN15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit
   br label %414
 
 414:                                              ; preds = %209, %211, %413, %182
-  %.pn77.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %413 ], [ %183, %182 ], [ %212, %211 ], [ %210, %209 ]
+  %.pn77.pn.pn.pn.pn = phi { ptr, i32 } [ %183, %182 ], [ %.pn.pn.pn.pn.pn.pn, %413 ], [ %210, %209 ], [ %212, %211 ]
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #21
   br label %415
 
@@ -15074,7 +15074,7 @@ _ZN15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit
   br label %416
 
 416:                                              ; preds = %103, %415, %134, %58
-  %.pn84.pn = phi { ptr, i32 } [ %135, %134 ], [ %.pn77.pn.pn.pn.pn.pn, %415 ], [ %59, %58 ], [ %104, %103 ]
+  %.pn84.pn = phi { ptr, i32 } [ %59, %58 ], [ %135, %134 ], [ %.pn77.pn.pn.pn.pn.pn, %415 ], [ %104, %103 ]
   call void @_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #21

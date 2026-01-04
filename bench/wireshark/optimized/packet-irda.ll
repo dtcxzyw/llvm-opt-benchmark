@@ -1015,7 +1015,7 @@ dissect_log.exit:                                 ; preds = %52, %.sink.split.i
   br label %161
 
 161:                                              ; preds = %.sink.split.i.i, %153, %150, %129
-  %.0139.i.i = phi i32 [ 3, %150 ], [ 3, %153 ], [ 2, %129 ], [ %.0139.ph.i.i, %.sink.split.i.i ]
+  %.0139.i.i = phi i32 [ 3, %150 ], [ 2, %129 ], [ 3, %153 ], [ %.0139.ph.i.i, %.sink.split.i.i ]
   %162 = call ptr @tvb_new_subset_remaining(ptr noundef %101, i32 noundef %.0139.i.i)
   call void @proto_item_set_len(ptr noundef %133, i32 noundef %.0139.i.i)
   br label %170
@@ -1042,8 +1042,8 @@ dissect_log.exit:                                 ; preds = %52, %.sink.split.i
   br label %.thread158.i.i
 
 .thread158.i.i:                                   ; preds = %168, %167, %164, %163, %.thread.i.i
-  %.0140152162.i.i = phi i8 [ %112, %163 ], [ %112, %167 ], [ %112, %168 ], [ %112, %164 ], [ 0, %.thread.i.i ]
-  %.1.i.i = phi i32 [ 3, %163 ], [ 4, %167 ], [ 5, %168 ], [ %spec.select.i.i, %164 ], [ 2, %.thread.i.i ]
+  %.0140152162.i.i = phi i8 [ %112, %163 ], [ 0, %.thread.i.i ], [ %112, %164 ], [ %112, %167 ], [ %112, %168 ]
+  %.1.i.i = phi i32 [ 3, %163 ], [ 2, %.thread.i.i ], [ %spec.select.i.i, %164 ], [ 4, %167 ], [ 5, %168 ]
   %169 = call ptr @tvb_new_subset_remaining(ptr noundef %101, i32 noundef %.1.i.i)
   br label %170
 
@@ -1160,7 +1160,7 @@ dissect_log.exit:                                 ; preds = %52, %.sink.split.i
   br label %231
 
 231:                                              ; preds = %223, %220
-  %.1111.i.i.i = phi ptr [ %222, %220 ], [ %229, %223 ]
+  %.1111.i.i.i = phi ptr [ %229, %223 ], [ %222, %220 ]
   %.not117.i.i.i = icmp eq ptr %.1111.i.i.i, null
   br i1 %.not117.i.i.i, label %.thread.i.i.i, label %232
 
@@ -1174,8 +1174,8 @@ dissect_log.exit:                                 ; preds = %52, %.sink.split.i
   br label %.thread.i.i.i
 
 .thread.i.i.i:                                    ; preds = %213, %232, %231
-  %.not117124.i.i.i = phi i1 [ false, %232 ], [ true, %231 ], [ true, %213 ]
-  %.1111123.i.i.i = phi ptr [ %.1111.i.i.i, %232 ], [ null, %231 ], [ null, %213 ]
+  %.not117124.i.i.i = phi i1 [ true, %231 ], [ false, %232 ], [ true, %213 ]
+  %.1111123.i.i.i = phi ptr [ null, %231 ], [ %.1111.i.i.i, %232 ], [ null, %213 ]
   %236 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %237 = load ptr, ptr %236, align 8
   %238 = call ptr @tvb_get_string_enc(ptr noundef %237, ptr noundef %.0.i.i, i32 noundef 2, i32 noundef %187, i32 noundef 0)
@@ -1276,7 +1276,7 @@ dissect_log.exit:                                 ; preds = %52, %.sink.split.i
   br label %.thread133.i.i.i
 
 .thread133.i.i.i:                                 ; preds = %288, %281, %266, %.thread125.i.i.i
-  %.1.i.i.i = phi i32 [ %289, %288 ], [ %287, %281 ], [ 1, %266 ], [ 1, %.thread125.i.i.i ]
+  %.1.i.i.i = phi i32 [ 1, %.thread125.i.i.i ], [ %289, %288 ], [ %287, %281 ], [ 1, %266 ]
   %290 = call ptr @tvb_new_subset_remaining(ptr noundef %.0.i.i, i32 noundef %.1.i.i.i)
   %291 = call i32 @call_data_dissector(ptr noundef %290, ptr noundef %1, ptr noundef %2)
   br label %dissect_iap_request.exit.i.i
@@ -1378,7 +1378,7 @@ dissect_iap_request.exit.i.i:                     ; preds = %.thread133.i.i.i, %
   br i1 %.not232.i.i.i, label %.critedge246.i.i.i, label %.lr.ph262.i.i.i, !llvm.loop !12
 
 .critedge246.i.i.i:                               ; preds = %321, %.critedge.i.i.i, %.critedge.preheader.i.i.i, %315, %297
-  %.0213.i.i.i = phi ptr [ null, %297 ], [ %.1214257.i.i.i, %.critedge.preheader.i.i.i ], [ null, %315 ], [ %.3216.i.i.i, %.critedge.i.i.i ], [ null, %321 ]
+  %.0213.i.i.i = phi ptr [ null, %297 ], [ null, %315 ], [ %.1214257.i.i.i, %.critedge.preheader.i.i.i ], [ %.3216.i.i.i, %.critedge.i.i.i ], [ null, %321 ]
   %329 = load ptr, ptr %64, align 8
   call void @col_set_str(ptr noundef %329, i32 noundef 25, ptr noundef nonnull @.str.261)
   %330 = load ptr, ptr %64, align 8
@@ -1508,7 +1508,7 @@ dissect_iap_request.exit.i.i:                     ; preds = %.thread133.i.i.i, %
   br label %399
 
 399:                                              ; preds = %398, %393, %389, %386
-  %.0218.i.i.i = phi i16 [ 0, %398 ], [ %392, %389 ], [ %397, %393 ], [ 4, %386 ]
+  %.0218.i.i.i = phi i16 [ 0, %398 ], [ %397, %393 ], [ %392, %389 ], [ 4, %386 ]
   %400 = load i32, ptr @hf_iap_list_entry, align 4
   %401 = zext i16 %.0218.i.i.i to i32
   %402 = add nuw nsw i32 %401, 3
@@ -1659,8 +1659,8 @@ dissect_iap_request.exit.i.i:                     ; preds = %.thread133.i.i.i, %
   br i1 %.not235.i.i.i, label %486, label %.sink.split.i.i.i
 
 .sink.split.i.i.i:                                ; preds = %480, %473, %468
-  %.sink297.i.i.i = phi ptr [ %469, %468 ], [ %474, %473 ], [ %481, %480 ]
-  %.1219.ph.i.i.i = phi i16 [ 4, %468 ], [ %472, %473 ], [ %479, %480 ]
+  %.sink297.i.i.i = phi ptr [ %474, %473 ], [ %469, %468 ], [ %481, %480 ]
+  %.1219.ph.i.i.i = phi i16 [ %472, %473 ], [ 4, %468 ], [ %479, %480 ]
   %482 = getelementptr inbounds nuw i8, ptr %.sink297.i.i.i, i64 8
   %483 = load ptr, ptr %482, align 8
   %484 = load i8, ptr %5, align 1
@@ -1668,7 +1668,7 @@ dissect_iap_request.exit.i.i:                     ; preds = %.thread133.i.i.i, %
   br label %486
 
 486:                                              ; preds = %.sink.split.i.i.i, %480, %475, %473, %470, %468, %467, %463
-  %.1219.i.i.i = phi i16 [ 4, %468 ], [ 4, %467 ], [ %472, %473 ], [ %472, %470 ], [ %479, %480 ], [ %479, %475 ], [ 0, %463 ], [ %.1219.ph.i.i.i, %.sink.split.i.i.i ]
+  %.1219.i.i.i = phi i16 [ %479, %475 ], [ 0, %463 ], [ 4, %468 ], [ 4, %467 ], [ %479, %480 ], [ %472, %473 ], [ %472, %470 ], [ %.1219.ph.i.i.i, %.sink.split.i.i.i ]
   %487 = zext i16 %.1219.i.i.i to i32
   %488 = add i32 %466, %487
   %489 = add i32 %.3212267.i.i.i, 1
@@ -1676,7 +1676,7 @@ dissect_iap_request.exit.i.i:                     ; preds = %.thread133.i.i.i, %
   br i1 %490, label %463, label %.thread251.i.i.i, !llvm.loop !14
 
 .thread251.i.i.i:                                 ; preds = %456, %486, %.preheader.i149.i.i, %375, %358, %.thread.i146.i.i
-  %.2.i.i.i = phi i32 [ 2, %358 ], [ 2, %.thread.i146.i.i ], [ 4, %.preheader.i149.i.i ], [ 4, %375 ], [ %488, %486 ], [ %457, %456 ]
+  %.2.i.i.i = phi i32 [ %488, %486 ], [ 2, %.thread.i146.i.i ], [ 2, %358 ], [ 4, %.preheader.i149.i.i ], [ 4, %375 ], [ %457, %456 ]
   %491 = call ptr @tvb_new_subset_remaining(ptr noundef %.0.i.i, i32 noundef %.2.i.i.i)
   %492 = call i32 @call_data_dissector(ptr noundef %491, ptr noundef %1, ptr noundef %2)
   br label %dissect_iap_result.exit.i.i
@@ -1862,7 +1862,7 @@ dissect_iap_result.exit.i.i:                      ; preds = %.thread251.i.i.i, %
   br label %dissect_irlap.exit
 
 571:                                              ; preds = %561, %.thread148.i, %546, %538, %.thread.i11, %506, %503
-  %.0.i = phi i32 [ 2, %506 ], [ %543, %538 ], [ %568, %561 ], [ 2, %546 ], [ 2, %503 ], [ %537, %.thread.i11 ], [ %560, %.thread148.i ]
+  %.0.i = phi i32 [ 2, %506 ], [ %543, %538 ], [ %537, %.thread.i11 ], [ %568, %561 ], [ %560, %.thread148.i ], [ 2, %546 ], [ 2, %503 ]
   %572 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0.i)
   %573 = icmp sgt i32 %572, 0
   br i1 %573, label %574, label %dissect_irlap.exit

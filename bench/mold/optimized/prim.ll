@@ -254,7 +254,7 @@ define internal fastcc ptr @unix_mmap(ptr noundef %0, i64 noundef %1, i64 nounde
   br label %unix_madvise.exit
 
 unix_madvise.exit:                                ; preds = %25, %.thread104, %41, %.thread81, %35, %39, %.thread95
-  %.3 = phi ptr [ %37, %39 ], [ %37, %.thread95 ], [ %36, %35 ], [ null, %.thread81 ], [ %37, %41 ], [ %34, %.thread104 ], [ %26, %25 ]
+  %.3 = phi ptr [ null, %.thread81 ], [ %37, %41 ], [ %37, %39 ], [ %37, %.thread95 ], [ %36, %35 ], [ %34, %.thread104 ], [ %26, %25 ]
   ret ptr %.3
 }
 
@@ -337,7 +337,7 @@ unix_madvise.exit:                                ; preds = %unix_madvise.exit.l
   br label %.critedge11
 
 .critedge11:                                      ; preds = %9, %unix_madvise.exit, %2, %17, %14, %.critedge
-  %.0 = phi i32 [ %8, %.critedge ], [ %18, %17 ], [ 0, %14 ], [ 0, %2 ], [ 0, %9 ], [ %8, %unix_madvise.exit ]
+  %.0 = phi i32 [ %18, %17 ], [ %8, %.critedge ], [ 0, %14 ], [ 0, %2 ], [ 0, %9 ], [ %8, %unix_madvise.exit ]
   ret i32 %.0
 }
 
@@ -391,7 +391,7 @@ define hidden i32 @_mi_prim_alloc_huge_os_pages(ptr noundef %0, i64 noundef %1, 
   br label %unix_mmap.exit
 
 unix_mmap.exit:                                   ; preds = %5, %16
-  %.3.i = phi ptr [ %19, %16 ], [ %11, %5 ]
+  %.3.i = phi ptr [ %11, %5 ], [ %19, %16 ]
   store ptr %.3.i, ptr %4, align 8, !tbaa !18
   %20 = icmp ne ptr %.3.i, null
   %21 = icmp ult i32 %2, 64
@@ -420,7 +420,7 @@ unix_mmap.exit:                                   ; preds = %5, %16
   br label %31
 
 31:                                               ; preds = %30, %unix_mmap.exit
-  %32 = phi ptr [ %.pr, %30 ], [ %.3.i, %unix_mmap.exit ]
+  %32 = phi ptr [ %.3.i, %unix_mmap.exit ], [ %.pr, %30 ]
   %.not17 = icmp eq ptr %32, null
   br i1 %.not17, label %33, label %36
 
@@ -687,7 +687,7 @@ define hidden zeroext i1 @_mi_prim_random_buf(ptr noundef %0, i64 noundef %1) lo
   br label %.thread
 
 .thread:                                          ; preds = %10, %8, %.thread40, %14
-  %.1 = phi i1 [ %.025.lcssa, %.thread40 ], [ false, %14 ], [ false, %10 ], [ %9, %8 ]
+  %.1 = phi i1 [ false, %14 ], [ %.025.lcssa, %.thread40 ], [ false, %10 ], [ %9, %8 ]
   ret i1 %.1
 }
 

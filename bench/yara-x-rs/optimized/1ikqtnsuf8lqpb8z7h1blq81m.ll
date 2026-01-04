@@ -86,7 +86,7 @@ define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17h5278961e83ab24a
   br label %"_ZN87_$LT$I$u20$as$u20$core..iter..traits..iterator..Iterator..advance_by..SpecAdvanceBy$GT$15spec_advance_by17hf9856f418378453fE.exit"
 
 "_ZN87_$LT$I$u20$as$u20$core..iter..traits..iterator..Iterator..advance_by..SpecAdvanceBy$GT$15spec_advance_by17hf9856f418378453fE.exit": ; preds = %2, %3
-  %.sroa.0.0.i = phi i64 [ %5, %3 ], [ 0, %2 ]
+  %.sroa.0.0.i = phi i64 [ 0, %2 ], [ %5, %3 ]
   ret i64 %.sroa.0.0.i
 }
 
@@ -101,7 +101,7 @@ define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17h5c61ab2942b9166
   br label %"_ZN87_$LT$I$u20$as$u20$core..iter..traits..iterator..Iterator..advance_by..SpecAdvanceBy$GT$15spec_advance_by17hb0f5242714e5fd4cE.exit"
 
 "_ZN87_$LT$I$u20$as$u20$core..iter..traits..iterator..Iterator..advance_by..SpecAdvanceBy$GT$15spec_advance_by17hb0f5242714e5fd4cE.exit": ; preds = %2, %3
-  %.sroa.0.0.i = phi i64 [ %5, %3 ], [ 0, %2 ]
+  %.sroa.0.0.i = phi i64 [ 0, %2 ], [ %5, %3 ]
   ret i64 %.sroa.0.0.i
 }
 
@@ -246,7 +246,7 @@ define i64 @"_ZN87_$LT$I$u20$as$u20$core..iter..traits..iterator..Iterator..adva
   br label %6
 
 6:                                                ; preds = %2, %3
-  %.sroa.0.0 = phi i64 [ %5, %3 ], [ 0, %2 ]
+  %.sroa.0.0 = phi i64 [ 0, %2 ], [ %5, %3 ]
   ret i64 %.sroa.0.0
 }
 
@@ -261,7 +261,7 @@ define i64 @"_ZN87_$LT$I$u20$as$u20$core..iter..traits..iterator..Iterator..adva
   br label %6
 
 6:                                                ; preds = %2, %3
-  %.sroa.0.0 = phi i64 [ %5, %3 ], [ 0, %2 ]
+  %.sroa.0.0 = phi i64 [ 0, %2 ], [ %5, %3 ]
   ret i64 %.sroa.0.0
 }
 

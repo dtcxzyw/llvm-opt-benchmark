@@ -1990,9 +1990,9 @@ _ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit399.loopexit: ; preds = 
   br label %_ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit399
 
 _ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit399: ; preds = %._crit_edge605, %_ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit399.loopexit, %_ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit
-  %195 = phi i32 [ %.pr, %_ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit ], [ %.pre738, %_ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit399.loopexit ], [ %182, %._crit_edge605 ]
-  %.sroa.15507.2573 = phi ptr [ %186, %_ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit ], [ %186, %_ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit399.loopexit ], [ null, %._crit_edge605 ]
-  %.sroa.15485.1 = phi ptr [ null, %_ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit ], [ %192, %_ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit399.loopexit ], [ null, %._crit_edge605 ]
+  %195 = phi i32 [ %.pre738, %_ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit399.loopexit ], [ %.pr, %_ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit ], [ %182, %._crit_edge605 ]
+  %.sroa.15507.2573 = phi ptr [ %186, %_ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit399.loopexit ], [ %186, %_ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit ], [ null, %._crit_edge605 ]
+  %.sroa.15485.1 = phi ptr [ %192, %_ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit399.loopexit ], [ null, %_ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit ], [ null, %._crit_edge605 ]
   %.not659 = icmp eq i32 %195, 0
   br i1 %.not659, label %.preheader596, label %.lr.ph607
 
@@ -3295,7 +3295,7 @@ _ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit441.thread578: ; preds = %_ZN20b3A
   unreachable
 
 _ZN20b3AlignedObjectArrayI16b3GpuConstraint4ED2Ev.exit444: ; preds = %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit441.thread, %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit441, %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit441.thread578, %131
-  %.pn276.pn.pn = phi { ptr, i32 } [ %132, %131 ], [ %133, %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit441.thread ], [ %.pn270.pn.pn811, %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit441 ], [ %.pn270.pn.pn811, %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit441.thread578 ]
+  %.pn276.pn.pn = phi { ptr, i32 } [ %132, %131 ], [ %.pn270.pn.pn811, %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit441.thread578 ], [ %133, %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit441.thread ], [ %.pn270.pn.pn811, %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit441 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %1028
 
@@ -3336,7 +3336,7 @@ _ZN20b3AlignedObjectArrayIjED2Ev.exit447:         ; preds = %1028, %1032
   unreachable
 
 _ZN20b3AlignedObjectArrayI6b3Int2ED2Ev.exit450:   ; preds = %.thread, %_ZN20b3AlignedObjectArrayIjED2Ev.exit447, %1036, %41
-  %.pn276.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %42, %41 ], [ %48, %.thread ], [ %.pn276.pn.pn.pn, %_ZN20b3AlignedObjectArrayIjED2Ev.exit447 ], [ %.pn276.pn.pn.pn, %1036 ]
+  %.pn276.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %42, %41 ], [ %.pn276.pn.pn.pn, %1036 ], [ %48, %.thread ], [ %.pn276.pn.pn.pn, %_ZN20b3AlignedObjectArrayIjED2Ev.exit447 ]
   %1040 = load ptr, ptr %21, align 8, !tbaa !96
   %.not.i.i.i451 = icmp ne ptr %1040, null
   %1041 = load i8, ptr %20, align 8, !range !73
@@ -7234,12 +7234,12 @@ _ZN13b3ProfileZoneD2Ev.exit226:                   ; preds = %_ZN13b3ProfileZoneD
   unreachable
 
 _ZN13b3ProfileZoneD2Ev.exit140:                   ; preds = %1587, %1593, %1468, %1474, %1458, %1464, %1448, %1454, %1438, %1444, %716, %722, %709, %711, %699, %705, %692, %694, %685, %687
-  %.pn75.pn.pn.pn.pn = phi { ptr, i32 } [ %686, %685 ], [ %688, %687 ], [ %693, %692 ], [ %695, %694 ], [ %700, %699 ], [ %.pn55, %705 ], [ %710, %709 ], [ %712, %711 ], [ %717, %716 ], [ %.pn60, %722 ], [ %1439, %1438 ], [ %.pn66, %1444 ], [ %1449, %1448 ], [ %.pn69, %1454 ], [ %1459, %1458 ], [ %.pn72, %1464 ], [ %1469, %1468 ], [ %.pn75, %1474 ], [ %1588, %1587 ], [ %.pn63, %1593 ]
+  %.pn75.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn60, %722 ], [ %712, %711 ], [ %.pn55, %705 ], [ %695, %694 ], [ %688, %687 ], [ %.pn75, %1474 ], [ %.pn72, %1464 ], [ %.pn69, %1454 ], [ %.pn66, %1444 ], [ %686, %685 ], [ %693, %692 ], [ %700, %699 ], [ %710, %709 ], [ %717, %716 ], [ %1439, %1438 ], [ %1449, %1448 ], [ %1459, %1458 ], [ %1469, %1468 ], [ %1588, %1587 ], [ %.pn63, %1593 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %_ZN13b3ProfileZoneD2Ev.exit138
 
 _ZN13b3ProfileZoneD2Ev.exit138:                   ; preds = %675, %681, %668, %670, %_ZN13b3ProfileZoneD2Ev.exit140
-  %.pn75.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn75.pn.pn.pn.pn, %_ZN13b3ProfileZoneD2Ev.exit140 ], [ %669, %668 ], [ %671, %670 ], [ %676, %675 ], [ %.pn48, %681 ]
+  %.pn75.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn75.pn.pn.pn.pn, %_ZN13b3ProfileZoneD2Ev.exit140 ], [ %671, %670 ], [ %669, %668 ], [ %676, %675 ], [ %.pn48, %681 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %_ZN13b3ProfileZoneD2Ev.exit137
 

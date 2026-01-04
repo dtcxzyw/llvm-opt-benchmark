@@ -38,7 +38,7 @@ define dso_local noundef nonnull ptr @_ZN4absl13cord_internal10CordRepCrc3NewEPN
   br label %_ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit
 
 _ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit:  ; preds = %19, %13, %3, %2
-  %.019 = phi ptr [ %0, %3 ], [ null, %2 ], [ %15, %13 ], [ %15, %19 ]
+  %.019 = phi ptr [ null, %2 ], [ %0, %3 ], [ %15, %13 ], [ %15, %19 ]
   %20 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #5
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 2, ptr %21, align 4, !tbaa !21

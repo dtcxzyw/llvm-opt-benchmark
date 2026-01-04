@@ -98,8 +98,8 @@ define void @dspgvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %56
 
 56:                                               ; preds = %46, %49, %54
-  %.1125 = phi i32 [ %53, %49 ], [ %55, %54 ], [ 1, %46 ]
-  %.1 = phi i32 [ %51, %49 ], [ 1, %54 ], [ 1, %46 ]
+  %.1125 = phi i32 [ %55, %54 ], [ %53, %49 ], [ 1, %46 ]
+  %.1 = phi i32 [ 1, %54 ], [ %51, %49 ], [ 1, %46 ]
   %57 = sitofp i32 %.1125 to double
   store double %57, ptr %9, align 8, !tbaa !7
   store i32 %.1, ptr %11, align 4, !tbaa !3
@@ -120,7 +120,7 @@ define void @dspgvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not143, label %66, label %.thread160
 
 .thread160.sink.split:                            ; preds = %60, %56, %40, %37, %35, %32, %27
-  %.sink = phi i32 [ -1, %27 ], [ -2, %32 ], [ -3, %35 ], [ -4, %37 ], [ -9, %40 ], [ -11, %56 ], [ -13, %60 ]
+  %.sink = phi i32 [ -1, %27 ], [ -3, %35 ], [ -4, %37 ], [ -2, %32 ], [ -9, %40 ], [ -11, %56 ], [ -13, %60 ]
   store i32 %.sink, ptr %13, align 4, !tbaa !3
   br label %.thread160
 

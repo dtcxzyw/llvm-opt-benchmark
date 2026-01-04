@@ -1745,7 +1745,7 @@ gv_calloc.exit71.i:                               ; preds = %41, %gv_calloc.exit
   br label %polyRects.exit
 
 polyRects.exit:                                   ; preds = %.preheader.i, %60, %16, %5, %3, %75
-  %.0 = phi ptr [ %76, %75 ], [ null, %3 ], [ null, %5 ], [ null, %16 ], [ %43, %60 ], [ %43, %.preheader.i ]
+  %.0 = phi ptr [ null, %5 ], [ null, %3 ], [ %76, %75 ], [ null, %16 ], [ %43, %60 ], [ %43, %.preheader.i ]
   ret ptr %.0
 }
 
@@ -2613,7 +2613,7 @@ define i32 @getPack(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unname
   br label %14
 
 14:                                               ; preds = %11, %6, %13, %3
-  %.0 = phi i32 [ %2, %13 ], [ %1, %3 ], [ %9, %6 ], [ %1, %11 ]
+  %.0 = phi i32 [ %1, %3 ], [ %2, %13 ], [ %1, %11 ], [ %9, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -3577,7 +3577,7 @@ define internal fastcc range(i32 0, 2) i32 @fits(i32 noundef %0, i32 noundef %1,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %15, %._crit_edge55, %47
-  %.2 = phi i32 [ 1, %47 ], [ 1, %._crit_edge55 ], [ 0, %15 ]
+  %.2 = phi i32 [ 1, %._crit_edge55 ], [ 1, %47 ], [ 0, %15 ]
   ret i32 %.2
 }
 

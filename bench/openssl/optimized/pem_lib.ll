@@ -133,7 +133,7 @@ define void @PEM_proc_type(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   br label %7
 
 7:                                                ; preds = %2, %4, %6, %5
-  %.0 = phi ptr [ @.str.3, %4 ], [ @.str.4, %5 ], [ @.str.5, %6 ], [ @.str.2, %2 ]
+  %.0 = phi ptr [ @.str.5, %6 ], [ @.str.3, %4 ], [ @.str.4, %5 ], [ @.str.2, %2 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %3
   %9 = sub i64 1024, %3
   %10 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %8, i64 noundef %9, ptr noundef nonnull @.str.6, ptr noundef nonnull %.0) #10
@@ -322,6 +322,9 @@ pem_free.exit31:                                  ; preds = %17, %21
   %.not.i.i = icmp sgt i32 %46, 12
   br i1 %.not.i.i, label %47, label %.backedge.backedge
 
+.backedge.backedge:                               ; preds = %44, %.thread.i, %69, %62, %65, %56, %ossl_pem_check_suffix.exit.i, %51, %47, %123, %120, %check_pem.exit
+  br label %.backedge, !llvm.loop !13
+
 47:                                               ; preds = %44
   %sext.i.i = and i64 %45, 2147483647
   %48 = getelementptr inbounds nuw i8, ptr %32, i64 %sext.i.i
@@ -344,7 +347,7 @@ ossl_pem_check_suffix.exit.i:                     ; preds = %51
 
 56:                                               ; preds = %ossl_pem_check_suffix.exit.i
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 184
-  %58 = load ptr, ptr %57, align 8, !tbaa !13
+  %58 = load ptr, ptr %57, align 8, !tbaa !14
   %.not46.i = icmp eq ptr %58, null
   br i1 %.not46.i, label %.backedge.backedge, label %check_pem.exit.thread
 
@@ -383,9 +386,6 @@ ossl_pem_check_suffix.exit53.i:                   ; preds = %69
 .thread.i:                                        ; preds = %ossl_pem_check_suffix.exit53.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.backedge.backedge
-
-.backedge.backedge:                               ; preds = %.thread.i, %62, %65, %69, %56, %ossl_pem_check_suffix.exit.i, %51, %47, %44, %123, %120, %check_pem.exit
-  br label %.backedge, !llvm.loop !16
 
 check_pem.exit:                                   ; preds = %ossl_pem_check_suffix.exit53.i
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 112
@@ -480,7 +480,7 @@ check_pem.exit:                                   ; preds = %ossl_pem_check_suff
   %125 = icmp eq i32 %124, 0
   br i1 %125, label %check_pem.exit.thread, label %.backedge.backedge
 
-check_pem.exit.thread:                            ; preds = %123, %117, %113, %107, %103, %99, %93, %87, %81, %56, %41, %38, %31, %check_pem.exit
+check_pem.exit.thread:                            ; preds = %123, %41, %38, %117, %113, %107, %103, %99, %93, %87, %81, %56, %31, %check_pem.exit
   %126 = load ptr, ptr %12, align 8, !tbaa !8
   %127 = call i32 @PEM_get_EVP_CIPHER_INFO(ptr noundef %126, ptr noundef nonnull %10)
   %.not24 = icmp eq i32 %127, 0
@@ -503,9 +503,9 @@ pem_free.exit35:                                  ; preds = %131
   store ptr %32, ptr %2, align 8, !tbaa !8
   br i1 %.not.i, label %pem_free.exit37.thread, label %.thread58
 
-.thread:                                          ; preds = %131, %check_pem.exit.thread, %128
-  %.045 = phi i32 [ 1, %131 ], [ 0, %check_pem.exit.thread ], [ 0, %128 ]
-  %133 = phi i1 [ false, %131 ], [ true, %check_pem.exit.thread ], [ true, %128 ]
+.thread:                                          ; preds = %131, %128, %check_pem.exit.thread
+  %.045 = phi i32 [ 0, %check_pem.exit.thread ], [ 1, %131 ], [ 0, %128 ]
+  %133 = phi i1 [ true, %check_pem.exit.thread ], [ false, %131 ], [ true, %128 ]
   br i1 %.not.i, label %pem_free.exit37, label %134
 
 .thread58:                                        ; preds = %pem_free.exit35
@@ -538,7 +538,7 @@ pem_free.exit37:                                  ; preds = %.thread
   br label %pem_free.exit39
 
 pem_free.exit39:                                  ; preds = %.thread58, %138, %135, %pem_free.exit37.thread, %134, %pem_free.exit37, %25, %30
-  %.021 = phi i32 [ 0, %30 ], [ 0, %25 ], [ %.045, %pem_free.exit37 ], [ %.045, %134 ], [ 1, %pem_free.exit37.thread ], [ %.045, %135 ], [ %.045, %138 ], [ 1, %.thread58 ]
+  %.021 = phi i32 [ 0, %25 ], [ 0, %30 ], [ 1, %pem_free.exit37.thread ], [ %.045, %pem_free.exit37 ], [ %.045, %134 ], [ %.045, %135 ], [ %.045, %138 ], [ 1, %.thread58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -790,10 +790,10 @@ define internal fastcc range(i32 0, 2) i32 @PEM_ASN1_write_bio_internal(ptr noun
   br label %.critedge
 
 .critedge:                                        ; preds = %100, %82, %86, %88, %90, %76, %72, %49, %71, %48, %39, %35
-  %.057 = phi ptr [ null, %35 ], [ null, %39 ], [ null, %48 ], [ null, %49 ], [ null, %71 ], [ null, %72 ], [ null, %76 ], [ %.158, %100 ], [ %84, %90 ], [ %84, %88 ], [ %84, %86 ], [ null, %82 ]
-  %.056 = phi i32 [ 0, %35 ], [ 0, %39 ], [ 0, %48 ], [ %46, %49 ], [ %46, %71 ], [ %46, %72 ], [ %46, %76 ], [ %46, %100 ], [ %46, %90 ], [ %46, %88 ], [ %46, %86 ], [ %46, %82 ]
-  %.055 = phi i32 [ 0, %35 ], [ 0, %39 ], [ 0, %48 ], [ 0, %49 ], [ 0, %71 ], [ 0, %72 ], [ 0, %76 ], [ %spec.select, %100 ], [ 0, %90 ], [ 0, %88 ], [ 0, %86 ], [ 0, %82 ]
-  %.054 = phi ptr [ null, %35 ], [ null, %39 ], [ null, %48 ], [ null, %49 ], [ %52, %71 ], [ %52, %72 ], [ %52, %76 ], [ %52, %100 ], [ %52, %90 ], [ %52, %88 ], [ %52, %86 ], [ %52, %82 ]
+  %.057 = phi ptr [ null, %35 ], [ null, %39 ], [ null, %48 ], [ null, %49 ], [ null, %71 ], [ null, %72 ], [ null, %82 ], [ null, %76 ], [ %.158, %100 ], [ %84, %90 ], [ %84, %88 ], [ %84, %86 ]
+  %.056 = phi i32 [ 0, %35 ], [ 0, %39 ], [ 0, %48 ], [ %46, %49 ], [ %46, %71 ], [ %46, %72 ], [ %46, %82 ], [ %46, %76 ], [ %46, %100 ], [ %46, %90 ], [ %46, %88 ], [ %46, %86 ]
+  %.055 = phi i32 [ 0, %35 ], [ 0, %39 ], [ 0, %48 ], [ 0, %49 ], [ 0, %71 ], [ 0, %72 ], [ 0, %82 ], [ 0, %76 ], [ %spec.select, %100 ], [ 0, %90 ], [ 0, %88 ], [ 0, %86 ]
+  %.054 = phi ptr [ null, %35 ], [ null, %39 ], [ null, %48 ], [ null, %49 ], [ %52, %71 ], [ %52, %72 ], [ %52, %82 ], [ %52, %76 ], [ %52, %100 ], [ %52, %90 ], [ %52, %88 ], [ %52, %86 ]
   call void @OPENSSL_cleanse(ptr noundef nonnull %16, i64 noundef 64) #10
   call void @OPENSSL_cleanse(ptr noundef nonnull %17, i64 noundef 16) #10
   call void @EVP_CIPHER_CTX_free(ptr noundef %.057) #10
@@ -918,7 +918,7 @@ define i32 @PEM_do_header(ptr noundef %0, ptr noundef %1, ptr noundef captures(n
   br label %49
 
 49:                                               ; preds = %30, %25, %13, %48, %24, %12
-  %.0 = phi i32 [ 0, %12 ], [ 0, %24 ], [ %.138, %48 ], [ 1, %13 ], [ 0, %25 ], [ 0, %30 ]
+  %.0 = phi i32 [ 0, %12 ], [ 1, %13 ], [ 0, %24 ], [ 0, %25 ], [ %.138, %48 ], [ 0, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1088,7 +1088,7 @@ define range(i32 0, 2) i32 @PEM_get_EVP_CIPHER_INFO(ptr noundef %0, ptr noundef 
   br label %68
 
 68:                                               ; preds = %.thread, %11, %17, %2, %6, %6, %65, %59, %52, %51, %35, %30, %16
-  %.0 = phi i32 [ 0, %30 ], [ 0, %35 ], [ 0, %52 ], [ 0, %59 ], [ 0, %65 ], [ 0, %51 ], [ 0, %16 ], [ 1, %6 ], [ 1, %6 ], [ 1, %2 ], [ 0, %17 ], [ 0, %11 ], [ %67, %.thread ]
+  %.0 = phi i32 [ 0, %16 ], [ 1, %2 ], [ 0, %30 ], [ 0, %35 ], [ 0, %52 ], [ 0, %59 ], [ 0, %65 ], [ 0, %11 ], [ %67, %.thread ], [ 0, %51 ], [ 1, %6 ], [ 1, %6 ], [ 0, %17 ]
   ret i32 %.0
 }
 
@@ -1303,16 +1303,16 @@ define i32 @PEM_write_bio(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
   br label %.thread74
 
 .loopexit:                                        ; preds = %.lr.ph, %36, %5, %15, %13, %9, %24, %22, %47, %54, %52, %50
-  %.052 = phi ptr [ null, %5 ], [ null, %15 ], [ null, %13 ], [ null, %9 ], [ null, %24 ], [ null, %22 ], [ %26, %47 ], [ %26, %54 ], [ %26, %52 ], [ %26, %50 ], [ %26, %36 ], [ %26, %.lr.ph ]
-  %.050 = phi i32 [ 524294, %5 ], [ 524320, %15 ], [ 524320, %13 ], [ 524320, %9 ], [ 524320, %24 ], [ 524320, %22 ], [ 524320, %47 ], [ 524320, %54 ], [ 524320, %52 ], [ 524320, %50 ], [ 524294, %.lr.ph ], [ 524320, %36 ]
+  %.052 = phi ptr [ %26, %52 ], [ null, %5 ], [ null, %9 ], [ %26, %50 ], [ null, %24 ], [ null, %22 ], [ %26, %54 ], [ %26, %47 ], [ null, %15 ], [ null, %13 ], [ %26, %36 ], [ %26, %.lr.ph ]
+  %.050 = phi i32 [ 524320, %52 ], [ 524294, %5 ], [ 524320, %9 ], [ 524320, %50 ], [ 524320, %24 ], [ 524320, %22 ], [ 524320, %54 ], [ 524320, %47 ], [ 524320, %15 ], [ 524320, %13 ], [ 524294, %.lr.ph ], [ 524320, %36 ]
   call void @ERR_new() #10
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 700, ptr noundef nonnull @__func__.PEM_write_bio) #10
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 9, i32 noundef %.050, ptr noundef null) #10
   br label %.thread74
 
-.thread74:                                        ; preds = %56, %.thread, %.loopexit
-  %.080 = phi i32 [ 0, %.loopexit ], [ %58, %56 ], [ 0, %.thread ]
-  %.05279 = phi ptr [ %.052, %.loopexit ], [ %26, %56 ], [ null, %.thread ]
+.thread74:                                        ; preds = %.thread, %56, %.loopexit
+  %.080 = phi i32 [ %58, %56 ], [ 0, %.loopexit ], [ 0, %.thread ]
+  %.05279 = phi ptr [ %26, %56 ], [ %.052, %.loopexit ], [ null, %.thread ]
   call void @EVP_ENCODE_CTX_free(ptr noundef %7) #10
   call void @CRYPTO_clear_free(ptr noundef %.05279, i64 noundef 8192, ptr noundef nonnull @.str.1, i32 noundef 702) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1641,7 +1641,7 @@ get_name.exit.thread.thread:                      ; preds = %.loopexit, %pem_mal
   br label %pem_malloc.exit.i57
 
 pem_malloc.exit.i57:                              ; preds = %109, %106
-  %.1103 = phi ptr [ %104, %106 ], [ %102, %109 ]
+  %.1104 = phi ptr [ %104, %106 ], [ %102, %109 ]
   %112 = phi ptr [ %108, %106 ], [ %111, %109 ]
   %113 = icmp eq ptr %112, null
   br i1 %113, label %get_name.exit.thread, label %.preheader.i
@@ -1783,7 +1783,7 @@ pem_malloc.exit.i57:                              ; preds = %109, %106
   br label %sanitize_line.exit.i
 
 sanitize_line.exit.i:                             ; preds = %149, %156, %.loopexit.loopexit82.split.loop.exit86.i.i, %.loopexit.loopexit82.split.loop.exit84.i.i, %.loopexit.loopexit.split.loop.exit89.i.i, %.critedge.i.i
-  %.3.i.i = phi i32 [ %138, %.critedge.i.i ], [ %157, %.loopexit.loopexit.split.loop.exit89.i.i ], [ %158, %.loopexit.loopexit82.split.loop.exit84.i.i ], [ %159, %.loopexit.loopexit82.split.loop.exit86.i.i ], [ %119, %156 ], [ %119, %149 ]
+  %.3.i.i = phi i32 [ %138, %.critedge.i.i ], [ %119, %156 ], [ %157, %.loopexit.loopexit.split.loop.exit89.i.i ], [ %159, %.loopexit.loopexit82.split.loop.exit86.i.i ], [ %158, %.loopexit.loopexit82.split.loop.exit84.i.i ], [ %119, %149 ]
   %160 = add nsw i32 %.3.i.i, 1
   %161 = sext i32 %.3.i.i to i64
   %162 = getelementptr inbounds i8, ptr %112, i64 %161
@@ -1822,8 +1822,8 @@ sanitize_line.exit.i:                             ; preds = %149, %156, %.loopex
 
 176:                                              ; preds = %173
   %177 = getelementptr inbounds nuw i8, ptr %112, i64 9
-  %178 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.1103) #9
-  %179 = tail call i32 @strncmp(ptr noundef nonnull %177, ptr noundef nonnull readonly %.1103, i64 noundef %178) #9
+  %178 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.1104) #9
+  %179 = tail call i32 @strncmp(ptr noundef nonnull %177, ptr noundef nonnull readonly %.1104, i64 noundef %178) #9
   %.not59.i = icmp eq i32 %179, 0
   br i1 %.not59.i, label %180, label %184
 
@@ -1880,9 +1880,9 @@ sanitize_line.exit.i:                             ; preds = %149, %156, %.loopex
   br i1 %199, label %.outer._crit_edge.i, label %118
 
 .loopexit.i:                                      ; preds = %194, %189, %185, %188, %184, %170, %.outer._crit_edge.i
-  %.182 = phi ptr [ %22, %.outer._crit_edge.i ], [ %22, %170 ], [ %22, %184 ], [ %22, %188 ], [ %spec.select, %185 ], [ %22, %189 ], [ %22, %194 ]
-  %.179 = phi ptr [ %23, %.outer._crit_edge.i ], [ %23, %170 ], [ %23, %184 ], [ %23, %188 ], [ %spec.select122, %185 ], [ %23, %189 ], [ %23, %194 ]
-  %.not50 = phi i1 [ true, %.outer._crit_edge.i ], [ true, %170 ], [ true, %184 ], [ true, %188 ], [ false, %185 ], [ true, %189 ], [ true, %194 ]
+  %.182 = phi ptr [ %22, %.outer._crit_edge.i ], [ %22, %170 ], [ %22, %188 ], [ %spec.select, %185 ], [ %22, %184 ], [ %22, %189 ], [ %22, %194 ]
+  %.179 = phi ptr [ %23, %.outer._crit_edge.i ], [ %23, %170 ], [ %23, %188 ], [ %spec.select122, %185 ], [ %23, %184 ], [ %23, %189 ], [ %23, %194 ]
+  %.not50 = phi i1 [ true, %.outer._crit_edge.i ], [ true, %170 ], [ true, %188 ], [ false, %185 ], [ true, %184 ], [ true, %189 ], [ true, %194 ]
   br i1 %.not48, label %201, label %200
 
 200:                                              ; preds = %.loopexit.i
@@ -1994,7 +1994,7 @@ get_header_and_data.exit:                         ; preds = %200, %201
 253:                                              ; preds = %._crit_edge
   %254 = sext i32 %251 to i64
   store i64 %254, ptr %4, align 8, !tbaa !11
-  store ptr %.1103, ptr %1, align 8, !tbaa !8
+  store ptr %.1104, ptr %1, align 8, !tbaa !8
   br label %get_name.exit.thread
 
 255:                                              ; preds = %._crit_edge188, %244, %228
@@ -2007,12 +2007,12 @@ get_header_and_data.exit:                         ; preds = %200, %201
   br label %get_name.exit.thread
 
 get_name.exit.thread:                             ; preds = %pem_malloc.exit.i57, %pem_malloc.exit.i, %202, %get_header_and_data.exit, %255, %253, %227, %211, %26, %13
-  %.pre-phi = phi i32 [ %15, %pem_malloc.exit.i57 ], [ %15, %pem_malloc.exit.i ], [ %15, %202 ], [ %15, %get_header_and_data.exit ], [ %15, %255 ], [ %15, %253 ], [ %15, %227 ], [ %15, %211 ], [ %15, %26 ], [ %.pre, %13 ]
-  %.081 = phi ptr [ %22, %pem_malloc.exit.i57 ], [ %22, %pem_malloc.exit.i ], [ %.182, %202 ], [ %.182, %get_header_and_data.exit ], [ %.182, %255 ], [ %.182, %253 ], [ %.182, %227 ], [ %.182, %211 ], [ %22, %26 ], [ null, %13 ]
-  %.078 = phi ptr [ %23, %pem_malloc.exit.i57 ], [ %23, %pem_malloc.exit.i ], [ %.179, %202 ], [ %.179, %get_header_and_data.exit ], [ %.179, %255 ], [ %.179, %253 ], [ %.179, %227 ], [ %.179, %211 ], [ %23, %26 ], [ null, %13 ]
-  %.077 = phi ptr [ %.1103, %pem_malloc.exit.i57 ], [ null, %pem_malloc.exit.i ], [ %.1103, %202 ], [ %.1103, %get_header_and_data.exit ], [ %.1103, %255 ], [ null, %253 ], [ %.1103, %227 ], [ %.1103, %211 ], [ null, %26 ], [ null, %13 ]
-  %.042 = phi ptr [ null, %pem_malloc.exit.i57 ], [ null, %pem_malloc.exit.i ], [ null, %202 ], [ null, %get_header_and_data.exit ], [ %209, %255 ], [ %209, %253 ], [ %209, %227 ], [ null, %211 ], [ null, %26 ], [ null, %13 ]
-  %.0 = phi i32 [ 0, %pem_malloc.exit.i57 ], [ 0, %pem_malloc.exit.i ], [ 0, %202 ], [ 0, %get_header_and_data.exit ], [ 0, %255 ], [ 1, %253 ], [ 0, %227 ], [ 0, %211 ], [ 0, %26 ], [ 0, %13 ]
+  %.pre-phi = phi i32 [ %15, %pem_malloc.exit.i57 ], [ %15, %26 ], [ %.pre, %13 ], [ %15, %pem_malloc.exit.i ], [ %15, %202 ], [ %15, %get_header_and_data.exit ], [ %15, %255 ], [ %15, %253 ], [ %15, %227 ], [ %15, %211 ]
+  %.081 = phi ptr [ %22, %pem_malloc.exit.i57 ], [ %22, %26 ], [ null, %13 ], [ %22, %pem_malloc.exit.i ], [ %.182, %202 ], [ %.182, %get_header_and_data.exit ], [ %.182, %255 ], [ %.182, %253 ], [ %.182, %227 ], [ %.182, %211 ]
+  %.078 = phi ptr [ %23, %pem_malloc.exit.i57 ], [ %23, %26 ], [ null, %13 ], [ %23, %pem_malloc.exit.i ], [ %.179, %202 ], [ %.179, %get_header_and_data.exit ], [ %.179, %255 ], [ %.179, %253 ], [ %.179, %227 ], [ %.179, %211 ]
+  %.077 = phi ptr [ %.1104, %pem_malloc.exit.i57 ], [ null, %26 ], [ null, %13 ], [ null, %pem_malloc.exit.i ], [ %.1104, %202 ], [ %.1104, %get_header_and_data.exit ], [ %.1104, %255 ], [ null, %253 ], [ %.1104, %227 ], [ %.1104, %211 ]
+  %.042 = phi ptr [ null, %pem_malloc.exit.i57 ], [ null, %26 ], [ null, %13 ], [ null, %pem_malloc.exit.i ], [ null, %202 ], [ null, %get_header_and_data.exit ], [ %209, %255 ], [ %209, %253 ], [ %209, %227 ], [ null, %211 ]
+  %.0 = phi i32 [ 0, %pem_malloc.exit.i57 ], [ 0, %26 ], [ 0, %13 ], [ 0, %pem_malloc.exit.i ], [ 0, %202 ], [ 0, %get_header_and_data.exit ], [ 0, %255 ], [ 1, %253 ], [ 0, %227 ], [ 0, %211 ]
   call void @EVP_ENCODE_CTX_free(ptr noundef %.042) #10
   %.not.i60 = icmp eq i32 %.pre-phi, 0
   br i1 %.not.i60, label %259, label %258
@@ -2220,14 +2220,14 @@ attributes #10 = { nounwind }
 !10 = !{!"any pointer", !4, i64 0}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"long", !4, i64 0}
-!13 = !{!14, !10, i64 184}
-!14 = !{!"evp_pkey_asn1_method_st", !15, i64 0, !15, i64 4, !12, i64 8, !9, i64 16, !9, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88, !10, i64 96, !10, i64 104, !10, i64 112, !10, i64 120, !10, i64 128, !10, i64 136, !10, i64 144, !10, i64 152, !10, i64 160, !10, i64 168, !10, i64 176, !10, i64 184, !10, i64 192, !10, i64 200, !10, i64 208, !10, i64 216, !10, i64 224, !10, i64 232, !10, i64 240, !10, i64 248, !10, i64 256, !10, i64 264, !10, i64 272, !10, i64 280, !10, i64 288, !10, i64 296, !10, i64 304, !10, i64 312}
-!15 = !{!"int", !4, i64 0}
-!16 = distinct !{!16, !7}
-!17 = !{!14, !10, i64 112}
+!13 = distinct !{!13, !7}
+!14 = !{!15, !10, i64 184}
+!15 = !{!"evp_pkey_asn1_method_st", !16, i64 0, !16, i64 4, !12, i64 8, !9, i64 16, !9, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88, !10, i64 96, !10, i64 104, !10, i64 112, !10, i64 120, !10, i64 128, !10, i64 136, !10, i64 144, !10, i64 152, !10, i64 160, !10, i64 168, !10, i64 176, !10, i64 184, !10, i64 192, !10, i64 200, !10, i64 208, !10, i64 216, !10, i64 224, !10, i64 232, !10, i64 240, !10, i64 248, !10, i64 256, !10, i64 264, !10, i64 272, !10, i64 280, !10, i64 288, !10, i64 296, !10, i64 304, !10, i64 312}
+!16 = !{!"int", !4, i64 0}
+!17 = !{!15, !10, i64 112}
 !18 = !{!19, !19, i64 0}
 !19 = !{!"p1 _ZTS9engine_st", !10, i64 0}
-!20 = !{!15, !15, i64 0}
+!20 = !{!16, !16, i64 0}
 !21 = !{!22, !23, i64 0}
 !22 = !{!"evp_cipher_info_st", !23, i64 0, !4, i64 8}
 !23 = !{!"p1 _ZTS13evp_cipher_st", !10, i64 0}

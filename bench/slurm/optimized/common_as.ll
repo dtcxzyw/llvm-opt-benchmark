@@ -418,7 +418,7 @@ define dso_local range(i32 -1, 1) i32 @addto_update_list(ptr noundef %0, i32 nou
   br label %112
 
 112:                                              ; preds = %15, %16, %111, %98, %5
-  %.0 = phi i32 [ -1, %98 ], [ 0, %111 ], [ -1, %5 ], [ 0, %16 ], [ 0, %15 ]
+  %.0 = phi i32 [ -1, %5 ], [ -1, %98 ], [ 0, %111 ], [ 0, %16 ], [ 0, %15 ]
   ret i32 %.0
 }
 
@@ -468,10 +468,10 @@ define internal range(i32 -1, 2) i32 @_sort_update_object_dec(ptr noundef readon
   %6 = icmp eq i16 %5, 5
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load i16, ptr %7, align 8
-  %.not = icmp ne i16 %8, 5
-  %spec.select = zext i1 %.not to i32
   %9 = icmp eq i16 %8, 5
   %spec.select8 = sext i1 %9 to i32
+  %.not = icmp ne i16 %8, 5
+  %spec.select = zext i1 %.not to i32
   %.0 = select i1 %6, i32 %spec.select, i32 %spec.select8
   ret i32 %.0
 }
@@ -1317,7 +1317,7 @@ define dso_local ptr @acct_get_db_name() local_unnamed_addr #0 {
   br label %13
 
 13:                                               ; preds = %12, %0, %.thread
-  %.str.23.sink = phi ptr [ %3, %.thread ], [ @.str.23, %0 ], [ @.str.23, %12 ]
+  %.str.23.sink = phi ptr [ @.str.23, %0 ], [ %3, %.thread ], [ @.str.23, %12 ]
   %14 = tail call ptr @slurm_xstrdup(ptr noundef nonnull %.str.23.sink) #12
   ret ptr %14
 }
@@ -1894,7 +1894,7 @@ _make_archive_name.exit:                          ; preds = %.lr.ph.i, %26
   call void (ptr, ...) @slurm_fatal_abort(ptr noundef nonnull @.str.63, ptr noundef nonnull @__func__.archive_write_file) #14
   unreachable
 
-96:                                               ; preds = %80, %.split57.us
+96:                                               ; preds = %.split57.us, %80
   %97 = load ptr, ptr %13, align 8
   %98 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.64, ptr noundef %97) #12
   %99 = call i32 @close(i32 noundef %60) #12

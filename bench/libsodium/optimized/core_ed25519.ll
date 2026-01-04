@@ -37,7 +37,7 @@ define dso_local range(i32 0, 2) i32 @crypto_core_ed25519_is_valid_point(ptr nou
   br label %15
 
 15:                                               ; preds = %12, %1, %5, %7, %10
-  %.0 = phi i32 [ 0, %10 ], [ 0, %7 ], [ 0, %5 ], [ 0, %1 ], [ %spec.select, %12 ]
+  %.0 = phi i32 [ 0, %1 ], [ %spec.select, %12 ], [ 0, %10 ], [ 0, %7 ], [ 0, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

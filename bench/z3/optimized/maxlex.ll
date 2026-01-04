@@ -401,7 +401,7 @@ _ZN8rationalpLERKS_.exit:                         ; preds = %.lr.ph
           to label %_ZgtRK8rationalS1_.exit unwind label %125
 
 _ZgtRK8rationalS1_.exit:                          ; preds = %.noexc56, %110, %117
-  %.0.i.i.i = phi i1 [ %113, %110 ], [ %116, %.noexc56 ], [ %118, %117 ]
+  %.0.i.i.i = phi i1 [ %116, %.noexc56 ], [ %113, %110 ], [ %118, %117 ]
   %119 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !18
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %119, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %.noexc.i unwind label %120
@@ -1225,7 +1225,7 @@ _ZN8rationalD2Ev.exit.i9.i:                       ; preds = %.noexc.i.i8.i
   %195 = load i32, ptr %14, align 8
   %196 = icmp eq i32 %195, 1
   %197 = select i1 %194, i1 %196, i1 false
-  br i1 %197, label %198, label %220
+  br i1 %197, label %198, label %219
 
 198:                                              ; preds = %185
   %199 = getelementptr inbounds nuw i8, ptr %188, i64 32
@@ -1236,37 +1236,37 @@ _ZN8rationalD2Ev.exit.i9.i:                       ; preds = %.noexc.i.i8.i
   %204 = load i32, ptr %199, align 8
   %205 = icmp eq i32 %204, 1
   %206 = select i1 %203, i1 %205, i1 false
-  br i1 %206, label %207, label %220
+  br i1 %206, label %207, label %219
 
 207:                                              ; preds = %198
   %208 = load i8, ptr %16, align 4
   %209 = and i8 %208, 1
   %210 = icmp eq i8 %209, 0
-  br i1 %210, label %211, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit.i.i"
+  br i1 %210, label %211, label %216
 
 211:                                              ; preds = %207
   %212 = getelementptr inbounds nuw i8, ptr %188, i64 20
   %213 = load i8, ptr %212, align 4
   %214 = and i8 %213, 1
   %215 = icmp eq i8 %214, 0
-  br i1 %215, label %216, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit.i.i"
+  br i1 %215, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit.i.i", label %216
 
-216:                                              ; preds = %211
-  %217 = load i32, ptr %13, align 8, !tbaa !17
-  %218 = load i32, ptr %190, align 8, !tbaa !17
-  %219 = icmp slt i32 %217, %218
-  br i1 %219, label %224, label %297
+216:                                              ; preds = %211, %207
+  %217 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %191, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %190)
+  %218 = icmp slt i32 %217, 0
+  br i1 %218, label %224, label %297
 
-220:                                              ; preds = %198, %185
-  %221 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %191, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %190)
-  br i1 %221, label %224, label %297
+219:                                              ; preds = %198, %185
+  %220 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %191, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %190)
+  br i1 %220, label %224, label %297
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit.i.i": ; preds = %211, %207
-  %222 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %191, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %190)
-  %223 = icmp slt i32 %222, 0
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit.i.i": ; preds = %211
+  %221 = load i32, ptr %13, align 8, !tbaa !17
+  %222 = load i32, ptr %190, align 8, !tbaa !17
+  %223 = icmp slt i32 %221, %222
   br i1 %223, label %224, label %297
 
-224:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit.i.i", %220, %216
+224:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit.i.i", %219, %216
   %225 = getelementptr inbounds i8, ptr %.024, i64 -40
   %226 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !18
   %227 = getelementptr inbounds nuw i8, ptr %188, i64 32
@@ -1277,7 +1277,7 @@ _ZN8rationalD2Ev.exit.i9.i:                       ; preds = %.noexc.i.i8.i
   %232 = load i32, ptr %227, align 8
   %233 = icmp eq i32 %232, 1
   %234 = select i1 %231, i1 %233, i1 false
-  br i1 %234, label %235, label %258
+  br i1 %234, label %235, label %257
 
 235:                                              ; preds = %224
   %236 = getelementptr inbounds i8, ptr %.024, i64 -24
@@ -1288,38 +1288,38 @@ _ZN8rationalD2Ev.exit.i9.i:                       ; preds = %.noexc.i.i8.i
   %241 = load i32, ptr %236, align 8
   %242 = icmp eq i32 %241, 1
   %243 = select i1 %240, i1 %242, i1 false
-  br i1 %243, label %244, label %258
+  br i1 %243, label %244, label %257
 
 244:                                              ; preds = %235
   %245 = getelementptr inbounds nuw i8, ptr %188, i64 20
   %246 = load i8, ptr %245, align 4
   %247 = and i8 %246, 1
   %248 = icmp eq i8 %247, 0
-  br i1 %248, label %249, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit23.i.i"
+  br i1 %248, label %249, label %254
 
 249:                                              ; preds = %244
   %250 = getelementptr inbounds i8, ptr %.024, i64 -36
   %251 = load i8, ptr %250, align 4
   %252 = and i8 %251, 1
   %253 = icmp eq i8 %252, 0
-  br i1 %253, label %254, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit23.i.i"
+  br i1 %253, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit23.i.i", label %254
 
-254:                                              ; preds = %249
-  %255 = load i32, ptr %190, align 8, !tbaa !17
-  %256 = load i32, ptr %225, align 8, !tbaa !17
-  %257 = icmp slt i32 %255, %256
-  br i1 %257, label %"_ZSt22__move_median_to_firstIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_SC_T0_.exit.i", label %262
+254:                                              ; preds = %249, %244
+  %255 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %226, ptr noundef nonnull align 8 dereferenceable(32) %190, ptr noundef nonnull align 8 dereferenceable(32) %225)
+  %256 = icmp slt i32 %255, 0
+  br i1 %256, label %"_ZSt22__move_median_to_firstIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_SC_T0_.exit.i", label %262
 
-258:                                              ; preds = %235, %224
-  %259 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %226, ptr noundef nonnull align 8 dereferenceable(32) %190, ptr noundef nonnull align 8 dereferenceable(32) %225)
-  br i1 %259, label %"_ZSt22__move_median_to_firstIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_SC_T0_.exit.i", label %262
+257:                                              ; preds = %235, %224
+  %258 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %226, ptr noundef nonnull align 8 dereferenceable(32) %190, ptr noundef nonnull align 8 dereferenceable(32) %225)
+  br i1 %258, label %"_ZSt22__move_median_to_firstIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_SC_T0_.exit.i", label %262
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit23.i.i": ; preds = %249, %244
-  %260 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %226, ptr noundef nonnull align 8 dereferenceable(32) %190, ptr noundef nonnull align 8 dereferenceable(32) %225)
-  %261 = icmp slt i32 %260, 0
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit23.i.i": ; preds = %249
+  %259 = load i32, ptr %190, align 8, !tbaa !17
+  %260 = load i32, ptr %225, align 8, !tbaa !17
+  %261 = icmp slt i32 %259, %260
   br i1 %261, label %"_ZSt22__move_median_to_firstIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_SC_T0_.exit.i", label %262
 
-262:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit23.i.i", %258, %254
+262:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit23.i.i", %257, %254
   %263 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !18
   %264 = load i8, ptr %15, align 4
   %265 = and i8 %264, 1
@@ -1327,7 +1327,7 @@ _ZN8rationalD2Ev.exit.i9.i:                       ; preds = %.noexc.i.i8.i
   %267 = load i32, ptr %14, align 8
   %268 = icmp eq i32 %267, 1
   %269 = select i1 %266, i1 %268, i1 false
-  br i1 %269, label %270, label %292
+  br i1 %269, label %270, label %291
 
 270:                                              ; preds = %262
   %271 = getelementptr inbounds i8, ptr %.024, i64 -24
@@ -1338,40 +1338,40 @@ _ZN8rationalD2Ev.exit.i9.i:                       ; preds = %.noexc.i.i8.i
   %276 = load i32, ptr %271, align 8
   %277 = icmp eq i32 %276, 1
   %278 = select i1 %275, i1 %277, i1 false
-  br i1 %278, label %279, label %292
+  br i1 %278, label %279, label %291
 
 279:                                              ; preds = %270
   %280 = load i8, ptr %16, align 4
   %281 = and i8 %280, 1
   %282 = icmp eq i8 %281, 0
-  br i1 %282, label %283, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit25.i.i"
+  br i1 %282, label %283, label %288
 
 283:                                              ; preds = %279
   %284 = getelementptr inbounds i8, ptr %.024, i64 -36
   %285 = load i8, ptr %284, align 4
   %286 = and i8 %285, 1
   %287 = icmp eq i8 %286, 0
-  br i1 %287, label %288, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit25.i.i"
+  br i1 %287, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit25.i.i", label %288
 
-288:                                              ; preds = %283
-  %289 = load i32, ptr %13, align 8, !tbaa !17
-  %290 = load i32, ptr %225, align 8, !tbaa !17
-  %291 = icmp slt i32 %289, %290
-  br i1 %291, label %"_ZSt22__move_median_to_firstIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_SC_T0_.exit.i", label %296
+288:                                              ; preds = %283, %279
+  %289 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %263, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %225)
+  %290 = icmp slt i32 %289, 0
+  br i1 %290, label %"_ZSt22__move_median_to_firstIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_SC_T0_.exit.i", label %296
 
-292:                                              ; preds = %270, %262
-  %293 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %263, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %225)
-  br i1 %293, label %"_ZSt22__move_median_to_firstIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_SC_T0_.exit.i", label %296
+291:                                              ; preds = %270, %262
+  %292 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %263, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %225)
+  br i1 %292, label %"_ZSt22__move_median_to_firstIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_SC_T0_.exit.i", label %296
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit25.i.i": ; preds = %283, %279
-  %294 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %263, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %225)
-  %295 = icmp slt i32 %294, 0
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit25.i.i": ; preds = %283
+  %293 = load i32, ptr %13, align 8, !tbaa !17
+  %294 = load i32, ptr %225, align 8, !tbaa !17
+  %295 = icmp slt i32 %293, %294
   br i1 %295, label %"_ZSt22__move_median_to_firstIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_SC_T0_.exit.i", label %296
 
-296:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit25.i.i", %292, %288
+296:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit25.i.i", %291, %288
   br label %"_ZSt22__move_median_to_firstIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_SC_T0_.exit.i"
 
-297:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit.i.i", %220, %216
+297:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit.i.i", %219, %216
   %298 = getelementptr inbounds i8, ptr %.024, i64 -40
   %299 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !18
   %300 = load i8, ptr %15, align 4
@@ -1380,7 +1380,7 @@ _ZN8rationalD2Ev.exit.i9.i:                       ; preds = %.noexc.i.i8.i
   %303 = load i32, ptr %14, align 8
   %304 = icmp eq i32 %303, 1
   %305 = select i1 %302, i1 %304, i1 false
-  br i1 %305, label %306, label %328
+  br i1 %305, label %306, label %327
 
 306:                                              ; preds = %297
   %307 = getelementptr inbounds i8, ptr %.024, i64 -24
@@ -1391,37 +1391,37 @@ _ZN8rationalD2Ev.exit.i9.i:                       ; preds = %.noexc.i.i8.i
   %312 = load i32, ptr %307, align 8
   %313 = icmp eq i32 %312, 1
   %314 = select i1 %311, i1 %313, i1 false
-  br i1 %314, label %315, label %328
+  br i1 %314, label %315, label %327
 
 315:                                              ; preds = %306
   %316 = load i8, ptr %16, align 4
   %317 = and i8 %316, 1
   %318 = icmp eq i8 %317, 0
-  br i1 %318, label %319, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit27.i.i"
+  br i1 %318, label %319, label %324
 
 319:                                              ; preds = %315
   %320 = getelementptr inbounds i8, ptr %.024, i64 -36
   %321 = load i8, ptr %320, align 4
   %322 = and i8 %321, 1
   %323 = icmp eq i8 %322, 0
-  br i1 %323, label %324, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit27.i.i"
+  br i1 %323, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit27.i.i", label %324
 
-324:                                              ; preds = %319
-  %325 = load i32, ptr %13, align 8, !tbaa !17
-  %326 = load i32, ptr %298, align 8, !tbaa !17
-  %327 = icmp slt i32 %325, %326
-  br i1 %327, label %"_ZSt22__move_median_to_firstIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_SC_T0_.exit.i", label %332
+324:                                              ; preds = %319, %315
+  %325 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %299, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %298)
+  %326 = icmp slt i32 %325, 0
+  br i1 %326, label %"_ZSt22__move_median_to_firstIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_SC_T0_.exit.i", label %332
 
-328:                                              ; preds = %306, %297
-  %329 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %299, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %298)
-  br i1 %329, label %"_ZSt22__move_median_to_firstIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_SC_T0_.exit.i", label %332
+327:                                              ; preds = %306, %297
+  %328 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %299, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %298)
+  br i1 %328, label %"_ZSt22__move_median_to_firstIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_SC_T0_.exit.i", label %332
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit27.i.i": ; preds = %319, %315
-  %330 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %299, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %298)
-  %331 = icmp slt i32 %330, 0
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit27.i.i": ; preds = %319
+  %329 = load i32, ptr %13, align 8, !tbaa !17
+  %330 = load i32, ptr %298, align 8, !tbaa !17
+  %331 = icmp slt i32 %329, %330
   br i1 %331, label %"_ZSt22__move_median_to_firstIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_SC_T0_.exit.i", label %332
 
-332:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit27.i.i", %328, %324
+332:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit27.i.i", %327, %324
   %333 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !18
   %334 = getelementptr inbounds nuw i8, ptr %188, i64 32
   %335 = getelementptr inbounds nuw i8, ptr %188, i64 36
@@ -1431,7 +1431,7 @@ _ZN8rationalD2Ev.exit.i9.i:                       ; preds = %.noexc.i.i8.i
   %339 = load i32, ptr %334, align 8
   %340 = icmp eq i32 %339, 1
   %341 = select i1 %338, i1 %340, i1 false
-  br i1 %341, label %342, label %365
+  br i1 %341, label %342, label %364
 
 342:                                              ; preds = %332
   %343 = getelementptr inbounds i8, ptr %.024, i64 -24
@@ -1442,42 +1442,42 @@ _ZN8rationalD2Ev.exit.i9.i:                       ; preds = %.noexc.i.i8.i
   %348 = load i32, ptr %343, align 8
   %349 = icmp eq i32 %348, 1
   %350 = select i1 %347, i1 %349, i1 false
-  br i1 %350, label %351, label %365
+  br i1 %350, label %351, label %364
 
 351:                                              ; preds = %342
   %352 = getelementptr inbounds nuw i8, ptr %188, i64 20
   %353 = load i8, ptr %352, align 4
   %354 = and i8 %353, 1
   %355 = icmp eq i8 %354, 0
-  br i1 %355, label %356, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit29.i.i"
+  br i1 %355, label %356, label %361
 
 356:                                              ; preds = %351
   %357 = getelementptr inbounds i8, ptr %.024, i64 -36
   %358 = load i8, ptr %357, align 4
   %359 = and i8 %358, 1
   %360 = icmp eq i8 %359, 0
-  br i1 %360, label %361, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit29.i.i"
+  br i1 %360, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit29.i.i", label %361
 
-361:                                              ; preds = %356
-  %362 = load i32, ptr %190, align 8, !tbaa !17
-  %363 = load i32, ptr %298, align 8, !tbaa !17
-  %364 = icmp slt i32 %362, %363
-  br i1 %364, label %"_ZSt22__move_median_to_firstIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_SC_T0_.exit.i", label %369
+361:                                              ; preds = %356, %351
+  %362 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %333, ptr noundef nonnull align 8 dereferenceable(32) %190, ptr noundef nonnull align 8 dereferenceable(32) %298)
+  %363 = icmp slt i32 %362, 0
+  br i1 %363, label %"_ZSt22__move_median_to_firstIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_SC_T0_.exit.i", label %369
 
-365:                                              ; preds = %342, %332
-  %366 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %333, ptr noundef nonnull align 8 dereferenceable(32) %190, ptr noundef nonnull align 8 dereferenceable(32) %298)
-  br i1 %366, label %"_ZSt22__move_median_to_firstIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_SC_T0_.exit.i", label %369
+364:                                              ; preds = %342, %332
+  %365 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %333, ptr noundef nonnull align 8 dereferenceable(32) %190, ptr noundef nonnull align 8 dereferenceable(32) %298)
+  br i1 %365, label %"_ZSt22__move_median_to_firstIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_SC_T0_.exit.i", label %369
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit29.i.i": ; preds = %356, %351
-  %367 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %333, ptr noundef nonnull align 8 dereferenceable(32) %190, ptr noundef nonnull align 8 dereferenceable(32) %298)
-  %368 = icmp slt i32 %367, 0
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit29.i.i": ; preds = %356
+  %366 = load i32, ptr %190, align 8, !tbaa !17
+  %367 = load i32, ptr %298, align 8, !tbaa !17
+  %368 = icmp slt i32 %366, %367
   br i1 %368, label %"_ZSt22__move_median_to_firstIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_SC_T0_.exit.i", label %369
 
-369:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit29.i.i", %365, %361
+369:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit29.i.i", %364, %361
   br label %"_ZSt22__move_median_to_firstIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_SC_T0_.exit.i"
 
-"_ZSt22__move_median_to_firstIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_SC_T0_.exit.i": ; preds = %369, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit29.i.i", %365, %361, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit27.i.i", %328, %324, %296, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit25.i.i", %292, %288, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit23.i.i", %258, %254
-  %.sink.i.i = phi ptr [ %188, %369 ], [ %12, %296 ], [ %188, %254 ], [ %188, %258 ], [ %188, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit23.i.i" ], [ %189, %288 ], [ %189, %292 ], [ %189, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit25.i.i" ], [ %12, %324 ], [ %12, %328 ], [ %12, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit27.i.i" ], [ %189, %361 ], [ %189, %365 ], [ %189, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit29.i.i" ]
+"_ZSt22__move_median_to_firstIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_SC_T0_.exit.i": ; preds = %369, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit29.i.i", %364, %361, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit27.i.i", %327, %324, %296, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit25.i.i", %291, %288, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit23.i.i", %257, %254
+  %.sink.i.i = phi ptr [ %189, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit25.i.i" ], [ %188, %369 ], [ %12, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit27.i.i" ], [ %188, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit23.i.i" ], [ %12, %296 ], [ %188, %254 ], [ %188, %257 ], [ %189, %288 ], [ %189, %291 ], [ %12, %324 ], [ %12, %327 ], [ %189, %361 ], [ %189, %364 ], [ %189, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit29.i.i" ]
   tail call void @_ZSt4swapIN3opt4softEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull align 8 dereferenceable(52) %.sink.i.i) #19
   br label %370
 
@@ -1498,7 +1498,7 @@ _ZN8rationalD2Ev.exit.i9.i:                       ; preds = %.noexc.i.i8.i
   %379 = load i32, ptr %374, align 8
   %380 = icmp eq i32 %379, 1
   %381 = select i1 %378, i1 %380, i1 false
-  br i1 %381, label %382, label %402
+  br i1 %381, label %382, label %401
 
 382:                                              ; preds = %371
   %383 = load i8, ptr %19, align 4
@@ -1507,40 +1507,40 @@ _ZN8rationalD2Ev.exit.i9.i:                       ; preds = %.noexc.i.i8.i
   %386 = load i32, ptr %18, align 8
   %387 = icmp eq i32 %386, 1
   %388 = select i1 %385, i1 %387, i1 false
-  br i1 %388, label %389, label %402
+  br i1 %388, label %389, label %401
 
 389:                                              ; preds = %382
   %390 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 20
   %391 = load i8, ptr %390, align 4
   %392 = and i8 %391, 1
   %393 = icmp eq i8 %392, 0
-  br i1 %393, label %394, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit.i13.i"
+  br i1 %393, label %394, label %398
 
 394:                                              ; preds = %389
   %395 = load i8, ptr %20, align 4
   %396 = and i8 %395, 1
   %397 = icmp eq i8 %396, 0
-  br i1 %397, label %398, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit.i13.i"
+  br i1 %397, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit.i13.i", label %398
 
-398:                                              ; preds = %394
-  %399 = load i32, ptr %372, align 8, !tbaa !17
-  %400 = load i32, ptr %17, align 8, !tbaa !17
-  %401 = icmp slt i32 %399, %400
-  br i1 %401, label %406, label %.preheader.i.i.preheader
+398:                                              ; preds = %394, %389
+  %399 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %373, ptr noundef nonnull align 8 dereferenceable(32) %372, ptr noundef nonnull align 8 dereferenceable(32) %17)
+  %400 = icmp slt i32 %399, 0
+  br i1 %400, label %406, label %.preheader.i.i.preheader
 
-.preheader.i.i.preheader:                         ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit.i13.i", %402, %398
+.preheader.i.i.preheader:                         ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit.i13.i", %401, %398
   br label %.preheader.i.i
 
-402:                                              ; preds = %382, %371
-  %403 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %373, ptr noundef nonnull align 8 dereferenceable(32) %372, ptr noundef nonnull align 8 dereferenceable(32) %17)
-  br i1 %403, label %406, label %.preheader.i.i.preheader
+401:                                              ; preds = %382, %371
+  %402 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %373, ptr noundef nonnull align 8 dereferenceable(32) %372, ptr noundef nonnull align 8 dereferenceable(32) %17)
+  br i1 %402, label %406, label %.preheader.i.i.preheader
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit.i13.i": ; preds = %394, %389
-  %404 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %373, ptr noundef nonnull align 8 dereferenceable(32) %372, ptr noundef nonnull align 8 dereferenceable(32) %17)
-  %405 = icmp slt i32 %404, 0
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit.i13.i": ; preds = %394
+  %403 = load i32, ptr %372, align 8, !tbaa !17
+  %404 = load i32, ptr %17, align 8, !tbaa !17
+  %405 = icmp slt i32 %403, %404
   br i1 %405, label %406, label %.preheader.i.i.preheader
 
-406:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit.i13.i", %402, %398
+406:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit.i13.i", %401, %398
   %407 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 56
   br label %371, !llvm.loop !60
 
@@ -1555,7 +1555,7 @@ _ZN8rationalD2Ev.exit.i9.i:                       ; preds = %.noexc.i.i8.i
   %413 = load i32, ptr %18, align 8
   %414 = icmp eq i32 %413, 1
   %415 = select i1 %412, i1 %414, i1 false
-  br i1 %415, label %416, label %438
+  br i1 %415, label %416, label %437
 
 416:                                              ; preds = %.preheader.i.i
   %417 = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -24
@@ -1566,40 +1566,40 @@ _ZN8rationalD2Ev.exit.i9.i:                       ; preds = %.noexc.i.i8.i
   %422 = load i32, ptr %417, align 8
   %423 = icmp eq i32 %422, 1
   %424 = select i1 %421, i1 %423, i1 false
-  br i1 %424, label %425, label %438
+  br i1 %424, label %425, label %437
 
 425:                                              ; preds = %416
   %426 = load i8, ptr %20, align 4
   %427 = and i8 %426, 1
   %428 = icmp eq i8 %427, 0
-  br i1 %428, label %429, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit16.i.i"
+  br i1 %428, label %429, label %434
 
 429:                                              ; preds = %425
   %430 = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -36
   %431 = load i8, ptr %430, align 4
   %432 = and i8 %431, 1
   %433 = icmp eq i8 %432, 0
-  br i1 %433, label %434, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit16.i.i"
+  br i1 %433, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit16.i.i", label %434
 
-434:                                              ; preds = %429
-  %435 = load i32, ptr %17, align 8, !tbaa !17
-  %436 = load i32, ptr %408, align 8, !tbaa !17
-  %437 = icmp slt i32 %435, %436
-  br i1 %437, label %.preheader.i.i.backedge, label %442
+434:                                              ; preds = %429, %425
+  %435 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %409, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %408)
+  %436 = icmp slt i32 %435, 0
+  br i1 %436, label %.preheader.i.i.backedge, label %442
 
-438:                                              ; preds = %416, %.preheader.i.i
-  %439 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %409, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %408)
-  br i1 %439, label %.preheader.i.i.backedge, label %442
+437:                                              ; preds = %416, %.preheader.i.i
+  %438 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %409, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %408)
+  br i1 %438, label %.preheader.i.i.backedge, label %442
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit16.i.i": ; preds = %429, %425
-  %440 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %409, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %408)
-  %441 = icmp slt i32 %440, 0
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit16.i.i": ; preds = %429
+  %439 = load i32, ptr %17, align 8, !tbaa !17
+  %440 = load i32, ptr %408, align 8, !tbaa !17
+  %441 = icmp slt i32 %439, %440
   br i1 %441, label %.preheader.i.i.backedge, label %442
 
-.preheader.i.i.backedge:                          ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit16.i.i", %438, %434
+.preheader.i.i.backedge:                          ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit16.i.i", %437, %434
   br label %.preheader.i.i, !llvm.loop !61
 
-442:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit16.i.i", %438, %434
+442:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit16.i.i", %437, %434
   %443 = icmp ult ptr %.1.i.i, %.114.i.i
   br i1 %443, label %444, label %"_ZSt27__unguarded_partition_pivotIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEET_SC_SC_T0_.exit"
 
@@ -1778,7 +1778,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN3opt4softElS1_N9__gnu_cxx5__
   %106 = load i32, ptr %101, align 8
   %107 = icmp eq i32 %106, 1
   %108 = select i1 %105, i1 %107, i1 false
-  br i1 %108, label %109, label %129
+  br i1 %108, label %109, label %128
 
 109:                                              ; preds = %.lr.ph.i
   %110 = load i8, ptr %87, align 4
@@ -1787,50 +1787,50 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN3opt4softElS1_N9__gnu_cxx5__
   %113 = load i32, ptr %84, align 8
   %114 = icmp eq i32 %113, 1
   %115 = select i1 %112, i1 %114, i1 false
-  br i1 %115, label %116, label %129
+  br i1 %115, label %116, label %128
 
 116:                                              ; preds = %109
   %117 = getelementptr inbounds nuw i8, ptr %98, i64 20
   %118 = load i8, ptr %117, align 4
   %119 = and i8 %118, 1
   %120 = icmp eq i8 %119, 0
-  br i1 %120, label %121, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_S4_EEbT_RT0_.exit.i"
+  br i1 %120, label %121, label %125
 
 121:                                              ; preds = %116
   %122 = load i8, ptr %77, align 4
   %123 = and i8 %122, 1
   %124 = icmp eq i8 %123, 0
-  br i1 %124, label %125, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_S4_EEbT_RT0_.exit.i"
+  br i1 %124, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_S4_EEbT_RT0_.exit.i", label %125
 
-125:                                              ; preds = %121
-  %126 = load i32, ptr %99, align 8, !tbaa !17
-  %127 = load i32, ptr %74, align 8, !tbaa !17
-  %128 = icmp slt i32 %126, %127
-  br i1 %128, label %133, label %"_ZSt11__push_heapIPN3opt4softElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_T0_SD_T1_RT2_.exit.loopexit"
-
-129:                                              ; preds = %109, %.lr.ph.i
-  %130 = invoke noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %100, ptr noundef nonnull align 8 dereferenceable(32) %99, ptr noundef nonnull align 8 dereferenceable(32) %74)
+125:                                              ; preds = %121, %116
+  %126 = invoke noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %100, ptr noundef nonnull align 8 dereferenceable(32) %99, ptr noundef nonnull align 8 dereferenceable(32) %74)
           to label %.noexc unwind label %198
 
-.noexc:                                           ; preds = %129
-  br i1 %130, label %133, label %"_ZSt11__push_heapIPN3opt4softElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_T0_SD_T1_RT2_.exit.loopexit"
+.noexc:                                           ; preds = %125
+  %127 = icmp slt i32 %126, 0
+  br i1 %127, label %133, label %"_ZSt11__push_heapIPN3opt4softElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_T0_SD_T1_RT2_.exit.loopexit"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_S4_EEbT_RT0_.exit.i": ; preds = %121, %116
-  %131 = invoke noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %100, ptr noundef nonnull align 8 dereferenceable(32) %99, ptr noundef nonnull align 8 dereferenceable(32) %74)
+128:                                              ; preds = %109, %.lr.ph.i
+  %129 = invoke noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %100, ptr noundef nonnull align 8 dereferenceable(32) %99, ptr noundef nonnull align 8 dereferenceable(32) %74)
           to label %.noexc30 unwind label %198
 
-.noexc30:                                         ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_S4_EEbT_RT0_.exit.i"
-  %132 = icmp slt i32 %131, 0
+.noexc30:                                         ; preds = %128
+  br i1 %129, label %133, label %"_ZSt11__push_heapIPN3opt4softElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_T0_SD_T1_RT2_.exit.loopexit"
+
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_S4_EEbT_RT0_.exit.i": ; preds = %121
+  %130 = load i32, ptr %99, align 8, !tbaa !17
+  %131 = load i32, ptr %74, align 8, !tbaa !17
+  %132 = icmp slt i32 %130, %131
   br i1 %132, label %133, label %"_ZSt11__push_heapIPN3opt4softElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_T0_SD_T1_RT2_.exit.loopexit"
 
-133:                                              ; preds = %.noexc30, %.noexc, %125
+133:                                              ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_S4_EEbT_RT0_.exit.i", %.noexc30, %.noexc
   %134 = getelementptr inbounds nuw %"struct.opt::soft", ptr %0, i64 %.0133.i
   %135 = call noundef nonnull align 8 dereferenceable(52) ptr @_ZN3opt4softaSEOS0_(ptr noundef nonnull align 8 dereferenceable(52) %134, ptr noundef nonnull align 8 dereferenceable(52) %98) #19
   %136 = icmp samesign ugt i64 %.0411.i, %1
   br i1 %136, label %.lr.ph.i, label %"_ZSt11__push_heapIPN3opt4softElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_T0_SD_T1_RT2_.exit.loopexit", !llvm.loop !65
 
-"_ZSt11__push_heapIPN3opt4softElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_T0_SD_T1_RT2_.exit.loopexit": ; preds = %133, %.noexc30, %.noexc, %125
-  %.013.lcssa.i.ph = phi i64 [ %.0133.i, %125 ], [ %.0133.i, %.noexc ], [ %.0411.i, %133 ], [ %.0133.i, %.noexc30 ]
+"_ZSt11__push_heapIPN3opt4softElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_T0_SD_T1_RT2_.exit.loopexit": ; preds = %133, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_S4_EEbT_RT0_.exit.i", %.noexc30, %.noexc
+  %.013.lcssa.i.ph = phi i64 [ %.0133.i, %.noexc ], [ %.0133.i, %.noexc30 ], [ %.0411.i, %133 ], [ %.0133.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_S4_EEbT_RT0_.exit.i" ]
   %.pre = load ptr, ptr %5, align 8, !tbaa !50
   br label %"_ZSt11__push_heapIPN3opt4softElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_T0_SD_T1_RT2_.exit"
 
@@ -1954,7 +1954,7 @@ _ZN8rationalD2Ev.exit.i:                          ; preds = %.noexc.i.i
 _ZN3opt4softD2Ev.exit:                            ; preds = %_ZN8rationalD2Ev.exit.i, %188, %194
   ret void
 
-198:                                              ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_S4_EEbT_RT0_.exit.i", %129
+198:                                              ; preds = %128, %125
   %199 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3opt4softD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %5) #19
@@ -2356,7 +2356,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIPN3opt4softEN9__gnu_cxx5__o
   %29 = load i32, ptr %24, align 8
   %30 = icmp eq i32 %29, 1
   %31 = select i1 %28, i1 %30, i1 false
-  br i1 %31, label %32, label %52
+  br i1 %31, label %32, label %51
 
 32:                                               ; preds = %21
   %33 = load i8, ptr %7, align 4
@@ -2365,37 +2365,37 @@ define internal fastcc void @"_ZSt16__insertion_sortIPN3opt4softEN9__gnu_cxx5__o
   %36 = load i32, ptr %6, align 8
   %37 = icmp eq i32 %36, 1
   %38 = select i1 %35, i1 %37, i1 false
-  br i1 %38, label %39, label %52
+  br i1 %38, label %39, label %51
 
 39:                                               ; preds = %32
   %40 = getelementptr inbounds nuw i8, ptr %.pn21, i64 76
   %41 = load i8, ptr %40, align 4
   %42 = and i8 %41, 1
   %43 = icmp eq i8 %42, 0
-  br i1 %43, label %44, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit"
+  br i1 %43, label %44, label %48
 
 44:                                               ; preds = %39
   %45 = load i8, ptr %8, align 4
   %46 = and i8 %45, 1
   %47 = icmp eq i8 %46, 0
-  br i1 %47, label %48, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit"
+  br i1 %47, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit", label %48
 
-48:                                               ; preds = %44
-  %49 = load i32, ptr %22, align 8, !tbaa !17
-  %50 = load i32, ptr %5, align 8, !tbaa !17
-  %51 = icmp slt i32 %49, %50
-  br i1 %51, label %56, label %192
+48:                                               ; preds = %44, %39
+  %49 = call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %23, ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  %50 = icmp slt i32 %49, 0
+  br i1 %50, label %56, label %192
 
-52:                                               ; preds = %32, %21
-  %53 = call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %23, ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %5)
-  br i1 %53, label %56, label %192
+51:                                               ; preds = %32, %21
+  %52 = call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %23, ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  br i1 %52, label %56, label %192
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit": ; preds = %39, %44
-  %54 = call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %23, ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %5)
-  %55 = icmp slt i32 %54, 0
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit": ; preds = %44
+  %53 = load i32, ptr %22, align 8, !tbaa !17
+  %54 = load i32, ptr %5, align 8, !tbaa !17
+  %55 = icmp slt i32 %53, %54
   br i1 %55, label %56, label %192
 
-56:                                               ; preds = %48, %52, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit"
+56:                                               ; preds = %48, %51, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %57 = getelementptr inbounds nuw i8, ptr %.pn21, i64 64
   %58 = load ptr, ptr %57, align 8, !tbaa !47
@@ -2649,7 +2649,7 @@ _ZN3opt4softD2Ev.exit:                            ; preds = %_ZN8rationalD2Ev.ex
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %193
 
-192:                                              ; preds = %48, %52, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit"
+192:                                              ; preds = %48, %51, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit"
   call fastcc void @"_ZSt25__unguarded_linear_insertIPN3opt4softEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_T0_"(ptr noundef nonnull %.022)
   br label %193
 
@@ -2765,7 +2765,7 @@ define internal fastcc void @"_ZSt25__unguarded_linear_insertIPN3opt4softEN9__gn
 "_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIS4_PS4_EEbRT_T0_.exit": ; preds = %64
   br i1 %65, label %66, label %70
 
-66:                                               ; preds = %.noexc, %57, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIS4_PS4_EEbRT_T0_.exit"
+66:                                               ; preds = %57, %.noexc, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIS4_PS4_EEbRT_T0_.exit"
   %67 = call noundef nonnull align 8 dereferenceable(52) ptr @_ZN3opt4softaSEOS0_(ptr noundef nonnull align 8 dereferenceable(52) %.0, ptr noundef nonnull align 8 dereferenceable(52) %.010) #19
   %.pre = load i8, ptr %20, align 4
   %.pre14 = load i32, ptr %17, align 8
@@ -2778,7 +2778,7 @@ define internal fastcc void @"_ZSt25__unguarded_linear_insertIPN3opt4softEN9__gn
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %69
 
-70:                                               ; preds = %.noexc, %57, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIS4_PS4_EEbRT_T0_.exit"
+70:                                               ; preds = %57, %.noexc, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIS4_PS4_EEbRT_T0_.exit"
   %71 = load ptr, ptr %.0, align 8, !tbaa !50
   %72 = load ptr, ptr %2, align 8, !tbaa !50
   store ptr %72, ptr %.0, align 8, !tbaa !50
@@ -4187,7 +4187,7 @@ define linkonce_odr hidden void @_ZSt11__push_heapIPN3opt4softElS1_N9__gnu_cxx5_
   %18 = load i32, ptr %8, align 8
   %19 = icmp eq i32 %18, 1
   %20 = select i1 %17, i1 %19, i1 false
-  br i1 %20, label %21, label %43
+  br i1 %20, label %21, label %42
 
 21:                                               ; preds = %11
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 32
@@ -4198,44 +4198,44 @@ define linkonce_odr hidden void @_ZSt11__push_heapIPN3opt4softElS1_N9__gnu_cxx5_
   %27 = load i32, ptr %22, align 8
   %28 = icmp eq i32 %27, 1
   %29 = select i1 %26, i1 %28, i1 false
-  br i1 %29, label %30, label %43
+  br i1 %29, label %30, label %42
 
 30:                                               ; preds = %21
   %31 = load i8, ptr %10, align 4
   %32 = and i8 %31, 1
   %33 = icmp eq i8 %32, 0
-  br i1 %33, label %34, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3opt6maxlex8cmp_softEEclIPNS2_4softES7_EEbT_RT0_.exit
+  br i1 %33, label %34, label %39
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %36 = load i8, ptr %35, align 4
   %37 = and i8 %36, 1
   %38 = icmp eq i8 %37, 0
-  br i1 %38, label %39, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3opt6maxlex8cmp_softEEclIPNS2_4softES7_EEbT_RT0_.exit
+  br i1 %38, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3opt6maxlex8cmp_softEEclIPNS2_4softES7_EEbT_RT0_.exit, label %39
 
-39:                                               ; preds = %34
-  %40 = load i32, ptr %7, align 8, !tbaa !17
-  %41 = load i32, ptr %13, align 8, !tbaa !17
-  %42 = icmp slt i32 %40, %41
-  br i1 %42, label %47, label %.critedge
+39:                                               ; preds = %34, %30
+  %40 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %14, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %13)
+  %41 = icmp slt i32 %40, 0
+  br i1 %41, label %47, label %.critedge
 
-43:                                               ; preds = %21, %11
-  %44 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %14, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %13)
-  br i1 %44, label %47, label %.critedge
+42:                                               ; preds = %21, %11
+  %43 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %14, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %13)
+  br i1 %43, label %47, label %.critedge
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3opt6maxlex8cmp_softEEclIPNS2_4softES7_EEbT_RT0_.exit: ; preds = %30, %34
-  %45 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %14, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %13)
-  %46 = icmp slt i32 %45, 0
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3opt6maxlex8cmp_softEEclIPNS2_4softES7_EEbT_RT0_.exit: ; preds = %34
+  %44 = load i32, ptr %7, align 8, !tbaa !17
+  %45 = load i32, ptr %13, align 8, !tbaa !17
+  %46 = icmp slt i32 %44, %45
   br i1 %46, label %47, label %.critedge
 
-47:                                               ; preds = %39, %43, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3opt6maxlex8cmp_softEEclIPNS2_4softES7_EEbT_RT0_.exit
+47:                                               ; preds = %39, %42, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3opt6maxlex8cmp_softEEclIPNS2_4softES7_EEbT_RT0_.exit
   %48 = getelementptr inbounds %"struct.opt::soft", ptr %0, i64 %.01316
   %49 = tail call noundef nonnull align 8 dereferenceable(52) ptr @_ZN3opt4softaSEOS0_(ptr noundef nonnull align 8 dereferenceable(52) %48, ptr noundef nonnull align 8 dereferenceable(52) %12) #19
   %50 = icmp sgt i64 %.017, %2
   br i1 %50, label %11, label %.critedge, !llvm.loop !92
 
-.critedge:                                        ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3opt6maxlex8cmp_softEEclIPNS2_4softES7_EEbT_RT0_.exit, %47, %43, %39, %5
-  %.013.lcssa = phi i64 [ %1, %5 ], [ %.01316, %39 ], [ %.01316, %43 ], [ %.017, %47 ], [ %.01316, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3opt6maxlex8cmp_softEEclIPNS2_4softES7_EEbT_RT0_.exit ]
+.critedge:                                        ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3opt6maxlex8cmp_softEEclIPNS2_4softES7_EEbT_RT0_.exit, %47, %42, %39, %5
+  %.013.lcssa = phi i64 [ %1, %5 ], [ %.01316, %39 ], [ %.01316, %42 ], [ %.017, %47 ], [ %.01316, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3opt6maxlex8cmp_softEEclIPNS2_4softES7_EEbT_RT0_.exit ]
   %51 = getelementptr inbounds %"struct.opt::soft", ptr %0, i64 %.013.lcssa
   %52 = tail call noundef nonnull align 8 dereferenceable(52) ptr @_ZN3opt4softaSEOS0_(ptr noundef nonnull align 8 dereferenceable(52) %51, ptr noundef nonnull align 8 dereferenceable(52) %3) #19
   ret void
@@ -4254,7 +4254,7 @@ define linkonce_odr hidden void @_ZSt22__move_median_to_firstIPN3opt4softEN9__gn
   %13 = load i32, ptr %8, align 8
   %14 = icmp eq i32 %13, 1
   %15 = select i1 %12, i1 %14, i1 false
-  br i1 %15, label %16, label %39
+  br i1 %15, label %16, label %38
 
 16:                                               ; preds = %4
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -4265,38 +4265,38 @@ define linkonce_odr hidden void @_ZSt22__move_median_to_firstIPN3opt4softEN9__gn
   %22 = load i32, ptr %17, align 8
   %23 = icmp eq i32 %22, 1
   %24 = select i1 %21, i1 %23, i1 false
-  br i1 %24, label %25, label %39
+  br i1 %24, label %25, label %38
 
 25:                                               ; preds = %16
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %27 = load i8, ptr %26, align 4
   %28 = and i8 %27, 1
   %29 = icmp eq i8 %28, 0
-  br i1 %29, label %30, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit
+  br i1 %29, label %30, label %35
 
 30:                                               ; preds = %25
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %32 = load i8, ptr %31, align 4
   %33 = and i8 %32, 1
   %34 = icmp eq i8 %33, 0
-  br i1 %34, label %35, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit
+  br i1 %34, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit, label %35
 
-35:                                               ; preds = %30
-  %36 = load i32, ptr %6, align 8, !tbaa !17
-  %37 = load i32, ptr %5, align 8, !tbaa !17
-  %38 = icmp slt i32 %36, %37
-  br i1 %38, label %43, label %115
+35:                                               ; preds = %30, %25
+  %36 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %7, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  %37 = icmp slt i32 %36, 0
+  br i1 %37, label %43, label %115
 
-39:                                               ; preds = %16, %4
-  %40 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %7, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5)
-  br i1 %40, label %43, label %115
+38:                                               ; preds = %16, %4
+  %39 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %7, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  br i1 %39, label %43, label %115
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit: ; preds = %25, %30
-  %41 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %7, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5)
-  %42 = icmp slt i32 %41, 0
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit: ; preds = %30
+  %40 = load i32, ptr %6, align 8, !tbaa !17
+  %41 = load i32, ptr %5, align 8, !tbaa !17
+  %42 = icmp slt i32 %40, %41
   br i1 %42, label %43, label %115
 
-43:                                               ; preds = %35, %39, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit
+43:                                               ; preds = %35, %38, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %45 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !18
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -4307,7 +4307,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEb
   %51 = load i32, ptr %46, align 8
   %52 = icmp eq i32 %51, 1
   %53 = select i1 %50, i1 %52, i1 false
-  br i1 %53, label %54, label %75
+  br i1 %53, label %54, label %74
 
 54:                                               ; preds = %43
   %55 = load i8, ptr %9, align 4
@@ -4316,38 +4316,38 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEb
   %58 = load i32, ptr %8, align 8
   %59 = icmp eq i32 %58, 1
   %60 = select i1 %57, i1 %59, i1 false
-  br i1 %60, label %61, label %75
+  br i1 %60, label %61, label %74
 
 61:                                               ; preds = %54
   %62 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %63 = load i8, ptr %62, align 4
   %64 = and i8 %63, 1
   %65 = icmp eq i8 %64, 0
-  br i1 %65, label %66, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit23
+  br i1 %65, label %66, label %71
 
 66:                                               ; preds = %61
   %67 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %68 = load i8, ptr %67, align 4
   %69 = and i8 %68, 1
   %70 = icmp eq i8 %69, 0
-  br i1 %70, label %71, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit23
+  br i1 %70, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit23, label %71
 
-71:                                               ; preds = %66
-  %72 = load i32, ptr %44, align 8, !tbaa !17
-  %73 = load i32, ptr %6, align 8, !tbaa !17
-  %74 = icmp slt i32 %72, %73
-  br i1 %74, label %187, label %79
+71:                                               ; preds = %66, %61
+  %72 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %45, ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %73 = icmp slt i32 %72, 0
+  br i1 %73, label %187, label %79
 
-75:                                               ; preds = %54, %43
-  %76 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %45, ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %6)
-  br i1 %76, label %187, label %79
+74:                                               ; preds = %54, %43
+  %75 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %45, ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  br i1 %75, label %187, label %79
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit23: ; preds = %61, %66
-  %77 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %45, ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %6)
-  %78 = icmp slt i32 %77, 0
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit23: ; preds = %66
+  %76 = load i32, ptr %44, align 8, !tbaa !17
+  %77 = load i32, ptr %6, align 8, !tbaa !17
+  %78 = icmp slt i32 %76, %77
   br i1 %78, label %187, label %79
 
-79:                                               ; preds = %71, %75, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit23
+79:                                               ; preds = %71, %74, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit23
   %80 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !18
   %81 = load i8, ptr %47, align 4
   %82 = and i8 %81, 1
@@ -4355,7 +4355,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEb
   %84 = load i32, ptr %46, align 8
   %85 = icmp eq i32 %84, 1
   %86 = select i1 %83, i1 %85, i1 false
-  br i1 %86, label %87, label %110
+  br i1 %86, label %87, label %109
 
 87:                                               ; preds = %79
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -4366,41 +4366,41 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEb
   %93 = load i32, ptr %88, align 8
   %94 = icmp eq i32 %93, 1
   %95 = select i1 %92, i1 %94, i1 false
-  br i1 %95, label %96, label %110
+  br i1 %95, label %96, label %109
 
 96:                                               ; preds = %87
   %97 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %98 = load i8, ptr %97, align 4
   %99 = and i8 %98, 1
   %100 = icmp eq i8 %99, 0
-  br i1 %100, label %101, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit25
+  br i1 %100, label %101, label %106
 
 101:                                              ; preds = %96
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %103 = load i8, ptr %102, align 4
   %104 = and i8 %103, 1
   %105 = icmp eq i8 %104, 0
-  br i1 %105, label %106, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit25
+  br i1 %105, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit25, label %106
 
-106:                                              ; preds = %101
-  %107 = load i32, ptr %44, align 8, !tbaa !17
-  %108 = load i32, ptr %5, align 8, !tbaa !17
-  %109 = icmp slt i32 %107, %108
-  br i1 %109, label %187, label %114
+106:                                              ; preds = %101, %96
+  %107 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %80, ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  %108 = icmp slt i32 %107, 0
+  br i1 %108, label %187, label %114
 
-110:                                              ; preds = %87, %79
-  %111 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %80, ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %5)
-  br i1 %111, label %187, label %114
+109:                                              ; preds = %87, %79
+  %110 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %80, ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  br i1 %110, label %187, label %114
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit25: ; preds = %96, %101
-  %112 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %80, ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %5)
-  %113 = icmp slt i32 %112, 0
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit25: ; preds = %101
+  %111 = load i32, ptr %44, align 8, !tbaa !17
+  %112 = load i32, ptr %5, align 8, !tbaa !17
+  %113 = icmp slt i32 %111, %112
   br i1 %113, label %187, label %114
 
-114:                                              ; preds = %106, %110, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit25
+114:                                              ; preds = %106, %109, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit25
   br label %187
 
-115:                                              ; preds = %35, %39, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit
+115:                                              ; preds = %35, %38, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit
   %116 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %117 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !18
   %118 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -4411,7 +4411,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEb
   %123 = load i32, ptr %118, align 8
   %124 = icmp eq i32 %123, 1
   %125 = select i1 %122, i1 %124, i1 false
-  br i1 %125, label %126, label %149
+  br i1 %125, label %126, label %148
 
 126:                                              ; preds = %115
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -4422,38 +4422,38 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEb
   %132 = load i32, ptr %127, align 8
   %133 = icmp eq i32 %132, 1
   %134 = select i1 %131, i1 %133, i1 false
-  br i1 %134, label %135, label %149
+  br i1 %134, label %135, label %148
 
 135:                                              ; preds = %126
   %136 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %137 = load i8, ptr %136, align 4
   %138 = and i8 %137, 1
   %139 = icmp eq i8 %138, 0
-  br i1 %139, label %140, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit27
+  br i1 %139, label %140, label %145
 
 140:                                              ; preds = %135
   %141 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %142 = load i8, ptr %141, align 4
   %143 = and i8 %142, 1
   %144 = icmp eq i8 %143, 0
-  br i1 %144, label %145, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit27
+  br i1 %144, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit27, label %145
 
-145:                                              ; preds = %140
-  %146 = load i32, ptr %116, align 8, !tbaa !17
-  %147 = load i32, ptr %5, align 8, !tbaa !17
-  %148 = icmp slt i32 %146, %147
-  br i1 %148, label %187, label %153
+145:                                              ; preds = %140, %135
+  %146 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %117, ptr noundef nonnull align 8 dereferenceable(32) %116, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  %147 = icmp slt i32 %146, 0
+  br i1 %147, label %187, label %153
 
-149:                                              ; preds = %126, %115
-  %150 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %117, ptr noundef nonnull align 8 dereferenceable(32) %116, ptr noundef nonnull align 8 dereferenceable(32) %5)
-  br i1 %150, label %187, label %153
+148:                                              ; preds = %126, %115
+  %149 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %117, ptr noundef nonnull align 8 dereferenceable(32) %116, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  br i1 %149, label %187, label %153
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit27: ; preds = %135, %140
-  %151 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %117, ptr noundef nonnull align 8 dereferenceable(32) %116, ptr noundef nonnull align 8 dereferenceable(32) %5)
-  %152 = icmp slt i32 %151, 0
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit27: ; preds = %140
+  %150 = load i32, ptr %116, align 8, !tbaa !17
+  %151 = load i32, ptr %5, align 8, !tbaa !17
+  %152 = icmp slt i32 %150, %151
   br i1 %152, label %187, label %153
 
-153:                                              ; preds = %145, %149, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit27
+153:                                              ; preds = %145, %148, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit27
   %154 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !18
   %155 = load i8, ptr %119, align 4
   %156 = and i8 %155, 1
@@ -4461,7 +4461,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEb
   %158 = load i32, ptr %118, align 8
   %159 = icmp eq i32 %158, 1
   %160 = select i1 %157, i1 %159, i1 false
-  br i1 %160, label %161, label %182
+  br i1 %160, label %161, label %181
 
 161:                                              ; preds = %153
   %162 = load i8, ptr %9, align 4
@@ -4470,42 +4470,42 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEb
   %165 = load i32, ptr %8, align 8
   %166 = icmp eq i32 %165, 1
   %167 = select i1 %164, i1 %166, i1 false
-  br i1 %167, label %168, label %182
+  br i1 %167, label %168, label %181
 
 168:                                              ; preds = %161
   %169 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %170 = load i8, ptr %169, align 4
   %171 = and i8 %170, 1
   %172 = icmp eq i8 %171, 0
-  br i1 %172, label %173, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit29
+  br i1 %172, label %173, label %178
 
 173:                                              ; preds = %168
   %174 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %175 = load i8, ptr %174, align 4
   %176 = and i8 %175, 1
   %177 = icmp eq i8 %176, 0
-  br i1 %177, label %178, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit29
+  br i1 %177, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit29, label %178
 
-178:                                              ; preds = %173
-  %179 = load i32, ptr %116, align 8, !tbaa !17
-  %180 = load i32, ptr %6, align 8, !tbaa !17
-  %181 = icmp slt i32 %179, %180
-  br i1 %181, label %187, label %186
+178:                                              ; preds = %173, %168
+  %179 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %154, ptr noundef nonnull align 8 dereferenceable(32) %116, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %180 = icmp slt i32 %179, 0
+  br i1 %180, label %187, label %186
 
-182:                                              ; preds = %161, %153
-  %183 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %154, ptr noundef nonnull align 8 dereferenceable(32) %116, ptr noundef nonnull align 8 dereferenceable(32) %6)
-  br i1 %183, label %187, label %186
+181:                                              ; preds = %161, %153
+  %182 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %154, ptr noundef nonnull align 8 dereferenceable(32) %116, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  br i1 %182, label %187, label %186
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit29: ; preds = %168, %173
-  %184 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %154, ptr noundef nonnull align 8 dereferenceable(32) %116, ptr noundef nonnull align 8 dereferenceable(32) %6)
-  %185 = icmp slt i32 %184, 0
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit29: ; preds = %173
+  %183 = load i32, ptr %116, align 8, !tbaa !17
+  %184 = load i32, ptr %6, align 8, !tbaa !17
+  %185 = icmp slt i32 %183, %184
   br i1 %185, label %187, label %186
 
-186:                                              ; preds = %178, %182, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit29
+186:                                              ; preds = %178, %181, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit29
   br label %187
 
-187:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit29, %182, %178, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit27, %149, %145, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit25, %110, %106, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit23, %75, %71, %186, %114
-  %.sink = phi ptr [ %2, %186 ], [ %1, %114 ], [ %2, %71 ], [ %2, %75 ], [ %2, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit23 ], [ %3, %106 ], [ %3, %110 ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit25 ], [ %1, %145 ], [ %1, %149 ], [ %1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit27 ], [ %3, %178 ], [ %3, %182 ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit29 ]
+187:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit29, %181, %178, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit27, %148, %145, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit25, %109, %106, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit23, %74, %71, %186, %114
+  %.sink = phi ptr [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit25 ], [ %2, %186 ], [ %1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit27 ], [ %2, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit23 ], [ %1, %114 ], [ %2, %71 ], [ %2, %74 ], [ %3, %106 ], [ %3, %109 ], [ %1, %145 ], [ %1, %148 ], [ %3, %178 ], [ %3, %181 ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit29 ]
   tail call void @_ZSt4swapIN3opt4softEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull align 8 dereferenceable(52) %.sink) #19
   ret void
 }
@@ -4533,7 +4533,7 @@ define linkonce_odr hidden noundef ptr @_ZSt21__unguarded_partitionIPN3opt4softE
   %15 = load i32, ptr %5, align 8
   %16 = icmp eq i32 %15, 1
   %17 = select i1 %14, i1 %16, i1 false
-  br i1 %17, label %18, label %40
+  br i1 %17, label %18, label %39
 
 18:                                               ; preds = %9
   %19 = getelementptr inbounds nuw i8, ptr %.1, i64 32
@@ -4544,40 +4544,40 @@ define linkonce_odr hidden noundef ptr @_ZSt21__unguarded_partitionIPN3opt4softE
   %24 = load i32, ptr %19, align 8
   %25 = icmp eq i32 %24, 1
   %26 = select i1 %23, i1 %25, i1 false
-  br i1 %26, label %27, label %40
+  br i1 %26, label %27, label %39
 
 27:                                               ; preds = %18
   %28 = load i8, ptr %7, align 4
   %29 = and i8 %28, 1
   %30 = icmp eq i8 %29, 0
-  br i1 %30, label %31, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit
+  br i1 %30, label %31, label %36
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %.1, i64 20
   %33 = load i8, ptr %32, align 4
   %34 = and i8 %33, 1
   %35 = icmp eq i8 %34, 0
-  br i1 %35, label %36, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit
+  br i1 %35, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit, label %36
 
-36:                                               ; preds = %31
-  %37 = load i32, ptr %4, align 8, !tbaa !17
-  %38 = load i32, ptr %10, align 8, !tbaa !17
-  %39 = icmp slt i32 %37, %38
-  br i1 %39, label %44, label %.preheader.preheader
+36:                                               ; preds = %31, %27
+  %37 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %11, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  %38 = icmp slt i32 %37, 0
+  br i1 %38, label %44, label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit, %40, %36
+.preheader.preheader:                             ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit, %39, %36
   br label %.preheader
 
-40:                                               ; preds = %18, %9
-  %41 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %11, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %10)
-  br i1 %41, label %44, label %.preheader.preheader
+39:                                               ; preds = %18, %9
+  %40 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %11, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  br i1 %40, label %44, label %.preheader.preheader
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit: ; preds = %27, %31
-  %42 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %11, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %10)
-  %43 = icmp slt i32 %42, 0
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit: ; preds = %31
+  %41 = load i32, ptr %4, align 8, !tbaa !17
+  %42 = load i32, ptr %10, align 8, !tbaa !17
+  %43 = icmp slt i32 %41, %42
   br i1 %43, label %44, label %.preheader.preheader
 
-44:                                               ; preds = %36, %40, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit
+44:                                               ; preds = %36, %39, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit
   %45 = getelementptr inbounds nuw i8, ptr %.1, i64 56
   br label %9, !llvm.loop !93
 
@@ -4594,7 +4594,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEb
   %53 = load i32, ptr %48, align 8
   %54 = icmp eq i32 %53, 1
   %55 = select i1 %52, i1 %54, i1 false
-  br i1 %55, label %56, label %76
+  br i1 %55, label %56, label %75
 
 56:                                               ; preds = %.preheader
   %57 = load i8, ptr %6, align 4
@@ -4603,40 +4603,40 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEb
   %60 = load i32, ptr %5, align 8
   %61 = icmp eq i32 %60, 1
   %62 = select i1 %59, i1 %61, i1 false
-  br i1 %62, label %63, label %76
+  br i1 %62, label %63, label %75
 
 63:                                               ; preds = %56
   %64 = getelementptr inbounds i8, ptr %.013.pn, i64 -36
   %65 = load i8, ptr %64, align 4
   %66 = and i8 %65, 1
   %67 = icmp eq i8 %66, 0
-  br i1 %67, label %68, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit16
+  br i1 %67, label %68, label %72
 
 68:                                               ; preds = %63
   %69 = load i8, ptr %7, align 4
   %70 = and i8 %69, 1
   %71 = icmp eq i8 %70, 0
-  br i1 %71, label %72, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit16
+  br i1 %71, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit16, label %72
 
-72:                                               ; preds = %68
-  %73 = load i32, ptr %46, align 8, !tbaa !17
-  %74 = load i32, ptr %4, align 8, !tbaa !17
-  %75 = icmp slt i32 %73, %74
-  br i1 %75, label %.preheader.backedge, label %80
+72:                                               ; preds = %68, %63
+  %73 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %47, ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %74 = icmp slt i32 %73, 0
+  br i1 %74, label %.preheader.backedge, label %80
 
-76:                                               ; preds = %56, %.preheader
-  %77 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %47, ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %4)
-  br i1 %77, label %.preheader.backedge, label %80
+75:                                               ; preds = %56, %.preheader
+  %76 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %47, ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  br i1 %76, label %.preheader.backedge, label %80
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit16: ; preds = %63, %68
-  %78 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %47, ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %4)
-  %79 = icmp slt i32 %78, 0
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit16: ; preds = %68
+  %77 = load i32, ptr %46, align 8, !tbaa !17
+  %78 = load i32, ptr %4, align 8, !tbaa !17
+  %79 = icmp slt i32 %77, %78
   br i1 %79, label %.preheader.backedge, label %80
 
-.preheader.backedge:                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit16, %76, %72
+.preheader.backedge:                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit16, %75, %72
   br label %.preheader, !llvm.loop !94
 
-80:                                               ; preds = %72, %76, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit16
+80:                                               ; preds = %72, %75, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit16
   %81 = icmp ult ptr %.1, %.114
   br i1 %81, label %83, label %82
 
@@ -4690,7 +4690,7 @@ define linkonce_odr hidden void @_ZSt16__insertion_sortIPN3opt4softEN9__gnu_cxx5
   %27 = load i32, ptr %6, align 8
   %28 = icmp eq i32 %27, 1
   %29 = select i1 %26, i1 %28, i1 false
-  br i1 %29, label %30, label %52
+  br i1 %29, label %30, label %51
 
 30:                                               ; preds = %21
   %31 = getelementptr inbounds nuw i8, ptr %.pn21, i64 88
@@ -4701,37 +4701,37 @@ define linkonce_odr hidden void @_ZSt16__insertion_sortIPN3opt4softEN9__gnu_cxx5
   %36 = load i32, ptr %31, align 8
   %37 = icmp eq i32 %36, 1
   %38 = select i1 %35, i1 %37, i1 false
-  br i1 %38, label %39, label %52
+  br i1 %38, label %39, label %51
 
 39:                                               ; preds = %30
   %40 = load i8, ptr %8, align 4
   %41 = and i8 %40, 1
   %42 = icmp eq i8 %41, 0
-  br i1 %42, label %43, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit
+  br i1 %42, label %43, label %48
 
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %.pn21, i64 76
   %45 = load i8, ptr %44, align 4
   %46 = and i8 %45, 1
   %47 = icmp eq i8 %46, 0
-  br i1 %47, label %48, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit
+  br i1 %47, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit, label %48
 
-48:                                               ; preds = %43
-  %49 = load i32, ptr %5, align 8, !tbaa !17
-  %50 = load i32, ptr %22, align 8, !tbaa !17
-  %51 = icmp slt i32 %49, %50
-  br i1 %51, label %56, label %194
+48:                                               ; preds = %43, %39
+  %49 = call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %23, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %22)
+  %50 = icmp slt i32 %49, 0
+  br i1 %50, label %56, label %194
 
-52:                                               ; preds = %30, %21
-  %53 = call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %23, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %22)
-  br i1 %53, label %56, label %194
+51:                                               ; preds = %30, %21
+  %52 = call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %23, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %22)
+  br i1 %52, label %56, label %194
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit: ; preds = %39, %43
-  %54 = call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %23, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %22)
-  %55 = icmp slt i32 %54, 0
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit: ; preds = %43
+  %53 = load i32, ptr %5, align 8, !tbaa !17
+  %54 = load i32, ptr %22, align 8, !tbaa !17
+  %55 = icmp slt i32 %53, %54
   br i1 %55, label %56, label %194
 
-56:                                               ; preds = %48, %52, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit
+56:                                               ; preds = %48, %51, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %57 = getelementptr inbounds nuw i8, ptr %.pn21, i64 64
   %58 = load ptr, ptr %57, align 8, !tbaa !47
@@ -4987,7 +4987,7 @@ _ZN3opt4softD2Ev.exit:                            ; preds = %_ZN8rationalD2Ev.ex
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %195
 
-194:                                              ; preds = %48, %52, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit
+194:                                              ; preds = %48, %51, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit
   call void @_ZSt25__unguarded_linear_insertIPN3opt4softEN9__gnu_cxx5__ops14_Val_comp_iterINS0_6maxlex8cmp_softEEEEvT_T0_(ptr noundef nonnull %.022)
   br label %195
 
@@ -5103,7 +5103,7 @@ define linkonce_odr hidden void @_ZSt25__unguarded_linear_insertIPN3opt4softEN9_
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN3opt6maxlex8cmp_softEEclINS2_4softEPS7_EEbRT_T0_.exit: ; preds = %64
   br i1 %65, label %66, label %70
 
-66:                                               ; preds = %.noexc, %57, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3opt6maxlex8cmp_softEEclINS2_4softEPS7_EEbRT_T0_.exit
+66:                                               ; preds = %57, %.noexc, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3opt6maxlex8cmp_softEEclINS2_4softEPS7_EEbRT_T0_.exit
   %67 = call noundef nonnull align 8 dereferenceable(52) ptr @_ZN3opt4softaSEOS0_(ptr noundef nonnull align 8 dereferenceable(52) %.0, ptr noundef nonnull align 8 dereferenceable(52) %.010) #19
   br label %30, !llvm.loop !97
 
@@ -5114,7 +5114,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN3opt6maxlex8cmp_softEEclINS2_4softEPS7_EEbR
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %69
 
-70:                                               ; preds = %.noexc, %57, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3opt6maxlex8cmp_softEEclINS2_4softEPS7_EEbRT_T0_.exit
+70:                                               ; preds = %57, %.noexc, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3opt6maxlex8cmp_softEEclINS2_4softEPS7_EEbRT_T0_.exit
   %71 = load ptr, ptr %.0, align 8, !tbaa !50
   %72 = load ptr, ptr %2, align 8, !tbaa !50
   store ptr %72, ptr %.0, align 8, !tbaa !50
@@ -5723,7 +5723,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_re
   resume { ptr, i32 } %.pn.pn
 
 ._crit_edge:                                      ; preds = %.thread, %82, %1, %_ZNK6vectorIN3opt4softELb1EjE4sizeEv.exit
-  %.not37.lcssa = phi i32 [ 1, %_ZNK6vectorIN3opt4softELb1EjE4sizeEv.exit ], [ 1, %1 ], [ 0, %82 ], [ 1, %.thread ]
+  %.not37.lcssa = phi i32 [ 1, %_ZNK6vectorIN3opt4softELb1EjE4sizeEv.exit ], [ 1, %1 ], [ 1, %.thread ], [ 0, %82 ]
   ret i32 %.not37.lcssa
 }
 
@@ -6025,8 +6025,8 @@ _ZN6vectorIN3opt4softELb1EjE3endEv.exit.i:        ; preds = %.noexc5
           to label %.noexc8 unwind label %.loopexit
 
 .noexc8:                                          ; preds = %.sink.split.i, %.noexc7, %.critedge.i, %50
-  %.123.i = phi i1 [ %.02230.i, %50 ], [ %.02230.i, %.critedge.i ], [ true, %.noexc7 ], [ %.123.ph.i, %.sink.split.i ]
-  %.1.i = phi i1 [ true, %50 ], [ false, %.critedge.i ], [ false, %.noexc7 ], [ false, %.sink.split.i ]
+  %.123.i = phi i1 [ %.02230.i, %50 ], [ true, %.noexc7 ], [ %.02230.i, %.critedge.i ], [ %.123.ph.i, %.sink.split.i ]
+  %.1.i = phi i1 [ true, %50 ], [ false, %.noexc7 ], [ false, %.critedge.i ], [ false, %.sink.split.i ]
   %58 = getelementptr inbounds nuw i8, ptr %.02529.i, i64 56
   %.not.i4 = icmp eq ptr %58, %47
   br i1 %.not.i4, label %._crit_edge.i, label %.lr.ph.i
@@ -6075,7 +6075,7 @@ _ZN3opt6maxlex17update_assignmentER3refI5modelE.exit: ; preds = %._crit_edge.i
   unreachable
 
 _ZN3refI5modelED2Ev.exit:                         ; preds = %.noexc, %_ZN16check_sat_result9get_modelER3refI5modelE.exit, %_ZN3opt6maxlex17update_assignmentER3refI5modelE.exit, %60, %65
-  %71 = phi i1 [ false, %_ZN3opt6maxlex17update_assignmentER3refI5modelE.exit ], [ true, %60 ], [ true, %65 ], [ false, %_ZN16check_sat_result9get_modelER3refI5modelE.exit ], [ false, %.noexc ]
+  %71 = phi i1 [ true, %65 ], [ false, %_ZN3opt6maxlex17update_assignmentER3refI5modelE.exit ], [ true, %60 ], [ false, %_ZN16check_sat_result9get_modelER3refI5modelE.exit ], [ false, %.noexc ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %71
 }

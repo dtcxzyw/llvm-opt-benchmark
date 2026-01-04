@@ -870,8 +870,8 @@ _ZN4Node7del_outEPS_.exit.i.i.i:                  ; preds = %163, %151, %146
   br label %_ZN8GraphKit11set_controlEP4Node.exit
 
 _ZN8GraphKit11set_controlEP4Node.exit:            ; preds = %179, %168, %_ZN4Node7del_outEPS_.exit.i.i.i, %185, %189, %70, %64, %31
-  %.032 = phi i1 [ false, %31 ], [ false, %64 ], [ true, %70 ], [ true, %189 ], [ true, %185 ], [ true, %_ZN4Node7del_outEPS_.exit.i.i.i ], [ true, %168 ], [ true, %179 ]
-  %.0 = phi ptr [ %47, %31 ], [ %47, %64 ], [ %47, %70 ], [ %81, %189 ], [ %81, %185 ], [ %47, %_ZN4Node7del_outEPS_.exit.i.i.i ], [ %47, %168 ], [ %47, %179 ]
+  %.032 = phi i1 [ false, %31 ], [ false, %64 ], [ true, %185 ], [ true, %70 ], [ true, %189 ], [ true, %_ZN4Node7del_outEPS_.exit.i.i.i ], [ true, %168 ], [ true, %179 ]
+  %.0 = phi ptr [ %47, %31 ], [ %47, %64 ], [ %81, %185 ], [ %47, %70 ], [ %81, %189 ], [ %47, %_ZN4Node7del_outEPS_.exit.i.i.i ], [ %47, %168 ], [ %47, %179 ]
   %195 = load ptr, ptr %18, align 8
   %196 = call noundef ptr @_ZN11PhaseValues7longconEl(ptr noundef nonnull align 8 dereferenceable(2400) %195, i64 noundef 216) #4
   %197 = call noundef ptr @_ZN8GraphKit14basic_plus_adrEP4NodeS1_S1_(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %.0, ptr noundef %.0, ptr noundef %196) #4

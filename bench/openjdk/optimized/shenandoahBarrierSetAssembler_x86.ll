@@ -1912,7 +1912,7 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler22load_reference_barrierEP
   br i1 %.not238, label %.critedge, label %63
 
 .critedge:                                        ; preds = %57, %61, %60, %59
-  %.sroa.0214.2 = phi i32 [ %.sroa.0214.1241, %59 ], [ %.sroa.0214.1241, %60 ], [ %.0194242, %61 ], [ %.sroa.0214.1241, %57 ]
+  %.sroa.0214.2 = phi i32 [ %.0194242, %61 ], [ %.sroa.0214.1241, %57 ], [ %.sroa.0214.1241, %60 ], [ %.sroa.0214.1241, %59 ]
   %62 = add nuw nsw i32 %.0194242, 1
   %exitcond.not = icmp eq i32 %62, 8
   br i1 %exitcond.not, label %63, label %57, !llvm.loop !6
@@ -2165,9 +2165,9 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler22load_reference_barrierEP
   br label %169
 
 169:                                              ; preds = %160, %151
-  %_ZN17ShenandoahRuntime36load_reference_barrier_strong_narrowEP7oopDescP9narrowOop._ZN17ShenandoahRuntime29load_reference_barrier_strongEP7oopDescPS1_ = select i1 %39, ptr @_ZN17ShenandoahRuntime36load_reference_barrier_strong_narrowEP7oopDescP9narrowOop, ptr @_ZN17ShenandoahRuntime29load_reference_barrier_strongEP7oopDescPS1_
   %_ZN17ShenandoahRuntime34load_reference_barrier_weak_narrowEP7oopDescP9narrowOop._ZN17ShenandoahRuntime27load_reference_barrier_weakEP7oopDescPS1_ = select i1 %39, ptr @_ZN17ShenandoahRuntime34load_reference_barrier_weak_narrowEP7oopDescP9narrowOop, ptr @_ZN17ShenandoahRuntime27load_reference_barrier_weakEP7oopDescPS1_
   %spec.select244 = select i1 %.not232, ptr @_ZN17ShenandoahRuntime30load_reference_barrier_phantomEP7oopDescPS1_, ptr %_ZN17ShenandoahRuntime34load_reference_barrier_weak_narrowEP7oopDescP9narrowOop._ZN17ShenandoahRuntime27load_reference_barrier_weakEP7oopDescPS1_
+  %_ZN17ShenandoahRuntime36load_reference_barrier_strong_narrowEP7oopDescP9narrowOop._ZN17ShenandoahRuntime29load_reference_barrier_strongEP7oopDescPS1_ = select i1 %39, ptr @_ZN17ShenandoahRuntime36load_reference_barrier_strong_narrowEP7oopDescP9narrowOop, ptr @_ZN17ShenandoahRuntime29load_reference_barrier_strongEP7oopDescPS1_
   %_ZN17ShenandoahRuntime30load_reference_barrier_phantomEP7oopDescPS1_.sink = select i1 %34, ptr %_ZN17ShenandoahRuntime36load_reference_barrier_strong_narrowEP7oopDescP9narrowOop._ZN17ShenandoahRuntime29load_reference_barrier_strongEP7oopDescPS1_, ptr %spec.select244
   call void @_ZN14MacroAssembler18super_call_VM_leafEPh8RegisterS1_(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %_ZN17ShenandoahRuntime30load_reference_barrier_phantomEP7oopDescPS1_.sink, i32 7, i32 6) #6
   store i32 4, ptr %24, align 8
@@ -3481,7 +3481,7 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler47generate_c1_load_referen
   br label %16
 
 16:                                               ; preds = %11, %13, %8, %6
-  %_ZN17ShenandoahRuntime30load_reference_barrier_phantomEP7oopDescPS1_.sink = phi ptr [ @_ZN17ShenandoahRuntime29load_reference_barrier_strongEP7oopDescPS1_, %6 ], [ %_ZN17ShenandoahRuntime36load_reference_barrier_strong_narrowEP7oopDescP9narrowOop._ZN17ShenandoahRuntime29load_reference_barrier_strongEP7oopDescPS1_, %8 ], [ %_ZN17ShenandoahRuntime34load_reference_barrier_weak_narrowEP7oopDescP9narrowOop._ZN17ShenandoahRuntime27load_reference_barrier_weakEP7oopDescPS1_, %13 ], [ @_ZN17ShenandoahRuntime30load_reference_barrier_phantomEP7oopDescPS1_, %11 ]
+  %_ZN17ShenandoahRuntime30load_reference_barrier_phantomEP7oopDescPS1_.sink = phi ptr [ %_ZN17ShenandoahRuntime36load_reference_barrier_strong_narrowEP7oopDescP9narrowOop._ZN17ShenandoahRuntime29load_reference_barrier_strongEP7oopDescPS1_, %8 ], [ @_ZN17ShenandoahRuntime29load_reference_barrier_strongEP7oopDescPS1_, %6 ], [ %_ZN17ShenandoahRuntime34load_reference_barrier_weak_narrowEP7oopDescP9narrowOop._ZN17ShenandoahRuntime27load_reference_barrier_weakEP7oopDescPS1_, %13 ], [ @_ZN17ShenandoahRuntime30load_reference_barrier_phantomEP7oopDescPS1_, %11 ]
   tail call void @_ZN14MacroAssembler12call_VM_leafEPh8RegisterS1_(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %_ZN17ShenandoahRuntime30load_reference_barrier_phantomEP7oopDescPS1_.sink, i32 7, i32 6) #6
   tail call void @_ZN17C1_MacroAssembler33restore_live_registers_except_raxEb(ptr noundef nonnull align 8 dereferenceable(44) %1, i1 noundef zeroext true) #6
   tail call void @_ZN13StubAssembler8epilogueEv(ptr noundef nonnull align 8 dereferenceable(72) %1) #6

@@ -2323,7 +2323,7 @@ _.exit101:                                        ; preds = %778, %781
   br i1 %847, label %.lr.ph326, label %.critedge.i
 
 .critedge.i:                                      ; preds = %842, %.lr.ph62.i, %._crit_edge58.i
-  %.pre76.i = phi ptr [ %829, %.lr.ph62.i ], [ null, %._crit_edge58.i ], [ %844, %842 ]
+  %.pre76.i = phi ptr [ null, %._crit_edge58.i ], [ %829, %.lr.ph62.i ], [ %844, %842 ]
   %848 = load ptr, ptr %50, align 8, !tbaa !70
   %.not4064.i = icmp eq ptr %848, null
   br i1 %.not4064.i, label %.critedge2.i, label %.lr.ph66.i
@@ -4009,7 +4009,7 @@ can_reuse_delta.exit.thread.i.sink.split.i.i:     ; preds = %1459, %1457, %.thre
   br label %can_reuse_delta.exit.thread.i.i.i
 
 can_reuse_delta.exit.thread.i.i.i:                ; preds = %can_reuse_delta.exit.thread.i.sink.split.i.i, %1485, %1480, %1478, %1476, %1466
-  %1552 = phi ptr [ %1474, %1485 ], [ %1474, %1480 ], [ %1474, %1478 ], [ %1474, %1476 ], [ %1472, %1466 ], [ %1551, %can_reuse_delta.exit.thread.i.sink.split.i.i ]
+  %1552 = phi ptr [ %1472, %1466 ], [ %1474, %1485 ], [ %1474, %1480 ], [ %1474, %1478 ], [ %1474, %1476 ], [ %1551, %can_reuse_delta.exit.thread.i.sink.split.i.i ]
   %.val.i.i.i = load i64, ptr %1362, align 8
   %1553 = and i64 %.val.i.i.i, 31138512896
   %.not98.i.i.i = icmp eq i64 %1553, 1073741824
@@ -4544,8 +4544,8 @@ oe_size_less_than.exit.thread.i:                  ; preds = %1752, %oe_size_less
   br label %1776
 
 1776:                                             ; preds = %1772, %1770, %oe_size_less_than.exit.thread.i, %oe_size_less_than.exit.i, %1752, %oe_delta.exit.thread.i, %oe_delta.exit.i
-  %.134.i = phi i32 [ %.2.i, %1772 ], [ %.033115.i, %oe_delta.exit.i ], [ %.033115.i, %oe_size_less_than.exit.i ], [ %.033115.i, %oe_delta.exit.thread.i ], [ %.033115.i, %oe_size_less_than.exit.thread.i ], [ %.033115.i, %1770 ], [ %.033115.i, %1752 ]
-  %.1.i154 = phi i32 [ %1773, %1772 ], [ %.032116.i, %oe_delta.exit.i ], [ %.032116.i, %oe_size_less_than.exit.i ], [ %.032116.i, %oe_delta.exit.thread.i ], [ %.032116.i, %oe_size_less_than.exit.thread.i ], [ %.032116.i, %1770 ], [ %.032116.i, %1752 ]
+  %.134.i = phi i32 [ %.2.i, %1772 ], [ %.033115.i, %oe_delta.exit.i ], [ %.033115.i, %oe_delta.exit.thread.i ], [ %.033115.i, %oe_size_less_than.exit.thread.i ], [ %.033115.i, %oe_size_less_than.exit.i ], [ %.033115.i, %1770 ], [ %.033115.i, %1752 ]
+  %.1.i154 = phi i32 [ %1773, %1772 ], [ %.032116.i, %oe_delta.exit.i ], [ %.032116.i, %oe_delta.exit.thread.i ], [ %.032116.i, %oe_size_less_than.exit.thread.i ], [ %.032116.i, %oe_size_less_than.exit.i ], [ %.032116.i, %1770 ], [ %.032116.i, %1752 ]
   %indvars.iv.next.i155 = add nuw nsw i64 %indvars.iv.i152, 1
   %1777 = load i32, ptr getelementptr inbounds nuw (i8, ptr @to_pack, i64 16), align 8, !tbaa !158
   %1778 = zext i32 %1777 to i64
@@ -4710,7 +4710,7 @@ _.exit.i65.i:                                     ; preds = %1809, %1806
   br label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %1851, %.critedge.loopexit.split.loop.exit243.i.i, %.critedge.loopexit.split.loop.exit.i.i, %1821
-  %.1122.lcssa.i.i = phi i32 [ %.0121.i.i, %1821 ], [ %1852, %.critedge.loopexit.split.loop.exit.i.i ], [ %1853, %.critedge.loopexit.split.loop.exit243.i.i ], [ %1823, %1851 ]
+  %.1122.lcssa.i.i = phi i32 [ %.0121.i.i, %1821 ], [ %1853, %.critedge.loopexit.split.loop.exit243.i.i ], [ %1852, %.critedge.loopexit.split.loop.exit.i.i ], [ %1823, %1851 ]
   %1854 = getelementptr inbounds nuw i8, ptr %1830, i64 8
   store ptr %.0126170.i.i, ptr %1854, align 8, !tbaa !199
   %1855 = getelementptr inbounds nuw i8, ptr %1830, i64 16
@@ -5713,15 +5713,15 @@ oe_delta.exit59.i.i.i.i.i:                        ; preds = %2299
   br i1 %.not2564.i.i.i.i.i, label %add_family_to_write_order.exit.i.i.i, label %.lr.ph82.i.i.i.i.i, !llvm.loop !231
 
 add_family_to_write_order.exit.i.i.i:             ; preds = %.backedge.i.i.i.i.i, %oe_delta.exit.i.i.i.i.i, %2288, %oe_delta.exit59.i.i.i.i.i, %2299, %oe_layer.exit.i.i.i, %.lr.ph95.i.i.i
-  %.8.i.i = phi i32 [ %.7.i.i, %oe_layer.exit.i.i.i ], [ %.7.i.i, %.lr.ph95.i.i.i ], [ %.13.i.i, %2299 ], [ %.13.i.i, %oe_delta.exit59.i.i.i.i.i ], [ %.13.i.i, %2288 ], [ %.13.i.i, %oe_delta.exit.i.i.i.i.i ], [ %.13.i.i, %.backedge.i.i.i.i.i ]
+  %.8.i.i = phi i32 [ %.7.i.i, %.lr.ph95.i.i.i ], [ %.13.i.i, %oe_delta.exit59.i.i.i.i.i ], [ %.7.i.i, %oe_layer.exit.i.i.i ], [ %.13.i.i, %2299 ], [ %.13.i.i, %2288 ], [ %.13.i.i, %oe_delta.exit.i.i.i.i.i ], [ %.13.i.i, %.backedge.i.i.i.i.i ]
   %indvars.iv.next114.i.i.i = add nuw nsw i64 %indvars.iv113.i.i.i, 1
   %2308 = icmp samesign ult i64 %indvars.iv.next114.i.i.i, %2174
   br i1 %2308, label %.lr.ph95.i.i.i, label %compute_layer_order.exit.i.i, !llvm.loop !232
 
 compute_layer_order.exit.i.i:                     ; preds = %add_family_to_write_order.exit.i.i.i, %.preheader.i.i.i, %.preheader81.i.i.i, %.lr.ph59.split.i.i
-  %2309 = phi i32 [ %2060, %.lr.ph59.split.i.i ], [ %2199, %.preheader.i.i.i ], [ %2133, %.preheader81.i.i.i ], [ %2199, %add_family_to_write_order.exit.i.i.i ]
-  %2310 = phi i32 [ 0, %.lr.ph59.split.i.i ], [ %2200, %.preheader.i.i.i ], [ %2134, %.preheader81.i.i.i ], [ %2199, %add_family_to_write_order.exit.i.i.i ]
-  %.19.i.i = phi i32 [ %.04258.i.i, %.lr.ph59.split.i.i ], [ %.6.i.i, %.preheader.i.i.i ], [ %.4.i.i, %.preheader81.i.i.i ], [ %.8.i.i, %add_family_to_write_order.exit.i.i.i ]
+  %2309 = phi i32 [ %2060, %.lr.ph59.split.i.i ], [ %2133, %.preheader81.i.i.i ], [ %2199, %.preheader.i.i.i ], [ %2199, %add_family_to_write_order.exit.i.i.i ]
+  %2310 = phi i32 [ 0, %.lr.ph59.split.i.i ], [ %2134, %.preheader81.i.i.i ], [ %2200, %.preheader.i.i.i ], [ %2199, %add_family_to_write_order.exit.i.i.i ]
+  %.19.i.i = phi i32 [ %.04258.i.i, %.lr.ph59.split.i.i ], [ %.4.i.i, %.preheader81.i.i.i ], [ %.6.i.i, %.preheader.i.i.i ], [ %.8.i.i, %add_family_to_write_order.exit.i.i.i ]
   %2311 = add nuw i32 %2062, 1
   store i32 %2311, ptr @write_layer, align 4, !tbaa !30
   %exitcond.not.i.i216 = icmp eq i32 %2311, %.0.i53.i
@@ -5947,8 +5947,8 @@ copy_pack_data.exit.i.i.i:                        ; preds = %2397, %record_reuse
   br label %write_reused_pack_verbatim.exit.i.i
 
 write_reused_pack_verbatim.exit.i.i:              ; preds = %copy_pack_data.exit.i.i.i, %.critedge.i.i.i, %.preheader.i.i60.i, %2335
-  %2406 = phi ptr [ %.pre100.i.i, %2335 ], [ %.pre.i64.i210, %copy_pack_data.exit.i.i.i ], [ %.pre100.i.i, %.critedge.i.i.i ], [ %.pre100.i.i, %.preheader.i.i60.i ]
-  %.0.i55.i = phi i64 [ %2342, %2335 ], [ %.017.lcssa39.i.i.i, %copy_pack_data.exit.i.i.i ], [ 0, %.critedge.i.i.i ], [ 0, %.preheader.i.i60.i ]
+  %2406 = phi ptr [ %.pre100.i.i, %2335 ], [ %.pre100.i.i, %.preheader.i.i60.i ], [ %.pre.i64.i210, %copy_pack_data.exit.i.i.i ], [ %.pre100.i.i, %.critedge.i.i.i ]
+  %.0.i55.i = phi i64 [ %2342, %2335 ], [ 0, %.preheader.i.i60.i ], [ %.017.lcssa39.i.i.i, %copy_pack_data.exit.i.i.i ], [ 0, %.critedge.i.i.i ]
   %2407 = getelementptr inbounds nuw i8, ptr %2406, i64 8
   %2408 = load i64, ptr %2407, align 8, !tbaa !241
   %2409 = icmp ult i64 %.0.i55.i, %2408
@@ -6219,7 +6219,7 @@ copy_pack_data.exit.i66.i.i:                      ; preds = %2516, %2498
   br label %find_reused_offset.exit.i.i.i
 
 find_reused_offset.exit.i.i.i:                    ; preds = %._crit_edge.i68.i.i.i, %.thread.i.i.i.i
-  %.2.in.i.i.i.i = phi ptr [ %2538, %._crit_edge.i68.i.i.i ], [ %2531, %.thread.i.i.i.i ]
+  %.2.in.i.i.i.i = phi ptr [ %2531, %.thread.i.i.i.i ], [ %2538, %._crit_edge.i68.i.i.i ]
   %.2.i.i.i.i = load i64, ptr %.2.in.i.i.i.i, align 8, !tbaa !248
   br i1 %2524, label %.lr.ph.i76.i.i.i, label %._crit_edge.i72.i.i.i
 
@@ -6258,7 +6258,7 @@ find_reused_offset.exit.i.i.i:                    ; preds = %._crit_edge.i68.i.i
   br label %find_reused_offset.exit84.i.i.i
 
 find_reused_offset.exit84.i.i.i:                  ; preds = %._crit_edge.i72.i.i.i, %.thread.i83.i.i.i
-  %.2.in.i74.i.i.i = phi ptr [ %2552, %._crit_edge.i72.i.i.i ], [ %2545, %.thread.i83.i.i.i ]
+  %.2.in.i74.i.i.i = phi ptr [ %2545, %.thread.i83.i.i.i ], [ %2552, %._crit_edge.i72.i.i.i ]
   %.2.i75.i.i.i = load i64, ptr %.2.in.i74.i.i.i, align 8, !tbaa !248
   %.not61.i.i.i = icmp eq i64 %.2.i.i.i.i, %.2.i75.i.i.i
   br i1 %.not61.i.i.i, label %2585, label %2553
@@ -7331,7 +7331,7 @@ define internal i32 @git_pack_config(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %135
 
 135:                                              ; preds = %131, %77, %68, %60, %57, %65, %64, %133, %86, %48, %30, %24, %19, %14, %9
-  %.064 = phi i32 [ %134, %133 ], [ -1, %131 ], [ 0, %86 ], [ 0, %48 ], [ 0, %30 ], [ 0, %24 ], [ 0, %19 ], [ 0, %14 ], [ 0, %9 ], [ 0, %64 ], [ 0, %65 ], [ 0, %57 ], [ 0, %60 ], [ 0, %68 ], [ 0, %77 ]
+  %.064 = phi i32 [ %134, %133 ], [ -1, %131 ], [ 0, %86 ], [ 0, %68 ], [ 0, %60 ], [ 0, %9 ], [ 0, %48 ], [ 0, %30 ], [ 0, %24 ], [ 0, %19 ], [ 0, %14 ], [ 0, %64 ], [ 0, %65 ], [ 0, %57 ], [ 0, %77 ]
   ret i32 %.064
 }
 
@@ -7980,8 +7980,8 @@ no_try_delta.exit:                                ; preds = %pack_name_hash.exit
   br label %pack_name_hash.exit.thread
 
 pack_name_hash.exit.thread:                       ; preds = %35, %no_try_delta.exit
-  %.06.i24 = phi i32 [ %.0.ph.i, %no_try_delta.exit ], [ 0, %35 ]
-  %62 = phi i32 [ %..i, %no_try_delta.exit ], [ 0, %35 ]
+  %.06.i24 = phi i32 [ 0, %35 ], [ %.0.ph.i, %no_try_delta.exit ]
+  %62 = phi i32 [ 0, %35 ], [ %..i, %no_try_delta.exit ]
   %63 = load ptr, ptr %5, align 8, !tbaa !20
   %64 = load i64, ptr %6, align 8, !tbaa !28
   tail call fastcc void @create_object_entry(ptr noundef %0, i32 noundef %1, i32 noundef %.06.i24, i32 noundef %3, i32 noundef %62, ptr noundef %63, i64 noundef %64)
@@ -8123,8 +8123,8 @@ define internal fastcc void @add_pbase_object(ptr noundef nonnull %0, ptr nounde
   br i1 %exitcond.not.i, label %.thread61.i, label %36, !llvm.loop !307
 
 .thread61.i:                                      ; preds = %.thread58.i, %.thread55.thread.i, %.thread72.i
-  %.04081.i = phi i32 [ %.04084.i, %.thread72.i ], [ %.04084.i, %.thread55.thread.i ], [ %55, %.thread58.i ]
-  %.1.i = phi i32 [ %.085.i, %.thread72.i ], [ %.04084.i, %.thread55.thread.i ], [ %.260.i, %.thread58.i ]
+  %.04081.i = phi i32 [ %.04084.i, %.thread55.thread.i ], [ %.04084.i, %.thread72.i ], [ %55, %.thread58.i ]
+  %.1.i = phi i32 [ %.04084.i, %.thread55.thread.i ], [ %.085.i, %.thread72.i ], [ %.260.i, %.thread58.i ]
   %57 = load ptr, ptr @the_repository, align 8, !tbaa !4
   %58 = call ptr @repo_read_object_file(ptr noundef %57, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %5) #25
   %.not51.i = icmp eq ptr %58, null
@@ -8500,8 +8500,8 @@ skip_prefix.exit:                                 ; preds = %92, %97
   %101 = call i32 @oidset_insert(ptr noundef nonnull @excluded_by_config, ptr noundef %0) #25
   br label %want_found_object.exit.thread
 
-want_found_object.exit.thread:                    ; preds = %62, %79, %skip_prefix.exit, %.preheader, %81, %38, %34, %29, %42, %20, %14, %13, %.split94.us, %100, %.thread77, %55, %9
-  %.048 = phi i32 [ %54, %55 ], [ 0, %100 ], [ 0, %9 ], [ 1, %.thread77 ], [ 1, %.split94.us ], [ 0, %38 ], [ 0, %34 ], [ 0, %29 ], [ 1, %42 ], [ 0, %20 ], [ 0, %14 ], [ 1, %13 ], [ 1, %81 ], [ 1, %.preheader ], [ 1, %skip_prefix.exit ], [ 0, %79 ], [ %64, %62 ]
+want_found_object.exit.thread:                    ; preds = %62, %79, %skip_prefix.exit, %.preheader, %81, %38, %29, %34, %42, %20, %13, %14, %.split94.us, %100, %.thread77, %55, %9
+  %.048 = phi i32 [ 0, %100 ], [ 0, %9 ], [ %54, %55 ], [ 1, %.preheader ], [ 1, %.thread77 ], [ 1, %.split94.us ], [ 0, %14 ], [ 0, %38 ], [ 0, %29 ], [ 0, %34 ], [ 1, %42 ], [ 0, %20 ], [ 1, %13 ], [ 1, %81 ], [ 0, %79 ], [ 1, %skip_prefix.exit ], [ %64, %62 ]
   ret i32 %.048
 }
 
@@ -8717,7 +8717,7 @@ define internal fastcc range(i32 -1, 2) i32 @want_object_in_pack_one(ptr noundef
   br label %want_found_object.exit
 
 want_found_object.exit:                           ; preds = %47, %43, %39, %34, %25, %21, %19, %18, %12, %15
-  %.015 = phi i32 [ -1, %15 ], [ -1, %12 ], [ 1, %18 ], [ 0, %19 ], [ -1, %21 ], [ 0, %25 ], [ %.28.i, %47 ], [ 0, %34 ], [ 0, %39 ], [ 0, %43 ]
+  %.015 = phi i32 [ -1, %12 ], [ -1, %15 ], [ 0, %19 ], [ 1, %18 ], [ 0, %25 ], [ %.28.i, %47 ], [ -1, %21 ], [ 0, %39 ], [ 0, %34 ], [ 0, %43 ]
   ret i32 %.015
 }
 
@@ -8906,9 +8906,9 @@ oe_set_type.exit.i:                               ; preds = %38
   br label %49
 
 49:                                               ; preds = %oe_set_type.exit.i, %oe_set_type.exit.i.thread
-  %50 = phi i64 [ 0, %oe_set_type.exit.i.thread ], [ %48, %oe_set_type.exit.i ]
-  %51 = phi ptr [ %23, %oe_set_type.exit.i.thread ], [ %41, %oe_set_type.exit.i ]
-  %52 = phi i64 [ 1073741824, %oe_set_type.exit.i.thread ], [ %spec.select, %oe_set_type.exit.i ]
+  %50 = phi i64 [ %48, %oe_set_type.exit.i ], [ 0, %oe_set_type.exit.i.thread ]
+  %51 = phi ptr [ %41, %oe_set_type.exit.i ], [ %23, %oe_set_type.exit.i.thread ]
+  %52 = phi i64 [ %spec.select, %oe_set_type.exit.i ], [ 1073741824, %oe_set_type.exit.i.thread ]
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 88
   %54 = load i64, ptr %53, align 8
   %55 = and i64 %54, -31138512897
@@ -9050,7 +9050,7 @@ no_try_delta.exit:                                ; preds = %pack_name_hash.exit
   br label %36
 
 36:                                               ; preds = %pack_name_hash.exit.thread, %no_try_delta.exit
-  %37 = phi i64 [ %35, %no_try_delta.exit ], [ 0, %pack_name_hash.exit.thread ]
+  %37 = phi i64 [ 0, %pack_name_hash.exit.thread ], [ %35, %no_try_delta.exit ]
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %39 = load i64, ptr %38, align 8
   %40 = and i64 %39, -2147483649
@@ -9309,8 +9309,8 @@ no_try_delta.exit38:                              ; preds = %pack_name_hash.exit
   br label %pack_name_hash.exit35.thread
 
 pack_name_hash.exit35.thread:                     ; preds = %55, %no_try_delta.exit38
-  %.06.i3442 = phi i32 [ %.0.ph.i30, %no_try_delta.exit38 ], [ 0, %55 ]
-  %83 = phi i64 [ %82, %no_try_delta.exit38 ], [ 0, %55 ]
+  %.06.i3442 = phi i32 [ 0, %55 ], [ %.0.ph.i30, %no_try_delta.exit38 ]
+  %83 = phi i64 [ 0, %55 ], [ %82, %no_try_delta.exit38 ]
   %84 = load i64, ptr %8, align 8, !tbaa !28
   %85 = tail call ptr @packlist_alloc(ptr noundef nonnull @to_pack, ptr noundef %0) #25
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 64
@@ -9823,7 +9823,7 @@ create_object_entry.exit:                         ; preds = %oe_set_type.exit.i,
   br label %have_duplicate_entry.exit.thread
 
 have_duplicate_entry.exit.thread:                 ; preds = %17, %14, %have_duplicate_entry.exit, %create_object_entry.exit
-  %.0 = phi i32 [ 1, %create_object_entry.exit ], [ 0, %have_duplicate_entry.exit ], [ 0, %14 ], [ 0, %17 ]
+  %.0 = phi i32 [ 0, %have_duplicate_entry.exit ], [ 1, %create_object_entry.exit ], [ 0, %14 ], [ 0, %17 ]
   ret i32 %.0
 }
 
@@ -10023,7 +10023,7 @@ oe_size.exit46:                                   ; preds = %26, %29
   br label %67
 
 67:                                               ; preds = %60, %58, %52, %42, %40, %34, %32, %oe_size.exit46, %56, %62
-  %.0 = phi i32 [ %66, %62 ], [ %57, %56 ], [ -1, %oe_size.exit46 ], [ 1, %32 ], [ -1, %34 ], [ 1, %40 ], [ -1, %42 ], [ 1, %52 ], [ -1, %58 ], [ 1, %60 ]
+  %.0 = phi i32 [ %57, %56 ], [ -1, %oe_size.exit46 ], [ 1, %32 ], [ -1, %34 ], [ 1, %40 ], [ -1, %42 ], [ 1, %52 ], [ -1, %58 ], [ %66, %62 ], [ 1, %60 ]
   ret i32 %.0
 }
 
@@ -10091,7 +10091,7 @@ oe_in_pack.exit24:                                ; preds = %6, %15
   br label %41
 
 41:                                               ; preds = %33, %31, %35, %29
-  %.0 = phi i32 [ %40, %35 ], [ %30, %29 ], [ -1, %31 ], [ 1, %33 ]
+  %.0 = phi i32 [ %30, %29 ], [ -1, %31 ], [ %40, %35 ], [ 1, %33 ]
   ret i32 %.0
 }
 
@@ -11012,7 +11012,7 @@ try_delta.exit:                                   ; preds = %106
   store i32 %373, ptr %54, align 8, !tbaa !331
   br label %374
 
-374:                                              ; preds = %296, %137, %176, %oe_size.exit141.i, %196, %_.exit.i, %231, %_.exit145.i, %256, %266, %oe_in_pack.exit132.i, %371
+374:                                              ; preds = %oe_in_pack.exit132.i, %137, %176, %oe_size.exit141.i, %296, %256, %231, %196, %266, %_.exit.i, %_.exit145.i, %371
   %.6 = phi i64 [ %.9, %371 ], [ %.4225, %176 ], [ %.4225, %oe_size.exit141.i ], [ %.4225, %196 ], [ %.7, %_.exit.i ], [ %.7, %231 ], [ %.8, %_.exit145.i ], [ %.8, %256 ], [ %.9, %266 ], [ %.9, %296 ], [ %.4225, %137 ], [ %.4225, %oe_in_pack.exit132.i ]
   %.2106 = phi i32 [ %spec.select, %371 ], [ %.0104226, %176 ], [ %.0104226, %oe_size.exit141.i ], [ %.0104226, %196 ], [ %.0104226, %_.exit.i ], [ %.0104226, %231 ], [ %.0104226, %_.exit145.i ], [ %.0104226, %256 ], [ %.0104226, %266 ], [ %.0104226, %296 ], [ %.0104226, %137 ], [ %.0104226, %oe_in_pack.exit132.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -11184,7 +11184,7 @@ oe_delta.exit160:                                 ; preds = %442
   br label %oe_delta.exit160.thread
 
 oe_delta.exit160.thread:                          ; preds = %oe_delta.exit, %435, %._crit_edge, %93, %.critedge
-  %.3 = phi i64 [ %.4202, %._crit_edge ], [ %.2169.lcssa, %93 ], [ %.2169.lcssa, %.critedge ], [ %.4202, %435 ], [ %.4202, %oe_delta.exit ]
+  %.3 = phi i64 [ %.4202, %435 ], [ %.4202, %._crit_edge ], [ %.2169.lcssa, %93 ], [ %.2169.lcssa, %.critedge ], [ %.4202, %oe_delta.exit ]
   %457 = add i32 %.096360, 1
   %458 = add i32 %.2.lcssa, 1
   %459 = icmp ult i32 %458, %2
@@ -11194,9 +11194,9 @@ oe_delta.exit160.thread:                          ; preds = %oe_delta.exit, %435
   br label %460
 
 460:                                              ; preds = %442, %oe_delta.exit160.thread
-  %.1168 = phi i64 [ %.3, %oe_delta.exit160.thread ], [ %.4202, %442 ]
-  %.1100 = phi i32 [ %spec.select132, %oe_delta.exit160.thread ], [ %.2.lcssa, %442 ]
-  %.197 = phi i32 [ %spec.store.select, %oe_delta.exit160.thread ], [ %.096360, %442 ]
+  %.1168 = phi i64 [ %.4202, %442 ], [ %.3, %oe_delta.exit160.thread ]
+  %.1100 = phi i32 [ %.2.lcssa, %442 ], [ %spec.select132, %oe_delta.exit160.thread ]
+  %.197 = phi i32 [ %.096360, %442 ], [ %spec.store.select, %oe_delta.exit160.thread ]
   %461 = zext i32 %.197 to i64
   %462 = getelementptr inbounds nuw %struct.unpacked, ptr %12, i64 %461
   %463 = call i32 @pthread_mutex_lock(ptr noundef nonnull @progress_mutex) #25
@@ -11463,7 +11463,7 @@ oe_delta.exit.thread:                             ; preds = %15, %25, %oe_delta.
   br label %43
 
 43:                                               ; preds = %3, %11, %41, %29, %26, %_.exit
-  %.0 = phi i32 [ 2, %_.exit ], [ 1, %41 ], [ 0, %29 ], [ 0, %26 ], [ -1, %11 ], [ -1, %3 ]
+  %.0 = phi i32 [ 2, %_.exit ], [ 0, %26 ], [ 1, %41 ], [ 0, %29 ], [ -1, %11 ], [ -1, %3 ]
   ret i32 %.0
 }
 
@@ -11629,8 +11629,8 @@ oe_delta.exit57:                                  ; preds = %oe_delta.exit53
   br label %oe_delta.exit.thread
 
 oe_delta.exit.thread:                             ; preds = %13, %oe_delta.exit57, %oe_delta.exit53, %26, %oe_delta.exit
-  %32 = phi i1 [ true, %oe_delta.exit ], [ false, %26 ], [ true, %oe_delta.exit53 ], [ %.not37, %oe_delta.exit57 ], [ true, %13 ]
-  %.028 = phi i32 [ 0, %oe_delta.exit ], [ 1, %26 ], [ 0, %oe_delta.exit53 ], [ %.46, %oe_delta.exit57 ], [ 0, %13 ]
+  %32 = phi i1 [ false, %26 ], [ %.not37, %oe_delta.exit57 ], [ true, %oe_delta.exit53 ], [ true, %oe_delta.exit ], [ true, %13 ]
+  %.028 = phi i32 [ 1, %26 ], [ %.46, %oe_delta.exit57 ], [ 0, %oe_delta.exit53 ], [ 0, %oe_delta.exit ], [ 0, %13 ]
   %33 = load i32, ptr @reuse_object, align 4, !tbaa !30
   %.not38 = icmp eq i32 %33, 0
   br i1 %.not38, label %.critedge, label %34
@@ -11698,7 +11698,7 @@ oe_delta.exit66:                                  ; preds = %61
 65:                                               ; preds = %49
   br i1 %32, label %.critedge, label %oe_delta.exit66.thread
 
-.critedge:                                        ; preds = %oe_delta.exit66, %oe_delta.exit.thread, %oe_in_pack.exit, %57, %65
+.critedge:                                        ; preds = %oe_delta.exit66, %oe_in_pack.exit, %57, %oe_delta.exit.thread, %65
   %66 = tail call fastcc i64 @write_no_reuse_object(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %.030, i32 noundef %.028)
   br label %270
 
@@ -12128,7 +12128,7 @@ copy_pack_data.exit.i:                            ; preds = %260, %255
   br label %write_reuse_object.exit
 
 write_reuse_object.exit:                          ; preds = %_.exit.i, %_.exit122.i, %.critedge.i, %230, %253, %copy_pack_data.exit.i
-  %.090.i = phi i64 [ %269, %copy_pack_data.exit.i ], [ 0, %230 ], [ 0, %253 ], [ %181, %_.exit122.i ], [ %142, %_.exit.i ], [ 0, %.critedge.i ]
+  %.090.i = phi i64 [ %269, %copy_pack_data.exit.i ], [ 0, %.critedge.i ], [ 0, %230 ], [ 0, %253 ], [ %181, %_.exit122.i ], [ %142, %_.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -12467,8 +12467,8 @@ oe_delta.exit122:                                 ; preds = %oe_delta_size.exit1
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %.thread.sink.split.sink.split, %oe_delta_size.exit118, %oe_delta_size.exit
-  %.sink = phi i32 [ 7, %oe_delta_size.exit ], [ 7, %oe_delta_size.exit118 ], [ %146, %.thread.sink.split.sink.split ]
-  %.1136144.ph = phi ptr [ %50, %oe_delta_size.exit ], [ %98, %oe_delta_size.exit118 ], [ %.1136144.ph.ph, %.thread.sink.split.sink.split ]
+  %.sink = phi i32 [ 7, %oe_delta_size.exit118 ], [ 7, %oe_delta_size.exit ], [ %146, %.thread.sink.split.sink.split ]
+  %.1136144.ph = phi ptr [ %98, %oe_delta_size.exit118 ], [ %50, %oe_delta_size.exit ], [ %.1136144.ph.ph, %.thread.sink.split.sink.split ]
   store i32 %.sink, ptr %16, align 4, !tbaa !30
   br label %.thread
 
@@ -12696,7 +12696,7 @@ oe_delta.exit130:                                 ; preds = %225, %234, %237
   br label %252
 
 252:                                              ; preds = %.thread153, %oe_delta.exit130, %251
-  %.182 = phi i32 [ %240, %oe_delta.exit130 ], [ %171, %251 ], [ %212, %.thread153 ]
+  %.182 = phi i32 [ %212, %.thread153 ], [ %240, %oe_delta.exit130 ], [ %171, %251 ]
   br i1 %.not101149, label %297, label %253
 
 253:                                              ; preds = %252

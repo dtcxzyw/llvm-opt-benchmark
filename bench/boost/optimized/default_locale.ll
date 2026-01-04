@@ -48,7 +48,7 @@ define void @_ZN5boost6locale4util17get_system_localeB5cxx11Eb(ptr dead_on_unwin
   br label %.thread21.thread
 
 .thread21.thread:                                 ; preds = %9, %5, %12, %.thread21
-  %.3 = phi ptr [ %11, %.thread21 ], [ @.str.3, %12 ], [ %4, %5 ], [ %8, %9 ]
+  %.3 = phi ptr [ %11, %.thread21 ], [ @.str.3, %12 ], [ %8, %9 ], [ %4, %5 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %13, ptr %0, align 8, !tbaa !6
   %14 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.3) #6

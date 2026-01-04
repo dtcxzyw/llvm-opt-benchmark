@@ -417,7 +417,7 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br label %188
 
 188:                                              ; preds = %183, %186, %._crit_edge1196, %142
-  %storemerge = phi i8 [ 78, %142 ], [ 78, %._crit_edge1196 ], [ 84, %186 ], [ 84, %183 ]
+  %storemerge = phi i8 [ 78, %._crit_edge1196 ], [ 78, %142 ], [ 84, %186 ], [ 84, %183 ]
   store i8 %storemerge, ptr %24, align 1, !tbaa !19
   store i8 78, ptr %27, align 1, !tbaa !19
   store i32 %86, ptr %17, align 4, !tbaa !3

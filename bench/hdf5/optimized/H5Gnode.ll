@@ -222,7 +222,7 @@ define internal range(i32 -1, 1) i32 @H5G__node_create(ptr noundef %0, i32 %1, p
   br label %.thread
 
 .thread:                                          ; preds = %16, %60, %61, %67, %6
-  %.0 = phi i32 [ -1, %67 ], [ 0, %6 ], [ 0, %60 ], [ 0, %61 ], [ -1, %16 ]
+  %.0 = phi i32 [ -1, %67 ], [ -1, %16 ], [ 0, %6 ], [ 0, %60 ], [ 0, %61 ]
   ret i32 %.0
 }
 
@@ -336,7 +336,7 @@ define internal range(i32 -1, 2) i32 @H5G__node_cmp3(ptr noundef readonly captur
   br label %44
 
 44:                                               ; preds = %37, %20, %16, %33, %3
-  %.0 = phi i32 [ -1, %16 ], [ -1, %33 ], [ 0, %3 ], [ -1, %20 ], [ %spec.select, %37 ]
+  %.0 = phi i32 [ -1, %16 ], [ 0, %3 ], [ -1, %33 ], [ -1, %20 ], [ %spec.select, %37 ]
   ret i32 %.0
 }
 
@@ -702,8 +702,8 @@ define internal range(i32 -1, 3) i32 @H5G__node_insert(ptr noundef %0, i64 nound
   br label %176
 
 .thread132:                                       ; preds = %92, %84, %73, %51, %37, %143, %158, %162
-  %.3136 = phi i32 [ %.2, %143 ], [ %.2, %158 ], [ -1, %162 ], [ -1, %37 ], [ -1, %51 ], [ -1, %73 ], [ -1, %84 ], [ -1, %92 ]
-  %.0108130135 = phi i32 [ 2, %143 ], [ 2, %158 ], [ 2, %162 ], [ 0, %37 ], [ 0, %51 ], [ 0, %73 ], [ 0, %84 ], [ 0, %92 ]
+  %.3136 = phi i32 [ -1, %162 ], [ %.2, %143 ], [ %.2, %158 ], [ -1, %37 ], [ -1, %51 ], [ -1, %73 ], [ -1, %84 ], [ -1, %92 ]
+  %.0108130135 = phi i32 [ 2, %162 ], [ 2, %143 ], [ 2, %158 ], [ 0, %37 ], [ 0, %51 ], [ 0, %73 ], [ 0, %84 ], [ 0, %92 ]
   %170 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_SNODE, i64 noundef %1, ptr noundef nonnull %18, i32 noundef %.0108130135) #9
   %171 = icmp slt i32 %170, 0
   br i1 %171, label %172, label %176
@@ -1056,8 +1056,8 @@ define internal range(i32 -1, 6) i32 @H5G__node_remove(ptr noundef %0, i64 nound
   br label %204
 
 .thread179:                                       ; preds = %63, %88, %101, %144, %154, %169, %163, %151, %114, %133, %.thread
-  %.1148.ph = phi i32 [ 0, %.thread ], [ 2, %169 ], [ 2, %163 ], [ 2, %154 ], [ 259, %151 ], [ 0, %133 ], [ 0, %114 ], [ 0, %144 ], [ 0, %101 ], [ 0, %88 ], [ 0, %63 ]
-  %.4136.ph = phi i32 [ -1, %.thread ], [ 0, %169 ], [ 0, %163 ], [ 0, %154 ], [ 5, %151 ], [ -1, %133 ], [ -1, %114 ], [ -1, %144 ], [ -1, %101 ], [ -1, %88 ], [ -1, %63 ]
+  %.1148.ph = phi i32 [ 2, %169 ], [ 2, %163 ], [ 2, %154 ], [ 259, %151 ], [ 0, %114 ], [ 0, %133 ], [ 0, %144 ], [ 0, %101 ], [ 0, %88 ], [ 0, %63 ], [ 0, %.thread ]
+  %.4136.ph = phi i32 [ 0, %169 ], [ 0, %163 ], [ 0, %154 ], [ 5, %151 ], [ -1, %114 ], [ -1, %133 ], [ -1, %144 ], [ -1, %101 ], [ -1, %88 ], [ -1, %63 ], [ -1, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %204
 
@@ -1082,7 +1082,7 @@ define internal range(i32 -1, 6) i32 @H5G__node_remove(ptr noundef %0, i64 nound
   br label %211
 
 211:                                              ; preds = %.thread171, %7, %207, %204
-  %.0132 = phi i32 [ -1, %207 ], [ %.1133178, %204 ], [ -1, %7 ], [ -1, %.thread171 ]
+  %.0132 = phi i32 [ -1, %207 ], [ %.1133178, %204 ], [ -1, %.thread171 ], [ -1, %7 ]
   ret i32 %.0132
 }
 
@@ -1422,7 +1422,7 @@ define i32 @H5G__node_iterate(ptr noundef %0, ptr noundef readnone captures(none
   br label %75
 
 ._crit_edge.thread:                               ; preds = %16, %.thread, %._crit_edge, %61
-  %.1.ph = phi i32 [ -1, %.thread ], [ %.3, %._crit_edge ], [ %.3, %61 ], [ 0, %16 ]
+  %.1.ph = phi i32 [ %.3, %._crit_edge ], [ %.3, %61 ], [ -1, %.thread ], [ 0, %16 ]
   %69 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_SNODE, i64 noundef %2, ptr noundef nonnull %14, i32 noundef 0) #9
   %70 = icmp slt i32 %69, 0
   br i1 %70, label %71, label %75
@@ -1487,7 +1487,7 @@ define range(i32 -1, 1) i32 @H5G__node_sumup(ptr noundef %0, ptr noundef readnon
   br label %30
 
 30:                                               ; preds = %.thread, %18, %26, %5
-  %.0 = phi i32 [ -1, %26 ], [ 0, %18 ], [ 0, %5 ], [ -1, %.thread ]
+  %.0 = phi i32 [ -1, %26 ], [ 0, %18 ], [ -1, %.thread ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -1777,7 +1777,7 @@ define range(i32 -1, 1) i32 @H5G__node_copy(ptr noundef %0, ptr noundef readnone
   br label %.loopexit.sink.split
 
 86:                                               ; preds = %83, %85
-  %.167 = phi ptr [ %7, %85 ], [ %51, %83 ]
+  %.167 = phi ptr [ %51, %83 ], [ %7, %85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

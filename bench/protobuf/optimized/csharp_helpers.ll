@@ -222,7 +222,7 @@ if.else18:                                        ; preds = %if.end
   br i1 %9, label %if.else24.invoke, label %if.else24.invoke.sink.split
 
 if.else24.invoke.sink.split:                      ; preds = %if.else18, %if.end
-  %_ZN4absl12lts_2023080214ascii_internal8kToUpperE.sink = phi ptr [ @_ZN4absl12lts_2023080214ascii_internal8kToUpperE, %if.end ], [ @_ZN4absl12lts_2023080214ascii_internal8kToLowerE, %if.else18 ]
+  %_ZN4absl12lts_2023080214ascii_internal8kToUpperE.sink = phi ptr [ @_ZN4absl12lts_2023080214ascii_internal8kToLowerE, %if.else18 ], [ @_ZN4absl12lts_2023080214ascii_internal8kToUpperE, %if.end ]
   %arrayidx.i15 = getelementptr inbounds nuw i8, ptr %_ZN4absl12lts_2023080214ascii_internal8kToUpperE.sink, i64 %idxprom.i
   %10 = load i8, ptr %arrayidx.i15, align 1
   br label %if.else24.invoke
@@ -506,7 +506,7 @@ cleanup:                                          ; preds = %invoke.cont64, %inv
   ret void
 
 ehcleanup:                                        ; preds = %lpad4.loopexit, %lpad4.loopexit.split-lp.loopexit.split-lp, %lpad4.loopexit.split-lp.loopexit, %lpad63, %lpad56, %lpad41, %lpad31
-  %.pn = phi { ptr, i32 } [ %12, %lpad31 ], [ %18, %lpad41 ], [ %25, %lpad56 ], [ %31, %lpad63 ], [ %lpad.loopexit, %lpad4.loopexit ], [ %lpad.loopexit63, %lpad4.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp64, %lpad4.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %31, %lpad63 ], [ %12, %lpad31 ], [ %18, %lpad41 ], [ %25, %lpad56 ], [ %lpad.loopexit, %lpad4.loopexit ], [ %lpad.loopexit63, %lpad4.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp64, %lpad4.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %prefix_to_match) #24
   br label %eh.resume
 
@@ -575,7 +575,7 @@ if.else18.i:                                      ; preds = %if.end.i
   br i1 %11, label %if.else24.invoke.i, label %if.else24.invoke.sink.split.i
 
 if.else24.invoke.sink.split.i:                    ; preds = %if.else18.i, %if.end.i
-  %_ZN4absl12lts_2023080214ascii_internal8kToUpperE.sink.i = phi ptr [ @_ZN4absl12lts_2023080214ascii_internal8kToUpperE, %if.end.i ], [ @_ZN4absl12lts_2023080214ascii_internal8kToLowerE, %if.else18.i ]
+  %_ZN4absl12lts_2023080214ascii_internal8kToUpperE.sink.i = phi ptr [ @_ZN4absl12lts_2023080214ascii_internal8kToLowerE, %if.else18.i ], [ @_ZN4absl12lts_2023080214ascii_internal8kToUpperE, %if.end.i ]
   %arrayidx.i15.i = getelementptr inbounds nuw i8, ptr %_ZN4absl12lts_2023080214ascii_internal8kToUpperE.sink.i, i64 %idxprom.i.i
   %12 = load i8, ptr %arrayidx.i15.i, align 1, !noalias !9
   br label %if.else24.invoke.i
@@ -846,7 +846,7 @@ for.inc48:                                        ; preds = %_ZNK6google8protobu
   br i1 %cmp36, label %for.body37, label %return, !llvm.loop !14
 
 return.sink.split:                                ; preds = %land.lhs.true, %land.lhs.true19, %land.lhs.true41
-  %add.ptr.i46.lcssa.sink = phi ptr [ %add.ptr.i46, %land.lhs.true41 ], [ %add.ptr.i25, %land.lhs.true19 ], [ %add.ptr.i, %land.lhs.true ]
+  %add.ptr.i46.lcssa.sink = phi ptr [ %add.ptr.i25, %land.lhs.true19 ], [ %add.ptr.i46, %land.lhs.true41 ], [ %add.ptr.i, %land.lhs.true ]
   %number_.i61 = getelementptr inbounds nuw i8, ptr %add.ptr.i46.lcssa.sink, i64 4
   %32 = load i32, ptr %number_.i61, align 4
   %shl.i62 = shl i32 %32, 3
@@ -854,7 +854,7 @@ return.sink.split:                                ; preds = %land.lhs.true, %lan
   br label %return
 
 return:                                           ; preds = %for.inc26, %for.inc48, %return.sink.split, %for.cond12.preheader, %for.cond34.preheader, %if.else
-  %retval.0 = phi i32 [ 0, %if.else ], [ 0, %for.cond34.preheader ], [ 0, %for.cond12.preheader ], [ %or.i63, %return.sink.split ], [ 0, %for.inc48 ], [ 0, %for.inc26 ]
+  %retval.0 = phi i32 [ 0, %for.cond12.preheader ], [ %or.i63, %return.sink.split ], [ 0, %for.inc48 ], [ 0, %if.else ], [ 0, %for.cond34.preheader ], [ 0, %for.inc26 ]
   ret i32 %retval.0
 }
 
@@ -973,8 +973,8 @@ return:                                           ; preds = %invoke.cont20, %inv
   ret void
 
 eh.resume:                                        ; preds = %lpad14, %lpad21, %lpad, %lpad8
-  %ref.tmp12.sink20 = phi ptr [ %ref.tmp1, %lpad8 ], [ %ref.tmp1, %lpad ], [ %ref.tmp12, %lpad21 ], [ %ref.tmp12, %lpad14 ]
-  %.pn6.pn = phi { ptr, i32 } [ %10, %lpad8 ], [ %9, %lpad ], [ %20, %lpad21 ], [ %19, %lpad14 ]
+  %ref.tmp12.sink20 = phi ptr [ %ref.tmp1, %lpad ], [ %ref.tmp1, %lpad8 ], [ %ref.tmp12, %lpad21 ], [ %ref.tmp12, %lpad14 ]
+  %.pn6.pn = phi { ptr, i32 } [ %9, %lpad ], [ %10, %lpad8 ], [ %20, %lpad21 ], [ %19, %lpad14 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12.sink20) #24
   resume { ptr, i32 } %.pn6.pn
 }
@@ -1952,7 +1952,7 @@ lpad62:                                           ; preds = %if.else60
   br label %eh.resume
 
 return:                                           ; preds = %if.else60, %if.then56, %if.then49, %if.else44, %if.then40, %if.then33, %if.else27, %if.then23, %if.else16, %if.then12, %if.else, %if.then3
-  %retval.0 = phi ptr [ %call4, %if.then3 ], [ %call5, %if.else ], [ %call13, %if.then12 ], [ %call17, %if.else16 ], [ %call24, %if.then23 ], [ %call28, %if.else27 ], [ %call34, %if.then33 ], [ %call41, %if.then40 ], [ %call45, %if.else44 ], [ %call50, %if.then49 ], [ %call57, %if.then56 ], [ %call61, %if.else60 ]
+  %retval.0 = phi ptr [ %call45, %if.else44 ], [ %call50, %if.then49 ], [ %call57, %if.then56 ], [ %call41, %if.then40 ], [ %call4, %if.then3 ], [ %call5, %if.else ], [ %call13, %if.then12 ], [ %call17, %if.else16 ], [ %call24, %if.then23 ], [ %call28, %if.else27 ], [ %call34, %if.then33 ], [ %call61, %if.else60 ]
   ret ptr %retval.0
 
 eh.resume:                                        ; preds = %lpad62, %lpad58, %lpad51, %lpad46, %lpad42, %lpad35, %lpad29, %lpad25, %lpad18, %lpad14, %lpad6, %lpad
@@ -2110,7 +2110,7 @@ switch.lookup:                                    ; preds = %_ZNK6google8protobu
   br label %return
 
 return:                                           ; preds = %switch.lookup, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ %switch.masked, %switch.lookup ]
+  %retval.0 = phi i1 [ %switch.masked, %switch.lookup ], [ true, %entry ]
   ret i1 %retval.0
 }
 
@@ -2435,8 +2435,8 @@ _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicy
   br label %if.end16
 
 if.end16:                                         ; preds = %land.lhs.true, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt17basic_string_viewIcSt11char_traitsIcEEEENS1_10StringHashENS1_8StringEqESaIS7_EE28rehash_and_grow_if_necessaryEv.exit, %land.rhs
-  %7 = phi ptr [ %.pre, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt17basic_string_viewIcSt11char_traitsIcEEEENS1_10StringHashENS1_8StringEqESaIS7_EE28rehash_and_grow_if_necessaryEv.exit ], [ %1, %land.rhs ], [ %1, %land.lhs.true ]
-  %target.sroa.0.0 = phi i64 [ %6, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt17basic_string_viewIcSt11char_traitsIcEEEENS1_10StringHashENS1_8StringEqESaIS7_EE28rehash_and_grow_if_necessaryEv.exit ], [ %0, %land.rhs ], [ %0, %land.lhs.true ]
+  %7 = phi ptr [ %1, %land.lhs.true ], [ %.pre, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt17basic_string_viewIcSt11char_traitsIcEEEENS1_10StringHashENS1_8StringEqESaIS7_EE28rehash_and_grow_if_necessaryEv.exit ], [ %1, %land.rhs ]
+  %target.sroa.0.0 = phi i64 [ %0, %land.lhs.true ], [ %6, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt17basic_string_viewIcSt11char_traitsIcEEEENS1_10StringHashENS1_8StringEqESaIS7_EE28rehash_and_grow_if_necessaryEv.exit ], [ %0, %land.rhs ]
   %compressed_tuple_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %8 = load i64, ptr %compressed_tuple_.i, align 8
   %add = add i64 %8, 1

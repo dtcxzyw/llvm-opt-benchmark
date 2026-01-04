@@ -1209,7 +1209,7 @@ split933:                                         ; preds = %274, %.thread.us
   br i1 %555, label %543, label %._crit_edge736.us
 
 .critedge.i.us:                                   ; preds = %292, %346, %348, %421, %423, %.thread1013, %453, %._crit_edge742.us, %.preheader588.us, %.preheader586.us, %.preheader584.us, %.preheader.us, %288, %284
-  %.13510.us = phi i64 [ %.1498.us, %284 ], [ %.1498.us, %288 ], [ %.1498.us, %.preheader.us ], [ %.1498.us, %.preheader584.us ], [ %.1498.us, %.preheader586.us ], [ %.1498.us, %.preheader588.us ], [ %.44541.lcssa.us, %._crit_edge742.us ], [ %.34531744.us, %453 ], [ %.33530.us, %.thread1013 ], [ %.29526726.us, %423 ], [ %.28525.us, %421 ], [ %.20517720.us, %348 ], [ %.19516.us, %346 ], [ %.12509714.us, %292 ]
+  %.13510.us = phi i64 [ %.1498.us, %284 ], [ %.1498.us, %288 ], [ %.1498.us, %.preheader586.us ], [ %.1498.us, %.preheader584.us ], [ %.1498.us, %.preheader.us ], [ %.1498.us, %.preheader588.us ], [ %.28525.us, %421 ], [ %.29526726.us, %423 ], [ %.44541.lcssa.us, %._crit_edge742.us ], [ %.34531744.us, %453 ], [ %.33530.us, %.thread1013 ], [ %.20517720.us, %348 ], [ %.19516.us, %346 ], [ %.12509714.us, %292 ]
   %556 = zext i32 %287 to i64
   %557 = getelementptr inbounds nuw i8, ptr %storemerge126.us, i64 %556
   br label %floodDetect.exit.us
@@ -2434,7 +2434,7 @@ split931:                                         ; preds = %1018, %.thread551.u
   br i1 %1299, label %1287, label %._crit_edge693.us
 
 .critedge.i143.us:                                ; preds = %1036, %1090, %1092, %1165, %1167, %.thread1024, %1197, %._crit_edge699.us, %.preheader595.us, %.preheader593.us, %.preheader591.us, %.preheader590.us, %1032, %1028
-  %.49.us = phi i64 [ %.6503.us, %1028 ], [ %.6503.us, %1032 ], [ %.6503.us, %.preheader590.us ], [ %.6503.us, %.preheader591.us ], [ %.6503.us, %.preheader593.us ], [ %.6503.us, %.preheader595.us ], [ %.80.lcssa.us, %._crit_edge699.us ], [ %.70701.us, %1197 ], [ %.69.us, %.thread1024 ], [ %.65683.us, %1167 ], [ %.64.us, %1165 ], [ %.56677.us, %1092 ], [ %.55.us, %1090 ], [ %.48671.us, %1036 ]
+  %.49.us = phi i64 [ %.6503.us, %1028 ], [ %.6503.us, %1032 ], [ %.6503.us, %.preheader593.us ], [ %.6503.us, %.preheader591.us ], [ %.6503.us, %.preheader590.us ], [ %.6503.us, %.preheader595.us ], [ %.64.us, %1165 ], [ %.65683.us, %1167 ], [ %.80.lcssa.us, %._crit_edge699.us ], [ %.70701.us, %1197 ], [ %.69.us, %.thread1024 ], [ %.56677.us, %1092 ], [ %.55.us, %1090 ], [ %.48671.us, %1036 ]
   %1300 = zext i32 %1031 to i64
   %1301 = getelementptr inbounds nuw i8, ptr %storemerge123.us, i64 %1300
   br label %floodDetect.exit191.us
@@ -3595,7 +3595,7 @@ split:                                            ; preds = %1698, %.thread562.u
   br i1 %1979, label %1967, label %._crit_edge650.us
 
 .critedge.i202.us:                                ; preds = %1716, %1770, %1772, %1845, %1847, %.thread1035, %1877, %._crit_edge656.us, %.preheader602.us, %.preheader600.us, %.preheader598.us, %.preheader597.us, %1712, %1708
-  %.85.us = phi i64 [ %.9506.us, %1708 ], [ %.9506.us, %1712 ], [ %.9506.us, %.preheader597.us ], [ %.9506.us, %.preheader598.us ], [ %.9506.us, %.preheader600.us ], [ %.9506.us, %.preheader602.us ], [ %.116.lcssa.us, %._crit_edge656.us ], [ %.106658.us, %1877 ], [ %.105.us, %.thread1035 ], [ %.101640.us, %1847 ], [ %.100.us, %1845 ], [ %.92634.us, %1772 ], [ %.91.us, %1770 ], [ %.84628.us, %1716 ]
+  %.85.us = phi i64 [ %.9506.us, %1708 ], [ %.9506.us, %1712 ], [ %.9506.us, %.preheader600.us ], [ %.9506.us, %.preheader598.us ], [ %.9506.us, %.preheader597.us ], [ %.9506.us, %.preheader602.us ], [ %.100.us, %1845 ], [ %.101640.us, %1847 ], [ %.116.lcssa.us, %._crit_edge656.us ], [ %.106658.us, %1877 ], [ %.105.us, %.thread1035 ], [ %.92634.us, %1772 ], [ %.91.us, %1770 ], [ %.84628.us, %1716 ]
   %1980 = zext i32 %1711 to i64
   %1981 = getelementptr inbounds nuw i8, ptr %storemerge.us, i64 %1980
   br label %floodDetect.exit250.us
@@ -4054,7 +4054,7 @@ do_confirm_fdr.exit276.us:                        ; preds = %confWithBit.exit.us
   br label %1877
 
 .thread572:                                       ; preds = %.thread543.loopexit606.us, %do_confirm_fdr.exit276.us, %floodDetect.exit250.us, %.thread543.loopexit604.us, %do_confirm_fdr.exit266.us, %floodDetect.exit191.us, %.thread543.loopexit.us, %do_confirm_fdr.exit256.us, %floodDetect.exit.us, %getInitState.exit
-  %.not129624 = phi i32 [ 0, %getInitState.exit ], [ 1, %floodDetect.exit.us ], [ 1, %do_confirm_fdr.exit256.us ], [ 0, %.thread543.loopexit.us ], [ 1, %floodDetect.exit191.us ], [ 1, %do_confirm_fdr.exit266.us ], [ 0, %.thread543.loopexit604.us ], [ 1, %floodDetect.exit250.us ], [ 1, %do_confirm_fdr.exit276.us ], [ 0, %.thread543.loopexit606.us ]
+  %.not129624 = phi i32 [ 0, %getInitState.exit ], [ 0, %.thread543.loopexit.us ], [ 0, %.thread543.loopexit604.us ], [ 1, %do_confirm_fdr.exit276.us ], [ 1, %do_confirm_fdr.exit266.us ], [ 1, %do_confirm_fdr.exit256.us ], [ 1, %floodDetect.exit.us ], [ 1, %floodDetect.exit191.us ], [ 1, %floodDetect.exit250.us ], [ 0, %.thread543.loopexit606.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.not129624
 }

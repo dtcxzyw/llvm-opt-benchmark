@@ -1737,7 +1737,7 @@ _ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit19.i.i: ; preds = %973
   br label %"_ZN73_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..hash..Hash$GT$4hash17h2c62baad6d10e381E.exit"
 
 "_ZN73_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..hash..Hash$GT$4hash17h2c62baad6d10e381E.exit": ; preds = %308, %335, %696, %723, %988, %1015
-  %.sink.i.i.i27.sink.i = phi i64 [ %336, %335 ], [ %332, %308 ], [ %724, %723 ], [ %720, %696 ], [ %1016, %1015 ], [ %1012, %988 ]
+  %.sink.i.i.i27.sink.i = phi i64 [ %720, %696 ], [ %332, %308 ], [ %336, %335 ], [ %724, %723 ], [ %1016, %1015 ], [ %1012, %988 ]
   store i64 %.sink.i.i.i27.sink.i, ptr %10, align 8, !alias.scope !44, !noalias !8
   br label %"_ZN68_$LT$typst..visualize..pattern..Repr$u20$as$u20$core..hash..Hash$GT$4hash17h77206318ca506112E.exit"
 
@@ -5203,9 +5203,9 @@ _ZN4core4hash6Hasher19write_length_prefix17ha778925aa4df1c9fE.exit.i.i.i: ; pred
   br label %"_ZN63_$LT$typst..introspection..Meta$u20$as$u20$core..hash..Hash$GT$4hash17he0cfe1cccf41dc19E.exit"
 
 "_ZN63_$LT$typst..introspection..Meta$u20$as$u20$core..hash..Hash$GT$4hash17he0cfe1cccf41dc19E.exit": ; preds = %_ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit.i24, %1624, %1652, %1939, %_ZN4core4hash6Hasher9write_str17h232e76d76195dbb1E.exit.i.i, %1650, %1965
-  %1967 = phi i64 [ %1543, %_ZN4core4hash6Hasher9write_str17h232e76d76195dbb1E.exit.i.i ], [ %1622, %1650 ], [ %1937, %1965 ], [ %.0.i.i9.i, %1939 ], [ %.pre106.pre, %1652 ], [ %.0.i.i5.i.i.i, %1624 ], [ %1455, %_ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit.i24 ]
-  %1968 = phi i64 [ %1505, %_ZN4core4hash6Hasher9write_str17h232e76d76195dbb1E.exit.i.i ], [ %1620, %1650 ], [ %1931, %1965 ], [ %1931, %1939 ], [ %.pre.pre, %1652 ], [ %1620, %1624 ], [ %1421, %_ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit.i24 ]
-  %.pr103 = phi i64 [ %.sink.i.i.i.i.i, %_ZN4core4hash6Hasher9write_str17h232e76d76195dbb1E.exit.i.i ], [ %1651, %1650 ], [ %1966, %1965 ], [ %1932, %1939 ], [ %.pr102.pre, %1652 ], [ %1617, %1624 ], [ %1456, %_ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit.i24 ]
+  %1967 = phi i64 [ %1937, %1965 ], [ %1543, %_ZN4core4hash6Hasher9write_str17h232e76d76195dbb1E.exit.i.i ], [ %1622, %1650 ], [ %.0.i.i9.i, %1939 ], [ %.pre106.pre, %1652 ], [ %.0.i.i5.i.i.i, %1624 ], [ %1455, %_ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit.i24 ]
+  %1968 = phi i64 [ %1931, %1965 ], [ %1505, %_ZN4core4hash6Hasher9write_str17h232e76d76195dbb1E.exit.i.i ], [ %1620, %1650 ], [ %1931, %1939 ], [ %.pre.pre, %1652 ], [ %1620, %1624 ], [ %1421, %_ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit.i24 ]
+  %.pr103 = phi i64 [ %1966, %1965 ], [ %.sink.i.i.i.i.i, %_ZN4core4hash6Hasher9write_str17h232e76d76195dbb1E.exit.i.i ], [ %1651, %1650 ], [ %1932, %1939 ], [ %.pr102.pre, %1652 ], [ %1617, %1624 ], [ %1456, %_ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit.i24 ]
   %1969 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1970 = load i64, ptr %1969, align 8, !noundef !8
   %1971 = shl i64 %.pr103, 3

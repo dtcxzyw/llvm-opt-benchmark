@@ -680,7 +680,7 @@ proto_item_set_generated.exit97.sink.split:       ; preds = %121, %104
   br label %proto_item_set_generated.exit97
 
 proto_item_set_generated.exit97:                  ; preds = %proto_item_set_generated.exit97.sink.split, %proto_item_set_generated.exit92, %96, %92, %121, %113, %104, %101, %proto_item_set_generated.exit, %107, %search_for_retransmission.exit
-  %.0 = phi i8 [ 0, %proto_item_set_generated.exit ], [ 0, %search_for_retransmission.exit ], [ 0, %107 ], [ 0, %101 ], [ 0, %104 ], [ %117, %113 ], [ %117, %121 ], [ 0, %92 ], [ 0, %96 ], [ 0, %proto_item_set_generated.exit92 ], [ %.0.ph, %proto_item_set_generated.exit97.sink.split ]
+  %.0 = phi i8 [ 0, %proto_item_set_generated.exit ], [ 0, %96 ], [ 0, %search_for_retransmission.exit ], [ 0, %proto_item_set_generated.exit92 ], [ 0, %107 ], [ 0, %101 ], [ 0, %104 ], [ %117, %113 ], [ %117, %121 ], [ 0, %92 ], [ %.0.ph, %proto_item_set_generated.exit97.sink.split ]
   %127 = load i32, ptr @hf_hislip_prologue, align 4
   %128 = tail call ptr @proto_tree_add_item(ptr noundef %.075, i32 noundef %127, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0)
   %129 = load i32, ptr @hf_hislip_messagetype, align 4

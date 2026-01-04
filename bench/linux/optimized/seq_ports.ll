@@ -166,7 +166,7 @@ define dso_local ptr @snd_seq_port_query_nearest(ptr noundef %0, ptr noundef rea
   br i1 %54, label %.split.us, label %.preheader.split, !llvm.loop !9
 
 .split.us:                                        ; preds = %18, %27, %42, %51
-  %.us-phi = phi ptr [ %52, %51 ], [ %33, %42 ], [ %28, %27 ], [ %14, %18 ]
+  %.us-phi = phi ptr [ %33, %42 ], [ %52, %51 ], [ %28, %27 ], [ %14, %18 ]
   %55 = icmp eq ptr %.us-phi, null
   br i1 %55, label %.thread, label %56
 
@@ -311,8 +311,8 @@ define dso_local range(i32 -22, -2147483648) i32 @snd_seq_create_port(ptr nounde
   br i1 %71, label %.loopexit, label %.split, !llvm.loop !10
 
 .loopexit:                                        ; preds = %67, %69, %58, %.split.us.preheader, %17
-  %72 = phi i32 [ %44, %17 ], [ %53, %.split.us.preheader ], [ %59, %58 ], [ %44, %69 ], [ %44, %67 ]
-  %73 = phi ptr [ %48, %17 ], [ %52, %.split.us.preheader ], [ %60, %58 ], [ %62, %67 ], [ %70, %69 ]
+  %72 = phi i32 [ %44, %17 ], [ %59, %58 ], [ %53, %.split.us.preheader ], [ %44, %69 ], [ %44, %67 ]
+  %73 = phi ptr [ %48, %17 ], [ %60, %58 ], [ %52, %.split.us.preheader ], [ %62, %67 ], [ %70, %69 ]
   %74 = getelementptr inbounds nuw i8, ptr %15, i64 80
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %76 = load ptr, ptr %75, align 8
@@ -860,7 +860,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @check_and_subscribe_port(p
   %.not = icmp eq i8 %56, %58
   br i1 %.not, label %.critedge, label %.backedge
 
-.backedge:                                        ; preds = %51, %43, %38, %33, %28, %55
+.backedge:                                        ; preds = %28, %51, %43, %38, %33, %55
   %59 = load ptr, ptr %29, align 8
   %60 = icmp eq ptr %59, %8
   br i1 %60, label %.loopexit, label %28, !llvm.loop !15
@@ -1021,7 +1021,7 @@ define dso_local noundef range(i32 -2, 1) i32 @snd_seq_port_disconnect(ptr nound
   %.not = icmp eq i8 %45, %47
   br i1 %.not, label %50, label %.backedge
 
-.backedge:                                        ; preds = %40, %32, %27, %22, %17, %44
+.backedge:                                        ; preds = %17, %40, %32, %27, %22, %44
   %48 = load ptr, ptr %18, align 8
   %49 = icmp eq ptr %48, %7
   br i1 %49, label %.thread, label %17, !llvm.loop !16

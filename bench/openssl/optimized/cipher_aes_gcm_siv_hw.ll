@@ -132,7 +132,7 @@ define internal range(i32 0, 2) i32 @aes_gcm_siv_initkey(ptr noundef %0) #1 {
   br label %54
 
 .loopexit:                                        ; preds = %28, %36, %._crit_edge, %18, %15, %1
-  %.1 = phi ptr [ null, %1 ], [ %12, %15 ], [ %12, %._crit_edge ], [ %12, %18 ], [ %12, %36 ], [ %12, %28 ]
+  %.1 = phi ptr [ null, %1 ], [ %12, %15 ], [ %12, %36 ], [ %12, %18 ], [ %12, %._crit_edge ], [ %12, %28 ]
   %53 = load ptr, ptr %0, align 8, !tbaa !16
   call void @EVP_CIPHER_CTX_free(ptr noundef %53) #7
   call void @EVP_CIPHER_free(ptr noundef %.1) #7
@@ -405,7 +405,7 @@ aes_gcm_siv_ctr32.exit.i:                         ; preds = %._crit_edge28.loope
   br label %aes_gcm_siv_encrypt.exit
 
 aes_gcm_siv_encrypt.exit:                         ; preds = %72, %aes_gcm_siv_ctr32.exit.i
-  %.0.i19 = phi i32 [ %136, %aes_gcm_siv_ctr32.exit.i ], [ 0, %72 ]
+  %.0.i19 = phi i32 [ 0, %72 ], [ %136, %aes_gcm_siv_ctr32.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -571,7 +571,7 @@ aes_gcm_siv_ctr32.exit.i38:                       ; preds = %._crit_edge28.loope
   br label %aes_gcm_siv_decrypt.exit
 
 aes_gcm_siv_decrypt.exit:                         ; preds = %141, %198
-  %.0.i43 = phi i32 [ %207, %198 ], [ 0, %141 ]
+  %.0.i43 = phi i32 [ 0, %141 ], [ %207, %198 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -579,7 +579,7 @@ aes_gcm_siv_decrypt.exit:                         ; preds = %141, %198
   br label %aes_gcm_siv_finish.exit
 
 aes_gcm_siv_finish.exit:                          ; preds = %63, %57, %52, %45, %41, %28, %24, %aes_gcm_siv_decrypt.exit, %aes_gcm_siv_encrypt.exit
-  %.0 = phi i32 [ %.0.i19, %aes_gcm_siv_encrypt.exit ], [ %.0.i43, %aes_gcm_siv_decrypt.exit ], [ %27, %24 ], [ %36, %28 ], [ 1, %41 ], [ 0, %45 ], [ 0, %52 ], [ 1, %63 ], [ 1, %57 ]
+  %.0 = phi i32 [ %.0.i43, %aes_gcm_siv_decrypt.exit ], [ %36, %28 ], [ %.0.i19, %aes_gcm_siv_encrypt.exit ], [ %27, %24 ], [ 1, %41 ], [ 0, %52 ], [ 0, %45 ], [ 1, %63 ], [ 1, %57 ]
   ret i32 %.0
 }
 

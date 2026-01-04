@@ -48,7 +48,7 @@ define internal range(i32 -2147483648, 1) i32 @query_formats(ptr noundef %0, ptr
   br label %11
 
 11:                                               ; preds = %9, %6, %3
-  %.0 = phi i32 [ %4, %3 ], [ %7, %6 ], [ %., %9 ]
+  %.0 = phi i32 [ %7, %6 ], [ %4, %3 ], [ %., %9 ]
   ret i32 %.0
 }
 

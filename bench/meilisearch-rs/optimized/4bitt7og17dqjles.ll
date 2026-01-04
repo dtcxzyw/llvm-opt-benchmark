@@ -1450,7 +1450,7 @@ define hidden noundef zeroext i1 @"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$a
   br i1 %trunc1, label %9, label %8
 
 8:                                                ; preds = %7, %5, %9
-  %.sroa.0.0 = phi i1 [ %14, %9 ], [ %6, %5 ], [ false, %7 ]
+  %.sroa.0.0 = phi i1 [ %6, %5 ], [ %14, %9 ], [ false, %7 ]
   ret i1 %.sroa.0.0
 
 9:                                                ; preds = %7
@@ -2138,8 +2138,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %115 = trunc nuw i8 %114 to i1
   br i1 %115, label %214, label %209
 
-116:                                              ; preds = %55, %62
-  %.sroa.0.0.i.ph = phi ptr [ %63, %62 ], [ %56, %55 ]
+116:                                              ; preds = %62, %55
+  %.sroa.0.0.i.ph = phi ptr [ %56, %55 ], [ %63, %62 ]
   store ptr %.sroa.0.0.i.ph, ptr %0, align 8
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 11
   store i8 1, ptr %117, align 1
@@ -2164,8 +2164,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %122
 
-124:                                              ; preds = %71, %78
-  %.sroa.0.0.i98.ph = phi ptr [ %79, %78 ], [ %72, %71 ]
+124:                                              ; preds = %78, %71
+  %.sroa.0.0.i98.ph = phi ptr [ %72, %71 ], [ %79, %78 ]
   store ptr %.sroa.0.0.i98.ph, ptr %0, align 8
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 11
   store i8 1, ptr %125, align 1
@@ -2185,8 +2185,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %122
 
-131:                                              ; preds = %87, %94
-  %.sroa.0.0.i103.ph = phi ptr [ %95, %94 ], [ %88, %87 ]
+131:                                              ; preds = %94, %87
+  %.sroa.0.0.i103.ph = phi ptr [ %88, %87 ], [ %95, %94 ]
   store ptr %.sroa.0.0.i103.ph, ptr %0, align 8
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 11
   store i8 1, ptr %132, align 1
@@ -2430,7 +2430,7 @@ common.resume.sink.split:                         ; preds = %207, %242
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %228, %187
-  %common.resume.op = phi { ptr, i32 } [ %188, %187 ], [ %229, %228 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %229, %228 ], [ %188, %187 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 207:                                              ; preds = %205, %200, %198

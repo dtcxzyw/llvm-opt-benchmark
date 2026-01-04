@@ -385,7 +385,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br i1 %72, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !40
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %69, %67, %63, %59, %52
-  %.0.i.i = phi i32 [ %60, %59 ], [ %64, %63 ], [ %68, %67 ], [ 1, %52 ], [ %71, %69 ]
+  %.0.i.i = phi i32 [ %68, %67 ], [ %60, %59 ], [ %64, %63 ], [ 1, %52 ], [ %71, %69 ]
   %.lobit.i = lshr i32 %2, 31
   %73 = add i32 %.0.i.i, %.lobit.i
   %74 = zext i32 %73 to i64
@@ -803,7 +803,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %_ZN
   br i1 %240, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i72, label %.lr.ph.i.i69, !llvm.loop !40
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i72:  ; preds = %237, %235, %231, %227, %223
-  %.0.i.i73 = phi i32 [ %228, %227 ], [ %232, %231 ], [ %236, %235 ], [ 1, %223 ], [ %239, %237 ]
+  %.0.i.i73 = phi i32 [ %236, %235 ], [ %228, %227 ], [ %232, %231 ], [ 1, %223 ], [ %239, %237 ]
   %.lobit.i74 = lshr i32 %2, 31
   %241 = add i32 %.0.i.i73, %.lobit.i74
   %242 = zext i32 %241 to i64

@@ -108,7 +108,7 @@ define hidden ptr @lexbor_str_destroy(ptr noundef %0, ptr noundef %1, i1 noundef
   br label %12
 
 12:                                               ; preds = %9, %3, %10
-  %.0 = phi ptr [ %11, %10 ], [ null, %3 ], [ %0, %9 ]
+  %.0 = phi ptr [ null, %3 ], [ %11, %10 ], [ %0, %9 ]
   ret ptr %.0
 }
 
@@ -159,7 +159,7 @@ define hidden ptr @lexbor_str_check_size(ptr noundef captures(none) %0, ptr noun
   br label %15
 
 15:                                               ; preds = %8, %11, %3, %14
-  %.0 = phi ptr [ %12, %14 ], [ null, %3 ], [ null, %11 ], [ %.val, %8 ]
+  %.0 = phi ptr [ %12, %14 ], [ null, %11 ], [ null, %3 ], [ %.val, %8 ]
   ret ptr %.0
 }
 
@@ -203,8 +203,8 @@ define hidden ptr @lexbor_str_append(ptr noundef captures(none) %0, ptr noundef 
   store i8 0, ptr %25, align 1, !tbaa !12
   br label %.critedge
 
-.critedge:                                        ; preds = %4, %14, %18
-  %.1 = phi ptr [ %21, %18 ], [ null, %14 ], [ null, %4 ]
+.critedge:                                        ; preds = %14, %4, %18
+  %.1 = phi ptr [ %21, %18 ], [ null, %4 ], [ null, %14 ]
   ret ptr %.1
 }
 
@@ -251,8 +251,8 @@ define hidden ptr @lexbor_str_append_before(ptr noundef captures(none) %0, ptr n
   store i8 0, ptr %27, align 1, !tbaa !12
   br label %.critedge
 
-.critedge:                                        ; preds = %4, %14, %18
-  %.1 = phi ptr [ %21, %18 ], [ null, %14 ], [ null, %4 ]
+.critedge:                                        ; preds = %14, %4, %18
+  %.1 = phi ptr [ %21, %18 ], [ null, %4 ], [ null, %14 ]
   ret ptr %.1
 }
 
@@ -361,8 +361,8 @@ define hidden ptr @lexbor_str_append_lowercase(ptr noundef captures(none) %0, pt
   store i64 %31, ptr %5, align 8, !tbaa !11
   br label %.critedge
 
-.critedge:                                        ; preds = %4, %14, %._crit_edge
-  %.1 = phi ptr [ %21, %._crit_edge ], [ null, %14 ], [ null, %4 ]
+.critedge:                                        ; preds = %14, %4, %._crit_edge
+  %.1 = phi ptr [ %21, %._crit_edge ], [ null, %4 ], [ null, %14 ]
   ret ptr %.1
 }
 
@@ -527,8 +527,8 @@ lexbor_str_append.exit60:                         ; preds = %71, %79
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 %6
   br label %.critedge
 
-.critedge:                                        ; preds = %41, %55, %26, %37, %67, %76, %4, %14, %.critedge50
-  %.1 = phi ptr [ %88, %.critedge50 ], [ null, %14 ], [ null, %4 ], [ null, %76 ], [ null, %67 ], [ null, %37 ], [ null, %26 ], [ null, %55 ], [ null, %41 ]
+.critedge:                                        ; preds = %55, %41, %37, %26, %76, %67, %14, %4, %.critedge50
+  %.1 = phi ptr [ null, %76 ], [ %88, %.critedge50 ], [ null, %14 ], [ null, %67 ], [ null, %4 ], [ null, %26 ], [ null, %37 ], [ null, %41 ], [ null, %55 ]
   ret ptr %.1
 }
 
@@ -610,7 +610,7 @@ lexbor_str_init.exit._crit_edge:                  ; preds = %lexbor_str_init.exi
   br label %lexbor_str_append.exit
 
 lexbor_str_append.exit:                           ; preds = %9, %33, %29, %16, %lexbor_str_init.exit, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %lexbor_str_init.exit ], [ %36, %33 ], [ null, %29 ], [ null, %16 ], [ null, %9 ]
+  %.0 = phi ptr [ null, %29 ], [ null, %3 ], [ null, %lexbor_str_init.exit ], [ %36, %33 ], [ null, %16 ], [ null, %9 ]
   ret ptr %.0
 }
 
@@ -972,7 +972,7 @@ lexbor_str_data_ncasecmp.exit:                    ; preds = %.lr.ph.i
   br i1 %.not.not, label %.loopexit, label %.lr.ph.i.preheader
 
 .loopexit:                                        ; preds = %lexbor_str_data_ncasecmp.exit, %7, %.lr.ph, %4
-  %.not16 = phi i1 [ false, %4 ], [ true, %.lr.ph ], [ true, %7 ], [ false, %lexbor_str_data_ncasecmp.exit ]
+  %.not16 = phi i1 [ true, %.lr.ph ], [ true, %7 ], [ false, %4 ], [ false, %lexbor_str_data_ncasecmp.exit ]
   ret i1 %.not16
 }
 

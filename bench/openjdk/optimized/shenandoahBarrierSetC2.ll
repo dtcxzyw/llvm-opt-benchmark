@@ -627,7 +627,7 @@ define hidden noundef zeroext i1 @_ZNK22ShenandoahBarrierSetC227satb_can_remove_
   br label %76
 
 76:                                               ; preds = %66, %71, %6, %.loopexit
-  %.0 = phi i1 [ false, %.loopexit ], [ false, %6 ], [ true, %71 ], [ true, %66 ]
+  %.0 = phi i1 [ true, %66 ], [ false, %6 ], [ false, %.loopexit ], [ true, %71 ]
   ret i1 %.0
 }
 
@@ -1876,7 +1876,7 @@ _ZN4NodenwEm.exit:                                ; preds = %29, %31
   br label %93
 
 93:                                               ; preds = %3, %53, %89, %77, %85, %88
-  %.0 = phi ptr [ %.059, %88 ], [ %.059, %85 ], [ %.059, %77 ], [ %.059, %89 ], [ %.059, %53 ], [ %7, %3 ]
+  %.0 = phi ptr [ %.059, %53 ], [ %.059, %77 ], [ %.059, %88 ], [ %.059, %85 ], [ %.059, %89 ], [ %7, %3 ]
   ret ptr %.0
 }
 
@@ -2048,7 +2048,7 @@ _ZN4NodenwEm.exit:                                ; preds = %84, %86
   br label %101
 
 101:                                              ; preds = %99, %97, %89
-  %102 = phi ptr [ %100, %99 ], [ null, %97 ], [ %93, %89 ]
+  %102 = phi ptr [ null, %97 ], [ %100, %99 ], [ %93, %89 ]
   call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i.i, i32 noundef 2) #15
   %103 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   store ptr %102, ptr %103, align 8
@@ -2151,7 +2151,7 @@ _ZN4NodenwEm.exit83:                              ; preds = %144, %146
   br label %161
 
 161:                                              ; preds = %159, %157, %149
-  %162 = phi ptr [ %160, %159 ], [ null, %157 ], [ %153, %149 ]
+  %162 = phi ptr [ null, %157 ], [ %160, %159 ], [ %153, %149 ]
   call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i.i82, i32 noundef 2) #15
   %163 = getelementptr inbounds nuw i8, ptr %.0.i.i.i82, i64 56
   store ptr %162, ptr %163, align 8
@@ -2260,7 +2260,7 @@ _ZN4NodenwEm.exit92:                              ; preds = %207, %209
   br label %_ZNK4Type14make_narrowoopEv.exit94
 
 _ZNK4Type14make_narrowoopEv.exit94:               ; preds = %212, %221, %223
-  %225 = phi ptr [ %224, %223 ], [ null, %221 ], [ %4, %212 ]
+  %225 = phi ptr [ null, %221 ], [ %224, %223 ], [ %4, %212 ]
   call void @_ZN13LoadStoreNodeC2EP4NodeS1_S1_S1_PK7TypePtrPK4Typej(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i91, ptr noundef %217, ptr noundef %50, ptr noundef nonnull %53, ptr noundef %128, ptr noundef %55, ptr noundef %225, i32 noundef 5) #15
   store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV22CompareAndExchangeNode, i64 16), ptr %.0.i.i.i91, align 8
   %226 = getelementptr inbounds nuw i8, ptr %.0.i.i.i91, i64 76
@@ -2350,7 +2350,7 @@ _ZN4NodenwEm.exit98:                              ; preds = %252, %254
   br label %_ZNK4Type14make_narrowoopEv.exit100
 
 _ZNK4Type14make_narrowoopEv.exit100:              ; preds = %257, %266, %268
-  %270 = phi ptr [ %269, %268 ], [ null, %266 ], [ %4, %257 ]
+  %270 = phi ptr [ null, %266 ], [ %269, %268 ], [ %4, %257 ]
   call void @_ZN13LoadStoreNodeC2EP4NodeS1_S1_S1_PK7TypePtrPK4Typej(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i97, ptr noundef %262, ptr noundef %50, ptr noundef nonnull %53, ptr noundef %128, ptr noundef %55, ptr noundef %270, i32 noundef 5) #15
   store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV22CompareAndExchangeNode, i64 16), ptr %.0.i.i.i97, align 8
   %271 = getelementptr inbounds nuw i8, ptr %.0.i.i.i97, i64 76
@@ -2910,7 +2910,7 @@ _ZN4NodenwEm.exit:                                ; preds = %85, %87
   br label %102
 
 102:                                              ; preds = %100, %98, %90
-  %103 = phi ptr [ %101, %100 ], [ null, %98 ], [ %94, %90 ]
+  %103 = phi ptr [ null, %98 ], [ %101, %100 ], [ %94, %90 ]
   call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i.i, i32 noundef 2) #15
   %104 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   store ptr %103, ptr %104, align 8
@@ -3013,7 +3013,7 @@ _ZN4NodenwEm.exit103:                             ; preds = %145, %147
   br label %162
 
 162:                                              ; preds = %160, %158, %150
-  %163 = phi ptr [ %161, %160 ], [ null, %158 ], [ %154, %150 ]
+  %163 = phi ptr [ null, %158 ], [ %161, %160 ], [ %154, %150 ]
   call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i.i102, i32 noundef 2) #15
   %164 = getelementptr inbounds nuw i8, ptr %.0.i.i.i102, i64 56
   store ptr %163, ptr %164, align 8
@@ -3626,7 +3626,7 @@ define hidden noundef zeroext i1 @_ZNK22ShenandoahBarrierSetC218is_gc_barrier_no
   br label %33
 
 33:                                               ; preds = %24, %27, %30, %20, %16, %2, %7
-  %.0 = phi i1 [ true, %7 ], [ true, %2 ], [ false, %16 ], [ false, %20 ], [ true, %27 ], [ true, %24 ], [ %32, %30 ]
+  %.0 = phi i1 [ false, %20 ], [ true, %2 ], [ false, %16 ], [ true, %7 ], [ true, %27 ], [ true, %24 ], [ %32, %30 ]
   ret i1 %.0
 }
 
@@ -3727,7 +3727,7 @@ define hidden noundef zeroext i1 @_ZNK22ShenandoahBarrierSetC231array_copy_requi
   br label %_Z17is_reference_type9BasicTypeb.exit
 
 _Z17is_reference_type9BasicTypeb.exit:            ; preds = %6, %11, %14, %16
-  %.0 = phi i1 [ %19, %16 ], [ true, %14 ], [ %spec.select, %11 ], [ false, %6 ]
+  %.0 = phi i1 [ %spec.select, %11 ], [ true, %14 ], [ %19, %16 ], [ false, %6 ]
   ret i1 %.0
 }
 
@@ -3839,7 +3839,7 @@ switch.lookup:                                    ; preds = %58
   br label %_ZN15ciInstanceKlass12has_subklassEv.exit.thread
 
 _ZN15ciInstanceKlass12has_subklassEv.exit.thread: ; preds = %45, %40, %58, %switch.lookup, %24, %56, %_ZN15ciInstanceKlass12has_subklassEv.exit, %_ZN15ciInstanceKlass19has_injected_fieldsEv.exit, %38
-  %.0 = phi i1 [ true, %38 ], [ true, %_ZN15ciInstanceKlass19has_injected_fieldsEv.exit ], [ true, %_ZN15ciInstanceKlass12has_subklassEv.exit ], [ true, %56 ], [ true, %24 ], [ %switch.masked, %switch.lookup ], [ false, %58 ], [ false, %40 ], [ false, %45 ]
+  %.0 = phi i1 [ true, %38 ], [ %switch.masked, %switch.lookup ], [ true, %24 ], [ true, %_ZN15ciInstanceKlass12has_subklassEv.exit ], [ true, %_ZN15ciInstanceKlass19has_injected_fieldsEv.exit ], [ true, %56 ], [ false, %58 ], [ false, %40 ], [ false, %45 ]
   ret i1 %.0
 }
 
@@ -6081,7 +6081,7 @@ _ZN22ShenandoahBarrierSetC225is_shenandoah_wb_pre_callEP4Node.exit.thread: ; pre
   br label %_ZN16Unique_Node_List4pushEP4Node.exit
 
 _ZN16Unique_Node_List4pushEP4Node.exit:           ; preds = %173, %.critedge, %_ZN9Node_List4pushEP4Node.exit.i, %_ZN9VectorSet8test_setEj.exit.i, %138, %154, %150, %148, %143, %142, %176, %_ZN22ShenandoahBarrierSetC231has_only_shenandoah_wb_pre_usesEP4Node.exit, %178, %141, %137
-  %.059 = phi ptr [ %2, %137 ], [ %2, %141 ], [ %182, %178 ], [ %2, %_ZN22ShenandoahBarrierSetC231has_only_shenandoah_wb_pre_usesEP4Node.exit ], [ null, %176 ], [ null, %142 ], [ null, %143 ], [ null, %148 ], [ null, %150 ], [ null, %154 ], [ null, %138 ], [ %2, %_ZN9VectorSet8test_setEj.exit.i ], [ %2, %_ZN9Node_List4pushEP4Node.exit.i ], [ null, %.critedge ], [ null, %173 ]
+  %.059 = phi ptr [ %182, %178 ], [ %2, %137 ], [ %2, %141 ], [ null, %176 ], [ %2, %_ZN22ShenandoahBarrierSetC231has_only_shenandoah_wb_pre_usesEP4Node.exit ], [ %2, %_ZN9VectorSet8test_setEj.exit.i ], [ %2, %_ZN9Node_List4pushEP4Node.exit.i ], [ null, %138 ], [ null, %142 ], [ null, %143 ], [ null, %148 ], [ null, %150 ], [ null, %154 ], [ null, %.critedge ], [ null, %173 ]
   ret ptr %.059
 }
 
@@ -6151,7 +6151,7 @@ _ZN22ShenandoahBarrierSetC225is_shenandoah_wb_pre_callEP4Node.exit: ; preds = %6
   br label %_ZN22ShenandoahBarrierSetC225is_shenandoah_wb_pre_callEP4Node.exit.thread
 
 _ZN22ShenandoahBarrierSetC225is_shenandoah_wb_pre_callEP4Node.exit.thread: ; preds = %6, %5, %5, %5, %5, %5, %5, %5, %_ZN22ShenandoahBarrierSetC225is_shenandoah_wb_pre_callEP4Node.exit, %31, %14, %32
-  %.0 = phi i1 [ false, %32 ], [ false, %14 ], [ false, %31 ], [ false, %_ZN22ShenandoahBarrierSetC225is_shenandoah_wb_pre_callEP4Node.exit ], [ true, %5 ], [ true, %5 ], [ true, %5 ], [ true, %5 ], [ true, %5 ], [ true, %5 ], [ true, %5 ], [ false, %6 ]
+  %.0 = phi i1 [ false, %32 ], [ true, %5 ], [ false, %_ZN22ShenandoahBarrierSetC225is_shenandoah_wb_pre_callEP4Node.exit ], [ false, %14 ], [ false, %31 ], [ true, %5 ], [ true, %5 ], [ true, %5 ], [ true, %5 ], [ true, %5 ], [ true, %5 ], [ false, %6 ]
   ret i1 %.0
 }
 
@@ -6272,7 +6272,7 @@ _ZN11PhaseValues13find_long_conEP4Nodel.exit:     ; preds = %52
   br label %76
 
 76:                                               ; preds = %66, %6, %_ZN11PhaseValues13find_long_conEP4Nodel.exit, %71, %.critedge, %8
-  %.0 = phi i1 [ true, %8 ], [ false, %.critedge ], [ true, %71 ], [ true, %_ZN11PhaseValues13find_long_conEP4Nodel.exit ], [ false, %6 ], [ false, %66 ]
+  %.0 = phi i1 [ true, %_ZN11PhaseValues13find_long_conEP4Nodel.exit ], [ true, %8 ], [ true, %71 ], [ false, %.critedge ], [ false, %6 ], [ false, %66 ]
   ret i1 %.0
 }
 
@@ -6449,7 +6449,7 @@ define hidden noundef zeroext i1 @_ZNK22ShenandoahBarrierSetC222escape_add_final
   br label %62
 
 62:                                               ; preds = %5, %44, %26, %24
-  %.0 = phi i1 [ %25, %24 ], [ true, %26 ], [ true, %44 ], [ false, %5 ]
+  %.0 = phi i1 [ true, %44 ], [ %25, %24 ], [ true, %26 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -7054,7 +7054,7 @@ _ZN26GrowableArrayWithAllocatorIP12PointsToNode13GrowableArrayIS1_EE6appendERKS1
   br label %_ZN12PointsToNode8add_edgeEPS_.exit
 
 _ZN12PointsToNode8add_edgeEPS_.exit:              ; preds = %19, %47, %_ZN26GrowableArrayWithAllocatorIP12PointsToNode13GrowableArrayIS1_EE6appendERKS1_.exit.i.i12, %7
-  %.010 = phi i1 [ false, %7 ], [ true, %_ZN26GrowableArrayWithAllocatorIP12PointsToNode13GrowableArrayIS1_EE6appendERKS1_.exit.i.i12 ], [ false, %47 ], [ false, %19 ]
+  %.010 = phi i1 [ false, %7 ], [ false, %47 ], [ true, %_ZN26GrowableArrayWithAllocatorIP12PointsToNode13GrowableArrayIS1_EE6appendERKS1_.exit.i.i12 ], [ false, %19 ]
   ret i1 %.010
 }
 

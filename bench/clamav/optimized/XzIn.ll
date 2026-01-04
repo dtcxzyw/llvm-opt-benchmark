@@ -29,7 +29,7 @@ define i32 @Xz_ReadHeader(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br label %8
 
 8:                                                ; preds = %5, %2, %6
-  %.1 = phi i32 [ %7, %6 ], [ %4, %2 ], [ 17, %5 ]
+  %.1 = phi i32 [ %4, %2 ], [ %7, %6 ], [ 17, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.1
 }
@@ -66,7 +66,7 @@ define i32 @XzBlock_ReadHeader(ptr noundef %0, ptr noundef %1, ptr noundef write
   br label %18
 
 18:                                               ; preds = %7, %4, %16
-  %.1 = phi i32 [ %17, %16 ], [ %15, %7 ], [ %6, %4 ]
+  %.1 = phi i32 [ %6, %4 ], [ %17, %16 ], [ %15, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.1
 }
@@ -414,7 +414,7 @@ define i32 @Xzs_ReadBackward(ptr noundef captures(none) %0, ptr noundef %1, ptr 
   br label %73
 
 .loopexit.i:                                      ; preds = %68, %66, %62, %58, %.thread.i, %37, %69, %46, %.lr.ph181.i, %53
-  %.5.ph.i = phi i32 [ 17, %53 ], [ %47, %46 ], [ %45, %.lr.ph181.i ], [ 17, %69 ], [ 17, %37 ], [ %67, %66 ], [ %65, %62 ], [ 17, %.thread.i ], [ 17, %58 ], [ 17, %68 ]
+  %.5.ph.i = phi i32 [ 17, %53 ], [ 17, %69 ], [ %45, %.lr.ph181.i ], [ %47, %46 ], [ 17, %37 ], [ 17, %68 ], [ 17, %58 ], [ 17, %.thread.i ], [ %65, %62 ], [ %67, %66 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread73.sink.split
 
@@ -583,8 +583,8 @@ Xz_ReadBackward.exit.thread68:                    ; preds = %116, %114
   %.not63 = icmp eq i32 %154, 0
   br i1 %.not63, label %155, label %.sink.split
 
-.thread73.sink.split:                             ; preds = %110, %91, %84, %34, %31, %155, %73, %81, %Xz_GetPackSize.exit.i, %99, %.loopexit.i, %15, %Xz_ReadBackward.exit.thread68
-  %.4.ph.ph = phi i32 [ %.15.i.ph, %Xz_ReadBackward.exit.thread68 ], [ %.5.ph.i, %.loopexit.i ], [ 17, %15 ], [ 16, %99 ], [ 16, %Xz_GetPackSize.exit.i ], [ 16, %81 ], [ 4, %73 ], [ 17, %155 ], [ %33, %31 ], [ %35, %34 ], [ %90, %84 ], [ %93, %91 ], [ %113, %110 ]
+.thread73.sink.split:                             ; preds = %31, %73, %110, %91, %84, %155, %34, %81, %Xz_GetPackSize.exit.i, %99, %.loopexit.i, %15, %Xz_ReadBackward.exit.thread68
+  %.4.ph.ph = phi i32 [ %.15.i.ph, %Xz_ReadBackward.exit.thread68 ], [ %.5.ph.i, %.loopexit.i ], [ 17, %15 ], [ 16, %99 ], [ %113, %110 ], [ %93, %91 ], [ %90, %84 ], [ 17, %155 ], [ %35, %34 ], [ 16, %81 ], [ 16, %Xz_GetPackSize.exit.i ], [ 4, %73 ], [ %33, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.sink.split
 
@@ -601,7 +601,7 @@ Xz_ReadBackward.exit.thread68:                    ; preds = %116, %114
   br i1 %or.cond149.i, label %.thread73.sink.split, label %31
 
 .sink.split:                                      ; preds = %138, %125, %149, %145, %.thread73.sink.split
-  %.1.ph = phi i32 [ %.4.ph.ph, %.thread73.sink.split ], [ 2, %125 ], [ %147, %145 ], [ 10, %149 ], [ 0, %138 ]
+  %.1.ph = phi i32 [ %.4.ph.ph, %.thread73.sink.split ], [ %147, %145 ], [ 10, %149 ], [ 2, %125 ], [ 0, %138 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %159
 
@@ -749,14 +749,14 @@ define internal fastcc i32 @Xz_ReadIndex(ptr noundef nonnull %0, ptr noundef %1,
   br label %Xz_ReadIndex2.exit
 
 Xz_ReadIndex2.exit:                               ; preds = %58, %52, %.preheader.i, %61, %.critedge.i, %65, %34, %18, %16, %14, %11
-  %.020 = phi i32 [ %12, %11 ], [ %67, %65 ], [ 16, %16 ], [ 16, %14 ], [ 16, %18 ], [ 16, %.critedge.i ], [ 2, %34 ], [ 16, %61 ], [ 16, %.preheader.i ], [ 16, %52 ], [ 16, %58 ]
+  %.020 = phi i32 [ %12, %11 ], [ 16, %.critedge.i ], [ 16, %14 ], [ 16, %18 ], [ 2, %34 ], [ 16, %61 ], [ %67, %65 ], [ 16, %16 ], [ 16, %.preheader.i ], [ 16, %52 ], [ 16, %58 ]
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %69 = load ptr, ptr %68, align 8, !tbaa !21
   call void %69(ptr noundef nonnull %3, ptr noundef nonnull %9) #9
   br label %70
 
 70:                                               ; preds = %7, %4, %Xz_ReadIndex2.exit
-  %.0 = phi i32 [ %.020, %Xz_ReadIndex2.exit ], [ 4, %4 ], [ 2, %7 ]
+  %.0 = phi i32 [ 4, %4 ], [ %.020, %Xz_ReadIndex2.exit ], [ 2, %7 ]
   ret i32 %.0
 }
 

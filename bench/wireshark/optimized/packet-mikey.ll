@@ -687,7 +687,7 @@ dissect_payload_cs_id.exit.thread:                ; preds = %.lr.ph, %dissect_pa
   br i1 %exitcond.not, label %._crit_edge, label %dissect_payload_cs_id.exit.thread, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %dissect_payload_cs_id.exit.thread, %dissect_payload_cs_id.exit.us, %dissect_payload_cs_id.exit.thread.us, %29
-  %.2 = phi i32 [ 10, %29 ], [ %35, %dissect_payload_cs_id.exit.thread.us ], [ 0, %dissect_payload_cs_id.exit.us ], [ 10, %dissect_payload_cs_id.exit.thread ]
+  %.2 = phi i32 [ %35, %dissect_payload_cs_id.exit.thread.us ], [ 10, %29 ], [ 0, %dissect_payload_cs_id.exit.us ], [ 10, %dissect_payload_cs_id.exit.thread ]
   ret i32 %.2
 }
 
@@ -815,7 +815,7 @@ switch.lookup:                                    ; preds = %4
   br label %22
 
 22:                                               ; preds = %4, %20
-  %.0 = phi i32 [ 0, %4 ], [ %spec.select, %20 ]
+  %.0 = phi i32 [ %spec.select, %20 ], [ 0, %4 ]
   ret i32 %.0
 }
 

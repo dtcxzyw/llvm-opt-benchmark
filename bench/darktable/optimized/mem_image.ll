@@ -207,13 +207,13 @@ define noalias noundef ptr @_ZN6LibRaw20dcraw_make_mem_thumbEPi(ptr noundef nonn
   br i1 %.not77, label %91, label %.sink.split97
 
 .sink.split97:                                    ; preds = %90, %84, %83, %58, %78, %34, %33, %27, %24, %19, %18
-  %.sink.sink = phi i32 [ -5, %18 ], [ -4, %19 ], [ 22, %24 ], [ -100012, %27 ], [ 12, %33 ], [ 0, %34 ], [ 12, %58 ], [ 0, %78 ], [ 12, %83 ], [ 0, %84 ], [ -6, %90 ]
-  %.0.ph = phi ptr [ null, %18 ], [ null, %19 ], [ null, %24 ], [ null, %27 ], [ null, %33 ], [ %32, %34 ], [ %57, %58 ], [ %57, %78 ], [ null, %83 ], [ %82, %84 ], [ null, %90 ]
+  %.sink.sink = phi i32 [ 0, %34 ], [ 0, %84 ], [ 0, %78 ], [ 12, %83 ], [ -100012, %27 ], [ 12, %33 ], [ 22, %24 ], [ -4, %19 ], [ -5, %18 ], [ 12, %58 ], [ -6, %90 ]
+  %.0.ph = phi ptr [ %32, %34 ], [ %82, %84 ], [ %57, %78 ], [ null, %83 ], [ null, %27 ], [ null, %33 ], [ null, %24 ], [ null, %19 ], [ null, %18 ], [ %57, %58 ], [ null, %90 ]
   store i32 %.sink.sink, ptr %1, align 4, !tbaa !87
   br label %91
 
 91:                                               ; preds = %.sink.split97, %58, %78, %90, %83, %84, %33, %34, %27, %24, %18, %19
-  %.0 = phi ptr [ null, %19 ], [ null, %18 ], [ null, %24 ], [ null, %27 ], [ null, %33 ], [ %32, %34 ], [ null, %83 ], [ %82, %84 ], [ null, %90 ], [ %57, %78 ], [ %57, %58 ], [ %.0.ph, %.sink.split97 ]
+  %.0 = phi ptr [ null, %33 ], [ null, %24 ], [ null, %27 ], [ null, %90 ], [ %32, %34 ], [ %82, %84 ], [ null, %19 ], [ %57, %78 ], [ null, %18 ], [ %57, %58 ], [ null, %83 ], [ %.0.ph, %.sink.split97 ]
   ret ptr %.0
 }
 
@@ -504,7 +504,7 @@ define noundef range(i32 -4, 1) i32 @_ZN6LibRaw14copy_mem_imageEPvii(ptr noundef
   br label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %.preheader97.lr.ph.split.us156, %.loopexit.us.loopexit181, %.preheader.lr.ph.us.split.us, %.loopexit.us.loopexit, %.preheader99.us, %.preheader98.us
-  %.3.us = phi i32 [ %.065147.us, %.preheader98.us ], [ %.065147.us, %.preheader99.us ], [ %89, %.loopexit.us.loopexit ], [ %144, %.preheader.lr.ph.us.split.us ], [ %90, %.loopexit.us.loopexit181 ], [ %124, %.preheader97.lr.ph.split.us156 ]
+  %.3.us = phi i32 [ %.065147.us, %.preheader98.us ], [ %144, %.preheader.lr.ph.us.split.us ], [ %.065147.us, %.preheader99.us ], [ %90, %.loopexit.us.loopexit181 ], [ %89, %.loopexit.us.loopexit ], [ %124, %.preheader97.lr.ph.split.us156 ]
   %indvars.iv.next251 = add nuw nsw i64 %indvars.iv250, 1
   %91 = add nsw i32 %77, %.3.us
   %92 = load i16, ptr %63, align 4, !tbaa !89
@@ -852,7 +852,7 @@ define noundef range(i32 -4, 1) i32 @_ZN6LibRaw14copy_mem_imageEPvii(ptr noundef
   br label %.loopexit102
 
 .loopexit102:                                     ; preds = %.lr.ph116.split, %.loopexit102.loopexit184, %.lr.ph124.split.us, %.loopexit102.loopexit, %.preheader103, %.preheader101
-  %.3 = phi i32 [ %.065147, %.preheader101 ], [ %.065147, %.preheader103 ], [ %236, %.loopexit102.loopexit ], [ %215, %.lr.ph124.split.us ], [ %237, %.loopexit102.loopexit184 ], [ %207, %.lr.ph116.split ]
+  %.3 = phi i32 [ %237, %.loopexit102.loopexit184 ], [ %.065147, %.preheader101 ], [ %236, %.loopexit102.loopexit ], [ %.065147, %.preheader103 ], [ %215, %.lr.ph124.split.us ], [ %207, %.lr.ph116.split ]
   %indvars.iv.next232 = add nuw nsw i64 %indvars.iv231, 1
   %238 = load i16, ptr %63, align 4, !tbaa !89
   %239 = zext i16 %238 to i64

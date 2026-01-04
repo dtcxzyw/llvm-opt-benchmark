@@ -1197,7 +1197,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit252
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit252: ; preds = %370, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i250, %327, %339, %331, %368
-  %.pn129.pn.pn.pn = phi { ptr, i32 } [ %369, %368 ], [ %.pn125.pn, %327 ], [ %.pn129, %339 ], [ %332, %331 ], [ %371, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i250 ], [ %371, %370 ]
+  %.pn129.pn.pn.pn = phi { ptr, i32 } [ %369, %368 ], [ %332, %331 ], [ %371, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i250 ], [ %.pn125.pn, %327 ], [ %.pn129, %339 ], [ %371, %370 ]
   %376 = load ptr, ptr %27, align 8, !tbaa !32
   %377 = icmp eq ptr %376, %276
   br i1 %377, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit255, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i253
@@ -1213,12 +1213,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit255: ; preds = %_Z
   br label %380
 
 380:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit255, %252, %258, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit234
-  %.pn129.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn120, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit234 ], [ %.pn, %258 ], [ %253, %252 ], [ %.pn129.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit255 ]
+  %.pn129.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %253, %252 ], [ %.pn129.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit255 ], [ %.pn120, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit234 ], [ %.pn, %258 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %381
 
 381:                                              ; preds = %207, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit225, %230, %380, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit218, %179, %173
-  %.pn146.pn = phi { ptr, i32 } [ %.pn146, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit218 ], [ %.pn144, %179 ], [ %174, %173 ], [ %.pn141, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit225 ], [ %.pn139, %207 ], [ %231, %230 ], [ %.pn129.pn.pn.pn.pn.pn, %380 ]
+  %.pn146.pn = phi { ptr, i32 } [ %.pn146, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit218 ], [ %.pn144, %179 ], [ %174, %173 ], [ %.pn141, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit225 ], [ %.pn139, %207 ], [ %.pn129.pn.pn.pn.pn.pn, %380 ], [ %231, %230 ]
   %.not.i.i256 = icmp eq ptr %158, null
   br i1 %.not.i.i256, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit178, label %382
 
@@ -1234,7 +1234,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit255: ; preds = %_Z
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit178: ; preds = %151, %124, %94, %66, %382, %381, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i209, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i198, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i187, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i176, %149, %122, %92, %64, %49
-  %.pn157 = phi { ptr, i32 } [ %50, %49 ], [ %65, %64 ], [ %93, %92 ], [ %123, %122 ], [ %150, %149 ], [ %67, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i176 ], [ %95, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i187 ], [ %125, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i198 ], [ %152, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i209 ], [ %.pn146.pn, %381 ], [ %.pn146.pn, %382 ], [ %67, %66 ], [ %95, %94 ], [ %125, %124 ], [ %152, %151 ]
+  %.pn157 = phi { ptr, i32 } [ %50, %49 ], [ %152, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i209 ], [ %65, %64 ], [ %67, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i176 ], [ %93, %92 ], [ %95, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i187 ], [ %123, %122 ], [ %125, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i198 ], [ %150, %149 ], [ %.pn146.pn, %382 ], [ %95, %94 ], [ %.pn146.pn, %381 ], [ %67, %66 ], [ %125, %124 ], [ %152, %151 ]
   resume { ptr, i32 } %.pn157
 }
 
@@ -2743,7 +2743,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit4
 
 _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit4: ; preds = %24, %0, %21, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i2
-  %.010 = phi i64 [ %spec.select, %21 ], [ %spec.select, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i2 ], [ 100, %0 ], [ %spec.select, %24 ]
+  %.010 = phi i64 [ %spec.select, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i2 ], [ %spec.select, %21 ], [ 100, %0 ], [ %spec.select, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.010
 }
@@ -3592,7 +3592,7 @@ _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit.i.i: ; preds =
   br label %.thread116.i
 
 .thread116.i:                                     ; preds = %254, %230, %228, %226, %224
-  %.pn.pn.pn.pn119.i = phi { ptr, i32 } [ %229, %228 ], [ %227, %226 ], [ %225, %224 ], [ %231, %230 ], [ %255, %254 ]
+  %.pn.pn.pn.pn119.i = phi { ptr, i32 } [ %225, %224 ], [ %229, %228 ], [ %227, %226 ], [ %255, %254 ], [ %231, %230 ]
   invoke void @upb_Arena_Free(ptr noundef nonnull %13)
           to label %common.resume unwind label %256
 

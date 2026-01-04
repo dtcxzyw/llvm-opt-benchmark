@@ -433,12 +433,12 @@ define hidden range(i32 0, 2) i32 @CRYPTO_gcm128_aad(ptr noundef %0, ptr noundef
   br label %.sink.split
 
 .sink.split:                                      ; preds = %46, %.loopexit.loopexit, %._crit_edge, %.preheader
-  %.251.sink = phi i32 [ %29, %._crit_edge ], [ %18, %.preheader ], [ 0, %46 ], [ %56, %.loopexit.loopexit ]
+  %.251.sink = phi i32 [ %18, %.preheader ], [ %29, %._crit_edge ], [ 0, %46 ], [ %56, %.loopexit.loopexit ]
   store i32 %.251.sink, ptr %17, align 4, !tbaa !23
   br label %57
 
 57:                                               ; preds = %.sink.split, %11, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %11 ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ 0, %11 ], [ 0, %3 ], [ 1, %.sink.split ]
   ret i32 %.0
 }
 
@@ -707,7 +707,7 @@ define hidden range(i32 0, 2) i32 @CRYPTO_gcm128_encrypt(ptr noundef %0, ptr nou
   br i1 %.not175, label %.sink.split, label %137, !llvm.loop !36
 
 .sink.split:                                      ; preds = %137, %125, %._crit_edge, %.preheader178
-  %.2157.sink = phi i32 [ %59, %._crit_edge ], [ %43, %.preheader178 ], [ 0, %125 ], [ %149, %137 ]
+  %.2157.sink = phi i32 [ %43, %.preheader178 ], [ %59, %._crit_edge ], [ 0, %125 ], [ %149, %137 ]
   store i32 %.2157.sink, ptr %42, align 8, !tbaa !24
   br label %150
 
@@ -975,7 +975,7 @@ define hidden range(i32 0, 2) i32 @CRYPTO_gcm128_decrypt(ptr noundef %0, ptr nou
   br i1 %.not178, label %.sink.split, label %134, !llvm.loop !41
 
 .sink.split:                                      ; preds = %134, %.loopexit180, %._crit_edge, %.preheader
-  %.2160.sink = phi i32 [ %59, %._crit_edge ], [ %43, %.preheader ], [ 0, %.loopexit180 ], [ %146, %134 ]
+  %.2160.sink = phi i32 [ %43, %.preheader ], [ %59, %._crit_edge ], [ 0, %.loopexit180 ], [ %146, %134 ]
   store i32 %.2160.sink, ptr %42, align 8, !tbaa !24
   br label %147
 
@@ -1221,7 +1221,7 @@ aesni_gcm_enabled.exit.thread:                    ; preds = %50, %53, %aesni_gcm
   br i1 %.not166, label %.sink.split, label %124, !llvm.loop !44
 
 .sink.split:                                      ; preds = %124, %110, %._crit_edge, %.preheader
-  %.2152.sink = phi i32 [ %40, %._crit_edge ], [ %24, %.preheader ], [ 0, %110 ], [ %136, %124 ]
+  %.2152.sink = phi i32 [ %24, %.preheader ], [ %40, %._crit_edge ], [ 0, %110 ], [ %136, %124 ]
   store i32 %.2152.sink, ptr %23, align 8, !tbaa !24
   br label %137
 
@@ -1469,7 +1469,7 @@ aesni_gcm_enabled.exit.thread:                    ; preds = %50, %53, %aesni_gcm
   br i1 %.not170, label %.sink.split, label %124, !llvm.loop !47
 
 .sink.split:                                      ; preds = %124, %110, %._crit_edge, %.preheader
-  %.2156.sink = phi i32 [ %40, %._crit_edge ], [ %24, %.preheader ], [ 0, %110 ], [ %136, %124 ]
+  %.2156.sink = phi i32 [ %24, %.preheader ], [ %40, %._crit_edge ], [ 0, %110 ], [ %136, %124 ]
   store i32 %.2156.sink, ptr %23, align 8, !tbaa !24
   br label %137
 

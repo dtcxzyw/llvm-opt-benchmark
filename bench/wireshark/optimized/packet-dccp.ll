@@ -1032,8 +1032,8 @@ proto_item_set_hidden.exit609:                    ; preds = %322, %319, %315, %3
   br label %.thread626
 
 .thread626:                                       ; preds = %343, %.thread, %347
-  %350 = phi i64 [ %.pre661, %347 ], [ %335, %.thread ], [ %335, %343 ]
-  %.0553624628 = phi i64 [ %346, %347 ], [ %335, %.thread ], [ %335, %343 ]
+  %350 = phi i64 [ %335, %.thread ], [ %.pre661, %347 ], [ %335, %343 ]
+  %.0553624628 = phi i64 [ %335, %.thread ], [ %346, %347 ], [ %335, %343 ]
   %351 = load i32, ptr @hf_dccp_ack_abs, align 4
   %352 = call ptr @proto_tree_add_uint64(ptr noundef %56, i32 noundef %351, ptr noundef %0, i32 noundef %326, i32 noundef 6, i64 noundef %350)
   br label %353
@@ -1163,8 +1163,8 @@ proto_item_set_hidden.exit612:                    ; preds = %396, %393, %389, %3
   br label %.thread633
 
 .thread633:                                       ; preds = %417, %.thread629, %421
-  %424 = phi i64 [ %.pre660, %421 ], [ %409, %.thread629 ], [ %409, %417 ]
-  %.1554631635 = phi i64 [ %420, %421 ], [ %409, %.thread629 ], [ %409, %417 ]
+  %424 = phi i64 [ %409, %.thread629 ], [ %.pre660, %421 ], [ %409, %417 ]
+  %.1554631635 = phi i64 [ %409, %.thread629 ], [ %420, %421 ], [ %409, %417 ]
   %425 = load i32, ptr @hf_dccp_ack_abs, align 4
   %426 = call ptr @proto_tree_add_uint64(ptr noundef %56, i32 noundef %425, ptr noundef %0, i32 noundef %400, i32 noundef 6, i64 noundef %424)
   br label %427
@@ -1258,8 +1258,8 @@ proto_item_set_hidden.exit615:                    ; preds = %446, %443, %439, %4
   br label %.thread640
 
 .thread640:                                       ; preds = %467, %.thread636, %472
-  %475 = phi i64 [ %.pre659, %472 ], [ %459, %.thread636 ], [ %459, %467 ]
-  %.2638642 = phi i64 [ %471, %472 ], [ %459, %.thread636 ], [ %459, %467 ]
+  %475 = phi i64 [ %459, %.thread636 ], [ %.pre659, %472 ], [ %459, %467 ]
+  %.2638642 = phi i64 [ %459, %.thread636 ], [ %471, %472 ], [ %459, %467 ]
   %476 = load i32, ptr @hf_dccp_ack_abs, align 4
   %477 = call ptr @proto_tree_add_uint64(ptr noundef %56, i32 noundef %476, ptr noundef %0, i32 noundef %450, i32 noundef 3, i64 noundef %475)
   br label %478
@@ -1350,8 +1350,8 @@ proto_item_set_hidden.exit618:                    ; preds = %494, %491, %487, %4
   br label %.thread647
 
 .thread647:                                       ; preds = %514, %.thread643, %519
-  %523 = phi i64 [ %.pre658, %519 ], [ %506, %.thread643 ], [ %506, %514 ]
-  %.3645649 = phi i64 [ %518, %519 ], [ %506, %.thread643 ], [ %506, %514 ]
+  %523 = phi i64 [ %506, %.thread643 ], [ %.pre658, %519 ], [ %506, %514 ]
+  %.3645649 = phi i64 [ %506, %.thread643 ], [ %518, %519 ], [ %506, %514 ]
   %524 = load i32, ptr @hf_dccp_ack_abs, align 4
   %525 = or disjoint i32 %.0550, 1
   %526 = call ptr @proto_tree_add_uint64(ptr noundef %56, i32 noundef %524, ptr noundef %0, i32 noundef %525, i32 noundef 3, i64 noundef %523)
@@ -1490,8 +1490,8 @@ proto_item_set_hidden.exit621:                    ; preds = %581, %578, %574, %5
   br label %.thread654
 
 .thread654:                                       ; preds = %602, %.thread650, %607
-  %611 = phi i64 [ %.pre657, %607 ], [ %594, %.thread650 ], [ %594, %602 ]
-  %.4652656 = phi i64 [ %606, %607 ], [ %594, %.thread650 ], [ %594, %602 ]
+  %611 = phi i64 [ %594, %.thread650 ], [ %.pre657, %607 ], [ %594, %602 ]
+  %.4652656 = phi i64 [ %594, %.thread650 ], [ %606, %607 ], [ %594, %602 ]
   %612 = load i32, ptr @hf_dccp_ack_abs, align 4
   %613 = or disjoint i32 %.0550, 1
   %614 = call ptr @proto_tree_add_uint64(ptr noundef %56, i32 noundef %612, ptr noundef %0, i32 noundef %613, i32 noundef 3, i64 noundef %611)
@@ -1751,7 +1751,7 @@ define internal noalias ptr @dccp_build_filter(ptr noundef %0, ptr readnone capt
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %2, %5, %9
-  %.0 = phi ptr [ null, %9 ], [ null, %5 ], [ null, %2 ], [ %22, %.thread.sink.split ]
+  %.0 = phi ptr [ null, %2 ], [ null, %5 ], [ null, %9 ], [ %22, %.thread.sink.split ]
   ret ptr %.0
 }
 
@@ -1806,7 +1806,7 @@ define internal noalias ptr @dccp_follow_conv_filter(ptr readnone captures(none)
   br label %.thread
 
 .thread:                                          ; preds = %4, %7, %11, %15, %19, %28
-  %.0 = phi ptr [ %32, %28 ], [ null, %19 ], [ null, %15 ], [ null, %11 ], [ null, %7 ], [ null, %4 ]
+  %.0 = phi ptr [ %32, %28 ], [ null, %19 ], [ null, %15 ], [ null, %11 ], [ null, %4 ], [ null, %7 ]
   ret ptr %.0
 }
 
@@ -2845,7 +2845,7 @@ switch.lookup:                                    ; preds = %2
   br label %16
 
 16:                                               ; preds = %switch.lookup, %9, %6, %5, %12, %4
-  %.0 = phi ptr [ @.str.270, %4 ], [ %switch.select19, %12 ], [ @.str.270, %5 ], [ %switch.select23, %6 ], [ %switch.select27, %9 ], [ %switch.load, %switch.lookup ]
+  %.0 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.270, %5 ], [ %switch.select27, %9 ], [ @.str.270, %4 ], [ %switch.select23, %6 ], [ %switch.select19, %12 ]
   ret ptr %.0
 }
 
@@ -2903,7 +2903,7 @@ switch.lookup:                                    ; preds = %2
   br label %16
 
 16:                                               ; preds = %switch.lookup, %9, %6, %5, %12, %4
-  %.0 = phi ptr [ @.str.270, %4 ], [ %switch.select19, %12 ], [ @.str.270, %5 ], [ %switch.select23, %6 ], [ %switch.select27, %9 ], [ %switch.load, %switch.lookup ]
+  %.0 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.270, %5 ], [ %switch.select27, %9 ], [ @.str.270, %4 ], [ %switch.select23, %6 ], [ %switch.select19, %12 ]
   ret ptr %.0
 }
 

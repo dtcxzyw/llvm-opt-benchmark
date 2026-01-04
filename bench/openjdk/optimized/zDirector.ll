@@ -538,7 +538,7 @@ _ZL20rule_major_proactiveRK14ZDirectorStats.exit.i.i: ; preds = %168, %149
   br i1 %169, label %172, label %_ZL22make_major_gc_decisionRK14ZDirectorStats.exit.i
 
 _ZL22make_major_gc_decisionRK14ZDirectorStats.exit.i: ; preds = %_ZL20rule_major_proactiveRK14ZDirectorStats.exit.i.i, %_ZL17rule_major_warmupRK14ZDirectorStats.exit.i.i, %_ZL16rule_major_timerRK14ZDirectorStats.exit.i.i
-  %.0.i.i = phi i32 [ 28, %_ZL16rule_major_timerRK14ZDirectorStats.exit.i.i ], [ 29, %_ZL17rule_major_warmupRK14ZDirectorStats.exit.i.i ], [ 32, %_ZL20rule_major_proactiveRK14ZDirectorStats.exit.i.i ]
+  %.0.i.i = phi i32 [ 29, %_ZL17rule_major_warmupRK14ZDirectorStats.exit.i.i ], [ 28, %_ZL16rule_major_timerRK14ZDirectorStats.exit.i.i ], [ 32, %_ZL20rule_major_proactiveRK14ZDirectorStats.exit.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %170 = call fastcc i64 @_ZL15initial_workersRK14ZDirectorStats20ZWorkerSelectionType(ptr noundef nonnull readonly align 8 dereferenceable(432) %13, i32 noundef 0)
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %170 to i32
@@ -725,7 +725,7 @@ _ZL21rule_minor_high_usageRK14ZDirectorStats.exit.i.i: ; preds = %258, %249
   br i1 %260, label %322, label %_ZL22make_minor_gc_decisionRK14ZDirectorStats.exit.i
 
 _ZL22make_minor_gc_decisionRK14ZDirectorStats.exit.i: ; preds = %_ZL21rule_minor_high_usageRK14ZDirectorStats.exit.i.i, %_ZL26rule_minor_allocation_rateRK14ZDirectorStats.exit.i.i, %205, %_ZL26rule_minor_allocation_rateRK14ZDirectorStats.exit.thread13.i.i, %_ZL16rule_minor_timerRK14ZDirectorStats.exit.i.i
-  %.0.i14.i = phi i32 [ 28, %_ZL16rule_minor_timerRK14ZDirectorStats.exit.i.i ], [ 30, %_ZL26rule_minor_allocation_rateRK14ZDirectorStats.exit.i.i ], [ 30, %_ZL26rule_minor_allocation_rateRK14ZDirectorStats.exit.thread13.i.i ], [ 30, %205 ], [ 33, %_ZL21rule_minor_high_usageRK14ZDirectorStats.exit.i.i ]
+  %.0.i14.i = phi i32 [ 30, %_ZL26rule_minor_allocation_rateRK14ZDirectorStats.exit.thread13.i.i ], [ 30, %_ZL26rule_minor_allocation_rateRK14ZDirectorStats.exit.i.i ], [ 28, %_ZL16rule_minor_timerRK14ZDirectorStats.exit.i.i ], [ 30, %205 ], [ 33, %_ZL21rule_minor_high_usageRK14ZDirectorStats.exit.i.i ]
   %261 = call noundef ptr @_ZN7ZDriver5majorEv() #11
   %262 = call noundef zeroext i1 @_ZNK12ZDriverMajor7is_busyEv(ptr noundef nonnull align 8 dereferenceable(1264) %261) #11
   %.not.i = xor i1 %262, true
@@ -845,7 +845,7 @@ _ZL14start_minor_gcRK14ZDirectorStatsN7GCCause5CauseE.exit.i: ; preds = %318, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZL8start_gcRK14ZDirectorStats.exit
 
-322:                                              ; preds = %172, %175, %239, %242, %_ZL21rule_minor_high_usageRK14ZDirectorStats.exit.i.i
+322:                                              ; preds = %172, %175, %242, %_ZL21rule_minor_high_usageRK14ZDirectorStats.exit.i.i, %239
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %323 = load i8, ptr @UseDynamicNumberOfGCThreads, align 1
   %324 = and i8 %323, %.sink.i.i
@@ -1468,8 +1468,8 @@ _ZL35calculate_young_to_old_worker_ratioRK14ZDirectorStats.exit: ; preds = %17, 
   br label %61
 
 61:                                               ; preds = %_ZL35calculate_young_to_old_worker_ratioRK14ZDirectorStats.exit, %59, %45, %13, %10
-  %.sroa.0.0 = phi i32 [ %11, %10 ], [ %5, %13 ], [ %60, %59 ], [ %1, %_ZL35calculate_young_to_old_worker_ratioRK14ZDirectorStats.exit ], [ %54, %45 ]
-  %.sroa.4.0 = phi i32 [ %12, %10 ], [ %7, %13 ], [ %57, %59 ], [ %42, %_ZL35calculate_young_to_old_worker_ratioRK14ZDirectorStats.exit ], [ %57, %45 ]
+  %.sroa.0.0 = phi i32 [ %11, %10 ], [ %5, %13 ], [ %60, %59 ], [ %54, %45 ], [ %1, %_ZL35calculate_young_to_old_worker_ratioRK14ZDirectorStats.exit ]
+  %.sroa.4.0 = phi i32 [ %12, %10 ], [ %7, %13 ], [ %57, %59 ], [ %57, %45 ], [ %42, %_ZL35calculate_young_to_old_worker_ratioRK14ZDirectorStats.exit ]
   %.sroa.4.0.insert.ext = zext i32 %.sroa.4.0 to i64
   %.sroa.4.0.insert.shift = shl nuw i64 %.sroa.4.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %.sroa.0.0 to i64
@@ -1593,7 +1593,7 @@ define internal fastcc { i64, i32 } @_ZL34rule_minor_allocation_rate_dynamicRK14
   br label %_ZL23select_young_gc_workersRK14ZDirectorStatsdddd.exit
 
 _ZL23select_young_gc_workersRK14ZDirectorStatsdddd.exit: ; preds = %44, %48, %63, %81, %82, %84
-  %.0.i = phi double [ %46, %44 ], [ %46, %48 ], [ %79, %63 ], [ %79, %81 ], [ %53, %82 ], [ %53, %84 ]
+  %.0.i = phi double [ %46, %48 ], [ %79, %81 ], [ %46, %44 ], [ %79, %63 ], [ %53, %82 ], [ %53, %84 ]
   %85 = tail call double @llvm.ceil.f64(double %.0.i)
   %86 = fptoui double %85 to i32
   %87 = load i32, ptr @ZYoungGCThreads, align 4

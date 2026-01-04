@@ -306,7 +306,7 @@ define internal range(i32 -2147483648, 1) i32 @init() #3 {
   br label %45
 
 45:                                               ; preds = %39, %33, %27, %21, %14, %8, %0
-  %.1 = phi i32 [ %37, %33 ], [ %31, %27 ], [ %25, %21 ], [ %19, %14 ], [ %12, %8 ], [ %6, %0 ], [ %spec.select, %39 ]
+  %.1 = phi i32 [ %6, %0 ], [ %spec.select, %39 ], [ %37, %33 ], [ %31, %27 ], [ %25, %21 ], [ %19, %14 ], [ %12, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.1

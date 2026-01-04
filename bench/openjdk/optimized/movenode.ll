@@ -79,7 +79,7 @@ define hidden noundef ptr @_ZN9CMoveNode5IdealEP8PhaseGVNb(ptr noundef nonnull a
   br i1 %13, label %92, label %.thread
 
 .thread:                                          ; preds = %3, %10, %9
-  %14 = phi ptr [ %.pre, %10 ], [ %.pre, %9 ], [ %5, %3 ]
+  %14 = phi ptr [ %.pre, %9 ], [ %.pre, %10 ], [ %5, %3 ]
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -174,7 +174,7 @@ define hidden noundef ptr @_ZN9CMoveNode5IdealEP8PhaseGVNb(ptr noundef nonnull a
   br label %92
 
 92:                                               ; preds = %90, %.thread, %28, %37, %10, %7, %72
-  %.0 = phi ptr [ %89, %72 ], [ %0, %7 ], [ null, %10 ], [ null, %37 ], [ null, %28 ], [ null, %.thread ], [ %91, %90 ]
+  %.0 = phi ptr [ %89, %72 ], [ %0, %7 ], [ null, %10 ], [ %91, %90 ], [ null, %.thread ], [ null, %37 ], [ null, %28 ]
   ret ptr %.0
 }
 
@@ -575,7 +575,7 @@ _ZN4NodenwEm.exit61:                              ; preds = %198, %200
   unreachable
 
 _ZN10CMovePNodeC2EP4NodeS1_S1_S1_PK7TypePtr.exit: ; preds = %217, %206, %203, %176, %165, %162, %135, %124, %121, %_ZN4NodenwEm.exit61, %_ZN4NodenwEm.exit54, %_ZN4NodenwEm.exit51, %_ZN4NodenwEm.exit48, %99, %_ZN4NodenwEm.exit45, %77, %_ZN4NodenwEm.exit42, %55, %_ZN4NodenwEm.exit, %33
-  %.0 = phi ptr [ %.0.i.i.i, %33 ], [ null, %_ZN4NodenwEm.exit ], [ %.0.i.i.i41, %55 ], [ null, %_ZN4NodenwEm.exit42 ], [ %.0.i.i.i44, %77 ], [ null, %_ZN4NodenwEm.exit45 ], [ %.0.i.i.i47, %99 ], [ null, %_ZN4NodenwEm.exit48 ], [ null, %_ZN4NodenwEm.exit51 ], [ null, %_ZN4NodenwEm.exit54 ], [ null, %_ZN4NodenwEm.exit61 ], [ %.0.i.i.i50, %121 ], [ %.0.i.i.i50, %124 ], [ %.0.i.i.i50, %135 ], [ %.0.i.i.i53, %162 ], [ %.0.i.i.i53, %165 ], [ %.0.i.i.i53, %176 ], [ %.0.i.i.i60, %203 ], [ %.0.i.i.i60, %206 ], [ %.0.i.i.i60, %217 ]
+  %.0 = phi ptr [ null, %_ZN4NodenwEm.exit54 ], [ null, %_ZN4NodenwEm.exit ], [ null, %_ZN4NodenwEm.exit42 ], [ null, %_ZN4NodenwEm.exit45 ], [ null, %_ZN4NodenwEm.exit48 ], [ null, %_ZN4NodenwEm.exit51 ], [ %.0.i.i.i, %33 ], [ %.0.i.i.i41, %55 ], [ %.0.i.i.i44, %77 ], [ %.0.i.i.i47, %99 ], [ null, %_ZN4NodenwEm.exit61 ], [ %.0.i.i.i50, %135 ], [ %.0.i.i.i53, %176 ], [ %.0.i.i.i50, %121 ], [ %.0.i.i.i50, %124 ], [ %.0.i.i.i53, %162 ], [ %.0.i.i.i53, %165 ], [ %.0.i.i.i60, %203 ], [ %.0.i.i.i60, %206 ], [ %.0.i.i.i60, %217 ]
   ret ptr %.0
 }
 
@@ -667,7 +667,7 @@ define hidden noundef ptr @_ZN9CMoveNode12Ideal_minmaxEP8PhaseGVNPS_(ptr noundef
   br label %61
 
 61:                                               ; preds = %52, %35, %32, %8, %2, %59, %57
-  %.038 = phi ptr [ %58, %57 ], [ %60, %59 ], [ null, %2 ], [ null, %8 ], [ null, %32 ], [ null, %35 ], [ null, %52 ]
+  %.038 = phi ptr [ null, %2 ], [ null, %32 ], [ %58, %57 ], [ %60, %59 ], [ null, %35 ], [ null, %8 ], [ null, %52 ]
   ret ptr %.038
 }
 
@@ -719,7 +719,7 @@ define hidden noundef ptr @_ZN9CMoveNode11is_cmove_idEP14PhaseTransformP4NodeS3_
   br label %31
 
 31:                                               ; preds = %26, %16, %21, %30, %29
-  %.0 = phi ptr [ %2, %29 ], [ null, %30 ], [ null, %21 ], [ null, %16 ], [ %3, %26 ]
+  %.0 = phi ptr [ null, %30 ], [ null, %16 ], [ %2, %29 ], [ null, %21 ], [ %3, %26 ]
   ret ptr %.0
 }
 
@@ -821,11 +821,11 @@ _ZN9CMoveNode11is_cmove_idEP14PhaseTransformP4NodeS3_S3_P8BoolNode.exit: ; preds
   %.not = icmp eq ptr %.0.i, null
   br i1 %.not, label %_ZN9CMoveNode11is_cmove_idEP14PhaseTransformP4NodeS3_S3_P8BoolNode.exit.thread, label %66
 
-_ZN9CMoveNode11is_cmove_idEP14PhaseTransformP4NodeS3_S3_P8BoolNode.exit.thread: ; preds = %._crit_edge.i, %62, %52, %57, %32, %_ZN9CMoveNode11is_cmove_idEP14PhaseTransformP4NodeS3_S3_P8BoolNode.exit, %27
+_ZN9CMoveNode11is_cmove_idEP14PhaseTransformP4NodeS3_S3_P8BoolNode.exit.thread: ; preds = %._crit_edge.i, %62, %57, %52, %32, %_ZN9CMoveNode11is_cmove_idEP14PhaseTransformP4NodeS3_S3_P8BoolNode.exit, %27
   br label %66
 
 66:                                               ; preds = %24, %10, %2, %_ZN9CMoveNode11is_cmove_idEP14PhaseTransformP4NodeS3_S3_P8BoolNode.exit, %_ZN9CMoveNode11is_cmove_idEP14PhaseTransformP4NodeS3_S3_P8BoolNode.exit.thread
-  %.0 = phi ptr [ %0, %_ZN9CMoveNode11is_cmove_idEP14PhaseTransformP4NodeS3_S3_P8BoolNode.exit.thread ], [ %.0.i, %_ZN9CMoveNode11is_cmove_idEP14PhaseTransformP4NodeS3_S3_P8BoolNode.exit ], [ %6, %2 ], [ %6, %10 ], [ %8, %24 ]
+  %.0 = phi ptr [ %.0.i, %_ZN9CMoveNode11is_cmove_idEP14PhaseTransformP4NodeS3_S3_P8BoolNode.exit ], [ %6, %2 ], [ %6, %10 ], [ %0, %_ZN9CMoveNode11is_cmove_idEP14PhaseTransformP4NodeS3_S3_P8BoolNode.exit.thread ], [ %8, %24 ]
   ret ptr %.0
 }
 
@@ -899,7 +899,7 @@ define hidden noundef ptr @_ZNK9CMoveNode5ValueEP8PhaseGVN(ptr noundef nonnull r
   br label %54
 
 54:                                               ; preds = %.sink.split, %18, %27, %2
-  %.0 = phi ptr [ %16, %2 ], [ %16, %27 ], [ %16, %18 ], [ %53, %.sink.split ]
+  %.0 = phi ptr [ %16, %18 ], [ %16, %2 ], [ %16, %27 ], [ %53, %.sink.split ]
   ret ptr %.0
 }
 
@@ -1169,7 +1169,7 @@ define hidden noundef ptr @_ZN10CMoveINode5IdealEP8PhaseGVNb(ptr noundef nonnull
   br label %148
 
 148:                                              ; preds = %138, %142, %139, %118, %120, %98, %93, %86, %75, %77, %58, %3, %37
-  %.035 = phi ptr [ %51, %37 ], [ %4, %3 ], [ null, %58 ], [ null, %77 ], [ null, %75 ], [ null, %86 ], [ null, %93 ], [ null, %98 ], [ null, %120 ], [ null, %118 ], [ %132, %138 ], [ %140, %142 ], [ null, %139 ]
+  %.035 = phi ptr [ %51, %37 ], [ null, %118 ], [ null, %98 ], [ null, %120 ], [ null, %93 ], [ null, %86 ], [ null, %75 ], [ null, %58 ], [ %4, %3 ], [ null, %77 ], [ %132, %138 ], [ %140, %142 ], [ null, %139 ]
   ret ptr %.035
 }
 
@@ -1329,7 +1329,7 @@ switch.lookup:                                    ; preds = %14
   br label %98
 
 98:                                               ; preds = %14, %86, %90, %87, %59, %65, %70, %55, %48, %switch.lookup, %5, %3
-  %.033 = phi ptr [ %4, %3 ], [ null, %5 ], [ null, %14 ], [ null, %switch.lookup ], [ null, %48 ], [ null, %55 ], [ null, %70 ], [ null, %65 ], [ null, %59 ], [ %83, %86 ], [ %88, %90 ], [ null, %87 ]
+  %.033 = phi ptr [ %4, %3 ], [ null, %5 ], [ null, %14 ], [ null, %48 ], [ null, %55 ], [ null, %59 ], [ null, %switch.lookup ], [ null, %70 ], [ null, %65 ], [ %83, %86 ], [ %88, %90 ], [ null, %87 ]
   ret ptr %.033
 }
 
@@ -1485,7 +1485,7 @@ switch.lookup:                                    ; preds = %14
   br label %98
 
 98:                                               ; preds = %14, %86, %90, %87, %59, %65, %70, %55, %48, %switch.lookup, %5, %3
-  %.033 = phi ptr [ %4, %3 ], [ null, %5 ], [ null, %14 ], [ null, %switch.lookup ], [ null, %48 ], [ null, %55 ], [ null, %70 ], [ null, %65 ], [ null, %59 ], [ %83, %86 ], [ %88, %90 ], [ null, %87 ]
+  %.033 = phi ptr [ %4, %3 ], [ null, %5 ], [ null, %14 ], [ null, %48 ], [ null, %55 ], [ null, %59 ], [ null, %switch.lookup ], [ null, %70 ], [ null, %65 ], [ %83, %86 ], [ %88, %90 ], [ null, %87 ]
   ret ptr %.033
 }
 
@@ -1611,7 +1611,7 @@ define hidden noundef ptr @_ZNK11MoveL2DNode5ValueEP8PhaseGVN(ptr noundef nonnul
   br label %32
 
 32:                                               ; preds = %2, %29, %24
-  %.0 = phi ptr [ %31, %29 ], [ %28, %24 ], [ %16, %2 ]
+  %.0 = phi ptr [ %28, %24 ], [ %31, %29 ], [ %16, %2 ]
   ret ptr %.0
 }
 
@@ -1684,7 +1684,7 @@ define hidden noundef ptr @_ZNK11MoveI2FNode5ValueEP8PhaseGVN(ptr noundef nonnul
   br label %32
 
 32:                                               ; preds = %2, %29, %24
-  %.0 = phi ptr [ %31, %29 ], [ %28, %24 ], [ %16, %2 ]
+  %.0 = phi ptr [ %28, %24 ], [ %31, %29 ], [ %16, %2 ]
   ret ptr %.0
 }
 
@@ -1752,7 +1752,7 @@ define hidden noundef ptr @_ZNK11MoveF2INode5ValueEP8PhaseGVN(ptr noundef nonnul
   br label %27
 
 27:                                               ; preds = %2, %23, %21
-  %.0 = phi ptr [ %22, %21 ], [ %26, %23 ], [ %16, %2 ]
+  %.0 = phi ptr [ %26, %23 ], [ %22, %21 ], [ %16, %2 ]
   ret ptr %.0
 }
 
@@ -1820,7 +1820,7 @@ define hidden noundef ptr @_ZNK11MoveD2LNode5ValueEP8PhaseGVN(ptr noundef nonnul
   br label %27
 
 27:                                               ; preds = %2, %23, %21
-  %.0 = phi ptr [ %22, %21 ], [ %26, %23 ], [ %16, %2 ]
+  %.0 = phi ptr [ %26, %23 ], [ %22, %21 ], [ %16, %2 ]
   ret ptr %.0
 }
 

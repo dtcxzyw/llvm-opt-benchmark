@@ -903,7 +903,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   br label %80
 
 80:                                               ; preds = %58, %1
-  %.0 = phi i32 [ -12, %1 ], [ %spec.select, %58 ]
+  %.0 = phi i32 [ %spec.select, %58 ], [ -12, %1 ]
   ret i32 %.0
 }
 

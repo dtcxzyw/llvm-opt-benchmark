@@ -289,7 +289,7 @@ create_merkle_internal_value.exit:                ; preds = %.lr.ph, %48, %50, %
   br label %78
 
 78:                                               ; preds = %._crit_edge, %27, %25, %23, %21, %20, %17, %14, %5
-  %.062 = phi i32 [ -17, %5 ], [ -17, %14 ], [ -17, %17 ], [ -21, %20 ], [ -21, %21 ], [ -21, %23 ], [ -21, %25 ], [ -21, %27 ], [ %., %._crit_edge ]
+  %.062 = phi i32 [ -17, %5 ], [ -17, %14 ], [ -17, %17 ], [ %., %._crit_edge ], [ -21, %20 ], [ -21, %27 ], [ -21, %21 ], [ -21, %23 ], [ -21, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

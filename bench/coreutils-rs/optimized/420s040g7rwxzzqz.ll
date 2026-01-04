@@ -149,7 +149,7 @@ select.unfold.i:                                  ; preds = %.sink.split.i.i, %6
   br label %6
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20a4126a3c0cd98fE.llvm.452682109570024625.exit": ; preds = %.sink.split.i.i, %14, %.sink.split.i7.i
-  %.0.i = phi ptr [ null, %14 ], [ %.0.ph.i9.i, %.sink.split.i7.i ], [ %.sink.i16.i, %.sink.split.i.i ]
+  %.0.i = phi ptr [ %.0.ph.i9.i, %.sink.split.i7.i ], [ null, %14 ], [ %.sink.i16.i, %.sink.split.i.i ]
   ret ptr %.0.i
 }
 
@@ -185,7 +185,7 @@ select.unfold:                                    ; preds = %.sink.split.i, %6
   br i1 %or.cond.i, label %14, label %22
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17habe7b69ca9f095a5E.exit: ; preds = %.sink.split.i, %.sink.split.i7, %14
-  %.0 = phi ptr [ null, %14 ], [ %.0.ph.i9, %.sink.split.i7 ], [ %.sink.i16, %.sink.split.i ]
+  %.0 = phi ptr [ %.0.ph.i9, %.sink.split.i7 ], [ null, %14 ], [ %.sink.i16, %.sink.split.i ]
   ret ptr %.0
 
 14:                                               ; preds = %select.unfold
@@ -421,7 +421,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
   ret ptr %5
 
 .body.thread:                                     ; preds = %15, %20, %.body
-  %eh.lpad-body11 = phi { ptr, i32 } [ %6, %20 ], [ %6, %.body ], [ %16, %15 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %6, %.body ], [ %6, %20 ], [ %16, %15 ]
   resume { ptr, i32 } %eh.lpad-body11
 
 20:                                               ; preds = %.body
@@ -571,7 +571,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
           to label %51 unwind label %49
 
 .critedge:                                        ; preds = %42, %51
-  %eh.lpad-body2629 = phi { ptr, i32 } [ %eh.lpad-body2630, %51 ], [ %43, %42 ]
+  %eh.lpad-body2629 = phi { ptr, i32 } [ %43, %42 ], [ %eh.lpad-body2630, %51 ]
   resume { ptr, i32 } %eh.lpad-body2629
 
 51:                                               ; preds = %.thread
@@ -906,7 +906,7 @@ _ZN12clap_builder7builder7command7Command9get_color17hfa3bca41229a8773E.exit: ; 
   unreachable
 
 74:                                               ; preds = %53, %23
-  %.pn = phi { ptr, i32 } [ %54, %53 ], [ %24, %23 ]
+  %.pn = phi { ptr, i32 } [ %24, %23 ], [ %54, %53 ]
   resume { ptr, i32 } %.pn
 }
 

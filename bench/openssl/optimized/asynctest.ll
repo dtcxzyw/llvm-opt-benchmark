@@ -191,7 +191,7 @@ test_ASYNC_init_thread.exit:                      ; preds = %49
   br i1 %.not18.i15, label %test_ASYNC_callback_status.exit, label %.critedge47
 
 .critedge47:                                      ; preds = %75, %73, %66, %64, %61, %test_ASYNC_init_thread.exit
-  %.011.i = phi ptr [ null, %61 ], [ %62, %64 ], [ %62, %66 ], [ %62, %73 ], [ %62, %75 ], [ null, %test_ASYNC_init_thread.exit ]
+  %.011.i = phi ptr [ null, %61 ], [ %62, %64 ], [ %62, %66 ], [ null, %test_ASYNC_init_thread.exit ], [ %62, %73 ], [ %62, %75 ]
   %77 = load ptr, ptr @stderr, align 8, !tbaa !4
   %78 = call i64 @fwrite(ptr nonnull @.str.3, i64 36, i64 1, ptr %77) #6
   call void @ASYNC_WAIT_CTX_free(ptr noundef %.011.i) #5
@@ -637,7 +637,7 @@ test_ASYNC_start_job_ex.exit:                     ; preds = %243
   %267 = call i64 @fwrite(ptr nonnull @.str.17, i64 70, i64 1, ptr %266) #6
   br label %test_ASYNC_set_mem_functions.exit.thread
 
-test_ASYNC_set_mem_functions.exit.thread:         ; preds = %256, %265, %261
+test_ASYNC_set_mem_functions.exit.thread:         ; preds = %261, %256, %265
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %269
@@ -661,7 +661,7 @@ test_ASYNC_set_mem_functions.exit:                ; preds = %test_ASYNC_start_jo
   br label %269
 
 269:                                              ; preds = %.critedge52, %.critedge51, %.critedge50, %.critedge49, %.critedge48, %.critedge47, %.critedge, %test_ASYNC_set_mem_functions.exit.thread, %268
-  %.0 = phi i32 [ 0, %268 ], [ 1, %test_ASYNC_set_mem_functions.exit.thread ], [ 1, %.critedge ], [ 1, %.critedge47 ], [ 1, %.critedge48 ], [ 1, %.critedge49 ], [ 1, %.critedge50 ], [ 1, %.critedge51 ], [ 1, %.critedge52 ]
+  %.0 = phi i32 [ 0, %268 ], [ 1, %test_ASYNC_set_mem_functions.exit.thread ], [ 1, %.critedge52 ], [ 1, %.critedge51 ], [ 1, %.critedge50 ], [ 1, %.critedge49 ], [ 1, %.critedge48 ], [ 1, %.critedge47 ], [ 1, %.critedge ]
   ret i32 %.0
 }
 
@@ -757,7 +757,7 @@ define internal range(i32 0, 2) i32 @waitfd(ptr readnone captures(none) %0) #0 {
   br label %18
 
 18:                                               ; preds = %16, %13, %10, %7, %4, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %4 ], [ 0, %7 ], [ 0, %10 ], [ 0, %13 ], [ %., %16 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %1 ], [ 0, %13 ], [ %., %16 ], [ 0, %10 ], [ 0, %7 ]
   ret i32 %.0
 }
 

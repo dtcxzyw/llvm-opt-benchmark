@@ -547,7 +547,7 @@ _ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS
   br label %158
 
 158:                                              ; preds = %156, %154, %152
-  %.pn = phi { ptr, i32 } [ %157, %156 ], [ %153, %152 ], [ %155, %154 ]
+  %.pn = phi { ptr, i32 } [ %157, %156 ], [ %155, %154 ], [ %153, %152 ]
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -2640,7 +2640,7 @@ _ZN13b3ProfileZoneD2Ev.exit350:                   ; preds = %528, %_ZN13b3Profil
   unreachable
 
 _ZN13b3ProfileZoneD2Ev.exit351:                   ; preds = %548, %566, %538, %544, %536
-  %.pn254.pn.pn.pn.pn = phi { ptr, i32 } [ %537, %536 ], [ %539, %538 ], [ %.pn248, %544 ], [ %549, %548 ], [ %.pn254.pn.pn, %566 ]
+  %.pn254.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn248, %544 ], [ %537, %536 ], [ %539, %538 ], [ %549, %548 ], [ %.pn254.pn.pn, %566 ]
   invoke void @b3LeaveProfileZone()
           to label %_ZN13b3ProfileZoneD2Ev.exit303 unwind label %573
 
@@ -4293,7 +4293,7 @@ _ZN13b3ProfileZoneD2Ev.exit431:                   ; preds = %_ZN13b3ProfileZoneD
   ret float 0.000000e+00
 
 _ZN13b3ProfileZoneD2Ev.exit303:                   ; preds = %1019, %1029, %534, %_ZN13b3ProfileZoneD2Ev.exit351, %201, %207, %532, %598, %1189, %199, %197, %195
-  %.pn271.pn.pn.pn = phi { ptr, i32 } [ %198, %197 ], [ %200, %199 ], [ %196, %195 ], [ %1190, %1189 ], [ %533, %532 ], [ %599, %598 ], [ %202, %201 ], [ %.pn, %207 ], [ %535, %534 ], [ %.pn254.pn.pn.pn.pn, %_ZN13b3ProfileZoneD2Ev.exit351 ], [ %1020, %1019 ], [ %.pn271, %1029 ]
+  %.pn271.pn.pn.pn = phi { ptr, i32 } [ %196, %195 ], [ %599, %598 ], [ %.pn271, %1029 ], [ %198, %197 ], [ %200, %199 ], [ %.pn254.pn.pn.pn.pn, %_ZN13b3ProfileZoneD2Ev.exit351 ], [ %1190, %1189 ], [ %533, %532 ], [ %.pn, %207 ], [ %202, %201 ], [ %535, %534 ], [ %1020, %1019 ]
   invoke void @b3LeaveProfileZone()
           to label %_ZN13b3ProfileZoneD2Ev.exit432 unwind label %1404
 
@@ -6529,7 +6529,7 @@ _ZN13b3ProfileZoneD2Ev.exit86:                    ; preds = %.loopexit, %._ZN13b
   br i1 %exitcond151.not, label %._crit_edge, label %.lr.ph140, !llvm.loop !244
 
 _ZN13b3ProfileZoneD2Ev.exit87:                    ; preds = %257, %263
-  %.pn64.pn.pn = phi { ptr, i32 } [ %258, %257 ], [ %.pn64, %263 ]
+  %.pn64.pn.pn = phi { ptr, i32 } [ %.pn64, %263 ], [ %258, %257 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN13b3ProfileZoneD2Ev.exit73
@@ -6613,7 +6613,7 @@ _ZN13b3ProfileZoneD2Ev.exit92:                    ; preds = %342
   ret float 0.000000e+00
 
 _ZN13b3ProfileZoneD2Ev.exit73:                    ; preds = %330, %332, %78, %80, %36, %38, %_ZN13b3ProfileZoneD2Ev.exit87, %34
-  %.pn64.pn.pn.pn.pn = phi { ptr, i32 } [ %35, %34 ], [ %.pn64.pn.pn, %_ZN13b3ProfileZoneD2Ev.exit87 ], [ %37, %36 ], [ %39, %38 ], [ %79, %78 ], [ %81, %80 ], [ %331, %330 ], [ %333, %332 ]
+  %.pn64.pn.pn.pn.pn = phi { ptr, i32 } [ %39, %38 ], [ %35, %34 ], [ %81, %80 ], [ %.pn64.pn.pn, %_ZN13b3ProfileZoneD2Ev.exit87 ], [ %37, %36 ], [ %79, %78 ], [ %331, %330 ], [ %333, %332 ]
   invoke void @b3LeaveProfileZone()
           to label %_ZN13b3ProfileZoneD2Ev.exit93 unwind label %346
 
@@ -7138,10 +7138,10 @@ _ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i142: ; preds = %114, %_ZNK20b
   br i1 %exitcond201.not, label %.loopexit, label %192, !llvm.loop !248
 
 .loopexit:                                        ; preds = %192, %.preheader, %185, %148
-  %.1162 = phi i32 [ %187, %185 ], [ %.0161177, %148 ], [ 0, %.preheader ], [ 0, %192 ]
-  %.294 = phi i32 [ %186, %185 ], [ %.193179, %148 ], [ %186, %.preheader ], [ %186, %192 ]
-  %.289 = phi i32 [ %.4, %185 ], [ %.188180, %148 ], [ 0, %.preheader ], [ 0, %192 ]
-  %.2 = phi i32 [ %.3, %185 ], [ %.1181, %148 ], [ %.3, %.preheader ], [ %.3, %192 ]
+  %.1162 = phi i32 [ %.0161177, %148 ], [ %187, %185 ], [ 0, %.preheader ], [ 0, %192 ]
+  %.294 = phi i32 [ %.193179, %148 ], [ %186, %185 ], [ %186, %.preheader ], [ %186, %192 ]
+  %.289 = phi i32 [ %.188180, %148 ], [ %.4, %185 ], [ 0, %.preheader ], [ 0, %192 ]
+  %.2 = phi i32 [ %.1181, %148 ], [ %.3, %185 ], [ %.3, %.preheader ], [ %.3, %192 ]
   %indvars.iv.next203 = add nsw i64 %indvars.iv202, 1
   %exitcond206.not = icmp eq i64 %indvars.iv.next203, %wide.trip.count205
   br i1 %exitcond206.not, label %._crit_edge183, label %.lr.ph182, !llvm.loop !249
@@ -8747,7 +8747,7 @@ _ZN13b3ProfileZoneD2Ev.exit109:                   ; preds = %476
   ret float 0.000000e+00
 
 _ZN13b3ProfileZoneD2Ev.exit63:                    ; preds = %323, %325, %296, %302, %119, %125, %166
-  %.pn59 = phi { ptr, i32 } [ %167, %166 ], [ %120, %119 ], [ %.pn, %125 ], [ %297, %296 ], [ %.pn56, %302 ], [ %324, %323 ], [ %326, %325 ]
+  %.pn59 = phi { ptr, i32 } [ %167, %166 ], [ %.pn, %125 ], [ %.pn56, %302 ], [ %120, %119 ], [ %297, %296 ], [ %324, %323 ], [ %326, %325 ]
   invoke void @b3LeaveProfileZone()
           to label %_ZN13b3ProfileZoneD2Ev.exit110 unwind label %480
 

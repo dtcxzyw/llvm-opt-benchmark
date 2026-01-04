@@ -363,7 +363,7 @@ push_back_token.exit61:                           ; preds = %180
   br label %switch.edge
 
 switch.edge:                                      ; preds = %210, %210, %210, %push_back_token.exit61, %211
-  %212 = phi i1 [ true, %210 ], [ false, %211 ], [ true, %push_back_token.exit61 ], [ true, %210 ], [ true, %210 ]
+  %212 = phi i1 [ true, %push_back_token.exit61 ], [ false, %211 ], [ true, %210 ], [ true, %210 ], [ true, %210 ]
   %213 = call zeroext i1 @plpgsql_parse_word(ptr noundef %201, ptr noundef %207, i1 noundef zeroext %212, ptr noundef nonnull %4, ptr noundef nonnull %4) #11
   br i1 %213, label %231, label %214
 
@@ -504,7 +504,7 @@ sub_130:                                          ; preds = %sub_0
   br label %.tail28
 
 .tail28:                                          ; preds = %.tail23, %sub_0, %sub_130, %sub_029.thread41, %18, %.tail, %45, %7
-  %.0 = phi i32 [ %15, %7 ], [ 267, %45 ], [ 278, %.tail ], [ %20, %18 ], [ %44, %sub_130 ], [ 265, %sub_029.thread41 ], [ %spec.select, %.tail23 ], [ 265, %sub_0 ]
+  %.0 = phi i32 [ %15, %7 ], [ %20, %18 ], [ 278, %.tail ], [ %spec.select, %.tail23 ], [ 267, %45 ], [ 265, %sub_0 ], [ %44, %sub_130 ], [ 265, %sub_029.thread41 ]
   ret i32 %.0
 }
 

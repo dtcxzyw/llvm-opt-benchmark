@@ -269,7 +269,7 @@ define hidden range(i32 -2147483648, 2) i32 @romanian_UTF_8_stem(ptr noundef %0)
   %.ph = phi i32 [ %3, %1 ], [ %39, %41 ]
   br label %7
 
-7:                                                ; preds = %.outer, %select.unfold68.i
+7:                                                ; preds = %.outer, %select.unfold.i
   %8 = tail call i32 @in_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 259, i32 noundef 0) #2
   %.not.i = icmp eq i32 %8, 0
   %.pre105.i = load i32, ptr %5, align 4
@@ -304,7 +304,7 @@ define hidden range(i32 -2147483648, 2) i32 @romanian_UTF_8_stem(ptr noundef %0)
 20:                                               ; preds = %17
   %21 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @s_0) #2
   %22 = icmp sgt i32 %21, -1
-  br i1 %22, label %select.unfold68.i, label %.loopexit
+  br i1 %22, label %select.unfold.i, label %.loopexit
 
 23:                                               ; preds = %._crit_edge.i, %12, %9
   %24 = phi i32 [ %.pre103.i, %._crit_edge.i ], [ %.pre105.i, %9 ], [ %.pre105.i, %12 ]
@@ -335,10 +335,10 @@ define hidden range(i32 -2147483648, 2) i32 @romanian_UTF_8_stem(ptr noundef %0)
 34:                                               ; preds = %31
   %35 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @s_1) #2
   %36 = icmp slt i32 %35, 0
-  br i1 %36, label %.loopexit, label %select.unfold68.i
+  br i1 %36, label %.loopexit, label %select.unfold.i
 
 .thread.i:                                        ; preds = %26, %23, %7, %..thread_crit_edge.i
-  %37 = phi i32 [ %.pre104.i, %..thread_crit_edge.i ], [ %.pre105.i, %7 ], [ %24, %26 ], [ %10, %23 ]
+  %37 = phi i32 [ %.pre104.i, %..thread_crit_edge.i ], [ %.pre105.i, %7 ], [ %10, %23 ], [ %24, %26 ]
   store i32 %.ph, ptr %2, align 8
   %38 = load ptr, ptr %0, align 8
   %39 = tail call i32 @skip_utf8(ptr noundef %38, i32 noundef %.ph, i32 noundef %37, i32 noundef 1) #2
@@ -349,7 +349,7 @@ define hidden range(i32 -2147483648, 2) i32 @romanian_UTF_8_stem(ptr noundef %0)
   store i32 %39, ptr %2, align 8
   br label %.outer
 
-select.unfold68.i:                                ; preds = %34, %20
+select.unfold.i:                                  ; preds = %34, %20
   store i32 %.ph, ptr %2, align 8
   br label %7
 
@@ -740,8 +740,8 @@ r_mark_regions.exit:                              ; preds = %.thread106.i, %87, 
   store i32 %223, ptr %2, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %20, %34, %179, %176, %173, %170, %167, %164, %226, %222, %217, %.thread126, %203, %199, %194, %150, %147, %142, %136, %133, %130, %127
-  %.1 = phi i32 [ %151, %150 ], [ %148, %147 ], [ %145, %142 ], [ %137, %136 ], [ %134, %133 ], [ %131, %130 ], [ %128, %127 ], [ %204, %203 ], [ %201, %199 ], [ %195, %194 ], [ %220, %.thread126 ], [ %...3, %217 ], [ %224, %222 ], [ 1, %226 ], [ %165, %164 ], [ %168, %167 ], [ %171, %170 ], [ %174, %173 ], [ %177, %176 ], [ %180, %179 ], [ %35, %34 ], [ %21, %20 ]
+.loopexit:                                        ; preds = %20, %34, %167, %164, %179, %176, %173, %170, %226, %222, %217, %.thread126, %203, %199, %194, %150, %147, %142, %136, %133, %130, %127
+  %.1 = phi i32 [ %201, %199 ], [ %...3, %217 ], [ %195, %194 ], [ %220, %.thread126 ], [ %128, %127 ], [ %168, %167 ], [ %151, %150 ], [ %148, %147 ], [ %145, %142 ], [ %137, %136 ], [ %134, %133 ], [ %131, %130 ], [ %224, %222 ], [ 1, %226 ], [ %204, %203 ], [ %171, %170 ], [ %174, %173 ], [ %177, %176 ], [ %180, %179 ], [ %165, %164 ], [ %21, %20 ], [ %35, %34 ]
   ret i32 %.1
 }
 
@@ -815,12 +815,12 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_verb_suffix(ptr noundef 
   br i1 %37, label %.thread54.sink.split, label %.thread54
 
 .thread54.sink.split:                             ; preds = %14, %32, %35, %25, %21, %9
-  %.ph = phi i32 [ 0, %9 ], [ 0, %21 ], [ 0, %25 ], [ 1, %35 ], [ 1, %32 ], [ 1, %14 ]
+  %.ph = phi i32 [ 0, %25 ], [ 0, %9 ], [ 0, %21 ], [ 1, %35 ], [ 1, %32 ], [ 1, %14 ]
   store i32 %11, ptr %10, align 8
   br label %.thread54
 
 .thread54:                                        ; preds = %.thread54.sink.split, %1, %35, %32
-  %38 = phi i32 [ 0, %1 ], [ %36, %35 ], [ %33, %32 ], [ %.ph, %.thread54.sink.split ]
+  %38 = phi i32 [ %33, %32 ], [ 0, %1 ], [ %36, %35 ], [ %.ph, %.thread54.sink.split ]
   ret i32 %38
 }
 
@@ -852,7 +852,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_vowel_suffix(ptr noundef
   br label %14
 
 14:                                               ; preds = %11, %6, %1
-  %.0 = phi i32 [ 0, %6 ], [ 0, %1 ], [ %spec.select, %11 ]
+  %.0 = phi i32 [ 0, %1 ], [ %spec.select, %11 ], [ 0, %6 ]
   ret i32 %.0
 }
 

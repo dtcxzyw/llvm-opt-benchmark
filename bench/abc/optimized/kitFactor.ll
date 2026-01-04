@@ -147,7 +147,7 @@ define internal fastcc i32 @Kit_SopFactor_rec(ptr noundef %0, ptr noundef nonnul
   br label %32
 
 32:                                               ; preds = %21, %30, %27, %17, %10
-  %.sroa.054.0 = phi i32 [ %18, %17 ], [ %29, %27 ], [ %31, %30 ], [ %13, %10 ], [ %24, %21 ]
+  %.sroa.054.0 = phi i32 [ %18, %17 ], [ %13, %10 ], [ %29, %27 ], [ %31, %30 ], [ %24, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

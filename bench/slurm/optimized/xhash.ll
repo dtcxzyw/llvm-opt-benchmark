@@ -340,7 +340,7 @@ define internal fastcc ptr @xhash_find(ptr noundef readonly captures(address_is_
   br label %173, !llvm.loop !11
 
 .loopexit:                                        ; preds = %185, %181, %156, %117, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %117 ], [ null, %156 ], [ null, %185 ], [ %.1194251, %181 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %117 ], [ null, %156 ], [ %.1194251, %181 ], [ null, %185 ]
   ret ptr %.0
 }
 

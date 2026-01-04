@@ -171,7 +171,7 @@ define noalias noundef ptr @pmix_argv_join_range(ptr noundef %0, i64 noundef %1,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %46, %.loopexit.sink.split, %32, %29
-  %.035 = phi ptr [ null, %29 ], [ %30, %32 ], [ %48, %.loopexit.sink.split ], [ %30, %46 ]
+  %.035 = phi ptr [ %30, %32 ], [ %48, %.loopexit.sink.split ], [ null, %29 ], [ %30, %46 ]
   ret ptr %.035
 }
 
@@ -283,7 +283,7 @@ define noalias ptr @pmix_argv_copy_strip(ptr noundef readonly captures(address_i
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %4, %._crit_edge.loopexit, %19, %21, %1
-  %.0 = phi ptr [ null, %1 ], [ null, %21 ], [ null, %19 ], [ %.pre, %._crit_edge.loopexit ], [ %5, %4 ]
+  %.0 = phi ptr [ null, %19 ], [ null, %1 ], [ null, %21 ], [ %.pre, %._crit_edge.loopexit ], [ %5, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
@@ -381,7 +381,7 @@ define range(i32 -27, 1) i32 @pmix_argv_delete(ptr noundef captures(none) %0, pt
   br label %40
 
 40:                                               ; preds = %13, %10, %4, %6, %37
-  %.0 = phi i32 [ 0, %37 ], [ 0, %6 ], [ 0, %4 ], [ 0, %10 ], [ -27, %13 ]
+  %.0 = phi i32 [ 0, %37 ], [ 0, %4 ], [ 0, %10 ], [ 0, %6 ], [ -27, %13 ]
   ret i32 %.0
 }
 
@@ -496,7 +496,7 @@ pmix_argv_append.exit:                            ; preds = %.lr.ph55, %19
   br i1 %48, label %.lr.ph53, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.lr.ph53, %pmix_argv_append.exit, %._crit_edge, %.preheader, %9, %3, %5
-  %.0 = phi i32 [ -27, %5 ], [ -27, %3 ], [ 0, %9 ], [ 0, %.preheader ], [ 0, %._crit_edge ], [ 0, %pmix_argv_append.exit ], [ 0, %.lr.ph53 ]
+  %.0 = phi i32 [ 0, %9 ], [ -27, %3 ], [ -27, %5 ], [ 0, %.preheader ], [ 0, %._crit_edge ], [ 0, %pmix_argv_append.exit ], [ 0, %.lr.ph53 ]
   ret i32 %.0
 }
 
@@ -578,7 +578,7 @@ define range(i32 -27, 1) i32 @pmix_argv_insert_element(ptr noundef %0, i32 nound
   br label %pmix_argv_append.exit
 
 pmix_argv_append.exit:                            ; preds = %16, %14, %9, %3, %5, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ -27, %5 ], [ -27, %3 ], [ 0, %9 ], [ 0, %14 ], [ 0, %16 ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ -27, %3 ], [ 0, %9 ], [ -27, %5 ], [ 0, %14 ], [ 0, %16 ]
   ret i32 %.0
 }
 

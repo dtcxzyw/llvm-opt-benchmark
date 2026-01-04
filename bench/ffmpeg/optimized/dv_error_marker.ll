@@ -301,7 +301,7 @@ define internal range(i32 -2147483648, 1) i32 @dv_error_marker_filter(ptr nounde
   br label %46
 
 46:                                               ; preds = %.thread, %2, %._crit_edge
-  %.032 = phi i32 [ 0, %._crit_edge ], [ %5, %2 ], [ %29, %.thread ]
+  %.032 = phi i32 [ %29, %.thread ], [ 0, %._crit_edge ], [ %5, %2 ]
   ret i32 %.032
 }
 

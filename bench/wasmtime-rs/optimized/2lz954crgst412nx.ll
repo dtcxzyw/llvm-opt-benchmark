@@ -1048,7 +1048,7 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$T$u20$as$u20$core..option..SpecOpti
   br i1 %brmerge, label %7, label %8
 
 7:                                                ; preds = %2, %8
-  %.0.shrunk = phi i1 [ %.0.i, %8 ], [ %.mux, %2 ]
+  %.0.shrunk = phi i1 [ %.mux, %2 ], [ %.0.i, %8 ]
   ret i1 %.0.shrunk
 
 8:                                                ; preds = %2
@@ -3297,7 +3297,7 @@ define hidden void @_ZN16wasmtime_runtime2gc7enabled3drc7DrcHeap14log_gc_ref_set
           to label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit unwind label %.loopexit
 
 .critedge73:                                      ; preds = %._crit_edge, %22, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit49
-  %43 = phi i64 [ 1, %22 ], [ %55, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit49 ], [ %.pre80, %._crit_edge ]
+  %43 = phi i64 [ %55, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit49 ], [ 1, %22 ], [ %.pre80, %._crit_edge ]
   %44 = load i64, ptr %14, align 8, !alias.scope !351, !noundef !4
   %45 = icmp eq i64 %43, %44
   br i1 %45, label %46, label %68
@@ -4425,7 +4425,7 @@ common.resume:                                    ; preds = %101, %24
   invoke void @"_ZN4core3ptr127drop_in_place$LT$std..sync..mutex..MutexGuard$LT$wasmtime_runtime..instance..allocator..pooling..index_allocator..Inner$GT$$GT$17h1ceae46c47e0e1c0E.llvm.2708031191408783576"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10) #32
           to label %common.resume unwind label %167
 
-.loopexit:                                        ; preds = %76, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb50d937726762180E.llvm.2708031191408783576.exit", %33, %95
+.loopexit:                                        ; preds = %76, %95, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb50d937726762180E.llvm.2708031191408783576.exit", %33
   br i1 %3, label %103, label %137
 
 103:                                              ; preds = %.loopexit
@@ -4489,7 +4489,7 @@ _ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator5Inner9pick_col
           to label %146 unwind label %101
 
 137:                                              ; preds = %.loopexit, %114, %131
-  %.sroa.4.0.i.pn.i = phi i32 [ undef, %.loopexit ], [ %116, %114 ], [ undef, %131 ]
+  %.sroa.4.0.i.pn.i = phi i32 [ %116, %114 ], [ undef, %.loopexit ], [ undef, %131 ]
   br i1 %29, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.2708031191408783576.exit.i.i, label %138
 
 138:                                              ; preds = %137
@@ -4511,8 +4511,8 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.2708031191408783576.exit.
   %145 = icmp eq i32 %144, 2
   br i1 %145, label %"_ZN4core3ptr127drop_in_place$LT$std..sync..mutex..MutexGuard$LT$wasmtime_runtime..instance..allocator..pooling..index_allocator..Inner$GT$$GT$17h1ceae46c47e0e1c0E.llvm.2708031191408783576.exit.sink.split", label %"_ZN4core3ptr127drop_in_place$LT$std..sync..mutex..MutexGuard$LT$wasmtime_runtime..instance..allocator..pooling..index_allocator..Inner$GT$$GT$17h1ceae46c47e0e1c0E.llvm.2708031191408783576.exit"
 
-146:                                              ; preds = %98, %134, %_ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator5Inner9pick_warm17h93354a7265fac853E.exit.thread.i.i, %_ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator5Inner9pick_cold17h9c9df4ccced9cdeeE.exit.thread.i.i, %121
-  %.sroa.4.0.i.pn.i.ph = phi i32 [ %136, %134 ], [ %113, %_ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator5Inner9pick_warm17h93354a7265fac853E.exit.thread.i.i ], [ %125, %_ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator5Inner9pick_cold17h9c9df4ccced9cdeeE.exit.thread.i.i ], [ %116, %121 ], [ %100, %98 ]
+146:                                              ; preds = %98, %134, %_ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator5Inner9pick_warm17h93354a7265fac853E.exit.thread.i.i, %121, %_ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator5Inner9pick_cold17h9c9df4ccced9cdeeE.exit.thread.i.i
+  %.sroa.4.0.i.pn.i.ph = phi i32 [ %136, %134 ], [ %113, %_ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator5Inner9pick_warm17h93354a7265fac853E.exit.thread.i.i ], [ %116, %121 ], [ %125, %_ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator5Inner9pick_cold17h9c9df4ccced9cdeeE.exit.thread.i.i ], [ %100, %98 ]
   %147 = zext i32 %.sroa.4.0.i.pn.i.ph to i64
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %149 = load i64, ptr %148, align 8, !noundef !4
@@ -4565,8 +4565,8 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.2708031191408783576.exit.
   br label %"_ZN4core3ptr127drop_in_place$LT$std..sync..mutex..MutexGuard$LT$wasmtime_runtime..instance..allocator..pooling..index_allocator..Inner$GT$$GT$17h1ceae46c47e0e1c0E.llvm.2708031191408783576.exit"
 
 "_ZN4core3ptr127drop_in_place$LT$std..sync..mutex..MutexGuard$LT$wasmtime_runtime..instance..allocator..pooling..index_allocator..Inner$GT$$GT$17h1ceae46c47e0e1c0E.llvm.2708031191408783576.exit": ; preds = %"_ZN4core3ptr127drop_in_place$LT$std..sync..mutex..MutexGuard$LT$wasmtime_runtime..instance..allocator..pooling..index_allocator..Inner$GT$$GT$17h1ceae46c47e0e1c0E.llvm.2708031191408783576.exit.sink.split", %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.2708031191408783576.exit.i.i31, %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.2708031191408783576.exit.i.i
-  %.sroa.4.0.i.pn.i46 = phi i32 [ %.sroa.4.0.i.pn.i, %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.2708031191408783576.exit.i.i ], [ %.sroa.4.0.i.pn.i.ph, %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.2708031191408783576.exit.i.i31 ], [ %.sroa.4.0.i.pn.i46.ph, %"_ZN4core3ptr127drop_in_place$LT$std..sync..mutex..MutexGuard$LT$wasmtime_runtime..instance..allocator..pooling..index_allocator..Inner$GT$$GT$17h1ceae46c47e0e1c0E.llvm.2708031191408783576.exit.sink.split" ]
-  %.sroa.03.0 = phi i32 [ 0, %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.2708031191408783576.exit.i.i ], [ 1, %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.2708031191408783576.exit.i.i31 ], [ %.sroa.03.0.ph, %"_ZN4core3ptr127drop_in_place$LT$std..sync..mutex..MutexGuard$LT$wasmtime_runtime..instance..allocator..pooling..index_allocator..Inner$GT$$GT$17h1ceae46c47e0e1c0E.llvm.2708031191408783576.exit.sink.split" ]
+  %.sroa.4.0.i.pn.i46 = phi i32 [ %.sroa.4.0.i.pn.i.ph, %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.2708031191408783576.exit.i.i31 ], [ %.sroa.4.0.i.pn.i, %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.2708031191408783576.exit.i.i ], [ %.sroa.4.0.i.pn.i46.ph, %"_ZN4core3ptr127drop_in_place$LT$std..sync..mutex..MutexGuard$LT$wasmtime_runtime..instance..allocator..pooling..index_allocator..Inner$GT$$GT$17h1ceae46c47e0e1c0E.llvm.2708031191408783576.exit.sink.split" ]
+  %.sroa.03.0 = phi i32 [ 1, %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.2708031191408783576.exit.i.i31 ], [ 0, %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.2708031191408783576.exit.i.i ], [ %.sroa.03.0.ph, %"_ZN4core3ptr127drop_in_place$LT$std..sync..mutex..MutexGuard$LT$wasmtime_runtime..instance..allocator..pooling..index_allocator..Inner$GT$$GT$17h1ceae46c47e0e1c0E.llvm.2708031191408783576.exit.sink.split" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %165 = insertvalue { i32, i32 } poison, i32 %.sroa.03.0, 0
   %166 = insertvalue { i32, i32 } %165, i32 %.sroa.4.0.i.pn.i46, 1
@@ -4760,7 +4760,7 @@ _ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator4List6append17h
   br i1 %.not.not.i.i54, label %_ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator9SlotState13unwrap_unused17h5d00cb88aba1929aE.exit.i55, label %.invoke91
 
 .invoke91:                                        ; preds = %81, %34, %57
-  %84 = phi ptr [ @anon.48a310daf047e914c00cc15599afb284.87, %57 ], [ @anon.48a310daf047e914c00cc15599afb284.102, %34 ], [ @anon.48a310daf047e914c00cc15599afb284.87, %81 ]
+  %84 = phi ptr [ @anon.48a310daf047e914c00cc15599afb284.102, %34 ], [ @anon.48a310daf047e914c00cc15599afb284.87, %57 ], [ @anon.48a310daf047e914c00cc15599afb284.87, %81 ]
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.48a310daf047e914c00cc15599afb284.85, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) %84) #30
           to label %.cont92 unwind label %24
 
@@ -4775,9 +4775,9 @@ _ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator9SlotState13unw
   br label %_ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator4List6append17h6b0a00bd1f0d8e31E.exit58
 
 .invoke:                                          ; preds = %_ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator4List6append17h6b0a00bd1f0d8e31E.exit58, %78, %54, %26
-  %87 = phi i64 [ %29, %26 ], [ %55, %54 ], [ %79, %78 ], [ %29, %_ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator4List6append17h6b0a00bd1f0d8e31E.exit58 ]
-  %88 = phi i64 [ %32, %26 ], [ %32, %54 ], [ %70, %78 ], [ %118, %_ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator4List6append17h6b0a00bd1f0d8e31E.exit58 ]
-  %89 = phi ptr [ @anon.48a310daf047e914c00cc15599afb284.100, %26 ], [ @anon.48a310daf047e914c00cc15599afb284.105, %54 ], [ @anon.48a310daf047e914c00cc15599afb284.105, %78 ], [ @anon.48a310daf047e914c00cc15599afb284.101, %_ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator4List6append17h6b0a00bd1f0d8e31E.exit58 ]
+  %87 = phi i64 [ %55, %54 ], [ %29, %26 ], [ %79, %78 ], [ %29, %_ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator4List6append17h6b0a00bd1f0d8e31E.exit58 ]
+  %88 = phi i64 [ %32, %54 ], [ %32, %26 ], [ %70, %78 ], [ %118, %_ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator4List6append17h6b0a00bd1f0d8e31E.exit58 ]
+  %89 = phi ptr [ @anon.48a310daf047e914c00cc15599afb284.105, %54 ], [ @anon.48a310daf047e914c00cc15599afb284.100, %26 ], [ @anon.48a310daf047e914c00cc15599afb284.105, %78 ], [ @anon.48a310daf047e914c00cc15599afb284.101, %_ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator4List6append17h6b0a00bd1f0d8e31E.exit58 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %87, i64 noundef %88, ptr noalias noundef readonly align 8 dereferenceable(24) %89) #30
           to label %.cont unwind label %24
 
@@ -6252,7 +6252,7 @@ _ZN16wasmtime_runtime8instance9allocator7pooling24PoolingInstanceAllocator27vali
   br label %76
 
 76:                                               ; preds = %_ZN16wasmtime_runtime8instance9allocator7pooling24PoolingInstanceAllocator27validate_core_instance_size17ha9212befbca08886E.exit, %21, %3
-  %.0 = phi ptr [ %19, %3 ], [ %23, %21 ], [ %.0.i, %_ZN16wasmtime_runtime8instance9allocator7pooling24PoolingInstanceAllocator27validate_core_instance_size17ha9212befbca08886E.exit ]
+  %.0 = phi ptr [ %23, %21 ], [ %.0.i, %_ZN16wasmtime_runtime8instance9allocator7pooling24PoolingInstanceAllocator27validate_core_instance_size17ha9212befbca08886E.exit ], [ %19, %3 ]
   ret ptr %.0
 }
 
@@ -6814,11 +6814,11 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.2708031191408783576.exit.
   unreachable
 
 78:                                               ; preds = %.body.thread.i, %9
-  %.pn33.i = phi { ptr, i32 } [ %.pn34.i, %.body.thread.i ], [ %eh.lpad-body21.i, %9 ]
+  %.pn33.i = phi { ptr, i32 } [ %eh.lpad-body21.i, %9 ], [ %.pn34.i, %.body.thread.i ]
   resume { ptr, i32 } %.pn33.i
 
 .body.thread.i:                                   ; preds = %25, %.body.thread37.i, %9
-  %.pn34.i = phi { ptr, i32 } [ %eh.lpad-body21.i, %9 ], [ %lpad.thr_comm.i, %.body.thread37.i ], [ %26, %25 ]
+  %.pn34.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %.body.thread37.i ], [ %eh.lpad-body21.i, %9 ], [ %26, %25 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$wasmtime_runtime..gc..gc_runtime..GcHeap$GT$$GT$17h7d275d09f5f05f1bE"(ptr nonnull align 1 %2, ptr nonnull readonly align 8 dereferenceable(24) %3) #32
           to label %78 unwind label %76
 

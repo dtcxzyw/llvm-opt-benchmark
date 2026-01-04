@@ -229,7 +229,7 @@ select.unfold._crit_edge.thread.i:                ; preds = %select.unfold._crit
   br i1 %47, label %.lr.ph.i.i.i, label %_ZN5boost11multi_index6detail18ordered_index_nodeINS1_19null_augment_policyENS2_IS3_NS1_15index_node_baseIN5folly12TimeoutQueue5EventESaIS7_EEEEEE9decrementERPSB_.exit.i, !llvm.loop !43
 
 _ZN5boost11multi_index6detail18ordered_index_nodeINS1_19null_augment_policyENS2_IS3_NS1_15index_node_baseIN5folly12TimeoutQueue5EventESaIS7_EEEEEE9decrementERPSB_.exit.i: ; preds = %.preheader25.i.i.i, %.lr.ph.i.i.i, %.preheader.i.i.i, %34
-  %.019.lcssa.sink.i.i.i = phi ptr [ %36, %34 ], [ %.027.i.i.i, %.preheader.i.i.i ], [ %.0.i.i.i, %.lr.ph.i.i.i ], [ %.019.i.i.i, %.preheader25.i.i.i ]
+  %.019.lcssa.sink.i.i.i = phi ptr [ %36, %34 ], [ %.0.i.i.i, %.lr.ph.i.i.i ], [ %.027.i.i.i, %.preheader.i.i.i ], [ %.019.i.i.i, %.preheader25.i.i.i ]
   %48 = icmp eq ptr %.019.lcssa.sink.i.i.i, null
   %49 = getelementptr inbounds i8, ptr %.019.lcssa.sink.i.i.i, i64 -80
   %50 = select i1 %48, ptr null, ptr %49
@@ -313,7 +313,7 @@ _ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policy
   br label %88
 
 88:                                               ; preds = %51, %.sink.split.i, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE4linkEPS5_NS1_18ordered_index_sideES6_S6_.exit
-  %.0 = phi ptr [ %55, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE4linkEPS5_NS1_18ordered_index_sideES6_S6_.exit ], [ %55, %.sink.split.i ], [ %.023.i, %51 ]
+  %.0 = phi ptr [ %55, %.sink.split.i ], [ %55, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE4linkEPS5_NS1_18ordered_index_sideES6_S6_.exit ], [ %.023.i, %51 ]
   ret ptr %.0
 }
 
@@ -871,7 +871,7 @@ _ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policy
   br label %254
 
 254:                                              ; preds = %147, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE11rotate_leftEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit48, %35, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit
-  %.3 = phi ptr [ %52, %35 ], [ %.2, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit ], [ %164, %147 ], [ %.5, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE11rotate_leftEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit48 ]
+  %.3 = phi ptr [ %.2, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit ], [ %52, %35 ], [ %164, %147 ], [ %.5, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE11rotate_leftEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit48 ]
   %255 = load i64, ptr %5, align 8, !tbaa !37
   %256 = and i64 %255, -2
   %257 = inttoptr i64 %256 to ptr
@@ -882,7 +882,7 @@ _ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policy
   br label %.critedge, !llvm.loop !53
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %2
-  %.lcssa = phi ptr [ %8, %2 ], [ %257, %..critedge.loopexit_crit_edge ], [ %8, %.lr.ph.preheader ], [ %257, %.lr.ph ]
+  %.lcssa = phi ptr [ %8, %2 ], [ %8, %.lr.ph.preheader ], [ %257, %..critedge.loopexit_crit_edge ], [ %257, %.lr.ph ]
   %258 = load i64, ptr %.lcssa, align 8, !tbaa !37
   %259 = or i64 %258, 1
   store i64 %259, ptr %.lcssa, align 8, !tbaa !37
@@ -1133,7 +1133,7 @@ _ZN5boost11multi_index6detail18ordered_index_implINS0_6memberIN5folly12TimeoutQu
   br label %_ZN5boost11multi_index6detail18ordered_index_implINS0_6memberIN5folly12TimeoutQueue5EventElXadL_ZNS6_2idEEEEESt4lessIlENS1_9nth_layerILi1ES6_NS0_10indexed_byINS0_14ordered_uniqueIS7_N4mpl_2naESE_EENS0_18ordered_non_uniqueINS3_IS6_lXadL_ZNS6_10expirationEEEEESE_SE_EESE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_EESaIS6_EEENS_3mpl7vector0ISE_EENS1_18ordered_unique_tagENS1_19null_augment_policyEE5eraseEl.exit
 
 _ZN5boost11multi_index6detail18ordered_index_implINS0_6memberIN5folly12TimeoutQueue5EventElXadL_ZNS6_2idEEEEESt4lessIlENS1_9nth_layerILi1ES6_NS0_10indexed_byINS0_14ordered_uniqueIS7_N4mpl_2naESE_EENS0_18ordered_non_uniqueINS3_IS6_lXadL_ZNS6_10expirationEEEEESE_SE_EESE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_EESaIS6_EEENS_3mpl7vector0ISE_EENS1_18ordered_unique_tagENS1_19null_augment_policyEE5eraseEl.exit: ; preds = %14, %23, %_ZN5boost11multi_index6detail18ordered_index_implINS0_6memberIN5folly12TimeoutQueue5EventElXadL_ZNS6_2idEEEEESt4lessIlENS1_9nth_layerILi1ES6_NS0_10indexed_byINS0_14ordered_uniqueIS7_N4mpl_2naESE_EENS0_18ordered_non_uniqueINS3_IS6_lXadL_ZNS6_10expirationEEEEESE_SE_EESE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_EESaIS6_EEENS_3mpl7vector0ISE_EENS1_18ordered_unique_tagENS1_19null_augment_policyEE5eraseEl.exit.loopexit, %2, %_ZNK5boost11multi_index6detail18ordered_index_implINS0_6memberIN5folly12TimeoutQueue5EventElXadL_ZNS6_2idEEEEESt4lessIlENS1_9nth_layerILi1ES6_NS0_10indexed_byINS0_14ordered_uniqueIS7_N4mpl_2naESE_EENS0_18ordered_non_uniqueINS3_IS6_lXadL_ZNS6_10expirationEEEEESE_SE_EESE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_EESaIS6_EEENS_3mpl7vector0ISE_EENS1_18ordered_unique_tagENS1_19null_augment_policyEE11equal_rangeIlEESt4pairINS1_19bidir_node_iteratorINS1_18ordered_index_nodeISQ_NSV_ISQ_NS1_15index_node_baseIS6_SK_EEEEEEEES10_ERKT_.exit.i
-  %.0.lcssa.i = phi i1 [ false, %_ZNK5boost11multi_index6detail18ordered_index_implINS0_6memberIN5folly12TimeoutQueue5EventElXadL_ZNS6_2idEEEEESt4lessIlENS1_9nth_layerILi1ES6_NS0_10indexed_byINS0_14ordered_uniqueIS7_N4mpl_2naESE_EENS0_18ordered_non_uniqueINS3_IS6_lXadL_ZNS6_10expirationEEEEESE_SE_EESE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_EESaIS6_EEENS_3mpl7vector0ISE_EENS1_18ordered_unique_tagENS1_19null_augment_policyEE11equal_rangeIlEESt4pairINS1_19bidir_node_iteratorINS1_18ordered_index_nodeISQ_NSV_ISQ_NS1_15index_node_baseIS6_SK_EEEEEEEES10_ERKT_.exit.i ], [ false, %2 ], [ %50, %_ZN5boost11multi_index6detail18ordered_index_implINS0_6memberIN5folly12TimeoutQueue5EventElXadL_ZNS6_2idEEEEESt4lessIlENS1_9nth_layerILi1ES6_NS0_10indexed_byINS0_14ordered_uniqueIS7_N4mpl_2naESE_EENS0_18ordered_non_uniqueINS3_IS6_lXadL_ZNS6_10expirationEEEEESE_SE_EESE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_EESaIS6_EEENS_3mpl7vector0ISE_EENS1_18ordered_unique_tagENS1_19null_augment_policyEE5eraseEl.exit.loopexit ], [ false, %23 ], [ false, %14 ]
+  %.0.lcssa.i = phi i1 [ false, %_ZNK5boost11multi_index6detail18ordered_index_implINS0_6memberIN5folly12TimeoutQueue5EventElXadL_ZNS6_2idEEEEESt4lessIlENS1_9nth_layerILi1ES6_NS0_10indexed_byINS0_14ordered_uniqueIS7_N4mpl_2naESE_EENS0_18ordered_non_uniqueINS3_IS6_lXadL_ZNS6_10expirationEEEEESE_SE_EESE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_EESaIS6_EEENS_3mpl7vector0ISE_EENS1_18ordered_unique_tagENS1_19null_augment_policyEE11equal_rangeIlEESt4pairINS1_19bidir_node_iteratorINS1_18ordered_index_nodeISQ_NSV_ISQ_NS1_15index_node_baseIS6_SK_EEEEEEEES10_ERKT_.exit.i ], [ %50, %_ZN5boost11multi_index6detail18ordered_index_implINS0_6memberIN5folly12TimeoutQueue5EventElXadL_ZNS6_2idEEEEESt4lessIlENS1_9nth_layerILi1ES6_NS0_10indexed_byINS0_14ordered_uniqueIS7_N4mpl_2naESE_EENS0_18ordered_non_uniqueINS3_IS6_lXadL_ZNS6_10expirationEEEEESE_SE_EESE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_SE_EESaIS6_EEENS_3mpl7vector0ISE_EENS1_18ordered_unique_tagENS1_19null_augment_policyEE5eraseEl.exit.loopexit ], [ false, %2 ], [ false, %23 ], [ false, %14 ]
   ret i1 %.0.lcssa.i
 }
 
@@ -2066,7 +2066,7 @@ _ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policy
   br label %.critedge.sink.split
 
 .thread261:                                       ; preds = %343, %347, %187, %191
-  %.0.sink433 = phi ptr [ %.0151, %191 ], [ %.0151, %187 ], [ %.0, %347 ], [ %.0, %343 ]
+  %.0.sink433 = phi ptr [ %.0151, %187 ], [ %.0151, %191 ], [ %.0, %347 ], [ %.0, %343 ]
   %448 = load i64, ptr %.0.sink433, align 8, !tbaa !37
   %449 = and i64 %448, -2
   store i64 %449, ptr %.0.sink433, align 8, !tbaa !37
@@ -2453,7 +2453,7 @@ select.unfold._crit_edge.thread.i.i:              ; preds = %select.unfold._crit
   br i1 %155, label %.lr.ph.i.i.i.i45, label %.loopexit146, !llvm.loop !43
 
 .loopexit146:                                     ; preds = %.preheader25.i.i.i.i, %.lr.ph.i.i.i.i45, %142, %.preheader.i.i.i.i
-  %.019.lcssa.sink.i.i.i.i = phi ptr [ %144, %142 ], [ %.027.i.i.i.i, %.preheader.i.i.i.i ], [ %.0.i.i.i.i46, %.lr.ph.i.i.i.i45 ], [ %.019.i.i.i.i, %.preheader25.i.i.i.i ]
+  %.019.lcssa.sink.i.i.i.i = phi ptr [ %144, %142 ], [ %.0.i.i.i.i46, %.lr.ph.i.i.i.i45 ], [ %.027.i.i.i.i, %.preheader.i.i.i.i ], [ %.019.i.i.i.i, %.preheader25.i.i.i.i ]
   %156 = getelementptr inbounds i8, ptr %.019.lcssa.sink.i.i.i.i, i64 -80
   %.pre.i = load i64, ptr %156, align 8, !tbaa !37
   %157 = icmp slt i64 %.pre.i, %114
@@ -2682,7 +2682,7 @@ _ZN5folly12TimeoutQueue5EventD2Ev.exit:           ; preds = %.noexc33.thread144,
   unreachable
 
 .body:                                            ; preds = %246, %243, %107, %104
-  %.pn = phi { ptr, i32 } [ %105, %107 ], [ %105, %104 ], [ %244, %243 ], [ %244, %246 ]
+  %.pn = phi { ptr, i32 } [ %105, %104 ], [ %244, %246 ], [ %105, %107 ], [ %244, %243 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %291
 
@@ -2805,7 +2805,7 @@ _ZNSt6vectorIN5folly12TimeoutQueue5EventESaIS2_EED2Ev.exit: ; preds = %_ZSt8_Des
   ret i64 %271
 
 291:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit74, %.loopexit.split-lp75, %.body
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %lpad.loopexit76, %.loopexit74 ], [ %lpad.loopexit.split-lp77, %.loopexit.split-lp75 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %lpad.loopexit.split-lp77, %.loopexit.split-lp75 ], [ %lpad.loopexit76, %.loopexit74 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt6vectorIN5folly12TimeoutQueue5EventESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %.pn.pn

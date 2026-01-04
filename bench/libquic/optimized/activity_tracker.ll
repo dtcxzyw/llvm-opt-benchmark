@@ -234,7 +234,7 @@ define void @_ZN4base5debug21ThreadActivityTrackerC2EPvm(ptr noundef nonnull ali
   br label %.sink.split
 
 .sink.split:                                      ; preds = %57, %53, %49, %45, %40, %38, %61, %18
-  %.0.i.sink = phi i8 [ 1, %18 ], [ 0, %57 ], [ 0, %53 ], [ 0, %49 ], [ 0, %45 ], [ 0, %40 ], [ 0, %38 ], [ %spec.select, %61 ]
+  %.0.i.sink = phi i8 [ 1, %18 ], [ 0, %38 ], [ %spec.select, %61 ], [ 0, %57 ], [ 0, %53 ], [ 0, %49 ], [ 0, %45 ], [ 0, %40 ]
   store i8 %.0.i.sink, ptr %11, align 4, !tbaa !34
   br label %65
 
@@ -774,13 +774,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   %.not61 = icmp eq ptr %178, %174
   br i1 %.not61, label %_ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit.thread, label %.lr.ph
 
-179:                                              ; preds = %98, %141, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+179:                                              ; preds = %98, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %141
   %180 = add nuw nsw i32 %.03265, 1
   %exitcond.not = icmp eq i32 %180, 10
   br i1 %exitcond.not, label %_ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit.thread, label %67, !llvm.loop !57
 
 _ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit.thread: ; preds = %179, %.lr.ph, %167, %163, %159, %155, %151, %146, %143, %172, %2, %8, %13, %17, %21, %25, %30
-  %.0 = phi i1 [ false, %30 ], [ false, %25 ], [ false, %21 ], [ false, %17 ], [ false, %13 ], [ false, %8 ], [ false, %2 ], [ false, %167 ], [ false, %163 ], [ false, %159 ], [ false, %155 ], [ false, %151 ], [ false, %146 ], [ false, %143 ], [ true, %172 ], [ true, %.lr.ph ], [ false, %179 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %30 ], [ false, %25 ], [ false, %21 ], [ false, %17 ], [ false, %13 ], [ true, %172 ], [ false, %146 ], [ false, %143 ], [ false, %167 ], [ false, %163 ], [ false, %159 ], [ false, %155 ], [ false, %151 ], [ true, %.lr.ph ], [ false, %179 ]
   ret i1 %.0
 }
 
@@ -1086,7 +1086,7 @@ _ZN4base5debug21GlobalActivityTracker15ThreadSafeStackIjE3popEPj.exit: ; preds =
   br label %47
 
 47:                                               ; preds = %20, %26, %.critedge
-  %.132 = phi i32 [ %31, %.critedge ], [ %25, %26 ], [ %.2, %20 ]
+  %.132 = phi i32 [ %.2, %20 ], [ %31, %.critedge ], [ %25, %26 ]
   %48 = load ptr, ptr %0, align 8, !tbaa !87
   %49 = call noundef ptr @_ZNK4base25PersistentMemoryAllocator12GetBlockDataEjjj(ptr noundef nonnull align 8 dereferenceable(48) %48, i32 noundef %.132, i32 noundef 1567850928, i32 noundef 1)
   %50 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #21
@@ -1278,7 +1278,7 @@ _ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i18: ; pr
   br label %.body
 
 .body:                                            ; preds = %22, %46, %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i18, %.body12.thread, %.body12.thread37, %44, %42
-  %.pn.pn = phi { ptr, i32 } [ %45, %44 ], [ %43, %42 ], [ %47, %46 ], [ %23, %22 ], [ %35, %.body12.thread ], [ %48, %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i18 ], [ %33, %.body12.thread37 ]
+  %.pn.pn = phi { ptr, i32 } [ %43, %42 ], [ %45, %44 ], [ %23, %22 ], [ %47, %46 ], [ %35, %.body12.thread ], [ %33, %.body12.thread37 ], [ %48, %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i18 ]
   call void @_ZNSt10unique_ptrIN4base16MemoryMappedFileESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #20
   br label %52
 

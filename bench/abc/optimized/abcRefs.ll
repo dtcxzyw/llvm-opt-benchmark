@@ -282,7 +282,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %tailrecurse, %._cri
   br label %tailrecurse95
 
 .loopexit:                                        ; preds = %100, %Abc_NodeSetTravIdCurrent.exit, %Abc_NodeSetTravIdCurrent.exit, %26, %tailrecurse.us, %tailrecurse.us, %114
-  %accumulator.tr45 = phi i32 [ %.us-phi49, %114 ], [ %accumulator.tr.us, %tailrecurse.us ], [ %accumulator.tr.us, %tailrecurse.us ], [ %accumulator.tr.us, %26 ], [ %accumulator.tr, %Abc_NodeSetTravIdCurrent.exit ], [ %accumulator.tr, %Abc_NodeSetTravIdCurrent.exit ], [ %accumulator.tr, %100 ]
+  %accumulator.tr45 = phi i32 [ %.us-phi49, %114 ], [ %accumulator.tr.us, %26 ], [ %accumulator.tr.us, %tailrecurse.us ], [ %accumulator.tr.us, %tailrecurse.us ], [ %accumulator.tr, %Abc_NodeSetTravIdCurrent.exit ], [ %accumulator.tr, %Abc_NodeSetTravIdCurrent.exit ], [ %accumulator.tr, %100 ]
   %.027 = phi i32 [ %.2, %114 ], [ %.0.us, %26 ], [ 0, %tailrecurse.us ], [ 0, %tailrecurse.us ], [ %.0, %100 ], [ 0, %Abc_NodeSetTravIdCurrent.exit ], [ 0, %Abc_NodeSetTravIdCurrent.exit ]
   %accumulator.ret.tr42 = add nsw i32 %.027, %accumulator.tr45
   %accumulator.ret.tr100 = add i32 %accumulator.ret.tr42, %accumulator.tr99
@@ -422,7 +422,7 @@ tailrecurse:                                      ; preds = %34, %tailrecurse79
   br label %tailrecurse79
 
 .loopexit:                                        ; preds = %tailrecurse, %tailrecurse, %29, %27, %47, %45
-  %.025 = phi i32 [ %.2, %45 ], [ %.2, %47 ], [ 0, %tailrecurse ], [ %.0, %29 ], [ %.0, %27 ], [ 0, %tailrecurse ]
+  %.025 = phi i32 [ %.2, %47 ], [ %.2, %45 ], [ 0, %tailrecurse ], [ %.0, %29 ], [ %.0, %27 ], [ 0, %tailrecurse ]
   %accumulator.ret.tr44 = add nsw i32 %.025, %accumulator.tr
   %accumulator.ret.tr83 = add i32 %accumulator.ret.tr44, %accumulator.tr82
   ret i32 %accumulator.ret.tr83
@@ -1088,8 +1088,8 @@ Abc_NtkIncrementTravId.exit.sink.split:           ; preds = %Abc_NtkIncrementTra
   br label %Abc_NtkIncrementTravId.exit
 
 Abc_NtkIncrementTravId.exit:                      ; preds = %Abc_NtkIncrementTravId.exit.sink.split, %.split9, %.split
-  %.sink27 = phi ptr [ %7, %.split ], [ %23, %.split9 ], [ %.sink30, %Abc_NtkIncrementTravId.exit.sink.split ]
-  %.sink = phi ptr [ null, %.split ], [ %2, %.split9 ], [ %.sink.ph, %Abc_NtkIncrementTravId.exit.sink.split ]
+  %.sink27 = phi ptr [ %23, %.split9 ], [ %7, %.split ], [ %.sink30, %Abc_NtkIncrementTravId.exit.sink.split ]
+  %.sink = phi ptr [ %2, %.split9 ], [ null, %.split ], [ %.sink.ph, %Abc_NtkIncrementTravId.exit.sink.split ]
   %41 = getelementptr inbounds nuw i8, ptr %.sink27, i64 216
   %42 = load i32, ptr %41, align 8, !tbaa !35
   %43 = add nsw i32 %42, 1

@@ -1949,7 +1949,7 @@ dissect_sflow_245_samples.exit.us:                ; preds = %dissect_sflow_5_cou
   br label %dissect_sflow_245_samples.exit
 
 dissect_sflow_245_samples.exit:                   ; preds = %359, %.lr.ph.split, %333, %440, %441, %443, %445, %447
-  %.0.i81 = phi i32 [ %289, %.lr.ph.split ], [ %335, %333 ], [ %.0.i.i, %440 ], [ %442, %441 ], [ %444, %443 ], [ %446, %445 ], [ %448, %447 ], [ %.2.i.i, %359 ]
+  %.0.i81 = phi i32 [ %444, %443 ], [ %446, %445 ], [ %289, %.lr.ph.split ], [ %448, %447 ], [ %335, %333 ], [ %.0.i.i, %440 ], [ %442, %441 ], [ %.2.i.i, %359 ]
   %449 = load ptr, ptr %8, align 8
   call void @proto_item_set_end(ptr noundef %449, ptr noundef %0, i32 noundef %.0.i81)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -2189,7 +2189,7 @@ define internal fastcc noundef i32 @dissect_sflow_5_flow_record(ptr noundef %0, 
   br label %78
 
 78:                                               ; preds = %22, %24, %26, %28, %30, %32, %34, %36, %38, %40, %42, %44, %46, %48, %50, %54, %56, %58, %60, %10, %62
-  %.0 = phi i32 [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ], [ %53, %50 ], [ %55, %54 ], [ %57, %56 ], [ %59, %58 ], [ %61, %60 ], [ %.1, %62 ], [ %21, %10 ]
+  %.0 = phi i32 [ %21, %10 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ], [ %53, %50 ], [ %55, %54 ], [ %57, %56 ], [ %59, %58 ], [ %61, %60 ], [ %.1, %62 ]
   %79 = load ptr, ptr %5, align 8
   call void @proto_item_set_end(ptr noundef %79, ptr noundef %0, i32 noundef %.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2635,7 +2635,7 @@ define internal fastcc noundef i32 @dissect_sflow_245_extended_router(ptr nounde
   br label %dissect_sflow_245_address_type.exit
 
 dissect_sflow_245_address_type.exit:              ; preds = %4, %9, %11, %13
-  %.0.i = phi i32 [ 0, %13 ], [ 4, %9 ], [ 16, %11 ], [ %7, %4 ]
+  %.0.i = phi i32 [ 0, %13 ], [ 16, %11 ], [ 4, %9 ], [ %7, %4 ]
   %15 = add i32 %.0.i, %8
   %16 = load i32, ptr @hf_sflow_245_nexthop_src_mask, align 4
   %17 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %16, ptr noundef %0, i32 noundef %15, i32 noundef 4, i32 noundef 0)
@@ -2676,7 +2676,7 @@ define internal fastcc i32 @dissect_sflow_245_extended_gateway(ptr noundef %0, p
   br label %dissect_sflow_245_address_type.exit
 
 dissect_sflow_245_address_type.exit:              ; preds = %7, %12, %14, %16
-  %.0.i = phi i32 [ 0, %16 ], [ 4, %12 ], [ 16, %14 ], [ %10, %7 ]
+  %.0.i = phi i32 [ 0, %16 ], [ 16, %14 ], [ 4, %12 ], [ %10, %7 ]
   %18 = add i32 %.0.i, %11
   br label %19
 
@@ -2899,7 +2899,7 @@ define internal fastcc i32 @dissect_sflow_5_extended_mpls_data(ptr noundef %0, p
   br label %dissect_sflow_245_address_type.exit
 
 dissect_sflow_245_address_type.exit:              ; preds = %4, %9, %11, %13
-  %.0.i = phi i32 [ 0, %13 ], [ 4, %9 ], [ 16, %11 ], [ %7, %4 ]
+  %.0.i = phi i32 [ 0, %13 ], [ 16, %11 ], [ 4, %9 ], [ %7, %4 ]
   %15 = add i32 %.0.i, %8
   %16 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %15)
   %17 = load i32, ptr @hf_sflow_245_extended_mpls_in_label_stack_entries, align 4
@@ -2979,7 +2979,7 @@ define internal fastcc noundef i32 @dissect_sflow_5_extended_nat(ptr noundef %0,
   br label %dissect_sflow_245_address_type.exit
 
 dissect_sflow_245_address_type.exit:              ; preds = %4, %9, %11, %13
-  %.0.i = phi i32 [ 0, %13 ], [ 4, %9 ], [ 16, %11 ], [ %7, %4 ]
+  %.0.i = phi i32 [ 0, %13 ], [ 16, %11 ], [ 4, %9 ], [ %7, %4 ]
   %15 = add i32 %.0.i, %8
   %16 = load i32, ptr @hf_sflow_245_ipv4_dst, align 4
   %17 = load i32, ptr @hf_sflow_245_ipv6_dst, align 4
@@ -3004,7 +3004,7 @@ dissect_sflow_245_address_type.exit:              ; preds = %4, %9, %11, %13
   br label %dissect_sflow_245_address_type.exit9
 
 dissect_sflow_245_address_type.exit9:             ; preds = %dissect_sflow_245_address_type.exit, %20, %22, %24
-  %.0.i8 = phi i32 [ 0, %24 ], [ 4, %20 ], [ 16, %22 ], [ %18, %dissect_sflow_245_address_type.exit ]
+  %.0.i8 = phi i32 [ 0, %24 ], [ 16, %22 ], [ 4, %20 ], [ %18, %dissect_sflow_245_address_type.exit ]
   %26 = add i32 %.0.i8, %19
   ret i32 %26
 }

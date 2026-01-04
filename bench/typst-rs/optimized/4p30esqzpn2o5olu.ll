@@ -4295,7 +4295,7 @@ define hidden void @"_ZN4core3ptr125drop_in_place$LT$indexmap..map..core..IndexM
   br label %"_ZN4core3ptr131drop_in_place$LT$alloc..vec..Vec$LT$indexmap..Bucket$LT$typst..foundations..str..Str$C$typst..foundations..value..Value$GT$$GT$$GT$17h54d3cabd69e2f4abE.llvm.17057414408856058071.exit"
 
 common.resume:                                    ; preds = %18, %24, %28
-  %common.resume.op = phi { ptr, i32 } [ %25, %28 ], [ %25, %24 ], [ %19, %18 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %25, %28 ], [ %19, %18 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr131drop_in_place$LT$alloc..vec..Vec$LT$indexmap..Bucket$LT$typst..foundations..str..Str$C$typst..foundations..value..Value$GT$$GT$$GT$17h54d3cabd69e2f4abE.llvm.17057414408856058071.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcdca270f707c2630E.llvm.17057414408856058071.exit.i", %32
@@ -7719,7 +7719,7 @@ define hidden void @"_ZN4core3ptr277drop_in_place$LT$rayon_core..spawn..spawn_jo
   br label %"_ZN4core3ptr212drop_in_place$LT$typst..util..deferred..Deferred$LT$alloc..vec..Vec$LT$u8$GT$$GT$..new$LT$typst_pdf..deflate_deferred..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd5009579caaa21e9E.llvm.17057414408856058071.exit"
 
 common.resume:                                    ; preds = %7, %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.17057414408856058071.exit.i.i1.i.i.i"
-  %common.resume.op = phi { ptr, i32 } [ %15, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.17057414408856058071.exit.i.i1.i.i.i" ], [ %15, %14 ], [ %8, %7 ]
+  %common.resume.op = phi { ptr, i32 } [ %15, %14 ], [ %15, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.17057414408856058071.exit.i.i1.i.i.i" ], [ %8, %7 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr212drop_in_place$LT$typst..util..deferred..Deferred$LT$alloc..vec..Vec$LT$u8$GT$$GT$..new$LT$typst_pdf..deflate_deferred..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd5009579caaa21e9E.llvm.17057414408856058071.exit": ; preds = %"_ZN4core3ptr103drop_in_place$LT$alloc..sync..Arc$LT$once_cell..sync..OnceCell$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h921a41f33b692ddcE.llvm.17057414408856058071.exit.i", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.17057414408856058071.exit.i.i1.i.i1.i"
@@ -7855,7 +7855,7 @@ define hidden void @"_ZN4core3ptr287drop_in_place$LT$rayon_core..spawn..spawn_jo
   unreachable
 
 common.resume:                                    ; preds = %6, %14, %20
-  %common.resume.op = phi { ptr, i32 } [ %15, %20 ], [ %15, %14 ], [ %7, %6 ]
+  %common.resume.op = phi { ptr, i32 } [ %15, %14 ], [ %15, %20 ], [ %7, %6 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr222drop_in_place$LT$typst..util..deferred..Deferred$LT$typst_pdf..image..EncodedImage$GT$..new$LT$typst_pdf..image..deferred_image..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbc832391b43288b3E.llvm.17057414408856058071.exit": ; preds = %"_ZN4core3ptr108drop_in_place$LT$alloc..sync..Arc$LT$once_cell..sync..OnceCell$LT$typst_pdf..image..EncodedImage$GT$$GT$$GT$17hcaa98b4aafb8a163E.llvm.17057414408856058071.exit.i", %25
@@ -8249,7 +8249,7 @@ common.resume:                                    ; preds = %42, %14, %10, %6
   br i1 %40, label %.invoke, label %"_ZN4core3ptr62drop_in_place$LT$alloc..boxed..Box$LT$usvg_tree..Image$GT$$GT$17h58f802abfb252770E.exit"
 
 .invoke:                                          ; preds = %36, %31, %26
-  %41 = phi ptr [ %27, %26 ], [ %32, %31 ], [ %37, %36 ]
+  %41 = phi ptr [ %32, %31 ], [ %27, %26 ], [ %37, %36 ]
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h29066a0abb1cf5ecE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %41)
           to label %"_ZN4core3ptr62drop_in_place$LT$alloc..boxed..Box$LT$usvg_tree..Image$GT$$GT$17h58f802abfb252770E.exit" unwind label %42
@@ -8639,7 +8639,7 @@ define hidden void @"_ZN4core3ptr37drop_in_place$LT$usvg_tree..Group$GT$17hc809b
   br label %"_ZN4core3ptr116drop_in_place$LT$core..option..Option$LT$alloc..rc..Rc$LT$core..cell..RefCell$LT$usvg_tree..ClipPath$GT$$GT$$GT$$GT$17h90d846e21c115552E.exit7"
 
 .body27:                                          ; preds = %36, %22
-  %.pn = phi { ptr, i32 } [ %37, %36 ], [ %23, %22 ]
+  %.pn = phi { ptr, i32 } [ %23, %22 ], [ %37, %36 ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %33 = load ptr, ptr %32, align 8, !alias.scope !2856, !noundef !4
   %34 = icmp eq ptr %33, null
@@ -8726,7 +8726,7 @@ define hidden void @"_ZN4core3ptr37drop_in_place$LT$usvg_tree..Group$GT$17hc809b
   br label %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$alloc..rc..Rc$LT$core..cell..RefCell$LT$usvg_tree..Mask$GT$$GT$$GT$$GT$17hcbe832be0e532135E.exit10"
 
 "_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$alloc..rc..Rc$LT$core..cell..RefCell$LT$usvg_tree..Mask$GT$$GT$$GT$$GT$17hcbe832be0e532135E.exit": ; preds = %65, %54, %.body27, %35
-  %.pn2 = phi { ptr, i32 } [ %.pn, %35 ], [ %.pn, %.body27 ], [ %66, %65 ], [ %55, %54 ]
+  %.pn2 = phi { ptr, i32 } [ %.pn, %.body27 ], [ %.pn, %35 ], [ %66, %65 ], [ %55, %54 ]
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 24
   invoke fastcc void @"_ZN4core3ptr117drop_in_place$LT$alloc..vec..Vec$LT$alloc..rc..Rc$LT$core..cell..RefCell$LT$usvg_tree..filter..Filter$GT$$GT$$GT$$GT$17hc46b624cce6ab912E"(ptr noalias noundef align 8 dereferenceable(24) %64) #25
           to label %.body unwind label %127
@@ -8824,7 +8824,7 @@ define hidden void @"_ZN4core3ptr37drop_in_place$LT$usvg_tree..Group$GT$17hc809b
   br label %"_ZN4core3ptr124drop_in_place$LT$alloc..raw_vec..RawVec$LT$alloc..rc..Rc$LT$core..cell..RefCell$LT$usvg_tree..filter..Filter$GT$$GT$$GT$$GT$17hb6a503a81040c73cE.exit"
 
 .body:                                            ; preds = %96, %.body20, %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$alloc..rc..Rc$LT$core..cell..RefCell$LT$usvg_tree..Mask$GT$$GT$$GT$$GT$17hcbe832be0e532135E.exit"
-  %.pn4 = phi { ptr, i32 } [ %.pn2, %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$alloc..rc..Rc$LT$core..cell..RefCell$LT$usvg_tree..Mask$GT$$GT$$GT$$GT$17hcbe832be0e532135E.exit" ], [ %89, %96 ], [ %89, %.body20 ]
+  %.pn4 = phi { ptr, i32 } [ %.pn2, %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$alloc..rc..Rc$LT$core..cell..RefCell$LT$usvg_tree..Mask$GT$$GT$$GT$$GT$17hcbe832be0e532135E.exit" ], [ %89, %.body20 ], [ %89, %96 ]
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 48
   invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$alloc..vec..Vec$LT$usvg_tree..Node$GT$$GT$17h44fccb7fd3435312E"(ptr noalias noundef align 8 dereferenceable(24) %101) #25
           to label %common.resume unwind label %127
@@ -8882,7 +8882,7 @@ define hidden void @"_ZN4core3ptr37drop_in_place$LT$usvg_tree..Group$GT$17hc809b
   br label %common.resume
 
 common.resume:                                    ; preds = %.body, %.body25, %122
-  %common.resume.op = phi { ptr, i32 } [ %115, %122 ], [ %115, %.body25 ], [ %.pn4, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %115, %.body25 ], [ %115, %122 ], [ %.pn4, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr59drop_in_place$LT$alloc..vec..Vec$LT$usvg_tree..Node$GT$$GT$17h44fccb7fd3435312E.exit": ; preds = %107
@@ -11752,7 +11752,7 @@ default.unreachable96:                            ; preds = %5
   br label %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$usvg_tree..text..TextDecorationStyle$GT$$GT$17hb37a8a19833a33c3E.exit29"
 
 .body26:                                          ; preds = %104, %106, %97
-  %eh.lpad-body27 = phi { ptr, i32 } [ %98, %97 ], [ %105, %106 ], [ %105, %104 ]
+  %eh.lpad-body27 = phi { ptr, i32 } [ %98, %97 ], [ %105, %104 ], [ %105, %106 ]
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 208
   invoke fastcc void @"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$usvg_tree..text..TextDecorationStyle$GT$$GT$17hb37a8a19833a33c3E"(ptr noalias noundef align 8 dereferenceable(88) %112) #25
           to label %.body21 unwind label %162
@@ -11820,7 +11820,7 @@ default.unreachable96:                            ; preds = %5
   br label %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$usvg_tree..text..TextDecorationStyle$GT$$GT$17hb37a8a19833a33c3E.exit24"
 
 .body21:                                          ; preds = %129, %122, %131, %.body26
-  %.pn.i = phi { ptr, i32 } [ %eh.lpad-body27, %.body26 ], [ %123, %122 ], [ %130, %131 ], [ %130, %129 ]
+  %.pn.i = phi { ptr, i32 } [ %eh.lpad-body27, %.body26 ], [ %123, %122 ], [ %130, %129 ], [ %130, %131 ]
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 296
   invoke fastcc void @"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$usvg_tree..text..TextDecorationStyle$GT$$GT$17hb37a8a19833a33c3E"(ptr noalias noundef align 8 dereferenceable(88) %137) #25
           to label %.body unwind label %162
@@ -11894,7 +11894,7 @@ default.unreachable96:                            ; preds = %5
   unreachable
 
 .body:                                            ; preds = %154, %.body21, %156, %147, %"_ZN4core3ptr66drop_in_place$LT$core..option..Option$LT$usvg_tree..Stroke$GT$$GT$17heb9c0dc0d5aa78ceE.exit"
-  %.pn4 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr66drop_in_place$LT$core..option..Option$LT$usvg_tree..Stroke$GT$$GT$17heb9c0dc0d5aa78ceE.exit" ], [ %.pn.i, %.body21 ], [ %148, %147 ], [ %155, %156 ], [ %155, %154 ]
+  %.pn4 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr66drop_in_place$LT$core..option..Option$LT$usvg_tree..Stroke$GT$$GT$17heb9c0dc0d5aa78ceE.exit" ], [ %.pn.i, %.body21 ], [ %148, %147 ], [ %155, %154 ], [ %155, %156 ]
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.val = load i64, ptr %164, align 8
   %165 = icmp eq i64 %.val, 0
@@ -13195,7 +13195,7 @@ define hidden void @"_ZN4core3ptr49drop_in_place$LT$typst_pdf..page..EncodedPage
   br label %"_ZN4core3ptr110drop_in_place$LT$alloc..vec..Vec$LT$$LP$typst..model..link..Destination$C$pdf_writer..object..Rect$RP$$GT$$GT$17h1291e25a9ce00818E.exit"
 
 .body:                                            ; preds = %21, %17, %9
-  %.pn = phi { ptr, i32 } [ %10, %9 ], [ %18, %21 ], [ %18, %17 ]
+  %.pn = phi { ptr, i32 } [ %10, %9 ], [ %18, %17 ], [ %18, %21 ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 72
   invoke void @"_ZN4core3ptr102drop_in_place$LT$std..collections..hash..map..HashMap$LT$typst_pdf..page..PageResource$C$usize$GT$$GT$17he29f7ff1c23586f9E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %27) #25
           to label %46 unwind label %69
@@ -14229,7 +14229,7 @@ define hidden void @"_ZN4core3ptr51drop_in_place$LT$image..error..UnsupportedErr
   br i1 %20, label %"_ZN4core3ptr55drop_in_place$LT$image..error..UnsupportedErrorKind$GT$17hbe68b0967ff99d9cE.llvm.17057414408856058071.exit", label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h266fb477ffc92b67E.exit.sink.split.i1"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h266fb477ffc92b67E.exit.sink.split.i1": ; preds = %28, %24, %17
-  %.sink2.i.sink.i = phi i64 [ %26, %24 ], [ %30, %28 ], [ %19, %17 ]
+  %.sink2.i.sink.i = phi i64 [ %30, %28 ], [ %26, %24 ], [ %19, %17 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %22 = load ptr, ptr %21, align 8, !alias.scope !5402, !noalias !4, !nonnull !4, !noundef !4
   tail call void @__rust_dealloc(ptr noundef nonnull %22, i64 noundef %.sink2.i.sink.i, i64 noundef 1) #22, !noalias !5402
@@ -14497,7 +14497,7 @@ define hidden void @"_ZN4core3ptr51drop_in_place$LT$rayon_core..registry..Regist
   br label %"_ZN4core3ptr274drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$17h6d995f78d446edb9E.llvm.17057414408856058071.exit"
 
 .body:                                            ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.17057414408856058071.exit.i.i.i", %45, %"_ZN4core3ptr136drop_in_place$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$crossbeam_deque..deque..Worker$LT$rayon_core..job..JobRef$GT$$GT$$GT$$GT$17h0a10c47437d07f89E.llvm.17057414408856058071.exit"
-  %.pn6 = phi { ptr, i32 } [ %.pn4, %"_ZN4core3ptr136drop_in_place$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$crossbeam_deque..deque..Worker$LT$rayon_core..job..JobRef$GT$$GT$$GT$$GT$17h0a10c47437d07f89E.llvm.17057414408856058071.exit" ], [ %46, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.17057414408856058071.exit.i.i.i" ], [ %46, %45 ]
+  %.pn6 = phi { ptr, i32 } [ %.pn4, %"_ZN4core3ptr136drop_in_place$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$crossbeam_deque..deque..Worker$LT$rayon_core..job..JobRef$GT$$GT$$GT$$GT$17h0a10c47437d07f89E.llvm.17057414408856058071.exit" ], [ %46, %45 ], [ %46, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.17057414408856058071.exit.i.i.i" ]
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 304
   invoke void @"_ZN4core3ptr209drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$usize$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$17h73620cff8025cc9bE.llvm.17057414408856058071"(ptr noalias noundef nonnull align 8 dereferenceable(16) %60) #25
           to label %.body14 unwind label %106
@@ -14548,7 +14548,7 @@ define hidden void @"_ZN4core3ptr51drop_in_place$LT$rayon_core..registry..Regist
   br label %"_ZN4core3ptr209drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$usize$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$17h73620cff8025cc9bE.llvm.17057414408856058071.exit"
 
 .body14:                                          ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.17057414408856058071.exit.i.i.i12", %68, %.body
-  %.pn8 = phi { ptr, i32 } [ %.pn6, %.body ], [ %69, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.17057414408856058071.exit.i.i.i12" ], [ %69, %68 ]
+  %.pn8 = phi { ptr, i32 } [ %.pn6, %.body ], [ %69, %68 ], [ %69, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.17057414408856058071.exit.i.i.i12" ]
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 320
   invoke void @"_ZN4core3ptr209drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$usize$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$17h73620cff8025cc9bE.llvm.17057414408856058071"(ptr noalias noundef nonnull align 8 dereferenceable(16) %83) #25
           to label %common.resume unwind label %106
@@ -14599,7 +14599,7 @@ define hidden void @"_ZN4core3ptr51drop_in_place$LT$rayon_core..registry..Regist
   br label %"_ZN4core3ptr209drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$usize$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$17h73620cff8025cc9bE.llvm.17057414408856058071.exit19"
 
 common.resume:                                    ; preds = %.body14, %91, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.17057414408856058071.exit.i.i.i16"
-  %common.resume.op = phi { ptr, i32 } [ %92, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.17057414408856058071.exit.i.i.i16" ], [ %92, %91 ], [ %.pn8, %.body14 ]
+  %common.resume.op = phi { ptr, i32 } [ %92, %91 ], [ %92, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.17057414408856058071.exit.i.i.i16" ], [ %.pn8, %.body14 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr209drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$usize$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$17h73620cff8025cc9bE.llvm.17057414408856058071.exit19": ; preds = %"_ZN4core3ptr209drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$usize$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$17h73620cff8025cc9bE.llvm.17057414408856058071.exit", %99, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.17057414408856058071.exit.i1.i.i18"
@@ -15067,7 +15067,7 @@ define hidden void @"_ZN4core3ptr51drop_in_place$LT$typst_pdf..pattern..PdfPatte
   br label %"_ZN4core3ptr89drop_in_place$LT$alloc..vec..Vec$LT$$LP$typst_pdf..page..PageResource$C$usize$RP$$GT$$GT$17h855e770ab8a4518eE.exit"
 
 common.resume:                                    ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h143f67c2e511aaccE.exit", %23, %27
-  %common.resume.op = phi { ptr, i32 } [ %24, %27 ], [ %24, %23 ], [ %8, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h143f67c2e511aaccE.exit" ]
+  %common.resume.op = phi { ptr, i32 } [ %24, %23 ], [ %24, %27 ], [ %8, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h143f67c2e511aaccE.exit" ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr89drop_in_place$LT$alloc..vec..Vec$LT$$LP$typst_pdf..page..PageResource$C$usize$RP$$GT$$GT$17h855e770ab8a4518eE.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he48ad92f9c78863dE.llvm.17057414408856058071.exit.i", %31
@@ -15756,7 +15756,7 @@ define internal fastcc void @"_ZN4core3ptr52drop_in_place$LT$usvg_tree..text..Te
   unreachable
 
 "_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$usvg_tree..text..TextDecorationStyle$GT$$GT$17hb37a8a19833a33c3E.exit3": ; preds = %45, %37, %34, %.body, %23
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %23 ], [ %eh.lpad-body, %.body ], [ %46, %45 ], [ %35, %37 ], [ %35, %34 ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %23 ], [ %46, %45 ], [ %35, %37 ], [ %35, %34 ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %42 = load i64, ptr %41, align 8, !range !2660, !alias.scope !5959, !noundef !4
   %43 = icmp eq i64 %42, -9223372036854775806
@@ -15803,7 +15803,7 @@ define internal fastcc void @"_ZN4core3ptr52drop_in_place$LT$usvg_tree..text..Te
           to label %common.resume unwind label %62
 
 common.resume:                                    ; preds = %44, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$usvg_tree..text..TextDecorationStyle$GT$$GT$17hb37a8a19833a33c3E.exit3", %57, %60
-  %common.resume.op = phi { ptr, i32 } [ %58, %60 ], [ %58, %57 ], [ %.pn, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$usvg_tree..text..TextDecorationStyle$GT$$GT$17hb37a8a19833a33c3E.exit3" ], [ %.pn, %44 ]
+  %common.resume.op = phi { ptr, i32 } [ %58, %57 ], [ %58, %60 ], [ %.pn, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$usvg_tree..text..TextDecorationStyle$GT$$GT$17hb37a8a19833a33c3E.exit3" ], [ %.pn, %44 ]
   resume { ptr, i32 } %common.resume.op
 
 61:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$core..option..Option$LT$usvg_tree..Fill$GT$$GT$17h110f543540114f09E.exit.i21"
@@ -16464,7 +16464,7 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..plugin..
   br label %"_ZN4core3ptr95drop_in_place$LT$alloc..vec..Vec$LT$$LP$ecow..string..EcoString$C$wasmi..func..Func$RP$$GT$$GT$17he539ad06c41711c2E.llvm.17057414408856058071.exit"
 
 .body:                                            ; preds = %17, %13, %7
-  %.pn = phi { ptr, i32 } [ %8, %7 ], [ %14, %17 ], [ %14, %13 ]
+  %.pn = phi { ptr, i32 } [ %8, %7 ], [ %14, %13 ], [ %14, %17 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   invoke void @"_ZN4core3ptr85drop_in_place$LT$wasmi..store..Store$LT$typst..foundations..plugin..StoreData$GT$$GT$17h83c97ff10ad5caf0E.llvm.17057414408856058071"(ptr noalias noundef nonnull align 8 dereferenceable(328) %23)
           to label %"_ZN4core3ptr116drop_in_place$LT$std..sync..mutex..Mutex$LT$wasmi..store..Store$LT$typst..foundations..plugin..StoreData$GT$$GT$$GT$17h5d13f4f86c9be6aaE.llvm.17057414408856058071.exit" unwind label %25
@@ -17522,7 +17522,7 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$image..error..UnsupportedErr
   br i1 %8, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h266fb477ffc92b67E.exit", label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h266fb477ffc92b67E.exit.sink.split"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h266fb477ffc92b67E.exit.sink.split": ; preds = %5, %12, %16
-  %.sink2.i.sink = phi i64 [ %14, %12 ], [ %18, %16 ], [ %7, %5 ]
+  %.sink2.i.sink = phi i64 [ %18, %16 ], [ %14, %12 ], [ %7, %5 ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !4, !nonnull !4, !noundef !4
   tail call void @__rust_dealloc(ptr noundef nonnull %10, i64 noundef %.sink2.i.sink, i64 noundef 1) #22, !noalias !4
@@ -19404,7 +19404,7 @@ default.unreachable:                              ; preds = %.lr.ph
   br i1 %47, label %.invoke, label %.noexc9.i
 
 .invoke:                                          ; preds = %43, %38, %33
-  %48 = phi ptr [ %34, %33 ], [ %39, %38 ], [ %44, %43 ]
+  %48 = phi ptr [ %39, %38 ], [ %34, %33 ], [ %44, %43 ]
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h29066a0abb1cf5ecE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %48)
           to label %.noexc9.i unwind label %49, !noalias !7089
@@ -19563,7 +19563,7 @@ define internal fastcc void @"_ZN4core3ptr59drop_in_place$LT$typst..foundations.
           to label %"_ZN4core3ptr66drop_in_place$LT$$LP$u8$C$typst..foundations..value..Value$RP$$GT$17h218ca1f56e0fbf53E.llvm.17057414408856058071.exit7.i" unwind label %29
 
 common.resume:                                    ; preds = %"_ZN4core3ptr66drop_in_place$LT$$LP$u8$C$typst..foundations..value..Value$RP$$GT$17h218ca1f56e0fbf53E.llvm.17057414408856058071.exit7.i", %69, %63, %83, %77, %"_ZN4core3ptr96drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$u8$C$typst..foundations..value..Value$RP$$GT$$GT$17h85f41a5db4a0b8e1E.llvm.17057414408856058071.exit.i"
-  %common.resume.op = phi { ptr, i32 } [ %42, %"_ZN4core3ptr96drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$u8$C$typst..foundations..value..Value$RP$$GT$$GT$17h85f41a5db4a0b8e1E.llvm.17057414408856058071.exit.i" ], [ %64, %69 ], [ %64, %63 ], [ %78, %83 ], [ %78, %77 ], [ %24, %"_ZN4core3ptr66drop_in_place$LT$$LP$u8$C$typst..foundations..value..Value$RP$$GT$17h218ca1f56e0fbf53E.llvm.17057414408856058071.exit7.i" ]
+  %common.resume.op = phi { ptr, i32 } [ %78, %77 ], [ %42, %"_ZN4core3ptr96drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$u8$C$typst..foundations..value..Value$RP$$GT$$GT$17h85f41a5db4a0b8e1E.llvm.17057414408856058071.exit.i" ], [ %64, %63 ], [ %64, %69 ], [ %78, %83 ], [ %24, %"_ZN4core3ptr66drop_in_place$LT$$LP$u8$C$typst..foundations..value..Value$RP$$GT$17h218ca1f56e0fbf53E.llvm.17057414408856058071.exit7.i" ]
   resume { ptr, i32 } %common.resume.op
 
 29:                                               ; preds = %25
@@ -24340,7 +24340,7 @@ define hidden void @"_ZN4core3ptr80drop_in_place$LT$typst_pdf..Remapper$LT$typst
   br label %"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$typst_pdf..gradient..PdfGradient$GT$$GT$17h189967855b7ffcc4E.exit"
 
 common.resume:                                    ; preds = %21, %27, %31
-  %common.resume.op = phi { ptr, i32 } [ %28, %31 ], [ %28, %27 ], [ %22, %21 ]
+  %common.resume.op = phi { ptr, i32 } [ %28, %27 ], [ %28, %31 ], [ %22, %21 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$typst_pdf..gradient..PdfGradient$GT$$GT$17h189967855b7ffcc4E.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha1cb7eabe9ceb5beE.llvm.17057414408856058071.exit.i", %35
@@ -25603,7 +25603,7 @@ define hidden void @"_ZN4core3ptr85drop_in_place$LT$wasmi..store..Store$LT$typst
   br label %"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$wasmi..store..ResourceLimiterQuery$LT$typst..foundations..plugin..StoreData$GT$$GT$$GT$17he2b724e87838113bE.exit"
 
 common.resume:                                    ; preds = %100, %112, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.17057414408856058071.exit.i.i.i.i"
-  %common.resume.op = phi { ptr, i32 } [ %113, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.17057414408856058071.exit.i.i.i.i" ], [ %113, %112 ], [ %.pn2, %100 ]
+  %common.resume.op = phi { ptr, i32 } [ %113, %112 ], [ %113, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.17057414408856058071.exit.i.i.i.i" ], [ %.pn2, %100 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$wasmi..store..ResourceLimiterQuery$LT$typst..foundations..plugin..StoreData$GT$$GT$$GT$17he2b724e87838113bE.exit": ; preds = %105, %120, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.17057414408856058071.exit.i4.i.i.i"
@@ -26140,7 +26140,7 @@ define internal fastcc void @"_ZN4core3ptr89drop_in_place$LT$typst..util..hash..
   br label %"_ZN4core3ptr54drop_in_place$LT$typst..foundations..styles..Style$GT$17h1b2c46f20ae4ea9cE.exit"
 
 common.resume:                                    ; preds = %33, %11, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.17057414408856058071.exit.i.i.i.i"
-  %common.resume.op = phi { ptr, i32 } [ %12, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.17057414408856058071.exit.i.i.i.i" ], [ %12, %11 ], [ %34, %33 ]
+  %common.resume.op = phi { ptr, i32 } [ %12, %11 ], [ %12, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.17057414408856058071.exit.i.i.i.i" ], [ %34, %33 ]
   resume { ptr, i32 } %common.resume.op
 
 26:                                               ; preds = %1
@@ -28753,7 +28753,7 @@ define hidden void @"_ZN66_$LT$pdf_writer..object..Dict$u20$as$u20$core..ops..dr
   br i1 %.not, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.17057414408856058071.exit11", %1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.17057414408856058071.exit"
-  %18 = phi i64 [ %14, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.17057414408856058071.exit" ], [ %.pre16, %1 ], [ %42, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.17057414408856058071.exit11" ]
+  %18 = phi i64 [ %.pre16, %1 ], [ %14, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.17057414408856058071.exit" ], [ %42, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.17057414408856058071.exit11" ]
   %19 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %20 = load i64, ptr %.pre, align 8, !alias.scope !9875, !noundef !4
   %21 = sub i64 %20, %18

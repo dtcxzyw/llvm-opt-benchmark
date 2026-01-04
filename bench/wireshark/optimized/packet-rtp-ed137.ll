@@ -478,8 +478,8 @@ define internal i32 @dissect_rtp_hdr_ext_ed137(ptr noundef %0, ptr noundef reado
 
 .sink.split:                                      ; preds = %26
   %27 = trunc nuw i8 %.1103 to i1
-  %.str.231..str.232 = select i1 %27, ptr @.str.231, ptr @.str.232
   %.str.8. = select i1 %27, ptr @.str.8, ptr null
+  %.str.231..str.232 = select i1 %27, ptr @.str.231, ptr @.str.232
   %.str.232.sink = select i1 %.1101, ptr %.str.231..str.232, ptr %.str.8.
   store ptr %.str.232.sink, ptr %17, align 8
   br label %28
@@ -628,8 +628,8 @@ define internal i32 @dissect_rtp_hdr_ext_ed137a(ptr noundef %0, ptr noundef %1, 
 
 .sink.split:                                      ; preds = %26
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %.str.232..str.231 = select i1 %.not127.not, ptr @.str.232, ptr @.str.231
   %..str.8 = select i1 %.not127.not, ptr null, ptr @.str.8
+  %.str.232..str.231 = select i1 %.not127.not, ptr @.str.232, ptr @.str.231
   %.str.232.sink = select i1 %.not126, ptr %.str.232..str.231, ptr %..str.8
   store ptr %.str.232.sink, ptr %27, align 8
   br label %28

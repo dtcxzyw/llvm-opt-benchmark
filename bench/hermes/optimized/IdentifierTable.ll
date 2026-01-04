@@ -928,7 +928,7 @@ if.end.i.i.i.i.i.i65:                             ; preds = %if.end45
   br label %return
 
 return:                                           ; preds = %if.end.i.i.i.i.i.i65, %if.then.i.i.i.i.i.i68, %cond.end, %if.end.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
-  %retval.sroa.0.0 = phi ptr [ %4, %if.then.i.i.i.i.i.i ], [ %call7.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ], [ inttoptr (i64 -1 to ptr), %cond.end ], [ %21, %if.then.i.i.i.i.i.i68 ], [ %call7.i.i.i.i.i.i66, %if.end.i.i.i.i.i.i65 ]
+  %retval.sroa.0.0 = phi ptr [ inttoptr (i64 -1 to ptr), %cond.end ], [ %call7.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ], [ %4, %if.then.i.i.i.i.i.i ], [ %21, %if.then.i.i.i.i.i.i68 ], [ %call7.i.i.i.i.i.i66, %if.end.i.i.i.i.i.i65 ]
   ret ptr %retval.sroa.0.0
 }
 
@@ -1218,8 +1218,8 @@ _ZNK6hermes2vm15IdentifierTable13getStringViewERNS0_7RuntimeENS0_8SymbolIDE.exit
   br label %return
 
 return:                                           ; preds = %if.end11, %entry, %_ZNK6hermes2vm15IdentifierTable13getStringViewERNS0_7RuntimeENS0_8SymbolIDE.exit, %if.then10
-  %retval.sroa.0.0 = phi ptr [ @.str.1, %if.then10 ], [ %retval.sroa.0.0.i, %_ZNK6hermes2vm15IdentifierTable13getStringViewERNS0_7RuntimeENS0_8SymbolIDE.exit ], [ @.str, %entry ], [ @.str.2, %if.end11 ]
-  %retval.sroa.10.0 = phi i64 [ 49392123904, %if.then10 ], [ %13, %_ZNK6hermes2vm15IdentifierTable13getStringViewERNS0_7RuntimeENS0_8SymbolIDE.exit ], [ 40802189312, %entry ], [ 49392123904, %if.end11 ]
+  %retval.sroa.0.0 = phi ptr [ %retval.sroa.0.0.i, %_ZNK6hermes2vm15IdentifierTable13getStringViewERNS0_7RuntimeENS0_8SymbolIDE.exit ], [ @.str.1, %if.then10 ], [ @.str, %entry ], [ @.str.2, %if.end11 ]
+  %retval.sroa.10.0 = phi i64 [ %13, %_ZNK6hermes2vm15IdentifierTable13getStringViewERNS0_7RuntimeENS0_8SymbolIDE.exit ], [ 49392123904, %if.then10 ], [ 40802189312, %entry ], [ 49392123904, %if.end11 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.10.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -2138,7 +2138,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.end29
   br label %cleanup38
 
 cleanup38:                                        ; preds = %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEED2Ev.exit, %if.end29, %if.then.i.i.i.i.i, %if.then5
-  %retval.sroa.0.0 = phi ptr [ inttoptr (i64 -1 to ptr), %if.then5 ], [ %call.i.i.i.i, %if.end29 ], [ %call.i.i.i.i, %if.then.i.i.i.i.i ], [ %spec.select, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEED2Ev.exit ]
+  %retval.sroa.0.0 = phi ptr [ inttoptr (i64 -1 to ptr), %if.then5 ], [ %spec.select, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEED2Ev.exit ], [ %call.i.i.i.i, %if.end29 ], [ %call.i.i.i.i, %if.then.i.i.i.i.i ]
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope) #16
   ret ptr %retval.sroa.0.0
 }
@@ -3072,7 +3072,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.end29
   br label %cleanup38
 
 cleanup38:                                        ; preds = %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEED2Ev.exit, %if.end29, %if.then.i.i.i.i.i, %if.then5
-  %retval.sroa.0.0 = phi ptr [ inttoptr (i64 -1 to ptr), %if.then5 ], [ %call.i.i.i.i, %if.end29 ], [ %call.i.i.i.i, %if.then.i.i.i.i.i ], [ %spec.select, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEED2Ev.exit ]
+  %retval.sroa.0.0 = phi ptr [ inttoptr (i64 -1 to ptr), %if.then5 ], [ %spec.select, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEED2Ev.exit ], [ %call.i.i.i.i, %if.end29 ], [ %call.i.i.i.i, %if.then.i.i.i.i.i ]
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope) #16
   ret ptr %retval.sroa.0.0
 }
@@ -3123,8 +3123,8 @@ if.then4.i.i28:                                   ; preds = %if.else8
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit33
 
 _ZN4llvh11raw_ostreamlsEPKc.exit33:               ; preds = %if.then.i.i31, %if.then4.i.i28
-  %4 = phi ptr [ %.pre, %if.then.i.i31 ], [ %add.ptr.i.i29, %if.then4.i.i28 ]
-  %phi.call.i30 = phi ptr [ %call3.i.i32, %if.then.i.i31 ], [ %OS, %if.then4.i.i28 ]
+  %4 = phi ptr [ %add.ptr.i.i29, %if.then4.i.i28 ], [ %.pre, %if.then.i.i31 ]
+  %phi.call.i30 = phi ptr [ %OS, %if.then4.i.i28 ], [ %call3.i.i32, %if.then.i.i31 ]
   %tobool.i.not.i = icmp samesign ult i32 %symbolID.coerce, 268435456
   %cond = select i1 %tobool.i.not.i, ptr @.str.7, ptr @.str.8
   %call.i.i35 = select i1 %tobool.i.not.i, i64 9, i64 13
@@ -3149,7 +3149,7 @@ if.then4.i.i44:                                   ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit49
 
 _ZN4llvh11raw_ostreamlsEPKc.exit49:               ; preds = %if.then.i.i47, %if.then4.i.i44
-  %phi.call.i46 = phi ptr [ %call3.i.i48, %if.then.i.i47 ], [ %phi.call.i30, %if.then4.i.i44 ]
+  %phi.call.i46 = phi ptr [ %phi.call.i30, %if.then4.i.i44 ], [ %call3.i.i48, %if.then.i.i47 ]
   %and.i = and i32 %symbolID.coerce, 268435455
   %conv.i = zext nneg i32 %and.i to i64
   %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i46, i64 noundef %conv.i) #16

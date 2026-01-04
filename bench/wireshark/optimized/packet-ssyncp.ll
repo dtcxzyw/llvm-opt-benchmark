@@ -322,7 +322,7 @@ proto_item_set_generated.exit:                    ; preds = %77, %74, %69, %51
   br label %202
 
 .thread178:                                       ; preds = %109, %97, %91
-  %.str.53.sink = phi ptr [ @.str.53, %91 ], [ @.str.54, %97 ], [ @.str.55, %109 ]
+  %.str.53.sink = phi ptr [ @.str.54, %97 ], [ @.str.53, %91 ], [ @.str.55, %109 ]
   call void (ptr, ...) @report_failure(ptr noundef nonnull %.str.53.sink)
   %117 = load ptr, ptr %5, align 8
   call void @gcry_cipher_close(ptr noundef %117)

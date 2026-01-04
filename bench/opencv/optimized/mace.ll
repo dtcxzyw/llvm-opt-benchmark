@@ -1838,7 +1838,7 @@ define linkonce_odr hidden void @_ZNK2cv4face8MACEImpl8dftImageENS_3MatE(ptr dea
   br i1 %133, label %.loopexit, label %130
 
 .loopexit:                                        ; preds = %130, %.loopexit.loopexit64, %.thread
-  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %109, %.thread ], [ %110, %.loopexit.loopexit64 ], [ %.pn52.pn.pn.pn, %130 ]
+  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %110, %.loopexit.loopexit64 ], [ %109, %.thread ], [ %.pn52.pn.pn.pn, %130 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %134
 
@@ -2756,7 +2756,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %331
   br label %359
 
 359:                                              ; preds = %358, %306
-  %.pn157 = phi { ptr, i32 } [ %.pn154.pn, %358 ], [ %307, %306 ]
+  %.pn157 = phi { ptr, i32 } [ %307, %306 ], [ %.pn154.pn, %358 ]
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %27) #25
   br label %.body202
 

@@ -4730,7 +4730,7 @@ _ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EE
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph82.i.i.i.i, %165, %174
-  %.2.i.i.i.i = phi double [ %175, %174 ], [ %167, %165 ], [ %172, %.lr.ph82.i.i.i.i ]
+  %.2.i.i.i.i = phi double [ %167, %165 ], [ %175, %174 ], [ %172, %.lr.ph82.i.i.i.i ]
   %176 = fcmp ole double %.2.i.i.i.i, 1.000000e+00
   %177 = select i1 %176, double 1.000000e+00, double 0x3F70101010101010
   call void @llvm.lifetime.start.p0(ptr nonnull %9)

@@ -179,7 +179,7 @@ define hidden ptr @phpdbg_btree_find_closest(ptr noundef readonly captures(none)
   br i1 %.not47, label %.loopexit, label %.preheader50
 
 .loopexit:                                        ; preds = %51, %.lr.ph, %.lr.ph67, %.preheader48, %.preheader, %15, %2
-  %.037 = phi ptr [ null, %2 ], [ null, %15 ], [ %.23563, %.preheader ], [ %.459, %.preheader48 ], [ %.235, %.lr.ph67 ], [ %.4, %.lr.ph ], [ %.5, %51 ]
+  %.037 = phi ptr [ null, %2 ], [ null, %15 ], [ %.235, %.lr.ph67 ], [ %.4, %.lr.ph ], [ %.23563, %.preheader ], [ %.459, %.preheader48 ], [ %.5, %51 ]
   ret ptr %.037
 }
 
@@ -310,7 +310,7 @@ define hidden noundef ptr @phpdbg_btree_next(ptr noundef captures(none) %0) loca
   br i1 %.not47.i, label %phpdbg_btree_find_closest.exit.thread12, label %.preheader50.i
 
 phpdbg_btree_find_closest.exit:                   ; preds = %.lr.ph.i, %.lr.ph67.i, %.preheader.i, %.preheader48.i
-  %.037.i = phi ptr [ %.23563.i, %.preheader.i ], [ %.459.i, %.preheader48.i ], [ %.235.i, %.lr.ph67.i ], [ %.4.i, %.lr.ph.i ]
+  %.037.i = phi ptr [ %.459.i, %.preheader48.i ], [ %.23563.i, %.preheader.i ], [ %.235.i, %.lr.ph67.i ], [ %.4.i, %.lr.ph.i ]
   %54 = icmp eq ptr %.037.i, null
   br i1 %54, label %phpdbg_btree_find_closest.exit.thread, label %phpdbg_btree_find_closest.exit.thread12
 
@@ -596,7 +596,7 @@ define hidden range(i32 -1, 1) i32 @phpdbg_btree_delete(ptr noundef captures(non
   br label %.loopexit69
 
 .loopexit69:                                      ; preds = %18, %2, %34, %.loopexit
-  %.062 = phi i32 [ 0, %.loopexit ], [ 0, %34 ], [ -1, %2 ], [ -1, %18 ]
+  %.062 = phi i32 [ 0, %34 ], [ 0, %.loopexit ], [ -1, %2 ], [ -1, %18 ]
   ret i32 %.062
 }
 

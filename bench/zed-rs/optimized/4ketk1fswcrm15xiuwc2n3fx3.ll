@@ -225,7 +225,7 @@ define hidden noundef ptr @_ZN5sqlez10connection10Connection10with_write17h1a8d5
           to label %114 unwind label %67, !noalias !38
 
 common.resume:                                    ; preds = %344, %341, %67, %117, %122, %135, %151, %154
-  %common.resume.op = phi { ptr, i32 } [ %68, %67 ], [ %123, %122 ], [ %136, %135 ], [ %118, %117 ], [ %.pn.i.i, %154 ], [ %.pn.i.i, %151 ], [ %342, %341 ], [ %342, %344 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i.i, %151 ], [ %136, %135 ], [ %68, %67 ], [ %123, %122 ], [ %118, %117 ], [ %.pn.i.i, %154 ], [ %342, %341 ], [ %342, %344 ]
   resume { ptr, i32 } %common.resume.op
 
 67:                                               ; preds = %62
@@ -503,7 +503,7 @@ common.resume:                                    ; preds = %344, %341, %67, %11
           to label %163 unwind label %161
 
 .body.i.i.i:                                      ; preds = %186, %175, %170, %161
-  %.pn.i.i.i = phi { ptr, i32 } [ %171, %170 ], [ %162, %161 ], [ %176, %175 ], [ %187, %186 ]
+  %.pn.i.i.i = phi { ptr, i32 } [ %171, %170 ], [ %176, %175 ], [ %162, %161 ], [ %187, %186 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h45e00c62b67af4b6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %32) #12
           to label %.body.i.i unwind label %264
 
@@ -896,7 +896,7 @@ common.resume:                                    ; preds = %344, %341, %67, %11
           to label %276 unwind label %274
 
 .body144.i.i.i:                                   ; preds = %298, %287, %282, %274
-  %.pn112.i.i.i = phi { ptr, i32 } [ %283, %282 ], [ %275, %274 ], [ %288, %287 ], [ %299, %298 ]
+  %.pn112.i.i.i = phi { ptr, i32 } [ %283, %282 ], [ %288, %287 ], [ %275, %274 ], [ %299, %298 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h45e00c62b67af4b6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22) #12
           to label %206 unwind label %264
 
@@ -1235,7 +1235,7 @@ define hidden noundef ptr @_ZN5sqlez10connection10Connection10with_write17hcc374
           to label %114 unwind label %67, !noalias !246
 
 common.resume:                                    ; preds = %344, %341, %67, %117, %122, %135, %151, %154
-  %common.resume.op = phi { ptr, i32 } [ %68, %67 ], [ %123, %122 ], [ %136, %135 ], [ %118, %117 ], [ %.pn.i.i, %154 ], [ %.pn.i.i, %151 ], [ %342, %341 ], [ %342, %344 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i.i, %151 ], [ %136, %135 ], [ %68, %67 ], [ %123, %122 ], [ %118, %117 ], [ %.pn.i.i, %154 ], [ %342, %341 ], [ %342, %344 ]
   resume { ptr, i32 } %common.resume.op
 
 67:                                               ; preds = %62
@@ -1513,7 +1513,7 @@ common.resume:                                    ; preds = %344, %341, %67, %11
           to label %163 unwind label %161
 
 .body.i.i.i:                                      ; preds = %186, %175, %170, %161
-  %.pn.i.i.i = phi { ptr, i32 } [ %171, %170 ], [ %162, %161 ], [ %176, %175 ], [ %187, %186 ]
+  %.pn.i.i.i = phi { ptr, i32 } [ %171, %170 ], [ %176, %175 ], [ %162, %161 ], [ %187, %186 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h45e00c62b67af4b6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %32) #12
           to label %.body.i.i unwind label %264
 
@@ -1906,7 +1906,7 @@ common.resume:                                    ; preds = %344, %341, %67, %11
           to label %276 unwind label %274
 
 .body144.i.i.i:                                   ; preds = %298, %287, %282, %274
-  %.pn112.i.i.i = phi { ptr, i32 } [ %283, %282 ], [ %275, %274 ], [ %288, %287 ], [ %299, %298 ]
+  %.pn112.i.i.i = phi { ptr, i32 } [ %283, %282 ], [ %288, %287 ], [ %275, %274 ], [ %299, %298 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h45e00c62b67af4b6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22) #12
           to label %206 unwind label %264
 

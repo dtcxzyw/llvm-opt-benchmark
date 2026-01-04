@@ -352,8 +352,8 @@ _ZN5ZXingL18EstimateBlackPointERKSt5arrayItLm32EE.exit: ; preds = %.lr.ph.i9
   br i1 %.not46.i32, label %_ZN5ZXingL18ThresholdSharpenedENS_5RangeINS_10StrideIterIPKhEEEEiRSt6vectorIhSaIhEE.exit, label %113, !llvm.loop !31
 
 _ZN5ZXingL18ThresholdSharpenedENS_5RangeINS_10StrideIterIPKhEEEEiRSt6vectorIhSaIhEE.exit: ; preds = %113, %.lr.ph.i13, %99, %80
-  %.sroa.036.0.lcssa.i34.sink = phi ptr [ %82, %80 ], [ %104, %99 ], [ %86, %.lr.ph.i13 ], [ %109, %113 ]
-  %.sroa.033.0.lcssa.i35.sink = phi ptr [ %.sroa.033.049.i, %80 ], [ %.sroa.033.049.i23, %99 ], [ %.sroa.033.0.i, %.lr.ph.i13 ], [ %.sroa.033.0.i31, %113 ]
+  %.sroa.036.0.lcssa.i34.sink = phi ptr [ %86, %.lr.ph.i13 ], [ %82, %80 ], [ %104, %99 ], [ %109, %113 ]
+  %.sroa.033.0.lcssa.i35.sink = phi ptr [ %.sroa.033.0.i, %.lr.ph.i13 ], [ %.sroa.033.049.i, %80 ], [ %.sroa.033.049.i23, %99 ], [ %.sroa.033.0.i31, %113 ]
   %126 = load i8, ptr %.sroa.036.0.lcssa.i34.sink, align 1, !tbaa !22
   %127 = zext i8 %126 to i32
   %.not4.i36 = icmp samesign uge i32 %72, %127
@@ -950,7 +950,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
   br label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i: ; preds = %23, %19
-  %.0.i.i.i.i = phi ptr [ %20, %19 ], [ %24, %23 ]
+  %.0.i.i.i.i = phi ptr [ %24, %23 ], [ %20, %19 ]
   store ptr %.0.i.i.i.i, ptr %3, align 8, !tbaa !54
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
@@ -1069,7 +1069,7 @@ _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !40
   br label %41
 

@@ -293,7 +293,7 @@ v4l2_getfree_v4l2buf.exit:                        ; preds = %57
   br label %v4l2_getfree_v4l2buf.exit.thread
 
 v4l2_getfree_v4l2buf.exit.thread:                 ; preds = %56, %.loopexit.i, %v4l2_getfree_v4l2buf.exit, %63, %46
-  %.0 = phi i32 [ %64, %63 ], [ 0, %46 ], [ %62, %v4l2_getfree_v4l2buf.exit ], [ -11, %.loopexit.i ], [ -11, %56 ]
+  %.0 = phi i32 [ %62, %v4l2_getfree_v4l2buf.exit ], [ %64, %63 ], [ 0, %46 ], [ -11, %.loopexit.i ], [ -11, %56 ]
   ret i32 %.0
 }
 
@@ -489,7 +489,7 @@ v4l2_getfree_v4l2buf.exit:                        ; preds = %58
   br label %v4l2_getfree_v4l2buf.exit.thread
 
 v4l2_getfree_v4l2buf.exit.thread:                 ; preds = %57, %.loopexit.i, %v4l2_getfree_v4l2buf.exit, %64, %47
-  %.0 = phi i32 [ %65, %64 ], [ 0, %47 ], [ %63, %v4l2_getfree_v4l2buf.exit ], [ -11, %.loopexit.i ], [ -11, %57 ]
+  %.0 = phi i32 [ %63, %v4l2_getfree_v4l2buf.exit ], [ %65, %64 ], [ 0, %47 ], [ -11, %.loopexit.i ], [ -11, %57 ]
   ret i32 %.0
 }
 
@@ -626,7 +626,7 @@ switch.lookup198:                                 ; preds = %ctx_to_m2mctx.exit
   br label %40
 
 40:                                               ; preds = %switch.lookup198, %._crit_edge, %logger.exit, %21
-  %41 = phi i32 [ %12, %._crit_edge ], [ %.pre, %logger.exit ], [ %12, %21 ], [ %switch.load200, %switch.lookup198 ]
+  %41 = phi i32 [ %switch.load200, %switch.lookup198 ], [ %12, %21 ], [ %.pre, %logger.exit ], [ %12, %._crit_edge ]
   %switch.tableidx206 = add i32 %41, -2
   %42 = icmp ult i32 %switch.tableidx206, 13
   %switch.maskindex209 = trunc i32 %switch.tableidx206 to i16
@@ -1056,7 +1056,7 @@ switch.lookup258:                                 ; preds = %201
   store i32 1, ptr %209, align 8, !tbaa !40
   br label %.loopexit
 
-.thread:                                          ; preds = %121, %ctx_to_m2mctx.exit.i.i, %logger.exit39.i, %123, %logger.exit.i
+.thread:                                          ; preds = %121, %logger.exit39.i, %ctx_to_m2mctx.exit.i.i, %123, %logger.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre180 = load i16, ptr %19, align 2, !tbaa !45
@@ -1263,7 +1263,7 @@ ctx_to_m2mctx.exit147:                            ; preds = %248, %switch.lookup
   br label %.loopexit
 
 .loopexit:                                        ; preds = %60, %88, %.preheader, %274, %210, %.thread153, %211, %284, %232, %logger.exit145, %235, %216, %logger.exit139, %69, %205, %._crit_edge165
-  %.0 = phi ptr [ null, %205 ], [ null, %274 ], [ null, %._crit_edge165 ], [ null, %69 ], [ null, %logger.exit139 ], [ null, %210 ], [ null, %216 ], [ null, %235 ], [ null, %logger.exit145 ], [ null, %232 ], [ %280, %.thread153 ], [ %280, %284 ], [ null, %211 ], [ null, %.preheader ], [ null, %88 ], [ null, %60 ]
+  %.0 = phi ptr [ null, %69 ], [ null, %.preheader ], [ null, %205 ], [ null, %logger.exit139 ], [ null, %216 ], [ null, %232 ], [ null, %274 ], [ null, %210 ], [ %280, %284 ], [ null, %._crit_edge165 ], [ null, %211 ], [ null, %235 ], [ null, %logger.exit145 ], [ %280, %.thread153 ], [ null, %88 ], [ null, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1422,7 +1422,7 @@ v4l2_get_raw_format.exit:                         ; preds = %ctx_to_m2mctx.exit.
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %88
 
-54:                                               ; preds = %v4l2_try_raw_format.exit23.i, %ctx_to_m2mctx.exit.i.i
+54:                                               ; preds = %ctx_to_m2mctx.exit.i.i, %v4l2_try_raw_format.exit23.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not16 = icmp eq i32 %1, 0
   %55 = zext i1 %.not16 to i32
@@ -1510,7 +1510,7 @@ ctx_to_m2mctx.exit:                               ; preds = %78, %switch.lookup4
   br label %88
 
 88:                                               ; preds = %v4l2_get_coded_format.exit.thread, %v4l2_get_raw_format.exit, %ctx_to_m2mctx.exit, %54
-  %.0 = phi i32 [ 0, %54 ], [ %87, %ctx_to_m2mctx.exit ], [ -22, %v4l2_get_raw_format.exit ], [ -22, %v4l2_get_coded_format.exit.thread ]
+  %.0 = phi i32 [ %87, %ctx_to_m2mctx.exit ], [ 0, %54 ], [ -22, %v4l2_get_raw_format.exit ], [ -22, %v4l2_get_coded_format.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1647,7 +1647,7 @@ ctx_to_m2mctx.exit.i31:                           ; preds = %48, %switch.lookup
   br label %.sink.split
 
 .sink.split:                                      ; preds = %65, %60, %36, %31
-  %.0.i35.sink = phi i32 [ %35, %31 ], [ %46, %36 ], [ %64, %60 ], [ %75, %65 ]
+  %.0.i35.sink = phi i32 [ %46, %36 ], [ %35, %31 ], [ %64, %60 ], [ %75, %65 ]
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %.0.i35.sink, ptr %76, align 4, !tbaa !50
   br label %77

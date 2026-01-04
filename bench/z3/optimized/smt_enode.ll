@@ -164,7 +164,7 @@ _ZNK11ast_manager5is_eqEPK4expr.exit:             ; preds = %27
   br label %_ZNK11ast_manager5is_eqEPK4expr.exit.thread
 
 _ZNK11ast_manager5is_eqEPK4expr.exit.thread:      ; preds = %_ZNK11ast_manager5is_eqEPK4expr.exit, %27, %10
-  %39 = phi i16 [ %22, %10 ], [ %22, %27 ], [ %38, %_ZNK11ast_manager5is_eqEPK4expr.exit ]
+  %39 = phi i16 [ %22, %27 ], [ %38, %_ZNK11ast_manager5is_eqEPK4expr.exit ], [ %22, %10 ]
   store i16 %39, ptr %21, align 4
   br i1 %5, label %_ZNK3smt5enode12get_num_argsEv.exit.thread, label %_ZNK3smt5enode12get_num_argsEv.exit
 
@@ -958,7 +958,7 @@ _ZNK3smt5enode12get_num_argsEv.exit36:            ; preds = %_ZNK3smt5enode12get
   br i1 %or.cond43.not, label %51, label %.loopexit, !llvm.loop !74
 
 .loopexit:                                        ; preds = %51, %.preheader, %_ZNK3smt5enode12get_num_argsEv.exit36, %47, %29, %50, %3
-  %.028 = phi i1 [ false, %3 ], [ false, %_ZNK3smt5enode12get_num_argsEv.exit36 ], [ true, %50 ], [ true, %29 ], [ false, %47 ], [ true, %.preheader ], [ %.not32, %51 ]
+  %.028 = phi i1 [ false, %3 ], [ true, %50 ], [ false, %_ZNK3smt5enode12get_num_argsEv.exit36 ], [ false, %47 ], [ true, %29 ], [ true, %.preheader ], [ %.not32, %51 ]
   ret i1 %.028
 }
 

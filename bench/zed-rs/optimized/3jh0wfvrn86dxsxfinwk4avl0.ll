@@ -602,7 +602,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr42drop
   br label %common.ret
 
 32:                                               ; preds = %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$live_kit_client..test..TestServer$GT$$GT$17hf87b94d894467446E.exit", %18
-  %.pn2 = phi { ptr, i32 } [ %19, %18 ], [ %.pn, %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$live_kit_client..test..TestServer$GT$$GT$17hf87b94d894467446E.exit" ]
+  %.pn2 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$live_kit_client..test..TestServer$GT$$GT$17hf87b94d894467446E.exit" ], [ %19, %18 ]
   resume { ptr, i32 } %.pn2
 
 33:                                               ; preds = %41, %18
@@ -736,7 +736,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr42drop
   br label %common.ret
 
 32:                                               ; preds = %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$live_kit_client..test..TestServer$GT$$GT$17hf87b94d894467446E.exit", %18
-  %.pn2 = phi { ptr, i32 } [ %19, %18 ], [ %.pn, %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$live_kit_client..test..TestServer$GT$$GT$17hf87b94d894467446E.exit" ]
+  %.pn2 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$live_kit_client..test..TestServer$GT$$GT$17hf87b94d894467446E.exit" ], [ %19, %18 ]
   resume { ptr, i32 } %.pn2
 
 33:                                               ; preds = %41, %18
@@ -970,7 +970,7 @@ define internal fastcc void @"_ZN4core3ptr48drop_in_place$LT$live_kit_client..Ro
   unreachable
 
 "_ZN4core3ptr90drop_in_place$LT$alloc..sync..Arc$LT$live_kit_client..test..RemoteTrackPublication$GT$$GT$17h4da23a9d98373008E.exit": ; preds = %54, %60, %82, %68
-  %.pn = phi { ptr, i32 } [ %69, %68 ], [ %83, %82 ], [ %55, %60 ], [ %55, %54 ]
+  %.pn = phi { ptr, i32 } [ %83, %82 ], [ %69, %68 ], [ %55, %60 ], [ %55, %54 ]
   resume { ptr, i32 } %.pn
 
 68:                                               ; preds = %31
@@ -1712,7 +1712,7 @@ define { i64, ptr } @_ZN15live_kit_client4test10TestServer6create17h673f120e6d74
           to label %.thread unwind label %67
 
 .thread:                                          ; preds = %29, %33, %138, %24, %23
-  %.pn2966 = phi { ptr, i32 } [ %.pn27, %23 ], [ %.pn27, %138 ], [ %25, %24 ], [ %30, %33 ], [ %30, %29 ]
+  %.pn2966 = phi { ptr, i32 } [ %.pn27, %23 ], [ %25, %24 ], [ %.pn27, %138 ], [ %30, %33 ], [ %30, %29 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !419)
   call void @llvm.experimental.noalias.scope.decl(metadata !422)
   call void @llvm.experimental.noalias.scope.decl(metadata !425)
@@ -1842,8 +1842,8 @@ define { i64, ptr } @_ZN15live_kit_client4test10TestServer3get17hbc2b5e27ada34e5
   br label %"_ZN4core3ptr220drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alloc..collections..btree..map..BTreeMap$LT$alloc..string..String$C$alloc..sync..Arc$LT$live_kit_client..test..TestServer$GT$$GT$$GT$$GT$17h4b7a6e41153fd913E.exit18"
 
 "_ZN4core3ptr220drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alloc..collections..btree..map..BTreeMap$LT$alloc..string..String$C$alloc..sync..Arc$LT$live_kit_client..test..TestServer$GT$$GT$$GT$$GT$17h4b7a6e41153fd913E.exit18": ; preds = %"_ZN4core3ptr220drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alloc..collections..btree..map..BTreeMap$LT$alloc..string..String$C$alloc..sync..Arc$LT$live_kit_client..test..TestServer$GT$$GT$$GT$$GT$17h4b7a6e41153fd913E.exit18.sink.split", %42, %37
-  %.sroa.3.0 = phi ptr [ %32, %37 ], [ %34, %42 ], [ %.sroa.3.0.ph, %"_ZN4core3ptr220drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alloc..collections..btree..map..BTreeMap$LT$alloc..string..String$C$alloc..sync..Arc$LT$live_kit_client..test..TestServer$GT$$GT$$GT$$GT$17h4b7a6e41153fd913E.exit18.sink.split" ]
-  %.sroa.0.0 = phi i64 [ 1, %37 ], [ 0, %42 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr220drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alloc..collections..btree..map..BTreeMap$LT$alloc..string..String$C$alloc..sync..Arc$LT$live_kit_client..test..TestServer$GT$$GT$$GT$$GT$17h4b7a6e41153fd913E.exit18.sink.split" ]
+  %.sroa.3.0 = phi ptr [ %34, %42 ], [ %32, %37 ], [ %.sroa.3.0.ph, %"_ZN4core3ptr220drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alloc..collections..btree..map..BTreeMap$LT$alloc..string..String$C$alloc..sync..Arc$LT$live_kit_client..test..TestServer$GT$$GT$$GT$$GT$17h4b7a6e41153fd913E.exit18.sink.split" ]
+  %.sroa.0.0 = phi i64 [ 0, %42 ], [ 1, %37 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr220drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alloc..collections..btree..map..BTreeMap$LT$alloc..string..String$C$alloc..sync..Arc$LT$live_kit_client..test..TestServer$GT$$GT$$GT$$GT$17h4b7a6e41153fd913E.exit18.sink.split" ]
   %40 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %41 = insertvalue { i64, ptr } %40, ptr %.sroa.3.0, 1
   ret { i64, ptr } %41
@@ -1923,7 +1923,7 @@ define noundef ptr @_ZN15live_kit_client4test10TestServer8teardown17hb43d80aa422
   br label %"_ZN4core3ptr220drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alloc..collections..btree..map..BTreeMap$LT$alloc..string..String$C$alloc..sync..Arc$LT$live_kit_client..test..TestServer$GT$$GT$$GT$$GT$17h4b7a6e41153fd913E.exit17"
 
 "_ZN4core3ptr220drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alloc..collections..btree..map..BTreeMap$LT$alloc..string..String$C$alloc..sync..Arc$LT$live_kit_client..test..TestServer$GT$$GT$$GT$$GT$17h4b7a6e41153fd913E.exit17": ; preds = %25, %22, %28, %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$live_kit_client..test..TestServer$GT$$GT$17hf87b94d894467446E.exit"
-  %.sroa.0.0 = phi ptr [ null, %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$live_kit_client..test..TestServer$GT$$GT$17hf87b94d894467446E.exit" ], [ null, %28 ], [ %17, %22 ], [ %17, %25 ]
+  %.sroa.0.0 = phi ptr [ null, %28 ], [ null, %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$live_kit_client..test..TestServer$GT$$GT$17hf87b94d894467446E.exit" ], [ %17, %22 ], [ %17, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.sroa.0.0
 
@@ -2354,7 +2354,7 @@ define noundef ptr @_ZN15live_kit_client4test10TestServer15set_track_muted17h291
   br label %76
 
 "_ZN4core3ptr123drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$live_kit_client..test..RoomState$GT$$GT$17h4b413af05ad68464E.exit": ; preds = %.loopexit, %.loopexit.split-lp, %.body, %171
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %171 ], [ %eh.lpad-body, %.body ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %171 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %98 = cmpxchg ptr %53, i8 1, i8 0 release monotonic, align 1
   %99 = extractvalue { i8, i1 } %98, 1
   br i1 %99, label %"_ZN4core3ptr257drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$live_kit_client..test..TestServerRoom$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h4355899b6d64542fE.exit", label %100
@@ -2764,7 +2764,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %5
   br label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$17h1d9bbf20405518ddE.exit98"
 
 "_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$17h1d9bbf20405518ddE.exit98": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha06bac6adfad3fadE.exit.i.i", %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17he189b35ca817d198E.exit86", %37, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17he189b35ca817d198E.exit95", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha06bac6adfad3fadE.exit.i.i97"
-  %.sroa.0.1 = phi ptr [ %33, %37 ], [ %101, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17he189b35ca817d198E.exit95" ], [ %101, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha06bac6adfad3fadE.exit.i.i97" ], [ null, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17he189b35ca817d198E.exit86" ], [ null, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha06bac6adfad3fadE.exit.i.i" ]
+  %.sroa.0.1 = phi ptr [ %101, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha06bac6adfad3fadE.exit.i.i97" ], [ %33, %37 ], [ %101, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17he189b35ca817d198E.exit95" ], [ null, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17he189b35ca817d198E.exit86" ], [ null, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha06bac6adfad3fadE.exit.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   ret ptr %.sroa.0.1
 
@@ -3870,7 +3870,7 @@ define noalias noundef nonnull ptr @_ZN15live_kit_client4test4Room3new17hd1549a4
           to label %35 unwind label %33
 
 .critedge:                                        ; preds = %28, %35
-  %.pn32 = phi { ptr, i32 } [ %15, %35 ], [ %29, %28 ]
+  %.pn32 = phi { ptr, i32 } [ %29, %28 ], [ %15, %35 ]
   resume { ptr, i32 } %.pn32
 
 35:                                               ; preds = %.thread34
@@ -4506,7 +4506,7 @@ define void @_ZN15live_kit_client4test4Room19remote_video_tracks17h57bcaab18cb7c
   br label %.body
 
 .body:                                            ; preds = %317, %51, %36
-  %eh.lpad-body = phi { ptr, i32 } [ %37, %36 ], [ %.pn52.pn.i, %51 ], [ %318, %317 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn52.pn.i, %51 ], [ %37, %36 ], [ %318, %317 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1029)
   call void @llvm.experimental.noalias.scope.decl(metadata !1032)
   %38 = load ptr, ptr %25, align 8, !alias.scope !1035, !nonnull !5, !noundef !5
@@ -6660,7 +6660,7 @@ select.unfold.i:                                  ; preds = %._crit_edge.i.i.i, 
           to label %36 unwind label %281
 
 262:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha06bac6adfad3fadE.exit.i.i62.i", %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$17h1d9bbf20405518ddE.exit60.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha06bac6adfad3fadE.exit.i.i47.i", %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$17h1d9bbf20405518ddE.exit.i", %.noexc10
-  %.sroa.0.1.i = phi i1 [ false, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha06bac6adfad3fadE.exit.i.i47.i" ], [ false, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$17h1d9bbf20405518ddE.exit.i" ], [ false, %.noexc10 ], [ %.sroa.0.0.i40.i, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$17h1d9bbf20405518ddE.exit60.i" ], [ %.sroa.0.0.i40.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha06bac6adfad3fadE.exit.i.i62.i" ]
+  %.sroa.0.1.i = phi i1 [ false, %.noexc10 ], [ false, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha06bac6adfad3fadE.exit.i.i47.i" ], [ false, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$17h1d9bbf20405518ddE.exit.i" ], [ %.sroa.0.0.i40.i, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$17h1d9bbf20405518ddE.exit60.i" ], [ %.sroa.0.0.i40.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha06bac6adfad3fadE.exit.i.i62.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !1374
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !1548
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2d193ee17fe42439E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15)
@@ -7516,7 +7516,7 @@ default.unreachable48:                            ; preds = %57, %2
   br i1 %46, label %183, label %179
 
 "_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$live_kit_client..test..TestServer$GT$$GT$17hf87b94d894467446E.exit": ; preds = %38, %43, %28, %170
-  %.pn18 = phi { ptr, i32 } [ %171, %170 ], [ %29, %28 ], [ %.pn14, %43 ], [ %.pn14, %38 ]
+  %.pn18 = phi { ptr, i32 } [ %171, %170 ], [ %.pn14, %38 ], [ %.pn14, %43 ], [ %29, %28 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 81
   %48 = load i8, ptr %47, align 1, !range !1696, !noundef !5
   %49 = trunc nuw i8 %48 to i1
@@ -8018,8 +8018,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr42drop
   br label %205
 
 .body:                                            ; preds = %160, %149
-  %208 = phi ptr [ %58, %160 ], [ %60, %149 ]
-  %.pn14 = phi { ptr, i32 } [ %161, %160 ], [ %.pn20.i, %149 ]
+  %208 = phi ptr [ %60, %149 ], [ %58, %160 ]
+  %.pn14 = phi { ptr, i32 } [ %.pn20.i, %149 ], [ %161, %160 ]
   invoke fastcc void @"_ZN4core3ptr96drop_in_place$LT$live_kit_client..test..TestServer..create_room..$u7b$$u7b$closure$u7d$$u7d$$GT$17h47d8df5a0aaac369E"(ptr noundef nonnull align 8 %208) #24
           to label %38 unwind label %209
 
@@ -8167,7 +8167,7 @@ default.unreachable48:                            ; preds = %50, %2
   br i1 %39, label %139, label %135
 
 "_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$live_kit_client..test..TestServer$GT$$GT$17hf87b94d894467446E.exit": ; preds = %31, %36, %21, %125
-  %.pn18 = phi { ptr, i32 } [ %126, %125 ], [ %22, %21 ], [ %.pn14, %36 ], [ %.pn14, %31 ]
+  %.pn18 = phi { ptr, i32 } [ %126, %125 ], [ %.pn14, %31 ], [ %.pn14, %36 ], [ %22, %21 ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 81
   %41 = load i8, ptr %40, align 1, !range !1696, !noundef !5
   %42 = trunc nuw i8 %41 to i1
@@ -8522,8 +8522,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr42drop
   br label %161
 
 .body:                                            ; preds = %117, %96
-  %164 = phi ptr [ %51, %117 ], [ %53, %96 ]
-  %.pn14 = phi { ptr, i32 } [ %118, %117 ], [ %.pn10.i, %96 ]
+  %164 = phi ptr [ %53, %96 ], [ %51, %117 ]
+  %.pn14 = phi { ptr, i32 } [ %.pn10.i, %96 ], [ %118, %117 ]
   invoke fastcc void @"_ZN4core3ptr96drop_in_place$LT$live_kit_client..test..TestServer..delete_room..$u7b$$u7b$closure$u7d$$u7d$$GT$17h433d5fa3c84b5163E"(ptr noundef nonnull align 8 %164) #24
           to label %31 unwind label %165
 
@@ -8698,7 +8698,7 @@ default.unreachable66:                            ; preds = %59, %2
   br i1 %48, label %226, label %222
 
 "_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$live_kit_client..test..TestServer$GT$$GT$17hf87b94d894467446E.exit": ; preds = %40, %45, %30, %212
-  %.pn18 = phi { ptr, i32 } [ %213, %212 ], [ %31, %30 ], [ %.pn16, %45 ], [ %.pn16, %40 ]
+  %.pn18 = phi { ptr, i32 } [ %213, %212 ], [ %.pn16, %40 ], [ %.pn16, %45 ], [ %31, %30 ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 129
   %50 = load i8, ptr %49, align 1, !range !1696, !noundef !5
   %51 = trunc nuw i8 %50 to i1
@@ -8899,7 +8899,7 @@ select.unfold.i:                                  ; preds = %._crit_edge.i.i.i.i
           to label %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$live_kit_client..test..Room$GT$$GT$17hf57adc29dc51535cE.exit.i" unwind label %133
 
 132:                                              ; preds = %133, %126, %121
-  %.pn9.i = phi { ptr, i32 } [ %134, %133 ], [ %127, %126 ], [ %122, %121 ]
+  %.pn9.i = phi { ptr, i32 } [ %134, %133 ], [ %122, %121 ], [ %127, %126 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %171
 
@@ -9340,8 +9340,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr42drop
   unreachable
 
 .body:                                            ; preds = %199, %162
-  %296 = phi ptr [ %60, %199 ], [ %62, %162 ]
-  %.pn14 = phi { ptr, i32 } [ %200, %199 ], [ %.pn16.i, %162 ]
+  %296 = phi ptr [ %62, %162 ], [ %60, %199 ]
+  %.pn14 = phi { ptr, i32 } [ %.pn16.i, %162 ], [ %200, %199 ]
   invoke fastcc void @"_ZN4core3ptr103drop_in_place$LT$live_kit_client..test..TestServer..remove_participant..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7750326a097d40c2E"(ptr noundef nonnull align 8 %296) #24
           to label %40 unwind label %294
 
@@ -9530,7 +9530,7 @@ default.unreachable67:                            ; preds = %59, %2
   br i1 %48, label %205, label %201
 
 "_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$live_kit_client..test..TestServer$GT$$GT$17hf87b94d894467446E.exit": ; preds = %40, %45, %30, %191
-  %.pn21 = phi { ptr, i32 } [ %192, %191 ], [ %31, %30 ], [ %.pn19, %45 ], [ %.pn19, %40 ]
+  %.pn21 = phi { ptr, i32 } [ %192, %191 ], [ %.pn19, %40 ], [ %.pn19, %45 ], [ %31, %30 ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 134
   %50 = load i8, ptr %49, align 2, !range !1696, !noundef !5
   %51 = trunc nuw i8 %50 to i1
@@ -10123,8 +10123,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr42drop
   unreachable
 
 .body:                                            ; preds = %178, %137
-  %275 = phi ptr [ %60, %178 ], [ %62, %137 ]
-  %.pn17 = phi { ptr, i32 } [ %179, %178 ], [ %.pn17.i, %137 ]
+  %275 = phi ptr [ %62, %137 ], [ %60, %178 ]
+  %.pn17 = phi { ptr, i32 } [ %.pn17.i, %137 ], [ %179, %178 ]
   invoke fastcc void @"_ZN4core3ptr103drop_in_place$LT$live_kit_client..test..TestServer..update_participant..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha6ef65e61016a679E"(ptr noundef nonnull align 8 %275) #24
           to label %40 unwind label %273
 

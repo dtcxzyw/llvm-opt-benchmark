@@ -350,7 +350,7 @@ define hidden noundef zeroext i1 @"_ZN6quiche6stream15Stream$LT$F$GT$11is_comple
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %29, %23, %11, %18, %16
-  %.sroa.0.0 = phi i1 [ %17, %16 ], [ false, %18 ], [ false, %11 ], [ %28, %23 ], [ %34, %29 ]
+  %.sroa.0.0 = phi i1 [ %28, %23 ], [ false, %11 ], [ false, %18 ], [ %34, %29 ], [ %17, %16 ]
   ret i1 %.sroa.0.0
 
 23:                                               ; preds = %18

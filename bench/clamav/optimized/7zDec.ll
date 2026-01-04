@@ -479,7 +479,7 @@ GetSum.exit.i:                                    ; preds = %.lr.ph.i.i, %212, %
   br i1 %.not.i221.i, label %SzDecodeCopy.exit.thread.i, label %.lr.ph.i219.i
 
 SzDecodeCopy.exit.i:                              ; preds = %229, %226, %.lr.ph.i219.i
-  %.2.ph.i.i = phi i32 [ 6, %226 ], [ %225, %.lr.ph.i219.i ], [ %232, %229 ]
+  %.2.ph.i.i = phi i32 [ 6, %226 ], [ %232, %229 ], [ %225, %.lr.ph.i219.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %SzFolder_Decode2.exit
@@ -581,7 +581,7 @@ SzDecodeLzma.exit.thread318.i:                    ; preds = %241, %265
   br label %SzFolder_Decode2.exit
 
 SzDecodeLzma.exit.thread323.i:                    ; preds = %259, %262, %.lr.ph.i224.i
-  %.134.ph.i.ph.i = phi i32 [ %264, %262 ], [ %247, %.lr.ph.i224.i ], [ 1, %259 ]
+  %.134.ph.i.ph.i = phi i32 [ %247, %.lr.ph.i224.i ], [ %264, %262 ], [ 1, %259 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -901,7 +901,7 @@ SzDecodePpmd.exit.i:                              ; preds = %332, %._crit_edge.i
   br i1 %.not.i272.i, label %.loopexit.i, label %.lr.ph.i263.i
 
 SzDecodeCopy.exit273.i:                           ; preds = %369, %366, %.lr.ph.i263.i
-  %.2.ph.i269.i = phi i32 [ 6, %366 ], [ %365, %.lr.ph.i263.i ], [ %372, %369 ]
+  %.2.ph.i269.i = phi i32 [ 6, %366 ], [ %372, %369 ], [ %365, %.lr.ph.i263.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %SzFolder_Decode2.exit
@@ -937,8 +937,8 @@ SzDecodeCopy.exit273.i:                           ; preds = %369, %366, %.lr.ph.
   br label %SzDecodeCopy.exit.thread.i
 
 SzDecodeCopy.exit.thread.i:                       ; preds = %233, %385, %383, %.loopexit.i, %SzDecodePpmd.exit.i, %SzDecodeLzma2.exit.i, %SzDecodeLzma.exit.i, %SzDecodeLzma.exit.i, %223
-  %.5161.ph.i = phi ptr [ %.1157297308.i, %SzDecodeLzma.exit.i ], [ %.1157297308.i, %SzDecodePpmd.exit.i ], [ %.1157297308.i, %SzDecodeLzma2.exit.i ], [ %.0156434.i, %385 ], [ %.0156434.i, %383 ], [ %.1157297308.i, %223 ], [ %.0156434.i, %.loopexit.i ], [ %.1157297308.i, %SzDecodeLzma.exit.i ], [ %.1157297308.i, %233 ]
-  %.5154.ph.i = phi i64 [ %.1150298307.i, %SzDecodeLzma.exit.i ], [ %.1150298307.i, %SzDecodePpmd.exit.i ], [ %.1150298307.i, %SzDecodeLzma2.exit.i ], [ %.0149435.i, %385 ], [ %.0149435.i, %383 ], [ %.1150298307.i, %223 ], [ %.0149435.i, %.loopexit.i ], [ %.1150298307.i, %SzDecodeLzma.exit.i ], [ %.1150298307.i, %233 ]
+  %.5161.ph.i = phi ptr [ %.1157297308.i, %SzDecodeLzma.exit.i ], [ %.0156434.i, %385 ], [ %.1157297308.i, %SzDecodeLzma.exit.i ], [ %.1157297308.i, %SzDecodePpmd.exit.i ], [ %.1157297308.i, %SzDecodeLzma2.exit.i ], [ %.0156434.i, %383 ], [ %.1157297308.i, %223 ], [ %.0156434.i, %.loopexit.i ], [ %.1157297308.i, %233 ]
+  %.5154.ph.i = phi i64 [ %.1150298307.i, %SzDecodeLzma.exit.i ], [ %.0149435.i, %385 ], [ %.1150298307.i, %SzDecodeLzma.exit.i ], [ %.1150298307.i, %SzDecodePpmd.exit.i ], [ %.1150298307.i, %SzDecodeLzma2.exit.i ], [ %.0149435.i, %383 ], [ %.1150298307.i, %223 ], [ %.0149435.i, %.loopexit.i ], [ %.1150298307.i, %233 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %387 = load i32, ptr %28, align 8, !tbaa !3
   %388 = zext i32 %387 to i64
@@ -951,7 +951,7 @@ CheckSupportedFolder.exit.thread.loopexit.split.loop.exit430.i: ; preds = %SzDec
   br label %SzFolder_Decode2.exit
 
 SzFolder_Decode2.exit:                            ; preds = %197, %206, %211, %.thread286.i, %GetSum.exit.i, %222, %SzDecodeLzma2.exit.i, %SzDecodePpmd.exit.i, %.lr.ph.i254.preheader.i, %354, %358, %.loopexit.i, %381, %382, %SzDecodeCopy.exit.thread.i, %7, %31, %36, %39, %44, %IS_SUPPORTED_CODER.exit.i.i, %46, %49, %53, %56, %60, %63, %66, %69, %73, %76, %80, %83, %84, %88, %92, %96, %IS_SUPPORTED_CODER.exit65.i.i, %101, %105, %109, %IS_SUPPORTED_CODER.exit66.i.i, %114, %118, %122, %125, %129, %132, %135, %138, %141, %145, %148, %151, %154, %157, %SzDecodeCopy.exit.i, %SzDecodeLzma.exit.thread.i, %SzDecodeLzma.exit.thread318.i, %SzDecodeLzma.exit.thread323.i, %SzDecodeLzma2.exit.thread.i, %SzDecodeLzma2.exit.thread331.i, %SzDecodeLzma2.exit.thread336.i, %SzDecodePpmd.exit.thread.i, %SzDecodePpmd.exit.thread344.i, %SzDecodeCopy.exit273.i, %CheckSupportedFolder.exit.thread.loopexit.split.loop.exit430.i
-  %.1.i = phi i32 [ 4, %109 ], [ 4, %IS_SUPPORTED_CODER.exit65.i.i ], [ 4, %101 ], [ 4, %105 ], [ 4, %96 ], [ 4, %84 ], [ 4, %88 ], [ 4, %92 ], [ 4, %44 ], [ 4, %36 ], [ 4, %39 ], [ 4, %157 ], [ 4, %53 ], [ 4, %IS_SUPPORTED_CODER.exit.i.i ], [ 4, %122 ], [ 4, %125 ], [ 4, %129 ], [ 4, %132 ], [ 4, %135 ], [ 4, %138 ], [ 4, %141 ], [ 4, %145 ], [ 4, %148 ], [ 4, %151 ], [ 4, %154 ], [ 4, %IS_SUPPORTED_CODER.exit66.i.i ], [ 4, %114 ], [ 4, %118 ], [ 4, %83 ], [ 4, %56 ], [ 4, %60 ], [ 4, %63 ], [ 4, %66 ], [ 4, %69 ], [ 4, %73 ], [ 4, %76 ], [ 4, %80 ], [ 4, %46 ], [ 4, %49 ], [ 18, %31 ], [ 4, %7 ], [ %.036.i.ph.i, %SzDecodePpmd.exit.thread344.i ], [ %.0.i244.ph.i, %SzDecodePpmd.exit.thread.i ], [ %.134.ph.i237.ph.i, %SzDecodeLzma2.exit.thread336.i ], [ %.03351.i.ph.i, %SzDecodeLzma2.exit.thread331.i ], [ %.0.i232.ph.i, %SzDecodeLzma2.exit.thread.i ], [ %.134.ph.i.ph.i, %SzDecodeLzma.exit.thread323.i ], [ %.0334.i.ph.i, %SzDecodeLzma.exit.thread318.i ], [ %240, %SzDecodeLzma.exit.thread.i ], [ %.2.ph.i.i, %SzDecodeCopy.exit.i ], [ %.2.ph.i269.i, %SzDecodeCopy.exit273.i ], [ %390, %CheckSupportedFolder.exit.thread.loopexit.split.loop.exit430.i ], [ 1, %SzDecodeLzma2.exit.i ], [ 1, %SzDecodePpmd.exit.i ], [ 2, %358 ], [ 4, %.lr.ph.i254.preheader.i ], [ %357, %354 ], [ 2, %197 ], [ 5, %206 ], [ 11, %.thread286.i ], [ 1, %222 ], [ 11, %211 ], [ %219, %GetSum.exit.i ], [ %380, %.loopexit.i ], [ 4, %381 ], [ 4, %382 ], [ 0, %SzDecodeCopy.exit.thread.i ]
+  %.1.i = phi i32 [ %.134.ph.i.ph.i, %SzDecodeLzma.exit.thread323.i ], [ %.0334.i.ph.i, %SzDecodeLzma.exit.thread318.i ], [ %240, %SzDecodeLzma.exit.thread.i ], [ 18, %31 ], [ %.2.ph.i269.i, %SzDecodeCopy.exit273.i ], [ %.2.ph.i.i, %SzDecodeCopy.exit.i ], [ 4, %IS_SUPPORTED_CODER.exit65.i.i ], [ 4, %101 ], [ 4, %105 ], [ 4, %84 ], [ 4, %88 ], [ 4, %92 ], [ 4, %36 ], [ 4, %39 ], [ 4, %109 ], [ 4, %132 ], [ 4, %135 ], [ 4, %138 ], [ 4, %141 ], [ 4, %145 ], [ 4, %148 ], [ 4, %151 ], [ 4, %154 ], [ 4, %157 ], [ 4, %96 ], [ 4, %IS_SUPPORTED_CODER.exit66.i.i ], [ 4, %114 ], [ 4, %118 ], [ 4, %63 ], [ 4, %66 ], [ 4, %69 ], [ 4, %73 ], [ 4, %76 ], [ 4, %80 ], [ 4, %83 ], [ 4, %56 ], [ 4, %49 ], [ 4, %53 ], [ 4, %122 ], [ 4, %60 ], [ 4, %125 ], [ 4, %44 ], [ 4, %46 ], [ 4, %IS_SUPPORTED_CODER.exit.i.i ], [ 4, %129 ], [ 4, %7 ], [ %.036.i.ph.i, %SzDecodePpmd.exit.thread344.i ], [ %.0.i244.ph.i, %SzDecodePpmd.exit.thread.i ], [ %.134.ph.i237.ph.i, %SzDecodeLzma2.exit.thread336.i ], [ %.03351.i.ph.i, %SzDecodeLzma2.exit.thread331.i ], [ %.0.i232.ph.i, %SzDecodeLzma2.exit.thread.i ], [ %390, %CheckSupportedFolder.exit.thread.loopexit.split.loop.exit430.i ], [ 1, %SzDecodeLzma2.exit.i ], [ 1, %SzDecodePpmd.exit.i ], [ 2, %358 ], [ 1, %222 ], [ 4, %382 ], [ 0, %SzDecodeCopy.exit.thread.i ], [ %219, %GetSum.exit.i ], [ 11, %211 ], [ 4, %381 ], [ %380, %.loopexit.i ], [ 4, %.lr.ph.i254.preheader.i ], [ 11, %.thread286.i ], [ %357, %354 ], [ 2, %197 ], [ 5, %206 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %391 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %392

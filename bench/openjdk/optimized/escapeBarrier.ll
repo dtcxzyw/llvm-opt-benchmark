@@ -268,8 +268,8 @@ define hidden noundef zeroext i1 @_ZN13EscapeBarrier18deoptimize_objectsEii(ptr 
   br i1 %80, label %.loopexit, label %.lr.ph48, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph48, %.critedge4, %.critedge2.thread, %.critedge2
-  %.234 = phi i32 [ %.13352, %.critedge2 ], [ %.13352, %.critedge2.thread ], [ %.13352, %.critedge4 ], [ %73, %.lr.ph48 ]
-  %.2 = phi ptr [ %.13153, %.critedge2 ], [ %.13153, %.critedge2.thread ], [ %.13153, %.critedge4 ], [ %76, %.lr.ph48 ]
+  %.234 = phi i32 [ %.13352, %.critedge2.thread ], [ %.13352, %.critedge2 ], [ %.13352, %.critedge4 ], [ %73, %.lr.ph48 ]
+  %.2 = phi ptr [ %.13153, %.critedge2.thread ], [ %.13153, %.critedge2 ], [ %.13153, %.critedge4 ], [ %76, %.lr.ph48 ]
   %81 = add nsw i32 %.234, 1
   %82 = load ptr, ptr %.2, align 8
   %83 = load ptr, ptr %82, align 8
@@ -278,7 +278,7 @@ define hidden noundef zeroext i1 @_ZN13EscapeBarrier18deoptimize_objectsEii(ptr 
   br i1 %.not, label %.critedge, label %.lr.ph54, !llvm.loop !13
 
 .critedge:                                        ; preds = %66, %.loopexit, %51, %.preheader
-  %85 = phi i1 [ true, %.preheader ], [ true, %51 ], [ true, %.loopexit ], [ false, %66 ]
+  %85 = phi i1 [ true, %.preheader ], [ true, %.loopexit ], [ true, %51 ], [ false, %66 ]
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #10
   %86 = load ptr, ptr %29, align 8
   %.not.i.i.i.i = icmp eq ptr %86, null
@@ -308,7 +308,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %88, %90
   br label %92
 
 92:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %11, %3, %91
-  %.029 = phi i1 [ true, %91 ], [ false, %_ZN12ResourceMarkD2Ev.exit ], [ true, %3 ], [ false, %11 ]
+  %.029 = phi i1 [ true, %3 ], [ true, %91 ], [ false, %_ZN12ResourceMarkD2Ev.exit ], [ false, %11 ]
   ret i1 %.029
 }
 

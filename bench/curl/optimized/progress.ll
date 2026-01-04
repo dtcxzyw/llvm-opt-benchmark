@@ -225,8 +225,8 @@ define hidden i32 @Curl_pgrsUpdate(ptr noundef initializes((2720, 2728), (2768, 
   br label %pgrs_estimates.exit.i.i
 
 pgrs_estimates.exit.i.i:                          ; preds = %92, %90, %87, %77, %73
-  %.sroa.0.0.i.i = phi i64 [ 0, %77 ], [ 0, %73 ], [ %83, %92 ], [ %83, %90 ], [ %83, %87 ]
-  %.sroa.5.0.i.i = phi i64 [ 0, %77 ], [ 0, %73 ], [ %94, %92 ], [ 0, %90 ], [ %89, %87 ]
+  %.sroa.0.0.i.i = phi i64 [ 0, %73 ], [ 0, %77 ], [ %83, %92 ], [ %83, %90 ], [ %83, %87 ]
+  %.sroa.5.0.i.i = phi i64 [ 0, %73 ], [ 0, %77 ], [ %94, %92 ], [ 0, %90 ], [ %89, %87 ]
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 2752
   %96 = and i32 %74, 64
   %.not59.i.i = icmp eq i32 %96, 0
@@ -261,8 +261,8 @@ pgrs_estimates.exit.i.i:                          ; preds = %92, %90, %87, %77, 
   br label %pgrs_estimates.exit39.i.i
 
 pgrs_estimates.exit39.i.i:                        ; preds = %112, %110, %107, %97, %pgrs_estimates.exit.i.i
-  %.sroa.056.0.i.i = phi i64 [ 0, %97 ], [ 0, %pgrs_estimates.exit.i.i ], [ %103, %112 ], [ %103, %110 ], [ %103, %107 ]
-  %.sroa.557.0.i.i = phi i64 [ 0, %97 ], [ 0, %pgrs_estimates.exit.i.i ], [ %114, %112 ], [ 0, %110 ], [ %109, %107 ]
+  %.sroa.056.0.i.i = phi i64 [ 0, %pgrs_estimates.exit.i.i ], [ 0, %97 ], [ %103, %112 ], [ %103, %110 ], [ %103, %107 ]
+  %.sroa.557.0.i.i = phi i64 [ 0, %pgrs_estimates.exit.i.i ], [ 0, %97 ], [ %114, %112 ], [ 0, %110 ], [ %109, %107 ]
   %115 = tail call i64 @llvm.smax.i64(i64 %.sroa.0.0.i.i, i64 %.sroa.056.0.i.i)
   %116 = icmp sgt i64 %115, 0
   %117 = sub nsw i64 %115, %57
@@ -458,7 +458,7 @@ progress_meter.exit.i:                            ; preds = %193, %191, %188
   br label %pgrsupdate.exit
 
 pgrsupdate.exit:                                  ; preds = %1, %30, %52, %53, %progress_meter.exit.i
-  %.1.i = phi i32 [ %.mux47.i, %30 ], [ %.mux.i, %52 ], [ 0, %53 ], [ 0, %progress_meter.exit.i ], [ 0, %1 ]
+  %.1.i = phi i32 [ %.mux.i, %52 ], [ %.mux47.i, %30 ], [ 0, %53 ], [ 0, %progress_meter.exit.i ], [ 0, %1 ]
   ret i32 %.1.i
 }
 
@@ -836,7 +836,7 @@ define hidden i64 @Curl_pgrsLimitWaitTime(ptr noundef readonly captures(none) %0
   br label %29
 
 29:                                               ; preds = %22, %4
-  %.0 = phi i64 [ 0, %4 ], [ %spec.select22, %22 ]
+  %.0 = phi i64 [ %spec.select22, %22 ], [ 0, %4 ]
   ret i64 %.0
 }
 

@@ -403,7 +403,7 @@ _Py_XNewRef.exit26:                               ; preds = %53, %56, %59
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %68, %65, %63, %49, %46, %44, %34, %31, %29, %_Py_XNewRef.exit26, %15, %_Py_XNewRef.exit24, %2
-  %.014 = phi ptr [ null, %2 ], [ null, %15 ], [ %17, %_Py_XNewRef.exit24 ], [ null, %_Py_XNewRef.exit26 ], [ null, %29 ], [ null, %31 ], [ null, %34 ], [ null, %44 ], [ null, %46 ], [ null, %49 ], [ null, %63 ], [ %64, %65 ], [ %64, %68 ]
+  %.014 = phi ptr [ null, %2 ], [ %17, %_Py_XNewRef.exit24 ], [ null, %49 ], [ null, %34 ], [ null, %15 ], [ null, %_Py_XNewRef.exit26 ], [ null, %29 ], [ null, %31 ], [ null, %44 ], [ null, %46 ], [ null, %63 ], [ %64, %65 ], [ %64, %68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

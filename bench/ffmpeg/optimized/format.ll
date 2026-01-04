@@ -425,8 +425,8 @@ av_cmp_q.exit143:                                 ; preds = %161, %174
   br label %av_cmp_q.exit143.thread
 
 av_cmp_q.exit143.thread:                          ; preds = %av_cmp_q.exit143, %171, %168
-  %.sroa.019.1 = phi i32 [ %.sroa.019.0, %168 ], [ %.sroa.019.0, %171 ], [ %spec.select, %av_cmp_q.exit143 ]
-  %.sroa.12.1 = phi i32 [ %.sroa.12.0, %168 ], [ %.sroa.12.0, %171 ], [ %spec.select174, %av_cmp_q.exit143 ]
+  %.sroa.019.1 = phi i32 [ %.sroa.019.0, %171 ], [ %spec.select, %av_cmp_q.exit143 ], [ %.sroa.019.0, %168 ]
+  %.sroa.12.1 = phi i32 [ %.sroa.12.0, %171 ], [ %spec.select174, %av_cmp_q.exit143 ], [ %.sroa.12.0, %168 ]
   %178 = icmp sgt i32 %.sroa.019.1, 0
   br i1 %178, label %183, label %.preheader
 
@@ -524,7 +524,7 @@ av_cmp_q.exit143.thread:                          ; preds = %av_cmp_q.exit143, %
   br label %av_cmp_q.exit153
 
 av_cmp_q.exit153:                                 ; preds = %213, %220, %223, %226
-  %.0.i149 = phi i32 [ %219, %213 ], [ %228, %226 ], [ 0, %220 ], [ -2147483648, %223 ]
+  %.0.i149 = phi i32 [ %219, %213 ], [ 0, %220 ], [ %228, %226 ], [ -2147483648, %223 ]
   %229 = icmp sgt i32 %.0.i149, 0
   %.sroa.12.0.extract.shift = lshr i64 %.sroa.03.0.copyload, 32
   %.sroa.12.0.extract.trunc = trunc nuw i64 %.sroa.12.0.extract.shift to i32
@@ -797,7 +797,7 @@ define range(i32 0, 2) i32 @sws_test_format(i32 noundef %0, i32 noundef %1) loca
   br label %sws_isSupportedOutput.exit
 
 sws_isSupportedOutput.exit:                       ; preds = %12, %11, %5, %4
-  %.shrunk = phi i8 [ %10, %5 ], [ 0, %4 ], [ %16, %12 ], [ 0, %11 ]
+  %.shrunk = phi i8 [ 0, %4 ], [ %10, %5 ], [ %16, %12 ], [ 0, %11 ]
   %17 = zext nneg i8 %.shrunk to i32
   ret i32 %17
 }
@@ -893,7 +893,7 @@ define range(i32 0, 2) i32 @ff_test_fmt(ptr noundef readonly captures(none) %0, 
   br label %sws_test_format.exit
 
 sws_test_format.exit:                             ; preds = %14, %20
-  %.shrunk.i.in = phi i8 [ %18, %14 ], [ %23, %20 ]
+  %.shrunk.i.in = phi i8 [ %23, %20 ], [ %18, %14 ]
   %.shrunk.i = and i8 %.shrunk.i.in, 1
   %.not = icmp eq i8 %.shrunk.i, 0
   br i1 %.not, label %sws_test_format.exit.thread, label %24
@@ -955,7 +955,7 @@ sws_test_transfer.exit:                           ; preds = %34, %36
   br label %sws_test_format.exit.thread
 
 sws_test_format.exit.thread:                      ; preds = %24, %19, %13, %45, %41, %sws_test_transfer.exit, %sws_test_colorspace.exit, %sws_test_format.exit, %5, %2
-  %50 = phi i32 [ 0, %41 ], [ 0, %sws_test_transfer.exit ], [ 0, %sws_test_colorspace.exit ], [ 0, %sws_test_format.exit ], [ 0, %5 ], [ 0, %2 ], [ %49, %45 ], [ 0, %13 ], [ 0, %19 ], [ 0, %24 ]
+  %50 = phi i32 [ 0, %41 ], [ 0, %sws_test_transfer.exit ], [ 0, %sws_test_colorspace.exit ], [ 0, %19 ], [ 0, %sws_test_format.exit ], [ 0, %5 ], [ 0, %2 ], [ %49, %45 ], [ 0, %13 ], [ 0, %24 ]
   ret i32 %50
 }
 
@@ -1510,12 +1510,12 @@ ff_q_equal.exit.thread17.i44.i.i.i.i:             ; preds = %185, %182, %ff_cie_
   %or.cond = or i1 %or.cond5.i.i12.i54.i.i.i.i.not27, %202
   br i1 %or.cond, label %.thread22, label %ff_fmt_equal.exit.thread15
 
-.thread22:                                        ; preds = %93, %103, %77, %87, %143, %153, %157, %167, %111, %121, %125, %135, %175, %185, %189, %199, %66, %70, %46, %50, %54, %58, %62, %37, %42
+.thread22:                                        ; preds = %87, %143, %135, %125, %111, %199, %189, %175, %185, %121, %153, %167, %157, %77, %66, %70, %93, %103, %46, %50, %54, %58, %62, %37, %42
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread19
 
-ff_fmt_equal.exit.thread15:                       ; preds = %199, %196, %ff_q_equal.exit.thread17.i44.i.i.i.i
+ff_fmt_equal.exit.thread15:                       ; preds = %199, %ff_q_equal.exit.thread17.i44.i.i.i.i, %196
   %.not11.not = icmp ne i32 %47, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

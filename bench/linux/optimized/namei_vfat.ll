@@ -752,7 +752,7 @@ define internal i32 @vfat_rename2(ptr readnone captures(none) %0, ptr noundef %1
   br label %159
 
 159:                                              ; preds = %46, %39, %237, %234, %158, %157
-  %160 = phi i32 [ %201, %237 ], [ %201, %234 ], [ 0, %158 ], [ 0, %157 ], [ -5, %39 ], [ -5, %46 ]
+  %160 = phi i32 [ 0, %157 ], [ -5, %39 ], [ %201, %237 ], [ %201, %234 ], [ 0, %158 ], [ -5, %46 ]
   %161 = load ptr, ptr %12, align 8
   %162 = icmp eq ptr %161, null
   br i1 %162, label %164, label %163
@@ -1096,7 +1096,7 @@ define internal i32 @vfat_rename2(ptr readnone captures(none) %0, ptr noundef %1
   br label %.thread33
 
 .thread33:                                        ; preds = %260, %393, %276, %401, %398, %350, %347, %294, %288, %268
-  %.ph = phi i32 [ %389, %393 ], [ -5, %276 ], [ %297, %294 ], [ 0, %347 ], [ 0, %350 ], [ %389, %398 ], [ %389, %401 ], [ %289, %288 ], [ %270, %268 ], [ -2, %260 ]
+  %.ph = phi i32 [ %389, %393 ], [ %270, %268 ], [ -5, %276 ], [ %297, %294 ], [ 0, %347 ], [ 0, %350 ], [ %389, %398 ], [ %389, %401 ], [ %289, %288 ], [ -2, %260 ]
   %.pr = load ptr, ptr %245, align 8
   %352 = icmp eq ptr %.pr, null
   br i1 %352, label %.thread33.thread, label %353
@@ -1106,7 +1106,7 @@ define internal i32 @vfat_rename2(ptr readnone captures(none) %0, ptr noundef %1
   br label %.thread33.thread
 
 .thread33.thread:                                 ; preds = %396, %353, %.thread33
-  %354 = phi i32 [ %.ph, %353 ], [ %.ph, %.thread33 ], [ %389, %396 ]
+  %354 = phi i32 [ %.ph, %.thread33 ], [ %.ph, %353 ], [ %389, %396 ]
   %355 = load ptr, ptr %7, align 8
   %356 = icmp eq ptr %355, null
   br i1 %356, label %358, label %357
@@ -2231,7 +2231,7 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   br label %570
 
 .thread83:                                        ; preds = %72, %97, %133, %138, %138, %138, %138, %138, %138, %138, %138, %138, %.thread62, %63, %66, %.critedge, %.thread51
-  %.ph82 = phi i32 [ %494, %.thread62 ], [ -22, %.critedge ], [ -36, %66 ], [ %64, %63 ], [ -22, %.thread51 ], [ -22, %138 ], [ -22, %138 ], [ -22, %138 ], [ -22, %138 ], [ -22, %138 ], [ -22, %138 ], [ -22, %138 ], [ -22, %138 ], [ -22, %138 ], [ -22, %133 ], [ -36, %72 ], [ -22, %97 ]
+  %.ph82 = phi i32 [ %494, %.thread62 ], [ %64, %63 ], [ -22, %.thread51 ], [ -22, %.critedge ], [ -22, %133 ], [ -36, %66 ], [ -22, %138 ], [ -22, %138 ], [ -22, %138 ], [ -22, %138 ], [ -22, %138 ], [ -22, %138 ], [ -22, %138 ], [ -22, %138 ], [ -22, %138 ], [ -36, %72 ], [ -22, %97 ]
   %569 = load ptr, ptr @names_cachep, align 8
   call void @kmem_cache_free(ptr noundef %569, ptr noundef nonnull %46) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -2311,7 +2311,7 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   br label %610
 
 610:                                              ; preds = %.thread83, %.thread80, %609, %607, %570
-  %611 = phi i32 [ %593, %570 ], [ 0, %607 ], [ 0, %609 ], [ -12, %.thread80 ], [ %.ph82, %.thread83 ]
+  %611 = phi i32 [ %.ph82, %.thread83 ], [ %593, %570 ], [ 0, %607 ], [ 0, %609 ], [ -12, %.thread80 ]
   call void @kfree(ptr noundef nonnull %37) #17
   br label %.thread
 

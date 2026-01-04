@@ -275,7 +275,7 @@ define hidden noundef zeroext i1 @_ZN10ciTypeFlow6JsrSet18is_compatible_withEPS0
   br i1 %.not19, label %14, label %.loopexit
 
 .loopexit:                                        ; preds = %22, %15, %14, %.preheader, %8, %2
-  %.0 = phi i1 [ true, %2 ], [ false, %8 ], [ true, %.preheader ], [ false, %22 ], [ false, %15 ], [ true, %14 ]
+  %.0 = phi i1 [ false, %8 ], [ true, %2 ], [ true, %.preheader ], [ false, %15 ], [ false, %22 ], [ true, %14 ]
   ret i1 %.0
 }
 
@@ -1238,7 +1238,7 @@ _ZNK10ciMetadata9is_loadedEv.exit52.thread:       ; preds = %_ZNK10ciMetadata9is
   br label %92
 
 92:                                               ; preds = %71, %76, %86, %81, %_ZNK10ciMetadata9is_loadedEv.exit52.thread, %_ZNK10ciMetadata9is_loadedEv.exit, %_ZNK10ciMetadata9is_loadedEv.exit52, %35, %30, %20, %24, %6, %3, %90, %88, %33
-  %.0 = phi ptr [ %34, %33 ], [ %89, %88 ], [ %91, %90 ], [ %1, %3 ], [ %0, %6 ], [ %1, %24 ], [ %1, %20 ], [ %0, %30 ], [ %36, %35 ], [ %36, %_ZNK10ciMetadata9is_loadedEv.exit52 ], [ %36, %_ZNK10ciMetadata9is_loadedEv.exit ], [ %36, %_ZNK10ciMetadata9is_loadedEv.exit52.thread ], [ %0, %81 ], [ %1, %86 ], [ %36, %76 ], [ %36, %71 ]
+  %.0 = phi ptr [ %36, %35 ], [ %1, %3 ], [ %0, %6 ], [ %34, %33 ], [ %1, %20 ], [ %0, %30 ], [ %36, %_ZNK10ciMetadata9is_loadedEv.exit ], [ %36, %_ZNK10ciMetadata9is_loadedEv.exit52.thread ], [ %0, %81 ], [ %89, %88 ], [ %1, %86 ], [ %91, %90 ], [ %1, %24 ], [ %36, %71 ], [ %36, %_ZNK10ciMetadata9is_loadedEv.exit52 ], [ %36, %76 ]
   ret ptr %.0
 }
 
@@ -1528,7 +1528,7 @@ _ZN10ciTypeFlow17existing_block_atEiPNS_6JsrSetE.exit: ; preds = %101
   %114 = icmp eq ptr %85, null
   br i1 %114, label %_ZN10ciTypeFlow17existing_block_atEiPNS_6JsrSetE.exit.thread, label %_ZN10ciTypeFlow17existing_block_atEiPNS_6JsrSetE.exit.thread42
 
-_ZN10ciTypeFlow17existing_block_atEiPNS_6JsrSetE.exit.thread: ; preds = %_ZN10ciTypeFlow5Block18is_compatible_withEPNS_6JsrSetE.exit.i.i, %78, %58, %_ZN10ciTypeFlow17existing_block_atEiPNS_6JsrSetE.exit
+_ZN10ciTypeFlow17existing_block_atEiPNS_6JsrSetE.exit.thread: ; preds = %_ZN10ciTypeFlow5Block18is_compatible_withEPNS_6JsrSetE.exit.i.i, %58, %78, %_ZN10ciTypeFlow17existing_block_atEiPNS_6JsrSetE.exit
   %115 = load ptr, ptr %0, align 8
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 120
   %117 = load ptr, ptr %116, align 8
@@ -1696,7 +1696,7 @@ _ZN17ciSignatureStream4typeEv.exit:               ; preds = %_ZN17ciSignatureStr
   br label %_ZN10ciTypeFlow14record_failureEPKc.exit
 
 _ZN10ciTypeFlow14record_failureEPKc.exit:         ; preds = %123, %119, %57, %53, %_ZNK10ciTypeFlow5Block15copy_state_intoEPNS_11StateVectorE.exit, %149, %._crit_edge
-  %.0 = phi ptr [ %2, %._crit_edge ], [ %2, %149 ], [ %2, %_ZNK10ciTypeFlow5Block15copy_state_intoEPNS_11StateVectorE.exit ], [ null, %53 ], [ null, %57 ], [ null, %119 ], [ null, %123 ]
+  %.0 = phi ptr [ %2, %_ZNK10ciTypeFlow5Block15copy_state_intoEPNS_11StateVectorE.exit ], [ null, %57 ], [ %2, %._crit_edge ], [ %2, %149 ], [ null, %53 ], [ null, %119 ], [ null, %123 ]
   ret ptr %.0
 }
 
@@ -1891,7 +1891,7 @@ _ZN9Bytecodes10length_forENS_4CodeE.exit.i:       ; preds = %85
   br label %_ZN16ciBytecodeStream4nextEv.exit
 
 _ZN16ciBytecodeStream4nextEv.exit:                ; preds = %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i, %100
-  %.0.i = phi i32 [ %90, %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i ], [ %101, %100 ]
+  %.0.i = phi i32 [ %101, %100 ], [ %90, %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i ]
   %.not51 = icmp eq i32 %.0.i, -1
   br i1 %.not51, label %.critedge, label %_ZN16ciBytecodeStream4nextEv.exit._ZN16ciBytecodeStream4nextEv.exit.thread89_crit_edge
 
@@ -2035,7 +2035,7 @@ _ZN10ciTypeFlow16add_to_work_listEPNS_5BlockE.exit.i: ; preds = %._crit_edge.thr
   br i1 %exitcond.not.i, label %_ZN10ciTypeFlow15flow_exceptionsEP13GrowableArrayIPNS_5BlockEEPS0_IP15ciInstanceKlassEPNS_11StateVectorE.exit, label %122, !llvm.loop !20
 
 _ZN10ciTypeFlow15flow_exceptionsEP13GrowableArrayIPNS_5BlockEEPS0_IP15ciInstanceKlassEPNS_11StateVectorE.exit: ; preds = %_ZN10ciTypeFlow16add_to_work_listEPNS_5BlockE.exit.i, %116, %116, %116, %116, %116, %116, %116, %116, %111, %_ZN10ciTypeFlow8can_trapER16ciBytecodeStream.exit.thread93, %_ZN10ciTypeFlow8can_trapER16ciBytecodeStream.exit, %110
-  %.1 = phi i1 [ %.049, %_ZN10ciTypeFlow8can_trapER16ciBytecodeStream.exit ], [ %.049, %110 ], [ true, %_ZN10ciTypeFlow8can_trapER16ciBytecodeStream.exit.thread93 ], [ %.049, %111 ], [ %.049, %116 ], [ %.049, %116 ], [ %.049, %116 ], [ %.049, %116 ], [ %.049, %116 ], [ %.049, %116 ], [ %.049, %116 ], [ %.049, %116 ], [ true, %_ZN10ciTypeFlow16add_to_work_listEPNS_5BlockE.exit.i ]
+  %.1 = phi i1 [ %.049, %116 ], [ %.049, %_ZN10ciTypeFlow8can_trapER16ciBytecodeStream.exit ], [ %.049, %110 ], [ true, %_ZN10ciTypeFlow8can_trapER16ciBytecodeStream.exit.thread93 ], [ %.049, %111 ], [ %.049, %116 ], [ %.049, %116 ], [ %.049, %116 ], [ %.049, %116 ], [ %.049, %116 ], [ %.049, %116 ], [ %.049, %116 ], [ true, %_ZN10ciTypeFlow16add_to_work_listEPNS_5BlockE.exit.i ]
   %157 = call noundef zeroext i1 @_ZN10ciTypeFlow11StateVector18apply_one_bytecodeEP16ciBytecodeStream(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull %5)
   %158 = load ptr, ptr %0, align 8
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 88
@@ -2205,7 +2205,7 @@ _ZN10ciTypeFlow16add_to_work_listEPNS_5BlockE.exit.i65: ; preds = %._crit_edge.t
   br i1 %exitcond.not.i67, label %_ZN10ciTypeFlow15flow_exceptionsEP13GrowableArrayIPNS_5BlockEEPS0_IP15ciInstanceKlassEPNS_11StateVectorE.exit80, label %196, !llvm.loop !20
 
 _ZN10ciTypeFlow15flow_exceptionsEP13GrowableArrayIPNS_5BlockEEPS0_IP15ciInstanceKlassEPNS_11StateVectorE.exit80: ; preds = %_ZN10ciTypeFlow16add_to_work_listEPNS_5BlockE.exit.i65, %190, %190, %190, %190, %190, %190, %190, %190, %184, %_ZN10ciTypeFlow8can_trapER16ciBytecodeStream.exit59.thread96, %_ZN10ciTypeFlow8can_trapER16ciBytecodeStream.exit59, %183
-  %.2 = phi i1 [ %.049, %_ZN10ciTypeFlow8can_trapER16ciBytecodeStream.exit59 ], [ %.049, %183 ], [ true, %_ZN10ciTypeFlow8can_trapER16ciBytecodeStream.exit59.thread96 ], [ %.049, %184 ], [ %.049, %190 ], [ %.049, %190 ], [ %.049, %190 ], [ %.049, %190 ], [ %.049, %190 ], [ %.049, %190 ], [ %.049, %190 ], [ %.049, %190 ], [ true, %_ZN10ciTypeFlow16add_to_work_listEPNS_5BlockE.exit.i65 ]
+  %.2 = phi i1 [ %.049, %190 ], [ %.049, %_ZN10ciTypeFlow8can_trapER16ciBytecodeStream.exit59 ], [ %.049, %183 ], [ true, %_ZN10ciTypeFlow8can_trapER16ciBytecodeStream.exit59.thread96 ], [ %.049, %184 ], [ %.049, %190 ], [ %.049, %190 ], [ %.049, %190 ], [ %.049, %190 ], [ %.049, %190 ], [ %.049, %190 ], [ %.049, %190 ], [ true, %_ZN10ciTypeFlow16add_to_work_listEPNS_5BlockE.exit.i65 ]
   %231 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %232 = load ptr, ptr %231, align 8
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 8
@@ -2516,7 +2516,7 @@ define hidden noundef zeroext i1 @_ZN10ciTypeFlow11StateVector4meetEPKS0_(ptr no
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !23
 
 .loopexit:                                        ; preds = %52, %.lr.ph31, %29, %13
-  %.0 = phi i1 [ true, %13 ], [ false, %29 ], [ true, %.lr.ph31 ], [ %.1, %52 ]
+  %.0 = phi i1 [ true, %13 ], [ true, %.lr.ph31 ], [ false, %29 ], [ %.1, %52 ]
   ret i1 %.0
 }
 
@@ -7215,7 +7215,7 @@ _ZN26GrowableArrayWithAllocatorIPN10ciTypeFlow5BlockE13GrowableArrayIS2_EE6appen
   br i1 %401, label %.lr.ph135, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %_ZN26GrowableArrayWithAllocatorIPN10ciTypeFlow5BlockE13GrowableArrayIS2_EE6appendERKS2_.exit119, %.loopexit129, %4
-  %402 = phi ptr [ %371, %.loopexit129 ], [ %13, %4 ], [ %398, %_ZN26GrowableArrayWithAllocatorIPN10ciTypeFlow5BlockE13GrowableArrayIS2_EE6appendERKS2_.exit119 ]
+  %402 = phi ptr [ %13, %4 ], [ %371, %.loopexit129 ], [ %398, %_ZN26GrowableArrayWithAllocatorIPN10ciTypeFlow5BlockE13GrowableArrayIS2_EE6appendERKS2_.exit119 ]
   ret ptr %402
 }
 
@@ -7721,7 +7721,7 @@ _ZNK10ciTypeFlow4Loop8containsEPS0_.exit:         ; preds = %.lr.ph.i
   %34 = icmp eq ptr %1, %32
   br i1 %34, label %_ZNK10ciTypeFlow4Loop8containsEPS0_.exit.thread, label %_ZNK10ciTypeFlow4Loop8containsEPS0_.exit.thread33
 
-_ZNK10ciTypeFlow4Loop8containsEPS0_.exit.thread:  ; preds = %20, %24, %_ZNK10ciTypeFlow4Loop8containsEPS0_.exit
+_ZNK10ciTypeFlow4Loop8containsEPS0_.exit.thread:  ; preds = %24, %20, %_ZNK10ciTypeFlow4Loop8containsEPS0_.exit
   %.not = icmp eq i32 %.0841, 0
   br i1 %.not, label %_ZNK10ciTypeFlow4Loop8containsEPS0_.exit.thread33, label %_ZNK10ciTypeFlow4Loop8containsEPS0_.exit31.thread
 
@@ -7782,8 +7782,8 @@ _ZNK10ciTypeFlow4Loop8containsEPS0_.exit.thread33: ; preds = %_ZNK10ciTypeFlow4L
   %52 = icmp ne i32 %.1, 0
   br label %_ZNK10ciTypeFlow4Loop8containsEPS0_.exit31.thread
 
-_ZNK10ciTypeFlow4Loop8containsEPS0_.exit31.thread: ; preds = %35, %39, %_ZNK10ciTypeFlow4Loop8containsEPS0_.exit31, %_ZNK10ciTypeFlow4Loop8containsEPS0_.exit.thread, %17, %2, %._crit_edge.loopexit
-  %.0 = phi i1 [ false, %2 ], [ %52, %._crit_edge.loopexit ], [ false, %17 ], [ false, %_ZNK10ciTypeFlow4Loop8containsEPS0_.exit.thread ], [ false, %_ZNK10ciTypeFlow4Loop8containsEPS0_.exit31 ], [ false, %39 ], [ false, %35 ]
+_ZNK10ciTypeFlow4Loop8containsEPS0_.exit31.thread: ; preds = %39, %35, %_ZNK10ciTypeFlow4Loop8containsEPS0_.exit31, %_ZNK10ciTypeFlow4Loop8containsEPS0_.exit.thread, %17, %2, %._crit_edge.loopexit
+  %.0 = phi i1 [ %52, %._crit_edge.loopexit ], [ false, %2 ], [ false, %17 ], [ false, %_ZNK10ciTypeFlow4Loop8containsEPS0_.exit.thread ], [ false, %_ZNK10ciTypeFlow4Loop8containsEPS0_.exit31 ], [ false, %35 ], [ false, %39 ]
   ret i1 %.0
 }
 
@@ -7833,7 +7833,7 @@ _ZNK10ciTypeFlow4Loop5depthEv.exit20:             ; preds = %_ZNK10ciTypeFlow4Lo
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNK10ciTypeFlow4Loop5depthEv.exit20, %2, %4
-  %.011 = phi i1 [ true, %4 ], [ true, %2 ], [ false, %_ZNK10ciTypeFlow4Loop5depthEv.exit20 ], [ %15, %._crit_edge.loopexit ]
+  %.011 = phi i1 [ false, %_ZNK10ciTypeFlow4Loop5depthEv.exit20 ], [ true, %2 ], [ true, %4 ], [ %15, %._crit_edge.loopexit ]
   ret i1 %.011
 }
 
@@ -7903,8 +7903,8 @@ _ZNK10ciTypeFlow4Loop8containsEPS0_.exit.thread6: ; preds = %_ZNK10ciTypeFlow4Lo
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %_ZNK10ciTypeFlow4Loop8containsEPS0_.exit.thread, label %.lr.ph, !llvm.loop !36
 
-_ZNK10ciTypeFlow4Loop8containsEPS0_.exit.thread:  ; preds = %_ZNK10ciTypeFlow4Loop8containsEPS0_.exit, %_ZNK10ciTypeFlow4Loop8containsEPS0_.exit.thread6, %13, %.lr.ph, %2
-  %.0 = phi ptr [ null, %2 ], [ %9, %.lr.ph ], [ %9, %13 ], [ null, %_ZNK10ciTypeFlow4Loop8containsEPS0_.exit.thread6 ], [ %9, %_ZNK10ciTypeFlow4Loop8containsEPS0_.exit ]
+_ZNK10ciTypeFlow4Loop8containsEPS0_.exit.thread:  ; preds = %_ZNK10ciTypeFlow4Loop8containsEPS0_.exit, %_ZNK10ciTypeFlow4Loop8containsEPS0_.exit.thread6, %.lr.ph, %13, %2
+  %.0 = phi ptr [ null, %2 ], [ null, %_ZNK10ciTypeFlow4Loop8containsEPS0_.exit.thread6 ], [ %9, %.lr.ph ], [ %9, %13 ], [ %9, %_ZNK10ciTypeFlow4Loop8containsEPS0_.exit ]
   ret ptr %.0
 }
 
@@ -8790,7 +8790,7 @@ _ZNK10ciTypeFlow4Loop8containsEPS0_.exit.thread6.i: ; preds = %_ZNK10ciTypeFlow4
   br i1 %111, label %_ZN10ciTypeFlow5Block12looping_succEPNS_4LoopE.exit, label %.lr.ph.i, !llvm.loop !36
 
 _ZN10ciTypeFlow5Block12looping_succEPNS_4LoopE.exit: ; preds = %.lr.ph.i, %99, %_ZNK10ciTypeFlow4Loop8containsEPS0_.exit.i, %_ZNK10ciTypeFlow4Loop8containsEPS0_.exit.thread6.i, %.critedge32
-  %.0.i = phi ptr [ null, %.critedge32 ], [ %95, %_ZNK10ciTypeFlow4Loop8containsEPS0_.exit.i ], [ null, %_ZNK10ciTypeFlow4Loop8containsEPS0_.exit.thread6.i ], [ %95, %99 ], [ %95, %.lr.ph.i ]
+  %.0.i = phi ptr [ null, %.critedge32 ], [ %95, %_ZNK10ciTypeFlow4Loop8containsEPS0_.exit.i ], [ %95, %99 ], [ %95, %.lr.ph.i ], [ null, %_ZNK10ciTypeFlow4Loop8containsEPS0_.exit.thread6.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %112 = tail call noundef ptr @_ZN10ciTypeFlow15clone_loop_headEPNS_4LoopEPNS_11StateVectorEPNS_6JsrSetE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %.sroa.2.044, ptr noundef %1, ptr noundef %2)
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 112
@@ -8804,14 +8804,14 @@ _ZN10ciTypeFlow5Block12looping_succEPNS_4LoopE.exit: ; preds = %.lr.ph.i, %99, %
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %83, %_ZNK10ciTypeFlow5Block19backedge_copy_countEv.exit, %24, %_ZN10ciTypeFlow13PreorderLoops4nextEv.exit, %15, %19, %_ZN10ciTypeFlow5Block12looping_succEPNS_4LoopE.exit
-  %.1 = phi i1 [ %.045, %_ZN10ciTypeFlow13PreorderLoops4nextEv.exit ], [ %.045, %15 ], [ %.045, %24 ], [ %.045, %_ZNK10ciTypeFlow5Block19backedge_copy_countEv.exit ], [ %.045, %83 ], [ true, %_ZN10ciTypeFlow5Block12looping_succEPNS_4LoopE.exit ], [ %.045, %19 ], [ %.045, %.lr.ph ]
+  %.1 = phi i1 [ %.045, %_ZN10ciTypeFlow13PreorderLoops4nextEv.exit ], [ %.045, %15 ], [ %.045, %24 ], [ %.045, %_ZNK10ciTypeFlow5Block19backedge_copy_countEv.exit ], [ %.045, %83 ], [ %.045, %19 ], [ true, %_ZN10ciTypeFlow5Block12looping_succEPNS_4LoopE.exit ], [ %.045, %.lr.ph ]
   %117 = getelementptr inbounds nuw i8, ptr %.sroa.2.044, i64 16
   %118 = load ptr, ptr %117, align 8
   %.not.i34 = icmp eq ptr %118, null
   br i1 %.not.i34, label %119, label %_ZN10ciTypeFlow13PreorderLoops4nextEv.exit.backedge
 
 _ZN10ciTypeFlow13PreorderLoops4nextEv.exit.backedge: ; preds = %.lr.ph.i35, %.critedge, %119
-  %.sroa.2.044.be = phi ptr [ %118, %.critedge ], [ %121, %119 ], [ %124, %.lr.ph.i35 ]
+  %.sroa.2.044.be = phi ptr [ %121, %119 ], [ %118, %.critedge ], [ %124, %.lr.ph.i35 ]
   br label %_ZN10ciTypeFlow13PreorderLoops4nextEv.exit, !llvm.loop !41
 
 119:                                              ; preds = %.critedge
@@ -9735,7 +9735,7 @@ define hidden void @_ZN10ciTypeFlow13PreorderLoops4nextEv(ptr noundef nonnull al
   br i1 %.not3, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %.lr.ph, %14, %.preheader, %6, %1
-  %.sink = phi ptr [ %5, %1 ], [ %8, %6 ], [ null, %.preheader ], [ null, %14 ], [ %12, %.lr.ph ]
+  %.sink = phi ptr [ %5, %1 ], [ null, %.preheader ], [ %8, %6 ], [ null, %14 ], [ %12, %.lr.ph ]
   store ptr %.sink, ptr %2, align 8
   ret void
 }
@@ -9865,9 +9865,9 @@ define hidden noundef i32 @_ZN10ciTypeFlow4Loop14profiled_countEv(ptr noundef no
   br i1 %75, label %.sink.split.sink.split, label %.sink.split
 
 .sink.split.sink.split:                           ; preds = %73, %64, %56
-  %.sink45 = phi ptr [ %62, %56 ], [ %71, %64 ], [ %71, %73 ]
-  %.sink39 = phi i64 [ 24, %56 ], [ 24, %64 ], [ 56, %73 ]
-  %.sink34 = phi i64 [ 8, %56 ], [ 8, %64 ], [ 24, %73 ]
+  %.sink45 = phi ptr [ %71, %64 ], [ %62, %56 ], [ %71, %73 ]
+  %.sink39 = phi i64 [ 24, %64 ], [ 24, %56 ], [ 56, %73 ]
+  %.sink34 = phi i64 [ 8, %64 ], [ 8, %56 ], [ 24, %73 ]
   %76 = getelementptr inbounds nuw i8, ptr %.sink45, i64 56
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
@@ -9887,7 +9887,7 @@ define hidden noundef i32 @_ZN10ciTypeFlow4Loop14profiled_countEv(ptr noundef no
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %56, %73, %29, %32, %19, %26, %6
-  %.sink = phi i32 [ 0, %6 ], [ 0, %26 ], [ 0, %19 ], [ 0, %32 ], [ 0, %29 ], [ 0, %73 ], [ 0, %56 ], [ %91, %.sink.split.sink.split ]
+  %.sink = phi i32 [ 0, %29 ], [ 0, %32 ], [ 0, %73 ], [ 0, %56 ], [ 0, %19 ], [ 0, %6 ], [ 0, %26 ], [ %91, %.sink.split.sink.split ]
   store i32 %.sink, ptr %3, align 8
   br label %92
 
@@ -10049,7 +10049,7 @@ define hidden noundef zeroext i1 @_ZN10ciTypeFlow4Loop18at_insertion_pointEPS0_S
   br label %33
 
 33:                                               ; preds = %23, %21, %17, %13, %3
-  %.0 = phi i1 [ true, %3 ], [ false, %13 ], [ true, %17 ], [ false, %21 ], [ %32, %23 ]
+  %.0 = phi i1 [ false, %21 ], [ true, %3 ], [ false, %13 ], [ true, %17 ], [ %32, %23 ]
   ret i1 %.0
 }
 
@@ -10117,7 +10117,7 @@ _ZN10ciTypeFlow4Loop18at_insertion_pointEPS0_S1_.exit: ; preds = %18, %24
   %33 = icmp sgt i32 %29, %32
   br i1 %33, label %.split, label %_ZN10ciTypeFlow4Loop18at_insertion_pointEPS0_S1_.exit.thread34
 
-_ZN10ciTypeFlow4Loop18at_insertion_pointEPS0_S1_.exit.thread34: ; preds = %24, %16, %_ZN10ciTypeFlow4Loop18at_insertion_pointEPS0_S1_.exit
+_ZN10ciTypeFlow4Loop18at_insertion_pointEPS0_S1_.exit.thread34: ; preds = %16, %24, %_ZN10ciTypeFlow4Loop18at_insertion_pointEPS0_S1_.exit
   %34 = load ptr, ptr %.143, align 8
   %.not30 = icmp eq ptr %34, null
   br i1 %.not30, label %.split.thread, label %5, !llvm.loop !53
@@ -10150,7 +10150,7 @@ _ZN10ciTypeFlow4Loop18at_insertion_pointEPS0_S1_.exit.thread34: ; preds = %24, %
   br i1 %.not, label %.loopexit, label %.lr.ph62, !llvm.loop !54
 
 .loopexit:                                        ; preds = %39, %5, %2
-  %.02740 = phi ptr [ %0, %2 ], [ %.02758, %5 ], [ %.128, %39 ]
+  %.02740 = phi ptr [ %.02758, %5 ], [ %0, %2 ], [ %.128, %39 ]
   ret ptr %.02740
 }
 
@@ -10233,7 +10233,7 @@ define hidden void @_ZN10ciTypeFlow15build_loop_treeEPNS_5BlockE(ptr noundef non
   br label %.critedge
 
 .critedge:                                        ; preds = %35, %39, %27, %31
-  %.060 = phi ptr [ %40, %39 ], [ %19, %31 ], [ %19, %27 ], [ %.1, %35 ]
+  %.060 = phi ptr [ %40, %39 ], [ %19, %27 ], [ %19, %31 ], [ %.1, %35 ]
   %41 = getelementptr inbounds nuw i8, ptr %12, i64 90
   %42 = getelementptr inbounds nuw i8, ptr %12, i64 92
   %43 = getelementptr inbounds nuw i8, ptr %12, i64 96
@@ -10740,8 +10740,8 @@ _ZN13GrowableArrayIPN10ciTypeFlow5BlockEE8allocateEv.exit.i45: ; preds = %108
   br i1 %exitcond.not, label %.preheader16.i47, label %.lr.ph.i56, !llvm.loop !47
 
 _ZN26GrowableArrayWithAllocatorIPN10ciTypeFlow5BlockE13GrowableArrayIS2_EE4pushERKS2_.exit34: ; preds = %108, %.lr.ph19.preheader.i52, %.preheader16.i47
-  %.sroa.20.5 = phi i32 [ %.0.i.i.i.i.i32, %.lr.ph19.preheader.i52 ], [ %.0.i.i.i.i.i32, %.preheader16.i47 ], [ %.sroa.20.2106, %108 ]
-  %.sroa.31.5 = phi ptr [ %117, %.lr.ph19.preheader.i52 ], [ %117, %.preheader16.i47 ], [ %.sroa.31.2109, %108 ]
+  %.sroa.20.5 = phi i32 [ %.0.i.i.i.i.i32, %.preheader16.i47 ], [ %.0.i.i.i.i.i32, %.lr.ph19.preheader.i52 ], [ %.sroa.20.2106, %108 ]
+  %.sroa.31.5 = phi ptr [ %117, %.preheader16.i47 ], [ %117, %.lr.ph19.preheader.i52 ], [ %.sroa.31.2109, %108 ]
   %131 = sext i32 %.sroa.0.2107 to i64
   %132 = getelementptr inbounds ptr, ptr %.sroa.31.5, i64 %131
   store ptr %104, ptr %132, align 8
@@ -10852,8 +10852,8 @@ _ZN10ciTypeFlow8SuccIter4nextEv.exit.thread:      ; preds = %_ZN10ciTypeFlow5Blo
   br label %._crit_edge
 
 _ZN10ciTypeFlow8SuccIter4nextEv.exit:             ; preds = %141, %_ZN10ciTypeFlow5Block10exceptionsEv.exit18.i
-  %183 = phi i32 [ %.0.i, %_ZN10ciTypeFlow5Block10exceptionsEv.exit18.i ], [ %139, %141 ]
-  %.sink.i.in = phi ptr [ %180, %_ZN10ciTypeFlow5Block10exceptionsEv.exit18.i ], [ %145, %141 ]
+  %183 = phi i32 [ %139, %141 ], [ %.0.i, %_ZN10ciTypeFlow5Block10exceptionsEv.exit18.i ]
+  %.sink.i.in = phi ptr [ %145, %141 ], [ %180, %_ZN10ciTypeFlow5Block10exceptionsEv.exit18.i ]
   %.sink.i = load ptr, ptr %.sink.i.in, align 8
   store ptr %.sink.i, ptr %50, align 8
   %184 = icmp slt i32 %183, 0
@@ -10937,10 +10937,10 @@ _ZNK10ciTypeFlow5Block12is_loop_headEv.exit:      ; preds = %._crit_edge.thread
   br label %_ZN10ciTypeFlow16add_to_work_listEPNS_5BlockE.exit
 
 _ZN10ciTypeFlow16add_to_work_listEPNS_5BlockE.exit: ; preds = %._crit_edge.thread, %._crit_edge.thread26.i, %._crit_edge.thread.i, %211, %_ZNK10ciTypeFlow5Block12is_loop_headEv.exit, %195, %._crit_edge, %87, %88
-  %.sroa.20.1 = phi i32 [ %.sroa.20.0117, %211 ], [ %.sroa.20.2.lcssa146, %195 ], [ %.sroa.20.2.lcssa146, %_ZNK10ciTypeFlow5Block12is_loop_headEv.exit ], [ %.sroa.20.3, %._crit_edge ], [ %.sroa.20.0117, %88 ], [ %.sroa.20.0117, %87 ], [ %.sroa.20.2.lcssa146, %._crit_edge.thread.i ], [ %.sroa.20.2.lcssa146, %._crit_edge.thread26.i ], [ %.sroa.20.2.lcssa146, %._crit_edge.thread ]
-  %.sroa.0.1 = phi i32 [ %212, %211 ], [ %186, %195 ], [ %186, %_ZNK10ciTypeFlow5Block12is_loop_headEv.exit ], [ %.sroa.0.3, %._crit_edge ], [ %.sroa.0.0118, %88 ], [ %.sroa.0.0118, %87 ], [ %186, %._crit_edge.thread.i ], [ %186, %._crit_edge.thread26.i ], [ %186, %._crit_edge.thread ]
-  %.sroa.31.1 = phi ptr [ %.sroa.31.0119, %211 ], [ %.sroa.31.2.lcssa147, %195 ], [ %.sroa.31.2.lcssa147, %_ZNK10ciTypeFlow5Block12is_loop_headEv.exit ], [ %.sroa.31.3, %._crit_edge ], [ %.sroa.31.0119, %88 ], [ %.sroa.31.0119, %87 ], [ %.sroa.31.2.lcssa147, %._crit_edge.thread.i ], [ %.sroa.31.2.lcssa147, %._crit_edge.thread26.i ], [ %.sroa.31.2.lcssa147, %._crit_edge.thread ]
-  %.1 = phi i32 [ %.0120, %211 ], [ %187, %195 ], [ %187, %_ZNK10ciTypeFlow5Block12is_loop_headEv.exit ], [ %.0120, %._crit_edge ], [ %.0120, %88 ], [ %.0120, %87 ], [ %187, %._crit_edge.thread.i ], [ %187, %._crit_edge.thread26.i ], [ %187, %._crit_edge.thread ]
+  %.sroa.20.1 = phi i32 [ %.sroa.20.0117, %211 ], [ %.sroa.20.2.lcssa146, %195 ], [ %.sroa.20.2.lcssa146, %._crit_edge.thread26.i ], [ %.sroa.20.2.lcssa146, %_ZNK10ciTypeFlow5Block12is_loop_headEv.exit ], [ %.sroa.20.3, %._crit_edge ], [ %.sroa.20.0117, %88 ], [ %.sroa.20.0117, %87 ], [ %.sroa.20.2.lcssa146, %._crit_edge.thread.i ], [ %.sroa.20.2.lcssa146, %._crit_edge.thread ]
+  %.sroa.0.1 = phi i32 [ %212, %211 ], [ %186, %195 ], [ %186, %._crit_edge.thread26.i ], [ %186, %_ZNK10ciTypeFlow5Block12is_loop_headEv.exit ], [ %.sroa.0.3, %._crit_edge ], [ %.sroa.0.0118, %88 ], [ %.sroa.0.0118, %87 ], [ %186, %._crit_edge.thread.i ], [ %186, %._crit_edge.thread ]
+  %.sroa.31.1 = phi ptr [ %.sroa.31.0119, %211 ], [ %.sroa.31.2.lcssa147, %195 ], [ %.sroa.31.2.lcssa147, %._crit_edge.thread26.i ], [ %.sroa.31.2.lcssa147, %_ZNK10ciTypeFlow5Block12is_loop_headEv.exit ], [ %.sroa.31.3, %._crit_edge ], [ %.sroa.31.0119, %88 ], [ %.sroa.31.0119, %87 ], [ %.sroa.31.2.lcssa147, %._crit_edge.thread.i ], [ %.sroa.31.2.lcssa147, %._crit_edge.thread ]
+  %.1 = phi i32 [ %.0120, %211 ], [ %187, %195 ], [ %187, %._crit_edge.thread26.i ], [ %187, %_ZNK10ciTypeFlow5Block12is_loop_headEv.exit ], [ %.0120, %._crit_edge ], [ %.0120, %88 ], [ %.0120, %87 ], [ %187, %._crit_edge.thread.i ], [ %187, %._crit_edge.thread ]
   %213 = icmp sgt i32 %.sroa.0.1, 0
   br i1 %213, label %52, label %_ZN13GrowableArrayIPN10ciTypeFlow5BlockEED2Ev.exit, !llvm.loop !60
 
@@ -11681,7 +11681,7 @@ _ZN10ciTypeFlow5Block18is_compatible_withEPNS_6JsrSetE.exit.i: ; preds = %68, %6
   br i1 %exitcond.not.i, label %_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit, label %42, !llvm.loop !15
 
 _ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit: ; preds = %_ZN10ciTypeFlow5Block18is_compatible_withEPNS_6JsrSetE.exit.i, %48, %.preheader.i.i.i, %60, %37, %3
-  %.0.i = phi ptr [ null, %3 ], [ null, %37 ], [ %44, %60 ], [ null, %_ZN10ciTypeFlow5Block18is_compatible_withEPNS_6JsrSetE.exit.i ], [ %44, %.preheader.i.i.i ], [ %44, %48 ]
+  %.0.i = phi ptr [ null, %37 ], [ %44, %60 ], [ null, %3 ], [ null, %_ZN10ciTypeFlow5Block18is_compatible_withEPNS_6JsrSetE.exit.i ], [ %44, %48 ], [ %44, %.preheader.i.i.i ]
   %73 = sext i32 %30 to i64
   %74 = getelementptr inbounds ptr, ptr %32, i64 %73
   %75 = load ptr, ptr %74, align 8
@@ -11762,7 +11762,7 @@ _ZN10ciTypeFlow5Block18is_compatible_withEPNS_6JsrSetE.exit.i50: ; preds = %108,
   br i1 %exitcond.not.i52, label %_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit61, label %82, !llvm.loop !15
 
 _ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit61: ; preds = %_ZN10ciTypeFlow5Block18is_compatible_withEPNS_6JsrSetE.exit.i50, %88, %.preheader.i.i.i53, %100, %77, %_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit
-  %.0.i45 = phi ptr [ null, %_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit ], [ null, %77 ], [ %84, %100 ], [ null, %_ZN10ciTypeFlow5Block18is_compatible_withEPNS_6JsrSetE.exit.i50 ], [ %84, %.preheader.i.i.i53 ], [ %84, %88 ]
+  %.0.i45 = phi ptr [ null, %77 ], [ %84, %100 ], [ null, %_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit ], [ null, %_ZN10ciTypeFlow5Block18is_compatible_withEPNS_6JsrSetE.exit.i50 ], [ %84, %88 ], [ %84, %.preheader.i.i.i53 ]
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %114 = load ptr, ptr %113, align 8
   %115 = load ptr, ptr %114, align 8

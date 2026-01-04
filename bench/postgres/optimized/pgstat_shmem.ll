@@ -933,7 +933,7 @@ pgstat_get_entry_ref_cached.exit:                 ; preds = %201
   br label %291
 
 291:                                              ; preds = %250, %273, %.thread, %pgstat_get_entry_ref_cached.exit, %279, %275, %243
-  %.032 = phi ptr [ null, %275 ], [ %212, %279 ], [ null, %243 ], [ %203, %pgstat_get_entry_ref_cached.exit ], [ %212, %.thread ], [ %212, %273 ], [ %212, %250 ]
+  %.032 = phi ptr [ %212, %.thread ], [ %203, %pgstat_get_entry_ref_cached.exit ], [ null, %275 ], [ %212, %279 ], [ null, %243 ], [ %212, %273 ], [ %212, %250 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.032
 }
@@ -1736,7 +1736,7 @@ pgstat_entry_ref_hash_lookup.exit.thread:         ; preds = %53, %pgstat_hash_ha
   br i1 %.not23, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !19
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %.backedge.us
-  %.0.ph.lcssa = phi i64 [ %.0.ph29, %.backedge.us ], [ %.0.ph29, %.backedge ], [ %spec.select, %.outer ]
+  %.0.ph.lcssa = phi i64 [ %.0.ph29, %.backedge ], [ %.0.ph29, %.backedge.us ], [ %spec.select, %.outer ]
   call void @dshash_seq_term(ptr noundef nonnull %5) #14
   %.not15 = icmp eq i64 %.0.ph.lcssa, 0
   br i1 %.not15, label %75, label %71

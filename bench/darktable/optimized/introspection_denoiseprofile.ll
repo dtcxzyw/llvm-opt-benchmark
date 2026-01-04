@@ -959,7 +959,7 @@ dt_iop_denoiseprofile_get_auto_profile.exit:      ; preds = %60, %40, %51, %58
   br label %339
 
 339:                                              ; preds = %68, %325, %328, %335, %331, %67, %35, %322, %262, %205, %160, %125, %95
-  %.1 = phi i32 [ %.2, %95 ], [ %.3, %125 ], [ %.4, %160 ], [ %.5, %205 ], [ %.6, %262 ], [ %.7, %322 ], [ 0, %35 ], [ 0, %67 ], [ 1, %325 ], [ 0, %328 ], [ 0, %335 ], [ 0, %331 ], [ 1, %68 ]
+  %.1 = phi i32 [ 0, %331 ], [ %.2, %95 ], [ %.3, %125 ], [ %.4, %160 ], [ %.5, %205 ], [ %.6, %262 ], [ %.7, %322 ], [ 0, %67 ], [ 0, %35 ], [ 1, %325 ], [ 0, %328 ], [ 0, %335 ], [ 1, %68 ]
   ret i32 %.1
 }
 
@@ -6215,7 +6215,7 @@ define internal range(i32 0, 2) i32 @denoiseprofile_button_press(ptr noundef %0,
   br label %71
 
 71:                                               ; preds = %44, %70, %68
-  %72 = phi reassoc nsz arcp contract afn double [ %65, %70 ], [ 0.000000e+00, %68 ], [ %66, %44 ]
+  %72 = phi reassoc nsz arcp contract afn double [ 0.000000e+00, %68 ], [ %65, %70 ], [ %66, %44 ]
   %73 = sitofp i32 %59 to float
   %74 = fpext reassoc nsz arcp contract afn float %73 to double
   %75 = fdiv reassoc nsz arcp contract afn double %72, %74
@@ -6290,7 +6290,7 @@ dt_draw_curve_calc_value.exit:                    ; preds = %._crit_edge.i, %90
   br label %112
 
 112:                                              ; preds = %dt_draw_curve_calc_value.exit, %111, %109
-  %113 = phi reassoc nsz arcp contract afn double [ %106, %111 ], [ 0.000000e+00, %109 ], [ %107, %dt_draw_curve_calc_value.exit ]
+  %113 = phi reassoc nsz arcp contract afn double [ 0.000000e+00, %109 ], [ %106, %111 ], [ %107, %dt_draw_curve_calc_value.exit ]
   %114 = sitofp i32 %56 to float
   %115 = fpext reassoc nsz arcp contract afn float %114 to double
   %116 = fdiv reassoc nsz arcp contract afn double %113, %115
@@ -6373,7 +6373,7 @@ define internal noundef i32 @denoiseprofile_motion_notify(ptr noundef %0, ptr no
   br label %33
 
 33:                                               ; preds = %23, %32, %30
-  %34 = phi reassoc nsz arcp contract afn double [ %27, %32 ], [ 0.000000e+00, %30 ], [ %28, %23 ]
+  %34 = phi reassoc nsz arcp contract afn double [ 0.000000e+00, %30 ], [ %27, %32 ], [ %28, %23 ]
   %35 = sitofp i32 %20 to float
   %36 = fpext reassoc nsz arcp contract afn float %35 to double
   %37 = fdiv reassoc nsz arcp contract afn double %34, %36
@@ -6398,7 +6398,7 @@ define internal noundef i32 @denoiseprofile_motion_notify(ptr noundef %0, ptr no
   br label %48
 
 48:                                               ; preds = %39, %47, %45
-  %49 = phi reassoc nsz arcp contract afn double [ %42, %47 ], [ 0.000000e+00, %45 ], [ %43, %39 ]
+  %49 = phi reassoc nsz arcp contract afn double [ 0.000000e+00, %45 ], [ %42, %47 ], [ %43, %39 ]
   %50 = sitofp i32 %17 to float
   %51 = fpext reassoc nsz arcp contract afn float %50 to double
   %52 = fdiv reassoc nsz arcp contract afn double %49, %51
@@ -6562,7 +6562,7 @@ define internal i32 @denoiseprofile_scrolled(ptr noundef %0, ptr noundef %1, ptr
   br label %40
 
 40:                                               ; preds = %3, %39, %15
-  %.0 = phi i32 [ %22, %15 ], [ 1, %39 ], [ 0, %3 ]
+  %.0 = phi i32 [ 1, %39 ], [ %22, %15 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -7006,7 +7006,7 @@ sub_079:                                          ; preds = %70
   br label %93
 
 93:                                               ; preds = %90, %2, %88, %84, %80, %77, %72, %68, %65, %60, %56, %52, %49, %44, %40, %34, %30, %26, %22, %18, %14, %10, %6
-  %.0 = phi ptr [ %89, %88 ], [ %85, %84 ], [ %81, %80 ], [ %78, %77 ], [ %73, %72 ], [ %69, %68 ], [ %66, %65 ], [ %61, %60 ], [ %57, %56 ], [ %53, %52 ], [ %50, %49 ], [ %45, %44 ], [ %41, %40 ], [ %35, %34 ], [ %31, %30 ], [ %27, %26 ], [ %23, %22 ], [ %19, %18 ], [ %15, %14 ], [ %11, %10 ], [ %7, %6 ], [ %0, %2 ], [ %spec.select, %90 ]
+  %.0 = phi ptr [ %0, %2 ], [ %spec.select, %90 ], [ %89, %88 ], [ %85, %84 ], [ %81, %80 ], [ %78, %77 ], [ %73, %72 ], [ %69, %68 ], [ %66, %65 ], [ %61, %60 ], [ %57, %56 ], [ %53, %52 ], [ %50, %49 ], [ %45, %44 ], [ %41, %40 ], [ %35, %34 ], [ %31, %30 ], [ %27, %26 ], [ %23, %22 ], [ %19, %18 ], [ %15, %14 ], [ %11, %10 ], [ %7, %6 ]
   ret ptr %.0
 }
 
@@ -7131,7 +7131,7 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #1 {
   br label %47
 
 47:                                               ; preds = %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %11, %9, %7, %5, %3, %1
-  %.0 = phi ptr [ @introspection_linear, %1 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %9 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 440), %11 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 528), %13 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 616), %15 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 704), %17 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 792), %19 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 880), %21 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 968), %23 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1056), %25 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1144), %27 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1232), %29 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1320), %31 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1408), %33 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1496), %35 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1584), %37 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1672), %39 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1760), %41 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1848), %43 ], [ %., %45 ]
+  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1848), %43 ], [ %., %45 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1760), %41 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1672), %39 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1584), %37 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1496), %35 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1408), %33 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1320), %31 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1232), %29 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1144), %27 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1056), %25 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 968), %23 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 880), %21 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 792), %19 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 704), %17 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 616), %15 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 528), %13 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 440), %11 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %9 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ @introspection_linear, %1 ]
   ret ptr %.0
 }
 

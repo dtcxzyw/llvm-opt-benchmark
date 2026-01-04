@@ -1217,7 +1217,7 @@ _ZN5wasmi6engine8executor14EngineExecutor18write_results_back17h7187af4c95245e04
           to label %305 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 283:                                              ; preds = %.noexc57, %.noexc56, %.noexc55, %.noexc54
-  %.sroa.0.0.i15 = phi ptr [ %264, %.noexc55 ], [ %265, %.noexc56 ], [ %271, %.noexc57 ], [ %254, %.noexc54 ]
+  %.sroa.0.0.i15 = phi ptr [ %271, %.noexc57 ], [ %265, %.noexc56 ], [ %264, %.noexc55 ], [ %254, %.noexc54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !45
   br label %306
 
@@ -1303,8 +1303,8 @@ _ZN5wasmi6engine8executor14EngineExecutor18write_results_back17h7187af4c95245e04
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %307
 
-306:                                              ; preds = %148, %283, %.noexc40, %.noexc31, %302, %.noexc62
-  %.sroa.0.1.i.ph = phi ptr [ %287, %.noexc62 ], [ %304, %302 ], [ %113, %.noexc31 ], [ %193, %.noexc40 ], [ %.sroa.0.0.i15, %283 ], [ %150, %148 ]
+306:                                              ; preds = %.noexc31, %302, %.noexc40, %148, %283, %.noexc62
+  %.sroa.0.1.i.ph = phi ptr [ %287, %.noexc62 ], [ %.sroa.0.0.i15, %283 ], [ %150, %148 ], [ %193, %.noexc40 ], [ %304, %302 ], [ %113, %.noexc31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @llvm.lifetime.start.p0(ptr nonnull %29)

@@ -1048,7 +1048,7 @@ define hidden noundef align 8 dereferenceable_or_null(3928) ptr @"_ZN4core6optio
   br label %9
 
 9:                                                ; preds = %4, %2
-  %.sroa.05.0 = phi ptr [ null, %2 ], [ %spec.select, %4 ]
+  %.sroa.05.0 = phi ptr [ %spec.select, %4 ], [ null, %2 ]
   ret ptr %.sroa.05.0
 }
 
@@ -1645,7 +1645,7 @@ define hidden void @_ZN4gpui4view8any_view6render17h278467cd9f80b00eE(ptr dead_o
   unreachable
 
 common.resume:                                    ; preds = %266, %269, %274, %278, %261, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %140, %.body.i ], [ %262, %261 ], [ %270, %278 ], [ %270, %274 ], [ %270, %269 ], [ %267, %266 ]
+  %common.resume.op = phi { ptr, i32 } [ %270, %269 ], [ %140, %.body.i ], [ %262, %261 ], [ %270, %278 ], [ %270, %274 ], [ %267, %266 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN58_$LT$gpui..view..AnyView$u20$as$u20$core..clone..Clone$GT$5clone17h1854e80aeae9666fE.exit": ; preds = %3, %212
@@ -4901,7 +4901,7 @@ define hidden void @_ZN6anyhow5error23context_chain_drop_rest17h98bd6fb73b033be9
   br label %common.resume
 
 common.resume:                                    ; preds = %41, %47, %15, %30
-  %common.resume.op = phi { ptr, i32 } [ %31, %30 ], [ %16, %15 ], [ %48, %47 ], [ %42, %41 ]
+  %common.resume.op = phi { ptr, i32 } [ %16, %15 ], [ %31, %30 ], [ %48, %47 ], [ %42, %41 ]
   tail call void @__rust_dealloc(ptr noundef nonnull %0, i64 noundef 88, i64 noundef 8) #31
   resume { ptr, i32 } %common.resume.op
 
@@ -6310,7 +6310,7 @@ define hidden noundef align 8 dereferenceable_or_null(3920) ptr @"_ZN7slotmap5ba
   br label %"_ZN4core6option15Option$LT$T$GT$6filter17hdbeb9765127df15dE.llvm.11807424318162992724.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6filter17hdbeb9765127df15dE.llvm.11807424318162992724.exit": ; preds = %3, %11
-  %.sroa.05.0.i = phi ptr [ null, %3 ], [ %spec.select.i, %11 ]
+  %.sroa.05.0.i = phi ptr [ %spec.select.i, %11 ], [ null, %3 ]
   ret ptr %.sroa.05.0.i
 }
 

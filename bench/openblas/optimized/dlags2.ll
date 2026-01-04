@@ -157,8 +157,8 @@ define void @dlags2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br label %120
 
 120:                                              ; preds = %80, %118
-  %.sink189 = phi double [ %119, %118 ], [ %., %80 ]
-  %.sink = phi ptr [ %29, %118 ], [ %.193, %80 ]
+  %.sink189 = phi double [ %., %80 ], [ %119, %118 ]
+  %.sink = phi ptr [ %.193, %80 ], [ %29, %118 ]
   store double %.sink189, ptr %14, align 8, !tbaa !7
   call void @dlartg_(ptr noundef nonnull %14, ptr noundef nonnull %.sink, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %21) #5
   %121 = load double, ptr %32, align 8, !tbaa !7
@@ -244,8 +244,8 @@ define void @dlags2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br label %188
 
 188:                                              ; preds = %149, %186
-  %.sink191 = phi double [ %187, %186 ], [ %.194, %149 ]
-  %.sink190 = phi ptr [ %31, %186 ], [ %.195, %149 ]
+  %.sink191 = phi double [ %.194, %149 ], [ %187, %186 ]
+  %.sink190 = phi ptr [ %.195, %149 ], [ %31, %186 ]
   store double %.sink191, ptr %14, align 8, !tbaa !7
   call void @dlartg_(ptr noundef nonnull %14, ptr noundef nonnull %.sink190, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %21) #5
   %189 = load double, ptr %34, align 8, !tbaa !7

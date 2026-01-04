@@ -414,7 +414,7 @@ define noundef zeroext i1 @_ZN3log10set_logger17h4bbdc804813591e3E(ptr noundef n
   br i1 %8, label %.lr.ph.i, label %_ZN3log16set_logger_inner17hc1ea35fa1eef8b95E.exit
 
 _ZN3log16set_logger_inner17hc1ea35fa1eef8b95E.exit: ; preds = %.lr.ph.i, %2, %.preheader.i, %6
-  %.0.i = phi i1 [ false, %6 ], [ true, %2 ], [ true, %.preheader.i ], [ true, %.lr.ph.i ]
+  %.0.i = phi i1 [ true, %2 ], [ false, %6 ], [ true, %.preheader.i ], [ true, %.lr.ph.i ]
   ret i1 %.0.i
 }
 

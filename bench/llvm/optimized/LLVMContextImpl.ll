@@ -727,7 +727,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_6ModuleEE5beginEv.exit: ; preds = %.lr.ph.i5.i.i7
   br i1 %.not.i9.i15.i7.i.i, label %_ZN4llvm6detail12DenseSetImplIPNS_7MDTupleENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i, !llvm.loop !386
 
 _ZN4llvm6detail12DenseSetImplIPNS_7MDTupleENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i.i, %.critedge2.i8.i14.i6.i.i, %42, %44
-  %.pn14.i.i = phi ptr [ %43, %42 ], [ %38, %44 ], [ %.sroa.0.3.i4.i.i, %.lr.ph.i6.i12.i3.i.i ], [ %45, %.critedge2.i8.i14.i6.i.i ]
+  %.pn14.i.i = phi ptr [ %43, %42 ], [ %38, %44 ], [ %45, %.critedge2.i8.i14.i6.i.i ], [ %.sroa.0.3.i4.i.i, %.lr.ph.i6.i12.i3.i.i ]
   %.pn12.i.i = phi ptr [ %43, %42 ], [ %45, %44 ], [ %45, %.critedge2.i8.i14.i6.i.i ], [ %45, %.lr.ph.i6.i12.i3.i.i ]
   %48 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.572", ptr %38, i64 %41
   %.not23552431 = icmp eq ptr %.pn14.i.i, %48
@@ -777,7 +777,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_7MDTupleENS_8DenseMapIS3_NS0_13DenseSetEmptyEN
   br i1 %.not.i9.i15.i7.i.i257, label %_ZN4llvm6detail12DenseSetImplIPNS_10DILocationENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i253, !llvm.loop !394
 
 _ZN4llvm6detail12DenseSetImplIPNS_10DILocationENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i.i253, %.critedge2.i8.i14.i6.i.i256, %59, %61
-  %.pn14.i.i258 = phi ptr [ %60, %59 ], [ %55, %61 ], [ %.sroa.0.3.i4.i.i254, %.lr.ph.i6.i12.i3.i.i253 ], [ %62, %.critedge2.i8.i14.i6.i.i256 ]
+  %.pn14.i.i258 = phi ptr [ %60, %59 ], [ %55, %61 ], [ %62, %.critedge2.i8.i14.i6.i.i256 ], [ %.sroa.0.3.i4.i.i254, %.lr.ph.i6.i12.i3.i.i253 ]
   %.pn12.i.i259 = phi ptr [ %60, %59 ], [ %62, %61 ], [ %62, %.critedge2.i8.i14.i6.i.i256 ], [ %62, %.lr.ph.i6.i12.i3.i.i253 ]
   %65 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.573", ptr %55, i64 %58
   %.not23562435 = icmp eq ptr %.pn14.i.i258, %65
@@ -846,7 +846,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_7MDTupleENS_8DenseMapIS3_NS0_13DenseSetEmptyEN
   br i1 %.not.i9.i15.i7.i.i270, label %_ZN4llvm6detail12DenseSetImplIPNS_12DIExpressionENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i266, !llvm.loop !400
 
 _ZN4llvm6detail12DenseSetImplIPNS_12DIExpressionENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i.i266, %.critedge2.i8.i14.i6.i.i269, %78, %80
-  %.pn14.i.i271 = phi ptr [ %79, %78 ], [ %74, %80 ], [ %.sroa.0.3.i4.i.i267, %.lr.ph.i6.i12.i3.i.i266 ], [ %81, %.critedge2.i8.i14.i6.i.i269 ]
+  %.pn14.i.i271 = phi ptr [ %79, %78 ], [ %74, %80 ], [ %81, %.critedge2.i8.i14.i6.i.i269 ], [ %.sroa.0.3.i4.i.i267, %.lr.ph.i6.i12.i3.i.i266 ]
   %.pn12.i.i272 = phi ptr [ %79, %78 ], [ %81, %80 ], [ %81, %.critedge2.i8.i14.i6.i.i269 ], [ %81, %.lr.ph.i6.i12.i3.i.i266 ]
   %84 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.574", ptr %74, i64 %77
   %.not23572439 = icmp eq ptr %.pn14.i.i271, %84
@@ -915,7 +915,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_10DILocationENS_8DenseMapIS3_NS0_13DenseSetEmp
   br i1 %.not.i9.i15.i7.i.i288, label %_ZN4llvm6detail12DenseSetImplIPNS_26DIGlobalVariableExpressionENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i284, !llvm.loop !406
 
 _ZN4llvm6detail12DenseSetImplIPNS_26DIGlobalVariableExpressionENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i.i284, %.critedge2.i8.i14.i6.i.i287, %97, %99
-  %.pn14.i.i289 = phi ptr [ %98, %97 ], [ %93, %99 ], [ %.sroa.0.3.i4.i.i285, %.lr.ph.i6.i12.i3.i.i284 ], [ %100, %.critedge2.i8.i14.i6.i.i287 ]
+  %.pn14.i.i289 = phi ptr [ %98, %97 ], [ %93, %99 ], [ %100, %.critedge2.i8.i14.i6.i.i287 ], [ %.sroa.0.3.i4.i.i285, %.lr.ph.i6.i12.i3.i.i284 ]
   %.pn12.i.i290 = phi ptr [ %98, %97 ], [ %100, %99 ], [ %100, %.critedge2.i8.i14.i6.i.i287 ], [ %100, %.lr.ph.i6.i12.i3.i.i284 ]
   %103 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.575", ptr %93, i64 %96
   %.not23582443 = icmp eq ptr %.pn14.i.i289, %103
@@ -984,7 +984,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_12DIExpressionENS_8DenseMapIS3_NS0_13DenseSetE
   br i1 %.not.i9.i15.i7.i.i306, label %_ZN4llvm6detail12DenseSetImplIPNS_13GenericDINodeENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i302, !llvm.loop !412
 
 _ZN4llvm6detail12DenseSetImplIPNS_13GenericDINodeENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i.i302, %.critedge2.i8.i14.i6.i.i305, %116, %118
-  %.pn14.i.i307 = phi ptr [ %117, %116 ], [ %112, %118 ], [ %.sroa.0.3.i4.i.i303, %.lr.ph.i6.i12.i3.i.i302 ], [ %119, %.critedge2.i8.i14.i6.i.i305 ]
+  %.pn14.i.i307 = phi ptr [ %117, %116 ], [ %112, %118 ], [ %119, %.critedge2.i8.i14.i6.i.i305 ], [ %.sroa.0.3.i4.i.i303, %.lr.ph.i6.i12.i3.i.i302 ]
   %.pn12.i.i308 = phi ptr [ %117, %116 ], [ %119, %118 ], [ %119, %.critedge2.i8.i14.i6.i.i305 ], [ %119, %.lr.ph.i6.i12.i3.i.i302 ]
   %122 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.576", ptr %112, i64 %115
   %.not23592447 = icmp eq ptr %.pn14.i.i307, %122
@@ -1053,7 +1053,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_26DIGlobalVariableExpressionENS_8DenseMapIS3_N
   br i1 %.not.i9.i15.i7.i.i324, label %_ZN4llvm6detail12DenseSetImplIPNS_10DISubrangeENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i320, !llvm.loop !418
 
 _ZN4llvm6detail12DenseSetImplIPNS_10DISubrangeENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i.i320, %.critedge2.i8.i14.i6.i.i323, %135, %137
-  %.pn14.i.i325 = phi ptr [ %136, %135 ], [ %131, %137 ], [ %.sroa.0.3.i4.i.i321, %.lr.ph.i6.i12.i3.i.i320 ], [ %138, %.critedge2.i8.i14.i6.i.i323 ]
+  %.pn14.i.i325 = phi ptr [ %136, %135 ], [ %131, %137 ], [ %138, %.critedge2.i8.i14.i6.i.i323 ], [ %.sroa.0.3.i4.i.i321, %.lr.ph.i6.i12.i3.i.i320 ]
   %.pn12.i.i326 = phi ptr [ %136, %135 ], [ %138, %137 ], [ %138, %.critedge2.i8.i14.i6.i.i323 ], [ %138, %.lr.ph.i6.i12.i3.i.i320 ]
   %141 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.577", ptr %131, i64 %134
   %.not23602451 = icmp eq ptr %.pn14.i.i325, %141
@@ -1122,7 +1122,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_13GenericDINodeENS_8DenseMapIS3_NS0_13DenseSet
   br i1 %.not.i9.i15.i7.i.i342, label %_ZN4llvm6detail12DenseSetImplIPNS_12DIEnumeratorENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i338, !llvm.loop !424
 
 _ZN4llvm6detail12DenseSetImplIPNS_12DIEnumeratorENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i.i338, %.critedge2.i8.i14.i6.i.i341, %154, %156
-  %.pn14.i.i343 = phi ptr [ %155, %154 ], [ %150, %156 ], [ %.sroa.0.3.i4.i.i339, %.lr.ph.i6.i12.i3.i.i338 ], [ %157, %.critedge2.i8.i14.i6.i.i341 ]
+  %.pn14.i.i343 = phi ptr [ %155, %154 ], [ %150, %156 ], [ %157, %.critedge2.i8.i14.i6.i.i341 ], [ %.sroa.0.3.i4.i.i339, %.lr.ph.i6.i12.i3.i.i338 ]
   %.pn12.i.i344 = phi ptr [ %155, %154 ], [ %157, %156 ], [ %157, %.critedge2.i8.i14.i6.i.i341 ], [ %157, %.lr.ph.i6.i12.i3.i.i338 ]
   %160 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.578", ptr %150, i64 %153
   %.not23612455 = icmp eq ptr %.pn14.i.i343, %160
@@ -1191,7 +1191,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_10DISubrangeENS_8DenseMapIS3_NS0_13DenseSetEmp
   br i1 %.not.i9.i15.i7.i.i360, label %_ZN4llvm6detail12DenseSetImplIPNS_11DIBasicTypeENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i356, !llvm.loop !430
 
 _ZN4llvm6detail12DenseSetImplIPNS_11DIBasicTypeENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i.i356, %.critedge2.i8.i14.i6.i.i359, %173, %175
-  %.pn14.i.i361 = phi ptr [ %174, %173 ], [ %169, %175 ], [ %.sroa.0.3.i4.i.i357, %.lr.ph.i6.i12.i3.i.i356 ], [ %176, %.critedge2.i8.i14.i6.i.i359 ]
+  %.pn14.i.i361 = phi ptr [ %174, %173 ], [ %169, %175 ], [ %176, %.critedge2.i8.i14.i6.i.i359 ], [ %.sroa.0.3.i4.i.i357, %.lr.ph.i6.i12.i3.i.i356 ]
   %.pn12.i.i362 = phi ptr [ %174, %173 ], [ %176, %175 ], [ %176, %.critedge2.i8.i14.i6.i.i359 ], [ %176, %.lr.ph.i6.i12.i3.i.i356 ]
   %179 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.579", ptr %169, i64 %172
   %.not23622459 = icmp eq ptr %.pn14.i.i361, %179
@@ -1260,7 +1260,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_12DIEnumeratorENS_8DenseMapIS3_NS0_13DenseSetE
   br i1 %.not.i9.i15.i7.i.i377, label %_ZN4llvm6detail12DenseSetImplIPNS_13DIDerivedTypeENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i373, !llvm.loop !436
 
 _ZN4llvm6detail12DenseSetImplIPNS_13DIDerivedTypeENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i.i373, %.critedge2.i8.i14.i6.i.i376, %192, %194
-  %.pn14.i.i378 = phi ptr [ %193, %192 ], [ %188, %194 ], [ %.sroa.0.3.i4.i.i374, %.lr.ph.i6.i12.i3.i.i373 ], [ %195, %.critedge2.i8.i14.i6.i.i376 ]
+  %.pn14.i.i378 = phi ptr [ %193, %192 ], [ %188, %194 ], [ %195, %.critedge2.i8.i14.i6.i.i376 ], [ %.sroa.0.3.i4.i.i374, %.lr.ph.i6.i12.i3.i.i373 ]
   %.pn12.i.i379 = phi ptr [ %193, %192 ], [ %195, %194 ], [ %195, %.critedge2.i8.i14.i6.i.i376 ], [ %195, %.lr.ph.i6.i12.i3.i.i373 ]
   %198 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.580", ptr %188, i64 %191
   %.not23632463 = icmp eq ptr %.pn14.i.i378, %198
@@ -1329,7 +1329,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_11DIBasicTypeENS_8DenseMapIS3_NS0_13DenseSetEm
   br i1 %.not.i9.i15.i7.i.i395, label %_ZN4llvm6detail12DenseSetImplIPNS_15DICompositeTypeENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i391, !llvm.loop !442
 
 _ZN4llvm6detail12DenseSetImplIPNS_15DICompositeTypeENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i.i391, %.critedge2.i8.i14.i6.i.i394, %211, %213
-  %.pn14.i.i396 = phi ptr [ %212, %211 ], [ %207, %213 ], [ %.sroa.0.3.i4.i.i392, %.lr.ph.i6.i12.i3.i.i391 ], [ %214, %.critedge2.i8.i14.i6.i.i394 ]
+  %.pn14.i.i396 = phi ptr [ %212, %211 ], [ %207, %213 ], [ %214, %.critedge2.i8.i14.i6.i.i394 ], [ %.sroa.0.3.i4.i.i392, %.lr.ph.i6.i12.i3.i.i391 ]
   %.pn12.i.i397 = phi ptr [ %212, %211 ], [ %214, %213 ], [ %214, %.critedge2.i8.i14.i6.i.i394 ], [ %214, %.lr.ph.i6.i12.i3.i.i391 ]
   %217 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.581", ptr %207, i64 %210
   %.not23642467 = icmp eq ptr %.pn14.i.i396, %217
@@ -1398,7 +1398,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_13DIDerivedTypeENS_8DenseMapIS3_NS0_13DenseSet
   br i1 %.not.i9.i15.i7.i.i412, label %_ZN4llvm6detail12DenseSetImplIPNS_16DISubroutineTypeENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i408, !llvm.loop !448
 
 _ZN4llvm6detail12DenseSetImplIPNS_16DISubroutineTypeENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i.i408, %.critedge2.i8.i14.i6.i.i411, %230, %232
-  %.pn14.i.i413 = phi ptr [ %231, %230 ], [ %226, %232 ], [ %.sroa.0.3.i4.i.i409, %.lr.ph.i6.i12.i3.i.i408 ], [ %233, %.critedge2.i8.i14.i6.i.i411 ]
+  %.pn14.i.i413 = phi ptr [ %231, %230 ], [ %226, %232 ], [ %233, %.critedge2.i8.i14.i6.i.i411 ], [ %.sroa.0.3.i4.i.i409, %.lr.ph.i6.i12.i3.i.i408 ]
   %.pn12.i.i414 = phi ptr [ %231, %230 ], [ %233, %232 ], [ %233, %.critedge2.i8.i14.i6.i.i411 ], [ %233, %.lr.ph.i6.i12.i3.i.i408 ]
   %236 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.582", ptr %226, i64 %229
   %.not23652471 = icmp eq ptr %.pn14.i.i413, %236
@@ -1467,7 +1467,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_15DICompositeTypeENS_8DenseMapIS3_NS0_13DenseS
   br i1 %.not.i9.i15.i7.i.i430, label %_ZN4llvm6detail12DenseSetImplIPNS_6DIFileENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i426, !llvm.loop !454
 
 _ZN4llvm6detail12DenseSetImplIPNS_6DIFileENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i.i426, %.critedge2.i8.i14.i6.i.i429, %249, %251
-  %.pn14.i.i431 = phi ptr [ %250, %249 ], [ %245, %251 ], [ %.sroa.0.3.i4.i.i427, %.lr.ph.i6.i12.i3.i.i426 ], [ %252, %.critedge2.i8.i14.i6.i.i429 ]
+  %.pn14.i.i431 = phi ptr [ %250, %249 ], [ %245, %251 ], [ %252, %.critedge2.i8.i14.i6.i.i429 ], [ %.sroa.0.3.i4.i.i427, %.lr.ph.i6.i12.i3.i.i426 ]
   %.pn12.i.i432 = phi ptr [ %250, %249 ], [ %252, %251 ], [ %252, %.critedge2.i8.i14.i6.i.i429 ], [ %252, %.lr.ph.i6.i12.i3.i.i426 ]
   %255 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.583", ptr %245, i64 %248
   %.not23662475 = icmp eq ptr %.pn14.i.i431, %255
@@ -1536,7 +1536,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_16DISubroutineTypeENS_8DenseMapIS3_NS0_13Dense
   br i1 %.not.i9.i15.i7.i.i448, label %_ZN4llvm6detail12DenseSetImplIPNS_12DISubprogramENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i444, !llvm.loop !460
 
 _ZN4llvm6detail12DenseSetImplIPNS_12DISubprogramENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i.i444, %.critedge2.i8.i14.i6.i.i447, %268, %270
-  %.pn14.i.i449 = phi ptr [ %269, %268 ], [ %264, %270 ], [ %.sroa.0.3.i4.i.i445, %.lr.ph.i6.i12.i3.i.i444 ], [ %271, %.critedge2.i8.i14.i6.i.i447 ]
+  %.pn14.i.i449 = phi ptr [ %269, %268 ], [ %264, %270 ], [ %271, %.critedge2.i8.i14.i6.i.i447 ], [ %.sroa.0.3.i4.i.i445, %.lr.ph.i6.i12.i3.i.i444 ]
   %.pn12.i.i450 = phi ptr [ %269, %268 ], [ %271, %270 ], [ %271, %.critedge2.i8.i14.i6.i.i447 ], [ %271, %.lr.ph.i6.i12.i3.i.i444 ]
   %274 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.584", ptr %264, i64 %267
   %.not23672479 = icmp eq ptr %.pn14.i.i449, %274
@@ -1605,7 +1605,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_6DIFileENS_8DenseMapIS3_NS0_13DenseSetEmptyENS
   br i1 %.not.i9.i15.i7.i.i466, label %_ZN4llvm6detail12DenseSetImplIPNS_14DILexicalBlockENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i462, !llvm.loop !466
 
 _ZN4llvm6detail12DenseSetImplIPNS_14DILexicalBlockENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i.i462, %.critedge2.i8.i14.i6.i.i465, %287, %289
-  %.pn14.i.i467 = phi ptr [ %288, %287 ], [ %283, %289 ], [ %.sroa.0.3.i4.i.i463, %.lr.ph.i6.i12.i3.i.i462 ], [ %290, %.critedge2.i8.i14.i6.i.i465 ]
+  %.pn14.i.i467 = phi ptr [ %288, %287 ], [ %283, %289 ], [ %290, %.critedge2.i8.i14.i6.i.i465 ], [ %.sroa.0.3.i4.i.i463, %.lr.ph.i6.i12.i3.i.i462 ]
   %.pn12.i.i468 = phi ptr [ %288, %287 ], [ %290, %289 ], [ %290, %.critedge2.i8.i14.i6.i.i465 ], [ %290, %.lr.ph.i6.i12.i3.i.i462 ]
   %293 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.585", ptr %283, i64 %286
   %.not23682483 = icmp eq ptr %.pn14.i.i467, %293
@@ -1674,7 +1674,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_12DISubprogramENS_8DenseMapIS3_NS0_13DenseSetE
   br i1 %.not.i9.i15.i7.i.i484, label %_ZN4llvm6detail12DenseSetImplIPNS_18DILexicalBlockFileENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i480, !llvm.loop !472
 
 _ZN4llvm6detail12DenseSetImplIPNS_18DILexicalBlockFileENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i.i480, %.critedge2.i8.i14.i6.i.i483, %306, %308
-  %.pn14.i.i485 = phi ptr [ %307, %306 ], [ %302, %308 ], [ %.sroa.0.3.i4.i.i481, %.lr.ph.i6.i12.i3.i.i480 ], [ %309, %.critedge2.i8.i14.i6.i.i483 ]
+  %.pn14.i.i485 = phi ptr [ %307, %306 ], [ %302, %308 ], [ %309, %.critedge2.i8.i14.i6.i.i483 ], [ %.sroa.0.3.i4.i.i481, %.lr.ph.i6.i12.i3.i.i480 ]
   %.pn12.i.i486 = phi ptr [ %307, %306 ], [ %309, %308 ], [ %309, %.critedge2.i8.i14.i6.i.i483 ], [ %309, %.lr.ph.i6.i12.i3.i.i480 ]
   %312 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.586", ptr %302, i64 %305
   %.not23692487 = icmp eq ptr %.pn14.i.i485, %312
@@ -1743,7 +1743,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_14DILexicalBlockENS_8DenseMapIS3_NS0_13DenseSe
   br i1 %.not.i9.i15.i7.i.i502, label %_ZN4llvm6detail12DenseSetImplIPNS_11DINamespaceENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i498, !llvm.loop !478
 
 _ZN4llvm6detail12DenseSetImplIPNS_11DINamespaceENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i.i498, %.critedge2.i8.i14.i6.i.i501, %325, %327
-  %.pn14.i.i503 = phi ptr [ %326, %325 ], [ %321, %327 ], [ %.sroa.0.3.i4.i.i499, %.lr.ph.i6.i12.i3.i.i498 ], [ %328, %.critedge2.i8.i14.i6.i.i501 ]
+  %.pn14.i.i503 = phi ptr [ %326, %325 ], [ %321, %327 ], [ %328, %.critedge2.i8.i14.i6.i.i501 ], [ %.sroa.0.3.i4.i.i499, %.lr.ph.i6.i12.i3.i.i498 ]
   %.pn12.i.i504 = phi ptr [ %326, %325 ], [ %328, %327 ], [ %328, %.critedge2.i8.i14.i6.i.i501 ], [ %328, %.lr.ph.i6.i12.i3.i.i498 ]
   %331 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.587", ptr %321, i64 %324
   %.not23702491 = icmp eq ptr %.pn14.i.i503, %331
@@ -1812,7 +1812,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_18DILexicalBlockFileENS_8DenseMapIS3_NS0_13Den
   br i1 %.not.i9.i15.i7.i.i520, label %_ZN4llvm6detail12DenseSetImplIPNS_8DIModuleENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i516, !llvm.loop !484
 
 _ZN4llvm6detail12DenseSetImplIPNS_8DIModuleENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i.i516, %.critedge2.i8.i14.i6.i.i519, %344, %346
-  %.pn14.i.i521 = phi ptr [ %345, %344 ], [ %340, %346 ], [ %.sroa.0.3.i4.i.i517, %.lr.ph.i6.i12.i3.i.i516 ], [ %347, %.critedge2.i8.i14.i6.i.i519 ]
+  %.pn14.i.i521 = phi ptr [ %345, %344 ], [ %340, %346 ], [ %347, %.critedge2.i8.i14.i6.i.i519 ], [ %.sroa.0.3.i4.i.i517, %.lr.ph.i6.i12.i3.i.i516 ]
   %.pn12.i.i522 = phi ptr [ %345, %344 ], [ %347, %346 ], [ %347, %.critedge2.i8.i14.i6.i.i519 ], [ %347, %.lr.ph.i6.i12.i3.i.i516 ]
   %350 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.588", ptr %340, i64 %343
   %.not23712495 = icmp eq ptr %.pn14.i.i521, %350
@@ -1881,7 +1881,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_11DINamespaceENS_8DenseMapIS3_NS0_13DenseSetEm
   br i1 %.not.i9.i15.i7.i.i538, label %_ZN4llvm6detail12DenseSetImplIPNS_23DITemplateTypeParameterENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i534, !llvm.loop !490
 
 _ZN4llvm6detail12DenseSetImplIPNS_23DITemplateTypeParameterENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i.i534, %.critedge2.i8.i14.i6.i.i537, %363, %365
-  %.pn14.i.i539 = phi ptr [ %364, %363 ], [ %359, %365 ], [ %.sroa.0.3.i4.i.i535, %.lr.ph.i6.i12.i3.i.i534 ], [ %366, %.critedge2.i8.i14.i6.i.i537 ]
+  %.pn14.i.i539 = phi ptr [ %364, %363 ], [ %359, %365 ], [ %366, %.critedge2.i8.i14.i6.i.i537 ], [ %.sroa.0.3.i4.i.i535, %.lr.ph.i6.i12.i3.i.i534 ]
   %.pn12.i.i540 = phi ptr [ %364, %363 ], [ %366, %365 ], [ %366, %.critedge2.i8.i14.i6.i.i537 ], [ %366, %.lr.ph.i6.i12.i3.i.i534 ]
   %369 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.589", ptr %359, i64 %362
   %.not23722499 = icmp eq ptr %.pn14.i.i539, %369
@@ -1950,7 +1950,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_8DIModuleENS_8DenseMapIS3_NS0_13DenseSetEmptyE
   br i1 %.not.i9.i15.i7.i.i556, label %_ZN4llvm6detail12DenseSetImplIPNS_24DITemplateValueParameterENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i552, !llvm.loop !496
 
 _ZN4llvm6detail12DenseSetImplIPNS_24DITemplateValueParameterENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i.i552, %.critedge2.i8.i14.i6.i.i555, %382, %384
-  %.pn14.i.i557 = phi ptr [ %383, %382 ], [ %378, %384 ], [ %.sroa.0.3.i4.i.i553, %.lr.ph.i6.i12.i3.i.i552 ], [ %385, %.critedge2.i8.i14.i6.i.i555 ]
+  %.pn14.i.i557 = phi ptr [ %383, %382 ], [ %378, %384 ], [ %385, %.critedge2.i8.i14.i6.i.i555 ], [ %.sroa.0.3.i4.i.i553, %.lr.ph.i6.i12.i3.i.i552 ]
   %.pn12.i.i558 = phi ptr [ %383, %382 ], [ %385, %384 ], [ %385, %.critedge2.i8.i14.i6.i.i555 ], [ %385, %.lr.ph.i6.i12.i3.i.i552 ]
   %388 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.590", ptr %378, i64 %381
   %.not23732503 = icmp eq ptr %.pn14.i.i557, %388
@@ -2019,7 +2019,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_23DITemplateTypeParameterENS_8DenseMapIS3_NS0_
   br i1 %.not.i9.i15.i7.i.i574, label %_ZN4llvm6detail12DenseSetImplIPNS_16DIGlobalVariableENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i570, !llvm.loop !502
 
 _ZN4llvm6detail12DenseSetImplIPNS_16DIGlobalVariableENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i.i570, %.critedge2.i8.i14.i6.i.i573, %401, %403
-  %.pn14.i.i575 = phi ptr [ %402, %401 ], [ %397, %403 ], [ %.sroa.0.3.i4.i.i571, %.lr.ph.i6.i12.i3.i.i570 ], [ %404, %.critedge2.i8.i14.i6.i.i573 ]
+  %.pn14.i.i575 = phi ptr [ %402, %401 ], [ %397, %403 ], [ %404, %.critedge2.i8.i14.i6.i.i573 ], [ %.sroa.0.3.i4.i.i571, %.lr.ph.i6.i12.i3.i.i570 ]
   %.pn12.i.i576 = phi ptr [ %402, %401 ], [ %404, %403 ], [ %404, %.critedge2.i8.i14.i6.i.i573 ], [ %404, %.lr.ph.i6.i12.i3.i.i570 ]
   %407 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.591", ptr %397, i64 %400
   %.not23742507 = icmp eq ptr %.pn14.i.i575, %407
@@ -2088,7 +2088,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_24DITemplateValueParameterENS_8DenseMapIS3_NS0
   br i1 %.not.i9.i15.i7.i.i592, label %_ZN4llvm6detail12DenseSetImplIPNS_15DILocalVariableENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i588, !llvm.loop !508
 
 _ZN4llvm6detail12DenseSetImplIPNS_15DILocalVariableENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i.i588, %.critedge2.i8.i14.i6.i.i591, %420, %422
-  %.pn14.i.i593 = phi ptr [ %421, %420 ], [ %416, %422 ], [ %.sroa.0.3.i4.i.i589, %.lr.ph.i6.i12.i3.i.i588 ], [ %423, %.critedge2.i8.i14.i6.i.i591 ]
+  %.pn14.i.i593 = phi ptr [ %421, %420 ], [ %416, %422 ], [ %423, %.critedge2.i8.i14.i6.i.i591 ], [ %.sroa.0.3.i4.i.i589, %.lr.ph.i6.i12.i3.i.i588 ]
   %.pn12.i.i594 = phi ptr [ %421, %420 ], [ %423, %422 ], [ %423, %.critedge2.i8.i14.i6.i.i591 ], [ %423, %.lr.ph.i6.i12.i3.i.i588 ]
   %426 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.592", ptr %416, i64 %419
   %.not23752511 = icmp eq ptr %.pn14.i.i593, %426
@@ -2157,7 +2157,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_16DIGlobalVariableENS_8DenseMapIS3_NS0_13Dense
   br i1 %.not.i9.i15.i7.i.i610, label %_ZN4llvm6detail12DenseSetImplIPNS_7DILabelENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i606, !llvm.loop !514
 
 _ZN4llvm6detail12DenseSetImplIPNS_7DILabelENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i.i606, %.critedge2.i8.i14.i6.i.i609, %439, %441
-  %.pn14.i.i611 = phi ptr [ %440, %439 ], [ %435, %441 ], [ %.sroa.0.3.i4.i.i607, %.lr.ph.i6.i12.i3.i.i606 ], [ %442, %.critedge2.i8.i14.i6.i.i609 ]
+  %.pn14.i.i611 = phi ptr [ %440, %439 ], [ %435, %441 ], [ %442, %.critedge2.i8.i14.i6.i.i609 ], [ %.sroa.0.3.i4.i.i607, %.lr.ph.i6.i12.i3.i.i606 ]
   %.pn12.i.i612 = phi ptr [ %440, %439 ], [ %442, %441 ], [ %442, %.critedge2.i8.i14.i6.i.i609 ], [ %442, %.lr.ph.i6.i12.i3.i.i606 ]
   %445 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.593", ptr %435, i64 %438
   %.not23762515 = icmp eq ptr %.pn14.i.i611, %445
@@ -2226,7 +2226,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_15DILocalVariableENS_8DenseMapIS3_NS0_13DenseS
   br i1 %.not.i9.i15.i7.i.i628, label %_ZN4llvm6detail12DenseSetImplIPNS_14DIObjCPropertyENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i624, !llvm.loop !520
 
 _ZN4llvm6detail12DenseSetImplIPNS_14DIObjCPropertyENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i.i624, %.critedge2.i8.i14.i6.i.i627, %458, %460
-  %.pn14.i.i629 = phi ptr [ %459, %458 ], [ %454, %460 ], [ %.sroa.0.3.i4.i.i625, %.lr.ph.i6.i12.i3.i.i624 ], [ %461, %.critedge2.i8.i14.i6.i.i627 ]
+  %.pn14.i.i629 = phi ptr [ %459, %458 ], [ %454, %460 ], [ %461, %.critedge2.i8.i14.i6.i.i627 ], [ %.sroa.0.3.i4.i.i625, %.lr.ph.i6.i12.i3.i.i624 ]
   %.pn12.i.i630 = phi ptr [ %459, %458 ], [ %461, %460 ], [ %461, %.critedge2.i8.i14.i6.i.i627 ], [ %461, %.lr.ph.i6.i12.i3.i.i624 ]
   %464 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.594", ptr %454, i64 %457
   %.not23772519 = icmp eq ptr %.pn14.i.i629, %464
@@ -2295,7 +2295,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_7DILabelENS_8DenseMapIS3_NS0_13DenseSetEmptyEN
   br i1 %.not.i9.i15.i7.i.i646, label %_ZN4llvm6detail12DenseSetImplIPNS_16DIImportedEntityENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i642, !llvm.loop !526
 
 _ZN4llvm6detail12DenseSetImplIPNS_16DIImportedEntityENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i.i642, %.critedge2.i8.i14.i6.i.i645, %477, %479
-  %.pn14.i.i647 = phi ptr [ %478, %477 ], [ %473, %479 ], [ %.sroa.0.3.i4.i.i643, %.lr.ph.i6.i12.i3.i.i642 ], [ %480, %.critedge2.i8.i14.i6.i.i645 ]
+  %.pn14.i.i647 = phi ptr [ %478, %477 ], [ %473, %479 ], [ %480, %.critedge2.i8.i14.i6.i.i645 ], [ %.sroa.0.3.i4.i.i643, %.lr.ph.i6.i12.i3.i.i642 ]
   %.pn12.i.i648 = phi ptr [ %478, %477 ], [ %480, %479 ], [ %480, %.critedge2.i8.i14.i6.i.i645 ], [ %480, %.lr.ph.i6.i12.i3.i.i642 ]
   %483 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.595", ptr %473, i64 %476
   %.not23782523 = icmp eq ptr %.pn14.i.i647, %483
@@ -2364,7 +2364,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_14DIObjCPropertyENS_8DenseMapIS3_NS0_13DenseSe
   br i1 %.not.i9.i15.i7.i.i664, label %_ZN4llvm6detail12DenseSetImplIPNS_7DIMacroENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i660, !llvm.loop !532
 
 _ZN4llvm6detail12DenseSetImplIPNS_7DIMacroENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i.i660, %.critedge2.i8.i14.i6.i.i663, %496, %498
-  %.pn14.i.i665 = phi ptr [ %497, %496 ], [ %492, %498 ], [ %.sroa.0.3.i4.i.i661, %.lr.ph.i6.i12.i3.i.i660 ], [ %499, %.critedge2.i8.i14.i6.i.i663 ]
+  %.pn14.i.i665 = phi ptr [ %497, %496 ], [ %492, %498 ], [ %499, %.critedge2.i8.i14.i6.i.i663 ], [ %.sroa.0.3.i4.i.i661, %.lr.ph.i6.i12.i3.i.i660 ]
   %.pn12.i.i666 = phi ptr [ %497, %496 ], [ %499, %498 ], [ %499, %.critedge2.i8.i14.i6.i.i663 ], [ %499, %.lr.ph.i6.i12.i3.i.i660 ]
   %502 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.596", ptr %492, i64 %495
   %.not23792527 = icmp eq ptr %.pn14.i.i665, %502
@@ -2433,7 +2433,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_16DIImportedEntityENS_8DenseMapIS3_NS0_13Dense
   br i1 %.not.i9.i15.i7.i.i682, label %_ZN4llvm6detail12DenseSetImplIPNS_11DIMacroFileENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i678, !llvm.loop !538
 
 _ZN4llvm6detail12DenseSetImplIPNS_11DIMacroFileENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i.i678, %.critedge2.i8.i14.i6.i.i681, %515, %517
-  %.pn14.i.i683 = phi ptr [ %516, %515 ], [ %511, %517 ], [ %.sroa.0.3.i4.i.i679, %.lr.ph.i6.i12.i3.i.i678 ], [ %518, %.critedge2.i8.i14.i6.i.i681 ]
+  %.pn14.i.i683 = phi ptr [ %516, %515 ], [ %511, %517 ], [ %518, %.critedge2.i8.i14.i6.i.i681 ], [ %.sroa.0.3.i4.i.i679, %.lr.ph.i6.i12.i3.i.i678 ]
   %.pn12.i.i684 = phi ptr [ %516, %515 ], [ %518, %517 ], [ %518, %.critedge2.i8.i14.i6.i.i681 ], [ %518, %.lr.ph.i6.i12.i3.i.i678 ]
   %521 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.597", ptr %511, i64 %514
   %.not23802531 = icmp eq ptr %.pn14.i.i683, %521
@@ -2502,7 +2502,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_7DIMacroENS_8DenseMapIS3_NS0_13DenseSetEmptyEN
   br i1 %.not.i9.i15.i7.i.i700, label %_ZN4llvm6detail12DenseSetImplIPNS_13DICommonBlockENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i696, !llvm.loop !544
 
 _ZN4llvm6detail12DenseSetImplIPNS_13DICommonBlockENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i.i696, %.critedge2.i8.i14.i6.i.i699, %534, %536
-  %.pn14.i.i701 = phi ptr [ %535, %534 ], [ %530, %536 ], [ %.sroa.0.3.i4.i.i697, %.lr.ph.i6.i12.i3.i.i696 ], [ %537, %.critedge2.i8.i14.i6.i.i699 ]
+  %.pn14.i.i701 = phi ptr [ %535, %534 ], [ %530, %536 ], [ %537, %.critedge2.i8.i14.i6.i.i699 ], [ %.sroa.0.3.i4.i.i697, %.lr.ph.i6.i12.i3.i.i696 ]
   %.pn12.i.i702 = phi ptr [ %535, %534 ], [ %537, %536 ], [ %537, %.critedge2.i8.i14.i6.i.i699 ], [ %537, %.lr.ph.i6.i12.i3.i.i696 ]
   %540 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.598", ptr %530, i64 %533
   %.not23812535 = icmp eq ptr %.pn14.i.i701, %540
@@ -2571,7 +2571,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_11DIMacroFileENS_8DenseMapIS3_NS0_13DenseSetEm
   br i1 %.not.i9.i15.i7.i.i718, label %_ZN4llvm6detail12DenseSetImplIPNS_12DIStringTypeENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i714, !llvm.loop !550
 
 _ZN4llvm6detail12DenseSetImplIPNS_12DIStringTypeENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i.i714, %.critedge2.i8.i14.i6.i.i717, %553, %555
-  %.pn14.i.i719 = phi ptr [ %554, %553 ], [ %549, %555 ], [ %.sroa.0.3.i4.i.i715, %.lr.ph.i6.i12.i3.i.i714 ], [ %556, %.critedge2.i8.i14.i6.i.i717 ]
+  %.pn14.i.i719 = phi ptr [ %554, %553 ], [ %549, %555 ], [ %556, %.critedge2.i8.i14.i6.i.i717 ], [ %.sroa.0.3.i4.i.i715, %.lr.ph.i6.i12.i3.i.i714 ]
   %.pn12.i.i720 = phi ptr [ %554, %553 ], [ %556, %555 ], [ %556, %.critedge2.i8.i14.i6.i.i717 ], [ %556, %.lr.ph.i6.i12.i3.i.i714 ]
   %559 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.599", ptr %549, i64 %552
   %.not23822539 = icmp eq ptr %.pn14.i.i719, %559
@@ -2640,7 +2640,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_13DICommonBlockENS_8DenseMapIS3_NS0_13DenseSet
   br i1 %.not.i9.i15.i7.i.i736, label %_ZN4llvm6detail12DenseSetImplIPNS_17DIGenericSubrangeENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i732, !llvm.loop !556
 
 _ZN4llvm6detail12DenseSetImplIPNS_17DIGenericSubrangeENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i.i732, %.critedge2.i8.i14.i6.i.i735, %572, %574
-  %.pn14.i.i737 = phi ptr [ %573, %572 ], [ %568, %574 ], [ %.sroa.0.3.i4.i.i733, %.lr.ph.i6.i12.i3.i.i732 ], [ %575, %.critedge2.i8.i14.i6.i.i735 ]
+  %.pn14.i.i737 = phi ptr [ %573, %572 ], [ %568, %574 ], [ %575, %.critedge2.i8.i14.i6.i.i735 ], [ %.sroa.0.3.i4.i.i733, %.lr.ph.i6.i12.i3.i.i732 ]
   %.pn12.i.i738 = phi ptr [ %573, %572 ], [ %575, %574 ], [ %575, %.critedge2.i8.i14.i6.i.i735 ], [ %575, %.lr.ph.i6.i12.i3.i.i732 ]
   %578 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.600", ptr %568, i64 %571
   %.not23832543 = icmp eq ptr %.pn14.i.i737, %578
@@ -2709,7 +2709,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_12DIStringTypeENS_8DenseMapIS3_NS0_13DenseSetE
   br i1 %.not.i9.i15.i7.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEPNS_15ValueAsMetadataENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i, !llvm.loop !562
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEPNS_15ValueAsMetadataENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i, %.critedge2.i8.i14.i6.i, %591, %593
-  %.pn14.i = phi ptr [ %592, %591 ], [ %587, %593 ], [ %594, %.critedge2.i8.i14.i6.i ], [ %.sroa.0.3.i4.i, %.lr.ph.i6.i12.i3.i ]
+  %.pn14.i = phi ptr [ %592, %591 ], [ %587, %593 ], [ %.sroa.0.3.i4.i, %.lr.ph.i6.i12.i3.i ], [ %594, %.critedge2.i8.i14.i6.i ]
   %.pn12.i = phi ptr [ %592, %591 ], [ %594, %593 ], [ %594, %.critedge2.i8.i14.i6.i ], [ %594, %.lr.ph.i6.i12.i3.i ]
   %597 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %587, i64 %590
   %.not23842547 = icmp eq ptr %.pn14.i, %597
@@ -2778,7 +2778,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_17DIGenericSubrangeENS_8DenseMapIS3_NS0_13Dens
   br i1 %.not.i9.i15.i7.i760, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8MetadataEPNS_15MetadataAsValueENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i756, !llvm.loop !568
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8MetadataEPNS_15MetadataAsValueENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i756, %.critedge2.i8.i14.i6.i759, %610, %612
-  %.pn14.i761 = phi ptr [ %611, %610 ], [ %606, %612 ], [ %613, %.critedge2.i8.i14.i6.i759 ], [ %.sroa.0.3.i4.i757, %.lr.ph.i6.i12.i3.i756 ]
+  %.pn14.i761 = phi ptr [ %611, %610 ], [ %606, %612 ], [ %.sroa.0.3.i4.i757, %.lr.ph.i6.i12.i3.i756 ], [ %613, %.critedge2.i8.i14.i6.i759 ]
   %.pn12.i762 = phi ptr [ %611, %610 ], [ %613, %612 ], [ %613, %.critedge2.i8.i14.i6.i759 ], [ %613, %.lr.ph.i6.i12.i3.i756 ]
   %616 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.499", ptr %606, i64 %609
   %.not23852551 = icmp eq ptr %.pn14.i761, %616
@@ -2849,7 +2849,7 @@ _ZN4llvm16DenseMapIteratorIPNS_5ValueEPNS_15ValueAsMetadataENS_12DenseMapInfoIS2
   br i1 %.not.i9.i15.i7.i.i773, label %_ZN4llvm6detail12DenseSetImplIPNS_9DIArgListENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_13DIArgListInfoENS0_12DenseSetPairIS3_EEEES6_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i769, !llvm.loop !577
 
 _ZN4llvm6detail12DenseSetImplIPNS_9DIArgListENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_13DIArgListInfoENS0_12DenseSetPairIS3_EEEES6_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i.i769, %.critedge2.i8.i14.i6.i.i772, %631, %633
-  %.pn14.i.i774 = phi ptr [ %632, %631 ], [ %627, %633 ], [ %.sroa.0.3.i4.i.i770, %.lr.ph.i6.i12.i3.i.i769 ], [ %634, %.critedge2.i8.i14.i6.i.i772 ]
+  %.pn14.i.i774 = phi ptr [ %632, %631 ], [ %627, %633 ], [ %634, %.critedge2.i8.i14.i6.i.i772 ], [ %.sroa.0.3.i4.i.i770, %.lr.ph.i6.i12.i3.i.i769 ]
   %.pn12.i.i775 = phi ptr [ %632, %631 ], [ %634, %633 ], [ %634, %.critedge2.i8.i14.i6.i.i772 ], [ %634, %.lr.ph.i6.i12.i3.i.i769 ]
   %637 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %627, i64 %630
   %.not23862555 = icmp eq ptr %.pn14.i.i774, %637
@@ -3041,7 +3041,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_9DIArgListENS_8DenseMapIS3_NS0_13DenseSetEmpty
   br i1 %.not.i9.i15.i7.i.i797, label %_ZN4llvm6detail12DenseSetImplIPNS_7MDTupleENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit802, label %.lr.ph.i6.i12.i3.i.i793, !llvm.loop !386
 
 _ZN4llvm6detail12DenseSetImplIPNS_7MDTupleENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit802: ; preds = %.lr.ph.i6.i12.i3.i.i793, %.critedge2.i8.i14.i6.i.i796, %692, %694
-  %.pn14.i.i798 = phi ptr [ %693, %692 ], [ %689, %694 ], [ %.sroa.0.3.i4.i.i794, %.lr.ph.i6.i12.i3.i.i793 ], [ %695, %.critedge2.i8.i14.i6.i.i796 ]
+  %.pn14.i.i798 = phi ptr [ %693, %692 ], [ %689, %694 ], [ %695, %.critedge2.i8.i14.i6.i.i796 ], [ %.sroa.0.3.i4.i.i794, %.lr.ph.i6.i12.i3.i.i793 ]
   %.pn12.i.i799 = phi ptr [ %693, %692 ], [ %695, %694 ], [ %695, %.critedge2.i8.i14.i6.i.i796 ], [ %695, %.lr.ph.i6.i12.i3.i.i793 ]
   %698 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.572", ptr %689, i64 %691
   %.not23892568 = icmp eq ptr %.pn14.i.i798, %698
@@ -3134,7 +3134,7 @@ _ZN4llvm30ConstantRangeListAttributeImplD2Ev.exit: ; preds = %_ZN4llvm13Constant
   br i1 %.not.i9.i15.i7.i.i811, label %_ZN4llvm6detail12DenseSetImplIPNS_10DILocationENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit816, label %.lr.ph.i6.i12.i3.i.i807, !llvm.loop !394
 
 _ZN4llvm6detail12DenseSetImplIPNS_10DILocationENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit816: ; preds = %.lr.ph.i6.i12.i3.i.i807, %.critedge2.i8.i14.i6.i.i810, %728, %730
-  %.pn14.i.i812 = phi ptr [ %729, %728 ], [ %725, %730 ], [ %.sroa.0.3.i4.i.i808, %.lr.ph.i6.i12.i3.i.i807 ], [ %731, %.critedge2.i8.i14.i6.i.i810 ]
+  %.pn14.i.i812 = phi ptr [ %729, %728 ], [ %725, %730 ], [ %731, %.critedge2.i8.i14.i6.i.i810 ], [ %.sroa.0.3.i4.i.i808, %.lr.ph.i6.i12.i3.i.i807 ]
   %.pn12.i.i813 = phi ptr [ %729, %728 ], [ %731, %730 ], [ %731, %.critedge2.i8.i14.i6.i.i810 ], [ %731, %.lr.ph.i6.i12.i3.i.i807 ]
   %734 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.573", ptr %725, i64 %727
   %.not23902572 = icmp eq ptr %.pn14.i.i812, %734
@@ -3240,7 +3240,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_7MDTupleENS_8DenseMapIS3_NS0_13DenseSetEmptyEN
   br i1 %.not.i9.i15.i7.i.i832, label %_ZN4llvm6detail12DenseSetImplIPNS_12DIExpressionENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit837, label %.lr.ph.i6.i12.i3.i.i828, !llvm.loop !400
 
 _ZN4llvm6detail12DenseSetImplIPNS_12DIExpressionENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit837: ; preds = %.lr.ph.i6.i12.i3.i.i828, %.critedge2.i8.i14.i6.i.i831, %764, %766
-  %.pn14.i.i833 = phi ptr [ %765, %764 ], [ %761, %766 ], [ %.sroa.0.3.i4.i.i829, %.lr.ph.i6.i12.i3.i.i828 ], [ %767, %.critedge2.i8.i14.i6.i.i831 ]
+  %.pn14.i.i833 = phi ptr [ %765, %764 ], [ %761, %766 ], [ %767, %.critedge2.i8.i14.i6.i.i831 ], [ %.sroa.0.3.i4.i.i829, %.lr.ph.i6.i12.i3.i.i828 ]
   %.pn12.i.i834 = phi ptr [ %765, %764 ], [ %767, %766 ], [ %767, %.critedge2.i8.i14.i6.i.i831 ], [ %767, %.lr.ph.i6.i12.i3.i.i828 ]
   %770 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.574", ptr %761, i64 %763
   %.not23912576 = icmp eq ptr %.pn14.i.i833, %770
@@ -3346,7 +3346,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_10DILocationENS_8DenseMapIS3_NS0_13DenseSetEmp
   br i1 %.not.i9.i15.i7.i.i856, label %_ZN4llvm6detail12DenseSetImplIPNS_26DIGlobalVariableExpressionENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit861, label %.lr.ph.i6.i12.i3.i.i852, !llvm.loop !406
 
 _ZN4llvm6detail12DenseSetImplIPNS_26DIGlobalVariableExpressionENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit861: ; preds = %.lr.ph.i6.i12.i3.i.i852, %.critedge2.i8.i14.i6.i.i855, %800, %802
-  %.pn14.i.i857 = phi ptr [ %801, %800 ], [ %797, %802 ], [ %.sroa.0.3.i4.i.i853, %.lr.ph.i6.i12.i3.i.i852 ], [ %803, %.critedge2.i8.i14.i6.i.i855 ]
+  %.pn14.i.i857 = phi ptr [ %801, %800 ], [ %797, %802 ], [ %803, %.critedge2.i8.i14.i6.i.i855 ], [ %.sroa.0.3.i4.i.i853, %.lr.ph.i6.i12.i3.i.i852 ]
   %.pn12.i.i858 = phi ptr [ %801, %800 ], [ %803, %802 ], [ %803, %.critedge2.i8.i14.i6.i.i855 ], [ %803, %.lr.ph.i6.i12.i3.i.i852 ]
   %806 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.575", ptr %797, i64 %799
   %.not23922580 = icmp eq ptr %.pn14.i.i857, %806
@@ -3466,7 +3466,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_12DIExpressionENS_8DenseMapIS3_NS0_13DenseSetE
   br i1 %.not.i9.i15.i7.i.i880, label %_ZN4llvm6detail12DenseSetImplIPNS_13GenericDINodeENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit885, label %.lr.ph.i6.i12.i3.i.i876, !llvm.loop !412
 
 _ZN4llvm6detail12DenseSetImplIPNS_13GenericDINodeENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit885: ; preds = %.lr.ph.i6.i12.i3.i.i876, %.critedge2.i8.i14.i6.i.i879, %844, %846
-  %.pn14.i.i881 = phi ptr [ %845, %844 ], [ %841, %846 ], [ %.sroa.0.3.i4.i.i877, %.lr.ph.i6.i12.i3.i.i876 ], [ %847, %.critedge2.i8.i14.i6.i.i879 ]
+  %.pn14.i.i881 = phi ptr [ %845, %844 ], [ %841, %846 ], [ %847, %.critedge2.i8.i14.i6.i.i879 ], [ %.sroa.0.3.i4.i.i877, %.lr.ph.i6.i12.i3.i.i876 ]
   %.pn12.i.i882 = phi ptr [ %845, %844 ], [ %847, %846 ], [ %847, %.critedge2.i8.i14.i6.i.i879 ], [ %847, %.lr.ph.i6.i12.i3.i.i876 ]
   %850 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.576", ptr %841, i64 %843
   %.not23932584 = icmp eq ptr %.pn14.i.i881, %850
@@ -3571,7 +3571,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_26DIGlobalVariableExpressionENS_8DenseMapIS3_N
   br i1 %.not.i9.i15.i7.i.i900, label %_ZN4llvm6detail12DenseSetImplIPNS_10DISubrangeENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit905, label %.lr.ph.i6.i12.i3.i.i896, !llvm.loop !418
 
 _ZN4llvm6detail12DenseSetImplIPNS_10DISubrangeENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit905: ; preds = %.lr.ph.i6.i12.i3.i.i896, %.critedge2.i8.i14.i6.i.i899, %880, %882
-  %.pn14.i.i901 = phi ptr [ %881, %880 ], [ %877, %882 ], [ %.sroa.0.3.i4.i.i897, %.lr.ph.i6.i12.i3.i.i896 ], [ %883, %.critedge2.i8.i14.i6.i.i899 ]
+  %.pn14.i.i901 = phi ptr [ %881, %880 ], [ %877, %882 ], [ %883, %.critedge2.i8.i14.i6.i.i899 ], [ %.sroa.0.3.i4.i.i897, %.lr.ph.i6.i12.i3.i.i896 ]
   %.pn12.i.i902 = phi ptr [ %881, %880 ], [ %883, %882 ], [ %883, %.critedge2.i8.i14.i6.i.i899 ], [ %883, %.lr.ph.i6.i12.i3.i.i896 ]
   %886 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.577", ptr %877, i64 %879
   %.not23942588 = icmp eq ptr %.pn14.i.i901, %886
@@ -3677,7 +3677,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_13GenericDINodeENS_8DenseMapIS3_NS0_13DenseSet
   br i1 %.not.i9.i15.i7.i.i924, label %_ZN4llvm6detail12DenseSetImplIPNS_12DIEnumeratorENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit929, label %.lr.ph.i6.i12.i3.i.i920, !llvm.loop !424
 
 _ZN4llvm6detail12DenseSetImplIPNS_12DIEnumeratorENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit929: ; preds = %.lr.ph.i6.i12.i3.i.i920, %.critedge2.i8.i14.i6.i.i923, %916, %918
-  %.pn14.i.i925 = phi ptr [ %917, %916 ], [ %913, %918 ], [ %.sroa.0.3.i4.i.i921, %.lr.ph.i6.i12.i3.i.i920 ], [ %919, %.critedge2.i8.i14.i6.i.i923 ]
+  %.pn14.i.i925 = phi ptr [ %917, %916 ], [ %913, %918 ], [ %919, %.critedge2.i8.i14.i6.i.i923 ], [ %.sroa.0.3.i4.i.i921, %.lr.ph.i6.i12.i3.i.i920 ]
   %.pn12.i.i926 = phi ptr [ %917, %916 ], [ %919, %918 ], [ %919, %.critedge2.i8.i14.i6.i.i923 ], [ %919, %.lr.ph.i6.i12.i3.i.i920 ]
   %922 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.578", ptr %913, i64 %915
   %.not23952592 = icmp eq ptr %.pn14.i.i925, %922
@@ -3782,7 +3782,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_10DISubrangeENS_8DenseMapIS3_NS0_13DenseSetEmp
   br i1 %.not.i9.i15.i7.i.i949, label %_ZN4llvm6detail12DenseSetImplIPNS_11DIBasicTypeENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit954, label %.lr.ph.i6.i12.i3.i.i945, !llvm.loop !430
 
 _ZN4llvm6detail12DenseSetImplIPNS_11DIBasicTypeENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit954: ; preds = %.lr.ph.i6.i12.i3.i.i945, %.critedge2.i8.i14.i6.i.i948, %952, %954
-  %.pn14.i.i950 = phi ptr [ %953, %952 ], [ %949, %954 ], [ %.sroa.0.3.i4.i.i946, %.lr.ph.i6.i12.i3.i.i945 ], [ %955, %.critedge2.i8.i14.i6.i.i948 ]
+  %.pn14.i.i950 = phi ptr [ %953, %952 ], [ %949, %954 ], [ %955, %.critedge2.i8.i14.i6.i.i948 ], [ %.sroa.0.3.i4.i.i946, %.lr.ph.i6.i12.i3.i.i945 ]
   %.pn12.i.i951 = phi ptr [ %953, %952 ], [ %955, %954 ], [ %955, %.critedge2.i8.i14.i6.i.i948 ], [ %955, %.lr.ph.i6.i12.i3.i.i945 ]
   %958 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.579", ptr %949, i64 %951
   %.not23962596 = icmp eq ptr %.pn14.i.i950, %958
@@ -3903,7 +3903,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_12DIEnumeratorENS_8DenseMapIS3_NS0_13DenseSetE
   br i1 %.not.i9.i15.i7.i.i973, label %_ZN4llvm6detail12DenseSetImplIPNS_13DIDerivedTypeENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit978, label %.lr.ph.i6.i12.i3.i.i969, !llvm.loop !436
 
 _ZN4llvm6detail12DenseSetImplIPNS_13DIDerivedTypeENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit978: ; preds = %.lr.ph.i6.i12.i3.i.i969, %.critedge2.i8.i14.i6.i.i972, %996, %998
-  %.pn14.i.i974 = phi ptr [ %997, %996 ], [ %993, %998 ], [ %.sroa.0.3.i4.i.i970, %.lr.ph.i6.i12.i3.i.i969 ], [ %999, %.critedge2.i8.i14.i6.i.i972 ]
+  %.pn14.i.i974 = phi ptr [ %997, %996 ], [ %993, %998 ], [ %999, %.critedge2.i8.i14.i6.i.i972 ], [ %.sroa.0.3.i4.i.i970, %.lr.ph.i6.i12.i3.i.i969 ]
   %.pn12.i.i975 = phi ptr [ %997, %996 ], [ %999, %998 ], [ %999, %.critedge2.i8.i14.i6.i.i972 ], [ %999, %.lr.ph.i6.i12.i3.i.i969 ]
   %1002 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.580", ptr %993, i64 %995
   %.not23972600 = icmp eq ptr %.pn14.i.i974, %1002
@@ -4008,7 +4008,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_11DIBasicTypeENS_8DenseMapIS3_NS0_13DenseSetEm
   br i1 %.not.i9.i15.i7.i.i998, label %_ZN4llvm6detail12DenseSetImplIPNS_15DICompositeTypeENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit1003, label %.lr.ph.i6.i12.i3.i.i994, !llvm.loop !442
 
 _ZN4llvm6detail12DenseSetImplIPNS_15DICompositeTypeENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit1003: ; preds = %.lr.ph.i6.i12.i3.i.i994, %.critedge2.i8.i14.i6.i.i997, %1032, %1034
-  %.pn14.i.i999 = phi ptr [ %1033, %1032 ], [ %1029, %1034 ], [ %.sroa.0.3.i4.i.i995, %.lr.ph.i6.i12.i3.i.i994 ], [ %1035, %.critedge2.i8.i14.i6.i.i997 ]
+  %.pn14.i.i999 = phi ptr [ %1033, %1032 ], [ %1029, %1034 ], [ %1035, %.critedge2.i8.i14.i6.i.i997 ], [ %.sroa.0.3.i4.i.i995, %.lr.ph.i6.i12.i3.i.i994 ]
   %.pn12.i.i1000 = phi ptr [ %1033, %1032 ], [ %1035, %1034 ], [ %1035, %.critedge2.i8.i14.i6.i.i997 ], [ %1035, %.lr.ph.i6.i12.i3.i.i994 ]
   %1038 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.581", ptr %1029, i64 %1031
   %.not23982604 = icmp eq ptr %.pn14.i.i999, %1038
@@ -4113,7 +4113,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_13DIDerivedTypeENS_8DenseMapIS3_NS0_13DenseSet
   br i1 %.not.i9.i15.i7.i.i1023, label %_ZN4llvm6detail12DenseSetImplIPNS_16DISubroutineTypeENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit1028, label %.lr.ph.i6.i12.i3.i.i1019, !llvm.loop !448
 
 _ZN4llvm6detail12DenseSetImplIPNS_16DISubroutineTypeENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit1028: ; preds = %.lr.ph.i6.i12.i3.i.i1019, %.critedge2.i8.i14.i6.i.i1022, %1068, %1070
-  %.pn14.i.i1024 = phi ptr [ %1069, %1068 ], [ %1065, %1070 ], [ %.sroa.0.3.i4.i.i1020, %.lr.ph.i6.i12.i3.i.i1019 ], [ %1071, %.critedge2.i8.i14.i6.i.i1022 ]
+  %.pn14.i.i1024 = phi ptr [ %1069, %1068 ], [ %1065, %1070 ], [ %1071, %.critedge2.i8.i14.i6.i.i1022 ], [ %.sroa.0.3.i4.i.i1020, %.lr.ph.i6.i12.i3.i.i1019 ]
   %.pn12.i.i1025 = phi ptr [ %1069, %1068 ], [ %1071, %1070 ], [ %1071, %.critedge2.i8.i14.i6.i.i1022 ], [ %1071, %.lr.ph.i6.i12.i3.i.i1019 ]
   %1074 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.582", ptr %1065, i64 %1067
   %.not23992608 = icmp eq ptr %.pn14.i.i1024, %1074
@@ -4218,7 +4218,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_15DICompositeTypeENS_8DenseMapIS3_NS0_13DenseS
   br i1 %.not.i9.i15.i7.i.i1048, label %_ZN4llvm6detail12DenseSetImplIPNS_6DIFileENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit1053, label %.lr.ph.i6.i12.i3.i.i1044, !llvm.loop !454
 
 _ZN4llvm6detail12DenseSetImplIPNS_6DIFileENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit1053: ; preds = %.lr.ph.i6.i12.i3.i.i1044, %.critedge2.i8.i14.i6.i.i1047, %1104, %1106
-  %.pn14.i.i1049 = phi ptr [ %1105, %1104 ], [ %1101, %1106 ], [ %.sroa.0.3.i4.i.i1045, %.lr.ph.i6.i12.i3.i.i1044 ], [ %1107, %.critedge2.i8.i14.i6.i.i1047 ]
+  %.pn14.i.i1049 = phi ptr [ %1105, %1104 ], [ %1101, %1106 ], [ %1107, %.critedge2.i8.i14.i6.i.i1047 ], [ %.sroa.0.3.i4.i.i1045, %.lr.ph.i6.i12.i3.i.i1044 ]
   %.pn12.i.i1050 = phi ptr [ %1105, %1104 ], [ %1107, %1106 ], [ %1107, %.critedge2.i8.i14.i6.i.i1047 ], [ %1107, %.lr.ph.i6.i12.i3.i.i1044 ]
   %1110 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.583", ptr %1101, i64 %1103
   %.not24002612 = icmp eq ptr %.pn14.i.i1049, %1110
@@ -4323,7 +4323,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_16DISubroutineTypeENS_8DenseMapIS3_NS0_13Dense
   br i1 %.not.i9.i15.i7.i.i1073, label %_ZN4llvm6detail12DenseSetImplIPNS_12DISubprogramENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit1078, label %.lr.ph.i6.i12.i3.i.i1069, !llvm.loop !460
 
 _ZN4llvm6detail12DenseSetImplIPNS_12DISubprogramENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit1078: ; preds = %.lr.ph.i6.i12.i3.i.i1069, %.critedge2.i8.i14.i6.i.i1072, %1140, %1142
-  %.pn14.i.i1074 = phi ptr [ %1141, %1140 ], [ %1137, %1142 ], [ %.sroa.0.3.i4.i.i1070, %.lr.ph.i6.i12.i3.i.i1069 ], [ %1143, %.critedge2.i8.i14.i6.i.i1072 ]
+  %.pn14.i.i1074 = phi ptr [ %1141, %1140 ], [ %1137, %1142 ], [ %1143, %.critedge2.i8.i14.i6.i.i1072 ], [ %.sroa.0.3.i4.i.i1070, %.lr.ph.i6.i12.i3.i.i1069 ]
   %.pn12.i.i1075 = phi ptr [ %1141, %1140 ], [ %1143, %1142 ], [ %1143, %.critedge2.i8.i14.i6.i.i1072 ], [ %1143, %.lr.ph.i6.i12.i3.i.i1069 ]
   %1146 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.584", ptr %1137, i64 %1139
   %.not24012616 = icmp eq ptr %.pn14.i.i1074, %1146
@@ -4428,7 +4428,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_6DIFileENS_8DenseMapIS3_NS0_13DenseSetEmptyENS
   br i1 %.not.i9.i15.i7.i.i1098, label %_ZN4llvm6detail12DenseSetImplIPNS_14DILexicalBlockENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit1103, label %.lr.ph.i6.i12.i3.i.i1094, !llvm.loop !466
 
 _ZN4llvm6detail12DenseSetImplIPNS_14DILexicalBlockENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit1103: ; preds = %.lr.ph.i6.i12.i3.i.i1094, %.critedge2.i8.i14.i6.i.i1097, %1176, %1178
-  %.pn14.i.i1099 = phi ptr [ %1177, %1176 ], [ %1173, %1178 ], [ %.sroa.0.3.i4.i.i1095, %.lr.ph.i6.i12.i3.i.i1094 ], [ %1179, %.critedge2.i8.i14.i6.i.i1097 ]
+  %.pn14.i.i1099 = phi ptr [ %1177, %1176 ], [ %1173, %1178 ], [ %1179, %.critedge2.i8.i14.i6.i.i1097 ], [ %.sroa.0.3.i4.i.i1095, %.lr.ph.i6.i12.i3.i.i1094 ]
   %.pn12.i.i1100 = phi ptr [ %1177, %1176 ], [ %1179, %1178 ], [ %1179, %.critedge2.i8.i14.i6.i.i1097 ], [ %1179, %.lr.ph.i6.i12.i3.i.i1094 ]
   %1182 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.585", ptr %1173, i64 %1175
   %.not24022620 = icmp eq ptr %.pn14.i.i1099, %1182
@@ -4533,7 +4533,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_12DISubprogramENS_8DenseMapIS3_NS0_13DenseSetE
   br i1 %.not.i9.i15.i7.i.i1123, label %_ZN4llvm6detail12DenseSetImplIPNS_18DILexicalBlockFileENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit1128, label %.lr.ph.i6.i12.i3.i.i1119, !llvm.loop !472
 
 _ZN4llvm6detail12DenseSetImplIPNS_18DILexicalBlockFileENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit1128: ; preds = %.lr.ph.i6.i12.i3.i.i1119, %.critedge2.i8.i14.i6.i.i1122, %1212, %1214
-  %.pn14.i.i1124 = phi ptr [ %1213, %1212 ], [ %1209, %1214 ], [ %.sroa.0.3.i4.i.i1120, %.lr.ph.i6.i12.i3.i.i1119 ], [ %1215, %.critedge2.i8.i14.i6.i.i1122 ]
+  %.pn14.i.i1124 = phi ptr [ %1213, %1212 ], [ %1209, %1214 ], [ %1215, %.critedge2.i8.i14.i6.i.i1122 ], [ %.sroa.0.3.i4.i.i1120, %.lr.ph.i6.i12.i3.i.i1119 ]
   %.pn12.i.i1125 = phi ptr [ %1213, %1212 ], [ %1215, %1214 ], [ %1215, %.critedge2.i8.i14.i6.i.i1122 ], [ %1215, %.lr.ph.i6.i12.i3.i.i1119 ]
   %1218 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.586", ptr %1209, i64 %1211
   %.not24032624 = icmp eq ptr %.pn14.i.i1124, %1218
@@ -4638,7 +4638,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_14DILexicalBlockENS_8DenseMapIS3_NS0_13DenseSe
   br i1 %.not.i9.i15.i7.i.i1148, label %_ZN4llvm6detail12DenseSetImplIPNS_11DINamespaceENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit1153, label %.lr.ph.i6.i12.i3.i.i1144, !llvm.loop !478
 
 _ZN4llvm6detail12DenseSetImplIPNS_11DINamespaceENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit1153: ; preds = %.lr.ph.i6.i12.i3.i.i1144, %.critedge2.i8.i14.i6.i.i1147, %1248, %1250
-  %.pn14.i.i1149 = phi ptr [ %1249, %1248 ], [ %1245, %1250 ], [ %.sroa.0.3.i4.i.i1145, %.lr.ph.i6.i12.i3.i.i1144 ], [ %1251, %.critedge2.i8.i14.i6.i.i1147 ]
+  %.pn14.i.i1149 = phi ptr [ %1249, %1248 ], [ %1245, %1250 ], [ %1251, %.critedge2.i8.i14.i6.i.i1147 ], [ %.sroa.0.3.i4.i.i1145, %.lr.ph.i6.i12.i3.i.i1144 ]
   %.pn12.i.i1150 = phi ptr [ %1249, %1248 ], [ %1251, %1250 ], [ %1251, %.critedge2.i8.i14.i6.i.i1147 ], [ %1251, %.lr.ph.i6.i12.i3.i.i1144 ]
   %1254 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.587", ptr %1245, i64 %1247
   %.not24042628 = icmp eq ptr %.pn14.i.i1149, %1254
@@ -4743,7 +4743,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_18DILexicalBlockFileENS_8DenseMapIS3_NS0_13Den
   br i1 %.not.i9.i15.i7.i.i1173, label %_ZN4llvm6detail12DenseSetImplIPNS_8DIModuleENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit1178, label %.lr.ph.i6.i12.i3.i.i1169, !llvm.loop !484
 
 _ZN4llvm6detail12DenseSetImplIPNS_8DIModuleENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit1178: ; preds = %.lr.ph.i6.i12.i3.i.i1169, %.critedge2.i8.i14.i6.i.i1172, %1284, %1286
-  %.pn14.i.i1174 = phi ptr [ %1285, %1284 ], [ %1281, %1286 ], [ %.sroa.0.3.i4.i.i1170, %.lr.ph.i6.i12.i3.i.i1169 ], [ %1287, %.critedge2.i8.i14.i6.i.i1172 ]
+  %.pn14.i.i1174 = phi ptr [ %1285, %1284 ], [ %1281, %1286 ], [ %1287, %.critedge2.i8.i14.i6.i.i1172 ], [ %.sroa.0.3.i4.i.i1170, %.lr.ph.i6.i12.i3.i.i1169 ]
   %.pn12.i.i1175 = phi ptr [ %1285, %1284 ], [ %1287, %1286 ], [ %1287, %.critedge2.i8.i14.i6.i.i1172 ], [ %1287, %.lr.ph.i6.i12.i3.i.i1169 ]
   %1290 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.588", ptr %1281, i64 %1283
   %.not24052632 = icmp eq ptr %.pn14.i.i1174, %1290
@@ -4848,7 +4848,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_11DINamespaceENS_8DenseMapIS3_NS0_13DenseSetEm
   br i1 %.not.i9.i15.i7.i.i1198, label %_ZN4llvm6detail12DenseSetImplIPNS_23DITemplateTypeParameterENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit1203, label %.lr.ph.i6.i12.i3.i.i1194, !llvm.loop !490
 
 _ZN4llvm6detail12DenseSetImplIPNS_23DITemplateTypeParameterENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit1203: ; preds = %.lr.ph.i6.i12.i3.i.i1194, %.critedge2.i8.i14.i6.i.i1197, %1320, %1322
-  %.pn14.i.i1199 = phi ptr [ %1321, %1320 ], [ %1317, %1322 ], [ %.sroa.0.3.i4.i.i1195, %.lr.ph.i6.i12.i3.i.i1194 ], [ %1323, %.critedge2.i8.i14.i6.i.i1197 ]
+  %.pn14.i.i1199 = phi ptr [ %1321, %1320 ], [ %1317, %1322 ], [ %1323, %.critedge2.i8.i14.i6.i.i1197 ], [ %.sroa.0.3.i4.i.i1195, %.lr.ph.i6.i12.i3.i.i1194 ]
   %.pn12.i.i1200 = phi ptr [ %1321, %1320 ], [ %1323, %1322 ], [ %1323, %.critedge2.i8.i14.i6.i.i1197 ], [ %1323, %.lr.ph.i6.i12.i3.i.i1194 ]
   %1326 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.589", ptr %1317, i64 %1319
   %.not24062636 = icmp eq ptr %.pn14.i.i1199, %1326
@@ -4953,7 +4953,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_8DIModuleENS_8DenseMapIS3_NS0_13DenseSetEmptyE
   br i1 %.not.i9.i15.i7.i.i1223, label %_ZN4llvm6detail12DenseSetImplIPNS_24DITemplateValueParameterENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit1228, label %.lr.ph.i6.i12.i3.i.i1219, !llvm.loop !496
 
 _ZN4llvm6detail12DenseSetImplIPNS_24DITemplateValueParameterENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit1228: ; preds = %.lr.ph.i6.i12.i3.i.i1219, %.critedge2.i8.i14.i6.i.i1222, %1356, %1358
-  %.pn14.i.i1224 = phi ptr [ %1357, %1356 ], [ %1353, %1358 ], [ %.sroa.0.3.i4.i.i1220, %.lr.ph.i6.i12.i3.i.i1219 ], [ %1359, %.critedge2.i8.i14.i6.i.i1222 ]
+  %.pn14.i.i1224 = phi ptr [ %1357, %1356 ], [ %1353, %1358 ], [ %1359, %.critedge2.i8.i14.i6.i.i1222 ], [ %.sroa.0.3.i4.i.i1220, %.lr.ph.i6.i12.i3.i.i1219 ]
   %.pn12.i.i1225 = phi ptr [ %1357, %1356 ], [ %1359, %1358 ], [ %1359, %.critedge2.i8.i14.i6.i.i1222 ], [ %1359, %.lr.ph.i6.i12.i3.i.i1219 ]
   %1362 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.590", ptr %1353, i64 %1355
   %.not24072640 = icmp eq ptr %.pn14.i.i1224, %1362
@@ -5058,7 +5058,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_23DITemplateTypeParameterENS_8DenseMapIS3_NS0_
   br i1 %.not.i9.i15.i7.i.i1248, label %_ZN4llvm6detail12DenseSetImplIPNS_16DIGlobalVariableENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit1253, label %.lr.ph.i6.i12.i3.i.i1244, !llvm.loop !502
 
 _ZN4llvm6detail12DenseSetImplIPNS_16DIGlobalVariableENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit1253: ; preds = %.lr.ph.i6.i12.i3.i.i1244, %.critedge2.i8.i14.i6.i.i1247, %1392, %1394
-  %.pn14.i.i1249 = phi ptr [ %1393, %1392 ], [ %1389, %1394 ], [ %.sroa.0.3.i4.i.i1245, %.lr.ph.i6.i12.i3.i.i1244 ], [ %1395, %.critedge2.i8.i14.i6.i.i1247 ]
+  %.pn14.i.i1249 = phi ptr [ %1393, %1392 ], [ %1389, %1394 ], [ %1395, %.critedge2.i8.i14.i6.i.i1247 ], [ %.sroa.0.3.i4.i.i1245, %.lr.ph.i6.i12.i3.i.i1244 ]
   %.pn12.i.i1250 = phi ptr [ %1393, %1392 ], [ %1395, %1394 ], [ %1395, %.critedge2.i8.i14.i6.i.i1247 ], [ %1395, %.lr.ph.i6.i12.i3.i.i1244 ]
   %1398 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.591", ptr %1389, i64 %1391
   %.not24082644 = icmp eq ptr %.pn14.i.i1249, %1398
@@ -5163,7 +5163,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_24DITemplateValueParameterENS_8DenseMapIS3_NS0
   br i1 %.not.i9.i15.i7.i.i1273, label %_ZN4llvm6detail12DenseSetImplIPNS_15DILocalVariableENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit1278, label %.lr.ph.i6.i12.i3.i.i1269, !llvm.loop !508
 
 _ZN4llvm6detail12DenseSetImplIPNS_15DILocalVariableENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit1278: ; preds = %.lr.ph.i6.i12.i3.i.i1269, %.critedge2.i8.i14.i6.i.i1272, %1428, %1430
-  %.pn14.i.i1274 = phi ptr [ %1429, %1428 ], [ %1425, %1430 ], [ %.sroa.0.3.i4.i.i1270, %.lr.ph.i6.i12.i3.i.i1269 ], [ %1431, %.critedge2.i8.i14.i6.i.i1272 ]
+  %.pn14.i.i1274 = phi ptr [ %1429, %1428 ], [ %1425, %1430 ], [ %1431, %.critedge2.i8.i14.i6.i.i1272 ], [ %.sroa.0.3.i4.i.i1270, %.lr.ph.i6.i12.i3.i.i1269 ]
   %.pn12.i.i1275 = phi ptr [ %1429, %1428 ], [ %1431, %1430 ], [ %1431, %.critedge2.i8.i14.i6.i.i1272 ], [ %1431, %.lr.ph.i6.i12.i3.i.i1269 ]
   %1434 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.592", ptr %1425, i64 %1427
   %.not24092648 = icmp eq ptr %.pn14.i.i1274, %1434
@@ -5268,7 +5268,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_16DIGlobalVariableENS_8DenseMapIS3_NS0_13Dense
   br i1 %.not.i9.i15.i7.i.i1298, label %_ZN4llvm6detail12DenseSetImplIPNS_7DILabelENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit1303, label %.lr.ph.i6.i12.i3.i.i1294, !llvm.loop !514
 
 _ZN4llvm6detail12DenseSetImplIPNS_7DILabelENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit1303: ; preds = %.lr.ph.i6.i12.i3.i.i1294, %.critedge2.i8.i14.i6.i.i1297, %1464, %1466
-  %.pn14.i.i1299 = phi ptr [ %1465, %1464 ], [ %1461, %1466 ], [ %.sroa.0.3.i4.i.i1295, %.lr.ph.i6.i12.i3.i.i1294 ], [ %1467, %.critedge2.i8.i14.i6.i.i1297 ]
+  %.pn14.i.i1299 = phi ptr [ %1465, %1464 ], [ %1461, %1466 ], [ %1467, %.critedge2.i8.i14.i6.i.i1297 ], [ %.sroa.0.3.i4.i.i1295, %.lr.ph.i6.i12.i3.i.i1294 ]
   %.pn12.i.i1300 = phi ptr [ %1465, %1464 ], [ %1467, %1466 ], [ %1467, %.critedge2.i8.i14.i6.i.i1297 ], [ %1467, %.lr.ph.i6.i12.i3.i.i1294 ]
   %1470 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.593", ptr %1461, i64 %1463
   %.not24102652 = icmp eq ptr %.pn14.i.i1299, %1470
@@ -5373,7 +5373,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_15DILocalVariableENS_8DenseMapIS3_NS0_13DenseS
   br i1 %.not.i9.i15.i7.i.i1323, label %_ZN4llvm6detail12DenseSetImplIPNS_14DIObjCPropertyENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit1328, label %.lr.ph.i6.i12.i3.i.i1319, !llvm.loop !520
 
 _ZN4llvm6detail12DenseSetImplIPNS_14DIObjCPropertyENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit1328: ; preds = %.lr.ph.i6.i12.i3.i.i1319, %.critedge2.i8.i14.i6.i.i1322, %1500, %1502
-  %.pn14.i.i1324 = phi ptr [ %1501, %1500 ], [ %1497, %1502 ], [ %.sroa.0.3.i4.i.i1320, %.lr.ph.i6.i12.i3.i.i1319 ], [ %1503, %.critedge2.i8.i14.i6.i.i1322 ]
+  %.pn14.i.i1324 = phi ptr [ %1501, %1500 ], [ %1497, %1502 ], [ %1503, %.critedge2.i8.i14.i6.i.i1322 ], [ %.sroa.0.3.i4.i.i1320, %.lr.ph.i6.i12.i3.i.i1319 ]
   %.pn12.i.i1325 = phi ptr [ %1501, %1500 ], [ %1503, %1502 ], [ %1503, %.critedge2.i8.i14.i6.i.i1322 ], [ %1503, %.lr.ph.i6.i12.i3.i.i1319 ]
   %1506 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.594", ptr %1497, i64 %1499
   %.not24112656 = icmp eq ptr %.pn14.i.i1324, %1506
@@ -5478,7 +5478,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_7DILabelENS_8DenseMapIS3_NS0_13DenseSetEmptyEN
   br i1 %.not.i9.i15.i7.i.i1348, label %_ZN4llvm6detail12DenseSetImplIPNS_16DIImportedEntityENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit1353, label %.lr.ph.i6.i12.i3.i.i1344, !llvm.loop !526
 
 _ZN4llvm6detail12DenseSetImplIPNS_16DIImportedEntityENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit1353: ; preds = %.lr.ph.i6.i12.i3.i.i1344, %.critedge2.i8.i14.i6.i.i1347, %1536, %1538
-  %.pn14.i.i1349 = phi ptr [ %1537, %1536 ], [ %1533, %1538 ], [ %.sroa.0.3.i4.i.i1345, %.lr.ph.i6.i12.i3.i.i1344 ], [ %1539, %.critedge2.i8.i14.i6.i.i1347 ]
+  %.pn14.i.i1349 = phi ptr [ %1537, %1536 ], [ %1533, %1538 ], [ %1539, %.critedge2.i8.i14.i6.i.i1347 ], [ %.sroa.0.3.i4.i.i1345, %.lr.ph.i6.i12.i3.i.i1344 ]
   %.pn12.i.i1350 = phi ptr [ %1537, %1536 ], [ %1539, %1538 ], [ %1539, %.critedge2.i8.i14.i6.i.i1347 ], [ %1539, %.lr.ph.i6.i12.i3.i.i1344 ]
   %1542 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.595", ptr %1533, i64 %1535
   %.not24122660 = icmp eq ptr %.pn14.i.i1349, %1542
@@ -5583,7 +5583,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_14DIObjCPropertyENS_8DenseMapIS3_NS0_13DenseSe
   br i1 %.not.i9.i15.i7.i.i1373, label %_ZN4llvm6detail12DenseSetImplIPNS_7DIMacroENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit1378, label %.lr.ph.i6.i12.i3.i.i1369, !llvm.loop !532
 
 _ZN4llvm6detail12DenseSetImplIPNS_7DIMacroENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit1378: ; preds = %.lr.ph.i6.i12.i3.i.i1369, %.critedge2.i8.i14.i6.i.i1372, %1572, %1574
-  %.pn14.i.i1374 = phi ptr [ %1573, %1572 ], [ %1569, %1574 ], [ %.sroa.0.3.i4.i.i1370, %.lr.ph.i6.i12.i3.i.i1369 ], [ %1575, %.critedge2.i8.i14.i6.i.i1372 ]
+  %.pn14.i.i1374 = phi ptr [ %1573, %1572 ], [ %1569, %1574 ], [ %1575, %.critedge2.i8.i14.i6.i.i1372 ], [ %.sroa.0.3.i4.i.i1370, %.lr.ph.i6.i12.i3.i.i1369 ]
   %.pn12.i.i1375 = phi ptr [ %1573, %1572 ], [ %1575, %1574 ], [ %1575, %.critedge2.i8.i14.i6.i.i1372 ], [ %1575, %.lr.ph.i6.i12.i3.i.i1369 ]
   %1578 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.596", ptr %1569, i64 %1571
   %.not24132664 = icmp eq ptr %.pn14.i.i1374, %1578
@@ -5688,7 +5688,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_16DIImportedEntityENS_8DenseMapIS3_NS0_13Dense
   br i1 %.not.i9.i15.i7.i.i1398, label %_ZN4llvm6detail12DenseSetImplIPNS_11DIMacroFileENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit1403, label %.lr.ph.i6.i12.i3.i.i1394, !llvm.loop !538
 
 _ZN4llvm6detail12DenseSetImplIPNS_11DIMacroFileENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit1403: ; preds = %.lr.ph.i6.i12.i3.i.i1394, %.critedge2.i8.i14.i6.i.i1397, %1608, %1610
-  %.pn14.i.i1399 = phi ptr [ %1609, %1608 ], [ %1605, %1610 ], [ %.sroa.0.3.i4.i.i1395, %.lr.ph.i6.i12.i3.i.i1394 ], [ %1611, %.critedge2.i8.i14.i6.i.i1397 ]
+  %.pn14.i.i1399 = phi ptr [ %1609, %1608 ], [ %1605, %1610 ], [ %1611, %.critedge2.i8.i14.i6.i.i1397 ], [ %.sroa.0.3.i4.i.i1395, %.lr.ph.i6.i12.i3.i.i1394 ]
   %.pn12.i.i1400 = phi ptr [ %1609, %1608 ], [ %1611, %1610 ], [ %1611, %.critedge2.i8.i14.i6.i.i1397 ], [ %1611, %.lr.ph.i6.i12.i3.i.i1394 ]
   %1614 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.597", ptr %1605, i64 %1607
   %.not24142668 = icmp eq ptr %.pn14.i.i1399, %1614
@@ -5793,7 +5793,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_7DIMacroENS_8DenseMapIS3_NS0_13DenseSetEmptyEN
   br i1 %.not.i9.i15.i7.i.i1423, label %_ZN4llvm6detail12DenseSetImplIPNS_13DICommonBlockENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit1428, label %.lr.ph.i6.i12.i3.i.i1419, !llvm.loop !544
 
 _ZN4llvm6detail12DenseSetImplIPNS_13DICommonBlockENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit1428: ; preds = %.lr.ph.i6.i12.i3.i.i1419, %.critedge2.i8.i14.i6.i.i1422, %1644, %1646
-  %.pn14.i.i1424 = phi ptr [ %1645, %1644 ], [ %1641, %1646 ], [ %.sroa.0.3.i4.i.i1420, %.lr.ph.i6.i12.i3.i.i1419 ], [ %1647, %.critedge2.i8.i14.i6.i.i1422 ]
+  %.pn14.i.i1424 = phi ptr [ %1645, %1644 ], [ %1641, %1646 ], [ %1647, %.critedge2.i8.i14.i6.i.i1422 ], [ %.sroa.0.3.i4.i.i1420, %.lr.ph.i6.i12.i3.i.i1419 ]
   %.pn12.i.i1425 = phi ptr [ %1645, %1644 ], [ %1647, %1646 ], [ %1647, %.critedge2.i8.i14.i6.i.i1422 ], [ %1647, %.lr.ph.i6.i12.i3.i.i1419 ]
   %1650 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.598", ptr %1641, i64 %1643
   %.not24152672 = icmp eq ptr %.pn14.i.i1424, %1650
@@ -5898,7 +5898,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_11DIMacroFileENS_8DenseMapIS3_NS0_13DenseSetEm
   br i1 %.not.i9.i15.i7.i.i1448, label %_ZN4llvm6detail12DenseSetImplIPNS_12DIStringTypeENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit1453, label %.lr.ph.i6.i12.i3.i.i1444, !llvm.loop !550
 
 _ZN4llvm6detail12DenseSetImplIPNS_12DIStringTypeENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit1453: ; preds = %.lr.ph.i6.i12.i3.i.i1444, %.critedge2.i8.i14.i6.i.i1447, %1680, %1682
-  %.pn14.i.i1449 = phi ptr [ %1681, %1680 ], [ %1677, %1682 ], [ %.sroa.0.3.i4.i.i1445, %.lr.ph.i6.i12.i3.i.i1444 ], [ %1683, %.critedge2.i8.i14.i6.i.i1447 ]
+  %.pn14.i.i1449 = phi ptr [ %1681, %1680 ], [ %1677, %1682 ], [ %1683, %.critedge2.i8.i14.i6.i.i1447 ], [ %.sroa.0.3.i4.i.i1445, %.lr.ph.i6.i12.i3.i.i1444 ]
   %.pn12.i.i1450 = phi ptr [ %1681, %1680 ], [ %1683, %1682 ], [ %1683, %.critedge2.i8.i14.i6.i.i1447 ], [ %1683, %.lr.ph.i6.i12.i3.i.i1444 ]
   %1686 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.599", ptr %1677, i64 %1679
   %.not24162676 = icmp eq ptr %.pn14.i.i1449, %1686
@@ -6003,7 +6003,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_13DICommonBlockENS_8DenseMapIS3_NS0_13DenseSet
   br i1 %.not.i9.i15.i7.i.i1473, label %_ZN4llvm6detail12DenseSetImplIPNS_17DIGenericSubrangeENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit1478, label %.lr.ph.i6.i12.i3.i.i1469, !llvm.loop !556
 
 _ZN4llvm6detail12DenseSetImplIPNS_17DIGenericSubrangeENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_10MDNodeInfoIS2_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit1478: ; preds = %.lr.ph.i6.i12.i3.i.i1469, %.critedge2.i8.i14.i6.i.i1472, %1716, %1718
-  %.pn14.i.i1474 = phi ptr [ %1717, %1716 ], [ %1713, %1718 ], [ %.sroa.0.3.i4.i.i1470, %.lr.ph.i6.i12.i3.i.i1469 ], [ %1719, %.critedge2.i8.i14.i6.i.i1472 ]
+  %.pn14.i.i1474 = phi ptr [ %1717, %1716 ], [ %1713, %1718 ], [ %1719, %.critedge2.i8.i14.i6.i.i1472 ], [ %.sroa.0.3.i4.i.i1470, %.lr.ph.i6.i12.i3.i.i1469 ]
   %.pn12.i.i1475 = phi ptr [ %1717, %1716 ], [ %1719, %1718 ], [ %1719, %.critedge2.i8.i14.i6.i.i1472 ], [ %1719, %.lr.ph.i6.i12.i3.i.i1469 ]
   %1722 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.600", ptr %1713, i64 %1715
   %.not24172680 = icmp eq ptr %.pn14.i.i1474, %1722
@@ -6111,7 +6111,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_12DIStringTypeENS_8DenseMapIS3_NS0_13DenseSetE
   br i1 %.not.i9.i15.i7.i.i.i, label %_ZN4llvm17ConstantUniqueMapINS_12ConstantExprEE5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i.i, !llvm.loop !614
 
 _ZN4llvm17ConstantUniqueMapINS_12ConstantExprEE5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i.i.i, %.critedge2.i8.i14.i6.i.i.i, %1755, %1757
-  %.pn14.i.i.i = phi ptr [ %1756, %1755 ], [ %1751, %1757 ], [ %1758, %.critedge2.i8.i14.i6.i.i.i ], [ %.sroa.0.3.i4.i.i.i, %.lr.ph.i6.i12.i3.i.i.i ]
+  %.pn14.i.i.i = phi ptr [ %1756, %1755 ], [ %1751, %1757 ], [ %.sroa.0.3.i4.i.i.i, %.lr.ph.i6.i12.i3.i.i.i ], [ %1758, %.critedge2.i8.i14.i6.i.i.i ]
   %.pn12.i.i.i = phi ptr [ %1756, %1755 ], [ %1758, %1757 ], [ %1758, %.critedge2.i8.i14.i6.i.i.i ], [ %1758, %.lr.ph.i6.i12.i3.i.i.i ]
   %1761 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.605", ptr %1751, i64 %1754
   %.not24182684 = icmp eq ptr %.pn14.i.i.i, %1761
@@ -6219,7 +6219,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_17DIGenericSubrangeENS_8DenseMapIS3_NS0_13Dens
   br i1 %.not.i9.i15.i7.i.i.i1509, label %_ZN4llvm17ConstantUniqueMapINS_13ConstantArrayEE5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i.i1505, !llvm.loop !620
 
 _ZN4llvm17ConstantUniqueMapINS_13ConstantArrayEE5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i.i.i1505, %.critedge2.i8.i14.i6.i.i.i1508, %1794, %1796
-  %.pn14.i.i.i1510 = phi ptr [ %1795, %1794 ], [ %1790, %1796 ], [ %1797, %.critedge2.i8.i14.i6.i.i.i1508 ], [ %.sroa.0.3.i4.i.i.i1506, %.lr.ph.i6.i12.i3.i.i.i1505 ]
+  %.pn14.i.i.i1510 = phi ptr [ %1795, %1794 ], [ %1790, %1796 ], [ %.sroa.0.3.i4.i.i.i1506, %.lr.ph.i6.i12.i3.i.i.i1505 ], [ %1797, %.critedge2.i8.i14.i6.i.i.i1508 ]
   %.pn12.i.i.i1511 = phi ptr [ %1795, %1794 ], [ %1797, %1796 ], [ %1797, %.critedge2.i8.i14.i6.i.i.i1508 ], [ %1797, %.lr.ph.i6.i12.i3.i.i.i1505 ]
   %1800 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.601", ptr %1790, i64 %1793
   %.not24192688 = icmp eq ptr %.pn14.i.i.i1510, %1800
@@ -6342,7 +6342,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_12ConstantExprENS_8DenseMapIS3_NS0_13DenseSetE
   br i1 %.not.i9.i15.i7.i.i.i1533, label %_ZN4llvm17ConstantUniqueMapINS_14ConstantStructEE5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i.i1529, !llvm.loop !633
 
 _ZN4llvm17ConstantUniqueMapINS_14ConstantStructEE5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i.i.i1529, %.critedge2.i8.i14.i6.i.i.i1532, %1835, %1837
-  %.pn14.i.i.i1534 = phi ptr [ %1836, %1835 ], [ %1831, %1837 ], [ %1838, %.critedge2.i8.i14.i6.i.i.i1532 ], [ %.sroa.0.3.i4.i.i.i1530, %.lr.ph.i6.i12.i3.i.i.i1529 ]
+  %.pn14.i.i.i1534 = phi ptr [ %1836, %1835 ], [ %1831, %1837 ], [ %.sroa.0.3.i4.i.i.i1530, %.lr.ph.i6.i12.i3.i.i.i1529 ], [ %1838, %.critedge2.i8.i14.i6.i.i.i1532 ]
   %.pn12.i.i.i1535 = phi ptr [ %1836, %1835 ], [ %1838, %1837 ], [ %1838, %.critedge2.i8.i14.i6.i.i.i1532 ], [ %1838, %.lr.ph.i6.i12.i3.i.i.i1529 ]
   %1841 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.602", ptr %1831, i64 %1834
   %.not24202692 = icmp eq ptr %.pn14.i.i.i1534, %1841
@@ -6465,7 +6465,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_13ConstantArrayENS_8DenseMapIS3_NS0_13DenseSet
   br i1 %.not.i9.i15.i7.i.i.i1565, label %_ZN4llvm17ConstantUniqueMapINS_14ConstantVectorEE5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i.i1561, !llvm.loop !639
 
 _ZN4llvm17ConstantUniqueMapINS_14ConstantVectorEE5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i.i.i1561, %.critedge2.i8.i14.i6.i.i.i1564, %1876, %1878
-  %.pn14.i.i.i1566 = phi ptr [ %1877, %1876 ], [ %1872, %1878 ], [ %1879, %.critedge2.i8.i14.i6.i.i.i1564 ], [ %.sroa.0.3.i4.i.i.i1562, %.lr.ph.i6.i12.i3.i.i.i1561 ]
+  %.pn14.i.i.i1566 = phi ptr [ %1877, %1876 ], [ %1872, %1878 ], [ %.sroa.0.3.i4.i.i.i1562, %.lr.ph.i6.i12.i3.i.i.i1561 ], [ %1879, %.critedge2.i8.i14.i6.i.i.i1564 ]
   %.pn12.i.i.i1567 = phi ptr [ %1877, %1876 ], [ %1879, %1878 ], [ %1879, %.critedge2.i8.i14.i6.i.i.i1564 ], [ %1879, %.lr.ph.i6.i12.i3.i.i.i1561 ]
   %1882 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.603", ptr %1872, i64 %1875
   %.not24212696 = icmp eq ptr %.pn14.i.i.i1566, %1882
@@ -6647,7 +6647,7 @@ _ZN4llvm17ConstantUniqueMapINS_12ConstantExprEE13freeConstantsEv.exit: ; preds =
   br i1 %.not.i9.i15.i7.i.i.i1608, label %_ZN4llvm6detail12DenseSetImplIPNS_13ConstantArrayENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_17ConstantUniqueMapIS2_E7MapInfoENS0_12DenseSetPairIS3_EEEES8_E5beginEv.exit.i, label %.lr.ph.i6.i12.i3.i.i.i1604, !llvm.loop !620
 
 _ZN4llvm6detail12DenseSetImplIPNS_13ConstantArrayENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_17ConstantUniqueMapIS2_E7MapInfoENS0_12DenseSetPairIS3_EEEES8_E5beginEv.exit.i: ; preds = %.critedge2.i8.i14.i6.i.i.i1607, %.lr.ph.i6.i12.i3.i.i.i1604, %1923, %1921
-  %.pn14.i.i.i1609 = phi ptr [ %1922, %1921 ], [ %1918, %1923 ], [ %1924, %.critedge2.i8.i14.i6.i.i.i1607 ], [ %.sroa.0.3.i4.i.i.i1605, %.lr.ph.i6.i12.i3.i.i.i1604 ]
+  %.pn14.i.i.i1609 = phi ptr [ %1922, %1921 ], [ %1918, %1923 ], [ %.sroa.0.3.i4.i.i.i1605, %.lr.ph.i6.i12.i3.i.i.i1604 ], [ %1924, %.critedge2.i8.i14.i6.i.i.i1607 ]
   %.pn12.i.i.i1610 = phi ptr [ %1922, %1921 ], [ %1924, %1923 ], [ %1924, %.lr.ph.i6.i12.i3.i.i.i1604 ], [ %1924, %.critedge2.i8.i14.i6.i.i.i1607 ]
   %1927 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.601", ptr %1918, i64 %.pre-phi
   %.not7.i1611 = icmp eq ptr %.pn14.i.i.i1609, %1927
@@ -6713,7 +6713,7 @@ _ZN4llvm17ConstantUniqueMapINS_13ConstantArrayEE13freeConstantsEv.exit: ; preds 
   br i1 %.not.i9.i15.i7.i.i.i1628, label %_ZN4llvm6detail12DenseSetImplIPNS_14ConstantStructENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_17ConstantUniqueMapIS2_E7MapInfoENS0_12DenseSetPairIS3_EEEES8_E5beginEv.exit.i, label %.lr.ph.i6.i12.i3.i.i.i1624, !llvm.loop !633
 
 _ZN4llvm6detail12DenseSetImplIPNS_14ConstantStructENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_17ConstantUniqueMapIS2_E7MapInfoENS0_12DenseSetPairIS3_EEEES8_E5beginEv.exit.i: ; preds = %.critedge2.i8.i14.i6.i.i.i1627, %.lr.ph.i6.i12.i3.i.i.i1624, %1939, %1937
-  %.pn14.i.i.i1629 = phi ptr [ %1938, %1937 ], [ %1934, %1939 ], [ %1940, %.critedge2.i8.i14.i6.i.i.i1627 ], [ %.sroa.0.3.i4.i.i.i1625, %.lr.ph.i6.i12.i3.i.i.i1624 ]
+  %.pn14.i.i.i1629 = phi ptr [ %1938, %1937 ], [ %1934, %1939 ], [ %.sroa.0.3.i4.i.i.i1625, %.lr.ph.i6.i12.i3.i.i.i1624 ], [ %1940, %.critedge2.i8.i14.i6.i.i.i1627 ]
   %.pn12.i.i.i1630 = phi ptr [ %1938, %1937 ], [ %1940, %1939 ], [ %1940, %.lr.ph.i6.i12.i3.i.i.i1624 ], [ %1940, %.critedge2.i8.i14.i6.i.i.i1627 ]
   %1943 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.602", ptr %1934, i64 %1936
   %.not7.i1631 = icmp eq ptr %.pn14.i.i.i1629, %1943
@@ -6779,7 +6779,7 @@ _ZN4llvm17ConstantUniqueMapINS_14ConstantStructEE13freeConstantsEv.exit: ; preds
   br i1 %.not.i9.i15.i7.i.i.i1648, label %_ZN4llvm6detail12DenseSetImplIPNS_14ConstantVectorENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_17ConstantUniqueMapIS2_E7MapInfoENS0_12DenseSetPairIS3_EEEES8_E5beginEv.exit.i, label %.lr.ph.i6.i12.i3.i.i.i1644, !llvm.loop !639
 
 _ZN4llvm6detail12DenseSetImplIPNS_14ConstantVectorENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_17ConstantUniqueMapIS2_E7MapInfoENS0_12DenseSetPairIS3_EEEES8_E5beginEv.exit.i: ; preds = %.critedge2.i8.i14.i6.i.i.i1647, %.lr.ph.i6.i12.i3.i.i.i1644, %1955, %1953
-  %.pn14.i.i.i1649 = phi ptr [ %1954, %1953 ], [ %1950, %1955 ], [ %1956, %.critedge2.i8.i14.i6.i.i.i1647 ], [ %.sroa.0.3.i4.i.i.i1645, %.lr.ph.i6.i12.i3.i.i.i1644 ]
+  %.pn14.i.i.i1649 = phi ptr [ %1954, %1953 ], [ %1950, %1955 ], [ %.sroa.0.3.i4.i.i.i1645, %.lr.ph.i6.i12.i3.i.i.i1644 ], [ %1956, %.critedge2.i8.i14.i6.i.i.i1647 ]
   %.pn12.i.i.i1650 = phi ptr [ %1954, %1953 ], [ %1956, %1955 ], [ %1956, %.lr.ph.i6.i12.i3.i.i.i1644 ], [ %1956, %.critedge2.i8.i14.i6.i.i.i1647 ]
   %1959 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.603", ptr %1950, i64 %1952
   %.not7.i1651 = icmp eq ptr %.pn14.i.i.i1649, %1959
@@ -7389,7 +7389,7 @@ _ZN4llvm15SmallVectorImplIPNS_15MetadataAsValueEE7reserveEm.exit: ; preds = %._c
   br i1 %.not.i9.i15.i7.i1734, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8MetadataEPNS_15MetadataAsValueENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit1739, label %.lr.ph.i6.i12.i3.i1730, !llvm.loop !568
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8MetadataEPNS_15MetadataAsValueENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit1739: ; preds = %.lr.ph.i6.i12.i3.i1730, %.critedge2.i8.i14.i6.i1733, %2162, %2164
-  %.pn14.i1735 = phi ptr [ %2163, %2162 ], [ %2159, %2164 ], [ %2165, %.critedge2.i8.i14.i6.i1733 ], [ %.sroa.0.3.i4.i1731, %.lr.ph.i6.i12.i3.i1730 ]
+  %.pn14.i1735 = phi ptr [ %2163, %2162 ], [ %2159, %2164 ], [ %.sroa.0.3.i4.i1731, %.lr.ph.i6.i12.i3.i1730 ], [ %2165, %.critedge2.i8.i14.i6.i1733 ]
   %.pn12.i1736 = phi ptr [ %2163, %2162 ], [ %2165, %2164 ], [ %2165, %.critedge2.i8.i14.i6.i1733 ], [ %2165, %.lr.ph.i6.i12.i3.i1730 ]
   %2168 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.499", ptr %2159, i64 %2161
   %.not24232703 = icmp eq ptr %.pn14.i1735, %2168
@@ -7564,7 +7564,7 @@ _ZN4llvm11SmallVectorIPNS_15MetadataAsValueELj8EED2Ev.exit: ; preds = %._crit_ed
   br i1 %.not.i9.i15.i7.i1759, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEPNS_15ValueAsMetadataENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit1764, label %.lr.ph.i6.i12.i3.i1755, !llvm.loop !562
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEPNS_15ValueAsMetadataENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit1764: ; preds = %.lr.ph.i6.i12.i3.i1755, %.critedge2.i8.i14.i6.i1758, %2222, %2224
-  %.pn14.i1760 = phi ptr [ %2223, %2222 ], [ %2219, %2224 ], [ %2225, %.critedge2.i8.i14.i6.i1758 ], [ %.sroa.0.3.i4.i1756, %.lr.ph.i6.i12.i3.i1755 ]
+  %.pn14.i1760 = phi ptr [ %2223, %2222 ], [ %2219, %2224 ], [ %.sroa.0.3.i4.i1756, %.lr.ph.i6.i12.i3.i1755 ], [ %2225, %.critedge2.i8.i14.i6.i1758 ]
   %.pn12.i1761 = phi ptr [ %2223, %2222 ], [ %2225, %2224 ], [ %2225, %.critedge2.i8.i14.i6.i1758 ], [ %2225, %.lr.ph.i6.i12.i3.i1755 ]
   %2228 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %2219, i64 %2221
   %.not24242711 = icmp eq ptr %.pn14.i1760, %2228
@@ -9041,7 +9041,7 @@ define linkonce_odr hidden void @_ZN4llvm17ConstantUniqueMapINS_9InlineAsmEE13fr
   br i1 %.not.i9.i15.i7.i.i, label %_ZN4llvm6detail12DenseSetImplIPNS_9InlineAsmENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_17ConstantUniqueMapIS2_E7MapInfoENS0_12DenseSetPairIS3_EEEES8_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i, !llvm.loop !809
 
 _ZN4llvm6detail12DenseSetImplIPNS_9InlineAsmENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_17ConstantUniqueMapIS2_E7MapInfoENS0_12DenseSetPairIS3_EEEES8_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i.i, %.critedge2.i8.i14.i6.i.i, %9, %11
-  %.pn14.i.i = phi ptr [ %10, %9 ], [ %5, %11 ], [ %.sroa.0.3.i4.i.i, %.lr.ph.i6.i12.i3.i.i ], [ %12, %.critedge2.i8.i14.i6.i.i ]
+  %.pn14.i.i = phi ptr [ %10, %9 ], [ %5, %11 ], [ %12, %.critedge2.i8.i14.i6.i.i ], [ %.sroa.0.3.i4.i.i, %.lr.ph.i6.i12.i3.i.i ]
   %.pn12.i.i = phi ptr [ %10, %9 ], [ %12, %11 ], [ %12, %.critedge2.i8.i14.i6.i.i ], [ %12, %.lr.ph.i6.i12.i3.i.i ]
   %15 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.606", ptr %5, i64 %8
   %.not7 = icmp eq ptr %.pn14.i.i, %15
@@ -9294,16 +9294,16 @@ _ZN4llvm5APIntD2Ev.exit9:                         ; preds = %_ZN4llvm5APIntD2Ev.
 
 40:                                               ; preds = %.lr.ph
   %41 = icmp ult i32 %37, 65
-  br i1 %41, label %42, label %_ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit
+  br i1 %41, label %_ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit, label %42
 
 42:                                               ; preds = %40
-  %43 = load i64, ptr %.0814, align 8, !tbaa !351
-  %44 = load i64, ptr %2, align 8, !tbaa !351
-  %45 = icmp eq i64 %43, %44
-  br i1 %45, label %_ZN4llvm5APIntaSERKS0_.exit, label %_ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit.thread
+  %43 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %.0814, ptr noundef nonnull align 8 dereferenceable(12) %2) #21
+  br i1 %43, label %_ZN4llvm5APIntaSERKS0_.exit, label %_ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit.thread
 
 _ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit: ; preds = %40
-  %46 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %.0814, ptr noundef nonnull align 8 dereferenceable(12) %2) #21
+  %44 = load i64, ptr %.0814, align 8, !tbaa !351
+  %45 = load i64, ptr %2, align 8, !tbaa !351
+  %46 = icmp eq i64 %44, %45
   br i1 %46, label %_ZN4llvm5APIntaSERKS0_.exit, label %_ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit.thread
 
 _ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit.thread: ; preds = %.lr.ph, %42, %_ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit
@@ -9313,17 +9313,17 @@ _ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit.thread: ; preds = %.lr
 
 49:                                               ; preds = %_ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit.thread
   %50 = icmp ult i32 %37, 65
-  br i1 %50, label %51, label %_ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit10
+  br i1 %50, label %_ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit10, label %51
 
 51:                                               ; preds = %49
-  %52 = load i64, ptr %.0814, align 8, !tbaa !351
-  %53 = load i64, ptr %3, align 8, !tbaa !351
-  %54 = icmp eq i64 %52, %53
-  br i1 %54, label %68, label %_ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit10.thread
+  %52 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %.0814, ptr noundef nonnull align 8 dereferenceable(12) %3) #21
+  br i1 %52, label %.thread, label %_ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit10.thread
 
 _ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit10: ; preds = %49
-  %55 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %.0814, ptr noundef nonnull align 8 dereferenceable(12) %3) #21
-  br i1 %55, label %.thread, label %_ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit10.thread
+  %53 = load i64, ptr %.0814, align 8, !tbaa !351
+  %54 = load i64, ptr %3, align 8, !tbaa !351
+  %55 = icmp eq i64 %53, %54
+  br i1 %55, label %68, label %_ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit10.thread
 
 _ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit10.thread: ; preds = %_ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit.thread, %51, %_ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit10
   %56 = getelementptr inbounds nuw i8, ptr %.0814, i64 16
@@ -9361,9 +9361,9 @@ _ZNSt10unique_ptrIN4llvm11ConstantIntESt14default_deleteIS1_EED2Ev.exit: ; preds
   %67 = icmp ult i32 %.pre, 65
   br label %68
 
-68:                                               ; preds = %51, %_ZNSt10unique_ptrIN4llvm11ConstantIntESt14default_deleteIS1_EED2Ev.exit
-  %69 = phi i32 [ %.pre16, %_ZNSt10unique_ptrIN4llvm11ConstantIntESt14default_deleteIS1_EED2Ev.exit ], [ %38, %51 ]
-  %70 = phi i1 [ %67, %_ZNSt10unique_ptrIN4llvm11ConstantIntESt14default_deleteIS1_EED2Ev.exit ], [ true, %51 ]
+68:                                               ; preds = %_ZNSt10unique_ptrIN4llvm11ConstantIntESt14default_deleteIS1_EED2Ev.exit, %_ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit10
+  %69 = phi i32 [ %38, %_ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit10 ], [ %.pre16, %_ZNSt10unique_ptrIN4llvm11ConstantIntESt14default_deleteIS1_EED2Ev.exit ]
+  %70 = phi i1 [ true, %_ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit10 ], [ %67, %_ZNSt10unique_ptrIN4llvm11ConstantIntESt14default_deleteIS1_EED2Ev.exit ]
   %71 = icmp ult i32 %69, 65
   %or.cond12 = select i1 %70, i1 %71, i1 false
   br i1 %or.cond12, label %72, label %.thread
@@ -9374,7 +9374,7 @@ _ZNSt10unique_ptrIN4llvm11ConstantIntESt14default_deleteIS1_EED2Ev.exit: ; preds
   store i32 %69, ptr %36, align 8, !tbaa !602
   br label %_ZN4llvm5APIntaSERKS0_.exit
 
-.thread:                                          ; preds = %_ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit10, %68
+.thread:                                          ; preds = %51, %68
   call void @_ZN4llvm5APInt14assignSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %.0814, ptr noundef nonnull align 8 dereferenceable(12) %2) #19
   br label %_ZN4llvm5APIntaSERKS0_.exit
 
@@ -9580,7 +9580,7 @@ _ZNSt10unique_ptrIN4llvm11ConstantIntESt14default_deleteIS1_EED2Ev.exit: ; preds
   br label %93
 
 93:                                               ; preds = %75, %_ZNSt10unique_ptrIN4llvm11ConstantIntESt14default_deleteIS1_EED2Ev.exit
-  %94 = phi i1 [ %92, %_ZNSt10unique_ptrIN4llvm11ConstantIntESt14default_deleteIS1_EED2Ev.exit ], [ true, %75 ]
+  %94 = phi i1 [ true, %75 ], [ %92, %_ZNSt10unique_ptrIN4llvm11ConstantIntESt14default_deleteIS1_EED2Ev.exit ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0814, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 5, i1 false)
   %95 = getelementptr inbounds nuw i8, ptr %.0814, i64 8
   %96 = load i32, ptr %20, align 8
@@ -9708,14 +9708,14 @@ _ZN4llvm7APFloatD2Ev.exit11:                      ; preds = %32, %33
 
 36:                                               ; preds = %.lr.ph
   %.not5.i.i = icmp eq ptr %34, %20
-  br i1 %.not5.i.i, label %_ZN4llvm12DenseMapInfoINS_7APFloatEvE7isEqualERKS1_S4_.exit, label %37
+  br i1 %.not5.i.i, label %37, label %_ZN4llvm12DenseMapInfoINS_7APFloatEvE7isEqualERKS1_S4_.exit
 
 37:                                               ; preds = %36
-  %38 = call noundef zeroext i1 @_ZNK4llvm6detail9IEEEFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %.0821, ptr noundef nonnull align 8 dereferenceable(24) %2) #19
+  %38 = call noundef zeroext i1 @_ZNK4llvm6detail13DoubleAPFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %.0821, ptr noundef nonnull align 8 dereferenceable(24) %2) #19
   br i1 %38, label %55, label %_ZN4llvm12DenseMapInfoINS_7APFloatEvE7isEqualERKS1_S4_.exit.thread
 
 _ZN4llvm12DenseMapInfoINS_7APFloatEvE7isEqualERKS1_S4_.exit: ; preds = %36
-  %39 = call noundef zeroext i1 @_ZNK4llvm6detail13DoubleAPFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %.0821, ptr noundef nonnull align 8 dereferenceable(24) %2) #19
+  %39 = call noundef zeroext i1 @_ZNK4llvm6detail9IEEEFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %.0821, ptr noundef nonnull align 8 dereferenceable(24) %2) #19
   br i1 %39, label %55, label %_ZN4llvm12DenseMapInfoINS_7APFloatEvE7isEqualERKS1_S4_.exit.thread
 
 _ZN4llvm12DenseMapInfoINS_7APFloatEvE7isEqualERKS1_S4_.exit.thread: ; preds = %.lr.ph, %37, %_ZN4llvm12DenseMapInfoINS_7APFloatEvE7isEqualERKS1_S4_.exit
@@ -9726,14 +9726,14 @@ _ZN4llvm12DenseMapInfoINS_7APFloatEvE7isEqualERKS1_S4_.exit.thread: ; preds = %.
 
 42:                                               ; preds = %_ZN4llvm12DenseMapInfoINS_7APFloatEvE7isEqualERKS1_S4_.exit.thread
   %.not5.i.i14 = icmp eq ptr %40, %20
-  br i1 %.not5.i.i14, label %_ZN4llvm12DenseMapInfoINS_7APFloatEvE7isEqualERKS1_S4_.exit15, label %43
+  br i1 %.not5.i.i14, label %43, label %_ZN4llvm12DenseMapInfoINS_7APFloatEvE7isEqualERKS1_S4_.exit15
 
 43:                                               ; preds = %42
-  %44 = call noundef zeroext i1 @_ZNK4llvm6detail9IEEEFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %.0821, ptr noundef nonnull align 8 dereferenceable(24) %3) #19
+  %44 = call noundef zeroext i1 @_ZNK4llvm6detail13DoubleAPFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %.0821, ptr noundef nonnull align 8 dereferenceable(24) %3) #19
   br i1 %44, label %53, label %_ZN4llvm12DenseMapInfoINS_7APFloatEvE7isEqualERKS1_S4_.exit15.thread
 
 _ZN4llvm12DenseMapInfoINS_7APFloatEvE7isEqualERKS1_S4_.exit15: ; preds = %42
-  %45 = call noundef zeroext i1 @_ZNK4llvm6detail13DoubleAPFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %.0821, ptr noundef nonnull align 8 dereferenceable(24) %3) #19
+  %45 = call noundef zeroext i1 @_ZNK4llvm6detail9IEEEFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %.0821, ptr noundef nonnull align 8 dereferenceable(24) %3) #19
   br i1 %45, label %53, label %_ZN4llvm12DenseMapInfoINS_7APFloatEvE7isEqualERKS1_S4_.exit15.thread
 
 _ZN4llvm12DenseMapInfoINS_7APFloatEvE7isEqualERKS1_S4_.exit15.thread: ; preds = %_ZN4llvm12DenseMapInfoINS_7APFloatEvE7isEqualERKS1_S4_.exit.thread, %43, %_ZN4llvm12DenseMapInfoINS_7APFloatEvE7isEqualERKS1_S4_.exit15
@@ -10104,7 +10104,7 @@ define dso_local void @_ZN4llvm15LLVMContextImpl31dropTriviallyDeadConstantArray
   br i1 %.not.i9.i15.i7.i.i.i, label %_ZN4llvm17ConstantUniqueMapINS_13ConstantArrayEE5beginEv.exit, label %.lr.ph.i6.i12.i3.i.i.i, !llvm.loop !620
 
 _ZN4llvm17ConstantUniqueMapINS_13ConstantArrayEE5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i.i.i, %.critedge2.i8.i14.i6.i.i.i, %17, %19
-  %.pn14.i.i.i = phi ptr [ %18, %17 ], [ %13, %19 ], [ %20, %.critedge2.i8.i14.i6.i.i.i ], [ %.sroa.0.3.i4.i.i.i, %.lr.ph.i6.i12.i3.i.i.i ]
+  %.pn14.i.i.i = phi ptr [ %18, %17 ], [ %13, %19 ], [ %.sroa.0.3.i4.i.i.i, %.lr.ph.i6.i12.i3.i.i.i ], [ %20, %.critedge2.i8.i14.i6.i.i.i ]
   %.pn12.i.i.i = phi ptr [ %18, %17 ], [ %20, %19 ], [ %20, %.critedge2.i8.i14.i6.i.i.i ], [ %20, %.lr.ph.i6.i12.i3.i.i.i ]
   %23 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.601", ptr %13, i64 %16
   %.not1920 = icmp eq ptr %.pn14.i.i.i, %23
@@ -10429,8 +10429,8 @@ _ZN4llvm12is_containedIRNS_11SmallVectorIPNS_13ConstantArrayELj4EEES3_EEbOT_RKT0
   br label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_13ConstantArrayELj4EEES3_EEbOT_RKT0_.exit
 
 _ZN4llvm12is_containedIRNS_11SmallVectorIPNS_13ConstantArrayELj4EEES3_EEbOT_RKT0_.exit: ; preds = %20, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_13ConstantArrayELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_13ConstantArrayELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_13ConstantArrayELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit40, %40, %46, %52
-  %59 = phi ptr [ %41, %40 ], [ %47, %46 ], [ %53, %52 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_13ConstantArrayELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_13ConstantArrayELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_13ConstantArrayELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %18, %20 ]
-  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %40 ], [ %.1.i.i.i.i, %46 ], [ %.2.i.i.i.i, %52 ], [ %58, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_13ConstantArrayELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %57, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_13ConstantArrayELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %56, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_13ConstantArrayELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i.i, %20 ]
+  %59 = phi ptr [ %47, %46 ], [ %41, %40 ], [ %53, %52 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_13ConstantArrayELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_13ConstantArrayELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_13ConstantArrayELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %18, %20 ]
+  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %46 ], [ %.029.lcssa.i.i.i.i, %40 ], [ %.2.i.i.i.i, %52 ], [ %56, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_13ConstantArrayELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %58, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_13ConstantArrayELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit40 ], [ %57, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_13ConstantArrayELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit38 ], [ %.02946.i.i.i.i, %20 ]
   %.not = icmp eq ptr %.028.i.i.i.i, %16
   br i1 %.not, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_13ConstantArrayELj4EEES3_EEbOT_RKT0_.exit.thread, label %_ZN4llvm9SetVectorIPNS_13ConstantArrayENS_11SmallVectorIS2_Lj4EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj4EE7makeBigEv.exit
 
@@ -10522,7 +10522,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_13ConstantArrayELb1EE9push_backES2_.exit10
   br label %_ZN4llvm9SetVectorIPNS_13ConstantArrayENS_11SmallVectorIS2_Lj4EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj4EE7makeBigEv.exit
 
 _ZN4llvm9SetVectorIPNS_13ConstantArrayENS_11SmallVectorIS2_Lj4EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj4EE7makeBigEv.exit: ; preds = %.lr.ph.i, %76, %_ZN4llvm23SmallVectorTemplateBaseIPNS_13ConstantArrayELb1EE9push_backES2_.exit10, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_13ConstantArrayELj4EEES3_EEbOT_RKT0_.exit, %_ZN4llvm23SmallVectorTemplateBaseIPNS_13ConstantArrayELb1EE9push_backES2_.exit
-  %.0 = phi i1 [ true, %_ZN4llvm23SmallVectorTemplateBaseIPNS_13ConstantArrayELb1EE9push_backES2_.exit ], [ false, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_13ConstantArrayELj4EEES3_EEbOT_RKT0_.exit ], [ true, %_ZN4llvm23SmallVectorTemplateBaseIPNS_13ConstantArrayELb1EE9push_backES2_.exit10 ], [ false, %76 ], [ true, %.lr.ph.i ]
+  %.0 = phi i1 [ true, %_ZN4llvm23SmallVectorTemplateBaseIPNS_13ConstantArrayELb1EE9push_backES2_.exit ], [ false, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_13ConstantArrayELj4EEES3_EEbOT_RKT0_.exit ], [ false, %76 ], [ true, %_ZN4llvm23SmallVectorTemplateBaseIPNS_13ConstantArrayELb1EE9push_backES2_.exit10 ], [ true, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -11335,17 +11335,17 @@ _ZN4llvm5APIntD2Ev.exit8:                         ; preds = %_ZN4llvm5APIntD2Ev.
 
 27:                                               ; preds = %.lr.ph
   %28 = icmp ult i32 %24, 65
-  br i1 %28, label %29, label %_ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit
+  br i1 %28, label %_ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit, label %29
 
 29:                                               ; preds = %27
-  %30 = load i64, ptr %.012, align 8, !tbaa !351
-  %31 = load i64, ptr %2, align 8, !tbaa !351
-  %32 = icmp eq i64 %30, %31
-  br i1 %32, label %_ZN4llvm5APIntD2Ev.exit10, label %_ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit.thread
+  %30 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %.012, ptr noundef nonnull align 8 dereferenceable(12) %2) #21
+  br i1 %30, label %.thread, label %_ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit.thread
 
 _ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit: ; preds = %27
-  %33 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %.012, ptr noundef nonnull align 8 dereferenceable(12) %2) #21
-  br i1 %33, label %.thread, label %_ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit.thread
+  %31 = load i64, ptr %.012, align 8, !tbaa !351
+  %32 = load i64, ptr %2, align 8, !tbaa !351
+  %33 = icmp eq i64 %31, %32
+  br i1 %33, label %_ZN4llvm5APIntD2Ev.exit10, label %_ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit.thread
 
 _ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit.thread: ; preds = %.lr.ph, %29, %_ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit
   %34 = load i32, ptr %8, align 8, !tbaa !602
@@ -11354,17 +11354,17 @@ _ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit.thread: ; preds = %.lr
 
 36:                                               ; preds = %_ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit.thread
   %37 = icmp ult i32 %24, 65
-  br i1 %37, label %38, label %_ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit9
+  br i1 %37, label %_ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit9, label %38
 
 38:                                               ; preds = %36
-  %39 = load i64, ptr %.012, align 8, !tbaa !351
-  %40 = load i64, ptr %3, align 8, !tbaa !351
-  %41 = icmp eq i64 %39, %40
-  br i1 %41, label %_ZN4llvm5APIntD2Ev.exit10, label %_ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit9.thread
+  %39 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %.012, ptr noundef nonnull align 8 dereferenceable(12) %3) #21
+  br i1 %39, label %.thread, label %_ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit9.thread
 
 _ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit9: ; preds = %36
-  %42 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %.012, ptr noundef nonnull align 8 dereferenceable(12) %3) #21
-  br i1 %42, label %.thread, label %_ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit9.thread
+  %40 = load i64, ptr %.012, align 8, !tbaa !351
+  %41 = load i64, ptr %3, align 8, !tbaa !351
+  %42 = icmp eq i64 %40, %41
+  br i1 %42, label %_ZN4llvm5APIntD2Ev.exit10, label %_ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit9.thread
 
 _ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit9.thread: ; preds = %_ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit.thread, %38, %_ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit9
   %43 = getelementptr inbounds nuw i8, ptr %.012, i64 16
@@ -11400,7 +11400,7 @@ _ZNKSt14default_deleteIN4llvm11ConstantIntEEclEPS1_.exit.i: ; preds = %53, %49, 
   %55 = icmp ugt i32 %.pre, 64
   br i1 %55, label %.thread, label %_ZN4llvm5APIntD2Ev.exit10
 
-.thread:                                          ; preds = %_ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit, %_ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit9, %54
+.thread:                                          ; preds = %29, %38, %54
   %56 = load ptr, ptr %.012, align 8, !tbaa !351
   %57 = icmp eq ptr %56, null
   br i1 %57, label %_ZN4llvm5APIntD2Ev.exit10, label %58
@@ -11409,7 +11409,7 @@ _ZNKSt14default_deleteIN4llvm11ConstantIntEEclEPS1_.exit.i: ; preds = %53, %49, 
   call void @_ZdaPv(ptr noundef nonnull %56) #20
   br label %_ZN4llvm5APIntD2Ev.exit10
 
-_ZN4llvm5APIntD2Ev.exit10:                        ; preds = %29, %38, %54, %.thread, %58
+_ZN4llvm5APIntD2Ev.exit10:                        ; preds = %_ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit, %_ZN4llvm12DenseMapInfoINS_5APIntEvE7isEqualERKS1_S4_.exit9, %54, %.thread, %58
   %59 = getelementptr inbounds nuw i8, ptr %.012, i64 24
   %.not = icmp eq ptr %59, %11
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !995
@@ -11678,14 +11678,14 @@ _ZN4llvm7APFloatD2Ev.exit10:                      ; preds = %20, %21
 
 24:                                               ; preds = %.lr.ph
   %.not5.i.i = icmp eq ptr %22, %9
-  br i1 %.not5.i.i, label %_ZN4llvm12DenseMapInfoINS_7APFloatEvE7isEqualERKS1_S4_.exit, label %25
+  br i1 %.not5.i.i, label %25, label %_ZN4llvm12DenseMapInfoINS_7APFloatEvE7isEqualERKS1_S4_.exit
 
 25:                                               ; preds = %24
-  %26 = call noundef zeroext i1 @_ZNK4llvm6detail9IEEEFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %.022, ptr noundef nonnull align 8 dereferenceable(24) %2) #19
+  %26 = call noundef zeroext i1 @_ZNK4llvm6detail13DoubleAPFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %.022, ptr noundef nonnull align 8 dereferenceable(24) %2) #19
   br i1 %26, label %41, label %_ZN4llvm12DenseMapInfoINS_7APFloatEvE7isEqualERKS1_S4_.exit.thread
 
 _ZN4llvm12DenseMapInfoINS_7APFloatEvE7isEqualERKS1_S4_.exit: ; preds = %24
-  %27 = call noundef zeroext i1 @_ZNK4llvm6detail13DoubleAPFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %.022, ptr noundef nonnull align 8 dereferenceable(24) %2) #19
+  %27 = call noundef zeroext i1 @_ZNK4llvm6detail9IEEEFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %.022, ptr noundef nonnull align 8 dereferenceable(24) %2) #19
   br i1 %27, label %41, label %_ZN4llvm12DenseMapInfoINS_7APFloatEvE7isEqualERKS1_S4_.exit.thread
 
 _ZN4llvm12DenseMapInfoINS_7APFloatEvE7isEqualERKS1_S4_.exit.thread: ; preds = %.lr.ph, %25, %_ZN4llvm12DenseMapInfoINS_7APFloatEvE7isEqualERKS1_S4_.exit
@@ -11696,14 +11696,14 @@ _ZN4llvm12DenseMapInfoINS_7APFloatEvE7isEqualERKS1_S4_.exit.thread: ; preds = %.
 
 30:                                               ; preds = %_ZN4llvm12DenseMapInfoINS_7APFloatEvE7isEqualERKS1_S4_.exit.thread
   %.not5.i.i13 = icmp eq ptr %28, %9
-  br i1 %.not5.i.i13, label %_ZN4llvm12DenseMapInfoINS_7APFloatEvE7isEqualERKS1_S4_.exit14, label %31
+  br i1 %.not5.i.i13, label %31, label %_ZN4llvm12DenseMapInfoINS_7APFloatEvE7isEqualERKS1_S4_.exit14
 
 31:                                               ; preds = %30
-  %32 = call noundef zeroext i1 @_ZNK4llvm6detail9IEEEFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %.022, ptr noundef nonnull align 8 dereferenceable(24) %3) #19
+  %32 = call noundef zeroext i1 @_ZNK4llvm6detail13DoubleAPFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %.022, ptr noundef nonnull align 8 dereferenceable(24) %3) #19
   br i1 %32, label %41, label %_ZN4llvm12DenseMapInfoINS_7APFloatEvE7isEqualERKS1_S4_.exit14.thread
 
 _ZN4llvm12DenseMapInfoINS_7APFloatEvE7isEqualERKS1_S4_.exit14: ; preds = %30
-  %33 = call noundef zeroext i1 @_ZNK4llvm6detail13DoubleAPFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %.022, ptr noundef nonnull align 8 dereferenceable(24) %3) #19
+  %33 = call noundef zeroext i1 @_ZNK4llvm6detail9IEEEFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %.022, ptr noundef nonnull align 8 dereferenceable(24) %3) #19
   br i1 %33, label %41, label %_ZN4llvm12DenseMapInfoINS_7APFloatEvE7isEqualERKS1_S4_.exit14.thread
 
 _ZN4llvm12DenseMapInfoINS_7APFloatEvE7isEqualERKS1_S4_.exit14.thread: ; preds = %_ZN4llvm12DenseMapInfoINS_7APFloatEvE7isEqualERKS1_S4_.exit.thread, %31, %_ZN4llvm12DenseMapInfoINS_7APFloatEvE7isEqualERKS1_S4_.exit14
@@ -14648,7 +14648,7 @@ _ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %47, %50
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1065
 
 _ZSt11swap_rangesIPcS0_ET0_T_S2_S1_.exit:         ; preds = %._crit_edge, %._crit_edge110, %.lr.ph.i, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit, %5, %3
-  %.053 = phi ptr [ %2, %3 ], [ %0, %5 ], [ %21, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit ], [ %21, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %1, %.lr.ph.i ], [ %21, %._crit_edge110 ], [ %21, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %21, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %21, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit ], [ %1, %.lr.ph.i ], [ %21, %._crit_edge110 ], [ %21, %._crit_edge ]
   ret ptr %.053
 }
 

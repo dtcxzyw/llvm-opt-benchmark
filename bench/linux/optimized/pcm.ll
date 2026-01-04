@@ -900,7 +900,7 @@ define dso_local noundef range(i32 -77, 1) i32 @snd_pcm_attach_substream(ptr nou
   br label %.thread
 
 .thread:                                          ; preds = %.preheader18, %72, %93, %56, %62, %112, %110, %105, %.split27.us, %83, %.thread16, %76, %65, %47, %17, %10, %8, %4
-  %133 = phi i32 [ 0, %83 ], [ -12, %105 ], [ -12, %110 ], [ 0, %112 ], [ -6, %4 ], [ -22, %8 ], [ -19, %17 ], [ -19, %10 ], [ -22, %65 ], [ -19, %76 ], [ -77, %.thread16 ], [ -12, %.split27.us ], [ -11, %47 ], [ -19, %62 ], [ -11, %56 ], [ -11, %93 ], [ -19, %72 ], [ -11, %.preheader18 ]
+  %133 = phi i32 [ 0, %83 ], [ -12, %105 ], [ -12, %110 ], [ 0, %112 ], [ -6, %4 ], [ -22, %8 ], [ -19, %17 ], [ -19, %10 ], [ -22, %65 ], [ -19, %76 ], [ -77, %.thread16 ], [ -12, %.split27.us ], [ -11, %47 ], [ -11, %56 ], [ -11, %93 ], [ -19, %62 ], [ -19, %72 ], [ -11, %.preheader18 ]
   ret i32 %133
 }
 
@@ -1212,7 +1212,7 @@ define internal i32 @snd_pcm_control_ioctl(ptr noundef readonly captures(address
   br label %.thread
 
 .thread:                                          ; preds = %88, %110, %77, %114, %102, %100, %94, %91
-  %117 = phi i32 [ %116, %114 ], [ -6, %91 ], [ -2, %94 ], [ -6, %100 ], [ -6, %102 ], [ -6, %77 ], [ -6, %110 ], [ -6, %88 ]
+  %117 = phi i32 [ %116, %114 ], [ -6, %91 ], [ -2, %94 ], [ -6, %100 ], [ -6, %102 ], [ -6, %110 ], [ -6, %77 ], [ -6, %88 ]
   tail call void @mutex_unlock(ptr noundef nonnull @register_mutex) #13
   br label %130
 
@@ -1906,7 +1906,7 @@ define internal i32 @snd_pcm_dev_register(ptr noundef readonly captures(address_
   br i1 %78, label %.loopexit, label %.preheader, !llvm.loop !32
 
 .loopexit:                                        ; preds = %.preheader, %69, %52
-  %79 = phi i32 [ %56, %52 ], [ %67, %69 ], [ %67, %.preheader ]
+  %79 = phi i32 [ %67, %69 ], [ %56, %52 ], [ %67, %.preheader ]
   br i1 %54, label %52, label %.loopexit12, !llvm.loop !33
 
 .loopexit12:                                      ; preds = %22, %.loopexit, %.thread10

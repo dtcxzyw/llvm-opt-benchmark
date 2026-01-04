@@ -725,7 +725,7 @@ ff_q_equal.exit.thread17.i:                       ; preds = %42, %39, %5
   %or.cond = or i1 %or.cond5.i.i12.i.not58, %59
   br i1 %or.cond, label %.preheader54.preheader, label %ff_sws_matrix3x3_mul.exit52
 
-.preheader54.preheader:                           ; preds = %56, %46, %42, %32
+.preheader54.preheader:                           ; preds = %32, %46, %56, %42
   br label %.preheader54
 
 .preheader54:                                     ; preds = %.preheader54.preheader, %.preheader54
@@ -1205,7 +1205,7 @@ define internal fastcc i32 @test_point_line(i64 %0, i64 %1, i64 %2, i64 %3, i64 
   br label %av_cmp_q.exit
 
 av_cmp_q.exit:                                    ; preds = %19, %26, %29, %32
-  %.0.i = phi i32 [ %25, %19 ], [ %34, %32 ], [ 0, %26 ], [ -2147483648, %29 ]
+  %.0.i = phi i32 [ %25, %19 ], [ 0, %26 ], [ %34, %32 ], [ -2147483648, %29 ]
   ret i32 %.0.i
 }
 

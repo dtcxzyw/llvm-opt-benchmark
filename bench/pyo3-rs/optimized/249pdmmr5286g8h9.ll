@@ -642,7 +642,7 @@ _ZN17pyo3_build_config5impl_20PythonImplementation10from_soabi17h30a7db2481523c0
   br i1 %83, label %84, label %68
 
 84:                                               ; preds = %78, %80, %82, %66, %74, %76
-  %.sroa.0103.0 = phi i1 [ true, %76 ], [ true, %74 ], [ true, %66 ], [ false, %82 ], [ false, %80 ], [ false, %78 ]
+  %.sroa.0103.0 = phi i1 [ true, %66 ], [ true, %76 ], [ true, %74 ], [ false, %82 ], [ false, %80 ], [ false, %78 ]
   %85 = call { ptr, i64 } @_ZN17pyo3_build_config5impl_13Sysconfigdata9get_value17he52998537af302d4E(ptr align 8 %1, ptr nonnull align 1 @anon.ca6e988e113f9f3b293ee61d3a823dd5.35, i64 15)
   %86 = extractvalue { ptr, i64 } %85, 0
   %.not154 = icmp ne ptr %86, null
@@ -1564,7 +1564,7 @@ _ZN17pyo3_build_config5impl_19is_extension_module17h0698c3271912dc7dE.exit: ; pr
   br label %20
 
 20:                                               ; preds = %10, %1, %8, %_ZN17pyo3_build_config5impl_19is_extension_module17h0698c3271912dc7dE.exit
-  %.sroa.0.0 = phi i1 [ %.not.i, %_ZN17pyo3_build_config5impl_19is_extension_module17h0698c3271912dc7dE.exit ], [ true, %10 ], [ true, %8 ], [ true, %1 ]
+  %.sroa.0.0 = phi i1 [ %.not.i, %_ZN17pyo3_build_config5impl_19is_extension_module17h0698c3271912dc7dE.exit ], [ true, %1 ], [ true, %10 ], [ true, %8 ]
   ret i1 %.sroa.0.0
 }
 
@@ -1650,7 +1650,7 @@ _ZN17pyo3_build_config5impl_19CrossCompileEnvVars3any17h4acc57195d3ea712E.exit: 
           to label %.noexc84 unwind label %22
 
 .noexc84:                                         ; preds = %40, %.noexc83, %30, %.noexc
-  %.sroa.02.0.i = phi i1 [ false, %30 ], [ false, %.noexc83 ], [ false, %.noexc ], [ %43, %40 ]
+  %.sroa.02.0.i = phi i1 [ false, %.noexc ], [ false, %30 ], [ false, %.noexc83 ], [ %43, %40 ]
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %45 = invoke zeroext i1 @"_ZN81_$LT$target_lexicon..targets..OperatingSystem$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1d13bbb2c9307eeeE"(ptr nonnull align 2 %44, ptr nonnull align 2 @anon.ca6e988e113f9f3b293ee61d3a823dd5.80)
           to label %.noexc85 unwind label %22
@@ -1676,7 +1676,7 @@ _ZN17pyo3_build_config5impl_19CrossCompileEnvVars3any17h4acc57195d3ea712E.exit: 
   %52 = invoke zeroext i1 @"_ZN81_$LT$target_lexicon..targets..OperatingSystem$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1d13bbb2c9307eeeE"(ptr nonnull align 2 %51, ptr nonnull align 2 @anon.ca6e988e113f9f3b293ee61d3a823dd5.82)
           to label %77 unwind label %22
 
-_ZN17pyo3_build_config5impl_19CrossCompileEnvVars3any17h4acc57195d3ea712E.exit.thread: ; preds = %4, %16, %19, %77, %_ZN17pyo3_build_config5impl_19CrossCompileEnvVars3any17h4acc57195d3ea712E.exit
+_ZN17pyo3_build_config5impl_19CrossCompileEnvVars3any17h4acc57195d3ea712E.exit.thread: ; preds = %16, %19, %4, %77, %_ZN17pyo3_build_config5impl_19CrossCompileEnvVars3any17h4acc57195d3ea712E.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -3835,7 +3835,7 @@ define void @_ZN17pyo3_build_config5impl_16find_interpreter17he93c80b7e2e41228E(
           to label %150 unwind label %148
 
 .thread.i:                                        ; preds = %144, %.body30.i, %95
-  %.pn36.i = phi { ptr, i32 } [ %.pn.i, %144 ], [ %.pn.i, %95 ], [ %eh.lpad-body31.i, %.body30.i ]
+  %.pn36.i = phi { ptr, i32 } [ %.pn.i, %95 ], [ %.pn.i, %144 ], [ %eh.lpad-body31.i, %.body30.i ]
   %142 = load i64, ptr %65, align 8, !noalias !21
   %143 = icmp ne i64 %142, -9223372036854775808
   %or.cond9.i = and i1 %67, %143
@@ -4082,7 +4082,7 @@ define void @_ZN17pyo3_build_config5impl_25make_cross_compile_config17h501eb9fcd
   unreachable
 
 common.resume:                                    ; preds = %217, %.body.i, %66, %69
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %69 ], [ %.pn.i, %66 ], [ %.pn.pn.i, %.body.i ], [ %218, %217 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i, %.body.i ], [ %.pn.i, %66 ], [ %.pn.i, %69 ], [ %218, %217 ]
   resume { ptr, i32 } %common.resume.op
 
 69:                                               ; preds = %66
@@ -4620,9 +4620,9 @@ _ZN17pyo3_build_config5impl_18find_sysconfigdata17hc155e892e3bcda62E.exit.i.i: ;
   unreachable
 
 .thread.i:                                        ; preds = %167, %160, %155
-  %.sroa.14.0.ph.i = phi i64 [ %.sroa.14.8.copyload76.i, %167 ], [ %.sroa.1156.172.i.i, %155 ], [ %.sroa.14.8.copyload78.i, %160 ]
-  %.sroa.12.0.ph.i = phi i64 [ %.sroa.12.8.copyload66.i, %167 ], [ %.sroa.6.173.i.i, %155 ], [ %.sroa.12.8.copyload68.i, %160 ]
-  %.sroa.6.0.ph.i = phi i64 [ %.sroa.6.8.copyload60.i, %167 ], [ %.sroa.0.174.i.i, %155 ], [ %.sroa.6.8.copyload61.i, %160 ]
+  %.sroa.14.0.ph.i = phi i64 [ %.sroa.14.8.copyload76.i, %167 ], [ %.sroa.14.8.copyload78.i, %160 ], [ %.sroa.1156.172.i.i, %155 ]
+  %.sroa.12.0.ph.i = phi i64 [ %.sroa.12.8.copyload66.i, %167 ], [ %.sroa.12.8.copyload68.i, %160 ], [ %.sroa.6.173.i.i, %155 ]
+  %.sroa.6.0.ph.i = phi i64 [ %.sroa.6.8.copyload60.i, %167 ], [ %.sroa.6.8.copyload61.i, %160 ], [ %.sroa.0.174.i.i, %155 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %31), !noalias !33
   call void @llvm.lifetime.end.p0(ptr nonnull %32), !noalias !33
   call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !33

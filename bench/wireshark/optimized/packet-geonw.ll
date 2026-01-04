@@ -1668,7 +1668,7 @@ define internal fastcc i32 @dissect_geonw_internal(ptr noundef %0, ptr noundef %
   br label %56
 
 56:                                               ; preds = %52, %36, %42, %44, %46, %48, %50, %34
-  %.1525 = phi i32 [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ], [ %51, %50 ], [ %.0524, %34 ], [ %spec.select, %52 ], [ -1, %36 ]
+  %.1525 = phi i32 [ -1, %36 ], [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ], [ %51, %50 ], [ %.0524, %34 ], [ %spec.select, %52 ]
   %57 = load i32, ptr @proto_geonw, align 4
   %58 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %57, ptr noundef %0, i32 noundef 0, i32 noundef %.1525, i32 noundef 0)
   %59 = load i32, ptr @ett_geonw, align 4
@@ -2171,10 +2171,10 @@ dissect_secured_message.exit:                     ; preds = %278, %111, %116, %.
 329:                                              ; preds = %319
   br label %.thread5
 
-.thread5:                                         ; preds = %.thread, %327, %319, %326, %325, %324, %329
-  %.051112 = phi ptr [ %318, %329 ], [ %318, %324 ], [ %318, %325 ], [ %318, %326 ], [ %318, %319 ], [ %318, %327 ], [ %0, %.thread ]
-  %.251811 = phi i32 [ 0, %329 ], [ 0, %324 ], [ 0, %325 ], [ 0, %326 ], [ %323, %319 ], [ 0, %327 ], [ %.0516, %.thread ]
-  %.252610 = phi i32 [ -1, %329 ], [ 56, %324 ], [ 52, %325 ], [ 36, %326 ], [ 32, %319 ], [ %spec.select576, %327 ], [ %.1525, %.thread ]
+.thread5:                                         ; preds = %.thread, %327, %326, %319, %325, %324, %329
+  %.051112 = phi ptr [ %0, %.thread ], [ %318, %329 ], [ %318, %324 ], [ %318, %325 ], [ %318, %319 ], [ %318, %326 ], [ %318, %327 ]
+  %.251811 = phi i32 [ %.0516, %.thread ], [ 0, %329 ], [ 0, %324 ], [ 0, %325 ], [ %323, %319 ], [ 0, %326 ], [ 0, %327 ]
+  %.252610 = phi i32 [ %.1525, %.thread ], [ -1, %329 ], [ 56, %324 ], [ 52, %325 ], [ 32, %319 ], [ 36, %326 ], [ %spec.select576, %327 ]
   %330 = load i32, ptr @hf_geonw_ch, align 4
   %331 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %330, ptr noundef %.051112, i32 noundef %.251811, i32 noundef 8, i32 noundef 0)
   %332 = load i32, ptr @ett_geonw_ch, align 4
@@ -3358,7 +3358,7 @@ transaction_start.exit:                           ; preds = %966, %proto_item_se
   br label %.thread17
 
 .thread17:                                        ; preds = %dissect_secured_message.exit, %.thread, %997, %1012, %1015, %1009, %1006, %1003
-  %.051113 = phi ptr [ %.051112, %1003 ], [ %.051112, %1006 ], [ %.051112, %1009 ], [ %.051112, %1015 ], [ %.051112, %1012 ], [ %.051112, %997 ], [ %0, %.thread ], [ %0, %dissect_secured_message.exit ]
+  %.051113 = phi ptr [ %0, %.thread ], [ %.051112, %1003 ], [ %.051112, %1006 ], [ %.051112, %1009 ], [ %.051112, %1015 ], [ %.051112, %1012 ], [ %.051112, %997 ], [ %0, %dissect_secured_message.exit ]
   %1017 = call i32 @tvb_captured_length(ptr noundef %.051113)
   br label %1018
 
@@ -4416,7 +4416,7 @@ dissect_sec_subject_attributes.exit:              ; preds = %108, %137, %154, %1
   br label %dissect_sec_geographicregion.exit.i
 
 dissect_sec_geographicregion.exit.i:              ; preds = %.lr.ph.i.i.i, %288, %278, %266, %249, %236, %230
-  %295 = phi i32 [ %234, %230 ], [ %248, %236 ], [ %265, %249 ], [ %.pn.pre.i.i.i, %266 ], [ %.pre.pre.i, %278 ], [ %294, %288 ], [ %276, %.lr.ph.i.i.i ]
+  %295 = phi i32 [ %294, %288 ], [ %234, %230 ], [ %248, %236 ], [ %265, %249 ], [ %.pn.pre.i.i.i, %266 ], [ %.pre.pre.i, %278 ], [ %276, %.lr.ph.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %dissect_sec_validity_restrictions.exit
 

@@ -693,7 +693,7 @@ define dso_local range(i32 -1, 1) i32 @wait_fd_readable(i32 noundef %0, i32 noun
   br i1 %27, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 28:                                               ; preds = %._crit_edge, %19, %14
-  %.08 = phi i32 [ -1, %14 ], [ -1, %19 ], [ %., %._crit_edge ]
+  %.08 = phi i32 [ %., %._crit_edge ], [ -1, %19 ], [ -1, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.08
 }
@@ -1142,7 +1142,7 @@ _mkdir.exit.thread:                               ; preds = %10, %.lr.ph, %_mkdi
   br label %_mkdir.exit14
 
 _mkdir.exit14:                                    ; preds = %_mkdir.exit, %30, %27, %23, %21, %._crit_edge
-  %.1 = phi i32 [ 0, %._crit_edge ], [ 0, %21 ], [ 0, %23 ], [ %25, %30 ], [ %25, %27 ], [ %12, %_mkdir.exit ]
+  %.1 = phi i32 [ %25, %27 ], [ 0, %._crit_edge ], [ 0, %21 ], [ 0, %23 ], [ %25, %30 ], [ %12, %_mkdir.exit ]
   call void @slurm_xfree(ptr noundef nonnull %4) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1
@@ -1276,7 +1276,7 @@ sub_136:                                          ; preds = %.tail
   br label %52
 
 52:                                               ; preds = %50, %47, %46, %25, %28, %19, %22, %.tail, %.tail34, %36
-  %.1 = phi i32 [ %37, %36 ], [ %.02539, %.tail34 ], [ %.02539, %.tail ], [ %.02539, %22 ], [ %.02539, %19 ], [ %.02539, %28 ], [ %.02539, %25 ], [ %42, %47 ], [ %42, %46 ], [ %51, %50 ]
+  %.1 = phi i32 [ %.02539, %.tail ], [ %.02539, %19 ], [ %37, %36 ], [ %.02539, %25 ], [ %.02539, %.tail34 ], [ %.02539, %22 ], [ %.02539, %28 ], [ %42, %47 ], [ %42, %46 ], [ %51, %50 ]
   %53 = tail call ptr @readdir(ptr noundef nonnull %2) #10
   %.not28 = icmp eq ptr %53, null
   br i1 %.not28, label %._crit_edge, label %sub_0
@@ -1512,7 +1512,7 @@ define dso_local i32 @fd_get_readable_bytes(i32 noundef %0, ptr noundef %1, ptr 
   br label %89
 
 89:                                               ; preds = %74, %88, %75, %60, %73, %44, %57, %25, %40, %11, %22
-  %.0 = phi i32 [ 22, %22 ], [ 22, %11 ], [ %27, %40 ], [ %27, %25 ], [ 38, %57 ], [ 38, %44 ], [ 38, %73 ], [ 38, %60 ], [ 0, %75 ], [ 0, %88 ], [ 0, %74 ]
+  %.0 = phi i32 [ 38, %60 ], [ 22, %11 ], [ %27, %25 ], [ 38, %44 ], [ 22, %22 ], [ %27, %40 ], [ 38, %57 ], [ 38, %73 ], [ 0, %75 ], [ 0, %88 ], [ 0, %74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -1736,7 +1736,7 @@ define dso_local i32 @fd_get_buffered_output_bytes(i32 noundef %0, ptr noundef %
   br label %88
 
 88:                                               ; preds = %74, %87, %60, %73, %44, %57, %25, %40, %11, %22
-  %.0 = phi i32 [ 22, %22 ], [ 22, %11 ], [ %27, %40 ], [ %27, %25 ], [ 38, %57 ], [ 38, %44 ], [ 38, %73 ], [ 38, %60 ], [ 0, %87 ], [ 0, %74 ]
+  %.0 = phi i32 [ 38, %60 ], [ 22, %11 ], [ %27, %25 ], [ 38, %44 ], [ 22, %22 ], [ %27, %40 ], [ 38, %57 ], [ 38, %73 ], [ 0, %87 ], [ 0, %74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

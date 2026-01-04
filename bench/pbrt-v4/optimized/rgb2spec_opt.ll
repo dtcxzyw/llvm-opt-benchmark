@@ -304,7 +304,7 @@ define dso_local noundef range(i32 0, 2) i32 @_Z12LUPDecomposePPdidPi(ptr nounde
   br i1 %exitcond111.not, label %.loopexit, label %.lr.ph85.us, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %20, %.loopexit, %4, %.preheader78
-  %.0 = phi i32 [ 1, %.preheader78 ], [ 1, %4 ], [ 1, %.loopexit ], [ 0, %20 ]
+  %.0 = phi i32 [ 1, %.preheader78 ], [ 1, %4 ], [ 0, %20 ], [ 1, %.loopexit ]
   ret i32 %.0
 }
 
@@ -675,7 +675,7 @@ define dso_local void @_Z11init_tables5Gamut(i32 noundef %0) local_unnamed_addr 
   br label %63
 
 63:                                               ; preds = %59, %19, %19
-  %.039 = phi double [ 6.250000e-01, %19 ], [ 6.250000e-01, %19 ], [ %., %59 ]
+  %.039 = phi double [ 6.250000e-01, %19 ], [ %., %59 ], [ 6.250000e-01, %19 ]
   %64 = getelementptr inbounds nuw double, ptr @lambda_tbl, i64 %indvars.iv62
   store double %23, ptr %64, align 8, !tbaa !4
   %invariant.gep = getelementptr inbounds nuw double, ptr @rgb_tbl, i64 %indvars.iv62
@@ -1663,7 +1663,7 @@ _ZNSt6threadD2Ev.exit:                            ; preds = %_ZNSt6vectorISt6thr
   unreachable
 
 .body:                                            ; preds = %58, %56, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i8.i, %22
-  %.pn = phi { ptr, i32 } [ %57, %56 ], [ %23, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i8.i ], [ %23, %22 ], [ %lpad.phi, %58 ]
+  %.pn = phi { ptr, i32 } [ %23, %22 ], [ %57, %56 ], [ %23, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i8.i ], [ %lpad.phi, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZNSt6vectorISt6threadSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #35
   call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #35
@@ -1849,7 +1849,7 @@ _ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i:        ; preds = %thread-pre-split, %
   unreachable
 
 _ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i: ; preds = %18, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %1, %thread-pre-split
-  %21 = phi ptr [ %.pr.pre, %thread-pre-split ], [ %14, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ], [ %3, %1 ], [ %.pr.pre, %18 ]
+  %21 = phi ptr [ %3, %1 ], [ %.pr.pre, %thread-pre-split ], [ %14, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ], [ %.pr.pre, %18 ]
   %.not.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorISt6threadSaIS0_EED2Ev.exit, label %22
 
@@ -2424,8 +2424,8 @@ _ZL11parse_gamutPKc.exit:                         ; preds = %26
   tail call void @exit(i32 noundef -1) #40
   unreachable
 
-select.unfold:                                    ; preds = %26, %11, %12, %16, %18, %20, %22, %24
-  %.058.ph = phi i32 [ 3, %24 ], [ 2, %22 ], [ 1, %20 ], [ 5, %18 ], [ 4, %16 ], [ 0, %12 ], [ 0, %11 ], [ 6, %26 ]
+select.unfold:                                    ; preds = %26, %11, %24, %22, %20, %18, %16, %12
+  %.058.ph = phi i32 [ 0, %11 ], [ 0, %12 ], [ 4, %16 ], [ 5, %18 ], [ 1, %20 ], [ 2, %22 ], [ 3, %24 ], [ 6, %26 ]
   tail call void @_Z11init_tables5Gamut(i32 noundef %.058.ph)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8

@@ -360,8 +360,8 @@ round_digit.exit94.i.i:                           ; preds = %.critedge2.i91.i.i,
   br i1 %.not.i35.i, label %grisu2.exit, label %.preheader.i.i
 
 grisu2.exit:                                      ; preds = %161, %.critedge2.i.i.i, %184, %round_digit.exit94.i.i, %150
-  %.2 = phi i32 [ %151, %150 ], [ %.1, %round_digit.exit94.i.i ], [ %185, %184 ], [ %151, %.critedge2.i.i.i ], [ %151, %161 ]
-  %.2.i.i = phi i32 [ %.179.i.i, %150 ], [ %.4.i.i, %round_digit.exit94.i.i ], [ %.381.i.i, %184 ], [ %.179.i.i, %.critedge2.i.i.i ], [ %.179.i.i, %161 ]
+  %.2 = phi i32 [ %151, %150 ], [ %185, %184 ], [ %.1, %round_digit.exit94.i.i ], [ %151, %.critedge2.i.i.i ], [ %151, %161 ]
+  %.2.i.i = phi i32 [ %.179.i.i, %150 ], [ %.381.i.i, %184 ], [ %.4.i.i, %round_digit.exit94.i.i ], [ %.179.i.i, %.critedge2.i.i.i ], [ %.179.i.i, %161 ]
   %206 = add nsw i32 %.2.i.i, %.2
   %207 = icmp slt i32 %206, 1
   %208 = sub nsw i32 1, %206
@@ -508,7 +508,7 @@ grisu2.exit:                                      ; preds = %161, %.critedge2.i.
   br label %emit_digits.exit
 
 emit_digits.exit:                                 ; preds = %18, %19, %10, %286, %233, %224, %214
-  %.pn = phi i32 [ %206, %214 ], [ %290, %286 ], [ %232, %224 ], [ %240, %233 ], [ 3, %18 ], [ 3, %19 ], [ 1, %10 ]
+  %.pn = phi i32 [ %240, %233 ], [ %206, %214 ], [ %290, %286 ], [ %232, %224 ], [ 3, %18 ], [ 3, %19 ], [ 1, %10 ]
   %.0 = add nsw i32 %.pn, %.016
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

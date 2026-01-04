@@ -151,7 +151,7 @@ define internal range(i32 0, 2) i32 @test_kdf_tls1_prf(i32 noundef %0) #0 {
   br label %41
 
 41:                                               ; preds = %39, %38, %34, %30, %26, %20, %16, %11, %7
-  %.012 = phi i32 [ 0, %7 ], [ 0, %11 ], [ 0, %16 ], [ 0, %20 ], [ 0, %26 ], [ 0, %38 ], [ 0, %30 ], [ 0, %34 ], [ %spec.select, %39 ]
+  %.012 = phi i32 [ 0, %7 ], [ 0, %11 ], [ 0, %16 ], [ 0, %20 ], [ 0, %26 ], [ 0, %38 ], [ 0, %34 ], [ %spec.select, %39 ], [ 0, %30 ]
   call void @EVP_PKEY_CTX_free(ptr noundef %5) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -261,7 +261,7 @@ define internal range(i32 0, 2) i32 @test_kdf_hkdf(i32 noundef %0) #0 {
   br label %45
 
 45:                                               ; preds = %43, %42, %38, %34, %30, %24, %20, %16, %11, %7
-  %.013 = phi i32 [ 0, %7 ], [ 0, %11 ], [ 0, %16 ], [ 0, %20 ], [ 0, %24 ], [ 0, %30 ], [ 0, %42 ], [ 0, %34 ], [ 0, %38 ], [ %spec.select, %43 ]
+  %.013 = phi i32 [ 0, %7 ], [ 0, %11 ], [ 0, %16 ], [ 0, %20 ], [ 0, %24 ], [ 0, %30 ], [ 0, %42 ], [ 0, %38 ], [ %spec.select, %43 ], [ 0, %34 ]
   call void @EVP_PKEY_CTX_free(ptr noundef %5) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

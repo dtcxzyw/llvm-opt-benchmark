@@ -1637,8 +1637,8 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   br label %198
 
 198:                                              ; preds = %33, %197
-  %.046 = phi i32 [ %.248, %197 ], [ %36, %33 ]
-  %.044 = phi ptr [ %.2, %197 ], [ %35, %33 ]
+  %.046 = phi i32 [ %36, %33 ], [ %.248, %197 ]
+  %.044 = phi ptr [ %35, %33 ], [ %.2, %197 ]
   %199 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI12z3_exception) #22
   %200 = icmp eq i32 %.046, %199
   br i1 %200, label %201, label %210

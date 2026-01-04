@@ -201,7 +201,7 @@ define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhi
   br label %"_ZN9uv_pep5086cursor6Cursor10peek_while28_$u7b$$u7b$closure$u7d$$u7d$17hdb2e4f3158f48d60E.exit.i.i"
 
 "_ZN9uv_pep5086cursor6Cursor10peek_while28_$u7b$$u7b$closure$u7d$$u7d$17hdb2e4f3158f48d60E.exit.i.i": ; preds = %64, %59, %56, %53
-  %.sroa.0.0.i.i.i.i.i = phi i8 [ %63, %59 ], [ %55, %53 ], [ %69, %64 ], [ %58, %56 ]
+  %.sroa.0.0.i.i.i.i.i = phi i8 [ %58, %56 ], [ %63, %59 ], [ %55, %53 ], [ %69, %64 ]
   %70 = trunc i8 %.sroa.0.0.i.i.i.i.i to i1
   br i1 %70, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h80f45ecaf4675966E.exit, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17ha4ed5bf8892d4bb8E.exit.i"
 
@@ -505,7 +505,7 @@ define internal fastcc void @"_ZN4core3ptr101drop_in_place$LT$uv_pep508..Pep508E
   unreachable
 
 common.resume.i:                                  ; preds = %174, %142, %84
-  %common.resume.op.i = phi { ptr, i32 } [ %85, %84 ], [ %143, %142 ], [ %175, %174 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %143, %142 ], [ %85, %84 ], [ %175, %174 ]
   resume { ptr, i32 } %common.resume.op.i
 
 "_ZN4core3ptr51drop_in_place$LT$uv_git_types..GitUrlParseError$GT$17h4f60cb1b407e42feE.exit.i": ; preds = %92, %87
@@ -819,7 +819,7 @@ define hidden noundef zeroext i1 @_ZN4core7unicode12unicode_data11white_space6lo
   br label %14
 
 14:                                               ; preds = %1, %16, %9, %6, %3
-  %.sroa.0.0 = phi i8 [ %13, %9 ], [ %5, %3 ], [ %21, %16 ], [ %8, %6 ], [ 0, %1 ]
+  %.sroa.0.0 = phi i8 [ %8, %6 ], [ %13, %9 ], [ %5, %3 ], [ %21, %16 ], [ 0, %1 ]
   %15 = trunc i8 %.sroa.0.0 to i1
   ret i1 %15
 
@@ -1395,7 +1395,7 @@ define hidden { i64, i64 } @_ZN9uv_pep5086cursor6Cursor10peek_while17h06eb812a42
   br label %"_ZN9uv_pep5086cursor6Cursor10peek_while28_$u7b$$u7b$closure$u7d$$u7d$17hdb2e4f3158f48d60E.exit.i.i.i"
 
 "_ZN9uv_pep5086cursor6Cursor10peek_while28_$u7b$$u7b$closure$u7d$$u7d$17hdb2e4f3158f48d60E.exit.i.i.i": ; preds = %63, %58, %55, %52
-  %.sroa.0.0.i.i.i.i.i.i = phi i8 [ %62, %58 ], [ %54, %52 ], [ %68, %63 ], [ %57, %55 ]
+  %.sroa.0.0.i.i.i.i.i.i = phi i8 [ %57, %55 ], [ %62, %58 ], [ %54, %52 ], [ %68, %63 ]
   %69 = trunc i8 %.sroa.0.0.i.i.i.i.i.i to i1
   br i1 %69, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h33821acfa4646c06E.llvm.9592538028445375613.exit", label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17ha4ed5bf8892d4bb8E.exit.i.i"
 
@@ -1405,7 +1405,7 @@ define hidden { i64, i64 } @_ZN9uv_pep5086cursor6Cursor10peek_while17h06eb812a42
   br i1 %71, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h33821acfa4646c06E.llvm.9592538028445375613.exit", label %.lr.ph.i.i
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h33821acfa4646c06E.llvm.9592538028445375613.exit": ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread.i.i", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread.i.i", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread.i.i", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread.i.i", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread.i.i", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread.i.i", %"_ZN9uv_pep5086cursor6Cursor10peek_while28_$u7b$$u7b$closure$u7d$$u7d$17hdb2e4f3158f48d60E.exit.i.i.i", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.i.i", %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17ha4ed5bf8892d4bb8E.exit.i.i", %1
-  %.sroa.0.0.i = phi i64 [ 0, %1 ], [ %.sroa.01.016.i.i, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread.i.i" ], [ %.sroa.01.016.i.i, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread.i.i" ], [ %.sroa.01.016.i.i, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread.i.i" ], [ %.sroa.01.016.i.i, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread.i.i" ], [ %.sroa.01.016.i.i, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread.i.i" ], [ %.sroa.01.016.i.i, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread.i.i" ], [ %.sroa.01.016.i.i, %"_ZN9uv_pep5086cursor6Cursor10peek_while28_$u7b$$u7b$closure$u7d$$u7d$17hdb2e4f3158f48d60E.exit.i.i.i" ], [ %.sroa.01.016.i.i, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.i.i" ], [ %70, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17ha4ed5bf8892d4bb8E.exit.i.i" ]
+  %.sroa.0.0.i = phi i64 [ 0, %1 ], [ %.sroa.01.016.i.i, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread.i.i" ], [ %.sroa.01.016.i.i, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread.i.i" ], [ %.sroa.01.016.i.i, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread.i.i" ], [ %.sroa.01.016.i.i, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread.i.i" ], [ %.sroa.01.016.i.i, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread.i.i" ], [ %.sroa.01.016.i.i, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread.i.i" ], [ %.sroa.01.016.i.i, %"_ZN9uv_pep5086cursor6Cursor10peek_while28_$u7b$$u7b$closure$u7d$$u7d$17hdb2e4f3158f48d60E.exit.i.i.i" ], [ %70, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17ha4ed5bf8892d4bb8E.exit.i.i" ], [ %.sroa.01.016.i.i, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.i.i" ]
   %72 = insertvalue { i64, i64 } poison, i64 %6, 0
   %73 = insertvalue { i64, i64 } %72, i64 %.sroa.0.0.i, 1
   ret { i64, i64 } %73
@@ -1468,7 +1468,7 @@ define hidden { i64, i64 } @_ZN9uv_pep5086cursor6Cursor10take_while17h0dc99ae0fd
   br label %"_ZN9uv_pep5086marker5parse15parse_marker_op28_$u7b$$u7b$closure$u7d$$u7d$17hfbeae9431a9cd700E.llvm.9592538028445375613.exit"
 
 "_ZN9uv_pep5086marker5parse15parse_marker_op28_$u7b$$u7b$closure$u7d$$u7d$17hfbeae9431a9cd700E.llvm.9592538028445375613.exit": ; preds = %9, %12, %15, %20
-  %.sroa.0.0.i.i = phi i8 [ %19, %15 ], [ %11, %9 ], [ %25, %20 ], [ %14, %12 ]
+  %.sroa.0.0.i.i = phi i8 [ %14, %12 ], [ %19, %15 ], [ %11, %9 ], [ %25, %20 ]
   %26 = trunc i8 %.sroa.0.0.i.i to i1
   br i1 %26, label %"_ZN9uv_pep5086marker5parse15parse_marker_op28_$u7b$$u7b$closure$u7d$$u7d$17hfbeae9431a9cd700E.llvm.9592538028445375613.exit.thread7", label %"_ZN9uv_pep5086marker5parse15parse_marker_op28_$u7b$$u7b$closure$u7d$$u7d$17hfbeae9431a9cd700E.llvm.9592538028445375613.exit.thread9"
 
@@ -1492,7 +1492,7 @@ define hidden { i64, i64 } @_ZN9uv_pep5086cursor6Cursor10take_while17h0dc99ae0fd
   br label %35
 
 35:                                               ; preds = %27, %"_ZN9uv_pep5086marker5parse15parse_marker_op28_$u7b$$u7b$closure$u7d$$u7d$17hfbeae9431a9cd700E.llvm.9592538028445375613.exit.thread9", %33
-  %.sroa.02.0 = phi i64 [ 1, %27 ], [ %., %33 ], [ 2, %"_ZN9uv_pep5086marker5parse15parse_marker_op28_$u7b$$u7b$closure$u7d$$u7d$17hfbeae9431a9cd700E.llvm.9592538028445375613.exit.thread9" ]
+  %.sroa.02.0 = phi i64 [ 2, %"_ZN9uv_pep5086marker5parse15parse_marker_op28_$u7b$$u7b$closure$u7d$$u7d$17hfbeae9431a9cd700E.llvm.9592538028445375613.exit.thread9" ], [ %., %33 ], [ 1, %27 ]
   %36 = add i64 %.sroa.02.0, %.sroa.03.0
   br label %3
 }
@@ -1554,7 +1554,7 @@ define hidden { i64, i64 } @_ZN9uv_pep5086cursor6Cursor10take_while17h46fa8e9c8d
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.llvm.9592538028445375613.exit.i
 
 _ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.llvm.9592538028445375613.exit.i: ; preds = %20, %15, %12, %9
-  %.sroa.0.0.i.i = phi i8 [ %19, %15 ], [ %11, %9 ], [ %25, %20 ], [ %14, %12 ]
+  %.sroa.0.0.i.i = phi i8 [ %14, %12 ], [ %19, %15 ], [ %11, %9 ], [ %25, %20 ]
   %26 = trunc i8 %.sroa.0.0.i.i to i1
   br i1 %26, label %"_ZN9uv_pep5086marker5parse18parse_marker_value28_$u7b$$u7b$closure$u7d$$u7d$17h8e1cb9ff27f8ceeeE.llvm.9592538028445375613.exit.thread", label %_ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.llvm.9592538028445375613.exit.thread.i
 
@@ -1588,7 +1588,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.llvm.9592
   br label %35
 
 35:                                               ; preds = %31, %33, %"_ZN9uv_pep5086marker5parse18parse_marker_value28_$u7b$$u7b$closure$u7d$$u7d$17h8e1cb9ff27f8ceeeE.llvm.9592538028445375613.exit"
-  %.sroa.02.0 = phi i64 [ 1, %"_ZN9uv_pep5086marker5parse18parse_marker_value28_$u7b$$u7b$closure$u7d$$u7d$17h8e1cb9ff27f8ceeeE.llvm.9592538028445375613.exit" ], [ %., %33 ], [ 2, %31 ]
+  %.sroa.02.0 = phi i64 [ 2, %31 ], [ %., %33 ], [ 1, %"_ZN9uv_pep5086marker5parse18parse_marker_value28_$u7b$$u7b$closure$u7d$$u7d$17h8e1cb9ff27f8ceeeE.llvm.9592538028445375613.exit" ]
   %36 = add i64 %.sroa.02.0, %.sroa.03.0
   br label %3
 }
@@ -1643,7 +1643,7 @@ define hidden { i64, i64 } @_ZN9uv_pep5086cursor6Cursor10take_while17h54e5e44a04
   br label %20
 
 20:                                               ; preds = %.thread, %16, %18, %11
-  %.sroa.02.0 = phi i64 [ 1, %11 ], [ %., %18 ], [ 2, %16 ], [ 1, %.thread ]
+  %.sroa.02.0 = phi i64 [ 2, %16 ], [ %., %18 ], [ 1, %11 ], [ 1, %.thread ]
   %21 = add i64 %.sroa.02.0, %.sroa.03.07
   %22 = tail call noundef i32 @_ZN9uv_pep5086cursor6Cursor9peek_char17h1acafaa64d0fc738E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0)
   %23 = icmp eq i32 %22, 1114112
@@ -1707,7 +1707,7 @@ define hidden { i64, i64 } @_ZN9uv_pep5086cursor6Cursor10take_while17h764b0170d4
   br label %"_ZN9uv_pep5086marker5parse21parse_version_in_expr28_$u7b$$u7b$closure$u7d$$u7d$17h63d1e41c331cb703E.llvm.9592538028445375613.exit"
 
 "_ZN9uv_pep5086marker5parse21parse_version_in_expr28_$u7b$$u7b$closure$u7d$$u7d$17h63d1e41c331cb703E.llvm.9592538028445375613.exit": ; preds = %9, %12, %15, %20
-  %.sroa.0.0.i.i = phi i8 [ %19, %15 ], [ %11, %9 ], [ %25, %20 ], [ %14, %12 ]
+  %.sroa.0.0.i.i = phi i8 [ %14, %12 ], [ %19, %15 ], [ %11, %9 ], [ %25, %20 ]
   %26 = trunc i8 %.sroa.0.0.i.i to i1
   br i1 %26, label %"_ZN9uv_pep5086marker5parse21parse_version_in_expr28_$u7b$$u7b$closure$u7d$$u7d$17h63d1e41c331cb703E.llvm.9592538028445375613.exit.thread7", label %"_ZN9uv_pep5086marker5parse21parse_version_in_expr28_$u7b$$u7b$closure$u7d$$u7d$17h63d1e41c331cb703E.llvm.9592538028445375613.exit.thread9"
 
@@ -1731,7 +1731,7 @@ define hidden { i64, i64 } @_ZN9uv_pep5086cursor6Cursor10take_while17h764b0170d4
   br label %35
 
 35:                                               ; preds = %27, %"_ZN9uv_pep5086marker5parse21parse_version_in_expr28_$u7b$$u7b$closure$u7d$$u7d$17h63d1e41c331cb703E.llvm.9592538028445375613.exit.thread9", %33
-  %.sroa.02.0 = phi i64 [ 1, %27 ], [ %., %33 ], [ 2, %"_ZN9uv_pep5086marker5parse21parse_version_in_expr28_$u7b$$u7b$closure$u7d$$u7d$17h63d1e41c331cb703E.llvm.9592538028445375613.exit.thread9" ]
+  %.sroa.02.0 = phi i64 [ 2, %"_ZN9uv_pep5086marker5parse21parse_version_in_expr28_$u7b$$u7b$closure$u7d$$u7d$17h63d1e41c331cb703E.llvm.9592538028445375613.exit.thread9" ], [ %., %33 ], [ 1, %27 ]
   %36 = add i64 %.sroa.02.0, %.sroa.03.0
   br label %3
 }
@@ -1769,7 +1769,7 @@ define hidden { i64, i64 } @_ZN9uv_pep5086cursor6Cursor10take_while17ha78b70cfa0
   br label %16
 
 16:                                               ; preds = %12, %14, %.lr.ph
-  %.sroa.02.0 = phi i64 [ 1, %.lr.ph ], [ %., %14 ], [ 2, %12 ]
+  %.sroa.02.0 = phi i64 [ 2, %12 ], [ %., %14 ], [ 1, %.lr.ph ]
   %17 = add i64 %.sroa.02.0, %.sroa.03.08
   %18 = tail call noundef i32 @_ZN9uv_pep5086cursor6Cursor9peek_char17h1acafaa64d0fc738E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0)
   %19 = icmp eq i32 %18, 1114112
@@ -1855,7 +1855,7 @@ define hidden { i64, i64 } @_ZN9uv_pep5086cursor6Cursor10take_while17hdbfabe40d7
   br label %20
 
 20:                                               ; preds = %.thread, %16, %18, %11
-  %.sroa.02.0 = phi i64 [ 1, %11 ], [ %., %18 ], [ 2, %16 ], [ 1, %.thread ]
+  %.sroa.02.0 = phi i64 [ 2, %16 ], [ %., %18 ], [ 1, %11 ], [ 1, %.thread ]
   %21 = add i64 %.sroa.02.0, %.sroa.03.07
   %22 = tail call noundef i32 @_ZN9uv_pep5086cursor6Cursor9peek_char17h1acafaa64d0fc738E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0)
   %23 = icmp eq i32 %22, 1114112
@@ -1919,7 +1919,7 @@ define hidden { i64, i64 } @_ZN9uv_pep5086cursor6Cursor10take_while17hdfc18f4e08
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.llvm.9592538028445375613.exit.i
 
 _ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.llvm.9592538028445375613.exit.i: ; preds = %20, %15, %12, %9
-  %.sroa.0.0.i.i = phi i8 [ %19, %15 ], [ %11, %9 ], [ %25, %20 ], [ %14, %12 ]
+  %.sroa.0.0.i.i = phi i8 [ %14, %12 ], [ %19, %15 ], [ %11, %9 ], [ %25, %20 ]
   %26 = trunc i8 %.sroa.0.0.i.i to i1
   br i1 %26, label %"_ZN9uv_pep5086marker5parse21parse_marker_operator28_$u7b$$u7b$closure$u7d$$u7d$17h0cf6b2041911bdc0E.llvm.9592538028445375613.exit.thread", label %31
 
@@ -1949,7 +1949,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.llvm.9592
   br label %36
 
 36:                                               ; preds = %.thread, %31, %34
-  %.sroa.02.0 = phi i64 [ %., %34 ], [ 2, %31 ], [ 1, %.thread ]
+  %.sroa.02.0 = phi i64 [ 2, %31 ], [ %., %34 ], [ 1, %.thread ]
   %37 = add i64 %.sroa.02.0, %.sroa.03.0
   br label %3
 }
@@ -2127,7 +2127,7 @@ define hidden void @_ZN9uv_pep5086cursor6Cursor16next_expect_char17hf420d8e47cfc
   br label %49
 
 49:                                               ; preds = %45, %47, %39
-  %.sroa.06.0 = phi i64 [ 1, %39 ], [ %., %47 ], [ 2, %45 ]
+  %.sroa.06.0 = phi i64 [ 2, %45 ], [ %., %47 ], [ 1, %39 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !340
   store i64 0, ptr %7, align 8, !noalias !340
   %.sroa.42.0..sroa_idx.i24 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -2242,13 +2242,13 @@ define hidden noundef zeroext i1 @"_ZN9uv_pep5086marker5parse15parse_marker_op28
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.llvm.9592538028445375613.exit
 
 _ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.llvm.9592538028445375613.exit: ; preds = %6, %8, %11, %14, %19
-  %.sroa.0.0.i = phi i8 [ %18, %14 ], [ %10, %8 ], [ %24, %19 ], [ %13, %11 ], [ 0, %6 ]
+  %.sroa.0.0.i = phi i8 [ %13, %11 ], [ %18, %14 ], [ %10, %8 ], [ %24, %19 ], [ 0, %6 ]
   %25 = trunc i8 %.sroa.0.0.i to i1
   %26 = xor i1 %25, true
   br label %switch.lookup
 
 switch.lookup:                                    ; preds = %2, %4, %_ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.llvm.9592538028445375613.exit
-  %.sroa.0.0 = phi i1 [ %26, %_ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.llvm.9592538028445375613.exit ], [ true, %4 ], [ false, %2 ]
+  %.sroa.0.0 = phi i1 [ true, %4 ], [ %26, %_ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.llvm.9592538028445375613.exit ], [ false, %2 ]
   ret i1 %.sroa.0.0
 }
 
@@ -2308,7 +2308,7 @@ define hidden noundef zeroext i1 @"_ZN9uv_pep5086marker5parse18parse_marker_valu
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.llvm.9592538028445375613.exit
 
 _ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.llvm.9592538028445375613.exit: ; preds = %8, %11, %14, %19
-  %.sroa.0.0.i = phi i8 [ %18, %14 ], [ %10, %8 ], [ %24, %19 ], [ %13, %11 ]
+  %.sroa.0.0.i = phi i8 [ %13, %11 ], [ %18, %14 ], [ %10, %8 ], [ %24, %19 ]
   %25 = trunc i8 %.sroa.0.0.i to i1
   br i1 %25, label %switch.lookup, label %_ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.llvm.9592538028445375613.exit.thread
 
@@ -2326,7 +2326,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.llvm.9592
   br label %switch.lookup
 
 switch.lookup:                                    ; preds = %2, %26, %_ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.llvm.9592538028445375613.exit.thread, %_ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.llvm.9592538028445375613.exit
-  %.sroa.0.0 = phi i1 [ false, %_ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.llvm.9592538028445375613.exit ], [ false, %26 ], [ true, %_ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.llvm.9592538028445375613.exit.thread ], [ false, %2 ]
+  %.sroa.0.0 = phi i1 [ false, %_ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.llvm.9592538028445375613.exit ], [ true, %_ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.llvm.9592538028445375613.exit.thread ], [ false, %26 ], [ false, %2 ]
   ret i1 %.sroa.0.0
 }
 
@@ -2378,7 +2378,7 @@ define hidden noundef zeroext i1 @"_ZN9uv_pep5086marker5parse21parse_marker_oper
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.llvm.9592538028445375613.exit
 
 _ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.llvm.9592538028445375613.exit: ; preds = %8, %11, %14, %19
-  %.sroa.0.0.i = phi i8 [ %18, %14 ], [ %10, %8 ], [ %24, %19 ], [ %13, %11 ]
+  %.sroa.0.0.i = phi i8 [ %13, %11 ], [ %18, %14 ], [ %10, %8 ], [ %24, %19 ]
   %25 = trunc i8 %.sroa.0.0.i to i1
   br i1 %25, label %switch.lookup, label %_ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.llvm.9592538028445375613.exit.thread
 
@@ -2391,7 +2391,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.llvm.9592
   br label %switch.lookup
 
 switch.lookup:                                    ; preds = %2, %_ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.llvm.9592538028445375613.exit, %26, %_ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.llvm.9592538028445375613.exit.thread
-  %.sroa.0.0 = phi i1 [ %27, %_ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.llvm.9592538028445375613.exit.thread ], [ false, %26 ], [ false, %_ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.llvm.9592538028445375613.exit ], [ false, %2 ]
+  %.sroa.0.0 = phi i1 [ %27, %_ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.llvm.9592538028445375613.exit.thread ], [ false, %_ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.llvm.9592538028445375613.exit ], [ false, %26 ], [ false, %2 ]
   ret i1 %.sroa.0.0
 }
 
@@ -2461,13 +2461,13 @@ define hidden noundef zeroext i1 @"_ZN9uv_pep5086marker5parse21parse_version_in_
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.llvm.9592538028445375613.exit
 
 _ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.llvm.9592538028445375613.exit: ; preds = %6, %8, %11, %14, %19
-  %.sroa.0.0.i = phi i8 [ %18, %14 ], [ %10, %8 ], [ %24, %19 ], [ %13, %11 ], [ 0, %6 ]
+  %.sroa.0.0.i = phi i8 [ %13, %11 ], [ %18, %14 ], [ %10, %8 ], [ %24, %19 ], [ 0, %6 ]
   %25 = trunc i8 %.sroa.0.0.i to i1
   %26 = xor i1 %25, true
   br label %switch.lookup
 
 switch.lookup:                                    ; preds = %2, %4, %_ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.llvm.9592538028445375613.exit
-  %.sroa.0.0 = phi i1 [ %26, %_ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.llvm.9592538028445375613.exit ], [ true, %4 ], [ false, %2 ]
+  %.sroa.0.0 = phi i1 [ true, %4 ], [ %26, %_ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.llvm.9592538028445375613.exit ], [ false, %2 ]
   ret i1 %.sroa.0.0
 }
 

@@ -170,8 +170,8 @@ cconv_childqual.exit54:                           ; preds = %.preheader
   %or.cond45 = or i1 %62, %.not43
   br i1 %or.cond45, label %63, label %.thread
 
-.thread:                                          ; preds = %58, %36, %40, %42, %46, %45, %53, %61
-  %.029.ph = phi i32 [ 0, %61 ], [ 0, %53 ], [ 0, %45 ], [ 0, %46 ], [ 1, %42 ], [ 0, %40 ], [ 0, %36 ], [ %60, %58 ]
+.thread:                                          ; preds = %40, %42, %45, %58, %53, %36, %46, %61
+  %.029.ph = phi i32 [ 0, %61 ], [ 0, %46 ], [ 0, %40 ], [ 0, %36 ], [ 0, %53 ], [ %60, %58 ], [ 0, %45 ], [ 1, %42 ]
   br label %63
 
 63:                                               ; preds = %4, %53, %61, %.thread
@@ -322,9 +322,9 @@ define hidden void @lj_cconv_ct_ct(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %cdata_setptr.exit
 
 57:                                               ; preds = %226, %111, %16, %16, %115
-  %.0236 = phi i32 [ %13, %16 ], [ %13, %16 ], [ 8388608, %115 ], [ 8388608, %111 ], [ %13, %226 ]
-  %.0229 = phi i32 [ %11, %16 ], [ %11, %16 ], [ 8, %115 ], [ %11, %111 ], [ %11, %226 ]
-  %.0221 = phi ptr [ %4, %16 ], [ %4, %16 ], [ %7, %115 ], [ %4, %111 ], [ %4, %226 ]
+  %.0236 = phi i32 [ %13, %16 ], [ %13, %16 ], [ 8388608, %111 ], [ 8388608, %115 ], [ %13, %226 ]
+  %.0229 = phi i32 [ %11, %16 ], [ %11, %16 ], [ %11, %111 ], [ 8, %115 ], [ %11, %226 ]
+  %.0221 = phi ptr [ %4, %16 ], [ %4, %16 ], [ %4, %111 ], [ %7, %115 ], [ %4, %226 ]
   %58 = icmp ugt i32 %9, %.0229
   br i1 %58, label %59, label %72
 
@@ -781,8 +781,8 @@ cdata_getptr.exit:                                ; preds = %237, %241
   br label %cdata_setptr.exit
 
 270:                                              ; preds = %45, %166, %160, %154, %74, %16, %264, %266, %256, %258, %262, %248, %233, %228, %226, %225, %146, %113, %111, %95, %6
-  %.0217 = phi ptr [ %2, %6 ], [ %2, %16 ], [ %.1218, %95 ], [ %2, %111 ], [ %2, %113 ], [ %2, %146 ], [ %2, %225 ], [ %2, %226 ], [ %2, %228 ], [ %2, %233 ], [ %2, %248 ], [ %2, %256 ], [ %2, %258 ], [ %2, %262 ], [ %2, %264 ], [ %2, %266 ], [ %.1218, %74 ], [ %2, %154 ], [ %.2219, %160 ], [ %.2219, %166 ], [ %2, %45 ]
-  %.0 = phi ptr [ %1, %6 ], [ %1, %16 ], [ %1, %95 ], [ %1, %111 ], [ %1, %113 ], [ %.1, %146 ], [ %1, %225 ], [ %1, %226 ], [ %1, %228 ], [ %1, %233 ], [ %1, %248 ], [ %1, %256 ], [ %1, %258 ], [ %1, %262 ], [ %1, %264 ], [ %1, %266 ], [ %1, %74 ], [ %.1, %154 ], [ %.2, %160 ], [ %.2, %166 ], [ %1, %45 ]
+  %.0217 = phi ptr [ %2, %6 ], [ %2, %262 ], [ %2, %16 ], [ %2, %45 ], [ %.1218, %95 ], [ %.1218, %74 ], [ %2, %111 ], [ %2, %113 ], [ %2, %154 ], [ %2, %146 ], [ %.2219, %166 ], [ %.2219, %160 ], [ %2, %225 ], [ %2, %226 ], [ %2, %266 ], [ %2, %228 ], [ %2, %233 ], [ %2, %248 ], [ %2, %256 ], [ %2, %258 ], [ %2, %264 ]
+  %.0 = phi ptr [ %1, %6 ], [ %1, %262 ], [ %1, %16 ], [ %1, %45 ], [ %1, %95 ], [ %1, %74 ], [ %1, %111 ], [ %1, %113 ], [ %.1, %154 ], [ %.1, %146 ], [ %.2, %166 ], [ %.2, %160 ], [ %1, %225 ], [ %1, %226 ], [ %1, %266 ], [ %1, %228 ], [ %1, %233 ], [ %1, %248 ], [ %1, %256 ], [ %1, %258 ], [ %1, %264 ]
   tail call fastcc void @cconv_err_conv(ptr noundef %0, ptr noundef nonnull %.0, ptr noundef nonnull %.0217, i32 noundef %5) #9
   unreachable
 
@@ -949,7 +949,7 @@ define hidden range(i32 0, 2) i32 @lj_cconv_tv_ct(ptr noundef %0, ptr noundef %1
   br label %60
 
 60:                                               ; preds = %16, %29, %42, %38
-  %.0 = phi i32 [ 1, %42 ], [ 1, %38 ], [ 0, %29 ], [ 0, %16 ]
+  %.0 = phi i32 [ 1, %38 ], [ 1, %42 ], [ 0, %29 ], [ 0, %16 ]
   ret i32 %.0
 }
 
@@ -981,7 +981,7 @@ define hidden noundef i32 @lj_cconv_tv_bf(ptr noundef readonly captures(none) %0
   br label %16
 
 16:                                               ; preds = %4, %13, %10, %8
-  %.0 = phi i32 [ %9, %8 ], [ %12, %10 ], [ %15, %13 ], [ 0, %4 ]
+  %.0 = phi i32 [ %15, %13 ], [ %9, %8 ], [ %12, %10 ], [ 0, %4 ]
   %17 = and i32 %5, 127
   %18 = lshr i32 %5, 8
   %19 = and i32 %18, 127
@@ -1313,15 +1313,15 @@ lightudV.exit:                                    ; preds = %123, %127
   store ptr %143, ptr %2, align 8, !tbaa !33
   br label %155
 
-.critedge:                                        ; preds = %.thread, %ctype_rawchild.exit, %79, %140, %111, %91
+.critedge:                                        ; preds = %.thread, %79, %ctype_rawchild.exit, %140, %111, %91
   call fastcc void @cconv_err_convtv(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3, i32 noundef %4) #9
   unreachable
 
-.thread147:                                       ; preds = %61, %82, %118, %120, %112, %38, %109, %lightudV.exit, %103, %13
-  %.0113 = phi ptr [ %3, %13 ], [ %.1114, %38 ], [ %8, %103 ], [ %7, %109 ], [ %7, %lightudV.exit ], [ %7, %112 ], [ %7, %120 ], [ %7, %118 ], [ %62, %61 ], [ %83, %82 ]
-  %.0103 = phi i32 [ 14, %13 ], [ %44, %38 ], [ 3, %103 ], [ 17, %109 ], [ 17, %lightudV.exit ], [ 17, %112 ], [ 17, %120 ], [ 17, %118 ], [ %63, %61 ], [ 21, %82 ]
-  %.099 = phi i32 [ %14, %13 ], [ %4, %38 ], [ %4, %103 ], [ %110, %109 ], [ %4, %lightudV.exit ], [ %4, %112 ], [ %4, %120 ], [ %4, %118 ], [ %4, %61 ], [ %84, %82 ]
-  %.0 = phi ptr [ %1, %13 ], [ %47, %38 ], [ %1, %103 ], [ %1, %109 ], [ %1, %lightudV.exit ], [ %1, %112 ], [ %1, %120 ], [ %1, %118 ], [ %1, %61 ], [ %1, %82 ]
+.thread147:                                       ; preds = %82, %61, %118, %120, %112, %38, %109, %lightudV.exit, %103, %13
+  %.0113 = phi ptr [ %3, %13 ], [ %.1114, %38 ], [ %7, %118 ], [ %8, %103 ], [ %7, %109 ], [ %7, %lightudV.exit ], [ %7, %112 ], [ %7, %120 ], [ %62, %61 ], [ %83, %82 ]
+  %.0103 = phi i32 [ 14, %13 ], [ %44, %38 ], [ 17, %118 ], [ 3, %103 ], [ 17, %109 ], [ 17, %lightudV.exit ], [ 17, %112 ], [ 17, %120 ], [ %63, %61 ], [ 21, %82 ]
+  %.099 = phi i32 [ %14, %13 ], [ %4, %38 ], [ %4, %118 ], [ %4, %103 ], [ %110, %109 ], [ %4, %lightudV.exit ], [ %4, %112 ], [ %4, %120 ], [ %4, %61 ], [ %84, %82 ]
+  %.0 = phi ptr [ %1, %13 ], [ %47, %38 ], [ %1, %118 ], [ %1, %103 ], [ %1, %109 ], [ %1, %lightudV.exit ], [ %1, %112 ], [ %1, %120 ], [ %1, %61 ], [ %1, %82 ]
   %145 = load ptr, ptr %0, align 8, !tbaa !4
   %146 = zext i32 %.0103 to i64
   %147 = getelementptr inbounds nuw %struct.CType, ptr %145, i64 %146
@@ -1634,7 +1634,7 @@ define hidden range(i32 0, 2) i32 @lj_cconv_multi_init(ptr noundef %0, ptr nound
   br label %23
 
 23:                                               ; preds = %14, %11, %8, %3, %22
-  %.0 = phi i32 [ 1, %22 ], [ 0, %3 ], [ 0, %8 ], [ 0, %11 ], [ 0, %14 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %11 ], [ 1, %22 ], [ 0, %8 ], [ 0, %14 ]
   ret i32 %.0
 }
 
@@ -1688,7 +1688,7 @@ define hidden void @lj_cconv_ct_init(ptr noundef %0, ptr noundef %1, i32 noundef
   %28 = icmp eq ptr %27, %1
   br i1 %28, label %29, label %lj_cconv_multi_init.exit
 
-29:                                               ; preds = %10, %15, %18, %21
+29:                                               ; preds = %10, %18, %15, %21
   tail call void @lj_cconv_ct_tv(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %3, ptr noundef %4, i32 noundef 0)
   br label %cconv_array_init.exit
 
@@ -1836,7 +1836,7 @@ define internal fastcc void @cconv_substruct_tab(ptr noundef %0, ptr noundef rea
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %.backedge
 
-.critedge:                                        ; preds = %ctype_rawchild.exit, %75, %18, %49, %45
+.critedge:                                        ; preds = %ctype_rawchild.exit, %75, %45, %18, %49
   %.not.old = icmp eq i16 %15, 0
   br i1 %.not.old, label %.thread.thread, label %.backedge.backedge
 

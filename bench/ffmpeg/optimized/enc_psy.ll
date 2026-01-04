@@ -1303,8 +1303,8 @@ celt_search_for_tf.exit.loopexit47:               ; preds = %.split.us.us.split.
   br label %celt_search_for_tf.exit
 
 celt_search_for_tf.exit:                          ; preds = %.split97.us.split.i, %.split97.i, %celt_search_for_tf.exit.loopexit47
-  %.sroa.5.0..sroa.5.0..sroa.5.4. = phi float [ %.sroa.5.0..sroa.5.0..sroa.5.0..sroa.5.4..pre, %celt_search_for_tf.exit.loopexit47 ], [ 0.000000e+00, %.split97.i ], [ 0.000000e+00, %.split97.us.split.i ]
-  %.sroa.034.0..sroa.034.0..sroa.034.0. = phi float [ %.sroa.034.0..sroa.034.0..sroa.034.0..sroa.034.0..pre, %celt_search_for_tf.exit.loopexit47 ], [ 0.000000e+00, %.split97.i ], [ 0.000000e+00, %.split97.us.split.i ]
+  %.sroa.5.0..sroa.5.0..sroa.5.4. = phi float [ 0.000000e+00, %.split97.i ], [ %.sroa.5.0..sroa.5.0..sroa.5.0..sroa.5.4..pre, %celt_search_for_tf.exit.loopexit47 ], [ 0.000000e+00, %.split97.us.split.i ]
+  %.sroa.034.0..sroa.034.0..sroa.034.0. = phi float [ 0.000000e+00, %.split97.i ], [ %.sroa.034.0..sroa.034.0..sroa.034.0..sroa.034.0..pre, %celt_search_for_tf.exit.loopexit47 ], [ 0.000000e+00, %.split97.us.split.i ]
   %175 = fcmp nsz olt float %.sroa.034.0..sroa.034.0..sroa.034.0., %.sroa.5.0..sroa.5.0..sroa.5.4.
   %176 = zext i1 %175 to i32
   %177 = getelementptr inbounds nuw i8, ptr %1, i64 33936
@@ -1335,7 +1335,7 @@ celt_search_for_tf.exit:                          ; preds = %.split97.us.split.i
   br label %188
 
 188:                                              ; preds = %celt_search_for_tf.exit, %3, %185
-  %.0 = phi i32 [ 1, %185 ], [ 0, %3 ], [ 0, %celt_search_for_tf.exit ]
+  %.0 = phi i32 [ 0, %3 ], [ 1, %185 ], [ 0, %celt_search_for_tf.exit ]
   ret i32 %.0
 }
 
@@ -1703,7 +1703,7 @@ generate_window_func.exit:                        ; preds = %107
   br i1 %exitcond107.not, label %.loopexit, label %93, !llvm.loop !155
 
 .loopexit86:                                      ; preds = %90, %.thread, %21, %4
-  %.070 = phi i32 [ -12, %4 ], [ -12, %21 ], [ %.1.ph, %.thread ], [ -12, %90 ]
+  %.070 = phi i32 [ -12, %21 ], [ %.1.ph, %.thread ], [ -12, %4 ], [ -12, %90 ]
   call void @av_freep(ptr noundef nonnull %20) #14
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @av_freep(ptr noundef nonnull %121) #14

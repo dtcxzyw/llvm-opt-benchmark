@@ -733,7 +733,7 @@ _ZNSt6vectorIN3gmx23NbnxmKernelBenchOptionsESaIS1_EED2Ev.exit: ; preds = %_ZSt8_
   br label %221
 
 221:                                              ; preds = %220, %46
-  %.pn55 = phi { ptr, i32 } [ %.pn53, %46 ], [ %.pn.pn, %220 ]
+  %.pn55 = phi { ptr, i32 } [ %.pn.pn, %220 ], [ %.pn53, %46 ]
   call void @_ZN3gmx15BenchmarkSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(824) %4) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn55

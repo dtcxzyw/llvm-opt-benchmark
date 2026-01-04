@@ -273,7 +273,7 @@ define dso_local i32 @rdmacg_try_charge(ptr noundef writeonly captures(none) %0,
   br label %.loopexit14
 
 .loopexit14:                                      ; preds = %._crit_edge, %.loopexit14.sink.split, %5
-  %44 = phi ptr [ %11, %5 ], [ %16, %.loopexit14.sink.split ], [ %39, %._crit_edge ]
+  %44 = phi ptr [ %16, %.loopexit14.sink.split ], [ %11, %5 ], [ %39, %._crit_edge ]
   tail call void @__rcu_read_unlock() #8
   tail call void @mutex_lock(ptr noundef nonnull @rdmacg_mutex) #8
   %45 = icmp eq ptr %44, null
@@ -1004,7 +1004,7 @@ define internal i64 @rdmacg_resource_set_max(ptr noundef %0, ptr noundef %1, i64
   br label %.thread25
 
 .thread25:                                        ; preds = %.thread18, %14, %4, %.thread27
-  %152 = phi i64 [ -22, %.thread27 ], [ -12, %14 ], [ -22, %4 ], [ %spec.select, %.thread18 ]
+  %152 = phi i64 [ -22, %.thread27 ], [ -22, %4 ], [ -12, %14 ], [ %spec.select, %.thread18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i64 %152
 }

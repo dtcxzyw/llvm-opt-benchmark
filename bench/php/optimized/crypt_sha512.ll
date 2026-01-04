@@ -1418,8 +1418,8 @@ define internal fastcc void @sha512_process_bytes(ptr noundef %0, i64 noundef %1
   br label %35
 
 35:                                               ; preds = %31, %21
-  %.158 = phi i64 [ %34, %31 ], [ %.057, %21 ]
-  %.1 = phi ptr [ %33, %31 ], [ %.056, %21 ]
+  %.158 = phi i64 [ %.057, %21 ], [ %34, %31 ]
+  %.1 = phi ptr [ %.056, %21 ], [ %33, %31 ]
   %.not65 = icmp eq i64 %.158, 0
   br i1 %.not65, label %45, label %.thread
 

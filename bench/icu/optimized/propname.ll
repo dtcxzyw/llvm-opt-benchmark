@@ -352,7 +352,7 @@ define noundef i32 @_ZN6icu_7712PropNameData26findPropertyValueNameGroupEii(i32 
   br label %.thread70
 
 .thread70:                                        ; preds = %39, %33, %.lr.ph, %23, %.thread70.sink.split, %.preheader, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %.preheader ], [ %47, %.thread70.sink.split ], [ 0, %23 ], [ 0, %.lr.ph ], [ 0, %33 ], [ 0, %39 ]
+  %.0 = phi i32 [ 0, %2 ], [ %47, %.thread70.sink.split ], [ 0, %.lr.ph ], [ 0, %.preheader ], [ 0, %23 ], [ 0, %33 ], [ 0, %39 ]
   ret i32 %.0
 }
 
@@ -390,7 +390,7 @@ define noundef ptr @_ZN6icu_7712PropNameData7getNameEPKci(ptr noundef readonly c
   br label %11
 
 11:                                               ; preds = %._crit_edge, %2, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %2 ], [ %..010, %._crit_edge ]
+  %.0 = phi ptr [ null, %2 ], [ %..010, %._crit_edge ], [ null, %4 ]
   ret ptr %.0
 }
 
@@ -444,7 +444,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712PropNameData12containsName
   br i1 %.not28, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !16
 
 .outer._crit_edge:                                ; preds = %.outer, %12, %.preheader
-  %.0.ph.lcssa27 = phi i32 [ 1, %.preheader ], [ %.0.ph31, %12 ], [ %17, %.outer ]
+  %.0.ph.lcssa27 = phi i32 [ %.0.ph31, %12 ], [ 1, %.preheader ], [ %17, %.outer ]
   %19 = icmp sgt i32 %.0.ph.lcssa27, 1
   %20 = zext i1 %19 to i8
   br label %.loopexit
@@ -531,7 +531,7 @@ _ZN6icu_7712PropNameData12findPropertyEi.exit:    ; preds = %11
   br label %_ZN6icu_7712PropNameData7getNameEPKci.exit
 
 _ZN6icu_7712PropNameData7getNameEPKci.exit:       ; preds = %3, %13, %._crit_edge.i, %30, %23, %_ZN6icu_7712PropNameData12findPropertyEi.exit
-  %.0 = phi ptr [ null, %_ZN6icu_7712PropNameData12findPropertyEi.exit ], [ null, %30 ], [ null, %23 ], [ %..010.i, %._crit_edge.i ], [ null, %13 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %30 ], [ null, %_ZN6icu_7712PropNameData12findPropertyEi.exit ], [ null, %23 ], [ %..010.i, %._crit_edge.i ], [ null, %13 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -690,8 +690,8 @@ _ZN6icu_7712PropNameData26findPropertyValueNameGroupEii.exit: ; preds = %.thread
   %..010.i = select i1 %85, ptr null, ptr %.010.lcssa.i
   br label %_ZN6icu_7712PropNameData7getNameEPKci.exit
 
-_ZN6icu_7712PropNameData7getNameEPKci.exit:       ; preds = %4, %14, %65, %59, %.lr.ph.i, %49, %.preheader.i, %24, %._crit_edge.i, %79, %75, %_ZN6icu_7712PropNameData26findPropertyValueNameGroupEii.exit, %_ZN6icu_7712PropNameData12findPropertyEi.exit
-  %.0 = phi ptr [ null, %_ZN6icu_7712PropNameData12findPropertyEi.exit ], [ null, %_ZN6icu_7712PropNameData26findPropertyValueNameGroupEii.exit ], [ null, %79 ], [ null, %75 ], [ %..010.i, %._crit_edge.i ], [ null, %24 ], [ null, %.preheader.i ], [ null, %49 ], [ null, %.lr.ph.i ], [ null, %59 ], [ null, %65 ], [ null, %14 ], [ null, %4 ]
+_ZN6icu_7712PropNameData7getNameEPKci.exit:       ; preds = %4, %14, %65, %59, %49, %.lr.ph.i, %.preheader.i, %24, %._crit_edge.i, %79, %75, %_ZN6icu_7712PropNameData26findPropertyValueNameGroupEii.exit, %_ZN6icu_7712PropNameData12findPropertyEi.exit
+  %.0 = phi ptr [ null, %_ZN6icu_7712PropNameData12findPropertyEi.exit ], [ null, %65 ], [ null, %_ZN6icu_7712PropNameData26findPropertyValueNameGroupEii.exit ], [ null, %79 ], [ null, %75 ], [ %..010.i, %._crit_edge.i ], [ null, %49 ], [ null, %24 ], [ null, %.preheader.i ], [ null, %.lr.ph.i ], [ null, %59 ], [ null, %14 ], [ null, %4 ]
   ret ptr %.0
 }
 
@@ -797,7 +797,7 @@ _ZN6icu_7712PropNameData12containsNameERNS_9BytesTrieEPKc.exit: ; preds = %.noex
   resume { ptr, i32 } %lpad.phi
 
 _ZNK6icu_779BytesTrie8getValueEv.exit:            ; preds = %20, %2, %.preheader.i, %26, %_ZN6icu_7712PropNameData12containsNameERNS_9BytesTrieEPKc.exit
-  %.0 = phi i32 [ -1, %_ZN6icu_7712PropNameData12containsNameERNS_9BytesTrieEPKc.exit ], [ %32, %26 ], [ -1, %.preheader.i ], [ -1, %2 ], [ -1, %20 ]
+  %.0 = phi i32 [ %32, %26 ], [ -1, %_ZN6icu_7712PropNameData12containsNameERNS_9BytesTrieEPKc.exit ], [ -1, %.preheader.i ], [ -1, %2 ], [ -1, %20 ]
   call void @_ZN6icu_779BytesTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %3) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -942,7 +942,7 @@ _ZN6icu_7712PropNameData12findPropertyEi.exit.i:  ; preds = %11
   br label %_ZN6icu_7712PropNameData15getPropertyNameEii.exit
 
 _ZN6icu_7712PropNameData15getPropertyNameEii.exit: ; preds = %3, %13, %_ZN6icu_7712PropNameData12findPropertyEi.exit.i, %23, %30, %._crit_edge.i.i
-  %.0.i = phi ptr [ null, %_ZN6icu_7712PropNameData12findPropertyEi.exit.i ], [ null, %30 ], [ null, %23 ], [ %..010.i.i, %._crit_edge.i.i ], [ null, %13 ], [ null, %3 ]
+  %.0.i = phi ptr [ null, %30 ], [ null, %_ZN6icu_7712PropNameData12findPropertyEi.exit.i ], [ null, %23 ], [ %..010.i.i, %._crit_edge.i.i ], [ null, %13 ], [ null, %3 ]
   ret ptr %.0.i
 }
 

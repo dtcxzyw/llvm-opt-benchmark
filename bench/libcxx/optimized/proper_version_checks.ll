@@ -800,7 +800,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit39: ; preds = %_ZNS
   %46 = icmp eq i64 %45, -1
   br i1 %46, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit39.thread, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE11starts_withEPKc.exit.thread
 
-_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit39.thread: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i31, %40, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit39
+_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit39.thread: ; preds = %40, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i31, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit39
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %48 = load ptr, ptr %47, align 8, !tbaa !268
   call void @_ZN5clang4tidy14ClangTidyCheck4diagENS_14SourceLocationEN4llvm9StringRefENS_13DiagnosticIDs5LevelE(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %4, ptr noundef nonnull align 8 dereferenceable(96) %48, i32 %1, ptr nonnull @.str.19, i64 83, i8 noundef zeroext 3)
@@ -859,7 +859,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   call void @__clang_call_terminate(ptr %72) #17
   unreachable
 
-_ZNKSt17basic_string_viewIcSt11char_traitsIcEE11starts_withEPKc.exit.thread: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %30, %24, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit39, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit
+_ZNKSt17basic_string_viewIcSt11char_traitsIcEE11starts_withEPKc.exit.thread: ; preds = %30, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %24, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit39, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit
   %.not.i.i41 = icmp ult i64 %16, 11
   br i1 %.not.i.i41, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i42
 
@@ -1066,7 +1066,7 @@ _ZSt8__invokeIRZN6libcpp12_GLOBAL__N_131proper_version_checks_callbacks15check_c
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(66) %7) #15
   br label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
 
-_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit: ; preds = %.lr.ph.split.i.i, %_ZSt8__invokeIRZN6libcpp12_GLOBAL__N_131proper_version_checks_callbacks15check_conditionEN5clang14SourceLocationENS3_11SourceRangeEEUlT_E_JRPKcEENSt15__invoke_resultIS6_JDpT0_EE4typeEOS6_DpOSD_.exit.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE11starts_withEPKc.exit.thread, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i68, %129, %125, %122, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i60, %96, %93, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i48, %69, %66, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %148, %3
+_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit: ; preds = %_ZSt8__invokeIRZN6libcpp12_GLOBAL__N_131proper_version_checks_callbacks15check_conditionEN5clang14SourceLocationENS3_11SourceRangeEEUlT_E_JRPKcEENSt15__invoke_resultIS6_JDpT0_EE4typeEOS6_DpOSD_.exit.i.i, %.lr.ph.split.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE11starts_withEPKc.exit.thread, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i68, %129, %125, %122, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i60, %96, %93, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i48, %69, %66, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %148, %3
   ret void
 }
 

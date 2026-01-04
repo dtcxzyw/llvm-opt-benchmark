@@ -820,7 +820,7 @@ hwloc__read_fd.exit.thread:                       ; preds = %hwloc__read_fd.exit
   br label %hwloc_open.exit.thread
 
 hwloc_open.exit.thread:                           ; preds = %hwloc_checkat.exit.i.i, %hwloc__read_fd.exit.thread, %91, %hwloc_open.exit, %._crit_edge, %89
-  %.047 = phi i32 [ 0, %89 ], [ 0, %._crit_edge ], [ -1, %hwloc_open.exit ], [ -1, %91 ], [ -1, %hwloc__read_fd.exit.thread ], [ -1, %hwloc_checkat.exit.i.i ]
+  %.047 = phi i32 [ 0, %._crit_edge ], [ -1, %91 ], [ 0, %89 ], [ -1, %hwloc__read_fd.exit.thread ], [ -1, %hwloc_open.exit ], [ -1, %hwloc_checkat.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.047
 }
@@ -1025,7 +1025,7 @@ hwloc_linux_find_kernel_nr_cpus.exit:             ; preds = %3, %31
   br label %59
 
 59:                                               ; preds = %55, %.thread
-  %60 = phi i32 [ %54, %.thread ], [ %spec.select, %55 ]
+  %60 = phi i32 [ %spec.select, %55 ], [ %54, %.thread ]
   tail call void @hwloc_bitmap_zero(ptr noundef %2) #29
   br label %61
 
@@ -1061,7 +1061,7 @@ hwloc_linux_find_kernel_nr_cpus.exit.thread.sink.split: ; preds = %.critedge, %4
   br label %hwloc_linux_find_kernel_nr_cpus.exit.thread
 
 hwloc_linux_find_kernel_nr_cpus.exit.thread:      ; preds = %33, %hwloc_linux_find_kernel_nr_cpus.exit.thread.sink.split, %hwloc__alloc_read_path_as_cpulist.exit.thread.i, %38, %hwloc_linux_find_kernel_nr_cpus.exit
-  %.0 = phi i32 [ -1, %hwloc_linux_find_kernel_nr_cpus.exit ], [ -1, %38 ], [ -1, %hwloc__alloc_read_path_as_cpulist.exit.thread.i ], [ %.0.ph, %hwloc_linux_find_kernel_nr_cpus.exit.thread.sink.split ], [ -1, %33 ]
+  %.0 = phi i32 [ -1, %hwloc_linux_find_kernel_nr_cpus.exit ], [ -1, %hwloc__alloc_read_path_as_cpulist.exit.thread.i ], [ %.0.ph, %hwloc_linux_find_kernel_nr_cpus.exit.thread.sink.split ], [ -1, %38 ], [ -1, %33 ]
   ret i32 %.0
 }
 
@@ -1488,7 +1488,7 @@ define internal i32 @hwloc_linux_set_thread_cpubind(ptr noundef readonly capture
   br label %.critedge
 
 .critedge:                                        ; preds = %23, %25, %._crit_edge, %47, %18, %15, %10, %7
-  %.0 = phi i32 [ -1, %7 ], [ %16, %15 ], [ -1, %47 ], [ -1, %18 ], [ -1, %10 ], [ 0, %._crit_edge ], [ -1, %25 ], [ -1, %23 ]
+  %.0 = phi i32 [ -1, %7 ], [ %16, %15 ], [ -1, %47 ], [ -1, %10 ], [ 0, %._crit_edge ], [ -1, %18 ], [ -1, %25 ], [ -1, %23 ]
   ret i32 %.0
 }
 
@@ -1594,7 +1594,7 @@ define internal range(i32 -1, 1) i32 @hwloc_linux_get_thread_cpubind(ptr noundef
   br label %.thread
 
 .thread:                                          ; preds = %20, %36, %54, %18, %15, %10, %7
-  %.0 = phi i32 [ -1, %7 ], [ %16, %15 ], [ -1, %18 ], [ -1, %10 ], [ 0, %54 ], [ -1, %36 ], [ -1, %20 ]
+  %.0 = phi i32 [ -1, %7 ], [ %16, %15 ], [ -1, %10 ], [ -1, %18 ], [ 0, %54 ], [ -1, %36 ], [ -1, %20 ]
   ret i32 %.0
 }
 
@@ -1720,7 +1720,7 @@ hwloc_linux_membind_policy_from_hwloc.exit:       ; preds = %4
   br label %60
 
 .thread51:                                        ; preds = %11, %4, %7, %9
-  %.04453 = phi i32 [ 2, %7 ], [ 6, %9 ], [ %2, %4 ], [ %spec.select, %11 ]
+  %.04453 = phi i32 [ %2, %4 ], [ %spec.select, %11 ], [ 2, %7 ], [ 6, %9 ]
   %25 = call fastcc i32 @hwloc_linux_membind_mask_from_nodeset(ptr noundef %1, ptr noundef %5, ptr noundef %6)
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %60, label %27
@@ -1792,7 +1792,7 @@ hwloc_linux_membind_policy_from_hwloc.exit:       ; preds = %4
   br label %.thread63.sink.split
 
 57:                                               ; preds = %53, %49, %41
-  %.025 = phi i32 [ %55, %53 ], [ %44, %49 ], [ %44, %41 ]
+  %.025 = phi i32 [ %55, %53 ], [ %44, %41 ], [ %44, %49 ]
   %58 = icmp slt i32 %.025, 0
   br i1 %58, label %.thread60, label %.thread63
 
@@ -1811,7 +1811,7 @@ hwloc_linux_membind_policy_from_hwloc.exit:       ; preds = %4
   br label %60
 
 60:                                               ; preds = %hwloc_linux_membind_policy_from_hwloc.exit, %.thread60, %.thread51, %.thread63, %22, %20, %14
-  %.0 = phi i32 [ %16, %14 ], [ %24, %22 ], [ -1, %20 ], [ 0, %.thread63 ], [ -1, %hwloc_linux_membind_policy_from_hwloc.exit ], [ -1, %.thread51 ], [ -1, %.thread60 ]
+  %.0 = phi i32 [ 0, %.thread63 ], [ %16, %14 ], [ %24, %22 ], [ -1, %20 ], [ -1, %hwloc_linux_membind_policy_from_hwloc.exit ], [ -1, %.thread51 ], [ -1, %.thread60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -1998,7 +1998,7 @@ define internal range(i32 -1, 1) i32 @hwloc_linux_get_area_membind(ptr noundef %
   br label %hwloc_linux_mask_is_empty.exit.us
 
 hwloc_linux_mask_is_empty.exit.us:                ; preds = %.lr.ph.i.us, %.loopexit74.us, %28
-  %34 = phi i32 [ 4, %.loopexit74.us ], [ %29, %28 ], [ 1, %.lr.ph.i.us ]
+  %34 = phi i32 [ %29, %28 ], [ 4, %.loopexit74.us ], [ 1, %.lr.ph.i.us ]
   %.not63.us = icmp eq i32 %.05579.us, %34
   %spec.select.us = select i1 %.not63.us, i32 %.05380.us, i32 1
   %.156.us = select i1 %.not6282.us, i32 %.05579.us, i32 %34
@@ -2069,50 +2069,50 @@ hwloc_linux_mask_is_empty.exit.us93:              ; preds = %50, %47
   %.053.lcssa = phi i32 [ %.154.us97, %._crit_edge.loopexit ], [ %.154.us, %..loopexit_crit_edge.us ]
   %.052.lcssa = phi i1 [ %56, %._crit_edge.loopexit ], [ %or.cond5.us.not, %..loopexit_crit_edge.us ]
   %.not = icmp eq i32 %.053.lcssa, 0
-  br i1 %.not, label %58, label %hwloc_linux_membind_policy_to_hwloc.exit.thread
+  br i1 %.not, label %59, label %58
 
 58:                                               ; preds = %._crit_edge
+  store i32 -1, ptr %4, align 4, !tbaa !3
+  br i1 %.052.lcssa, label %66, label %63
+
+59:                                               ; preds = %._crit_edge
   switch i32 %57, label %hwloc_linux_membind_policy_to_hwloc.exit [
     i32 0, label %.thread
     i32 4, label %.thread
-    i32 1, label %59
-    i32 5, label %59
-    i32 2, label %59
-    i32 3, label %60
+    i32 1, label %60
+    i32 5, label %60
+    i32 2, label %60
+    i32 3, label %hwloc_linux_membind_policy_to_hwloc.exit.thread
     i32 6, label %61
   ]
 
-.thread:                                          ; preds = %58, %58
+.thread:                                          ; preds = %59, %59
   store i32 1, ptr %4, align 4, !tbaa !3
   br i1 %.052.lcssa, label %66, label %63
 
-59:                                               ; preds = %58, %58, %58
+60:                                               ; preds = %59, %59, %59
   store i32 2, ptr %4, align 4, !tbaa !3
   br i1 %.052.lcssa, label %66, label %63
 
-60:                                               ; preds = %58
-  store i32 3, ptr %4, align 4, !tbaa !3
-  br i1 %.052.lcssa, label %66, label %63
-
-61:                                               ; preds = %58
+61:                                               ; preds = %59
   store i32 5, ptr %4, align 4, !tbaa !3
   br i1 %.052.lcssa, label %66, label %63
 
-hwloc_linux_membind_policy_to_hwloc.exit:         ; preds = %58
+hwloc_linux_membind_policy_to_hwloc.exit:         ; preds = %59
   %62 = tail call ptr @__errno_location() #33
   store i32 22, ptr %62, align 4, !tbaa !3
   br label %hwloc_linux_membind_mask_to_nodeset.exit
 
-hwloc_linux_membind_policy_to_hwloc.exit.thread:  ; preds = %._crit_edge
-  store i32 -1, ptr %4, align 4, !tbaa !3
+hwloc_linux_membind_policy_to_hwloc.exit.thread:  ; preds = %59
+  store i32 3, ptr %4, align 4, !tbaa !3
   br i1 %.052.lcssa, label %66, label %63
 
-63:                                               ; preds = %.thread, %59, %60, %61, %hwloc_linux_membind_policy_to_hwloc.exit.thread
+63:                                               ; preds = %60, %.thread, %58, %61, %hwloc_linux_membind_policy_to_hwloc.exit.thread
   %64 = call ptr @hwloc_topology_get_topology_nodeset(ptr noundef %0) #32
   %65 = call i32 @hwloc_bitmap_copy(ptr noundef %3, ptr noundef %64) #29
   br label %hwloc_linux_membind_mask_to_nodeset.exit
 
-66:                                               ; preds = %.thread.thread, %.thread, %59, %60, %61, %hwloc_linux_membind_policy_to_hwloc.exit.thread
+66:                                               ; preds = %.thread.thread, %60, %.thread, %58, %61, %hwloc_linux_membind_policy_to_hwloc.exit.thread
   call void @hwloc_bitmap_zero(ptr noundef %3) #29
   %.not.i64 = icmp eq i32 %10, 0
   br i1 %.not.i64, label %hwloc_linux_membind_mask_to_nodeset.exit, label %.lr.ph.preheader.i65
@@ -2132,7 +2132,7 @@ hwloc_linux_membind_policy_to_hwloc.exit.thread:  ; preds = %._crit_edge
   br i1 %exitcond.not.i70, label %hwloc_linux_membind_mask_to_nodeset.exit, label %.lr.ph.i67, !llvm.loop !87
 
 hwloc_linux_membind_mask_to_nodeset.exit:         ; preds = %.lr.ph84.split.us, %.lr.ph84.split.split.us, %.lr.ph.i67, %6, %hwloc_linux_membind_policy_to_hwloc.exit, %63, %66
-  %.050 = phi i32 [ 0, %66 ], [ 0, %63 ], [ -1, %hwloc_linux_membind_policy_to_hwloc.exit ], [ -1, %6 ], [ 0, %.lr.ph.i67 ], [ -1, %.lr.ph84.split.split.us ], [ -1, %.lr.ph84.split.us ]
+  %.050 = phi i32 [ 0, %63 ], [ -1, %6 ], [ 0, %66 ], [ 0, %.lr.ph.i67 ], [ -1, %.lr.ph84.split.split.us ], [ -1, %hwloc_linux_membind_policy_to_hwloc.exit ], [ -1, %.lr.ph84.split.us ]
   call void @free(ptr noundef %13) #29
   call void @free(ptr noundef %14) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2203,7 +2203,7 @@ hwloc_linux_membind_policy_from_hwloc.exit:       ; preds = %6
   br label %64
 
 .thread56:                                        ; preds = %20, %6, %16, %18
-  %.04958 = phi i32 [ 2, %16 ], [ 6, %18 ], [ %4, %6 ], [ %spec.select67, %20 ]
+  %.04958 = phi i32 [ %4, %6 ], [ %spec.select67, %20 ], [ 2, %16 ], [ 6, %18 ]
   %36 = call fastcc i32 @hwloc_linux_membind_mask_from_nodeset(ptr noundef %3, ptr noundef %7, ptr noundef %8)
   %37 = icmp slt i32 %36, 0
   br i1 %37, label %64, label %38
@@ -2250,7 +2250,7 @@ hwloc_linux_membind_policy_from_hwloc.exit:       ; preds = %6
   br label %.thread65.sink.split
 
 61:                                               ; preds = %57, %53, %38
-  %.0 = phi i32 [ %59, %57 ], [ %48, %53 ], [ %48, %38 ]
+  %.0 = phi i32 [ %59, %57 ], [ %48, %38 ], [ %48, %53 ]
   %62 = icmp slt i32 %.0, 0
   br i1 %62, label %63, label %.thread65
 
@@ -2268,7 +2268,7 @@ hwloc_linux_membind_policy_from_hwloc.exit:       ; preds = %6
   br label %64
 
 64:                                               ; preds = %hwloc_linux_membind_policy_from_hwloc.exit, %63, %.thread56, %.thread65, %32, %30, %23
-  %.035 = phi i32 [ %26, %23 ], [ %35, %32 ], [ -1, %30 ], [ 0, %.thread65 ], [ -1, %hwloc_linux_membind_policy_from_hwloc.exit ], [ -1, %.thread56 ], [ -1, %63 ]
+  %.035 = phi i32 [ 0, %.thread65 ], [ %26, %23 ], [ %35, %32 ], [ -1, %30 ], [ -1, %hwloc_linux_membind_policy_from_hwloc.exit ], [ -1, %.thread56 ], [ -1, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.035
@@ -3042,14 +3042,14 @@ sub_141:                                          ; preds = %.tail
   br i1 %.not3446, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !97
 
 .outer._crit_edge:                                ; preds = %.outer, %38, %16
-  %.030.ph.lcssa45 = phi i32 [ 0, %16 ], [ %.030.ph53, %38 ], [ %43, %.outer ]
-  %.024.lcssa = phi ptr [ %13, %16 ], [ %.125, %38 ], [ %.125, %.outer ]
+  %.030.ph.lcssa45 = phi i32 [ %.030.ph53, %38 ], [ 0, %16 ], [ %43, %.outer ]
+  %.024.lcssa = phi ptr [ %.125, %38 ], [ %13, %16 ], [ %.125, %.outer ]
   store i32 %.030.ph.lcssa45, ptr %1, align 4, !tbaa !3
   store ptr %.024.lcssa, ptr %2, align 8, !tbaa !95
   br label %47
 
 47:                                               ; preds = %.thread, %.outer._crit_edge, %14
-  %.0 = phi i32 [ 0, %.outer._crit_edge ], [ -1, %14 ], [ -1, %.thread ]
+  %.0 = phi i32 [ -1, %.thread ], [ 0, %.outer._crit_edge ], [ -1, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -3773,8 +3773,8 @@ hwloc_read_path_by_length.exit.i:                 ; preds = %62
   br i1 %.not57.i, label %.loopexit.i, label %51, !llvm.loop !107
 
 .loopexit.i:                                      ; preds = %.backedge.i, %.thread88.i, %81, %76, %.preheader.i
-  %.027 = phi i64 [ 0, %.preheader.i ], [ 0, %76 ], [ 2, %81 ], [ %..i, %.thread88.i ], [ 0, %.backedge.i ]
-  %.026 = phi ptr [ null, %.preheader.i ], [ %78, %76 ], [ %83, %81 ], [ %97, %.thread88.i ], [ null, %.backedge.i ]
+  %.027 = phi i64 [ 0, %.preheader.i ], [ %..i, %.thread88.i ], [ 0, %76 ], [ 2, %81 ], [ 0, %.backedge.i ]
+  %.026 = phi ptr [ null, %.preheader.i ], [ %97, %.thread88.i ], [ %78, %76 ], [ %83, %81 ], [ null, %.backedge.i ]
   %99 = call i32 @endmntent(ptr noundef nonnull %.044.i) #29
   call void @free(ptr noundef %43) #29
   br label %hwloc_find_linux_cgroup_mntpnt.exit
@@ -4177,14 +4177,14 @@ sub_0:                                            ; preds = %6
   store i32 %.lobit62, ptr %50, align 8, !tbaa !133
   br label %62
 
-60:                                               ; preds = %36, %.tail.thread
+60:                                               ; preds = %.tail.thread, %36
   %61 = load ptr, ptr %8, align 8, !tbaa !126
   tail call void @free(ptr noundef %61) #29
   tail call void @free(ptr noundef nonnull %7) #29
   br label %62
 
 62:                                               ; preds = %60, %6, %45, %52
-  %.0 = phi ptr [ %7, %52 ], [ %7, %45 ], [ null, %6 ], [ null, %60 ]
+  %.0 = phi ptr [ %7, %45 ], [ %7, %52 ], [ null, %6 ], [ null, %60 ]
   ret ptr %.0
 }
 
@@ -4666,7 +4666,7 @@ sub_1138.i:                                       ; preds = %sub_0132.i
   br i1 %.not128.i, label %hwloc_gather_system_info.exit.sink.split, label %hwloc_gather_system_info.exit
 
 hwloc_gather_system_info.exit.sink.split:         ; preds = %238, %236, %234, %.tail136.i, %.tail136.thread.i, %221, %.tail131.i, %209, %.tail.i, %.tail.thread.i, %201
-  %.sink = phi i32 [ 0, %201 ], [ 0, %.tail.thread.i ], [ 0, %.tail.i ], [ 0, %209 ], [ 2, %.tail131.i ], [ 2, %221 ], [ 3, %.tail136.thread.i ], [ 3, %.tail136.i ], [ 4, %234 ], [ 5, %236 ], [ 1, %238 ]
+  %.sink = phi i32 [ 5, %236 ], [ 0, %201 ], [ 0, %209 ], [ 2, %221 ], [ 3, %.tail136.i ], [ 4, %234 ], [ 0, %.tail.thread.i ], [ 0, %.tail.i ], [ 2, %.tail131.i ], [ 3, %.tail136.thread.i ], [ 1, %238 ]
   store i32 %.sink, ptr %.phi.trans.insert.i, align 8, !tbaa !117
   br label %hwloc_gather_system_info.exit
 
@@ -5267,7 +5267,7 @@ sub_0.i.i:                                        ; preds = %498
   br label %hwloc_linux_pci_link_speed_from_string.exit.i
 
 hwloc_linux_pci_link_speed_from_string.exit.i:    ; preds = %.tail.thread.i.i, %sub_0.i.i, %498, %494, %hwloc_open.exit.i136.i, %485
-  %.084.i = phi float [ 0.000000e+00, %485 ], [ %504, %.tail.thread.i.i ], [ 2.000000e+00, %498 ], [ 0.000000e+00, %hwloc_open.exit.i136.i ], [ 0.000000e+00, %494 ], [ 4.000000e+00, %sub_0.i.i ]
+  %.084.i = phi float [ 0.000000e+00, %485 ], [ 4.000000e+00, %sub_0.i.i ], [ %504, %.tail.thread.i.i ], [ 2.000000e+00, %498 ], [ 0.000000e+00, %hwloc_open.exit.i136.i ], [ 0.000000e+00, %494 ]
   %505 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %69, i64 noundef 64, ptr noundef nonnull @.str.426, ptr noundef nonnull %317) #29
   %506 = icmp ult i32 %505, 64
   br i1 %506, label %507, label %hwloc_read_path_by_length.exit149.thread.i
@@ -6052,7 +6052,7 @@ hwloc_read_path_by_length.exit128.thread.i.i:     ; preds = %._crit_edge.i.i, %h
   br i1 %or.cond.i.i104, label %.sink.split.i.i, label %hwloc_linuxfs_block_class_fillinfos.exit.i
 
 .sink.split.i.i:                                  ; preds = %817, %816, %815, %812, %811, %810
-  %.str.482.sink.i.i = phi ptr [ @.str.308, %810 ], [ @.str.482, %812 ], [ @.str.482, %811 ], [ @.str.484, %815 ], [ @.str.488, %817 ], [ @.str.488, %816 ]
+  %.str.482.sink.i.i = phi ptr [ @.str.308, %810 ], [ @.str.484, %815 ], [ @.str.482, %811 ], [ @.str.482, %812 ], [ @.str.488, %817 ], [ @.str.488, %816 ]
   %818 = call noalias dereferenceable_or_null(4) ptr @strdup(ptr noundef nonnull %.str.482.sink.i.i) #29
   %819 = getelementptr inbounds nuw i8, ptr %649, i64 8
   store ptr %818, ptr %819, align 8, !tbaa !170
@@ -7997,13 +7997,13 @@ check_dmi_entry.exit98.i.i:                       ; preds = %1621
   br i1 %.not114.i.i, label %1625, label %.sink.split.i.i279
 
 .sink.split.i.i279:                               ; preds = %check_dmi_entry.exit98.i.i, %check_dmi_entry.exit94.i.i, %check_dmi_entry.exit90.i.i, %check_dmi_entry.exit86.i.i, %check_dmi_entry.exit82.i.i, %check_dmi_entry.exit.i.i
-  %.str.479.sink.i.i = phi ptr [ @.str.477, %check_dmi_entry.exit.i.i ], [ @.str.479, %check_dmi_entry.exit82.i.i ], [ @.str.559, %check_dmi_entry.exit86.i.i ], [ @.str.560, %check_dmi_entry.exit90.i.i ], [ @.str.561, %check_dmi_entry.exit94.i.i ], [ @.str.562, %check_dmi_entry.exit98.i.i ]
-  %.3.ph.i.i = phi i32 [ 1, %check_dmi_entry.exit.i.i ], [ 1, %check_dmi_entry.exit82.i.i ], [ 1, %check_dmi_entry.exit86.i.i ], [ 1, %check_dmi_entry.exit90.i.i ], [ %.1129.i.i, %check_dmi_entry.exit94.i.i ], [ %.1129.i.i, %check_dmi_entry.exit98.i.i ]
+  %.str.479.sink.i.i = phi ptr [ @.str.477, %check_dmi_entry.exit.i.i ], [ @.str.559, %check_dmi_entry.exit86.i.i ], [ @.str.561, %check_dmi_entry.exit94.i.i ], [ @.str.560, %check_dmi_entry.exit90.i.i ], [ @.str.479, %check_dmi_entry.exit82.i.i ], [ @.str.562, %check_dmi_entry.exit98.i.i ]
+  %.3.ph.i.i = phi i32 [ 1, %check_dmi_entry.exit.i.i ], [ 1, %check_dmi_entry.exit86.i.i ], [ %.1129.i.i, %check_dmi_entry.exit94.i.i ], [ 1, %check_dmi_entry.exit90.i.i ], [ 1, %check_dmi_entry.exit82.i.i ], [ %.1129.i.i, %check_dmi_entry.exit98.i.i ]
   %1624 = call i32 @hwloc__add_info(ptr noundef nonnull %5, ptr noundef nonnull %.str.479.sink.i.i, ptr noundef nonnull %1601) #29
   br label %1625
 
 1625:                                             ; preds = %.sink.split.i.i279, %check_dmi_entry.exit98.i.i, %check_dmi_entry.exit94.i.i, %check_dmi_entry.exit90.i.i, %check_dmi_entry.exit86.i.i, %check_dmi_entry.exit82.i.i, %check_dmi_entry.exit.i.i
-  %.3.i.i = phi i32 [ %.1129.i.i, %check_dmi_entry.exit.i.i ], [ %.1129.i.i, %check_dmi_entry.exit82.i.i ], [ %.1129.i.i, %check_dmi_entry.exit86.i.i ], [ %.1129.i.i, %check_dmi_entry.exit90.i.i ], [ %.1129.i.i, %check_dmi_entry.exit94.i.i ], [ %.1129.i.i, %check_dmi_entry.exit98.i.i ], [ %.3.ph.i.i, %.sink.split.i.i279 ]
+  %.3.i.i = phi i32 [ %.1129.i.i, %check_dmi_entry.exit94.i.i ], [ %.1129.i.i, %check_dmi_entry.exit.i.i ], [ %.1129.i.i, %check_dmi_entry.exit90.i.i ], [ %.1129.i.i, %check_dmi_entry.exit82.i.i ], [ %.1129.i.i, %check_dmi_entry.exit98.i.i ], [ %.1129.i.i, %check_dmi_entry.exit86.i.i ], [ %.3.ph.i.i, %.sink.split.i.i279 ]
   %1626 = add i32 %1604, 1
   %1627 = add nuw nsw i32 %.159128.i.i, 1
   %1628 = zext i32 %1626 to i64
@@ -8027,7 +8027,7 @@ check_dmi_entry.exit98.i.i:                       ; preds = %1621
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %1598, %1593, %1625, %1621, %1635, %1632
-  %.2.i.i = phi i32 [ %.1129.i.i, %1635 ], [ %.1129.i.i, %1632 ], [ %.3.i.i, %1625 ], [ %.1129.i.i, %1621 ], [ %.0135.i.i, %1598 ], [ %.1129.i.i, %1593 ]
+  %.2.i.i = phi i32 [ %.1129.i.i, %1621 ], [ %.1129.i.i, %1635 ], [ %.1129.i.i, %1632 ], [ %.3.i.i, %1625 ], [ %.0135.i.i, %1598 ], [ %.1129.i.i, %1593 ]
   %.not73.i.i = icmp eq i32 %.2.i.i, 0
   br i1 %.not73.i.i, label %.loopexit.thread.i.i, label %1638
 
@@ -8591,8 +8591,8 @@ hwloc_access.exit71.i:                            ; preds = %.preheader.i.i.i69.
   %157 = call i64 @fwrite(ptr nonnull @.str.114, i64 84, i64 1, ptr %156) #35
   br label %2332
 
-158:                                              ; preds = %.preheader.i.i.i34.preheader.i, %hwloc_access.exit31.i, %.critedge.i, %hwloc_access.exit36.thread.i, %hwloc_access.exit31.thread.i, %112, %hwloc_access.exit46.i, %hwloc_access.exit41.thread.i, %hwloc_access.exit41.i
-  %.1211.ph = phi i1 [ false, %hwloc_access.exit41.i ], [ false, %hwloc_access.exit41.thread.i ], [ false, %hwloc_access.exit46.i ], [ false, %112 ], [ true, %hwloc_access.exit36.thread.i ], [ true, %hwloc_access.exit31.thread.i ], [ %151, %.critedge.i ], [ true, %.preheader.i.i.i34.preheader.i ], [ true, %hwloc_access.exit31.i ]
+158:                                              ; preds = %hwloc_access.exit31.i, %.critedge.i, %hwloc_access.exit31.thread.i, %.preheader.i.i.i34.preheader.i, %hwloc_access.exit36.thread.i, %112, %hwloc_access.exit46.i, %hwloc_access.exit41.thread.i, %hwloc_access.exit41.i
+  %.1211.ph = phi i1 [ false, %hwloc_access.exit41.i ], [ false, %hwloc_access.exit41.thread.i ], [ false, %hwloc_access.exit46.i ], [ false, %112 ], [ true, %hwloc_access.exit31.thread.i ], [ %151, %.critedge.i ], [ true, %hwloc_access.exit36.thread.i ], [ true, %.preheader.i.i.i34.preheader.i ], [ true, %hwloc_access.exit31.i ]
   %159 = getelementptr inbounds nuw i8, ptr %99, i64 24
   %160 = load ptr, ptr %159, align 8, !tbaa !16
   %161 = load ptr, ptr %160, align 8, !tbaa !40
@@ -8772,10 +8772,10 @@ switch.lookup:                                    ; preds = %181
   br label %233
 
 233:                                              ; preds = %231, %227, %194, %192, %190
-  %.181.i = phi i32 [ -1, %190 ], [ %.080.i278, %192 ], [ %.080.i278, %194 ], [ %.282.i, %231 ], [ %.282.i, %227 ]
-  %.277.i = phi i32 [ %.075.i279, %190 ], [ %.075.i279, %192 ], [ %.075.i279, %194 ], [ %.378.i, %231 ], [ %.378.i, %227 ]
-  %.272.i = phi ptr [ %.070.i280, %190 ], [ %.070.i280, %192 ], [ %.070.i280, %194 ], [ %.5.i, %231 ], [ %.5.i, %227 ]
-  %.1.i = phi i32 [ %.069.i281, %190 ], [ %.069.i281, %192 ], [ %.069.i281, %194 ], [ %.4.i, %231 ], [ %.4.i, %227 ]
+  %.181.i = phi i32 [ %.080.i278, %192 ], [ %.080.i278, %194 ], [ -1, %190 ], [ %.282.i, %227 ], [ %.282.i, %231 ]
+  %.277.i = phi i32 [ %.075.i279, %192 ], [ %.075.i279, %194 ], [ %.075.i279, %190 ], [ %.378.i, %227 ], [ %.378.i, %231 ]
+  %.272.i = phi ptr [ %.070.i280, %192 ], [ %.070.i280, %194 ], [ %.070.i280, %190 ], [ %.5.i, %227 ], [ %.5.i, %231 ]
+  %.1.i = phi i32 [ %.069.i281, %192 ], [ %.069.i281, %194 ], [ %.069.i281, %190 ], [ %.4.i, %227 ], [ %.4.i, %231 ]
   %234 = call ptr @fgets(ptr noundef nonnull %92, i32 noundef 128, ptr noundef nonnull %180)
   %.not94.i = icmp eq ptr %234, null
   br i1 %.not94.i, label %hwloc_linux_parse_cpuinfo.exit, label %.lr.ph
@@ -8951,8 +8951,8 @@ sub_1246:                                         ; preds = %.tail239, %sub_1241
   br label %.critedge97
 
 .critedge97:                                      ; preds = %sub_0240, %sub_1246, %.preheader, %hwloc_linux_parse_cpuinfo.exit.thread, %.tail.thread, %.tail244, %293, %._crit_edge, %hwloc_linux_parse_cpuinfo.exit
-  %spec.store.select222 = phi i32 [ 0, %hwloc_linux_parse_cpuinfo.exit.thread ], [ %spec.store.select, %.tail.thread ], [ %spec.store.select, %.tail244 ], [ %spec.store.select, %293 ], [ %spec.store.select, %._crit_edge ], [ %spec.store.select, %hwloc_linux_parse_cpuinfo.exit ], [ %spec.store.select, %.preheader ], [ %spec.store.select, %sub_1246 ], [ %spec.store.select, %sub_0240 ]
-  %.0212221 = phi ptr [ null, %hwloc_linux_parse_cpuinfo.exit.thread ], [ %.171.i, %.tail.thread ], [ %.171.i, %.tail244 ], [ %.171.i, %293 ], [ %.171.i, %._crit_edge ], [ %.171.i, %hwloc_linux_parse_cpuinfo.exit ], [ %.171.i, %.preheader ], [ %.171.i, %sub_1246 ], [ %.171.i, %sub_0240 ]
+  %spec.store.select222 = phi i32 [ 0, %hwloc_linux_parse_cpuinfo.exit.thread ], [ %spec.store.select, %hwloc_linux_parse_cpuinfo.exit ], [ %spec.store.select, %.tail.thread ], [ %spec.store.select, %.tail244 ], [ %spec.store.select, %293 ], [ %spec.store.select, %._crit_edge ], [ %spec.store.select, %.preheader ], [ %spec.store.select, %sub_1246 ], [ %spec.store.select, %sub_0240 ]
+  %.0212221 = phi ptr [ null, %hwloc_linux_parse_cpuinfo.exit.thread ], [ %.171.i, %hwloc_linux_parse_cpuinfo.exit ], [ %.171.i, %.tail.thread ], [ %.171.i, %.tail244 ], [ %.171.i, %293 ], [ %.171.i, %._crit_edge ], [ %.171.i, %.preheader ], [ %.171.i, %sub_1246 ], [ %.171.i, %sub_0240 ]
   %295 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %296 = load i64, ptr %295, align 8, !tbaa !199
   %297 = and i64 %296, 2
@@ -9032,17 +9032,17 @@ hwloc_read_path_by_length.exit.i:                 ; preds = %314
   %330 = call i32 @hwloc_look_hardwired_fujitsu_fx100(ptr noundef %305) #29
   br label %hwloc_linux_try_hardwired_cpuinfo.exit
 
-hwloc_linux_try_hardwired_cpuinfo.exit.thread228: ; preds = %hwloc_read_path_by_length.exit.i, %hwloc_open.exit.i.i, %314, %327
+hwloc_linux_try_hardwired_cpuinfo.exit.thread228: ; preds = %314, %hwloc_read_path_by_length.exit.i, %hwloc_open.exit.i.i, %327
   call void @llvm.lifetime.end.p0(ptr nonnull %91)
   br label %hwloc_linux_try_hardwired_cpuinfo.exit.thread
 
 hwloc_linux_try_hardwired_cpuinfo.exit:           ; preds = %321, %325, %329
-  %.08.ph.i = phi i32 [ %330, %329 ], [ %326, %325 ], [ %322, %321 ]
+  %.08.ph.i = phi i32 [ %326, %325 ], [ %322, %321 ], [ %330, %329 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %91)
   %.not89 = icmp eq i32 %.08.ph.i, 0
   br i1 %.not89, label %904, label %hwloc_linux_try_hardwired_cpuinfo.exit.thread
 
-hwloc_linux_try_hardwired_cpuinfo.exit.thread:    ; preds = %307, %304, %hwloc_linux_try_hardwired_cpuinfo.exit.thread228, %hwloc_linux_try_hardwired_cpuinfo.exit
+hwloc_linux_try_hardwired_cpuinfo.exit.thread:    ; preds = %304, %307, %hwloc_linux_try_hardwired_cpuinfo.exit.thread228, %hwloc_linux_try_hardwired_cpuinfo.exit
   %331 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %99, i32 noundef 0, i32 noundef 0) #32
   %332 = getelementptr inbounds nuw i8, ptr %331, i64 216
   %333 = call i32 @hwloc__move_infos(ptr noundef nonnull %332, ptr noundef nonnull %97) #29
@@ -9472,7 +9472,7 @@ hwloc__alloc_read_path_as_cpumask.exit431.thread.sink.split.i: ; preds = %hwloc_
   br label %hwloc__alloc_read_path_as_cpumask.exit431.thread.i
 
 hwloc__alloc_read_path_as_cpumask.exit431.thread.i: ; preds = %hwloc__alloc_read_path_as_cpumask.exit431.thread.sink.split.i, %522, %512, %.thread.i111
-  %.0320.ph.i = phi ptr [ null, %.thread.i111 ], [ %515, %522 ], [ null, %512 ], [ null, %hwloc__alloc_read_path_as_cpumask.exit431.thread.sink.split.i ]
+  %.0320.ph.i = phi ptr [ null, %.thread.i111 ], [ null, %512 ], [ %515, %522 ], [ null, %hwloc__alloc_read_path_as_cpumask.exit431.thread.sink.split.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %81)
   store i32 1, ptr %81, align 4, !tbaa !3
   %524 = call i32 @hwloc_topology_get_type_filter(ptr noundef %99, i32 noundef 2, ptr noundef nonnull %81) #29
@@ -9521,8 +9521,8 @@ hwloc__alloc_read_path_as_cpumask.exit434.i:      ; preds = %530
   br label %.thread607.i
 
 .thread607.i:                                     ; preds = %.thread607.sink.split.i, %539, %538, %526, %hwloc__alloc_read_path_as_cpumask.exit431.thread.i
-  %.0317619.i = phi ptr [ null, %hwloc__alloc_read_path_as_cpumask.exit431.thread.i ], [ %529, %538 ], [ %529, %539 ], [ null, %526 ], [ %.0317619.ph.i, %.thread607.sink.split.i ]
-  %.1321617.i = phi ptr [ %.0320.ph.i, %hwloc__alloc_read_path_as_cpumask.exit431.thread.i ], [ null, %538 ], [ %.0320.ph.i, %539 ], [ %.0320.ph.i, %526 ], [ %.1321617.ph.i, %.thread607.sink.split.i ]
+  %.0317619.i = phi ptr [ null, %526 ], [ null, %hwloc__alloc_read_path_as_cpumask.exit431.thread.i ], [ %529, %538 ], [ %529, %539 ], [ %.0317619.ph.i, %.thread607.sink.split.i ]
+  %.1321617.i = phi ptr [ %.0320.ph.i, %526 ], [ %.0320.ph.i, %hwloc__alloc_read_path_as_cpumask.exit431.thread.i ], [ null, %538 ], [ %.0320.ph.i, %539 ], [ %.1321617.ph.i, %.thread607.sink.split.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %80)
   store i32 1, ptr %80, align 4, !tbaa !3
   %541 = call i32 @hwloc_topology_get_type_filter(ptr noundef %99, i32 noundef 1, ptr noundef nonnull %80) #29
@@ -9827,7 +9827,7 @@ hwloc_read_path_as_int.exit464.thread.i:          ; preds = %662, %hwloc_open.ex
   br label %680
 
 680:                                              ; preds = %666, %hwloc_read_path_as_int.exit464.thread.i, %hwloc__alloc_read_path_as_cpumask.exit458.i
-  %.0309.i = phi ptr [ null, %666 ], [ %646, %hwloc__alloc_read_path_as_cpumask.exit458.i ], [ %646, %hwloc_read_path_as_int.exit464.thread.i ]
+  %.0309.i = phi ptr [ null, %666 ], [ %646, %hwloc_read_path_as_int.exit464.thread.i ], [ %646, %hwloc__alloc_read_path_as_cpumask.exit458.i ]
   call void @hwloc_bitmap_free(ptr noundef %.0309.i) #29
   %681 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %87, ptr noundef nonnull dereferenceable(1) @.str.226, i32 noundef %.0290707.i) #29
   %682 = load i32, ptr %101, align 8, !tbaa !127
@@ -9899,7 +9899,7 @@ hwloc_read_path_as_int.exit473.thread.i:          ; preds = %699, %hwloc_open.ex
   br label %hwloc__alloc_read_path_as_cpumask.exit458.thread.sink.split.i
 
 hwloc__alloc_read_path_as_cpumask.exit458.thread.sink.split.i: ; preds = %703, %hwloc_read_path_as_int.exit473.thread.i, %hwloc__alloc_read_path_as_cpumask.exit467.i, %684, %647
-  %.sink771.i = phi ptr [ %646, %647 ], [ %683, %684 ], [ null, %703 ], [ %683, %hwloc__alloc_read_path_as_cpumask.exit467.i ], [ %683, %hwloc_read_path_as_int.exit473.thread.i ]
+  %.sink771.i = phi ptr [ %646, %647 ], [ %683, %684 ], [ null, %703 ], [ %683, %hwloc_read_path_as_int.exit473.thread.i ], [ %683, %hwloc__alloc_read_path_as_cpumask.exit467.i ]
   call void @hwloc_bitmap_free(ptr noundef %.sink771.i) #29
   br label %hwloc__alloc_read_path_as_cpumask.exit458.thread.i
 
@@ -10038,7 +10038,7 @@ hwloc_open.exit.i486.i:                           ; preds = %.preheader.i.i.i.i4
   br label %hwloc_read_path_by_length.exit491.thread.i
 
 hwloc_read_path_by_length.exit491.thread.i:       ; preds = %773, %772, %770, %766, %hwloc_open.exit.i486.i
-  %.0291.i = phi i32 [ 1, %770 ], [ 0, %772 ], [ %spec.select407.i, %773 ], [ 0, %hwloc_open.exit.i486.i ], [ 0, %766 ]
+  %.0291.i = phi i32 [ %spec.select407.i, %773 ], [ 0, %772 ], [ 1, %770 ], [ 0, %hwloc_open.exit.i486.i ], [ 0, %766 ]
   %774 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %87, ptr noundef nonnull dereferenceable(1) @.str.237, i32 noundef %.0290707.i, i32 noundef %.1702.i) #29
   %775 = load i32, ptr %101, align 8, !tbaa !127
   call void @llvm.lifetime.start.p0(ptr nonnull %72)
@@ -10275,7 +10275,7 @@ hwloc_read_path_as_uint.exit526.i:                ; preds = %864, %860, %hwloc_o
   br label %887
 
 887:                                              ; preds = %882, %hwloc_read_path_as_uint.exit526.i
-  %.sink774.i = phi i32 [ %886, %882 ], [ 0, %hwloc_read_path_as_uint.exit526.i ]
+  %.sink774.i = phi i32 [ 0, %hwloc_read_path_as_uint.exit526.i ], [ %886, %882 ]
   %888 = load ptr, ptr %871, align 8, !tbaa !143
   %889 = getelementptr inbounds nuw i8, ptr %888, i64 16
   store i32 %.sink774.i, ptr %889, align 8, !tbaa !7
@@ -10285,7 +10285,7 @@ hwloc_read_path_as_uint.exit526.i:                ; preds = %864, %860, %hwloc_o
   br label %.thread670.i
 
 .thread670.i:                                     ; preds = %887, %817, %795, %hwloc_read_path_as_uint.exit498.i, %753, %hwloc__alloc_read_path_as_cpumask.exit479.thread.i, %729, %.preheader.i107
-  %.1294.sink.i = phi ptr [ %.1294.i, %753 ], [ %.1294.i, %795 ], [ %.1294.i, %hwloc_read_path_as_uint.exit498.i ], [ %.1294.i, %817 ], [ null, %887 ], [ %.1294.i, %hwloc__alloc_read_path_as_cpumask.exit479.thread.i ], [ null, %729 ], [ null, %.preheader.i107 ]
+  %.1294.sink.i = phi ptr [ %.1294.i, %hwloc_read_path_as_uint.exit498.i ], [ %.1294.i, %817 ], [ %.1294.i, %753 ], [ %.1294.i, %795 ], [ null, %887 ], [ %.1294.i, %hwloc__alloc_read_path_as_cpumask.exit479.thread.i ], [ null, %729 ], [ null, %.preheader.i107 ]
   call void @hwloc_bitmap_free(ptr noundef %.1294.sink.i) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %90)
   %892 = add nuw nsw i32 %.1702.i, 1
@@ -10885,8 +10885,8 @@ hwloc_linux_cpukinds_force_homogeneous.exit.i:    ; preds = %1088, %1081, %1080,
   br i1 %exitcond98.not.i.i, label %.loopexit.i.i, label %.lr.ph87.i.i, !llvm.loop !221
 
 .loopexit.i.i:                                    ; preds = %1136, %1122, %._crit_edge.i170.i, %1095
-  %.166.lcssa104.i.i = phi i32 [ %.267.i.i, %._crit_edge.i170.i ], [ %.267.i.i, %1122 ], [ 0, %1095 ], [ %.267.i.i, %1136 ]
-  %.169.lcssa103.i.i = phi i32 [ %.270.i.i, %._crit_edge.i170.i ], [ %.270.i.i, %1122 ], [ %1103, %1095 ], [ %.270.i.i, %1136 ]
+  %.166.lcssa104.i.i = phi i32 [ 0, %1095 ], [ %.267.i.i, %1122 ], [ %.267.i.i, %._crit_edge.i170.i ], [ %.267.i.i, %1136 ]
+  %.169.lcssa103.i.i = phi i32 [ %1103, %1095 ], [ %.270.i.i, %1122 ], [ %.270.i.i, %._crit_edge.i170.i ], [ %.270.i.i, %1136 ]
   %1137 = icmp ult i32 %.169.lcssa103.i.i, %931
   br i1 %1137, label %1095, label %hwloc_linux_cpukinds_adjust_maxfreqs.exit.i, !llvm.loop !222
 
@@ -11104,7 +11104,7 @@ hwloc_linux_cpukinds_destroy.exit.thread.i:       ; preds = %.thread.i126, %._cr
   br label %hwloc_linux_cpukinds_destroy.exit210.i
 
 hwloc_linux_cpukinds_register.exit.i:             ; preds = %._crit_edge.i189.i, %1198, %._crit_edge359.i
-  %.sroa.13289.0.lcssa435.i = phi i32 [ %.sroa.13289.1.i, %._crit_edge.i189.i ], [ 0, %1198 ], [ %.sroa.13289.1.i, %._crit_edge359.i ]
+  %.sroa.13289.0.lcssa435.i = phi i32 [ %.sroa.13289.1.i, %._crit_edge359.i ], [ %.sroa.13289.1.i, %._crit_edge.i189.i ], [ 0, %1198 ]
   %1212 = zext i32 %.sroa.13271.1.i to i64
   call void @qsort(ptr noundef %.sroa.0263.1.i, i64 noundef %1212, i64 noundef 16, ptr noundef nonnull @hwloc_linux_cpukinds_compar) #29
   %.not19.i191.i = icmp eq i32 %.sroa.13271.1.i, 0
@@ -13937,7 +13937,7 @@ read_node_local_memattrs.exit.i:                  ; preds = %2302, %2299, %hwloc
   br i1 %exitcond423.not.i, label %._crit_edge368.i, label %.lr.ph367.split.i, !llvm.loop !274
 
 ._crit_edge368.i:                                 ; preds = %._crit_edge361.split.us.us.i, %._crit_edge361.split.i, %.thread312.i, %.preheader318.i
-  %.lcssa.fr503.i = phi i32 [ %2310, %.preheader318.i ], [ 0, %.thread312.i ], [ 0, %._crit_edge361.split.i ], [ %2310, %._crit_edge361.split.us.us.i ]
+  %.lcssa.fr503.i = phi i32 [ %2310, %.preheader318.i ], [ 0, %._crit_edge361.split.i ], [ 0, %.thread312.i ], [ %2310, %._crit_edge361.split.us.us.i ]
   call void @free(ptr noundef %1443) #29
   %2318 = load i64, ptr %905, align 8, !tbaa !210
   %2319 = and i64 %2318, 128
@@ -14158,7 +14158,7 @@ define internal noundef i32 @hwloc_linux_parse_cpuinfo_x86(ptr noundef readonly 
   br i1 %.not28, label %25, label %.sink.split
 
 .sink.split:                                      ; preds = %22, %18, %14, %10, %6
-  %.str.150.sink = phi ptr [ @.str.116, %6 ], [ @.str.150, %10 ], [ @.str.118, %14 ], [ @.str.117, %18 ], [ @.str.154, %22 ]
+  %.str.150.sink = phi ptr [ @.str.116, %6 ], [ @.str.118, %14 ], [ @.str.117, %18 ], [ @.str.150, %10 ], [ @.str.154, %22 ]
   %24 = tail call i32 @hwloc__add_info(ptr noundef %2, ptr noundef nonnull %.str.150.sink, ptr noundef nonnull %1) #29
   br label %25
 
@@ -14263,7 +14263,7 @@ define internal noundef i32 @hwloc_linux_parse_cpuinfo_arm(ptr noundef readonly 
   br i1 %.not54, label %43, label %.sink.split
 
 .sink.split:                                      ; preds = %40, %36, %32, %28, %24, %20, %16, %12, %8
-  %.str.157.sink = phi ptr [ @.str.150, %8 ], [ @.str.157, %12 ], [ @.str.159, %16 ], [ @.str.161, %20 ], [ @.str.163, %24 ], [ @.str.165, %28 ], [ @.str.167, %32 ], [ @.str.168, %36 ], [ @.str.170, %40 ]
+  %.str.157.sink = phi ptr [ @.str.150, %8 ], [ @.str.159, %16 ], [ @.str.163, %24 ], [ @.str.167, %32 ], [ @.str.168, %36 ], [ @.str.165, %28 ], [ @.str.161, %20 ], [ @.str.157, %12 ], [ @.str.170, %40 ]
   %42 = tail call i32 @hwloc__add_info(ptr noundef %2, ptr noundef nonnull %.str.157.sink, ptr noundef nonnull %1) #29
   br label %43
 
@@ -14456,7 +14456,7 @@ define internal noundef i32 @hwloc_linux_parse_cpuinfo_ia64(ptr noundef readonly
   br i1 %.not22, label %21, label %.sink.split
 
 .sink.split:                                      ; preds = %18, %14, %10, %6
-  %.str.150.sink = phi ptr [ @.str.116, %6 ], [ @.str.150, %10 ], [ @.str.118, %14 ], [ @.str.117, %18 ]
+  %.str.150.sink = phi ptr [ @.str.116, %6 ], [ @.str.118, %14 ], [ @.str.150, %10 ], [ @.str.117, %18 ]
   %20 = tail call i32 @hwloc__add_info(ptr noundef %2, ptr noundef nonnull %.str.150.sink, ptr noundef nonnull %1) #29
   br label %21
 
@@ -14702,8 +14702,8 @@ hwloc_open.exit.i:                                ; preds = %.preheader.i.i.i.i,
   br label %hwloc_read_path_by_length.exit.thread
 
 hwloc_read_path_by_length.exit.thread:            ; preds = %47, %hwloc_open.exit.i, %31, %51, %.lr.ph
-  %.236 = phi i64 [ %.03454, %.lr.ph ], [ %61, %51 ], [ %.03454, %31 ], [ %.03454, %hwloc_open.exit.i ], [ %.03454, %47 ]
-  %.1 = phi i32 [ %.055, %.lr.ph ], [ %.2, %51 ], [ %.2, %31 ], [ %.2, %hwloc_open.exit.i ], [ %.2, %47 ]
+  %.236 = phi i64 [ %.03454, %31 ], [ %.03454, %.lr.ph ], [ %61, %51 ], [ %.03454, %hwloc_open.exit.i ], [ %.03454, %47 ]
+  %.1 = phi i32 [ %.2, %31 ], [ %.055, %.lr.ph ], [ %.2, %51 ], [ %.2, %hwloc_open.exit.i ], [ %.2, %47 ]
   %62 = call ptr @readdir(ptr noundef nonnull %16) #29
   %.not40 = icmp eq ptr %62, null
   br i1 %.not40, label %.thread49.loopexit, label %.lr.ph
@@ -15217,13 +15217,13 @@ hwloc_read_path_by_length.exit:                   ; preds = %60
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %hwloc_read_path_by_length.exit, %60, %hwloc_open.exit.i, %67, %hwloc_read_path_by_length.exit.us, %33, %hwloc_open.exit.i.loopexit.us, %40, %hwloc_read_path_by_length.exit.us.us, %hwloc_open.exit.i.loopexit.us.us, %18, %._crit_edge.loopexit
-  %.029.ph.ph = phi i32 [ 0, %._crit_edge.loopexit ], [ -1, %18 ], [ -1, %hwloc_open.exit.i.loopexit.us.us ], [ -1, %hwloc_read_path_by_length.exit.us.us ], [ -1, %40 ], [ -1, %hwloc_open.exit.i.loopexit.us ], [ -1, %33 ], [ -1, %hwloc_read_path_by_length.exit.us ], [ -1, %67 ], [ -1, %hwloc_open.exit.i ], [ -1, %60 ], [ -1, %hwloc_read_path_by_length.exit ]
+  %.029.ph.ph = phi i32 [ 0, %._crit_edge.loopexit ], [ -1, %40 ], [ -1, %hwloc_read_path_by_length.exit.us.us ], [ -1, %hwloc_read_path_by_length.exit.us ], [ -1, %67 ], [ -1, %18 ], [ -1, %hwloc_open.exit.i.loopexit.us.us ], [ -1, %hwloc_open.exit.i.loopexit.us ], [ -1, %33 ], [ -1, %hwloc_open.exit.i ], [ -1, %60 ], [ -1, %hwloc_read_path_by_length.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %77, %._crit_edge67, %.sink.split.sink.split, %.preheader
-  %.029.ph = phi i32 [ 0, %.preheader ], [ %.029.ph.ph, %.sink.split.sink.split ], [ 0, %._crit_edge67 ], [ 0, %77 ]
+  %.029.ph = phi i32 [ 0, %.preheader ], [ 0, %._crit_edge67 ], [ %.029.ph.ph, %.sink.split.sink.split ], [ 0, %77 ]
   call void @free(ptr noundef %9) #29
   br label %79
 
@@ -15572,7 +15572,7 @@ hwloc_read_path_as_uint.exit54.thread:            ; preds = %hwloc_open.exit.i.i
   br label %99
 
 99:                                               ; preds = %hwloc_read_path_as_uint.exit54.thread, %hwloc_read_path_as_uint.exit.thread, %hwloc_read_path_as_uint64.exit.thread, %75, %79, %24
-  %.1 = phi ptr [ %.03674, %24 ], [ %78, %79 ], [ %.03674, %75 ], [ %.03674, %hwloc_read_path_as_uint64.exit.thread ], [ %.03674, %hwloc_read_path_as_uint.exit.thread ], [ %.03674, %hwloc_read_path_as_uint.exit54.thread ]
+  %.1 = phi ptr [ %.03674, %hwloc_read_path_as_uint.exit54.thread ], [ %.03674, %24 ], [ %.03674, %hwloc_read_path_as_uint64.exit.thread ], [ %.03674, %hwloc_read_path_as_uint.exit.thread ], [ %78, %79 ], [ %.03674, %75 ]
   %100 = call ptr @readdir(ptr noundef nonnull %20) #29
   %.not39 = icmp eq ptr %100, null
   br i1 %.not39, label %._crit_edge, label %24
@@ -15874,8 +15874,8 @@ hwloc_readlinkat.exit.i59.i:                      ; preds = %.preheader.i.i.i61.
   br label %127
 
 127:                                              ; preds = %123, %.thread.i
-  %.144.i = phi i32 [ %126, %123 ], [ %.043.i, %.thread.i ]
-  %.1.i = phi ptr [ %125, %123 ], [ %.040.i, %.thread.i ]
+  %.144.i = phi i32 [ %.043.i, %.thread.i ], [ %126, %123 ]
+  %.1.i = phi ptr [ %.040.i, %.thread.i ], [ %125, %123 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -16237,7 +16237,7 @@ thread-pre-split:                                 ; preds = %22
   br label %thread-pre-split.thread
 
 thread-pre-split.thread:                          ; preds = %26, %55, %54, %thread-pre-split, %4, %6, %9, %12, %15
-  %.037 = phi i32 [ -1, %15 ], [ -1, %12 ], [ -1, %9 ], [ -1, %6 ], [ -1, %4 ], [ -1, %thread-pre-split ], [ -1, %54 ], [ %spec.select, %55 ], [ -1, %26 ]
+  %.037 = phi i32 [ -1, %4 ], [ -1, %54 ], [ -1, %thread-pre-split ], [ -1, %15 ], [ -1, %12 ], [ -1, %9 ], [ -1, %6 ], [ %spec.select, %55 ], [ -1, %26 ]
   ret i32 %.037
 }
 
@@ -16414,7 +16414,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_linux_knl_identify_8nodes(ptr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %34, %92, %91, %.thread, %36, %38, %4, %6, %9, %12, %15
-  %.065 = phi i32 [ -1, %15 ], [ -1, %12 ], [ -1, %9 ], [ -1, %6 ], [ -1, %4 ], [ -1, %38 ], [ -1, %36 ], [ -1, %.thread ], [ -1, %91 ], [ %spec.select, %92 ], [ -1, %34 ]
+  %.065 = phi i32 [ %spec.select, %92 ], [ -1, %4 ], [ -1, %91 ], [ -1, %15 ], [ -1, %12 ], [ -1, %9 ], [ -1, %6 ], [ -1, %38 ], [ -1, %36 ], [ -1, %.thread ], [ -1, %34 ]
   ret i32 %.065
 }
 
@@ -16830,7 +16830,7 @@ hwloc_get_next_obj_by_type.exit.i49.i:            ; preds = %146, %141
   br i1 %152, label %hwloc_linuxfs_read_osdev_numa_node.exit, label %.preheader.i, !llvm.loop !297
 
 hwloc_linuxfs_read_osdev_numa_node.exit:          ; preds = %91, %120, %149
-  %.0.i = phi ptr [ %.0.i.i50.i, %149 ], [ %.0.i.i35.i, %120 ], [ %.0.i.i.i61, %91 ]
+  %.0.i = phi ptr [ %.0.i.i35.i, %120 ], [ %.0.i.i50.i, %149 ], [ %.0.i.i.i61, %91 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %153 = load i32, ptr %.0.i, align 8, !tbaa !164
   %154 = and i32 %153, -2
@@ -16846,13 +16846,13 @@ hwloc_linuxfs_read_osdev_numa_node.exit:          ; preds = %91, %120, %149
   %.not3 = icmp eq i32 %158, 14
   br i1 %.not3, label %.lr.ph, label %.loopexit, !llvm.loop !299
 
-.loopexit4:                                       ; preds = %85, %.preheader69.i, %hwloc_get_next_obj_by_type.exit.i.i, %114, %.preheader66.i, %hwloc_get_next_obj_by_type.exit.i34.i, %143, %.preheader.i, %hwloc_get_next_obj_by_type.exit.i49.i, %hwloc_read_path_as_int.exit.i, %hwloc_read_path_as_int.exit43.i, %hwloc_read_path_as_int.exit.thread.i, %hwloc_read_path_as_int.exit43.thread.i
+.loopexit4:                                       ; preds = %.preheader69.i, %hwloc_get_next_obj_by_type.exit.i.i, %85, %114, %.preheader66.i, %hwloc_get_next_obj_by_type.exit.i34.i, %143, %.preheader.i, %hwloc_get_next_obj_by_type.exit.i49.i, %hwloc_read_path_as_int.exit43.thread.i, %hwloc_read_path_as_int.exit.i, %hwloc_read_path_as_int.exit.thread.i, %hwloc_read_path_as_int.exit43.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %159 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %.8.val, i32 noundef 0, i32 noundef 0) #32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %hwloc_linuxfs_read_osdev_numa_node.exit, %hwloc_readlink.exit60, %62, %39, %35, %.loopexit4
-  %.1 = phi ptr [ %159, %.loopexit4 ], [ null, %hwloc_readlink.exit60 ], [ null, %35 ], [ null, %39 ], [ %63, %62 ], [ %.0.i, %hwloc_linuxfs_read_osdev_numa_node.exit ], [ %156, %.lr.ph ]
+  %.1 = phi ptr [ null, %39 ], [ %63, %62 ], [ %159, %.loopexit4 ], [ null, %35 ], [ null, %hwloc_readlink.exit60 ], [ %.0.i, %hwloc_linuxfs_read_osdev_numa_node.exit ], [ %156, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

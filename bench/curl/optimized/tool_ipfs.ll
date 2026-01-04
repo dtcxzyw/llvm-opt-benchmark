@@ -305,9 +305,9 @@ ipfs_gateway.exit:                                ; preds = %36
   br label %select.unfold
 
 select.unfold:                                    ; preds = %108, %ipfs_gateway.exit.thread, %69, %67, %ipfs_gateway.exit, %28, %31, %26, %4, %105, %103, %96, %75, %81, %84, %73, %71, %18
-  %.036 = phi ptr [ %.1, %71 ], [ %.1, %73 ], [ %.1, %75 ], [ %.1, %81 ], [ %.1, %84 ], [ %.1, %103 ], [ %.1, %105 ], [ %.1, %96 ], [ null, %18 ], [ null, %4 ], [ null, %26 ], [ null, %31 ], [ null, %28 ], [ null, %ipfs_gateway.exit ], [ %.0.i69, %67 ], [ %.1, %69 ], [ null, %ipfs_gateway.exit.thread ], [ %.1, %108 ]
-  %.035 = phi ptr [ null, %71 ], [ null, %73 ], [ null, %75 ], [ null, %81 ], [ null, %84 ], [ %102, %103 ], [ %102, %105 ], [ null, %96 ], [ null, %18 ], [ null, %4 ], [ null, %26 ], [ null, %31 ], [ null, %28 ], [ null, %ipfs_gateway.exit ], [ null, %67 ], [ null, %69 ], [ null, %ipfs_gateway.exit.thread ], [ %102, %108 ]
-  %.0 = phi i32 [ 3, %71 ], [ 3, %73 ], [ 3, %75 ], [ 3, %81 ], [ 3, %84 ], [ 3, %103 ], [ 3, %105 ], [ 3, %96 ], [ 3, %18 ], [ 2, %4 ], [ 27, %26 ], [ 3, %31 ], [ 43, %28 ], [ 37, %ipfs_gateway.exit ], [ 3, %67 ], [ 3, %69 ], [ 37, %ipfs_gateway.exit.thread ], [ %spec.select, %108 ]
+  %.036 = phi ptr [ null, %4 ], [ null, %31 ], [ %.0.i69, %67 ], [ %.1, %71 ], [ %.1, %73 ], [ %.1, %75 ], [ %.1, %81 ], [ %.1, %84 ], [ %.1, %103 ], [ %.1, %105 ], [ %.1, %69 ], [ %.1, %108 ], [ %.1, %96 ], [ null, %26 ], [ null, %ipfs_gateway.exit ], [ null, %28 ], [ null, %18 ], [ null, %ipfs_gateway.exit.thread ]
+  %.035 = phi ptr [ null, %4 ], [ null, %31 ], [ null, %67 ], [ null, %71 ], [ null, %73 ], [ null, %75 ], [ null, %81 ], [ null, %84 ], [ %102, %103 ], [ %102, %105 ], [ null, %69 ], [ %102, %108 ], [ null, %96 ], [ null, %26 ], [ null, %ipfs_gateway.exit ], [ null, %28 ], [ null, %18 ], [ null, %ipfs_gateway.exit.thread ]
+  %.0 = phi i32 [ 2, %4 ], [ 3, %31 ], [ 3, %67 ], [ 3, %71 ], [ 3, %73 ], [ 3, %75 ], [ 3, %81 ], [ 3, %84 ], [ 3, %103 ], [ 3, %105 ], [ 3, %69 ], [ %spec.select, %108 ], [ 3, %96 ], [ 27, %26 ], [ 37, %ipfs_gateway.exit ], [ 43, %28 ], [ 3, %18 ], [ 37, %ipfs_gateway.exit.thread ]
   call void @free(ptr noundef %.036) #8
   %112 = load ptr, ptr %9, align 8, !tbaa !4
   call void @curl_free(ptr noundef %112) #8
@@ -407,7 +407,7 @@ define internal fastcc range(i32 0, 28) i32 @ensure_trailing_slash(ptr noundef c
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %6, %1, %4
-  %.3 = phi i32 [ 0, %4 ], [ 0, %1 ], [ 0, %6 ], [ %.3.ph, %.thread.sink.split ]
+  %.3 = phi i32 [ 0, %6 ], [ 0, %1 ], [ 0, %4 ], [ %.3.ph, %.thread.sink.split ]
   ret i32 %.3
 }
 

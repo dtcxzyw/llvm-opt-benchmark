@@ -823,7 +823,7 @@ define dso_local i32 @i915_gem_set_tiling_ioctl(ptr noundef readonly captures(no
   br label %.thread15
 
 .thread15:                                        ; preds = %116, %118, %.thread8, %119, %3
-  %120 = phi i32 [ -95, %3 ], [ %113, %119 ], [ -2, %.thread8 ], [ %113, %118 ], [ %113, %116 ]
+  %120 = phi i32 [ -95, %3 ], [ %113, %116 ], [ -2, %.thread8 ], [ %113, %119 ], [ %113, %118 ]
   ret i32 %120
 }
 
@@ -905,7 +905,7 @@ define dso_local noundef range(i32 -95, 1) i32 @i915_gem_get_tiling_ioctl(ptr no
   br label %43
 
 43:                                               ; preds = %35, %.thread1, %.thread, %42, %3
-  %44 = phi i32 [ -95, %3 ], [ 0, %42 ], [ -2, %.thread ], [ 0, %.thread1 ], [ 0, %35 ]
+  %44 = phi i32 [ -95, %3 ], [ -2, %.thread ], [ 0, %42 ], [ 0, %35 ], [ 0, %.thread1 ]
   ret i32 %44
 }
 

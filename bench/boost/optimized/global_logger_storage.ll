@@ -207,8 +207,8 @@ _ZNKSt4lessIN5boost9typeindex14stl_type_indexEEclERKS2_S5_.exit.i.i.i: ; preds =
   br label %_ZNKSt4lessIN5boost9typeindex14stl_type_indexEEclERKS2_S5_.exit.thread.i.i.i
 
 _ZNKSt4lessIN5boost9typeindex14stl_type_indexEEclERKS2_S5_.exit.thread.i.i.i: ; preds = %_ZNKSt4lessIN5boost9typeindex14stl_type_indexEEclERKS2_S5_.exit.i.i.i, %17
-  %.sink.i.i.i = phi i64 [ 16, %17 ], [ %spec.select.i.i.i, %_ZNKSt4lessIN5boost9typeindex14stl_type_indexEEclERKS2_S5_.exit.i.i.i ]
-  %.19.i.i.i = phi ptr [ %.012.i.i.i, %17 ], [ %spec.select15.i.i.i, %_ZNKSt4lessIN5boost9typeindex14stl_type_indexEEclERKS2_S5_.exit.i.i.i ]
+  %.sink.i.i.i = phi i64 [ %spec.select.i.i.i, %_ZNKSt4lessIN5boost9typeindex14stl_type_indexEEclERKS2_S5_.exit.i.i.i ], [ 16, %17 ]
+  %.19.i.i.i = phi ptr [ %spec.select15.i.i.i, %_ZNKSt4lessIN5boost9typeindex14stl_type_indexEEclERKS2_S5_.exit.i.i.i ], [ %.012.i.i.i, %17 ]
   %27 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.sink.i.i.i
   %.1.i.i.i = load ptr, ptr %27, align 8, !tbaa !16
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
@@ -256,7 +256,7 @@ _ZNSt3mapIN5boost9typeindex14stl_type_indexENS0_10shared_ptrINS0_3log11v2_mt_pos
           cleanup
   br label %81
 
-_ZNSt3mapIN5boost9typeindex14stl_type_indexENS0_10shared_ptrINS0_3log11v2_mt_posix7sources3aux18logger_holder_baseEEESt4lessIS2_ESaISt4pairIKS2_S9_EEE4findERSD_.exit.thread: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt8_Rb_treeIN5boost9typeindex14stl_type_indexESt4pairIKS2_NS0_10shared_ptrINS0_3log11v2_mt_posix7sources3aux18logger_holder_baseEEEESt10_Select1stISC_ESt4lessIS2_ESaISC_EE14_M_lower_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS4_.exit.i.i, %_ZNKSt4lessIN5boost9typeindex14stl_type_indexEEclERKS2_S5_.exit.i.i
+_ZNSt3mapIN5boost9typeindex14stl_type_indexENS0_10shared_ptrINS0_3log11v2_mt_posix7sources3aux18logger_holder_baseEEESt4lessIS2_ESaISt4pairIKS2_S9_EEE4findERSD_.exit.thread: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNKSt4lessIN5boost9typeindex14stl_type_indexEEclERKS2_S5_.exit.i.i, %_ZNSt8_Rb_treeIN5boost9typeindex14stl_type_indexESt4pairIKS2_NS0_10shared_ptrINS0_3log11v2_mt_posix7sources3aux18logger_holder_baseEEEESt10_Select1stISC_ESt4lessIS2_ESaISC_EE14_M_lower_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS4_.exit.i.i
   invoke void %2(ptr dead_on_unwind writable sret(%"class.boost::shared_ptr") align 8 %0)
           to label %49 unwind label %47
 
@@ -451,8 +451,8 @@ _ZNKSt4lessIN5boost9typeindex14stl_type_indexEEclERKS2_S5_.exit.i.i.i: ; preds =
   br label %_ZNKSt4lessIN5boost9typeindex14stl_type_indexEEclERKS2_S5_.exit.thread.i.i.i
 
 _ZNKSt4lessIN5boost9typeindex14stl_type_indexEEclERKS2_S5_.exit.thread.i.i.i: ; preds = %_ZNKSt4lessIN5boost9typeindex14stl_type_indexEEclERKS2_S5_.exit.i.i.i, %14
-  %.sink.i.i.i = phi i64 [ 16, %14 ], [ %spec.select.i.i.i, %_ZNKSt4lessIN5boost9typeindex14stl_type_indexEEclERKS2_S5_.exit.i.i.i ]
-  %.19.i.i.i = phi ptr [ %.012.i.i.i, %14 ], [ %spec.select15.i.i.i, %_ZNKSt4lessIN5boost9typeindex14stl_type_indexEEclERKS2_S5_.exit.i.i.i ]
+  %.sink.i.i.i = phi i64 [ %spec.select.i.i.i, %_ZNKSt4lessIN5boost9typeindex14stl_type_indexEEclERKS2_S5_.exit.i.i.i ], [ 16, %14 ]
+  %.19.i.i.i = phi ptr [ %spec.select15.i.i.i, %_ZNKSt4lessIN5boost9typeindex14stl_type_indexEEclERKS2_S5_.exit.i.i.i ], [ %.012.i.i.i, %14 ]
   %24 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.sink.i.i.i
   %.1.i.i.i = load ptr, ptr %24, align 8, !tbaa !16
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
@@ -1812,7 +1812,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIN5boost9typeindex14stl_type_index
   br label %.thread
 
 .thread:                                          ; preds = %18, %21, %35
-  %38 = phi i1 [ true, %18 ], [ false, %21 ], [ %37, %35 ]
+  %38 = phi i1 [ %37, %35 ], [ true, %18 ], [ false, %21 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %38, ptr noundef nonnull %8, ptr noundef nonnull %17, ptr noundef nonnull align 8 dereferenceable(32) %19) #23
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %40 = load i64, ptr %39, align 8, !tbaa !35
@@ -2026,8 +2026,8 @@ _ZNKSt4lessIN5boost9typeindex14stl_type_indexEEclERKS2_S5_.exit25.thread: ; pred
   br label %_ZNKSt4lessIN5boost9typeindex14stl_type_indexEEclERKS2_S5_.exit21.thread
 
 _ZNKSt4lessIN5boost9typeindex14stl_type_indexEEclERKS2_S5_.exit21.thread: ; preds = %85, %61, %30, %_ZNKSt4lessIN5boost9typeindex14stl_type_indexEEclERKS2_S5_.exit21, %_ZNKSt4lessIN5boost9typeindex14stl_type_indexEEclERKS2_S5_.exit25.thread, %70, %_ZNKSt4lessIN5boost9typeindex14stl_type_indexEEclERKS2_S5_.exit17.thread, %46, %_ZNKSt4lessIN5boost9typeindex14stl_type_indexEEclERKS2_S5_.exit, %_ZNKSt4lessIN5boost9typeindex14stl_type_indexEEclERKS2_S5_.exit.thread
-  %.sroa.046.0 = phi ptr [ %28, %_ZNKSt4lessIN5boost9typeindex14stl_type_indexEEclERKS2_S5_.exit.thread ], [ null, %_ZNKSt4lessIN5boost9typeindex14stl_type_indexEEclERKS2_S5_.exit ], [ %66, %_ZNKSt4lessIN5boost9typeindex14stl_type_indexEEclERKS2_S5_.exit17.thread ], [ %48, %46 ], [ %90, %_ZNKSt4lessIN5boost9typeindex14stl_type_indexEEclERKS2_S5_.exit25.thread ], [ null, %70 ], [ %1, %_ZNKSt4lessIN5boost9typeindex14stl_type_indexEEclERKS2_S5_.exit21 ], [ %1, %30 ], [ %spec.select, %61 ], [ %spec.select48, %85 ]
-  %.sroa.12.0 = phi ptr [ %29, %_ZNKSt4lessIN5boost9typeindex14stl_type_indexEEclERKS2_S5_.exit.thread ], [ %11, %_ZNKSt4lessIN5boost9typeindex14stl_type_indexEEclERKS2_S5_.exit ], [ %67, %_ZNKSt4lessIN5boost9typeindex14stl_type_indexEEclERKS2_S5_.exit17.thread ], [ %48, %46 ], [ %91, %_ZNKSt4lessIN5boost9typeindex14stl_type_indexEEclERKS2_S5_.exit25.thread ], [ %72, %70 ], [ null, %_ZNKSt4lessIN5boost9typeindex14stl_type_indexEEclERKS2_S5_.exit21 ], [ null, %30 ], [ %spec.select47, %61 ], [ %spec.select49, %85 ]
+  %.sroa.046.0 = phi ptr [ %28, %_ZNKSt4lessIN5boost9typeindex14stl_type_indexEEclERKS2_S5_.exit.thread ], [ %1, %_ZNKSt4lessIN5boost9typeindex14stl_type_indexEEclERKS2_S5_.exit21 ], [ null, %_ZNKSt4lessIN5boost9typeindex14stl_type_indexEEclERKS2_S5_.exit ], [ %spec.select48, %85 ], [ %66, %_ZNKSt4lessIN5boost9typeindex14stl_type_indexEEclERKS2_S5_.exit17.thread ], [ %48, %46 ], [ %1, %30 ], [ %90, %_ZNKSt4lessIN5boost9typeindex14stl_type_indexEEclERKS2_S5_.exit25.thread ], [ null, %70 ], [ %spec.select, %61 ]
+  %.sroa.12.0 = phi ptr [ %29, %_ZNKSt4lessIN5boost9typeindex14stl_type_indexEEclERKS2_S5_.exit.thread ], [ null, %_ZNKSt4lessIN5boost9typeindex14stl_type_indexEEclERKS2_S5_.exit21 ], [ %11, %_ZNKSt4lessIN5boost9typeindex14stl_type_indexEEclERKS2_S5_.exit ], [ %spec.select49, %85 ], [ %67, %_ZNKSt4lessIN5boost9typeindex14stl_type_indexEEclERKS2_S5_.exit17.thread ], [ %48, %46 ], [ null, %30 ], [ %91, %_ZNKSt4lessIN5boost9typeindex14stl_type_indexEEclERKS2_S5_.exit25.thread ], [ %72, %70 ], [ %spec.select47, %61 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.046.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

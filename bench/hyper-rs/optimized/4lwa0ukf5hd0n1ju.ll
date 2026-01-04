@@ -267,8 +267,8 @@ common.resume:                                    ; preds = %34, %27
   br label %50
 
 "_ZN74_$LT$hyper..upgrade..OnUpgrade$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h602be501d17ab61aE.exit": ; preds = %46, %45, %.noexc
-  %.sroa.015.0 = phi ptr [ null, %46 ], [ %.sroa.426.0.copyload, %45 ], [ null, %.noexc ]
-  %.sroa.6.0 = phi ptr [ %.sroa.527.0.copyload, %46 ], [ %.sroa.527.0.copyload, %45 ], [ %44, %.noexc ]
+  %.sroa.015.0 = phi ptr [ %.sroa.426.0.copyload, %45 ], [ null, %46 ], [ null, %.noexc ]
+  %.sroa.6.0 = phi ptr [ %.sroa.527.0.copyload, %45 ], [ %.sroa.527.0.copyload, %46 ], [ %44, %.noexc ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.015.0, ptr %49, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16

@@ -487,7 +487,7 @@ define internal noundef zeroext i1 @uuid_abbrev_abort(i32 noundef %0, ptr nounde
   br label %49
 
 49:                                               ; preds = %43, %46, %44, %34, %37, %35, %2, %6, %9, %25
-  %.0 = phi i1 [ false, %25 ], [ false, %9 ], [ false, %6 ], [ false, %2 ], [ true, %35 ], [ true, %37 ], [ true, %34 ], [ false, %44 ], [ false, %46 ], [ false, %43 ]
+  %.0 = phi i1 [ true, %34 ], [ false, %25 ], [ false, %2 ], [ false, %9 ], [ false, %6 ], [ true, %35 ], [ true, %37 ], [ false, %44 ], [ false, %46 ], [ false, %43 ]
   ret i1 %.0
 }
 

@@ -191,7 +191,7 @@ Rwr_ManNodeVolume.exit:                           ; preds = %55, %.critedge.i.i
   br i1 %99, label %.lr.ph126.split, label %.critedge, !llvm.loop !33
 
 .critedge:                                        ; preds = %.critedge2, %1, %90
-  %.pre154 = phi ptr [ %4, %1 ], [ %.pre154.pre, %90 ], [ %96, %.critedge2 ]
+  %.pre154 = phi ptr [ %.pre154.pre, %90 ], [ %4, %1 ], [ %96, %.critedge2 ]
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %101 = load i32, ptr %100, align 8, !tbaa !27
   %102 = add nsw i32 %101, 1

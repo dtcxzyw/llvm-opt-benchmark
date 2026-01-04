@@ -1045,10 +1045,10 @@ solve_range_convert.exit.i:                       ; preds = %19
   %79 = sub nsw i64 %74, %78
   store i64 %79, ptr %70, align 8, !tbaa !91
   %80 = icmp slt i32 %21, 15
-  %lumRangeToJpeg_c.lumRangeFromJpeg_c = select i1 %.not45.i, ptr @lumRangeToJpeg_c, ptr @lumRangeFromJpeg_c
-  %chrRangeToJpeg_c.chrRangeFromJpeg_c = select i1 %.not45.i, ptr @chrRangeToJpeg_c, ptr @chrRangeFromJpeg_c
   %lumRangeToJpeg16_c.lumRangeFromJpeg16_c = select i1 %.not45.i, ptr @lumRangeToJpeg16_c, ptr @lumRangeFromJpeg16_c
   %chrRangeToJpeg16_c.chrRangeFromJpeg16_c = select i1 %.not45.i, ptr @chrRangeToJpeg16_c, ptr @chrRangeFromJpeg16_c
+  %lumRangeToJpeg_c.lumRangeFromJpeg_c = select i1 %.not45.i, ptr @lumRangeToJpeg_c, ptr @lumRangeFromJpeg_c
+  %chrRangeToJpeg_c.chrRangeFromJpeg_c = select i1 %.not45.i, ptr @chrRangeToJpeg_c, ptr @chrRangeFromJpeg_c
   %lumRangeToJpeg_c.sink = select i1 %80, ptr %lumRangeToJpeg_c.lumRangeFromJpeg_c, ptr %lumRangeToJpeg16_c.lumRangeFromJpeg16_c
   %chrRangeToJpeg_c.sink = select i1 %80, ptr %chrRangeToJpeg_c.chrRangeFromJpeg_c, ptr %chrRangeToJpeg16_c.chrRangeFromJpeg16_c
   store ptr %lumRangeToJpeg_c.sink, ptr %2, align 8, !tbaa !92
@@ -2103,7 +2103,7 @@ define range(i32 -2147483648, 1) i32 @sws_frame_start(ptr noundef readonly captu
   br label %29
 
 29:                                               ; preds = %23, %28, %11, %3
-  %.021 = phi i32 [ %6, %3 ], [ %21, %11 ], [ %26, %28 ], [ %.mux, %23 ]
+  %.021 = phi i32 [ %6, %3 ], [ %21, %11 ], [ %.mux, %23 ], [ %26, %28 ]
   ret i32 %.021
 }
 
@@ -2566,7 +2566,7 @@ isBayer.exit363:                                  ; preds = %.thread447
   br i1 %exitcond.not, label %.loopexit, label %124, !llvm.loop !157
 
 .loopexit:                                        ; preds = %124, %.thread453, %120, %116, %.thread371, %111
-  %131 = phi i1 [ %112, %120 ], [ %112, %116 ], [ %112, %.thread371 ], [ false, %111 ], [ false, %.thread453 ], [ %112, %124 ]
+  %131 = phi i1 [ false, %.thread453 ], [ %112, %120 ], [ %112, %116 ], [ %112, %.thread371 ], [ false, %111 ], [ %112, %124 ]
   %132 = load i32, ptr %23, align 8, !tbaa !153
   switch i32 %132, label %usePal.exit.thread [
     i32 11, label %usePal.exit
@@ -2606,7 +2606,7 @@ usePal.exit.thread:                               ; preds = %.loopexit, %usePal.
   br i1 %22, label %.sink.split, label %141
 
 .sink.split:                                      ; preds = %139, %135, %136
-  %.sink = phi i32 [ -1, %136 ], [ 1, %135 ], [ 1, %139 ]
+  %.sink = phi i32 [ 1, %135 ], [ -1, %136 ], [ 1, %139 ]
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 252
   store i32 %.sink, ptr %140, align 4, !tbaa !152
   br label %141
@@ -3125,7 +3125,7 @@ usePal.exit366:                                   ; preds = %244, %244, %244, %2
   br label %.critedge356
 
 .critedge356:                                     ; preds = %215, %isALPHA.exit.thread, %412, %408, %93, %138, %109, %100, %92, %88, %84, %73, %53
-  %.0 = phi i32 [ -22, %73 ], [ -22, %84 ], [ %101, %100 ], [ %110, %109 ], [ -22, %138 ], [ -22, %92 ], [ -22, %88 ], [ -22, %53 ], [ 0, %93 ], [ %.0295, %408 ], [ %.0295, %412 ], [ -12, %isALPHA.exit.thread ], [ -12, %215 ]
+  %.0 = phi i32 [ -22, %73 ], [ -22, %84 ], [ -22, %53 ], [ %101, %100 ], [ %110, %109 ], [ -12, %isALPHA.exit.thread ], [ -12, %215 ], [ %.0295, %408 ], [ -22, %138 ], [ -22, %92 ], [ -22, %88 ], [ 0, %93 ], [ %.0295, %412 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -3420,7 +3420,7 @@ get_frame_pointers.exit81:                        ; preds = %.loopexit27.i73, %g
   br label %sws_frame_start.exit.thread
 
 sws_frame_start.exit.thread:                      ; preds = %36, %19, %13, %81, %77, %54, %51, %sws_frame_start.exit, %3, %.loopexit, %47
-  %.0 = phi i32 [ %.050, %47 ], [ 0, %.loopexit ], [ -22, %3 ], [ %34, %sws_frame_start.exit ], [ %52, %51 ], [ 0, %54 ], [ %78, %77 ], [ %82, %81 ], [ %34, %36 ], [ %29, %19 ], [ %14, %13 ]
+  %.0 = phi i32 [ -22, %3 ], [ %.050, %47 ], [ %34, %sws_frame_start.exit ], [ 0, %.loopexit ], [ %78, %77 ], [ 0, %54 ], [ %52, %51 ], [ %82, %81 ], [ %34, %36 ], [ %29, %19 ], [ %14, %13 ]
   ret i32 %.0
 }
 
@@ -3862,11 +3862,11 @@ ff_q_equal.exit.thread17.i44.i.i.i:               ; preds = %208, %205, %ff_cie_
   %or.cond69 = or i1 %or.cond5.i.i12.i54.i.i.i.not75, %225
   br i1 %or.cond69, label %ff_props_equal.exit.thread, label %ff_props_equal.exit.thread56
 
-ff_props_equal.exit.thread:                       ; preds = %116, %126, %100, %110, %166, %176, %180, %190, %134, %144, %148, %158, %198, %208, %212, %222, %89, %93, %69, %73, %77, %81, %85
+ff_props_equal.exit.thread:                       ; preds = %110, %166, %158, %148, %134, %222, %212, %198, %208, %144, %176, %190, %180, %100, %89, %93, %116, %126, %69, %73, %77, %81, %85
   %226 = select i1 %67, ptr @.str.7, ptr @.str.8
   br label %.loopexit
 
-ff_props_equal.exit.thread56:                     ; preds = %222, %219, %ff_q_equal.exit.thread17.i44.i.i.i, %64
+ff_props_equal.exit.thread56:                     ; preds = %222, %ff_q_equal.exit.thread17.i44.i.i.i, %219, %64
   %227 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv
   %228 = call i32 @ff_sws_graph_reinit(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef %59, ptr noundef nonnull %227) #12
   %229 = icmp slt i32 %228, 0
@@ -3932,7 +3932,7 @@ validate_params.exit:                             ; preds = %238
   br i1 %58, label %57, label %validate_params.exit.thread, !llvm.loop !204
 
 validate_params.exit.thread:                      ; preds = %validate_params.exit, %56, %17, %12, %.loopexit, %.thread65, %3
-  %.039 = phi i32 [ -22, %3 ], [ %.044, %.loopexit ], [ 0, %.thread65 ], [ -22, %12 ], [ -22, %17 ], [ -22, %56 ], [ 0, %validate_params.exit ]
+  %.039 = phi i32 [ -22, %3 ], [ -22, %56 ], [ %.044, %.loopexit ], [ 0, %.thread65 ], [ -22, %12 ], [ -22, %17 ], [ 0, %validate_params.exit ]
   ret i32 %.039
 }
 
@@ -4281,7 +4281,7 @@ isAnyRGB.exit:                                    ; preds = %7
   br label %33
 
 33:                                               ; preds = %29, %26
-  %.032 = phi i32 [ 9, %26 ], [ %spec.select, %29 ]
+  %.032 = phi i32 [ %spec.select, %29 ], [ 9, %26 ]
   %34 = icmp sgt i32 %2, 0
   br i1 %34, label %.lr.ph41, label %._crit_edge42
 
@@ -4390,7 +4390,7 @@ isAnyRGB.exit:                                    ; preds = %14
   br label %35
 
 35:                                               ; preds = %30, %27, %24, %isAnyRGB.exit
-  %.031 = phi i32 [ %29, %27 ], [ 13, %24 ], [ 13, %isAnyRGB.exit ], [ %spec.select, %30 ]
+  %.031 = phi i32 [ %spec.select, %30 ], [ 13, %isAnyRGB.exit ], [ %29, %27 ], [ 13, %24 ]
   %36 = icmp sgt i32 %2, 0
   br i1 %36, label %.lr.ph41, label %._crit_edge42
 
@@ -4477,7 +4477,7 @@ define internal fastcc range(i32 0, 2) i32 @check_image_pointers(ptr noundef non
   br i1 %.not12, label %15, label %6
 
 15:                                               ; preds = %6, %.critedge, %7
-  %.2 = phi i32 [ 0, %7 ], [ 0, %.critedge ], [ 1, %6 ]
+  %.2 = phi i32 [ 0, %.critedge ], [ 0, %7 ], [ 1, %6 ]
   ret i32 %.2
 }
 
@@ -4535,7 +4535,7 @@ define internal fastcc i32 @scale_gamma(ptr noundef %0, ptr noundef nonnull read
   br label %44
 
 44:                                               ; preds = %33, %35, %31, %9
-  %.0 = phi i32 [ %16, %9 ], [ %.043, %31 ], [ %43, %35 ], [ %.043, %33 ]
+  %.0 = phi i32 [ %.043, %31 ], [ %16, %9 ], [ %43, %35 ], [ %.043, %33 ]
   ret i32 %.0
 }
 

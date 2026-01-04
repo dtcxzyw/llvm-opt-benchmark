@@ -678,7 +678,7 @@ select.unfold:                                    ; preds = %81, %77
   br i1 %.not, label %.thread44, label %.thread54
 
 .thread54:                                        ; preds = %267, %260, %243
-  %288 = phi i32 [ %287, %267 ], [ %245, %243 ], [ %245, %260 ]
+  %288 = phi i32 [ %245, %260 ], [ %287, %267 ], [ %245, %243 ]
   %289 = add nuw nsw i64 %244, 1
   %290 = load i32, ptr %149, align 16
   %291 = zext i32 %290 to i64
@@ -691,7 +691,7 @@ select.unfold:                                    ; preds = %81, %77
   br i1 %.not62, label %.thread44, label %.thread56
 
 .thread56:                                        ; preds = %.loopexit, %236, %226, %170, %146, %151, %154
-  %294 = phi i32 [ %293, %.loopexit ], [ %148, %154 ], [ %148, %151 ], [ %148, %146 ], [ -2, %236 ], [ -12, %226 ], [ -12, %170 ]
+  %294 = phi i32 [ %148, %146 ], [ -12, %170 ], [ %293, %.loopexit ], [ %148, %154 ], [ %148, %151 ], [ -2, %236 ], [ -12, %226 ]
   %295 = add nuw nsw i64 %147, 1
   %296 = load i32, ptr %50, align 8
   %297 = sext i32 %296 to i64
@@ -699,7 +699,7 @@ select.unfold:                                    ; preds = %81, %77
   br i1 %298, label %146, label %.thread44, !llvm.loop !16
 
 .thread44:                                        ; preds = %.loopexit, %.thread56, %267, %135, %57, %.thread45, %.thread40, %53, %49, %40
-  %299 = phi i32 [ %47, %40 ], [ -2, %49 ], [ -2, %53 ], [ %138, %.thread40 ], [ -2, %.thread45 ], [ -2, %135 ], [ -12, %57 ], [ 0, %267 ], [ 0, %.loopexit ], [ %294, %.thread56 ]
+  %299 = phi i32 [ %47, %40 ], [ -2, %49 ], [ -2, %53 ], [ %138, %.thread40 ], [ -2, %.thread45 ], [ -2, %135 ], [ 0, %267 ], [ -12, %57 ], [ 0, %.loopexit ], [ %294, %.thread56 ]
   %300 = load ptr, ptr %35, align 4096
   call void @kfree(ptr noundef %300) #9
   br label %301
@@ -780,7 +780,7 @@ define dso_local i32 @nfs4_replace_transport(ptr noundef %0, ptr noundef readonl
   br label %.thread17
 
 .thread17:                                        ; preds = %.thread17.sink.split, %25, %30, %33, %37
-  %20 = phi i32 [ -12, %37 ], [ %27, %33 ], [ %27, %30 ], [ %27, %25 ], [ %.ph, %.thread17.sink.split ]
+  %20 = phi i32 [ -12, %37 ], [ %27, %30 ], [ %27, %25 ], [ %27, %33 ], [ %.ph, %.thread17.sink.split ]
   %21 = add nuw nsw i64 %26, 1
   %22 = load i32, ptr %5, align 8
   %23 = sext i32 %22 to i64

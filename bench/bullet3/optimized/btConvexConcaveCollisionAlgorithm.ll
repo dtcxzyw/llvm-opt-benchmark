@@ -804,7 +804,7 @@ _Z24TestTriangleAgainstAabb2PK9btVector3RS0_S2_.exit: ; preds = %55
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn26.pn.pn
 
-_Z24TestTriangleAgainstAabb2PK9btVector3RS0_S2_.exit.thread: ; preds = %55, %45, %31, %21, %4, %78, %180, %_Z24TestTriangleAgainstAabb2PK9btVector3RS0_S2_.exit
+_Z24TestTriangleAgainstAabb2PK9btVector3RS0_S2_.exit.thread: ; preds = %45, %31, %21, %4, %55, %78, %180, %_Z24TestTriangleAgainstAabb2PK9btVector3RS0_S2_.exit
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -1593,7 +1593,7 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %_ZN16btManifoldResu
   br label %356
 
 313:                                              ; preds = %303, %113, %304, %47, %76
-  %.pn77.pn = phi { ptr, i32 } [ %77, %76 ], [ %48, %47 ], [ %114, %113 ], [ %305, %304 ], [ %.pn70.pn, %303 ]
+  %.pn77.pn = phi { ptr, i32 } [ %305, %304 ], [ %48, %47 ], [ %77, %76 ], [ %114, %113 ], [ %.pn70.pn, %303 ]
   call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %357

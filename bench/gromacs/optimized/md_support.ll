@@ -98,7 +98,7 @@ define void @_Z15compute_globalsP15gmx_global_statP9t_commrecPK10t_inputrecP10t_
   br label %56
 
 56:                                               ; preds = %52, %23
-  %57 = phi i1 [ true, %23 ], [ %spec.select, %52 ]
+  %57 = phi i1 [ %spec.select, %52 ], [ true, %23 ]
   %.not = xor i1 %48, true
   %or.cond17 = or i1 %43, %.not
   br i1 %or.cond17, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %58
@@ -604,9 +604,9 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %58, %60, 
   br i1 %385, label %.lr.ph41.split.i.i, label %._crit_edge42.i.i, !llvm.loop !290
 
 ._crit_edge42.i.i:                                ; preds = %.lr.ph41.split.i.i, %226, %.preheader.i.i
-  %386 = phi ptr [ %219, %.preheader.i.i ], [ %219, %226 ], [ %370, %.lr.ph41.split.i.i ]
-  %387 = phi ptr [ %220, %.preheader.i.i ], [ %220, %226 ], [ %382, %.lr.ph41.split.i.i ]
-  %388 = phi i32 [ %221, %.preheader.i.i ], [ %301, %226 ], [ %383, %.lr.ph41.split.i.i ]
+  %386 = phi ptr [ %219, %226 ], [ %219, %.preheader.i.i ], [ %370, %.lr.ph41.split.i.i ]
+  %387 = phi ptr [ %220, %226 ], [ %220, %.preheader.i.i ], [ %382, %.lr.ph41.split.i.i ]
+  %388 = phi i32 [ %301, %226 ], [ %221, %.preheader.i.i ], [ %383, %.lr.ph41.split.i.i ]
   %389 = getelementptr inbounds nuw i8, ptr %386, i64 72
   %390 = load ptr, ptr %389, align 8, !tbaa !275
   %391 = getelementptr inbounds nuw ptr, ptr %390, i64 %indvars.iv61.i.i
@@ -1488,7 +1488,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit112.thread: ; preds = %
   br label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit113
 
 _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit113: ; preds = %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit112.thread, %912, %907, %893, %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit112
-  %927 = phi ptr [ %888, %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit112 ], [ %888, %893 ], [ %888, %907 ], [ %888, %912 ], [ %892, %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit112.thread ]
+  %927 = phi ptr [ %892, %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit112.thread ], [ %888, %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit112 ], [ %888, %912 ], [ %888, %907 ], [ %888, %893 ]
   call void @_ZN3gmx19SimulationSignaller15finalizeSignalsEv(ptr noundef nonnull align 8 dereferenceable(40) %17)
   %928 = load i8, ptr %927, align 8, !tbaa !359, !range !253, !noundef !254
   %929 = trunc nuw i8 %928 to i1
@@ -1725,7 +1725,7 @@ _ZL11correctEkinPA3_fRK14SystemMomentum.exit31.i: ; preds = %1034
   br i1 %.not43.i, label %.sink.split, label %1029
 
 .sink.split:                                      ; preds = %_ZL11correctEkinPA3_fRK14SystemMomentum.exit31.i, %_ZL11correctEkinPA3_fRK14SystemMomentum.exit.i, %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit117, %973, %1000, %.loopexit46.i, %802
-  %.sink = phi i8 [ 1, %802 ], [ 0, %.loopexit46.i ], [ 0, %1000 ], [ 0, %973 ], [ 0, %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit117 ], [ 0, %_ZL11correctEkinPA3_fRK14SystemMomentum.exit.i ], [ 0, %_ZL11correctEkinPA3_fRK14SystemMomentum.exit31.i ]
+  %.sink = phi i8 [ 1, %802 ], [ 0, %_ZL11correctEkinPA3_fRK14SystemMomentum.exit.i ], [ 0, %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit117 ], [ 0, %.loopexit46.i ], [ 0, %1000 ], [ 0, %973 ], [ 0, %_ZL11correctEkinPA3_fRK14SystemMomentum.exit31.i ]
   store i8 %.sink, ptr %19, align 1, !tbaa !358
   br label %1046
 
@@ -2550,7 +2550,7 @@ define noundef i32 @_Z32computeGlobalCommunicationPeriodPK10t_inputrec(ptr nound
   br label %27
 
 27:                                               ; preds = %9, %21, %25
-  %.0 = phi i32 [ %26, %25 ], [ %23, %21 ], [ 200, %9 ]
+  %.0 = phi i32 [ %23, %21 ], [ %26, %25 ], [ 200, %9 ]
   ret i32 %.0
 }
 
@@ -2748,7 +2748,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %52, %
   resume { ptr, i32 } %.pn
 
 .critedge:                                        ; preds = %.lr.ph.split.split.split.us, %.critedge2.us55, %.lr.ph.split.split.us.split, %.critedge2.us46, %35, %.critedge2.us46.us, %.lr.ph.split.us.split.split, %.critedge2.us, %27, %.critedge2.us.us69, %22, %.critedge2.us.us, %17, %.critedge2.us.us.us, %.lr.ph.split.split, %.preheader
-  %.0.lcssa = phi i32 [ %.3, %.preheader ], [ %spec.select, %.lr.ph.split.split ], [ 1, %.critedge2.us.us.us ], [ %.036.us.us.us, %17 ], [ 1, %.critedge2.us.us ], [ %.036.us.us, %22 ], [ 1, %.critedge2.us.us69 ], [ %.036.us.us66, %27 ], [ 1, %.critedge2.us ], [ %.036.us, %.lr.ph.split.us.split.split ], [ 1, %.critedge2.us46.us ], [ %.036.us43.us, %35 ], [ 1, %.critedge2.us46 ], [ %.036.us43, %.lr.ph.split.split.us.split ], [ 1, %.critedge2.us55 ], [ %.036.us53, %.lr.ph.split.split.split.us ]
+  %.0.lcssa = phi i32 [ %.3, %.preheader ], [ 1, %.critedge2.us.us.us ], [ %spec.select, %.lr.ph.split.split ], [ 1, %.critedge2.us46 ], [ %.036.us43.us, %35 ], [ 1, %.critedge2.us ], [ 1, %.critedge2.us.us69 ], [ 1, %.critedge2.us.us ], [ %.036.us.us.us, %17 ], [ %.036.us.us, %22 ], [ %.036.us.us66, %27 ], [ %.036.us, %.lr.ph.split.us.split.split ], [ 1, %.critedge2.us46.us ], [ %.036.us43, %.lr.ph.split.split.us.split ], [ 1, %.critedge2.us55 ], [ %.036.us53, %.lr.ph.split.split.split.us ]
   ret i32 %.0.lcssa
 }
 
@@ -2859,7 +2859,7 @@ define noundef i32 @_Z32computeGlobalCommunicationPeriodRKN3gmx8MDLoggerEPK10t_i
   br label %_Z32computeGlobalCommunicationPeriodPK10t_inputrec.exit
 
 _Z32computeGlobalCommunicationPeriodPK10t_inputrec.exit: ; preds = %12, %24, %28
-  %.0.i = phi i32 [ %29, %28 ], [ %26, %24 ], [ 200, %12 ]
+  %.0.i = phi i32 [ %26, %24 ], [ %29, %28 ], [ 200, %12 ]
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %31 = load i32, ptr %30, align 8, !tbaa !400
   %32 = icmp sgt i32 %31, 1
@@ -3053,7 +3053,7 @@ define void @_Z17set_state_entriesP7t_statePK10t_inputrecb(ptr noundef %0, ptr n
   br label %39
 
 39:                                               ; preds = %38, %33
-  %.4 = phi i32 [ %spec.select, %33 ], [ %spec.select66, %38 ]
+  %.4 = phi i32 [ %spec.select66, %38 ], [ %spec.select, %33 ]
   %40 = tail call noundef zeroext i1 @_Z18inputrecNptTrotterPK10t_inputrec(ptr noundef nonnull %1)
   br i1 %40, label %43, label %41
 
@@ -3079,7 +3079,7 @@ define void @_Z17set_state_entriesP7t_statePK10t_inputrecb(ptr noundef %0, ptr n
   br label %49
 
 49:                                               ; preds = %45, %47, %29
-  %.2 = phi i32 [ %48, %47 ], [ %.1, %29 ], [ %.5, %45 ]
+  %.2 = phi i32 [ %48, %47 ], [ %.5, %45 ], [ %.1, %29 ]
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %51 = load i32, ptr %50, align 8, !tbaa !395
   switch i32 %51, label %55 [
@@ -3097,7 +3097,7 @@ define void @_Z17set_state_entriesP7t_statePK10t_inputrecb(ptr noundef %0, ptr n
   br label %55
 
 55:                                               ; preds = %49, %.thread, %53
-  %.7 = phi i32 [ %54, %53 ], [ %52, %.thread ], [ %.2, %49 ]
+  %.7 = phi i32 [ %54, %53 ], [ %.2, %49 ], [ %52, %.thread ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %57 = load i32, ptr %56, align 8, !tbaa !445
   %58 = load i32, ptr %30, align 4, !tbaa !443

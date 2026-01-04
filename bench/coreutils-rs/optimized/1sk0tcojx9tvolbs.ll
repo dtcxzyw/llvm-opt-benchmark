@@ -163,8 +163,8 @@ _ZN4core3str11validations15next_code_point17h8b5abcbc5d7edfa9E.exit.thread: ; pr
   %.not = icmp eq i32 %.068, 1114112
   br i1 %.not, label %.thread, label %_ZN4core3str11validations15next_code_point17h8b5abcbc5d7edfa9E.exit.thread.thread
 
-_ZN4core3str11validations15next_code_point17h8b5abcbc5d7edfa9E.exit.thread.thread: ; preds = %93, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit15.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit13.i", %_ZN4core3str11validations15next_code_point17h8b5abcbc5d7edfa9E.exit.thread
-  %.068155 = phi i32 [ %.068, %_ZN4core3str11validations15next_code_point17h8b5abcbc5d7edfa9E.exit.thread ], [ %94, %93 ], [ %103, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit15.i" ], [ %91, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit13.i" ]
+_ZN4core3str11validations15next_code_point17h8b5abcbc5d7edfa9E.exit.thread.thread: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit13.i", %93, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit15.i", %_ZN4core3str11validations15next_code_point17h8b5abcbc5d7edfa9E.exit.thread
+  %.068155 = phi i32 [ %.068, %_ZN4core3str11validations15next_code_point17h8b5abcbc5d7edfa9E.exit.thread ], [ %91, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit13.i" ], [ %94, %93 ], [ %103, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit15.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store i32 %.068155, ptr %28, align 4
   %115 = icmp eq i32 %.068155, 92
@@ -314,7 +314,7 @@ select.unfold:                                    ; preds = %163
   unreachable
 
 common.resume:                                    ; preds = %295, %280, %251, %237, %182, %161
-  %common.resume.op = phi { ptr, i32 } [ %162, %161 ], [ %183, %182 ], [ %238, %237 ], [ %252, %251 ], [ %281, %280 ], [ %296, %295 ]
+  %common.resume.op = phi { ptr, i32 } [ %281, %280 ], [ %162, %161 ], [ %183, %182 ], [ %238, %237 ], [ %252, %251 ], [ %296, %295 ]
   resume { ptr, i32 } %common.resume.op
 
 173:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit.thread", %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit"
@@ -406,7 +406,7 @@ select.unfold137:                                 ; preds = %184
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #7, !noalias !85
   unreachable
 
-194:                                              ; preds = %187, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h3b7be547367e8751E.exit.i.i.i94"
+194:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h3b7be547367e8751E.exit.i.i.i94", %187
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !79
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
@@ -485,8 +485,8 @@ _ZN4core3str11validations15next_code_point17h8b5abcbc5d7edfa9E.exit103.thread: ;
   %.not83 = icmp eq i32 %.0, 1114112
   br i1 %.not83, label %.thread142, label %_ZN4core3str11validations15next_code_point17h8b5abcbc5d7edfa9E.exit103.thread.thread
 
-_ZN4core3str11validations15next_code_point17h8b5abcbc5d7edfa9E.exit103.thread.thread: ; preds = %214, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit15.i101", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit13.i98", %_ZN4core3str11validations15next_code_point17h8b5abcbc5d7edfa9E.exit103.thread
-  %.0158 = phi i32 [ %.0, %_ZN4core3str11validations15next_code_point17h8b5abcbc5d7edfa9E.exit103.thread ], [ %215, %214 ], [ %224, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit15.i101" ], [ %212, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit13.i98" ]
+_ZN4core3str11validations15next_code_point17h8b5abcbc5d7edfa9E.exit103.thread.thread: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit13.i98", %214, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit15.i101", %_ZN4core3str11validations15next_code_point17h8b5abcbc5d7edfa9E.exit103.thread
+  %.0158 = phi i32 [ %.0, %_ZN4core3str11validations15next_code_point17h8b5abcbc5d7edfa9E.exit103.thread ], [ %212, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit13.i98" ], [ %215, %214 ], [ %224, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit15.i101" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   switch i32 %.0158, label %249 [
     i32 92, label %278
@@ -560,7 +560,7 @@ select.unfold145:                                 ; preds = %239
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #7, !noalias !120
   unreachable
 
-"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E.exit108.thread": ; preds = %242, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h3b7be547367e8751E.exit.i.i.i105"
+"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E.exit108.thread": ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h3b7be547367e8751E.exit.i.i.i105", %242
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !114
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %thread-pre-split
@@ -664,7 +664,7 @@ select.unfold147:                                 ; preds = %253
   br label %278
 
 278:                                              ; preds = %_ZN4core3str11validations15next_code_point17h8b5abcbc5d7edfa9E.exit103.thread.thread, %273, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E.exit123.thread", %307, %275, %272, %271, %270, %269, %268, %267, %264, %263
-  %.0158.sink = phi i32 [ %.0158, %307 ], [ %storemerge, %275 ], [ 11, %272 ], [ 9, %271 ], [ 13, %270 ], [ 10, %269 ], [ 12, %268 ], [ 27, %267 ], [ 8, %264 ], [ 7, %263 ], [ %274, %273 ], [ 120, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E.exit123.thread" ], [ %.0158, %_ZN4core3str11validations15next_code_point17h8b5abcbc5d7edfa9E.exit103.thread.thread ]
+  %.0158.sink = phi i32 [ %.0158, %307 ], [ %storemerge, %275 ], [ 120, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E.exit123.thread" ], [ 11, %272 ], [ 9, %271 ], [ 13, %270 ], [ 10, %269 ], [ 12, %268 ], [ 27, %267 ], [ 8, %264 ], [ 7, %263 ], [ %274, %273 ], [ %.0158, %_ZN4core3str11validations15next_code_point17h8b5abcbc5d7edfa9E.exit103.thread.thread ]
   store i32 %.0158.sink, ptr %22, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
@@ -787,24 +787,24 @@ select.unfold151:                                 ; preds = %297
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #7, !noalias !185
   unreachable
 
-"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E.exit123.thread": ; preds = %300, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h3b7be547367e8751E.exit.i.i.i120"
+"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E.exit123.thread": ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h3b7be547367e8751E.exit.i.i.i120", %300
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !179
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %278
 
-307:                                              ; preds = %256, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h3b7be547367e8751E.exit.i.i.i110"
+307:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h3b7be547367e8751E.exit.i.i.i110", %256
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !134
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %278
 
-308:                                              ; preds = %285, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h3b7be547367e8751E.exit.i.i.i115"
+308:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h3b7be547367e8751E.exit.i.i.i115", %285
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !159
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %thread-pre-split
 
-309:                                              ; preds = %166, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h3b7be547367e8751E.exit.i.i.i"
+309:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h3b7be547367e8751E.exit.i.i.i", %166
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !52
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)

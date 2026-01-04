@@ -147,7 +147,7 @@ define hidden i32 @internal_exr_add_part(ptr noundef %0, ptr noundef writeonly c
   br label %63
 
 63:                                               ; preds = %.thread, %60, %62
-  %.158 = phi i32 [ 0, %62 ], [ 0, %60 ], [ %27, %.thread ]
+  %.158 = phi i32 [ %27, %.thread ], [ 0, %62 ], [ 0, %60 ]
   ret i32 %.158
 }
 
@@ -467,7 +467,7 @@ define hidden i32 @internal_exr_alloc_context(ptr noundef writeonly captures(non
   br label %.thread
 
 .thread:                                          ; preds = %48, %31
-  %storemerge = phi i32 [ %spec.select178, %48 ], [ %46, %31 ]
+  %storemerge = phi i32 [ %46, %31 ], [ %spec.select178, %48 ]
   store i32 %storemerge, ptr %47, align 8, !tbaa !68
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %52 = load i32, ptr %51, align 4, !tbaa !69
@@ -729,7 +729,7 @@ internal_exr_add_part.exit:                       ; preds = %125, %133
   br label %173
 
 173:                                              ; preds = %internal_exr_add_part.exit, %167, %internal_exr_add_part.exit.thread, %169, %116, %114
-  %.0107 = phi i32 [ 1, %114 ], [ 0, %116 ], [ 1, %169 ], [ 0, %internal_exr_add_part.exit.thread ], [ %166, %167 ], [ 0, %internal_exr_add_part.exit ]
+  %.0107 = phi i32 [ 1, %114 ], [ 1, %169 ], [ 0, %116 ], [ 0, %internal_exr_add_part.exit.thread ], [ %166, %167 ], [ 0, %internal_exr_add_part.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0107

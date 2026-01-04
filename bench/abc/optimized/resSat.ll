@@ -457,7 +457,7 @@ define range(i32 0, 2) i32 @Res_SatAddAnd(ptr noundef %0, i32 noundef %1, i32 no
   br label %30
 
 30:                                               ; preds = %23, %17, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %17 ], [ %., %23 ]
+  %.0 = phi i32 [ 0, %17 ], [ %., %23 ], [ 0, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -1036,8 +1036,8 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %84, %86, %76, %78
-  %.sink113 = phi ptr [ %77, %76 ], [ %79, %78 ], [ %85, %84 ], [ %87, %86 ]
-  %.sink112 = phi i32 [ 16, %76 ], [ 16, %78 ], [ %81, %84 ], [ %81, %86 ]
+  %.sink113 = phi ptr [ %79, %78 ], [ %77, %76 ], [ %85, %84 ], [ %87, %86 ]
+  %.sink112 = phi i32 [ 16, %78 ], [ 16, %76 ], [ %81, %84 ], [ %81, %86 ]
   store ptr %.sink113, ptr %25, align 8, !tbaa !68
   store i32 %.sink112, ptr %22, align 8, !tbaa !67
   br label %Vec_IntPush.exit
@@ -1080,9 +1080,9 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br i1 %exitcond.not, label %.loopexit, label %30, !llvm.loop !74
 
 .loopexit:                                        ; preds = %101, %._crit_edge, %21, %99, %35, %37, %32
-  %102 = phi ptr [ %.val7296, %32 ], [ %.val7296, %37 ], [ %.val7296, %35 ], [ %.val7296, %99 ], [ %24, %21 ], [ %.val72, %._crit_edge ], [ %.val72, %101 ]
-  %.160 = phi i32 [ %.05983, %32 ], [ 0, %37 ], [ 0, %35 ], [ %.05983, %99 ], [ %.056, %21 ], [ %1, %101 ], [ %98, %._crit_edge ]
-  %.1 = phi i32 [ 1, %32 ], [ 0, %37 ], [ 0, %35 ], [ %., %99 ], [ 1, %21 ], [ 1, %._crit_edge ], [ 1, %101 ]
+  %102 = phi ptr [ %.val7296, %37 ], [ %.val7296, %32 ], [ %24, %21 ], [ %.val7296, %99 ], [ %.val7296, %35 ], [ %.val72, %._crit_edge ], [ %.val72, %101 ]
+  %.160 = phi i32 [ 0, %37 ], [ %.05983, %32 ], [ %.056, %21 ], [ %.05983, %99 ], [ 0, %35 ], [ %1, %101 ], [ %98, %._crit_edge ]
+  %.1 = phi i32 [ 0, %37 ], [ 1, %32 ], [ 1, %21 ], [ %., %99 ], [ 0, %35 ], [ 1, %._crit_edge ], [ 1, %101 ]
   %.not.i = icmp eq ptr %102, null
   br i1 %.not.i, label %Vec_IntFree.exit, label %103
 
@@ -1105,7 +1105,7 @@ Vec_IntFree.exit:                                 ; preds = %.loopexit, %103
   br label %108
 
 108:                                              ; preds = %19, %104, %106
-  %.057 = phi i32 [ %.1, %104 ], [ %.1, %106 ], [ %spec.select, %19 ]
+  %.057 = phi i32 [ %.1, %106 ], [ %spec.select, %19 ], [ %.1, %104 ]
   call void @sat_solver_delete(ptr noundef %15) #7
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %109 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #7

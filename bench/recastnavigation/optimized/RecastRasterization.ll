@@ -213,7 +213,7 @@ define internal fastcc noundef zeroext i1 @_ZL7addSpanR13rcHeightfieldiitthi(ptr
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %93, %.lr.ph
-  %.057.lcssa = phi ptr [ %.158, %93 ], [ %.05770, %.lr.ph ]
+  %.057.lcssa = phi ptr [ %.05770, %.lr.ph ], [ %.158, %93 ]
   %.not66 = icmp eq ptr %.057.lcssa, null
   br i1 %.not66, label %._crit_edge.thread, label %94
 
@@ -600,7 +600,7 @@ _ZL13overlapBoundsPKfS0_S0_S0_.exit:              ; preds = %69
   br i1 %exitcond195.not, label %_ZL13overlapBoundsPKfS0_S0_S0_.exit.thread, label %106, !llvm.loop !10
 
 _ZL13overlapBoundsPKfS0_S0_S0_.exit.thread:       ; preds = %.loopexit, %160, %76, %11, %54, %61, %65, %69, %_ZL13overlapBoundsPKfS0_S0_S0_.exit
-  %.0 = phi i1 [ true, %_ZL13overlapBoundsPKfS0_S0_S0_.exit ], [ true, %69 ], [ true, %65 ], [ true, %61 ], [ true, %54 ], [ true, %11 ], [ true, %76 ], [ false, %160 ], [ true, %.loopexit ]
+  %.0 = phi i1 [ true, %_ZL13overlapBoundsPKfS0_S0_S0_.exit ], [ true, %11 ], [ true, %76 ], [ true, %69 ], [ true, %65 ], [ true, %61 ], [ true, %54 ], [ false, %160 ], [ true, %.loopexit ]
   ret i1 %.0
 }
 

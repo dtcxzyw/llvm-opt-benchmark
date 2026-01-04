@@ -723,7 +723,7 @@ decode_utf8.exit.thread.i:                        ; preds = %97
   br label %decode_utf8.exit.i
 
 decode_utf8.exit.i:                               ; preds = %100, %84, %71, %61, %57, %._crit_edge.thread.i
-  %.sink.i.i = phi i64 [ %58, %57 ], [ %81, %71 ], [ %115, %100 ], [ %96, %84 ], [ %68, %61 ], [ %54, %._crit_edge.thread.i ]
+  %.sink.i.i = phi i64 [ %58, %57 ], [ %81, %71 ], [ %115, %100 ], [ %54, %._crit_edge.thread.i ], [ %96, %84 ], [ %68, %61 ]
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %117 = load ptr, ptr %116, align 8
   %118 = trunc nuw nsw i64 %.sink.i.i to i32

@@ -103,10 +103,10 @@ define hidden void @php_filter_int(ptr noundef %0, i64 noundef %1, ptr noundef r
   br label %zval_get_long.exit
 
 zval_get_long.exit:                               ; preds = %26, %24, %4, %17
-  %.not122146 = phi i1 [ %.not112, %17 ], [ true, %4 ], [ %.not112, %24 ], [ %.not112, %26 ]
-  %.099144 = phi i64 [ %.099.ph, %17 ], [ 0, %4 ], [ %.099.ph, %24 ], [ %.099.ph, %26 ]
-  %.0100 = phi i64 [ 0, %17 ], [ 0, %4 ], [ %25, %24 ], [ %27, %26 ]
-  %.not123.not = phi i1 [ false, %17 ], [ false, %4 ], [ true, %24 ], [ true, %26 ]
+  %.not122146 = phi i1 [ true, %4 ], [ %.not112, %17 ], [ %.not112, %24 ], [ %.not112, %26 ]
+  %.099144 = phi i64 [ 0, %4 ], [ %.099.ph, %17 ], [ %.099.ph, %24 ], [ %.099.ph, %26 ]
+  %.0100 = phi i64 [ 0, %4 ], [ 0, %17 ], [ %25, %24 ], [ %27, %26 ]
+  %.not123.not = phi i1 [ false, %4 ], [ false, %17 ], [ true, %24 ], [ true, %26 ]
   %28 = load ptr, ptr %0, align 8, !tbaa !4
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load i64, ptr %29, align 8, !tbaa !8
@@ -410,7 +410,7 @@ zval_get_long.exit:                               ; preds = %26, %24, %4, %17
   br i1 %147, label %.lr.ph.split.i, label %php_filter_parse_octal.exit
 
 php_filter_parse_octal.exit:                      ; preds = %94, %143, %134, %.preheader.i, %._crit_edge, %108, %105
-  %148 = phi i64 [ %.pre, %._crit_edge ], [ 0, %108 ], [ 0, %105 ], [ %126, %.preheader.i ], [ %137, %134 ], [ %146, %143 ], [ %.017.i, %94 ]
+  %148 = phi i64 [ %.pre, %._crit_edge ], [ 0, %105 ], [ 0, %108 ], [ %137, %134 ], [ %126, %.preheader.i ], [ %146, %143 ], [ %.017.i, %94 ]
   %149 = icmp slt i64 %148, %.099144
   %not..not122146 = xor i1 %.not122146, true
   %or.cond.not = select i1 %not..not122146, i1 %149, i1 false
@@ -419,7 +419,7 @@ php_filter_parse_octal.exit:                      ; preds = %94, %143, %134, %.p
   %or.cond = select i1 %or.cond.not, i1 true, i1 %or.cond137
   br i1 %or.cond, label %.thread152, label %157
 
-.thread152:                                       ; preds = %96, %99, %.critedge.i, %.lr.ph.split.i, %130, %.lr.ph.split.us.i, %119, %114, %105, %74, %php_filter_parse_octal.exit
+.thread152:                                       ; preds = %96, %99, %.critedge.i, %.lr.ph.split.i, %.lr.ph.split.us.i, %130, %119, %114, %74, %105, %php_filter_parse_octal.exit
   %151 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !13
   %.not124 = icmp eq ptr %151, null
   br i1 %.not124, label %152, label %159
@@ -488,7 +488,7 @@ define internal fastcc range(i32 -1, 2) i32 @php_filter_parse_hex(ptr noundef re
   br label %12
 
 12:                                               ; preds = %.lr.ph, %8, %11
-  %.0.in = phi i8 [ %narrow27, %8 ], [ %narrow, %11 ], [ %5, %.lr.ph ]
+  %.0.in = phi i8 [ %narrow, %11 ], [ %narrow27, %8 ], [ %5, %.lr.ph ]
   %13 = icmp ugt i64 %.02133, 1152921504606846975
   br i1 %13, label %.loopexit, label %14
 
@@ -562,8 +562,8 @@ define hidden void @php_filter_boolean(ptr noundef %0, i64 noundef %1, ptr nound
     i64 1, label %16
     i64 2, label %18
     i64 3, label %23
-    i64 4, label %28
-    i64 5, label %30
+    i64 4, label %30
+    i64 5, label %28
   ]
 
 16:                                               ; preds = %.critedge52
@@ -596,16 +596,16 @@ define hidden void @php_filter_boolean(ptr noundef %0, i64 noundef %1, ptr nound
   br i1 %.not66, label %.thread, label %.critedge60
 
 28:                                               ; preds = %.critedge52
-  %29 = tail call i32 @strncasecmp(ptr noundef nonnull %.04571, ptr noundef nonnull @.str.6, i64 noundef 4) #16
-  %.not65 = icmp eq i32 %29, 0
-  br i1 %.not65, label %.thread, label %.critedge60
-
-30:                                               ; preds = %.critedge52
-  %31 = tail call i32 @strncasecmp(ptr noundef nonnull %.04571, ptr noundef nonnull @.str.7, i64 noundef 5) #16
-  %.not64 = icmp eq i32 %31, 0
+  %29 = tail call i32 @strncasecmp(ptr noundef nonnull %.04571, ptr noundef nonnull @.str.7, i64 noundef 5) #16
+  %.not64 = icmp eq i32 %29, 0
   br i1 %.not64, label %.thread, label %.critedge60
 
-.critedge60:                                      ; preds = %28, %26, %21, %16, %.critedge52, %30
+30:                                               ; preds = %.critedge52
+  %31 = tail call i32 @strncasecmp(ptr noundef nonnull %.04571, ptr noundef nonnull @.str.6, i64 noundef 4) #16
+  %.not65 = icmp eq i32 %31, 0
+  br i1 %.not65, label %.thread, label %.critedge60
+
+.critedge60:                                      ; preds = %21, %28, %26, %16, %.critedge52, %30
   %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !13
   %.not50 = icmp eq ptr %32, null
   br i1 %.not50, label %33, label %39
@@ -625,8 +625,8 @@ define hidden void @php_filter_boolean(ptr noundef %0, i64 noundef %1, ptr nound
   store i32 2, ptr %35, align 8, !tbaa !4
   br label %39
 
-.thread:                                          ; preds = %.critedge2, %4, %23, %18, %16, %.critedge52, %17, %28, %26, %21, %30
-  %.not4963 = phi i32 [ 2, %30 ], [ 2, %21 ], [ 2, %26 ], [ 3, %28 ], [ 3, %23 ], [ 3, %18 ], [ 3, %16 ], [ 2, %.critedge52 ], [ 2, %17 ], [ 2, %4 ], [ 2, %.critedge2 ]
+.thread:                                          ; preds = %.critedge2, %4, %18, %16, %23, %17, %.critedge52, %21, %28, %26, %30
+  %.not4963 = phi i32 [ 2, %21 ], [ 3, %30 ], [ 2, %26 ], [ 2, %28 ], [ 2, %.critedge52 ], [ 3, %18 ], [ 3, %16 ], [ 3, %23 ], [ 2, %17 ], [ 2, %4 ], [ 2, %.critedge2 ]
   tail call void @zval_ptr_dtor(ptr noundef nonnull %0) #15
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.not4963, ptr %38, align 8, !tbaa !4
@@ -873,12 +873,12 @@ define hidden void @php_filter_float(ptr noundef %0, i64 noundef %1, ptr noundef
   br label %zval_get_double.exit
 
 zval_get_double.exit:                             ; preds = %101, %99, %24, %92
-  %.not256323 = phi i1 [ %.not247, %92 ], [ true, %24 ], [ %.not247, %99 ], [ %.not247, %101 ]
-  %.0204321 = phi double [ %.0204.ph, %92 ], [ 0.000000e+00, %24 ], [ %.0204.ph, %99 ], [ %.0204.ph, %101 ]
-  %103 = phi ptr [ %81, %92 ], [ @.str.12, %24 ], [ %81, %99 ], [ %81, %101 ]
-  %.0209289301307311319 = phi i32 [ %.0209.ph, %92 ], [ 46, %24 ], [ %.0209.ph, %99 ], [ %.0209.ph, %101 ]
-  %.0203 = phi double [ 0.000000e+00, %92 ], [ 0.000000e+00, %24 ], [ %100, %99 ], [ %102, %101 ]
-  %.not257 = phi i1 [ true, %92 ], [ true, %24 ], [ false, %99 ], [ false, %101 ]
+  %.not256323 = phi i1 [ true, %24 ], [ %.not247, %92 ], [ %.not247, %99 ], [ %.not247, %101 ]
+  %.0204321 = phi double [ 0.000000e+00, %24 ], [ %.0204.ph, %92 ], [ %.0204.ph, %99 ], [ %.0204.ph, %101 ]
+  %103 = phi ptr [ @.str.12, %24 ], [ %81, %92 ], [ %81, %99 ], [ %81, %101 ]
+  %.0209289301307311319 = phi i32 [ 46, %24 ], [ %.0209.ph, %92 ], [ %.0209.ph, %99 ], [ %.0209.ph, %101 ]
+  %.0203 = phi double [ 0.000000e+00, %24 ], [ 0.000000e+00, %92 ], [ %100, %99 ], [ %102, %101 ]
+  %.not257 = phi i1 [ true, %24 ], [ true, %92 ], [ false, %99 ], [ false, %101 ]
   %.0209289301307311319.fr = freeze i32 %.0209289301307311319
   %104 = add i64 %.2, 1
   %105 = tail call noalias ptr @_emalloc(i64 noundef %104) #17
@@ -899,8 +899,8 @@ zval_get_double.exit:                             ; preds = %101, %99, %24, %92
   br label %110
 
 110:                                              ; preds = %.thread325, %107, %zval_get_double.exit
-  %.0213 = phi ptr [ %109, %107 ], [ %105, %zval_get_double.exit ], [ %105, %.thread325 ]
-  %.1197 = phi ptr [ %108, %107 ], [ %.0196344, %zval_get_double.exit ], [ %.0196344, %.thread325 ]
+  %.0213 = phi ptr [ %109, %107 ], [ %105, %.thread325 ], [ %105, %zval_get_double.exit ]
+  %.1197 = phi ptr [ %108, %107 ], [ %.0196344, %.thread325 ], [ %.0196344, %zval_get_double.exit ]
   %111 = and i64 %1, 8192
   %.not250 = icmp eq i64 %111, 0
   br i1 %.not250, label %.split.us, label %.split
@@ -993,9 +993,9 @@ switch.early.test:                                ; preds = %133
   %or.cond = select i1 %.not252, i1 %137, i1 false
   br i1 %or.cond, label %is_numeric_string_ex.exit.thread, label %.split358.us.thread
 
-.split358.us.thread:                              ; preds = %.critedge6.us, %116, %switch.early.test.us, %switch.early.test.us, %.split358.us
-  %.us-phi361421 = phi ptr [ %.us-phi361, %.split358.us ], [ %20, %.critedge6.us ], [ %.3.lcssa.us, %116 ], [ %.3.lcssa.us, %switch.early.test.us ], [ %.3.lcssa.us, %switch.early.test.us ]
-  %.us-phi359420 = phi ptr [ %.2215.lcssa, %.split358.us ], [ %.2215.lcssa.us, %.critedge6.us ], [ %.2215.lcssa.us, %116 ], [ %.2215.lcssa.us, %switch.early.test.us ], [ %.2215.lcssa.us, %switch.early.test.us ]
+.split358.us.thread:                              ; preds = %116, %switch.early.test.us, %switch.early.test.us, %.critedge6.us, %.split358.us
+  %.us-phi361421 = phi ptr [ %.us-phi361, %.split358.us ], [ %.3.lcssa.us, %116 ], [ %.3.lcssa.us, %switch.early.test.us ], [ %.3.lcssa.us, %switch.early.test.us ], [ %20, %.critedge6.us ]
+  %.us-phi359420 = phi ptr [ %.2215.lcssa, %.split358.us ], [ %.2215.lcssa.us, %116 ], [ %.2215.lcssa.us, %switch.early.test.us ], [ %.2215.lcssa.us, %switch.early.test.us ], [ %.2215.lcssa.us, %.critedge6.us ]
   %138 = load i8, ptr %.us-phi361421, align 1, !tbaa !4
   %139 = sext i8 %138 to i32
   %140 = icmp eq i32 %.0209289301307311319.fr, %139
@@ -1059,8 +1059,8 @@ switch.early.test:                                ; preds = %133
   br label %157
 
 157:                                              ; preds = %152, %154, %148
-  %.5218 = phi ptr [ %156, %154 ], [ %150, %148 ], [ %150, %152 ]
-  %.6 = phi ptr [ %155, %154 ], [ %149, %148 ], [ %149, %152 ]
+  %.5218 = phi ptr [ %156, %154 ], [ %150, %152 ], [ %150, %148 ]
+  %.6 = phi ptr [ %155, %154 ], [ %149, %152 ], [ %149, %148 ]
   %158 = icmp ult ptr %.6, %20
   br i1 %158, label %.lr.ph373, label %.critedge11
 
@@ -1542,7 +1542,7 @@ define internal fastcc range(i32 0, 2) i32 @_php_filter_validate_domain(ptr noun
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split
 
 .loopexit:                                        ; preds = %52, %43, %39, %64, %57, %73, %31, %27, %35, %.thread72, %22, %.thread, %15, %5
-  %.028 = phi i32 [ 0, %5 ], [ 0, %15 ], [ 0, %.thread ], [ 1, %22 ], [ 1, %.thread72 ], [ 0, %31 ], [ 0, %27 ], [ 1, %35 ], [ 0, %52 ], [ 0, %43 ], [ 0, %39 ], [ 0, %64 ], [ 0, %57 ], [ 1, %73 ]
+  %.028 = phi i32 [ 0, %15 ], [ 0, %5 ], [ 0, %.thread ], [ 1, %.thread72 ], [ 1, %22 ], [ 0, %31 ], [ 0, %27 ], [ 1, %35 ], [ 0, %43 ], [ 0, %64 ], [ 1, %73 ], [ 0, %57 ], [ 0, %39 ], [ 0, %52 ]
   ret i32 %.028
 }
 
@@ -1702,7 +1702,7 @@ php_filter_is_valid_ipv6_hostname.exit.thread:    ; preds = %php_filter_is_valid
   store i32 2, ptr %8, align 8, !tbaa !4
   br label %.thread
 
-.thread119:                                       ; preds = %php_filter_is_valid_ipv6_hostname.exit, %php_filter_is_valid_ipv6_hostname.exit.thread, %43
+.thread119:                                       ; preds = %php_filter_is_valid_ipv6_hostname.exit.thread, %php_filter_is_valid_ipv6_hostname.exit, %43
   %.pr = load ptr, ptr %22, align 8, !tbaa !55
   %73 = icmp eq ptr %.pr, null
   br i1 %73, label %.thread121, label %.thread122
@@ -1845,7 +1845,7 @@ zend_string_equals_cstr.exit102:                  ; preds = %zend_string_equals_
   br i1 %.not23.i, label %is_userinfo_valid.exit.thread, label %136
 
 136:                                              ; preds = %129, %118, %111
-  %.sink.i = phi i64 [ 1, %118 ], [ 1, %111 ], [ 3, %129 ]
+  %.sink.i = phi i64 [ 1, %111 ], [ 1, %118 ], [ 3, %129 ]
   %137 = getelementptr inbounds nuw i8, ptr %.025.i, i64 %.sink.i
   %138 = ptrtoint ptr %137 to i64
   %139 = sub i64 %138, %105
@@ -1916,14 +1916,14 @@ is_userinfo_valid.exit:                           ; preds = %136, %103, %100
   br i1 %.not23.i115, label %is_userinfo_valid.exit.thread, label %176
 
 176:                                              ; preds = %169, %158, %151
-  %.sink.i108 = phi i64 [ 1, %158 ], [ 1, %151 ], [ 3, %169 ]
+  %.sink.i108 = phi i64 [ 1, %151 ], [ 1, %158 ], [ 3, %169 ]
   %177 = getelementptr inbounds nuw i8, ptr %.025.i106, i64 %.sink.i108
   %178 = ptrtoint ptr %177 to i64
   %179 = sub i64 %178, %145
   %180 = icmp ult i64 %179, %147
   br i1 %180, label %151, label %is_userinfo_valid.exit116
 
-is_userinfo_valid.exit.thread:                    ; preds = %129, %122, %120, %169, %162, %160
+is_userinfo_valid.exit.thread:                    ; preds = %129, %120, %122, %169, %160, %162
   tail call void @php_url_free(ptr noundef nonnull %22) #15
   %181 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !13
   %.not89 = icmp eq ptr %181, null
@@ -1947,7 +1947,7 @@ is_userinfo_valid.exit116:                        ; preds = %176, %143, %is_user
   tail call void @php_url_free(ptr noundef nonnull %22) #15
   br label %.thread
 
-.thread:                                          ; preds = %72, %71, %67, %185, %184, %is_userinfo_valid.exit.thread, %99, %98, %.thread121, %29, %28, %24, %19, %18, %14, %is_userinfo_valid.exit116
+.thread:                                          ; preds = %71, %72, %67, %185, %184, %is_userinfo_valid.exit.thread, %99, %98, %.thread121, %29, %28, %24, %19, %18, %14, %is_userinfo_valid.exit116
   ret void
 }
 
@@ -2286,7 +2286,7 @@ _php_filter_validate_ipv4.exit:                   ; preds = %66
   %.not191 = icmp eq ptr %.237.i, %42
   br i1 %.not191, label %79, label %_php_filter_validate_ipv4.exit.thread
 
-_php_filter_validate_ipv4.exit.thread:            ; preds = %69, %63, %45, %43, %70, %56, %_php_filter_validate_ipv4.exit
+_php_filter_validate_ipv4.exit.thread:            ; preds = %63, %45, %69, %43, %70, %56, %_php_filter_validate_ipv4.exit
   %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !13
   %.not74 = icmp eq ptr %73, null
   br i1 %.not74, label %74, label %ipv4_get_status_flags.exit
@@ -2495,9 +2495,9 @@ _php_filter_validate_ipv4.exit.thread:            ; preds = %69, %63, %45, %43, 
   %or.cond59.i = icmp eq i32 %173, 65152
   br i1 %or.cond59.i, label %ipv4_get_status_flags.exit.thread, label %ipv4_get_status_flags.exit
 
-ipv4_get_status_flags.exit.thread:                ; preds = %94, %156, %139, %116, %109, %104, %97, %97, %172, %170, %166, %130, %90, %86, %79, %79, %81, %82, %100
-  %.098 = phi i1 [ false, %94 ], [ false, %90 ], [ true, %86 ], [ true, %79 ], [ true, %79 ], [ false, %100 ], [ false, %97 ], [ false, %82 ], [ false, %81 ], [ false, %170 ], [ false, %130 ], [ false, %166 ], [ true, %172 ], [ false, %97 ], [ false, %104 ], [ false, %109 ], [ true, %116 ], [ true, %139 ], [ false, %156 ]
-  %.0 = phi i1 [ true, %94 ], [ true, %90 ], [ false, %86 ], [ false, %79 ], [ false, %79 ], [ false, %100 ], [ false, %97 ], [ false, %82 ], [ true, %81 ], [ true, %170 ], [ false, %130 ], [ false, %166 ], [ false, %172 ], [ false, %97 ], [ false, %104 ], [ false, %109 ], [ false, %116 ], [ false, %139 ], [ false, %156 ]
+ipv4_get_status_flags.exit.thread:                ; preds = %94, %156, %139, %116, %109, %104, %97, %97, %172, %170, %130, %166, %81, %82, %90, %100, %79, %79, %86
+  %.098 = phi i1 [ false, %130 ], [ true, %116 ], [ false, %94 ], [ false, %100 ], [ true, %172 ], [ false, %104 ], [ false, %97 ], [ false, %90 ], [ false, %97 ], [ true, %86 ], [ true, %79 ], [ true, %79 ], [ false, %82 ], [ false, %81 ], [ false, %109 ], [ false, %170 ], [ false, %166 ], [ false, %156 ], [ true, %139 ]
+  %.0 = phi i1 [ false, %130 ], [ false, %116 ], [ true, %94 ], [ false, %100 ], [ false, %172 ], [ false, %104 ], [ false, %97 ], [ true, %90 ], [ false, %97 ], [ false, %86 ], [ false, %79 ], [ false, %79 ], [ false, %82 ], [ true, %81 ], [ false, %109 ], [ true, %170 ], [ false, %166 ], [ false, %156 ], [ false, %139 ]
   %174 = and i64 %1, 268435456
   %.not76.not = icmp eq i64 %174, 0
   br i1 %.not76.not, label %182, label %175
@@ -2905,8 +2905,8 @@ _php_filter_validate_ipv4.exit:                   ; preds = %40
   %148 = zext i1 %narrow160 to i32
   br label %_php_filter_validate_ipv4.exit.thread
 
-_php_filter_validate_ipv4.exit.thread:            ; preds = %43, %37, %19, %17, %44, %30, %113, %79, %66, %61, %77, %_php_filter_validate_ipv4.exit, %3, %.loopexit
-  %.0 = phi i32 [ %148, %.loopexit ], [ 0, %3 ], [ 0, %_php_filter_validate_ipv4.exit ], [ 0, %77 ], [ 0, %61 ], [ 0, %66 ], [ 0, %79 ], [ 0, %113 ], [ 0, %30 ], [ 0, %44 ], [ 0, %17 ], [ 0, %19 ], [ 0, %37 ], [ 0, %43 ]
+_php_filter_validate_ipv4.exit.thread:            ; preds = %37, %19, %43, %17, %44, %30, %113, %79, %66, %61, %77, %_php_filter_validate_ipv4.exit, %3, %.loopexit
+  %.0 = phi i32 [ 0, %_php_filter_validate_ipv4.exit ], [ 0, %3 ], [ 0, %113 ], [ 0, %77 ], [ %148, %.loopexit ], [ 0, %30 ], [ 0, %61 ], [ 0, %66 ], [ 0, %79 ], [ 0, %44 ], [ 0, %17 ], [ 0, %43 ], [ 0, %19 ], [ 0, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -3015,9 +3015,9 @@ zend_hash_str_find_deref.exit.thread83:           ; preds = %9, %4, %19, %zend_h
   br label %44
 
 44:                                               ; preds = %35, %.fold.split, %zend_hash_str_find_deref.exit.thread83
-  %.060 = phi i32 [ 4, %zend_hash_str_find_deref.exit.thread83 ], [ 2, %35 ], [ 2, %.fold.split ]
-  %.057 = phi i32 [ 46, %zend_hash_str_find_deref.exit.thread83 ], [ 45, %35 ], [ 58, %.fold.split ]
-  %.0 = phi i32 [ 3, %zend_hash_str_find_deref.exit.thread83 ], [ 6, %35 ], [ 6, %.fold.split ]
+  %.060 = phi i32 [ 2, %35 ], [ 4, %zend_hash_str_find_deref.exit.thread83 ], [ 2, %.fold.split ]
+  %.057 = phi i32 [ 45, %35 ], [ 46, %zend_hash_str_find_deref.exit.thread83 ], [ 58, %.fold.split ]
+  %.0 = phi i32 [ 6, %35 ], [ 3, %zend_hash_str_find_deref.exit.thread83 ], [ 6, %.fold.split ]
   br i1 %34, label %45, label %55
 
 45:                                               ; preds = %44
@@ -3121,7 +3121,7 @@ zend_hash_str_find_deref.exit.thread83:           ; preds = %9, %4, %19, %zend_h
   br label %85
 
 85:                                               ; preds = %84, %81, %.lr.ph.i
-  %.0.in.i = phi i8 [ %narrow27.i, %81 ], [ %narrow.i, %84 ], [ %78, %.lr.ph.i ]
+  %.0.in.i = phi i8 [ %narrow.i, %84 ], [ %narrow27.i, %81 ], [ %78, %.lr.ph.i ]
   %86 = icmp ugt i64 %.02133.i, 1152921504606846975
   br i1 %86, label %91, label %87
 
@@ -3133,7 +3133,7 @@ zend_hash_str_find_deref.exit.thread83:           ; preds = %9, %4, %19, %zend_h
   %90 = icmp ult ptr %.1.i, %76
   br i1 %90, label %.lr.ph.i, label %php_filter_parse_hex.exit
 
-91:                                               ; preds = %82, %85
+91:                                               ; preds = %85, %82
   %92 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !13
   %.not70 = icmp eq ptr %92, null
   br i1 %.not70, label %93, label %.loopexit

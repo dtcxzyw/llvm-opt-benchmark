@@ -470,7 +470,7 @@ define void @dt_imageio_init(ptr noundef writeonly captures(none) initializes((0
   br i1 %.not2839.i, label %.outer._crit_edge.i, label %.lr.ph.i
 
 .outer._crit_edge.i:                              ; preds = %.outer.i, %.backedge.i, %.preheader.i
-  %.022.ph.lcssa.i = phi ptr [ null, %.preheader.i ], [ %.022.ph42.i, %.backedge.i ], [ %.1.i, %.outer.i ]
+  %.022.ph.lcssa.i = phi ptr [ %.022.ph42.i, %.backedge.i ], [ null, %.preheader.i ], [ %.1.i, %.outer.i ]
   call void @g_dir_close(ptr noundef nonnull %10) #13
   store ptr %.022.ph.lcssa.i, ptr %0, align 8, !tbaa !76
   br label %dt_imageio_load_modules_format.exit

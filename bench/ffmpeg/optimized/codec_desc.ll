@@ -1171,7 +1171,7 @@ define ptr @avcodec_descriptor_next(ptr noundef %0) local_unnamed_addr #1 {
   br label %8
 
 8:                                                ; preds = %2, %1
-  %.0 = phi ptr [ @codec_descriptors, %1 ], [ %spec.select, %2 ]
+  %.0 = phi ptr [ %spec.select, %2 ], [ @codec_descriptors, %1 ]
   ret ptr %.0
 }
 

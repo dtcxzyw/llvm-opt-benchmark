@@ -745,7 +745,7 @@ IsAvailableOnList.exit:                           ; preds = %23, %.split.us.i
   br label %93
 
 .loopexit:                                        ; preds = %17, %26, %.lr.ph.split.i.us, %6
-  %.3.ph = phi ptr [ null, %6 ], [ %.02130.i.us, %.lr.ph.split.i.us ], [ %.2, %26 ], [ %.02130.i, %17 ]
+  %.3.ph = phi ptr [ null, %6 ], [ %.2, %26 ], [ %.02130.i.us, %.lr.ph.split.i.us ], [ %.02130.i, %17 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 271344
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 271352
   %37 = load i32, ptr %36, align 8
@@ -1443,7 +1443,7 @@ IsAvailableOnList.exit:                           ; preds = %29, %.split.us.i
   br label %IsAvailableOnList.exit.thread
 
 IsAvailableOnList.exit.thread:                    ; preds = %23, %32, %.lr.ph.split.i.preheader, %GetTable.exit, %IsAvailableOnList.exit
-  %.0 = phi ptr [ %36, %IsAvailableOnList.exit ], [ null, %GetTable.exit ], [ null, %.lr.ph.split.i.preheader ], [ null, %32 ], [ null, %23 ]
+  %.0 = phi ptr [ %36, %IsAvailableOnList.exit ], [ null, %32 ], [ null, %GetTable.exit ], [ null, %.lr.ph.split.i.preheader ], [ null, %23 ]
   ret ptr %.0
 }
 
@@ -1509,7 +1509,7 @@ GetTable.exit.i:                                  ; preds = %9, %7
   br label %SetDataFormat.exit
 
 SetDataFormat.exit:                               ; preds = %15, %21, %24, %33
-  %.0.i = phi i32 [ 0, %21 ], [ 1, %33 ], [ 0, %15 ], [ 0, %24 ]
+  %.0.i = phi i32 [ 0, %21 ], [ 0, %15 ], [ 1, %33 ], [ 0, %24 ]
   ret i32 %.0.i
 }
 
@@ -1579,7 +1579,7 @@ GetTable.exit:                                    ; preds = %cmsIT8SetTable.exit
   br label %28
 
 28:                                               ; preds = %._crit_edge, %2, %25
-  %.0 = phi i32 [ 0, %25 ], [ 0, %2 ], [ %., %._crit_edge ]
+  %.0 = phi i32 [ 0, %25 ], [ %., %._crit_edge ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -3141,7 +3141,7 @@ cmsIT8Free.exit40:                                ; preds = %.loopexit.i38, %69
   br label %IsMyBlock.exit.thread
 
 IsMyBlock.exit.thread:                            ; preds = %17, %20, %7, %3, %21, %74, %cmsIT8Free.exit40, %cmsIT8Free.exit
-  %.0 = phi ptr [ null, %cmsIT8Free.exit ], [ %22, %74 ], [ null, %cmsIT8Free.exit40 ], [ null, %21 ], [ null, %3 ], [ null, %7 ], [ null, %20 ], [ null, %17 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %cmsIT8Free.exit ], [ %22, %74 ], [ null, %cmsIT8Free.exit40 ], [ null, %21 ], [ null, %3 ], [ null, %20 ], [ null, %17 ]
   ret ptr %.0
 }
 
@@ -4080,7 +4080,7 @@ SkipEOLN.exit.i76:                                ; preds = %.lr.ph.i.i75, %thre
   %377 = phi i32 [ %.pr.i80, %thread-pre-split.i ], [ %375, %.lr.ph.i.i75 ]
   br label %288, !llvm.loop !41
 
-HeaderSection.exit.thread:                        ; preds = %IsAvailableOnList.exit.i, %.loopexit88.i, %296, %294, %292, %290, %373, %333, %340, %363
+HeaderSection.exit.thread:                        ; preds = %296, %.loopexit88.i, %292, %294, %IsAvailableOnList.exit.i, %290, %373, %363, %333, %340
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %DataFormatSection.exit.thread
@@ -4100,7 +4100,7 @@ DataFormatSection.exit:                           ; preds = %.lr.ph.i72, %.threa
   br label %DataFormatSection.exit.thread
 
 DataFormatSection.exit.thread:                    ; preds = %140, %130, %137, %118, %HeaderSection.exit.thread, %DataSection.exit.thread, %.critedge
-  %.0 = phi i32 [ %379, %.critedge ], [ 0, %DataSection.exit.thread ], [ 0, %HeaderSection.exit.thread ], [ 0, %118 ], [ 0, %137 ], [ 0, %130 ], [ 0, %140 ]
+  %.0 = phi i32 [ 0, %DataSection.exit.thread ], [ %379, %.critedge ], [ 0, %HeaderSection.exit.thread ], [ 0, %118 ], [ 0, %137 ], [ 0, %130 ], [ 0, %140 ]
   ret i32 %.0
 }
 
@@ -4393,7 +4393,7 @@ AllocChunk.exit.i:                                ; preds = %127
   br label %AllocString.exit
 
 AllocString.exit:                                 ; preds = %127, %AllocChunk.exit.i
-  %.0.i9.i = phi ptr [ %133, %AllocChunk.exit.i ], [ null, %127 ]
+  %.0.i9.i = phi ptr [ null, %127 ], [ %133, %AllocChunk.exit.i ]
   %135 = load ptr, ptr %89, align 8
   %136 = load i32, ptr %99, align 8
   %137 = mul nsw i32 %136, %.04468
@@ -4410,7 +4410,7 @@ SetData.exit:                                     ; preds = %77, %.lr.ph.split.i
   %143 = icmp samesign ult i64 %indvars.iv.next, %142
   br i1 %143, label %.lr.ph, label %GetData.exit.thread, !llvm.loop !44
 
-GetData.exit.thread:                              ; preds = %SetData.exit, %.preheader, %57, %GetTable.exit.i, %GetData.exit
+GetData.exit.thread:                              ; preds = %SetData.exit, %.preheader, %GetTable.exit.i, %57, %GetData.exit
   %144 = add nuw nsw i32 %.04468, 1
   %145 = load i32, ptr %21, align 4
   %146 = icmp slt i32 %144, %145
@@ -4715,7 +4715,7 @@ cmsIT8Free.exit42:                                ; preds = %.loopexit.i40, %107
   br label %112
 
 112:                                              ; preds = %IsMyFile.exit.thread, %87, %29, %IsMyFile.exit, %cmsIT8Free.exit42, %cmsIT8Free.exit34, %cmsIT8Free.exit
-  %.0 = phi ptr [ null, %cmsIT8Free.exit42 ], [ null, %cmsIT8Free.exit34 ], [ null, %cmsIT8Free.exit ], [ null, %IsMyFile.exit ], [ null, %29 ], [ %30, %87 ], [ null, %IsMyFile.exit.thread ]
+  %.0 = phi ptr [ null, %IsMyFile.exit ], [ null, %cmsIT8Free.exit42 ], [ null, %29 ], [ null, %cmsIT8Free.exit34 ], [ null, %cmsIT8Free.exit ], [ %30, %87 ], [ null, %IsMyFile.exit.thread ]
   ret ptr %.0
 }
 
@@ -5032,8 +5032,8 @@ AllocChunk.exit:                                  ; preds = %54
   br i1 %.not26, label %IsAvailableOnList.exit.thread, label %62, !llvm.loop !52
 
 IsAvailableOnList.exit.thread:                    ; preds = %23, %70, %.lr.ph.split.i.preheader, %54, %GetTable.exit
-  %storemerge = phi ptr [ null, %GetTable.exit ], [ null, %54 ], [ null, %.lr.ph.split.i.preheader ], [ %59, %70 ], [ null, %23 ]
-  %.0 = phi i32 [ 0, %GetTable.exit ], [ %spec.select, %54 ], [ 0, %.lr.ph.split.i.preheader ], [ %.4, %70 ], [ 0, %23 ]
+  %storemerge = phi ptr [ null, %GetTable.exit ], [ %59, %70 ], [ null, %54 ], [ null, %.lr.ph.split.i.preheader ], [ null, %23 ]
+  %.0 = phi i32 [ 0, %GetTable.exit ], [ %.4, %70 ], [ %spec.select, %54 ], [ 0, %.lr.ph.split.i.preheader ], [ 0, %23 ]
   store ptr %storemerge, ptr %2, align 8
   ret i32 %.0
 }
@@ -5169,7 +5169,7 @@ GetTable.exit.i:                                  ; preds = %9, %7
   br label %GetData.exit
 
 GetData.exit:                                     ; preds = %GetTable.exit.i, %16, %21, %24
-  %.0.i = phi ptr [ %29, %24 ], [ null, %16 ], [ null, %GetTable.exit.i ], [ null, %21 ]
+  %.0.i = phi ptr [ null, %GetTable.exit.i ], [ %29, %24 ], [ null, %16 ], [ null, %21 ]
   ret ptr %.0.i
 }
 
@@ -5228,8 +5228,8 @@ cmsIT8GetDataRowCol.exit:                         ; preds = %21
   %31 = tail call fastcc double @ParseFloatNumber(ptr noundef nonnull %28)
   br label %cmsIT8GetDataRowCol.exit.thread
 
-cmsIT8GetDataRowCol.exit.thread:                  ; preds = %21, %GetTable.exit.i.i, %16, %cmsIT8GetDataRowCol.exit, %30
-  %.0 = phi double [ %31, %30 ], [ 0.000000e+00, %cmsIT8GetDataRowCol.exit ], [ 0.000000e+00, %16 ], [ 0.000000e+00, %GetTable.exit.i.i ], [ 0.000000e+00, %21 ]
+cmsIT8GetDataRowCol.exit.thread:                  ; preds = %21, %16, %GetTable.exit.i.i, %cmsIT8GetDataRowCol.exit, %30
+  %.0 = phi double [ %31, %30 ], [ 0.000000e+00, %cmsIT8GetDataRowCol.exit ], [ 0.000000e+00, %GetTable.exit.i.i ], [ 0.000000e+00, %16 ], [ 0.000000e+00, %21 ]
   ret double %.0
 }
 
@@ -5442,7 +5442,7 @@ LocateSample.exit:                                ; preds = %28
   br label %GetData.exit
 
 GetData.exit:                                     ; preds = %GetDataFormat.exit.thread.i, %GetTable.exit.i, %53, %50, %44, %LocateSample.exit
-  %.0 = phi ptr [ null, %LocateSample.exit ], [ %58, %53 ], [ null, %44 ], [ null, %50 ], [ null, %GetTable.exit.i ], [ null, %GetDataFormat.exit.thread.i ]
+  %.0 = phi ptr [ null, %44 ], [ null, %GetTable.exit.i ], [ null, %LocateSample.exit ], [ null, %50 ], [ %58, %53 ], [ null, %GetDataFormat.exit.thread.i ]
   ret ptr %.0
 }
 
@@ -5527,7 +5527,7 @@ GetData.exit:                                     ; preds = %31
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %._crit_edge, label %GetData.exit.thread
 
-GetData.exit.thread:                              ; preds = %31, %GetTable.exit.i, %GetData.exit, %39
+GetData.exit.thread:                              ; preds = %GetTable.exit.i, %31, %GetData.exit, %39
   %42 = add nuw nsw i32 %.01117, 1
   %43 = load i32, ptr %12, align 4
   %44 = icmp slt i32 %42, %43
@@ -5796,7 +5796,7 @@ LocateEmptyPatch.exit.thread44:                   ; preds = %110, %87, %GetTable
   br label %LocateSample.exit.thread
 
 LocateEmptyPatch.exit.thread:                     ; preds = %GetData.exit.i, %GetTable.exit.i.i36, %101, %GetTable.exit.i.us.i, %.lr.ph.split.us.i, %LocateEmptyPatch.exit
-  %.0.i3342 = phi i32 [ %.0.i33, %LocateEmptyPatch.exit ], [ 0, %.lr.ph.split.us.i ], [ %smax.i, %GetTable.exit.i.us.i ], [ %.0913.i, %101 ], [ %.0913.i, %GetTable.exit.i.i36 ], [ %.0913.i, %GetData.exit.i ]
+  %.0.i3342 = phi i32 [ %.0.i33, %LocateEmptyPatch.exit ], [ %smax.i, %GetTable.exit.i.us.i ], [ 0, %.lr.ph.split.us.i ], [ %.0913.i, %101 ], [ %.0913.i, %GetTable.exit.i.i36 ], [ %.0913.i, %GetData.exit.i ]
   %115 = getelementptr inbounds nuw i8, ptr %.0.i81, i64 1032
   %116 = load i32, ptr %115, align 8
   br label %120
@@ -5813,7 +5813,7 @@ LocateEmptyPatch.exit.thread:                     ; preds = %GetData.exit.i, %Ge
   br label %LocateSample.exit.thread
 
 LocateSample.exit.thread:                         ; preds = %GetDataFormat.exit.thread.i, %GetTable.exit.i, %117, %47, %45, %120, %LocateEmptyPatch.exit.thread44
-  %.0 = phi i32 [ 0, %LocateEmptyPatch.exit.thread44 ], [ %121, %120 ], [ 0, %45 ], [ 0, %47 ], [ 0, %117 ], [ 0, %GetTable.exit.i ], [ 0, %GetDataFormat.exit.thread.i ]
+  %.0 = phi i32 [ 0, %GetTable.exit.i ], [ 0, %LocateEmptyPatch.exit.thread44 ], [ %121, %120 ], [ 0, %47 ], [ 0, %45 ], [ 0, %117 ], [ 0, %GetDataFormat.exit.thread.i ]
   ret i32 %.0
 }
 
@@ -5978,7 +5978,7 @@ AllocChunk.exit:                                  ; preds = %65
   br label %72
 
 72:                                               ; preds = %AllocChunk.exit, %GetTable.exit, %AllocChunk.exit.thread, %37
-  %.0 = phi i32 [ 0, %37 ], [ 0, %AllocChunk.exit.thread ], [ 1, %GetTable.exit ], [ 1, %AllocChunk.exit ]
+  %.0 = phi i32 [ 1, %GetTable.exit ], [ 0, %37 ], [ 0, %AllocChunk.exit.thread ], [ 1, %AllocChunk.exit ]
   ret i32 %.0
 }
 
@@ -6197,7 +6197,7 @@ AllocChunk.exit:                                  ; preds = %89
   br label %96
 
 96:                                               ; preds = %AllocChunk.exit, %GetTable.exit, %AllocChunk.exit.thread, %60
-  %.0 = phi i32 [ 0, %60 ], [ 0, %AllocChunk.exit.thread ], [ 1, %GetTable.exit ], [ 1, %AllocChunk.exit ]
+  %.0 = phi i32 [ 1, %GetTable.exit ], [ 0, %60 ], [ 0, %AllocChunk.exit.thread ], [ 1, %AllocChunk.exit ]
   ret i32 %.0
 }
 
@@ -6292,8 +6292,8 @@ GetData.exit:                                     ; preds = %31
   store i8 0, ptr %42, align 1
   br label %GetData.exit.thread
 
-GetData.exit.thread:                              ; preds = %31, %GetTable.exit.i, %26, %39, %GetData.exit, %40
-  %.0 = phi ptr [ %2, %40 ], [ null, %GetData.exit ], [ %38, %39 ], [ null, %26 ], [ null, %GetTable.exit.i ], [ null, %31 ]
+GetData.exit.thread:                              ; preds = %31, %26, %GetTable.exit.i, %39, %GetData.exit, %40
+  %.0 = phi ptr [ %2, %40 ], [ null, %GetData.exit ], [ %38, %39 ], [ null, %GetTable.exit.i ], [ null, %26 ], [ null, %31 ]
   ret ptr %.0
 }
 
@@ -6955,20 +6955,20 @@ ReadNumbers.exit149.i:                            ; preds = %Check.exit.i.i147.i
   br i1 %.not.i150.i, label %ReadNumbers.exit.i, label %.loopexit.sink.split.i
 
 ReadNumbers.exit.sink.split.i:                    ; preds = %Check.exit116.i, %Check.exit111.i, %Check.exit.i, %37
-  %.181.ph.i = phi i32 [ %74, %Check.exit116.i ], [ %.080.i, %Check.exit111.i ], [ %.080.i, %Check.exit.i ], [ %.080.i, %37 ]
-  %.1.ph.i = phi i32 [ %.079.i, %Check.exit116.i ], [ %71, %Check.exit111.i ], [ %.079.i, %Check.exit.i ], [ %.079.i, %37 ]
+  %.181.ph.i = phi i32 [ %.080.i, %Check.exit.i ], [ %74, %Check.exit116.i ], [ %.080.i, %Check.exit111.i ], [ %.080.i, %37 ]
+  %.1.ph.i = phi i32 [ %.079.i, %Check.exit.i ], [ %.079.i, %Check.exit116.i ], [ %71, %Check.exit111.i ], [ %.079.i, %37 ]
   call fastcc void @InSymbol(ptr noundef nonnull %9)
   br label %ReadNumbers.exit.i
 
 ReadNumbers.exit.i:                               ; preds = %Check.exit.i.i104.i, %Check.exit.i.i.i, %ReadNumbers.exit.sink.split.i, %193, %ReadNumbers.exit127.i
-  %.360 = phi ptr [ %.057, %ReadNumbers.exit.sink.split.i ], [ %.057, %ReadNumbers.exit127.i ], [ %.158, %193 ], [ %.057, %Check.exit.i.i.i ], [ %.057, %Check.exit.i.i104.i ]
-  %.3 = phi ptr [ %.056, %ReadNumbers.exit.sink.split.i ], [ %.056, %ReadNumbers.exit127.i ], [ %.1, %193 ], [ %.056, %Check.exit.i.i.i ], [ %.056, %Check.exit.i.i104.i ]
-  %.181.i = phi i32 [ %.181.ph.i, %ReadNumbers.exit.sink.split.i ], [ %.080.i, %ReadNumbers.exit127.i ], [ %.080.i, %193 ], [ %.080.i, %Check.exit.i.i.i ], [ %.080.i, %Check.exit.i.i104.i ]
-  %.1.i = phi i32 [ %.1.ph.i, %ReadNumbers.exit.sink.split.i ], [ %.079.i, %ReadNumbers.exit127.i ], [ %.079.i, %193 ], [ %.079.i, %Check.exit.i.i.i ], [ %.079.i, %Check.exit.i.i104.i ]
+  %.360 = phi ptr [ %.057, %ReadNumbers.exit.sink.split.i ], [ %.158, %193 ], [ %.057, %Check.exit.i.i.i ], [ %.057, %ReadNumbers.exit127.i ], [ %.057, %Check.exit.i.i104.i ]
+  %.3 = phi ptr [ %.056, %ReadNumbers.exit.sink.split.i ], [ %.1, %193 ], [ %.056, %Check.exit.i.i.i ], [ %.056, %ReadNumbers.exit127.i ], [ %.056, %Check.exit.i.i104.i ]
+  %.181.i = phi i32 [ %.181.ph.i, %ReadNumbers.exit.sink.split.i ], [ %.080.i, %193 ], [ %.080.i, %Check.exit.i.i.i ], [ %.080.i, %ReadNumbers.exit127.i ], [ %.080.i, %Check.exit.i.i104.i ]
+  %.1.i = phi i32 [ %.1.ph.i, %ReadNumbers.exit.sink.split.i ], [ %.079.i, %193 ], [ %.079.i, %Check.exit.i.i.i ], [ %.079.i, %ReadNumbers.exit127.i ], [ %.079.i, %Check.exit.i.i104.i ]
   br label %37, !llvm.loop !61
 
 .loopexit.sink.split.i:                           ; preds = %193, %ReadNumbers.exit127.i, %84, %72, %69, %66, %53, %39, %37, %118, %172, %76, %57, %44, %109, %163
-  %.str.157.sink.i = phi ptr [ @.str.158, %163 ], [ @.str.158, %109 ], [ @.str.158, %44 ], [ @.str.158, %57 ], [ @.str.158, %76 ], [ @.str.136, %172 ], [ @.str.136, %118 ], [ @.str.157, %193 ], [ @.str.156, %37 ], [ @.str.156, %ReadNumbers.exit127.i ], [ @.str.136, %84 ], [ @.str.155, %72 ], [ @.str.154, %69 ], [ @.str.136, %66 ], [ @.str.136, %53 ], [ @.str.153, %39 ]
+  %.str.157.sink.i = phi ptr [ @.str.158, %44 ], [ @.str.158, %57 ], [ @.str.158, %109 ], [ @.str.136, %172 ], [ @.str.158, %76 ], [ @.str.136, %118 ], [ @.str.158, %163 ], [ @.str.157, %193 ], [ @.str.156, %ReadNumbers.exit127.i ], [ @.str.136, %84 ], [ @.str.153, %39 ], [ @.str.136, %53 ], [ @.str.136, %66 ], [ @.str.154, %69 ], [ @.str.155, %72 ], [ @.str.156, %37 ]
   call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %9, ptr noundef nonnull %.str.157.sink.i)
   br label %ParseCube.exit.thread
 
@@ -7049,8 +7049,8 @@ ParseCube.exit.thread:                            ; preds = %146, %91, %.prehead
   call void @cmsPipelineFree(ptr noundef nonnull %198) #19
   br label %.thread81
 
-.thread81:                                        ; preds = %197, %195, %10, %ParseCube.exit.thread, %.thread73
-  %.0357079 = phi ptr [ %196, %.thread73 ], [ %196, %197 ], [ null, %195 ], [ null, %10 ], [ null, %ParseCube.exit.thread ]
+.thread81:                                        ; preds = %197, %195, %ParseCube.exit.thread, %10, %.thread73
+  %.0357079 = phi ptr [ %196, %.thread73 ], [ %196, %197 ], [ null, %195 ], [ null, %ParseCube.exit.thread ], [ null, %10 ]
   %215 = getelementptr inbounds nuw i8, ptr %9, i64 271336
   %216 = load ptr, ptr %215, align 8
   %.not.i = icmp eq ptr %216, null
@@ -7218,7 +7218,7 @@ AllocChunk.exit:                                  ; preds = %30
   br label %AllocChunk.exit.thread
 
 AllocChunk.exit.thread:                           ; preds = %30, %AllocChunk.exit
-  %.0.i9 = phi ptr [ %36, %AllocChunk.exit ], [ null, %30 ]
+  %.0.i9 = phi ptr [ null, %30 ], [ %36, %AllocChunk.exit ]
   ret ptr %.0.i9
 }
 
@@ -7517,7 +7517,7 @@ AllocChunk.exit.i:                                ; preds = %95
   br label %AllocChunk.exit.thread.i
 
 AllocChunk.exit.thread.i:                         ; preds = %104, %AllocChunk.exit.i, %95
-  %.0.i25.i = phi ptr [ %100, %104 ], [ %100, %AllocChunk.exit.i ], [ null, %95 ]
+  %.0.i25.i = phi ptr [ null, %95 ], [ %100, %104 ], [ %100, %AllocChunk.exit.i ]
   %107 = getelementptr inbounds nuw i8, ptr %60, i64 16
   store ptr %.0.i25.i, ptr %107, align 8
   br label %108
@@ -7675,7 +7675,7 @@ BinSrchKey.exit.thread:                           ; preds = %BinSrchKey.exit, %1
   br label %750
 
 isfirstidchar.exit.thread:                        ; preds = %47, %switch.early.test282, %switch.early.test282, %switch.early.test282, %48
-  %.pre-phi354 = phi i64 [ %50, %switch.early.test282 ], [ %50, %switch.early.test282 ], [ %50, %switch.early.test282 ], [ %50, %48 ], [ 45, %47 ]
+  %.pre-phi354 = phi i64 [ %50, %48 ], [ %50, %switch.early.test282 ], [ %50, %switch.early.test282 ], [ %50, %switch.early.test282 ], [ 45, %47 ]
   %183 = load ptr, ptr %.pre351, align 8
   %184 = getelementptr inbounds i16, ptr %183, i64 %.pre-phi354
   %185 = load i16, ptr %184, align 2
@@ -9087,7 +9087,7 @@ AllocChunk.exit:                                  ; preds = %36
   br label %AllocChunk.exit.thread
 
 AllocChunk.exit.thread:                           ; preds = %36, %45, %AllocChunk.exit
-  %.0.i25 = phi ptr [ %41, %45 ], [ %41, %AllocChunk.exit ], [ null, %36 ]
+  %.0.i25 = phi ptr [ null, %36 ], [ %41, %45 ], [ %41, %AllocChunk.exit ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.0.i25, ptr %48, align 8
   br label %49
@@ -9585,7 +9585,7 @@ NextCh.exit52:                                    ; preds = %NextCh.exit52thread
   br label %NextCh.exit56
 
 NextCh.exit56:                                    ; preds = %190, %189, %181, %266, %261, %260, %252, %240, %231, %226, %225, %217, %205, %NextCh.exit52
-  %.035 = phi i32 [ 1, %NextCh.exit52 ], [ -1, %205 ], [ -1, %217 ], [ -1, %225 ], [ -1, %226 ], [ -1, %231 ], [ 1, %240 ], [ 1, %252 ], [ 1, %260 ], [ 1, %261 ], [ 1, %266 ], [ 1, %181 ], [ 1, %189 ], [ 1, %190 ]
+  %.035 = phi i32 [ 1, %266 ], [ -1, %231 ], [ 1, %NextCh.exit52 ], [ -1, %205 ], [ -1, %217 ], [ -1, %225 ], [ -1, %226 ], [ 1, %240 ], [ 1, %252 ], [ 1, %260 ], [ 1, %261 ], [ 1, %181 ], [ 1, %189 ], [ 1, %190 ]
   %268 = load ptr, ptr %5, align 8
   %269 = load i32, ptr %6, align 4
   %270 = sext i32 %269 to i64

@@ -221,7 +221,7 @@ mbedtls_asn1_write_len.exit.i:                    ; preds = %47, %45
   br label %mbedtls_asn1_write_len_and_tag.exit
 
 mbedtls_asn1_write_len_and_tag.exit:              ; preds = %56, %mbedtls_asn1_write_len.exit.i, %.loopexit.i.i, %30, %12, %23, %3, %7
-  %.023 = phi i32 [ -108, %7 ], [ -108, %3 ], [ -108, %23 ], [ %15, %12 ], [ %60, %56 ], [ -108, %.loopexit.i.i ], [ -100, %30 ], [ -108, %mbedtls_asn1_write_len.exit.i ]
+  %.023 = phi i32 [ -108, %3 ], [ -108, %23 ], [ -108, %7 ], [ %15, %12 ], [ %60, %56 ], [ -100, %30 ], [ -108, %.loopexit.i.i ], [ -108, %mbedtls_asn1_write_len.exit.i ]
   ret i32 %.023
 }
 
@@ -255,7 +255,7 @@ define hidden range(i32 -108, 3) i32 @mbedtls_asn1_write_null(ptr noundef captur
   br label %mbedtls_asn1_write_len_and_tag.exit
 
 mbedtls_asn1_write_len_and_tag.exit:              ; preds = %2, %.preheader.i.i, %13
-  %.0.i = phi i32 [ 2, %13 ], [ -108, %2 ], [ -108, %.preheader.i.i ]
+  %.0.i = phi i32 [ 2, %13 ], [ -108, %.preheader.i.i ], [ -108, %2 ]
   ret i32 %.0.i
 }
 
@@ -341,7 +341,7 @@ mbedtls_asn1_write_len.exit.i:                    ; preds = %31, %29
   br label %mbedtls_asn1_write_len_and_tag.exit
 
 mbedtls_asn1_write_len_and_tag.exit:              ; preds = %4, %40, %mbedtls_asn1_write_len.exit.i, %.loopexit.i.i, %mbedtls_asn1_write_raw_buffer.exit
-  %.0 = phi i32 [ %13, %mbedtls_asn1_write_raw_buffer.exit ], [ %43, %40 ], [ -108, %.loopexit.i.i ], [ -108, %mbedtls_asn1_write_len.exit.i ], [ -108, %4 ]
+  %.0 = phi i32 [ -108, %.loopexit.i.i ], [ %13, %mbedtls_asn1_write_raw_buffer.exit ], [ %43, %40 ], [ -108, %mbedtls_asn1_write_len.exit.i ], [ -108, %4 ]
   ret i32 %.0
 }
 
@@ -533,8 +533,8 @@ mbedtls_asn1_write_len.exit.i:                    ; preds = %81, %79
   %94 = add i32 %93, %.017.i.i
   br label %mbedtls_asn1_write_len_and_tag.exit
 
-mbedtls_asn1_write_len_and_tag.exit:              ; preds = %22, %mbedtls_asn1_write_len.exit.i.i, %.loopexit.i.i.i, %mbedtls_asn1_write_raw_buffer.exit.i, %.preheader.i.i.i, %9, %90, %mbedtls_asn1_write_len.exit.i, %.loopexit.i.i, %62, %mbedtls_asn1_write_oid.exit
-  %.019 = phi i32 [ %60, %mbedtls_asn1_write_oid.exit ], [ %94, %90 ], [ -108, %.loopexit.i.i ], [ -100, %62 ], [ -108, %mbedtls_asn1_write_len.exit.i ], [ -108, %9 ], [ -108, %.preheader.i.i.i ], [ -108, %22 ], [ -108, %mbedtls_asn1_write_len.exit.i.i ], [ -108, %.loopexit.i.i.i ], [ %31, %mbedtls_asn1_write_raw_buffer.exit.i ]
+mbedtls_asn1_write_len_and_tag.exit:              ; preds = %22, %mbedtls_asn1_write_len.exit.i.i, %mbedtls_asn1_write_raw_buffer.exit.i, %.loopexit.i.i.i, %9, %.preheader.i.i.i, %90, %mbedtls_asn1_write_len.exit.i, %.loopexit.i.i, %62, %mbedtls_asn1_write_oid.exit
+  %.019 = phi i32 [ -108, %9 ], [ -108, %mbedtls_asn1_write_len.exit.i ], [ %60, %mbedtls_asn1_write_oid.exit ], [ %94, %90 ], [ -100, %62 ], [ -108, %.loopexit.i.i ], [ -108, %.preheader.i.i.i ], [ -108, %22 ], [ -108, %mbedtls_asn1_write_len.exit.i.i ], [ %31, %mbedtls_asn1_write_raw_buffer.exit.i ], [ -108, %.loopexit.i.i.i ]
   ret i32 %.019
 }
 
@@ -576,7 +576,7 @@ define hidden range(i32 -108, 4) i32 @mbedtls_asn1_write_bool(ptr noundef captur
   br label %mbedtls_asn1_write_len_and_tag.exit
 
 mbedtls_asn1_write_len_and_tag.exit:              ; preds = %21, %.preheader.i.i, %9, %3
-  %.0 = phi i32 [ -108, %3 ], [ 3, %21 ], [ -108, %9 ], [ -108, %.preheader.i.i ]
+  %.0 = phi i32 [ -108, %3 ], [ 3, %21 ], [ -108, %.preheader.i.i ], [ -108, %9 ]
   ret i32 %.0
 }
 
@@ -690,7 +690,7 @@ mbedtls_asn1_write_len.exit.i.i:                  ; preds = %43, %41
   br label %asn1_write_tagged_int.exit
 
 asn1_write_tagged_int.exit:                       ; preds = %5, %19, %26, %.loopexit.i.i.i, %mbedtls_asn1_write_len.exit.i.i, %52
-  %.016.i = phi i32 [ -108, %19 ], [ %56, %52 ], [ -108, %.loopexit.i.i.i ], [ -100, %26 ], [ -108, %mbedtls_asn1_write_len.exit.i.i ], [ -108, %5 ]
+  %.016.i = phi i32 [ -108, %19 ], [ -108, %mbedtls_asn1_write_len.exit.i.i ], [ %56, %52 ], [ -100, %26 ], [ -108, %.loopexit.i.i.i ], [ -108, %5 ]
   ret i32 %.016.i
 }
 
@@ -804,7 +804,7 @@ mbedtls_asn1_write_len.exit.i.i:                  ; preds = %43, %41
   br label %asn1_write_tagged_int.exit
 
 asn1_write_tagged_int.exit:                       ; preds = %5, %19, %26, %.loopexit.i.i.i, %mbedtls_asn1_write_len.exit.i.i, %52
-  %.016.i = phi i32 [ -108, %19 ], [ %56, %52 ], [ -108, %.loopexit.i.i.i ], [ -100, %26 ], [ -108, %mbedtls_asn1_write_len.exit.i.i ], [ -108, %5 ]
+  %.016.i = phi i32 [ -108, %19 ], [ -108, %mbedtls_asn1_write_len.exit.i.i ], [ %56, %52 ], [ -100, %26 ], [ -108, %.loopexit.i.i.i ], [ -108, %5 ]
   ret i32 %.016.i
 }
 
@@ -891,7 +891,7 @@ mbedtls_asn1_write_len.exit.i:                    ; preds = %33, %31
   br label %mbedtls_asn1_write_len_and_tag.exit
 
 mbedtls_asn1_write_len_and_tag.exit:              ; preds = %5, %42, %mbedtls_asn1_write_len.exit.i, %.loopexit.i.i, %mbedtls_asn1_write_raw_buffer.exit
-  %.0 = phi i32 [ %14, %mbedtls_asn1_write_raw_buffer.exit ], [ %45, %42 ], [ -108, %.loopexit.i.i ], [ -108, %mbedtls_asn1_write_len.exit.i ], [ -108, %5 ]
+  %.0 = phi i32 [ -108, %.loopexit.i.i ], [ %14, %mbedtls_asn1_write_raw_buffer.exit ], [ %45, %42 ], [ -108, %mbedtls_asn1_write_len.exit.i ], [ -108, %5 ]
   ret i32 %.0
 }
 
@@ -977,7 +977,7 @@ mbedtls_asn1_write_len.exit.i.i:                  ; preds = %31, %29
   br label %mbedtls_asn1_write_tagged_string.exit
 
 mbedtls_asn1_write_tagged_string.exit:            ; preds = %4, %mbedtls_asn1_write_raw_buffer.exit.i, %.loopexit.i.i.i, %mbedtls_asn1_write_len.exit.i.i, %40
-  %.0.i = phi i32 [ %13, %mbedtls_asn1_write_raw_buffer.exit.i ], [ %43, %40 ], [ -108, %.loopexit.i.i.i ], [ -108, %mbedtls_asn1_write_len.exit.i.i ], [ -108, %4 ]
+  %.0.i = phi i32 [ -108, %.loopexit.i.i.i ], [ %13, %mbedtls_asn1_write_raw_buffer.exit.i ], [ %43, %40 ], [ -108, %mbedtls_asn1_write_len.exit.i.i ], [ -108, %4 ]
   ret i32 %.0.i
 }
 
@@ -1063,7 +1063,7 @@ mbedtls_asn1_write_len.exit.i.i:                  ; preds = %31, %29
   br label %mbedtls_asn1_write_tagged_string.exit
 
 mbedtls_asn1_write_tagged_string.exit:            ; preds = %4, %mbedtls_asn1_write_raw_buffer.exit.i, %.loopexit.i.i.i, %mbedtls_asn1_write_len.exit.i.i, %40
-  %.0.i = phi i32 [ %13, %mbedtls_asn1_write_raw_buffer.exit.i ], [ %43, %40 ], [ -108, %.loopexit.i.i.i ], [ -108, %mbedtls_asn1_write_len.exit.i.i ], [ -108, %4 ]
+  %.0.i = phi i32 [ -108, %.loopexit.i.i.i ], [ %13, %mbedtls_asn1_write_raw_buffer.exit.i ], [ %43, %40 ], [ -108, %mbedtls_asn1_write_len.exit.i.i ], [ -108, %4 ]
   ret i32 %.0.i
 }
 
@@ -1149,7 +1149,7 @@ mbedtls_asn1_write_len.exit.i.i:                  ; preds = %31, %29
   br label %mbedtls_asn1_write_tagged_string.exit
 
 mbedtls_asn1_write_tagged_string.exit:            ; preds = %4, %mbedtls_asn1_write_raw_buffer.exit.i, %.loopexit.i.i.i, %mbedtls_asn1_write_len.exit.i.i, %40
-  %.0.i = phi i32 [ %13, %mbedtls_asn1_write_raw_buffer.exit.i ], [ %43, %40 ], [ -108, %.loopexit.i.i.i ], [ -108, %mbedtls_asn1_write_len.exit.i.i ], [ -108, %4 ]
+  %.0.i = phi i32 [ -108, %.loopexit.i.i.i ], [ %13, %mbedtls_asn1_write_raw_buffer.exit.i ], [ %43, %40 ], [ -108, %mbedtls_asn1_write_len.exit.i.i ], [ -108, %4 ]
   ret i32 %.0.i
 }
 
@@ -1321,7 +1321,7 @@ mbedtls_asn1_write_len.exit.i:                    ; preds = %49, %47
   br label %mbedtls_asn1_write_len_and_tag.exit
 
 mbedtls_asn1_write_len_and_tag.exit:              ; preds = %58, %mbedtls_asn1_write_len.exit.i, %.loopexit.i.i, %19, %4, %11
-  %.0 = phi i32 [ -108, %11 ], [ -108, %4 ], [ %62, %58 ], [ -108, %.loopexit.i.i ], [ -100, %19 ], [ -108, %mbedtls_asn1_write_len.exit.i ]
+  %.0 = phi i32 [ -108, %4 ], [ -108, %11 ], [ %62, %58 ], [ -100, %19 ], [ -108, %.loopexit.i.i ], [ -108, %mbedtls_asn1_write_len.exit.i ]
   ret i32 %.0
 }
 
@@ -1407,7 +1407,7 @@ mbedtls_asn1_write_len.exit.i:                    ; preds = %31, %29
   br label %mbedtls_asn1_write_len_and_tag.exit
 
 mbedtls_asn1_write_len_and_tag.exit:              ; preds = %4, %40, %mbedtls_asn1_write_len.exit.i, %.loopexit.i.i, %mbedtls_asn1_write_raw_buffer.exit
-  %.0 = phi i32 [ %13, %mbedtls_asn1_write_raw_buffer.exit ], [ %43, %40 ], [ -108, %.loopexit.i.i ], [ -108, %mbedtls_asn1_write_len.exit.i ], [ -108, %4 ]
+  %.0 = phi i32 [ -108, %.loopexit.i.i ], [ %13, %mbedtls_asn1_write_raw_buffer.exit ], [ %43, %40 ], [ -108, %mbedtls_asn1_write_len.exit.i ], [ -108, %4 ]
   ret i32 %.0
 }
 
@@ -1493,7 +1493,7 @@ define hidden ptr @mbedtls_asn1_store_named_data(ptr noundef captures(none) %0, 
   br label %40
 
 40:                                               ; preds = %37, %32, %25
-  %.046 = phi ptr [ %10, %25 ], [ %7, %37 ], [ %7, %32 ]
+  %.046 = phi ptr [ %10, %25 ], [ %7, %32 ], [ %7, %37 ]
   %41 = icmp ne ptr %3, null
   %42 = icmp ne i64 %4, 0
   %or.cond = and i1 %41, %42
@@ -1506,7 +1506,7 @@ define hidden ptr @mbedtls_asn1_store_named_data(ptr noundef captures(none) %0, 
   br label %.critedge
 
 .critedge:                                        ; preds = %.thread, %35, %40, %43, %9, %24, %17
-  %.0 = phi ptr [ null, %17 ], [ null, %24 ], [ null, %9 ], [ %.046, %43 ], [ %.046, %40 ], [ null, %35 ], [ %7, %.thread ]
+  %.0 = phi ptr [ null, %35 ], [ null, %17 ], [ null, %24 ], [ %.046, %40 ], [ null, %9 ], [ %.046, %43 ], [ %7, %.thread ]
   ret ptr %.0
 }
 

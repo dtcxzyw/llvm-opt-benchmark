@@ -475,7 +475,7 @@ decode_key.exit91:                                ; preds = %52
   br label %.thread208.i
 
 .thread196.i:                                     ; preds = %._crit_edge238.i, %177, %.lr.ph237.i
-  %.10.i = phi i32 [ -1094995529, %.lr.ph237.i ], [ -1094995529, %177 ], [ %189, %._crit_edge238.i ]
+  %.10.i = phi i32 [ -1094995529, %177 ], [ -1094995529, %.lr.ph237.i ], [ %189, %._crit_edge238.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %track_header.exit.thread
 
@@ -484,8 +484,8 @@ decode_key.exit91:                                ; preds = %52
   %227 = icmp slt i32 %139, %226
   br i1 %227, label %.lr.ph250.i, label %.loopexit, !llvm.loop !60
 
-track_header.exit.thread:                         ; preds = %.lr.ph232.i, %.lr.ph.i, %.lr.ph250.i, %157, %138, %101, %.thread196.i, %.preheader217.i
-  %.2.i.ph = phi i32 [ -12, %.preheader217.i ], [ %.10.i, %.thread196.i ], [ -1163346256, %101 ], [ -12, %.lr.ph250.i ], [ -1094995529, %157 ], [ -1094995529, %138 ], [ -541478725, %.lr.ph.i ], [ -541478725, %.lr.ph232.i ]
+track_header.exit.thread:                         ; preds = %.lr.ph232.i, %.lr.ph.i, %157, %.lr.ph250.i, %138, %101, %.thread196.i, %.preheader217.i
+  %.2.i.ph = phi i32 [ -1094995529, %138 ], [ %.10.i, %.thread196.i ], [ -541478725, %.lr.ph.i ], [ -1163346256, %101 ], [ -12, %.preheader217.i ], [ -1094995529, %157 ], [ -12, %.lr.ph250.i ], [ -541478725, %.lr.ph232.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @av_free(ptr noundef nonnull %77) #9
   br label %.thread
@@ -577,7 +577,7 @@ track_header.exit.thread:                         ; preds = %.lr.ph232.i, %.lr.p
   br i1 %.not65.i, label %track_index.exit.thread, label %266
 
 track_index.exit.thread:                          ; preds = %.lr.ph.i96, %229, %238, %._crit_edge.i99, %263
-  %.0.i.ph = phi i32 [ -1094995529, %._crit_edge.i99 ], [ -12, %238 ], [ -1094995529, %229 ], [ -12, %263 ], [ -1094995529, %.lr.ph.i96 ]
+  %.0.i.ph = phi i32 [ -1094995529, %229 ], [ -12, %263 ], [ -1094995529, %._crit_edge.i99 ], [ -12, %238 ], [ -1094995529, %.lr.ph.i96 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @av_free(ptr noundef nonnull %228) #9
   br label %.thread
@@ -605,7 +605,7 @@ track_index.exit.thread:                          ; preds = %.lr.ph.i96, %229, %
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %track_index.exit.thread, %track_header.exit.thread, %272, %275, %.loopexit, %._crit_edge.thread, %74, %18, %17
-  %.0 = phi i32 [ -22, %17 ], [ %22, %18 ], [ -5, %74 ], [ -5, %._crit_edge.thread ], [ -5, %.loopexit ], [ 0, %275 ], [ 0, %272 ], [ %.2.i.ph, %track_header.exit.thread ], [ %.0.i.ph, %track_index.exit.thread ], [ -1094995529, %.lr.ph ]
+  %.0 = phi i32 [ -22, %17 ], [ %22, %18 ], [ 0, %272 ], [ -5, %._crit_edge.thread ], [ -5, %.loopexit ], [ %.0.i.ph, %track_index.exit.thread ], [ %.2.i.ph, %track_header.exit.thread ], [ -5, %74 ], [ 0, %275 ], [ -1094995529, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -903,8 +903,8 @@ define internal range(i32 -2147483648, 1) i32 @viv_read_packet(ptr noundef reado
   store i32 %198, ptr %72, align 4, !tbaa !86
   br label %.thread163
 
-.thread163:                                       ; preds = %147, %163, %161, %.thread156, %106, %103, %100, %84, %82, %76, %26, %15, %7, %2, %196
-  %.0 = phi i32 [ 0, %196 ], [ -5, %2 ], [ -541478725, %7 ], [ 0, %26 ], [ %24, %15 ], [ -5, %76 ], [ -5, %82 ], [ -1094995529, %84 ], [ -1094995529, %.thread156 ], [ %108, %106 ], [ -1094995529, %103 ], [ -1094995529, %100 ], [ %165, %163 ], [ -1094995529, %161 ], [ -1094995529, %147 ]
+.thread163:                                       ; preds = %147, %163, %161, %100, %.thread156, %106, %103, %84, %82, %76, %26, %15, %7, %2, %196
+  %.0 = phi i32 [ -5, %2 ], [ -541478725, %7 ], [ %24, %15 ], [ -5, %82 ], [ 0, %196 ], [ -1094995529, %84 ], [ -1094995529, %103 ], [ -5, %76 ], [ 0, %26 ], [ -1094995529, %161 ], [ -1094995529, %100 ], [ -1094995529, %.thread156 ], [ %108, %106 ], [ %165, %163 ], [ -1094995529, %147 ]
   ret i32 %.0
 }
 
@@ -1251,7 +1251,7 @@ decode_block.exit43:                              ; preds = %50, %76, %.lr.ph.i5
   br label %86
 
 86:                                               ; preds = %decode_block.exit43, %85, %get_v.exit.thread, %get_v.exit, %5
-  %.023 = phi ptr [ null, %5 ], [ null, %get_v.exit ], [ null, %get_v.exit.thread ], [ %43, %decode_block.exit43 ], [ null, %85 ]
+  %.023 = phi ptr [ null, %get_v.exit ], [ null, %5 ], [ null, %get_v.exit.thread ], [ %43, %decode_block.exit43 ], [ null, %85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.023
 }
@@ -1336,7 +1336,7 @@ decode_block.exit.i:                              ; preds = %.lr.ph.i45.i.i, %32
   br i1 %.not15.i.i, label %get_v.exit.i, label %decode_block.exit.i, !llvm.loop !94
 
 get_v.exit.i:                                     ; preds = %32, %28, %decode_block.exit.i
-  %.0.i.i = phi i32 [ %.012.i.i, %28 ], [ %.012.i.i, %decode_block.exit.i ], [ %35, %32 ]
+  %.0.i.i = phi i32 [ %.012.i.i, %decode_block.exit.i ], [ %.012.i.i, %28 ], [ %35, %32 ]
   %36 = load i8, ptr %6, align 8, !tbaa !28
   %37 = icmp ne i8 %36, 83
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 1
@@ -1449,7 +1449,7 @@ decode_block.exit60.i:                            ; preds = %.lr.ph.i45.i53.i, %
   br i1 %.not15.i66.i, label %get_v.exit67.i, label %decode_block.exit60.i, !llvm.loop !94
 
 get_v.exit67.i:                                   ; preds = %79, %75, %decode_block.exit60.i
-  %.0.i64.i = phi i32 [ %.012.i62.i, %75 ], [ %.012.i62.i, %decode_block.exit60.i ], [ %82, %79 ]
+  %.0.i64.i = phi i32 [ %.012.i62.i, %decode_block.exit60.i ], [ %.012.i62.i, %75 ], [ %82, %79 ]
   %83 = load i8, ptr %6, align 8, !tbaa !28
   %84 = icmp eq i8 %83, 83
   %85 = load i8, ptr %38, align 1
@@ -1534,7 +1534,7 @@ get_v.exit67.i:                                   ; preds = %79, %75, %decode_bl
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %113, ptr nonnull align 4 %.sroa.086.i, i64 %114, i1 false)
   br label %116
 
-read_sb_block.exit.thread:                        ; preds = %97, %14, %get_v.exit67.i, %87, %89
+read_sb_block.exit.thread:                        ; preds = %14, %get_v.exit67.i, %97, %87, %89
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr null, ptr %11, align 8, !tbaa !96

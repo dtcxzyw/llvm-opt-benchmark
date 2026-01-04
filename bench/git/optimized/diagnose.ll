@@ -486,8 +486,8 @@ _.exit52:                                         ; preds = %149, %151
   br label %158
 
 158:                                              ; preds = %134, %154, %_.exit52, %_.exit39
-  %.029 = phi ptr [ null, %_.exit39 ], [ %145, %_.exit52 ], [ %145, %154 ], [ null, %134 ]
-  %.026 = phi i32 [ -1, %_.exit39 ], [ %148, %_.exit52 ], [ 0, %154 ], [ -1, %134 ]
+  %.029 = phi ptr [ null, %134 ], [ %145, %154 ], [ null, %_.exit39 ], [ %145, %_.exit52 ]
+  %.026 = phi i32 [ -1, %134 ], [ 0, %154 ], [ -1, %_.exit39 ], [ %148, %_.exit52 ]
   %159 = icmp sgt i32 %22, -1
   br i1 %159, label %160, label %.thread54
 
@@ -498,8 +498,8 @@ _.exit52:                                         ; preds = %149, %151
   br label %.thread54
 
 .thread54:                                        ; preds = %3, %_.exit, %160, %158
-  %.02660 = phi i32 [ %.026, %160 ], [ %.026, %158 ], [ 0, %3 ], [ -1, %_.exit ]
-  %.02959 = phi ptr [ %.029, %160 ], [ %.029, %158 ], [ null, %3 ], [ null, %_.exit ]
+  %.02660 = phi i32 [ %.026, %158 ], [ %.026, %160 ], [ 0, %3 ], [ -1, %_.exit ]
+  %.02959 = phi ptr [ %.029, %158 ], [ %.029, %160 ], [ null, %3 ], [ null, %_.exit ]
   call void @free(ptr noundef %.02959) #12
   call void @strvec_clear(ptr noundef nonnull %8) #12
   call void @strbuf_release(ptr noundef nonnull %9) #12

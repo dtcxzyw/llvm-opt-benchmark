@@ -239,21 +239,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
   %14 = load ptr, ptr %2, align 8
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = icmp eq ptr %14, %15
-  br i1 %16, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br i1 %16, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %12
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %.04, label %19, label %151
-
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %12
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %12
   %17 = load i64, ptr %15, align 8
   %18 = add i64 %17, 1
   call void @_ZdlPvm(ptr noundef %14, i64 noundef %18) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.04, label %19, label %151
 
-19:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn2429 = phi { ptr, i32 } [ %11, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %13, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %13, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %.04, label %19, label %151
+
+19:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %.pn2429 = phi { ptr, i32 } [ %11, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %13, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %13, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
   call void @__cxa_free_exception(ptr %7) #16
   br label %151
 
@@ -537,8 +537,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %12
 150:                                              ; preds = %139
   ret void
 
-151:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %120, %148, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %19, %87, %80, %71, %62, %53, %44, %33
-  %.pn24.pn = phi { ptr, i32 } [ %.pn2429, %19 ], [ %13, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %34, %33 ], [ %45, %44 ], [ %54, %53 ], [ %63, %62 ], [ %72, %71 ], [ %81, %80 ], [ %88, %87 ], [ %121, %120 ], [ %149, %148 ], [ %13, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+151:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %120, %148, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %19, %87, %80, %71, %62, %53, %44, %33
+  %.pn24.pn = phi { ptr, i32 } [ %.pn2429, %19 ], [ %13, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %34, %33 ], [ %45, %44 ], [ %54, %53 ], [ %63, %62 ], [ %72, %71 ], [ %81, %80 ], [ %88, %87 ], [ %121, %120 ], [ %149, %148 ], [ %13, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
   resume { ptr, i32 } %.pn24.pn
 
 152:                                              ; preds = %10
@@ -979,8 +979,8 @@ _ZNSt6vectorIhSaIhEED2Ev.exit186.thread218:       ; preds = %23
   br label %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit
 
 _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %56, %.noexc168, %49
-  %.sroa.11196.0 = phi ptr [ %53, %.noexc168 ], [ %53, %56 ], [ null, %49 ]
-  %.sroa.0191.0 = phi ptr [ %52, %.noexc168 ], [ %52, %56 ], [ null, %49 ]
+  %.sroa.11196.0 = phi ptr [ %53, %56 ], [ %53, %.noexc168 ], [ null, %49 ]
+  %.sroa.0191.0 = phi ptr [ %52, %56 ], [ %52, %.noexc168 ], [ null, %49 ]
   %58 = load ptr, ptr %18, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %60 = load ptr, ptr %59, align 8
@@ -1691,17 +1691,17 @@ _ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit: ; preds =
   br i1 %exitcond.not, label %293, label %311, !llvm.loop !9
 
 .thread212:                                       ; preds = %190, %200, %223, %246
-  %.pn152.pn.pn.pn.ph = phi { ptr, i32 } [ %247, %246 ], [ %191, %190 ], [ %.pn140.pn, %223 ], [ %.pn144, %200 ]
+  %.pn152.pn.pn.pn.ph = phi { ptr, i32 } [ %247, %246 ], [ %.pn140.pn, %223 ], [ %.pn144, %200 ], [ %191, %190 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
 
 407:                                              ; preds = %309, %381, %326
-  %.pn152.pn.pn.pn = phi { ptr, i32 } [ %310, %309 ], [ %382, %381 ], [ %327, %326 ]
+  %.pn152.pn.pn.pn = phi { ptr, i32 } [ %327, %326 ], [ %310, %309 ], [ %382, %381 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
 
 .thread:                                          ; preds = %407, %180, %182, %184, %188, %186, %.thread212
-  %.pn152.pn.pn.pn.pn.pn.pn209 = phi { ptr, i32 } [ %.pn152.pn.pn.pn, %407 ], [ %.pn152.pn.pn.pn.ph, %.thread212 ], [ %189, %188 ], [ %187, %186 ], [ %183, %182 ], [ %185, %184 ], [ %181, %180 ]
+  %.pn152.pn.pn.pn.pn.pn.pn209 = phi { ptr, i32 } [ %.pn152.pn.pn.pn.ph, %.thread212 ], [ %.pn152.pn.pn.pn, %407 ], [ %189, %188 ], [ %187, %186 ], [ %185, %184 ], [ %181, %180 ], [ %183, %182 ]
   %408 = ptrtoint ptr %.sroa.11196.0 to i64
   %409 = ptrtoint ptr %.sroa.0191.0 to i64
   %410 = sub i64 %408, %409

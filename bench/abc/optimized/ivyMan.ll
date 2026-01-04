@@ -1635,7 +1635,7 @@ Vec_PtrFree.exit.sink.split:                      ; preds = %.critedge8, %.crite
   br label %Vec_PtrFree.exit
 
 Vec_PtrFree.exit:                                 ; preds = %Vec_PtrFree.exit.sink.split, %.critedge8, %.critedge4.thread
-  %.val66117 = phi i32 [ 0, %.critedge4.thread ], [ %81, %.critedge8 ], [ %.val66117.ph, %Vec_PtrFree.exit.sink.split ]
+  %.val66117 = phi i32 [ %81, %.critedge8 ], [ 0, %.critedge4.thread ], [ %.val66117.ph, %Vec_PtrFree.exit.sink.split ]
   tail call void @free(ptr noundef nonnull %32) #17
   ret i32 %.val66117
 }
@@ -1669,7 +1669,7 @@ tailrecurse:                                      ; preds = %7, %2
   br label %tailrecurse
 
 12:                                               ; preds = %tailrecurse, %5
-  %.0 = phi i32 [ 1, %5 ], [ 0, %tailrecurse ]
+  %.0 = phi i32 [ 0, %tailrecurse ], [ 1, %5 ]
   ret i32 %.0
 }
 
@@ -1701,7 +1701,7 @@ tailrecurse.i:                                    ; preds = %1, %6
   br i1 %7, label %Ivy_ManLatchIsSelfFeed_rec.exit, label %tailrecurse.i
 
 Ivy_ManLatchIsSelfFeed_rec.exit:                  ; preds = %6, %tailrecurse.i, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %tailrecurse.i ], [ 1, %6 ]
+  %.0 = phi i32 [ 0, %1 ], [ 1, %6 ], [ 0, %tailrecurse.i ]
   ret i32 %.0
 }
 

@@ -1078,8 +1078,8 @@ pack_stopbits_item.exit:                          ; preds = %Ptngc_out8bits.exit
   br i1 %239, label %.lr.ph227, label %.critedge165, !llvm.loop !34
 
 .critedge165:                                     ; preds = %.critedge, %pack_stopbits_item.exit, %.preheader196..critedge165_crit_edge, %.preheader197
-  %240 = phi i32 [ %.pre, %.preheader196..critedge165_crit_edge ], [ %90, %.preheader197 ], [ %233, %pack_stopbits_item.exit ], [ %189, %.critedge ]
-  %.1 = phi ptr [ %58, %.preheader196..critedge165_crit_edge ], [ %87, %.preheader197 ], [ %.10, %pack_stopbits_item.exit ], [ %.19, %.critedge ]
+  %240 = phi i32 [ %233, %pack_stopbits_item.exit ], [ %.pre, %.preheader196..critedge165_crit_edge ], [ %90, %.preheader197 ], [ %189, %.critedge ]
+  %.1 = phi ptr [ %.10, %pack_stopbits_item.exit ], [ %58, %.preheader196..critedge165_crit_edge ], [ %87, %.preheader197 ], [ %.19, %.critedge ]
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %242 = icmp sgt i32 %240, 0
   br i1 %242, label %.lr.ph.preheader.i.i.i168, label %Ptngc_pack_flush.exit
@@ -1434,7 +1434,7 @@ unpack_array_bwlzh.exit:                          ; preds = %.split.us.us.i, %84
   br label %unpack_array_stop_bits.exit
 
 unpack_array_stop_bits.exit:                      ; preds = %.split22.us.i, %26, %._crit_edge.i42, %8, %106, %108, %unpack_array_bwlzh.exit, %80
-  %.0 = phi i32 [ %81, %80 ], [ 0, %unpack_array_bwlzh.exit ], [ %109, %108 ], [ 1, %106 ], [ 0, %8 ], [ 0, %._crit_edge.i42 ], [ 0, %26 ], [ 0, %.split22.us.i ]
+  %.0 = phi i32 [ 1, %106 ], [ 0, %26 ], [ %81, %80 ], [ 0, %unpack_array_bwlzh.exit ], [ %109, %108 ], [ 0, %8 ], [ 0, %._crit_edge.i42 ], [ 0, %.split22.us.i ]
   ret i32 %.0
 }
 

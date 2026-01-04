@@ -667,7 +667,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !4
   br label %41
 
@@ -3149,7 +3149,7 @@ _ZL20calc_exponentials_ljiiN3gmx8ArrayRefINS_9SimdFloatEEES2_S2_.exit: ; preds =
   br i1 %exitcond744.not, label %.lr.ph635, label %.preheader577.backedge
 
 .preheader577.backedge:                           ; preds = %._crit_edge632, %._crit_edge632.thread
-  %indvars.iv741.be = phi i64 [ %indvars.iv.next742, %._crit_edge632 ], [ %indvars.iv.next742759, %._crit_edge632.thread ]
+  %indvars.iv741.be = phi i64 [ %indvars.iv.next742759, %._crit_edge632.thread ], [ %indvars.iv.next742, %._crit_edge632 ]
   br label %.preheader577, !llvm.loop !207
 
 ._crit_edge632.thread:                            ; preds = %.preheader577

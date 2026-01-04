@@ -2139,7 +2139,7 @@ _ZNK9table2mapI17default_map_entryIjP3mpzE6u_hash4u_eqE13find_iteratorERKj.exit:
   %45 = load ptr, ptr %44, align 8, !tbaa !656
   br label %57
 
-_ZNK9table2mapI17default_map_entryIjP3mpzE6u_hash4u_eqE13find_iteratorERKj.exit.thread: ; preds = %.lr.ph.i.i.i, %.lr.ph34.i.i.i, %36, %41, %.preheader.i.i.i, %_ZNK14core_hashtableI17default_map_entryIjP3mpzEN9table2mapIS3_6u_hash4u_eqE15entry_hash_procENS7_13entry_eq_procEE9find_coreERK9_key_dataIjS2_E.exit.i.i, %_ZNK9table2mapI17default_map_entryIjP3mpzE6u_hash4u_eqE13find_iteratorERKj.exit
+_ZNK9table2mapI17default_map_entryIjP3mpzE6u_hash4u_eqE13find_iteratorERKj.exit.thread: ; preds = %.lr.ph.i.i.i, %36, %.lr.ph34.i.i.i, %41, %.preheader.i.i.i, %_ZNK14core_hashtableI17default_map_entryIjP3mpzEN9table2mapIS3_6u_hash4u_eqE15entry_hash_procENS7_13entry_eq_procEE9find_coreERK9_key_dataIjS2_E.exit.i.i, %_ZNK9table2mapI17default_map_entryIjP3mpzE6u_hash4u_eqE13find_iteratorERKj.exit
   %46 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 16)
   store i32 0, ptr %46, align 8, !tbaa !630
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 4
@@ -2495,7 +2495,7 @@ define hidden void @_ZN3smt10theory_fpa7convertEP4expr(ptr dead_on_unwind noalia
   br i1 %.not27.old.i.i.i, label %.loopexit19, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %42, %39
-  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %42 ], [ %41, %39 ]
+  %.137.i.i.i.be = phi ptr [ %41, %39 ], [ %.old.i.i.i, %42 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !673
 
 .loopexit:                                        ; preds = %23, %34
@@ -2516,7 +2516,7 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit:      ; preds = %.loopexit, %_ZN11as
   store ptr %44, ptr %0, align 8, !tbaa !666
   br label %88
 
-.loopexit19:                                      ; preds = %28, %42, %39, %.preheader.i.i.i
+.loopexit19:                                      ; preds = %28, %39, %42, %.preheader.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 576
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -2627,7 +2627,7 @@ _ZN11ast_manager7inc_refEP3ast.exit14:            ; preds = %57, %_ZN11ast_manag
   ret void
 
 89:                                               ; preds = %86, %84, %82
-  %.pn = phi { ptr, i32 } [ %87, %86 ], [ %85, %84 ], [ %83, %82 ]
+  %.pn = phi { ptr, i32 } [ %83, %82 ], [ %87, %86 ], [ %85, %84 ]
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   resume { ptr, i32 } %.pn
 }
@@ -7079,7 +7079,7 @@ _ZN7obj_refI3app11ast_managerED2Ev.exit117:       ; preds = %201, %206
   br label %220
 
 220:                                              ; preds = %214, %218, %216
-  %.pn42.pn.pn = phi { ptr, i32 } [ %215, %214 ], [ %219, %218 ], [ %217, %216 ]
+  %.pn42.pn.pn = phi { ptr, i32 } [ %217, %216 ], [ %215, %214 ], [ %219, %218 ]
   call void @_ZN7obj_refI3app11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN7obj_refI3app11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #21
@@ -7441,7 +7441,7 @@ _ZNK8fpa_util8is_floatEP4expr.exit.thread.thread: ; preds = %340, %294, %_ZNK8fp
   br label %401
 
 397:                                              ; preds = %385, %387, %362, %366, %368, %364, %314, %268, %220, %212, %210
-  %.pn42.pn.pn.pn = phi { ptr, i32 } [ %.pn42.pn.pn, %220 ], [ %269, %268 ], [ %315, %314 ], [ %213, %212 ], [ %211, %210 ], [ %363, %362 ], [ %365, %364 ], [ %369, %368 ], [ %367, %366 ], [ %388, %387 ], [ %386, %385 ]
+  %.pn42.pn.pn.pn = phi { ptr, i32 } [ %.pn42.pn.pn, %220 ], [ %269, %268 ], [ %315, %314 ], [ %211, %210 ], [ %213, %212 ], [ %367, %366 ], [ %363, %362 ], [ %365, %364 ], [ %369, %368 ], [ %388, %387 ], [ %386, %385 ]
   call void @_ZN7obj_refI3app11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %412
@@ -7864,7 +7864,7 @@ _ZNK10model_core17get_num_constantsEv.exit:       ; preds = %_ZNK10model_core17g
   br i1 %.not27.old.i.i.i.i, label %_ZNK10model_core16get_const_interpEP9func_decl.exit, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %97, %94
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %97 ], [ %96, %94 ]
+  %.137.i.i.i.i.be = phi ptr [ %96, %94 ], [ %.old.i.i.i.i, %97 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !743
 
 .loopexit.i:                                      ; preds = %78, %89
@@ -7874,7 +7874,7 @@ _ZNK10model_core17get_num_constantsEv.exit:       ; preds = %_ZNK10model_core17g
   br label %_ZNK10model_core16get_const_interpEP9func_decl.exit
 
 _ZNK10model_core16get_const_interpEP9func_decl.exit: ; preds = %83, %97, %94, %.loopexit.i, %.preheader.i.i.i.i
-  %100 = phi ptr [ %99, %.loopexit.i ], [ null, %.preheader.i.i.i.i ], [ null, %94 ], [ null, %97 ], [ null, %83 ]
+  %100 = phi ptr [ %99, %.loopexit.i ], [ null, %.preheader.i.i.i.i ], [ null, %97 ], [ null, %94 ], [ null, %83 ]
   invoke void @_ZN10model_core13register_declEP9func_declP4expr(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef %65, ptr noundef %100)
           to label %101 unwind label %104
 
@@ -8013,7 +8013,7 @@ _ZN11proto_modelD2Ev.exit:                        ; preds = %_ZN6vectorIP4exprLb
   br label %.lr.ph38.i.i.i.i51
 
 .lr.ph38.i.i.i.i51:                               ; preds = %.lr.ph38.i.i.i.i51.preheader, %.lr.ph38.backedge.i.i.i.i56
-  %.137.i.i.i.i52 = phi ptr [ %.pn, %.lr.ph38.backedge.i.i.i.i56 ], [ %142, %.lr.ph38.i.i.i.i51.preheader ]
+  %.137.i.i.i.i52 = phi ptr [ %.137.be.i.i.i.i57, %.lr.ph38.backedge.i.i.i.i56 ], [ %142, %.lr.ph38.i.i.i.i51.preheader ]
   %158 = load ptr, ptr %.137.i.i.i.i52, align 8, !tbaa !750
   %159 = icmp ult ptr %158, inttoptr (i64 2 to ptr)
   br i1 %159, label %165, label %160
@@ -8032,7 +8032,7 @@ _ZN11proto_modelD2Ev.exit:                        ; preds = %_ZN6vectorIP4exprLb
   br label %.lr.ph38.backedge.i.i.i.i56
 
 .lr.ph38.backedge.i.i.i.i56:                      ; preds = %160, %165
-  %.pn = getelementptr inbounds nuw i8, ptr %.137.i.i.i.i52, i64 16
+  %.137.be.i.i.i.i57 = getelementptr inbounds nuw i8, ptr %.137.i.i.i.i52, i64 16
   br label %.lr.ph38.i.i.i.i51, !llvm.loop !755
 
 .loopexit.i58:                                    ; preds = %149, %160
@@ -8058,7 +8058,7 @@ _ZN11proto_modelD2Ev.exit:                        ; preds = %_ZN6vectorIP4exprLb
   br label %175
 
 175:                                              ; preds = %51, %104, %173, %42
-  %.pn32.pn.pn = phi { ptr, i32 } [ %174, %173 ], [ %43, %42 ], [ %105, %104 ], [ %52, %51 ]
+  %.pn32.pn.pn = phi { ptr, i32 } [ %52, %51 ], [ %43, %42 ], [ %174, %173 ], [ %105, %104 ]
   call void @_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(20) %6) #21
   br label %176
 
@@ -10798,7 +10798,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_m
   br label %64
 
 43:                                               ; preds = %34, %28
-  %.1 = phi ptr [ %.04464, %28 ], [ %.04563, %34 ]
+  %.1 = phi ptr [ %.04563, %34 ], [ %.04464, %28 ]
   %44 = getelementptr inbounds nuw i8, ptr %.04563, i64 16
   %.not = icmp eq ptr %44, %25
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !816
@@ -10845,7 +10845,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_m
   br label %64
 
 62:                                               ; preds = %53, %47
-  %.3 = phi ptr [ %.267, %47 ], [ %.14666, %53 ]
+  %.3 = phi ptr [ %.14666, %53 ], [ %.267, %47 ]
   %63 = getelementptr inbounds nuw i8, ptr %.14666, i64 16
   %.not47 = icmp eq ptr %63, %23
   br i1 %.not47, label %._crit_edge, label %.lr.ph68, !llvm.loop !817
@@ -11280,7 +11280,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_m
   br i1 %.not32.old, label %.loopexit, label %.lr.ph48.backedge
 
 .lr.ph48.backedge:                                ; preds = %36, %33
-  %.247.be = phi ptr [ %.old, %36 ], [ %35, %33 ]
+  %.247.be = phi ptr [ %35, %33 ], [ %.old, %36 ]
   br label %.lr.ph48, !llvm.loop !831
 
 .loopexit38:                                      ; preds = %17, %28

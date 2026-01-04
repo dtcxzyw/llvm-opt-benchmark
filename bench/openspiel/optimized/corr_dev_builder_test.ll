@@ -669,7 +669,7 @@ _ZN10open_spiel13TabularPolicy14SetStatePolicyERKNSt7__cxx1112basic_stringIcSt11
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %.loopexit.split-lp.i.loopexit.split-lp.i, %.loopexit.split-lp.i.loopexit.i, %.loopexit.i.loopexit.split-lp.i, %.loopexit.i.loopexit.i
-  %lpad.phi.i.i = phi { ptr, i32 } [ %lpad.loopexit131.i, %.loopexit.i.loopexit.i ], [ %lpad.loopexit.split-lp132.i, %.loopexit.i.loopexit.split-lp.i ], [ %lpad.loopexit134.i, %.loopexit.split-lp.i.loopexit.i ], [ %lpad.loopexit.split-lp135.i, %.loopexit.split-lp.i.loopexit.split-lp.i ]
+  %lpad.phi.i.i = phi { ptr, i32 } [ %lpad.loopexit.split-lp132.i, %.loopexit.i.loopexit.split-lp.i ], [ %lpad.loopexit131.i, %.loopexit.i.loopexit.i ], [ %lpad.loopexit134.i, %.loopexit.split-lp.i.loopexit.i ], [ %lpad.loopexit.split-lp135.i, %.loopexit.split-lp.i.loopexit.split-lp.i ]
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN10open_spiel13TabularPolicyE, i64 16), ptr %57, align 8
   %174 = load ptr, ptr %97, align 8
   %.not5.i.i.i.i.i81.i = icmp eq ptr %174, null
@@ -1128,7 +1128,7 @@ _ZN10open_spiel13TabularPolicyD2Ev.exit55.i:      ; preds = %311, %_ZNSt10_Hasht
   br label %.body38.i
 
 .body38.i:                                        ; preds = %345, %190, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIS6_IldESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i87.i
-  %.pn22.i = phi { ptr, i32 } [ %346, %345 ], [ %lpad.phi.i.i, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIS6_IldESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i87.i ], [ %lpad.phi.i.i, %190 ]
+  %.pn22.i = phi { ptr, i32 } [ %346, %345 ], [ %lpad.phi.i.i, %190 ], [ %lpad.phi.i.i, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIS6_IldESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i87.i ]
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN10open_spiel13TabularPolicyE, i64 16), ptr %59, align 8
   %347 = load ptr, ptr %100, align 8
   %.not5.i.i.i.i.i86 = icmp eq ptr %347, null
@@ -1614,12 +1614,12 @@ _ZNSt6vectorIdSaIdEED2Ev.exit73.i:                ; preds = %540, %538, %471
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit75.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit75.i:                ; preds = %547, %_ZNSt6vectorIdSaIdEED2Ev.exit73.i, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit67.i, %399, %387, %385
-  %.pn30.i = phi { ptr, i32 } [ %400, %399 ], [ %386, %385 ], [ %.pn25.i, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit67.i ], [ %388, %387 ], [ %.pn27.pn.i, %_ZNSt6vectorIdSaIdEED2Ev.exit73.i ], [ %.pn27.pn.i, %547 ]
+  %.pn30.i = phi { ptr, i32 } [ %400, %399 ], [ %386, %385 ], [ %388, %387 ], [ %.pn25.i, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit67.i ], [ %.pn27.pn.i, %_ZNSt6vectorIdSaIdEED2Ev.exit73.i ], [ %.pn27.pn.i, %547 ]
   call void @_ZNSt6vectorISt4pairIdN10open_spiel13TabularPolicyEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %60) #21
   br label %.loopexit.split-lp138.i
 
 .loopexit.split-lp138.i:                          ; preds = %382, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIS6_IldESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i, %_ZNSt6vectorIdSaIdEED2Ev.exit75.i, %.loopexit.split-lp138.loopexit.split-lp.i, %.loopexit.split-lp138.loopexit.i, %.loopexit137.i
-  %.pn30.pn.i = phi { ptr, i32 } [ %.pn30.i, %_ZNSt6vectorIdSaIdEED2Ev.exit75.i ], [ %lpad.loopexit139.i, %.loopexit137.i ], [ %lpad.loopexit143.i, %.loopexit.split-lp138.loopexit.i ], [ %lpad.loopexit.split-lp144.i, %.loopexit.split-lp138.loopexit.split-lp.i ], [ %.pn22.pn.i, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIS6_IldESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i ], [ %.pn22.pn.i, %382 ]
+  %.pn30.pn.i = phi { ptr, i32 } [ %.pn30.i, %_ZNSt6vectorIdSaIdEED2Ev.exit75.i ], [ %lpad.loopexit.split-lp144.i, %.loopexit.split-lp138.loopexit.split-lp.i ], [ %lpad.loopexit139.i, %.loopexit137.i ], [ %lpad.loopexit143.i, %.loopexit.split-lp138.loopexit.i ], [ %.pn22.pn.i, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIS6_IldESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i ], [ %.pn22.pn.i, %382 ]
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN10open_spiel10algorithms26DeterministicTabularPolicyE, i64 16), ptr %56, align 8
   %553 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %554 = getelementptr inbounds nuw i8, ptr %56, i64 24
@@ -1731,7 +1731,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %common.resume
 
 common.resume:                                    ; preds = %.body.i50, %1143, %.body.i24, %932, %.body.i1, %704, %.body.i, %565, %584, %597, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %.body.i ], [ %.pn30.pn.pn.pn.pn.i, %565 ], [ %.pn30.pn.pn.pn.pn.i, %584 ], [ %.pn30.pn.pn.pn.pn.i, %597 ], [ %.pn30.pn.pn.pn.pn.i, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i ], [ %.pn13.pn.pn.i, %704 ], [ %.pn.i2, %.body.i1 ], [ %.pn14.pn.pn.pn.pn.pn.pn.i, %932 ], [ %.pn.i25, %.body.i24 ], [ %.pn16.pn.pn.pn.i, %1143 ], [ %.pn.i51, %.body.i50 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i25, %.body.i24 ], [ %.pn30.pn.pn.pn.pn.i, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i ], [ %.pn.i2, %.body.i1 ], [ %.pn.i, %.body.i ], [ %.pn30.pn.pn.pn.pn.i, %565 ], [ %.pn30.pn.pn.pn.pn.i, %584 ], [ %.pn30.pn.pn.pn.pn.i, %597 ], [ %.pn13.pn.pn.i, %704 ], [ %.pn14.pn.pn.pn.pn.pn.pn.i, %932 ], [ %.pn16.pn.pn.pn.i, %1143 ], [ %.pn.i51, %.body.i50 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10open_spiel10algorithms12_GLOBAL__N_123BasicCorrDevBuilderTestEv.exit: ; preds = %_ZN10open_spiel10algorithms26DeterministicTabularPolicyD2Ev.exit70.i, %520, %533, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
@@ -2487,7 +2487,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i46:                ; preds = %821, %819
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit37.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit37.i:                ; preds = %856, %854, %848, %846, %844, %842, %840
-  %.pn14.pn.i = phi { ptr, i32 } [ %841, %840 ], [ %849, %848 ], [ %847, %846 ], [ %845, %844 ], [ %843, %842 ], [ %.pn14.i, %854 ], [ %.pn14.i, %856 ]
+  %.pn14.pn.i = phi { ptr, i32 } [ %843, %842 ], [ %841, %840 ], [ %849, %848 ], [ %847, %846 ], [ %845, %844 ], [ %.pn14.i, %854 ], [ %.pn14.i, %856 ]
   call void @_ZNSt6vectorISt4pairIdN10open_spiel13TabularPolicyEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #21
   br label %881
 
@@ -3227,7 +3227,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit42.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit42.i:                ; preds = %1134, %1132, %1126, %1124, %1122, %1120, %1118
-  %.pn13.pn.i73 = phi { ptr, i32 } [ %1119, %1118 ], [ %1127, %1126 ], [ %1125, %1124 ], [ %1123, %1122 ], [ %1121, %1120 ], [ %.pn13.i75, %1132 ], [ %.pn13.i75, %1134 ]
+  %.pn13.pn.i73 = phi { ptr, i32 } [ %1121, %1120 ], [ %1119, %1118 ], [ %1127, %1126 ], [ %1125, %1124 ], [ %1123, %1122 ], [ %.pn13.i75, %1132 ], [ %.pn13.i75, %1134 ]
   call void @_ZNSt6vectorISt4pairIdN10open_spiel13TabularPolicyEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #21
   br label %.body24.i
 
@@ -4572,7 +4572,7 @@ _ZNSt10_HashtableIlSt4pairIKldESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   br label %.body
 
 .loopexit:                                        ; preds = %39, %.noexc, %34
-  %.0.i.pn.i.i = phi ptr [ %35, %34 ], [ %49, %.noexc ], [ %41, %39 ]
+  %.0.i.pn.i.i = phi ptr [ %49, %.noexc ], [ %35, %34 ], [ %41, %39 ]
   %.0.i.i = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i, i64 16
   store double %27, ptr %.0.i.i, align 8
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.012.018, i64 16
@@ -4717,7 +4717,7 @@ _ZNSt10_HashtableIlSt4pairIKldESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   br label %.body
 
 .loopexit:                                        ; preds = %39, %.noexc, %34
-  %.0.i.pn.i.i = phi ptr [ %35, %34 ], [ %49, %.noexc ], [ %41, %39 ]
+  %.0.i.pn.i.i = phi ptr [ %49, %.noexc ], [ %35, %34 ], [ %41, %39 ]
   %.0.i.i = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i, i64 16
   store double %27, ptr %.0.i.i, align 8
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.012.018, i64 16
@@ -5153,7 +5153,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   br i1 %.not52, label %._crit_edge, label %65
 
 .body29:                                          ; preds = %79, %89, %85, %95, %87
-  %.pn = phi { ptr, i32 } [ %88, %87 ], [ %96, %95 ], [ %80, %79 ], [ %86, %85 ], [ %90, %89 ]
+  %.pn = phi { ptr, i32 } [ %96, %95 ], [ %88, %87 ], [ %80, %79 ], [ %86, %85 ], [ %90, %89 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #21
   br label %120
 
@@ -5543,7 +5543,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br label %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIS6_IldESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS7_m.exit
 
 _ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIS6_IldESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS7_m.exit: ; preds = %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St6vectorIS7_IldESaISA_EEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISD_Lb1EEE.exit, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St6vectorIS7_IldESaISA_EEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISD_Lb1EEE.exit.thread10, %11, %5, %28, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St6vectorIS7_IldESaISA_EEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit
-  %.sroa.06.1 = phi ptr [ %29, %28 ], [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St6vectorIS7_IldESaISA_EEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ null, %5 ], [ %.sroa.06.014, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St6vectorIS7_IldESaISA_EEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISD_Lb1EEE.exit ], [ null, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St6vectorIS7_IldESaISA_EEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISD_Lb1EEE.exit.thread10 ], [ %.sroa.06.014, %11 ]
+  %.sroa.06.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St6vectorIS7_IldESaISA_EEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ %29, %28 ], [ null, %5 ], [ null, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St6vectorIS7_IldESaISA_EEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISD_Lb1EEE.exit.thread10 ], [ %.sroa.06.014, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St6vectorIS7_IldESaISA_EEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISD_Lb1EEE.exit ], [ %.sroa.06.014, %11 ]
   ret ptr %.sroa.06.1
 }
 

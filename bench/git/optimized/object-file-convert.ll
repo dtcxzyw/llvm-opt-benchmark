@@ -90,7 +90,7 @@ define dso_local range(i32 -1, 1) i32 @repo_oid_to_algop(ptr noundef %0, ptr nou
   br label %26
 
 26:                                               ; preds = %22, %16, %17, %25
-  %.0 = phi i32 [ 0, %25 ], [ 0, %17 ], [ 0, %16 ], [ -1, %22 ]
+  %.0 = phi i32 [ 0, %25 ], [ 0, %16 ], [ 0, %17 ], [ -1, %22 ]
   ret i32 %.0
 }
 
@@ -574,7 +574,7 @@ _.exit176.i:                                      ; preds = %191, %189
   br label %convert_commit_object.exit
 
 convert_commit_object.exit:                       ; preds = %174, %177, %.critedge4.i, %19, %_.exit.i, %_.exit155.i, %_.exit159.i, %_.exit162.i, %_.exit170.i, %.thread.i, %_.exit176.i, %.critedge.i
-  %.1111.i = phi i32 [ -1, %_.exit176.i ], [ -1, %_.exit162.i ], [ -1, %_.exit170.i ], [ -1, %_.exit155.i ], [ -1, %_.exit159.i ], [ -1, %_.exit.i ], [ 0, %.critedge.i ], [ -1, %.thread.i ], [ 0, %19 ], [ 0, %.critedge4.i ], [ -1, %174 ], [ -1, %177 ]
+  %.1111.i = phi i32 [ 0, %.critedge.i ], [ -1, %_.exit176.i ], [ -1, %.thread.i ], [ -1, %_.exit162.i ], [ -1, %_.exit170.i ], [ -1, %_.exit155.i ], [ -1, %_.exit159.i ], [ -1, %_.exit.i ], [ 0, %19 ], [ 0, %.critedge4.i ], [ -1, %177 ], [ -1, %174 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -768,7 +768,7 @@ _.exit28.i:                                       ; preds = %267, %repo_oid_to_a
   br label %convert_tree_object.exit
 
 convert_tree_object.exit:                         ; preds = %278, %convert_commit_object.exit
-  %.0 = phi i32 [ %.1111.i, %convert_commit_object.exit ], [ %279, %278 ]
+  %.0 = phi i32 [ %279, %278 ], [ %.1111.i, %convert_commit_object.exit ]
   %.not = icmp eq i32 %.0, 0
   br i1 %.not, label %convert_tree_object.exit.thread, label %convert_tree_object.exit.thread43
 

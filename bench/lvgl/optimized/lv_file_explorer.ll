@@ -836,7 +836,7 @@ is_end_with.exit:                                 ; preds = %.loopexit, %29, %41
   br i1 %.not49133, label %.lr.ph, label %.outer._crit_edge
 
 .outer._crit_edge:                                ; preds = %.outer, %14, %129, %10
-  %.0.ph.lcssa = phi i16 [ 1, %10 ], [ %.0.ph138, %129 ], [ %.0.ph138, %14 ], [ %139, %.outer ]
+  %.0.ph.lcssa = phi i16 [ %.0.ph138, %14 ], [ 1, %10 ], [ %.0.ph138, %129 ], [ %139, %.outer ]
   %141 = call i32 @lv_fs_dir_close(ptr noundef nonnull %4) #6
   %142 = load ptr, ptr %7, align 8, !tbaa !24
   %143 = zext i16 %.0.ph.lcssa to i32
@@ -994,7 +994,7 @@ define internal void @quick_access_event_handler(ptr noundef %0) #0 {
   br i1 %35, label %select.unfold, label %38
 
 select.unfold:                                    ; preds = %33, %11, %16, %21, %26, %31
-  %.0.ph = phi ptr [ %32, %31 ], [ %27, %26 ], [ %22, %21 ], [ %17, %16 ], [ %12, %11 ], [ %36, %33 ]
+  %.0.ph = phi ptr [ %12, %11 ], [ %32, %31 ], [ %27, %26 ], [ %22, %21 ], [ %17, %16 ], [ %36, %33 ]
   %37 = load ptr, ptr %.0.ph, align 8, !tbaa !28
   tail call fastcc void @show_dir(ptr noundef %4, ptr noundef %37)
   br label %38

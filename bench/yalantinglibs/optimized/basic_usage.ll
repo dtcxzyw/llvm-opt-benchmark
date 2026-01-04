@@ -2375,12 +2375,12 @@ ehcleanup83:                                      ; preds = %lpad79, %lpad.i183
   br label %ehcleanup88
 
 ehcleanup88:                                      ; preds = %lpad.i197, %lpad.i266.body, %lpad.i233.body, %lpad.i322.body, %ehcleanup83, %ehcleanup, %lpad52
-  %eh.lpad-body335.pn = phi { ptr, i32 } [ %186, %lpad.i322.body ], [ %.pn141, %ehcleanup83 ], [ %.pn, %ehcleanup ], [ %215, %lpad52 ], [ %139, %lpad.i197 ], [ %95, %lpad.i233.body ], [ %119, %lpad.i266.body ]
+  %eh.lpad-body335.pn = phi { ptr, i32 } [ %186, %lpad.i322.body ], [ %215, %lpad52 ], [ %.pn141, %ehcleanup83 ], [ %.pn, %ehcleanup ], [ %139, %lpad.i197 ], [ %95, %lpad.i233.body ], [ %119, %lpad.i266.body ]
   call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %buffer46) #22
   br label %ehcleanup89
 
 ehcleanup89:                                      ; preds = %lpad.i, %lpad.i128, %lpad.i168, %lpad.i112, %ehcleanup88, %lpad44, %lpad.i213, %lpad36, %lpad.i97, %lpad14, %lpad12
-  %eh.lpad-body335.pn.pn = phi { ptr, i32 } [ %eh.lpad-body335.pn, %ehcleanup88 ], [ %213, %lpad44 ], [ %74, %lpad.i213 ], [ %212, %lpad36 ], [ %64, %lpad.i97 ], [ %211, %lpad14 ], [ %210, %lpad12 ], [ %88, %lpad.i ], [ %7, %lpad.i112 ], [ %25, %lpad.i128 ], [ %55, %lpad.i168 ]
+  %eh.lpad-body335.pn.pn = phi { ptr, i32 } [ %eh.lpad-body335.pn, %ehcleanup88 ], [ %210, %lpad12 ], [ %213, %lpad44 ], [ %74, %lpad.i213 ], [ %212, %lpad36 ], [ %64, %lpad.i97 ], [ %211, %lpad14 ], [ %88, %lpad.i ], [ %7, %lpad.i112 ], [ %25, %lpad.i128 ], [ %55, %lpad.i168 ]
   call void @_ZN6personD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %p2) #22
   br label %ehcleanup90
 
@@ -2812,7 +2812,7 @@ if.then11.i:                                      ; preds = %sw.bb8.i
 default.unreachable177:                           ; preds = %if.end15.i
   unreachable
 
-if.end23.i:                                       ; preds = %if.end15.i, %if.then11.i, %if.then5.i, %if.then.i37
+if.end23.i:                                       ; preds = %if.end15.i, %if.then5.i, %if.then11.i, %if.then.i37
   %16 = and i8 %metainfo.i.0.copyload, 4
   %tobool26.i.not = icmp eq i8 %16, 0
   br i1 %tobool26.i.not, label %if.end, label %if.then27.i
@@ -2930,7 +2930,7 @@ if.end.i13.i:                                     ; preds = %.noexc
   br label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE9set_valueILm1ELm18446744073709551615ELm1ELm1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSA_EEbRNS_4errcERT3_OT4_.exit
 
 _ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE9set_valueILm1ELm18446744073709551615ELm1ELm1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSA_EEbRNS_4errcERT3_OT4_.exit: ; preds = %if.end.i13.i, %.noexc, %if.end3.i, %if.end.i88, %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE9set_valueILm1ELm18446744073709551615ELm0ELm1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERiEEbRNS_4errcERT3_OT4_.exit
-  %retval.0.i91 = phi i32 [ 0, %if.end.i88 ], [ 1, %if.end3.i ], [ 1, %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE9set_valueILm1ELm18446744073709551615ELm0ELm1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERiEEbRNS_4errcERT3_OT4_.exit ], [ 0, %.noexc ], [ 0, %if.end.i13.i ]
+  %retval.0.i91 = phi i32 [ 1, %if.end3.i ], [ 1, %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE9set_valueILm1ELm18446744073709551615ELm0ELm1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERiEEbRNS_4errcERT3_OT4_.exit ], [ 0, %if.end.i88 ], [ 0, %.noexc ], [ 0, %if.end.i13.i ]
   %39 = load ptr, ptr %name.i84, align 8
   %cmp.i.i.i.i = icmp eq ptr %39, %23
   br i1 %cmp.i.i.i.i, label %return.sink.split, label %return.sink.split.sink.split
@@ -3064,7 +3064,7 @@ if.end.i29.i:                                     ; preds = %.noexc120
   br label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE9set_valueILm2ELm18446744073709551615ELm1ELm1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSA_EEbRNS_4errcERT3_OT4_.exit
 
 _ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE9set_valueILm2ELm18446744073709551615ELm1ELm1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSA_EEbRNS_4errcERT3_OT4_.exit: ; preds = %if.end.i29.i, %.noexc120, %if.end13.i, %sw.epilog.i114, %sw.bb7.i, %sw.bb2.i116, %sw.bb.i118
-  %retval.0.i112 = phi i32 [ 0, %sw.epilog.i114 ], [ 1, %if.end13.i ], [ 1, %sw.bb.i118 ], [ 1, %sw.bb2.i116 ], [ 1, %sw.bb7.i ], [ 0, %.noexc120 ], [ 0, %if.end.i29.i ]
+  %retval.0.i112 = phi i32 [ 1, %sw.bb2.i116 ], [ 1, %sw.bb7.i ], [ 0, %sw.epilog.i114 ], [ 1, %sw.bb.i118 ], [ 1, %if.end13.i ], [ 0, %.noexc120 ], [ 0, %if.end.i29.i ]
   %57 = load ptr, ptr %name.i95, align 8
   %cmp.i.i.i.i122 = icmp eq ptr %57, %41
   br i1 %cmp.i.i.i.i122, label %return.sink.split, label %return.sink.split.sink.split
@@ -3087,8 +3087,8 @@ return.sink.split:                                ; preds = %return.sink.split.s
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %name.i84.sink) #22
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.end.i45, %if.then27.i, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit, %sw.bb.i, %sw.bb2.i, %sw.bb8.i, %if.end9.i, %if.end.i, %entry
-  %retval.0 = phi i32 [ 1, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit ], [ 1, %sw.bb.i ], [ 1, %sw.bb2.i ], [ 1, %sw.bb8.i ], [ 1, %if.end9.i ], [ 2, %if.end.i ], [ 1, %entry ], [ 1, %if.then27.i ], [ 3, %if.end.i45 ], [ %retval.0.ph, %return.sink.split ]
+return:                                           ; preds = %return.sink.split, %if.end.i45, %if.then27.i, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit, %sw.bb2.i, %sw.bb8.i, %entry, %if.end.i, %if.end9.i, %sw.bb.i
+  %retval.0 = phi i32 [ 1, %if.end9.i ], [ 1, %if.then27.i ], [ 3, %if.end.i45 ], [ 1, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit ], [ 1, %sw.bb.i ], [ 1, %sw.bb2.i ], [ 1, %sw.bb8.i ], [ 1, %entry ], [ 2, %if.end.i ], [ %retval.0.ph, %return.sink.split ]
   ret i32 %retval.0
 }
 
@@ -3296,7 +3296,7 @@ if.then11.i.i:                                    ; preds = %sw.bb8.i.i
 default.unreachable116:                           ; preds = %if.end15.i
   unreachable
 
-if.end23.i:                                       ; preds = %if.end15.i, %if.then11.i.i, %if.then5.i.i, %if.then.i.i
+if.end23.i:                                       ; preds = %if.end15.i, %if.then5.i.i, %if.then11.i.i, %if.then.i.i
   %16 = and i8 %metainfo.i.0.copyload, 4
   %tobool26.i.not = icmp eq i8 %16, 0
   br i1 %tobool26.i.not, label %if.end, label %if.then27.i
@@ -3498,8 +3498,8 @@ return.sink.split:                                ; preds = %if.end.i29.i.i.i, %
   store ptr %add.ptr.i14.i.i.i.i.i.i, ptr %.sink119, align 8
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.end.i30, %if.then27.i, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit, %sw.bb.i.i, %sw.bb2.i.i, %sw.bb8.i.i, %if.end9.i, %if.end.i, %entry, %sw.bb, %if.end.i.i.i.i.i.i, %if.end.i6.i.i.i.i.i, %if.end3.i.i.i.i.i.i, %if.end7.i.i.i.i.i.i, %sw.bb6, %sw.bb.i.i.i, %sw.bb2.i.i.i, %sw.bb7.i.i.i, %sw.epilog.i.i.i, %if.end13.i.i.i, %if.end17.i.i.i
-  %retval.0 = phi i32 [ 0, %if.end.i6.i.i.i.i.i ], [ 1, %if.end3.i.i.i.i.i.i ], [ 1, %if.end.i.i.i.i.i.i ], [ 0, %if.end7.i.i.i.i.i.i ], [ 1, %sw.bb ], [ 0, %sw.epilog.i.i.i ], [ 1, %if.end13.i.i.i ], [ 1, %sw.bb.i.i.i ], [ 1, %sw.bb2.i.i.i ], [ 1, %sw.bb7.i.i.i ], [ 0, %if.end17.i.i.i ], [ 1, %sw.bb6 ], [ 1, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit ], [ 1, %sw.bb.i.i ], [ 1, %sw.bb2.i.i ], [ 1, %sw.bb8.i.i ], [ 1, %if.end9.i ], [ 2, %if.end.i ], [ 1, %entry ], [ 1, %if.then27.i ], [ 3, %if.end.i30 ], [ 0, %return.sink.split ]
+return:                                           ; preds = %return.sink.split, %if.end.i30, %if.then27.i, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit, %sw.bb2.i.i, %sw.bb8.i.i, %entry, %if.end.i, %if.end9.i, %sw.bb.i.i, %sw.bb, %if.end.i.i.i.i.i.i, %if.end.i6.i.i.i.i.i, %if.end3.i.i.i.i.i.i, %if.end7.i.i.i.i.i.i, %sw.bb6, %sw.bb.i.i.i, %sw.bb2.i.i.i, %sw.bb7.i.i.i, %sw.epilog.i.i.i, %if.end13.i.i.i, %if.end17.i.i.i
+  %retval.0 = phi i32 [ 1, %sw.bb6 ], [ 1, %if.then27.i ], [ 1, %sw.bb ], [ 1, %if.end9.i ], [ 1, %if.end3.i.i.i.i.i.i ], [ 1, %if.end.i.i.i.i.i.i ], [ 0, %if.end.i6.i.i.i.i.i ], [ 0, %if.end7.i.i.i.i.i.i ], [ 3, %if.end.i30 ], [ 1, %sw.bb2.i.i.i ], [ 1, %sw.bb7.i.i.i ], [ 0, %sw.epilog.i.i.i ], [ 1, %sw.bb.i.i.i ], [ 1, %if.end13.i.i.i ], [ 0, %if.end17.i.i.i ], [ 1, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit ], [ 1, %sw.bb.i.i ], [ 1, %sw.bb2.i.i ], [ 1, %sw.bb8.i.i ], [ 1, %entry ], [ 2, %if.end.i ], [ 0, %return.sink.split ]
   ret i32 %retval.0
 }
 
@@ -3581,8 +3581,8 @@ if.then11.i:                                      ; preds = %sw.bb8.i
 default.unreachable69:                            ; preds = %if.then16.i
   unreachable
 
-if.end23.i:                                       ; preds = %if.then11.i, %if.then5.i, %if.then.i35, %if.end15.i
-  %ret.i.sroa.555.0 = phi i64 [ 0, %if.end15.i ], [ %11, %if.then11.i ], [ %10, %if.then5.i ], [ %9, %if.then.i35 ]
+if.end23.i:                                       ; preds = %if.then5.i, %if.then11.i, %if.then.i35, %if.end15.i
+  %ret.i.sroa.555.0 = phi i64 [ 0, %if.end15.i ], [ %10, %if.then5.i ], [ %11, %if.then11.i ], [ %9, %if.then.i35 ]
   %12 = and i8 %5, 4
   %tobool26.i.not = icmp eq i8 %12, 0
   br i1 %tobool26.i.not, label %if.end33.i, label %if.then27.i
@@ -3604,8 +3604,8 @@ if.end33.i:                                       ; preds = %if.end.i42, %if.end
   %16 = and i8 %15, 3
   br label %_ZN11struct_pack6detail8unpackerI12fread_streamLm0EE20deserialize_metainfoI6personEESt4pairINS_4errcEmEv.exit.thread65
 
-_ZN11struct_pack6detail8unpackerI12fread_streamLm0EE20deserialize_metainfoI6personEESt4pairINS_4errcEmEv.exit.thread: ; preds = %entry, %if.end.i, %if.end9.i, %sw.bb8.i, %sw.bb2.i, %sw.bb.i, %if.then27.i
-  %retval.i.sroa.0.0.ph = phi i32 [ 1, %if.then27.i ], [ 1, %sw.bb.i ], [ 1, %sw.bb2.i ], [ 1, %sw.bb8.i ], [ 1, %if.end9.i ], [ 2, %if.end.i ], [ 1, %entry ]
+_ZN11struct_pack6detail8unpackerI12fread_streamLm0EE20deserialize_metainfoI6personEESt4pairINS_4errcEmEv.exit.thread: ; preds = %sw.bb.i, %if.end9.i, %if.end.i, %entry, %sw.bb8.i, %sw.bb2.i, %if.then27.i
+  %retval.i.sroa.0.0.ph = phi i32 [ 1, %if.then27.i ], [ 1, %sw.bb2.i ], [ 1, %sw.bb8.i ], [ 1, %entry ], [ 2, %if.end.i ], [ 1, %if.end9.i ], [ 1, %sw.bb.i ]
   store i64 0, ptr %len, align 8
   br label %return
 
@@ -3645,7 +3645,7 @@ if.end.i.i49:                                     ; preds = %sw.bb6
   br label %return
 
 return:                                           ; preds = %_ZN11struct_pack6detail8unpackerI12fread_streamLm0EE20deserialize_metainfoI6personEESt4pairINS_4errcEmEv.exit, %sw.bb, %if.end.i.i, %sw.bb6, %if.end.i.i49, %_ZN11struct_pack6detail8unpackerI12fread_streamLm0EE20deserialize_metainfoI6personEESt4pairINS_4errcEmEv.exit.thread
-  %retval.0 = phi i32 [ 3, %_ZN11struct_pack6detail8unpackerI12fread_streamLm0EE20deserialize_metainfoI6personEESt4pairINS_4errcEmEv.exit ], [ %retval.i.sroa.0.0.ph, %_ZN11struct_pack6detail8unpackerI12fread_streamLm0EE20deserialize_metainfoI6personEESt4pairINS_4errcEmEv.exit.thread ], [ %call.i.i, %if.end.i.i ], [ 1, %sw.bb ], [ %call.i.i51, %if.end.i.i49 ], [ 1, %sw.bb6 ]
+  %retval.0 = phi i32 [ %retval.i.sroa.0.0.ph, %_ZN11struct_pack6detail8unpackerI12fread_streamLm0EE20deserialize_metainfoI6personEESt4pairINS_4errcEmEv.exit.thread ], [ 3, %_ZN11struct_pack6detail8unpackerI12fread_streamLm0EE20deserialize_metainfoI6personEESt4pairINS_4errcEmEv.exit ], [ 1, %sw.bb ], [ %call.i.i, %if.end.i.i ], [ %call.i.i51, %if.end.i.i49 ], [ 1, %sw.bb6 ]
   ret i32 %retval.0
 }
 
@@ -3768,7 +3768,7 @@ terminate.lpad.i:                                 ; preds = %_ZNSt7__cxx1112basi
   unreachable
 
 return:                                           ; preds = %for.cond, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit, %if.end, %entry
-  %retval.0 = phi i32 [ 1, %entry ], [ 0, %if.end ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ], [ 0, %for.cond ]
+  %retval.0 = phi i32 [ 1, %entry ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ], [ 0, %if.end ], [ 0, %for.cond ]
   ret i32 %retval.0
 }
 
@@ -4145,7 +4145,7 @@ terminate.lpad.i:                                 ; preds = %_ZNSt7__cxx1112basi
   unreachable
 
 return:                                           ; preds = %for.cond, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit, %sw.epilog, %sw.bb7, %sw.bb2, %sw.bb
-  %retval.0 = phi i32 [ 1, %sw.bb ], [ 1, %sw.bb2 ], [ 1, %sw.bb7 ], [ 0, %sw.epilog ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ], [ 0, %for.cond ]
+  %retval.0 = phi i32 [ 1, %sw.bb7 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ], [ 0, %sw.epilog ], [ 1, %sw.bb2 ], [ 1, %sw.bb ], [ 0, %for.cond ]
   ret i32 %retval.0
 }
 
@@ -4331,7 +4331,7 @@ if.then11.i:                                      ; preds = %sw.bb8.i
 default.unreachable129:                           ; preds = %if.end15.i
   unreachable
 
-if.end23.i:                                       ; preds = %if.end15.i, %if.then11.i, %if.then5.i, %if.then.i19
+if.end23.i:                                       ; preds = %if.end15.i, %if.then5.i, %if.then11.i, %if.then.i19
   %16 = and i8 %metainfo.i.0.copyload, 4
   %tobool26.i.not = icmp eq i8 %16, 0
   br i1 %tobool26.i.not, label %if.end, label %if.then27.i
@@ -4533,8 +4533,8 @@ return.sink.split:                                ; preds = %if.end.i29.i.i, %if
   store ptr %add.ptr.i14.i.i, ptr %.sink132, align 8
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.end.i27, %if.then27.i, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit, %sw.bb.i, %sw.bb2.i, %sw.bb8.i, %if.end9.i, %if.end.i, %entry, %sw.bb, %if.end.i.i.i, %if.end.i.i, %if.end3.i.i, %if.end7.i.i, %sw.bb6, %sw.bb.i.i, %sw.bb2.i.i, %sw.bb7.i.i, %sw.epilog.i.i, %if.end13.i.i, %if.end17.i.i
-  %retval.0 = phi i32 [ 0, %if.end.i.i ], [ 1, %if.end3.i.i ], [ 1, %if.end.i.i.i ], [ 0, %if.end7.i.i ], [ 1, %sw.bb ], [ 0, %sw.epilog.i.i ], [ 1, %if.end13.i.i ], [ 1, %sw.bb.i.i ], [ 1, %sw.bb2.i.i ], [ 1, %sw.bb7.i.i ], [ 0, %if.end17.i.i ], [ 1, %sw.bb6 ], [ 1, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit ], [ 1, %sw.bb.i ], [ 1, %sw.bb2.i ], [ 1, %sw.bb8.i ], [ 1, %if.end9.i ], [ 2, %if.end.i ], [ 1, %entry ], [ 1, %if.then27.i ], [ 3, %if.end.i27 ], [ 0, %return.sink.split ]
+return:                                           ; preds = %return.sink.split, %if.end.i27, %if.then27.i, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit, %sw.bb2.i, %sw.bb8.i, %entry, %if.end.i, %if.end9.i, %sw.bb.i, %sw.bb, %if.end.i.i.i, %if.end.i.i, %if.end3.i.i, %if.end7.i.i, %sw.bb6, %sw.bb.i.i, %sw.bb2.i.i, %sw.bb7.i.i, %sw.epilog.i.i, %if.end13.i.i, %if.end17.i.i
+  %retval.0 = phi i32 [ 1, %sw.bb6 ], [ 1, %if.then27.i ], [ 1, %sw.bb ], [ 1, %if.end9.i ], [ 1, %if.end3.i.i ], [ 1, %if.end.i.i.i ], [ 0, %if.end.i.i ], [ 0, %if.end7.i.i ], [ 3, %if.end.i27 ], [ 1, %sw.bb2.i.i ], [ 1, %sw.bb7.i.i ], [ 0, %sw.epilog.i.i ], [ 1, %sw.bb.i.i ], [ 1, %if.end13.i.i ], [ 0, %if.end17.i.i ], [ 1, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit ], [ 1, %sw.bb.i ], [ 1, %sw.bb2.i ], [ 1, %sw.bb8.i ], [ 1, %entry ], [ 2, %if.end.i ], [ 0, %return.sink.split ]
   ret i32 %retval.0
 }
 
@@ -4641,7 +4641,7 @@ if.then11.i.i:                                    ; preds = %sw.bb8.i.i
 default.unreachable149:                           ; preds = %if.end15.i
   unreachable
 
-if.end23.i:                                       ; preds = %if.end15.i, %if.then11.i.i, %if.then5.i.i, %if.then.i.i
+if.end23.i:                                       ; preds = %if.end15.i, %if.then5.i.i, %if.then11.i.i, %if.then.i.i
   %16 = and i8 %metainfo.i.0.copyload, 4
   %tobool26.i.not = icmp eq i8 %16, 0
   br i1 %tobool26.i.not, label %if.end, label %if.then27.i
@@ -4841,8 +4841,8 @@ return.sink.split:                                ; preds = %if.end.i29.i, %if.e
   store ptr %add.ptr.i14.i, ptr %.sink152, align 8
   br label %return
 
-return:                                           ; preds = %return.sink.split, %sw.bb6, %sw.bb, %if.end.i14, %if.then27.i, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit, %sw.bb.i.i, %sw.bb2.i.i, %sw.bb8.i.i, %if.end9.i, %if.end.i, %entry, %if.end.i22, %if.end.i82, %if.end3.i, %if.end7.i, %sw.bb.i, %sw.bb2.i, %sw.bb7.i, %sw.epilog.i, %if.end13.i, %if.end17.i
-  %retval.0 = phi i32 [ 0, %if.end.i82 ], [ 1, %if.end3.i ], [ 1, %if.end.i22 ], [ 0, %if.end7.i ], [ 0, %sw.epilog.i ], [ 1, %if.end13.i ], [ 1, %sw.bb.i ], [ 1, %sw.bb2.i ], [ 1, %sw.bb7.i ], [ 0, %if.end17.i ], [ 1, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit ], [ 1, %sw.bb.i.i ], [ 1, %sw.bb2.i.i ], [ 1, %sw.bb8.i.i ], [ 1, %if.end9.i ], [ 2, %if.end.i ], [ 1, %entry ], [ 1, %if.then27.i ], [ 3, %if.end.i14 ], [ 1, %sw.bb ], [ 1, %sw.bb6 ], [ 0, %return.sink.split ]
+return:                                           ; preds = %return.sink.split, %sw.bb6, %sw.bb, %if.end.i14, %if.then27.i, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit, %sw.bb2.i.i, %sw.bb8.i.i, %entry, %if.end.i, %if.end9.i, %sw.bb.i.i, %if.end.i22, %if.end.i82, %if.end3.i, %if.end7.i, %sw.bb.i, %sw.bb2.i, %sw.bb7.i, %sw.epilog.i, %if.end13.i, %if.end17.i
+  %retval.0 = phi i32 [ 1, %if.end9.i ], [ 1, %if.then27.i ], [ 3, %if.end.i14 ], [ 1, %sw.bb ], [ 1, %sw.bb6 ], [ 1, %if.end3.i ], [ 1, %if.end.i22 ], [ 0, %if.end.i82 ], [ 0, %if.end7.i ], [ 1, %sw.bb2.i ], [ 1, %sw.bb7.i ], [ 0, %sw.epilog.i ], [ 1, %sw.bb.i ], [ 1, %if.end13.i ], [ 0, %if.end17.i ], [ 1, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit ], [ 1, %sw.bb.i.i ], [ 1, %sw.bb2.i.i ], [ 1, %sw.bb8.i.i ], [ 1, %entry ], [ 2, %if.end.i ], [ 0, %return.sink.split ]
   ret i32 %retval.0
 }
 

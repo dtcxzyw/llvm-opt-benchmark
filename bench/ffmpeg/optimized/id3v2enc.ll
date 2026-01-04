@@ -239,7 +239,7 @@ write_chapter.exit.thread25:                      ; preds = %58
   br i1 %95, label %52, label %.loopexit, !llvm.loop !41
 
 .loopexit:                                        ; preds = %83, %write_ctoc.exit.thread37, %write_ctoc.exit, %write_chapter.exit.thread25, %write_chapter.exit.thread, %write_ctoc.exit.thread, %2
-  %.019 = phi i32 [ %16, %2 ], [ %23, %write_ctoc.exit.thread ], [ %56, %write_chapter.exit.thread ], [ %81, %write_chapter.exit.thread25 ], [ 0, %write_ctoc.exit ], [ 0, %write_ctoc.exit.thread37 ], [ 0, %83 ]
+  %.019 = phi i32 [ %81, %write_chapter.exit.thread25 ], [ %16, %2 ], [ %23, %write_ctoc.exit.thread ], [ %56, %write_chapter.exit.thread ], [ 0, %write_ctoc.exit ], [ 0, %write_ctoc.exit.thread37 ], [ 0, %83 ]
   ret i32 %.019
 }
 
@@ -445,7 +445,7 @@ id3v2_check_write_tag.exit.id3v2_check_write_tag.exit.thread_crit_edge: ; preds 
   br label %id3v2_check_write_tag.exit.thread
 
 .backedge:                                        ; preds = %id3v2_check_write_tag.exit, %195, %id3v2_put_priv.exit, %id3v2_check_write_tag.exit56
-  %.sink88 = phi i32 [ %121, %id3v2_check_write_tag.exit56 ], [ %191, %id3v2_put_priv.exit ], [ %198, %195 ], [ %94, %id3v2_check_write_tag.exit ]
+  %.sink88 = phi i32 [ %198, %195 ], [ %191, %id3v2_put_priv.exit ], [ %121, %id3v2_check_write_tag.exit56 ], [ %94, %id3v2_check_write_tag.exit ]
   %96 = load i32, ptr %69, align 8, !tbaa !32
   %97 = add nsw i32 %96, %.sink88
   store i32 %97, ptr %69, align 8, !tbaa !32
@@ -502,8 +502,8 @@ id3v2_check_write_tag.exit56.id3v2_check_write_tag.exit56.thread_crit_edge: ; pr
   %.pre72 = load ptr, ptr %73, align 8, !tbaa !43
   br label %id3v2_check_write_tag.exit56.thread
 
-id3v2_check_write_tag.exit56.thread:              ; preds = %113, %72, %id3v2_check_write_tag.exit56.id3v2_check_write_tag.exit56.thread_crit_edge, %109, %id3v2_check_write_tag.exit.thread, %105
-  %123 = phi ptr [ %.pre72, %id3v2_check_write_tag.exit56.id3v2_check_write_tag.exit56.thread_crit_edge ], [ %107, %109 ], [ %101, %id3v2_check_write_tag.exit.thread ], [ %107, %105 ], [ %74, %72 ], [ %107, %113 ]
+id3v2_check_write_tag.exit56.thread:              ; preds = %113, %72, %id3v2_check_write_tag.exit56.id3v2_check_write_tag.exit56.thread_crit_edge, %109, %105, %id3v2_check_write_tag.exit.thread
+  %123 = phi ptr [ %.pre72, %id3v2_check_write_tag.exit56.id3v2_check_write_tag.exit56.thread_crit_edge ], [ %74, %72 ], [ %107, %109 ], [ %107, %105 ], [ %101, %id3v2_check_write_tag.exit.thread ], [ %107, %113 ]
   %124 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %125 = load ptr, ptr %124, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -639,8 +639,8 @@ id3v2_check_write_tag.exit56.thread:              ; preds = %113, %72, %id3v2_ch
   call void @avio_w8(ptr noundef %0, i32 noundef %189) #9
   br label %id3v2_put_priv.exit
 
-id3v2_put_priv.exit.thread:                       ; preds = %167, %id3v2_check_write_tag.exit56.thread, %127
-  %.0.i.ph = phi i32 [ %128, %127 ], [ 0, %id3v2_check_write_tag.exit56.thread ], [ -22, %167 ]
+id3v2_put_priv.exit.thread:                       ; preds = %id3v2_check_write_tag.exit56.thread, %167, %127
+  %.0.i.ph = phi i32 [ %128, %127 ], [ -22, %167 ], [ 0, %id3v2_check_write_tag.exit56.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -852,7 +852,7 @@ id3v2_encode_string.exit:                         ; preds = %52, %59
   br label %90
 
 90:                                               ; preds = %49, %82, %._crit_edge
-  %.0 = phi i32 [ 0, %82 ], [ -22, %._crit_edge ], [ %50, %49 ]
+  %.0 = phi i32 [ -22, %._crit_edge ], [ 0, %82 ], [ %50, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0

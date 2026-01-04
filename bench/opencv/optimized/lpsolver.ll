@@ -1470,7 +1470,7 @@ _ZN2cvmIIdEERNS_4Mat_IT_EES4_RKNS_7MatExprE.exit.i: ; preds = %550
   br i1 %.not247.i, label %_ZN2cvL18initialize_simplexERNS_4Mat_IdEES2_RdRSt6vectorIiSaIiEES7_RS4_IjSaIjEE.exit.thread195, label %.lr.ph287.i, !llvm.loop !92
 
 591:                                              ; preds = %580, %523, %380, %378
-  %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %381, %380 ], [ %379, %378 ], [ %.pn.pn.pn.i, %580 ], [ %524, %523 ]
+  %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %379, %378 ], [ %381, %380 ], [ %.pn.pn.pn.i, %580 ], [ %524, %523 ]
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %.body131
@@ -1508,9 +1508,9 @@ _ZN2cvL18initialize_simplexERNS_4Mat_IdEES2_RdRSt6vectorIiSaIiEES7_RS4_IjSaIjEE.
   br label %.body131
 
 _ZN2cvL18initialize_simplexERNS_4Mat_IdEES2_RdRSt6vectorIiSaIiEES7_RS4_IjSaIjEE.exit.thread: ; preds = %.lr.ph273.i, %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit.i, %_ZN2cvL18initialize_simplexERNS_4Mat_IdEES2_RdRSt6vectorIiSaIiEES7_RS4_IjSaIjEE.exit.thread195
-  %599 = phi ptr [ %294, %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit.i ], [ %.val151.i, %_ZN2cvL18initialize_simplexERNS_4Mat_IdEES2_RdRSt6vectorIiSaIiEES7_RS4_IjSaIjEE.exit.thread195 ], [ %294, %.lr.ph273.i ]
-  %600 = phi ptr [ %289, %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit.i ], [ %.val149.i, %_ZN2cvL18initialize_simplexERNS_4Mat_IdEES2_RdRSt6vectorIiSaIiEES7_RS4_IjSaIjEE.exit.thread195 ], [ %289, %.lr.ph273.i ]
-  %601 = phi ptr [ %293, %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit.i ], [ %587, %_ZN2cvL18initialize_simplexERNS_4Mat_IdEES2_RdRSt6vectorIiSaIiEES7_RS4_IjSaIjEE.exit.thread195 ], [ %293, %.lr.ph273.i ]
+  %599 = phi ptr [ %.val151.i, %_ZN2cvL18initialize_simplexERNS_4Mat_IdEES2_RdRSt6vectorIiSaIiEES7_RS4_IjSaIjEE.exit.thread195 ], [ %294, %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit.i ], [ %294, %.lr.ph273.i ]
+  %600 = phi ptr [ %.val149.i, %_ZN2cvL18initialize_simplexERNS_4Mat_IdEES2_RdRSt6vectorIiSaIiEES7_RS4_IjSaIjEE.exit.thread195 ], [ %289, %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit.i ], [ %289, %.lr.ph273.i ]
+  %601 = phi ptr [ %587, %_ZN2cvL18initialize_simplexERNS_4Mat_IdEES2_RdRSt6vectorIiSaIiEES7_RS4_IjSaIjEE.exit.thread195 ], [ %293, %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit.i ], [ %293, %.lr.ph273.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %50)
   call void @llvm.lifetime.start.p0(ptr nonnull %51)
   %602 = load i32, ptr %215, align 4, !tbaa !29
@@ -2292,8 +2292,8 @@ _ZN2cv16MatConstIteratorC2EPKNS_3MatE.exit:       ; preds = %78, %91
   br label %_ZN2cv4Mat_IdE3endEv.exit
 
 _ZN2cv4Mat_IdE3endEv.exit:                        ; preds = %67, %_ZN2cv16MatConstIteratorC2EPKNS_3MatE.exit, %103, %110
-  %.val66 = phi ptr [ %.val66.pre119, %_ZN2cv16MatConstIteratorC2EPKNS_3MatE.exit ], [ %106, %103 ], [ %.val66.pre, %110 ], [ null, %67 ]
-  %.val65 = phi ptr [ %100, %_ZN2cv16MatConstIteratorC2EPKNS_3MatE.exit ], [ %100, %103 ], [ %.val65.pre, %110 ], [ null, %67 ]
+  %.val66 = phi ptr [ %.val66.pre, %110 ], [ %.val66.pre119, %_ZN2cv16MatConstIteratorC2EPKNS_3MatE.exit ], [ %106, %103 ], [ null, %67 ]
+  %.val65 = phi ptr [ %.val65.pre, %110 ], [ %100, %_ZN2cv16MatConstIteratorC2EPKNS_3MatE.exit ], [ %100, %103 ], [ null, %67 ]
   %.val63 = load ptr, ptr %13, align 8, !tbaa !105
   %.val64 = load ptr, ptr %22, align 8
   %.not.i = icmp ne ptr %.val63, %.val65
@@ -2491,8 +2491,8 @@ _ZN2cv16MatConstIteratorC2EPKNS_3MatE.exit93:     ; preds = %152, %165
   br label %_ZN2cv4Mat_IdE3endEv.exit76
 
 _ZN2cv4Mat_IdE3endEv.exit76:                      ; preds = %141, %_ZN2cv16MatConstIteratorC2EPKNS_3MatE.exit93, %177, %184
-  %.val70 = phi ptr [ %.val70.pre122, %_ZN2cv16MatConstIteratorC2EPKNS_3MatE.exit93 ], [ %180, %177 ], [ %.val70.pre, %184 ], [ null, %141 ]
-  %.val69 = phi ptr [ %174, %_ZN2cv16MatConstIteratorC2EPKNS_3MatE.exit93 ], [ %174, %177 ], [ %.val69.pre, %184 ], [ null, %141 ]
+  %.val70 = phi ptr [ %.val70.pre, %184 ], [ %.val70.pre122, %_ZN2cv16MatConstIteratorC2EPKNS_3MatE.exit93 ], [ %180, %177 ], [ null, %141 ]
+  %.val69 = phi ptr [ %.val69.pre, %184 ], [ %174, %_ZN2cv16MatConstIteratorC2EPKNS_3MatE.exit93 ], [ %174, %177 ], [ null, %141 ]
   %.val67 = load ptr, ptr %17, align 8, !tbaa !105
   %.val68 = load ptr, ptr %39, align 8
   %.not.i77 = icmp ne ptr %.val67, %.val69

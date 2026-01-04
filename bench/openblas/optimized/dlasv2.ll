@@ -174,9 +174,9 @@ define void @dlasv2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br label %.thread208
 
 .thread208:                                       ; preds = %90, %.thread, %.thread205, %92
-  %.0161..0233.sink = phi double [ %91, %.thread205 ], [ %.0161..0, %92 ], [ 1.000000e+00, %.thread ], [ %.0161..0, %90 ]
-  %.sink244 = phi ptr [ %8, %.thread205 ], [ %7, %92 ], [ %8, %.thread ], [ %8, %90 ]
-  %.sink = phi ptr [ %0, %.thread205 ], [ %2, %92 ], [ %1, %.thread ], [ %1, %90 ]
+  %.0161..0233.sink = phi double [ %.0161..0, %92 ], [ %91, %.thread205 ], [ 1.000000e+00, %.thread ], [ %.0161..0, %90 ]
+  %.sink244 = phi ptr [ %7, %92 ], [ %8, %.thread205 ], [ %8, %.thread ], [ %8, %90 ]
+  %.sink = phi ptr [ %2, %92 ], [ %0, %.thread205 ], [ %1, %.thread ], [ %1, %90 ]
   %93 = fcmp ult double %.0161..0233.sink, 0.000000e+00
   %94 = load double, ptr %.sink244, align 8, !tbaa !3
   %95 = fcmp ult double %94, 0.000000e+00

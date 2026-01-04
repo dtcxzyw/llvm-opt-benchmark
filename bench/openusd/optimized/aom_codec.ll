@@ -95,7 +95,7 @@ switch.lookup:                                    ; preds = %2
   br label %aom_codec_err_to_string.exit
 
 aom_codec_err_to_string.exit:                     ; preds = %2, %switch.lookup, %1
-  %7 = phi ptr [ @.str.11, %1 ], [ %switch.load, %switch.lookup ], [ @.str.13, %2 ]
+  %7 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.11, %1 ], [ @.str.13, %2 ]
   ret ptr %7
 }
 

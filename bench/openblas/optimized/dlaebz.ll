@@ -547,7 +547,7 @@ define void @dlaebz_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %exitcond682.not, label %.loopexit599, label %.lr.ph617, !llvm.loop !20
 
 .loopexit599:                                     ; preds = %279, %210, %._crit_edge627.thread, %.preheader601, %._crit_edge635
-  %.1535 = phi i32 [ %.0542.lcssa, %._crit_edge635 ], [ %.0534650, %.preheader601 ], [ %.0534650, %._crit_edge627.thread ], [ %.0534650, %210 ], [ %.3545, %279 ]
+  %.1535 = phi i32 [ %.0542.lcssa, %._crit_edge635 ], [ %.0534650, %210 ], [ %.0534650, %._crit_edge627.thread ], [ %.0534650, %.preheader601 ], [ %.3545, %279 ]
   %.not586637 = icmp sgt i32 %.0540649, %.1535
   br i1 %.not586637, label %.preheader596, label %.lr.ph642.preheader
 

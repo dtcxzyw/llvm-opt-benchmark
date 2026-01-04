@@ -341,10 +341,10 @@ sub_1360:                                         ; preds = %.tail353, %sub_1355
   br label %.thread303
 
 139:                                              ; preds = %.tail353, %60, %80, %93, %106, %99, %90, %70, %52
-  %.2226.ph = phi ptr [ %.1225436.ph, %.tail353 ], [ %55, %52 ], [ %.1225436.ph, %60 ], [ %.1225436.ph, %70 ], [ %.1225436.ph, %80 ], [ %.1225436.ph, %90 ], [ %.1225436.ph, %93 ], [ %.1225436.ph, %99 ], [ %.1225436.ph, %106 ]
-  %.1217.ph = phi i32 [ 1, %.tail353 ], [ %.0216437.ph, %52 ], [ %.0216437.ph, %60 ], [ %.0216437.ph, %70 ], [ %.0216437.ph, %80 ], [ %.0216437.ph, %90 ], [ %.0216437.ph, %93 ], [ %.0216437.ph, %99 ], [ %.0216437.ph, %106 ]
-  %.2205.ph = phi i32 [ %.1204438.ph, %.tail353 ], [ %.1204438.ph, %52 ], [ %.1204438.ph, %60 ], [ %.1204438.ph, %70 ], [ %84, %80 ], [ %.1204438.ph, %90 ], [ %.1204438.ph, %93 ], [ %.1204438.ph, %99 ], [ %.1204438.ph, %106 ]
-  %.1190.ph = phi i32 [ %.0189439.lcssa, %.tail353 ], [ %50, %52 ], [ %58, %60 ], [ %68, %70 ], [ %78, %80 ], [ %.0189439.lcssa, %90 ], [ %.0189439.lcssa, %93 ], [ %97, %99 ], [ %.0189439.lcssa, %106 ]
+  %.2226.ph = phi ptr [ %.1225436.ph, %.tail353 ], [ %.1225436.ph, %60 ], [ %.1225436.ph, %70 ], [ %.1225436.ph, %80 ], [ %.1225436.ph, %90 ], [ %.1225436.ph, %93 ], [ %.1225436.ph, %99 ], [ %.1225436.ph, %106 ], [ %55, %52 ]
+  %.1217.ph = phi i32 [ 1, %.tail353 ], [ %.0216437.ph, %60 ], [ %.0216437.ph, %70 ], [ %.0216437.ph, %80 ], [ %.0216437.ph, %90 ], [ %.0216437.ph, %93 ], [ %.0216437.ph, %99 ], [ %.0216437.ph, %106 ], [ %.0216437.ph, %52 ]
+  %.2205.ph = phi i32 [ %.1204438.ph, %.tail353 ], [ %.1204438.ph, %60 ], [ %.1204438.ph, %70 ], [ %84, %80 ], [ %.1204438.ph, %90 ], [ %.1204438.ph, %93 ], [ %.1204438.ph, %99 ], [ %.1204438.ph, %106 ], [ %.1204438.ph, %52 ]
+  %.1190.ph = phi i32 [ %.0189439.lcssa, %.tail353 ], [ %58, %60 ], [ %68, %70 ], [ %78, %80 ], [ %.0189439.lcssa, %90 ], [ %.0189439.lcssa, %93 ], [ %97, %99 ], [ %.0189439.lcssa, %106 ], [ %50, %52 ]
   %.pr = load i32, ptr %12, align 4, !tbaa !21
   %.not284 = icmp eq i32 %.pr, 0
   br i1 %.not284, label %140, label %.thread303
@@ -367,12 +367,12 @@ sub_1360:                                         ; preds = %.tail353, %sub_1355
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %340
 
-144:                                              ; preds = %118, %140
-  %.3227.ph311 = phi ptr [ %.1225436.ph, %118 ], [ %.2226.ph, %140 ]
-  %.2218.ph = phi i32 [ %.0216437.ph, %118 ], [ %.1217.ph, %140 ]
-  %.3206.ph312 = phi i32 [ %.1204438.ph, %118 ], [ %.2205.ph, %140 ]
-  %.2191.ph = phi i32 [ %.0189439.lcssa, %118 ], [ %.1190.ph, %140 ]
-  %.2183.ph313 = phi i32 [ %.1182441.ph, %118 ], [ 1, %140 ]
+144:                                              ; preds = %140, %118
+  %.3227.ph311 = phi ptr [ %.2226.ph, %140 ], [ %.1225436.ph, %118 ]
+  %.2218.ph = phi i32 [ %.1217.ph, %140 ], [ %.0216437.ph, %118 ]
+  %.3206.ph312 = phi i32 [ %.2205.ph, %140 ], [ %.1204438.ph, %118 ]
+  %.2191.ph = phi i32 [ %.1190.ph, %140 ], [ %.0189439.lcssa, %118 ]
+  %.2183.ph313 = phi i32 [ 1, %140 ], [ %.1182441.ph, %118 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %145 = add nsw i32 %.2191.ph, 1
   %146 = icmp slt i32 %145, %18
@@ -751,11 +751,11 @@ ReadImage.exit:                                   ; preds = %242
   br label %.loopexit
 
 .loopexit:                                        ; preds = %236, %ReadImage.exit, %.critedge.thread, %ReadImage.exit.thread, %.thread323, %.thread303, %.critedge295, %.critedge295.thread, %239, %._crit_edge.thread, %33
-  %.0224 = phi ptr [ %.4228550560, %239 ], [ %.4228550560, %.critedge295 ], [ %.4228550560, %.critedge295.thread ], [ %.1225.lcssa541, %._crit_edge.thread ], [ null, %33 ], [ %.3227.ph, %.thread303 ], [ %.4228550560, %.thread323 ], [ %.4228550560, %ReadImage.exit.thread ], [ %.4228550560, %.critedge.thread ], [ %.4228550560, %ReadImage.exit ], [ %.4228550560, %236 ]
-  %.0220 = phi ptr [ %.1221445, %239 ], [ %.2222, %.critedge295 ], [ %.2222, %.critedge295.thread ], [ null, %._crit_edge.thread ], [ null, %33 ], [ null, %.thread303 ], [ %.1221445, %.thread323 ], [ %.1221445, %ReadImage.exit.thread ], [ %.3223336.ph, %.critedge.thread ], [ %.1221445, %ReadImage.exit ], [ %.1221445, %236 ]
-  %.0213 = phi i32 [ %.1214447, %239 ], [ %.2215, %.critedge295 ], [ %.2215, %.critedge295.thread ], [ 0, %._crit_edge.thread ], [ 0, %33 ], [ 0, %.thread303 ], [ %.1214447, %.thread323 ], [ %.1214447, %ReadImage.exit.thread ], [ %.1214447, %.critedge.thread ], [ %.1214447, %ReadImage.exit ], [ %.1214447, %236 ]
-  %.0203 = phi i32 [ %.4207552559, %239 ], [ %.4207552559, %.critedge295 ], [ %.4207552559, %.critedge295.thread ], [ %.1204.lcssa542, %._crit_edge.thread ], [ 0, %33 ], [ %.3206.ph, %.thread303 ], [ %.4207552559, %.thread323 ], [ %.4207552559, %ReadImage.exit.thread ], [ %.4207552559, %.critedge.thread ], [ %.4207552559, %ReadImage.exit ], [ %.4207552559, %236 ]
-  %.0181 = phi i32 [ 0, %239 ], [ 1, %.critedge295 ], [ 0, %.critedge295.thread ], [ 0, %._crit_edge.thread ], [ 0, %33 ], [ %.2183.ph, %.thread303 ], [ 0, %.thread323 ], [ 0, %ReadImage.exit.thread ], [ 0, %.critedge.thread ], [ 0, %ReadImage.exit ], [ 0, %236 ]
+  %.0224 = phi ptr [ %.3227.ph, %.thread303 ], [ %.4228550560, %.thread323 ], [ %.4228550560, %.critedge.thread ], [ %.4228550560, %ReadImage.exit.thread ], [ %.4228550560, %239 ], [ %.4228550560, %.critedge295 ], [ %.4228550560, %.critedge295.thread ], [ %.1225.lcssa541, %._crit_edge.thread ], [ null, %33 ], [ %.4228550560, %ReadImage.exit ], [ %.4228550560, %236 ]
+  %.0220 = phi ptr [ null, %.thread303 ], [ %.1221445, %.thread323 ], [ %.3223336.ph, %.critedge.thread ], [ %.1221445, %ReadImage.exit.thread ], [ %.1221445, %239 ], [ %.2222, %.critedge295 ], [ %.2222, %.critedge295.thread ], [ null, %._crit_edge.thread ], [ null, %33 ], [ %.1221445, %ReadImage.exit ], [ %.1221445, %236 ]
+  %.0213 = phi i32 [ 0, %.thread303 ], [ %.1214447, %.thread323 ], [ %.1214447, %.critedge.thread ], [ %.1214447, %ReadImage.exit.thread ], [ %.1214447, %239 ], [ %.2215, %.critedge295 ], [ %.2215, %.critedge295.thread ], [ 0, %._crit_edge.thread ], [ 0, %33 ], [ %.1214447, %ReadImage.exit ], [ %.1214447, %236 ]
+  %.0203 = phi i32 [ %.3206.ph, %.thread303 ], [ %.4207552559, %.thread323 ], [ %.4207552559, %.critedge.thread ], [ %.4207552559, %ReadImage.exit.thread ], [ %.4207552559, %239 ], [ %.4207552559, %.critedge295 ], [ %.4207552559, %.critedge295.thread ], [ %.1204.lcssa542, %._crit_edge.thread ], [ 0, %33 ], [ %.4207552559, %ReadImage.exit ], [ %.4207552559, %236 ]
+  %.0181 = phi i32 [ %.2183.ph, %.thread303 ], [ 0, %.thread323 ], [ 0, %.critedge.thread ], [ 0, %ReadImage.exit.thread ], [ 0, %239 ], [ 1, %.critedge295 ], [ 0, %.critedge295.thread ], [ 0, %._crit_edge.thread ], [ 0, %33 ], [ 0, %ReadImage.exit ], [ 0, %236 ]
   call void @WebPAnimEncoderDelete(ptr noundef %.0220) #7
   %295 = icmp ne i32 %.0181, 0
   %296 = icmp sgt i32 %.0203, 0

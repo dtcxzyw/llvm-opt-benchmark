@@ -78,7 +78,7 @@ define internal range(i32 0, 52) i32 @codec2_probe(ptr noundef readonly captures
   br label %23
 
 23:                                               ; preds = %19, %16, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %16 ], [ %spec.select, %19 ]
+  %.0 = phi i32 [ 0, %16 ], [ 0, %1 ], [ %spec.select, %19 ]
   ret i32 %.0
 }
 
@@ -136,7 +136,7 @@ define internal i32 @codec2_read_header(ptr noundef %0) #1 {
   br label %30
 
 30:                                               ; preds = %12, %8, %1, %27, %25, %7
-  %.0 = phi i32 [ -1094995529, %7 ], [ -1163346256, %25 ], [ %29, %27 ], [ -12, %1 ], [ %11, %8 ], [ %17, %12 ]
+  %.0 = phi i32 [ -1094995529, %7 ], [ -12, %1 ], [ %11, %8 ], [ -1163346256, %25 ], [ %29, %27 ], [ %17, %12 ]
   ret i32 %.0
 }
 
@@ -181,7 +181,7 @@ define internal i32 @codec2_read_packet(ptr noundef readonly captures(none) %0, 
   br label %31
 
 31:                                               ; preds = %20, %2, %14, %26
-  %.0 = phi i32 [ %24, %26 ], [ -22, %14 ], [ -22, %2 ], [ %24, %20 ]
+  %.0 = phi i32 [ %24, %26 ], [ -22, %2 ], [ -22, %14 ], [ %24, %20 ]
   ret i32 %.0
 }
 
@@ -263,7 +263,7 @@ define internal i32 @codec2raw_read_header(ptr noundef %0) #1 {
   br label %24
 
 24:                                               ; preds = %10, %8, %14, %7
-  %.0 = phi i32 [ -22, %7 ], [ %23, %14 ], [ -12, %8 ], [ %13, %10 ]
+  %.0 = phi i32 [ -22, %7 ], [ -12, %8 ], [ %23, %14 ], [ %13, %10 ]
   ret i32 %.0
 }
 
@@ -364,7 +364,7 @@ codec2_mode_block_align.exit:                     ; preds = %13, %19
   br label %43
 
 43:                                               ; preds = %codec2_mode_block_align.exit, %35, %40
-  %.0 = phi i32 [ 0, %40 ], [ -1094995529, %35 ], [ -1094995529, %codec2_mode_block_align.exit ]
+  %.0 = phi i32 [ 0, %40 ], [ -1094995529, %codec2_mode_block_align.exit ], [ -1094995529, %35 ]
   ret i32 %.0
 }
 

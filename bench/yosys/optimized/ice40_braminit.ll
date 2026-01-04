@@ -278,7 +278,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   br label %common.resume
 
 common.resume:                                    ; preds = %109, %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit18, %43, %46
-  %common.resume.op = phi { ptr, i32 } [ %44, %46 ], [ %44, %43 ], [ %eh.lpad-body, %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit18 ], [ %110, %109 ]
+  %common.resume.op = phi { ptr, i32 } [ %44, %43 ], [ %44, %46 ], [ %eh.lpad-body, %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit18 ], [ %110, %109 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_.exit: ; preds = %37
@@ -646,7 +646,7 @@ _ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit: ; preds = %._crit_edge, %1
   unreachable
 
 215:                                              ; preds = %211, %209, %199, %.thread274.i, %183
-  %.ph.i = phi i1 [ false, %183 ], [ %206, %211 ], [ %206, %209 ], [ %206, %199 ], [ %197, %.thread274.i ]
+  %.ph.i = phi i1 [ false, %183 ], [ %206, %209 ], [ %206, %199 ], [ %197, %.thread274.i ], [ %206, %211 ]
   %216 = load i32, ptr %9, align 4, !tbaa !42
   %217 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !58, !range !60, !noundef !61
   %218 = trunc nuw i8 %217 to i1
@@ -1664,7 +1664,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit200.i: ; preds = %
   br i1 %.not297.i, label %.lr.ph392.i, label %._crit_edge.i.i.i.preheader, !llvm.loop !110
 
 597:                                              ; preds = %568, %557, %509, %507, %454, %.loopexit.split-lp306.i, %.loopexit305.i
-  %.pn122.i = phi { ptr, i32 } [ %455, %454 ], [ %569, %568 ], [ %lpad.phi302.i, %557 ], [ %510, %509 ], [ %508, %507 ], [ %lpad.loopexit307.i, %.loopexit305.i ], [ %lpad.loopexit.split-lp308.i, %.loopexit.split-lp306.i ]
+  %.pn122.i = phi { ptr, i32 } [ %455, %454 ], [ %508, %507 ], [ %569, %568 ], [ %lpad.phi302.i, %557 ], [ %510, %509 ], [ %lpad.loopexit307.i, %.loopexit305.i ], [ %lpad.loopexit.split-lp308.i, %.loopexit.split-lp306.i ]
   %598 = load ptr, ptr %16, align 8, !tbaa !15
   %599 = icmp eq ptr %598, %73
   br i1 %599, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit203.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i201.i

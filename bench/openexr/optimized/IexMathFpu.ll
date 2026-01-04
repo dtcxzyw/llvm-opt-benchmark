@@ -131,7 +131,7 @@ define hidden void @catchSigFpe(i32 noundef %0, ptr noundef readonly captures(no
   br label %.sink.split
 
 .sink.split:                                      ; preds = %25, %37, %36
-  %.str.6.sink = phi ptr [ @.str.7, %36 ], [ @.str.8, %37 ], [ @.str.6, %25 ]
+  %.str.6.sink = phi ptr [ @.str.8, %37 ], [ @.str.7, %36 ], [ @.str.6, %25 ]
   %38 = load volatile ptr, ptr @_ZN7Iex_3_412_GLOBAL__N_110fpeHandlerE, align 8, !tbaa !25
   call void %38(i32 noundef 0, ptr noundef nonnull %.str.6.sink)
   br label %39

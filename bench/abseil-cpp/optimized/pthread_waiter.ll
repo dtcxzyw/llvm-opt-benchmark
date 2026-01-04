@@ -308,7 +308,7 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev.exit: ;
   ret i1 %46
 
 .split:                                           ; preds = %.split71, %.split71.us, %.split.us, %.split.split.us, %.split.split, %41, %.split61.us, %34
-  %.pn23.pn = phi { ptr, i32 } [ %35, %34 ], [ %21, %.split61.us ], [ %42, %41 ], [ %20, %.split.us ], [ %31, %.split.split ], [ %29, %.split.split.us ], [ %39, %.split71 ], [ %30, %.split71.us ]
+  %.pn23.pn = phi { ptr, i32 } [ %21, %.split61.us ], [ %29, %.split.split.us ], [ %35, %34 ], [ %42, %41 ], [ %20, %.split.us ], [ %31, %.split.split ], [ %39, %.split71 ], [ %30, %.split71.us ]
   call fastcc void @_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev(ptr nonnull %0) #7
   resume { ptr, i32 } %.pn23.pn
 }

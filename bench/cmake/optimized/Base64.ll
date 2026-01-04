@@ -302,7 +302,7 @@ define dso_local range(i32 0, 4) i32 @cmsysBase64_Decode3(ptr noundef readonly c
   br label %45
 
 45:                                               ; preds = %42, %26, %2
-  %.0 = phi i32 [ 0, %2 ], [ 1, %26 ], [ %., %42 ]
+  %.0 = phi i32 [ 1, %26 ], [ 0, %2 ], [ %., %42 ]
   ret i32 %.0
 }
 
@@ -372,7 +372,7 @@ define dso_local i64 @cmsysBase64_Decode(ptr noundef readonly captures(address) 
   %47 = icmp eq i8 %46, 61
   br i1 %47, label %.thread, label %cmsysBase64_Decode3.exit
 
-.thread:                                          ; preds = %45, %29, %.lr.ph
+.thread:                                          ; preds = %45, %.lr.ph, %29
   %.0.i.ph = phi i64 [ 1, %29 ], [ 0, %.lr.ph ], [ 2, %45 ]
   %48 = getelementptr inbounds nuw i8, ptr %.056131, i64 %.0.i.ph
   br label %cmsysBase64_Decode3.exit91.thread123
@@ -554,13 +554,13 @@ cmsysBase64_Decode3.exit85:                       ; preds = %126
   %169 = getelementptr inbounds nuw i8, ptr %.359.lcssa, i64 1
   br label %cmsysBase64_Decode3.exit91.thread123
 
-cmsysBase64_Decode3.exit91:                       ; preds = %94, %.lr.ph135, %78
+cmsysBase64_Decode3.exit91:                       ; preds = %94, %78, %.lr.ph135
   %.0.i78.ph = phi i64 [ 1, %78 ], [ 0, %.lr.ph135 ], [ 2, %94 ]
   %170 = getelementptr inbounds nuw i8, ptr %.359133, i64 %.0.i78.ph
   br label %cmsysBase64_Decode3.exit91.thread123
 
 cmsysBase64_Decode3.exit91.thread123:             ; preds = %cmsysBase64_Decode3.exit, %164, %140, %cmsysBase64_Decode3.exit85, %138, %102, %._crit_edge, %cmsysBase64_Decode3.exit91, %.thread
-  %.sink168 = phi ptr [ %170, %cmsysBase64_Decode3.exit91 ], [ %48, %.thread ], [ %.359.lcssa, %140 ], [ %169, %164 ], [ %.359.lcssa, %102 ], [ %139, %138 ], [ %137, %cmsysBase64_Decode3.exit85 ], [ %.359.lcssa, %._crit_edge ], [ %49, %cmsysBase64_Decode3.exit ]
+  %.sink168 = phi ptr [ %170, %cmsysBase64_Decode3.exit91 ], [ %48, %.thread ], [ %.359.lcssa, %102 ], [ %.359.lcssa, %140 ], [ %169, %164 ], [ %.359.lcssa, %._crit_edge ], [ %139, %138 ], [ %137, %cmsysBase64_Decode3.exit85 ], [ %49, %cmsysBase64_Decode3.exit ]
   %171 = ptrtoint ptr %.sink168 to i64
   %172 = ptrtoint ptr %2 to i64
   %173 = sub i64 %171, %172

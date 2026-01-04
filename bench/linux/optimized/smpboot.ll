@@ -1138,7 +1138,7 @@ define internal fastcc zeroext i1 @match_smt(ptr noundef readonly captures(none)
   br label %.thread
 
 .thread:                                          ; preds = %6, %18, %24, %67, %63, %73, %79, %85, %44, %54, %71, %111, %91
-  %122 = phi i1 [ %108, %91 ], [ false, %111 ], [ %72, %71 ], [ %51, %44 ], [ false, %54 ], [ false, %85 ], [ false, %79 ], [ false, %73 ], [ false, %63 ], [ false, %67 ], [ false, %24 ], [ false, %18 ], [ false, %6 ]
+  %122 = phi i1 [ false, %111 ], [ %51, %44 ], [ %108, %91 ], [ %72, %71 ], [ false, %54 ], [ false, %73 ], [ false, %85 ], [ false, %79 ], [ false, %63 ], [ false, %67 ], [ false, %24 ], [ false, %18 ], [ false, %6 ]
   ret i1 %122
 }
 
@@ -1559,7 +1559,7 @@ define dso_local i32 @native_kick_ap(i32 noundef %0, ptr noundef %1) #2 align 16
   br label %.thread13
 
 .thread13:                                        ; preds = %193, %192, %221, %219
-  %224 = phi i32 [ %223, %221 ], [ %.us-phi19, %219 ], [ 0, %192 ], [ 0, %193 ]
+  %224 = phi i32 [ %.us-phi19, %219 ], [ %223, %221 ], [ 0, %192 ], [ 0, %193 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !32
   %225 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #23, !srcloc !33
   %226 = icmp ult i8 %225, 2

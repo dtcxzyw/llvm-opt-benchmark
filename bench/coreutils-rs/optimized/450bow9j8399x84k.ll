@@ -782,7 +782,7 @@ define hidden noundef range(i32 0, 256) i32 @_ZN8uu_split6number9map_digit17h346
   br label %9
 
 9:                                                ; preds = %2, %11, %13, %7, %3
-  %.0 = phi i8 [ %4, %3 ], [ %14, %13 ], [ %12, %11 ], [ %8, %7 ], [ 0, %2 ]
+  %.0 = phi i8 [ %8, %7 ], [ %4, %3 ], [ %14, %13 ], [ %12, %11 ], [ 0, %2 ]
   %10 = zext i8 %.0 to i32
   ret i32 %10
 

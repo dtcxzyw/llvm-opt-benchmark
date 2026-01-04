@@ -610,7 +610,7 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit: ; preds = 
   br i1 %.not36, label %.critedge.critedge.thread, label %_ZN3tbb6detail2r113observer_list15remove_ref_fastERPNS1_14observer_proxyE.exit.thread
 
 _ZN3tbb6detail2r113observer_list15remove_ref_fastERPNS1_14observer_proxyE.exit.thread: ; preds = %27, %28, %34
-  %.4 = phi ptr [ %.0.i.i, %34 ], [ %25, %28 ], [ %25, %27 ]
+  %.4 = phi ptr [ %.0.i.i, %34 ], [ %25, %27 ], [ %25, %28 ]
   %36 = getelementptr inbounds nuw i8, ptr %.4, i64 32
   %37 = load ptr, ptr %36, align 8, !tbaa !8
   %.not39 = icmp eq ptr %37, null

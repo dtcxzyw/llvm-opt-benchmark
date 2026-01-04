@@ -245,7 +245,7 @@ define hidden noundef ptr @X509v3_add_ext(ptr noundef captures(address_is_null) 
   br label %26
 
 26:                                               ; preds = %.thread51, %.thread44, %25, %21, %24
-  %.021 = phi ptr [ %.2, %24 ], [ %.2, %21 ], [ null, %25 ], [ null, %.thread44 ], [ null, %.thread51 ]
+  %.021 = phi ptr [ %.2, %21 ], [ %.2, %24 ], [ null, %25 ], [ null, %.thread51 ], [ null, %.thread44 ]
   ret ptr %.021
 }
 
@@ -351,7 +351,7 @@ X509_EXTENSION_set_object.exit.thread:            ; preds = %13, %17, %X509_EXTE
   br label %34
 
 34:                                               ; preds = %31, %33, %26, %27, %30, %12
-  %.018 = phi ptr [ null, %12 ], [ %.0, %30 ], [ %.0, %27 ], [ %.0, %26 ], [ null, %33 ], [ null, %31 ]
+  %.018 = phi ptr [ null, %12 ], [ %.0, %26 ], [ %.0, %30 ], [ %.0, %27 ], [ null, %33 ], [ null, %31 ]
   ret ptr %.018
 }
 
@@ -412,7 +412,7 @@ define hidden range(i32 0, 2) i32 @X509_EXTENSION_set_data(ptr noundef readonly 
   br label %11
 
 11:                                               ; preds = %4, %2
-  %.0 = phi i32 [ 0, %2 ], [ %., %4 ]
+  %.0 = phi i32 [ %., %4 ], [ 0, %2 ]
   ret i32 %.0
 }
 

@@ -207,7 +207,7 @@ define internal range(i32 0, 2) i32 @rpcprogs_packet(ptr readnone captures(none)
   br i1 %.not146, label %.thread188._crit_edge, label %.lr.ph198
 
 .loopexit:                                        ; preds = %59, %29, %.thread188._crit_edge, %38, %8
-  %.0129 = phi ptr [ %39, %38 ], [ %70, %.thread188._crit_edge ], [ %9, %8 ], [ %7, %29 ], [ %55, %59 ]
+  %.0129 = phi ptr [ %9, %8 ], [ %39, %38 ], [ %7, %29 ], [ %70, %.thread188._crit_edge ], [ %55, %59 ]
   %84 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %85 = load i8, ptr %84, align 4, !range !7, !noundef !8
   %86 = trunc nuw i8 %85 to i1
@@ -324,7 +324,7 @@ define internal range(i32 0, 2) i32 @rpcprogs_packet(ptr readnone captures(none)
   br label %._crit_edge170
 
 ._crit_edge170:                                   ; preds = %132, %140, %136
-  %143 = phi i32 [ %141, %140 ], [ %135, %136 ], [ %135, %132 ]
+  %143 = phi i32 [ %135, %136 ], [ %141, %140 ], [ %135, %132 ]
   %144 = getelementptr inbounds nuw i8, ptr %.0129, i64 56
   %145 = load i64, ptr %144, align 8
   %146 = add i64 %145, %130

@@ -647,7 +647,7 @@ define internal fastcc noundef range(i32 -2147483648, 1) i32 @io_waitid_finish(p
   br label %.thread
 
 .thread:                                          ; preds = %37, %17, %.thread5, %.thread1, %63, %.thread3, %65
-  %67 = phi i32 [ -14, %.thread3 ], [ %8, %.thread1 ], [ %64, %63 ], [ %66, %65 ], [ -14, %.thread5 ], [ -14, %17 ], [ -14, %37 ]
+  %67 = phi i32 [ -14, %.thread5 ], [ -14, %.thread3 ], [ %66, %65 ], [ %8, %.thread1 ], [ %64, %63 ], [ -14, %17 ], [ -14, %37 ]
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
@@ -736,7 +736,7 @@ define internal void @io_waitid_cb(ptr noundef %0, ptr noundef captures(none) %1
   br label %34
 
 34:                                               ; preds = %17, %32, %12
-  %35 = phi i32 [ %15, %12 ], [ -125, %17 ], [ %30, %32 ]
+  %35 = phi i32 [ %15, %12 ], [ %30, %32 ], [ -125, %17 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 20

@@ -120,7 +120,7 @@ define hidden range(i32 -1, 2) i32 @ascend_open(ptr noundef initializes((96, 104
   br label %42
 
 42:                                               ; preds = %12, %26, %22, %20, %37
-  %.0 = phi i32 [ 1, %37 ], [ -1, %20 ], [ 0, %22 ], [ -1, %26 ], [ %14, %12 ]
+  %.0 = phi i32 [ 1, %37 ], [ %14, %12 ], [ -1, %26 ], [ -1, %20 ], [ 0, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -249,7 +249,7 @@ define internal fastcc i64 @ascend_find_next_packet(ptr noundef readonly capture
   br label %59
 
 59:                                               ; preds = %.thread67, %53, %._crit_edge, %43, %9
-  %.1 = phi i64 [ -1, %43 ], [ -1, %9 ], [ -1, %._crit_edge ], [ %..253, %53 ], [ -1, %.thread67 ]
+  %.1 = phi i64 [ -1, %.thread67 ], [ %..253, %53 ], [ -1, %._crit_edge ], [ -1, %43 ], [ -1, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.1
 }
@@ -296,7 +296,7 @@ define internal noundef zeroext i1 @ascend_read(ptr noundef readonly captures(no
   br label %25
 
 25:                                               ; preds = %16, %13, %5, %24
-  %.0 = phi i1 [ true, %24 ], [ false, %5 ], [ false, %13 ], [ false, %16 ]
+  %.0 = phi i1 [ false, %13 ], [ false, %5 ], [ true, %24 ], [ false, %16 ]
   ret i1 %.0
 }
 
@@ -410,7 +410,7 @@ define internal fastcc noundef zeroext i1 @parse_ascend(ptr noundef captures(non
   br label %24
 
 24:                                               ; preds = %.sink.split, %21, %20
-  %.0.shrunk = phi i1 [ %17, %20 ], [ false, %21 ], [ %.0.shrunk.ph, %.sink.split ]
+  %.0.shrunk = phi i1 [ false, %21 ], [ %17, %20 ], [ %.0.shrunk.ph, %.sink.split ]
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 76
   %26 = load i32, ptr %25, align 4
   %.not39 = icmp ne i32 %26, 0

@@ -106,7 +106,7 @@ define void @dtrrfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not506, label %65, label %.thread
 
 .thread.sink.split:                               ; preds = %58, %55, %52, %49, %46, %44, %41, %36
-  %.sink = phi i32 [ -1, %36 ], [ -2, %41 ], [ -3, %44 ], [ -4, %46 ], [ -5, %49 ], [ -7, %52 ], [ -9, %55 ], [ -11, %58 ]
+  %.sink = phi i32 [ -1, %36 ], [ -2, %41 ], [ -4, %46 ], [ -7, %52 ], [ -9, %55 ], [ -5, %49 ], [ -3, %44 ], [ -11, %58 ]
   store i32 %.sink, ptr %15, align 4, !tbaa !3
   br label %.thread
 
@@ -739,7 +739,7 @@ define void @dtrrfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not535626, label %.loopexit542.backedge, label %.lr.ph629.preheader
 
 .loopexit542.backedge:                            ; preds = %.lr.ph629, %309, %._crit_edge634
-  %.be = phi i32 [ %313, %309 ], [ %.pre791.pre, %._crit_edge634 ], [ %313, %.lr.ph629 ]
+  %.be = phi i32 [ %.pre791.pre, %._crit_edge634 ], [ %313, %309 ], [ %313, %.lr.ph629 ]
   br label %.loopexit542
 
 .lr.ph629.preheader:                              ; preds = %309

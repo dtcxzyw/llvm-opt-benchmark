@@ -723,7 +723,7 @@ skip_prefix.exit13.i.i:                           ; preds = %175
   br label %skip_prefix.exit.thread.i.i
 
 skip_prefix.exit.thread.i.i:                      ; preds = %.preheader.i.i, %skip_prefix.exit.i.i, %185, %183, %168, %164
-  %.018.i.i = phi ptr [ %166, %183 ], [ @.str.128, %185 ], [ @.str.4, %168 ], [ @.str.4, %164 ], [ %scevgep28.i.i, %skip_prefix.exit.i.i ], [ %scevgep.i.i, %.preheader.i.i ]
+  %.018.i.i = phi ptr [ @.str.128, %185 ], [ @.str.4, %164 ], [ %scevgep28.i.i, %skip_prefix.exit.i.i ], [ %166, %183 ], [ @.str.4, %168 ], [ %scevgep.i.i, %.preheader.i.i ]
   %186 = load i8, ptr %.018.i.i, align 1, !tbaa !13
   %.not8.i.i = icmp eq i8 %186, 0
   br i1 %.not8.i.i, label %get_tracking_branch.exit.i, label %sub_0.i.i
@@ -806,7 +806,7 @@ get_rebase_fork_point.exit:                       ; preds = %205
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br i1 %.not139, label %225, label %215
 
-.sink.split:                                      ; preds = %198, %196, %194, %get_upstream_branch.exit.i, %160, %get_rebase_fork_point.exit.thread125
+.sink.split:                                      ; preds = %198, %194, %196, %get_upstream_branch.exit.i, %160, %get_rebase_fork_point.exit.thread125
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %215
@@ -956,7 +956,7 @@ argv_push_force.exit.i:                           ; preds = %.lr.ph.i40.i, %250
   unreachable
 
 .sink.split.i:                                    ; preds = %266, %265, %263
-  %.str.141.sink.i = phi ptr [ @.str.142, %265 ], [ @.str.143, %266 ], [ @.str.141, %263 ]
+  %.str.141.sink.i = phi ptr [ @.str.143, %266 ], [ @.str.142, %265 ], [ @.str.141, %263 ]
   %268 = call ptr @strvec_push(ptr noundef nonnull %12, ptr noundef nonnull %.str.141.sink.i) #17
   br label %269
 
@@ -1537,7 +1537,7 @@ get_rebase_newbase_and_upstream.exit:             ; preds = %select.unfold.i, %4
   br label %pull_into_void.exit
 
 pull_into_void.exit:                              ; preds = %396, %389, %488, %485, %486, %490
-  %.0 = phi i32 [ %.2, %485 ], [ %487, %486 ], [ %491, %490 ], [ 0, %488 ], [ 1, %389 ], [ %..i, %396 ]
+  %.0 = phi i32 [ 0, %488 ], [ %.2, %485 ], [ %487, %486 ], [ %491, %490 ], [ 1, %389 ], [ %..i, %396 ]
   call void @oid_array_clear(ptr noundef nonnull %19) #17
   br label %492
 
@@ -1690,7 +1690,7 @@ _.exit.sink.split:                                ; preds = %12
   br label %_.exit
 
 _.exit:                                           ; preds = %12, %_.exit.sink.split
-  %.0.i29.sink = phi ptr [ %16, %_.exit.sink.split ], [ %.str.156..str.155, %12 ]
+  %.0.i29.sink = phi ptr [ %.str.156..str.155, %12 ], [ %16, %_.exit.sink.split ]
   %17 = tail call i32 (ptr, ptr, ...) @fprintf_ln(ptr noundef %14, ptr noundef %.0.i29.sink) #17
   %18 = load ptr, ptr @stderr, align 8, !tbaa !78
   %19 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !39
@@ -1764,7 +1764,7 @@ _.exit42.sink.split:                              ; preds = %_.exit39
   br label %_.exit42
 
 _.exit42:                                         ; preds = %_.exit39, %_.exit42.sink.split
-  %.0.i44.sink = phi ptr [ %44, %_.exit42.sink.split ], [ %.str.161..str.160, %_.exit39 ]
+  %.0.i44.sink = phi ptr [ %.str.161..str.160, %_.exit39 ], [ %44, %_.exit42.sink.split ]
   %45 = tail call i32 (ptr, ptr, ...) @fprintf_ln(ptr noundef %42, ptr noundef %.0.i44.sink) #17
   %46 = load ptr, ptr @stderr, align 8, !tbaa !78
   %47 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !39
@@ -1861,7 +1861,7 @@ _.exit63.sink.split:                              ; preds = %_.exit60
   br label %_.exit63
 
 _.exit63:                                         ; preds = %_.exit60, %_.exit63.sink.split
-  %.0.i65.sink = phi ptr [ %78, %_.exit63.sink.split ], [ %.str.161..str.16097, %_.exit60 ]
+  %.0.i65.sink = phi ptr [ %.str.161..str.16097, %_.exit60 ], [ %78, %_.exit63.sink.split ]
   %79 = call i32 (ptr, ptr, ...) @fprintf_ln(ptr noundef %76, ptr noundef %.0.i65.sink) #17
   %80 = load ptr, ptr @stderr, align 8, !tbaa !78
   %81 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !39

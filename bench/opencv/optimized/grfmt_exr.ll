@@ -2129,8 +2129,8 @@ _ZN2cv10ExrDecoder9UpSampleXEPfii.exit:           ; preds = %._crit_edge.split.u
   br i1 %exitcond75.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.split.us.us.i, !llvm.loop !114
 
 ._crit_edge51.i:                                  ; preds = %._crit_edge.us.i, %._crit_edge.us.i.loopexit631.us, %._crit_edge.us.i.loopexit.us.us, %.preheader48.i
-  %748 = phi i32 [ %695, %.preheader48.i ], [ %695, %._crit_edge.us.i.loopexit.us.us ], [ %714, %._crit_edge.us.i.loopexit631.us ], [ %739, %._crit_edge.us.i ]
-  %749 = phi i32 [ %696, %.preheader48.i ], [ %695, %._crit_edge.us.i.loopexit.us.us ], [ %714, %._crit_edge.us.i.loopexit631.us ], [ %739, %._crit_edge.us.i ]
+  %748 = phi i32 [ %695, %.preheader48.i ], [ %714, %._crit_edge.us.i.loopexit631.us ], [ %695, %._crit_edge.us.i.loopexit.us.us ], [ %739, %._crit_edge.us.i ]
+  %749 = phi i32 [ %696, %.preheader48.i ], [ %714, %._crit_edge.us.i.loopexit631.us ], [ %695, %._crit_edge.us.i.loopexit.us.us ], [ %739, %._crit_edge.us.i ]
   %750 = sub nsw i32 %.04659.i, %.fr690
   %751 = icmp sgt i32 %750, -1
   br i1 %751, label %.preheader48.i, label %_ZN2cv10ExrDecoder9UpSampleYEPhiii.exit, !llvm.loop !119
@@ -2345,8 +2345,8 @@ _ZN2cv10ExrDecoder9UpSampleYEPhiii.exit:          ; preds = %._crit_edge51.i, %6
   br i1 %exitcond75.not.i393, label %._crit_edge.us.i372, label %.lr.ph.split.us.split.us.us.i389, !llvm.loop !114
 
 ._crit_edge51.i374:                               ; preds = %._crit_edge.us.i372, %._crit_edge.us.i372.loopexit629.us, %._crit_edge.us.i372.loopexit.us.us, %.preheader48.i357
-  %825 = phi i32 [ %772, %.preheader48.i357 ], [ %772, %._crit_edge.us.i372.loopexit.us.us ], [ %791, %._crit_edge.us.i372.loopexit629.us ], [ %816, %._crit_edge.us.i372 ]
-  %826 = phi i32 [ %773, %.preheader48.i357 ], [ %772, %._crit_edge.us.i372.loopexit.us.us ], [ %791, %._crit_edge.us.i372.loopexit629.us ], [ %816, %._crit_edge.us.i372 ]
+  %825 = phi i32 [ %772, %.preheader48.i357 ], [ %791, %._crit_edge.us.i372.loopexit629.us ], [ %772, %._crit_edge.us.i372.loopexit.us.us ], [ %816, %._crit_edge.us.i372 ]
+  %826 = phi i32 [ %773, %.preheader48.i357 ], [ %791, %._crit_edge.us.i372.loopexit629.us ], [ %772, %._crit_edge.us.i372.loopexit.us.us ], [ %816, %._crit_edge.us.i372 ]
   %827 = sub nsw i32 %.04659.i358, %.fr691
   %828 = icmp sgt i32 %827, -1
   br i1 %828, label %.preheader48.i357, label %_ZN2cv10ExrDecoder9UpSampleYEPhiii.exit394, !llvm.loop !119
@@ -2562,8 +2562,8 @@ _ZN2cv10ExrDecoder9UpSampleYEPhiii.exit394:       ; preds = %._crit_edge51.i374,
   br i1 %exitcond75.not.i436, label %._crit_edge.us.i415, label %.lr.ph.split.us.split.us.us.i432, !llvm.loop !114
 
 ._crit_edge51.i417:                               ; preds = %._crit_edge.us.i415, %._crit_edge.us.i415.loopexit627.us, %._crit_edge.us.i415.loopexit.us.us, %.preheader48.i400
-  %903 = phi i32 [ %850, %.preheader48.i400 ], [ %850, %._crit_edge.us.i415.loopexit.us.us ], [ %869, %._crit_edge.us.i415.loopexit627.us ], [ %894, %._crit_edge.us.i415 ]
-  %904 = phi i32 [ %851, %.preheader48.i400 ], [ %850, %._crit_edge.us.i415.loopexit.us.us ], [ %869, %._crit_edge.us.i415.loopexit627.us ], [ %894, %._crit_edge.us.i415 ]
+  %903 = phi i32 [ %850, %.preheader48.i400 ], [ %869, %._crit_edge.us.i415.loopexit627.us ], [ %850, %._crit_edge.us.i415.loopexit.us.us ], [ %894, %._crit_edge.us.i415 ]
+  %904 = phi i32 [ %851, %.preheader48.i400 ], [ %869, %._crit_edge.us.i415.loopexit627.us ], [ %850, %._crit_edge.us.i415.loopexit.us.us ], [ %894, %._crit_edge.us.i415 ]
   %905 = sub nsw i32 %.04659.i401, %.fr692
   %906 = icmp sgt i32 %905, -1
   br i1 %906, label %.preheader48.i400, label %_ZN2cv10ExrDecoder9UpSampleYEPhiii.exit437, !llvm.loop !119
@@ -2777,8 +2777,8 @@ _ZN2cv10ExrDecoder9UpSampleYEPhiii.exit394:       ; preds = %._crit_edge51.i374,
   br i1 %exitcond75.not.i479, label %._crit_edge.us.i458, label %.lr.ph.split.us.split.us.us.i475, !llvm.loop !114
 
 ._crit_edge51.i460:                               ; preds = %._crit_edge.us.i458, %._crit_edge.us.i458.loopexit638.us, %._crit_edge.us.i458.loopexit.us.us, %.preheader48.i443
-  %980 = phi i32 [ %927, %.preheader48.i443 ], [ %927, %._crit_edge.us.i458.loopexit.us.us ], [ %946, %._crit_edge.us.i458.loopexit638.us ], [ %971, %._crit_edge.us.i458 ]
-  %981 = phi i32 [ %928, %.preheader48.i443 ], [ %927, %._crit_edge.us.i458.loopexit.us.us ], [ %946, %._crit_edge.us.i458.loopexit638.us ], [ %971, %._crit_edge.us.i458 ]
+  %980 = phi i32 [ %927, %.preheader48.i443 ], [ %946, %._crit_edge.us.i458.loopexit638.us ], [ %927, %._crit_edge.us.i458.loopexit.us.us ], [ %971, %._crit_edge.us.i458 ]
+  %981 = phi i32 [ %928, %.preheader48.i443 ], [ %946, %._crit_edge.us.i458.loopexit638.us ], [ %927, %._crit_edge.us.i458.loopexit.us.us ], [ %971, %._crit_edge.us.i458 ]
   %982 = sub nsw i32 %.04659.i444, %.fr
   %983 = icmp sgt i32 %982, -1
   br i1 %983, label %.preheader48.i443, label %_ZN2cv10ExrDecoder9UpSampleYEPhiii.exit480, !llvm.loop !119
@@ -2993,8 +2993,8 @@ _ZN2cv10ExrDecoder9UpSampleYEPhiii.exit480:       ; preds = %._crit_edge51.i460,
   br i1 %exitcond75.not.i522, label %._crit_edge.us.i501, label %.lr.ph.split.us.split.us.us.i518, !llvm.loop !114
 
 ._crit_edge51.i503:                               ; preds = %._crit_edge.us.i501, %._crit_edge.us.i501.loopexit636.us, %._crit_edge.us.i501.loopexit.us.us, %.preheader48.i486
-  %1057 = phi i32 [ %1004, %.preheader48.i486 ], [ %1004, %._crit_edge.us.i501.loopexit.us.us ], [ %1023, %._crit_edge.us.i501.loopexit636.us ], [ %1048, %._crit_edge.us.i501 ]
-  %1058 = phi i32 [ %1005, %.preheader48.i486 ], [ %1004, %._crit_edge.us.i501.loopexit.us.us ], [ %1023, %._crit_edge.us.i501.loopexit636.us ], [ %1048, %._crit_edge.us.i501 ]
+  %1057 = phi i32 [ %1004, %.preheader48.i486 ], [ %1023, %._crit_edge.us.i501.loopexit636.us ], [ %1004, %._crit_edge.us.i501.loopexit.us.us ], [ %1048, %._crit_edge.us.i501 ]
+  %1058 = phi i32 [ %1005, %.preheader48.i486 ], [ %1023, %._crit_edge.us.i501.loopexit636.us ], [ %1004, %._crit_edge.us.i501.loopexit.us.us ], [ %1048, %._crit_edge.us.i501 ]
   %1059 = sub nsw i32 %.04659.i487, %.fr688
   %1060 = icmp sgt i32 %1059, -1
   br i1 %1060, label %.preheader48.i486, label %_ZN2cv10ExrDecoder9UpSampleYEPhiii.exit523, !llvm.loop !119
@@ -3210,8 +3210,8 @@ _ZN2cv10ExrDecoder9UpSampleYEPhiii.exit523:       ; preds = %._crit_edge51.i503,
   br i1 %exitcond75.not.i565, label %._crit_edge.us.i544, label %.lr.ph.split.us.split.us.us.i561, !llvm.loop !114
 
 ._crit_edge51.i546:                               ; preds = %._crit_edge.us.i544, %._crit_edge.us.i544.loopexit633.us, %._crit_edge.us.i544.loopexit.us.us, %.preheader48.i529
-  %1135 = phi i32 [ %1082, %.preheader48.i529 ], [ %1082, %._crit_edge.us.i544.loopexit.us.us ], [ %1101, %._crit_edge.us.i544.loopexit633.us ], [ %1126, %._crit_edge.us.i544 ]
-  %1136 = phi i32 [ %1083, %.preheader48.i529 ], [ %1082, %._crit_edge.us.i544.loopexit.us.us ], [ %1101, %._crit_edge.us.i544.loopexit633.us ], [ %1126, %._crit_edge.us.i544 ]
+  %1135 = phi i32 [ %1082, %.preheader48.i529 ], [ %1101, %._crit_edge.us.i544.loopexit633.us ], [ %1082, %._crit_edge.us.i544.loopexit.us.us ], [ %1126, %._crit_edge.us.i544 ]
+  %1136 = phi i32 [ %1083, %.preheader48.i529 ], [ %1101, %._crit_edge.us.i544.loopexit633.us ], [ %1082, %._crit_edge.us.i544.loopexit.us.us ], [ %1126, %._crit_edge.us.i544 ]
   %1137 = sub nsw i32 %.04659.i530, %.fr689
   %1138 = icmp sgt i32 %1137, -1
   br i1 %1138, label %.preheader48.i529, label %_ZN2cv10ExrDecoder9UpSampleYEPhiii.exit437, !llvm.loop !119
@@ -3422,8 +3422,8 @@ _ZN2cv10ExrDecoder9UpSampleYEPhiii.exit523:       ; preds = %._crit_edge51.i503,
   br i1 %exitcond75.not.i608, label %._crit_edge.us.i587, label %.lr.ph.split.us.split.us.us.i604, !llvm.loop !114
 
 ._crit_edge51.i589:                               ; preds = %._crit_edge.us.i587, %._crit_edge.us.i587.loopexit640.us, %._crit_edge.us.i587.loopexit.us.us, %.preheader48.i572
-  %1211 = phi i32 [ %1159, %.preheader48.i572 ], [ %1159, %._crit_edge.us.i587.loopexit.us.us ], [ %1178, %._crit_edge.us.i587.loopexit640.us ], [ %1202, %._crit_edge.us.i587 ]
-  %1212 = phi i32 [ %1160, %.preheader48.i572 ], [ %1159, %._crit_edge.us.i587.loopexit.us.us ], [ %1178, %._crit_edge.us.i587.loopexit640.us ], [ %1202, %._crit_edge.us.i587 ]
+  %1211 = phi i32 [ %1159, %.preheader48.i572 ], [ %1178, %._crit_edge.us.i587.loopexit640.us ], [ %1159, %._crit_edge.us.i587.loopexit.us.us ], [ %1202, %._crit_edge.us.i587 ]
+  %1212 = phi i32 [ %1160, %.preheader48.i572 ], [ %1178, %._crit_edge.us.i587.loopexit640.us ], [ %1159, %._crit_edge.us.i587.loopexit.us.us ], [ %1202, %._crit_edge.us.i587 ]
   %1213 = sub nsw i32 %.04659.i573, %.fr687
   %1214 = icmp sgt i32 %1213, -1
   br i1 %1214, label %.preheader48.i572, label %_ZN2cv10ExrDecoder9UpSampleYEPhiii.exit437, !llvm.loop !119
@@ -3504,7 +3504,7 @@ _ZN7Imf_2_511FrameBufferD2Ev.exit:                ; preds = %_ZN2cv10AutoBufferI
   ret i1 %or.cond10.not
 
 1236:                                             ; preds = %465, %467, %598, %1227, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit345, %457, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit342, %412, %395, %365, %348, %318, %302, %274, %247, %230, %200, %183, %153, %137, %106
-  %.pn326.pn.pn = phi { ptr, i32 } [ %1228, %1227 ], [ %107, %106 ], [ %.pn277, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit345 ], [ %458, %457 ], [ %.pn273, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit342 ], [ %231, %230 ], [ %248, %247 ], [ %184, %183 ], [ %201, %200 ], [ %138, %137 ], [ %154, %153 ], [ %275, %274 ], [ %396, %395 ], [ %413, %412 ], [ %349, %348 ], [ %366, %365 ], [ %303, %302 ], [ %319, %318 ], [ %599, %598 ], [ %468, %467 ], [ %466, %465 ]
+  %.pn326.pn.pn = phi { ptr, i32 } [ %1228, %1227 ], [ %107, %106 ], [ %319, %318 ], [ %.pn277, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit345 ], [ %468, %467 ], [ %458, %457 ], [ %.pn273, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit342 ], [ %231, %230 ], [ %248, %247 ], [ %184, %183 ], [ %201, %200 ], [ %138, %137 ], [ %154, %153 ], [ %275, %274 ], [ %396, %395 ], [ %413, %412 ], [ %349, %348 ], [ %366, %365 ], [ %303, %302 ], [ %599, %598 ], [ %466, %465 ]
   %1237 = load ptr, ptr %7, align 8, !tbaa !95
   %.not.i.i614 = icmp eq ptr %1237, %97
   br i1 %.not.i.i614, label %_ZN2cv10AutoBufferIcLm1032EED2Ev.exit616, label %1238
@@ -3962,8 +3962,8 @@ define hidden void @_ZN2cv10ExrDecoder11ChromaToRGBEPfiii(ptr noundef nonnull re
   ret void
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.lver.orig, %.lr.ph.split, %.ph.lver.orig, %88, %.preheader
-  %115 = phi i32 [ %20, %.preheader ], [ %20, %88 ], [ %20, %.ph.lver.orig ], [ %143, %.lr.ph.split ], [ %58, %.lr.ph.split.lver.orig ]
-  %116 = phi i32 [ %21, %.preheader ], [ %20, %88 ], [ %20, %.ph.lver.orig ], [ %143, %.lr.ph.split ], [ %58, %.lr.ph.split.lver.orig ]
+  %115 = phi i32 [ %143, %.lr.ph.split ], [ %20, %.preheader ], [ %20, %88 ], [ %20, %.ph.lver.orig ], [ %58, %.lr.ph.split.lver.orig ]
+  %116 = phi i32 [ %143, %.lr.ph.split ], [ %21, %.preheader ], [ %20, %88 ], [ %20, %.ph.lver.orig ], [ %58, %.lr.ph.split.lver.orig ]
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count100
   br i1 %exitcond101.not, label %._crit_edge90, label %.preheader, !llvm.loop !139
@@ -4193,8 +4193,8 @@ define hidden void @_ZN2cv10ExrDecoder11ChromaToBGREPfiii(ptr noundef nonnull re
   ret void
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.lver.orig, %.lr.ph.split, %.ph.lver.orig, %88, %.preheader
-  %115 = phi i32 [ %20, %.preheader ], [ %20, %88 ], [ %20, %.ph.lver.orig ], [ %143, %.lr.ph.split ], [ %58, %.lr.ph.split.lver.orig ]
-  %116 = phi i32 [ %21, %.preheader ], [ %20, %88 ], [ %20, %.ph.lver.orig ], [ %143, %.lr.ph.split ], [ %58, %.lr.ph.split.lver.orig ]
+  %115 = phi i32 [ %143, %.lr.ph.split ], [ %20, %.preheader ], [ %20, %88 ], [ %20, %.ph.lver.orig ], [ %58, %.lr.ph.split.lver.orig ]
+  %116 = phi i32 [ %143, %.lr.ph.split ], [ %21, %.preheader ], [ %20, %88 ], [ %20, %.ph.lver.orig ], [ %58, %.lr.ph.split.lver.orig ]
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count100
   br i1 %exitcond101.not, label %._crit_edge90, label %.preheader, !llvm.loop !141
@@ -5321,7 +5321,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit130: ; preds = %13
   br label %367
 
 .thread:                                          ; preds = %85, %81, %103, %108, %111, %114, %117, %120, %123, %126, %129, %132
-  %.186163 = phi i32 [ %.085203, %103 ], [ %.085203, %108 ], [ %.085203, %111 ], [ %.085203, %114 ], [ %.085203, %117 ], [ %.085203, %120 ], [ %.085203, %123 ], [ %.085203, %126 ], [ %.085203, %129 ], [ %.085203, %132 ], [ %.085203, %81 ], [ %87, %85 ]
+  %.186163 = phi i32 [ %.085203, %81 ], [ %.085203, %103 ], [ %.085203, %108 ], [ %.085203, %111 ], [ %.085203, %114 ], [ %.085203, %117 ], [ %.085203, %120 ], [ %.085203, %123 ], [ %.085203, %126 ], [ %.085203, %129 ], [ %.085203, %132 ], [ %87, %85 ]
   %143 = load ptr, ptr %2, align 8, !tbaa !71
   %144 = getelementptr inbounds nuw i32, ptr %143, i64 %.084204
   %145 = load i32, ptr %144, align 4, !tbaa !103
@@ -5607,7 +5607,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152: ; preds = %233, %.loopexit, %.loopexit.split-lp, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i150
-  %.pn110 = phi { ptr, i32 } [ %234, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i150 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %234, %233 ]
+  %.pn110 = phi { ptr, i32 } [ %234, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i150 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %234, %233 ]
   %237 = load ptr, ptr %14, align 8, !tbaa !72
   %238 = icmp eq ptr %237, %58
   br i1 %238, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit155, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i153
@@ -6015,7 +6015,7 @@ _ZN7Imf_2_511FrameBufferD2Ev.exit:                ; preds = %360
   br label %367
 
 367:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit127, %104, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit130, %246, %149, %366, %291, %282, %275, %273, %271, %269
-  %.pn120.pn.pn = phi { ptr, i32 } [ %.pn107.pn, %366 ], [ %292, %291 ], [ %270, %269 ], [ %276, %275 ], [ %274, %273 ], [ %272, %271 ], [ %283, %282 ], [ %.pn120, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit127 ], [ %.pn118, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit130 ], [ %105, %104 ], [ %.pn113.pn.pn, %246 ], [ %150, %149 ]
+  %.pn120.pn.pn = phi { ptr, i32 } [ %283, %282 ], [ %.pn107.pn, %366 ], [ %292, %291 ], [ %270, %269 ], [ %276, %275 ], [ %274, %273 ], [ %272, %271 ], [ %.pn120, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit127 ], [ %.pn118, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit130 ], [ %105, %104 ], [ %.pn113.pn.pn, %246 ], [ %150, %149 ]
   call void @_ZN7Imf_2_56HeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %6) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %368

@@ -599,7 +599,7 @@ pmix_obj_new_tma.exit44:                          ; preds = %.lr.ph.i.i41, %66, 
   br label %114
 
 114:                                              ; preds = %._crit_edge, %47, %45, %pmix_obj_run_constructors.exit37, %32, %pmix_obj_new_tma.exit, %112, %86
-  %.019 = phi i32 [ -1, %86 ], [ %113, %112 ], [ %31, %pmix_obj_new_tma.exit ], [ %31, %32 ], [ -1, %pmix_obj_run_constructors.exit37 ], [ -1, %45 ], [ -8, %47 ], [ -1, %._crit_edge ]
+  %.019 = phi i32 [ %113, %112 ], [ %31, %32 ], [ -1, %pmix_obj_run_constructors.exit37 ], [ -1, %45 ], [ -1, %86 ], [ -8, %47 ], [ %31, %pmix_obj_new_tma.exit ], [ -1, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.019

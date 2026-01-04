@@ -589,7 +589,7 @@ get_varint64.exit37.i:                            ; preds = %131, %get_varint64.
   br i1 %150, label %steamdiscover_dissect_header.exit, label %43, !llvm.loop !8
 
 steamdiscover_dissect_header.exit:                ; preds = %protobuf_iter_next.exit.i, %147
-  %.0.lcssa.i = phi i64 [ %.1.i, %147 ], [ %.055.i, %protobuf_iter_next.exit.i ]
+  %.0.lcssa.i = phi i64 [ %.055.i, %protobuf_iter_next.exit.i ], [ %.1.i, %147 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %or.cond = icmp ult i64 %.0.lcssa.i, 11
@@ -2076,7 +2076,7 @@ get_varint64.exit194:                             ; preds = %.preheader260, %get
   br label %protobuf_iter_next.exit152.thread
 
 protobuf_iter_next.exit152.thread:                ; preds = %protobuf_iter_next.exit152, %343, %get_varint64.exit140, %462, %protobuf_verify_wiretype.exit188, %protobuf_verify_wiretype.exit181, %protobuf_verify_wiretype.exit174, %protobuf_verify_wiretype.exit167, %254, %protobuf_verify_wiretype.exit134, %protobuf_verify_wiretype.exit127, %protobuf_verify_wiretype.exit120, %142, %protobuf_verify_wiretype.exit110, %protobuf_verify_wiretype.exit103, %protobuf_verify_wiretype.exit, %481, %get_varint64.exit194, %get_varint64.exit191, %get_varint64.exit184, %get_varint64.exit177, %get_varint64.exit170, %get_varint64.exit137, %get_varint64.exit130, %get_varint64.exit123, %165, %get_varint64.exit113, %get_varint64.exit106, %get_varint64.exit
-  %.0228 = phi i32 [ %482, %481 ], [ %.2230, %get_varint64.exit ], [ %58, %protobuf_verify_wiretype.exit ], [ %.4, %get_varint64.exit106 ], [ %87, %protobuf_verify_wiretype.exit103 ], [ %.6, %get_varint64.exit113 ], [ %116, %protobuf_verify_wiretype.exit110 ], [ %166, %165 ], [ %143, %142 ], [ %.10, %get_varint64.exit123 ], [ %170, %protobuf_verify_wiretype.exit120 ], [ %.12, %get_varint64.exit130 ], [ %199, %protobuf_verify_wiretype.exit127 ], [ %.14, %get_varint64.exit137 ], [ %228, %protobuf_verify_wiretype.exit134 ], [ %255, %254 ], [ %.18, %get_varint64.exit170 ], [ %350, %protobuf_verify_wiretype.exit167 ], [ %.20, %get_varint64.exit177 ], [ %379, %protobuf_verify_wiretype.exit174 ], [ %.22, %get_varint64.exit184 ], [ %407, %protobuf_verify_wiretype.exit181 ], [ %.24, %get_varint64.exit191 ], [ %436, %protobuf_verify_wiretype.exit188 ], [ %480, %get_varint64.exit194 ], [ %463, %462 ], [ %270, %get_varint64.exit140 ], [ %270, %343 ], [ %270, %protobuf_iter_next.exit152 ]
+  %.0228 = phi i32 [ %482, %481 ], [ %.2230, %get_varint64.exit ], [ %58, %protobuf_verify_wiretype.exit ], [ %.4, %get_varint64.exit106 ], [ %87, %protobuf_verify_wiretype.exit103 ], [ %.6, %get_varint64.exit113 ], [ %116, %protobuf_verify_wiretype.exit110 ], [ %166, %165 ], [ %143, %142 ], [ %.10, %get_varint64.exit123 ], [ %170, %protobuf_verify_wiretype.exit120 ], [ %.12, %get_varint64.exit130 ], [ %199, %protobuf_verify_wiretype.exit127 ], [ %.14, %get_varint64.exit137 ], [ %228, %protobuf_verify_wiretype.exit134 ], [ %463, %462 ], [ %255, %254 ], [ %.18, %get_varint64.exit170 ], [ %350, %protobuf_verify_wiretype.exit167 ], [ %.20, %get_varint64.exit177 ], [ %379, %protobuf_verify_wiretype.exit174 ], [ %.22, %get_varint64.exit184 ], [ %407, %protobuf_verify_wiretype.exit181 ], [ %.24, %get_varint64.exit191 ], [ %436, %protobuf_verify_wiretype.exit188 ], [ %480, %get_varint64.exit194 ], [ %270, %get_varint64.exit140 ], [ %270, %343 ], [ %270, %protobuf_iter_next.exit152 ]
   %483 = add i32 %.0228, %52
   store i32 %483, ptr %23, align 8
   %484 = sub i32 %53, %.0228

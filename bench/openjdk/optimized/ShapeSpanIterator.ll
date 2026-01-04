@@ -265,7 +265,7 @@ GetSpanData.exit:                                 ; preds = %13
   br label %subdivideLine.exit
 
 subdivideLine.exit:                               ; preds = %59, %61
-  %.033.i = phi i8 [ %60, %59 ], [ %62, %61 ]
+  %.033.i = phi i8 [ %62, %61 ], [ %60, %59 ]
   %.not338 = icmp eq i8 %.033.i, 0
   br i1 %.not338, label %65, label %subdivideLine.exit.subdivideLine.exit.thread_crit_edge
 
@@ -281,7 +281,7 @@ subdivideLine.exit.thread:                        ; preds = %subdivideLine.exit.
   br label %65
 
 65:                                               ; preds = %26, %subdivideLine.exit, %subdivideLine.exit.thread
-  %66 = phi i1 [ true, %subdivideLine.exit.thread ], [ false, %subdivideLine.exit ], [ true, %26 ]
+  %66 = phi i1 [ true, %subdivideLine.exit.thread ], [ true, %26 ], [ false, %subdivideLine.exit ]
   %67 = getelementptr inbounds nuw i8, ptr %14, i64 51
   %68 = load i8, ptr %67, align 1
   %.not339 = icmp eq i8 %68, 0
@@ -444,7 +444,7 @@ subdivideLine.exit.thread:                        ; preds = %subdivideLine.exit.
   br label %subdivideLine.exit349
 
 subdivideLine.exit349:                            ; preds = %154, %156
-  %.033.i347 = phi i8 [ %155, %154 ], [ %157, %156 ]
+  %.033.i347 = phi i8 [ %157, %156 ], [ %155, %154 ]
   %.not336 = icmp eq i8 %.033.i347, 0
   br i1 %.not336, label %.critedge343, label %subdivideLine.exit349.thread
 
@@ -924,7 +924,7 @@ subdivideLine.exit349.thread:                     ; preds = %128, %139, %144, %s
   br label %subdivideLine.exit355
 
 subdivideLine.exit355:                            ; preds = %410, %412
-  %.033.i353 = phi i8 [ %411, %410 ], [ %413, %412 ]
+  %.033.i353 = phi i8 [ %413, %412 ], [ %411, %410 ]
   %.not325 = icmp eq i8 %.033.i353, 0
   br i1 %.not325, label %.critedge343, label %subdivideLine.exit355.subdivideLine.exit355.thread_crit_edge
 
@@ -943,7 +943,7 @@ subdivideLine.exit355.thread:                     ; preds = %subdivideLine.exit3
   call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #15
   br label %.critedge
 
-.critedge343:                                     ; preds = %subdivideLine.exit349, %215, %303, %subdivideLine.exit355, %109
+.critedge343:                                     ; preds = %303, %215, %subdivideLine.exit355, %subdivideLine.exit349, %109
   call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #15
   br label %.critedge
 
@@ -995,7 +995,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @subdivideLine(ptr noundef capt
   br label %31
 
 31:                                               ; preds = %5, %12, %17, %29, %27
-  %.033 = phi i8 [ %28, %27 ], [ %30, %29 ], [ 1, %17 ], [ 1, %12 ], [ 1, %5 ]
+  %.033 = phi i8 [ %30, %29 ], [ %28, %27 ], [ 1, %17 ], [ 1, %12 ], [ 1, %5 ]
   ret i8 %.033
 }
 
@@ -1151,7 +1151,7 @@ ptSegDistSq.exit:                                 ; preds = %53, %61, %67
   br label %.loopexit
 
 .loopexit:                                        ; preds = %76, %34, %38, %42, %91, %50
-  %.0 = phi i8 [ %51, %50 ], [ %92, %91 ], [ 0, %76 ], [ 1, %34 ], [ 1, %38 ], [ 1, %42 ]
+  %.0 = phi i8 [ %92, %91 ], [ %51, %50 ], [ 0, %76 ], [ 1, %38 ], [ 1, %42 ], [ 1, %34 ]
   ret i8 %.0
 }
 
@@ -1359,7 +1359,7 @@ ptSegDistSq.exit:                                 ; preds = %83, %91, %97
   br label %.loopexit
 
 .loopexit:                                        ; preds = %109, %64, %68, %72, %136, %80
-  %.0 = phi i8 [ %81, %80 ], [ %137, %136 ], [ 0, %109 ], [ 1, %64 ], [ 1, %68 ], [ 1, %72 ]
+  %.0 = phi i8 [ %137, %136 ], [ %81, %80 ], [ 0, %109 ], [ 1, %68 ], [ 1, %72 ], [ 1, %64 ]
   ret i8 %.0
 }
 
@@ -1609,7 +1609,7 @@ GetSpanData.exit:                                 ; preds = %12
   br label %GetSpanData.exit.thread
 
 GetSpanData.exit.thread:                          ; preds = %17, %11, %GetSpanData.exit, %19
-  %.0 = phi i8 [ 1, %19 ], [ 0, %GetSpanData.exit ], [ 0, %11 ], [ 0, %17 ]
+  %.0 = phi i8 [ 0, %GetSpanData.exit ], [ 1, %19 ], [ 0, %11 ], [ 0, %17 ]
   ret i8 %.0
 }
 
@@ -2755,7 +2755,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @appendSegment(ptr noundef capt
   br label %72
 
 72:                                               ; preds = %24, %5, %13, %16, %36
-  %.0 = phi i8 [ 1, %36 ], [ 1, %16 ], [ 1, %13 ], [ 1, %5 ], [ 0, %24 ]
+  %.0 = phi i8 [ 1, %36 ], [ 1, %5 ], [ 1, %16 ], [ 1, %13 ], [ 0, %24 ]
   ret i8 %.0
 }
 
@@ -2843,7 +2843,7 @@ GetSpanData.exit._crit_edge:                      ; preds = %GetSpanData.exit
   br label %subdivideLine.exit
 
 subdivideLine.exit:                               ; preds = %46, %48
-  %.033.i = phi i8 [ %47, %46 ], [ %49, %48 ]
+  %.033.i = phi i8 [ %49, %48 ], [ %47, %46 ]
   %.not = icmp eq i8 %.033.i, 0
   br i1 %.not, label %50, label %subdivideLine.exit.subdivideLine.exit.thread_crit_edge
 
@@ -3051,7 +3051,7 @@ GetSpanData.exit:                                 ; preds = %12
   br label %subdivideLine.exit
 
 subdivideLine.exit:                               ; preds = %56, %58
-  %.033.i = phi i8 [ %57, %56 ], [ %59, %58 ]
+  %.033.i = phi i8 [ %59, %58 ], [ %57, %56 ]
   %.not52 = icmp eq i8 %.033.i, 0
   br i1 %.not52, label %60, label %subdivideLine.exit.thread
 
@@ -3612,7 +3612,7 @@ GetSpanData.exit._crit_edge:                      ; preds = %GetSpanData.exit
   br label %subdivideLine.exit
 
 subdivideLine.exit:                               ; preds = %44, %46
-  %.033.i = phi i8 [ %45, %44 ], [ %47, %46 ]
+  %.033.i = phi i8 [ %47, %46 ], [ %45, %44 ]
   %.not = icmp eq i8 %.033.i, 0
   br i1 %.not, label %48, label %subdivideLine.exit.subdivideLine.exit.thread_crit_edge
 
@@ -3719,7 +3719,7 @@ GetSpanData.exit._crit_edge:                      ; preds = %GetSpanData.exit
   br label %subdivideLine.exit
 
 subdivideLine.exit:                               ; preds = %44, %46
-  %.033.i = phi i8 [ %45, %44 ], [ %47, %46 ]
+  %.033.i = phi i8 [ %47, %46 ], [ %45, %44 ]
   %.not = icmp eq i8 %.033.i, 0
   br i1 %.not, label %48, label %subdivideLine.exit.subdivideLine.exit.thread_crit_edge
 
@@ -3839,7 +3839,7 @@ define internal zeroext range(i8 0, 2) i8 @PCMoveTo(ptr noundef captures(none) %
   br label %subdivideLine.exit
 
 subdivideLine.exit:                               ; preds = %33, %35
-  %.033.i = phi i8 [ %34, %33 ], [ %36, %35 ]
+  %.033.i = phi i8 [ %36, %35 ], [ %34, %33 ]
   %.not = icmp eq i8 %.033.i, 0
   br i1 %.not, label %39, label %subdivideLine.exit.subdivideLine.exit.thread_crit_edge
 
@@ -3855,7 +3855,7 @@ subdivideLine.exit.thread:                        ; preds = %subdivideLine.exit.
   br label %39
 
 39:                                               ; preds = %3, %subdivideLine.exit, %subdivideLine.exit.thread
-  %.060 = phi i8 [ 0, %subdivideLine.exit.thread ], [ 1, %subdivideLine.exit ], [ 0, %3 ]
+  %.060 = phi i8 [ 0, %subdivideLine.exit.thread ], [ 0, %3 ], [ 1, %subdivideLine.exit ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 51
   %41 = load i8, ptr %40, align 1
   %.not61 = icmp eq i8 %41, 0
@@ -4017,7 +4017,7 @@ define internal zeroext range(i8 0, 2) i8 @PCLineTo(ptr noundef captures(none) %
   br label %subdivideLine.exit
 
 subdivideLine.exit:                               ; preds = %43, %45
-  %.033.i = phi i8 [ %44, %43 ], [ %46, %45 ]
+  %.033.i = phi i8 [ %46, %45 ], [ %44, %43 ]
   %.not49 = icmp eq i8 %.033.i, 0
   br i1 %.not49, label %75, label %subdivideLine.exit.thread
 
@@ -4497,7 +4497,7 @@ define internal zeroext range(i8 0, 2) i8 @PCClosePath(ptr noundef captures(none
   br label %subdivideLine.exit
 
 subdivideLine.exit:                               ; preds = %31, %33
-  %.033.i = phi i8 [ %32, %31 ], [ %34, %33 ]
+  %.033.i = phi i8 [ %34, %33 ], [ %32, %31 ]
   %.not = icmp eq i8 %.033.i, 0
   br i1 %.not, label %37, label %subdivideLine.exit.subdivideLine.exit.thread_crit_edge
 
@@ -4513,7 +4513,7 @@ subdivideLine.exit.thread:                        ; preds = %subdivideLine.exit.
   br label %37
 
 37:                                               ; preds = %1, %subdivideLine.exit, %subdivideLine.exit.thread
-  %.0 = phi i8 [ 0, %subdivideLine.exit.thread ], [ 1, %subdivideLine.exit ], [ 0, %1 ]
+  %.0 = phi i8 [ 0, %subdivideLine.exit.thread ], [ 0, %1 ], [ 1, %subdivideLine.exit ]
   ret i8 %.0
 }
 
@@ -4577,7 +4577,7 @@ define internal zeroext range(i8 0, 2) i8 @PCPathDone(ptr noundef captures(none)
   br label %subdivideLine.exit
 
 subdivideLine.exit:                               ; preds = %31, %33
-  %.033.i = phi i8 [ %32, %31 ], [ %34, %33 ]
+  %.033.i = phi i8 [ %34, %33 ], [ %32, %31 ]
   %.not = icmp eq i8 %.033.i, 0
   br i1 %.not, label %37, label %subdivideLine.exit.subdivideLine.exit.thread_crit_edge
 
@@ -4593,7 +4593,7 @@ subdivideLine.exit.thread:                        ; preds = %subdivideLine.exit.
   br label %37
 
 37:                                               ; preds = %1, %subdivideLine.exit, %subdivideLine.exit.thread
-  %.0 = phi i8 [ 0, %subdivideLine.exit.thread ], [ 1, %subdivideLine.exit ], [ 0, %1 ]
+  %.0 = phi i8 [ 0, %subdivideLine.exit.thread ], [ 0, %1 ], [ 1, %subdivideLine.exit ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 3, ptr %38, align 8
   ret i8 %.0
@@ -4721,7 +4721,7 @@ define internal range(i32 -1, 2) i32 @sortSegmentsByLeadingY(ptr noundef readonl
   br label %26
 
 26:                                               ; preds = %24, %18, %16, %12, %10, %2
-  %.0 = phi i32 [ -1, %2 ], [ 1, %10 ], [ -1, %12 ], [ 1, %16 ], [ -1, %18 ], [ %., %24 ]
+  %.0 = phi i32 [ -1, %18 ], [ -1, %2 ], [ 1, %10 ], [ -1, %12 ], [ 1, %16 ], [ %., %24 ]
   ret i32 %.0
 }
 

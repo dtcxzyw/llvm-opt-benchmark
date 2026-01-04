@@ -230,7 +230,7 @@ php_dom_first_child_of_container_node.exit.i:     ; preds = %53, %51
   br label %dom_fetch_first_iteration_item.exit
 
 dom_fetch_first_iteration_item.exit:              ; preds = %php_dom_first_child_of_container_node.exit.i, %46, %43, %63
-  %.039 = phi ptr [ %64, %63 ], [ %45, %43 ], [ %47, %46 ], [ %62, %php_dom_first_child_of_container_node.exit.i ]
+  %.039 = phi ptr [ %62, %php_dom_first_child_of_container_node.exit.i ], [ %45, %43 ], [ %47, %46 ], [ %64, %63 ]
   %.not48 = icmp eq ptr %.039, null
   br i1 %.not48, label %dom_fetch_first_iteration_item.exit.thread, label %65
 
@@ -239,8 +239,8 @@ dom_fetch_first_iteration_item.exit:              ; preds = %php_dom_first_child
   %67 = call zeroext i1 @php_dom_create_object(ptr noundef nonnull %.039, ptr noundef nonnull %15, ptr noundef %66) #9
   br label %dom_fetch_first_iteration_item.exit.thread
 
-dom_fetch_first_iteration_item.exit.thread:       ; preds = %36, %28, %33, %6, %23, %dom_fetch_first_iteration_item.exit, %65, %5
-  %.0 = phi ptr [ null, %5 ], [ %7, %65 ], [ %7, %dom_fetch_first_iteration_item.exit ], [ %7, %23 ], [ %7, %6 ], [ %7, %33 ], [ %7, %28 ], [ %7, %36 ]
+dom_fetch_first_iteration_item.exit.thread:       ; preds = %36, %33, %28, %23, %6, %dom_fetch_first_iteration_item.exit, %65, %5
+  %.0 = phi ptr [ null, %5 ], [ %7, %65 ], [ %7, %dom_fetch_first_iteration_item.exit ], [ %7, %6 ], [ %7, %23 ], [ %7, %28 ], [ %7, %33 ], [ %7, %36 ]
   ret ptr %.0
 }
 
@@ -384,7 +384,7 @@ php_dom_follow_spec_doc_ref.exit.thread:          ; preds = %23, %php_dom_follow
   br label %44
 
 44:                                               ; preds = %13, %php_dom_follow_spec_doc_ref.exit.thread, %30, %10
-  %.sink = phi i32 [ 262, %php_dom_follow_spec_doc_ref.exit.thread ], [ 262, %30 ], [ 4, %10 ], [ 1, %13 ]
+  %.sink = phi i32 [ 4, %10 ], [ 262, %php_dom_follow_spec_doc_ref.exit.thread ], [ 262, %30 ], [ 1, %13 ]
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %.sink, ptr %45, align 8, !tbaa !38
   ret void
@@ -656,7 +656,7 @@ php_dom_first_child_of_container_node.exit:       ; preds = %102, %100, %105
   br label %128
 
 .critedge:                                        ; preds = %120, %php_dom_first_child_of_container_node.exit, %php_dom_follow_spec_doc_ref.exit.thread
-  %.0 = phi ptr [ %79, %php_dom_follow_spec_doc_ref.exit.thread ], [ %119, %php_dom_first_child_of_container_node.exit ], [ %124, %120 ]
+  %.0 = phi ptr [ %124, %120 ], [ %119, %php_dom_first_child_of_container_node.exit ], [ %79, %php_dom_follow_spec_doc_ref.exit.thread ]
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #9
   store i32 0, ptr %5, align 8, !tbaa !38
   %.not73 = icmp eq ptr %.0, null

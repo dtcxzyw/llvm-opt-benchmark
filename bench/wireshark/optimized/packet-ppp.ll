@@ -2521,7 +2521,7 @@ define internal i32 @dissect_ppp_raw_hdlc(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %35, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %29, %23
-  %.029.lcssa.i = phi i32 [ %34, %29 ], [ %.0292.i, %23 ]
+  %.029.lcssa.i = phi i32 [ %.0292.i, %23 ], [ %34, %29 ]
   %36 = icmp eq i32 %.029.lcssa.i, 0
   br i1 %36, label %remove_escape_chars.exit.thread, label %remove_escape_chars.exit
 
@@ -2576,7 +2576,7 @@ remove_escape_chars.exit:                         ; preds = %._crit_edge.i
   br i1 %61, label %.lr.ph.i118, label %._crit_edge.i125, !llvm.loop !6
 
 ._crit_edge.i125:                                 ; preds = %55, %49
-  %.029.lcssa.i126 = phi i32 [ %60, %55 ], [ %.0292.i120, %49 ]
+  %.029.lcssa.i126 = phi i32 [ %.0292.i120, %49 ], [ %60, %55 ]
   %62 = icmp eq i32 %.029.lcssa.i126, 0
   br i1 %62, label %remove_escape_chars.exit128.thread, label %remove_escape_chars.exit128
 
@@ -2664,7 +2664,7 @@ remove_escape_chars.exit128.thread:               ; preds = %38, %._crit_edge.i1
   br i1 %103, label %.lr.ph.i130, label %._crit_edge.i137, !llvm.loop !6
 
 ._crit_edge.i137:                                 ; preds = %97, %91
-  %.029.lcssa.i138 = phi i32 [ %102, %97 ], [ %.0292.i132, %91 ]
+  %.029.lcssa.i138 = phi i32 [ %.0292.i132, %91 ], [ %102, %97 ]
   %104 = icmp eq i32 %.029.lcssa.i138, 0
   br i1 %104, label %remove_escape_chars.exit.thread, label %remove_escape_chars.exit140
 
@@ -2733,7 +2733,7 @@ remove_escape_chars.exit140:                      ; preds = %._crit_edge.i137
   br i1 %136, label %.lr.ph.i142, label %._crit_edge.i149, !llvm.loop !6
 
 ._crit_edge.i149:                                 ; preds = %130, %124
-  %.029.lcssa.i150 = phi i32 [ %135, %130 ], [ %.0292.i144, %124 ]
+  %.029.lcssa.i150 = phi i32 [ %.0292.i144, %124 ], [ %135, %130 ]
   %137 = icmp eq i32 %.029.lcssa.i150, 0
   br i1 %137, label %remove_escape_chars.exit152.thread, label %remove_escape_chars.exit152
 

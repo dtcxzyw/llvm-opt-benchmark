@@ -498,7 +498,7 @@ _ZL12compareBytesP8UCMTablePK9UCMappingS0_S3_a.exit.thread63.i: ; preds = %76, %
   br label %_ZL15compareMappingsP8UCMTablePK9UCMappingS0_S3_a.exit
 
 _ZL15compareMappingsP8UCMTablePK9UCMappingS0_S3_a.exit: ; preds = %.lr.ph.i.i, %.lr.ph.i30.i, %42, %_ZL14compareUnicodeP8UCMTablePK9UCMappingS0_S3_.exit.i, %_ZL12compareBytesP8UCMTablePK9UCMappingS0_S3_a.exit.thread63.i
-  %.023.i = phi i32 [ %90, %_ZL12compareBytesP8UCMTablePK9UCMappingS0_S3_a.exit.thread63.i ], [ %.028.i.i, %_ZL14compareUnicodeP8UCMTablePK9UCMappingS0_S3_.exit.i ], [ %49, %42 ], [ %83, %.lr.ph.i30.i ], [ %37, %.lr.ph.i.i ]
+  %.023.i = phi i32 [ %90, %_ZL12compareBytesP8UCMTablePK9UCMappingS0_S3_a.exit.thread63.i ], [ %.028.i.i, %_ZL14compareUnicodeP8UCMTablePK9UCMappingS0_S3_.exit.i ], [ %83, %.lr.ph.i30.i ], [ %49, %42 ], [ %37, %.lr.ph.i.i ]
   ret i32 %.023.i
 }
 
@@ -670,7 +670,7 @@ _ZL12compareBytesP8UCMTablePK9UCMappingS0_S3_a.exit44.i: ; preds = %.lr.ph.i39.i
   br label %_ZL12compareBytesP8UCMTablePK9UCMappingS0_S3_a.exit.i
 
 _ZL12compareBytesP8UCMTablePK9UCMappingS0_S3_a.exit.i: ; preds = %._crit_edge.i50.i, %60, %_ZL12compareBytesP8UCMTablePK9UCMappingS0_S3_a.exit44.i
-  %.0.i = phi i32 [ %.030.i36.i, %_ZL12compareBytesP8UCMTablePK9UCMappingS0_S3_a.exit44.i ], [ %63, %60 ], [ %89, %._crit_edge.i50.i ]
+  %.0.i = phi i32 [ %63, %60 ], [ %89, %._crit_edge.i50.i ], [ %.030.i36.i, %_ZL12compareBytesP8UCMTablePK9UCMappingS0_S3_a.exit44.i ]
   %.not26.i = icmp eq i32 %.0.i, 0
   br i1 %.not26.i, label %_ZL12compareBytesP8UCMTablePK9UCMappingS0_S3_a.exit.thread63.i, label %_ZL15compareMappingsP8UCMTablePK9UCMappingS0_S3_a.exit
 
@@ -1483,7 +1483,7 @@ _ZL14compareUnicodeP8UCMTablePK9UCMappingS0_S3_.exit.i: ; preds = %.lr.ph.i.i, %
   br i1 %182, label %_ZL19checkBaseExtUnicodeP9UCMStatesP8UCMTableS2_aa.exit, label %.lr.ph.i, !llvm.loop !49
 
 _ZL19checkBaseExtUnicodeP9UCMStatesP8UCMTableS2_aa.exit: ; preds = %.preheader.i, %181, %39, %44, %19
-  %.015.i = phi i8 [ 0, %19 ], [ %.025.i, %44 ], [ %.025.i, %39 ], [ %.2.i, %181 ], [ %.025.i, %.preheader.i ]
+  %.015.i = phi i8 [ %.025.i, %39 ], [ 0, %19 ], [ %.025.i, %44 ], [ %.2.i, %181 ], [ %.025.i, %.preheader.i ]
   %183 = getelementptr i8, ptr %0, i64 132113
   %.val = load i8, ptr %183, align 1, !tbaa !50
   %184 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -1829,7 +1829,7 @@ _ZL12compareBytesP8UCMTablePK9UCMappingS0_S3_a.exit.i: ; preds = %.lr.ph.i.i36, 
   br i1 %366, label %_ZL17checkBaseExtBytesP9UCMStatesP8UCMTableS2_aa.exit, label %.lr.ph.i29, !llvm.loop !54
 
 _ZL17checkBaseExtBytesP9UCMStatesP8UCMTableS2_aa.exit: ; preds = %.split.us.i, %365, %218, %209, %231, %_ZL19checkBaseExtUnicodeP9UCMStatesP8UCMTableS2_aa.exit
-  %.08111.i = phi i8 [ 0, %_ZL19checkBaseExtUnicodeP9UCMStatesP8UCMTableS2_aa.exit ], [ %.08125.i, %231 ], [ %.08125.i, %209 ], [ %.08125.i, %218 ], [ %.2.i32, %365 ], [ %.08125.i, %.split.us.i ]
+  %.08111.i = phi i8 [ %.08125.i, %231 ], [ %.08125.i, %218 ], [ %.08125.i, %209 ], [ 0, %_ZL19checkBaseExtUnicodeP9UCMStatesP8UCMTableS2_aa.exit ], [ %.2.i32, %365 ], [ %.08125.i, %.split.us.i ]
   %367 = or i8 %.08111.i, %.015.i
   %.not25 = icmp samesign ult i8 %367, 2
   br i1 %.not25, label %368, label %454
@@ -2398,7 +2398,7 @@ _ZL15compareMappingsP8UCMTablePK9UCMappingS0_S3_a.exit.thread: ; preds = %.lr.ph
   br label %195
 
 195:                                              ; preds = %168, %168, %190
-  %.2 = phi ptr [ %.0122, %168 ], [ %194, %190 ], [ %.0122, %168 ]
+  %.2 = phi ptr [ %.0122, %168 ], [ %.0122, %168 ], [ %194, %190 ]
   %196 = getelementptr inbounds nuw i8, ptr %.090120, i64 12
   %197 = add nsw i32 %.096118, 1
   br label %198
@@ -2737,7 +2737,7 @@ ucm_mappingType.exit:                             ; preds = %59
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %89, %.thread18.i, %85, %75, %79
-  %.146 = phi i8 [ %.04561, %79 ], [ %.04561, %75 ], [ %.04561, %85 ], [ %.04561, %.thread18.i ], [ %.04561, %89 ], [ 1, %.thread.sink.split ]
+  %.146 = phi i8 [ %.04561, %85 ], [ %.04561, %89 ], [ %.04561, %.thread18.i ], [ %.04561, %79 ], [ %.04561, %75 ], [ 1, %.thread.sink.split ]
   %112 = getelementptr inbounds nuw i8, ptr %.04859, i64 12
   %113 = icmp ult ptr %112, %8
   br i1 %113, label %15, label %._crit_edge, !llvm.loop !62
@@ -3231,7 +3231,7 @@ thread-pre-split:                                 ; preds = %9, %13
   br label %67, !llvm.loop !65
 
 ucm_parseBytes.exit.thread:                       ; preds = %81, %72, %75
-  %.str.5.sink = phi ptr [ @.str.5, %75 ], [ @.str.5, %72 ], [ @.str.6, %81 ]
+  %.str.5.sink = phi ptr [ @.str.5, %72 ], [ @.str.5, %75 ], [ @.str.6, %81 ]
   %85 = load ptr, ptr @stderr, align 8, !tbaa !32
   %86 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %85, ptr noundef nonnull %.str.5.sink, ptr noundef %3) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3292,7 +3292,7 @@ ucm_parseBytes.exit.thread:                       ; preds = %81, %72, %75
   br label %110
 
 110:                                              ; preds = %ucm_parseBytes.exit.thread, %62, %.loopexit, %102, %87, %49, %40, %35, %28
-  %.042 = phi i8 [ 0, %49 ], [ 0, %87 ], [ 1, %.loopexit ], [ 0, %102 ], [ 0, %62 ], [ 0, %28 ], [ 0, %35 ], [ 0, %40 ], [ 0, %ucm_parseBytes.exit.thread ]
+  %.042 = phi i8 [ 0, %49 ], [ 0, %40 ], [ 0, %87 ], [ 1, %.loopexit ], [ 0, %102 ], [ 0, %62 ], [ 0, %28 ], [ 0, %35 ], [ 0, %ucm_parseBytes.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i8 %.042
@@ -3626,7 +3626,7 @@ define signext range(i8 0, 2) i8 @ucm_addMappingFromLine(ptr noundef readonly ca
   br label %17
 
 17:                                               ; preds = %13, %15, %4, %10, %10, %10
-  %.0 = phi i8 [ 1, %10 ], [ 1, %10 ], [ 1, %10 ], [ 1, %4 ], [ 0, %13 ], [ %16, %15 ]
+  %.0 = phi i8 [ 1, %4 ], [ 1, %10 ], [ 1, %10 ], [ 1, %10 ], [ 0, %13 ], [ %16, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3723,7 +3723,7 @@ define void @ucm_readTable(ptr noundef readonly captures(none) %0, ptr noundef %
   br label %ucm_addMappingFromLine.exit
 
 ucm_addMappingFromLine.exit:                      ; preds = %24, %26, %26, %26, %29, %31
-  %.0.i = phi i8 [ 1, %26 ], [ 1, %26 ], [ 1, %26 ], [ 1, %24 ], [ 0, %29 ], [ %32, %31 ]
+  %.0.i = phi i8 [ 1, %24 ], [ 1, %26 ], [ 1, %26 ], [ 1, %26 ], [ 0, %29 ], [ %32, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

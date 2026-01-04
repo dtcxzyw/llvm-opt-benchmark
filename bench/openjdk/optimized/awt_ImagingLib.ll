@@ -569,7 +569,7 @@ freeArray.exit:                                   ; preds = %129, %130
   br label %258
 
 258:                                              ; preds = %250, %256, %24, %20, %6, %151, %.thread175, %freeArray.exit, %109, %100, %95, %90, %86, %.thread
-  %.0137 = phi i32 [ 0, %.thread ], [ 0, %86 ], [ 0, %90 ], [ 0, %95 ], [ 0, %100 ], [ 0, %109 ], [ 0, %freeArray.exit ], [ 0, %.thread175 ], [ 0, %151 ], [ 0, %6 ], [ 0, %20 ], [ 0, %24 ], [ %.1154, %256 ], [ %.1154, %250 ]
+  %.0137 = phi i32 [ 0, %24 ], [ 0, %6 ], [ 0, %20 ], [ 0, %.thread ], [ 0, %86 ], [ 0, %90 ], [ 0, %95 ], [ 0, %100 ], [ 0, %109 ], [ 0, %freeArray.exit ], [ 0, %.thread175 ], [ 0, %151 ], [ %.1154, %256 ], [ %.1154, %250 ]
   ret i32 %.0137
 }
 
@@ -815,8 +815,8 @@ define internal fastcc i32 @setImageHints(ptr noundef readonly captures(none) %0
   br label %.loopexit
 
 .loopexit:                                        ; preds = %90, %83, %105, %107, %110, %113, %103, %100
-  %.1 = phi i32 [ %.0100, %100 ], [ %.0100, %103 ], [ %68, %107 ], [ 2, %113 ], [ %68, %110 ], [ %68, %105 ], [ %68, %83 ], [ %68, %90 ]
-  %.099 = phi i32 [ %70, %100 ], [ 2, %103 ], [ %70, %107 ], [ %70, %113 ], [ %70, %110 ], [ %70, %105 ], [ %70, %83 ], [ %70, %90 ]
+  %.1 = phi i32 [ %.0100, %100 ], [ %.0100, %103 ], [ %68, %105 ], [ %68, %107 ], [ 2, %113 ], [ %68, %110 ], [ %68, %83 ], [ %68, %90 ]
+  %.099 = phi i32 [ %70, %100 ], [ 2, %103 ], [ %70, %105 ], [ %70, %107 ], [ %70, %113 ], [ %70, %110 ], [ %70, %83 ], [ %70, %90 ]
   %114 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %114, align 4
   %115 = icmp eq i32 %.1, %.099
@@ -848,7 +848,7 @@ define internal fastcc i32 @setImageHints(ptr noundef readonly captures(none) %0
   br label %128
 
 128:                                              ; preds = %121, %119, %116, %.loopexit, %127
-  %.sink = phi i32 [ 1, %127 ], [ 0, %.loopexit ], [ 0, %116 ], [ 0, %119 ], [ 1, %121 ]
+  %.sink = phi i32 [ 0, %.loopexit ], [ 0, %119 ], [ 1, %127 ], [ 0, %116 ], [ 1, %121 ]
   %129 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %.sink, ptr %129, align 4
   %130 = icmp sgt i32 %24, %.01027
@@ -1049,7 +1049,7 @@ define internal fastcc range(i32 -1, 1) i32 @allocateArray(ptr noundef %0, ptr n
   br i1 %exitcond101.not.i, label %.loopexit.i, label %.preheader83.us.i, !llvm.loop !19
 
 .loopexit.i:                                      ; preds = %._crit_edge.us.i, %._crit_edge.us97.i, %.preheader83.lr.ph.i, %86, %.preheader.lr.ph.i, %61, %58
-  %.077.i = phi i32 [ -1, %58 ], [ 0, %61 ], [ 0, %86 ], [ 0, %.preheader.lr.ph.i ], [ 0, %.preheader83.lr.ph.i ], [ 0, %._crit_edge.us97.i ], [ 0, %._crit_edge.us.i ]
+  %.077.i = phi i32 [ -1, %58 ], [ 0, %61 ], [ 0, %86 ], [ 0, %.preheader83.lr.ph.i ], [ 0, %.preheader.lr.ph.i ], [ 0, %._crit_edge.us97.i ], [ 0, %._crit_edge.us.i ]
   %111 = load ptr, ptr %0, align 8
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 1784
   %113 = load ptr, ptr %112, align 8
@@ -2079,7 +2079,7 @@ expandPackedICRdefault.exit:                      ; preds = %396, %403, %.loopex
   br label %expandICM.exit
 
 expandICM.exit:                                   ; preds = %.loopexit.i, %53, %35, %549, %23, %19, %629, %624, %.loopexit, %547, %expandPackedICRdefault.exit, %expandPackedSCRdefault.exit, %expandPackedBCRdefault.exit, %119
-  %.0 = phi i32 [ %548, %547 ], [ %120, %119 ], [ %.0.i, %expandPackedBCRdefault.exit ], [ %.0.i123, %expandPackedSCRdefault.exit ], [ %.0.i187, %expandPackedICRdefault.exit ], [ 0, %.loopexit ], [ 0, %629 ], [ -1, %624 ], [ -1, %19 ], [ 0, %23 ], [ -1, %549 ], [ -1, %53 ], [ %.077.i, %.loopexit.i ], [ -1, %35 ]
+  %.0 = phi i32 [ -1, %624 ], [ %548, %547 ], [ -1, %549 ], [ %120, %119 ], [ %.0.i, %expandPackedBCRdefault.exit ], [ %.0.i123, %expandPackedSCRdefault.exit ], [ %.0.i187, %expandPackedICRdefault.exit ], [ -1, %19 ], [ 0, %23 ], [ 0, %.loopexit ], [ 0, %629 ], [ %.077.i, %.loopexit.i ], [ -1, %53 ], [ -1, %35 ]
   ret i32 %.0
 }
 
@@ -2218,9 +2218,9 @@ switch.lookup:                                    ; preds = %24
   br label %35
 
 35:                                               ; preds = %switch.lookup, %28
-  %.061.i = phi i64 [ 0, %28 ], [ %switch.load, %switch.lookup ]
-  %.060.i = phi i64 [ 1, %28 ], [ %switch.load172, %switch.lookup ]
-  %.059.i = phi i64 [ 2, %28 ], [ %switch.load174, %switch.lookup ]
+  %.061.i = phi i64 [ %switch.load, %switch.lookup ], [ 0, %28 ]
+  %.060.i = phi i64 [ %switch.load172, %switch.lookup ], [ 1, %28 ]
+  %.059.i = phi i64 [ %switch.load174, %switch.lookup ], [ 2, %28 ]
   %36 = load ptr, ptr %0, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 1776
   %38 = load ptr, ptr %37, align 8
@@ -2338,8 +2338,8 @@ switch.lookup:                                    ; preds = %24
   br label %102
 
 102:                                              ; preds = %98, %92, %.lr.ph108.i.i
-  %.174.i.i = phi i32 [ %.073105.i.i, %92 ], [ %.073105.i.i, %.lr.ph108.i.i ], [ %spec.select.i.i, %98 ]
-  %.172.i.i = phi i32 [ %.071106.i.i, %92 ], [ %.071106.i.i, %.lr.ph108.i.i ], [ %spec.select92.i.i, %98 ]
+  %.174.i.i = phi i32 [ %.073105.i.i, %.lr.ph108.i.i ], [ %spec.select.i.i, %98 ], [ %.073105.i.i, %92 ]
+  %.172.i.i = phi i32 [ %.071106.i.i, %.lr.ph108.i.i ], [ %spec.select92.i.i, %98 ], [ %.071106.i.i, %92 ]
   %103 = add nuw nsw i32 %.0107.i.i, 1
   %104 = getelementptr inbounds nuw i8, ptr %.078104.i.i, i64 4
   %exitcond114.not.i.i = icmp eq i32 %103, %82
@@ -2391,7 +2391,7 @@ switch.lookup:                                    ; preds = %24
   br i1 %exitcond.not.i.i, label %colorMatch.exit.i, label %.lr.ph.i.i, !llvm.loop !45
 
 colorMatch.exit.i:                                ; preds = %126, %124, %102, %96, %.preheader.i.i, %.preheader95.i.i
-  %.077.i.i = phi i32 [ 0, %.preheader.i.i ], [ 0, %.preheader95.i.i ], [ %.0107.i.i, %96 ], [ %.174.i.i, %102 ], [ %.1101.i.i, %124 ], [ %.376.i.i, %126 ]
+  %.077.i.i = phi i32 [ 0, %.preheader95.i.i ], [ %.174.i.i, %102 ], [ 0, %.preheader.i.i ], [ %.0107.i.i, %96 ], [ %.376.i.i, %126 ], [ %.1101.i.i, %124 ]
   %129 = trunc i32 %.077.i.i to i8
   store i8 %129, ptr %.06471.i, align 1
   %130 = load i32, ptr %60, align 8
@@ -2660,7 +2660,7 @@ colorMatch.exit.i:                                ; preds = %126, %124, %102, %9
   br label %storeICMarray.exit
 
 storeICMarray.exit:                               ; preds = %280, %283, %275, %270, %265, %._crit_edge77.i, %49, %35, %28, %23, %._crit_edge, %246, %244, %210, %204, %192, %197, %201, %187, %174, %180, %185, %164, %169, %286, %259, %253, %247, %154
-  %.0103 = phi i32 [ %156, %154 ], [ %252, %247 ], [ %258, %253 ], [ %264, %259 ], [ %289, %286 ], [ -2, %169 ], [ -2, %164 ], [ -2, %185 ], [ -2, %180 ], [ -2, %174 ], [ -2, %187 ], [ -2, %201 ], [ -2, %197 ], [ -2, %192 ], [ -2, %204 ], [ 0, %210 ], [ 0, %244 ], [ 0, %246 ], [ 0, %._crit_edge ], [ -1, %23 ], [ -1, %28 ], [ -1, %35 ], [ -1, %49 ], [ -1, %._crit_edge77.i ], [ %285, %283 ], [ -1, %270 ], [ -1, %265 ], [ -1, %275 ], [ -1, %280 ]
+  %.0103 = phi i32 [ 0, %246 ], [ %156, %154 ], [ -2, %204 ], [ 0, %._crit_edge ], [ 0, %210 ], [ -2, %192 ], [ -2, %187 ], [ -2, %174 ], [ -2, %164 ], [ %289, %286 ], [ %252, %247 ], [ %258, %253 ], [ %264, %259 ], [ -1, %._crit_edge77.i ], [ -2, %169 ], [ -2, %185 ], [ -2, %180 ], [ -2, %201 ], [ -2, %197 ], [ 0, %244 ], [ -1, %23 ], [ -1, %28 ], [ -1, %35 ], [ -1, %49 ], [ -1, %270 ], [ -1, %265 ], [ -1, %280 ], [ -1, %275 ], [ %285, %283 ]
   ret i32 %.0103
 }
 
@@ -3169,7 +3169,7 @@ freeDataArray.exit:                               ; preds = %114, %115
   br label %242
 
 242:                                              ; preds = %234, %240, %21, %17, %6, %135, %.thread207, %freeDataArray.exit, %103, %99, %95, %91, %87, %83, %.thread
-  %.0168 = phi i32 [ 0, %.thread ], [ 0, %83 ], [ -1, %87 ], [ -1, %91 ], [ 0, %95 ], [ 0, %99 ], [ 0, %103 ], [ 0, %freeDataArray.exit ], [ 0, %.thread207 ], [ 0, %135 ], [ 0, %6 ], [ 0, %17 ], [ 0, %21 ], [ %.1185, %240 ], [ %.1185, %234 ]
+  %.0168 = phi i32 [ 0, %21 ], [ 0, %6 ], [ 0, %17 ], [ 0, %.thread ], [ 0, %83 ], [ -1, %87 ], [ -1, %91 ], [ 0, %95 ], [ 0, %99 ], [ 0, %103 ], [ 0, %freeDataArray.exit ], [ 0, %.thread207 ], [ 0, %135 ], [ %.1185, %240 ], [ %.1185, %234 ]
   ret i32 %.0168
 }
 
@@ -3821,7 +3821,7 @@ expandPackedBCR.exit:                             ; preds = %189, %193, %.loopex
   br label %375
 
 375:                                              ; preds = %356, %355, %368, %367, %348, %363, %351, %344, %340, %332, %328, %188, %184, %169, %148, %157, %162, %129, %131, %134, %135, %139, %144, %110, %88, %99, %104, %73, %75, %79, %84, %59, %40, %49, %52, %23, %25, %29, %31, %36, %5, %372, %360, %345, %333, %expandPackedBCR.exit, %176, %117, %66
-  %.0 = phi i32 [ -1, %360 ], [ -1, %372 ], [ 0, %66 ], [ 0, %117 ], [ 0, %176 ], [ %.0.i, %expandPackedBCR.exit ], [ %335, %333 ], [ %347, %345 ], [ -1, %5 ], [ -1, %36 ], [ -1, %31 ], [ -1, %29 ], [ -1, %25 ], [ -1, %23 ], [ -1, %52 ], [ -1, %49 ], [ -1, %40 ], [ -1, %59 ], [ -1, %84 ], [ -1, %79 ], [ -1, %75 ], [ -1, %73 ], [ -1, %104 ], [ -1, %99 ], [ -1, %88 ], [ -1, %110 ], [ -1, %144 ], [ -1, %139 ], [ -1, %135 ], [ -1, %134 ], [ -1, %131 ], [ -1, %129 ], [ -1, %162 ], [ -1, %157 ], [ -1, %148 ], [ -1, %169 ], [ -1, %184 ], [ 0, %188 ], [ -1, %328 ], [ 0, %332 ], [ -1, %340 ], [ 0, %344 ], [ -1, %351 ], [ -1, %363 ], [ -1, %348 ], [ 0, %367 ], [ 0, %368 ], [ 0, %355 ], [ 0, %356 ]
+  %.0 = phi i32 [ -1, %340 ], [ -1, %363 ], [ 0, %344 ], [ -1, %360 ], [ -1, %348 ], [ -1, %351 ], [ -1, %372 ], [ -1, %23 ], [ -1, %40 ], [ 0, %66 ], [ -1, %5 ], [ -1, %73 ], [ -1, %88 ], [ 0, %117 ], [ -1, %59 ], [ -1, %129 ], [ -1, %148 ], [ 0, %176 ], [ -1, %110 ], [ -1, %169 ], [ %.0.i, %expandPackedBCR.exit ], [ -1, %184 ], [ 0, %188 ], [ %335, %333 ], [ -1, %328 ], [ 0, %332 ], [ %347, %345 ], [ -1, %36 ], [ -1, %31 ], [ -1, %29 ], [ -1, %25 ], [ -1, %52 ], [ -1, %49 ], [ -1, %84 ], [ -1, %79 ], [ -1, %75 ], [ -1, %104 ], [ -1, %99 ], [ -1, %144 ], [ -1, %139 ], [ -1, %135 ], [ 0, %356 ], [ -1, %134 ], [ -1, %131 ], [ -1, %162 ], [ -1, %157 ], [ 0, %367 ], [ 0, %368 ], [ 0, %355 ]
   ret i32 %.0
 }
 
@@ -4087,7 +4087,7 @@ define internal fastcc range(i32 -2, 1) i32 @storeRasterArray(ptr noundef %0, pt
   br label %setPackedBCR.exit
 
 setPackedBCR.exit:                                ; preds = %12, %17, %25, %36, %41, %43, %48, %56, %._crit_edge148.i
-  %.0.i = phi i32 [ 0, %._crit_edge148.i ], [ -1, %12 ], [ -1, %17 ], [ -2, %41 ], [ -2, %36 ], [ -2, %25 ], [ -2, %43 ], [ -2, %48 ], [ -1, %56 ]
+  %.0.i = phi i32 [ -1, %17 ], [ -1, %12 ], [ -1, %56 ], [ -2, %36 ], [ 0, %._crit_edge148.i ], [ -2, %48 ], [ -2, %43 ], [ -2, %25 ], [ -2, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %374
@@ -4309,7 +4309,7 @@ setPackedBCR.exit:                                ; preds = %12, %17, %25, %36, 
   br label %setPackedSCR.exit
 
 setPackedSCR.exit:                                ; preds = %129, %134, %142, %153, %158, %160, %165, %173, %._crit_edge147.i
-  %.0.i17 = phi i32 [ 0, %._crit_edge147.i ], [ -1, %129 ], [ -1, %134 ], [ -2, %158 ], [ -2, %153 ], [ -2, %142 ], [ -2, %160 ], [ -2, %165 ], [ -1, %173 ]
+  %.0.i17 = phi i32 [ -1, %134 ], [ -1, %129 ], [ -1, %173 ], [ -2, %153 ], [ 0, %._crit_edge147.i ], [ -2, %165 ], [ -2, %160 ], [ -2, %142 ], [ -2, %158 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %374
@@ -4530,13 +4530,13 @@ setPackedSCR.exit:                                ; preds = %129, %134, %142, %1
   br label %setPackedICR.exit
 
 setPackedICR.exit:                                ; preds = %254, %259, %267, %278, %283, %285, %290, %298, %._crit_edge147.i47
-  %.0.i40 = phi i32 [ 0, %._crit_edge147.i47 ], [ -1, %254 ], [ -1, %259 ], [ -2, %283 ], [ -2, %278 ], [ -2, %267 ], [ -2, %285 ], [ -2, %290 ], [ -1, %298 ]
+  %.0.i40 = phi i32 [ -1, %259 ], [ -1, %254 ], [ -1, %298 ], [ -2, %278 ], [ 0, %._crit_edge147.i47 ], [ -2, %290 ], [ -2, %285 ], [ -2, %267 ], [ -2, %283 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %374
 
 374:                                              ; preds = %3, %125, %250, %setPackedICR.exit, %setPackedSCR.exit, %setPackedBCR.exit
-  %.0 = phi i32 [ %.0.i, %setPackedBCR.exit ], [ %.0.i17, %setPackedSCR.exit ], [ %.0.i40, %setPackedICR.exit ], [ -1, %250 ], [ -1, %125 ], [ -1, %3 ]
+  %.0 = phi i32 [ %.0.i40, %setPackedICR.exit ], [ %.0.i, %setPackedBCR.exit ], [ %.0.i17, %setPackedSCR.exit ], [ -1, %250 ], [ -1, %125 ], [ -1, %3 ]
   ret i32 %.0
 }
 
@@ -4592,7 +4592,7 @@ define internal fastcc i32 @setPixelsFormMlibImage(ptr noundef %0, ptr noundef %
   br label %28
 
 28:                                               ; preds = %18, %23, %21, %13, %3, %8, %25
-  %.0 = phi i32 [ %27, %25 ], [ -1, %8 ], [ -1, %3 ], [ -1, %13 ], [ -1, %21 ], [ -1, %23 ], [ -1, %18 ]
+  %.0 = phi i32 [ -1, %21 ], [ -1, %3 ], [ -1, %23 ], [ -1, %13 ], [ %27, %25 ], [ -1, %8 ], [ -1, %18 ]
   ret i32 %.0
 }
 
@@ -5000,7 +5000,7 @@ freeDataArray.exit87:                             ; preds = %210, %freeDataArray
   br label %219
 
 219:                                              ; preds = %freeDataArray.exit87, %217, %60, %32, %switch.lookup, %20, %6, %162, %freeArray.exit, %117, %108, %86, %42, %26
-  %.0 = phi i32 [ -1, %26 ], [ 0, %42 ], [ 0, %86 ], [ 0, %108 ], [ 0, %117 ], [ 0, %freeArray.exit ], [ 0, %162 ], [ 0, %6 ], [ 0, %20 ], [ 0, %switch.lookup ], [ 0, %32 ], [ 0, %60 ], [ %.169, %217 ], [ %.169, %freeDataArray.exit87 ]
+  %.0 = phi i32 [ 0, %60 ], [ 0, %6 ], [ -1, %26 ], [ 0, %20 ], [ 0, %switch.lookup ], [ 0, %42 ], [ 0, %32 ], [ 0, %86 ], [ 0, %108 ], [ 0, %117 ], [ 0, %freeArray.exit ], [ 0, %162 ], [ %.169, %217 ], [ %.169, %freeDataArray.exit87 ]
   ret i32 %.0
 }
 
@@ -5335,7 +5335,7 @@ freeDataArray.exit:                               ; preds = %108, %109
   br label %163
 
 163:                                              ; preds = %155, %161, %113, %17, %6, %freeDataArray.exit, %97, %93, %89, %49, %44, %37, %30, %26, %23
-  %.0 = phi i32 [ -1, %23 ], [ -1, %26 ], [ -1, %30 ], [ 0, %37 ], [ 0, %44 ], [ 0, %49 ], [ 0, %89 ], [ 0, %93 ], [ 0, %97 ], [ 0, %freeDataArray.exit ], [ 0, %6 ], [ 0, %17 ], [ 0, %113 ], [ %.094, %161 ], [ %.094, %155 ]
+  %.0 = phi i32 [ 0, %113 ], [ 0, %6 ], [ -1, %23 ], [ -1, %26 ], [ -1, %30 ], [ 0, %37 ], [ 0, %44 ], [ 0, %49 ], [ 0, %89 ], [ 0, %93 ], [ 0, %97 ], [ 0, %freeDataArray.exit ], [ 0, %17 ], [ %.094, %161 ], [ %.094, %155 ]
   ret i32 %.0
 }
 
@@ -5783,8 +5783,8 @@ freeArray.exit168:                                ; preds = %151, %152
   br label %.lr.ph213.preheader
 
 .lr.ph213.preheader:                              ; preds = %190, %185, %189, %192
-  %196 = phi ptr [ %186, %190 ], [ %186, %185 ], [ %186, %189 ], [ %194, %192 ]
-  %.0137 = phi i32 [ %191, %190 ], [ 1, %185 ], [ 0, %189 ], [ %spec.select163, %192 ]
+  %196 = phi ptr [ %194, %192 ], [ %186, %190 ], [ %186, %185 ], [ %186, %189 ]
+  %.0137 = phi i32 [ %spec.select163, %192 ], [ %191, %190 ], [ 1, %185 ], [ 0, %189 ]
   %wide.trip.count248 = zext nneg i32 %spec.select161 to i64
   br label %.lr.ph213
 
@@ -5837,7 +5837,7 @@ freeArray.exit168:                                ; preds = %151, %152
   br label %218
 
 218:                                              ; preds = %210, %216, %23, %19, %5, %freeArray.exit168, %freeArray.exit, %96, %.thread177, %.thread174, %50, %39, %30
-  %.0135 = phi i32 [ 0, %30 ], [ 0, %39 ], [ 0, %50 ], [ 0, %.thread174 ], [ 0, %.thread177 ], [ 0, %96 ], [ 0, %freeArray.exit ], [ 0, %freeArray.exit168 ], [ 0, %5 ], [ 0, %19 ], [ 0, %23 ], [ %.1138, %216 ], [ %.1138, %210 ]
+  %.0135 = phi i32 [ 0, %23 ], [ 0, %5 ], [ 0, %19 ], [ 0, %30 ], [ 0, %39 ], [ 0, %50 ], [ 0, %.thread174 ], [ 0, %.thread177 ], [ 0, %96 ], [ 0, %freeArray.exit ], [ 0, %freeArray.exit168 ], [ %.1138, %216 ], [ %.1138, %210 ]
   ret i32 %.0135
 }
 
@@ -6056,7 +6056,7 @@ define internal fastcc range(i32 0, 2) i32 @lookupShortData(ptr noundef readonly
   br i1 %139, label %22, label %.loopexit, !llvm.loop !94
 
 .loopexit:                                        ; preds = %._crit_edge109, %.lr.ph, %.lr.ph108, %49, %.preheader85, %3, %8
-  %.0 = phi i32 [ 0, %8 ], [ 0, %3 ], [ 1, %.preheader85 ], [ 0, %49 ], [ 0, %.lr.ph108 ], [ 0, %.lr.ph ], [ 1, %._crit_edge109 ]
+  %.0 = phi i32 [ 0, %49 ], [ 0, %3 ], [ 1, %.preheader85 ], [ 0, %.lr.ph ], [ 0, %8 ], [ 0, %.lr.ph108 ], [ 1, %._crit_edge109 ]
   ret i32 %.0
 }
 
@@ -6416,7 +6416,7 @@ freeDataArray.exit:                               ; preds = %70, %71
   br label %163
 
 163:                                              ; preds = %160, %153, %158
-  %.0140 = phi i32 [ %159, %158 ], [ 1, %153 ], [ %spec.select159, %160 ]
+  %.0140 = phi i32 [ %spec.select159, %160 ], [ %159, %158 ], [ 1, %153 ]
   br i1 %93, label %.lr.ph179.preheader, label %._crit_edge180
 
 .lr.ph179.preheader:                              ; preds = %156, %163
@@ -6472,7 +6472,7 @@ freeDataArray.exit:                               ; preds = %70, %71
   br label %186
 
 186:                                              ; preds = %178, %184, %18, %5, %._crit_edge183, %.thread, %82, %freeDataArray.exit, %59, %55, %37, %33, %29, %25
-  %.0137 = phi i32 [ -1, %25 ], [ -1, %29 ], [ 0, %33 ], [ 0, %37 ], [ 0, %55 ], [ 0, %59 ], [ 0, %freeDataArray.exit ], [ 0, %82 ], [ 0, %.thread ], [ 0, %._crit_edge183 ], [ 0, %5 ], [ 0, %18 ], [ %.1141, %184 ], [ %.1141, %178 ]
+  %.0137 = phi i32 [ 0, %18 ], [ 0, %5 ], [ -1, %25 ], [ -1, %29 ], [ 0, %33 ], [ 0, %37 ], [ 0, %55 ], [ 0, %59 ], [ 0, %freeDataArray.exit ], [ 0, %82 ], [ 0, %.thread ], [ 0, %._crit_edge183 ], [ %.1141, %184 ], [ %.1141, %178 ]
   ret i32 %.0137
 }
 
@@ -7573,7 +7573,7 @@ define internal fastcc range(i32 -2, 1) i32 @setPackedBCRdefault(ptr noundef %0,
   br label %170
 
 170:                                              ; preds = %50, %42, %37, %19, %30, %35, %11, %4, %.loopexit
-  %.0 = phi i32 [ 0, %.loopexit ], [ -1, %4 ], [ -1, %11 ], [ -2, %35 ], [ -2, %30 ], [ -2, %19 ], [ -2, %37 ], [ -2, %42 ], [ -1, %50 ]
+  %.0 = phi i32 [ -1, %11 ], [ -1, %4 ], [ -1, %50 ], [ -2, %30 ], [ 0, %.loopexit ], [ -2, %42 ], [ -2, %37 ], [ -2, %19 ], [ -2, %35 ]
   ret i32 %.0
 }
 
@@ -7898,7 +7898,7 @@ define internal fastcc range(i32 -2, 1) i32 @setPackedSCRdefault(ptr noundef %0,
   br label %183
 
 183:                                              ; preds = %50, %42, %37, %19, %30, %35, %11, %4, %.loopexit
-  %.0 = phi i32 [ 0, %.loopexit ], [ -1, %4 ], [ -1, %11 ], [ -2, %35 ], [ -2, %30 ], [ -2, %19 ], [ -2, %37 ], [ -2, %42 ], [ -1, %50 ]
+  %.0 = phi i32 [ -1, %11 ], [ -1, %4 ], [ -1, %50 ], [ -2, %30 ], [ 0, %.loopexit ], [ -2, %42 ], [ -2, %37 ], [ -2, %19 ], [ -2, %35 ]
   ret i32 %.0
 }
 
@@ -8220,7 +8220,7 @@ define internal fastcc range(i32 -2, 1) i32 @setPackedICRdefault(ptr noundef %0,
   br label %180
 
 180:                                              ; preds = %50, %42, %37, %19, %30, %35, %11, %4, %.loopexit
-  %.0 = phi i32 [ 0, %.loopexit ], [ -1, %4 ], [ -1, %11 ], [ -2, %35 ], [ -2, %30 ], [ -2, %19 ], [ -2, %37 ], [ -2, %42 ], [ -1, %50 ]
+  %.0 = phi i32 [ -1, %11 ], [ -1, %4 ], [ -1, %50 ], [ -2, %30 ], [ 0, %.loopexit ], [ -2, %42 ], [ -2, %37 ], [ -2, %19 ], [ -2, %35 ]
   ret i32 %.0
 }
 

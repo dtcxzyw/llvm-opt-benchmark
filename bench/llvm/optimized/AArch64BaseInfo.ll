@@ -1937,7 +1937,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm9St
   br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm9AArch64AT14lookupATByNameENS2_9StringRefEE4CompEclIPKZNS3_14lookupATByNameES4_E9IndexTypeKZNS3_14lookupATByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm9AArch64AT14lookupATByNameENS2_9StringRefEE4CompEclIPKZNS3_14lookupATByNameES4_E9IndexTypeKZNS3_14lookupATByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i: ; preds = %15, %.thread.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
-  %.1.i.i.i.i.i = phi i32 [ %17, %15 ], [ %spec.select.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i ], [ 0, %.thread.i.i.i.i.i ]
+  %.1.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i ], [ %17, %15 ], [ 0, %.thread.i.i.i.i.i ]
   %18 = icmp slt i32 %.1.i.i.i.i.i, 0
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %20 = xor i64 %7, -1
@@ -2113,7 +2113,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm9St
   br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12AArch64DBnXS17lookupDBnXSByNameENS2_9StringRefEE4CompEclIPKZNS3_17lookupDBnXSByNameES4_E9IndexTypeKZNS3_17lookupDBnXSByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12AArch64DBnXS17lookupDBnXSByNameENS2_9StringRefEE4CompEclIPKZNS3_17lookupDBnXSByNameES4_E9IndexTypeKZNS3_17lookupDBnXSByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i: ; preds = %15, %.thread.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
-  %.1.i.i.i.i.i = phi i32 [ %17, %15 ], [ %spec.select.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i ], [ 0, %.thread.i.i.i.i.i ]
+  %.1.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i ], [ %17, %15 ], [ 0, %.thread.i.i.i.i.i ]
   %18 = icmp slt i32 %.1.i.i.i.i.i, 0
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %20 = xor i64 %7, -1
@@ -2247,7 +2247,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm9St
   br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm9AArch64DB14lookupDBByNameENS2_9StringRefEE4CompEclIPKZNS3_14lookupDBByNameES4_E9IndexTypeKZNS3_14lookupDBByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm9AArch64DB14lookupDBByNameENS2_9StringRefEE4CompEclIPKZNS3_14lookupDBByNameES4_E9IndexTypeKZNS3_14lookupDBByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i: ; preds = %15, %.thread.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
-  %.1.i.i.i.i.i = phi i32 [ %17, %15 ], [ %spec.select.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i ], [ 0, %.thread.i.i.i.i.i ]
+  %.1.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i ], [ %17, %15 ], [ 0, %.thread.i.i.i.i.i ]
   %18 = icmp slt i32 %.1.i.i.i.i.i, 0
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %20 = xor i64 %7, -1
@@ -2380,7 +2380,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm9St
   br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm9AArch64DC14lookupDCByNameENS2_9StringRefEE4CompEclIPKZNS3_14lookupDCByNameES4_E9IndexTypeKZNS3_14lookupDCByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm9AArch64DC14lookupDCByNameENS2_9StringRefEE4CompEclIPKZNS3_14lookupDCByNameES4_E9IndexTypeKZNS3_14lookupDCByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i: ; preds = %15, %.thread.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
-  %.1.i.i.i.i.i = phi i32 [ %17, %15 ], [ %spec.select.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i ], [ 0, %.thread.i.i.i.i.i ]
+  %.1.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i ], [ %17, %15 ], [ 0, %.thread.i.i.i.i.i ]
   %18 = icmp slt i32 %.1.i.i.i.i.i, 0
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %20 = xor i64 %7, -1
@@ -2512,7 +2512,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm9St
   br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm9AArch64IC14lookupICByNameENS2_9StringRefEE4CompEclIPKZNS3_14lookupICByNameES4_E9IndexTypeKZNS3_14lookupICByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm9AArch64IC14lookupICByNameENS2_9StringRefEE4CompEclIPKZNS3_14lookupICByNameES4_E9IndexTypeKZNS3_14lookupICByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i: ; preds = %15, %.thread.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
-  %.1.i.i.i.i.i = phi i32 [ %17, %15 ], [ %spec.select.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i ], [ 0, %.thread.i.i.i.i.i ]
+  %.1.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i ], [ %17, %15 ], [ 0, %.thread.i.i.i.i.i ]
   %18 = icmp slt i32 %.1.i.i.i.i.i, 0
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %20 = xor i64 %7, -1
@@ -2602,7 +2602,7 @@ _ZSt11lower_boundIPKZN4llvm10AArch64ISB15lookupISBByNameENS0_9StringRefEE9IndexT
   br label %_ZSt11lower_boundIPKZN4llvm10AArch64ISB15lookupISBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupISBByNameES2_E7KeyTypeZNS1_15lookupISBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread18
 
 _ZSt11lower_boundIPKZN4llvm10AArch64ISB15lookupISBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupISBByNameES2_E7KeyTypeZNS1_15lookupISBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread18: ; preds = %_ZSt11lower_boundIPKZN4llvm10AArch64ISB15lookupISBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupISBByNameES2_E7KeyTypeZNS1_15lookupISBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread, %.thread.i.i.i.i.i, %_ZSt11lower_boundIPKZN4llvm10AArch64ISB15lookupISBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupISBByNameES2_E7KeyTypeZNS1_15lookupISBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit
-  %.0 = phi ptr [ null, %_ZSt11lower_boundIPKZN4llvm10AArch64ISB15lookupISBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupISBByNameES2_E7KeyTypeZNS1_15lookupISBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit ], [ null, %.thread.i.i.i.i.i ], [ %spec.select, %_ZSt11lower_boundIPKZN4llvm10AArch64ISB15lookupISBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupISBByNameES2_E7KeyTypeZNS1_15lookupISBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread ]
+  %.0 = phi ptr [ null, %.thread.i.i.i.i.i ], [ %spec.select, %_ZSt11lower_boundIPKZN4llvm10AArch64ISB15lookupISBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupISBByNameES2_E7KeyTypeZNS1_15lookupISBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread ], [ null, %_ZSt11lower_boundIPKZN4llvm10AArch64ISB15lookupISBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupISBByNameES2_E7KeyTypeZNS1_15lookupISBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit ]
   %11 = load ptr, ptr %3, align 8, !tbaa !19
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = icmp eq ptr %11, %12
@@ -2664,7 +2664,7 @@ _ZSt11lower_boundIPKZN4llvm10AArch64TSB15lookupTSBByNameENS0_9StringRefEE9IndexT
   br label %_ZSt11lower_boundIPKZN4llvm10AArch64TSB15lookupTSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupTSBByNameES2_E7KeyTypeZNS1_15lookupTSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread18
 
 _ZSt11lower_boundIPKZN4llvm10AArch64TSB15lookupTSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupTSBByNameES2_E7KeyTypeZNS1_15lookupTSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread18: ; preds = %_ZSt11lower_boundIPKZN4llvm10AArch64TSB15lookupTSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupTSBByNameES2_E7KeyTypeZNS1_15lookupTSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread, %.thread.i.i.i.i.i, %_ZSt11lower_boundIPKZN4llvm10AArch64TSB15lookupTSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupTSBByNameES2_E7KeyTypeZNS1_15lookupTSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit
-  %.0 = phi ptr [ null, %_ZSt11lower_boundIPKZN4llvm10AArch64TSB15lookupTSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupTSBByNameES2_E7KeyTypeZNS1_15lookupTSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit ], [ null, %.thread.i.i.i.i.i ], [ %spec.select, %_ZSt11lower_boundIPKZN4llvm10AArch64TSB15lookupTSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupTSBByNameES2_E7KeyTypeZNS1_15lookupTSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread ]
+  %.0 = phi ptr [ null, %.thread.i.i.i.i.i ], [ %spec.select, %_ZSt11lower_boundIPKZN4llvm10AArch64TSB15lookupTSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupTSBByNameES2_E7KeyTypeZNS1_15lookupTSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread ], [ null, %_ZSt11lower_boundIPKZN4llvm10AArch64TSB15lookupTSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupTSBByNameES2_E7KeyTypeZNS1_15lookupTSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit ]
   %11 = load ptr, ptr %3, align 8, !tbaa !19
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = icmp eq ptr %11, %12
@@ -2741,7 +2741,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm9St
   br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm11AArch64PRFM16lookupPRFMByNameENS2_9StringRefEE4CompEclIPKZNS3_16lookupPRFMByNameES4_E9IndexTypeKZNS3_16lookupPRFMByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm11AArch64PRFM16lookupPRFMByNameENS2_9StringRefEE4CompEclIPKZNS3_16lookupPRFMByNameES4_E9IndexTypeKZNS3_16lookupPRFMByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i: ; preds = %15, %.thread.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
-  %.1.i.i.i.i.i = phi i32 [ %17, %15 ], [ %spec.select.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i ], [ 0, %.thread.i.i.i.i.i ]
+  %.1.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i ], [ %17, %15 ], [ 0, %.thread.i.i.i.i.i ]
   %18 = icmp slt i32 %.1.i.i.i.i.i, 0
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %20 = xor i64 %7, -1
@@ -2875,7 +2875,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm9St
   br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm14AArch64SVEPRFM19lookupSVEPRFMByNameENS2_9StringRefEE4CompEclIPKZNS3_19lookupSVEPRFMByNameES4_E9IndexTypeKZNS3_19lookupSVEPRFMByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm14AArch64SVEPRFM19lookupSVEPRFMByNameENS2_9StringRefEE4CompEclIPKZNS3_19lookupSVEPRFMByNameES4_E9IndexTypeKZNS3_19lookupSVEPRFMByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i: ; preds = %15, %.thread.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
-  %.1.i.i.i.i.i = phi i32 [ %17, %15 ], [ %spec.select.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i ], [ 0, %.thread.i.i.i.i.i ]
+  %.1.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i ], [ %17, %15 ], [ 0, %.thread.i.i.i.i.i ]
   %18 = icmp slt i32 %.1.i.i.i.i.i, 0
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %20 = xor i64 %7, -1
@@ -3011,7 +3011,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm9St
   br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12AArch64RPRFM17lookupRPRFMByNameENS2_9StringRefEE4CompEclIPKZNS3_17lookupRPRFMByNameES4_E9IndexTypeKZNS3_17lookupRPRFMByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12AArch64RPRFM17lookupRPRFMByNameENS2_9StringRefEE4CompEclIPKZNS3_17lookupRPRFMByNameES4_E9IndexTypeKZNS3_17lookupRPRFMByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i: ; preds = %15, %.thread.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
-  %.1.i.i.i.i.i = phi i32 [ %17, %15 ], [ %spec.select.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i ], [ 0, %.thread.i.i.i.i.i ]
+  %.1.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i ], [ %17, %15 ], [ 0, %.thread.i.i.i.i.i ]
   %18 = icmp slt i32 %.1.i.i.i.i.i, 0
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %20 = xor i64 %7, -1
@@ -3145,7 +3145,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm9St
   br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm21AArch64SVEPredPattern22lookupSVEPREDPATByNameENS2_9StringRefEE4CompEclIPKZNS3_22lookupSVEPREDPATByNameES4_E9IndexTypeKZNS3_22lookupSVEPREDPATByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm21AArch64SVEPredPattern22lookupSVEPREDPATByNameENS2_9StringRefEE4CompEclIPKZNS3_22lookupSVEPREDPATByNameES4_E9IndexTypeKZNS3_22lookupSVEPREDPATByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i: ; preds = %15, %.thread.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
-  %.1.i.i.i.i.i = phi i32 [ %17, %15 ], [ %spec.select.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i ], [ 0, %.thread.i.i.i.i.i ]
+  %.1.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i ], [ %17, %15 ], [ 0, %.thread.i.i.i.i.i ]
   %18 = icmp slt i32 %.1.i.i.i.i.i, 0
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %20 = xor i64 %7, -1
@@ -3250,7 +3250,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm9St
   br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm25AArch64SVEVecLenSpecifier30lookupSVEVECLENSPECIFIERByNameENS2_9StringRefEE4CompEclIPKZNS3_30lookupSVEVECLENSPECIFIERByNameES4_E9IndexTypeKZNS3_30lookupSVEVECLENSPECIFIERByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm25AArch64SVEVecLenSpecifier30lookupSVEVECLENSPECIFIERByNameENS2_9StringRefEE4CompEclIPKZNS3_30lookupSVEVECLENSPECIFIERByNameES4_E9IndexTypeKZNS3_30lookupSVEVECLENSPECIFIERByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i: ; preds = %15, %.thread.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
-  %.1.i.i.i.i.i = phi i32 [ %17, %15 ], [ %spec.select.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i ], [ 0, %.thread.i.i.i.i.i ]
+  %.1.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i ], [ %17, %15 ], [ 0, %.thread.i.i.i.i.i ]
   %18 = icmp slt i32 %.1.i.i.i.i.i, 0
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %20 = xor i64 %7, -1
@@ -3403,7 +3403,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm9St
   br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm13AArch64PState25lookupPStateImm0_15ByNameENS2_9StringRefEE4CompEclIPKZNS3_25lookupPStateImm0_15ByNameES4_E9IndexTypeKZNS3_25lookupPStateImm0_15ByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm13AArch64PState25lookupPStateImm0_15ByNameENS2_9StringRefEE4CompEclIPKZNS3_25lookupPStateImm0_15ByNameES4_E9IndexTypeKZNS3_25lookupPStateImm0_15ByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i: ; preds = %15, %.thread.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
-  %.1.i.i.i.i.i = phi i32 [ %17, %15 ], [ %spec.select.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i ], [ 0, %.thread.i.i.i.i.i ]
+  %.1.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i ], [ %17, %15 ], [ 0, %.thread.i.i.i.i.i ]
   %18 = icmp slt i32 %.1.i.i.i.i.i, 0
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %20 = xor i64 %7, -1
@@ -3536,7 +3536,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm9St
   br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm13AArch64PState24lookupPStateImm0_1ByNameENS2_9StringRefEE4CompEclIPKZNS3_24lookupPStateImm0_1ByNameES4_E9IndexTypeKZNS3_24lookupPStateImm0_1ByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm13AArch64PState24lookupPStateImm0_1ByNameENS2_9StringRefEE4CompEclIPKZNS3_24lookupPStateImm0_1ByNameES4_E9IndexTypeKZNS3_24lookupPStateImm0_1ByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i: ; preds = %15, %.thread.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
-  %.1.i.i.i.i.i = phi i32 [ %17, %15 ], [ %spec.select.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i ], [ 0, %.thread.i.i.i.i.i ]
+  %.1.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i ], [ %17, %15 ], [ 0, %.thread.i.i.i.i.i ]
   %18 = icmp slt i32 %.1.i.i.i.i.i, 0
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %20 = xor i64 %7, -1
@@ -3626,7 +3626,7 @@ _ZSt11lower_boundIPKZN4llvm14AArch64PSBHint15lookupPSBByNameENS0_9StringRefEE9In
   br label %_ZSt11lower_boundIPKZN4llvm14AArch64PSBHint15lookupPSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupPSBByNameES2_E7KeyTypeZNS1_15lookupPSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread18
 
 _ZSt11lower_boundIPKZN4llvm14AArch64PSBHint15lookupPSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupPSBByNameES2_E7KeyTypeZNS1_15lookupPSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread18: ; preds = %_ZSt11lower_boundIPKZN4llvm14AArch64PSBHint15lookupPSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupPSBByNameES2_E7KeyTypeZNS1_15lookupPSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread, %.thread.i.i.i.i.i, %_ZSt11lower_boundIPKZN4llvm14AArch64PSBHint15lookupPSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupPSBByNameES2_E7KeyTypeZNS1_15lookupPSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit
-  %.0 = phi ptr [ null, %_ZSt11lower_boundIPKZN4llvm14AArch64PSBHint15lookupPSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupPSBByNameES2_E7KeyTypeZNS1_15lookupPSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit ], [ null, %.thread.i.i.i.i.i ], [ %spec.select, %_ZSt11lower_boundIPKZN4llvm14AArch64PSBHint15lookupPSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupPSBByNameES2_E7KeyTypeZNS1_15lookupPSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread ]
+  %.0 = phi ptr [ null, %.thread.i.i.i.i.i ], [ %spec.select, %_ZSt11lower_boundIPKZN4llvm14AArch64PSBHint15lookupPSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupPSBByNameES2_E7KeyTypeZNS1_15lookupPSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread ], [ null, %_ZSt11lower_boundIPKZN4llvm14AArch64PSBHint15lookupPSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupPSBByNameES2_E7KeyTypeZNS1_15lookupPSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit ]
   %11 = load ptr, ptr %3, align 8, !tbaa !19
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = icmp eq ptr %11, %12
@@ -3703,7 +3703,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm9St
   br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12AArch64PHint17lookupPHintByNameENS2_9StringRefEE4CompEclIPKZNS3_17lookupPHintByNameES4_E9IndexTypeKZNS3_17lookupPHintByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12AArch64PHint17lookupPHintByNameENS2_9StringRefEE4CompEclIPKZNS3_17lookupPHintByNameES4_E9IndexTypeKZNS3_17lookupPHintByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i: ; preds = %15, %.thread.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
-  %.1.i.i.i.i.i = phi i32 [ %17, %15 ], [ %spec.select.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i ], [ 0, %.thread.i.i.i.i.i ]
+  %.1.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i ], [ %17, %15 ], [ 0, %.thread.i.i.i.i.i ]
   %18 = icmp slt i32 %.1.i.i.i.i.i, 0
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %20 = xor i64 %7, -1
@@ -3837,7 +3837,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm9St
   br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm14AArch64BTIHint15lookupBTIByNameENS2_9StringRefEE4CompEclIPKZNS3_15lookupBTIByNameES4_E9IndexTypeKZNS3_15lookupBTIByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm14AArch64BTIHint15lookupBTIByNameENS2_9StringRefEE4CompEclIPKZNS3_15lookupBTIByNameES4_E9IndexTypeKZNS3_15lookupBTIByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i: ; preds = %15, %.thread.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
-  %.1.i.i.i.i.i = phi i32 [ %17, %15 ], [ %spec.select.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i ], [ 0, %.thread.i.i.i.i.i ]
+  %.1.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i ], [ %17, %15 ], [ 0, %.thread.i.i.i.i.i ]
   %18 = icmp slt i32 %.1.i.i.i.i.i, 0
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %20 = xor i64 %7, -1
@@ -3965,8 +3965,8 @@ _ZSt7advanceIPKN4llvm13AArch64SysReg6SysRegElEvRT_T0_.exit.i24.i.i: ; preds = %_
   br i1 %33, label %_ZSt7advanceIPKN4llvm13AArch64SysReg6SysRegElEvRT_T0_.exit.i.i, label %_ZSt11equal_rangeIPKN4llvm13AArch64SysReg6SysRegEZNS1_22lookupSysRegByEncodingEtE7KeyTypeZNS1_22lookupSysRegByEncodingEtE4CompESt4pairIT_S8_ES8_S8_RKT0_T1_.exit, !llvm.loop !102
 
 _ZSt11equal_rangeIPKN4llvm13AArch64SysReg6SysRegEZNS1_22lookupSysRegByEncodingEtE7KeyTypeZNS1_22lookupSysRegByEncodingEtE4CompESt4pairIT_S8_ES8_S8_RKT0_T1_.exit: ; preds = %32, %_ZSt7advanceIPKN4llvm13AArch64SysReg6SysRegElEvRT_T0_.exit.i24.i.i, %_ZSt13__lower_boundIPKN4llvm13AArch64SysReg6SysRegEZNS1_22lookupSysRegByEncodingEtE7KeyTypeN9__gnu_cxx5__ops14_Iter_comp_valIZNS1_22lookupSysRegByEncodingEtE4CompEEET_SB_SB_RKT0_T1_.exit.i.i
-  %.sroa.0.0.i.i = phi ptr [ %.0.lcssa.i.i.i, %_ZSt13__lower_boundIPKN4llvm13AArch64SysReg6SysRegEZNS1_22lookupSysRegByEncodingEtE7KeyTypeN9__gnu_cxx5__ops14_Iter_comp_valIZNS1_22lookupSysRegByEncodingEtE4CompEEET_SB_SB_RKT0_T1_.exit.i.i ], [ %.0.lcssa.i.i.i, %_ZSt7advanceIPKN4llvm13AArch64SysReg6SysRegElEvRT_T0_.exit.i24.i.i ], [ %.1.i.i, %32 ]
-  %.sroa.3.0.i.i = phi ptr [ %20, %_ZSt13__lower_boundIPKN4llvm13AArch64SysReg6SysRegEZNS1_22lookupSysRegByEncodingEtE7KeyTypeN9__gnu_cxx5__ops14_Iter_comp_valIZNS1_22lookupSysRegByEncodingEtE4CompEEET_SB_SB_RKT0_T1_.exit.i.i ], [ %.1.i30.i.i, %_ZSt7advanceIPKN4llvm13AArch64SysReg6SysRegElEvRT_T0_.exit.i24.i.i ], [ %.1.i.i, %32 ]
+  %.sroa.0.0.i.i = phi ptr [ %.0.lcssa.i.i.i, %_ZSt7advanceIPKN4llvm13AArch64SysReg6SysRegElEvRT_T0_.exit.i24.i.i ], [ %.0.lcssa.i.i.i, %_ZSt13__lower_boundIPKN4llvm13AArch64SysReg6SysRegEZNS1_22lookupSysRegByEncodingEtE7KeyTypeN9__gnu_cxx5__ops14_Iter_comp_valIZNS1_22lookupSysRegByEncodingEtE4CompEEET_SB_SB_RKT0_T1_.exit.i.i ], [ %.1.i.i, %32 ]
+  %.sroa.3.0.i.i = phi ptr [ %.1.i30.i.i, %_ZSt7advanceIPKN4llvm13AArch64SysReg6SysRegElEvRT_T0_.exit.i24.i.i ], [ %20, %_ZSt13__lower_boundIPKN4llvm13AArch64SysReg6SysRegEZNS1_22lookupSysRegByEncodingEtE7KeyTypeN9__gnu_cxx5__ops14_Iter_comp_valIZNS1_22lookupSysRegByEncodingEtE4CompEEET_SB_SB_RKT0_T1_.exit.i.i ], [ %.1.i.i, %32 ]
   %.fca.0.insert.i.i = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i.i, 0
   %.fca.1.insert.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i, ptr %.sroa.3.0.i.i, 1
   ret { ptr, ptr } %.fca.1.insert.i.i
@@ -4023,7 +4023,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm9St
   br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm13AArch64SysReg18lookupSysRegByNameENS2_9StringRefEE4CompEclIPKZNS3_18lookupSysRegByNameES4_E9IndexTypeKZNS3_18lookupSysRegByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm13AArch64SysReg18lookupSysRegByNameENS2_9StringRefEE4CompEclIPKZNS3_18lookupSysRegByNameES4_E9IndexTypeKZNS3_18lookupSysRegByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i: ; preds = %15, %.thread.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
-  %.1.i.i.i.i.i = phi i32 [ %17, %15 ], [ %spec.select.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i ], [ 0, %.thread.i.i.i.i.i ]
+  %.1.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i ], [ %17, %15 ], [ 0, %.thread.i.i.i.i.i ]
   %18 = icmp slt i32 %.1.i.i.i.i.i, 0
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %20 = xor i64 %7, -1
@@ -5358,7 +5358,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm9St
   br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm11AArch64TLBI16lookupTLBIByNameENS2_9StringRefEE4CompEclIPKZNS3_16lookupTLBIByNameES4_E9IndexTypeKZNS3_16lookupTLBIByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm11AArch64TLBI16lookupTLBIByNameENS2_9StringRefEE4CompEclIPKZNS3_16lookupTLBIByNameES4_E9IndexTypeKZNS3_16lookupTLBIByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i: ; preds = %15, %.thread.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
-  %.1.i.i.i.i.i = phi i32 [ %17, %15 ], [ %spec.select.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i ], [ 0, %.thread.i.i.i.i.i ]
+  %.1.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i ], [ %17, %15 ], [ 0, %.thread.i.i.i.i.i ]
   %18 = icmp slt i32 %.1.i.i.i.i.i, 0
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %20 = xor i64 %7, -1
@@ -5465,7 +5465,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm9St
   br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm11AArch64SVCR16lookupSVCRByNameENS2_9StringRefEE4CompEclIPKZNS3_16lookupSVCRByNameES4_E9IndexTypeKZNS3_16lookupSVCRByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm11AArch64SVCR16lookupSVCRByNameENS2_9StringRefEE4CompEclIPKZNS3_16lookupSVCRByNameES4_E9IndexTypeKZNS3_16lookupSVCRByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i: ; preds = %15, %.thread.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
-  %.1.i.i.i.i.i = phi i32 [ %17, %15 ], [ %spec.select.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i ], [ 0, %.thread.i.i.i.i.i ]
+  %.1.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i ], [ %17, %15 ], [ 0, %.thread.i.i.i.i.i ]
   %18 = icmp slt i32 %.1.i.i.i.i.i, 0
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %20 = xor i64 %7, -1

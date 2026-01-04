@@ -117,7 +117,7 @@ define noundef zeroext i1 @_ZNK6open3d13visualization23RenderOptionWithEditing18
   br label %32
 
 31:                                               ; preds = %10, %6, %2, %26
-  %.09 = phi i1 [ true, %26 ], [ false, %2 ], [ false, %6 ], [ false, %10 ]
+  %.09 = phi i1 [ true, %26 ], [ false, %6 ], [ false, %2 ], [ false, %10 ]
   ret i1 %.09
 
 32:                                               ; preds = %29, %27
@@ -222,7 +222,7 @@ define noundef zeroext i1 @_ZN6open3d13visualization23RenderOptionWithEditing20C
   br label %38
 
 37:                                               ; preds = %12, %8, %2, %25
-  %.011 = phi i1 [ true, %25 ], [ false, %2 ], [ false, %8 ], [ false, %12 ]
+  %.011 = phi i1 [ true, %25 ], [ false, %8 ], [ false, %2 ], [ false, %12 ]
   ret i1 %.011
 
 38:                                               ; preds = %36, %31

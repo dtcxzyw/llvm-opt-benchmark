@@ -1987,8 +1987,8 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %90, %_ZNK10ciMetada
   %106 = tail call noundef zeroext i1 @_ZN7ciKlass13is_subtype_ofEPS_(ptr noundef nonnull align 8 dereferenceable(44) %105, ptr noundef nonnull %89) #6
   br i1 %106, label %.thread117, label %.thread126
 
-.thread117:                                       ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread, %.thread109, %_ZNK10ciMetadata9is_loadedEv.exit, %99, %104
-  %.069124 = phi i1 [ true, %104 ], [ false, %_ZNK10ciMetadata9is_loadedEv.exit.thread ], [ true, %.thread109 ], [ true, %_ZNK10ciMetadata9is_loadedEv.exit ], [ true, %99 ]
+.thread117:                                       ; preds = %.thread109, %_ZNK10ciMetadata9is_loadedEv.exit, %99, %_ZNK10ciMetadata9is_loadedEv.exit.thread, %104
+  %.069124 = phi i1 [ true, %104 ], [ true, %.thread109 ], [ true, %_ZNK10ciMetadata9is_loadedEv.exit ], [ true, %99 ], [ false, %_ZNK10ciMetadata9is_loadedEv.exit.thread ]
   %107 = tail call i64 @_ZN12LIRGenerator12new_registerE9BasicType(ptr noundef nonnull align 8 dereferenceable(232) %4, i8 noundef zeroext 12) #6
   %108 = getelementptr inbounds nuw i8, ptr %4, i64 144
   %109 = load ptr, ptr %108, align 8

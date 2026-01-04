@@ -812,8 +812,8 @@ define dso_local noundef range(i32 -71, 1) i32 @mei_hbm_dispatch(ptr noundef %0,
   br label %640
 
 51:                                               ; preds = %39, %.thread164, %31
-  %.pr48158 = phi i8 [ %35, %31 ], [ 2, %.thread164 ], [ %35, %39 ]
-  %.sink113156 = phi i8 [ %34, %31 ], [ 2, %.thread164 ], [ 2, %39 ]
+  %.pr48158 = phi i8 [ %35, %39 ], [ %35, %31 ], [ 2, %.thread164 ]
+  %.sink113156 = phi i8 [ 2, %39 ], [ %34, %31 ], [ 2, %.thread164 ]
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 3322
   %53 = load i16, ptr %52, align 2
   %54 = and i16 %53, -2
@@ -2296,7 +2296,7 @@ thread-pre-split:                                 ; preds = %56, %60, %66
   br label %91
 
 91:                                               ; preds = %89, %86, %84, %81, %79, %75, %74, %73, %72, %70
-  %92 = phi i32 [ 0, %89 ], [ 0, %84 ], [ -22, %74 ], [ -16, %73 ], [ -25, %72 ], [ 0, %70 ], [ 0, %75 ], [ 0, %79 ], [ -22, %81 ], [ -22, %86 ]
+  %92 = phi i32 [ 0, %89 ], [ 0, %84 ], [ -22, %74 ], [ 0, %79 ], [ -22, %81 ], [ -22, %86 ], [ -16, %73 ], [ -25, %72 ], [ 0, %70 ], [ 0, %75 ]
   %93 = getelementptr inbounds nuw i8, ptr %14, i64 136
   store i32 %92, ptr %93, align 8
   %94 = getelementptr inbounds nuw i8, ptr %14, i64 186

@@ -181,7 +181,7 @@ _ZL12asciiCaseMapca.exit224.us:                   ; preds = %51
   br label %_ZL12asciiCaseMapca.exit
 
 _ZL12asciiCaseMapca.exit:                         ; preds = %74, %82, %79
-  %85 = phi i16 [ %spec.select.i, %79 ], [ %spec.select15.i, %82 ], [ %64, %74 ]
+  %85 = phi i16 [ %spec.select15.i, %82 ], [ %spec.select.i, %79 ], [ %64, %74 ]
   %86 = sext i32 %.0175250 to i64
   %87 = getelementptr inbounds i16, ptr %2, i64 %86
   store i16 %85, ptr %87, align 2, !tbaa !7
@@ -290,7 +290,7 @@ _ZL12asciiCaseMapca.exit:                         ; preds = %74, %82, %79
   br label %_ZL12asciiCaseMapca.exit224
 
 _ZL12asciiCaseMapca.exit224:                      ; preds = %138, %135
-  %141 = phi i16 [ %spec.select.i220, %135 ], [ %spec.select15.i223, %138 ]
+  %141 = phi i16 [ %spec.select15.i223, %138 ], [ %spec.select.i220, %135 ]
   %142 = sext i32 %.3178245 to i64
   %143 = getelementptr inbounds i16, ptr %2, i64 %142
   store i16 %141, ptr %143, align 2, !tbaa !7
@@ -355,8 +355,8 @@ _ZL12asciiCaseMapca.exit224:                      ; preds = %138, %135
   br i1 %173, label %.lr.ph.split, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %117, %171, %58
-  %indvars.iv.next.lcssa.sink = phi i64 [ %indvars.iv.next300, %58 ], [ %indvars.iv.next, %171 ], [ %indvars.iv.next303, %117 ]
-  %.2177 = phi i32 [ %.4179.us, %58 ], [ %.4179, %171 ], [ %.1176, %117 ]
+  %indvars.iv.next.lcssa.sink = phi i64 [ %indvars.iv.next, %171 ], [ %indvars.iv.next300, %58 ], [ %indvars.iv.next303, %117 ]
+  %.2177 = phi i32 [ %.4179, %171 ], [ %.4179.us, %58 ], [ %.1176, %117 ]
   %174 = trunc nuw i64 %indvars.iv.next.lcssa.sink to i32
   %175 = icmp sgt i32 %.2177, 0
   br i1 %175, label %176, label %183
@@ -594,7 +594,7 @@ _ZL9adaptBiasiia.exit:                            ; preds = %.lr.ph.i, %249
   br label %265
 
 265:                                              ; preds = %6, %9, %._crit_edge288, %196, %.split.us, %114, %68, %22, %19
-  %.0183 = phi i32 [ 0, %19 ], [ 0, %22 ], [ 0, %196 ], [ %264, %._crit_edge288 ], [ 0, %68 ], [ 0, %114 ], [ 0, %.split.us ], [ 0, %9 ], [ 0, %6 ]
+  %.0183 = phi i32 [ 0, %.split.us ], [ 0, %19 ], [ 0, %22 ], [ 0, %196 ], [ %264, %._crit_edge288 ], [ 0, %68 ], [ 0, %114 ], [ 0, %9 ], [ 0, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0183
 }
@@ -729,8 +729,8 @@ define i32 @u_strFromPunycode_77(ptr noundef %0, i32 noundef %1, ptr noundef %2,
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge, %25, %.loopexit
-  %.1175310312 = phi i32 [ %31, %.loopexit ], [ %.0162, %25 ], [ %31, %._crit_edge ]
-  %56 = phi i32 [ 0, %.loopexit ], [ 0, %25 ], [ %55, %._crit_edge ]
+  %.1175310312 = phi i32 [ %.0162, %25 ], [ %31, %._crit_edge ], [ %31, %.loopexit ]
+  %56 = phi i32 [ 0, %25 ], [ %55, %._crit_edge ], [ 0, %.loopexit ]
   %57 = icmp slt i32 %56, %.0162
   br i1 %57, label %.preheader.lr.ph, label %._crit_edge259
 
@@ -1067,7 +1067,7 @@ _ZL9adaptBiasiia.exit:                            ; preds = %.lr.ph.i, %105
   br label %208
 
 208:                                              ; preds = %6, %8, %._crit_edge259, %126, %120, %92, %81, %_ZL11decodeDigiti.exit.thread, %61, %.split.us, %24, %17
-  %.0161 = phi i32 [ 0, %17 ], [ 0, %24 ], [ 0, %.split.us ], [ 0, %61 ], [ 0, %_ZL11decodeDigiti.exit.thread ], [ 0, %81 ], [ 0, %120 ], [ 0, %126 ], [ 0, %92 ], [ %207, %._crit_edge259 ], [ 0, %8 ], [ 0, %6 ]
+  %.0161 = phi i32 [ %207, %._crit_edge259 ], [ 0, %17 ], [ 0, %24 ], [ 0, %.split.us ], [ 0, %61 ], [ 0, %_ZL11decodeDigiti.exit.thread ], [ 0, %81 ], [ 0, %120 ], [ 0, %126 ], [ 0, %92 ], [ 0, %8 ], [ 0, %6 ]
   ret i32 %.0161
 }
 

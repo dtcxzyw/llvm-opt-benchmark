@@ -1013,7 +1013,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66: ; preds = %116
   br label %131
 
 131:                                              ; preds = %124, %130
-  %.pn32.pn.pn.pn = phi { ptr, i32 } [ %.pn32.pn, %130 ], [ %125, %124 ]
+  %.pn32.pn.pn.pn = phi { ptr, i32 } [ %125, %124 ], [ %.pn32.pn, %130 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -1025,7 +1025,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66: ; preds = %116
   br label %133
 
 133:                                              ; preds = %120, %132
-  %.pn32.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn32.pn.pn.pn.pn, %132 ], [ %121, %120 ]
+  %.pn32.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %121, %120 ], [ %.pn32.pn.pn.pn.pn, %132 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)

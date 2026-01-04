@@ -977,7 +977,7 @@ define internal ptr @bool_new(ptr readnone captures(none) %0, ptr noundef %1, pt
   br label %16
 
 16:                                               ; preds = %10, %8, %6, %14
-  %.0 = phi ptr [ %15, %14 ], [ null, %6 ], [ null, %8 ], [ null, %10 ]
+  %.0 = phi ptr [ null, %8 ], [ %15, %14 ], [ null, %6 ], [ null, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }

@@ -107,7 +107,7 @@ define i32 @Java_sun_nio_ch_DatagramChannelImpl_receive0(ptr noundef %0, ptr nou
   br label %.critedge
 
 .critedge:                                        ; preds = %20, %18, %.critedge.loopexit38, %.split.us, %.split, %24, %.critedge.loopexit, %.split20.us, %27
-  %.0 = phi i32 [ -5, %27 ], [ %28, %.split20.us ], [ -3, %24 ], [ %15, %.split.us ], [ %15, %.split ], [ -2, %.critedge.loopexit ], [ -3, %18 ], [ %22, %20 ], [ -2, %.critedge.loopexit38 ]
+  %.0 = phi i32 [ %28, %.split20.us ], [ -3, %18 ], [ -5, %27 ], [ -3, %24 ], [ %15, %.split ], [ %15, %.split.us ], [ -2, %.critedge.loopexit ], [ %22, %20 ], [ -2, %.critedge.loopexit38 ]
   ret i32 %.0
 }
 
@@ -148,7 +148,7 @@ define i32 @Java_sun_nio_ch_DatagramChannelImpl_send0(ptr noundef %0, ptr nounde
   br label %22
 
 22:                                               ; preds = %7, %15, %20, %19, %18
-  %.0 = phi i32 [ -3, %18 ], [ -5, %19 ], [ %21, %20 ], [ -2, %15 ], [ %13, %7 ]
+  %.0 = phi i32 [ -2, %15 ], [ -3, %18 ], [ -5, %19 ], [ %21, %20 ], [ %13, %7 ]
   ret i32 %.0
 }
 

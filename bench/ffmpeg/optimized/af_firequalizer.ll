@@ -191,7 +191,7 @@ define internal range(i32 -2147483648, 1) i32 @process_command(ptr noundef %0, p
   br label %64
 
 36:                                               ; preds = %22, %21
-  %.041 = phi i32 [ 0, %21 ], [ -12, %22 ]
+  %.041 = phi i32 [ -12, %22 ], [ 0, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %64
 
@@ -260,12 +260,12 @@ define internal range(i32 -2147483648, 1) i32 @process_command(ptr noundef %0, p
   br label %64
 
 63:                                               ; preds = %49, %48
-  %.243 = phi i32 [ 0, %48 ], [ -12, %49 ]
+  %.243 = phi i32 [ -12, %49 ], [ 0, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %64
 
 64:                                               ; preds = %37, %.thread62, %.thread68, %63, %36
-  %.142 = phi i32 [ %.243, %63 ], [ %.041, %36 ], [ -38, %37 ], [ %32, %.thread62 ], [ %59, %.thread68 ]
+  %.142 = phi i32 [ %.041, %36 ], [ %.243, %63 ], [ -38, %37 ], [ %59, %.thread68 ], [ %32, %.thread62 ]
   ret i32 %.142
 }
 
@@ -349,8 +349,8 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br label %.critedge.loopexit, !llvm.loop !43
 
 .critedge.loopexit:                               ; preds = %30, %..critedge.loopexit_crit_edge, %.lr.ph88
-  %51 = phi i32 [ %47, %..critedge.loopexit_crit_edge ], [ %21, %.lr.ph88 ], [ %47, %30 ]
-  %.0.lcssa.ph.in = phi i64 [ %indvars.iv.next96, %..critedge.loopexit_crit_edge ], [ 0, %.lr.ph88 ], [ %indvars.iv.next96, %30 ]
+  %51 = phi i32 [ %21, %.lr.ph88 ], [ %47, %..critedge.loopexit_crit_edge ], [ %47, %30 ]
+  %.0.lcssa.ph.in = phi i64 [ 0, %.lr.ph88 ], [ %indvars.iv.next96, %..critedge.loopexit_crit_edge ], [ %indvars.iv.next96, %30 ]
   %.0.lcssa.ph = trunc i64 %.0.lcssa.ph.in to i32
   br label %.critedge
 
@@ -861,8 +861,8 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef captures
   %221 = call fastcc i32 @generate_kernel(ptr noundef %5, ptr noundef %213, ptr noundef %220)
   br label %.thread165
 
-.thread165:                                       ; preds = %77, %72, %65, %64, %156, %181, %183, %185, %187, %189, %191, %111, %103, %54, %34, %39, %82, %219, %102, %33
-  %.0132 = phi i32 [ -22, %33 ], [ -22, %102 ], [ %221, %219 ], [ -12, %82 ], [ %37, %34 ], [ %42, %39 ], [ %57, %54 ], [ %106, %103 ], [ %114, %111 ], [ -12, %191 ], [ -12, %189 ], [ -12, %187 ], [ -12, %185 ], [ -12, %183 ], [ -12, %181 ], [ -12, %156 ], [ -12, %77 ], [ %75, %72 ], [ %70, %65 ], [ -22, %64 ]
+.thread165:                                       ; preds = %77, %65, %72, %64, %156, %181, %183, %185, %187, %189, %191, %111, %103, %54, %34, %39, %82, %219, %102, %33
+  %.0132 = phi i32 [ -22, %33 ], [ %42, %39 ], [ -22, %102 ], [ %57, %54 ], [ %106, %103 ], [ %221, %219 ], [ %114, %111 ], [ -12, %82 ], [ %37, %34 ], [ -12, %191 ], [ -12, %189 ], [ -12, %187 ], [ -12, %185 ], [ -12, %183 ], [ -12, %181 ], [ -12, %156 ], [ -12, %77 ], [ %70, %65 ], [ %75, %72 ], [ -22, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0132
@@ -1854,7 +1854,7 @@ dump_fir.exit._crit_edge.thread279:               ; preds = %88
   unreachable
 
 225:                                              ; preds = %220, %218, %163, %209, %200, %191, %185, %179, %173, %170, %167
-  %.0 = phi nsz double [ %169, %167 ], [ %172, %170 ], [ %178, %173 ], [ %184, %179 ], [ %190, %185 ], [ %199, %191 ], [ %208, %200 ], [ %217, %209 ], [ 1.000000e+00, %163 ], [ %223, %220 ], [ 1.000000e+00, %218 ]
+  %.0 = phi nsz double [ 1.000000e+00, %163 ], [ %169, %167 ], [ %172, %170 ], [ %178, %173 ], [ %184, %179 ], [ %190, %185 ], [ %199, %191 ], [ %208, %200 ], [ %217, %209 ], [ %223, %220 ], [ 1.000000e+00, %218 ]
   %226 = fmul nsz double %.0, %159
   %227 = getelementptr inbounds nuw float, ptr %160, i64 %indvars.iv242
   %228 = load float, ptr %227, align 4, !tbaa !67
@@ -2429,8 +2429,8 @@ dump_fir.exit._crit_edge:                         ; preds = %54
   %549 = call i32 @fclose(ptr noundef nonnull %.0163)
   br label %.thread207
 
-.thread207:                                       ; preds = %364, %366, %.thread, %538, %548, %26, %23
-  %.2 = phi i32 [ %24, %23 ], [ %28, %26 ], [ 0, %548 ], [ 0, %538 ], [ %21, %.thread ], [ -22, %366 ], [ -22, %364 ]
+.thread207:                                       ; preds = %366, %364, %.thread, %538, %548, %26, %23
+  %.2 = phi i32 [ %24, %23 ], [ %21, %.thread ], [ %28, %26 ], [ 0, %548 ], [ 0, %538 ], [ -22, %364 ], [ -22, %366 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2608,7 +2608,7 @@ bsearch.exit:                                     ; preds = %gain_entry_compare.
   br label %58
 
 58:                                               ; preds = %6, %2, %55, %52, %42, %22, %13
-  %.0 = phi nsz double [ %15, %13 ], [ %24, %22 ], [ %50, %42 ], [ %54, %52 ], [ %57, %55 ], [ %1, %2 ], [ 0.000000e+00, %6 ]
+  %.0 = phi nsz double [ %1, %2 ], [ %15, %13 ], [ %24, %22 ], [ %50, %42 ], [ %54, %52 ], [ %57, %55 ], [ 0.000000e+00, %6 ]
   ret double %.0
 }
 
@@ -2868,7 +2868,7 @@ define internal i32 @request_frame(ptr noundef %0) #1 {
   br label %.critedge
 
 .critedge:                                        ; preds = %18, %1, %10, %14, %20
-  %.1 = phi i32 [ -541478725, %14 ], [ -541478725, %10 ], [ %8, %1 ], [ %38, %20 ], [ -12, %18 ]
+  %.1 = phi i32 [ %38, %20 ], [ -12, %18 ], [ -541478725, %14 ], [ -541478725, %10 ], [ %8, %1 ]
   ret i32 %.1
 }
 

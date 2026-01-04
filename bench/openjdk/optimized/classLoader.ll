@@ -666,7 +666,7 @@ define hidden noundef ptr @_ZN11ClassLoader23package_from_class_nameEPK6SymbolPb
   br label %_ZN4UTF87strrchrEPKaia.exit.thread
 
 _ZN4UTF87strrchrEPKaia.exit.thread:               ; preds = %11, %28, %29, %25, %26, %4, %5, %30
-  %.0 = phi ptr [ %36, %30 ], [ null, %5 ], [ null, %4 ], [ null, %26 ], [ null, %25 ], [ null, %29 ], [ null, %28 ], [ null, %11 ]
+  %.0 = phi ptr [ %36, %30 ], [ null, %4 ], [ null, %28 ], [ null, %25 ], [ null, %5 ], [ null, %26 ], [ null, %29 ], [ null, %11 ]
   ret ptr %.0
 }
 
@@ -1322,7 +1322,7 @@ _ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread63:  ; preds = %_ZL25get_jimage_ver
   br label %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread
 
 _ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread:    ; preds = %19, %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread71, %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread68, %_ZN16SymbolHandleBaseILb1EED2Ev.exit33, %121
-  %.0 = phi ptr [ %131, %121 ], [ null, %_ZN16SymbolHandleBaseILb1EED2Ev.exit33 ], [ null, %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread68 ], [ null, %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread71 ], [ null, %19 ]
+  %.0 = phi ptr [ %131, %121 ], [ null, %_ZN16SymbolHandleBaseILb1EED2Ev.exit33 ], [ null, %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread71 ], [ null, %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread68 ], [ null, %19 ]
   ret ptr %.0
 }
 
@@ -1861,8 +1861,8 @@ _ZN11ClassLoader28add_to_app_classpath_entriesEP10JavaThreadP14ClassPathEntryb.e
   call void %55(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
   br label %_ZN11ClassLoader26add_to_boot_append_entriesEP14ClassPathEntry.exit
 
-_ZN11ClassLoader26add_to_boot_append_entriesEP14ClassPathEntry.exit: ; preds = %47, %52, %23, %22, %5, %_ZN11ClassLoader28add_to_app_classpath_entriesEP10JavaThreadP14ClassPathEntryb.exit, %9
-  %.0 = phi i1 [ false, %9 ], [ true, %_ZN11ClassLoader28add_to_app_classpath_entriesEP10JavaThreadP14ClassPathEntryb.exit ], [ false, %5 ], [ true, %22 ], [ true, %23 ], [ true, %52 ], [ true, %47 ]
+_ZN11ClassLoader26add_to_boot_append_entriesEP14ClassPathEntry.exit: ; preds = %52, %47, %23, %22, %5, %_ZN11ClassLoader28add_to_app_classpath_entriesEP10JavaThreadP14ClassPathEntryb.exit, %9
+  %.0 = phi i1 [ false, %5 ], [ false, %9 ], [ true, %23 ], [ true, %_ZN11ClassLoader28add_to_app_classpath_entriesEP10JavaThreadP14ClassPathEntryb.exit ], [ true, %22 ], [ true, %47 ], [ true, %52 ]
   ret i1 %.0
 }
 
@@ -2052,7 +2052,7 @@ define hidden noundef ptr @_ZN11ClassLoader23create_class_path_entryEP10JavaThre
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %51, %49, %52, %61
-  %.1 = phi ptr [ %53, %61 ], [ %53, %52 ], [ %spec.select, %49 ], [ %spec.select, %51 ]
+  %.1 = phi ptr [ %53, %52 ], [ %53, %61 ], [ %spec.select, %49 ], [ %spec.select, %51 ]
   ret ptr %.1
 }
 
@@ -2736,7 +2736,7 @@ thread-pre-split:                                 ; preds = %16
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %26, %31
-  %.012 = phi i1 [ true, %31 ], [ true, %26 ], [ false, %.preheader ]
+  %.012 = phi i1 [ true, %26 ], [ true, %31 ], [ false, %.preheader ]
   ret i1 %.012
 }
 
@@ -3262,8 +3262,8 @@ _ZN11ClassLoader15classpath_entryEi.exit:         ; preds = %.lr.ph.i, %48, %50
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %64, %_ZN11ClassLoader15classpath_entryEi.exit, %45, %43, %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit, %16
-  %.012 = phi ptr [ undef, %16 ], [ undef, %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit ], [ %40, %43 ], [ %40, %45 ], [ %65, %64 ], [ null, %_ZN11ClassLoader15classpath_entryEi.exit ]
-  %66 = phi i1 [ true, %16 ], [ true, %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit ], [ false, %43 ], [ false, %45 ], [ false, %64 ], [ false, %_ZN11ClassLoader15classpath_entryEi.exit ]
+  %.012 = phi ptr [ undef, %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit ], [ %40, %45 ], [ undef, %16 ], [ %40, %43 ], [ %65, %64 ], [ null, %_ZN11ClassLoader15classpath_entryEi.exit ]
+  %66 = phi i1 [ true, %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit ], [ false, %45 ], [ true, %16 ], [ false, %43 ], [ false, %64 ], [ false, %_ZN11ClassLoader15classpath_entryEi.exit ]
   br i1 %.not.i, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit, label %67
 
 67:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit
@@ -3395,7 +3395,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %49, %52
   br label %_ZNK14objArrayHandleclEv.exit
 
 _ZNK14objArrayHandleclEv.exit:                    ; preds = %42, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit.thread, %._crit_edge, %1
-  %.0 = phi ptr [ null, %1 ], [ %66, %._crit_edge ], [ null, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit.thread ], [ null, %42 ]
+  %.0 = phi ptr [ null, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit.thread ], [ null, %1 ], [ %66, %._crit_edge ], [ null, %42 ]
   %67 = load ptr, ptr %5, align 8
   %.not.i.i.i.i = icmp eq ptr %67, null
   br i1 %.not.i.i.i.i, label %69, label %68
@@ -3589,8 +3589,8 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %53, %42, %_ZL21find
   %.not28 = icmp eq ptr %62, null
   br i1 %.not28, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
-._crit_edge:                                      ; preds = %48, %.lr.ph, %60, %43, %20, %21, %_ZN11MutexLockerD2Ev.exit
-  %.021 = phi ptr [ null, %_ZN11MutexLockerD2Ev.exit ], [ null, %21 ], [ null, %20 ], [ null, %43 ], [ null, %60 ], [ %59, %.lr.ph ], [ null, %48 ]
+._crit_edge:                                      ; preds = %48, %.lr.ph, %60, %43, %21, %20, %_ZN11MutexLockerD2Ev.exit
+  %.021 = phi ptr [ null, %_ZN11MutexLockerD2Ev.exit ], [ null, %43 ], [ null, %60 ], [ null, %20 ], [ null, %21 ], [ %59, %.lr.ph ], [ null, %48 ]
   ret ptr %.021
 }
 
@@ -4002,7 +4002,7 @@ _ZN11FileMapInfo26get_number_of_shared_pathsEv.exit51: ; preds = %_ZN11FileMapIn
 
 113:                                              ; preds = %112
   %114 = icmp slt i64 %indvars.iv, %108
-  br i1 %114, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit86.split.loop.exit94, label %.critedge68
+  br i1 %114, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit86.split.loop.exit92, label %.critedge68
 
 115:                                              ; preds = %101
   %116 = icmp eq i64 %indvars.iv, 0
@@ -4023,7 +4023,7 @@ _ZN11FileMapInfo26get_number_of_shared_pathsEv.exit53: ; preds = %120
   %123 = load i32, ptr %121, align 8
   %124 = sext i32 %123 to i64
   %125 = icmp slt i64 %indvars.iv, %124
-  br i1 %125, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit86.split.loop.exit92, label %.critedge68
+  br i1 %125, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit86.split.loop.exit94, label %.critedge68
 
 .critedge68:                                      ; preds = %120, %113, %117, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit53, %95
   %126 = icmp eq i64 %indvars.iv, 0
@@ -4073,16 +4073,16 @@ _ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit86.split.loop
   %142 = trunc i64 %indvars.iv to i16
   br label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread
 
-_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit86.split.loop.exit92: ; preds = %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit53
+_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit86.split.loop.exit92: ; preds = %113
   %143 = trunc i64 %indvars.iv to i16
   br label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread
 
-_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit86.split.loop.exit94: ; preds = %113
+_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit86.split.loop.exit94: ; preds = %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit53
   %144 = trunc i64 %indvars.iv to i16
   br label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread
 
 _ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread: ; preds = %.thread57, %_ZL18string_starts_withPKcS0_.exit, %.thread57.us, %_ZL18string_starts_withPKcS0_.exit.us, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit86.split.loop.exit, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit86.split.loop.exit92, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit86.split.loop.exit94, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit98, %25, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit, %.critedge
-  %.1 = phi i16 [ -1, %.critedge ], [ 0, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit ], [ 0, %25 ], [ %140, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit ], [ %141, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit98 ], [ %142, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit86.split.loop.exit ], [ %143, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit86.split.loop.exit92 ], [ %144, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit86.split.loop.exit94 ], [ 0, %_ZL18string_starts_withPKcS0_.exit.us ], [ 0, %.thread57.us ], [ 0, %_ZL18string_starts_withPKcS0_.exit ], [ 0, %.thread57 ]
+  %.1 = phi i16 [ -1, %.critedge ], [ 0, %25 ], [ 0, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit ], [ %144, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit86.split.loop.exit94 ], [ 0, %.thread57.us ], [ %141, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit98 ], [ %140, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit ], [ %142, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit86.split.loop.exit ], [ %143, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit86.split.loop.exit92 ], [ 0, %_ZL18string_starts_withPKcS0_.exit.us ], [ 0, %_ZL18string_starts_withPKcS0_.exit ], [ 0, %.thread57 ]
   %145 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %146 = load ptr, ptr %145, align 8
   %147 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %146) #21
@@ -6107,7 +6107,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
-  %.0.i.i = phi ptr [ null, %1 ], [ %6, %7 ], [ %6, %4 ]
+  %.0.i.i = phi ptr [ null, %1 ], [ %6, %4 ], [ %6, %7 ]
   ret ptr %.0.i.i
 }
 
@@ -6262,7 +6262,7 @@ _ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit:      ; preds = %44, %45, %49, %54
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 _ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %61, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, %5, %11, %24, %31, %2
-  %.0 = phi ptr [ %1, %2 ], [ %.0.i.i.i, %31 ], [ %.0.i.i.i, %24 ], [ %1, %11 ], [ %1, %5 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
+  %.0 = phi ptr [ %1, %5 ], [ %1, %2 ], [ %.0.i.i.i, %24 ], [ %.0.i.i.i, %31 ], [ %1, %11 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
   ret ptr %.0
 }
 
@@ -6438,7 +6438,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
-  %.0.i.i = phi ptr [ null, %1 ], [ %6, %7 ], [ %6, %4 ]
+  %.0.i.i = phi ptr [ null, %1 ], [ %6, %4 ], [ %6, %7 ]
   ret ptr %.0.i.i
 }
 

@@ -225,7 +225,7 @@ _ZN6icu_7713umtx_initOnceI9UPropertyEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES4_S6_.
   br label %70
 
 70:                                               ; preds = %2, %67, %_ZN6icu_7713umtx_initOnceI9UPropertyEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES4_S6_.exit
-  %.0 = phi ptr [ %66, %_ZN6icu_7713umtx_initOnceI9UPropertyEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES4_S6_.exit ], [ %69, %67 ], [ null, %2 ]
+  %.0 = phi ptr [ %69, %67 ], [ %66, %_ZN6icu_7713umtx_initOnceI9UPropertyEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES4_S6_.exit ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -551,7 +551,7 @@ _ZN6icu_7713umtx_initOnceI15UPropertySourceEEvRNS_9UInitOnceEPFvT_R10UErrorCodeE
   br label %110
 
 110:                                              ; preds = %2, %_ZN6icu_7713umtx_initOnceI15UPropertySourceEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES4_S6_.exit, %8
-  %.0 = phi ptr [ null, %8 ], [ %109, %_ZN6icu_7713umtx_initOnceI15UPropertySourceEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES4_S6_.exit ], [ null, %2 ]
+  %.0 = phi ptr [ %109, %_ZN6icu_7713umtx_initOnceI15UPropertySourceEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES4_S6_.exit ], [ null, %8 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -758,7 +758,7 @@ define noundef ptr @_ZN6icu_7719CharacterProperties20getBinaryPropertySetE9UProp
           to label %75 unwind label %.loopexit.i
 
 75:                                               ; preds = %72, %70, %68
-  %.246.i = phi i32 [ %.14592.i, %70 ], [ %spec.select.i, %68 ], [ -1, %72 ]
+  %.246.i = phi i32 [ %.14592.i, %70 ], [ -1, %72 ], [ %spec.select.i, %68 ]
   %76 = add i32 %.093.i, 1
   %exitcond.not.i = icmp eq i32 %.093.i, %60
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !40
@@ -786,8 +786,8 @@ define noundef ptr @_ZN6icu_7719CharacterProperties20getBinaryPropertySetE9UProp
   br label %_ZN6icu_7712LocalPointerINS_10UnicodeSetEED2Ev.exit.i
 
 .thread79.i:                                      ; preds = %49, %44
-  %.pr.i = phi ptr [ %47, %49 ], [ %45, %44 ]
-  %.1.ph.i = phi ptr [ null, %49 ], [ %18, %44 ]
+  %.pr.i = phi ptr [ %45, %44 ], [ %47, %49 ]
+  %.1.ph.i = phi ptr [ %18, %44 ], [ null, %49 ]
   %85 = icmp eq ptr %.pr.i, null
   br i1 %85, label %_ZN6icu_7712LocalPointerINS_10UnicodeSetEED2Ev.exit.i, label %.thread79.thread.i
 
@@ -799,12 +799,12 @@ define noundef ptr @_ZN6icu_7719CharacterProperties20getBinaryPropertySetE9UProp
   br label %_ZN6icu_7712LocalPointerINS_10UnicodeSetEED2Ev.exit.i
 
 _ZN6icu_7712LocalPointerINS_10UnicodeSetEED2Ev.exit.i: ; preds = %.thread79.thread.i, %.thread79.i, %83, %21
-  %.185.i = phi ptr [ %.1.ph.i, %.thread79.i ], [ %.1.ph111.i, %.thread79.thread.i ], [ %84, %83 ], [ null, %21 ]
+  %.185.i = phi ptr [ %.1.ph111.i, %.thread79.thread.i ], [ %.1.ph.i, %.thread79.i ], [ %84, %83 ], [ null, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN12_GLOBAL__N_17makeSetE9UPropertyR10UErrorCode.exit
 
 86:                                               ; preds = %79, %.loopexit.split-lp.i, %.loopexit.i, %64, %58, %52, %42, %31
-  %.pn71.pn.pn.pn.pn.i = phi { ptr, i32 } [ %43, %42 ], [ %32, %31 ], [ %53, %52 ], [ %59, %58 ], [ %80, %79 ], [ %65, %64 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+  %.pn71.pn.pn.pn.pn.i = phi { ptr, i32 } [ %32, %31 ], [ %43, %42 ], [ %53, %52 ], [ %59, %58 ], [ %80, %79 ], [ %65, %64 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   call void @_ZN6icu_7712LocalPointerINS_10UnicodeSetEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
   br label %.body
 
@@ -842,7 +842,7 @@ _ZN6icu_775MutexD2Ev.exit:                        ; preds = %.body
   unreachable
 
 _ZN6icu_775MutexD2Ev.exit16:                      ; preds = %90, %2, %8
-  %.0 = phi ptr [ null, %8 ], [ null, %2 ], [ %.013, %90 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %8 ], [ %.013, %90 ]
   ret ptr %.0
 }
 
@@ -1043,7 +1043,7 @@ _ZN6icu_778internal16LocalOpenPointerI14UMutableCPTrieXadL_Z23umutablecptrie_clo
   br label %_ZN12_GLOBAL__N_17makeMapE9UPropertyR10UErrorCode.exit
 
 67:                                               ; preds = %60, %51, %46, %39, %37, %31, %26
-  %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %27, %26 ], [ %32, %31 ], [ %61, %60 ], [ %52, %51 ], [ %38, %37 ], [ %47, %46 ], [ %40, %39 ]
+  %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %27, %26 ], [ %32, %31 ], [ %52, %51 ], [ %61, %60 ], [ %38, %37 ], [ %47, %46 ], [ %40, %39 ]
   call void @_ZN6icu_778internal16LocalOpenPointerI14UMutableCPTrieXadL_Z23umutablecptrie_close_77EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.body
@@ -1086,7 +1086,7 @@ _ZN6icu_775MutexD2Ev.exit:                        ; preds = %.body
   unreachable
 
 _ZN6icu_775MutexD2Ev.exit16:                      ; preds = %73, %2, %8
-  %.0 = phi ptr [ null, %8 ], [ null, %2 ], [ %.013, %73 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %8 ], [ %.013, %73 ]
   ret ptr %.0
 }
 

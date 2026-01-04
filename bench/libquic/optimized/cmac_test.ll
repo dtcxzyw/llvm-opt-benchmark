@@ -64,8 +64,8 @@ _ZL21rfc_4493_test_vectorsv.exit:                 ; preds = %6
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %_ZL21rfc_4493_test_vectorsv.exit.thread
 
-_ZL21rfc_4493_test_vectorsv.exit.thread:          ; preds = %2, %4, %6, %_ZL21rfc_4493_test_vectorsv.exit, %9
-  %.0 = phi i32 [ 0, %9 ], [ 1, %_ZL21rfc_4493_test_vectorsv.exit ], [ 1, %6 ], [ 1, %4 ], [ 1, %2 ]
+_ZL21rfc_4493_test_vectorsv.exit.thread:          ; preds = %4, %6, %2, %_ZL21rfc_4493_test_vectorsv.exit, %9
+  %.0 = phi i32 [ 0, %9 ], [ 1, %_ZL21rfc_4493_test_vectorsv.exit ], [ 1, %2 ], [ 1, %6 ], [ 1, %4 ]
   ret i32 %.0
 }
 
@@ -255,7 +255,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL4testPKcPKhmS2_mS2_(ptr n
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %43, %.preheader6, %.thread, %.critedge.critedge, %.split32.us, %.critedge
-  %.172 = phi i32 [ 0, %.critedge ], [ 1, %.preheader6 ], [ 0, %.split32.us ], [ 0, %.critedge.critedge ], [ 0, %.thread ], [ 1, %43 ]
+  %.172 = phi i32 [ 0, %.critedge ], [ 0, %.split32.us ], [ 1, %.preheader6 ], [ 0, %.critedge.critedge ], [ 0, %.thread ], [ 1, %43 ]
   invoke void @CMAC_CTX_free(ptr noundef nonnull %22)
           to label %_ZNSt10unique_ptrI11cmac_ctx_st14OpenSSLDeleterIS0_XadL_Z13CMAC_CTX_freeEEEED2Ev.exit unwind label %68
 
@@ -267,12 +267,12 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL4testPKcPKhmS2_mS2_(ptr n
   unreachable
 
 _ZNSt10unique_ptrI11cmac_ctx_st14OpenSSLDeleterIS0_XadL_Z13CMAC_CTX_freeEEEED2Ev.exit: ; preds = %.critedge.thread74, %.critedge.thread
-  %.173 = phi i32 [ %.172, %.critedge.thread ], [ 0, %.critedge.thread74 ]
+  %.173 = phi i32 [ 0, %.critedge.thread74 ], [ %.172, %.critedge.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %72
 
 71:                                               ; preds = %.split.us, %.loopexit, %.split51.us, %53
-  %.pn.pn.pn = phi { ptr, i32 } [ %54, %53 ], [ %52, %.split51.us ], [ %lpad.phi, %.loopexit ], [ %51, %.split.us ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %54, %53 ], [ %lpad.phi, %.loopexit ], [ %52, %.split51.us ], [ %51, %.split.us ]
   call void @_ZNSt10unique_ptrI11cmac_ctx_st14OpenSSLDeleterIS0_XadL_Z13CMAC_CTX_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

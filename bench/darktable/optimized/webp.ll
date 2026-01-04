@@ -277,10 +277,10 @@ get_error_str.exit:                               ; preds = %75, %79
   br label %103
 
 103:                                              ; preds = %96, %101, %95, %92, %89, %get_error_str.exit, %54, %53, %52, %36, %12
-  %.038 = phi ptr [ %45, %52 ], [ %.1, %89 ], [ %.1, %92 ], [ %.1, %101 ], [ %.1, %95 ], [ %.1, %get_error_str.exit ], [ %.1, %54 ], [ null, %53 ], [ null, %36 ], [ null, %12 ], [ %.1, %96 ]
-  %.037 = phi ptr [ null, %52 ], [ null, %89 ], [ null, %92 ], [ %94, %101 ], [ null, %95 ], [ null, %get_error_str.exit ], [ null, %54 ], [ null, %53 ], [ null, %36 ], [ null, %12 ], [ %94, %96 ]
-  %104 = phi i1 [ false, %52 ], [ false, %89 ], [ false, %92 ], [ false, %101 ], [ false, %95 ], [ false, %get_error_str.exit ], [ false, %54 ], [ false, %53 ], [ false, %36 ], [ false, %12 ], [ true, %96 ]
-  %.0 = phi i32 [ 1, %52 ], [ 1, %89 ], [ 1, %92 ], [ 1, %101 ], [ 1, %95 ], [ 1, %get_error_str.exit ], [ 1, %54 ], [ 1, %53 ], [ 1, %36 ], [ 1, %12 ], [ 0, %96 ]
+  %.038 = phi ptr [ null, %36 ], [ %45, %52 ], [ null, %12 ], [ %.1, %89 ], [ %.1, %54 ], [ %.1, %92 ], [ null, %53 ], [ %.1, %101 ], [ %.1, %95 ], [ %.1, %get_error_str.exit ], [ %.1, %96 ]
+  %.037 = phi ptr [ null, %36 ], [ null, %52 ], [ null, %12 ], [ null, %89 ], [ null, %54 ], [ null, %92 ], [ null, %53 ], [ %94, %101 ], [ null, %95 ], [ null, %get_error_str.exit ], [ %94, %96 ]
+  %104 = phi i1 [ false, %36 ], [ false, %52 ], [ false, %12 ], [ false, %89 ], [ false, %54 ], [ false, %92 ], [ false, %53 ], [ false, %101 ], [ false, %95 ], [ false, %get_error_str.exit ], [ true, %96 ]
+  %.0 = phi i32 [ 1, %36 ], [ 1, %52 ], [ 1, %12 ], [ 1, %89 ], [ 1, %54 ], [ 1, %92 ], [ 1, %53 ], [ 1, %101 ], [ 1, %95 ], [ 1, %get_error_str.exit ], [ 0, %96 ]
   call void @WebPPictureFree(ptr noundef nonnull %13) #15
   call void @WebPMemoryWriterClear(ptr noundef nonnull %14) #15
   call void @g_free(ptr noundef %.038) #15

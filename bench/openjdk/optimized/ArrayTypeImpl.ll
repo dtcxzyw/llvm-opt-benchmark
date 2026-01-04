@@ -102,8 +102,8 @@ jdwpTag.exit:                                     ; preds = %27
   br i1 %.not.i24, label %isReferenceTag.exit, label %jdwpTag.exit.thread50
 
 jdwpTag.exit.thread50:                            ; preds = %24, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %jdwpTag.exit
-  %28 = phi i8 [ %.pr28, %jdwpTag.exit ], [ %.pr2856, %27 ], [ %.pr2856, %27 ], [ %.pr2856, %27 ], [ %.pr2856, %27 ], [ %.pr2856, %27 ], [ %.pr2856, %27 ], [ %.pr2856, %27 ], [ %.pr2856, %27 ], [ %.pr2856, %27 ], [ %.pr2856, %27 ], [ %.pr2856, %27 ], [ %.pr2856, %24 ]
-  %.pr53 = phi ptr [ %.pr.pre.pre, %jdwpTag.exit ], [ %22, %27 ], [ %22, %27 ], [ %22, %27 ], [ %22, %27 ], [ %22, %27 ], [ %22, %27 ], [ %22, %27 ], [ %22, %27 ], [ %22, %27 ], [ %22, %27 ], [ %22, %27 ], [ %22, %24 ]
+  %28 = phi i8 [ %.pr2856, %27 ], [ %.pr28, %jdwpTag.exit ], [ %.pr2856, %27 ], [ %.pr2856, %27 ], [ %.pr2856, %27 ], [ %.pr2856, %27 ], [ %.pr2856, %27 ], [ %.pr2856, %27 ], [ %.pr2856, %27 ], [ %.pr2856, %27 ], [ %.pr2856, %27 ], [ %.pr2856, %27 ], [ %.pr2856, %24 ]
+  %.pr53 = phi ptr [ %22, %27 ], [ %.pr.pre.pre, %jdwpTag.exit ], [ %22, %27 ], [ %22, %27 ], [ %22, %27 ], [ %22, %27 ], [ %22, %27 ], [ %22, %27 ], [ %22, %27 ], [ %22, %27 ], [ %22, %27 ], [ %22, %27 ], [ %22, %24 ]
   %29 = getelementptr inbounds nuw i8, ptr %.pr53, i64 17
   %30 = load i8, ptr %29, align 1
   %.fr.i = freeze i8 %30
@@ -132,7 +132,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %isReferenceTag.exit
 
 isReferenceTag.exit:                              ; preds = %switch.lookup, %jdwpTag.exit.thread, %jdwpTag.exit, %jdwpTag.exit.thread50, %33
-  %35 = phi i8 [ %23, %jdwpTag.exit.thread ], [ %.pr28, %jdwpTag.exit ], [ %28, %jdwpTag.exit.thread50 ], [ %28, %33 ], [ %switch.load, %switch.lookup ]
+  %35 = phi i8 [ %23, %jdwpTag.exit.thread ], [ %.pr28, %jdwpTag.exit ], [ %28, %jdwpTag.exit.thread50 ], [ %switch.load, %switch.lookup ], [ %28, %33 ]
   switch i8 %35, label %121 [
     i8 91, label %36
     i8 76, label %36

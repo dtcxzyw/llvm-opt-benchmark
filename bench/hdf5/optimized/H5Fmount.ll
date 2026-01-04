@@ -867,13 +867,13 @@ define range(i32 -1, 1) i32 @H5F_unmount(ptr noundef %0, ptr noundef %1) local_u
 191:                                              ; preds = %183
   br i1 %.179, label %192, label %.thread102
 
-192:                                              ; preds = %187, %179, %172, %146, %133, %123, %.thread105, %191
-  %.072108 = phi i32 [ -1, %.thread105 ], [ 0, %191 ], [ -1, %123 ], [ -1, %133 ], [ -1, %146 ], [ -1, %172 ], [ -1, %179 ], [ -1, %187 ]
+192:                                              ; preds = %123, %133, %146, %172, %179, %187, %.thread105, %191
+  %.072108 = phi i32 [ -1, %.thread105 ], [ 0, %191 ], [ -1, %187 ], [ -1, %179 ], [ -1, %172 ], [ -1, %146 ], [ -1, %133 ], [ -1, %123 ]
   %193 = call i32 @H5G_loc_free(ptr noundef nonnull %5) #6
   br label %.thread102
 
-.thread102:                                       ; preds = %26, %14, %187, %179, %172, %146, %133, %123, %18, %192, %191
-  %.173 = phi i32 [ %.072108, %192 ], [ 0, %191 ], [ 0, %18 ], [ -1, %123 ], [ -1, %133 ], [ -1, %146 ], [ -1, %172 ], [ -1, %179 ], [ -1, %187 ], [ -1, %14 ], [ -1, %26 ]
+.thread102:                                       ; preds = %26, %14, %123, %133, %146, %172, %179, %187, %18, %192, %191
+  %.173 = phi i32 [ %.072108, %192 ], [ 0, %191 ], [ 0, %18 ], [ -1, %123 ], [ -1, %187 ], [ -1, %179 ], [ -1, %172 ], [ -1, %146 ], [ -1, %133 ], [ -1, %14 ], [ -1, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -899,7 +899,7 @@ define zeroext i1 @H5F_is_mount(ptr noundef readonly captures(none) %0) local_un
   br label %11
 
 11:                                               ; preds = %8, %1
-  %.0 = phi i1 [ false, %1 ], [ %.not, %8 ]
+  %.0 = phi i1 [ %.not, %8 ], [ false, %1 ]
   ret i1 %.0
 }
 

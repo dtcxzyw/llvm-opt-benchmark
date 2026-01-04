@@ -254,9 +254,9 @@ init_gin_entries.exit:                            ; preds = %1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %53, %48, %45, %43, %38, %33, %31, %26, %23
-  %.sroa.0.4.sink = phi ptr [ %32, %31 ], [ %30, %26 ], [ %.sroa.0.0.ph, %23 ], [ %44, %43 ], [ %42, %38 ], [ %.sroa.0.0.ph, %33 ], [ %54, %53 ], [ %52, %48 ], [ %.sroa.0.0.ph, %45 ]
-  %.sink = phi i64 [ %24, %31 ], [ %24, %26 ], [ %24, %23 ], [ %36, %43 ], [ %36, %38 ], [ %36, %33 ], [ %46, %53 ], [ %46, %48 ], [ %46, %45 ]
-  %.sroa.27.1.ph = phi i32 [ 8, %31 ], [ %27, %26 ], [ %.sroa.27.0.ph, %23 ], [ 8, %43 ], [ %39, %38 ], [ %.sroa.27.0.ph, %33 ], [ 8, %53 ], [ %49, %48 ], [ %.sroa.27.0.ph, %45 ]
+  %.sroa.0.4.sink = phi ptr [ %.sroa.0.0.ph, %33 ], [ %.sroa.0.0.ph, %23 ], [ %30, %26 ], [ %32, %31 ], [ %42, %38 ], [ %44, %43 ], [ %52, %48 ], [ %54, %53 ], [ %.sroa.0.0.ph, %45 ]
+  %.sink = phi i64 [ %36, %33 ], [ %24, %23 ], [ %24, %26 ], [ %24, %31 ], [ %36, %38 ], [ %36, %43 ], [ %46, %48 ], [ %46, %53 ], [ %46, %45 ]
+  %.sroa.27.1.ph = phi i32 [ %.sroa.27.0.ph, %33 ], [ %.sroa.27.0.ph, %23 ], [ %27, %26 ], [ 8, %31 ], [ %39, %38 ], [ 8, %43 ], [ %49, %48 ], [ 8, %53 ], [ %.sroa.27.0.ph, %45 ]
   %55 = add i32 %.sroa.16.0.ph, 1
   %56 = sext i32 %.sroa.16.0.ph to i64
   %57 = getelementptr inbounds i64, ptr %.sroa.0.4.sink, i64 %56
@@ -465,7 +465,7 @@ define dso_local i64 @gin_extract_jsonb_query(ptr noundef readonly captures(none
   br label %49
 
 49:                                               ; preds = %42, %45
-  %50 = phi i32 [ %44, %42 ], [ %48, %45 ]
+  %50 = phi i32 [ %48, %45 ], [ %44, %42 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %51 = icmp sgt i32 %50, 125
   br i1 %51, label %52, label %make_text_key.exit
@@ -568,7 +568,7 @@ make_text_key.exit:                               ; preds = %.thread, %49, %52
   br label %107
 
 107:                                              ; preds = %100, %103
-  %108 = phi i32 [ %102, %100 ], [ %106, %103 ]
+  %108 = phi i32 [ %106, %103 ], [ %102, %100 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %109 = icmp sgt i32 %108, 125
   br i1 %109, label %110, label %make_text_key.exit82
@@ -841,7 +841,7 @@ define dso_local range(i64 0, 2) i64 @gin_consistent_jsonb(ptr noundef readonly 
   unreachable
 
 .loopexit:                                        ; preds = %27, %.lr.ph, %19, %.lr.ph40, %25, %17, %23, %33, %35, %24
-  %.032 = phi i64 [ 1, %23 ], [ 1, %24 ], [ %39, %35 ], [ 1, %33 ], [ 1, %17 ], [ 1, %25 ], [ 1, %19 ], [ 0, %.lr.ph40 ], [ 1, %27 ], [ 0, %.lr.ph ]
+  %.032 = phi i64 [ 1, %33 ], [ %39, %35 ], [ 1, %23 ], [ 1, %24 ], [ 1, %25 ], [ 0, %.lr.ph40 ], [ 1, %17 ], [ 1, %19 ], [ 1, %27 ], [ 0, %.lr.ph ]
   ret i64 %.032
 }
 
@@ -934,7 +934,7 @@ define internal fastcc signext i8 @execute_jsp_gin_node(ptr noundef readonly cap
   unreachable
 
 .loopexit:                                        ; preds = %21, %26, %12, %17, %.preheader34, %.preheader, %30
-  %.0 = phi i8 [ %.1, %30 ], [ 1, %.preheader ], [ 0, %.preheader34 ], [ %15, %12 ], [ %.131, %17 ], [ %24, %21 ], [ %.3, %26 ]
+  %.0 = phi i8 [ %.1, %30 ], [ 0, %.preheader34 ], [ %.131, %17 ], [ 1, %.preheader ], [ %15, %12 ], [ %.3, %26 ], [ %24, %21 ]
   ret i8 %.0
 }
 
@@ -1029,7 +1029,7 @@ define dso_local range(i64 -128, 128) i64 @gin_triconsistent_jsonb(ptr noundef r
   unreachable
 
 .loopexit:                                        ; preds = %16, %.lr.ph, %23, %.lr.ph44, %14, %.preheader, %28, %30
-  %.035 = phi i64 [ %34, %30 ], [ 2, %28 ], [ 0, %.preheader ], [ 2, %14 ], [ 0, %23 ], [ 2, %.lr.ph44 ], [ 2, %16 ], [ 0, %.lr.ph ]
+  %.035 = phi i64 [ 2, %28 ], [ %34, %30 ], [ 2, %14 ], [ 2, %.lr.ph44 ], [ 0, %.preheader ], [ 0, %23 ], [ 0, %.lr.ph ], [ 2, %16 ]
   ret i64 %.035
 }
 
@@ -1102,10 +1102,6 @@ init_gin_entries.exit:                            ; preds = %1
   store ptr %.0.ph51, ptr %28, align 8
   br label %.outer50.backedge
 
-.outer50.backedge:                                ; preds = %25, %54, %52
-  %.0.ph51.be = phi ptr [ %49, %52 ], [ %49, %54 ], [ %26, %25 ]
-  br label %.outer50, !llvm.loop !15
-
 29:                                               ; preds = %23
   call void @JsonbHashScalarValue(ptr noundef nonnull %3, ptr noundef nonnull %.0.ph51) #7
   br label %23, !llvm.loop !15
@@ -1133,8 +1129,8 @@ init_gin_entries.exit:                            ; preds = %1
   br label %add_gin_entry.exit
 
 add_gin_entry.exit:                               ; preds = %30, %34, %39
-  %.sroa.13.2 = phi i32 [ 8, %39 ], [ %35, %34 ], [ %.sroa.13.0.ph, %30 ]
-  %.sroa.0.2 = phi ptr [ %40, %39 ], [ %38, %34 ], [ %.sroa.0.0.ph, %30 ]
+  %.sroa.13.2 = phi i32 [ %35, %34 ], [ 8, %39 ], [ %.sroa.13.0.ph, %30 ]
+  %.sroa.0.2 = phi ptr [ %38, %34 ], [ %40, %39 ], [ %.sroa.0.0.ph, %30 ]
   %41 = add i32 %.sroa.8.0.ph, 1
   %42 = sext i32 %.sroa.8.0.ph to i64
   %43 = getelementptr inbounds i64, ptr %.sroa.0.2, i64 %42
@@ -1162,6 +1158,10 @@ add_gin_entry.exit:                               ; preds = %30, %34, %39
 54:                                               ; preds = %47
   store i32 0, ptr %49, align 8
   br label %.outer50.backedge
+
+.outer50.backedge:                                ; preds = %54, %25, %52
+  %.0.ph51.be = phi ptr [ %49, %52 ], [ %26, %25 ], [ %49, %54 ]
+  br label %.outer50, !llvm.loop !15
 
 55:                                               ; preds = %23
   %56 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -1237,7 +1237,7 @@ define dso_local i64 @gin_extract_jsonb_query_path(ptr noundef readonly captures
   br label %34
 
 34:                                               ; preds = %.sink.split, %21, %13
-  %.0 = phi ptr [ %16, %13 ], [ %28, %21 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi ptr [ %28, %21 ], [ %16, %13 ], [ %.0.ph, %.sink.split ]
   %35 = ptrtoint ptr %.0 to i64
   ret i64 %35
 }
@@ -1309,7 +1309,7 @@ define dso_local range(i64 0, 2) i64 @gin_consistent_jsonb_path(ptr noundef read
   unreachable
 
 .loopexit:                                        ; preds = %20, %.lr.ph, %18, %28, %26
-  %.021 = phi i64 [ %32, %28 ], [ 1, %26 ], [ 1, %18 ], [ 1, %20 ], [ 0, %.lr.ph ]
+  %.021 = phi i64 [ 1, %26 ], [ %32, %28 ], [ 1, %18 ], [ 1, %20 ], [ 0, %.lr.ph ]
   ret i64 %.021
 }
 
@@ -1376,7 +1376,7 @@ define dso_local range(i64 -128, 128) i64 @gin_triconsistent_jsonb_path(ptr noun
   unreachable
 
 .loopexit:                                        ; preds = %16, %.lr.ph, %.preheader, %24, %22
-  %.019 = phi i64 [ %28, %24 ], [ 2, %22 ], [ 2, %.preheader ], [ 2, %16 ], [ 0, %.lr.ph ]
+  %.019 = phi i64 [ 2, %22 ], [ %28, %24 ], [ 2, %.preheader ], [ 2, %16 ], [ 0, %.lr.ph ]
   ret i64 %.019
 }
 
@@ -1596,7 +1596,7 @@ define internal ptr @jsonb_ops__extract_nodes(ptr noundef readonly captures(none
   br label %46
 
 37:                                               ; preds = %26, %22, %23, %23
-  %38 = phi i1 [ false, %26 ], [ false, %22 ], [ true, %23 ], [ true, %23 ]
+  %38 = phi i1 [ true, %23 ], [ false, %22 ], [ true, %23 ], [ false, %26 ]
   %39 = tail call fastcc i64 @make_scalar_key(ptr noundef nonnull readonly %2, i1 noundef zeroext %38)
   %40 = tail call noundef ptr @palloc(i64 noundef 16) #7
   store i32 2, ptr %40, align 8
@@ -1727,7 +1727,7 @@ extract_jsp_path_expr_nodes.exit:                 ; preds = %16, %21
   br i1 %.not.i10, label %42, label %make_jsp_expr_node_args.exit, !llvm.loop !19
 
 make_jsp_expr_node_args.exit:                     ; preds = %42, %33, %extract_jsp_path_expr_nodes.exit, %30
-  %.0 = phi ptr [ %32, %30 ], [ null, %extract_jsp_path_expr_nodes.exit ], [ %37, %33 ], [ %37, %42 ]
+  %.0 = phi ptr [ null, %extract_jsp_path_expr_nodes.exit ], [ %32, %30 ], [ %37, %33 ], [ %37, %42 ]
   ret ptr %.0
 }
 
@@ -1879,14 +1879,14 @@ default.unreachable68:                            ; preds = %44
   br label %64
 
 64:                                               ; preds = %41, %37, %62
-  %.3 = phi ptr [ %63, %62 ], [ null, %37 ], [ null, %41 ]
+  %.3 = phi ptr [ null, %37 ], [ %63, %62 ], [ null, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %65
 
 65:                                               ; preds = %4, %64, %36, %30, %29
-  %.1 = phi ptr [ %.047, %29 ], [ %32, %30 ], [ %.2, %36 ], [ %.3, %64 ], [ null, %4 ]
+  %.1 = phi ptr [ %.3, %64 ], [ %.047, %29 ], [ %32, %30 ], [ %.2, %36 ], [ null, %4 ]
   ret ptr %.1
 }
 

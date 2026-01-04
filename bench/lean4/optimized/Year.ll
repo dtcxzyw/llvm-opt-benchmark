@@ -303,7 +303,7 @@ lean_nat_le.exit21:                               ; preds = %10
   br label %14
 
 14:                                               ; preds = %lean_nat_le.exit21, %11, %lean_nat_le.exit, %7, %13, %9
-  %l___private_Std_Time_Date_Unit_Year_0__Std_Time_Year_reprEra____x40_Std_Time_Date_Unit_Year___hyg_14____closed__12.sink = phi ptr [ @l___private_Std_Time_Date_Unit_Year_0__Std_Time_Year_reprEra____x40_Std_Time_Date_Unit_Year___hyg_14____closed__14, %13 ], [ @l___private_Std_Time_Date_Unit_Year_0__Std_Time_Year_reprEra____x40_Std_Time_Date_Unit_Year___hyg_14____closed__8, %9 ], [ @l___private_Std_Time_Date_Unit_Year_0__Std_Time_Year_reprEra____x40_Std_Time_Date_Unit_Year___hyg_14____closed__5, %7 ], [ @l___private_Std_Time_Date_Unit_Year_0__Std_Time_Year_reprEra____x40_Std_Time_Date_Unit_Year___hyg_14____closed__5, %lean_nat_le.exit ], [ @l___private_Std_Time_Date_Unit_Year_0__Std_Time_Year_reprEra____x40_Std_Time_Date_Unit_Year___hyg_14____closed__12, %11 ], [ @l___private_Std_Time_Date_Unit_Year_0__Std_Time_Year_reprEra____x40_Std_Time_Date_Unit_Year___hyg_14____closed__12, %lean_nat_le.exit21 ]
+  %l___private_Std_Time_Date_Unit_Year_0__Std_Time_Year_reprEra____x40_Std_Time_Date_Unit_Year___hyg_14____closed__12.sink = phi ptr [ @l___private_Std_Time_Date_Unit_Year_0__Std_Time_Year_reprEra____x40_Std_Time_Date_Unit_Year___hyg_14____closed__5, %lean_nat_le.exit ], [ @l___private_Std_Time_Date_Unit_Year_0__Std_Time_Year_reprEra____x40_Std_Time_Date_Unit_Year___hyg_14____closed__14, %13 ], [ @l___private_Std_Time_Date_Unit_Year_0__Std_Time_Year_reprEra____x40_Std_Time_Date_Unit_Year___hyg_14____closed__8, %9 ], [ @l___private_Std_Time_Date_Unit_Year_0__Std_Time_Year_reprEra____x40_Std_Time_Date_Unit_Year___hyg_14____closed__5, %7 ], [ @l___private_Std_Time_Date_Unit_Year_0__Std_Time_Year_reprEra____x40_Std_Time_Date_Unit_Year___hyg_14____closed__12, %11 ], [ @l___private_Std_Time_Date_Unit_Year_0__Std_Time_Year_reprEra____x40_Std_Time_Date_Unit_Year___hyg_14____closed__12, %lean_nat_le.exit21 ]
   %15 = load ptr, ptr %l___private_Std_Time_Date_Unit_Year_0__Std_Time_Year_reprEra____x40_Std_Time_Date_Unit_Year___hyg_14____closed__12.sink, align 8, !tbaa !10
   %16 = tail call ptr @l_Repr_addAppParen(ptr noundef %15, ptr noundef %1) #6
   ret ptr %16
@@ -379,7 +379,7 @@ l___private_Std_Time_Date_Unit_Year_0__Std_Time_Year_reprEra____x40_Std_Time_Dat
   br label %lean_dec.exit
 
 l___private_Std_Time_Date_Unit_Year_0__Std_Time_Year_reprEra____x40_Std_Time_Date_Unit_Year___hyg_14_.exit: ; preds = %lean_nat_le.exit21.i, %lean_nat_le.exit.i
-  %l___private_Std_Time_Date_Unit_Year_0__Std_Time_Year_reprEra____x40_Std_Time_Date_Unit_Year___hyg_14____closed__12.sink.i = phi ptr [ @l___private_Std_Time_Date_Unit_Year_0__Std_Time_Year_reprEra____x40_Std_Time_Date_Unit_Year___hyg_14____closed__8, %lean_nat_le.exit.i ], [ @l___private_Std_Time_Date_Unit_Year_0__Std_Time_Year_reprEra____x40_Std_Time_Date_Unit_Year___hyg_14____closed__14, %lean_nat_le.exit21.i ]
+  %l___private_Std_Time_Date_Unit_Year_0__Std_Time_Year_reprEra____x40_Std_Time_Date_Unit_Year___hyg_14____closed__12.sink.i = phi ptr [ @l___private_Std_Time_Date_Unit_Year_0__Std_Time_Year_reprEra____x40_Std_Time_Date_Unit_Year___hyg_14____closed__14, %lean_nat_le.exit21.i ], [ @l___private_Std_Time_Date_Unit_Year_0__Std_Time_Year_reprEra____x40_Std_Time_Date_Unit_Year___hyg_14____closed__8, %lean_nat_le.exit.i ]
   br label %l___private_Std_Time_Date_Unit_Year_0__Std_Time_Year_reprEra____x40_Std_Time_Date_Unit_Year___hyg_14_.exit.thread12
 
 l___private_Std_Time_Date_Unit_Year_0__Std_Time_Year_reprEra____x40_Std_Time_Date_Unit_Year___hyg_14_.exit.thread12: ; preds = %lean_nat_le.exit21.i, %lean_nat_le.exit.i, %l___private_Std_Time_Date_Unit_Year_0__Std_Time_Year_reprEra____x40_Std_Time_Date_Unit_Year___hyg_14_.exit
@@ -404,7 +404,7 @@ l___private_Std_Time_Date_Unit_Year_0__Std_Time_Year_reprEra____x40_Std_Time_Dat
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %l___private_Std_Time_Date_Unit_Year_0__Std_Time_Year_reprEra____x40_Std_Time_Date_Unit_Year___hyg_14_.exit.thread16, %33, %32, %30, %l___private_Std_Time_Date_Unit_Year_0__Std_Time_Year_reprEra____x40_Std_Time_Date_Unit_Year___hyg_14_.exit.thread
-  %34 = phi ptr [ %23, %l___private_Std_Time_Date_Unit_Year_0__Std_Time_Year_reprEra____x40_Std_Time_Date_Unit_Year___hyg_14_.exit.thread ], [ %27, %30 ], [ %27, %32 ], [ %27, %33 ], [ %25, %l___private_Std_Time_Date_Unit_Year_0__Std_Time_Year_reprEra____x40_Std_Time_Date_Unit_Year___hyg_14_.exit.thread16 ]
+  %34 = phi ptr [ %23, %l___private_Std_Time_Date_Unit_Year_0__Std_Time_Year_reprEra____x40_Std_Time_Date_Unit_Year___hyg_14_.exit.thread ], [ %25, %l___private_Std_Time_Date_Unit_Year_0__Std_Time_Year_reprEra____x40_Std_Time_Date_Unit_Year___hyg_14_.exit.thread16 ], [ %27, %30 ], [ %27, %32 ], [ %27, %33 ]
   ret ptr %34
 }
 
@@ -771,7 +771,7 @@ define ptr @l_Std_Time_Year_instOfNatOffset(ptr noundef %0) local_unnamed_addr #
   br label %lean_nat_to_int.exit
 
 lean_nat_to_int.exit:                             ; preds = %1, %5
-  %.1.i = phi ptr [ %7, %5 ], [ %0, %1 ]
+  %.1.i = phi ptr [ %0, %1 ], [ %7, %5 ]
   ret ptr %.1.i
 }
 
@@ -790,7 +790,7 @@ define ptr @l_Std_Time_Year_Offset_ofNat(ptr noundef %0) local_unnamed_addr #1 {
   br label %lean_nat_to_int.exit
 
 lean_nat_to_int.exit:                             ; preds = %1, %5
-  %.1.i = phi ptr [ %7, %5 ], [ %0, %1 ]
+  %.1.i = phi ptr [ %0, %1 ], [ %7, %5 ]
   ret ptr %.1.i
 }
 
@@ -1051,7 +1051,7 @@ l_Std_Time_Year_Offset_toMonths.exit.thread5:     ; preds = %5
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %22, %17, %31, %30, %28, %l_Std_Time_Year_Offset_toMonths.exit.thread5
-  %.0.i.i4 = phi ptr [ %8, %l_Std_Time_Year_Offset_toMonths.exit.thread5 ], [ %25, %28 ], [ %25, %30 ], [ %25, %31 ], [ %23, %22 ], [ %21, %17 ]
+  %.0.i.i4 = phi ptr [ %25, %31 ], [ %8, %l_Std_Time_Year_Offset_toMonths.exit.thread5 ], [ %25, %28 ], [ %25, %30 ], [ %23, %22 ], [ %21, %17 ]
   ret ptr %.0.i.i4
 }
 
@@ -2111,7 +2111,7 @@ lean_int_emod.exit.thread190:                     ; preds = %185
   br label %lean_dec.exit62
 
 lean_dec.exit62:                                  ; preds = %205, %200, %189, %214, %213, %211, %lean_int_emod.exit.thread190
-  %.1.i126189 = phi ptr [ %188, %lean_int_emod.exit.thread190 ], [ %208, %211 ], [ %208, %213 ], [ %208, %214 ], [ %206, %205 ], [ %204, %200 ], [ %.0.i121297301, %189 ]
+  %.1.i126189 = phi ptr [ %208, %214 ], [ %188, %lean_int_emod.exit.thread190 ], [ %208, %211 ], [ %208, %213 ], [ %206, %205 ], [ %204, %200 ], [ %.0.i121297301, %189 ]
   %215 = ptrtoint ptr %.1.i126189 to i64
   %216 = ptrtoint ptr %2 to i64
   %217 = and i64 %215, 1
@@ -2498,7 +2498,7 @@ lean_int_ediv.exit166.thread198:                  ; preds = %365
   br label %lean_dec.exit57
 
 lean_dec.exit57:                                  ; preds = %389, %384, %369, %398, %397, %395, %lean_int_ediv.exit166.thread198
-  %.1.i164197 = phi ptr [ %368, %lean_int_ediv.exit166.thread198 ], [ %392, %395 ], [ %392, %397 ], [ %392, %398 ], [ %390, %389 ], [ %388, %384 ], [ inttoptr (i64 1 to ptr), %369 ]
+  %.1.i164197 = phi ptr [ %392, %398 ], [ %368, %lean_int_ediv.exit166.thread198 ], [ %392, %395 ], [ %392, %397 ], [ %390, %389 ], [ %388, %384 ], [ inttoptr (i64 1 to ptr), %369 ]
   %399 = ptrtoint ptr %.0.i156307311 to i64
   %400 = and i64 %399, 1
   %.not.i167 = icmp eq i64 %400, 0
@@ -2645,7 +2645,7 @@ lean_int_emod.exit178.thread201:                  ; preds = %436
   br label %lean_dec.exit54
 
 lean_dec.exit54:                                  ; preds = %456, %451, %440, %465, %464, %462, %lean_int_emod.exit178.thread201
-  %.1.i176200 = phi ptr [ %439, %lean_int_emod.exit178.thread201 ], [ %459, %462 ], [ %459, %464 ], [ %459, %465 ], [ %457, %456 ], [ %455, %451 ], [ %.0.i169317321, %440 ]
+  %.1.i176200 = phi ptr [ %459, %465 ], [ %439, %lean_int_emod.exit178.thread201 ], [ %459, %462 ], [ %459, %464 ], [ %457, %456 ], [ %455, %451 ], [ %.0.i169317321, %440 ]
   %466 = load ptr, ptr @l_Std_Time_Year_Offset_weeks___closed__3, align 8, !tbaa !10
   %467 = ptrtoint ptr %.1.i176200 to i64
   %468 = ptrtoint ptr %466 to i64
@@ -3616,7 +3616,7 @@ _init_l_Std_Time_Year_Offset_days___closed__14.exit: ; preds = %355, %360, %.cri
   br label %369
 
 369:                                              ; preds = %.sink.split, %lean_dec_ref.exit19, %lean_dec_ref.exit17, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit17 ], [ %38, %lean_dec_ref.exit19 ], [ %.sink113, %.sink.split ]
+  %.0 = phi ptr [ %28, %lean_dec_ref.exit17 ], [ %38, %lean_dec_ref.exit19 ], [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink113, %.sink.split ]
   ret ptr %.0
 }
 

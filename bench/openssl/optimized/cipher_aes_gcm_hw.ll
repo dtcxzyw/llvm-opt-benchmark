@@ -176,12 +176,12 @@ define internal range(i32 0, 2) i32 @vaes_gcm_aadupdate(ptr noundef %0, ptr noun
   br label %.sink.split
 
 .sink.split:                                      ; preds = %41, %.loopexit.loopexit, %._crit_edge, %.preheader
-  %.2.sink = phi i32 [ %27, %._crit_edge ], [ %15, %.preheader ], [ 0, %41 ], [ %52, %.loopexit.loopexit ]
+  %.2.sink = phi i32 [ %15, %.preheader ], [ %27, %._crit_edge ], [ 0, %41 ], [ %52, %.loopexit.loopexit ]
   store i32 %.2.sink, ptr %14, align 4, !tbaa !11
   br label %53
 
 53:                                               ; preds = %.sink.split, %8, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %8 ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %3 ], [ 1, %.sink.split ]
   ret i32 %.0
 }
 
@@ -450,7 +450,7 @@ define internal range(i32 0, 2) i32 @generic_aes_gcm_cipher_update(ptr noundef %
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %57, %76, %19, %38, %83, %45, %.critedge
-  %.3 = phi i32 [ 1, %.critedge ], [ 0, %45 ], [ 0, %83 ], [ 0, %38 ], [ 0, %19 ], [ 0, %76 ], [ 0, %57 ]
+  %.3 = phi i32 [ 1, %.critedge ], [ 0, %83 ], [ 0, %45 ], [ 0, %19 ], [ 0, %38 ], [ 0, %76 ], [ 0, %57 ]
   ret i32 %.3
 }
 

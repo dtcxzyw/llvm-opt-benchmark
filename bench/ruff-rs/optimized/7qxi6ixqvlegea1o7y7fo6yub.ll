@@ -511,7 +511,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h3698796112bedcb2E.exit.thread.
   br label %.body.i
 
 .body.i:                                          ; preds = %77, %73, %69, %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$tracing_subscriber..filter..directive..StaticDirective$GT$$GT$17h1da7ffcad5cf5297E.exit.i.i.i"
-  %eh.lpad-body.i = phi { ptr, i32 } [ %30, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$tracing_subscriber..filter..directive..StaticDirective$GT$$GT$17h1da7ffcad5cf5297E.exit.i.i.i" ], [ %lpad.phi.i.i, %77 ], [ %74, %73 ], [ %70, %69 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit16.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp17.i, %.loopexit.split-lp.loopexit.split-lp.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %30, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$tracing_subscriber..filter..directive..StaticDirective$GT$$GT$17h1da7ffcad5cf5297E.exit.i.i.i" ], [ %74, %73 ], [ %70, %69 ], [ %lpad.phi.i.i, %77 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit16.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp17.i, %.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr593drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..filter_map..FilterMap$LT$alloc..vec..into_iter..IntoIter$LT$tracing_subscriber..filter..env..directive..Directive$GT$$C$tracing_subscriber..filter..env..directive..Directive..make_tables$LT$alloc..vec..Vec$LT$tracing_subscriber..filter..env..directive..Directive$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..filter_map..FilterMap$LT$core..slice..iter..Iter$LT$tracing_subscriber..filter..env..directive..Directive$GT$$C$tracing_subscriber..filter..env..directive..Directive..to_static$GT$$GT$$GT$17hb555316353c81bb4E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %11) #19
           to label %.body unwind label %78, !noalias !162
 
@@ -738,7 +738,7 @@ define hidden void @"_ZN131_$LT$tracing_subscriber..filter..directive..Directive
   br label %.body.i
 
 .body.i:                                          ; preds = %56, %52, %48, %14
-  %eh.lpad-body.i = phi { ptr, i32 } [ %15, %14 ], [ %lpad.phi.i.i, %56 ], [ %53, %52 ], [ %49, %48 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %15, %14 ], [ %49, %48 ], [ %lpad.phi.i.i, %56 ], [ %53, %52 ]
   invoke void @"_ZN4core3ptr113drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$tracing_subscriber..filter..env..directive..Directive$GT$$GT$17h4b6687066b6cdc6fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6) #19
           to label %.body unwind label %60, !noalias !215
 
@@ -1416,7 +1416,7 @@ define hidden void @_ZN18tracing_subscriber6filter3env7builder7Builder5parse17h0
           to label %.critedge.thread210.i unwind label %119, !noalias !271
 
 .critedge.thread210.i:                            ; preds = %121, %117, %113, %.loopexit.split-lp223.i
-  %.pn111.i = phi { ptr, i32 } [ %lpad.loopexit.split-lp225.i, %.loopexit.split-lp223.i ], [ %.pn104.i, %121 ], [ %114, %113 ], [ %118, %117 ]
+  %.pn111.i = phi { ptr, i32 } [ %lpad.loopexit.split-lp225.i, %.loopexit.split-lp223.i ], [ %114, %113 ], [ %.pn104.i, %121 ], [ %118, %117 ]
   invoke void @"_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$tracing_subscriber..filter..env..directive..Directive$GT$$GT$17h543cee24b9d1bb1eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %70) #19
           to label %common.resume unwind label %119, !noalias !272
 
@@ -1793,9 +1793,9 @@ _ZN18tracing_subscriber6filter3env7builder7Builder15from_directives17hebd67ce7d8
           to label %240 unwind label %.loopexit.split-lp238.i, !noalias !289
 
 .critedge.i:                                      ; preds = %279, %273, %269, %.loopexit.split-lp238.i
-  %.pn111.i25 = phi { ptr, i32 } [ %.pn104.i30, %279 ], [ %270, %269 ], [ %274, %273 ], [ %lpad.loopexit.split-lp240.i, %.loopexit.split-lp238.i ]
-  %.sroa.010.1.i = phi i1 [ false, %279 ], [ false, %269 ], [ false, %273 ], [ %.sroa.010.0.ph.i, %.loopexit.split-lp238.i ]
-  %.sroa.04.2.i = phi i8 [ %.sroa.04.0.i, %279 ], [ %.sroa.04.0.i, %269 ], [ %.sroa.04.0.i, %273 ], [ %.sroa.04.1.ph.i, %.loopexit.split-lp238.i ]
+  %.pn111.i25 = phi { ptr, i32 } [ %274, %273 ], [ %270, %269 ], [ %.pn104.i30, %279 ], [ %lpad.loopexit.split-lp240.i, %.loopexit.split-lp238.i ]
+  %.sroa.010.1.i = phi i1 [ false, %273 ], [ false, %269 ], [ false, %279 ], [ %.sroa.010.0.ph.i, %.loopexit.split-lp238.i ]
+  %.sroa.04.2.i = phi i8 [ %.sroa.04.0.i, %273 ], [ %.sroa.04.0.i, %269 ], [ %.sroa.04.0.i, %279 ], [ %.sroa.04.1.ph.i, %.loopexit.split-lp238.i ]
   %187 = trunc nuw i8 %.sroa.04.2.i to i1
   br i1 %187, label %.critedge.thread225.i, label %278
 
@@ -1805,8 +1805,8 @@ _ZN18tracing_subscriber6filter3env7builder7Builder15from_directives17hebd67ce7d8
   br label %.critedge.thread225.i
 
 .loopexit.split-lp238.i:                          ; preds = %238, %223, %222, %214, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55713f926150d2afE.exit.thread.i", %._crit_edge.thread.i, %182, %175
-  %.sroa.010.0.ph.i = phi i1 [ true, %223 ], [ true, %214 ], [ true, %182 ], [ true, %175 ], [ true, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55713f926150d2afE.exit.thread.i" ], [ true, %222 ], [ true, %238 ], [ false, %._crit_edge.thread.i ]
-  %.sroa.04.1.ph.i = phi i8 [ 0, %223 ], [ 0, %214 ], [ 1, %182 ], [ 1, %175 ], [ 0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55713f926150d2afE.exit.thread.i" ], [ 0, %222 ], [ 0, %238 ], [ %.sroa.04.0.i, %._crit_edge.thread.i ]
+  %.sroa.010.0.ph.i = phi i1 [ true, %214 ], [ true, %222 ], [ true, %223 ], [ true, %238 ], [ false, %._crit_edge.thread.i ], [ true, %175 ], [ true, %182 ], [ true, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55713f926150d2afE.exit.thread.i" ]
+  %.sroa.04.1.ph.i = phi i8 [ 0, %214 ], [ 0, %222 ], [ 0, %223 ], [ 0, %238 ], [ %.sroa.04.0.i, %._crit_edge.thread.i ], [ 1, %175 ], [ 1, %182 ], [ 0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55713f926150d2afE.exit.thread.i" ]
   %lpad.loopexit.split-lp240.i = landingpad { ptr, i32 }
           cleanup
   br label %.critedge.i
@@ -2556,8 +2556,8 @@ _ZN18tracing_subscriber6filter3env7builder7Builder15from_directives17hebd67ce7d8
   br i1 %334, label %._crit_edge.loopexit250.i, label %.lr.ph.split.i
 
 .critedge.thread225.i:                            ; preds = %326, %.loopexit237.split.i, %.critedge.i, %185, %180, %.loopexit237.split.us.i
-  %.sroa.010.1230.i = phi i1 [ %.sroa.010.1.i, %.critedge.i ], [ true, %185 ], [ true, %180 ], [ true, %326 ], [ true, %.loopexit237.split.i ], [ true, %.loopexit237.split.us.i ]
-  %.pn111229.i = phi { ptr, i32 } [ %.pn111.i25, %.critedge.i ], [ %.pn.pn.i.i, %185 ], [ %181, %180 ], [ %.us-phi247.i, %326 ], [ %lpad.loopexit239.i, %.loopexit237.split.i ], [ %lpad.loopexit239.us.i, %.loopexit237.split.us.i ]
+  %.sroa.010.1230.i = phi i1 [ %.sroa.010.1.i, %.critedge.i ], [ true, %180 ], [ true, %185 ], [ true, %326 ], [ true, %.loopexit237.split.i ], [ true, %.loopexit237.split.us.i ]
+  %.pn111229.i = phi { ptr, i32 } [ %.pn111.i25, %.critedge.i ], [ %181, %180 ], [ %.pn.pn.i.i, %185 ], [ %.us-phi247.i, %326 ], [ %lpad.loopexit239.i, %.loopexit237.split.i ], [ %lpad.loopexit239.us.i, %.loopexit237.split.us.i ]
   invoke void @"_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$tracing_subscriber..filter..env..directive..Directive$GT$$GT$17h543cee24b9d1bb1eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %58) #19
           to label %278 unwind label %275, !noalias !303
 
@@ -3115,7 +3115,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator9partition17h6aed4a427
           to label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h965e6652a31e7d0eE.exit" unwind label %49
 
 .body.i:                                          ; preds = %35, %26
-  %eh.lpad-body.i = phi { ptr, i32 } [ %27, %26 ], [ %36, %35 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %36, %35 ], [ %27, %26 ]
   invoke void @"_ZN4core3ptr113drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$tracing_subscriber..filter..env..directive..Directive$GT$$GT$17h4b6687066b6cdc6fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #19
           to label %.body unwind label %47
 
@@ -3261,7 +3261,7 @@ define hidden { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17
 13:                                               ; preds = %14
   resume { ptr, i32 } %lpad.thr_comm
 
-14:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17hefa6b257f61e1284E.exit.i", %9
+14:                                               ; preds = %9, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17hefa6b257f61e1284E.exit.i"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr165drop_in_place$LT$alloc..vec..Vec$LT$sharded_slab..page..slot..Slot$LT$tracing_subscriber..registry..sharded..DataInner$C$sharded_slab..cfg..DefaultConfig$GT$$GT$$GT$17h740e44da3a3eee8dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #19
@@ -3317,7 +3317,7 @@ define hidden { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17
 13:                                               ; preds = %14
   resume { ptr, i32 } %lpad.thr_comm
 
-14:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17hefa6b257f61e1284E.exit.i", %9
+14:                                               ; preds = %9, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17hefa6b257f61e1284E.exit.i"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$salsa..zalsa_local..QueryEdge$GT$$GT$17h1773aea43d1dc02eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #19
@@ -3373,7 +3373,7 @@ define hidden { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17
 13:                                               ; preds = %14
   resume { ptr, i32 } %lpad.thr_comm
 
-14:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17hefa6b257f61e1284E.exit.i", %9
+14:                                               ; preds = %9, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17hefa6b257f61e1284E.exit.i"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr309drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_utils..cache_padded..CachePadded$LT$lock_api..rwlock..RwLock$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$ruff_db..system..path..SystemPathBuf$C$dashmap..util..SharedValue$LT$ruff_db..system..os..ListedDirectory$GT$$RP$$GT$$GT$$GT$$GT$$GT$17hde844626f3e8dbedE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #19
@@ -3429,7 +3429,7 @@ define hidden { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17
 13:                                               ; preds = %14
   resume { ptr, i32 } %lpad.thr_comm
 
-14:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17hefa6b257f61e1284E.exit.i", %9
+14:                                               ; preds = %9, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17hefa6b257f61e1284E.exit.i"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr161drop_in_place$LT$alloc..vec..Vec$LT$sharded_slab..page..Shared$LT$tracing_subscriber..registry..sharded..DataInner$C$sharded_slab..cfg..DefaultConfig$GT$$GT$$GT$17h2182973cee871350E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #19
@@ -3485,7 +3485,7 @@ define hidden { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17
 13:                                               ; preds = %14
   resume { ptr, i32 } %lpad.thr_comm
 
-14:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17hefa6b257f61e1284E.exit.i", %9
+14:                                               ; preds = %9, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17hefa6b257f61e1284E.exit.i"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr156drop_in_place$LT$alloc..vec..Vec$LT$thread_local..Entry$LT$core..cell..RefCell$LT$alloc..vec..Vec$LT$tracing_core..metadata..LevelFilter$GT$$GT$$GT$$GT$$GT$17h350ab8362721f567E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #19
@@ -3541,7 +3541,7 @@ define hidden { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17
 13:                                               ; preds = %14
   resume { ptr, i32 } %lpad.thr_comm
 
-14:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17hefa6b257f61e1284E.exit.i", %9
+14:                                               ; preds = %9, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17hefa6b257f61e1284E.exit.i"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr69drop_in_place$LT$alloc..vec..Vec$LT$sharded_slab..page..Local$GT$$GT$17h57e296a9eecadc9aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #19
@@ -3597,7 +3597,7 @@ define hidden { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17
 13:                                               ; preds = %14
   resume { ptr, i32 } %lpad.thr_comm
 
-14:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17hefa6b257f61e1284E.exit.i", %9
+14:                                               ; preds = %9, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17hefa6b257f61e1284E.exit.i"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h167a91ff53dfb2c7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #19

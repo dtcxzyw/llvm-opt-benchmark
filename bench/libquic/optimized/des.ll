@@ -4086,8 +4086,8 @@ default.unreachable292:                           ; preds = %110, %27
   br label %168
 
 168:                                              ; preds = %._crit_edge272, %165, %._crit_edge, %63
-  %.1224.sink = phi i32 [ %70, %63 ], [ %.0227.lcssa, %._crit_edge ], [ %123, %165 ], [ %.0223.lcssa, %._crit_edge272 ]
-  %.1.sink = phi i32 [ %72, %63 ], [ %.0225.lcssa, %._crit_edge ], [ %135, %165 ], [ %.0.lcssa, %._crit_edge272 ]
+  %.1224.sink = phi i32 [ %.0227.lcssa, %._crit_edge ], [ %70, %63 ], [ %123, %165 ], [ %.0223.lcssa, %._crit_edge272 ]
+  %.1.sink = phi i32 [ %.0225.lcssa, %._crit_edge ], [ %72, %63 ], [ %135, %165 ], [ %.0.lcssa, %._crit_edge272 ]
   store i32 %.1224.sink, ptr %4, align 1
   store i32 %.1.sink, ptr %9, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -4432,8 +4432,8 @@ default.unreachable308:                           ; preds = %112, %29
   br label %170
 
 170:                                              ; preds = %._crit_edge288, %167, %._crit_edge, %65
-  %.1240.sink = phi i32 [ %72, %65 ], [ %.0243.lcssa, %._crit_edge ], [ %125, %167 ], [ %.0239.lcssa, %._crit_edge288 ]
-  %.1.sink = phi i32 [ %73, %65 ], [ %.0241.lcssa, %._crit_edge ], [ %137, %167 ], [ %.0.lcssa, %._crit_edge288 ]
+  %.1240.sink = phi i32 [ %.0243.lcssa, %._crit_edge ], [ %72, %65 ], [ %125, %167 ], [ %.0239.lcssa, %._crit_edge288 ]
+  %.1.sink = phi i32 [ %.0241.lcssa, %._crit_edge ], [ %73, %65 ], [ %137, %167 ], [ %.0.lcssa, %._crit_edge288 ]
   store i32 %.1240.sink, ptr %6, align 1
   store i32 %.1.sink, ptr %11, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

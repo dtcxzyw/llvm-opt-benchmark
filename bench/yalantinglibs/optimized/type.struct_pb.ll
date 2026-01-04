@@ -1546,7 +1546,7 @@ eh.resume.sink.split:                             ; preds = %lpad19, %lpad
   br label %eh.resume
 
 eh.resume:                                        ; preds = %eh.resume.sink.split, %lpad19, %lpad
-  %.pn = phi { ptr, i32 } [ %12, %lpad ], [ %14, %lpad19 ], [ %.pn.ph, %eh.resume.sink.split ]
+  %.pn = phi { ptr, i32 } [ %14, %lpad19 ], [ %12, %lpad ], [ %.pn.ph, %eh.resume.sink.split ]
   resume { ptr, i32 } %.pn
 }
 
@@ -1743,8 +1743,8 @@ if.end104.i861:                                   ; preds = %land.rhs.i879
   br label %if.end
 
 if.end:                                           ; preds = %if.end82.i953, %if.then.i978, %if.end12.i889, %if.end19.i897, %if.end28.i905, %if.end37.i913, %if.end46.i921, %if.end55.i929, %if.end64.i937, %if.end73.i945, %if.end104.i861
-  %pos.promoted729 = phi i64 [ %inc.i981, %if.then.i978 ], [ %inc13.i890, %if.end12.i889 ], [ %inc20.i898, %if.end19.i897 ], [ %inc29.i906, %if.end28.i905 ], [ %inc38.i914, %if.end37.i913 ], [ %inc47.i922, %if.end46.i921 ], [ %inc56.i930, %if.end55.i929 ], [ %inc65.i938, %if.end64.i937 ], [ %inc74.i946, %if.end73.i945 ], [ %inc96.i871, %if.end104.i861 ], [ %inc83.i954, %if.end82.i953 ]
-  %tag.0 = phi i64 [ %conv.i975, %if.then.i978 ], [ %or.i895, %if.end12.i889 ], [ %or25.i903, %if.end19.i897 ], [ %or34.i911, %if.end28.i905 ], [ %or43.i919, %if.end37.i913 ], [ %or52.i927, %if.end46.i921 ], [ %or61.i935, %if.end55.i929 ], [ %or70.i943, %if.end64.i937 ], [ %or79.i951, %if.end73.i945 ], [ %or110.i867, %if.end104.i861 ], [ %or88.i959, %if.end82.i953 ]
+  %pos.promoted729 = phi i64 [ %inc.i981, %if.then.i978 ], [ %inc96.i871, %if.end104.i861 ], [ %inc74.i946, %if.end73.i945 ], [ %inc83.i954, %if.end82.i953 ], [ %inc13.i890, %if.end12.i889 ], [ %inc20.i898, %if.end19.i897 ], [ %inc29.i906, %if.end28.i905 ], [ %inc38.i914, %if.end37.i913 ], [ %inc47.i922, %if.end46.i921 ], [ %inc56.i930, %if.end55.i929 ], [ %inc65.i938, %if.end64.i937 ]
+  %tag.0 = phi i64 [ %conv.i975, %if.then.i978 ], [ %or110.i867, %if.end104.i861 ], [ %or79.i951, %if.end73.i945 ], [ %or88.i959, %if.end82.i953 ], [ %or.i895, %if.end12.i889 ], [ %or25.i903, %if.end19.i897 ], [ %or34.i911, %if.end28.i905 ], [ %or43.i919, %if.end37.i913 ], [ %or52.i927, %if.end46.i921 ], [ %or61.i935, %if.end55.i929 ], [ %or70.i943, %if.end64.i937 ]
   switch i64 %tag.0, label %sw.default [
     i64 10, label %sw.bb
     i64 18, label %sw.bb12
@@ -1925,8 +1925,8 @@ if.end104.i:                                      ; preds = %land.rhs.i
   br label %if.end5
 
 if.end5:                                          ; preds = %if.end82.i, %if.then.i, %if.then5.i, %if.end12.i, %if.end19.i, %if.end28.i, %if.end37.i, %if.end46.i, %if.end55.i, %if.end64.i, %if.end73.i, %if.end104.i
-  %29 = phi i64 [ %inc.i, %if.then.i ], [ %inc6.i, %if.then5.i ], [ %inc13.i, %if.end12.i ], [ %inc20.i, %if.end19.i ], [ %inc29.i, %if.end28.i ], [ %inc38.i, %if.end37.i ], [ %inc47.i, %if.end46.i ], [ %inc56.i, %if.end55.i ], [ %inc65.i, %if.end64.i ], [ %inc74.i, %if.end73.i ], [ %inc96.i, %if.end104.i ], [ %inc83.i, %if.end82.i ]
-  %sz.0 = phi i64 [ %conv.i, %if.then.i ], [ %and9.i, %if.then5.i ], [ %or.i, %if.end12.i ], [ %or25.i, %if.end19.i ], [ %or34.i, %if.end28.i ], [ %or43.i, %if.end37.i ], [ %or52.i, %if.end46.i ], [ %or61.i, %if.end55.i ], [ %or70.i, %if.end64.i ], [ %or79.i, %if.end73.i ], [ %or110.i, %if.end104.i ], [ %or88.i, %if.end82.i ]
+  %29 = phi i64 [ %inc.i, %if.then.i ], [ %inc96.i, %if.end104.i ], [ %inc74.i, %if.end73.i ], [ %inc6.i, %if.then5.i ], [ %inc13.i, %if.end12.i ], [ %inc20.i, %if.end19.i ], [ %inc29.i, %if.end28.i ], [ %inc38.i, %if.end37.i ], [ %inc47.i, %if.end46.i ], [ %inc56.i, %if.end55.i ], [ %inc65.i, %if.end64.i ], [ %inc83.i, %if.end82.i ]
+  %sz.0 = phi i64 [ %conv.i, %if.then.i ], [ %or110.i, %if.end104.i ], [ %or79.i, %if.end73.i ], [ %and9.i, %if.then5.i ], [ %or.i, %if.end12.i ], [ %or25.i, %if.end19.i ], [ %or34.i, %if.end28.i ], [ %or43.i, %if.end37.i ], [ %or52.i, %if.end46.i ], [ %or61.i, %if.end55.i ], [ %or70.i, %if.end64.i ], [ %or88.i, %if.end82.i ]
   %30 = load i64, ptr %_M_string_length.i.i.i, align 8
   %cmp.i.i = icmp ult i64 %30, %sz.0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
@@ -2174,7 +2174,7 @@ if.end104.i151:                                   ; preds = %land.rhs.i169
   br label %if.end18
 
 if.end18:                                         ; preds = %if.end82.i243, %if.then.i268, %if.then5.i173, %if.end12.i179, %if.end19.i187, %if.end28.i195, %if.end37.i203, %if.end46.i211, %if.end55.i219, %if.end64.i227, %if.end73.i235, %if.end104.i151
-  %sz13.0 = phi i64 [ %conv.i265, %if.then.i268 ], [ %and9.i177, %if.then5.i173 ], [ %or.i185, %if.end12.i179 ], [ %or25.i193, %if.end19.i187 ], [ %or34.i201, %if.end28.i195 ], [ %or43.i209, %if.end37.i203 ], [ %or52.i217, %if.end46.i211 ], [ %or61.i225, %if.end55.i219 ], [ %or70.i233, %if.end64.i227 ], [ %or79.i241, %if.end73.i235 ], [ %or110.i157, %if.end104.i151 ], [ %or88.i249, %if.end82.i243 ]
+  %sz13.0 = phi i64 [ %conv.i265, %if.then.i268 ], [ %or110.i157, %if.end104.i151 ], [ %or79.i241, %if.end73.i235 ], [ %and9.i177, %if.then5.i173 ], [ %or.i185, %if.end12.i179 ], [ %or25.i193, %if.end19.i187 ], [ %or34.i201, %if.end28.i195 ], [ %or43.i209, %if.end37.i203 ], [ %or52.i217, %if.end46.i211 ], [ %or61.i225, %if.end55.i219 ], [ %or70.i233, %if.end64.i227 ], [ %or88.i249, %if.end82.i243 ]
   %52 = load ptr, ptr %_M_finish.i, align 8
   %53 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %52, %53
@@ -2224,7 +2224,7 @@ if.then.i.i.i.i2.i:                               ; preds = %lpad.i
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i614, %if.then.i.i.i.i2.i616, %lpad.i, %if.then.i.i.i.i2.i, %lpad
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi, %lpad ], [ %58, %if.then.i.i.i.i2.i ], [ %58, %lpad.i ], [ %121, %if.then.i.i.i.i2.i616 ], [ %121, %lpad.i614 ]
+  %common.resume.op = phi { ptr, i32 } [ %58, %lpad.i ], [ %lpad.phi, %lpad ], [ %58, %if.then.i.i.i.i2.i ], [ %121, %if.then.i.i.i.i2.i616 ], [ %121, %lpad.i614 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN9struct_pb8internal14deserialize_toIN6google8protobuf5FieldEEEbRT_PKcm.exit: ; preds = %invoke.cont.i, %if.then.i.i.i.i.i560
@@ -2440,8 +2440,8 @@ lpad:                                             ; preds = %lpad.loopexit.split
   br label %common.resume
 
 if.end36:                                         ; preds = %if.end82.i385, %if.then.i410, %if.then5.i315, %if.end12.i321, %if.end19.i329, %if.end28.i337, %if.end37.i345, %if.end46.i353, %if.end55.i361, %if.end64.i369, %if.end73.i377, %if.end104.i293
-  %78 = phi i64 [ %inc.i413, %if.then.i410 ], [ %inc6.i316, %if.then5.i315 ], [ %inc13.i322, %if.end12.i321 ], [ %inc20.i330, %if.end19.i329 ], [ %inc29.i338, %if.end28.i337 ], [ %inc38.i346, %if.end37.i345 ], [ %inc47.i354, %if.end46.i353 ], [ %inc56.i362, %if.end55.i361 ], [ %inc65.i370, %if.end64.i369 ], [ %inc74.i378, %if.end73.i377 ], [ %inc96.i303, %if.end104.i293 ], [ %inc83.i386, %if.end82.i385 ]
-  %sz31.0 = phi i64 [ %conv.i407, %if.then.i410 ], [ %and9.i319, %if.then5.i315 ], [ %or.i327, %if.end12.i321 ], [ %or25.i335, %if.end19.i329 ], [ %or34.i343, %if.end28.i337 ], [ %or43.i351, %if.end37.i345 ], [ %or52.i359, %if.end46.i353 ], [ %or61.i367, %if.end55.i361 ], [ %or70.i375, %if.end64.i369 ], [ %or79.i383, %if.end73.i377 ], [ %or110.i299, %if.end104.i293 ], [ %or88.i391, %if.end82.i385 ]
+  %78 = phi i64 [ %inc.i413, %if.then.i410 ], [ %inc96.i303, %if.end104.i293 ], [ %inc74.i378, %if.end73.i377 ], [ %inc6.i316, %if.then5.i315 ], [ %inc13.i322, %if.end12.i321 ], [ %inc20.i330, %if.end19.i329 ], [ %inc29.i338, %if.end28.i337 ], [ %inc38.i346, %if.end37.i345 ], [ %inc47.i354, %if.end46.i353 ], [ %inc56.i362, %if.end55.i361 ], [ %inc65.i370, %if.end64.i369 ], [ %inc83.i386, %if.end82.i385 ]
+  %sz31.0 = phi i64 [ %conv.i407, %if.then.i410 ], [ %or110.i299, %if.end104.i293 ], [ %or79.i383, %if.end73.i377 ], [ %and9.i319, %if.then5.i315 ], [ %or.i327, %if.end12.i321 ], [ %or25.i335, %if.end19.i329 ], [ %or34.i343, %if.end28.i337 ], [ %or43.i351, %if.end37.i345 ], [ %or52.i359, %if.end46.i353 ], [ %or61.i367, %if.end55.i361 ], [ %or70.i375, %if.end64.i369 ], [ %or88.i391, %if.end82.i385 ]
   %79 = load i64, ptr %_M_string_length.i.i.i563, align 8
   %cmp.i.i565 = icmp ult i64 %79, %sz31.0
   br i1 %cmp.i.i565, label %if.then.i.i570, label %if.else.i.i566
@@ -2619,7 +2619,7 @@ cleanup.loopexit:                                 ; preds = %while.body.i302
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.loopexit, %while.cond.i288.preheader, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i, %if.else.i.i596, %if.end82.i385, %invoke.cont37
-  %97 = phi i1 [ true, %invoke.cont37 ], [ true, %if.end82.i385 ], [ false, %if.else.i.i596 ], [ false, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i ], [ true, %while.cond.i288.preheader ], [ true, %cleanup.loopexit ]
+  %97 = phi i1 [ false, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i ], [ true, %invoke.cont37 ], [ true, %if.end82.i385 ], [ false, %if.else.i.i596 ], [ true, %while.cond.i288.preheader ], [ true, %cleanup.loopexit ]
   %98 = load ptr, ptr %tmp_str, align 8
   %cmp.i.i.i = icmp eq ptr %98, %0
   br i1 %cmp.i.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %if.then.i.i598
@@ -2807,7 +2807,7 @@ if.end104.i435:                                   ; preds = %land.rhs.i453
   br label %if.end52
 
 if.end52:                                         ; preds = %if.end82.i527, %if.then.i552, %if.then5.i457, %if.end12.i463, %if.end19.i471, %if.end28.i479, %if.end37.i487, %if.end46.i495, %if.end55.i503, %if.end64.i511, %if.end73.i519, %if.end104.i435
-  %sz47.0 = phi i64 [ %conv.i549, %if.then.i552 ], [ %and9.i461, %if.then5.i457 ], [ %or.i469, %if.end12.i463 ], [ %or25.i477, %if.end19.i471 ], [ %or34.i485, %if.end28.i479 ], [ %or43.i493, %if.end37.i487 ], [ %or52.i501, %if.end46.i495 ], [ %or61.i509, %if.end55.i503 ], [ %or70.i517, %if.end64.i511 ], [ %or79.i525, %if.end73.i519 ], [ %or110.i441, %if.end104.i435 ], [ %or88.i533, %if.end82.i527 ]
+  %sz47.0 = phi i64 [ %conv.i549, %if.then.i552 ], [ %or110.i441, %if.end104.i435 ], [ %or79.i525, %if.end73.i519 ], [ %and9.i461, %if.then5.i457 ], [ %or.i469, %if.end12.i463 ], [ %or25.i477, %if.end19.i471 ], [ %or34.i485, %if.end28.i479 ], [ %or43.i493, %if.end37.i487 ], [ %or52.i501, %if.end46.i495 ], [ %or61.i509, %if.end55.i503 ], [ %or70.i517, %if.end64.i511 ], [ %or88.i533, %if.end82.i527 ]
   %113 = load ptr, ptr %_M_finish.i601, align 8
   %114 = load ptr, ptr %_M_end_of_storage.i602, align 8
   %cmp.not.i603 = icmp eq ptr %113, %114
@@ -3096,8 +3096,8 @@ if.end104.i577:                                   ; preds = %land.rhs.i595
   br label %if.end75
 
 if.end75:                                         ; preds = %if.end82.i669, %if.then.i694, %if.then5.i599, %if.end12.i605, %if.end19.i613, %if.end28.i621, %if.end37.i629, %if.end46.i637, %if.end55.i645, %if.end64.i653, %if.end73.i661, %if.end104.i577
-  %146 = phi i64 [ %inc.i697, %if.then.i694 ], [ %inc6.i600, %if.then5.i599 ], [ %inc13.i606, %if.end12.i605 ], [ %inc20.i614, %if.end19.i613 ], [ %inc29.i622, %if.end28.i621 ], [ %inc38.i630, %if.end37.i629 ], [ %inc47.i638, %if.end46.i637 ], [ %inc56.i646, %if.end55.i645 ], [ %inc65.i654, %if.end64.i653 ], [ %inc74.i662, %if.end73.i661 ], [ %inc96.i587, %if.end104.i577 ], [ %inc83.i670, %if.end82.i669 ]
-  %sz70.0 = phi i64 [ %conv.i691, %if.then.i694 ], [ %and9.i603, %if.then5.i599 ], [ %or.i611, %if.end12.i605 ], [ %or25.i619, %if.end19.i613 ], [ %or34.i627, %if.end28.i621 ], [ %or43.i635, %if.end37.i629 ], [ %or52.i643, %if.end46.i637 ], [ %or61.i651, %if.end55.i645 ], [ %or70.i659, %if.end64.i653 ], [ %or79.i667, %if.end73.i661 ], [ %or110.i583, %if.end104.i577 ], [ %or88.i675, %if.end82.i669 ]
+  %146 = phi i64 [ %inc.i697, %if.then.i694 ], [ %inc96.i587, %if.end104.i577 ], [ %inc74.i662, %if.end73.i661 ], [ %inc6.i600, %if.then5.i599 ], [ %inc13.i606, %if.end12.i605 ], [ %inc20.i614, %if.end19.i613 ], [ %inc29.i622, %if.end28.i621 ], [ %inc38.i630, %if.end37.i629 ], [ %inc47.i638, %if.end46.i637 ], [ %inc56.i646, %if.end55.i645 ], [ %inc65.i654, %if.end64.i653 ], [ %inc83.i670, %if.end82.i669 ]
+  %sz70.0 = phi i64 [ %conv.i691, %if.then.i694 ], [ %or110.i583, %if.end104.i577 ], [ %or79.i667, %if.end73.i661 ], [ %and9.i603, %if.then5.i599 ], [ %or.i611, %if.end12.i605 ], [ %or25.i619, %if.end19.i613 ], [ %or34.i627, %if.end28.i621 ], [ %or43.i635, %if.end37.i629 ], [ %or52.i643, %if.end46.i637 ], [ %or61.i651, %if.end55.i645 ], [ %or70.i659, %if.end64.i653 ], [ %or88.i675, %if.end82.i669 ]
   %147 = load ptr, ptr %source_context, align 8
   %add.ptr78 = getelementptr inbounds i8, ptr %data, i64 %146
   %call79 = call noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN6google8protobuf13SourceContextEEEbRT_PKcm(ptr noundef nonnull align 8 dereferenceable(32) %147, ptr noundef %add.ptr78, i64 noundef %sz70.0)
@@ -3261,8 +3261,8 @@ if.end104.i719:                                   ; preds = %land.rhs.i737
   br label %if.end90
 
 if.end90:                                         ; preds = %if.end82.i811, %if.then.i836, %if.then5.i741, %if.end12.i747, %if.end19.i755, %if.end28.i763, %if.end37.i771, %if.end46.i779, %if.end55.i787, %if.end64.i795, %if.end73.i803, %if.end104.i719
-  %163 = phi i64 [ %inc.i839, %if.then.i836 ], [ %inc6.i742, %if.then5.i741 ], [ %inc13.i748, %if.end12.i747 ], [ %inc20.i756, %if.end19.i755 ], [ %inc29.i764, %if.end28.i763 ], [ %inc38.i772, %if.end37.i771 ], [ %inc47.i780, %if.end46.i779 ], [ %inc56.i788, %if.end55.i787 ], [ %inc65.i796, %if.end64.i795 ], [ %inc74.i804, %if.end73.i803 ], [ %inc96.i729, %if.end104.i719 ], [ %inc83.i812, %if.end82.i811 ]
-  %enum_val_tmp.0 = phi i64 [ %conv.i833, %if.then.i836 ], [ %and9.i745, %if.then5.i741 ], [ %or.i753, %if.end12.i747 ], [ %or25.i761, %if.end19.i755 ], [ %or34.i769, %if.end28.i763 ], [ %or43.i777, %if.end37.i771 ], [ %or43.i777, %if.end46.i779 ], [ %or43.i777, %if.end55.i787 ], [ %or43.i777, %if.end64.i795 ], [ %or43.i777, %if.end73.i803 ], [ %or110.i725, %if.end104.i719 ], [ %or43.i777, %if.end82.i811 ]
+  %163 = phi i64 [ %inc.i839, %if.then.i836 ], [ %inc96.i729, %if.end104.i719 ], [ %inc74.i804, %if.end73.i803 ], [ %inc6.i742, %if.then5.i741 ], [ %inc13.i748, %if.end12.i747 ], [ %inc20.i756, %if.end19.i755 ], [ %inc29.i764, %if.end28.i763 ], [ %inc38.i772, %if.end37.i771 ], [ %inc47.i780, %if.end46.i779 ], [ %inc56.i788, %if.end55.i787 ], [ %inc65.i796, %if.end64.i795 ], [ %inc83.i812, %if.end82.i811 ]
+  %enum_val_tmp.0 = phi i64 [ %conv.i833, %if.then.i836 ], [ %or110.i725, %if.end104.i719 ], [ %or43.i777, %if.end73.i803 ], [ %and9.i745, %if.then5.i741 ], [ %or.i753, %if.end12.i747 ], [ %or25.i761, %if.end19.i755 ], [ %or34.i769, %if.end28.i763 ], [ %or43.i777, %if.end37.i771 ], [ %or43.i777, %if.end46.i779 ], [ %or43.i777, %if.end55.i787 ], [ %or43.i777, %if.end64.i795 ], [ %or43.i777, %if.end82.i811 ]
   %conv = trunc i64 %enum_val_tmp.0 to i32
   store i32 %conv, ptr %syntax, align 8
   br label %sw.epilog
@@ -3302,7 +3302,7 @@ return.loopexit951:                               ; preds = %while.body.i870
   br label %return
 
 return:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %if.end75, %sw.epilog, %if.end82.i953, %if.end82.i, %if.end82.i243, %if.end82.i527, %if.end82.i669, %if.end82.i811, %while.cond.i856.preheader, %while.cond.i714.preheader, %while.cond.i572.preheader, %while.cond.i430.preheader, %while.cond.i146.preheader, %while.cond.i.preheader, %return.loopexit951, %return.loopexit950, %return.loopexit949, %return.loopexit948, %return.loopexit947, %return.loopexit, %entry, %sw.default, %if.then60, %if.then26
-  %retval.1 = phi i1 [ %call92, %sw.default ], [ false, %if.then26 ], [ false, %if.then60 ], [ true, %entry ], [ false, %return.loopexit ], [ false, %return.loopexit947 ], [ false, %return.loopexit948 ], [ false, %return.loopexit949 ], [ false, %return.loopexit950 ], [ false, %return.loopexit951 ], [ false, %while.cond.i.preheader ], [ false, %while.cond.i146.preheader ], [ false, %while.cond.i430.preheader ], [ false, %while.cond.i572.preheader ], [ false, %while.cond.i714.preheader ], [ false, %while.cond.i856.preheader ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %if.end75 ], [ true, %sw.epilog ], [ false, %if.end82.i953 ], [ false, %if.end82.i ], [ false, %if.end82.i243 ], [ false, %if.end82.i527 ], [ false, %if.end82.i669 ], [ false, %if.end82.i811 ]
+  %retval.1 = phi i1 [ %call92, %sw.default ], [ false, %return.loopexit ], [ false, %return.loopexit947 ], [ false, %if.then26 ], [ false, %return.loopexit948 ], [ false, %return.loopexit949 ], [ false, %if.then60 ], [ false, %return.loopexit950 ], [ false, %return.loopexit951 ], [ true, %entry ], [ false, %while.cond.i146.preheader ], [ false, %while.cond.i572.preheader ], [ false, %while.cond.i.preheader ], [ false, %while.cond.i430.preheader ], [ false, %while.cond.i714.preheader ], [ false, %if.end82.i811 ], [ false, %if.end82.i669 ], [ false, %if.end82.i527 ], [ false, %if.end82.i243 ], [ false, %if.end82.i ], [ false, %if.end82.i953 ], [ true, %sw.epilog ], [ false, %if.end75 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %while.cond.i856.preheader ]
   ret i1 %retval.1
 }
 
@@ -3543,7 +3543,7 @@ if.end3.sink.split:                               ; preds = %land.rhs.i, %land.l
   br label %if.end3
 
 if.end3:                                          ; preds = %if.end3.sink.split, %if.end82.i, %if.end73.i, %if.end64.i, %if.end55.i, %if.end46.i, %if.end37.i, %if.end28.i, %if.end19.i, %if.end12.i, %if.then5.i
-  %14 = phi i64 [ %inc83.i, %if.end82.i ], [ %inc74.i, %if.end73.i ], [ %inc65.i, %if.end64.i ], [ %inc56.i, %if.end55.i ], [ %inc47.i, %if.end46.i ], [ %inc38.i, %if.end37.i ], [ %inc29.i, %if.end28.i ], [ %inc20.i, %if.end19.i ], [ %inc13.i, %if.end12.i ], [ %inc6.i, %if.then5.i ], [ %inc105.i, %if.end3.sink.split ]
+  %14 = phi i64 [ %inc6.i, %if.then5.i ], [ %inc83.i, %if.end82.i ], [ %inc74.i, %if.end73.i ], [ %inc65.i, %if.end64.i ], [ %inc56.i, %if.end55.i ], [ %inc47.i, %if.end46.i ], [ %inc38.i, %if.end37.i ], [ %inc29.i, %if.end28.i ], [ %inc20.i, %if.end19.i ], [ %inc13.i, %if.end12.i ], [ %inc105.i, %if.end3.sink.split ]
   %add.ptr.i = getelementptr inbounds i8, ptr %data, i64 %sub
   %sub.i175 = sub i64 %14, %sub
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %unknown_fields, i64 8
@@ -3859,8 +3859,8 @@ if.end104.i58:                                    ; preds = %land.rhs.i76
   br label %if.end15
 
 if.end15:                                         ; preds = %if.end82.i151, %if.then.i176, %if.then5.i80, %if.end12.i87, %if.end19.i95, %if.end28.i103, %if.end37.i111, %if.end46.i119, %if.end55.i127, %if.end64.i135, %if.end73.i143, %if.end104.i58
-  %41 = phi i64 [ %inc.i179, %if.then.i176 ], [ %inc6.i82, %if.then5.i80 ], [ %inc13.i88, %if.end12.i87 ], [ %inc20.i96, %if.end19.i95 ], [ %inc29.i104, %if.end28.i103 ], [ %inc38.i112, %if.end37.i111 ], [ %inc47.i120, %if.end46.i119 ], [ %inc56.i128, %if.end55.i127 ], [ %inc65.i136, %if.end64.i135 ], [ %inc74.i144, %if.end73.i143 ], [ %inc96.i68, %if.end104.i58 ], [ %inc83.i152, %if.end82.i151 ]
-  %sz.0 = phi i64 [ %conv.i173, %if.then.i176 ], [ %and9.i85, %if.then5.i80 ], [ %or.i93, %if.end12.i87 ], [ %or25.i101, %if.end19.i95 ], [ %or34.i109, %if.end28.i103 ], [ %or43.i117, %if.end37.i111 ], [ %or52.i125, %if.end46.i119 ], [ %or61.i133, %if.end55.i127 ], [ %or70.i141, %if.end64.i135 ], [ %or79.i149, %if.end73.i143 ], [ %or110.i64, %if.end104.i58 ], [ %or88.i157, %if.end82.i151 ]
+  %41 = phi i64 [ %inc.i179, %if.then.i176 ], [ %inc96.i68, %if.end104.i58 ], [ %inc74.i144, %if.end73.i143 ], [ %inc6.i82, %if.then5.i80 ], [ %inc13.i88, %if.end12.i87 ], [ %inc20.i96, %if.end19.i95 ], [ %inc29.i104, %if.end28.i103 ], [ %inc38.i112, %if.end37.i111 ], [ %inc47.i120, %if.end46.i119 ], [ %inc56.i128, %if.end55.i127 ], [ %inc65.i136, %if.end64.i135 ], [ %inc83.i152, %if.end82.i151 ]
+  %sz.0 = phi i64 [ %conv.i173, %if.then.i176 ], [ %or110.i64, %if.end104.i58 ], [ %or79.i149, %if.end73.i143 ], [ %and9.i85, %if.then5.i80 ], [ %or.i93, %if.end12.i87 ], [ %or25.i101, %if.end19.i95 ], [ %or34.i109, %if.end28.i103 ], [ %or43.i117, %if.end37.i111 ], [ %or52.i125, %if.end46.i119 ], [ %or61.i133, %if.end55.i127 ], [ %or70.i141, %if.end64.i135 ], [ %or88.i157, %if.end82.i151 ]
   %add16 = add i64 %41, %sz.0
   %cmp17 = icmp ugt i64 %add16, %size
   br i1 %cmp17, label %return, label %if.end19
@@ -4011,7 +4011,7 @@ _ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EE
   br label %return
 
 return:                                           ; preds = %while.body.i67, %while.body.i, %while.cond.i53.preheader, %while.cond.i.preheader, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i273, %if.then.i.i.i249, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i239, %if.then.i.i.i215, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i205, %if.then.i.i.i181, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i, %if.then.i.i.i, %if.end82.i151, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit, %sw.bb21, %if.end15, %sw.bb4, %if.end82.i, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end82.i ], [ false, %sw.bb4 ], [ false, %if.end15 ], [ false, %sw.bb21 ], [ true, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit ], [ false, %if.end82.i151 ], [ true, %if.then.i.i.i ], [ true, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i ], [ true, %if.then.i.i.i181 ], [ true, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i205 ], [ true, %if.then.i.i.i215 ], [ true, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i239 ], [ true, %if.then.i.i.i249 ], [ true, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i273 ], [ false, %while.cond.i.preheader ], [ false, %while.cond.i53.preheader ], [ false, %while.body.i ], [ false, %while.body.i67 ]
+  %retval.0 = phi i1 [ false, %if.end15 ], [ false, %sw.bb21 ], [ false, %entry ], [ true, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i273 ], [ false, %sw.bb4 ], [ false, %while.cond.i.preheader ], [ false, %if.end82.i ], [ true, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit ], [ true, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i239 ], [ true, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i205 ], [ true, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i ], [ false, %if.end82.i151 ], [ true, %if.then.i.i.i ], [ true, %if.then.i.i.i181 ], [ true, %if.then.i.i.i215 ], [ true, %if.then.i.i.i249 ], [ false, %while.cond.i53.preheader ], [ false, %while.body.i ], [ false, %while.body.i67 ]
   ret i1 %retval.0
 }
 
@@ -4241,8 +4241,8 @@ if.end104.i1470:                                  ; preds = %land.rhs.i1488
   br label %if.end
 
 if.end:                                           ; preds = %if.end82.i1562, %if.then.i1587, %if.end12.i1498, %if.end19.i1506, %if.end28.i1514, %if.end37.i1522, %if.end46.i1530, %if.end55.i1538, %if.end64.i1546, %if.end73.i1554, %if.end104.i1470
-  %pos.promoted1068 = phi i64 [ %inc.i1590, %if.then.i1587 ], [ %inc13.i1499, %if.end12.i1498 ], [ %inc20.i1507, %if.end19.i1506 ], [ %inc29.i1515, %if.end28.i1514 ], [ %inc38.i1523, %if.end37.i1522 ], [ %inc47.i1531, %if.end46.i1530 ], [ %inc56.i1539, %if.end55.i1538 ], [ %inc65.i1547, %if.end64.i1546 ], [ %inc74.i1555, %if.end73.i1554 ], [ %inc96.i1480, %if.end104.i1470 ], [ %inc83.i1563, %if.end82.i1562 ]
-  %tag.0 = phi i64 [ %conv.i1584, %if.then.i1587 ], [ %or.i1504, %if.end12.i1498 ], [ %or25.i1512, %if.end19.i1506 ], [ %or34.i1520, %if.end28.i1514 ], [ %or43.i1528, %if.end37.i1522 ], [ %or52.i1536, %if.end46.i1530 ], [ %or61.i1544, %if.end55.i1538 ], [ %or70.i1552, %if.end64.i1546 ], [ %or79.i1560, %if.end73.i1554 ], [ %or110.i1476, %if.end104.i1470 ], [ %or88.i1568, %if.end82.i1562 ]
+  %pos.promoted1068 = phi i64 [ %inc.i1590, %if.then.i1587 ], [ %inc96.i1480, %if.end104.i1470 ], [ %inc74.i1555, %if.end73.i1554 ], [ %inc83.i1563, %if.end82.i1562 ], [ %inc13.i1499, %if.end12.i1498 ], [ %inc20.i1507, %if.end19.i1506 ], [ %inc29.i1515, %if.end28.i1514 ], [ %inc38.i1523, %if.end37.i1522 ], [ %inc47.i1531, %if.end46.i1530 ], [ %inc56.i1539, %if.end55.i1538 ], [ %inc65.i1547, %if.end64.i1546 ]
+  %tag.0 = phi i64 [ %conv.i1584, %if.then.i1587 ], [ %or110.i1476, %if.end104.i1470 ], [ %or79.i1560, %if.end73.i1554 ], [ %or88.i1568, %if.end82.i1562 ], [ %or.i1504, %if.end12.i1498 ], [ %or25.i1512, %if.end19.i1506 ], [ %or34.i1520, %if.end28.i1514 ], [ %or43.i1528, %if.end37.i1522 ], [ %or52.i1536, %if.end46.i1530 ], [ %or61.i1544, %if.end55.i1538 ], [ %or70.i1552, %if.end64.i1546 ]
   switch i64 %tag.0, label %sw.default [
     i64 8, label %sw.bb
     i64 16, label %sw.bb6
@@ -4408,8 +4408,8 @@ if.end104.i:                                      ; preds = %land.rhs.i
   br label %if.end5
 
 if.end5:                                          ; preds = %if.end82.i, %if.then.i, %if.then5.i, %if.end12.i, %if.end19.i, %if.end28.i, %if.end37.i, %if.end46.i, %if.end55.i, %if.end64.i, %if.end73.i, %if.end104.i
-  %31 = phi i64 [ %inc.i, %if.then.i ], [ %inc6.i, %if.then5.i ], [ %inc13.i, %if.end12.i ], [ %inc20.i, %if.end19.i ], [ %inc29.i, %if.end28.i ], [ %inc38.i, %if.end37.i ], [ %inc47.i, %if.end46.i ], [ %inc56.i, %if.end55.i ], [ %inc65.i, %if.end64.i ], [ %inc74.i, %if.end73.i ], [ %inc96.i, %if.end104.i ], [ %inc83.i, %if.end82.i ]
-  %enum_val_tmp.0 = phi i64 [ %conv.i, %if.then.i ], [ %and9.i, %if.then5.i ], [ %or.i, %if.end12.i ], [ %or25.i, %if.end19.i ], [ %or34.i, %if.end28.i ], [ %or43.i, %if.end37.i ], [ %or43.i, %if.end46.i ], [ %or43.i, %if.end55.i ], [ %or43.i, %if.end64.i ], [ %or43.i, %if.end73.i ], [ %or110.i, %if.end104.i ], [ %or43.i, %if.end82.i ]
+  %31 = phi i64 [ %inc.i, %if.then.i ], [ %inc96.i, %if.end104.i ], [ %inc74.i, %if.end73.i ], [ %inc6.i, %if.then5.i ], [ %inc13.i, %if.end12.i ], [ %inc20.i, %if.end19.i ], [ %inc29.i, %if.end28.i ], [ %inc38.i, %if.end37.i ], [ %inc47.i, %if.end46.i ], [ %inc56.i, %if.end55.i ], [ %inc65.i, %if.end64.i ], [ %inc83.i, %if.end82.i ]
+  %enum_val_tmp.0 = phi i64 [ %conv.i, %if.then.i ], [ %or110.i, %if.end104.i ], [ %or43.i, %if.end73.i ], [ %and9.i, %if.then5.i ], [ %or.i, %if.end12.i ], [ %or25.i, %if.end19.i ], [ %or34.i, %if.end28.i ], [ %or43.i, %if.end37.i ], [ %or43.i, %if.end46.i ], [ %or43.i, %if.end55.i ], [ %or43.i, %if.end64.i ], [ %or43.i, %if.end82.i ]
   %conv = trunc i64 %enum_val_tmp.0 to i32
   store i32 %conv, ptr %t, align 8
   br label %sw.epilog
@@ -4566,8 +4566,8 @@ if.end104.i192:                                   ; preds = %land.rhs.i210
   br label %if.end12
 
 if.end12:                                         ; preds = %if.end82.i284, %if.then.i309, %if.then5.i214, %if.end12.i220, %if.end19.i228, %if.end28.i236, %if.end37.i244, %if.end46.i252, %if.end55.i260, %if.end64.i268, %if.end73.i276, %if.end104.i192
-  %46 = phi i64 [ %inc.i312, %if.then.i309 ], [ %inc6.i215, %if.then5.i214 ], [ %inc13.i221, %if.end12.i220 ], [ %inc20.i229, %if.end19.i228 ], [ %inc29.i237, %if.end28.i236 ], [ %inc38.i245, %if.end37.i244 ], [ %inc47.i253, %if.end46.i252 ], [ %inc56.i261, %if.end55.i260 ], [ %inc65.i269, %if.end64.i268 ], [ %inc74.i277, %if.end73.i276 ], [ %inc96.i202, %if.end104.i192 ], [ %inc83.i285, %if.end82.i284 ]
-  %enum_val_tmp7.0 = phi i64 [ %conv.i306, %if.then.i309 ], [ %and9.i218, %if.then5.i214 ], [ %or.i226, %if.end12.i220 ], [ %or25.i234, %if.end19.i228 ], [ %or34.i242, %if.end28.i236 ], [ %or43.i250, %if.end37.i244 ], [ %or43.i250, %if.end46.i252 ], [ %or43.i250, %if.end55.i260 ], [ %or43.i250, %if.end64.i268 ], [ %or43.i250, %if.end73.i276 ], [ %or110.i198, %if.end104.i192 ], [ %or43.i250, %if.end82.i284 ]
+  %46 = phi i64 [ %inc.i312, %if.then.i309 ], [ %inc96.i202, %if.end104.i192 ], [ %inc74.i277, %if.end73.i276 ], [ %inc6.i215, %if.then5.i214 ], [ %inc13.i221, %if.end12.i220 ], [ %inc20.i229, %if.end19.i228 ], [ %inc29.i237, %if.end28.i236 ], [ %inc38.i245, %if.end37.i244 ], [ %inc47.i253, %if.end46.i252 ], [ %inc56.i261, %if.end55.i260 ], [ %inc65.i269, %if.end64.i268 ], [ %inc83.i285, %if.end82.i284 ]
+  %enum_val_tmp7.0 = phi i64 [ %conv.i306, %if.then.i309 ], [ %or110.i198, %if.end104.i192 ], [ %or43.i250, %if.end73.i276 ], [ %and9.i218, %if.then5.i214 ], [ %or.i226, %if.end12.i220 ], [ %or25.i234, %if.end19.i228 ], [ %or34.i242, %if.end28.i236 ], [ %or43.i250, %if.end37.i244 ], [ %or43.i250, %if.end46.i252 ], [ %or43.i250, %if.end55.i260 ], [ %or43.i250, %if.end64.i268 ], [ %or43.i250, %if.end82.i284 ]
   %conv13 = trunc i64 %enum_val_tmp7.0 to i32
   store i32 %conv13, ptr %cardinality, align 4
   br label %sw.epilog
@@ -4724,8 +4724,8 @@ if.end104.i334:                                   ; preds = %land.rhs.i352
   br label %if.end19
 
 if.end19:                                         ; preds = %if.end82.i426, %if.then.i451, %if.then5.i356, %if.end12.i362, %if.end19.i370, %if.end28.i378, %if.end37.i386, %if.end46.i394, %if.end55.i402, %if.end64.i410, %if.end73.i418, %if.end104.i334
-  %61 = phi i64 [ %inc.i454, %if.then.i451 ], [ %inc6.i357, %if.then5.i356 ], [ %inc13.i363, %if.end12.i362 ], [ %inc20.i371, %if.end19.i370 ], [ %inc29.i379, %if.end28.i378 ], [ %inc38.i387, %if.end37.i386 ], [ %inc47.i395, %if.end46.i394 ], [ %inc56.i403, %if.end55.i402 ], [ %inc65.i411, %if.end64.i410 ], [ %inc74.i419, %if.end73.i418 ], [ %inc96.i344, %if.end104.i334 ], [ %inc83.i427, %if.end82.i426 ]
-  %varint_tmp.0 = phi i64 [ %conv.i448, %if.then.i451 ], [ %and9.i360, %if.then5.i356 ], [ %or.i368, %if.end12.i362 ], [ %or25.i376, %if.end19.i370 ], [ %or34.i384, %if.end28.i378 ], [ %or43.i392, %if.end37.i386 ], [ %or43.i392, %if.end46.i394 ], [ %or43.i392, %if.end55.i402 ], [ %or43.i392, %if.end64.i410 ], [ %or43.i392, %if.end73.i418 ], [ %or110.i340, %if.end104.i334 ], [ %or43.i392, %if.end82.i426 ]
+  %61 = phi i64 [ %inc.i454, %if.then.i451 ], [ %inc96.i344, %if.end104.i334 ], [ %inc74.i419, %if.end73.i418 ], [ %inc6.i357, %if.then5.i356 ], [ %inc13.i363, %if.end12.i362 ], [ %inc20.i371, %if.end19.i370 ], [ %inc29.i379, %if.end28.i378 ], [ %inc38.i387, %if.end37.i386 ], [ %inc47.i395, %if.end46.i394 ], [ %inc56.i403, %if.end55.i402 ], [ %inc65.i411, %if.end64.i410 ], [ %inc83.i427, %if.end82.i426 ]
+  %varint_tmp.0 = phi i64 [ %conv.i448, %if.then.i451 ], [ %or110.i340, %if.end104.i334 ], [ %or43.i392, %if.end73.i418 ], [ %and9.i360, %if.then5.i356 ], [ %or.i368, %if.end12.i362 ], [ %or25.i376, %if.end19.i370 ], [ %or34.i384, %if.end28.i378 ], [ %or43.i392, %if.end37.i386 ], [ %or43.i392, %if.end46.i394 ], [ %or43.i392, %if.end55.i402 ], [ %or43.i392, %if.end64.i410 ], [ %or43.i392, %if.end82.i426 ]
   %conv20 = trunc i64 %varint_tmp.0 to i32
   store i32 %conv20, ptr %number, align 8
   br label %sw.epilog
@@ -4901,8 +4901,8 @@ if.end104.i476:                                   ; preds = %land.rhs.i494
   br label %if.end26
 
 if.end26:                                         ; preds = %if.end82.i568, %if.then.i593, %if.then5.i498, %if.end12.i504, %if.end19.i512, %if.end28.i520, %if.end37.i528, %if.end46.i536, %if.end55.i544, %if.end64.i552, %if.end73.i560, %if.end104.i476
-  %76 = phi i64 [ %inc.i596, %if.then.i593 ], [ %inc6.i499, %if.then5.i498 ], [ %inc13.i505, %if.end12.i504 ], [ %inc20.i513, %if.end19.i512 ], [ %inc29.i521, %if.end28.i520 ], [ %inc38.i529, %if.end37.i528 ], [ %inc47.i537, %if.end46.i536 ], [ %inc56.i545, %if.end55.i544 ], [ %inc65.i553, %if.end64.i552 ], [ %inc74.i561, %if.end73.i560 ], [ %inc96.i486, %if.end104.i476 ], [ %inc83.i569, %if.end82.i568 ]
-  %sz.0 = phi i64 [ %conv.i590, %if.then.i593 ], [ %and9.i502, %if.then5.i498 ], [ %or.i510, %if.end12.i504 ], [ %or25.i518, %if.end19.i512 ], [ %or34.i526, %if.end28.i520 ], [ %or43.i534, %if.end37.i528 ], [ %or52.i542, %if.end46.i536 ], [ %or61.i550, %if.end55.i544 ], [ %or70.i558, %if.end64.i552 ], [ %or79.i566, %if.end73.i560 ], [ %or110.i482, %if.end104.i476 ], [ %or88.i574, %if.end82.i568 ]
+  %76 = phi i64 [ %inc.i596, %if.then.i593 ], [ %inc96.i486, %if.end104.i476 ], [ %inc74.i561, %if.end73.i560 ], [ %inc6.i499, %if.then5.i498 ], [ %inc13.i505, %if.end12.i504 ], [ %inc20.i513, %if.end19.i512 ], [ %inc29.i521, %if.end28.i520 ], [ %inc38.i529, %if.end37.i528 ], [ %inc47.i537, %if.end46.i536 ], [ %inc56.i545, %if.end55.i544 ], [ %inc65.i553, %if.end64.i552 ], [ %inc83.i569, %if.end82.i568 ]
+  %sz.0 = phi i64 [ %conv.i590, %if.then.i593 ], [ %or110.i482, %if.end104.i476 ], [ %or79.i566, %if.end73.i560 ], [ %and9.i502, %if.then5.i498 ], [ %or.i510, %if.end12.i504 ], [ %or25.i518, %if.end19.i512 ], [ %or34.i526, %if.end28.i520 ], [ %or43.i534, %if.end37.i528 ], [ %or52.i542, %if.end46.i536 ], [ %or61.i550, %if.end55.i544 ], [ %or70.i558, %if.end64.i552 ], [ %or88.i574, %if.end82.i568 ]
   %77 = load i64, ptr %_M_string_length.i.i.i, align 8
   %cmp.i.i = icmp ult i64 %77, %sz.0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
@@ -5150,8 +5150,8 @@ if.end104.i618:                                   ; preds = %land.rhs.i636
   br label %if.end39
 
 if.end39:                                         ; preds = %if.end82.i710, %if.then.i735, %if.then5.i640, %if.end12.i646, %if.end19.i654, %if.end28.i662, %if.end37.i670, %if.end46.i678, %if.end55.i686, %if.end64.i694, %if.end73.i702, %if.end104.i618
-  %99 = phi i64 [ %inc.i738, %if.then.i735 ], [ %inc6.i641, %if.then5.i640 ], [ %inc13.i647, %if.end12.i646 ], [ %inc20.i655, %if.end19.i654 ], [ %inc29.i663, %if.end28.i662 ], [ %inc38.i671, %if.end37.i670 ], [ %inc47.i679, %if.end46.i678 ], [ %inc56.i687, %if.end55.i686 ], [ %inc65.i695, %if.end64.i694 ], [ %inc74.i703, %if.end73.i702 ], [ %inc96.i628, %if.end104.i618 ], [ %inc83.i711, %if.end82.i710 ]
-  %sz34.0 = phi i64 [ %conv.i732, %if.then.i735 ], [ %and9.i644, %if.then5.i640 ], [ %or.i652, %if.end12.i646 ], [ %or25.i660, %if.end19.i654 ], [ %or34.i668, %if.end28.i662 ], [ %or43.i676, %if.end37.i670 ], [ %or52.i684, %if.end46.i678 ], [ %or61.i692, %if.end55.i686 ], [ %or70.i700, %if.end64.i694 ], [ %or79.i708, %if.end73.i702 ], [ %or110.i624, %if.end104.i618 ], [ %or88.i716, %if.end82.i710 ]
+  %99 = phi i64 [ %inc.i738, %if.then.i735 ], [ %inc96.i628, %if.end104.i618 ], [ %inc74.i703, %if.end73.i702 ], [ %inc6.i641, %if.then5.i640 ], [ %inc13.i647, %if.end12.i646 ], [ %inc20.i655, %if.end19.i654 ], [ %inc29.i663, %if.end28.i662 ], [ %inc38.i671, %if.end37.i670 ], [ %inc47.i679, %if.end46.i678 ], [ %inc56.i687, %if.end55.i686 ], [ %inc65.i695, %if.end64.i694 ], [ %inc83.i711, %if.end82.i710 ]
+  %sz34.0 = phi i64 [ %conv.i732, %if.then.i735 ], [ %or110.i624, %if.end104.i618 ], [ %or79.i708, %if.end73.i702 ], [ %and9.i644, %if.then5.i640 ], [ %or.i652, %if.end12.i646 ], [ %or25.i660, %if.end19.i654 ], [ %or34.i668, %if.end28.i662 ], [ %or43.i676, %if.end37.i670 ], [ %or52.i684, %if.end46.i678 ], [ %or61.i692, %if.end55.i686 ], [ %or70.i700, %if.end64.i694 ], [ %or88.i716, %if.end82.i710 ]
   %100 = load i64, ptr %_M_string_length.i.i.i865, align 8
   %cmp.i.i866 = icmp ult i64 %100, %sz34.0
   br i1 %cmp.i.i866, label %if.then.i.i871, label %if.else.i.i867
@@ -5380,8 +5380,8 @@ if.end104.i760:                                   ; preds = %land.rhs.i778
   br label %if.end54
 
 if.end54:                                         ; preds = %if.end82.i852, %if.then.i877, %if.then5.i782, %if.end12.i788, %if.end19.i796, %if.end28.i804, %if.end37.i812, %if.end46.i820, %if.end55.i828, %if.end64.i836, %if.end73.i844, %if.end104.i760
-  %122 = phi i64 [ %inc.i880, %if.then.i877 ], [ %inc6.i783, %if.then5.i782 ], [ %inc13.i789, %if.end12.i788 ], [ %inc20.i797, %if.end19.i796 ], [ %inc29.i805, %if.end28.i804 ], [ %inc38.i813, %if.end37.i812 ], [ %inc47.i821, %if.end46.i820 ], [ %inc56.i829, %if.end55.i828 ], [ %inc65.i837, %if.end64.i836 ], [ %inc74.i845, %if.end73.i844 ], [ %inc96.i770, %if.end104.i760 ], [ %inc83.i853, %if.end82.i852 ]
-  %varint_tmp49.0 = phi i64 [ %conv.i874, %if.then.i877 ], [ %and9.i786, %if.then5.i782 ], [ %or.i794, %if.end12.i788 ], [ %or25.i802, %if.end19.i796 ], [ %or34.i810, %if.end28.i804 ], [ %or43.i818, %if.end37.i812 ], [ %or43.i818, %if.end46.i820 ], [ %or43.i818, %if.end55.i828 ], [ %or43.i818, %if.end64.i836 ], [ %or43.i818, %if.end73.i844 ], [ %or110.i766, %if.end104.i760 ], [ %or43.i818, %if.end82.i852 ]
+  %122 = phi i64 [ %inc.i880, %if.then.i877 ], [ %inc96.i770, %if.end104.i760 ], [ %inc74.i845, %if.end73.i844 ], [ %inc6.i783, %if.then5.i782 ], [ %inc13.i789, %if.end12.i788 ], [ %inc20.i797, %if.end19.i796 ], [ %inc29.i805, %if.end28.i804 ], [ %inc38.i813, %if.end37.i812 ], [ %inc47.i821, %if.end46.i820 ], [ %inc56.i829, %if.end55.i828 ], [ %inc65.i837, %if.end64.i836 ], [ %inc83.i853, %if.end82.i852 ]
+  %varint_tmp49.0 = phi i64 [ %conv.i874, %if.then.i877 ], [ %or110.i766, %if.end104.i760 ], [ %or43.i818, %if.end73.i844 ], [ %and9.i786, %if.then5.i782 ], [ %or.i794, %if.end12.i788 ], [ %or25.i802, %if.end19.i796 ], [ %or34.i810, %if.end28.i804 ], [ %or43.i818, %if.end37.i812 ], [ %or43.i818, %if.end46.i820 ], [ %or43.i818, %if.end55.i828 ], [ %or43.i818, %if.end64.i836 ], [ %or43.i818, %if.end82.i852 ]
   %conv55 = trunc i64 %varint_tmp49.0 to i32
   store i32 %conv55, ptr %oneof_index, align 8
   br label %sw.epilog
@@ -5557,8 +5557,8 @@ if.end104.i902:                                   ; preds = %land.rhs.i920
   br label %if.end62
 
 if.end62:                                         ; preds = %if.end82.i994, %if.then.i1019, %if.then5.i924, %if.end12.i930, %if.end19.i938, %if.end28.i946, %if.end37.i954, %if.end46.i962, %if.end55.i970, %if.end64.i978, %if.end73.i986, %if.end104.i902
-  %137 = phi i64 [ %inc.i1022, %if.then.i1019 ], [ %inc6.i925, %if.then5.i924 ], [ %inc13.i931, %if.end12.i930 ], [ %inc20.i939, %if.end19.i938 ], [ %inc29.i947, %if.end28.i946 ], [ %inc38.i955, %if.end37.i954 ], [ %inc47.i963, %if.end46.i962 ], [ %inc56.i971, %if.end55.i970 ], [ %inc65.i979, %if.end64.i978 ], [ %inc74.i987, %if.end73.i986 ], [ %inc96.i912, %if.end104.i902 ], [ %inc83.i995, %if.end82.i994 ]
-  %varint_tmp57.0 = phi i64 [ %conv.i1016, %if.then.i1019 ], [ %and9.i928, %if.then5.i924 ], [ %or.i936, %if.end12.i930 ], [ %or25.i944, %if.end19.i938 ], [ %or34.i952, %if.end28.i946 ], [ %or43.i960, %if.end37.i954 ], [ %or52.i968, %if.end46.i962 ], [ %or61.i976, %if.end55.i970 ], [ %or70.i984, %if.end64.i978 ], [ %or79.i992, %if.end73.i986 ], [ %or110.i908, %if.end104.i902 ], [ %or88.i1000, %if.end82.i994 ]
+  %137 = phi i64 [ %inc.i1022, %if.then.i1019 ], [ %inc96.i912, %if.end104.i902 ], [ %inc74.i987, %if.end73.i986 ], [ %inc6.i925, %if.then5.i924 ], [ %inc13.i931, %if.end12.i930 ], [ %inc20.i939, %if.end19.i938 ], [ %inc29.i947, %if.end28.i946 ], [ %inc38.i955, %if.end37.i954 ], [ %inc47.i963, %if.end46.i962 ], [ %inc56.i971, %if.end55.i970 ], [ %inc65.i979, %if.end64.i978 ], [ %inc83.i995, %if.end82.i994 ]
+  %varint_tmp57.0 = phi i64 [ %conv.i1016, %if.then.i1019 ], [ %or110.i908, %if.end104.i902 ], [ %or79.i992, %if.end73.i986 ], [ %and9.i928, %if.then5.i924 ], [ %or.i936, %if.end12.i930 ], [ %or25.i944, %if.end19.i938 ], [ %or34.i952, %if.end28.i946 ], [ %or43.i960, %if.end37.i954 ], [ %or52.i968, %if.end46.i962 ], [ %or61.i976, %if.end55.i970 ], [ %or70.i984, %if.end64.i978 ], [ %or88.i1000, %if.end82.i994 ]
   %tobool63 = icmp ne i64 %varint_tmp57.0, 0
   %frombool64 = zext i1 %tobool63 to i8
   store i8 %frombool64, ptr %packed, align 4
@@ -5735,7 +5735,7 @@ if.end104.i1044:                                  ; preds = %land.rhs.i1062
   br label %if.end71
 
 if.end71:                                         ; preds = %if.end82.i1136, %if.then.i1161, %if.then5.i1066, %if.end12.i1072, %if.end19.i1080, %if.end28.i1088, %if.end37.i1096, %if.end46.i1104, %if.end55.i1112, %if.end64.i1120, %if.end73.i1128, %if.end104.i1044
-  %sz66.0 = phi i64 [ %conv.i1158, %if.then.i1161 ], [ %and9.i1070, %if.then5.i1066 ], [ %or.i1078, %if.end12.i1072 ], [ %or25.i1086, %if.end19.i1080 ], [ %or34.i1094, %if.end28.i1088 ], [ %or43.i1102, %if.end37.i1096 ], [ %or52.i1110, %if.end46.i1104 ], [ %or61.i1118, %if.end55.i1112 ], [ %or70.i1126, %if.end64.i1120 ], [ %or79.i1134, %if.end73.i1128 ], [ %or110.i1050, %if.end104.i1044 ], [ %or88.i1142, %if.end82.i1136 ]
+  %sz66.0 = phi i64 [ %conv.i1158, %if.then.i1161 ], [ %or110.i1050, %if.end104.i1044 ], [ %or79.i1134, %if.end73.i1128 ], [ %and9.i1070, %if.then5.i1066 ], [ %or.i1078, %if.end12.i1072 ], [ %or25.i1086, %if.end19.i1080 ], [ %or34.i1094, %if.end28.i1088 ], [ %or43.i1102, %if.end37.i1096 ], [ %or52.i1110, %if.end46.i1104 ], [ %or61.i1118, %if.end55.i1112 ], [ %or70.i1126, %if.end64.i1120 ], [ %or88.i1142, %if.end82.i1136 ]
   %152 = load ptr, ptr %_M_finish.i, align 8
   %153 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %152, %153
@@ -5987,8 +5987,8 @@ if.end104.i1186:                                  ; preds = %land.rhs.i1204
   br label %if.end89
 
 if.end89:                                         ; preds = %if.end82.i1278, %if.then.i1303, %if.then5.i1208, %if.end12.i1214, %if.end19.i1222, %if.end28.i1230, %if.end37.i1238, %if.end46.i1246, %if.end55.i1254, %if.end64.i1262, %if.end73.i1270, %if.end104.i1186
-  %178 = phi i64 [ %inc.i1306, %if.then.i1303 ], [ %inc6.i1209, %if.then5.i1208 ], [ %inc13.i1215, %if.end12.i1214 ], [ %inc20.i1223, %if.end19.i1222 ], [ %inc29.i1231, %if.end28.i1230 ], [ %inc38.i1239, %if.end37.i1238 ], [ %inc47.i1247, %if.end46.i1246 ], [ %inc56.i1255, %if.end55.i1254 ], [ %inc65.i1263, %if.end64.i1262 ], [ %inc74.i1271, %if.end73.i1270 ], [ %inc96.i1196, %if.end104.i1186 ], [ %inc83.i1279, %if.end82.i1278 ]
-  %sz84.0 = phi i64 [ %conv.i1300, %if.then.i1303 ], [ %and9.i1212, %if.then5.i1208 ], [ %or.i1220, %if.end12.i1214 ], [ %or25.i1228, %if.end19.i1222 ], [ %or34.i1236, %if.end28.i1230 ], [ %or43.i1244, %if.end37.i1238 ], [ %or52.i1252, %if.end46.i1246 ], [ %or61.i1260, %if.end55.i1254 ], [ %or70.i1268, %if.end64.i1262 ], [ %or79.i1276, %if.end73.i1270 ], [ %or110.i1192, %if.end104.i1186 ], [ %or88.i1284, %if.end82.i1278 ]
+  %178 = phi i64 [ %inc.i1306, %if.then.i1303 ], [ %inc96.i1196, %if.end104.i1186 ], [ %inc74.i1271, %if.end73.i1270 ], [ %inc6.i1209, %if.then5.i1208 ], [ %inc13.i1215, %if.end12.i1214 ], [ %inc20.i1223, %if.end19.i1222 ], [ %inc29.i1231, %if.end28.i1230 ], [ %inc38.i1239, %if.end37.i1238 ], [ %inc47.i1247, %if.end46.i1246 ], [ %inc56.i1255, %if.end55.i1254 ], [ %inc65.i1263, %if.end64.i1262 ], [ %inc83.i1279, %if.end82.i1278 ]
+  %sz84.0 = phi i64 [ %conv.i1300, %if.then.i1303 ], [ %or110.i1192, %if.end104.i1186 ], [ %or79.i1276, %if.end73.i1270 ], [ %and9.i1212, %if.then5.i1208 ], [ %or.i1220, %if.end12.i1214 ], [ %or25.i1228, %if.end19.i1222 ], [ %or34.i1236, %if.end28.i1230 ], [ %or43.i1244, %if.end37.i1238 ], [ %or52.i1252, %if.end46.i1246 ], [ %or61.i1260, %if.end55.i1254 ], [ %or70.i1268, %if.end64.i1262 ], [ %or88.i1284, %if.end82.i1278 ]
   %179 = load i64, ptr %_M_string_length.i.i.i896, align 8
   %cmp.i.i897 = icmp ult i64 %179, %sz84.0
   br i1 %cmp.i.i897, label %if.then.i.i902, label %if.else.i.i898
@@ -6236,8 +6236,8 @@ if.end104.i1328:                                  ; preds = %land.rhs.i1346
   br label %if.end104
 
 if.end104:                                        ; preds = %if.end82.i1420, %if.then.i1445, %if.then5.i1350, %if.end12.i1356, %if.end19.i1364, %if.end28.i1372, %if.end37.i1380, %if.end46.i1388, %if.end55.i1396, %if.end64.i1404, %if.end73.i1412, %if.end104.i1328
-  %201 = phi i64 [ %inc.i1448, %if.then.i1445 ], [ %inc6.i1351, %if.then5.i1350 ], [ %inc13.i1357, %if.end12.i1356 ], [ %inc20.i1365, %if.end19.i1364 ], [ %inc29.i1373, %if.end28.i1372 ], [ %inc38.i1381, %if.end37.i1380 ], [ %inc47.i1389, %if.end46.i1388 ], [ %inc56.i1397, %if.end55.i1396 ], [ %inc65.i1405, %if.end64.i1404 ], [ %inc74.i1413, %if.end73.i1412 ], [ %inc96.i1338, %if.end104.i1328 ], [ %inc83.i1421, %if.end82.i1420 ]
-  %sz99.0 = phi i64 [ %conv.i1442, %if.then.i1445 ], [ %and9.i1354, %if.then5.i1350 ], [ %or.i1362, %if.end12.i1356 ], [ %or25.i1370, %if.end19.i1364 ], [ %or34.i1378, %if.end28.i1372 ], [ %or43.i1386, %if.end37.i1380 ], [ %or52.i1394, %if.end46.i1388 ], [ %or61.i1402, %if.end55.i1396 ], [ %or70.i1410, %if.end64.i1404 ], [ %or79.i1418, %if.end73.i1412 ], [ %or110.i1334, %if.end104.i1328 ], [ %or88.i1426, %if.end82.i1420 ]
+  %201 = phi i64 [ %inc.i1448, %if.then.i1445 ], [ %inc96.i1338, %if.end104.i1328 ], [ %inc74.i1413, %if.end73.i1412 ], [ %inc6.i1351, %if.then5.i1350 ], [ %inc13.i1357, %if.end12.i1356 ], [ %inc20.i1365, %if.end19.i1364 ], [ %inc29.i1373, %if.end28.i1372 ], [ %inc38.i1381, %if.end37.i1380 ], [ %inc47.i1389, %if.end46.i1388 ], [ %inc56.i1397, %if.end55.i1396 ], [ %inc65.i1405, %if.end64.i1404 ], [ %inc83.i1421, %if.end82.i1420 ]
+  %sz99.0 = phi i64 [ %conv.i1442, %if.then.i1445 ], [ %or110.i1334, %if.end104.i1328 ], [ %or79.i1418, %if.end73.i1412 ], [ %and9.i1354, %if.then5.i1350 ], [ %or.i1362, %if.end12.i1356 ], [ %or25.i1370, %if.end19.i1364 ], [ %or34.i1378, %if.end28.i1372 ], [ %or43.i1386, %if.end37.i1380 ], [ %or52.i1394, %if.end46.i1388 ], [ %or61.i1402, %if.end55.i1396 ], [ %or70.i1410, %if.end64.i1404 ], [ %or88.i1426, %if.end82.i1420 ]
   %202 = load i64, ptr %_M_string_length.i.i.i922, align 8
   %cmp.i.i923 = icmp ult i64 %202, %sz99.0
   br i1 %cmp.i.i923, label %if.then.i.i928, label %if.else.i.i924
@@ -6369,7 +6369,7 @@ return.loopexit1370:                              ; preds = %while.body.i1479
   br label %return
 
 return:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit890, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit921, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit947, %sw.epilog, %if.end82.i1562, %if.end82.i, %if.end82.i284, %if.end82.i426, %if.end82.i568, %if.end82.i710, %if.end82.i852, %if.end82.i994, %if.end82.i1136, %if.end82.i1278, %if.end82.i1420, %while.cond.i1465.preheader, %while.cond.i1323.preheader, %while.cond.i1181.preheader, %while.cond.i1039.preheader, %while.cond.i897.preheader, %while.cond.i755.preheader, %while.cond.i613.preheader, %while.cond.i471.preheader, %while.cond.i329.preheader, %while.cond.i187.preheader, %while.cond.i.preheader, %return.loopexit1370, %return.loopexit1369, %return.loopexit1368, %return.loopexit1367, %return.loopexit1366, %return.loopexit1365, %return.loopexit1364, %return.loopexit1363, %return.loopexit1362, %return.loopexit1361, %return.loopexit, %entry, %sw.default, %if.then79
-  %retval.0 = phi i1 [ %call114, %sw.default ], [ false, %if.then79 ], [ true, %entry ], [ false, %return.loopexit ], [ false, %return.loopexit1361 ], [ false, %return.loopexit1362 ], [ false, %return.loopexit1363 ], [ false, %return.loopexit1364 ], [ false, %return.loopexit1365 ], [ false, %return.loopexit1366 ], [ false, %return.loopexit1367 ], [ false, %return.loopexit1368 ], [ false, %return.loopexit1369 ], [ false, %return.loopexit1370 ], [ false, %while.cond.i.preheader ], [ false, %while.cond.i187.preheader ], [ false, %while.cond.i329.preheader ], [ false, %while.cond.i471.preheader ], [ false, %while.cond.i613.preheader ], [ false, %while.cond.i755.preheader ], [ false, %while.cond.i897.preheader ], [ false, %while.cond.i1039.preheader ], [ false, %while.cond.i1181.preheader ], [ false, %while.cond.i1323.preheader ], [ false, %while.cond.i1465.preheader ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit890 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit921 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit947 ], [ true, %sw.epilog ], [ false, %if.end82.i1562 ], [ false, %if.end82.i ], [ false, %if.end82.i284 ], [ false, %if.end82.i426 ], [ false, %if.end82.i568 ], [ false, %if.end82.i710 ], [ false, %if.end82.i852 ], [ false, %if.end82.i994 ], [ false, %if.end82.i1136 ], [ false, %if.end82.i1278 ], [ false, %if.end82.i1420 ]
+  %retval.0 = phi i1 [ %call114, %sw.default ], [ false, %return.loopexit1365 ], [ false, %return.loopexit1366 ], [ false, %return.loopexit1367 ], [ false, %return.loopexit1368 ], [ false, %return.loopexit1369 ], [ false, %return.loopexit1370 ], [ false, %return.loopexit ], [ false, %return.loopexit1361 ], [ false, %return.loopexit1362 ], [ false, %if.then79 ], [ false, %return.loopexit1363 ], [ true, %entry ], [ false, %return.loopexit1364 ], [ false, %while.cond.i1181.preheader ], [ false, %while.cond.i1039.preheader ], [ false, %while.cond.i613.preheader ], [ false, %while.cond.i1465.preheader ], [ false, %while.cond.i1323.preheader ], [ false, %while.cond.i.preheader ], [ false, %while.cond.i187.preheader ], [ false, %while.cond.i329.preheader ], [ false, %while.cond.i471.preheader ], [ false, %while.cond.i755.preheader ], [ false, %if.end82.i1420 ], [ false, %if.end82.i1278 ], [ false, %if.end82.i1136 ], [ false, %if.end82.i994 ], [ false, %if.end82.i852 ], [ false, %if.end82.i710 ], [ false, %if.end82.i568 ], [ false, %if.end82.i426 ], [ false, %if.end82.i284 ], [ false, %if.end82.i ], [ false, %if.end82.i1562 ], [ true, %sw.epilog ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit947 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit890 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit921 ], [ false, %while.cond.i897.preheader ]
   ret i1 %retval.0
 }
 
@@ -6699,7 +6699,7 @@ eh.resume.sink.split:                             ; preds = %lpad61, %lpad.i
   br label %eh.resume
 
 eh.resume:                                        ; preds = %eh.resume.sink.split, %lpad61, %lpad.i
-  %.pn = phi { ptr, i32 } [ %13, %lpad.i ], [ %19, %lpad61 ], [ %.pn.ph, %eh.resume.sink.split ]
+  %.pn = phi { ptr, i32 } [ %19, %lpad61 ], [ %13, %lpad.i ], [ %.pn.ph, %eh.resume.sink.split ]
   resume { ptr, i32 } %.pn
 }
 
@@ -7233,13 +7233,13 @@ _ZNK9struct_pb13UnknownFields12serialize_toEPcRmm.exit: ; preds = %for.body.i147
   ret void
 
 eh.resume.sink.split:                             ; preds = %lpad73, %lpad65, %lpad.i
-  %.sink = phi ptr [ %16, %lpad.i ], [ %28, %lpad65 ], [ %30, %lpad73 ]
-  %.pn.ph = phi { ptr, i32 } [ %15, %lpad.i ], [ %27, %lpad65 ], [ %29, %lpad73 ]
+  %.sink = phi ptr [ %28, %lpad65 ], [ %16, %lpad.i ], [ %30, %lpad73 ]
+  %.pn.ph = phi { ptr, i32 } [ %27, %lpad65 ], [ %15, %lpad.i ], [ %29, %lpad73 ]
   call void @_ZdlPv(ptr noundef nonnull %.sink) #13
   br label %eh.resume
 
 eh.resume:                                        ; preds = %eh.resume.sink.split, %lpad73, %lpad65, %lpad.i
-  %.pn = phi { ptr, i32 } [ %15, %lpad.i ], [ %27, %lpad65 ], [ %29, %lpad73 ], [ %.pn.ph, %eh.resume.sink.split ]
+  %.pn = phi { ptr, i32 } [ %29, %lpad73 ], [ %15, %lpad.i ], [ %27, %lpad65 ], [ %.pn.ph, %eh.resume.sink.split ]
   resume { ptr, i32 } %.pn
 }
 
@@ -7582,8 +7582,8 @@ if.end104.i697:                                   ; preds = %land.rhs.i715
   br label %if.end
 
 if.end:                                           ; preds = %if.end82.i789, %if.then.i814, %if.end12.i725, %if.end19.i733, %if.end28.i741, %if.end37.i749, %if.end46.i757, %if.end55.i765, %if.end64.i773, %if.end73.i781, %if.end104.i697
-  %pos.promoted582 = phi i64 [ %inc.i817, %if.then.i814 ], [ %inc13.i726, %if.end12.i725 ], [ %inc20.i734, %if.end19.i733 ], [ %inc29.i742, %if.end28.i741 ], [ %inc38.i750, %if.end37.i749 ], [ %inc47.i758, %if.end46.i757 ], [ %inc56.i766, %if.end55.i765 ], [ %inc65.i774, %if.end64.i773 ], [ %inc74.i782, %if.end73.i781 ], [ %inc96.i707, %if.end104.i697 ], [ %inc83.i790, %if.end82.i789 ]
-  %tag.0 = phi i64 [ %conv.i811, %if.then.i814 ], [ %or.i731, %if.end12.i725 ], [ %or25.i739, %if.end19.i733 ], [ %or34.i747, %if.end28.i741 ], [ %or43.i755, %if.end37.i749 ], [ %or52.i763, %if.end46.i757 ], [ %or61.i771, %if.end55.i765 ], [ %or70.i779, %if.end64.i773 ], [ %or79.i787, %if.end73.i781 ], [ %or110.i703, %if.end104.i697 ], [ %or88.i795, %if.end82.i789 ]
+  %pos.promoted582 = phi i64 [ %inc.i817, %if.then.i814 ], [ %inc96.i707, %if.end104.i697 ], [ %inc74.i782, %if.end73.i781 ], [ %inc83.i790, %if.end82.i789 ], [ %inc13.i726, %if.end12.i725 ], [ %inc20.i734, %if.end19.i733 ], [ %inc29.i742, %if.end28.i741 ], [ %inc38.i750, %if.end37.i749 ], [ %inc47.i758, %if.end46.i757 ], [ %inc56.i766, %if.end55.i765 ], [ %inc65.i774, %if.end64.i773 ]
+  %tag.0 = phi i64 [ %conv.i811, %if.then.i814 ], [ %or110.i703, %if.end104.i697 ], [ %or79.i787, %if.end73.i781 ], [ %or88.i795, %if.end82.i789 ], [ %or.i731, %if.end12.i725 ], [ %or25.i739, %if.end19.i733 ], [ %or34.i747, %if.end28.i741 ], [ %or43.i755, %if.end37.i749 ], [ %or52.i763, %if.end46.i757 ], [ %or61.i771, %if.end55.i765 ], [ %or70.i779, %if.end64.i773 ]
   switch i64 %tag.0, label %sw.default [
     i64 10, label %sw.bb
     i64 18, label %sw.bb12
@@ -7752,8 +7752,8 @@ if.end104.i:                                      ; preds = %land.rhs.i
   br label %if.end5
 
 if.end5:                                          ; preds = %if.end82.i, %if.then.i, %if.then5.i, %if.end12.i, %if.end19.i, %if.end28.i, %if.end37.i, %if.end46.i, %if.end55.i, %if.end64.i, %if.end73.i, %if.end104.i
-  %28 = phi i64 [ %inc.i, %if.then.i ], [ %inc6.i, %if.then5.i ], [ %inc13.i, %if.end12.i ], [ %inc20.i, %if.end19.i ], [ %inc29.i, %if.end28.i ], [ %inc38.i, %if.end37.i ], [ %inc47.i, %if.end46.i ], [ %inc56.i, %if.end55.i ], [ %inc65.i, %if.end64.i ], [ %inc74.i, %if.end73.i ], [ %inc96.i, %if.end104.i ], [ %inc83.i, %if.end82.i ]
-  %sz.0 = phi i64 [ %conv.i, %if.then.i ], [ %and9.i, %if.then5.i ], [ %or.i, %if.end12.i ], [ %or25.i, %if.end19.i ], [ %or34.i, %if.end28.i ], [ %or43.i, %if.end37.i ], [ %or52.i, %if.end46.i ], [ %or61.i, %if.end55.i ], [ %or70.i, %if.end64.i ], [ %or79.i, %if.end73.i ], [ %or110.i, %if.end104.i ], [ %or88.i, %if.end82.i ]
+  %28 = phi i64 [ %inc.i, %if.then.i ], [ %inc96.i, %if.end104.i ], [ %inc74.i, %if.end73.i ], [ %inc6.i, %if.then5.i ], [ %inc13.i, %if.end12.i ], [ %inc20.i, %if.end19.i ], [ %inc29.i, %if.end28.i ], [ %inc38.i, %if.end37.i ], [ %inc47.i, %if.end46.i ], [ %inc56.i, %if.end55.i ], [ %inc65.i, %if.end64.i ], [ %inc83.i, %if.end82.i ]
+  %sz.0 = phi i64 [ %conv.i, %if.then.i ], [ %or110.i, %if.end104.i ], [ %or79.i, %if.end73.i ], [ %and9.i, %if.then5.i ], [ %or.i, %if.end12.i ], [ %or25.i, %if.end19.i ], [ %or34.i, %if.end28.i ], [ %or43.i, %if.end37.i ], [ %or52.i, %if.end46.i ], [ %or61.i, %if.end55.i ], [ %or70.i, %if.end64.i ], [ %or88.i, %if.end82.i ]
   %29 = load i64, ptr %_M_string_length.i.i.i, align 8
   %cmp.i.i = icmp ult i64 %29, %sz.0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
@@ -7996,8 +7996,8 @@ if.end104.i129:                                   ; preds = %land.rhs.i147
   br label %if.end18
 
 if.end18:                                         ; preds = %if.end82.i221, %if.then.i246, %if.then5.i151, %if.end12.i157, %if.end19.i165, %if.end28.i173, %if.end37.i181, %if.end46.i189, %if.end55.i197, %if.end64.i205, %if.end73.i213, %if.end104.i129
-  %49 = phi i64 [ %inc.i249, %if.then.i246 ], [ %inc6.i152, %if.then5.i151 ], [ %inc13.i158, %if.end12.i157 ], [ %inc20.i166, %if.end19.i165 ], [ %inc29.i174, %if.end28.i173 ], [ %inc38.i182, %if.end37.i181 ], [ %inc47.i190, %if.end46.i189 ], [ %inc56.i198, %if.end55.i197 ], [ %inc65.i206, %if.end64.i205 ], [ %inc74.i214, %if.end73.i213 ], [ %inc96.i139, %if.end104.i129 ], [ %inc83.i222, %if.end82.i221 ]
-  %sz13.0 = phi i64 [ %conv.i243, %if.then.i246 ], [ %and9.i155, %if.then5.i151 ], [ %or.i163, %if.end12.i157 ], [ %or25.i171, %if.end19.i165 ], [ %or34.i179, %if.end28.i173 ], [ %or43.i187, %if.end37.i181 ], [ %or52.i195, %if.end46.i189 ], [ %or61.i203, %if.end55.i197 ], [ %or70.i211, %if.end64.i205 ], [ %or79.i219, %if.end73.i213 ], [ %or110.i135, %if.end104.i129 ], [ %or88.i227, %if.end82.i221 ]
+  %49 = phi i64 [ %inc.i249, %if.then.i246 ], [ %inc96.i139, %if.end104.i129 ], [ %inc74.i214, %if.end73.i213 ], [ %inc6.i152, %if.then5.i151 ], [ %inc13.i158, %if.end12.i157 ], [ %inc20.i166, %if.end19.i165 ], [ %inc29.i174, %if.end28.i173 ], [ %inc38.i182, %if.end37.i181 ], [ %inc47.i190, %if.end46.i189 ], [ %inc56.i198, %if.end55.i197 ], [ %inc65.i206, %if.end64.i205 ], [ %inc83.i222, %if.end82.i221 ]
+  %sz13.0 = phi i64 [ %conv.i243, %if.then.i246 ], [ %or110.i135, %if.end104.i129 ], [ %or79.i219, %if.end73.i213 ], [ %and9.i155, %if.then5.i151 ], [ %or.i163, %if.end12.i157 ], [ %or25.i171, %if.end19.i165 ], [ %or34.i179, %if.end28.i173 ], [ %or43.i187, %if.end37.i181 ], [ %or52.i195, %if.end46.i189 ], [ %or61.i203, %if.end55.i197 ], [ %or70.i211, %if.end64.i205 ], [ %or88.i227, %if.end82.i221 ]
   %50 = load ptr, ptr %_M_finish.i, align 8
   %51 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %50, %51
@@ -8288,8 +8288,8 @@ if.end104.i271:                                   ; preds = %land.rhs.i289
   br label %if.end36
 
 if.end36:                                         ; preds = %if.end82.i363, %if.then.i388, %if.then5.i293, %if.end12.i299, %if.end19.i307, %if.end28.i315, %if.end37.i323, %if.end46.i331, %if.end55.i339, %if.end64.i347, %if.end73.i355, %if.end104.i271
-  %80 = phi i64 [ %inc.i391, %if.then.i388 ], [ %inc6.i294, %if.then5.i293 ], [ %inc13.i300, %if.end12.i299 ], [ %inc20.i308, %if.end19.i307 ], [ %inc29.i316, %if.end28.i315 ], [ %inc38.i324, %if.end37.i323 ], [ %inc47.i332, %if.end46.i331 ], [ %inc56.i340, %if.end55.i339 ], [ %inc65.i348, %if.end64.i347 ], [ %inc74.i356, %if.end73.i355 ], [ %inc96.i281, %if.end104.i271 ], [ %inc83.i364, %if.end82.i363 ]
-  %sz31.0 = phi i64 [ %conv.i385, %if.then.i388 ], [ %and9.i297, %if.then5.i293 ], [ %or.i305, %if.end12.i299 ], [ %or25.i313, %if.end19.i307 ], [ %or34.i321, %if.end28.i315 ], [ %or43.i329, %if.end37.i323 ], [ %or52.i337, %if.end46.i331 ], [ %or61.i345, %if.end55.i339 ], [ %or70.i353, %if.end64.i347 ], [ %or79.i361, %if.end73.i355 ], [ %or110.i277, %if.end104.i271 ], [ %or88.i369, %if.end82.i363 ]
+  %80 = phi i64 [ %inc.i391, %if.then.i388 ], [ %inc96.i281, %if.end104.i271 ], [ %inc74.i356, %if.end73.i355 ], [ %inc6.i294, %if.then5.i293 ], [ %inc13.i300, %if.end12.i299 ], [ %inc20.i308, %if.end19.i307 ], [ %inc29.i316, %if.end28.i315 ], [ %inc38.i324, %if.end37.i323 ], [ %inc47.i332, %if.end46.i331 ], [ %inc56.i340, %if.end55.i339 ], [ %inc65.i348, %if.end64.i347 ], [ %inc83.i364, %if.end82.i363 ]
+  %sz31.0 = phi i64 [ %conv.i385, %if.then.i388 ], [ %or110.i277, %if.end104.i271 ], [ %or79.i361, %if.end73.i355 ], [ %and9.i297, %if.then5.i293 ], [ %or.i305, %if.end12.i299 ], [ %or25.i313, %if.end19.i307 ], [ %or34.i321, %if.end28.i315 ], [ %or43.i329, %if.end37.i323 ], [ %or52.i337, %if.end46.i331 ], [ %or61.i345, %if.end55.i339 ], [ %or70.i353, %if.end64.i347 ], [ %or88.i369, %if.end82.i363 ]
   %81 = load ptr, ptr %_M_finish.i486, align 8
   %82 = load ptr, ptr %_M_end_of_storage.i487, align 8
   %cmp.not.i488 = icmp eq ptr %81, %82
@@ -8578,8 +8578,8 @@ if.end104.i413:                                   ; preds = %land.rhs.i431.if.en
   br label %if.end59
 
 if.end59:                                         ; preds = %if.end82.i505, %if.then.i530, %if.then5.i435, %if.end12.i441, %if.end19.i449, %if.end28.i457, %if.end37.i465, %if.end46.i473, %if.end55.i481, %if.end64.i489, %if.end73.i497, %if.end104.i413
-  %115 = phi i64 [ %inc.i533, %if.then.i530 ], [ %inc6.i436, %if.then5.i435 ], [ %inc13.i442, %if.end12.i441 ], [ %inc20.i450, %if.end19.i449 ], [ %inc29.i458, %if.end28.i457 ], [ %inc38.i466, %if.end37.i465 ], [ %inc47.i474, %if.end46.i473 ], [ %inc56.i482, %if.end55.i481 ], [ %inc65.i490, %if.end64.i489 ], [ %inc74.i498, %if.end73.i497 ], [ %inc105.i414, %if.end104.i413 ], [ %inc83.i506, %if.end82.i505 ]
-  %sz54.0 = phi i64 [ %conv.i527, %if.then.i530 ], [ %and9.i439, %if.then5.i435 ], [ %or.i447, %if.end12.i441 ], [ %or25.i455, %if.end19.i449 ], [ %or34.i463, %if.end28.i457 ], [ %or43.i471, %if.end37.i465 ], [ %or52.i479, %if.end46.i473 ], [ %or61.i487, %if.end55.i481 ], [ %or70.i495, %if.end64.i489 ], [ %or79.i503, %if.end73.i497 ], [ %or110.i419, %if.end104.i413 ], [ %or88.i511, %if.end82.i505 ]
+  %115 = phi i64 [ %inc.i533, %if.then.i530 ], [ %inc105.i414, %if.end104.i413 ], [ %inc74.i498, %if.end73.i497 ], [ %inc6.i436, %if.then5.i435 ], [ %inc13.i442, %if.end12.i441 ], [ %inc20.i450, %if.end19.i449 ], [ %inc29.i458, %if.end28.i457 ], [ %inc38.i466, %if.end37.i465 ], [ %inc47.i474, %if.end46.i473 ], [ %inc56.i482, %if.end55.i481 ], [ %inc65.i490, %if.end64.i489 ], [ %inc83.i506, %if.end82.i505 ]
+  %sz54.0 = phi i64 [ %conv.i527, %if.then.i530 ], [ %or110.i419, %if.end104.i413 ], [ %or79.i503, %if.end73.i497 ], [ %and9.i439, %if.then5.i435 ], [ %or.i447, %if.end12.i441 ], [ %or25.i455, %if.end19.i449 ], [ %or34.i463, %if.end28.i457 ], [ %or43.i471, %if.end37.i465 ], [ %or52.i479, %if.end46.i473 ], [ %or61.i487, %if.end55.i481 ], [ %or70.i495, %if.end64.i489 ], [ %or88.i511, %if.end82.i505 ]
   %116 = load ptr, ptr %source_context, align 8
   %add.ptr62 = getelementptr inbounds i8, ptr %data, i64 %115
   %call63 = call noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN6google8protobuf13SourceContextEEEbRT_PKcm(ptr noundef nonnull align 8 dereferenceable(32) %116, ptr noundef %add.ptr62, i64 noundef %sz54.0)
@@ -8741,8 +8741,8 @@ if.end104.i555:                                   ; preds = %land.rhs.i573
   br label %if.end74
 
 if.end74:                                         ; preds = %if.end82.i647, %if.then.i672, %if.then5.i577, %if.end12.i583, %if.end19.i591, %if.end28.i599, %if.end37.i607, %if.end46.i615, %if.end55.i623, %if.end64.i631, %if.end73.i639, %if.end104.i555
-  %131 = phi i64 [ %inc.i675, %if.then.i672 ], [ %inc6.i578, %if.then5.i577 ], [ %inc13.i584, %if.end12.i583 ], [ %inc20.i592, %if.end19.i591 ], [ %inc29.i600, %if.end28.i599 ], [ %inc38.i608, %if.end37.i607 ], [ %inc47.i616, %if.end46.i615 ], [ %inc56.i624, %if.end55.i623 ], [ %inc65.i632, %if.end64.i631 ], [ %inc74.i640, %if.end73.i639 ], [ %inc96.i565, %if.end104.i555 ], [ %inc83.i648, %if.end82.i647 ]
-  %enum_val_tmp.0 = phi i64 [ %conv.i669, %if.then.i672 ], [ %and9.i581, %if.then5.i577 ], [ %or.i589, %if.end12.i583 ], [ %or25.i597, %if.end19.i591 ], [ %or34.i605, %if.end28.i599 ], [ %or43.i613, %if.end37.i607 ], [ %or43.i613, %if.end46.i615 ], [ %or43.i613, %if.end55.i623 ], [ %or43.i613, %if.end64.i631 ], [ %or43.i613, %if.end73.i639 ], [ %or110.i561, %if.end104.i555 ], [ %or43.i613, %if.end82.i647 ]
+  %131 = phi i64 [ %inc.i675, %if.then.i672 ], [ %inc96.i565, %if.end104.i555 ], [ %inc74.i640, %if.end73.i639 ], [ %inc6.i578, %if.then5.i577 ], [ %inc13.i584, %if.end12.i583 ], [ %inc20.i592, %if.end19.i591 ], [ %inc29.i600, %if.end28.i599 ], [ %inc38.i608, %if.end37.i607 ], [ %inc47.i616, %if.end46.i615 ], [ %inc56.i624, %if.end55.i623 ], [ %inc65.i632, %if.end64.i631 ], [ %inc83.i648, %if.end82.i647 ]
+  %enum_val_tmp.0 = phi i64 [ %conv.i669, %if.then.i672 ], [ %or110.i561, %if.end104.i555 ], [ %or43.i613, %if.end73.i639 ], [ %and9.i581, %if.then5.i577 ], [ %or.i589, %if.end12.i583 ], [ %or25.i597, %if.end19.i591 ], [ %or34.i605, %if.end28.i599 ], [ %or43.i613, %if.end37.i607 ], [ %or43.i613, %if.end46.i615 ], [ %or43.i613, %if.end55.i623 ], [ %or43.i613, %if.end64.i631 ], [ %or43.i613, %if.end82.i647 ]
   %conv = trunc i64 %enum_val_tmp.0 to i32
   store i32 %conv, ptr %syntax, align 8
   br label %sw.epilog
@@ -8782,7 +8782,7 @@ return.loopexit671:                               ; preds = %while.body.i706
   br label %return
 
 return:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit, %if.end59, %sw.epilog, %if.end82.i789, %if.end82.i, %if.end82.i221, %if.end82.i363, %if.end82.i505, %if.end82.i647, %while.cond.i692.preheader, %while.cond.i550.preheader, %while.cond.i408.preheader, %while.cond.i266.preheader, %while.cond.i124.preheader, %while.cond.i.preheader, %return.loopexit671, %return.loopexit670, %return.loopexit669, %return.loopexit668, %return.loopexit667, %return.loopexit, %entry, %sw.default, %if.then44, %_ZNSt6vectorIN6google8protobuf9EnumValueESaIS2_EE8pop_backEv.exit
-  %retval.0 = phi i1 [ %call76, %sw.default ], [ false, %_ZNSt6vectorIN6google8protobuf9EnumValueESaIS2_EE8pop_backEv.exit ], [ false, %if.then44 ], [ true, %entry ], [ false, %return.loopexit ], [ false, %return.loopexit667 ], [ false, %return.loopexit668 ], [ false, %return.loopexit669 ], [ false, %return.loopexit670 ], [ false, %return.loopexit671 ], [ false, %while.cond.i.preheader ], [ false, %while.cond.i124.preheader ], [ false, %while.cond.i266.preheader ], [ false, %while.cond.i408.preheader ], [ false, %while.cond.i550.preheader ], [ false, %while.cond.i692.preheader ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ], [ false, %if.end59 ], [ true, %sw.epilog ], [ false, %if.end82.i789 ], [ false, %if.end82.i ], [ false, %if.end82.i221 ], [ false, %if.end82.i363 ], [ false, %if.end82.i505 ], [ false, %if.end82.i647 ]
+  %retval.0 = phi i1 [ %call76, %sw.default ], [ false, %return.loopexit670 ], [ false, %return.loopexit671 ], [ false, %_ZNSt6vectorIN6google8protobuf9EnumValueESaIS2_EE8pop_backEv.exit ], [ false, %return.loopexit ], [ false, %if.then44 ], [ false, %return.loopexit667 ], [ false, %return.loopexit668 ], [ false, %return.loopexit669 ], [ true, %entry ], [ false, %while.cond.i124.preheader ], [ false, %while.cond.i408.preheader ], [ false, %while.cond.i266.preheader ], [ false, %while.cond.i550.preheader ], [ false, %while.cond.i692.preheader ], [ false, %if.end82.i647 ], [ false, %if.end82.i505 ], [ false, %if.end82.i363 ], [ false, %if.end82.i221 ], [ false, %if.end82.i ], [ false, %if.end82.i789 ], [ true, %sw.epilog ], [ false, %if.end59 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ], [ false, %while.cond.i.preheader ]
   ret i1 %retval.0
 }
 
@@ -9033,8 +9033,8 @@ if.end104.i364:                                   ; preds = %land.rhs.i382
   br label %if.end
 
 if.end:                                           ; preds = %if.end82.i456, %if.then.i481, %if.end12.i392, %if.end19.i400, %if.end28.i408, %if.end37.i416, %if.end46.i424, %if.end55.i432, %if.end64.i440, %if.end73.i448, %if.end104.i364
-  %pos.promoted368 = phi i64 [ %inc.i484, %if.then.i481 ], [ %inc13.i393, %if.end12.i392 ], [ %inc20.i401, %if.end19.i400 ], [ %inc29.i409, %if.end28.i408 ], [ %inc38.i417, %if.end37.i416 ], [ %inc47.i425, %if.end46.i424 ], [ %inc56.i433, %if.end55.i432 ], [ %inc65.i441, %if.end64.i440 ], [ %inc74.i449, %if.end73.i448 ], [ %inc96.i374, %if.end104.i364 ], [ %inc83.i457, %if.end82.i456 ]
-  %tag.0 = phi i64 [ %conv.i478, %if.then.i481 ], [ %or.i398, %if.end12.i392 ], [ %or25.i406, %if.end19.i400 ], [ %or34.i414, %if.end28.i408 ], [ %or43.i422, %if.end37.i416 ], [ %or52.i430, %if.end46.i424 ], [ %or61.i438, %if.end55.i432 ], [ %or70.i446, %if.end64.i440 ], [ %or79.i454, %if.end73.i448 ], [ %or110.i370, %if.end104.i364 ], [ %or88.i462, %if.end82.i456 ]
+  %pos.promoted368 = phi i64 [ %inc.i484, %if.then.i481 ], [ %inc96.i374, %if.end104.i364 ], [ %inc74.i449, %if.end73.i448 ], [ %inc83.i457, %if.end82.i456 ], [ %inc13.i393, %if.end12.i392 ], [ %inc20.i401, %if.end19.i400 ], [ %inc29.i409, %if.end28.i408 ], [ %inc38.i417, %if.end37.i416 ], [ %inc47.i425, %if.end46.i424 ], [ %inc56.i433, %if.end55.i432 ], [ %inc65.i441, %if.end64.i440 ]
+  %tag.0 = phi i64 [ %conv.i478, %if.then.i481 ], [ %or110.i370, %if.end104.i364 ], [ %or79.i454, %if.end73.i448 ], [ %or88.i462, %if.end82.i456 ], [ %or.i398, %if.end12.i392 ], [ %or25.i406, %if.end19.i400 ], [ %or34.i414, %if.end28.i408 ], [ %or43.i422, %if.end37.i416 ], [ %or52.i430, %if.end46.i424 ], [ %or61.i438, %if.end55.i432 ], [ %or70.i446, %if.end64.i440 ]
   switch i64 %tag.0, label %sw.default [
     i64 10, label %sw.bb
     i64 16, label %sw.bb12
@@ -9201,8 +9201,8 @@ if.end104.i:                                      ; preds = %land.rhs.i
   br label %if.end5
 
 if.end5:                                          ; preds = %if.end82.i, %if.then.i, %if.then5.i, %if.end12.i, %if.end19.i, %if.end28.i, %if.end37.i, %if.end46.i, %if.end55.i, %if.end64.i, %if.end73.i, %if.end104.i
-  %28 = phi i64 [ %inc.i, %if.then.i ], [ %inc6.i, %if.then5.i ], [ %inc13.i, %if.end12.i ], [ %inc20.i, %if.end19.i ], [ %inc29.i, %if.end28.i ], [ %inc38.i, %if.end37.i ], [ %inc47.i, %if.end46.i ], [ %inc56.i, %if.end55.i ], [ %inc65.i, %if.end64.i ], [ %inc74.i, %if.end73.i ], [ %inc96.i, %if.end104.i ], [ %inc83.i, %if.end82.i ]
-  %sz.0 = phi i64 [ %conv.i, %if.then.i ], [ %and9.i, %if.then5.i ], [ %or.i, %if.end12.i ], [ %or25.i, %if.end19.i ], [ %or34.i, %if.end28.i ], [ %or43.i, %if.end37.i ], [ %or52.i, %if.end46.i ], [ %or61.i, %if.end55.i ], [ %or70.i, %if.end64.i ], [ %or79.i, %if.end73.i ], [ %or110.i, %if.end104.i ], [ %or88.i, %if.end82.i ]
+  %28 = phi i64 [ %inc.i, %if.then.i ], [ %inc96.i, %if.end104.i ], [ %inc74.i, %if.end73.i ], [ %inc6.i, %if.then5.i ], [ %inc13.i, %if.end12.i ], [ %inc20.i, %if.end19.i ], [ %inc29.i, %if.end28.i ], [ %inc38.i, %if.end37.i ], [ %inc47.i, %if.end46.i ], [ %inc56.i, %if.end55.i ], [ %inc65.i, %if.end64.i ], [ %inc83.i, %if.end82.i ]
+  %sz.0 = phi i64 [ %conv.i, %if.then.i ], [ %or110.i, %if.end104.i ], [ %or79.i, %if.end73.i ], [ %and9.i, %if.then5.i ], [ %or.i, %if.end12.i ], [ %or25.i, %if.end19.i ], [ %or34.i, %if.end28.i ], [ %or43.i, %if.end37.i ], [ %or52.i, %if.end46.i ], [ %or61.i, %if.end55.i ], [ %or70.i, %if.end64.i ], [ %or88.i, %if.end82.i ]
   %29 = load i64, ptr %_M_string_length.i.i.i, align 8
   %cmp.i.i = icmp ult i64 %29, %sz.0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
@@ -9426,8 +9426,8 @@ if.end104.i80:                                    ; preds = %land.rhs.i98
   br label %if.end17
 
 if.end17:                                         ; preds = %if.end82.i172, %if.then.i197, %if.then5.i102, %if.end12.i108, %if.end19.i116, %if.end28.i124, %if.end37.i132, %if.end46.i140, %if.end55.i148, %if.end64.i156, %if.end73.i164, %if.end104.i80
-  %49 = phi i64 [ %inc.i200, %if.then.i197 ], [ %inc6.i103, %if.then5.i102 ], [ %inc13.i109, %if.end12.i108 ], [ %inc20.i117, %if.end19.i116 ], [ %inc29.i125, %if.end28.i124 ], [ %inc38.i133, %if.end37.i132 ], [ %inc47.i141, %if.end46.i140 ], [ %inc56.i149, %if.end55.i148 ], [ %inc65.i157, %if.end64.i156 ], [ %inc74.i165, %if.end73.i164 ], [ %inc96.i90, %if.end104.i80 ], [ %inc83.i173, %if.end82.i172 ]
-  %varint_tmp.0 = phi i64 [ %conv.i194, %if.then.i197 ], [ %and9.i106, %if.then5.i102 ], [ %or.i114, %if.end12.i108 ], [ %or25.i122, %if.end19.i116 ], [ %or34.i130, %if.end28.i124 ], [ %or43.i138, %if.end37.i132 ], [ %or43.i138, %if.end46.i140 ], [ %or43.i138, %if.end55.i148 ], [ %or43.i138, %if.end64.i156 ], [ %or43.i138, %if.end73.i164 ], [ %or110.i86, %if.end104.i80 ], [ %or43.i138, %if.end82.i172 ]
+  %49 = phi i64 [ %inc.i200, %if.then.i197 ], [ %inc96.i90, %if.end104.i80 ], [ %inc74.i165, %if.end73.i164 ], [ %inc6.i103, %if.then5.i102 ], [ %inc13.i109, %if.end12.i108 ], [ %inc20.i117, %if.end19.i116 ], [ %inc29.i125, %if.end28.i124 ], [ %inc38.i133, %if.end37.i132 ], [ %inc47.i141, %if.end46.i140 ], [ %inc56.i149, %if.end55.i148 ], [ %inc65.i157, %if.end64.i156 ], [ %inc83.i173, %if.end82.i172 ]
+  %varint_tmp.0 = phi i64 [ %conv.i194, %if.then.i197 ], [ %or110.i86, %if.end104.i80 ], [ %or43.i138, %if.end73.i164 ], [ %and9.i106, %if.then5.i102 ], [ %or.i114, %if.end12.i108 ], [ %or25.i122, %if.end19.i116 ], [ %or34.i130, %if.end28.i124 ], [ %or43.i138, %if.end37.i132 ], [ %or43.i138, %if.end46.i140 ], [ %or43.i138, %if.end55.i148 ], [ %or43.i138, %if.end64.i156 ], [ %or43.i138, %if.end82.i172 ]
   %conv = trunc i64 %varint_tmp.0 to i32
   store i32 %conv, ptr %number, align 8
   br label %sw.epilog
@@ -9602,8 +9602,8 @@ if.end104.i222:                                   ; preds = %land.rhs.i240
   br label %if.end24
 
 if.end24:                                         ; preds = %if.end82.i314, %if.then.i339, %if.then5.i244, %if.end12.i250, %if.end19.i258, %if.end28.i266, %if.end37.i274, %if.end46.i282, %if.end55.i290, %if.end64.i298, %if.end73.i306, %if.end104.i222
-  %64 = phi i64 [ %inc.i342, %if.then.i339 ], [ %inc6.i245, %if.then5.i244 ], [ %inc13.i251, %if.end12.i250 ], [ %inc20.i259, %if.end19.i258 ], [ %inc29.i267, %if.end28.i266 ], [ %inc38.i275, %if.end37.i274 ], [ %inc47.i283, %if.end46.i282 ], [ %inc56.i291, %if.end55.i290 ], [ %inc65.i299, %if.end64.i298 ], [ %inc74.i307, %if.end73.i306 ], [ %inc96.i232, %if.end104.i222 ], [ %inc83.i315, %if.end82.i314 ]
-  %sz19.0 = phi i64 [ %conv.i336, %if.then.i339 ], [ %and9.i248, %if.then5.i244 ], [ %or.i256, %if.end12.i250 ], [ %or25.i264, %if.end19.i258 ], [ %or34.i272, %if.end28.i266 ], [ %or43.i280, %if.end37.i274 ], [ %or52.i288, %if.end46.i282 ], [ %or61.i296, %if.end55.i290 ], [ %or70.i304, %if.end64.i298 ], [ %or79.i312, %if.end73.i306 ], [ %or110.i228, %if.end104.i222 ], [ %or88.i320, %if.end82.i314 ]
+  %64 = phi i64 [ %inc.i342, %if.then.i339 ], [ %inc96.i232, %if.end104.i222 ], [ %inc74.i307, %if.end73.i306 ], [ %inc6.i245, %if.then5.i244 ], [ %inc13.i251, %if.end12.i250 ], [ %inc20.i259, %if.end19.i258 ], [ %inc29.i267, %if.end28.i266 ], [ %inc38.i275, %if.end37.i274 ], [ %inc47.i283, %if.end46.i282 ], [ %inc56.i291, %if.end55.i290 ], [ %inc65.i299, %if.end64.i298 ], [ %inc83.i315, %if.end82.i314 ]
+  %sz19.0 = phi i64 [ %conv.i336, %if.then.i339 ], [ %or110.i228, %if.end104.i222 ], [ %or79.i312, %if.end73.i306 ], [ %and9.i248, %if.then5.i244 ], [ %or.i256, %if.end12.i250 ], [ %or25.i264, %if.end19.i258 ], [ %or34.i272, %if.end28.i266 ], [ %or43.i280, %if.end37.i274 ], [ %or52.i288, %if.end46.i282 ], [ %or61.i296, %if.end55.i290 ], [ %or70.i304, %if.end64.i298 ], [ %or88.i320, %if.end82.i314 ]
   %65 = load ptr, ptr %_M_finish.i, align 8
   %66 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %65, %66
@@ -9694,7 +9694,7 @@ sw.epilog:                                        ; preds = %if.end34, %if.end17
   br i1 %cmp, label %land.lhs.true.i476, label %return, !llvm.loop !19
 
 return:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit, %sw.epilog, %if.end82.i456, %if.end82.i, %if.end82.i172, %if.end82.i314, %while.cond.i359.preheader, %while.cond.i217.preheader, %while.cond.i75.preheader, %while.cond.i.preheader, %while.body.i373, %while.body.i231, %while.body.i89, %while.body.i, %entry, %sw.default, %if.then32
-  %retval.0 = phi i1 [ %call37, %sw.default ], [ false, %if.then32 ], [ true, %entry ], [ false, %while.body.i ], [ false, %while.body.i89 ], [ false, %while.body.i231 ], [ false, %while.body.i373 ], [ false, %while.cond.i.preheader ], [ false, %while.cond.i75.preheader ], [ false, %while.cond.i217.preheader ], [ false, %while.cond.i359.preheader ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ], [ true, %sw.epilog ], [ false, %if.end82.i456 ], [ false, %if.end82.i ], [ false, %if.end82.i172 ], [ false, %if.end82.i314 ]
+  %retval.0 = phi i1 [ %call37, %sw.default ], [ false, %while.body.i231 ], [ false, %while.body.i373 ], [ false, %while.body.i89 ], [ false, %if.then32 ], [ false, %while.body.i ], [ true, %entry ], [ false, %while.cond.i.preheader ], [ false, %while.cond.i75.preheader ], [ false, %while.cond.i217.preheader ], [ false, %while.cond.i359.preheader ], [ false, %if.end82.i172 ], [ false, %if.end82.i ], [ false, %if.end82.i456 ], [ true, %sw.epilog ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ], [ false, %if.end82.i314 ]
   ret i1 %retval.0
 }
 
@@ -9876,8 +9876,8 @@ if.end104.i213:                                   ; preds = %land.rhs.i231
   br label %if.end
 
 if.end:                                           ; preds = %if.end82.i305, %if.then.i330, %if.end12.i241, %if.end19.i249, %if.end28.i257, %if.end37.i265, %if.end46.i273, %if.end55.i281, %if.end64.i289, %if.end73.i297, %if.end104.i213
-  %pos.promoted277 = phi i64 [ %inc.i333, %if.then.i330 ], [ %inc13.i242, %if.end12.i241 ], [ %inc20.i250, %if.end19.i249 ], [ %inc29.i258, %if.end28.i257 ], [ %inc38.i266, %if.end37.i265 ], [ %inc47.i274, %if.end46.i273 ], [ %inc56.i282, %if.end55.i281 ], [ %inc65.i290, %if.end64.i289 ], [ %inc74.i298, %if.end73.i297 ], [ %inc96.i223, %if.end104.i213 ], [ %inc83.i306, %if.end82.i305 ]
-  %tag.0 = phi i64 [ %conv.i327, %if.then.i330 ], [ %or.i247, %if.end12.i241 ], [ %or25.i255, %if.end19.i249 ], [ %or34.i263, %if.end28.i257 ], [ %or43.i271, %if.end37.i265 ], [ %or52.i279, %if.end46.i273 ], [ %or61.i287, %if.end55.i281 ], [ %or70.i295, %if.end64.i289 ], [ %or79.i303, %if.end73.i297 ], [ %or110.i219, %if.end104.i213 ], [ %or88.i311, %if.end82.i305 ]
+  %pos.promoted277 = phi i64 [ %inc.i333, %if.then.i330 ], [ %inc96.i223, %if.end104.i213 ], [ %inc74.i298, %if.end73.i297 ], [ %inc83.i306, %if.end82.i305 ], [ %inc13.i242, %if.end12.i241 ], [ %inc20.i250, %if.end19.i249 ], [ %inc29.i258, %if.end28.i257 ], [ %inc38.i266, %if.end37.i265 ], [ %inc47.i274, %if.end46.i273 ], [ %inc56.i282, %if.end55.i281 ], [ %inc65.i290, %if.end64.i289 ]
+  %tag.0 = phi i64 [ %conv.i327, %if.then.i330 ], [ %or110.i219, %if.end104.i213 ], [ %or79.i303, %if.end73.i297 ], [ %or88.i311, %if.end82.i305 ], [ %or.i247, %if.end12.i241 ], [ %or25.i255, %if.end19.i249 ], [ %or34.i263, %if.end28.i257 ], [ %or43.i271, %if.end37.i265 ], [ %or52.i279, %if.end46.i273 ], [ %or61.i287, %if.end55.i281 ], [ %or70.i295, %if.end64.i289 ]
   switch i64 %tag.0, label %sw.default [
     i64 10, label %sw.bb
     i64 18, label %sw.bb12
@@ -10045,8 +10045,8 @@ if.end104.i:                                      ; preds = %land.rhs.i
   br label %if.end5
 
 if.end5:                                          ; preds = %if.end82.i, %if.then.i, %if.then5.i, %if.end12.i, %if.end19.i, %if.end28.i, %if.end37.i, %if.end46.i, %if.end55.i, %if.end64.i, %if.end73.i, %if.end104.i
-  %28 = phi i64 [ %inc.i, %if.then.i ], [ %inc6.i, %if.then5.i ], [ %inc13.i, %if.end12.i ], [ %inc20.i, %if.end19.i ], [ %inc29.i, %if.end28.i ], [ %inc38.i, %if.end37.i ], [ %inc47.i, %if.end46.i ], [ %inc56.i, %if.end55.i ], [ %inc65.i, %if.end64.i ], [ %inc74.i, %if.end73.i ], [ %inc96.i, %if.end104.i ], [ %inc83.i, %if.end82.i ]
-  %sz.0 = phi i64 [ %conv.i, %if.then.i ], [ %and9.i, %if.then5.i ], [ %or.i, %if.end12.i ], [ %or25.i, %if.end19.i ], [ %or34.i, %if.end28.i ], [ %or43.i, %if.end37.i ], [ %or52.i, %if.end46.i ], [ %or61.i, %if.end55.i ], [ %or70.i, %if.end64.i ], [ %or79.i, %if.end73.i ], [ %or110.i, %if.end104.i ], [ %or88.i, %if.end82.i ]
+  %28 = phi i64 [ %inc.i, %if.then.i ], [ %inc96.i, %if.end104.i ], [ %inc74.i, %if.end73.i ], [ %inc6.i, %if.then5.i ], [ %inc13.i, %if.end12.i ], [ %inc20.i, %if.end19.i ], [ %inc29.i, %if.end28.i ], [ %inc38.i, %if.end37.i ], [ %inc47.i, %if.end46.i ], [ %inc56.i, %if.end55.i ], [ %inc65.i, %if.end64.i ], [ %inc83.i, %if.end82.i ]
+  %sz.0 = phi i64 [ %conv.i, %if.then.i ], [ %or110.i, %if.end104.i ], [ %or79.i, %if.end73.i ], [ %and9.i, %if.then5.i ], [ %or.i, %if.end12.i ], [ %or25.i, %if.end19.i ], [ %or34.i, %if.end28.i ], [ %or43.i, %if.end37.i ], [ %or52.i, %if.end46.i ], [ %or61.i, %if.end55.i ], [ %or70.i, %if.end64.i ], [ %or88.i, %if.end82.i ]
   %29 = load i64, ptr %_M_string_length.i.i.i, align 8
   %cmp.i.i = icmp ult i64 %29, %sz.0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
@@ -10341,8 +10341,8 @@ if.end104.i71:                                    ; preds = %land.rhs.i89
   br label %if.end23
 
 if.end23:                                         ; preds = %if.end82.i163, %if.then.i188, %if.then5.i93, %if.end12.i99, %if.end19.i107, %if.end28.i115, %if.end37.i123, %if.end46.i131, %if.end55.i139, %if.end64.i147, %if.end73.i155, %if.end104.i71
-  %59 = phi i64 [ %inc.i191, %if.then.i188 ], [ %inc6.i94, %if.then5.i93 ], [ %inc13.i100, %if.end12.i99 ], [ %inc20.i108, %if.end19.i107 ], [ %inc29.i116, %if.end28.i115 ], [ %inc38.i124, %if.end37.i123 ], [ %inc47.i132, %if.end46.i131 ], [ %inc56.i140, %if.end55.i139 ], [ %inc65.i148, %if.end64.i147 ], [ %inc74.i156, %if.end73.i155 ], [ %inc96.i81, %if.end104.i71 ], [ %inc83.i164, %if.end82.i163 ]
-  %sz18.0 = phi i64 [ %conv.i185, %if.then.i188 ], [ %and9.i97, %if.then5.i93 ], [ %or.i105, %if.end12.i99 ], [ %or25.i113, %if.end19.i107 ], [ %or34.i121, %if.end28.i115 ], [ %or43.i129, %if.end37.i123 ], [ %or52.i137, %if.end46.i131 ], [ %or61.i145, %if.end55.i139 ], [ %or70.i153, %if.end64.i147 ], [ %or79.i161, %if.end73.i155 ], [ %or110.i77, %if.end104.i71 ], [ %or88.i169, %if.end82.i163 ]
+  %59 = phi i64 [ %inc.i191, %if.then.i188 ], [ %inc96.i81, %if.end104.i71 ], [ %inc74.i156, %if.end73.i155 ], [ %inc6.i94, %if.then5.i93 ], [ %inc13.i100, %if.end12.i99 ], [ %inc20.i108, %if.end19.i107 ], [ %inc29.i116, %if.end28.i115 ], [ %inc38.i124, %if.end37.i123 ], [ %inc47.i132, %if.end46.i131 ], [ %inc56.i140, %if.end55.i139 ], [ %inc65.i148, %if.end64.i147 ], [ %inc83.i164, %if.end82.i163 ]
+  %sz18.0 = phi i64 [ %conv.i185, %if.then.i188 ], [ %or110.i77, %if.end104.i71 ], [ %or79.i161, %if.end73.i155 ], [ %and9.i97, %if.then5.i93 ], [ %or.i105, %if.end12.i99 ], [ %or25.i113, %if.end19.i107 ], [ %or34.i121, %if.end28.i115 ], [ %or43.i129, %if.end37.i123 ], [ %or52.i137, %if.end46.i131 ], [ %or61.i145, %if.end55.i139 ], [ %or70.i153, %if.end64.i147 ], [ %or88.i169, %if.end82.i163 ]
   %60 = load ptr, ptr %value, align 8
   %add.ptr26 = getelementptr inbounds i8, ptr %data, i64 %59
   %call27 = call noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN6google8protobuf3AnyEEEbRT_PKcm(ptr noundef nonnull align 8 dereferenceable(64) %60, ptr noundef %add.ptr26, i64 noundef %sz18.0)
@@ -10364,7 +10364,7 @@ sw.epilog:                                        ; preds = %if.end31, %if.end8
   br i1 %cmp, label %land.lhs.true.i325, label %return, !llvm.loop !23
 
 return:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit, %if.end23, %sw.epilog, %if.end82.i305, %if.end82.i, %if.end82.i163, %while.cond.i208.preheader, %while.cond.i66.preheader, %while.cond.i.preheader, %while.body.i222, %while.body.i80, %while.body.i, %entry, %sw.default
-  %retval.0 = phi i1 [ %call33, %sw.default ], [ true, %entry ], [ false, %while.body.i ], [ false, %while.body.i80 ], [ false, %while.body.i222 ], [ false, %while.cond.i.preheader ], [ false, %while.cond.i66.preheader ], [ false, %while.cond.i208.preheader ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ], [ false, %if.end23 ], [ true, %sw.epilog ], [ false, %if.end82.i305 ], [ false, %if.end82.i ], [ false, %if.end82.i163 ]
+  %retval.0 = phi i1 [ %call33, %sw.default ], [ false, %while.body.i222 ], [ false, %while.body.i80 ], [ false, %while.body.i ], [ true, %entry ], [ false, %while.cond.i.preheader ], [ false, %while.cond.i66.preheader ], [ false, %while.cond.i208.preheader ], [ false, %if.end82.i ], [ false, %if.end82.i305 ], [ true, %sw.epilog ], [ false, %if.end23 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ], [ false, %if.end82.i163 ]
   ret i1 %retval.0
 }
 

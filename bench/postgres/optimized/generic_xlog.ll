@@ -316,9 +316,9 @@ BufferGetPage.exit:                               ; preds = %15, %21
   br i1 %93, label %47, label %.critedge.i.i, !llvm.loop !11
 
 .critedge.i.i:                                    ; preds = %91, %56, %32
-  %94 = phi i32 [ 0, %32 ], [ %48, %56 ], [ %92, %91 ]
-  %.262.i.i = phi i32 [ -1, %32 ], [ %spec.select79.i.i, %56 ], [ %.5.i.i, %91 ]
-  %.1.i.i = phi i32 [ -1, %32 ], [ -1, %56 ], [ %.2.i.i, %91 ]
+  %94 = phi i32 [ %48, %56 ], [ 0, %32 ], [ %92, %91 ]
+  %.262.i.i = phi i32 [ %spec.select79.i.i, %56 ], [ -1, %32 ], [ %.5.i.i, %91 ]
+  %.1.i.i = phi i32 [ -1, %56 ], [ -1, %32 ], [ %.2.i.i, %91 ]
   %95 = icmp ult i16 %40, %34
   %96 = icmp slt i32 %.262.i.i, 0
   %97 = select i1 %95, i1 %96, i1 false
@@ -454,9 +454,9 @@ computeRegionDelta.exit.i:                        ; preds = %99, %.critedge.i.i
   br i1 %164, label %119, label %.critedge.i14.i, !llvm.loop !11
 
 .critedge.i14.i:                                  ; preds = %162, %128, %computeRegionDelta.exit.i
-  %165 = phi i32 [ %114, %computeRegionDelta.exit.i ], [ %120, %128 ], [ %163, %162 ]
-  %.262.i15.i = phi i32 [ %spec.select78.i.i, %computeRegionDelta.exit.i ], [ %spec.select79.i25.i, %128 ], [ %.5.i40.i, %162 ]
-  %.1.i16.i = phi i32 [ -1, %computeRegionDelta.exit.i ], [ -1, %128 ], [ %.2.i41.i, %162 ]
+  %165 = phi i32 [ %120, %128 ], [ %114, %computeRegionDelta.exit.i ], [ %163, %162 ]
+  %.262.i15.i = phi i32 [ %spec.select79.i25.i, %128 ], [ %spec.select78.i.i, %computeRegionDelta.exit.i ], [ %.5.i40.i, %162 ]
+  %.1.i16.i = phi i32 [ -1, %128 ], [ -1, %computeRegionDelta.exit.i ], [ %.2.i41.i, %162 ]
   %166 = icmp sgt i32 %.262.i15.i, -1
   br i1 %166, label %167, label %computeDelta.exit
 

@@ -113,8 +113,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline8interna
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
-  %.01523 = phi i64 [ 0, %.lr.ph.preheader ], [ %15, %.lr.ph ]
-  %.01622 = phi float [ -1.000000e+00, %.lr.ph.preheader ], [ %11, %.lr.ph ]
+  %.01523 = phi i64 [ %15, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.01622 = phi float [ %11, %.lr.ph ], [ -1.000000e+00, %.lr.ph.preheader ]
   %9 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe", ptr %4, i64 %.01523
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load float, ptr %10, align 4, !tbaa !11
@@ -165,8 +165,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline8interna
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
-  %.01523 = phi i64 [ 0, %.lr.ph.preheader ], [ %15, %.lr.ph ]
-  %.01622 = phi float [ -1.000000e+00, %.lr.ph.preheader ], [ %11, %.lr.ph ]
+  %.01523 = phi i64 [ %15, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.01622 = phi float [ %11, %.lr.ph ], [ -1.000000e+00, %.lr.ph.preheader ]
   %9 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.7", ptr %4, i64 %.01523
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load float, ptr %10, align 4, !tbaa !21
@@ -303,8 +303,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline8interna
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
-  %.01523 = phi i64 [ 0, %.lr.ph.preheader ], [ %15, %.lr.ph ]
-  %.01622 = phi float [ -1.000000e+00, %.lr.ph.preheader ], [ %11, %.lr.ph ]
+  %.01523 = phi i64 [ %15, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.01622 = phi float [ %11, %.lr.ph ], [ -1.000000e+00, %.lr.ph.preheader ]
   %9 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.13", ptr %4, i64 %.01523
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load float, ptr %10, align 4, !tbaa !44
@@ -441,8 +441,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline8interna
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
-  %.01523 = phi i64 [ 0, %.lr.ph.preheader ], [ %15, %.lr.ph ]
-  %.01622 = phi float [ -1.000000e+00, %.lr.ph.preheader ], [ %11, %.lr.ph ]
+  %.01523 = phi i64 [ %15, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.01622 = phi float [ %11, %.lr.ph ], [ -1.000000e+00, %.lr.ph.preheader ]
   %9 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.19", ptr %4, i64 %.01523
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load float, ptr %10, align 4, !tbaa !54
@@ -579,8 +579,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline8interna
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
-  %.01523 = phi i64 [ 0, %.lr.ph.preheader ], [ %15, %.lr.ph ]
-  %.01622 = phi float [ -1.000000e+00, %.lr.ph.preheader ], [ %11, %.lr.ph ]
+  %.01523 = phi i64 [ %15, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.01622 = phi float [ %11, %.lr.ph ], [ -1.000000e+00, %.lr.ph.preheader ]
   %9 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawTrackKeyframe.25", ptr %4, i64 %.01523
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load float, ptr %10, align 4, !tbaa !64

@@ -425,8 +425,8 @@ _Z24byte_size_in_proper_unitImET_S0_.exit.i:      ; preds = %19
   br label %_Z25proper_unit_for_byte_sizem.exit.i
 
 _Z25proper_unit_for_byte_sizem.exit.i:            ; preds = %27, %_Z24byte_size_in_proper_unitImET_S0_.exit.i, %.thread.i
-  %.0.i5.i = phi i64 [ %26, %_Z24byte_size_in_proper_unitImET_S0_.exit.i ], [ %spec.select.i.i, %27 ], [ %25, %.thread.i ]
-  %.0.i2.i = phi ptr [ @.str.9, %_Z24byte_size_in_proper_unitImET_S0_.exit.i ], [ %.str.11..str.12.i.i, %27 ], [ @.str.10, %.thread.i ]
+  %.0.i5.i = phi i64 [ %25, %.thread.i ], [ %26, %_Z24byte_size_in_proper_unitImET_S0_.exit.i ], [ %spec.select.i.i, %27 ]
+  %.0.i2.i = phi ptr [ @.str.10, %.thread.i ], [ @.str.9, %_Z24byte_size_in_proper_unitImET_S0_.exit.i ], [ %.str.11..str.12.i.i, %27 ]
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.8, i64 noundef %21, i64 noundef %.0.i5.i, ptr noundef nonnull %.0.i2.i)
   br label %_ZN25RestorePreservedMarksTaskD2Ev.exit
 

@@ -68,7 +68,7 @@ define hidden range(i32 0, 2) i32 @PKCS7_get_certificates(ptr noundef %0, ptr no
   call void @X509_free(ptr noundef nonnull %21) #4
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph, %15, %18, %25
+.thread:                                          ; preds = %.lr.ph, %18, %15, %25
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit27
@@ -81,8 +81,8 @@ define hidden range(i32 0, 2) i32 @PKCS7_get_certificates(ptr noundef %0, ptr no
   br i1 %.not18, label %.loopexit27, label %.lr.ph
 
 .loopexit27:                                      ; preds = %26, %.preheader26, %.thread, %13
-  %.not22 = phi i1 [ true, %13 ], [ true, %.thread ], [ false, %.preheader26 ], [ false, %26 ]
-  %.013 = phi i32 [ 0, %13 ], [ 0, %.thread ], [ 1, %.preheader26 ], [ 1, %26 ]
+  %.not22 = phi i1 [ true, %.thread ], [ true, %13 ], [ false, %.preheader26 ], [ false, %26 ]
+  %.013 = phi i32 [ 0, %.thread ], [ 0, %13 ], [ 1, %.preheader26 ], [ 1, %26 ]
   %28 = load ptr, ptr %5, align 8, !tbaa !6
   %.not21 = icmp eq ptr %28, null
   br i1 %.not21, label %30, label %29
@@ -223,7 +223,7 @@ define internal fastcc range(i32 0, 2) i32 @pkcs7_parse_header(ptr noundef nonnu
   br label %46
 
 46:                                               ; preds = %43, %45, %3, %40
-  %.0 = phi i32 [ 1, %40 ], [ 0, %3 ], [ 0, %45 ], [ 0, %43 ]
+  %.0 = phi i32 [ 0, %3 ], [ 1, %40 ], [ 0, %45 ], [ 0, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -324,7 +324,7 @@ define hidden range(i32 0, 2) i32 @PKCS7_get_CRLs(ptr noundef %0, ptr noundef %1
   call void @X509_CRL_free(ptr noundef nonnull %25) #4
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph, %19, %22, %29
+.thread:                                          ; preds = %.lr.ph, %22, %19, %29
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit28
@@ -337,8 +337,8 @@ define hidden range(i32 0, 2) i32 @PKCS7_get_CRLs(ptr noundef %0, ptr noundef %1
   br i1 %.not19, label %.loopexit28, label %.lr.ph
 
 .loopexit28:                                      ; preds = %30, %.preheader27, %.thread, %12, %17
-  %.not23 = phi i1 [ true, %17 ], [ true, %12 ], [ true, %.thread ], [ false, %.preheader27 ], [ false, %30 ]
-  %.013 = phi i32 [ 0, %17 ], [ 0, %12 ], [ 0, %.thread ], [ 1, %.preheader27 ], [ 1, %30 ]
+  %.not23 = phi i1 [ true, %.thread ], [ true, %12 ], [ true, %17 ], [ false, %.preheader27 ], [ false, %30 ]
+  %.013 = phi i32 [ 0, %.thread ], [ 0, %12 ], [ 0, %17 ], [ 1, %.preheader27 ], [ 1, %30 ]
   %32 = load ptr, ptr %5, align 8, !tbaa !6
   %.not22 = icmp eq ptr %32, null
   br i1 %.not22, label %34, label %33

@@ -225,7 +225,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5LT_make_dataset_numerical(i64 nou
   br label %46
 
 46:                                               ; preds = %24, %21, %11, %6, %45
-  %.0 = phi i32 [ -1, %45 ], [ -1, %6 ], [ -1, %11 ], [ -1, %21 ], [ %.lobit, %24 ]
+  %.0 = phi i32 [ -1, %21 ], [ -1, %6 ], [ -1, %45 ], [ -1, %11 ], [ %.lobit, %24 ]
   ret i32 %.0
 }
 
@@ -459,7 +459,7 @@ define range(i32 -1, 1) i32 @H5LTmake_dataset_string(i64 noundef %0, ptr noundef
   br label %67
 
 67:                                               ; preds = %43, %40, %37, %3, %66
-  %.0 = phi i32 [ -1, %66 ], [ -1, %3 ], [ -1, %37 ], [ -1, %40 ], [ 0, %43 ]
+  %.0 = phi i32 [ -1, %40 ], [ -1, %66 ], [ -1, %3 ], [ -1, %37 ], [ 0, %43 ]
   ret i32 %.0
 }
 
@@ -608,8 +608,8 @@ define range(i64 -1, -9223372036854775808) i64 @H5LTopen_file_image(ptr noundef 
   br i1 %65, label %udata_free.exit, label %85
 
 udata_free.exit:                                  ; preds = %52, %49, %46, %43, %63, %56, %53, %31, %23, %19, %3
-  %.042 = phi i64 [ -1, %3 ], [ %21, %19 ], [ %21, %23 ], [ %21, %31 ], [ %21, %53 ], [ %21, %56 ], [ %21, %63 ], [ %21, %43 ], [ %21, %46 ], [ %21, %49 ], [ %21, %52 ]
-  %.041 = phi i64 [ -1, %3 ], [ -1, %19 ], [ -1, %23 ], [ -1, %31 ], [ -1, %53 ], [ %61, %56 ], [ %61, %63 ], [ -1, %43 ], [ -1, %46 ], [ -1, %49 ], [ -1, %52 ]
+  %.042 = phi i64 [ -1, %3 ], [ %21, %63 ], [ %21, %19 ], [ %21, %23 ], [ %21, %31 ], [ %21, %56 ], [ %21, %53 ], [ %21, %43 ], [ %21, %46 ], [ %21, %49 ], [ %21, %52 ]
+  %.041 = phi i64 [ -1, %3 ], [ %61, %63 ], [ -1, %19 ], [ -1, %23 ], [ -1, %31 ], [ %61, %56 ], [ -1, %53 ], [ -1, %43 ], [ -1, %46 ], [ -1, %49 ], [ -1, %52 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -774,7 +774,7 @@ define internal ptr @image_malloc(i64 noundef %0, i32 noundef %1, ptr noundef ca
   br label %58
 
 58:                                               ; preds = %3, %8, %11, %14, %17, %20, %24, %28, %31, %37, %40, %43, %46, %50, %53, %7, %23, %35, %57
-  %.035 = phi ptr [ %9, %23 ], [ %26, %35 ], [ %48, %57 ], [ null, %7 ], [ null, %53 ], [ null, %50 ], [ null, %46 ], [ null, %43 ], [ null, %40 ], [ null, %37 ], [ null, %31 ], [ null, %28 ], [ null, %24 ], [ null, %20 ], [ null, %17 ], [ null, %14 ], [ null, %11 ], [ null, %8 ], [ null, %3 ]
+  %.035 = phi ptr [ %48, %57 ], [ %9, %23 ], [ %26, %35 ], [ null, %7 ], [ null, %53 ], [ null, %50 ], [ null, %46 ], [ null, %43 ], [ null, %40 ], [ null, %37 ], [ null, %31 ], [ null, %28 ], [ null, %24 ], [ null, %20 ], [ null, %17 ], [ null, %14 ], [ null, %11 ], [ null, %8 ], [ null, %3 ]
   ret ptr %.035
 }
 
@@ -936,7 +936,7 @@ define internal noundef ptr @image_realloc(ptr noundef captures(address) %0, i64
   br label %.thread
 
 .thread:                                          ; preds = %15, %12, %20, %4, %8, %22
-  %.027 = phi ptr [ %19, %22 ], [ null, %8 ], [ null, %4 ], [ null, %20 ], [ null, %12 ], [ null, %15 ]
+  %.027 = phi ptr [ %19, %22 ], [ null, %4 ], [ null, %8 ], [ null, %20 ], [ null, %12 ], [ null, %15 ]
   ret ptr %.027
 }
 
@@ -1037,7 +1037,7 @@ define internal range(i32 -1, 1) i32 @image_free(ptr noundef readnone captures(a
   br label %udata_free.exit
 
 udata_free.exit:                                  ; preds = %36, %.thread, %3, %8, %11, %25, %28, %7, %45, %42, %23, %18, %15
-  %.0 = phi i32 [ 0, %15 ], [ 0, %18 ], [ 0, %23 ], [ 0, %42 ], [ 0, %45 ], [ -1, %7 ], [ -1, %28 ], [ -1, %25 ], [ -1, %11 ], [ -1, %8 ], [ -1, %3 ], [ -1, %.thread ], [ -1, %36 ]
+  %.0 = phi i32 [ 0, %45 ], [ 0, %23 ], [ 0, %15 ], [ 0, %18 ], [ -1, %36 ], [ 0, %42 ], [ -1, %3 ], [ -1, %7 ], [ -1, %28 ], [ -1, %25 ], [ -1, %11 ], [ -1, %8 ], [ -1, %.thread ]
   ret i32 %.0
 }
 
@@ -1090,7 +1090,7 @@ define internal range(i32 -1, 1) i32 @udata_free(ptr noundef captures(none) %0) 
   br label %13
 
 13:                                               ; preds = %1, %5, %9, %12
-  %.0 = phi i32 [ 0, %12 ], [ 0, %9 ], [ -1, %5 ], [ -1, %1 ]
+  %.0 = phi i32 [ 0, %9 ], [ 0, %12 ], [ -1, %5 ], [ -1, %1 ]
   ret i32 %.0
 }
 
@@ -1139,7 +1139,7 @@ define range(i32 -1, 1) i32 @H5LTread_dataset(i64 noundef %0, ptr noundef %1, i6
   br label %H5LT_read_dataset_numerical.exit
 
 H5LT_read_dataset_numerical.exit:                 ; preds = %4, %6, %9, %13
-  %.0.i = phi i32 [ -1, %4 ], [ -1, %6 ], [ %..i, %13 ], [ -1, %9 ]
+  %.0.i = phi i32 [ -1, %6 ], [ -1, %4 ], [ %..i, %13 ], [ -1, %9 ]
   ret i32 %.0.i
 }
 
@@ -1178,7 +1178,7 @@ define range(i32 -1, 1) i32 @H5LTread_dataset_char(i64 noundef %0, ptr noundef %
   br label %H5LT_read_dataset_numerical.exit
 
 H5LT_read_dataset_numerical.exit:                 ; preds = %11, %14, %17, %21
-  %.0.i = phi i32 [ -1, %11 ], [ -1, %14 ], [ %..i, %21 ], [ -1, %17 ]
+  %.0.i = phi i32 [ -1, %14 ], [ -1, %11 ], [ %..i, %21 ], [ -1, %17 ]
   ret i32 %.0.i
 }
 
@@ -1217,7 +1217,7 @@ define range(i32 -1, 1) i32 @H5LTread_dataset_short(i64 noundef %0, ptr noundef 
   br label %H5LT_read_dataset_numerical.exit
 
 H5LT_read_dataset_numerical.exit:                 ; preds = %11, %14, %17, %21
-  %.0.i = phi i32 [ -1, %11 ], [ -1, %14 ], [ %..i, %21 ], [ -1, %17 ]
+  %.0.i = phi i32 [ -1, %14 ], [ -1, %11 ], [ %..i, %21 ], [ -1, %17 ]
   ret i32 %.0.i
 }
 
@@ -1256,7 +1256,7 @@ define range(i32 -1, 1) i32 @H5LTread_dataset_int(i64 noundef %0, ptr noundef %1
   br label %H5LT_read_dataset_numerical.exit
 
 H5LT_read_dataset_numerical.exit:                 ; preds = %11, %14, %17, %21
-  %.0.i = phi i32 [ -1, %11 ], [ -1, %14 ], [ %..i, %21 ], [ -1, %17 ]
+  %.0.i = phi i32 [ -1, %14 ], [ -1, %11 ], [ %..i, %21 ], [ -1, %17 ]
   ret i32 %.0.i
 }
 
@@ -1295,7 +1295,7 @@ define range(i32 -1, 1) i32 @H5LTread_dataset_long(i64 noundef %0, ptr noundef %
   br label %H5LT_read_dataset_numerical.exit
 
 H5LT_read_dataset_numerical.exit:                 ; preds = %11, %14, %17, %21
-  %.0.i = phi i32 [ -1, %11 ], [ -1, %14 ], [ %..i, %21 ], [ -1, %17 ]
+  %.0.i = phi i32 [ -1, %14 ], [ -1, %11 ], [ %..i, %21 ], [ -1, %17 ]
   ret i32 %.0.i
 }
 
@@ -1334,7 +1334,7 @@ define range(i32 -1, 1) i32 @H5LTread_dataset_float(i64 noundef %0, ptr noundef 
   br label %H5LT_read_dataset_numerical.exit
 
 H5LT_read_dataset_numerical.exit:                 ; preds = %11, %14, %17, %21
-  %.0.i = phi i32 [ -1, %11 ], [ -1, %14 ], [ %..i, %21 ], [ -1, %17 ]
+  %.0.i = phi i32 [ -1, %14 ], [ -1, %11 ], [ %..i, %21 ], [ -1, %17 ]
   ret i32 %.0.i
 }
 
@@ -1373,7 +1373,7 @@ define range(i32 -1, 1) i32 @H5LTread_dataset_double(i64 noundef %0, ptr noundef
   br label %H5LT_read_dataset_numerical.exit
 
 H5LT_read_dataset_numerical.exit:                 ; preds = %11, %14, %17, %21
-  %.0.i = phi i32 [ -1, %11 ], [ -1, %14 ], [ %..i, %21 ], [ -1, %17 ]
+  %.0.i = phi i32 [ -1, %14 ], [ -1, %11 ], [ %..i, %21 ], [ -1, %17 ]
   ret i32 %.0.i
 }
 
@@ -1454,7 +1454,7 @@ define range(i32 -1, 1) i32 @H5LTread_dataset_string(i64 noundef %0, ptr noundef
   br label %41
 
 41:                                               ; preds = %19, %8, %3, %40
-  %.0 = phi i32 [ -1, %40 ], [ -1, %3 ], [ -1, %8 ], [ %., %19 ]
+  %.0 = phi i32 [ -1, %8 ], [ -1, %3 ], [ -1, %40 ], [ %., %19 ]
   ret i32 %.0
 }
 
@@ -1542,7 +1542,7 @@ define range(i32 -1, 1) i32 @H5LTget_dataset_ndims(i64 noundef %0, ptr noundef %
   br label %42
 
 42:                                               ; preds = %20, %8, %3, %41
-  %.0 = phi i32 [ -1, %41 ], [ -1, %3 ], [ -1, %8 ], [ %., %20 ]
+  %.0 = phi i32 [ -1, %8 ], [ -1, %3 ], [ -1, %41 ], [ %., %20 ]
   ret i32 %.0
 }
 
@@ -1656,7 +1656,7 @@ define range(i32 -1, 1) i32 @H5LTget_dataset_info(i64 noundef %0, ptr noundef %1
   br label %55
 
 55:                                               ; preds = %32, %30, %10, %5, %54
-  %.0 = phi i32 [ -1, %54 ], [ -1, %5 ], [ -1, %10 ], [ -1, %30 ], [ %., %32 ]
+  %.0 = phi i32 [ -1, %30 ], [ -1, %5 ], [ -1, %54 ], [ -1, %10 ], [ %., %32 ]
   ret i32 %.0
 }
 
@@ -1788,7 +1788,7 @@ define range(i32 -1, 1) i32 @H5LTset_attribute_string(i64 noundef %0, ptr nounde
   br label %60
 
 60:                                               ; preds = %56, %8, %4, %58
-  %.0 = phi i32 [ -1, %58 ], [ -1, %4 ], [ -1, %8 ], [ %.lobit, %56 ]
+  %.0 = phi i32 [ -1, %8 ], [ -1, %4 ], [ %.lobit, %56 ], [ -1, %58 ]
   ret i32 %.0
 }
 
@@ -1870,7 +1870,7 @@ define range(i32 -1, 1) i32 @H5LT_set_attribute_numerical(i64 noundef %0, ptr no
   br label %39
 
 39:                                               ; preds = %35, %10, %6, %37
-  %.0 = phi i32 [ -1, %37 ], [ -1, %6 ], [ -1, %10 ], [ %.lobit, %35 ]
+  %.0 = phi i32 [ -1, %10 ], [ -1, %6 ], [ %.lobit, %35 ], [ -1, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -2164,7 +2164,7 @@ define range(i32 -1, 1) i32 @H5LTget_attribute_ndims(i64 noundef %0, ptr noundef
   br label %31
 
 31:                                               ; preds = %26, %7, %4, %28, %13
-  %.0 = phi i32 [ -1, %13 ], [ -1, %28 ], [ -1, %4 ], [ -1, %7 ], [ %.lobit, %26 ]
+  %.0 = phi i32 [ -1, %7 ], [ -1, %4 ], [ %.lobit, %26 ], [ -1, %13 ], [ -1, %28 ]
   ret i32 %.0
 }
 
@@ -2235,7 +2235,7 @@ define range(i32 -1, 1) i32 @H5LTget_attribute_info(i64 noundef %0, ptr noundef 
   br label %39
 
 39:                                               ; preds = %33, %9, %6, %35, %15
-  %.0 = phi i32 [ -1, %15 ], [ -1, %35 ], [ -1, %6 ], [ -1, %9 ], [ %.lobit, %33 ]
+  %.0 = phi i32 [ -1, %9 ], [ -1, %6 ], [ %.lobit, %33 ], [ -1, %15 ], [ -1, %35 ]
   ret i32 %.0
 }
 
@@ -2330,7 +2330,7 @@ define range(i32 -1, 1) i32 @H5LTdtype_to_text(i64 noundef %0, ptr noundef %1, i
   br label %23
 
 23:                                               ; preds = %4, %9, %17, %12, %19, %15
-  %.0 = phi i32 [ 0, %15 ], [ 0, %19 ], [ 0, %12 ], [ -1, %17 ], [ -1, %9 ], [ -1, %4 ]
+  %.0 = phi i32 [ 0, %12 ], [ 0, %15 ], [ 0, %19 ], [ -1, %17 ], [ -1, %9 ], [ -1, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -2386,7 +2386,7 @@ define noundef ptr @H5LT_dtype_to_text(i64 noundef %0, ptr noundef %1, i32 nound
   br label %40
 
 40:                                               ; preds = %38, %33
-  %41 = phi i64 [ %34, %33 ], [ %39, %38 ]
+  %41 = phi i64 [ %39, %38 ], [ %34, %33 ]
   %42 = tail call ptr @realloc(ptr noundef nonnull %1, i64 noundef %41) #23
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %realloc_and_append.exit.thread707
@@ -3661,7 +3661,7 @@ indentation.exit690:                              ; preds = %723, %725
   %.not631 = icmp eq ptr %728, null
   br i1 %.not631, label %.thread, label %realloc_and_append.exit.thread
 
-.thread:                                          ; preds = %560, %563, %566, %569, %572, %indentation.exit, %591, %indentation.exit687, %606, %indentation.exit688, %620, %630, %635, %638, %641, %644, %indentation.exit689, %657, %659, %663, %666, %671, %673, %684, %688, %691, %694, %699, %701, %705, %708, %713, %715, %indentation.exit690, %727
+.thread:                                          ; preds = %572, %560, %563, %566, %569, %620, %630, %638, %641, %indentation.exit690, %715, %indentation.exit689, %657, %659, %666, %671, %673, %684, %688, %691, %694, %699, %701, %708, %713, %705, %663, %644, %635, %indentation.exit688, %606, %indentation.exit687, %591, %indentation.exit, %727
   br label %realloc_and_append.exit.thread
 
 729:                                              ; preds = %51
@@ -3770,7 +3770,7 @@ indentation.exit693:                              ; preds = %764, %766
   %.not612 = icmp eq ptr %769, null
   br i1 %.not612, label %.thread715, label %realloc_and_append.exit.thread
 
-.thread715:                                       ; preds = %indentation.exit691, %740, %indentation.exit692, %758, %indentation.exit693, %768
+.thread715:                                       ; preds = %indentation.exit693, %758, %indentation.exit692, %740, %indentation.exit691, %768
   br label %realloc_and_append.exit.thread
 
 770:                                              ; preds = %51
@@ -3878,7 +3878,7 @@ indentation.exit695:                              ; preds = %806, %808
   call void @free(ptr noundef %789) #20
   br label %.thread720
 
-.thread720:                                       ; preds = %.thread720.sink.split, %indentation.exit694, %781, %784, %796, %798, %indentation.exit695, %810
+.thread720:                                       ; preds = %.thread720.sink.split, %indentation.exit694, %781, %indentation.exit695, %798, %796, %784, %810
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %realloc_and_append.exit.thread
 
@@ -3985,7 +3985,7 @@ indentation.exit697:                              ; preds = %846, %848
   call void @free(ptr noundef %832) #20
   br label %.thread725
 
-.thread725:                                       ; preds = %.thread725.sink.split, %indentation.exit696, %824, %827, %839, %indentation.exit697, %850
+.thread725:                                       ; preds = %.thread725.sink.split, %indentation.exit696, %824, %indentation.exit697, %839, %827, %850
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %realloc_and_append.exit.thread
 
@@ -4134,7 +4134,7 @@ indentation.exit699:                              ; preds = %899, %901
   call void @free(ptr noundef %885) #20
   br label %.thread730
 
-.thread730:                                       ; preds = %.lr.ph754, %.thread730.sink.split, %indentation.exit698, %864, %867, %._crit_edge755, %877, %880, %892, %indentation.exit699, %903
+.thread730:                                       ; preds = %.lr.ph754, %.thread730.sink.split, %indentation.exit698, %864, %867, %._crit_edge755, %877, %indentation.exit699, %892, %880, %903
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %realloc_and_append.exit.thread
@@ -4318,7 +4318,7 @@ indentation.exit702:                              ; preds = %968, %970
   %.not579 = icmp eq ptr %973, null
   br i1 %.not579, label %.thread736, label %974
 
-.thread736:                                       ; preds = %.lr.ph, %918, %indentation.exit700, %930, %958, %961, %948, %951, %906, %indentation.exit702, %H5LTdtype_to_text.exit.thread, %972
+.thread736:                                       ; preds = %961, %.lr.ph, %indentation.exit700, %930, %958, %918, %906, %948, %H5LTdtype_to_text.exit.thread, %951, %indentation.exit702, %972
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %realloc_and_append.exit.thread
 
@@ -4425,7 +4425,7 @@ indentation.exit704:                              ; preds = %1008, %1010
   call void @free(ptr noundef %994) #20
   br label %.thread741
 
-.thread741:                                       ; preds = %.thread741.sink.split, %indentation.exit703, %986, %989, %1001, %indentation.exit704, %1012
+.thread741:                                       ; preds = %.thread741.sink.split, %indentation.exit703, %986, %indentation.exit704, %1001, %989, %1012
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %realloc_and_append.exit.thread
 
@@ -4471,7 +4471,7 @@ indentation.exit704:                              ; preds = %1008, %1010
   br label %realloc_and_append.exit.thread
 
 realloc_and_append.exit.thread:                   ; preds = %32, %44, %45, %realloc_and_append.exit, %48, %.thread, %.thread715, %.thread720, %.thread725, %.thread730, %.thread736, %.thread741, %1014, %974, %905, %852, %812, %768, %727, %1015, %1035, %77, %105, %133, %161, %189, %217, %245, %273, %301, %329, %357, %385, %414, %416, %399, %371, %343, %315, %287, %259, %231, %203, %175, %147, %119, %91, %63, %443, %471, %499, %527, %556, %558, %541, %513, %485, %457, %429, %1033, %1031, %51
-  %.0 = phi ptr [ %.036.i710, %1035 ], [ %.036.i710, %63 ], [ %.036.i710, %77 ], [ %.036.i710, %91 ], [ %.036.i710, %105 ], [ %.036.i710, %119 ], [ %.036.i710, %133 ], [ %.036.i710, %147 ], [ %.036.i710, %161 ], [ %.036.i710, %175 ], [ %.036.i710, %189 ], [ %.036.i710, %203 ], [ %.036.i710, %217 ], [ %.036.i710, %231 ], [ %.036.i710, %245 ], [ %.036.i710, %259 ], [ %.036.i710, %273 ], [ %.036.i710, %287 ], [ %.036.i710, %301 ], [ %.036.i710, %315 ], [ %.036.i710, %329 ], [ %.036.i710, %343 ], [ %.036.i710, %357 ], [ %.036.i710, %371 ], [ %.036.i710, %385 ], [ %.036.i710, %399 ], [ %.036.i710, %414 ], [ %.036.i710, %416 ], [ %.036.i710, %429 ], [ %.036.i710, %443 ], [ %.036.i710, %457 ], [ %.036.i710, %471 ], [ %.036.i710, %485 ], [ %.036.i710, %499 ], [ %.036.i710, %513 ], [ %.036.i710, %527 ], [ %.036.i710, %541 ], [ %.036.i710, %556 ], [ %.036.i710, %558 ], [ %811, %812 ], [ %851, %852 ], [ %904, %905 ], [ %973, %974 ], [ %1013, %1014 ], [ %.036.i710, %1015 ], [ %.036.i710, %1031 ], [ %.036.i710, %1033 ], [ %.036.i710, %51 ], [ %728, %727 ], [ %769, %768 ], [ null, %.thread741 ], [ null, %.thread736 ], [ null, %.thread730 ], [ null, %.thread725 ], [ null, %.thread720 ], [ null, %.thread715 ], [ null, %.thread ], [ null, %48 ], [ null, %realloc_and_append.exit ], [ null, %45 ], [ null, %44 ], [ null, %32 ]
+  %.0 = phi ptr [ %769, %768 ], [ %.036.i710, %1035 ], [ %.036.i710, %63 ], [ %.036.i710, %77 ], [ %.036.i710, %91 ], [ %.036.i710, %105 ], [ %.036.i710, %119 ], [ %.036.i710, %133 ], [ %.036.i710, %147 ], [ %.036.i710, %161 ], [ %.036.i710, %175 ], [ %.036.i710, %189 ], [ %.036.i710, %203 ], [ %.036.i710, %217 ], [ %.036.i710, %231 ], [ %.036.i710, %245 ], [ %.036.i710, %259 ], [ %.036.i710, %273 ], [ %.036.i710, %287 ], [ %.036.i710, %301 ], [ %.036.i710, %315 ], [ %.036.i710, %329 ], [ %.036.i710, %343 ], [ %.036.i710, %357 ], [ %.036.i710, %371 ], [ %.036.i710, %385 ], [ %.036.i710, %399 ], [ %.036.i710, %414 ], [ %.036.i710, %416 ], [ %.036.i710, %429 ], [ %.036.i710, %443 ], [ %.036.i710, %457 ], [ %.036.i710, %471 ], [ %.036.i710, %485 ], [ %.036.i710, %499 ], [ %.036.i710, %513 ], [ %.036.i710, %527 ], [ %.036.i710, %541 ], [ %.036.i710, %556 ], [ %.036.i710, %558 ], [ %.036.i710, %1033 ], [ %728, %727 ], [ %811, %812 ], [ %851, %852 ], [ %904, %905 ], [ %973, %974 ], [ %1013, %1014 ], [ %.036.i710, %1015 ], [ %.036.i710, %51 ], [ %.036.i710, %1031 ], [ null, %.thread741 ], [ null, %.thread736 ], [ null, %.thread730 ], [ null, %.thread725 ], [ null, %.thread720 ], [ null, %.thread715 ], [ null, %.thread ], [ null, %45 ], [ null, %48 ], [ null, %realloc_and_append.exit ], [ null, %44 ], [ null, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   ret ptr %.0
 }
@@ -4561,7 +4561,7 @@ define internal fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %0, pt
   br label %.thread
 
 .thread:                                          ; preds = %5, %27, %28, %38, %40, %43
-  %.036 = phi ptr [ %.037, %43 ], [ %.037, %40 ], [ %.037, %38 ], [ %.037, %28 ], [ null, %27 ], [ null, %5 ]
+  %.036 = phi ptr [ %.037, %28 ], [ %.037, %43 ], [ %.037, %40 ], [ %.037, %38 ], [ null, %27 ], [ null, %5 ]
   ret ptr %.036
 }
 
@@ -4811,7 +4811,7 @@ indentation.exit:                                 ; preds = %47, %48
   br label %.thread141
 
 .thread141:                                       ; preds = %.thread141.sink.split, %.loopexit.thread, %10, %88
-  %.094 = phi ptr [ null, %88 ], [ null, %10 ], [ null, %.loopexit.thread ], [ %.094.ph, %.thread141.sink.split ]
+  %.094 = phi ptr [ null, %10 ], [ null, %.loopexit.thread ], [ null, %88 ], [ %.094.ph, %.thread141.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.094
 }
@@ -4849,7 +4849,7 @@ define range(i32 -1, 1) i32 @H5LTget_attribute_string(i64 noundef %0, ptr nounde
   br label %13
 
 13:                                               ; preds = %10, %7, %4
-  %.0 = phi i32 [ -1, %4 ], [ -1, %7 ], [ %spec.select, %10 ]
+  %.0 = phi i32 [ -1, %7 ], [ -1, %4 ], [ %spec.select, %10 ]
   ret i32 %.0
 }
 
@@ -4885,7 +4885,7 @@ define range(i32 -1, 1) i32 @H5LT_get_attribute_disk(i64 noundef %0, ptr noundef
   br label %20
 
 20:                                               ; preds = %15, %3, %17
-  %.0 = phi i32 [ -1, %17 ], [ -1, %3 ], [ %.lobit, %15 ]
+  %.0 = phi i32 [ -1, %3 ], [ -1, %17 ], [ %.lobit, %15 ]
   ret i32 %.0
 }
 
@@ -4941,7 +4941,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5LT_get_attribute_mem(i64 noundef 
   br i1 %22, label %23, label %.thread23
 
 23:                                               ; preds = %20, %17, %14, %11
-  %.0 = phi i64 [ %12, %11 ], [ %12, %14 ], [ %12, %17 ], [ -1, %20 ]
+  %.0 = phi i64 [ -1, %20 ], [ %12, %11 ], [ %12, %14 ], [ %12, %17 ]
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %26, label %24
 
@@ -4958,7 +4958,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5LT_get_attribute_mem(i64 noundef 
   br label %.thread23
 
 .thread23:                                        ; preds = %8, %26, %28, %20, %5
-  %.015 = phi i32 [ -1, %5 ], [ 0, %20 ], [ -1, %28 ], [ -1, %26 ], [ -1, %8 ]
+  %.015 = phi i32 [ -1, %26 ], [ -1, %5 ], [ 0, %20 ], [ -1, %28 ], [ -1, %8 ]
   ret i32 %.015
 }
 
@@ -5303,7 +5303,7 @@ define range(i32 -1, 1) i32 @H5LT_set_attribute_string(i64 noundef %0, ptr nound
   br label %72
 
 72:                                               ; preds = %48, %21, %10, %3, %71
-  %.0 = phi i32 [ -1, %71 ], [ -1, %3 ], [ -1, %10 ], [ -1, %21 ], [ 0, %48 ]
+  %.0 = phi i32 [ -1, %21 ], [ -1, %3 ], [ -1, %10 ], [ -1, %71 ], [ 0, %48 ]
   ret i32 %.0
 }
 
@@ -5399,13 +5399,13 @@ sub_1:                                            ; preds = %sub_0
   %. = tail call i32 @llvm.smax.i32(i32 %40, i32 -1)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %27, %28, %37, %._crit_edge, %39
-  %.0.ph = phi i32 [ %., %39 ], [ -1, %._crit_edge ], [ %35, %37 ], [ -1, %.lr.ph ], [ 0, %27 ], [ -1, %28 ]
+.loopexit:                                        ; preds = %.lr.ph, %27, %28, %37, %39, %._crit_edge
+  %.0.ph = phi i32 [ -1, %._crit_edge ], [ %., %39 ], [ %35, %37 ], [ -1, %.lr.ph ], [ 0, %27 ], [ -1, %28 ]
   tail call void @free(ptr noundef nonnull %16) #20
   br label %41
 
 41:                                               ; preds = %13, %3, %5, %12, %15, %.loopexit
-  %.054 = phi i32 [ %.0.ph, %.loopexit ], [ %14, %13 ], [ -1, %3 ], [ -1, %5 ], [ 1, %12 ], [ -1, %15 ]
+  %.054 = phi i32 [ %.0.ph, %.loopexit ], [ -1, %15 ], [ -1, %3 ], [ %14, %13 ], [ -1, %5 ], [ 1, %12 ]
   ret i32 %.054
 }
 

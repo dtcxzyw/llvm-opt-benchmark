@@ -240,7 +240,7 @@ define ptr @ff_h265_guess_level(ptr noundef readonly captures(address_is_null) %
   br label %31
 
 31:                                               ; preds = %17, %24, %29, %27
-  %.063 = phi i64 [ %28, %27 ], [ %30, %29 ], [ 1, %17 ], [ 6, %24 ]
+  %.063 = phi i64 [ %30, %29 ], [ %28, %27 ], [ 6, %24 ], [ 1, %17 ]
   %32 = mul nsw i32 %2, %2
   %33 = mul i32 %3, %3
   %invariant.umax = tail call i32 @llvm.umax.i32(i32 %32, i32 %33)
@@ -353,7 +353,7 @@ define ptr @ff_h265_guess_level(ptr noundef readonly captures(address_is_null) %
   %94 = icmp sgt i32 %7, %.059
   br i1 %94, label %.thread93, label %95
 
-.thread93:                                        ; preds = %59, %58, %53, %48, %43, %38, %36, %93
+.thread93:                                        ; preds = %59, %58, %48, %43, %53, %38, %36, %93
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 13
   br i1 %exitcond.not, label %95, label %36, !llvm.loop !49

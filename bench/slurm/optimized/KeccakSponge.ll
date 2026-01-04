@@ -207,8 +207,8 @@ define dso_local range(i32 0, 2) i32 @KeccakWidth1600_SpongeAbsorb(ptr noundef %
   br label %34
 
 34:                                               ; preds = %33, %22, %18
-  %.158.us = phi i64 [ %20, %18 ], [ %28, %33 ], [ %28, %22 ]
-  %.2.us = phi ptr [ %21, %18 ], [ %29, %33 ], [ %29, %22 ]
+  %.158.us = phi i64 [ %20, %18 ], [ %28, %22 ], [ %28, %33 ]
+  %.2.us = phi ptr [ %21, %18 ], [ %29, %22 ], [ %29, %33 ]
   %35 = icmp ult i64 %.158.us, %2
   br i1 %35, label %.lr.ph70.split.us, label %.loopexit, !llvm.loop !12
 
@@ -265,8 +265,8 @@ define dso_local range(i32 0, 2) i32 @KeccakWidth1600_SpongeAbsorb(ptr noundef %
   br label %56
 
 56:                                               ; preds = %44, %55, %._crit_edge
-  %.158 = phi i64 [ %43, %._crit_edge ], [ %50, %55 ], [ %50, %44 ]
-  %.2 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %51, %55 ], [ %51, %44 ]
+  %.158 = phi i64 [ %50, %44 ], [ %43, %._crit_edge ], [ %50, %55 ]
+  %.2 = phi ptr [ %51, %44 ], [ %.1.lcssa, %._crit_edge ], [ %51, %55 ]
   %57 = icmp ult i64 %.158, %2
   br i1 %57, label %.lr.ph70.split, label %.loopexit, !llvm.loop !12
 
@@ -632,8 +632,8 @@ define dso_local range(i32 0, 2) i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr 
   br label %34
 
 34:                                               ; preds = %33, %22, %18
-  %.158.us = phi i64 [ %20, %18 ], [ %28, %33 ], [ %28, %22 ]
-  %.2.us = phi ptr [ %21, %18 ], [ %29, %33 ], [ %29, %22 ]
+  %.158.us = phi i64 [ %20, %18 ], [ %28, %22 ], [ %28, %33 ]
+  %.2.us = phi ptr [ %21, %18 ], [ %29, %22 ], [ %29, %33 ]
   %35 = icmp ult i64 %.158.us, %2
   br i1 %35, label %.lr.ph70.split.us, label %.loopexit, !llvm.loop !18
 
@@ -690,8 +690,8 @@ define dso_local range(i32 0, 2) i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr 
   br label %56
 
 56:                                               ; preds = %44, %55, %._crit_edge
-  %.158 = phi i64 [ %43, %._crit_edge ], [ %50, %55 ], [ %50, %44 ]
-  %.2 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %51, %55 ], [ %51, %44 ]
+  %.158 = phi i64 [ %50, %44 ], [ %43, %._crit_edge ], [ %50, %55 ]
+  %.2 = phi ptr [ %51, %44 ], [ %.1.lcssa, %._crit_edge ], [ %51, %55 ]
   %57 = icmp ult i64 %.158, %2
   br i1 %57, label %.lr.ph70.split, label %.loopexit, !llvm.loop !18
 

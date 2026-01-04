@@ -1165,10 +1165,10 @@ _ZN4llvmeqENS_9StringRefES0_.exit215.thread:      ; preds = %_ZN4llvmeqENS_9Stri
   br label %481
 
 _ZN4llvmeqENS_9StringRefES0_.exit215.thread345:   ; preds = %.lr.ph356, %_ZN4llvm9StringRef13consume_frontES0_.exit211.thread, %_ZN4llvmeqENS_9StringRefES0_.exit215
-  %473 = phi i8 [ %470, %_ZN4llvm9StringRef13consume_frontES0_.exit211.thread ], [ %470, %_ZN4llvmeqENS_9StringRefES0_.exit215 ], [ 2, %.lr.ph356 ]
-  %.sroa.0244.0342426 = phi ptr [ %.sroa.0244.0342, %_ZN4llvm9StringRef13consume_frontES0_.exit211.thread ], [ %.sroa.0244.0342, %_ZN4llvmeqENS_9StringRefES0_.exit215 ], [ %462, %.lr.ph356 ]
-  %.sroa.9.0343425 = phi i64 [ %.sroa.9.0343, %_ZN4llvm9StringRef13consume_frontES0_.exit211.thread ], [ 10, %_ZN4llvmeqENS_9StringRefES0_.exit215 ], [ %464, %.lr.ph356 ]
-  %474 = phi ptr [ %469, %_ZN4llvm9StringRef13consume_frontES0_.exit211.thread ], [ %469, %_ZN4llvmeqENS_9StringRefES0_.exit215 ], [ @.str.14, %.lr.ph356 ]
+  %473 = phi i8 [ %470, %_ZN4llvmeqENS_9StringRefES0_.exit215 ], [ %470, %_ZN4llvm9StringRef13consume_frontES0_.exit211.thread ], [ 2, %.lr.ph356 ]
+  %.sroa.0244.0342426 = phi ptr [ %.sroa.0244.0342, %_ZN4llvmeqENS_9StringRefES0_.exit215 ], [ %.sroa.0244.0342, %_ZN4llvm9StringRef13consume_frontES0_.exit211.thread ], [ %462, %.lr.ph356 ]
+  %.sroa.9.0343425 = phi i64 [ 10, %_ZN4llvmeqENS_9StringRefES0_.exit215 ], [ %.sroa.9.0343, %_ZN4llvm9StringRef13consume_frontES0_.exit211.thread ], [ %464, %.lr.ph356 ]
+  %474 = phi ptr [ %469, %_ZN4llvmeqENS_9StringRefES0_.exit215 ], [ %469, %_ZN4llvm9StringRef13consume_frontES0_.exit211.thread ], [ @.str.14, %.lr.ph356 ]
   br i1 %162, label %479, label %475
 
 475:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit215.thread345

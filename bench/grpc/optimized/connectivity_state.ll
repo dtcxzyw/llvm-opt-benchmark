@@ -418,9 +418,9 @@ define void @_ZN9grpc_core24ConnectivityStateTrackerD2Ev(ptr noundef nonnull ali
   %36 = icmp slt i8 %35, -1
   br i1 %36, label %.lr.ph.i.i, label %.lr.ph.preheader, !llvm.loop !44
 
-.lr.ph.preheader:                                 ; preds = %.lr.ph.i.i, %19, %13
-  %.sroa.8.029.ph = phi ptr [ %.sroa.0.0.copyload.i.i.i, %19 ], [ %18, %13 ], [ %34, %.lr.ph.i.i ]
-  %.sroa.019.028.ph = phi ptr [ %20, %19 ], [ @_ZN4absl12lts_2024072218container_internal11kSooControlE, %13 ], [ %33, %.lr.ph.i.i ]
+.lr.ph.preheader:                                 ; preds = %.lr.ph.i.i, %13, %19
+  %.sroa.8.029.ph = phi ptr [ %18, %13 ], [ %.sroa.0.0.copyload.i.i.i, %19 ], [ %34, %.lr.ph.i.i ]
+  %.sroa.019.028.ph = phi ptr [ @_ZN4absl12lts_2024072218container_internal11kSooControlE, %13 ], [ %20, %19 ], [ %33, %.lr.ph.i.i ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt10unique_ptrIN9grpc_core33ConnectivityStateWatcherInterfaceENS5_16OrphanableDeleteEEEENS1_6HashEqIPS6_vE4HashENSC_2EqESaIS8_EE8iterator21skip_empty_or_deletedEv.exit.i
@@ -1396,11 +1396,6 @@ _ZN4absl12lts_202407226StatusaSERKS1_.exit:       ; preds = %.critedge62, %_ZN4a
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br i1 %69, label %.lr.ph.preheader, label %71
 
-.lr.ph.preheader:                                 ; preds = %.lr.ph.i.i, %71, %66
-  %.sroa.9.096.ph = phi ptr [ %.sroa.0.0.copyload.i.i.i, %71 ], [ %70, %66 ], [ %86, %.lr.ph.i.i ]
-  %.sroa.085.095.ph = phi ptr [ %72, %71 ], [ @_ZN4absl12lts_2024072218container_internal11kSooControlE, %66 ], [ %85, %.lr.ph.i.i ]
-  br label %.lr.ph
-
 71:                                               ; preds = %66
   %72 = load ptr, ptr %70, align 8, !tbaa !34, !nonnull !41, !noundef !41
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1408,6 +1403,11 @@ _ZN4absl12lts_202407226StatusaSERKS1_.exit:       ; preds = %.critedge62, %_ZN4a
   %74 = load i8, ptr %72, align 1, !tbaa !42
   %75 = icmp slt i8 %74, -1
   br i1 %75, label %.lr.ph.i.i, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %.lr.ph.i.i, %66, %71
+  %.sroa.9.096.ph = phi ptr [ %70, %66 ], [ %.sroa.0.0.copyload.i.i.i, %71 ], [ %86, %.lr.ph.i.i ]
+  %.sroa.085.095.ph = phi ptr [ @_ZN4absl12lts_2024072218container_internal11kSooControlE, %66 ], [ %72, %71 ], [ %85, %.lr.ph.i.i ]
+  br label %.lr.ph
 
 .lr.ph.i.i:                                       ; preds = %71, %.lr.ph.i.i
   %76 = phi ptr [ %86, %.lr.ph.i.i ], [ %.sroa.0.0.copyload.i.i.i, %71 ]
@@ -2911,7 +2911,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   br i1 %.not.i.i, label %.lr.ph.i.i, label %.thread.i.i, !llvm.loop !111
 
 .thread64:                                        ; preds = %.thread.i.i, %66
-  %.sroa.011.0.i.i = phi i64 [ %88, %66 ], [ %98, %.thread.i.i ]
+  %.sroa.011.0.i.i = phi i64 [ %98, %.thread.i.i ], [ %88, %66 ]
   %106 = trunc i128 %79 to i8
   %107 = and i8 %106, 127
   %108 = getelementptr inbounds nuw i8, ptr %82, i64 %.sroa.011.0.i.i
@@ -3004,7 +3004,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   br i1 %.not.i.i49, label %.lr.ph.i.i46, label %.thread.i.i40, !llvm.loop !111
 
 _ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt10unique_ptrIN9grpc_core33ConnectivityStateWatcherInterfaceENS5_16OrphanableDeleteEEEENS1_6HashEqIPS6_vE4HashENSC_2EqESaIS8_EE11resize_implERNS1_12CommonFieldsEmNS1_20HashtablezInfoHandleEENKUlPS8_E_clESK_.exit50: ; preds = %126, %.thread.i.i40
-  %.sroa.011.0.i.i44 = phi i64 [ %147, %126 ], [ %157, %.thread.i.i40 ]
+  %.sroa.011.0.i.i44 = phi i64 [ %157, %.thread.i.i40 ], [ %147, %126 ]
   %165 = trunc i128 %140 to i8
   %166 = and i8 %165, 127
   %167 = getelementptr inbounds nuw i8, ptr %142, i64 %.sroa.011.0.i.i44
@@ -3025,7 +3025,7 @@ _ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolic
   br i1 %.not34, label %.loopexit, label %121, !llvm.loop !115
 
 .loopexit:                                        ; preds = %173, %63, %115, %49
-  %175 = phi i64 [ 0, %115 ], [ 0, %49 ], [ %51, %63 ], [ %117, %173 ]
+  %175 = phi i64 [ %51, %63 ], [ 0, %49 ], [ 0, %115 ], [ %117, %173 ]
   %176 = load i8, ptr %31, align 8, !tbaa !104, !range !97, !noundef !41
   %177 = trunc nuw i8 %176 to i1
   %.neg.i = select i1 %177, i64 -9, i64 -8

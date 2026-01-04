@@ -252,7 +252,7 @@ define void @_ZN7anki_io12new_tempfile17hb3327cc24aabda32E(ptr noalias noundef w
   ret void
 
 .body.thread:                                     ; preds = %15, %12, %22
-  %eh.lpad-body5 = phi { ptr, i32 } [ %23, %22 ], [ %13, %12 ], [ %13, %15 ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %13, %15 ], [ %23, %22 ], [ %13, %12 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 22:                                               ; preds = %1
@@ -437,7 +437,7 @@ define void @_ZN7anki_io13atomic_rename17h34267177826296e9E(ptr noalias noundef 
   unreachable
 
 common.resume:                                    ; preds = %.thread110, %.body83, %17, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %eh.lpad-body69113, %.thread110 ], [ %eh.lpad-body84, %.body83 ], [ %18, %17 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %eh.lpad-body84, %.body83 ], [ %eh.lpad-body69113, %.thread110 ], [ %18, %17 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr50drop_in_place$LT$tempfile..file..NamedTempFile$GT$17h4d38e4753991c886E.exit": ; preds = %42

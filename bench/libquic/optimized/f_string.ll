@@ -85,7 +85,7 @@ define hidden range(i32 -2147483646, -2147483648) i32 @i2a_ASN1_STRING(ptr nound
   br label %.loopexit
 
 .loopexit:                                        ; preds = %36, %.preheader, %12, %3, %.loopexit24
-  %.018 = phi i32 [ -1, %.loopexit24 ], [ 0, %3 ], [ 1, %12 ], [ 0, %.preheader ], [ %37, %36 ]
+  %.018 = phi i32 [ 0, %3 ], [ -1, %.loopexit24 ], [ 1, %12 ], [ 0, %.preheader ], [ %37, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.018
 }
@@ -285,7 +285,7 @@ switch.early.test._crit_edge:                     ; preds = %34, %switch.early.t
   br label %84
 
 75:                                               ; preds = %62, %68, %72
-  %.0109 = phi i8 [ %69, %68 ], [ %73, %72 ], [ %65, %62 ]
+  %.0109 = phi i8 [ %73, %72 ], [ %69, %68 ], [ %65, %62 ]
   %76 = load i8, ptr %gep211, align 1, !tbaa !15
   %77 = shl i8 %76, 4
   %78 = or i8 %77, %.0109

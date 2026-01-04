@@ -1860,7 +1860,7 @@ define void @"_ZN94_$LT$dev_server_projects..DevServer$u20$as$u20$core..convert.
   resume { ptr, i32 } %.pn1521
 
 .thread:                                          ; preds = %34, %11
-  %.pn15 = phi { ptr, i32 } [ %35, %34 ], [ %12, %11 ]
+  %.pn15 = phi { ptr, i32 } [ %12, %11 ], [ %35, %34 ]
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h75a7a1ca67b52b77E.llvm.4099177046964845616"(ptr noalias noundef nonnull align 8 dereferenceable(24) %36) #20
           to label %.thread.thread unwind label %32
@@ -2862,7 +2862,7 @@ define void @_ZN19dev_server_projects5Store25create_dev_server_project17hb8dbc3f
   unreachable
 
 .critedge:                                        ; preds = %42, %26, %.noexc8
-  %eh.lpad-body11 = phi { ptr, i32 } [ %49, %.noexc8 ], [ %27, %26 ], [ %43, %42 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %49, %.noexc8 ], [ %43, %42 ], [ %27, %26 ]
   resume { ptr, i32 } %eh.lpad-body11
 
 .noexc8:                                          ; preds = %52, %48
@@ -3178,7 +3178,7 @@ define void @_ZN19dev_server_projects5Store17create_dev_server17h38219c6d06f1155
           to label %.critedge unwind label %53
 
 .critedge5:                                       ; preds = %42, %26, %.critedge
-  %eh.lpad-body13 = phi { ptr, i32 } [ %49, %.critedge ], [ %27, %26 ], [ %43, %42 ]
+  %eh.lpad-body13 = phi { ptr, i32 } [ %49, %.critedge ], [ %43, %42 ], [ %27, %26 ]
   resume { ptr, i32 } %eh.lpad-body13
 
 .critedge:                                        ; preds = %.noexc10
@@ -3534,7 +3534,7 @@ define void @_ZN19dev_server_projects5Store17rename_dev_server17ha78e3bf983d247a
           to label %.critedge unwind label %55
 
 .critedge5:                                       ; preds = %44, %28, %.critedge
-  %eh.lpad-body13 = phi { ptr, i32 } [ %51, %.critedge ], [ %29, %28 ], [ %45, %44 ]
+  %eh.lpad-body13 = phi { ptr, i32 } [ %51, %.critedge ], [ %45, %44 ], [ %29, %28 ]
   resume { ptr, i32 } %eh.lpad-body13
 
 .critedge:                                        ; preds = %.noexc10
@@ -3848,7 +3848,7 @@ define void @_ZN19dev_server_projects5Store27regenerate_dev_server_token17h04eb5
   ret void
 
 "_ZN4core3ptr59drop_in_place$LT$alloc..sync..Arc$LT$client..Client$GT$$GT$17ha192bf9f7245d371E.exit": ; preds = %40, %24, %46, %50
-  %eh.lpad-body10 = phi { ptr, i32 } [ %47, %50 ], [ %47, %46 ], [ %25, %24 ], [ %41, %40 ]
+  %eh.lpad-body10 = phi { ptr, i32 } [ %47, %46 ], [ %41, %40 ], [ %47, %50 ], [ %25, %24 ]
   resume { ptr, i32 } %eh.lpad-body10
 
 46:                                               ; preds = %13
@@ -4132,7 +4132,7 @@ define void @_ZN19dev_server_projects5Store17delete_dev_server17hae87a123eabe176
   ret void
 
 "_ZN4core3ptr59drop_in_place$LT$alloc..sync..Arc$LT$client..Client$GT$$GT$17ha192bf9f7245d371E.exit": ; preds = %40, %24, %46, %50
-  %eh.lpad-body10 = phi { ptr, i32 } [ %47, %50 ], [ %47, %46 ], [ %25, %24 ], [ %41, %40 ]
+  %eh.lpad-body10 = phi { ptr, i32 } [ %47, %46 ], [ %41, %40 ], [ %47, %50 ], [ %25, %24 ]
   resume { ptr, i32 } %eh.lpad-body10
 
 46:                                               ; preds = %13
@@ -4422,7 +4422,7 @@ define void @_ZN19dev_server_projects5Store25delete_dev_server_project17hb977e09
   ret void
 
 "_ZN4core3ptr59drop_in_place$LT$alloc..sync..Arc$LT$client..Client$GT$$GT$17ha192bf9f7245d371E.exit": ; preds = %40, %24, %46, %50
-  %eh.lpad-body10 = phi { ptr, i32 } [ %47, %50 ], [ %47, %46 ], [ %25, %24 ], [ %41, %40 ]
+  %eh.lpad-body10 = phi { ptr, i32 } [ %47, %46 ], [ %41, %40 ], [ %47, %50 ], [ %25, %24 ]
   resume { ptr, i32 } %eh.lpad-body10
 
 46:                                               ; preds = %13

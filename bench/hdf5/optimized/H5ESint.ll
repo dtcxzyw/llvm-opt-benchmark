@@ -569,7 +569,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5ES__insert(ptr noundef %0, ptr no
   br label %.thread56
 
 .thread56:                                        ; preds = %19, %55, %38, %8, %68, %65
-  %.042 = phi i32 [ -1, %68 ], [ -1, %65 ], [ 0, %8 ], [ 0, %55 ], [ 0, %38 ], [ -1, %19 ]
+  %.042 = phi i32 [ -1, %68 ], [ -1, %65 ], [ -1, %19 ], [ 0, %8 ], [ 0, %38 ], [ 0, %55 ]
   ret i32 %.042
 }
 
@@ -878,7 +878,7 @@ define internal range(i32 -1, 2) i32 @H5ES__wait_cb(ptr noundef %0, ptr noundef 
   br label %67
 
 67:                                               ; preds = %60, %20, %36, %47, %51, %64, %65, %2
-  %.0 = phi i32 [ -1, %20 ], [ -1, %36 ], [ %.1, %64 ], [ %.1, %65 ], [ -1, %47 ], [ -1, %51 ], [ 0, %2 ], [ %.1, %60 ]
+  %.0 = phi i32 [ -1, %20 ], [ -1, %36 ], [ %.1, %64 ], [ %.1, %65 ], [ 0, %2 ], [ %.1, %60 ], [ -1, %47 ], [ -1, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -1444,8 +1444,8 @@ H5ES__handle_fail.exit.thread84:                  ; preds = %62
   br label %H5ES__handle_fail.exit.thread
 
 H5ES__handle_fail.exit:                           ; preds = %.thread71, %87, %93, %91
-  %.052 = phi i64 [ %.153, %91 ], [ %.153, %93 ], [ %71, %.thread71 ], [ %71, %87 ]
-  %.4 = phi i32 [ 0, %91 ], [ 0, %93 ], [ -1, %.thread71 ], [ -1, %87 ]
+  %.052 = phi i64 [ %.153, %93 ], [ %.153, %91 ], [ %71, %.thread71 ], [ %71, %87 ]
+  %.4 = phi i32 [ 0, %93 ], [ 0, %91 ], [ -1, %.thread71 ], [ -1, %87 ]
   %.not58 = icmp eq i64 %.052, -1
   br i1 %.not58, label %H5ES__handle_fail.exit.thread, label %101
 
@@ -1461,7 +1461,7 @@ H5ES__handle_fail.exit:                           ; preds = %.thread71, %87, %93
   br label %H5ES__handle_fail.exit.thread
 
 H5ES__handle_fail.exit.thread:                    ; preds = %H5ES__handle_fail.exit.thread84, %.thread, %47, %27, %97, %51, %55, %3, %101, %104, %H5ES__handle_fail.exit
-  %.048 = phi i32 [ -1, %104 ], [ %.4, %101 ], [ %.4, %H5ES__handle_fail.exit ], [ 0, %3 ], [ -1, %97 ], [ 0, %51 ], [ -1, %55 ], [ -1, %27 ], [ -1, %47 ], [ -1, %.thread ], [ -1, %H5ES__handle_fail.exit.thread84 ]
+  %.048 = phi i32 [ -1, %104 ], [ %.4, %101 ], [ %.4, %H5ES__handle_fail.exit ], [ 0, %3 ], [ -1, %97 ], [ -1, %55 ], [ 0, %51 ], [ -1, %27 ], [ -1, %47 ], [ -1, %.thread ], [ -1, %H5ES__handle_fail.exit.thread84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.048
 }

@@ -120,7 +120,7 @@ blame_suspects_peek.exit:                         ; preds = %6
   br label %blame_suspects_peek.exit.thread
 
 blame_suspects_peek.exit.thread:                  ; preds = %6, %1, %blame_suspects_peek.exit
-  %14 = phi ptr [ %13, %blame_suspects_peek.exit ], [ null, %1 ], [ null, %6 ]
+  %14 = phi ptr [ %13, %blame_suspects_peek.exit ], [ null, %6 ], [ null, %1 ]
   ret ptr %14
 }
 
@@ -235,7 +235,7 @@ set_blame_suspects.exit:                          ; preds = %33, %.thread8.i.i.i
   %.not21 = icmp eq ptr %47, null
   br i1 %.not21, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
-._crit_edge:                                      ; preds = %.lr.ph50, %19, %10, %get_blame_suspects.exit
+._crit_edge:                                      ; preds = %.lr.ph50, %10, %19, %get_blame_suspects.exit
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str) #22
   unreachable
 
@@ -783,7 +783,7 @@ get_blame_suspects.exit:                          ; preds = %121
   %.not52 = icmp eq ptr %133, null
   br i1 %.not52, label %.critedge64, label %.lr.ph, !llvm.loop !64
 
-.critedge64:                                      ; preds = %131, %121, %116, %get_blame_suspects.exit
+.critedge64:                                      ; preds = %131, %116, %121, %get_blame_suspects.exit
   %134 = call ptr @prio_queue_get(ptr noundef nonnull %35) #21
   br label %sanity_check_refcnt.exit, !llvm.loop !65
 
@@ -865,10 +865,10 @@ blame_origin_incref.exit:                         ; preds = %.lr.ph
   br label %num_scapegoats.exit.i
 
 num_scapegoats.exit.i:                            ; preds = %164, %161, %158, %157, %150
-  %170 = phi ptr [ %167, %164 ], [ %153, %161 ], [ %153, %158 ], [ %153, %157 ], [ %153, %150 ]
-  %171 = phi ptr [ %166, %164 ], [ %152, %161 ], [ %152, %158 ], [ %152, %157 ], [ %152, %150 ]
-  %172 = phi ptr [ %165, %164 ], [ %151, %161 ], [ %151, %158 ], [ %151, %157 ], [ %151, %150 ]
-  %.0.i.i.i = phi ptr [ %169, %164 ], [ %162, %161 ], [ %.pre.i.i.i67, %158 ], [ null, %157 ], [ %.pre.i.i.i67, %150 ]
+  %170 = phi ptr [ %167, %164 ], [ %153, %157 ], [ %153, %161 ], [ %153, %158 ], [ %153, %150 ]
+  %171 = phi ptr [ %166, %164 ], [ %152, %157 ], [ %152, %161 ], [ %152, %158 ], [ %152, %150 ]
+  %172 = phi ptr [ %165, %164 ], [ %151, %157 ], [ %151, %161 ], [ %151, %158 ], [ %151, %150 ]
+  %.0.i.i.i = phi ptr [ %169, %164 ], [ null, %157 ], [ %162, %161 ], [ %.pre.i.i.i67, %158 ], [ %.pre.i.i.i67, %150 ]
   %173 = call i32 @commit_list_count(ptr noundef %.0.i.i.i) #21
   %.not.i66 = icmp eq i32 %173, 0
   br i1 %.not.i66, label %.loopexit464.i, label %174
@@ -938,7 +938,7 @@ num_scapegoats.exit.i:                            ; preds = %164, %161, %158, %1
   br label %first_scapegoat.exit.i
 
 first_scapegoat.exit.i:                           ; preds = %201, %198, %195, %191
-  %.0.i.i = phi ptr [ %202, %201 ], [ %199, %198 ], [ %.pre.i.i, %195 ], [ %.pre.i.i, %191 ]
+  %.0.i.i = phi ptr [ %202, %201 ], [ %.pre.i.i, %191 ], [ %199, %198 ], [ %.pre.i.i, %195 ]
   %203 = icmp ne ptr %.0.i.i, null
   %204 = select i1 %185, i1 %203, i1 false
   br i1 %204, label %.lr.ph492.i, label %._crit_edge.i
@@ -1102,7 +1102,7 @@ first_scapegoat.exit235.thread.i:                 ; preds = %254
   br label %first_scapegoat.exit235.i
 
 first_scapegoat.exit235.i:                        ; preds = %262, %259, %256, %250
-  %.0.i229.i = phi ptr [ %264, %262 ], [ %260, %259 ], [ %.pre.i232.i, %256 ], [ %.pre.i232.i, %250 ]
+  %.0.i229.i = phi ptr [ %264, %262 ], [ %.pre.i232.i, %250 ], [ %260, %259 ], [ %.pre.i232.i, %256 ]
   %265 = icmp sgt i32 %173, 0
   %266 = icmp ne ptr %.0.i229.i, null
   %267 = select i1 %265, i1 %266, i1 false
@@ -1192,7 +1192,7 @@ blame_origin_incref.exit.i:                       ; preds = %273
   br label %first_scapegoat.exit244.i
 
 first_scapegoat.exit244.i:                        ; preds = %301, %298, %295, %290
-  %.0.i238.i = phi ptr [ %303, %301 ], [ %299, %298 ], [ %.pre.i241.i, %295 ], [ %.pre.i241.i, %290 ]
+  %.0.i238.i = phi ptr [ %303, %301 ], [ %.pre.i241.i, %290 ], [ %299, %298 ], [ %.pre.i241.i, %295 ]
   %304 = icmp ne ptr %.0.i238.i, null
   %305 = select i1 %285, i1 %304, i1 false
   br i1 %305, label %.lr.ph503.i, label %.loopexit466.i
@@ -1385,7 +1385,7 @@ filter_small.exit.i:                              ; preds = %blame_entry_score.e
   br label %first_scapegoat.exit258.i
 
 first_scapegoat.exit258.i:                        ; preds = %375, %372, %369, %364
-  %.0.i252.i = phi ptr [ %377, %375 ], [ %373, %372 ], [ %.pre.i255.i, %369 ], [ %.pre.i255.i, %364 ]
+  %.0.i252.i = phi ptr [ %377, %375 ], [ %.pre.i255.i, %364 ], [ %373, %372 ], [ %.pre.i255.i, %369 ]
   %378 = icmp ne ptr %.0.i252.i, null
   %379 = select i1 %285, i1 %378, i1 false
   br i1 %379, label %.lr.ph506.i, label %.loopexit465.i
@@ -2287,7 +2287,7 @@ filter_small.exit:                                ; preds = %blame_entry_score.e
   br label %first_scapegoat.exit316.i
 
 first_scapegoat.exit316.i:                        ; preds = %722, %719, %716, %711
-  %.0.i310.i = phi ptr [ %724, %722 ], [ %720, %719 ], [ %.pre.i313.i, %716 ], [ %.pre.i313.i, %711 ]
+  %.0.i310.i = phi ptr [ %724, %722 ], [ %.pre.i313.i, %711 ], [ %720, %719 ], [ %.pre.i313.i, %716 ]
   %725 = icmp ne ptr %.0.i310.i, null
   %726 = select i1 %285, i1 %725, i1 false
   br i1 %726, label %.lr.ph509.i, label %.loopexit464.i
@@ -3434,7 +3434,7 @@ find_copy_in_parent.exit.i:                       ; preds = %.lr.ph.i120.i.i, %1
   br i1 %1196, label %729, label %.loopexit464.i, !llvm.loop !198
 
 .loopexit464.i:                                   ; preds = %277, %drop_origin_blob.exit.i, %1191, %find_copy_in_parent.exit.i, %find_copy_in_parent.exit.thread.i, %first_scapegoat.exit316.i, %715, %707, %.loopexit465.i, %.loopexit.i, %num_scapegoats.exit.i
-  %.0169.i = phi ptr [ %.1170.i, %.loopexit.i ], [ %.1170.i, %707 ], [ %.1170.i, %.loopexit465.i ], [ %29, %num_scapegoats.exit.i ], [ %.1170.i, %find_copy_in_parent.exit.thread.i ], [ %.1170.i, %first_scapegoat.exit316.i ], [ %.1170.i, %715 ], [ %.1170.i, %find_copy_in_parent.exit.i ], [ %.1170.i, %1191 ], [ %.1170.i, %drop_origin_blob.exit.i ], [ %.1170.i, %277 ]
+  %.0169.i = phi ptr [ %.1170.i, %.loopexit.i ], [ %29, %num_scapegoats.exit.i ], [ %.1170.i, %first_scapegoat.exit316.i ], [ %.1170.i, %1191 ], [ %.1170.i, %find_copy_in_parent.exit.thread.i ], [ %.1170.i, %707 ], [ %.1170.i, %.loopexit465.i ], [ %.1170.i, %715 ], [ %.1170.i, %drop_origin_blob.exit.i ], [ %.1170.i, %find_copy_in_parent.exit.i ], [ %.1170.i, %277 ]
   %1197 = load ptr, ptr %32, align 8, !tbaa !110
   store ptr null, ptr %1197, align 8, !tbaa !31
   %1198 = load ptr, ptr %31, align 8, !tbaa !31
@@ -5430,7 +5430,7 @@ blame_origin_incref.exit:                         ; preds = %set_blame_suspects.
   %.not = icmp eq ptr %42, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !188
 
-._crit_edge:                                      ; preds = %.lr.ph56, %7, %2, %get_blame_suspects.exit
+._crit_edge:                                      ; preds = %.lr.ph56, %2, %7, %get_blame_suspects.exit
   %43 = tail call fastcc ptr @make_origin(ptr noundef %0, ptr noundef %1)
   br label %44
 
@@ -5804,7 +5804,7 @@ blame_origin_incref.exit:                         ; preds = %20
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %._crit_edge, label %20, !llvm.loop !302
 
-._crit_edge:                                      ; preds = %25, %11, %4, %get_blame_suspects.exit
+._crit_edge:                                      ; preds = %25, %4, %11, %get_blame_suspects.exit
   call void @repo_diff_setup(ptr noundef %0, ptr noundef nonnull %5) #21
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 96
   store i32 1, ptr %28, align 8, !tbaa !167
@@ -5894,7 +5894,7 @@ maybe_changed_path.exit:                          ; preds = %60, %53
   store i32 %71, ptr @bloom_count_no, align 4, !tbaa !23
   br label %75
 
-.critedge:                                        ; preds = %64, %50, %47, %43, %40
+.critedge:                                        ; preds = %64, %47, %50, %43, %40
   %72 = call ptr @get_commit_tree_oid(ptr noundef %1) #21
   %73 = load ptr, ptr %34, align 8, !tbaa !27
   %74 = call ptr @get_commit_tree_oid(ptr noundef %73) #21
@@ -6531,7 +6531,7 @@ get_blame_suspects.exit:                          ; preds = %41
   %.not15 = icmp eq ptr %54, null
   br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !200
 
-._crit_edge:                                      ; preds = %52, %41, %34, %get_blame_suspects.exit
+._crit_edge:                                      ; preds = %52, %34, %41, %get_blame_suspects.exit
   store ptr %2, ptr %5, align 8, !tbaa !31
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @prio_queue_put(ptr noundef nonnull %55, ptr noundef %36) #21
@@ -6935,8 +6935,8 @@ reverse_blame.exit:                               ; preds = %.lr.ph.i
   br label %60
 
 60:                                               ; preds = %reverse_blame.exit, %.critedge
-  %.0.lcssa194 = phi ptr [ %.0.lcssa202, %reverse_blame.exit ], [ %.0148, %.critedge ]
-  %.0139.lcssa193 = phi ptr [ %.0139.lcssa200, %reverse_blame.exit ], [ %.0139146, %.critedge ]
+  %.0.lcssa194 = phi ptr [ %.0148, %.critedge ], [ %.0.lcssa202, %reverse_blame.exit ]
+  %.0139.lcssa193 = phi ptr [ %.0139146, %.critedge ], [ %.0139.lcssa200, %reverse_blame.exit ]
   %.not8.i90 = icmp eq ptr %.0139.lcssa193, null
   br i1 %.not8.i90, label %reverse_blame.exit96, label %.lr.ph.i91
 
@@ -7121,8 +7121,8 @@ fingerprint_similarity.exit.i.i:                  ; preds = %122, %112
   br label %135
 
 135:                                              ; preds = %128, %._crit_edge50.i, %fingerprint_similarity.exit.i.i
-  %.122.i.i = phi i32 [ %.02126.i.i, %fingerprint_similarity.exit.i.i ], [ %.010.lcssa.i.i.i, %._crit_edge50.i ], [ %.02126.i.i, %128 ]
-  %.1.i.i = phi i32 [ %.027.i.i, %fingerprint_similarity.exit.i.i ], [ %.pre.i, %._crit_edge50.i ], [ %spec.select57.i, %128 ]
+  %.122.i.i = phi i32 [ %.02126.i.i, %fingerprint_similarity.exit.i.i ], [ %.02126.i.i, %128 ], [ %.010.lcssa.i.i.i, %._crit_edge50.i ]
+  %.1.i.i = phi i32 [ %.027.i.i, %fingerprint_similarity.exit.i.i ], [ %spec.select57.i, %128 ], [ %.pre.i, %._crit_edge50.i ]
   %indvars.iv.next.i42.i = add nuw nsw i64 %indvars.iv.i41.i, 1
   %exitcond.not.i43.i = icmp eq i64 %indvars.iv.next.i42.i, %wide.trip.count.i40.i
   br i1 %exitcond.not.i43.i, label %scan_parent_range.exit.i, label %112, !llvm.loop !329
@@ -7134,8 +7134,8 @@ scan_parent_range.exit.i:                         ; preds = %135
   br label %scan_parent_range.exit.thread.i
 
 scan_parent_range.exit.thread.i:                  ; preds = %scan_parent_range.exit.i, %.scan_parent_range.exit.thread46.i_crit_edge, %101
-  %.sink = phi i32 [ 1, %101 ], [ 0, %.scan_parent_range.exit.thread46.i_crit_edge ], [ %spec.select, %scan_parent_range.exit.i ]
-  %.pre-phi171.sink = phi i32 [ %103, %101 ], [ %.pre170, %.scan_parent_range.exit.thread46.i_crit_edge ], [ %spec.select229, %scan_parent_range.exit.i ]
+  %.sink = phi i32 [ 1, %101 ], [ %spec.select, %scan_parent_range.exit.i ], [ 0, %.scan_parent_range.exit.thread46.i_crit_edge ]
+  %.pre-phi171.sink = phi i32 [ %103, %101 ], [ %spec.select229, %scan_parent_range.exit.i ], [ %.pre170, %.scan_parent_range.exit.thread46.i_crit_edge ]
   %137 = getelementptr inbounds nuw %struct.blame_line_tracker, ptr %67, i64 %indvars.iv.i
   store i32 %.sink, ptr %137, align 4, !tbaa !330
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 4
@@ -7376,10 +7376,10 @@ ignore_blame_entry.exit:                          ; preds = %245, %180, %246
   br i1 %.not86, label %.critedge2, label %142, !llvm.loop !335
 
 .critedge2:                                       ; preds = %142, %ignore_blame_entry.exit
-  %.2141.lcssa = phi ptr [ %.2141156, %142 ], [ %.3142, %ignore_blame_entry.exit ]
-  %.0136.lcssa = phi ptr [ %.0136157, %142 ], [ %.1137, %ignore_blame_entry.exit ]
-  %.175.lcssa = phi ptr [ %.175158, %142 ], [ %.2, %ignore_blame_entry.exit ]
-  %.1.lcssa = phi ptr [ %.1159, %142 ], [ null, %ignore_blame_entry.exit ]
+  %.2141.lcssa = phi ptr [ %.3142, %ignore_blame_entry.exit ], [ %.2141156, %142 ]
+  %.0136.lcssa = phi ptr [ %.1137, %ignore_blame_entry.exit ], [ %.0136157, %142 ]
+  %.175.lcssa = phi ptr [ %.2, %ignore_blame_entry.exit ], [ %.175158, %142 ]
+  %.1.lcssa = phi ptr [ null, %ignore_blame_entry.exit ], [ %.1159, %142 ]
   call void @free(ptr noundef %.076) #21
   %.not87 = icmp eq ptr %.0136.lcssa, null
   br i1 %.not87, label %251, label %247
@@ -7586,10 +7586,10 @@ fingerprint_similarity.exit.i:                    ; preds = %64, %54
   br label %76
 
 76:                                               ; preds = %74, %71
-  %.162.i = phi i32 [ %72, %71 ], [ %.06174.i, %74 ]
-  %.160.i = phi i32 [ %.06174.i, %71 ], [ %spec.select70.i, %74 ]
-  %.158.i = phi i32 [ %.pre-phi, %71 ], [ %.05776.i, %74 ]
-  %.1.i = phi i32 [ %.05776.i, %71 ], [ %spec.select71.i, %74 ]
+  %.162.i = phi i32 [ %.06174.i, %74 ], [ %72, %71 ]
+  %.160.i = phi i32 [ %spec.select70.i, %74 ], [ %.06174.i, %71 ]
+  %.158.i = phi i32 [ %.05776.i, %74 ], [ %.pre-phi, %71 ]
+  %.1.i = phi i32 [ %spec.select71.i, %74 ], [ %.05776.i, %71 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %51, !llvm.loop !336

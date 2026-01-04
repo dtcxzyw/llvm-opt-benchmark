@@ -456,7 +456,7 @@ define internal range(i32 0, 2) i32 @kdf_argon2_derive(ptr noundef %0, ptr nound
   br label %98
 
 98:                                               ; preds = %95, %82, %46, %4, %6, %97, %81, %72, %63, %52, %45, %38, %30, %19
-  %.0 = phi i32 [ 0, %19 ], [ 0, %30 ], [ 0, %38 ], [ 0, %45 ], [ 0, %52 ], [ 0, %63 ], [ 0, %72 ], [ 0, %81 ], [ 1, %97 ], [ 0, %6 ], [ 0, %4 ], [ 0, %46 ], [ 0, %82 ], [ 0, %95 ]
+  %.0 = phi i32 [ 0, %19 ], [ 0, %30 ], [ 0, %38 ], [ 0, %45 ], [ 0, %52 ], [ 0, %63 ], [ 0, %72 ], [ 0, %81 ], [ 0, %46 ], [ 0, %82 ], [ 1, %97 ], [ 0, %4 ], [ 0, %6 ], [ 0, %95 ]
   ret i32 %.0
 }
 
@@ -884,7 +884,7 @@ kdf_argon2_ctx_set_t_cost.exit:                   ; preds = %114
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %2, %kdf_argon2_ctx_set_t_cost.exit.thread, %kdf_argon2_ctx_set_out_length.exit.thread, %kdf_argon2_ctx_set_ad.exit.thread123, %kdf_argon2_ctx_set_ad.exit.thread, %kdf_argon2_ctx_set_secret.exit.thread117, %kdf_argon2_ctx_set_secret.exit.thread, %kdf_argon2_ctx_set_salt.exit.thread111, %kdf_argon2_ctx_set_salt.exit.thread, %kdf_argon2_ctx_set_pwd.exit.thread105, %kdf_argon2_ctx_set_pwd.exit.thread, %157, %160, %152, %150, %141, %136, %134, %129, %127, %122, %120, %112, %104, %ossl_param_is_empty.exit, %164
-  %.0 = phi i32 [ 1, %164 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %104 ], [ 0, %112 ], [ 0, %120 ], [ 0, %122 ], [ 0, %127 ], [ 0, %129 ], [ 0, %134 ], [ 0, %136 ], [ 0, %141 ], [ 0, %150 ], [ 0, %152 ], [ 0, %160 ], [ 0, %157 ], [ 0, %kdf_argon2_ctx_set_pwd.exit.thread ], [ 0, %kdf_argon2_ctx_set_pwd.exit.thread105 ], [ 0, %kdf_argon2_ctx_set_salt.exit.thread ], [ 0, %kdf_argon2_ctx_set_salt.exit.thread111 ], [ 0, %kdf_argon2_ctx_set_secret.exit.thread ], [ 0, %kdf_argon2_ctx_set_secret.exit.thread117 ], [ 0, %kdf_argon2_ctx_set_ad.exit.thread ], [ 0, %kdf_argon2_ctx_set_ad.exit.thread123 ], [ 0, %kdf_argon2_ctx_set_out_length.exit.thread ], [ 0, %kdf_argon2_ctx_set_t_cost.exit.thread ], [ 1, %2 ]
+  %.0 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ 0, %152 ], [ 1, %164 ], [ 0, %150 ], [ 0, %141 ], [ 0, %136 ], [ 0, %134 ], [ 0, %129 ], [ 0, %127 ], [ 0, %122 ], [ 0, %120 ], [ 0, %kdf_argon2_ctx_set_t_cost.exit.thread ], [ 0, %112 ], [ 0, %kdf_argon2_ctx_set_out_length.exit.thread ], [ 0, %104 ], [ 0, %kdf_argon2_ctx_set_ad.exit.thread123 ], [ 0, %kdf_argon2_ctx_set_secret.exit.thread117 ], [ 0, %kdf_argon2_ctx_set_salt.exit.thread111 ], [ 0, %kdf_argon2_ctx_set_pwd.exit.thread105 ], [ 0, %160 ], [ 0, %157 ], [ 0, %kdf_argon2_ctx_set_ad.exit.thread ], [ 0, %kdf_argon2_ctx_set_pwd.exit.thread ], [ 0, %kdf_argon2_ctx_set_salt.exit.thread ], [ 0, %kdf_argon2_ctx_set_secret.exit.thread ], [ 1, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -1555,8 +1555,8 @@ define internal fastcc range(i32 0, 2) i32 @fill_memory_blocks(ptr noundef %0) u
   br i1 %92, label %.lr.ph93.i, label %._crit_edge94.i, !llvm.loop !58
 
 ._crit_edge94.i:                                  ; preds = %89, %._crit_edge.i6, %.preheader82.i
-  %.pre122.i = phi i32 [ %75, %._crit_edge.i6 ], [ %.pre124.i, %.preheader82.i ], [ %90, %89 ]
-  %93 = phi i32 [ %75, %._crit_edge.i6 ], [ 0, %.preheader82.i ], [ %90, %89 ]
+  %.pre122.i = phi i32 [ %.pre124.i, %.preheader82.i ], [ %75, %._crit_edge.i6 ], [ %90, %89 ]
+  %93 = phi i32 [ 0, %.preheader82.i ], [ %75, %._crit_edge.i6 ], [ %90, %89 ]
   %94 = add nuw nsw i32 %.06895.i, 1
   %exitcond.not.i7 = icmp eq i32 %94, 4
   br i1 %exitcond.not.i7, label %95, label %.preheader82.i, !llvm.loop !59
@@ -1588,7 +1588,7 @@ define internal fastcc range(i32 0, 2) i32 @fill_memory_blocks(ptr noundef %0) u
   br label %fill_mem_blocks_st.exit
 
 fill_mem_blocks_st.exit:                          ; preds = %.split.us.i, %.sink.split.i, %99, %.preheader13.lr.ph.i, %5
-  %100 = phi i32 [ 1, %5 ], [ 1, %.preheader13.lr.ph.i ], [ 0, %99 ], [ %.066.ph.i, %.sink.split.i ], [ 1, %.split.us.i ]
+  %100 = phi i32 [ %.066.ph.i, %.sink.split.i ], [ 1, %5 ], [ 1, %.preheader13.lr.ph.i ], [ 0, %99 ], [ 1, %.split.us.i ]
   ret i32 %100
 }
 

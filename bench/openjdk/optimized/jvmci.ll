@@ -1267,7 +1267,7 @@ define hidden void @_ZN5JVMCI9fatal_logEPKcm(ptr noundef %0, i64 noundef %1) loc
   br label %27
 
 27:                                               ; preds = %13, %10, %20, %19
-  %.0 = phi i32 [ %18, %19 ], [ 1, %20 ], [ 1, %10 ], [ 2, %13 ]
+  %.0 = phi i32 [ 1, %20 ], [ 1, %10 ], [ %18, %19 ], [ 2, %13 ]
   store volatile i32 %.0, ptr @_ZN5JVMCI13_fatal_log_fdE, align 4
   br label %.loopexit
 
@@ -1774,12 +1774,12 @@ _ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit43.us, %_ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit43, %.loopexit.loopexit, %.loopexit.loopexit64, %._crit_edge, %.preheader
-  %.1 = phi i32 [ 0, %.preheader ], [ %.2.lcssa, %._crit_edge ], [ %indvars84, %.loopexit.loopexit64 ], [ %indvars89.le, %.loopexit.loopexit ], [ %111, %_ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit43 ], [ %95, %_ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit43.us ]
+  %.1 = phi i32 [ %indvars89.le, %.loopexit.loopexit ], [ 0, %.preheader ], [ %indvars84, %.loopexit.loopexit64 ], [ %111, %_ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit43 ], [ %.2.lcssa, %._crit_edge ], [ %95, %_ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit43.us ]
   %115 = icmp eq i32 %.1, %2
   br i1 %115, label %.sink.split, label %116
 
 .sink.split:                                      ; preds = %.lr.ph52.split, %.lr.ph59.split, %.loopexit, %3
-  %.str.30.sink = phi ptr [ @.str.29, %3 ], [ @.str.30, %.loopexit ], [ @.str.30, %.lr.ph59.split ], [ @.str.30, %.lr.ph52.split ]
+  %.str.30.sink = phi ptr [ @.str.29, %3 ], [ @.str.30, %.lr.ph59.split ], [ @.str.30, %.loopexit ], [ @.str.30, %.lr.ph52.split ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull %.str.30.sink) #14
   br label %116
 

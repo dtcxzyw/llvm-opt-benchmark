@@ -960,7 +960,7 @@ default.unreachable:                              ; preds = %59
   ret void
 
 71:                                               ; preds = %57, %53, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn16.pn = phi { ptr, i32 } [ %58, %57 ], [ %54, %53 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %.pn16.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %58, %57 ], [ %54, %53 ]
   %72 = load ptr, ptr %17, align 8, !tbaa !49
   %73 = icmp eq ptr %72, %18
   br i1 %73, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i24
@@ -1524,7 +1524,7 @@ tailrecurse.us160.outer:                          ; preds = %.split.split.split,
   br i1 %.not22, label %tailrecurse.us160.backedge, label %.split88.us
 
 tailrecurse.us160.backedge:                       ; preds = %47, %44
-  %.57.us161.be = phi i32 [ %.31, %44 ], [ 7, %47 ]
+  %.57.us161.be = phi i32 [ 7, %47 ], [ %.31, %44 ]
   br label %tailrecurse.us160
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %tailrecurse.outer
@@ -1557,7 +1557,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br label %.loopexit37
 
 .split64.us:                                      ; preds = %tailrecurse.us160, %tailrecurse, %tailrecurse.us134, %tailrecurse.us105, %tailrecurse.us
-  %54 = phi i32 [ %.ph414, %tailrecurse.us ], [ %.promoted59.fr, %tailrecurse.us105 ], [ %.promoted59.fr, %tailrecurse.us134 ], [ %.promoted59.fr, %tailrecurse ], [ %.promoted59.fr, %tailrecurse.us160 ]
+  %54 = phi i32 [ %.promoted59.fr, %tailrecurse.us105 ], [ %.promoted59.fr, %tailrecurse.us134 ], [ %.promoted59.fr, %tailrecurse ], [ %.ph414, %tailrecurse.us ], [ %.promoted59.fr, %tailrecurse.us160 ]
   store i32 3, ptr %2, align 8, !tbaa !62
   %.not27 = icmp slt i32 %54, %.fr235
   br i1 %.not27, label %63, label %55
@@ -1595,7 +1595,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br label %.loopexit37
 
 .split70.us:                                      ; preds = %tailrecurse.us160, %tailrecurse, %tailrecurse.us134, %tailrecurse.us105, %tailrecurse.us
-  %70 = phi i32 [ %.ph414, %tailrecurse.us ], [ %.promoted59.fr, %tailrecurse.us105 ], [ %.promoted59.fr, %tailrecurse.us134 ], [ %.promoted59.fr, %tailrecurse ], [ %.promoted59.fr, %tailrecurse.us160 ]
+  %70 = phi i32 [ %.promoted59.fr, %tailrecurse.us105 ], [ %.promoted59.fr, %tailrecurse.us134 ], [ %.promoted59.fr, %tailrecurse ], [ %.ph414, %tailrecurse.us ], [ %.promoted59.fr, %tailrecurse.us160 ]
   store i32 0, ptr %9, align 8, !tbaa !66
   store i32 5, ptr %2, align 8, !tbaa !62
   %71 = icmp sgt i32 %70, 0
@@ -1675,7 +1675,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %100, %131
-  %.57.be = phi i32 [ 7, %100 ], [ %.31, %131 ]
+  %.57.be = phi i32 [ %.31, %131 ], [ 7, %100 ]
   br label %tailrecurse
 
 .split88.us:                                      ; preds = %47, %43, %39, %31
@@ -1791,7 +1791,7 @@ tailrecurse.outer:                                ; preds = %.split.split.split,
   br label %.loopexit37
 
 .loopexit37:                                      ; preds = %tailrecurse.us160, %tailrecurse, %tailrecurse.us134, %tailrecurse.us105, %tailrecurse.us, %88, %.split76.us, %.split79.us, %.split82.us, %129, %121, %.split85.us, %.split88.us, %.split91.us, %.split120.us, %.split67.us, %63, %60, %59, %.split62.us
-  %.09 = phi ptr [ %53, %.split62.us ], [ %58, %59 ], [ %58, %60 ], [ %64, %63 ], [ %69, %.split67.us ], [ %93, %.split120.us ], [ %98, %.split91.us ], [ %101, %.split88.us ], [ %105, %.split85.us ], [ %122, %121 ], [ %130, %129 ], [ %136, %.split82.us ], [ %138, %.split79.us ], [ %141, %.split76.us ], [ %91, %88 ], [ null, %tailrecurse.us ], [ null, %tailrecurse.us105 ], [ null, %tailrecurse.us134 ], [ null, %tailrecurse ], [ null, %tailrecurse.us160 ]
+  %.09 = phi ptr [ %138, %.split79.us ], [ %53, %.split62.us ], [ %58, %59 ], [ %58, %60 ], [ %64, %63 ], [ %69, %.split67.us ], [ %141, %.split76.us ], [ %122, %121 ], [ %93, %.split120.us ], [ %98, %.split91.us ], [ %136, %.split82.us ], [ %101, %.split88.us ], [ %130, %129 ], [ %105, %.split85.us ], [ null, %tailrecurse.us105 ], [ null, %tailrecurse ], [ null, %tailrecurse.us134 ], [ %91, %88 ], [ null, %tailrecurse.us ], [ null, %tailrecurse.us160 ]
   ret ptr %.09
 }
 
@@ -2317,13 +2317,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20: ; preds = %.cr
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %43 = icmp eq ptr %41, %42
-  br i1 %43, label %.critedge16, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23
+  br i1 %43, label %.critedge16, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23: ; preds = %.body
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21: ; preds = %.body
   call void @_ZdlPv(ptr noundef %41) #20
   br label %.critedge16
 
-.critedge16:                                      ; preds = %.body, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23
+.critedge16:                                      ; preds = %.body, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %44 = load ptr, ptr %5, align 8, !tbaa !49
   %45 = icmp eq ptr %44, %10

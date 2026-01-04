@@ -82,7 +82,7 @@ define hidden void @jRDifast(ptr noundef readonly captures(none) %0, ptr noundef
   br label %139
 
 ._crit_edge:                                      ; preds = %13, %36, %32, %28, %24, %20
-  %51 = phi i16 [ 0, %36 ], [ 0, %32 ], [ 0, %28 ], [ 0, %24 ], [ 0, %20 ], [ %18, %13 ]
+  %51 = phi i16 [ %18, %13 ], [ 0, %36 ], [ 0, %32 ], [ 0, %28 ], [ 0, %24 ], [ 0, %20 ]
   %52 = load i16, ptr %.0225228, align 2
   %53 = sext i16 %52 to i32
   %54 = load i32, ptr %.0223229, align 4
@@ -259,7 +259,7 @@ define hidden void @jRDifast(ptr noundef readonly captures(none) %0, ptr noundef
   br label %283
 
 ._crit_edge235:                                   ; preds = %143, %169, %165, %161, %157, %153
-  %186 = phi i32 [ 0, %169 ], [ 0, %165 ], [ 0, %161 ], [ 0, %157 ], [ 0, %153 ], [ %151, %143 ]
+  %186 = phi i32 [ %151, %143 ], [ 0, %169 ], [ 0, %165 ], [ 0, %161 ], [ 0, %157 ], [ 0, %153 ]
   %187 = load i32, ptr %.2232, align 4
   %188 = getelementptr inbounds nuw i8, ptr %.2232, i64 16
   %189 = load i32, ptr %188, align 4

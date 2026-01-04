@@ -842,7 +842,7 @@ sz_size2index.exit:                               ; preds = %17, %15, %9
   br label %san_large_extent_decide_guard.exit
 
 san_large_extent_decide_guard.exit:               ; preds = %sz_size2index.exit, %38, %48, %.sink.split.i
-  %.0.i24 = phi i1 [ false, %38 ], [ false, %sz_size2index.exit ], [ false, %48 ], [ %46, %.sink.split.i ]
+  %.0.i24 = phi i1 [ false, %sz_size2index.exit ], [ false, %48 ], [ false, %38 ], [ %46, %.sink.split.i ]
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 10648
   %56 = call ptr @je_pa_alloc(ptr noundef %0, ptr noundef nonnull %55, i64 noundef %32, i64 noundef %3, i1 noundef zeroext false, i32 noundef %.0.i, i1 noundef zeroext %4, i1 noundef zeroext %.0.i24, ptr noundef nonnull %7) #17
   %.not = icmp eq ptr %56, null
@@ -2509,7 +2509,7 @@ tsdn_witness_tsdp_get.exit:
   br label %san_slab_extent_decide_guard.exit
 
 san_slab_extent_decide_guard.exit:                ; preds = %tsdn_witness_tsdp_get.exit, %11, %.sink.split.i
-  %.0.i = phi i1 [ false, %11 ], [ false, %tsdn_witness_tsdp_get.exit ], [ %18, %.sink.split.i ]
+  %.0.i = phi i1 [ false, %tsdn_witness_tsdp_get.exit ], [ false, %11 ], [ %18, %.sink.split.i ]
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 10648
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %23 = load i64, ptr %22, align 8, !tbaa !181
@@ -3018,7 +3018,7 @@ define hidden ptr @je_arena_malloc_hard(ptr noundef %0, ptr noundef %1, i64 noun
   br label %arena_choose_maybe_huge.exit
 
 arena_choose_maybe_huge.exit:                     ; preds = %.thread, %19, %5
-  %.014 = phi ptr [ %1, %5 ], [ %21, %.thread ], [ %20, %19 ]
+  %.014 = phi ptr [ %1, %5 ], [ %20, %19 ], [ %21, %.thread ]
   %22 = icmp eq ptr %.014, null
   br i1 %22, label %arena_malloc_small.exit, label %23, !prof !185
 
@@ -3384,8 +3384,8 @@ cache_bin_alloc_impl.exit:                        ; preds = %42
   %55 = tail call ptr @je_arena_malloc_hard(ptr noundef %0, ptr noundef nonnull %48, i64 noundef range(i64 0, 14337) %2, i32 noundef %.0.i, i1 noundef zeroext %4)
   br label %.thread
 
-.thread:                                          ; preds = %54, %cache_bin_alloc_impl.exit
-  %.0.i20.ph = phi ptr [ null, %cache_bin_alloc_impl.exit ], [ %55, %54 ]
+.thread:                                          ; preds = %cache_bin_alloc_impl.exit, %54
+  %.0.i20.ph = phi ptr [ %55, %54 ], [ null, %cache_bin_alloc_impl.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %arena_malloc.exit
 
@@ -3397,8 +3397,8 @@ cache_bin_alloc_impl.exit:                        ; preds = %42
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not, label %arena_malloc.exit, label %cache_bin_alloc_impl.exit.thread
 
-cache_bin_alloc_impl.exit.thread:                 ; preds = %41, %45, %56
-  %.131.i = phi ptr [ %57, %56 ], [ %35, %45 ], [ %35, %41 ]
+cache_bin_alloc_impl.exit.thread:                 ; preds = %45, %41, %56
+  %.131.i = phi ptr [ %57, %56 ], [ %35, %41 ], [ %35, %45 ]
   br i1 %4, label %59, label %62, !prof !142
 
 59:                                               ; preds = %cache_bin_alloc_impl.exit.thread
@@ -3431,7 +3431,7 @@ cache_bin_alloc_impl.exit.thread:                 ; preds = %41, %45, %56
   br label %arena_malloc.exit
 
 arena_malloc.exit:                                ; preds = %66, %.thread, %56, %62, %70, %72
-  %.0 = phi ptr [ %71, %70 ], [ %73, %72 ], [ %67, %66 ], [ %.131.i, %62 ], [ null, %56 ], [ %.0.i20.ph, %.thread ]
+  %.0 = phi ptr [ %73, %72 ], [ %71, %70 ], [ %67, %66 ], [ %.0.i20.ph, %.thread ], [ %.131.i, %62 ], [ null, %56 ]
   ret ptr %.0
 }
 
@@ -4273,7 +4273,7 @@ sz_size2index.exit:                               ; preds = %128, %sz_size2index
   br label %arena_decay_ticks.exit
 
 arena_decay_ticks.exit:                           ; preds = %sz_s2u.exit36.thread, %159, %150, %154, %174, %147, %rtree_read.exit, %177
-  %.0 = phi i1 [ %178, %177 ], [ true, %rtree_read.exit ], [ true, %147 ], [ true, %174 ], [ false, %154 ], [ false, %150 ], [ false, %159 ], [ true, %sz_s2u.exit36.thread ]
+  %.0 = phi i1 [ true, %147 ], [ true, %rtree_read.exit ], [ true, %174 ], [ %178, %177 ], [ false, %154 ], [ false, %150 ], [ false, %159 ], [ true, %sz_s2u.exit36.thread ]
   %.val = load i64, ptr %60, align 128, !tbaa !145
   %179 = lshr i64 %.val, 20
   %180 = and i64 %179, 255
@@ -4404,7 +4404,7 @@ sz_s2u_compute.exit65:                            ; preds = %64, %66
   br label %sz_s2u.exit
 
 sz_s2u.exit:                                      ; preds = %.thread79, %sz_s2u.exit25.i, %17, %27
-  %82 = phi i64 [ %24, %17 ], [ %34, %27 ], [ %.0.i24.i, %sz_s2u.exit25.i ], [ %..0.i, %.thread79 ]
+  %82 = phi i64 [ %.0.i24.i, %sz_s2u.exit25.i ], [ %24, %17 ], [ %34, %27 ], [ %..0.i, %.thread79 ]
   %83 = icmp eq i64 %82, 0
   %84 = icmp samesign ugt i64 %4, 8070450532247928832
   %85 = or i1 %84, %83
@@ -4536,7 +4536,7 @@ cache_bin_alloc_impl.exit.i:                      ; preds = %138
   br label %.thread.i
 
 .thread.i:                                        ; preds = %150, %cache_bin_alloc_impl.exit.i
-  %.0.i21.ph.i = phi ptr [ null, %cache_bin_alloc_impl.exit.i ], [ %151, %150 ]
+  %.0.i21.ph.i = phi ptr [ %151, %150 ], [ null, %cache_bin_alloc_impl.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %arena_ralloc_move_helper.exit
 
@@ -4549,7 +4549,7 @@ cache_bin_alloc_impl.exit.i:                      ; preds = %138
   br i1 %.not.i, label %arena_sdalloc.exit, label %cache_bin_alloc_impl.exit.thread.i
 
 cache_bin_alloc_impl.exit.thread.i:               ; preds = %152, %141, %137
-  %.131.i.i = phi ptr [ %153, %152 ], [ %131, %141 ], [ %131, %137 ]
+  %.131.i.i = phi ptr [ %153, %152 ], [ %131, %137 ], [ %131, %141 ]
   br i1 %6, label %155, label %158, !prof !142
 
 155:                                              ; preds = %cache_bin_alloc_impl.exit.thread.i
@@ -4719,7 +4719,7 @@ sz_s2u_compute.exit35.i:                          ; preds = %231
   br label %sz_sa2u.exit.i
 
 sz_sa2u.exit.i:                                   ; preds = %.thread49.i, %sz_s2u.exit25.i.i
-  %.018.i.i = phi i64 [ %.0.i24.i.i, %sz_s2u.exit25.i.i ], [ %..0.i.i, %.thread49.i ]
+  %.018.i.i = phi i64 [ %..0.i.i, %.thread49.i ], [ %.0.i24.i.i, %sz_s2u.exit25.i.i ]
   %248 = add nsw i64 %.018.i.i, -8070450532247928833
   %249 = icmp ult i64 %248, -8070450532247928832
   br i1 %249, label %arena_sdalloc.exit, label %ipallocztm.exit.i, !prof !204
@@ -4729,7 +4729,7 @@ ipallocztm.exit.i:                                ; preds = %sz_sa2u.exit.i
   br label %arena_ralloc_move_helper.exit
 
 arena_ralloc_move_helper.exit:                    ; preds = %.thread.i, %158, %sz_s2u_compute.exit.i, %199, %203, %ipallocztm.exit.i
-  %.0.i75 = phi ptr [ %250, %ipallocztm.exit.i ], [ %204, %203 ], [ %.131.i.i, %158 ], [ %.0.i21.ph.i, %.thread.i ], [ %169, %199 ], [ %194, %sz_s2u_compute.exit.i ]
+  %.0.i75 = phi ptr [ %194, %sz_s2u_compute.exit.i ], [ %250, %ipallocztm.exit.i ], [ %204, %203 ], [ %.0.i21.ph.i, %.thread.i ], [ %.131.i.i, %158 ], [ %169, %199 ]
   %251 = icmp eq ptr %.0.i75, null
   br i1 %251, label %arena_sdalloc.exit, label %isdalloct.exit
 
@@ -4907,8 +4907,8 @@ tsdn_rtree_ctx.exit.i:                            ; preds = %342, %341
   call void @je_large_dalloc(ptr noundef %0, ptr noundef %345) #17
   br label %arena_sdalloc.exit
 
-arena_sdalloc.exit:                               ; preds = %231, %sz_s2u_compute.exit35.i, %cache_bin_alloc_impl.exit28.i, %152, %sz_sa2u.exit.i, %sz_s2u_compute.exit65, %60, %25, %263, %304, %313, %cache_bin_dalloc_easy.exit22.i.thread, %303, %cache_bin_dalloc_easy.exit14.i.thread, %338, %cache_bin_dalloc_easy.exit14.i, %tsdn_rtree_ctx.exit.i, %90, %arena_ralloc_move_helper.exit, %sz_s2u.exit, %98
-  %.0 = phi ptr [ %99, %98 ], [ %2, %90 ], [ null, %sz_s2u.exit ], [ null, %arena_ralloc_move_helper.exit ], [ %.0.i75, %tsdn_rtree_ctx.exit.i ], [ %.0.i75, %cache_bin_dalloc_easy.exit14.i ], [ %.0.i75, %338 ], [ %.0.i75, %cache_bin_dalloc_easy.exit14.i.thread ], [ %.0.i75, %303 ], [ %.0.i75, %cache_bin_dalloc_easy.exit22.i.thread ], [ %.0.i75, %313 ], [ %.0.i75, %304 ], [ %.0.i75, %263 ], [ null, %25 ], [ null, %60 ], [ null, %sz_s2u_compute.exit65 ], [ null, %sz_sa2u.exit.i ], [ null, %152 ], [ null, %cache_bin_alloc_impl.exit28.i ], [ null, %sz_s2u_compute.exit35.i ], [ null, %231 ]
+arena_sdalloc.exit:                               ; preds = %sz_s2u_compute.exit35.i, %231, %cache_bin_alloc_impl.exit28.i, %152, %sz_sa2u.exit.i, %sz_s2u_compute.exit65, %60, %25, %263, %304, %313, %cache_bin_dalloc_easy.exit22.i.thread, %303, %cache_bin_dalloc_easy.exit14.i.thread, %338, %cache_bin_dalloc_easy.exit14.i, %tsdn_rtree_ctx.exit.i, %90, %arena_ralloc_move_helper.exit, %sz_s2u.exit, %98
+  %.0 = phi ptr [ %2, %90 ], [ %99, %98 ], [ null, %sz_s2u.exit ], [ null, %sz_s2u_compute.exit65 ], [ null, %arena_ralloc_move_helper.exit ], [ %.0.i75, %263 ], [ %.0.i75, %tsdn_rtree_ctx.exit.i ], [ %.0.i75, %cache_bin_dalloc_easy.exit14.i ], [ %.0.i75, %338 ], [ %.0.i75, %cache_bin_dalloc_easy.exit14.i.thread ], [ %.0.i75, %303 ], [ %.0.i75, %cache_bin_dalloc_easy.exit22.i.thread ], [ %.0.i75, %313 ], [ %.0.i75, %304 ], [ null, %25 ], [ null, %60 ], [ null, %sz_sa2u.exit.i ], [ null, %152 ], [ null, %cache_bin_alloc_impl.exit28.i ], [ null, %231 ], [ null, %sz_s2u_compute.exit35.i ]
   ret ptr %.0
 }
 
@@ -5222,7 +5222,7 @@ pre_reentrancy.exit:                              ; preds = %.thread, %73
   br label %post_reentrancy.exit
 
 post_reentrancy.exit:                             ; preds = %80, %76, %66, %.thread71, %.loopexit, %9
-  %.0 = phi ptr [ null, %9 ], [ %21, %66 ], [ null, %.thread71 ], [ null, %.loopexit ], [ %21, %76 ], [ %21, %80 ]
+  %.0 = phi ptr [ null, %9 ], [ %21, %66 ], [ null, %.loopexit ], [ null, %.thread71 ], [ %21, %76 ], [ %21, %80 ]
   ret ptr %.0
 }
 
@@ -5789,7 +5789,7 @@ arena_should_decay_early.exit:                    ; preds = %60, %61
   call void @je_background_thread_wakeup_early(ptr noundef nonnull %9, ptr noundef nonnull %4) #17
   br label %arena_should_decay_early.exit.thread
 
-arena_should_decay_early.exit.thread:             ; preds = %malloc_mutex_trylock.exit.i, %48, %57, %29, %71, %arena_should_decay_early.exit, %23
+arena_should_decay_early.exit.thread:             ; preds = %malloc_mutex_trylock.exit.i, %57, %48, %29, %71, %arena_should_decay_early.exit, %23
   %72 = getelementptr inbounds nuw i8, ptr %9, i64 160
   store atomic i8 0, ptr %72 monotonic, align 1
   %73 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %10) #17
@@ -5890,7 +5890,7 @@ malloc_mutex_trylock.exit:                        ; preds = %26
   br label %arena_decide_unforced_purge_eagerness.exit
 
 arena_decide_unforced_purge_eagerness.exit:       ; preds = %38, %39
-  %.0.i = phi i32 [ 0, %38 ], [ %..i, %39 ]
+  %.0.i = phi i32 [ %..i, %39 ], [ 0, %38 ]
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 10672
   %43 = tail call zeroext i1 @je_pac_maybe_decay_purge(ptr noundef %0, ptr noundef nonnull %42, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, i32 noundef %.0.i) #17
   br i1 %43, label %44, label %46
@@ -6096,7 +6096,7 @@ define internal fastcc ptr @arena_choose(ptr noundef %0, ptr noundef readnone ca
   br label %28
 
 28:                                               ; preds = %27, %26, %25, %16, %12
-  %.037.i = phi ptr [ %17, %16 ], [ %14, %12 ], [ %17, %25 ], [ %17, %26 ], [ %17, %27 ]
+  %.037.i = phi ptr [ %14, %12 ], [ %17, %16 ], [ %17, %25 ], [ %17, %26 ], [ %17, %27 ]
   %29 = load i32, ptr @je_opt_percpu_arena, align 4, !tbaa !4
   %30 = icmp ult i32 %29, 3
   br i1 %30, label %arena_choose_impl.exit, label %percpu_arena_ind_limit.exit.i
@@ -6184,7 +6184,7 @@ percpu_arena_update.exit.i:                       ; preds = %62, %arena_get.exit
   br label %arena_choose_impl.exit
 
 arena_choose_impl.exit:                           ; preds = %2, %7, %10, %28, %percpu_arena_ind_limit.exit.i, %38, %66
-  %.0.i = phi ptr [ %1, %2 ], [ %.037.i, %28 ], [ %.2.i, %66 ], [ %.037.i, %38 ], [ %.037.i, %percpu_arena_ind_limit.exit.i ], [ %11, %10 ], [ %.0.i.i.i, %7 ]
+  %.0.i = phi ptr [ %1, %2 ], [ %.037.i, %percpu_arena_ind_limit.exit.i ], [ %.037.i, %28 ], [ %.2.i, %66 ], [ %.037.i, %38 ], [ %11, %10 ], [ %.0.i.i.i, %7 ]
   ret ptr %.0.i
 }
 

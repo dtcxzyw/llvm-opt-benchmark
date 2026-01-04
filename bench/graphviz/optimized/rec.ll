@@ -75,7 +75,7 @@ define ptr @aggetrec(ptr noundef captures(none) %0, ptr noundef readonly capture
   br label %.critedge26
 
 .critedge26:                                      ; preds = %6, %11, %26, %22, %18, %17, %19
-  %.0 = phi ptr [ %.021, %19 ], [ %.021, %17 ], [ %.021, %18 ], [ %.021, %22 ], [ %.021, %26 ], [ null, %11 ], [ null, %6 ]
+  %.0 = phi ptr [ %.021, %17 ], [ %.021, %22 ], [ %.021, %18 ], [ %.021, %26 ], [ %.021, %19 ], [ null, %11 ], [ null, %6 ]
   ret ptr %.0
 }
 
@@ -192,7 +192,7 @@ objputrec.exit.sink.split:                        ; preds = %45, %20
   br label %objputrec.exit
 
 objputrec.exit:                                   ; preds = %objputrec.exit.sink.split, %.critedge.i, %20, %45, %42, %aggetrec.exit
-  %.0 = phi ptr [ null, %aggetrec.exit ], [ %24, %42 ], [ %24, %45 ], [ %.021.i, %20 ], [ %.021.i, %.critedge.i ], [ %.021.i.lcssa44.sink, %objputrec.exit.sink.split ]
+  %.0 = phi ptr [ %.021.i, %.critedge.i ], [ null, %aggetrec.exit ], [ %24, %42 ], [ %24, %45 ], [ %.021.i, %20 ], [ %.021.i.lcssa44.sink, %objputrec.exit.sink.split ]
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %aggetrec.exit28, label %53
 

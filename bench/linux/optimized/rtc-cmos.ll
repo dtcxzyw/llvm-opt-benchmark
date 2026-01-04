@@ -131,7 +131,7 @@ define internal i32 @cmos_init() #0 section ".init.text" align 16 {
   br label %12
 
 12:                                               ; preds = %3, %.thread, %11, %.thread2
-  %13 = phi i32 [ %.ph, %11 ], [ %.ph, %.thread2 ], [ 0, %.thread ], [ 0, %3 ]
+  %13 = phi i32 [ 0, %.thread ], [ %.ph, %11 ], [ %.ph, %.thread2 ], [ 0, %3 ]
   ret i32 %13
 }
 
@@ -573,7 +573,7 @@ define internal fastcc i32 @cmos_do_probe(ptr noundef %0, ptr noundef readonly c
   br label %.thread
 
 .thread:                                          ; preds = %176, %166, %216, %215, %147, %120
-  %219 = phi i32 [ %186, %216 ], [ %186, %215 ], [ -6, %147 ], [ -6, %120 ], [ %164, %166 ], [ %178, %176 ]
+  %219 = phi i32 [ -6, %120 ], [ %186, %216 ], [ %186, %215 ], [ -6, %147 ], [ %164, %166 ], [ %178, %176 ]
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @cmos_rtc, i64 8), align 8
   br label %220
 
@@ -587,7 +587,7 @@ define internal fastcc i32 @cmos_do_probe(ptr noundef %0, ptr noundef readonly c
   br label %225
 
 225:                                              ; preds = %220, %203, %11, %9, %3
-  %226 = phi i32 [ %221, %220 ], [ 0, %203 ], [ -16, %3 ], [ -19, %9 ], [ -16, %11 ]
+  %226 = phi i32 [ %221, %220 ], [ -16, %11 ], [ 0, %203 ], [ -16, %3 ], [ -19, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %226
 }
@@ -1345,7 +1345,7 @@ define internal noundef range(i32 -110, 1) i32 @cmos_set_alarm(ptr noundef %0, p
   br label %143
 
 143:                                              ; preds = %.thread, %140, %137, %2
-  %144 = phi i32 [ 0, %140 ], [ -5, %2 ], [ -110, %137 ], [ -22, %.thread ]
+  %144 = phi i32 [ 0, %140 ], [ -5, %2 ], [ -22, %.thread ], [ -110, %137 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %144
 }

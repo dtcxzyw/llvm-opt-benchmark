@@ -329,7 +329,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -949,7 +949,7 @@ _ZN6icu_7712LocalPointerINS_11PluralRulesEE12adoptInsteadEPS1_.exit.i: ; preds =
   resume { ptr, i32 } %12
 
 _ZNK6icu_7711PluralRules5cloneER10UErrorCode.exit: ; preds = %1, %_ZN6icu_7712LocalPointerINS_11PluralRulesEEC2EPS1_R10UErrorCode.exit.i, %_ZN6icu_7712LocalPointerINS_11PluralRulesEE12adoptInsteadEPS1_.exit.i
-  %.sroa.0.0.i = phi ptr [ %2, %_ZN6icu_7712LocalPointerINS_11PluralRulesEEC2EPS1_R10UErrorCode.exit.i ], [ null, %_ZN6icu_7712LocalPointerINS_11PluralRulesEE12adoptInsteadEPS1_.exit.i ], [ null, %1 ]
+  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %2, %_ZN6icu_7712LocalPointerINS_11PluralRulesEEC2EPS1_R10UErrorCode.exit.i ], [ null, %_ZN6icu_7712LocalPointerINS_11PluralRulesEE12adoptInsteadEPS1_.exit.i ]
   ret ptr %.sroa.0.0.i
 }
 
@@ -1128,7 +1128,7 @@ _ZN6icu_7712LocalPointerINS_11PluralRulesEE12adoptInsteadEPS1_.exit: ; preds = %
   br label %_ZN6icu_7712LocalPointerINS_11PluralRulesEED2Ev.exit17
 
 _ZN6icu_7712LocalPointerINS_11PluralRulesEED2Ev.exit17: ; preds = %13, %10, %23, %26, %_ZN6icu_7712LocalPointerINS_11PluralRulesEE12adoptInsteadEPS1_.exit
-  %.125 = phi ptr [ null, %_ZN6icu_7712LocalPointerINS_11PluralRulesEE12adoptInsteadEPS1_.exit ], [ null, %26 ], [ %7, %23 ], [ null, %10 ], [ null, %13 ]
+  %.125 = phi ptr [ null, %_ZN6icu_7712LocalPointerINS_11PluralRulesEE12adoptInsteadEPS1_.exit ], [ %7, %23 ], [ null, %26 ], [ null, %10 ], [ null, %13 ]
   call void @_ZN6icu_7716PluralRuleParserD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %33
@@ -1929,7 +1929,7 @@ _ZN6icu_7712LocalPointerINS_9UVector32EED2Ev.exit121thread-pre-split: ; preds = 
   br label %25, !llvm.loop !85
 
 _ZN6icu_7712LocalPointerINS_9UVector32EED2Ev.exit121.thread.sink.split: ; preds = %325, %286, %241, %244, %_ZNK6icu_779UVector3210elementAtiEi.exit126, %_ZNK6icu_779UVector3210elementAtiEi.exit.thread, %196, %178, %168, %100, %77
-  %.sink = phi i32 [ 7, %77 ], [ 65792, %100 ], [ 65792, %168 ], [ 65792, %178 ], [ 65792, %196 ], [ 65792, %_ZNK6icu_779UVector3210elementAtiEi.exit.thread ], [ 65792, %_ZNK6icu_779UVector3210elementAtiEi.exit126 ], [ 65792, %244 ], [ 65792, %241 ], [ 7, %286 ], [ 7, %325 ]
+  %.sink = phi i32 [ 7, %77 ], [ 65792, %241 ], [ 7, %286 ], [ 65792, %196 ], [ 65792, %_ZNK6icu_779UVector3210elementAtiEi.exit.thread ], [ 65792, %178 ], [ 65792, %168 ], [ 65792, %100 ], [ 65792, %_ZNK6icu_779UVector3210elementAtiEi.exit126 ], [ 65792, %244 ], [ 7, %325 ]
   store i32 %.sink, ptr %3, align 4, !tbaa !13
   br label %_ZN6icu_7712LocalPointerINS_9UVector32EED2Ev.exit121.thread
 
@@ -1942,7 +1942,7 @@ _ZN6icu_7712LocalPointerINS_9UVector32EED2Ev.exit121.thread: ; preds = %.prehead
   ret void
 
 379:                                              ; preds = %113, %322
-  %.pn105.pn = phi { ptr, i32 } [ %323, %322 ], [ %114, %113 ]
+  %.pn105.pn = phi { ptr, i32 } [ %114, %113 ], [ %323, %322 ]
   resume { ptr, i32 } %.pn105.pn
 }
 
@@ -2081,7 +2081,7 @@ _ZN6icu_7712LocalPointerINS_17SharedPluralRulesEED2Ev.exit20: ; preds = %23, %20
   br label %_ZN6icu_7712LocalPointerINS_11PluralRulesEED2Ev.exit21
 
 _ZN6icu_7712LocalPointerINS_11PluralRulesEED2Ev.exit21: ; preds = %31, %_ZN6icu_7712LocalPointerINS_17SharedPluralRulesEED2Ev.exit20, %37
-  %.038 = phi ptr [ null, %_ZN6icu_7712LocalPointerINS_17SharedPluralRulesEED2Ev.exit20 ], [ null, %37 ], [ %18, %31 ]
+  %.038 = phi ptr [ null, %37 ], [ null, %_ZN6icu_7712LocalPointerINS_17SharedPluralRulesEED2Ev.exit20 ], [ %18, %31 ]
   ret ptr %.038
 
 _ZN6icu_7712LocalPointerINS_11PluralRulesEED2Ev.exit: ; preds = %_ZN6icu_7712LocalPointerINS_17SharedPluralRulesEED2Ev.exit, %15
@@ -2287,7 +2287,7 @@ _ZN6icu_7712LocalPointerINS_11PluralRulesEED2Ev.exit: ; preds = %65, %23
   resume { ptr, i32 } %.pn.pn.pn.pn.pn
 
 _ZN6icu_7712LocalPointerINS_11PluralRulesEED2Ev.exit35: ; preds = %18, %21, %.thread59, %.thread54, %3, %13
-  %.024 = phi ptr [ null, %13 ], [ null, %3 ], [ null, %.thread54 ], [ %15, %.thread59 ], [ null, %21 ], [ null, %18 ]
+  %.024 = phi ptr [ null, %3 ], [ null, %13 ], [ %15, %.thread59 ], [ null, %.thread54 ], [ null, %21 ], [ null, %18 ]
   ret ptr %.024
 }
 
@@ -2322,7 +2322,7 @@ define noundef ptr @_ZN6icu_7711PluralRules20createSharedInstanceERKNS_6LocaleE1
   br label %11
 
 11:                                               ; preds = %3, %9, %8
-  %.0 = phi ptr [ null, %8 ], [ %10, %9 ], [ null, %3 ]
+  %.0 = phi ptr [ %10, %9 ], [ null, %8 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -3498,7 +3498,7 @@ _ZN6icu_7712LocalPointerINS_17StringEnumerationEEC2EPS1_R10UErrorCode.exit: ; pr
   br label %_ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit
 
 _ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit: ; preds = %16, %19, %_ZN6icu_7712LocalPointerINS_17StringEnumerationEEC2EPS1_R10UErrorCode.exit, %23, %2, %9
-  %.0 = phi ptr [ null, %9 ], [ null, %2 ], [ null, %23 ], [ %11, %_ZN6icu_7712LocalPointerINS_17StringEnumerationEEC2EPS1_R10UErrorCode.exit ], [ null, %19 ], [ null, %16 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %9 ], [ null, %23 ], [ %11, %_ZN6icu_7712LocalPointerINS_17StringEnumerationEEC2EPS1_R10UErrorCode.exit ], [ null, %19 ], [ null, %16 ]
   ret ptr %.0
 }
 
@@ -3619,7 +3619,7 @@ _ZNK6icu_7711PluralRules15rulesForKeywordERKNS_13UnicodeStringE.exit: ; preds = 
   br label %_ZNK6icu_7711PluralRules15rulesForKeywordERKNS_13UnicodeStringE.exit.thread
 
 _ZNK6icu_7711PluralRules15rulesForKeywordERKNS_13UnicodeStringE.exit.thread: ; preds = %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread.i, %18, %55, %_ZNK6icu_7711PluralRules15rulesForKeywordERKNS_13UnicodeStringE.exit, %5, %17, %12
-  %.019 = phi i32 [ 0, %12 ], [ 0, %17 ], [ 0, %5 ], [ %57, %55 ], [ %53, %_ZNK6icu_7711PluralRules15rulesForKeywordERKNS_13UnicodeStringE.exit ], [ 0, %18 ], [ 0, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread.i ]
+  %.019 = phi i32 [ 0, %5 ], [ 0, %12 ], [ 0, %17 ], [ %53, %_ZNK6icu_7711PluralRules15rulesForKeywordERKNS_13UnicodeStringE.exit ], [ %57, %55 ], [ 0, %18 ], [ 0, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread.i ]
   ret i32 %.019
 }
 
@@ -4283,7 +4283,7 @@ _ZN6icu_776number4impl6DecNumD2Ev.exit:           ; preds = %209, %211
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %193, %_ZN6icu_776number4impl6DecNumD2Ev.exit.us, %149, %._crit_edge.loopexit174.split.loop.exit180, %.preheader
-  %.7 = phi i32 [ %.072, %.preheader ], [ %225, %._crit_edge.loopexit174.split.loop.exit180 ], [ %.8.us, %149 ], [ %.8.us, %_ZN6icu_776number4impl6DecNumD2Ev.exit.us ], [ %smax, %193 ]
+  %.7 = phi i32 [ %.072, %.preheader ], [ %225, %._crit_edge.loopexit174.split.loop.exit180 ], [ %.8.us, %_ZN6icu_776number4impl6DecNumD2Ev.exit.us ], [ %.8.us, %149 ], [ %smax, %193 ]
   call void @_ZN6icu_776number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %14) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @_ZN6icu_776number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %13) #29
@@ -4291,9 +4291,9 @@ _ZN6icu_776number4impl6DecNumD2Ev.exit:           ; preds = %209, %211
   br label %226
 
 226:                                              ; preds = %97, %._crit_edge, %114
-  %cond = phi i1 [ false, %114 ], [ true, %._crit_edge ], [ false, %97 ]
-  %.086 = phi i32 [ 2, %114 ], [ 0, %._crit_edge ], [ 2, %97 ]
-  %.5 = phi i32 [ %.072, %114 ], [ %.7, %._crit_edge ], [ %.072, %97 ]
+  %cond = phi i1 [ true, %._crit_edge ], [ false, %114 ], [ false, %97 ]
+  %.086 = phi i32 [ 0, %._crit_edge ], [ 2, %114 ], [ 2, %97 ]
+  %.5 = phi i32 [ %.7, %._crit_edge ], [ %.072, %114 ], [ %.072, %97 ]
   call void @_ZN6icu_776number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %11) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZN6icu_776number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %9) #29
@@ -4467,7 +4467,7 @@ _ZNK6icu_7711PluralRules15rulesForKeywordERKNS_13UnicodeStringE.exit: ; preds = 
   br label %_ZNK6icu_7711PluralRules15rulesForKeywordERKNS_13UnicodeStringE.exit.thread
 
 _ZNK6icu_7711PluralRules15rulesForKeywordERKNS_13UnicodeStringE.exit.thread: ; preds = %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread.i, %18, %55, %_ZNK6icu_7711PluralRules15rulesForKeywordERKNS_13UnicodeStringE.exit, %5, %17, %12
-  %.019 = phi i32 [ 0, %12 ], [ 0, %17 ], [ 0, %5 ], [ %57, %55 ], [ %53, %_ZNK6icu_7711PluralRules15rulesForKeywordERKNS_13UnicodeStringE.exit ], [ 0, %18 ], [ 0, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread.i ]
+  %.019 = phi i32 [ 0, %5 ], [ 0, %12 ], [ 0, %17 ], [ %53, %_ZNK6icu_7711PluralRules15rulesForKeywordERKNS_13UnicodeStringE.exit ], [ %57, %55 ], [ 0, %18 ], [ 0, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread.i ]
   ret i32 %.019
 }
 
@@ -4805,7 +4805,7 @@ _ZNK6icu_7711PluralRules11getKeywordsER10UErrorCode.exit24.thread86: ; preds = %
   br label %.thread48
 
 .thread48:                                        ; preds = %69, %81, %57, %82
-  %.150 = phi i1 [ %84, %82 ], [ false, %57 ], [ false, %81 ], [ false, %69 ]
+  %.150 = phi i1 [ false, %81 ], [ %84, %82 ], [ false, %57 ], [ false, %69 ]
   %85 = load ptr, ptr %.0.i2190, align 8, !tbaa !15
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = load ptr, ptr %86, align 8
@@ -4813,7 +4813,7 @@ _ZNK6icu_7711PluralRules11getKeywordsER10UErrorCode.exit24.thread86: ; preds = %
   br label %_ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit25
 
 _ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit25: ; preds = %32, %35, %25, %_ZNK6icu_7711PluralRules11getKeywordsER10UErrorCode.exit24, %.thread48
-  %.151 = phi i1 [ %.150, %.thread48 ], [ false, %_ZNK6icu_7711PluralRules11getKeywordsER10UErrorCode.exit24 ], [ false, %25 ], [ false, %35 ], [ false, %32 ]
+  %.151 = phi i1 [ %.150, %.thread48 ], [ false, %_ZNK6icu_7711PluralRules11getKeywordsER10UErrorCode.exit24 ], [ false, %32 ], [ false, %25 ], [ false, %35 ]
   %88 = icmp eq ptr %.0.i43, null
   br i1 %88, label %_ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit26, label %_ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit25.thread
 
@@ -4843,7 +4843,7 @@ _ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit27: ; preds = %.body, 
   br label %common.resume
 
 _ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit26: ; preds = %9, %5, %_ZNK6icu_7711PluralRules11getKeywordsER10UErrorCode.exit, %_ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit25.thread, %_ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit25, %2
-  %.09 = phi i1 [ true, %2 ], [ %.151, %_ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit25 ], [ %.151, %_ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit25.thread ], [ false, %_ZNK6icu_7711PluralRules11getKeywordsER10UErrorCode.exit ], [ false, %5 ], [ false, %9 ]
+  %.09 = phi i1 [ true, %2 ], [ %.151, %_ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit25 ], [ %.151, %_ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit25.thread ], [ false, %5 ], [ false, %_ZNK6icu_7711PluralRules11getKeywordsER10UErrorCode.exit ], [ false, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.09
 }
@@ -4947,8 +4947,8 @@ _ZN6icu_7716PluralRuleParser8charTypeEDs.exit.thread.loopexit242: ; preds = %36
 _ZN6icu_7716PluralRuleParser8charTypeEDs.exit.thread.loopexit268: ; preds = %36
   br label %_ZN6icu_7716PluralRuleParser8charTypeEDs.exit.thread
 
-_ZN6icu_7716PluralRuleParser8charTypeEDs.exit.thread: ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit, %34, %23, %36, %_ZN6icu_7716PluralRuleParser8charTypeEDs.exit.thread.loopexit268, %_ZN6icu_7716PluralRuleParser8charTypeEDs.exit.thread.loopexit242, %_ZN6icu_7716PluralRuleParser8charTypeEDs.exit.thread.loopexit214, %_ZN6icu_7716PluralRuleParser8charTypeEDs.exit.thread.loopexit, %.thread66, %37, %38, %39, %40, %41
-  %.0.i.ph = phi i32 [ 18, %41 ], [ 9, %40 ], [ 6, %39 ], [ 13, %38 ], [ 16, %37 ], [ 5, %_ZN6icu_7716PluralRuleParser8charTypeEDs.exit.thread.loopexit ], [ 0, %.thread66 ], [ 3, %_ZN6icu_7716PluralRuleParser8charTypeEDs.exit.thread.loopexit214 ], [ 7, %_ZN6icu_7716PluralRuleParser8charTypeEDs.exit.thread.loopexit242 ], [ 17, %36 ], [ 0, %23 ], [ 10, %34 ], [ 1, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ 2, %_ZN6icu_7716PluralRuleParser8charTypeEDs.exit.thread.loopexit268 ]
+_ZN6icu_7716PluralRuleParser8charTypeEDs.exit.thread: ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit, %34, %23, %36, %_ZN6icu_7716PluralRuleParser8charTypeEDs.exit.thread.loopexit268, %_ZN6icu_7716PluralRuleParser8charTypeEDs.exit.thread.loopexit242, %_ZN6icu_7716PluralRuleParser8charTypeEDs.exit.thread.loopexit214, %_ZN6icu_7716PluralRuleParser8charTypeEDs.exit.thread.loopexit, %41, %.thread66, %37, %38, %39, %40
+  %.0.i.ph = phi i32 [ 3, %_ZN6icu_7716PluralRuleParser8charTypeEDs.exit.thread.loopexit214 ], [ 9, %40 ], [ 6, %39 ], [ 13, %38 ], [ 16, %37 ], [ 17, %36 ], [ 7, %_ZN6icu_7716PluralRuleParser8charTypeEDs.exit.thread.loopexit242 ], [ 0, %.thread66 ], [ 5, %_ZN6icu_7716PluralRuleParser8charTypeEDs.exit.thread.loopexit ], [ 18, %41 ], [ 0, %23 ], [ 10, %34 ], [ 1, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ 2, %_ZN6icu_7716PluralRuleParser8charTypeEDs.exit.thread.loopexit268 ]
   store i32 %.0.i.ph, ptr %21, align 8, !tbaa !47
   %.pre = load i16, ptr %9, align 8, !tbaa !50
   %.pre204 = load i32, ptr %10, align 4
@@ -5187,7 +5187,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit59.thread: ; preds = %_ZNK6icu_7713Unico
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit56.thread
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit56.thread: ; preds = %141, %_ZNK6icu_7713UnicodeString6charAtEi.exit56, %103, %_ZNK6icu_7713UnicodeString6charAtEi.exit39.thread, %160, %158, %_ZNK6icu_7713UnicodeString6charAtEi.exit59.thread, %.critedge2, %.critedge, %89
-  %.0 = phi i32 [ %161, %160 ], [ %90, %89 ], [ %104, %103 ], [ %92, %_ZNK6icu_7713UnicodeString6charAtEi.exit39.thread ], [ %.lcssa, %.critedge ], [ %.lcssa243, %.critedge2 ], [ %153, %_ZNK6icu_7713UnicodeString6charAtEi.exit59.thread ], [ %159, %158 ], [ %142, %_ZNK6icu_7713UnicodeString6charAtEi.exit56 ], [ %142, %141 ]
+  %.0 = phi i32 [ %161, %160 ], [ %90, %89 ], [ %104, %103 ], [ %92, %_ZNK6icu_7713UnicodeString6charAtEi.exit39.thread ], [ %.lcssa, %.critedge ], [ %.lcssa243, %.critedge2 ], [ %159, %158 ], [ %153, %_ZNK6icu_7713UnicodeString6charAtEi.exit59.thread ], [ %142, %_ZNK6icu_7713UnicodeString6charAtEi.exit56 ], [ %142, %141 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %162 = sub nsw i32 %.0, %54
   call void @_ZN6icu_7713UnicodeStringC1ERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %8, i32 noundef %54, i32 noundef %162)
@@ -6710,7 +6710,7 @@ _ZN6icu_7713UnicodeStringpLERKS0_.exit160:        ; preds = %513
   ret void
 
 532:                                              ; preds = %146, %152, %158, %179, %222, %228, %230, %271, %273, %307, %309, %329, %345, %362, %378, %490, %508, %468, %462, %460, %454, %529
-  %.pn119.pn.pn = phi { ptr, i32 } [ %.pn, %529 ], [ %.pn119, %490 ], [ %180, %179 ], [ %.pn116, %158 ], [ %.pn113, %152 ], [ %147, %146 ], [ %274, %273 ], [ %.pn111, %271 ], [ %310, %309 ], [ %.pn109, %307 ], [ %.pn101, %329 ], [ %.pn99, %345 ], [ %.pn96, %362 ], [ %.pn94, %378 ], [ %231, %230 ], [ %.pn90, %228 ], [ %223, %222 ], [ %.pn88, %508 ], [ %.pn105, %468 ], [ %463, %462 ], [ %.pn103, %460 ], [ %455, %454 ]
+  %.pn119.pn.pn = phi { ptr, i32 } [ %.pn, %529 ], [ %.pn119, %490 ], [ %180, %179 ], [ %.pn116, %158 ], [ %.pn113, %152 ], [ %147, %146 ], [ %274, %273 ], [ %.pn111, %271 ], [ %310, %309 ], [ %.pn109, %307 ], [ %.pn88, %508 ], [ %.pn101, %329 ], [ %.pn99, %345 ], [ %.pn96, %362 ], [ %.pn94, %378 ], [ %231, %230 ], [ %.pn90, %228 ], [ %223, %222 ], [ %.pn105, %468 ], [ %463, %462 ], [ %.pn103, %460 ], [ %455, %454 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 }
@@ -6923,7 +6923,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7713AndConstraint11isFulfilled
   unreachable
 
 _ZN6icu_7724tokenTypeToPluralOperandENS_9tokenTypeE.exit: ; preds = %2, %5, %6, %7, %8, %9
-  %.0.i = phi i32 [ 1, %5 ], [ 2, %6 ], [ 4, %7 ], [ 3, %8 ], [ 6, %9 ], [ 0, %2 ]
+  %.0.i = phi i32 [ 0, %2 ], [ 1, %5 ], [ 2, %6 ], [ 4, %7 ], [ 3, %8 ], [ 6, %9 ]
   %11 = load ptr, ptr %1, align 8, !tbaa !15
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
@@ -7011,7 +7011,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit23:       ; preds = %50, %53
   br i1 %61, label %_ZNK6icu_779UVector3210elementAtiEi.exit, label %.loopexit, !llvm.loop !148
 
 .loopexit:                                        ; preds = %_ZNK6icu_779UVector3210elementAtiEi.exit23, %59, %.preheader, %17, %39
-  %.017 = phi i8 [ %45, %39 ], [ 0, %17 ], [ 0, %.preheader ], [ 1, %_ZNK6icu_779UVector3210elementAtiEi.exit23 ], [ 0, %59 ]
+  %.017 = phi i8 [ 0, %17 ], [ %45, %39 ], [ 0, %.preheader ], [ 1, %_ZNK6icu_779UVector3210elementAtiEi.exit23 ], [ 0, %59 ]
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %63 = load i8, ptr %62, align 8, !tbaa !68
   %.not20 = icmp ne i8 %63, 0
@@ -7118,7 +7118,7 @@ define void @_ZN6icu_7712OrConstraintC2ERKS0_(ptr noundef nonnull writeonly alig
   br i1 %35, label %36, label %.sink.split
 
 .sink.split:                                      ; preds = %32, %18, %29
-  %.sink = phi i32 [ 7, %29 ], [ 7, %18 ], [ %34, %32 ]
+  %.sink = phi i32 [ 7, %18 ], [ 7, %29 ], [ %34, %32 ]
   store i32 %.sink, ptr %5, align 8, !tbaa !146
   br label %36
 
@@ -7219,7 +7219,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712OrConstraint11isFulfilledE
   unreachable
 
 _ZN6icu_7724tokenTypeToPluralOperandENS_9tokenTypeE.exit.i: ; preds = %11, %10, %9, %8, %7, %.lr.ph
-  %.0.i.i = phi i32 [ 1, %7 ], [ 2, %8 ], [ 4, %9 ], [ 3, %10 ], [ 6, %11 ], [ 0, %.lr.ph ]
+  %.0.i.i = phi i32 [ 0, %.lr.ph ], [ 1, %7 ], [ 2, %8 ], [ 4, %9 ], [ 3, %10 ], [ 6, %11 ]
   %13 = load ptr, ptr %1, align 8, !tbaa !15
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
@@ -7307,7 +7307,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit23.i:     ; preds = %55, %52
   br i1 %63, label %_ZNK6icu_779UVector3210elementAtiEi.exit.i, label %.loopexit.i, !llvm.loop !148
 
 .loopexit.i:                                      ; preds = %61, %_ZNK6icu_779UVector3210elementAtiEi.exit23.i, %41, %.preheader.i, %19
-  %.017.i = phi i8 [ %47, %41 ], [ 0, %19 ], [ 0, %.preheader.i ], [ 0, %61 ], [ 1, %_ZNK6icu_779UVector3210elementAtiEi.exit23.i ]
+  %.017.i = phi i8 [ 0, %19 ], [ %47, %41 ], [ 0, %.preheader.i ], [ 0, %61 ], [ 1, %_ZNK6icu_779UVector3210elementAtiEi.exit23.i ]
   %64 = getelementptr inbounds nuw i8, ptr %.015, i64 32
   %65 = load i8, ptr %64, align 8, !tbaa !68
   %.not20.i = icmp ne i8 %65, 0
@@ -7666,7 +7666,7 @@ tailrecurse:                                      ; preds = %12, %4
   br i1 %.not10, label %20, label %tailrecurse
 
 20:                                               ; preds = %tailrecurse, %12, %9
-  %.0 = phi i32 [ 15, %9 ], [ 0, %12 ], [ %7, %tailrecurse ]
+  %.0 = phi i32 [ 0, %12 ], [ %7, %tailrecurse ], [ 15, %9 ]
   ret i32 %.0
 }
 
@@ -7728,7 +7728,7 @@ _ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread:   ; preds = %14, %11, %_ZNK6icu_
   br i1 %.not, label %35, label %tailrecurse
 
 35:                                               ; preds = %11, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
-  %.0 = phi i8 [ 1, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit ], [ 0, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread ], [ 1, %11 ]
+  %.0 = phi i8 [ 1, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit ], [ 1, %11 ], [ 0, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread ]
   ret i8 %.0
 }
 
@@ -8094,7 +8094,7 @@ _ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit31: ; preds = %80
   br label %164
 
 163:                                              ; preds = %157, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit26, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit27, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit28, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit29, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit30, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit31, %93, %101, %109, %117, %125, %133, %141, %149, %2
-  %.023 = phi i32 [ %1, %2 ], [ 21, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit ], [ 22, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit26 ], [ 23, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit27 ], [ 25, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit28 ], [ 26, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit29 ], [ 27, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit30 ], [ 24, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit31 ], [ 20, %93 ], [ 11, %101 ], [ 15, %109 ], [ 19, %117 ], [ 14, %125 ], [ 13, %133 ], [ 12, %141 ], [ 28, %149 ], [ %spec.select, %157 ]
+  %.023 = phi i32 [ %1, %2 ], [ %spec.select, %157 ], [ 21, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit ], [ 22, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit26 ], [ 23, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit27 ], [ 25, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit28 ], [ 26, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit29 ], [ 27, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit30 ], [ 24, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit31 ], [ 20, %93 ], [ 11, %101 ], [ 15, %109 ], [ 19, %117 ], [ 14, %125 ], [ 13, %133 ], [ 12, %141 ], [ 28, %149 ]
   ret i32 %.023
 
 164:                                              ; preds = %160, %152, %144, %136, %128, %120, %112, %104, %96, %89, %78, %67, %56, %45, %34, %23
@@ -8162,7 +8162,7 @@ define noundef range(i32 0, 19) i32 @_ZN6icu_7716PluralRuleParser8charTypeEDs(i1
   br label %17
 
 17:                                               ; preds = %5, %3, %1, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6
-  %.0 = phi i32 [ 0, %16 ], [ 4, %6 ], [ 3, %7 ], [ 7, %8 ], [ 2, %9 ], [ 17, %10 ], [ 16, %11 ], [ 13, %12 ], [ 6, %13 ], [ 9, %14 ], [ 18, %15 ], [ 1, %1 ], [ 10, %3 ], [ 5, %5 ]
+  %.0 = phi i32 [ 18, %15 ], [ 1, %1 ], [ 0, %16 ], [ 10, %3 ], [ 4, %6 ], [ 3, %7 ], [ 7, %8 ], [ 2, %9 ], [ 17, %10 ], [ 16, %11 ], [ 13, %12 ], [ 6, %13 ], [ 9, %14 ], [ 5, %5 ]
   ret i32 %.0
 }
 
@@ -8310,7 +8310,7 @@ _ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit51: ; preds = %22, %_ZN6ic
   ret void
 
 _ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit46: ; preds = %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit50, %.body, %25, %27, %42, %11
-  %.pn40.pn.pn.pn = phi { ptr, i32 } [ %12, %11 ], [ %26, %25 ], [ %43, %42 ], [ %28, %27 ], [ %53, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit50 ], [ %49, %.body ]
+  %.pn40.pn.pn.pn = phi { ptr, i32 } [ %12, %11 ], [ %28, %27 ], [ %26, %25 ], [ %43, %42 ], [ %53, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit50 ], [ %49, %.body ]
   tail call void @_ZN6icu_777UVectorD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #29
   br label %54
 
@@ -8480,7 +8480,7 @@ define void @_ZN6icu_7712FixedDecimalC2Edilii(ptr noundef nonnull align 8 derefe
   br i1 %42, label %.lr.ph.i, label %.loopexit, !llvm.loop !171
 
 .loopexit:                                        ; preds = %.lr.ph.i, %.preheader.i, %28, %.thread.i
-  %.0.lcssa.sink.i = phi i64 [ 0, %.thread.i ], [ 0, %28 ], [ %3, %.preheader.i ], [ %40, %.lr.ph.i ]
+  %.0.lcssa.sink.i = phi i64 [ 0, %28 ], [ 0, %.thread.i ], [ %3, %.preheader.i ], [ %40, %.lr.ph.i ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.0.lcssa.sink.i, ptr %43, align 8, !tbaa !172
   ret void
@@ -8565,7 +8565,7 @@ define void @_ZN6icu_7712FixedDecimal4initEdilii(ptr noundef nonnull align 8 cap
   br i1 %41, label %.lr.ph, label %._crit_edge, !llvm.loop !171
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader, %27, %.thread
-  %.0.lcssa.sink = phi i64 [ 0, %.thread ], [ 0, %27 ], [ %3, %.preheader ], [ %39, %.lr.ph ]
+  %.0.lcssa.sink = phi i64 [ 0, %27 ], [ 0, %.thread ], [ %3, %.preheader ], [ %39, %.lr.ph ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.0.lcssa.sink, ptr %42, align 8, !tbaa !172
   ret void
@@ -8653,7 +8653,7 @@ define void @_ZN6icu_7712FixedDecimalC2Edili(ptr noundef nonnull align 8 derefer
   br i1 %40, label %.lr.ph.i.i, label %.loopexit, !llvm.loop !171
 
 .loopexit:                                        ; preds = %.lr.ph.i.i, %.preheader.i.i, %26, %.thread.i.i
-  %.0.lcssa.sink.i.i = phi i64 [ 0, %.thread.i.i ], [ 0, %26 ], [ %3, %.preheader.i.i ], [ %38, %.lr.ph.i.i ]
+  %.0.lcssa.sink.i.i = phi i64 [ 0, %26 ], [ 0, %.thread.i.i ], [ %3, %.preheader.i.i ], [ %38, %.lr.ph.i.i ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.0.lcssa.sink.i.i, ptr %41, align 8, !tbaa !172
   ret void
@@ -8736,7 +8736,7 @@ define void @_ZN6icu_7712FixedDecimal4initEdili(ptr noundef nonnull align 8 capt
   br i1 %39, label %.lr.ph.i, label %_ZN6icu_7712FixedDecimal4initEdilii.exit, !llvm.loop !171
 
 _ZN6icu_7712FixedDecimal4initEdilii.exit:         ; preds = %.lr.ph.i, %.thread.i, %25, %.preheader.i
-  %.0.lcssa.sink.i = phi i64 [ 0, %.thread.i ], [ 0, %25 ], [ %3, %.preheader.i ], [ %37, %.lr.ph.i ]
+  %.0.lcssa.sink.i = phi i64 [ 0, %25 ], [ 0, %.thread.i ], [ %3, %.preheader.i ], [ %37, %.lr.ph.i ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.0.lcssa.sink.i, ptr %40, align 8, !tbaa !172
   ret void
@@ -8821,7 +8821,7 @@ define void @_ZN6icu_7712FixedDecimalC2Edil(ptr noundef nonnull align 8 derefere
   br i1 %39, label %.lr.ph.i.i.i, label %.loopexit, !llvm.loop !171
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i, %25, %.thread.i.i.i
-  %.0.lcssa.sink.i.i.i = phi i64 [ 0, %.thread.i.i.i ], [ 0, %25 ], [ %3, %.preheader.i.i.i ], [ %37, %.lr.ph.i.i.i ]
+  %.0.lcssa.sink.i.i.i = phi i64 [ 0, %25 ], [ 0, %.thread.i.i.i ], [ %3, %.preheader.i.i.i ], [ %37, %.lr.ph.i.i.i ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.0.lcssa.sink.i.i.i, ptr %40, align 8, !tbaa !172
   ret void
@@ -8904,7 +8904,7 @@ define void @_ZN6icu_7712FixedDecimal4initEdil(ptr noundef nonnull align 8 captu
   br i1 %38, label %.lr.ph.i.i, label %_ZN6icu_7712FixedDecimal4initEdili.exit, !llvm.loop !171
 
 _ZN6icu_7712FixedDecimal4initEdili.exit:          ; preds = %.lr.ph.i.i, %.thread.i.i, %24, %.preheader.i.i
-  %.0.lcssa.sink.i.i = phi i64 [ 0, %.thread.i.i ], [ 0, %24 ], [ %3, %.preheader.i.i ], [ %36, %.lr.ph.i.i ]
+  %.0.lcssa.sink.i.i = phi i64 [ 0, %24 ], [ 0, %.thread.i.i ], [ %3, %.preheader.i.i ], [ %36, %.lr.ph.i.i ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.0.lcssa.sink.i.i, ptr %39, align 8, !tbaa !172
   ret void
@@ -8973,7 +8973,7 @@ define void @_ZN6icu_7712FixedDecimalC2Edi(ptr noundef nonnull align 8 dereferen
   br label %_ZN6icu_7712FixedDecimal19getFractionalDigitsEdi.exit
 
 _ZN6icu_7712FixedDecimal19getFractionalDigitsEdi.exit: ; preds = %25, %22, %19, %16, %.noexc6, %.noexc, %3
-  %.0.i = phi i64 [ 0, %.noexc6 ], [ 0, %.noexc ], [ 0, %3 ], [ %.2.i, %25 ], [ %18, %16 ], [ %21, %19 ], [ %24, %22 ]
+  %.0.i = phi i64 [ 0, %3 ], [ 0, %.noexc6 ], [ 0, %.noexc ], [ %.2.i, %25 ], [ %18, %16 ], [ %21, %19 ], [ %24, %22 ]
   %32 = fcmp olt double %1, 0.000000e+00
   %33 = zext i1 %32 to i8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 61
@@ -9048,7 +9048,7 @@ _ZN6icu_7712FixedDecimal19getFractionalDigitsEdi.exit: ; preds = %25, %22, %19, 
   br i1 %65, label %.lr.ph.i.i.i, label %.loopexit, !llvm.loop !171
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i, %51, %.thread.i.i.i
-  %.0.lcssa.sink.i.i.i = phi i64 [ 0, %.thread.i.i.i ], [ 0, %51 ], [ %.0.i, %.preheader.i.i.i ], [ %63, %.lr.ph.i.i.i ]
+  %.0.lcssa.sink.i.i.i = phi i64 [ 0, %51 ], [ 0, %.thread.i.i.i ], [ %.0.i, %.preheader.i.i.i ], [ %63, %.lr.ph.i.i.i ]
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.0.lcssa.sink.i.i.i, ptr %66, align 8, !tbaa !172
   ret void
@@ -9115,7 +9115,7 @@ define noundef i64 @_ZN6icu_7712FixedDecimal19getFractionalDigitsEdi(double noun
   br label %30
 
 30:                                               ; preds = %14, %17, %20, %23, %2, %6, %8
-  %.0 = phi i64 [ 0, %8 ], [ 0, %6 ], [ 0, %2 ], [ %.2, %23 ], [ %16, %14 ], [ %19, %17 ], [ %22, %20 ]
+  %.0 = phi i64 [ 0, %2 ], [ 0, %8 ], [ 0, %6 ], [ %.2, %23 ], [ %16, %14 ], [ %19, %17 ], [ %22, %20 ]
   ret i64 %.0
 }
 
@@ -9244,7 +9244,7 @@ _ZN6icu_7712FixedDecimal8decimalsEd.exit:         ; preds = %._crit_edge.i, %.lo
   br label %_ZN6icu_7712FixedDecimal19getFractionalDigitsEdi.exit
 
 _ZN6icu_7712FixedDecimal19getFractionalDigitsEdi.exit: ; preds = %_ZN6icu_7712FixedDecimal8decimalsEd.exit, %28, %30, %35, %38, %41, %44
-  %.0.i = phi i64 [ 0, %30 ], [ 0, %28 ], [ 0, %_ZN6icu_7712FixedDecimal8decimalsEd.exit ], [ %.2.i, %44 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ]
+  %.0.i = phi i64 [ 0, %_ZN6icu_7712FixedDecimal8decimalsEd.exit ], [ 0, %30 ], [ 0, %28 ], [ %.2.i, %44 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ]
   %51 = fcmp olt double %1, 0.000000e+00
   %52 = zext i1 %51 to i8
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 61
@@ -9312,7 +9312,7 @@ _ZN6icu_7712FixedDecimal19getFractionalDigitsEdi.exit: ; preds = %_ZN6icu_7712Fi
   br i1 %83, label %.lr.ph.i.i.i, label %_ZN6icu_7712FixedDecimal4initEdil.exit, !llvm.loop !171
 
 _ZN6icu_7712FixedDecimal4initEdil.exit:           ; preds = %.lr.ph.i.i.i, %.thread.i.i.i, %69, %.preheader.i.i.i
-  %.0.lcssa.sink.i.i.i = phi i64 [ 0, %.thread.i.i.i ], [ 0, %69 ], [ %.0.i, %.preheader.i.i.i ], [ %81, %.lr.ph.i.i.i ]
+  %.0.lcssa.sink.i.i.i = phi i64 [ 0, %69 ], [ 0, %.thread.i.i.i ], [ %.0.i, %.preheader.i.i.i ], [ %81, %.lr.ph.i.i.i ]
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.0.lcssa.sink.i.i.i, ptr %84, align 8, !tbaa !172
   ret void
@@ -9801,7 +9801,7 @@ _ZNK6icu_7713UnicodeString7indexOfEDs.exit77:     ; preds = %118
   br label %_ZN6icu_7712FixedDecimal19getFractionalDigitsEdi.exit
 
 _ZN6icu_7712FixedDecimal19getFractionalDigitsEdi.exit: ; preds = %189, %186, %183, %180, %.noexc81, %.noexc80, %165
-  %.0.i = phi i64 [ 0, %.noexc81 ], [ 0, %.noexc80 ], [ 0, %165 ], [ %.2.i, %189 ], [ %182, %180 ], [ %185, %183 ], [ %188, %186 ]
+  %.0.i = phi i64 [ 0, %165 ], [ 0, %.noexc81 ], [ 0, %.noexc80 ], [ %.2.i, %189 ], [ %182, %180 ], [ %185, %183 ], [ %188, %186 ]
   %196 = fcmp olt double %126, 0.000000e+00
   %197 = zext i1 %196 to i8
   %198 = getelementptr inbounds nuw i8, ptr %0, i64 61
@@ -9875,7 +9875,7 @@ _ZN6icu_7712FixedDecimal19getFractionalDigitsEdi.exit: ; preds = %189, %186, %18
   br label %233
 
 _ZN6icu_7712FixedDecimal4initEdili.exit89.sink.split: ; preds = %146, %.thread.i.i, %109, %.thread.i.i.i, %.thread.i.i85
-  %.sink102.shrunk = phi i1 [ false, %.thread.i.i85 ], [ false, %.thread.i.i.i ], [ %113, %109 ], [ false, %.thread.i.i ], [ %150, %146 ]
+  %.sink102.shrunk = phi i1 [ false, %.thread.i.i85 ], [ %113, %109 ], [ false, %.thread.i.i.i ], [ false, %.thread.i.i ], [ %150, %146 ]
   %.sink102 = zext i1 %.sink102.shrunk to i8
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i8 %.sink102, ptr %229, align 4, !tbaa !168
@@ -9886,7 +9886,7 @@ _ZN6icu_7712FixedDecimal4initEdili.exit89.sink.split: ; preds = %146, %.thread.i
   br label %_ZN6icu_7712FixedDecimal4initEdili.exit89
 
 _ZN6icu_7712FixedDecimal4initEdili.exit89:        ; preds = %.lr.ph.i.i, %_ZN6icu_7712FixedDecimal4initEdili.exit89.sink.split, %.preheader.i.i, %212
-  %.0.lcssa.sink.i.i.sink = phi i64 [ 0, %212 ], [ %.0.i, %.preheader.i.i ], [ 0, %_ZN6icu_7712FixedDecimal4initEdili.exit89.sink.split ], [ %224, %.lr.ph.i.i ]
+  %.0.lcssa.sink.i.i.sink = phi i64 [ 0, %_ZN6icu_7712FixedDecimal4initEdili.exit89.sink.split ], [ %.0.i, %.preheader.i.i ], [ 0, %212 ], [ %224, %.lr.ph.i.i ]
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.0.lcssa.sink.i.i.sink, ptr %232, align 8, !tbaa !172
   call void @_ZN6icu_776number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %9) #29
@@ -10060,7 +10060,7 @@ define void @_ZN6icu_7712FixedDecimal18createWithExponentEdii(ptr dead_on_unwind
   br label %_ZN6icu_7712FixedDecimal19getFractionalDigitsEdi.exit
 
 _ZN6icu_7712FixedDecimal19getFractionalDigitsEdi.exit: ; preds = %4, %8, %10, %16, %19, %22, %25
-  %.0.i = phi i64 [ 0, %10 ], [ 0, %8 ], [ 0, %4 ], [ %.2.i, %25 ], [ %18, %16 ], [ %21, %19 ], [ %24, %22 ]
+  %.0.i = phi i64 [ 0, %4 ], [ 0, %10 ], [ 0, %8 ], [ %.2.i, %25 ], [ %18, %16 ], [ %21, %19 ], [ %24, %22 ]
   tail call void @_ZN6icu_7712FixedDecimalC1Edili(ptr noundef nonnull align 8 dereferenceable(64) %0, double noundef %1, i32 noundef %2, i64 noundef %.0.i, i32 noundef %3)
   ret void
 }
@@ -10202,7 +10202,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712FixedDecimal9quickInitEd(p
   br label %_ZN6icu_7712FixedDecimal19getFractionalDigitsEdi.exit
 
 _ZN6icu_7712FixedDecimal19getFractionalDigitsEdi.exit: ; preds = %12, %17, %19, %23, %26, %29, %32
-  %.0.i = phi i64 [ 0, %19 ], [ 0, %17 ], [ 0, %12 ], [ %.2.i, %32 ], [ %25, %23 ], [ %28, %26 ], [ %31, %29 ]
+  %.0.i = phi i64 [ 0, %12 ], [ 0, %19 ], [ 0, %17 ], [ %.2.i, %32 ], [ %25, %23 ], [ %28, %26 ], [ %31, %29 ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 61
   store i8 0, ptr %39, align 1, !tbaa !159
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -10268,7 +10268,7 @@ _ZN6icu_7712FixedDecimal19getFractionalDigitsEdi.exit: ; preds = %12, %17, %19, 
   br i1 %69, label %.lr.ph.i.i.i, label %_ZN6icu_7712FixedDecimal4initEdil.exit, !llvm.loop !171
 
 _ZN6icu_7712FixedDecimal4initEdil.exit:           ; preds = %.lr.ph.i.i.i, %.thread.i.i.i, %55, %.preheader.i.i.i
-  %.0.lcssa.sink.i.i.i = phi i64 [ 0, %.thread.i.i.i ], [ 0, %55 ], [ %.0.i, %.preheader.i.i.i ], [ %67, %.lr.ph.i.i.i ]
+  %.0.lcssa.sink.i.i.i = phi i64 [ 0, %55 ], [ 0, %.thread.i.i.i ], [ %.0.i, %.preheader.i.i.i ], [ %67, %.lr.ph.i.i.i ]
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.0.lcssa.sink.i.i.i, ptr %70, align 8, !tbaa !172
   br label %.thread
@@ -10413,7 +10413,7 @@ _ZNK6icu_7712FixedDecimal9longValueEv.exit:       ; preds = %17, %20
   unreachable
 
 50:                                               ; preds = %3, %9, %45, %41, %37, %33, %29, %_ZNK6icu_7712FixedDecimal9longValueEv.exit
-  %.0 = phi double [ %28, %_ZNK6icu_7712FixedDecimal9longValueEv.exit ], [ %32, %29 ], [ %36, %33 ], [ %40, %37 ], [ %44, %41 ], [ %48, %45 ], [ %12, %9 ], [ %8, %3 ]
+  %.0 = phi double [ %48, %45 ], [ %28, %_ZNK6icu_7712FixedDecimal9longValueEv.exit ], [ %32, %29 ], [ %36, %33 ], [ %40, %37 ], [ %44, %41 ], [ %12, %9 ], [ %8, %3 ]
   ret double %.0
 }
 
@@ -10726,7 +10726,7 @@ thread-pre-split:                                 ; preds = %11
   br label %26
 
 26:                                               ; preds = %21, %23, %thread-pre-split, %20, %3, %10
-  %.0 = phi ptr [ null, %10 ], [ null, %3 ], [ null, %20 ], [ null, %thread-pre-split ], [ %22, %23 ], [ %22, %21 ]
+  %.0 = phi ptr [ null, %thread-pre-split ], [ null, %10 ], [ null, %3 ], [ null, %20 ], [ %22, %23 ], [ %22, %21 ]
   ret ptr %.0
 }
 
@@ -10788,7 +10788,7 @@ define noundef i32 @_ZNK6icu_7733PluralAvailableLocalesEnumeration5countER10UErr
   br label %14
 
 14:                                               ; preds = %2, %10, %9
-  %.0 = phi i32 [ 0, %9 ], [ %13, %10 ], [ 0, %2 ]
+  %.0 = phi i32 [ %13, %10 ], [ 0, %9 ], [ 0, %2 ]
   ret i32 %.0
 }
 

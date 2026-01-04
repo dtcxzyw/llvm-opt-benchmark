@@ -283,8 +283,8 @@ decode_header_trees.exit:                         ; preds = %.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %132
 
-select.unfold:                                    ; preds = %.thread.i, %13, %41, %48, %65, %74, %91, %100, %117, %121, %126
-  %.065.i.ph = phi i32 [ -1094995529, %126 ], [ %124, %121 ], [ -12, %117 ], [ %103, %100 ], [ -12, %91 ], [ %77, %74 ], [ -12, %65 ], [ %51, %48 ], [ -12, %41 ], [ -1094995529, %13 ], [ -1094995529, %.thread.i ]
+select.unfold:                                    ; preds = %.thread.i, %13, %41, %65, %91, %117, %121, %126, %100, %74, %48
+  %.065.i.ph = phi i32 [ -1094995529, %13 ], [ %51, %48 ], [ %77, %74 ], [ %103, %100 ], [ -1094995529, %126 ], [ %124, %121 ], [ -12, %117 ], [ -12, %91 ], [ -12, %65 ], [ -12, %41 ], [ -1094995529, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %132
 
@@ -640,8 +640,8 @@ bytestream2_init.exit:                            ; preds = %15
   br label %smk_get_code.exit223
 
 smk_get_code.exit223:                             ; preds = %.lr.ph482, %._crit_edge483, %198
-  %.sroa.15.9399 = phi i32 [ %.sroa.15.9.lcssa, %198 ], [ %.sroa.15.9.lcssa, %._crit_edge483 ], [ %smax558, %.lr.ph482 ]
-  %.0.i221 = phi i32 [ %.lcssa396, %198 ], [ %.lcssa396, %._crit_edge483 ], [ -1094995529, %.lr.ph482 ]
+  %.sroa.15.9399 = phi i32 [ %.sroa.15.9.lcssa, %._crit_edge483 ], [ %.sroa.15.9.lcssa, %198 ], [ %smax558, %.lr.ph482 ]
+  %.0.i221 = phi i32 [ %.lcssa396, %._crit_edge483 ], [ %.lcssa396, %198 ], [ -1094995529, %.lr.ph482 ]
   %216 = load ptr, ptr %49, align 8, !tbaa !42
   %217 = load i32, ptr %216, align 4, !tbaa !43
   %.not.i225486 = icmp sgt i32 %217, -1
@@ -712,8 +712,8 @@ smk_get_code.exit223:                             ; preds = %.lr.ph482, %._crit_
   br label %smk_get_code.exit230
 
 smk_get_code.exit230:                             ; preds = %.lr.ph489, %._crit_edge490, %236
-  %.sroa.15.10403 = phi i32 [ %.sroa.15.10.lcssa, %236 ], [ %.sroa.15.10.lcssa, %._crit_edge490 ], [ %smax560, %.lr.ph489 ]
-  %.0.i228 = phi i32 [ %.lcssa400, %236 ], [ %.lcssa400, %._crit_edge490 ], [ -1094995529, %.lr.ph489 ]
+  %.sroa.15.10403 = phi i32 [ %.sroa.15.10.lcssa, %._crit_edge490 ], [ %.sroa.15.10.lcssa, %236 ], [ %smax560, %.lr.ph489 ]
+  %.0.i228 = phi i32 [ %.lcssa400, %._crit_edge490 ], [ %.lcssa400, %236 ], [ -1094995529, %.lr.ph489 ]
   %254 = load ptr, ptr %11, align 8, !tbaa !32
   %255 = load ptr, ptr %254, align 8, !tbaa !50
   %256 = sdiv i32 %.3192497, %113
@@ -902,8 +902,8 @@ smk_get_code.exit230:                             ; preds = %.lr.ph489, %._crit_
   br label %smk_get_code.exit237
 
 smk_get_code.exit237:                             ; preds = %.lr.ph458, %._crit_edge459, %341
-  %.sroa.15.11389 = phi i32 [ %.sroa.15.11.lcssa, %341 ], [ %.sroa.15.11.lcssa, %._crit_edge459 ], [ %smax549, %.lr.ph458 ]
-  %.0.i235 = phi i32 [ %.lcssa386, %341 ], [ %.lcssa386, %._crit_edge459 ], [ -1094995529, %.lr.ph458 ]
+  %.sroa.15.11389 = phi i32 [ %.sroa.15.11.lcssa, %._crit_edge459 ], [ %.sroa.15.11.lcssa, %341 ], [ %smax549, %.lr.ph458 ]
+  %.0.i235 = phi i32 [ %.lcssa386, %._crit_edge459 ], [ %.lcssa386, %341 ], [ -1094995529, %.lr.ph458 ]
   %359 = trunc i32 %.0.i235 to i16
   %360 = getelementptr inbounds nuw i8, ptr %.1186471, i64 2
   store i16 %359, ptr %360, align 1, !tbaa !35
@@ -977,8 +977,8 @@ smk_get_code.exit237:                             ; preds = %.lr.ph458, %._crit_
   br label %smk_get_code.exit244
 
 smk_get_code.exit244:                             ; preds = %.lr.ph465, %._crit_edge466, %381
-  %.sroa.15.12393 = phi i32 [ %.sroa.15.12.lcssa, %381 ], [ %.sroa.15.12.lcssa, %._crit_edge466 ], [ %smax551, %.lr.ph465 ]
-  %.0.i242 = phi i32 [ %.lcssa390, %381 ], [ %.lcssa390, %._crit_edge466 ], [ -1094995529, %.lr.ph465 ]
+  %.sroa.15.12393 = phi i32 [ %.sroa.15.12.lcssa, %._crit_edge466 ], [ %.sroa.15.12.lcssa, %381 ], [ %smax551, %.lr.ph465 ]
+  %.0.i242 = phi i32 [ %.lcssa390, %._crit_edge466 ], [ %.lcssa390, %381 ], [ -1094995529, %.lr.ph465 ]
   %399 = trunc i32 %.0.i242 to i16
   store i16 %399, ptr %.1186471, align 1, !tbaa !35
   %400 = getelementptr inbounds i8, ptr %.1186471, i64 %122
@@ -1057,8 +1057,8 @@ smk_get_code.exit244:                             ; preds = %.lr.ph465, %._crit_
   br label %smk_get_code.exit251
 
 smk_get_code.exit251:                             ; preds = %.lr.ph443, %._crit_edge444, %423
-  %.sroa.15.13381 = phi i32 [ %.sroa.15.13.lcssa, %423 ], [ %.sroa.15.13.lcssa, %._crit_edge444 ], [ %smax545, %.lr.ph443 ]
-  %.0.i249 = phi i32 [ %.lcssa378, %423 ], [ %.lcssa378, %._crit_edge444 ], [ -1094995529, %.lr.ph443 ]
+  %.sroa.15.13381 = phi i32 [ %.sroa.15.13.lcssa, %._crit_edge444 ], [ %.sroa.15.13.lcssa, %423 ], [ %smax545, %.lr.ph443 ]
+  %.0.i249 = phi i32 [ %.lcssa378, %._crit_edge444 ], [ %.lcssa378, %423 ], [ -1094995529, %.lr.ph443 ]
   %441 = trunc i32 %.0.i249 to i8
   %442 = getelementptr inbounds nuw i8, ptr %320, i64 1
   %443 = trunc i32 %.0.i249 to i16
@@ -1145,8 +1145,8 @@ smk_get_code.exit251:                             ; preds = %.lr.ph443, %._crit_
   br label %smk_get_code.exit258
 
 smk_get_code.exit258:                             ; preds = %.lr.ph450, %._crit_edge451, %471
-  %.sroa.15.14385 = phi i32 [ %.sroa.15.14.lcssa, %471 ], [ %.sroa.15.14.lcssa, %._crit_edge451 ], [ %smax547, %.lr.ph450 ]
-  %.0.i256 = phi i32 [ %.lcssa382, %471 ], [ %.lcssa382, %._crit_edge451 ], [ -1094995529, %.lr.ph450 ]
+  %.sroa.15.14385 = phi i32 [ %.sroa.15.14.lcssa, %._crit_edge451 ], [ %.sroa.15.14.lcssa, %471 ], [ %smax547, %.lr.ph450 ]
+  %.0.i256 = phi i32 [ %.lcssa382, %._crit_edge451 ], [ %.lcssa382, %471 ], [ -1094995529, %.lr.ph450 ]
   %489 = trunc i32 %.0.i256 to i8
   %490 = getelementptr inbounds nuw i8, ptr %450, i64 1
   %491 = trunc i32 %.0.i256 to i16
@@ -1239,9 +1239,9 @@ smk_get_code.exit258:                             ; preds = %.lr.ph450, %._crit_
   br label %smk_get_code.exit265
 
 smk_get_code.exit265:                             ; preds = %.lr.ph425, %._crit_edge426, %519
-  %537 = phi i32 [ %.pre, %519 ], [ %500, %._crit_edge426 ], [ %500, %.lr.ph425 ]
-  %.sroa.15.15373 = phi i32 [ %.sroa.15.15.lcssa, %519 ], [ %.sroa.15.15.lcssa, %._crit_edge426 ], [ %smax554, %.lr.ph425 ]
-  %.0.i263 = phi i32 [ %.lcssa370, %519 ], [ %.lcssa370, %._crit_edge426 ], [ -1094995529, %.lr.ph425 ]
+  %537 = phi i32 [ %500, %._crit_edge426 ], [ %.pre, %519 ], [ %500, %.lr.ph425 ]
+  %.sroa.15.15373 = phi i32 [ %.sroa.15.15.lcssa, %._crit_edge426 ], [ %.sroa.15.15.lcssa, %519 ], [ %smax554, %.lr.ph425 ]
+  %.0.i263 = phi i32 [ %.lcssa370, %._crit_edge426 ], [ %.lcssa370, %519 ], [ -1094995529, %.lr.ph425 ]
   %538 = trunc i32 %.0.i263 to i16
   %.not.i267429 = icmp sgt i32 %537, -1
   br i1 %.not.i267429, label %._crit_edge433, label %.lr.ph432.preheader
@@ -1311,8 +1311,8 @@ smk_get_code.exit265:                             ; preds = %.lr.ph425, %._crit_
   br label %smk_get_code.exit272
 
 smk_get_code.exit272:                             ; preds = %.lr.ph432, %._crit_edge433, %557
-  %.sroa.15.16377 = phi i32 [ %.sroa.15.16.lcssa, %557 ], [ %.sroa.15.16.lcssa, %._crit_edge433 ], [ %smax556, %.lr.ph432 ]
-  %.0.i270 = phi i32 [ %.lcssa374, %557 ], [ %.lcssa374, %._crit_edge433 ], [ -1094995529, %.lr.ph432 ]
+  %.sroa.15.16377 = phi i32 [ %.sroa.15.16.lcssa, %._crit_edge433 ], [ %.sroa.15.16.lcssa, %557 ], [ %smax556, %.lr.ph432 ]
+  %.0.i270 = phi i32 [ %.lcssa374, %._crit_edge433 ], [ %.lcssa374, %557 ], [ -1094995529, %.lr.ph432 ]
   %575 = trunc i32 %.0.i270 to i16
   store i16 %575, ptr %.2187438, align 1, !tbaa !35
   %576 = getelementptr inbounds nuw i8, ptr %.2187438, i64 2
@@ -1325,7 +1325,7 @@ smk_get_code.exit272:                             ; preds = %.lr.ph432, %._crit_
   br i1 %498, label %.preheader359, label %.loopexit, !llvm.loop !66
 
 .loopexit:                                        ; preds = %smk_get_code.exit244, %smk_get_code.exit272, %smk_get_code.exit258
-  %.sroa.15.5 = phi i32 [ %.sroa.15.14385, %smk_get_code.exit258 ], [ %.sroa.15.16377, %smk_get_code.exit272 ], [ %.sroa.15.12393, %smk_get_code.exit244 ]
+  %.sroa.15.5 = phi i32 [ %.sroa.15.16377, %smk_get_code.exit272 ], [ %.sroa.15.14385, %smk_get_code.exit258 ], [ %.sroa.15.12393, %smk_get_code.exit244 ]
   %580 = add nsw i32 %.4473, 1
   %581 = icmp ne i32 %310, 0
   %582 = icmp slt i32 %580, %117
@@ -1377,8 +1377,8 @@ default.unreachable:                              ; preds = %163
   unreachable
 
 smk_get_code.exit:                                ; preds = %602, %.loopexit, %279, %.lr.ph419.preheader, %584, %.preheader363, %308, %.preheader361
-  %.sroa.15.1 = phi i32 [ %.sroa.15.8.lcssa, %.preheader361 ], [ %.sroa.15.3, %308 ], [ %.sroa.15.8.lcssa, %.preheader363 ], [ %.sroa.15.8.lcssa, %584 ], [ %.sroa.15.8.lcssa, %.lr.ph419.preheader ], [ %.sroa.15.10403, %279 ], [ %.sroa.15.5, %.loopexit ], [ %.sroa.15.8.lcssa, %602 ]
-  %.1190 = phi i32 [ %.0189502, %.preheader361 ], [ %.0189502, %308 ], [ %.0189502, %.preheader363 ], [ %.0189502, %584 ], [ %175, %.lr.ph419.preheader ], [ %280, %279 ], [ %580, %.loopexit ], [ %604, %602 ]
+  %.sroa.15.1 = phi i32 [ %.sroa.15.5, %.loopexit ], [ %.sroa.15.8.lcssa, %.preheader363 ], [ %.sroa.15.8.lcssa, %584 ], [ %.sroa.15.8.lcssa, %.preheader361 ], [ %.sroa.15.3, %308 ], [ %.sroa.15.10403, %279 ], [ %.sroa.15.8.lcssa, %.lr.ph419.preheader ], [ %.sroa.15.8.lcssa, %602 ]
+  %.1190 = phi i32 [ %580, %.loopexit ], [ %.0189502, %.preheader363 ], [ %.0189502, %584 ], [ %.0189502, %.preheader361 ], [ %.0189502, %308 ], [ %280, %279 ], [ %175, %.lr.ph419.preheader ], [ %604, %602 ]
   %608 = icmp slt i32 %.1190, %117
   br i1 %608, label %124, label %._crit_edge505.loopexit, !llvm.loop !70
 
@@ -1398,7 +1398,7 @@ smk_get_code.exit:                                ; preds = %602, %.loopexit, %2
   br label %smk_get_code.exit.thread336
 
 smk_get_code.exit.thread336:                      ; preds = %287, %.lr.ph, %._crit_edge505, %48, %10, %4, %612
-  %.0 = phi i32 [ %613, %612 ], [ -1094995529, %4 ], [ %13, %10 ], [ -1094995529, %48 ], [ %610, %._crit_edge505 ], [ -1094995529, %.lr.ph ], [ -1094995529, %287 ]
+  %.0 = phi i32 [ %613, %612 ], [ -1094995529, %4 ], [ %13, %10 ], [ %610, %._crit_edge505 ], [ -1094995529, %48 ], [ -1094995529, %.lr.ph ], [ -1094995529, %287 ]
   ret i32 %.0
 }
 
@@ -2094,7 +2094,7 @@ get_vlc2.exit179:                                 ; preds = %333, %350, %370
   br label %.loopexit199
 
 .loopexit199:                                     ; preds = %131, %324, %.loopexit208, %.loopexit198
-  %.3134 = phi i32 [ %.1132, %.loopexit208 ], [ %13, %.loopexit198 ], [ -1094995529, %324 ], [ -1094995529, %131 ]
+  %.3134 = phi i32 [ %.1132, %.loopexit208 ], [ -1094995529, %324 ], [ %13, %.loopexit198 ], [ -1094995529, %131 ]
   br label %403
 
 403:                                              ; preds = %.loopexit199, %403
@@ -2106,7 +2106,7 @@ get_vlc2.exit179:                                 ; preds = %333, %350, %370
   br i1 %exitcond284.not, label %.loopexit, label %403, !llvm.loop !93
 
 .loopexit:                                        ; preds = %403, %62, %20, %61, %54, %47, %37, %19, %15
-  %.0 = phi i32 [ -1094995529, %15 ], [ -1094995529, %19 ], [ -1094995529, %47 ], [ -1094995529, %54 ], [ -1094995529, %61 ], [ 1, %37 ], [ -1094995529, %20 ], [ %63, %62 ], [ %.3134, %403 ]
+  %.0 = phi i32 [ -1094995529, %15 ], [ -1094995529, %19 ], [ 1, %37 ], [ -1094995529, %47 ], [ -1094995529, %54 ], [ -1094995529, %61 ], [ -1094995529, %20 ], [ %63, %62 ], [ %.3134, %403 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2321,7 +2321,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @smacker_decode_header_tree
   br label %.loopexit.loopexit.critedge
 
 .loopexit.loopexit.critedge:                      ; preds = %.loopexit57, %111, %115, %51, %92
-  %.4 = phi i32 [ %93, %92 ], [ %.2, %.loopexit57 ], [ -12, %51 ], [ 0, %115 ], [ 0, %111 ]
+  %.4 = phi i32 [ %93, %92 ], [ -12, %51 ], [ %.2, %.loopexit57 ], [ 0, %115 ], [ 0, %111 ]
   call void @ff_vlc_free(ptr noundef nonnull %6) #7
   %118 = getelementptr inbounds nuw i8, ptr %6, i64 24
   call void @ff_vlc_free(ptr noundef nonnull %118) #7
@@ -2412,7 +2412,7 @@ tailrecurse:                                      ; preds = %41, %4
   br i1 %.not25, label %tailrecurse, label %.loopexit
 
 .loopexit:                                        ; preds = %41, %23, %27, %22, %6
-  %.0 = phi i32 [ -1094995529, %6 ], [ -1094995529, %22 ], [ 0, %27 ], [ -1094995529, %23 ], [ %43, %41 ]
+  %.0 = phi i32 [ -1094995529, %6 ], [ -1094995529, %23 ], [ -1094995529, %22 ], [ 0, %27 ], [ %43, %41 ]
   ret i32 %.0
 }
 

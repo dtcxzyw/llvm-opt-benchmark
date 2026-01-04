@@ -128,7 +128,7 @@ define void @_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii(ptr noundef nonnull readnone a
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader46, %.preheader, %.preheader48, %22, %33
-  %.040 = phi i32 [ %29, %22 ], [ %5, %33 ], [ %5, %.preheader48 ], [ %5, %.preheader ], [ %29, %.preheader46 ]
+  %.040 = phi i32 [ %5, %33 ], [ %5, %.preheader48 ], [ %29, %22 ], [ %5, %.preheader ], [ %29, %.preheader46 ]
   %40 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %.040, ptr %40, align 4, !tbaa !76
   %41 = getelementptr inbounds nuw i8, ptr %12, i64 2
@@ -1272,8 +1272,8 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %59
   br label %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit
 
 _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %79, %.noexc74, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.12.0 = phi ptr [ %76, %.noexc74 ], [ %76, %79 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.096.0 = phi ptr [ %75, %.noexc74 ], [ %75, %79 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.12.0 = phi ptr [ %76, %79 ], [ %76, %.noexc74 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.096.0 = phi ptr [ %75, %79 ], [ %75, %.noexc74 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 5348
   %82 = load i32, ptr %81, align 4, !tbaa !112
   %.not63 = icmp eq i32 %82, 0

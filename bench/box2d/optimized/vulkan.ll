@@ -297,7 +297,7 @@ define hidden range(i32 0, 2) i32 @_glfwInitVulkan(i32 noundef %0) local_unnamed
   br label %_glfwTerminateVulkan.exit
 
 _glfwTerminateVulkan.exit:                        ; preds = %41, %38, %31, %29, %22, %20, %16, %14, %9, %11, %1, %._crit_edge
-  %.028 = phi i32 [ 1, %._crit_edge ], [ 1, %1 ], [ 0, %11 ], [ 0, %9 ], [ 0, %14 ], [ 0, %16 ], [ 0, %20 ], [ 0, %22 ], [ 0, %29 ], [ 0, %31 ], [ 0, %38 ], [ 0, %41 ]
+  %.028 = phi i32 [ 1, %1 ], [ 0, %22 ], [ 0, %31 ], [ 1, %._crit_edge ], [ 0, %16 ], [ 0, %9 ], [ 0, %11 ], [ 0, %14 ], [ 0, %20 ], [ 0, %29 ], [ 0, %38 ], [ 0, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.028
 }
@@ -420,7 +420,7 @@ define hidden noundef nonnull ptr @_glfwGetVulkanResultString(i32 noundef %0) lo
   br label %25
 
 25:                                               ; preds = %1, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ @.str.38, %24 ], [ @.str.16, %2 ], [ @.str.17, %3 ], [ @.str.18, %4 ], [ @.str.19, %5 ], [ @.str.20, %6 ], [ @.str.21, %7 ], [ @.str.22, %8 ], [ @.str.23, %9 ], [ @.str.24, %10 ], [ @.str.25, %11 ], [ @.str.26, %12 ], [ @.str.27, %13 ], [ @.str.28, %14 ], [ @.str.29, %15 ], [ @.str.30, %16 ], [ @.str.31, %17 ], [ @.str.32, %18 ], [ @.str.33, %19 ], [ @.str.34, %20 ], [ @.str.35, %21 ], [ @.str.36, %22 ], [ @.str.37, %23 ], [ @.str.15, %1 ]
+  %.0 = phi ptr [ @.str.38, %24 ], [ @.str.37, %23 ], [ @.str.16, %2 ], [ @.str.17, %3 ], [ @.str.18, %4 ], [ @.str.19, %5 ], [ @.str.20, %6 ], [ @.str.21, %7 ], [ @.str.22, %8 ], [ @.str.23, %9 ], [ @.str.24, %10 ], [ @.str.25, %11 ], [ @.str.26, %12 ], [ @.str.27, %13 ], [ @.str.28, %14 ], [ @.str.29, %15 ], [ @.str.30, %16 ], [ @.str.31, %17 ], [ @.str.32, %18 ], [ @.str.33, %19 ], [ @.str.34, %20 ], [ @.str.35, %21 ], [ @.str.36, %22 ], [ @.str.15, %1 ]
   ret ptr %.0
 }
 
@@ -476,7 +476,7 @@ define ptr @glfwGetRequiredInstanceExtensions(ptr noundef writeonly captures(non
   br label %8
 
 8:                                                ; preds = %4, %7, %3
-  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_glfw, i64 133816), %7 ], [ null, %3 ], [ null, %4 ]
+  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_glfw, i64 133816), %7 ], [ null, %4 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -514,7 +514,7 @@ define ptr @glfwGetInstanceProcAddress(ptr noundef %0, ptr noundef %1) local_unn
   br label %18
 
 18:                                               ; preds = %7, %11, %16, %5, %4
-  %.08 = phi ptr [ null, %4 ], [ null, %5 ], [ %17, %16 ], [ %12, %11 ], [ %10, %7 ]
+  %.08 = phi ptr [ %12, %11 ], [ null, %5 ], [ null, %4 ], [ %17, %16 ], [ %10, %7 ]
   ret ptr %.08
 }
 

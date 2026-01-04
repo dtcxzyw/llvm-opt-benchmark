@@ -219,12 +219,7 @@ lor.lhs.false94:                                  ; preds = %if.then69
 if.else106:                                       ; preds = %if.else62
   %and108 = and i32 %conv, 252
   %cmp109 = icmp eq i32 %and108, 248
-  br i1 %cmp109, label %if.then110, label %if.else116
-
-if.then110:                                       ; preds = %if.else106
-  %add.ptr111 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %cmp112.not.not = icmp ugt ptr %add.ptr111, %pEnd
-  br i1 %cmp112.not.not, label %.thread, label %Failure.thread76
+  br i1 %cmp109, label %Failure, label %if.else116
 
 if.else116:                                       ; preds = %if.else106
   %and118 = and i32 %conv, 254
@@ -234,14 +229,19 @@ if.else116:                                       ; preds = %if.else106
   %or.cond89 = select i1 %cmp119, i1 true, i1 %cmp122.not.not
   br i1 %or.cond89, label %.thread, label %Failure.thread76
 
-.thread:                                          ; preds = %if.then69, %lor.lhs.false94, %if.then34, %lor.lhs.false50, %entry, %if.else116, %if.then66, %if.then31, %if.then10, %if.else, %if.then13, %if.then110
+Failure:                                          ; preds = %if.else106
+  %add.ptr111 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %cmp112.not.not = icmp ugt ptr %add.ptr111, %pEnd
+  br i1 %cmp112.not.not, label %.thread, label %Failure.thread76
+
+.thread:                                          ; preds = %if.then69, %lor.lhs.false94, %if.then34, %lor.lhs.false50, %if.then66, %if.then31, %if.then10, %if.else, %entry, %if.else116, %Failure, %if.then13
   %.ph = getelementptr inbounds nuw i8, ptr %0, i64 1
   br label %Failure.thread76
 
-Failure.thread76:                                 ; preds = %if.else116, %lor.lhs.false94, %lor.lhs.false50, %if.then2, %if.then13, %if.then110, %.thread
-  %12 = phi ptr [ %.ph, %.thread ], [ %add.ptr11, %if.then13 ], [ %add.ptr111, %if.then110 ], [ %add.ptr67, %lor.lhs.false94 ], [ %add.ptr32, %lor.lhs.false50 ], [ %add.ptr, %if.then2 ], [ %add.ptr121, %if.else116 ]
-  %success.07388 = phi i1 [ false, %.thread ], [ true, %if.then13 ], [ true, %if.then110 ], [ true, %lor.lhs.false94 ], [ true, %lor.lhs.false50 ], [ true, %if.then2 ], [ true, %if.else116 ]
-  %13 = phi i32 [ 65535, %.thread ], [ %or, %if.then13 ], [ 65535, %if.then110 ], [ %or86, %lor.lhs.false94 ], [ %or46, %lor.lhs.false50 ], [ %conv, %if.then2 ], [ 65535, %if.else116 ]
+Failure.thread76:                                 ; preds = %if.else116, %lor.lhs.false50, %lor.lhs.false94, %if.then2, %Failure, %if.then13, %.thread
+  %12 = phi ptr [ %.ph, %.thread ], [ %add.ptr121, %if.else116 ], [ %add.ptr111, %Failure ], [ %add.ptr11, %if.then13 ], [ %add.ptr32, %lor.lhs.false50 ], [ %add.ptr67, %lor.lhs.false94 ], [ %add.ptr, %if.then2 ]
+  %success.07388 = phi i1 [ false, %.thread ], [ true, %if.else116 ], [ true, %Failure ], [ true, %if.then13 ], [ true, %lor.lhs.false50 ], [ true, %lor.lhs.false94 ], [ true, %if.then2 ]
+  %13 = phi i32 [ 65535, %.thread ], [ 65535, %if.else116 ], [ 65535, %Failure ], [ %or, %if.then13 ], [ %or46, %lor.lhs.false50 ], [ %or86, %lor.lhs.false94 ], [ %conv, %if.then2 ]
   store ptr %12, ptr %p, align 8
   store i32 %13, ptr %result, align 4
   ret i1 %success.07388

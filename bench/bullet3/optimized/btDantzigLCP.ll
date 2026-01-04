@@ -4309,7 +4309,7 @@ _ZN20btAlignedObjectArrayIbE6resizeEiRKb.exit:    ; preds = %_ZN20btAlignedObjec
   br i1 %exitcond709.not, label %.loopexit, label %371, !llvm.loop !132
 
 .loopexit:                                        ; preds = %385, %357, %356
-  %.1 = phi i1 [ false, %357 ], [ %.0283671, %356 ], [ true, %385 ]
+  %.1 = phi i1 [ %.0283671, %356 ], [ false, %357 ], [ true, %385 ]
   %387 = load ptr, ptr %344, align 8, !tbaa !43
   %388 = getelementptr inbounds ptr, ptr %387, i64 %indvars.iv704
   %389 = load ptr, ptr %388, align 8, !tbaa !58
@@ -4705,8 +4705,8 @@ _ZN5btLCP22pN_equals_ANC_times_qCEPfS0_.exit.thread: ; preds = %492
   br i1 %exitcond.not.i569, label %_ZN5btLCP17pN_plusequals_ANiEPfii.exit, label %.lr.ph.i566, !llvm.loop !99
 
 _ZN5btLCP17pN_plusequals_ANiEPfii.exit:           ; preds = %.lr.ph.i566, %.lr.ph23.i, %_ZN5btLCP22pN_equals_ANC_times_qCEPfS0_.exit.thread
-  %.02931.i.i570.pre-phi = phi i32 [ %.pre745, %_ZN5btLCP22pN_equals_ANC_times_qCEPfS0_.exit.thread ], [ %.02931.i.i559, %.lr.ph23.i ], [ %.02931.i.i559, %.lr.ph.i566 ]
-  %565 = phi ptr [ %554, %_ZN5btLCP22pN_equals_ANC_times_qCEPfS0_.exit.thread ], [ %551, %.lr.ph23.i ], [ %551, %.lr.ph.i566 ]
+  %.02931.i.i570.pre-phi = phi i32 [ %.02931.i.i559, %.lr.ph23.i ], [ %.pre745, %_ZN5btLCP22pN_equals_ANC_times_qCEPfS0_.exit.thread ], [ %.02931.i.i559, %.lr.ph.i566 ]
+  %565 = phi ptr [ %551, %.lr.ph23.i ], [ %554, %_ZN5btLCP22pN_equals_ANC_times_qCEPfS0_.exit.thread ], [ %551, %.lr.ph.i566 ]
   %566 = icmp sgt i32 %494, 1
   br i1 %566, label %.lr.ph.i.i578, label %._crit_edge.i.i571
 

@@ -220,7 +220,7 @@ bytestream2_init.exit:                            ; preds = %4
   br label %109
 
 109:                                              ; preds = %106, %64, %60, %107, %59, %48, %42, %22, %19
-  %.057 = phi i32 [ -1094995529, %19 ], [ -1094995529, %22 ], [ -1094995529, %42 ], [ -1094995529, %48 ], [ %108, %107 ], [ -1094995529, %59 ], [ %62, %60 ], [ %65, %64 ], [ %.0, %106 ]
+  %.057 = phi i32 [ -1094995529, %19 ], [ -1094995529, %22 ], [ -1094995529, %42 ], [ -1094995529, %48 ], [ -1094995529, %59 ], [ %62, %60 ], [ %65, %64 ], [ %108, %107 ], [ %.0, %106 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -686,7 +686,7 @@ bytestream2_get_le16.exit34.i:                    ; preds = %207, %206
   br label %.critedge
 
 .critedge:                                        ; preds = %.split74, %._crit_edge.i49, %168, %.split74.us.us.split, %._crit_edge.i.loopexit.us.us, %85, %.split74.us.us.split.us.split.us.us, %.critedge.sink.split, %.preheader, %8
-  %.038 = phi i32 [ -1094995529, %8 ], [ 0, %.preheader ], [ -1094995529, %.critedge.sink.split ], [ 0, %.split74.us.us.split.us.split.us.us ], [ -1094995529, %85 ], [ -1094995529, %._crit_edge.i.loopexit.us.us ], [ 0, %.split74.us.us.split ], [ -1094995529, %168 ], [ -1094995529, %._crit_edge.i49 ], [ 0, %.split74 ]
+  %.038 = phi i32 [ -1094995529, %8 ], [ 0, %.split74.us.us.split.us.split.us.us ], [ -1094995529, %168 ], [ -1094995529, %._crit_edge.i.loopexit.us.us ], [ -1094995529, %.critedge.sink.split ], [ -1094995529, %._crit_edge.i49 ], [ 0, %.split74.us.us.split ], [ -1094995529, %85 ], [ 0, %.preheader ], [ 0, %.split74 ]
   ret i32 %.038
 }
 

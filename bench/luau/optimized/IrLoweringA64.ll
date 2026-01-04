@@ -2197,7 +2197,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
   br label %.thread3639
 
 .thread3639:                                      ; preds = %.thread3645, %1124, %.thread, %.thread3689, %1122, %1140, %1144, %1128, %1100
-  %.sroa.03541.0 = phi i8 [ %1101, %1100 ], [ %1123, %1122 ], [ 0, %1128 ], [ 0, %1140 ], [ 0, %1144 ], [ 0, %.thread3689 ], [ 0, %.thread ], [ 0, %1124 ], [ 0, %.thread3645 ]
+  %.sroa.03541.0 = phi i8 [ %1101, %1100 ], [ %1123, %1122 ], [ 0, %1128 ], [ 0, %1140 ], [ 0, %1144 ], [ 0, %.thread3645 ], [ 0, %.thread3689 ], [ 0, %1124 ], [ 0, %.thread ]
   %1157 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.01354.0.copyload = load i32, ptr %1157, align 4, !tbaa !43
   %1158 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6881,8 +6881,8 @@ _ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit: ; preds = %31, %35
   br label %39
 
 39:                                               ; preds = %3, %14, %_ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_m.exit, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit, %5
-  %.sroa.1623.0 = phi i32 [ %7, %5 ], [ %15, %14 ], [ 0, %_ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_m.exit ], [ %2, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit ], [ 0, %3 ]
-  %.sroa.6.0 = phi i8 [ -54, %5 ], [ -78, %14 ], [ %17, %_ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_m.exit ], [ %.sroa.06.0.copyload.i, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit ], [ 0, %3 ]
+  %.sroa.1623.0 = phi i32 [ %2, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit ], [ %7, %5 ], [ %15, %14 ], [ 0, %_ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_m.exit ], [ 0, %3 ]
+  %.sroa.6.0 = phi i8 [ %.sroa.06.0.copyload.i, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit ], [ -54, %5 ], [ -78, %14 ], [ %17, %_ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_m.exit ], [ 0, %3 ]
   %.sroa.1623.0.insert.ext = zext i32 %.sroa.1623.0 to i64
   %.sroa.1623.0.insert.shift = shl nuw i64 %.sroa.1623.0.insert.ext, 32
   %.sroa.6.0.insert.ext = zext i8 %.sroa.6.0 to i64
@@ -7107,7 +7107,7 @@ _ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit: ; preds = %15, %19
   br label %60
 
 60:                                               ; preds = %2, %35, %51, %58, %43, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit
-  %.sroa.032.0 = phi i8 [ %.sroa.06.0.copyload.i, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit ], [ %36, %35 ], [ %40, %51 ], [ %40, %58 ], [ %40, %43 ], [ 0, %2 ]
+  %.sroa.032.0 = phi i8 [ %.sroa.06.0.copyload.i, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit ], [ %40, %43 ], [ %36, %35 ], [ %40, %51 ], [ %40, %58 ], [ 0, %2 ]
   ret i8 %.sroa.032.0
 }
 
@@ -7308,8 +7308,8 @@ _ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEE4findERKj.exit: ; preds = %28
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 24
   br label %_ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEE4findERKj.exit.thread
 
-_ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEE4findERKj.exit.thread: ; preds = %34, %32, %17, %12, %_ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEE4findERKj.exit, %3, %45, %8
-  %.0 = phi ptr [ %11, %8 ], [ %52, %45 ], [ %2, %3 ], [ %44, %_ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEE4findERKj.exit ], [ %2, %12 ], [ %2, %17 ], [ %2, %32 ], [ %2, %34 ]
+_ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEE4findERKj.exit.thread: ; preds = %34, %32, %12, %17, %_ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEE4findERKj.exit, %3, %45, %8
+  %.0 = phi ptr [ %52, %45 ], [ %11, %8 ], [ %2, %3 ], [ %44, %_ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEE4findERKj.exit ], [ %2, %17 ], [ %2, %12 ], [ %2, %32 ], [ %2, %34 ]
   ret ptr %.0
 }
 
@@ -7411,7 +7411,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA6419finalizeTargetLabelE
   br label %_ZN4Luau6detail14DenseHashTableIjSt4pairIjjES2_IKjjENS0_16ItemInterfaceMapIjjEESt4hashIjESt8equal_toIjEE14rehash_if_fullERS4_.exit.i
 
 _ZN4Luau6detail14DenseHashTableIjSt4pairIjjES2_IKjjENS0_16ItemInterfaceMapIjjEESt4hashIjESt8equal_toIjEE14rehash_if_fullERS4_.exit.i: ; preds = %45, %.loopexit.i.i, %16
-  %55 = phi i64 [ %31, %16 ], [ %.pre.i, %.loopexit.i.i ], [ %31, %45 ]
+  %55 = phi i64 [ %.pre.i, %.loopexit.i.i ], [ %31, %16 ], [ %31, %45 ]
   %56 = add i64 %55, -1
   %57 = zext nneg i32 %27 to i64
   %58 = and i64 %56, %57
@@ -7702,7 +7702,7 @@ define internal fastcc noundef zeroext i1 @_ZN4Luau7CodeGen3A64L11emitBuiltinERN
   br label %22
 
 22:                                               ; preds = %.sink.split, %6, %14, %7
-  %.0 = phi i1 [ true, %7 ], [ true, %14 ], [ false, %6 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ true, %14 ], [ true, %7 ], [ false, %6 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 
@@ -8283,8 +8283,8 @@ _ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit46: ; preds = %103, %10
   br label %_ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_m.exit
 
 _ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_m.exit: ; preds = %4, %118, %116, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit44, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit42, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit40
-  %.sroa.1647.0 = phi i32 [ %6, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit40 ], [ %.pre-phi, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit42 ], [ %6, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit44 ], [ %6, %116 ], [ %6, %118 ], [ 0, %4 ]
-  %.sroa.6.0 = phi i8 [ %10, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit40 ], [ %.sroa.06.0.copyload.i41, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit42 ], [ %.sroa.06.0.copyload.i43, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit44 ], [ %92, %116 ], [ %92, %118 ], [ 0, %4 ]
+  %.sroa.1647.0 = phi i32 [ %6, %118 ], [ %6, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit40 ], [ %.pre-phi, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit42 ], [ %6, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit44 ], [ %6, %116 ], [ 0, %4 ]
+  %.sroa.6.0 = phi i8 [ %92, %118 ], [ %10, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit40 ], [ %.sroa.06.0.copyload.i41, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit42 ], [ %.sroa.06.0.copyload.i43, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit44 ], [ %92, %116 ], [ 0, %4 ]
   %.sroa.1647.0.insert.ext = zext i32 %.sroa.1647.0 to i64
   %.sroa.1647.0.insert.shift = shl nuw i64 %.sroa.1647.0.insert.ext, 32
   %.sroa.6.0.insert.ext = zext i8 %.sroa.6.0 to i64

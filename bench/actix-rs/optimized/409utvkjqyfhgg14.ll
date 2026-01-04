@@ -1042,8 +1042,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit251
   br label %217
 
 217:                                              ; preds = %204, %178, %.loopexit, %305, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit258", %.critedge210
-  %.sroa.7.1 = phi ptr [ null, %.critedge210 ], [ null, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit258" ], [ %.sroa.7.3, %.loopexit ], [ %306, %305 ], [ null, %178 ], [ null, %204 ]
-  %.sroa.0.1 = phi i64 [ 0, %.critedge210 ], [ 0, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit258" ], [ %.sroa.0.3, %.loopexit ], [ 0, %305 ], [ 0, %178 ], [ 0, %204 ]
+  %.sroa.7.1 = phi ptr [ null, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit258" ], [ %.sroa.7.3, %.loopexit ], [ %306, %305 ], [ null, %.critedge210 ], [ null, %178 ], [ null, %204 ]
+  %.sroa.0.1 = phi i64 [ 0, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit258" ], [ %.sroa.0.3, %.loopexit ], [ 0, %305 ], [ 0, %.critedge210 ], [ 0, %178 ], [ 0, %204 ]
   %218 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
   %219 = insertvalue { i64, ptr } %218, ptr %.sroa.7.1, 1
   ret { i64, ptr } %219
@@ -1916,8 +1916,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit251
   br label %248
 
 248:                                              ; preds = %235, %209, %182, %.loopexit, %333, %"_ZN103_$LT$awc..client..connection..Connection$LT$A$C$B$GT$$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$10poll_flush17h14e60693425fc345E.exit", %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit258", %.critedge210
-  %.sroa.7.1 = phi ptr [ null, %.critedge210 ], [ null, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit258" ], [ %.sroa.7.3, %.loopexit ], [ %334, %333 ], [ undef, %"_ZN103_$LT$awc..client..connection..Connection$LT$A$C$B$GT$$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$10poll_flush17h14e60693425fc345E.exit" ], [ %183, %182 ], [ null, %209 ], [ null, %235 ]
-  %.sroa.0.1 = phi i64 [ 0, %.critedge210 ], [ 0, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit258" ], [ %.sroa.0.3, %.loopexit ], [ 0, %333 ], [ %180, %"_ZN103_$LT$awc..client..connection..Connection$LT$A$C$B$GT$$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$10poll_flush17h14e60693425fc345E.exit" ], [ 0, %182 ], [ 0, %209 ], [ 0, %235 ]
+  %.sroa.7.1 = phi ptr [ null, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit258" ], [ %183, %182 ], [ undef, %"_ZN103_$LT$awc..client..connection..Connection$LT$A$C$B$GT$$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$10poll_flush17h14e60693425fc345E.exit" ], [ null, %.critedge210 ], [ %334, %333 ], [ %.sroa.7.3, %.loopexit ], [ null, %209 ], [ null, %235 ]
+  %.sroa.0.1 = phi i64 [ 0, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit258" ], [ 0, %182 ], [ %180, %"_ZN103_$LT$awc..client..connection..Connection$LT$A$C$B$GT$$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$10poll_flush17h14e60693425fc345E.exit" ], [ 0, %.critedge210 ], [ 0, %333 ], [ %.sroa.0.3, %.loopexit ], [ 0, %209 ], [ 0, %235 ]
   %249 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
   %250 = insertvalue { i64, ptr } %249, ptr %.sroa.7.1, 1
   ret { i64, ptr } %250
@@ -2731,8 +2731,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit251
   br label %229
 
 229:                                              ; preds = %216, %190, %163, %.loopexit, %320, %"_ZN102_$LT$awc..client..connection..H1Connection$LT$Io$GT$$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$10poll_flush17h3dfc97246f5a4ccdE.exit", %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit258", %.critedge210
-  %.sroa.7.1 = phi ptr [ null, %.critedge210 ], [ null, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit258" ], [ %.sroa.7.3, %.loopexit ], [ %321, %320 ], [ undef, %"_ZN102_$LT$awc..client..connection..H1Connection$LT$Io$GT$$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$10poll_flush17h3dfc97246f5a4ccdE.exit" ], [ %164, %163 ], [ null, %190 ], [ null, %216 ]
-  %.sroa.0.1 = phi i64 [ 0, %.critedge210 ], [ 0, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit258" ], [ %.sroa.0.3, %.loopexit ], [ 0, %320 ], [ %161, %"_ZN102_$LT$awc..client..connection..H1Connection$LT$Io$GT$$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$10poll_flush17h3dfc97246f5a4ccdE.exit" ], [ 0, %163 ], [ 0, %190 ], [ 0, %216 ]
+  %.sroa.7.1 = phi ptr [ null, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit258" ], [ %164, %163 ], [ undef, %"_ZN102_$LT$awc..client..connection..H1Connection$LT$Io$GT$$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$10poll_flush17h3dfc97246f5a4ccdE.exit" ], [ null, %.critedge210 ], [ %321, %320 ], [ %.sroa.7.3, %.loopexit ], [ null, %190 ], [ null, %216 ]
+  %.sroa.0.1 = phi i64 [ 0, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit258" ], [ 0, %163 ], [ %161, %"_ZN102_$LT$awc..client..connection..H1Connection$LT$Io$GT$$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$10poll_flush17h3dfc97246f5a4ccdE.exit" ], [ 0, %.critedge210 ], [ 0, %320 ], [ %.sroa.0.3, %.loopexit ], [ 0, %190 ], [ 0, %216 ]
   %230 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
   %231 = insertvalue { i64, ptr } %230, ptr %.sroa.7.1, 1
   ret { i64, ptr } %231
@@ -7026,7 +7026,7 @@ common.resume:                                    ; preds = %16, %9
   unreachable
 
 "_ZN4core3ptr100drop_in_place$LT$awc..client..connection..H1Connection$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$17h6ed2c62fa46de1a9E.exit": ; preds = %15, %14, %8, %7
-  %.sink1 = phi i64 [ 24, %7 ], [ 24, %8 ], [ 40, %14 ], [ 40, %15 ]
+  %.sink1 = phi i64 [ 24, %8 ], [ 24, %7 ], [ 40, %14 ], [ 40, %15 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink1
   tail call void @"_ZN4core3ptr90drop_in_place$LT$awc..client..pool..Acquired$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$17h935d4af19350404bE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %21)
   ret void
@@ -7215,7 +7215,7 @@ common.resume:                                    ; preds = %25, %.body.i
   unreachable
 
 "_ZN4core3ptr136drop_in_place$LT$awc..client..connection..H1Connection$LT$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$GT$17hdc92c7e24e99bfc2E.exit": ; preds = %24, %21, %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$17hda2479b6faf0dbfeE.llvm.14828715386332725032.exit.i.i", %5
-  %.sink1 = phi i64 [ 16, %5 ], [ 16, %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$17hda2479b6faf0dbfeE.llvm.14828715386332725032.exit.i.i" ], [ 40, %21 ], [ 40, %24 ]
+  %.sink1 = phi i64 [ 16, %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$17hda2479b6faf0dbfeE.llvm.14828715386332725032.exit.i.i" ], [ 16, %5 ], [ 40, %21 ], [ 40, %24 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink1
   tail call void @"_ZN4core3ptr126drop_in_place$LT$awc..client..pool..Acquired$LT$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$GT$17hfdbd21aa61aa47cbE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %30)
   ret void

@@ -1000,7 +1000,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i69:           ; preds = %185, %183, %181, %.
   br i1 %or.cond136, label %197, label %.sink.split
 
 .sink.split:                                      ; preds = %194, %151, %103
-  %.sink = phi ptr [ %105, %103 ], [ %153, %151 ], [ %196, %194 ]
+  %.sink = phi ptr [ %153, %151 ], [ %105, %103 ], [ %196, %194 ]
   store ptr %.sink, ptr %48, align 8
   br label %197
 
@@ -1513,7 +1513,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8
   br label %41
 
@@ -1811,7 +1811,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8
   br label %41
 
@@ -2443,7 +2443,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %83
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i: ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %83
-  %.0.i.i.i.i91 = phi ptr [ %84, %83 ], [ %87, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ]
+  %.0.i.i.i.i91 = phi ptr [ %87, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %84, %83 ]
   store ptr %.0.i.i.i.i91, ptr %22, align 8
   br label %.noexc
 
@@ -2560,7 +2560,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %128
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i: ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %128
-  %.0.i.i.i.i = phi ptr [ %129, %128 ], [ %132, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ]
+  %.0.i.i.i.i = phi ptr [ %132, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %129, %128 ]
   store ptr %.0.i.i.i.i, ptr %20, align 8
   %.pre = load ptr, ptr %19, align 8
   br label %154
@@ -4124,8 +4124,8 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj30ELb1EE7SetSizeEj.exit: ; p
   br label %116
 
 116:                                              ; preds = %.thread, %100
-  %117 = phi i16 [ %109, %100 ], [ %99, %.thread ]
-  %118 = phi i16 [ %115, %100 ], [ 0, %.thread ]
+  %117 = phi i16 [ %99, %.thread ], [ %109, %100 ]
+  %118 = phi i16 [ 0, %.thread ], [ %115, %100 ]
   %119 = and i16 %117, -3777
   %120 = or disjoint i16 %118, %119
   store i16 %120, ptr %95, align 8
@@ -6876,7 +6876,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i69:           ; preds = %185, %183, %181, %.
   br i1 %or.cond135, label %197, label %.sink.split
 
 .sink.split:                                      ; preds = %194, %151, %103
-  %.sink = phi ptr [ %105, %103 ], [ %153, %151 ], [ %196, %194 ]
+  %.sink = phi ptr [ %153, %151 ], [ %105, %103 ], [ %196, %194 ]
   store ptr %.sink, ptr %48, align 8
   br label %197
 
@@ -7382,7 +7382,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8
   br label %41
 
@@ -7853,7 +7853,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far10LoopLimitsIdE27ComputeInte
   br i1 %exitcond.not.i31.i, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE22ComputeVertexLimitMaskINS0_3Far10LoopLimitsIdE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_SF_SF_NS1_6Crease4RuleE.exit, label %.lr.ph.i28.i, !llvm.loop !58
 
 _ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE22ComputeVertexLimitMaskINS0_3Far10LoopLimitsIdE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_SF_SF_NS1_6Crease4RuleE.exit: ; preds = %.lr.ph.i28.i, %72, %91
-  %.pre-phi = phi double [ 6.000000e+00, %72 ], [ %55, %91 ], [ %55, %.lr.ph.i28.i ]
+  %.pre-phi = phi double [ %55, %91 ], [ 6.000000e+00, %72 ], [ %55, %.lr.ph.i28.i ]
   %103 = fdiv double 0x401921FB54442D18, %.pre-phi
   %104 = call double @cos(double noundef %103) #16
   %105 = call double @llvm.fmuladd.f64(double %104, double 2.000000e+00, double 3.000000e+00)
@@ -8072,7 +8072,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %83
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i: ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %83
-  %.0.i.i.i.i91 = phi ptr [ %84, %83 ], [ %87, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ]
+  %.0.i.i.i.i91 = phi ptr [ %87, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %84, %83 ]
   store ptr %.0.i.i.i.i91, ptr %22, align 8
   br label %.noexc
 
@@ -8189,7 +8189,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %128
   br label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit.i: ; preds = %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %128
-  %.0.i.i.i.i = phi ptr [ %129, %128 ], [ %132, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ]
+  %.0.i.i.i.i = phi ptr [ %132, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %129, %128 ]
   store ptr %.0.i.i.i.i, ptr %20, align 8
   %.pre = load ptr, ptr %19, align 8
   br label %154
@@ -9724,8 +9724,8 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj30ELb1EE7SetSizeEj.exit: ; p
   br label %114
 
 114:                                              ; preds = %.thread, %98
-  %115 = phi i16 [ %107, %98 ], [ %97, %.thread ]
-  %116 = phi i16 [ %113, %98 ], [ 0, %.thread ]
+  %115 = phi i16 [ %97, %.thread ], [ %107, %98 ]
+  %116 = phi i16 [ 0, %.thread ], [ %113, %98 ]
   %117 = and i16 %115, -3777
   %118 = or disjoint i16 %116, %117
   store i16 %118, ptr %93, align 8

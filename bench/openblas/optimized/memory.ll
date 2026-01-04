@@ -122,7 +122,7 @@ define i32 @get_num_procs() local_unnamed_addr #0 {
   br label %40
 
 40:                                               ; preds = %34, %39, %9, %32, %28, %20
-  %.sink30 = phi i32 [ %33, %32 ], [ %29, %28 ], [ %21, %20 ], [ %13, %9 ], [ %35, %39 ], [ %37, %34 ]
+  %.sink30 = phi i32 [ %13, %9 ], [ %33, %32 ], [ %29, %28 ], [ %21, %20 ], [ %35, %39 ], [ %37, %34 ]
   %41 = icmp sgt i32 %.sink30, 0
   %42 = select i1 %41, i32 %.sink30, i32 2
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -651,7 +651,7 @@ define void @blas_memory_free(ptr noundef %0) local_unnamed_addr #0 {
   br label %24
 
 22:                                               ; preds = %.critedge3.thread, %.critedge
-  %.1 = phi i32 [ 50, %.critedge ], [ 562, %.critedge3.thread ]
+  %.1 = phi i32 [ 562, %.critedge3.thread ], [ 50, %.critedge ]
   %23 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %.1, ptr noundef %0)
   br label %24
 

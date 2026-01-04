@@ -473,7 +473,7 @@ define range(i32 0, 2) i32 @Mvc_CoverIsCubeFree(ptr noundef %0) local_unnamed_ad
   br i1 %or.cond, label %.preheader, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.preheader, %12, %15, %9
-  %.013.shrunk = phi i1 [ %11, %9 ], [ false, %12 ], [ %18, %15 ], [ %.not, %.preheader ]
+  %.013.shrunk = phi i1 [ %11, %9 ], [ %18, %15 ], [ false, %12 ], [ %.not, %.preheader ]
   %.013 = zext i1 %.013.shrunk to i32
   ret i32 %.013
 }
@@ -861,7 +861,7 @@ Mvc_CoverSupport.exit50.thread61:                 ; preds = %60, %Mvc_CoverSuppo
   br i1 %or.cond, label %99, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %99, %Mvc_CoverSupport.exit50.thread61, %92, %Mvc_CoverSupport.exit50.thread
-  %.021 = phi i1 [ %85, %Mvc_CoverSupport.exit50.thread ], [ false, %Mvc_CoverSupport.exit50.thread61 ], [ %.not51, %92 ], [ %.not, %99 ]
+  %.021 = phi i1 [ %85, %Mvc_CoverSupport.exit50.thread ], [ %.not51, %92 ], [ false, %Mvc_CoverSupport.exit50.thread61 ], [ %.not, %99 ]
   %109 = zext i1 %.021 to i32
   ret i32 %109
 }

@@ -1203,7 +1203,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i434, %423
   br label %463
 
 463:                                              ; preds = %437, %397, %460, %457, %pmix_obj_new_tma.exit, %pmix_obj_update.exit
-  %.0212 = phi i32 [ %409, %437 ], [ 0, %457 ], [ 0, %460 ], [ %394, %397 ], [ %394, %pmix_obj_new_tma.exit ], [ 0, %pmix_obj_update.exit ]
+  %.0212 = phi i32 [ %409, %437 ], [ %394, %pmix_obj_new_tma.exit ], [ 0, %457 ], [ 0, %460 ], [ 0, %pmix_obj_update.exit ], [ %394, %397 ]
   %464 = call i32 @pthread_mutex_lock(ptr noundef nonnull %376) #16
   %465 = icmp eq i32 %464, 35
   br i1 %465, label %466, label %pmix_obj_update.exit313
@@ -1258,7 +1258,7 @@ pmix_obj_run_destructors.exit442:                 ; preds = %.lr.ph.i439, %473
   br label %.thread482
 
 .thread482:                                       ; preds = %434, %436, %371, %366, %344, %330, %319, %305, %291, %280, %266, %255, %244, %pmix_obj_update.exit313, %486, %484
-  %.0212486 = phi i32 [ %.0212, %pmix_obj_update.exit313 ], [ %.0212, %486 ], [ %.0212, %484 ], [ 0, %436 ], [ 0, %434 ], [ %370, %371 ], [ -1, %366 ], [ %343, %344 ], [ %329, %330 ], [ %318, %319 ], [ %304, %305 ], [ %290, %291 ], [ %279, %280 ], [ %265, %266 ], [ %254, %255 ], [ %243, %244 ]
+  %.0212486 = phi i32 [ %.0212, %484 ], [ %.0212, %pmix_obj_update.exit313 ], [ %.0212, %486 ], [ 0, %436 ], [ 0, %434 ], [ %370, %371 ], [ -1, %366 ], [ %343, %344 ], [ %329, %330 ], [ %318, %319 ], [ %304, %305 ], [ %290, %291 ], [ %279, %280 ], [ %265, %266 ], [ %254, %255 ], [ %243, %244 ]
   %.not311 = icmp eq ptr %84, null
   br i1 %.not311, label %488, label %487
 
@@ -1271,7 +1271,7 @@ pmix_obj_run_destructors.exit442:                 ; preds = %.lr.ph.i439, %473
   br label %490
 
 490:                                              ; preds = %.thread, %._crit_edge, %488
-  %.0 = phi i32 [ %.0212486, %488 ], [ -1, %._crit_edge ], [ -27, %.thread ]
+  %.0 = phi i32 [ -27, %.thread ], [ %.0212486, %488 ], [ -1, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

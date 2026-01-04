@@ -513,10 +513,10 @@ Abc_NodeIsTravIdCurrent.exit:                     ; preds = %74, %._crit_edge.i.
   br i1 %.not91, label %.thread, label %124
 
 .thread:                                          ; preds = %37, %Abc_NodeIsTravIdCurrent.exit, %72
-  %122 = phi i1 [ false, %Abc_NodeIsTravIdCurrent.exit ], [ true, %72 ], [ true, %37 ]
-  %.06489 = phi ptr [ %66, %Abc_NodeIsTravIdCurrent.exit ], [ %66, %72 ], [ %53, %37 ]
-  %.06587 = phi ptr [ %61, %Abc_NodeIsTravIdCurrent.exit ], [ %61, %72 ], [ %51, %37 ]
-  %.06685 = phi ptr [ %67, %Abc_NodeIsTravIdCurrent.exit ], [ null, %72 ], [ null, %37 ]
+  %122 = phi i1 [ true, %72 ], [ false, %Abc_NodeIsTravIdCurrent.exit ], [ true, %37 ]
+  %.06489 = phi ptr [ %66, %72 ], [ %66, %Abc_NodeIsTravIdCurrent.exit ], [ %53, %37 ]
+  %.06587 = phi ptr [ %61, %72 ], [ %61, %Abc_NodeIsTravIdCurrent.exit ], [ %51, %37 ]
+  %.06685 = phi ptr [ null, %72 ], [ %67, %Abc_NodeIsTravIdCurrent.exit ], [ null, %37 ]
   %123 = add nsw i32 %.06094, 1
   %.not73 = icmp slt i32 %.06094, %2
   br i1 %.not73, label %124, label %.critedge2
@@ -563,7 +563,7 @@ Abc_NodeIsTravIdCurrent.exit:                     ; preds = %74, %._crit_edge.i.
   br label %151
 
 151:                                              ; preds = %141, %.sink.split, %134, %124
-  %.059 = phi i32 [ %133, %124 ], [ 0, %134 ], [ %150, %.sink.split ], [ %133, %141 ]
+  %.059 = phi i32 [ %133, %124 ], [ %133, %141 ], [ 0, %134 ], [ %150, %.sink.split ]
   %152 = icmp sgt i32 %.059, %3
   br i1 %152, label %.critedge2, label %.critedge
 
@@ -583,7 +583,7 @@ Abc_NodeIsTravIdCurrent.exit:                     ; preds = %74, %._crit_edge.i.
   br i1 %161, label %37, label %.critedge2, !llvm.loop !50
 
 .critedge2:                                       ; preds = %56, %.thread, %151, %.critedge, %.critedge.preheader, %4, %8
-  %.0 = phi i32 [ 0, %8 ], [ 0, %4 ], [ 0, %.critedge.preheader ], [ -1, %56 ], [ -1, %.thread ], [ -1, %151 ], [ %.161, %.critedge ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %4 ], [ 0, %.critedge.preheader ], [ -1, %151 ], [ -1, %56 ], [ -1, %.thread ], [ %.161, %.critedge ]
   ret i32 %.0
 }
 

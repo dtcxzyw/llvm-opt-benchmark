@@ -799,8 +799,8 @@ _ZN4llvm11raw_ostreamlsEc.exit84:                 ; preds = %330, %332
   br label %.thread
 
 .thread:                                          ; preds = %318, %_ZN4llvm11raw_ostreamlsEc.exit84, %323
-  %.sroa.0147.2195 = phi ptr [ %.sroa.0147.2280, %_ZN4llvm11raw_ostreamlsEc.exit84 ], [ %325, %323 ], [ null, %318 ]
-  %.sroa.7.2194 = phi i64 [ %.sroa.7.2279, %_ZN4llvm11raw_ostreamlsEc.exit84 ], [ 0, %323 ], [ 0, %318 ]
+  %.sroa.0147.2195 = phi ptr [ %325, %323 ], [ %.sroa.0147.2280, %_ZN4llvm11raw_ostreamlsEc.exit84 ], [ null, %318 ]
+  %.sroa.7.2194 = phi i64 [ 0, %323 ], [ %.sroa.7.2279, %_ZN4llvm11raw_ostreamlsEc.exit84 ], [ 0, %318 ]
   %335 = load ptr, ptr %96, align 8, !tbaa !51
   %336 = load ptr, ptr %95, align 8, !tbaa !46
   %337 = ptrtoint ptr %335 to i64
@@ -1880,7 +1880,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPKN4
   br i1 %42, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6RecordESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIPFbS5_S5_EEEEvT_T0_SH_T1_T2_.exit.us, !llvm.loop !93
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6RecordESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIPFbS5_S5_EEEEvT_T0_SH_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %39, %.split.us, %._crit_edge.i.us
-  %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.09.us, %.split.us ], [ %.0920.i.i.us, %39 ], [ %.019.i.i.us, %.lr.ph.i.i.us ]
+  %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.09.us, %.split.us ], [ %.019.i.i.us, %.lr.ph.i.i.us ], [ %.0920.i.i.us, %39 ]
   %43 = getelementptr inbounds nuw ptr, ptr %.fr17, i64 %.0.lcssa.i.i.us
   store ptr %21, ptr %43, align 8, !tbaa !13
   %.not.us = icmp eq i64 %.09.us, 0

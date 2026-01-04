@@ -64,7 +64,7 @@ lean_dec.exit35:                                  ; preds = %lean_string_utf8_at
   br label %.thread
 
 .thread:                                          ; preds = %lean_string_utf8_at_end.exit, %19, %18, %16
-  %.02949 = phi ptr [ %.029.lcssa, %19 ], [ %.029.lcssa, %18 ], [ %.029.lcssa, %16 ], [ %.02951, %lean_string_utf8_at_end.exit ]
+  %.02949 = phi ptr [ %.029.lcssa, %16 ], [ %.029.lcssa, %19 ], [ %.029.lcssa, %18 ], [ %.02951, %lean_string_utf8_at_end.exit ]
   ret ptr %.02949
 }
 
@@ -121,7 +121,7 @@ lean_dec.exit35.i:                                ; preds = %lean_string_utf8_at
   br label %l_String_mapAux___at_Lake_mkRelPathString___spec__1.exit
 
 l_String_mapAux___at_Lake_mkRelPathString___spec__1.exit: ; preds = %lean_string_utf8_at_end.exit.i, %18, %17, %15, %1
-  %.0 = phi ptr [ %0, %1 ], [ %9, %18 ], [ %9, %17 ], [ %9, %15 ], [ %.02951.i, %lean_string_utf8_at_end.exit.i ]
+  %.0 = phi ptr [ %0, %1 ], [ %9, %15 ], [ %9, %18 ], [ %9, %17 ], [ %.02951.i, %lean_string_utf8_at_end.exit.i ]
   ret ptr %.0
 }
 
@@ -172,7 +172,7 @@ lean_dec.exit35.i.i:                              ; preds = %lean_string_utf8_at
   br label %l_Lake_mkRelPathString.exit
 
 l_Lake_mkRelPathString.exit:                      ; preds = %lean_string_utf8_at_end.exit.i.i, %1, %15, %17, %18
-  %.0.i = phi ptr [ %0, %1 ], [ %9, %18 ], [ %9, %17 ], [ %9, %15 ], [ %.02951.i.i, %lean_string_utf8_at_end.exit.i.i ]
+  %.0.i = phi ptr [ %0, %1 ], [ %9, %15 ], [ %9, %18 ], [ %9, %17 ], [ %.02951.i.i, %lean_string_utf8_at_end.exit.i.i ]
   tail call void @lean_inc_heartbeat() #3
   %19 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #3
   %20 = icmp eq ptr %19, null
@@ -332,7 +332,7 @@ lean_dec.exit:                                    ; preds = %47, %46, %44, %lean
   br label %lean_inc.exit
 
 lean_inc.exit:                                    ; preds = %2, %lean_dec.exit, %52, %54, %55, %lean_dec.exit20, %35, %37, %38, %lean_string_dec_eq.exit, %17
-  %.2 = phi ptr [ %20, %17 ], [ %0, %lean_string_dec_eq.exit ], [ %1, %38 ], [ %1, %37 ], [ %1, %35 ], [ %1, %lean_dec.exit20 ], [ %1, %55 ], [ %1, %54 ], [ %1, %52 ], [ %1, %lean_dec.exit ], [ %0, %2 ]
+  %.2 = phi ptr [ %1, %lean_dec.exit ], [ %1, %lean_dec.exit20 ], [ %20, %17 ], [ %0, %lean_string_dec_eq.exit ], [ %1, %38 ], [ %1, %37 ], [ %1, %35 ], [ %1, %55 ], [ %1, %54 ], [ %1, %52 ], [ %0, %2 ]
   ret ptr %.2
 }
 
@@ -504,6 +504,9 @@ lean_dec.exit45:                                  ; preds = %30, %29, %27, %21
   store i32 %36, ptr %17, align 4, !tbaa !8
   br label %lean_inc.exit.outer.backedge
 
+lean_inc.exit.outer.backedge:                     ; preds = %35, %lean_dec.exit45, %38, %37
+  br label %lean_inc.exit.outer
+
 37:                                               ; preds = %33
   %.not.i57 = icmp eq i32 %.val.i, 0
   br i1 %.not.i57, label %lean_inc.exit.outer.backedge, label %38
@@ -511,9 +514,6 @@ lean_dec.exit45:                                  ; preds = %30, %29, %27, %21
 38:                                               ; preds = %37
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %17) #3
   br label %lean_inc.exit.outer.backedge
-
-lean_inc.exit.outer.backedge:                     ; preds = %38, %37, %35, %lean_dec.exit45
-  br label %lean_inc.exit.outer
 
 39:                                               ; preds = %lean_dec.exit46
   %40 = ptrtoint ptr %17 to i64
@@ -607,8 +607,8 @@ lean_dec.exit42:                                  ; preds = %lean_nat_eq.exit, %
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %.038.ph) #3
   br label %75
 
-75:                                               ; preds = %58, %57, %55, %lean_dec.exit44, %74, %73, %71, %lean_dec.exit42
-  %.2.ph = phi ptr [ %65, %lean_dec.exit42 ], [ %65, %71 ], [ %65, %73 ], [ %65, %74 ], [ %49, %lean_dec.exit44 ], [ %49, %55 ], [ %49, %57 ], [ %49, %58 ]
+75:                                               ; preds = %lean_dec.exit44, %58, %57, %55, %74, %73, %71, %lean_dec.exit42
+  %.2.ph = phi ptr [ %65, %lean_dec.exit42 ], [ %65, %71 ], [ %65, %73 ], [ %65, %74 ], [ %49, %55 ], [ %49, %57 ], [ %49, %58 ], [ %49, %lean_dec.exit44 ]
   ret ptr %.2.ph
 }
 

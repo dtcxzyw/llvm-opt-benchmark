@@ -2872,8 +2872,8 @@ define hidden void @"_ZN5theme6schema1_84_$LT$impl$u20$serde..ser..Serialize$u20
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
-"_ZN5theme6schema1_85_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$theme..schema..ThemeColorsContent$GT$9serialize17h824edfbeb94d04e8E.exit.thread": ; preds = %569, %564, %"_ZN5theme6schema1_86_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$theme..schema..StatusColorsContent$GT$9serialize17hd06f07533b140a57E.exit", %.noexc138, %.noexc139, %.noexc140, %.noexc141, %.noexc142, %.noexc143, %.noexc144, %.noexc145, %.noexc146, %.noexc147, %.noexc148, %.noexc149, %.noexc150, %.noexc151, %.noexc152, %.noexc153, %.noexc154, %.noexc155, %.noexc156, %.noexc157, %.noexc158, %.noexc159, %.noexc160, %.noexc161, %.noexc162, %.noexc163, %.noexc164, %.noexc165, %.noexc166, %.noexc167, %.noexc168, %.noexc169, %.noexc170, %.noexc171, %.noexc172, %.noexc173, %.noexc174, %.noexc175, %.noexc176, %.noexc177, %.noexc178, %"_ZN5theme6schema1_85_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$theme..schema..ThemeColorsContent$GT$9serialize17h824edfbeb94d04e8E.exit", %.noexc, %.noexc45, %.noexc46, %.noexc47, %.noexc48, %.noexc49, %.noexc50, %.noexc51, %.noexc52, %.noexc53, %.noexc54, %.noexc55, %.noexc56, %.noexc57, %.noexc58, %.noexc59, %.noexc60, %.noexc61, %.noexc62, %.noexc63, %.noexc64, %.noexc65, %.noexc66, %.noexc67, %.noexc68, %.noexc69, %.noexc70, %.noexc71, %.noexc72, %.noexc73, %.noexc74, %.noexc75, %.noexc76, %.noexc77, %.noexc78, %.noexc79, %.noexc80, %.noexc81, %.noexc82, %.noexc83, %.noexc84, %.noexc85, %.noexc86, %.noexc87, %.noexc88, %.noexc89, %.noexc90, %.noexc91, %.noexc92, %.noexc93, %.noexc94, %.noexc95, %.noexc96, %.noexc97, %.noexc98, %.noexc99, %.noexc100, %.noexc101, %.noexc102, %.noexc103, %.noexc104, %.noexc105, %.noexc106, %.noexc107, %.noexc108, %.noexc109, %.noexc110, %.noexc111, %.noexc112, %.noexc113, %.noexc114, %.noexc115, %.noexc116, %.noexc117, %.noexc118, %.noexc119, %.noexc120, %.noexc121, %.noexc122, %.noexc123, %.noexc124, %.noexc125, %.noexc126, %.noexc127, %.noexc128, %.noexc129, %.noexc130, %.noexc131, %.noexc132, %.noexc133, %.noexc134, %.noexc135, %19, %15
-  %.sink = phi ptr [ %12, %15 ], [ %18, %19 ], [ %391, %"_ZN5theme6schema1_85_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$theme..schema..ThemeColorsContent$GT$9serialize17h824edfbeb94d04e8E.exit" ], [ %387, %.noexc135 ], [ %383, %.noexc134 ], [ %379, %.noexc133 ], [ %375, %.noexc132 ], [ %371, %.noexc131 ], [ %367, %.noexc130 ], [ %363, %.noexc129 ], [ %359, %.noexc128 ], [ %355, %.noexc127 ], [ %351, %.noexc126 ], [ %347, %.noexc125 ], [ %343, %.noexc124 ], [ %339, %.noexc123 ], [ %335, %.noexc122 ], [ %331, %.noexc121 ], [ %327, %.noexc120 ], [ %323, %.noexc119 ], [ %319, %.noexc118 ], [ %315, %.noexc117 ], [ %311, %.noexc116 ], [ %307, %.noexc115 ], [ %303, %.noexc114 ], [ %299, %.noexc113 ], [ %295, %.noexc112 ], [ %291, %.noexc111 ], [ %287, %.noexc110 ], [ %283, %.noexc109 ], [ %279, %.noexc108 ], [ %275, %.noexc107 ], [ %271, %.noexc106 ], [ %267, %.noexc105 ], [ %263, %.noexc104 ], [ %259, %.noexc103 ], [ %255, %.noexc102 ], [ %251, %.noexc101 ], [ %247, %.noexc100 ], [ %243, %.noexc99 ], [ %239, %.noexc98 ], [ %235, %.noexc97 ], [ %231, %.noexc96 ], [ %227, %.noexc95 ], [ %223, %.noexc94 ], [ %219, %.noexc93 ], [ %215, %.noexc92 ], [ %211, %.noexc91 ], [ %207, %.noexc90 ], [ %203, %.noexc89 ], [ %199, %.noexc88 ], [ %195, %.noexc87 ], [ %191, %.noexc86 ], [ %187, %.noexc85 ], [ %183, %.noexc84 ], [ %179, %.noexc83 ], [ %175, %.noexc82 ], [ %171, %.noexc81 ], [ %167, %.noexc80 ], [ %163, %.noexc79 ], [ %159, %.noexc78 ], [ %155, %.noexc77 ], [ %151, %.noexc76 ], [ %147, %.noexc75 ], [ %143, %.noexc74 ], [ %139, %.noexc73 ], [ %135, %.noexc72 ], [ %131, %.noexc71 ], [ %127, %.noexc70 ], [ %123, %.noexc69 ], [ %119, %.noexc68 ], [ %115, %.noexc67 ], [ %111, %.noexc66 ], [ %107, %.noexc65 ], [ %103, %.noexc64 ], [ %99, %.noexc63 ], [ %95, %.noexc62 ], [ %91, %.noexc61 ], [ %87, %.noexc60 ], [ %83, %.noexc59 ], [ %79, %.noexc58 ], [ %75, %.noexc57 ], [ %71, %.noexc56 ], [ %67, %.noexc55 ], [ %63, %.noexc54 ], [ %59, %.noexc53 ], [ %55, %.noexc52 ], [ %51, %.noexc51 ], [ %47, %.noexc50 ], [ %43, %.noexc49 ], [ %39, %.noexc48 ], [ %35, %.noexc47 ], [ %31, %.noexc46 ], [ %27, %.noexc45 ], [ %23, %.noexc ], [ %559, %"_ZN5theme6schema1_86_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$theme..schema..StatusColorsContent$GT$9serialize17hd06f07533b140a57E.exit" ], [ %555, %.noexc178 ], [ %551, %.noexc177 ], [ %547, %.noexc176 ], [ %543, %.noexc175 ], [ %539, %.noexc174 ], [ %535, %.noexc173 ], [ %531, %.noexc172 ], [ %527, %.noexc171 ], [ %523, %.noexc170 ], [ %519, %.noexc169 ], [ %515, %.noexc168 ], [ %511, %.noexc167 ], [ %507, %.noexc166 ], [ %503, %.noexc165 ], [ %499, %.noexc164 ], [ %495, %.noexc163 ], [ %491, %.noexc162 ], [ %487, %.noexc161 ], [ %483, %.noexc160 ], [ %479, %.noexc159 ], [ %475, %.noexc158 ], [ %471, %.noexc157 ], [ %467, %.noexc156 ], [ %463, %.noexc155 ], [ %459, %.noexc154 ], [ %455, %.noexc153 ], [ %451, %.noexc152 ], [ %447, %.noexc151 ], [ %443, %.noexc150 ], [ %439, %.noexc149 ], [ %435, %.noexc148 ], [ %431, %.noexc147 ], [ %427, %.noexc146 ], [ %423, %.noexc145 ], [ %419, %.noexc144 ], [ %415, %.noexc143 ], [ %411, %.noexc142 ], [ %407, %.noexc141 ], [ %403, %.noexc140 ], [ %399, %.noexc139 ], [ %395, %.noexc138 ], [ %563, %564 ], [ %568, %569 ]
+"_ZN5theme6schema1_85_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$theme..schema..ThemeColorsContent$GT$9serialize17h824edfbeb94d04e8E.exit.thread": ; preds = %569, %564, %"_ZN5theme6schema1_86_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$theme..schema..StatusColorsContent$GT$9serialize17hd06f07533b140a57E.exit", %.noexc138, %.noexc178, %.noexc177, %.noexc176, %.noexc175, %.noexc174, %.noexc173, %.noexc172, %.noexc171, %.noexc170, %.noexc169, %.noexc168, %.noexc167, %.noexc166, %.noexc165, %.noexc164, %.noexc163, %.noexc162, %.noexc161, %.noexc160, %.noexc159, %.noexc158, %.noexc157, %.noexc156, %.noexc155, %.noexc154, %.noexc153, %.noexc152, %.noexc151, %.noexc150, %.noexc149, %.noexc148, %.noexc147, %.noexc146, %.noexc145, %.noexc144, %.noexc143, %.noexc142, %.noexc141, %.noexc140, %.noexc139, %"_ZN5theme6schema1_85_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$theme..schema..ThemeColorsContent$GT$9serialize17h824edfbeb94d04e8E.exit", %.noexc, %.noexc135, %.noexc134, %.noexc133, %.noexc132, %.noexc131, %.noexc130, %.noexc129, %.noexc128, %.noexc127, %.noexc126, %.noexc125, %.noexc124, %.noexc123, %.noexc122, %.noexc121, %.noexc120, %.noexc119, %.noexc118, %.noexc117, %.noexc116, %.noexc115, %.noexc114, %.noexc113, %.noexc112, %.noexc111, %.noexc110, %.noexc109, %.noexc108, %.noexc107, %.noexc106, %.noexc105, %.noexc104, %.noexc103, %.noexc102, %.noexc101, %.noexc100, %.noexc99, %.noexc98, %.noexc97, %.noexc96, %.noexc95, %.noexc94, %.noexc93, %.noexc92, %.noexc91, %.noexc90, %.noexc89, %.noexc88, %.noexc87, %.noexc86, %.noexc85, %.noexc84, %.noexc83, %.noexc82, %.noexc81, %.noexc80, %.noexc79, %.noexc78, %.noexc77, %.noexc76, %.noexc75, %.noexc74, %.noexc73, %.noexc72, %.noexc71, %.noexc70, %.noexc69, %.noexc68, %.noexc67, %.noexc66, %.noexc65, %.noexc64, %.noexc63, %.noexc62, %.noexc61, %.noexc60, %.noexc59, %.noexc58, %.noexc57, %.noexc56, %.noexc55, %.noexc54, %.noexc53, %.noexc52, %.noexc51, %.noexc50, %.noexc49, %.noexc48, %.noexc47, %.noexc46, %.noexc45, %19, %15
+  %.sink = phi ptr [ %563, %564 ], [ %395, %.noexc138 ], [ %23, %.noexc ], [ %18, %19 ], [ %12, %15 ], [ %391, %"_ZN5theme6schema1_85_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$theme..schema..ThemeColorsContent$GT$9serialize17h824edfbeb94d04e8E.exit" ], [ %27, %.noexc45 ], [ %31, %.noexc46 ], [ %35, %.noexc47 ], [ %39, %.noexc48 ], [ %43, %.noexc49 ], [ %47, %.noexc50 ], [ %51, %.noexc51 ], [ %55, %.noexc52 ], [ %59, %.noexc53 ], [ %63, %.noexc54 ], [ %67, %.noexc55 ], [ %71, %.noexc56 ], [ %75, %.noexc57 ], [ %79, %.noexc58 ], [ %83, %.noexc59 ], [ %87, %.noexc60 ], [ %91, %.noexc61 ], [ %95, %.noexc62 ], [ %99, %.noexc63 ], [ %103, %.noexc64 ], [ %107, %.noexc65 ], [ %111, %.noexc66 ], [ %115, %.noexc67 ], [ %119, %.noexc68 ], [ %123, %.noexc69 ], [ %127, %.noexc70 ], [ %131, %.noexc71 ], [ %135, %.noexc72 ], [ %139, %.noexc73 ], [ %143, %.noexc74 ], [ %147, %.noexc75 ], [ %151, %.noexc76 ], [ %155, %.noexc77 ], [ %159, %.noexc78 ], [ %163, %.noexc79 ], [ %167, %.noexc80 ], [ %171, %.noexc81 ], [ %175, %.noexc82 ], [ %179, %.noexc83 ], [ %183, %.noexc84 ], [ %187, %.noexc85 ], [ %191, %.noexc86 ], [ %195, %.noexc87 ], [ %199, %.noexc88 ], [ %203, %.noexc89 ], [ %207, %.noexc90 ], [ %211, %.noexc91 ], [ %215, %.noexc92 ], [ %219, %.noexc93 ], [ %223, %.noexc94 ], [ %227, %.noexc95 ], [ %231, %.noexc96 ], [ %235, %.noexc97 ], [ %239, %.noexc98 ], [ %243, %.noexc99 ], [ %247, %.noexc100 ], [ %251, %.noexc101 ], [ %255, %.noexc102 ], [ %259, %.noexc103 ], [ %263, %.noexc104 ], [ %267, %.noexc105 ], [ %271, %.noexc106 ], [ %275, %.noexc107 ], [ %279, %.noexc108 ], [ %283, %.noexc109 ], [ %287, %.noexc110 ], [ %291, %.noexc111 ], [ %295, %.noexc112 ], [ %299, %.noexc113 ], [ %303, %.noexc114 ], [ %307, %.noexc115 ], [ %311, %.noexc116 ], [ %315, %.noexc117 ], [ %319, %.noexc118 ], [ %323, %.noexc119 ], [ %327, %.noexc120 ], [ %331, %.noexc121 ], [ %335, %.noexc122 ], [ %339, %.noexc123 ], [ %343, %.noexc124 ], [ %347, %.noexc125 ], [ %351, %.noexc126 ], [ %355, %.noexc127 ], [ %359, %.noexc128 ], [ %363, %.noexc129 ], [ %367, %.noexc130 ], [ %371, %.noexc131 ], [ %375, %.noexc132 ], [ %379, %.noexc133 ], [ %383, %.noexc134 ], [ %387, %.noexc135 ], [ %559, %"_ZN5theme6schema1_86_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$theme..schema..StatusColorsContent$GT$9serialize17hd06f07533b140a57E.exit" ], [ %399, %.noexc139 ], [ %403, %.noexc140 ], [ %407, %.noexc141 ], [ %411, %.noexc142 ], [ %415, %.noexc143 ], [ %419, %.noexc144 ], [ %423, %.noexc145 ], [ %427, %.noexc146 ], [ %431, %.noexc147 ], [ %435, %.noexc148 ], [ %439, %.noexc149 ], [ %443, %.noexc150 ], [ %447, %.noexc151 ], [ %451, %.noexc152 ], [ %455, %.noexc153 ], [ %459, %.noexc154 ], [ %463, %.noexc155 ], [ %467, %.noexc156 ], [ %471, %.noexc157 ], [ %475, %.noexc158 ], [ %479, %.noexc159 ], [ %483, %.noexc160 ], [ %487, %.noexc161 ], [ %491, %.noexc162 ], [ %495, %.noexc163 ], [ %499, %.noexc164 ], [ %503, %.noexc165 ], [ %507, %.noexc166 ], [ %511, %.noexc167 ], [ %515, %.noexc168 ], [ %519, %.noexc169 ], [ %523, %.noexc170 ], [ %527, %.noexc171 ], [ %531, %.noexc172 ], [ %535, %.noexc173 ], [ %539, %.noexc174 ], [ %543, %.noexc175 ], [ %547, %.noexc176 ], [ %551, %.noexc177 ], [ %555, %.noexc178 ], [ %568, %569 ]
   %573 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %573, align 8
   store i64 -9223372036854775803, ptr %0, align 8
@@ -2883,7 +2883,7 @@ define hidden void @"_ZN5theme6schema1_84_$LT$impl$u20$serde..ser..Serialize$u20
 574:                                              ; preds = %575
   resume { ptr, i32 } %lpad.thr_comm
 
-575:                                              ; preds = %566, %561, %17, %10, %21, %25, %29, %33, %37, %41, %45, %49, %53, %57, %61, %65, %69, %73, %77, %81, %85, %89, %93, %97, %101, %105, %109, %113, %117, %121, %125, %129, %133, %137, %141, %145, %149, %153, %157, %161, %165, %169, %173, %177, %181, %185, %189, %193, %197, %201, %205, %209, %213, %217, %221, %225, %229, %233, %237, %241, %245, %249, %253, %257, %261, %265, %269, %273, %277, %281, %285, %289, %293, %297, %301, %305, %309, %313, %317, %321, %325, %329, %333, %337, %341, %345, %349, %353, %357, %361, %365, %369, %373, %377, %381, %385, %389, %393, %397, %401, %405, %409, %413, %417, %421, %425, %429, %433, %437, %441, %445, %449, %453, %457, %461, %465, %469, %473, %477, %481, %485, %489, %493, %497, %501, %505, %509, %513, %517, %521, %525, %529, %533, %537, %541, %545, %549, %553, %557
+575:                                              ; preds = %566, %561, %557, %389, %17, %10, %21, %25, %29, %33, %37, %41, %45, %49, %53, %57, %61, %65, %69, %73, %77, %81, %85, %89, %93, %97, %101, %105, %109, %113, %117, %121, %125, %129, %133, %137, %141, %145, %149, %153, %157, %161, %165, %169, %173, %177, %181, %185, %189, %193, %197, %201, %205, %209, %213, %217, %221, %225, %229, %233, %237, %241, %245, %249, %253, %257, %261, %265, %269, %273, %277, %281, %285, %289, %293, %297, %301, %305, %309, %313, %317, %321, %325, %329, %333, %337, %341, %345, %349, %353, %357, %361, %365, %369, %373, %377, %381, %385, %393, %397, %401, %405, %409, %413, %417, %421, %425, %429, %433, %437, %441, %445, %449, %453, %457, %461, %465, %469, %473, %477, %481, %485, %489, %493, %497, %501, %505, %509, %513, %517, %521, %525, %529, %533, %537, %541, %545, %549, %553
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr57drop_in_place$LT$serde_json..value..ser..SerializeMap$GT$17hd3c21b8a420a5d0fE"(ptr noalias noundef align 8 dereferenceable(96) %5) #39
@@ -2908,7 +2908,7 @@ define hidden void @"_ZN5theme6schema1_85_$LT$impl$u20$serde..ser..Serialize$u20
   %7 = icmp eq i64 %6, -9223372036854775807
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load ptr, ptr %8, align 8
-  br i1 %7, label %15, label %10
+  br i1 %7, label %14, label %10
 
 10:                                               ; preds = %2
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -2925,47 +2925,47 @@ define hidden void @"_ZN5theme6schema1_85_$LT$impl$u20$serde..ser..Serialize$u20
   %13 = invoke noundef align 8 ptr @_ZN5serde3ser12SerializeMap15serialize_entry17h702d0bc95628500cE.llvm.10879722225161984294(ptr noalias noundef nonnull align 8 dereferenceable(96) %5, ptr noalias noundef nonnull readonly align 1 @anon.4d491ef549964764dbad73069201eaa0.19, i64 noundef 6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
           to label %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit" unwind label %36
 
-.invoke:                                          ; preds = %25, %18, %10
-  %14 = invoke noundef nonnull align 8 ptr @_ZN10serde_json5value3ser17invalid_raw_value17h0f9079c6462af873E()
-          to label %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit.thread" unwind label %36
-
-15:                                               ; preds = %2
+14:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %9, ptr %16, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %9, ptr %15, align 8
   store i64 -9223372036854775803, ptr %0, align 8
   br label %33
 
 "_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit": ; preds = %12
-  %17 = icmp eq ptr %13, null
-  br i1 %17, label %18, label %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit.thread"
+  %16 = icmp eq ptr %13, null
+  br i1 %16, label %17, label %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit.thread"
 
-18:                                               ; preds = %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit"
-  %19 = load i64, ptr %5, align 8, !range !135, !alias.scope !388, !noalias !391, !noundef !5
-  %20 = icmp eq i64 %19, -9223372036854775808
-  br i1 %20, label %.invoke, label %21
+17:                                               ; preds = %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit"
+  %18 = load i64, ptr %5, align 8, !range !135, !alias.scope !388, !noalias !391, !noundef !5
+  %19 = icmp eq i64 %18, -9223372036854775808
+  br i1 %19, label %.invoke, label %20
 
-21:                                               ; preds = %18
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %23 = invoke noundef align 8 ptr @_ZN5serde3ser12SerializeMap15serialize_entry17h702d0bc95628500cE.llvm.10879722225161984294(ptr noalias noundef nonnull align 8 dereferenceable(96) %5, ptr noalias noundef nonnull readonly align 1 @anon.4d491ef549964764dbad73069201eaa0.20, i64 noundef 10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %22)
+20:                                               ; preds = %17
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %22 = invoke noundef align 8 ptr @_ZN5serde3ser12SerializeMap15serialize_entry17h702d0bc95628500cE.llvm.10879722225161984294(ptr noalias noundef nonnull align 8 dereferenceable(96) %5, ptr noalias noundef nonnull readonly align 1 @anon.4d491ef549964764dbad73069201eaa0.20, i64 noundef 10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %21)
           to label %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit34" unwind label %36
 
-"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit34": ; preds = %21
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %25, label %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit.thread"
+"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit34": ; preds = %20
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %24, label %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit.thread"
 
-25:                                               ; preds = %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit34"
-  %26 = load i64, ptr %5, align 8, !range !135, !alias.scope !394, !noalias !397, !noundef !5
-  %27 = icmp eq i64 %26, -9223372036854775808
-  br i1 %27, label %.invoke, label %28
+24:                                               ; preds = %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit34"
+  %25 = load i64, ptr %5, align 8, !range !135, !alias.scope !394, !noalias !397, !noundef !5
+  %26 = icmp eq i64 %25, -9223372036854775808
+  br i1 %26, label %.invoke, label %27
 
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %30 = invoke noundef align 8 ptr @_ZN5serde3ser12SerializeMap15serialize_entry17h702d0bc95628500cE.llvm.10879722225161984294(ptr noalias noundef nonnull align 8 dereferenceable(96) %5, ptr noalias noundef nonnull readonly align 1 @anon.4d491ef549964764dbad73069201eaa0.21, i64 noundef 9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %29)
+27:                                               ; preds = %24
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %29 = invoke noundef align 8 ptr @_ZN5serde3ser12SerializeMap15serialize_entry17h702d0bc95628500cE.llvm.10879722225161984294(ptr noalias noundef nonnull align 8 dereferenceable(96) %5, ptr noalias noundef nonnull readonly align 1 @anon.4d491ef549964764dbad73069201eaa0.21, i64 noundef 9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28)
           to label %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit38" unwind label %36
 
-"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit38": ; preds = %28
-  %31 = icmp eq ptr %30, null
+.invoke:                                          ; preds = %24, %17, %10
+  %30 = invoke noundef nonnull align 8 ptr @_ZN10serde_json5value3ser17invalid_raw_value17h0f9079c6462af873E()
+          to label %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit.thread" unwind label %36
+
+"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit38": ; preds = %27
+  %31 = icmp eq ptr %29, null
   br i1 %31, label %32, label %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit.thread"
 
 32:                                               ; preds = %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit38"
@@ -2975,12 +2975,12 @@ define hidden void @"_ZN5theme6schema1_85_$LT$impl$u20$serde..ser..Serialize$u20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %33
 
-33:                                               ; preds = %15, %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit.thread", %32
+33:                                               ; preds = %14, %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit.thread", %32
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 "_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit.thread": ; preds = %.invoke, %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit38", %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit34", %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit"
-  %.sroa.0.0.i3548.sink = phi ptr [ %13, %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit" ], [ %23, %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit34" ], [ %30, %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit38" ], [ %14, %.invoke ]
+  %.sroa.0.0.i3548.sink = phi ptr [ %30, %.invoke ], [ %29, %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit38" ], [ %13, %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit" ], [ %22, %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit34" ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0.i3548.sink, ptr %34, align 8
   store i64 -9223372036854775803, ptr %0, align 8
@@ -2990,7 +2990,7 @@ define hidden void @"_ZN5theme6schema1_85_$LT$impl$u20$serde..ser..Serialize$u20
 35:                                               ; preds = %36
   resume { ptr, i32 } %lpad.thr_comm
 
-36:                                               ; preds = %.invoke, %12, %21, %28
+36:                                               ; preds = %.invoke, %12, %20, %27
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr57drop_in_place$LT$serde_json..value..ser..SerializeMap$GT$17hd3c21b8a420a5d0fE"(ptr noalias noundef align 8 dereferenceable(96) %5) #39
@@ -3015,7 +3015,7 @@ define hidden void @"_ZN5theme6schema1_88_$LT$impl$u20$serde..ser..Serialize$u20
   %7 = icmp eq i64 %6, -9223372036854775807
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load ptr, ptr %8, align 8
-  br i1 %7, label %15, label %10
+  br i1 %7, label %14, label %10
 
 10:                                               ; preds = %2
   %.sroa.626.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -3032,61 +3032,61 @@ define hidden void @"_ZN5theme6schema1_88_$LT$impl$u20$serde..ser..Serialize$u20
   %13 = invoke noundef align 8 ptr @_ZN5serde3ser12SerializeMap15serialize_entry17h702d0bc95628500cE.llvm.10879722225161984294(ptr noalias noundef nonnull align 8 dereferenceable(96) %5, ptr noalias noundef nonnull readonly align 1 @anon.4d491ef549964764dbad73069201eaa0.159, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
           to label %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit" unwind label %43
 
-.invoke:                                          ; preds = %32, %25, %18, %10
-  %14 = invoke noundef nonnull align 8 ptr @_ZN10serde_json5value3ser17invalid_raw_value17h0f9079c6462af873E()
-          to label %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit.thread" unwind label %43
-
-15:                                               ; preds = %2
+14:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %9, ptr %16, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %9, ptr %15, align 8
   store i64 -9223372036854775803, ptr %0, align 8
   br label %40
 
 "_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit": ; preds = %12
-  %17 = icmp eq ptr %13, null
-  br i1 %17, label %18, label %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit.thread"
+  %16 = icmp eq ptr %13, null
+  br i1 %16, label %17, label %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit.thread"
 
-18:                                               ; preds = %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit"
-  %19 = load i64, ptr %5, align 8, !range !135, !alias.scope !400, !noalias !403, !noundef !5
-  %20 = icmp eq i64 %19, -9223372036854775808
-  br i1 %20, label %.invoke, label %21
+17:                                               ; preds = %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit"
+  %18 = load i64, ptr %5, align 8, !range !135, !alias.scope !400, !noalias !403, !noundef !5
+  %19 = icmp eq i64 %18, -9223372036854775808
+  br i1 %19, label %.invoke, label %20
 
-21:                                               ; preds = %18
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %23 = invoke noundef align 8 ptr @_ZN5serde3ser12SerializeMap15serialize_entry17h702d0bc95628500cE.llvm.10879722225161984294(ptr noalias noundef nonnull align 8 dereferenceable(96) %5, ptr noalias noundef nonnull readonly align 1 @anon.4d491ef549964764dbad73069201eaa0.160, i64 noundef 16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %22)
+20:                                               ; preds = %17
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %22 = invoke noundef align 8 ptr @_ZN5serde3ser12SerializeMap15serialize_entry17h702d0bc95628500cE.llvm.10879722225161984294(ptr noalias noundef nonnull align 8 dereferenceable(96) %5, ptr noalias noundef nonnull readonly align 1 @anon.4d491ef549964764dbad73069201eaa0.160, i64 noundef 16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %21)
           to label %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit39" unwind label %43
 
-"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit39": ; preds = %21
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %25, label %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit.thread"
+"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit39": ; preds = %20
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %24, label %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit.thread"
 
-25:                                               ; preds = %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit39"
-  %26 = load i64, ptr %5, align 8, !range !135, !alias.scope !406, !noalias !409, !noundef !5
-  %27 = icmp eq i64 %26, -9223372036854775808
-  br i1 %27, label %.invoke, label %28
+24:                                               ; preds = %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit39"
+  %25 = load i64, ptr %5, align 8, !range !135, !alias.scope !406, !noalias !409, !noundef !5
+  %26 = icmp eq i64 %25, -9223372036854775808
+  br i1 %26, label %.invoke, label %27
 
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 50
-  %30 = invoke noundef align 8 ptr @_ZN5serde3ser12SerializeMap15serialize_entry17h027f1b2341176a08E.llvm.10879722225161984294(ptr noalias noundef nonnull align 8 dereferenceable(96) %5, ptr noalias noundef nonnull readonly align 1 @anon.4d491ef549964764dbad73069201eaa0.161, i64 noundef 10, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %29)
+27:                                               ; preds = %24
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 50
+  %29 = invoke noundef align 8 ptr @_ZN5serde3ser12SerializeMap15serialize_entry17h027f1b2341176a08E.llvm.10879722225161984294(ptr noalias noundef nonnull align 8 dereferenceable(96) %5, ptr noalias noundef nonnull readonly align 1 @anon.4d491ef549964764dbad73069201eaa0.161, i64 noundef 10, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %28)
           to label %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h42365b755efc377cE.exit" unwind label %43
 
-"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h42365b755efc377cE.exit": ; preds = %28
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %32, label %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit.thread"
+"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h42365b755efc377cE.exit": ; preds = %27
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %31, label %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit.thread"
 
-32:                                               ; preds = %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h42365b755efc377cE.exit"
-  %33 = load i64, ptr %5, align 8, !range !135, !alias.scope !412, !noalias !415, !noundef !5
-  %34 = icmp eq i64 %33, -9223372036854775808
-  br i1 %34, label %.invoke, label %35
+31:                                               ; preds = %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h42365b755efc377cE.exit"
+  %32 = load i64, ptr %5, align 8, !range !135, !alias.scope !412, !noalias !415, !noundef !5
+  %33 = icmp eq i64 %32, -9223372036854775808
+  br i1 %33, label %.invoke, label %34
 
-35:                                               ; preds = %32
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %37 = invoke noundef align 8 ptr @_ZN5serde3ser12SerializeMap15serialize_entry17h89185fdf5513e191E.llvm.10879722225161984294(ptr noalias noundef nonnull align 8 dereferenceable(96) %5, ptr noalias noundef nonnull readonly align 1 @anon.4d491ef549964764dbad73069201eaa0.162, i64 noundef 11, ptr noalias noundef nonnull readonly align 2 dereferenceable(2) %36)
+34:                                               ; preds = %31
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %36 = invoke noundef align 8 ptr @_ZN5serde3ser12SerializeMap15serialize_entry17h89185fdf5513e191E.llvm.10879722225161984294(ptr noalias noundef nonnull align 8 dereferenceable(96) %5, ptr noalias noundef nonnull readonly align 1 @anon.4d491ef549964764dbad73069201eaa0.162, i64 noundef 11, ptr noalias noundef nonnull readonly align 2 dereferenceable(2) %35)
           to label %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h76c2e649178e3127E.exit" unwind label %43
 
-"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h76c2e649178e3127E.exit": ; preds = %35
-  %38 = icmp eq ptr %37, null
+.invoke:                                          ; preds = %31, %24, %17, %10
+  %37 = invoke noundef nonnull align 8 ptr @_ZN10serde_json5value3ser17invalid_raw_value17h0f9079c6462af873E()
+          to label %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit.thread" unwind label %43
+
+"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h76c2e649178e3127E.exit": ; preds = %34
+  %38 = icmp eq ptr %36, null
   br i1 %38, label %39, label %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit.thread"
 
 39:                                               ; preds = %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h76c2e649178e3127E.exit"
@@ -3096,12 +3096,12 @@ define hidden void @"_ZN5theme6schema1_88_$LT$impl$u20$serde..ser..Serialize$u20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %40
 
-40:                                               ; preds = %15, %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit.thread", %39
+40:                                               ; preds = %14, %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit.thread", %39
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 "_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit.thread": ; preds = %.invoke, %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h76c2e649178e3127E.exit", %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h42365b755efc377cE.exit", %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit39", %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit"
-  %.sroa.0.0.i4357.sink = phi ptr [ %13, %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit" ], [ %23, %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit39" ], [ %30, %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h42365b755efc377cE.exit" ], [ %37, %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h76c2e649178e3127E.exit" ], [ %14, %.invoke ]
+  %.sroa.0.0.i4357.sink = phi ptr [ %37, %.invoke ], [ %36, %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h76c2e649178e3127E.exit" ], [ %29, %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h42365b755efc377cE.exit" ], [ %13, %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit" ], [ %22, %"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc012ba0b19e52176E.exit39" ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0.i4357.sink, ptr %41, align 8
   store i64 -9223372036854775803, ptr %0, align 8
@@ -3111,7 +3111,7 @@ define hidden void @"_ZN5theme6schema1_88_$LT$impl$u20$serde..ser..Serialize$u20
 42:                                               ; preds = %43
   resume { ptr, i32 } %lpad.thr_comm
 
-43:                                               ; preds = %.invoke, %12, %21, %28, %35
+43:                                               ; preds = %.invoke, %12, %20, %27, %34
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr57drop_in_place$LT$serde_json..value..ser..SerializeMap$GT$17hd3c21b8a420a5d0fE"(ptr noalias noundef align 8 dereferenceable(96) %5) #39
@@ -6143,7 +6143,7 @@ _ZN5serde3ser12SerializeMap15serialize_entry17hc63ceae42eb53dbfE.exit.thread: ; 
 32:                                               ; preds = %33
   resume { ptr, i32 } %lpad.phi
 
-.loopexit:                                        ; preds = %27, %22
+.loopexit:                                        ; preds = %22, %27
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %33
@@ -6986,7 +6986,7 @@ define void @"_ZN67_$LT$settings_ui..SettingsPage$u20$as$u20$gpui..element..Rend
   unreachable
 
 common.resume:                                    ; preds = %.thread59, %.thread35, %133, %44, %29
-  %common.resume.op = phi { ptr, i32 } [ %30, %29 ], [ %45, %44 ], [ %.pn1558, %.thread59 ], [ %.pn1134, %.thread35 ], [ %lpad.thr_comm, %133 ]
+  %common.resume.op = phi { ptr, i32 } [ %45, %44 ], [ %30, %29 ], [ %.pn1558, %.thread59 ], [ %lpad.thr_comm, %133 ], [ %.pn1134, %.thread35 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN4gpui6styled6Styled9size_full17had3841d124fd866dE.exit: ; preds = %38
@@ -7319,7 +7319,7 @@ _ZN4gpui6styled6Styled5gap_417hb343a12f1cc8cfa7E.exit: ; preds = %53
           to label %.thread59 unwind label %126
 
 .thread59:                                        ; preds = %116, %110, %128, %.thread67, %95, %.thread62
-  %.pn1558 = phi { ptr, i32 } [ %92, %.thread62 ], [ %96, %95 ], [ %111, %110 ], [ %129, %128 ], [ %lpad.thr_comm.split-lp74, %116 ], [ %.pn1370, %.thread67 ]
+  %.pn1558 = phi { ptr, i32 } [ %96, %95 ], [ %92, %.thread62 ], [ %111, %110 ], [ %129, %128 ], [ %lpad.thr_comm.split-lp74, %116 ], [ %.pn1370, %.thread67 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h7e31dd43d4ef4652E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %27) #39
           to label %common.resume unwind label %126
 
@@ -7335,7 +7335,7 @@ _ZN4gpui6styled6Styled5gap_417hb343a12f1cc8cfa7E.exit: ; preds = %53
           to label %.thread35 unwind label %126
 
 .thread35:                                        ; preds = %87, %80, %131, %130, %65, %.thread38
-  %.pn1134 = phi { ptr, i32 } [ %62, %.thread38 ], [ %66, %65 ], [ %81, %80 ], [ %132, %131 ], [ %lpad.thr_comm.split-lp50, %87 ], [ %.pn46, %130 ]
+  %.pn1134 = phi { ptr, i32 } [ %66, %65 ], [ %62, %.thread38 ], [ %81, %80 ], [ %132, %131 ], [ %lpad.thr_comm.split-lp50, %87 ], [ %.pn46, %130 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h7e31dd43d4ef4652E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %26) #39
           to label %common.resume unwind label %126
 

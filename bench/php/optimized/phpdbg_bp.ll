@@ -873,9 +873,9 @@ zend_hash_index_update_mem.exit:                  ; preds = %65, %67
   br label %108
 
 .thread96:                                        ; preds = %92, %zend_hash_index_update_mem.exit
-  %.sroa.15.0103 = phi i64 [ %2, %zend_hash_index_update_mem.exit ], [ %.sroa.15.0.copyload, %92 ]
-  %.sroa.1276.0102 = phi ptr [ %61, %zend_hash_index_update_mem.exit ], [ %.sroa.1276.0.copyload, %92 ]
-  %.sroa.0.0101 = phi i32 [ %59, %zend_hash_index_update_mem.exit ], [ %.sroa.0.0.copyload, %92 ]
+  %.sroa.15.0103 = phi i64 [ %.sroa.15.0.copyload, %92 ], [ %2, %zend_hash_index_update_mem.exit ]
+  %.sroa.1276.0102 = phi ptr [ %.sroa.1276.0.copyload, %92 ], [ %61, %zend_hash_index_update_mem.exit ]
+  %.sroa.0.0101 = phi i32 [ %.sroa.0.0.copyload, %92 ], [ %59, %zend_hash_index_update_mem.exit ]
   %101 = load i64, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2184), align 8, !tbaa !93
   %102 = or i64 %101, 2
   store i64 %102, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2184), align 8, !tbaa !93
@@ -1528,7 +1528,7 @@ define dso_local range(i32 -1, 1) i32 @phpdbg_resolve_op_array_break(ptr noundef
   br label %39
 
 39:                                               ; preds = %36, %27
-  %.sroa.4.0 = phi i8 [ 8, %27 ], [ %spec.select, %36 ]
+  %.sroa.4.0 = phi i8 [ %spec.select, %36 ], [ 8, %27 ]
   %40 = load i64, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2184), align 8, !tbaa !93
   %41 = or i64 %40, 16
   store i64 %41, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2184), align 8, !tbaa !93
@@ -1835,7 +1835,7 @@ zend_hash_str_find_ptr.exit69:                    ; preds = %53
   br label %zend_hash_str_find_ptr.exit69.thread
 
 zend_hash_str_find_ptr.exit69.thread:             ; preds = %.thread, %53, %44, %88, %84, %86, %69, %71, %10, %12, %19, %73
-  %.0 = phi i32 [ 2, %73 ], [ %., %19 ], [ -1, %12 ], [ -1, %10 ], [ %.65, %44 ], [ -1, %71 ], [ -1, %69 ], [ 2, %86 ], [ 2, %84 ], [ %.66, %88 ], [ -1, %53 ], [ -1, %.thread ]
+  %.0 = phi i32 [ -1, %53 ], [ %., %19 ], [ 2, %86 ], [ -1, %10 ], [ -1, %69 ], [ %.66, %88 ], [ 2, %84 ], [ 2, %73 ], [ -1, %12 ], [ %.65, %44 ], [ -1, %71 ], [ -1, %.thread ]
   ret i32 %.0
 }
 
@@ -2891,7 +2891,7 @@ zend_hash_find_ptr.exit.i.i:                      ; preds = %60, %54
   br label %zend_string_release.exit11.i.i
 
 zend_string_release.exit11.i.i:                   ; preds = %73, %72, %65, %zend_hash_find_ptr.exit.i.i, %49
-  %.0.i16.i = phi ptr [ %.0.i.i.i, %zend_hash_find_ptr.exit.i.i ], [ %.0.i.i.i, %65 ], [ %.0.i.i.i, %72 ], [ %.0.i.i.i, %73 ], [ null, %49 ]
+  %.0.i16.i = phi ptr [ %.0.i.i.i, %73 ], [ %.0.i.i.i, %zend_hash_find_ptr.exit.i.i ], [ %.0.i.i.i, %65 ], [ %.0.i.i.i, %72 ], [ null, %49 ]
   %74 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %75 = load i32, ptr %74, align 4, !tbaa !12
   %76 = and i32 %75, 64
@@ -2976,7 +2976,7 @@ phpdbg_find_breakpoint_symbol.exit.thread48:      ; preds = %106
   br label %.thread
 
 phpdbg_find_breakpoint_symbol.exit:               ; preds = %zend_string_release.exit11.i.i, %77, %84, %85, %zend_hash_find_ptr.exit.i, %97, %104, %105
-  %.0.i35 = phi ptr [ %.0.i16.i, %zend_string_release.exit11.i.i ], [ %.0.i16.i, %77 ], [ %.0.i16.i, %84 ], [ %.0.i16.i, %85 ], [ %.0.i.i, %zend_hash_find_ptr.exit.i ], [ %.0.i.i, %97 ], [ %.0.i.i, %104 ], [ %.0.i.i, %105 ]
+  %.0.i35 = phi ptr [ %.0.i.i, %105 ], [ %.0.i.i, %104 ], [ %.0.i16.i, %85 ], [ %.0.i16.i, %zend_string_release.exit11.i.i ], [ %.0.i16.i, %77 ], [ %.0.i16.i, %84 ], [ %.0.i.i, %zend_hash_find_ptr.exit.i ], [ %.0.i.i, %97 ]
   %.not29 = icmp eq ptr %.0.i35, null
   br i1 %.not29, label %phpdbg_find_breakpoint_symbol.exit.thread, label %.thread
 
@@ -3031,7 +3031,7 @@ phpdbg_find_breakpoint_opcode.exit:               ; preds = %126
   br label %.thread
 
 .thread:                                          ; preds = %115, %phpdbg_find_breakpoint_symbol.exit.thread48, %phpdbg_find_breakpoint_symbol.exit, %phpdbg_find_breakpoint_opcode.exit, %phpdbg_find_breakpoint_file.exit, %6
-  %.1 = phi ptr [ %25, %phpdbg_find_breakpoint_file.exit ], [ %130, %phpdbg_find_breakpoint_opcode.exit ], [ %7, %6 ], [ %108, %phpdbg_find_breakpoint_symbol.exit.thread48 ], [ %.0.i35, %phpdbg_find_breakpoint_symbol.exit ], [ %spec.select, %115 ]
+  %.1 = phi ptr [ %25, %phpdbg_find_breakpoint_file.exit ], [ %.0.i35, %phpdbg_find_breakpoint_symbol.exit ], [ %130, %phpdbg_find_breakpoint_opcode.exit ], [ %7, %6 ], [ %108, %phpdbg_find_breakpoint_symbol.exit.thread48 ], [ %spec.select, %115 ]
   %131 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %132 = load i8, ptr %131, align 8, !tbaa !190, !range !50, !noundef !51
   %133 = trunc nuw i8 %132 to i1
@@ -3039,7 +3039,7 @@ phpdbg_find_breakpoint_opcode.exit:               ; preds = %126
   br label %phpdbg_find_breakpoint_opcode.exit.thread
 
 phpdbg_find_breakpoint_opcode.exit.thread:        ; preds = %126, %121, %.thread, %phpdbg_find_breakpoint_opline.exit, %1
-  %.0 = phi ptr [ null, %1 ], [ null, %phpdbg_find_breakpoint_opline.exit ], [ %..1, %.thread ], [ null, %121 ], [ null, %126 ]
+  %.0 = phi ptr [ %..1, %.thread ], [ null, %phpdbg_find_breakpoint_opline.exit ], [ null, %1 ], [ null, %121 ], [ null, %126 ]
   ret ptr %.0
 }
 
@@ -3096,7 +3096,7 @@ define internal fastcc ptr @phpdbg_find_conditional_breakpoint(ptr noundef reado
     i32 2, label %63
     i32 8, label %76
     i32 4, label %76
-    i32 1, label %105
+    i32 1, label %phpdbg_find_breakpoint_param.exit
   ]
 
 32:                                               ; preds = %28, %28
@@ -3215,30 +3215,30 @@ define internal fastcc ptr @phpdbg_find_conditional_breakpoint(ptr noundef reado
 
 103:                                              ; preds = %101
   %104 = icmp eq i32 %31, 4
-  br i1 %104, label %phpdbg_find_breakpoint_param.exit.thread33, label %phpdbg_find_breakpoint_param.exit
+  br i1 %104, label %phpdbg_find_breakpoint_param.exit.thread33, label %105
 
-105:                                              ; preds = %28
+105:                                              ; preds = %103
   %106 = load ptr, ptr %0, align 8, !tbaa !184
-  %107 = ptrtoint ptr %106 to i64
-  %108 = getelementptr inbounds nuw i8, ptr %14, i64 64
-  %109 = load i64, ptr %108, align 8, !tbaa !197
-  %110 = icmp eq i64 %109, %107
-  br i1 %110, label %phpdbg_find_breakpoint_param.exit.thread33, label %.thread40
+  %107 = getelementptr inbounds nuw i8, ptr %30, i64 104
+  %108 = load ptr, ptr %107, align 8, !tbaa !111
+  %109 = ptrtoint ptr %106 to i64
+  %110 = ptrtoint ptr %108 to i64
+  %111 = sub i64 %109, %110
+  %112 = ashr exact i64 %111, 5
+  %113 = getelementptr inbounds nuw i8, ptr %14, i64 56
+  %114 = load i64, ptr %113, align 8, !tbaa !192
+  %115 = icmp eq i64 %112, %114
+  br i1 %115, label %phpdbg_find_breakpoint_param.exit.thread33, label %.thread40
 
-phpdbg_find_breakpoint_param.exit:                ; preds = %103
-  %111 = load ptr, ptr %0, align 8, !tbaa !184
-  %112 = getelementptr inbounds nuw i8, ptr %30, i64 104
-  %113 = load ptr, ptr %112, align 8, !tbaa !111
-  %114 = ptrtoint ptr %111 to i64
-  %115 = ptrtoint ptr %113 to i64
-  %116 = sub i64 %114, %115
-  %117 = ashr exact i64 %116, 5
-  %118 = getelementptr inbounds nuw i8, ptr %14, i64 56
-  %119 = load i64, ptr %118, align 8, !tbaa !192
-  %120 = icmp eq i64 %117, %119
+phpdbg_find_breakpoint_param.exit:                ; preds = %28
+  %116 = load ptr, ptr %0, align 8, !tbaa !184
+  %117 = ptrtoint ptr %116 to i64
+  %118 = getelementptr inbounds nuw i8, ptr %14, i64 64
+  %119 = load i64, ptr %118, align 8, !tbaa !197
+  %120 = icmp eq i64 %119, %117
   br i1 %120, label %phpdbg_find_breakpoint_param.exit.thread33, label %.thread40
 
-phpdbg_find_breakpoint_param.exit.thread33:       ; preds = %103, %50, %.thread75.i, %52, %105, %phpdbg_find_breakpoint_param.exit, %24
+phpdbg_find_breakpoint_param.exit.thread33:       ; preds = %50, %103, %52, %.thread75.i, %105, %phpdbg_find_breakpoint_param.exit, %24
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 572), align 4, !tbaa !198
   %121 = call ptr @zend_rebuild_symbol_table() #15
   %122 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8, !tbaa !199
@@ -3274,7 +3274,7 @@ select.unfold43:                                  ; preds = %125, %phpdbg_find_b
   store i64 %135, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2184), align 8, !tbaa !93
   br i1 %.4, label %136, label %.thread40
 
-.thread40:                                        ; preds = %13, %phpdbg_find_breakpoint_param.exit, %select.unfold43, %105, %52, %.thread75.i, %32, %76, %69, %28, %63, %46, %41, %78, %92, %101, %90, %81
+.thread40:                                        ; preds = %13, %select.unfold43, %phpdbg_find_breakpoint_param.exit, %105, %.thread75.i, %52, %76, %32, %41, %69, %63, %28, %46, %78, %92, %101, %90, %81
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.thread
 
@@ -3445,8 +3445,8 @@ phpdbg_find_breakbase_ex.exit:                    ; preds = %phpdbg_find_breakba
   br label %.thread
 
 .thread:                                          ; preds = %46, %56, %45, %72, %79
-  %.042 = phi i64 [ 0, %72 ], [ 0, %79 ], [ 0, %45 ], [ %50, %46 ], [ %50, %56 ]
-  %.01841 = phi ptr [ null, %72 ], [ null, %79 ], [ null, %45 ], [ %49, %46 ], [ %49, %56 ]
+  %.042 = phi i64 [ 0, %79 ], [ 0, %72 ], [ 0, %45 ], [ %50, %46 ], [ %50, %56 ]
+  %.01841 = phi ptr [ null, %79 ], [ null, %72 ], [ null, %45 ], [ %49, %46 ], [ %49, %56 ]
   %.not21 = icmp eq ptr %.us-phi, null
   br i1 %.not21, label %85, label %83
 
@@ -3865,7 +3865,7 @@ phpdbg_find_breakbase.exit:                       ; preds = %27, %16
   store i8 0, ptr %34, align 8, !tbaa !190
   br label %phpdbg_find_breakbase.exit.thread
 
-phpdbg_find_breakbase.exit.thread:                ; preds = %32, %21, %1, %3, %phpdbg_find_breakbase.exit
+phpdbg_find_breakbase.exit.thread:                ; preds = %32, %21, %3, %1, %phpdbg_find_breakbase.exit
   ret void
 }
 
@@ -3935,7 +3935,7 @@ define dso_local noundef ptr @phpdbg_find_breakbase(i64 noundef %0) local_unname
   br i1 %.not43.i, label %phpdbg_find_breakbase_ex.exit, label %.lr.ph.i
 
 phpdbg_find_breakbase_ex.exit:                    ; preds = %32, %27, %21, %16, %1, %3
-  %.3.i = phi ptr [ null, %3 ], [ null, %1 ], [ null, %21 ], [ %17, %16 ], [ null, %32 ], [ %28, %27 ]
+  %.3.i = phi ptr [ null, %1 ], [ null, %3 ], [ null, %21 ], [ %17, %16 ], [ %28, %27 ], [ null, %32 ]
   ret ptr %.3.i
 }
 
@@ -4010,7 +4010,7 @@ phpdbg_find_breakbase.exit:                       ; preds = %27, %16
   store i8 1, ptr %34, align 8, !tbaa !190
   br label %phpdbg_find_breakbase.exit.thread
 
-phpdbg_find_breakbase.exit.thread:                ; preds = %32, %21, %1, %3, %phpdbg_find_breakbase.exit
+phpdbg_find_breakbase.exit.thread:                ; preds = %32, %21, %3, %1, %phpdbg_find_breakbase.exit
   ret void
 }
 

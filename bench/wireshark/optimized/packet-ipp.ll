@@ -489,7 +489,7 @@ define internal i32 @dissect_ipp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %24
 
 24:                                               ; preds = %9, %11, %12, %18
-  %.0.shrunk = phi i1 [ %17, %12 ], [ false, %11 ], [ %23, %18 ], [ true, %9 ]
+  %.0.shrunk = phi i1 [ %17, %12 ], [ %23, %18 ], [ false, %11 ], [ true, %9 ]
   %25 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2)
   %26 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4)
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 360
@@ -1069,7 +1069,7 @@ switch.lookup:                                    ; preds = %140
   br label %310
 
 310:                                              ; preds = %305, %302, %297, %292, %285, %280, %275, %270, %265, %262
-  %.0.i.i = phi ptr [ %309, %305 ], [ %304, %302 ], [ %299, %297 ], [ %294, %292 ], [ %287, %285 ], [ %282, %280 ], [ %277, %275 ], [ %272, %270 ], [ %267, %265 ], [ @.str.344, %262 ]
+  %.0.i.i = phi ptr [ %267, %265 ], [ %309, %305 ], [ %304, %302 ], [ %299, %297 ], [ %294, %292 ], [ %287, %285 ], [ %282, %280 ], [ %277, %275 ], [ %272, %270 ], [ @.str.344, %262 ]
   %.not145.i.i = icmp eq ptr %.5.i.i, null
   %311 = call ptr @wmem_packet_scope()
   br i1 %.not145.i.i, label %314, label %312
@@ -1112,9 +1112,9 @@ switch.lookup:                                    ; preds = %140
   br label %add_integer_tree.exit.i
 
 .critedge.i.i:                                    ; preds = %327, %319, %316, %256, %.backedge.i.i, %251, %248, %240, %237, %.preheader.i.i
-  %.0133.i.i = phi i32 [ 1, %.preheader.i.i ], [ %220, %248 ], [ %220, %251 ], [ %253, %.backedge.i.i ], [ %220, %237 ], [ %220, %240 ], [ %257, %256 ], [ %257, %316 ], [ %257, %319 ], [ %257, %327 ]
-  %.1125.i.i = phi ptr [ null, %.preheader.i.i ], [ %.4128.i.i, %237 ], [ %.4128.i.i, %240 ], [ %.4128.i.i, %248 ], [ %.4128.i.i, %251 ], [ %.4128.i.i, %.backedge.i.i ], [ %.7.i.i, %327 ], [ %.7.i.i, %319 ], [ %.7.i.i, %316 ], [ %.5.i.i, %256 ]
-  %.0120.i.i = phi i32 [ %202, %.preheader.i.i ], [ %218, %248 ], [ %218, %251 ], [ %.reass.i.i, %.backedge.i.i ], [ %218, %237 ], [ %218, %240 ], [ %260, %327 ], [ %260, %319 ], [ %260, %316 ], [ %259, %256 ]
+  %.0133.i.i = phi i32 [ %220, %240 ], [ 1, %.preheader.i.i ], [ %220, %248 ], [ %220, %251 ], [ %220, %237 ], [ %253, %.backedge.i.i ], [ %257, %256 ], [ %257, %316 ], [ %257, %319 ], [ %257, %327 ]
+  %.1125.i.i = phi ptr [ %.4128.i.i, %.backedge.i.i ], [ null, %.preheader.i.i ], [ %.4128.i.i, %237 ], [ %.4128.i.i, %240 ], [ %.4128.i.i, %248 ], [ %.4128.i.i, %251 ], [ %.7.i.i, %319 ], [ %.7.i.i, %316 ], [ %.5.i.i, %256 ], [ %.7.i.i, %327 ]
+  %.0120.i.i = phi i32 [ %218, %240 ], [ %202, %.preheader.i.i ], [ %218, %248 ], [ %218, %251 ], [ %218, %237 ], [ %.reass.i.i, %.backedge.i.i ], [ %260, %319 ], [ %260, %316 ], [ %259, %256 ], [ %260, %327 ]
   %.0133.fr.i.i = freeze i32 %.0133.i.i
   %336 = icmp sgt i32 %.0133.fr.i.i, 1
   %spec.select.i.i = select i1 %336, ptr @.str.353, ptr @.str.340
@@ -1575,9 +1575,9 @@ add_integer_tree.exit.i:                          ; preds = %.critedge.i.i, %333
   br label %598
 
 .critedge.i150.i:                                 ; preds = %583, %556, %553, %545, %539, %.backedge.i155.i, %496, %493, %485, %482, %457, %449, %445, %370, %362, %358, %.thread333.i.i, %.preheader345.i.i
-  %.1293.i.i = phi i32 [ %566, %.thread333.i.i ], [ %345, %.preheader345.i.i ], [ %359, %358 ], [ %359, %362 ], [ %359, %370 ], [ %446, %445 ], [ %446, %449 ], [ %446, %457 ], [ %463, %493 ], [ %463, %496 ], [ %.reass.i156.i, %.backedge.i155.i ], [ %463, %482 ], [ %463, %485 ], [ %542, %539 ], [ %542, %545 ], [ %542, %553 ], [ %542, %556 ], [ %566, %583 ]
-  %.2285.i.i = phi ptr [ %.12.i.i, %.thread333.i.i ], [ null, %.preheader345.i.i ], [ %.1284.i.i, %358 ], [ %.1284.i.i, %362 ], [ %.1284.i.i, %370 ], [ %.5288.i.i, %445 ], [ %.5288.i.i, %449 ], [ %.5288.i.i, %457 ], [ %.8291.i.i, %482 ], [ %.8291.i.i, %485 ], [ %.8291.i.i, %493 ], [ %.8291.i.i, %496 ], [ %.8291.i.i, %.backedge.i155.i ], [ %.10.i.i, %539 ], [ %.10.i.i, %545 ], [ %.10.i.i, %553 ], [ %.10.i.i, %556 ], [ %.12.i.i, %583 ]
-  %.1273.i.i = phi i32 [ %562, %.thread333.i.i ], [ 1, %.preheader345.i.i ], [ %348, %358 ], [ %348, %362 ], [ %348, %370 ], [ %420, %445 ], [ %420, %449 ], [ %420, %457 ], [ %465, %493 ], [ %465, %496 ], [ %498, %.backedge.i155.i ], [ %465, %482 ], [ %465, %485 ], [ %501, %539 ], [ %501, %545 ], [ %501, %553 ], [ %501, %556 ], [ %562, %583 ]
+  %.1293.i.i = phi i32 [ %542, %556 ], [ %566, %.thread333.i.i ], [ %345, %.preheader345.i.i ], [ %446, %457 ], [ %359, %370 ], [ %463, %485 ], [ %359, %358 ], [ %359, %362 ], [ %446, %445 ], [ %446, %449 ], [ %463, %493 ], [ %.reass.i156.i, %.backedge.i155.i ], [ %463, %496 ], [ %463, %482 ], [ %542, %539 ], [ %542, %545 ], [ %542, %553 ], [ %566, %583 ]
+  %.2285.i.i = phi ptr [ %.10.i.i, %556 ], [ %.12.i.i, %.thread333.i.i ], [ null, %.preheader345.i.i ], [ %.5288.i.i, %457 ], [ %.1284.i.i, %370 ], [ %.8291.i.i, %.backedge.i155.i ], [ %.1284.i.i, %358 ], [ %.1284.i.i, %362 ], [ %.5288.i.i, %445 ], [ %.5288.i.i, %449 ], [ %.8291.i.i, %482 ], [ %.8291.i.i, %485 ], [ %.8291.i.i, %493 ], [ %.8291.i.i, %496 ], [ %.10.i.i, %539 ], [ %.10.i.i, %545 ], [ %.10.i.i, %553 ], [ %.12.i.i, %583 ]
+  %.1273.i.i = phi i32 [ %501, %556 ], [ %562, %.thread333.i.i ], [ 1, %.preheader345.i.i ], [ %420, %457 ], [ %348, %370 ], [ %465, %485 ], [ %348, %358 ], [ %348, %362 ], [ %420, %445 ], [ %420, %449 ], [ %465, %493 ], [ %498, %.backedge.i155.i ], [ %465, %496 ], [ %465, %482 ], [ %501, %539 ], [ %501, %545 ], [ %501, %553 ], [ %562, %583 ]
   %.1273.fr.i.i = freeze i32 %.1273.i.i
   %597 = icmp sgt i32 %.1273.fr.i.i, 1
   %spec.select.i151.i = select i1 %597, ptr @.str.353, ptr @.str.340
@@ -1968,9 +1968,9 @@ add_octetstring_value.exit.i:                     ; preds = %724, %718, %715, %7
   br label %add_charstring_value.exit.i
 
 add_charstring_value.exit.i:                      ; preds = %826, %819, %818, %811, %737, %736, %729, %add_octetstring_value.exit.i, %605, %add_integer_tree.exit.i, %.split.i, %195
-  %spec.select173.i = phi ptr [ %spec.select.i, %826 ], [ %spec.select.i, %195 ], [ %spec.select.i, %605 ], [ %spec.select.i, %add_octetstring_value.exit.i ], [ %spec.select.i, %add_integer_tree.exit.i ], [ %spec.select.i, %.split.i ], [ %spec.select174.i, %729 ], [ %spec.select174.i, %736 ], [ %spec.select174.i, %737 ], [ %spec.select174.i, %811 ], [ %spec.select174.i, %818 ], [ %spec.select174.i, %819 ]
-  %.3131171.i = phi ptr [ %.2130.i, %826 ], [ %.2130.i, %195 ], [ %.2130.i, %605 ], [ %.2130.i, %add_octetstring_value.exit.i ], [ %.2130.i, %add_integer_tree.exit.i ], [ %.2130.i, %.split.i ], [ %.3131172.i, %729 ], [ %.3131172.i, %736 ], [ %.3131172.i, %737 ], [ %.3131172.i, %811 ], [ %.3131172.i, %818 ], [ %.3131172.i, %819 ]
-  %.4.i = phi ptr [ %.8.i, %826 ], [ %.3.i, %195 ], [ %606, %605 ], [ %.0144.i.i, %add_octetstring_value.exit.i ], [ %340, %add_integer_tree.exit.i ], [ %spec.select147.i, %.split.i ], [ %spec.select147175.i, %729 ], [ %spec.select147175.i, %736 ], [ %spec.select147175.i, %737 ], [ %806, %811 ], [ %806, %818 ], [ %806, %819 ]
+  %spec.select173.i = phi ptr [ %spec.select.i, %826 ], [ %spec.select.i, %195 ], [ %spec.select.i, %.split.i ], [ %spec.select.i, %605 ], [ %spec.select.i, %add_octetstring_value.exit.i ], [ %spec.select.i, %add_integer_tree.exit.i ], [ %spec.select174.i, %737 ], [ %spec.select174.i, %729 ], [ %spec.select174.i, %736 ], [ %spec.select174.i, %811 ], [ %spec.select174.i, %818 ], [ %spec.select174.i, %819 ]
+  %.3131171.i = phi ptr [ %.2130.i, %826 ], [ %.2130.i, %195 ], [ %.2130.i, %.split.i ], [ %.2130.i, %605 ], [ %.2130.i, %add_octetstring_value.exit.i ], [ %.2130.i, %add_integer_tree.exit.i ], [ %.3131172.i, %737 ], [ %.3131172.i, %729 ], [ %.3131172.i, %736 ], [ %.3131172.i, %811 ], [ %.3131172.i, %818 ], [ %.3131172.i, %819 ]
+  %.4.i = phi ptr [ %.8.i, %826 ], [ %.3.i, %195 ], [ %spec.select147.i, %.split.i ], [ %606, %605 ], [ %.0144.i.i, %add_octetstring_value.exit.i ], [ %340, %add_integer_tree.exit.i ], [ %spec.select147175.i, %737 ], [ %spec.select147175.i, %729 ], [ %spec.select147175.i, %736 ], [ %806, %811 ], [ %806, %818 ], [ %806, %819 ]
   %830 = add i32 %.0125204.i, 5
   %831 = add i32 %830, %170
   %832 = add i32 %831, %178

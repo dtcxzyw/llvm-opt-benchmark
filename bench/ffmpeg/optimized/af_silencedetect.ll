@@ -320,13 +320,13 @@ define internal range(i32 -558323010, 1) i32 @config_input(ptr noundef readonly 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %._crit_edge, %46, %42, %41, %40, %36, %32, %31
-  %silencedetect_dbl.sink = phi ptr [ @silencedetect_flt, %31 ], [ @silencedetect_s32, %32 ], [ @silencedetect_s16, %36 ], [ @silencedetect_dblp, %40 ], [ @silencedetect_fltp, %41 ], [ @silencedetect_s32p, %42 ], [ @silencedetect_s16p, %46 ], [ @silencedetect_dbl, %._crit_edge ]
+  %silencedetect_dbl.sink = phi ptr [ @silencedetect_s16p, %46 ], [ @silencedetect_flt, %31 ], [ @silencedetect_s32, %32 ], [ @silencedetect_s16, %36 ], [ @silencedetect_dblp, %40 ], [ @silencedetect_fltp, %41 ], [ @silencedetect_s32p, %42 ], [ @silencedetect_dbl, %._crit_edge ]
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store ptr %silencedetect_dbl.sink, ptr %50, align 8, !tbaa !52
   br label %51
 
 51:                                               ; preds = %.sink.split, %._crit_edge, %21, %1
-  %.034 = phi i32 [ -12, %1 ], [ -12, %21 ], [ -558323010, %._crit_edge ], [ 0, %.sink.split ]
+  %.034 = phi i32 [ -12, %21 ], [ -558323010, %._crit_edge ], [ -12, %1 ], [ 0, %.sink.split ]
   ret i32 %.034
 }
 

@@ -5886,7 +5886,7 @@ ehcleanup192:                                     ; preds = %lpad170, %lpad149, 
   br label %ehcleanup200
 
 cleanup199:                                       ; preds = %for.body94, %for.body68, %for.body45, %for.body, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIN3irr4core8vector3dIsEESaISA_EESt4lessIS5_ESaISt4pairIKS5_SC_EEED2Ev.exit, %if.end86, %lor.lhs.false79, %sw.bb76, %if.end61, %lor.lhs.false, %sw.bb54, %if.end39, %sw.bb36, %if.end31, %sw.bb28, %sw.bb, %if.end21, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %retval.1 = phi i32 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 1, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIN3irr4core8vector3dIsEESaISA_EESt4lessIS5_ESaISt4pairIKS5_SC_EEED2Ev.exit ], [ 3, %sw.bb ], [ 0, %sw.bb28 ], [ 0, %sw.bb36 ], [ 0, %lor.lhs.false ], [ 0, %sw.bb54 ], [ 0, %lor.lhs.false79 ], [ 0, %sw.bb76 ], [ 0, %if.end21 ], [ 1, %if.end31 ], [ 1, %if.end39 ], [ 1, %if.end61 ], [ 1, %if.end86 ], [ 1, %for.body ], [ 1, %for.body45 ], [ 1, %for.body68 ], [ 1, %for.body94 ]
+  %retval.1 = phi i32 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 1, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIN3irr4core8vector3dIsEESaISA_EESt4lessIS5_ESaISt4pairIKS5_SC_EEED2Ev.exit ], [ 3, %sw.bb ], [ 0, %sw.bb28 ], [ 0, %sw.bb36 ], [ 0, %lor.lhs.false ], [ 0, %sw.bb54 ], [ 0, %lor.lhs.false79 ], [ 0, %sw.bb76 ], [ 0, %if.end21 ], [ 1, %if.end31 ], [ 1, %if.end39 ], [ 1, %if.end61 ], [ 1, %if.end86 ], [ 1, %for.body68 ], [ 1, %for.body ], [ 1, %for.body45 ], [ 1, %for.body94 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %mgobjint)
   ret i32 %retval.1
 
@@ -9980,15 +9980,15 @@ return:                                           ; preds = %_ZN11DecoLSystemC2E
   ret ptr %retval.0
 
 eh.resume.sink.split:                             ; preds = %lpad.i.i46, %lpad.i.i13, %lpad.i.i
-  %.sink = phi ptr [ %3, %lpad.i.i ], [ %7, %lpad.i.i13 ], [ %11, %lpad.i.i46 ]
-  %call6.sink.ph = phi ptr [ %call, %lpad.i.i ], [ %call2, %lpad.i.i13 ], [ %call6, %lpad.i.i46 ]
-  %.pn.ph = phi { ptr, i32 } [ %2, %lpad.i.i ], [ %6, %lpad.i.i13 ], [ %10, %lpad.i.i46 ]
+  %.sink = phi ptr [ %7, %lpad.i.i13 ], [ %3, %lpad.i.i ], [ %11, %lpad.i.i46 ]
+  %call6.sink.ph = phi ptr [ %call2, %lpad.i.i13 ], [ %call, %lpad.i.i ], [ %call6, %lpad.i.i46 ]
+  %.pn.ph = phi { ptr, i32 } [ %6, %lpad.i.i13 ], [ %2, %lpad.i.i ], [ %10, %lpad.i.i46 ]
   tail call void @_ZdlPv(ptr noundef %.sink) #31
   br label %eh.resume
 
 eh.resume:                                        ; preds = %eh.resume.sink.split, %lpad.i.i46, %lpad.i.i13, %lpad.i.i
-  %call6.sink = phi ptr [ %call, %lpad.i.i ], [ %call2, %lpad.i.i13 ], [ %call6, %lpad.i.i46 ], [ %call6.sink.ph, %eh.resume.sink.split ]
-  %.pn = phi { ptr, i32 } [ %2, %lpad.i.i ], [ %6, %lpad.i.i13 ], [ %10, %lpad.i.i46 ], [ %.pn.ph, %eh.resume.sink.split ]
+  %call6.sink = phi ptr [ %call6, %lpad.i.i46 ], [ %call2, %lpad.i.i13 ], [ %call, %lpad.i.i ], [ %call6.sink.ph, %eh.resume.sink.split ]
+  %.pn = phi { ptr, i32 } [ %10, %lpad.i.i46 ], [ %6, %lpad.i.i13 ], [ %2, %lpad.i.i ], [ %.pn.ph, %eh.resume.sink.split ]
   tail call void @_ZdlPv(ptr noundef nonnull %call6.sink) #31
   resume { ptr, i32 } %.pn
 }
@@ -11999,15 +11999,15 @@ return:                                           ; preds = %_ZN7OrePuffC2Ev.exi
   ret ptr %retval.0
 
 eh.resume.sink.split:                             ; preds = %lpad.i.i112, %lpad.i.i83, %lpad.i.i54, %lpad.i.i7, %lpad.i.i25, %lpad.i.i
-  %.sink = phi ptr [ %3, %lpad.i.i ], [ %7, %lpad.i.i25 ], [ %11, %lpad.i.i7 ], [ %15, %lpad.i.i54 ], [ %19, %lpad.i.i83 ], [ %23, %lpad.i.i112 ]
-  %call18.sink.ph = phi ptr [ %call, %lpad.i.i ], [ %call2, %lpad.i.i25 ], [ %call6, %lpad.i.i7 ], [ %call10, %lpad.i.i54 ], [ %call14, %lpad.i.i83 ], [ %call18, %lpad.i.i112 ]
-  %.pn.ph = phi { ptr, i32 } [ %2, %lpad.i.i ], [ %6, %lpad.i.i25 ], [ %10, %lpad.i.i7 ], [ %14, %lpad.i.i54 ], [ %18, %lpad.i.i83 ], [ %22, %lpad.i.i112 ]
+  %.sink = phi ptr [ %7, %lpad.i.i25 ], [ %19, %lpad.i.i83 ], [ %15, %lpad.i.i54 ], [ %11, %lpad.i.i7 ], [ %3, %lpad.i.i ], [ %23, %lpad.i.i112 ]
+  %call18.sink.ph = phi ptr [ %call2, %lpad.i.i25 ], [ %call14, %lpad.i.i83 ], [ %call10, %lpad.i.i54 ], [ %call6, %lpad.i.i7 ], [ %call, %lpad.i.i ], [ %call18, %lpad.i.i112 ]
+  %.pn.ph = phi { ptr, i32 } [ %6, %lpad.i.i25 ], [ %18, %lpad.i.i83 ], [ %14, %lpad.i.i54 ], [ %10, %lpad.i.i7 ], [ %2, %lpad.i.i ], [ %22, %lpad.i.i112 ]
   tail call void @_ZdlPv(ptr noundef %.sink) #31
   br label %eh.resume
 
 eh.resume:                                        ; preds = %eh.resume.sink.split, %lpad.i.i112, %lpad.i.i83, %lpad.i.i54, %lpad.i.i7, %lpad.i.i25, %lpad.i.i
-  %call18.sink = phi ptr [ %call, %lpad.i.i ], [ %call2, %lpad.i.i25 ], [ %call6, %lpad.i.i7 ], [ %call10, %lpad.i.i54 ], [ %call14, %lpad.i.i83 ], [ %call18, %lpad.i.i112 ], [ %call18.sink.ph, %eh.resume.sink.split ]
-  %.pn = phi { ptr, i32 } [ %2, %lpad.i.i ], [ %6, %lpad.i.i25 ], [ %10, %lpad.i.i7 ], [ %14, %lpad.i.i54 ], [ %18, %lpad.i.i83 ], [ %22, %lpad.i.i112 ], [ %.pn.ph, %eh.resume.sink.split ]
+  %call18.sink = phi ptr [ %call2, %lpad.i.i25 ], [ %call10, %lpad.i.i54 ], [ %call18, %lpad.i.i112 ], [ %call, %lpad.i.i ], [ %call14, %lpad.i.i83 ], [ %call6, %lpad.i.i7 ], [ %call18.sink.ph, %eh.resume.sink.split ]
+  %.pn = phi { ptr, i32 } [ %6, %lpad.i.i25 ], [ %14, %lpad.i.i54 ], [ %22, %lpad.i.i112 ], [ %2, %lpad.i.i ], [ %18, %lpad.i.i83 ], [ %10, %lpad.i.i7 ], [ %.pn.ph, %eh.resume.sink.split ]
   tail call void @_ZdlPv(ptr noundef nonnull %call18.sink) #31
   resume { ptr, i32 } %.pn
 }
@@ -12862,7 +12862,7 @@ ehcleanup16:                                      ; preds = %ehcleanup15
   br i1 %cleanup.isactive.1, label %cleanup.action, label %common.resume
 
 cleanup.action.sink.split:                        ; preds = %ehcleanup15.thread, %ehcleanup16.thread, %ehcleanup16.thread371
-  %.pn.pn.pn363.ph = phi { ptr, i32 } [ %10, %ehcleanup16.thread371 ], [ %1, %ehcleanup16.thread ], [ %10, %ehcleanup15.thread ]
+  %.pn.pn.pn363.ph = phi { ptr, i32 } [ %1, %ehcleanup16.thread ], [ %10, %ehcleanup16.thread371 ], [ %10, %ehcleanup15.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp8)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp7)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp6)
@@ -12870,7 +12870,7 @@ cleanup.action.sink.split:                        ; preds = %ehcleanup15.thread,
   br label %cleanup.action
 
 cleanup.action:                                   ; preds = %cleanup.action.sink.split, %ehcleanup16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i194
-  %.pn.pn.pn363 = phi { ptr, i32 } [ %.pn, %ehcleanup16 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i194 ], [ %.pn.pn.pn363.ph, %cleanup.action.sink.split ]
+  %.pn.pn.pn363 = phi { ptr, i32 } [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i194 ], [ %.pn, %ehcleanup16 ], [ %.pn.pn.pn363.ph, %cleanup.action.sink.split ]
   call void @__cxa_free_exception(ptr %exception) #30
   br label %common.resume
 
@@ -12905,7 +12905,7 @@ if.then.i.i.i.i:                                  ; preds = %lpad.i
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %ehcleanup135, %if.then.i.i.i.i, %cleanup.action, %ehcleanup16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i194
-  %common.resume.op = phi { ptr, i32 } [ %16, %if.then.i.i.i.i ], [ %.pn181.pn.pn, %ehcleanup135 ], [ %.pn.pn.pn363, %cleanup.action ], [ %.pn, %ehcleanup16 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i194 ], [ %16, %lpad.i ]
+  %common.resume.op = phi { ptr, i32 } [ %16, %if.then.i.i.i.i ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i194 ], [ %.pn181.pn.pn, %ehcleanup135 ], [ %.pn.pn.pn363, %cleanup.action ], [ %.pn, %ehcleanup16 ], [ %16, %lpad.i ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN9SchematicC2Ev.exit:                           ; preds = %if.end22
@@ -16839,7 +16839,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end3.i.i
   br i1 %cmp.not.i.i, label %for.cond.i.i, label %return, !llvm.loop !374
 
 return:                                           ; preds = %for.inc, %land.rhs.i.i.i, %for.inc.us, %for.body.us, %lor.lhs.false.i.i, %if.end3.i.i, %land.rhs.i.i.i.i.i.i, %lor.lhs.false.us.i.i, %if.end3.us.i.i, %land.rhs.i.us.i.i, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_S6_ENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit, %if.then
-  %retval.sroa.0.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_S6_ENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ null, %if.then ], [ null, %lor.lhs.false.us.i.i ], [ null, %if.end3.us.i.i ], [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ null, %if.end3.i.i ], [ null, %lor.lhs.false.i.i ], [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %retval.sroa.0.036.us, %for.body.us ], [ null, %for.inc.us ], [ null, %for.inc ], [ %retval.sroa.0.036, %land.rhs.i.i.i ]
+  %retval.sroa.0.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_S6_ENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ null, %if.then ], [ %retval.sroa.0.036.us, %for.body.us ], [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ null, %lor.lhs.false.us.i.i ], [ null, %if.end3.us.i.i ], [ null, %if.end3.i.i ], [ null, %lor.lhs.false.i.i ], [ null, %for.inc.us ], [ null, %for.inc ], [ %retval.sroa.0.036, %land.rhs.i.i.i ]
   ret ptr %retval.sroa.0.1
 }
 
@@ -16988,7 +16988,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end3.i.i
   br i1 %cmp.not.i.i, label %for.cond.i.i, label %return, !llvm.loop !365
 
 return:                                           ; preds = %for.inc, %land.rhs.i.i.i, %for.inc.us, %for.body.us, %lor.lhs.false.i.i, %if.end3.i.i, %land.rhs.i.i.i.i.i.i, %lor.lhs.false.us.i.i, %if.end3.us.i.i, %land.rhs.i.us.i.i, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_tENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit, %if.then
-  %retval.sroa.0.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_tENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ null, %if.then ], [ null, %lor.lhs.false.us.i.i ], [ null, %if.end3.us.i.i ], [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ null, %if.end3.i.i ], [ null, %lor.lhs.false.i.i ], [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %retval.sroa.0.036.us, %for.body.us ], [ null, %for.inc.us ], [ null, %for.inc ], [ %retval.sroa.0.036, %land.rhs.i.i.i ]
+  %retval.sroa.0.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_tENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ null, %if.then ], [ %retval.sroa.0.036.us, %for.body.us ], [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ null, %lor.lhs.false.us.i.i ], [ null, %if.end3.us.i.i ], [ null, %if.end3.i.i ], [ null, %lor.lhs.false.i.i ], [ null, %for.inc.us ], [ null, %for.inc ], [ %retval.sroa.0.036, %land.rhs.i.i.i ]
   ret ptr %retval.sroa.0.1
 }
 
@@ -17442,8 +17442,8 @@ lpad46:                                           ; preds = %if.end44
   resume { ptr, i32 } %37
 
 if.then.i:                                        ; preds = %land.rhs.i.i.i, %for.body.us, %land.rhs.i.i.i.i.i.i, %land.rhs.i.us.i.i
-  %38 = phi ptr [ %26, %land.rhs.i.us.i.i ], [ %26, %land.rhs.i.i.i.i.i.i ], [ %5, %for.body.us ], [ %5, %land.rhs.i.i.i ]
-  %retval.sroa.0.0.ph = phi ptr [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %__it.sroa.0.0109.us, %for.body.us ], [ %__it.sroa.0.0109, %land.rhs.i.i.i ]
+  %38 = phi ptr [ %5, %for.body.us ], [ %26, %land.rhs.i.us.i.i ], [ %26, %land.rhs.i.i.i.i.i.i ], [ %5, %land.rhs.i.i.i ]
+  %retval.sroa.0.0.ph = phi ptr [ %__it.sroa.0.0109.us, %for.body.us ], [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %__it.sroa.0.0109, %land.rhs.i.i.i ]
   %39 = load ptr, ptr %second.i.i.i.i.i, align 8, !tbaa !11
   %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %39, %7
   br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i

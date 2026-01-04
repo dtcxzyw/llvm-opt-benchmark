@@ -80,7 +80,7 @@ define internal fastcc ptr @NewDecoder(ptr noundef %0, ptr noundef %1) unnamed_a
   br label %27
 
 27:                                               ; preds = %2, %26, %15
-  %.0 = phi ptr [ %3, %26 ], [ null, %15 ], [ null, %2 ]
+  %.0 = phi ptr [ null, %15 ], [ %3, %26 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -121,7 +121,7 @@ define ptr @WebPIDecode(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_un
   br label %20
 
 20:                                               ; preds = %.thread, %13, %17, %8
-  %.0 = phi ptr [ null, %8 ], [ null, %13 ], [ %15, %17 ], [ %12, %.thread ]
+  %.0 = phi ptr [ null, %13 ], [ null, %8 ], [ %15, %17 ], [ %12, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -238,7 +238,7 @@ define ptr @WebPINewRGB(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noun
   br label %20
 
 20:                                               ; preds = %11, %8, %4, %14
-  %.0 = phi ptr [ %12, %14 ], [ null, %4 ], [ null, %8 ], [ null, %11 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %8 ], [ %12, %14 ], [ null, %11 ]
   ret ptr %.0
 }
 
@@ -329,7 +329,7 @@ define ptr @WebPINewYUVA(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr nou
   br label %47
 
 47:                                               ; preds = %29, %26, %21, %17, %14, %32
-  %.055 = phi ptr [ %30, %32 ], [ null, %14 ], [ null, %17 ], [ null, %21 ], [ null, %26 ], [ null, %29 ]
+  %.055 = phi ptr [ null, %26 ], [ %30, %32 ], [ null, %21 ], [ null, %14 ], [ null, %17 ], [ null, %29 ]
   ret ptr %.055
 }
 
@@ -407,7 +407,7 @@ define ptr @WebPINewYUV(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noun
   br label %WebPINewYUVA.exit
 
 WebPINewYUVA.exit:                                ; preds = %11, %14, %18, %22, %25
-  %.055.i = phi ptr [ %23, %25 ], [ null, %11 ], [ null, %14 ], [ null, %18 ], [ null, %22 ]
+  %.055.i = phi ptr [ null, %22 ], [ %23, %25 ], [ null, %18 ], [ null, %11 ], [ null, %14 ]
   ret ptr %.055.i
 }
 
@@ -464,7 +464,7 @@ CheckMemBufferMode.exit:                          ; preds = %7, %10
   br label %NeedCompressedAlpha.exit.i
 
 NeedCompressedAlpha.exit.i:                       ; preds = %20, %17, %14, %CheckMemBufferMode.exit
-  %.0.i.i = phi i1 [ true, %CheckMemBufferMode.exit ], [ true, %14 ], [ true, %17 ], [ %.not6.i.i, %20 ]
+  %.0.i.i = phi i1 [ true, %14 ], [ true, %CheckMemBufferMode.exit ], [ true, %17 ], [ %.not6.i.i, %20 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %24 = load ptr, ptr %23, align 8, !tbaa !27
   %25 = icmp eq ptr %24, null
@@ -549,8 +549,8 @@ NeedCompressedAlpha.exit.i:                       ; preds = %20, %17, %14, %Chec
   %72 = tail call fastcc i32 @IDecode(ptr noundef %0)
   br label %CheckMemBufferMode.exit.thread
 
-CheckMemBufferMode.exit.thread:                   ; preds = %7, %46, %35, %6, %3, %60
-  %.0 = phi i32 [ %72, %60 ], [ 2, %3 ], [ %switch.select4.i, %6 ], [ 1, %35 ], [ 1, %46 ], [ 2, %7 ]
+CheckMemBufferMode.exit.thread:                   ; preds = %7, %35, %46, %6, %3, %60
+  %.0 = phi i32 [ %switch.select4.i, %6 ], [ 2, %3 ], [ %72, %60 ], [ 2, %7 ], [ 1, %46 ], [ 1, %35 ]
   ret i32 %.0
 }
 
@@ -672,7 +672,7 @@ IDecError.exit.i:                                 ; preds = %21, %18
   br label %DecodeWebPHeaders.exit
 
 DecodeWebPHeaders.exit:                           ; preds = %7, %IDecError.exit.i, %33, %35, %53, %55
-  %.0.i = phi i32 [ %17, %IDecError.exit.i ], [ 5, %7 ], [ 1, %33 ], [ 1, %53 ], [ 0, %55 ], [ 0, %35 ]
+  %.0.i = phi i32 [ 1, %53 ], [ %17, %IDecError.exit.i ], [ 5, %7 ], [ 1, %33 ], [ 0, %55 ], [ 0, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre = load i32, ptr %0, align 8, !tbaa !3
   br label %70
@@ -849,7 +849,7 @@ DecodeVP8FrameHeader.exit:                        ; preds = %73, %.sink.split.i
   br label %169
 
 166:                                              ; preds = %161, %141
-  %.0.i.ph.i = phi i32 [ 1, %161 ], [ 3, %141 ]
+  %.0.i.ph.i = phi i32 [ 3, %141 ], [ 1, %161 ]
   store i32 %.0.i.ph.i, ptr %113, align 8, !tbaa !66
   %167 = load i32, ptr %0, align 8, !tbaa !3
   %168 = icmp eq i32 %167, 3
@@ -883,19 +883,19 @@ DecodeVP8FrameHeader.exit:                        ; preds = %73, %.sink.split.i
   br i1 %181, label %.sink.split.sink.split.i, label %DecodePartition0.exit.thread
 
 .sink.split.sink.split.i:                         ; preds = %179, %173, %166, %138, %129
-  %.0.ph.ph.i = phi i32 [ %127, %129 ], [ %137, %138 ], [ %.0.i.ph.i, %166 ], [ %174, %173 ], [ %180, %179 ]
+  %.0.ph.ph.i = phi i32 [ %174, %173 ], [ %127, %129 ], [ %137, %138 ], [ %.0.i.ph.i, %166 ], [ %180, %179 ]
   %182 = load ptr, ptr %112, align 8, !tbaa !25
   %183 = call i32 @VP8ExitCritical(ptr noundef %182, ptr noundef nonnull %114) #7
   br label %DecodePartition0.exit.thread
 
 DecodePartition0.exit.thread:                     ; preds = %129, %138, %166, %173, %179, %.sink.split.sink.split.i
-  %.0.ph.i23 = phi i32 [ %127, %129 ], [ %137, %138 ], [ %.0.i.ph.i, %166 ], [ %174, %173 ], [ %180, %179 ], [ %.0.ph.ph.i, %.sink.split.sink.split.i ]
+  %.0.ph.i23 = phi i32 [ %137, %138 ], [ %.0.i.ph.i, %166 ], [ %174, %173 ], [ %180, %179 ], [ %127, %129 ], [ %.0.ph.ph.i, %.sink.split.sink.split.i ]
   store i32 7, ptr %0, align 8, !tbaa !3
   br label %.critedge
 
 DecodePartition0.exit:                            ; preds = %177, %126, %108
-  %.pr46 = phi i32 [ %.pr46.pre, %177 ], [ %.pr46.pre73, %126 ], [ %109, %108 ]
-  %.2.ph = phi i32 [ 0, %177 ], [ 5, %126 ], [ %.119, %108 ]
+  %.pr46 = phi i32 [ %.pr46.pre73, %126 ], [ %.pr46.pre, %177 ], [ %109, %108 ]
+  %.2.ph = phi i32 [ 5, %126 ], [ 0, %177 ], [ %.119, %108 ]
   %184 = icmp eq i32 %.pr46, 3
   br i1 %184, label %185, label %DecodeRemaining.exit
 
@@ -1079,7 +1079,7 @@ IDecError.exit58.i:                               ; preds = %263, %260
   br label %281
 
 .thread.i:                                        ; preds = %266, %IDecError.exit58.i, %IDecError.exit57.i
-  %.3.ph.i = phi i32 [ 3, %IDecError.exit58.i ], [ 5, %266 ], [ 3, %IDecError.exit57.i ]
+  %.3.ph.i = phi i32 [ 5, %266 ], [ 3, %IDecError.exit57.i ], [ 3, %IDecError.exit58.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i)
   br label %DecodeRemaining.exitthread-pre-split
 
@@ -1170,7 +1170,7 @@ IDecError.exit60.i:                               ; preds = %._crit_edge70.i
   br label %DecodeRemaining.exitthread-pre-split
 
 DecodeRemaining.exitthread-pre-split:             ; preds = %.thread.i, %307, %309, %312, %.thread.i.i
-  %.3.ph = phi i32 [ 0, %309 ], [ 0, %.thread.i.i ], [ %313, %312 ], [ %308, %307 ], [ %.3.ph.i, %.thread.i ]
+  %.3.ph = phi i32 [ 0, %309 ], [ 0, %.thread.i.i ], [ %308, %307 ], [ %313, %312 ], [ %.3.ph.i, %.thread.i ]
   %.pr48 = load i32, ptr %0, align 8, !tbaa !3
   br label %DecodeRemaining.exit
 
@@ -1265,7 +1265,7 @@ DecodeVP8LHeader.exit.sink.split:                 ; preds = %336, %318
   br label %DecodeVP8LHeader.exit
 
 DecodeVP8LHeader.exit:                            ; preds = %DecodeVP8LHeader.exit.sink.split, %111, %339, %DecodeRemaining.exit
-  %.5.ph.ph = phi i32 [ %.3, %DecodeRemaining.exit ], [ 5, %339 ], [ 5, %111 ], [ 5, %DecodeVP8LHeader.exit.sink.split ]
+  %.5.ph.ph = phi i32 [ %.3, %DecodeRemaining.exit ], [ 5, %111 ], [ 5, %339 ], [ 5, %DecodeVP8LHeader.exit.sink.split ]
   %.pr51.pr = load i32, ptr %0, align 8, !tbaa !3
   %359 = icmp eq i32 %.pr51.pr, 5
   br i1 %359, label %360, label %.critedge
@@ -1353,7 +1353,7 @@ IDecError.exit.i.i45:                             ; preds = %378, %375
   br label %.critedge
 
 .critedge:                                        ; preds = %IDecError.exit60.i, %IDecError.exit59.i, %IDecError.exit56.i, %IDecError.exit.i29, %DecodePartition0.exit.thread, %IDecError.exit.i.i, %IDecError.exit.i32, %.thread.i.i43, %397, %394, %392, %382, %IDecError.exit.i.i45, %373, %185, %DecodeVP8LHeader.exit, %66
-  %.0 = phi i32 [ 5, %66 ], [ %.5.ph.ph, %DecodeVP8LHeader.exit ], [ 5, %185 ], [ 5, %382 ], [ %372, %IDecError.exit.i.i45 ], [ 5, %373 ], [ %393, %392 ], [ %398, %397 ], [ 0, %.thread.i.i43 ], [ 0, %394 ], [ %334, %IDecError.exit.i.i ], [ %352, %IDecError.exit.i32 ], [ %.0.ph.i23, %DecodePartition0.exit.thread ], [ 6, %IDecError.exit59.i ], [ 3, %IDecError.exit56.i ], [ 6, %IDecError.exit60.i ], [ 3, %IDecError.exit.i29 ]
+  %.0 = phi i32 [ %.5.ph.ph, %DecodeVP8LHeader.exit ], [ 5, %185 ], [ 5, %66 ], [ 0, %394 ], [ 5, %382 ], [ 5, %373 ], [ %372, %IDecError.exit.i.i45 ], [ %398, %397 ], [ %393, %392 ], [ 0, %.thread.i.i43 ], [ %334, %IDecError.exit.i.i ], [ %352, %IDecError.exit.i32 ], [ 3, %IDecError.exit.i29 ], [ %.0.ph.i23, %DecodePartition0.exit.thread ], [ 6, %IDecError.exit60.i ], [ 6, %IDecError.exit59.i ], [ 3, %IDecError.exit56.i ]
   ret i32 %.0
 }
 
@@ -1420,7 +1420,7 @@ CheckMemBufferMode.exit:                          ; preds = %7, %10
   br label %CheckMemBufferMode.exit.thread
 
 CheckMemBufferMode.exit.thread:                   ; preds = %7, %19, %6, %3, %24
-  %.0 = phi i32 [ %31, %24 ], [ 2, %3 ], [ %switch.select4.i, %6 ], [ 2, %19 ], [ 2, %7 ]
+  %.0 = phi i32 [ %switch.select4.i, %6 ], [ 2, %3 ], [ %31, %24 ], [ 2, %7 ], [ 2, %19 ]
   ret i32 %.0
 }
 
@@ -1452,7 +1452,7 @@ define ptr @WebPIDecodedArea(ptr noundef readonly captures(address_is_null) %0, 
   br label %GetOutputBuffer.exit
 
 GetOutputBuffer.exit:                             ; preds = %5, %7, %11, %14, %17
-  %.0.i = phi ptr [ %19, %17 ], [ null, %7 ], [ null, %5 ], [ null, %11 ], [ null, %14 ]
+  %.0.i = phi ptr [ %19, %17 ], [ null, %5 ], [ null, %11 ], [ null, %7 ], [ null, %14 ]
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %21, label %20
 
@@ -1589,8 +1589,8 @@ GetOutputBuffer.exit:                             ; preds = %14
   %41 = load ptr, ptr %40, align 8, !tbaa !31
   br label %GetOutputBuffer.exit.thread
 
-GetOutputBuffer.exit.thread:                      ; preds = %14, %11, %5, %7, %20, %GetOutputBuffer.exit, %39
-  %.0 = phi ptr [ %41, %39 ], [ null, %GetOutputBuffer.exit ], [ null, %20 ], [ null, %7 ], [ null, %5 ], [ null, %11 ], [ null, %14 ]
+GetOutputBuffer.exit.thread:                      ; preds = %14, %7, %11, %5, %20, %GetOutputBuffer.exit, %39
+  %.0 = phi ptr [ %41, %39 ], [ null, %GetOutputBuffer.exit ], [ null, %20 ], [ null, %5 ], [ null, %11 ], [ null, %7 ], [ null, %14 ]
   ret ptr %.0
 }
 
@@ -1722,8 +1722,8 @@ GetOutputBuffer.exit:                             ; preds = %19
   %66 = load ptr, ptr %65, align 8, !tbaa !31
   br label %GetOutputBuffer.exit.thread
 
-GetOutputBuffer.exit.thread:                      ; preds = %19, %16, %10, %12, %25, %GetOutputBuffer.exit, %64
-  %.0 = phi ptr [ %66, %64 ], [ null, %GetOutputBuffer.exit ], [ null, %25 ], [ null, %12 ], [ null, %10 ], [ null, %16 ], [ null, %19 ]
+GetOutputBuffer.exit.thread:                      ; preds = %19, %12, %16, %10, %25, %GetOutputBuffer.exit, %64
+  %.0 = phi ptr [ %66, %64 ], [ null, %GetOutputBuffer.exit ], [ null, %25 ], [ null, %10 ], [ null, %16 ], [ null, %12 ], [ null, %19 ]
   ret ptr %.0
 }
 
@@ -1898,7 +1898,7 @@ NeedCompressedAlpha.exit:                         ; preds = %47
   tail call void @VP8LBitReaderSetBuffer(ptr noundef nonnull %73, ptr noundef %8, i64 noundef %11) #7
   br label %NeedCompressedAlpha.exit.thread
 
-NeedCompressedAlpha.exit.thread:                  ; preds = %47, %45, %31, %NeedCompressedAlpha.exit, %66, %62, %59, %53, %72, %2
+NeedCompressedAlpha.exit.thread:                  ; preds = %47, %31, %45, %NeedCompressedAlpha.exit, %66, %62, %59, %53, %72, %2
   ret void
 }
 

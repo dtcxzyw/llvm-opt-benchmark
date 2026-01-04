@@ -861,8 +861,8 @@ interpolate_isp.exit:                             ; preds = %interpolate_isp.exi
   br label %decode_pitch_lag_low.exit.i
 
 decode_pitch_lag_low.exit.i:                      ; preds = %407, %401, %371, %365
-  %.039.i = phi i32 [ %.sink.i.i, %365 ], [ %379, %371 ], [ %.241.i, %401 ], [ %414, %407 ]
-  %.038.i = phi i32 [ %storemerge.i.i, %365 ], [ %376, %371 ], [ %.sink.i30.i, %401 ], [ %411, %407 ]
+  %.039.i = phi i32 [ %379, %371 ], [ %.sink.i.i, %365 ], [ %.241.i, %401 ], [ %414, %407 ]
+  %.038.i = phi i32 [ %376, %371 ], [ %storemerge.i.i, %365 ], [ %.sink.i30.i, %401 ], [ %411, %407 ]
   %415 = trunc i32 %.039.i to i8
   store i8 %415, ptr %300, align 1, !tbaa !86
   %416 = icmp sgt i32 %.038.i, 0
@@ -2308,7 +2308,7 @@ hb_fir_filter.exit260:                            ; preds = %1230
   br label %1249
 
 1249:                                             ; preds = %.thread268, %4, %._crit_edge
-  %.0 = phi i32 [ %1248, %._crit_edge ], [ %24, %4 ], [ %.3.ph, %.thread268 ]
+  %.0 = phi i32 [ %.3.ph, %.thread268 ], [ %1248, %._crit_edge ], [ %24, %4 ]
   ret i32 %.0
 }
 

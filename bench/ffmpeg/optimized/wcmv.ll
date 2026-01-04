@@ -165,8 +165,8 @@ bytestream2_get_le16.exit:                        ; preds = %bytestream2_init.ex
   br label %bytestream2_get_le24.exit
 
 bytestream2_get_le24.exit:                        ; preds = %62, %60, %56, %54, %41, %37
-  %.sroa.0250.0 = phi ptr [ %42, %41 ], [ %20, %37 ], [ %57, %56 ], [ %20, %54 ], [ %63, %62 ], [ %20, %60 ]
-  %.0182 = phi i32 [ %49, %41 ], [ 0, %37 ], [ %59, %56 ], [ 0, %54 ], [ %65, %62 ], [ 0, %60 ]
+  %.sroa.0250.0 = phi ptr [ %20, %54 ], [ %20, %37 ], [ %42, %41 ], [ %57, %56 ], [ %63, %62 ], [ %20, %60 ]
+  %.0182 = phi i32 [ 0, %54 ], [ 0, %37 ], [ %49, %41 ], [ %59, %56 ], [ %65, %62 ], [ 0, %60 ]
   %66 = ptrtoint ptr %.sroa.0250.0 to i64
   %67 = sub i64 %66, %22
   %68 = trunc i64 %67 to i32
@@ -640,8 +640,8 @@ bytestream2_get_le16.exit230:                     ; preds = %bytestream2_get_le1
   %311 = load i32, ptr %15, align 8, !tbaa !38
   br label %.critedge
 
-.critedge:                                        ; preds = %bytestream2_get_le16.exit222, %bytestream2_get_le16.exit218, %265, %258, %261, %293, %bytestream2_get_le24.exit, %84, %81, %304, %199, %bytestream2_get_le16.exit, %310, %11
-  %.0161 = phi i32 [ -542398533, %11 ], [ %311, %310 ], [ -1094995529, %293 ], [ %30, %bytestream2_get_le16.exit ], [ -1094995529, %199 ], [ %308, %304 ], [ -1094995529, %bytestream2_get_le24.exit ], [ -542398533, %84 ], [ -1094995529, %81 ], [ -1094995529, %261 ], [ -1094995529, %258 ], [ -1094995529, %265 ], [ -1094995529, %bytestream2_get_le16.exit218 ], [ -1094995529, %bytestream2_get_le16.exit222 ]
+.critedge:                                        ; preds = %bytestream2_get_le16.exit222, %bytestream2_get_le16.exit218, %261, %258, %265, %293, %bytestream2_get_le24.exit, %84, %81, %304, %199, %bytestream2_get_le16.exit, %310, %11
+  %.0161 = phi i32 [ -542398533, %11 ], [ -1094995529, %bytestream2_get_le16.exit218 ], [ %308, %304 ], [ -1094995529, %199 ], [ %311, %310 ], [ -1094995529, %293 ], [ -1094995529, %261 ], [ %30, %bytestream2_get_le16.exit ], [ -1094995529, %bytestream2_get_le24.exit ], [ -542398533, %84 ], [ -1094995529, %81 ], [ -1094995529, %265 ], [ -1094995529, %258 ], [ -1094995529, %bytestream2_get_le16.exit222 ]
   ret i32 %.0161
 }
 

@@ -25,7 +25,7 @@ define zeroext i16 @udata_getHeaderSize_77(ptr noundef readonly captures(address
   br label %9
 
 9:                                                ; preds = %3, %1
-  %.0 = phi i16 [ 0, %1 ], [ %spec.select, %3 ]
+  %.0 = phi i16 [ %spec.select, %3 ], [ 0, %1 ]
   ret i16 %.0
 }
 
@@ -44,7 +44,7 @@ define zeroext i16 @udata_getInfoSize_77(ptr noundef readonly captures(address_i
   br label %9
 
 9:                                                ; preds = %3, %1
-  %.0 = phi i16 [ 0, %1 ], [ %spec.select, %3 ]
+  %.0 = phi i16 [ %spec.select, %3 ], [ 0, %1 ]
   ret i16 %.0
 }
 

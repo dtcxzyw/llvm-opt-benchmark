@@ -2006,12 +2006,12 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE17evalRegularDerivsE
   br label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121assignWeightsPerDerivIfEEiPKPT_iS5_PS5_.exit
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121assignWeightsPerDerivIfEEiPKPT_iS5_PS5_.exit: ; preds = %5, %13, %16, %22, %25, %28
-  %35 = phi ptr [ %33, %28 ], [ null, %25 ], [ null, %22 ], [ null, %16 ], [ null, %13 ], [ null, %5 ]
-  %36 = phi ptr [ %31, %28 ], [ null, %25 ], [ null, %22 ], [ null, %16 ], [ null, %13 ], [ null, %5 ]
-  %37 = phi ptr [ %29, %28 ], [ null, %25 ], [ null, %22 ], [ null, %16 ], [ null, %13 ], [ null, %5 ]
-  %38 = phi ptr [ %18, %28 ], [ %18, %25 ], [ %18, %22 ], [ %18, %16 ], [ null, %13 ], [ null, %5 ]
-  %39 = phi ptr [ %17, %28 ], [ %17, %25 ], [ %17, %22 ], [ %17, %16 ], [ null, %13 ], [ null, %5 ]
-  %.0.i = phi i32 [ 6, %28 ], [ 3, %25 ], [ 3, %22 ], [ 3, %16 ], [ 1, %13 ], [ 1, %5 ]
+  %35 = phi ptr [ %33, %28 ], [ null, %16 ], [ null, %25 ], [ null, %22 ], [ null, %13 ], [ null, %5 ]
+  %36 = phi ptr [ %31, %28 ], [ null, %16 ], [ null, %25 ], [ null, %22 ], [ null, %13 ], [ null, %5 ]
+  %37 = phi ptr [ %29, %28 ], [ null, %16 ], [ null, %25 ], [ null, %22 ], [ null, %13 ], [ null, %5 ]
+  %38 = phi ptr [ %18, %28 ], [ %18, %16 ], [ %18, %25 ], [ %18, %22 ], [ null, %13 ], [ null, %5 ]
+  %39 = phi ptr [ %17, %28 ], [ %17, %16 ], [ %17, %25 ], [ %17, %22 ], [ null, %13 ], [ null, %5 ]
+  %.0.i = phi i32 [ 6, %28 ], [ 3, %16 ], [ 3, %25 ], [ 3, %22 ], [ 1, %13 ], [ 1, %5 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 110
   %41 = load i8, ptr %40, align 2
@@ -2225,7 +2225,7 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE21evalMultiLinearDer
   br label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121assignWeightsPerDerivIfEEiPKPT_iS5_PS5_.exit
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121assignWeightsPerDerivIfEEiPKPT_iS5_PS5_.exit: ; preds = %5, %13, %16, %22, %25, %28
-  %.0.i = phi i32 [ 6, %28 ], [ 3, %25 ], [ 3, %22 ], [ 3, %16 ], [ 1, %13 ], [ 1, %5 ]
+  %.0.i = phi i32 [ 6, %28 ], [ 3, %16 ], [ 3, %25 ], [ 3, %22 ], [ 1, %13 ], [ 1, %5 ]
   %35 = call noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE20evalMultiLinearBasisEPKfPPf(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef nonnull %7)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load i32, ptr %36, align 8
@@ -2440,7 +2440,7 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE19evalIrregularDeriv
   br label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121assignWeightsPerDerivIfEEiPKPT_iS5_PS5_.exit
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121assignWeightsPerDerivIfEEiPKPT_iS5_PS5_.exit: ; preds = %5, %12, %15, %21, %24, %27
-  %.0.i = phi i32 [ 6, %27 ], [ 3, %24 ], [ 3, %21 ], [ 3, %15 ], [ 1, %12 ], [ 1, %5 ]
+  %.0.i = phi i32 [ 6, %27 ], [ 3, %15 ], [ 3, %24 ], [ 3, %21 ], [ 1, %12 ], [ 1, %5 ]
   %34 = call { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE18evalIrregularBasisEPKfPPf(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef nonnull %7)
   %.fca.0.extract = extractvalue { ptr, i32 } %34, 0
   %.fca.1.extract = extractvalue { ptr, i32 } %34, 1
@@ -5151,8 +5151,8 @@ define weak_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE23evalMultiLi
   br label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121assignWeightsPerDerivIfEEiPKPT_iS5_PS5_.exit
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121assignWeightsPerDerivIfEEiPKPT_iS5_PS5_.exit: ; preds = %3, %9, %12, %18, %21, %24
-  %31 = phi i1 [ true, %24 ], [ true, %21 ], [ true, %18 ], [ true, %12 ], [ false, %9 ], [ false, %3 ]
-  %32 = phi i1 [ true, %24 ], [ false, %21 ], [ false, %18 ], [ false, %12 ], [ false, %9 ], [ false, %3 ]
+  %31 = phi i1 [ true, %24 ], [ true, %12 ], [ true, %21 ], [ true, %18 ], [ false, %9 ], [ false, %3 ]
+  %32 = phi i1 [ true, %24 ], [ false, %12 ], [ false, %21 ], [ false, %18 ], [ false, %9 ], [ false, %3 ]
   %33 = call noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE20evalMultiLinearBasisEPKfPPf(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef nonnull %5)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load i32, ptr %34, align 8
@@ -5296,7 +5296,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121assignWeightsPerDerivIfEEiPKPT_iS5_PS5
   br label %131
 
 131:                                              ; preds = %129, %127, %.lr.ph.split.us.split.us
-  %.0.us.us = phi i64 [ 0, %.lr.ph.split.us.split.us ], [ 1, %127 ], [ %spec.select.us.us, %129 ]
+  %.0.us.us = phi i64 [ %spec.select.us.us, %129 ], [ 0, %.lr.ph.split.us.split.us ], [ 1, %127 ]
   %132 = load ptr, ptr %5, align 16
   %133 = getelementptr inbounds nuw float, ptr %132, i64 %.0.us.us
   %134 = load float, ptr %133, align 4
@@ -5346,7 +5346,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121assignWeightsPerDerivIfEEiPKPT_iS5_PS5
   br label %161
 
 161:                                              ; preds = %159, %157, %.lr.ph.split.us.split
-  %.0.us = phi i64 [ 0, %.lr.ph.split.us.split ], [ 1, %157 ], [ %spec.select.us, %159 ]
+  %.0.us = phi i64 [ %spec.select.us, %159 ], [ 0, %.lr.ph.split.us.split ], [ 1, %157 ]
   %162 = load ptr, ptr %5, align 16
   %163 = getelementptr inbounds nuw float, ptr %162, i64 %.0.us
   %164 = load float, ptr %163, align 4
@@ -5384,7 +5384,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121assignWeightsPerDerivIfEEiPKPT_iS5_PS5
   br label %182
 
 182:                                              ; preds = %180, %178, %.lr.ph.split
-  %.0 = phi i64 [ 0, %.lr.ph.split ], [ 1, %178 ], [ %spec.select, %180 ]
+  %.0 = phi i64 [ %spec.select, %180 ], [ 0, %.lr.ph.split ], [ 1, %178 ]
   %183 = load ptr, ptr %5, align 16
   %184 = getelementptr inbounds nuw float, ptr %183, i64 %.0
   %185 = load float, ptr %184, align 4
@@ -7422,12 +7422,12 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE17evalRegularDerivsE
   br label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121assignWeightsPerDerivIdEEiPKPT_iS5_PS5_.exit
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121assignWeightsPerDerivIdEEiPKPT_iS5_PS5_.exit: ; preds = %5, %13, %16, %22, %25, %28
-  %35 = phi ptr [ %33, %28 ], [ null, %25 ], [ null, %22 ], [ null, %16 ], [ null, %13 ], [ null, %5 ]
-  %36 = phi ptr [ %31, %28 ], [ null, %25 ], [ null, %22 ], [ null, %16 ], [ null, %13 ], [ null, %5 ]
-  %37 = phi ptr [ %29, %28 ], [ null, %25 ], [ null, %22 ], [ null, %16 ], [ null, %13 ], [ null, %5 ]
-  %38 = phi ptr [ %18, %28 ], [ %18, %25 ], [ %18, %22 ], [ %18, %16 ], [ null, %13 ], [ null, %5 ]
-  %39 = phi ptr [ %17, %28 ], [ %17, %25 ], [ %17, %22 ], [ %17, %16 ], [ null, %13 ], [ null, %5 ]
-  %.0.i = phi i32 [ 6, %28 ], [ 3, %25 ], [ 3, %22 ], [ 3, %16 ], [ 1, %13 ], [ 1, %5 ]
+  %35 = phi ptr [ %33, %28 ], [ null, %16 ], [ null, %25 ], [ null, %22 ], [ null, %13 ], [ null, %5 ]
+  %36 = phi ptr [ %31, %28 ], [ null, %16 ], [ null, %25 ], [ null, %22 ], [ null, %13 ], [ null, %5 ]
+  %37 = phi ptr [ %29, %28 ], [ null, %16 ], [ null, %25 ], [ null, %22 ], [ null, %13 ], [ null, %5 ]
+  %38 = phi ptr [ %18, %28 ], [ %18, %16 ], [ %18, %25 ], [ %18, %22 ], [ null, %13 ], [ null, %5 ]
+  %39 = phi ptr [ %17, %28 ], [ %17, %16 ], [ %17, %25 ], [ %17, %22 ], [ null, %13 ], [ null, %5 ]
+  %.0.i = phi i32 [ 6, %28 ], [ 3, %16 ], [ 3, %25 ], [ 3, %22 ], [ 1, %13 ], [ 1, %5 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 110
   %41 = load i8, ptr %40, align 2
@@ -7641,7 +7641,7 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE21evalMultiLinearDer
   br label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121assignWeightsPerDerivIdEEiPKPT_iS5_PS5_.exit
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121assignWeightsPerDerivIdEEiPKPT_iS5_PS5_.exit: ; preds = %5, %13, %16, %22, %25, %28
-  %.0.i = phi i32 [ 6, %28 ], [ 3, %25 ], [ 3, %22 ], [ 3, %16 ], [ 1, %13 ], [ 1, %5 ]
+  %.0.i = phi i32 [ 6, %28 ], [ 3, %16 ], [ 3, %25 ], [ 3, %22 ], [ 1, %13 ], [ 1, %5 ]
   %35 = call noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE20evalMultiLinearBasisEPKdPPd(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef nonnull %7)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load i32, ptr %36, align 8
@@ -7856,7 +7856,7 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE19evalIrregularDeriv
   br label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121assignWeightsPerDerivIdEEiPKPT_iS5_PS5_.exit
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121assignWeightsPerDerivIdEEiPKPT_iS5_PS5_.exit: ; preds = %5, %12, %15, %21, %24, %27
-  %.0.i = phi i32 [ 6, %27 ], [ 3, %24 ], [ 3, %21 ], [ 3, %15 ], [ 1, %12 ], [ 1, %5 ]
+  %.0.i = phi i32 [ 6, %27 ], [ 3, %15 ], [ 3, %24 ], [ 3, %21 ], [ 1, %12 ], [ 1, %5 ]
   %34 = call { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE18evalIrregularBasisEPKdPPd(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef nonnull %7)
   %.fca.0.extract = extractvalue { ptr, i32 } %34, 0
   %.fca.1.extract = extractvalue { ptr, i32 } %34, 1
@@ -10559,8 +10559,8 @@ define weak_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE23evalMultiLi
   br label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121assignWeightsPerDerivIdEEiPKPT_iS5_PS5_.exit
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121assignWeightsPerDerivIdEEiPKPT_iS5_PS5_.exit: ; preds = %3, %9, %12, %18, %21, %24
-  %31 = phi i1 [ true, %24 ], [ true, %21 ], [ true, %18 ], [ true, %12 ], [ false, %9 ], [ false, %3 ]
-  %32 = phi i1 [ true, %24 ], [ false, %21 ], [ false, %18 ], [ false, %12 ], [ false, %9 ], [ false, %3 ]
+  %31 = phi i1 [ true, %24 ], [ true, %12 ], [ true, %21 ], [ true, %18 ], [ false, %9 ], [ false, %3 ]
+  %32 = phi i1 [ true, %24 ], [ false, %12 ], [ false, %21 ], [ false, %18 ], [ false, %9 ], [ false, %3 ]
   %33 = call noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE20evalMultiLinearBasisEPKdPPd(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef nonnull %5)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load i32, ptr %34, align 8
@@ -10704,7 +10704,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121assignWeightsPerDerivIdEEiPKPT_iS5_PS5
   br label %131
 
 131:                                              ; preds = %129, %127, %.lr.ph.split.us.split.us
-  %.0.us.us = phi i64 [ 0, %.lr.ph.split.us.split.us ], [ 1, %127 ], [ %spec.select.us.us, %129 ]
+  %.0.us.us = phi i64 [ %spec.select.us.us, %129 ], [ 0, %.lr.ph.split.us.split.us ], [ 1, %127 ]
   %132 = load ptr, ptr %5, align 16
   %133 = getelementptr inbounds nuw double, ptr %132, i64 %.0.us.us
   %134 = load double, ptr %133, align 8
@@ -10754,7 +10754,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121assignWeightsPerDerivIdEEiPKPT_iS5_PS5
   br label %161
 
 161:                                              ; preds = %159, %157, %.lr.ph.split.us.split
-  %.0.us = phi i64 [ 0, %.lr.ph.split.us.split ], [ 1, %157 ], [ %spec.select.us, %159 ]
+  %.0.us = phi i64 [ %spec.select.us, %159 ], [ 0, %.lr.ph.split.us.split ], [ 1, %157 ]
   %162 = load ptr, ptr %5, align 16
   %163 = getelementptr inbounds nuw double, ptr %162, i64 %.0.us
   %164 = load double, ptr %163, align 8
@@ -10792,7 +10792,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121assignWeightsPerDerivIdEEiPKPT_iS5_PS5
   br label %182
 
 182:                                              ; preds = %180, %178, %.lr.ph.split
-  %.0 = phi i64 [ 0, %.lr.ph.split ], [ 1, %178 ], [ %spec.select, %180 ]
+  %.0 = phi i64 [ %spec.select, %180 ], [ 0, %.lr.ph.split ], [ 1, %178 ]
   %183 = load ptr, ptr %5, align 16
   %184 = getelementptr inbounds nuw double, ptr %183, i64 %.0
   %185 = load double, ptr %184, align 8

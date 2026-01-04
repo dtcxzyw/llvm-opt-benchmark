@@ -129,7 +129,7 @@ define ptr @try_val_to_str(i32 noundef %0, ptr noundef readonly captures(address
   br label %try_val_to_str_idx.exit, !llvm.loop !6
 
 try_val_to_str_idx.exit:                          ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %.try_val_to_str_idx.exit.loopexit_crit_edge, %2, %.preheader.i
-  %.013.i = phi ptr [ null, %.preheader.i ], [ null, %2 ], [ null, %.try_val_to_str_idx.exit.loopexit_crit_edge ], [ %4, %.lr.ph.i.preheader ], [ %13, %.lr.ph.i ]
+  %.013.i = phi ptr [ null, %.preheader.i ], [ null, %2 ], [ %4, %.lr.ph.i.preheader ], [ null, %.try_val_to_str_idx.exit.loopexit_crit_edge ], [ %13, %.lr.ph.i ]
   ret ptr %.013.i
 }
 
@@ -238,7 +238,7 @@ define nonnull ptr @val_to_str_const(i32 noundef %0, ptr noundef readonly captur
   br label %try_val_to_str.exit, !llvm.loop !6
 
 try_val_to_str.exit:                              ; preds = %.lr.ph.i.i, %.lr.ph.i.i.preheader, %.try_val_to_str.exit.loopexit_crit_edge, %5, %.preheader.i.i
-  %.013.i.i = phi ptr [ null, %.preheader.i.i ], [ null, %5 ], [ null, %.try_val_to_str.exit.loopexit_crit_edge ], [ %7, %.lr.ph.i.i.preheader ], [ %16, %.lr.ph.i.i ]
+  %.013.i.i = phi ptr [ null, %.preheader.i.i ], [ null, %5 ], [ %7, %.lr.ph.i.i.preheader ], [ null, %.try_val_to_str.exit.loopexit_crit_edge ], [ %16, %.lr.ph.i.i ]
   %.not8 = icmp eq ptr %.013.i.i, null
   %. = select i1 %.not8, ptr %2, ptr %.013.i.i
   ret ptr %.
@@ -435,7 +435,7 @@ define ptr @try_val64_to_str(i64 noundef %0, ptr noundef readonly captures(addre
   br label %try_val64_to_str_idx.exit, !llvm.loop !8
 
 try_val64_to_str_idx.exit:                        ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %.try_val64_to_str_idx.exit.loopexit_crit_edge, %2, %.preheader.i
-  %.013.i = phi ptr [ null, %.preheader.i ], [ null, %2 ], [ null, %.try_val64_to_str_idx.exit.loopexit_crit_edge ], [ %4, %.lr.ph.i.preheader ], [ %13, %.lr.ph.i ]
+  %.013.i = phi ptr [ null, %.preheader.i ], [ null, %2 ], [ %4, %.lr.ph.i.preheader ], [ null, %.try_val64_to_str_idx.exit.loopexit_crit_edge ], [ %13, %.lr.ph.i ]
   ret ptr %.013.i
 }
 
@@ -482,7 +482,7 @@ define nonnull ptr @val64_to_str_const(i64 noundef %0, ptr noundef readonly capt
   br label %try_val64_to_str.exit, !llvm.loop !8
 
 try_val64_to_str.exit:                            ; preds = %.lr.ph.i.i, %.lr.ph.i.i.preheader, %.try_val64_to_str.exit.loopexit_crit_edge, %5, %.preheader.i.i
-  %.013.i.i = phi ptr [ null, %.preheader.i.i ], [ null, %5 ], [ null, %.try_val64_to_str.exit.loopexit_crit_edge ], [ %7, %.lr.ph.i.i.preheader ], [ %16, %.lr.ph.i.i ]
+  %.013.i.i = phi ptr [ null, %.preheader.i.i ], [ null, %5 ], [ %7, %.lr.ph.i.i.preheader ], [ null, %.try_val64_to_str.exit.loopexit_crit_edge ], [ %16, %.lr.ph.i.i ]
   %.not8 = icmp eq ptr %.013.i.i, null
   %. = select i1 %.not8, ptr %2, ptr %.013.i.i
   ret ptr %.
@@ -751,7 +751,7 @@ define ptr @_try_val_to_str_ext_init(i32 noundef %0, ptr noundef %1) #1 {
   br label %.thread61
 
 .thread61:                                        ; preds = %._crit_edge, %27, %32, %._crit_edge.thread
-  %_try_val_to_str_index.sink = phi ptr [ @_try_val_to_str_index, %._crit_edge.thread ], [ @_try_val_to_str_linear, %32 ], [ @_try_val_to_str_linear, %27 ], [ @_try_val_to_str_bsearch, %._crit_edge ]
+  %_try_val_to_str_index.sink = phi ptr [ @_try_val_to_str_index, %._crit_edge.thread ], [ @_try_val_to_str_linear, %27 ], [ @_try_val_to_str_linear, %32 ], [ @_try_val_to_str_bsearch, %._crit_edge ]
   store ptr %_try_val_to_str_index.sink, ptr %1, align 8
   %36 = tail call ptr %_try_val_to_str_index.sink(i32 noundef %0, ptr noundef %1)
   ret ptr %36
@@ -1158,7 +1158,7 @@ define ptr @_try_val64_to_str_ext_init(i64 noundef %0, ptr noundef %1) #1 {
   br label %.thread61
 
 .thread61:                                        ; preds = %._crit_edge, %27, %33, %._crit_edge.thread
-  %_try_val64_to_str_index.sink = phi ptr [ @_try_val64_to_str_index, %._crit_edge.thread ], [ @_try_val64_to_str_linear, %33 ], [ @_try_val64_to_str_linear, %27 ], [ @_try_val64_to_str_bsearch, %._crit_edge ]
+  %_try_val64_to_str_index.sink = phi ptr [ @_try_val64_to_str_index, %._crit_edge.thread ], [ @_try_val64_to_str_linear, %27 ], [ @_try_val64_to_str_linear, %33 ], [ @_try_val64_to_str_bsearch, %._crit_edge ]
   store ptr %_try_val64_to_str_index.sink, ptr %1, align 8
   %38 = tail call ptr %_try_val64_to_str_index.sink(i64 noundef %0, ptr noundef %1)
   ret ptr %38
@@ -1516,7 +1516,7 @@ define ptr @try_str_to_str(ptr noundef readonly captures(none) %0, ptr noundef r
   br label %try_str_to_str_idx.exit, !llvm.loop !15
 
 try_str_to_str_idx.exit:                          ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %.try_str_to_str_idx.exit.loopexit_crit_edge, %2, %.preheader.i
-  %.012.i = phi ptr [ null, %.preheader.i ], [ null, %2 ], [ null, %.try_str_to_str_idx.exit.loopexit_crit_edge ], [ %4, %.lr.ph.i.preheader ], [ %13, %.lr.ph.i ]
+  %.012.i = phi ptr [ null, %.preheader.i ], [ null, %2 ], [ %4, %.lr.ph.i.preheader ], [ null, %.try_str_to_str_idx.exit.loopexit_crit_edge ], [ %13, %.lr.ph.i ]
   ret ptr %.012.i
 }
 
@@ -2057,7 +2057,7 @@ define hidden zeroext i1 @value_string_ext_validate(ptr noundef readonly capture
   br label %5
 
 5:                                                ; preds = %3, %1
-  %.0 = phi i1 [ false, %1 ], [ %or.cond12, %3 ]
+  %.0 = phi i1 [ %or.cond12, %3 ], [ false, %1 ]
   ret i1 %.0
 }
 
@@ -2081,7 +2081,7 @@ define hidden nonnull ptr @value_string_ext_match_type_str(ptr noundef readonly 
   br label %10
 
 10:                                               ; preds = %8, %6, %4, %1
-  %.0 = phi ptr [ @.str.18, %1 ], [ @.str.19, %4 ], [ @.str.20, %6 ], [ %.str.21..str.22, %8 ]
+  %.0 = phi ptr [ @.str.20, %6 ], [ @.str.18, %1 ], [ @.str.19, %4 ], [ %.str.21..str.22, %8 ]
   ret ptr %.0
 }
 
@@ -2102,7 +2102,7 @@ define hidden zeroext i1 @val64_string_ext_validate(ptr noundef readonly capture
   br label %5
 
 5:                                                ; preds = %3, %1
-  %.0 = phi i1 [ false, %1 ], [ %or.cond12, %3 ]
+  %.0 = phi i1 [ %or.cond12, %3 ], [ false, %1 ]
   ret i1 %.0
 }
 
@@ -2126,7 +2126,7 @@ define hidden nonnull ptr @val64_string_ext_match_type_str(ptr noundef readonly 
   br label %10
 
 10:                                               ; preds = %8, %6, %4, %1
-  %.0 = phi ptr [ @.str.18, %1 ], [ @.str.19, %4 ], [ @.str.20, %6 ], [ %.str.21..str.22, %8 ]
+  %.0 = phi ptr [ @.str.20, %6 ], [ @.str.18, %1 ], [ @.str.19, %4 ], [ %.str.21..str.22, %8 ]
   ret ptr %.0
 }
 

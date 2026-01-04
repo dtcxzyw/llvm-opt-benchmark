@@ -792,8 +792,8 @@ _bt_spools_heapscan.exit:                         ; preds = %290, %295, %298
   br label %index_getattr.exit.i.i
 
 index_getattr.exit.i.i:                           ; preds = %431, %421, %418, %416, %411, %408, %405, %402
-  %.0170.i.i = phi i1 [ false, %431 ], [ false, %402 ], [ false, %405 ], [ false, %408 ], [ false, %411 ], [ false, %416 ], [ false, %418 ], [ true, %421 ]
-  %.1.i.i.i = phi i64 [ %433, %431 ], [ %404, %402 ], [ %407, %405 ], [ %410, %408 ], [ %412, %411 ], [ %417, %416 ], [ %420, %418 ], [ 0, %421 ]
+  %.0170.i.i = phi i1 [ false, %418 ], [ false, %431 ], [ false, %402 ], [ false, %405 ], [ false, %408 ], [ false, %411 ], [ false, %416 ], [ true, %421 ]
+  %.1.i.i.i = phi i64 [ %420, %418 ], [ %433, %431 ], [ %404, %402 ], [ %407, %405 ], [ %410, %408 ], [ %412, %411 ], [ %417, %416 ], [ 0, %421 ]
   %.val.i147.i.i = load i16, ptr %378, align 2
   %434 = icmp slt i16 %.val.i147.i.i, 0
   br i1 %434, label %471, label %435
@@ -882,7 +882,7 @@ index_getattr.exit.i.i:                           ; preds = %431, %421, %418, %4
   br label %index_getattr.exit151.i.i
 
 index_getattr.exit151.i.i:                        ; preds = %481, %468, %466, %461, %458, %455, %452
-  %.1.i148.i.i = phi i64 [ %483, %481 ], [ %454, %452 ], [ %457, %455 ], [ %460, %458 ], [ %462, %461 ], [ %467, %466 ], [ %470, %468 ]
+  %.1.i148.i.i = phi i64 [ %470, %468 ], [ %483, %481 ], [ %454, %452 ], [ %457, %455 ], [ %460, %458 ], [ %462, %461 ], [ %467, %466 ]
   br i1 %.0170.i.i, label %484, label %492
 
 index_getattr.exit151.thread.i.i:                 ; preds = %471
@@ -915,7 +915,7 @@ index_getattr.exit151.thread.i.i:                 ; preds = %471
   br i1 %500, label %.thread195.thread.i.i, label %ApplySortComparator.exit.i.i
 
 ApplySortComparator.exit.i.i:                     ; preds = %499, %492
-  %.0.i.i.i17 = phi i32 [ %501, %499 ], [ %495, %492 ]
+  %.0.i.i.i17 = phi i32 [ %495, %492 ], [ %501, %499 ]
   %.0.i.fr.i.i = freeze i32 %.0.i.i.i17
   %502 = icmp sgt i32 %.0.i.fr.i.i, 0
   br i1 %502, label %.thread195.thread.i.i, label %.thread189.i.i
@@ -938,7 +938,7 @@ ApplySortComparator.exit.i.i:                     ; preds = %499, %492
   br label %.thread195.thread.i.i
 
 .thread195.thread.i.i:                            ; preds = %.thread189.i.i, %ApplySortComparator.exit.i.i, %499, %.loopexit287.i.i, %.thread189.thread.i.i, %488, %484, %375, %374
-  %.0123.i.i = phi i1 [ true, %374 ], [ false, %375 ], [ %504, %.loopexit287.i.i ], [ true, %.thread189.thread.i.i ], [ false, %488 ], [ false, %484 ], [ false, %499 ], [ false, %ApplySortComparator.exit.i.i ], [ true, %.thread189.i.i ]
+  %.0123.i.i = phi i1 [ true, %374 ], [ false, %375 ], [ false, %484 ], [ %504, %.loopexit287.i.i ], [ true, %.thread189.thread.i.i ], [ false, %488 ], [ false, %499 ], [ true, %.thread189.i.i ], [ false, %ApplySortComparator.exit.i.i ]
   %505 = icmp eq ptr %.0.i.i16, null
   br i1 %505, label %506, label %539
 
@@ -994,7 +994,7 @@ ApplySortComparator.exit.i.i:                     ; preds = %499, %492
   br label %_bt_pagestate.exit.i.i
 
 _bt_pagestate.exit.i.i:                           ; preds = %530, %506
-  %.sink.i.i.i = phi i64 [ %536, %530 ], [ 819, %506 ]
+  %.sink.i.i.i = phi i64 [ 819, %506 ], [ %536, %530 ]
   %537 = getelementptr inbounds nuw i8, ptr %507, i64 48
   store i64 %.sink.i.i.i, ptr %537, align 8
   %538 = getelementptr inbounds nuw i8, ptr %507, i64 56
@@ -1113,7 +1113,7 @@ _bt_pagestate.exit.i.i:                           ; preds = %530, %506
   br label %_bt_pagestate.exit156.i.i
 
 _bt_pagestate.exit156.i.i:                        ; preds = %587, %563
-  %.sink.i155.i.i = phi i64 [ %593, %587 ], [ 819, %563 ]
+  %.sink.i155.i.i = phi i64 [ 819, %563 ], [ %593, %587 ]
   %594 = getelementptr inbounds nuw i8, ptr %564, i64 48
   store i64 %.sink.i155.i.i, ptr %594, align 8
   %595 = getelementptr inbounds nuw i8, ptr %564, i64 56
@@ -1285,7 +1285,7 @@ _bt_sort_dedup_finish_pending.exit.i.i:           ; preds = %609, %608
   br label %_bt_pagestate.exit165.i.i
 
 _bt_pagestate.exit165.i.i:                        ; preds = %673, %649
-  %.sink.i164.i.i = phi i64 [ %679, %673 ], [ 819, %649 ]
+  %.sink.i164.i.i = phi i64 [ 819, %649 ], [ %679, %673 ]
   %680 = getelementptr inbounds nuw i8, ptr %650, i64 48
   store i64 %.sink.i164.i.i, ptr %680, align 8
   %681 = getelementptr inbounds nuw i8, ptr %650, i64 56
@@ -1308,7 +1308,7 @@ _bt_pagestate.exit165.i.i:                        ; preds = %673, %649
   br i1 %.not33.i.i.i, label %_bt_leafbuild.exit, label %.lr.ph.i.i.i.preheader
 
 .lr.ph.i.i.i.preheader:                           ; preds = %682, %.loopexit.i.i, %.loopexit.i.thread10.i
-  %.036.i.i.i.ph = phi ptr [ %.4.i.i, %.loopexit.i.thread10.i ], [ %.0.i.i16, %.loopexit.i.i ], [ %.6.i.i, %682 ]
+  %.036.i.i.i.ph = phi ptr [ %.0.i.i16, %.loopexit.i.i ], [ %.4.i.i, %.loopexit.i.thread10.i ], [ %.6.i.i, %682 ]
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %_bt_slideleft.exit.i.i.i

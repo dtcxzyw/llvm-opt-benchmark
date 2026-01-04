@@ -2695,8 +2695,8 @@ _ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i
   br label %_ZNK20btAlignedObjectArrayIP17btTypedConstraintE16findLinearSearchERKS1_.exit.thread.sink.split
 
 _ZNK20btAlignedObjectArrayIP17btTypedConstraintE16findLinearSearchERKS1_.exit.thread.sink.split: ; preds = %66, %44, %69, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i11, %56, %47, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i, %34
-  %.sink35 = phi ptr [ %30, %34 ], [ %30, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i ], [ %30, %47 ], [ %32, %56 ], [ %32, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i11 ], [ %32, %69 ], [ %30, %44 ], [ %32, %66 ]
-  %.sink.shrunk = phi i1 [ false, %34 ], [ true, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i ], [ %55, %47 ], [ false, %56 ], [ true, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i11 ], [ %77, %69 ], [ true, %44 ], [ true, %66 ]
+  %.sink35 = phi ptr [ %30, %47 ], [ %32, %69 ], [ %30, %34 ], [ %30, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i ], [ %30, %44 ], [ %32, %56 ], [ %32, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i11 ], [ %32, %66 ]
+  %.sink.shrunk = phi i1 [ %55, %47 ], [ %77, %69 ], [ false, %34 ], [ true, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i ], [ true, %44 ], [ false, %56 ], [ true, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i11 ], [ true, %66 ]
   %.sink = zext i1 %.sink.shrunk to i32
   %78 = getelementptr inbounds nuw i8, ptr %.sink35, i64 312
   store i32 %.sink, ptr %78, align 8, !tbaa !108

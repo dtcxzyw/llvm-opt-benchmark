@@ -581,7 +581,7 @@ mbedtls_ecp_get_type.exit51:                      ; preds = %13, %21
   br label %mbedtls_ecp_get_type.exit51.thread
 
 mbedtls_ecp_get_type.exit51.thread:               ; preds = %7, %21, %mbedtls_ecp_get_type.exit.thread, %18, %34, %37, %44, %41, %31, %26, %mbedtls_ecp_get_type.exit, %6, %28
-  %.0 = phi i32 [ 0, %28 ], [ -20352, %6 ], [ -20224, %mbedtls_ecp_get_type.exit ], [ -20224, %26 ], [ -20224, %31 ], [ -20224, %41 ], [ %19, %18 ], [ %36, %34 ], [ %40, %37 ], [ %50, %44 ], [ 0, %mbedtls_ecp_get_type.exit.thread ], [ 0, %21 ], [ -20096, %7 ]
+  %.0 = phi i32 [ -20224, %31 ], [ -20352, %6 ], [ -20224, %41 ], [ -20224, %mbedtls_ecp_get_type.exit ], [ 0, %28 ], [ -20224, %26 ], [ %19, %18 ], [ %36, %34 ], [ %40, %37 ], [ %50, %44 ], [ -20096, %7 ], [ 0, %21 ], [ 0, %mbedtls_ecp_get_type.exit.thread ]
   ret i32 %.0
 }
 
@@ -725,7 +725,7 @@ mbedtls_ecp_get_type.exit59:                      ; preds = %12, %30
   br label %mbedtls_ecp_set_zero.exit
 
 mbedtls_ecp_set_zero.exit:                        ; preds = %6, %30, %mbedtls_ecp_get_type.exit.thread, %41, %38, %36, %16, %22, %26, %47, %50, %53, %62, %55, %44, %34, %mbedtls_ecp_get_type.exit, %4, %63, %58
-  %.0 = phi i32 [ %61, %58 ], [ %67, %63 ], [ -20352, %4 ], [ -20352, %mbedtls_ecp_get_type.exit ], [ -20352, %34 ], [ -20352, %44 ], [ -20352, %55 ], [ -20352, %62 ], [ -20352, %53 ], [ %17, %16 ], [ %25, %22 ], [ %28, %26 ], [ %49, %47 ], [ %52, %50 ], [ %37, %36 ], [ %40, %38 ], [ %43, %41 ], [ 0, %mbedtls_ecp_get_type.exit.thread ], [ 0, %30 ], [ -20096, %6 ]
+  %.0 = phi i32 [ -20352, %62 ], [ -20352, %4 ], [ -20352, %53 ], [ %43, %41 ], [ -20352, %mbedtls_ecp_get_type.exit ], [ -20352, %34 ], [ -20352, %44 ], [ %61, %58 ], [ -20352, %55 ], [ %67, %63 ], [ %17, %16 ], [ %25, %22 ], [ %28, %26 ], [ %49, %47 ], [ %52, %50 ], [ %37, %36 ], [ %40, %38 ], [ 0, %30 ], [ 0, %mbedtls_ecp_get_type.exit.thread ], [ -20096, %6 ]
   ret i32 %.0
 }
 
@@ -887,7 +887,7 @@ define hidden i32 @mbedtls_ecp_tls_read_group(ptr noundef %0, ptr noundef captur
   br label %mbedtls_ecp_tls_read_group_id.exit.thread
 
 mbedtls_ecp_tls_read_group_id.exit.thread:        ; preds = %16, %5, %3, %19
-  %.0 = phi i32 [ %21, %19 ], [ -20352, %5 ], [ -20352, %3 ], [ -20096, %16 ]
+  %.0 = phi i32 [ %21, %19 ], [ -20352, %3 ], [ -20352, %5 ], [ -20096, %16 ]
   ret i32 %.0
 }
 
@@ -1155,7 +1155,7 @@ mbedtls_ecp_copy.exit.i:                          ; preds = %39
   br label %mbedtls_ecp_copy.exit.thread.i
 
 mbedtls_ecp_copy.exit.thread.i:                   ; preds = %55, %75, %73, %71, %69, %65, %79, %77, %57, %46, %44, %mbedtls_ecp_copy.exit.i, %39, %37, %35
-  %.034.i = phi i32 [ %36, %35 ], [ %43, %mbedtls_ecp_copy.exit.i ], [ %45, %44 ], [ %48, %46 ], [ %58, %57 ], [ %78, %77 ], [ %80, %79 ], [ %41, %39 ], [ %38, %37 ], [ %68, %65 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %76, %75 ], [ %56, %55 ]
+  %.034.i = phi i32 [ %36, %35 ], [ %43, %mbedtls_ecp_copy.exit.i ], [ %45, %44 ], [ %48, %46 ], [ %68, %65 ], [ %58, %57 ], [ %38, %37 ], [ %78, %77 ], [ %80, %79 ], [ %41, %39 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %76, %75 ], [ %56, %55 ]
   call void @mbedtls_mpi_free(ptr noundef nonnull %15) #20
   call void @mbedtls_mpi_free(ptr noundef nonnull %29) #20
   call void @mbedtls_mpi_free(ptr noundef nonnull %30) #20
@@ -1426,7 +1426,7 @@ mbedtls_ecp_copy.exit78.i.i:                      ; preds = %158
   br i1 %exitcond32.not.i.i, label %mbedtls_ecp_copy.exit.thread.i.i, label %.lr.ph23.i.i, !llvm.loop !48
 
 mbedtls_ecp_copy.exit.thread.i.i:                 ; preds = %165, %mbedtls_ecp_copy.exit78.i.i, %158, %153, %179, %.lr.ph23.i.i, %._crit_edge20.i.i, %._crit_edge.i.i, %mbedtls_ecp_copy.exit.i.i, %135, %mpi_init_many.exit.i.i
-  %.0.i.i = phi i32 [ %140, %mbedtls_ecp_copy.exit.i.i ], [ %175, %._crit_edge.i.i ], [ %192, %._crit_edge20.i.i ], [ %137, %135 ], [ %134, %mpi_init_many.exit.i.i ], [ 0, %.lr.ph23.i.i ], [ %183, %179 ], [ %157, %153 ], [ %161, %158 ], [ %166, %165 ], [ %164, %mbedtls_ecp_copy.exit78.i.i ]
+  %.0.i.i = phi i32 [ %140, %mbedtls_ecp_copy.exit.i.i ], [ %134, %mpi_init_many.exit.i.i ], [ %137, %135 ], [ %175, %._crit_edge.i.i ], [ 0, %.lr.ph23.i.i ], [ %192, %._crit_edge20.i.i ], [ %183, %179 ], [ %161, %158 ], [ %157, %153 ], [ %166, %165 ], [ %164, %mbedtls_ecp_copy.exit78.i.i ]
   br label %195
 
 195:                                              ; preds = %195, %mbedtls_ecp_copy.exit.thread.i.i
@@ -1455,7 +1455,7 @@ ecp_precompute_comb.exit.i:                       ; preds = %195
   br label %202
 
 202:                                              ; preds = %199, %198, %116
-  %.0548.i = phi ptr [ %121, %199 ], [ %121, %198 ], [ %118, %116 ]
+  %.0548.i = phi ptr [ %121, %198 ], [ %121, %199 ], [ %118, %116 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -1622,7 +1622,7 @@ mpi_init_many.exit.i.i.i:                         ; preds = %245
   br i1 %or.cond.i.i.i, label %.preheader.i.i.i, label %.loopexit.i.i.i, !llvm.loop !52
 
 .loopexit.i.i.i:                                  ; preds = %262, %258, %.preheader.i.i.i, %255, %252, %mpi_init_many.exit.i.i.i
-  %.029.i.i.i = phi i32 [ %250, %mpi_init_many.exit.i.i.i ], [ %253, %252 ], [ 0, %255 ], [ %257, %.preheader.i.i.i ], [ %261, %258 ], [ %263, %262 ]
+  %.029.i.i.i = phi i32 [ %250, %mpi_init_many.exit.i.i.i ], [ 0, %255 ], [ %253, %252 ], [ %257, %.preheader.i.i.i ], [ %261, %258 ], [ %263, %262 ]
   call void @mbedtls_mpi_free(ptr noundef nonnull %8) #20
   call void @mbedtls_mpi_free(ptr noundef nonnull %243) #20
   call void @mbedtls_mpi_free(ptr noundef nonnull %244) #20
@@ -1731,7 +1731,7 @@ mbedtls_ecp_point_free.exit.i:                    ; preds = %mbedtls_ecp_point_f
   br label %ecp_mul_comb.exit
 
 ecp_mul_comb.exit:                                ; preds = %21, %85, %mbedtls_ecp_get_type.exit.thread, %290, %.thread16.i, %288, %ecp_mul_mxz.exit.thread, %ecp_mul_mxz.exit, %19, %6
-  %.0 = phi i32 [ %.034.i, %ecp_mul_mxz.exit ], [ %18, %6 ], [ %20, %19 ], [ -20352, %ecp_mul_mxz.exit.thread ], [ 0, %288 ], [ %.01519.i, %.thread16.i ], [ %.01519.i, %290 ], [ 0, %mbedtls_ecp_get_type.exit.thread ], [ 0, %85 ], [ -20352, %21 ]
+  %.0 = phi i32 [ %.034.i, %ecp_mul_mxz.exit ], [ -20352, %ecp_mul_mxz.exit.thread ], [ %.01519.i, %290 ], [ %18, %6 ], [ %20, %19 ], [ 0, %288 ], [ %.01519.i, %.thread16.i ], [ 0, %85 ], [ 0, %mbedtls_ecp_get_type.exit.thread ], [ -20352, %21 ]
   ret i32 %.0
 }
 
@@ -1933,7 +1933,7 @@ mbedtls_ecp_copy.exit46:                          ; preds = %40
   br label %mbedtls_ecp_set_zero.exit
 
 mbedtls_ecp_set_zero.exit:                        ; preds = %40, %38, %29, %25, %23, %15, %12, %10, %47, %51, %55, %mbedtls_ecp_copy.exit46, %36, %21, %8
-  %.027 = phi i32 [ %9, %8 ], [ %22, %21 ], [ %37, %36 ], [ %46, %mbedtls_ecp_copy.exit46 ], [ %56, %55 ], [ %50, %47 ], [ %54, %51 ], [ %11, %10 ], [ %14, %12 ], [ %17, %15 ], [ %24, %23 ], [ %28, %25 ], [ %32, %29 ], [ %43, %40 ], [ %39, %38 ]
+  %.027 = phi i32 [ %9, %8 ], [ %54, %51 ], [ %22, %21 ], [ %17, %15 ], [ %37, %36 ], [ %46, %mbedtls_ecp_copy.exit46 ], [ %56, %55 ], [ %50, %47 ], [ %11, %10 ], [ %14, %12 ], [ %24, %23 ], [ %28, %25 ], [ %32, %29 ], [ %43, %40 ], [ %39, %38 ]
   call void @mbedtls_mpi_free(ptr noundef nonnull %5) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.027
@@ -2115,7 +2115,7 @@ define internal fastcc i32 @ecp_add_mixed(ptr noundef %0, ptr noundef %1, ptr no
   br label %mbedtls_ecp_copy.exit
 
 mbedtls_ecp_copy.exit:                            ; preds = %31, %28, %26, %21, %18, %16, %56, %58, %35, %37, %40, %42, %45, %47, %60, %62, %65, %68, %70, %72, %74, %76, %78, %80, %82, %84, %86, %33, %5
-  %.0 = phi i32 [ -20352, %5 ], [ -20352, %33 ], [ %36, %35 ], [ %39, %37 ], [ %41, %40 ], [ %44, %42 ], [ %46, %45 ], [ %49, %47 ], [ %57, %56 ], [ %59, %58 ], [ %61, %60 ], [ %64, %62 ], [ %67, %65 ], [ %69, %68 ], [ %71, %70 ], [ %73, %72 ], [ %75, %74 ], [ %77, %76 ], [ %79, %78 ], [ %81, %80 ], [ %83, %82 ], [ %85, %84 ], [ %87, %86 ], [ %17, %16 ], [ %20, %18 ], [ %22, %21 ], [ %27, %26 ], [ %30, %28 ], [ %32, %31 ]
+  %.0 = phi i32 [ %87, %86 ], [ %22, %21 ], [ -20352, %5 ], [ -20352, %33 ], [ %36, %35 ], [ %39, %37 ], [ %41, %40 ], [ %44, %42 ], [ %46, %45 ], [ %49, %47 ], [ %57, %56 ], [ %59, %58 ], [ %61, %60 ], [ %64, %62 ], [ %67, %65 ], [ %69, %68 ], [ %71, %70 ], [ %73, %72 ], [ %75, %74 ], [ %77, %76 ], [ %79, %78 ], [ %81, %80 ], [ %83, %82 ], [ %85, %84 ], [ %17, %16 ], [ %20, %18 ], [ %27, %26 ], [ %30, %28 ], [ %32, %31 ]
   ret i32 %.0
 }
 
@@ -2263,7 +2263,7 @@ mbedtls_ecp_get_type.exit:                        ; preds = %12
   br label %ecp_check_bad_points_mx.exit.i
 
 ecp_check_bad_points_mx.exit.i:                   ; preds = %31, %46, %44, %41, %38, %33, %25
-  %.0.i.i = phi i32 [ %28, %25 ], [ %45, %44 ], [ -19584, %33 ], [ -19584, %38 ], [ -19584, %41 ], [ %..i.i, %46 ], [ %32, %31 ]
+  %.0.i.i = phi i32 [ %28, %25 ], [ %..i.i, %46 ], [ -19584, %41 ], [ -19584, %33 ], [ -19584, %38 ], [ %45, %44 ], [ %32, %31 ]
   call void @mbedtls_mpi_free(ptr noundef nonnull %5) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %ecp_check_pubkey_mx.exit
@@ -2323,7 +2323,7 @@ ecp_check_pubkey_sw.exit:                         ; preds = %mbedtls_ecp_get_typ
   br label %ecp_check_pubkey_mx.exit
 
 ecp_check_pubkey_mx.exit:                         ; preds = %8, %ecp_check_bad_points_mx.exit.i, %22, %mbedtls_ecp_get_type.exit, %2, %ecp_check_pubkey_sw.exit
-  %.0 = phi i32 [ %.012.i, %ecp_check_pubkey_sw.exit ], [ -19584, %2 ], [ %.0.i.i, %ecp_check_bad_points_mx.exit.i ], [ -19584, %mbedtls_ecp_get_type.exit ], [ -19584, %22 ], [ -20352, %8 ]
+  %.0 = phi i32 [ -19584, %2 ], [ -19584, %22 ], [ %.012.i, %ecp_check_pubkey_sw.exit ], [ %.0.i.i, %ecp_check_bad_points_mx.exit.i ], [ -19584, %mbedtls_ecp_get_type.exit ], [ -20352, %8 ]
   ret i32 %.0
 }
 
@@ -2383,7 +2383,7 @@ mbedtls_ecp_get_type.exit17:                      ; preds = %6
   br label %mbedtls_ecp_get_type.exit17.thread
 
 mbedtls_ecp_get_type.exit17.thread:               ; preds = %2, %25, %mbedtls_ecp_get_type.exit17, %20, %mbedtls_ecp_get_type.exit, %11, %13, %22
-  %.0 = phi i32 [ 0, %22 ], [ -19584, %13 ], [ -19584, %11 ], [ -19584, %mbedtls_ecp_get_type.exit ], [ -19584, %20 ], [ -19584, %mbedtls_ecp_get_type.exit17 ], [ %spec.select, %25 ], [ -20352, %2 ]
+  %.0 = phi i32 [ -19584, %mbedtls_ecp_get_type.exit17 ], [ -19584, %mbedtls_ecp_get_type.exit ], [ 0, %22 ], [ -19584, %20 ], [ %spec.select, %25 ], [ -19584, %13 ], [ -19584, %11 ], [ -20352, %2 ]
   ret i32 %.0
 }
 
@@ -2448,7 +2448,7 @@ mbedtls_ecp_get_type.exit13:                      ; preds = %8
   br label %mbedtls_ecp_gen_privkey_mx.exit
 
 mbedtls_ecp_gen_privkey_mx.exit:                  ; preds = %4, %30, %26, %24, %22, %17, %mbedtls_ecp_get_type.exit, %mbedtls_ecp_get_type.exit13
-  %.0 = phi i32 [ %..i14, %mbedtls_ecp_get_type.exit13 ], [ %16, %mbedtls_ecp_get_type.exit ], [ %21, %17 ], [ %23, %22 ], [ %25, %24 ], [ %31, %30 ], [ %27, %26 ], [ -20352, %4 ]
+  %.0 = phi i32 [ %27, %26 ], [ %..i14, %mbedtls_ecp_get_type.exit13 ], [ %16, %mbedtls_ecp_get_type.exit ], [ %21, %17 ], [ %23, %22 ], [ %25, %24 ], [ %31, %30 ], [ -20352, %4 ]
   ret i32 %.0
 }
 
@@ -2679,7 +2679,7 @@ select.unfold69:                                  ; preds = %39, %mbedtls_ecp_ge
   br label %50
 
 50:                                               ; preds = %48, %.thread, %28, %14, %4
-  %.034 = phi i32 [ %5, %4 ], [ -19584, %14 ], [ -19584, %28 ], [ %.173, %.thread ], [ 0, %48 ]
+  %.034 = phi i32 [ -19584, %14 ], [ %5, %4 ], [ -19584, %28 ], [ %.173, %.thread ], [ 0, %48 ]
   ret i32 %.034
 }
 
@@ -2733,7 +2733,7 @@ mbedtls_ecp_get_type.exit20:                      ; preds = %7, %22
   br label %mbedtls_ecp_get_type.exit20.thread
 
 mbedtls_ecp_get_type.exit20.thread:               ; preds = %3, %22, %mbedtls_ecp_get_type.exit.thread, %18, %mbedtls_ecp_get_type.exit20, %15, %13
-  %.014 = phi i32 [ -20224, %13 ], [ -20224, %15 ], [ %20, %18 ], [ %25, %mbedtls_ecp_get_type.exit20 ], [ 0, %mbedtls_ecp_get_type.exit.thread ], [ 0, %22 ], [ -110, %3 ]
+  %.014 = phi i32 [ -20224, %13 ], [ -20224, %15 ], [ %20, %18 ], [ %25, %mbedtls_ecp_get_type.exit20 ], [ 0, %22 ], [ 0, %mbedtls_ecp_get_type.exit.thread ], [ -110, %3 ]
   ret i32 %.014
 }
 
@@ -2779,7 +2779,7 @@ mbedtls_ecp_get_type.exit18:                      ; preds = %20
   br label %mbedtls_ecp_get_type.exit18.thread
 
 mbedtls_ecp_get_type.exit18.thread:               ; preds = %16, %11, %mbedtls_ecp_get_type.exit18, %mbedtls_ecp_get_type.exit, %10
-  %.0 = phi i32 [ -20224, %10 ], [ %24, %mbedtls_ecp_get_type.exit ], [ %25, %mbedtls_ecp_get_type.exit18 ], [ -20352, %11 ], [ -110, %16 ]
+  %.0 = phi i32 [ -20224, %10 ], [ -20352, %11 ], [ %24, %mbedtls_ecp_get_type.exit ], [ %25, %mbedtls_ecp_get_type.exit18 ], [ -110, %16 ]
   ret i32 %.0
 }
 
@@ -3279,7 +3279,7 @@ mbedtls_mpi_add_mod.exit:                         ; preds = %21, %14, %11
   br i1 %.not12.i35, label %31, label %mbedtls_mpi_sub_int_mod.exit, !llvm.loop !65
 
 mbedtls_mpi_sub_int_mod.exit:                     ; preds = %24, %16, %34, %31, %18, %27, %7, %mbedtls_mpi_add_mod.exit, %3
-  %.0 = phi i32 [ %4, %3 ], [ %26, %mbedtls_mpi_add_mod.exit ], [ %8, %7 ], [ %29, %27 ], [ %19, %18 ], [ %35, %34 ], [ 0, %31 ], [ %17, %16 ], [ %25, %24 ]
+  %.0 = phi i32 [ %4, %3 ], [ %35, %34 ], [ %26, %mbedtls_mpi_add_mod.exit ], [ %17, %16 ], [ %8, %7 ], [ %29, %27 ], [ %19, %18 ], [ 0, %31 ], [ %25, %24 ]
   ret i32 %.0
 }
 
@@ -3372,8 +3372,8 @@ ecp_modp.exit.thread10:                           ; preds = %.critedge.i, %ecp_m
   store i64 %40, ptr @mul_count, align 8, !tbaa !33
   br label %ecp_modp.exit.thread
 
-ecp_modp.exit.thread:                             ; preds = %31, %35, %22, %14, %16, %ecp_modp.exit, %4, %ecp_modp.exit.thread10
-  %.0 = phi i32 [ %5, %4 ], [ %38, %ecp_modp.exit ], [ 0, %ecp_modp.exit.thread10 ], [ %24, %22 ], [ -20352, %14 ], [ -20352, %16 ], [ %36, %35 ], [ %32, %31 ]
+ecp_modp.exit.thread:                             ; preds = %31, %35, %22, %16, %14, %ecp_modp.exit, %4, %ecp_modp.exit.thread10
+  %.0 = phi i32 [ %5, %4 ], [ %38, %ecp_modp.exit ], [ 0, %ecp_modp.exit.thread10 ], [ %36, %35 ], [ -20352, %14 ], [ %24, %22 ], [ -20352, %16 ], [ %32, %31 ]
   ret i32 %.0
 }
 
@@ -3604,7 +3604,7 @@ mbedtls_mpi_add_mod.exit113:                      ; preds = %.preheader.i111
   br label %mbedtls_mpi_sub_mod.exit
 
 mbedtls_mpi_sub_mod.exit:                         ; preds = %14, %24, %32, %42, %26, %7, %mbedtls_mpi_add_mod.exit113, %mbedtls_mpi_add_mod.exit, %73, %71, %69, %66, %64, %62, %60, %56, %54, %52, %50, %48, %46, %44
-  %.0 = phi i32 [ %45, %44 ], [ %47, %46 ], [ %49, %48 ], [ %51, %50 ], [ %53, %52 ], [ %55, %54 ], [ %59, %56 ], [ %61, %60 ], [ %63, %62 ], [ %65, %64 ], [ %68, %66 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %17, %mbedtls_mpi_add_mod.exit ], [ %35, %mbedtls_mpi_add_mod.exit113 ], [ %9, %7 ], [ %29, %26 ], [ %43, %42 ], [ %33, %32 ], [ %25, %24 ], [ %15, %14 ]
+  %.0 = phi i32 [ %29, %26 ], [ %74, %73 ], [ %9, %7 ], [ %33, %32 ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ], [ %51, %50 ], [ %53, %52 ], [ %55, %54 ], [ %59, %56 ], [ %61, %60 ], [ %63, %62 ], [ %65, %64 ], [ %68, %66 ], [ %70, %69 ], [ %72, %71 ], [ %17, %mbedtls_mpi_add_mod.exit ], [ %35, %mbedtls_mpi_add_mod.exit113 ], [ %25, %24 ], [ %43, %42 ], [ %15, %14 ]
   ret i32 %.0
 }
 
@@ -3886,7 +3886,7 @@ mbedtls_mpi_mul_int_mod.exit:                     ; preds = %40
   br label %mbedtls_mpi_sub_mod.exit
 
 mbedtls_mpi_sub_mod.exit:                         ; preds = %43, %19, %29, %37, %12, %mbedtls_mpi_add_mod.exit, %94, %91, %89, %87, %84, %82, %80, %78, %76, %74, %72, %70, %67, %65, %62, %60, %56, %54, %52, %49, %46, %35, %33, %31, %9
-  %.0 = phi i32 [ %11, %9 ], [ %32, %31 ], [ %34, %33 ], [ %59, %56 ], [ %61, %60 ], [ %64, %62 ], [ %66, %65 ], [ %69, %67 ], [ %71, %70 ], [ %73, %72 ], [ %75, %74 ], [ %77, %76 ], [ %79, %78 ], [ %81, %80 ], [ %83, %82 ], [ %86, %84 ], [ %88, %87 ], [ %90, %89 ], [ %93, %91 ], [ %96, %94 ], [ %36, %35 ], [ %48, %46 ], [ %51, %49 ], [ %53, %52 ], [ %55, %54 ], [ %22, %mbedtls_mpi_add_mod.exit ], [ %14, %12 ], [ %38, %37 ], [ %30, %29 ], [ %20, %19 ], [ %44, %43 ]
+  %.0 = phi i32 [ %11, %9 ], [ %38, %37 ], [ %55, %54 ], [ %32, %31 ], [ %34, %33 ], [ %59, %56 ], [ %61, %60 ], [ %64, %62 ], [ %66, %65 ], [ %69, %67 ], [ %71, %70 ], [ %73, %72 ], [ %75, %74 ], [ %77, %76 ], [ %79, %78 ], [ %81, %80 ], [ %83, %82 ], [ %86, %84 ], [ %88, %87 ], [ %90, %89 ], [ %93, %91 ], [ %96, %94 ], [ %36, %35 ], [ %14, %12 ], [ %48, %46 ], [ %51, %49 ], [ %53, %52 ], [ %22, %mbedtls_mpi_add_mod.exit ], [ %20, %19 ], [ %30, %29 ], [ %44, %43 ]
   ret i32 %.0
 }
 
@@ -4033,7 +4033,7 @@ mpi_init_many.exit:                               ; preds = %13
   br i1 %or.cond, label %.loopexit, label %32
 
 .loopexit:                                        ; preds = %.lr.ph, %69, %63, %58, %54, %51, %49, %44, %42, %37, %33, %._crit_edge, %mpi_init_many.exit
-  %.071 = phi i32 [ %18, %mpi_init_many.exit ], [ %30, %._crit_edge ], [ %43, %42 ], [ %72, %69 ], [ %68, %63 ], [ %62, %58 ], [ %57, %54 ], [ %53, %51 ], [ %50, %49 ], [ %48, %44 ], [ %41, %37 ], [ %36, %33 ], [ %26, %.lr.ph ]
+  %.071 = phi i32 [ %18, %mpi_init_many.exit ], [ %36, %33 ], [ %30, %._crit_edge ], [ %43, %42 ], [ %72, %69 ], [ %68, %63 ], [ %62, %58 ], [ %57, %54 ], [ %53, %51 ], [ %50, %49 ], [ %48, %44 ], [ %41, %37 ], [ %26, %.lr.ph ]
   call void @mbedtls_mpi_free(ptr noundef nonnull %4) #20
   br label %75
 
@@ -4223,7 +4223,7 @@ ecp_safe_invert_jac.exit:                         ; preds = %20
   br label %.loopexit
 
 .loopexit:                                        ; preds = %17, %12, %ecp_safe_invert_jac.exit.thread, %27, %ecp_safe_invert_jac.exit
-  %.018 = phi i32 [ %26, %ecp_safe_invert_jac.exit ], [ %29, %27 ], [ %23, %ecp_safe_invert_jac.exit.thread ], [ %19, %17 ], [ %16, %12 ]
+  %.018 = phi i32 [ %29, %27 ], [ %23, %ecp_safe_invert_jac.exit.thread ], [ %26, %ecp_safe_invert_jac.exit ], [ %19, %17 ], [ %16, %12 ]
   ret i32 %.018
 }
 

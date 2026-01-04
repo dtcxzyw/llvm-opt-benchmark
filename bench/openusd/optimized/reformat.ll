@@ -183,7 +183,7 @@ define hidden range(i32 0, 2) i32 @avifGetRGBColorSpaceInfo(ptr noundef %0, ptr 
   br label %.thread76
 
 .thread76:                                        ; preds = %.thread, %.thread78, %17, %16, %8, %2, %75
-  %.0 = phi i32 [ 1, %75 ], [ 0, %2 ], [ 0, %8 ], [ 0, %16 ], [ 0, %17 ], [ 0, %.thread78 ], [ 0, %.thread ]
+  %.0 = phi i32 [ 0, %17 ], [ 0, %2 ], [ 0, %8 ], [ 0, %16 ], [ 1, %75 ], [ 0, %.thread78 ], [ 0, %.thread ]
   ret i32 %.0
 }
 
@@ -300,7 +300,7 @@ define hidden range(i32 0, 2) i32 @avifGetYUVColorSpaceInfo(ptr noundef %0, ptr 
   br label %53
 
 53:                                               ; preds = %12, %12, %12, %12, %12, %9, %21, %15, %17, %5, %2, %46
-  %.0 = phi i32 [ 1, %46 ], [ 0, %2 ], [ 0, %5 ], [ 0, %9 ], [ 0, %12 ], [ 0, %17 ], [ 0, %15 ], [ 0, %21 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ]
+  %.0 = phi i32 [ 1, %46 ], [ 0, %2 ], [ 0, %5 ], [ 0, %9 ], [ 0, %15 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %17 ], [ 0, %21 ]
   ret i32 %.0
 }
 
@@ -532,8 +532,8 @@ avifPrepareReformatState.exit:                    ; preds = %83, %78
   br label %.thread462
 
 .thread462:                                       ; preds = %101, %.thread460, %102, %95
-  %103 = phi i1 [ true, %95 ], [ %.not330, %102 ], [ true, %.thread460 ], [ %.not328, %101 ]
-  %104 = phi i1 [ false, %95 ], [ false, %102 ], [ false, %.thread460 ], [ %not..not328, %101 ]
+  %103 = phi i1 [ %.not330, %102 ], [ %.not328, %101 ], [ true, %.thread460 ], [ true, %95 ]
+  %104 = phi i1 [ false, %102 ], [ %not..not328, %101 ], [ false, %.thread460 ], [ false, %95 ]
   %105 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %106 = load i32, ptr %105, align 4
   %107 = icmp eq i32 %106, 4
@@ -550,7 +550,7 @@ avifPrepareReformatState.exit:                    ; preds = %83, %78
   %.not331 = icmp eq i32 %113, 0
   br i1 %.not331, label %.loopexit522, label %avifPrepareReformatState.exit.thread
 
-.critedge:                                        ; preds = %.thread462, %108
+.critedge:                                        ; preds = %108, %.thread462
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %115 = load i32, ptr %114, align 8
   %116 = icmp eq i32 %115, 0
@@ -747,9 +747,9 @@ avifPrepareReformatState.exit:                    ; preds = %83, %78
   br label %231
 
 231:                                              ; preds = %.thread464, %218, %211, %212, %214, %219, %221, %181
-  %.sroa.0.1 = phi float [ %215, %214 ], [ %.sroa.0.0473478, %212 ], [ %226, %221 ], [ %.sroa.0.0473478, %219 ], [ %.sroa.0.0, %181 ], [ 0.000000e+00, %211 ], [ 0.000000e+00, %218 ], [ %.sroa.0.0470, %.thread464 ]
-  %.sroa.17.1 = phi float [ %216, %214 ], [ %.sroa.17.0472480, %212 ], [ %228, %221 ], [ %.sroa.17.0472480, %219 ], [ %.sroa.17.0, %181 ], [ 0.000000e+00, %211 ], [ 0.000000e+00, %218 ], [ %.sroa.17.0469, %.thread464 ]
-  %.sroa.32.1 = phi float [ %217, %214 ], [ %.sroa.32.0471482, %212 ], [ %230, %221 ], [ %.sroa.32.0471482, %219 ], [ %.sroa.32.0, %181 ], [ 0.000000e+00, %211 ], [ 0.000000e+00, %218 ], [ %.sroa.32.0468, %.thread464 ]
+  %.sroa.0.1 = phi float [ %.sroa.0.0, %181 ], [ %215, %214 ], [ %.sroa.0.0473478, %212 ], [ 0.000000e+00, %211 ], [ %226, %221 ], [ %.sroa.0.0473478, %219 ], [ 0.000000e+00, %218 ], [ %.sroa.0.0470, %.thread464 ]
+  %.sroa.17.1 = phi float [ %.sroa.17.0, %181 ], [ %216, %214 ], [ %.sroa.17.0472480, %212 ], [ 0.000000e+00, %211 ], [ %228, %221 ], [ %.sroa.17.0472480, %219 ], [ 0.000000e+00, %218 ], [ %.sroa.17.0469, %.thread464 ]
+  %.sroa.32.1 = phi float [ %.sroa.32.0, %181 ], [ %217, %214 ], [ %.sroa.32.0471482, %212 ], [ 0.000000e+00, %211 ], [ %230, %221 ], [ %.sroa.32.0471482, %219 ], [ 0.000000e+00, %218 ], [ %.sroa.32.0468, %.thread464 ]
   %232 = load i32, ptr %79, align 4
   switch i32 %232, label %244 [
     i32 1, label %233
@@ -1322,7 +1322,7 @@ avifYUVColorSpaceInfoUVToUNorm.exit401:           ; preds = %453
   br label %avifPrepareReformatState.exit.thread
 
 avifPrepareReformatState.exit.thread:             ; preds = %15, %.thread78.i, %12, %70, %.thread460, %.loopexit522, %534, %569, %556, %117, %112, %90, %avifPrepareReformatState.exit, %2, %8
-  %.0 = phi i32 [ 5, %8 ], [ 5, %2 ], [ 25, %avifPrepareReformatState.exit ], [ %93, %90 ], [ %113, %112 ], [ %118, %117 ], [ 0, %556 ], [ 0, %569 ], [ 0, %534 ], [ 0, %.loopexit522 ], [ %94, %.thread460 ], [ 5, %70 ], [ 5, %12 ], [ 5, %.thread78.i ], [ 5, %15 ]
+  %.0 = phi i32 [ 5, %2 ], [ %94, %.thread460 ], [ 25, %avifPrepareReformatState.exit ], [ %93, %90 ], [ %118, %117 ], [ %113, %112 ], [ 5, %8 ], [ 0, %556 ], [ 0, %569 ], [ 0, %534 ], [ 0, %.loopexit522 ], [ 5, %70 ], [ 5, %.thread78.i ], [ 5, %12 ], [ 5, %15 ]
   ret i32 %.0
 }
 
@@ -1586,7 +1586,7 @@ avifPrepareReformatState.exit:                    ; preds = %96, %91
   br label %.thread
 
 .thread:                                          ; preds = %116, %117, %108, %avifPrepareReformatState.exit
-  %.075 = phi i32 [ 0, %avifPrepareReformatState.exit ], [ %spec.select, %108 ], [ %spec.select101, %117 ], [ %spec.select113, %116 ]
+  %.075 = phi i32 [ %spec.select, %108 ], [ 0, %avifPrepareReformatState.exit ], [ %spec.select101, %117 ], [ %spec.select113, %116 ]
   %118 = load i32, ptr %9, align 8
   %119 = call i32 @llvm.smax.i32(i32 %118, i32 1)
   %120 = call i32 @llvm.umin.i32(i32 %119, i32 8)
@@ -1735,7 +1735,7 @@ avifPrepareReformatState.exit:                    ; preds = %96, %91
   br label %197
 
 197:                                              ; preds = %195, %190
-  %.1 = phi i32 [ %.074122, %190 ], [ %spec.select104, %195 ]
+  %.1 = phi i32 [ %spec.select104, %195 ], [ %.074122, %190 ]
   %198 = getelementptr inbounds nuw i8, ptr %192, i64 284
   %199 = load i32, ptr %198, align 4
   %.not100 = icmp eq i32 %199, 0
@@ -1748,8 +1748,8 @@ avifPrepareReformatState.exit:                    ; preds = %96, %91
   call void @avifArrayDestroy(ptr noundef nonnull %4) #10
   br label %avifPrepareReformatState.exit.thread
 
-avifPrepareReformatState.exit.thread:             ; preds = %.thread.i, %.thread78.i, %27, %26, %18, %12, %83, %135, %2, %8, %200, %.thread111
-  %.0 = phi i32 [ %134, %.thread111 ], [ %spec.select105, %200 ], [ 5, %8 ], [ 5, %2 ], [ 26, %135 ], [ 5, %83 ], [ 5, %12 ], [ 5, %18 ], [ 5, %26 ], [ 5, %27 ], [ 5, %.thread78.i ], [ 5, %.thread.i ]
+avifPrepareReformatState.exit.thread:             ; preds = %.thread.i, %.thread78.i, %26, %18, %12, %27, %83, %135, %2, %8, %200, %.thread111
+  %.0 = phi i32 [ 5, %2 ], [ %134, %.thread111 ], [ %spec.select105, %200 ], [ 26, %135 ], [ 5, %8 ], [ 5, %83 ], [ 5, %27 ], [ 5, %12 ], [ 5, %18 ], [ 5, %26 ], [ 5, %.thread78.i ], [ 5, %.thread.i ]
   ret i32 %.0
 }
 
@@ -1907,7 +1907,7 @@ define internal fastcc i32 @avifImageYUVToRGBImpl(ptr noundef %0, ptr noundef %1
   br label %.thread
 
 .thread:                                          ; preds = %76, %.thread.fold.split, %70, %73, %79, %79
-  %82 = phi i1 [ true, %79 ], [ true, %79 ], [ false, %76 ], [ false, %73 ], [ false, %70 ], [ true, %.thread.fold.split ]
+  %82 = phi i1 [ false, %76 ], [ true, %79 ], [ true, %79 ], [ false, %70 ], [ false, %73 ], [ true, %.thread.fold.split ]
   %83 = icmp eq i32 %3, 0
   br i1 %83, label %87, label %84
 
@@ -2013,11 +2013,11 @@ define internal fastcc i32 @avifImageYUVToRGBImpl(ptr noundef %0, ptr noundef %1
   br label %135
 
 135:                                              ; preds = %120, %122, %115, %117, %131, %133, %126, %128
-  %.096 = phi i32 [ %116, %115 ], [ %118, %117 ], [ %121, %120 ], [ %123, %122 ], [ %127, %126 ], [ %129, %128 ], [ %132, %131 ], [ %134, %133 ]
+  %.096 = phi i32 [ %123, %122 ], [ %127, %126 ], [ %129, %128 ], [ %132, %131 ], [ %134, %133 ], [ %116, %115 ], [ %118, %117 ], [ %121, %120 ]
   %136 = icmp eq i32 %.096, 25
   br i1 %136, label %.thread131, label %582
 
-.thread131:                                       ; preds = %87, %79, %84, %90, %94, %98, %102, %135
+.thread131:                                       ; preds = %79, %84, %87, %90, %94, %98, %102, %135
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %137 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -2119,7 +2119,7 @@ avifCreateYUVToRGBLookUpTables.exit.i:            ; preds = %170, %162
   br label %206
 
 206:                                              ; preds = %202, %avifCreateYUVToRGBLookUpTables.exit.i
-  %207 = phi i1 [ false, %avifCreateYUVToRGBLookUpTables.exit.i ], [ %205, %202 ]
+  %207 = phi i1 [ %205, %202 ], [ false, %avifCreateYUVToRGBLookUpTables.exit.i ]
   %208 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %209 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %210 = load float, ptr %209, align 4
@@ -2306,7 +2306,7 @@ avifCreateYUVToRGBLookUpTables.exit.i:            ; preds = %170, %162
   br label %335
 
 335:                                              ; preds = %331, %329
-  %.0349.i = phi i32 [ 0, %329 ], [ %spec.select426.i, %331 ]
+  %.0349.i = phi i32 [ %spec.select426.i, %331 ], [ 0, %329 ]
   br i1 %277, label %342, label %336
 
 336:                                              ; preds = %335
@@ -2325,8 +2325,8 @@ avifCreateYUVToRGBLookUpTables.exit.i:            ; preds = %170, %162
   br label %342
 
 342:                                              ; preds = %336, %335
-  %.0348.i = phi i32 [ 0, %335 ], [ %spec.select427.i, %336 ]
-  %.0347.i = phi i32 [ 0, %335 ], [ %spec.select428.i, %336 ]
+  %.0348.i = phi i32 [ %spec.select427.i, %336 ], [ 0, %335 ]
+  %.0347.i = phi i32 [ %spec.select428.i, %336 ], [ 0, %335 ]
   %343 = mul i32 %300, %182
   %344 = add i32 %343, %252
   %345 = zext i32 %344 to i64
@@ -2509,8 +2509,8 @@ avifCreateYUVToRGBLookUpTables.exit.i:            ; preds = %170, %162
   br label %474
 
 474:                                              ; preds = %437, %432, %.thread.i
-  %.0355403.i = phi float [ %328, %.thread.i ], [ %436, %432 ], [ %473, %437 ]
-  %.0356402.i = phi float [ %325, %.thread.i ], [ %431, %432 ], [ %453, %437 ]
+  %.0355403.i = phi float [ %328, %.thread.i ], [ %473, %437 ], [ %436, %432 ]
+  %.0356402.i = phi float [ %325, %.thread.i ], [ %453, %437 ], [ %431, %432 ]
   %475 = load i32, ptr %163, align 4
   switch i32 %475, label %481 [
     i32 1, label %.thread404.i
@@ -2535,9 +2535,9 @@ avifCreateYUVToRGBLookUpTables.exit.i:            ; preds = %170, %162
   br label %.thread404.i
 
 .thread404.i:                                     ; preds = %481, %476, %474, %293
-  %.0344.i = phi float [ %480, %476 ], [ %482, %481 ], [ %.0355403.i, %474 ], [ %296, %293 ]
-  %.0343.i = phi float [ %478, %476 ], [ %488, %481 ], [ %296, %474 ], [ %296, %293 ]
-  %.0342.i = phi float [ %479, %476 ], [ %483, %481 ], [ %.0356402.i, %474 ], [ %296, %293 ]
+  %.0344.i = phi float [ %.0355403.i, %474 ], [ %480, %476 ], [ %482, %481 ], [ %296, %293 ]
+  %.0343.i = phi float [ %296, %474 ], [ %478, %476 ], [ %488, %481 ], [ %296, %293 ]
+  %.0342.i = phi float [ %.0356402.i, %474 ], [ %479, %476 ], [ %483, %481 ], [ %296, %293 ]
   %489 = fcmp olt float %.0344.i, 0.000000e+00
   %490 = fcmp ogt float %.0344.i, 1.000000e+00
   %491 = select i1 %490, float 1.000000e+00, float %.0344.i
@@ -2615,9 +2615,9 @@ avifCreateYUVToRGBLookUpTables.exit.i:            ; preds = %170, %162
   br label %542
 
 542:                                              ; preds = %532, %530, %529, %525, %523, %522, %.thread404.i
-  %.0340.i = phi float [ %526, %525 ], [ %492, %523 ], [ %537, %532 ], [ %492, %530 ], [ %492, %.thread404.i ], [ 0.000000e+00, %522 ], [ 0.000000e+00, %529 ]
-  %.0339.i = phi float [ %527, %525 ], [ %496, %523 ], [ %539, %532 ], [ %496, %530 ], [ %496, %.thread404.i ], [ 0.000000e+00, %522 ], [ 0.000000e+00, %529 ]
-  %.0338.i = phi float [ %528, %525 ], [ %500, %523 ], [ %541, %532 ], [ %500, %530 ], [ %500, %.thread404.i ], [ 0.000000e+00, %522 ], [ 0.000000e+00, %529 ]
+  %.0340.i = phi float [ %492, %.thread404.i ], [ %526, %525 ], [ %492, %523 ], [ 0.000000e+00, %522 ], [ %537, %532 ], [ %492, %530 ], [ 0.000000e+00, %529 ]
+  %.0339.i = phi float [ %496, %.thread404.i ], [ %527, %525 ], [ %496, %523 ], [ 0.000000e+00, %522 ], [ %539, %532 ], [ %496, %530 ], [ 0.000000e+00, %529 ]
+  %.0338.i = phi float [ %500, %.thread404.i ], [ %528, %525 ], [ %500, %523 ], [ 0.000000e+00, %522 ], [ %541, %532 ], [ %500, %530 ], [ 0.000000e+00, %529 ]
   %543 = load i32, ptr %239, align 8
   %544 = icmp eq i32 %543, 8
   %545 = call float @llvm.fmuladd.f32(float %.0339.i, float %210, float 5.000000e-01)
@@ -2807,7 +2807,7 @@ avifImageYUVAnyToRGBAnySlow.exit:                 ; preds = %.thread131, %avifCr
   br i1 %629, label %.preheader.i120, label %avifRGBImageToF16.exit, !llvm.loop !23
 
 avifRGBImageToF16.exit:                           ; preds = %._crit_edge.i123, %.thread.i118, %593, %588, %586, %584, %582, %27
-  %.0 = phi i32 [ %28, %27 ], [ %.197, %582 ], [ %585, %584 ], [ %587, %586 ], [ 0, %588 ], [ %594, %593 ], [ 0, %.thread.i118 ], [ 0, %._crit_edge.i123 ]
+  %.0 = phi i32 [ %.197, %582 ], [ 0, %588 ], [ %587, %586 ], [ %585, %584 ], [ %28, %27 ], [ %594, %593 ], [ 0, %.thread.i118 ], [ 0, %._crit_edge.i123 ]
   ret i32 %.0
 }
 
@@ -3198,7 +3198,7 @@ define hidden void @avifGetRGBAPixel(ptr noundef readonly captures(none) %0, i32
   br label %162
 
 162:                                              ; preds = %153, %127, %98, %52, %74
-  %.sink = phi float [ 1.000000e+00, %98 ], [ %73, %52 ], [ %89, %74 ], [ %161, %153 ], [ 1.000000e+00, %127 ]
+  %.sink = phi float [ 1.000000e+00, %98 ], [ %89, %74 ], [ %73, %52 ], [ %161, %153 ], [ 1.000000e+00, %127 ]
   %163 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store float %.sink, ptr %163, align 4
   ret void

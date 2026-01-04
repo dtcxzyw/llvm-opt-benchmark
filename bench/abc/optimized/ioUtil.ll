@@ -181,7 +181,7 @@ sub_136:                                          ; preds = %sub_035
   br label %.tail34
 
 .tail34:                                          ; preds = %sub_136, %sub_035, %35, %.tail.thread, %.tail, %26, %24, %22, %20, %18, %16, %14, %12, %10, %8, %6, %3, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %3 ], [ 1, %6 ], [ 2, %8 ], [ 3, %10 ], [ 4, %12 ], [ 6, %14 ], [ 8, %16 ], [ 9, %18 ], [ 10, %20 ], [ 11, %22 ], [ 12, %24 ], [ 14, %26 ], [ 5, %.tail ], [ 15, %.tail.thread ], [ 17, %35 ], [ 19, %sub_035 ], [ %40, %sub_136 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %1 ], [ 17, %35 ], [ 1, %6 ], [ 15, %.tail.thread ], [ 5, %.tail ], [ 14, %26 ], [ 12, %24 ], [ 11, %22 ], [ 10, %20 ], [ 9, %18 ], [ 8, %16 ], [ 6, %14 ], [ 4, %12 ], [ 3, %10 ], [ 2, %8 ], [ 19, %sub_035 ], [ %40, %sub_136 ]
   ret i32 %.0
 }
 
@@ -379,7 +379,7 @@ define ptr @Io_ReadNetlist(ptr noundef %0, i32 noundef %1, i32 noundef %2) local
   br label %.critedge79
 
 .critedge79:                                      ; preds = %.preheader, %62, %65, %67, %.critedge, %86, %29, %59, %54, %31, %17, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %17 ], [ null, %31 ], [ null, %59 ], [ null, %86 ], [ null, %54 ], [ %.067, %29 ], [ %.168, %.critedge ], [ %.168, %67 ], [ %.168, %65 ], [ %.168, %62 ], [ %.168, %.preheader ]
+  %.0 = phi ptr [ null, %4 ], [ null, %17 ], [ null, %31 ], [ null, %54 ], [ null, %59 ], [ %.067, %29 ], [ null, %86 ], [ %.168, %.critedge ], [ %.168, %67 ], [ %.168, %65 ], [ %.168, %62 ], [ %.168, %.preheader ]
   ret ptr %.0
 }
 
@@ -521,7 +521,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br label %.critedge
 
 .critedge:                                        ; preds = %..critedge.loopexit_crit_edge, %1, %2
-  %.011 = phi ptr [ null, %2 ], [ null, %1 ], [ %7, %..critedge.loopexit_crit_edge ]
+  %.011 = phi ptr [ null, %1 ], [ null, %2 ], [ %7, %..critedge.loopexit_crit_edge ]
   ret ptr %.011
 }
 
@@ -713,7 +713,7 @@ define ptr @Io_Read(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 
   br label %48
 
 48:                                               ; preds = %43, %34, %7, %4, %45, %37, %28, %18, %10
-  %.0 = phi ptr [ %11, %10 ], [ null, %18 ], [ null, %28 ], [ null, %37 ], [ null, %45 ], [ null, %4 ], [ %5, %7 ], [ %35, %34 ], [ %41, %43 ]
+  %.0 = phi ptr [ null, %4 ], [ %11, %10 ], [ null, %18 ], [ null, %28 ], [ null, %37 ], [ %5, %7 ], [ null, %45 ], [ %35, %34 ], [ %41, %43 ]
   ret ptr %.0
 }
 
@@ -1623,7 +1623,7 @@ define noalias noundef ptr @Io_FileOpen(ptr noundef %0, ptr noundef %1, ptr noun
   br label %25
 
 25:                                               ; preds = %24, %._crit_edge, %21, %20
-  %.1 = phi ptr [ %15, %20 ], [ %15, %21 ], [ null, %._crit_edge ], [ null, %24 ]
+  %.1 = phi ptr [ %15, %21 ], [ %15, %20 ], [ null, %._crit_edge ], [ null, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %28
 
@@ -1737,7 +1737,7 @@ define void @Io_TransformSF2PLA(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   br label %43
 
 43:                                               ; preds = %35, %37, %41, %42
-  %.1 = phi i32 [ 1, %42 ], [ 0, %41 ], [ 1, %37 ], [ 1, %35 ]
+  %.1 = phi i32 [ 0, %41 ], [ 1, %42 ], [ 1, %37 ], [ 1, %35 ]
   %44 = tail call ptr @fgets(ptr noundef nonnull %16, i32 noundef 1000000, ptr noundef nonnull %3)
   %.not = icmp eq ptr %44, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
@@ -1871,10 +1871,10 @@ Vec_WrdReadHex.exit.thread:                       ; preds = %7
   br label %Vec_WrdPush.exit.i
 
 Vec_WrdPush.exit.i:                               ; preds = %25, %27, %33, %35, %20
-  %.pre.i4471.i = phi ptr [ %.val58.ph, %20 ], [ %26, %25 ], [ %28, %27 ], [ %34, %33 ], [ %36, %35 ]
-  %37 = phi i32 [ %.ph, %20 ], [ 16, %25 ], [ 16, %27 ], [ %30, %33 ], [ %30, %35 ]
-  %.pre.i62.i = phi ptr [ %.ph183, %20 ], [ %26, %25 ], [ %28, %27 ], [ %34, %33 ], [ %36, %35 ]
-  %38 = phi i32 [ %.ph184, %20 ], [ 16, %25 ], [ 16, %27 ], [ %30, %33 ], [ %30, %35 ]
+  %.pre.i4471.i = phi ptr [ %.val58.ph, %20 ], [ %28, %27 ], [ %26, %25 ], [ %34, %33 ], [ %36, %35 ]
+  %37 = phi i32 [ %.ph, %20 ], [ 16, %27 ], [ 16, %25 ], [ %30, %33 ], [ %30, %35 ]
+  %.pre.i62.i = phi ptr [ %.ph183, %20 ], [ %28, %27 ], [ %26, %25 ], [ %34, %33 ], [ %36, %35 ]
+  %38 = phi i32 [ %.ph184, %20 ], [ 16, %27 ], [ 16, %25 ], [ %30, %33 ], [ %30, %35 ]
   %39 = add i32 %.ph185, 1
   %40 = sext i32 %.ph185 to i64
   %41 = getelementptr inbounds i64, ptr %.pre.i62.i, i64 %40
@@ -1972,8 +1972,8 @@ Vec_WrdReadHexOne.exit.i:                         ; preds = %59, %57, %53
   br label %Vec_WrdPush.exit48.i
 
 Vec_WrdPush.exit48.i:                             ; preds = %74, %76, %82, %84, %69
-  %.pre.i4474.i = phi ptr [ %.val58.ph, %69 ], [ %75, %74 ], [ %77, %76 ], [ %83, %82 ], [ %85, %84 ]
-  %86 = phi i32 [ %.ph, %69 ], [ 16, %74 ], [ 16, %76 ], [ %79, %82 ], [ %79, %84 ]
+  %.pre.i4474.i = phi ptr [ %.val58.ph, %69 ], [ %77, %76 ], [ %75, %74 ], [ %83, %82 ], [ %85, %84 ]
+  %86 = phi i32 [ %.ph, %69 ], [ 16, %76 ], [ 16, %74 ], [ %79, %82 ], [ %79, %84 ]
   %87 = add i32 %.val.ph, 1
   %88 = sext i32 %.val.ph to i64
   %89 = getelementptr inbounds i64, ptr %.pre.i4474.i, i64 %88
@@ -2649,16 +2649,16 @@ Vec_IntGrow.exit.i:                               ; preds = %94, %92
   br i1 %.not46, label %.backedge, label %76
 
 .backedge:                                        ; preds = %108, %76, %39, %14
-  %.val8.pre.i87 = phi ptr [ %15, %39 ], [ %15, %14 ], [ %.val8.pre.i88, %76 ], [ %.val8.pre.i88, %108 ]
-  %.pre.i.i84 = phi ptr [ %.pre.i.i, %39 ], [ %.pre.i.i, %14 ], [ %.val8.pre.i88, %76 ], [ %.val8.pre.i88, %108 ]
+  %.val8.pre.i87 = phi ptr [ %15, %14 ], [ %15, %39 ], [ %.val8.pre.i88, %76 ], [ %.val8.pre.i88, %108 ]
+  %.pre.i.i84 = phi ptr [ %.pre.i.i, %14 ], [ %.pre.i.i, %39 ], [ %.val8.pre.i88, %76 ], [ %.val8.pre.i88, %108 ]
   %115 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 10000, ptr noundef nonnull %8)
   %.not = icmp eq ptr %115, null
   br i1 %.not, label %.outer._crit_edge, label %14, !llvm.loop !76
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %.preheader
-  %.pre.i.i51 = phi ptr [ %6, %.preheader ], [ %.val8.pre.i87, %.backedge ], [ %15, %.outer ]
-  %.039.ph.lcssa64 = phi i32 [ -1, %.preheader ], [ %.039.ph71, %.backedge ], [ %34, %.outer ]
-  %.038.ph.lcssa63 = phi i32 [ -1, %.preheader ], [ %.038.ph72, %.backedge ], [ %37, %.outer ]
+  %.pre.i.i51 = phi ptr [ %.val8.pre.i87, %.backedge ], [ %6, %.preheader ], [ %15, %.outer ]
+  %.039.ph.lcssa64 = phi i32 [ %.039.ph71, %.backedge ], [ -1, %.preheader ], [ %34, %.outer ]
+  %.038.ph.lcssa63 = phi i32 [ %.038.ph72, %.backedge ], [ -1, %.preheader ], [ %37, %.outer ]
   %116 = call i32 @fclose(ptr noundef nonnull %8)
   %.val48 = load i32, ptr %5, align 4, !tbaa !65
   %.not44 = icmp eq i32 %.038.ph.lcssa63, %.val48

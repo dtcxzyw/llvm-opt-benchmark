@@ -623,8 +623,8 @@ define dso_local i32 @nfs_map_name_to_uid(ptr noundef readonly captures(none) %0
   br label %33
 
 33:                                               ; preds = %.thread6, %29
-  %34 = phi i32 [ %30, %29 ], [ -1, %.thread6 ]
-  %35 = phi i32 [ %32, %29 ], [ %.ph, %.thread6 ]
+  %34 = phi i32 [ -1, %.thread6 ], [ %30, %29 ]
+  %35 = phi i32 [ %.ph, %.thread6 ], [ %32, %29 ]
   %36 = trunc i64 %2 to i32
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_nfs4_map_name_to_uid, i64 8), i32 2) #15
           to label %57 [label %37], !srcloc !9
@@ -739,8 +739,8 @@ define dso_local i32 @nfs_map_group_to_gid(ptr noundef readonly captures(none) %
   br label %33
 
 33:                                               ; preds = %.thread6, %29
-  %34 = phi i32 [ %30, %29 ], [ -1, %.thread6 ]
-  %35 = phi i32 [ %32, %29 ], [ %.ph, %.thread6 ]
+  %34 = phi i32 [ -1, %.thread6 ], [ %30, %29 ]
+  %35 = phi i32 [ %.ph, %.thread6 ], [ %32, %29 ]
   %36 = trunc i64 %2 to i32
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_nfs4_map_group_to_gid, i64 8), i32 2) #15
           to label %57 [label %37], !srcloc !9
@@ -1297,7 +1297,7 @@ define internal noundef range(i64 -2147483648, 141) i64 @idmap_pipe_downcall(ptr
   br label %78
 
 72:                                               ; preds = %66, %50
-  %73 = phi i32 [ %71, %66 ], [ %59, %50 ]
+  %73 = phi i32 [ %59, %50 ], [ %71, %66 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %74 = icmp sgt i32 %73, -1
   br i1 %74, label %75, label %78

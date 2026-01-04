@@ -1989,7 +1989,7 @@ fetch_remote_table_info.exit.i.i:                 ; preds = %walrcv_clear_result
   br label %576
 
 576:                                              ; preds = %.critedge.i.i, %556, %._crit_edge.i.i, %520
-  %.str.23.sink.i.i = phi ptr [ @.str.17, %._crit_edge.i.i ], [ @.str.17, %520 ], [ @.str.23, %.critedge.i.i ], [ @.str.23, %556 ]
+  %.str.23.sink.i.i = phi ptr [ @.str.17, %520 ], [ @.str.17, %._crit_edge.i.i ], [ @.str.23, %.critedge.i.i ], [ @.str.23, %556 ]
   call void @appendStringInfoString(ptr noundef nonnull %9, ptr noundef nonnull %.str.23.sink.i.i) #11
   %577 = load ptr, ptr @WalReceiverFunctions, align 8
   %578 = getelementptr inbounds nuw i8, ptr %577, i64 48

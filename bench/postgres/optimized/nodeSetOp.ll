@@ -449,7 +449,7 @@ setop_fill_hash_table.exit:                       ; preds = %ExecProcNode.exit34
   unreachable
 
 set_output_count.exit:                            ; preds = %131, %124, %127, %113, %116, %120
-  %.sink.i = phi i64 [ %..i, %120 ], [ 0, %116 ], [ 0, %113 ], [ 0, %127 ], [ 0, %124 ], [ %spec.select, %131 ]
+  %.sink.i = phi i64 [ 0, %124 ], [ 0, %113 ], [ %..i, %120 ], [ %spec.select, %131 ], [ 0, %116 ], [ 0, %127 ]
   store i64 %.sink.i, ptr %10, align 8
   %142 = icmp sgt i64 %.sink.i, 0
   br i1 %142, label %.loopexit.loopexit, label %95, !llvm.loop !9
@@ -654,7 +654,7 @@ set_output_count.exit.thread.i:                   ; preds = %229, %226, %222
   br label %239
 
 set_output_count.exit.i:                          ; preds = %229, %225
-  %.sink.i.i = phi i64 [ %231, %229 ], [ %..i.i, %225 ]
+  %.sink.i.i = phi i64 [ %..i.i, %225 ], [ %231, %229 ]
   store i64 %.sink.i.i, ptr %10, align 8
   %237 = icmp sgt i64 %.sink.i.i, 0
   br i1 %237, label %.thread65.loopexit.i, label %239
@@ -682,7 +682,7 @@ set_output_count.exit.i:                          ; preds = %229, %225
   br label %setop_retrieve_hash_table.exit
 
 setop_retrieve_hash_table.exit:                   ; preds = %.loopexit.i, %.thread65.i, %173, %146, %.loopexit, %106, %15, %13
-  %.0 = phi ptr [ %6, %13 ], [ null, %15 ], [ null, %106 ], [ %145, %.loopexit ], [ null, %146 ], [ null, %173 ], [ null, %.loopexit.i ], [ %156, %.thread65.i ]
+  %.0 = phi ptr [ %6, %13 ], [ null, %146 ], [ null, %15 ], [ null, %106 ], [ %145, %.loopexit ], [ null, %173 ], [ %156, %.thread65.i ], [ null, %.loopexit.i ]
   ret ptr %.0
 }
 
@@ -924,7 +924,7 @@ ExecProcNode.exit:                                ; preds = %30, %32
   %45 = add i64 %44, 1
   br label %30
 
-.thread:                                          ; preds = %40, %ExecProcNode.exit, %36, %12
+.thread:                                          ; preds = %40, %36, %ExecProcNode.exit, %12
   ret void
 }
 
@@ -1031,7 +1031,7 @@ slot_getallattrs.exit29:                          ; preds = %slot_getallattrs.ex
   br i1 %68, label %.thread, label %ApplySortComparator.exit
 
 ApplySortComparator.exit:                         ; preds = %67, %60
-  %.0.i = phi i32 [ %69, %67 ], [ %63, %60 ]
+  %.0.i = phi i32 [ %63, %60 ], [ %69, %67 ]
   %.not = icmp eq i32 %.0.i, 0
   br i1 %.not, label %ApplySortComparator.exit.ApplySortComparator.exit.thread33_crit_edge, label %.thread
 
@@ -1047,7 +1047,7 @@ ApplySortComparator.exit.thread33:                ; preds = %ApplySortComparator
   br i1 %72, label %28, label %.thread, !llvm.loop !11
 
 .thread:                                          ; preds = %ApplySortComparator.exit.thread33, %ApplySortComparator.exit, %67, %slot_getallattrs.exit29, %56, %51
-  %73 = phi i32 [ %.12.i, %56 ], [ %..i, %51 ], [ 0, %slot_getallattrs.exit29 ], [ 0, %ApplySortComparator.exit.thread33 ], [ %.0.i, %ApplySortComparator.exit ], [ 1, %67 ]
+  %73 = phi i32 [ %..i, %51 ], [ %.12.i, %56 ], [ 0, %slot_getallattrs.exit29 ], [ %.0.i, %ApplySortComparator.exit ], [ 0, %ApplySortComparator.exit.thread33 ], [ 1, %67 ]
   ret i32 %73
 }
 

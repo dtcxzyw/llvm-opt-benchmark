@@ -705,7 +705,7 @@ _ZNSt10unique_ptrIN5arrow15ResizableBufferESt14default_deleteIS1_EED2Ev.exit: ; 
   br label %95
 
 83:                                               ; preds = %49, %70
-  %.pn.pn = phi { ptr, i32 } [ %71, %70 ], [ %50, %49 ]
+  %.pn.pn = phi { ptr, i32 } [ %50, %49 ], [ %71, %70 ]
   %84 = load ptr, ptr %6, align 8, !tbaa !22
   %.not.i.i30 = icmp eq ptr %84, null
   br i1 %.not.i.i30, label %90, label %85, !prof !75

@@ -5124,7 +5124,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i: ; preds = %16, %14
   br i1 %34, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !99
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i:  ; preds = %31, %29, %25, %21, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i
-  %.0.i.i.i = phi i32 [ %22, %21 ], [ %26, %25 ], [ %30, %29 ], [ 1, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i ], [ %33, %31 ]
+  %.0.i.i.i = phi i32 [ %30, %29 ], [ %22, %21 ], [ %26, %25 ], [ 1, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i ], [ %33, %31 ]
   %35 = zext i32 %.0.i.i.i to i64
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %36, ptr %5, align 8, !tbaa !19, !alias.scope !96
@@ -6212,7 +6212,7 @@ _ZN4Luau12_GLOBAL__N_114TraversalState13updateCurrentEPKNS_4TypeE.exit129.i.i: ;
   br label %"_ZZN4LuauL8traverseERNS_12_GLOBAL__N_114TraversalStateERKNS_8TypePath4PathEENK3$_0clIRKNS3_5IndexEEEDaOT_.exit"
 
 "_ZZN4LuauL8traverseERNS_12_GLOBAL__N_114TraversalStateERKNS_8TypePath4PathEENK3$_0clIRKNS3_5IndexEEEDaOT_.exit": ; preds = %3, %22, %23, %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit85.i.i, %_ZN4Luau12TypeIteratorINS_16IntersectionTypeEED2Ev.exit117.i.i, %_ZN4Luau12TypeIteratorINS_16IntersectionTypeEED2Ev.exit119.i.i, %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit121.i.i, %270, %271, %_ZN4Luau12_GLOBAL__N_114TraversalState13updateCurrentEPKNS_4TypeE.exit129.i.i, %.critedge74.i.i
-  %.033.i.i = phi i8 [ 0, %3 ], [ 1, %_ZN4Luau12TypeIteratorINS_16IntersectionTypeEED2Ev.exit117.i.i ], [ 1, %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit85.i.i ], [ 1, %_ZN4Luau12_GLOBAL__N_114TraversalState13updateCurrentEPKNS_4TypeE.exit129.i.i ], [ 0, %.critedge74.i.i ], [ 0, %_ZN4Luau12TypeIteratorINS_16IntersectionTypeEED2Ev.exit119.i.i ], [ 0, %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit121.i.i ], [ 0, %22 ], [ 0, %271 ], [ 0, %270 ], [ 0, %23 ]
+  %.033.i.i = phi i8 [ 0, %3 ], [ 1, %_ZN4Luau12_GLOBAL__N_114TraversalState13updateCurrentEPKNS_4TypeE.exit129.i.i ], [ 1, %_ZN4Luau12TypeIteratorINS_16IntersectionTypeEED2Ev.exit117.i.i ], [ 1, %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit85.i.i ], [ 0, %22 ], [ 0, %.critedge74.i.i ], [ 0, %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit121.i.i ], [ 0, %_ZN4Luau12TypeIteratorINS_16IntersectionTypeEED2Ev.exit119.i.i ], [ 0, %23 ], [ 0, %271 ], [ 0, %270 ]
   store i8 %.033.i.i, ptr %1, align 1, !tbaa !48
   ret void
 }
@@ -6520,7 +6520,7 @@ _ZN4Luau3getINS_9ClassTypeETnNSt9enable_ifIXsr11TypeVariantE12is_part_of_vIT_EEb
   br i1 %134, label %135, label %"_ZZN4LuauL8traverseERNS_12_GLOBAL__N_114TraversalStateERKNS_8TypePath4PathEENK3$_0clIRKNS3_9TypeFieldEEEDaOT_.exit"
 
 135:                                              ; preds = %_ZN4Luau3getINS_9ClassTypeETnNSt9enable_ifIXsr11TypeVariantE12is_part_of_vIT_EEbE4typeELb1EEEPKS3_RKNS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE.exit.i.i, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit98.i.i, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit.i.i, %_ZN4Luau3getINS_9TableTypeETnNSt9enable_ifIXsr11TypeVariantE12is_part_of_vIT_EEbE4typeELb1EEEPKS3_RKNS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE.exit.i.i
-  %.045.ph.i.i = phi ptr [ %117, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit.i.i ], [ %107, %_ZN4Luau3getINS_9TableTypeETnNSt9enable_ifIXsr11TypeVariantE12is_part_of_vIT_EEbE4typeELb1EEEPKS3_RKNS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE.exit.i.i ], [ %127, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit98.i.i ], [ %131, %_ZN4Luau3getINS_9ClassTypeETnNSt9enable_ifIXsr11TypeVariantE12is_part_of_vIT_EEbE4typeELb1EEEPKS3_RKNS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE.exit.i.i ]
+  %.045.ph.i.i = phi ptr [ %117, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit.i.i ], [ %127, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit98.i.i ], [ %107, %_ZN4Luau3getINS_9TableTypeETnNSt9enable_ifIXsr11TypeVariantE12is_part_of_vIT_EEbE4typeELb1EEEPKS3_RKNS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE.exit.i.i ], [ %131, %_ZN4Luau3getINS_9ClassTypeETnNSt9enable_ifIXsr11TypeVariantE12is_part_of_vIT_EEbE4typeELb1EEEPKS3_RKNS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE.exit.i.i ]
   %136 = icmp eq i32 %.val3, 4
   %.in.idx.i.i = select i1 %136, i64 0, i64 8
   %.in.i.i = getelementptr inbounds nuw i8, ptr %.045.ph.i.i, i64 %.in.idx.i.i
@@ -6771,7 +6771,7 @@ _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit4.i123.i.i: ; preds =
   br label %"_ZZN4LuauL8traverseERNS_12_GLOBAL__N_114TraversalStateERKNS_8TypePath4PathEENK3$_0clIRKNS3_9TypeFieldEEEDaOT_.exit"
 
 "_ZZN4LuauL8traverseERNS_12_GLOBAL__N_114TraversalStateERKNS_8TypePath4PathEENK3$_0clIRKNS3_9TypeFieldEEEDaOT_.exit": ; preds = %3, %13, %14, %16, %19, %51, %52, %54, %.critedge.i.i, %62, %64, %67, %99, %100, %102, %105, %_ZN4Luau3getINS_9TableTypeETnNSt9enable_ifIXsr11TypeVariantE12is_part_of_vIT_EEbE4typeELb1EEEPKS3_RKNS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE.exit.i.i, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit.thread.i.i, %124, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit98.i.i, %_ZN4Luau3getINS_9ClassTypeETnNSt9enable_ifIXsr11TypeVariantE12is_part_of_vIT_EEbE4typeELb1EEEPKS3_RKNS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE.exit.i.i, %_ZN4Luau12_GLOBAL__N_114TraversalState13updateCurrentEPKNS_4TypeE.exit108.i.i, %165, %167, %170, %202, %203, %205, %208, %240
-  %.0.i.i = phi i8 [ 0, %3 ], [ 1, %_ZN4Luau12_GLOBAL__N_114TraversalState13updateCurrentEPKNS_4TypeE.exit108.i.i ], [ 0, %13 ], [ 1, %51 ], [ 0, %14 ], [ 0, %19 ], [ 0, %16 ], [ 1, %.critedge.i.i ], [ 0, %52 ], [ 0, %54 ], [ 1, %99 ], [ 0, %62 ], [ 0, %67 ], [ 0, %64 ], [ 0, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit98.i.i ], [ 0, %_ZN4Luau3getINS_9ClassTypeETnNSt9enable_ifIXsr11TypeVariantE12is_part_of_vIT_EEbE4typeELb1EEEPKS3_RKNS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE.exit.i.i ], [ 1, %202 ], [ 0, %165 ], [ 0, %170 ], [ 0, %167 ], [ 1, %240 ], [ 0, %203 ], [ 0, %208 ], [ 0, %205 ], [ 0, %124 ], [ 0, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit.thread.i.i ], [ 0, %100 ], [ 0, %102 ], [ 0, %_ZN4Luau3getINS_9TableTypeETnNSt9enable_ifIXsr11TypeVariantE12is_part_of_vIT_EEbE4typeELb1EEEPKS3_RKNS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE.exit.i.i ], [ 0, %105 ]
+  %.0.i.i = phi i8 [ 1, %_ZN4Luau12_GLOBAL__N_114TraversalState13updateCurrentEPKNS_4TypeE.exit108.i.i ], [ 0, %167 ], [ 0, %3 ], [ 0, %13 ], [ 0, %54 ], [ 0, %64 ], [ 0, %16 ], [ 0, %_ZN4Luau3getINS_9ClassTypeETnNSt9enable_ifIXsr11TypeVariantE12is_part_of_vIT_EEbE4typeELb1EEEPKS3_RKNS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE.exit.i.i ], [ 1, %51 ], [ 0, %14 ], [ 0, %19 ], [ 1, %.critedge.i.i ], [ 0, %52 ], [ 1, %99 ], [ 0, %62 ], [ 0, %67 ], [ 0, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit.thread.i.i ], [ 0, %205 ], [ 0, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit98.i.i ], [ 1, %202 ], [ 0, %165 ], [ 0, %170 ], [ 1, %240 ], [ 0, %203 ], [ 0, %208 ], [ 0, %124 ], [ 0, %100 ], [ 0, %105 ], [ 0, %102 ], [ 0, %_ZN4Luau3getINS_9TableTypeETnNSt9enable_ifIXsr11TypeVariantE12is_part_of_vIT_EEbE4typeELb1EEEPKS3_RKNS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE.exit.i.i ]
   store i8 %.0.i.i, ptr %1, align 1, !tbaa !48
   ret void
 }
@@ -7002,7 +7002,7 @@ _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit4.i23.i.i: ; preds = 
   br label %"_ZZN4LuauL8traverseERNS_12_GLOBAL__N_114TraversalStateERKNS_8TypePath4PathEENK3$_0clIRKNS3_9PackFieldEEEDaOT_.exit"
 
 "_ZZN4LuauL8traverseERNS_12_GLOBAL__N_114TraversalStateERKNS_8TypePath4PathEENK3$_0clIRKNS3_9PackFieldEEEDaOT_.exit": ; preds = %3, %12, %13, %15, %18, %50, %51, %.critedge.i.i, %93
-  %.0.i.i = phi i8 [ 0, %3 ], [ 0, %12 ], [ 1, %50 ], [ 0, %13 ], [ 0, %18 ], [ 0, %15 ], [ 1, %93 ], [ 0, %.critedge.i.i ], [ 0, %51 ]
+  %.0.i.i = phi i8 [ 0, %12 ], [ 0, %15 ], [ 0, %3 ], [ 1, %50 ], [ 0, %13 ], [ 0, %18 ], [ 1, %93 ], [ 0, %.critedge.i.i ], [ 0, %51 ]
   store i8 %.0.i.i, ptr %1, align 1, !tbaa !48
   ret void
 }
@@ -7368,7 +7368,7 @@ _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit73: ; preds = %.crite
   %.not60 = icmp eq ptr %106, null
   br i1 %.not60, label %.critedge65.thread, label %171
 
-.critedge65.thread:                               ; preds = %18, %16, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4Luau8PropertyEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau8PropertyESt4lessIS5_ESaISt4pairIKS5_S7_EEE4findERSB_.exit, %_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit72, %.critedge65
+.critedge65.thread:                               ; preds = %18, %16, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4Luau8PropertyEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau8PropertyESt4lessIS5_ESaISt4pairIKS5_S7_EEE4findERSB_.exit, %_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit72, %.critedge65
   %107 = load ptr, ptr %10, align 8, !tbaa !71
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.0.0.copyload = load ptr, ptr %108, align 8, !tbaa !72
@@ -8060,7 +8060,7 @@ _ZN4Luau8VecDequeISt4pairIPKNS_9UnionTypeEmESaIS5_EE9pop_frontEv.exit.i: ; preds
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_9UnionTypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i
 
 _ZN4Luau6detail14DenseHashTableIPKNS_9UnionTypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i: ; preds = %87, %.thread19, %.thread, %.loopexit.i.i, %74
-  %96 = phi i64 [ %29, %74 ], [ %.pre.i7, %.loopexit.i.i ], [ %29, %.thread ], [ %77, %.thread19 ], [ %29, %87 ]
+  %96 = phi i64 [ %.pre.i7, %.loopexit.i.i ], [ %29, %74 ], [ %77, %.thread19 ], [ %29, %.thread ], [ %29, %87 ]
   %97 = add i64 %96, -1
   %98 = ptrtoint ptr %23 to i64
   %99 = lshr i64 %98, 4
@@ -8537,7 +8537,7 @@ _ZN4Luau8VecDequeISt4pairIPKNS_16IntersectionTypeEmESaIS5_EE9pop_frontEv.exit.i:
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_16IntersectionTypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i
 
 _ZN4Luau6detail14DenseHashTableIPKNS_16IntersectionTypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i: ; preds = %87, %.thread19, %.thread, %.loopexit.i.i, %74
-  %96 = phi i64 [ %29, %74 ], [ %.pre.i7, %.loopexit.i.i ], [ %29, %.thread ], [ %77, %.thread19 ], [ %29, %87 ]
+  %96 = phi i64 [ %.pre.i7, %.loopexit.i.i ], [ %29, %74 ], [ %77, %.thread19 ], [ %29, %.thread ], [ %29, %87 ]
   %97 = add i64 %96, -1
   %98 = ptrtoint ptr %23 to i64
   %99 = lshr i64 %98, 4
@@ -9086,7 +9086,7 @@ _ZSt8_DestroyIPN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldE
           to label %common.resume unwind label %49
 
 common.resume:                                    ; preds = %334, %165, %135, %47, %_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit4.i.i.i.i.i.i75, %_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit4.i.i.i.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %101, %_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit4.i.i.i.i.i.i ], [ %200, %_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit4.i.i.i.i.i.i75 ], [ %48, %47 ], [ %136, %135 ], [ %166, %165 ], [ %335, %334 ]
+  %common.resume.op = phi { ptr, i32 } [ %166, %165 ], [ %101, %_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit4.i.i.i.i.i.i ], [ %48, %47 ], [ %136, %135 ], [ %200, %_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit4.i.i.i.i.i.i75 ], [ %335, %334 ]
   resume { ptr, i32 } %common.resume.op
 
 49:                                               ; preds = %47

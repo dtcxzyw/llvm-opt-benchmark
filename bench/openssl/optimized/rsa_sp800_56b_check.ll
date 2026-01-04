@@ -154,7 +154,7 @@ define range(i32 0, 2) i32 @ossl_rsa_check_crt_components(ptr noundef readonly c
   br label %.critedge
 
 .critedge:                                        ; preds = %17, %79, %74, %72, %68, %66, %61, %56, %51, %47, %42, %38, %33, %31, %27, %25, %21
-  %83 = phi i32 [ 0, %74 ], [ 0, %72 ], [ 0, %68 ], [ 0, %66 ], [ 0, %61 ], [ 0, %56 ], [ 0, %51 ], [ 0, %47 ], [ 0, %42 ], [ 0, %38 ], [ 0, %33 ], [ 0, %31 ], [ 0, %27 ], [ 0, %25 ], [ 0, %21 ], [ %82, %79 ], [ 0, %17 ]
+  %83 = phi i32 [ 0, %74 ], [ 0, %72 ], [ 0, %68 ], [ 0, %66 ], [ 0, %61 ], [ 0, %56 ], [ 0, %51 ], [ 0, %47 ], [ 0, %42 ], [ 0, %38 ], [ 0, %33 ], [ 0, %31 ], [ 0, %27 ], [ 0, %25 ], [ 0, %21 ], [ 0, %17 ], [ %82, %79 ]
   tail call void @BN_clear(ptr noundef %18) #3
   tail call void @BN_clear(ptr noundef %19) #3
   tail call void @BN_clear(ptr noundef %20) #3
@@ -230,7 +230,7 @@ define range(i32 0, 2) i32 @ossl_rsa_check_prime_factor_range(ptr noundef %0, i3
   br label %23
 
 23:                                               ; preds = %20, %17, %15, %11, %8
-  %.019 = phi i32 [ 0, %8 ], [ 0, %15 ], [ 0, %17 ], [ 0, %11 ], [ %spec.select, %20 ]
+  %.019 = phi i32 [ 0, %8 ], [ %spec.select, %20 ], [ 0, %11 ], [ 0, %15 ], [ 0, %17 ]
   tail call void @BN_CTX_end(ptr noundef %2) #3
   br label %24
 
@@ -287,7 +287,7 @@ define range(i32 0, 2) i32 @ossl_rsa_check_prime_factor(ptr noundef %0, ptr noun
   br label %.critedge
 
 .critedge:                                        ; preds = %8, %17, %15, %13, %11
-  %21 = phi i32 [ 0, %15 ], [ 0, %13 ], [ 0, %11 ], [ %20, %17 ], [ 0, %8 ]
+  %21 = phi i32 [ 0, %15 ], [ 0, %13 ], [ 0, %11 ], [ 0, %8 ], [ %20, %17 ]
   tail call void @BN_clear(ptr noundef %9) #3
   tail call void @BN_CTX_end(ptr noundef %3) #3
   br label %22
@@ -357,7 +357,7 @@ define range(i32 0, 2) i32 @ossl_rsa_check_private_exponent(ptr noundef readonly
   br label %.critedge
 
 .critedge:                                        ; preds = %8, %30, %25, %21, %15
-  %34 = phi i32 [ 0, %25 ], [ 0, %21 ], [ 0, %15 ], [ %33, %30 ], [ 0, %8 ]
+  %34 = phi i32 [ 0, %25 ], [ 0, %21 ], [ 0, %15 ], [ 0, %8 ], [ %33, %30 ]
   tail call void @BN_clear(ptr noundef %9) #3
   tail call void @BN_clear(ptr noundef %10) #3
   tail call void @BN_clear(ptr noundef %11) #3
@@ -451,7 +451,7 @@ define range(i32 -1, 2) i32 @ossl_rsa_check_pminusq_diff(ptr noundef %0, ptr nou
   br label %16
 
 16:                                               ; preds = %10, %8, %4, %12
-  %.0 = phi i32 [ %15, %12 ], [ -1, %4 ], [ 0, %8 ], [ -1, %10 ]
+  %.0 = phi i32 [ -1, %4 ], [ %15, %12 ], [ 0, %8 ], [ -1, %10 ]
   ret i32 %.0
 }
 
@@ -579,7 +579,7 @@ ossl_rsa_check_public_exponent.exit.thread:       ; preds = %18, %ossl_rsa_check
   br label %48
 
 48:                                               ; preds = %1, %6, %47, %ossl_rsa_check_public_exponent.exit.thread, %17, %13
-  %.0 = phi i32 [ 0, %13 ], [ %.023, %47 ], [ 0, %ossl_rsa_check_public_exponent.exit.thread ], [ 0, %17 ], [ 0, %6 ], [ 0, %1 ]
+  %.0 = phi i32 [ 0, %17 ], [ 0, %13 ], [ %.023, %47 ], [ 0, %ossl_rsa_check_public_exponent.exit.thread ], [ 0, %6 ], [ 0, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -629,7 +629,7 @@ define range(i32 0, 2) i32 @ossl_rsa_sp800_56b_check_private(ptr noundef readonl
   br label %17
 
 17:                                               ; preds = %9, %13, %1, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %1 ], [ 0, %9 ], [ %.lobit, %13 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %5 ], [ 0, %9 ], [ %.lobit, %13 ]
   ret i32 %.0
 }
 
@@ -807,7 +807,7 @@ ossl_rsa_check_public_exponent.exit.thread:       ; preds = %32, %ossl_rsa_check
   br label %80
 
 80:                                               ; preds = %46, %25, %79, %45, %41, %ossl_rsa_check_public_exponent.exit.thread, %31, %24
-  %.048 = phi i32 [ 0, %24 ], [ 0, %31 ], [ 0, %41 ], [ 0, %45 ], [ %.0, %79 ], [ 0, %ossl_rsa_check_public_exponent.exit.thread ], [ 0, %25 ], [ 0, %46 ]
+  %.048 = phi i32 [ 0, %24 ], [ 0, %31 ], [ 0, %41 ], [ 0, %45 ], [ 0, %25 ], [ %.0, %79 ], [ 0, %ossl_rsa_check_public_exponent.exit.thread ], [ 0, %46 ]
   ret i32 %.048
 }
 

@@ -241,7 +241,7 @@ gz_reset.exit:                                    ; preds = %75, %82
   br label %88
 
 88:                                               ; preds = %5, %3, %gz_reset.exit, %69, %54, %46, %._crit_edge.thread, %27
-  %.063 = phi ptr [ null, %27 ], [ null, %._crit_edge.thread ], [ null, %46 ], [ null, %54 ], [ null, %69 ], [ %6, %gz_reset.exit ], [ null, %3 ], [ null, %5 ]
+  %.063 = phi ptr [ %6, %gz_reset.exit ], [ null, %3 ], [ null, %27 ], [ null, %._crit_edge.thread ], [ null, %46 ], [ null, %54 ], [ null, %69 ], [ null, %5 ]
   ret ptr %.063
 }
 
@@ -391,7 +391,7 @@ gz_reset.exit:                                    ; preds = %25, %32
   br label %35
 
 35:                                               ; preds = %9, %3, %6, %1, %gz_reset.exit
-  %.0 = phi i32 [ 0, %gz_reset.exit ], [ -1, %1 ], [ -1, %6 ], [ -1, %3 ], [ -1, %9 ]
+  %.0 = phi i32 [ 0, %gz_reset.exit ], [ -1, %1 ], [ -1, %3 ], [ -1, %6 ], [ -1, %9 ]
   ret i32 %.0
 }
 
@@ -571,7 +571,7 @@ cm_zlib_gz_error.exit:                            ; preds = %45, %53
   br label %.thread69
 
 .thread69:                                        ; preds = %.thread, %65, %60, %37, %11, %8, %5, %3, %84, %cm_zlib_gz_error.exit
-  %.0 = phi i64 [ %56, %cm_zlib_gz_error.exit ], [ %87, %84 ], [ -1, %3 ], [ -1, %5 ], [ -1, %8 ], [ -1, %11 ], [ -1, %37 ], [ -1, %60 ], [ -1, %65 ], [ -1, %.thread ]
+  %.0 = phi i64 [ %87, %84 ], [ -1, %3 ], [ -1, %5 ], [ -1, %8 ], [ -1, %11 ], [ %56, %cm_zlib_gz_error.exit ], [ -1, %37 ], [ -1, %.thread ], [ -1, %60 ], [ -1, %65 ]
   ret i64 %.0
 }
 
@@ -753,7 +753,7 @@ define dso_local i64 @cm_zlib_gzoffset64(ptr noundef readonly captures(address_i
   br label %19
 
 19:                                               ; preds = %11, %14, %6, %3, %1
-  %.0 = phi i64 [ -1, %1 ], [ -1, %3 ], [ -1, %6 ], [ %18, %14 ], [ %9, %11 ]
+  %.0 = phi i64 [ -1, %6 ], [ -1, %1 ], [ -1, %3 ], [ %18, %14 ], [ %9, %11 ]
   ret i64 %.0
 }
 
@@ -790,7 +790,7 @@ define dso_local i64 @cm_zlib_gzoffset(ptr noundef readonly captures(address_is_
   br label %cm_zlib_gzoffset64.exit
 
 cm_zlib_gzoffset64.exit:                          ; preds = %1, %3, %6, %11, %14
-  %.0.i = phi i64 [ -1, %1 ], [ -1, %3 ], [ -1, %6 ], [ %18, %14 ], [ %9, %11 ]
+  %.0.i = phi i64 [ -1, %6 ], [ -1, %1 ], [ -1, %3 ], [ %18, %14 ], [ %9, %11 ]
   ret i64 %.0.i
 }
 
@@ -811,7 +811,7 @@ define dso_local i32 @cm_zlib_gzeof(ptr noundef readonly captures(address_is_nul
   br label %9
 
 9:                                                ; preds = %3, %6, %1
-  %.0 = phi i32 [ 0, %1 ], [ %8, %6 ], [ 0, %3 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %1 ], [ %8, %6 ]
   ret i32 %.0
 }
 
@@ -850,7 +850,7 @@ define dso_local ptr @cm_zlib_gzerror(ptr noundef readonly captures(address_is_n
   br label %14
 
 14:                                               ; preds = %10, %._crit_edge, %4, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %4 ], [ @.str.1, %._crit_edge ], [ %spec.select, %10 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %2 ], [ @.str.1, %._crit_edge ], [ %spec.select, %10 ]
   ret ptr %.0
 }
 

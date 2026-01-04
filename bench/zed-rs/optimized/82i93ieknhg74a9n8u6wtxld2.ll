@@ -171,7 +171,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h0602a1ba269fbcb3E(pt
   br i1 %.sroa.18.0.in.i.us, label %.split17.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %16, %13, %11
-  %.sroa.0.0.us.be = phi i32 [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ], [ %.sroa.08.0.i13.us, %11 ]
+  %.sroa.0.0.us.be = phi i32 [ %.sroa.08.0.i13.us, %11 ], [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -280,7 +280,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h0602a1ba269fbcb3E(pt
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %42, %22, %40
-  %.sroa.0.0.be = phi i32 [ %44, %42 ], [ %.sroa.08.0.i, %22 ], [ %.sroa.08.0.i13, %40 ]
+  %.sroa.0.0.be = phi i32 [ %.sroa.08.0.i13, %40 ], [ %44, %42 ], [ %.sroa.08.0.i, %22 ]
   br label %.split
 }
 
@@ -463,8 +463,8 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
           to label %27 unwind label %25
 
 25:                                               ; preds = %131, %105, %79, %.noexc30.i.i.i.i, %56, %1
-  %.sroa.01.0.i = phi i1 [ false, %105 ], [ true, %1 ], [ false, %56 ], [ false, %.noexc30.i.i.i.i ], [ false, %79 ], [ false, %131 ]
-  %.sroa.0.0.i = phi i1 [ false, %105 ], [ true, %1 ], [ true, %56 ], [ true, %.noexc30.i.i.i.i ], [ true, %79 ], [ false, %131 ]
+  %.sroa.01.0.i = phi i1 [ false, %131 ], [ false, %105 ], [ false, %79 ], [ true, %1 ], [ false, %56 ], [ false, %.noexc30.i.i.i.i ]
+  %.sroa.0.0.i = phi i1 [ false, %131 ], [ false, %105 ], [ true, %79 ], [ true, %1 ], [ true, %56 ], [ true, %.noexc30.i.i.i.i ]
   %26 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -573,7 +573,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
           to label %.noexc.i unwind label %25
 
 .body.i.i.i.i:                                    ; preds = %87, %85, %.thread54.i.i.i.i, %58, %43
-  %.pn.i.i.i.i = phi { ptr, i32 } [ %59, %58 ], [ %44, %43 ], [ %lpad.thr_comm52.i.i.i.i, %.thread54.i.i.i.i ], [ %lpad.thr_comm.split-lp53.i.i.i.i, %87 ], [ %lpad.thr_comm.split-lp53.i.i.i.i, %85 ]
+  %.pn.i.i.i.i = phi { ptr, i32 } [ %44, %43 ], [ %lpad.thr_comm52.i.i.i.i, %.thread54.i.i.i.i ], [ %59, %58 ], [ %lpad.thr_comm.split-lp53.i.i.i.i, %87 ], [ %lpad.thr_comm.split-lp53.i.i.i.i, %85 ]
   invoke fastcc void @"_ZN4core3ptr194drop_in_place$LT$sqlez..typed_statements..$LT$impl$u20$sqlez..connection..Connection$GT$..exec_bound$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6f865d297b9efd1bE"(ptr noalias noundef align 8 dereferenceable(40) %13) #19
           to label %.body.i unwind label %88, !noalias !59
 
@@ -830,7 +830,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   unreachable
 
 common.resume.i:                                  ; preds = %137, %135, %124, %119
-  %common.resume.op.i = phi { ptr, i32 } [ %120, %124 ], [ %120, %119 ], [ %eh.lpad-body.i, %137 ], [ %eh.lpad-body.i, %135 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %120, %119 ], [ %120, %124 ], [ %eh.lpad-body.i, %137 ], [ %eh.lpad-body.i, %135 ]
   resume { ptr, i32 } %common.resume.op.i
 
 131:                                              ; preds = %109
@@ -1136,7 +1136,7 @@ define internal void @"_ZN4core3ptr292drop_in_place$LT$sqlez..thread_safe_connec
   unreachable
 
 common.resume:                                    ; preds = %23, %31, %35
-  %common.resume.op = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %.pn, %23 ]
+  %common.resume.op = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %.pn, %23 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr113drop_in_place$LT$futures_channel..oneshot..Sender$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17h1b71f9d52ddf5f44E.exit": ; preds = %"_ZN83_$LT$futures_channel..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2b7104486ccac78cE.llvm.5127968358155248924.exit.i", %38
@@ -1766,11 +1766,11 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %2
   unreachable
 
 121:                                              ; preds = %122, %"_ZN4core3ptr522drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$alloc..sync..Arc$LT$str$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$GT$$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17hebeab839eff2e813E.exit"
-  %.pn.pn35 = phi { ptr, i32 } [ %.pn.pn36, %122 ], [ %.pn, %"_ZN4core3ptr522drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$alloc..sync..Arc$LT$str$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$GT$$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17hebeab839eff2e813E.exit" ]
+  %.pn.pn35 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr522drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$alloc..sync..Arc$LT$str$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$GT$$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17hebeab839eff2e813E.exit" ], [ %.pn.pn36, %122 ]
   resume { ptr, i32 } %.pn.pn35
 
 122:                                              ; preds = %.thread, %"_ZN4core3ptr522drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$alloc..sync..Arc$LT$str$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$GT$$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17hebeab839eff2e813E.exit"
-  %.pn.pn36 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr522drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$alloc..sync..Arc$LT$str$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$GT$$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17hebeab839eff2e813E.exit" ], [ %lpad.thr_comm, %.thread ]
+  %.pn.pn36 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %.pn, %"_ZN4core3ptr522drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$alloc..sync..Arc$LT$str$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$GT$$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17hebeab839eff2e813E.exit" ]
   invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$db..kvp..KeyValueStore..write_kvp..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h75a9f997bb51dff4E"(ptr noalias noundef align 8 dereferenceable(48) %1) #19
           to label %121 unwind label %119
 }

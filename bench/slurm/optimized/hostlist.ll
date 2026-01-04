@@ -261,7 +261,7 @@ define dso_local noundef ptr @hostlist_create_dims(ptr noundef readonly captures
   br i1 %.not47.i.i.i, label %_next_tok.exit.i.i, label %.lr.ph20.i.i.i, !llvm.loop !13
 
 _next_tok.exit.i.i:                               ; preds = %51, %.lr.ph20.i.i.i, %.critedge2._crit_edge.i.i.i
-  %.6.i.i = phi ptr [ %32, %.critedge2._crit_edge.i.i.i ], [ %52, %51 ], [ %.5.i.i, %.lr.ph20.i.i.i ]
+  %.6.i.i = phi ptr [ %32, %.critedge2._crit_edge.i.i.i ], [ %.5.i.i, %.lr.ph20.i.i.i ], [ %52, %51 ]
   %54 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.1.i.i, i32 noundef 91) #23
   %.not40.i.i = icmp eq ptr %54, null
   br i1 %.not40.i.i, label %68, label %55
@@ -321,7 +321,7 @@ _next_tok.exit.thread.i.i:                        ; preds = %70, %20, %.preheade
   br label %_hostlist_create.exit
 
 _hostlist_create.exit:                            ; preds = %8, %15, %_next_tok.exit.thread.i.i, %72
-  %.031.i.i = phi ptr [ null, %72 ], [ %9, %_next_tok.exit.thread.i.i ], [ null, %15 ], [ %9, %8 ]
+  %.031.i.i = phi ptr [ null, %15 ], [ %9, %8 ], [ null, %72 ], [ %9, %_next_tok.exit.thread.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.031.i.i
@@ -683,7 +683,7 @@ hostrange_destroy.exit:                           ; preds = %31
   br label %55
 
 55:                                               ; preds = %2, %51
-  %.0 = phi i32 [ 1, %51 ], [ -1, %2 ]
+  %.0 = phi i32 [ -1, %2 ], [ 1, %51 ]
   ret i32 %.0
 }
 
@@ -1936,8 +1936,8 @@ _test_box.exit.thread:                            ; preds = %.preheader.i, %_tes
 187:                                              ; preds = %183
   br i1 %.not182187, label %.thread, label %.loopexit
 
-.thread:                                          ; preds = %14, %16, %187
-  %.0110181 = phi i32 [ %.8, %187 ], [ 0, %16 ], [ 0, %14 ]
+.thread:                                          ; preds = %16, %14, %187
+  %.0110181 = phi i32 [ %.8, %187 ], [ 0, %14 ], [ 0, %16 ]
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %189 = load i32, ptr %188, align 4
   %190 = icmp sgt i32 %189, 0
@@ -3065,7 +3065,7 @@ hostrange_destroy.exit80.i:                       ; preds = %hostrange_destroy.e
   br label %hostrange_intersect.exit.thread.i
 
 hostrange_intersect.exit.thread.i:                ; preds = %hostrange_destroy.exit80.i, %_zero_padded.exit42.i.i.i.i, %hostrange_prefix_cmp.exit.i.i, %63, %57, %53, %41
-  %.1.i = phi i32 [ %301, %hostrange_destroy.exit80.i ], [ %.0135.i, %53 ], [ %.0135.i, %41 ], [ %.0135.i, %hostrange_prefix_cmp.exit.i.i ], [ %.0135.i, %57 ], [ %.0135.i, %_zero_padded.exit42.i.i.i.i ], [ %.0135.i, %63 ]
+  %.1.i = phi i32 [ %301, %hostrange_destroy.exit80.i ], [ %.0135.i, %41 ], [ %.0135.i, %53 ], [ %.0135.i, %_zero_padded.exit42.i.i.i.i ], [ %.0135.i, %hostrange_prefix_cmp.exit.i.i ], [ %.0135.i, %57 ], [ %.0135.i, %63 ]
   %302 = icmp sgt i32 %.1.i, 1
   br i1 %302, label %41, label %._crit_edge.i, !llvm.loop !42
 
@@ -4089,8 +4089,8 @@ hostrange_width_combine.exit:                     ; preds = %_zero_padded.exit42
   %64 = sub nsw i32 %26, %27
   br label %hostrange_prefix_cmp.exit.thread
 
-hostrange_prefix_cmp.exit.thread:                 ; preds = %6, %4, %2, %59, %hostrange_width_combine.exit, %hostrange_prefix_cmp.exit
-  %.0 = phi i32 [ %17, %hostrange_prefix_cmp.exit ], [ %63, %59 ], [ %64, %hostrange_width_combine.exit ], [ %9, %6 ], [ -1, %4 ], [ 1, %2 ]
+hostrange_prefix_cmp.exit.thread:                 ; preds = %6, %2, %4, %59, %hostrange_width_combine.exit, %hostrange_prefix_cmp.exit
+  %.0 = phi i32 [ %17, %hostrange_prefix_cmp.exit ], [ %63, %59 ], [ %64, %hostrange_width_combine.exit ], [ %9, %6 ], [ 1, %2 ], [ -1, %4 ]
   ret i32 %.0
 }
 
@@ -4243,7 +4243,7 @@ define internal fastcc ptr @hostname_create_dims(ptr noundef nonnull %0, i32 nou
   br i1 %46, label %36, label %host_prefix_end.exit, !llvm.loop !51
 
 host_prefix_end.exit:                             ; preds = %36, %44, %26, %.critedge2.i, %.preheader22.i, %.preheader.i
-  %.1.i = phi i32 [ %19, %.preheader.i ], [ %19, %.preheader22.i ], [ %.027.i, %26 ], [ -1, %.critedge2.i ], [ %.224.i, %36 ], [ -1, %44 ]
+  %.1.i = phi i32 [ %19, %.preheader22.i ], [ %19, %.preheader.i ], [ %.027.i, %26 ], [ -1, %.critedge2.i ], [ %.224.i, %36 ], [ -1, %44 ]
   %47 = tail call ptr @xstrdup(ptr noundef nonnull %0) #22
   store ptr %47, ptr %15, align 8
   %48 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -5034,7 +5034,7 @@ hostlist_parse_int_to_array.exit:                 ; preds = %hostlist_parse_int_
   br label %53
 
 53:                                               ; preds = %._crit_edge, %2, %51
-  %.0 = phi ptr [ %52, %51 ], [ null, %2 ], [ null, %._crit_edge ]
+  %.0 = phi ptr [ null, %2 ], [ %52, %51 ], [ null, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -5339,7 +5339,7 @@ hostrange_count.exit:                             ; preds = %41, %48
   br i1 %59, label %21, label %hostname_suffix_is_valid.exit.thread, !llvm.loop !57
 
 hostname_suffix_is_valid.exit.thread:             ; preds = %hostrange_count.exit, %.preheader, %26, %hostname_suffix_is_valid.exit, %29
-  %.032 = phi i32 [ %40, %29 ], [ %.03350, %hostname_suffix_is_valid.exit ], [ %.03350, %26 ], [ -1, %.preheader ], [ -1, %hostrange_count.exit ]
+  %.032 = phi i32 [ %40, %29 ], [ %.03350, %26 ], [ %.03350, %hostname_suffix_is_valid.exit ], [ -1, %.preheader ], [ -1, %hostrange_count.exit ]
   %60 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %13) #22
   %.not42 = icmp eq i32 %60, 0
   br i1 %.not42, label %63, label %61
@@ -5581,8 +5581,8 @@ _zero_padded.exit42.i:                            ; preds = %_zero_padded.exit42
   store i32 %64, ptr %65, align 4
   br label %_width_equiv.exit
 
-_width_equiv.exit:                                ; preds = %_zero_padded.exit42.i, %36, %46, %41, %25, %24, %12, %96, %hostname_suffix_width.exit, %55, %59, %hostname_suffix_is_valid.exit, %7
-  %.0.shrunk = phi i1 [ %11, %7 ], [ false, %hostname_suffix_is_valid.exit ], [ false, %59 ], [ false, %55 ], [ true, %hostname_suffix_width.exit ], [ %.not21.i, %_zero_padded.exit42.i ], [ true, %96 ], [ false, %12 ], [ false, %24 ], [ false, %25 ], [ false, %41 ], [ false, %46 ], [ false, %36 ]
+_width_equiv.exit:                                ; preds = %_zero_padded.exit42.i, %36, %41, %46, %24, %25, %12, %96, %hostname_suffix_width.exit, %55, %59, %hostname_suffix_is_valid.exit, %7
+  %.0.shrunk = phi i1 [ %11, %7 ], [ false, %12 ], [ false, %36 ], [ false, %hostname_suffix_is_valid.exit ], [ false, %59 ], [ false, %55 ], [ %.not21.i, %_zero_padded.exit42.i ], [ true, %hostname_suffix_width.exit ], [ true, %96 ], [ false, %25 ], [ false, %24 ], [ false, %46 ], [ false, %41 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -5812,7 +5812,7 @@ hostlist_parse_int_to_array.exit.us:              ; preds = %.lr.ph.i.us
   br label %99
 
 99:                                               ; preds = %14, %8, %.loopexit, %._crit_edge13
-  %.0 = phi i64 [ -1, %.loopexit ], [ %95, %._crit_edge13 ], [ 0, %8 ], [ %18, %14 ]
+  %.0 = phi i64 [ %95, %._crit_edge13 ], [ -1, %.loopexit ], [ 0, %8 ], [ %18, %14 ]
   ret i64 %.0
 }
 
@@ -6117,7 +6117,7 @@ define internal fastcc i32 @_get_boxes(ptr noundef writeonly captures(none) %0, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %48, %33, %23, %.loopexit.loopexit82, %.loopexit.loopexit81, %.loopexit.loopexit, %57, %58
-  %.2 = phi i32 [ %.0.lcssa, %57 ], [ %.0.lcssa, %58 ], [ %59, %.loopexit.loopexit ], [ %60, %.loopexit.loopexit81 ], [ %61, %.loopexit.loopexit82 ], [ %24, %23 ], [ %49, %48 ], [ %34, %33 ]
+  %.2 = phi i32 [ %61, %.loopexit.loopexit82 ], [ %59, %.loopexit.loopexit ], [ %60, %.loopexit.loopexit81 ], [ %.0.lcssa, %57 ], [ %.0.lcssa, %58 ], [ %34, %33 ], [ %24, %23 ], [ %49, %48 ]
   %62 = sext i32 %.2 to i64
   %63 = getelementptr inbounds i8, ptr %0, i64 %62
   store i8 0, ptr %63, align 1
@@ -6666,7 +6666,7 @@ _grow_ranges.exit:                                ; preds = %51
   br label %.loopexit
 
 .loopexit:                                        ; preds = %59, %40, %34, %.split37, %.split37.us.loopexit
-  %.022 = phi i32 [ %.pre, %.split37.us.loopexit ], [ %64, %.split37 ], [ -1, %34 ], [ -1, %40 ], [ -1, %59 ]
+  %.022 = phi i32 [ %64, %.split37 ], [ -1, %40 ], [ %.pre, %.split37.us.loopexit ], [ -1, %34 ], [ -1, %59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.022
 }
@@ -6954,7 +6954,7 @@ hostlist_push_hr.exit.us.us.us.us.us.us.us:       ; preds = %hostlist_push_hr.ex
   br i1 %exitcond.not, label %.split.us, label %.lr.ph.split, !llvm.loop !70
 
 .split.us:                                        ; preds = %._crit_edge.split, %.lr.ph.split, %._crit_edge.split.us.split.us.split.us115.us, %.lr.ph.split.us.split.us.split, %._crit_edge.split.us.split.us.split.us.us.us.us, %.lr.ph.split.us.split.us.split.us, %._crit_edge.split.us.split.us110, %.lr.ph.split.us.split, %23, %17
-  %.059 = phi i32 [ -1, %17 ], [ 0, %23 ], [ -1, %.lr.ph.split.us.split ], [ 0, %._crit_edge.split.us.split.us110 ], [ -1, %.lr.ph.split.us.split.us.split.us ], [ 0, %._crit_edge.split.us.split.us.split.us.us.us.us ], [ -1, %.lr.ph.split.us.split.us.split ], [ 0, %._crit_edge.split.us.split.us.split.us115.us ], [ -1, %.lr.ph.split ], [ 0, %._crit_edge.split ]
+  %.059 = phi i32 [ 0, %23 ], [ -1, %17 ], [ 0, %._crit_edge.split.us.split.us.split.us115.us ], [ -1, %.lr.ph.split.us.split.us.split.us ], [ -1, %.lr.ph.split.us.split ], [ 0, %._crit_edge.split.us.split.us110 ], [ 0, %._crit_edge.split.us.split.us.split.us.us.us.us ], [ -1, %.lr.ph.split.us.split.us.split ], [ -1, %.lr.ph.split ], [ 0, %._crit_edge.split ]
   call void @slurm_xfree(ptr noundef nonnull %12) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -7411,7 +7411,7 @@ _grow_ranges.exit.us:                             ; preds = %33
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph74.split, %72, %52, %9, %.critedge
-  %.2 = phi i32 [ 0, %.critedge ], [ 1, %9 ], [ 1, %52 ], [ 0, %.lr.ph74.split ], [ 1, %72 ]
+  %.2 = phi i32 [ 0, %.critedge ], [ 1, %9 ], [ 1, %52 ], [ 1, %72 ], [ 0, %.lr.ph74.split ]
   ret i32 %.2
 }
 
@@ -7610,7 +7610,7 @@ hostrange_count.exit:                             ; preds = %71
   br label %hostrange_width_combine.exit
 
 hostrange_width_combine.exit:                     ; preds = %5, %2, %_zero_padded.exit42.i.i, %58, %70, %hostrange_count.exit, %75, %67, %hostrange_prefix_cmp.exit
-  %.0 = phi i32 [ 0, %67 ], [ %78, %75 ], [ %83, %hostrange_count.exit ], [ -1, %70 ], [ -1, %hostrange_prefix_cmp.exit ], [ 1, %58 ], [ -1, %_zero_padded.exit42.i.i ], [ -1, %2 ], [ -1, %5 ]
+  %.0 = phi i32 [ -1, %hostrange_prefix_cmp.exit ], [ 0, %67 ], [ %78, %75 ], [ %83, %hostrange_count.exit ], [ -1, %70 ], [ -1, %_zero_padded.exit42.i.i ], [ 1, %58 ], [ -1, %5 ], [ -1, %2 ]
   ret i32 %.0
 }
 
@@ -7742,7 +7742,7 @@ define internal fastcc noundef zeroext i1 @_test_box_in_grid(i32 noundef %0, i32
   br i1 %.not.not.not.not, label %._crit_edge, label %29, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %29, %.lr.ph10, %19, %.lr.ph14, %.lr.ph.split.us, %.lr.ph.split, %3
-  %.not.lcssa = phi i1 [ true, %3 ], [ false, %.lr.ph.split ], [ false, %.lr.ph.split.us ], [ %.not.us.not.not.not, %.lr.ph14 ], [ %.not.us.not.not.not, %19 ], [ %.not.not.not.not, %.lr.ph10 ], [ %.not.not.not.not, %29 ]
+  %.not.lcssa = phi i1 [ true, %3 ], [ false, %.lr.ph.split ], [ %.not.us.not.not.not, %19 ], [ false, %.lr.ph.split.us ], [ %.not.us.not.not.not, %.lr.ph14 ], [ %.not.not.not.not, %.lr.ph10 ], [ %.not.not.not.not, %29 ]
   ret i1 %.not.lcssa
 }
 
@@ -7928,7 +7928,7 @@ define internal fastcc range(i32 0, 2) i32 @_tell_if_used(i32 noundef %0, i32 no
   br i1 %.not.not, label %.lr.ph.split, label %.loopexit, !llvm.loop !80
 
 .loopexit:                                        ; preds = %57, %35, %6, %47
-  %61 = phi i32 [ %9, %6 ], [ %.pre, %47 ], [ %37, %35 ], [ %59, %57 ]
+  %61 = phi i32 [ %37, %35 ], [ %.pre, %47 ], [ %9, %6 ], [ %59, %57 ]
   %62 = add nsw i32 %61, -1
   store i32 %62, ptr %10, align 4
   br label %.loopexit1
@@ -8183,7 +8183,7 @@ hostlist_parse_int_to_array.exit79:               ; preds = %.lr.ph.i75
   br label %.critedge
 
 .critedge:                                        ; preds = %._crit_edge97, %46, %._crit_edge, %10, %3, %85
-  %.0 = phi i64 [ %86, %85 ], [ 0, %3 ], [ -1, %10 ], [ -1, %._crit_edge ], [ -1, %46 ], [ -1, %._crit_edge97 ]
+  %.0 = phi i64 [ -1, %10 ], [ 0, %3 ], [ -1, %._crit_edge ], [ %86, %85 ], [ -1, %46 ], [ -1, %._crit_edge97 ]
   ret i64 %.0
 }
 

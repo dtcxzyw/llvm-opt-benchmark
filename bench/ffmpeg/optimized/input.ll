@@ -1284,7 +1284,7 @@ isBE.exit:                                        ; preds = %177
   br label %.sink.split
 
 .sink.split:                                      ; preds = %186, %186, %203, %202, %201, %200, %199, %198, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %187
-  %rgba64leToA_c.sink = phi ptr [ @rgba64beToA_c, %187 ], [ @rgbaToA_c, %188 ], [ @abgrToA_c, %189 ], [ @rgbaf16beToA_c, %190 ], [ @rgbaf16leToA_c, %191 ], [ @uyvyToY_c, %192 ], [ @read_ya16le_alpha_c, %193 ], [ @read_ya16be_alpha_c, %194 ], [ @read_yaf16le_alpha_c, %195 ], [ @read_yaf16be_alpha_c, %196 ], [ @read_yaf32le_alpha_c, %197 ], [ @read_yaf32be_alpha_c, %198 ], [ @read_vuya_A_c, %199 ], [ @read_ayuv_A_c, %200 ], [ @read_ayuv64le_A_c, %201 ], [ @read_ayuv64be_A_c, %202 ], [ @palToA_c, %203 ], [ @rgba64leToA_c, %186 ], [ @rgba64leToA_c, %186 ]
+  %rgba64leToA_c.sink = phi ptr [ @palToA_c, %203 ], [ @rgba64beToA_c, %187 ], [ @rgbaToA_c, %188 ], [ @abgrToA_c, %189 ], [ @rgbaf16beToA_c, %190 ], [ @rgbaf16leToA_c, %191 ], [ @uyvyToY_c, %192 ], [ @read_ya16le_alpha_c, %193 ], [ @read_ya16be_alpha_c, %194 ], [ @read_yaf16le_alpha_c, %195 ], [ @read_yaf16be_alpha_c, %196 ], [ @read_yaf32le_alpha_c, %197 ], [ @read_yaf32be_alpha_c, %198 ], [ @read_vuya_A_c, %199 ], [ @read_ayuv_A_c, %200 ], [ @read_ayuv64le_A_c, %201 ], [ @read_ayuv64be_A_c, %202 ], [ @rgba64leToA_c, %186 ], [ @rgba64leToA_c, %186 ]
   store ptr %rgba64leToA_c.sink, ptr %2, align 8, !tbaa !27
   br label %204
 

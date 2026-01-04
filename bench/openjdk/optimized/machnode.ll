@@ -470,7 +470,7 @@ define hidden noundef zeroext i1 @_ZNK8MachNode3cmpERK4Node(ptr noundef nonnull 
   br i1 %or.cond.not, label %18, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %18, %.preheader, %7, %2
-  %.011 = phi i1 [ false, %2 ], [ false, %7 ], [ true, %.preheader ], [ %28, %18 ]
+  %.011 = phi i1 [ false, %7 ], [ false, %2 ], [ true, %.preheader ], [ %28, %18 ]
   ret i1 %.011
 }
 
@@ -739,7 +739,7 @@ define hidden noundef ptr @_ZNK8MachNode13memory_inputsERP4NodeS2_(ptr noundef n
   br i1 %exitcond.not.i, label %_ZNK8MachNode13operand_indexEj.exit, label %.lr.ph.i, !llvm.loop !13
 
 _ZNK8MachNode13operand_indexEj.exit:              ; preds = %.lr.ph.i, %23, %.thread, %35
-  %.0.i = phi i32 [ -1, %23 ], [ -1, %.thread ], [ %39, %35 ], [ %47, %.lr.ph.i ]
+  %.0.i = phi i32 [ -1, %.thread ], [ -1, %23 ], [ %39, %35 ], [ %47, %.lr.ph.i ]
   %48 = load ptr, ptr %7, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 152
   %50 = load ptr, ptr %49, align 8
@@ -825,7 +825,7 @@ define hidden noundef i32 @_ZNK8MachNode13operand_indexEj(ptr noundef nonnull al
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph, %15, %4, %2
-  %.0 = phi i32 [ -1, %2 ], [ -1, %4 ], [ %19, %15 ], [ %27, %.lr.ph ]
+  %.0 = phi i32 [ -1, %4 ], [ -1, %2 ], [ %19, %15 ], [ %27, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -929,7 +929,7 @@ _ZNK4Type8make_ptrEv.exit:                        ; preds = %30, %33, %36
   br label %56
 
 56:                                               ; preds = %44, %50, %9
-  %.040 = phi i64 [ %55, %50 ], [ %14, %9 ], [ -2000000001, %44 ]
+  %.040 = phi i64 [ %14, %9 ], [ %55, %50 ], [ -2000000001, %44 ]
   store i64 %.040, ptr %1, align 8
   %57 = load ptr, ptr %2, align 8
   %58 = icmp eq ptr %57, inttoptr (i64 -1 to ptr)
@@ -1127,7 +1127,7 @@ switch.early.test:                                ; preds = %_ZNK4Type8make_ptrE
   br label %51
 
 51:                                               ; preds = %7, %1, %46, %.thread, %40, %13, %11, %9
-  %.0 = phi ptr [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %41, %40 ], [ %45, %.thread ], [ %50, %46 ], [ %5, %1 ], [ null, %7 ]
+  %.0 = phi ptr [ %50, %46 ], [ %5, %1 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %41, %40 ], [ %45, %.thread ], [ null, %7 ]
   ret ptr %.0
 }
 
@@ -1533,7 +1533,7 @@ define hidden noundef ptr @_ZNK12MachProjNode11bottom_typeEv(ptr noundef nonnull
   br label %31
 
 31:                                               ; preds = %1, %27, %22
-  %.0.in = phi ptr [ %26, %22 ], [ %30, %27 ], [ @_ZN4Type6BOTTOME, %1 ]
+  %.0.in = phi ptr [ %30, %27 ], [ %26, %22 ], [ @_ZN4Type6BOTTOME, %1 ]
   %.0 = load ptr, ptr %.0.in, align 8
   ret ptr %.0
 }
@@ -1563,7 +1563,7 @@ define hidden noundef ptr @_ZNK12MachProjNode8adr_typeEv(ptr noundef nonnull ali
   br label %18
 
 18:                                               ; preds = %1, %8, %13
-  %.0 = phi ptr [ %17, %13 ], [ null, %8 ], [ null, %1 ]
+  %.0 = phi ptr [ null, %8 ], [ %17, %13 ], [ null, %1 ]
   ret ptr %.0
 }
 

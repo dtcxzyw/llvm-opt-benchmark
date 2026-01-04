@@ -857,8 +857,8 @@ while.end186.loopexit:                            ; preds = %while.end, %if.then
   br label %while.end186
 
 while.end186:                                     ; preds = %while.end186.loopexit, %_ZNK5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE11totalLengthEv.exit, %_ZN5folly8OptionalIN8proxygen5HTTP39ErrorCodeEE6assignERKS3_.exit.i.i
-  %50 = phi i8 [ %18, %_ZN5folly8OptionalIN8proxygen5HTTP39ErrorCodeEE6assignERKS3_.exit.i.i ], [ %0, %_ZNK5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE11totalLengthEv.exit ], [ %.pre99, %while.end186.loopexit ]
-  %parsedTot.085 = phi i64 [ %parsedTot.092, %_ZN5folly8OptionalIN8proxygen5HTTP39ErrorCodeEE6assignERKS3_.exit.i.i ], [ 0, %_ZNK5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE11totalLengthEv.exit ], [ %parsedTot.085.ph, %while.end186.loopexit ]
+  %50 = phi i8 [ %18, %_ZN5folly8OptionalIN8proxygen5HTTP39ErrorCodeEE6assignERKS3_.exit.i.i ], [ %.pre99, %while.end186.loopexit ], [ %0, %_ZNK5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE11totalLengthEv.exit ]
+  %parsedTot.085 = phi i64 [ %parsedTot.092, %_ZN5folly8OptionalIN8proxygen5HTTP39ErrorCodeEE6assignERKS3_.exit.i.i ], [ %parsedTot.085.ph, %while.end186.loopexit ], [ 0, %_ZNK5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE11totalLengthEv.exit ]
   store i8 0, ptr %agg.tmp187, align 8
   %hasValue.i.i66 = getelementptr inbounds nuw i8, ptr %agg.tmp187, i64 8
   store i8 0, ptr %hasValue.i.i66, align 8
@@ -1168,7 +1168,7 @@ lpad:                                             ; preds = %invoke.cont13, %inv
   resume { ptr, i32 } %6
 
 return:                                           ; preds = %if.else3, %entry, %invoke.cont2.i, %if.then2
-  %retval.0 = phi i1 [ false, %if.then2 ], [ false, %invoke.cont2.i ], [ false, %entry ], [ true, %if.else3 ]
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then2 ], [ false, %invoke.cont2.i ], [ true, %if.else3 ]
   ret i1 %retval.0
 }
 

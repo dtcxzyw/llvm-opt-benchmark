@@ -140,8 +140,8 @@ define dso_local ptr @pg_perm_setlocale(i32 noundef %0, ptr noundef %1) local_un
   unreachable
 
 15:                                               ; preds = %5, %.thread, %11, %10, %9, %8
-  %.01116 = phi ptr [ %3, %8 ], [ %3, %9 ], [ %3, %10 ], [ %3, %11 ], [ @pg_perm_setlocale.save_lc_ctype, %.thread ], [ %3, %5 ]
-  %.0 = phi ptr [ @.str.2, %8 ], [ @.str.3, %9 ], [ @.str.4, %10 ], [ @.str.5, %11 ], [ @.str.1, %.thread ], [ @.str, %5 ]
+  %.01116 = phi ptr [ %3, %11 ], [ %3, %5 ], [ %3, %8 ], [ %3, %9 ], [ %3, %10 ], [ @pg_perm_setlocale.save_lc_ctype, %.thread ]
+  %.0 = phi ptr [ @.str.5, %11 ], [ @.str, %5 ], [ @.str.2, %8 ], [ @.str.3, %9 ], [ @.str.4, %10 ], [ @.str.1, %.thread ]
   %16 = tail call i32 @setenv(ptr noundef nonnull %.0, ptr noundef nonnull %.01116, i32 noundef 1) #20
   %.not = icmp eq i32 %16, 0
   %.011. = select i1 %.not, ptr %.01116, ptr null
@@ -259,7 +259,7 @@ define dso_local zeroext i1 @check_locale(i32 noundef %0, ptr noundef %1, ptr no
   br label %40
 
 40:                                               ; preds = %27, %28, %30, %13, %5, %7, %38
-  %.0 = phi i1 [ false, %38 ], [ false, %7 ], [ false, %5 ], [ false, %13 ], [ %18, %30 ], [ %18, %28 ], [ %18, %27 ]
+  %.0 = phi i1 [ false, %13 ], [ false, %38 ], [ false, %5 ], [ false, %7 ], [ %18, %30 ], [ %18, %28 ], [ %18, %27 ]
   ret i1 %.0
 }
 
@@ -328,7 +328,7 @@ define dso_local zeroext i1 @check_locale_messages(ptr noundef readonly captures
   br label %11
 
 11:                                               ; preds = %7, %9
-  %.0 = phi i1 [ %10, %9 ], [ %8, %7 ]
+  %.0 = phi i1 [ %8, %7 ], [ %10, %9 ]
   ret i1 %.0
 }
 
@@ -1689,7 +1689,7 @@ sub_0:
   unreachable
 
 14:                                               ; preds = %7, %.tail.thread, %.tail
-  %.0 = phi i32 [ -1, %.tail ], [ 6, %.tail.thread ], [ 6, %7 ]
+  %.0 = phi i32 [ 6, %.tail.thread ], [ -1, %.tail ], [ 6, %7 ]
   ret i32 %.0
 }
 
@@ -1731,8 +1731,8 @@ sub_0:
   tail call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 1653, ptr noundef nonnull @__func__.builtin_validate_locale) #20
   unreachable
 
-.thread:                                          ; preds = %.tail.thread, %8, %.tail, %11
-  %.018 = phi ptr [ @.str.27, %11 ], [ @.str.26, %.tail.thread ], [ @.str.26, %8 ], [ @.str.25, %.tail ]
+.thread:                                          ; preds = %8, %.tail.thread, %.tail, %11
+  %.018 = phi ptr [ @.str.27, %11 ], [ @.str.26, %8 ], [ @.str.26, %.tail.thread ], [ @.str.25, %.tail ]
   %17 = tail call i32 @builtin_locale_encoding(ptr noundef nonnull %.018)
   %18 = icmp slt i32 %17, 0
   %.not14 = icmp eq i32 %0, %17

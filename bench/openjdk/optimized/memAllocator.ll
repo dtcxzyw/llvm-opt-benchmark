@@ -895,7 +895,7 @@ _ZN4Copy13zero_to_wordsEPP12HeapWordImplm.exit:   ; preds = %.lr.ph.i.preheader.
   br label %81
 
 81:                                               ; preds = %45, %40, %_ZN22ThreadLocalAllocBuffer8allocateEm.exit, %_ZN4Copy13zero_to_wordsEPP12HeapWordImplm.exit, %34
-  %.0 = phi ptr [ null, %34 ], [ %71, %_ZN4Copy13zero_to_wordsEPP12HeapWordImplm.exit ], [ %12, %_ZN22ThreadLocalAllocBuffer8allocateEm.exit ], [ null, %40 ], [ null, %45 ]
+  %.0 = phi ptr [ %71, %_ZN4Copy13zero_to_wordsEPP12HeapWordImplm.exit ], [ null, %34 ], [ %12, %_ZN22ThreadLocalAllocBuffer8allocateEm.exit ], [ null, %40 ], [ null, %45 ]
   ret ptr %.0
 }
 
@@ -956,7 +956,7 @@ define linkonce_odr hidden noundef i64 @_ZN22ThreadLocalAllocBuffer12compute_siz
   br label %42
 
 42:                                               ; preds = %41, %40, %39, %38
-  %.0 = phi i64 [ 0, %38 ], [ 0, %39 ], [ %22, %40 ], [ %22, %41 ]
+  %.0 = phi i64 [ 0, %39 ], [ 0, %38 ], [ %22, %40 ], [ %22, %41 ]
   ret i64 %.0
 }
 
@@ -1023,7 +1023,7 @@ _ZNK12MemAllocator29mem_allocate_inside_tlab_fastEv.exit.thread: ; preds = %5, %
   br label %_ZNK12MemAllocator25mem_allocate_outside_tlabERNS_10AllocationE.exit
 
 _ZNK12MemAllocator25mem_allocate_outside_tlabERNS_10AllocationE.exit: ; preds = %31, %20, %_ZNK12MemAllocator29mem_allocate_inside_tlab_fastEv.exit.thread, %_ZNK12MemAllocator29mem_allocate_inside_tlab_fastEv.exit
-  %.0 = phi ptr [ %11, %_ZNK12MemAllocator29mem_allocate_inside_tlab_fastEv.exit ], [ %19, %_ZNK12MemAllocator29mem_allocate_inside_tlab_fastEv.exit.thread ], [ null, %20 ], [ %29, %31 ]
+  %.0 = phi ptr [ %19, %_ZNK12MemAllocator29mem_allocate_inside_tlab_fastEv.exit.thread ], [ %11, %_ZNK12MemAllocator29mem_allocate_inside_tlab_fastEv.exit ], [ null, %20 ], [ %29, %31 ]
   ret ptr %.0
 }
 
@@ -1098,8 +1098,8 @@ _ZNK12MemAllocator29mem_allocate_inside_tlab_fastEv.exit.thread.i: ; preds = %_Z
   store i64 %42, ptr %40, align 8
   br label %43
 
-43:                                               ; preds = %_ZNK12MemAllocator29mem_allocate_inside_tlab_fastEv.exit.i, %_ZNK12MemAllocator29mem_allocate_inside_tlab_fastEv.exit.thread.i, %36
-  %.0.i.ph = phi ptr [ %34, %36 ], [ %26, %_ZNK12MemAllocator29mem_allocate_inside_tlab_fastEv.exit.thread.i ], [ %18, %_ZNK12MemAllocator29mem_allocate_inside_tlab_fastEv.exit.i ]
+43:                                               ; preds = %_ZNK12MemAllocator29mem_allocate_inside_tlab_fastEv.exit.thread.i, %_ZNK12MemAllocator29mem_allocate_inside_tlab_fastEv.exit.i, %36
+  %.0.i.ph = phi ptr [ %34, %36 ], [ %18, %_ZNK12MemAllocator29mem_allocate_inside_tlab_fastEv.exit.i ], [ %26, %_ZNK12MemAllocator29mem_allocate_inside_tlab_fastEv.exit.thread.i ]
   %44 = load ptr, ptr %0, align 8
   %45 = load ptr, ptr %44, align 8
   %46 = call noundef ptr %45(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.0.i.ph) #10

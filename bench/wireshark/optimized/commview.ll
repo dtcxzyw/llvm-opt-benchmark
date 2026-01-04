@@ -112,7 +112,7 @@ define hidden range(i32 -1, 2) i32 @commview_ncf_open(ptr noundef captures(none)
   br label %53
 
 53:                                               ; preds = %7, %42, %10, %38, %46
-  %.0 = phi i32 [ 1, %46 ], [ 0, %38 ], [ 0, %10 ], [ -1, %42 ], [ %9, %7 ]
+  %.0 = phi i32 [ -1, %42 ], [ 0, %10 ], [ 1, %46 ], [ %9, %7 ], [ 0, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -208,7 +208,7 @@ define internal fastcc zeroext i1 @commview_ncf_read_header(ptr noundef %0, ptr 
   br label %57
 
 57:                                               ; preds = %54, %51, %48, %45, %42, %39, %36, %33, %30, %27, %24, %21, %18, %15, %12, %9, %6, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %6 ], [ false, %9 ], [ false, %12 ], [ false, %15 ], [ false, %18 ], [ false, %21 ], [ false, %24 ], [ false, %27 ], [ false, %30 ], [ false, %33 ], [ false, %36 ], [ false, %39 ], [ false, %42 ], [ false, %45 ], [ false, %48 ], [ false, %51 ], [ %56, %54 ]
+  %.0 = phi i1 [ false, %51 ], [ %56, %54 ], [ false, %48 ], [ false, %45 ], [ false, %42 ], [ false, %39 ], [ false, %36 ], [ false, %33 ], [ false, %30 ], [ false, %27 ], [ false, %24 ], [ false, %21 ], [ false, %18 ], [ false, %15 ], [ false, %12 ], [ false, %9 ], [ false, %6 ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -343,7 +343,7 @@ define hidden range(i32 -1, 2) i32 @commview_ncfx_open(ptr noundef captures(none
   br label %55
 
 55:                                               ; preds = %44, %33, %39, %36, %12, %7, %7, %48, %11, %9
-  %.0 = phi i32 [ 1, %48 ], [ 0, %9 ], [ -1, %11 ], [ 0, %7 ], [ 0, %7 ], [ 0, %12 ], [ 0, %36 ], [ 0, %39 ], [ 0, %33 ], [ -1, %44 ]
+  %.0 = phi i32 [ 0, %7 ], [ -1, %44 ], [ 0, %12 ], [ 0, %33 ], [ 1, %48 ], [ 0, %36 ], [ 0, %39 ], [ -1, %11 ], [ 0, %7 ], [ 0, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -426,7 +426,7 @@ define internal fastcc zeroext i1 @commview_ncfx_read_header(ptr noundef %0, ptr
   br label %48
 
 48:                                               ; preds = %45, %42, %39, %36, %33, %30, %27, %24, %21, %18, %15, %12, %4, %9
-  %.0 = phi i1 [ false, %9 ], [ false, %4 ], [ false, %12 ], [ false, %15 ], [ false, %18 ], [ false, %21 ], [ false, %24 ], [ false, %27 ], [ false, %30 ], [ false, %33 ], [ false, %36 ], [ false, %39 ], [ false, %42 ], [ %47, %45 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %42 ], [ %47, %45 ], [ false, %39 ], [ false, %36 ], [ false, %33 ], [ false, %30 ], [ false, %27 ], [ false, %24 ], [ false, %21 ], [ false, %18 ], [ false, %15 ], [ false, %12 ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -1026,7 +1026,7 @@ commview_ncfx_read_rf_header.exit:                ; preds = %56
   br label %97
 
 97:                                               ; preds = %86, %96, %95, %78, %85
-  %.0 = phi i32 [ %81, %85 ], [ %81, %78 ], [ %89, %95 ], [ %89, %96 ], [ %89, %86 ]
+  %.0 = phi i32 [ %89, %86 ], [ %81, %85 ], [ %81, %78 ], [ %89, %95 ], [ %89, %96 ]
   %.not110 = icmp eq i32 %.0, 0
   br i1 %.not110, label %.thread, label %98
 
@@ -1284,8 +1284,8 @@ commview_ncfx_read_rf_header.exit:                ; preds = %56
   %243 = zext i1 %242 to i32
   br label %commview_ncfx_read_rf_header.exit.thread
 
-commview_ncfx_read_rf_header.exit.thread:         ; preds = %56, %53, %50, %47, %44, %41, %38, %35, %32, %134, %commview_ncfx_read_rf_header.exit, %4, %231, %229, %195, %131, %30
-  %.0103 = phi i32 [ 0, %195 ], [ 0, %229 ], [ %243, %231 ], [ 0, %30 ], [ 0, %131 ], [ 0, %4 ], [ 0, %commview_ncfx_read_rf_header.exit ], [ 0, %134 ], [ 0, %32 ], [ 0, %35 ], [ 0, %38 ], [ 0, %41 ], [ 0, %44 ], [ 0, %47 ], [ 0, %50 ], [ 0, %53 ], [ 0, %56 ]
+commview_ncfx_read_rf_header.exit.thread:         ; preds = %32, %35, %38, %41, %44, %47, %50, %53, %56, %134, %commview_ncfx_read_rf_header.exit, %4, %231, %229, %195, %131, %30
+  %.0103 = phi i32 [ 0, %195 ], [ 0, %229 ], [ %243, %231 ], [ 0, %30 ], [ 0, %131 ], [ 0, %commview_ncfx_read_rf_header.exit ], [ 0, %4 ], [ 0, %134 ], [ 0, %56 ], [ 0, %53 ], [ 0, %50 ], [ 0, %47 ], [ 0, %44 ], [ 0, %41 ], [ 0, %38 ], [ 0, %35 ], [ 0, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1314,7 +1314,7 @@ define internal fastcc zeroext i1 @commview_ncfx_read_mcs_header(ptr noundef %0,
   br label %15
 
 15:                                               ; preds = %12, %9, %6, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %6 ], [ false, %9 ], [ %14, %12 ]
+  %.0 = phi i1 [ false, %9 ], [ %14, %12 ], [ false, %6 ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -1728,7 +1728,7 @@ define internal zeroext i1 @commview_ncf_dump(ptr noundef %0, ptr noundef %1, pt
   br label %205
 
 205:                                              ; preds = %201, %198, %195, %192, %189, %186, %183, %180, %177, %175, %173, %170, %167, %164, %161, %158, %156, %154, %152, %151, %14, %9
-  %.0 = phi i1 [ false, %9 ], [ false, %14 ], [ false, %151 ], [ false, %152 ], [ false, %154 ], [ false, %156 ], [ false, %158 ], [ false, %161 ], [ false, %164 ], [ false, %167 ], [ false, %170 ], [ false, %173 ], [ false, %175 ], [ false, %177 ], [ false, %180 ], [ false, %183 ], [ false, %186 ], [ false, %189 ], [ false, %192 ], [ false, %195 ], [ false, %198 ], [ %204, %201 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %14 ], [ false, %151 ], [ false, %198 ], [ %204, %201 ], [ false, %195 ], [ false, %192 ], [ false, %189 ], [ false, %186 ], [ false, %183 ], [ false, %180 ], [ false, %177 ], [ false, %175 ], [ false, %173 ], [ false, %170 ], [ false, %167 ], [ false, %164 ], [ false, %161 ], [ false, %158 ], [ false, %156 ], [ false, %154 ], [ false, %152 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
@@ -1954,7 +1954,7 @@ define internal zeroext i1 @commview_ncfx_dump(ptr noundef %0, ptr noundef %1, p
   br label %106
 
 106:                                              ; preds = %102, %100, %98, %95, %92, %89, %87, %85, %82, %79, %76, %73, %70, %68, %67, %14, %9
-  %.0 = phi i1 [ false, %9 ], [ false, %14 ], [ false, %67 ], [ false, %68 ], [ false, %70 ], [ false, %73 ], [ false, %76 ], [ false, %79 ], [ false, %82 ], [ false, %85 ], [ false, %87 ], [ false, %89 ], [ false, %92 ], [ false, %95 ], [ false, %98 ], [ false, %100 ], [ %105, %102 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %14 ], [ false, %67 ], [ false, %100 ], [ %105, %102 ], [ false, %98 ], [ false, %95 ], [ false, %92 ], [ false, %89 ], [ false, %87 ], [ false, %85 ], [ false, %82 ], [ false, %79 ], [ false, %76 ], [ false, %73 ], [ false, %70 ], [ false, %68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }

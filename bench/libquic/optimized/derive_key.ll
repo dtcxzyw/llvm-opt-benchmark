@@ -180,13 +180,13 @@ define hidden i32 @EVP_BytesToKey(ptr noundef readonly captures(none) %0, ptr no
   br label %.loopexit81
 
 .loopexit81:                                      ; preds = %32, %30, %27, %23, %.lr.ph, %37, %41, %71
-  %.0 = phi i32 [ %72, %71 ], [ 0, %41 ], [ 0, %37 ], [ 0, %.lr.ph ], [ 0, %23 ], [ 0, %27 ], [ 0, %30 ], [ 0, %32 ]
+  %.0 = phi i32 [ 0, %.lr.ph ], [ %72, %71 ], [ 0, %41 ], [ 0, %37 ], [ 0, %23 ], [ 0, %27 ], [ 0, %30 ], [ 0, %32 ]
   %73 = call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %9) #3
   call void @OPENSSL_cleanse(ptr noundef nonnull %10, i64 noundef 64) #3
   br label %.loopexit82
 
 .loopexit82:                                      ; preds = %19, %8, %.loopexit81
-  %.059 = phi i32 [ %.0, %.loopexit81 ], [ %13, %8 ], [ 0, %19 ]
+  %.059 = phi i32 [ %13, %8 ], [ %.0, %.loopexit81 ], [ 0, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

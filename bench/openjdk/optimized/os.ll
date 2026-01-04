@@ -558,7 +558,7 @@ define hidden noundef ptr @_ZN2os12iso8601_timeElPcmb(i64 noundef %0, ptr nounde
   br label %42
 
 42:                                               ; preds = %19, %16, %13, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %13 ], [ null, %16 ], [ %spec.select, %19 ]
+  %.0 = phi ptr [ null, %13 ], [ null, %4 ], [ %spec.select, %19 ], [ null, %16 ]
   ret ptr %.0
 }
 
@@ -640,7 +640,7 @@ define hidden noundef i32 @_ZN2os12get_priorityEPK6ThreadR14ThreadPriority(ptr n
   br i1 %23, label %.preheader15, label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %.preheader15, %21, %.preheader, %14
-  %.1 = phi i32 [ 1, %14 ], [ %.01318, %.preheader ], [ 1, %21 ], [ %.217, %.preheader15 ]
+  %.1 = phi i32 [ %.01318, %.preheader ], [ 1, %14 ], [ 1, %21 ], [ %.217, %.preheader15 ]
   store i32 %.1, ptr %1, align 4
   br label %24
 
@@ -1427,7 +1427,7 @@ _ZN2os19find_agent_functionEP10JvmtiAgentbPPKcm.exit: ; preds = %18
   br label %20
 
 20:                                               ; preds = %3, %.loopexit, %_ZN2os19find_agent_functionEP10JvmtiAgentbPPKcm.exit
-  %.0 = phi i1 [ true, %_ZN2os19find_agent_functionEP10JvmtiAgentbPPKcm.exit ], [ false, %.loopexit ], [ false, %3 ]
+  %.0 = phi i1 [ false, %.loopexit ], [ true, %_ZN2os19find_agent_functionEP10JvmtiAgentbPPKcm.exit ], [ false, %3 ]
   ret i1 %.0
 }
 
@@ -1564,7 +1564,7 @@ _ZN10NMTPreInit13handle_mallocEPPvm.exit:         ; preds = %3
 25:                                               ; preds = %_ZN10NMTPreInit13handle_mallocEPPvm.exit
   %26 = load i64, ptr @_ZN18MallocLimitHandler7_limitsE, align 8
   %.not.i.i.i = icmp eq i64 %26, 0
-  br i1 %.not.i.i.i, label %39, label %27
+  br i1 %.not.i.i.i, label %37, label %27
 
 27:                                               ; preds = %25
   %28 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN19MallocMemorySummary9_snapshotE, i64 1800), align 8
@@ -1576,35 +1576,35 @@ _ZN10NMTPreInit13handle_mallocEPPvm.exit:         ; preds = %3
   %34 = add i64 %33, %5
   %35 = load i64, ptr @_ZN18MallocLimitHandler7_limitsE, align 8
   %36 = icmp ugt i64 %34, %35
-  br i1 %36, label %37, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.threadthread-pre-split
+  br i1 %36, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.threadthread-pre-split
 
-37:                                               ; preds = %27
-  %38 = tail call noundef zeroext i1 @_ZN19MallocMemorySummary19total_limit_reachedEmmPK11malloclimit(i64 noundef %5, i64 noundef %33, ptr noundef nonnull @_ZN18MallocLimitHandler7_limitsE) #29
-  br i1 %38, label %67, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.threadthread-pre-split
+37:                                               ; preds = %25
+  %38 = zext i8 %1 to i64
+  %39 = getelementptr inbounds nuw %struct.malloclimit, ptr getelementptr inbounds nuw (i8, ptr @_ZN18MallocLimitHandler7_limitsE, i64 16), i64 %38
+  %40 = load i64, ptr %39, align 8
+  %.not19.i.i.i = icmp eq i64 %40, 0
+  br i1 %.not19.i.i.i, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.threadthread-pre-split, label %41
 
-39:                                               ; preds = %25
-  %40 = zext i8 %1 to i64
-  %41 = getelementptr inbounds nuw %struct.malloclimit, ptr getelementptr inbounds nuw (i8, ptr @_ZN18MallocLimitHandler7_limitsE, i64 16), i64 %40
-  %42 = load i64, ptr %41, align 8
-  %.not19.i.i.i = icmp eq i64 %42, 0
-  br i1 %.not19.i.i.i, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.threadthread-pre-split, label %43
-
-43:                                               ; preds = %39
-  %44 = getelementptr inbounds nuw %class.MallocMemory, ptr @_ZN19MallocMemorySummary9_snapshotE, i64 %40
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
+41:                                               ; preds = %37
+  %42 = getelementptr inbounds nuw %class.MallocMemory, ptr @_ZN19MallocMemorySummary9_snapshotE, i64 %38
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %44 = load volatile i64, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %46 = load volatile i64, ptr %45, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %44, i64 40
-  %48 = load volatile i64, ptr %47, align 8
-  %49 = add i64 %48, %46
-  %50 = add i64 %49, %5
-  %51 = icmp ugt i64 %50, %42
-  br i1 %51, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.threadthread-pre-split
+  %47 = add i64 %46, %44
+  %48 = add i64 %47, %5
+  %49 = icmp ugt i64 %48, %40
+  br i1 %49, label %50, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.threadthread-pre-split
 
-_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit: ; preds = %43
-  %52 = tail call noundef zeroext i1 @_ZN19MallocMemorySummary22category_limit_reachedE8MEMFLAGSmmPK11malloclimit(i8 noundef zeroext %1, i64 noundef %5, i64 noundef %49, ptr noundef nonnull %41) #29
+50:                                               ; preds = %41
+  %51 = tail call noundef zeroext i1 @_ZN19MallocMemorySummary22category_limit_reachedE8MEMFLAGSmmPK11malloclimit(i8 noundef zeroext %1, i64 noundef %5, i64 noundef %47, ptr noundef nonnull %39) #29
+  br i1 %51, label %67, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.threadthread-pre-split
+
+_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit: ; preds = %27
+  %52 = tail call noundef zeroext i1 @_ZN19MallocMemorySummary19total_limit_reachedEmmPK11malloclimit(i64 noundef %5, i64 noundef %33, ptr noundef nonnull @_ZN18MallocLimitHandler7_limitsE) #29
   br i1 %52, label %67, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.threadthread-pre-split
 
-_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.threadthread-pre-split: ; preds = %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit, %37, %27, %43, %39
+_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.threadthread-pre-split: ; preds = %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit, %50, %27, %41, %37
   %.pr = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
   br label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread
 
@@ -1638,8 +1638,8 @@ _ZN10MemTracker13record_mallocEPvm8MEMFLAGSRK15NativeCallStack.exit: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0.i19, i8 0, i64 %5, i1 false)
   br label %67
 
-67:                                               ; preds = %37, %66, %_ZN10MemTracker13record_mallocEPvm8MEMFLAGSRK15NativeCallStack.exit, %58, %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread, %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit, %11
-  %.0 = phi ptr [ %19, %11 ], [ null, %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit ], [ null, %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread ], [ null, %58 ], [ %.0.i19, %_ZN10MemTracker13record_mallocEPvm8MEMFLAGSRK15NativeCallStack.exit ], [ %.0.i19, %66 ], [ null, %37 ]
+67:                                               ; preds = %50, %66, %_ZN10MemTracker13record_mallocEPvm8MEMFLAGSRK15NativeCallStack.exit, %58, %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread, %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit, %11
+  %.0 = phi ptr [ %19, %11 ], [ null, %58 ], [ null, %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit ], [ null, %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread ], [ %.0.i19, %_ZN10MemTracker13record_mallocEPvm8MEMFLAGSRK15NativeCallStack.exit ], [ %.0.i19, %66 ], [ null, %50 ]
   ret ptr %.0
 }
 
@@ -1712,7 +1712,7 @@ define hidden noundef ptr @_ZN2os7reallocEPvm8MEMFLAGSRK15NativeCallStack(ptr no
 28:                                               ; preds = %24
   %29 = load i64, ptr @_ZN18MallocLimitHandler7_limitsE, align 8
   %.not.i.i.i = icmp eq i64 %29, 0
-  br i1 %.not.i.i.i, label %42, label %30
+  br i1 %.not.i.i.i, label %40, label %30
 
 30:                                               ; preds = %28
   %31 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN19MallocMemorySummary9_snapshotE, i64 1800), align 8
@@ -1724,35 +1724,35 @@ define hidden noundef ptr @_ZN2os7reallocEPvm8MEMFLAGSRK15NativeCallStack(ptr no
   %37 = add i64 %36, %25
   %38 = load i64, ptr @_ZN18MallocLimitHandler7_limitsE, align 8
   %39 = icmp ugt i64 %37, %38
-  br i1 %39, label %40, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread
+  br i1 %39, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread
 
-40:                                               ; preds = %30
-  %41 = call noundef zeroext i1 @_ZN19MallocMemorySummary19total_limit_reachedEmmPK11malloclimit(i64 noundef %25, i64 noundef %36, ptr noundef nonnull @_ZN18MallocLimitHandler7_limitsE) #29
-  br i1 %41, label %_ZN10MemTracker13record_mallocEPvm8MEMFLAGSRK15NativeCallStack.exit, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread
+40:                                               ; preds = %28
+  %41 = zext i8 %2 to i64
+  %42 = getelementptr inbounds nuw %struct.malloclimit, ptr getelementptr inbounds nuw (i8, ptr @_ZN18MallocLimitHandler7_limitsE, i64 16), i64 %41
+  %43 = load i64, ptr %42, align 8
+  %.not19.i.i.i = icmp eq i64 %43, 0
+  br i1 %.not19.i.i.i, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread, label %44
 
-42:                                               ; preds = %28
-  %43 = zext i8 %2 to i64
-  %44 = getelementptr inbounds nuw %struct.malloclimit, ptr getelementptr inbounds nuw (i8, ptr @_ZN18MallocLimitHandler7_limitsE, i64 16), i64 %43
-  %45 = load i64, ptr %44, align 8
-  %.not19.i.i.i = icmp eq i64 %45, 0
-  br i1 %.not19.i.i.i, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread, label %46
-
-46:                                               ; preds = %42
-  %47 = getelementptr inbounds nuw %class.MallocMemory, ptr @_ZN19MallocMemorySummary9_snapshotE, i64 %43
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
+44:                                               ; preds = %40
+  %45 = getelementptr inbounds nuw %class.MallocMemory, ptr @_ZN19MallocMemorySummary9_snapshotE, i64 %41
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %47 = load volatile i64, ptr %46, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %49 = load volatile i64, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %47, i64 40
-  %51 = load volatile i64, ptr %50, align 8
-  %52 = add i64 %51, %49
-  %53 = add i64 %52, %25
-  %54 = icmp ugt i64 %53, %45
-  br i1 %54, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread
+  %50 = add i64 %49, %47
+  %51 = add i64 %50, %25
+  %52 = icmp ugt i64 %51, %43
+  br i1 %52, label %53, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread
 
-_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit: ; preds = %46
-  %55 = call noundef zeroext i1 @_ZN19MallocMemorySummary22category_limit_reachedE8MEMFLAGSmmPK11malloclimit(i8 noundef zeroext %2, i64 noundef %25, i64 noundef %52, ptr noundef nonnull %44) #29
+53:                                               ; preds = %44
+  %54 = call noundef zeroext i1 @_ZN19MallocMemorySummary22category_limit_reachedE8MEMFLAGSmmPK11malloclimit(i8 noundef zeroext %2, i64 noundef %25, i64 noundef %50, ptr noundef nonnull %42) #29
+  br i1 %54, label %_ZN10MemTracker13record_mallocEPvm8MEMFLAGSRK15NativeCallStack.exit, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread
+
+_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit: ; preds = %30
+  %55 = call noundef zeroext i1 @_ZN19MallocMemorySummary19total_limit_reachedEmmPK11malloclimit(i64 noundef %25, i64 noundef %36, ptr noundef nonnull @_ZN18MallocLimitHandler7_limitsE) #29
   br i1 %55, label %_ZN10MemTracker13record_mallocEPvm8MEMFLAGSRK15NativeCallStack.exit, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread
 
-_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread: ; preds = %42, %46, %30, %24, %40, %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit, %20
+_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread: ; preds = %40, %44, %30, %24, %53, %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit, %20
   %56 = call noundef ptr @_ZN12MallocHeader20resolve_checked_implIPvPS_EET0_T_(ptr noundef nonnull %0)
   %57 = load i64, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 12
@@ -1801,8 +1801,8 @@ _ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread: ; preds = %42, %46,
   %82 = call ptr @realloc(ptr noundef nonnull %0, i64 noundef %14) #33
   br label %_ZN10MemTracker13record_mallocEPvm8MEMFLAGSRK15NativeCallStack.exit
 
-_ZN10MemTracker13record_mallocEPvm8MEMFLAGSRK15NativeCallStack.exit: ; preds = %81, %79, %76, %40, %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit, %17, %70, %11, %7
-  %.0 = phi ptr [ %8, %7 ], [ %12, %11 ], [ null, %70 ], [ null, %17 ], [ null, %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit ], [ null, %40 ], [ %80, %79 ], [ %68, %76 ], [ %82, %81 ]
+_ZN10MemTracker13record_mallocEPvm8MEMFLAGSRK15NativeCallStack.exit: ; preds = %81, %79, %76, %53, %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit, %17, %70, %11, %7
+  %.0 = phi ptr [ %8, %7 ], [ %12, %11 ], [ null, %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit ], [ null, %17 ], [ null, %70 ], [ null, %53 ], [ %82, %81 ], [ %68, %76 ], [ %80, %79 ]
   ret ptr %.0
 }
 
@@ -1933,7 +1933,7 @@ _ZN10NMTPreInit11find_in_mapEPv.exit:             ; preds = %59
   br label %_ZN10NMTPreInit13handle_mallocEPPvm.exit
 
 _ZN10NMTPreInit13handle_mallocEPPvm.exit:         ; preds = %57, %_ZN10NMTPreInit10add_to_mapEP20NMTPreInitAllocation.exit.i, %6, %24, %_ZN10NMTPreInit11find_in_mapEPv.exit, %_ZN10NMTPreInit10add_to_mapEP20NMTPreInitAllocation.exit
-  %.0 = phi i1 [ true, %_ZN10NMTPreInit11find_in_mapEPv.exit ], [ true, %_ZN10NMTPreInit10add_to_mapEP20NMTPreInitAllocation.exit ], [ false, %24 ], [ false, %6 ], [ true, %_ZN10NMTPreInit10add_to_mapEP20NMTPreInitAllocation.exit.i ], [ false, %57 ]
+  %.0 = phi i1 [ true, %_ZN10NMTPreInit10add_to_mapEP20NMTPreInitAllocation.exit.i ], [ true, %_ZN10NMTPreInit11find_in_mapEPv.exit ], [ false, %24 ], [ true, %_ZN10NMTPreInit10add_to_mapEP20NMTPreInitAllocation.exit ], [ false, %6 ], [ false, %57 ]
   ret i1 %.0
 }
 
@@ -2012,7 +2012,7 @@ _ZN10MemTracker11record_freeEPv.exit:             ; preds = %3, %_ZN10NMTPreInit
   tail call void @free(ptr noundef %.0.i5) #29
   br label %_ZN10NMTPreInit11handle_freeEPv.exit.thread
 
-_ZN10NMTPreInit11handle_freeEPv.exit.thread:      ; preds = %25, %1, %_ZN10NMTPreInit22find_and_remove_in_mapEPv.exit.i, %_ZN10MemTracker11record_freeEPv.exit
+_ZN10NMTPreInit11handle_freeEPv.exit.thread:      ; preds = %25, %_ZN10NMTPreInit22find_and_remove_in_mapEPv.exit.i, %1, %_ZN10MemTracker11record_freeEPv.exit
   ret void
 }
 
@@ -2832,7 +2832,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit:    ; preds = %41
   call void %72(ptr noundef nonnull align 8 dereferenceable(1800) %48, ptr noundef nonnull %0) #29
   br label %.thread
 
-.thread:                                          ; preds = %56, %52, %69, %67
+.thread:                                          ; preds = %52, %56, %69, %67
   call void @_ZN17ThreadsListHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %33) #29
   br label %127
 
@@ -3083,7 +3083,7 @@ _ZNK5frame12link_or_nullEv.exit29:                ; preds = %_ZN2os19is_readable
   br label %_ZL14is_pointer_badPl.exit32
 
 _ZL14is_pointer_badPl.exit32:                     ; preds = %51, %53
-  %56 = phi i1 [ false, %51 ], [ %55, %53 ]
+  %56 = phi i1 [ %55, %53 ], [ false, %51 ]
   %57 = icmp ult ptr %35, %11
   %or.cond19 = or i1 %57, %56
   br i1 %or.cond19, label %_ZL14is_pointer_badPl.exit.thread, label %58
@@ -3094,7 +3094,7 @@ _ZL14is_pointer_badPl.exit32:                     ; preds = %51, %53
   br label %_ZL14is_pointer_badPl.exit.thread
 
 _ZL14is_pointer_badPl.exit.thread:                ; preds = %_ZNK5frame12link_or_nullEv.exit29, %_ZL14is_pointer_badPl.exit.thread33, %1, %_ZNK5frame12link_or_nullEv.exit, %58, %_ZL14is_pointer_badPl.exit32, %_ZL14is_pointer_badPl.exit21.thread34, %_ZL14is_pointer_badPl.exit23, %_ZL14is_pointer_badPl.exit21, %_ZL14is_pointer_badPl.exit
-  %.0 = phi i1 [ true, %_ZL14is_pointer_badPl.exit ], [ true, %_ZL14is_pointer_badPl.exit21 ], [ true, %_ZL14is_pointer_badPl.exit23 ], [ true, %_ZL14is_pointer_badPl.exit21.thread34 ], [ true, %_ZNK5frame12link_or_nullEv.exit ], [ true, %_ZL14is_pointer_badPl.exit32 ], [ %60, %58 ], [ true, %1 ], [ true, %_ZL14is_pointer_badPl.exit.thread33 ], [ true, %_ZNK5frame12link_or_nullEv.exit29 ]
+  %.0 = phi i1 [ true, %_ZL14is_pointer_badPl.exit32 ], [ true, %_ZL14is_pointer_badPl.exit ], [ true, %_ZL14is_pointer_badPl.exit21 ], [ true, %_ZL14is_pointer_badPl.exit21.thread34 ], [ true, %_ZNK5frame12link_or_nullEv.exit ], [ %60, %58 ], [ true, %_ZL14is_pointer_badPl.exit23 ], [ true, %_ZNK5frame12link_or_nullEv.exit29 ], [ true, %1 ], [ true, %_ZL14is_pointer_badPl.exit.thread33 ]
   ret i1 %.0
 }
 
@@ -3784,8 +3784,8 @@ _Z23byte_size_in_exact_unitm.exit:                ; preds = %8
   br label %_Z24exact_unit_for_byte_sizem.exit
 
 _Z24exact_unit_for_byte_sizem.exit:               ; preds = %.thread, %_Z23byte_size_in_exact_unitm.exit, %18
-  %.0.i50 = phi i64 [ %17, %_Z23byte_size_in_exact_unitm.exit ], [ %spec.select.i, %18 ], [ %16, %.thread ]
-  %.0.i11 = phi ptr [ @.str.269, %_Z23byte_size_in_exact_unitm.exit ], [ %spec.select.i10, %18 ], [ @.str.270, %.thread ]
+  %.0.i50 = phi i64 [ %spec.select.i, %18 ], [ %17, %_Z23byte_size_in_exact_unitm.exit ], [ %16, %.thread ]
+  %.0.i11 = phi ptr [ %spec.select.i10, %18 ], [ @.str.269, %_Z23byte_size_in_exact_unitm.exit ], [ @.str.270, %.thread ]
   %26 = icmp ugt i64 %2, 1073741823
   %27 = and i64 %2, 1073741823
   %28 = icmp eq i64 %27, 0
@@ -3822,8 +3822,8 @@ _Z23byte_size_in_exact_unitm.exit17:              ; preds = %_Z24exact_unit_for_
   br label %_Z24exact_unit_for_byte_sizem.exit23
 
 _Z24exact_unit_for_byte_sizem.exit23:             ; preds = %.thread67, %_Z23byte_size_in_exact_unitm.exit17, %35
-  %.0.i1653 = phi i64 [ %34, %_Z23byte_size_in_exact_unitm.exit17 ], [ %spec.select.i15, %35 ], [ %33, %.thread67 ]
-  %.0.i22 = phi ptr [ @.str.269, %_Z23byte_size_in_exact_unitm.exit17 ], [ %spec.select.i21, %35 ], [ @.str.270, %.thread67 ]
+  %.0.i1653 = phi i64 [ %spec.select.i15, %35 ], [ %34, %_Z23byte_size_in_exact_unitm.exit17 ], [ %33, %.thread67 ]
+  %.0.i22 = phi ptr [ %spec.select.i21, %35 ], [ @.str.269, %_Z23byte_size_in_exact_unitm.exit17 ], [ @.str.270, %.thread67 ]
   %43 = ptrtoint ptr %3 to i64
   %44 = icmp ugt i64 %4, 1073741823
   %45 = and i64 %4, 1073741823
@@ -3861,8 +3861,8 @@ _Z23byte_size_in_exact_unitm.exit29:              ; preds = %_Z24exact_unit_for_
   br label %_Z24exact_unit_for_byte_sizem.exit35
 
 _Z24exact_unit_for_byte_sizem.exit35:             ; preds = %.thread69, %_Z23byte_size_in_exact_unitm.exit29, %53
-  %.0.i2856 = phi i64 [ %52, %_Z23byte_size_in_exact_unitm.exit29 ], [ %spec.select.i27, %53 ], [ %51, %.thread69 ]
-  %.0.i34 = phi ptr [ @.str.269, %_Z23byte_size_in_exact_unitm.exit29 ], [ %spec.select.i33, %53 ], [ @.str.270, %.thread69 ]
+  %.0.i2856 = phi i64 [ %spec.select.i27, %53 ], [ %52, %_Z23byte_size_in_exact_unitm.exit29 ], [ %51, %.thread69 ]
+  %.0.i34 = phi ptr [ %spec.select.i33, %53 ], [ @.str.269, %_Z23byte_size_in_exact_unitm.exit29 ], [ @.str.270, %.thread69 ]
   %61 = icmp ugt i64 %5, 1073741823
   %62 = and i64 %5, 1073741823
   %63 = icmp eq i64 %62, 0
@@ -3899,8 +3899,8 @@ _Z23byte_size_in_exact_unitm.exit41:              ; preds = %_Z24exact_unit_for_
   br label %_Z24exact_unit_for_byte_sizem.exit47
 
 _Z24exact_unit_for_byte_sizem.exit47:             ; preds = %.thread71, %_Z23byte_size_in_exact_unitm.exit41, %70
-  %.0.i4059 = phi i64 [ %69, %_Z23byte_size_in_exact_unitm.exit41 ], [ %spec.select.i39, %70 ], [ %68, %.thread71 ]
-  %.0.i46 = phi ptr [ @.str.269, %_Z23byte_size_in_exact_unitm.exit41 ], [ %spec.select.i45, %70 ], [ @.str.270, %.thread71 ]
+  %.0.i4059 = phi i64 [ %spec.select.i39, %70 ], [ %69, %_Z23byte_size_in_exact_unitm.exit41 ], [ %68, %.thread71 ]
+  %.0.i46 = phi ptr [ %spec.select.i45, %70 ], [ @.str.269, %_Z23byte_size_in_exact_unitm.exit41 ], [ @.str.270, %.thread71 ]
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE108ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.60, ptr noundef %0, i64 noundef %.0.i50, ptr noundef nonnull %.0.i11, i64 noundef %.0.i1653, ptr noundef nonnull %.0.i22, i64 noundef %43, i64 noundef %.0.i2856, ptr noundef nonnull %.0.i34, i64 noundef %.0.i4059, ptr noundef nonnull %.0.i46)
   br label %78
 
@@ -3960,8 +3960,8 @@ _Z23byte_size_in_exact_unitm.exit:                ; preds = %8
   br label %_Z24exact_unit_for_byte_sizem.exit
 
 _Z24exact_unit_for_byte_sizem.exit:               ; preds = %.thread, %_Z23byte_size_in_exact_unitm.exit, %18
-  %.0.i50 = phi i64 [ %17, %_Z23byte_size_in_exact_unitm.exit ], [ %spec.select.i, %18 ], [ %16, %.thread ]
-  %.0.i11 = phi ptr [ @.str.269, %_Z23byte_size_in_exact_unitm.exit ], [ %spec.select.i10, %18 ], [ @.str.270, %.thread ]
+  %.0.i50 = phi i64 [ %spec.select.i, %18 ], [ %17, %_Z23byte_size_in_exact_unitm.exit ], [ %16, %.thread ]
+  %.0.i11 = phi ptr [ %spec.select.i10, %18 ], [ @.str.269, %_Z23byte_size_in_exact_unitm.exit ], [ @.str.270, %.thread ]
   %26 = icmp ugt i64 %2, 1073741823
   %27 = and i64 %2, 1073741823
   %28 = icmp eq i64 %27, 0
@@ -3998,8 +3998,8 @@ _Z23byte_size_in_exact_unitm.exit17:              ; preds = %_Z24exact_unit_for_
   br label %_Z24exact_unit_for_byte_sizem.exit23
 
 _Z24exact_unit_for_byte_sizem.exit23:             ; preds = %.thread67, %_Z23byte_size_in_exact_unitm.exit17, %35
-  %.0.i1653 = phi i64 [ %34, %_Z23byte_size_in_exact_unitm.exit17 ], [ %spec.select.i15, %35 ], [ %33, %.thread67 ]
-  %.0.i22 = phi ptr [ @.str.269, %_Z23byte_size_in_exact_unitm.exit17 ], [ %spec.select.i21, %35 ], [ @.str.270, %.thread67 ]
+  %.0.i1653 = phi i64 [ %spec.select.i15, %35 ], [ %34, %_Z23byte_size_in_exact_unitm.exit17 ], [ %33, %.thread67 ]
+  %.0.i22 = phi ptr [ %spec.select.i21, %35 ], [ @.str.269, %_Z23byte_size_in_exact_unitm.exit17 ], [ @.str.270, %.thread67 ]
   %43 = ptrtoint ptr %3 to i64
   %44 = icmp ugt i64 %4, 1073741823
   %45 = and i64 %4, 1073741823
@@ -4037,8 +4037,8 @@ _Z23byte_size_in_exact_unitm.exit29:              ; preds = %_Z24exact_unit_for_
   br label %_Z24exact_unit_for_byte_sizem.exit35
 
 _Z24exact_unit_for_byte_sizem.exit35:             ; preds = %.thread69, %_Z23byte_size_in_exact_unitm.exit29, %53
-  %.0.i2856 = phi i64 [ %52, %_Z23byte_size_in_exact_unitm.exit29 ], [ %spec.select.i27, %53 ], [ %51, %.thread69 ]
-  %.0.i34 = phi ptr [ @.str.269, %_Z23byte_size_in_exact_unitm.exit29 ], [ %spec.select.i33, %53 ], [ @.str.270, %.thread69 ]
+  %.0.i2856 = phi i64 [ %spec.select.i27, %53 ], [ %52, %_Z23byte_size_in_exact_unitm.exit29 ], [ %51, %.thread69 ]
+  %.0.i34 = phi ptr [ %spec.select.i33, %53 ], [ @.str.269, %_Z23byte_size_in_exact_unitm.exit29 ], [ @.str.270, %.thread69 ]
   %61 = icmp ugt i64 %5, 1073741823
   %62 = and i64 %5, 1073741823
   %63 = icmp eq i64 %62, 0
@@ -4075,8 +4075,8 @@ _Z23byte_size_in_exact_unitm.exit41:              ; preds = %_Z24exact_unit_for_
   br label %_Z24exact_unit_for_byte_sizem.exit47
 
 _Z24exact_unit_for_byte_sizem.exit47:             ; preds = %.thread71, %_Z23byte_size_in_exact_unitm.exit41, %70
-  %.0.i4059 = phi i64 [ %69, %_Z23byte_size_in_exact_unitm.exit41 ], [ %spec.select.i39, %70 ], [ %68, %.thread71 ]
-  %.0.i46 = phi ptr [ @.str.269, %_Z23byte_size_in_exact_unitm.exit41 ], [ %spec.select.i45, %70 ], [ @.str.270, %.thread71 ]
+  %.0.i4059 = phi i64 [ %spec.select.i39, %70 ], [ %69, %_Z23byte_size_in_exact_unitm.exit41 ], [ %68, %.thread71 ]
+  %.0.i46 = phi ptr [ %spec.select.i45, %70 ], [ @.str.269, %_Z23byte_size_in_exact_unitm.exit41 ], [ @.str.270, %.thread71 ]
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE108ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.61, ptr noundef %0, i64 noundef %.0.i50, ptr noundef nonnull %.0.i11, i64 noundef %.0.i1653, ptr noundef nonnull %.0.i22, i64 noundef %43, i64 noundef %.0.i2856, ptr noundef nonnull %.0.i34, i64 noundef %.0.i4059, ptr noundef nonnull %.0.i46)
   br label %78
 
@@ -4117,7 +4117,7 @@ define hidden noundef zeroext i1 @_ZN2os23is_server_class_machineEv() local_unna
   br label %19
 
 19:                                               ; preds = %15, %6, %9, %12, %3, %0
-  %.0 = phi i1 [ false, %0 ], [ true, %3 ], [ false, %9 ], [ false, %6 ], [ %18, %15 ], [ true, %12 ]
+  %.0 = phi i1 [ true, %3 ], [ false, %0 ], [ false, %6 ], [ true, %12 ], [ %18, %15 ], [ false, %9 ]
   ret i1 %.0
 }
 
@@ -4514,7 +4514,7 @@ _ZN10MemTracker29record_virtual_memory_reserveEPvmRK15NativeCallStack8MEMFLAGS.e
   br label %129
 
 129:                                              ; preds = %_ZN10MemTracker29record_virtual_memory_reserveEPvmRK15NativeCallStack8MEMFLAGS.exit, %.loopexit, %126, %48, %34, %29, %15
-  %.0 = phi ptr [ null, %15 ], [ null, %29 ], [ null, %34 ], [ null, %48 ], [ null, %126 ], [ null, %.loopexit ], [ %100, %_ZN10MemTracker29record_virtual_memory_reserveEPvmRK15NativeCallStack8MEMFLAGS.exit ]
+  %.0 = phi ptr [ null, %48 ], [ null, %15 ], [ null, %29 ], [ null, %34 ], [ %100, %_ZN10MemTracker29record_virtual_memory_reserveEPvmRK15NativeCallStack8MEMFLAGS.exit ], [ null, %126 ], [ null, %.loopexit ]
   ret ptr %.0
 }
 
@@ -5482,8 +5482,8 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN2os23set_minimum_stack_sizesEv() 
   br i1 %or.cond17, label %.sink.split, label %42
 
 .sink.split:                                      ; preds = %32, %.split, %19
-  %.sink23 = phi i64 [ %16, %19 ], [ %28, %.split ], [ %36, %32 ]
-  %.str.86.sink = phi ptr [ @.str.84, %19 ], [ @.str.85, %.split ], [ @.str.86, %32 ]
+  %.sink23 = phi i64 [ %28, %.split ], [ %16, %19 ], [ %36, %32 ]
+  %.str.86.sink = phi ptr [ @.str.85, %.split ], [ @.str.84, %19 ], [ @.str.86, %32 ]
   %40 = load ptr, ptr @tty, align 8
   %41 = lshr i64 %.sink23, 10
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %40, ptr noundef nonnull %.str.86.sink, i64 noundef %41) #29

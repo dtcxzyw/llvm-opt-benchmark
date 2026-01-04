@@ -145,7 +145,7 @@ define internal range(i32 -1094995529, 1) i32 @osq_init(ptr noundef %0) #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %59, %34, %25, %17, %12, %1, %.critedge, %11
-  %.043 = phi i32 [ -1094995529, %11 ], [ 0, %.critedge ], [ -22, %1 ], [ -1094995529, %12 ], [ -1094995529, %17 ], [ -1094995529, %25 ], [ -12, %34 ], [ -12, %59 ]
+  %.043 = phi i32 [ -1094995529, %25 ], [ -1094995529, %11 ], [ -22, %1 ], [ -1094995529, %12 ], [ -1094995529, %17 ], [ -12, %34 ], [ 0, %.critedge ], [ -12, %59 ]
   ret i32 %.043
 }
 
@@ -816,7 +816,7 @@ get_srice.exit.us.i.i:                            ; preds = %376, %358, %get_una
   br label %get_sbits_long.exit.us.i.i
 
 get_sbits_long.exit.us.i.i:                       ; preds = %get_srice.exit.us.i.i, %get_bits_long.exit.i.us.i.i, %292, %289
-  %.sink28.i.i = phi i32 [ %396, %get_srice.exit.us.i.i ], [ %331, %get_bits_long.exit.i.us.i.i ], [ 0, %292 ], [ %291, %289 ]
+  %.sink28.i.i = phi i32 [ %396, %get_srice.exit.us.i.i ], [ 0, %292 ], [ %331, %get_bits_long.exit.i.us.i.i ], [ %291, %289 ]
   %397 = getelementptr inbounds nuw i32, ptr %248, i64 %indvars.iv15.i.i
   store i32 %.sink28.i.i, ptr %397, align 4, !tbaa !80
   %.val.us.i.i = load i32, ptr %238, align 8, !tbaa !68
@@ -1301,7 +1301,7 @@ do_decode.exit.sink.split.i:                      ; preds = %get_urice.exit56.i.
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull %.str.3.sink.i) #9
   br label %osq_decode_block.exit
 
-.loopexit:                                        ; preds = %._crit_edge.us.i, %._crit_edge.us105.i, %._crit_edge.us110.i, %.preheader.i, %.preheader90.i, %.preheader92.i, %.lr.ph100.i, %.lr.ph104.i, %.lr.ph109.i
+.loopexit:                                        ; preds = %._crit_edge.us.i, %._crit_edge.us105.i, %._crit_edge.us110.i, %.preheader.i, %.preheader92.i, %.preheader90.i, %.lr.ph109.i, %.lr.ph104.i, %.lr.ph100.i
   %666 = load i32, ptr %63, align 8, !tbaa !59
   %667 = sext i32 %666 to i64
   %668 = load i64, ptr %59, align 8, !tbaa !39
@@ -1335,7 +1335,7 @@ osq_decode_block.exit:                            ; preds = %23, %399, %do_decod
   br label %.thread
 
 .thread:                                          ; preds = %19, %21, %.thread85, %osq_decode_block.exit, %674
-  %.2 = phi i32 [ %.3, %osq_decode_block.exit ], [ 0, %674 ], [ -541478725, %.thread85 ], [ -541478725, %21 ], [ %20, %19 ]
+  %.2 = phi i32 [ -541478725, %.thread85 ], [ 0, %674 ], [ %.3, %osq_decode_block.exit ], [ -541478725, %21 ], [ %20, %19 ]
   ret i32 %.2
 }
 

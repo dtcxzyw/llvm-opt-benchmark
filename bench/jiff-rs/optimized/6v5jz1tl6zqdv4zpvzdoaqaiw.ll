@@ -189,8 +189,8 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h23b34c096d1d767cE(
   br i1 %12, label %13, label %14
 
 .outer._crit_edge:                                ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he4dccd66a2064d94E.exit", %169, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he4dccd66a2064d94E.exit.thread", %7
-  %.sroa.0.0.ph.lcssa84 = phi ptr [ %0, %7 ], [ %154, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he4dccd66a2064d94E.exit.thread" ], [ %.sroa.0.0.ph93, %169 ], [ %162, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he4dccd66a2064d94E.exit" ]
-  %.sroa.12.0.lcssa = phi i64 [ %1, %7 ], [ 0, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he4dccd66a2064d94E.exit.thread" ], [ %.sroa.27.2.lcssa.i, %169 ], [ %153, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he4dccd66a2064d94E.exit" ]
+  %.sroa.0.0.ph.lcssa84 = phi ptr [ %154, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he4dccd66a2064d94E.exit.thread" ], [ %0, %7 ], [ %.sroa.0.0.ph93, %169 ], [ %162, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he4dccd66a2064d94E.exit" ]
+  %.sroa.12.0.lcssa = phi i64 [ 0, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he4dccd66a2064d94E.exit.thread" ], [ %1, %7 ], [ %.sroa.27.2.lcssa.i, %169 ], [ %153, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he4dccd66a2064d94E.exit" ]
   call void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h2d2ac1d37bc5249dE(ptr noalias noundef nonnull align 8 %.sroa.0.0.ph.lcssa84, i64 noundef range(i64 0, 33) %.sroa.12.0.lcssa, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, ptr noalias noundef nonnull align 1 %6)
   br label %20
 
@@ -1763,17 +1763,17 @@ define hidden void @"_ZN4jiff6shared5posix59_$LT$impl$u20$jiff..shared..PosixTim
   br i1 %43, label %49, label %47
 
 .sink.split:                                      ; preds = %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit112", %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit108", %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit98", %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit94"
-  %.sink306 = phi i32 [ %31, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit94" ], [ %37, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit98" ], [ %31, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit108" ], [ %37, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit112" ]
-  %.sink303.ph = phi i32 [ %37, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit94" ], [ %31, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit98" ], [ %37, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit108" ], [ %31, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit112" ]
-  %.sink.ph = phi i32 [ 1, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit94" ], [ 2, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit98" ], [ 2, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit108" ], [ 1, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit112" ]
+  %.sink306 = phi i32 [ %37, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit98" ], [ %31, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit108" ], [ %31, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit94" ], [ %37, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit112" ]
+  %.sink303.ph = phi i32 [ %31, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit98" ], [ %37, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit108" ], [ %37, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit94" ], [ %31, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit112" ]
+  %.sink.ph = phi i32 [ 2, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit98" ], [ 2, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit108" ], [ 1, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit94" ], [ 1, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit112" ]
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink306, ptr %44, align 4
   br label %45
 
 45:                                               ; preds = %.sink.split, %33, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit110", %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit112", %49, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit96", %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit98", %47
-  %.sink305 = phi i64 [ 4, %47 ], [ 4, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit98" ], [ 4, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit96" ], [ 4, %49 ], [ 4, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit112" ], [ 4, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit110" ], [ 4, %33 ], [ 8, %.sink.split ]
-  %.sink303 = phi i32 [ %31, %47 ], [ %37, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit98" ], [ %37, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit96" ], [ %37, %49 ], [ %31, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit112" ], [ %31, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit110" ], [ %31, %33 ], [ %.sink303.ph, %.sink.split ]
-  %.sink = phi i32 [ 0, %47 ], [ 0, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit98" ], [ 0, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit96" ], [ 0, %49 ], [ 0, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit112" ], [ 0, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit110" ], [ 0, %33 ], [ %.sink.ph, %.sink.split ]
+  %.sink305 = phi i64 [ 4, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit110" ], [ 4, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit98" ], [ 4, %49 ], [ 4, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit112" ], [ 4, %33 ], [ 4, %47 ], [ 4, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit96" ], [ 8, %.sink.split ]
+  %.sink303 = phi i32 [ %31, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit110" ], [ %37, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit98" ], [ %37, %49 ], [ %31, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit112" ], [ %31, %33 ], [ %31, %47 ], [ %37, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit96" ], [ %.sink303.ph, %.sink.split ]
+  %.sink = phi i32 [ 0, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit110" ], [ 0, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit98" ], [ 0, %49 ], [ 0, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit112" ], [ 0, %33 ], [ 0, %47 ], [ 0, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit96" ], [ %.sink.ph, %.sink.split ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink305
   store i32 %.sink303, ptr %46, align 4
   store i32 %.sink, ptr %0, align 4
@@ -2867,17 +2867,17 @@ define hidden void @"_ZN4jiff6shared5posix59_$LT$impl$u20$jiff..shared..PosixTim
   br i1 %43, label %49, label %47
 
 .sink.split:                                      ; preds = %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit112", %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit108", %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit98", %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit94"
-  %.sink306 = phi i32 [ %31, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit94" ], [ %37, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit98" ], [ %31, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit108" ], [ %37, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit112" ]
-  %.sink303.ph = phi i32 [ %37, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit94" ], [ %31, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit98" ], [ %37, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit108" ], [ %31, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit112" ]
-  %.sink.ph = phi i32 [ 1, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit94" ], [ 2, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit98" ], [ 2, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit108" ], [ 1, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit112" ]
+  %.sink306 = phi i32 [ %37, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit98" ], [ %31, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit108" ], [ %31, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit94" ], [ %37, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit112" ]
+  %.sink303.ph = phi i32 [ %31, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit98" ], [ %37, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit108" ], [ %37, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit94" ], [ %31, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit112" ]
+  %.sink.ph = phi i32 [ 2, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit98" ], [ 2, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit108" ], [ 1, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit94" ], [ 1, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit112" ]
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink306, ptr %44, align 4
   br label %45
 
 45:                                               ; preds = %.sink.split, %33, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit110", %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit112", %49, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit96", %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit98", %47
-  %.sink305 = phi i64 [ 4, %47 ], [ 4, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit98" ], [ 4, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit96" ], [ 4, %49 ], [ 4, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit112" ], [ 4, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit110" ], [ 4, %33 ], [ 8, %.sink.split ]
-  %.sink303 = phi i32 [ %31, %47 ], [ %37, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit98" ], [ %37, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit96" ], [ %37, %49 ], [ %31, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit112" ], [ %31, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit110" ], [ %31, %33 ], [ %.sink303.ph, %.sink.split ]
-  %.sink = phi i32 [ 0, %47 ], [ 0, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit98" ], [ 0, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit96" ], [ 0, %49 ], [ 0, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit112" ], [ 0, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit110" ], [ 0, %33 ], [ %.sink.ph, %.sink.split ]
+  %.sink305 = phi i64 [ 4, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit110" ], [ 4, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit98" ], [ 4, %49 ], [ 4, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit112" ], [ 4, %33 ], [ 4, %47 ], [ 4, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit96" ], [ 8, %.sink.split ]
+  %.sink303 = phi i32 [ %31, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit110" ], [ %37, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit98" ], [ %37, %49 ], [ %31, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit112" ], [ %31, %33 ], [ %31, %47 ], [ %37, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit96" ], [ %.sink303.ph, %.sink.split ]
+  %.sink = phi i32 [ 0, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit110" ], [ 0, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit98" ], [ 0, %49 ], [ 0, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit112" ], [ 0, %33 ], [ 0, %47 ], [ 0, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit96" ], [ %.sink.ph, %.sink.split ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink305
   store i32 %.sink303, ptr %46, align 4
   store i32 %.sink, ptr %0, align 4
@@ -6183,7 +6183,7 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit26.i: ; preds = %30
   br i1 %35, label %"_ZN4jiff6shared5posix54_$LT$impl$u20$jiff..shared..PosixDst$LT$ABBREV$GT$$GT$7display17hf03cb53ce5149e72E.exit", label %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit21.i
 
 "_ZN4jiff6shared5posix54_$LT$impl$u20$jiff..shared..PosixDst$LT$ABBREV$GT$$GT$7display17hf03cb53ce5149e72E.exit": ; preds = %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit26.i, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit21.i, %23, %21
-  %.sroa.0.0 = phi i1 [ false, %21 ], [ %34, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit21.i ], [ true, %23 ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit26.i ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit ]
+  %.sroa.0.0 = phi i1 [ true, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit26.i ], [ false, %21 ], [ %34, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit21.i ], [ true, %23 ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit ]
   ret i1 %.sroa.0.0
 }
 
@@ -7546,7 +7546,7 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit40: ; preds = %2
   br label %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit
 
 _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit: ; preds = %22, %17, %60, %51, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit40, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit35
-  %.sroa.0.0.in = phi i1 [ %30, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit35 ], [ %54, %51 ], [ %63, %60 ], [ %47, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit40 ], [ %21, %17 ], [ %26, %22 ]
+  %.sroa.0.0.in = phi i1 [ %47, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit40 ], [ %26, %22 ], [ %30, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit35 ], [ %54, %51 ], [ %63, %60 ], [ %21, %17 ]
   ret i1 %.sroa.0.0.in
 
 48:                                               ; preds = %31
@@ -7710,7 +7710,7 @@ define noundef zeroext i1 @"_ZN71_$LT$jiff..tz..timezone..repr..Repr$u20$as$u20$
   br label %"_ZN82_$LT$jiff..shared..PosixTimeZone$LT$ABBREV$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6e66b8b806781d98E.exit"
 
 "_ZN82_$LT$jiff..shared..PosixTimeZone$LT$ABBREV$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6e66b8b806781d98E.exit": ; preds = %72, %66, %57, %53, %47, %28, %9, %9, %2, %11, %14, %16
-  %.sroa.0.0.shrunk = phi i1 [ %13, %11 ], [ %15, %14 ], [ %27, %16 ], [ false, %2 ], [ true, %9 ], [ true, %9 ], [ %73, %72 ], [ false, %28 ], [ false, %47 ], [ false, %57 ], [ false, %66 ], [ %.mux.i, %53 ]
+  %.sroa.0.0.shrunk = phi i1 [ true, %9 ], [ false, %2 ], [ true, %9 ], [ %13, %11 ], [ %15, %14 ], [ %27, %16 ], [ %73, %72 ], [ %.mux.i, %53 ], [ false, %47 ], [ false, %66 ], [ false, %28 ], [ false, %57 ]
   ret i1 %.sroa.0.0.shrunk
 }
 
@@ -7862,7 +7862,7 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit: ; preds = %14, %_ZN4c
   ret i1 %.sroa.0.0.in
 
 _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit23: ; preds = %32, %23
-  %.sroa.0.1.in = phi i1 [ %27, %23 ], [ %36, %32 ]
+  %.sroa.0.1.in = phi i1 [ %36, %32 ], [ %27, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit
 }
@@ -8315,8 +8315,8 @@ define internal fastcc noundef zeroext i1 @"_ZN64_$LT$jiff..shared..PosixRule$u2
 6:                                                ; preds = %2
   switch i8 %3, label %default.unreachable [
     i8 0, label %7
-    i8 1, label %13
-    i8 2, label %19
+    i8 1, label %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit"
+    i8 2, label %13
   ]
 
 default.unreachable:                              ; preds = %48, %6
@@ -8331,38 +8331,38 @@ default.unreachable:                              ; preds = %48, %6
   br i1 %12, label %36, label %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit.thread"
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %15 = load i16, ptr %14, align 2, !alias.scope !546, !noalias !549, !noundef !3
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %17 = load i16, ptr %16, align 2, !alias.scope !549, !noalias !546, !noundef !3
-  %18 = icmp eq i16 %15, %17
-  br i1 %18, label %36, label %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit.thread"
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %15 = load i8, ptr %14, align 1, !alias.scope !546, !noalias !549, !noundef !3
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %17 = load i8, ptr %16, align 1, !alias.scope !549, !noalias !546, !noundef !3
+  %18 = icmp eq i8 %15, %17
+  br i1 %18, label %19, label %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit.thread"
 
-19:                                               ; preds = %6
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %21 = load i8, ptr %20, align 1, !alias.scope !546, !noalias !549, !noundef !3
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %23 = load i8, ptr %22, align 1, !alias.scope !549, !noalias !546, !noundef !3
+19:                                               ; preds = %13
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %21 = load i8, ptr %20, align 2, !alias.scope !546, !noalias !549, !noundef !3
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %23 = load i8, ptr %22, align 2, !alias.scope !549, !noalias !546, !noundef !3
   %24 = icmp eq i8 %21, %23
   br i1 %24, label %25, label %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit.thread"
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %27 = load i8, ptr %26, align 2, !alias.scope !546, !noalias !549, !noundef !3
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %29 = load i8, ptr %28, align 2, !alias.scope !549, !noalias !546, !noundef !3
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  %27 = load i8, ptr %26, align 1, !alias.scope !546, !noalias !549, !noundef !3
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 3
+  %29 = load i8, ptr %28, align 1, !alias.scope !549, !noalias !546, !noundef !3
   %30 = icmp eq i8 %27, %29
-  br i1 %30, label %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit", label %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit.thread"
+  br i1 %30, label %36, label %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit.thread"
 
-"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit": ; preds = %25
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %32 = load i8, ptr %31, align 1, !alias.scope !546, !noalias !549, !noundef !3
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %34 = load i8, ptr %33, align 1, !alias.scope !549, !noalias !546, !noundef !3
-  %35 = icmp eq i8 %32, %34
+"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit": ; preds = %6
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %32 = load i16, ptr %31, align 2, !alias.scope !546, !noalias !549, !noundef !3
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %34 = load i16, ptr %33, align 2, !alias.scope !549, !noalias !546, !noundef !3
+  %35 = icmp eq i16 %32, %34
   br i1 %35, label %36, label %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit.thread"
 
-36:                                               ; preds = %13, %7, %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit"
+36:                                               ; preds = %25, %7, %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit"
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %38 = load i32, ptr %37, align 4, !noundef !3
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -8383,8 +8383,8 @@ default.unreachable:                              ; preds = %48, %6
 48:                                               ; preds = %42
   switch i8 %45, label %default.unreachable [
     i8 0, label %49
-    i8 1, label %55
-    i8 2, label %61
+    i8 1, label %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit3"
+    i8 2, label %55
   ]
 
 49:                                               ; preds = %48
@@ -8396,42 +8396,42 @@ default.unreachable:                              ; preds = %48, %6
   br i1 %54, label %78, label %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit.thread"
 
 55:                                               ; preds = %48
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %57 = load i16, ptr %56, align 2, !alias.scope !552, !noalias !555, !noundef !3
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %59 = load i16, ptr %58, align 2, !alias.scope !555, !noalias !552, !noundef !3
-  %60 = icmp eq i16 %57, %59
-  br i1 %60, label %78, label %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit.thread"
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  %57 = load i8, ptr %56, align 1, !alias.scope !552, !noalias !555, !noundef !3
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 9
+  %59 = load i8, ptr %58, align 1, !alias.scope !555, !noalias !552, !noundef !3
+  %60 = icmp eq i8 %57, %59
+  br i1 %60, label %61, label %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit.thread"
 
-61:                                               ; preds = %48
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %63 = load i8, ptr %62, align 1, !alias.scope !552, !noalias !555, !noundef !3
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  %65 = load i8, ptr %64, align 1, !alias.scope !555, !noalias !552, !noundef !3
+61:                                               ; preds = %55
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %63 = load i8, ptr %62, align 2, !alias.scope !552, !noalias !555, !noundef !3
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 10
+  %65 = load i8, ptr %64, align 2, !alias.scope !555, !noalias !552, !noundef !3
   %66 = icmp eq i8 %63, %65
   br i1 %66, label %67, label %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit.thread"
 
 67:                                               ; preds = %61
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %69 = load i8, ptr %68, align 2, !alias.scope !552, !noalias !555, !noundef !3
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %71 = load i8, ptr %70, align 2, !alias.scope !555, !noalias !552, !noundef !3
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 11
+  %69 = load i8, ptr %68, align 1, !alias.scope !552, !noalias !555, !noundef !3
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 11
+  %71 = load i8, ptr %70, align 1, !alias.scope !555, !noalias !552, !noundef !3
   %72 = icmp eq i8 %69, %71
-  br i1 %72, label %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit3", label %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit.thread"
+  br i1 %72, label %78, label %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit.thread"
 
-"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit3": ; preds = %67
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  %74 = load i8, ptr %73, align 1, !alias.scope !552, !noalias !555, !noundef !3
-  %75 = getelementptr inbounds nuw i8, ptr %1, i64 11
-  %76 = load i8, ptr %75, align 1, !alias.scope !555, !noalias !552, !noundef !3
-  %77 = icmp eq i8 %74, %76
+"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit3": ; preds = %48
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %74 = load i16, ptr %73, align 2, !alias.scope !552, !noalias !555, !noundef !3
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 10
+  %76 = load i16, ptr %75, align 2, !alias.scope !555, !noalias !552, !noundef !3
+  %77 = icmp eq i16 %74, %76
   br i1 %77, label %78, label %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit.thread"
 
-"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit.thread": ; preds = %61, %67, %42, %19, %25, %2, %55, %49, %13, %7, %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit3", %36, %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit", %78
-  %.sroa.0.0 = phi i1 [ %83, %78 ], [ false, %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit" ], [ false, %36 ], [ false, %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit3" ], [ false, %7 ], [ false, %13 ], [ false, %49 ], [ false, %55 ], [ false, %2 ], [ false, %25 ], [ false, %19 ], [ false, %42 ], [ false, %67 ], [ false, %61 ]
+"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit.thread": ; preds = %55, %61, %42, %13, %19, %2, %67, %49, %25, %7, %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit3", %36, %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit", %78
+  %.sroa.0.0 = phi i1 [ %83, %78 ], [ false, %36 ], [ false, %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit" ], [ false, %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit3" ], [ false, %67 ], [ false, %7 ], [ false, %25 ], [ false, %13 ], [ false, %49 ], [ false, %2 ], [ false, %19 ], [ false, %42 ], [ false, %61 ], [ false, %55 ]
   ret i1 %.sroa.0.0
 
-78:                                               ; preds = %55, %49, %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit3"
+78:                                               ; preds = %67, %49, %"_ZN63_$LT$jiff..shared..PosixDay$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa87ae7972ccf4ceE.exit3"
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %80 = load i32, ptr %79, align 4, !noundef !3
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 12

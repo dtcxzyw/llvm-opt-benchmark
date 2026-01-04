@@ -337,19 +337,19 @@ _ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit37.i:
   br i1 %.not6.i, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread.sink.split
 
 _ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit: ; preds = %.lr.ph, %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit37.i, %71, %117
-  %.0 = phi i64 [ %storemerge131, %.lr.ph ], [ %15, %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit37.i ], [ %38, %71 ], [ %85, %117 ]
-  %.236 = phi i32 [ %.034132, %.lr.ph ], [ 2, %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit37.i ], [ 2, %71 ], [ 2, %117 ]
+  %.0 = phi i64 [ %storemerge131, %.lr.ph ], [ %85, %117 ], [ %38, %71 ], [ %15, %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit37.i ]
+  %.236 = phi i32 [ %.034132, %.lr.ph ], [ 2, %117 ], [ 2, %71 ], [ 2, %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit37.i ]
   %127 = add i64 %.0, 1
   %.not = icmp ult i64 %127, %1
   br i1 %.not, label %.lr.ph, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread, !llvm.loop !11
 
 _ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread.sink.split: ; preds = %126, %89, %98, %110, %116, %123, %44, %53, %64, %70, %77, %21, %24, %30
-  %.sink.i61.sink = phi i64 [ %19, %21 ], [ %15, %24 ], [ %28, %30 ], [ %42, %44 ], [ %46, %53 ], [ %62, %64 ], [ %68, %70 ], [ %75, %77 ], [ %87, %89 ], [ %91, %98 ], [ %108, %110 ], [ %114, %116 ], [ %121, %123 ], [ %storemerge131, %126 ]
+  %.sink.i61.sink = phi i64 [ %75, %77 ], [ %121, %123 ], [ %28, %30 ], [ %15, %24 ], [ %19, %21 ], [ %68, %70 ], [ %62, %64 ], [ %46, %53 ], [ %42, %44 ], [ %114, %116 ], [ %108, %110 ], [ %91, %98 ], [ %87, %89 ], [ %storemerge131, %126 ]
   store i64 %.sink.i61.sink, ptr %3, align 8, !tbaa !12
   br label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread
 
-_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread: ; preds = %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit, %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread.sink.split, %4, %123, %116, %110, %98, %89, %77, %70, %64, %53, %44, %30, %24, %21, %126
-  %spec.select = phi i32 [ 0, %123 ], [ 0, %116 ], [ 0, %110 ], [ 0, %98 ], [ 0, %89 ], [ 0, %77 ], [ 0, %70 ], [ 0, %64 ], [ 0, %53 ], [ 0, %44 ], [ 0, %30 ], [ 0, %24 ], [ 0, %21 ], [ 0, %126 ], [ 1, %4 ], [ 0, %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread.sink.split ], [ %.236, %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit ]
+_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread: ; preds = %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit, %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread.sink.split, %4, %89, %116, %110, %123, %98, %44, %70, %64, %77, %53, %30, %21, %24, %126
+  %spec.select = phi i32 [ 0, %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread.sink.split ], [ 0, %126 ], [ 0, %89 ], [ 0, %116 ], [ 0, %110 ], [ 0, %123 ], [ 0, %98 ], [ 0, %44 ], [ 0, %70 ], [ 0, %64 ], [ 0, %77 ], [ 0, %53 ], [ 0, %30 ], [ 0, %21 ], [ 0, %24 ], [ 1, %4 ], [ %.236, %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit ]
   ret i32 %spec.select
 }
 
@@ -481,8 +481,8 @@ _ZN6duckdbL17UTF8ExtraByteLoopILi1ELi1920EEENS_11UnicodeTypeEiiRmPKcmPNS_20Unico
   store i8 %2, ptr %4, align 1, !tbaa !3
   br label %_ZN6duckdbL17UTF8ExtraByteLoopILi1ELi1920EEENS_11UnicodeTypeEiiRmPKcmPNS_20UnicodeInvalidReasonEPm.exit.thread51
 
-_ZN6duckdbL17UTF8ExtraByteLoopILi1ELi1920EEENS_11UnicodeTypeEiiRmPKcmPNS_20UnicodeInvalidReasonEPm.exit.thread: ; preds = %.preheader.i35, %.preheader.i32, %63, %47, %38, %22, %.preheader.i, %11
-  %.14448 = phi i64 [ %51, %63 ], [ %storemerge70, %47 ], [ %26, %38 ], [ %storemerge70, %22 ], [ %14, %.preheader.i ], [ %storemerge70, %11 ], [ %29, %.preheader.i32 ], [ %53, %.preheader.i35 ]
+_ZN6duckdbL17UTF8ExtraByteLoopILi1ELi1920EEENS_11UnicodeTypeEiiRmPKcmPNS_20UnicodeInvalidReasonEPm.exit.thread: ; preds = %.preheader.i35, %.preheader.i32, %63, %47, %38, %22, %11, %.preheader.i
+  %.14448 = phi i64 [ %29, %.preheader.i32 ], [ %14, %.preheader.i ], [ %storemerge70, %11 ], [ %51, %63 ], [ %26, %38 ], [ %storemerge70, %47 ], [ %storemerge70, %22 ], [ %53, %.preheader.i35 ]
   %sext = shl i64 %storemerge70, 32
   %69 = ashr exact i64 %sext, 32
   %.not68 = icmp ugt i64 %69, %.14448
@@ -498,7 +498,7 @@ _ZN6duckdbL17UTF8ExtraByteLoopILi1ELi1920EEENS_11UnicodeTypeEiiRmPKcmPNS_20Unico
   br label %_ZN6duckdbL17UTF8ExtraByteLoopILi1ELi1920EEENS_11UnicodeTypeEiiRmPKcmPNS_20UnicodeInvalidReasonEPm.exit.thread51
 
 _ZN6duckdbL17UTF8ExtraByteLoopILi1ELi1920EEENS_11UnicodeTypeEiiRmPKcmPNS_20UnicodeInvalidReasonEPm.exit.thread51: ; preds = %_ZN6duckdbL17UTF8ExtraByteLoopILi1ELi1920EEENS_11UnicodeTypeEiiRmPKcmPNS_20UnicodeInvalidReasonEPm.exit, %.lr.ph.preheader, %_ZN6duckdbL17UTF8ExtraByteLoopILi1ELi1920EEENS_11UnicodeTypeEiiRmPKcmPNS_20UnicodeInvalidReasonEPm.exit.thread, %63, %38, %.preheader.i, %.lr.ph72
-  %.043 = phi i64 [ %storemerge70, %.lr.ph72 ], [ %storemerge70, %_ZN6duckdbL17UTF8ExtraByteLoopILi1ELi1920EEENS_11UnicodeTypeEiiRmPKcmPNS_20UnicodeInvalidReasonEPm.exit ], [ %14, %.preheader.i ], [ %26, %38 ], [ %51, %63 ], [ %.14448, %_ZN6duckdbL17UTF8ExtraByteLoopILi1ELi1920EEENS_11UnicodeTypeEiiRmPKcmPNS_20UnicodeInvalidReasonEPm.exit.thread ], [ %.14448, %.lr.ph.preheader ]
+  %.043 = phi i64 [ %storemerge70, %.lr.ph72 ], [ %51, %63 ], [ %storemerge70, %_ZN6duckdbL17UTF8ExtraByteLoopILi1ELi1920EEENS_11UnicodeTypeEiiRmPKcmPNS_20UnicodeInvalidReasonEPm.exit ], [ %26, %38 ], [ %14, %.preheader.i ], [ %.14448, %_ZN6duckdbL17UTF8ExtraByteLoopILi1ELi1920EEENS_11UnicodeTypeEiiRmPKcmPNS_20UnicodeInvalidReasonEPm.exit.thread ], [ %.14448, %.lr.ph.preheader ]
   %73 = add i64 %.043, 1
   %74 = icmp ult i64 %73, %1
   br i1 %74, label %.lr.ph72, label %._crit_edge, !llvm.loop !14
@@ -587,8 +587,8 @@ define noundef i64 @_ZN6duckdb8Utf8Proc19NextGraphemeClusterEPKcmm(ptr noundef r
   br label %_ZN6duckdb8Utf8Proc15UTF8ToCodepointEPKcRi.exit
 
 _ZN6duckdb8Utf8Proc15UTF8ToCodepointEPKcRi.exit:  ; preds = %3, %13, %18, %26, %34, %36
-  %.126 = phi i32 [ 2, %13 ], [ undef, %18 ], [ 3, %26 ], [ 4, %36 ], [ undef, %34 ], [ 1, %3 ]
-  %.0.i = phi i32 [ %17, %13 ], [ -1, %18 ], [ %33, %26 ], [ %48, %36 ], [ -1, %34 ], [ %7, %3 ]
+  %.126 = phi i32 [ undef, %34 ], [ 2, %13 ], [ undef, %18 ], [ 3, %26 ], [ 4, %36 ], [ 1, %3 ]
+  %.0.i = phi i32 [ -1, %34 ], [ %17, %13 ], [ -1, %18 ], [ %33, %26 ], [ %48, %36 ], [ %7, %3 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !15
   br label %49
@@ -668,8 +668,8 @@ _ZN6duckdb8Utf8Proc15UTF8ToCodepointEPKcRi.exit:  ; preds = %3, %13, %18, %26, %
   br label %_ZN6duckdb8Utf8Proc15UTF8ToCodepointEPKcRi.exit24
 
 _ZN6duckdb8Utf8Proc15UTF8ToCodepointEPKcRi.exit24: ; preds = %52, %61, %66, %74, %82, %84
-  %.2 = phi i32 [ 2, %61 ], [ %.025, %66 ], [ 3, %74 ], [ 4, %84 ], [ %.025, %82 ], [ 1, %52 ]
-  %.0.i23 = phi i32 [ %65, %61 ], [ -1, %66 ], [ %81, %74 ], [ %96, %84 ], [ -1, %82 ], [ %55, %52 ]
+  %.2 = phi i32 [ %.025, %82 ], [ 2, %61 ], [ %.025, %66 ], [ 3, %74 ], [ 4, %84 ], [ 1, %52 ]
+  %.0.i23 = phi i32 [ -1, %82 ], [ %65, %61 ], [ -1, %66 ], [ %81, %74 ], [ %96, %84 ], [ %55, %52 ]
   %97 = call noundef zeroext i1 @_ZN6duckdb32utf8proc_grapheme_break_statefulEiiPi(i32 noundef %.014, i32 noundef %.0.i23, ptr noundef nonnull %4)
   br i1 %97, label %98, label %49, !llvm.loop !17
 
@@ -1219,7 +1219,7 @@ define noundef zeroext i1 @_ZN6duckdb8Utf8Proc15CodepointToUtf8EiRiPc(i32 nounde
   br label %56
 
 56:                                               ; preds = %5, %37, %22, %9, %55, %19
-  %.0 = phi i1 [ false, %19 ], [ false, %55 ], [ true, %9 ], [ true, %22 ], [ true, %37 ], [ true, %5 ]
+  %.0 = phi i1 [ false, %55 ], [ false, %19 ], [ true, %9 ], [ true, %22 ], [ true, %37 ], [ true, %5 ]
   ret i1 %.0
 }
 
@@ -1247,7 +1247,7 @@ define noundef range(i32 -1, 5) i32 @_ZN6duckdb8Utf8Proc15CodepointLengthEi(i32 
   br label %11
 
 11:                                               ; preds = %9, %7, %5, %3, %1
-  %.0 = phi i32 [ 1, %1 ], [ 2, %3 ], [ -1, %5 ], [ 3, %7 ], [ %., %9 ]
+  %.0 = phi i32 [ 3, %7 ], [ 1, %1 ], [ 2, %3 ], [ -1, %5 ], [ %., %9 ]
   ret i32 %.0
 }
 
@@ -1318,7 +1318,7 @@ define noundef range(i64 0, 4) i64 @_ZN6duckdb8Utf8Proc11RenderWidthEPKcmm(ptr n
   br label %_ZN6duckdb8Utf8Proc15UTF8ToCodepointEPKcRi.exit
 
 _ZN6duckdb8Utf8Proc15UTF8ToCodepointEPKcRi.exit:  ; preds = %3, %12, %17, %25, %33, %35
-  %.0.i = phi i32 [ %16, %12 ], [ -1, %17 ], [ %32, %25 ], [ %47, %35 ], [ -1, %33 ], [ %6, %3 ]
+  %.0.i = phi i32 [ -1, %33 ], [ %16, %12 ], [ -1, %17 ], [ %32, %25 ], [ %47, %35 ], [ %6, %3 ]
   %48 = tail call noundef ptr @_ZN6duckdb21utf8proc_get_propertyEi(i32 noundef %.0.i)
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 20
   %50 = load i16, ptr %49, align 4
@@ -1407,8 +1407,8 @@ define noundef i64 @_ZN6duckdb8Utf8Proc11RenderWidthERKNSt7__cxx1112basic_string
   br label %_ZN6duckdb8Utf8Proc15UTF8ToCodepointEPKcRi.exit
 
 _ZN6duckdb8Utf8Proc15UTF8ToCodepointEPKcRi.exit:  ; preds = %.lr.ph, %13, %18, %26, %34, %36
-  %.1 = phi i32 [ 2, %13 ], [ %.0910, %18 ], [ 3, %26 ], [ 4, %36 ], [ %.0910, %34 ], [ 1, %.lr.ph ]
-  %.0.i = phi i32 [ %17, %13 ], [ -1, %18 ], [ %33, %26 ], [ %48, %36 ], [ -1, %34 ], [ %7, %.lr.ph ]
+  %.1 = phi i32 [ %.0910, %34 ], [ 2, %13 ], [ %.0910, %18 ], [ 3, %26 ], [ 4, %36 ], [ 1, %.lr.ph ]
+  %.0.i = phi i32 [ -1, %34 ], [ %17, %13 ], [ -1, %18 ], [ %33, %26 ], [ %48, %36 ], [ %7, %.lr.ph ]
   %49 = tail call noundef ptr @_ZN6duckdb21utf8proc_get_propertyEi(i32 noundef %.0.i)
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 20
   %51 = load i16, ptr %50, align 4

@@ -1313,7 +1313,7 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i: ; preds
           to label %275 unwind label %.loopexit89.i, !noalias !14
 
 274:                                              ; preds = %.loopexit.split-lp.i, %293, %.loopexit.split-lp90.i, %.loopexit89.i
-  %.pn.i54 = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %lpad.thr_comm.split-lp.i, %293 ], [ %lpad.loopexit91.i, %.loopexit89.i ], [ %lpad.loopexit.split-lp92.i, %.loopexit.split-lp90.i ]
+  %.pn.i54 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %293 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %lpad.loopexit91.i, %.loopexit89.i ], [ %lpad.loopexit.split-lp92.i, %.loopexit.split-lp90.i ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$cranelift_isle..ast..Ident$GT$17h298a620e5e24d21cE"(ptr nonnull align 8 %37) #16
           to label %252 unwind label %339, !noalias !14
 
@@ -1588,13 +1588,13 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i: ; preds
           to label %.noexc57 unwind label %.loopexit.split-lp.loopexit
 
 .noexc57:                                         ; preds = %250, %242, %232, %260, %_ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i, %343
-  %.sroa.16.1 = phi i8 [ %262, %260 ], [ %.sroa.16.0, %343 ], [ %.sroa.16.0, %_ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i ], [ %.sroa.16.0, %232 ], [ %.sroa.16.0, %242 ], [ %.sroa.16.0, %250 ]
-  %.sroa.15169.1 = phi i8 [ %226, %260 ], [ %.sroa.15169.0, %343 ], [ %.sroa.15169.0, %_ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i ], [ %.sroa.15169.0, %232 ], [ %.sroa.15169.0, %242 ], [ %.sroa.15169.0, %250 ]
-  %.sroa.14.1 = phi i64 [ %.sroa.14.40.copyload, %260 ], [ %.sroa.14.0, %343 ], [ %.0.i.i, %_ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i ], [ %.sroa.14.0, %232 ], [ %.sroa.14.0, %242 ], [ %.sroa.14.0, %250 ]
-  %.sroa.12.1 = phi i64 [ %.sroa.12.40.copyload, %260 ], [ %.sroa.12.0, %343 ], [ %210, %_ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i ], [ %.sroa.12.0, %232 ], [ %.sroa.12.0, %242 ], [ %.sroa.12.0, %250 ]
-  %.sroa.11.1 = phi i64 [ %210, %260 ], [ %.sroa.11.0, %343 ], [ %.sroa.11.8.copyload, %_ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i ], [ %.sroa.11.0, %232 ], [ %.sroa.11.0, %242 ], [ %.sroa.11.0, %250 ]
-  %.sroa.10.1 = phi i64 [ %216, %260 ], [ %.sroa.10.0, %343 ], [ %.sroa.10.8.copyload, %_ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i ], [ %.sroa.10.0, %232 ], [ %.sroa.10.0, %242 ], [ %.sroa.10.0, %250 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload167, %260 ], [ -9223372036854775807, %343 ], [ -9223372036854775808, %_ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i ], [ -9223372036854775807, %232 ], [ -9223372036854775807, %242 ], [ -9223372036854775807, %250 ]
+  %.sroa.16.1 = phi i8 [ %.sroa.16.0, %242 ], [ %262, %260 ], [ %.sroa.16.0, %343 ], [ %.sroa.16.0, %_ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i ], [ %.sroa.16.0, %232 ], [ %.sroa.16.0, %250 ]
+  %.sroa.15169.1 = phi i8 [ %.sroa.15169.0, %242 ], [ %226, %260 ], [ %.sroa.15169.0, %343 ], [ %.sroa.15169.0, %_ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i ], [ %.sroa.15169.0, %232 ], [ %.sroa.15169.0, %250 ]
+  %.sroa.14.1 = phi i64 [ %.sroa.14.0, %242 ], [ %.sroa.14.40.copyload, %260 ], [ %.sroa.14.0, %343 ], [ %.0.i.i, %_ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i ], [ %.sroa.14.0, %232 ], [ %.sroa.14.0, %250 ]
+  %.sroa.12.1 = phi i64 [ %.sroa.12.0, %242 ], [ %.sroa.12.40.copyload, %260 ], [ %.sroa.12.0, %343 ], [ %210, %_ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i ], [ %.sroa.12.0, %232 ], [ %.sroa.12.0, %250 ]
+  %.sroa.11.1 = phi i64 [ %.sroa.11.0, %242 ], [ %210, %260 ], [ %.sroa.11.0, %343 ], [ %.sroa.11.8.copyload, %_ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i ], [ %.sroa.11.0, %232 ], [ %.sroa.11.0, %250 ]
+  %.sroa.10.1 = phi i64 [ %.sroa.10.0, %242 ], [ %216, %260 ], [ %.sroa.10.0, %343 ], [ %.sroa.10.8.copyload, %_ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i ], [ %.sroa.10.0, %232 ], [ %.sroa.10.0, %250 ]
+  %.sroa.0.0 = phi i64 [ -9223372036854775807, %242 ], [ %.sroa.0.0.copyload167, %260 ], [ -9223372036854775807, %343 ], [ -9223372036854775808, %_ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i ], [ -9223372036854775807, %232 ], [ -9223372036854775807, %250 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -2059,7 +2059,7 @@ define void @_ZN14cranelift_isle4sema7TermEnv8from_ast17h2d05c26bb065409bE(ptr w
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %1024, %970, %834, %705, %628, %426, %355, %343, %287, %788
-  %eh.lpad-body = phi { ptr, i32 } [ %789, %788 ], [ %lpad.thr_comm.i, %287 ], [ %344, %343 ], [ %.pn.i, %355 ], [ %.pn134.i, %426 ], [ %.pn.i135, %628 ], [ %.pn.i166, %705 ], [ %.pn.i225, %834 ], [ %.pn7182.i, %970 ], [ %.pn.i271, %1024 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit318, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit322, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit325, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit329, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit332, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit336, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit338, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit342, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn7182.i, %970 ], [ %lpad.thr_comm.i, %287 ], [ %344, %343 ], [ %.pn.i, %355 ], [ %.pn134.i, %426 ], [ %.pn.i135, %628 ], [ %789, %788 ], [ %.pn.i166, %705 ], [ %.pn.i225, %834 ], [ %.pn.i271, %1024 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit318, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit322, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit325, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit329, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit332, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit336, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit338, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit342, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr50drop_in_place$LT$cranelift_isle..sema..TermEnv$GT$17h1f9711abd982aac2E"(ptr nonnull align 8 %181) #16
           to label %1041 unwind label %1039
 
@@ -2240,9 +2240,9 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i: ; preds
           to label %.noexc80 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .invoke:                                          ; preds = %.noexc77, %336, %.noexc91, %403, %811, %774, %994
-  %247 = phi i64 [ %995, %994 ], [ %775, %774 ], [ %812, %811 ], [ %404, %403 ], [ %.sroa.01.044.i, %.noexc91 ], [ %337, %336 ], [ %237, %.noexc77 ]
-  %248 = phi i64 [ %996, %994 ], [ %776, %774 ], [ %813, %811 ], [ %405, %403 ], [ %305, %.noexc91 ], [ %338, %336 ], [ %238, %.noexc77 ]
-  %249 = phi ptr [ @anon.5e57fe82ff1aab3e07530ed2abc6b869.102, %994 ], [ @anon.5e57fe82ff1aab3e07530ed2abc6b869.81, %774 ], [ @anon.5e57fe82ff1aab3e07530ed2abc6b869.90, %811 ], [ @anon.5e57fe82ff1aab3e07530ed2abc6b869.52, %403 ], [ @anon.5e57fe82ff1aab3e07530ed2abc6b869.46, %.noexc91 ], [ @anon.5e57fe82ff1aab3e07530ed2abc6b869.47, %336 ], [ @anon.5e57fe82ff1aab3e07530ed2abc6b869.39, %.noexc77 ]
+  %247 = phi i64 [ %.sroa.01.044.i, %.noexc91 ], [ %995, %994 ], [ %404, %403 ], [ %812, %811 ], [ %775, %774 ], [ %337, %336 ], [ %237, %.noexc77 ]
+  %248 = phi i64 [ %305, %.noexc91 ], [ %996, %994 ], [ %405, %403 ], [ %813, %811 ], [ %776, %774 ], [ %338, %336 ], [ %238, %.noexc77 ]
+  %249 = phi ptr [ @anon.5e57fe82ff1aab3e07530ed2abc6b869.46, %.noexc91 ], [ @anon.5e57fe82ff1aab3e07530ed2abc6b869.102, %994 ], [ @anon.5e57fe82ff1aab3e07530ed2abc6b869.52, %403 ], [ @anon.5e57fe82ff1aab3e07530ed2abc6b869.90, %811 ], [ @anon.5e57fe82ff1aab3e07530ed2abc6b869.81, %774 ], [ @anon.5e57fe82ff1aab3e07530ed2abc6b869.47, %336 ], [ @anon.5e57fe82ff1aab3e07530ed2abc6b869.39, %.noexc77 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %247, i64 %248, ptr nonnull align 8 %249) #15
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -2856,7 +2856,7 @@ default.unreachable:                              ; preds = %815
           to label %427 unwind label %.loopexit.split-lp173.i
 
 426:                                              ; preds = %.thread146.i, %620, %468, %.loopexit.split-lp173.i, %.loopexit172.i
-  %.pn134.i = phi { ptr, i32 } [ %.pn132.i, %468 ], [ %.pn144.ph.i, %.thread146.i ], [ %621, %620 ], [ %lpad.loopexit174.i, %.loopexit172.i ], [ %lpad.loopexit.split-lp175.i, %.loopexit.split-lp173.i ]
+  %.pn134.i = phi { ptr, i32 } [ %621, %620 ], [ %.pn132.i, %468 ], [ %.pn144.ph.i, %.thread146.i ], [ %lpad.loopexit174.i, %.loopexit172.i ], [ %lpad.loopexit.split-lp175.i, %.loopexit.split-lp173.i ]
   invoke void @"_ZN4core3ptr176drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$cranelift_isle..sema..TermId$C$alloc..collections..btree..set..BTreeSet$LT$cranelift_isle..sema..TermId$GT$$GT$$GT$17h0ccc65a0524e7600E"(ptr nonnull align 8 %132) #16
           to label %.body unwind label %536
 
@@ -2959,7 +2959,7 @@ default.unreachable:                              ; preds = %815
           to label %469 unwind label %.loopexit.split-lp.i
 
 468:                                              ; preds = %539, %482, %.loopexit.split-lp.i, %.loopexit.i
-  %.pn132.i = phi { ptr, i32 } [ %.pn130.i, %539 ], [ %483, %482 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+  %.pn132.i = phi { ptr, i32 } [ %483, %482 ], [ %.pn130.i, %539 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr198drop_in_place$LT$alloc..vec..Vec$LT$$LP$cranelift_isle..sema..TermId$C$alloc..vec..Vec$LT$cranelift_isle..sema..TermId$GT$$C$cranelift_isle..StableSet$LT$cranelift_isle..sema..TermId$GT$$RP$$GT$$GT$17h5b397903acc3f241E"(ptr nonnull align 8 %115) #16
           to label %426 unwind label %536
 
@@ -3115,7 +3115,7 @@ default.unreachable:                              ; preds = %815
           to label %517 unwind label %.loopexit.split-lp155.loopexit.i
 
 516:                                              ; preds = %531, %527, %.loopexit.split-lp168.i, %.loopexit167.i
-  %.pn125.i = phi { ptr, i32 } [ %532, %531 ], [ %528, %527 ], [ %lpad.loopexit169.i, %.loopexit167.i ], [ %lpad.loopexit.split-lp170.i, %.loopexit.split-lp168.i ]
+  %.pn125.i = phi { ptr, i32 } [ %528, %527 ], [ %532, %531 ], [ %lpad.loopexit169.i, %.loopexit167.i ], [ %lpad.loopexit.split-lp170.i, %.loopexit.split-lp168.i ]
   invoke void @"_ZN4core3ptr51drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$17h21be41dea49cd388E"(ptr nonnull align 8 %104) #16
           to label %.loopexit.split-lp155.i unwind label %536
 
@@ -3661,8 +3661,8 @@ default.unreachable:                              ; preds = %815
           to label %.noexc148.invoke unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc148.invoke:                                 ; preds = %.noexc161, %.noexc157, %.noexc152, %.noexc147
-  %672 = phi ptr [ %89, %.noexc147 ], [ %85, %.noexc152 ], [ %81, %.noexc157 ], [ %90, %.noexc161 ]
-  %673 = phi ptr [ %88, %.noexc147 ], [ %84, %.noexc152 ], [ %80, %.noexc157 ], [ %76, %.noexc161 ]
+  %672 = phi ptr [ %81, %.noexc157 ], [ %89, %.noexc147 ], [ %85, %.noexc152 ], [ %90, %.noexc161 ]
+  %673 = phi ptr [ %80, %.noexc157 ], [ %88, %.noexc147 ], [ %84, %.noexc152 ], [ %76, %.noexc161 ]
   invoke void @_ZN14cranelift_isle4sema7TypeEnv12report_error17hc627d80067833dd6E(ptr align 8 %1, ptr nonnull align 8 %672, ptr nonnull align 8 %673)
           to label %.backedge.i140 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -4257,8 +4257,8 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit79.i: ; pre
   br label %.noexc222.invoke
 
 .noexc222.invoke:                                 ; preds = %.noexc219, %.noexc216, %.noexc212, %.noexc198, %.noexc194, %.noexc206, %.noexc210, %.noexc222
-  %828 = phi ptr [ %65, %.noexc222 ], [ %49, %.noexc210 ], [ %46, %.noexc206 ], [ %54, %.noexc194 ], [ %54, %.noexc198 ], [ %65, %.noexc212 ], [ %65, %.noexc216 ], [ %65, %.noexc219 ]
-  %829 = phi ptr [ %58, %.noexc222 ], [ %48, %.noexc210 ], [ %45, %.noexc206 ], [ %53, %.noexc194 ], [ %44, %.noexc198 ], [ %64, %.noexc212 ], [ %57, %.noexc216 ], [ %61, %.noexc219 ]
+  %828 = phi ptr [ %65, %.noexc222 ], [ %65, %.noexc216 ], [ %65, %.noexc212 ], [ %54, %.noexc198 ], [ %49, %.noexc210 ], [ %46, %.noexc206 ], [ %54, %.noexc194 ], [ %65, %.noexc219 ]
+  %829 = phi ptr [ %58, %.noexc222 ], [ %57, %.noexc216 ], [ %64, %.noexc212 ], [ %44, %.noexc198 ], [ %48, %.noexc210 ], [ %45, %.noexc206 ], [ %53, %.noexc194 ], [ %61, %.noexc219 ]
   invoke void @_ZN14cranelift_isle4sema7TypeEnv12report_error17hc627d80067833dd6E(ptr align 8 %1, ptr nonnull align 8 %828, ptr nonnull align 8 %829)
           to label %.backedge.i171 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -4977,8 +4977,8 @@ _ZN14cranelift_isle4sema4Term13has_extractor17h13ad1177cbfb9861E.exit.i: ; preds
   ret void
 
 1037:                                             ; preds = %1033, %843, %714, %637, %364
-  %.sroa.0291.0.copyload.sink = phi i64 [ %.sroa.0283.0.copyload, %364 ], [ %.sroa.0285.0.copyload, %637 ], [ %.sroa.0287.0.copyload, %714 ], [ %.sroa.0289.0.copyload, %843 ], [ %.sroa.0291.0.copyload, %1033 ]
-  %.sroa.4292.sink = phi ptr [ %.sroa.4284, %364 ], [ %.sroa.4286, %637 ], [ %.sroa.4288, %714 ], [ %.sroa.4290, %843 ], [ %.sroa.4292, %1033 ]
+  %.sroa.0291.0.copyload.sink = phi i64 [ %.sroa.0289.0.copyload, %843 ], [ %.sroa.0287.0.copyload, %714 ], [ %.sroa.0285.0.copyload, %637 ], [ %.sroa.0283.0.copyload, %364 ], [ %.sroa.0291.0.copyload, %1033 ]
+  %.sroa.4292.sink = phi ptr [ %.sroa.4290, %843 ], [ %.sroa.4288, %714 ], [ %.sroa.4286, %637 ], [ %.sroa.4284, %364 ], [ %.sroa.4292, %1033 ]
   %1038 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.0291.0.copyload.sink, ptr %1038, align 8
   %.sroa.257.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5296,7 +5296,7 @@ _ZN14cranelift_isle4sema8Bindings7add_var17h984c97d47a19dabcE.exit: ; preds = %1
   unreachable
 
 common.resume:                                    ; preds = %349, %353, %266, %369, %426, %261, %163
-  %common.resume.op = phi { ptr, i32 } [ %164, %163 ], [ %267, %266 ], [ %370, %369 ], [ %427, %426 ], [ %262, %261 ], [ %.pn.i, %353 ], [ %350, %349 ]
+  %common.resume.op = phi { ptr, i32 } [ %262, %261 ], [ %164, %163 ], [ %267, %266 ], [ %427, %426 ], [ %370, %369 ], [ %.pn.i, %353 ], [ %350, %349 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17hc5fa82cff4000d4cE.exit150": ; preds = %_ZN14cranelift_isle4sema8Bindings7add_var17h984c97d47a19dabcE.exit
@@ -6993,7 +6993,7 @@ _ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit271: ; preds = %405
   unreachable
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %504, %490, %461, %506, %466
-  %.pn = phi { ptr, i32 } [ %467, %466 ], [ %lpad.phi300, %506 ], [ %lpad.thr_comm.split-lp, %504 ], [ %462, %461 ], [ %491, %490 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %467, %466 ], [ %lpad.thr_comm.split-lp, %504 ], [ %lpad.phi300, %506 ], [ %462, %461 ], [ %491, %490 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr164drop_in_place$LT$alloc..vec..Vec$LT$$LP$cranelift_isle..sema..VarId$C$cranelift_isle..sema..TypeId$C$alloc..boxed..Box$LT$cranelift_isle..sema..Expr$GT$$RP$$GT$$GT$17hbb2cd4d17d975fbdE"(ptr nonnull align 8 %40) #16
           to label %205 unwind label %203
 

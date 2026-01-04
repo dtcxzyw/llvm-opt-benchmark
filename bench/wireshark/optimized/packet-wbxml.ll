@@ -2763,8 +2763,8 @@ get_wbxml_decoding_from_content_type.exit.thread128: ; preds = %147, %get_wbxml_
   %159 = trunc nuw i8 %158 to i1
   br i1 %159, label %.sink.split, label %162
 
-.sink.split:                                      ; preds = %.preheader.i117, %157, %get_wbxml_decoding_from_public_id.exit.thread, %139, %get_wbxml_decoding_from_content_type.exit
-  %ei_wbxml_content_type_not_supported.sink = phi ptr [ @ei_wbxml_content_type_not_supported, %get_wbxml_decoding_from_content_type.exit ], [ @ei_wbxml_content_type_not_supported, %139 ], [ @ei_wbxml_content_type_not_supported, %get_wbxml_decoding_from_public_id.exit.thread ], [ @ei_wbxml_content_type_disabled, %157 ], [ @ei_wbxml_content_type_not_supported, %.preheader.i117 ]
+.sink.split:                                      ; preds = %.preheader.i117, %157, %139, %get_wbxml_decoding_from_public_id.exit.thread, %get_wbxml_decoding_from_content_type.exit
+  %ei_wbxml_content_type_not_supported.sink = phi ptr [ @ei_wbxml_content_type_not_supported, %139 ], [ @ei_wbxml_content_type_disabled, %157 ], [ @ei_wbxml_content_type_not_supported, %get_wbxml_decoding_from_content_type.exit ], [ @ei_wbxml_content_type_not_supported, %get_wbxml_decoding_from_public_id.exit.thread ], [ @ei_wbxml_content_type_not_supported, %.preheader.i117 ]
   %160 = load ptr, ptr %8, align 8
   %161 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %160, ptr noundef nonnull %ei_wbxml_content_type_not_supported.sink)
   br label %162
@@ -3488,10 +3488,10 @@ map_token.exit491:                                ; preds = %.lr.ph.i482, %val_t
   br label %376
 
 376:                                              ; preds = %317, %330, %326, %374, %299, %44, %45, %69, %80, %map_token.exit, %121, %163, %173, %map_token.exit478, %237, %251
-  %.1419 = phi i32 [ %.0418521, %44 ], [ %51, %45 ], [ %79, %69 ], [ %91, %80 ], [ %120, %map_token.exit ], [ %127, %121 ], [ %172, %163 ], [ %186, %173 ], [ %209, %map_token.exit478 ], [ %245, %237 ], [ %260, %251 ], [ %302, %299 ], [ %.4, %374 ], [ %319, %317 ], [ %306, %326 ], [ %334, %330 ]
-  %.1416 = phi i8 [ %.0415522, %44 ], [ %.0415522, %45 ], [ %.0415522, %69 ], [ %.0415522, %80 ], [ %.0415522, %map_token.exit ], [ %.0415522, %121 ], [ %.0415522, %163 ], [ %.0415522, %173 ], [ %.0415522, %map_token.exit478 ], [ %.0415522, %237 ], [ %.0415522, %251 ], [ %.0415522, %299 ], [ %.0415522, %374 ], [ %.0414, %317 ], [ %.0414, %326 ], [ 0, %330 ]
-  %.1413 = phi ptr [ %.0412523, %44 ], [ %.0412523, %45 ], [ %.0412523, %69 ], [ %.0412523, %80 ], [ %.0412523, %map_token.exit ], [ %.0412523, %121 ], [ %.0412523, %163 ], [ %.0412523, %173 ], [ %.0412523, %map_token.exit478 ], [ %.0412523, %237 ], [ %.0412523, %251 ], [ %.0412523, %299 ], [ %.0412523, %374 ], [ %.0411, %317 ], [ %.0411, %326 ], [ %.0411, %330 ]
-  %.1410 = phi i8 [ %.0409524, %44 ], [ %.0409524, %45 ], [ %.0409524, %69 ], [ %.0409524, %80 ], [ %.0409524, %map_token.exit ], [ %.0409524, %121 ], [ %.0409524, %163 ], [ %.0409524, %173 ], [ %.0409524, %map_token.exit478 ], [ %.0409524, %237 ], [ %.0409524, %251 ], [ 1, %299 ], [ %.0409524, %374 ], [ 1, %317 ], [ 1, %326 ], [ 1, %330 ]
+  %.1419 = phi i32 [ %.0418521, %44 ], [ %51, %45 ], [ %79, %69 ], [ %91, %80 ], [ %120, %map_token.exit ], [ %127, %121 ], [ %172, %163 ], [ %186, %173 ], [ %209, %map_token.exit478 ], [ %245, %237 ], [ %260, %251 ], [ %.4, %374 ], [ %302, %299 ], [ %334, %330 ], [ %319, %317 ], [ %306, %326 ]
+  %.1416 = phi i8 [ %.0415522, %44 ], [ %.0415522, %45 ], [ %.0415522, %69 ], [ %.0415522, %80 ], [ %.0415522, %map_token.exit ], [ %.0415522, %121 ], [ %.0415522, %163 ], [ %.0415522, %173 ], [ %.0415522, %map_token.exit478 ], [ %.0415522, %237 ], [ %.0415522, %251 ], [ %.0415522, %374 ], [ %.0415522, %299 ], [ 0, %330 ], [ %.0414, %317 ], [ %.0414, %326 ]
+  %.1413 = phi ptr [ %.0412523, %44 ], [ %.0412523, %45 ], [ %.0412523, %69 ], [ %.0412523, %80 ], [ %.0412523, %map_token.exit ], [ %.0412523, %121 ], [ %.0412523, %163 ], [ %.0412523, %173 ], [ %.0412523, %map_token.exit478 ], [ %.0412523, %237 ], [ %.0412523, %251 ], [ %.0412523, %374 ], [ %.0412523, %299 ], [ %.0411, %330 ], [ %.0411, %317 ], [ %.0411, %326 ]
+  %.1410 = phi i8 [ %.0409524, %44 ], [ %.0409524, %45 ], [ %.0409524, %69 ], [ %.0409524, %80 ], [ %.0409524, %map_token.exit ], [ %.0409524, %121 ], [ %.0409524, %163 ], [ %.0409524, %173 ], [ %.0409524, %map_token.exit478 ], [ %.0409524, %237 ], [ %.0409524, %251 ], [ %.0409524, %374 ], [ 1, %299 ], [ 1, %330 ], [ 1, %317 ], [ 1, %326 ]
   %377 = icmp ult i32 %.1419, %12
   br i1 %377, label %39, label %._crit_edge, !llvm.loop !11
 
@@ -3907,7 +3907,7 @@ define internal ptr @wv_csp10_opaque_binary_tag(ptr noundef %0, i32 noundef %1, 
   br label %35
 
 35:                                               ; preds = %29, %22, %9, %15
-  %.0 = phi ptr [ %14, %9 ], [ %20, %15 ], [ %27, %22 ], [ %34, %29 ]
+  %.0 = phi ptr [ %34, %29 ], [ %27, %22 ], [ %14, %9 ], [ %20, %15 ]
   %36 = icmp eq ptr %.0, null
   br i1 %36, label %.thread, label %40
 
@@ -4232,7 +4232,7 @@ define internal ptr @wv_csp11_opaque_binary_tag(ptr noundef %0, i32 noundef %1, 
   br label %42
 
 42:                                               ; preds = %36, %29, %22, %9, %15
-  %.0 = phi ptr [ %14, %9 ], [ %20, %15 ], [ %27, %22 ], [ %34, %29 ], [ %41, %36 ]
+  %.0 = phi ptr [ %27, %22 ], [ %41, %36 ], [ %14, %9 ], [ %20, %15 ], [ %34, %29 ]
   %43 = icmp eq ptr %.0, null
   br i1 %43, label %.thread, label %47
 
@@ -4464,7 +4464,7 @@ define internal ptr @wv_csp12_opaque_binary_tag(ptr noundef %0, i32 noundef %1, 
   br label %49
 
 49:                                               ; preds = %43, %36, %29, %22, %9, %15
-  %.0 = phi ptr [ %14, %9 ], [ %20, %15 ], [ %27, %22 ], [ %34, %29 ], [ %41, %36 ], [ %48, %43 ]
+  %.0 = phi ptr [ %48, %43 ], [ %34, %29 ], [ %14, %9 ], [ %20, %15 ], [ %41, %36 ], [ %27, %22 ]
   %50 = icmp eq ptr %.0, null
   br i1 %50, label %.thread, label %54
 
@@ -4756,7 +4756,7 @@ define internal ptr @wv_csp13_opaque_binary_tag(ptr noundef %0, i32 noundef %1, 
   br label %63
 
 63:                                               ; preds = %57, %50, %43, %36, %29, %22, %9, %15
-  %.0 = phi ptr [ %14, %9 ], [ %20, %15 ], [ %27, %22 ], [ %34, %29 ], [ %41, %36 ], [ %48, %43 ], [ %55, %50 ], [ %62, %57 ]
+  %.0 = phi ptr [ %62, %57 ], [ %41, %36 ], [ %14, %9 ], [ %20, %15 ], [ %55, %50 ], [ %27, %22 ], [ %48, %43 ], [ %34, %29 ]
   %64 = icmp eq ptr %.0, null
   br i1 %64, label %.thread, label %68
 
@@ -5023,7 +5023,7 @@ define internal nonnull ptr @wv_csp_discriminator(ptr noundef %0, i32 noundef %1
   br label %17
 
 17:                                               ; preds = %14, %11, %8, %2
-  %.0 = phi ptr [ @decode_wv_cspc_10, %2 ], [ @decode_wv_cspc_11, %8 ], [ @decode_wv_cspc_12, %11 ], [ %decode_wv_cspc_13.decode_wv_cspc_12, %14 ]
+  %.0 = phi ptr [ @decode_wv_cspc_12, %11 ], [ @decode_wv_cspc_10, %2 ], [ @decode_wv_cspc_11, %8 ], [ %decode_wv_cspc_13.decode_wv_cspc_12, %14 ]
   ret ptr %.0
 }
 
@@ -5626,9 +5626,9 @@ map_token.exit340:                                ; preds = %.lr.ph.i331, %val_t
   br label %315
 
 315:                                              ; preds = %227, %37, %58, %map_token.exit, %map_token.exit314, %50, %74, %154, %160, %241, %314
-  %.1258 = phi i8 [ %.0257358, %37 ], [ %.0257358, %50 ], [ %.0257358, %58 ], [ 0, %74 ], [ %.0257358, %map_token.exit ], [ %.0257358, %154 ], [ %.0257358, %160 ], [ %.0257358, %map_token.exit314 ], [ %.0257358, %241 ], [ %.2259, %314 ], [ %.0257358, %227 ]
-  %.1256 = phi ptr [ %.0255359, %37 ], [ %.0255359, %50 ], [ %.0255359, %58 ], [ %77, %74 ], [ %.0255359, %map_token.exit ], [ %.0255359, %154 ], [ %.0255359, %160 ], [ %.0255359, %map_token.exit314 ], [ %.0255359, %241 ], [ %.0255359, %314 ], [ %.0255359, %227 ]
-  %.2 = phi i32 [ %43, %37 ], [ %57, %50 ], [ %69, %58 ], [ %85, %74 ], [ %114, %map_token.exit ], [ %155, %154 ], [ %171, %160 ], [ %194, %map_token.exit314 ], [ %250, %241 ], [ %.3, %314 ], [ %235, %227 ]
+  %.1258 = phi i8 [ %.0257358, %241 ], [ %.0257358, %37 ], [ %.0257358, %50 ], [ %.2259, %314 ], [ %.0257358, %58 ], [ 0, %74 ], [ %.0257358, %map_token.exit314 ], [ %.0257358, %map_token.exit ], [ %.0257358, %154 ], [ %.0257358, %227 ], [ %.0257358, %160 ]
+  %.1256 = phi ptr [ %.0255359, %241 ], [ %.0255359, %37 ], [ %.0255359, %50 ], [ %.0255359, %314 ], [ %.0255359, %58 ], [ %77, %74 ], [ %.0255359, %map_token.exit314 ], [ %.0255359, %map_token.exit ], [ %.0255359, %154 ], [ %.0255359, %227 ], [ %.0255359, %160 ]
+  %.2 = phi i32 [ %250, %241 ], [ %43, %37 ], [ %57, %50 ], [ %.3, %314 ], [ %69, %58 ], [ %85, %74 ], [ %194, %map_token.exit314 ], [ %114, %map_token.exit ], [ %155, %154 ], [ %235, %227 ], [ %171, %160 ]
   %316 = icmp ult i32 %.2, %10
   br i1 %316, label %31, label %.loopexit, !llvm.loop !12
 

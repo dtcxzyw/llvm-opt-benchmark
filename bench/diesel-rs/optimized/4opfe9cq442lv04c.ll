@@ -116,7 +116,7 @@ define hidden void @_ZN12darling_core9from_meta8FromMeta9from_meta17h9836f096e94
   unreachable
 
 common.resume:                                    ; preds = %58, %66, %33, %36
-  %common.resume.op = phi { ptr, i32 } [ %34, %36 ], [ %34, %33 ], [ %67, %66 ], [ %59, %58 ]
+  %common.resume.op = phi { ptr, i32 } [ %67, %66 ], [ %34, %33 ], [ %34, %36 ], [ %59, %58 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN76_$LT$proc_macro2..imp..DeferredTokenStream$u20$as$u20$core..clone..Clone$GT$5clone17ha87e86801b899359E.exit.i": ; preds = %27

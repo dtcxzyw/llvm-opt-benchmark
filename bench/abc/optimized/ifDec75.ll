@@ -806,7 +806,7 @@ Dau_DsdCheckDecExist.exit69:                      ; preds = %135
   br i1 %exitcond.not, label %.loopexit, label %58, !llvm.loop !28
 
 .loopexit:                                        ; preds = %141, %Dau_DsdCheckDecExist.exit69, %Dau_DsdCheckDecExist.exit51, %Dau_DsdCheckDecAndExist.exit46, %Dau_DsdCheckDecExist.exit
-  %.1 = phi i32 [ 1, %Dau_DsdCheckDecExist.exit ], [ 1, %Dau_DsdCheckDecAndExist.exit46 ], [ 0, %141 ], [ 1, %Dau_DsdCheckDecExist.exit69 ], [ 1, %Dau_DsdCheckDecExist.exit51 ]
+  %.1 = phi i32 [ 1, %Dau_DsdCheckDecAndExist.exit46 ], [ 1, %Dau_DsdCheckDecExist.exit ], [ 0, %141 ], [ 1, %Dau_DsdCheckDecExist.exit51 ], [ 1, %Dau_DsdCheckDecExist.exit69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -851,7 +851,7 @@ Dau_DsdCheckDecExist.exit71:                      ; preds = %144
   br label %156
 
 156:                                              ; preds = %29, %151, %Dau_DsdCheckDecExist.exit71, %Dau_DsdCheckDecAndExist.exit, %31, %27, %5, %154, %.loopexit
-  %.035 = phi i32 [ %.1, %.loopexit ], [ %155, %154 ], [ 1, %5 ], [ 1, %27 ], [ 0, %31 ], [ %.0.i, %Dau_DsdCheckDecAndExist.exit ], [ 1, %Dau_DsdCheckDecExist.exit71 ], [ 1, %151 ], [ 0, %29 ]
+  %.035 = phi i32 [ 1, %151 ], [ 1, %5 ], [ 1, %27 ], [ %.0.i, %Dau_DsdCheckDecAndExist.exit ], [ 0, %31 ], [ %.1, %.loopexit ], [ %155, %154 ], [ 1, %Dau_DsdCheckDecExist.exit71 ], [ 0, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   ret i32 %.035
 }
@@ -1021,8 +1021,8 @@ Abc_TtHasVar.exit.i:                              ; preds = %48, %Abc_TtHasVar.e
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %._crit_edge.us.i.i, %47, %Abc_TtHasVar.exit.i, %.preheader.lr.ph.i.i
-  %.sink.i = phi i32 [ 1, %Abc_TtHasVar.exit.i ], [ 0, %.preheader.lr.ph.i.i ], [ 0, %47 ], [ 0, %._crit_edge.us.i.i ]
-  %.1.i = phi i32 [ %68, %Abc_TtHasVar.exit.i ], [ %.08.i, %.preheader.lr.ph.i.i ], [ %.08.i, %47 ], [ %.08.i, %._crit_edge.us.i.i ]
+  %.sink.i = phi i32 [ 1, %Abc_TtHasVar.exit.i ], [ 0, %47 ], [ 0, %.preheader.lr.ph.i.i ], [ 0, %._crit_edge.us.i.i ]
+  %.1.i = phi i32 [ %68, %Abc_TtHasVar.exit.i ], [ %.08.i, %47 ], [ %.08.i, %.preheader.lr.ph.i.i ], [ %.08.i, %._crit_edge.us.i.i ]
   %.124.i = add nuw nsw i32 %.sink.i, %.0237.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1175,7 +1175,7 @@ Abc_TtSwapAdjacent.exit.us.us.us.us.i.i:          ; preds = %._crit_edge.us.i.us
   br i1 %.not15.not.us.us.us.us.i.i, label %.lr.ph.us.us.i.i, label %._crit_edge.split.us.us.split.us.us.i.i, !llvm.loop !57
 
 Abc_TtMinimumBase.exit:                           ; preds = %80, %.lr.ph61.i.i, %70, %._crit_edge.i, %5
-  %.030 = phi i32 [ %3, %5 ], [ %.023.lcssa.i, %._crit_edge.i ], [ %.023.lcssa.i, %.lr.ph61.i.i ], [ %.023.lcssa.i, %70 ], [ %.023.lcssa.i, %80 ]
+  %.030 = phi i32 [ %3, %5 ], [ %.023.lcssa.i, %._crit_edge.i ], [ %.023.lcssa.i, %70 ], [ %.023.lcssa.i, %.lr.ph61.i.i ], [ %.023.lcssa.i, %80 ]
   %126 = icmp slt i32 %.030, 6
   br i1 %126, label %Abc_TtMinimumBase.exit.thread, label %127
 
@@ -1253,7 +1253,7 @@ Dau_DsdCheckDecAndExist.exit:                     ; preds = %143, %147
   br label %Abc_TtMinimumBase.exit.thread
 
 Abc_TtMinimumBase.exit.thread:                    ; preds = %24, %.lr.ph.split.i, %154, %152, %129, %Abc_TtMinimumBase.exit, %151
-  %.0 = phi i32 [ %.1, %151 ], [ 1, %Abc_TtMinimumBase.exit ], [ 1, %129 ], [ 1, %152 ], [ %.24, %154 ], [ 1, %.lr.ph.split.i ], [ 1, %24 ]
+  %.0 = phi i32 [ %.1, %151 ], [ 1, %Abc_TtMinimumBase.exit ], [ 1, %129 ], [ %.24, %154 ], [ 1, %152 ], [ 1, %.lr.ph.split.i ], [ 1, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }

@@ -338,7 +338,7 @@ define hidden void @"_ZN120_$LT$alloc..collections..btree..set..BTreeSet$LT$T$GT
   br label %23
 
 .body.thread:                                     ; preds = %31, %39
-  %eh.lpad-body15 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %32, %31 ]
+  %eh.lpad-body15 = phi { ptr, i32 } [ %32, %31 ], [ %lpad.thr_comm, %39 ]
   resume { ptr, i32 } %eh.lpad-body15
 
 39:                                               ; preds = %21, %22
@@ -1697,7 +1697,7 @@ _ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17h136172342aed48bfE.e
   br label %_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17hb97942ecdc1fda06E.exit
 
 _ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.exit.thread.i: ; preds = %30, %28
-  %.pn.i = phi { i64, i64 } [ %31, %30 ], [ %29, %28 ]
+  %.pn.i = phi { i64, i64 } [ %29, %28 ], [ %31, %30 ]
   %.sroa.12.011.i = extractvalue { i64, i64 } %.pn.i, 1
   %.sroa.7.012.i = extractvalue { i64, i64 } %.pn.i, 0
   br label %_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17hb97942ecdc1fda06E.exit
@@ -1713,9 +1713,9 @@ _ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.ex
   br label %_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17hb97942ecdc1fda06E.exit
 
 _ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17hb97942ecdc1fda06E.exit: ; preds = %2, %32, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.exit.thread.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.exit.i
-  %.sroa.11.0 = phi i64 [ %.sroa.12.011.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.exit.thread.i ], [ %.sroa.03.0.i.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.exit.i ], [ %35, %32 ], [ 0, %2 ]
-  %.sroa.8.0 = phi i64 [ %.sroa.7.012.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.exit.thread.i ], [ %37, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.exit.i ], [ %34, %32 ], [ 0, %2 ]
-  %.sroa.0.0 = phi ptr [ null, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.exit.thread.i ], [ %40, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.exit.i ], [ null, %32 ], [ @anon.ed408e2d29c76653c2029ecd7b79c797.13, %2 ]
+  %.sroa.11.0 = phi i64 [ %35, %32 ], [ %.sroa.12.011.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.exit.thread.i ], [ %.sroa.03.0.i.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.exit.i ], [ 0, %2 ]
+  %.sroa.8.0 = phi i64 [ %34, %32 ], [ %.sroa.7.012.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.exit.thread.i ], [ %37, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.exit.i ], [ 0, %2 ]
+  %.sroa.0.0 = phi ptr [ null, %32 ], [ null, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.exit.thread.i ], [ %40, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.exit.i ], [ @anon.ed408e2d29c76653c2029ecd7b79c797.13, %2 ]
   %41 = icmp ne ptr %.sroa.0.0, null
   tail call void @llvm.assume(i1 %41)
   store ptr %.sroa.0.0, ptr %0, align 8
@@ -1790,7 +1790,7 @@ _ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17h136172342aed48bfE.e
   br label %_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17hb97942ecdc1fda06E.exit
 
 _ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.exit.thread.i: ; preds = %30, %28
-  %.pn.i = phi { i64, i64 } [ %31, %30 ], [ %29, %28 ]
+  %.pn.i = phi { i64, i64 } [ %29, %28 ], [ %31, %30 ]
   %.sroa.12.011.i = extractvalue { i64, i64 } %.pn.i, 1
   %.sroa.7.012.i = extractvalue { i64, i64 } %.pn.i, 0
   br label %_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17hb97942ecdc1fda06E.exit
@@ -1806,9 +1806,9 @@ _ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.ex
   br label %_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17hb97942ecdc1fda06E.exit
 
 _ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17hb97942ecdc1fda06E.exit: ; preds = %2, %32, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.exit.thread.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.exit.i
-  %.sroa.11.0 = phi i64 [ %.sroa.12.011.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.exit.thread.i ], [ %.sroa.03.0.i.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.exit.i ], [ %35, %32 ], [ 0, %2 ]
-  %.sroa.8.0 = phi i64 [ %.sroa.7.012.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.exit.thread.i ], [ %37, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.exit.i ], [ %34, %32 ], [ 0, %2 ]
-  %.sroa.0.0 = phi ptr [ null, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.exit.thread.i ], [ %40, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.exit.i ], [ null, %32 ], [ @anon.ed408e2d29c76653c2029ecd7b79c797.13, %2 ]
+  %.sroa.11.0 = phi i64 [ %35, %32 ], [ %.sroa.12.011.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.exit.thread.i ], [ %.sroa.03.0.i.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.exit.i ], [ 0, %2 ]
+  %.sroa.8.0 = phi i64 [ %34, %32 ], [ %.sroa.7.012.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.exit.thread.i ], [ %37, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.exit.i ], [ 0, %2 ]
+  %.sroa.0.0 = phi ptr [ null, %32 ], [ null, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.exit.thread.i ], [ %40, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.exit.i ], [ @anon.ed408e2d29c76653c2029ecd7b79c797.13, %2 ]
   %41 = icmp ne ptr %.sroa.0.0, null
   tail call void @llvm.assume(i1 %41)
   store ptr %.sroa.0.0, ptr %0, align 8
@@ -1883,7 +1883,7 @@ _ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17h136172342aed48bfE.e
   br label %_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17hb97942ecdc1fda06E.exit
 
 _ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.exit.thread.i: ; preds = %30, %28
-  %.pn.i = phi { i64, i64 } [ %31, %30 ], [ %29, %28 ]
+  %.pn.i = phi { i64, i64 } [ %29, %28 ], [ %31, %30 ]
   %.sroa.12.011.i = extractvalue { i64, i64 } %.pn.i, 1
   %.sroa.7.012.i = extractvalue { i64, i64 } %.pn.i, 0
   br label %_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17hb97942ecdc1fda06E.exit
@@ -1899,9 +1899,9 @@ _ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.ex
   br label %_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17hb97942ecdc1fda06E.exit
 
 _ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17hb97942ecdc1fda06E.exit: ; preds = %2, %32, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.exit.thread.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.exit.i
-  %.sroa.11.0 = phi i64 [ %.sroa.12.011.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.exit.thread.i ], [ %.sroa.03.0.i.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.exit.i ], [ %35, %32 ], [ 0, %2 ]
-  %.sroa.8.0 = phi i64 [ %.sroa.7.012.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.exit.thread.i ], [ %37, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.exit.i ], [ %34, %32 ], [ 0, %2 ]
-  %.sroa.0.0 = phi ptr [ null, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.exit.thread.i ], [ %40, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.exit.i ], [ null, %32 ], [ @anon.ed408e2d29c76653c2029ecd7b79c797.13, %2 ]
+  %.sroa.11.0 = phi i64 [ %35, %32 ], [ %.sroa.12.011.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.exit.thread.i ], [ %.sroa.03.0.i.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.exit.i ], [ 0, %2 ]
+  %.sroa.8.0 = phi i64 [ %34, %32 ], [ %.sroa.7.012.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.exit.thread.i ], [ %37, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.exit.i ], [ 0, %2 ]
+  %.sroa.0.0 = phi ptr [ null, %32 ], [ null, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.exit.thread.i ], [ %40, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h84bccb7febc6eaa7E.exit.i ], [ @anon.ed408e2d29c76653c2029ecd7b79c797.13, %2 ]
   %41 = icmp ne ptr %.sroa.0.0, null
   tail call void @llvm.assume(i1 %41)
   store ptr %.sroa.0.0, ptr %0, align 8

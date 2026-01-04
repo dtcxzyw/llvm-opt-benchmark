@@ -2269,7 +2269,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit:    ; preds = %265
   br label %436
 
 .body.i:                                          ; preds = %543, %.body130.i, %430, %425, %419
-  %.pn88.pn.i = phi { ptr, i32 } [ %420, %419 ], [ %431, %430 ], [ %426, %425 ], [ %544, %543 ], [ %.pn86.i, %.body130.i ]
+  %.pn88.pn.i = phi { ptr, i32 } [ %431, %430 ], [ %426, %425 ], [ %420, %419 ], [ %544, %543 ], [ %.pn86.i, %.body130.i ]
   %407 = getelementptr inbounds nuw i8, ptr %1, i64 169
   %408 = load i8, ptr %407, align 1, !range !52, !noalias !289, !noundef !10
   %409 = trunc nuw i8 %408 to i1
@@ -2289,7 +2289,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit:    ; preds = %265
   br label %412
 
 412:                                              ; preds = %554, %549, %547, %411, %335, %332, %325
-  %.pn91.i = phi { ptr, i32 } [ %548, %547 ], [ %.pn88.pn.i, %554 ], [ %.pn88.pn.i, %549 ], [ %.pn73.pn.pn.pn.i, %411 ], [ %.pn61.pn.pn.pn.i, %335 ], [ %333, %332 ], [ %326, %325 ]
+  %.pn91.i = phi { ptr, i32 } [ %548, %547 ], [ %.pn88.pn.i, %554 ], [ %.pn88.pn.i, %549 ], [ %.pn73.pn.pn.pn.i, %411 ], [ %326, %325 ], [ %.pn61.pn.pn.pn.i, %335 ], [ %333, %332 ]
   %413 = getelementptr inbounds nuw i8, ptr %1, i64 168
   store i8 0, ptr %413, align 8, !noalias !289
   store i8 2, ptr %304, align 2, !noalias !289
@@ -2561,7 +2561,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit:    ; preds = %265
   unreachable
 
 .body.i.i:                                        ; preds = %537, %532, %524, %510, %490, %486, %479, %461, %449
-  %.pn29.i.i = phi { ptr, i32 } [ %525, %524 ], [ %511, %510 ], [ %480, %479 ], [ %462, %461 ], [ %450, %449 ], [ %491, %490 ], [ %487, %486 ], [ %538, %537 ], [ %533, %532 ]
+  %.pn29.i.i = phi { ptr, i32 } [ %487, %486 ], [ %525, %524 ], [ %511, %510 ], [ %538, %537 ], [ %533, %532 ], [ %480, %479 ], [ %462, %461 ], [ %450, %449 ], [ %491, %490 ]
   store i8 2, ptr %438, align 8, !noalias !345
   br label %.body130.i
 
@@ -2634,8 +2634,8 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit:    ; preds = %265
   br label %.body130.i
 
 541:                                              ; preds = %"_ZN4core3ptr284drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$core..option..Option$LT$ockam_identity..identities..storage..attributes_entry..AttributesEntry$GT$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h2d284637f009b262E.llvm.6910714394678848989.exit.i.i.i", %492, %451
-  %.sroa.4.0.i.i = phi ptr [ %.sroa.4.0.copyload39.i.i, %"_ZN4core3ptr284drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$core..option..Option$LT$ockam_identity..identities..storage..attributes_entry..AttributesEntry$GT$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h2d284637f009b262E.llvm.6910714394678848989.exit.i.i.i" ], [ %.fca.1.extract.i.i, %492 ], [ %455, %451 ]
-  %.sroa.0.0.i.i = phi i64 [ %526, %"_ZN4core3ptr284drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$core..option..Option$LT$ockam_identity..identities..storage..attributes_entry..AttributesEntry$GT$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h2d284637f009b262E.llvm.6910714394678848989.exit.i.i.i" ], [ 3, %492 ], [ 3, %451 ]
+  %.sroa.4.0.i.i = phi ptr [ %.fca.1.extract.i.i, %492 ], [ %.sroa.4.0.copyload39.i.i, %"_ZN4core3ptr284drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$core..option..Option$LT$ockam_identity..identities..storage..attributes_entry..AttributesEntry$GT$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h2d284637f009b262E.llvm.6910714394678848989.exit.i.i.i" ], [ %455, %451 ]
+  %.sroa.0.0.i.i = phi i64 [ 3, %492 ], [ %526, %"_ZN4core3ptr284drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$core..option..Option$LT$ockam_identity..identities..storage..attributes_entry..AttributesEntry$GT$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h2d284637f009b262E.llvm.6910714394678848989.exit.i.i.i" ], [ 3, %451 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4.i, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.6.i.i, i64 72, i1 false), !noalias !289
   store i8 1, ptr %438, align 8, !noalias !345
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i.i)
@@ -2664,7 +2664,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit:    ; preds = %265
   br label %412
 
 .body130.i:                                       ; preds = %539, %.body.i.i
-  %.pn86.i = phi { ptr, i32 } [ %540, %539 ], [ %.pn29.i.i, %.body.i.i ]
+  %.pn86.i = phi { ptr, i32 } [ %.pn29.i.i, %.body.i.i ], [ %540, %539 ]
   invoke fastcc void @"_ZN4core3ptr166drop_in_place$LT$ockam_identity..identities..identities_attributes..IdentitiesAttributes..get_attributes..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h94bf1a0bfd820315E"(ptr noundef nonnull align 8 %437) #24
           to label %.body.i unwind label %368, !noalias !293
 
@@ -3563,7 +3563,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit746: ; preds = %580
   br label %840
 
 801:                                              ; preds = %742, %715, %722, %844
-  %.pn616.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn616.pn.pn.pn.pn.pn.pn.pn, %844 ], [ %723, %722 ], [ %716, %715 ], [ %.pn602.pn.pn.pn.pn.pn.pn.pn.pn.pn, %742 ]
+  %.pn616.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn616.pn.pn.pn.pn.pn.pn.pn, %844 ], [ %723, %722 ], [ %.pn602.pn.pn.pn.pn.pn.pn.pn.pn.pn, %742 ], [ %716, %715 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %123)
   br label %845
 
@@ -4125,7 +4125,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit746: ; preds = %580
           to label %981 unwind label %979
 
 939:                                              ; preds = %881, %854, %861, %985
-  %.pn584.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn584.pn.pn.pn.pn.pn.pn.pn, %985 ], [ %862, %861 ], [ %855, %854 ], [ %.pn570.pn.pn.pn.pn.pn.pn.pn.pn.pn, %881 ]
+  %.pn584.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn584.pn.pn.pn.pn.pn.pn.pn, %985 ], [ %862, %861 ], [ %.pn570.pn.pn.pn.pn.pn.pn.pn.pn.pn, %881 ], [ %855, %854 ]
   invoke void @"_ZN4core3ptr43drop_in_place$LT$ockam_abac..expr..Expr$GT$17h0f84dc221bd73437E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %100) #24
           to label %978 unwind label %296
 
@@ -4681,7 +4681,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit746: ; preds = %580
           to label %1121 unwind label %1119
 
 1079:                                             ; preds = %1021, %994, %1001, %1149
-  %.pn552.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn552.pn.pn.pn.pn.pn.pn.pn, %1149 ], [ %1002, %1001 ], [ %995, %994 ], [ %.pn538.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1021 ]
+  %.pn552.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn552.pn.pn.pn.pn.pn.pn.pn, %1149 ], [ %1002, %1001 ], [ %.pn538.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1021 ], [ %995, %994 ]
   invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$ockam_abac..error..EvalError$GT$17h74a2703f481eac2dE"(ptr noalias noundef align 8 dereferenceable(72) %77) #24
           to label %1118 unwind label %296
 
@@ -4950,9 +4950,9 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit746: ; preds = %580
   br label %1143
 
 "_ZN4core3ptr116drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..identities..identities_attributes..IdentitiesAttributes$GT$$GT$17h65b7f8b1899e799bE.exit": ; preds = %1782, %1787, %1132, %1137
-  %.sroa.02059.1 = phi i8 [ 0, %1137 ], [ 0, %1132 ], [ 1, %1787 ], [ 1, %1782 ]
-  %.sroa.52060.1 = phi i8 [ %.sroa.52060.0, %1137 ], [ %.sroa.52060.0, %1132 ], [ undef, %1787 ], [ undef, %1782 ]
-  %.sroa.82062.0 = phi ptr [ undef, %1137 ], [ undef, %1132 ], [ %.sroa.3.0.i, %1787 ], [ %.sroa.3.0.i, %1782 ]
+  %.sroa.02059.1 = phi i8 [ 0, %1132 ], [ 0, %1137 ], [ 1, %1787 ], [ 1, %1782 ]
+  %.sroa.52060.1 = phi i8 [ %.sroa.52060.0, %1132 ], [ %.sroa.52060.0, %1137 ], [ undef, %1787 ], [ undef, %1782 ]
+  %.sroa.82062.0 = phi ptr [ undef, %1132 ], [ undef, %1137 ], [ %.sroa.3.0.i, %1787 ], [ %.sroa.3.0.i, %1782 ]
   store i8 %.sroa.02059.1, ptr %0, align 8
   %.sroa.52060.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.52060.1, ptr %.sroa.52060.0..sroa_idx, align 1
@@ -4990,7 +4990,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit746: ; preds = %580
           to label %1140 unwind label %296
 
 1152:                                             ; preds = %1688, %1663, %1670, %1776, %1153
-  %.pn414.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn414.pn.pn.pn.pn.pn, %1776 ], [ %1154, %1153 ], [ %1671, %1670 ], [ %1664, %1663 ], [ %.pn402.pn.pn.pn.pn.pn.pn.pn, %1688 ]
+  %.pn414.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn414.pn.pn.pn.pn.pn, %1776 ], [ %.pn402.pn.pn.pn.pn.pn.pn.pn, %1688 ], [ %1154, %1153 ], [ %1664, %1663 ], [ %1671, %1670 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %220)
   br label %1654
 
@@ -5131,7 +5131,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit746: ; preds = %580
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h89534b98b99b4908E.exit.i.i.i"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h89534b98b99b4908E.exit.i.i.i": ; preds = %1218, %1213, %1210, %1207
-  %.0.i.i.i.i.i.i = phi i8 [ %1217, %1213 ], [ %1209, %1207 ], [ %1223, %1218 ], [ %1212, %1210 ]
+  %.0.i.i.i.i.i.i = phi i8 [ %1212, %1210 ], [ %1217, %1213 ], [ %1209, %1207 ], [ %1223, %1218 ]
   %1224 = trunc i8 %.0.i.i.i.i.i.i to i1
   br i1 %1224, label %1227, label %1225
 
@@ -5633,7 +5633,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit746: ; preds = %580
   br label %.loopexit
 
 1354:                                             ; preds = %1422, %1397, %1404, %1503, %1369, %1386, %1591, %1355
-  %.pn514.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn514.pn.pn.pn.pn.pn.pn.pn, %1503 ], [ %.pn491.pn, %1386 ], [ %1370, %1369 ], [ %.pn477.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1591 ], [ %1356, %1355 ], [ %1405, %1404 ], [ %1398, %1397 ], [ %.pn500.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1422 ]
+  %.pn514.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn514.pn.pn.pn.pn.pn.pn.pn, %1503 ], [ %.pn477.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1591 ], [ %.pn491.pn, %1386 ], [ %1398, %1397 ], [ %1405, %1404 ], [ %.pn500.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1422 ], [ %1356, %1355 ], [ %1370, %1369 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %221)
   call void @llvm.lifetime.end.p0(ptr nonnull %179)
   br label %1649
@@ -5643,7 +5643,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit746: ; preds = %580
           cleanup
   br label %1354
 
-.loopexit:                                        ; preds = %1225, %1191, %"_ZN10ockam_abac4abac4abac4Abac29is_identity_authorized_static28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he3aa39db40770494E.exit", %1245, %1160, %1247, %1272
+.loopexit:                                        ; preds = %1191, %1225, %"_ZN10ockam_abac4abac4abac4Abac29is_identity_authorized_static28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he3aa39db40770494E.exit", %1245, %1160, %1247, %1272
   call void @llvm.lifetime.start.p0(ptr nonnull %179)
   %.fca.1.extract.val = load ptr, ptr %.fca.1.extract, align 8, !nonnull !10, !noundef !10
   %1357 = getelementptr i8, ptr %.fca.1.extract, i64 16
@@ -6558,7 +6558,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit1068: ; preds = %1372
   br label %1499
 
 1591:                                             ; preds = %1537, %1512, %1519, %1648
-  %.pn477.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn477.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1648 ], [ %1520, %1519 ], [ %1513, %1512 ], [ %.pn461.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1537 ]
+  %.pn477.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn477.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1648 ], [ %1520, %1519 ], [ %.pn461.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1537 ], [ %1513, %1512 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %153)
   br label %1354
 
@@ -6862,7 +6862,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit1068: ; preds = %1372
   br label %1654
 
 1654:                                             ; preds = %1260, %1235, %1242, %1653, %1152
-  %.pn444.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn444.pn.pn.pn.pn.pn.pn.pn, %1653 ], [ %.pn414.pn.pn.pn.pn.pn.pn, %1152 ], [ %1243, %1242 ], [ %1236, %1235 ], [ %.pn430.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1260 ]
+  %.pn444.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn444.pn.pn.pn.pn.pn.pn.pn, %1653 ], [ %1243, %1242 ], [ %.pn414.pn.pn.pn.pn.pn.pn, %1152 ], [ %1236, %1235 ], [ %.pn430.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1260 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %221)
   br label %1649
 
@@ -7358,7 +7358,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit1068: ; preds = %1372
           to label %"_ZN4core3ptr116drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..identities..identities_attributes..IdentitiesAttributes$GT$$GT$17h65b7f8b1899e799bE.exit" unwind label %1144
 
 .body726:                                         ; preds = %556, %412
-  %.pn391 = phi { ptr, i32 } [ %557, %556 ], [ %.pn91.i, %412 ]
+  %.pn391 = phi { ptr, i32 } [ %.pn91.i, %412 ], [ %557, %556 ]
   invoke fastcc void @"_ZN4core3ptr137drop_in_place$LT$ockam_identity..identities..identities_attributes..IdentitiesAttributes..get_attributes..$u7b$$u7b$closure$u7d$$u7d$$GT$17h76e20abdca7cfd5fE"(ptr noundef nonnull align 8 %303) #24
           to label %293 unwind label %296
 }
@@ -7941,7 +7941,7 @@ common.ret:                                       ; preds = %230, %231
           to label %45 unwind label %43, !noalias !1151
 
 42:                                               ; preds = %172, %82, %62, %55, %43
-  %.pn57.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn57.pn.pn.pn.i, %172 ], [ %44, %43 ], [ %63, %62 ], [ %56, %55 ], [ %.pn47.pn.pn.pn.pn.pn.i, %82 ]
+  %.pn57.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn57.pn.pn.pn.i, %172 ], [ %.pn47.pn.pn.pn.pn.pn.i, %82 ], [ %44, %43 ], [ %56, %55 ], [ %63, %62 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !1151
   br label %177
 
@@ -8535,10 +8535,10 @@ common.ret:                                       ; preds = %230, %231
   br label %231
 
 .body.i:                                          ; preds = %220, %200
-  %223 = phi ptr [ %35, %220 ], [ %205, %200 ]
-  %224 = phi ptr [ %34, %220 ], [ %206, %200 ]
-  %225 = phi ptr [ %184, %220 ], [ %208, %200 ]
-  %.pn37.i = phi { ptr, i32 } [ %221, %220 ], [ %.pn14.i.i, %200 ]
+  %223 = phi ptr [ %205, %200 ], [ %35, %220 ]
+  %224 = phi ptr [ %206, %200 ], [ %34, %220 ]
+  %225 = phi ptr [ %208, %200 ], [ %184, %220 ]
+  %.pn37.i = phi { ptr, i32 } [ %.pn14.i.i, %200 ], [ %221, %220 ]
   invoke fastcc void @"_ZN4core3ptr102drop_in_place$LT$ockam_abac..abac..abac..Abac..is_identity_authorized..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd12e9a028fbdc319E"(ptr noundef nonnull align 8 %225) #24
           to label %177 unwind label %226, !noalias !1219
 
@@ -8574,8 +8574,8 @@ common.ret:                                       ; preds = %230, %231
   br label %common.ret
 
 .body14:                                          ; preds = %228, %177
-  %233 = phi ptr [ %34, %228 ], [ %179, %177 ]
-  %.pn = phi { ptr, i32 } [ %229, %228 ], [ %.pn57.pn.pn.pn.pn.pn.i, %177 ]
+  %233 = phi ptr [ %179, %177 ], [ %34, %228 ]
+  %.pn = phi { ptr, i32 } [ %.pn57.pn.pn.pn.pn.pn.i, %177 ], [ %229, %228 ]
   invoke fastcc void @"_ZN4core3ptr110drop_in_place$LT$ockam_abac..abac..incoming..IncomingAbac..is_authorized_impl..$u7b$$u7b$closure$u7d$$u7d$$GT$17h39338f174801c0ccE"(ptr noundef nonnull align 8 %233) #24
           to label %30 unwind label %234
 

@@ -1252,13 +1252,13 @@ weight.exit.i212.i:                               ; preds = %459, %455
   br i1 %or.cond293.i, label %do_find_bisection.exit.thread.thread, label %approx_halfway.exit216.thread.i
 
 approx_halfway.exit216.thread.i:                  ; preds = %325, %324, %weight.exit.i212.i, %438, %437, %289, %weight.exit155.i
-  %.pre.i.i.i148.pre445.i = phi ptr [ %.pre.i.i.i148.pre446.i, %weight.exit155.i ], [ %.pre.i.i.i148.pre433.i, %438 ], [ %.pre.i.i.i148.pre433.i, %437 ], [ %.pre.i.i.i148.pre431.i, %weight.exit.i212.i ], [ %.pre.i.i.i148.pre446.i, %289 ], [ %.pre.i.i.i148.pre430.i, %324 ], [ %.pre.i.i.i148.pre430.i, %325 ]
-  %.pre.i.i.i.i205422.i = phi ptr [ %.pre.i.i.i.i205419.i, %weight.exit155.i ], [ %.pre.i.i.i.i205.i, %438 ], [ %.pre.i.i.i.i205.i, %437 ], [ %.pre.i.i.i.i205423.i, %weight.exit.i212.i ], [ %.pre.i.i.i.i205419.i, %289 ], [ %.pre.i.i.i.i205408.i, %324 ], [ %.pre.i.i.i.i205408.i, %325 ]
-  %.pre.i.i.i175401.i = phi ptr [ %.pre.i.i.i175398.i, %weight.exit155.i ], [ %.pre.i.i.i175402.i, %438 ], [ %.pre.i.i.i175402.i, %437 ], [ %.pre.i.i.i.i205423.i, %weight.exit.i212.i ], [ %.pre.i.i.i175398.i, %289 ], [ %.pre.i.i.i175389.i, %324 ], [ %.pre.i.i.i175389.i, %325 ]
-  %.pre.i.i.i193377.i = phi ptr [ %.pre.i.i.i193374.i, %weight.exit155.i ], [ %.pre.i.i.i193378.i, %438 ], [ %.pre.i.i.i193378.i, %437 ], [ %.pre.i.i.i.i205423.i, %weight.exit.i212.i ], [ %.pre.i.i.i193374.i, %289 ], [ %.pre.i.i.i193369.i, %324 ], [ %.pre.i.i.i193369.i, %325 ]
-  %.pre.i.i.i157360.i = phi ptr [ %.pre.i.i.i157361.i, %weight.exit155.i ], [ %.pre.i.i.i193378.i, %438 ], [ %.pre.i.i.i193378.i, %437 ], [ %.pre.i.i.i.i205423.i, %weight.exit.i212.i ], [ %.pre.i.i.i157361.i, %289 ], [ %.pre.i.i.i157354.i, %324 ], [ %.pre.i.i.i157354.i, %325 ]
-  %.pre.i.i.i148343.i = phi ptr [ %.pre.i.i.i148344.i, %weight.exit155.i ], [ %.pre.i.i.i193378.i, %438 ], [ %.pre.i.i.i193378.i, %437 ], [ %.pre.i.i.i.i205423.i, %weight.exit.i212.i ], [ %.pre.i.i.i148344.i, %289 ], [ %.pre.i.i.i148341.i, %324 ], [ %.pre.i.i.i148341.i, %325 ]
-  %.6.ph.i = phi i32 [ %.5289.i, %weight.exit155.i ], [ %.7.i, %438 ], [ %.7.i, %437 ], [ %.7.i, %weight.exit.i212.i ], [ %.5289.i, %289 ], [ %.5289.i, %324 ], [ %.5289.i, %325 ]
+  %.pre.i.i.i148.pre445.i = phi ptr [ %.pre.i.i.i148.pre433.i, %437 ], [ %.pre.i.i.i148.pre446.i, %weight.exit155.i ], [ %.pre.i.i.i148.pre433.i, %438 ], [ %.pre.i.i.i148.pre431.i, %weight.exit.i212.i ], [ %.pre.i.i.i148.pre446.i, %289 ], [ %.pre.i.i.i148.pre430.i, %324 ], [ %.pre.i.i.i148.pre430.i, %325 ]
+  %.pre.i.i.i.i205422.i = phi ptr [ %.pre.i.i.i.i205.i, %437 ], [ %.pre.i.i.i.i205419.i, %weight.exit155.i ], [ %.pre.i.i.i.i205.i, %438 ], [ %.pre.i.i.i.i205423.i, %weight.exit.i212.i ], [ %.pre.i.i.i.i205419.i, %289 ], [ %.pre.i.i.i.i205408.i, %324 ], [ %.pre.i.i.i.i205408.i, %325 ]
+  %.pre.i.i.i175401.i = phi ptr [ %.pre.i.i.i175402.i, %437 ], [ %.pre.i.i.i175398.i, %weight.exit155.i ], [ %.pre.i.i.i175402.i, %438 ], [ %.pre.i.i.i.i205423.i, %weight.exit.i212.i ], [ %.pre.i.i.i175398.i, %289 ], [ %.pre.i.i.i175389.i, %324 ], [ %.pre.i.i.i175389.i, %325 ]
+  %.pre.i.i.i193377.i = phi ptr [ %.pre.i.i.i193378.i, %437 ], [ %.pre.i.i.i193374.i, %weight.exit155.i ], [ %.pre.i.i.i193378.i, %438 ], [ %.pre.i.i.i.i205423.i, %weight.exit.i212.i ], [ %.pre.i.i.i193374.i, %289 ], [ %.pre.i.i.i193369.i, %324 ], [ %.pre.i.i.i193369.i, %325 ]
+  %.pre.i.i.i157360.i = phi ptr [ %.pre.i.i.i193378.i, %437 ], [ %.pre.i.i.i157361.i, %weight.exit155.i ], [ %.pre.i.i.i193378.i, %438 ], [ %.pre.i.i.i.i205423.i, %weight.exit.i212.i ], [ %.pre.i.i.i157361.i, %289 ], [ %.pre.i.i.i157354.i, %324 ], [ %.pre.i.i.i157354.i, %325 ]
+  %.pre.i.i.i148343.i = phi ptr [ %.pre.i.i.i193378.i, %437 ], [ %.pre.i.i.i148344.i, %weight.exit155.i ], [ %.pre.i.i.i193378.i, %438 ], [ %.pre.i.i.i.i205423.i, %weight.exit.i212.i ], [ %.pre.i.i.i148344.i, %289 ], [ %.pre.i.i.i148341.i, %324 ], [ %.pre.i.i.i148341.i, %325 ]
+  %.6.ph.i = phi i32 [ %.7.i, %437 ], [ %.5289.i, %weight.exit155.i ], [ %.7.i, %438 ], [ %.7.i, %weight.exit.i212.i ], [ %.5289.i, %289 ], [ %.5289.i, %324 ], [ %.5289.i, %325 ]
   %472 = getelementptr inbounds nuw i8, ptr %.283287.i, i64 8
   %473 = load ptr, ptr %472, align 8, !tbaa !18
   %.not88.i = icmp eq ptr %473, null
@@ -1742,8 +1742,8 @@ define dso_local ptr @filter_skipped(ptr noundef %0, ptr noundef writeonly captu
   br label %34
 
 34:                                               ; preds = %33, %28, %27
-  %.242.us = phi ptr [ %19, %33 ], [ %.04063.us, %28 ], [ %.04063.us, %27 ]
-  %.237.us = phi ptr [ %.03565.us, %33 ], [ %19, %28 ], [ %19, %27 ]
+  %.242.us = phi ptr [ %.04063.us, %27 ], [ %19, %33 ], [ %.04063.us, %28 ]
+  %.237.us = phi ptr [ %19, %27 ], [ %.03565.us, %33 ], [ %19, %28 ]
   %.not51.us = icmp eq ptr %20, null
   br i1 %.not51.us, label %._crit_edge.thread, label %.lr.ph.split.us.split, !llvm.loop !54
 
@@ -1796,8 +1796,8 @@ define dso_local ptr @filter_skipped(ptr noundef %0, ptr noundef writeonly captu
   br label %51
 
 51:                                               ; preds = %50, %47
-  %.242.us71 = phi ptr [ %41, %50 ], [ %.04063.us69, %47 ]
-  %.237.us72 = phi ptr [ %.03565.us67, %50 ], [ %41, %47 ]
+  %.242.us71 = phi ptr [ %.04063.us69, %47 ], [ %41, %50 ]
+  %.237.us72 = phi ptr [ %41, %47 ], [ %.03565.us67, %50 ]
   %.not51.us73 = icmp eq ptr %42, null
   br i1 %.not51.us73, label %._crit_edge, label %.lr.ph.split.split.us.split, !llvm.loop !54
 
@@ -1885,8 +1885,8 @@ define dso_local ptr @filter_skipped(ptr noundef %0, ptr noundef writeonly captu
   br label %75
 
 75:                                               ; preds = %69, %72
-  %.242 = phi ptr [ %60, %69 ], [ %.04063, %72 ]
-  %.237 = phi ptr [ %.03565, %69 ], [ %60, %72 ]
+  %.242 = phi ptr [ %.04063, %72 ], [ %60, %69 ]
+  %.237 = phi ptr [ %60, %72 ], [ %.03565, %69 ]
   %.not51 = icmp eq ptr %61, null
   br i1 %.not51, label %._crit_edge.thread, label %.lr.ph.split.split.split, !llvm.loop !54
 
@@ -1907,7 +1907,7 @@ define dso_local ptr @filter_skipped(ptr noundef %0, ptr noundef writeonly captu
   br label %80
 
 80:                                               ; preds = %.thread, %10, %79
-  %.0 = phi ptr [ %.0..0..0..0.43, %79 ], [ %0, %10 ], [ %.us-phi81, %.thread ]
+  %.0 = phi ptr [ %.us-phi81, %.thread ], [ %.0..0..0..0.43, %79 ], [ %0, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
@@ -2499,7 +2499,7 @@ handle_bad_merge_base.exit.i.i:                   ; preds = %handle_skipped_merg
   br i1 %.not.i23.i, label %select.unfold.i, label %.lr.ph.i22.i, !llvm.loop !116
 
 select.unfold.i:                                  ; preds = %handle_bad_merge_base.exit.i.i, %_.exit.i.i, %_.exit23.i.i.i, %141, %.preheader.i.i
-  %.1.i.i = phi i32 [ -1, %_.exit23.i.i.i ], [ -3, %141 ], [ 0, %.preheader.i.i ], [ %spec.select.i, %_.exit.i.i ], [ 0, %handle_bad_merge_base.exit.i.i ]
+  %.1.i.i = phi i32 [ %spec.select.i, %_.exit.i.i ], [ -1, %_.exit23.i.i.i ], [ -3, %141 ], [ 0, %.preheader.i.i ], [ 0, %handle_bad_merge_base.exit.i.i ]
   %172 = load ptr, ptr %6, align 8, !tbaa !12
   call void @free_commit_list(ptr noundef %172) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2721,7 +2721,7 @@ skip_away.exit.sink.split.i:                      ; preds = %filter_skipped.exit
   br label %managed_skipped.exit
 
 managed_skipped.exit:                             ; preds = %.lr.ph.i, %.lr.ph43.i.i, %bisect_common.exit, %.loopexit.i.i, %skip_away.exit.sink.split.i
-  %.0.i43 = phi ptr [ %196, %bisect_common.exit ], [ %.025.i.i, %.loopexit.i.i ], [ %.0.ph.i, %skip_away.exit.sink.split.i ], [ %.025.i.i, %.lr.ph43.i.i ], [ %.0..0..0..0..0..0..0..0.43.i29.pre.i, %.lr.ph.i ]
+  %.0.i43 = phi ptr [ %.025.i.i, %.loopexit.i.i ], [ %196, %bisect_common.exit ], [ %.025.i.i, %.lr.ph43.i.i ], [ %.0.ph.i, %skip_away.exit.sink.split.i ], [ %.0..0..0..0..0..0..0..0.43.i29.pre.i, %.lr.ph.i ]
   store ptr %.0.i43, ptr %11, align 8, !tbaa !115
   %.not31 = icmp eq ptr %.0.i43, null
   br i1 %.not31, label %248, label %271
@@ -2934,7 +2934,7 @@ Q_.exit69:                                        ; preds = %338, %341
   br label %346
 
 346:                                              ; preds = %error_if_skipped_commits.exit62, %error_if_skipped_commits.exit.thread, %check_good_are_ancestors_of_bad.exit, %check_good_are_ancestors_of_bad.exit.thread, %Q_.exit69, %show_commit.exit, %_.exit52, %_.exit
-  %.023 = phi i32 [ %.1.i.i, %check_good_are_ancestors_of_bad.exit ], [ -2, %error_if_skipped_commits.exit62 ], [ -10, %show_commit.exit ], [ %345, %Q_.exit69 ], [ -4, %_.exit52 ], [ -1, %_.exit ], [ -1, %check_good_are_ancestors_of_bad.exit.thread ], [ -2, %error_if_skipped_commits.exit.thread ]
+  %.023 = phi i32 [ %.1.i.i, %check_good_are_ancestors_of_bad.exit ], [ -2, %error_if_skipped_commits.exit62 ], [ -10, %show_commit.exit ], [ %345, %Q_.exit69 ], [ -4, %_.exit52 ], [ -2, %error_if_skipped_commits.exit.thread ], [ -1, %_.exit ], [ -1, %check_good_are_ancestors_of_bad.exit.thread ]
   %.0..0..0.71 = load ptr, ptr %12, align 8, !tbaa !12
   call void @free_commit_list(ptr noundef %.0..0..0.71) #23
   call void @release_revisions(ptr noundef nonnull %11) #23

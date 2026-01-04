@@ -488,9 +488,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87: ; preds = %15,
   br label %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EED2Ev.exit
 
 _ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EED2Ev.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %13, %83, %._crit_edge224, %.critedge51.critedge56, %.critedge51.critedge54, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87
-  %.sroa.23.0215 = phi ptr [ %.sroa.23.0227, %.critedge51.critedge56 ], [ %.sroa.23.0227, %.critedge51.critedge54 ], [ %.sroa.23.0227, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87 ], [ %.sroa.23.3.lcssa, %._crit_edge224 ], [ %.sroa.23.0227, %83 ], [ %.sroa.23.0227, %13 ], [ %.sroa.23.0227, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
-  %.sroa.0113.0195 = phi ptr [ %.sroa.0113.0229, %.critedge51.critedge56 ], [ %.sroa.0113.0229, %.critedge51.critedge54 ], [ %.sroa.0113.0229, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87 ], [ %.sroa.0113.3.lcssa, %._crit_edge224 ], [ %.sroa.0113.0229, %83 ], [ %.sroa.0113.0229, %13 ], [ %.sroa.0113.0229, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
-  %138 = phi i1 [ false, %.critedge51.critedge56 ], [ false, %.critedge51.critedge54 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87 ], [ true, %._crit_edge224 ], [ false, %83 ], [ false, %13 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %.sroa.23.0215 = phi ptr [ %.sroa.23.0227, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87 ], [ %.sroa.23.0227, %.critedge51.critedge56 ], [ %.sroa.23.0227, %.critedge51.critedge54 ], [ %.sroa.23.3.lcssa, %._crit_edge224 ], [ %.sroa.23.0227, %83 ], [ %.sroa.23.0227, %13 ], [ %.sroa.23.0227, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %.sroa.0113.0195 = phi ptr [ %.sroa.0113.0229, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87 ], [ %.sroa.0113.0229, %.critedge51.critedge56 ], [ %.sroa.0113.0229, %.critedge51.critedge54 ], [ %.sroa.0113.3.lcssa, %._crit_edge224 ], [ %.sroa.0113.0229, %83 ], [ %.sroa.0113.0229, %13 ], [ %.sroa.0113.0229, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %138 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87 ], [ false, %.critedge51.critedge56 ], [ false, %.critedge51.critedge54 ], [ true, %._crit_edge224 ], [ false, %83 ], [ false, %13 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %139 = ptrtoint ptr %.sroa.23.0215 to i64
   %140 = ptrtoint ptr %.sroa.0113.0195 to i64
   %141 = sub i64 %139, %140
@@ -498,9 +498,9 @@ _ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13Metadat
   ret i1 %138
 
 _ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EED2Ev.exit89: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73, %134
-  %.sroa.23.1 = phi ptr [ %.sroa.23.2, %134 ], [ %.sroa.23.0227, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73 ]
-  %.sroa.0113.1 = phi ptr [ %.sroa.0113.2, %134 ], [ %.sroa.0113.0229, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73 ]
-  %.pn45.pn.pn.pn = phi { ptr, i32 } [ %.pn45.pn, %134 ], [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73 ]
+  %.sroa.23.1 = phi ptr [ %.sroa.23.0227, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73 ], [ %.sroa.23.2, %134 ]
+  %.sroa.0113.1 = phi ptr [ %.sroa.0113.0229, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73 ], [ %.sroa.0113.2, %134 ]
+  %.pn45.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73 ], [ %.pn45.pn, %134 ]
   %142 = ptrtoint ptr %.sroa.23.1 to i64
   %143 = ptrtoint ptr %.sroa.0113.1 to i64
   %144 = sub i64 %142, %143
@@ -797,7 +797,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE2atEm.exit: ; preds = %15
   br label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE2atEm.exit, %2, %9
-  %.0 = phi i1 [ true, %9 ], [ false, %2 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE2atEm.exit ], [ true, %25 ]
+  %.0 = phi i1 [ false, %2 ], [ true, %9 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE2atEm.exit ], [ true, %25 ]
   ret i1 %.0
 }
 
@@ -959,7 +959,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE2atEm.exit.i: ; preds = %20
   br label %59
 
 59:                                               ; preds = %58, %.noexc15
-  %.0.i.i.i.i.i = phi ptr [ %55, %.noexc15 ], [ %53, %58 ]
+  %.0.i.i.i.i.i = phi ptr [ %53, %58 ], [ %55, %.noexc15 ]
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.0.i.i.i.i.i, ptr %60, align 8, !tbaa !58
   %61 = add i64 %48, %43
@@ -1019,7 +1019,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %68, %65, %63
   br label %86
 
 81:                                               ; preds = %42, %39, %36, %_ZNSt6vectorIhSaIhEED2Ev.exit17
-  %.18 = phi i1 [ %62, %_ZNSt6vectorIhSaIhEED2Ev.exit17 ], [ false, %36 ], [ false, %39 ], [ false, %42 ]
+  %.18 = phi i1 [ false, %36 ], [ false, %39 ], [ %62, %_ZNSt6vectorIhSaIhEED2Ev.exit17 ], [ false, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre = load ptr, ptr %3, align 8, !tbaa !27
   br label %_ZN5draco15MetadataDecoder10DecodeNameEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit

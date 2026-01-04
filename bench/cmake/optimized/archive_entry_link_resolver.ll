@@ -22,7 +22,7 @@ define dso_local noalias noundef ptr @archive_entry_linkresolver_new() local_unn
   br label %8
 
 8:                                                ; preds = %3, %0, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %0 ], [ %1, %3 ]
+  %.0 = phi ptr [ null, %0 ], [ null, %7 ], [ %1, %3 ]
   ret ptr %.0
 }
 
@@ -348,8 +348,8 @@ define internal fastcc noundef ptr @next_entry(ptr noundef captures(none) %0, i3
   br i1 %.not3442, label %41, label %.split.us
 
 .split.us:                                        ; preds = %.lr.ph68.split.split, %.lr.ph.us85, %.lr.ph.us
-  %.064.lcssa.sink = phi i64 [ %.064.us, %.lr.ph.us ], [ %.064.us82, %.lr.ph.us85 ], [ %.064, %.lr.ph68.split.split ]
-  %.us-phi44 = phi ptr [ %.02943.us69, %.lr.ph.us ], [ %.02943.us.us86, %.lr.ph.us85 ], [ %.02941, %.lr.ph68.split.split ]
+  %.064.lcssa.sink = phi i64 [ %.064.us82, %.lr.ph.us85 ], [ %.064.us, %.lr.ph.us ], [ %.064, %.lr.ph68.split.split ]
+  %.us-phi44 = phi ptr [ %.02943.us.us86, %.lr.ph.us85 ], [ %.02943.us69, %.lr.ph.us ], [ %.02941, %.lr.ph68.split.split ]
   %31 = getelementptr inbounds nuw ptr, ptr %15, i64 %.064.lcssa.sink
   %32 = load ptr, ptr %.us-phi44, align 8, !tbaa !21
   %.not36 = icmp eq ptr %32, null
@@ -388,7 +388,7 @@ define internal fastcc noundef ptr @next_entry(ptr noundef captures(none) %0, i3
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph68.split.split, !llvm.loop !23
 
 .loopexit:                                        ; preds = %41, %._crit_edge.split.us.us, %._crit_edge.split.split.us73, %.lr.ph68.split.us, %12, %37
-  %.030 = phi ptr [ %.us-phi44, %37 ], [ null, %12 ], [ null, %.lr.ph68.split.us ], [ null, %._crit_edge.split.split.us73 ], [ null, %._crit_edge.split.us.us ], [ null, %41 ]
+  %.030 = phi ptr [ %.us-phi44, %37 ], [ null, %._crit_edge.split.us.us ], [ null, %12 ], [ null, %._crit_edge.split.split.us73 ], [ null, %.lr.ph68.split.us ], [ null, %41 ]
   ret ptr %.030
 }
 
@@ -640,7 +640,7 @@ define internal fastcc ptr @find_entry(ptr noundef captures(none) %0, ptr nounde
   br i1 %.not44, label %.loopexit, label %.lr.ph, !llvm.loop !31
 
 .loopexit:                                        ; preds = %55, %12, %34, %51
-  %.04049 = phi ptr [ %.04052, %34 ], [ %.04052, %51 ], [ null, %12 ], [ null, %55 ]
+  %.04049 = phi ptr [ %.04052, %51 ], [ %.04052, %34 ], [ null, %12 ], [ null, %55 ]
   ret ptr %.04049
 }
 

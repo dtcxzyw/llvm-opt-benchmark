@@ -1208,7 +1208,7 @@ define dso_local noundef range(i32 -22, 1) i32 @cgroupstats_build(ptr noundef ca
   br label %94
 
 94:                                               ; preds = %.thread5, %90, %84, %82, %17
-  %95 = phi i32 [ -2, %17 ], [ 0, %90 ], [ 0, %84 ], [ 0, %82 ], [ -2, %.thread5 ]
+  %95 = phi i32 [ -2, %.thread5 ], [ -2, %17 ], [ 0, %90 ], [ 0, %84 ], [ 0, %82 ]
   call void @__rcu_read_unlock() #18
   br label %96
 
@@ -1897,7 +1897,7 @@ thread-pre-split.thread:                          ; preds = %.thread, %thread-pr
   br i1 %60, label %.thread1, label %.thread3
 
 .thread3:                                         ; preds = %.thread, %57, %thread-pre-split.thread, %46
-  %61 = phi ptr [ @.str.31, %46 ], [ @.str.32, %thread-pre-split.thread ], [ @.str.33, %57 ], [ @.str.30, %.thread ]
+  %61 = phi ptr [ @.str.30, %.thread ], [ @.str.31, %46 ], [ @.str.32, %thread-pre-split.thread ], [ @.str.33, %57 ]
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %64 = load ptr, ptr %63, align 8
@@ -2350,7 +2350,7 @@ define dso_local range(i32 -2147483648, 1) i32 @cgroup1_get_tree(ptr noundef %0)
   tail call void @__rcu_read_unlock() #18
   br label %.thread24
 
-.thread20:                                        ; preds = %.thread17, %139
+.thread20:                                        ; preds = %139, %.thread17
   %145 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %146 = load ptr, ptr %145, align 8
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 80
@@ -2393,7 +2393,7 @@ define dso_local range(i32 -2147483648, 1) i32 @cgroup1_get_tree(ptr noundef %0)
   br i1 %168, label %.thread27.thread.critedge71, label %.lr.ph40, !prof !41, !llvm.loop !42
 
 .thread24:                                        ; preds = %107, %122, %9, %127, %131, %143, %144, %.thread16
-  %.ph23 = phi i32 [ 1, %.thread16 ], [ 1, %144 ], [ %137, %143 ], [ -12, %131 ], [ -1, %127 ], [ %11, %9 ], [ -22, %122 ], [ -16, %107 ]
+  %.ph23 = phi i32 [ -22, %122 ], [ 1, %.thread16 ], [ 1, %144 ], [ %137, %143 ], [ -12, %131 ], [ -1, %127 ], [ %11, %9 ], [ -16, %107 ]
   tail call void @mutex_unlock(ptr noundef nonnull @cgroup_mutex) #18
   br label %.thread27
 
@@ -2523,7 +2523,7 @@ define dso_local ptr @task_get_cgroup1(ptr noundef %0, i32 noundef %1) local_unn
   br i1 %41, label %.sink.split, label %.lr.ph, !prof !41, !llvm.loop !42
 
 .sink.split:                                      ; preds = %.lr.ph, %39, %28, %26
-  %.ph = phi ptr [ %14, %26 ], [ inttoptr (i64 -2 to ptr), %28 ], [ inttoptr (i64 -2 to ptr), %39 ], [ %14, %.lr.ph ]
+  %.ph = phi ptr [ inttoptr (i64 -2 to ptr), %28 ], [ %14, %26 ], [ inttoptr (i64 -2 to ptr), %39 ], [ %14, %.lr.ph ]
   tail call void @__rcu_read_unlock() #18
   br label %42
 

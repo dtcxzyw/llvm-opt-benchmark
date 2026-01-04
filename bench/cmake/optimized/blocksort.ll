@@ -706,8 +706,8 @@ mainSimpleSort.exit.i.i:                          ; preds = %mainSimpleSort.exit
   br label %.outer245._crit_edge.i.i
 
 .outer245._crit_edge.i.i:                         ; preds = %.outer245._crit_edge.loopexit.split.loop.exit496.i.i, %.outer245._crit_edge.loopexit.split.loop.exit.i.i, %.outer245._crit_edge.loopexit337.i.i, %338
-  %.1227.ph.lcssa.i.i = phi i32 [ %.0226.i.i, %338 ], [ %359, %.outer245._crit_edge.loopexit337.i.i ], [ %360, %.outer245._crit_edge.loopexit.split.loop.exit.i.i ], [ %363, %.outer245._crit_edge.loopexit.split.loop.exit496.i.i ]
-  %.1.lcssa.i.i = phi i32 [ %.0.i.i, %338 ], [ %355, %.outer245._crit_edge.loopexit337.i.i ], [ %361, %.outer245._crit_edge.loopexit.split.loop.exit.i.i ], [ %362, %.outer245._crit_edge.loopexit.split.loop.exit496.i.i ]
+  %.1227.ph.lcssa.i.i = phi i32 [ %359, %.outer245._crit_edge.loopexit337.i.i ], [ %.0226.i.i, %338 ], [ %360, %.outer245._crit_edge.loopexit.split.loop.exit.i.i ], [ %363, %.outer245._crit_edge.loopexit.split.loop.exit496.i.i ]
+  %.1.lcssa.i.i = phi i32 [ %355, %.outer245._crit_edge.loopexit337.i.i ], [ %.0.i.i, %338 ], [ %361, %.outer245._crit_edge.loopexit.split.loop.exit.i.i ], [ %362, %.outer245._crit_edge.loopexit.split.loop.exit496.i.i ]
   %364 = icmp sgt i32 %.1.lcssa.i.i, %.0224.i.i
   br i1 %364, label %.critedge.i.i, label %.lr.ph298.preheader.i.i
 
@@ -1201,7 +1201,7 @@ mainSort.exit.thread:                             ; preds = %.thread580.i
   br label %582
 
 mainSort.exit:                                    ; preds = %.loopexit.i, %.loopexit.thread.i, %.thread580.i
-  %580 = phi i32 [ %452, %.loopexit.thread.i ], [ %.pre.pre.i195, %.thread580.i ], [ %.pre.pre.i, %.loopexit.i ]
+  %580 = phi i32 [ %.pre.pre.i195, %.thread580.i ], [ %452, %.loopexit.thread.i ], [ %.pre.pre.i, %.loopexit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1817,8 +1817,8 @@ fallbackSimpleSort.exit.i:                        ; preds = %.critedge2.i.i, %.l
   br label %.outer190._crit_edge.i
 
 .outer190._crit_edge.i:                           ; preds = %.outer190._crit_edge.loopexit.split.loop.exit391.i, %.outer190._crit_edge.loopexit.split.loop.exit.i, %.outer190._crit_edge.loopexit265.i, %223
-  %.1175.ph.lcssa.i = phi i32 [ %.0174.i, %223 ], [ %243, %.outer190._crit_edge.loopexit265.i ], [ %244, %.outer190._crit_edge.loopexit.split.loop.exit.i ], [ %247, %.outer190._crit_edge.loopexit.split.loop.exit391.i ]
-  %.1.lcssa.i = phi i32 [ %.0.i, %223 ], [ %239, %.outer190._crit_edge.loopexit265.i ], [ %245, %.outer190._crit_edge.loopexit.split.loop.exit.i ], [ %246, %.outer190._crit_edge.loopexit.split.loop.exit391.i ]
+  %.1175.ph.lcssa.i = phi i32 [ %243, %.outer190._crit_edge.loopexit265.i ], [ %.0174.i, %223 ], [ %244, %.outer190._crit_edge.loopexit.split.loop.exit.i ], [ %247, %.outer190._crit_edge.loopexit.split.loop.exit391.i ]
+  %.1.lcssa.i = phi i32 [ %239, %.outer190._crit_edge.loopexit265.i ], [ %.0.i, %223 ], [ %245, %.outer190._crit_edge.loopexit.split.loop.exit.i ], [ %246, %.outer190._crit_edge.loopexit.split.loop.exit391.i ]
   %248 = icmp sgt i32 %.1.lcssa.i, %.0169.i
   br i1 %248, label %.critedge.i, label %.lr.ph228.preheader.i
 

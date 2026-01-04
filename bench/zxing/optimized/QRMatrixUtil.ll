@@ -793,8 +793,8 @@ _ZN5ZXing8BitArrayD2Ev.exit63.i.i:                ; preds = %310, %308
   br label %315
 
 315:                                              ; preds = %_ZN5ZXing8BitArrayD2Ev.exit63.i.i, %.loopexit.split-lp67.i.i, %.loopexit66.i.i, %.loopexit.split-lp72.i.i, %.loopexit71.i.i
-  %316 = phi ptr [ %.pre.i.i, %_ZN5ZXing8BitArrayD2Ev.exit63.i.i ], [ %166, %.loopexit71.i.i ], [ %285, %.loopexit.split-lp72.i.i ], [ %204, %.loopexit66.i.i ], [ %204, %.loopexit.split-lp67.i.i ]
-  %.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.i.i, %_ZN5ZXing8BitArrayD2Ev.exit63.i.i ], [ %lpad.loopexit73.i.i, %.loopexit71.i.i ], [ %lpad.loopexit.split-lp74.i.i, %.loopexit.split-lp72.i.i ], [ %lpad.loopexit68.i.i, %.loopexit66.i.i ], [ %lpad.loopexit.split-lp69.i.i, %.loopexit.split-lp67.i.i ]
+  %316 = phi ptr [ %285, %.loopexit.split-lp72.i.i ], [ %.pre.i.i, %_ZN5ZXing8BitArrayD2Ev.exit63.i.i ], [ %166, %.loopexit71.i.i ], [ %204, %.loopexit66.i.i ], [ %204, %.loopexit.split-lp67.i.i ]
+  %.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %lpad.loopexit.split-lp74.i.i, %.loopexit.split-lp72.i.i ], [ %.pn.pn.i.i, %_ZN5ZXing8BitArrayD2Ev.exit63.i.i ], [ %lpad.loopexit73.i.i, %.loopexit71.i.i ], [ %lpad.loopexit68.i.i, %.loopexit66.i.i ], [ %lpad.loopexit.split-lp69.i.i, %.loopexit.split-lp67.i.i ]
   %.not.i.i.i.i64.i.i = icmp eq ptr %316, null
   br i1 %.not.i.i.i.i64.i.i, label %common.resume, label %317
 
@@ -808,7 +808,7 @@ _ZN5ZXing8BitArrayD2Ev.exit63.i.i:                ; preds = %310, %308
   br label %common.resume
 
 common.resume:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74.i, %629, %451, %453, %482, %484, %156, %315, %317, %_ZN5ZXing8BitArrayD2Ev.exit20.i
-  %common.resume.op = phi { ptr, i32 } [ %355, %_ZN5ZXing8BitArrayD2Ev.exit20.i ], [ %157, %156 ], [ %.pn.pn.pn.pn.i.i, %315 ], [ %.pn.pn.pn.pn.i.i, %317 ], [ %.pn.pn.pn.i.i, %453 ], [ %.pn.pn.pn.i.i, %451 ], [ %483, %482 ], [ %483, %484 ], [ %.pn.pn.pn.i, %629 ], [ %.pn.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74.i ]
+  %common.resume.op = phi { ptr, i32 } [ %483, %484 ], [ %.pn.pn.pn.pn.i.i, %317 ], [ %355, %_ZN5ZXing8BitArrayD2Ev.exit20.i ], [ %157, %156 ], [ %.pn.pn.pn.pn.i.i, %315 ], [ %.pn.pn.pn.i.i, %451 ], [ %.pn.pn.pn.i.i, %453 ], [ %483, %482 ], [ %.pn.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74.i ], [ %.pn.pn.pn.i, %629 ]
   resume { ptr, i32 } %common.resume.op
 
 323:                                              ; preds = %284
@@ -1423,7 +1423,7 @@ default.unreachable:                              ; preds = %528
   unreachable
 
 _ZN5ZXing6QRCode14GetDataMaskBitEiiib.exit.i:     ; preds = %528, %531, %535, %539, %544, %550, %555, %560
-  %.025.i.i = phi i1 [ %534, %531 ], [ %538, %535 ], [ %543, %539 ], [ %549, %544 ], [ %554, %550 ], [ %559, %555 ], [ %568, %560 ], [ %513, %528 ]
+  %.025.i.i = phi i1 [ %534, %531 ], [ %568, %560 ], [ %538, %535 ], [ %543, %539 ], [ %549, %544 ], [ %554, %550 ], [ %559, %555 ], [ %513, %528 ]
   %spec.select62.i = xor i1 %529, %.025.i.i
   %569 = zext i1 %spec.select62.i to i8
   store i8 %569, ptr %gep.i75, align 1, !tbaa !8
@@ -1971,7 +1971,7 @@ define linkonce_odr void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind noalias w
   br i1 %19, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !65
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %14
-  %.0.i = phi i32 [ %7, %6 ], [ %11, %10 ], [ %15, %14 ], [ 1, %2 ], [ %18, %16 ]
+  %.0.i = phi i32 [ %15, %14 ], [ %7, %6 ], [ %11, %10 ], [ 1, %2 ], [ %18, %16 ]
   %.lobit = lshr i32 %1, 31
   %20 = add i32 %.0.i, %.lobit
   %21 = zext i32 %20 to i64

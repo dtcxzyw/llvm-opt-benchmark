@@ -712,7 +712,7 @@ define hidden void @_ZN14ArchiveBuilder13SourceObjList8relocateEiPS_(ptr noundef
   br i1 %44, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, label %_ZNK6BitMap7iterateI24RelocateEmbeddedPointersEEbPT_mm.exit
 
 _ZNK6BitMap18find_first_set_bitEmm.exit.i.i:      ; preds = %41, %24
-  %.0.i.i.i.i = phi i64 [ %.0917.i.i, %24 ], [ %43, %41 ]
+  %.0.i.i.i.i = phi i64 [ %43, %41 ], [ %.0917.i.i, %24 ]
   %.not.not.i.i = icmp ult i64 %.0.i.i.i.i, %14
   br i1 %.not.not.i.i, label %45, label %_ZNK6BitMap7iterateI24RelocateEmbeddedPointersEEbPT_mm.exit
 
@@ -1166,7 +1166,7 @@ _ZN14ArchiveBuilder11is_excludedEP5Klass.exit:    ; preds = %18, %31
   %35 = tail call noundef zeroext i1 @_ZN22SystemDictionaryShared17is_excluded_classEP13InstanceKlass(ptr noundef nonnull %.sink.i) #19
   br i1 %35, label %56, label %_ZN14ArchiveBuilder11is_excludedEP5Klass.exit.thread
 
-_ZN14ArchiveBuilder11is_excludedEP5Klass.exit.thread: ; preds = %31, %25, %27, %_ZN14ArchiveBuilder11is_excludedEP5Klass.exit
+_ZN14ArchiveBuilder11is_excludedEP5Klass.exit.thread: ; preds = %31, %27, %25, %_ZN14ArchiveBuilder11is_excludedEP5Klass.exit
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %37 = load ptr, ptr %36, align 8
   %38 = load i32, ptr %37, align 8
@@ -1382,8 +1382,8 @@ _ZN14ArchiveBuilder11is_excludedEP5Klass.exit:    ; preds = %30, %44
   store ptr %59, ptr %58, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %44, %38, %40, %70, %68, %24, %_ZN14ArchiveBuilder11is_excludedEP5Klass.exit, %12, %18, %2
-  %.0 = phi i32 [ 1, %2 ], [ 2, %18 ], [ 2, %12 ], [ 0, %_ZN14ArchiveBuilder11is_excludedEP5Klass.exit ], [ 0, %24 ], [ 2, %68 ], [ 2, %70 ], [ 0, %40 ], [ 0, %38 ], [ 0, %44 ]
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %44, %40, %38, %70, %68, %24, %_ZN14ArchiveBuilder11is_excludedEP5Klass.exit, %12, %18, %2
+  %.0 = phi i32 [ 2, %12 ], [ 1, %2 ], [ 2, %70 ], [ 2, %18 ], [ 0, %_ZN14ArchiveBuilder11is_excludedEP5Klass.exit ], [ 0, %24 ], [ 2, %68 ], [ 0, %38 ], [ 0, %40 ], [ 0, %44 ]
   ret i32 %.0
 }
 
@@ -1416,7 +1416,7 @@ define hidden noundef zeroext i1 @_ZN14ArchiveBuilder11is_excludedEP5Klass(ptr n
   br label %17
 
 17:                                               ; preds = %.sink.split, %12, %6, %8
-  %.0 = phi i1 [ false, %8 ], [ false, %6 ], [ false, %12 ], [ %16, %.sink.split ]
+  %.0 = phi i1 [ false, %6 ], [ false, %8 ], [ false, %12 ], [ %16, %.sink.split ]
   ret i1 %.0
 }
 
@@ -2362,7 +2362,7 @@ _ZN14ArchiveBuilder13SourceObjList6appendEPNS_13SourceObjInfoE.exit.sink.split: 
   br label %_ZN14ArchiveBuilder13SourceObjList6appendEPNS_13SourceObjInfoE.exit
 
 _ZN14ArchiveBuilder13SourceObjList6appendEPNS_13SourceObjInfoE.exit: ; preds = %101, %_ZN14ArchiveBuilder13SourceObjList6appendEPNS_13SourceObjInfoE.exit.sink.split, %_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE6appendERKS2_.exit.i15, %_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE6appendERKS2_.exit.i, %_ZN27ResizeableResourceHashtableIPhN14ArchiveBuilder13SourceObjInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashIS0_EjRKT_EEXadL_Z16primitive_equalsIS0_EbS9_S9_EEE10maybe_growEib.exit.thread, %9, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %9 ], [ false, %_ZN27ResizeableResourceHashtableIPhN14ArchiveBuilder13SourceObjInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashIS0_EjRKT_EEXadL_Z16primitive_equalsIS0_EbS9_S9_EEE10maybe_growEib.exit.thread ], [ true, %_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE6appendERKS2_.exit.i ], [ true, %_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE6appendERKS2_.exit.i15 ], [ true, %_ZN14ArchiveBuilder13SourceObjList6appendEPNS_13SourceObjInfoE.exit.sink.split ], [ false, %101 ]
+  %.0 = phi i1 [ true, %_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE6appendERKS2_.exit.i15 ], [ false, %3 ], [ false, %9 ], [ true, %_ZN14ArchiveBuilder13SourceObjList6appendEPNS_13SourceObjInfoE.exit.sink.split ], [ false, %_ZN27ResizeableResourceHashtableIPhN14ArchiveBuilder13SourceObjInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashIS0_EjRKT_EEXadL_Z16primitive_equalsIS0_EbS9_S9_EEE10maybe_growEib.exit.thread ], [ true, %_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE6appendERKS2_.exit.i ], [ false, %101 ]
   ret i1 %.0
 }
 
@@ -3579,7 +3579,7 @@ define hidden void @_ZN14ArchiveBuilder26relocate_embedded_pointersEPNS_13Source
   br i1 %46, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, label %_ZN14ArchiveBuilder13SourceObjList8relocateEiPS_.exit
 
 _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i:    ; preds = %43, %26
-  %.0.i.i.i.i.i = phi i64 [ %.0917.i.i.i, %26 ], [ %45, %43 ]
+  %.0.i.i.i.i.i = phi i64 [ %45, %43 ], [ %.0917.i.i.i, %26 ]
   %.not.not.i.i.i = icmp ult i64 %.0.i.i.i.i.i, %20
   br i1 %.not.not.i.i.i, label %47, label %_ZN14ArchiveBuilder13SourceObjList8relocateEiPS_.exit
 
@@ -3697,7 +3697,7 @@ define hidden void @_ZN14ArchiveBuilder39relocate_metaspaceobj_embedded_pointers
   br i1 %49, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i, label %_ZN14ArchiveBuilder13SourceObjList8relocateEiPS_.exit.i
 
 _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i:  ; preds = %46, %29
-  %.0.i.i.i.i.i.i = phi i64 [ %.0917.i.i.i.i, %29 ], [ %48, %46 ]
+  %.0.i.i.i.i.i.i = phi i64 [ %48, %46 ], [ %.0917.i.i.i.i, %29 ]
   %.not.not.i.i.i.i = icmp ult i64 %.0.i.i.i.i.i.i, %23
   br i1 %.not.not.i.i.i.i, label %50, label %_ZN14ArchiveBuilder13SourceObjList8relocateEiPS_.exit.i
 
@@ -3799,7 +3799,7 @@ _ZN14ArchiveBuilder26relocate_embedded_pointersEPNS_13SourceObjListE.exit: ; pre
   br i1 %102, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i8, label %_ZN14ArchiveBuilder13SourceObjList8relocateEiPS_.exit.i3
 
 _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i8: ; preds = %99, %82
-  %.0.i.i.i.i.i.i9 = phi i64 [ %.0917.i.i.i.i6, %82 ], [ %101, %99 ]
+  %.0.i.i.i.i.i.i9 = phi i64 [ %101, %99 ], [ %.0917.i.i.i.i6, %82 ]
   %.not.not.i.i.i.i10 = icmp ult i64 %.0.i.i.i.i.i.i9, %76
   br i1 %.not.not.i.i.i.i10, label %103, label %_ZN14ArchiveBuilder13SourceObjList8relocateEiPS_.exit.i3
 
@@ -4514,7 +4514,7 @@ _ZN25RelocateBufferToRequestedILb1EEC2EP14ArchiveBuilder.exit: ; preds = %17, %3
   br i1 %66, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i, label %_ZN25RelocateBufferToRequestedILb1EE4doitEv.exit
 
 _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i:  ; preds = %63, %46
-  %.0.i.i.i.i.i.i = phi i64 [ %.0917.i.i.i.i, %46 ], [ %65, %63 ]
+  %.0.i.i.i.i.i.i = phi i64 [ %65, %63 ], [ %.0917.i.i.i.i, %46 ]
   %.not.not.i.i.i.i = icmp ult i64 %.0.i.i.i.i.i.i, %43
   br i1 %.not.not.i.i.i.i, label %67, label %_ZN25RelocateBufferToRequestedILb1EE4doitEv.exit
 
@@ -4623,7 +4623,7 @@ _ZN25RelocateBufferToRequestedILb0EEC2EP14ArchiveBuilder.exit: ; preds = %74, %9
   br i1 %125, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i7, label %_ZN25RelocateBufferToRequestedILb0EE4doitEv.exit
 
 _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i7: ; preds = %122, %105
-  %.0.i.i.i.i.i.i8 = phi i64 [ %.0917.i.i.i.i5, %105 ], [ %124, %122 ]
+  %.0.i.i.i.i.i.i8 = phi i64 [ %124, %122 ], [ %.0917.i.i.i.i5, %105 ]
   %.not.not.i.i.i.i9 = icmp ult i64 %.0.i.i.i.i.i.i8, %102
   br i1 %.not.not.i.i.i.i9, label %126, label %_ZN25RelocateBufferToRequestedILb0EE4doitEv.exit
 
@@ -6184,7 +6184,7 @@ _ZN12MetaspaceObj9type_nameENS_4TypeE.exit:       ; preds = %_ZN14ArchiveBuilder
   br label %_ZN14ArchiveBuilder12CDSMapLogger9log_klassEP5KlassPhPKciP6Thread.exit
 
 180:                                              ; preds = %_ZN14ArchiveBuilder12CDSMapLogger10log_as_hexEPhS1_S1_b.exit, %43, %44, %45, %46, %47, %48, %49, %50, %51
-  %.0.i.ph = phi ptr [ @.str.90, %51 ], [ @.str.89, %50 ], [ @.str.88, %49 ], [ @.str.87, %48 ], [ @.str.84, %47 ], [ @.str.81, %46 ], [ @.str.80, %45 ], [ @.str.79, %44 ], [ @.str.78, %43 ], [ @.str.77, %_ZN14ArchiveBuilder12CDSMapLogger10log_as_hexEPhS1_S1_b.exit ]
+  %.0.i.ph = phi ptr [ @.str.89, %50 ], [ @.str.88, %49 ], [ @.str.87, %48 ], [ @.str.84, %47 ], [ @.str.81, %46 ], [ @.str.80, %45 ], [ @.str.79, %44 ], [ @.str.78, %43 ], [ @.str.90, %51 ], [ @.str.77, %_ZN14ArchiveBuilder12CDSMapLogger10log_as_hexEPhS1_S1_b.exit ]
   %181 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_78ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not110 = icmp eq ptr %181, null
   br i1 %.not110, label %_ZN14ArchiveBuilder12CDSMapLogger9log_klassEP5KlassPhPKciP6Thread.exit, label %182
@@ -6866,7 +6866,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm2383974ES_E19oop_load_in_heap_atEP7oopDescl.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm2383974ES_E19oop_load_in_heap_atEP7oopDescl.exit: ; preds = %2, %17, %21
-  %.0.i.i = phi ptr [ null, %2 ], [ %20, %21 ], [ %20, %17 ]
+  %.0.i.i = phi ptr [ null, %2 ], [ %20, %17 ], [ %20, %21 ]
   ret ptr %.0.i.i
 }
 
@@ -7040,7 +7040,7 @@ _ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit:      ; preds = %44, %45, %49, %54
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 _ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %61, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, %5, %11, %24, %31, %2
-  %.0 = phi ptr [ %1, %2 ], [ %.0.i.i.i, %31 ], [ %.0.i.i.i, %24 ], [ %1, %11 ], [ %1, %5 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
+  %.0 = phi ptr [ %1, %5 ], [ %1, %2 ], [ %.0.i.i.i, %24 ], [ %.0.i.i.i, %31 ], [ %1, %11 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
   ret ptr %.0
 }
 
@@ -7230,7 +7230,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm2383942ES_E19oop_load_in_heap_atEP7oopDescl.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm2383942ES_E19oop_load_in_heap_atEP7oopDescl.exit: ; preds = %2, %8, %11
-  %.0.i.i = phi ptr [ null, %2 ], [ %10, %11 ], [ %10, %8 ]
+  %.0.i.i = phi ptr [ null, %2 ], [ %10, %8 ], [ %10, %11 ]
   ret ptr %.0.i.i
 }
 
@@ -7556,7 +7556,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm286822ES_E19oop_load_in_heap_atEP7oopDescl.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm286822ES_E19oop_load_in_heap_atEP7oopDescl.exit: ; preds = %2, %17, %21
-  %.0.i.i = phi ptr [ null, %2 ], [ %20, %21 ], [ %20, %17 ]
+  %.0.i.i = phi ptr [ null, %2 ], [ %20, %17 ], [ %20, %21 ]
   ret ptr %.0.i.i
 }
 
@@ -7671,7 +7671,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm286790ES_E19oop_load_in_heap_atEP7oopDescl.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm286790ES_E19oop_load_in_heap_atEP7oopDescl.exit: ; preds = %2, %8, %11
-  %.0.i.i = phi ptr [ null, %2 ], [ %10, %11 ], [ %10, %8 ]
+  %.0.i.i = phi ptr [ null, %2 ], [ %10, %8 ], [ %10, %11 ]
   ret ptr %.0.i.i
 }
 

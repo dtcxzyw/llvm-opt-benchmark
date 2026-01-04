@@ -202,7 +202,7 @@ define dso_local i32 @acpi_install_notify_handler(ptr noundef %0, i32 noundef %1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader9, %28, %22, %92, %90, %69, %41, %35, %29
-  %93 = phi i32 [ 0, %92 ], [ 0, %90 ], [ %44, %41 ], [ 8, %29 ], [ 4, %35 ], [ 4, %69 ], [ 7, %22 ], [ 0, %28 ], [ 7, %.preheader9 ]
+  %93 = phi i32 [ 0, %92 ], [ 0, %90 ], [ %44, %41 ], [ 8, %29 ], [ 4, %35 ], [ 4, %69 ], [ 0, %28 ], [ 7, %22 ], [ 7, %.preheader9 ]
   %94 = tail call i32 @acpi_ut_release_mutex(i32 noundef 1) #5
   br label %95
 
@@ -356,7 +356,7 @@ define dso_local i32 @acpi_remove_notify_handler(ptr noundef %0, i32 noundef %1,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %73, %43, %27, %18, %.loopexit7, %31, %28, %3
-  %75 = phi i32 [ 6, %.loopexit7 ], [ 4097, %3 ], [ 8, %28 ], [ 6, %31 ], [ 0, %27 ], [ %19, %18 ], [ 0, %73 ], [ %44, %43 ]
+  %75 = phi i32 [ 6, %.loopexit7 ], [ 4097, %3 ], [ 8, %28 ], [ 6, %31 ], [ %19, %18 ], [ 0, %27 ], [ 0, %73 ], [ %44, %43 ]
   ret i32 %75
 }
 

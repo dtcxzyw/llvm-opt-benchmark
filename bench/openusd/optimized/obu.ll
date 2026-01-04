@@ -580,7 +580,7 @@ read_bitstream_level.exit200.i:                   ; preds = %.lr.ph.i
   br i1 %.not164.not.i, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !8
 
 .loopexit.i:                                      ; preds = %245, %170, %read_bitstream_level.exit.thread.i
-  %248 = phi i32 [ %173, %170 ], [ 0, %read_bitstream_level.exit.thread.i ], [ %246, %245 ]
+  %248 = phi i32 [ 0, %read_bitstream_level.exit.thread.i ], [ %173, %170 ], [ %246, %245 ]
   %249 = load i32, ptr %86, align 16
   %250 = icmp slt i32 %249, 0
   %251 = icmp sgt i32 %249, %248
@@ -686,7 +686,7 @@ read_sequence_header_obu.exit.thread:             ; preds = %read_bitstream_leve
   br label %read_and_decode_one_tile_list.exit.thread
 
 read_sequence_header_obu.exit:                    ; preds = %279, %287
-  %.0158.i.ph = phi i64 [ 0, %279 ], [ %291, %287 ]
+  %.0158.i.ph = phi i64 [ %291, %287 ], [ 0, %279 ]
   %.pr = load i32, ptr %30, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %.not165 = icmp eq i32 %.pr, 0
@@ -1311,7 +1311,7 @@ read_metadata.exit.thread:                        ; preds = %418, %484, %485, %4
   br label %read_and_decode_one_tile_list.exit.thread
 
 read_metadata.exit:                               ; preds = %485, %473, %431, %read_metadata_itut_t35.exit.i, %read_metadata_scalability.exit.i, %541
-  %.0.i180.ph = phi i64 [ 0, %read_metadata_scalability.exit.i ], [ %546, %541 ], [ %419, %read_metadata_itut_t35.exit.i ], [ %419, %431 ], [ %419, %473 ], [ %419, %485 ]
+  %.0.i180.ph = phi i64 [ %419, %431 ], [ %546, %541 ], [ %419, %473 ], [ 0, %read_metadata_scalability.exit.i ], [ %419, %read_metadata_itut_t35.exit.i ], [ %419, %485 ]
   %.pr217 = load i32, ptr %30, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -1674,11 +1674,11 @@ get_last_nonzero_byte.exit.thread:                ; preds = %138, %705
   br label %.preheader.preheader
 
 get_last_nonzero_byte.exit:                       ; preds = %707, %read_padding.exit, %read_and_decode_one_tile_list.exit, %read_metadata.exit, %340, %292, %294, %415, %338, %333
-  %.1203 = phi i1 [ true, %292 ], [ true, %294 ], [ %.2204.ph, %415 ], [ true, %340 ], [ false, %338 ], [ false, %333 ], [ true, %read_metadata.exit ], [ false, %read_and_decode_one_tile_list.exit ], [ true, %read_padding.exit ], [ true, %707 ]
-  %.2132 = phi ptr [ %.0130.ph294, %292 ], [ %.0130.ph294, %294 ], [ %.1131, %415 ], [ %.3133, %340 ], [ %.3133, %338 ], [ %.3133, %333 ], [ %.0130.ph294, %read_metadata.exit ], [ %.0130.ph294, %read_and_decode_one_tile_list.exit ], [ %.0130.ph294, %read_padding.exit ], [ %.0130.ph294, %707 ]
-  %.2129 = phi i32 [ %.0127.ph295, %292 ], [ %.0127.ph295, %294 ], [ %.1128, %415 ], [ %.3, %340 ], [ %.3, %338 ], [ %.3, %333 ], [ %.0127.ph295, %read_metadata.exit ], [ %.0127.ph295, %read_and_decode_one_tile_list.exit ], [ %.0127.ph295, %read_padding.exit ], [ %.0127.ph295, %707 ]
-  %.1126 = phi i64 [ %.0158.i.ph, %292 ], [ %.0158.i.ph, %294 ], [ %412, %415 ], [ %327, %340 ], [ %339, %338 ], [ %327, %333 ], [ %.0.i180.ph, %read_metadata.exit ], [ %.0.i188.ph, %read_and_decode_one_tile_list.exit ], [ %700, %read_padding.exit ], [ %706, %707 ]
-  %.1 = phi i32 [ %.0123.ph296, %292 ], [ %.0123.ph296, %294 ], [ 0, %415 ], [ %.0123.ph296, %340 ], [ %.0123.ph296, %338 ], [ %.0123.ph296, %333 ], [ %.0123.ph296, %read_metadata.exit ], [ %.0123.ph296, %read_and_decode_one_tile_list.exit ], [ %.0123.ph296, %read_padding.exit ], [ %.0123.ph296, %707 ]
+  %.1203 = phi i1 [ true, %read_padding.exit ], [ false, %read_and_decode_one_tile_list.exit ], [ true, %292 ], [ true, %294 ], [ %.2204.ph, %415 ], [ true, %340 ], [ false, %338 ], [ false, %333 ], [ true, %read_metadata.exit ], [ true, %707 ]
+  %.2132 = phi ptr [ %.0130.ph294, %read_padding.exit ], [ %.0130.ph294, %read_and_decode_one_tile_list.exit ], [ %.0130.ph294, %292 ], [ %.0130.ph294, %294 ], [ %.1131, %415 ], [ %.3133, %340 ], [ %.3133, %338 ], [ %.3133, %333 ], [ %.0130.ph294, %read_metadata.exit ], [ %.0130.ph294, %707 ]
+  %.2129 = phi i32 [ %.0127.ph295, %read_padding.exit ], [ %.0127.ph295, %read_and_decode_one_tile_list.exit ], [ %.0127.ph295, %292 ], [ %.0127.ph295, %294 ], [ %.1128, %415 ], [ %.3, %340 ], [ %.3, %338 ], [ %.3, %333 ], [ %.0127.ph295, %read_metadata.exit ], [ %.0127.ph295, %707 ]
+  %.1126 = phi i64 [ %700, %read_padding.exit ], [ %.0.i188.ph, %read_and_decode_one_tile_list.exit ], [ %.0158.i.ph, %292 ], [ %.0158.i.ph, %294 ], [ %412, %415 ], [ %327, %340 ], [ %339, %338 ], [ %327, %333 ], [ %.0.i180.ph, %read_metadata.exit ], [ %706, %707 ]
+  %.1 = phi i32 [ %.0123.ph296, %read_padding.exit ], [ %.0123.ph296, %read_and_decode_one_tile_list.exit ], [ %.0123.ph296, %292 ], [ %.0123.ph296, %294 ], [ 0, %415 ], [ %.0123.ph296, %340 ], [ %.0123.ph296, %338 ], [ %.0123.ph296, %333 ], [ %.0123.ph296, %read_metadata.exit ], [ %.0123.ph296, %707 ]
   %713 = load i64, ptr %15, align 8
   %714 = icmp ugt i64 %.1126, %713
   br i1 %714, label %716, label %.preheader.preheader
@@ -1723,7 +1723,7 @@ get_last_nonzero_byte.exit:                       ; preds = %707, %read_padding.
   br label %read_and_decode_one_tile_list.exit.thread
 
 read_and_decode_one_tile_list.exit.thread:        ; preds = %read_padding.exit, %read_and_decode_one_tile_list.exit, %read_metadata.exit, %read_one_tile_group_obu.exit, %read_sequence_header_obu.exit, %.lr.ph, %is_obu_in_current_operating_point.exit, %read_padding.exit.thread, %102, %.critedge.loopexit302, %615, %606, %591, %561, %read_metadata.exit.thread, %read_one_tile_group_obu.exit.thread, %byte_alignment.exit, %read_sequence_header_obu.exit.thread, %721, %716, %711, %549, %351, %347, %332, %323, %302, %299, %296, %140, %117, %106, %22
-  %.0 = phi i32 [ -1, %22 ], [ -1, %106 ], [ -1, %117 ], [ -1, %711 ], [ -1, %716 ], [ -1, %721 ], [ -1, %140 ], [ -1, %296 ], [ -1, %323 ], [ -1, %332 ], [ -1, %351 ], [ -1, %347 ], [ -1, %299 ], [ -1, %302 ], [ -1, %549 ], [ -1, %byte_alignment.exit ], [ -1, %read_sequence_header_obu.exit.thread ], [ -1, %read_one_tile_group_obu.exit.thread ], [ -1, %read_metadata.exit.thread ], [ -1, %561 ], [ -1, %591 ], [ -1, %606 ], [ -1, %615 ], [ 0, %102 ], [ %724, %.critedge.loopexit302 ], [ -1, %read_padding.exit.thread ], [ -1, %is_obu_in_current_operating_point.exit ], [ -1, %.lr.ph ], [ -1, %read_sequence_header_obu.exit ], [ -1, %read_one_tile_group_obu.exit ], [ -1, %read_metadata.exit ], [ -1, %read_and_decode_one_tile_list.exit ], [ -1, %read_padding.exit ]
+  %.0 = phi i32 [ -1, %22 ], [ -1, %read_metadata.exit.thread ], [ -1, %is_obu_in_current_operating_point.exit ], [ -1, %106 ], [ -1, %117 ], [ -1, %711 ], [ -1, %716 ], [ -1, %721 ], [ -1, %140 ], [ -1, %561 ], [ -1, %296 ], [ -1, %323 ], [ -1, %332 ], [ -1, %591 ], [ -1, %351 ], [ -1, %byte_alignment.exit ], [ -1, %347 ], [ -1, %299 ], [ -1, %302 ], [ -1, %606 ], [ -1, %615 ], [ -1, %549 ], [ -1, %read_sequence_header_obu.exit.thread ], [ -1, %read_one_tile_group_obu.exit.thread ], [ 0, %102 ], [ %724, %.critedge.loopexit302 ], [ -1, %read_padding.exit.thread ], [ -1, %.lr.ph ], [ -1, %read_sequence_header_obu.exit ], [ -1, %read_one_tile_group_obu.exit ], [ -1, %read_metadata.exit ], [ -1, %read_and_decode_one_tile_list.exit ], [ -1, %read_padding.exit ]
   ret i32 %.0
 }
 

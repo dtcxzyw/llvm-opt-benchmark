@@ -341,7 +341,7 @@ je_extent_commit_zero.exit:                       ; preds = %127
   tail call void @je_extent_record(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %.043.i)
   br label %149
 
-je_extent_commit_zero.exit.thread:                ; preds = %145, %144, %131, %132, %je_extent_commit_zero.exit
+je_extent_commit_zero.exit.thread:                ; preds = %145, %144, %132, %131, %je_extent_commit_zero.exit
   %.val = load i64, ptr %.043.i, align 8, !tbaa !43
   %147 = and i64 %.val, 8192
   %.not = icmp eq i64 %147, 0
@@ -352,7 +352,7 @@ je_extent_commit_zero.exit.thread:                ; preds = %145, %144, %131, %1
   br label %149
 
 149:                                              ; preds = %extent_recycle_split.exit.thread, %je_extent_commit_zero.exit.thread, %148, %146, %47
-  %.0 = phi ptr [ null, %47 ], [ null, %146 ], [ %.043.i, %148 ], [ %.043.i, %je_extent_commit_zero.exit.thread ], [ null, %extent_recycle_split.exit.thread ]
+  %.0 = phi ptr [ null, %47 ], [ null, %extent_recycle_split.exit.thread ], [ null, %146 ], [ %.043.i, %148 ], [ %.043.i, %je_extent_commit_zero.exit.thread ]
   ret ptr %.0
 }
 
@@ -484,7 +484,7 @@ exp_grow_size_prepare.exit.i.i:                   ; preds = %45
   br label %tsd_fetch_impl.exit.i.i.i.i
 
 tsd_fetch_impl.exit.i.i.i.i:                      ; preds = %67, %63, %62
-  %69 = phi ptr [ %68, %67 ], [ %64, %63 ], [ %0, %62 ]
+  %69 = phi ptr [ %64, %63 ], [ %68, %67 ], [ %0, %62 ]
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 832
   %71 = load i8, ptr %70, align 8, !tbaa !36
   %72 = icmp eq i8 %71, 0
@@ -516,7 +516,7 @@ ehooks_pre_reentrancy.exit.i.i.i:                 ; preds = %76, %tsd_fetch_impl
   br label %tsd_fetch_impl.exit.i27.i.i.i
 
 tsd_fetch_impl.exit.i27.i.i.i:                    ; preds = %83, %79, %ehooks_pre_reentrancy.exit.i.i.i
-  %85 = phi ptr [ %84, %83 ], [ %80, %79 ], [ %0, %ehooks_pre_reentrancy.exit.i.i.i ]
+  %85 = phi ptr [ %80, %79 ], [ %84, %83 ], [ %0, %ehooks_pre_reentrancy.exit.i.i.i ]
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 1
   %87 = load i8, ptr %86, align 1, !tbaa !36
   %88 = add i8 %87, -1
@@ -766,7 +766,7 @@ extent_alloc_retained.exit:                       ; preds = %49, %36, %exp_grow_
   br label %201
 
 201:                                              ; preds = %extent_alloc_retained.exit.thread30, %extent_alloc_retained.exit.thread28, %185, %198
-  %.0 = phi ptr [ null, %185 ], [ %200, %198 ], [ %29, %extent_alloc_retained.exit.thread28 ], [ %.0149.i.i, %extent_alloc_retained.exit.thread30 ]
+  %.0 = phi ptr [ %.0149.i.i, %extent_alloc_retained.exit.thread30 ], [ null, %185 ], [ %200, %198 ], [ %29, %extent_alloc_retained.exit.thread28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret ptr %.0
 }
@@ -813,7 +813,7 @@ tsdn_witness_tsdp_get.exit:
   br label %tsd_fetch_impl.exit.i.i
 
 tsd_fetch_impl.exit.i.i:                          ; preds = %29, %25, %24
-  %31 = phi ptr [ %30, %29 ], [ %26, %25 ], [ %0, %24 ]
+  %31 = phi ptr [ %26, %25 ], [ %30, %29 ], [ %0, %24 ]
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 832
   %33 = load i8, ptr %32, align 8, !tbaa !36
   %34 = icmp eq i8 %33, 0
@@ -845,7 +845,7 @@ ehooks_pre_reentrancy.exit.i:                     ; preds = %38, %tsd_fetch_impl
   br label %tsd_fetch_impl.exit.i27.i
 
 tsd_fetch_impl.exit.i27.i:                        ; preds = %45, %41, %ehooks_pre_reentrancy.exit.i
-  %47 = phi ptr [ %46, %45 ], [ %42, %41 ], [ %0, %ehooks_pre_reentrancy.exit.i ]
+  %47 = phi ptr [ %42, %41 ], [ %46, %45 ], [ %0, %ehooks_pre_reentrancy.exit.i ]
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 1
   %49 = load i8, ptr %48, align 1, !tbaa !36
   %50 = add i8 %49, -1
@@ -1036,7 +1036,7 @@ extent_may_force_decay.exit:                      ; preds = %40
   br label %67
 
 59:                                               ; preds = %.thread, %26, %28, %malloc_mutex_lock.exit
-  %.033 = phi ptr [ %4, %malloc_mutex_lock.exit ], [ %4, %28 ], [ %27, %26 ], [ %33, %.thread ]
+  %.033 = phi ptr [ %4, %malloc_mutex_lock.exit ], [ %33, %.thread ], [ %4, %28 ], [ %27, %26 ]
   %60 = getelementptr i8, ptr %1, i64 58384
   %.val36 = load ptr, ptr %60, align 8, !tbaa !18
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 19424
@@ -1151,7 +1151,7 @@ select.unfold:                                    ; preds = %41
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %28
 
-.loopexit:                                        ; preds = %39, %36, %select.unfold
+.loopexit:                                        ; preds = %36, %39, %select.unfold
   %49 = load i32, ptr %27, align 8, !tbaa !35
   %50 = icmp eq i32 %49, 3
   %.val = load ptr, ptr %26, align 8, !tbaa !18
@@ -1286,7 +1286,7 @@ ehooks_dalloc_will_fail.exit:                     ; preds = %tsdn_witness_tsdp_g
   br label %tsd_fetch_impl.exit.i.i.i
 
 tsd_fetch_impl.exit.i.i.i:                        ; preds = %43, %39, %38
-  %45 = phi ptr [ %44, %43 ], [ %40, %39 ], [ %0, %38 ]
+  %45 = phi ptr [ %40, %39 ], [ %44, %43 ], [ %0, %38 ]
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 832
   %47 = load i8, ptr %46, align 8, !tbaa !36
   %48 = icmp eq i8 %47, 0
@@ -1318,7 +1318,7 @@ ehooks_pre_reentrancy.exit.i.i:                   ; preds = %52, %tsd_fetch_impl
   br label %tsd_fetch_impl.exit.i15.i.i
 
 tsd_fetch_impl.exit.i15.i.i:                      ; preds = %59, %55, %ehooks_pre_reentrancy.exit.i.i
-  %61 = phi ptr [ %60, %59 ], [ %56, %55 ], [ %0, %ehooks_pre_reentrancy.exit.i.i ]
+  %61 = phi ptr [ %56, %55 ], [ %60, %59 ], [ %0, %ehooks_pre_reentrancy.exit.i.i ]
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 1
   %63 = load i8, ptr %62, align 1, !tbaa !36
   %64 = add i8 %63, -1
@@ -1339,7 +1339,7 @@ extent_dalloc_wrapper_try.exit:                   ; preds = %32, %66, %ehooks_da
   tail call void @je_edata_cache_put(ptr noundef %0, ptr noundef %68, ptr noundef nonnull %3) #9
   br label %168
 
-69:                                               ; preds = %ehooks_dalloc.exit.i, %32, %66, %34
+69:                                               ; preds = %66, %ehooks_dalloc.exit.i, %32, %34
   %.val49 = load ptr, ptr %21, align 8, !tbaa !18
   %70 = tail call zeroext i1 @je_emap_register_boundary(ptr noundef %0, ptr noundef %.val49, ptr noundef nonnull %3, i32 noundef 235, i1 noundef zeroext false) #9
   br label %71
@@ -1395,7 +1395,7 @@ extent_dalloc_wrapper_try.exit:                   ; preds = %32, %66, %ehooks_da
   br label %tsd_fetch_impl.exit.i.i
 
 tsd_fetch_impl.exit.i.i:                          ; preds = %96, %92, %91
-  %98 = phi ptr [ %97, %96 ], [ %93, %92 ], [ %0, %91 ]
+  %98 = phi ptr [ %93, %92 ], [ %97, %96 ], [ %0, %91 ]
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 832
   %100 = load i8, ptr %99, align 8, !tbaa !36
   %101 = icmp eq i8 %100, 0
@@ -1427,7 +1427,7 @@ ehooks_pre_reentrancy.exit.i:                     ; preds = %105, %tsd_fetch_imp
   br label %tsd_fetch_impl.exit.i17.i
 
 tsd_fetch_impl.exit.i17.i:                        ; preds = %112, %108, %ehooks_pre_reentrancy.exit.i
-  %114 = phi ptr [ %113, %112 ], [ %109, %108 ], [ %0, %ehooks_pre_reentrancy.exit.i ]
+  %114 = phi ptr [ %109, %108 ], [ %113, %112 ], [ %0, %ehooks_pre_reentrancy.exit.i ]
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 1
   %116 = load i8, ptr %115, align 1, !tbaa !36
   %117 = add i8 %116, -1
@@ -1485,7 +1485,7 @@ ehooks_purge_forced.exit.thread:                  ; preds = %87, %119, %85, %eho
   br label %tsd_fetch_impl.exit.i.i54
 
 tsd_fetch_impl.exit.i.i54:                        ; preds = %140, %136, %135
-  %142 = phi ptr [ %141, %140 ], [ %137, %136 ], [ %0, %135 ]
+  %142 = phi ptr [ %137, %136 ], [ %141, %140 ], [ %0, %135 ]
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 832
   %144 = load i8, ptr %143, align 8, !tbaa !36
   %145 = icmp eq i8 %144, 0
@@ -1517,7 +1517,7 @@ ehooks_pre_reentrancy.exit.i55:                   ; preds = %149, %tsd_fetch_imp
   br label %tsd_fetch_impl.exit.i17.i57
 
 tsd_fetch_impl.exit.i17.i57:                      ; preds = %156, %152, %ehooks_pre_reentrancy.exit.i55
-  %158 = phi ptr [ %157, %156 ], [ %153, %152 ], [ %0, %ehooks_pre_reentrancy.exit.i55 ]
+  %158 = phi ptr [ %153, %152 ], [ %157, %156 ], [ %0, %ehooks_pre_reentrancy.exit.i55 ]
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 1
   %160 = load i8, ptr %159, align 1, !tbaa !36
   %161 = add i8 %160, -1
@@ -1529,8 +1529,8 @@ tsd_fetch_impl.exit.i17.i57:                      ; preds = %156, %152, %ehooks_
   tail call void @je_tsd_slow_update(ptr noundef nonnull %158) #9
   br label %ehooks_purge_lazy.exit
 
-ehooks_purge_lazy.exit:                           ; preds = %119, %85, %ehooks_purge_forced.exit, %73, %71, %ehooks_purge_forced.exit.thread, %129, %131, %tsd_fetch_impl.exit.i17.i57, %163
-  %164 = phi i64 [ 0, %163 ], [ 0, %tsd_fetch_impl.exit.i17.i57 ], [ 0, %131 ], [ 0, %129 ], [ 0, %ehooks_purge_forced.exit.thread ], [ 32768, %71 ], [ 32768, %73 ], [ 32768, %ehooks_purge_forced.exit ], [ 32768, %85 ], [ 32768, %119 ]
+ehooks_purge_lazy.exit:                           ; preds = %85, %119, %71, %73, %ehooks_purge_forced.exit, %ehooks_purge_forced.exit.thread, %129, %131, %tsd_fetch_impl.exit.i17.i57, %163
+  %164 = phi i64 [ 0, %ehooks_purge_forced.exit.thread ], [ 0, %163 ], [ 0, %tsd_fetch_impl.exit.i17.i57 ], [ 0, %131 ], [ 0, %129 ], [ 32768, %ehooks_purge_forced.exit ], [ 32768, %73 ], [ 32768, %71 ], [ 32768, %119 ], [ 32768, %85 ]
   %.in = load i64, ptr %3, align 8, !tbaa !43
   %165 = and i64 %.in, -32769
   %166 = or disjoint i64 %165, %164
@@ -1588,7 +1588,7 @@ tsdn_witness_tsdp_get.exit:
   br label %tsd_fetch_impl.exit.i.i
 
 tsd_fetch_impl.exit.i.i:                          ; preds = %26, %22, %21
-  %28 = phi ptr [ %27, %26 ], [ %23, %22 ], [ %0, %21 ]
+  %28 = phi ptr [ %23, %22 ], [ %27, %26 ], [ %0, %21 ]
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 832
   %30 = load i8, ptr %29, align 8, !tbaa !36
   %31 = icmp eq i8 %30, 0
@@ -1620,7 +1620,7 @@ ehooks_pre_reentrancy.exit.i:                     ; preds = %35, %tsd_fetch_impl
   br label %tsd_fetch_impl.exit.i17.i
 
 tsd_fetch_impl.exit.i17.i:                        ; preds = %42, %38, %ehooks_pre_reentrancy.exit.i
-  %44 = phi ptr [ %43, %42 ], [ %39, %38 ], [ %0, %ehooks_pre_reentrancy.exit.i ]
+  %44 = phi ptr [ %39, %38 ], [ %43, %42 ], [ %0, %ehooks_pre_reentrancy.exit.i ]
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 1
   %46 = load i8, ptr %45, align 1, !tbaa !36
   %47 = add i8 %46, -1
@@ -1705,7 +1705,7 @@ tsdn_witness_tsdp_get.exit:
   br label %tsd_fetch_impl.exit.i.i
 
 tsd_fetch_impl.exit.i.i:                          ; preds = %31, %27, %26
-  %33 = phi ptr [ %32, %31 ], [ %28, %27 ], [ %0, %26 ]
+  %33 = phi ptr [ %28, %27 ], [ %32, %31 ], [ %0, %26 ]
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 832
   %35 = load i8, ptr %34, align 8, !tbaa !36
   %36 = icmp eq i8 %35, 0
@@ -1737,7 +1737,7 @@ ehooks_pre_reentrancy.exit.i:                     ; preds = %40, %tsd_fetch_impl
   br label %tsd_fetch_impl.exit.i12.i
 
 tsd_fetch_impl.exit.i12.i:                        ; preds = %46, %42, %ehooks_pre_reentrancy.exit.i
-  %48 = phi ptr [ %47, %46 ], [ %43, %42 ], [ %0, %ehooks_pre_reentrancy.exit.i ]
+  %48 = phi ptr [ %43, %42 ], [ %47, %46 ], [ %0, %ehooks_pre_reentrancy.exit.i ]
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 1
   %50 = load i8, ptr %49, align 1, !tbaa !36
   %51 = add i8 %50, -1
@@ -1807,7 +1807,7 @@ tsdn_witness_tsdp_get.exit:
   br label %tsd_fetch_impl.exit.i.i
 
 tsd_fetch_impl.exit.i.i:                          ; preds = %26, %22, %21
-  %28 = phi ptr [ %27, %26 ], [ %23, %22 ], [ %0, %21 ]
+  %28 = phi ptr [ %23, %22 ], [ %27, %26 ], [ %0, %21 ]
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 832
   %30 = load i8, ptr %29, align 8, !tbaa !36
   %31 = icmp eq i8 %30, 0
@@ -1839,7 +1839,7 @@ ehooks_pre_reentrancy.exit.i:                     ; preds = %35, %tsd_fetch_impl
   br label %tsd_fetch_impl.exit.i19.i
 
 tsd_fetch_impl.exit.i19.i:                        ; preds = %42, %38, %ehooks_pre_reentrancy.exit.i
-  %44 = phi ptr [ %43, %42 ], [ %39, %38 ], [ %0, %ehooks_pre_reentrancy.exit.i ]
+  %44 = phi ptr [ %39, %38 ], [ %43, %42 ], [ %0, %ehooks_pre_reentrancy.exit.i ]
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 1
   %46 = load i8, ptr %45, align 1, !tbaa !36
   %47 = add i8 %46, -1
@@ -1913,7 +1913,7 @@ tsdn_witness_tsdp_get.exit:
   br label %tsd_fetch_impl.exit.i.i
 
 tsd_fetch_impl.exit.i.i:                          ; preds = %26, %22, %21
-  %28 = phi ptr [ %27, %26 ], [ %23, %22 ], [ %0, %21 ]
+  %28 = phi ptr [ %23, %22 ], [ %27, %26 ], [ %0, %21 ]
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 832
   %30 = load i8, ptr %29, align 8, !tbaa !36
   %31 = icmp eq i8 %30, 0
@@ -1945,7 +1945,7 @@ ehooks_pre_reentrancy.exit.i:                     ; preds = %35, %tsd_fetch_impl
   br label %tsd_fetch_impl.exit.i17.i
 
 tsd_fetch_impl.exit.i17.i:                        ; preds = %42, %38, %ehooks_pre_reentrancy.exit.i
-  %44 = phi ptr [ %43, %42 ], [ %39, %38 ], [ %0, %ehooks_pre_reentrancy.exit.i ]
+  %44 = phi ptr [ %39, %38 ], [ %43, %42 ], [ %0, %ehooks_pre_reentrancy.exit.i ]
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 1
   %46 = load i8, ptr %45, align 1, !tbaa !36
   %47 = add i8 %46, -1
@@ -2011,7 +2011,7 @@ tsdn_witness_tsdp_get.exit:
   br label %tsd_fetch_impl.exit.i.i
 
 tsd_fetch_impl.exit.i.i:                          ; preds = %26, %22, %21
-  %28 = phi ptr [ %27, %26 ], [ %23, %22 ], [ %0, %21 ]
+  %28 = phi ptr [ %23, %22 ], [ %27, %26 ], [ %0, %21 ]
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 832
   %30 = load i8, ptr %29, align 8, !tbaa !36
   %31 = icmp eq i8 %30, 0
@@ -2043,7 +2043,7 @@ ehooks_pre_reentrancy.exit.i:                     ; preds = %35, %tsd_fetch_impl
   br label %tsd_fetch_impl.exit.i17.i
 
 tsd_fetch_impl.exit.i17.i:                        ; preds = %42, %38, %ehooks_pre_reentrancy.exit.i
-  %44 = phi ptr [ %43, %42 ], [ %39, %38 ], [ %0, %ehooks_pre_reentrancy.exit.i ]
+  %44 = phi ptr [ %39, %38 ], [ %43, %42 ], [ %0, %ehooks_pre_reentrancy.exit.i ]
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 1
   %46 = load i8, ptr %45, align 1, !tbaa !36
   %47 = add i8 %46, -1
@@ -2156,7 +2156,7 @@ tsdn_witness_tsdp_get.exit46:
   br label %tsd_fetch_impl.exit.i.i
 
 tsd_fetch_impl.exit.i.i:                          ; preds = %60, %56, %54
-  %62 = phi ptr [ %61, %60 ], [ %57, %56 ], [ %0, %54 ]
+  %62 = phi ptr [ %57, %56 ], [ %61, %60 ], [ %0, %54 ]
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 832
   %64 = load i8, ptr %63, align 8, !tbaa !36
   %65 = icmp eq i8 %64, 0
@@ -2188,7 +2188,7 @@ ehooks_pre_reentrancy.exit.i:                     ; preds = %69, %tsd_fetch_impl
   br label %tsd_fetch_impl.exit.i14.i
 
 tsd_fetch_impl.exit.i14.i:                        ; preds = %76, %72, %ehooks_pre_reentrancy.exit.i
-  %78 = phi ptr [ %77, %76 ], [ %73, %72 ], [ %0, %ehooks_pre_reentrancy.exit.i ]
+  %78 = phi ptr [ %73, %72 ], [ %77, %76 ], [ %0, %ehooks_pre_reentrancy.exit.i ]
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 1
   %80 = load i8, ptr %79, align 1, !tbaa !36
   %81 = add i8 %80, -1
@@ -2285,7 +2285,7 @@ tsdn_witness_tsdp_get.exit41:
   br label %tsd_fetch_impl.exit.i.i
 
 tsd_fetch_impl.exit.i.i:                          ; preds = %36, %32, %30
-  %38 = phi ptr [ %37, %36 ], [ %33, %32 ], [ %0, %30 ]
+  %38 = phi ptr [ %33, %32 ], [ %37, %36 ], [ %0, %30 ]
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 832
   %40 = load i8, ptr %39, align 8, !tbaa !36
   %41 = icmp eq i8 %40, 0
@@ -2317,7 +2317,7 @@ ehooks_pre_reentrancy.exit.i:                     ; preds = %45, %tsd_fetch_impl
   br label %tsd_fetch_impl.exit.i18.i
 
 tsd_fetch_impl.exit.i18.i:                        ; preds = %52, %48, %ehooks_pre_reentrancy.exit.i
-  %54 = phi ptr [ %53, %52 ], [ %49, %48 ], [ %0, %ehooks_pre_reentrancy.exit.i ]
+  %54 = phi ptr [ %49, %48 ], [ %53, %52 ], [ %0, %ehooks_pre_reentrancy.exit.i ]
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 1
   %56 = load i8, ptr %55, align 1, !tbaa !36
   %57 = add i8 %56, -1
@@ -2377,7 +2377,7 @@ ehooks_merge.exit:                                ; preds = %tsd_fetch_impl.exit
   br label %ehooks_merge.exit.thread
 
 ehooks_merge.exit.thread:                         ; preds = %26, %59, %24, %ehooks_merge.exit, %.thread
-  %.0.i55 = phi i1 [ true, %ehooks_merge.exit ], [ false, %.thread ], [ true, %24 ], [ true, %59 ], [ true, %26 ]
+  %.0.i55 = phi i1 [ true, %59 ], [ true, %ehooks_merge.exit ], [ false, %.thread ], [ true, %24 ], [ true, %26 ]
   ret i1 %.0.i55
 }
 
@@ -2433,7 +2433,7 @@ tsdn_witness_tsdp_get.exit:
   br label %ehooks_zero.exit
 
 ehooks_zero.exit:                                 ; preds = %26, %25, %8, %12, %13
-  %.0 = phi i1 [ %11, %8 ], [ false, %13 ], [ false, %12 ], [ false, %25 ], [ false, %26 ]
+  %.0 = phi i1 [ %11, %8 ], [ false, %12 ], [ false, %13 ], [ false, %25 ], [ false, %26 ]
   ret i1 %.0
 }
 
@@ -2539,7 +2539,7 @@ extent_coalesce.exit:                             ; preds = %15
   br i1 %21, label %.sink.split, label %22
 
 22:                                               ; preds = %extent_coalesce.exit.thread, %extent_coalesce.exit, %11
-  %.040 = phi i1 [ false, %11 ], [ true, %extent_coalesce.exit ], [ false, %extent_coalesce.exit.thread ]
+  %.040 = phi i1 [ false, %extent_coalesce.exit.thread ], [ false, %11 ], [ true, %extent_coalesce.exit ]
   %23 = load ptr, ptr %7, align 8, !tbaa !18
   %24 = load i32, ptr %8, align 8, !tbaa !35
   %25 = tail call ptr @je_emap_try_acquire_edata_neighbor(ptr noundef %0, ptr noundef %23, ptr noundef %.036.ph, i32 noundef 0, i32 noundef %24, i1 noundef zeroext false) #9
@@ -2580,8 +2580,8 @@ extent_coalesce.exit51:                           ; preds = %26
   br i1 %34, label %.sink.split, label %35
 
 .sink.split:                                      ; preds = %extent_coalesce.exit51, %extent_coalesce.exit, %.loopexit60
-  %.sink = phi i8 [ 0, %.loopexit60 ], [ 1, %extent_coalesce.exit ], [ 1, %extent_coalesce.exit51 ]
-  %.3.ph = phi ptr [ %.137.ph59, %.loopexit60 ], [ %.036.ph, %extent_coalesce.exit ], [ %25, %extent_coalesce.exit51 ]
+  %.sink = phi i8 [ 1, %extent_coalesce.exit ], [ 0, %.loopexit60 ], [ 1, %extent_coalesce.exit51 ]
+  %.3.ph = phi ptr [ %.036.ph, %extent_coalesce.exit ], [ %.137.ph59, %.loopexit60 ], [ %25, %extent_coalesce.exit51 ]
   store i8 %.sink, ptr %5, align 1, !tbaa !4
   br label %35
 

@@ -622,7 +622,7 @@ define hidden void @zim_Dom_Implementation_createDocument(ptr noundef readonly c
   br label %56
 
 56:                                               ; preds = %.thread, %33
-  %.037 = phi ptr [ null, %33 ], [ %50, %.thread ]
+  %.037 = phi ptr [ %50, %.thread ], [ null, %33 ]
   %57 = load ptr, ptr @dom_xml_document_class_entry, align 8, !tbaa !19
   %58 = call ptr @php_dom_instantiate_object_helper(ptr noundef %1, ptr noundef %57, ptr noundef nonnull %31, ptr noundef null) #6
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8

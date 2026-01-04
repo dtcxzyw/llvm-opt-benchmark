@@ -329,7 +329,7 @@ define internal fastcc noundef zeroext i1 @sema_resolve_type(ptr noundef %0, ptr
   store ptr %134, ptr %135, align 8
   br label %sema_resolve_type_identifier.exit.thread
 
-.critedge286:                                     ; preds = %.critedge4, %118, %109, %127
+.critedge286:                                     ; preds = %.critedge4, %109, %118, %127
   %136 = load i16, ptr %1, align 8
   %137 = and i16 %136, -505
   store i16 %137, ptr %1, align 8
@@ -876,7 +876,7 @@ sema_resolve_type_identifier.exit:                ; preds = %223, %217, %205, %1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %351, %392, %371
-  %394 = phi ptr [ %.pre, %392 ], [ %349, %371 ], [ %349, %351 ]
+  %394 = phi ptr [ %349, %371 ], [ %.pre, %392 ], [ %349, %351 ]
   %395 = getelementptr inbounds nuw i8, ptr %394, i64 8
   %396 = load ptr, ptr %395, align 8
   %397 = load i16, ptr %1, align 8
@@ -1187,7 +1187,7 @@ sema_resolve_type_identifier.exit.thread:         ; preds = %151, %220, %198, %1
   br label %553
 
 553:                                              ; preds = %.critedge, %19, %8, %549, %505, %495, %485, %466, %332, %.critedge296, %.critedge294, %.critedge290, %sema_resolve_type_identifier.exit, %.critedge286, %99, %51, %37
-  %.0232 = phi i1 [ false, %37 ], [ false, %51 ], [ true, %549 ], [ false, %495 ], [ false, %505 ], [ false, %99 ], [ false, %.critedge286 ], [ false, %sema_resolve_type_identifier.exit ], [ false, %.critedge290 ], [ false, %.critedge294 ], [ false, %.critedge296 ], [ false, %466 ], [ false, %332 ], [ false, %485 ], [ false, %8 ], [ true, %19 ], [ true, %.critedge ]
+  %.0232 = phi i1 [ false, %8 ], [ false, %37 ], [ false, %485 ], [ false, %51 ], [ true, %549 ], [ false, %495 ], [ false, %505 ], [ false, %99 ], [ false, %.critedge286 ], [ false, %sema_resolve_type_identifier.exit ], [ false, %.critedge290 ], [ false, %.critedge294 ], [ false, %.critedge296 ], [ false, %466 ], [ false, %332 ], [ true, %19 ], [ true, %.critedge ]
   ret i1 %.0232
 }
 

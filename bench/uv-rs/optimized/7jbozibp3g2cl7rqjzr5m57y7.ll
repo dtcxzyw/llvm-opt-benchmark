@@ -822,7 +822,7 @@ define void @_ZN11uv_dispatch11SharedState4fork17h24b6c961724add03E(ptr dead_on_
   br label %.body.i
 
 .body.i:                                          ; preds = %49, %45, %41, %35
-  %.pn.i = phi { ptr, i32 } [ %42, %41 ], [ %36, %35 ], [ %46, %49 ], [ %46, %45 ]
+  %.pn.i = phi { ptr, i32 } [ %36, %35 ], [ %42, %41 ], [ %46, %49 ], [ %46, %45 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !107)
   call void @llvm.experimental.noalias.scope.decl(metadata !110)
   call void @llvm.experimental.noalias.scope.decl(metadata !113)
@@ -961,7 +961,7 @@ define void @_ZN11uv_dispatch11SharedState4fork17h24b6c961724add03E(ptr dead_on_
           to label %.noexc10 unwind label %73
 
 .critedge:                                        ; preds = %.noexc10, %82, %68, %63
-  %.pn16 = phi { ptr, i32 } [ %64, %63 ], [ %64, %68 ], [ %eh.lpad-body21, %82 ], [ %eh.lpad-body21, %.noexc10 ]
+  %.pn16 = phi { ptr, i32 } [ %64, %68 ], [ %64, %63 ], [ %eh.lpad-body21, %.noexc10 ], [ %eh.lpad-body21, %82 ]
   resume { ptr, i32 } %.pn16
 
 .noexc10:                                         ; preds = %78, %.thread17
@@ -1053,8 +1053,8 @@ define { ptr, ptr } @"_ZN70_$LT$uv_dispatch..BuildDispatchError$u20$as$u20$core.
   br label %32
 
 32:                                               ; preds = %1, %28, %18, %13, %8, %3
-  %.sroa.7.0 = phi ptr [ %7, %3 ], [ %12, %8 ], [ %17, %13 ], [ %27, %18 ], [ %31, %28 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %6, %3 ], [ %11, %8 ], [ %16, %13 ], [ %26, %18 ], [ %30, %28 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ %7, %3 ], [ %12, %8 ], [ %17, %13 ], [ %31, %28 ], [ %27, %18 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %6, %3 ], [ %11, %8 ], [ %16, %13 ], [ %30, %28 ], [ %26, %18 ], [ null, %1 ]
   %33 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %34 = insertvalue { ptr, ptr } %33, ptr %.sroa.7.0, 1
   ret { ptr, ptr } %34

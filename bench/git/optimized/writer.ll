@@ -326,7 +326,7 @@ define dso_local range(i32 -2147483648, 1) i32 @reftable_writer_add_ref(ptr noun
   br label %60
 
 60:                                               ; preds = %59, %18, %30, %39, %47, %56, %2, %8, %14
-  %.030 = phi i32 [ -6, %14 ], [ -6, %8 ], [ -6, %2 ], [ %22, %18 ], [ 0, %59 ], [ %54, %47 ], [ %57, %56 ], [ %37, %30 ], [ %40, %39 ]
+  %.030 = phi i32 [ -6, %2 ], [ -6, %14 ], [ -6, %8 ], [ %22, %18 ], [ 0, %59 ], [ %54, %47 ], [ %57, %56 ], [ %37, %30 ], [ %40, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.030
 }
@@ -472,7 +472,7 @@ writer_reinit_block_writer.exit:                  ; preds = %32
   br label %writer_reinit_block_writer.exit.thread
 
 writer_reinit_block_writer.exit.thread:           ; preds = %72, %32, %54, %6, %83, %57, %10, %2
-  %.0 = phi i32 [ %4, %2 ], [ %15, %10 ], [ %58, %57 ], [ %spec.store.select, %83 ], [ -6, %6 ], [ 0, %54 ], [ %41, %32 ], [ %81, %72 ]
+  %.0 = phi i32 [ %4, %2 ], [ 0, %54 ], [ %15, %10 ], [ %58, %57 ], [ %41, %32 ], [ %spec.store.select, %83 ], [ -6, %6 ], [ %81, %72 ]
   ret i32 %.0
 }
 
@@ -582,8 +582,8 @@ st_mult.exit.i:                                   ; preds = %39
   br label %.thread
 
 49:                                               ; preds = %._crit_edge, %st_mult.exit.i
-  %50 = phi ptr [ %spec.select50, %st_mult.exit.i ], [ %.pre, %._crit_edge ]
-  %storemerge = phi i64 [ %spec.select, %st_mult.exit.i ], [ %35, %._crit_edge ]
+  %50 = phi ptr [ %.pre, %._crit_edge ], [ %spec.select50, %st_mult.exit.i ]
+  %storemerge = phi i64 [ %35, %._crit_edge ], [ %spec.select, %st_mult.exit.i ]
   store i64 %storemerge, ptr %34, align 8, !tbaa !65
   %.not44 = icmp eq ptr %50, null
   br i1 %.not44, label %.thread, label %51
@@ -597,7 +597,7 @@ st_mult.exit.i:                                   ; preds = %39
   br label %.thread
 
 .thread:                                          ; preds = %12, %10, %.thread58, %49, %26, %51
-  %.1 = phi i32 [ 0, %51 ], [ 0, %26 ], [ -13, %49 ], [ -13, %.thread58 ], [ %17, %12 ], [ -13, %10 ]
+  %.1 = phi i32 [ -13, %.thread58 ], [ 0, %51 ], [ 0, %26 ], [ -13, %49 ], [ %17, %12 ], [ -13, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.1
 }
@@ -798,12 +798,12 @@ reftable_writer_add_log_verbatim.exit31:          ; preds = %71, %74
   br label %.loopexit
 
 .loopexit:                                        ; preds = %54, %.critedge, %58, %42, %reftable_writer_add_log_verbatim.exit31
-  %.0 = phi i32 [ %.1.i30, %reftable_writer_add_log_verbatim.exit31 ], [ %43, %42 ], [ %59, %58 ], [ -6, %.critedge ], [ %55, %54 ]
+  %.0 = phi i32 [ %.1.i30, %reftable_writer_add_log_verbatim.exit31 ], [ %43, %42 ], [ -6, %.critedge ], [ %59, %58 ], [ %55, %54 ]
   call void @reftable_buf_release(ptr noundef nonnull %5) #12
   br label %82
 
 82:                                               ; preds = %34, %28, %.loopexit, %reftable_writer_add_log_verbatim.exit
-  %.019 = phi i32 [ %.1.i, %reftable_writer_add_log_verbatim.exit ], [ %.0, %.loopexit ], [ -6, %28 ], [ -6, %34 ]
+  %.019 = phi i32 [ %.1.i, %reftable_writer_add_log_verbatim.exit ], [ -6, %28 ], [ %.0, %.loopexit ], [ -6, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.019
 }
@@ -1163,7 +1163,7 @@ padded_write.exit47:                              ; preds = %195, %198, %207
   br label %213
 
 213:                                              ; preds = %padded_write.exit.thread, %padded_write.exit, %34, %padded_write.exit47, %1
-  %.042 = phi i32 [ %4, %1 ], [ %spec.store.select, %padded_write.exit47 ], [ %32, %padded_write.exit ], [ -2, %34 ], [ %.1.i.ph, %padded_write.exit.thread ]
+  %.042 = phi i32 [ %4, %1 ], [ %32, %padded_write.exit ], [ %spec.store.select, %padded_write.exit47 ], [ -2, %34 ], [ %.1.i.ph, %padded_write.exit.thread ]
   call fastcc void @writer_release(ptr noundef nonnull %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.042
@@ -1306,7 +1306,7 @@ writer_dump_object_index.exit:                    ; preds = %54, %59
   br label %69
 
 69:                                               ; preds = %writer_dump_object_index.exit.thread, %writer_dump_object_index.exit, %6, %1, %68
-  %.0 = phi i32 [ 0, %68 ], [ 0, %1 ], [ %8, %6 ], [ %61, %writer_dump_object_index.exit ], [ %.0.i.ph, %writer_dump_object_index.exit.thread ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %68 ], [ %8, %6 ], [ %61, %writer_dump_object_index.exit ], [ %.0.i.ph, %writer_dump_object_index.exit.thread ]
   ret i32 %.0
 }
 
@@ -1529,7 +1529,7 @@ writer_reftable_block_stats.exit.i:               ; preds = %27, %26, %25, %24
   br label %.thread.i
 
 .thread.i:                                        ; preds = %35, %writer_reftable_block_stats.exit.i
-  %.not61.i = phi i1 [ false, %35 ], [ %.not.mux.i, %writer_reftable_block_stats.exit.i ]
+  %.not61.i = phi i1 [ %.not.mux.i, %writer_reftable_block_stats.exit.i ], [ false, %35 ]
   %37 = load ptr, ptr %3, align 8, !tbaa !35
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 120
   %39 = load i32, ptr %38, align 8, !tbaa !88
@@ -1642,8 +1642,8 @@ st_mult.exit.i.i:                                 ; preds = %89
   br label %writer_flush_nonempty_block.exit
 
 99:                                               ; preds = %st_mult.exit.i.i, %._crit_edge.i
-  %100 = phi ptr [ %spec.select69.i, %st_mult.exit.i.i ], [ %.pre71.i, %._crit_edge.i ]
-  %storemerge.i = phi i64 [ %spec.select.i, %st_mult.exit.i.i ], [ %83, %._crit_edge.i ]
+  %100 = phi ptr [ %.pre71.i, %._crit_edge.i ], [ %spec.select69.i, %st_mult.exit.i.i ]
+  %storemerge.i = phi i64 [ %83, %._crit_edge.i ], [ %spec.select.i, %st_mult.exit.i.i ]
   store i64 %storemerge.i, ptr %82, align 8, !tbaa !95
   %.not62.i = icmp eq ptr %100, null
   br i1 %.not62.i, label %writer_flush_nonempty_block.exit, label %101
@@ -1679,12 +1679,12 @@ st_mult.exit.i.i:                                 ; preds = %89
   br label %writer_flush_nonempty_block.exit
 
 writer_flush_nonempty_block.exit:                 ; preds = %9, %62, %65, %padded_write.exit.i, %.thread81.i, %99, %101, %111
-  %.0.i = phi i32 [ 0, %111 ], [ %12, %9 ], [ %79, %padded_write.exit.i ], [ -13, %99 ], [ %109, %101 ], [ -1, %62 ], [ %72, %65 ], [ -13, %.thread81.i ]
+  %.0.i = phi i32 [ %79, %padded_write.exit.i ], [ %12, %9 ], [ -13, %99 ], [ 0, %111 ], [ %109, %101 ], [ -1, %62 ], [ %72, %65 ], [ -13, %.thread81.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %121
 
 121:                                              ; preds = %5, %1, %writer_flush_nonempty_block.exit
-  %.0 = phi i32 [ %.0.i, %writer_flush_nonempty_block.exit ], [ 0, %1 ], [ 0, %5 ]
+  %.0 = phi i32 [ 0, %1 ], [ %.0.i, %writer_flush_nonempty_block.exit ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -1893,7 +1893,7 @@ writer_reftable_block_stats.exit:                 ; preds = %writer_clear_index.
   br label %.thread
 
 .thread:                                          ; preds = %38, %._crit_edge, %._crit_edge.thread, %.lr.ph, %1, %writer_reftable_block_stats.exit
-  %.0 = phi i32 [ 0, %writer_reftable_block_stats.exit ], [ %12, %1 ], [ %52, %.lr.ph ], [ %56, %._crit_edge.thread ], [ %43, %38 ], [ %54, %._crit_edge ]
+  %.0 = phi i32 [ 0, %writer_reftable_block_stats.exit ], [ %12, %1 ], [ %52, %.lr.ph ], [ %54, %._crit_edge ], [ %43, %38 ], [ %56, %._crit_edge.thread ]
   ret i32 %.0
 }
 

@@ -193,123 +193,123 @@ define void @Saig_ManMarkAutonomous(ptr noundef %0) local_unnamed_addr #3 {
   %2 = getelementptr i8, ptr %0, i64 104
   %.val3649 = load i32, ptr %2, align 8, !tbaa !36
   %3 = icmp sgt i32 %.val3649, 0
-  br i1 %3, label %.lr.ph, label %.critedge
+  br i1 %3, label %.critedge.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %1
+.critedge.lr.ph:                                  ; preds = %1
   %4 = getelementptr i8, ptr %0, i64 24
   %5 = getelementptr i8, ptr %0, i64 112
   %6 = getelementptr i8, ptr %0, i64 16
   %7 = getelementptr i8, ptr %0, i64 108
-  br label %8
+  br label %.critedge
 
-8:                                                ; preds = %.lr.ph, %8
-  %.050 = phi i32 [ 0, %.lr.ph ], [ %24, %8 ]
+.critedge:                                        ; preds = %.critedge.lr.ph, %.critedge
+  %.050 = phi i32 [ 0, %.critedge.lr.ph ], [ %23, %.critedge ]
   %.val38 = load ptr, ptr %4, align 8, !tbaa !37
   %.val39 = load i32, ptr %5, align 8, !tbaa !38
-  %9 = getelementptr i8, ptr %.val38, i64 8
-  %.val38.val = load ptr, ptr %9, align 8, !tbaa !24
-  %10 = add nsw i32 %.val39, %.050
-  %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds ptr, ptr %.val38.val, i64 %11
-  %13 = load ptr, ptr %12, align 8, !tbaa !25
+  %8 = getelementptr i8, ptr %.val38, i64 8
+  %.val38.val = load ptr, ptr %8, align 8, !tbaa !24
+  %9 = add nsw i32 %.val39, %.050
+  %10 = sext i32 %9 to i64
+  %11 = getelementptr inbounds ptr, ptr %.val38.val, i64 %10
+  %12 = load ptr, ptr %11, align 8, !tbaa !25
   %.val43 = load ptr, ptr %6, align 8, !tbaa !39
   %.val44 = load i32, ptr %7, align 4, !tbaa !40
-  %14 = getelementptr i8, ptr %.val43, i64 8
-  %.val43.val = load ptr, ptr %14, align 8, !tbaa !24
-  %15 = add nsw i32 %.val44, %.050
-  %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds ptr, ptr %.val43.val, i64 %16
-  %18 = load ptr, ptr %17, align 8, !tbaa !25
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store ptr %13, ptr %19, align 8, !tbaa !29
-  %20 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %21 = load i64, ptr %20, align 8
-  %22 = and i64 %21, -4294967233
-  %23 = or disjoint i64 %22, 64
-  store i64 %23, ptr %20, align 8
-  %24 = add nuw nsw i32 %.050, 1
+  %13 = getelementptr i8, ptr %.val43, i64 8
+  %.val43.val = load ptr, ptr %13, align 8, !tbaa !24
+  %14 = add nsw i32 %.val44, %.050
+  %15 = sext i32 %14 to i64
+  %16 = getelementptr inbounds ptr, ptr %.val43.val, i64 %15
+  %17 = load ptr, ptr %16, align 8, !tbaa !25
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  store ptr %12, ptr %18, align 8, !tbaa !29
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %20 = load i64, ptr %19, align 8
+  %21 = and i64 %20, -4294967233
+  %22 = or disjoint i64 %21, 64
+  store i64 %22, ptr %19, align 8
+  %23 = add nuw nsw i32 %.050, 1
   %.val36 = load i32, ptr %2, align 8, !tbaa !36
-  %25 = icmp slt i32 %24, %.val36
-  br i1 %25, label %8, label %.critedge, !llvm.loop !41
+  %24 = icmp slt i32 %23, %.val36
+  br i1 %24, label %.critedge, label %._crit_edge, !llvm.loop !41
 
-.critedge:                                        ; preds = %8, %1
+._crit_edge:                                      ; preds = %.critedge, %1
   tail call void @Aig_ManIncrementTravId(ptr noundef nonnull %0) #14
-  %26 = tail call ptr @Aig_ManStaticFanoutStart(ptr noundef nonnull %0)
-  %27 = getelementptr i8, ptr %0, i64 48
-  %.val47 = load ptr, ptr %27, align 8, !tbaa !42
+  %25 = tail call ptr @Aig_ManStaticFanoutStart(ptr noundef nonnull %0)
+  %26 = getelementptr i8, ptr %0, i64 48
+  %.val47 = load ptr, ptr %26, align 8, !tbaa !42
   tail call void @Aig_ManMarkAutonomous_rec(ptr noundef nonnull %0, ptr noundef %.val47)
-  %28 = getelementptr i8, ptr %0, i64 108
-  %.val4251 = load i32, ptr %28, align 4, !tbaa !40
-  %29 = icmp sgt i32 %.val4251, 0
-  br i1 %29, label %.lr.ph53, label %.critedge2
+  %27 = getelementptr i8, ptr %0, i64 108
+  %.val4251 = load i32, ptr %27, align 4, !tbaa !40
+  %28 = icmp sgt i32 %.val4251, 0
+  br i1 %28, label %.lr.ph, label %.critedge2
 
-.lr.ph53:                                         ; preds = %.critedge
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br label %31
+.lr.ph:                                           ; preds = %._crit_edge
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  br label %30
 
-31:                                               ; preds = %.lr.ph53, %31
-  %indvars.iv = phi i64 [ 0, %.lr.ph53 ], [ %indvars.iv.next, %31 ]
-  %32 = load ptr, ptr %30, align 8, !tbaa !39
-  %33 = getelementptr i8, ptr %32, i64 8
-  %.val = load ptr, ptr %33, align 8, !tbaa !24
-  %34 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
-  %35 = load ptr, ptr %34, align 8, !tbaa !25
-  tail call void @Aig_ManMarkAutonomous_rec(ptr noundef nonnull %0, ptr noundef %35)
+30:                                               ; preds = %.lr.ph, %30
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
+  %31 = load ptr, ptr %29, align 8, !tbaa !39
+  %32 = getelementptr i8, ptr %31, i64 8
+  %.val = load ptr, ptr %32, align 8, !tbaa !24
+  %33 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
+  %34 = load ptr, ptr %33, align 8, !tbaa !25
+  tail call void @Aig_ManMarkAutonomous_rec(ptr noundef nonnull %0, ptr noundef %34)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.val42 = load i32, ptr %28, align 4, !tbaa !40
-  %36 = sext i32 %.val42 to i64
-  %37 = icmp slt i64 %indvars.iv.next, %36
-  br i1 %37, label %31, label %.critedge2, !llvm.loop !43
+  %.val42 = load i32, ptr %27, align 4, !tbaa !40
+  %35 = sext i32 %.val42 to i64
+  %36 = icmp slt i64 %indvars.iv.next, %35
+  br i1 %36, label %30, label %.critedge2, !llvm.loop !43
 
-.critedge2:                                       ; preds = %31, %.critedge
-  %.not = icmp eq ptr %26, null
-  br i1 %.not, label %39, label %38
+.critedge2:                                       ; preds = %30, %._crit_edge
+  %.not = icmp eq ptr %25, null
+  br i1 %.not, label %38, label %37
 
-38:                                               ; preds = %.critedge2
-  tail call void @free(ptr noundef nonnull %26) #14
-  br label %39
+37:                                               ; preds = %.critedge2
+  tail call void @free(ptr noundef nonnull %25) #14
+  br label %38
 
-39:                                               ; preds = %.critedge2, %38
+38:                                               ; preds = %.critedge2, %37
   %.val3754 = load i32, ptr %2, align 8, !tbaa !36
-  %40 = icmp sgt i32 %.val3754, 0
-  br i1 %40, label %.lr.ph56, label %.critedge4
+  %39 = icmp sgt i32 %.val3754, 0
+  br i1 %39, label %.critedge4.lr.ph, label %._crit_edge56
 
-.lr.ph56:                                         ; preds = %39
-  %41 = getelementptr i8, ptr %0, i64 24
-  %42 = getelementptr i8, ptr %0, i64 112
-  %43 = getelementptr i8, ptr %0, i64 16
-  br label %44
+.critedge4.lr.ph:                                 ; preds = %38
+  %40 = getelementptr i8, ptr %0, i64 24
+  %41 = getelementptr i8, ptr %0, i64 112
+  %42 = getelementptr i8, ptr %0, i64 16
+  br label %.critedge4
 
-44:                                               ; preds = %.lr.ph56, %44
-  %.255 = phi i32 [ 0, %.lr.ph56 ], [ %59, %44 ]
-  %.val40 = load ptr, ptr %41, align 8, !tbaa !37
-  %.val41 = load i32, ptr %42, align 8, !tbaa !38
-  %45 = getelementptr i8, ptr %.val40, i64 8
-  %.val40.val = load ptr, ptr %45, align 8, !tbaa !24
-  %46 = add nsw i32 %.val41, %.255
-  %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds ptr, ptr %.val40.val, i64 %47
-  %49 = load ptr, ptr %48, align 8, !tbaa !25
-  %.val45 = load ptr, ptr %43, align 8, !tbaa !39
-  %.val46 = load i32, ptr %28, align 4, !tbaa !40
-  %50 = getelementptr i8, ptr %.val45, i64 8
-  %.val45.val = load ptr, ptr %50, align 8, !tbaa !24
-  %51 = add nsw i32 %.val46, %.255
-  %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds ptr, ptr %.val45.val, i64 %52
-  %54 = load ptr, ptr %53, align 8, !tbaa !25
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  store ptr null, ptr %55, align 8, !tbaa !29
-  %56 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %57 = load i64, ptr %56, align 8
-  %58 = and i64 %57, -4294967233
-  store i64 %58, ptr %56, align 8
-  %59 = add nuw nsw i32 %.255, 1
+.critedge4:                                       ; preds = %.critedge4.lr.ph, %.critedge4
+  %.255 = phi i32 [ 0, %.critedge4.lr.ph ], [ %57, %.critedge4 ]
+  %.val40 = load ptr, ptr %40, align 8, !tbaa !37
+  %.val41 = load i32, ptr %41, align 8, !tbaa !38
+  %43 = getelementptr i8, ptr %.val40, i64 8
+  %.val40.val = load ptr, ptr %43, align 8, !tbaa !24
+  %44 = add nsw i32 %.val41, %.255
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr inbounds ptr, ptr %.val40.val, i64 %45
+  %47 = load ptr, ptr %46, align 8, !tbaa !25
+  %.val45 = load ptr, ptr %42, align 8, !tbaa !39
+  %.val46 = load i32, ptr %27, align 4, !tbaa !40
+  %48 = getelementptr i8, ptr %.val45, i64 8
+  %.val45.val = load ptr, ptr %48, align 8, !tbaa !24
+  %49 = add nsw i32 %.val46, %.255
+  %50 = sext i32 %49 to i64
+  %51 = getelementptr inbounds ptr, ptr %.val45.val, i64 %50
+  %52 = load ptr, ptr %51, align 8, !tbaa !25
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  store ptr null, ptr %53, align 8, !tbaa !29
+  %54 = getelementptr inbounds nuw i8, ptr %47, i64 24
+  %55 = load i64, ptr %54, align 8
+  %56 = and i64 %55, -4294967233
+  store i64 %56, ptr %54, align 8
+  %57 = add nuw nsw i32 %.255, 1
   %.val37 = load i32, ptr %2, align 8, !tbaa !36
-  %60 = icmp slt i32 %59, %.val37
-  br i1 %60, label %44, label %.critedge4, !llvm.loop !44
+  %58 = icmp slt i32 %57, %.val37
+  br i1 %58, label %.critedge4, label %._crit_edge56, !llvm.loop !44
 
-.critedge4:                                       ; preds = %44, %39
+._crit_edge56:                                    ; preds = %.critedge4, %38
   ret void
 }
 

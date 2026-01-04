@@ -368,7 +368,7 @@ define hidden void @av1_decode_xq(ptr noundef readonly captures(none) %0, ptr no
   br label %20
 
 20:                                               ; preds = %10, %15, %6
-  %.sink = phi i32 [ %19, %15 ], [ %9, %6 ], [ 0, %10 ]
+  %.sink = phi i32 [ %9, %6 ], [ %19, %15 ], [ 0, %10 ]
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %.sink, ptr %21, align 4
   ret void
@@ -1713,7 +1713,7 @@ define hidden void @av1_loop_restoration_filter_frame_init(ptr noundef captures(
   br label %62
 
 62:                                               ; preds = %.critedge, %53
-  %63 = phi i32 [ %60, %53 ], [ 0, %.critedge ]
+  %63 = phi i32 [ 0, %.critedge ], [ %60, %53 ]
   %64 = getelementptr inbounds nuw i8, ptr %48, i64 16
   store i32 %63, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %48, i64 20
@@ -2279,7 +2279,7 @@ av1_whole_frame_rect.exit:                        ; preds = %18, %20
   br label %105
 
 105:                                              ; preds = %79, %101, %12, %9
-  %.0 = phi i32 [ 0, %9 ], [ 0, %12 ], [ 0, %79 ], [ %104, %101 ]
+  %.0 = phi i32 [ 0, %12 ], [ 0, %9 ], [ 0, %79 ], [ %104, %101 ]
   ret i32 %.0
 }
 

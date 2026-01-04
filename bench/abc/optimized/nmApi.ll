@@ -19,19 +19,19 @@ define noalias noundef ptr @Nm_ManCreate(i32 noundef %0) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %calloc19, i64 28
   store i32 3, ptr %3, align 4, !tbaa !11
   %4 = add i32 %0, -1
-  br label %.loopexit.i
+  br label %.critedge.i
 
-.loopexit.i:                                      ; preds = %.loopexit.i.backedge, %1
-  %.012.i = phi i32 [ %4, %1 ], [ %5, %.loopexit.i.backedge ]
+.critedge.i:                                      ; preds = %.critedge.i.backedge, %1
+  %.012.i = phi i32 [ %4, %1 ], [ %5, %.critedge.i.backedge ]
   %5 = add i32 %.012.i, 1
   %6 = and i32 %.012.i, 1
   %.not.not.i = icmp eq i32 %6, 0
-  br i1 %.not.not.i, label %.preheader.i, label %.loopexit.i.backedge
+  br i1 %.not.not.i, label %.preheader.i, label %.critedge.i.backedge
 
-.loopexit.i.backedge:                             ; preds = %.lr.ph.i, %.loopexit.i
-  br label %.loopexit.i, !llvm.loop !12
+.critedge.i.backedge:                             ; preds = %.lr.ph.i, %.critedge.i
+  br label %.critedge.i
 
-.preheader.i:                                     ; preds = %.loopexit.i
+.preheader.i:                                     ; preds = %.critedge.i
   %.not15.i = icmp ult i32 %5, 9
   br i1 %.not15.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i
 
@@ -39,27 +39,27 @@ define noalias noundef ptr @Nm_ManCreate(i32 noundef %0) local_unnamed_addr #0 {
   %8 = add nuw nsw i32 %.01116.i, 2
   %9 = mul nuw nsw i32 %8, %8
   %.not.i = icmp ugt i32 %9, %5
-  br i1 %.not.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i, !llvm.loop !12
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %7
   %.01116.i = phi i32 [ %8, %7 ], [ 3, %.preheader.i ]
   %10 = urem i32 %5, %.01116.i
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %.loopexit.i.backedge, label %7, !llvm.loop !12
+  br i1 %11, label %.critedge.i.backedge, label %7
 
 Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %7
   %12 = getelementptr inbounds nuw i8, ptr %calloc19, i64 16
-  store i32 %5, ptr %12, align 8, !tbaa !15
+  store i32 %5, ptr %12, align 8, !tbaa !14
   %13 = sext i32 %5 to i64
   %14 = shl nsw i64 %13, 3
   %calloc = tail call ptr @calloc(i64 1, i64 %14)
-  store ptr %calloc, ptr %calloc19, align 8, !tbaa !16
+  store ptr %calloc, ptr %calloc19, align 8, !tbaa !15
   %calloc18 = tail call ptr @calloc(i64 1, i64 %14)
   %15 = getelementptr inbounds nuw i8, ptr %calloc19, i64 8
-  store ptr %calloc18, ptr %15, align 8, !tbaa !17
+  store ptr %calloc18, ptr %15, align 8, !tbaa !16
   %16 = tail call ptr (...) @Extra_MmFlexStart() #11
   %17 = getelementptr inbounds nuw i8, ptr %calloc19, i64 32
-  store ptr %16, ptr %17, align 8, !tbaa !18
+  store ptr %16, ptr %17, align 8, !tbaa !17
   ret ptr %calloc19
 }
 
@@ -74,20 +74,20 @@ declare ptr @Extra_MmFlexStart(...) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define void @Nm_ManFree(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8, !tbaa !17
   tail call void @Extra_MmFlexStop(ptr noundef %3) #11
-  %4 = load ptr, ptr %0, align 8, !tbaa !16
+  %4 = load ptr, ptr %0, align 8, !tbaa !15
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %1
   tail call void @free(ptr noundef nonnull %4) #11
-  store ptr null, ptr %0, align 8, !tbaa !16
+  store ptr null, ptr %0, align 8, !tbaa !15
   br label %6
 
 6:                                                ; preds = %1, %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !17
+  %8 = load ptr, ptr %7, align 8, !tbaa !16
   %.not10 = icmp eq ptr %8, null
   br i1 %.not10, label %10, label %9
 
@@ -108,7 +108,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @Nm_ManNumEntries(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %3 = load i32, ptr %2, align 4, !tbaa !19
+  %3 = load i32, ptr %2, align 4, !tbaa !18
   ret i32 %3
 }
 
@@ -146,13 +146,13 @@ define noundef ptr @Nm_ManStoreIdName(ptr noundef %0, i32 noundef %1, i32 nounde
   %23 = trunc i64 %22 to i32
   %24 = and i32 %23, -8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %26 = load ptr, ptr %25, align 8, !tbaa !18
+  %26 = load ptr, ptr %25, align 8, !tbaa !17
   %27 = tail call ptr @Extra_MmFlexEntryFetch(ptr noundef %26, i32 noundef %24) #11
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
-  store i32 %1, ptr %29, align 4, !tbaa !20
-  store i32 %2, ptr %27, align 8, !tbaa !23
+  store i32 %1, ptr %29, align 4, !tbaa !19
+  store i32 %2, ptr %27, align 8, !tbaa !22
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %31 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %3, ptr noundef nonnull %15) #11
   %32 = tail call i32 @Nm_ManTableAdd(ptr noundef %0, ptr noundef nonnull %27) #11
@@ -220,7 +220,7 @@ define nonnull ptr @Nm_ManCreateUniqueName(ptr noundef %0, i32 noundef %1) local
   %10 = add nuw nsw i32 %.012, 1
   %11 = tail call ptr @Nm_ManTableLookupName(ptr noundef %0, ptr noundef nonnull @Nm_ManCreateUniqueName.NameStr, i32 noundef -1) #11
   %.not10 = icmp eq ptr %11, null
-  br i1 %.not10, label %.loopexit, label %.lr.ph, !llvm.loop !24
+  br i1 %.not10, label %.loopexit, label %.lr.ph, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.lr.ph, %6, %4
   %.08 = phi ptr [ %5, %4 ], [ @Nm_ManCreateUniqueName.NameStr, %6 ], [ @Nm_ManCreateUniqueName.NameStr, %.lr.ph ]
@@ -246,7 +246,7 @@ define i32 @Nm_ManFindIdByName(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %7 = load i32, ptr %6, align 4, !tbaa !20
+  %7 = load i32, ptr %6, align 4, !tbaa !19
   br label %8
 
 8:                                                ; preds = %3, %5
@@ -262,7 +262,7 @@ define i32 @Nm_ManFindIdByNameTwoTypes(ptr noundef %0, ptr noundef %1, i32 nound
 
 Nm_ManFindIdByName.exit:                          ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %7 = load i32, ptr %6, align 4, !tbaa !20
+  %7 = load i32, ptr %6, align 4, !tbaa !19
   %8 = icmp eq i32 %7, -1
   br i1 %8, label %Nm_ManFindIdByName.exit.thread, label %Nm_ManFindIdByName.exit13
 
@@ -273,7 +273,7 @@ Nm_ManFindIdByName.exit.thread:                   ; preds = %4, %Nm_ManFindIdByN
 
 10:                                               ; preds = %Nm_ManFindIdByName.exit.thread
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %12 = load i32, ptr %11, align 4, !tbaa !20
+  %12 = load i32, ptr %11, align 4, !tbaa !19
   br label %Nm_ManFindIdByName.exit13
 
 Nm_ManFindIdByName.exit13:                        ; preds = %10, %Nm_ManFindIdByName.exit.thread, %Nm_ManFindIdByName.exit
@@ -284,14 +284,14 @@ Nm_ManFindIdByName.exit13:                        ; preds = %10, %Nm_ManFindIdBy
 ; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define noalias noundef ptr @Nm_ManReturnNameIds(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %3 = load i32, ptr %2, align 4, !tbaa !19
+  %3 = load i32, ptr %2, align 4, !tbaa !18
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
   %5 = add i32 %3, -1
   %or.cond.i = icmp ult i32 %5, 15
   %spec.store.select.i = select i1 %or.cond.i, i32 16, i32 %3
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 0, ptr %6, align 4, !tbaa !25
-  store i32 %spec.store.select.i, ptr %4, align 8, !tbaa !28
+  store i32 0, ptr %6, align 4, !tbaa !24
+  store i32 %spec.store.select.i, ptr %4, align 8, !tbaa !27
   %.not.i = icmp eq i32 %spec.store.select.i, 0
   br i1 %.not.i, label %Vec_IntAlloc.exit, label %7
 
@@ -304,9 +304,9 @@ define noalias noundef ptr @Nm_ManReturnNameIds(ptr noundef readonly captures(no
 Vec_IntAlloc.exit:                                ; preds = %1, %7
   %11 = phi ptr [ %10, %7 ], [ null, %1 ]
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %11, ptr %12, align 8, !tbaa !29
+  store ptr %11, ptr %12, align 8, !tbaa !28
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load i32, ptr %13, align 8, !tbaa !15
+  %14 = load i32, ptr %13, align 8, !tbaa !14
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %.lr.ph, label %._crit_edge
 
@@ -314,17 +314,17 @@ Vec_IntAlloc.exit:                                ; preds = %1, %7
   %16 = phi i32 [ %46, %45 ], [ %14, %Vec_IntAlloc.exit ]
   %17 = phi ptr [ %.pre.i13, %45 ], [ %11, %Vec_IntAlloc.exit ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %45 ], [ 0, %Vec_IntAlloc.exit ]
-  %18 = load ptr, ptr %0, align 8, !tbaa !16
+  %18 = load ptr, ptr %0, align 8, !tbaa !15
   %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
-  %20 = load ptr, ptr %19, align 8, !tbaa !30
+  %20 = load ptr, ptr %19, align 8, !tbaa !29
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %45, label %21
 
 21:                                               ; preds = %.lr.ph
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %23 = load i32, ptr %22, align 4, !tbaa !20
-  %24 = load i32, ptr %6, align 4, !tbaa !25
-  %25 = load i32, ptr %4, align 8, !tbaa !28
+  %23 = load i32, ptr %22, align 4, !tbaa !19
+  %24 = load i32, ptr %6, align 4, !tbaa !24
+  %25 = load i32, ptr %4, align 8, !tbaa !27
   %26 = icmp eq i32 %24, %25
   br i1 %26, label %27, label %Vec_IntPush.exit
 
@@ -360,20 +360,20 @@ Vec_IntAlloc.exit:                                ; preds = %1, %7
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %38, %40, %30, %32
-  %.sink18 = phi ptr [ %31, %30 ], [ %33, %32 ], [ %39, %38 ], [ %41, %40 ]
-  %.sink = phi i32 [ 16, %30 ], [ 16, %32 ], [ %35, %38 ], [ %35, %40 ]
-  store ptr %.sink18, ptr %12, align 8, !tbaa !29
-  store i32 %.sink, ptr %4, align 8, !tbaa !28
+  %.sink18 = phi ptr [ %33, %32 ], [ %31, %30 ], [ %39, %38 ], [ %41, %40 ]
+  %.sink = phi i32 [ 16, %32 ], [ 16, %30 ], [ %35, %38 ], [ %35, %40 ]
+  store ptr %.sink18, ptr %12, align 8, !tbaa !28
+  store i32 %.sink, ptr %4, align 8, !tbaa !27
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %21
   %.pre.i14 = phi ptr [ %17, %21 ], [ %.sink18, %Vec_IntPush.exit.sink.split ]
   %42 = add nsw i32 %24, 1
-  store i32 %42, ptr %6, align 4, !tbaa !25
+  store i32 %42, ptr %6, align 4, !tbaa !24
   %43 = sext i32 %24 to i64
   %44 = getelementptr inbounds i32, ptr %.pre.i14, i64 %43
-  store i32 %23, ptr %44, align 4, !tbaa !31
-  %.pre = load i32, ptr %13, align 8, !tbaa !15
+  store i32 %23, ptr %44, align 4, !tbaa !30
+  %.pre = load i32, ptr %13, align 8, !tbaa !14
   br label %45
 
 45:                                               ; preds = %.lr.ph, %Vec_IntPush.exit
@@ -382,7 +382,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = sext i32 %46 to i64
   %48 = icmp slt i64 %indvars.iv.next, %47
-  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !32
+  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %45, %Vec_IntAlloc.exit
   ret ptr %4
@@ -426,22 +426,21 @@ attributes #14 = { nounwind allocsize(1) }
 !11 = !{!4, !9, i64 28}
 !12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = distinct !{!14, !13}
-!15 = !{!4, !9, i64 16}
-!16 = !{!4, !5, i64 0}
-!17 = !{!4, !5, i64 8}
-!18 = !{!4, !10, i64 32}
-!19 = !{!4, !9, i64 20}
-!20 = !{!21, !9, i64 4}
-!21 = !{!"Nm_Entry_t_", !9, i64 0, !9, i64 4, !22, i64 8, !22, i64 16, !22, i64 24, !7, i64 32}
-!22 = !{!"p1 _ZTS11Nm_Entry_t_", !6, i64 0}
-!23 = !{!21, !9, i64 0}
-!24 = distinct !{!24, !13}
-!25 = !{!26, !9, i64 4}
-!26 = !{!"Vec_Int_t_", !9, i64 0, !9, i64 4, !27, i64 8}
-!27 = !{!"p1 int", !6, i64 0}
-!28 = !{!26, !9, i64 0}
-!29 = !{!26, !27, i64 8}
-!30 = !{!22, !22, i64 0}
-!31 = !{!9, !9, i64 0}
-!32 = distinct !{!32, !13}
+!14 = !{!4, !9, i64 16}
+!15 = !{!4, !5, i64 0}
+!16 = !{!4, !5, i64 8}
+!17 = !{!4, !10, i64 32}
+!18 = !{!4, !9, i64 20}
+!19 = !{!20, !9, i64 4}
+!20 = !{!"Nm_Entry_t_", !9, i64 0, !9, i64 4, !21, i64 8, !21, i64 16, !21, i64 24, !7, i64 32}
+!21 = !{!"p1 _ZTS11Nm_Entry_t_", !6, i64 0}
+!22 = !{!20, !9, i64 0}
+!23 = distinct !{!23, !13}
+!24 = !{!25, !9, i64 4}
+!25 = !{!"Vec_Int_t_", !9, i64 0, !9, i64 4, !26, i64 8}
+!26 = !{!"p1 int", !6, i64 0}
+!27 = !{!25, !9, i64 0}
+!28 = !{!25, !26, i64 8}
+!29 = !{!21, !21, i64 0}
+!30 = !{!9, !9, i64 0}
+!31 = distinct !{!31, !13}

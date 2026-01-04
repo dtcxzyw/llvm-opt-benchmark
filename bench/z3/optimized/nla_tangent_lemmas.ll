@@ -653,7 +653,7 @@ define linkonce_odr hidden void @_ZN3nla11tangent_impC2ENS_5pointERK8rationalRKN
           to label %_ZltRK8rationalS1_.exit unwind label %138
 
 _ZltRK8rationalS1_.exit:                          ; preds = %.noexc, %79, %86
-  %.0.i.i = phi i1 [ %82, %79 ], [ %85, %.noexc ], [ %87, %86 ]
+  %.0.i.i = phi i1 [ %85, %.noexc ], [ %82, %79 ], [ %87, %86 ]
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %89 = zext i1 %.0.i.i to i8
   store i8 %89, ptr %88, align 8, !tbaa !195
@@ -3560,7 +3560,7 @@ _Z3absRK8rational.exit:                           ; preds = %_ZN8rationalC2ERKS_
           to label %129 unwind label %158
 
 129:                                              ; preds = %.noexc40, %120, %127
-  %.0.i.i.i = phi i1 [ %123, %120 ], [ %126, %.noexc40 ], [ %128, %127 ]
+  %.0.i.i.i = phi i1 [ %126, %.noexc40 ], [ %123, %120 ], [ %128, %127 ]
   %..i = select i1 %.0.i.i.i, ptr %3, ptr %2
   %130 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !191
   %.sroa.gep76 = getelementptr inbounds nuw i8, ptr %2, i64 4

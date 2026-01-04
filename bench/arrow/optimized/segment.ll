@@ -1305,7 +1305,7 @@ mi_page_has_any_available.exit.i:                 ; preds = %115
   br label %mi_page_has_any_available.exit.thread.i
 
 mi_page_has_any_available.exit.thread.i:          ; preds = %mi_page_has_any_available.exit.i, %101, %115, %112, %106
-  %.221.i = phi ptr [ %.01927.i, %112 ], [ %111, %106 ], [ %.01927.i, %mi_page_has_any_available.exit.i ], [ %.01927.i, %115 ], [ %.01927.i, %101 ]
+  %.221.i = phi ptr [ %111, %106 ], [ %.01927.i, %115 ], [ %.01927.i, %112 ], [ %.01927.i, %101 ], [ %.01927.i, %mi_page_has_any_available.exit.i ]
   %122 = load i32, ptr %.221.i, align 8, !tbaa !21
   %123 = zext i32 %122 to i64
   %124 = getelementptr inbounds nuw %struct.mi_page_s, ptr %.221.i, i64 %123
@@ -1919,8 +1919,8 @@ mi_page_has_any_available.exit.thread.i.i.i:      ; preds = %mi_page_has_any_ava
   br label %154
 
 154:                                              ; preds = %151, %mi_page_has_any_available.exit.thread.i.i.i, %mi_page_has_any_available.exit.i.i.i, %139, %131
-  %.221.i.i.i = phi ptr [ %.01927.i.i.i, %139 ], [ %136, %131 ], [ %.01927.i.i.i, %151 ], [ %.01927.i.i.i, %mi_page_has_any_available.exit.i.i.i ], [ %.01927.i.i.i, %mi_page_has_any_available.exit.thread.i.i.i ]
-  %.2.i.i.i = phi i1 [ %.028.i.i.i, %139 ], [ %spec.select.i.i.i, %131 ], [ %spec.select24.i.i.i, %151 ], [ %.028.i.i.i, %mi_page_has_any_available.exit.i.i.i ], [ true, %mi_page_has_any_available.exit.thread.i.i.i ]
+  %.221.i.i.i = phi ptr [ %136, %131 ], [ %.01927.i.i.i, %151 ], [ %.01927.i.i.i, %139 ], [ %.01927.i.i.i, %mi_page_has_any_available.exit.i.i.i ], [ %.01927.i.i.i, %mi_page_has_any_available.exit.thread.i.i.i ]
+  %.2.i.i.i = phi i1 [ %spec.select.i.i.i, %131 ], [ %spec.select24.i.i.i, %151 ], [ %.028.i.i.i, %139 ], [ %.028.i.i.i, %mi_page_has_any_available.exit.i.i.i ], [ true, %mi_page_has_any_available.exit.thread.i.i.i ]
   %155 = load i32, ptr %.221.i.i.i, align 8, !tbaa !21
   %156 = zext i32 %155 to i64
   %157 = getelementptr inbounds nuw %struct.mi_page_s, ptr %.221.i.i.i, i64 %156
@@ -1987,7 +1987,7 @@ mi_abandoned_visited_push.exit.i.i:               ; preds = %177
   br i1 %183, label %59, label %mi_segment_try_reclaim.exit.i, !llvm.loop !89
 
 mi_segment_try_reclaim.exit.i:                    ; preds = %182, %66, %63, %.thread38.i.i, %mi_abandoned_pop.exit.thread31.i.i, %.loopexit
-  %.2.i.i = phi i1 [ true, %mi_abandoned_pop.exit.thread31.i.i ], [ %169, %.thread38.i.i ], [ true, %.loopexit ], [ true, %63 ], [ true, %66 ], [ true, %182 ]
+  %.2.i.i = phi i1 [ %169, %.thread38.i.i ], [ true, %mi_abandoned_pop.exit.thread31.i.i ], [ true, %.loopexit ], [ true, %63 ], [ true, %66 ], [ true, %182 ]
   %184 = load i8, ptr %6, align 1, !tbaa !63, !range !35, !noundef !36
   %185 = trunc nuw i8 %184 to i1
   br i1 %185, label %mi_segment_reclaim_or_alloc.exit.thread, label %186
@@ -2022,7 +2022,7 @@ mi_segments_page_find_and_allocate.exit:          ; preds = %mi_span_queue_delet
   br label %195
 
 195:                                              ; preds = %mi_segment_reclaim_or_alloc.exit.thread, %mi_segment_reclaim_or_alloc.exit, %mi_segments_page_find_and_allocate.exit, %189
-  %.0 = phi ptr [ %190, %189 ], [ %50, %mi_segments_page_find_and_allocate.exit ], [ null, %mi_segment_reclaim_or_alloc.exit ], [ null, %mi_segment_reclaim_or_alloc.exit.thread ]
+  %.0 = phi ptr [ %50, %mi_segments_page_find_and_allocate.exit ], [ %190, %189 ], [ null, %mi_segment_reclaim_or_alloc.exit ], [ null, %mi_segment_reclaim_or_alloc.exit.thread ]
   ret ptr %.0
 }
 
@@ -2740,7 +2740,7 @@ mi_commit_mask_any_set.exit53:                    ; preds = %92
   br label %mi_commit_mask_clear.exit56
 
 mi_commit_mask_clear.exit56:                      ; preds = %105, %.critedge, %mi_commit_mask_is_empty.exit
-  %.021 = phi i1 [ true, %mi_commit_mask_is_empty.exit ], [ false, %.critedge ], [ true, %105 ]
+  %.021 = phi i1 [ false, %.critedge ], [ true, %mi_commit_mask_is_empty.exit ], [ true, %105 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -3363,7 +3363,7 @@ mi_segments_track_size.exit.i:                    ; preds = %115, %108
   br label %mi_segment_init.exit
 
 mi_segment_init.exit:                             ; preds = %.critedge.i, %143, %164, %167, %.critedge89.i
-  %.4.i = phi ptr [ null, %.critedge.i ], [ null, %.critedge89.i ], [ null, %143 ], [ %.179.i, %167 ], [ %.179.i, %164 ]
+  %.4.i = phi ptr [ null, %.critedge89.i ], [ null, %.critedge.i ], [ null, %143 ], [ %.179.i, %167 ], [ %.179.i, %164 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

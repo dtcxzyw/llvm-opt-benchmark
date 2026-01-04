@@ -213,7 +213,7 @@ define ptr @cuddCofactorRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   br label %107
 
 107:                                              ; preds = %105, %101
-  %.2 = phi ptr [ %104, %101 ], [ %106, %105 ]
+  %.2 = phi ptr [ %106, %105 ], [ %104, %101 ]
   %108 = icmp eq ptr %.2, null
   br i1 %108, label %.thread, label %.thread113
 
@@ -242,7 +242,7 @@ define ptr @cuddCofactorRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   br label %118
 
 118:                                              ; preds = %.critedge, %72, %9, %3, %113, %.thread, %85, %67, %16
-  %.0 = phi ptr [ %20, %16 ], [ %117, %113 ], [ null, %67 ], [ null, %85 ], [ null, %.thread ], [ %1, %3 ], [ %1, %9 ], [ null, %72 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %.thread ], [ %1, %3 ], [ %20, %16 ], [ %1, %9 ], [ %117, %113 ], [ null, %67 ], [ null, %72 ], [ null, %85 ], [ null, %.critedge ]
   ret ptr %.0
 }
 

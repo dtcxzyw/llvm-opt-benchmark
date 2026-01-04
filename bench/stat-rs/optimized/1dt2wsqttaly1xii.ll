@@ -555,7 +555,7 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit188.us.i: ; preds = %_Z
   br label %"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17hd3762af269b2b826E.exit"
 
 "_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17hd3762af269b2b826E.exit": ; preds = %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i163.us.i, %._ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i169_crit_edge.split.us259.i, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit188.us.i, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i163.us.us.i, %._ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i169_crit_edge.split.us.us.us.i, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit196.us.us.us.i, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i.i, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i151.i, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit162.i, %.split262.us.i, %77, %.split.us.i
-  %.sroa.0.0.shrunk.i = phi i1 [ %82, %77 ], [ true, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i151.i ], [ true, %.split.us.i ], [ %37, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i.i ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit162.i ], [ true, %.split262.us.i ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit196.us.us.us.i ], [ true, %._ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i169_crit_edge.split.us.us.us.i ], [ true, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i163.us.us.i ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit188.us.i ], [ true, %._ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i169_crit_edge.split.us259.i ], [ true, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i163.us.i ]
+  %.sroa.0.0.shrunk.i = phi i1 [ true, %.split.us.i ], [ true, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i151.i ], [ %82, %77 ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit162.i ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit188.us.i ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit196.us.us.us.i ], [ %37, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i.i ], [ true, %.split262.us.i ], [ true, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i163.us.us.i ], [ true, %._ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i169_crit_edge.split.us.us.us.i ], [ true, %._ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i169_crit_edge.split.us259.i ], [ true, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i163.us.i ]
   ret i1 %.sroa.0.0.shrunk.i
 }
 
@@ -894,7 +894,7 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i178.sp
   br i1 %66, label %"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17he6cd07f6d640c05eE.exit", label %.split53.i
 
 "_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17he6cd07f6d640c05eE.exit": ; preds = %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i172.i, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit197.i, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i178.split.i, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i172.us.i, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit205.us.us.i, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i178.split.us.us.i, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i.i, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i160.i, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit171.i, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit, %59, %.split.us.i
-  %.sroa.0.0.shrunk.i = phi i1 [ %64, %59 ], [ true, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i160.i ], [ true, %.split.us.i ], [ %29, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i.i ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit171.i ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit ], [ true, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i178.split.us.us.i ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit205.us.us.i ], [ true, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i172.us.i ], [ true, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i178.split.i ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit197.i ], [ true, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i172.i ]
+  %.sroa.0.0.shrunk.i = phi i1 [ true, %.split.us.i ], [ true, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i160.i ], [ %64, %59 ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit171.i ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit ], [ true, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i172.us.i ], [ %29, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i.i ], [ true, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i178.split.us.us.i ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit205.us.us.i ], [ true, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i178.split.i ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit197.i ], [ true, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i172.i ]
   ret i1 %.sroa.0.0.shrunk.i
 }
 
@@ -1650,7 +1650,7 @@ define hidden noundef double @"_ZN8nalgebra4base4blas69_$LT$impl$u20$nalgebra..b
   unreachable
 
 .split.us:                                        ; preds = %.preheader.us141, %.lr.ph138.us, %.preheader117.split, %._crit_edge.us
-  %.us-phi = phi double [ %88, %._crit_edge.us ], [ 0.000000e+00, %.preheader117.split ], [ %21, %.lr.ph138.us ], [ %96, %.preheader.us141 ]
+  %.us-phi = phi double [ 0.000000e+00, %.preheader117.split ], [ %88, %._crit_edge.us ], [ %21, %.lr.ph138.us ], [ %96, %.preheader.us141 ]
   ret double %.us-phi
 }
 
@@ -2060,7 +2060,7 @@ define hidden void @"_ZN8nalgebra6linalg5solve69_$LT$impl$u20$nalgebra..base..ma
   br i1 %112, label %.lr.ph43.us.i.us.us, label %"_ZN8nalgebra6linalg5solve69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$D$C$D$C$S$GT$$GT$39ad_solve_lower_triangular_unchecked_mut28_$u7b$$u7b$closure$u7d$$u7d$17ha65c27453772bbceE.llvm.4752837998330011175.exit.us.us"
 
 "_ZN8nalgebra6linalg5solve69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$D$C$D$C$S$GT$$GT$39ad_solve_lower_triangular_unchecked_mut28_$u7b$$u7b$closure$u7d$$u7d$17ha65c27453772bbceE.llvm.4752837998330011175.exit.us.us": ; preds = %.preheader.us46.i.us.us, %.lr.ph43.us.i.us.us, %._crit_edge.us.i.us.us, %.preheader22.split.i.us.us
-  %.us-phi.i.us.us = phi double [ %103, %._crit_edge.us.i.us.us ], [ 0.000000e+00, %.preheader22.split.i.us.us ], [ %111, %.lr.ph43.us.i.us.us ], [ %37, %.preheader.us46.i.us.us ]
+  %.us-phi.i.us.us = phi double [ 0.000000e+00, %.preheader22.split.i.us.us ], [ %103, %._crit_edge.us.i.us.us ], [ %111, %.lr.ph43.us.i.us.us ], [ %37, %.preheader.us46.i.us.us ]
   %113 = getelementptr double, ptr %22, i64 %24
   %114 = getelementptr double, ptr %27, i64 %24
   %115 = load double, ptr %114, align 8, !alias.scope !562, !noundef !4
@@ -2285,7 +2285,7 @@ define hidden noundef double @"_ZN8nalgebra6linalg5solve69_$LT$impl$u20$nalgebra
   unreachable
 
 "_ZN8nalgebra4base4blas69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$4dotx17h92ec9b9f6d6e1d3eE.llvm.4752837998330011175.exit": ; preds = %.preheader.us46, %.lr.ph43.us, %.preheader22.split, %._crit_edge.us
-  %.us-phi = phi double [ %89, %._crit_edge.us ], [ 0.000000e+00, %.preheader22.split ], [ %22, %.lr.ph43.us ], [ %97, %.preheader.us46 ]
+  %.us-phi = phi double [ 0.000000e+00, %.preheader22.split ], [ %89, %._crit_edge.us ], [ %22, %.lr.ph43.us ], [ %97, %.preheader.us46 ]
   ret double %.us-phi
 }
 

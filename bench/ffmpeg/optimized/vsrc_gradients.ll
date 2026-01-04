@@ -197,7 +197,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
   br label %91
 
 91:                                               ; preds = %17, %72, %19, %16
-  %.0 = phi i32 [ 0, %16 ], [ %90, %72 ], [ -12, %19 ], [ -1497649742, %17 ]
+  %.0 = phi i32 [ 0, %16 ], [ -12, %19 ], [ %90, %72 ], [ -1497649742, %17 ]
   ret i32 %.0
 }
 
@@ -428,7 +428,7 @@ define internal range(i32 -558323010, 1) i32 @config_output(ptr noundef captures
   br i1 %exitcond.not, label %137, label %138, !llvm.loop !71
 
 .loopexit:                                        ; preds = %137, %31, %1
-  %.060 = phi i32 [ -22, %1 ], [ -558323010, %31 ], [ 0, %137 ]
+  %.060 = phi i32 [ -558323010, %31 ], [ -22, %1 ], [ 0, %137 ]
   ret i32 %.060
 }
 
@@ -552,8 +552,8 @@ define internal noundef i32 @draw_gradients_slice(ptr noundef readonly captures(
   br label %project.exit.us
 
 project.exit.us:                                  ; preds = %.thread.i.us, %.thread42.i.us, %.thread45.i.us, %67, %58, %54
-  %.041.i.us = phi float [ %47, %.thread.i.us ], [ %48, %.thread42.i.us ], [ 0x401921FB60000000, %67 ], [ 0x401921FB60000000, %58 ], [ %45, %.thread45.i.us ], [ 0x401921FB60000000, %54 ]
-  %.038.i.us = phi nsz float [ %76, %.thread.i.us ], [ %75, %.thread42.i.us ], [ %71, %67 ], [ %66, %58 ], [ %73, %.thread45.i.us ], [ undef, %54 ]
+  %.041.i.us = phi float [ 0x401921FB60000000, %54 ], [ %47, %.thread.i.us ], [ %48, %.thread42.i.us ], [ 0x401921FB60000000, %67 ], [ 0x401921FB60000000, %58 ], [ %45, %.thread45.i.us ]
+  %.038.i.us = phi nsz float [ undef, %54 ], [ %76, %.thread.i.us ], [ %75, %.thread42.i.us ], [ %71, %67 ], [ %66, %58 ], [ %73, %.thread45.i.us ]
   %77 = fdiv nsz float %.038.i.us, %.041.i.us
   %78 = fcmp nsz ogt float %77, 0.000000e+00
   %79 = select nsz i1 %78, float %77, float 0.000000e+00
@@ -785,8 +785,8 @@ define internal noundef i32 @draw_gradients_slice16(ptr noundef readonly capture
   br label %project.exit.us
 
 project.exit.us:                                  ; preds = %.thread.i.us, %.thread42.i.us, %.thread45.i.us, %80, %71, %67
-  %.041.i.us = phi float [ %50, %.thread.i.us ], [ %51, %.thread42.i.us ], [ 0x401921FB60000000, %80 ], [ 0x401921FB60000000, %71 ], [ %48, %.thread45.i.us ], [ 0x401921FB60000000, %67 ]
-  %.038.i.us = phi nsz float [ %89, %.thread.i.us ], [ %88, %.thread42.i.us ], [ %84, %80 ], [ %79, %71 ], [ %86, %.thread45.i.us ], [ undef, %67 ]
+  %.041.i.us = phi float [ 0x401921FB60000000, %67 ], [ %50, %.thread.i.us ], [ %51, %.thread42.i.us ], [ 0x401921FB60000000, %80 ], [ 0x401921FB60000000, %71 ], [ %48, %.thread45.i.us ]
+  %.038.i.us = phi nsz float [ undef, %67 ], [ %89, %.thread.i.us ], [ %88, %.thread42.i.us ], [ %84, %80 ], [ %79, %71 ], [ %86, %.thread45.i.us ]
   %90 = fdiv nsz float %.038.i.us, %.041.i.us
   %91 = fcmp nsz ogt float %90, 0.000000e+00
   %92 = select nsz i1 %91, float %90, float 0.000000e+00
@@ -1070,8 +1070,8 @@ define internal noundef i32 @draw_gradients_slice32_planar(ptr noundef readonly 
   br label %project.exit.us
 
 project.exit.us:                                  ; preds = %.thread.i.us, %.thread42.i.us, %.thread45.i.us, %95, %85, %74
-  %.041.i.us = phi float [ %113, %.thread.i.us ], [ %108, %.thread42.i.us ], [ 0x401921FB60000000, %95 ], [ 0x401921FB60000000, %85 ], [ %102, %.thread45.i.us ], [ 0x401921FB60000000, %74 ]
-  %.038.i.us = phi nsz float [ %115, %.thread.i.us ], [ %111, %.thread42.i.us ], [ %99, %95 ], [ %94, %85 ], [ %105, %.thread45.i.us ], [ undef, %74 ]
+  %.041.i.us = phi float [ 0x401921FB60000000, %74 ], [ %113, %.thread.i.us ], [ %108, %.thread42.i.us ], [ 0x401921FB60000000, %95 ], [ 0x401921FB60000000, %85 ], [ %102, %.thread45.i.us ]
+  %.038.i.us = phi nsz float [ undef, %74 ], [ %115, %.thread.i.us ], [ %111, %.thread42.i.us ], [ %99, %95 ], [ %94, %85 ], [ %105, %.thread45.i.us ]
   %116 = fdiv nsz float %.038.i.us, %.041.i.us
   %117 = fcmp nsz ogt float %116, 0.000000e+00
   %118 = select nsz i1 %117, float %116, float 0.000000e+00

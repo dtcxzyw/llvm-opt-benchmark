@@ -194,7 +194,7 @@ _ZN6icu_7712LocalPointerINS_19TransliterationRuleEEC2EPS1_R10UErrorCode.exit: ; 
   br label %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit32
 
 .critedge:                                        ; preds = %_ZN6icu_7712LocalPointerINS_19TransliterationRuleEEC2EPS1_R10UErrorCode.exit, %20, %17
-  %41 = phi i32 [ %.pre, %20 ], [ %.pre, %17 ], [ %37, %_ZN6icu_7712LocalPointerINS_19TransliterationRuleEEC2EPS1_R10UErrorCode.exit ]
+  %41 = phi i32 [ %.pre, %17 ], [ %.pre, %20 ], [ %37, %_ZN6icu_7712LocalPointerINS_19TransliterationRuleEEC2EPS1_R10UErrorCode.exit ]
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %43 = load ptr, ptr %42, align 8, !tbaa !23
   %.not25 = icmp eq ptr %43, null
@@ -773,7 +773,7 @@ _ZN6icu_7713UnicodeString8truncateEi.exit.i:      ; preds = %147, %141, %140
   ret void
 
 .body:                                            ; preds = %.loopexit84, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split.us, %170, %169, %.split97.us, %58
-  %.pn = phi { ptr, i32 } [ %59, %58 ], [ %50, %.split97.us ], [ %171, %170 ], [ %.pn.i, %169 ], [ %lpad.loopexit, %.loopexit84 ], [ %lpad.loopexit85.us, %.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit.split-lp86, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %59, %58 ], [ %.pn.i, %169 ], [ %50, %.split97.us ], [ %171, %170 ], [ %lpad.loopexit, %.loopexit84 ], [ %lpad.loopexit85.us, %.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit.split-lp86, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN6icu_777UVectorD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn

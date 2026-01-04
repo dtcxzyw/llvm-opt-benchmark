@@ -3319,7 +3319,7 @@ Fra_ClausProcessClausesCut.exit:                  ; preds = %.preheader.i
   br label %.loopexit224
 
 .loopexit224:                                     ; preds = %.loopexit224.loopexit, %128, %121
-  %218 = phi ptr [ %.pre249, %.loopexit224.loopexit ], [ %122, %128 ], [ %122, %121 ]
+  %218 = phi ptr [ %.pre249, %.loopexit224.loopexit ], [ %122, %121 ], [ %122, %128 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 32
   %220 = load ptr, ptr %219, align 8, !tbaa !108
@@ -4303,7 +4303,7 @@ Abc_Clock.exit191:                                ; preds = %126, %139
   br label %.critedge162
 
 .critedge162:                                     ; preds = %167, %191, %242, %248, %28
-  %.0146 = phi i32 [ 0, %28 ], [ 1, %248 ], [ 1, %242 ], [ -1, %191 ], [ -1, %167 ]
+  %.0146 = phi i32 [ 0, %28 ], [ 1, %242 ], [ 1, %248 ], [ -1, %191 ], [ -1, %167 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0146
@@ -4507,7 +4507,7 @@ define i32 @Fra_ClausBmcClauses(ptr noundef readonly captures(none) %0) local_un
   br label %88
 
 88:                                               ; preds = %.lr.ph101, %80, %86, %75
-  %.273 = phi i32 [ %79, %75 ], [ %.17299, %86 ], [ %.17299, %80 ], [ %.17299, %.lr.ph101 ]
+  %.273 = phi i32 [ %.17299, %80 ], [ %79, %75 ], [ %.17299, %86 ], [ %.17299, %.lr.ph101 ]
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %89 = load ptr, ptr %31, align 8, !tbaa !89
   %90 = getelementptr i8, ptr %89, i64 4
@@ -5384,7 +5384,7 @@ Fra_ClausSimInfoClean.exit.._crit_edge_crit_edge: ; preds = %Fra_ClausSimInfoCle
   br label %235
 
 235:                                              ; preds = %178, %228, %233, %214, %194
-  %.1146 = phi i32 [ %195, %194 ], [ %227, %214 ], [ %.0145215, %233 ], [ %.0145215, %228 ], [ %.0145215, %178 ]
+  %.1146 = phi i32 [ %.0145215, %228 ], [ %195, %194 ], [ %227, %214 ], [ %.0145215, %233 ], [ %.0145215, %178 ]
   %indvars.iv.next246 = add nuw nsw i64 %indvars.iv245, 1
   %236 = load ptr, ptr %172, align 8, !tbaa !89
   %237 = getelementptr i8, ptr %236, i64 4
@@ -5421,12 +5421,12 @@ Fra_ClausSimInfoClean.exit.._crit_edge_crit_edge: ; preds = %Fra_ClausSimInfoCle
   br i1 %252, label %247, label %.loopexit, !llvm.loop !182
 
 .loopexit.sink.split:                             ; preds = %.lr.ph, %121, %6
-  %str.4.sink = phi ptr [ @str.8, %6 ], [ @str.5, %121 ], [ @str.5, %.lr.ph ]
+  %str.4.sink = phi ptr [ @str.5, %121 ], [ @str.8, %6 ], [ @str.5, %.lr.ph ]
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) %str.4.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %247, %.loopexit.sink.split, %.critedge4
-  %.0152 = phi i32 [ %.0145.lcssa, %.critedge4 ], [ -1, %.loopexit.sink.split ], [ %.0145.lcssa, %247 ]
+  %.0152 = phi i32 [ -1, %.loopexit.sink.split ], [ %.0145.lcssa, %.critedge4 ], [ %.0145.lcssa, %247 ]
   ret i32 %.0152
 }
 
@@ -5935,7 +5935,7 @@ Vec_IntPush.exit45:                               ; preds = %.Vec_IntGrow.exit10
   br label %101
 
 101:                                              ; preds = %14, %Vec_IntPush.exit45, %98
-  %.1 = phi i32 [ %94, %98 ], [ %94, %Vec_IntPush.exit45 ], [ %.03249, %14 ]
+  %.1 = phi i32 [ %94, %Vec_IntPush.exit45 ], [ %94, %98 ], [ %.03249, %14 ]
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %102 = load ptr, ptr %5, align 8, !tbaa !89
   %103 = getelementptr i8, ptr %102, i64 4
@@ -7040,7 +7040,7 @@ Abc_Clock.exit146:                                ; preds = %Abc_Clock.exit144, 
   br label %214
 
 214:                                              ; preds = %212, %210
-  %.str.43.sink = phi ptr [ @.str.42, %210 ], [ %.str.44..str.43, %212 ]
+  %.str.43.sink = phi ptr [ %.str.44..str.43, %212 ], [ @.str.42, %210 ]
   %215 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.43.sink)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.45)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)

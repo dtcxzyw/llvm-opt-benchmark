@@ -426,7 +426,7 @@ define dso_local i32 @tty_dev_name_to_number(ptr noundef %0, ptr noundef writeon
   br label %.loopexit7
 
 .loopexit7:                                       ; preds = %.preheader, %.loopexit, %.loopexit8, %2
-  %54 = phi i32 [ %53, %.loopexit ], [ %17, %.loopexit8 ], [ -22, %2 ], [ -22, %.preheader ]
+  %54 = phi i32 [ %53, %.loopexit ], [ -22, %2 ], [ %17, %.loopexit8 ], [ -22, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %54
 }
@@ -1304,8 +1304,8 @@ define internal fastcc i64 @file_tty_write(ptr noundef %0, ptr noundef %1) unnam
   br i1 %121, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %107, %113, %104, %97, %.lr.ph, %.critedge
-  %.ph13 = phi i64 [ %98, %107 ], [ %98, %113 ], [ %98, %104 ], [ %98, %97 ], [ %90, %.lr.ph ], [ %98, %.critedge ]
-  %.ph14 = phi i64 [ -512, %107 ], [ -512, %113 ], [ %95, %104 ], [ %95, %97 ], [ %95, %.lr.ph ], [ -14, %.critedge ]
+  %.ph13 = phi i64 [ %98, %113 ], [ %98, %107 ], [ %98, %.critedge ], [ %90, %.lr.ph ], [ %98, %97 ], [ %98, %104 ]
+  %.ph14 = phi i64 [ -512, %113 ], [ -512, %107 ], [ -14, %.critedge ], [ %95, %.lr.ph ], [ %95, %97 ], [ %95, %104 ]
   %122 = icmp eq i64 %.ph13, 0
   br i1 %122, label %.thread12, label %123
 
@@ -1346,7 +1346,7 @@ define internal fastcc i64 @file_tty_write(ptr noundef %0, ptr noundef %1) unnam
   br label %.thread12
 
 .thread12:                                        ; preds = %81, %73, %.loopexit, %._crit_edge
-  %143 = phi i64 [ %.ph13, %.loopexit ], [ %.ph14, %._crit_edge ], [ -12, %73 ], [ -14, %81 ]
+  %143 = phi i64 [ %.ph14, %._crit_edge ], [ %.ph13, %.loopexit ], [ -12, %73 ], [ -14, %81 ]
   tail call void @mutex_unlock(ptr noundef nonnull %54) #21
   %144 = getelementptr inbounds nuw i8, ptr %5, i64 496
   %145 = tail call i32 @__wake_up(ptr noundef nonnull %144, i32 noundef 1, i32 noundef 1, ptr noundef nonnull inttoptr (i64 4 to ptr)) #21
@@ -2544,7 +2544,7 @@ check_tty_count.exit:                             ; preds = %42, %60
   br label %185
 
 181:                                              ; preds = %176, %166
-  %182 = phi i32 [ %177, %176 ], [ %167, %166 ]
+  %182 = phi i32 [ %167, %166 ], [ %177, %176 ]
   %183 = icmp eq i32 %182, 0
   br i1 %183, label %201, label %185
 
@@ -2821,7 +2821,7 @@ define internal fastcc ptr @tty_kopen(i32 noundef %0, i32 noundef range(i32 0, 2
   br label %.thread8
 
 .thread8:                                         ; preds = %42, %44, %7, %13, %56, %52, %45, %35
-  %60 = phi ptr [ %22, %35 ], [ %54, %52 ], [ %54, %56 ], [ inttoptr (i64 -16 to ptr), %45 ], [ inttoptr (i64 -22 to ptr), %13 ], [ inttoptr (i64 -5 to ptr), %7 ], [ inttoptr (i64 -16 to ptr), %44 ], [ inttoptr (i64 -16 to ptr), %42 ]
+  %60 = phi ptr [ %22, %35 ], [ %54, %52 ], [ %54, %56 ], [ inttoptr (i64 -5 to ptr), %7 ], [ inttoptr (i64 -16 to ptr), %45 ], [ inttoptr (i64 -22 to ptr), %13 ], [ inttoptr (i64 -16 to ptr), %44 ], [ inttoptr (i64 -16 to ptr), %42 ]
   call void @mutex_unlock(ptr noundef nonnull @tty_mutex) #21
   call void @tty_driver_kref_put(ptr noundef %4)
   br label %61
@@ -3377,8 +3377,8 @@ default.unreachable:                              ; preds = %257
   unreachable
 
 261:                                              ; preds = %257, %259, %258
-  %262 = phi i32 [ %260, %259 ], [ %252, %258 ], [ 0, %257 ]
-  %263 = phi i32 [ %252, %259 ], [ 0, %258 ], [ %252, %257 ]
+  %262 = phi i32 [ %252, %258 ], [ %260, %259 ], [ 0, %257 ]
+  %263 = phi i32 [ 0, %258 ], [ %252, %259 ], [ %252, %257 ]
   %264 = and i32 %263, 57350
   %265 = and i32 %262, 57350
   %266 = load ptr, ptr %243, align 8
@@ -3571,7 +3571,7 @@ tty_tiocgserial.exit:                             ; preds = %318, %324, %327
   br label %.critedge
 
 .critedge:                                        ; preds = %152, %149, %45, %371, %358, %353, %341, %333, %tty_tiocgserial.exit, %tty_tiocsserial.exit, %tty_tiocgicount.exit, %270, %.thread, %217, %214, %212, %209, %203, %200, %194, %168, %167, %165, %162, %136, %134, %132, %129, %127, %tiocswinsz.exit, %94, %tiocsti.exit, %51, %41, %15
-  %373 = phi i64 [ %343, %341 ], [ %354, %353 ], [ %372, %371 ], [ %360, %358 ], [ %336, %333 ], [ %332, %tty_tiocgserial.exit ], [ %317, %tty_tiocsserial.exit ], [ %287, %tty_tiocgicount.exit ], [ %272, %270 ], [ %241, %.thread ], [ %223, %217 ], [ %216, %214 ], [ %211, %209 ], [ %202, %200 ], [ %193, %168 ], [ 0, %167 ], [ %164, %162 ], [ %148, %136 ], [ 0, %134 ], [ 0, %132 ], [ %126, %tiocswinsz.exit ], [ %100, %94 ], [ %93, %tiocsti.exit ], [ %42, %41 ], [ -22, %15 ], [ -4, %51 ], [ %131, %129 ], [ -22, %127 ], [ -1, %165 ], [ 0, %194 ], [ 0, %203 ], [ 0, %212 ], [ -4, %45 ], [ %161, %152 ], [ -5, %149 ]
+  %373 = phi i64 [ %343, %341 ], [ %354, %353 ], [ %372, %371 ], [ %360, %358 ], [ %336, %333 ], [ %332, %tty_tiocgserial.exit ], [ %317, %tty_tiocsserial.exit ], [ %287, %tty_tiocgicount.exit ], [ %272, %270 ], [ %241, %.thread ], [ %223, %217 ], [ %216, %214 ], [ %211, %209 ], [ %202, %200 ], [ %193, %168 ], [ 0, %167 ], [ %164, %162 ], [ -4, %45 ], [ %148, %136 ], [ 0, %134 ], [ 0, %132 ], [ %126, %tiocswinsz.exit ], [ %100, %94 ], [ %93, %tiocsti.exit ], [ %42, %41 ], [ -22, %15 ], [ -4, %51 ], [ %131, %129 ], [ -22, %127 ], [ -1, %165 ], [ 0, %194 ], [ 0, %203 ], [ 0, %212 ], [ %161, %152 ], [ -5, %149 ]
   ret i64 %373
 }
 
@@ -5224,7 +5224,7 @@ define internal fastcc ptr @tty_lookup_driver(i32 noundef %0, ptr noundef captur
   br i1 %63, label %.thread11, label %.lr.ph, !llvm.loop !53
 
 .thread11:                                        ; preds = %61, %.preheader, %59, %55
-  %64 = phi ptr [ %51, %55 ], [ %51, %59 ], [ null, %.preheader ], [ null, %61 ]
+  %64 = phi ptr [ %51, %59 ], [ %51, %55 ], [ null, %.preheader ], [ null, %61 ]
   %65 = icmp eq ptr %64, null
   %66 = select i1 %65, ptr inttoptr (i64 -19 to ptr), ptr %64
   br label %.thread9
@@ -5368,15 +5368,15 @@ define internal i64 @tty_read(ptr noundef readonly captures(none) %0, ptr nounde
   br label %62
 
 62:                                               ; preds = %61, %56
-  %63 = phi i64 [ 0, %61 ], [ %59, %56 ]
-  %64 = phi i64 [ -14, %61 ], [ %36, %56 ]
+  %63 = phi i64 [ %59, %56 ], [ 0, %61 ]
+  %64 = phi i64 [ %36, %56 ], [ -14, %61 ]
   %65 = load ptr, ptr %3, align 8
   %66 = icmp eq ptr %65, null
   br i1 %66, label %.thread, label %34, !llvm.loop !54
 
 .thread:                                          ; preds = %34, %62, %46, %48
-  %67 = phi i64 [ %37, %46 ], [ %50, %48 ], [ %37, %34 ], [ %58, %62 ]
-  %68 = phi i64 [ %36, %46 ], [ %42, %48 ], [ %36, %34 ], [ %64, %62 ]
+  %67 = phi i64 [ %50, %48 ], [ %37, %46 ], [ %37, %34 ], [ %58, %62 ]
+  %68 = phi i64 [ %42, %48 ], [ %36, %46 ], [ %36, %34 ], [ %64, %62 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, i8 0, i64 64, i1 false)
   call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4) #21, !srcloc !55
   %69 = icmp eq i64 %67, 0
@@ -5658,7 +5658,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @tty_compat_ioctl(ptr nou
   br label %66
 
 66:                                               ; preds = %46, %63, %43, %28, %23, %14, %10, %7
-  %67 = phi i64 [ %45, %43 ], [ %65, %63 ], [ %32, %28 ], [ %27, %23 ], [ %11, %10 ], [ %9, %7 ], [ -22, %14 ], [ -5, %46 ]
+  %67 = phi i64 [ %45, %43 ], [ %65, %63 ], [ -22, %14 ], [ %32, %28 ], [ %27, %23 ], [ %11, %10 ], [ %9, %7 ], [ -5, %46 ]
   ret i64 %67
 }
 

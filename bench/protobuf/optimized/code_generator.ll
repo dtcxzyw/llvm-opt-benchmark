@@ -239,7 +239,7 @@ if.then12:                                        ; preds = %land.lhs.true10.thr
   br label %for.end
 
 for.end:                                          ; preds = %for.cond, %for.cond.us, %for.body.us, %land.lhs.true10, %entry, %if.then12
-  %succeeded.1 = phi i1 [ %call4, %if.then12 ], [ true, %entry ], [ false, %land.lhs.true10 ], [ %call4.us, %for.body.us ], [ %call4.us, %for.cond.us ], [ true, %for.cond ]
+  %succeeded.1 = phi i1 [ %call4, %if.then12 ], [ true, %entry ], [ false, %land.lhs.true10 ], [ %call4.us, %for.cond.us ], [ %call4.us, %for.body.us ], [ true, %for.cond ]
   ret i1 %succeeded.1
 }
 
@@ -351,7 +351,7 @@ eh.resume.sink.split:                             ; preds = %lpad12, %lpad
   br label %eh.resume
 
 eh.resume:                                        ; preds = %eh.resume.sink.split, %lpad12, %lpad
-  %.pn = phi { ptr, i32 } [ %6, %lpad ], [ %13, %lpad12 ], [ %.pn.ph, %eh.resume.sink.split ]
+  %.pn = phi { ptr, i32 } [ %13, %lpad12 ], [ %6, %lpad ], [ %.pn.ph, %eh.resume.sink.split ]
   resume { ptr, i32 } %.pn
 }
 
@@ -753,7 +753,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i7:  ; preds = %entry
   br label %return
 
 return:                                           ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i7, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ %cmp.i.i9, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i7 ], [ %cmp.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ]
+  %retval.0 = phi i1 [ %cmp.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ %cmp.i.i9, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i7 ], [ false, %entry ]
   ret i1 %retval.0
 }
 

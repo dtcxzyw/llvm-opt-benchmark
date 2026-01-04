@@ -626,7 +626,7 @@ _ZNK6vectorIN3sat7watchedELb1EjE5emptyEv.exit.thread: ; preds = %86, %_ZNK6vecto
   br i1 %.not88, label %.critedge94, label %76
 
 .critedge94:                                      ; preds = %25, %56, %_ZNK6vectorIN3sat7watchedELb1EjE5emptyEv.exit, %_ZNK6vectorIN3sat7watchedELb1EjE5emptyEv.exit.thread, %._crit_edge122, %_ZN6vectorIS_IN3sat7watchedELb1EjELb1EjE3endEv.exit
-  %.5 = phi i1 [ true, %_ZN6vectorIS_IN3sat7watchedELb1EjELb1EjE3endEv.exit ], [ true, %._crit_edge122 ], [ false, %_ZNK6vectorIN3sat7watchedELb1EjE5emptyEv.exit ], [ true, %_ZNK6vectorIN3sat7watchedELb1EjE5emptyEv.exit.thread ], [ false, %56 ], [ false, %25 ]
+  %.5 = phi i1 [ true, %_ZNK6vectorIN3sat7watchedELb1EjE5emptyEv.exit.thread ], [ true, %._crit_edge122 ], [ true, %_ZN6vectorIS_IN3sat7watchedELb1EjELb1EjE3endEv.exit ], [ false, %56 ], [ false, %_ZNK6vectorIN3sat7watchedELb1EjE5emptyEv.exit ], [ false, %25 ]
   ret i1 %.5
 }
 
@@ -755,7 +755,7 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit13:   ; preds = %50
   resume { ptr, i32 } %63
 
 64:                                               ; preds = %20, %16, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit, %.critedge
-  %.0 = phi i1 [ true, %.critedge ], [ false, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit ], [ false, %16 ], [ false, %20 ]
+  %.0 = phi i1 [ false, %16 ], [ false, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit ], [ true, %.critedge ], [ false, %20 ]
   ret i1 %.0
 }
 

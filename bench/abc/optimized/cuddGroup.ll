@@ -218,7 +218,7 @@ define internal fastcc range(i32 0, 2) i32 @ddTreeSiftingAux(ptr noundef %0, ptr
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %24, %26, %34, %36, %7, %9, %17, %19, %3
-  %.0 = phi i32 [ 1, %3 ], [ 1, %19 ], [ 0, %17 ], [ 0, %9 ], [ 0, %7 ], [ 1, %36 ], [ 0, %34 ], [ 0, %26 ], [ 0, %24 ]
+  %.0 = phi i32 [ 1, %19 ], [ 1, %3 ], [ 0, %17 ], [ 0, %9 ], [ 0, %7 ], [ 0, %26 ], [ 1, %36 ], [ 0, %34 ], [ 0, %24 ]
   ret i32 %.0
 }
 
@@ -468,7 +468,7 @@ ddFindNodeHiLo.exit:                              ; preds = %.preheader.i, %8, %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %111, %96, %55, %39, %51, %53, %65, %67, %103, %105, %107, %109, %121, %123, %74, %78, %76, %72
-  %.0 = phi i32 [ %52, %51 ], [ %54, %53 ], [ %66, %65 ], [ %68, %67 ], [ %73, %72 ], [ %75, %74 ], [ %77, %76 ], [ 0, %78 ], [ %104, %103 ], [ %106, %105 ], [ %108, %107 ], [ %110, %109 ], [ %122, %121 ], [ %124, %123 ], [ 1, %39 ], [ %59, %55 ], [ %97, %96 ], [ %115, %111 ]
+  %.0 = phi i32 [ %124, %123 ], [ %52, %51 ], [ %54, %53 ], [ 1, %39 ], [ %66, %65 ], [ %68, %67 ], [ %73, %72 ], [ %75, %74 ], [ %77, %76 ], [ 0, %78 ], [ %97, %96 ], [ %104, %103 ], [ %106, %105 ], [ %108, %107 ], [ %110, %109 ], [ %59, %55 ], [ %122, %121 ], [ %115, %111 ]
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %126 = load ptr, ptr %125, align 8, !tbaa !26
   %.not.i63 = icmp eq ptr %1, %126
@@ -531,7 +531,7 @@ ddFindNodeHiLo.exit:                              ; preds = %.preheader.i, %8, %
   br i1 %.not24.i, label %144, label %ddMergeGroups.exit
 
 ddMergeGroups.exit:                               ; preds = %149, %144, %3, %42, %ddFindNodeHiLo.exit
-  %.059 = phi i32 [ 1, %ddFindNodeHiLo.exit ], [ 0, %42 ], [ 1, %3 ], [ %.0, %144 ], [ %.0, %149 ]
+  %.059 = phi i32 [ 1, %ddFindNodeHiLo.exit ], [ 1, %3 ], [ 0, %42 ], [ %.0, %144 ], [ %.0, %149 ]
   ret i32 %.059
 }
 
@@ -963,7 +963,7 @@ ddSetVarHandled.exit:                             ; preds = %.preheader, %205, %
   br label %215
 
 215:                                              ; preds = %.thread286, %.thread283, %213, %214, %211, %._crit_edge238
-  %.0 = phi i32 [ 1, %._crit_edge238 ], [ 1, %211 ], [ 0, %214 ], [ 0, %213 ], [ 0, %.thread283 ], [ 0, %.thread286 ]
+  %.0 = phi i32 [ 1, %211 ], [ 1, %._crit_edge238 ], [ 0, %214 ], [ 0, %213 ], [ 0, %.thread283 ], [ 0, %.thread286 ]
   ret i32 %.0
 }
 
@@ -1043,7 +1043,7 @@ define internal range(i32 0, 2) i32 @ddExtSymmCheck(ptr noundef %0, i32 noundef 
   br label %44
 
 44:                                               ; preds = %40, %.lr.ph
-  %45 = phi i1 [ true, %.lr.ph ], [ %43, %40 ]
+  %45 = phi i1 [ %43, %40 ], [ true, %.lr.ph ]
   %46 = load i32, ptr %34, align 8, !tbaa !71
   %47 = icmp eq i32 %46, %11
   br i1 %47, label %48, label %54
@@ -1581,7 +1581,7 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingAux(ptr noundef %0, i3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %118, %..loopexit156_crit_edge, %127, %..loopexit_crit_edge, %58
-  %.0124 = phi i32 [ 1, %58 ], [ 0, %..loopexit_crit_edge ], [ 0, %127 ], [ 1, %..loopexit156_crit_edge ], [ 1, %118 ]
+  %.0124 = phi i32 [ 0, %127 ], [ 1, %58 ], [ 0, %..loopexit_crit_edge ], [ 1, %..loopexit156_crit_edge ], [ 1, %118 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0124
 }
@@ -2007,7 +2007,7 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingDown(ptr noundef %0, i
   br label %.critedge
 
 .critedge:                                        ; preds = %13, %127, %166, %.loopexit, %._crit_edge, %202, %..critedge.loopexit_crit_edge
-  %.0177 = phi i32 [ 0, %..critedge.loopexit_crit_edge ], [ 0, %202 ], [ 1, %._crit_edge ], [ 1, %.loopexit ], [ 1, %166 ], [ 1, %127 ], [ 1, %13 ]
+  %.0177 = phi i32 [ 0, %202 ], [ 1, %._crit_edge ], [ 0, %..critedge.loopexit_crit_edge ], [ 1, %127 ], [ 1, %.loopexit ], [ 1, %166 ], [ 1, %13 ]
   ret i32 %.0177
 }
 
@@ -2130,8 +2130,8 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingBackward(ptr noundef %
   br i1 %.not104, label %.lr.ph142, label %.lr.ph136, !llvm.loop !108
 
 .lr.ph142:                                        ; preds = %51, %38, %.lr.ph136
-  %.2179 = phi i32 [ %spec.select114, %.lr.ph136 ], [ %.1, %38 ], [ %.1, %51 ]
-  %.485178 = phi ptr [ null, %.lr.ph136 ], [ %.384.us, %38 ], [ %.384, %51 ]
+  %.2179 = phi i32 [ %.1, %38 ], [ %spec.select114, %.lr.ph136 ], [ %.1, %51 ]
+  %.485178 = phi ptr [ %.384.us, %38 ], [ null, %.lr.ph136 ], [ %.384, %51 ]
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 152
   br label %59
 
@@ -2332,7 +2332,7 @@ ddGroupMoveBackward.exit:                         ; preds = %.lr.ph85.i, %._crit
   br i1 %.not109, label %ddGroupMoveBackward.exit.thread, label %59, !llvm.loop !115
 
 ddGroupMoveBackward.exit.thread:                  ; preds = %60, %62, %82, %150, %117, %.preheader121, %.preheader
-  %.0 = phi i32 [ 1, %.preheader ], [ 1, %.preheader121 ], [ 0, %117 ], [ 1, %60 ], [ 1, %62 ], [ 0, %82 ], [ 1, %150 ]
+  %.0 = phi i32 [ 1, %.preheader ], [ 0, %117 ], [ 1, %.preheader121 ], [ 0, %82 ], [ 1, %62 ], [ 1, %60 ], [ 1, %150 ]
   ret i32 %.0
 }
 
@@ -2651,7 +2651,7 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingUp(ptr noundef %0, i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %120, %165, %172, %._crit_edge, %177, %..loopexit_crit_edge
-  %.0147 = phi i32 [ 0, %..loopexit_crit_edge ], [ 0, %177 ], [ 1, %._crit_edge ], [ 1, %172 ], [ 1, %165 ], [ 1, %120 ]
+  %.0147 = phi i32 [ 0, %177 ], [ 0, %..loopexit_crit_edge ], [ 1, %._crit_edge ], [ 1, %172 ], [ 1, %165 ], [ 1, %120 ]
   ret i32 %.0147
 }
 

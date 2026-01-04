@@ -695,7 +695,7 @@ _ZNK4llvm19MachineRegisterInfo15reg_nodbg_emptyENS_8RegisterE.exit: ; preds = %3
   br i1 %82, label %.preheader, label %.lr.ph.loopexit, !llvm.loop !192
 
 ._crit_edge:                                      ; preds = %.lr.ph.loopexit, %.preheader, %.lr.ph.preheader, %52
-  %.140 = phi ptr [ null, %52 ], [ %66, %.lr.ph.preheader ], [ %75, %.preheader ], [ %71, %.lr.ph.loopexit ]
+  %.140 = phi ptr [ null, %52 ], [ %75, %.preheader ], [ %66, %.lr.ph.preheader ], [ %71, %.lr.ph.loopexit ]
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %59, align 8
   %83 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
   %84 = inttoptr i64 %83 to ptr
@@ -1152,7 +1152,7 @@ _ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit: ; preds 
   br label %66
 
 66:                                               ; preds = %49, %65, %55, %39, %48
-  %.0.in = phi ptr [ %41, %48 ], [ %41, %39 ], [ %35, %55 ], [ %35, %65 ], [ %35, %49 ]
+  %.0.in = phi ptr [ %41, %39 ], [ %41, %48 ], [ %35, %55 ], [ %35, %65 ], [ %35, %49 ]
   %.0 = load i16, ptr %.0.in, align 2, !tbaa !333
   ret i16 %.0
 }

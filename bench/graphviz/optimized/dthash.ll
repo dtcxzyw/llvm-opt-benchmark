@@ -245,7 +245,7 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br label %104
 
 104:                                              ; preds = %98, %96, %102
-  %105 = phi ptr [ %103, %102 ], [ %1, %96 ], [ %101, %98 ]
+  %105 = phi ptr [ %1, %96 ], [ %103, %102 ], [ %101, %98 ]
   %106 = tail call i32 @dtstrhash(ptr noundef %105, i32 noundef %14) #8
   br label %153
 
@@ -523,9 +523,9 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br label %dthtab.exit
 
 .thread434:                                       ; preds = %.thread412, %236
-  %.1274404421443 = phi ptr [ %.1274573, %236 ], [ %.0273, %.thread412 ]
-  %.5282403423442 = phi ptr [ %.5282571, %236 ], [ null, %.thread412 ]
-  %.1295398428441 = phi i32 [ %.1295567, %236 ], [ %.0294, %.thread412 ]
+  %.1274404421443 = phi ptr [ %.0273, %.thread412 ], [ %.1274573, %236 ]
+  %.5282403423442 = phi ptr [ null, %.thread412 ], [ %.5282571, %236 ]
+  %.1295398428441 = phi i32 [ %.0294, %.thread412 ], [ %.1295567, %236 ]
   %249 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %250 = load ptr, ptr %249, align 8, !tbaa !38
   %.not374 = icmp eq ptr %250, null
@@ -745,7 +745,7 @@ thread-pre-split:                                 ; preds = %281, %277, %270
   br i1 %.not365, label %.thread469, label %.preheader482, !llvm.loop !42
 
 .thread469:                                       ; preds = %321, %.preheader483, %.preheader482, %310
-  %.3290.ph = phi ptr [ %311, %310 ], [ %.6293, %.preheader482 ], [ %.4291, %.preheader483 ], [ %322, %321 ]
+  %.3290.ph = phi ptr [ %311, %310 ], [ %.4291, %.preheader483 ], [ %.6293, %.preheader482 ], [ %322, %321 ]
   %338 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.3290.ph, ptr %338, align 8, !tbaa !32
   br label %390
@@ -756,7 +756,7 @@ thread-pre-split:                                 ; preds = %281, %277, %270
   br label %341
 
 .thread463:                                       ; preds = %.thread444, %325
-  %.3290 = phi ptr [ %.1288400427456, %325 ], [ %.0287.lcssa, %.thread444 ]
+  %.3290 = phi ptr [ %.0287.lcssa, %.thread444 ], [ %.1288400427456, %325 ]
   %340 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.3290, ptr %340, align 8, !tbaa !32
   %.not371 = icmp eq ptr %.3290, null
@@ -1018,7 +1018,7 @@ thread-pre-split:                                 ; preds = %281, %277, %270
   br label %dthtab.exit
 
 dthtab.exit:                                      ; preds = %._crit_edge.i, %.thread390, %.preheader.i, %363, %357, %.critedge, %452, %455, %421, %417, %414, %394, %397, %341, %290, %293, %262, %264, %267, %251, %242, %245, %226, %229, %90, %87, %21, %305, %._crit_edge
-  %.0272 = phi ptr [ %.3276, %305 ], [ null, %._crit_edge ], [ null, %21 ], [ %89, %87 ], [ %93, %90 ], [ null, %.critedge ], [ %228, %226 ], [ %232, %229 ], [ %244, %242 ], [ %248, %245 ], [ null, %251 ], [ null, %267 ], [ null, %264 ], [ null, %262 ], [ null, %293 ], [ null, %290 ], [ null, %341 ], [ %396, %394 ], [ %400, %397 ], [ %416, %414 ], [ %420, %417 ], [ null, %421 ], [ %443, %455 ], [ %443, %452 ], [ null, %357 ], [ null, %363 ], [ null, %.preheader.i ], [ null, %.thread390 ], [ null, %._crit_edge.i ]
+  %.0272 = phi ptr [ null, %.preheader.i ], [ null, %.critedge ], [ %232, %229 ], [ null, %262 ], [ %.3276, %305 ], [ null, %251 ], [ %248, %245 ], [ null, %341 ], [ null, %290 ], [ %400, %397 ], [ null, %421 ], [ %416, %414 ], [ null, %21 ], [ null, %._crit_edge ], [ %93, %90 ], [ %89, %87 ], [ %228, %226 ], [ %244, %242 ], [ null, %267 ], [ null, %264 ], [ null, %293 ], [ null, %363 ], [ null, %.thread390 ], [ %396, %394 ], [ %420, %417 ], [ %443, %455 ], [ %443, %452 ], [ null, %357 ], [ null, %._crit_edge.i ]
   ret ptr %.0272
 }
 

@@ -454,8 +454,8 @@ thread-pre-split:                                 ; preds = %6, %12
   br label %80
 
 80:                                               ; preds = %77, %76
-  %.196 = phi i32 [ %.095138, %76 ], [ %spec.select, %77 ]
-  %.1 = phi i1 [ true, %76 ], [ %spec.select134, %77 ]
+  %.196 = phi i32 [ %spec.select, %77 ], [ %.095138, %76 ]
+  %.1 = phi i1 [ %spec.select134, %77 ], [ true, %76 ]
   %81 = getelementptr inbounds nuw i8, ptr %74, i64 1
   store ptr %81, ptr %4, align 8, !tbaa !4
   br label %98
@@ -495,10 +495,10 @@ thread-pre-split:                                 ; preds = %6, %12
   br i1 %97, label %.thread153, label %98
 
 98:                                               ; preds = %95, %82, %80
-  %.1105 = phi i32 [ %.2106, %95 ], [ %.0104136, %80 ], [ %.0104136, %82 ]
-  %.1100 = phi i32 [ %.2101, %95 ], [ %.099137, %80 ], [ %.099137, %82 ]
-  %.297 = phi i32 [ %.095138, %95 ], [ %.196, %80 ], [ %.095138, %82 ]
-  %.2 = phi i1 [ true, %95 ], [ %.1, %80 ], [ true, %82 ]
+  %.1105 = phi i32 [ %.0104136, %82 ], [ %.2106, %95 ], [ %.0104136, %80 ]
+  %.1100 = phi i32 [ %.099137, %82 ], [ %.2101, %95 ], [ %.099137, %80 ]
+  %.297 = phi i32 [ %.095138, %82 ], [ %.095138, %95 ], [ %.196, %80 ]
+  %.2 = phi i1 [ true, %82 ], [ true, %95 ], [ %.1, %80 ]
   %99 = icmp eq i32 %.1105, 40
   %100 = icmp eq i32 %.1100, 40
   %or.cond3 = select i1 %99, i1 true, i1 %100
@@ -581,8 +581,8 @@ thread-pre-split:                                 ; preds = %6, %12
   br label %135
 
 135:                                              ; preds = %.thread132, %.thread127, %126, %.thread172
-  %.4108 = phi i32 [ %133, %126 ], [ %.5109130, %.thread127 ], [ %.1105160, %.thread172 ], [ %112, %.thread132 ]
-  %.4103 = phi i32 [ %129, %126 ], [ %.5131, %.thread127 ], [ %.1100163, %.thread172 ], [ %109, %.thread132 ]
+  %.4108 = phi i32 [ %133, %126 ], [ %.5109130, %.thread127 ], [ %112, %.thread132 ], [ %.1105160, %.thread172 ]
+  %.4103 = phi i32 [ %129, %126 ], [ %.5131, %.thread127 ], [ %109, %.thread132 ], [ %.1100163, %.thread172 ]
   %136 = call fastcc i32 @execute_test_case(i32 noundef %.4108, ptr noundef %2, i32 noundef %.4103, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   %137 = icmp eq i32 %136, 0
   br i1 %137, label %138, label %148
@@ -1101,7 +1101,7 @@ InitTcpReady.exit:                                ; preds = %148
   br label %198
 
 198:                                              ; preds = %191, %187
-  %199 = phi i32 [ %194, %191 ], [ %188, %187 ]
+  %199 = phi i32 [ %188, %187 ], [ %194, %191 ]
   store i8 0, ptr %16, align 16, !tbaa !22
   %200 = icmp sgt i32 %199, 0
   br i1 %200, label %.lr.ph147.preheader, label %.loopexit
@@ -1252,7 +1252,7 @@ FreeTcpReady.exit:                                ; preds = %256
   br label %IsValidCipherSuite.exit.thread
 
 IsValidCipherSuite.exit.thread:                   ; preds = %.loopexit139, %43, %IsValidCA.exit.thread, %IsValidCert.exit.thread, %FreeTcpReady.exit, %IsValidCA.exit, %IsTls10Version.exit, %IsSslVersion.exit, %IsValidCert.exit, %IsValidCipherSuite.exit
-  %.068 = phi i32 [ -123, %IsValidCipherSuite.exit ], [ -123, %IsValidCert.exit ], [ -124, %IsSslVersion.exit ], [ -124, %IsTls10Version.exit ], [ -123, %IsValidCA.exit ], [ %., %FreeTcpReady.exit ], [ -123, %IsValidCert.exit.thread ], [ -123, %IsValidCA.exit.thread ], [ -123, %43 ], [ -123, %.loopexit139 ]
+  %.068 = phi i32 [ -123, %IsValidCipherSuite.exit ], [ -123, %IsValidCert.exit ], [ -124, %IsSslVersion.exit ], [ %., %FreeTcpReady.exit ], [ -123, %IsValidCA.exit ], [ -124, %IsTls10Version.exit ], [ -123, %IsValidCA.exit.thread ], [ -123, %IsValidCert.exit.thread ], [ -123, %43 ], [ -123, %.loopexit139 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)

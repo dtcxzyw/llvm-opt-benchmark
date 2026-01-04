@@ -245,7 +245,7 @@ define hidden i32 @__ieee754_rem_pio2(double noundef %0, ptr noundef %1) local_u
   br label %132
 
 132:                                              ; preds = %.critedge, %86, %28, %33, %15, %20, %125, %98, %92, %7
-  %.0 = phi i32 [ 0, %7 ], [ %95, %92 ], [ 0, %98 ], [ %131, %125 ], [ 1, %20 ], [ 1, %15 ], [ -1, %33 ], [ -1, %28 ], [ %44, %86 ], [ %123, %.critedge ]
+  %.0 = phi i32 [ 0, %7 ], [ %44, %86 ], [ 1, %15 ], [ %95, %92 ], [ -1, %28 ], [ 0, %98 ], [ %131, %125 ], [ 1, %20 ], [ -1, %33 ], [ %123, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

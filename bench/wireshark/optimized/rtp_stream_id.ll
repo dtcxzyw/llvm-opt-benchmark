@@ -167,7 +167,7 @@ copy_address.exit16.sink.split:                   ; preds = %copy_address.exit17
   br label %copy_address.exit16
 
 copy_address.exit16:                              ; preds = %copy_address.exit16.sink.split, %copy_address.exit17, %copy_address.exit
-  %.sink = phi i64 [ 288, %copy_address.exit ], [ 284, %copy_address.exit17 ], [ %.sink.ph, %copy_address.exit16.sink.split ]
+  %.sink = phi i64 [ 284, %copy_address.exit17 ], [ 288, %copy_address.exit ], [ %.sink.ph, %copy_address.exit16.sink.split ]
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %.sink23 = load i32, ptr %61, align 4
   %62 = trunc i32 %.sink23 to i16
@@ -439,7 +439,7 @@ define hidden zeroext i1 @rtpstream_id_equal(ptr noundef readonly captures(none)
   br label %addresses_equal.exit
 
 addresses_equal.exit:                             ; preds = %42, %34, %28, %15, %7, %3, %57, %22, %49, %55
-  %.012 = phi i1 [ true, %55 ], [ %.not13, %57 ], [ false, %49 ], [ false, %22 ], [ false, %3 ], [ false, %7 ], [ false, %15 ], [ false, %28 ], [ false, %34 ], [ false, %42 ]
+  %.012 = phi i1 [ false, %22 ], [ true, %55 ], [ %.not13, %57 ], [ false, %49 ], [ false, %15 ], [ false, %3 ], [ false, %7 ], [ false, %28 ], [ false, %34 ], [ false, %42 ]
   ret i1 %.012
 }
 
@@ -604,7 +604,7 @@ addresses_equal.exit:                             ; preds = %99, %91, %85, %71, 
   br label %113
 
 113:                                              ; preds = %106, %52, %addresses_equal.exit
-  %.0 = phi i1 [ false, %addresses_equal.exit ], [ true, %52 ], [ true, %106 ]
+  %.0 = phi i1 [ true, %52 ], [ false, %addresses_equal.exit ], [ true, %106 ]
   ret i1 %.0
 }
 

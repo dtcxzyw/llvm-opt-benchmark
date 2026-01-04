@@ -553,7 +553,7 @@ _ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i.i: ; preds = %_ZNK3gmx7CpuI
   br label %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit.i
 
 _ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit.i: ; preds = %.thread.i.i, %185, %183, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i.i, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.i.i
-  %.0.i.i = phi i32 [ 16, %.thread.i.i ], [ 32, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.i.i ], [ 24, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i.i ], [ 32, %185 ], [ 32, %183 ]
+  %.0.i.i = phi i32 [ 16, %.thread.i.i ], [ 32, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.i.i ], [ 24, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i.i ], [ 32, %183 ], [ 32, %185 ]
   %189 = icmp samesign ugt i32 %., %.0.i.i
   br i1 %189, label %.critedge.i.preheader, label %190
 
@@ -657,13 +657,13 @@ _ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i50.i: ; preds = %_ZNK3gmx7Cp
   br label %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit65.i
 
 _ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit65.i: ; preds = %.thread.i53.i, %226, %224, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i50.i, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.i64.i
-  %.0.i51.i = phi i32 [ 8, %.thread.i53.i ], [ 16, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.i64.i ], [ 12, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i50.i ], [ 16, %226 ], [ 16, %224 ]
+  %.0.i51.i = phi i32 [ 8, %.thread.i53.i ], [ 16, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.i64.i ], [ 12, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i50.i ], [ 16, %224 ], [ 16, %226 ]
   %.not.i = icmp samesign ugt i32 %., %.0.i51.i
   %..i = select i1 %.not.i, i32 %., i32 1
   br label %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit
 
 _ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit: ; preds = %200, %.preheader.i, %190, %191, %206, %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit65.i
-  %.1.i = phi i32 [ %2, %191 ], [ %2, %190 ], [ %.sroa.speculated.i, %206 ], [ %., %.preheader.i ], [ %..i, %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit65.i ], [ %195, %200 ]
+  %.1.i = phi i32 [ %..i, %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit65.i ], [ %., %.preheader.i ], [ %2, %191 ], [ %2, %190 ], [ %.sroa.speculated.i, %206 ], [ %195, %200 ]
   %230 = load i32, ptr %34, align 4, !tbaa !30
   switch i32 %230, label %231 [
     i32 5, label %232
@@ -676,7 +676,7 @@ _ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit: ; pre
   br label %232
 
 232:                                              ; preds = %231, %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit, %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit, %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit
-  %.097 = phi i32 [ 1, %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit ], [ 1, %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit ], [ 1, %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit ], [ %.119, %231 ]
+  %.097 = phi i32 [ 1, %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit ], [ %.119, %231 ], [ 1, %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit ], [ 1, %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit ]
   %233 = getelementptr inbounds nuw i8, ptr %6, i64 176
   %234 = load i32, ptr %233, align 8, !tbaa !213
   %235 = sdiv i32 %234, %.1.i
@@ -697,7 +697,7 @@ _ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit: ; pre
   br label %244
 
 244:                                              ; preds = %240, %237
-  %.080 = phi i32 [ %.sroa.speculated147, %237 ], [ %spec.select, %240 ]
+  %.080 = phi i32 [ %spec.select, %240 ], [ %.sroa.speculated147, %237 ]
   %245 = load i32, ptr %1, align 8, !tbaa !191
   %246 = icmp sgt i32 %245, 0
   br i1 %246, label %.lr.ph.split.us, label %.critedge
@@ -752,7 +752,7 @@ _ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit: ; pre
   br label %266
 
 266:                                              ; preds = %261, %263, %259, %258
-  %.3 = phi i32 [ %265, %263 ], [ %.2, %259 ], [ %.2, %258 ], [ %2, %261 ]
+  %.3 = phi i32 [ %265, %263 ], [ %.2, %258 ], [ %.2, %259 ], [ %2, %261 ]
   %267 = load i32, ptr %154, align 8, !tbaa !266
   %268 = icmp slt i32 %267, 1
   %269 = icmp slt i32 %245, 1
@@ -1191,7 +1191,7 @@ _ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i: ; preds = %_ZNK3gmx7CpuInf
   br label %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit
 
 _ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit:   ; preds = %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.i, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i, %21, %23, %.thread.i
-  %.0.i = phi i32 [ 8, %.thread.i ], [ 16, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.i ], [ 12, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i ], [ 16, %23 ], [ 16, %21 ]
+  %.0.i = phi i32 [ 8, %.thread.i ], [ 16, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.i ], [ 12, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i ], [ 16, %21 ], [ 16, %23 ]
   %27 = zext i1 %2 to i32
   %spec.select.i = shl nuw nsw i32 %.0.i, %27
   br label %28
@@ -1758,7 +1758,7 @@ define void @_Z39checkAndUpdateRequestedNumOpenmpThreadsP12gmx_hw_opt_tRK13gmx_h
   br label %._crit_edge69
 
 ._crit_edge69:                                    ; preds = %26, %32
-  %34 = phi i32 [ %33, %32 ], [ %30, %26 ]
+  %34 = phi i32 [ %30, %26 ], [ %33, %32 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = icmp slt i32 %34, 1
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2194,7 +2194,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58: ; preds = %121
   br label %131
 
 126:                                              ; preds = %_ZN3gmx14LogEntryWriterD2Ev.exit55, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40, %67
-  %.pn18.pn.pn = phi { ptr, i32 } [ %68, %67 ], [ %.pn16, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40 ], [ %116, %_ZN3gmx14LogEntryWriterD2Ev.exit55 ]
+  %.pn18.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40 ], [ %68, %67 ], [ %.pn16, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43 ], [ %116, %_ZN3gmx14LogEntryWriterD2Ev.exit55 ]
   %127 = load ptr, ptr %8, align 8, !tbaa !130
   %128 = icmp eq ptr %127, %27
   br i1 %128, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i59

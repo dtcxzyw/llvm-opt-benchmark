@@ -4878,7 +4878,7 @@ define hidden void @_ZN10polars_row5fixed7numeric16decode_primitive17h076ae5b3d5
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   ret void
 
-51:                                               ; preds = %39, %37
+51:                                               ; preds = %37, %39
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$polars_arrow..datatypes..ArrowDataType$GT$17h513574738d094a50E"(ptr noalias noundef align 8 dereferenceable(32) %11) #13
@@ -5068,7 +5068,7 @@ define hidden void @_ZN10polars_row5fixed7numeric16decode_primitive17h4b75199205
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   ret void
 
-51:                                               ; preds = %39, %37
+51:                                               ; preds = %37, %39
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$polars_arrow..datatypes..ArrowDataType$GT$17h513574738d094a50E"(ptr noalias noundef align 8 dereferenceable(32) %11) #13
@@ -5258,7 +5258,7 @@ define hidden void @_ZN10polars_row5fixed7numeric16decode_primitive17h5c3f7acbf9
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   ret void
 
-51:                                               ; preds = %39, %37
+51:                                               ; preds = %37, %39
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$polars_arrow..datatypes..ArrowDataType$GT$17h513574738d094a50E"(ptr noalias noundef align 8 dereferenceable(32) %11) #13
@@ -5448,7 +5448,7 @@ define hidden void @_ZN10polars_row5fixed7numeric16decode_primitive17h5f9a1a775c
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   ret void
 
-51:                                               ; preds = %39, %37
+51:                                               ; preds = %37, %39
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$polars_arrow..datatypes..ArrowDataType$GT$17h513574738d094a50E"(ptr noalias noundef align 8 dereferenceable(32) %11) #13
@@ -5638,7 +5638,7 @@ define hidden void @_ZN10polars_row5fixed7numeric16decode_primitive17h75de355cef
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   ret void
 
-51:                                               ; preds = %39, %37
+51:                                               ; preds = %37, %39
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$polars_arrow..datatypes..ArrowDataType$GT$17h513574738d094a50E"(ptr noalias noundef align 8 dereferenceable(32) %11) #13
@@ -5828,7 +5828,7 @@ define hidden void @_ZN10polars_row5fixed7numeric16decode_primitive17h8404dcbd28
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   ret void
 
-51:                                               ; preds = %39, %37
+51:                                               ; preds = %37, %39
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$polars_arrow..datatypes..ArrowDataType$GT$17h513574738d094a50E"(ptr noalias noundef align 8 dereferenceable(32) %11) #13
@@ -6018,7 +6018,7 @@ define hidden void @_ZN10polars_row5fixed7numeric16decode_primitive17h8d38af63e7
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   ret void
 
-51:                                               ; preds = %39, %37
+51:                                               ; preds = %37, %39
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$polars_arrow..datatypes..ArrowDataType$GT$17h513574738d094a50E"(ptr noalias noundef align 8 dereferenceable(32) %11) #13
@@ -6208,7 +6208,7 @@ define hidden void @_ZN10polars_row5fixed7numeric16decode_primitive17h93897a76d1
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   ret void
 
-51:                                               ; preds = %39, %37
+51:                                               ; preds = %37, %39
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$polars_arrow..datatypes..ArrowDataType$GT$17h513574738d094a50E"(ptr noalias noundef align 8 dereferenceable(32) %11) #13
@@ -6398,7 +6398,7 @@ define hidden void @_ZN10polars_row5fixed7numeric16decode_primitive17h98e8513323
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   ret void
 
-51:                                               ; preds = %39, %37
+51:                                               ; preds = %37, %39
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$polars_arrow..datatypes..ArrowDataType$GT$17h513574738d094a50E"(ptr noalias noundef align 8 dereferenceable(32) %11) #13
@@ -6588,7 +6588,7 @@ define hidden void @_ZN10polars_row5fixed7numeric16decode_primitive17hb737a47efa
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   ret void
 
-51:                                               ; preds = %39, %37
+51:                                               ; preds = %37, %39
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$polars_arrow..datatypes..ArrowDataType$GT$17h513574738d094a50E"(ptr noalias noundef align 8 dereferenceable(32) %11) #13
@@ -6778,7 +6778,7 @@ define hidden void @_ZN10polars_row5fixed7numeric16decode_primitive17hced2b17ae5
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   ret void
 
-51:                                               ; preds = %39, %37
+51:                                               ; preds = %37, %39
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$polars_arrow..datatypes..ArrowDataType$GT$17h513574738d094a50E"(ptr noalias noundef align 8 dereferenceable(32) %11) #13

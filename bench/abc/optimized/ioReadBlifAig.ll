@@ -855,7 +855,7 @@ Io_BlifGetLine.exit.i:                            ; preds = %339, %.critedge.loo
   br label %Io_BlifCharIsSpace.exit.i.i
 
 Io_BlifCharIsSpace.exit.i.i:                      ; preds = %355, %353, %353, %353, %353
-  %.not15.i.i = phi i1 [ true, %355 ], [ false, %353 ], [ false, %353 ], [ false, %353 ], [ false, %353 ]
+  %.not15.i.i = phi i1 [ false, %353 ], [ true, %355 ], [ false, %353 ], [ false, %353 ], [ false, %353 ]
   %not..not15.i.i = xor i1 %.not15.i.i, true
   %narrow.i.i = and i1 %.010.i.i, %not..not15.i.i
   %spec.select.i.i = zext i1 %narrow.i.i to i32
@@ -2618,7 +2618,7 @@ Io_BlifGetLine.exit53.i.i:                        ; preds = %979, %.critedge.loo
   br label %Io_BlifParse.exit
 
 Io_BlifParse.exit:                                ; preds = %.lr.ph115.i.i, %.lr.ph118.i.i, %Io_BlifParseModel.exit.thread.i, %Io_BlifParseInputs.exit.i, %Io_BlifGetLine.exit.i148.i, %Io_BlifGetLine.exit64.i.i, %Io_BlifGetLine.exit97.i.i, %Io_BlifGetLine.exit107.i.i, %Io_BlifGetLine.exit.i181.i, %Io_BlifGetLine.exit43.i.i, %Io_BlifGetLine.exit53.i.i, %.loopexit.i26
-  %.040.i = phi ptr [ %1154, %.loopexit.i26 ], [ null, %Io_BlifParseInputs.exit.i ], [ null, %Io_BlifParseModel.exit.thread.i ], [ null, %Io_BlifGetLine.exit.i148.i ], [ null, %Io_BlifGetLine.exit64.i.i ], [ null, %Io_BlifGetLine.exit97.i.i ], [ null, %Io_BlifGetLine.exit107.i.i ], [ null, %Io_BlifGetLine.exit.i181.i ], [ null, %Io_BlifGetLine.exit43.i.i ], [ null, %Io_BlifGetLine.exit53.i.i ], [ null, %.lr.ph118.i.i ], [ null, %.lr.ph115.i.i ]
+  %.040.i = phi ptr [ null, %Io_BlifParseModel.exit.thread.i ], [ null, %Io_BlifGetLine.exit107.i.i ], [ null, %Io_BlifParseInputs.exit.i ], [ null, %Io_BlifGetLine.exit53.i.i ], [ %1154, %.loopexit.i26 ], [ null, %Io_BlifGetLine.exit.i148.i ], [ null, %Io_BlifGetLine.exit64.i.i ], [ null, %Io_BlifGetLine.exit97.i.i ], [ null, %Io_BlifGetLine.exit.i181.i ], [ null, %Io_BlifGetLine.exit43.i.i ], [ null, %.lr.ph118.i.i ], [ null, %.lr.ph115.i.i ]
   %1155 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 144
   %1156 = load i8, ptr %1155, align 8, !tbaa !30
   %.not = icmp eq i8 %1156, 0
@@ -3632,7 +3632,7 @@ Vec_PtrFree.exit69:                               ; preds = %Io_BlifParseTable.e
   br label %288
 
 288:                                              ; preds = %62, %Vec_PtrFree.exit69, %Vec_PtrFree.exit, %Io_BlifGetLine.exit58, %Io_BlifGetLine.exit
-  %.039 = phi ptr [ null, %Io_BlifGetLine.exit ], [ null, %Io_BlifGetLine.exit58 ], [ null, %Vec_PtrFree.exit ], [ %287, %Vec_PtrFree.exit69 ], [ %64, %62 ]
+  %.039 = phi ptr [ null, %Io_BlifGetLine.exit ], [ null, %Io_BlifGetLine.exit58 ], [ %287, %Vec_PtrFree.exit69 ], [ null, %Vec_PtrFree.exit ], [ %64, %62 ]
   ret ptr %.039
 }
 

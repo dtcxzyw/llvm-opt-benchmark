@@ -162,9 +162,9 @@ define dso_local range(i32 0, 28) i32 @glob_url(ptr noundef writeonly captures(n
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %28, %54, %51
-  %56 = phi i8 [ 92, %51 ], [ %53, %54 ], [ %29, %28 ]
-  %.496.i = phi ptr [ %.193.i, %51 ], [ %52, %54 ], [ %.193.i, %28 ]
-  %.291.i = phi i64 [ %.190.ph.i, %51 ], [ %55, %54 ], [ %.190.ph.i, %28 ]
+  %56 = phi i8 [ %53, %54 ], [ 92, %51 ], [ %29, %28 ]
+  %.496.i = phi ptr [ %52, %54 ], [ %.193.i, %51 ], [ %.193.i, %28 ]
+  %.291.i = phi i64 [ %55, %54 ], [ %.190.ph.i, %51 ], [ %.190.ph.i, %28 ]
   %57 = getelementptr inbounds nuw i8, ptr %.496.i, i64 1
   %58 = getelementptr inbounds nuw i8, ptr %.029.i, i64 1
   store i8 %56, ptr %.029.i, align 1, !tbaa !9
@@ -504,7 +504,7 @@ multiply.exit.i.i:                                ; preds = %93, %96, %.outer.i.
   br i1 %or.cond171.i.i, label %.critedge173.i.i, label %196
 
 .critedge173.i.i:                                 ; preds = %190, %185, %176, %166, %.thread210.i, %151, %148, %145, %141
-  %195 = phi i64 [ %186, %190 ], [ %186, %185 ], [ %172, %176 ], [ %172, %166 ], [ %133, %148 ], [ %133, %145 ], [ %133, %141 ], [ %133, %151 ], [ %133, %.thread210.i ]
+  %195 = phi i64 [ %172, %166 ], [ %186, %190 ], [ %186, %185 ], [ %172, %176 ], [ %133, %141 ], [ %133, %148 ], [ %133, %145 ], [ %133, %151 ], [ %133, %.thread210.i ]
   store ptr @.str.15, ptr %20, align 8, !tbaa !22
   store i64 %195, ptr %21, align 8, !tbaa !23
   br label %glob_fixed.exit.i
@@ -639,7 +639,7 @@ multiply.exit.i.i:                                ; preds = %93, %96, %.outer.i.
   br i1 %248, label %._crit_edge.i.i, label %262
 
 .thread.i54.thread.i:                             ; preds = %.thread191.i.i, %241, %237, %234, %231, %.critedge8.i.i, %227, %224, %.critedge.i.i
-  %.4.i.ph.i = phi ptr [ %238, %241 ], [ %238, %.thread191.i.i ], [ %.3.i.i, %231 ], [ %238, %237 ], [ %.3.i.i, %.critedge8.i.i ], [ %132, %227 ], [ %132, %.critedge.i.i ], [ %132, %224 ], [ %.3.i.i, %234 ]
+  %.4.i.ph.i = phi ptr [ %238, %241 ], [ %238, %.thread191.i.i ], [ %.3.i.i, %231 ], [ %238, %237 ], [ %132, %224 ], [ %.3.i.i, %.critedge8.i.i ], [ %132, %.critedge.i.i ], [ %132, %227 ], [ %.3.i.i, %234 ]
   %249 = ptrtoint ptr %.4.i.ph.i to i64
   %250 = ptrtoint ptr %132 to i64
   %251 = sub i64 %133, %250
@@ -715,11 +715,11 @@ multiply.exit185.i.i:                             ; preds = %276, %._crit_edge.i
   br label %glob_fixed.exit.i
 
 glob_fixed.exit.i:                                ; preds = %196, %205, %279, %multiply.exit185.i.i, %.critedge180.i.i, %.critedge173.i.i, %123, %119, %114, %107, %.thread.i.i, %92, %89, %88, %77, %75, %74, %70
-  %.2 = phi i64 [ %.032, %77 ], [ %.032, %.critedge173.i.i ], [ %.032, %.critedge180.i.i ], [ %.0.i184.i.i, %multiply.exit185.i.i ], [ %.032, %279 ], [ %.3, %88 ], [ %.3, %89 ], [ %.3, %92 ], [ %.5, %107 ], [ %.5, %114 ], [ %.5, %119 ], [ %.5, %.thread.i.i ], [ %.3, %123 ], [ %.032, %70 ], [ %.032, %74 ], [ %.032, %75 ], [ 0, %196 ], [ %spec.select.i.i57.i, %205 ]
-  %.597.i = phi ptr [ %.193.i, %77 ], [ %132, %.critedge173.i.i ], [ %132, %.critedge180.i.i ], [ %270, %multiply.exit185.i.i ], [ %132, %279 ], [ %.ptr.i, %88 ], [ %.ptr.i, %89 ], [ %.ptr.i, %92 ], [ %.ptr.i, %107 ], [ %.ptr.i, %114 ], [ %120, %119 ], [ %.ptr.i, %.thread.i.i ], [ %.ptr.i, %123 ], [ %.193.i, %70 ], [ %.193.i, %74 ], [ %.193.i, %75 ], [ %.0139.i208218219.i, %196 ], [ %.0139.i208218219.i, %205 ]
-  %.3.i = phi i64 [ %.190.ph.i, %77 ], [ %195, %.critedge173.i.i ], [ %268, %.critedge180.i.i ], [ %269, %multiply.exit185.i.i ], [ %133, %279 ], [ %.4.i, %88 ], [ %.4.i, %89 ], [ %.4.i, %92 ], [ %.4.i, %107 ], [ %.4.i, %114 ], [ %.4.i, %119 ], [ %.4.i, %.thread.i.i ], [ %.4.i, %123 ], [ %.190.ph.i, %70 ], [ %.190.ph.i, %74 ], [ %.190.ph.i, %75 ], [ %197, %196 ], [ %197, %205 ]
-  %.237.i = phi i32 [ 0, %77 ], [ 3, %.critedge173.i.i ], [ 3, %.critedge180.i.i ], [ 0, %multiply.exit185.i.i ], [ 3, %279 ], [ 3, %88 ], [ 3, %89 ], [ 3, %92 ], [ 27, %107 ], [ 27, %114 ], [ 0, %119 ], [ 27, %.thread.i.i ], [ 3, %123 ], [ 27, %70 ], [ 27, %74 ], [ 0, %75 ], [ 0, %196 ], [ 0, %205 ]
-  %.234.i = phi i32 [ %.032.i, %77 ], [ %134, %.critedge173.i.i ], [ %134, %.critedge180.i.i ], [ %134, %multiply.exit185.i.i ], [ %134, %279 ], [ %80, %88 ], [ %80, %89 ], [ %80, %92 ], [ %80, %107 ], [ %80, %114 ], [ %80, %119 ], [ %80, %.thread.i.i ], [ %80, %123 ], [ %.032.i, %70 ], [ %.032.i, %74 ], [ %.032.i, %75 ], [ %134, %196 ], [ %134, %205 ]
+  %.2 = phi i64 [ %.032, %77 ], [ %.032, %.critedge173.i.i ], [ %.032, %75 ], [ %.032, %.critedge180.i.i ], [ %.0.i184.i.i, %multiply.exit185.i.i ], [ %.032, %279 ], [ %.3, %88 ], [ %.3, %89 ], [ %.3, %92 ], [ %.5, %107 ], [ %.5, %114 ], [ %.5, %119 ], [ %.5, %.thread.i.i ], [ %.3, %123 ], [ %.032, %70 ], [ %.032, %74 ], [ 0, %196 ], [ %spec.select.i.i57.i, %205 ]
+  %.597.i = phi ptr [ %.193.i, %77 ], [ %132, %.critedge173.i.i ], [ %.193.i, %75 ], [ %132, %.critedge180.i.i ], [ %270, %multiply.exit185.i.i ], [ %132, %279 ], [ %.ptr.i, %88 ], [ %.ptr.i, %89 ], [ %.ptr.i, %92 ], [ %.ptr.i, %107 ], [ %.ptr.i, %114 ], [ %120, %119 ], [ %.ptr.i, %.thread.i.i ], [ %.ptr.i, %123 ], [ %.193.i, %70 ], [ %.193.i, %74 ], [ %.0139.i208218219.i, %196 ], [ %.0139.i208218219.i, %205 ]
+  %.3.i = phi i64 [ %.190.ph.i, %77 ], [ %195, %.critedge173.i.i ], [ %.190.ph.i, %75 ], [ %268, %.critedge180.i.i ], [ %269, %multiply.exit185.i.i ], [ %133, %279 ], [ %.4.i, %88 ], [ %.4.i, %89 ], [ %.4.i, %92 ], [ %.4.i, %107 ], [ %.4.i, %114 ], [ %.4.i, %119 ], [ %.4.i, %.thread.i.i ], [ %.4.i, %123 ], [ %.190.ph.i, %70 ], [ %.190.ph.i, %74 ], [ %197, %196 ], [ %197, %205 ]
+  %.237.i = phi i32 [ 0, %77 ], [ 3, %.critedge173.i.i ], [ 0, %75 ], [ 3, %.critedge180.i.i ], [ 0, %multiply.exit185.i.i ], [ 3, %279 ], [ 3, %88 ], [ 3, %89 ], [ 3, %92 ], [ 27, %107 ], [ 27, %114 ], [ 0, %119 ], [ 27, %.thread.i.i ], [ 3, %123 ], [ 27, %70 ], [ 27, %74 ], [ 0, %196 ], [ 0, %205 ]
+  %.234.i = phi i32 [ %.032.i, %77 ], [ %134, %.critedge173.i.i ], [ %.032.i, %75 ], [ %134, %.critedge180.i.i ], [ %134, %multiply.exit185.i.i ], [ %134, %279 ], [ %80, %88 ], [ %80, %89 ], [ %80, %92 ], [ %80, %107 ], [ %80, %114 ], [ %80, %119 ], [ %80, %.thread.i.i ], [ %80, %123 ], [ %.032.i, %70 ], [ %.032.i, %74 ], [ %134, %196 ], [ %134, %205 ]
   %280 = load i64, ptr %19, align 8, !tbaa !17
   %281 = add i64 %280, 1
   store i64 %281, ptr %19, align 8, !tbaa !17
@@ -975,7 +975,7 @@ define dso_local range(i32 0, 28) i32 @glob_next_url(ptr noundef writeonly captu
   %56 = icmp ult i64 %.07289.be, %55
   br i1 %56, label %.lr.ph107, label %.loopexit, !llvm.loop !34
 
-.thread86:                                        ; preds = %47, %18, %21, %34, %12
+.thread86:                                        ; preds = %47, %34, %18, %21, %12
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 4800
   %58 = load i64, ptr %57, align 8, !tbaa !17
   %.not93 = icmp eq i64 %58, 0
@@ -1056,7 +1056,7 @@ define dso_local range(i32 0, 28) i32 @glob_next_url(ptr noundef writeonly captu
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.backedge, %.preheader, %.thread, %._crit_edge, %89
-  %.175 = phi i32 [ 2, %89 ], [ %.83, %._crit_edge ], [ 2, %.thread ], [ 0, %.preheader ], [ 0, %.backedge ]
+  %.175 = phi i32 [ 2, %89 ], [ 2, %.thread ], [ %.83, %._crit_edge ], [ 0, %.preheader ], [ 0, %.backedge ]
   ret i32 %.175
 }
 
@@ -1169,7 +1169,7 @@ define dso_local range(i32 0, 28) i32 @glob_match_url(ptr noundef writeonly capt
   call void @curlx_dyn_free(ptr noundef nonnull %6) #17
   br label %.loopexit52
 
-.loopexit:                                        ; preds = %23, %18, %16
+.loopexit:                                        ; preds = %23, %16, %18
   store ptr %13, ptr %4, align 8, !tbaa !24
   br label %56
 
@@ -1179,8 +1179,8 @@ define dso_local range(i32 0, 28) i32 @glob_match_url(ptr noundef writeonly capt
   br label %56
 
 56:                                               ; preds = %42, %45, %35, %32, %.loopexit, %54
-  %.340 = phi ptr [ %10, %54 ], [ %40, %35 ], [ %.037, %32 ], [ %5, %42 ], [ %5, %45 ], [ %10, %.loopexit ]
-  %.336 = phi i64 [ 1, %54 ], [ %41, %35 ], [ %.033, %32 ], [ 1, %42 ], [ %51, %45 ], [ 1, %.loopexit ]
+  %.340 = phi ptr [ %10, %54 ], [ %10, %.loopexit ], [ %40, %35 ], [ %.037, %32 ], [ %5, %42 ], [ %5, %45 ]
+  %.336 = phi i64 [ 1, %54 ], [ 1, %.loopexit ], [ %41, %35 ], [ %.033, %32 ], [ 1, %42 ], [ %51, %45 ]
   %57 = call i32 @curlx_dyn_addn(ptr noundef nonnull %6, ptr noundef %.340, i64 noundef %.336) #17
   %.not49 = icmp eq i32 %57, 0
   br i1 %.not49, label %9, label %.loopexit52, !llvm.loop !39

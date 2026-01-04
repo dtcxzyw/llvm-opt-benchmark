@@ -334,7 +334,7 @@ nsis_detcomp.exit91.i.i:                          ; preds = %105, %101
   br label %nsis_headers.exit.i
 
 nsis_headers.exit.i:                              ; preds = %89, %71, %148, %39
-  %.066.i.i = phi i32 [ %151, %148 ], [ 12, %39 ], [ 12, %71 ], [ 12, %89 ]
+  %.066.i.i = phi i32 [ 12, %39 ], [ %151, %148 ], [ 12, %71 ], [ 12, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %cli_nsis_unpack.exit
 
@@ -401,8 +401,8 @@ cli_nsis_unpack.exit:                             ; preds = %37, %nsis_headers.e
   %.not23 = icmp eq i8 %183, 0
   br i1 %.not23, label %select.unfold, label %.thread.thread
 
-select.unfold:                                    ; preds = %178, %182, %172, %cli_nsis_unpack.exit
-  %.0 = phi i32 [ 0, %cli_nsis_unpack.exit ], [ %.1, %172 ], [ 0, %182 ], [ %.1, %178 ]
+select.unfold:                                    ; preds = %182, %178, %172, %cli_nsis_unpack.exit
+  %.0 = phi i32 [ 0, %cli_nsis_unpack.exit ], [ %.1, %172 ], [ %.1, %178 ], [ 0, %182 ]
   %184 = icmp eq i32 %.0, 0
   br i1 %184, label %35, label %.thread
 
@@ -1037,9 +1037,9 @@ nsis_init.exit:                                   ; preds = %146, %143
   br label %.critedge
 
 229:                                              ; preds = %223, %226
-  %230 = phi i32 [ %224, %223 ], [ %209, %226 ]
-  %.4133 = phi i32 [ 0, %223 ], [ %227, %226 ]
-  %.5 = phi i32 [ 1, %223 ], [ %.3246, %226 ]
+  %230 = phi i32 [ %209, %226 ], [ %224, %223 ]
+  %.4133 = phi i32 [ %227, %226 ], [ 0, %223 ]
+  %.5 = phi i32 [ %.3246, %226 ], [ 1, %223 ]
   %.not181 = icmp eq i32 %230, 0
   br i1 %.not181, label %.critedge, label %.lr.ph
 
@@ -1096,7 +1096,7 @@ nsis_init.exit:                                   ; preds = %146, %143
   br label %253
 
 253:                                              ; preds = %.thread215, %.thread210, %.thread, %244, %249, %.critedge189, %76, %132, %134, %133, %8, %250, %246, %241, %208, %201, %.loopexit227, %180, %171, %nsis_init.exit, %129, %107, %102, %83, %78, %71, %65, %56, %51, %46, %43, %fmap_readn.exit.thread, %7
-  %.0 = phi i32 [ 22, %7 ], [ 22, %180 ], [ 26, %.loopexit227 ], [ 0, %201 ], [ 9, %208 ], [ 14, %241 ], [ 26, %250 ], [ 24, %246 ], [ 7, %nsis_init.exit ], [ 12, %171 ], [ 22, %fmap_readn.exit.thread ], [ 22, %43 ], [ 22, %51 ], [ %55, %56 ], [ 9, %71 ], [ 14, %78 ], [ %82, %83 ], [ 14, %102 ], [ %106, %107 ], [ 14, %129 ], [ 12, %65 ], [ 0, %46 ], [ %9, %8 ], [ 24, %134 ], [ 0, %133 ], [ 0, %132 ], [ 0, %76 ], [ %198, %.critedge189 ], [ 0, %249 ], [ %.4127, %244 ], [ 0, %.thread ], [ 0, %.thread210 ], [ 14, %.thread215 ]
+  %.0 = phi i32 [ 22, %7 ], [ 0, %46 ], [ 22, %180 ], [ 26, %.loopexit227 ], [ 0, %76 ], [ 0, %201 ], [ 9, %208 ], [ 14, %.thread215 ], [ 14, %241 ], [ %198, %.critedge189 ], [ 26, %250 ], [ 24, %246 ], [ 7, %nsis_init.exit ], [ 12, %171 ], [ 22, %fmap_readn.exit.thread ], [ 22, %43 ], [ 22, %51 ], [ %55, %56 ], [ 9, %71 ], [ 14, %78 ], [ 0, %133 ], [ %82, %83 ], [ 14, %102 ], [ %106, %107 ], [ 14, %129 ], [ %9, %8 ], [ 12, %65 ], [ 24, %134 ], [ 0, %132 ], [ 0, %.thread210 ], [ 0, %249 ], [ %.4127, %244 ], [ 0, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -1167,7 +1167,7 @@ define internal fastcc range(i32 0, 8) i32 @nsis_init(ptr noundef nonnull %0) un
   br label %22
 
 22:                                               ; preds = %.sink.split, %1, %7, %4
-  %.0 = phi i32 [ 7, %4 ], [ 7, %7 ], [ 0, %1 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 7, %7 ], [ 7, %4 ], [ 0, %1 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 

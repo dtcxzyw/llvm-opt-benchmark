@@ -214,7 +214,7 @@ define void @_Z21_gmx_selvalue_reserveP18gmx_ana_selvalue_ti(ptr noundef capture
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !22
 
 .loopexit.sink.split:                             ; preds = %40, %28, %12, %15
-  %.ptr36.sink = phi ptr [ %17, %15 ], [ %14, %12 ], [ %.ptr36, %28 ], [ %.ptr36, %40 ]
+  %.ptr36.sink = phi ptr [ %14, %12 ], [ %17, %15 ], [ %.ptr36, %28 ], [ %.ptr36, %40 ]
   store ptr %.ptr36.sink, ptr %7, align 8, !tbaa !11
   br label %.loopexit
 

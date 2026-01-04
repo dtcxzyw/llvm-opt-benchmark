@@ -119,8 +119,8 @@ define hidden zeroext i1 @KMSDRM_Vulkan_LoadLibrary(ptr noundef %0, ptr noundef 
   br label %31
 
 31:                                               ; preds = %28, %.lr.ph
-  %.129 = phi i1 [ true, %.lr.ph ], [ %.02844, %28 ]
-  %.1 = phi i1 [ %.045, %.lr.ph ], [ %spec.select, %28 ]
+  %.129 = phi i1 [ %.02844, %28 ], [ true, %.lr.ph ]
+  %.1 = phi i1 [ %spec.select, %28 ], [ %.045, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = load i32, ptr %3, align 4
   %33 = zext i32 %32 to i64
@@ -138,7 +138,7 @@ define hidden zeroext i1 @KMSDRM_Vulkan_LoadLibrary(ptr noundef %0, ptr noundef 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %._crit_edge, %.critedge
-  %.str.8.sink = phi ptr [ @.str.7, %.critedge ], [ %.str.7.mux, %._crit_edge ]
+  %.str.8.sink = phi ptr [ %.str.7.mux, %._crit_edge ], [ @.str.7, %.critedge ]
   %36 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull %.str.8.sink) #5
   br label %37
 
@@ -149,7 +149,7 @@ define hidden zeroext i1 @KMSDRM_Vulkan_LoadLibrary(ptr noundef %0, ptr noundef 
   br label %39
 
 39:                                               ; preds = %._crit_edge, %12, %37, %7
-  %.032 = phi i1 [ %8, %7 ], [ false, %37 ], [ false, %12 ], [ true, %._crit_edge ]
+  %.032 = phi i1 [ %8, %7 ], [ false, %12 ], [ false, %37 ], [ true, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.032
 }
@@ -493,7 +493,7 @@ thread-pre-split:                                 ; preds = %.thread180
   %153 = icmp eq i32 %152, 1
   br i1 %153, label %.loopexit, label %.thread188
 
-.thread188:                                       ; preds = %._crit_edge266, %.lr.ph270, %135, %._crit_edge266.thread, %149
+.thread188:                                       ; preds = %._crit_edge266, %.lr.ph270, %149, %._crit_edge266.thread, %135
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
   %154 = load i32, ptr %9, align 4
@@ -536,10 +536,10 @@ thread-pre-split:                                 ; preds = %.thread180
   br label %172
 
 172:                                              ; preds = %.loopexit, %169, %.loopexit.thread, %123, %117, %113, %._crit_edge
-  %.0154 = phi i1 [ false, %123 ], [ false, %.loopexit.thread ], [ false, %169 ], [ false, %117 ], [ false, %113 ], [ false, %._crit_edge ], [ true, %.loopexit ]
-  %.0146 = phi ptr [ null, %123 ], [ %128, %.loopexit.thread ], [ %128, %169 ], [ null, %117 ], [ null, %113 ], [ null, %._crit_edge ], [ %128, %.loopexit ]
-  %.0145 = phi ptr [ %86, %123 ], [ %86, %.loopexit.thread ], [ %86, %169 ], [ %86, %117 ], [ %86, %113 ], [ null, %._crit_edge ], [ %86, %.loopexit ]
-  %.0144 = phi ptr [ %71, %123 ], [ %71, %.loopexit.thread ], [ %71, %169 ], [ %71, %117 ], [ %71, %113 ], [ null, %._crit_edge ], [ %71, %.loopexit ]
+  %.0154 = phi i1 [ false, %._crit_edge ], [ false, %117 ], [ false, %113 ], [ false, %123 ], [ false, %.loopexit.thread ], [ false, %169 ], [ true, %.loopexit ]
+  %.0146 = phi ptr [ null, %._crit_edge ], [ null, %117 ], [ null, %113 ], [ null, %123 ], [ %128, %.loopexit.thread ], [ %128, %169 ], [ %128, %.loopexit ]
+  %.0145 = phi ptr [ null, %._crit_edge ], [ %86, %117 ], [ %86, %113 ], [ %86, %123 ], [ %86, %.loopexit.thread ], [ %86, %169 ], [ %86, %.loopexit ]
+  %.0144 = phi ptr [ null, %._crit_edge ], [ %71, %117 ], [ %71, %113 ], [ %71, %123 ], [ %71, %.loopexit.thread ], [ %71, %169 ], [ %71, %.loopexit ]
   %.not172 = icmp eq ptr %44, null
   br i1 %.not172, label %173, label %.thread209
 
@@ -552,10 +552,10 @@ thread-pre-split:                                 ; preds = %.thread180
   br label %173
 
 173:                                              ; preds = %.thread209, %172
-  %.0144206 = phi ptr [ %.0144220, %.thread209 ], [ %.0144, %172 ]
-  %.0145205 = phi ptr [ %.0145219, %.thread209 ], [ %.0145, %172 ]
-  %.0146204 = phi ptr [ %.0146218, %.thread209 ], [ %.0146, %172 ]
-  %.0154203 = phi i1 [ %.0154217, %.thread209 ], [ %.0154, %172 ]
+  %.0144206 = phi ptr [ %.0144, %172 ], [ %.0144220, %.thread209 ]
+  %.0145205 = phi ptr [ %.0145, %172 ], [ %.0145219, %.thread209 ]
+  %.0146204 = phi ptr [ %.0146, %172 ], [ %.0146218, %.thread209 ]
+  %.0154203 = phi i1 [ %.0154, %172 ], [ %.0154217, %.thread209 ]
   %.not173 = icmp eq ptr %.0144206, null
   br i1 %.not173, label %175, label %174
 
@@ -587,8 +587,8 @@ thread-pre-split:                                 ; preds = %.thread180
   call void @SDL_free_REAL(ptr noundef nonnull %.0145205) #5
   br label %.thread250
 
-.thread250:                                       ; preds = %30, %33, %39, %180, %179
-  %.0154203233240249254 = phi i1 [ %.0154203, %180 ], [ %.0154203, %179 ], [ false, %39 ], [ false, %33 ], [ false, %30 ]
+.thread250:                                       ; preds = %33, %30, %39, %180, %179
+  %.0154203233240249254 = phi i1 [ %.0154203, %179 ], [ %.0154203, %180 ], [ false, %39 ], [ false, %30 ], [ false, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

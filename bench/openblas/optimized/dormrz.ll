@@ -210,7 +210,7 @@ define void @dormrz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not264, label %103, label %.thread290
 
 .thread290.sink.split:                            ; preds = %65, %62, %59, %56, %52, %49, %46, %44, %39
-  %.sink = phi i32 [ -1, %39 ], [ -2, %44 ], [ -3, %46 ], [ -4, %49 ], [ -5, %52 ], [ -6, %56 ], [ -8, %59 ], [ -11, %62 ], [ -13, %65 ]
+  %.sink = phi i32 [ -1, %39 ], [ -3, %46 ], [ -5, %52 ], [ -8, %59 ], [ -11, %62 ], [ -6, %56 ], [ -4, %49 ], [ -2, %44 ], [ -13, %65 ]
   store i32 %.sink, ptr %13, align 4, !tbaa !3
   br label %.thread290
 

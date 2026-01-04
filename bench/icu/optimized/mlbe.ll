@@ -213,7 +213,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -610,7 +610,7 @@ define void @_ZN6icu_7713MlBreakEngineC2ERKNS_10UnicodeSetES3_R10UErrorCode(ptr 
   br i1 %31, label %.loopexit, label %30
 
 .loopexit:                                        ; preds = %.preheader, %30, %22
-  %.pn = phi { ptr, i32 } [ %23, %22 ], [ %27, %30 ], [ %23, %.preheader ]
+  %.pn = phi { ptr, i32 } [ %27, %30 ], [ %23, %22 ], [ %23, %.preheader ]
   call void @_ZN6icu_7710UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %7) #13
   br label %32
 
@@ -1259,7 +1259,7 @@ _ZN6icu_779UVector324popiEv.exit:                 ; preds = %175, %178
   unreachable
 
 187:                                              ; preds = %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit, %.critedge, %174, %_ZN6icu_779UVector324popiEv.exit, %_ZNK6icu_779UVector325peekiEv.exit, %157, %27
-  %.2 = phi i32 [ 0, %27 ], [ 0, %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit ], [ 0, %.critedge ], [ %.081.lcssa, %157 ], [ %.081.lcssa, %174 ], [ %180, %_ZN6icu_779UVector324popiEv.exit ], [ %.081.lcssa, %_ZNK6icu_779UVector325peekiEv.exit ]
+  %.2 = phi i32 [ 0, %27 ], [ 0, %.critedge ], [ 0, %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit ], [ %.081.lcssa, %157 ], [ %.081.lcssa, %174 ], [ %180, %_ZN6icu_779UVector324popiEv.exit ], [ %.081.lcssa, %_ZNK6icu_779UVector325peekiEv.exit ]
   invoke void @uprv_free_77(ptr noundef %25)
           to label %_ZN6icu_7711LocalMemoryIiED2Ev.exit118 unwind label %188
 
@@ -1283,7 +1283,7 @@ _ZN6icu_7711LocalMemoryIiED2Ev.exit118:           ; preds = %187, %14
   br label %191
 
 191:                                              ; preds = %8, %_ZN6icu_7711LocalMemoryIiED2Ev.exit118, %13
-  %.0 = phi i32 [ 0, %13 ], [ %.1, %_ZN6icu_7711LocalMemoryIiED2Ev.exit118 ], [ 0, %8 ]
+  %.0 = phi i32 [ %.1, %_ZN6icu_7711LocalMemoryIiED2Ev.exit118 ], [ 0, %13 ], [ 0, %8 ]
   ret i32 %.0
 }
 

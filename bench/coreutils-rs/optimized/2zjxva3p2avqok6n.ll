@@ -62,7 +62,7 @@ define hidden noundef zeroext i1 @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$10sta
   br i1 %17, label %.lr.ph188, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %.loopexit, %2
-  %.068.ph.lcssa109 = phi ptr [ null, %2 ], [ %.068.ph114, %.loopexit ], [ %.068.ph.be, %.outer.backedge ]
+  %.068.ph.lcssa109 = phi ptr [ %.068.ph114, %.loopexit ], [ null, %2 ], [ %.068.ph.be, %.outer.backedge ]
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr null, ptr %18, align 8
   br label %74
@@ -198,8 +198,8 @@ define hidden noundef zeroext i1 @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$10sta
   unreachable
 
 .outer.backedge:                                  ; preds = %._crit_edge.loopexit.i, %49, %43, %41
-  %.068.ph.be = phi ptr [ %33, %41 ], [ %33, %43 ], [ %.169, %49 ], [ %.169, %._crit_edge.loopexit.i ]
-  %.0.ph.be = phi i32 [ %.0110.lcssa, %41 ], [ %.0110.lcssa, %43 ], [ 1, %49 ], [ %51, %._crit_edge.loopexit.i ]
+  %.068.ph.be = phi ptr [ %33, %43 ], [ %33, %41 ], [ %.169, %49 ], [ %.169, %._crit_edge.loopexit.i ]
+  %.0.ph.be = phi i32 [ %.0110.lcssa, %43 ], [ %.0110.lcssa, %41 ], [ 1, %49 ], [ %51, %._crit_edge.loopexit.i ]
   %62 = load atomic i64, ptr %3 acquire, align 128
   %63 = load atomic i64, ptr %5 acquire, align 8
   %64 = and i64 %62, 1
@@ -784,7 +784,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.exit.i: ;
   unreachable
 
 common.resume:                                    ; preds = %122, %148, %26, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %27, %26 ], [ %45, %.body.i ], [ %123, %122 ], [ %149, %148 ]
+  %common.resume.op = phi { ptr, i32 } [ %45, %.body.i ], [ %27, %26 ], [ %123, %122 ], [ %149, %148 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h72cca60899c60356E.exit.i": ; preds = %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17h7f35f803cecfb95eE.exit.i"

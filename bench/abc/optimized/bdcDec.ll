@@ -160,7 +160,7 @@ Kit_TruthCopy.exit44:                             ; preds = %Kit_TruthCopy.exit4
   br label %Kit_TruthIsDisjoint.exit.thread
 
 Kit_TruthIsDisjoint.exit.thread:                  ; preds = %51, %30, %Kit_TruthCopy.exit44
-  %76 = phi i32 [ %31, %30 ], [ %.pre52, %Kit_TruthCopy.exit44 ], [ %44, %51 ]
+  %76 = phi i32 [ %.pre52, %Kit_TruthCopy.exit44 ], [ %31, %30 ], [ %44, %51 ]
   %77 = add nuw nsw i32 %.03251, 1
   %78 = icmp slt i32 %77, %76
   br i1 %78, label %30, label %._crit_edge, !llvm.loop !33
@@ -1240,8 +1240,8 @@ select.unfold.i155:                               ; preds = %Kit_TruthIsDisjoint
   br i1 %204, label %select.unfold.i155, label %Kit_TruthCopy.exit, !llvm.loop !32
 
 Kit_TruthCopy.exit:                               ; preds = %select.unfold.i143, %187, %select.unfold.i155, %select.unfold.i121, %140, %select.unfold.i131, %Kit_TruthIsDisjoint3.exit152, %Kit_TruthIsDisjoint3.exit140, %Kit_TruthIsDisjoint3.exit128, %Kit_TruthIsDisjoint3.exit, %93
-  %.1104 = phi i32 [ %.0103197, %93 ], [ %128, %Kit_TruthIsDisjoint3.exit ], [ %.0103197, %Kit_TruthIsDisjoint3.exit128 ], [ %.0103197, %Kit_TruthIsDisjoint3.exit140 ], [ %199, %Kit_TruthIsDisjoint3.exit152 ], [ %.0103197, %select.unfold.i131 ], [ %.0103197, %140 ], [ %128, %select.unfold.i121 ], [ %199, %select.unfold.i155 ], [ %.0103197, %187 ], [ %.0103197, %select.unfold.i143 ]
-  %.1 = phi i32 [ %.0198, %93 ], [ %.0198, %Kit_TruthIsDisjoint3.exit ], [ %152, %Kit_TruthIsDisjoint3.exit128 ], [ %175, %Kit_TruthIsDisjoint3.exit140 ], [ %.0198, %Kit_TruthIsDisjoint3.exit152 ], [ %152, %select.unfold.i131 ], [ %.0198, %140 ], [ %.0198, %select.unfold.i121 ], [ %.0198, %select.unfold.i155 ], [ %.0198, %187 ], [ %175, %select.unfold.i143 ]
+  %.1104 = phi i32 [ %.0103197, %93 ], [ %.0103197, %140 ], [ %128, %select.unfold.i121 ], [ %199, %select.unfold.i155 ], [ %.0103197, %187 ], [ %.0103197, %select.unfold.i131 ], [ %128, %Kit_TruthIsDisjoint3.exit ], [ %.0103197, %Kit_TruthIsDisjoint3.exit128 ], [ %.0103197, %Kit_TruthIsDisjoint3.exit140 ], [ %199, %Kit_TruthIsDisjoint3.exit152 ], [ %.0103197, %select.unfold.i143 ]
+  %.1 = phi i32 [ %.0198, %93 ], [ %.0198, %140 ], [ %.0198, %select.unfold.i121 ], [ %.0198, %select.unfold.i155 ], [ %.0198, %187 ], [ %152, %select.unfold.i131 ], [ %.0198, %Kit_TruthIsDisjoint3.exit ], [ %152, %Kit_TruthIsDisjoint3.exit128 ], [ %175, %Kit_TruthIsDisjoint3.exit140 ], [ %.0198, %Kit_TruthIsDisjoint3.exit152 ], [ %175, %select.unfold.i143 ]
   %205 = add nuw nsw i32 %.0105196, 1
   %206 = load i32, ptr %74, align 8, !tbaa !24
   %207 = icmp slt i32 %205, %206
@@ -2184,7 +2184,7 @@ Kit_TruthNot.exit87:                              ; preds = %select.unfold.i84, 
   br label %Kit_TruthAnd.exit
 
 Kit_TruthAnd.exit:                                ; preds = %select.unfold.i74, %113, %Kit_TruthNot.exit65, %Kit_TruthNot.exit87
-  %.0 = phi ptr [ %157, %Kit_TruthNot.exit87 ], [ %18, %Kit_TruthNot.exit65 ], [ %18, %113 ], [ %18, %select.unfold.i74 ]
+  %.0 = phi ptr [ %18, %Kit_TruthNot.exit65 ], [ %157, %Kit_TruthNot.exit87 ], [ %18, %113 ], [ %18, %select.unfold.i74 ]
   %158 = ptrtoint ptr %.0 to i64
   %159 = and i64 %158, -2
   %160 = inttoptr i64 %159 to ptr
@@ -2199,7 +2199,7 @@ Kit_TruthAnd.exit:                                ; preds = %select.unfold.i74, 
   br label %Bdc_FunNew.exit.thread
 
 Bdc_FunNew.exit.thread:                           ; preds = %4, %9, %Kit_TruthAnd.exit
-  %.050 = phi ptr [ %.0, %Kit_TruthAnd.exit ], [ null, %9 ], [ null, %4 ]
+  %.050 = phi ptr [ %.0, %Kit_TruthAnd.exit ], [ null, %4 ], [ null, %9 ]
   ret ptr %.050
 }
 
@@ -2467,7 +2467,7 @@ Abc_Clock.exit95:                                 ; preds = %98, %101
   br label %148
 
 148:                                              ; preds = %132, %146, %143, %134, %120, %112, %43, %139
-  %.069 = phi ptr [ %135, %139 ], [ %25, %43 ], [ null, %112 ], [ null, %120 ], [ null, %134 ], [ null, %143 ], [ %133, %132 ], [ %147, %146 ]
+  %.069 = phi ptr [ null, %134 ], [ %25, %43 ], [ null, %112 ], [ null, %143 ], [ null, %120 ], [ %135, %139 ], [ %133, %132 ], [ %147, %146 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %.069

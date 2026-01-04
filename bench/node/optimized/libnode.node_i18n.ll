@@ -476,7 +476,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
+  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %entry ]
   %length_.i = getelementptr inbounds nuw i8, ptr %args, i64 16
   %12 = load i32, ptr %length_.i, align 8
   %cmp = icmp slt i32 %12, 1
@@ -576,7 +576,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
+  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %entry ]
   %isolate_data_.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 96
   %12 = load ptr, ptr %isolate_data_.i.i, align 8
   %i18n_converter_template_.i.i = getelementptr inbounds nuw i8, ptr %12, i64 2744
@@ -824,7 +824,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
+  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %entry ]
   %length_.i = getelementptr inbounds nuw i8, ptr %args, i64 16
   %12 = load i32, ptr %length_.i, align 8
   %cmp = icmp slt i32 %12, 4
@@ -1387,7 +1387,7 @@ if.end3:                                          ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %entry, %if.end, %if.end3
-  %cmp3 = phi i1 [ true, %if.end ], [ false, %if.end3 ], [ true, %entry ]
+  %cmp3 = phi i1 [ false, %if.end3 ], [ true, %if.end ], [ true, %entry ]
   ret i1 %cmp3
 }
 
@@ -1663,8 +1663,8 @@ do.body4.i:                                       ; preds = %if.else
   unreachable
 
 if.end37:                                         ; preds = %if.else, %if.end16, %lor.lhs.false
-  %storemerge = phi i64 [ 0, %lor.lhs.false ], [ 0, %if.end16 ], [ %conv36, %if.else ]
-  %len.1 = phi i32 [ -1, %lor.lhs.false ], [ -1, %if.end16 ], [ %len.0, %if.else ]
+  %storemerge = phi i64 [ 0, %if.end16 ], [ 0, %lor.lhs.false ], [ %conv36, %if.else ]
+  %len.1 = phi i32 [ -1, %if.end16 ], [ -1, %lor.lhs.false ], [ %len.0, %if.else ]
   store i64 %storemerge, ptr %buf, align 8
   call void @uidna_close_74(ptr noundef %call) #20
   br label %return
@@ -2224,7 +2224,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
+  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %entry ]
   %length_.i = getelementptr inbounds nuw i8, ptr %args, i64 16
   %12 = load i32, ptr %length_.i, align 8
   %cmp = icmp slt i32 %12, 1
@@ -2371,7 +2371,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
+  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %entry ]
   %length_.i = getelementptr inbounds nuw i8, ptr %args, i64 16
   %12 = load i32, ptr %length_.i, align 8
   %cmp = icmp slt i32 %12, 1
@@ -2540,7 +2540,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
+  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %entry ]
   %length_.i135 = getelementptr inbounds nuw i8, ptr %args, i64 16
   %12 = load i32, ptr %length_.i135, align 8
   %cmp2.i136 = icmp slt i32 %12, 1
@@ -2790,7 +2790,7 @@ if.end13.i.us:                                    ; preds = %lor.lhs.false.i.us,
   br label %_ZN4node4i18nL14GetColumnWidthEib.exit.us
 
 _ZN4node4i18nL14GetColumnWidthEib.exit.us:        ; preds = %if.end67.split.us, %if.end67.split.us, %if.end13.i.us, %lor.lhs.false.i.us, %land.lhs.true.i.us, %sw.bb2.i.us, %sw.bb1.i.us
-  %retval.0.i.us = phi i32 [ 1, %if.end13.i.us ], [ 2, %if.end67.split.us ], [ 2, %if.end67.split.us ], [ 2, %sw.bb1.i.us ], [ 2, %sw.bb2.i.us ], [ 0, %lor.lhs.false.i.us ], [ 0, %land.lhs.true.i.us ]
+  %retval.0.i.us = phi i32 [ 2, %sw.bb2.i.us ], [ 1, %if.end13.i.us ], [ 2, %sw.bb1.i.us ], [ 2, %if.end67.split.us ], [ 2, %if.end67.split.us ], [ 0, %lor.lhs.false.i.us ], [ 0, %land.lhs.true.i.us ]
   %add70.us = add i32 %retval.0.i.us, %width.0.ph67.us
   %56 = load i64, ptr %value, align 8
   %cmp59.us = icmp ult i64 %n.1.us89, %56
@@ -2839,7 +2839,7 @@ if.end13.i.us111:                                 ; preds = %lor.lhs.false.i.us1
   br label %_ZN4node4i18nL14GetColumnWidthEib.exit.us112
 
 _ZN4node4i18nL14GetColumnWidthEib.exit.us112:     ; preds = %do.end56.us.us, %do.end56.us.us, %do.end56.us.us, %if.end13.i.us111, %lor.lhs.false.i.us108, %land.lhs.true.i.us102, %sw.bb2.i.us97
-  %retval.0.i.us113 = phi i32 [ 1, %if.end13.i.us111 ], [ 2, %do.end56.us.us ], [ 2, %do.end56.us.us ], [ 2, %sw.bb2.i.us97 ], [ 0, %lor.lhs.false.i.us108 ], [ 0, %land.lhs.true.i.us102 ], [ 2, %do.end56.us.us ]
+  %retval.0.i.us113 = phi i32 [ 2, %sw.bb2.i.us97 ], [ 1, %if.end13.i.us111 ], [ 0, %land.lhs.true.i.us102 ], [ 2, %do.end56.us.us ], [ 2, %do.end56.us.us ], [ 0, %lor.lhs.false.i.us108 ], [ 2, %do.end56.us.us ]
   %add70.us114 = add i32 %retval.0.i.us113, %width.0.ph67.us94
   %59 = load i64, ptr %value, align 8
   %cmp59.us115 = icmp ult i64 %n.1.us.us, %59
@@ -2937,14 +2937,14 @@ if.end13.i:                                       ; preds = %lor.lhs.false.i, %s
   br label %_ZN4node4i18nL14GetColumnWidthEib.exit
 
 _ZN4node4i18nL14GetColumnWidthEib.exit:           ; preds = %do.end56.us, %do.end56.us, %sw.bb2.i, %land.lhs.true.i, %lor.lhs.false.i, %if.end13.i
-  %retval.0.i = phi i32 [ 1, %if.end13.i ], [ 2, %do.end56.us ], [ 2, %do.end56.us ], [ 2, %sw.bb2.i ], [ 0, %lor.lhs.false.i ], [ 0, %land.lhs.true.i ]
+  %retval.0.i = phi i32 [ 2, %sw.bb2.i ], [ 1, %if.end13.i ], [ 0, %land.lhs.true.i ], [ 2, %do.end56.us ], [ 2, %do.end56.us ], [ 0, %lor.lhs.false.i ]
   %add70 = add i32 %retval.0.i, %width.0.ph67
   %64 = load i64, ptr %value, align 8
   %cmp59 = icmp ult i64 %n.1.us, %64
   br i1 %cmp59, label %while.body.lr.ph, label %while.end, !llvm.loop !5
 
 while.end:                                        ; preds = %_ZN4node4i18nL14GetColumnWidthEib.exit, %_ZN4node4i18nL14GetColumnWidthEib.exit.us112, %_ZN4node4i18nL14GetColumnWidthEib.exit.us, %if.then66.us
-  %width.0.ph.lcssa = phi i32 [ %width.0.ph67.us, %if.then66.us ], [ %add70.us, %_ZN4node4i18nL14GetColumnWidthEib.exit.us ], [ %add70.us114, %_ZN4node4i18nL14GetColumnWidthEib.exit.us112 ], [ %add70, %_ZN4node4i18nL14GetColumnWidthEib.exit ]
+  %width.0.ph.lcssa = phi i32 [ %add70.us, %_ZN4node4i18nL14GetColumnWidthEib.exit.us ], [ %width.0.ph67.us, %if.then66.us ], [ %add70.us114, %_ZN4node4i18nL14GetColumnWidthEib.exit.us112 ], [ %add70, %_ZN4node4i18nL14GetColumnWidthEib.exit ]
   %65 = load ptr, ptr %args, align 8
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %65, i64 24
   %cmp.i192 = icmp sgt i32 %width.0.ph.lcssa, -1
@@ -3031,7 +3031,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
+  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %entry ]
   %length_.i47 = getelementptr inbounds nuw i8, ptr %args, i64 16
   %12 = load i32, ptr %length_.i47, align 8
   %cmp2.i48 = icmp slt i32 %12, 1
@@ -3267,8 +3267,8 @@ sw.default.i42:                                   ; preds = %sw.epilog38
   br label %_ZN4node4i18n12_GLOBAL__N_112EncodingNameENS_8encodingE.exit
 
 _ZN4node4i18n12_GLOBAL__N_112EncodingNameENS_8encodingE.exit: ; preds = %sw.epilog38.thread56, %sw.epilog38.thread, %sw.epilog38, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i, %sw.default.i42
-  %tfn.055 = phi ptr [ %spec.select, %sw.default.i42 ], [ %spec.select, %sw.bb1.i ], [ %spec.select, %sw.epilog38 ], [ %switch.select37, %sw.epilog38.thread ], [ %spec.select, %sw.bb2.i ], [ %spec.select35, %sw.epilog38.thread56 ], [ %spec.select, %sw.bb3.i ]
-  %retval.0.i41 = phi ptr [ null, %sw.default.i42 ], [ @.str.62, %sw.bb1.i ], [ @.str.61, %sw.epilog38 ], [ @.str.63, %sw.epilog38.thread ], [ @.str.63, %sw.bb2.i ], [ @.str.64, %sw.epilog38.thread56 ], [ @.str.64, %sw.bb3.i ]
+  %tfn.055 = phi ptr [ %spec.select, %sw.default.i42 ], [ %spec.select, %sw.bb2.i ], [ %spec.select, %sw.bb1.i ], [ %spec.select, %sw.epilog38 ], [ %switch.select37, %sw.epilog38.thread ], [ %spec.select35, %sw.epilog38.thread56 ], [ %spec.select, %sw.bb3.i ]
+  %retval.0.i41 = phi ptr [ null, %sw.default.i42 ], [ @.str.63, %sw.bb2.i ], [ @.str.62, %sw.bb1.i ], [ @.str.61, %sw.epilog38 ], [ @.str.63, %sw.epilog38.thread ], [ @.str.64, %sw.epilog38.thread56 ], [ @.str.64, %sw.bb3.i ]
   %30 = icmp ult i32 %call25, 5
   br i1 %30, label %switch.lookup, label %if.end48
 
@@ -4249,7 +4249,7 @@ if.then8.i.i28:                                   ; preds = %if.else.i.i26
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then8.i.i28, %if.else.i.i26, %_ZN4node16MaybeStackBufferIDsLm1024EE7ReleaseEv.exit.i.i36, %if.then8.i.i, %if.else.i.i, %_ZN4node16MaybeStackBufferIDsLm1024EE7ReleaseEv.exit.i.i, %if.else, %_ZN4node16MaybeStackBufferIDsLm1024EE25AllocateSufficientStorageEm.exit
-  %retval.sroa.0.0 = phi ptr [ null, %_ZN4node16MaybeStackBufferIDsLm1024EE25AllocateSufficientStorageEm.exit ], [ null, %if.else ], [ null, %if.else.i.i ], [ %call3.i.i, %_ZN4node16MaybeStackBufferIDsLm1024EE7ReleaseEv.exit.i.i ], [ %call10.i.i, %if.then8.i.i ], [ null, %if.else.i.i26 ], [ %call3.i.i32, %_ZN4node16MaybeStackBufferIDsLm1024EE7ReleaseEv.exit.i.i36 ], [ %call10.i.i29, %if.then8.i.i28 ]
+  %retval.sroa.0.0 = phi ptr [ null, %if.else ], [ %call10.i.i, %if.then8.i.i ], [ null, %_ZN4node16MaybeStackBufferIDsLm1024EE25AllocateSufficientStorageEm.exit ], [ null, %if.else.i.i ], [ %call3.i.i, %_ZN4node16MaybeStackBufferIDsLm1024EE7ReleaseEv.exit.i.i ], [ null, %if.else.i.i26 ], [ %call3.i.i32, %_ZN4node16MaybeStackBufferIDsLm1024EE7ReleaseEv.exit.i.i36 ], [ %call10.i.i29, %if.then8.i.i28 ]
   %20 = load ptr, ptr %buf_.i, align 8
   %cmp.i.i.i40 = icmp ne ptr %20, null
   %cmp.i.i42 = icmp ne ptr %20, %buf_st_.i
@@ -4429,7 +4429,7 @@ if.then8.i.i38:                                   ; preds = %if.else.i.i36
   br label %if.end28
 
 if.end28:                                         ; preds = %if.then8.i.i38, %if.else.i.i36, %_ZN4node16MaybeStackBufferIcLm1024EE7ReleaseEv.exit.i.i46, %if.then8.i.i21, %if.else.i.i, %_ZN4node16MaybeStackBufferIcLm1024EE7ReleaseEv.exit.i.i, %if.else, %if.then11
-  %retval.sroa.0.0 = phi ptr [ null, %if.then11 ], [ null, %if.else ], [ %call3.i.i, %_ZN4node16MaybeStackBufferIcLm1024EE7ReleaseEv.exit.i.i ], [ null, %if.else.i.i ], [ %call10.i.i22, %if.then8.i.i21 ], [ %call3.i.i42, %_ZN4node16MaybeStackBufferIcLm1024EE7ReleaseEv.exit.i.i46 ], [ null, %if.else.i.i36 ], [ %call10.i.i39, %if.then8.i.i38 ]
+  %retval.sroa.0.0 = phi ptr [ null, %if.else ], [ %call10.i.i22, %if.then8.i.i21 ], [ null, %if.then11 ], [ %call3.i.i, %_ZN4node16MaybeStackBufferIcLm1024EE7ReleaseEv.exit.i.i ], [ null, %if.else.i.i ], [ %call3.i.i42, %_ZN4node16MaybeStackBufferIcLm1024EE7ReleaseEv.exit.i.i46 ], [ null, %if.else.i.i36 ], [ %call10.i.i39, %if.then8.i.i38 ]
   %23 = load ptr, ptr %buf_.i14, align 8
   %cmp.i.i.i50 = icmp ne ptr %23, null
   %cmp.i.i51 = icmp ne ptr %23, %buf_st_.i13

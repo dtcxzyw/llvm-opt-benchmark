@@ -53,7 +53,7 @@ define internal range(i32 0, 2) i32 @new_dir(ptr noundef writeonly captures(none
   br label %11
 
 11:                                               ; preds = %1, %8, %7
-  %.0 = phi i32 [ 0, %7 ], [ 1, %8 ], [ 0, %1 ]
+  %.0 = phi i32 [ 1, %8 ], [ 0, %7 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -329,8 +329,8 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject(ptr noundef %0, i32 nou
   br i1 %104, label %.split.split, label %.thread
 
 .thread:                                          ; preds = %.split.split, %.lr.ph187, %.split.us, %.lr.ph190, %.split.split.us, %.split.us.preheader, %.split.split.us.preheader
-  %.1162 = phi ptr [ %.1.ph, %.split.split.us.preheader ], [ null, %.split.us.preheader ], [ %.1.ph, %.split.split.us ], [ %.1.ph, %.lr.ph190 ], [ null, %.split.us ], [ null, %.lr.ph187 ], [ null, %.split.split ]
-  %.us-phi = phi i32 [ %.196.ph, %.split.split.us.preheader ], [ 0, %.split.us.preheader ], [ %.297.us137189, %.lr.ph190 ], [ %90, %.split.split.us ], [ %.297.us186, %.lr.ph187 ], [ %70, %.split.us ], [ %spec.select, %.split.split ]
+  %.1162 = phi ptr [ %.1.ph, %.split.split.us.preheader ], [ null, %.split.us.preheader ], [ null, %.lr.ph187 ], [ %.1.ph, %.lr.ph190 ], [ %.1.ph, %.split.split.us ], [ null, %.split.us ], [ null, %.split.split ]
+  %.us-phi = phi i32 [ %.196.ph, %.split.split.us.preheader ], [ 0, %.split.us.preheader ], [ %.297.us186, %.lr.ph187 ], [ %90, %.split.split.us ], [ %.297.us137189, %.lr.ph190 ], [ %70, %.split.us ], [ %spec.select, %.split.split ]
   %106 = load ptr, ptr %30, align 8, !tbaa !36
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 16
   call void @CRYPTO_MUTEX_lock_write(ptr noundef nonnull %107) #14
@@ -427,8 +427,8 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject(ptr noundef %0, i32 nou
   store i64 %148, ptr %146, align 8
   br label %.thread126
 
-.thread126:                                       ; preds = %144, %132, %137, %42
-  %.3.ph = phi i32 [ 0, %42 ], [ 0, %137 ], [ 0, %132 ], [ 1, %144 ]
+.thread126:                                       ; preds = %144, %42, %132, %137
+  %.3.ph = phi i32 [ 0, %137 ], [ 0, %132 ], [ 0, %42 ], [ 1, %144 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
@@ -451,7 +451,7 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject(ptr noundef %0, i32 nou
   br label %.thread130
 
 .thread130:                                       ; preds = %15, %20, %.loopexit, %4
-  %.0 = phi i32 [ 0, %4 ], [ %.084, %.loopexit ], [ 0, %20 ], [ 0, %15 ]
+  %.0 = phi i32 [ 0, %4 ], [ %.084, %.loopexit ], [ 0, %15 ], [ 0, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -668,8 +668,8 @@ by_dir_entry_free.exit63:                         ; preds = %62, %64
   %.not60 = icmp eq i8 %66, 0
   br i1 %.not60, label %.thread66, label %thread-pre-split, !llvm.loop !46
 
-.thread66:                                        ; preds = %42, %65, %41, %by_dir_entry_free.exit, %by_dir_entry_free.exit63, %8
-  %.046 = phi i32 [ 0, %8 ], [ 0, %by_dir_entry_free.exit63 ], [ 0, %by_dir_entry_free.exit ], [ 0, %41 ], [ 0, %42 ], [ 1, %65 ]
+.thread66:                                        ; preds = %42, %65, %by_dir_entry_free.exit, %by_dir_entry_free.exit63, %41, %8
+  %.046 = phi i32 [ 0, %8 ], [ 0, %by_dir_entry_free.exit63 ], [ 0, %41 ], [ 0, %by_dir_entry_free.exit ], [ 0, %42 ], [ 1, %65 ]
   ret i32 %.046
 }
 

@@ -713,8 +713,8 @@ _ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_12_GLOBAL__N_17GammaOpEKNS_2OpEEESt
           cleanup
   br label %294
 
-27:                                               ; preds = %12, %19, %16
-  %28 = phi ptr [ %.val, %12 ], [ %.pre, %19 ], [ %.val, %16 ]
+27:                                               ; preds = %16, %12, %19
+  %28 = phi ptr [ %.val, %16 ], [ %.val, %12 ], [ %.pre, %19 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !25, !noalias !38
@@ -2605,7 +2605,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %32, %30
   br label %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev12_GLOBAL__N_17GammaOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev12_GLOBAL__N_17GammaOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %2, %5, %7, %20, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %35
-  %36 = phi i1 [ true, %20 ], [ true, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i ], [ true, %35 ], [ false, %2 ], [ false, %5 ], [ true, %7 ]
+  %36 = phi i1 [ true, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i ], [ true, %35 ], [ true, %20 ], [ false, %2 ], [ false, %5 ], [ true, %7 ]
   ret i1 %36
 }
 
@@ -2644,7 +2644,7 @@ define internal noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_17Gamm
   %17 = atomicrmw volatile add ptr %11, i32 1 acq_rel, align 4, !noalias !117
   br label %18
 
-18:                                               ; preds = %9, %16, %13
+18:                                               ; preds = %13, %9, %16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load ptr, ptr %19, align 8, !tbaa !25, !noalias !102
@@ -2821,8 +2821,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i20: ; preds = %92, %90
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.val8) #17
   br label %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev12_GLOBAL__N_17GammaOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev12_GLOBAL__N_17GammaOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %2, %7, %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_12_GLOBAL__N_17GammaOpEKNS_2OpEEESt10shared_ptrIT_ERKS6_IT0_E.exit, %80, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i20, %95
-  %.032 = phi i1 [ %25, %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_12_GLOBAL__N_17GammaOpEKNS_2OpEEESt10shared_ptrIT_ERKS6_IT0_E.exit ], [ %25, %80 ], [ %25, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i20 ], [ %25, %95 ], [ false, %7 ], [ false, %2 ]
+_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev12_GLOBAL__N_17GammaOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %7, %2, %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_12_GLOBAL__N_17GammaOpEKNS_2OpEEESt10shared_ptrIT_ERKS6_IT0_E.exit, %80, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i20, %95
+  %.032 = phi i1 [ %25, %95 ], [ %25, %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_12_GLOBAL__N_17GammaOpEKNS_2OpEEESt10shared_ptrIT_ERKS6_IT0_E.exit ], [ %25, %80 ], [ %25, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i20 ], [ false, %2 ], [ false, %7 ]
   ret i1 %.032
 }
 
@@ -2861,7 +2861,7 @@ define internal noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_17Gamm
   %17 = atomicrmw volatile add ptr %11, i32 1 acq_rel, align 4, !noalias !122
   br label %18
 
-18:                                               ; preds = %9, %16, %13
+18:                                               ; preds = %13, %9, %16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load ptr, ptr %19, align 8, !tbaa !25, !noalias !102
@@ -3029,7 +3029,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i33: ; preds = %89, %87
   br label %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev12_GLOBAL__N_17GammaOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev12_GLOBAL__N_17GammaOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %2, %7, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev11GammaOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit30, %77, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i33, %92
-  %93 = phi i1 [ %25, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev11GammaOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit30 ], [ %25, %77 ], [ %25, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i33 ], [ %25, %92 ], [ false, %7 ], [ false, %2 ]
+  %93 = phi i1 [ %25, %92 ], [ %25, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev11GammaOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit30 ], [ %25, %77 ], [ %25, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i33 ], [ false, %7 ], [ false, %2 ]
   ret i1 %93
 
 94:                                               ; preds = %18
@@ -3102,8 +3102,8 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_17GammaOp11combineWi
   br label %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_12_GLOBAL__N_17GammaOpEKNS_2OpEEESt10shared_ptrIT_ERKS6_IT0_E.exit
 
 _ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_12_GLOBAL__N_17GammaOpEKNS_2OpEEESt10shared_ptrIT_ERKS6_IT0_E.exit: ; preds = %16, %19, %21, %25, %28
-  %.sroa.0.0 = phi ptr [ %20, %21 ], [ %20, %28 ], [ %20, %25 ], [ null, %19 ], [ null, %16 ]
-  %.sroa.6.0 = phi ptr [ null, %21 ], [ %.val13, %28 ], [ %.val13, %25 ], [ null, %19 ], [ null, %16 ]
+  %.sroa.0.0 = phi ptr [ %20, %25 ], [ %20, %21 ], [ %20, %28 ], [ null, %19 ], [ null, %16 ]
+  %.sroa.6.0 = phi ptr [ %.val13, %25 ], [ null, %21 ], [ %.val13, %28 ], [ null, %19 ], [ null, %16 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8

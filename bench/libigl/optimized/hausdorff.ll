@@ -1206,7 +1206,7 @@ tailrecurse.backedge:                             ; preds = %_ZNK4CGAL8internal9
   %.tr51.be = sub i64 %.tr51, %.pn
   br label %tailrecurse
 
-_ZNK4CGAL8internal9AABB_tree17Projection_traitsINS_13AABB_traits_3INS_16Simple_cartesianIdEENS_25AABB_triangle_primitive_3IS5_N9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS5_EESt6vectorISA_SaISA_EEEESt17integral_constantIbLb0EEEENS_7DefaultEEEE12do_intersectERKNS_7Point_3IS5_EERKNS_9AABB_nodeISK_EE.exit36.thread: ; preds = %124, %116, %110, %104, %_ZNK4CGAL8internal9AABB_tree17Projection_traitsINS_13AABB_traits_3INS_16Simple_cartesianIdEENS_25AABB_triangle_primitive_3IS5_N9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS5_EESt6vectorISA_SaISA_EEEESt17integral_constantIbLb0EEEENS_7DefaultEEEE12do_intersectERKNS_7Point_3IS5_EERKNS_9AABB_nodeISK_EE.exit36
+_ZNK4CGAL8internal9AABB_tree17Projection_traitsINS_13AABB_traits_3INS_16Simple_cartesianIdEENS_25AABB_triangle_primitive_3IS5_N9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS5_EESt6vectorISA_SaISA_EEEESt17integral_constantIbLb0EEEENS_7DefaultEEEE12do_intersectERKNS_7Point_3IS5_EERKNS_9AABB_nodeISK_EE.exit36.thread: ; preds = %116, %110, %104, %124, %_ZNK4CGAL8internal9AABB_tree17Projection_traitsINS_13AABB_traits_3INS_16Simple_cartesianIdEENS_25AABB_triangle_primitive_3IS5_N9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS5_EESt6vectorISA_SaISA_EEEESt17integral_constantIbLb0EEEENS_7DefaultEEEE12do_intersectERKNS_7Point_3IS5_EERKNS_9AABB_nodeISK_EE.exit36
   %210 = getelementptr inbounds nuw i8, ptr %.tr, i64 56
   %211 = load ptr, ptr %210, align 8, !tbaa !134
   %212 = load double, ptr %211, align 8, !tbaa !16
@@ -1309,7 +1309,7 @@ _ZNK4CGAL8internal9AABB_tree17Projection_traitsINS_13AABB_traits_3INS_16Simple_c
   tail call void @_ZN4CGAL8internal9AABB_tree17Projection_traitsINS_13AABB_traits_3INS_16Simple_cartesianIdEENS_25AABB_triangle_primitive_3IS5_N9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS5_EESt6vectorISA_SaISA_EEEESt17integral_constantIbLb0EEEENS_7DefaultEEEE12intersectionERKNS_7Point_3IS5_EERKSI_(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(10) %268)
   br label %_ZNK4CGAL8internal9AABB_tree17Projection_traitsINS_13AABB_traits_3INS_16Simple_cartesianIdEENS_25AABB_triangle_primitive_3IS5_N9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS5_EESt6vectorISA_SaISA_EEEESt17integral_constantIbLb0EEEENS_7DefaultEEEE12do_intersectERKNS_7Point_3IS5_EERKNS_9AABB_nodeISK_EE.exit.thread
 
-_ZNK4CGAL8internal9AABB_tree17Projection_traitsINS_13AABB_traits_3INS_16Simple_cartesianIdEENS_25AABB_triangle_primitive_3IS5_N9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS5_EESt6vectorISA_SaISA_EEEESt17integral_constantIbLb0EEEENS_7DefaultEEEE12do_intersectERKNS_7Point_3IS5_EERKNS_9AABB_nodeISK_EE.exit.thread: ; preds = %244, %236, %230, %224, %191, %183, %177, %171, %_ZNK4CGAL8internal9AABB_tree17Projection_traitsINS_13AABB_traits_3INS_16Simple_cartesianIdEENS_25AABB_triangle_primitive_3IS5_N9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS5_EESt6vectorISA_SaISA_EEEESt17integral_constantIbLb0EEEENS_7DefaultEEEE12do_intersectERKNS_7Point_3IS5_EERKNS_9AABB_nodeISK_EE.exit42, %_ZNK4CGAL8internal9AABB_tree17Projection_traitsINS_13AABB_traits_3INS_16Simple_cartesianIdEENS_25AABB_triangle_primitive_3IS5_N9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS5_EESt6vectorISA_SaISA_EEEESt17integral_constantIbLb0EEEENS_7DefaultEEEE12do_intersectERKNS_7Point_3IS5_EERKNS_9AABB_nodeISK_EE.exit48, %_ZNK4CGAL8internal9AABB_tree17Projection_traitsINS_13AABB_traits_3INS_16Simple_cartesianIdEENS_25AABB_triangle_primitive_3IS5_N9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS5_EESt6vectorISA_SaISA_EEEESt17integral_constantIbLb0EEEENS_7DefaultEEEE12do_intersectERKNS_7Point_3IS5_EERKNS_9AABB_nodeISK_EE.exit.thread.sink.split, %58, %50, %44, %38, %_ZNK4CGAL8internal9AABB_tree17Projection_traitsINS_13AABB_traits_3INS_16Simple_cartesianIdEENS_25AABB_triangle_primitive_3IS5_N9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS5_EESt6vectorISA_SaISA_EEEESt17integral_constantIbLb0EEEENS_7DefaultEEEE12do_intersectERKNS_7Point_3IS5_EERKNS_9AABB_nodeISK_EE.exit
+_ZNK4CGAL8internal9AABB_tree17Projection_traitsINS_13AABB_traits_3INS_16Simple_cartesianIdEENS_25AABB_triangle_primitive_3IS5_N9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS5_EESt6vectorISA_SaISA_EEEESt17integral_constantIbLb0EEEENS_7DefaultEEEE12do_intersectERKNS_7Point_3IS5_EERKNS_9AABB_nodeISK_EE.exit.thread: ; preds = %236, %230, %224, %244, %183, %177, %171, %191, %_ZNK4CGAL8internal9AABB_tree17Projection_traitsINS_13AABB_traits_3INS_16Simple_cartesianIdEENS_25AABB_triangle_primitive_3IS5_N9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS5_EESt6vectorISA_SaISA_EEEESt17integral_constantIbLb0EEEENS_7DefaultEEEE12do_intersectERKNS_7Point_3IS5_EERKNS_9AABB_nodeISK_EE.exit42, %_ZNK4CGAL8internal9AABB_tree17Projection_traitsINS_13AABB_traits_3INS_16Simple_cartesianIdEENS_25AABB_triangle_primitive_3IS5_N9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS5_EESt6vectorISA_SaISA_EEEESt17integral_constantIbLb0EEEENS_7DefaultEEEE12do_intersectERKNS_7Point_3IS5_EERKNS_9AABB_nodeISK_EE.exit48, %_ZNK4CGAL8internal9AABB_tree17Projection_traitsINS_13AABB_traits_3INS_16Simple_cartesianIdEENS_25AABB_triangle_primitive_3IS5_N9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS5_EESt6vectorISA_SaISA_EEEESt17integral_constantIbLb0EEEENS_7DefaultEEEE12do_intersectERKNS_7Point_3IS5_EERKNS_9AABB_nodeISK_EE.exit.thread.sink.split, %50, %44, %38, %58, %_ZNK4CGAL8internal9AABB_tree17Projection_traitsINS_13AABB_traits_3INS_16Simple_cartesianIdEENS_25AABB_triangle_primitive_3IS5_N9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS5_EESt6vectorISA_SaISA_EEEESt17integral_constantIbLb0EEEENS_7DefaultEEEE12do_intersectERKNS_7Point_3IS5_EERKNS_9AABB_nodeISK_EE.exit
   ret void
 }
 
@@ -2078,7 +2078,7 @@ _ZN4CGAL20CommonKernelFunctors27Construct_projected_point_3INS_16Simple_cartesia
   br label %181
 
 181:                                              ; preds = %_ZN4CGAL20CommonKernelFunctors27Construct_projected_point_3INS_16Simple_cartesianIdEEE24is_inside_triangle_3_auxERKNS_8Vector_3IS3_EERKNS_7Point_3IS3_EESC_SC_RSA_RbRKS3_.exit39, %_ZN4CGAL20CommonKernelFunctors27Construct_projected_point_3INS_16Simple_cartesianIdEEE24is_inside_triangle_3_auxERKNS_8Vector_3IS3_EERKNS_7Point_3IS3_EESC_SC_RSA_RbRKS3_.exit34, %_ZN4CGAL20CommonKernelFunctors27Construct_projected_point_3INS_16Simple_cartesianIdEEE24is_inside_triangle_3_auxERKNS_8Vector_3IS3_EERKNS_7Point_3IS3_EESC_SC_RSA_RbRKS3_.exit, %159, %.thread
-  %.0 = phi i1 [ false, %.thread ], [ false, %_ZN4CGAL20CommonKernelFunctors27Construct_projected_point_3INS_16Simple_cartesianIdEEE24is_inside_triangle_3_auxERKNS_8Vector_3IS3_EERKNS_7Point_3IS3_EESC_SC_RSA_RbRKS3_.exit39 ], [ false, %_ZN4CGAL20CommonKernelFunctors27Construct_projected_point_3INS_16Simple_cartesianIdEEE24is_inside_triangle_3_auxERKNS_8Vector_3IS3_EERKNS_7Point_3IS3_EESC_SC_RSA_RbRKS3_.exit34 ], [ false, %_ZN4CGAL20CommonKernelFunctors27Construct_projected_point_3INS_16Simple_cartesianIdEEE24is_inside_triangle_3_auxERKNS_8Vector_3IS3_EERKNS_7Point_3IS3_EESC_SC_RSA_RbRKS3_.exit ], [ true, %159 ]
+  %.0 = phi i1 [ false, %_ZN4CGAL20CommonKernelFunctors27Construct_projected_point_3INS_16Simple_cartesianIdEEE24is_inside_triangle_3_auxERKNS_8Vector_3IS3_EERKNS_7Point_3IS3_EESC_SC_RSA_RbRKS3_.exit ], [ false, %.thread ], [ false, %_ZN4CGAL20CommonKernelFunctors27Construct_projected_point_3INS_16Simple_cartesianIdEEE24is_inside_triangle_3_auxERKNS_8Vector_3IS3_EERKNS_7Point_3IS3_EESC_SC_RSA_RbRKS3_.exit39 ], [ false, %_ZN4CGAL20CommonKernelFunctors27Construct_projected_point_3INS_16Simple_cartesianIdEEE24is_inside_triangle_3_auxERKNS_8Vector_3IS3_EERKNS_7Point_3IS3_EESC_SC_RSA_RbRKS3_.exit34 ], [ true, %159 ]
   ret i1 %.0
 }
 
@@ -2129,14 +2129,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
   %17 = load ptr, ptr %2, align 8, !tbaa !23
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %19 = icmp eq ptr %17, %18
-  br i1 %19, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br i1 %19, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %15
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %.0, label %22, label %23
-
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %15
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %15
   %20 = load i64, ptr %18, align 8, !tbaa !25
   %21 = add i64 %20, 1
   call void @_ZdlPvm(ptr noundef %17, i64 noundef %21) #29
@@ -2144,13 +2139,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.0, label %22, label %23
 
-22:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn9 = phi { ptr, i32 } [ %14, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %16, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %.0, label %22, label %23
+
+22:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %.pn9 = phi { ptr, i32 } [ %14, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %16, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
   call void @__cxa_free_exception(ptr %11) #27
   br label %23
 
-23:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %22
-  %.pn8 = phi { ptr, i32 } [ %16, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn9, %22 ], [ %16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+23:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %22
+  %.pn8 = phi { ptr, i32 } [ %16, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn9, %22 ], [ %16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
   resume { ptr, i32 } %.pn8
 
 24:                                               ; preds = %13
@@ -6983,7 +6983,7 @@ _ZN5boost9container4moveIPPN4CGAL17Kd_tree_leaf_nodeINS2_21Search_traits_adapter
   br label %_ZN5boost9container4moveIPPN4CGAL17Kd_tree_leaf_nodeINS2_21Search_traits_adapterISt4pairINS2_7Point_3INS2_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS2_10Triangle_3IS8_EESt6vectorISD_SaISD_EEEEENS2_26First_of_pair_property_mapISJ_EENS2_13AABB_traits_3IS8_NS2_25AABB_triangle_primitive_3IS8_SI_St17integral_constantIbLb0EEEENS2_7DefaultEEEEENS2_16Sliding_midpointIST_NS2_15Plane_separatorIdEEEESO_IbLb1EESP_EES11_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_S15_E4typeES14_S14_S15_.exit
 
 _ZN5boost9container4moveIPPN4CGAL17Kd_tree_leaf_nodeINS2_21Search_traits_adapterISt4pairINS2_7Point_3INS2_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS2_10Triangle_3IS8_EESt6vectorISD_SaISD_EEEEENS2_26First_of_pair_property_mapISJ_EENS2_13AABB_traits_3IS8_NS2_25AABB_triangle_primitive_3IS8_SI_St17integral_constantIbLb0EEEENS2_7DefaultEEEEENS2_16Sliding_midpointIST_NS2_15Plane_separatorIdEEEESO_IbLb1EESP_EES11_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_S15_E4typeES14_S14_S15_.exit: ; preds = %34, %33, %30, %27, %_ZN5boost9container4moveIPPN4CGAL17Kd_tree_leaf_nodeINS2_21Search_traits_adapterISt4pairINS2_7Point_3INS2_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS2_10Triangle_3IS8_EESt6vectorISD_SaISD_EEEEENS2_26First_of_pair_property_mapISJ_EENS2_13AABB_traits_3IS8_NS2_25AABB_triangle_primitive_3IS8_SI_St17integral_constantIbLb0EEEENS2_7DefaultEEEEENS2_16Sliding_midpointIST_NS2_15Plane_separatorIdEEEESO_IbLb1EESP_EES11_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_S15_E4typeES14_S14_S15_.exit27
-  %.0 = phi ptr [ %52, %_ZN5boost9container4moveIPPN4CGAL17Kd_tree_leaf_nodeINS2_21Search_traits_adapterISt4pairINS2_7Point_3INS2_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS2_10Triangle_3IS8_EESt6vectorISD_SaISD_EEEEENS2_26First_of_pair_property_mapISJ_EENS2_13AABB_traits_3IS8_NS2_25AABB_triangle_primitive_3IS8_SI_St17integral_constantIbLb0EEEENS2_7DefaultEEEEENS2_16Sliding_midpointIST_NS2_15Plane_separatorIdEEEESO_IbLb1EESP_EES11_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_S15_E4typeES14_S14_S15_.exit27 ], [ %24, %27 ], [ %24, %30 ], [ %24, %33 ], [ %24, %34 ]
+  %.0 = phi ptr [ %52, %_ZN5boost9container4moveIPPN4CGAL17Kd_tree_leaf_nodeINS2_21Search_traits_adapterISt4pairINS2_7Point_3INS2_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS2_10Triangle_3IS8_EESt6vectorISD_SaISD_EEEEENS2_26First_of_pair_property_mapISJ_EENS2_13AABB_traits_3IS8_NS2_25AABB_triangle_primitive_3IS8_SI_St17integral_constantIbLb0EEEENS2_7DefaultEEEEENS2_16Sliding_midpointIST_NS2_15Plane_separatorIdEEEESO_IbLb1EESP_EES11_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_S15_E4typeES14_S14_S15_.exit27 ], [ %24, %30 ], [ %24, %27 ], [ %24, %33 ], [ %24, %34 ]
   store ptr %.0, ptr %6, align 8, !tbaa !425
   %65 = load ptr, ptr %.0, align 8, !tbaa !398
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -7096,7 +7096,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(64) ptr @_
   br label %_ZN5boost9container5dequeIN4CGAL21Kd_tree_internal_nodeINS2_21Search_traits_adapterISt4pairINS2_7Point_3INS2_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS2_10Triangle_3IS8_EESt6vectorISD_SaISD_EEEEENS2_26First_of_pair_property_mapISJ_EENS2_13AABB_traits_3IS8_NS2_25AABB_triangle_primitive_3IS8_SI_St17integral_constantIbLb0EEEENS2_7DefaultEEEEENS2_16Sliding_midpointIST_NS2_15Plane_separatorIdEEEESO_IbLb1EESP_EEvvE25priv_insert_back_aux_implINS0_3dtl31insert_nonmovable_emplace_proxyINS0_13new_allocatorISZ_EEJEEEEENS12_14deque_iteratorIPSZ_Lb0EEEmT_.exit
 
 _ZN5boost9container5dequeIN4CGAL21Kd_tree_internal_nodeINS2_21Search_traits_adapterISt4pairINS2_7Point_3INS2_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS2_10Triangle_3IS8_EESt6vectorISD_SaISD_EEEEENS2_26First_of_pair_property_mapISJ_EENS2_13AABB_traits_3IS8_NS2_25AABB_triangle_primitive_3IS8_SI_St17integral_constantIbLb0EEEENS2_7DefaultEEEEENS2_16Sliding_midpointIST_NS2_15Plane_separatorIdEEEESO_IbLb1EESP_EEvvE25priv_insert_back_aux_implINS0_3dtl31insert_nonmovable_emplace_proxyINS0_13new_allocatorISZ_EEJEEEEENS12_14deque_iteratorIPSZ_Lb0EEEmT_.exit: ; preds = %41, %50
-  %.sroa.010.0.i = phi ptr [ %56, %50 ], [ %42, %41 ]
+  %.sroa.010.0.i = phi ptr [ %42, %41 ], [ %56, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !530
   br label %57
 
@@ -7509,7 +7509,7 @@ _ZN5boost9container4moveIPPN4CGAL21Kd_tree_internal_nodeINS2_21Search_traits_ada
   br label %_ZN5boost9container4moveIPPN4CGAL21Kd_tree_internal_nodeINS2_21Search_traits_adapterISt4pairINS2_7Point_3INS2_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS2_10Triangle_3IS8_EESt6vectorISD_SaISD_EEEEENS2_26First_of_pair_property_mapISJ_EENS2_13AABB_traits_3IS8_NS2_25AABB_triangle_primitive_3IS8_SI_St17integral_constantIbLb0EEEENS2_7DefaultEEEEENS2_16Sliding_midpointIST_NS2_15Plane_separatorIdEEEESO_IbLb1EESP_EES11_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_S15_E4typeES14_S14_S15_.exit
 
 _ZN5boost9container4moveIPPN4CGAL21Kd_tree_internal_nodeINS2_21Search_traits_adapterISt4pairINS2_7Point_3INS2_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS2_10Triangle_3IS8_EESt6vectorISD_SaISD_EEEEENS2_26First_of_pair_property_mapISJ_EENS2_13AABB_traits_3IS8_NS2_25AABB_triangle_primitive_3IS8_SI_St17integral_constantIbLb0EEEENS2_7DefaultEEEEENS2_16Sliding_midpointIST_NS2_15Plane_separatorIdEEEESO_IbLb1EESP_EES11_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_S15_E4typeES14_S14_S15_.exit: ; preds = %34, %33, %30, %27, %_ZN5boost9container4moveIPPN4CGAL21Kd_tree_internal_nodeINS2_21Search_traits_adapterISt4pairINS2_7Point_3INS2_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS2_10Triangle_3IS8_EESt6vectorISD_SaISD_EEEEENS2_26First_of_pair_property_mapISJ_EENS2_13AABB_traits_3IS8_NS2_25AABB_triangle_primitive_3IS8_SI_St17integral_constantIbLb0EEEENS2_7DefaultEEEEENS2_16Sliding_midpointIST_NS2_15Plane_separatorIdEEEESO_IbLb1EESP_EES11_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_S15_E4typeES14_S14_S15_.exit27
-  %.0 = phi ptr [ %52, %_ZN5boost9container4moveIPPN4CGAL21Kd_tree_internal_nodeINS2_21Search_traits_adapterISt4pairINS2_7Point_3INS2_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS2_10Triangle_3IS8_EESt6vectorISD_SaISD_EEEEENS2_26First_of_pair_property_mapISJ_EENS2_13AABB_traits_3IS8_NS2_25AABB_triangle_primitive_3IS8_SI_St17integral_constantIbLb0EEEENS2_7DefaultEEEEENS2_16Sliding_midpointIST_NS2_15Plane_separatorIdEEEESO_IbLb1EESP_EES11_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_S15_E4typeES14_S14_S15_.exit27 ], [ %24, %27 ], [ %24, %30 ], [ %24, %33 ], [ %24, %34 ]
+  %.0 = phi ptr [ %52, %_ZN5boost9container4moveIPPN4CGAL21Kd_tree_internal_nodeINS2_21Search_traits_adapterISt4pairINS2_7Point_3INS2_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS2_10Triangle_3IS8_EESt6vectorISD_SaISD_EEEEENS2_26First_of_pair_property_mapISJ_EENS2_13AABB_traits_3IS8_NS2_25AABB_triangle_primitive_3IS8_SI_St17integral_constantIbLb0EEEENS2_7DefaultEEEEENS2_16Sliding_midpointIST_NS2_15Plane_separatorIdEEEESO_IbLb1EESP_EES11_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_S15_E4typeES14_S14_S15_.exit27 ], [ %24, %30 ], [ %24, %27 ], [ %24, %33 ], [ %24, %34 ]
   store ptr %.0, ptr %6, align 8, !tbaa !419
   %65 = load ptr, ptr %.0, align 8, !tbaa !404
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -7625,7 +7625,7 @@ _ZN4CGAL17Kd_tree_rectangleIdNS_13Dimension_tagILi3EEEEaSERKS3_.exit: ; preds = 
   br i1 %49, label %_ZSt9partitionIN9__gnu_cxx17__normal_iteratorIPPKSt4pairIN4CGAL7Point_3INS3_16Simple_cartesianIdEEEENS1_IPNS3_10Triangle_3IS6_EESt6vectorIS9_SaIS9_EEEEESB_ISH_SaISH_EEEENS3_15Point_containerINS3_21Search_traits_adapterISF_NS3_26First_of_pair_property_mapISF_EENS3_13AABB_traits_3IS6_NS3_25AABB_triangle_primitive_3IS6_SE_St17integral_constantIbLb0EEEENS3_7DefaultEEEEEE3CmpISX_EEET_S11_S11_T0_.exit, label %.lr.ph.i.i, !llvm.loop !548
 
 _ZSt9partitionIN9__gnu_cxx17__normal_iteratorIPPKSt4pairIN4CGAL7Point_3INS3_16Simple_cartesianIdEEEENS1_IPNS3_10Triangle_3IS6_EESt6vectorIS9_SaIS9_EEEEESB_ISH_SaISH_EEEENS3_15Point_containerINS3_21Search_traits_adapterISF_NS3_26First_of_pair_property_mapISF_EENS3_13AABB_traits_3IS6_NS3_25AABB_triangle_primitive_3IS6_SE_St17integral_constantIbLb0EEEENS3_7DefaultEEEEEE3CmpISX_EEET_S11_S11_T0_.exit: ; preds = %47, %38, %.preheader.i.i, %_ZN4CGAL17Kd_tree_rectangleIdNS_13Dimension_tagILi3EEEEaSERKS3_.exit
-  %.sroa.08.115.i.i = phi ptr [ %.sroa.0.0.copyload.i, %_ZN4CGAL17Kd_tree_rectangleIdNS_13Dimension_tagILi3EEEEaSERKS3_.exit ], [ %.sroa.08.120.i.i, %.preheader.i.i ], [ %39, %38 ], [ %48, %47 ]
+  %.sroa.08.115.i.i = phi ptr [ %39, %38 ], [ %.sroa.08.120.i.i, %.preheader.i.i ], [ %.sroa.0.0.copyload.i, %_ZN4CGAL17Kd_tree_rectangleIdNS_13Dimension_tagILi3EEEEaSERKS3_.exit ], [ %48, %47 ]
   br i1 %3, label %50, label %97
 
 50:                                               ; preds = %_ZSt9partitionIN9__gnu_cxx17__normal_iteratorIPPKSt4pairIN4CGAL7Point_3INS3_16Simple_cartesianIdEEEENS1_IPNS3_10Triangle_3IS6_EESt6vectorIS9_SaIS9_EEEEESB_ISH_SaISH_EEEENS3_15Point_containerINS3_21Search_traits_adapterISF_NS3_26First_of_pair_property_mapISF_EENS3_13AABB_traits_3IS6_NS3_25AABB_triangle_primitive_3IS6_SE_St17integral_constantIbLb0EEEENS3_7DefaultEEEEEE3CmpISX_EEET_S11_S11_T0_.exit
@@ -8913,7 +8913,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !597
   br label %41
 
@@ -9625,7 +9625,7 @@ define linkonce_odr dso_local void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_it
   br i1 %76, label %.cont.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKS2_IN4CGAL7Point_3INS3_16Simple_cartesianIdEEEENS1_IPNS3_10Triangle_3IS6_EESt6vectorIS9_SaIS9_EEEEEdESB_ISI_SaISI_EEEElSI_NS0_5__ops14_Iter_comp_valINS3_8internal17K_neighbor_searchINS3_21Search_traits_adapterISF_NS3_26First_of_pair_property_mapISF_EENS3_13AABB_traits_3IS6_NS3_25AABB_triangle_primitive_3IS6_SE_St17integral_constantIbLb0EEEENS3_7DefaultEEEEENS3_16Distance_adapterISF_ST_NS3_18Euclidean_distanceIS10_EEEENS3_16Sliding_midpointIS11_NS3_15Plane_separatorIdEEEENS3_7Kd_treeIS11_S19_SW_IbLb1EESX_EEE15Distance_largerEEEEvT_T0_S1H_T1_RT2_.exit, !llvm.loop !609
 
 _ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKS2_IN4CGAL7Point_3INS3_16Simple_cartesianIdEEEENS1_IPNS3_10Triangle_3IS6_EESt6vectorIS9_SaIS9_EEEEEdESB_ISI_SaISI_EEEElSI_NS0_5__ops14_Iter_comp_valINS3_8internal17K_neighbor_searchINS3_21Search_traits_adapterISF_NS3_26First_of_pair_property_mapISF_EENS3_13AABB_traits_3IS6_NS3_25AABB_triangle_primitive_3IS6_SE_St17integral_constantIbLb0EEEENS3_7DefaultEEEEENS3_16Distance_adapterISF_ST_NS3_18Euclidean_distanceIS10_EEEENS3_16Sliding_midpointIS11_NS3_15Plane_separatorIdEEEENS3_7Kd_treeIS11_S19_SW_IbLb1EESX_EEE15Distance_largerEEEEvT_T0_S1H_T1_RT2_.exit: ; preds = %.cont.i, %72, %.cont.us.i, %65, %60
-  %.0.lcssa.i = phi i64 [ %.1, %60 ], [ %.025.us.i, %.cont.us.i ], [ %.0926.us.i, %65 ], [ %.025.i, %.cont.i ], [ %.0926.i, %72 ]
+  %.0.lcssa.i = phi i64 [ %.1, %60 ], [ %.0926.us.i, %65 ], [ %.025.us.i, %.cont.us.i ], [ %.025.i, %.cont.i ], [ %.0926.i, %72 ]
   %77 = getelementptr inbounds %"struct.std::pair.157", ptr %0, i64 %.0.lcssa.i
   store ptr %3, ptr %77, align 8, !tbaa !95
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8

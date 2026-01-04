@@ -237,7 +237,7 @@ define hidden noundef ptr @PORT_Open(i32 noundef %0) local_unnamed_addr #0 {
   br label %55
 
 55:                                               ; preds = %1, %53, %51, %43, %36, %29, %23, %18, %12
-  %.0 = phi ptr [ null, %12 ], [ null, %18 ], [ null, %23 ], [ null, %29 ], [ null, %36 ], [ null, %43 ], [ null, %51 ], [ %27, %53 ], [ null, %1 ]
+  %.0 = phi ptr [ %27, %53 ], [ null, %12 ], [ null, %18 ], [ null, %23 ], [ null, %29 ], [ null, %36 ], [ null, %43 ], [ null, %51 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -697,7 +697,7 @@ createVolumeControl.exit122:                      ; preds = %94, %96
   br label %getControlSlot.exit119.thread
 
 getControlSlot.exit119.thread:                    ; preds = %createVolumeControl.exit122, %80, %77, %.critedge117, %106, %110
-  %.3 = phi i32 [ %111, %110 ], [ %.2158, %106 ], [ %.2158, %.critedge117 ], [ %.2158, %77 ], [ %.2158, %80 ], [ %.2158, %createVolumeControl.exit122 ]
+  %.3 = phi i32 [ %111, %110 ], [ %.2158, %106 ], [ %.2158, %80 ], [ %.2158, %.critedge117 ], [ %.2158, %77 ], [ %.2158, %createVolumeControl.exit122 ]
   %114 = add nuw nsw i32 %.0159, 1
   %exitcond.not = icmp eq i32 %114, 32
   br i1 %exitcond.not, label %getControlSlot.exit.thread, label %76, !llvm.loop !9
@@ -744,8 +744,8 @@ getControlSlot.exit.thread:                       ; preds = %getControlSlot.exit
   br label %getControlSlot.exit124.thread
 
 getControlSlot.exit124.thread:                    ; preds = %115, %getControlSlot.exit.thread, %119, %134, %22
-  %.080 = phi i32 [ %29, %134 ], [ %29, %119 ], [ %29, %getControlSlot.exit.thread ], [ 0, %22 ], [ %29, %115 ]
-  %.079 = phi i32 [ %135, %134 ], [ %.1, %119 ], [ %.1, %getControlSlot.exit.thread ], [ 0, %22 ], [ %.1, %115 ]
+  %.080 = phi i32 [ %29, %134 ], [ %29, %119 ], [ 0, %22 ], [ %29, %getControlSlot.exit.thread ], [ %29, %115 ]
+  %.079 = phi i32 [ %135, %134 ], [ %.1, %119 ], [ 0, %22 ], [ %.1, %getControlSlot.exit.thread ], [ %.1, %115 ]
   %138 = call i32 @snd_mixer_selem_has_playback_switch(ptr noundef %20) #11
   %.not104 = icmp eq i32 %138, 0
   br i1 %.not104, label %139, label %141
@@ -1090,7 +1090,7 @@ define hidden float @PORT_GetFloatValue(ptr noundef readonly captures(address_is
   br label %getFakeBalance.exit
 
 getFakeBalance.exit:                              ; preds = %30, %28, %25, %2, %15, %10, %8, %17, %1
-  %.0 = phi float [ %16, %15 ], [ %9, %8 ], [ %14, %10 ], [ 0.000000e+00, %17 ], [ 0.000000e+00, %1 ], [ 0.000000e+00, %2 ], [ %27, %25 ], [ %32, %30 ], [ 0.000000e+00, %28 ]
+  %.0 = phi float [ %16, %15 ], [ %9, %8 ], [ %14, %10 ], [ 0.000000e+00, %1 ], [ 0.000000e+00, %17 ], [ 0.000000e+00, %2 ], [ %27, %25 ], [ %32, %30 ], [ 0.000000e+00, %28 ]
   ret float %.0
 }
 

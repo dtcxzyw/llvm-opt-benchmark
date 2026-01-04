@@ -373,7 +373,7 @@ _ZNKSt4lessISt5tupleIJibmEEEclERKS1_S4_.exit.thread.i: ; preds = %_ZNKSt4lessISt
   br i1 %.not.i, label %._crit_edge.thread.i, label %.lr.ph.i.backedge
 
 .lr.ph.i.backedge:                                ; preds = %_ZNKSt4lessISt5tupleIJibmEEEclERKS1_S4_.exit.thread.i, %_ZNKSt4lessISt5tupleIJibmEEEclERKS1_S4_.exit.thread.i.thread
-  %.02128.i.be = phi ptr [ %.021.i, %_ZNKSt4lessISt5tupleIJibmEEEclERKS1_S4_.exit.thread.i ], [ %.021.i20, %_ZNKSt4lessISt5tupleIJibmEEEclERKS1_S4_.exit.thread.i.thread ]
+  %.02128.i.be = phi ptr [ %.021.i20, %_ZNKSt4lessISt5tupleIJibmEEEclERKS1_S4_.exit.thread.i.thread ], [ %.021.i, %_ZNKSt4lessISt5tupleIJibmEEEclERKS1_S4_.exit.thread.i ]
   br label %.lr.ph.i, !llvm.loop !55
 
 _ZNKSt4lessISt5tupleIJibmEEEclERKS1_S4_.exit.thread.i.thread: ; preds = %18, %24, %_ZNKSt4lessISt5tupleIJibmEEEclERKS1_S4_.exit.i
@@ -454,7 +454,7 @@ _ZNKSt4lessISt5tupleIJibmEEEclERKS1_S4_.exit5.i:  ; preds = %44
   br label %.thread29
 
 .thread29:                                        ; preds = %48, %50, %55, %57, %61, %63
-  %66 = phi i1 [ true, %48 ], [ true, %50 ], [ false, %55 ], [ true, %57 ], [ false, %61 ], [ %65, %63 ]
+  %66 = phi i1 [ %65, %63 ], [ true, %48 ], [ true, %50 ], [ false, %55 ], [ true, %57 ], [ false, %61 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %66, ptr noundef nonnull %5, ptr noundef nonnull %.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %13) #14
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %68 = load i64, ptr %67, align 8, !tbaa !32

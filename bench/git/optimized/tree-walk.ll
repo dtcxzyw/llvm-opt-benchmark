@@ -161,7 +161,7 @@ init_tree_desc_internal.exit:                     ; preds = %17
   br label %init_tree_desc_internal.exit.thread
 
 init_tree_desc_internal.exit.thread:              ; preds = %17, %24, %init_tree_desc_internal.exit
-  %.0.i8 = phi i32 [ -1, %24 ], [ 0, %init_tree_desc_internal.exit ], [ 0, %17 ]
+  %.0.i8 = phi i32 [ 0, %init_tree_desc_internal.exit ], [ -1, %24 ], [ 0, %17 ]
   call void @strbuf_release(ptr noundef nonnull %6) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0.i8
@@ -440,7 +440,7 @@ define dso_local range(i32 0, 2) i32 @tree_entry_gently(ptr noundef captures(non
   br label %8
 
 8:                                                ; preds = %5, %2
-  %.0 = phi i32 [ 0, %2 ], [ %., %5 ]
+  %.0 = phi i32 [ %., %5 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -1224,7 +1224,7 @@ check_entry_match.exit.sink.split.i:              ; preds = %update_tree_entry.e
   br label %extended_entry_extract.exit169
 
 extended_entry_extract.exit169:                   ; preds = %.lr.ph50.i, %.critedge.i.thread, %.critedge.i, %170, %check_entry_match.exit.sink.split.i
-  %223 = phi ptr [ %135, %.critedge.i.thread ], [ %169, %.critedge.i ], [ %169, %170 ], [ %169, %check_entry_match.exit.sink.split.i ], [ %169, %.lr.ph50.i ]
+  %223 = phi ptr [ %135, %.critedge.i.thread ], [ %169, %check_entry_match.exit.sink.split.i ], [ %169, %.critedge.i ], [ %169, %170 ], [ %169, %.lr.ph50.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %224 = load ptr, ptr %223, align 8, !tbaa !71
   %.not150 = icmp eq ptr %224, null
@@ -1335,7 +1335,7 @@ extended_entry_extract.exit169:                   ; preds = %.lr.ph50.i, %.crite
   br label %prune_traversal.exit
 
 prune_traversal.exit:                             ; preds = %248, %267
-  %.0.i170 = phi i32 [ %249, %248 ], [ %spec.select.i.i, %267 ]
+  %.0.i170 = phi i32 [ %spec.select.i.i, %267 ], [ %249, %248 ]
   %269 = icmp slt i32 %.0.i170, 0
   br i1 %269, label %.lr.ph230.preheader, label %270
 
@@ -1404,8 +1404,8 @@ update_extended_entry.exit:                       ; preds = %291, %290, %.lr.ph2
   %exitcond276.not = icmp eq i64 %indvars.iv.next272, %wide.trip.count275
   br i1 %exitcond276.not, label %.lr.ph204.preheader.loopexit, label %.lr.ph228, !llvm.loop !68
 
-.lr.ph230.preheader:                              ; preds = %246, %274, %prune_traversal.exit, %._crit_edge222
-  %.1128.ph = phi i32 [ %.0127344, %246 ], [ %272, %274 ], [ %.0127344, %prune_traversal.exit ], [ %.0127344, %._crit_edge222 ]
+.lr.ph230.preheader:                              ; preds = %246, %prune_traversal.exit, %274, %._crit_edge222
+  %.1128.ph = phi i32 [ %.0127344, %._crit_edge222 ], [ %.0127344, %246 ], [ %.0127344, %prune_traversal.exit ], [ %272, %274 ]
   %wide.trip.count281 = zext nneg i32 %65 to i64
   br label %.lr.ph230
 
@@ -1638,7 +1638,7 @@ define internal fastcc i32 @find_tree_entry(ptr noundef %0, ptr noundef nonnull 
   br i1 %.not, label %.loopexit, label %17
 
 .loopexit.sink.split:                             ; preds = %27, %36, %45, %43, %31
-  %.2.ph = phi i32 [ %48, %45 ], [ 0, %43 ], [ 0, %31 ], [ -1, %36 ], [ -1, %27 ]
+  %.2.ph = phi i32 [ 0, %31 ], [ %48, %45 ], [ 0, %43 ], [ -1, %36 ], [ -1, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
@@ -1982,7 +1982,7 @@ init_tree_desc.exit134:                           ; preds = %117, %init_tree_des
   br label %.backedge
 
 .backedge:                                        ; preds = %138, %149, %init_tree_desc.exit134
-  %.0103.be = phi i64 [ %101, %init_tree_desc.exit134 ], [ %.1104, %138 ], [ %.1104, %149 ]
+  %.0103.be = phi i64 [ %.1104, %138 ], [ %101, %init_tree_desc.exit134 ], [ %.1104, %149 ]
   br label %32
 
 144:                                              ; preds = %131
@@ -2108,10 +2108,10 @@ init_tree_desc.exit140:                           ; preds = %183, %init_tree_des
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.outer
 
-.preheader:                                       ; preds = %.thread178, %125, %136, %146, %147, %.thread, %.thread148
-  %.3106.ph = phi i64 [ %.1104, %.thread148 ], [ %.2105.ph, %.thread ], [ %.1104, %147 ], [ %.1104, %146 ], [ %.1104, %136 ], [ %.1104, %125 ], [ %.1104, %.thread178 ]
-  %.489.ph = phi ptr [ %.186, %.thread148 ], [ %.287.ph, %.thread ], [ %.186, %147 ], [ %.186, %146 ], [ %.186, %136 ], [ %.186, %125 ], [ %.186, %.thread178 ]
-  %.3.ph = phi i32 [ %.7.ph, %.thread148 ], [ %.2.ph, %.thread ], [ 0, %147 ], [ -6, %146 ], [ 0, %136 ], [ 0, %125 ], [ %.084.ph, %.thread178 ]
+.preheader:                                       ; preds = %.thread178, %125, %147, %136, %.thread, %146, %.thread148
+  %.3106.ph = phi i64 [ %.1104, %.thread148 ], [ %.1104, %146 ], [ %.2105.ph, %.thread ], [ %.1104, %125 ], [ %.1104, %136 ], [ %.1104, %147 ], [ %.1104, %.thread178 ]
+  %.489.ph = phi ptr [ %.186, %.thread148 ], [ %.186, %146 ], [ %.287.ph, %.thread ], [ %.186, %125 ], [ %.186, %136 ], [ %.186, %147 ], [ %.186, %.thread178 ]
+  %.3.ph = phi i32 [ %.7.ph, %.thread148 ], [ -6, %146 ], [ %.2.ph, %.thread ], [ 0, %125 ], [ 0, %136 ], [ 0, %147 ], [ %.084.ph, %.thread178 ]
   %.not159 = icmp eq i64 %.3106.ph, 0
   br i1 %.not159, label %._crit_edge156, label %.lr.ph155.preheader
 
@@ -2194,7 +2194,7 @@ define dso_local range(i32 -1, 3) i32 @tree_entry_interesting(ptr noundef %0, pt
   br label %25
 
 25:                                               ; preds = %23, %17, %15, %11, %4
-  %.0 = phi i32 [ %5, %4 ], [ 1, %11 ], [ %5, %15 ], [ 1, %17 ], [ %spec.select, %23 ]
+  %.0 = phi i32 [ %spec.select, %23 ], [ %5, %4 ], [ 1, %11 ], [ %5, %15 ], [ 1, %17 ]
   ret i32 %.0
 }
 
@@ -2325,7 +2325,7 @@ define internal fastcc range(i32 -1, 3) i32 @do_match(ptr noundef %0, ptr nounde
   br label %basecmp.exit.i
 
 basecmp.exit.i:                                   ; preds = %74, %68
-  %.1.i.i = phi i32 [ %73, %68 ], [ %76, %74 ]
+  %.1.i.i = phi i32 [ %76, %74 ], [ %73, %68 ]
   %.not.i = icmp eq i32 %.1.i.i, 0
   br i1 %.not.i, label %77, label %match_dir_prefix.exit.thread
 
@@ -2347,7 +2347,7 @@ match_dir_prefix.exit:                            ; preds = %78
   %.not227 = icmp eq i8 %85, 47
   br i1 %.not227, label %match_dir_prefix.exit.thread198, label %match_dir_prefix.exit.thread
 
-match_dir_prefix.exit.thread198:                  ; preds = %77, %78, %match_dir_prefix.exit
+match_dir_prefix.exit.thread198:                  ; preds = %78, %77, %match_dir_prefix.exit
   %86 = load i8, ptr %9, align 4
   %87 = and i8 %86, 2
   %.not150 = icmp eq i8 %87, 0
@@ -2413,7 +2413,7 @@ match_dir_prefix.exit.thread198:                  ; preds = %77, %78, %match_dir
   br label %basecmp.exit
 
 basecmp.exit:                                     ; preds = %115, %121
-  %.1.i = phi i32 [ %120, %115 ], [ %122, %121 ]
+  %.1.i = phi i32 [ %122, %121 ], [ %120, %115 ]
   %.not133 = icmp eq i32 %.1.i, 0
   br i1 %.not133, label %._crit_edge, label %match_dir_prefix.exit.thread
 
@@ -2435,7 +2435,7 @@ basecmp.exit:                                     ; preds = %115, %121
   br i1 %131, label %match_entry.exit.thread, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %._crit_edge, %126
-  %.0.i162 = phi i32 [ -1, %._crit_edge ], [ %130, %126 ]
+  %.0.i162 = phi i32 [ %130, %126 ], [ -1, %._crit_edge ]
   %132 = icmp sgt i32 %.val, %124
   br i1 %132, label %match_entry.exit.thread, label %133
 
@@ -2483,7 +2483,7 @@ match_entry.exit:                                 ; preds = %143, %147, %149
   %.not34.i.not = icmp eq i32 %.1.i163, 0
   br i1 %.not34.i.not, label %strbuf_setlen.exit, label %match_entry.exit.thread
 
-match_entry.exit.thread:                          ; preds = %141, %138, %135, %.sink.split.i, %126, %match_entry.exit
+match_entry.exit.thread:                          ; preds = %138, %135, %141, %.sink.split.i, %126, %match_entry.exit
   %.5206 = phi i32 [ 0, %match_entry.exit ], [ -1, %126 ], [ 0, %135 ], [ 0, %141 ], [ 0, %138 ], [ 0, %.sink.split.i ]
   %151 = getelementptr inbounds nuw i8, ptr %52, i64 28
   %152 = load i32, ptr %151, align 4, !tbaa !112
@@ -2610,18 +2610,18 @@ match_dir_prefix.exit.thread:                     ; preds = %110, %63, %basecmp.
   br label %basecmp.exit38.i
 
 basecmp.exit38.i:                                 ; preds = %213, %207
-  %.1.i37.i = phi i32 [ %212, %207 ], [ %214, %213 ]
+  %.1.i37.i = phi i32 [ %214, %213 ], [ %212, %207 ]
   %.not32.i176 = icmp eq i32 %.1.i37.i, 0
   br i1 %.not32.i176, label %match_wildcard_base.exit.thread210, label %match_wildcard_base.exit.thread213
 
 match_wildcard_base.exit:                         ; preds = %193, %199
-  %.1.i.i173 = phi i32 [ %198, %193 ], [ %201, %199 ]
+  %.1.i.i173 = phi i32 [ %201, %199 ], [ %198, %193 ]
   %.not33.i174.not = icmp eq i32 %.1.i.i173, 0
   br i1 %.not33.i174.not, label %match_wildcard_base.exit.thread210, label %match_wildcard_base.exit.thread213
 
 match_wildcard_base.exit.thread210:               ; preds = %basecmp.exit38.i, %match_wildcard_base.exit, %184
   %215 = load ptr, ptr %44, align 8, !tbaa !71
-  tail call void @strbuf_add(ptr noundef %2, ptr noundef %215, i64 noundef %45) #15
+  tail call void @strbuf_add(ptr noundef nonnull %2, ptr noundef %215, i64 noundef %45) #15
   %216 = load ptr, ptr %39, align 8, !tbaa !38
   %217 = load i32, ptr %181, align 4, !tbaa !112
   %218 = tail call i32 @git_fnmatch(ptr noundef nonnull %52, ptr noundef %53, ptr noundef %216, i32 noundef %217) #15
@@ -2776,14 +2776,14 @@ strbuf_setlen.exit:                               ; preds = %strbuf_setlen.exit.
   %.not156.not = icmp eq i32 %273, 0
   br i1 %.not156.not, label %match_wildcard_base.exit.thread213, label %.thread220
 
-match_wildcard_base.exit.thread213:               ; preds = %strbuf_setlen.exit186, %257, %202, %basecmp.exit38.i, %188, %match_wildcard_base.exit, %match_dir_prefix.exit.thread, %match_entry.exit.thread, %ps_strncmp.exit, %167, %165, %60, %.critedge, %281
-  %.1192 = phi i32 [ 0, %281 ], [ %.5206, %165 ], [ %.5206, %ps_strncmp.exit ], [ %.5206, %167 ], [ %.5206, %match_entry.exit.thread ], [ %.0191250, %match_dir_prefix.exit.thread ], [ %.0191250, %match_wildcard_base.exit ], [ %.0191250, %.critedge ], [ %.0191250, %60 ], [ %.0191250, %188 ], [ %.0191250, %basecmp.exit38.i ], [ %.0191250, %202 ], [ %.0191250, %257 ], [ %.0191250, %strbuf_setlen.exit186 ]
+match_wildcard_base.exit.thread213:               ; preds = %strbuf_setlen.exit186, %257, %basecmp.exit38.i, %202, %188, %match_wildcard_base.exit, %match_dir_prefix.exit.thread, %match_entry.exit.thread, %ps_strncmp.exit, %167, %165, %60, %.critedge, %281
+  %.1192 = phi i32 [ %.0191250, %188 ], [ 0, %281 ], [ %.5206, %165 ], [ %.5206, %ps_strncmp.exit ], [ %.5206, %167 ], [ %.0191250, %.critedge ], [ %.5206, %match_entry.exit.thread ], [ %.0191250, %match_dir_prefix.exit.thread ], [ %.0191250, %basecmp.exit38.i ], [ %.0191250, %60 ], [ %.0191250, %match_wildcard_base.exit ], [ %.0191250, %202 ], [ %.0191250, %257 ], [ %.0191250, %strbuf_setlen.exit186 ]
   %282 = trunc nuw i64 %50 to i32
   %283 = icmp sgt i32 %282, 0
   br i1 %283, label %49, label %.thread220
 
 .thread220:                                       ; preds = %match_wildcard_base.exit.thread213, %94, %97, %161, %257, %strbuf_setlen.exit, %264, %281, %36, %19, %22, %26
-  %.0 = phi i32 [ %35, %26 ], [ 2, %22 ], [ 2, %19 ], [ %12, %36 ], [ 1, %281 ], [ 1, %264 ], [ 1, %strbuf_setlen.exit ], [ 1, %257 ], [ 1, %161 ], [ 0, %97 ], [ 2, %94 ], [ %.1192, %match_wildcard_base.exit.thread213 ]
+  %.0 = phi i32 [ 2, %22 ], [ 2, %19 ], [ %35, %26 ], [ %12, %36 ], [ 1, %281 ], [ 1, %strbuf_setlen.exit ], [ 1, %257 ], [ 1, %161 ], [ 0, %97 ], [ 2, %94 ], [ %.1192, %match_wildcard_base.exit.thread213 ], [ 1, %264 ]
   ret i32 %.0
 }
 
@@ -2921,7 +2921,7 @@ _.exit33:                                         ; preds = %41, %43
   br label %canon_mode.exit
 
 canon_mode.exit:                                  ; preds = %62, %61, %58, %57, %55
-  %63 = phi i32 [ %56, %55 ], [ %60, %58 ], [ 16384, %61 ], [ 57344, %62 ], [ 40960, %57 ]
+  %63 = phi i32 [ %56, %55 ], [ %60, %58 ], [ 57344, %62 ], [ 16384, %61 ], [ 40960, %57 ]
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 %63, ptr %64, align 4, !tbaa !92
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 64

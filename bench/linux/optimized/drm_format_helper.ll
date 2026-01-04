@@ -101,7 +101,7 @@ define dso_local ptr @drm_format_conv_state_reserve(ptr noundef captures(none) %
   br label %16
 
 16:                                               ; preds = %15, %._crit_edge, %11, %7
-  %17 = phi ptr [ null, %7 ], [ null, %11 ], [ %.pre, %._crit_edge ], [ %13, %15 ]
+  %17 = phi ptr [ null, %11 ], [ null, %7 ], [ %.pre, %._crit_edge ], [ %13, %15 ]
   ret ptr %17
 }
 
@@ -446,7 +446,7 @@ define internal fastcc void @drm_fb_xfrm(ptr %.0.val, i8 %.8.val, ptr noundef re
   br label %60
 
 60:                                               ; preds = %59, %._crit_edge, %55, %51
-  %61 = phi ptr [ null, %51 ], [ null, %55 ], [ %.pre, %._crit_edge ], [ %57, %59 ]
+  %61 = phi ptr [ null, %55 ], [ null, %51 ], [ %.pre, %._crit_edge ], [ %57, %59 ]
   %62 = getelementptr i8, ptr %61, i64 %46
   br label %63
 
@@ -1318,7 +1318,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_fb_blit(ptr noundef readonly
   br label %89
 
 89:                                               ; preds = %45, %53, %.split4, %.split3, %25, %33, %.split1, %.split, %87, %79, %78, %76, %74, %72, %70, %68, %66, %64, %62, %60, %58, %14
-  %90 = phi i32 [ 0, %14 ], [ 0, %58 ], [ 0, %60 ], [ 0, %62 ], [ 0, %64 ], [ 0, %66 ], [ 0, %68 ], [ 0, %70 ], [ 0, %72 ], [ 0, %74 ], [ 0, %76 ], [ 0, %78 ], [ -22, %87 ], [ -22, %79 ], [ 0, %.split ], [ 0, %.split1 ], [ 0, %33 ], [ 0, %25 ], [ 0, %.split3 ], [ 0, %.split4 ], [ 0, %53 ], [ 0, %45 ]
+  %90 = phi i32 [ 0, %14 ], [ -22, %79 ], [ 0, %25 ], [ 0, %58 ], [ 0, %60 ], [ 0, %62 ], [ 0, %64 ], [ 0, %66 ], [ 0, %68 ], [ 0, %70 ], [ 0, %72 ], [ 0, %74 ], [ 0, %76 ], [ 0, %78 ], [ -22, %87 ], [ 0, %.split ], [ 0, %.split1 ], [ 0, %33 ], [ 0, %.split3 ], [ 0, %.split4 ], [ 0, %53 ], [ 0, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %90
 }
@@ -1696,7 +1696,7 @@ define dso_local range(i64 -2305843009213693952, 2305843009213693952) i64 @drm_f
   br label %.loopexit
 
 .loopexit:                                        ; preds = %70, %64, %75
-  %79 = phi ptr [ %78, %75 ], [ %13, %64 ], [ %13, %70 ]
+  %79 = phi ptr [ %13, %64 ], [ %78, %75 ], [ %13, %70 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %80
 

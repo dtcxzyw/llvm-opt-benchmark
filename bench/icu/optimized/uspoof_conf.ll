@@ -324,7 +324,7 @@ _ZN6icu_7712LocalPointerINS_9SPUStringEEC2EPS1_R10UErrorCode.exit: ; preds = %16
   br label %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit
 
 _ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit: ; preds = %17, %20, %23, %_ZN6icu_7712LocalPointerINS_9SPUStringEEC2EPS1_R10UErrorCode.exit
-  %.sroa.042.24749 = phi ptr [ null, %_ZN6icu_7712LocalPointerINS_9SPUStringEEC2EPS1_R10UErrorCode.exit ], [ null, %23 ], [ %1, %20 ], [ %1, %17 ]
+  %.sroa.042.24749 = phi ptr [ null, %23 ], [ null, %_ZN6icu_7712LocalPointerINS_9SPUStringEEC2EPS1_R10UErrorCode.exit ], [ %1, %20 ], [ %1, %17 ]
   %27 = load ptr, ptr %0, align 8, !tbaa !17
   invoke void @_ZN6icu_777UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef %15, ptr noundef nonnull align 4 dereferenceable(4) %2)
           to label %28 unwind label %_ZN6icu_7712LocalPointerINS_9SPUStringEED2Ev.exit
@@ -380,8 +380,8 @@ _ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit37: ; preds = %.thread50, 
   resume { ptr, i32 } %.pn.pn53
 
 _ZN6icu_7712LocalPointerINS_9SPUStringEED2Ev.exit36: ; preds = %40, %28, %11, %3
-  %.sroa.042.0 = phi ptr [ %1, %11 ], [ %1, %3 ], [ %.sroa.042.24749, %28 ], [ %.sroa.042.24749, %40 ]
-  %.027 = phi ptr [ %10, %11 ], [ null, %3 ], [ null, %28 ], [ %15, %40 ]
+  %.sroa.042.0 = phi ptr [ %1, %3 ], [ %1, %11 ], [ %.sroa.042.24749, %28 ], [ %.sroa.042.24749, %40 ]
+  %.027 = phi ptr [ null, %3 ], [ %10, %11 ], [ null, %28 ], [ %15, %40 ]
   %49 = icmp eq ptr %.sroa.042.0, null
   br i1 %49, label %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit38, label %50
 
@@ -725,7 +725,7 @@ define void @_ZN6icu_7721ConfusabledataBuilder5buildEPKciR10UErrorCode(ptr nound
   br label %37
 
 37:                                               ; preds = %34, %32, %23
-  %.0.i = phi ptr [ %33, %32 ], [ %36, %34 ], [ null, %23 ]
+  %.0.i = phi ptr [ %36, %34 ], [ %33, %32 ], [ null, %23 ]
   %38 = icmp slt i16 %28, 0
   %39 = ashr i16 %28, 5
   %40 = sext i16 %39 to i32
@@ -769,7 +769,7 @@ define void @_ZN6icu_7721ConfusabledataBuilder5buildEPKciR10UErrorCode(ptr nound
   br label %59
 
 59:                                               ; preds = %56, %54, %47
-  %.0.i136 = phi ptr [ %55, %54 ], [ %58, %56 ], [ null, %47 ]
+  %.0.i136 = phi ptr [ %58, %56 ], [ %55, %54 ], [ null, %47 ]
   %60 = icmp slt i16 %50, 0
   %61 = ashr i16 %50, 5
   %62 = sext i16 %61 to i32
@@ -1194,7 +1194,7 @@ _ZN6icu_7713UnicodeString6appendERKS0_.exit:      ; preds = %206, %193
   br label %270
 
 270:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit142, %.loopexit.split-lp143, %229, %251, %264, %202, %204, %268, %123, %127, %158, %147, %145, %125, %72
-  %.pn123.pn.pn.pn.pn = phi { ptr, i32 } [ %73, %72 ], [ %124, %123 ], [ %126, %125 ], [ %128, %127 ], [ %148, %147 ], [ %159, %158 ], [ %146, %145 ], [ %269, %268 ], [ %203, %202 ], [ %205, %204 ], [ %230, %229 ], [ %252, %251 ], [ %265, %264 ], [ %lpad.loopexit144, %.loopexit142 ], [ %lpad.loopexit.split-lp145, %.loopexit.split-lp143 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn123.pn.pn.pn.pn = phi { ptr, i32 } [ %73, %72 ], [ %205, %204 ], [ %230, %229 ], [ %265, %264 ], [ %124, %123 ], [ %126, %125 ], [ %128, %127 ], [ %148, %147 ], [ %159, %158 ], [ %146, %145 ], [ %252, %251 ], [ %lpad.loopexit.split-lp145, %.loopexit.split-lp143 ], [ %269, %268 ], [ %203, %202 ], [ %lpad.loopexit144, %.loopexit142 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

@@ -281,7 +281,7 @@ _ZN4absl13cord_internal12CordRepBtree10ToOpResultEb.exit.i: ; preds = %.lr.ph.i.
   br i1 %.not14.i.i.i, label %_ZN4absl13cord_internal12CordRepBtree3AddILNS1_8EdgeTypeE0EEEvPNS0_7CordRepE.exit.i, label %92, !llvm.loop !27
 
 _ZN4absl13cord_internal12CordRepBtree3AddILNS1_8EdgeTypeE0EEEvPNS0_7CordRepE.exit.i: ; preds = %92, %87, %_ZN4absl13cord_internal12CordRepBtree10ToOpResultEb.exit.i
-  %97 = phi i8 [ %90, %87 ], [ %.pre.i.i, %_ZN4absl13cord_internal12CordRepBtree10ToOpResultEb.exit.i ], [ %90, %92 ]
+  %97 = phi i8 [ %.pre.i.i, %_ZN4absl13cord_internal12CordRepBtree10ToOpResultEb.exit.i ], [ %90, %87 ], [ %90, %92 ]
   %98 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 16
   %99 = add i8 %97, -1
   store i8 %99, ptr %.phi.trans.insert.i.i, align 1, !tbaa !4
@@ -437,7 +437,7 @@ _ZN4absl13cord_internal12CordRepBtree10ToOpResultEb.exit.i: ; preds = %.lr.ph.i.
   br i1 %.not14.i.i.i, label %_ZN4absl13cord_internal12CordRepBtree3AddILNS1_8EdgeTypeE0EEEvPNS0_7CordRepE.exit.i, label %64, !llvm.loop !27
 
 _ZN4absl13cord_internal12CordRepBtree3AddILNS1_8EdgeTypeE0EEEvPNS0_7CordRepE.exit.i: ; preds = %64, %59, %_ZN4absl13cord_internal12CordRepBtree10ToOpResultEb.exit.i
-  %69 = phi i8 [ %62, %59 ], [ %.pre.i.i, %_ZN4absl13cord_internal12CordRepBtree10ToOpResultEb.exit.i ], [ %62, %64 ]
+  %69 = phi i8 [ %.pre.i.i, %_ZN4absl13cord_internal12CordRepBtree10ToOpResultEb.exit.i ], [ %62, %59 ], [ %62, %64 ]
   %70 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 16
   %71 = add i8 %69, -1
   store i8 %71, ptr %.phi.trans.insert.i.i, align 1, !tbaa !4
@@ -502,8 +502,8 @@ _ZN4absl13cord_internal12CordRepBtree3AddILNS1_8EdgeTypeE0EEEvPNS0_7CordRepE.exi
   br i1 %.not.i, label %_ZN4absl13cord_internal12CordRepBtree7SetEdgeILNS1_8EdgeTypeE0EEENS1_8OpResultEbPNS0_7CordRepEm.exit, label %.lr.ph.i
 
 _ZN4absl13cord_internal12CordRepBtree7SetEdgeILNS1_8EdgeTypeE0EEENS1_8OpResultEbPNS0_7CordRepEm.exit: ; preds = %.lr.ph.i, %80, %86, %87
-  %.sroa.015.0.i = phi ptr [ %12, %80 ], [ %12, %86 ], [ %92, %87 ], [ %92, %.lr.ph.i ]
-  %.sroa.517.0.i = phi i32 [ 0, %80 ], [ 0, %86 ], [ 1, %87 ], [ 1, %.lr.ph.i ]
+  %.sroa.015.0.i = phi ptr [ %12, %86 ], [ %12, %80 ], [ %92, %87 ], [ %92, %.lr.ph.i ]
+  %.sroa.517.0.i = phi i32 [ 0, %86 ], [ 0, %80 ], [ 1, %87 ], [ 1, %.lr.ph.i ]
   %102 = getelementptr inbounds nuw i8, ptr %.sroa.015.0.i, i64 16
   %103 = getelementptr inbounds nuw ptr, ptr %102, i64 %79
   store ptr %.sroa.023.1, ptr %103, align 8, !tbaa !17
@@ -597,7 +597,7 @@ _ZN4absl13cord_internal12CordRepBtree7AddEdgeILNS1_8EdgeTypeE0EEENS1_8OpResultEb
   unreachable
 
 _ZN4absl13cord_internal12_GLOBAL__N_115StackOperationsILNS0_12CordRepBtree8EdgeTypeE0EE8FinalizeEPS3_NS3_8OpResultE.exit: ; preds = %.lr.ph, %106, %141, %138, %132, %116, %.loopexit
-  %.2 = phi ptr [ %133, %132 ], [ %117, %116 ], [ %.sroa.023.0, %.loopexit ], [ %.sroa.023.0, %138 ], [ %.sroa.023.0, %141 ], [ %12, %106 ], [ %111, %.lr.ph ]
+  %.2 = phi ptr [ %.sroa.023.0, %141 ], [ %117, %116 ], [ %133, %132 ], [ %.sroa.023.0, %.loopexit ], [ %.sroa.023.0, %138 ], [ %12, %106 ], [ %111, %.lr.ph ]
   ret ptr %.2
 }
 
@@ -1020,8 +1020,8 @@ _ZN4absl13cord_internal12CordRepBtree3AddILNS1_8EdgeTypeE1EEEvPNS0_7CordRepE.exi
   br i1 %.not.i, label %_ZN4absl13cord_internal12CordRepBtree7SetEdgeILNS1_8EdgeTypeE1EEENS1_8OpResultEbPNS0_7CordRepEm.exit, label %.lr.ph.i
 
 _ZN4absl13cord_internal12CordRepBtree7SetEdgeILNS1_8EdgeTypeE1EEENS1_8OpResultEbPNS0_7CordRepEm.exit: ; preds = %.lr.ph.i, %84, %90, %91
-  %.sroa.015.0.i = phi ptr [ %12, %84 ], [ %12, %90 ], [ %95, %91 ], [ %95, %.lr.ph.i ]
-  %.sroa.517.0.i = phi i32 [ 0, %84 ], [ 0, %90 ], [ 1, %91 ], [ 1, %.lr.ph.i ]
+  %.sroa.015.0.i = phi ptr [ %12, %90 ], [ %12, %84 ], [ %95, %91 ], [ %95, %.lr.ph.i ]
+  %.sroa.517.0.i = phi i32 [ 0, %90 ], [ 0, %84 ], [ 1, %91 ], [ 1, %.lr.ph.i ]
   %107 = getelementptr inbounds nuw i8, ptr %.sroa.015.0.i, i64 16
   %108 = getelementptr inbounds nuw ptr, ptr %107, i64 %83
   store ptr %.sroa.023.1, ptr %108, align 8, !tbaa !17
@@ -1115,7 +1115,7 @@ _ZN4absl13cord_internal12CordRepBtree7AddEdgeILNS1_8EdgeTypeE1EEENS1_8OpResultEb
   unreachable
 
 _ZN4absl13cord_internal12_GLOBAL__N_115StackOperationsILNS0_12CordRepBtree8EdgeTypeE1EE8FinalizeEPS3_NS3_8OpResultE.exit: ; preds = %.lr.ph, %111, %146, %143, %137, %121, %.loopexit
-  %.2 = phi ptr [ %138, %137 ], [ %122, %121 ], [ %.sroa.023.0, %.loopexit ], [ %.sroa.023.0, %143 ], [ %.sroa.023.0, %146 ], [ %12, %111 ], [ %116, %.lr.ph ]
+  %.2 = phi ptr [ %.sroa.023.0, %146 ], [ %122, %121 ], [ %138, %137 ], [ %.sroa.023.0, %.loopexit ], [ %.sroa.023.0, %143 ], [ %12, %111 ], [ %116, %.lr.ph ]
   ret ptr %.2
 }
 
@@ -1367,8 +1367,8 @@ _ZN4absl13cord_internal12CordRepBtree10ToOpResultEb.exit: ; preds = %.lr.ph.i.i,
   br i1 %127, label %.lr.ph.i.i68, label %.loopexit, !llvm.loop !40
 
 _ZN4absl13cord_internal12CordRepBtree7AddEdgeILNS1_8EdgeTypeE0EEENS1_8OpResultEbPNS0_7CordRepEm.exit.i.i: ; preds = %.lr.ph.i.i.i, %97, %103, %104
-  %.sroa.015.0.i.i.i = phi ptr [ %89, %97 ], [ %89, %103 ], [ %109, %104 ], [ %109, %.lr.ph.i.i.i ]
-  %.sroa.517.0.i.i.i = phi i32 [ 0, %97 ], [ 0, %103 ], [ 1, %104 ], [ 1, %.lr.ph.i.i.i ]
+  %.sroa.015.0.i.i.i = phi ptr [ %89, %103 ], [ %89, %97 ], [ %109, %104 ], [ %109, %.lr.ph.i.i.i ]
+  %.sroa.517.0.i.i.i = phi i32 [ 0, %103 ], [ 0, %97 ], [ 1, %104 ], [ 1, %.lr.ph.i.i.i ]
   %128 = getelementptr inbounds nuw i8, ptr %.sroa.015.0.i.i.i, i64 16
   %129 = getelementptr inbounds nuw ptr, ptr %128, i64 %96
   store ptr %.sroa.024.1.i.i, ptr %129, align 8, !tbaa !17
@@ -1397,7 +1397,7 @@ _ZN4absl13cord_internal12CordRepBtree7AddEdgeILNS1_8EdgeTypeE0EEENS1_8OpResultEb
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i68, %.loopexit.i.i, %137, %134, %119
-  %.2.i.i = phi ptr [ %.sroa.024.0.i.i, %.loopexit.i.i ], [ %.sroa.024.0.i.i, %134 ], [ %.sroa.024.0.i.i, %137 ], [ %89, %119 ], [ %124, %.lr.ph.i.i68 ]
+  %.2.i.i = phi ptr [ %.sroa.024.0.i.i, %137 ], [ %.sroa.024.0.i.i, %134 ], [ %89, %119 ], [ %.sroa.024.0.i.i, %.loopexit.i.i ], [ %124, %.lr.ph.i.i68 ]
   %138 = add nuw nsw i32 %10, 1
   store i32 %138, ptr %5, align 8, !tbaa !21
   br label %139
@@ -1470,7 +1470,7 @@ _ZN4absl13cord_internal12CordRepBtree7AddEdgeILNS1_8EdgeTypeE0EEENS1_8OpResultEb
   br i1 %.not, label %.thread84, label %144
 
 164:                                              ; preds = %.thread84, %.thread
-  %.3 = phi ptr [ %79, %.thread ], [ %143, %.thread84 ]
+  %.3 = phi ptr [ %143, %.thread84 ], [ %79, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %165
 
@@ -1903,8 +1903,8 @@ _ZN4absl13cord_internal12CordRepBtree10ToOpResultEb.exit: ; preds = %.lr.ph.i.i,
   br i1 %128, label %.lr.ph.i.i68, label %.loopexit, !llvm.loop !45
 
 _ZN4absl13cord_internal12CordRepBtree7AddEdgeILNS1_8EdgeTypeE1EEENS1_8OpResultEbPNS0_7CordRepEm.exit.i.i: ; preds = %.lr.ph.i.i.i, %97, %103, %104
-  %.sroa.015.0.i.i.i = phi ptr [ %88, %97 ], [ %88, %103 ], [ %108, %104 ], [ %108, %.lr.ph.i.i.i ]
-  %.sroa.517.0.i.i.i = phi i32 [ 0, %97 ], [ 0, %103 ], [ 1, %104 ], [ 1, %.lr.ph.i.i.i ]
+  %.sroa.015.0.i.i.i = phi ptr [ %88, %103 ], [ %88, %97 ], [ %108, %104 ], [ %108, %.lr.ph.i.i.i ]
+  %.sroa.517.0.i.i.i = phi i32 [ 0, %103 ], [ 0, %97 ], [ 1, %104 ], [ 1, %.lr.ph.i.i.i ]
   %129 = getelementptr inbounds nuw i8, ptr %.sroa.015.0.i.i.i, i64 16
   %130 = getelementptr inbounds nuw ptr, ptr %129, i64 %96
   store ptr %.sroa.024.1.i.i, ptr %130, align 8, !tbaa !17
@@ -1933,7 +1933,7 @@ _ZN4absl13cord_internal12CordRepBtree7AddEdgeILNS1_8EdgeTypeE1EEENS1_8OpResultEb
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i68, %.loopexit.i.i, %138, %135, %120
-  %.2.i.i = phi ptr [ %.sroa.024.0.i.i, %.loopexit.i.i ], [ %.sroa.024.0.i.i, %135 ], [ %.sroa.024.0.i.i, %138 ], [ %88, %120 ], [ %125, %.lr.ph.i.i68 ]
+  %.2.i.i = phi ptr [ %.sroa.024.0.i.i, %138 ], [ %.sroa.024.0.i.i, %135 ], [ %88, %120 ], [ %.sroa.024.0.i.i, %.loopexit.i.i ], [ %125, %.lr.ph.i.i68 ]
   %139 = add nuw nsw i32 %10, 1
   store i32 %139, ptr %5, align 8, !tbaa !33
   br label %140
@@ -2080,7 +2080,7 @@ _ZN4absl13cord_internal12_GLOBAL__N_17ConsumeILNS0_12CordRepBtree8EdgeTypeE1EEES
   br label %_ZN4absl13cord_internal12_GLOBAL__N_17ConsumeILNS0_12CordRepBtree8EdgeTypeE1EEESt17basic_string_viewIcSt11char_traitsIcEEPcS8_m.exit.lr.ph.i
 
 204:                                              ; preds = %.thread99, %.thread
-  %.3 = phi ptr [ %78, %.thread ], [ %179, %.thread99 ]
+  %.3 = phi ptr [ %179, %.thread99 ], [ %78, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %205
 
@@ -3128,7 +3128,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21
   br label %.critedge101
 
 .critedge101:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit213, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i214, %.thread229
-  %.pn91.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn, %.thread229 ], [ %.pn91.pn.pn.pn.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i214 ], [ %.pn91.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit213 ]
+  %.pn91.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn91.pn.pn.pn.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i214 ], [ %.pn, %.thread229 ], [ %.pn91.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit213 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %.pn91.pn.pn.pn.pn.pn
 }
@@ -3770,7 +3770,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76: ; preds = %_ZN
   br i1 %or.cond.not122, label %.lr.ph100, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph100, %109, %105, %108, %38, %_ZN4absl13cord_internal10IsDataEdgeEPKNS0_7CordRepE.exit.thread83, %44, %50, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit70, %29, %27, %23, %17, %12, %7
-  %.0 = phi i1 [ false, %29 ], [ false, %27 ], [ false, %23 ], [ false, %17 ], [ false, %12 ], [ false, %7 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit70 ], [ false, %50 ], [ false, %44 ], [ false, %_ZN4absl13cord_internal10IsDataEdgeEPKNS0_7CordRepE.exit.thread83 ], [ false, %38 ], [ true, %108 ], [ true, %105 ], [ true, %109 ], [ %113, %.lr.ph100 ]
+  %.0 = phi i1 [ false, %7 ], [ false, %29 ], [ false, %27 ], [ false, %23 ], [ false, %17 ], [ false, %12 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit70 ], [ true, %108 ], [ false, %38 ], [ false, %50 ], [ false, %44 ], [ false, %_ZN4absl13cord_internal10IsDataEdgeEPKNS0_7CordRepE.exit.thread83 ], [ true, %105 ], [ true, %109 ], [ %113, %.lr.ph100 ]
   ret i1 %.0
 }
 
@@ -4131,8 +4131,8 @@ _ZNK4absl13cord_internal12CordRepBtree11IndexBeyondEm.exit80: ; preds = %123, %1
   br label %_ZN4absl13cord_internal12_GLOBAL__N_113MakeSubstringEPNS0_7CordRepEm.exit
 
 _ZN4absl13cord_internal12_GLOBAL__N_113MakeSubstringEPNS0_7CordRepEm.exit: ; preds = %.thread, %_ZN4absl13cord_internal12_GLOBAL__N_115CreateSubstringEPNS0_7CordRepEmm.exit.i, %16, %._crit_edge122, %51
-  %.sroa.050.0 = phi ptr [ %.053.lcssa, %51 ], [ %66, %._crit_edge122 ], [ %35, %_ZN4absl13cord_internal12_GLOBAL__N_115CreateSubstringEPNS0_7CordRepEmm.exit.i ], [ %.058110, %16 ], [ %66, %.thread ]
-  %.sroa.451.0 = phi i32 [ %.052.lcssa, %51 ], [ %.052.lcssa, %._crit_edge122 ], [ -1, %_ZN4absl13cord_internal12_GLOBAL__N_115CreateSubstringEPNS0_7CordRepEmm.exit.i ], [ -1, %16 ], [ %.052.lcssa, %.thread ]
+  %.sroa.050.0 = phi ptr [ %66, %._crit_edge122 ], [ %.053.lcssa, %51 ], [ %66, %.thread ], [ %35, %_ZN4absl13cord_internal12_GLOBAL__N_115CreateSubstringEPNS0_7CordRepEmm.exit.i ], [ %.058110, %16 ]
+  %.sroa.451.0 = phi i32 [ %.052.lcssa, %._crit_edge122 ], [ %.052.lcssa, %51 ], [ %.052.lcssa, %.thread ], [ -1, %_ZN4absl13cord_internal12_GLOBAL__N_115CreateSubstringEPNS0_7CordRepEmm.exit.i ], [ -1, %16 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.050.0, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.451.0, 1
   ret { ptr, i32 } %.fca.1.insert
@@ -4457,8 +4457,8 @@ _ZNK4absl13cord_internal12CordRepBtree7IndexOfEm.exit77: ; preds = %.lr.ph.i69, 
   br label %_ZN4absl13cord_internal12_GLOBAL__N_113MakeSubstringEPNS0_7CordRepEmm.exit
 
 _ZN4absl13cord_internal12_GLOBAL__N_113MakeSubstringEPNS0_7CordRepEmm.exit: ; preds = %.thread, %_ZN4absl13cord_internal12_GLOBAL__N_115CreateSubstringEPNS0_7CordRepEmm.exit.i, %22, %20, %.lr.ph._crit_edge, %._crit_edge, %50
-  %.sroa.046.0 = phi ptr [ %.052, %50 ], [ %67, %._crit_edge ], [ %36, %_ZN4absl13cord_internal12_GLOBAL__N_115CreateSubstringEPNS0_7CordRepEmm.exit.i ], [ %.051104.lcssa, %.lr.ph._crit_edge ], [ null, %20 ], [ null, %22 ], [ %67, %.thread ]
-  %.sroa.6.0 = phi i32 [ %.0, %50 ], [ %.0, %._crit_edge ], [ -1, %_ZN4absl13cord_internal12_GLOBAL__N_115CreateSubstringEPNS0_7CordRepEmm.exit.i ], [ -1, %.lr.ph._crit_edge ], [ -1, %20 ], [ -1, %22 ], [ %.0, %.thread ]
+  %.sroa.046.0 = phi ptr [ %67, %._crit_edge ], [ %.052, %50 ], [ %67, %.thread ], [ %36, %_ZN4absl13cord_internal12_GLOBAL__N_115CreateSubstringEPNS0_7CordRepEmm.exit.i ], [ %.051104.lcssa, %.lr.ph._crit_edge ], [ null, %20 ], [ null, %22 ]
+  %.sroa.6.0 = phi i32 [ %.0, %._crit_edge ], [ %.0, %50 ], [ %.0, %.thread ], [ -1, %_ZN4absl13cord_internal12_GLOBAL__N_115CreateSubstringEPNS0_7CordRepEmm.exit.i ], [ -1, %.lr.ph._crit_edge ], [ -1, %20 ], [ -1, %22 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.046.0, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.6.0, 1
   ret { ptr, i32 } %.fca.1.insert
@@ -5020,7 +5020,7 @@ _ZN4absl13cord_internal12_GLOBAL__N_115CreateSubstringEPNS0_7CordRepEmm.exit.i10
   br label %_ZN4absl13cord_internal12_GLOBAL__N_110ResizeEdgeEPNS0_7CordRepEmb.exit109
 
 _ZN4absl13cord_internal12_GLOBAL__N_110ResizeEdgeEPNS0_7CordRepEmb.exit109: ; preds = %157, %165, %_ZN4absl13cord_internal12_GLOBAL__N_115CreateSubstringEPNS0_7CordRepEmm.exit.i104
-  %.0.i103 = phi ptr [ %.074182, %165 ], [ %177, %_ZN4absl13cord_internal12_GLOBAL__N_115CreateSubstringEPNS0_7CordRepEmm.exit.i104 ], [ %.074182, %157 ]
+  %.0.i103 = phi ptr [ %177, %_ZN4absl13cord_internal12_GLOBAL__N_115CreateSubstringEPNS0_7CordRepEmm.exit.i104 ], [ %.074182, %165 ], [ %.074182, %157 ]
   %182 = getelementptr inbounds nuw i8, ptr %.265181, i64 16
   %183 = getelementptr inbounds nuw ptr, ptr %182, i64 %.sroa.019.2178
   store ptr %.0.i103, ptr %183, align 8, !tbaa !17
@@ -5159,7 +5159,7 @@ _ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit111: ; preds = %239, %_ZNK4absl13
   br i1 %.not78, label %_ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit, label %.lr.ph183, !llvm.loop !89
 
 _ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit:  ; preds = %_ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit111, %_ZN4absl13cord_internal12CordRepBtree14ConsumeBeginToEPS1_mm.exit, %191, %185, %_ZN4absl13cord_internal12_GLOBAL__N_110ResizeEdgeEPNS0_7CordRepEmb.exit109, %66, %75, %_ZN4absl13cord_internal12_GLOBAL__N_115CreateSubstringEPNS0_7CordRepEmm.exit.i, %9, %6, %2
-  %.0 = phi ptr [ %0, %2 ], [ null, %6 ], [ null, %9 ], [ %34, %66 ], [ %87, %_ZN4absl13cord_internal12_GLOBAL__N_115CreateSubstringEPNS0_7CordRepEmm.exit.i ], [ %34, %75 ], [ %.0.i91, %_ZN4absl13cord_internal12_GLOBAL__N_110ResizeEdgeEPNS0_7CordRepEmb.exit109 ], [ %.0.i91, %185 ], [ %.0.i91, %191 ], [ %.0.i91, %_ZN4absl13cord_internal12CordRepBtree14ConsumeBeginToEPS1_mm.exit ], [ %.0.i91, %_ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit111 ]
+  %.0 = phi ptr [ %0, %2 ], [ null, %9 ], [ %.0.i91, %191 ], [ %87, %_ZN4absl13cord_internal12_GLOBAL__N_115CreateSubstringEPNS0_7CordRepEmm.exit.i ], [ null, %6 ], [ %34, %66 ], [ %34, %75 ], [ %.0.i91, %_ZN4absl13cord_internal12_GLOBAL__N_110ResizeEdgeEPNS0_7CordRepEmb.exit109 ], [ %.0.i91, %185 ], [ %.0.i91, %_ZN4absl13cord_internal12CordRepBtree14ConsumeBeginToEPS1_mm.exit ], [ %.0.i91, %_ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit111 ]
   ret ptr %.0
 }
 
@@ -5521,9 +5521,9 @@ _ZN4absl13cord_internal12_GLOBAL__N_115CreateSubstringEPNS0_7CordRepEmm.exit.i10
   br label %_ZN4absl13cord_internal12_GLOBAL__N_113MakeSubstringEPNS0_7CordRepEmm.exit111
 
 _ZN4absl13cord_internal12_GLOBAL__N_113MakeSubstringEPNS0_7CordRepEmm.exit111: ; preds = %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit99, %.preheader, %_ZN4absl13cord_internal12_GLOBAL__N_115CreateSubstringEPNS0_7CordRepEmm.exit.i105, %152, %150, %_ZN4absl13cord_internal12_GLOBAL__N_113MakeSubstringEPNS0_7CordRepEm.exit
-  %.sroa.0115.1 = phi ptr [ %166, %_ZN4absl13cord_internal12_GLOBAL__N_115CreateSubstringEPNS0_7CordRepEmm.exit.i105 ], [ %75, %_ZN4absl13cord_internal12_GLOBAL__N_113MakeSubstringEPNS0_7CordRepEm.exit ], [ null, %150 ], [ null, %152 ], [ %81, %.preheader ], [ %104, %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit99 ]
-  %.sroa.0120.1 = phi ptr [ %.0.i103, %_ZN4absl13cord_internal12_GLOBAL__N_115CreateSubstringEPNS0_7CordRepEmm.exit.i105 ], [ %.0.i103, %_ZN4absl13cord_internal12_GLOBAL__N_113MakeSubstringEPNS0_7CordRepEm.exit ], [ %.0.i103, %150 ], [ %.0.i103, %152 ], [ %.sroa.0120.0.lcssa, %.preheader ], [ %.sroa.0120.0.lcssa, %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit99 ]
-  %.2 = phi i32 [ 0, %_ZN4absl13cord_internal12_GLOBAL__N_115CreateSubstringEPNS0_7CordRepEmm.exit.i105 ], [ 0, %_ZN4absl13cord_internal12_GLOBAL__N_113MakeSubstringEPNS0_7CordRepEm.exit ], [ 0, %150 ], [ 0, %152 ], [ %.177, %.preheader ], [ %.177, %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit99 ]
+  %.sroa.0115.1 = phi ptr [ null, %152 ], [ %166, %_ZN4absl13cord_internal12_GLOBAL__N_115CreateSubstringEPNS0_7CordRepEmm.exit.i105 ], [ %75, %_ZN4absl13cord_internal12_GLOBAL__N_113MakeSubstringEPNS0_7CordRepEm.exit ], [ null, %150 ], [ %81, %.preheader ], [ %104, %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit99 ]
+  %.sroa.0120.1 = phi ptr [ %.0.i103, %152 ], [ %.0.i103, %_ZN4absl13cord_internal12_GLOBAL__N_115CreateSubstringEPNS0_7CordRepEmm.exit.i105 ], [ %.0.i103, %_ZN4absl13cord_internal12_GLOBAL__N_113MakeSubstringEPNS0_7CordRepEm.exit ], [ %.0.i103, %150 ], [ %.sroa.0120.0.lcssa, %.preheader ], [ %.sroa.0120.0.lcssa, %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit99 ]
+  %.2 = phi i32 [ 0, %152 ], [ 0, %_ZN4absl13cord_internal12_GLOBAL__N_115CreateSubstringEPNS0_7CordRepEmm.exit.i105 ], [ 0, %_ZN4absl13cord_internal12_GLOBAL__N_113MakeSubstringEPNS0_7CordRepEm.exit ], [ 0, %150 ], [ %.177, %.preheader ], [ %.177, %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit99 ]
   %171 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #20
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 8
   store i32 2, ptr %172, align 4, !tbaa !24
@@ -5933,7 +5933,7 @@ default.unreachable:                              ; preds = %137
   unreachable
 
 _ZN4absl13cord_internal12_GLOBAL__N_115StackOperationsILNS0_12CordRepBtree8EdgeTypeE1EE8FinalizeEPS3_NS3_8OpResultE.exit: ; preds = %162, %159, %153, %138, %137, %135
-  %.0 = phi ptr [ %136, %135 ], [ %154, %153 ], [ %139, %138 ], [ %.sroa.016.0, %137 ], [ %.sroa.016.0, %159 ], [ %.sroa.016.0, %162 ]
+  %.0 = phi ptr [ %136, %135 ], [ %139, %138 ], [ %154, %153 ], [ %.sroa.016.0, %137 ], [ %.sroa.016.0, %159 ], [ %.sroa.016.0, %162 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -6131,7 +6131,7 @@ _ZN4absl13cord_internal12CordRepBtree10ToOpResultEb.exit: ; preds = %_ZN4absl13c
   br i1 %.not14.i.i, label %_ZN4absl13cord_internal12CordRepBtree8AlignEndEv.exit.i, label %99, !llvm.loop !27
 
 _ZN4absl13cord_internal12CordRepBtree8AlignEndEv.exit.i: ; preds = %99, %94, %_ZN4absl13cord_internal12CordRepBtree10ToOpResultEb.exit
-  %104 = phi i8 [ %97, %94 ], [ %.pre.i, %_ZN4absl13cord_internal12CordRepBtree10ToOpResultEb.exit ], [ %97, %99 ]
+  %104 = phi i8 [ %.pre.i, %_ZN4absl13cord_internal12CordRepBtree10ToOpResultEb.exit ], [ %97, %94 ], [ %97, %99 ]
   %105 = zext i8 %104 to i64
   %106 = sub nsw i64 %105, %89
   %107 = trunc i64 %106 to i8
@@ -6269,7 +6269,7 @@ default.unreachable:                              ; preds = %136
   unreachable
 
 _ZN4absl13cord_internal12_GLOBAL__N_115StackOperationsILNS0_12CordRepBtree8EdgeTypeE0EE8FinalizeEPS3_NS3_8OpResultE.exit: ; preds = %162, %159, %153, %137, %136, %134
-  %.0 = phi ptr [ %135, %134 ], [ %154, %153 ], [ %138, %137 ], [ %.sroa.016.0, %136 ], [ %.sroa.016.0, %159 ], [ %.sroa.016.0, %162 ]
+  %.0 = phi ptr [ %135, %134 ], [ %138, %137 ], [ %154, %153 ], [ %.sroa.016.0, %136 ], [ %.sroa.016.0, %159 ], [ %.sroa.016.0, %162 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -6340,7 +6340,7 @@ _ZNK4absl13cord_internal12CordRepBtree4DataEm.exit: ; preds = %32, %34
   br label %37
 
 37:                                               ; preds = %2, %6, %15, %_ZNK4absl13cord_internal12CordRepBtree4DataEm.exit
-  %.0 = phi i1 [ true, %_ZNK4absl13cord_internal12CordRepBtree4DataEm.exit ], [ true, %15 ], [ false, %6 ], [ false, %2 ]
+  %.0 = phi i1 [ true, %15 ], [ true, %_ZNK4absl13cord_internal12CordRepBtree4DataEm.exit ], [ false, %6 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -6448,8 +6448,8 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %_ZN4ab
   store ptr %52, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !94
   br label %.thread
 
-.thread:                                          ; preds = %_ZNK4absl13cord_internal12CordRepBtree7IndexOfEm.exit, %31, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit, %4
-  %.0 = phi i1 [ false, %4 ], [ true, %31 ], [ true, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ false, %_ZNK4absl13cord_internal12CordRepBtree7IndexOfEm.exit ]
+.thread:                                          ; preds = %_ZNK4absl13cord_internal12CordRepBtree7IndexOfEm.exit, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit, %31, %4
+  %.0 = phi i1 [ false, %4 ], [ true, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ true, %31 ], [ false, %_ZNK4absl13cord_internal12CordRepBtree7IndexOfEm.exit ]
   ret i1 %.0
 }
 
@@ -6628,8 +6628,8 @@ define dso_local { ptr, i64 } @_ZN4absl13cord_internal12CordRepBtree19GetAppendB
   br i1 %exitcond51.not, label %.thread, label %.lr.ph42, !llvm.loop !98
 
 .thread:                                          ; preds = %.lr.ph, %.lr.ph42, %40, %30, %._crit_edge, %26
-  %.sroa.5.1 = phi i64 [ 0, %26 ], [ 0, %._crit_edge ], [ 0, %30 ], [ %.sroa.speculated, %40 ], [ %.sroa.speculated, %.lr.ph42 ], [ 0, %.lr.ph ]
-  %.sroa.0.1 = phi ptr [ null, %26 ], [ null, %._crit_edge ], [ null, %30 ], [ %43, %40 ], [ %43, %.lr.ph42 ], [ null, %.lr.ph ]
+  %.sroa.5.1 = phi i64 [ 0, %30 ], [ 0, %._crit_edge ], [ 0, %26 ], [ %.sroa.speculated, %40 ], [ %.sroa.speculated, %.lr.ph42 ], [ 0, %.lr.ph ]
+  %.sroa.0.1 = phi ptr [ null, %30 ], [ null, %._crit_edge ], [ null, %26 ], [ %43, %40 ], [ %43, %.lr.ph42 ], [ null, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.5.1, 1
@@ -7307,8 +7307,8 @@ _ZN4absl13cord_internal12CordRepBtree6DeleteEPS1_.exit43: ; preds = %.preheader
   br i1 %.not, label %.thread, label %.preheader, !llvm.loop !106
 
 .thread:                                          ; preds = %.lr.ph, %_ZN4absl13cord_internal12CordRepBtree6DeleteEPS1_.exit, %_ZN4absl13cord_internal12CordRepBtree6DeleteEPS1_.exit43, %.preheader, %31, %22, %35, %._crit_edge
-  %.sroa.0.0 = phi ptr [ %0, %._crit_edge ], [ %0, %31 ], [ %0, %22 ], [ %0, %35 ], [ %93, %_ZN4absl13cord_internal12CordRepBtree6DeleteEPS1_.exit43 ], [ %.3, %.preheader ], [ null, %_ZN4absl13cord_internal12CordRepBtree6DeleteEPS1_.exit ], [ %0, %.lr.ph ]
-  %.sroa.5.0 = phi ptr [ null, %._crit_edge ], [ null, %31 ], [ null, %22 ], [ null, %35 ], [ %27, %.preheader ], [ %27, %_ZN4absl13cord_internal12CordRepBtree6DeleteEPS1_.exit43 ], [ %27, %_ZN4absl13cord_internal12CordRepBtree6DeleteEPS1_.exit ], [ null, %.lr.ph ]
+  %.sroa.0.0 = phi ptr [ %.3, %.preheader ], [ %0, %._crit_edge ], [ %0, %22 ], [ %0, %31 ], [ null, %_ZN4absl13cord_internal12CordRepBtree6DeleteEPS1_.exit ], [ %0, %35 ], [ %93, %_ZN4absl13cord_internal12CordRepBtree6DeleteEPS1_.exit43 ], [ %0, %.lr.ph ]
+  %.sroa.5.0 = phi ptr [ %27, %_ZN4absl13cord_internal12CordRepBtree6DeleteEPS1_.exit43 ], [ null, %._crit_edge ], [ null, %22 ], [ null, %31 ], [ %27, %_ZN4absl13cord_internal12CordRepBtree6DeleteEPS1_.exit ], [ null, %35 ], [ %27, %.preheader ], [ null, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.5.0, 1

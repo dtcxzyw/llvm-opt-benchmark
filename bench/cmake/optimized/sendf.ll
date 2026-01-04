@@ -213,8 +213,8 @@ Curl_cwriter_add.exit.thread.loopexit:            ; preds = %29
   br label %Curl_cwriter_add.exit.thread
 
 Curl_cwriter_add.exit.thread:                     ; preds = %Curl_cwriter_add.exit.thread.loopexit, %.lr.ph, %.Curl_cwriter_add.exit.thread.loopexit_crit_edge, %23
-  %.0.i.lcssa = phi ptr [ %2, %23 ], [ %36, %.Curl_cwriter_add.exit.thread.loopexit_crit_edge ], [ %2, %.lr.ph ], [ %37, %Curl_cwriter_add.exit.thread.loopexit ]
-  %.lcssa65 = phi ptr [ null, %23 ], [ null, %.Curl_cwriter_add.exit.thread.loopexit_crit_edge ], [ %24, %.lr.ph ], [ %35, %Curl_cwriter_add.exit.thread.loopexit ]
+  %.0.i.lcssa = phi ptr [ %2, %23 ], [ %2, %.lr.ph ], [ %36, %.Curl_cwriter_add.exit.thread.loopexit_crit_edge ], [ %37, %Curl_cwriter_add.exit.thread.loopexit ]
+  %.lcssa65 = phi ptr [ null, %23 ], [ %24, %.lr.ph ], [ null, %.Curl_cwriter_add.exit.thread.loopexit_crit_edge ], [ %35, %Curl_cwriter_add.exit.thread.loopexit ]
   %38 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %.lcssa65, ptr %38, align 8, !tbaa !93
   store ptr %15, ptr %.0.i.lcssa, align 8, !tbaa !87
@@ -290,8 +290,8 @@ Curl_cwriter_add.exit44.thread.loopexit:          ; preds = %59
   br label %Curl_cwriter_add.exit44.thread
 
 Curl_cwriter_add.exit44.thread:                   ; preds = %Curl_cwriter_add.exit44.thread.loopexit, %.lr.ph74, %.Curl_cwriter_add.exit44.thread.loopexit_crit_edge, %53
-  %.0.i39.lcssa = phi ptr [ %2, %53 ], [ %66, %.Curl_cwriter_add.exit44.thread.loopexit_crit_edge ], [ %2, %.lr.ph74 ], [ %67, %Curl_cwriter_add.exit44.thread.loopexit ]
-  %.lcssa = phi ptr [ null, %53 ], [ null, %.Curl_cwriter_add.exit44.thread.loopexit_crit_edge ], [ %54, %.lr.ph74 ], [ %65, %Curl_cwriter_add.exit44.thread.loopexit ]
+  %.0.i39.lcssa = phi ptr [ %2, %53 ], [ %2, %.lr.ph74 ], [ %66, %.Curl_cwriter_add.exit44.thread.loopexit_crit_edge ], [ %67, %Curl_cwriter_add.exit44.thread.loopexit ]
+  %.lcssa = phi ptr [ null, %53 ], [ %54, %.lr.ph74 ], [ null, %.Curl_cwriter_add.exit44.thread.loopexit_crit_edge ], [ %65, %Curl_cwriter_add.exit44.thread.loopexit ]
   %68 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr %.lcssa, ptr %68, align 8, !tbaa !93
   store ptr %45, ptr %.0.i39.lcssa, align 8, !tbaa !87
@@ -307,7 +307,7 @@ Curl_cwriter_free.exit46:                         ; preds = %51
   br label %73
 
 73:                                               ; preds = %Curl_cwriter_add.exit44.thread, %Curl_cwriter_create.exit37, %Curl_cwriter_create.exit29, %Curl_cwriter_create.exit, %Curl_cwriter_free.exit46
-  %.0 = phi i32 [ %.01723.i, %Curl_cwriter_create.exit ], [ 27, %Curl_cwriter_create.exit29 ], [ 27, %Curl_cwriter_create.exit37 ], [ %52, %Curl_cwriter_free.exit46 ], [ 0, %Curl_cwriter_add.exit44.thread ]
+  %.0 = phi i32 [ 27, %Curl_cwriter_create.exit37 ], [ %.01723.i, %Curl_cwriter_create.exit ], [ 27, %Curl_cwriter_create.exit29 ], [ %52, %Curl_cwriter_free.exit46 ], [ 0, %Curl_cwriter_add.exit44.thread ]
   ret i32 %.0
 }
 
@@ -773,8 +773,8 @@ define dso_local i32 @Curl_cwriter_add(ptr noundef %0, ptr noundef %1) local_unn
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph, %..critedge.loopexit_crit_edge, %7
-  %.0.lcssa = phi ptr [ %3, %7 ], [ %21, %..critedge.loopexit_crit_edge ], [ %3, %.lr.ph ], [ %22, %.critedge.loopexit ]
-  %.lcssa = phi ptr [ null, %7 ], [ null, %..critedge.loopexit_crit_edge ], [ %8, %.lr.ph ], [ %20, %.critedge.loopexit ]
+  %.0.lcssa = phi ptr [ %3, %7 ], [ %3, %.lr.ph ], [ %21, %..critedge.loopexit_crit_edge ], [ %22, %.critedge.loopexit ]
+  %.lcssa = phi ptr [ null, %7 ], [ %8, %.lr.ph ], [ null, %..critedge.loopexit_crit_edge ], [ %20, %.critedge.loopexit ]
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %.lcssa, ptr %23, align 8, !tbaa !93
   store ptr %1, ptr %.0.lcssa, align 8, !tbaa !87
@@ -1213,8 +1213,8 @@ do_init_reader_stack.exit:                        ; preds = %2
   %.not17 = icmp eq ptr %0, null
   br i1 %.not17, label %83, label %do_init_reader_stack.exit.thread
 
-do_init_reader_stack.exit.thread:                 ; preds = %Curl_creader_create.exit.i, %Curl_creader_free.exit.i, %cl_reset_reader.exit, %31, %cr_lc_add.exit, %do_init_reader_stack.exit
-  %.031 = phi i32 [ 27, %do_init_reader_stack.exit ], [ 0, %cr_lc_add.exit ], [ 0, %31 ], [ 0, %cl_reset_reader.exit ], [ 27, %Curl_creader_create.exit.i ], [ %47, %Curl_creader_free.exit.i ]
+do_init_reader_stack.exit.thread:                 ; preds = %Curl_creader_free.exit.i, %Curl_creader_create.exit.i, %cl_reset_reader.exit, %31, %cr_lc_add.exit, %do_init_reader_stack.exit
+  %.031 = phi i32 [ 27, %do_init_reader_stack.exit ], [ 0, %cl_reset_reader.exit ], [ 0, %cr_lc_add.exit ], [ 0, %31 ], [ %47, %Curl_creader_free.exit.i ], [ 27, %Curl_creader_create.exit.i ]
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 2562
   %70 = load i64, ptr %69, align 2
   %71 = and i64 %70, 134217728
@@ -1356,8 +1356,8 @@ cr_lc_add.exit:                                   ; preds = %cr_lc_add.exit.loop
   store ptr %18, ptr %.0.i.lcssa.i, align 8, !tbaa !120
   br label %cr_lc_add.exit.thread
 
-cr_lc_add.exit.thread:                            ; preds = %Curl_creader_create.exit.i, %Curl_creader_free.exit.i, %2, %12, %cr_lc_add.exit
-  %.0 = phi i32 [ 0, %cr_lc_add.exit ], [ 0, %12 ], [ 0, %2 ], [ 27, %Curl_creader_create.exit.i ], [ %28, %Curl_creader_free.exit.i ]
+cr_lc_add.exit.thread:                            ; preds = %Curl_creader_free.exit.i, %Curl_creader_create.exit.i, %2, %12, %cr_lc_add.exit
+  %.0 = phi i32 [ 0, %2 ], [ 0, %cr_lc_add.exit ], [ 0, %12 ], [ %28, %Curl_creader_free.exit.i ], [ 27, %Curl_creader_create.exit.i ]
   ret i32 %.0
 }
 
@@ -1411,8 +1411,8 @@ define dso_local i32 @Curl_creader_add(ptr noundef %0, ptr noundef %1) local_unn
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph, %..critedge.loopexit_crit_edge, %9
-  %.0.lcssa = phi ptr [ %3, %9 ], [ %23, %..critedge.loopexit_crit_edge ], [ %3, %.lr.ph ], [ %24, %.critedge.loopexit ]
-  %.lcssa = phi ptr [ null, %9 ], [ null, %..critedge.loopexit_crit_edge ], [ %10, %.lr.ph ], [ %22, %.critedge.loopexit ]
+  %.0.lcssa = phi ptr [ %3, %9 ], [ %3, %.lr.ph ], [ %23, %..critedge.loopexit_crit_edge ], [ %24, %.critedge.loopexit ]
+  %.lcssa = phi ptr [ null, %9 ], [ %10, %.lr.ph ], [ null, %..critedge.loopexit_crit_edge ], [ %22, %.critedge.loopexit ]
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %.lcssa, ptr %25, align 8, !tbaa !96
   store ptr %1, ptr %.0.lcssa, align 8, !tbaa !120
@@ -1596,7 +1596,7 @@ define dso_local noundef zeroext i1 @Curl_creader_needs_rewind(ptr noundef %0) l
   br label %.loopexit
 
 .loopexit:                                        ; preds = %3, %1, %9, %10, %17, %23, %24
-  %.not20 = phi i1 [ true, %9 ], [ true, %10 ], [ true, %17 ], [ true, %23 ], [ true, %24 ], [ false, %1 ], [ false, %3 ]
+  %.not20 = phi i1 [ true, %24 ], [ true, %9 ], [ true, %10 ], [ true, %17 ], [ true, %23 ], [ false, %1 ], [ false, %3 ]
   ret i1 %.not20
 }
 
@@ -2158,7 +2158,7 @@ get_max_body_write_len.exit172:                   ; preds = %88, %92
   br label %Curl_cwriter_write.exit175
 
 Curl_cwriter_write.exit175:                       ; preds = %.split, %100, %.split119, %109
-  %phi.call = phi i32 [ %104, %100 ], [ 23, %.split ], [ %113, %109 ], [ 23, %.split119 ]
+  %phi.call = phi i32 [ 23, %.split ], [ %104, %100 ], [ %113, %109 ], [ 23, %.split119 ]
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 2562
   %115 = load i64, ptr %114, align 2
   %116 = and i64 %115, 134217728
@@ -2262,7 +2262,7 @@ Curl_cwriter_write.exit175:                       ; preds = %.split, %100, %.spl
   br label %164
 
 164:                                              ; preds = %153, %135, %158, %156, %129, %128, %.critedge, %70, %Curl_cwriter_write.exit, %31, %38, %44, %45, %.thread180, %161
-  %.0 = phi i32 [ 63, %161 ], [ 0, %.thread180 ], [ %.0.i, %45 ], [ %.0.i, %44 ], [ %.0.i, %38 ], [ %.0.i, %31 ], [ %.0.i, %Curl_cwriter_write.exit ], [ %., %70 ], [ 18, %.critedge ], [ %phi.call, %128 ], [ %133, %129 ], [ 0, %156 ], [ 0, %158 ], [ 0, %135 ], [ 0, %153 ]
+  %.0 = phi i32 [ %., %70 ], [ %.0.i, %Curl_cwriter_write.exit ], [ %phi.call, %128 ], [ %133, %129 ], [ 63, %161 ], [ %.0.i, %31 ], [ 18, %.critedge ], [ 0, %.thread180 ], [ %.0.i, %45 ], [ %.0.i, %44 ], [ %.0.i, %38 ], [ 0, %156 ], [ 0, %158 ], [ 0, %135 ], [ 0, %153 ]
   ret i32 %.0
 }
 
@@ -2591,7 +2591,7 @@ define internal i32 @cr_in_read(ptr noundef %0, ptr noundef readonly captures(no
   br label %126
 
 126:                                              ; preds = %104, %105, %112, %118, %119, %86, %63, %51, %47, %18, %13
-  %.0 = phi i32 [ %15, %13 ], [ 0, %18 ], [ 26, %86 ], [ 26, %47 ], [ 42, %51 ], [ 26, %63 ], [ 0, %119 ], [ 0, %118 ], [ 0, %112 ], [ 0, %105 ], [ 0, %104 ]
+  %.0 = phi i32 [ %15, %13 ], [ 0, %18 ], [ 26, %86 ], [ 26, %63 ], [ 26, %47 ], [ 42, %51 ], [ 0, %119 ], [ 0, %118 ], [ 0, %112 ], [ 0, %105 ], [ 0, %104 ]
   ret i32 %.0
 }
 
@@ -2703,7 +2703,7 @@ define internal range(i32 0, 27) i32 @cr_in_resume_from(ptr noundef %0, ptr noun
   br label %.critedge49
 
 .critedge49:                                      ; preds = %19, %.critedge, %.loopexit, %38, %3, %41
-  %.0 = phi i32 [ 18, %41 ], [ 26, %3 ], [ 0, %38 ], [ 0, %.loopexit ], [ 26, %.critedge ], [ 26, %19 ]
+  %.0 = phi i32 [ 0, %.loopexit ], [ 18, %41 ], [ 26, %3 ], [ 0, %38 ], [ 26, %.critedge ], [ 26, %19 ]
   ret i32 %.0
 }
 
@@ -2870,7 +2870,7 @@ define internal range(i32 0, 66) i32 @cr_in_rewind(ptr noundef %0, ptr noundef r
   br label %.critedge
 
 .critedge:                                        ; preds = %30, %54, %55, %31, %2, %80, %81
-  %.0 = phi i32 [ 65, %31 ], [ 65, %55 ], [ 65, %81 ], [ 0, %80 ], [ 0, %2 ], [ 0, %54 ], [ 0, %30 ]
+  %.0 = phi i32 [ 0, %2 ], [ 65, %31 ], [ 65, %55 ], [ 65, %81 ], [ 0, %80 ], [ 0, %54 ], [ 0, %30 ]
   ret i32 %.0
 }
 
@@ -3105,7 +3105,7 @@ Curl_creader_read.exit:                           ; preds = %24
   br label %88
 
 88:                                               ; preds = %.sink.split, %83, %80, %78
-  %.176 = phi i32 [ %79, %78 ], [ 0, %83 ], [ 0, %80 ], [ 0, %.sink.split ]
+  %.176 = phi i32 [ %79, %78 ], [ 0, %80 ], [ 0, %83 ], [ 0, %.sink.split ]
   %.not96 = icmp eq ptr %0, null
   br i1 %.not96, label %Curl_creader_read.exit.thread, label %89
 
@@ -3144,7 +3144,7 @@ Curl_creader_read.exit:                           ; preds = %24
   br label %Curl_creader_read.exit.thread
 
 Curl_creader_read.exit.thread:                    ; preds = %56, %60, %24, %88, %89, %96, %102, %103, %74, %Curl_creader_read.exit, %22, %15
-  %.077 = phi i32 [ 0, %15 ], [ 0, %22 ], [ %30, %Curl_creader_read.exit ], [ %77, %74 ], [ %.176, %103 ], [ %.176, %102 ], [ %.176, %96 ], [ %.176, %89 ], [ %.176, %88 ], [ 26, %24 ], [ %59, %56 ], [ %61, %60 ]
+  %.077 = phi i32 [ 0, %15 ], [ 0, %22 ], [ %77, %74 ], [ %30, %Curl_creader_read.exit ], [ 26, %24 ], [ %.176, %103 ], [ %.176, %102 ], [ %.176, %96 ], [ %.176, %89 ], [ %.176, %88 ], [ %59, %56 ], [ %61, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

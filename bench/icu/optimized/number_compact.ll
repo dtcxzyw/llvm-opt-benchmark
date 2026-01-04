@@ -228,7 +228,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1120,7 +1120,7 @@ _ZN12_GLOBAL__N_110countZerosEPKDsi.exit:         ; preds = %78
   br label %.thread68
 
 .thread68:                                        ; preds = %_ZN12_GLOBAL__N_110countZerosEPKDsi.exit, %61, %_ZN12_GLOBAL__N_110countZerosEPKDsi.exit.thread, %66
-  %.346.ph = phi i8 [ %77, %_ZN12_GLOBAL__N_110countZerosEPKDsi.exit.thread ], [ %.04387, %61 ], [ 0, %66 ], [ %spec.select, %_ZN12_GLOBAL__N_110countZerosEPKDsi.exit ]
+  %.346.ph = phi i8 [ 0, %66 ], [ %77, %_ZN12_GLOBAL__N_110countZerosEPKDsi.exit.thread ], [ %spec.select, %_ZN12_GLOBAL__N_110countZerosEPKDsi.exit ], [ %.04387, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread64
 
@@ -1646,7 +1646,7 @@ _ZN6icu_7713UnicodeStringC2IPKDsvEERKT_.exit59:   ; preds = %.loopexit.i55
   ret void
 
 .loopexit.split-lp:                               ; preds = %.loopexit62, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %83, %.body
-  %.pn38.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn38.pn.pn, %.body ], [ %84, %83 ], [ %lpad.loopexit, %.loopexit62 ], [ %lpad.loopexit63, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp64, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn38.pn.pn.pn.pn = phi { ptr, i32 } [ %84, %83 ], [ %.pn38.pn.pn, %.body ], [ %lpad.loopexit, %.loopexit62 ], [ %lpad.loopexit63, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp64, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN6icu_777UVectorD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn38.pn.pn.pn.pn

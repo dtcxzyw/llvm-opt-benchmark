@@ -269,7 +269,7 @@ define dso_local void @_ZN4llvm9DwarfUnit7addSIntERNS_6DIELocESt8optionalINS_5dw
   br label %_ZN4llvm9DwarfUnit7addSIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS3_4FormEEl.exit
 
 _ZN4llvm9DwarfUnit7addSIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS3_4FormEEl.exit: ; preds = %4, %7, %10, %13
-  %.sroa.05.0.i = phi i16 [ %.sroa.05.0.extract.trunc.i, %4 ], [ 5, %10 ], [ 11, %7 ], [ %16, %13 ]
+  %.sroa.05.0.i = phi i16 [ %.sroa.05.0.extract.trunc.i, %4 ], [ 11, %7 ], [ %16, %13 ], [ 5, %10 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 1, ptr %5, align 8, !tbaa !46
@@ -718,7 +718,7 @@ define dso_local noundef range(i64 -1, 2) i64 @_ZNK4llvm9DwarfUnit20getDefaultLo
   br label %39
 
 39:                                               ; preds = %33, %28, %23, %18, %13, %8, %1, %1, %1, %38, %7
-  %.0 = phi i64 [ -1, %38 ], [ 1, %7 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %8 ], [ 1, %13 ], [ 0, %18 ], [ 1, %23 ], [ 0, %28 ], [ 1, %33 ]
+  %.0 = phi i64 [ -1, %38 ], [ 0, %28 ], [ 1, %7 ], [ 0, %1 ], [ 0, %8 ], [ 1, %13 ], [ 0, %18 ], [ 1, %23 ], [ 0, %1 ], [ 0, %1 ], [ 1, %33 ]
   ret i64 %.0
 }
 
@@ -766,7 +766,7 @@ _ZN4llvm3isaINS_6DITypeEPKNS_6DINodeEEEbRKT0_.exit.thread: ; preds = %11, %11, %
   br label %23
 
 23:                                               ; preds = %11, %13, %_ZN4llvm3isaINS_6DITypeEPKNS_6DINodeEEEbRKT0_.exit.thread, %7
-  %.0 = phi i1 [ false, %7 ], [ false, %13 ], [ %22, %_ZN4llvm3isaINS_6DITypeEPKNS_6DINodeEEEbRKT0_.exit.thread ], [ false, %11 ]
+  %.0 = phi i1 [ false, %7 ], [ false, %13 ], [ false, %11 ], [ %22, %_ZN4llvm3isaINS_6DITypeEPKNS_6DINodeEEEbRKT0_.exit.thread ]
   ret i1 %.0
 }
 
@@ -909,7 +909,7 @@ _ZN4llvm9DwarfFile6getDIEEPKNS_6MDNodeE.exit.sink.split: ; preds = %_ZNK4llvm12D
   br label %_ZN4llvm9DwarfFile6getDIEEPKNS_6MDNodeE.exit
 
 _ZN4llvm9DwarfFile6getDIEEPKNS_6MDNodeE.exit:     ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i, %_ZN4llvm9DwarfFile6getDIEEPKNS_6MDNodeE.exit.sink.split, %_ZNK4llvm9DwarfUnit20isShareableAcrossCUsEPKNS_6DINodeE.exit.thread, %22
-  %.0 = phi ptr [ null, %22 ], [ null, %_ZNK4llvm9DwarfUnit20isShareableAcrossCUsEPKNS_6DINodeE.exit.thread ], [ %80, %_ZN4llvm9DwarfFile6getDIEEPKNS_6MDNodeE.exit.sink.split ], [ null, %.lr.ph.i.i.i ], [ null, %.lr.ph.i.i.i.i ]
+  %.0 = phi ptr [ %80, %_ZN4llvm9DwarfFile6getDIEEPKNS_6MDNodeE.exit.sink.split ], [ null, %_ZNK4llvm9DwarfUnit20isShareableAcrossCUsEPKNS_6DINodeE.exit.thread ], [ null, %22 ], [ null, %.lr.ph.i.i.i ], [ null, %.lr.ph.i.i.i.i ]
   ret ptr %.0
 }
 
@@ -1113,7 +1113,7 @@ define dso_local void @_ZN4llvm9DwarfUnit7addUIntERNS_12DIEValueListENS_5dwarf9A
   br label %_ZN4llvm10DIEInteger8BestFormEbm.exit
 
 _ZN4llvm10DIEInteger8BestFormEbm.exit:            ; preds = %10, %8, %12, %5
-  %.sroa.05.0 = phi i16 [ %.sroa.05.0.extract.trunc, %5 ], [ 11, %8 ], [ 5, %10 ], [ %14, %12 ]
+  %.sroa.05.0 = phi i16 [ %.sroa.05.0.extract.trunc, %5 ], [ 11, %8 ], [ %14, %12 ], [ 5, %10 ]
   %.not.i = icmp eq i16 %2, 0
   br i1 %.not.i, label %30, label %15
 
@@ -1180,7 +1180,7 @@ define dso_local void @_ZN4llvm9DwarfUnit7addSIntERNS_12DIEValueListENS_5dwarf9A
   br label %_ZN4llvm10DIEInteger8BestFormEbm.exit
 
 _ZN4llvm10DIEInteger8BestFormEbm.exit:            ; preds = %11, %8, %14, %5
-  %.sroa.05.0 = phi i16 [ %.sroa.05.0.extract.trunc, %5 ], [ 5, %11 ], [ 11, %8 ], [ %17, %14 ]
+  %.sroa.05.0 = phi i16 [ %.sroa.05.0.extract.trunc, %5 ], [ 11, %8 ], [ %17, %14 ], [ 5, %11 ]
   %.not.i = icmp eq i16 %2, 0
   br i1 %.not.i, label %33, label %18
 
@@ -1400,7 +1400,7 @@ _ZN4llvm15DIEInlineStringC2INS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm409
   br label %110
 
 110:                                              ; preds = %108, %98, %106, %93
-  %.0 = phi i16 [ %79, %93 ], [ 40, %98 ], [ 39, %106 ], [ %spec.select, %108 ]
+  %.0 = phi i16 [ %79, %93 ], [ %spec.select, %108 ], [ 40, %98 ], [ 39, %106 ]
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.not.i20 = icmp eq i16 %2, 0
   br i1 %.not.i20, label %125, label %112
@@ -2422,7 +2422,7 @@ _ZNSt6vectorIPN4llvm6DIELocESaIS2_EE9push_backERKS2_.exit: ; preds = %17, %_ZNSt
   br label %_ZNK4llvm6DIELoc8BestFormEj.exit
 
 _ZNK4llvm6DIELoc8BestFormEj.exit:                 ; preds = %_ZNSt6vectorIPN4llvm6DIELocESaIS2_EE9push_backERKS2_.exit, %44, %48
-  %.0.i = phi i16 [ 24, %_ZNSt6vectorIPN4llvm6DIELocESaIS2_EE9push_backERKS2_.exit ], [ 10, %44 ], [ %spec.select.i, %48 ]
+  %.0.i = phi i16 [ %spec.select.i, %48 ], [ 24, %_ZNSt6vectorIPN4llvm6DIELocESaIS2_EE9push_backERKS2_.exit ], [ 10, %44 ]
   %.not.i2 = icmp eq i16 %2, 0
   br i1 %.not.i2, label %63, label %50
 
@@ -5126,7 +5126,7 @@ _ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit.i: ; preds = %78, %7
   br i1 %.not25.i, label %_ZN4llvm9DwarfUnit17addTemplateParamsERNS_3DIEENS_24MDTupleTypedArrayWrapperINS_6DINodeEEE.exit, label %.lr.ph.i
 
 _ZN4llvm9DwarfUnit17addTemplateParamsERNS_3DIEENS_24MDTupleTypedArrayWrapperINS_6DINodeEEE.exit: ; preds = %90, %52, %_ZNK4llvm15DICompositeType16getDiscriminatorEv.exit, %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit.i, %_ZNK4llvm15DICompositeType17getTemplateParamsEv.exit, %54
-  %.0383 = phi ptr [ null, %54 ], [ null, %_ZNK4llvm15DICompositeType17getTemplateParamsEv.exit ], [ null, %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit.i ], [ null, %_ZNK4llvm15DICompositeType16getDiscriminatorEv.exit ], [ %51, %52 ], [ null, %90 ]
+  %.0383 = phi ptr [ %51, %52 ], [ null, %54 ], [ null, %_ZNK4llvm15DICompositeType17getTemplateParamsEv.exit ], [ null, %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit.i ], [ null, %_ZNK4llvm15DICompositeType16getDiscriminatorEv.exit ], [ null, %90 ]
   %92 = load i64, ptr %13, align 8
   %93 = and i64 %92, 2
   %.not.i.i.i.i204 = icmp eq i64 %93, 0
@@ -5449,7 +5449,7 @@ _ZNK4llvm13DIDerivedType11getBaseTypeEv.exit224:  ; preds = %245, %247
   br label %_ZN4llvm10DIEInteger8BestFormEbm.exit.i
 
 _ZN4llvm10DIEInteger8BestFormEbm.exit.i:          ; preds = %264, %262, %259
-  %.sroa.05.0.i = phi i16 [ 11, %259 ], [ 5, %262 ], [ %266, %264 ]
+  %.sroa.05.0.i = phi i16 [ 5, %262 ], [ 11, %259 ], [ %266, %264 ]
   %267 = load ptr, ptr %133, align 8, !tbaa !218
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 56
   %269 = load ptr, ptr %268, align 8, !tbaa !472
@@ -6205,7 +6205,7 @@ _ZNK4llvm15DICompositeType14getAnnotationsEv.exit: ; preds = %623, %626
   br label %_ZN4llvm10DIEInteger8BestFormEbm.exit.i311
 
 _ZN4llvm10DIEInteger8BestFormEbm.exit.i311:       ; preds = %642, %640, %637
-  %.sroa.05.0.i312 = phi i16 [ 11, %637 ], [ 5, %640 ], [ %644, %642 ]
+  %.sroa.05.0.i312 = phi i16 [ 5, %640 ], [ 11, %637 ], [ %644, %642 ]
   %645 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %646 = load ptr, ptr %645, align 8, !tbaa !218
   %647 = getelementptr inbounds nuw i8, ptr %646, i64 56
@@ -6897,7 +6897,7 @@ _ZN4llvm9DwarfUnit13addGlobalTypeEPKNS_6DITypeERKNS_3DIEEPKNS_7DIScopeE.exit: ; 
   call fastcc void @"_ZZN4llvm9DwarfUnit13createTypeDIEEPKNS_7DIScopeERNS_3DIEEPKNS_6DITypeEENK3$_0clINS_13DIDerivedTypeEEEDaPKT_"(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull %3)
   br label %.critedge
 
-.critedge:                                        ; preds = %77, %_ZN4llvm9DwarfUnit13addGlobalTypeEPKNS_6DITypeERKNS_3DIEEPKNS_7DIScopeE.exit, %81, %83, %85, %84, %82
+.critedge:                                        ; preds = %_ZN4llvm9DwarfUnit13addGlobalTypeEPKNS_6DITypeERKNS_3DIEEPKNS_7DIScopeE.exit, %77, %81, %83, %85, %84, %82
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %8
 }
@@ -7348,7 +7348,7 @@ _ZN4llvm10DIEInteger8BestFormEbm.exit.i:          ; preds = %29
   br label %_ZN4llvm10DIEInteger8BestFormEbm.exit.i20
 
 _ZN4llvm10DIEInteger8BestFormEbm.exit.i20:        ; preds = %63, %61, %55
-  %.sroa.05.0.i21 = phi i16 [ 11, %55 ], [ 5, %61 ], [ %65, %63 ]
+  %.sroa.05.0.i21 = phi i16 [ 5, %61 ], [ 11, %55 ], [ %65, %63 ]
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %67 = load ptr, ptr %66, align 8, !tbaa !218
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 56
@@ -7691,7 +7691,7 @@ _ZN4llvm15DwarfExpressionD2Ev.exit:               ; preds = %_ZN4llvm18DIExpress
   br label %_ZN4llvm10DIEInteger8BestFormEbm.exit.i
 
 _ZN4llvm10DIEInteger8BestFormEbm.exit.i:          ; preds = %101, %99, %93
-  %.sroa.05.0.i = phi i16 [ 11, %93 ], [ 5, %99 ], [ %103, %101 ]
+  %.sroa.05.0.i = phi i16 [ 5, %99 ], [ 11, %93 ], [ %103, %101 ]
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %105 = load ptr, ptr %104, align 8, !tbaa !218
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 56
@@ -8066,7 +8066,7 @@ switch.early.test:                                ; preds = %_ZN4llvm9DwarfUnit7
   br label %_ZN4llvm10DIEInteger8BestFormEbm.exit.i61
 
 _ZN4llvm10DIEInteger8BestFormEbm.exit.i61:        ; preds = %99, %97, %94
-  %.sroa.05.0.i62 = phi i16 [ 11, %94 ], [ 5, %97 ], [ %101, %99 ]
+  %.sroa.05.0.i62 = phi i16 [ 5, %97 ], [ 11, %94 ], [ %101, %99 ]
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %103 = load ptr, ptr %102, align 8, !tbaa !218
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 56
@@ -8579,7 +8579,7 @@ define dso_local void @_ZN4llvm9DwarfUnit28constructSubprogramArgumentsERNS_3DIE
   br label %_ZNK4llvm14DITypeRefArray4sizeEv.exit
 
 _ZNK4llvm14DITypeRefArray4sizeEv.exit:            ; preds = %8, %12
-  %15 = phi i32 [ %14, %12 ], [ %11, %8 ]
+  %15 = phi i32 [ %11, %8 ], [ %14, %12 ]
   %16 = icmp ugt i32 %15, 1
   br i1 %16, label %.lr.ph, label %._crit_edge
 
@@ -9147,7 +9147,7 @@ _ZL19hasVectorBeenPaddedPKN4llvm15DICompositeTypeE.exit: ; preds = %_ZNK4llvm24M
   br label %_ZN4llvm10DIEInteger8BestFormEbm.exit.i
 
 _ZN4llvm10DIEInteger8BestFormEbm.exit.i:          ; preds = %74, %72, %67
-  %.sroa.05.0.i = phi i16 [ 11, %67 ], [ 5, %72 ], [ %76, %74 ]
+  %.sroa.05.0.i = phi i16 [ 5, %72 ], [ 11, %67 ], [ %76, %74 ]
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %78 = load ptr, ptr %77, align 8, !tbaa !218
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 56
@@ -9722,7 +9722,7 @@ _ZN4llvm10DIEInteger8BestFormEbm.exit.i140:       ; preds = %361, %354
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN4llvm9DwarfUnit7addSIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS3_4FormEEl.exit
 
-384:                                              ; preds = %_ZNK4llvm15DICompositeType10getRawRankEv.exit.i, %341, %_ZN4llvm16dyn_cast_or_nullINS_18ConstantAsMetadataENS_8MetadataEEEDaPT0_.exit.i, %346
+384:                                              ; preds = %341, %_ZNK4llvm15DICompositeType10getRawRankEv.exit.i, %_ZN4llvm16dyn_cast_or_nullINS_18ConstantAsMetadataENS_8MetadataEEEDaPT0_.exit.i, %346
   br i1 %.not.i.i.i.i134, label %388, label %385
 
 385:                                              ; preds = %384
@@ -10023,7 +10023,7 @@ _ZNK4llvm15DICompositeType11getBaseTypeEv.exit:   ; preds = %7, %10
   br label %.thread
 
 .thread:                                          ; preds = %_ZNK4llvm15DICompositeType11getBaseTypeEv.exit, %36, %41, %45
-  %46 = phi i1 [ %18, %36 ], [ %18, %41 ], [ %18, %45 ], [ false, %_ZNK4llvm15DICompositeType11getBaseTypeEv.exit ]
+  %46 = phi i1 [ %18, %45 ], [ %18, %36 ], [ %18, %41 ], [ false, %_ZNK4llvm15DICompositeType11getBaseTypeEv.exit ]
   %47 = load i64, ptr %4, align 8
   %48 = and i64 %47, 2
   %.not.i.i.i.i31 = icmp eq i64 %48, 0
@@ -10060,7 +10060,7 @@ switch.lookup:                                    ; preds = %59
   br label %switch.edge
 
 switch.edge:                                      ; preds = %59, %switch.lookup, %_ZNK4llvm6DIType8getScopeEv.exit
-  %62 = phi i1 [ true, %_ZNK4llvm6DIType8getScopeEv.exit ], [ %switch.masked, %switch.lookup ], [ false, %59 ]
+  %62 = phi i1 [ %switch.masked, %switch.lookup ], [ true, %_ZNK4llvm6DIType8getScopeEv.exit ], [ false, %59 ]
   br i1 %.not.i.i.i.i31, label %66, label %63
 
 63:                                               ; preds = %switch.edge
@@ -10605,7 +10605,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   br label %_ZN4llvm10DIEInteger8BestFormEbm.exit.i
 
 _ZN4llvm10DIEInteger8BestFormEbm.exit.i:          ; preds = %196, %194, %191
-  %.sroa.05.0.i = phi i16 [ 11, %191 ], [ 5, %194 ], [ %198, %196 ]
+  %.sroa.05.0.i = phi i16 [ 5, %194 ], [ 11, %191 ], [ %198, %196 ]
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %200 = load ptr, ptr %199, align 8, !tbaa !218
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 56
@@ -10650,7 +10650,7 @@ _ZN4llvm9DwarfUnit7addUIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS
   br label %_ZN4llvm10DIEInteger8BestFormEbm.exit.i103
 
 _ZN4llvm10DIEInteger8BestFormEbm.exit.i103:       ; preds = %219, %217, %_ZN4llvm9DwarfUnit7addUIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS3_4FormEEm.exit
-  %.sroa.05.0.i104 = phi i16 [ 11, %_ZN4llvm9DwarfUnit7addUIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS3_4FormEEm.exit ], [ 5, %217 ], [ %221, %219 ]
+  %.sroa.05.0.i104 = phi i16 [ 5, %217 ], [ 11, %_ZN4llvm9DwarfUnit7addUIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS3_4FormEEm.exit ], [ %221, %219 ]
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %223 = load ptr, ptr %222, align 8, !tbaa !218
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 56
@@ -10753,7 +10753,7 @@ _ZN4llvm10DIEInteger8BestFormEbm.exit.i109:       ; preds = %248
   br label %_ZN4llvm10DIEInteger8BestFormEbm.exit.i114
 
 _ZN4llvm10DIEInteger8BestFormEbm.exit.i114:       ; preds = %281, %279, %277
-  %.sroa.05.0.i115 = phi i16 [ 11, %277 ], [ 5, %279 ], [ %283, %281 ]
+  %.sroa.05.0.i115 = phi i16 [ 5, %279 ], [ 11, %277 ], [ %283, %281 ]
   %284 = load ptr, ptr %222, align 8, !tbaa !218
   %285 = getelementptr inbounds nuw i8, ptr %284, i64 56
   %286 = load ptr, ptr %285, align 8, !tbaa !472
@@ -10799,7 +10799,7 @@ _ZN4llvm10DIEInteger8BestFormEbm.exit.i114:       ; preds = %281, %279, %277
   br label %_ZN4llvm10DIEInteger8BestFormEbm.exit.i120
 
 _ZN4llvm10DIEInteger8BestFormEbm.exit.i120:       ; preds = %306, %304, %301
-  %.sroa.05.0.i121 = phi i16 [ 11, %301 ], [ 5, %304 ], [ %308, %306 ]
+  %.sroa.05.0.i121 = phi i16 [ 5, %304 ], [ 11, %301 ], [ %308, %306 ]
   %309 = load ptr, ptr %222, align 8, !tbaa !218
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 56
   %311 = load ptr, ptr %310, align 8, !tbaa !472
@@ -10870,7 +10870,7 @@ _ZN4llvm10DIEInteger8BestFormEbm.exit.i126:       ; preds = %325
   br label %_ZN4llvm9DwarfUnit7addSIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS3_4FormEEl.exit
 
 _ZN4llvm9DwarfUnit7addSIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS3_4FormEEl.exit: ; preds = %343, %336, %320, %315, %296, %290, %272, %266, %325
-  %.1.in = phi i64 [ %327, %325 ], [ %251, %266 ], [ %251, %272 ], [ %251, %290 ], [ %251, %296 ], [ %302, %315 ], [ %302, %320 ], [ %327, %336 ], [ %327, %343 ]
+  %.1.in = phi i64 [ %327, %325 ], [ %302, %320 ], [ %251, %296 ], [ %251, %272 ], [ %251, %266 ], [ %251, %290 ], [ %302, %315 ], [ %327, %336 ], [ %327, %343 ]
   %.1 = lshr i64 %.1.in, 3
   %348 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %349 = load ptr, ptr %348, align 8, !tbaa !219
@@ -10993,7 +10993,7 @@ _ZN4llvm10DIEInteger8BestFormEbm.exit.i135:       ; preds = %383
   br label %_ZN4llvm10DIEInteger8BestFormEbm.exit.i141
 
 _ZN4llvm10DIEInteger8BestFormEbm.exit.i141:       ; preds = %408, %406, %404
-  %.sroa.05.0.i142 = phi i16 [ 11, %404 ], [ 5, %406 ], [ %410, %408 ]
+  %.sroa.05.0.i142 = phi i16 [ 5, %406 ], [ 11, %404 ], [ %410, %408 ]
   %411 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %412 = load ptr, ptr %411, align 8, !tbaa !218
   %413 = getelementptr inbounds nuw i8, ptr %412, i64 56
@@ -11758,7 +11758,7 @@ _ZNK4llvm14DITypeRefArrayixEj.exit:               ; preds = %.thread228, %167
   br label %_ZNK4llvm14DITypeRefArray4sizeEv.exit.thread
 
 _ZNK4llvm14DITypeRefArray4sizeEv.exit.thread:     ; preds = %_ZNK4llvm14DITypeRefArray4sizeEv.exit.thread226, %_ZNK4llvm12DISubprogram7getTypeEv.exit, %_ZN4llvm9DwarfUnit7addUIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS3_4FormEEm.exit, %_ZNK4llvm14DITypeRefArrayixEj.exit, %173, %_ZNK4llvm14DITypeRefArray4sizeEv.exit
-  %.sroa.0168.0180183186 = phi ptr [ %133, %_ZNK4llvm14DITypeRefArrayixEj.exit ], [ %133, %173 ], [ %133, %_ZNK4llvm14DITypeRefArray4sizeEv.exit ], [ null, %_ZN4llvm9DwarfUnit7addUIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS3_4FormEEm.exit ], [ null, %_ZNK4llvm12DISubprogram7getTypeEv.exit ], [ %133, %_ZNK4llvm14DITypeRefArray4sizeEv.exit.thread226 ]
+  %.sroa.0168.0180183186 = phi ptr [ %133, %_ZNK4llvm14DITypeRefArray4sizeEv.exit ], [ %133, %_ZNK4llvm14DITypeRefArrayixEj.exit ], [ %133, %173 ], [ null, %_ZN4llvm9DwarfUnit7addUIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS3_4FormEEm.exit ], [ null, %_ZNK4llvm12DISubprogram7getTypeEv.exit ], [ %133, %_ZNK4llvm14DITypeRefArray4sizeEv.exit.thread226 ]
   %178 = load i32, ptr %102, align 4, !tbaa !244
   %179 = and i32 %178, 3
   %.not90 = icmp eq i32 %179, 0
@@ -12217,12 +12217,12 @@ _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i1.i149: ; preds = %_ZNK
   br label %_ZNK4llvm12DISubprogram17getTargetFuncNameEv.exit153
 
 _ZNK4llvm12DISubprogram17getTargetFuncNameEv.exit153: ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i150, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i142, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i151, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread6.i147, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i1.i149
-  %.sroa.0.0.i143 = phi ptr [ null, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread6.i147 ], [ null, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i151 ], [ null, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i150 ], [ null, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i142 ], [ %395, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i1.i149 ]
-  %.sroa.4.0.i144 = phi i64 [ 0, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread6.i147 ], [ 0, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i151 ], [ 0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i150 ], [ 0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i142 ], [ %396, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i1.i149 ]
+  %.sroa.0.0.i143 = phi ptr [ null, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i142 ], [ null, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread6.i147 ], [ null, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i151 ], [ null, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i150 ], [ %395, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i1.i149 ]
+  %.sroa.4.0.i144 = phi i64 [ 0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i142 ], [ 0, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread6.i147 ], [ 0, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i151 ], [ 0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i150 ], [ %396, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i1.i149 ]
   call void @_ZN4llvm9DwarfUnit9addStringERNS_3DIEENS_5dwarf9AttributeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(48) %2, i16 noundef zeroext 86, ptr %.sroa.0.0.i143, i64 %.sroa.4.0.i144)
   br label %_ZNK4llvm12DISubprogram17getTargetFuncNameEv.exit.thread
 
-_ZNK4llvm12DISubprogram17getTargetFuncNameEv.exit.thread: ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i136, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i139, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread6.i, %_ZNK4llvm12DISubprogram17getTargetFuncNameEv.exit153, %_ZNK4llvm12DISubprogram17getTargetFuncNameEv.exit
+_ZNK4llvm12DISubprogram17getTargetFuncNameEv.exit.thread: ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i139, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.i, %_ZNK4llvm12DISubprogram20getRawTargetFuncNameEv.exit.thread6.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i136, %_ZNK4llvm12DISubprogram17getTargetFuncNameEv.exit153, %_ZNK4llvm12DISubprogram17getTargetFuncNameEv.exit
   %397 = load ptr, ptr %285, align 8, !tbaa !219
   %398 = call noundef zeroext i16 @_ZNK4llvm10DwarfDebug15getDwarfVersionEv(ptr noundef nonnull align 8 dereferenceable(5876) %397) #21
   %399 = icmp ugt i16 %398, 4
@@ -12379,7 +12379,7 @@ _ZNK4llvm16DISubroutineType12getTypeArrayEv.exit52: ; preds = %61, %64
   br label %_ZNK4llvm14DITypeRefArray4sizeEv.exit
 
 _ZNK4llvm14DITypeRefArray4sizeEv.exit:            ; preds = %75, %79
-  %82 = phi i32 [ %81, %79 ], [ %78, %75 ]
+  %82 = phi i32 [ %78, %75 ], [ %81, %79 ]
   %.not = icmp eq i32 %82, 0
   %.not.i53 = icmp eq ptr %70, null
   %or.cond110 = select i1 %.not, i1 true, i1 %.not.i53
@@ -13120,7 +13120,7 @@ _ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread51: ; preds = %71
   br i1 %.not2653, label %_ZN4llvm9DwarfUnit7addSIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS3_4FormEEl.exit, label %_ZNK4llvm11ConstantInt12getSExtValueEv.exit36
 
 _ZNK4llvm11ConstantInt12getSExtValueEv.exit36:    ; preds = %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread51, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit, %76
-  %.0.i.i34 = phi i64 [ %81, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit ], [ 0, %76 ], [ %83, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread51 ]
+  %.0.i.i34 = phi i64 [ 0, %76 ], [ %81, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit ], [ %83, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread51 ]
   %.pn.pn.in = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pn.pn = load ptr, ptr %.pn.pn.in, align 8, !tbaa !762
   %84 = getelementptr inbounds nuw i8, ptr %.pn.pn, i64 8
@@ -13729,7 +13729,7 @@ define dso_local void @_ZN4llvm9DwarfUnit27constructContainingTypeDIEsEv(ptr nou
   br i1 %.not.i9.i15.i7.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_3DIEEPKNS_6DINodeENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i, !llvm.loop !772
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_3DIEEPKNS_6DINodeENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i, %.critedge2.i8.i14.i6.i, %10, %12
-  %.pn14.i = phi ptr [ %11, %10 ], [ %6, %12 ], [ %13, %.critedge2.i8.i14.i6.i ], [ %.sroa.0.3.i4.i, %.lr.ph.i6.i12.i3.i ]
+  %.pn14.i = phi ptr [ %11, %10 ], [ %6, %12 ], [ %.sroa.0.3.i4.i, %.lr.ph.i6.i12.i3.i ], [ %13, %.critedge2.i8.i14.i6.i ]
   %.pn12.i = phi ptr [ %11, %10 ], [ %13, %12 ], [ %13, %.critedge2.i8.i14.i6.i ], [ %13, %.lr.ph.i6.i12.i3.i ]
   %16 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %6, i64 %9
   %.not1617 = icmp eq ptr %.pn14.i, %16
@@ -14291,7 +14291,7 @@ define dso_local noundef ptr @_ZNK4llvm9DwarfUnit34getCrossSectionRelativeBaseAd
   br label %17
 
 17:                                               ; preds = %7, %1, %12
-  %.0 = phi ptr [ %16, %12 ], [ null, %1 ], [ null, %7 ]
+  %.0 = phi ptr [ null, %1 ], [ %16, %12 ], [ null, %7 ]
   ret ptr %.0
 }
 

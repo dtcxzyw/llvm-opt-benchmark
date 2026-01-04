@@ -873,7 +873,7 @@ _ZN13rcScopedTimerD2Ev.exit42:                    ; preds = %_ZL7boxBlurR20rcCom
           to label %463 unwind label %19
 
 463:                                              ; preds = %_ZN13rcScopedTimerD2Ev.exit42, %39, %31
-  %.023 = phi i1 [ false, %31 ], [ false, %39 ], [ true, %_ZN13rcScopedTimerD2Ev.exit42 ]
+  %.023 = phi i1 [ false, %39 ], [ false, %31 ], [ true, %_ZN13rcScopedTimerD2Ev.exit42 ]
   %464 = load i8, ptr %8, align 1
   %465 = trunc i8 %464 to i1
   br i1 %465, label %466, label %_ZN13rcScopedTimerD2Ev.exit43
@@ -1500,9 +1500,9 @@ _ZN10rcIntArray6resizeEi.exit:                    ; preds = %160, %.sink.split.i
   br label %238
 
 238:                                              ; preds = %229, %.thread
-  %239 = phi i32 [ %.pre423, %.thread ], [ %217, %229 ]
-  %.1192 = phi i16 [ %.1186370, %.thread ], [ %227, %229 ]
-  %.3188 = phi i16 [ %233, %.thread ], [ %.1186370, %229 ]
+  %239 = phi i32 [ %217, %229 ], [ %.pre423, %.thread ]
+  %.1192 = phi i16 [ %227, %229 ], [ %.1186370, %.thread ]
+  %.3188 = phi i16 [ %.1186370, %229 ], [ %233, %.thread ]
   %240 = lshr i32 %239, 18
   %241 = and i32 %240, 63
   %.not204 = icmp eq i32 %241, 63
@@ -1825,7 +1825,7 @@ _ZN10rcIntArrayD2Ev.exit:                         ; preds = %340
   unreachable
 
 _ZN13rcScopedTimerD2Ev.exit282:                   ; preds = %.loopexit354, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %376, %_ZN10rcIntArrayD2Ev.exit
-  %.pn207 = phi { ptr, i32 } [ %341, %_ZN10rcIntArrayD2Ev.exit ], [ %341, %376 ], [ %lpad.loopexit, %.loopexit354 ], [ %lpad.loopexit357, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit360, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn207 = phi { ptr, i32 } [ %341, %376 ], [ %341, %_ZN10rcIntArrayD2Ev.exit ], [ %lpad.loopexit, %.loopexit354 ], [ %lpad.loopexit357, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit360, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %388 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %389 = load ptr, ptr %388, align 8
   invoke void @_Z6rcFreePv(ptr noundef %389)
@@ -2385,11 +2385,11 @@ _ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.i500.us: ; preds 
   br label %.noexc280.us
 
 .noexc280.us:                                     ; preds = %240, %.noexc510.us, %210, %_ZL11isSolidEdgeR20rcCompactHeightfieldPKtiiii.exit.thread.i.us
-  %.sink.i.us = phi i32 [ 1, %210 ], [ 1, %.noexc510.us ], [ 1, %240 ], [ 3, %_ZL11isSolidEdgeR20rcCompactHeightfieldPKtiiii.exit.thread.i.us ]
-  %.3.i.us = phi i16 [ %.1100.i.us, %210 ], [ %.0102.i.us, %.noexc510.us ], [ %.0102.i.us, %240 ], [ %.1100.i.us, %_ZL11isSolidEdgeR20rcCompactHeightfieldPKtiiii.exit.thread.i.us ]
-  %.195.i.us = phi i32 [ %.094.i.us, %210 ], [ %.094.i.us, %.noexc510.us ], [ %.094.i.us, %240 ], [ %202, %_ZL11isSolidEdgeR20rcCompactHeightfieldPKtiiii.exit.thread.i.us ]
-  %.193.i.us = phi i32 [ %.092.i.us, %210 ], [ %.092.i.us, %.noexc510.us ], [ %.092.i.us, %240 ], [ %193, %_ZL11isSolidEdgeR20rcCompactHeightfieldPKtiiii.exit.thread.i.us ]
-  %.1.i.us = phi i32 [ %.089.i.us, %210 ], [ %.089.i.us, %.noexc510.us ], [ %.089.i.us, %240 ], [ %190, %_ZL11isSolidEdgeR20rcCompactHeightfieldPKtiiii.exit.thread.i.us ]
+  %.sink.i.us = phi i32 [ 1, %240 ], [ 1, %210 ], [ 1, %.noexc510.us ], [ 3, %_ZL11isSolidEdgeR20rcCompactHeightfieldPKtiiii.exit.thread.i.us ]
+  %.3.i.us = phi i16 [ %.0102.i.us, %240 ], [ %.1100.i.us, %210 ], [ %.0102.i.us, %.noexc510.us ], [ %.1100.i.us, %_ZL11isSolidEdgeR20rcCompactHeightfieldPKtiiii.exit.thread.i.us ]
+  %.195.i.us = phi i32 [ %.094.i.us, %240 ], [ %.094.i.us, %210 ], [ %.094.i.us, %.noexc510.us ], [ %202, %_ZL11isSolidEdgeR20rcCompactHeightfieldPKtiiii.exit.thread.i.us ]
+  %.193.i.us = phi i32 [ %.092.i.us, %240 ], [ %.092.i.us, %210 ], [ %.092.i.us, %.noexc510.us ], [ %193, %_ZL11isSolidEdgeR20rcCompactHeightfieldPKtiiii.exit.thread.i.us ]
+  %.1.i.us = phi i32 [ %.089.i.us, %240 ], [ %.089.i.us, %210 ], [ %.089.i.us, %.noexc510.us ], [ %190, %_ZL11isSolidEdgeR20rcCompactHeightfieldPKtiiii.exit.thread.i.us ]
   %244 = add nuw nsw i32 %.sink.i.us, %.096.i.us
   %.197.i.us = and i32 %244, 3
   %245 = zext i32 %.195.i.us to i64
@@ -3435,7 +3435,7 @@ _ZN10rcIntArray4pushEi.exit330:                   ; preds = %585, %.noexc578
   br label %613
 
 613:                                              ; preds = %547, %577, %571, %_ZN10rcIntArray4pushEi.exit330
-  %.2 = phi i1 [ %.1223762, %571 ], [ %.1223762, %577 ], [ %.1223762, %_ZN10rcIntArray4pushEi.exit330 ], [ true, %547 ]
+  %.2 = phi i1 [ %.1223762, %_ZN10rcIntArray4pushEi.exit330 ], [ %.1223762, %571 ], [ %.1223762, %577 ], [ true, %547 ]
   %indvars.iv.next840 = add nuw nsw i64 %indvars.iv839, 1
   %614 = load i64, ptr %535, align 8
   %sext = shl i64 %614, 32
@@ -3754,8 +3754,8 @@ _ZL25isRegionConnectedToBorderRK8rcRegion.exit.thread: ; preds = %682, %_ZL25isR
   br label %761
 
 761:                                              ; preds = %749, %754, %757, %758, %740, %745, %716
-  %.1211 = phi i32 [ %.0210774, %716 ], [ %.0210774, %740 ], [ %.0210774, %745 ], [ %759, %758 ], [ %.0210774, %757 ], [ %.0210774, %754 ], [ %.0210774, %749 ]
-  %.1209 = phi i16 [ %.0208775, %716 ], [ %.0208775, %740 ], [ %.0208775, %745 ], [ %760, %758 ], [ %.0208775, %757 ], [ %.0208775, %754 ], [ %.0208775, %749 ]
+  %.1211 = phi i32 [ %.0210774, %716 ], [ %.0210774, %740 ], [ %.0210774, %749 ], [ %.0210774, %745 ], [ %759, %758 ], [ %.0210774, %757 ], [ %.0210774, %754 ]
+  %.1209 = phi i16 [ %.0208775, %716 ], [ %.0208775, %740 ], [ %.0208775, %749 ], [ %.0208775, %745 ], [ %760, %758 ], [ %.0208775, %757 ], [ %.0208775, %754 ]
   %indvars.iv.next850 = add nuw nsw i64 %indvars.iv849, 1
   %762 = load i64, ptr %705, align 8
   %sext987 = shl i64 %762, 32
@@ -3821,8 +3821,8 @@ _ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.i._ZN10rcIntArray
   br label %_ZN10rcIntArray6resizeEi.exit.i
 
 _ZN10rcIntArray6resizeEi.exit.i:                  ; preds = %_ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.i._ZN10rcIntArray6resizeEi.exit_crit_edge.i, %772
-  %789 = phi i64 [ %779, %772 ], [ %.pre.i386, %_ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.i._ZN10rcIntArray6resizeEi.exit_crit_edge.i ]
-  %.sroa.12.2.i = phi ptr [ null, %772 ], [ %788, %_ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.i._ZN10rcIntArray6resizeEi.exit_crit_edge.i ]
+  %789 = phi i64 [ %.pre.i386, %_ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.i._ZN10rcIntArray6resizeEi.exit_crit_edge.i ], [ %779, %772 ]
+  %.sroa.12.2.i = phi ptr [ %788, %_ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.i._ZN10rcIntArray6resizeEi.exit_crit_edge.i ], [ null, %772 ]
   %790 = trunc i64 %789 to i32
   %791 = icmp sgt i32 %790, 0
   br i1 %791, label %.lr.ph.i383, label %._crit_edge.i377
@@ -3910,7 +3910,7 @@ _ZN10rcIntArray6resizeEi.exit.i:                  ; preds = %_ZN12rcVectorBaseIi
   br label %.loopexit.split-lp.i
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i: ; preds = %._crit_edge175.i, %._crit_edge172.i, %_ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.i.i, %786, %.noexc97.i, %783
-  %.sroa.12.0.ph.ph.ph.ph.ph.ph.ph.i = phi ptr [ null, %783 ], [ null, %.noexc97.i ], [ null, %786 ], [ null, %_ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.i.i ], [ %.sroa.12.2.i, %._crit_edge172.i ], [ %.sroa.12.2.i, %._crit_edge175.i ]
+  %.sroa.12.0.ph.ph.ph.ph.ph.ph.ph.i = phi ptr [ %.sroa.12.2.i, %._crit_edge175.i ], [ null, %.noexc97.i ], [ null, %783 ], [ %.sroa.12.2.i, %._crit_edge172.i ], [ null, %786 ], [ null, %_ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.i.i ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i
@@ -4186,7 +4186,7 @@ _ZL20addUniqueFloorRegionR8rcRegioni.exit.i:      ; preds = %_ZN10rcIntArrayixEi
           to label %_ZN10rcIntArray6resizeEi.exit94.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 _ZN10rcIntArray6resizeEi.exit94.i:                ; preds = %827, %839, %._crit_edge175.i, %.preheader144.i, %._crit_edge.i377
-  %.054.i = phi i1 [ true, %._crit_edge175.i ], [ false, %.preheader144.i ], [ false, %._crit_edge.i377 ], [ false, %839 ], [ false, %827 ]
+  %.054.i = phi i1 [ false, %.preheader144.i ], [ true, %._crit_edge175.i ], [ false, %._crit_edge.i377 ], [ false, %839 ], [ false, %827 ]
   invoke void @_Z6rcFreePv(ptr noundef %.sroa.12.2.i)
           to label %_ZL12mergeRegionsR8rcRegionS0_.exit unwind label %919
 
@@ -4460,7 +4460,7 @@ _ZL16replaceNeighbourR8rcRegiontt.exit:           ; preds = %._crit_edge.i408, %
   br label %_ZL25isRegionConnectedToBorderRK8rcRegion.exit
 
 _ZL25isRegionConnectedToBorderRK8rcRegion.exit:   ; preds = %_ZNK10rcIntArrayixEi.exit.i, %_ZL25isRegionConnectedToBorderRK8rcRegion.exit.thread, %._crit_edge778, %1033, %_ZL12mergeRegionsR8rcRegionS0_.exit, %679, %675, %670
-  %.1215 = phi i32 [ %.0214782, %670 ], [ %.0214782, %675 ], [ %.0214782, %679 ], [ %1034, %1033 ], [ %.0214782, %_ZL12mergeRegionsR8rcRegionS0_.exit ], [ %.0214782, %._crit_edge778 ], [ %.0214782, %_ZL25isRegionConnectedToBorderRK8rcRegion.exit.thread ], [ %.0214782, %_ZNK10rcIntArrayixEi.exit.i ]
+  %.1215 = phi i32 [ %.0214782, %670 ], [ %.0214782, %._crit_edge778 ], [ %.0214782, %675 ], [ %.0214782, %679 ], [ %.0214782, %_ZL12mergeRegionsR8rcRegionS0_.exit ], [ %1034, %1033 ], [ %.0214782, %_ZL25isRegionConnectedToBorderRK8rcRegion.exit.thread ], [ %.0214782, %_ZNK10rcIntArrayixEi.exit.i ]
   %indvars.iv.next857 = add nuw nsw i64 %indvars.iv856, 1
   %exitcond860.not = icmp eq i64 %indvars.iv.next857, %24
   br i1 %exitcond860.not, label %1035, label %.preheader671.backedge
@@ -6139,9 +6139,9 @@ _ZN12rcVectorBaseIN12_GLOBAL__N_115LevelStackEntryEL11rcAllocHint1EE17allocate_a
           to label %.noexc292 unwind label %.loopexit381
 
 .noexc292:                                        ; preds = %_ZN12rcVectorBaseIN12_GLOBAL__N_115LevelStackEntryEL11rcAllocHint1EE17allocate_and_copyEl.exit.i, %479, %472, %468, %449, %.critedge.i
-  %499 = phi ptr [ %440, %479 ], [ %440, %472 ], [ %440, %468 ], [ %440, %449 ], [ %440, %.critedge.i ], [ %492, %_ZN12rcVectorBaseIN12_GLOBAL__N_115LevelStackEntryEL11rcAllocHint1EE17allocate_and_copyEl.exit.i ]
-  %500 = phi i64 [ %441, %479 ], [ %441, %472 ], [ %441, %468 ], [ %441, %449 ], [ %441, %.critedge.i ], [ %.0.i.i, %_ZN12rcVectorBaseIN12_GLOBAL__N_115LevelStackEntryEL11rcAllocHint1EE17allocate_and_copyEl.exit.i ]
-  %501 = phi i64 [ %480, %479 ], [ %442, %472 ], [ %442, %468 ], [ %442, %449 ], [ %442, %.critedge.i ], [ %498, %_ZN12rcVectorBaseIN12_GLOBAL__N_115LevelStackEntryEL11rcAllocHint1EE17allocate_and_copyEl.exit.i ]
+  %499 = phi ptr [ %440, %479 ], [ %440, %.critedge.i ], [ %440, %472 ], [ %440, %468 ], [ %440, %449 ], [ %492, %_ZN12rcVectorBaseIN12_GLOBAL__N_115LevelStackEntryEL11rcAllocHint1EE17allocate_and_copyEl.exit.i ]
+  %500 = phi i64 [ %441, %479 ], [ %441, %.critedge.i ], [ %441, %472 ], [ %441, %468 ], [ %441, %449 ], [ %.0.i.i, %_ZN12rcVectorBaseIN12_GLOBAL__N_115LevelStackEntryEL11rcAllocHint1EE17allocate_and_copyEl.exit.i ]
+  %501 = phi i64 [ %480, %479 ], [ %442, %.critedge.i ], [ %442, %472 ], [ %442, %468 ], [ %442, %449 ], [ %498, %_ZN12rcVectorBaseIN12_GLOBAL__N_115LevelStackEntryEL11rcAllocHint1EE17allocate_and_copyEl.exit.i ]
   %indvars.iv.next145.i = add nuw nsw i64 %indvars.iv144.i, 1
   %exitcond147.not.i = icmp eq i64 %indvars.iv.next145.i, 4
   br i1 %exitcond147.not.i, label %.loopexit.i282, label %.critedge.i, !llvm.loop !73
@@ -6432,7 +6432,7 @@ _ZN10rcIntArrayD2Ev.exit302:                      ; preds = %.critedge159
   unreachable
 
 _ZN13rcScopedTimerD2Ev.exit295:                   ; preds = %589, %_ZN13rcScopedTimerD2Ev.exit300, %614, %_ZN10rcIntArrayD2Ev.exit302, %535, %532
-  %.3 = phi i1 [ false, %532 ], [ false, %535 ], [ false, %_ZN10rcIntArrayD2Ev.exit302 ], [ false, %614 ], [ true, %_ZN13rcScopedTimerD2Ev.exit300 ], [ true, %589 ]
+  %.3 = phi i1 [ false, %614 ], [ false, %532 ], [ false, %535 ], [ false, %_ZN10rcIntArrayD2Ev.exit302 ], [ true, %_ZN13rcScopedTimerD2Ev.exit300 ], [ true, %589 ]
   %621 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.val162 = load ptr, ptr %621, align 8
   invoke void @_Z6rcFreePv(ptr noundef %.val162)
@@ -6446,7 +6446,7 @@ _ZN13rcScopedTimerD2Ev.exit295:                   ; preds = %589, %_ZN13rcScoped
   unreachable
 
 _ZN13rcScopedTimerD2Ev.exit293:                   ; preds = %.loopexit385, %.loopexit.split-lp386.loopexit.split-lp.loopexit, %.loopexit.split-lp386.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp386.loopexit, %600, %_ZN10rcIntArrayD2Ev.exit, %519, %.loopexit.split-lp, %510, %506
-  %.pn151 = phi { ptr, i32 } [ %507, %506 ], [ %507, %510 ], [ %lpad.phi, %.loopexit.split-lp ], [ %lpad.phi, %519 ], [ %560, %_ZN10rcIntArrayD2Ev.exit ], [ %560, %600 ], [ %lpad.loopexit387, %.loopexit385 ], [ %lpad.loopexit392, %.loopexit.split-lp386.loopexit ], [ %lpad.loopexit396, %.loopexit.split-lp386.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp386.loopexit.split-lp.loopexit.split-lp ]
+  %.pn151 = phi { ptr, i32 } [ %507, %510 ], [ %560, %600 ], [ %lpad.phi, %519 ], [ %507, %506 ], [ %lpad.phi, %.loopexit.split-lp ], [ %560, %_ZN10rcIntArrayD2Ev.exit ], [ %lpad.loopexit387, %.loopexit385 ], [ %lpad.loopexit392, %.loopexit.split-lp386.loopexit ], [ %lpad.loopexit396, %.loopexit.split-lp386.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp386.loopexit.split-lp.loopexit.split-lp ]
   %625 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.val164 = load ptr, ptr %625, align 8
   invoke void @_Z6rcFreePv(ptr noundef %.val164)
@@ -7153,8 +7153,8 @@ _ZN12rcVectorBaseI10DirtyEntryL11rcAllocHint1EEixEl.exit174: ; preds = %_ZN12rcV
   %251 = icmp sgt i64 %.val139, 0
   br i1 %251, label %.lr.ph261.preheader, label %._crit_edge271, !llvm.loop !85
 
-._crit_edge271:                                   ; preds = %250, %._crit_edge, %248, %.preheader235.lr.ph, %13, %.preheader237, %.loopexit236
-  %.sroa.15.1 = phi ptr [ null, %.loopexit236 ], [ null, %.preheader237 ], [ null, %13 ], [ null, %.preheader235.lr.ph ], [ %.sroa.15.3, %248 ], [ %.sroa.15.3, %._crit_edge ], [ %.sroa.15.3, %250 ]
+._crit_edge271:                                   ; preds = %250, %._crit_edge, %248, %.preheader237, %13, %.preheader235.lr.ph, %.loopexit236
+  %.sroa.15.1 = phi ptr [ null, %.loopexit236 ], [ null, %.preheader235.lr.ph ], [ null, %13 ], [ null, %.preheader237 ], [ %.sroa.15.3, %248 ], [ %.sroa.15.3, %._crit_edge ], [ %.sroa.15.3, %250 ]
   invoke void @_Z6rcFreePv(ptr noundef %.sroa.15.1)
           to label %_ZN12rcTempVectorI10DirtyEntryED2Ev.exit175 unwind label %252
 
@@ -7754,9 +7754,9 @@ _ZN10rcIntArray6resizeEi.exit:                    ; preds = %164, %.sink.split.i
   br label %242
 
 242:                                              ; preds = %233, %.thread
-  %243 = phi i32 [ %.pre438, %.thread ], [ %221, %233 ]
-  %.1190 = phi i16 [ %.1184379, %.thread ], [ %231, %233 ]
-  %.3186 = phi i16 [ %237, %.thread ], [ %.1184379, %233 ]
+  %243 = phi i32 [ %221, %233 ], [ %.pre438, %.thread ]
+  %.1190 = phi i16 [ %231, %233 ], [ %.1184379, %.thread ]
+  %.3186 = phi i16 [ %.1184379, %233 ], [ %237, %.thread ]
   %244 = lshr i32 %243, 18
   %245 = and i32 %244, 63
   %.not201 = icmp eq i32 %245, 63
@@ -10398,7 +10398,7 @@ _ZN13rcScopedTimerD2Ev.exit284:                   ; preds = %1301, %1304
   unreachable
 
 _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %.loopexit356, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %1294, %.body
-  %.pn = phi { ptr, i32 } [ %.pn238.i, %.body ], [ %.pn238.i, %1294 ], [ %lpad.loopexit, %.loopexit356 ], [ %lpad.loopexit359, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit362, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %.pn238.i, %1294 ], [ %.pn238.i, %.body ], [ %lpad.loopexit, %.loopexit356 ], [ %lpad.loopexit359, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit362, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %1328 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %1329 = load ptr, ptr %1328, align 8
   invoke void @_Z6rcFreePv(ptr noundef %1329)
@@ -10717,7 +10717,7 @@ _ZN12rcVectorBaseI8rcRegionL11rcAllocHint1EE13destroy_rangeEll.exit: ; preds = %
   br label %_ZN12rcVectorBaseI8rcRegionL11rcAllocHint1EE17allocate_and_copyEl.exit
 
 _ZN12rcVectorBaseI8rcRegionL11rcAllocHint1EE17allocate_and_copyEl.exit: ; preds = %10, %2, %_ZN12rcVectorBaseI8rcRegionL11rcAllocHint1EE13destroy_rangeEll.exit
-  %.0 = phi i1 [ true, %_ZN12rcVectorBaseI8rcRegionL11rcAllocHint1EE13destroy_rangeEll.exit ], [ true, %2 ], [ false, %10 ]
+  %.0 = phi i1 [ true, %2 ], [ true, %_ZN12rcVectorBaseI8rcRegionL11rcAllocHint1EE13destroy_rangeEll.exit ], [ false, %10 ]
   ret i1 %.0
 }
 
@@ -10977,7 +10977,7 @@ _ZNK10rcIntArrayixEi.exit20:                      ; preds = %40, %45
   br i1 %.not38.not, label %36, label %.loopexit
 
 .loopexit:                                        ; preds = %_ZNK10rcIntArrayixEi.exit20, %36, %.preheader, %._crit_edge, %2
-  %.018 = phi i1 [ false, %2 ], [ false, %._crit_edge ], [ true, %.preheader ], [ %.not38.not, %36 ], [ %.not38.not, %_ZNK10rcIntArrayixEi.exit20 ]
+  %.018 = phi i1 [ false, %._crit_edge ], [ false, %2 ], [ true, %.preheader ], [ %.not38.not, %36 ], [ %.not38.not, %_ZNK10rcIntArrayixEi.exit20 ]
   ret i1 %.018
 }
 

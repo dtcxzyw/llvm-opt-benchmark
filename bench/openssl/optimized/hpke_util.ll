@@ -796,12 +796,12 @@ synonyms_name2id.exit84:                          ; preds = %64
   br label %.thread
 
 .thread:                                          ; preds = %41, %55, %69, %77, %24, %79
-  %.047 = phi i32 [ 0, %24 ], [ 0, %77 ], [ 1, %79 ], [ 0, %69 ], [ 0, %55 ], [ 0, %41 ]
+  %.047 = phi i32 [ 0, %24 ], [ 1, %79 ], [ 0, %77 ], [ 0, %69 ], [ 0, %55 ], [ 0, %41 ]
   tail call void @CRYPTO_free(ptr noundef %26, ptr noundef nonnull @.str, i32 noundef 526) #5
   br label %82
 
 82:                                               ; preds = %23, %13, %.thread, %12, %8
-  %.0 = phi i32 [ 0, %8 ], [ 0, %12 ], [ %.047, %.thread ], [ 0, %13 ], [ 0, %23 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %12 ], [ 0, %23 ], [ 0, %13 ], [ %.047, %.thread ]
   ret i32 %.0
 }
 

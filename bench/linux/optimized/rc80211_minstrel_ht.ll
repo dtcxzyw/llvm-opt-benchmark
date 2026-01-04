@@ -1202,7 +1202,7 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %538, %545, %525, %520, %.loopexit45
-  %549 = phi i8 [ %509, %520 ], [ %509, %.loopexit45 ], [ 1, %525 ], [ 1, %545 ], [ 1, %538 ]
+  %549 = phi i8 [ %509, %520 ], [ %509, %.loopexit45 ], [ 1, %545 ], [ 1, %525 ], [ 1, %538 ]
   %550 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %551 = load i64, ptr %550, align 8
   %552 = zext i32 %9 to i64
@@ -1487,8 +1487,8 @@ define internal range(i32 -2097152, 2097152) i32 @minstrel_ht_get_expected_throu
   br label %46
 
 46:                                               ; preds = %43, %41, %27, %25, %18
-  %47 = phi i32 [ %20, %18 ], [ %13, %25 ], [ %13, %27 ], [ %13, %41 ], [ %13, %43 ]
-  %48 = phi i32 [ 1, %18 ], [ %26, %25 ], [ 2, %27 ], [ 4, %41 ], [ %45, %43 ]
+  %47 = phi i32 [ %20, %18 ], [ %13, %25 ], [ %13, %43 ], [ %13, %27 ], [ %13, %41 ]
+  %48 = phi i32 [ 1, %18 ], [ %26, %25 ], [ %45, %43 ], [ 2, %27 ], [ 4, %41 ]
   %49 = mul i32 %47, 1000
   %50 = udiv i32 %49, %48
   %51 = getelementptr %struct.mcs_group, ptr @minstrel_mcs_groups, i64 %6
@@ -1703,7 +1703,7 @@ define internal fastcc void @minstrel_ht_update_caps(ptr noundef readonly captur
   br i1 %119, label %189, label %.thread
 
 .thread:                                          ; preds = %116, %.thread32, %117
-  %.pre-phi31 = phi i1 [ false, %.thread32 ], [ true, %117 ], [ true, %116 ]
+  %.pre-phi31 = phi i1 [ true, %117 ], [ false, %.thread32 ], [ true, %116 ]
   %120 = getelementptr inbounds nuw i8, ptr %104, i64 2
   %121 = load i8, ptr %120, align 2
   %122 = zext i8 %121 to i32
@@ -1803,7 +1803,7 @@ define internal fastcc void @minstrel_ht_update_caps(ptr noundef readonly captur
   br label %174
 
 174:                                              ; preds = %171, %168, %164
-  %175 = phi i16 [ 0, %164 ], [ %170, %168 ], [ %spec.select, %171 ]
+  %175 = phi i16 [ %spec.select, %171 ], [ %170, %168 ], [ 0, %164 ]
   %176 = zext i16 %167 to i32
   %177 = shl nuw nsw i32 %122, 1
   %178 = add nsw i32 %177, -2
@@ -2773,7 +2773,7 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %359, %361
   br label %.critedge
 
 .critedge:                                        ; preds = %509, %507, %154, %190, %93
-  %512 = phi i16 [ %156, %190 ], [ %95, %93 ], [ %156, %154 ], [ %156, %507 ], [ %156, %509 ]
+  %512 = phi i16 [ %156, %190 ], [ %156, %154 ], [ %95, %93 ], [ %156, %507 ], [ %156, %509 ]
   %513 = add nsw i64 %94, -1
   %514 = icmp eq i64 %94, 0
   br i1 %514, label %515, label %93, !llvm.loop !50
@@ -3507,8 +3507,8 @@ minstrel_ht_sort_best_tp_rates.exit97:            ; preds = %811, %813
   br label %1036
 
 1036:                                             ; preds = %931, %1034, %1030, %1027, %926, %860
-  %1037 = phi i16 [ %861, %860 ], [ %861, %1027 ], [ %861, %1030 ], [ %861, %926 ], [ %871, %1034 ], [ %861, %931 ]
-  %1038 = phi i16 [ %863, %860 ], [ %986, %1027 ], [ %1032, %1030 ], [ %863, %926 ], [ %1035, %1034 ], [ %863, %931 ]
+  %1037 = phi i16 [ %861, %860 ], [ %861, %931 ], [ %861, %1027 ], [ %861, %1030 ], [ %861, %926 ], [ %871, %1034 ]
+  %1038 = phi i16 [ %863, %860 ], [ %863, %931 ], [ %986, %1027 ], [ %1032, %1030 ], [ %863, %926 ], [ %1035, %1034 ]
   %1039 = add nuw nsw i64 %862, 1
   %1040 = icmp eq i64 %1039, 10
   br i1 %1040, label %.loopexit113, label %860, !llvm.loop !53
@@ -4200,8 +4200,8 @@ minstrel_ht_sort_best_tp_rates.exit97:            ; preds = %811, %813
   br label %.thread99
 
 .thread99:                                        ; preds = %1430, %1486, %1396, %1502, %1508, %1498, %.thread100
-  %.ph = phi i32 [ %1397, %.thread100 ], [ %1397, %1498 ], [ %1509, %1508 ], [ %1397, %1502 ], [ %1397, %1396 ], [ %1397, %1486 ], [ %1397, %1430 ]
-  %.ph104 = phi i32 [ %1400, %.thread100 ], [ %1400, %1498 ], [ %1513, %1508 ], [ %1400, %1502 ], [ %1400, %1396 ], [ %1400, %1486 ], [ %1400, %1430 ]
+  %.ph = phi i32 [ %1397, %1486 ], [ %1397, %.thread100 ], [ %1397, %1396 ], [ %1397, %1498 ], [ %1509, %1508 ], [ %1397, %1502 ], [ %1397, %1430 ]
+  %.ph104 = phi i32 [ %1400, %1486 ], [ %1400, %.thread100 ], [ %1400, %1396 ], [ %1400, %1498 ], [ %1513, %1508 ], [ %1400, %1502 ], [ %1400, %1430 ]
   %1514 = add nuw nsw i32 %1399, 1
   %1515 = icmp eq i32 %1514, 42
   br i1 %1515, label %.thread108, label %1396, !llvm.loop !63

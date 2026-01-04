@@ -293,7 +293,7 @@ land.rhs20:                                       ; preds = %_ZN5eastl16late_con
   br label %land.end22
 
 land.end22:                                       ; preds = %land.rhs20, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EE3getEv.exit
-  %13 = phi i1 [ false, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EE3getEv.exit ], [ %cmp21, %land.rhs20 ]
+  %13 = phi i1 [ %cmp21, %land.rhs20 ], [ false, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EE3getEv.exit ]
   %call23 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %13, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 205, ptr noundef nonnull @.str.10)
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gLCTestObjectTrueTrue, i64 64), align 64
   %tobool.not.i106 = icmp eq ptr %14, null
@@ -349,7 +349,7 @@ land.rhs32:                                       ; preds = %_ZN5eastl16late_con
   br label %land.end34
 
 land.end34:                                       ; preds = %land.rhs32, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EEptEv.exit114
-  %25 = phi i1 [ false, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EEptEv.exit114 ], [ %cmp33, %land.rhs32 ]
+  %25 = phi i1 [ %cmp33, %land.rhs32 ], [ false, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EEptEv.exit114 ]
   %call35 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %25, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 209, ptr noundef nonnull @.str.10)
   %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gLCTestObjectTrueTrue, i64 64), align 64
   %tobool.not.i115 = icmp eq ptr %26, null
@@ -379,7 +379,7 @@ land.rhs39:                                       ; preds = %_ZN5eastl16late_con
   br label %land.end41
 
 land.end41:                                       ; preds = %land.rhs39, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EE8destructEv.exit
-  %31 = phi i1 [ false, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EE8destructEv.exit ], [ %cmp40, %land.rhs39 ]
+  %31 = phi i1 [ %cmp40, %land.rhs39 ], [ false, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EE8destructEv.exit ]
   %call42 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %31, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 212, ptr noundef nonnull @.str.12)
   %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gLCTestObjectTrueTrue, i64 64), align 64
   %cmp.i116.not = icmp eq ptr %32, null
@@ -441,7 +441,7 @@ land.rhs57:                                       ; preds = %_ZN5eastl16late_con
   br label %land.end59
 
 land.end59:                                       ; preds = %land.rhs57, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EEptEv.exit126
-  %45 = phi i1 [ false, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EEptEv.exit126 ], [ %cmp58, %land.rhs57 ]
+  %45 = phi i1 [ %cmp58, %land.rhs57 ], [ false, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EEptEv.exit126 ]
   %call60 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %45, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 218, ptr noundef nonnull @.str.14)
   %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gLCTestObjectTrueTrue, i64 64), align 64
   %tobool.not.i128 = icmp eq ptr %46, null
@@ -478,7 +478,7 @@ land.rhs70:                                       ; preds = %_ZN5eastl16late_con
   br label %land.end72
 
 land.end72:                                       ; preds = %land.rhs70, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EEptEv.exit141
-  %53 = phi i1 [ false, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EEptEv.exit141 ], [ %cmp71, %land.rhs70 ]
+  %53 = phi i1 [ %cmp71, %land.rhs70 ], [ false, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EEptEv.exit141 ]
   %call73 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %53, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 223, ptr noundef nonnull @.str.16)
   %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gLCTestObjectTrueTrue, i64 64), align 64
   %tobool.not.i142 = icmp eq ptr %54, null
@@ -515,7 +515,7 @@ land.rhs93:                                       ; preds = %_ZN5eastl16late_con
   br label %land.end95
 
 land.end95:                                       ; preds = %land.rhs93, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EE8destructEv.exit146
-  %61 = phi i1 [ false, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EE8destructEv.exit146 ], [ %cmp94, %land.rhs93 ]
+  %61 = phi i1 [ %cmp94, %land.rhs93 ], [ false, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EE8destructEv.exit146 ]
   %call96 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %61, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 237, ptr noundef nonnull @.str.6)
   %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gLCTestObjectFalseTrue, i64 64), align 64
   %tobool.not.i149 = icmp eq ptr %62, null
@@ -550,7 +550,7 @@ land.rhs105:                                      ; preds = %_ZN5eastl16late_con
   br label %land.end107
 
 land.end107:                                      ; preds = %land.rhs105, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EE9constructIJEEEvDpOT_.exit
-  %69 = phi i1 [ false, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EE9constructIJEEEvDpOT_.exit ], [ %cmp106, %land.rhs105 ]
+  %69 = phi i1 [ %cmp106, %land.rhs105 ], [ false, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EE9constructIJEEEvDpOT_.exit ]
   %call108 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %69, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 243, ptr noundef nonnull @.str.10)
   %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gLCTestObjectFalseTrue, i64 64), align 64
   store i32 17, ptr %70, align 64
@@ -571,7 +571,7 @@ land.rhs118:                                      ; preds = %land.end107
   br label %land.end120
 
 land.end120:                                      ; preds = %land.rhs118, %land.end107
-  %76 = phi i1 [ false, %land.end107 ], [ %cmp119, %land.rhs118 ]
+  %76 = phi i1 [ %cmp119, %land.rhs118 ], [ false, %land.end107 ]
   %call121 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %76, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 247, ptr noundef nonnull @.str.10)
   %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gLCTestObjectFalseTrue, i64 64), align 64
   %tobool.not.i153 = icmp eq ptr %77, null
@@ -601,7 +601,7 @@ land.rhs125:                                      ; preds = %_ZN5eastl16late_con
   br label %land.end127
 
 land.end127:                                      ; preds = %land.rhs125, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EE8destructEv.exit157
-  %82 = phi i1 [ false, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EE8destructEv.exit157 ], [ %cmp126, %land.rhs125 ]
+  %82 = phi i1 [ %cmp126, %land.rhs125 ], [ false, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EE8destructEv.exit157 ]
   %call128 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %82, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 250, ptr noundef nonnull @.str.12)
   %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gLCTestObjectFalseTrue, i64 64), align 64
   %cmp.i158.not = icmp eq ptr %83, null
@@ -651,7 +651,7 @@ land.rhs147:                                      ; preds = %_ZN5eastl16late_con
   br label %land.end149
 
 land.end149:                                      ; preds = %land.rhs147, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EE9constructIJiEEEvDpOT_.exit
-  %95 = phi i1 [ false, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EE9constructIJiEEEvDpOT_.exit ], [ %cmp148, %land.rhs147 ]
+  %95 = phi i1 [ %cmp148, %land.rhs147 ], [ false, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EE9constructIJiEEEvDpOT_.exit ]
   %call150 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %95, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 258, ptr noundef nonnull @.str.14)
   %96 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gLCTestObjectFalseTrue, i64 64), align 64
   %tobool.not.i164 = icmp eq ptr %96, null
@@ -694,7 +694,7 @@ land.rhs167:                                      ; preds = %_ZN5eastl16late_con
   br label %land.end169
 
 land.end169:                                      ; preds = %land.rhs167, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EE9constructIJiiiEEEvDpOT_.exit
-  %106 = phi i1 [ false, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EE9constructIJiiiEEEvDpOT_.exit ], [ %cmp168, %land.rhs167 ]
+  %106 = phi i1 [ %cmp168, %land.rhs167 ], [ false, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EE9constructIJiiiEEEvDpOT_.exit ]
   %call170 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %106, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 265, ptr noundef nonnull @.str.16)
   %107 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gLCTestObjectFalseTrue, i64 64), align 64
   %tobool.not.i172 = icmp eq ptr %107, null
@@ -745,7 +745,7 @@ land.rhs190:                                      ; preds = %_ZN5eastl16late_con
   br label %land.end192
 
 land.end192:                                      ; preds = %land.rhs190, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EE3getEv.exit
-  %116 = phi i1 [ false, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EE3getEv.exit ], [ %cmp191, %land.rhs190 ]
+  %116 = phi i1 [ %cmp191, %land.rhs190 ], [ false, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EE3getEv.exit ]
   %call193 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %116, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 291, ptr noundef nonnull @.str.10)
   %117 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gLCTestObjectTrueFalse, i64 64), align 64
   %tobool.not.i182 = icmp eq ptr %117, null
@@ -801,7 +801,7 @@ land.rhs203:                                      ; preds = %_ZN5eastl16late_con
   br label %land.end205
 
 land.end205:                                      ; preds = %land.rhs203, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EEptEv.exit190
-  %128 = phi i1 [ false, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EEptEv.exit190 ], [ %cmp204, %land.rhs203 ]
+  %128 = phi i1 [ %cmp204, %land.rhs203 ], [ false, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EEptEv.exit190 ]
   %call206 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %128, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 295, ptr noundef nonnull @.str.10)
   %129 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gLCTestObjectTrueFalse, i64 64), align 64
   %tobool.not.i191 = icmp eq ptr %129, null
@@ -831,7 +831,7 @@ land.rhs210:                                      ; preds = %_ZN5eastl16late_con
   br label %land.end212
 
 land.end212:                                      ; preds = %land.rhs210, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EE8destructEv.exit
-  %134 = phi i1 [ false, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EE8destructEv.exit ], [ %cmp211, %land.rhs210 ]
+  %134 = phi i1 [ %cmp211, %land.rhs210 ], [ false, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EE8destructEv.exit ]
   %call213 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %134, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 298, ptr noundef nonnull @.str.12)
   %135 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gLCTestObjectTrueFalse, i64 64), align 64
   %cmp.i195.not = icmp eq ptr %135, null
@@ -893,7 +893,7 @@ land.rhs228:                                      ; preds = %_ZN5eastl16late_con
   br label %land.end230
 
 land.end230:                                      ; preds = %land.rhs228, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EEptEv.exit205
-  %148 = phi i1 [ false, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EEptEv.exit205 ], [ %cmp229, %land.rhs228 ]
+  %148 = phi i1 [ %cmp229, %land.rhs228 ], [ false, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EEptEv.exit205 ]
   %call231 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %148, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 304, ptr noundef nonnull @.str.14)
   %149 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gLCTestObjectTrueFalse, i64 64), align 64
   %tobool.not.i207 = icmp eq ptr %149, null
@@ -930,7 +930,7 @@ land.rhs241:                                      ; preds = %_ZN5eastl16late_con
   br label %land.end243
 
 land.end243:                                      ; preds = %land.rhs241, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EEptEv.exit220
-  %156 = phi i1 [ false, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EEptEv.exit220 ], [ %cmp242, %land.rhs241 ]
+  %156 = phi i1 [ %cmp242, %land.rhs241 ], [ false, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EEptEv.exit220 ]
   %call244 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %156, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 309, ptr noundef nonnull @.str.16)
   %157 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gLCTestObjectTrueFalse, i64 64), align 64
   %tobool.not.i221 = icmp eq ptr %157, null
@@ -967,7 +967,7 @@ land.rhs264:                                      ; preds = %_ZN5eastl16late_con
   br label %land.end266
 
 land.end266:                                      ; preds = %land.rhs264, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EE8destructEv.exit225
-  %164 = phi i1 [ false, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EE8destructEv.exit225 ], [ %cmp265, %land.rhs264 ]
+  %164 = phi i1 [ %cmp265, %land.rhs264 ], [ false, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EE8destructEv.exit225 ]
   %call267 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %164, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 323, ptr noundef nonnull @.str.6)
   %165 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gLCTestObjectFalseFalse, i64 64), align 64
   %tobool.not.i228 = icmp eq ptr %165, null
@@ -1002,7 +1002,7 @@ land.rhs276:                                      ; preds = %_ZN5eastl16late_con
   br label %land.end278
 
 land.end278:                                      ; preds = %land.rhs276, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EE9constructIJEEEvDpOT_.exit
-  %172 = phi i1 [ false, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EE9constructIJEEEvDpOT_.exit ], [ %cmp277, %land.rhs276 ]
+  %172 = phi i1 [ %cmp277, %land.rhs276 ], [ false, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EE9constructIJEEEvDpOT_.exit ]
   %call279 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %172, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 329, ptr noundef nonnull @.str.10)
   %173 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gLCTestObjectFalseFalse, i64 64), align 64
   store i32 17, ptr %173, align 64
@@ -1023,7 +1023,7 @@ land.rhs289:                                      ; preds = %land.end278
   br label %land.end291
 
 land.end291:                                      ; preds = %land.rhs289, %land.end278
-  %179 = phi i1 [ false, %land.end278 ], [ %cmp290, %land.rhs289 ]
+  %179 = phi i1 [ %cmp290, %land.rhs289 ], [ false, %land.end278 ]
   %call292 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %179, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 333, ptr noundef nonnull @.str.10)
   %180 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gLCTestObjectFalseFalse, i64 64), align 64
   %tobool.not.i233 = icmp eq ptr %180, null
@@ -1053,7 +1053,7 @@ land.rhs296:                                      ; preds = %_ZN5eastl16late_con
   br label %land.end298
 
 land.end298:                                      ; preds = %land.rhs296, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EE8destructEv.exit237
-  %185 = phi i1 [ false, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EE8destructEv.exit237 ], [ %cmp297, %land.rhs296 ]
+  %185 = phi i1 [ %cmp297, %land.rhs296 ], [ false, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EE8destructEv.exit237 ]
   %call299 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %185, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 336, ptr noundef nonnull @.str.12)
   %186 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gLCTestObjectFalseFalse, i64 64), align 64
   %cmp.i238.not = icmp eq ptr %186, null
@@ -1103,7 +1103,7 @@ land.rhs319:                                      ; preds = %_ZN5eastl16late_con
   br label %land.end321
 
 land.end321:                                      ; preds = %land.rhs319, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EE9constructIJiEEEvDpOT_.exit
-  %198 = phi i1 [ false, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EE9constructIJiEEEvDpOT_.exit ], [ %cmp320, %land.rhs319 ]
+  %198 = phi i1 [ %cmp320, %land.rhs319 ], [ false, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EE9constructIJiEEEvDpOT_.exit ]
   %call322 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %198, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 344, ptr noundef nonnull @.str.14)
   %199 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gLCTestObjectFalseFalse, i64 64), align 64
   %tobool.not.i244 = icmp eq ptr %199, null
@@ -1146,7 +1146,7 @@ land.rhs339:                                      ; preds = %_ZN5eastl16late_con
   br label %land.end341
 
 land.end341:                                      ; preds = %land.rhs339, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EE9constructIJiiiEEEvDpOT_.exit
-  %209 = phi i1 [ false, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EE9constructIJiiiEEEvDpOT_.exit ], [ %cmp340, %land.rhs339 ]
+  %209 = phi i1 [ %cmp340, %land.rhs339 ], [ false, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EE9constructIJiiiEEEvDpOT_.exit ]
   %call342 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %209, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 351, ptr noundef nonnull @.str.16)
   %210 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gLCTestObjectFalseFalse, i64 64), align 64
   %tobool.not.i255 = icmp eq ptr %210, null
@@ -1981,8 +1981,8 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i73:   ; preds = %for.inc35
   ret i32 %7
 
 eh.resume:                                        ; preds = %lpad16, %_ZN5eastl6vectorI11ValueInitOfIiENS_9allocatorEED2Ev.exit71, %ehcleanup.thread, %ehcleanup
-  %call.i.i.i.i.i11.sink = phi ptr [ %call.i.i.i.i.i11, %ehcleanup ], [ %call.i.i.i.i.i11, %ehcleanup.thread ], [ %call.i.i.i.i.i, %_ZN5eastl6vectorI11ValueInitOfIiENS_9allocatorEED2Ev.exit71 ], [ %call.i.i.i.i.i, %lpad16 ]
-  %.pn8.pn = phi { ptr, i32 } [ %lpad.thr_comm, %ehcleanup ], [ %lpad.thr_comm.split-lp, %ehcleanup.thread ], [ %5, %_ZN5eastl6vectorI11ValueInitOfIiENS_9allocatorEED2Ev.exit71 ], [ %4, %lpad16 ]
+  %call.i.i.i.i.i11.sink = phi ptr [ %call.i.i.i.i.i11, %ehcleanup.thread ], [ %call.i.i.i.i.i11, %ehcleanup ], [ %call.i.i.i.i.i, %_ZN5eastl6vectorI11ValueInitOfIiENS_9allocatorEED2Ev.exit71 ], [ %call.i.i.i.i.i, %lpad16 ]
+  %.pn8.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %ehcleanup.thread ], [ %lpad.thr_comm, %ehcleanup ], [ %5, %_ZN5eastl6vectorI11ValueInitOfIiENS_9allocatorEED2Ev.exit71 ], [ %4, %lpad16 ]
   call void @_ZdaPv(ptr noundef nonnull %call.i.i.i.i.i11.sink) #10
   resume { ptr, i32 } %.pn8.pn
 }
@@ -2075,8 +2075,8 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i70:   ; preds = %for.inc39
   ret i32 %7
 
 eh.resume:                                        ; preds = %lpad18, %_ZN5eastl6vectorI11ValueInitOfIcENS_9allocatorEED2Ev.exit68, %ehcleanup.thread, %ehcleanup
-  %call.i.i.i.i.i11.sink = phi ptr [ %call.i.i.i.i.i11, %ehcleanup ], [ %call.i.i.i.i.i11, %ehcleanup.thread ], [ %call.i.i.i.i.i, %_ZN5eastl6vectorI11ValueInitOfIcENS_9allocatorEED2Ev.exit68 ], [ %call.i.i.i.i.i, %lpad18 ]
-  %.pn8.pn = phi { ptr, i32 } [ %lpad.thr_comm, %ehcleanup ], [ %lpad.thr_comm.split-lp, %ehcleanup.thread ], [ %5, %_ZN5eastl6vectorI11ValueInitOfIcENS_9allocatorEED2Ev.exit68 ], [ %4, %lpad18 ]
+  %call.i.i.i.i.i11.sink = phi ptr [ %call.i.i.i.i.i11, %ehcleanup.thread ], [ %call.i.i.i.i.i11, %ehcleanup ], [ %call.i.i.i.i.i, %_ZN5eastl6vectorI11ValueInitOfIcENS_9allocatorEED2Ev.exit68 ], [ %call.i.i.i.i.i, %lpad18 ]
+  %.pn8.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %ehcleanup.thread ], [ %lpad.thr_comm, %ehcleanup ], [ %5, %_ZN5eastl6vectorI11ValueInitOfIcENS_9allocatorEED2Ev.exit68 ], [ %4, %lpad18 ]
   call void @_ZdaPv(ptr noundef nonnull %call.i.i.i.i.i11.sink) #10
   resume { ptr, i32 } %.pn8.pn
 }
@@ -2169,8 +2169,8 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i72:   ; preds = %for.inc39
   ret i32 %7
 
 eh.resume:                                        ; preds = %lpad18, %_ZN5eastl6vectorI11ValueInitOfIsENS_9allocatorEED2Ev.exit70, %ehcleanup.thread, %ehcleanup
-  %call.i.i.i.i.i11.sink = phi ptr [ %call.i.i.i.i.i11, %ehcleanup ], [ %call.i.i.i.i.i11, %ehcleanup.thread ], [ %call.i.i.i.i.i, %_ZN5eastl6vectorI11ValueInitOfIsENS_9allocatorEED2Ev.exit70 ], [ %call.i.i.i.i.i, %lpad18 ]
-  %.pn8.pn = phi { ptr, i32 } [ %lpad.thr_comm, %ehcleanup ], [ %lpad.thr_comm.split-lp, %ehcleanup.thread ], [ %5, %_ZN5eastl6vectorI11ValueInitOfIsENS_9allocatorEED2Ev.exit70 ], [ %4, %lpad18 ]
+  %call.i.i.i.i.i11.sink = phi ptr [ %call.i.i.i.i.i11, %ehcleanup.thread ], [ %call.i.i.i.i.i11, %ehcleanup ], [ %call.i.i.i.i.i, %_ZN5eastl6vectorI11ValueInitOfIsENS_9allocatorEED2Ev.exit70 ], [ %call.i.i.i.i.i, %lpad18 ]
+  %.pn8.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %ehcleanup.thread ], [ %lpad.thr_comm, %ehcleanup ], [ %5, %_ZN5eastl6vectorI11ValueInitOfIsENS_9allocatorEED2Ev.exit70 ], [ %4, %lpad18 ]
   call void @_ZdaPv(ptr noundef nonnull %call.i.i.i.i.i11.sink) #10
   resume { ptr, i32 } %.pn8.pn
 }
@@ -2263,8 +2263,8 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i73:   ; preds = %for.inc35
   ret i32 %7
 
 eh.resume:                                        ; preds = %lpad16, %_ZN5eastl6vectorI11ValueInitOfIfENS_9allocatorEED2Ev.exit71, %ehcleanup.thread, %ehcleanup
-  %call.i.i.i.i.i11.sink = phi ptr [ %call.i.i.i.i.i11, %ehcleanup ], [ %call.i.i.i.i.i11, %ehcleanup.thread ], [ %call.i.i.i.i.i, %_ZN5eastl6vectorI11ValueInitOfIfENS_9allocatorEED2Ev.exit71 ], [ %call.i.i.i.i.i, %lpad16 ]
-  %.pn8.pn = phi { ptr, i32 } [ %lpad.thr_comm, %ehcleanup ], [ %lpad.thr_comm.split-lp, %ehcleanup.thread ], [ %5, %_ZN5eastl6vectorI11ValueInitOfIfENS_9allocatorEED2Ev.exit71 ], [ %4, %lpad16 ]
+  %call.i.i.i.i.i11.sink = phi ptr [ %call.i.i.i.i.i11, %ehcleanup.thread ], [ %call.i.i.i.i.i11, %ehcleanup ], [ %call.i.i.i.i.i, %_ZN5eastl6vectorI11ValueInitOfIfENS_9allocatorEED2Ev.exit71 ], [ %call.i.i.i.i.i, %lpad16 ]
+  %.pn8.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %ehcleanup.thread ], [ %lpad.thr_comm, %ehcleanup ], [ %5, %_ZN5eastl6vectorI11ValueInitOfIfENS_9allocatorEED2Ev.exit71 ], [ %4, %lpad16 ]
   call void @_ZdaPv(ptr noundef nonnull %call.i.i.i.i.i11.sink) #10
   resume { ptr, i32 } %.pn8.pn
 }
@@ -2357,8 +2357,8 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i73:   ; preds = %for.inc35
   ret i32 %7
 
 eh.resume:                                        ; preds = %lpad16, %_ZN5eastl6vectorI11ValueInitOfIdENS_9allocatorEED2Ev.exit71, %ehcleanup.thread, %ehcleanup
-  %call.i.i.i.i.i11.sink = phi ptr [ %call.i.i.i.i.i11, %ehcleanup ], [ %call.i.i.i.i.i11, %ehcleanup.thread ], [ %call.i.i.i.i.i, %_ZN5eastl6vectorI11ValueInitOfIdENS_9allocatorEED2Ev.exit71 ], [ %call.i.i.i.i.i, %lpad16 ]
-  %.pn8.pn = phi { ptr, i32 } [ %lpad.thr_comm, %ehcleanup ], [ %lpad.thr_comm.split-lp, %ehcleanup.thread ], [ %5, %_ZN5eastl6vectorI11ValueInitOfIdENS_9allocatorEED2Ev.exit71 ], [ %4, %lpad16 ]
+  %call.i.i.i.i.i11.sink = phi ptr [ %call.i.i.i.i.i11, %ehcleanup.thread ], [ %call.i.i.i.i.i11, %ehcleanup ], [ %call.i.i.i.i.i, %_ZN5eastl6vectorI11ValueInitOfIdENS_9allocatorEED2Ev.exit71 ], [ %call.i.i.i.i.i, %lpad16 ]
+  %.pn8.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %ehcleanup.thread ], [ %lpad.thr_comm, %ehcleanup ], [ %5, %_ZN5eastl6vectorI11ValueInitOfIdENS_9allocatorEED2Ev.exit71 ], [ %4, %lpad16 ]
   call void @_ZdaPv(ptr noundef nonnull %call.i.i.i.i.i11.sink) #10
   resume { ptr, i32 } %.pn8.pn
 }
@@ -2451,8 +2451,8 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i73:   ; preds = %for.inc35
   ret i32 %7
 
 eh.resume:                                        ; preds = %lpad16, %_ZN5eastl6vectorI11ValueInitOfIPvENS_9allocatorEED2Ev.exit71, %ehcleanup.thread, %ehcleanup
-  %call.i.i.i.i.i11.sink = phi ptr [ %call.i.i.i.i.i11, %ehcleanup ], [ %call.i.i.i.i.i11, %ehcleanup.thread ], [ %call.i.i.i.i.i, %_ZN5eastl6vectorI11ValueInitOfIPvENS_9allocatorEED2Ev.exit71 ], [ %call.i.i.i.i.i, %lpad16 ]
-  %.pn8.pn = phi { ptr, i32 } [ %lpad.thr_comm, %ehcleanup ], [ %lpad.thr_comm.split-lp, %ehcleanup.thread ], [ %5, %_ZN5eastl6vectorI11ValueInitOfIPvENS_9allocatorEED2Ev.exit71 ], [ %4, %lpad16 ]
+  %call.i.i.i.i.i11.sink = phi ptr [ %call.i.i.i.i.i11, %ehcleanup.thread ], [ %call.i.i.i.i.i11, %ehcleanup ], [ %call.i.i.i.i.i, %_ZN5eastl6vectorI11ValueInitOfIPvENS_9allocatorEED2Ev.exit71 ], [ %call.i.i.i.i.i, %lpad16 ]
+  %.pn8.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %ehcleanup.thread ], [ %lpad.thr_comm, %ehcleanup ], [ %5, %_ZN5eastl6vectorI11ValueInitOfIPvENS_9allocatorEED2Ev.exit71 ], [ %4, %lpad16 ]
   call void @_ZdaPv(ptr noundef nonnull %call.i.i.i.i.i11.sink) #10
   resume { ptr, i32 } %.pn8.pn
 }

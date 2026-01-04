@@ -194,9 +194,9 @@ files_fget_by_index.exit45.loopexit:              ; preds = %files_fget_by_index
   br label %files_fget_by_index.exit45
 
 files_fget_by_index.exit45:                       ; preds = %files_fget_by_index.exit45.loopexit, %54, %47
-  %.036 = phi ptr [ %52, %47 ], [ %52, %54 ], [ %33, %files_fget_by_index.exit45.loopexit ]
-  %.135.in = phi i64 [ %indvars.iv.next57, %47 ], [ %indvars.iv.next57, %54 ], [ %indvars.iv56, %files_fget_by_index.exit45.loopexit ]
-  %.2 = phi i32 [ 0, %47 ], [ 0, %54 ], [ %55, %files_fget_by_index.exit45.loopexit ]
+  %.036 = phi ptr [ %52, %54 ], [ %52, %47 ], [ %33, %files_fget_by_index.exit45.loopexit ]
+  %.135.in = phi i64 [ %indvars.iv.next57, %54 ], [ %indvars.iv.next57, %47 ], [ %indvars.iv56, %files_fget_by_index.exit45.loopexit ]
+  %.2 = phi i32 [ 0, %54 ], [ 0, %47 ], [ %55, %files_fget_by_index.exit45.loopexit ]
   %.135 = trunc i64 %.135.in to i32
   store i32 %2, ptr %.036, align 8
   %56 = getelementptr inbounds nuw i8, ptr %.036, i64 4
@@ -217,7 +217,7 @@ files_fget_by_index.exit45:                       ; preds = %files_fget_by_index
   br label %64
 
 64:                                               ; preds = %42, %16, %61
-  %.037 = phi i32 [ %63, %61 ], [ %19, %16 ], [ %45, %42 ]
+  %.037 = phi i32 [ %19, %16 ], [ %63, %61 ], [ %45, %42 ]
   ret i32 %.037
 }
 
@@ -356,7 +356,7 @@ up_irq_restore.exit59:                            ; preds = %43, %46
   br label %48
 
 48:                                               ; preds = %up_irq_restore.exit59, %47, %10, %7, %2, %._crit_edge, %._crit_edge67
-  %.043 = phi i32 [ -23, %._crit_edge67 ], [ 0, %._crit_edge ], [ 0, %2 ], [ -24, %7 ], [ -23, %10 ], [ 0, %47 ], [ 0, %up_irq_restore.exit59 ]
+  %.043 = phi i32 [ -23, %10 ], [ 0, %2 ], [ -24, %7 ], [ -23, %._crit_edge67 ], [ 0, %._crit_edge ], [ 0, %47 ], [ 0, %up_irq_restore.exit59 ]
   ret i32 %.043
 }
 
@@ -623,7 +623,7 @@ files_fget_by_index.exit34:                       ; preds = %94, %100
   br i1 %107, label %.preheader, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.split, %.thread36, %files_fget_by_index.exit34, %.split.us.us.split, %files_fget_by_index.exit34.us.us, %.thread36.us.us, %.split.us.us.split.us.us, %.thread36.us.us.us.us, %files_fget_by_index.exit34.us.us.us.us, %4
-  %.0 = phi i32 [ 0, %4 ], [ %35, %files_fget_by_index.exit34.us.us.us.us ], [ %25, %.thread36.us.us.us.us ], [ 0, %.split.us.us.split.us.us ], [ %70, %files_fget_by_index.exit34.us.us ], [ %60, %.thread36.us.us ], [ 0, %.split.us.us.split ], [ %102, %files_fget_by_index.exit34 ], [ %92, %.thread36 ], [ 0, %.split ]
+  %.0 = phi i32 [ 0, %.split.us.us.split.us.us ], [ %102, %files_fget_by_index.exit34 ], [ 0, %.split.us.us.split ], [ 0, %4 ], [ %70, %files_fget_by_index.exit34.us.us ], [ %35, %files_fget_by_index.exit34.us.us.us.us ], [ %25, %.thread36.us.us.us.us ], [ %60, %.thread36.us.us ], [ %92, %.thread36 ], [ 0, %.split ]
   ret i32 %.0
 }
 
@@ -685,7 +685,7 @@ files_fget.exit:                                  ; preds = %13, %22
   br label %28
 
 28:                                               ; preds = %files_fget.exit, %6, %8, %2
-  %.0 = phi i32 [ -11, %2 ], [ -9, %8 ], [ -9, %6 ], [ %spec.select, %files_fget.exit ]
+  %.0 = phi i32 [ -9, %6 ], [ -11, %2 ], [ %spec.select, %files_fget.exit ], [ -9, %8 ]
   ret i32 %.0
 }
 
@@ -786,7 +786,7 @@ files_fget.exit32:                                ; preds = %files_fget.exit, %4
   br label %50
 
 50:                                               ; preds = %20, %9, %16, %4, %files_fget.exit32
-  %.0 = phi i32 [ %49, %files_fget.exit32 ], [ %1, %4 ], [ -9, %16 ], [ -9, %9 ], [ %23, %20 ]
+  %.0 = phi i32 [ %49, %files_fget.exit32 ], [ %1, %4 ], [ -9, %9 ], [ -9, %16 ], [ %23, %20 ]
   ret i32 %.0
 }
 
@@ -887,7 +887,7 @@ files_fget.exit:                                  ; preds = %12, %21
   br label %29
 
 29:                                               ; preds = %files_fget.exit, %2, %7, %27
-  %.0 = phi i32 [ %28, %27 ], [ -9, %7 ], [ -9, %2 ], [ -9, %files_fget.exit ]
+  %.0 = phi i32 [ %28, %27 ], [ -9, %2 ], [ -9, %7 ], [ -9, %files_fget.exit ]
   ret i32 %.0
 }
 
@@ -951,7 +951,7 @@ files_fget.exit.i:                                ; preds = %21, %12
   br label %nx_close_from_tcb.exit
 
 nx_close_from_tcb.exit:                           ; preds = %1, %7, %files_fget.exit.i, %27
-  %.0.i = phi i32 [ %28, %27 ], [ -9, %7 ], [ -9, %1 ], [ -9, %files_fget.exit.i ]
+  %.0.i = phi i32 [ %28, %27 ], [ -9, %1 ], [ -9, %7 ], [ -9, %files_fget.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0.i
 }
@@ -1003,7 +1003,7 @@ files_fget.exit.i.i:                              ; preds = %21, %12
   %26 = icmp eq ptr %25, null
   br i1 %26, label %nx_close.exit.thread, label %nx_close.exit
 
-nx_close.exit.thread:                             ; preds = %7, %1, %files_fget.exit.i.i
+nx_close.exit.thread:                             ; preds = %1, %7, %files_fget.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %29
 

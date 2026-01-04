@@ -119,7 +119,7 @@ bn_rsa_fips186_5_aux_prime_max_sum_size_for_prob_primes.exit: ; preds = %48
   br label %bn_rsa_fips186_5_aux_prime_min_size.exit
 
 bn_rsa_fips186_5_aux_prime_min_size.exit:         ; preds = %39, %54, %bn_rsa_fips186_5_aux_prime_max_sum_size_for_prob_primes.exit, %46, %48, %44, %41, %29
-  %.069 = phi i32 [ 0, %29 ], [ 0, %bn_rsa_fips186_5_aux_prime_max_sum_size_for_prob_primes.exit ], [ 0, %48 ], [ 0, %46 ], [ 0, %44 ], [ 0, %41 ], [ %55, %54 ], [ 0, %39 ]
+  %.069 = phi i32 [ 0, %29 ], [ 0, %44 ], [ 0, %bn_rsa_fips186_5_aux_prime_max_sum_size_for_prob_primes.exit ], [ 0, %41 ], [ %55, %54 ], [ 0, %48 ], [ 0, %46 ], [ 0, %39 ]
   br i1 %.not, label %56, label %57
 
 56:                                               ; preds = %bn_rsa_fips186_5_aux_prime_min_size.exit
@@ -379,7 +379,7 @@ define range(i32 0, 2) i32 @ossl_bn_rsa_fips186_4_derive_prime(ptr noundef %0, p
   br label %.loopexit
 
 .loopexit:                                        ; preds = %82, %68, %72, %76, %67, %61, %63, %.critedge, %59, %51, %35, %37, %39, %41, %43, %45, %47, %26, %30, %33, %23, %20, %9, %85, %81
-  %.095 = phi i32 [ 0, %9 ], [ 0, %20 ], [ 0, %23 ], [ 0, %81 ], [ 1, %85 ], [ 0, %51 ], [ 0, %47 ], [ 0, %45 ], [ 0, %43 ], [ 0, %41 ], [ 0, %39 ], [ 0, %37 ], [ 0, %35 ], [ 0, %33 ], [ 0, %30 ], [ 0, %26 ], [ 0, %59 ], [ 0, %.critedge ], [ 0, %63 ], [ 0, %61 ], [ 0, %67 ], [ 0, %76 ], [ 0, %72 ], [ 0, %68 ], [ 0, %82 ]
+  %.095 = phi i32 [ 0, %9 ], [ 0, %20 ], [ 0, %23 ], [ 0, %43 ], [ 0, %35 ], [ 0, %81 ], [ 0, %33 ], [ 1, %85 ], [ 0, %30 ], [ 0, %26 ], [ 0, %41 ], [ 0, %39 ], [ 0, %37 ], [ 0, %.critedge ], [ 0, %51 ], [ 0, %47 ], [ 0, %45 ], [ 0, %63 ], [ 0, %61 ], [ 0, %67 ], [ 0, %59 ], [ 0, %76 ], [ 0, %72 ], [ 0, %68 ], [ 0, %82 ]
   tail call void @BN_clear(ptr noundef %16) #3
   tail call void @BN_CTX_end(ptr noundef %7) #3
   ret i32 %.095

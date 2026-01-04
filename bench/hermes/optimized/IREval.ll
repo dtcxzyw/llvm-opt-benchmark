@@ -141,7 +141,7 @@ sw.bb9.i.i40:                                     ; preds = %sw.bb32
   br label %_ZN6hermes13evalToBooleanERNS_9IRBuilderEPNS_7LiteralE.exit.i45
 
 _ZN6hermes13evalToBooleanERNS_9IRBuilderEPNS_7LiteralE.exit.i45: ; preds = %sw.bb9.i.i40, %sw.bb4.i.i53, %sw.bb1.i.i55, %sw.bb32, %sw.bb32
-  %value.0.shrunk.i.i46 = phi i1 [ %tobool.i.i.i57, %sw.bb1.i.i55 ], [ %8, %sw.bb4.i.i53 ], [ %cmp.i.i.i44, %sw.bb9.i.i40 ], [ false, %sw.bb32 ], [ false, %sw.bb32 ]
+  %value.0.shrunk.i.i46 = phi i1 [ %cmp.i.i.i44, %sw.bb9.i.i40 ], [ %tobool.i.i.i57, %sw.bb1.i.i55 ], [ %8, %sw.bb4.i.i53 ], [ false, %sw.bb32 ], [ false, %sw.bb32 ]
   %call15.i.i47 = tail call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder, i1 noundef zeroext %value.0.shrunk.i.i46) #6
   %tobool.not.i48 = icmp eq ptr %call15.i.i47, null
   br i1 %tobool.not.i48, label %if.end36thread-pre-split, label %_ZN6hermes10evalIsTrueERNS_9IRBuilderEPNS_7LiteralE.exit58
@@ -191,7 +191,7 @@ sw.bb9.i.i59:                                     ; preds = %if.end36
   br label %_ZN6hermes13evalToBooleanERNS_9IRBuilderEPNS_7LiteralE.exit.i64
 
 _ZN6hermes13evalToBooleanERNS_9IRBuilderEPNS_7LiteralE.exit.i64: ; preds = %sw.bb9.i.i59, %sw.bb4.i.i72, %sw.bb1.i.i74, %if.end36, %if.end36
-  %value.0.shrunk.i.i65 = phi i1 [ %tobool.i.i.i76, %sw.bb1.i.i74 ], [ %14, %sw.bb4.i.i72 ], [ %cmp.i.i.i63, %sw.bb9.i.i59 ], [ false, %if.end36 ], [ false, %if.end36 ]
+  %value.0.shrunk.i.i65 = phi i1 [ %cmp.i.i.i63, %sw.bb9.i.i59 ], [ %tobool.i.i.i76, %sw.bb1.i.i74 ], [ %14, %sw.bb4.i.i72 ], [ false, %if.end36 ], [ false, %if.end36 ]
   %call15.i.i66 = tail call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder, i1 noundef zeroext %value.0.shrunk.i.i65) #6
   %tobool.not.i67 = icmp eq ptr %call15.i.i66, null
   br i1 %tobool.not.i67, label %return, label %_ZN6hermes11evalIsFalseERNS_9IRBuilderEPNS_7LiteralE.exit
@@ -243,7 +243,7 @@ if.then15.i:                                      ; preds = %if.end6.i
   br label %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit
 
 _ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit: ; preds = %if.then3.i, %if.then9.i, %if.then15.i
-  %retval.0.i79 = phi ptr [ %call5.i, %if.then3.i ], [ %call10.i, %if.then9.i ], [ %call16.i, %if.then15.i ]
+  %retval.0.i79 = phi ptr [ %call16.i, %if.then15.i ], [ %call5.i, %if.then3.i ], [ %call10.i, %if.then9.i ]
   %tobool46.not = icmp eq ptr %retval.0.i79, null
   br i1 %tobool46.not, label %return, label %if.then47
 
@@ -288,7 +288,7 @@ if.then15.i91:                                    ; preds = %if.end6.i87
   br label %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit95
 
 _ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit95: ; preds = %if.then3.i81, %if.then9.i93, %if.then15.i91
-  %retval.0.i86 = phi ptr [ %call5.i85, %if.then3.i81 ], [ %call10.i94, %if.then9.i93 ], [ %call16.i92, %if.then15.i91 ]
+  %retval.0.i86 = phi ptr [ %call16.i92, %if.then15.i91 ], [ %call5.i85, %if.then3.i81 ], [ %call10.i94, %if.then9.i93 ]
   %tobool54.not = icmp eq ptr %retval.0.i86, null
   br i1 %tobool54.not, label %return, label %if.then55
 
@@ -301,7 +301,7 @@ if.then55:                                        ; preds = %sw.bb51, %_ZN6herme
   br label %return
 
 return:                                           ; preds = %if.end6.i87, %if.end6.i, %if.end36, %_ZN6hermes13evalToBooleanERNS_9IRBuilderEPNS_7LiteralE.exit.i64, %sw.bb, %sw.bb14, %_ZN6hermes11evalIsFalseERNS_9IRBuilderEPNS_7LiteralE.exit, %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit, %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit95, %entry, %if.then55, %if.then47, %sw.bb41, %if.then38, %if.then34, %_ZN4llvh9StringRefC2EPKc.exit100, %_ZN4llvh9StringRefC2EPKc.exit90, %_ZN4llvh9StringRefC2EPKc.exit80, %_ZN4llvh9StringRefC2EPKc.exit70, %_ZN4llvh9StringRefC2EPKc.exit, %sw.bb12, %if.else, %if.then9, %sw.bb5, %if.then
-  %retval.0 = phi ptr [ %call4, %if.then ], [ %call6, %sw.bb5 ], [ %call10, %if.then9 ], [ %call11, %if.else ], [ %call13, %sw.bb12 ], [ %call17, %_ZN4llvh9StringRefC2EPKc.exit ], [ %call20, %_ZN4llvh9StringRefC2EPKc.exit70 ], [ %call23, %_ZN4llvh9StringRefC2EPKc.exit80 ], [ %call26, %_ZN4llvh9StringRefC2EPKc.exit90 ], [ %call29, %_ZN4llvh9StringRefC2EPKc.exit100 ], [ %call35, %if.then34 ], [ %call39, %if.then38 ], [ %call42, %sw.bb41 ], [ %call49, %if.then47 ], [ %call57, %if.then55 ], [ null, %entry ], [ null, %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit95 ], [ null, %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit ], [ null, %_ZN6hermes11evalIsFalseERNS_9IRBuilderEPNS_7LiteralE.exit ], [ null, %sw.bb14 ], [ null, %sw.bb ], [ null, %_ZN6hermes13evalToBooleanERNS_9IRBuilderEPNS_7LiteralE.exit.i64 ], [ null, %if.end36 ], [ null, %if.end6.i ], [ null, %if.end6.i87 ]
+  %retval.0 = phi ptr [ %call57, %if.then55 ], [ %call4, %if.then ], [ %call6, %sw.bb5 ], [ %call10, %if.then9 ], [ %call11, %if.else ], [ %call13, %sw.bb12 ], [ %call17, %_ZN4llvh9StringRefC2EPKc.exit ], [ %call20, %_ZN4llvh9StringRefC2EPKc.exit70 ], [ %call23, %_ZN4llvh9StringRefC2EPKc.exit80 ], [ %call26, %_ZN4llvh9StringRefC2EPKc.exit90 ], [ %call29, %_ZN4llvh9StringRefC2EPKc.exit100 ], [ %call35, %if.then34 ], [ %call39, %if.then38 ], [ %call42, %sw.bb41 ], [ %call49, %if.then47 ], [ null, %entry ], [ null, %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit95 ], [ null, %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit ], [ null, %_ZN6hermes11evalIsFalseERNS_9IRBuilderEPNS_7LiteralE.exit ], [ null, %sw.bb14 ], [ null, %if.end6.i87 ], [ null, %sw.bb ], [ null, %if.end6.i ], [ null, %if.end36 ], [ null, %_ZN6hermes13evalToBooleanERNS_9IRBuilderEPNS_7LiteralE.exit.i64 ]
   ret ptr %retval.0
 }
 
@@ -342,7 +342,7 @@ sw.bb9.i:                                         ; preds = %entry
   br label %_ZN6hermes13evalToBooleanERNS_9IRBuilderEPNS_7LiteralE.exit
 
 _ZN6hermes13evalToBooleanERNS_9IRBuilderEPNS_7LiteralE.exit: ; preds = %entry, %entry, %sw.bb1.i, %sw.bb4.i, %sw.bb9.i
-  %value.0.shrunk.i = phi i1 [ %tobool.i.i, %sw.bb1.i ], [ %3, %sw.bb4.i ], [ %cmp.i.i, %sw.bb9.i ], [ false, %entry ], [ false, %entry ]
+  %value.0.shrunk.i = phi i1 [ %cmp.i.i, %sw.bb9.i ], [ %tobool.i.i, %sw.bb1.i ], [ %3, %sw.bb4.i ], [ false, %entry ], [ false, %entry ]
   %call15.i = tail call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder, i1 noundef zeroext %value.0.shrunk.i) #6
   %tobool.not = icmp eq ptr %call15.i, null
   br i1 %tobool.not, label %return, label %if.then
@@ -397,7 +397,7 @@ sw.bb9.i:                                         ; preds = %entry
   br label %_ZN6hermes13evalToBooleanERNS_9IRBuilderEPNS_7LiteralE.exit
 
 _ZN6hermes13evalToBooleanERNS_9IRBuilderEPNS_7LiteralE.exit: ; preds = %entry, %entry, %sw.bb1.i, %sw.bb4.i, %sw.bb9.i
-  %value.0.shrunk.i = phi i1 [ %tobool.i.i, %sw.bb1.i ], [ %3, %sw.bb4.i ], [ %cmp.i.i, %sw.bb9.i ], [ false, %entry ], [ false, %entry ]
+  %value.0.shrunk.i = phi i1 [ %cmp.i.i, %sw.bb9.i ], [ %tobool.i.i, %sw.bb1.i ], [ %3, %sw.bb4.i ], [ false, %entry ], [ false, %entry ]
   %call15.i = tail call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder, i1 noundef zeroext %value.0.shrunk.i) #6
   %tobool.not = icmp eq ptr %call15.i, null
   br i1 %tobool.not, label %return, label %if.then
@@ -451,7 +451,7 @@ if.then15:                                        ; preds = %if.end6
   br label %return
 
 return:                                           ; preds = %entry, %if.end6, %if.then15, %if.then9, %if.then3
-  %retval.0 = phi ptr [ %call5, %if.then3 ], [ %call10, %if.then9 ], [ %call16, %if.then15 ], [ %operand, %entry ], [ null, %if.end6 ]
+  %retval.0 = phi ptr [ %operand, %entry ], [ %call5, %if.then3 ], [ %call10, %if.then9 ], [ %call16, %if.then15 ], [ null, %if.end6 ]
   ret ptr %retval.0
 }
 
@@ -1043,7 +1043,7 @@ if.then15.i:                                      ; preds = %if.end6.i346
   br label %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit
 
 _ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit: ; preds = %sw.bb281, %if.then3.i, %if.end6.i346, %if.then9.i, %if.then15.i
-  %retval.0.i345 = phi ptr [ %call5.i, %if.then3.i ], [ %call10.i, %if.then9.i ], [ %call16.i, %if.then15.i ], [ %lhs, %sw.bb281 ], [ null, %if.end6.i346 ]
+  %retval.0.i345 = phi ptr [ %lhs, %sw.bb281 ], [ %call5.i, %if.then3.i ], [ %call10.i, %if.then9.i ], [ %call16.i, %if.then15.i ], [ null, %if.end6.i346 ]
   %27 = load i8, ptr %rhs, align 8
   switch i8 %27, label %if.end6.i353 [
     i8 114, label %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit361
@@ -1075,7 +1075,7 @@ if.then15.i357:                                   ; preds = %if.end6.i353
   br label %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit361
 
 _ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit361: ; preds = %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit, %if.then3.i347, %if.then9.i359, %if.then15.i357
-  %retval.0.i352 = phi ptr [ %call5.i351, %if.then3.i347 ], [ %call10.i360, %if.then9.i359 ], [ %call16.i358, %if.then15.i357 ], [ %rhs, %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit ]
+  %retval.0.i352 = phi ptr [ %rhs, %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit ], [ %call5.i351, %if.then3.i347 ], [ %call10.i360, %if.then9.i359 ], [ %call16.i358, %if.then15.i357 ]
   %tobool284 = icmp ne ptr %retval.0.i345, null
   %tobool286 = icmp ne ptr %retval.0.i352, null
   %or.cond7 = and i1 %tobool284, %tobool286
@@ -1100,7 +1100,7 @@ if.end11.i.i.i:                                   ; preds = %if.end288
   br label %_ZNK6hermes13LiteralNumber16truncateToUInt32Ev.exit
 
 _ZNK6hermes13LiteralNumber16truncateToUInt32Ev.exit: ; preds = %if.then8.i.i.i, %if.end11.i.i.i
-  %retval.0.i.i.i = phi i32 [ %call.i.i.i, %if.end11.i.i.i ], [ %conv9.i.i.i, %if.then8.i.i.i ]
+  %retval.0.i.i.i = phi i32 [ %conv9.i.i.i, %if.then8.i.i.i ], [ %call.i.i.i, %if.end11.i.i.i ]
   %and = and i32 %retval.0.i.i.i, 31
   %value.i384 = getelementptr inbounds nuw i8, ptr %retval.0.i345, i64 48
   %30 = load double, ptr %value.i384, align 8
@@ -1126,7 +1126,7 @@ if.end11.i.i.i371:                                ; preds = %if.else.i.i.i365
   br label %_ZNK6hermes13LiteralNumber16truncateToUInt32Ev.exit381
 
 _ZNK6hermes13LiteralNumber16truncateToUInt32Ev.exit381: ; preds = %if.then8.i.i.i374, %if.end11.i.i.i371
-  %retval.0.i.i.i373 = phi i32 [ %call.i.i.i372, %if.end11.i.i.i371 ], [ %conv9.i.i.i375, %if.then8.i.i.i374 ]
+  %retval.0.i.i.i373 = phi i32 [ %conv9.i.i.i375, %if.then8.i.i.i374 ], [ %call.i.i.i372, %if.end11.i.i.i371 ]
   %shl = shl i32 %retval.0.i.i.i373, %and
   %conv = sext i32 %shl to i64
   br label %if.end303
@@ -1143,7 +1143,7 @@ if.end11.i.i:                                     ; preds = %if.else.i.i
   br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit
 
 _ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit: ; preds = %if.then8.i.i, %if.end11.i.i
-  %retval.0.i.i = phi i32 [ %call.i.i, %if.end11.i.i ], [ %conv9.i.i, %if.then8.i.i ]
+  %retval.0.i.i = phi i32 [ %conv9.i.i, %if.then8.i.i ], [ %call.i.i, %if.end11.i.i ]
   %shr = ashr i32 %retval.0.i.i, %and
   %conv297 = sext i32 %shr to i64
   br label %if.end303
@@ -1160,7 +1160,7 @@ if.end11.i.i.i391:                                ; preds = %if.else.i.i.i385
   br label %_ZNK6hermes13LiteralNumber16truncateToUInt32Ev.exit401
 
 _ZNK6hermes13LiteralNumber16truncateToUInt32Ev.exit401: ; preds = %if.then8.i.i.i394, %if.end11.i.i.i391
-  %retval.0.i.i.i393 = phi i32 [ %call.i.i.i392, %if.end11.i.i.i391 ], [ %conv9.i.i.i395, %if.then8.i.i.i394 ]
+  %retval.0.i.i.i393 = phi i32 [ %conv9.i.i.i395, %if.then8.i.i.i394 ], [ %call.i.i.i392, %if.end11.i.i.i391 ]
   %shr300 = lshr i32 %retval.0.i.i.i393, %and
   %conv301 = zext i32 %shr300 to i64
   br label %if.end303
@@ -1493,7 +1493,7 @@ if.end11.i.i508:                                  ; preds = %if.then511
   br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit518
 
 _ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit518: ; preds = %if.then8.i.i511, %if.end11.i.i508
-  %retval.0.i.i510 = phi i32 [ %call.i.i509, %if.end11.i.i508 ], [ %conv9.i.i512, %if.then8.i.i511 ]
+  %retval.0.i.i510 = phi i32 [ %conv9.i.i512, %if.then8.i.i511 ], [ %call.i.i509, %if.end11.i.i508 ]
   %value.i519 = getelementptr inbounds nuw i8, ptr %rhs, i64 48
   %70 = load double, ptr %value.i519, align 8
   %conv4.i.i521 = fptoui double %70 to i64
@@ -1512,7 +1512,7 @@ if.end11.i.i526:                                  ; preds = %_ZNK6hermes13Litera
   br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit536
 
 _ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit536: ; preds = %if.then8.i.i529, %if.end11.i.i526
-  %retval.0.i.i528 = phi i32 [ %call.i.i527, %if.end11.i.i526 ], [ %conv9.i.i530, %if.then8.i.i529 ]
+  %retval.0.i.i528 = phi i32 [ %conv9.i.i530, %if.then8.i.i529 ], [ %call.i.i527, %if.end11.i.i526 ]
   %or = or i32 %retval.0.i.i528, %retval.0.i.i510
   %conv514 = sitofp i32 %or to double
   %call515 = tail call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %builder, double noundef %conv514) #6
@@ -1540,7 +1540,7 @@ if.end11.i.i544:                                  ; preds = %if.then521
   br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit554
 
 _ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit554: ; preds = %if.then8.i.i547, %if.end11.i.i544
-  %retval.0.i.i546 = phi i32 [ %call.i.i545, %if.end11.i.i544 ], [ %conv9.i.i548, %if.then8.i.i547 ]
+  %retval.0.i.i546 = phi i32 [ %conv9.i.i548, %if.then8.i.i547 ], [ %call.i.i545, %if.end11.i.i544 ]
   %value.i555 = getelementptr inbounds nuw i8, ptr %rhs, i64 48
   %72 = load double, ptr %value.i555, align 8
   %conv4.i.i557 = fptoui double %72 to i64
@@ -1559,7 +1559,7 @@ if.end11.i.i562:                                  ; preds = %_ZNK6hermes13Litera
   br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit572
 
 _ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit572: ; preds = %if.then8.i.i565, %if.end11.i.i562
-  %retval.0.i.i564 = phi i32 [ %call.i.i563, %if.end11.i.i562 ], [ %conv9.i.i566, %if.then8.i.i565 ]
+  %retval.0.i.i564 = phi i32 [ %conv9.i.i566, %if.then8.i.i565 ], [ %call.i.i563, %if.end11.i.i562 ]
   %xor = xor i32 %retval.0.i.i564, %retval.0.i.i546
   %conv524 = sitofp i32 %xor to double
   %call525 = tail call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %builder, double noundef %conv524) #6
@@ -1587,7 +1587,7 @@ if.end11.i.i580:                                  ; preds = %if.then531
   br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit590
 
 _ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit590: ; preds = %if.then8.i.i583, %if.end11.i.i580
-  %retval.0.i.i582 = phi i32 [ %call.i.i581, %if.end11.i.i580 ], [ %conv9.i.i584, %if.then8.i.i583 ]
+  %retval.0.i.i582 = phi i32 [ %conv9.i.i584, %if.then8.i.i583 ], [ %call.i.i581, %if.end11.i.i580 ]
   %value.i591 = getelementptr inbounds nuw i8, ptr %rhs, i64 48
   %74 = load double, ptr %value.i591, align 8
   %conv4.i.i593 = fptoui double %74 to i64
@@ -1606,7 +1606,7 @@ if.end11.i.i598:                                  ; preds = %_ZNK6hermes13Litera
   br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit608
 
 _ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit608: ; preds = %if.then8.i.i601, %if.end11.i.i598
-  %retval.0.i.i600 = phi i32 [ %call.i.i599, %if.end11.i.i598 ], [ %conv9.i.i602, %if.then8.i.i601 ]
+  %retval.0.i.i600 = phi i32 [ %conv9.i.i602, %if.then8.i.i601 ], [ %call.i.i599, %if.end11.i.i598 ]
   %and534 = and i32 %retval.0.i.i600, %retval.0.i.i582
   %conv535 = sitofp i32 %and534 to double
   %call536 = tail call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %builder, double noundef %conv535) #6
@@ -1625,7 +1625,7 @@ if.then270.unreachabledefault:                    ; preds = %if.then270
   unreachable
 
 return:                                           ; preds = %if.then270, %if.then251, %if.then232, %if.then213, %if.end6.i353, %if.then.i.i.i484, %if.then419, %if.then.i.i.i469, %if.then397, %if.then.i.i.i454, %if.then375, %if.then.i.i.i439, %if.then354, %if.then.i.i.i424, %if.then318, %if.then.i.i.i308, %if.then39, %if.then.i.i.i, %if.then30, %if.end82, %if.end122, %if.end159, %if.end190, %if.end211, %if.end230, %if.end249, %if.end268, %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit361, %if.else417, %if.end411, %sw.bb434, %sw.bb478, %sw.bb487, %sw.bb497, %sw.bb507, %sw.bb517, %sw.bb527, %_ZN12_GLOBAL__N_115getNumericOrderEPN6hermes7LiteralES2_.exit, %if.end451, %if.then370, %if.then349, %if.then, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit608, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit572, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit536, %_ZN6hermes5expOpEdd.exit, %if.then491, %if.then482, %if.end475, %if.then473, %if.then447, %if.then438, %if.then415, %if.then393, %if.then345, %if.then339, %if.then310, %if.end303, %sw.bb276, %sw.bb274, %sw.bb272, %if.then266, %sw.bb257, %sw.bb255, %sw.bb253, %if.then247, %sw.bb238, %sw.bb236, %sw.bb234, %if.then228, %sw.bb219, %sw.bb217, %sw.bb215, %if.then209, %if.then194, %sw.bb186, %sw.bb184, %sw.bb182, %if.then176, %if.then163, %sw.bb155, %sw.bb153, %sw.bb151, %if.then145, %if.then139, %if.then126, %sw.bb118, %sw.bb116, %sw.bb114, %if.then104, %if.then98, %if.then85, %sw.bb78, %sw.bb76, %sw.bb74, %if.then66, %if.then60, %sw.bb53, %if.end51, %sw.bb25, %sw.bb
-  %retval.0 = phi ptr [ %call24, %sw.bb ], [ %call26, %sw.bb25 ], [ %call52, %if.end51 ], [ %call54, %sw.bb53 ], [ %call61, %if.then60 ], [ %call69, %if.then66 ], [ %call94, %if.then85 ], [ %call75, %sw.bb74 ], [ %call77, %sw.bb76 ], [ %call79, %sw.bb78 ], [ %call99, %if.then98 ], [ %call109, %if.then104 ], [ %call135, %if.then126 ], [ %call115, %sw.bb114 ], [ %call117, %sw.bb116 ], [ %call119, %sw.bb118 ], [ %call140, %if.then139 ], [ %call146, %if.then145 ], [ %call172, %if.then163 ], [ %call152, %sw.bb151 ], [ %call154, %sw.bb153 ], [ %call156, %sw.bb155 ], [ %call177, %if.then176 ], [ %call203, %if.then194 ], [ %call183, %sw.bb182 ], [ %call185, %sw.bb184 ], [ %call187, %sw.bb186 ], [ %call216, %sw.bb215 ], [ %call218, %sw.bb217 ], [ %call220, %sw.bb219 ], [ %call210, %if.then209 ], [ %call235, %sw.bb234 ], [ %call237, %sw.bb236 ], [ %call239, %sw.bb238 ], [ %call229, %if.then228 ], [ %call254, %sw.bb253 ], [ %call256, %sw.bb255 ], [ %call258, %sw.bb257 ], [ %call248, %if.then247 ], [ %call273, %sw.bb272 ], [ %call275, %sw.bb274 ], [ %call277, %sw.bb276 ], [ %call267, %if.then266 ], [ %call305, %if.end303 ], [ %call313, %if.then310 ], [ %call340, %if.then339 ], [ %call346, %if.then345 ], [ %call394, %if.then393 ], [ %call416, %if.then415 ], [ %call441, %if.then438 ], [ %call450, %if.then447 ], [ %call474, %if.then473 ], [ %call476, %if.end475 ], [ %call485, %if.then482 ], [ %call495, %if.then491 ], [ %call505, %_ZN6hermes5expOpEdd.exit ], [ %call515, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit536 ], [ %call525, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit572 ], [ %call536, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit608 ], [ null, %if.then ], [ %rhs, %if.then349 ], [ %lhs, %if.then370 ], [ null, %if.end451 ], [ null, %_ZN12_GLOBAL__N_115getNumericOrderEPN6hermes7LiteralES2_.exit ], [ null, %sw.bb527 ], [ null, %sw.bb517 ], [ null, %sw.bb507 ], [ null, %sw.bb497 ], [ null, %sw.bb487 ], [ null, %sw.bb478 ], [ null, %sw.bb434 ], [ null, %if.end411 ], [ null, %if.else417 ], [ null, %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit361 ], [ null, %if.end268 ], [ null, %if.then270 ], [ null, %if.end249 ], [ null, %if.then251 ], [ null, %if.end230 ], [ null, %if.then232 ], [ null, %if.end211 ], [ null, %if.then213 ], [ null, %if.end190 ], [ null, %if.end159 ], [ null, %if.end122 ], [ null, %if.end82 ], [ %call37, %if.then30 ], [ %call37, %if.then.i.i.i ], [ %call50, %if.then39 ], [ %call50, %if.then.i.i.i308 ], [ %call334, %if.then318 ], [ %call334, %if.then.i.i.i424 ], [ %call365, %if.then354 ], [ %call365, %if.then.i.i.i439 ], [ %call386, %if.then375 ], [ %call386, %if.then.i.i.i454 ], [ %call408, %if.then397 ], [ %call408, %if.then.i.i.i469 ], [ %call430, %if.then419 ], [ %call430, %if.then.i.i.i484 ], [ null, %if.end6.i353 ]
+  %retval.0 = phi ptr [ %call536, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit608 ], [ %call24, %sw.bb ], [ %call26, %sw.bb25 ], [ null, %if.end82 ], [ %call37, %if.then.i.i.i ], [ %call52, %if.end51 ], [ %call54, %sw.bb53 ], [ %lhs, %if.then370 ], [ %call61, %if.then60 ], [ %call69, %if.then66 ], [ %call94, %if.then85 ], [ %call75, %sw.bb74 ], [ %call77, %sw.bb76 ], [ %call79, %sw.bb78 ], [ %call99, %if.then98 ], [ %call109, %if.then104 ], [ %call135, %if.then126 ], [ %call115, %sw.bb114 ], [ %call117, %sw.bb116 ], [ %call119, %sw.bb118 ], [ %call140, %if.then139 ], [ %call146, %if.then145 ], [ %call172, %if.then163 ], [ %call152, %sw.bb151 ], [ %call154, %sw.bb153 ], [ %call156, %sw.bb155 ], [ %call177, %if.then176 ], [ %call203, %if.then194 ], [ %call183, %sw.bb182 ], [ %call185, %sw.bb184 ], [ %call187, %sw.bb186 ], [ %call216, %sw.bb215 ], [ %call218, %sw.bb217 ], [ %call220, %sw.bb219 ], [ %call210, %if.then209 ], [ %call235, %sw.bb234 ], [ %call237, %sw.bb236 ], [ %call239, %sw.bb238 ], [ %call229, %if.then228 ], [ %call254, %sw.bb253 ], [ %call256, %sw.bb255 ], [ %call258, %sw.bb257 ], [ %call248, %if.then247 ], [ %call273, %sw.bb272 ], [ %call275, %sw.bb274 ], [ %call277, %sw.bb276 ], [ %call267, %if.then266 ], [ %call305, %if.end303 ], [ %call313, %if.then310 ], [ %call430, %if.then.i.i.i484 ], [ %call340, %if.then339 ], [ %call346, %if.then345 ], [ null, %if.then ], [ %call334, %if.then.i.i.i424 ], [ %rhs, %if.then349 ], [ %call365, %if.then.i.i.i439 ], [ %call394, %if.then393 ], [ %call386, %if.then.i.i.i454 ], [ %call416, %if.then415 ], [ %call408, %if.then.i.i.i469 ], [ %call441, %if.then438 ], [ %call450, %if.then447 ], [ %call474, %if.then473 ], [ %call476, %if.end475 ], [ %call485, %if.then482 ], [ %call495, %if.then491 ], [ %call505, %_ZN6hermes5expOpEdd.exit ], [ %call515, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit536 ], [ %call525, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit572 ], [ null, %if.end451 ], [ null, %_ZN12_GLOBAL__N_115getNumericOrderEPN6hermes7LiteralES2_.exit ], [ null, %sw.bb527 ], [ null, %sw.bb517 ], [ null, %sw.bb507 ], [ null, %sw.bb497 ], [ null, %sw.bb487 ], [ null, %sw.bb478 ], [ null, %sw.bb434 ], [ null, %if.end411 ], [ null, %if.else417 ], [ null, %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit361 ], [ null, %if.end268 ], [ null, %if.then270 ], [ null, %if.end249 ], [ null, %if.then251 ], [ null, %if.end230 ], [ null, %if.then232 ], [ null, %if.end211 ], [ null, %if.then213 ], [ null, %if.end190 ], [ null, %if.end159 ], [ null, %if.end122 ], [ %call37, %if.then30 ], [ %call50, %if.then39 ], [ %call50, %if.then.i.i.i308 ], [ %call334, %if.then318 ], [ %call365, %if.then354 ], [ %call386, %if.then375 ], [ %call408, %if.then397 ], [ %call430, %if.then419 ], [ null, %if.end6.i353 ]
   ret ptr %retval.0
 }
 
@@ -1741,7 +1741,7 @@ sw.bb9:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %entry, %sw.bb9, %sw.bb4, %sw.bb1
-  %value.0.shrunk = phi i1 [ %tobool.i, %sw.bb1 ], [ %3, %sw.bb4 ], [ %cmp.i, %sw.bb9 ], [ false, %entry ], [ false, %entry ]
+  %value.0.shrunk = phi i1 [ %cmp.i, %sw.bb9 ], [ %tobool.i, %sw.bb1 ], [ %3, %sw.bb4 ], [ false, %entry ], [ false, %entry ]
   %call15 = tail call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder, i1 noundef zeroext %value.0.shrunk) #6
   br label %return
 
@@ -1771,7 +1771,7 @@ return.fold.split:                                ; preds = %entry
   br label %return
 
 return:                                           ; preds = %entry, %return.fold.split, %if.then3
-  %retval.0 = phi ptr [ %call7, %if.then3 ], [ %operand, %entry ], [ null, %return.fold.split ]
+  %retval.0 = phi ptr [ %operand, %entry ], [ %call7, %if.then3 ], [ null, %return.fold.split ]
   ret ptr %retval.0
 }
 
@@ -1812,7 +1812,7 @@ if.then15.i:                                      ; preds = %if.end6.i
   br label %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit
 
 _ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit: ; preds = %if.then3.i, %if.then9.i, %if.then15.i
-  %retval.0.i = phi ptr [ %call5.i, %if.then3.i ], [ %call10.i, %if.then9.i ], [ %call16.i, %if.then15.i ]
+  %retval.0.i = phi ptr [ %call16.i, %if.then15.i ], [ %call5.i, %if.then3.i ], [ %call10.i, %if.then9.i ]
   %tobool.not = icmp eq ptr %retval.0.i, null
   br i1 %tobool.not, label %return, label %if.end
 
@@ -1836,7 +1836,7 @@ if.end11.i:                                       ; preds = %if.end
   br label %_ZN6hermes15truncateToInt32Ed.exit
 
 _ZN6hermes15truncateToInt32Ed.exit:               ; preds = %if.then8.i, %if.end11.i
-  %retval.0.i3 = phi i32 [ %call.i, %if.end11.i ], [ %conv9.i, %if.then8.i ]
+  %retval.0.i3 = phi i32 [ %conv9.i, %if.then8.i ], [ %call.i, %if.end11.i ]
   %conv = sitofp i32 %retval.0.i3 to double
   %call3 = tail call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %builder, double noundef %conv) #6
   br label %return
@@ -1900,12 +1900,12 @@ if.end6:                                          ; preds = %if.end
   ]
 
 return.sink.split:                                ; preds = %if.end6, %if.end6, %if.end, %if.then, %if.then, %sw.bb1.i, %sw.bb4.i, %sw.bb9.i
-  %value.0.shrunk.i.sink = phi i1 [ %tobool.i.i, %sw.bb1.i ], [ %5, %sw.bb4.i ], [ %cmp.i.i, %sw.bb9.i ], [ false, %if.then ], [ false, %if.then ], [ true, %if.end ], [ false, %if.end6 ], [ false, %if.end6 ]
+  %value.0.shrunk.i.sink = phi i1 [ false, %if.then ], [ true, %if.end ], [ %cmp.i.i, %sw.bb9.i ], [ %tobool.i.i, %sw.bb1.i ], [ %5, %sw.bb4.i ], [ false, %if.then ], [ false, %if.end6 ], [ false, %if.end6 ]
   %call15.i = tail call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder, i1 noundef zeroext %value.0.shrunk.i.sink) #6
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end6, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.end6 ], [ %call15.i, %return.sink.split ]
+  %retval.0 = phi ptr [ null, %if.end6 ], [ null, %if.then ], [ %call15.i, %return.sink.split ]
   ret ptr %retval.0
 }
 

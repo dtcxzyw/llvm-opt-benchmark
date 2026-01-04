@@ -403,7 +403,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_131RISCVIndirectBranchTracki
   br label %51
 
 51:                                               ; preds = %39, %50, %47, %26, %36, %38, %31
-  %.3 = phi i1 [ %.03142, %26 ], [ %.03142, %31 ], [ true, %38 ], [ true, %36 ], [ %.03142, %39 ], [ true, %50 ], [ true, %47 ]
+  %.3 = phi i1 [ true, %36 ], [ %.03142, %26 ], [ %.03142, %31 ], [ true, %38 ], [ %.03142, %39 ], [ true, %50 ], [ true, %47 ]
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.036.043, i64 8
   %.sroa.036.0 = load ptr, ptr %52, align 8, !tbaa !296
   %.not39 = icmp eq ptr %.sroa.036.0, %20

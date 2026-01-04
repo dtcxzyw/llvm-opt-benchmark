@@ -2479,7 +2479,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i: ; preds = %52
   br label %59
 
 58:                                               ; preds = %.noexc8, %_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit.thread30.i.i
-  %.227.i.i = phi ptr [ %44, %_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit.thread30.i.i ], [ %.022.i.i, %.noexc8 ]
+  %.227.i.i = phi ptr [ %.022.i.i, %.noexc8 ], [ %44, %_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit.thread30.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !116
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !116
   br label %_ZN5folly6detail17distributed_mutex6WaiterISt6atomicE10initializeEmNS0_17InlineFunctionRefIFvvELm48EEE.exit.i.i
@@ -2569,7 +2569,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i: ; preds = %52
   br label %.body.i
 
 .body.i:                                          ; preds = %87, %57, %54
-  %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %87 ], [ %55, %57 ], [ %55, %54 ]
+  %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %87 ], [ %55, %54 ], [ %55, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.016.i)
   br label %.body
 
@@ -3187,7 +3187,7 @@ _ZNSt6vectorIN5folly14HeapTimekeeper5State2OpESaIS3_EE9push_backEOS3_.exit: ; pr
   br label %.critedge
 
 .critedge:                                        ; preds = %7, %43, %48, %_ZNSt6vectorIN5folly14HeapTimekeeper5State2OpESaIS3_EE9push_backEOS3_.exit, %55
-  %.0 = phi ptr [ %34, %55 ], [ null, %_ZNSt6vectorIN5folly14HeapTimekeeper5State2OpESaIS3_EE9push_backEOS3_.exit ], [ null, %48 ], [ null, %43 ], [ null, %7 ]
+  %.0 = phi ptr [ null, %43 ], [ null, %_ZNSt6vectorIN5folly14HeapTimekeeper5State2OpESaIS3_EE9push_backEOS3_.exit ], [ %34, %55 ], [ null, %48 ], [ null, %7 ]
   ret ptr %.0
 }
 
@@ -3879,7 +3879,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i: ; preds = %43
   br label %50
 
 49:                                               ; preds = %_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit.i.i, %_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit.thread30.i.i
-  %.227.i.i = phi ptr [ %35, %_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit.thread30.i.i ], [ %.022.i.i, %_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit.i.i ]
+  %.227.i.i = phi ptr [ %.022.i.i, %_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit.i.i ], [ %35, %_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit.thread30.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !214
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !214
   br label %_ZN5folly6detail17distributed_mutex6WaiterISt6atomicE10initializeEmNS0_17InlineFunctionRefIFvvELm48EEE.exit.i.i
@@ -4379,7 +4379,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i: ; preds = %153
   br label %"_ZN5folly6detail17distributed_mutex18lockImplementationISt6atomicLb1ES3_ImENS1_20RequestWithoutReturnIZNS_14HeapTimekeeper5State6workerEvE3$_0EEEENS1_16DistributedMutexIT_XT0_EE26DistributedMutexStateProxyERSC_RT1_RT2_.exit.i"
 
 160:                                              ; preds = %.noexc45, %_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit.thread29.i.i
-  %.226.i.i = phi ptr [ %91, %_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit.thread29.i.i ], [ %.019.i.i, %.noexc45 ]
+  %.226.i.i = phi ptr [ %.019.i.i, %.noexc45 ], [ %91, %_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit.thread29.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !224
   br label %_ZN5folly6detail17distributed_mutex6WaiterISt6atomicE10initializeEmNS0_17InlineFunctionRefIFvvELm48EEE.exit.i.i
 
@@ -4667,7 +4667,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i58: ; preds = %232
   br label %241
 
 240:                                              ; preds = %.noexc66, %_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit.thread30.i.i
-  %.227.i.i = phi ptr [ %225, %_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit.thread30.i.i ], [ %.022.i.i, %.noexc66 ]
+  %.227.i.i = phi ptr [ %.022.i.i, %.noexc66 ], [ %225, %_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit.thread30.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !232
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !232
   br label %_ZN5folly6detail17distributed_mutex6WaiterISt6atomicE10initializeEmNS0_17InlineFunctionRefIFvvELm48EEE.exit.i.i49
@@ -5221,7 +5221,7 @@ _ZN5folly14HeapTimekeeper7Timeout6decRefEv.exit104: ; preds = %_ZN5folly6detail7
   br label %424
 
 .body:                                            ; preds = %.loopexit194, %.loopexit.split-lp195.loopexit.split-lp, %.loopexit.split-lp195.loopexit, %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %419, %417, %.body153, %235, %238, %159, %156
-  %.pn32 = phi { ptr, i32 } [ %157, %159 ], [ %157, %156 ], [ %236, %238 ], [ %236, %235 ], [ %eh.lpad-body154, %.body153 ], [ %eh.lpad-body154, %417 ], [ %eh.lpad-body154, %419 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit191, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit198, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp199, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit196, %.loopexit194 ], [ %lpad.loopexit203, %.loopexit.split-lp195.loopexit ], [ %lpad.loopexit.split-lp204, %.loopexit.split-lp195.loopexit.split-lp ]
+  %.pn32 = phi { ptr, i32 } [ %eh.lpad-body154, %417 ], [ %157, %156 ], [ %eh.lpad-body154, %.body153 ], [ %236, %238 ], [ %236, %235 ], [ %lpad.loopexit.split-lp199, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %157, %159 ], [ %eh.lpad-body154, %419 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit191, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit198, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit196, %.loopexit194 ], [ %lpad.loopexit203, %.loopexit.split-lp195.loopexit ], [ %lpad.loopexit.split-lp204, %.loopexit.split-lp195.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %498
@@ -5459,7 +5459,7 @@ _ZN5folly17exception_wrapperD2Ev.exit144:         ; preds = %_ZN5folly6detail7Tr
   ret void
 
 498:                                              ; preds = %497, %.body, %196
-  %.pn34.pn.pn = phi { ptr, i32 } [ %.pn32, %.body ], [ %197, %196 ], [ %.pn34, %497 ]
+  %.pn34.pn.pn = phi { ptr, i32 } [ %197, %196 ], [ %.pn32, %.body ], [ %.pn34, %497 ]
   call void @_ZNSt6vectorIN5folly14HeapTimekeeper5State2OpESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   resume { ptr, i32 } %.pn34.pn.pn
@@ -5645,7 +5645,7 @@ _ZN5folly6detail14futexWaitUntilISt6atomicIjENSt6chrono3_V212steady_clockENS4_8d
   br i1 %40, label %_ZN5folly6detail16spin_pause_untilINSt6chrono3_V212steady_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEZNS_19SaturatingSemaphoreILb1ESt6atomicE11tryWaitSlowIS4_S8_EEbRKNS2_10time_pointIT_T0_EERKNS_11WaitOptionsEEUlvE_EENS0_11spin_resultESI_SL_T1_.exit, label %.critedge, !llvm.loop !264
 
 _ZN5folly6detail16spin_pause_untilINSt6chrono3_V212steady_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEZNS_19SaturatingSemaphoreILb1ESt6atomicE11tryWaitSlowIS4_S8_EEbRKNS2_10time_pointIT_T0_EERKNS_11WaitOptionsEEUlvE_EENS0_11spin_resultESI_SL_T1_.exit: ; preds = %19, %.lr.ph.i, %28, %37, %38, %12, %7, %10
-  %.0 = phi i1 [ false, %10 ], [ true, %7 ], [ true, %12 ], [ %.not.not, %38 ], [ %.not.not, %37 ], [ true, %28 ], [ %.not.i, %.lr.ph.i ], [ %.not.i, %19 ]
+  %.0 = phi i1 [ true, %7 ], [ %.not.not, %37 ], [ false, %10 ], [ true, %12 ], [ true, %28 ], [ %.not.not, %38 ], [ %.not.i, %.lr.ph.i ], [ %.not.i, %19 ]
   ret i1 %.0
 
 41:                                               ; preds = %_ZN5folly6detail14futexWaitUntilISt6atomicIjENSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEENS0_11FutexResultEPKT_jRKNS4_10time_pointIT0_T1_EEj.exit.i, %.critedge
@@ -5731,7 +5731,7 @@ _ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratio
   br label %.thread
 
 .thread:                                          ; preds = %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread38, %49, %8, %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread
-  %.011 = phi i1 [ false, %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread ], [ false, %8 ], [ true, %49 ], [ false, %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread38 ]
+  %.011 = phi i1 [ false, %8 ], [ false, %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread ], [ true, %49 ], [ false, %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread38 ]
   ret i1 %.011
 }
 

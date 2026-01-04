@@ -176,7 +176,7 @@ for.body:                                         ; preds = %for.body.lr.ph
   unreachable
 
 for.end:                                          ; preds = %for.body.us43.us86, %for.body.us43.us, %for.body.us43, %for.body.us26.us73, %for.body.us26.us, %_ZN6hermes12CompactArray6trySetEjj.exit.us39, %_ZN6hermes12CompactArray6trySetEjj.exit.us.us69, %for.body.us.us, %_ZN6hermes12CompactArray6trySetEjj.exit.us, %entry.for.end_crit_edge
-  %14 = phi ptr [ %.pre, %entry.for.end_crit_edge ], [ %4, %_ZN6hermes12CompactArray6trySetEjj.exit.us ], [ %4, %for.body.us.us ], [ %4, %_ZN6hermes12CompactArray6trySetEjj.exit.us.us69 ], [ %4, %_ZN6hermes12CompactArray6trySetEjj.exit.us39 ], [ %4, %for.body.us26.us ], [ %4, %for.body.us26.us73 ], [ %4, %for.body.us43 ], [ %4, %for.body.us43.us ], [ %4, %for.body.us43.us86 ]
+  %14 = phi ptr [ %.pre, %entry.for.end_crit_edge ], [ %4, %for.body.us.us ], [ %4, %_ZN6hermes12CompactArray6trySetEjj.exit.us ], [ %4, %for.body.us43.us ], [ %4, %for.body.us43 ], [ %4, %for.body.us26.us73 ], [ %4, %for.body.us26.us ], [ %4, %_ZN6hermes12CompactArray6trySetEjj.exit.us39 ], [ %4, %_ZN6hermes12CompactArray6trySetEjj.exit.us.us69 ], [ %4, %for.body.us43.us86 ]
   store i32 %0, ptr %this, align 8
   store i32 %add, ptr %scale_, align 4
   %raw_.i16 = getelementptr inbounds nuw i8, ptr %this, i64 8

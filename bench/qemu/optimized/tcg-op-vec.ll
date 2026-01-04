@@ -88,14 +88,14 @@ define dso_local noundef zeroext i1 @tcg_can_emit_vecop_list(ptr noundef readonl
   %.not34 = icmp eq i32 %30, 0
   br i1 %.not34, label %.loopexit, label %31
 
-31:                                               ; preds = %.lr.ph, %9, %19, %16, %13, %23, %21, %27, %25, %29
+31:                                               ; preds = %25, %.lr.ph, %9, %13, %21, %19, %16, %23, %27, %29
   %32 = getelementptr inbounds nuw i8, ptr %.03044, i64 4
   %33 = load i32, ptr %32, align 4
   %.not = icmp eq i32 %33, 0
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
 .loopexit:                                        ; preds = %31, %9, %19, %11, %23, %27, %29, %8, %.preheader, %3
-  %.029 = phi i1 [ true, %3 ], [ true, %.preheader ], [ true, %31 ], [ false, %9 ], [ false, %19 ], [ false, %11 ], [ false, %23 ], [ false, %27 ], [ false, %29 ], [ false, %8 ]
+  %.029 = phi i1 [ true, %3 ], [ true, %.preheader ], [ false, %29 ], [ false, %27 ], [ false, %23 ], [ false, %11 ], [ false, %19 ], [ false, %9 ], [ true, %31 ], [ false, %8 ]
   ret i1 %.029
 }
 
@@ -1781,10 +1781,10 @@ define dso_local void @tcg_gen_cmp_vec(i32 noundef %0, i32 noundef %1, ptr nound
   br label %50
 
 50:                                               ; preds = %5, %36
-  %.043 = phi ptr [ %37, %36 ], [ null, %5 ]
-  %.042 = phi i64 [ %38, %36 ], [ %15, %5 ]
-  %.041 = phi i64 [ %48, %36 ], [ %16, %5 ]
-  %.0 = phi i32 [ %49, %36 ], [ %0, %5 ]
+  %.043 = phi ptr [ null, %5 ], [ %37, %36 ]
+  %.042 = phi i64 [ %15, %5 ], [ %38, %36 ]
+  %.041 = phi i64 [ %16, %5 ], [ %48, %36 ]
+  %.0 = phi i32 [ %0, %5 ], [ %49, %36 ]
   %51 = icmp sgt i32 %31, 0
   br i1 %51, label %52, label %65
 

@@ -184,7 +184,7 @@ define hidden void @_ZN7nanogui11PopupButton4drawEP10NVGcontext(ptr noundef nonn
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %2, %8
-  %9 = phi i8 [ 0, %8 ], [ %.pre, %2 ]
+  %9 = phi i8 [ %.pre, %2 ], [ 0, %8 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %11 = load ptr, ptr %10, align 8
   %12 = and i8 %9, 1

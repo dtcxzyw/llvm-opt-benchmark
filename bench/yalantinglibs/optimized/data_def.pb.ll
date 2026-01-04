@@ -891,7 +891,7 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br i1 %cmp43.not, label %success, label %while.cond.backedge
 
 success:                                          ; preds = %if.end.i.i, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %if.then38
-  %ptr.addr.1 = phi ptr [ %retval.0.i31, %if.then38 ], [ %ptr.addr.0, %if.end.i.i ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  %ptr.addr.1 = phi ptr [ %retval.0.i31, %if.then38 ], [ %ptr.addr.0, %if.end.i.i ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   ret ptr %ptr.addr.1
 }
 
@@ -926,7 +926,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %if.
   br label %if.end
 
 if.end:                                           ; preds = %entry, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit
-  %target.addr.0 = phi ptr [ %add.ptr.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit ], [ %target, %entry ]
+  %target.addr.0 = phi ptr [ %target, %entry ], [ %add.ptr.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit ]
   %y_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   %4 = load float, ptr %y_.i.i, align 4
   %or.cond33 = fcmp une float %4, 0.000000e+00
@@ -953,7 +953,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit22: ; preds = %i
   br label %if.end16
 
 if.end16:                                         ; preds = %if.end, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit22
-  %target.addr.1 = phi ptr [ %add.ptr.i24, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit22 ], [ %target.addr.0, %if.end ]
+  %target.addr.1 = phi ptr [ %target.addr.0, %if.end ], [ %add.ptr.i24, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit22 ]
   %z_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %8 = load float, ptr %z_.i.i, align 8
   %or.cond34 = fcmp une float %8, 0.000000e+00
@@ -980,7 +980,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit30: ; preds = %i
   br label %if.end26
 
 if.end26:                                         ; preds = %if.end16, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit30
-  %target.addr.2 = phi ptr [ %add.ptr.i32, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit30 ], [ %target.addr.1, %if.end16 ]
+  %target.addr.2 = phi ptr [ %target.addr.1, %if.end16 ], [ %add.ptr.i32, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit30 ]
   %_internal_metadata_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %12 = load ptr, ptr %_internal_metadata_, align 8
   %13 = ptrtoint ptr %12 to i64
@@ -1935,7 +1935,7 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br i1 %cmp47.not, label %success, label %while.cond.backedge
 
 success:                                          ; preds = %if.end.i.i, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %_ZN6mygame6Weapon22_internal_mutable_nameB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %if.then42
-  %ptr.addr.1 = phi ptr [ %retval.0.i39, %if.then42 ], [ %ptr.addr.0, %if.end.i.i ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN6mygame6Weapon22_internal_mutable_nameB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  %ptr.addr.1 = phi ptr [ %retval.0.i39, %if.then42 ], [ %ptr.addr.0, %if.end.i.i ], [ null, %_ZN6mygame6Weapon22_internal_mutable_nameB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   ret ptr %ptr.addr.1
 }
 
@@ -3961,7 +3961,7 @@ if.end105:                                        ; preds = %if.then6.i.i85, %if
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.end165, %do.cond169, %if.end124, %do.cond, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit54.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread, %if.end105, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit54, %_ZN6mygame7Monster27_internal_mutable_inventoryB5cxx11Ev.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN6mygame7Monster22_internal_mutable_nameB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ParseContext12ParseMessageIN6mygame4Vec3EEEPKcPT_S7_.exit, %_ZN6google8protobuf8internal12ParseContext12ParseMessageIN6mygame6WeaponEEEPKcPT_S7_.exit179
-  %ptr.addr.0.be = phi ptr [ %call180, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %call5.i, %_ZN6google8protobuf8internal12ParseContext12ParseMessageIN6mygame4Vec3EEEPKcPT_S7_.exit ], [ %30, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %35, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit54 ], [ %call61, %_ZN6mygame7Monster22_internal_mutable_nameB5cxx11Ev.exit ], [ %call84, %_ZN6mygame7Monster27_internal_mutable_inventoryB5cxx11Ev.exit ], [ %retval.0.i.i84267, %if.end105 ], [ %call5.i165, %_ZN6google8protobuf8internal12ParseContext12ParseMessageIN6mygame6WeaponEEEPKcPT_S7_.exit179 ], [ %retval.0.i.i34.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread ], [ %retval.0.i.i48.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit54.thread ], [ %call5.i115, %do.cond ], [ %call5.i115, %if.end124 ], [ %call5.i204, %do.cond169 ], [ %call5.i204, %if.end165 ]
+  %ptr.addr.0.be = phi ptr [ %call180, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %call5.i, %_ZN6google8protobuf8internal12ParseContext12ParseMessageIN6mygame4Vec3EEEPKcPT_S7_.exit ], [ %30, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %35, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit54 ], [ %call61, %_ZN6mygame7Monster22_internal_mutable_nameB5cxx11Ev.exit ], [ %call84, %_ZN6mygame7Monster27_internal_mutable_inventoryB5cxx11Ev.exit ], [ %retval.0.i.i84267, %if.end105 ], [ %retval.0.i.i48.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit54.thread ], [ %call5.i165, %_ZN6google8protobuf8internal12ParseContext12ParseMessageIN6mygame6WeaponEEEPKcPT_S7_.exit179 ], [ %call5.i115, %if.end124 ], [ %retval.0.i.i34.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread ], [ %call5.i115, %do.cond ], [ %call5.i204, %do.cond169 ], [ %call5.i204, %if.end165 ]
   br label %while.cond, !llvm.loop !12
 
 sw.bb109:                                         ; preds = %if.end
@@ -4339,7 +4339,7 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br i1 %cmp181.not, label %success, label %while.cond.backedge
 
 success:                                          ; preds = %if.end8.i167, %if.end4.i164, %if.end.i147, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i144, %if.end8.i, %if.end4.i, %if.end.i20, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i, %if.end.i.i, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit54, %_ZN6mygame7Monster22_internal_mutable_nameB5cxx11Ev.exit, %_ZN6mygame7Monster27_internal_mutable_inventoryB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit90, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %if.end8.i206, %if.end4.i203, %if.end.i186, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i183, %if.end8.i117, %if.end4.i114, %if.end.i97, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i94, %if.then176
-  %ptr.addr.3 = phi ptr [ %retval.0.i260, %if.then176 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i94 ], [ null, %if.end.i97 ], [ null, %if.end4.i114 ], [ null, %if.end8.i117 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i183 ], [ null, %if.end.i186 ], [ null, %if.end4.i203 ], [ null, %if.end8.i206 ], [ null, %if.end8.i167 ], [ null, %if.end4.i164 ], [ null, %if.end.i147 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i144 ], [ null, %if.end8.i ], [ null, %if.end4.i ], [ null, %if.end.i20 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ], [ %ptr.addr.0, %if.end.i.i ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit54 ], [ null, %_ZN6mygame7Monster22_internal_mutable_nameB5cxx11Ev.exit ], [ null, %_ZN6mygame7Monster27_internal_mutable_inventoryB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit90 ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  %ptr.addr.3 = phi ptr [ null, %if.end8.i117 ], [ null, %if.end8.i206 ], [ %retval.0.i260, %if.then176 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i94 ], [ null, %if.end.i97 ], [ null, %if.end4.i114 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i183 ], [ null, %if.end.i186 ], [ null, %if.end4.i203 ], [ null, %if.end4.i164 ], [ null, %if.end.i147 ], [ null, %if.end4.i ], [ null, %if.end.i20 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit54 ], [ null, %_ZN6mygame7Monster22_internal_mutable_nameB5cxx11Ev.exit ], [ null, %_ZN6mygame7Monster27_internal_mutable_inventoryB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit90 ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %ptr.addr.0, %if.end.i.i ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %if.end8.i167 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i144 ], [ null, %if.end8.i ]
   ret ptr %ptr.addr.3
 }
 
@@ -6597,7 +6597,7 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br i1 %cmp30.not, label %success, label %while.cond.backedge
 
 success:                                          ; preds = %if.end.i.i, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %if.end8.i, %if.end4.i, %if.end.i10, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i, %if.then25
-  %ptr.addr.2 = phi ptr [ %retval.0.i46, %if.then25 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ], [ null, %if.end.i10 ], [ null, %if.end4.i ], [ null, %if.end8.i ], [ %ptr.addr.0, %if.end.i.i ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  %ptr.addr.2 = phi ptr [ %retval.0.i46, %if.then25 ], [ null, %if.end8.i ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ], [ null, %if.end.i10 ], [ null, %if.end4.i ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %ptr.addr.0, %if.end.i.i ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   ret ptr %ptr.addr.2
 }
 
@@ -7684,7 +7684,7 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br i1 %cmp76.not, label %success, label %while.cond.backedge
 
 success:                                          ; preds = %if.end.i.i, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit27, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit46, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit65, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %if.then71
-  %ptr.addr.1 = phi ptr [ %retval.0.i95, %if.then71 ], [ %ptr.addr.0, %if.end.i.i ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit27 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit46 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit65 ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  %ptr.addr.1 = phi ptr [ %retval.0.i95, %if.then71 ], [ %ptr.addr.0, %if.end.i.i ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit27 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit46 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit65 ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   ret ptr %ptr.addr.1
 }
 
@@ -9018,7 +9018,7 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br i1 %cmp30.not, label %success, label %while.cond.backedge
 
 success:                                          ; preds = %if.end.i.i, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %if.end8.i, %if.end4.i, %if.end.i11, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i, %if.then25
-  %ptr.addr.2 = phi ptr [ %retval.0.i47, %if.then25 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ], [ null, %if.end.i11 ], [ null, %if.end4.i ], [ null, %if.end8.i ], [ %ptr.addr.0, %if.end.i.i ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  %ptr.addr.2 = phi ptr [ %retval.0.i47, %if.then25 ], [ null, %if.end8.i ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ], [ null, %if.end.i11 ], [ null, %if.end4.i ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %ptr.addr.0, %if.end.i.i ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   ret ptr %ptr.addr.2
 }
 
@@ -10139,7 +10139,7 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br i1 %cmp75.not, label %success, label %while.cond.backedge
 
 success:                                          ; preds = %if.end.i.i, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6mygame6person22_internal_mutable_nameB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit32, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %if.then70
-  %ptr.addr.1 = phi ptr [ %retval.0.i61, %if.then70 ], [ %ptr.addr.0, %if.end.i.i ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6mygame6person22_internal_mutable_nameB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit32 ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  %ptr.addr.1 = phi ptr [ %retval.0.i61, %if.then70 ], [ %ptr.addr.0, %if.end.i.i ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6mygame6person22_internal_mutable_nameB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit32 ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   ret ptr %ptr.addr.1
 }
 
@@ -10349,7 +10349,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit63: ; preds = %i
   br label %if.end32
 
 if.end32:                                         ; preds = %if.end23, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit63
-  %target.addr.3 = phi ptr [ %add.ptr.i66, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit63 ], [ %target.addr.2, %if.end23 ]
+  %target.addr.3 = phi ptr [ %target.addr.2, %if.end23 ], [ %add.ptr.i66, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit63 ]
   %_internal_metadata_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %19 = load ptr, ptr %_internal_metadata_, align 8
   %20 = ptrtoint ptr %19 to i64
@@ -11572,7 +11572,7 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br i1 %cmp30.not, label %success, label %while.cond.backedge
 
 success:                                          ; preds = %if.end.i.i, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %if.end8.i, %if.end4.i, %if.end.i10, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i, %if.then25
-  %ptr.addr.2 = phi ptr [ %retval.0.i46, %if.then25 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ], [ null, %if.end.i10 ], [ null, %if.end4.i ], [ null, %if.end8.i ], [ %ptr.addr.0, %if.end.i.i ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  %ptr.addr.2 = phi ptr [ %retval.0.i46, %if.then25 ], [ null, %if.end8.i ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ], [ null, %if.end.i10 ], [ null, %if.end4.i ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %ptr.addr.0, %if.end.i.i ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   ret ptr %ptr.addr.2
 }
 
@@ -12392,7 +12392,7 @@ if.then.i.i.i.i8:                                 ; preds = %_ZNK6google8protobu
   br label %_ZN6google8protobuf5Arena21CreateMessageInternalIN6mygame6WeaponEEEPT_PS1_.exit
 
 _ZN6google8protobuf5Arena21CreateMessageInternalIN6mygame6WeaponEEEPT_PS1_.exit: ; preds = %if.then.i.i.i.i8, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit, %if.then.i, %if.then.i.i.i.i
-  %call.i.sink11 = phi ptr [ %call.i, %if.then.i.i.i.i ], [ %call.i, %if.then.i ], [ %call2.i8, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ], [ %call2.i8, %if.then.i.i.i.i8 ]
+  %call.i.sink11 = phi ptr [ %call.i, %if.then.i ], [ %call.i, %if.then.i.i.i.i ], [ %call2.i8, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ], [ %call2.i8, %if.then.i.i.i.i8 ]
   %name_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink11, i64 16
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %name_.i.i.i, align 8
   %damage_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink11, i64 24
@@ -12497,7 +12497,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN6mygame4Vec3EED2Ev.exit.i.i13: ; preds = 
   br label %common.resume
 
 _ZN6google8protobuf5Arena21CreateMessageInternalIN6mygame7MonsterEEEPT_PS1_.exit: ; preds = %if.then.i.i.i.i10, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit, %if.then.i.i.i.i, %if.then.i
-  %call.i.sink18 = phi ptr [ %call.i, %if.then.i ], [ %call.i, %if.then.i.i.i.i ], [ %call2.i8, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ], [ %call2.i8, %if.then.i.i.i.i10 ]
+  %call.i.sink18 = phi ptr [ %call.i, %if.then.i.i.i.i ], [ %call.i, %if.then.i ], [ %call2.i8, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ], [ %call2.i8, %if.then.i.i.i.i10 ]
   %name_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink18, i64 64
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %name_.i.i.i, align 8
   %inventory_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink18, i64 72
@@ -12573,7 +12573,7 @@ lpad2.i.i9:                                       ; preds = %if.then.i.i.i.i8
   br label %common.resume
 
 _ZN6google8protobuf5Arena21CreateMessageInternalIN6mygame8MonstersEEEPT_PS1_.exit: ; preds = %if.then.i.i.i.i8, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit, %if.then.i.i.i.i, %if.then.i
-  %retval.i.0 = phi ptr [ %call.i, %if.then.i ], [ %call.i, %if.then.i.i.i.i ], [ %call2.i8, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ], [ %call2.i8, %if.then.i.i.i.i8 ]
+  %retval.i.0 = phi ptr [ %call.i, %if.then.i.i.i.i ], [ %call.i, %if.then.i ], [ %call2.i8, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ], [ %call2.i8, %if.then.i.i.i.i8 ]
   ret ptr %retval.i.0
 }
 
@@ -12695,7 +12695,7 @@ terminate.lpad.i.i.i10:                           ; preds = %lpad2.i.i9
   unreachable
 
 _ZN6google8protobuf5Arena21CreateMessageInternalIN6mygame7rect32sEEEPT_PS1_.exit: ; preds = %if.then.i.i.i.i8, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit, %if.then.i.i.i.i, %if.then.i
-  %retval.i.0 = phi ptr [ %call.i, %if.then.i ], [ %call.i, %if.then.i.i.i.i ], [ %call2.i8, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ], [ %call2.i8, %if.then.i.i.i.i8 ]
+  %retval.i.0 = phi ptr [ %call.i, %if.then.i.i.i.i ], [ %call.i, %if.then.i ], [ %call2.i8, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ], [ %call2.i8, %if.then.i.i.i.i8 ]
   ret ptr %retval.i.0
 }
 
@@ -12752,7 +12752,7 @@ if.then.i.i.i.i8:                                 ; preds = %_ZNK6google8protobu
   br label %_ZN6google8protobuf5Arena21CreateMessageInternalIN6mygame6personEEEPT_PS1_.exit
 
 _ZN6google8protobuf5Arena21CreateMessageInternalIN6mygame6personEEEPT_PS1_.exit: ; preds = %if.then.i.i.i.i8, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit, %if.then.i, %if.then.i.i.i.i
-  %call.i.sink11 = phi ptr [ %call.i, %if.then.i.i.i.i ], [ %call.i, %if.then.i ], [ %call2.i8, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ], [ %call2.i8, %if.then.i.i.i.i8 ]
+  %call.i.sink11 = phi ptr [ %call.i, %if.then.i ], [ %call.i, %if.then.i.i.i.i ], [ %call2.i8, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ], [ %call2.i8, %if.then.i.i.i.i8 ]
   %name_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink11, i64 16
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %name_.i.i.i, align 8
   %id_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink11, i64 24
@@ -12826,7 +12826,7 @@ lpad2.i.i9:                                       ; preds = %if.then.i.i.i.i8
   br label %common.resume
 
 _ZN6google8protobuf5Arena21CreateMessageInternalIN6mygame7personsEEEPT_PS1_.exit: ; preds = %if.then.i.i.i.i8, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit, %if.then.i.i.i.i, %if.then.i
-  %retval.i.0 = phi ptr [ %call.i, %if.then.i ], [ %call.i, %if.then.i.i.i.i ], [ %call2.i8, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ], [ %call2.i8, %if.then.i.i.i.i8 ]
+  %retval.i.0 = phi ptr [ %call.i, %if.then.i.i.i.i ], [ %call.i, %if.then.i ], [ %call2.i8, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ], [ %call2.i8, %if.then.i.i.i.i8 ]
   ret ptr %retval.i.0
 }
 

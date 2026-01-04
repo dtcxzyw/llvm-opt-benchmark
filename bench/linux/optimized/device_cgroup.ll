@@ -420,7 +420,7 @@ define dso_local range(i32 -1, 1) i32 @devcgroup_check_permission(i16 noundef si
   br i1 %.not11, label %.loopexit, label %.split.split, !llvm.loop !12
 
 .loopexit:                                        ; preds = %158, %152, %128, %134, %103, %109, %78, %84, %52, %57, %16, %59
-  %160 = phi i32 [ -1, %59 ], [ 0, %16 ], [ 0, %57 ], [ -1, %52 ], [ -1, %84 ], [ 0, %78 ], [ -1, %109 ], [ 0, %103 ], [ -1, %134 ], [ 0, %128 ], [ -1, %158 ], [ 0, %152 ]
+  %160 = phi i32 [ 0, %16 ], [ -1, %59 ], [ -1, %134 ], [ -1, %52 ], [ -1, %109 ], [ -1, %84 ], [ 0, %57 ], [ 0, %78 ], [ 0, %103 ], [ 0, %128 ], [ 0, %152 ], [ -1, %158 ]
   tail call void @__rcu_read_unlock() #9
   ret i32 %160
 }
@@ -782,7 +782,7 @@ define internal noundef i64 @devcgroup_access_write(ptr noundef %0, ptr noundef 
   br label %161
 
 161:                                              ; preds = %153, %159, %160
-  %.sink = phi i16 [ 4, %159 ], [ 1, %160 ], [ 2, %153 ]
+  %.sink = phi i16 [ 1, %160 ], [ 4, %159 ], [ 2, %153 ]
   %162 = or i16 %154, %.sink
   store i16 %162, ptr %151, align 2
   %163 = add nuw nsw i32 %156, 1
@@ -839,7 +839,7 @@ define internal noundef i64 @devcgroup_access_write(ptr noundef %0, ptr noundef 
   br label %187
 
 .thread13:                                        ; preds = %153, %47, %4, %22, %26, %32, %57, %21, %19, %76, %108, %92, %111, %138, %122, %142, %168, %171, %180, %.thread, %42
-  %.ph = phi i32 [ %40, %42 ], [ -22, %.thread ], [ %181, %180 ], [ -1, %171 ], [ -1, %168 ], [ -22, %142 ], [ -22, %122 ], [ -22, %138 ], [ -22, %111 ], [ -22, %92 ], [ -22, %108 ], [ -22, %76 ], [ -22, %19 ], [ -22, %21 ], [ -22, %57 ], [ %36, %32 ], [ -1, %26 ], [ -22, %22 ], [ -1, %4 ], [ %40, %47 ], [ -22, %153 ]
+  %.ph = phi i32 [ %40, %47 ], [ -1, %4 ], [ %40, %42 ], [ -22, %.thread ], [ %181, %180 ], [ -1, %171 ], [ -1, %168 ], [ -22, %142 ], [ -22, %122 ], [ -22, %138 ], [ -22, %111 ], [ -22, %92 ], [ -22, %108 ], [ -22, %76 ], [ -22, %19 ], [ -22, %21 ], [ -22, %57 ], [ %36, %32 ], [ -1, %26 ], [ -22, %22 ], [ -22, %153 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -855,7 +855,7 @@ define internal noundef i64 @devcgroup_access_write(ptr noundef %0, ptr noundef 
   br label %190
 
 187:                                              ; preds = %183, %174
-  %.fr = phi i32 [ %185, %183 ], [ %175, %174 ]
+  %.fr = phi i32 [ %175, %174 ], [ %185, %183 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1294,7 +1294,7 @@ define internal fastcc noundef zeroext i1 @parent_allows_removal(ptr noundef rea
   br i1 %.not6, label %.loopexit, label %.split.split.split, !llvm.loop !11
 
 .loopexit:                                        ; preds = %149, %144, %120, %125, %103, %108, %97, %92, %72, %67, %53, %48, %10, %6, %2
-  %151 = phi i1 [ true, %2 ], [ true, %6 ], [ true, %10 ], [ true, %53 ], [ false, %48 ], [ true, %72 ], [ false, %67 ], [ true, %97 ], [ false, %92 ], [ true, %108 ], [ false, %103 ], [ true, %125 ], [ false, %120 ], [ true, %149 ], [ false, %144 ]
+  %151 = phi i1 [ true, %6 ], [ true, %2 ], [ true, %10 ], [ true, %108 ], [ false, %48 ], [ false, %120 ], [ false, %67 ], [ false, %92 ], [ true, %53 ], [ true, %72 ], [ true, %97 ], [ false, %103 ], [ true, %125 ], [ true, %149 ], [ false, %144 ]
   ret i1 %151
 }
 
@@ -1630,7 +1630,7 @@ define internal fastcc range(i32 0, 2) i32 @parent_has_perm(ptr noundef readonly
   br i1 %.not12, label %.loopexit, label %.split.split, !llvm.loop !12
 
 .loopexit:                                        ; preds = %168, %174, %144, %150, %119, %125, %94, %100, %64, %59, %10, %66, %14, %2
-  %176 = phi i32 [ 1, %2 ], [ 1, %10 ], [ 0, %66 ], [ 1, %14 ], [ 1, %64 ], [ 0, %59 ], [ 0, %100 ], [ 1, %94 ], [ 0, %125 ], [ 1, %119 ], [ 0, %150 ], [ 1, %144 ], [ 0, %174 ], [ 1, %168 ]
+  %176 = phi i32 [ 1, %2 ], [ 1, %10 ], [ 1, %14 ], [ 0, %66 ], [ 0, %150 ], [ 0, %59 ], [ 0, %125 ], [ 0, %100 ], [ 1, %64 ], [ 1, %94 ], [ 1, %119 ], [ 1, %144 ], [ 1, %168 ], [ 0, %174 ]
   ret i32 %176
 }
 

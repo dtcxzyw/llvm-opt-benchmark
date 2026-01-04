@@ -1036,7 +1036,7 @@ define dso_local i32 @i915_perf_open_ioctl(ptr noundef %0, ptr noundef readonly 
   br label %373
 
 .thread117:                                       ; preds = %49, %65, %37, %325, %369, %352, %256, %242, %230, %84, %212, %190, %202, %141, %165, %117, %129, %104
-  %.ph116 = phi i32 [ -22, %230 ], [ -22, %242 ], [ -22, %256 ], [ -22, %352 ], [ %361, %369 ], [ -22, %325 ], [ -22, %37 ], [ -22, %104 ], [ -22, %129 ], [ -22, %117 ], [ -13, %165 ], [ -22, %141 ], [ -14, %202 ], [ -19, %190 ], [ -22, %212 ], [ -22, %84 ], [ %63, %49 ], [ %73, %65 ]
+  %.ph116 = phi i32 [ -22, %37 ], [ -22, %230 ], [ -22, %242 ], [ -22, %256 ], [ -22, %352 ], [ %361, %369 ], [ -22, %325 ], [ -22, %212 ], [ -22, %84 ], [ -22, %104 ], [ -22, %129 ], [ -22, %117 ], [ -13, %165 ], [ -22, %141 ], [ -14, %202 ], [ -19, %190 ], [ %63, %49 ], [ %73, %65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %1421
 
@@ -1514,7 +1514,7 @@ define dso_local i32 @i915_perf_open_ioctl(ptr noundef %0, ptr noundef readonly 
   br label %648
 
 648:                                              ; preds = %646, %642
-  %649 = phi ptr [ %645, %642 ], [ %614, %646 ]
+  %649 = phi ptr [ %614, %646 ], [ %645, %642 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %650 = icmp ugt ptr %649, inttoptr (i64 -4096 to ptr)
@@ -2745,7 +2745,7 @@ define dso_local i32 @i915_perf_open_ioctl(ptr noundef %0, ptr noundef readonly 
   br label %.thread142
 
 .thread142:                                       ; preds = %1353, %1357, %590, %502, %515, %532, %543, %563, %976, %553, %1408, %1402
-  %1409 = phi i32 [ %1403, %1408 ], [ %1403, %1402 ], [ %1354, %1353 ], [ %1354, %1357 ], [ -22, %590 ], [ -22, %502 ], [ -22, %515 ], [ -22, %532 ], [ -19, %543 ], [ -22, %563 ], [ %970, %976 ], [ -16, %553 ]
+  %1409 = phi i32 [ %1403, %1402 ], [ %1403, %1408 ], [ %1354, %1353 ], [ %1354, %1357 ], [ -22, %590 ], [ -22, %502 ], [ -22, %515 ], [ -22, %532 ], [ -19, %543 ], [ -22, %563 ], [ %970, %976 ], [ -16, %553 ]
   call void @kfree(ptr noundef nonnull %488) #20
   br label %1410
 
@@ -2773,7 +2773,7 @@ define dso_local i32 @i915_perf_open_ioctl(ptr noundef %0, ptr noundef readonly 
   br label %.thread144
 
 .thread144:                                       ; preds = %1416, %1418, %.thread118, %1419, %1410, %1400, %430
-  %1420 = phi i32 [ %1378, %1400 ], [ %1411, %1410 ], [ -22, %430 ], [ %1411, %1419 ], [ %397, %.thread118 ], [ %1411, %1418 ], [ %1411, %1416 ]
+  %1420 = phi i32 [ %1378, %1400 ], [ %397, %.thread118 ], [ %1411, %1410 ], [ -22, %430 ], [ %1411, %1419 ], [ %1411, %1418 ], [ %1411, %1416 ]
   call void @mutex_unlock(ptr noundef nonnull %377) #20
   br label %1421
 
@@ -4121,7 +4121,7 @@ define internal noundef zeroext i1 @hsw_is_valid_mux_addr(ptr readnone captures(
   br label %.preheader, !llvm.loop !90
 
 .loopexit:                                        ; preds = %13, %28, %22
-  %34 = phi i1 [ false, %22 ], [ true, %28 ], [ true, %13 ]
+  %34 = phi i1 [ true, %28 ], [ false, %22 ], [ true, %13 ]
   ret i1 %34
 }
 
@@ -5105,7 +5105,7 @@ define internal range(i32 -28, 1) i32 @gen8_oa_read(ptr noundef %0, ptr noundef 
   br label %314
 
 314:                                              ; preds = %.thread12, %.thread, %307, %.loopexit, %174, %144, %26
-  %315 = phi i32 [ -5, %26 ], [ -5, %144 ], [ -5, %174 ], [ %291, %307 ], [ %291, %.loopexit ], [ %.ph, %.thread ], [ %.ph11, %.thread12 ]
+  %315 = phi i32 [ -5, %26 ], [ %.ph, %.thread ], [ %.ph11, %.thread12 ], [ -5, %144 ], [ -5, %174 ], [ %291, %307 ], [ %291, %.loopexit ]
   ret i32 %315
 }
 
@@ -5166,7 +5166,7 @@ define internal noundef zeroext i1 @gen8_is_valid_mux_addr(ptr readnone captures
   br label %.preheader, !llvm.loop !90
 
 .loopexit:                                        ; preds = %13, %28, %22
-  %34 = phi i1 [ false, %22 ], [ true, %28 ], [ true, %13 ]
+  %34 = phi i1 [ true, %28 ], [ false, %22 ], [ true, %13 ]
   ret i1 %34
 }
 
@@ -5253,7 +5253,7 @@ define internal noundef zeroext i1 @chv_is_valid_mux_addr(ptr readnone captures(
   br label %.preheader, !llvm.loop !90
 
 .loopexit:                                        ; preds = %13, %28, %22
-  %34 = phi i1 [ false, %22 ], [ true, %28 ], [ true, %13 ]
+  %34 = phi i1 [ true, %28 ], [ false, %22 ], [ true, %13 ]
   ret i1 %34
 }
 
@@ -5493,7 +5493,7 @@ define internal noundef zeroext i1 @gen11_is_valid_mux_addr(ptr readnone capture
   br label %.preheader, !llvm.loop !90
 
 .loopexit:                                        ; preds = %13, %28, %43, %37
-  %49 = phi i1 [ false, %37 ], [ true, %43 ], [ true, %28 ], [ true, %13 ]
+  %49 = phi i1 [ true, %28 ], [ true, %43 ], [ false, %37 ], [ true, %13 ]
   ret i1 %49
 }
 
@@ -5617,7 +5617,7 @@ define internal noundef zeroext i1 @xehp_is_valid_b_counter_addr(ptr noundef rea
   br label %.preheader, !llvm.loop !90
 
 .loopexit:                                        ; preds = %13, %28, %61, %55, %42, %34
-  %67 = phi i1 [ false, %42 ], [ false, %34 ], [ false, %55 ], [ true, %61 ], [ true, %28 ], [ true, %13 ]
+  %67 = phi i1 [ false, %42 ], [ false, %34 ], [ true, %28 ], [ true, %61 ], [ false, %55 ], [ true, %13 ]
   ret i1 %67
 }
 
@@ -5723,7 +5723,7 @@ define internal noundef zeroext i1 @gen12_is_valid_mux_addr(ptr noundef readonly
   br label %.preheader1, !llvm.loop !90
 
 .loopexit:                                        ; preds = %37, %31, %22, %16
-  %43 = phi i1 [ false, %16 ], [ true, %22 ], [ false, %31 ], [ true, %37 ]
+  %43 = phi i1 [ true, %22 ], [ false, %16 ], [ false, %31 ], [ true, %37 ]
   ret i1 %43
 }
 
@@ -7515,7 +7515,7 @@ define internal fastcc zeroext i1 @oa_buffer_check_unlocked(ptr noundef %0) unna
   br i1 %65, label %.thread3, label %.thread
 
 .thread3:                                         ; preds = %60, %.thread2, %.thread, %46, %42, %.lr.ph.split.us, %1
-  %.lcssa = phi i32 [ %27, %1 ], [ %37, %.lr.ph.split.us ], [ %37, %42 ], [ %48, %46 ], [ %52, %.thread ], [ %52, %.thread2 ], [ %62, %60 ]
+  %.lcssa = phi i32 [ %27, %1 ], [ %37, %.lr.ph.split.us ], [ %37, %42 ], [ %48, %46 ], [ %52, %.thread ], [ %62, %60 ], [ %52, %.thread2 ]
   %66 = sub i32 %26, %.lcssa
   %67 = and i32 %66, 16777215
   %68 = icmp ugt i32 %67, %12
@@ -7905,7 +7905,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @i915_perf_ioctl(ptr noun
   br label %.thread14
 
 .thread14:                                        ; preds = %101, %103, %.thread10, %104, %91, %43, %37, %25, %21, %17, %7, %3
-  %112 = phi i64 [ -22, %3 ], [ 0, %7 ], [ 0, %17 ], [ 0, %21 ], [ 0, %25 ], [ 0, %37 ], [ 0, %43 ], [ %93, %91 ], [ %96, %104 ], [ -22, %.thread10 ], [ %96, %103 ], [ %96, %101 ]
+  %112 = phi i64 [ -22, %3 ], [ 0, %7 ], [ 0, %17 ], [ 0, %21 ], [ 0, %25 ], [ 0, %37 ], [ 0, %43 ], [ %96, %101 ], [ %93, %91 ], [ -22, %.thread10 ], [ %96, %104 ], [ %96, %103 ]
   tail call void @mutex_unlock(ptr noundef nonnull %6) #20
   ret i64 %112
 }
@@ -8691,7 +8691,7 @@ define internal fastcc i32 @emit_oa_config(ptr noundef %0, ptr noundef %1, ptr n
   br label %412
 
 412:                                              ; preds = %410, %350
-  %413 = phi i32 [ %351, %350 ], [ %411, %410 ]
+  %413 = phi i32 [ %411, %410 ], [ %351, %350 ]
   %414 = icmp eq i32 %413, -35
   br i1 %414, label %415, label %.thread60
 
@@ -9312,7 +9312,7 @@ define internal fastcc i32 @oa_configure_all_contexts(ptr %.0.val.0.val, ptr nou
   br i1 %135, label %.thread7, label %117, !llvm.loop !159
 
 .thread7:                                         ; preds = %122, %.thread10, %95, %97, %.loopexit16, %98
-  %136 = phi i32 [ %67, %98 ], [ 0, %.loopexit16 ], [ %67, %97 ], [ %67, %95 ], [ %129, %122 ], [ 0, %.thread10 ]
+  %136 = phi i32 [ %67, %97 ], [ %67, %98 ], [ 0, %.loopexit16 ], [ %67, %95 ], [ 0, %.thread10 ], [ %129, %122 ]
   ret i32 %136
 }
 

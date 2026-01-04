@@ -1510,7 +1510,7 @@ define internal i32 @dissect_afs(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %61
 
 60:                                               ; preds = %.thread, %56, %9
-  %.0227 = phi ptr [ %35, %9 ], [ %35, %56 ], [ %46, %.thread ]
+  %.0227 = phi ptr [ %35, %9 ], [ %46, %.thread ], [ %35, %56 ]
   %.not299 = icmp eq ptr %.0227, null
   br i1 %.not299, label %63, label %61
 

@@ -521,7 +521,7 @@ mock_srv_ctx_new.exit:                            ; preds = %6
   br i1 %.not14, label %mock_srv_ctx_new.exit.thread, label %24
 
 mock_srv_ctx_new.exit.thread:                     ; preds = %2, %mock_srv_ctx_free.exit.i, %22, %20, %mock_srv_ctx_new.exit
-  %.0.i17 = phi ptr [ %4, %22 ], [ %4, %20 ], [ %4, %mock_srv_ctx_new.exit ], [ null, %mock_srv_ctx_free.exit.i ], [ null, %2 ]
+  %.0.i17 = phi ptr [ %4, %mock_srv_ctx_new.exit ], [ %4, %22 ], [ %4, %20 ], [ null, %mock_srv_ctx_free.exit.i ], [ null, %2 ]
   tail call fastcc void @mock_srv_ctx_free(ptr noundef %.0.i17)
   tail call void @OSSL_CMP_SRV_CTX_free(ptr noundef %3) #4
   br label %24
@@ -664,8 +664,8 @@ define internal ptr @process_cert_request(ptr noundef %0, ptr noundef %1, i32 %2
   br i1 %70, label %.lr.ph, label %.thread120, !llvm.loop !34
 
 .sink.split:                                      ; preds = %64, %57, %61, %53
-  %.sink155 = phi i32 [ 338, %53 ], [ 345, %61 ], [ 345, %57 ], [ 349, %64 ]
-  %.sink = phi i32 [ 196, %53 ], [ 524550, %61 ], [ 524550, %57 ], [ 196, %64 ]
+  %.sink155 = phi i32 [ 345, %57 ], [ 338, %53 ], [ 345, %61 ], [ 349, %64 ]
+  %.sink = phi i32 [ 524550, %57 ], [ 196, %53 ], [ 524550, %61 ], [ 196, %64 ]
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink155, ptr noundef nonnull @__func__.process_cert_request) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 58, i32 noundef %.sink, ptr noundef null) #4
@@ -821,7 +821,7 @@ refcert_cmp.exit.thread:                          ; preds = %92, %80, %refcert_c
   br label %.critedge
 
 .critedge:                                        ; preds = %71, %79, %refcert_cmp.exit.thread125, %128, %131, %31, %134, %35, %23, %16
-  %.0 = phi ptr [ null, %16 ], [ null, %23 ], [ %36, %35 ], [ null, %134 ], [ null, %71 ], [ null, %31 ], [ %132, %131 ], [ null, %128 ], [ null, %refcert_cmp.exit.thread125 ], [ null, %79 ]
+  %.0 = phi ptr [ null, %16 ], [ null, %23 ], [ null, %71 ], [ %36, %35 ], [ null, %134 ], [ null, %31 ], [ null, %128 ], [ %132, %131 ], [ null, %refcert_cmp.exit.thread125 ], [ null, %79 ]
   ret ptr %.0
 }
 
@@ -1119,8 +1119,8 @@ define internal range(i32 0, 2) i32 @process_certConf(ptr noundef %0, ptr nounde
   br i1 %.not, label %26, label %.sink.split
 
 .sink.split:                                      ; preds = %24, %10, %14, %17, %5
-  %.sink28 = phi i32 [ 664, %5 ], [ 670, %17 ], [ 670, %14 ], [ 670, %10 ], [ 678, %24 ]
-  %.sink = phi i32 [ 103, %5 ], [ 158, %17 ], [ 158, %14 ], [ 158, %10 ], [ 156, %24 ]
+  %.sink28 = phi i32 [ 670, %10 ], [ 664, %5 ], [ 670, %17 ], [ 670, %14 ], [ 678, %24 ]
+  %.sink = phi i32 [ 158, %10 ], [ 103, %5 ], [ 158, %17 ], [ 158, %14 ], [ 156, %24 ]
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink28, ptr noundef nonnull @__func__.process_certConf) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 58, i32 noundef %.sink, ptr noundef null) #4
@@ -1259,7 +1259,7 @@ define internal range(i32 -1, 2) i32 @delayed_delivery(ptr noundef %0, ptr nound
   br label %21
 
 21:                                               ; preds = %9, %13, %17, %8, %8, %8, %8, %8, %7
-  %.0 = phi i32 [ -1, %7 ], [ 0, %8 ], [ 0, %8 ], [ 0, %8 ], [ 0, %8 ], [ 0, %8 ], [ %., %17 ], [ 0, %13 ], [ 0, %9 ]
+  %.0 = phi i32 [ -1, %7 ], [ 0, %8 ], [ %., %17 ], [ 0, %8 ], [ 0, %8 ], [ 0, %8 ], [ 0, %8 ], [ 0, %13 ], [ 0, %9 ]
   ret i32 %.0
 }
 
@@ -1448,7 +1448,7 @@ define internal fastcc ptr @process_genm_itav(ptr noundef nonnull readonly captu
   br label %34
 
 34:                                               ; preds = %24, %26
-  %.131 = phi ptr [ %25, %24 ], [ %33, %26 ]
+  %.131 = phi ptr [ %33, %26 ], [ %25, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %97
 
@@ -1556,7 +1556,7 @@ check_client_crl.exit.thread:                     ; preds = %check_client_crl.ex
   br label %70
 
 70:                                               ; preds = %check_client_crl.exit.thread, %67
-  %.333 = phi ptr [ %69, %67 ], [ null, %check_client_crl.exit.thread ]
+  %.333 = phi ptr [ null, %check_client_crl.exit.thread ], [ %69, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %97
 
@@ -1614,7 +1614,7 @@ check_client_crl.exit.thread:                     ; preds = %check_client_crl.ex
   br label %94
 
 94:                                               ; preds = %71, %92, %89
-  %.3 = phi ptr [ null, %92 ], [ %91, %89 ], [ null, %71 ]
+  %.3 = phi ptr [ %91, %89 ], [ null, %92 ], [ null, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %97
 
@@ -1631,7 +1631,7 @@ check_client_crl.exit.thread:                     ; preds = %check_client_crl.ex
   br label %97
 
 97:                                               ; preds = %10, %95, %34, %70, %.critedge45, %.critedge, %94
-  %.1 = phi ptr [ %.3, %94 ], [ null, %.critedge ], [ null, %.critedge45 ], [ %96, %95 ], [ %13, %10 ], [ %.131, %34 ], [ %.333, %70 ]
+  %.1 = phi ptr [ %.3, %94 ], [ null, %.critedge45 ], [ null, %.critedge ], [ %96, %95 ], [ %13, %10 ], [ %.131, %34 ], [ %.333, %70 ]
   ret ptr %.1
 }
 

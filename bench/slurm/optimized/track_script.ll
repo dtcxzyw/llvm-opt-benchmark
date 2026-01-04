@@ -501,7 +501,7 @@ define dso_local zeroext i1 @track_script_killed(i64 noundef %0, i32 noundef %1,
   br label %31
 
 31:                                               ; preds = %27, %30, %14, %23
-  %.0 = phi i1 [ %26, %23 ], [ true, %14 ], [ true, %30 ], [ true, %27 ]
+  %.0 = phi i1 [ true, %14 ], [ %26, %23 ], [ true, %30 ], [ true, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }

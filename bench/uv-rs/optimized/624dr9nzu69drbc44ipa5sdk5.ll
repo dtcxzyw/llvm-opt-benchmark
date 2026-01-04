@@ -554,7 +554,7 @@ define hidden void @_ZN12uv_normalize9normalize17hb512fd164ceeadfaE(ptr dead_on_
           to label %_ZN5alloc6string6String4push17h65f6c624e4e39ab4E.exit.sink.split unwind label %.loopexit
 
 _ZN5alloc6string6String4push17h65f6c624e4e39ab4E.exit.sink.split: ; preds = %80, %83, %56, %59, %51, %55
-  %.sink93 = phi i8 [ %52, %55 ], [ %52, %51 ], [ %23, %59 ], [ %23, %56 ], [ 45, %83 ], [ 45, %80 ]
+  %.sink93 = phi i8 [ %52, %51 ], [ %23, %56 ], [ %52, %55 ], [ %23, %59 ], [ 45, %83 ], [ 45, %80 ]
   %84 = load ptr, ptr %.sroa.46.0..sroa_idx, align 8, !nonnull !8, !noundef !8
   %85 = getelementptr inbounds i8, ptr %84, i64 %21
   store i8 %.sink93, ptr %85, align 1

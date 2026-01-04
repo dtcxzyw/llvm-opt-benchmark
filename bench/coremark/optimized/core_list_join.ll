@@ -60,7 +60,7 @@ define dso_local signext range(i16 0, 128) i16 @calc_func(ptr noundef captures(n
   br label %36
 
 36:                                               ; preds = %7, %27, %35, %12, %26
-  %.034 = phi i16 [ %22, %26 ], [ %22, %12 ], [ %31, %35 ], [ %31, %27 ], [ %3, %7 ]
+  %.034 = phi i16 [ %31, %27 ], [ %22, %26 ], [ %22, %12 ], [ %31, %35 ], [ %3, %7 ]
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %38 = load i16, ptr %37, align 8, !tbaa !20
   %39 = tail call zeroext i16 @crcu16(i16 noundef zeroext %.034, i16 noundef zeroext %38) #9
@@ -184,7 +184,7 @@ define dso_local zeroext i16 @core_bench_list(ptr noundef %0, i16 noundef signex
   br i1 %.not.i, label %core_list_find.exit, label %.lr.ph.i, !llvm.loop !34
 
 core_list_find.exit:                              ; preds = %.lr.ph.i, %20, %.lr.ph27.i, %13
-  %.0.i = phi ptr [ %.01426.i, %.lr.ph27.i ], [ null, %13 ], [ %.122.i, %.lr.ph.i ], [ null, %20 ]
+  %.0.i = phi ptr [ %.01426.i, %.lr.ph27.i ], [ null, %13 ], [ null, %20 ], [ %.122.i, %.lr.ph.i ]
   br i1 %.not1625.i, label %.lr.ph.i65, label %core_list_reverse.exit
 
 .lr.ph.i65:                                       ; preds = %core_list_find.exit, %.lr.ph.i65
@@ -297,7 +297,7 @@ core_list_reverse.exit.thread:                    ; preds = %core_list_reverse.e
   br i1 %.not64.us.i, label %._crit_edge.us.i.preheader, label %62
 
 ._crit_edge.us.i.preheader:                       ; preds = %63, %62
-  %.2.us.i.ph = phi i32 [ %.047.i, %62 ], [ %64, %63 ]
+  %.2.us.i.ph = phi i32 [ %64, %63 ], [ %.047.i, %62 ]
   br label %._crit_edge.us.i.outer
 
 ._crit_edge.us.i.outer:                           ; preds = %155, %._crit_edge.us.i.preheader
@@ -396,7 +396,7 @@ core_list_reverse.exit.thread:                    ; preds = %core_list_reverse.e
   br label %110
 
 110:                                              ; preds = %109, %104, %103, %94, %89
-  %.034.i119 = phi i16 [ %100, %103 ], [ %100, %94 ], [ %106, %109 ], [ %106, %104 ], [ %85, %89 ]
+  %.034.i119 = phi i16 [ %106, %104 ], [ %100, %103 ], [ %100, %94 ], [ %106, %109 ], [ %85, %89 ]
   %111 = load i16, ptr %55, align 8, !tbaa !20
   %112 = tail call zeroext i16 @crcu16(i16 noundef zeroext %.034.i119, i16 noundef zeroext %111) #9
   store i16 %112, ptr %55, align 8, !tbaa !20
@@ -456,7 +456,7 @@ calc_func.exit121:                                ; preds = %87, %110
   br label %142
 
 142:                                              ; preds = %141, %136, %135, %126, %121
-  %.034.i = phi i16 [ %132, %135 ], [ %132, %126 ], [ %138, %141 ], [ %138, %136 ], [ %117, %121 ]
+  %.034.i = phi i16 [ %138, %136 ], [ %132, %135 ], [ %132, %126 ], [ %138, %141 ], [ %117, %121 ]
   %143 = load i16, ptr %55, align 8, !tbaa !20
   %144 = tail call zeroext i16 @crcu16(i16 noundef zeroext %.034.i, i16 noundef zeroext %143) #9
   store i16 %144, ptr %55, align 8, !tbaa !20
@@ -614,7 +614,7 @@ core_list_find.exit79:                            ; preds = %177, %171
   br i1 %.not64.us.i91, label %._crit_edge.us.i93.preheader, label %192
 
 ._crit_edge.us.i93.preheader:                     ; preds = %193, %192
-  %.2.us.i99.ph = phi i32 [ %.047.i82, %192 ], [ %194, %193 ]
+  %.2.us.i99.ph = phi i32 [ %194, %193 ], [ %.047.i82, %192 ]
   br label %._crit_edge.us.i93.outer
 
 ._crit_edge.us.i93.outer:                         ; preds = %233, %._crit_edge.us.i93.preheader
@@ -787,7 +787,7 @@ define dso_local ptr @core_list_find(ptr noundef readonly captures(address_is_nu
   br i1 %.not, label %.critedge, label %13, !llvm.loop !34
 
 .critedge:                                        ; preds = %18, %13, %11, %.lr.ph27, %.preheader18, %.preheader
-  %.0 = phi ptr [ null, %.preheader ], [ null, %.preheader18 ], [ null, %11 ], [ %.01426, %.lr.ph27 ], [ null, %18 ], [ %.122, %13 ]
+  %.0 = phi ptr [ null, %.preheader18 ], [ null, %.preheader ], [ %.01426, %.lr.ph27 ], [ null, %11 ], [ %.122, %13 ], [ null, %18 ]
   ret ptr %.0
 }
 
@@ -841,7 +841,7 @@ define dso_local ptr @core_list_mergesort(ptr noundef %0, ptr noundef readonly c
   br i1 %.not64.us, label %._crit_edge.us.preheader, label %5
 
 ._crit_edge.us.preheader:                         ; preds = %5, %6
-  %.2.us.ph = phi i32 [ %7, %6 ], [ %.047, %5 ]
+  %.2.us.ph = phi i32 [ %.047, %5 ], [ %7, %6 ]
   br label %._crit_edge.us.outer
 
 ._crit_edge.us.outer:                             ; preds = %36, %._crit_edge.us.preheader
@@ -1112,7 +1112,7 @@ core_list_insert_new.exit42:                      ; preds = %.lr.ph, %30, %32
   br i1 %.not64.us.i, label %._crit_edge.us.i.preheader, label %53
 
 ._crit_edge.us.i.preheader:                       ; preds = %54, %53
-  %.2.us.i.ph = phi i32 [ %.047.i, %53 ], [ %55, %54 ]
+  %.2.us.i.ph = phi i32 [ %55, %54 ], [ %.047.i, %53 ]
   br label %._crit_edge.us.i.outer
 
 ._crit_edge.us.i.outer:                           ; preds = %94, %._crit_edge.us.i.preheader

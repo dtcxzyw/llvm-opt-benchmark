@@ -223,10 +223,10 @@ define dso_local range(i32 0, 2) i32 @skeyutl_main(i32 noundef %0, ptr noundef %
   br label %.loopexit57
 
 .loopexit57:                                      ; preds = %26, %43, %69, %65, %80, %34, %21, %9, %.loopexit
-  %.043 = phi i32 [ 1, %.loopexit ], [ 0, %9 ], [ 1, %21 ], [ 1, %34 ], [ 1, %80 ], [ 1, %43 ], [ 1, %65 ], [ 0, %69 ], [ 1, %26 ]
-  %.2 = phi ptr [ %.039.ph133, %.loopexit ], [ %.039.ph133, %9 ], [ %.4, %21 ], [ %.039.ph133, %34 ], [ %.039.ph133, %80 ], [ %.039.ph133, %43 ], [ %.039.ph133, %65 ], [ %.039.ph133, %69 ], [ %.039.ph133, %26 ]
-  %.036 = phi ptr [ null, %.loopexit ], [ null, %9 ], [ null, %21 ], [ null, %34 ], [ null, %80 ], [ null, %43 ], [ null, %65 ], [ %58, %69 ], [ null, %26 ]
-  %.035 = phi ptr [ null, %.loopexit ], [ null, %9 ], [ null, %21 ], [ null, %34 ], [ null, %80 ], [ null, %43 ], [ %46, %65 ], [ %46, %69 ], [ null, %26 ]
+  %.043 = phi i32 [ 1, %.loopexit ], [ 0, %9 ], [ 1, %21 ], [ 0, %69 ], [ 1, %34 ], [ 1, %80 ], [ 1, %43 ], [ 1, %65 ], [ 1, %26 ]
+  %.2 = phi ptr [ %.039.ph133, %.loopexit ], [ %.039.ph133, %9 ], [ %.4, %21 ], [ %.039.ph133, %69 ], [ %.039.ph133, %34 ], [ %.039.ph133, %80 ], [ %.039.ph133, %43 ], [ %.039.ph133, %65 ], [ %.039.ph133, %26 ]
+  %.036 = phi ptr [ null, %.loopexit ], [ null, %9 ], [ null, %21 ], [ %58, %69 ], [ null, %34 ], [ null, %80 ], [ null, %43 ], [ null, %65 ], [ null, %26 ]
+  %.035 = phi ptr [ null, %.loopexit ], [ null, %9 ], [ null, %21 ], [ %46, %69 ], [ null, %34 ], [ null, %80 ], [ null, %43 ], [ %46, %65 ], [ null, %26 ]
   %83 = load ptr, ptr @bio_err, align 8, !tbaa !11
   call void @ERR_print_errors(ptr noundef %83) #3
   call void @OPENSSL_sk_free(ptr noundef %.2) #3

@@ -202,7 +202,7 @@ define dso_local noundef ptr @eventfs_create_dir(ptr noundef %0, ptr noundef %1,
   br label %.thread
 
 .thread:                                          ; preds = %44, %46, %7, %15, %52, %36, %5
-  %56 = phi ptr [ %9, %36 ], [ inttoptr (i64 -22 to ptr), %5 ], [ null, %52 ], [ inttoptr (i64 -12 to ptr), %15 ], [ inttoptr (i64 -12 to ptr), %7 ], [ null, %46 ], [ null, %44 ]
+  %56 = phi ptr [ %9, %36 ], [ inttoptr (i64 -22 to ptr), %5 ], [ null, %52 ], [ inttoptr (i64 -12 to ptr), %7 ], [ inttoptr (i64 -12 to ptr), %15 ], [ null, %46 ], [ null, %44 ]
   ret ptr %56
 }
 
@@ -1004,7 +1004,7 @@ define internal noundef ptr @eventfs_root_lookup(ptr noundef readonly captures(n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread12, %249, %28, %.thread11, %141, %49, %44, %17, %13
-  %250 = phi ptr [ null, %17 ], [ null, %44 ], [ null, %13 ], [ null, %141 ], [ inttoptr (i64 -12 to ptr), %49 ], [ null, %28 ], [ null, %249 ], [ %.ph, %.thread11 ], [ null, %.thread12 ]
+  %250 = phi ptr [ null, %17 ], [ null, %44 ], [ inttoptr (i64 -12 to ptr), %49 ], [ null, %141 ], [ null, %13 ], [ null, %28 ], [ %.ph, %.thread11 ], [ null, %249 ], [ null, %.thread12 ]
   call void @mutex_unlock(ptr noundef nonnull @eventfs_mutex) #7
   br label %251
 
@@ -1584,7 +1584,7 @@ select.unfold13:                                  ; preds = %73, %68
   br i1 %124, label %.loopexit, label %92, !llvm.loop !29
 
 .loopexit:                                        ; preds = %121, %.thread15, %.thread12, %129, %.loopexit16
-  %125 = phi i32 [ 0, %129 ], [ 1, %.loopexit16 ], [ -22, %.thread12 ], [ 0, %.thread15 ], [ 1, %121 ]
+  %125 = phi i32 [ 0, %129 ], [ -22, %.thread12 ], [ 1, %.loopexit16 ], [ 0, %.thread15 ], [ 1, %121 ]
   %126 = icmp ult i32 %41, 2
   br i1 %126, label %128, label %127, !prof !6
 

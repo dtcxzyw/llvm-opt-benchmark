@@ -1615,7 +1615,7 @@ _ZNK9Stockfish10ThreadPool14nodes_searchedEv.exit207: ; preds = %.lr.ph.i.i202, 
   br label %.critedge3, !llvm.loop !12
 
 .critedge3:                                       ; preds = %175, %.lr.ph411, %..critedge3.loopexit_crit_edge, %._crit_edge
-  %.1131.lcssa = phi i32 [ %.0130, %._crit_edge ], [ %213, %..critedge3.loopexit_crit_edge ], [ %.0130, %.lr.ph411 ], [ %213, %175 ]
+  %.1131.lcssa = phi i32 [ %.0130, %._crit_edge ], [ %.0130, %.lr.ph411 ], [ %213, %..critedge3.loopexit_crit_edge ], [ %213, %175 ]
   %389 = load ptr, ptr %119, align 16
   %390 = load atomic i8, ptr %389 seq_cst, align 1
   %391 = trunc i8 %390 to i1
@@ -1765,7 +1765,7 @@ _ZNK9Stockfish10ThreadPool14nodes_searchedEv.exit207: ; preds = %.lr.ph.i.i202, 
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN9Stockfish6Search8RootMoveESt6vectorIS4_SaIS4_EEEEZNS3_6Worker19iterative_deepeningEvE3$_0ET_SC_SC_T0_.exit.i"
 
 "_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN9Stockfish6Search8RootMoveESt6vectorIS4_SaIS4_EEEEZNS3_6Worker19iterative_deepeningEvE3$_0ET_SC_SC_T0_.exit.i": ; preds = %410, %.loopexit.split.loop.exit58.i.i.i.i, %.loopexit.split.loop.exit56.i.i.i.i, %.loopexit.split.loop.exit54.i.i.i.i, %437, %432, %427
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.044.0.lcssa.i.i.i.i, %427 ], [ %.sroa.044.1.i.i.i.i, %432 ], [ %spec.select.i.i.i.i, %437 ], [ %440, %.loopexit.split.loop.exit54.i.i.i.i ], [ %441, %.loopexit.split.loop.exit56.i.i.i.i ], [ %442, %.loopexit.split.loop.exit58.i.i.i.i ], [ %.sroa.044.063.i.i.i.i, %410 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.044.1.i.i.i.i, %432 ], [ %spec.select.i.i.i.i, %437 ], [ %442, %.loopexit.split.loop.exit58.i.i.i.i ], [ %.sroa.044.0.lcssa.i.i.i.i, %427 ], [ %441, %.loopexit.split.loop.exit56.i.i.i.i ], [ %440, %.loopexit.split.loop.exit54.i.i.i.i ], [ %.sroa.044.063.i.i.i.i, %410 ]
   %.not.i208 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, %.val179
   br i1 %.not.i208, label %"_ZN9Stockfish7Utility13move_to_frontINS_6Search8RootMoveEZNS2_6Worker19iterative_deepeningEvE3$_0EEvRSt6vectorIT_SaIS7_EET0_.exit", label %443
 
@@ -2326,7 +2326,7 @@ _ZNK9Stockfish10ThreadPool14nodes_searchedEv.exit234: ; preds = %.lr.ph.i.i229, 
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN9Stockfish6Search8RootMoveESt6vectorIS4_SaIS4_EEEENS2_4MoveEET_SB_SB_RKT0_.exit
 
 _ZSt4findIN9__gnu_cxx17__normal_iteratorIPN9Stockfish6Search8RootMoveESt6vectorIS4_SaIS4_EEEENS2_4MoveEET_SB_SB_RKT0_.exit: ; preds = %702, %._crit_edge.i.i.i, %727, %._crit_edge._crit_edge.i.i.i, %._crit_edge._crit_edge57.i.i.i, %.loopexit.split.loop.exit42.i.i.i, %.loopexit.split.loop.exit44.i.i.i, %.loopexit.split.loop.exit46.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %727 ], [ %.sroa.032.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %689, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %744, %.loopexit.split.loop.exit42.i.i.i ], [ %745, %.loopexit.split.loop.exit44.i.i.i ], [ %746, %.loopexit.split.loop.exit46.i.i.i ], [ %.sroa.032.051.i.i.i, %702 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %spec.select.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %689, %._crit_edge.i.i.i ], [ %.sroa.032.0.lcssa.i.i.i, %727 ], [ %745, %.loopexit.split.loop.exit44.i.i.i ], [ %744, %.loopexit.split.loop.exit42.i.i.i ], [ %746, %.loopexit.split.loop.exit46.i.i.i ], [ %.sroa.032.051.i.i.i, %702 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(56) %688, i64 32, i1 false)
   %747 = getelementptr inbounds nuw i8, ptr %688, i64 32
@@ -2844,7 +2844,7 @@ _ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit.loopexit.split.
   br label %_ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit
 
 _ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit: ; preds = %41, %_ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit.loopexit.split.loop.exit, %_ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit.loopexit.split.loop.exit32, %_ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit.loopexit.split.loop.exit34, %61, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i
-  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %61 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %72, %_ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit.loopexit.split.loop.exit ], [ %73, %_ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit.loopexit.split.loop.exit32 ], [ %74, %_ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit.loopexit.split.loop.exit34 ], [ %.02946.i.i.i.i, %41 ]
+  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.029.lcssa.i.i.i.i, %61 ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %74, %_ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit.loopexit.split.loop.exit34 ], [ %73, %_ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit.loopexit.split.loop.exit32 ], [ %72, %_ZNK9Stockfish8MoveListILNS_7GenTypeE5EE8containsENS_4MoveE.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i.i, %41 ]
   %.not = icmp eq ptr %.028.i.i.i.i, %34
   br i1 %.not, label %_ZNSt6vectorIN9Stockfish4MoveESaIS1_EE9push_backERKS1_.exit, label %75
 
@@ -3122,7 +3122,7 @@ _ZNK9Stockfish8Position3keyEv.exit:               ; preds = %66, %77
   br label %_ZN9Stockfish12_GLOBAL__N_113value_from_ttEiii.exit
 
 _ZN9Stockfish12_GLOBAL__N_113value_from_ttEiii.exit: ; preds = %120, %116, %112, %108, %104, %91, %_ZNK9Stockfish8Position3keyEv.exit
-  %124 = phi i32 [ 32002, %_ZNK9Stockfish8Position3keyEv.exit ], [ 32002, %91 ], [ 31506, %104 ], [ -31506, %116 ], [ %94, %112 ], [ %spec.select.i547, %108 ], [ %spec.select20.i, %120 ]
+  %124 = phi i32 [ 32002, %_ZNK9Stockfish8Position3keyEv.exit ], [ %spec.select.i547, %108 ], [ 32002, %91 ], [ 31506, %104 ], [ %94, %112 ], [ %spec.select20.i, %120 ], [ -31506, %116 ]
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 9582656
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 9570416
   %127 = load i64, ptr %126, align 16
@@ -3273,8 +3273,8 @@ _ZNK9Stockfish8Position13capture_stageENS_4MoveE.exit: ; preds = %139, %132, %_Z
   br label %215
 
 215:                                              ; preds = %182, %151, %167, %190
-  %.2467 = phi i32 [ %153, %151 ], [ %.1466, %167 ], [ %195, %190 ], [ %.1466, %182 ]
-  %.0457 = phi i32 [ %153, %151 ], [ %.sroa.speculated.i, %167 ], [ %.sroa.speculated.i549, %190 ], [ %spec.select, %182 ]
+  %.2467 = phi i32 [ %153, %151 ], [ %195, %190 ], [ %.1466, %182 ], [ %.1466, %167 ]
+  %.0457 = phi i32 [ %153, %151 ], [ %.sroa.speculated.i549, %190 ], [ %spec.select, %182 ], [ %.sroa.speculated.i, %167 ]
   %216 = load i16, ptr %61, align 2
   switch i16 %216, label %217 [
     i16 65, label %275
@@ -3475,9 +3475,9 @@ _ZNK9Stockfish8Position13capture_stageENS_4MoveE.exit: ; preds = %139, %132, %_Z
   br label %331
 
 331:                                              ; preds = %329, %327, %149
-  %.0465 = phi i32 [ 32002, %149 ], [ %.2467, %329 ], [ %.2467, %327 ]
-  %.0458 = phi i1 [ false, %149 ], [ %285, %329 ], [ %285, %327 ]
-  %.0448 = phi i32 [ %5, %149 ], [ %spec.select531, %329 ], [ %spec.select530, %327 ]
+  %.0465 = phi i32 [ 32002, %149 ], [ %.2467, %327 ], [ %.2467, %329 ]
+  %.0458 = phi i1 [ false, %149 ], [ %285, %327 ], [ %285, %329 ]
+  %.0448 = phi i32 [ %5, %149 ], [ %spec.select530, %327 ], [ %spec.select531, %329 ]
   %332 = getelementptr inbounds i8, ptr %2, i64 -48
   %333 = load ptr, ptr %332, align 8
   store ptr %333, ptr %12, align 16
@@ -3964,8 +3964,8 @@ _ZNK9Stockfish8Position13capture_stageENS_4MoveE.exit560._crit_edge: ; preds = %
   br label %_ZN9Stockfish12_GLOBAL__N_129update_continuation_historiesEPNS_6Search5StackENS_5PieceENS_6SquareEi.exit
 
 _ZN9Stockfish12_GLOBAL__N_129update_continuation_historiesEPNS_6Search5StackENS_5PieceENS_6SquareEi.exit: ; preds = %632, %606, %634, %571
-  %.2455 = phi i32 [ %578, %571 ], [ %641, %634 ], [ %.1454, %606 ], [ %.1454, %632 ]
-  %.0452 = phi i32 [ %491, %571 ], [ %491, %634 ], [ %590, %606 ], [ %590, %632 ]
+  %.2455 = phi i32 [ %641, %634 ], [ %578, %571 ], [ %.1454, %606 ], [ %.1454, %632 ]
+  %.0452 = phi i32 [ %491, %634 ], [ %491, %571 ], [ %590, %606 ], [ %590, %632 ]
   %642 = icmp eq i64 %indvars.iv, 0
   %643 = icmp sgt i32 %.2455, %.0447.ph790
   %or.cond538 = select i1 %642, i1 true, i1 %643
@@ -4109,7 +4109,7 @@ _ZN9Stockfish12_GLOBAL__N_129update_continuation_historiesEPNS_6Search5StackENS_
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN9Stockfish6Search8RootMoveESt6vectorIS4_SaIS4_EEEENS2_4MoveEET_SB_SB_RKT0_.exit
 
 _ZSt4findIN9__gnu_cxx17__normal_iteratorIPN9Stockfish6Search8RootMoveESt6vectorIS4_SaIS4_EEEENS2_4MoveEET_SB_SB_RKT0_.exit: ; preds = %669, %._crit_edge.i.i.i, %694, %._crit_edge._crit_edge.i.i.i, %._crit_edge._crit_edge57.i.i.i, %.loopexit.split.loop.exit42.i.i.i, %.loopexit.split.loop.exit44.i.i.i, %.loopexit.split.loop.exit46.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %694 ], [ %.sroa.032.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %661, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %711, %.loopexit.split.loop.exit42.i.i.i ], [ %712, %.loopexit.split.loop.exit44.i.i.i ], [ %713, %.loopexit.split.loop.exit46.i.i.i ], [ %.sroa.032.051.i.i.i, %669 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %spec.select.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %661, %._crit_edge.i.i.i ], [ %.sroa.032.0.lcssa.i.i.i, %694 ], [ %712, %.loopexit.split.loop.exit44.i.i.i ], [ %711, %.loopexit.split.loop.exit42.i.i.i ], [ %713, %.loopexit.split.loop.exit46.i.i.i ], [ %.sroa.032.051.i.i.i, %669 ]
   %714 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.i, i64 8
   %715 = load i32, ptr %714, align 8
   %.not517 = icmp eq i32 %715, -32001
@@ -4475,10 +4475,10 @@ _ZN9Stockfish12_GLOBAL__N_129update_continuation_historiesEPNS_6Search5StackENS_
   br label %884
 
 884:                                              ; preds = %816, %.loopexit.thread905, %819, %_ZN9Stockfish12_GLOBAL__N_129update_continuation_historiesEPNS_6Search5StackENS_5PieceENS_6SquareEi.exit575, %820
-  %.sroa.0626.1903 = phi i16 [ %.sroa.0626.1904, %819 ], [ 0, %820 ], [ %.sroa.0626.1904, %_ZN9Stockfish12_GLOBAL__N_129update_continuation_historiesEPNS_6Search5StackENS_5PieceENS_6SquareEi.exit575 ], [ %.sroa.0626.1915, %816 ], [ %.sroa.0626.1915, %.loopexit.thread905 ]
-  %.0447.ph742899 = phi i32 [ %.0447.ph742900, %819 ], [ %.0447.ph742900, %820 ], [ %.0447.ph742900, %_ZN9Stockfish12_GLOBAL__N_129update_continuation_historiesEPNS_6Search5StackENS_5PieceENS_6SquareEi.exit575 ], [ %.0447.ph742914, %816 ], [ %.0447.ph742914, %.loopexit.thread905 ]
-  %.3.ph746896 = phi i32 [ %.3.ph746894, %819 ], [ %.3.ph746894, %820 ], [ %.3.ph746894, %_ZN9Stockfish12_GLOBAL__N_129update_continuation_historiesEPNS_6Search5StackENS_5PieceENS_6SquareEi.exit575 ], [ %.3.ph746913, %816 ], [ %.3.ph746913, %.loopexit.thread905 ]
-  %.3685 = phi i32 [ %.1684901, %819 ], [ %.1684901, %820 ], [ %.1684901, %_ZN9Stockfish12_GLOBAL__N_129update_continuation_historiesEPNS_6Search5StackENS_5PieceENS_6SquareEi.exit575 ], [ %818, %816 ], [ %.0447.ph742914, %.loopexit.thread905 ]
+  %.sroa.0626.1903 = phi i16 [ %.sroa.0626.1904, %_ZN9Stockfish12_GLOBAL__N_129update_continuation_historiesEPNS_6Search5StackENS_5PieceENS_6SquareEi.exit575 ], [ %.sroa.0626.1904, %819 ], [ 0, %820 ], [ %.sroa.0626.1915, %.loopexit.thread905 ], [ %.sroa.0626.1915, %816 ]
+  %.0447.ph742899 = phi i32 [ %.0447.ph742900, %_ZN9Stockfish12_GLOBAL__N_129update_continuation_historiesEPNS_6Search5StackENS_5PieceENS_6SquareEi.exit575 ], [ %.0447.ph742900, %819 ], [ %.0447.ph742900, %820 ], [ %.0447.ph742914, %.loopexit.thread905 ], [ %.0447.ph742914, %816 ]
+  %.3.ph746896 = phi i32 [ %.3.ph746894, %_ZN9Stockfish12_GLOBAL__N_129update_continuation_historiesEPNS_6Search5StackENS_5PieceENS_6SquareEi.exit575 ], [ %.3.ph746894, %819 ], [ %.3.ph746894, %820 ], [ %.3.ph746913, %.loopexit.thread905 ], [ %.3.ph746913, %816 ]
+  %.3685 = phi i32 [ %.1684901, %_ZN9Stockfish12_GLOBAL__N_129update_continuation_historiesEPNS_6Search5StackENS_5PieceENS_6SquareEi.exit575 ], [ %.1684901, %819 ], [ %.1684901, %820 ], [ %.0447.ph742914, %.loopexit.thread905 ], [ %818, %816 ]
   %.3685.fr = freeze i32 %.3685
   %spec.select709 = call i32 @llvm.smin.i32(i32 %.3685.fr, i32 32001)
   br label %.thread700
@@ -4602,7 +4602,7 @@ _ZN9Stockfish12_GLOBAL__N_129update_continuation_historiesEPNS_6Search5StackENS_
   br label %.loopexit726
 
 .loopexit726:                                     ; preds = %648, %931, %916, %920, %928, %._crit_edge840, %319, %317, %292, %325, %16
-  %.0 = phi i32 [ %17, %16 ], [ %326, %325 ], [ %294, %292 ], [ %321, %319 ], [ %.0457, %317 ], [ %885, %._crit_edge840 ], [ %885, %928 ], [ %885, %920 ], [ %885, %916 ], [ %885, %931 ], [ 0, %648 ]
+  %.0 = phi i32 [ %17, %16 ], [ %.0457, %317 ], [ %885, %916 ], [ %326, %325 ], [ %294, %292 ], [ %321, %319 ], [ %885, %._crit_edge840 ], [ %885, %931 ], [ %885, %928 ], [ %885, %920 ], [ 0, %648 ]
   ret i32 %.0
 }
 
@@ -5420,7 +5420,7 @@ _ZNK9Stockfish8Position3keyEv.exit:               ; preds = %54, %66
   br label %_ZN9Stockfish12_GLOBAL__N_113value_from_ttEiii.exit
 
 _ZN9Stockfish12_GLOBAL__N_113value_from_ttEiii.exit: ; preds = %109, %105, %101, %97, %93, %80
-  %.ph = phi i32 [ %spec.select20.i, %109 ], [ %spec.select.i, %97 ], [ %83, %101 ], [ -31506, %105 ], [ 31506, %93 ], [ 32002, %80 ]
+  %.ph = phi i32 [ -31506, %105 ], [ %spec.select20.i, %109 ], [ %83, %101 ], [ 31506, %93 ], [ 32002, %80 ], [ %spec.select.i, %97 ]
   %113 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %.sroa.0.0.copyload.i = load i16, ptr %113, align 2
   %114 = getelementptr inbounds nuw i8, ptr %77, i64 3
@@ -5533,11 +5533,11 @@ _ZN9Stockfish12_GLOBAL__N_113value_from_ttEiii.exit.thread269: ; preds = %_ZNK9S
   br label %183
 
 183:                                              ; preds = %148, %133, %167
-  %184 = phi i32 [ %.sroa.speculated.i, %133 ], [ %.sroa.speculated.i207, %167 ], [ %.sroa.speculated.i, %148 ]
-  %.sroa.027.0267271275 = phi i16 [ %.sroa.0.0.copyload.i, %133 ], [ 0, %167 ], [ %.sroa.0.0.copyload.i, %148 ]
-  %185 = phi i1 [ %117, %133 ], [ false, %167 ], [ %117, %148 ]
-  %.1261 = phi i32 [ %.sroa.speculated.i, %133 ], [ %.sroa.speculated.i207, %167 ], [ %spec.select284, %148 ]
-  %.2175 = phi i32 [ %.1174, %133 ], [ %168, %167 ], [ %.1174, %148 ]
+  %184 = phi i32 [ %.sroa.speculated.i, %133 ], [ %.sroa.speculated.i, %148 ], [ %.sroa.speculated.i207, %167 ]
+  %.sroa.027.0267271275 = phi i16 [ %.sroa.0.0.copyload.i, %133 ], [ %.sroa.0.0.copyload.i, %148 ], [ 0, %167 ]
+  %185 = phi i1 [ %117, %133 ], [ %117, %148 ], [ false, %167 ]
+  %.1261 = phi i32 [ %.sroa.speculated.i, %133 ], [ %spec.select284, %148 ], [ %.sroa.speculated.i207, %167 ]
+  %.2175 = phi i32 [ %.1174, %133 ], [ %.1174, %148 ], [ %168, %167 ]
   %.not195 = icmp slt i32 %.1261, %4
   br i1 %.not195, label %199, label %186
 
@@ -5682,11 +5682,11 @@ _ZNK9Stockfish8Position13capture_stageENS_4MoveE.exit: ; preds = %230, %238
   br label %.backedge
 
 .backedge:                                        ; preds = %294, %327, %_ZN9Stockfish12_GLOBAL__N_19update_pvEPNS_4MoveES1_PKS1_.exit, %261, %266, %227, %254, %286, %292, %267
-  %.2.be = phi i32 [ %.2294, %292 ], [ %.2294, %286 ], [ %.2294, %254 ], [ %.sroa.speculated, %266 ], [ %.sroa.speculated223, %261 ], [ %.2294, %227 ], [ %.3298, %267 ], [ %325, %_ZN9Stockfish12_GLOBAL__N_19update_pvEPNS_4MoveES1_PKS1_.exit ], [ %325, %327 ], [ %.2294, %294 ]
-  %.0176.be = phi i32 [ %.0176295, %292 ], [ %.0176295, %286 ], [ %.0176295, %254 ], [ %.0176295, %266 ], [ %.0176295, %261 ], [ %.0176295, %227 ], [ %.0176295, %267 ], [ %321, %_ZN9Stockfish12_GLOBAL__N_19update_pvEPNS_4MoveES1_PKS1_.exit ], [ %321, %327 ], [ %321, %294 ]
-  %.0172.be = phi i32 [ %242, %292 ], [ %242, %286 ], [ %242, %254 ], [ %242, %266 ], [ %242, %261 ], [ %.0172296, %227 ], [ %242, %267 ], [ %242, %_ZN9Stockfish12_GLOBAL__N_19update_pvEPNS_4MoveES1_PKS1_.exit ], [ %242, %327 ], [ %242, %294 ]
-  %.sroa.062.0.be = phi i16 [ %.sroa.062.0297, %292 ], [ %.sroa.062.0297, %286 ], [ %.sroa.062.0297, %254 ], [ %.sroa.062.0297, %266 ], [ %.sroa.062.0297, %261 ], [ %.sroa.062.0297, %227 ], [ %.sroa.062.0297, %267 ], [ %228, %_ZN9Stockfish12_GLOBAL__N_19update_pvEPNS_4MoveES1_PKS1_.exit ], [ %.sroa.062.0297, %327 ], [ %.sroa.062.0297, %294 ]
-  %.3.be = phi i32 [ %.3298, %292 ], [ %.3298, %286 ], [ %.3298, %254 ], [ %.3298, %266 ], [ %.3298, %261 ], [ %.3298, %227 ], [ %.3298, %267 ], [ %325, %_ZN9Stockfish12_GLOBAL__N_19update_pvEPNS_4MoveES1_PKS1_.exit ], [ %.3298, %327 ], [ %.3298, %294 ]
+  %.2.be = phi i32 [ %.3298, %267 ], [ %.2294, %292 ], [ %.2294, %286 ], [ %.2294, %254 ], [ %.2294, %227 ], [ %.sroa.speculated, %266 ], [ %.sroa.speculated223, %261 ], [ %325, %_ZN9Stockfish12_GLOBAL__N_19update_pvEPNS_4MoveES1_PKS1_.exit ], [ %325, %327 ], [ %.2294, %294 ]
+  %.0176.be = phi i32 [ %.0176295, %267 ], [ %.0176295, %292 ], [ %.0176295, %286 ], [ %.0176295, %254 ], [ %.0176295, %227 ], [ %.0176295, %266 ], [ %.0176295, %261 ], [ %321, %_ZN9Stockfish12_GLOBAL__N_19update_pvEPNS_4MoveES1_PKS1_.exit ], [ %321, %327 ], [ %321, %294 ]
+  %.0172.be = phi i32 [ %242, %267 ], [ %242, %292 ], [ %242, %286 ], [ %242, %254 ], [ %.0172296, %227 ], [ %242, %266 ], [ %242, %261 ], [ %242, %_ZN9Stockfish12_GLOBAL__N_19update_pvEPNS_4MoveES1_PKS1_.exit ], [ %242, %327 ], [ %242, %294 ]
+  %.sroa.062.0.be = phi i16 [ %.sroa.062.0297, %267 ], [ %.sroa.062.0297, %292 ], [ %.sroa.062.0297, %286 ], [ %.sroa.062.0297, %254 ], [ %.sroa.062.0297, %227 ], [ %.sroa.062.0297, %266 ], [ %.sroa.062.0297, %261 ], [ %228, %_ZN9Stockfish12_GLOBAL__N_19update_pvEPNS_4MoveES1_PKS1_.exit ], [ %.sroa.062.0297, %327 ], [ %.sroa.062.0297, %294 ]
+  %.3.be = phi i32 [ %.3298, %267 ], [ %.3298, %292 ], [ %.3298, %286 ], [ %.3298, %254 ], [ %.3298, %227 ], [ %.3298, %266 ], [ %.3298, %261 ], [ %325, %_ZN9Stockfish12_GLOBAL__N_19update_pvEPNS_4MoveES1_PKS1_.exit ], [ %.3298, %327 ], [ %.3298, %294 ]
   %262 = call i16 @_ZN9Stockfish10MovePicker9next_moveEb(ptr noundef nonnull align 8 dereferenceable(2172) %10, i1 noundef zeroext false) #22
   %.not286 = icmp eq i16 %262, 0
   br i1 %.not286, label %_ZN9Stockfish12_GLOBAL__N_19update_pvEPNS_4MoveES1_PKS1_.exit._crit_edge, label %227, !llvm.loop !41
@@ -5864,7 +5864,7 @@ _ZN9Stockfish12_GLOBAL__N_19update_pvEPNS_4MoveES1_PKS1_.exit._crit_edge: ; pred
   br label %360
 
 360:                                              ; preds = %186, %189, %48, %.thread, %45, %16, %349, %340
-  %.0 = phi i32 [ %342, %340 ], [ %.5, %349 ], [ %21, %16 ], [ %53, %48 ], [ 0, %.thread ], [ 0, %45 ], [ %.1261, %189 ], [ %.1261, %186 ]
+  %.0 = phi i32 [ 0, %45 ], [ %21, %16 ], [ %342, %340 ], [ %.5, %349 ], [ %53, %48 ], [ 0, %.thread ], [ %.1261, %189 ], [ %.1261, %186 ]
   ret i32 %.0
 }
 
@@ -5926,7 +5926,7 @@ define internal fastcc noundef i32 @_ZN9Stockfish12_GLOBAL__N_113value_from_ttEi
   br label %29
 
 29:                                               ; preds = %25, %13, %17, %21, %9, %3
-  %.0 = phi i32 [ 32002, %3 ], [ 31506, %9 ], [ -31506, %21 ], [ %0, %17 ], [ %spec.select, %13 ], [ %spec.select20, %25 ]
+  %.0 = phi i32 [ %spec.select, %13 ], [ 32002, %3 ], [ 31506, %9 ], [ %0, %17 ], [ %spec.select20, %25 ], [ -31506, %21 ]
   ret i32 %.0
 }
 
@@ -6095,7 +6095,7 @@ _ZNK9Stockfish8Position3keyEv.exit:               ; preds = %45, %57
   br label %_ZN9Stockfish12_GLOBAL__N_113value_from_ttEiii.exit
 
 _ZN9Stockfish12_GLOBAL__N_113value_from_ttEiii.exit: ; preds = %100, %96, %92, %88, %84, %71
-  %.ph = phi i32 [ %spec.select20.i, %100 ], [ %spec.select.i, %88 ], [ %74, %92 ], [ -31506, %96 ], [ 31506, %84 ], [ 32002, %71 ]
+  %.ph = phi i32 [ -31506, %96 ], [ %spec.select20.i, %100 ], [ %74, %92 ], [ 31506, %84 ], [ 32002, %71 ], [ %spec.select.i, %88 ]
   %104 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %.sroa.0.0.copyload.i = load i16, ptr %104, align 2
   %105 = getelementptr inbounds nuw i8, ptr %68, i64 3
@@ -6226,11 +6226,11 @@ _ZN9Stockfish12_GLOBAL__N_113value_from_ttEiii.exit: ; preds = %100, %96, %92, %
   br label %186
 
 186:                                              ; preds = %151, %136, %170
-  %187 = phi i32 [ %.sroa.speculated.i, %136 ], [ %.sroa.speculated.i206, %170 ], [ %.sroa.speculated.i, %151 ]
-  %188 = phi i1 [ %108, %136 ], [ false, %170 ], [ %108, %151 ]
-  %.sroa.028.0265270273277 = phi i16 [ %.sroa.0.0.copyload.i, %136 ], [ 0, %170 ], [ %.sroa.0.0.copyload.i, %151 ]
-  %.1259 = phi i32 [ %.sroa.speculated.i, %136 ], [ %.sroa.speculated.i206, %170 ], [ %spec.select286, %151 ]
-  %.2174 = phi i32 [ %.1173, %136 ], [ %171, %170 ], [ %.1173, %151 ]
+  %187 = phi i32 [ %.sroa.speculated.i, %151 ], [ %.sroa.speculated.i206, %170 ], [ %.sroa.speculated.i, %136 ]
+  %188 = phi i1 [ %108, %151 ], [ false, %170 ], [ %108, %136 ]
+  %.sroa.028.0265270273277 = phi i16 [ %.sroa.0.0.copyload.i, %151 ], [ 0, %170 ], [ %.sroa.0.0.copyload.i, %136 ]
+  %.1259 = phi i32 [ %spec.select286, %151 ], [ %.sroa.speculated.i206, %170 ], [ %.sroa.speculated.i, %136 ]
+  %.2174 = phi i32 [ %.1173, %151 ], [ %171, %170 ], [ %.1173, %136 ]
   %.not194 = icmp slt i32 %.1259, %4
   br i1 %.not194, label %202, label %189
 
@@ -6376,11 +6376,11 @@ _ZNK9Stockfish8Position13capture_stageENS_4MoveE.exit: ; preds = %234, %242
   br label %.backedge
 
 .backedge:                                        ; preds = %298, %331, %333, %265, %270, %231, %258, %290, %296, %271
-  %.2.be = phi i32 [ %.2293, %296 ], [ %.2293, %290 ], [ %.2293, %258 ], [ %.sroa.speculated, %270 ], [ %.sroa.speculated221, %265 ], [ %.2293, %231 ], [ %.3297, %271 ], [ %329, %333 ], [ %329, %331 ], [ %.2293, %298 ]
-  %.0175.be = phi i32 [ %.0175294, %296 ], [ %.0175294, %290 ], [ %.0175294, %258 ], [ %.0175294, %270 ], [ %.0175294, %265 ], [ %.0175294, %231 ], [ %.0175294, %271 ], [ %325, %333 ], [ %325, %331 ], [ %325, %298 ]
-  %.0171.be = phi i32 [ %246, %296 ], [ %246, %290 ], [ %246, %258 ], [ %246, %270 ], [ %246, %265 ], [ %.0171295, %231 ], [ %246, %271 ], [ %246, %333 ], [ %246, %331 ], [ %246, %298 ]
-  %.sroa.064.0.be = phi i16 [ %.sroa.064.0296, %296 ], [ %.sroa.064.0296, %290 ], [ %.sroa.064.0296, %258 ], [ %.sroa.064.0296, %270 ], [ %.sroa.064.0296, %265 ], [ %.sroa.064.0296, %231 ], [ %.sroa.064.0296, %271 ], [ %232, %333 ], [ %.sroa.064.0296, %331 ], [ %.sroa.064.0296, %298 ]
-  %.3.be = phi i32 [ %.3297, %296 ], [ %.3297, %290 ], [ %.3297, %258 ], [ %.3297, %270 ], [ %.3297, %265 ], [ %.3297, %231 ], [ %.3297, %271 ], [ %329, %333 ], [ %.3297, %331 ], [ %.3297, %298 ]
+  %.2.be = phi i32 [ %.3297, %271 ], [ %.2293, %296 ], [ %.2293, %290 ], [ %.2293, %258 ], [ %.2293, %231 ], [ %.sroa.speculated, %270 ], [ %.sroa.speculated221, %265 ], [ %329, %333 ], [ %329, %331 ], [ %.2293, %298 ]
+  %.0175.be = phi i32 [ %.0175294, %271 ], [ %.0175294, %296 ], [ %.0175294, %290 ], [ %.0175294, %258 ], [ %.0175294, %231 ], [ %.0175294, %270 ], [ %.0175294, %265 ], [ %325, %333 ], [ %325, %331 ], [ %325, %298 ]
+  %.0171.be = phi i32 [ %246, %271 ], [ %246, %296 ], [ %246, %290 ], [ %246, %258 ], [ %.0171295, %231 ], [ %246, %270 ], [ %246, %265 ], [ %246, %333 ], [ %246, %331 ], [ %246, %298 ]
+  %.sroa.064.0.be = phi i16 [ %.sroa.064.0296, %271 ], [ %.sroa.064.0296, %296 ], [ %.sroa.064.0296, %290 ], [ %.sroa.064.0296, %258 ], [ %.sroa.064.0296, %231 ], [ %.sroa.064.0296, %270 ], [ %.sroa.064.0296, %265 ], [ %232, %333 ], [ %.sroa.064.0296, %331 ], [ %.sroa.064.0296, %298 ]
+  %.3.be = phi i32 [ %.3297, %271 ], [ %.3297, %296 ], [ %.3297, %290 ], [ %.3297, %258 ], [ %.3297, %231 ], [ %.3297, %270 ], [ %.3297, %265 ], [ %329, %333 ], [ %.3297, %331 ], [ %.3297, %298 ]
   %266 = call i16 @_ZN9Stockfish10MovePicker9next_moveEb(ptr noundef nonnull align 8 dereferenceable(2172) %9, i1 noundef zeroext false) #22
   %.not288 = icmp eq i16 %266, 0
   br i1 %.not288, label %._crit_edge, label %231, !llvm.loop !42
@@ -6532,7 +6532,7 @@ _ZNK9Stockfish8Position13capture_stageENS_4MoveE.exit: ; preds = %234, %242
   br label %358
 
 358:                                              ; preds = %189, %192, %115, %39, %.thread, %36, %15, %347, %338
-  %.0 = phi i32 [ %340, %338 ], [ %.5, %347 ], [ %20, %15 ], [ %44, %39 ], [ 0, %.thread ], [ 0, %36 ], [ %.ph, %115 ], [ %.1259, %192 ], [ %.1259, %189 ]
+  %.0 = phi i32 [ %.ph, %115 ], [ %20, %15 ], [ 0, %36 ], [ %340, %338 ], [ %.5, %347 ], [ %44, %39 ], [ 0, %.thread ], [ %.1259, %192 ], [ %.1259, %189 ]
   ret i32 %.0
 }
 
@@ -6760,7 +6760,7 @@ _ZNK9Stockfish8Position3keyEv.exit:               ; preds = %103, %114
   br label %_ZNK9Stockfish8Position13capture_stageENS_4MoveE.exit
 
 _ZNK9Stockfish8Position13capture_stageENS_4MoveE.exit: ; preds = %146, %139, %128
-  %149 = phi i1 [ false, %128 ], [ true, %139 ], [ %148, %146 ]
+  %149 = phi i1 [ false, %128 ], [ %148, %146 ], [ true, %139 ]
   %.not1085 = icmp eq i16 %107, 0
   br i1 %.not1085, label %151, label %259
 
@@ -7077,8 +7077,8 @@ _ZNK9Stockfish8Position13capture_stageENS_4MoveE.exit.thread: ; preds = %_ZNK9St
   br label %335
 
 335:                                              ; preds = %301, %269, %286, %309
-  %.2664 = phi i32 [ %271, %269 ], [ %.1663, %286 ], [ %314, %309 ], [ %.1663, %301 ]
-  %.0651 = phi i32 [ %271, %269 ], [ %.sroa.speculated.i820, %286 ], [ %.sroa.speculated.i822, %309 ], [ %spec.select, %301 ]
+  %.2664 = phi i32 [ %271, %269 ], [ %314, %309 ], [ %.1663, %301 ], [ %.1663, %286 ]
+  %.0651 = phi i32 [ %271, %269 ], [ %.sroa.speculated.i822, %309 ], [ %spec.select, %301 ], [ %.sroa.speculated.i820, %286 ]
   %336 = load i16, ptr %98, align 2
   switch i16 %336, label %337 [
     i16 65, label %395
@@ -7485,9 +7485,9 @@ _ZNK9Stockfish8Position13capture_stageENS_4MoveE.exit.thread: ; preds = %_ZNK9St
   br label %579
 
 579:                                              ; preds = %501, %.critedge, %._crit_edge, %266
-  %.0662 = phi i32 [ 32002, %266 ], [ %.2664, %._crit_edge ], [ %.2664, %.critedge ], [ %.2664, %501 ]
-  %.0652.shrunk = phi i1 [ false, %266 ], [ %405, %._crit_edge ], [ %405, %.critedge ], [ %405, %501 ]
-  %.0641 = phi i32 [ %5, %266 ], [ %.1, %._crit_edge ], [ %.1, %.critedge ], [ %.1, %501 ]
+  %.0662 = phi i32 [ 32002, %266 ], [ %.2664, %501 ], [ %.2664, %._crit_edge ], [ %.2664, %.critedge ]
+  %.0652.shrunk = phi i1 [ false, %266 ], [ %405, %501 ], [ %405, %._crit_edge ], [ %405, %.critedge ]
+  %.0641 = phi i32 [ %5, %266 ], [ %.1, %501 ], [ %.1, %._crit_edge ], [ %.1, %.critedge ]
   %580 = add nsw i32 %.sroa.speculated897, 452
   %581 = load i8, ptr %36, align 8
   %582 = trunc i8 %581 to i1
@@ -7858,8 +7858,8 @@ _ZNK9Stockfish8Position13capture_stageENS_4MoveE.exit831: ; preds = %653, %661
   br label %831
 
 831:                                              ; preds = %787, %830, %829, %818, %821, %804, %801, %793
-  %.0642 = phi i32 [ %824, %821 ], [ 1, %818 ], [ 0, %804 ], [ 0, %801 ], [ 0, %793 ], [ 0, %787 ], [ %.mux, %829 ], [ %spec.select803, %830 ]
-  %.4 = phi i32 [ %827, %821 ], [ %.21138, %818 ], [ %.21138, %804 ], [ %.21138, %801 ], [ %.21138, %793 ], [ %.21138, %787 ], [ %.21138, %829 ], [ %.21138, %830 ]
+  %.0642 = phi i32 [ 0, %801 ], [ %824, %821 ], [ 1, %818 ], [ 0, %787 ], [ %.mux, %829 ], [ 0, %793 ], [ %spec.select803, %830 ], [ 0, %804 ]
+  %.4 = phi i32 [ %.21138, %801 ], [ %827, %821 ], [ %.21138, %818 ], [ %.21138, %787 ], [ %.21138, %829 ], [ %.21138, %793 ], [ %.21138, %830 ], [ %.21138, %804 ]
   %832 = add nsw i32 %.0642, %671
   %833 = load i32, ptr %95, align 4
   %834 = icmp sgt i32 %.0642, 1
@@ -8131,7 +8131,7 @@ _ZN9Stockfish12_GLOBAL__N_129update_continuation_historiesEPNS_6Search5StackENS_
   br label %.backedge
 
 1001:                                             ; preds = %990, %988
-  %.2645 = phi i32 [ %.2650, %990 ], [ %.06431137, %988 ]
+  %.2645 = phi i32 [ %.06431137, %988 ], [ %.2650, %990 ]
   %1002 = icmp ne i16 %649, %.sroa.0905.01131
   %1003 = icmp slt i32 %.06561135, 32
   %or.cond42 = select i1 %1002, i1 %1003, i1 false
@@ -8155,14 +8155,14 @@ _ZN9Stockfish12_GLOBAL__N_129update_continuation_historiesEPNS_6Search5StackENS_
   br label %.backedge
 
 .backedge:                                        ; preds = %1001, %1009, %1005, %.thread1058, %648, %651, %707, %728, %775, %783, %731
-  %.sroa.0905.0.be = phi i16 [ %.sroa.0905.01131, %648 ], [ %.sroa.0905.01131, %728 ], [ %.sroa.0905.01131, %707 ], [ %.sroa.0905.01131, %731 ], [ %.sroa.0905.01131, %783 ], [ %.sroa.0905.01131, %775 ], [ %.sroa.0905.01131, %651 ], [ %.sroa.0905.01131, %1005 ], [ %.sroa.0905.01131, %1009 ], [ %.sroa.0905.01131, %1001 ], [ %649, %.thread1058 ]
-  %.11025.be = phi i32 [ %.110251132, %648 ], [ %.110251132, %728 ], [ %.110251132, %707 ], [ %.110251132, %731 ], [ %.110251132, %783 ], [ %.110251132, %775 ], [ %.110251132, %651 ], [ %.110251132, %1005 ], [ %.110251132, %1009 ], [ %.110251132, %1001 ], [ %.2650, %.thread1058 ]
-  %.0660.be = phi i32 [ %.06601133, %648 ], [ %.06601133, %728 ], [ %.06601133, %707 ], [ %.06601133, %731 ], [ %.06601133, %783 ], [ %.06601133, %775 ], [ %.06601133, %651 ], [ %.06601133, %1005 ], [ %1010, %1009 ], [ %.06601133, %1001 ], [ %.06601133, %.thread1058 ]
-  %.0658.be = phi i32 [ %.06581134, %648 ], [ %.06581134, %728 ], [ %.06581134, %707 ], [ %.06581134, %731 ], [ %.06581134, %783 ], [ %.06581134, %775 ], [ %.06581134, %651 ], [ %1006, %1005 ], [ %.06581134, %1009 ], [ %.06581134, %1001 ], [ %.06581134, %.thread1058 ]
-  %.0656.be = phi i32 [ %.06561135, %648 ], [ %654, %728 ], [ %654, %707 ], [ %654, %731 ], [ %654, %783 ], [ %654, %775 ], [ %.06561135, %651 ], [ %654, %1005 ], [ %654, %1009 ], [ %654, %1001 ], [ %654, %.thread1058 ]
-  %.0653.be = phi i1 [ %.06531136, %648 ], [ %.2655, %728 ], [ %.2655, %707 ], [ %.2655, %731 ], [ %.2655, %783 ], [ %.2655, %775 ], [ %.06531136, %651 ], [ %.1654, %1005 ], [ %.1654, %1009 ], [ %.1654, %1001 ], [ %.1654, %.thread1058 ]
-  %.0643.be = phi i32 [ %.06431137, %648 ], [ %.06431137, %728 ], [ %.06431137, %707 ], [ %.06431137, %731 ], [ %.06431137, %783 ], [ %.06431137, %775 ], [ %.06431137, %651 ], [ %.2645, %1005 ], [ %.2645, %1009 ], [ %.2645, %1001 ], [ %.2650, %.thread1058 ]
-  %.2.be = phi i32 [ %.21138, %648 ], [ %.21138, %728 ], [ %.21138, %707 ], [ %.21138, %731 ], [ %.21138, %783 ], [ %.21138, %775 ], [ %.21138, %651 ], [ %.4, %1005 ], [ %.4, %1009 ], [ %.4, %1001 ], [ %spec.select809, %.thread1058 ]
+  %.sroa.0905.0.be = phi i16 [ %.sroa.0905.01131, %648 ], [ %.sroa.0905.01131, %651 ], [ %.sroa.0905.01131, %728 ], [ %.sroa.0905.01131, %707 ], [ %.sroa.0905.01131, %731 ], [ %.sroa.0905.01131, %783 ], [ %.sroa.0905.01131, %775 ], [ %.sroa.0905.01131, %1005 ], [ %.sroa.0905.01131, %1009 ], [ %.sroa.0905.01131, %1001 ], [ %649, %.thread1058 ]
+  %.11025.be = phi i32 [ %.110251132, %648 ], [ %.110251132, %651 ], [ %.110251132, %728 ], [ %.110251132, %707 ], [ %.110251132, %731 ], [ %.110251132, %783 ], [ %.110251132, %775 ], [ %.110251132, %1005 ], [ %.110251132, %1009 ], [ %.110251132, %1001 ], [ %.2650, %.thread1058 ]
+  %.0660.be = phi i32 [ %.06601133, %648 ], [ %.06601133, %651 ], [ %.06601133, %728 ], [ %.06601133, %707 ], [ %.06601133, %731 ], [ %.06601133, %783 ], [ %.06601133, %775 ], [ %.06601133, %1005 ], [ %1010, %1009 ], [ %.06601133, %1001 ], [ %.06601133, %.thread1058 ]
+  %.0658.be = phi i32 [ %.06581134, %648 ], [ %.06581134, %651 ], [ %.06581134, %728 ], [ %.06581134, %707 ], [ %.06581134, %731 ], [ %.06581134, %783 ], [ %.06581134, %775 ], [ %1006, %1005 ], [ %.06581134, %1009 ], [ %.06581134, %1001 ], [ %.06581134, %.thread1058 ]
+  %.0656.be = phi i32 [ %.06561135, %648 ], [ %.06561135, %651 ], [ %654, %728 ], [ %654, %707 ], [ %654, %731 ], [ %654, %783 ], [ %654, %775 ], [ %654, %1005 ], [ %654, %1009 ], [ %654, %1001 ], [ %654, %.thread1058 ]
+  %.0653.be = phi i1 [ %.06531136, %648 ], [ %.06531136, %651 ], [ %.2655, %728 ], [ %.2655, %707 ], [ %.2655, %731 ], [ %.2655, %783 ], [ %.2655, %775 ], [ %.1654, %1005 ], [ %.1654, %1009 ], [ %.1654, %1001 ], [ %.1654, %.thread1058 ]
+  %.0643.be = phi i32 [ %.06431137, %648 ], [ %.06431137, %651 ], [ %.06431137, %728 ], [ %.06431137, %707 ], [ %.06431137, %731 ], [ %.06431137, %783 ], [ %.06431137, %775 ], [ %.2645, %1005 ], [ %.2645, %1009 ], [ %.2645, %1001 ], [ %.2650, %.thread1058 ]
+  %.2.be = phi i32 [ %.21138, %648 ], [ %.21138, %651 ], [ %.21138, %728 ], [ %.21138, %707 ], [ %.21138, %731 ], [ %.21138, %783 ], [ %.21138, %775 ], [ %.4, %1005 ], [ %.4, %1009 ], [ %.4, %1001 ], [ %spec.select809, %.thread1058 ]
   %1013 = call i16 @_ZN9Stockfish10MovePicker9next_moveEb(ptr noundef nonnull align 8 dereferenceable(2172) %14, i1 noundef zeroext %.0653.be) #22
   %.not1093 = icmp eq i16 %1013, 0
   br i1 %.not1093, label %.loopexit, label %648, !llvm.loop !44
@@ -8268,7 +8268,7 @@ _ZN9Stockfish12_GLOBAL__N_129update_continuation_historiesEPNS_6Search5StackENS_
   br label %1073
 
 1073:                                             ; preds = %1028, %1031, %1035, %1037, %1036
-  %.4647 = phi i32 [ %.3646, %1035 ], [ %.3646, %1037 ], [ %.3646, %1036 ], [ %1033, %1031 ], [ 0, %1028 ]
+  %.4647 = phi i32 [ %.3646, %1035 ], [ %.3646, %1037 ], [ %.3646, %1036 ], [ 0, %1028 ], [ %1033, %1031 ]
   %.not781 = icmp sgt i32 %.4647, %.110251123
   br i1 %.not781, label %1086, label %.thread1068
 
@@ -8380,7 +8380,7 @@ _ZN9Stockfish12_GLOBAL__N_129update_continuation_historiesEPNS_6Search5StackENS_
   br label %.loopexit1106
 
 .loopexit1106:                                    ; preds = %_ZN9Stockfish12_GLOBAL__N_129update_continuation_historiesEPNS_6Search5StackENS_5PieceENS_6SquareEi.exit, %828, %1116, %587, %1101, %1105, %1113, %._crit_edge1158, %487, %483, %439, %437, %412, %193, %190, %85, %73, %79, %24, %561, %244, %16
-  %.0 = phi i32 [ %17, %16 ], [ %576, %561 ], [ %246, %244 ], [ %29, %24 ], [ %78, %73 ], [ %84, %79 ], [ %.sroa.speculated902, %85 ], [ %196, %193 ], [ %136, %190 ], [ %414, %412 ], [ %441, %439 ], [ %.0651, %437 ], [ %480, %483 ], [ %480, %487 ], [ %.46471072, %._crit_edge1158 ], [ %.46471072, %1113 ], [ %.46471072, %1105 ], [ %.46471072, %1101 ], [ %580, %587 ], [ %.46471072, %1116 ], [ 0, %_ZN9Stockfish12_GLOBAL__N_129update_continuation_historiesEPNS_6Search5StackENS_5PieceENS_6SquareEi.exit ], [ %813, %828 ]
+  %.0 = phi i32 [ %17, %16 ], [ %246, %244 ], [ %29, %24 ], [ %84, %79 ], [ %480, %487 ], [ %.46471072, %1105 ], [ %.46471072, %1101 ], [ %580, %587 ], [ %136, %190 ], [ %414, %412 ], [ %.sroa.speculated902, %85 ], [ %576, %561 ], [ %.0651, %437 ], [ %480, %483 ], [ %78, %73 ], [ %196, %193 ], [ %441, %439 ], [ %.46471072, %._crit_edge1158 ], [ %.46471072, %1116 ], [ %.46471072, %1113 ], [ 0, %_ZN9Stockfish12_GLOBAL__N_129update_continuation_historiesEPNS_6Search5StackENS_5PieceENS_6SquareEi.exit ], [ %813, %828 ]
   ret i32 %.0
 }
 
@@ -8664,10 +8664,10 @@ _ZNK9Stockfish8Position3keyEv.exit:               ; preds = %104, %115
   br label %_ZNK9Stockfish8Position13capture_stageENS_4MoveE.exit
 
 _ZNK9Stockfish8Position13capture_stageENS_4MoveE.exit: ; preds = %_ZNK9Stockfish8Position3keyEv.exit, %146, %139, %129
-  %149 = phi i1 [ false, %129 ], [ true, %139 ], [ true, %146 ], [ false, %_ZNK9Stockfish8Position3keyEv.exit ]
-  %.sroa.0115.0853 = phi i16 [ 0, %129 ], [ %.sroa.0.0.copyload.i, %139 ], [ %.sroa.0.0.copyload.i, %146 ], [ 0, %_ZNK9Stockfish8Position3keyEv.exit ]
-  %150 = phi i32 [ %137, %129 ], [ %137, %139 ], [ %137, %146 ], [ 32002, %_ZNK9Stockfish8Position3keyEv.exit ]
-  %151 = phi i1 [ false, %129 ], [ true, %139 ], [ %148, %146 ], [ false, %_ZNK9Stockfish8Position3keyEv.exit ]
+  %149 = phi i1 [ false, %129 ], [ true, %146 ], [ true, %139 ], [ false, %_ZNK9Stockfish8Position3keyEv.exit ]
+  %.sroa.0115.0853 = phi i16 [ 0, %129 ], [ %.sroa.0.0.copyload.i, %146 ], [ %.sroa.0.0.copyload.i, %139 ], [ 0, %_ZNK9Stockfish8Position3keyEv.exit ]
+  %150 = phi i32 [ %137, %129 ], [ %137, %146 ], [ %137, %139 ], [ 32002, %_ZNK9Stockfish8Position3keyEv.exit ]
+  %151 = phi i1 [ false, %129 ], [ %148, %146 ], [ true, %139 ], [ false, %_ZNK9Stockfish8Position3keyEv.exit ]
   %.not899 = icmp eq i16 %108, 0
   br i1 %.not899, label %152, label %.thread858
 
@@ -8780,9 +8780,9 @@ _ZNK9Stockfish8Position13capture_stageENS_4MoveE.exit: ; preds = %_ZNK9Stockfish
   br label %215
 
 215:                                              ; preds = %.thread856, %162, %156, %166, %171, %214, %183, %152
-  %.0849 = phi i32 [ 32001, %152 ], [ 32001, %156 ], [ 32001, %162 ], [ 32001, %171 ], [ 32001, %183 ], [ 32001, %214 ], [ 32001, %166 ], [ %.neg, %.thread856 ]
-  %.0844 = phi i32 [ -32001, %152 ], [ -32001, %156 ], [ -32001, %162 ], [ -32001, %171 ], [ -32001, %183 ], [ %195, %214 ], [ -32001, %166 ], [ -32001, %.thread856 ]
-  %.1 = phi i32 [ %.sroa.speculated699, %152 ], [ %.sroa.speculated699, %156 ], [ %.sroa.speculated699, %162 ], [ %.sroa.speculated699, %171 ], [ %.sroa.speculated699, %183 ], [ %.sroa.speculated723, %214 ], [ %.sroa.speculated699, %166 ], [ %.sroa.speculated699, %.thread856 ]
+  %.0849 = phi i32 [ %.neg, %.thread856 ], [ 32001, %152 ], [ 32001, %156 ], [ 32001, %162 ], [ 32001, %171 ], [ 32001, %183 ], [ 32001, %214 ], [ 32001, %166 ]
+  %.0844 = phi i32 [ -32001, %.thread856 ], [ -32001, %152 ], [ -32001, %156 ], [ -32001, %162 ], [ -32001, %171 ], [ -32001, %183 ], [ %195, %214 ], [ -32001, %166 ]
+  %.1 = phi i32 [ %.sroa.speculated699, %.thread856 ], [ %.sroa.speculated699, %152 ], [ %.sroa.speculated699, %156 ], [ %.sroa.speculated699, %162 ], [ %.sroa.speculated699, %171 ], [ %.sroa.speculated699, %183 ], [ %.sroa.speculated723, %214 ], [ %.sroa.speculated699, %166 ]
   %216 = load i8, ptr %36, align 8
   %217 = trunc i8 %216 to i1
   br i1 %217, label %220, label %224
@@ -8902,11 +8902,11 @@ _ZNK9Stockfish8Position13capture_stageENS_4MoveE.exit: ; preds = %_ZNK9Stockfish
   br label %287
 
 287:                                              ; preds = %254, %.thread871, %239, %262
-  %.0849863879 = phi i32 [ 32001, %.thread871 ], [ %.0849, %239 ], [ %.0849, %262 ], [ %.0849, %254 ]
-  %.0844866877 = phi i32 [ -32001, %.thread871 ], [ %.0844, %239 ], [ %.0844, %262 ], [ %.0844, %254 ]
-  %.1869875 = phi i32 [ %.sroa.speculated699, %.thread871 ], [ %.1, %239 ], [ %.1, %262 ], [ %.1, %254 ]
-  %.2513 = phi i32 [ %223, %.thread871 ], [ %.1512, %239 ], [ %267, %262 ], [ %.1512, %254 ]
-  %.0500 = phi i32 [ %223, %.thread871 ], [ %.sroa.speculated.i, %239 ], [ %.sroa.speculated.i629, %262 ], [ %spec.select, %254 ]
+  %.0849863879 = phi i32 [ 32001, %.thread871 ], [ %.0849, %262 ], [ %.0849, %254 ], [ %.0849, %239 ]
+  %.0844866877 = phi i32 [ -32001, %.thread871 ], [ %.0844, %262 ], [ %.0844, %254 ], [ %.0844, %239 ]
+  %.1869875 = phi i32 [ %.sroa.speculated699, %.thread871 ], [ %.1, %262 ], [ %.1, %254 ], [ %.1, %239 ]
+  %.2513 = phi i32 [ %223, %.thread871 ], [ %267, %262 ], [ %.1512, %254 ], [ %.1512, %239 ]
+  %.0500 = phi i32 [ %223, %.thread871 ], [ %.sroa.speculated.i629, %262 ], [ %spec.select, %254 ], [ %.sroa.speculated.i, %239 ]
   %288 = load i16, ptr %99, align 2
   switch i16 %288, label %289 [
     i16 65, label %347
@@ -9108,12 +9108,12 @@ _ZNK9Stockfish8Position13capture_stageENS_4MoveE.exit: ; preds = %_ZNK9Stockfish
   br label %403
 
 403:                                              ; preds = %401, %399, %220
-  %.1868 = phi i32 [ %.1870, %220 ], [ %.1869875, %401 ], [ %.1869875, %399 ]
-  %.0844865 = phi i32 [ %.0844867, %220 ], [ %.0844866877, %401 ], [ %.0844866877, %399 ]
-  %.0849862 = phi i32 [ %.0849864, %220 ], [ %.0849863879, %401 ], [ %.0849863879, %399 ]
-  %.0511 = phi i32 [ 32002, %220 ], [ %.2513, %401 ], [ %.2513, %399 ]
-  %.0501 = phi i1 [ false, %220 ], [ %357, %401 ], [ %357, %399 ]
-  %.0492 = phi i32 [ %5, %220 ], [ %spec.select607, %401 ], [ %spec.select606, %399 ]
+  %.1868 = phi i32 [ %.1870, %220 ], [ %.1869875, %399 ], [ %.1869875, %401 ]
+  %.0844865 = phi i32 [ %.0844867, %220 ], [ %.0844866877, %399 ], [ %.0844866877, %401 ]
+  %.0849862 = phi i32 [ %.0849864, %220 ], [ %.0849863879, %399 ], [ %.0849863879, %401 ]
+  %.0511 = phi i32 [ 32002, %220 ], [ %.2513, %399 ], [ %.2513, %401 ]
+  %.0501 = phi i1 [ false, %220 ], [ %357, %399 ], [ %357, %401 ]
+  %.0492 = phi i32 [ %5, %220 ], [ %spec.select606, %399 ], [ %spec.select607, %401 ]
   %404 = getelementptr inbounds i8, ptr %2, i64 -48
   %405 = load ptr, ptr %404, align 8
   store ptr %405, ptr %13, align 16
@@ -9460,8 +9460,8 @@ _ZNK9Stockfish8Position13capture_stageENS_4MoveE.exit636: ; preds = %461, %469
   br label %641
 
 641:                                              ; preds = %631, %627, %626, %617, %628, %595
-  %.1496 = phi i32 [ %.0495946, %628 ], [ %.0495946, %595 ], [ %623, %617 ], [ %623, %626 ], [ %623, %627 ], [ %.0495946, %631 ]
-  %.0493 = phi i32 [ 0, %628 ], [ 0, %595 ], [ 1, %617 ], [ %.mux, %626 ], [ %spec.select612, %627 ], [ %spec.select613, %631 ]
+  %.1496 = phi i32 [ %623, %627 ], [ %.0495946, %631 ], [ %.0495946, %628 ], [ %623, %626 ], [ %.0495946, %595 ], [ %623, %617 ]
+  %.0493 = phi i32 [ %spec.select612, %627 ], [ %spec.select613, %631 ], [ 0, %628 ], [ %.mux, %626 ], [ 0, %595 ], [ 1, %617 ]
   %642 = add nsw i32 %.0493, %479
   %643 = load i32, ptr %96, align 4
   store i32 %643, ptr %98, align 4
@@ -9695,8 +9695,8 @@ _ZNK9Stockfish8Position13capture_stageENS_4MoveE.exit636: ; preds = %461, %469
   br label %_ZN9Stockfish12_GLOBAL__N_129update_continuation_historiesEPNS_6Search5StackENS_5PieceENS_6SquareEi.exit
 
 _ZN9Stockfish12_GLOBAL__N_129update_continuation_historiesEPNS_6Search5StackENS_5PieceENS_6SquareEi.exit: ; preds = %783, %757, %784, %785, %722
-  %.3498 = phi i32 [ %729, %722 ], [ %792, %785 ], [ %.1496, %784 ], [ %.2497, %757 ], [ %.2497, %783 ]
-  %.0494 = phi i32 [ %642, %722 ], [ %642, %785 ], [ %642, %784 ], [ %741, %757 ], [ %741, %783 ]
+  %.3498 = phi i32 [ %792, %785 ], [ %.1496, %784 ], [ %729, %722 ], [ %.2497, %757 ], [ %.2497, %783 ]
+  %.0494 = phi i32 [ %642, %785 ], [ %642, %784 ], [ %642, %722 ], [ %741, %757 ], [ %741, %783 ]
   %793 = icmp eq i32 %.0505944, 0
   %794 = icmp sgt i32 %.3498, %.2941
   %or.cond620 = select i1 %793, i1 true, i1 %794
@@ -9775,7 +9775,7 @@ _ZN9Stockfish12_GLOBAL__N_19update_pvEPNS_4MoveES1_PKS1_.exit: ; preds = %.lr.ph
   br label %.backedge
 
 822:                                              ; preds = %805, %803
-  %.3847 = phi i32 [ %.4499, %805 ], [ %.1845939, %803 ]
+  %.3847 = phi i32 [ %.1845939, %803 ], [ %.4499, %805 ]
   %823 = icmp ne i16 %457, %.sroa.0740.0940
   %824 = icmp slt i32 %.0505944, 32
   %or.cond30 = select i1 %823, i1 %824, i1 false
@@ -9799,15 +9799,15 @@ _ZN9Stockfish12_GLOBAL__N_19update_pvEPNS_4MoveES1_PKS1_.exit: ; preds = %.lr.ph
   br label %.backedge
 
 .backedge:                                        ; preds = %822, %830, %826, %.thread884, %456, %459, %515, %536, %583, %591, %539
-  %.1845.be = phi i32 [ %.1845939, %456 ], [ %.1845939, %536 ], [ %.1845939, %515 ], [ %.1845939, %539 ], [ %.1845939, %591 ], [ %.1845939, %583 ], [ %.1845939, %459 ], [ %.3847, %826 ], [ %.3847, %830 ], [ %.3847, %822 ], [ %.4499, %.thread884 ]
-  %.sroa.0740.0.be = phi i16 [ %.sroa.0740.0940, %456 ], [ %.sroa.0740.0940, %536 ], [ %.sroa.0740.0940, %515 ], [ %.sroa.0740.0940, %539 ], [ %.sroa.0740.0940, %591 ], [ %.sroa.0740.0940, %583 ], [ %.sroa.0740.0940, %459 ], [ %.sroa.0740.0940, %826 ], [ %.sroa.0740.0940, %830 ], [ %.sroa.0740.0940, %822 ], [ %457, %.thread884 ]
-  %.2.be = phi i32 [ %.2941, %456 ], [ %.2941, %536 ], [ %.2941, %515 ], [ %.2941, %539 ], [ %.2941, %591 ], [ %.2941, %583 ], [ %.2941, %459 ], [ %.2941, %826 ], [ %.2941, %830 ], [ %.2941, %822 ], [ %.4499, %.thread884 ]
-  %.0509.be = phi i32 [ %.0509942, %456 ], [ %.0509942, %536 ], [ %.0509942, %515 ], [ %.0509942, %539 ], [ %.0509942, %591 ], [ %.0509942, %583 ], [ %.0509942, %459 ], [ %.0509942, %826 ], [ %831, %830 ], [ %.0509942, %822 ], [ %.0509942, %.thread884 ]
-  %.0507.be = phi i32 [ %.0507943, %456 ], [ %.0507943, %536 ], [ %.0507943, %515 ], [ %.0507943, %539 ], [ %.0507943, %591 ], [ %.0507943, %583 ], [ %.0507943, %459 ], [ %827, %826 ], [ %.0507943, %830 ], [ %.0507943, %822 ], [ %.0507943, %.thread884 ]
-  %.0505.be = phi i32 [ %.0505944, %456 ], [ %462, %536 ], [ %462, %515 ], [ %462, %539 ], [ %462, %591 ], [ %462, %583 ], [ %.0505944, %459 ], [ %462, %826 ], [ %462, %830 ], [ %462, %822 ], [ %462, %.thread884 ]
-  %.0502.be = phi i1 [ %.0502945, %456 ], [ %.2504, %536 ], [ %.2504, %515 ], [ %.2504, %539 ], [ %.2504, %591 ], [ %.2504, %583 ], [ %.0502945, %459 ], [ %.1503, %826 ], [ %.1503, %830 ], [ %.1503, %822 ], [ %.1503, %.thread884 ]
-  %.0495.be = phi i32 [ %.0495946, %456 ], [ %.0495946, %536 ], [ %.0495946, %515 ], [ %.0495946, %539 ], [ %.0495946, %591 ], [ %.0495946, %583 ], [ %.0495946, %459 ], [ %.4499, %826 ], [ %.4499, %830 ], [ %.4499, %822 ], [ %.4499, %.thread884 ]
-  %.3.be = phi i32 [ %.3947, %456 ], [ %.3947, %536 ], [ %.3947, %515 ], [ %.3947, %539 ], [ %.3947, %591 ], [ %.3947, %583 ], [ %.3947, %459 ], [ %.3947, %826 ], [ %.3947, %830 ], [ %.3947, %822 ], [ %spec.select621, %.thread884 ]
+  %.1845.be = phi i32 [ %.1845939, %456 ], [ %.1845939, %459 ], [ %.1845939, %536 ], [ %.1845939, %515 ], [ %.1845939, %539 ], [ %.1845939, %591 ], [ %.1845939, %583 ], [ %.3847, %826 ], [ %.3847, %830 ], [ %.3847, %822 ], [ %.4499, %.thread884 ]
+  %.sroa.0740.0.be = phi i16 [ %.sroa.0740.0940, %456 ], [ %.sroa.0740.0940, %459 ], [ %.sroa.0740.0940, %536 ], [ %.sroa.0740.0940, %515 ], [ %.sroa.0740.0940, %539 ], [ %.sroa.0740.0940, %591 ], [ %.sroa.0740.0940, %583 ], [ %.sroa.0740.0940, %826 ], [ %.sroa.0740.0940, %830 ], [ %.sroa.0740.0940, %822 ], [ %457, %.thread884 ]
+  %.2.be = phi i32 [ %.2941, %456 ], [ %.2941, %459 ], [ %.2941, %536 ], [ %.2941, %515 ], [ %.2941, %539 ], [ %.2941, %591 ], [ %.2941, %583 ], [ %.2941, %826 ], [ %.2941, %830 ], [ %.2941, %822 ], [ %.4499, %.thread884 ]
+  %.0509.be = phi i32 [ %.0509942, %456 ], [ %.0509942, %459 ], [ %.0509942, %536 ], [ %.0509942, %515 ], [ %.0509942, %539 ], [ %.0509942, %591 ], [ %.0509942, %583 ], [ %.0509942, %826 ], [ %831, %830 ], [ %.0509942, %822 ], [ %.0509942, %.thread884 ]
+  %.0507.be = phi i32 [ %.0507943, %456 ], [ %.0507943, %459 ], [ %.0507943, %536 ], [ %.0507943, %515 ], [ %.0507943, %539 ], [ %.0507943, %591 ], [ %.0507943, %583 ], [ %827, %826 ], [ %.0507943, %830 ], [ %.0507943, %822 ], [ %.0507943, %.thread884 ]
+  %.0505.be = phi i32 [ %.0505944, %456 ], [ %.0505944, %459 ], [ %462, %536 ], [ %462, %515 ], [ %462, %539 ], [ %462, %591 ], [ %462, %583 ], [ %462, %826 ], [ %462, %830 ], [ %462, %822 ], [ %462, %.thread884 ]
+  %.0502.be = phi i1 [ %.0502945, %456 ], [ %.0502945, %459 ], [ %.2504, %536 ], [ %.2504, %515 ], [ %.2504, %539 ], [ %.2504, %591 ], [ %.2504, %583 ], [ %.1503, %826 ], [ %.1503, %830 ], [ %.1503, %822 ], [ %.1503, %.thread884 ]
+  %.0495.be = phi i32 [ %.0495946, %456 ], [ %.0495946, %459 ], [ %.0495946, %536 ], [ %.0495946, %515 ], [ %.0495946, %539 ], [ %.0495946, %591 ], [ %.0495946, %583 ], [ %.4499, %826 ], [ %.4499, %830 ], [ %.4499, %822 ], [ %.4499, %.thread884 ]
+  %.3.be = phi i32 [ %.3947, %456 ], [ %.3947, %459 ], [ %.3947, %536 ], [ %.3947, %515 ], [ %.3947, %539 ], [ %.3947, %591 ], [ %.3947, %583 ], [ %.3947, %826 ], [ %.3947, %830 ], [ %.3947, %822 ], [ %spec.select621, %.thread884 ]
   %834 = call i16 @_ZN9Stockfish10MovePicker9next_moveEb(ptr noundef nonnull align 8 dereferenceable(2172) %14, i1 noundef zeroext %.0502.be) #22
   %.not903 = icmp eq i16 %834, 0
   br i1 %.not903, label %.loopexit, label %456, !llvm.loop !45
@@ -9892,10 +9892,10 @@ _ZN9Stockfish12_GLOBAL__N_19update_pvEPNS_4MoveES1_PKS1_.exit: ; preds = %.lr.ph
   br label %878
 
 878:                                              ; preds = %835, %838, %.loopexit.thread, %842, %844, %843
-  %.sroa.0740.11018 = phi i16 [ %.sroa.0740.1, %842 ], [ 0, %843 ], [ 0, %844 ], [ %.sroa.0740.11019, %838 ], [ %.sroa.0740.11019, %835 ], [ %.sroa.0740.11019, %.loopexit.thread ]
-  %.39161015 = phi i32 [ %.3916, %842 ], [ %.3916, %843 ], [ %.3916, %844 ], [ %.39161016, %838 ], [ %.39161016, %835 ], [ %.39161016, %.loopexit.thread ]
-  %.29281014 = phi i32 [ %.2928, %842 ], [ %.2928, %843 ], [ %.2928, %844 ], [ %.29281013, %838 ], [ %.29281013, %835 ], [ %.29281013, %.loopexit.thread ]
-  %.4848 = phi i32 [ %.2846, %842 ], [ %.2846, %843 ], [ %.2846, %844 ], [ %840, %838 ], [ 0, %835 ], [ %.29281013, %.loopexit.thread ]
+  %.sroa.0740.11018 = phi i16 [ 0, %844 ], [ %.sroa.0740.1, %842 ], [ 0, %843 ], [ %.sroa.0740.11019, %835 ], [ %.sroa.0740.11019, %838 ], [ %.sroa.0740.11019, %.loopexit.thread ]
+  %.39161015 = phi i32 [ %.3916, %844 ], [ %.3916, %842 ], [ %.3916, %843 ], [ %.39161016, %835 ], [ %.39161016, %838 ], [ %.39161016, %.loopexit.thread ]
+  %.29281014 = phi i32 [ %.2928, %844 ], [ %.2928, %842 ], [ %.2928, %843 ], [ %.29281013, %835 ], [ %.29281013, %838 ], [ %.29281013, %.loopexit.thread ]
+  %.4848 = phi i32 [ %.2846, %844 ], [ %.2846, %842 ], [ %.2846, %843 ], [ 0, %835 ], [ %840, %838 ], [ %.29281013, %.loopexit.thread ]
   %.sroa.speculated704 = call i32 @llvm.smin.i32(i32 %.0849862, i32 %.4848)
   %.not599 = icmp sgt i32 %.sroa.speculated704, %.29281014
   br i1 %.not599, label %892, label %879
@@ -10008,7 +10008,7 @@ _ZN9Stockfish12_GLOBAL__N_19update_pvEPNS_4MoveES1_PKS1_.exit: ; preds = %.lr.ph
   br label %.loopexit911
 
 .loopexit911:                                     ; preds = %799, %625, %923, %908, %912, %920, %._crit_edge, %391, %389, %364, %86, %74, %80, %24, %397, %200, %16
-  %.0 = phi i32 [ %17, %16 ], [ %398, %397 ], [ %202, %200 ], [ %29, %24 ], [ %79, %74 ], [ %85, %80 ], [ %.sroa.speculated699, %86 ], [ %366, %364 ], [ %393, %391 ], [ %.0500, %389 ], [ %.sroa.speculated704, %._crit_edge ], [ %.sroa.speculated704, %920 ], [ %.sroa.speculated704, %912 ], [ %.sroa.speculated704, %908 ], [ %.sroa.speculated704, %923 ], [ 0, %799 ], [ %620, %625 ]
+  %.0 = phi i32 [ %17, %16 ], [ %202, %200 ], [ %29, %24 ], [ %85, %80 ], [ %.sroa.speculated704, %912 ], [ %.sroa.speculated704, %908 ], [ %.0500, %389 ], [ %.sroa.speculated699, %86 ], [ %366, %364 ], [ %398, %397 ], [ %79, %74 ], [ %393, %391 ], [ %.sroa.speculated704, %._crit_edge ], [ %.sroa.speculated704, %923 ], [ %.sroa.speculated704, %920 ], [ 0, %799 ], [ %620, %625 ]
   ret i32 %.0
 }
 
@@ -10489,7 +10489,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN9Stockfish4MoveESaIS1_EE17_M_d
   br label %_ZSt27__uninitialized_default_n_aIPN9Stockfish4MoveEmS1_ET_S3_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPN9Stockfish4MoveEmS1_ET_S3_T0_RSaIT1_E.exit: ; preds = %19, %.lr.ph.preheader.i.i.i.i.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %.lr.ph.preheader.i.i.i.i.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %.lr.ph.preheader.i.i.i.i.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8
   br label %40
 
@@ -11152,7 +11152,7 @@ define linkonce_odr dso_local ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iter
   br label %34, !llvm.loop !56
 
 _ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPN9Stockfish6Search8RootMoveESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit: ; preds = %._crit_edge, %._crit_edge62, %.lr.ph.i, %5, %3
-  %.sroa.012.0 = phi ptr [ %2, %3 ], [ %0, %5 ], [ %1, %.lr.ph.i ], [ %33, %._crit_edge62 ], [ %33, %._crit_edge ]
+  %.sroa.012.0 = phi ptr [ %1, %.lr.ph.i ], [ %2, %3 ], [ %0, %5 ], [ %33, %._crit_edge62 ], [ %33, %._crit_edge ]
   ret ptr %.sroa.012.0
 }
 
@@ -12822,7 +12822,7 @@ _ZSt13move_backwardIPN9Stockfish6Search8RootMoveEN9__gnu_cxx17__normal_iteratorI
   br label %138
 
 138:                                              ; preds = %73, %9, %136, %_ZSt13move_backwardIPN9Stockfish6Search8RootMoveEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit, %_ZSt4moveIPN9Stockfish6Search8RootMoveEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit
-  %.sroa.032.0 = phi ptr [ %71, %_ZSt4moveIPN9Stockfish6Search8RootMoveEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit ], [ %135, %_ZSt13move_backwardIPN9Stockfish6Search8RootMoveEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit ], [ %137, %136 ], [ %0, %9 ], [ %2, %73 ]
+  %.sroa.032.0 = phi ptr [ %71, %_ZSt4moveIPN9Stockfish6Search8RootMoveEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit ], [ %137, %136 ], [ %135, %_ZSt13move_backwardIPN9Stockfish6Search8RootMoveEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit ], [ %0, %9 ], [ %2, %73 ]
   ret ptr %.sroa.032.0
 }
 

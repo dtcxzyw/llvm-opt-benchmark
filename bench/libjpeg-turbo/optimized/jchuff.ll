@@ -311,10 +311,10 @@ define void @jpeg_gen_optimal_table(ptr noundef %0, ptr noundef writeonly captur
   br label %25
 
 25:                                               ; preds = %23, %.lr.ph
-  %.196 = phi i32 [ %.095115, %.lr.ph ], [ %.095..2, %23 ]
-  %.193 = phi i32 [ %.092116, %.lr.ph ], [ %.2..095, %23 ]
-  %.185 = phi i64 [ %.084118, %.lr.ph ], [ %.084., %23 ]
-  %.1 = phi i64 [ %.0119, %.lr.ph ], [ %..084, %23 ]
+  %.196 = phi i32 [ %.095..2, %23 ], [ %.095115, %.lr.ph ]
+  %.193 = phi i32 [ %.2..095, %23 ], [ %.092116, %.lr.ph ]
+  %.185 = phi i64 [ %.084., %23 ], [ %.084118, %.lr.ph ]
+  %.1 = phi i64 [ %..084, %23 ], [ %.0119, %.lr.ph ]
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %exitcond152.not = icmp eq i64 %indvars.iv.next149, %wide.trip.count
   br i1 %exitcond152.not, label %._crit_edge, label %.lr.ph.backedge
@@ -1195,7 +1195,7 @@ flush_bits.exit.i:                                ; preds = %61
   br label %emit_restart.exit.thread
 
 .loopexit.i:                                      ; preds = %71, %75, %49
-  %81 = phi ptr [ %.2.i.i, %75 ], [ %.pre.i, %49 ], [ %72, %71 ]
+  %81 = phi ptr [ %.pre.i, %49 ], [ %.2.i.i, %75 ], [ %72, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 1
   store ptr %82, ptr %5, align 8, !tbaa !91
@@ -1478,8 +1478,8 @@ encode_one_block_simd.exit:                       ; preds = %169
   store i32 %241, ptr %231, align 8, !tbaa !75
   br label %emit_restart.exit.thread
 
-emit_restart.exit.thread:                         ; preds = %197, %102, %87, %flush_bits.exit.i, %encode_one_block_simd.exit, %.loopexit, %239
-  %.054 = phi i32 [ 0, %encode_one_block_simd.exit ], [ 1, %239 ], [ 1, %.loopexit ], [ 0, %flush_bits.exit.i ], [ 0, %87 ], [ 0, %102 ], [ 0, %197 ]
+emit_restart.exit.thread:                         ; preds = %197, %flush_bits.exit.i, %102, %87, %encode_one_block_simd.exit, %.loopexit, %239
+  %.054 = phi i32 [ 1, %.loopexit ], [ 0, %flush_bits.exit.i ], [ 0, %encode_one_block_simd.exit ], [ 1, %239 ], [ 0, %87 ], [ 0, %102 ], [ 0, %197 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.054
 }
@@ -1608,8 +1608,8 @@ dump_buffer.exit.i:                               ; preds = %38
   br label %flush_bits.exit.thread
 
 flush_bits.exit.thread:                           ; preds = %46, %48, %32
-  %.sroa.11.2.ph = phi i64 [ %9, %32 ], [ %50, %48 ], [ %.sroa.11.1, %46 ]
-  %.sroa.0.2.ph = phi ptr [ %7, %32 ], [ %.2.i, %48 ], [ %.sroa.0.1, %46 ]
+  %.sroa.11.2.ph = phi i64 [ %50, %48 ], [ %9, %32 ], [ %.sroa.11.1, %46 ]
+  %.sroa.0.2.ph = phi ptr [ %.2.i, %48 ], [ %7, %32 ], [ %.sroa.0.1, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %55
 

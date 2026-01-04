@@ -868,7 +868,7 @@ split:                                            ; preds = %86, %"_ZN71_$LT$htt
           cleanup
   br label %199
 
-.loopexit.split-lp:                               ; preds = %4, %13, %93
+.loopexit.split-lp:                               ; preds = %93, %13, %4
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %199
@@ -1391,7 +1391,7 @@ define hidden void @_ZN7uv_auth11credentials8Username3new17h8d2e0165885be45fE.ll
   br label %"_ZN4core6option15Option$LT$T$GT$6filter17hd8a77c1a75794f49E.llvm.5708795945735778878.exit.sink.split"
 
 "_ZN4core6option15Option$LT$T$GT$6filter17hd8a77c1a75794f49E.llvm.5708795945735778878.exit.sink.split": ; preds = %18, %.thread.i
-  %.sroa.0.0.ph = phi i64 [ %5, %18 ], [ -9223372036854775808, %.thread.i ]
+  %.sroa.0.0.ph = phi i64 [ -9223372036854775808, %.thread.i ], [ %5, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !394
   br label %"_ZN4core6option15Option$LT$T$GT$6filter17hd8a77c1a75794f49E.llvm.5708795945735778878.exit"
 
@@ -1488,7 +1488,7 @@ define void @"_ZN99_$LT$uv_auth..credentials..Username$u20$as$u20$core..convert.
   br label %"_ZN4core6option15Option$LT$T$GT$6filter17hd8a77c1a75794f49E.llvm.5708795945735778878.exit.sink.split.i"
 
 "_ZN4core6option15Option$LT$T$GT$6filter17hd8a77c1a75794f49E.llvm.5708795945735778878.exit.sink.split.i": ; preds = %17, %.thread.i.i
-  %.sroa.0.0.ph.i = phi i64 [ %.sroa.0.0.copyload, %17 ], [ -9223372036854775808, %.thread.i.i ]
+  %.sroa.0.0.ph.i = phi i64 [ -9223372036854775808, %.thread.i.i ], [ %.sroa.0.0.copyload, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !414
   br label %_ZN7uv_auth11credentials8Username3new17h8d2e0165885be45fE.llvm.5708795945735778878.exit
 
@@ -1550,7 +1550,7 @@ define void @"_ZN127_$LT$uv_auth..credentials..Username$u20$as$u20$core..convert
   br label %"_ZN4core6option15Option$LT$T$GT$6filter17hd8a77c1a75794f49E.llvm.5708795945735778878.exit.sink.split.i"
 
 "_ZN4core6option15Option$LT$T$GT$6filter17hd8a77c1a75794f49E.llvm.5708795945735778878.exit.sink.split.i": ; preds = %18, %.thread.i.i
-  %.sroa.0.0.ph.i = phi i64 [ %5, %18 ], [ -9223372036854775808, %.thread.i.i ]
+  %.sroa.0.0.ph.i = phi i64 [ -9223372036854775808, %.thread.i.i ], [ %5, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !444
   br label %_ZN7uv_auth11credentials8Username3new17h8d2e0165885be45fE.llvm.5708795945735778878.exit
 
@@ -1644,7 +1644,7 @@ define void @_ZN7uv_auth11credentials11Credentials5basic17h27d94efe019548f7E(ptr
   br label %"_ZN4core6option15Option$LT$T$GT$6filter17hd8a77c1a75794f49E.llvm.5708795945735778878.exit.sink.split.i"
 
 "_ZN4core6option15Option$LT$T$GT$6filter17hd8a77c1a75794f49E.llvm.5708795945735778878.exit.sink.split.i": ; preds = %19, %.thread.i.i
-  %.sroa.0.0.ph.i = phi i64 [ %6, %19 ], [ -9223372036854775808, %.thread.i.i ]
+  %.sroa.0.0.ph.i = phi i64 [ -9223372036854775808, %.thread.i.i ], [ %6, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !473
   br label %20
 
@@ -1929,7 +1929,7 @@ define void @_ZN7uv_auth11credentials11Credentials10from_netrc17hdb0525b8b256994
   br label %"_ZN4core6option15Option$LT$T$GT$6filter17hd8a77c1a75794f49E.llvm.5708795945735778878.exit.sink.split.i"
 
 "_ZN4core6option15Option$LT$T$GT$6filter17hd8a77c1a75794f49E.llvm.5708795945735778878.exit.sink.split.i": ; preds = %44, %.thread.i.i
-  %.sroa.0.0.ph.i = phi i64 [ %.sroa.0.0.copyload, %44 ], [ -9223372036854775808, %.thread.i.i ]
+  %.sroa.0.0.ph.i = phi i64 [ -9223372036854775808, %.thread.i.i ], [ %.sroa.0.0.copyload, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !510
   br label %_ZN7uv_auth11credentials8Username3new17h8d2e0165885be45fE.llvm.5708795945735778878.exit
 
@@ -2321,7 +2321,7 @@ define hidden void @_ZN7uv_auth11credentials11Credentials12from_request17hc1eb85
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #20
   unreachable
 
-.body.thread13:                                   ; preds = %38, %53
+.body.thread13:                                   ; preds = %53, %38
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -2500,7 +2500,7 @@ define hidden void @_ZN7uv_auth11credentials11Credentials17from_header_value17h7
   br i1 %49, label %142, label %151
 
 .body:                                            ; preds = %.loopexit96, %.loopexit.split-lp, %137, %54, %139
-  %.pn28 = phi { ptr, i32 } [ %140, %139 ], [ %55, %54 ], [ %138, %137 ], [ %lpad.loopexit, %.loopexit96 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn28 = phi { ptr, i32 } [ %55, %54 ], [ %140, %139 ], [ %138, %137 ], [ %lpad.loopexit, %.loopexit96 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h88e1a02559ca68f4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #19
           to label %141 unwind label %135
 
@@ -2726,7 +2726,7 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread19.i.i: ; preds = %.
   br label %"_ZN4core6option15Option$LT$T$GT$6filter17hd8a77c1a75794f49E.llvm.5708795945735778878.exit.sink.split.i"
 
 "_ZN4core6option15Option$LT$T$GT$6filter17hd8a77c1a75794f49E.llvm.5708795945735778878.exit.sink.split.i": ; preds = %119, %.thread.i.i
-  %.sroa.0.0.ph.i = phi i64 [ %.sroa.056.0.copyload, %119 ], [ -9223372036854775808, %.thread.i.i ]
+  %.sroa.0.0.ph.i = phi i64 [ -9223372036854775808, %.thread.i.i ], [ %.sroa.056.0.copyload, %119 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !697
   br label %123
 
@@ -2944,7 +2944,7 @@ define void @_ZN7uv_auth11credentials11Credentials15to_header_value17haf475aedab
   br label %.body
 
 .body:                                            ; preds = %101, %78, %54
-  %eh.lpad-body = phi { ptr, i32 } [ %55, %54 ], [ %79, %78 ], [ %102, %101 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %79, %78 ], [ %55, %54 ], [ %102, %101 ]
   invoke void @"_ZN4core3ptr153drop_in_place$LT$base64..write..encoder..EncoderWriter$LT$base64..engine..general_purpose..GeneralPurpose$C$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hd53c61d39d4efc4cE"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %21) #19
           to label %117 unwind label %143
 
@@ -3211,7 +3211,7 @@ define void @_ZN7uv_auth11credentials11Credentials15to_header_value17haf475aedab
   unreachable
 
 "_ZN4core3ptr53drop_in_place$LT$http..header..value..HeaderValue$GT$17hbf49a7ef21a72fe0E.exit": ; preds = %156, %145, %117
-  %.pn14 = phi { ptr, i32 } [ %146, %145 ], [ %.pn, %117 ], [ %157, %156 ]
+  %.pn14 = phi { ptr, i32 } [ %.pn, %117 ], [ %146, %145 ], [ %157, %156 ]
   resume { ptr, i32 } %.pn14
 
 145:                                              ; preds = %147, %._crit_edge.i
@@ -3341,7 +3341,7 @@ define void @_ZN7uv_auth11credentials11Credentials12authenticate17hbfd1ab7de2ae9
   invoke void @_ZN7uv_auth11credentials11Credentials15to_header_value17haf475aedab97a565E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1)
           to label %9 unwind label %31
 
-.thread:                                          ; preds = %9, %15
+.thread:                                          ; preds = %15, %9
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17h2ff0a21cfa45046eE.exit"

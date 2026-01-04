@@ -283,9 +283,9 @@ opus_rc_tell_frac.exit:                           ; preds = %56
   br i1 %exitcond227.not, label %.loopexit, label %159, !llvm.loop !37
 
 .loopexit:                                        ; preds = %159, %.critedge, %126, %122
-  %.sroa.0.0 = phi i32 [ %64, %126 ], [ %64, %122 ], [ 0, %.critedge ], [ %163, %159 ]
-  %.sroa.12.0 = phi i32 [ %64, %126 ], [ %64, %122 ], [ 0, %.critedge ], [ %167, %159 ]
-  %.0174 = phi i32 [ -1, %126 ], [ -1, %122 ], [ %., %.critedge ], [ %., %159 ]
+  %.sroa.0.0 = phi i32 [ %64, %122 ], [ %64, %126 ], [ 0, %.critedge ], [ %163, %159 ]
+  %.sroa.12.0 = phi i32 [ %64, %122 ], [ %64, %126 ], [ 0, %.critedge ], [ %167, %159 ]
+  %.0174 = phi i32 [ -1, %122 ], [ -1, %126 ], [ %., %.critedge ], [ %., %159 ]
   %168 = load i32, ptr %31, align 4, !tbaa !38
   %.not191 = icmp eq i32 %168, 0
   br i1 %.not191, label %.loopexit238, label %169
@@ -341,7 +341,7 @@ opus_rc_tell_frac.exit:                           ; preds = %56
   %201 = call i32 %197(ptr noundef %195, ptr noundef nonnull %0, ptr noundef %1, i32 noundef %77, ptr noundef %73, ptr noundef null, i32 noundef %68, i32 noundef %192, i32 noundef %198, ptr noundef %188, i32 noundef %199, ptr noundef nonnull %200, i32 noundef 0, float noundef 1.000000e+00, ptr noundef nonnull %3, i32 noundef %.sroa.12.0) #6
   br label %212
 
-.loopexit238:                                     ; preds = %.lr.ph209, %172, %.loopexit
+.loopexit238:                                     ; preds = %.lr.ph209, %.loopexit, %172
   %.not192237 = icmp eq i32 %.0174, -1
   %202 = shl i32 %.0174, %39
   %203 = sext i32 %202 to i64
@@ -653,7 +653,7 @@ opus_rc_tell_frac.exit663:                        ; preds = %134
   br label %.split
 
 .critedge:                                        ; preds = %146, %opus_rc_tell_frac.exit663, %150, %opus_rc_tell_frac.exit663.us, %104, %108
-  %.us-phi = phi i32 [ %.1533.us, %108 ], [ %.1533.us, %104 ], [ %.1533.us, %opus_rc_tell_frac.exit663.us ], [ %.1533, %146 ], [ %.1533, %opus_rc_tell_frac.exit663 ], [ %86, %150 ]
+  %.us-phi = phi i32 [ %.1533.us, %opus_rc_tell_frac.exit663.us ], [ %.1533.us, %108 ], [ %.1533.us, %104 ], [ %.1533, %146 ], [ %.1533, %opus_rc_tell_frac.exit663 ], [ %86, %150 ]
   %155 = load i32, ptr %81, align 4, !tbaa !33
   %.not638 = icmp eq i32 %155, 0
   %156 = tail call i32 @llvm.smax.i32(i32 %.0548721, i32 3)
@@ -1486,7 +1486,7 @@ opus_rc_tell_frac.exit:                           ; preds = %210
   br label %582
 
 582:                                              ; preds = %577, %575, %566
-  %583 = phi i32 [ 0, %575 ], [ 0, %566 ], [ %581, %577 ]
+  %583 = phi i32 [ 0, %575 ], [ %581, %577 ], [ 0, %566 ]
   %584 = add nsw i32 %583, %572
   %585 = getelementptr inbounds i8, ptr @ff_celt_log_freq_range, i64 %indvars.iv833
   %586 = load i8, ptr %585, align 1, !tbaa !19

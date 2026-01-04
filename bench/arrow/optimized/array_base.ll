@@ -3391,33 +3391,33 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZN5arrow6Status10I
   br i1 %.not40, label %66, label %_ZN5arrow6StatusD2Ev.exit18
 
 56:                                               ; preds = %41
-  switch i32 %40, label %_ZNK5arrow5Array6IsNullEl.exit [
-    i32 27, label %57
-    i32 28, label %59
+  switch i32 %40, label %59 [
+    i32 27, label %_ZNK5arrow5Array6IsNullEl.exit
+    i32 28, label %57
   ]
 
 57:                                               ; preds = %56
-  %58 = tail call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %14, i64 noundef %11)
-  %.pre38 = load ptr, ptr %1, align 8, !tbaa !54
+  %58 = tail call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %14, i64 noundef %11)
+  %.pre39 = load ptr, ptr %1, align 8, !tbaa !54
   br i1 %58, label %66, label %_ZN5arrow6StatusD2Ev.exit18
 
 59:                                               ; preds = %56
-  %60 = tail call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %14, i64 noundef %11)
-  %.pre39 = load ptr, ptr %1, align 8, !tbaa !54
-  br i1 %60, label %66, label %_ZN5arrow6StatusD2Ev.exit18
-
-_ZNK5arrow5Array6IsNullEl.exit:                   ; preds = %56
-  %61 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %62 = load atomic i64, ptr %61 seq_cst, align 8
-  %63 = load ptr, ptr %13, align 8, !tbaa !32
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  %65 = load i64, ptr %64, align 8, !tbaa !55
-  %.not41 = icmp eq i64 %62, %65
-  %.pre = load ptr, ptr %1, align 8, !tbaa !54
+  %60 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %61 = load atomic i64, ptr %60 seq_cst, align 8
+  %62 = load ptr, ptr %13, align 8, !tbaa !32
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
+  %64 = load i64, ptr %63, align 8, !tbaa !55
+  %.not41 = icmp eq i64 %61, %64
+  %.pre38 = load ptr, ptr %1, align 8, !tbaa !54
   br i1 %.not41, label %66, label %_ZN5arrow6StatusD2Ev.exit18
 
-66:                                               ; preds = %59, %57, %44, %_ZNK5arrow5Array6IsNullEl.exit
-  %.pre37 = phi ptr [ %.pre36, %44 ], [ %.pre, %_ZNK5arrow5Array6IsNullEl.exit ], [ %.pre38, %57 ], [ %.pre39, %59 ]
+_ZNK5arrow5Array6IsNullEl.exit:                   ; preds = %56
+  %65 = tail call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %14, i64 noundef %11)
+  %.pre = load ptr, ptr %1, align 8, !tbaa !54
+  br i1 %65, label %66, label %_ZN5arrow6StatusD2Ev.exit18
+
+66:                                               ; preds = %57, %59, %44, %_ZNK5arrow5Array6IsNullEl.exit
+  %.pre37 = phi ptr [ %.pre36, %44 ], [ %.pre, %_ZNK5arrow5Array6IsNullEl.exit ], [ %.pre38, %59 ], [ %.pre39, %57 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %67 = getelementptr inbounds nuw i8, ptr %.pre37, i64 8
   %68 = load ptr, ptr %67, align 8, !tbaa !32
@@ -3628,8 +3628,8 @@ _ZNSt12__shared_ptrIN5arrow6ScalarELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
-_ZN5arrow6StatusD2Ev.exit18:                      ; preds = %59, %57, %44, %_ZNK5arrow5Array6IsNullEl.exit, %37
-  %162 = phi ptr [ %.pre, %_ZNK5arrow5Array6IsNullEl.exit ], [ %12, %37 ], [ %.pre36, %44 ], [ %.pre38, %57 ], [ %.pre39, %59 ]
+_ZN5arrow6StatusD2Ev.exit18:                      ; preds = %57, %59, %44, %_ZNK5arrow5Array6IsNullEl.exit, %37
+  %162 = phi ptr [ %.pre, %_ZNK5arrow5Array6IsNullEl.exit ], [ %12, %37 ], [ %.pre36, %44 ], [ %.pre38, %59 ], [ %.pre39, %57 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN5arrow16VisitArrayInlineINS_8internal23ScalarFromArraySlotImplEJEEENS_6StatusERKNS_5ArrayEPT_DpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %162, ptr noundef nonnull %1)

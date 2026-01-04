@@ -173,7 +173,7 @@ _ZN5QListIP9ProtoNodeE6appendES1_.exit:           ; preds = %41
   br i1 %.not21, label %.loopexit, label %26, !llvm.loop !9
 
 49:                                               ; preds = %43, %45, %24
-  %.pn23 = phi { ptr, i32 } [ %25, %24 ], [ %44, %43 ], [ %46, %45 ]
+  %.pn23 = phi { ptr, i32 } [ %46, %45 ], [ %25, %24 ], [ %44, %43 ]
   call void @_ZN5QListIP9ProtoNodeED2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(24) %5) #21
   resume { ptr, i32 } %.pn23
 
@@ -866,7 +866,7 @@ _ZNK9ProtoNode7isChildEv.exit:                    ; preds = %1
   br label %_ZNK9ProtoNode7isChildEv.exit.thread
 
 _ZNK9ProtoNode7isChildEv.exit.thread:             ; preds = %16, %21, %5, %1, %_ZNK9ProtoNode7isChildEv.exit
-  %.0 = phi i32 [ -1, %_ZNK9ProtoNode7isChildEv.exit ], [ -1, %1 ], [ %26, %21 ], [ -1, %5 ], [ -1, %16 ]
+  %.0 = phi i32 [ -1, %1 ], [ -1, %_ZNK9ProtoNode7isChildEv.exit ], [ %26, %21 ], [ -1, %5 ], [ -1, %16 ]
   ret i32 %.0
 }
 

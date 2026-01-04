@@ -1291,7 +1291,7 @@ _ZNSt6vectorIN27RecordingSceneIndexObserver5EventESaIS1_EED2Ev.exit: ; preds = %
   br label %.body
 
 .body:                                            ; preds = %9, %6, %35
-  %.pn = phi { ptr, i32 } [ %lpad.phi, %35 ], [ %7, %9 ], [ %7, %6 ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %35 ], [ %7, %6 ], [ %7, %9 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -1820,7 +1820,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2
   br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit.sink.split
 
 _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit.sink.split: ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit.sink.split.sink.split, %202, %124
-  %.sink91 = phi ptr [ %98, %124 ], [ %176, %202 ], [ %.sink97, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit.sink.split.sink.split ]
+  %.sink91 = phi ptr [ %176, %202 ], [ %98, %124 ], [ %.sink97, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit.sink.split.sink.split ]
   %209 = load ptr, ptr %.sink91, align 8
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 24
   %211 = load ptr, ptr %210, align 8
@@ -3734,51 +3734,51 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2
   %174 = getelementptr inbounds nuw i8, ptr %172, i64 8
   %175 = load atomic i32, ptr %174 monotonic, align 4
   %176 = icmp slt i32 %175, 0
-  br i1 %176, label %177, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i
+  br i1 %176, label %177, label %185
 
 177:                                              ; preds = %173
   %.not68.i.i.i = icmp eq i32 %175, -2
-  br i1 %.not68.i.i.i, label %185, label %178
+  br i1 %.not68.i.i.i, label %183, label %178
 
 178:                                              ; preds = %177
   %179 = add nsw i32 %175, 1
   %180 = cmpxchg weak ptr %174, i32 %175, i32 %179 release monotonic, align 4
   %181 = extractvalue { i32, i1 } %180, 1
   %182 = extractvalue { i32, i1 } %180, 0
-  br i1 %181, label %183, label %185
+  br i1 %181, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, label %183
 
-183:                                              ; preds = %178
-  %184 = icmp eq i32 %175, -1
-  br i1 %184, label %189, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
-
-185:                                              ; preds = %178, %177
+183:                                              ; preds = %178, %177
   %.067.i.i.i = phi i32 [ %182, %178 ], [ -2, %177 ]
-  %186 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %172, i32 noundef %.067.i.i.i)
+  %184 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %172, i32 noundef %.067.i.i.i)
           to label %.noexc.i unwind label %193
 
-.noexc.i:                                         ; preds = %185
-  br i1 %186, label %189, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
+.noexc.i:                                         ; preds = %183
+  br i1 %184, label %189, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i: ; preds = %173
-  %187 = atomicrmw sub ptr %174, i32 1 release, align 4
-  %188 = icmp eq i32 %187, 1
+185:                                              ; preds = %173
+  %186 = atomicrmw sub ptr %174, i32 1 release, align 4
+  %187 = icmp eq i32 %186, 1
+  br i1 %187, label %189, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
+
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i: ; preds = %178
+  %188 = icmp eq i32 %175, -1
   br i1 %188, label %189, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
 
-189:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %.noexc.i, %183
+189:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %185, %.noexc.i
   %190 = load ptr, ptr %172, align 8
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 8
   %192 = load ptr, ptr %191, align 8
   call void %192(ptr noundef nonnull align 8 dereferenceable(12) %172) #23
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
 
-193:                                              ; preds = %185
+193:                                              ; preds = %183
   %194 = landingpad { ptr, i32 }
           catch ptr null
   %195 = extractvalue { ptr, i32 } %194, 0
   call void @__clang_call_terminate(ptr %195) #25
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit, %183, %.noexc.i, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %189
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit, %.noexc.i, %185, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %189
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %196 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %196, null
@@ -5719,7 +5719,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   br label %.loopexit676
 
 .loopexit676:                                     ; preds = %.body270, %1012, %1010
-  %.pn172.pn = phi { ptr, i32 } [ %1013, %1012 ], [ %1011, %1010 ], [ %.pn172, %.body270 ]
+  %.pn172.pn = phi { ptr, i32 } [ %1011, %1010 ], [ %1013, %1012 ], [ %.pn172, %.body270 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #23
   br label %.body266
 
@@ -5796,7 +5796,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   br i1 %.2139, label %.body282.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit
 
 .body282.thread:                                  ; preds = %1022, %332, %.body282.thread650, %.body282
-  %.pn176.pn.pn.pn.pn648 = phi { ptr, i32 } [ %.pn176.pn.pn, %.body282 ], [ %.pn176.pn.pn.pn.ph, %.body282.thread650 ], [ %333, %332 ], [ %1023, %1022 ]
+  %.pn176.pn.pn.pn.pn648 = phi { ptr, i32 } [ %.pn176.pn.pn.pn.ph, %.body282.thread650 ], [ %.pn176.pn.pn, %.body282 ], [ %333, %332 ], [ %1023, %1022 ]
   %1033 = load ptr, ptr %325, align 8
   %1034 = ptrtoint ptr %1033 to i64
   %1035 = and i64 %1034, 7
@@ -5892,7 +5892,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %.body282, %10
   br i1 %.3156, label %.body341.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit423
 
 .body341.thread:                                  ; preds = %1047, %623, %.body341.thread660, %.body341
-  %.pn185.pn.pn.pn.pn658 = phi { ptr, i32 } [ %.pn185.pn.pn, %.body341 ], [ %.pn185.pn.pn.pn.ph, %.body341.thread660 ], [ %624, %623 ], [ %1048, %1047 ]
+  %.pn185.pn.pn.pn.pn658 = phi { ptr, i32 } [ %.pn185.pn.pn.pn.ph, %.body341.thread660 ], [ %.pn185.pn.pn, %.body341 ], [ %624, %623 ], [ %1048, %1047 ]
   %1058 = load ptr, ptr %616, align 8
   %1059 = ptrtoint ptr %1058 to i64
   %1060 = and i64 %1059, 7
@@ -7044,7 +7044,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit516: ; preds = %1483, %148
   br i1 %.3129, label %.body439.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit518
 
 .body439.thread:                                  ; preds = %1508, %1140, %.body439.thread670, %.body439
-  %.pn206.pn.pn.pn.pn668 = phi { ptr, i32 } [ %.pn206.pn.pn, %.body439 ], [ %.pn206.pn.pn.pn.ph, %.body439.thread670 ], [ %1141, %1140 ], [ %1509, %1508 ]
+  %.pn206.pn.pn.pn.pn668 = phi { ptr, i32 } [ %.pn206.pn.pn.pn.ph, %.body439.thread670 ], [ %.pn206.pn.pn, %.body439 ], [ %1141, %1140 ], [ %1509, %1508 ]
   %1519 = load ptr, ptr %1133, align 8
   %1520 = ptrtoint ptr %1519 to i64
   %1521 = and i64 %1520, 7
@@ -7666,7 +7666,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit566: ; preds = %1720, %172
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.body533, %1743, %1741
-  %.pn227.pn = phi { ptr, i32 } [ %1744, %1743 ], [ %1742, %1741 ], [ %.pn227, %.body533 ]
+  %.pn227.pn = phi { ptr, i32 } [ %1742, %1741 ], [ %1744, %1743 ], [ %.pn227, %.body533 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %93) #23
   br label %.body528
 
@@ -7857,7 +7857,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit573: ; preds = %1778, %178
   br label %.body260
 
 1804:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit573, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit566, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit525, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit516, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit430, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit417
-  %.057 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit417 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit430 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit516 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit525 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit566 ], [ %1777, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit573 ]
+  %.057 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit566 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit417 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit430 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit516 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit525 ], [ %1777, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit573 ]
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV26PrintingSceneIndexObserver, i64 16), ptr %7, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %205) #23
   call void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #23
@@ -7869,51 +7869,51 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit573: ; preds = %1778, %178
   %1807 = getelementptr inbounds nuw i8, ptr %1805, i64 8
   %1808 = load atomic i32, ptr %1807 monotonic, align 4
   %1809 = icmp slt i32 %1808, 0
-  br i1 %1809, label %1810, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i575
+  br i1 %1809, label %1810, label %1818
 
 1810:                                             ; preds = %1806
-  %.not68.i.i.i576 = icmp eq i32 %1808, -2
-  br i1 %.not68.i.i.i576, label %1818, label %1811
+  %.not68.i.i.i575 = icmp eq i32 %1808, -2
+  br i1 %.not68.i.i.i575, label %1816, label %1811
 
 1811:                                             ; preds = %1810
   %1812 = add nsw i32 %1808, 1
   %1813 = cmpxchg weak ptr %1807, i32 %1808, i32 %1812 release monotonic, align 4
   %1814 = extractvalue { i32, i1 } %1813, 1
   %1815 = extractvalue { i32, i1 } %1813, 0
-  br i1 %1814, label %1816, label %1818
+  br i1 %1814, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i578, label %1816
 
-1816:                                             ; preds = %1811
-  %1817 = icmp eq i32 %1808, -1
+1816:                                             ; preds = %1811, %1810
+  %.067.i.i.i576 = phi i32 [ %1815, %1811 ], [ -2, %1810 ]
+  %1817 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %1805, i32 noundef %.067.i.i.i576)
+          to label %.noexc.i577 unwind label %1826
+
+.noexc.i577:                                      ; preds = %1816
   br i1 %1817, label %1822, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_22HdFlatteningSceneIndexEED2Ev.exit
 
-1818:                                             ; preds = %1811, %1810
-  %.067.i.i.i577 = phi i32 [ %1815, %1811 ], [ -2, %1810 ]
-  %1819 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %1805, i32 noundef %.067.i.i.i577)
-          to label %.noexc.i578 unwind label %1826
+1818:                                             ; preds = %1806
+  %1819 = atomicrmw sub ptr %1807, i32 1 release, align 4
+  %1820 = icmp eq i32 %1819, 1
+  br i1 %1820, label %1822, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_22HdFlatteningSceneIndexEED2Ev.exit
 
-.noexc.i578:                                      ; preds = %1818
-  br i1 %1819, label %1822, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_22HdFlatteningSceneIndexEED2Ev.exit
-
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i575: ; preds = %1806
-  %1820 = atomicrmw sub ptr %1807, i32 1 release, align 4
-  %1821 = icmp eq i32 %1820, 1
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i578: ; preds = %1811
+  %1821 = icmp eq i32 %1808, -1
   br i1 %1821, label %1822, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_22HdFlatteningSceneIndexEED2Ev.exit
 
-1822:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i575, %.noexc.i578, %1816
+1822:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i578, %1818, %.noexc.i577
   %1823 = load ptr, ptr %1805, align 8
   %1824 = getelementptr inbounds nuw i8, ptr %1823, i64 8
   %1825 = load ptr, ptr %1824, align 8
   call void %1825(ptr noundef nonnull align 8 dereferenceable(12) %1805) #23
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_22HdFlatteningSceneIndexEED2Ev.exit
 
-1826:                                             ; preds = %1818
+1826:                                             ; preds = %1816
   %1827 = landingpad { ptr, i32 }
           catch ptr null
   %1828 = extractvalue { ptr, i32 } %1827, 0
   call void @__clang_call_terminate(ptr %1828) #25
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_22HdFlatteningSceneIndexEED2Ev.exit: ; preds = %1804, %1816, %.noexc.i578, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i575, %1822
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_22HdFlatteningSceneIndexEED2Ev.exit: ; preds = %1804, %.noexc.i577, %1818, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i578, %1822
   %1829 = load ptr, ptr %3, align 8
   %.not.i.i.i579 = icmp eq ptr %1829, null
   br i1 %.not.i.i.i579, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit, label %1830
@@ -7922,55 +7922,55 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_22HdFlatteningSceneIndexEED2Ev
   %1831 = getelementptr inbounds nuw i8, ptr %1829, i64 8
   %1832 = load atomic i32, ptr %1831 monotonic, align 4
   %1833 = icmp slt i32 %1832, 0
-  br i1 %1833, label %1834, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i580
+  br i1 %1833, label %1834, label %1842
 
 1834:                                             ; preds = %1830
-  %.not68.i.i.i581 = icmp eq i32 %1832, -2
-  br i1 %.not68.i.i.i581, label %1842, label %1835
+  %.not68.i.i.i580 = icmp eq i32 %1832, -2
+  br i1 %.not68.i.i.i580, label %1840, label %1835
 
 1835:                                             ; preds = %1834
   %1836 = add nsw i32 %1832, 1
   %1837 = cmpxchg weak ptr %1831, i32 %1832, i32 %1836 release monotonic, align 4
   %1838 = extractvalue { i32, i1 } %1837, 1
   %1839 = extractvalue { i32, i1 } %1837, 0
-  br i1 %1838, label %1840, label %1842
+  br i1 %1838, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i583, label %1840
 
-1840:                                             ; preds = %1835
-  %1841 = icmp eq i32 %1832, -1
+1840:                                             ; preds = %1835, %1834
+  %.067.i.i.i581 = phi i32 [ %1839, %1835 ], [ -2, %1834 ]
+  %1841 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %1829, i32 noundef %.067.i.i.i581)
+          to label %.noexc.i582 unwind label %1850
+
+.noexc.i582:                                      ; preds = %1840
   br i1 %1841, label %1846, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit
 
-1842:                                             ; preds = %1835, %1834
-  %.067.i.i.i582 = phi i32 [ %1839, %1835 ], [ -2, %1834 ]
-  %1843 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %1829, i32 noundef %.067.i.i.i582)
-          to label %.noexc.i583 unwind label %1850
+1842:                                             ; preds = %1830
+  %1843 = atomicrmw sub ptr %1831, i32 1 release, align 4
+  %1844 = icmp eq i32 %1843, 1
+  br i1 %1844, label %1846, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit
 
-.noexc.i583:                                      ; preds = %1842
-  br i1 %1843, label %1846, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit
-
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i580: ; preds = %1830
-  %1844 = atomicrmw sub ptr %1831, i32 1 release, align 4
-  %1845 = icmp eq i32 %1844, 1
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i583: ; preds = %1835
+  %1845 = icmp eq i32 %1832, -1
   br i1 %1845, label %1846, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit
 
-1846:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i580, %.noexc.i583, %1840
+1846:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i583, %1842, %.noexc.i582
   %1847 = load ptr, ptr %1829, align 8
   %1848 = getelementptr inbounds nuw i8, ptr %1847, i64 8
   %1849 = load ptr, ptr %1848, align 8
   call void %1849(ptr noundef nonnull align 8 dereferenceable(12) %1829) #23
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit
 
-1850:                                             ; preds = %1842
+1850:                                             ; preds = %1840
   %1851 = landingpad { ptr, i32 }
           catch ptr null
   %1852 = extractvalue { ptr, i32 } %1851, 0
   call void @__clang_call_terminate(ptr %1852) #25
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_22HdFlatteningSceneIndexEED2Ev.exit, %1840, %.noexc.i583, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i580, %1846
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_22HdFlatteningSceneIndexEED2Ev.exit, %.noexc.i582, %1842, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i583, %1846
   ret i1 %.057
 
 .body260:                                         ; preds = %1004, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i419, %998, %996, %241, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i13.i, %235, %.body528, %.body433, %.body335, %.body277, %.body266, %.body569, %.body562, %.body555, %.body548, %.body521, %.body512, %.body505, %.body498, %.body426, %.body413, %.body406, %.body400
-  %.pn240.pn.pn = phi { ptr, i32 } [ %.pn240.pn, %.body569 ], [ %.pn237.pn, %.body562 ], [ %.pn234.pn, %.body555 ], [ %.pn231.pn, %.body548 ], [ %.pn227.pn.pn, %.body528 ], [ %.pn224.pn, %.body521 ], [ %.pn221.pn, %.body512 ], [ %.pn218.pn, %.body505 ], [ %.pn215.pn, %.body498 ], [ %.pn206.pn.pn.pn.pn.pn.pn.pn, %.body433 ], [ %.pn203.pn, %.body426 ], [ %.pn200.pn, %.body413 ], [ %.pn197.pn, %.body406 ], [ %.pn194.pn, %.body400 ], [ %.pn185.pn.pn.pn.pn.pn.pn.pn, %.body335 ], [ %.pn176.pn.pn.pn.pn.pn.pn.pn, %.body277 ], [ %.pn172.pn.pn, %.body266 ], [ %997, %996 ], [ %236, %241 ], [ %236, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i13.i ], [ %236, %235 ], [ %999, %998 ], [ %999, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i419 ], [ %999, %1004 ]
+  %.pn240.pn.pn = phi { ptr, i32 } [ %.pn240.pn, %.body569 ], [ %.pn237.pn, %.body562 ], [ %.pn234.pn, %.body555 ], [ %.pn172.pn.pn, %.body266 ], [ %.pn231.pn, %.body548 ], [ %.pn227.pn.pn, %.body528 ], [ %.pn176.pn.pn.pn.pn.pn.pn.pn, %.body277 ], [ %.pn224.pn, %.body521 ], [ %.pn221.pn, %.body512 ], [ %.pn218.pn, %.body505 ], [ %.pn215.pn, %.body498 ], [ %.pn206.pn.pn.pn.pn.pn.pn.pn, %.body433 ], [ %236, %235 ], [ %.pn203.pn, %.body426 ], [ %.pn200.pn, %.body413 ], [ %.pn197.pn, %.body406 ], [ %.pn194.pn, %.body400 ], [ %.pn185.pn.pn.pn.pn.pn.pn.pn, %.body335 ], [ %997, %996 ], [ %236, %241 ], [ %236, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i13.i ], [ %999, %998 ], [ %999, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i419 ], [ %999, %1004 ]
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV26PrintingSceneIndexObserver, i64 16), ptr %7, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %205) #23
   call void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #23
@@ -7999,47 +7999,47 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__8TfRefP
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load atomic i32, ptr %4 monotonic, align 4
   %6 = icmp slt i32 %5, 0
-  br i1 %6, label %7, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i
+  br i1 %6, label %7, label %15
 
 7:                                                ; preds = %3
   %.not68.i.i = icmp eq i32 %5, -2
-  br i1 %.not68.i.i, label %15, label %8
+  br i1 %.not68.i.i, label %13, label %8
 
 8:                                                ; preds = %7
   %9 = add nsw i32 %5, 1
   %10 = cmpxchg weak ptr %4, i32 %5, i32 %9 release monotonic, align 4
   %11 = extractvalue { i32, i1 } %10, 1
   %12 = extractvalue { i32, i1 } %10, 0
-  br i1 %11, label %13, label %15
+  br i1 %11, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i, label %13
 
-13:                                               ; preds = %8
-  %14 = icmp eq i32 %5, -1
-  br i1 %14, label %19, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEE10_RemoveRefEPKNS_9TfRefBaseE.exit
-
-15:                                               ; preds = %8, %7
+13:                                               ; preds = %8, %7
   %.067.i.i = phi i32 [ %12, %8 ], [ -2, %7 ]
-  %16 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %2, i32 noundef %.067.i.i)
+  %14 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %2, i32 noundef %.067.i.i)
           to label %.noexc unwind label %23
 
-.noexc:                                           ; preds = %15
-  br i1 %16, label %19, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEE10_RemoveRefEPKNS_9TfRefBaseE.exit
+.noexc:                                           ; preds = %13
+  br i1 %14, label %19, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEE10_RemoveRefEPKNS_9TfRefBaseE.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i: ; preds = %3
-  %17 = atomicrmw sub ptr %4, i32 1 release, align 4
-  %18 = icmp eq i32 %17, 1
+15:                                               ; preds = %3
+  %16 = atomicrmw sub ptr %4, i32 1 release, align 4
+  %17 = icmp eq i32 %16, 1
+  br i1 %17, label %19, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEE10_RemoveRefEPKNS_9TfRefBaseE.exit
+
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i: ; preds = %8
+  %18 = icmp eq i32 %5, -1
   br i1 %18, label %19, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEE10_RemoveRefEPKNS_9TfRefBaseE.exit
 
-19:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i, %.noexc, %13
+19:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i, %15, %.noexc
   %20 = load ptr, ptr %2, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(12) %2) #23
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEE10_RemoveRefEPKNS_9TfRefBaseE.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEE10_RemoveRefEPKNS_9TfRefBaseE.exit: ; preds = %19, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i, %.noexc, %13, %1
+_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEE10_RemoveRefEPKNS_9TfRefBaseE.exit: ; preds = %19, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i, %15, %.noexc, %1
   ret void
 
-23:                                               ; preds = %15
+23:                                               ; preds = %13
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
@@ -8651,47 +8651,47 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__8TfRefP
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load atomic i32, ptr %4 monotonic, align 4
   %6 = icmp slt i32 %5, 0
-  br i1 %6, label %7, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i
+  br i1 %6, label %7, label %15
 
 7:                                                ; preds = %3
   %.not68.i.i = icmp eq i32 %5, -2
-  br i1 %.not68.i.i, label %15, label %8
+  br i1 %.not68.i.i, label %13, label %8
 
 8:                                                ; preds = %7
   %9 = add nsw i32 %5, 1
   %10 = cmpxchg weak ptr %4, i32 %5, i32 %9 release monotonic, align 4
   %11 = extractvalue { i32, i1 } %10, 1
   %12 = extractvalue { i32, i1 } %10, 0
-  br i1 %11, label %13, label %15
+  br i1 %11, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i, label %13
 
-13:                                               ; preds = %8
-  %14 = icmp eq i32 %5, -1
-  br i1 %14, label %19, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_22HdFlatteningSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit
-
-15:                                               ; preds = %8, %7
+13:                                               ; preds = %8, %7
   %.067.i.i = phi i32 [ %12, %8 ], [ -2, %7 ]
-  %16 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %2, i32 noundef %.067.i.i)
+  %14 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %2, i32 noundef %.067.i.i)
           to label %.noexc unwind label %23
 
-.noexc:                                           ; preds = %15
-  br i1 %16, label %19, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_22HdFlatteningSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit
+.noexc:                                           ; preds = %13
+  br i1 %14, label %19, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_22HdFlatteningSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i: ; preds = %3
-  %17 = atomicrmw sub ptr %4, i32 1 release, align 4
-  %18 = icmp eq i32 %17, 1
+15:                                               ; preds = %3
+  %16 = atomicrmw sub ptr %4, i32 1 release, align 4
+  %17 = icmp eq i32 %16, 1
+  br i1 %17, label %19, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_22HdFlatteningSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit
+
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i: ; preds = %8
+  %18 = icmp eq i32 %5, -1
   br i1 %18, label %19, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_22HdFlatteningSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit
 
-19:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i, %.noexc, %13
+19:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i, %15, %.noexc
   %20 = load ptr, ptr %2, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(12) %2) #23
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_22HdFlatteningSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_22HdFlatteningSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit: ; preds = %19, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i, %.noexc, %13, %1
+_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_22HdFlatteningSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit: ; preds = %19, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i, %15, %.noexc, %1
   ret void
 
-23:                                               ; preds = %15
+23:                                               ; preds = %13
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
@@ -8709,47 +8709,47 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__8TfRefP
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load atomic i32, ptr %4 monotonic, align 4
   %6 = icmp slt i32 %5, 0
-  br i1 %6, label %7, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i
+  br i1 %6, label %7, label %15
 
 7:                                                ; preds = %3
   %.not68.i.i = icmp eq i32 %5, -2
-  br i1 %.not68.i.i, label %15, label %8
+  br i1 %.not68.i.i, label %13, label %8
 
 8:                                                ; preds = %7
   %9 = add nsw i32 %5, 1
   %10 = cmpxchg weak ptr %4, i32 %5, i32 %9 release monotonic, align 4
   %11 = extractvalue { i32, i1 } %10, 1
   %12 = extractvalue { i32, i1 } %10, 0
-  br i1 %11, label %13, label %15
+  br i1 %11, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i, label %13
 
-13:                                               ; preds = %8
-  %14 = icmp eq i32 %5, -1
-  br i1 %14, label %19, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit
-
-15:                                               ; preds = %8, %7
+13:                                               ; preds = %8, %7
   %.067.i.i = phi i32 [ %12, %8 ], [ -2, %7 ]
-  %16 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %2, i32 noundef %.067.i.i)
+  %14 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %2, i32 noundef %.067.i.i)
           to label %.noexc unwind label %23
 
-.noexc:                                           ; preds = %15
-  br i1 %16, label %19, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit
+.noexc:                                           ; preds = %13
+  br i1 %14, label %19, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i: ; preds = %3
-  %17 = atomicrmw sub ptr %4, i32 1 release, align 4
-  %18 = icmp eq i32 %17, 1
+15:                                               ; preds = %3
+  %16 = atomicrmw sub ptr %4, i32 1 release, align 4
+  %17 = icmp eq i32 %16, 1
+  br i1 %17, label %19, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit
+
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i: ; preds = %8
+  %18 = icmp eq i32 %5, -1
   br i1 %18, label %19, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit
 
-19:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i, %.noexc, %13
+19:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i, %15, %.noexc
   %20 = load ptr, ptr %2, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(12) %2) #23
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit: ; preds = %19, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i, %.noexc, %13, %1
+_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit: ; preds = %19, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i, %15, %.noexc, %1
   ret void
 
-23:                                               ; preds = %15
+23:                                               ; preds = %13
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
@@ -11480,51 +11480,51 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEC2INS_20Hd
   %1201 = getelementptr inbounds nuw i8, ptr %1199, i64 8
   %1202 = load atomic i32, ptr %1201 monotonic, align 4
   %1203 = icmp slt i32 %1202, 0
-  br i1 %1203, label %1204, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i
+  br i1 %1203, label %1204, label %1212
 
 1204:                                             ; preds = %1200
   %.not68.i.i.i = icmp eq i32 %1202, -2
-  br i1 %.not68.i.i.i, label %1212, label %1205
+  br i1 %.not68.i.i.i, label %1210, label %1205
 
 1205:                                             ; preds = %1204
   %1206 = add nsw i32 %1202, 1
   %1207 = cmpxchg weak ptr %1201, i32 %1202, i32 %1206 release monotonic, align 4
   %1208 = extractvalue { i32, i1 } %1207, 1
   %1209 = extractvalue { i32, i1 } %1207, 0
-  br i1 %1208, label %1210, label %1212
+  br i1 %1208, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, label %1210
 
-1210:                                             ; preds = %1205
-  %1211 = icmp eq i32 %1202, -1
-  br i1 %1211, label %1216, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
-
-1212:                                             ; preds = %1205, %1204
+1210:                                             ; preds = %1205, %1204
   %.067.i.i.i = phi i32 [ %1209, %1205 ], [ -2, %1204 ]
-  %1213 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %1199, i32 noundef %.067.i.i.i)
+  %1211 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %1199, i32 noundef %.067.i.i.i)
           to label %.noexc.i unwind label %1220
 
-.noexc.i:                                         ; preds = %1212
-  br i1 %1213, label %1216, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
+.noexc.i:                                         ; preds = %1210
+  br i1 %1211, label %1216, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i: ; preds = %1200
-  %1214 = atomicrmw sub ptr %1201, i32 1 release, align 4
-  %1215 = icmp eq i32 %1214, 1
+1212:                                             ; preds = %1200
+  %1213 = atomicrmw sub ptr %1201, i32 1 release, align 4
+  %1214 = icmp eq i32 %1213, 1
+  br i1 %1214, label %1216, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
+
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i: ; preds = %1205
+  %1215 = icmp eq i32 %1202, -1
   br i1 %1215, label %1216, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
 
-1216:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %.noexc.i, %1210
+1216:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %1212, %.noexc.i
   %1217 = load ptr, ptr %1199, align 8
   %1218 = getelementptr inbounds nuw i8, ptr %1217, i64 8
   %1219 = load ptr, ptr %1218, align 8
   call void %1219(ptr noundef nonnull align 8 dereferenceable(12) %1199) #23
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
 
-1220:                                             ; preds = %1212
+1220:                                             ; preds = %1210
   %1221 = landingpad { ptr, i32 }
           catch ptr null
   %1222 = extractvalue { ptr, i32 } %1221, 0
   call void @__clang_call_terminate(ptr %1222) #25
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit: ; preds = %1198, %1210, %.noexc.i, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %1216
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit: ; preds = %1198, %.noexc.i, %1212, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %1216
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %1223 = load ptr, ptr %45, align 8
   %.not.i501 = icmp eq ptr %1223, null
@@ -11580,51 +11580,51 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEC2INS_20Hd
   %1244 = getelementptr inbounds nuw i8, ptr %1242, i64 8
   %1245 = load atomic i32, ptr %1244 monotonic, align 4
   %1246 = icmp slt i32 %1245, 0
-  br i1 %1246, label %1247, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i510
+  br i1 %1246, label %1247, label %1255
 
 1247:                                             ; preds = %1243
-  %.not68.i.i.i511 = icmp eq i32 %1245, -2
-  br i1 %.not68.i.i.i511, label %1255, label %1248
+  %.not68.i.i.i510 = icmp eq i32 %1245, -2
+  br i1 %.not68.i.i.i510, label %1253, label %1248
 
 1248:                                             ; preds = %1247
   %1249 = add nsw i32 %1245, 1
   %1250 = cmpxchg weak ptr %1244, i32 %1245, i32 %1249 release monotonic, align 4
   %1251 = extractvalue { i32, i1 } %1250, 1
   %1252 = extractvalue { i32, i1 } %1250, 0
-  br i1 %1251, label %1253, label %1255
+  br i1 %1251, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i513, label %1253
 
-1253:                                             ; preds = %1248
-  %1254 = icmp eq i32 %1245, -1
+1253:                                             ; preds = %1248, %1247
+  %.067.i.i.i511 = phi i32 [ %1252, %1248 ], [ -2, %1247 ]
+  %1254 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %1242, i32 noundef %.067.i.i.i511)
+          to label %.noexc.i512 unwind label %1263
+
+.noexc.i512:                                      ; preds = %1253
   br i1 %1254, label %1259, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit514
 
-1255:                                             ; preds = %1248, %1247
-  %.067.i.i.i512 = phi i32 [ %1252, %1248 ], [ -2, %1247 ]
-  %1256 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %1242, i32 noundef %.067.i.i.i512)
-          to label %.noexc.i513 unwind label %1263
+1255:                                             ; preds = %1243
+  %1256 = atomicrmw sub ptr %1244, i32 1 release, align 4
+  %1257 = icmp eq i32 %1256, 1
+  br i1 %1257, label %1259, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit514
 
-.noexc.i513:                                      ; preds = %1255
-  br i1 %1256, label %1259, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit514
-
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i510: ; preds = %1243
-  %1257 = atomicrmw sub ptr %1244, i32 1 release, align 4
-  %1258 = icmp eq i32 %1257, 1
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i513: ; preds = %1248
+  %1258 = icmp eq i32 %1245, -1
   br i1 %1258, label %1259, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit514
 
-1259:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i510, %.noexc.i513, %1253
+1259:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i513, %1255, %.noexc.i512
   %1260 = load ptr, ptr %1242, align 8
   %1261 = getelementptr inbounds nuw i8, ptr %1260, i64 8
   %1262 = load ptr, ptr %1261, align 8
   call void %1262(ptr noundef nonnull align 8 dereferenceable(12) %1242) #23
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit514
 
-1263:                                             ; preds = %1255
+1263:                                             ; preds = %1253
   %1264 = landingpad { ptr, i32 }
           catch ptr null
   %1265 = extractvalue { ptr, i32 } %1264, 0
   call void @__clang_call_terminate(ptr %1265) #25
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit514: ; preds = %1241, %1253, %.noexc.i513, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i510, %1259
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit514: ; preds = %1241, %.noexc.i512, %1255, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i513, %1259
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %1266 = load ptr, ptr %45, align 8
   %.not.i.i515 = icmp eq ptr %1266, null
@@ -11871,51 +11871,51 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %_ZN32pxrInter
   %1357 = getelementptr inbounds nuw i8, ptr %1355, i64 8
   %1358 = load atomic i32, ptr %1357 monotonic, align 4
   %1359 = icmp slt i32 %1358, 0
-  br i1 %1359, label %1360, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i537
+  br i1 %1359, label %1360, label %1368
 
 1360:                                             ; preds = %1356
-  %.not68.i.i.i538 = icmp eq i32 %1358, -2
-  br i1 %.not68.i.i.i538, label %1368, label %1361
+  %.not68.i.i.i537 = icmp eq i32 %1358, -2
+  br i1 %.not68.i.i.i537, label %1366, label %1361
 
 1361:                                             ; preds = %1360
   %1362 = add nsw i32 %1358, 1
   %1363 = cmpxchg weak ptr %1357, i32 %1358, i32 %1362 release monotonic, align 4
   %1364 = extractvalue { i32, i1 } %1363, 1
   %1365 = extractvalue { i32, i1 } %1363, 0
-  br i1 %1364, label %1366, label %1368
+  br i1 %1364, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i540, label %1366
 
-1366:                                             ; preds = %1361
-  %1367 = icmp eq i32 %1358, -1
+1366:                                             ; preds = %1361, %1360
+  %.067.i.i.i538 = phi i32 [ %1365, %1361 ], [ -2, %1360 ]
+  %1367 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %1355, i32 noundef %.067.i.i.i538)
+          to label %.noexc.i539 unwind label %1376
+
+.noexc.i539:                                      ; preds = %1366
   br i1 %1367, label %1372, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit541
 
-1368:                                             ; preds = %1361, %1360
-  %.067.i.i.i539 = phi i32 [ %1365, %1361 ], [ -2, %1360 ]
-  %1369 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %1355, i32 noundef %.067.i.i.i539)
-          to label %.noexc.i540 unwind label %1376
+1368:                                             ; preds = %1356
+  %1369 = atomicrmw sub ptr %1357, i32 1 release, align 4
+  %1370 = icmp eq i32 %1369, 1
+  br i1 %1370, label %1372, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit541
 
-.noexc.i540:                                      ; preds = %1368
-  br i1 %1369, label %1372, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit541
-
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i537: ; preds = %1356
-  %1370 = atomicrmw sub ptr %1357, i32 1 release, align 4
-  %1371 = icmp eq i32 %1370, 1
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i540: ; preds = %1361
+  %1371 = icmp eq i32 %1358, -1
   br i1 %1371, label %1372, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit541
 
-1372:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i537, %.noexc.i540, %1366
+1372:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i540, %1368, %.noexc.i539
   %1373 = load ptr, ptr %1355, align 8
   %1374 = getelementptr inbounds nuw i8, ptr %1373, i64 8
   %1375 = load ptr, ptr %1374, align 8
   call void %1375(ptr noundef nonnull align 8 dereferenceable(12) %1355) #23
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit541
 
-1376:                                             ; preds = %1368
+1376:                                             ; preds = %1366
   %1377 = landingpad { ptr, i32 }
           catch ptr null
   %1378 = extractvalue { ptr, i32 } %1377, 0
   call void @__clang_call_terminate(ptr %1378) #25
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit541: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit, %1366, %.noexc.i540, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i537, %1372
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit541: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit, %.noexc.i539, %1368, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i540, %1372
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %49) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %50) #23
   br i1 %1296, label %1599, label %2127
@@ -12061,8 +12061,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit543: ; preds = %.body295
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit545
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit545: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit543, %1418, %1430, %1398
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.ph, %1430 ], [ %1399, %1398 ], [ %.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit543 ], [ %.pn.pn.pn, %1418 ]
-  %.991 = phi i1 [ true, %1430 ], [ true, %1398 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit543 ], [ false, %1418 ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.ph, %1430 ], [ %1399, %1398 ], [ %.pn.pn.pn, %1418 ], [ %.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit543 ]
+  %.991 = phi i1 [ true, %1430 ], [ true, %1398 ], [ false, %1418 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit543 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #23
   br label %.body291
 
@@ -12157,9 +12157,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit549: ; preds = %.body283
   br label %.body356
 
 .body:                                            ; preds = %1383, %1454, %1442, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit549
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %1454 ], [ %1384, %1383 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit549 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1442 ]
-  %.1115 = phi ptr [ %.2116.ph, %1454 ], [ %5, %1383 ], [ %.4118, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit549 ], [ %.4118, %1442 ]
-  %.183 = phi i1 [ %.284.ph, %1454 ], [ true, %1383 ], [ %.486, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit549 ], [ %.486, %1442 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %1454 ], [ %1384, %1383 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1442 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit549 ]
+  %.1115 = phi ptr [ %.2116.ph, %1454 ], [ %5, %1383 ], [ %.4118, %1442 ], [ %.4118, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit549 ]
+  %.183 = phi i1 [ %.284.ph, %1454 ], [ true, %1383 ], [ %.486, %1442 ], [ %.486, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit549 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #23
   %1455 = icmp ne ptr %5, %.1115
@@ -12344,8 +12344,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit553: ; preds = %.body390
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit555
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit555: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit553, %1509, %1521, %1489
-  %.pn211.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn211.pn.pn.pn.pn.ph, %1521 ], [ %1490, %1489 ], [ %.pn211.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit553 ], [ %.pn211.pn.pn, %1509 ]
-  %.15 = phi i1 [ true, %1521 ], [ true, %1489 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit553 ], [ false, %1509 ]
+  %.pn211.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn211.pn.pn.pn.pn.ph, %1521 ], [ %1490, %1489 ], [ %.pn211.pn.pn, %1509 ], [ %.pn211.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit553 ]
+  %.15 = phi i1 [ true, %1521 ], [ true, %1489 ], [ false, %1509 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit553 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #23
   br label %.body386
 
@@ -12409,9 +12409,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit557: ; preds = %.body381
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit559
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit559: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit557, %1526, %1538, %1478
-  %.pn211.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn211.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %1538 ], [ %1479, %1478 ], [ %.pn211.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit557 ], [ %.pn211.pn.pn.pn.pn.pn.pn.pn.pn, %1526 ]
-  %.956 = phi ptr [ %.1057.ph, %1538 ], [ %624, %1478 ], [ %.1259, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit557 ], [ %.1259, %1526 ]
-  %.9 = phi i1 [ %.10.ph, %1538 ], [ true, %1478 ], [ %.12, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit557 ], [ %.12, %1526 ]
+  %.pn211.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn211.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %1538 ], [ %1479, %1478 ], [ %.pn211.pn.pn.pn.pn.pn.pn.pn.pn, %1526 ], [ %.pn211.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit557 ]
+  %.956 = phi ptr [ %.1057.ph, %1538 ], [ %624, %1478 ], [ %.1259, %1526 ], [ %.1259, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit557 ]
+  %.9 = phi i1 [ %.10.ph, %1538 ], [ true, %1478 ], [ %.12, %1526 ], [ %.12, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit557 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #23
   br label %.body377
 
@@ -12507,9 +12507,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit563: ; preds = %.body368
   br label %.body494
 
 .body364:                                         ; preds = %1463, %1562, %1550, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit563
-  %.pn211.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn211.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %1562 ], [ %1464, %1463 ], [ %.pn211.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit563 ], [ %.pn211.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1550 ]
-  %.148 = phi ptr [ %.249.ph, %1562 ], [ %23, %1463 ], [ %.451, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit563 ], [ %.451, %1550 ]
-  %.1 = phi i1 [ %.2.ph, %1562 ], [ true, %1463 ], [ %.4, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit563 ], [ %.4, %1550 ]
+  %.pn211.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn211.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %1562 ], [ %1464, %1463 ], [ %.pn211.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1550 ], [ %.pn211.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit563 ]
+  %.148 = phi ptr [ %.249.ph, %1562 ], [ %23, %1463 ], [ %.451, %1550 ], [ %.451, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit563 ]
+  %.1 = phi i1 [ %.2.ph, %1562 ], [ true, %1463 ], [ %.4, %1550 ], [ %.4, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit563 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #23
   %1563 = icmp ne ptr %23, %.148
@@ -12839,51 +12839,51 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit601: ; preds = %_ZN32pxrIn
   %1685 = getelementptr inbounds nuw i8, ptr %1683, i64 8
   %1686 = load atomic i32, ptr %1685 monotonic, align 4
   %1687 = icmp slt i32 %1686, 0
-  br i1 %1687, label %1688, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i603
+  br i1 %1687, label %1688, label %1696
 
 1688:                                             ; preds = %1684
-  %.not68.i.i.i604 = icmp eq i32 %1686, -2
-  br i1 %.not68.i.i.i604, label %1696, label %1689
+  %.not68.i.i.i603 = icmp eq i32 %1686, -2
+  br i1 %.not68.i.i.i603, label %1694, label %1689
 
 1689:                                             ; preds = %1688
   %1690 = add nsw i32 %1686, 1
   %1691 = cmpxchg weak ptr %1685, i32 %1686, i32 %1690 release monotonic, align 4
   %1692 = extractvalue { i32, i1 } %1691, 1
   %1693 = extractvalue { i32, i1 } %1691, 0
-  br i1 %1692, label %1694, label %1696
+  br i1 %1692, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i606, label %1694
 
-1694:                                             ; preds = %1689
-  %1695 = icmp eq i32 %1686, -1
+1694:                                             ; preds = %1689, %1688
+  %.067.i.i.i604 = phi i32 [ %1693, %1689 ], [ -2, %1688 ]
+  %1695 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %1683, i32 noundef %.067.i.i.i604)
+          to label %.noexc.i605 unwind label %1704
+
+.noexc.i605:                                      ; preds = %1694
   br i1 %1695, label %1700, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit607
 
-1696:                                             ; preds = %1689, %1688
-  %.067.i.i.i605 = phi i32 [ %1693, %1689 ], [ -2, %1688 ]
-  %1697 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %1683, i32 noundef %.067.i.i.i605)
-          to label %.noexc.i606 unwind label %1704
+1696:                                             ; preds = %1684
+  %1697 = atomicrmw sub ptr %1685, i32 1 release, align 4
+  %1698 = icmp eq i32 %1697, 1
+  br i1 %1698, label %1700, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit607
 
-.noexc.i606:                                      ; preds = %1696
-  br i1 %1697, label %1700, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit607
-
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i603: ; preds = %1684
-  %1698 = atomicrmw sub ptr %1685, i32 1 release, align 4
-  %1699 = icmp eq i32 %1698, 1
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i606: ; preds = %1689
+  %1699 = icmp eq i32 %1686, -1
   br i1 %1699, label %1700, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit607
 
-1700:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i603, %.noexc.i606, %1694
+1700:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i606, %1696, %.noexc.i605
   %1701 = load ptr, ptr %1683, align 8
   %1702 = getelementptr inbounds nuw i8, ptr %1701, i64 8
   %1703 = load ptr, ptr %1702, align 8
   call void %1703(ptr noundef nonnull align 8 dereferenceable(12) %1683) #23
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit607
 
-1704:                                             ; preds = %1696
+1704:                                             ; preds = %1694
   %1705 = landingpad { ptr, i32 }
           catch ptr null
   %1706 = extractvalue { ptr, i32 } %1705, 0
   call void @__clang_call_terminate(ptr %1706) #25
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit607: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit601, %1694, %.noexc.i606, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i603, %1700
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit607: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit601, %.noexc.i605, %1696, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i606, %1700
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %58) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %59) #23
   br i1 %1624, label %1731, label %2127
@@ -13181,51 +13181,51 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit643: ; preds = %_ZN32pxrIn
   %1817 = getelementptr inbounds nuw i8, ptr %1815, i64 8
   %1818 = load atomic i32, ptr %1817 monotonic, align 4
   %1819 = icmp slt i32 %1818, 0
-  br i1 %1819, label %1820, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i645
+  br i1 %1819, label %1820, label %1828
 
 1820:                                             ; preds = %1816
-  %.not68.i.i.i646 = icmp eq i32 %1818, -2
-  br i1 %.not68.i.i.i646, label %1828, label %1821
+  %.not68.i.i.i645 = icmp eq i32 %1818, -2
+  br i1 %.not68.i.i.i645, label %1826, label %1821
 
 1821:                                             ; preds = %1820
   %1822 = add nsw i32 %1818, 1
   %1823 = cmpxchg weak ptr %1817, i32 %1818, i32 %1822 release monotonic, align 4
   %1824 = extractvalue { i32, i1 } %1823, 1
   %1825 = extractvalue { i32, i1 } %1823, 0
-  br i1 %1824, label %1826, label %1828
+  br i1 %1824, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i648, label %1826
 
-1826:                                             ; preds = %1821
-  %1827 = icmp eq i32 %1818, -1
+1826:                                             ; preds = %1821, %1820
+  %.067.i.i.i646 = phi i32 [ %1825, %1821 ], [ -2, %1820 ]
+  %1827 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %1815, i32 noundef %.067.i.i.i646)
+          to label %.noexc.i647 unwind label %1836
+
+.noexc.i647:                                      ; preds = %1826
   br i1 %1827, label %1832, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit649
 
-1828:                                             ; preds = %1821, %1820
-  %.067.i.i.i647 = phi i32 [ %1825, %1821 ], [ -2, %1820 ]
-  %1829 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %1815, i32 noundef %.067.i.i.i647)
-          to label %.noexc.i648 unwind label %1836
+1828:                                             ; preds = %1816
+  %1829 = atomicrmw sub ptr %1817, i32 1 release, align 4
+  %1830 = icmp eq i32 %1829, 1
+  br i1 %1830, label %1832, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit649
 
-.noexc.i648:                                      ; preds = %1828
-  br i1 %1829, label %1832, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit649
-
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i645: ; preds = %1816
-  %1830 = atomicrmw sub ptr %1817, i32 1 release, align 4
-  %1831 = icmp eq i32 %1830, 1
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i648: ; preds = %1821
+  %1831 = icmp eq i32 %1818, -1
   br i1 %1831, label %1832, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit649
 
-1832:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i645, %.noexc.i648, %1826
+1832:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i648, %1828, %.noexc.i647
   %1833 = load ptr, ptr %1815, align 8
   %1834 = getelementptr inbounds nuw i8, ptr %1833, i64 8
   %1835 = load ptr, ptr %1834, align 8
   call void %1835(ptr noundef nonnull align 8 dereferenceable(12) %1815) #23
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit649
 
-1836:                                             ; preds = %1828
+1836:                                             ; preds = %1826
   %1837 = landingpad { ptr, i32 }
           catch ptr null
   %1838 = extractvalue { ptr, i32 } %1837, 0
   call void @__clang_call_terminate(ptr %1838) #25
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit649: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit643, %1826, %.noexc.i648, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i645, %1832
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit649: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit643, %.noexc.i647, %1828, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i648, %1832
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %67) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %68) #23
   br i1 %1756, label %1863, label %2127
@@ -13523,51 +13523,51 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit685: ; preds = %_ZN32pxrIn
   %1949 = getelementptr inbounds nuw i8, ptr %1947, i64 8
   %1950 = load atomic i32, ptr %1949 monotonic, align 4
   %1951 = icmp slt i32 %1950, 0
-  br i1 %1951, label %1952, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i687
+  br i1 %1951, label %1952, label %1960
 
 1952:                                             ; preds = %1948
-  %.not68.i.i.i688 = icmp eq i32 %1950, -2
-  br i1 %.not68.i.i.i688, label %1960, label %1953
+  %.not68.i.i.i687 = icmp eq i32 %1950, -2
+  br i1 %.not68.i.i.i687, label %1958, label %1953
 
 1953:                                             ; preds = %1952
   %1954 = add nsw i32 %1950, 1
   %1955 = cmpxchg weak ptr %1949, i32 %1950, i32 %1954 release monotonic, align 4
   %1956 = extractvalue { i32, i1 } %1955, 1
   %1957 = extractvalue { i32, i1 } %1955, 0
-  br i1 %1956, label %1958, label %1960
+  br i1 %1956, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i690, label %1958
 
-1958:                                             ; preds = %1953
-  %1959 = icmp eq i32 %1950, -1
+1958:                                             ; preds = %1953, %1952
+  %.067.i.i.i688 = phi i32 [ %1957, %1953 ], [ -2, %1952 ]
+  %1959 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %1947, i32 noundef %.067.i.i.i688)
+          to label %.noexc.i689 unwind label %1968
+
+.noexc.i689:                                      ; preds = %1958
   br i1 %1959, label %1964, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit691
 
-1960:                                             ; preds = %1953, %1952
-  %.067.i.i.i689 = phi i32 [ %1957, %1953 ], [ -2, %1952 ]
-  %1961 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %1947, i32 noundef %.067.i.i.i689)
-          to label %.noexc.i690 unwind label %1968
+1960:                                             ; preds = %1948
+  %1961 = atomicrmw sub ptr %1949, i32 1 release, align 4
+  %1962 = icmp eq i32 %1961, 1
+  br i1 %1962, label %1964, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit691
 
-.noexc.i690:                                      ; preds = %1960
-  br i1 %1961, label %1964, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit691
-
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i687: ; preds = %1948
-  %1962 = atomicrmw sub ptr %1949, i32 1 release, align 4
-  %1963 = icmp eq i32 %1962, 1
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i690: ; preds = %1953
+  %1963 = icmp eq i32 %1950, -1
   br i1 %1963, label %1964, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit691
 
-1964:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i687, %.noexc.i690, %1958
+1964:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i690, %1960, %.noexc.i689
   %1965 = load ptr, ptr %1947, align 8
   %1966 = getelementptr inbounds nuw i8, ptr %1965, i64 8
   %1967 = load ptr, ptr %1966, align 8
   call void %1967(ptr noundef nonnull align 8 dereferenceable(12) %1947) #23
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit691
 
-1968:                                             ; preds = %1960
+1968:                                             ; preds = %1958
   %1969 = landingpad { ptr, i32 }
           catch ptr null
   %1970 = extractvalue { ptr, i32 } %1969, 0
   call void @__clang_call_terminate(ptr %1970) #25
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit691: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit685, %1958, %.noexc.i690, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i687, %1964
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit691: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit685, %.noexc.i689, %1960, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i690, %1964
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %76) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %77) #23
   br i1 %1888, label %1995, label %2127
@@ -13865,51 +13865,51 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit727: ; preds = %_ZN32pxrIn
   %2081 = getelementptr inbounds nuw i8, ptr %2079, i64 8
   %2082 = load atomic i32, ptr %2081 monotonic, align 4
   %2083 = icmp slt i32 %2082, 0
-  br i1 %2083, label %2084, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i729
+  br i1 %2083, label %2084, label %2092
 
 2084:                                             ; preds = %2080
-  %.not68.i.i.i730 = icmp eq i32 %2082, -2
-  br i1 %.not68.i.i.i730, label %2092, label %2085
+  %.not68.i.i.i729 = icmp eq i32 %2082, -2
+  br i1 %.not68.i.i.i729, label %2090, label %2085
 
 2085:                                             ; preds = %2084
   %2086 = add nsw i32 %2082, 1
   %2087 = cmpxchg weak ptr %2081, i32 %2082, i32 %2086 release monotonic, align 4
   %2088 = extractvalue { i32, i1 } %2087, 1
   %2089 = extractvalue { i32, i1 } %2087, 0
-  br i1 %2088, label %2090, label %2092
+  br i1 %2088, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i732, label %2090
 
-2090:                                             ; preds = %2085
-  %2091 = icmp eq i32 %2082, -1
+2090:                                             ; preds = %2085, %2084
+  %.067.i.i.i730 = phi i32 [ %2089, %2085 ], [ -2, %2084 ]
+  %2091 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %2079, i32 noundef %.067.i.i.i730)
+          to label %.noexc.i731 unwind label %2100
+
+.noexc.i731:                                      ; preds = %2090
   br i1 %2091, label %2096, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit733
 
-2092:                                             ; preds = %2085, %2084
-  %.067.i.i.i731 = phi i32 [ %2089, %2085 ], [ -2, %2084 ]
-  %2093 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %2079, i32 noundef %.067.i.i.i731)
-          to label %.noexc.i732 unwind label %2100
+2092:                                             ; preds = %2080
+  %2093 = atomicrmw sub ptr %2081, i32 1 release, align 4
+  %2094 = icmp eq i32 %2093, 1
+  br i1 %2094, label %2096, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit733
 
-.noexc.i732:                                      ; preds = %2092
-  br i1 %2093, label %2096, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit733
-
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i729: ; preds = %2080
-  %2094 = atomicrmw sub ptr %2081, i32 1 release, align 4
-  %2095 = icmp eq i32 %2094, 1
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i732: ; preds = %2085
+  %2095 = icmp eq i32 %2082, -1
   br i1 %2095, label %2096, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit733
 
-2096:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i729, %.noexc.i732, %2090
+2096:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i732, %2092, %.noexc.i731
   %2097 = load ptr, ptr %2079, align 8
   %2098 = getelementptr inbounds nuw i8, ptr %2097, i64 8
   %2099 = load ptr, ptr %2098, align 8
   call void %2099(ptr noundef nonnull align 8 dereferenceable(12) %2079) #23
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit733
 
-2100:                                             ; preds = %2092
+2100:                                             ; preds = %2090
   %2101 = landingpad { ptr, i32 }
           catch ptr null
   %2102 = extractvalue { ptr, i32 } %2101, 0
   call void @__clang_call_terminate(ptr %2102) #25
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit733: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit727, %2090, %.noexc.i732, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i729, %2096
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit733: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit727, %.noexc.i731, %2092, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i732, %2096
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %85) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %86) #23
   br label %2127
@@ -13992,7 +13992,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit735: ; preds = %2121, %211
   br label %2200
 
 2127:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit733, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit691, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit649, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit607, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit541
-  %.061 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit541 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit607 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit649 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit691 ], [ %2020, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit733 ]
+  %.061 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit691 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit541 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit607 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit649 ], [ %2020, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit733 ]
   %2128 = load ptr, ptr %45, align 8
   %.not.i.i.i736 = icmp eq ptr %2128, null
   br i1 %.not.i.i.i736, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_19HdMergingSceneIndexEED2Ev.exit, label %2129
@@ -14001,51 +14001,51 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit735: ; preds = %2121, %211
   %2130 = getelementptr inbounds nuw i8, ptr %2128, i64 8
   %2131 = load atomic i32, ptr %2130 monotonic, align 4
   %2132 = icmp slt i32 %2131, 0
-  br i1 %2132, label %2133, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i737
+  br i1 %2132, label %2133, label %2141
 
 2133:                                             ; preds = %2129
-  %.not68.i.i.i738 = icmp eq i32 %2131, -2
-  br i1 %.not68.i.i.i738, label %2141, label %2134
+  %.not68.i.i.i737 = icmp eq i32 %2131, -2
+  br i1 %.not68.i.i.i737, label %2139, label %2134
 
 2134:                                             ; preds = %2133
   %2135 = add nsw i32 %2131, 1
   %2136 = cmpxchg weak ptr %2130, i32 %2131, i32 %2135 release monotonic, align 4
   %2137 = extractvalue { i32, i1 } %2136, 1
   %2138 = extractvalue { i32, i1 } %2136, 0
-  br i1 %2137, label %2139, label %2141
+  br i1 %2137, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i740, label %2139
 
-2139:                                             ; preds = %2134
-  %2140 = icmp eq i32 %2131, -1
+2139:                                             ; preds = %2134, %2133
+  %.067.i.i.i738 = phi i32 [ %2138, %2134 ], [ -2, %2133 ]
+  %2140 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %2128, i32 noundef %.067.i.i.i738)
+          to label %.noexc.i739 unwind label %2149
+
+.noexc.i739:                                      ; preds = %2139
   br i1 %2140, label %2145, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_19HdMergingSceneIndexEED2Ev.exit
 
-2141:                                             ; preds = %2134, %2133
-  %.067.i.i.i739 = phi i32 [ %2138, %2134 ], [ -2, %2133 ]
-  %2142 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %2128, i32 noundef %.067.i.i.i739)
-          to label %.noexc.i740 unwind label %2149
+2141:                                             ; preds = %2129
+  %2142 = atomicrmw sub ptr %2130, i32 1 release, align 4
+  %2143 = icmp eq i32 %2142, 1
+  br i1 %2143, label %2145, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_19HdMergingSceneIndexEED2Ev.exit
 
-.noexc.i740:                                      ; preds = %2141
-  br i1 %2142, label %2145, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_19HdMergingSceneIndexEED2Ev.exit
-
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i737: ; preds = %2129
-  %2143 = atomicrmw sub ptr %2130, i32 1 release, align 4
-  %2144 = icmp eq i32 %2143, 1
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i740: ; preds = %2134
+  %2144 = icmp eq i32 %2131, -1
   br i1 %2144, label %2145, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_19HdMergingSceneIndexEED2Ev.exit
 
-2145:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i737, %.noexc.i740, %2139
+2145:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i740, %2141, %.noexc.i739
   %2146 = load ptr, ptr %2128, align 8
   %2147 = getelementptr inbounds nuw i8, ptr %2146, i64 8
   %2148 = load ptr, ptr %2147, align 8
   call void %2148(ptr noundef nonnull align 8 dereferenceable(12) %2128) #23
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_19HdMergingSceneIndexEED2Ev.exit
 
-2149:                                             ; preds = %2141
+2149:                                             ; preds = %2139
   %2150 = landingpad { ptr, i32 }
           catch ptr null
   %2151 = extractvalue { ptr, i32 } %2150, 0
   call void @__clang_call_terminate(ptr %2151) #25
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_19HdMergingSceneIndexEED2Ev.exit: ; preds = %2127, %2139, %.noexc.i740, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i737, %2145
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_19HdMergingSceneIndexEED2Ev.exit: ; preds = %2127, %.noexc.i739, %2141, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i740, %2145
   %2152 = load ptr, ptr %21, align 8
   %.not.i.i.i741 = icmp eq ptr %2152, null
   br i1 %.not.i.i.i741, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit, label %2153
@@ -14054,51 +14054,51 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_19HdMergingSceneIndexEED2Ev.ex
   %2154 = getelementptr inbounds nuw i8, ptr %2152, i64 8
   %2155 = load atomic i32, ptr %2154 monotonic, align 4
   %2156 = icmp slt i32 %2155, 0
-  br i1 %2156, label %2157, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i742
+  br i1 %2156, label %2157, label %2165
 
 2157:                                             ; preds = %2153
-  %.not68.i.i.i743 = icmp eq i32 %2155, -2
-  br i1 %.not68.i.i.i743, label %2165, label %2158
+  %.not68.i.i.i742 = icmp eq i32 %2155, -2
+  br i1 %.not68.i.i.i742, label %2163, label %2158
 
 2158:                                             ; preds = %2157
   %2159 = add nsw i32 %2155, 1
   %2160 = cmpxchg weak ptr %2154, i32 %2155, i32 %2159 release monotonic, align 4
   %2161 = extractvalue { i32, i1 } %2160, 1
   %2162 = extractvalue { i32, i1 } %2160, 0
-  br i1 %2161, label %2163, label %2165
+  br i1 %2161, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i745, label %2163
 
-2163:                                             ; preds = %2158
-  %2164 = icmp eq i32 %2155, -1
+2163:                                             ; preds = %2158, %2157
+  %.067.i.i.i743 = phi i32 [ %2162, %2158 ], [ -2, %2157 ]
+  %2164 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %2152, i32 noundef %.067.i.i.i743)
+          to label %.noexc.i744 unwind label %2173
+
+.noexc.i744:                                      ; preds = %2163
   br i1 %2164, label %2169, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit
 
-2165:                                             ; preds = %2158, %2157
-  %.067.i.i.i744 = phi i32 [ %2162, %2158 ], [ -2, %2157 ]
-  %2166 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %2152, i32 noundef %.067.i.i.i744)
-          to label %.noexc.i745 unwind label %2173
+2165:                                             ; preds = %2153
+  %2166 = atomicrmw sub ptr %2154, i32 1 release, align 4
+  %2167 = icmp eq i32 %2166, 1
+  br i1 %2167, label %2169, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit
 
-.noexc.i745:                                      ; preds = %2165
-  br i1 %2166, label %2169, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit
-
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i742: ; preds = %2153
-  %2167 = atomicrmw sub ptr %2154, i32 1 release, align 4
-  %2168 = icmp eq i32 %2167, 1
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i745: ; preds = %2158
+  %2168 = icmp eq i32 %2155, -1
   br i1 %2168, label %2169, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit
 
-2169:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i742, %.noexc.i745, %2163
+2169:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i745, %2165, %.noexc.i744
   %2170 = load ptr, ptr %2152, align 8
   %2171 = getelementptr inbounds nuw i8, ptr %2170, i64 8
   %2172 = load ptr, ptr %2171, align 8
   call void %2172(ptr noundef nonnull align 8 dereferenceable(12) %2152) #23
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit
 
-2173:                                             ; preds = %2165
+2173:                                             ; preds = %2163
   %2174 = landingpad { ptr, i32 }
           catch ptr null
   %2175 = extractvalue { ptr, i32 } %2174, 0
   call void @__clang_call_terminate(ptr %2175) #25
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_19HdMergingSceneIndexEED2Ev.exit, %2163, %.noexc.i745, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i742, %2169
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_19HdMergingSceneIndexEED2Ev.exit, %.noexc.i744, %2165, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i745, %2169
   %2176 = load ptr, ptr %3, align 8
   %.not.i.i.i746 = icmp eq ptr %2176, null
   br i1 %.not.i.i.i746, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit751, label %2177
@@ -14107,51 +14107,51 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.e
   %2178 = getelementptr inbounds nuw i8, ptr %2176, i64 8
   %2179 = load atomic i32, ptr %2178 monotonic, align 4
   %2180 = icmp slt i32 %2179, 0
-  br i1 %2180, label %2181, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i747
+  br i1 %2180, label %2181, label %2189
 
 2181:                                             ; preds = %2177
-  %.not68.i.i.i748 = icmp eq i32 %2179, -2
-  br i1 %.not68.i.i.i748, label %2189, label %2182
+  %.not68.i.i.i747 = icmp eq i32 %2179, -2
+  br i1 %.not68.i.i.i747, label %2187, label %2182
 
 2182:                                             ; preds = %2181
   %2183 = add nsw i32 %2179, 1
   %2184 = cmpxchg weak ptr %2178, i32 %2179, i32 %2183 release monotonic, align 4
   %2185 = extractvalue { i32, i1 } %2184, 1
   %2186 = extractvalue { i32, i1 } %2184, 0
-  br i1 %2185, label %2187, label %2189
+  br i1 %2185, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i750, label %2187
 
-2187:                                             ; preds = %2182
-  %2188 = icmp eq i32 %2179, -1
+2187:                                             ; preds = %2182, %2181
+  %.067.i.i.i748 = phi i32 [ %2186, %2182 ], [ -2, %2181 ]
+  %2188 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %2176, i32 noundef %.067.i.i.i748)
+          to label %.noexc.i749 unwind label %2197
+
+.noexc.i749:                                      ; preds = %2187
   br i1 %2188, label %2193, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit751
 
-2189:                                             ; preds = %2182, %2181
-  %.067.i.i.i749 = phi i32 [ %2186, %2182 ], [ -2, %2181 ]
-  %2190 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %2176, i32 noundef %.067.i.i.i749)
-          to label %.noexc.i750 unwind label %2197
+2189:                                             ; preds = %2177
+  %2190 = atomicrmw sub ptr %2178, i32 1 release, align 4
+  %2191 = icmp eq i32 %2190, 1
+  br i1 %2191, label %2193, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit751
 
-.noexc.i750:                                      ; preds = %2189
-  br i1 %2190, label %2193, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit751
-
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i747: ; preds = %2177
-  %2191 = atomicrmw sub ptr %2178, i32 1 release, align 4
-  %2192 = icmp eq i32 %2191, 1
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i750: ; preds = %2182
+  %2192 = icmp eq i32 %2179, -1
   br i1 %2192, label %2193, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit751
 
-2193:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i747, %.noexc.i750, %2187
+2193:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i750, %2189, %.noexc.i749
   %2194 = load ptr, ptr %2176, align 8
   %2195 = getelementptr inbounds nuw i8, ptr %2194, i64 8
   %2196 = load ptr, ptr %2195, align 8
   call void %2196(ptr noundef nonnull align 8 dereferenceable(12) %2176) #23
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit751
 
-2197:                                             ; preds = %2189
+2197:                                             ; preds = %2187
   %2198 = landingpad { ptr, i32 }
           catch ptr null
   %2199 = extractvalue { ptr, i32 } %2198, 0
   call void @__clang_call_terminate(ptr %2199) #25
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit751: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit, %2187, %.noexc.i750, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i747, %2193
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit751: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit, %.noexc.i749, %2189, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i750, %2193
   ret i1 %.061
 
 2200:                                             ; preds = %.body696, %.body654, %.body612, %.body570, %.body519, %1573, %1571, %1569, %1567
@@ -14160,12 +14160,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.e
   br label %.body494
 
 .body494:                                         ; preds = %.preheader, %.body364.thread, %1459, %1179, %.body364, %2200
-  %.pn265.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn265.pn.pn.pn.pn.pn.pn.pn, %2200 ], [ %.pn211.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body364 ], [ %1460, %1459 ], [ %1180, %1179 ], [ %.pn211.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.body364.thread ], [ %.pn211.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader ]
+  %.pn265.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn265.pn.pn.pn.pn.pn.pn.pn, %2200 ], [ %.pn211.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.body364.thread ], [ %.pn211.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body364 ], [ %1460, %1459 ], [ %1180, %1179 ], [ %.pn211.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #23
   br label %.body356
 
 .body356:                                         ; preds = %.preheader843, %.body.thread, %1379, %563, %.body, %.body494
-  %.pn265.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn265.pn.pn.pn.pn.pn.pn.pn.pn, %.body494 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body ], [ %1380, %1379 ], [ %564, %563 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.body.thread ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader843 ]
+  %.pn265.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn265.pn.pn.pn.pn.pn.pn.pn.pn, %.body494 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.body.thread ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body ], [ %1380, %1379 ], [ %564, %563 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader843 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #23
   br label %common.resume
 }
@@ -14599,7 +14599,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit18: ; preds = %131, %137
           to label %155 unwind label %111
 
 155:                                              ; preds = %153, %109, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit18
-  %.011 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit18 ], [ true, %109 ], [ false, %153 ]
+  %.011 = phi i1 [ true, %109 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit18 ], [ false, %153 ]
   %156 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %157 = load ptr, ptr %156, align 8
   %.not.i.i.i19 = icmp eq ptr %157, null
@@ -14746,47 +14746,47 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__8TfRefP
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load atomic i32, ptr %4 monotonic, align 4
   %6 = icmp slt i32 %5, 0
-  br i1 %6, label %7, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i
+  br i1 %6, label %7, label %15
 
 7:                                                ; preds = %3
   %.not68.i.i = icmp eq i32 %5, -2
-  br i1 %.not68.i.i, label %15, label %8
+  br i1 %.not68.i.i, label %13, label %8
 
 8:                                                ; preds = %7
   %9 = add nsw i32 %5, 1
   %10 = cmpxchg weak ptr %4, i32 %5, i32 %9 release monotonic, align 4
   %11 = extractvalue { i32, i1 } %10, 1
   %12 = extractvalue { i32, i1 } %10, 0
-  br i1 %11, label %13, label %15
+  br i1 %11, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i, label %13
 
-13:                                               ; preds = %8
-  %14 = icmp eq i32 %5, -1
-  br i1 %14, label %19, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_19HdMergingSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit
-
-15:                                               ; preds = %8, %7
+13:                                               ; preds = %8, %7
   %.067.i.i = phi i32 [ %12, %8 ], [ -2, %7 ]
-  %16 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %2, i32 noundef %.067.i.i)
+  %14 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %2, i32 noundef %.067.i.i)
           to label %.noexc unwind label %23
 
-.noexc:                                           ; preds = %15
-  br i1 %16, label %19, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_19HdMergingSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit
+.noexc:                                           ; preds = %13
+  br i1 %14, label %19, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_19HdMergingSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i: ; preds = %3
-  %17 = atomicrmw sub ptr %4, i32 1 release, align 4
-  %18 = icmp eq i32 %17, 1
+15:                                               ; preds = %3
+  %16 = atomicrmw sub ptr %4, i32 1 release, align 4
+  %17 = icmp eq i32 %16, 1
+  br i1 %17, label %19, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_19HdMergingSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit
+
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i: ; preds = %8
+  %18 = icmp eq i32 %5, -1
   br i1 %18, label %19, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_19HdMergingSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit
 
-19:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i, %.noexc, %13
+19:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i, %15, %.noexc
   %20 = load ptr, ptr %2, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(12) %2) #23
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_19HdMergingSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_19HdMergingSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit: ; preds = %19, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i, %.noexc, %13, %1
+_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_19HdMergingSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit: ; preds = %19, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i, %15, %.noexc, %1
   ret void
 
-23:                                               ; preds = %15
+23:                                               ; preds = %13
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
@@ -16346,51 +16346,51 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEC2INS_20Hd
   %694 = getelementptr inbounds nuw i8, ptr %692, i64 8
   %695 = load atomic i32, ptr %694 monotonic, align 4
   %696 = icmp slt i32 %695, 0
-  br i1 %696, label %697, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i
+  br i1 %696, label %697, label %705
 
 697:                                              ; preds = %693
   %.not68.i.i.i = icmp eq i32 %695, -2
-  br i1 %.not68.i.i.i, label %705, label %698
+  br i1 %.not68.i.i.i, label %703, label %698
 
 698:                                              ; preds = %697
   %699 = add nsw i32 %695, 1
   %700 = cmpxchg weak ptr %694, i32 %695, i32 %699 release monotonic, align 4
   %701 = extractvalue { i32, i1 } %700, 1
   %702 = extractvalue { i32, i1 } %700, 0
-  br i1 %701, label %703, label %705
+  br i1 %701, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, label %703
 
-703:                                              ; preds = %698
-  %704 = icmp eq i32 %695, -1
-  br i1 %704, label %709, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
-
-705:                                              ; preds = %698, %697
+703:                                              ; preds = %698, %697
   %.067.i.i.i = phi i32 [ %702, %698 ], [ -2, %697 ]
-  %706 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %692, i32 noundef %.067.i.i.i)
+  %704 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %692, i32 noundef %.067.i.i.i)
           to label %.noexc.i unwind label %713
 
-.noexc.i:                                         ; preds = %705
-  br i1 %706, label %709, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
+.noexc.i:                                         ; preds = %703
+  br i1 %704, label %709, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i: ; preds = %693
-  %707 = atomicrmw sub ptr %694, i32 1 release, align 4
-  %708 = icmp eq i32 %707, 1
+705:                                              ; preds = %693
+  %706 = atomicrmw sub ptr %694, i32 1 release, align 4
+  %707 = icmp eq i32 %706, 1
+  br i1 %707, label %709, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
+
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i: ; preds = %698
+  %708 = icmp eq i32 %695, -1
   br i1 %708, label %709, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
 
-709:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %.noexc.i, %703
+709:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %705, %.noexc.i
   %710 = load ptr, ptr %692, align 8
   %711 = getelementptr inbounds nuw i8, ptr %710, i64 8
   %712 = load ptr, ptr %711, align 8
   call void %712(ptr noundef nonnull align 8 dereferenceable(12) %692) #23
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
 
-713:                                              ; preds = %705
+713:                                              ; preds = %703
   %714 = landingpad { ptr, i32 }
           catch ptr null
   %715 = extractvalue { ptr, i32 } %714, 0
   call void @__clang_call_terminate(ptr %715) #25
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit: ; preds = %691, %703, %.noexc.i, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %709
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit: ; preds = %691, %.noexc.i, %705, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %709
   %716 = load ptr, ptr %20, align 8
   store ptr %716, ptr %34, align 8
   %.not.i.i.i346 = icmp eq ptr %716, null
@@ -16446,51 +16446,51 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEC2INS_20Hd
   %736 = getelementptr inbounds nuw i8, ptr %734, i64 8
   %737 = load atomic i32, ptr %736 monotonic, align 4
   %738 = icmp slt i32 %737, 0
-  br i1 %738, label %739, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i356
+  br i1 %738, label %739, label %747
 
 739:                                              ; preds = %735
-  %.not68.i.i.i357 = icmp eq i32 %737, -2
-  br i1 %.not68.i.i.i357, label %747, label %740
+  %.not68.i.i.i356 = icmp eq i32 %737, -2
+  br i1 %.not68.i.i.i356, label %745, label %740
 
 740:                                              ; preds = %739
   %741 = add nsw i32 %737, 1
   %742 = cmpxchg weak ptr %736, i32 %737, i32 %741 release monotonic, align 4
   %743 = extractvalue { i32, i1 } %742, 1
   %744 = extractvalue { i32, i1 } %742, 0
-  br i1 %743, label %745, label %747
+  br i1 %743, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i359, label %745
 
-745:                                              ; preds = %740
-  %746 = icmp eq i32 %737, -1
+745:                                              ; preds = %740, %739
+  %.067.i.i.i357 = phi i32 [ %744, %740 ], [ -2, %739 ]
+  %746 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %734, i32 noundef %.067.i.i.i357)
+          to label %.noexc.i358 unwind label %755
+
+.noexc.i358:                                      ; preds = %745
   br i1 %746, label %751, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit360
 
-747:                                              ; preds = %740, %739
-  %.067.i.i.i358 = phi i32 [ %744, %740 ], [ -2, %739 ]
-  %748 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %734, i32 noundef %.067.i.i.i358)
-          to label %.noexc.i359 unwind label %755
+747:                                              ; preds = %735
+  %748 = atomicrmw sub ptr %736, i32 1 release, align 4
+  %749 = icmp eq i32 %748, 1
+  br i1 %749, label %751, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit360
 
-.noexc.i359:                                      ; preds = %747
-  br i1 %748, label %751, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit360
-
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i356: ; preds = %735
-  %749 = atomicrmw sub ptr %736, i32 1 release, align 4
-  %750 = icmp eq i32 %749, 1
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i359: ; preds = %740
+  %750 = icmp eq i32 %737, -1
   br i1 %750, label %751, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit360
 
-751:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i356, %.noexc.i359, %745
+751:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i359, %747, %.noexc.i358
   %752 = load ptr, ptr %734, align 8
   %753 = getelementptr inbounds nuw i8, ptr %752, i64 8
   %754 = load ptr, ptr %753, align 8
   call void %754(ptr noundef nonnull align 8 dereferenceable(12) %734) #23
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit360
 
-755:                                              ; preds = %747
+755:                                              ; preds = %745
   %756 = landingpad { ptr, i32 }
           catch ptr null
   %757 = extractvalue { ptr, i32 } %756, 0
   call void @__clang_call_terminate(ptr %757) #25
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit360: ; preds = %733, %745, %.noexc.i359, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i356, %751
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit360: ; preds = %733, %.noexc.i358, %747, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i359, %751
   call void @llvm.experimental.noalias.scope.decl(metadata !130)
   %758 = invoke noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #26
           to label %.noexc361 unwind label %1273
@@ -16550,51 +16550,51 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEC2IN12_GLO
   %779 = getelementptr inbounds nuw i8, ptr %777, i64 8
   %780 = load atomic i32, ptr %779 monotonic, align 4
   %781 = icmp slt i32 %780, 0
-  br i1 %781, label %782, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i371
+  br i1 %781, label %782, label %790
 
 782:                                              ; preds = %778
-  %.not68.i.i.i372 = icmp eq i32 %780, -2
-  br i1 %.not68.i.i.i372, label %790, label %783
+  %.not68.i.i.i371 = icmp eq i32 %780, -2
+  br i1 %.not68.i.i.i371, label %788, label %783
 
 783:                                              ; preds = %782
   %784 = add nsw i32 %780, 1
   %785 = cmpxchg weak ptr %779, i32 %780, i32 %784 release monotonic, align 4
   %786 = extractvalue { i32, i1 } %785, 1
   %787 = extractvalue { i32, i1 } %785, 0
-  br i1 %786, label %788, label %790
+  br i1 %786, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i374, label %788
 
-788:                                              ; preds = %783
-  %789 = icmp eq i32 %780, -1
+788:                                              ; preds = %783, %782
+  %.067.i.i.i372 = phi i32 [ %787, %783 ], [ -2, %782 ]
+  %789 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %777, i32 noundef %.067.i.i.i372)
+          to label %.noexc.i373 unwind label %798
+
+.noexc.i373:                                      ; preds = %788
   br i1 %789, label %794, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit375
 
-790:                                              ; preds = %783, %782
-  %.067.i.i.i373 = phi i32 [ %787, %783 ], [ -2, %782 ]
-  %791 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %777, i32 noundef %.067.i.i.i373)
-          to label %.noexc.i374 unwind label %798
+790:                                              ; preds = %778
+  %791 = atomicrmw sub ptr %779, i32 1 release, align 4
+  %792 = icmp eq i32 %791, 1
+  br i1 %792, label %794, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit375
 
-.noexc.i374:                                      ; preds = %790
-  br i1 %791, label %794, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit375
-
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i371: ; preds = %778
-  %792 = atomicrmw sub ptr %779, i32 1 release, align 4
-  %793 = icmp eq i32 %792, 1
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i374: ; preds = %783
+  %793 = icmp eq i32 %780, -1
   br i1 %793, label %794, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit375
 
-794:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i371, %.noexc.i374, %788
+794:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i374, %790, %.noexc.i373
   %795 = load ptr, ptr %777, align 8
   %796 = getelementptr inbounds nuw i8, ptr %795, i64 8
   %797 = load ptr, ptr %796, align 8
   call void %797(ptr noundef nonnull align 8 dereferenceable(12) %777) #23
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit375
 
-798:                                              ; preds = %790
+798:                                              ; preds = %788
   %799 = landingpad { ptr, i32 }
           catch ptr null
   %800 = extractvalue { ptr, i32 } %799, 0
   call void @__clang_call_terminate(ptr %800) #25
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit375: ; preds = %776, %788, %.noexc.i374, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i371, %794
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit375: ; preds = %776, %.noexc.i373, %790, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i374, %794
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %801 = load ptr, ptr %35, align 8
   %.not.i376 = icmp eq ptr %801, null
@@ -16713,51 +16713,51 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %824, %826, %8
   %845 = getelementptr inbounds nuw i8, ptr %843, i64 8
   %846 = load atomic i32, ptr %845 monotonic, align 4
   %847 = icmp slt i32 %846, 0
-  br i1 %847, label %848, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i391
+  br i1 %847, label %848, label %856
 
 848:                                              ; preds = %844
-  %.not68.i.i.i392 = icmp eq i32 %846, -2
-  br i1 %.not68.i.i.i392, label %856, label %849
+  %.not68.i.i.i391 = icmp eq i32 %846, -2
+  br i1 %.not68.i.i.i391, label %854, label %849
 
 849:                                              ; preds = %848
   %850 = add nsw i32 %846, 1
   %851 = cmpxchg weak ptr %845, i32 %846, i32 %850 release monotonic, align 4
   %852 = extractvalue { i32, i1 } %851, 1
   %853 = extractvalue { i32, i1 } %851, 0
-  br i1 %852, label %854, label %856
+  br i1 %852, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i394, label %854
 
-854:                                              ; preds = %849
-  %855 = icmp eq i32 %846, -1
+854:                                              ; preds = %849, %848
+  %.067.i.i.i392 = phi i32 [ %853, %849 ], [ -2, %848 ]
+  %855 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %843, i32 noundef %.067.i.i.i392)
+          to label %.noexc.i393 unwind label %864
+
+.noexc.i393:                                      ; preds = %854
   br i1 %855, label %860, label %867
 
-856:                                              ; preds = %849, %848
-  %.067.i.i.i393 = phi i32 [ %853, %849 ], [ -2, %848 ]
-  %857 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %843, i32 noundef %.067.i.i.i393)
-          to label %.noexc.i394 unwind label %864
+856:                                              ; preds = %844
+  %857 = atomicrmw sub ptr %845, i32 1 release, align 4
+  %858 = icmp eq i32 %857, 1
+  br i1 %858, label %860, label %867
 
-.noexc.i394:                                      ; preds = %856
-  br i1 %857, label %860, label %867
-
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i391: ; preds = %844
-  %858 = atomicrmw sub ptr %845, i32 1 release, align 4
-  %859 = icmp eq i32 %858, 1
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i394: ; preds = %849
+  %859 = icmp eq i32 %846, -1
   br i1 %859, label %860, label %867
 
-860:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i391, %.noexc.i394, %854
+860:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i394, %856, %.noexc.i393
   %861 = load ptr, ptr %843, align 8
   %862 = getelementptr inbounds nuw i8, ptr %861, i64 8
   %863 = load ptr, ptr %862, align 8
   call void %863(ptr noundef nonnull align 8 dereferenceable(12) %843) #23
   br label %867
 
-864:                                              ; preds = %856
+864:                                              ; preds = %854
   %865 = landingpad { ptr, i32 }
           catch ptr null
   %866 = extractvalue { ptr, i32 } %865, 0
   call void @__clang_call_terminate(ptr %866) #25
   unreachable
 
-867:                                              ; preds = %860, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i391, %.noexc.i394, %854, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit
+867:                                              ; preds = %860, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i394, %856, %.noexc.i393, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit
   %868 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr null, ptr %868, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV27RecordingSceneIndexObserver, i64 16), ptr %41, align 8
@@ -17543,8 +17543,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit461: ; preds = %1186, %119
   br label %.critedge
 
 .critedge:                                        ; preds = %1182, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit459, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit461, %1164
-  %.9140 = phi i1 [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit461 ], [ true, %1164 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit459 ], [ false, %1182 ]
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn542, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit461 ], [ %1165, %1164 ], [ %.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit459 ], [ %.pn.pn.pn, %1182 ]
+  %.9140 = phi i1 [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit461 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit459 ], [ true, %1164 ], [ false, %1182 ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn542, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit461 ], [ %.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit459 ], [ %1165, %1164 ], [ %.pn.pn.pn, %1182 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #23
   br label %.body228
 
@@ -17608,9 +17608,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit463: ; preds = %.body224
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit465
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit465: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit463, %1198, %1210, %1153
-  %.3134 = phi i1 [ %.4135.ph, %1210 ], [ true, %1153 ], [ %.6137, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit463 ], [ %.6137, %1198 ]
-  %.3126 = phi ptr [ %.4127.ph, %1210 ], [ %76, %1153 ], [ %.6129, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit463 ], [ %.6129, %1198 ]
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %1210 ], [ %1154, %1153 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit463 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %1198 ]
+  %.3134 = phi i1 [ %.4135.ph, %1210 ], [ true, %1153 ], [ %.6137, %1198 ], [ %.6137, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit463 ]
+  %.3126 = phi ptr [ %.4127.ph, %1210 ], [ %76, %1153 ], [ %.6129, %1198 ], [ %.6129, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit463 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %1210 ], [ %1154, %1153 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %1198 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit463 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
   %1211 = xor i1 %.3134, true
   br label %.body220
@@ -17723,8 +17723,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit467.thread: ; preds = %455
   br i1 %1244, label %.loopexit584, label %1241
 
 .loopexit584:                                     ; preds = %1241, %1237, %1235
-  %.pn172.pn = phi { ptr, i32 } [ %1238, %1237 ], [ %1236, %1235 ], [ %.pn172, %1241 ]
-  %.960 = phi i1 [ true, %1237 ], [ true, %1235 ], [ false, %1241 ]
+  %.pn172.pn = phi { ptr, i32 } [ %1236, %1235 ], [ %1238, %1237 ], [ %.pn172, %1241 ]
+  %.960 = phi i1 [ true, %1235 ], [ true, %1237 ], [ false, %1241 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #23
   br label %.body299
 
@@ -17788,9 +17788,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit467: ; preds = %.body294
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit469
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit469: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit467, %1249, %1261, %1224
-  %.pn172.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn172.pn.pn.pn.pn.pn.pn.ph, %1261 ], [ %1225, %1224 ], [ %.pn172.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit467 ], [ %.pn172.pn.pn.pn.pn, %1249 ]
-  %.371 = phi ptr [ %.472.ph, %1261 ], [ %449, %1224 ], [ %.674, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit467 ], [ %.674, %1249 ]
-  %.354 = phi i1 [ %.455.ph, %1261 ], [ true, %1224 ], [ %.657, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit467 ], [ %.657, %1249 ]
+  %.pn172.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn172.pn.pn.pn.pn.pn.pn.ph, %1261 ], [ %1225, %1224 ], [ %.pn172.pn.pn.pn.pn, %1249 ], [ %.pn172.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit467 ]
+  %.371 = phi ptr [ %.472.ph, %1261 ], [ %449, %1224 ], [ %.674, %1249 ], [ %.674, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit467 ]
+  %.354 = phi i1 [ %.455.ph, %1261 ], [ true, %1224 ], [ %.657, %1249 ], [ %.657, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit467 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #23
   %1262 = xor i1 %.354, true
   br label %.body290
@@ -18230,145 +18230,145 @@ _ZN27RecordingSceneIndexObserverD2Ev.exit:        ; preds = %_ZSt8_DestroyIPN27R
   %1397 = getelementptr inbounds nuw i8, ptr %1395, i64 8
   %1398 = load atomic i32, ptr %1397 monotonic, align 4
   %1399 = icmp slt i32 %1398, 0
-  br i1 %1399, label %1400, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i490
+  br i1 %1399, label %1400, label %1408
 
 1400:                                             ; preds = %1396
-  %.not68.i.i.i491 = icmp eq i32 %1398, -2
-  br i1 %.not68.i.i.i491, label %1408, label %1401
+  %.not68.i.i.i490 = icmp eq i32 %1398, -2
+  br i1 %.not68.i.i.i490, label %1406, label %1401
 
 1401:                                             ; preds = %1400
   %1402 = add nsw i32 %1398, 1
   %1403 = cmpxchg weak ptr %1397, i32 %1398, i32 %1402 release monotonic, align 4
   %1404 = extractvalue { i32, i1 } %1403, 1
   %1405 = extractvalue { i32, i1 } %1403, 0
-  br i1 %1404, label %1406, label %1408
+  br i1 %1404, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i493, label %1406
 
-1406:                                             ; preds = %1401
-  %1407 = icmp eq i32 %1398, -1
+1406:                                             ; preds = %1401, %1400
+  %.067.i.i.i491 = phi i32 [ %1405, %1401 ], [ -2, %1400 ]
+  %1407 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %1395, i32 noundef %.067.i.i.i491)
+          to label %.noexc.i492 unwind label %1416
+
+.noexc.i492:                                      ; preds = %1406
   br i1 %1407, label %1412, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_19HdMergingSceneIndexEED2Ev.exit
 
-1408:                                             ; preds = %1401, %1400
-  %.067.i.i.i492 = phi i32 [ %1405, %1401 ], [ -2, %1400 ]
-  %1409 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %1395, i32 noundef %.067.i.i.i492)
-          to label %.noexc.i493 unwind label %1416
+1408:                                             ; preds = %1396
+  %1409 = atomicrmw sub ptr %1397, i32 1 release, align 4
+  %1410 = icmp eq i32 %1409, 1
+  br i1 %1410, label %1412, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_19HdMergingSceneIndexEED2Ev.exit
 
-.noexc.i493:                                      ; preds = %1408
-  br i1 %1409, label %1412, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_19HdMergingSceneIndexEED2Ev.exit
-
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i490: ; preds = %1396
-  %1410 = atomicrmw sub ptr %1397, i32 1 release, align 4
-  %1411 = icmp eq i32 %1410, 1
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i493: ; preds = %1401
+  %1411 = icmp eq i32 %1398, -1
   br i1 %1411, label %1412, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_19HdMergingSceneIndexEED2Ev.exit
 
-1412:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i490, %.noexc.i493, %1406
+1412:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i493, %1408, %.noexc.i492
   %1413 = load ptr, ptr %1395, align 8
   %1414 = getelementptr inbounds nuw i8, ptr %1413, i64 8
   %1415 = load ptr, ptr %1414, align 8
   call void %1415(ptr noundef nonnull align 8 dereferenceable(12) %1395) #23
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_19HdMergingSceneIndexEED2Ev.exit
 
-1416:                                             ; preds = %1408
+1416:                                             ; preds = %1406
   %1417 = landingpad { ptr, i32 }
           catch ptr null
   %1418 = extractvalue { ptr, i32 } %1417, 0
   call void @__clang_call_terminate(ptr %1418) #25
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_19HdMergingSceneIndexEED2Ev.exit: ; preds = %1412, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i490, %.noexc.i493, %1406, %_ZN27RecordingSceneIndexObserverD2Ev.exit
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_19HdMergingSceneIndexEED2Ev.exit: ; preds = %1412, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i493, %1408, %.noexc.i492, %_ZN27RecordingSceneIndexObserverD2Ev.exit
   %1419 = load atomic i32, ptr %808 monotonic, align 4
   %1420 = icmp slt i32 %1419, 0
-  br i1 %1420, label %1421, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i495
+  br i1 %1420, label %1421, label %1429
 
 1421:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_19HdMergingSceneIndexEED2Ev.exit
-  %.not68.i.i.i496 = icmp eq i32 %1419, -2
-  br i1 %.not68.i.i.i496, label %1429, label %1422
+  %.not68.i.i.i495 = icmp eq i32 %1419, -2
+  br i1 %.not68.i.i.i495, label %1427, label %1422
 
 1422:                                             ; preds = %1421
   %1423 = add nsw i32 %1419, 1
   %1424 = cmpxchg weak ptr %808, i32 %1419, i32 %1423 release monotonic, align 4
   %1425 = extractvalue { i32, i1 } %1424, 1
   %1426 = extractvalue { i32, i1 } %1424, 0
-  br i1 %1425, label %1427, label %1429
+  br i1 %1425, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i498, label %1427
 
-1427:                                             ; preds = %1422
-  %1428 = icmp eq i32 %1419, -1
+1427:                                             ; preds = %1422, %1421
+  %.067.i.i.i496 = phi i32 [ %1426, %1422 ], [ -2, %1421 ]
+  %1428 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %730, i32 noundef %.067.i.i.i496)
+          to label %.noexc.i497 unwind label %1437
+
+.noexc.i497:                                      ; preds = %1427
   br i1 %1428, label %1433, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.exit
 
-1429:                                             ; preds = %1422, %1421
-  %.067.i.i.i497 = phi i32 [ %1426, %1422 ], [ -2, %1421 ]
-  %1430 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %730, i32 noundef %.067.i.i.i497)
-          to label %.noexc.i498 unwind label %1437
+1429:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_19HdMergingSceneIndexEED2Ev.exit
+  %1430 = atomicrmw sub ptr %808, i32 1 release, align 4
+  %1431 = icmp eq i32 %1430, 1
+  br i1 %1431, label %1433, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.exit
 
-.noexc.i498:                                      ; preds = %1429
-  br i1 %1430, label %1433, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.exit
-
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i495: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_19HdMergingSceneIndexEED2Ev.exit
-  %1431 = atomicrmw sub ptr %808, i32 1 release, align 4
-  %1432 = icmp eq i32 %1431, 1
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i498: ; preds = %1422
+  %1432 = icmp eq i32 %1419, -1
   br i1 %1432, label %1433, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.exit
 
-1433:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i495, %.noexc.i498, %1427
+1433:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i498, %1429, %.noexc.i497
   %1434 = load ptr, ptr %730, align 8
   %1435 = getelementptr inbounds nuw i8, ptr %1434, i64 8
   %1436 = load ptr, ptr %1435, align 8
   call void %1436(ptr noundef nonnull align 8 dereferenceable(12) %730) #23
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.exit
 
-1437:                                             ; preds = %1429
+1437:                                             ; preds = %1427
   %1438 = landingpad { ptr, i32 }
           catch ptr null
   %1439 = extractvalue { ptr, i32 } %1438, 0
   call void @__clang_call_terminate(ptr %1439) #25
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.exit: ; preds = %1433, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i495, %.noexc.i498, %1427
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.exit: ; preds = %1433, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i498, %1429, %.noexc.i497
   %1440 = load atomic i32, ptr %762 monotonic, align 4
   %1441 = icmp slt i32 %1440, 0
-  br i1 %1441, label %1442, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i500
+  br i1 %1441, label %1442, label %1450
 
 1442:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.exit
-  %.not68.i.i.i501 = icmp eq i32 %1440, -2
-  br i1 %.not68.i.i.i501, label %1450, label %1443
+  %.not68.i.i.i500 = icmp eq i32 %1440, -2
+  br i1 %.not68.i.i.i500, label %1448, label %1443
 
 1443:                                             ; preds = %1442
   %1444 = add nsw i32 %1440, 1
   %1445 = cmpxchg weak ptr %762, i32 %1440, i32 %1444 release monotonic, align 4
   %1446 = extractvalue { i32, i1 } %1445, 1
   %1447 = extractvalue { i32, i1 } %1445, 0
-  br i1 %1446, label %1448, label %1450
+  br i1 %1446, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i503, label %1448
 
-1448:                                             ; preds = %1443
-  %1449 = icmp eq i32 %1440, -1
+1448:                                             ; preds = %1443, %1442
+  %.067.i.i.i501 = phi i32 [ %1447, %1443 ], [ -2, %1442 ]
+  %1449 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %688, i32 noundef %.067.i.i.i501)
+          to label %.noexc.i502 unwind label %1458
+
+.noexc.i502:                                      ; preds = %1448
   br i1 %1449, label %1454, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.exit504
 
-1450:                                             ; preds = %1443, %1442
-  %.067.i.i.i502 = phi i32 [ %1447, %1443 ], [ -2, %1442 ]
-  %1451 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %688, i32 noundef %.067.i.i.i502)
-          to label %.noexc.i503 unwind label %1458
+1450:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.exit
+  %1451 = atomicrmw sub ptr %762, i32 1 release, align 4
+  %1452 = icmp eq i32 %1451, 1
+  br i1 %1452, label %1454, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.exit504
 
-.noexc.i503:                                      ; preds = %1450
-  br i1 %1451, label %1454, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.exit504
-
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i500: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.exit
-  %1452 = atomicrmw sub ptr %762, i32 1 release, align 4
-  %1453 = icmp eq i32 %1452, 1
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i503: ; preds = %1443
+  %1453 = icmp eq i32 %1440, -1
   br i1 %1453, label %1454, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.exit504
 
-1454:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i500, %.noexc.i503, %1448
+1454:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i503, %1450, %.noexc.i502
   %1455 = load ptr, ptr %688, align 8
   %1456 = getelementptr inbounds nuw i8, ptr %1455, i64 8
   %1457 = load ptr, ptr %1456, align 8
   call void %1457(ptr noundef nonnull align 8 dereferenceable(12) %688) #23
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.exit504
 
-1458:                                             ; preds = %1450
+1458:                                             ; preds = %1448
   %1459 = landingpad { ptr, i32 }
           catch ptr null
   %1460 = extractvalue { ptr, i32 } %1459, 0
   call void @__clang_call_terminate(ptr %1460) #25
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.exit504: ; preds = %1448, %.noexc.i503, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i500, %1454
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.exit504: ; preds = %.noexc.i502, %1450, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i503, %1454
   %1461 = load ptr, ptr %20, align 8
   %.not.i.i.i505 = icmp eq ptr %1461, null
   br i1 %.not.i.i.i505, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit, label %1462
@@ -18377,51 +18377,51 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSce
   %1463 = getelementptr inbounds nuw i8, ptr %1461, i64 8
   %1464 = load atomic i32, ptr %1463 monotonic, align 4
   %1465 = icmp slt i32 %1464, 0
-  br i1 %1465, label %1466, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i506
+  br i1 %1465, label %1466, label %1474
 
 1466:                                             ; preds = %1462
-  %.not68.i.i.i507 = icmp eq i32 %1464, -2
-  br i1 %.not68.i.i.i507, label %1474, label %1467
+  %.not68.i.i.i506 = icmp eq i32 %1464, -2
+  br i1 %.not68.i.i.i506, label %1472, label %1467
 
 1467:                                             ; preds = %1466
   %1468 = add nsw i32 %1464, 1
   %1469 = cmpxchg weak ptr %1463, i32 %1464, i32 %1468 release monotonic, align 4
   %1470 = extractvalue { i32, i1 } %1469, 1
   %1471 = extractvalue { i32, i1 } %1469, 0
-  br i1 %1470, label %1472, label %1474
+  br i1 %1470, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i509, label %1472
 
-1472:                                             ; preds = %1467
-  %1473 = icmp eq i32 %1464, -1
+1472:                                             ; preds = %1467, %1466
+  %.067.i.i.i507 = phi i32 [ %1471, %1467 ], [ -2, %1466 ]
+  %1473 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %1461, i32 noundef %.067.i.i.i507)
+          to label %.noexc.i508 unwind label %1482
+
+.noexc.i508:                                      ; preds = %1472
   br i1 %1473, label %1478, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit
 
-1474:                                             ; preds = %1467, %1466
-  %.067.i.i.i508 = phi i32 [ %1471, %1467 ], [ -2, %1466 ]
-  %1475 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %1461, i32 noundef %.067.i.i.i508)
-          to label %.noexc.i509 unwind label %1482
+1474:                                             ; preds = %1462
+  %1475 = atomicrmw sub ptr %1463, i32 1 release, align 4
+  %1476 = icmp eq i32 %1475, 1
+  br i1 %1476, label %1478, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit
 
-.noexc.i509:                                      ; preds = %1474
-  br i1 %1475, label %1478, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit
-
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i506: ; preds = %1462
-  %1476 = atomicrmw sub ptr %1463, i32 1 release, align 4
-  %1477 = icmp eq i32 %1476, 1
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i509: ; preds = %1467
+  %1477 = icmp eq i32 %1464, -1
   br i1 %1477, label %1478, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit
 
-1478:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i506, %.noexc.i509, %1472
+1478:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i509, %1474, %.noexc.i508
   %1479 = load ptr, ptr %1461, align 8
   %1480 = getelementptr inbounds nuw i8, ptr %1479, i64 8
   %1481 = load ptr, ptr %1480, align 8
   call void %1481(ptr noundef nonnull align 8 dereferenceable(12) %1461) #23
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit
 
-1482:                                             ; preds = %1474
+1482:                                             ; preds = %1472
   %1483 = landingpad { ptr, i32 }
           catch ptr null
   %1484 = extractvalue { ptr, i32 } %1483, 0
   call void @__clang_call_terminate(ptr %1484) #25
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.exit504, %1472, %.noexc.i509, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i506, %1478
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEED2Ev.exit504, %.noexc.i508, %1474, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i509, %1478
   %1485 = load ptr, ptr %3, align 8
   %.not.i.i.i510 = icmp eq ptr %1485, null
   br i1 %.not.i.i.i510, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit515, label %1486
@@ -18430,55 +18430,55 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.e
   %1487 = getelementptr inbounds nuw i8, ptr %1485, i64 8
   %1488 = load atomic i32, ptr %1487 monotonic, align 4
   %1489 = icmp slt i32 %1488, 0
-  br i1 %1489, label %1490, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i511
+  br i1 %1489, label %1490, label %1498
 
 1490:                                             ; preds = %1486
-  %.not68.i.i.i512 = icmp eq i32 %1488, -2
-  br i1 %.not68.i.i.i512, label %1498, label %1491
+  %.not68.i.i.i511 = icmp eq i32 %1488, -2
+  br i1 %.not68.i.i.i511, label %1496, label %1491
 
 1491:                                             ; preds = %1490
   %1492 = add nsw i32 %1488, 1
   %1493 = cmpxchg weak ptr %1487, i32 %1488, i32 %1492 release monotonic, align 4
   %1494 = extractvalue { i32, i1 } %1493, 1
   %1495 = extractvalue { i32, i1 } %1493, 0
-  br i1 %1494, label %1496, label %1498
+  br i1 %1494, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i514, label %1496
 
-1496:                                             ; preds = %1491
-  %1497 = icmp eq i32 %1488, -1
+1496:                                             ; preds = %1491, %1490
+  %.067.i.i.i512 = phi i32 [ %1495, %1491 ], [ -2, %1490 ]
+  %1497 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %1485, i32 noundef %.067.i.i.i512)
+          to label %.noexc.i513 unwind label %1506
+
+.noexc.i513:                                      ; preds = %1496
   br i1 %1497, label %1502, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit515
 
-1498:                                             ; preds = %1491, %1490
-  %.067.i.i.i513 = phi i32 [ %1495, %1491 ], [ -2, %1490 ]
-  %1499 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %1485, i32 noundef %.067.i.i.i513)
-          to label %.noexc.i514 unwind label %1506
+1498:                                             ; preds = %1486
+  %1499 = atomicrmw sub ptr %1487, i32 1 release, align 4
+  %1500 = icmp eq i32 %1499, 1
+  br i1 %1500, label %1502, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit515
 
-.noexc.i514:                                      ; preds = %1498
-  br i1 %1499, label %1502, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit515
-
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i511: ; preds = %1486
-  %1500 = atomicrmw sub ptr %1487, i32 1 release, align 4
-  %1501 = icmp eq i32 %1500, 1
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i514: ; preds = %1491
+  %1501 = icmp eq i32 %1488, -1
   br i1 %1501, label %1502, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit515
 
-1502:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i511, %.noexc.i514, %1496
+1502:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i514, %1498, %.noexc.i513
   %1503 = load ptr, ptr %1485, align 8
   %1504 = getelementptr inbounds nuw i8, ptr %1503, i64 8
   %1505 = load ptr, ptr %1504, align 8
   call void %1505(ptr noundef nonnull align 8 dereferenceable(12) %1485) #23
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit515
 
-1506:                                             ; preds = %1498
+1506:                                             ; preds = %1496
   %1507 = landingpad { ptr, i32 }
           catch ptr null
   %1508 = extractvalue { ptr, i32 } %1507, 0
   call void @__clang_call_terminate(ptr %1508) #25
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit515: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit, %1496, %.noexc.i514, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i511, %1502
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit515: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit, %.noexc.i513, %1498, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i514, %1502
   ret i1 %.036
 
 .body402:                                         ; preds = %.preheader, %.body408.thread, %1294, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i471, %1288, %1286, %911, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i13.i, %905, %.body408, %1368
-  %.pn202 = phi { ptr, i32 } [ %1369, %1368 ], [ %.pn187.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body408 ], [ %1287, %1286 ], [ %906, %911 ], [ %906, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i13.i ], [ %906, %905 ], [ %1289, %1288 ], [ %1289, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i471 ], [ %1289, %1294 ], [ %.pn187.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.body408.thread ], [ %.pn187.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader ]
+  %.pn202 = phi { ptr, i32 } [ %1369, %1368 ], [ %.pn187.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body408 ], [ %.pn187.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.body408.thread ], [ %906, %905 ], [ %1287, %1286 ], [ %906, %911 ], [ %906, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i13.i ], [ %1289, %1288 ], [ %1289, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i471 ], [ %1289, %1294 ], [ %.pn187.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader ]
   call void @_ZN27RecordingSceneIndexObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %41) #23
   br label %1509
 
@@ -18503,7 +18503,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.e
   br label %.body277
 
 .body277:                                         ; preds = %.preheader585, %.body.thread, %1143, %441, %.body, %.loopexit
-  %.pn202.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn202.pn.pn.pn.pn, %.loopexit ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body ], [ %1144, %1143 ], [ %442, %441 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.body.thread ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader585 ]
+  %.pn202.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn202.pn.pn.pn.pn, %.loopexit ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.body.thread ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body ], [ %1144, %1143 ], [ %442, %441 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader585 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #23
   br label %common.resume
 }
@@ -18783,7 +18783,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7SdfPathEJRKS1_EEvPT_DpOT0_.
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7SdfPathEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i.thread, %48, %73
-  %77 = phi ptr [ %47, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7SdfPathEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i.thread ], [ %60, %48 ], [ %60, %73 ]
+  %77 = phi ptr [ %47, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7SdfPathEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i.thread ], [ %60, %73 ], [ %60, %48 ]
   %78 = load ptr, ptr %6, align 8
   %79 = load ptr, ptr %77, align 8
   %80 = icmp eq ptr %78, %79
@@ -19349,51 +19349,51 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14
   %353 = getelementptr inbounds nuw i8, ptr %351, i64 8
   %354 = load atomic i32, ptr %353 monotonic, align 4
   %355 = icmp slt i32 %354, 0
-  br i1 %355, label %356, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i
+  br i1 %355, label %356, label %364
 
 356:                                              ; preds = %352
   %.not68.i.i.i = icmp eq i32 %354, -2
-  br i1 %.not68.i.i.i, label %364, label %357
+  br i1 %.not68.i.i.i, label %362, label %357
 
 357:                                              ; preds = %356
   %358 = add nsw i32 %354, 1
   %359 = cmpxchg weak ptr %353, i32 %354, i32 %358 release monotonic, align 4
   %360 = extractvalue { i32, i1 } %359, 1
   %361 = extractvalue { i32, i1 } %359, 0
-  br i1 %360, label %362, label %364
+  br i1 %360, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, label %362
 
-362:                                              ; preds = %357
-  %363 = icmp eq i32 %354, -1
-  br i1 %363, label %368, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
-
-364:                                              ; preds = %357, %356
+362:                                              ; preds = %357, %356
   %.067.i.i.i = phi i32 [ %361, %357 ], [ -2, %356 ]
-  %365 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %351, i32 noundef %.067.i.i.i)
+  %363 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %351, i32 noundef %.067.i.i.i)
           to label %.noexc.i unwind label %372
 
-.noexc.i:                                         ; preds = %364
-  br i1 %365, label %368, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
+.noexc.i:                                         ; preds = %362
+  br i1 %363, label %368, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i: ; preds = %352
-  %366 = atomicrmw sub ptr %353, i32 1 release, align 4
-  %367 = icmp eq i32 %366, 1
+364:                                              ; preds = %352
+  %365 = atomicrmw sub ptr %353, i32 1 release, align 4
+  %366 = icmp eq i32 %365, 1
+  br i1 %366, label %368, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
+
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i: ; preds = %357
+  %367 = icmp eq i32 %354, -1
   br i1 %367, label %368, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
 
-368:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %.noexc.i, %362
+368:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %364, %.noexc.i
   %369 = load ptr, ptr %351, align 8
   %370 = getelementptr inbounds nuw i8, ptr %369, i64 8
   %371 = load ptr, ptr %370, align 8
   call void %371(ptr noundef nonnull align 8 dereferenceable(12) %351) #23
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
 
-372:                                              ; preds = %364
+372:                                              ; preds = %362
   %373 = landingpad { ptr, i32 }
           catch ptr null
   %374 = extractvalue { ptr, i32 } %373, 0
   call void @__clang_call_terminate(ptr %374) #25
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EED2Ev.exit, %362, %.noexc.i, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %368
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EED2Ev.exit, %.noexc.i, %364, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %368
   ret void
 
 375:                                              ; preds = %._crit_edge
@@ -19770,7 +19770,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexPrimD2Ev.exit33: ; preds = %1
   br i1 %.not42, label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexPrimD2Ev.exit, label %13
 
 _ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexPrimD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexPrimD2Ev.exit33, %.invoke, %1, %129, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit.i
-  %.not4249 = phi i1 [ false, %129 ], [ false, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit.i ], [ true, %1 ], [ false, %.invoke ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexPrimD2Ev.exit33 ]
+  %.not4249 = phi i1 [ false, %.invoke ], [ false, %129 ], [ false, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit.i ], [ true, %1 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexPrimD2Ev.exit33 ]
   %176 = load ptr, ptr %3, align 8
   %177 = load ptr, ptr %9, align 8
   %.not4.i.i.i.i = icmp eq ptr %176, %177
@@ -19952,47 +19952,47 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
   %3 = load atomic i32, ptr %2 monotonic, align 4
   %4 = icmp slt i32 %3, 0
-  br i1 %4, label %5, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i
+  br i1 %4, label %5, label %13
 
 5:                                                ; preds = %1
   %.not68.i.i = icmp eq i32 %3, -2
-  br i1 %.not68.i.i, label %13, label %6
+  br i1 %.not68.i.i, label %11, label %6
 
 6:                                                ; preds = %5
   %7 = add nsw i32 %3, 1
   %8 = cmpxchg weak ptr %2, i32 %3, i32 %7 release monotonic, align 4
   %9 = extractvalue { i32, i1 } %8, 1
   %10 = extractvalue { i32, i1 } %8, 0
-  br i1 %9, label %11, label %13
+  br i1 %9, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i, label %11
 
-11:                                               ; preds = %6
-  %12 = icmp eq i32 %3, -1
-  br i1 %12, label %17, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit
-
-13:                                               ; preds = %6, %5
+11:                                               ; preds = %6, %5
   %.067.i.i = phi i32 [ %10, %6 ], [ -2, %5 ]
-  %14 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %.0.val, i32 noundef %.067.i.i)
+  %12 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %.0.val, i32 noundef %.067.i.i)
           to label %.noexc unwind label %21
 
-.noexc:                                           ; preds = %13
-  br i1 %14, label %17, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit
+.noexc:                                           ; preds = %11
+  br i1 %12, label %17, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i: ; preds = %1
-  %15 = atomicrmw sub ptr %2, i32 1 release, align 4
-  %16 = icmp eq i32 %15, 1
+13:                                               ; preds = %1
+  %14 = atomicrmw sub ptr %2, i32 1 release, align 4
+  %15 = icmp eq i32 %14, 1
+  br i1 %15, label %17, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit
+
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i: ; preds = %6
+  %16 = icmp eq i32 %3, -1
   br i1 %16, label %17, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit
 
-17:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i, %.noexc, %11
+17:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i, %13, %.noexc
   %18 = load ptr, ptr %.0.val, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(12) %.0.val) #23
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit: ; preds = %17, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i, %.noexc, %11, %0
+_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrIN12_GLOBAL__N_123_RepopulatingSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit: ; preds = %17, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i, %13, %.noexc, %0
   ret void
 
-21:                                               ; preds = %13
+21:                                               ; preds = %11
   %22 = landingpad { ptr, i32 }
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
@@ -20293,51 +20293,51 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEC2INS_20Hd
   %255 = getelementptr inbounds nuw i8, ptr %253, i64 8
   %256 = load atomic i32, ptr %255 monotonic, align 4
   %257 = icmp slt i32 %256, 0
-  br i1 %257, label %258, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i
+  br i1 %257, label %258, label %266
 
 258:                                              ; preds = %254
   %.not68.i.i.i = icmp eq i32 %256, -2
-  br i1 %.not68.i.i.i, label %266, label %259
+  br i1 %.not68.i.i.i, label %264, label %259
 
 259:                                              ; preds = %258
   %260 = add nsw i32 %256, 1
   %261 = cmpxchg weak ptr %255, i32 %256, i32 %260 release monotonic, align 4
   %262 = extractvalue { i32, i1 } %261, 1
   %263 = extractvalue { i32, i1 } %261, 0
-  br i1 %262, label %264, label %266
+  br i1 %262, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, label %264
 
-264:                                              ; preds = %259
-  %265 = icmp eq i32 %256, -1
-  br i1 %265, label %270, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
-
-266:                                              ; preds = %259, %258
+264:                                              ; preds = %259, %258
   %.067.i.i.i = phi i32 [ %263, %259 ], [ -2, %258 ]
-  %267 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %253, i32 noundef %.067.i.i.i)
+  %265 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %253, i32 noundef %.067.i.i.i)
           to label %.noexc.i unwind label %274
 
-.noexc.i:                                         ; preds = %266
-  br i1 %267, label %270, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
+.noexc.i:                                         ; preds = %264
+  br i1 %265, label %270, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i: ; preds = %254
-  %268 = atomicrmw sub ptr %255, i32 1 release, align 4
-  %269 = icmp eq i32 %268, 1
+266:                                              ; preds = %254
+  %267 = atomicrmw sub ptr %255, i32 1 release, align 4
+  %268 = icmp eq i32 %267, 1
+  br i1 %268, label %270, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
+
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i: ; preds = %259
+  %269 = icmp eq i32 %256, -1
   br i1 %269, label %270, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
 
-270:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %.noexc.i, %264
+270:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %266, %.noexc.i
   %271 = load ptr, ptr %253, align 8
   %272 = getelementptr inbounds nuw i8, ptr %271, i64 8
   %273 = load ptr, ptr %272, align 8
   call void %273(ptr noundef nonnull align 8 dereferenceable(12) %253) #23
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
 
-274:                                              ; preds = %266
+274:                                              ; preds = %264
   %275 = landingpad { ptr, i32 }
           catch ptr null
   %276 = extractvalue { ptr, i32 } %275, 0
   call void @__clang_call_terminate(ptr %276) #25
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit: ; preds = %252, %264, %.noexc.i, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %270
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit: ; preds = %252, %.noexc.i, %266, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %270
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %277 = load ptr, ptr %18, align 8
   %.not.i.i853 = icmp eq ptr %277, null
@@ -28061,8 +28061,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1629: ; preds = %3693, %36
 .body871:                                         ; preds = %.body875
   br i1 %.1338, label %.body871.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1633
 
-.body871.thread:                                  ; preds = %3648, %401, %3702, %.body871
-  %.pn659.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn2164 = phi { ptr, i32 } [ %.pn659.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body871 ], [ %.pn659.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %3702 ], [ %402, %401 ], [ %3649, %3648 ]
+.body871.thread:                                  ; preds = %401, %3648, %3702, %.body871
+  %.pn659.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn2164 = phi { ptr, i32 } [ %.pn659.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %3702 ], [ %.pn659.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body871 ], [ %3649, %3648 ], [ %402, %401 ]
   %3706 = load ptr, ptr %394, align 8
   %3707 = ptrtoint ptr %3706 to i64
   %3708 = and i64 %3707, 7
@@ -28081,7 +28081,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1629: ; preds = %3693, %36
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1633
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1633: ; preds = %.body871, %3702, %3713, %3644
-  %.pn659.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn659.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %3713 ], [ %3645, %3644 ], [ %.pn659.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body871 ], [ %.pn659.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %3702 ]
+  %.pn659.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn659.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %3713 ], [ %3645, %3644 ], [ %.pn659.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %3702 ], [ %.pn659.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body871 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #23
   br label %.body866
 
@@ -28291,8 +28291,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1637: ; preds = %3765, %37
 .body991:                                         ; preds = %.body996
   br i1 %.1413, label %.body991.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1641
 
-.body991.thread:                                  ; preds = %3720, %989, %3774, %.body991
-  %.pn677.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn2170 = phi { ptr, i32 } [ %.pn677.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body991 ], [ %.pn677.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %3774 ], [ %990, %989 ], [ %3721, %3720 ]
+.body991.thread:                                  ; preds = %989, %3720, %3774, %.body991
+  %.pn677.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn2170 = phi { ptr, i32 } [ %.pn677.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %3774 ], [ %.pn677.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body991 ], [ %3721, %3720 ], [ %990, %989 ]
   %3778 = load ptr, ptr %982, align 8
   %3779 = ptrtoint ptr %3778 to i64
   %3780 = and i64 %3779, 7
@@ -28311,7 +28311,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1637: ; preds = %3765, %37
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1641
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1641: ; preds = %.body991, %3774, %3785, %3716
-  %.pn677.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn677.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %3785 ], [ %3717, %3716 ], [ %.pn677.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body991 ], [ %.pn677.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %3774 ]
+  %.pn677.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn677.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %3785 ], [ %3717, %3716 ], [ %.pn677.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %3774 ], [ %.pn677.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body991 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %51) #23
   br label %.body985
 
@@ -28521,8 +28521,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1645: ; preds = %3837, %38
 .body1131:                                        ; preds = %.body1136
   br i1 %.1480, label %.body1131.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1649
 
-.body1131.thread:                                 ; preds = %3792, %1577, %3846, %.body1131
-  %.pn695.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn2176 = phi { ptr, i32 } [ %.pn695.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body1131 ], [ %.pn695.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %3846 ], [ %1578, %1577 ], [ %3793, %3792 ]
+.body1131.thread:                                 ; preds = %1577, %3792, %3846, %.body1131
+  %.pn695.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn2176 = phi { ptr, i32 } [ %.pn695.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %3846 ], [ %.pn695.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body1131 ], [ %3793, %3792 ], [ %1578, %1577 ]
   %3850 = load ptr, ptr %1570, align 8
   %3851 = ptrtoint ptr %3850 to i64
   %3852 = and i64 %3851, 7
@@ -28541,7 +28541,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1645: ; preds = %3837, %38
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1649
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1649: ; preds = %.body1131, %3846, %3857, %3788
-  %.pn695.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn695.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %3857 ], [ %3789, %3788 ], [ %.pn695.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body1131 ], [ %.pn695.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %3846 ]
+  %.pn695.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn695.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %3857 ], [ %3789, %3788 ], [ %.pn695.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %3846 ], [ %.pn695.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body1131 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %75) #23
   br label %.body1125
 
@@ -28751,8 +28751,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1653: ; preds = %3909, %39
 .body1271:                                        ; preds = %.body1276
   br i1 %.1528, label %.body1271.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1657
 
-.body1271.thread:                                 ; preds = %3864, %2165, %3918, %.body1271
-  %.pn713.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn2182 = phi { ptr, i32 } [ %.pn713.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body1271 ], [ %.pn713.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %3918 ], [ %2166, %2165 ], [ %3865, %3864 ]
+.body1271.thread:                                 ; preds = %2165, %3864, %3918, %.body1271
+  %.pn713.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn2182 = phi { ptr, i32 } [ %.pn713.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %3918 ], [ %.pn713.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body1271 ], [ %3865, %3864 ], [ %2166, %2165 ]
   %3922 = load ptr, ptr %2158, align 8
   %3923 = ptrtoint ptr %3922 to i64
   %3924 = and i64 %3923, 7
@@ -28771,7 +28771,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1653: ; preds = %3909, %39
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1657
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1657: ; preds = %.body1271, %3918, %3929, %3860
-  %.pn713.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn713.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %3929 ], [ %3861, %3860 ], [ %.pn713.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body1271 ], [ %.pn713.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %3918 ]
+  %.pn713.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn713.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %3929 ], [ %3861, %3860 ], [ %.pn713.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %3918 ], [ %.pn713.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body1271 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %99) #23
   br label %.body1265
 
@@ -28981,8 +28981,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1661: ; preds = %3981, %39
 .body1411:                                        ; preds = %.body1416
   br i1 %.1612, label %.body1411.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1665
 
-.body1411.thread:                                 ; preds = %3936, %2753, %3990, %.body1411
-  %.pn731.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn2188 = phi { ptr, i32 } [ %.pn731.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body1411 ], [ %.pn731.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %3990 ], [ %2754, %2753 ], [ %3937, %3936 ]
+.body1411.thread:                                 ; preds = %2753, %3936, %3990, %.body1411
+  %.pn731.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn2188 = phi { ptr, i32 } [ %.pn731.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %3990 ], [ %.pn731.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body1411 ], [ %3937, %3936 ], [ %2754, %2753 ]
   %3994 = load ptr, ptr %2746, align 8
   %3995 = ptrtoint ptr %3994 to i64
   %3996 = and i64 %3995, 7
@@ -29001,7 +29001,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1661: ; preds = %3981, %39
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1665
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1665: ; preds = %.body1411, %3990, %4001, %3932
-  %.pn731.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn731.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %4001 ], [ %3933, %3932 ], [ %.pn731.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body1411 ], [ %.pn731.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %3990 ]
+  %.pn731.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn731.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %4001 ], [ %3933, %3932 ], [ %.pn731.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %3990 ], [ %.pn731.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body1411 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %123) #23
   br label %.body1405
 
@@ -29241,8 +29241,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1674: ; preds = %_ZN32pxrI
   br label %.critedge
 
 .critedge:                                        ; preds = %.thread2248, %.thread2254, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1674, %4055
-  %.9552 = phi i1 [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1674 ], [ true, %4055 ], [ false, %.thread2254 ], [ false, %.thread2248 ]
-  %.pn760.pn.pn = phi { ptr, i32 } [ %.pn760.pn2194, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1674 ], [ %4056, %4055 ], [ %4059, %.thread2254 ], [ %4059, %.thread2248 ]
+  %.9552 = phi i1 [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1674 ], [ false, %.thread2254 ], [ true, %4055 ], [ false, %.thread2248 ]
+  %.pn760.pn.pn = phi { ptr, i32 } [ %.pn760.pn2194, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1674 ], [ %4059, %.thread2254 ], [ %4056, %4055 ], [ %4059, %.thread2248 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %167) #23
   br label %.thread2260
 
@@ -29296,9 +29296,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1678: ; preds = %_ZN32pxrI
   br label %.critedge838
 
 .critedge838:                                     ; preds = %.thread2260, %.thread2270, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1678, %4050
-  %.5572 = phi ptr [ %3538, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1678 ], [ %3538, %4050 ], [ %3548, %.thread2270 ], [ %3548, %.thread2260 ]
-  %.5548 = phi i1 [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1678 ], [ true, %4050 ], [ %.8551, %.thread2270 ], [ %.8551, %.thread2260 ]
-  %.pn760.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn760.pn.pn.pn.pn.pn2201, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1678 ], [ %4051, %4050 ], [ %.pn760.pn.pn.pn, %.thread2270 ], [ %.pn760.pn.pn.pn, %.thread2260 ]
+  %.5572 = phi ptr [ %3538, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1678 ], [ %3548, %.thread2270 ], [ %3538, %4050 ], [ %3548, %.thread2260 ]
+  %.5548 = phi i1 [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1678 ], [ %.8551, %.thread2270 ], [ true, %4050 ], [ %.8551, %.thread2260 ]
+  %.pn760.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn760.pn.pn.pn.pn.pn2201, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1678 ], [ %.pn760.pn.pn.pn, %.thread2270 ], [ %4051, %4050 ], [ %.pn760.pn.pn.pn, %.thread2260 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %164) #23
   br label %.thread2280
 
@@ -29358,9 +29358,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1682: ; preds = %_ZN32pxrI
   br label %.body1545
 
 .body1595:                                        ; preds = %.thread2280, %.thread2290, %4045, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1682
-  %.1568 = phi ptr [ %160, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1682 ], [ %160, %4045 ], [ %.4571, %.thread2290 ], [ %.4571, %.thread2280 ]
-  %.1544 = phi i1 [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1682 ], [ true, %4045 ], [ %.4547, %.thread2290 ], [ %.4547, %.thread2280 ]
-  %.pn760.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn760.pn.pn.pn.pn.pn.pn.pn.pn.pn2208, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1682 ], [ %4046, %4045 ], [ %.pn760.pn.pn.pn.pn.pn.pn.pn, %.thread2290 ], [ %.pn760.pn.pn.pn.pn.pn.pn.pn, %.thread2280 ]
+  %.1568 = phi ptr [ %160, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1682 ], [ %.4571, %.thread2290 ], [ %160, %4045 ], [ %.4571, %.thread2280 ]
+  %.1544 = phi i1 [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1682 ], [ %.4547, %.thread2290 ], [ true, %4045 ], [ %.4547, %.thread2280 ]
+  %.pn760.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn760.pn.pn.pn.pn.pn.pn.pn.pn.pn2208, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1682 ], [ %.pn760.pn.pn.pn.pn.pn.pn.pn, %.thread2290 ], [ %4046, %4045 ], [ %.pn760.pn.pn.pn.pn.pn.pn.pn, %.thread2280 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %161) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %162) #23
   %4130 = icmp ne ptr %160, %.1568
@@ -30097,8 +30097,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1788: ; preds = %_ZN32pxrI
   br label %.critedge842
 
 .critedge842:                                     ; preds = %.thread2300, %.thread2306, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1788, %4372
-  %.7446 = phi i1 [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1788 ], [ true, %4372 ], [ false, %.thread2306 ], [ false, %.thread2300 ]
-  %.pn782.pn.pn = phi { ptr, i32 } [ %.pn782.pn2215, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1788 ], [ %4373, %4372 ], [ %4376, %.thread2306 ], [ %4376, %.thread2300 ]
+  %.7446 = phi i1 [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1788 ], [ false, %.thread2306 ], [ true, %4372 ], [ false, %.thread2300 ]
+  %.pn782.pn.pn = phi { ptr, i32 } [ %.pn782.pn2215, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1788 ], [ %4376, %.thread2306 ], [ %4373, %4372 ], [ %4376, %.thread2300 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %188) #23
   br label %.thread2312
 
@@ -30152,9 +30152,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1792: ; preds = %_ZN32pxrI
   br label %.critedge844
 
 .critedge844:                                     ; preds = %.thread2312, %.thread2322, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1792, %4367
-  %.3460 = phi ptr [ %4264, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1792 ], [ %4264, %4367 ], [ %4274, %.thread2322 ], [ %4274, %.thread2312 ]
-  %.3442 = phi i1 [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1792 ], [ true, %4367 ], [ %.6445, %.thread2322 ], [ %.6445, %.thread2312 ]
-  %.pn782.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn782.pn.pn.pn.pn.pn2222, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1792 ], [ %4368, %4367 ], [ %.pn782.pn.pn.pn, %.thread2322 ], [ %.pn782.pn.pn.pn, %.thread2312 ]
+  %.3460 = phi ptr [ %4264, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1792 ], [ %4274, %.thread2322 ], [ %4264, %4367 ], [ %4274, %.thread2312 ]
+  %.3442 = phi i1 [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1792 ], [ %.6445, %.thread2322 ], [ true, %4367 ], [ %.6445, %.thread2312 ]
+  %.pn782.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn782.pn.pn.pn.pn.pn2222, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1792 ], [ %.pn782.pn.pn.pn, %.thread2322 ], [ %4368, %4367 ], [ %.pn782.pn.pn.pn, %.thread2312 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %185) #23
   %4425 = xor i1 %.3442, true
   br label %.body1755
@@ -30837,8 +30837,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1894: ; preds = %_ZN32pxrI
   br label %.critedge846
 
 .critedge846:                                     ; preds = %.thread2332, %.thread2338, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1894, %4647
-  %.9389 = phi i1 [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1894 ], [ true, %4647 ], [ false, %.thread2338 ], [ false, %.thread2332 ]
-  %.pn795.pn.pn = phi { ptr, i32 } [ %.pn795.pn2229, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1894 ], [ %4648, %4647 ], [ %4651, %.thread2338 ], [ %4651, %.thread2332 ]
+  %.9389 = phi i1 [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1894 ], [ false, %.thread2338 ], [ true, %4647 ], [ false, %.thread2332 ]
+  %.pn795.pn.pn = phi { ptr, i32 } [ %.pn795.pn2229, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1894 ], [ %4651, %.thread2338 ], [ %4648, %4647 ], [ %4651, %.thread2332 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %203) #23
   br label %.thread2344
 
@@ -30892,9 +30892,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1898: ; preds = %_ZN32pxrI
   br label %.critedge848
 
 .critedge848:                                     ; preds = %.thread2344, %.thread2354, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1898, %4642
-  %.5409 = phi ptr [ %4444, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1898 ], [ %4444, %4642 ], [ %4454, %.thread2354 ], [ %4454, %.thread2344 ]
-  %.5385 = phi i1 [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1898 ], [ true, %4642 ], [ %.8388, %.thread2354 ], [ %.8388, %.thread2344 ]
-  %.pn795.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn795.pn.pn.pn.pn.pn2236, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1898 ], [ %4643, %4642 ], [ %.pn795.pn.pn.pn, %.thread2354 ], [ %.pn795.pn.pn.pn, %.thread2344 ]
+  %.5409 = phi ptr [ %4444, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1898 ], [ %4454, %.thread2354 ], [ %4444, %4642 ], [ %4454, %.thread2344 ]
+  %.5385 = phi i1 [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1898 ], [ %.8388, %.thread2354 ], [ true, %4642 ], [ %.8388, %.thread2344 ]
+  %.pn795.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn795.pn.pn.pn.pn.pn2236, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1898 ], [ %.pn795.pn.pn.pn, %.thread2354 ], [ %4643, %4642 ], [ %.pn795.pn.pn.pn, %.thread2344 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %200) #23
   br label %.thread2364
 
@@ -30954,9 +30954,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1902: ; preds = %_ZN32pxrI
   br label %.body1545
 
 .body1795:                                        ; preds = %.thread2364, %.thread2374, %4637, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1902
-  %.1405 = phi ptr [ %196, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1902 ], [ %196, %4637 ], [ %.4408, %.thread2374 ], [ %.4408, %.thread2364 ]
-  %.1381 = phi i1 [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1902 ], [ true, %4637 ], [ %.4384, %.thread2374 ], [ %.4384, %.thread2364 ]
-  %.pn795.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn795.pn.pn.pn.pn.pn.pn.pn.pn.pn2243, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1902 ], [ %4638, %4637 ], [ %.pn795.pn.pn.pn.pn.pn.pn.pn, %.thread2374 ], [ %.pn795.pn.pn.pn.pn.pn.pn.pn, %.thread2364 ]
+  %.1405 = phi ptr [ %196, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1902 ], [ %.4408, %.thread2374 ], [ %196, %4637 ], [ %.4408, %.thread2364 ]
+  %.1381 = phi i1 [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1902 ], [ %.4384, %.thread2374 ], [ true, %4637 ], [ %.4384, %.thread2364 ]
+  %.pn795.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn795.pn.pn.pn.pn.pn.pn.pn.pn.pn2243, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit1902 ], [ %.pn795.pn.pn.pn.pn.pn.pn.pn, %.thread2374 ], [ %4638, %4637 ], [ %.pn795.pn.pn.pn.pn.pn.pn.pn, %.thread2364 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %197) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %198) #23
   %4722 = icmp ne ptr %196, %.1405
@@ -31955,7 +31955,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit2058: ; preds = %5089, %50
   br label %5110
 
 _ZNSt13unordered_setIN27RecordingSceneIndexObserver5EventENS1_11HashFunctorESt8equal_toIS1_ESaIS1_EED2Ev.exit2056: ; preds = %5067, %_ZNSt10_HashtableIN27RecordingSceneIndexObserver5EventES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ENS1_11HashFunctorENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i2055, %_ZNSt13unordered_setIN27RecordingSceneIndexObserver5EventENS1_11HashFunctorESt8equal_toIS1_ESaIS1_EED2Ev.exit1979, %_ZNSt13unordered_setIN27RecordingSceneIndexObserver5EventENS1_11HashFunctorESt8equal_toIS1_ESaIS1_EED2Ev.exit1890
-  %cond2 = phi i1 [ false, %_ZNSt13unordered_setIN27RecordingSceneIndexObserver5EventENS1_11HashFunctorESt8equal_toIS1_ESaIS1_EED2Ev.exit1890 ], [ false, %_ZNSt13unordered_setIN27RecordingSceneIndexObserver5EventENS1_11HashFunctorESt8equal_toIS1_ESaIS1_EED2Ev.exit1979 ], [ %5054, %_ZNSt10_HashtableIN27RecordingSceneIndexObserver5EventES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ENS1_11HashFunctorENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i2055 ], [ %5054, %5067 ]
+  %cond2 = phi i1 [ false, %_ZNSt13unordered_setIN27RecordingSceneIndexObserver5EventENS1_11HashFunctorESt8equal_toIS1_ESaIS1_EED2Ev.exit1979 ], [ false, %_ZNSt13unordered_setIN27RecordingSceneIndexObserver5EventENS1_11HashFunctorESt8equal_toIS1_ESaIS1_EED2Ev.exit1890 ], [ %5054, %_ZNSt10_HashtableIN27RecordingSceneIndexObserver5EventES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ENS1_11HashFunctorENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i2055 ], [ %5054, %5067 ]
   %5096 = getelementptr inbounds nuw i8, ptr %195, i64 16
   %5097 = load ptr, ptr %5096, align 8
   %.not5.i.i.i.i2059 = icmp eq ptr %5097, null
@@ -31989,12 +31989,12 @@ _ZNSt10_HashtableIN27RecordingSceneIndexObserver5EventES1_SaIS1_ENSt8__detail9_I
   br label %_ZNSt13unordered_setIN27RecordingSceneIndexObserver5EventENS1_11HashFunctorESt8equal_toIS1_ESaIS1_EED2Ev.exit2064
 
 5110:                                             ; preds = %.body1990, %.body1913, %.body1824, %5094, %4923, %4752, %4726
-  %.pn832 = phi { ptr, i32 } [ %5095, %5094 ], [ %4727, %4726 ], [ %.pn824.pn.pn.pn.pn.pn.pn, %.body1990 ], [ %4924, %4923 ], [ %.pn816.pn.pn.pn.pn.pn.pn, %.body1913 ], [ %4753, %4752 ], [ %.pn808.pn.pn.pn.pn.pn.pn, %.body1824 ]
+  %.pn832 = phi { ptr, i32 } [ %5095, %5094 ], [ %4727, %4726 ], [ %.pn824.pn.pn.pn.pn.pn.pn, %.body1990 ], [ %4753, %4752 ], [ %4924, %4923 ], [ %.pn816.pn.pn.pn.pn.pn.pn, %.body1913 ], [ %.pn808.pn.pn.pn.pn.pn.pn, %.body1824 ]
   call void @_ZNSt13unordered_setIN27RecordingSceneIndexObserver5EventENS1_11HashFunctorESt8equal_toIS1_ESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %195) #23
   br label %.body1545
 
 _ZNSt13unordered_setIN27RecordingSceneIndexObserver5EventENS1_11HashFunctorESt8equal_toIS1_ESaIS1_EED2Ev.exit2064: ; preds = %5107, %_ZNSt10_HashtableIN27RecordingSceneIndexObserver5EventES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ENS1_11HashFunctorENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i2063, %_ZNSt13unordered_setIN27RecordingSceneIndexObserver5EventENS1_11HashFunctorESt8equal_toIS1_ESaIS1_EED2Ev.exit1782, %_ZNSt13unordered_setIN27RecordingSceneIndexObserver5EventENS1_11HashFunctorESt8equal_toIS1_ESaIS1_EED2Ev.exit1623
-  %.1143 = phi i1 [ false, %_ZNSt13unordered_setIN27RecordingSceneIndexObserver5EventENS1_11HashFunctorESt8equal_toIS1_ESaIS1_EED2Ev.exit1782 ], [ false, %_ZNSt13unordered_setIN27RecordingSceneIndexObserver5EventENS1_11HashFunctorESt8equal_toIS1_ESaIS1_EED2Ev.exit1623 ], [ %cond2, %_ZNSt10_HashtableIN27RecordingSceneIndexObserver5EventES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ENS1_11HashFunctorENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i2063 ], [ %cond2, %5107 ]
+  %.1143 = phi i1 [ false, %_ZNSt13unordered_setIN27RecordingSceneIndexObserver5EventENS1_11HashFunctorESt8equal_toIS1_ESaIS1_EED2Ev.exit1623 ], [ false, %_ZNSt13unordered_setIN27RecordingSceneIndexObserver5EventENS1_11HashFunctorESt8equal_toIS1_ESaIS1_EED2Ev.exit1782 ], [ %cond2, %_ZNSt10_HashtableIN27RecordingSceneIndexObserver5EventES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ENS1_11HashFunctorENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i2063 ], [ %cond2, %5107 ]
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV27RecordingSceneIndexObserver, i64 16), ptr %145, align 8
   %5111 = load ptr, ptr %3332, align 8
   %5112 = load ptr, ptr %3404, align 8
@@ -32036,51 +32036,51 @@ _ZN27RecordingSceneIndexObserverD2Ev.exit:        ; preds = %_ZSt8_DestroyIPN27R
   %5123 = getelementptr inbounds nuw i8, ptr %5121, i64 8
   %5124 = load atomic i32, ptr %5123 monotonic, align 4
   %5125 = icmp slt i32 %5124, 0
-  br i1 %5125, label %5126, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i2068
+  br i1 %5125, label %5126, label %5134
 
 5126:                                             ; preds = %5122
-  %.not68.i.i.i2069 = icmp eq i32 %5124, -2
-  br i1 %.not68.i.i.i2069, label %5134, label %5127
+  %.not68.i.i.i2068 = icmp eq i32 %5124, -2
+  br i1 %.not68.i.i.i2068, label %5132, label %5127
 
 5127:                                             ; preds = %5126
   %5128 = add nsw i32 %5124, 1
   %5129 = cmpxchg weak ptr %5123, i32 %5124, i32 %5128 release monotonic, align 4
   %5130 = extractvalue { i32, i1 } %5129, 1
   %5131 = extractvalue { i32, i1 } %5129, 0
-  br i1 %5130, label %5132, label %5134
+  br i1 %5130, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i2071, label %5132
 
-5132:                                             ; preds = %5127
-  %5133 = icmp eq i32 %5124, -1
+5132:                                             ; preds = %5127, %5126
+  %.067.i.i.i2069 = phi i32 [ %5131, %5127 ], [ -2, %5126 ]
+  %5133 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %5121, i32 noundef %.067.i.i.i2069)
+          to label %.noexc.i2070 unwind label %5142
+
+.noexc.i2070:                                     ; preds = %5132
   br i1 %5133, label %5138, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEED2Ev.exit
 
-5134:                                             ; preds = %5127, %5126
-  %.067.i.i.i2070 = phi i32 [ %5131, %5127 ], [ -2, %5126 ]
-  %5135 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %5121, i32 noundef %.067.i.i.i2070)
-          to label %.noexc.i2071 unwind label %5142
+5134:                                             ; preds = %5122
+  %5135 = atomicrmw sub ptr %5123, i32 1 release, align 4
+  %5136 = icmp eq i32 %5135, 1
+  br i1 %5136, label %5138, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEED2Ev.exit
 
-.noexc.i2071:                                     ; preds = %5134
-  br i1 %5135, label %5138, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEED2Ev.exit
-
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i2068: ; preds = %5122
-  %5136 = atomicrmw sub ptr %5123, i32 1 release, align 4
-  %5137 = icmp eq i32 %5136, 1
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i2071: ; preds = %5127
+  %5137 = icmp eq i32 %5124, -1
   br i1 %5137, label %5138, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEED2Ev.exit
 
-5138:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i2068, %.noexc.i2071, %5132
+5138:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i2071, %5134, %.noexc.i2070
   %5139 = load ptr, ptr %5121, align 8
   %5140 = getelementptr inbounds nuw i8, ptr %5139, i64 8
   %5141 = load ptr, ptr %5140, align 8
   call void %5141(ptr noundef nonnull align 8 dereferenceable(12) %5121) #23
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEED2Ev.exit
 
-5142:                                             ; preds = %5134
+5142:                                             ; preds = %5132
   %5143 = landingpad { ptr, i32 }
           catch ptr null
   %5144 = extractvalue { ptr, i32 } %5143, 0
   call void @__clang_call_terminate(ptr %5144) #25
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEED2Ev.exit: ; preds = %_ZN27RecordingSceneIndexObserverD2Ev.exit, %5132, %.noexc.i2071, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i2068, %5138
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEED2Ev.exit: ; preds = %_ZN27RecordingSceneIndexObserverD2Ev.exit, %.noexc.i2070, %5134, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i2071, %5138
   %5145 = load ptr, ptr %17, align 8
   %.not.i.i.i2072 = icmp eq ptr %5145, null
   br i1 %.not.i.i.i2072, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit, label %5146
@@ -32089,60 +32089,60 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneI
   %5147 = getelementptr inbounds nuw i8, ptr %5145, i64 8
   %5148 = load atomic i32, ptr %5147 monotonic, align 4
   %5149 = icmp slt i32 %5148, 0
-  br i1 %5149, label %5150, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i2073
+  br i1 %5149, label %5150, label %5158
 
 5150:                                             ; preds = %5146
-  %.not68.i.i.i2074 = icmp eq i32 %5148, -2
-  br i1 %.not68.i.i.i2074, label %5158, label %5151
+  %.not68.i.i.i2073 = icmp eq i32 %5148, -2
+  br i1 %.not68.i.i.i2073, label %5156, label %5151
 
 5151:                                             ; preds = %5150
   %5152 = add nsw i32 %5148, 1
   %5153 = cmpxchg weak ptr %5147, i32 %5148, i32 %5152 release monotonic, align 4
   %5154 = extractvalue { i32, i1 } %5153, 1
   %5155 = extractvalue { i32, i1 } %5153, 0
-  br i1 %5154, label %5156, label %5158
+  br i1 %5154, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i2076, label %5156
 
-5156:                                             ; preds = %5151
-  %5157 = icmp eq i32 %5148, -1
+5156:                                             ; preds = %5151, %5150
+  %.067.i.i.i2074 = phi i32 [ %5155, %5151 ], [ -2, %5150 ]
+  %5157 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %5145, i32 noundef %.067.i.i.i2074)
+          to label %.noexc.i2075 unwind label %5166
+
+.noexc.i2075:                                     ; preds = %5156
   br i1 %5157, label %5162, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit
 
-5158:                                             ; preds = %5151, %5150
-  %.067.i.i.i2075 = phi i32 [ %5155, %5151 ], [ -2, %5150 ]
-  %5159 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %5145, i32 noundef %.067.i.i.i2075)
-          to label %.noexc.i2076 unwind label %5166
+5158:                                             ; preds = %5146
+  %5159 = atomicrmw sub ptr %5147, i32 1 release, align 4
+  %5160 = icmp eq i32 %5159, 1
+  br i1 %5160, label %5162, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit
 
-.noexc.i2076:                                     ; preds = %5158
-  br i1 %5159, label %5162, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit
-
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i2073: ; preds = %5146
-  %5160 = atomicrmw sub ptr %5147, i32 1 release, align 4
-  %5161 = icmp eq i32 %5160, 1
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i2076: ; preds = %5151
+  %5161 = icmp eq i32 %5148, -1
   br i1 %5161, label %5162, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit
 
-5162:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i2073, %.noexc.i2076, %5156
+5162:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i2076, %5158, %.noexc.i2075
   %5163 = load ptr, ptr %5145, align 8
   %5164 = getelementptr inbounds nuw i8, ptr %5163, i64 8
   %5165 = load ptr, ptr %5164, align 8
   call void %5165(ptr noundef nonnull align 8 dereferenceable(12) %5145) #23
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit
 
-5166:                                             ; preds = %5158
+5166:                                             ; preds = %5156
   %5167 = landingpad { ptr, i32 }
           catch ptr null
   %5168 = extractvalue { ptr, i32 } %5167, 0
   call void @__clang_call_terminate(ptr %5168) #25
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEED2Ev.exit, %5156, %.noexc.i2076, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i2073, %5162
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEED2Ev.exit, %.noexc.i2075, %5158, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i2076, %5162
   ret i1 %.1143
 
 .body1545:                                        ; preds = %.preheader2386, %.preheader2384, %.preheader, %.body1795.thread, %.body1750.thread, %.body1595.thread, %4008, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i1667, %4002, %3367, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i13.i, %3361, %.body1691, %.body1560, %.body1795, %.body1750, %.body1595, %5110, %4634, %4336, %.body1551
-  %.pn832.pn = phi { ptr, i32 } [ %.pn832, %5110 ], [ %.pn795.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body1795 ], [ %.pn793, %4634 ], [ %.pn782.pn.pn.pn.pn.pn.pn.pn.pn, %.body1750 ], [ %.pn775.pn.pn.pn.pn.pn, %.body1691 ], [ %.pn773, %4336 ], [ %.pn760.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body1595 ], [ %.pn752.pn.pn.pn.pn.pn.pn, %.body1560 ], [ %.pn749.pn, %.body1551 ], [ %3362, %3367 ], [ %3362, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i13.i ], [ %3362, %3361 ], [ %4003, %4002 ], [ %4003, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i1667 ], [ %4003, %4008 ], [ %.pn760.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.body1595.thread ], [ %.pn782.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.body1750.thread ], [ %.pn795.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.body1795.thread ], [ %.pn795.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader ], [ %.pn782.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader2384 ], [ %.pn760.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader2386 ]
+  %.pn832.pn = phi { ptr, i32 } [ %.pn832, %5110 ], [ %.pn795.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body1795 ], [ %.pn782.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.body1750.thread ], [ %.pn793, %4634 ], [ %.pn782.pn.pn.pn.pn.pn.pn.pn.pn, %.body1750 ], [ %.pn782.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader2384 ], [ %.pn775.pn.pn.pn.pn.pn, %.body1691 ], [ %3362, %3361 ], [ %.pn773, %4336 ], [ %.pn760.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body1595 ], [ %.pn795.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader ], [ %.pn752.pn.pn.pn.pn.pn.pn, %.body1560 ], [ %.pn749.pn, %.body1551 ], [ %.pn795.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.body1795.thread ], [ %3362, %3367 ], [ %3362, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i13.i ], [ %4003, %4002 ], [ %4003, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i1667 ], [ %4003, %4008 ], [ %.pn760.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.body1595.thread ], [ %.pn760.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader2386 ]
   call void @_ZN27RecordingSceneIndexObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %145) #23
   br label %5169
 
 5169:                                             ; preds = %.body1405, %.body1265, %.body1125, %.body985, %.body866, %.body, %.body1545, %3621
-  %.pn832.pn.pn = phi { ptr, i32 } [ %.pn832.pn, %.body1545 ], [ %3622, %3621 ], [ %.pn731.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body1405 ], [ %.pn713.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body1265 ], [ %.pn695.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body1125 ], [ %.pn677.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body985 ], [ %.pn659.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body866 ], [ %.pn.pn.pn.pn.pn, %.body ]
+  %.pn832.pn.pn = phi { ptr, i32 } [ %.pn832.pn, %.body1545 ], [ %3622, %3621 ], [ %.pn731.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body1405 ], [ %.pn677.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body985 ], [ %.pn713.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body1265 ], [ %.pn.pn.pn.pn.pn, %.body ], [ %.pn695.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body1125 ], [ %.pn659.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body866 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #23
   br label %5170
 
@@ -32201,51 +32201,51 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEC2ERKS2_.e
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = load atomic i32, ptr %22 monotonic, align 4
   %24 = icmp slt i32 %23, 0
-  br i1 %24, label %25, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i
+  br i1 %24, label %25, label %33
 
 25:                                               ; preds = %21
   %.not68.i.i.i = icmp eq i32 %23, -2
-  br i1 %.not68.i.i.i, label %33, label %26
+  br i1 %.not68.i.i.i, label %31, label %26
 
 26:                                               ; preds = %25
   %27 = add nsw i32 %23, 1
   %28 = cmpxchg weak ptr %22, i32 %23, i32 %27 release monotonic, align 4
   %29 = extractvalue { i32, i1 } %28, 1
   %30 = extractvalue { i32, i1 } %28, 0
-  br i1 %29, label %31, label %33
+  br i1 %29, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, label %31
 
-31:                                               ; preds = %26
-  %32 = icmp eq i32 %23, -1
-  br i1 %32, label %37, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
-
-33:                                               ; preds = %26, %25
+31:                                               ; preds = %26, %25
   %.067.i.i.i = phi i32 [ %30, %26 ], [ -2, %25 ]
-  %34 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %20, i32 noundef %.067.i.i.i)
+  %32 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %20, i32 noundef %.067.i.i.i)
           to label %.noexc.i unwind label %41
 
-.noexc.i:                                         ; preds = %33
-  br i1 %34, label %37, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
+.noexc.i:                                         ; preds = %31
+  br i1 %32, label %37, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i: ; preds = %21
-  %35 = atomicrmw sub ptr %22, i32 1 release, align 4
-  %36 = icmp eq i32 %35, 1
+33:                                               ; preds = %21
+  %34 = atomicrmw sub ptr %22, i32 1 release, align 4
+  %35 = icmp eq i32 %34, 1
+  br i1 %35, label %37, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
+
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i: ; preds = %26
+  %36 = icmp eq i32 %23, -1
   br i1 %36, label %37, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
 
-37:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %.noexc.i, %31
+37:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %33, %.noexc.i
   %38 = load ptr, ptr %20, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
   call void %40(ptr noundef nonnull align 8 dereferenceable(12) %20) #23
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
 
-41:                                               ; preds = %33
+41:                                               ; preds = %31
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
   call void @__clang_call_terminate(ptr %43) #25
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit: ; preds = %19, %31, %.noexc.i, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %37
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit: ; preds = %19, %.noexc.i, %33, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %37
   ret void
 
 44:                                               ; preds = %16
@@ -33443,47 +33443,47 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__8TfRefP
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load atomic i32, ptr %4 monotonic, align 4
   %6 = icmp slt i32 %5, 0
-  br i1 %6, label %7, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i
+  br i1 %6, label %7, label %15
 
 7:                                                ; preds = %3
   %.not68.i.i = icmp eq i32 %5, -2
-  br i1 %.not68.i.i, label %15, label %8
+  br i1 %.not68.i.i, label %13, label %8
 
 8:                                                ; preds = %7
   %9 = add nsw i32 %5, 1
   %10 = cmpxchg weak ptr %4, i32 %5, i32 %9 release monotonic, align 4
   %11 = extractvalue { i32, i1 } %10, 1
   %12 = extractvalue { i32, i1 } %10, 0
-  br i1 %11, label %13, label %15
+  br i1 %11, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i, label %13
 
-13:                                               ; preds = %8
-  %14 = icmp eq i32 %5, -1
-  br i1 %14, label %19, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit
-
-15:                                               ; preds = %8, %7
+13:                                               ; preds = %8, %7
   %.067.i.i = phi i32 [ %12, %8 ], [ -2, %7 ]
-  %16 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %2, i32 noundef %.067.i.i)
+  %14 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %2, i32 noundef %.067.i.i)
           to label %.noexc unwind label %23
 
-.noexc:                                           ; preds = %15
-  br i1 %16, label %19, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit
+.noexc:                                           ; preds = %13
+  br i1 %14, label %19, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i: ; preds = %3
-  %17 = atomicrmw sub ptr %4, i32 1 release, align 4
-  %18 = icmp eq i32 %17, 1
+15:                                               ; preds = %3
+  %16 = atomicrmw sub ptr %4, i32 1 release, align 4
+  %17 = icmp eq i32 %16, 1
+  br i1 %17, label %19, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit
+
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i: ; preds = %8
+  %18 = icmp eq i32 %5, -1
   br i1 %18, label %19, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit
 
-19:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i, %.noexc, %13
+19:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i, %15, %.noexc
   %20 = load ptr, ptr %2, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(12) %2) #23
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit: ; preds = %19, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i, %.noexc, %13, %1
+_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit: ; preds = %19, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i, %15, %.noexc, %1
   ret void
 
-23:                                               ; preds = %15
+23:                                               ; preds = %13
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
@@ -35413,51 +35413,51 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEC2INS_20Hd
   %872 = getelementptr inbounds nuw i8, ptr %870, i64 8
   %873 = load atomic i32, ptr %872 monotonic, align 4
   %874 = icmp slt i32 %873, 0
-  br i1 %874, label %875, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i
+  br i1 %874, label %875, label %883
 
 875:                                              ; preds = %871
   %.not68.i.i.i = icmp eq i32 %873, -2
-  br i1 %.not68.i.i.i, label %883, label %876
+  br i1 %.not68.i.i.i, label %881, label %876
 
 876:                                              ; preds = %875
   %877 = add nsw i32 %873, 1
   %878 = cmpxchg weak ptr %872, i32 %873, i32 %877 release monotonic, align 4
   %879 = extractvalue { i32, i1 } %878, 1
   %880 = extractvalue { i32, i1 } %878, 0
-  br i1 %879, label %881, label %883
+  br i1 %879, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, label %881
 
-881:                                              ; preds = %876
-  %882 = icmp eq i32 %873, -1
-  br i1 %882, label %887, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
-
-883:                                              ; preds = %876, %875
+881:                                              ; preds = %876, %875
   %.067.i.i.i = phi i32 [ %880, %876 ], [ -2, %875 ]
-  %884 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %870, i32 noundef %.067.i.i.i)
+  %882 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %870, i32 noundef %.067.i.i.i)
           to label %.noexc.i unwind label %891
 
-.noexc.i:                                         ; preds = %883
-  br i1 %884, label %887, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
+.noexc.i:                                         ; preds = %881
+  br i1 %882, label %887, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i: ; preds = %871
-  %885 = atomicrmw sub ptr %872, i32 1 release, align 4
-  %886 = icmp eq i32 %885, 1
+883:                                              ; preds = %871
+  %884 = atomicrmw sub ptr %872, i32 1 release, align 4
+  %885 = icmp eq i32 %884, 1
+  br i1 %885, label %887, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
+
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i: ; preds = %876
+  %886 = icmp eq i32 %873, -1
   br i1 %886, label %887, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
 
-887:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %.noexc.i, %881
+887:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %883, %.noexc.i
   %888 = load ptr, ptr %870, align 8
   %889 = getelementptr inbounds nuw i8, ptr %888, i64 8
   %890 = load ptr, ptr %889, align 8
   call void %890(ptr noundef nonnull align 8 dereferenceable(12) %870) #23
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
 
-891:                                              ; preds = %883
+891:                                              ; preds = %881
   %892 = landingpad { ptr, i32 }
           catch ptr null
   %893 = extractvalue { ptr, i32 } %892, 0
   call void @__clang_call_terminate(ptr %893) #25
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit: ; preds = %869, %881, %.noexc.i, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %887
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit: ; preds = %869, %.noexc.i, %883, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %887
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %894 = load ptr, ptr %41, align 8
   %.not.i.i311 = icmp eq ptr %894, null
@@ -35583,44 +35583,44 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEE7_Add
   %940 = getelementptr inbounds nuw i8, ptr %924, i64 8
   %941 = load atomic i32, ptr %940 monotonic, align 4
   %942 = icmp slt i32 %941, 0
-  br i1 %942, label %943, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i321
+  br i1 %942, label %943, label %951
 
 943:                                              ; preds = %939
-  %.not68.i.i.i322 = icmp eq i32 %941, -2
-  br i1 %.not68.i.i.i322, label %951, label %944
+  %.not68.i.i.i321 = icmp eq i32 %941, -2
+  br i1 %.not68.i.i.i321, label %949, label %944
 
 944:                                              ; preds = %943
   %945 = add nsw i32 %941, 1
   %946 = cmpxchg weak ptr %940, i32 %941, i32 %945 release monotonic, align 4
   %947 = extractvalue { i32, i1 } %946, 1
   %948 = extractvalue { i32, i1 } %946, 0
-  br i1 %947, label %949, label %951
+  br i1 %947, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i323, label %949
 
-949:                                              ; preds = %944
-  %950 = icmp eq i32 %941, -1
-  br i1 %950, label %955, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEEaSERKS2_.exit
-
-951:                                              ; preds = %944, %943
-  %.067.i.i.i323 = phi i32 [ %948, %944 ], [ -2, %943 ]
-  %952 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %924, i32 noundef %.067.i.i.i323)
+949:                                              ; preds = %944, %943
+  %.067.i.i.i322 = phi i32 [ %948, %944 ], [ -2, %943 ]
+  %950 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %924, i32 noundef %.067.i.i.i322)
           to label %.noexc327 unwind label %1156
 
-.noexc327:                                        ; preds = %951
-  br i1 %952, label %955, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEEaSERKS2_.exit
+.noexc327:                                        ; preds = %949
+  br i1 %950, label %955, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEEaSERKS2_.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i321: ; preds = %939
-  %953 = atomicrmw sub ptr %940, i32 1 release, align 4
-  %954 = icmp eq i32 %953, 1
+951:                                              ; preds = %939
+  %952 = atomicrmw sub ptr %940, i32 1 release, align 4
+  %953 = icmp eq i32 %952, 1
+  br i1 %953, label %955, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEEaSERKS2_.exit
+
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i323: ; preds = %944
+  %954 = icmp eq i32 %941, -1
   br i1 %954, label %955, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEEaSERKS2_.exit
 
-955:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i321, %.noexc327, %949
+955:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i323, %951, %.noexc327
   %956 = load ptr, ptr %924, align 8
   %957 = getelementptr inbounds nuw i8, ptr %956, i64 8
   %958 = load ptr, ptr %957, align 8
   call void %958(ptr noundef nonnull align 8 dereferenceable(12) %924) #23
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEEaSERKS2_.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEEaSERKS2_.exit: ; preds = %955, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i321, %.noexc327, %949, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEE7_AddRefEv.exit.i
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEEaSERKS2_.exit: ; preds = %955, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i323, %951, %.noexc327, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEE7_AddRefEv.exit.i
   %959 = load ptr, ptr %1, align 8
   %960 = load ptr, ptr %41, align 8
   store ptr %960, ptr %1, align 8
@@ -35661,44 +35661,44 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingScene
   %975 = getelementptr inbounds nuw i8, ptr %959, i64 8
   %976 = load atomic i32, ptr %975 monotonic, align 4
   %977 = icmp slt i32 %976, 0
-  br i1 %977, label %978, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i330
+  br i1 %977, label %978, label %986
 
 978:                                              ; preds = %974
-  %.not68.i.i.i331 = icmp eq i32 %976, -2
-  br i1 %.not68.i.i.i331, label %986, label %979
+  %.not68.i.i.i330 = icmp eq i32 %976, -2
+  br i1 %.not68.i.i.i330, label %984, label %979
 
 979:                                              ; preds = %978
   %980 = add nsw i32 %976, 1
   %981 = cmpxchg weak ptr %975, i32 %976, i32 %980 release monotonic, align 4
   %982 = extractvalue { i32, i1 } %981, 1
   %983 = extractvalue { i32, i1 } %981, 0
-  br i1 %982, label %984, label %986
+  br i1 %982, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i332, label %984
 
-984:                                              ; preds = %979
-  %985 = icmp eq i32 %976, -1
-  br i1 %985, label %990, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEEaSERKS2_.exit
-
-986:                                              ; preds = %979, %978
-  %.067.i.i.i332 = phi i32 [ %983, %979 ], [ -2, %978 ]
-  %987 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %959, i32 noundef %.067.i.i.i332)
+984:                                              ; preds = %979, %978
+  %.067.i.i.i331 = phi i32 [ %983, %979 ], [ -2, %978 ]
+  %985 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %959, i32 noundef %.067.i.i.i331)
           to label %.noexc336 unwind label %1156
 
-.noexc336:                                        ; preds = %986
-  br i1 %987, label %990, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEEaSERKS2_.exit
+.noexc336:                                        ; preds = %984
+  br i1 %985, label %990, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEEaSERKS2_.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i330: ; preds = %974
-  %988 = atomicrmw sub ptr %975, i32 1 release, align 4
-  %989 = icmp eq i32 %988, 1
+986:                                              ; preds = %974
+  %987 = atomicrmw sub ptr %975, i32 1 release, align 4
+  %988 = icmp eq i32 %987, 1
+  br i1 %988, label %990, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEEaSERKS2_.exit
+
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i332: ; preds = %979
+  %989 = icmp eq i32 %976, -1
   br i1 %989, label %990, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEEaSERKS2_.exit
 
-990:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i330, %.noexc336, %984
+990:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i332, %986, %.noexc336
   %991 = load ptr, ptr %959, align 8
   %992 = getelementptr inbounds nuw i8, ptr %991, i64 8
   %993 = load ptr, ptr %992, align 8
   call void %993(ptr noundef nonnull align 8 dereferenceable(12) %959) #23
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEEaSERKS2_.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEEaSERKS2_.exit: ; preds = %990, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i330, %.noexc336, %984, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEE7_AddRefEv.exit.i
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEEaSERKS2_.exit: ; preds = %990, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i332, %986, %.noexc336, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEE7_AddRefEv.exit.i
   %994 = load ptr, ptr %41, align 8
   %.not.i.i.i337 = icmp eq ptr %994, null
   br i1 %.not.i.i.i337, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEED2Ev.exit, label %995
@@ -35707,51 +35707,51 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneI
   %996 = getelementptr inbounds nuw i8, ptr %994, i64 8
   %997 = load atomic i32, ptr %996 monotonic, align 4
   %998 = icmp slt i32 %997, 0
-  br i1 %998, label %999, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i338
+  br i1 %998, label %999, label %1007
 
 999:                                              ; preds = %995
-  %.not68.i.i.i339 = icmp eq i32 %997, -2
-  br i1 %.not68.i.i.i339, label %1007, label %1000
+  %.not68.i.i.i338 = icmp eq i32 %997, -2
+  br i1 %.not68.i.i.i338, label %1005, label %1000
 
 1000:                                             ; preds = %999
   %1001 = add nsw i32 %997, 1
   %1002 = cmpxchg weak ptr %996, i32 %997, i32 %1001 release monotonic, align 4
   %1003 = extractvalue { i32, i1 } %1002, 1
   %1004 = extractvalue { i32, i1 } %1002, 0
-  br i1 %1003, label %1005, label %1007
+  br i1 %1003, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i341, label %1005
 
-1005:                                             ; preds = %1000
-  %1006 = icmp eq i32 %997, -1
+1005:                                             ; preds = %1000, %999
+  %.067.i.i.i339 = phi i32 [ %1004, %1000 ], [ -2, %999 ]
+  %1006 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %994, i32 noundef %.067.i.i.i339)
+          to label %.noexc.i340 unwind label %1015
+
+.noexc.i340:                                      ; preds = %1005
   br i1 %1006, label %1011, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEED2Ev.exit
 
-1007:                                             ; preds = %1000, %999
-  %.067.i.i.i340 = phi i32 [ %1004, %1000 ], [ -2, %999 ]
-  %1008 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %994, i32 noundef %.067.i.i.i340)
-          to label %.noexc.i341 unwind label %1015
+1007:                                             ; preds = %995
+  %1008 = atomicrmw sub ptr %996, i32 1 release, align 4
+  %1009 = icmp eq i32 %1008, 1
+  br i1 %1009, label %1011, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEED2Ev.exit
 
-.noexc.i341:                                      ; preds = %1007
-  br i1 %1008, label %1011, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEED2Ev.exit
-
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i338: ; preds = %995
-  %1009 = atomicrmw sub ptr %996, i32 1 release, align 4
-  %1010 = icmp eq i32 %1009, 1
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i341: ; preds = %1000
+  %1010 = icmp eq i32 %997, -1
   br i1 %1010, label %1011, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEED2Ev.exit
 
-1011:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i338, %.noexc.i341, %1005
+1011:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i341, %1007, %.noexc.i340
   %1012 = load ptr, ptr %994, align 8
   %1013 = getelementptr inbounds nuw i8, ptr %1012, i64 8
   %1014 = load ptr, ptr %1013, align 8
   call void %1014(ptr noundef nonnull align 8 dereferenceable(12) %994) #23
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEED2Ev.exit
 
-1015:                                             ; preds = %1007
+1015:                                             ; preds = %1005
   %1016 = landingpad { ptr, i32 }
           catch ptr null
   %1017 = extractvalue { ptr, i32 } %1016, 0
   call void @__clang_call_terminate(ptr %1017) #25
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEEaSERKS2_.exit, %1005, %.noexc.i341, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i338, %1011
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEEaSERKS2_.exit, %.noexc.i340, %1007, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i341, %1011
   %1018 = load ptr, ptr %6, align 8
   %.not.i.i.i342 = icmp eq ptr %1018, null
   br i1 %.not.i.i.i342, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit, label %1019
@@ -35760,51 +35760,51 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneI
   %1020 = getelementptr inbounds nuw i8, ptr %1018, i64 8
   %1021 = load atomic i32, ptr %1020 monotonic, align 4
   %1022 = icmp slt i32 %1021, 0
-  br i1 %1022, label %1023, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i343
+  br i1 %1022, label %1023, label %1031
 
 1023:                                             ; preds = %1019
-  %.not68.i.i.i344 = icmp eq i32 %1021, -2
-  br i1 %.not68.i.i.i344, label %1031, label %1024
+  %.not68.i.i.i343 = icmp eq i32 %1021, -2
+  br i1 %.not68.i.i.i343, label %1029, label %1024
 
 1024:                                             ; preds = %1023
   %1025 = add nsw i32 %1021, 1
   %1026 = cmpxchg weak ptr %1020, i32 %1021, i32 %1025 release monotonic, align 4
   %1027 = extractvalue { i32, i1 } %1026, 1
   %1028 = extractvalue { i32, i1 } %1026, 0
-  br i1 %1027, label %1029, label %1031
+  br i1 %1027, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i346, label %1029
 
-1029:                                             ; preds = %1024
-  %1030 = icmp eq i32 %1021, -1
+1029:                                             ; preds = %1024, %1023
+  %.067.i.i.i344 = phi i32 [ %1028, %1024 ], [ -2, %1023 ]
+  %1030 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %1018, i32 noundef %.067.i.i.i344)
+          to label %.noexc.i345 unwind label %1039
+
+.noexc.i345:                                      ; preds = %1029
   br i1 %1030, label %1035, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit
 
-1031:                                             ; preds = %1024, %1023
-  %.067.i.i.i345 = phi i32 [ %1028, %1024 ], [ -2, %1023 ]
-  %1032 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %1018, i32 noundef %.067.i.i.i345)
-          to label %.noexc.i346 unwind label %1039
+1031:                                             ; preds = %1019
+  %1032 = atomicrmw sub ptr %1020, i32 1 release, align 4
+  %1033 = icmp eq i32 %1032, 1
+  br i1 %1033, label %1035, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit
 
-.noexc.i346:                                      ; preds = %1031
-  br i1 %1032, label %1035, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit
-
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i343: ; preds = %1019
-  %1033 = atomicrmw sub ptr %1020, i32 1 release, align 4
-  %1034 = icmp eq i32 %1033, 1
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i346: ; preds = %1024
+  %1034 = icmp eq i32 %1021, -1
   br i1 %1034, label %1035, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit
 
-1035:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i343, %.noexc.i346, %1029
+1035:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i346, %1031, %.noexc.i345
   %1036 = load ptr, ptr %1018, align 8
   %1037 = getelementptr inbounds nuw i8, ptr %1036, i64 8
   %1038 = load ptr, ptr %1037, align 8
   call void %1038(ptr noundef nonnull align 8 dereferenceable(12) %1018) #23
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit
 
-1039:                                             ; preds = %1031
+1039:                                             ; preds = %1029
   %1040 = landingpad { ptr, i32 }
           catch ptr null
   %1041 = extractvalue { ptr, i32 } %1040, 0
   call void @__clang_call_terminate(ptr %1041) #25
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEED2Ev.exit, %1029, %.noexc.i346, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i343, %1035
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEED2Ev.exit, %.noexc.i345, %1031, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i346, %1035
   ret void
 
 1042:                                             ; preds = %.invoke, %866
@@ -36070,8 +36070,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit352: ; preds = %1114, %111
 .body166:                                         ; preds = %.body170
   br i1 %.283, label %.body166.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit356
 
-.body166.thread:                                  ; preds = %1069, %170, %1123, %.body166
-  %.pn119.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn400 = phi { ptr, i32 } [ %.pn119.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body166 ], [ %.pn119.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1123 ], [ %171, %170 ], [ %1070, %1069 ]
+.body166.thread:                                  ; preds = %170, %1069, %1123, %.body166
+  %.pn119.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn400 = phi { ptr, i32 } [ %.pn119.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1123 ], [ %.pn119.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body166 ], [ %1070, %1069 ], [ %171, %170 ]
   %1127 = load ptr, ptr %163, align 8
   %1128 = ptrtoint ptr %1127 to i64
   %1129 = and i64 %1128, 7
@@ -36090,7 +36090,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit352: ; preds = %1114, %111
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit356
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit356: ; preds = %.body166, %1123, %1134, %1065
-  %.pn119.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn119.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %1134 ], [ %1066, %1065 ], [ %.pn119.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body166 ], [ %.pn119.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1123 ]
+  %.pn119.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn119.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %1134 ], [ %1066, %1065 ], [ %.pn119.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1123 ], [ %.pn119.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body166 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #23
   br label %.body162
 
@@ -36162,7 +36162,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit356: ; preds = %.body166, 
   call void @_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %42) #23
   br label %1166
 
-1156:                                             ; preds = %986, %971, %951, %936, %895
+1156:                                             ; preds = %984, %971, %949, %936, %895
   %1157 = landingpad { ptr, i32 }
           cleanup
   br label %1165
@@ -36200,7 +36200,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit356: ; preds = %.body166, 
   br label %1166
 
 1166:                                             ; preds = %.body283, %.body162, %.body, %1165, %1154, %1042
-  %.pn146.pn = phi { ptr, i32 } [ %.pn146, %1165 ], [ %1155, %1154 ], [ %1043, %1042 ], [ %.pn137.pn.pn.pn.pn, %.body283 ], [ %.pn119.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body162 ], [ %.pn.pn.pn.pn.pn, %.body ]
+  %.pn146.pn = phi { ptr, i32 } [ %.pn146, %1165 ], [ %1155, %1154 ], [ %1043, %1042 ], [ %.pn137.pn.pn.pn.pn, %.body283 ], [ %.pn.pn.pn.pn.pn, %.body ], [ %.pn119.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body162 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #23
   br label %common.resume
 }
@@ -36891,7 +36891,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %322, %327
   br label %.loopexit710
 
 .loopexit710:                                     ; preds = %.loopexit710.loopexit, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, %320
-  %.pn174 = phi { ptr, i32 } [ %323, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit ], [ %321, %320 ], [ %331, %.loopexit710.loopexit ]
+  %.pn174 = phi { ptr, i32 } [ %321, %320 ], [ %323, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit ], [ %331, %.loopexit710.loopexit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #23
   br label %.body247
 
@@ -38047,7 +38047,7 @@ _ZNSt13unordered_setIN27RecordingSceneIndexObserver5EventENS1_11HashFunctorESt8e
   br label %.body
 
 .body:                                            ; preds = %307, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i260, %301, %299, %129, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i13.i, %123, %.body247, %.body240, %805, %435
-  %.pn185.pn.pn = phi { ptr, i32 } [ %.pn185.pn, %805 ], [ %.pn177, %435 ], [ %.pn174.pn, %.body247 ], [ %.pn.pn.pn, %.body240 ], [ %300, %299 ], [ %124, %129 ], [ %124, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i13.i ], [ %124, %123 ], [ %302, %301 ], [ %302, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i260 ], [ %302, %307 ]
+  %.pn185.pn.pn = phi { ptr, i32 } [ %.pn185.pn, %805 ], [ %.pn177, %435 ], [ %.pn174.pn, %.body247 ], [ %124, %123 ], [ %.pn.pn.pn, %.body240 ], [ %300, %299 ], [ %124, %129 ], [ %124, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i13.i ], [ %302, %301 ], [ %302, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i260 ], [ %302, %307 ]
   call void @_ZN27RecordingSceneIndexObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %18) #23
   br label %1573
 
@@ -38207,8 +38207,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit427: ; preds = %_ZN32pxrIn
   br label %.critedge224
 
 .critedge224:                                     ; preds = %.thread, %.thread700, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit427, %840
-  %871 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit427 ], [ false, %840 ], [ true, %.thread700 ], [ true, %.thread ]
-  %.pn193.pn.pn = phi { ptr, i32 } [ %.pn193.pn690, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit427 ], [ %841, %840 ], [ %844, %.thread700 ], [ %844, %.thread ]
+  %871 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit427 ], [ true, %.thread700 ], [ false, %840 ], [ true, %.thread ]
+  %.pn193.pn.pn = phi { ptr, i32 } [ %.pn193.pn690, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit427 ], [ %844, %.thread700 ], [ %841, %840 ], [ %844, %.thread ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #23
   br label %.body398
 
@@ -39030,7 +39030,7 @@ _ZNSt13unordered_setIN27RecordingSceneIndexObserver5EventENS1_11HashFunctorESt8e
   br label %.body352
 
 .body352:                                         ; preds = %.preheader, %.body393.thread, %814, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i420, %808, %806, %615, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i13.i349, %609, %.body430, %.body363, %.body393, %1206, %979
-  %.pn208.pn = phi { ptr, i32 } [ %.pn208, %1206 ], [ %.pn202.pn, %.body430 ], [ %.pn200, %979 ], [ %.pn193.pn.pn.pn.pn, %.body393 ], [ %.pn189.pn.pn, %.body363 ], [ %807, %806 ], [ %610, %615 ], [ %610, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i13.i349 ], [ %610, %609 ], [ %809, %808 ], [ %809, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i420 ], [ %809, %814 ], [ %.pn193.pn.pn.pn.pn.pn.ph, %.body393.thread ], [ %.pn193.pn.pn.pn.pn, %.preheader ]
+  %.pn208.pn = phi { ptr, i32 } [ %.pn208, %1206 ], [ %.pn202.pn, %.body430 ], [ %610, %609 ], [ %.pn200, %979 ], [ %.pn193.pn.pn.pn.pn, %.body393 ], [ %.pn193.pn.pn.pn.pn.pn.ph, %.body393.thread ], [ %.pn189.pn.pn, %.body363 ], [ %807, %806 ], [ %610, %615 ], [ %610, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i13.i349 ], [ %809, %808 ], [ %809, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i420 ], [ %809, %814 ], [ %.pn193.pn.pn.pn.pn, %.preheader ]
   call void @_ZN27RecordingSceneIndexObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %43) #23
   br label %1573
 
@@ -39124,7 +39124,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit548: ; preds = %1232, %123
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit548, %1230
-  %.pn215 = phi { ptr, i32 } [ %1233, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit548 ], [ %1231, %1230 ], [ %1241, %.loopexit.loopexit ]
+  %.pn215 = phi { ptr, i32 } [ %1231, %1230 ], [ %1233, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit548 ], [ %1241, %.loopexit.loopexit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %80) #23
   br label %1242
 
@@ -39195,7 +39195,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit548: ; preds = %1232, %123
   br label %1524
 
 _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_20HdSceneIndexObserverEED2Ev.exit546: ; preds = %1216, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i545, %1209, %1242, %1227, %1254, %1253, %1207
-  %.pn220 = phi { ptr, i32 } [ %1255, %1254 ], [ %.pn218, %1253 ], [ %.pn215.pn, %1242 ], [ %.pn211.pn.pn, %1227 ], [ %1208, %1207 ], [ %1210, %1209 ], [ %1210, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i545 ], [ %1210, %1216 ]
+  %.pn220 = phi { ptr, i32 } [ %1255, %1254 ], [ %.pn218, %1253 ], [ %.pn215.pn, %1242 ], [ %1208, %1207 ], [ %.pn211.pn.pn, %1227 ], [ %1210, %1209 ], [ %1210, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i545 ], [ %1210, %1216 ]
   call void @_ZN27RecordingSceneIndexObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %71) #23
   br label %1573
 
@@ -39841,51 +39841,51 @@ _ZN27RecordingSceneIndexObserverD2Ev.exit680:     ; preds = %_ZSt8_DestroyIPN27R
   %1527 = getelementptr inbounds nuw i8, ptr %1525, i64 8
   %1528 = load atomic i32, ptr %1527 monotonic, align 4
   %1529 = icmp slt i32 %1528, 0
-  br i1 %1529, label %1530, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i
+  br i1 %1529, label %1530, label %1538
 
 1530:                                             ; preds = %1526
   %.not68.i.i.i = icmp eq i32 %1528, -2
-  br i1 %.not68.i.i.i, label %1538, label %1531
+  br i1 %.not68.i.i.i, label %1536, label %1531
 
 1531:                                             ; preds = %1530
   %1532 = add nsw i32 %1528, 1
   %1533 = cmpxchg weak ptr %1527, i32 %1528, i32 %1532 release monotonic, align 4
   %1534 = extractvalue { i32, i1 } %1533, 1
   %1535 = extractvalue { i32, i1 } %1533, 0
-  br i1 %1534, label %1536, label %1538
+  br i1 %1534, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, label %1536
 
-1536:                                             ; preds = %1531
-  %1537 = icmp eq i32 %1528, -1
-  br i1 %1537, label %1542, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEED2Ev.exit
-
-1538:                                             ; preds = %1531, %1530
+1536:                                             ; preds = %1531, %1530
   %.067.i.i.i = phi i32 [ %1535, %1531 ], [ -2, %1530 ]
-  %1539 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %1525, i32 noundef %.067.i.i.i)
+  %1537 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %1525, i32 noundef %.067.i.i.i)
           to label %.noexc.i682 unwind label %1546
 
-.noexc.i682:                                      ; preds = %1538
-  br i1 %1539, label %1542, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEED2Ev.exit
+.noexc.i682:                                      ; preds = %1536
+  br i1 %1537, label %1542, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEED2Ev.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i: ; preds = %1526
-  %1540 = atomicrmw sub ptr %1527, i32 1 release, align 4
-  %1541 = icmp eq i32 %1540, 1
+1538:                                             ; preds = %1526
+  %1539 = atomicrmw sub ptr %1527, i32 1 release, align 4
+  %1540 = icmp eq i32 %1539, 1
+  br i1 %1540, label %1542, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEED2Ev.exit
+
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i: ; preds = %1531
+  %1541 = icmp eq i32 %1528, -1
   br i1 %1541, label %1542, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEED2Ev.exit
 
-1542:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %.noexc.i682, %1536
+1542:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %1538, %.noexc.i682
   %1543 = load ptr, ptr %1525, align 8
   %1544 = getelementptr inbounds nuw i8, ptr %1543, i64 8
   %1545 = load ptr, ptr %1544, align 8
   call void %1545(ptr noundef nonnull align 8 dereferenceable(12) %1525) #23
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEED2Ev.exit
 
-1546:                                             ; preds = %1538
+1546:                                             ; preds = %1536
   %1547 = landingpad { ptr, i32 }
           catch ptr null
   %1548 = extractvalue { ptr, i32 } %1547, 0
   call void @__clang_call_terminate(ptr %1548) #25
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEED2Ev.exit: ; preds = %1524, %1536, %.noexc.i682, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %1542
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEED2Ev.exit: ; preds = %1524, %.noexc.i682, %1538, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %1542
   %1549 = load ptr, ptr %16, align 8
   %.not.i.i.i683 = icmp eq ptr %1549, null
   br i1 %.not.i.i.i683, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit, label %1550
@@ -39894,51 +39894,51 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneI
   %1551 = getelementptr inbounds nuw i8, ptr %1549, i64 8
   %1552 = load atomic i32, ptr %1551 monotonic, align 4
   %1553 = icmp slt i32 %1552, 0
-  br i1 %1553, label %1554, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i684
+  br i1 %1553, label %1554, label %1562
 
 1554:                                             ; preds = %1550
-  %.not68.i.i.i685 = icmp eq i32 %1552, -2
-  br i1 %.not68.i.i.i685, label %1562, label %1555
+  %.not68.i.i.i684 = icmp eq i32 %1552, -2
+  br i1 %.not68.i.i.i684, label %1560, label %1555
 
 1555:                                             ; preds = %1554
   %1556 = add nsw i32 %1552, 1
   %1557 = cmpxchg weak ptr %1551, i32 %1552, i32 %1556 release monotonic, align 4
   %1558 = extractvalue { i32, i1 } %1557, 1
   %1559 = extractvalue { i32, i1 } %1557, 0
-  br i1 %1558, label %1560, label %1562
+  br i1 %1558, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i687, label %1560
 
-1560:                                             ; preds = %1555
-  %1561 = icmp eq i32 %1552, -1
+1560:                                             ; preds = %1555, %1554
+  %.067.i.i.i685 = phi i32 [ %1559, %1555 ], [ -2, %1554 ]
+  %1561 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %1549, i32 noundef %.067.i.i.i685)
+          to label %.noexc.i686 unwind label %1570
+
+.noexc.i686:                                      ; preds = %1560
   br i1 %1561, label %1566, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit
 
-1562:                                             ; preds = %1555, %1554
-  %.067.i.i.i686 = phi i32 [ %1559, %1555 ], [ -2, %1554 ]
-  %1563 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %1549, i32 noundef %.067.i.i.i686)
-          to label %.noexc.i687 unwind label %1570
+1562:                                             ; preds = %1550
+  %1563 = atomicrmw sub ptr %1551, i32 1 release, align 4
+  %1564 = icmp eq i32 %1563, 1
+  br i1 %1564, label %1566, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit
 
-.noexc.i687:                                      ; preds = %1562
-  br i1 %1563, label %1566, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit
-
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i684: ; preds = %1550
-  %1564 = atomicrmw sub ptr %1551, i32 1 release, align 4
-  %1565 = icmp eq i32 %1564, 1
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i687: ; preds = %1555
+  %1565 = icmp eq i32 %1552, -1
   br i1 %1565, label %1566, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit
 
-1566:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i684, %.noexc.i687, %1560
+1566:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i687, %1562, %.noexc.i686
   %1567 = load ptr, ptr %1549, align 8
   %1568 = getelementptr inbounds nuw i8, ptr %1567, i64 8
   %1569 = load ptr, ptr %1568, align 8
   call void %1569(ptr noundef nonnull align 8 dereferenceable(12) %1549) #23
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit
 
-1570:                                             ; preds = %1562
+1570:                                             ; preds = %1560
   %1571 = landingpad { ptr, i32 }
           catch ptr null
   %1572 = extractvalue { ptr, i32 } %1571, 0
   call void @__clang_call_terminate(ptr %1572) #25
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEED2Ev.exit, %1560, %.noexc.i687, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i684, %1566
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_32HdDependencyForwardingSceneIndexEED2Ev.exit, %.noexc.i686, %1562, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i687, %1566
   ret i1 %.3
 
 1573:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_20HdSceneIndexObserverEED2Ev.exit546, %.body352, %.body, %297
@@ -40335,8 +40335,8 @@ define dso_local noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef 
   br label %59
 
 59:                                               ; preds = %47, %38, %29, %20, %11, %2, %56
-  %.str.83.sink = phi ptr [ @.str.83, %56 ], [ @.str.76, %2 ], [ @.str.76, %11 ], [ @.str.76, %20 ], [ @.str.76, %29 ], [ @.str.76, %38 ], [ @.str.76, %47 ]
-  %.0 = phi i32 [ 0, %56 ], [ -1, %2 ], [ -1, %11 ], [ -1, %20 ], [ -1, %29 ], [ -1, %38 ], [ -1, %47 ]
+  %.str.83.sink = phi ptr [ @.str.83, %56 ], [ @.str.76, %38 ], [ @.str.76, %29 ], [ @.str.76, %20 ], [ @.str.76, %11 ], [ @.str.76, %2 ], [ @.str.76, %47 ]
+  %.0 = phi i32 [ 0, %56 ], [ -1, %38 ], [ -1, %29 ], [ -1, %20 ], [ -1, %11 ], [ -1, %2 ], [ -1, %47 ]
   %60 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull %.str.83.sink)
   %61 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %60, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   ret i32 %.0
@@ -40620,51 +40620,51 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %174, %176, %1
   %195 = getelementptr inbounds nuw i8, ptr %193, i64 8
   %196 = load atomic i32, ptr %195 monotonic, align 4
   %197 = icmp slt i32 %196, 0
-  br i1 %197, label %198, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i
+  br i1 %197, label %198, label %206
 
 198:                                              ; preds = %194
   %.not68.i.i.i = icmp eq i32 %196, -2
-  br i1 %.not68.i.i.i, label %206, label %199
+  br i1 %.not68.i.i.i, label %204, label %199
 
 199:                                              ; preds = %198
   %200 = add nsw i32 %196, 1
   %201 = cmpxchg weak ptr %195, i32 %196, i32 %200 release monotonic, align 4
   %202 = extractvalue { i32, i1 } %201, 1
   %203 = extractvalue { i32, i1 } %201, 0
-  br i1 %202, label %204, label %206
+  br i1 %202, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, label %204
 
-204:                                              ; preds = %199
-  %205 = icmp eq i32 %196, -1
-  br i1 %205, label %210, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
-
-206:                                              ; preds = %199, %198
+204:                                              ; preds = %199, %198
   %.067.i.i.i = phi i32 [ %203, %199 ], [ -2, %198 ]
-  %207 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %193, i32 noundef %.067.i.i.i)
+  %205 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %193, i32 noundef %.067.i.i.i)
           to label %.noexc.i unwind label %214
 
-.noexc.i:                                         ; preds = %206
-  br i1 %207, label %210, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
+.noexc.i:                                         ; preds = %204
+  br i1 %205, label %210, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i: ; preds = %194
-  %208 = atomicrmw sub ptr %195, i32 1 release, align 4
-  %209 = icmp eq i32 %208, 1
+206:                                              ; preds = %194
+  %207 = atomicrmw sub ptr %195, i32 1 release, align 4
+  %208 = icmp eq i32 %207, 1
+  br i1 %208, label %210, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
+
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i: ; preds = %199
+  %209 = icmp eq i32 %196, -1
   br i1 %209, label %210, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
 
-210:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %.noexc.i, %204
+210:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %206, %.noexc.i
   %211 = load ptr, ptr %193, align 8
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 8
   %213 = load ptr, ptr %212, align 8
   call void %213(ptr noundef nonnull align 8 dereferenceable(12) %193) #23
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit
 
-214:                                              ; preds = %206
+214:                                              ; preds = %204
   %215 = landingpad { ptr, i32 }
           catch ptr null
   %216 = extractvalue { ptr, i32 } %215, 0
   call void @__clang_call_terminate(ptr %216) #25
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit, %204, %.noexc.i, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %210
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit, %.noexc.i, %206, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %210
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %217 = load ptr, ptr %3, align 8
   %.not.i.i416 = icmp eq ptr %217, null
@@ -42842,7 +42842,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit613: ; preds = %_ZN32pxrIn
   br label %.loopexit904
 
 .loopexit904:                                     ; preds = %.body424, %1148, %1146
-  %.pn287.pn = phi { ptr, i32 } [ %1149, %1148 ], [ %1147, %1146 ], [ %.pn287, %.body424 ]
+  %.pn287.pn = phi { ptr, i32 } [ %1147, %1146 ], [ %1149, %1148 ], [ %.pn287, %.body424 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #23
   br label %.body420
 
@@ -42879,7 +42879,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit613: ; preds = %_ZN32pxrIn
   br label %.loopexit903
 
 .loopexit903:                                     ; preds = %.body435, %1156, %1154
-  %.pn291.pn = phi { ptr, i32 } [ %1157, %1156 ], [ %1155, %1154 ], [ %.pn291, %.body435 ]
+  %.pn291.pn = phi { ptr, i32 } [ %1155, %1154 ], [ %1157, %1156 ], [ %.pn291, %.body435 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #23
   br label %.body430
 
@@ -43048,8 +43048,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit624.thread: ; preds = %363
   unreachable
 
 .body478:                                         ; preds = %1211, %407
-  %.18221 = phi i1 [ true, %407 ], [ %.19222, %1211 ]
-  %.pn295.pn.pn.pn.pn = phi { ptr, i32 } [ %408, %407 ], [ %.pn295.pn.pn.pn, %1211 ]
+  %.18221 = phi i1 [ %.19222, %1211 ], [ true, %407 ]
+  %.pn295.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn295.pn.pn.pn, %1211 ], [ %408, %407 ]
   br label %1215
 
 1215:                                             ; preds = %1215, %.body478
@@ -43254,7 +43254,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit624: ; preds = %.body455
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit626
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit626: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit624, %1261, %1273, %1162
-  %.pn295.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn295.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %1273 ], [ %1163, %1162 ], [ %.pn295.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit624 ], [ %.pn295.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1261 ]
+  %.pn295.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn295.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %1273 ], [ %1163, %1162 ], [ %.pn295.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1261 ], [ %.pn295.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit624 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #23
   br label %.body450
 
@@ -45739,7 +45739,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit825: ; preds = %2155, %215
   br label %2241
 
 2192:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit825, %2138, %2120, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit823, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit821, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit819, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit788, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit741, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit696, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit660, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit613
-  %.079 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit613 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit660 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit696 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit741 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit788 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit819 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit821 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit823 ], [ false, %2120 ], [ false, %2138 ], [ %2154, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit825 ]
+  %.079 = phi i1 [ false, %2138 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit613 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit660 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit696 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit741 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit788 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit819 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit821 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit823 ], [ false, %2120 ], [ %2154, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit825 ]
   %2193 = load ptr, ptr %3, align 8
   %.not.i.i.i826 = icmp eq ptr %2193, null
   br i1 %.not.i.i.i826, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_21HdPrefixingSceneIndexEED2Ev.exit, label %2194
@@ -45748,51 +45748,51 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit825: ; preds = %2155, %215
   %2195 = getelementptr inbounds nuw i8, ptr %2193, i64 8
   %2196 = load atomic i32, ptr %2195 monotonic, align 4
   %2197 = icmp slt i32 %2196, 0
-  br i1 %2197, label %2198, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i827
+  br i1 %2197, label %2198, label %2206
 
 2198:                                             ; preds = %2194
-  %.not68.i.i.i828 = icmp eq i32 %2196, -2
-  br i1 %.not68.i.i.i828, label %2206, label %2199
+  %.not68.i.i.i827 = icmp eq i32 %2196, -2
+  br i1 %.not68.i.i.i827, label %2204, label %2199
 
 2199:                                             ; preds = %2198
   %2200 = add nsw i32 %2196, 1
   %2201 = cmpxchg weak ptr %2195, i32 %2196, i32 %2200 release monotonic, align 4
   %2202 = extractvalue { i32, i1 } %2201, 1
   %2203 = extractvalue { i32, i1 } %2201, 0
-  br i1 %2202, label %2204, label %2206
+  br i1 %2202, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i830, label %2204
 
-2204:                                             ; preds = %2199
-  %2205 = icmp eq i32 %2196, -1
+2204:                                             ; preds = %2199, %2198
+  %.067.i.i.i828 = phi i32 [ %2203, %2199 ], [ -2, %2198 ]
+  %2205 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %2193, i32 noundef %.067.i.i.i828)
+          to label %.noexc.i829 unwind label %2214
+
+.noexc.i829:                                      ; preds = %2204
   br i1 %2205, label %2210, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_21HdPrefixingSceneIndexEED2Ev.exit
 
-2206:                                             ; preds = %2199, %2198
-  %.067.i.i.i829 = phi i32 [ %2203, %2199 ], [ -2, %2198 ]
-  %2207 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %2193, i32 noundef %.067.i.i.i829)
-          to label %.noexc.i830 unwind label %2214
+2206:                                             ; preds = %2194
+  %2207 = atomicrmw sub ptr %2195, i32 1 release, align 4
+  %2208 = icmp eq i32 %2207, 1
+  br i1 %2208, label %2210, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_21HdPrefixingSceneIndexEED2Ev.exit
 
-.noexc.i830:                                      ; preds = %2206
-  br i1 %2207, label %2210, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_21HdPrefixingSceneIndexEED2Ev.exit
-
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i827: ; preds = %2194
-  %2208 = atomicrmw sub ptr %2195, i32 1 release, align 4
-  %2209 = icmp eq i32 %2208, 1
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i830: ; preds = %2199
+  %2209 = icmp eq i32 %2196, -1
   br i1 %2209, label %2210, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_21HdPrefixingSceneIndexEED2Ev.exit
 
-2210:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i827, %.noexc.i830, %2204
+2210:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i830, %2206, %.noexc.i829
   %2211 = load ptr, ptr %2193, align 8
   %2212 = getelementptr inbounds nuw i8, ptr %2211, i64 8
   %2213 = load ptr, ptr %2212, align 8
   call void %2213(ptr noundef nonnull align 8 dereferenceable(12) %2193) #23
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_21HdPrefixingSceneIndexEED2Ev.exit
 
-2214:                                             ; preds = %2206
+2214:                                             ; preds = %2204
   %2215 = landingpad { ptr, i32 }
           catch ptr null
   %2216 = extractvalue { ptr, i32 } %2215, 0
   call void @__clang_call_terminate(ptr %2216) #25
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_21HdPrefixingSceneIndexEED2Ev.exit: ; preds = %2192, %2204, %.noexc.i830, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i827, %2210
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_21HdPrefixingSceneIndexEED2Ev.exit: ; preds = %2192, %.noexc.i829, %2206, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i830, %2210
   %2217 = load ptr, ptr %2, align 8
   %.not.i.i.i831 = icmp eq ptr %2217, null
   br i1 %.not.i.i.i831, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit, label %2218
@@ -45801,55 +45801,55 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_21HdPrefixingSceneIndexEED2Ev.
   %2219 = getelementptr inbounds nuw i8, ptr %2217, i64 8
   %2220 = load atomic i32, ptr %2219 monotonic, align 4
   %2221 = icmp slt i32 %2220, 0
-  br i1 %2221, label %2222, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i832
+  br i1 %2221, label %2222, label %2230
 
 2222:                                             ; preds = %2218
-  %.not68.i.i.i833 = icmp eq i32 %2220, -2
-  br i1 %.not68.i.i.i833, label %2230, label %2223
+  %.not68.i.i.i832 = icmp eq i32 %2220, -2
+  br i1 %.not68.i.i.i832, label %2228, label %2223
 
 2223:                                             ; preds = %2222
   %2224 = add nsw i32 %2220, 1
   %2225 = cmpxchg weak ptr %2219, i32 %2220, i32 %2224 release monotonic, align 4
   %2226 = extractvalue { i32, i1 } %2225, 1
   %2227 = extractvalue { i32, i1 } %2225, 0
-  br i1 %2226, label %2228, label %2230
+  br i1 %2226, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i835, label %2228
 
-2228:                                             ; preds = %2223
-  %2229 = icmp eq i32 %2220, -1
+2228:                                             ; preds = %2223, %2222
+  %.067.i.i.i833 = phi i32 [ %2227, %2223 ], [ -2, %2222 ]
+  %2229 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %2217, i32 noundef %.067.i.i.i833)
+          to label %.noexc.i834 unwind label %2238
+
+.noexc.i834:                                      ; preds = %2228
   br i1 %2229, label %2234, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit
 
-2230:                                             ; preds = %2223, %2222
-  %.067.i.i.i834 = phi i32 [ %2227, %2223 ], [ -2, %2222 ]
-  %2231 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %2217, i32 noundef %.067.i.i.i834)
-          to label %.noexc.i835 unwind label %2238
+2230:                                             ; preds = %2218
+  %2231 = atomicrmw sub ptr %2219, i32 1 release, align 4
+  %2232 = icmp eq i32 %2231, 1
+  br i1 %2232, label %2234, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit
 
-.noexc.i835:                                      ; preds = %2230
-  br i1 %2231, label %2234, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit
-
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i832: ; preds = %2218
-  %2232 = atomicrmw sub ptr %2219, i32 1 release, align 4
-  %2233 = icmp eq i32 %2232, 1
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i835: ; preds = %2223
+  %2233 = icmp eq i32 %2220, -1
   br i1 %2233, label %2234, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit
 
-2234:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i832, %.noexc.i835, %2228
+2234:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i835, %2230, %.noexc.i834
   %2235 = load ptr, ptr %2217, align 8
   %2236 = getelementptr inbounds nuw i8, ptr %2235, i64 8
   %2237 = load ptr, ptr %2236, align 8
   call void %2237(ptr noundef nonnull align 8 dereferenceable(12) %2217) #23
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit
 
-2238:                                             ; preds = %2230
+2238:                                             ; preds = %2228
   %2239 = landingpad { ptr, i32 }
           catch ptr null
   %2240 = extractvalue { ptr, i32 } %2239, 0
   call void @__clang_call_terminate(ptr %2240) #25
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_21HdPrefixingSceneIndexEED2Ev.exit, %2228, %.noexc.i835, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i832, %2234
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_20HdRetainedSceneIndexEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_21HdPrefixingSceneIndexEED2Ev.exit, %.noexc.i834, %2230, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i835, %2234
   ret i1 %.079
 
 2241:                                             ; preds = %.body450, %.body430, %.body420, %2191, %2143, %2131, %2111, %2063, %.body791, %.body750, %.body703, %.body667, %.body631, %.body597, %.body590, %.body583, %1142
-  %.pn399.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn399.pn.pn.pn.pn.pn, %2191 ], [ %.pn397, %2143 ], [ %.pn393.pn.pn, %2131 ], [ %.pn386.pn.pn.pn.pn.pn, %2111 ], [ %.pn379.pn.pn.pn.pn.pn, %2063 ], [ %.pn375.pn.pn, %.body791 ], [ %.pn366.pn.pn.pn.pn.pn.pn.pn, %.body750 ], [ %.pn354.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body703 ], [ %.pn345.pn.pn.pn.pn.pn.pn.pn, %.body667 ], [ %.pn336.pn.pn.pn.pn.pn.pn.pn, %.body631 ], [ %.pn328.pn.pn.pn.pn.pn.pn, %.body597 ], [ %.pn325.pn, %.body590 ], [ %1143, %1142 ], [ %.pn322.pn, %.body583 ], [ %.pn295.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body450 ], [ %.pn291.pn.pn, %.body430 ], [ %.pn287.pn.pn, %.body420 ]
+  %.pn399.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn399.pn.pn.pn.pn.pn, %2191 ], [ %.pn397, %2143 ], [ %.pn393.pn.pn, %2131 ], [ %.pn386.pn.pn.pn.pn.pn, %2111 ], [ %.pn379.pn.pn.pn.pn.pn, %2063 ], [ %.pn375.pn.pn, %.body791 ], [ %.pn366.pn.pn.pn.pn.pn.pn.pn, %.body750 ], [ %.pn354.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body703 ], [ %.pn345.pn.pn.pn.pn.pn.pn.pn, %.body667 ], [ %.pn336.pn.pn.pn.pn.pn.pn.pn, %.body631 ], [ %.pn328.pn.pn.pn.pn.pn.pn, %.body597 ], [ %.pn325.pn, %.body590 ], [ %1143, %1142 ], [ %.pn322.pn, %.body583 ], [ %.pn295.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body450 ], [ %.pn287.pn.pn, %.body420 ], [ %.pn291.pn.pn, %.body430 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_21HdPrefixingSceneIndexEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #23
   br label %2242
 
@@ -46319,51 +46319,51 @@ define internal void @_ZN12_GLOBAL__N_123_RepopulatingSceneIndexD2Ev(ptr noundef
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load atomic i32, ptr %6 monotonic, align 4
   %8 = icmp slt i32 %7, 0
-  br i1 %8, label %9, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %5
   %.not68.i.i.i.i = icmp eq i32 %7, -2
-  br i1 %.not68.i.i.i.i, label %17, label %10
+  br i1 %.not68.i.i.i.i, label %15, label %10
 
 10:                                               ; preds = %9
   %11 = add nsw i32 %7, 1
   %12 = cmpxchg weak ptr %6, i32 %7, i32 %11 release monotonic, align 4
   %13 = extractvalue { i32, i1 } %12, 1
   %14 = extractvalue { i32, i1 } %12, 0
-  br i1 %13, label %15, label %17
+  br i1 %13, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i, label %15
 
-15:                                               ; preds = %10
-  %16 = icmp eq i32 %7, -1
-  br i1 %16, label %21, label %_ZN32pxrInternal_v0_24__pxrReserved__36HdSingleInputFilteringSceneIndexBaseD2Ev.exit
-
-17:                                               ; preds = %10, %9
+15:                                               ; preds = %10, %9
   %.067.i.i.i.i = phi i32 [ %14, %10 ], [ -2, %9 ]
-  %18 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %4, i32 noundef %.067.i.i.i.i)
+  %16 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %4, i32 noundef %.067.i.i.i.i)
           to label %.noexc.i.i unwind label %25
 
-.noexc.i.i:                                       ; preds = %17
-  br i1 %18, label %21, label %_ZN32pxrInternal_v0_24__pxrReserved__36HdSingleInputFilteringSceneIndexBaseD2Ev.exit
+.noexc.i.i:                                       ; preds = %15
+  br i1 %16, label %21, label %_ZN32pxrInternal_v0_24__pxrReserved__36HdSingleInputFilteringSceneIndexBaseD2Ev.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i: ; preds = %5
-  %19 = atomicrmw sub ptr %6, i32 1 release, align 4
-  %20 = icmp eq i32 %19, 1
+17:                                               ; preds = %5
+  %18 = atomicrmw sub ptr %6, i32 1 release, align 4
+  %19 = icmp eq i32 %18, 1
+  br i1 %19, label %21, label %_ZN32pxrInternal_v0_24__pxrReserved__36HdSingleInputFilteringSceneIndexBaseD2Ev.exit
+
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i: ; preds = %10
+  %20 = icmp eq i32 %7, -1
   br i1 %20, label %21, label %_ZN32pxrInternal_v0_24__pxrReserved__36HdSingleInputFilteringSceneIndexBaseD2Ev.exit
 
-21:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i, %.noexc.i.i, %15
+21:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i, %17, %.noexc.i.i
   %22 = load ptr, ptr %4, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(12) %4) #23
   br label %_ZN32pxrInternal_v0_24__pxrReserved__36HdSingleInputFilteringSceneIndexBaseD2Ev.exit
 
-25:                                               ; preds = %17
+25:                                               ; preds = %15
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
   tail call void @__clang_call_terminate(ptr %27) #25
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__36HdSingleInputFilteringSceneIndexBaseD2Ev.exit: ; preds = %1, %15, %.noexc.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i, %21
+_ZN32pxrInternal_v0_24__pxrReserved__36HdSingleInputFilteringSceneIndexBaseD2Ev.exit: ; preds = %1, %.noexc.i.i, %17, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i, %21
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) #23
   ret void
 }
@@ -46382,51 +46382,51 @@ define internal void @_ZN12_GLOBAL__N_123_RepopulatingSceneIndexD0Ev(ptr noundef
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load atomic i32, ptr %6 monotonic, align 4
   %8 = icmp slt i32 %7, 0
-  br i1 %8, label %9, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %5
   %.not68.i.i.i.i.i = icmp eq i32 %7, -2
-  br i1 %.not68.i.i.i.i.i, label %17, label %10
+  br i1 %.not68.i.i.i.i.i, label %15, label %10
 
 10:                                               ; preds = %9
   %11 = add nsw i32 %7, 1
   %12 = cmpxchg weak ptr %6, i32 %7, i32 %11 release monotonic, align 4
   %13 = extractvalue { i32, i1 } %12, 1
   %14 = extractvalue { i32, i1 } %12, 0
-  br i1 %13, label %15, label %17
+  br i1 %13, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i, label %15
 
-15:                                               ; preds = %10
-  %16 = icmp eq i32 %7, -1
-  br i1 %16, label %21, label %_ZN12_GLOBAL__N_123_RepopulatingSceneIndexD2Ev.exit
-
-17:                                               ; preds = %10, %9
+15:                                               ; preds = %10, %9
   %.067.i.i.i.i.i = phi i32 [ %14, %10 ], [ -2, %9 ]
-  %18 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %4, i32 noundef %.067.i.i.i.i.i)
+  %16 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %4, i32 noundef %.067.i.i.i.i.i)
           to label %.noexc.i.i.i unwind label %25
 
-.noexc.i.i.i:                                     ; preds = %17
-  br i1 %18, label %21, label %_ZN12_GLOBAL__N_123_RepopulatingSceneIndexD2Ev.exit
+.noexc.i.i.i:                                     ; preds = %15
+  br i1 %16, label %21, label %_ZN12_GLOBAL__N_123_RepopulatingSceneIndexD2Ev.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i: ; preds = %5
-  %19 = atomicrmw sub ptr %6, i32 1 release, align 4
-  %20 = icmp eq i32 %19, 1
+17:                                               ; preds = %5
+  %18 = atomicrmw sub ptr %6, i32 1 release, align 4
+  %19 = icmp eq i32 %18, 1
+  br i1 %19, label %21, label %_ZN12_GLOBAL__N_123_RepopulatingSceneIndexD2Ev.exit
+
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i: ; preds = %10
+  %20 = icmp eq i32 %7, -1
   br i1 %20, label %21, label %_ZN12_GLOBAL__N_123_RepopulatingSceneIndexD2Ev.exit
 
-21:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i, %.noexc.i.i.i, %15
+21:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i, %17, %.noexc.i.i.i
   %22 = load ptr, ptr %4, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(12) %4) #23
   br label %_ZN12_GLOBAL__N_123_RepopulatingSceneIndexD2Ev.exit
 
-25:                                               ; preds = %17
+25:                                               ; preds = %15
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
   tail call void @__clang_call_terminate(ptr %27) #25
   unreachable
 
-_ZN12_GLOBAL__N_123_RepopulatingSceneIndexD2Ev.exit: ; preds = %1, %15, %.noexc.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i, %21
+_ZN12_GLOBAL__N_123_RepopulatingSceneIndexD2Ev.exit: ; preds = %1, %.noexc.i.i.i, %17, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i, %21
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) #23
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 152) #24
   ret void
@@ -48457,13 +48457,13 @@ define linkonce_odr dso_local ptr @_ZNK32pxrInternal_v0_24__pxrReserved__14TfDen
 ..loopexit_crit_edge22.i.i.i.i:                   ; preds = %47
   br label %.loopexit, !llvm.loop !255
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %10, %14, %..loopexit_crit_edge22.i.i.i.i
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %10, %..loopexit_crit_edge22.i.i.i.i, %14
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %52 = load ptr, ptr %51, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapINS_7SdfPathENS_7TfTokenENS_6TfHashESt8equal_toIS1_ELj128EE10_FindInVecERKS1_.exit
 
 _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathEmNS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_mEEE4findERS6_.exit: ; preds = %41, %11, %33
-  %.sroa.06.1.i.i = phi ptr [ %34, %33 ], [ %.sroa.06.0.i.i, %11 ], [ %46, %41 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %11 ], [ %34, %33 ], [ %46, %41 ]
   %53 = load ptr, ptr %0, align 8
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %55 = load i64, ptr %54, align 8
@@ -49325,8 +49325,8 @@ _ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKN27RecordingSceneIndexOb
   br label %common.resume
 
 _ZNKSt8__detail15_Hashtable_baseIN27RecordingSceneIndexObserver5EventES2_NS_9_IdentityESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit: ; preds = %68, %36, %_ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKN27RecordingSceneIndexObserver5EventES7_NS_10_AllocNodeISaINS_10_Hash_nodeIS5_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSD_.exit, %_ZNKSt10_HashtableIN27RecordingSceneIndexObserver5EventES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ENS1_11HashFunctorENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS3_10_Hash_nodeIS1_Lb1EEEmRKT_m.exit
-  %.sroa.024.0 = phi ptr [ %124, %_ZNKSt10_HashtableIN27RecordingSceneIndexObserver5EventES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ENS1_11HashFunctorENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS3_10_Hash_nodeIS1_Lb1EEEmRKT_m.exit ], [ %138, %_ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKN27RecordingSceneIndexObserver5EventES7_NS_10_AllocNodeISaINS_10_Hash_nodeIS5_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSD_.exit ], [ %.sroa.021.033.us, %36 ], [ %.sroa.021.033, %68 ]
-  %.sroa.4.0 = phi i8 [ 0, %_ZNKSt10_HashtableIN27RecordingSceneIndexObserver5EventES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ENS1_11HashFunctorENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS3_10_Hash_nodeIS1_Lb1EEEmRKT_m.exit ], [ 1, %_ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKN27RecordingSceneIndexObserver5EventES7_NS_10_AllocNodeISaINS_10_Hash_nodeIS5_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSD_.exit ], [ 0, %36 ], [ 0, %68 ]
+  %.sroa.024.0 = phi ptr [ %.sroa.021.033.us, %36 ], [ %138, %_ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKN27RecordingSceneIndexObserver5EventES7_NS_10_AllocNodeISaINS_10_Hash_nodeIS5_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSD_.exit ], [ %124, %_ZNKSt10_HashtableIN27RecordingSceneIndexObserver5EventES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ENS1_11HashFunctorENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS3_10_Hash_nodeIS1_Lb1EEEmRKT_m.exit ], [ %.sroa.021.033, %68 ]
+  %.sroa.4.0 = phi i8 [ 0, %36 ], [ 1, %_ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKN27RecordingSceneIndexObserver5EventES7_NS_10_AllocNodeISaINS_10_Hash_nodeIS5_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSD_.exit ], [ 0, %_ZNKSt10_HashtableIN27RecordingSceneIndexObserver5EventES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ENS1_11HashFunctorENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS3_10_Hash_nodeIS1_Lb1EEEmRKT_m.exit ], [ 0, %68 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.024.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.4.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -49604,7 +49604,7 @@ define linkonce_odr dso_local noundef ptr @_ZNKSt10_HashtableIN27RecordingSceneI
   br i1 %.not17, label %.split, label %_ZNKSt8__detail15_Hashtable_baseIN27RecordingSceneIndexObserver5EventES2_NS_9_IdentityESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS2_EEbRKT_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit, !llvm.loop !264
 
 _ZNKSt8__detail15_Hashtable_baseIN27RecordingSceneIndexObserver5EventES2_NS_9_IdentityESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS2_EEbRKT_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit: ; preds = %.loopexit, %85, %81, %47, %45, %41, %4
-  %.014 = phi ptr [ null, %4 ], [ %.013.us, %41 ], [ null, %45 ], [ null, %47 ], [ %.013, %81 ], [ null, %85 ], [ null, %.loopexit ]
+  %.014 = phi ptr [ null, %4 ], [ %.013, %81 ], [ null, %45 ], [ %.013.us, %41 ], [ null, %47 ], [ null, %85 ], [ null, %.loopexit ]
   ret ptr %.014
 }
 
@@ -50411,47 +50411,47 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__8TfRefP
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load atomic i32, ptr %4 monotonic, align 4
   %6 = icmp slt i32 %5, 0
-  br i1 %6, label %7, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i
+  br i1 %6, label %7, label %15
 
 7:                                                ; preds = %3
   %.not68.i.i = icmp eq i32 %5, -2
-  br i1 %.not68.i.i, label %15, label %8
+  br i1 %.not68.i.i, label %13, label %8
 
 8:                                                ; preds = %7
   %9 = add nsw i32 %5, 1
   %10 = cmpxchg weak ptr %4, i32 %5, i32 %9 release monotonic, align 4
   %11 = extractvalue { i32, i1 } %10, 1
   %12 = extractvalue { i32, i1 } %10, 0
-  br i1 %11, label %13, label %15
+  br i1 %11, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i, label %13
 
-13:                                               ; preds = %8
-  %14 = icmp eq i32 %5, -1
-  br i1 %14, label %19, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_21HdPrefixingSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit
-
-15:                                               ; preds = %8, %7
+13:                                               ; preds = %8, %7
   %.067.i.i = phi i32 [ %12, %8 ], [ -2, %7 ]
-  %16 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %2, i32 noundef %.067.i.i)
+  %14 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %2, i32 noundef %.067.i.i)
           to label %.noexc unwind label %23
 
-.noexc:                                           ; preds = %15
-  br i1 %16, label %19, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_21HdPrefixingSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit
+.noexc:                                           ; preds = %13
+  br i1 %14, label %19, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_21HdPrefixingSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i: ; preds = %3
-  %17 = atomicrmw sub ptr %4, i32 1 release, align 4
-  %18 = icmp eq i32 %17, 1
+15:                                               ; preds = %3
+  %16 = atomicrmw sub ptr %4, i32 1 release, align 4
+  %17 = icmp eq i32 %16, 1
+  br i1 %17, label %19, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_21HdPrefixingSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit
+
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i: ; preds = %8
+  %18 = icmp eq i32 %5, -1
   br i1 %18, label %19, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_21HdPrefixingSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit
 
-19:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i, %.noexc, %13
+19:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i, %15, %.noexc
   %20 = load ptr, ptr %2, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(12) %2) #23
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_21HdPrefixingSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_21HdPrefixingSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit: ; preds = %19, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i, %.noexc, %13, %1
+_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_21HdPrefixingSceneIndexEE10_RemoveRefEPKNS_9TfRefBaseE.exit: ; preds = %19, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i, %15, %.noexc, %1
   ret void
 
-23:                                               ; preds = %15
+23:                                               ; preds = %13
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
@@ -51039,7 +51039,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_Z
   br i1 %or.cond7.not, label %.lr.ph.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7SdfPathES3_EbT_S4_T0_.exit, !llvm.loop !235
 
 _ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7SdfPathES3_EbT_S4_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7SdfPathEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7SdfPathEE11IsIdenticalERKS2_.exit
-  %88 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7SdfPathEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7SdfPathEE11IsIdenticalERKS2_.exit.thread ], [ %85, %.lr.ph.i.i.i.i ]
+  %88 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7SdfPathEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7SdfPathEE11IsIdenticalERKS2_.exit.thread ], [ true, %83 ], [ %85, %.lr.ph.i.i.i.i ]
   ret i1 %88
 }
 
@@ -51556,7 +51556,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7SdfPathEJRKS1_EEvPT_DpOT0_.
   br i1 %.not.i.i.i.i77, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7SdfPathEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i72, !llvm.loop !234
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7SdfPathEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7SdfPathEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i76, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7SdfPathEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i59, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7SdfPathEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i, %165, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7SdfPathEE13_AllocateCopyEPS1_mm.exit, %44, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7SdfPathEE13_AllocateCopyEPS1_mm.exit70
-  %.0 = phi ptr [ %146, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7SdfPathEE13_AllocateCopyEPS1_mm.exit70 ], [ %45, %44 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7SdfPathEE13_AllocateCopyEPS1_mm.exit ], [ %146, %165 ], [ %45, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7SdfPathEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i ], [ %.1, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7SdfPathEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i59 ], [ %43, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit ], [ %146, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7SdfPathEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i76 ]
+  %.0 = phi ptr [ %45, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7SdfPathEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i ], [ %.1, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7SdfPathEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i59 ], [ %43, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit ], [ %146, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7SdfPathEE13_AllocateCopyEPS1_mm.exit70 ], [ %45, %44 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7SdfPathEE13_AllocateCopyEPS1_mm.exit ], [ %146, %165 ], [ %146, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7SdfPathEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i76 ]
   %189 = load ptr, ptr %42, align 8
   %.not45 = icmp eq ptr %.0, %189
   br i1 %.not45, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7SdfPathEE5clearEv.exit.sink.split, label %190
@@ -51567,7 +51567,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7SdfPathEE6assignIPKS1_EENSt9e
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7SdfPathEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7SdfPathEE5clearEv.exit.sink.split: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7SdfPathEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, %190, %17, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7SdfPathEE9_IsUniqueEv.exit.thread.i
-  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7SdfPathEE9_IsUniqueEv.exit.thread.i ], [ 0, %17 ], [ %1, %190 ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7SdfPathEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i ]
+  %.sink = phi i64 [ 0, %17 ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7SdfPathEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7SdfPathEE9_IsUniqueEv.exit.thread.i ], [ %1, %190 ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7SdfPathEE5clearEv.exit
 
@@ -53990,8 +53990,8 @@ _ZNSt8__detail12_NodeBuilderINS_10_Select1stEE8_S_buildIRKN32pxrInternal_v0_24__
   resume { ptr, i32 } %75
 
 _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS1_EEPNS6_10_Hash_nodeIS4_Lb1EEEmRKT_m.exit: ; preds = %14, %44, %_ZNSt8__detail12_NodeBuilderINS_10_Select1stEE8_S_buildIRKN32pxrInternal_v0_24__pxrReserved__7SdfPathERKSt4pairIS6_mENS_10_AllocNodeISaINS_10_Hash_nodeIS9_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSH_.exit, %36
-  %.sroa.023.0 = phi ptr [ %37, %36 ], [ %73, %_ZNSt8__detail12_NodeBuilderINS_10_Select1stEE8_S_buildIRKN32pxrInternal_v0_24__pxrReserved__7SdfPathERKSt4pairIS6_mENS_10_AllocNodeISaINS_10_Hash_nodeIS9_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSH_.exit ], [ %49, %44 ], [ %.sroa.020.0, %14 ]
-  %.sroa.4.0 = phi i8 [ 0, %36 ], [ 1, %_ZNSt8__detail12_NodeBuilderINS_10_Select1stEE8_S_buildIRKN32pxrInternal_v0_24__pxrReserved__7SdfPathERKSt4pairIS6_mENS_10_AllocNodeISaINS_10_Hash_nodeIS9_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSH_.exit ], [ 0, %44 ], [ 0, %14 ]
+  %.sroa.023.0 = phi ptr [ %49, %44 ], [ %73, %_ZNSt8__detail12_NodeBuilderINS_10_Select1stEE8_S_buildIRKN32pxrInternal_v0_24__pxrReserved__7SdfPathERKSt4pairIS6_mENS_10_AllocNodeISaINS_10_Hash_nodeIS9_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSH_.exit ], [ %37, %36 ], [ %.sroa.020.0, %14 ]
+  %.sroa.4.0 = phi i8 [ 0, %44 ], [ 1, %_ZNSt8__detail12_NodeBuilderINS_10_Select1stEE8_S_buildIRKN32pxrInternal_v0_24__pxrReserved__7SdfPathERKSt4pairIS6_mENS_10_AllocNodeISaINS_10_Hash_nodeIS9_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSH_.exit ], [ 0, %36 ], [ 0, %14 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.023.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.4.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -55000,8 +55000,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrRes
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i.i.i.i
-  %.011.i.i.i.i.i.i.i.i = phi ptr [ %spec.select.i.i4.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i.i.i.i ], [ %28, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.0810.i.i.i.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i.i.i.i ], [ %27, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = phi ptr [ %28, %.lr.ph.i.i.i.i.i.i.i.i ], [ %spec.select.i.i4.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i.i.i.i ]
+  %.0810.i.i.i.i.i.i.i.i = phi ptr [ %27, %.lr.ph.i.i.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i.i.i.i ]
   %21 = load ptr, ptr %.0810.i.i.i.i.i.i.i.i, align 8
   %22 = ptrtoint ptr %21 to i64
   %23 = load ptr, ptr %.011.i.i.i.i.i.i.i.i, align 8
@@ -55050,8 +55050,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrRes
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i.i.i.i
-  %.011.i.i.i.i.i.i.i.i = phi ptr [ %spec.select.i.i4.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i.i.i.i ], [ %27, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.0810.i.i.i.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i.i.i.i ], [ %26, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = phi ptr [ %27, %.lr.ph.i.i.i.i.i.i.i.i ], [ %spec.select.i.i4.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i.i.i.i ]
+  %.0810.i.i.i.i.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i.i.i.i ]
   %20 = load ptr, ptr %.0810.i.i.i.i.i.i.i.i, align 8
   %21 = ptrtoint ptr %20 to i64
   %22 = load ptr, ptr %.011.i.i.i.i.i.i.i.i, align 8
@@ -55766,7 +55766,7 @@ _ZNK27RecordingSceneIndexObserver5EventeqERKS0_.exit: ; preds = %47, %64
   br i1 %.not25, label %.loopexit27, label %12, !llvm.loop !339
 
 .loopexit27:                                      ; preds = %12, %_ZNK27RecordingSceneIndexObserver5EventeqERKS0_.exit, %.loopexit, %68, %7, %2
-  %.016 = phi i1 [ false, %2 ], [ true, %7 ], [ false, %68 ], [ false, %.loopexit ], [ %.not18.not.not, %_ZNK27RecordingSceneIndexObserver5EventeqERKS0_.exit ], [ %.not18.not.not, %12 ]
+  %.016 = phi i1 [ false, %2 ], [ true, %7 ], [ false, %.loopexit ], [ false, %68 ], [ %.not18.not.not, %_ZNK27RecordingSceneIndexObserver5EventeqERKS0_.exit ], [ %.not18.not.not, %12 ]
   ret i1 %.016
 }
 

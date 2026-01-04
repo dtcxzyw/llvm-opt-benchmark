@@ -360,8 +360,8 @@ dgemv_kernel_4x4.exit371:                         ; preds = %.lr.ph3.i364, %.pre
   br i1 %34, label %32, label %203, !llvm.loop !15
 
 203:                                              ; preds = %32, %202
-  %.0345.lcssa = phi ptr [ %.1346, %202 ], [ %.0345435, %32 ]
-  %.0317.lcssa = phi ptr [ %199, %202 ], [ %.0317437, %32 ]
+  %.0345.lcssa = phi ptr [ %.0345435, %32 ], [ %.1346, %202 ]
+  %.0317.lcssa = phi ptr [ %.0317437, %32 ], [ %199, %202 ]
   switch i64 %20, label %default.unreachable [
     i64 0, label %413
     i64 3, label %204
@@ -501,9 +501,9 @@ dgemv_kernel_4x4.exit371:                         ; preds = %.lr.ph3.i364, %.pre
   br i1 %exitcond563.not, label %.loopexit, label %.lr.ph488, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.lr.ph488, %.lr.ph511, %.preheader
-  %.2309 = phi double [ %.0307.lcssa, %.preheader ], [ %265, %.lr.ph511 ], [ %277, %.lr.ph488 ]
-  %.2305 = phi double [ %.0303.lcssa, %.preheader ], [ %268, %.lr.ph511 ], [ %280, %.lr.ph488 ]
-  %.2301 = phi double [ %.0299.lcssa, %.preheader ], [ %271, %.lr.ph511 ], [ %283, %.lr.ph488 ]
+  %.2309 = phi double [ %265, %.lr.ph511 ], [ %.0307.lcssa, %.preheader ], [ %277, %.lr.ph488 ]
+  %.2305 = phi double [ %268, %.lr.ph511 ], [ %.0303.lcssa, %.preheader ], [ %280, %.lr.ph488 ]
+  %.2301 = phi double [ %271, %.lr.ph511 ], [ %.0299.lcssa, %.preheader ], [ %283, %.lr.ph488 ]
   %287 = load double, ptr %12, align 8, !tbaa !3
   %288 = load double, ptr %.0345.lcssa, align 8, !tbaa !3
   %289 = call double @llvm.fmuladd.f64(double %287, double %.2309, double %288)
@@ -626,8 +626,8 @@ dgemv_kernel_4x4.exit371:                         ; preds = %.lr.ph3.i364, %.pre
   br i1 %exitcond561.not, label %.loopexit398, label %.lr.ph460, !llvm.loop !21
 
 .loopexit398:                                     ; preds = %.lr.ph460, %.lr.ph479, %.preheader397
-  %.2297 = phi double [ %.0295.lcssa, %.preheader397 ], [ %343, %.lr.ph479 ], [ %352, %.lr.ph460 ]
-  %.2293 = phi double [ %.0291.lcssa, %.preheader397 ], [ %346, %.lr.ph479 ], [ %355, %.lr.ph460 ]
+  %.2297 = phi double [ %343, %.lr.ph479 ], [ %.0295.lcssa, %.preheader397 ], [ %352, %.lr.ph460 ]
+  %.2293 = phi double [ %346, %.lr.ph479 ], [ %.0291.lcssa, %.preheader397 ], [ %355, %.lr.ph460 ]
   %359 = load double, ptr %12, align 8, !tbaa !3
   %360 = load double, ptr %.0345.lcssa, align 8, !tbaa !3
   %361 = call double @llvm.fmuladd.f64(double %359, double %.2297, double %360)
@@ -721,7 +721,7 @@ default.unreachable:                              ; preds = %203
   br i1 %exitcond559.not, label %.loopexit403, label %.lr.ph444, !llvm.loop !24
 
 .loopexit403:                                     ; preds = %.lr.ph444, %.lr.ph453, %.preheader402
-  %.2 = phi double [ %.0.lcssa, %.preheader402 ], [ %402, %.lr.ph453 ], [ %406, %.lr.ph444 ]
+  %.2 = phi double [ %402, %.lr.ph453 ], [ %.0.lcssa, %.preheader402 ], [ %406, %.lr.ph444 ]
   %410 = load double, ptr %12, align 8, !tbaa !3
   %411 = load double, ptr %.0345.lcssa, align 8, !tbaa !3
   %412 = call double @llvm.fmuladd.f64(double %410, double %.2, double %411)

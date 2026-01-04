@@ -1652,7 +1652,7 @@ lpad:                                             ; preds = %if.else.i, %entry
   resume { ptr, i32 } %10
 
 cleanup:                                          ; preds = %invoke.cont.i.i.i, %if.end.i, %invoke.cont, %land.lhs.true
-  %retval.0 = phi i1 [ false, %land.lhs.true ], [ false, %invoke.cont ], [ true, %if.end.i ], [ true, %invoke.cont.i.i.i ]
+  %retval.0 = phi i1 [ false, %invoke.cont ], [ false, %land.lhs.true ], [ true, %if.end.i ], [ true, %invoke.cont.i.i.i ]
   %11 = load ptr, ptr %other, align 8
   %_M_finish.i.i.i2 = getelementptr inbounds nuw i8, ptr %other, i64 8
   %12 = load ptr, ptr %_M_finish.i.i.i2, align 8
@@ -2656,7 +2656,7 @@ sw.epilog:                                        ; preds = %_ZN6google8protobuf
   br label %return
 
 return:                                           ; preds = %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i, %_ZN6google8protobuf8internal24UnknownFieldParserHelper10ParseGroupEjPKcPNS1_12ParseContextE.exit.thread, %if.end, %_ZN6google8protobuf8internal24UnknownFieldParserHelper10ParseGroupEjPKcPNS1_12ParseContextE.exit, %_ZN6google8protobuf8internal24UnknownFieldParserHelper20ParseLengthDelimitedEjPKcPNS1_12ParseContextE.exit, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit, %entry, %sw.epilog
-  %retval.0 = phi ptr [ %ptr.addr.0, %sw.epilog ], [ null, %entry ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit ], [ null, %_ZN6google8protobuf8internal24UnknownFieldParserHelper20ParseLengthDelimitedEjPKcPNS1_12ParseContextE.exit ], [ null, %_ZN6google8protobuf8internal24UnknownFieldParserHelper10ParseGroupEjPKcPNS1_12ParseContextE.exit ], [ null, %if.end ], [ null, %_ZN6google8protobuf8internal24UnknownFieldParserHelper10ParseGroupEjPKcPNS1_12ParseContextE.exit.thread ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ]
+  %retval.0 = phi ptr [ null, %_ZN6google8protobuf8internal24UnknownFieldParserHelper10ParseGroupEjPKcPNS1_12ParseContextE.exit ], [ %ptr.addr.0, %sw.epilog ], [ null, %entry ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit ], [ null, %_ZN6google8protobuf8internal24UnknownFieldParserHelper20ParseLengthDelimitedEjPKcPNS1_12ParseContextE.exit ], [ null, %if.end ], [ null, %_ZN6google8protobuf8internal24UnknownFieldParserHelper10ParseGroupEjPKcPNS1_12ParseContextE.exit.thread ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ]
   ret ptr %retval.0
 }
 

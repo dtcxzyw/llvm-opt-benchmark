@@ -929,9 +929,9 @@ tailrecurse.i.i.i:                                ; preds = %tailrecurse.i.i.i, 
   br label %_ZN4llvm13ScaledNumbers6getSumImEESt4pairIT_sES3_sS3_s.exit.i
 
 _ZN4llvm13ScaledNumbers6getSumImEESt4pairIT_sES3_sS3_s.exit.i: ; preds = %180, %158, %156
-  %.0..0..i.i = phi i64 [ %.0..0..0..0..0..0..0..pre.i.i, %180 ], [ %151, %156 ], [ %151, %158 ]
-  %.0..0.12.i.i = phi i64 [ %.0..0..0..0..0..0..0.12.pre.i.i, %180 ], [ %148, %156 ], [ %148, %158 ]
-  %.0.i.i.i = phi i16 [ %.1.i.i.i, %180 ], [ %154, %156 ], [ %153, %158 ]
+  %.0..0..i.i = phi i64 [ %151, %158 ], [ %151, %156 ], [ %.0..0..0..0..0..0..0..pre.i.i, %180 ]
+  %.0..0.12.i.i = phi i64 [ %148, %158 ], [ %148, %156 ], [ %.0..0..0..0..0..0..0.12.pre.i.i, %180 ]
+  %.0.i.i.i = phi i16 [ %153, %158 ], [ %154, %156 ], [ %.1.i.i.i, %180 ]
   %181 = add i64 %.0..0.12.i.i, %.0..0..i.i
   %.not.i.i = icmp ult i64 %181, %.0..0..i.i
   %182 = lshr i64 %181, 1
@@ -1861,9 +1861,9 @@ tailrecurse.i.i.i:                                ; preds = %tailrecurse.i.i.i, 
   br label %_ZN4llvm13ScaledNumbers6getSumImEESt4pairIT_sES3_sS3_s.exit.i
 
 _ZN4llvm13ScaledNumbers6getSumImEESt4pairIT_sES3_sS3_s.exit.i: ; preds = %192, %170, %168
-  %.0..0..i.i = phi i64 [ %.0..0..0..0..0..0..0..pre.i.i, %192 ], [ %163, %168 ], [ %163, %170 ]
-  %.0..0.12.i.i = phi i64 [ %.0..0..0..0..0..0..0.12.pre.i.i, %192 ], [ %160, %168 ], [ %160, %170 ]
-  %.0.i.i.i = phi i16 [ %.1.i.i.i, %192 ], [ %166, %168 ], [ %165, %170 ]
+  %.0..0..i.i = phi i64 [ %163, %170 ], [ %163, %168 ], [ %.0..0..0..0..0..0..0..pre.i.i, %192 ]
+  %.0..0.12.i.i = phi i64 [ %160, %170 ], [ %160, %168 ], [ %.0..0..0..0..0..0..0.12.pre.i.i, %192 ]
+  %.0.i.i.i = phi i16 [ %165, %170 ], [ %166, %168 ], [ %.1.i.i.i, %192 ]
   %193 = add i64 %.0..0.12.i.i, %.0..0..i.i
   %.not.i.i64 = icmp ult i64 %193, %.0..0..i.i
   %194 = lshr i64 %193, 1
@@ -4909,7 +4909,7 @@ _ZNSt3mapIN4llvm9ValueInfoEbSt4lessIS1_ESaISt4pairIKS1_bEEE11lower_boundERS5_.ex
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %32, %30
-  %41 = phi i1 [ true, %30 ], [ %40, %32 ]
+  %41 = phi i1 [ %40, %32 ], [ true, %30 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %41, ptr noundef nonnull %23, ptr noundef nonnull %29, ptr noundef nonnull align 8 dereferenceable(32) %6) #18
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %43 = load i64, ptr %42, align 8, !tbaa !373
@@ -4922,8 +4922,8 @@ _ZNSt3mapIN4llvm9ValueInfoEbSt4lessIS1_ESaISt4pairIKS1_bEEE11lower_boundERS5_.ex
   br label %_ZNSt3mapIN4llvm9ValueInfoEbSt4lessIS1_ESaISt4pairIKS1_bEEE12emplace_hintIJRS1_bEEESt17_Rb_tree_iteratorIS6_ESt23_Rb_tree_const_iteratorIS6_EDpOT_.exit
 
 _ZNSt3mapIN4llvm9ValueInfoEbSt4lessIS1_ESaISt4pairIKS1_bEEE12emplace_hintIJRS1_bEEESt17_Rb_tree_iteratorIS6_ESt23_Rb_tree_const_iteratorIS6_EDpOT_.exit: ; preds = %17, %45, %.thread.i.i
-  %.sroa.018.0 = phi ptr [ %23, %.thread.i.i ], [ %28, %45 ], [ %.19.i.i.i, %17 ]
-  %.sroa.3.0 = phi i8 [ 1, %.thread.i.i ], [ 1, %45 ], [ 0, %17 ]
+  %.sroa.018.0 = phi ptr [ %28, %45 ], [ %23, %.thread.i.i ], [ %.19.i.i.i, %17 ]
+  %.sroa.3.0 = phi i8 [ 1, %45 ], [ 1, %.thread.i.i ], [ 0, %17 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.018.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.3.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -5007,7 +5007,7 @@ _ZNSt3mapIN4llvm9ValueInfoEbSt4lessIS1_ESaISt4pairIKS1_bEEE11lower_boundERS5_.ex
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %32, %30
-  %41 = phi i1 [ true, %30 ], [ %40, %32 ]
+  %41 = phi i1 [ %40, %32 ], [ true, %30 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %41, ptr noundef nonnull %23, ptr noundef nonnull %29, ptr noundef nonnull align 8 dereferenceable(32) %6) #18
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %43 = load i64, ptr %42, align 8, !tbaa !373
@@ -5020,8 +5020,8 @@ _ZNSt3mapIN4llvm9ValueInfoEbSt4lessIS1_ESaISt4pairIKS1_bEEE11lower_boundERS5_.ex
   br label %_ZNSt3mapIN4llvm9ValueInfoEbSt4lessIS1_ESaISt4pairIKS1_bEEE12emplace_hintIJRS5_bEEESt17_Rb_tree_iteratorIS6_ESt23_Rb_tree_const_iteratorIS6_EDpOT_.exit
 
 _ZNSt3mapIN4llvm9ValueInfoEbSt4lessIS1_ESaISt4pairIKS1_bEEE12emplace_hintIJRS5_bEEESt17_Rb_tree_iteratorIS6_ESt23_Rb_tree_const_iteratorIS6_EDpOT_.exit: ; preds = %17, %45, %.thread.i.i
-  %.sroa.018.0 = phi ptr [ %23, %.thread.i.i ], [ %28, %45 ], [ %.19.i.i.i, %17 ]
-  %.sroa.3.0 = phi i8 [ 1, %.thread.i.i ], [ 1, %45 ], [ 0, %17 ]
+  %.sroa.018.0 = phi ptr [ %28, %45 ], [ %23, %.thread.i.i ], [ %.19.i.i.i, %17 ]
+  %.sroa.3.0 = phi i8 [ 1, %45 ], [ 1, %.thread.i.i ], [ 0, %17 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.018.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.3.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -5274,8 +5274,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN4llvm9ValueInfoESt4pairIKS1_bE
   br label %_ZNSt8_Rb_treeIN4llvm9ValueInfoESt4pairIKS1_bESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE24_M_get_insert_unique_posERS3_.exit
 
 _ZNSt8_Rb_treeIN4llvm9ValueInfoESt4pairIKS1_bESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE24_M_get_insert_unique_posERS3_.exit: ; preds = %106, %._crit_edge.thread.i63, %74, %._crit_edge.thread.i35, %36, %._crit_edge.thread.i, %90, %60, %77, %79, %49, %9
-  %.sroa.086.0 = phi ptr [ null, %9 ], [ %51, %49 ], [ null, %79 ], [ %1, %77 ], [ %spec.select, %60 ], [ %spec.select88, %90 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %36 ], [ null, %._crit_edge.thread.i35 ], [ %spec.select.i29, %74 ], [ null, %._crit_edge.thread.i63 ], [ %spec.select.i57, %106 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %51, %49 ], [ %81, %79 ], [ null, %77 ], [ %spec.select87, %60 ], [ %spec.select89, %90 ], [ %.021.lcssa31.i, %._crit_edge.thread.i ], [ %spec.select23.i, %36 ], [ %.021.lcssa31.i36, %._crit_edge.thread.i35 ], [ %spec.select23.i30, %74 ], [ %.021.lcssa31.i64, %._crit_edge.thread.i63 ], [ %spec.select23.i58, %106 ]
+  %.sroa.086.0 = phi ptr [ null, %79 ], [ %spec.select, %60 ], [ null, %9 ], [ %spec.select88, %90 ], [ null, %._crit_edge.thread.i ], [ %51, %49 ], [ %1, %77 ], [ null, %._crit_edge.thread.i35 ], [ %spec.select.i, %36 ], [ %spec.select.i29, %74 ], [ %spec.select.i57, %106 ], [ null, %._crit_edge.thread.i63 ]
+  %.sroa.12.0 = phi ptr [ %81, %79 ], [ %spec.select87, %60 ], [ %11, %9 ], [ %spec.select89, %90 ], [ %.021.lcssa31.i, %._crit_edge.thread.i ], [ %51, %49 ], [ null, %77 ], [ %.021.lcssa31.i36, %._crit_edge.thread.i35 ], [ %spec.select23.i, %36 ], [ %spec.select23.i30, %74 ], [ %spec.select23.i58, %106 ], [ %.021.lcssa31.i64, %._crit_edge.thread.i63 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.086.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

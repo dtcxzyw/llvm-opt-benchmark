@@ -544,7 +544,7 @@ _ZN5ArrayIhE5AllocEm.exit:                        ; preds = %_ZN5ArrayIhEC2Em.ex
   br i1 %.not59, label %228, label %212
 
 .thread162:                                       ; preds = %284, %.noexc139, %273, %259, %_ZN10uiMsgStoreC2E14UIMESSAGE_CODE.exit.i111, %212, %_ZN5ArrayIhEC2Em.exit
-  %.sroa.0.0.ph = phi ptr [ %malloc.i, %_ZN5ArrayIhEC2Em.exit ], [ %malloc.i, %212 ], [ %malloc.i, %_ZN10uiMsgStoreC2E14UIMESSAGE_CODE.exit.i111 ], [ %.sroa.0.4, %259 ], [ %.sroa.0.4, %273 ], [ %.sroa.0.4, %.noexc139 ], [ %.sroa.0.4, %284 ]
+  %.sroa.0.0.ph = phi ptr [ %malloc.i, %_ZN5ArrayIhEC2Em.exit ], [ %.sroa.0.4, %284 ], [ %malloc.i, %212 ], [ %malloc.i, %_ZN10uiMsgStoreC2E14UIMESSAGE_CODE.exit.i111 ], [ %.sroa.0.4, %259 ], [ %.sroa.0.4, %273 ], [ %.sroa.0.4, %.noexc139 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %211
@@ -751,7 +751,7 @@ _ZN5ArrayIhED2Ev.exit146:                         ; preds = %_ZN10uiMsgStoreC2E1
   br label %289
 
 289:                                              ; preds = %192, %_ZN5ArrayIhED2Ev.exit146, %196, %.critedge, %74, %40, %46, %30, %285, %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit
-  %.0 = phi i1 [ %288, %285 ], [ false, %192 ], [ false, %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit ], [ false, %30 ], [ false, %40 ], [ %47, %46 ], [ false, %74 ], [ false, %.critedge ], [ false, %196 ], [ false, %_ZN5ArrayIhED2Ev.exit146 ]
+  %.0 = phi i1 [ %47, %46 ], [ %288, %285 ], [ false, %192 ], [ false, %.critedge ], [ false, %_ZN5ArrayIhED2Ev.exit146 ], [ false, %30 ], [ false, %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit ], [ false, %196 ], [ false, %40 ], [ false, %74 ]
   ret i1 %.0
 
 _ZN5ArrayIhED2Ev.exit:                            ; preds = %211, %195
@@ -1730,7 +1730,7 @@ _ZN7Archive11IsSignatureEPKhm.exit.thread112:     ; preds = %53, %50, %54
   tail call void %66(ptr noundef nonnull align 8 dereferenceable(57108) %0, i64 noundef %63, i32 noundef 0)
   br label %159
 
-.thread:                                          ; preds = %27, %30, %37, %23, %54
+.thread:                                          ; preds = %27, %30, %23, %54, %37
   %malloc.i = tail call dereferenceable_or_null(2097152) ptr @malloc(i64 2097152)
   %67 = icmp eq ptr %malloc.i, null
   br i1 %67, label %68, label %_ZN5ArrayIcEC2Em.exit
@@ -1909,7 +1909,7 @@ _ZN7Archive11IsSignatureEPKhm.exit93:             ; preds = %105
   %155 = invoke noundef i32 %154(ptr noundef nonnull align 8 dereferenceable(57108) %0, ptr noundef nonnull %18, i64 noundef 7)
           to label %_ZN5ArrayIcED2Ev.exit unwind label %142
 
-_ZN7Archive11IsSignatureEPKhm.exit93.thread:      ; preds = %93, %140, %134, %136, %138, %101, %105, %131, %109, %112, %116, %120, %124, %89
+_ZN7Archive11IsSignatureEPKhm.exit93.thread:      ; preds = %93, %136, %138, %140, %134, %101, %105, %109, %112, %116, %120, %124, %131, %89
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %_ZN5ArrayIcED2Ev.exit, label %89, !llvm.loop !147
@@ -2178,7 +2178,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit103: ; preds = %214
   br label %280
 
 280:                                              ; preds = %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit, %_ZN5ArrayIcED2Ev.exit, %169, %277, %270, %220, %.thread129, %17, %_Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit
-  %.0 = phi i1 [ false, %_Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit ], [ false, %17 ], [ false, %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit ], [ false, %_ZN5ArrayIcED2Ev.exit ], [ false, %169 ], [ false, %.thread129 ], [ false, %220 ], [ true, %270 ], [ true, %277 ]
+  %.0 = phi i1 [ false, %_Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit ], [ false, %17 ], [ false, %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit ], [ false, %_ZN5ArrayIcED2Ev.exit ], [ false, %169 ], [ false, %220 ], [ false, %.thread129 ], [ true, %270 ], [ true, %277 ]
   ret i1 %.0
 }
 
@@ -2272,7 +2272,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit:  ; preds = %8
   br label %18
 
 18:                                               ; preds = %5, %2, %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit
-  %.0 = phi i1 [ false, %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit ], [ false, %2 ], [ true, %5 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit ], [ true, %5 ]
   ret i1 %.0
 }
 
@@ -2355,7 +2355,7 @@ define noundef range(i32 0, 5) i32 @_ZN7Archive11IsSignatureEPKhm(ptr noundef re
   br label %.thread
 
 .thread:                                          ; preds = %42, %38, %15, %41, %34, %30, %26, %22, %19, %3, %2
-  %.0 = phi i32 [ 3, %41 ], [ 0, %34 ], [ 0, %30 ], [ 0, %26 ], [ 0, %22 ], [ 0, %19 ], [ 0, %3 ], [ 0, %2 ], [ 1, %15 ], [ 2, %38 ], [ %spec.select, %42 ]
+  %.0 = phi i32 [ 0, %3 ], [ 1, %15 ], [ 3, %41 ], [ 2, %38 ], [ %spec.select, %42 ], [ 0, %2 ], [ 0, %34 ], [ 0, %30 ], [ 0, %26 ], [ 0, %22 ], [ 0, %19 ]
   ret i32 %.0
 }
 

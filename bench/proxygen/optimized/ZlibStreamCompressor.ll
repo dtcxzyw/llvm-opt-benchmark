@@ -451,8 +451,8 @@ for.inc.loopexit:                                 ; preds = %while.cond15thread-
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.loopexit, %invoke.cont4
-  %19 = phi ptr [ %.pre92, %for.inc.loopexit ], [ %5, %invoke.cont4 ]
-  %20 = phi ptr [ %.pre91, %for.inc.loopexit ], [ %6, %invoke.cont4 ]
+  %19 = phi ptr [ %5, %invoke.cont4 ], [ %.pre92, %for.inc.loopexit ]
+  %20 = phi ptr [ %6, %invoke.cont4 ], [ %.pre91, %for.inc.loopexit ]
   %next_.i.i.i = getelementptr inbounds nuw i8, ptr %20, i64 32
   %21 = load ptr, ptr %next_.i.i.i, align 8
   store ptr %21, ptr %__begin1, align 8

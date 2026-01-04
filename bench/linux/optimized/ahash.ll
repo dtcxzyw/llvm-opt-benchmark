@@ -198,13 +198,13 @@ define dso_local range(i32 -2147483648, 1) i32 @shash_ahash_update(ptr noundef r
   br label %92
 
 92:                                               ; preds = %65, %52, %.preheader.split.us
-  %93 = phi ptr [ %90, %65 ], [ %61, %52 ], [ %48, %.preheader.split.us ]
-  %94 = phi i32 [ %75, %65 ], [ 0, %52 ], [ %43, %.preheader.split.us ]
-  %95 = phi ptr [ %74, %65 ], [ %53, %52 ], [ %42, %.preheader.split.us ]
-  %96 = phi i32 [ %91, %65 ], [ %62, %52 ], [ %41, %.preheader.split.us ]
-  %97 = phi i32 [ %79, %65 ], [ %40, %52 ], [ %40, %.preheader.split.us ]
-  %98 = phi ptr [ %66, %65 ], [ %39, %52 ], [ %39, %.preheader.split.us ]
-  %99 = phi i32 [ %81, %65 ], [ %54, %52 ], [ %45, %.preheader.split.us ]
+  %93 = phi ptr [ %48, %.preheader.split.us ], [ %90, %65 ], [ %61, %52 ]
+  %94 = phi i32 [ %43, %.preheader.split.us ], [ %75, %65 ], [ 0, %52 ]
+  %95 = phi ptr [ %42, %.preheader.split.us ], [ %74, %65 ], [ %53, %52 ]
+  %96 = phi i32 [ %41, %.preheader.split.us ], [ %91, %65 ], [ %62, %52 ]
+  %97 = phi i32 [ %40, %.preheader.split.us ], [ %79, %65 ], [ %40, %52 ]
+  %98 = phi ptr [ %39, %.preheader.split.us ], [ %66, %65 ], [ %39, %52 ]
+  %99 = phi i32 [ %45, %.preheader.split.us ], [ %81, %65 ], [ %54, %52 ]
   %100 = icmp sgt i32 %99, 0
   br i1 %100, label %.preheader.split.us, label %.thread, !llvm.loop !5
 
@@ -275,18 +275,18 @@ define dso_local range(i32 -2147483648, 1) i32 @shash_ahash_update(ptr noundef r
   br label %156
 
 156:                                              ; preds = %129, %116, %.preheader.split
-  %157 = phi ptr [ %154, %129 ], [ %125, %116 ], [ %111, %.preheader.split ]
-  %158 = phi i32 [ %139, %129 ], [ 0, %116 ], [ %106, %.preheader.split ]
-  %159 = phi ptr [ %138, %129 ], [ %117, %116 ], [ %105, %.preheader.split ]
-  %160 = phi i32 [ %155, %129 ], [ %126, %116 ], [ %104, %.preheader.split ]
-  %161 = phi i32 [ %143, %129 ], [ %103, %116 ], [ %103, %.preheader.split ]
-  %162 = phi ptr [ %130, %129 ], [ %102, %116 ], [ %102, %.preheader.split ]
-  %163 = phi i32 [ %145, %129 ], [ %118, %116 ], [ %108, %.preheader.split ]
+  %157 = phi ptr [ %111, %.preheader.split ], [ %154, %129 ], [ %125, %116 ]
+  %158 = phi i32 [ %106, %.preheader.split ], [ %139, %129 ], [ 0, %116 ]
+  %159 = phi ptr [ %105, %.preheader.split ], [ %138, %129 ], [ %117, %116 ]
+  %160 = phi i32 [ %104, %.preheader.split ], [ %155, %129 ], [ %126, %116 ]
+  %161 = phi i32 [ %103, %.preheader.split ], [ %143, %129 ], [ %103, %116 ]
+  %162 = phi ptr [ %102, %.preheader.split ], [ %130, %129 ], [ %102, %116 ]
+  %163 = phi i32 [ %108, %.preheader.split ], [ %145, %129 ], [ %118, %116 ]
   %164 = icmp sgt i32 %163, 0
   br i1 %164, label %.preheader.split, label %.thread, !llvm.loop !5
 
 .thread:                                          ; preds = %156, %127, %92, %63, %2, %6
-  %165 = phi i32 [ 0, %6 ], [ 0, %2 ], [ 0, %63 ], [ %99, %92 ], [ 0, %127 ], [ %163, %156 ]
+  %165 = phi i32 [ 0, %6 ], [ 0, %2 ], [ %99, %92 ], [ 0, %63 ], [ 0, %127 ], [ %163, %156 ]
   ret i32 %165
 }
 
@@ -603,13 +603,13 @@ define dso_local i32 @shash_ahash_finup(ptr noundef readonly captures(none) %0, 
   br label %110
 
 110:                                              ; preds = %83, %70, %66
-  %111 = phi ptr [ %108, %83 ], [ %79, %70 ], [ %63, %66 ]
-  %112 = phi i32 [ %93, %83 ], [ 0, %70 ], [ %46, %66 ]
-  %113 = phi ptr [ %92, %83 ], [ %71, %70 ], [ %47, %66 ]
-  %114 = phi i32 [ %109, %83 ], [ %80, %70 ], [ %48, %66 ]
-  %115 = phi i32 [ %97, %83 ], [ %49, %70 ], [ %49, %66 ]
-  %116 = phi ptr [ %84, %83 ], [ %50, %70 ], [ %50, %66 ]
-  %117 = phi i32 [ %99, %83 ], [ %72, %70 ], [ %60, %66 ]
+  %111 = phi ptr [ %63, %66 ], [ %108, %83 ], [ %79, %70 ]
+  %112 = phi i32 [ %46, %66 ], [ %93, %83 ], [ 0, %70 ]
+  %113 = phi ptr [ %47, %66 ], [ %92, %83 ], [ %71, %70 ]
+  %114 = phi i32 [ %48, %66 ], [ %109, %83 ], [ %80, %70 ]
+  %115 = phi i32 [ %49, %66 ], [ %97, %83 ], [ %49, %70 ]
+  %116 = phi ptr [ %50, %66 ], [ %84, %83 ], [ %50, %70 ]
+  %117 = phi i32 [ %60, %66 ], [ %99, %83 ], [ %72, %70 ]
   %118 = icmp sgt i32 %117, 0
   br i1 %118, label %.preheader, label %.thread9, !llvm.loop !8
 
@@ -1175,7 +1175,7 @@ define dso_local ptr @crypto_clone_ahash(ptr noundef %0) #0 align 16 {
   br i1 %62, label %68, label %63
 
 63:                                               ; preds = %.thread8, %60, %55
-  %64 = phi i32 [ %61, %60 ], [ -38, %55 ], [ %52, %.thread8 ]
+  %64 = phi i32 [ %52, %.thread8 ], [ %61, %60 ], [ -38, %55 ]
   %65 = getelementptr inbounds nuw i8, ptr %35, i64 16
   tail call void @crypto_destroy_tfm(ptr noundef %35, ptr noundef nonnull %65) #9
   %66 = sext i32 %64 to i64
@@ -1801,8 +1801,8 @@ define internal noundef i32 @ahash_def_finup(ptr noundef %0) #0 align 16 {
   tail call void @kfree_sensitive(ptr noundef %107) #9
   br label %.thread2
 
-.thread2:                                         ; preds = %.thread, %1, %106, %83, %83, %76, %76
-  %109 = phi i32 [ %81, %76 ], [ %81, %76 ], [ %108, %106 ], [ %91, %83 ], [ %91, %83 ], [ -12, %1 ], [ -12, %.thread ]
+.thread2:                                         ; preds = %1, %.thread, %106, %83, %83, %76, %76
+  %109 = phi i32 [ %91, %83 ], [ %81, %76 ], [ %81, %76 ], [ %108, %106 ], [ %91, %83 ], [ -12, %.thread ], [ -12, %1 ]
   ret i32 %109
 }
 

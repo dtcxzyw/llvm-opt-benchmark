@@ -262,7 +262,7 @@ define internal fastcc void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$l
           cleanup
   br label %.body.thread
 
-.body.thread40.loopexit.split-lp:                 ; preds = %123, %95, %5, %78, %83, %265
+.body.thread40.loopexit.split-lp:                 ; preds = %95, %5, %78, %83, %123, %265
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -988,7 +988,7 @@ define internal fastcc void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$l
           to label %194 unwind label %196, !noalias !6
 
 264:                                              ; preds = %132, %.thread.i
-  %.pn442.i = phi { ptr, i32 } [ %.pn42.i, %132 ], [ %131, %.thread.i ]
+  %.pn442.i = phi { ptr, i32 } [ %131, %.thread.i ], [ %.pn42.i, %132 ]
   invoke void @"_ZN4core3ptr208drop_in_place$LT$std..collections..hash..map..HashMap$LT$logos_codegen..graph..NodeId$C$alloc..vec..Vec$LT$logos_codegen..graph..range..Range$GT$$C$core..hash..BuildHasherDefault$LT$fnv..FnvHasher$GT$$GT$$GT$17h9539392c9da8ab4bE"(ptr nonnull align 8 %60) #8
           to label %.body.thread37 unwind label %258, !noalias !6
 
@@ -1207,11 +1207,11 @@ define internal fastcc void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$l
           to label %74 unwind label %.body.thread40.loopexit
 
 .body.thread37:                                   ; preds = %264, %132, %.body.thread, %67
-  %.pn2433 = phi { ptr, i32 } [ %.pn2434, %.body.thread ], [ %.pn22, %67 ], [ %.pn442.i, %264 ], [ %.pn42.i, %132 ]
+  %.pn2433 = phi { ptr, i32 } [ %.pn442.i, %264 ], [ %.pn2434, %.body.thread ], [ %.pn22, %67 ], [ %.pn42.i, %132 ]
   resume { ptr, i32 } %.pn2433
 
 .body.thread:                                     ; preds = %.body.thread40.loopexit, %.body.thread40.loopexit.split-lp, %99, %67
-  %.pn2434 = phi { ptr, i32 } [ %.pn22, %67 ], [ %.pn.pn.i, %99 ], [ %lpad.loopexit, %.body.thread40.loopexit ], [ %lpad.loopexit.split-lp, %.body.thread40.loopexit.split-lp ]
+  %.pn2434 = phi { ptr, i32 } [ %.pn.pn.i, %99 ], [ %.pn22, %67 ], [ %lpad.loopexit, %.body.thread40.loopexit ], [ %lpad.loopexit.split-lp, %.body.thread40.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr208drop_in_place$LT$std..collections..hash..map..HashMap$LT$logos_codegen..graph..NodeId$C$alloc..vec..Vec$LT$logos_codegen..graph..range..Range$GT$$C$core..hash..BuildHasherDefault$LT$fnv..FnvHasher$GT$$GT$$GT$17h9539392c9da8ab4bE"(ptr nonnull align 8 %64) #8
           to label %.body.thread37 unwind label %320
 }
@@ -4724,8 +4724,8 @@ define hidden nonnull align 8 ptr @_ZN13logos_codegen9generator9Generator4goto17
   br i1 %134, label %130, label %131
 
 .thread63:                                        ; preds = %503, %298, %205, %.thread67, %152, %138
-  %.pn18.pn = phi { ptr, i32 } [ %.pn, %152 ], [ %139, %138 ], [ %lpad.thr_comm, %.thread67 ], [ %.pn16.i, %205 ], [ %.pn15.i, %298 ], [ %.pn2.i, %503 ]
-  %.sroa.06.4 = phi i8 [ 1, %152 ], [ 1, %138 ], [ %.sroa.06.6, %.thread67 ], [ %.sroa.06.6, %205 ], [ %.sroa.06.6, %298 ], [ %.sroa.06.6, %503 ]
+  %.pn18.pn = phi { ptr, i32 } [ %.pn2.i, %503 ], [ %lpad.thr_comm, %.thread67 ], [ %.pn, %152 ], [ %139, %138 ], [ %.pn15.i, %298 ], [ %.pn16.i, %205 ]
+  %.sroa.06.4 = phi i8 [ %.sroa.06.6, %503 ], [ %.sroa.06.6, %.thread67 ], [ 1, %152 ], [ 1, %138 ], [ %.sroa.06.6, %298 ], [ %.sroa.06.6, %205 ]
   %135 = load i64, ptr %96, align 8
   %136 = icmp ne i64 %135, -9223372036854775807
   %137 = trunc nuw i8 %.sroa.06.4 to i1
@@ -4884,7 +4884,7 @@ define hidden nonnull align 8 ptr @_ZN13logos_codegen9generator9Generator4goto17
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h42e110f8c7741f7dE"(ptr nonnull align 8 %89)
           to label %163 unwind label %180
 
-.thread67:                                        ; preds = %183, %163, %184, %188, %.noexc23, %195, %540, %289, %496, %197, %.noexc43, %288
+.thread67:                                        ; preds = %540, %183, %163, %184, %188, %.noexc23, %195, %288, %496, %289, %197, %.noexc43
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread63
@@ -5525,7 +5525,7 @@ define hidden nonnull align 8 ptr @_ZN13logos_codegen9generator9Generator4goto17
           to label %356 unwind label %337, !noalias !9
 
 356:                                              ; preds = %495, %476, %418, %391, %355
-  %.sink.i = phi ptr [ %28, %391 ], [ %53, %418 ], [ %48, %476 ], [ %37, %495 ], [ %33, %355 ]
+  %.sink.i = phi ptr [ %48, %476 ], [ %53, %418 ], [ %28, %391 ], [ %37, %495 ], [ %33, %355 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef nonnull align 8 dereferenceable(32) %.sink.i, i64 32, i1 false)
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h42e110f8c7741f7dE"(ptr nonnull align 8 %57)
           to label %496 unwind label %299, !noalias !9
@@ -6309,7 +6309,7 @@ define hidden nonnull align 8 ptr @_ZN13logos_codegen9generator9Generator4goto17
           to label %.thread63.thread unwind label %181
 
 .thread63.thread:                                 ; preds = %.thread, %548, %.thread63
-  %.pn18.pn74 = phi { ptr, i32 } [ %.pn18.pn, %548 ], [ %.pn18.pn, %.thread63 ], [ %.pn1853, %.thread ]
+  %.pn18.pn74 = phi { ptr, i32 } [ %.pn18.pn, %.thread63 ], [ %.pn18.pn, %548 ], [ %.pn1853, %.thread ]
   resume { ptr, i32 } %.pn18.pn74
 
 548:                                              ; preds = %.thread63
@@ -7227,7 +7227,7 @@ define hidden nonnull align 8 ptr @_ZN13logos_codegen9generator9Generator13gener
           to label %290 unwind label %.loopexit
 
 .thread:                                          ; preds = %.thread142.loopexit, %.thread142.loopexit.split-lp.loopexit.split-lp, %.thread142.loopexit.split-lp.loopexit, %109, %157, %153, %167, %232, %74
-  %.pn134140 = phi { ptr, i32 } [ %.pn132, %74 ], [ %.pn.pn, %109 ], [ %.pn120, %157 ], [ %154, %153 ], [ %.pn124.pn, %167 ], [ %.pn128, %232 ], [ %lpad.loopexit145, %.thread142.loopexit ], [ %lpad.loopexit148, %.thread142.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp149, %.thread142.loopexit.split-lp.loopexit.split-lp ]
+  %.pn134140 = phi { ptr, i32 } [ %.pn128, %232 ], [ %.pn132, %74 ], [ %.pn.pn, %109 ], [ %.pn120, %157 ], [ %154, %153 ], [ %.pn124.pn, %167 ], [ %lpad.loopexit145, %.thread142.loopexit ], [ %lpad.loopexit148, %.thread142.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp149, %.thread142.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h833339f276f31dc6E"(ptr nonnull align 8 %49) #8
           to label %53 unwind label %131
 
@@ -7911,7 +7911,7 @@ define hidden void @_ZN13logos_codegen9generator14byte_to_tokens17hc68097ea47fa5
           to label %195 unwind label %193
 
 192:                                              ; preds = %98, %97, %189, %188, %187, %186, %185, %184, %183, %182, %181, %180, %179, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %146, %145, %144, %143, %142, %141, %140, %139, %138, %137, %136, %135, %134, %133, %132, %131, %130, %129, %128, %127, %126, %125, %124, %123, %122, %121, %120, %119, %118, %117, %116, %115, %114, %113, %112, %111, %110, %109, %108, %107, %106, %105, %104, %103, %102, %101, %100, %99
-  %.sink = phi ptr [ %95, %99 ], [ %94, %100 ], [ %93, %101 ], [ %92, %102 ], [ %91, %103 ], [ %90, %104 ], [ %89, %105 ], [ %88, %106 ], [ %87, %107 ], [ %86, %108 ], [ %85, %109 ], [ %84, %110 ], [ %83, %111 ], [ %82, %112 ], [ %81, %113 ], [ %80, %114 ], [ %79, %115 ], [ %78, %116 ], [ %77, %117 ], [ %76, %118 ], [ %75, %119 ], [ %74, %120 ], [ %73, %121 ], [ %72, %122 ], [ %71, %123 ], [ %70, %124 ], [ %69, %125 ], [ %68, %126 ], [ %67, %127 ], [ %66, %128 ], [ %65, %129 ], [ %64, %130 ], [ %63, %131 ], [ %62, %132 ], [ %61, %133 ], [ %60, %134 ], [ %59, %135 ], [ %58, %136 ], [ %57, %137 ], [ %56, %138 ], [ %55, %139 ], [ %54, %140 ], [ %53, %141 ], [ %52, %142 ], [ %51, %143 ], [ %50, %144 ], [ %49, %145 ], [ %48, %146 ], [ %47, %147 ], [ %46, %148 ], [ %45, %149 ], [ %44, %150 ], [ %43, %151 ], [ %42, %152 ], [ %41, %153 ], [ %40, %154 ], [ %39, %155 ], [ %38, %156 ], [ %37, %157 ], [ %36, %158 ], [ %35, %159 ], [ %34, %160 ], [ %33, %161 ], [ %32, %162 ], [ %31, %163 ], [ %30, %164 ], [ %29, %165 ], [ %28, %166 ], [ %27, %167 ], [ %26, %168 ], [ %25, %169 ], [ %24, %170 ], [ %23, %171 ], [ %22, %172 ], [ %21, %173 ], [ %20, %174 ], [ %19, %175 ], [ %18, %176 ], [ %17, %177 ], [ %16, %178 ], [ %15, %179 ], [ %14, %180 ], [ %13, %181 ], [ %12, %182 ], [ %11, %183 ], [ %10, %184 ], [ %9, %185 ], [ %8, %186 ], [ %7, %187 ], [ %6, %188 ], [ %5, %189 ], [ %3, %97 ], [ %96, %98 ]
+  %.sink = phi ptr [ %5, %189 ], [ %6, %188 ], [ %7, %187 ], [ %8, %186 ], [ %9, %185 ], [ %10, %184 ], [ %11, %183 ], [ %12, %182 ], [ %13, %181 ], [ %14, %180 ], [ %15, %179 ], [ %16, %178 ], [ %17, %177 ], [ %18, %176 ], [ %19, %175 ], [ %20, %174 ], [ %21, %173 ], [ %22, %172 ], [ %23, %171 ], [ %24, %170 ], [ %25, %169 ], [ %26, %168 ], [ %27, %167 ], [ %28, %166 ], [ %29, %165 ], [ %30, %164 ], [ %31, %163 ], [ %32, %162 ], [ %33, %161 ], [ %34, %160 ], [ %35, %159 ], [ %36, %158 ], [ %37, %157 ], [ %38, %156 ], [ %39, %155 ], [ %40, %154 ], [ %41, %153 ], [ %42, %152 ], [ %43, %151 ], [ %44, %150 ], [ %45, %149 ], [ %46, %148 ], [ %47, %147 ], [ %48, %146 ], [ %49, %145 ], [ %50, %144 ], [ %51, %143 ], [ %52, %142 ], [ %53, %141 ], [ %54, %140 ], [ %55, %139 ], [ %56, %138 ], [ %57, %137 ], [ %58, %136 ], [ %59, %135 ], [ %60, %134 ], [ %61, %133 ], [ %62, %132 ], [ %63, %131 ], [ %64, %130 ], [ %65, %129 ], [ %66, %128 ], [ %67, %127 ], [ %68, %126 ], [ %69, %125 ], [ %70, %124 ], [ %71, %123 ], [ %72, %122 ], [ %73, %121 ], [ %74, %120 ], [ %75, %119 ], [ %76, %118 ], [ %77, %117 ], [ %78, %116 ], [ %79, %115 ], [ %80, %114 ], [ %81, %113 ], [ %82, %112 ], [ %83, %111 ], [ %84, %110 ], [ %85, %109 ], [ %86, %108 ], [ %87, %107 ], [ %88, %106 ], [ %89, %105 ], [ %90, %104 ], [ %91, %103 ], [ %92, %102 ], [ %93, %101 ], [ %94, %100 ], [ %95, %99 ], [ %3, %97 ], [ %96, %98 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sink, i64 32, i1 false)
   ret void
 

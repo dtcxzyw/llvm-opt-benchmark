@@ -394,8 +394,8 @@ update_histogram_diff.exit:                       ; preds = %color_inc.exit.thre
   store i32 %130, ptr %128, align 8, !tbaa !64
   br label %update_histogram_diff.exit.thread
 
-update_histogram_diff.exit.thread:                ; preds = %.critedge.i.i, %.critedge.i.thread.i, %.critedge.i.i52, %.critedge.i.thread.i39, %.lr.ph42.i, %77, %.lr.ph51.i, %15, %127, %update_histogram_diff.exit
-  %131 = phi i32 [ %125, %127 ], [ %125, %update_histogram_diff.exit ], [ 0, %.lr.ph42.i ], [ 0, %77 ], [ 0, %.lr.ph51.i ], [ 0, %15 ], [ -12, %.critedge.i.thread.i39 ], [ -12, %.critedge.i.i52 ], [ -12, %.critedge.i.thread.i ], [ -12, %.critedge.i.i ]
+update_histogram_diff.exit.thread:                ; preds = %.critedge.i.thread.i, %.critedge.i.i, %.critedge.i.thread.i39, %.critedge.i.i52, %77, %.lr.ph42.i, %15, %.lr.ph51.i, %127, %update_histogram_diff.exit
+  %131 = phi i32 [ %125, %update_histogram_diff.exit ], [ %125, %127 ], [ 0, %.lr.ph51.i ], [ 0, %77 ], [ 0, %.lr.ph42.i ], [ 0, %15 ], [ -12, %.critedge.i.thread.i39 ], [ -12, %.critedge.i.i52 ], [ -12, %.critedge.i.i ], [ -12, %.critedge.i.thread.i ]
   %132 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %133 = load i32, ptr %132, align 8, !tbaa !65
   switch i32 %133, label %154 [
@@ -882,7 +882,7 @@ get_next_box_id_to_split.exit:                    ; preds = %125
   br i1 %210, label %.lr.ph108, label %._crit_edge109, !llvm.loop !92
 
 write_palette.exit:                               ; preds = %193, %._crit_edge51.i, %load_color_refs.exit, %load_color_refs.exit.thread
-  %.0 = phi ptr [ null, %load_color_refs.exit.thread ], [ null, %load_color_refs.exit ], [ %29, %._crit_edge51.i ], [ %29, %193 ]
+  %.0 = phi ptr [ null, %load_color_refs.exit ], [ null, %load_color_refs.exit.thread ], [ %29, %._crit_edge51.i ], [ %29, %193 ]
   ret ptr %.0
 }
 
@@ -993,10 +993,10 @@ define internal fastcc void @compute_box_stats(ptr noundef readonly captures(non
   br label %sort3id.exit
 
 sort3id.exit:                                     ; preds = %2, %50, %51, %52, %53
-  %.sroa.0.0.lcssa118 = phi i64 [ %76, %50 ], [ %76, %51 ], [ %76, %52 ], [ %76, %53 ], [ 0, %2 ]
-  %.sroa.10.0.lcssa116 = phi i64 [ %79, %50 ], [ %79, %51 ], [ %79, %52 ], [ %79, %53 ], [ 0, %2 ]
-  %.sroa.17.0.lcssa114 = phi i64 [ %82, %50 ], [ %82, %51 ], [ %82, %52 ], [ %82, %53 ], [ 0, %2 ]
-  %.0.i = phi i32 [ 0, %50 ], [ %..i, %51 ], [ 3, %52 ], [ %.20.i, %53 ], [ 0, %2 ]
+  %.sroa.0.0.lcssa118 = phi i64 [ %76, %52 ], [ %76, %51 ], [ %76, %50 ], [ %76, %53 ], [ 0, %2 ]
+  %.sroa.10.0.lcssa116 = phi i64 [ %79, %52 ], [ %79, %51 ], [ %79, %50 ], [ %79, %53 ], [ 0, %2 ]
+  %.sroa.17.0.lcssa114 = phi i64 [ %82, %52 ], [ %82, %51 ], [ %82, %50 ], [ %82, %53 ], [ 0, %2 ]
+  %.0.i = phi i32 [ 3, %52 ], [ %..i, %51 ], [ 0, %50 ], [ %.20.i, %53 ], [ 0, %2 ]
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %.0.i, ptr %54, align 8, !tbaa !81
   %55 = tail call i64 @llvm.smax.i64(i64 %.sroa.0.0.lcssa118, i64 %.sroa.10.0.lcssa116)
